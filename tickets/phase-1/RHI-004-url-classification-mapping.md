@@ -40,8 +40,11 @@ A URL without a complete, approved mapping record is a migration risk. This tick
   - [ ] `post` — from `post-sitemap.xml`
   - [ ] `page` — from `page-sitemap.xml`
     - ⚠️ **Live-site flag:** `/sample-page/` is a WordPress installation default page present in `page-sitemap.xml`. It has no migration value and should be default `retire`. Also note that several URLs in `page-sitemap.xml` look like article-type content (e.g., `/versioning-of-content-assets/`, `/can-a-isslot-element-have-a-dynamic-id/`) — verify intended content type during classification review.
+    - ⚠️ **Live-site flag:** `/video/` appears in `page-sitemap.xml` and is the video listing page, not a video-type URL. It must be classified as `page`, not `video`. Preserve it as `keep` unless page traffic data suggests otherwise. The video-type URLs (from `video-sitemap.xml`) are at root level (e.g., `/sfcc-introduction/`).
   - [ ] `category` — from `category-sitemap.xml`
   - [ ] `video` — from `video-sitemap.xml`
+    - ⚠️ **Live-site note:** All 5 video-sitemap URLs also appear in `post-sitemap.xml`. The classification of these URLs as `video` type takes precedence. Consolidated source provenance should reflect both sitemaps.
+    - ⚠️ **Live-site flag:** Video URLs are at root level (e.g., `/sfcc-introduction/`), not under a `/video/` prefix. Do not confuse with the `/video/` listing page classified above under `page`.
   - [ ] `landing` — from `e-landing-page-sitemap.xml`
     - ⚠️ **Live-site flag:** The single URL in this sitemap is `/elementor-landing-page-1179/` — an Elementor test/draft page that was accidentally published. It has no descriptive content and should be treated as a default `retire` candidate unless the site owner explicitly confirms otherwise. Verify before assigning `keep`.
   - [ ] `system` — probed routes (`/wp-json/`, `/xmlrpc.php`, `/feed/`, etc.)
