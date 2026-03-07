@@ -30,16 +30,19 @@
 ```
 RHI-001 (Bootstrap)
     ├── RHI-002 (URL Discovery)
-    │       ├── RHI-003 (URL Invariant Policy)
-    │       │       ├── RHI-004 (URL Classification)
-    │       │       │       └── RHI-008 (Risk Register) ──┐
-    │       │       └── RHI-007 (Staging Guardrails)       │
-    │       └── RHI-004 (URL Classification)               │
-    ├── RHI-005 (SEO Baseline)                             │
-    └── RHI-006 (Performance Baseline)                     │
-                                                            ▼
-                                                    RHI-009 (Sign-off)
+    │       └── RHI-003 (URL Invariant Policy)
+    │               └── RHI-007 (Staging Guardrails)
+    ├── RHI-005 (SEO Baseline)
+    └── RHI-006 (Performance Baseline)
+
+[RHI-002 + RHI-003] ──────────────────► RHI-004 (URL Classification)
+
+[RHI-002 + RHI-003 + RHI-004] ────────► RHI-008 (Risk Register)
+
+[RHI-001…RHI-008 all Done] ───────────► RHI-009 (Sign-off)
 ```
+
+> **Reading the graph:** RHI-004 has two direct blockers — RHI-002 (inventory) and RHI-003 (policy). RHI-008 collects risks from all three workstreams and must wait for RHI-002, RHI-003, and RHI-004 to be Done or in final review. RHI-005, RHI-006, and RHI-007 can run in parallel with RHI-004 and RHI-008 once their own blockers are clear.
 
 ---
 

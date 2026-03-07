@@ -43,8 +43,9 @@ The inventory must include URLs from sitemaps, internal crawl, Search Console, s
 - [ ] Write `scripts/crawl-urls.js` to expand the seed set via internal crawl using `undici`
   - [ ] Seed with homepage, archive, all category pages from sitemap
   - [ ] Follow internal links to a configurable depth (start with depth 2)
-  - [ ] Probe known system routes explicitly (see list in phase-1.md §WS1 step 6)
+  - [ ] Probe known system routes explicitly (see list in phase-1.md §WS1 step 6); also probe `/author/thomas-theunen/` (the active author URL visible in video-sitemap uploader data — `/author/admin/` listed in phase-1.md may redirect or be a separate user)
 - [ ] Merge all discovered URLs, de-duplicate by normalised absolute URL
+  - ⚠️ **Live-site note:** Several URLs in `video-sitemap.xml` (e.g., `/sfcc-introduction/`, `/sitegenesis-vs-sfra-vs-pwa/`) may also appear in `post-sitemap.xml`. De-duplication must consolidate source provenance rather than drop records.
 - [ ] HTTP probe each unique URL: capture status code and final redirect destination
 - [ ] Enrich with Search Console data (impressions, clicks) using the Search Console API or CSV export
 - [ ] Enrich `has_external_links` field from Search Console Links report

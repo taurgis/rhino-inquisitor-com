@@ -39,9 +39,11 @@ A URL without a complete, approved mapping record is a migration risk. This tick
 - [ ] Apply URL class taxonomy from `analysis/plan/details/phase-1.md` to every URL in `migration/url-inventory.normalized.json`
   - [ ] `post` — from `post-sitemap.xml`
   - [ ] `page` — from `page-sitemap.xml`
+    - ⚠️ **Live-site flag:** `/sample-page/` is a WordPress installation default page present in `page-sitemap.xml`. It has no migration value and should be default `retire`. Also note that several URLs in `page-sitemap.xml` look like article-type content (e.g., `/versioning-of-content-assets/`, `/can-a-isslot-element-have-a-dynamic-id/`) — verify intended content type during classification review.
   - [ ] `category` — from `category-sitemap.xml`
   - [ ] `video` — from `video-sitemap.xml`
   - [ ] `landing` — from `e-landing-page-sitemap.xml`
+    - ⚠️ **Live-site flag:** The single URL in this sitemap is `/elementor-landing-page-1179/` — an Elementor test/draft page that was accidentally published. It has no descriptive content and should be treated as a default `retire` candidate unless the site owner explicitly confirms otherwise. Verify before assigning `keep`.
   - [ ] `system` — probed routes (`/wp-json/`, `/xmlrpc.php`, `/feed/`, etc.)
   - [ ] `attachment` — `?attachment_id=` and media routes
   - [ ] `pagination` — `/page/N/` routes
