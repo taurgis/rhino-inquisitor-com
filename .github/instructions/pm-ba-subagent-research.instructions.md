@@ -12,4 +12,5 @@ applyTo: '**'
 ## Output Expectations
 - Include clear planning recommendations from the Project Manager perspective (scope, sequencing, risks, and milestones).
 - Include clear requirements and analysis recommendations from the Business Analyst perspective (problem framing, assumptions, acceptance criteria, and open questions).
-- Reconcile any conflicts between PM and BA recommendations and state the chosen approach.
+- Reconcile any conflicts between PM and BA recommendations, state the chosen approach, and resolve trade-offs by prioritizing user-stated requirements first, then feasibility/risk, then delivery speed; if requirements are ambiguous or unsafe, ask clarifying questions and default to the safest feasible option.
+- Document the final reconciled recommendation and trade-offs in the response.
