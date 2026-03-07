@@ -82,7 +82,16 @@ Each criterion must be:
 - **Verifiable** — can be checked by someone other than the author
 - **Binary** — either passes or fails; no partial credit
 
-For quality checks, follow the INVEST principle where possible: independent, valuable, estimable, small, and testable.
+For quality checks, follow the INVEST principle where possible:
+
+- **I**ndependent
+- **N**egotiable
+- **V**aluable
+- **E**stimable
+- **S**mall
+- **T**estable
+
+This helps keep criteria clear enough for planning while still verifiable at delivery time.
 
 ### Good examples
 

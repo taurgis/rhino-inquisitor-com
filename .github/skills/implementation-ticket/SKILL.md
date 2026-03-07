@@ -154,4 +154,4 @@ Delivered: `migration/url-inventory.raw.json`, `migration/url-manifest.json`.
 - [assets/ticket-template.md](assets/ticket-template.md) — Copy-paste blank ticket
 - [references/FIELDS.md](references/FIELDS.md) — Field definitions and guidance
 - [Atlassian: Acceptance criteria](https://www.atlassian.com/work-management/project-management/acceptance-criteria) — guidance on clear, testable completion conditions
-- [Microsoft Learn: Azure Boards backlogs](https://learn.microsoft.com/en-us/azure/devops/boards/backlogs/backlogs-overview?view=azure-devops) — backlog planning and tracking principles
+- [The Scrum Guide](https://scrumguides.org/scrum-guide.html) — authoritative source for backlog refinement and Definition of Done practices
