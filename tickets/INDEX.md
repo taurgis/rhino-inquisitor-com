@@ -17,6 +17,7 @@ This is the top-level ticket index for the full migration project. Use the phase
 | 2 | Stack and Architecture Decision | RHI-010 – RHI-018 | Open | [phase-2/INDEX.md](phase-2/INDEX.md) |
 | 3 | Repository Scaffolding and Quality Baseline | RHI-019 – RHI-030 | Open | [phase-3/INDEX.md](phase-3/INDEX.md) |
 | 4 | Content Migration Pipeline | RHI-031 – RHI-046 | Open | [phase-4/INDEX.md](phase-4/INDEX.md) |
+| 5 | SEO and Discoverability | RHI-047 – RHI-060 | Open | [phase-5/INDEX.md](phase-5/INDEX.md) |
 
 ---
 
@@ -70,6 +71,20 @@ This is the top-level ticket index for the full migration project. Use the phase
 | [RHI-044](phase-4/RHI-044-high-value-content-batch.md) | Batch 2 — High-Value Content Migration | 4 | Critical | Open | L | 2026-04-25 |
 | [RHI-045](phase-4/RHI-045-long-tail-taxonomy-batch.md) | Batch 3 — Long-Tail and Taxonomy Migration | 4 | High | Open | L | 2026-04-29 |
 | [RHI-046](phase-4/RHI-046-phase-4-signoff.md) | Phase 4 Sign-off and Handover to Phase 5/6 | 4 | Critical | Open | S | 2026-05-02 |
+| [RHI-047](phase-5/RHI-047-phase-5-bootstrap.md) | Phase 5 Bootstrap: Kickoff and SEO Governance Environment Setup | 5 | Critical | Open | S | 2026-04-09 |
+| [RHI-048](phase-5/RHI-048-metadata-canonical-architecture.md) | Workstream A — Metadata and Canonical Signal Architecture | 5 | Critical | Open | M | 2026-04-11 |
+| [RHI-049](phase-5/RHI-049-redirect-url-consolidation-signals.md) | Workstream B — Redirect and URL Consolidation Signals | 5 | Critical | Open | M | 2026-04-14 |
+| [RHI-050](phase-5/RHI-050-crawlability-indexing-controls.md) | Workstream C — Crawlability and Indexing Controls | 5 | Critical | Open | M | 2026-04-14 |
+| [RHI-051](phase-5/RHI-051-sitemap-feed-discovery-continuity.md) | Workstream D — Sitemap, Feed, and Discovery Surface Continuity | 5 | High | Open | M | 2026-04-16 |
+| [RHI-052](phase-5/RHI-052-structured-data-rich-result-readiness.md) | Workstream E — Structured Data and Rich-Result Readiness | 5 | High | Open | M | 2026-04-18 |
+| [RHI-053](phase-5/RHI-053-internal-linking-ia-signals.md) | Workstream F — Internal Linking and Information Architecture Signals | 5 | High | Open | M | 2026-04-18 |
+| [RHI-054](phase-5/RHI-054-mobile-first-core-web-vitals.md) | Workstream G — Mobile-First and Core Web Vitals Controls | 5 | High | Open | M | 2026-04-22 |
+| [RHI-055](phase-5/RHI-055-image-video-seo-integrity.md) | Workstream H — Image and Video SEO Integrity | 5 | Medium | Open | M | 2026-04-22 |
+| [RHI-056](phase-5/RHI-056-accessibility-discoverability-support.md) | Workstream I — Accessibility as Discoverability Support | 5 | Medium | Open | M | 2026-04-23 |
+| [RHI-057](phase-5/RHI-057-search-console-monitoring-program.md) | Workstream J — Search Console and Analytics Monitoring Program | 5 | High | Open | M | 2026-04-24 |
+| [RHI-058](phase-5/RHI-058-non-html-resource-seo-controls.md) | Workstream K — Non-HTML Resource SEO Controls | 5 | Medium | Open | S | 2026-04-25 |
+| [RHI-059](phase-5/RHI-059-github-pages-limits-artifact-integrity.md) | Workstream L — GitHub Pages Limits and Artifact Integrity | 5 | High | Open | S | 2026-04-25 |
+| [RHI-060](phase-5/RHI-060-phase-5-signoff.md) | Phase 5 Sign-off and Handover to Phase 6/8 | 5 | Critical | Open | S | 2026-05-02 |
 
 ---
 
@@ -81,10 +96,11 @@ This is the top-level ticket index for the full migration project. Use the phase
 | RHI-010 – RHI-018 | Phase 2 | — (full) |
 | RHI-019 – RHI-030 | Phase 3 | — (full) |
 | RHI-031 – RHI-046 | Phase 4 | — (full) |
-| RHI-047 – | Phase 5+ | RHI-047 |
+| RHI-047 – RHI-060 | Phase 5 | — (full) |
+| RHI-061 – | Phase 6+ | RHI-061 |
 
 ---
 
 ## Search Tags
 
-`phase-1` `phase-2` `phase-3` `phase-4` `url-inventory` `seo-baseline` `url-manifest` `url-classification` `canonical-policy` `risk-register` `staging` `architecture-decision` `hugo` `hugo-scaffold` `hugo-config` `templates` `seo-partials` `json-ld` `url-parity` `redirect-baseline` `front-matter` `archetypes` `accessibility` `wcag` `core-web-vitals` `lighthouse` `security` `ci-cd` `github-pages` `deployment` `wordpress` `migration` `content-migration` `wxr` `rest-api` `html-to-markdown` `turndown` `media-migration` `internal-links` `seo-signals` `metadata-completeness` `batch-migration` `pilot-batch`
+`phase-1` `phase-2` `phase-3` `phase-4` `phase-5` `url-inventory` `seo-baseline` `url-manifest` `url-classification` `canonical-policy` `risk-register` `staging` `architecture-decision` `hugo` `hugo-scaffold` `hugo-config` `templates` `seo-partials` `json-ld` `url-parity` `redirect-baseline` `front-matter` `archetypes` `accessibility` `wcag` `core-web-vitals` `lighthouse` `security` `ci-cd` `github-pages` `deployment` `wordpress` `migration` `content-migration` `wxr` `rest-api` `html-to-markdown` `turndown` `media-migration` `internal-links` `seo-signals` `metadata-completeness` `batch-migration` `pilot-batch` `canonical` `open-graph` `redirects` `url-consolidation` `crawlability` `robots-txt` `noindex` `sitemap` `rss-feed` `structured-data` `schema` `blogposting` `videoobject` `mobile-first` `cwv` `lcp` `cls` `alt-text` `image-seo` `video-seo` `pa11y` `search-console` `monitoring-runbook` `non-html` `artifact-integrity`
