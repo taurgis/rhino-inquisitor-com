@@ -38,7 +38,7 @@ Without this baseline, post-launch changes in LCP, CLS, or INP cannot be attribu
   - [ ] Homepage: `https://www.rhino-inquisitor.com/`
   - [ ] Recent article: one of the top-performing posts from RHI-005 SEO baseline
   - [ ] Archive: `https://www.rhino-inquisitor.com/archive/` or equivalent
-  - [ ] Category: `https://www.rhino-inquisitor.com/category/sfcc/` (or highest-traffic category)
+  - [ ] Category: `https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/` (or highest-traffic category per RHI-005 baseline; `/category/sfcc/` does not exist on the live site)
   - [ ] Video page: one URL from `video-sitemap.xml`
 - [ ] Run Lighthouse (CLI or PageSpeed API) for each URL — both mobile and desktop
   - [ ] Record Performance, Accessibility, Best Practices, SEO scores
