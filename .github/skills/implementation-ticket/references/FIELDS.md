@@ -43,9 +43,22 @@ Update Status every time it changes and add a corresponding entry to the Progres
 | `Medium` | Important but not urgent; schedule in the next cycle |
 | `Low` | Nice to have; pick up when higher-priority work allows |
 
+### Estimate
+
+Use one sizing system consistently across the project:
+
+- **T-shirt sizing**: `XS`, `S`, `M`, `L`, `XL`
+- **Story points**: e.g. `1`, `2`, `3`, `5`, `8`
+
+Do not mix both systems in the same board. Estimates support planning, not certainty. Re-estimate when scope materially changes.
+
 ### Phase
 
 Reference the phase number from `main-plan.MD` (e.g. `1` for Phase 1: Baseline and URL Inventory). A ticket may span multiple phases; list them as `3, 4`.
+
+### Target date
+
+Use `YYYY-MM-DD` when there is a delivery commitment or coordination point. Use `TBD` only when sequencing is not yet known.
 
 ---
 
@@ -68,6 +81,17 @@ Each criterion must be:
 - **Specific** — names a concrete artefact, state, or measurement
 - **Verifiable** — can be checked by someone other than the author
 - **Binary** — either passes or fails; no partial credit
+
+For quality checks, follow the INVEST principle where possible:
+
+- **I**ndependent
+- **N**egotiable
+- **V**aluable
+- **E**stimable
+- **S**mall
+- **T**estable
+
+This helps keep criteria clear enough for planning while still verifiable at delivery time.
 
 ### Good examples
 
@@ -99,6 +123,19 @@ Check off each item as it is completed. Do not delete unchecked items; leave the
 
 ---
 
+## Out of Scope
+
+List explicit non-goals to keep execution focused.
+
+Examples:
+
+- “Does not migrate historical blog comments”
+- “Does not redesign content templates”
+
+If new requests appear that fall in this section, create a follow-up ticket instead of silently expanding scope.
+
+---
+
 ## Dependencies
 
 List everything that must exist or be resolved before this ticket can be completed.
@@ -111,6 +148,34 @@ List everything that must exist or be resolved before this ticket can be complet
 | Tool | `fast-xml-parser` must be installed (`npm install`) |
 
 If a dependency is blocked, set the ticket Status to `Blocked` and describe the blocker in the Progress Log.
+
+---
+
+## Risks & Mitigations
+
+Track delivery risks that could jeopardize schedule, quality, or scope.
+
+For each risk:
+
+1. State the risk clearly (what might happen)
+2. Rate likelihood and impact (`Low`/`Medium`/`High`)
+3. Define a mitigation action
+4. Assign an owner for monitoring and response
+
+Keep this section current when risks change.
+
+---
+
+## Definition of Done
+
+A ticket is `Done` only when all of the following are true:
+
+1. Acceptance criteria are verified
+2. Remaining unchecked tasks are documented as descoped (if any)
+3. Dependencies/blockers are resolved or explicitly documented
+4. Outcomes section is completed with artefacts and deviations
+
+This is separate from acceptance criteria: acceptance criteria validate deliverable behavior; Definition of Done validates completion discipline.
 
 ---
 

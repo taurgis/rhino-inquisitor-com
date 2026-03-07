@@ -8,8 +8,10 @@ Copy this file to `tickets/{TICKET-ID}-{short-slug}.md` and fill in every sectio
 
 **Status:** Open  
 **Priority:** {Critical | High | Medium | Low}  
+**Estimate:** {XS | S | M | L | XL or story points}  
 **Phase:** {Phase number from main-plan.MD, e.g. 1}  
 **Assigned to:** {Name or team — leave blank if unassigned}  
+**Target date:** {YYYY-MM-DD or TBD}  
 **Created:** {YYYY-MM-DD}  
 **Updated:** {YYYY-MM-DD}
 
@@ -44,6 +46,15 @@ Copy this file to `tickets/{TICKET-ID}-{short-slug}.md` and fill in every sectio
 
 ---
 
+### Out of Scope
+
+> Explicitly state what this ticket will not do. Helps prevent scope creep.
+
+- {Not included item 1}
+- {Not included item 2}
+
+---
+
 ### Dependencies
 
 > Other tickets, phases, access grants, or external factors that must be resolved before or alongside this work.
@@ -51,6 +62,27 @@ Copy this file to `tickets/{TICKET-ID}-{short-slug}.md` and fill in every sectio
 | Dependency | Type | Status |
 |------------|------|--------|
 | {RHI-NNN or description} | {Ticket \| Access \| Phase \| Tool} | {Pending \| Ready \| Blocked} |
+
+---
+
+### Risks & Mitigations
+
+> Capture likely delivery risks and a planned response for each.
+
+| Risk | Likelihood | Impact | Mitigation | Owner |
+|------|------------|--------|------------|-------|
+| {Short risk statement} | {Low \| Medium \| High} | {Low \| Medium \| High} | {How we reduce or respond} | {Name or team} |
+
+---
+
+### Definition of Done
+
+> Must be fully checked before status can move to `Done`.
+
+- [ ] All acceptance criteria are satisfied and verified
+- [ ] Tasks are complete or intentionally descoped with rationale
+- [ ] Dependencies and blockers are resolved or documented
+- [ ] Outcomes section is completed with delivered artefacts and deviations
 
 ---
 
