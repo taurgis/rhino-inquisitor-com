@@ -69,14 +69,14 @@ Phase 3 must not begin until this ticket is `Done`. Any unresolved architecture 
   - [ ] Edge redirect infrastructure timing confirmed
   - [ ] Feed format scope confirmed (RSS required, Atom non-blocking)
 - [ ] Draft `migration/phase-2-signoff.md`:
-  - [ ] Summary of all eight workstream decisions with file paths
+  - [ ] Summary of all Phase 2 decision tickets (RHI-010 bootstrap, RHI-011–RHI-016 workstreams, and RHI-017 validation gates) with outcomes and file paths
   - [ ] Architecture Principles compliance statement
   - [ ] Outstanding risks accepted for Phase 3 (if any)
   - [ ] Phase 3 entry conditions (what Phase 3 can rely on from Phase 2 outputs)
   - [ ] Stakeholder sign-off block (migration owner, SEO owner, engineering owner)
 - [ ] Circulate sign-off document for approval
 - [ ] Record final approval in Progress Log with approver names and date
-- [ ] Notify Phase 3 team that Phase 2 is complete; provide link to `migration/phase-2-signoff.md` and the eight workstream tickets
+- [ ] Notify Phase 3 team that Phase 2 is complete; provide link to `migration/phase-2-signoff.md` and the eight preceding Phase 2 tickets (RHI-010 through RHI-017)
 
 ---
 
@@ -133,7 +133,7 @@ Phase 3 must not begin until this ticket is `Done`. Any unresolved architecture 
 **Delivered artefacts:**
 
 - `migration/phase-2-signoff.md`
-- All eight workstream decisions confirmed and documented in respective tickets
+- All Phase 2 decision tickets (RHI-010 through RHI-017) confirmed and documented in respective tickets
 
 **Deviations from plan:**
 
