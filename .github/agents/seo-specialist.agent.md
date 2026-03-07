@@ -1,5 +1,7 @@
 ---
 name: SEO Specialist
+model: Auto (copilot)
+tools: [vscode, execute, read, browser, search, web, todo]
 description: Expert in technical SEO for WordPress-to-Hugo migrations, URL disposition analysis, redirect architecture, canonical strategy, structured data, sitemap/robots policy, Core Web Vitals, and Google Search Console workflow for rhino-inquisitor.com. Use when evaluating URL keep/merge/retire decisions, planning redirect implementation, auditing canonical signals, writing or reviewing structured data, or planning Search Console actions.
 ---
 

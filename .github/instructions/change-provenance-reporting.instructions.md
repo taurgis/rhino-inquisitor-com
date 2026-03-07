@@ -28,6 +28,18 @@ applyTo: '**'
 - Keep entries concise and specific.
 - Use clickable paths for local files and full URLs for web sources.
 
+## Escalation Path
+
+If provenance cannot be fully established (for example missing source evidence or unverifiable claims):
+
+1. Escalate to the user with the exact missing evidence.
+2. Mark impacted statements as assumptions or gaps.
+3. Do not represent incomplete provenance as validated.
+
+## When This Is Not Required
+
+- Read-only tasks that do not modify repository files.
+
 ## Examples
 - ✅ Good: `- tool: runSubagent (Official Docs Researcher) | purpose: gather current official guidance | target: AI transparency policy references`
 - ✅ Good: `- instruction: .github/instructions/repo-research.instructions.md | rule: run Official Docs Researcher before modifying instructions/**`
