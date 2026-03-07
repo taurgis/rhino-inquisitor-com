@@ -5,6 +5,26 @@ Create an authoritative migration baseline for https://www.rhino-inquisitor.com 
 
 Phase 1 is complete only when every known live URL is classified (`keep`, `merge`, `retire`) and mapped to explicit target behavior that is technically implementable on GitHub Pages.
 
+## URL Class Taxonomy (Normative)
+Every discovered URL must be assigned to exactly one class so preservation and retirement decisions are deterministic.
+
+| Class | Primary source | Example | Default outcome | Sitemap inclusion |
+|---|---|---|---|---|
+| `post` | `post-sitemap.xml` | `/some-article/` | keep at same path | yes |
+| `page` | `page-sitemap.xml` | `/privacy-policy/` | keep at same path | yes |
+| `category` | `category-sitemap.xml` | `/category/sfcc/` | keep or merge with explicit mapping | yes |
+| `video` | `video-sitemap.xml` | `/video/some-video/` | keep or merge with explicit mapping | yes |
+| `landing` | `e-landing-page-sitemap.xml` | `/some-landing-page/` | keep or merge with explicit mapping | yes |
+| `system` | crawl, logs, probes | `/wp-json/`, `/xmlrpc.php` | retire unless explicitly approved | no |
+| `attachment` | crawl, logs, probes | `/?attachment_id=123` | retire or redirect to parent content | no |
+| `pagination` | crawl, logs, probes | `/page/2/` | keep only for qualified classes, else retire | conditional |
+
+Decision rules:
+1. Any URL class outside this matrix is a Phase 1 blocker until policy is defined.
+2. `system` and `attachment` default to `retire` unless approved with explicit target behavior.
+3. Pagination retention requires measured value (minimum 100 clicks in 90 days or 10 referring domains) and SEO owner approval.
+4. Phase 1 must publish `migration/url-class-matrix.json` with class assignment for every normalized URL.
+
 ## Critical Audit Corrections
 1. Move type must be split:
 - Same domain plus same URLs is primarily a hosting migration.

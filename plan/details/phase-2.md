@@ -212,17 +212,20 @@ Phase 2 is complete only if all statements are true:
 - Threshold is fixed at 5 percent of indexed URL inventory.
 - Decision owner is migration owner, with required approval from SEO owner.
 2. Legacy endpoint policy:
-- `/feed/` is preserved directly or redirected to the canonical Hugo feed endpoint.
+- `/feed/` is the canonical feed route and must resolve on the migrated site.
+- Legacy feed variants (`/feed/rss/`, `/feed/atom/`) must be explicitly mapped (redirect or retire) in the URL manifest.
 - `/comments/feed/`, `/wp-json/`, `/xmlrpc.php`, and legacy `/author/*` system endpoints are retired with explicit not-found behavior (`404` on Pages-only hosting, `410` where edge layer is active).
 - Legacy on-site search endpoints (`/search/*`) are retired unless a production search feature is implemented and validated before cutover.
 3. Pagination parity policy:
 - Strict pagination parity is required only for URL classes with demonstrated value (at least 100 clicks in 90 days or at least 10 referring domains).
 - For non-critical deep pagination routes, intentional retirement is allowed with explicit mapping review.
+- Pagination exception decisions must be recorded in `migration/pagination-priority-manifest.json` before Phase 3 scaffolding.
 4. Edge redirect infrastructure timing:
 - Edge redirect infrastructure is conditionally approved and must be activated before launch if any Model B trigger is met.
 - If no trigger is met, Model A remains approved with explicit risk acceptance.
 5. Feed format scope:
 - RSS output is required; Atom parity is optional and non-blocking.
+- Phase 4 must publish `migration/feed-compatibility-check.md` proving legacy feed endpoint outcomes.
 
 ## Decision Ownership and Sign-Off
 1. Migration owner:
