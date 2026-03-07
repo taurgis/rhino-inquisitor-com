@@ -21,7 +21,7 @@ The inventory must include URLs from sitemaps, internal crawl, Search Console, s
 
 ### Acceptance Criteria
 
-- [ ] `migration/url-inventory.raw.json` exists and contains at least 150 entries (all 5 sitemaps account for 205+ URLs)
+- [ ] `migration/url-inventory.raw.json` exists and contains at least 150 entries (all 5 sitemaps account for 200 raw entries; 195 unique after de-duplication)
 - [ ] Every entry in the raw inventory has the fields: `url`, `path`, `source`, `url_type`, `http_status`, `canonical_target`, `indexability_signal`, `in_sitemap`, `lastmod`, `has_external_links`, `has_organic_traffic`
 - [ ] All 5 sitemap files are parsed: `post-sitemap.xml`, `page-sitemap.xml`, `category-sitemap.xml`, `video-sitemap.xml`, `e-landing-page-sitemap.xml`
 - [ ] De-duplication is applied: each normalised absolute URL appears exactly once with consolidated source list
@@ -38,14 +38,14 @@ The inventory must include URLs from sitemaps, internal crawl, Search Console, s
   - [ ] Parse `post-sitemap.xml` (expected ~150 URLs)
   - [ ] Parse `page-sitemap.xml` (expected ~22 URLs)
   - [ ] Parse `category-sitemap.xml` (expected ~22 URLs)
-  - [ ] Parse `video-sitemap.xml` (expected ~10 URLs)
+  - [ ] Parse `video-sitemap.xml` (expected 5 URLs — note: all 5 also appear in `post-sitemap.xml`)
   - [ ] Parse `e-landing-page-sitemap.xml` (expected ~1 URL)
 - [ ] Write `scripts/crawl-urls.js` to expand the seed set via internal crawl using `undici`
   - [ ] Seed with homepage, archive, all category pages from sitemap
   - [ ] Follow internal links to a configurable depth (start with depth 2)
   - [ ] Probe known system routes explicitly (see list in phase-1.md §WS1 step 6); also probe `/author/thomas-theunen/` (the active author URL visible in video-sitemap uploader data — `/author/admin/` listed in phase-1.md may redirect or be a separate user)
 - [ ] Merge all discovered URLs, de-duplicate by normalised absolute URL
-  - ⚠️ **Live-site note:** Several URLs in `video-sitemap.xml` (e.g., `/sfcc-introduction/`, `/sitegenesis-vs-sfra-vs-pwa/`) may also appear in `post-sitemap.xml`. De-duplication must consolidate source provenance rather than drop records.
+  - ⚠️ **Live-site note:** All 5 URLs in `video-sitemap.xml` also appear in `post-sitemap.xml`: `/sfcc-introduction/`, `/new-apis-and-features-for-a-headless-sfcc/`, `/what-is-new-in-the-23-8-commerce-cloud-release/`, `/sitegenesis-vs-sfra-vs-pwa/`, and `/everything-new-in-sfcc-23-4/`. De-duplication must consolidate source provenance for all five rather than treating them as separate inventory records.
 - [ ] HTTP probe each unique URL: capture status code and final redirect destination
 - [ ] Enrich with Search Console data (impressions, clicks) using the Search Console API or CSV export
 - [ ] Enrich `has_external_links` field from Search Console Links report
@@ -125,6 +125,6 @@ The inventory must include URLs from sitemaps, internal crawl, Search Console, s
 
 ### Notes
 
-- Expected URL count based on live site snapshot (2026-03-07): 205+ from sitemaps alone; total with system routes and crawl expansion likely 250–350+.
+- Expected URL count based on live site snapshot (2026-03-07): 200 raw entries across all 5 sitemaps; 195 unique after de-duplication (all 5 video-sitemap URLs are already present in post-sitemap). Total with system routes and crawl expansion likely 230–300+.
 - `has_organic_traffic` is a critical field for `retire` disposition decisions in RHI-004 — do not leave it unpopulated without escalating.
 - Reference: `analysis/plan/details/phase-1.md` §Workstream 1

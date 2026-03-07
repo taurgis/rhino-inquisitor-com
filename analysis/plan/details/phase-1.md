@@ -13,7 +13,7 @@ Every discovered URL must be assigned to exactly one class so preservation and r
 | `post` | `post-sitemap.xml` | `/some-article/` | preserve same path | yes |
 | `page` | `page-sitemap.xml` | `/privacy-policy/` | preserve same path | yes |
 | `category` | `category-sitemap.xml` | `/category/salesforce-commerce-cloud/` | preserve by default; merge by exception | yes |
-| `video` | `video-sitemap.xml` | `/video/some-video/` | preserve by default; merge by exception | yes |
+| `video` | `video-sitemap.xml` | `/sfcc-introduction/` | preserve by default; merge by exception | yes |
 | `landing` | `e-landing-page-sitemap.xml` | `/some-landing-page/` | preserve by default; merge by exception | yes |
 | `system` | crawl, logs, probes | `/wp-json/`, `/xmlrpc.php` | retire by default | no |
 | `attachment` | crawl, logs, probes | `/?attachment_id=123` | retire or redirect to parent content | no |
@@ -50,8 +50,9 @@ Observed from sitemaps and HTTP probes:
 - `post-sitemap.xml` (150 URLs)
 - `page-sitemap.xml` (22 URLs)
 - `category-sitemap.xml` (22 URLs)
-- `video-sitemap.xml` (10 URLs)
+- `video-sitemap.xml` (5 URLs — all 5 also appear in `post-sitemap.xml`)
 - `e-landing-page-sitemap.xml` (1 URL)
+- Total: 200 raw sitemap entries; 195 unique after de-duplication
 
 2. `robots.txt` references `sitemap_index.xml`.
 
