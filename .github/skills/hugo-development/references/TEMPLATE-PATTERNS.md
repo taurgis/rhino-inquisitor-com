@@ -50,7 +50,7 @@
 ```
 
 **Rules:**
-- Title must be unique per page — `{{ .Title }} | {{ .Site.Title }}` pattern.
+- Title must be unique per page — `{{ .Title }} — {{ .Site.Title }}` for interior pages; `{{ .Site.Title }}` alone for homepage.
 - Description falls through from front matter `.Description` — CI must fail if missing on indexable content.
 - Canonical defaults to `.Permalink` (Hugo uses `baseURL` to build this correctly in production).
 - `noindex` is opt-in via front matter; default is indexable.

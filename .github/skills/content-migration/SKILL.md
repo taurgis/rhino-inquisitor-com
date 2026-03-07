@@ -29,7 +29,6 @@ Practical guidance for the WordPress-to-Hugo content pipeline for rhino-inquisit
     "gray-matter": "^4.x",
     "fast-xml-parser": "^4.x",
     "fast-glob": "^3.x",
-    "gray-matter": "^4.x",
     "p-limit": "^5.x",
     "zod": "^3.x",
     "csv-stringify": "^6.x"
