@@ -1,0 +1,125 @@
+---
+name: implementation-ticket
+description: 'Creates and fills implementation ticket documents for tracking tasks, outcomes, and progress without Jira. Use when asked to "create a ticket", "write an implementation ticket", "track a task", "describe a work item", or "log what needs to be done". Generates structured markdown tickets with goals, acceptance criteria, and a task checklist.'
+license: Forward Proprietary
+compatibility: VS Code 1.x+, GitHub Copilot
+---
+
+# Implementation Ticket Skill
+
+Generates structured implementation tickets in Markdown. Each ticket captures the problem, desired outcome, acceptance criteria, and a trackable task checklist — no Jira required.
+
+## When to Use This Skill
+
+- Creating a new ticket for a feature, bug fix, or migration task
+- Capturing work that needs to be done across one or more phases
+- Documenting an outcome and the steps required to reach it
+- Tracking incremental progress against a defined goal
+- **Not for:** full project plans (use `main-plan.MD` conventions instead)
+
+## Quick Start
+
+1. Copy the template from [`assets/ticket-template.md`](assets/ticket-template.md)
+2. Save as `tickets/{TICKET-ID}-{short-slug}.md` (e.g. `tickets/RHI-001-url-inventory.md`)
+3. Fill in every section — leave nothing as a placeholder
+4. Check off tasks as work progresses
+
+## Ticket File Location
+
+Store tickets in the `tickets/` directory at the repository root.
+
+```
+tickets/
+├── RHI-001-url-inventory.md
+├── RHI-002-hugo-scaffold.md
+└── RHI-003-content-migration.md
+```
+
+## Ticket ID Convention
+
+Use the prefix `RHI-` followed by a zero-padded three-digit sequence number.
+
+| Format | Example |
+|--------|---------|
+| `RHI-NNN` | `RHI-001`, `RHI-042` |
+
+Assign numbers sequentially. Never reuse a number, even for retired tickets.
+
+## Required Sections
+
+| Section | Purpose |
+|---------|---------|
+| **ID & Title** | Unique identifier and one-line summary |
+| **Status** | Current state: `Open`, `In Progress`, `Blocked`, `Done` |
+| **Priority** | `Critical`, `High`, `Medium`, `Low` |
+| **Goal** | What we are trying to achieve and why |
+| **Acceptance Criteria** | Testable conditions that prove the work is done |
+| **Tasks** | Ordered checklist of concrete steps |
+| **Outcomes** | What changed as a result; filled in on completion |
+| **Dependencies** | Tickets, phases, or access that must exist first |
+
+See [`references/FIELDS.md`](references/FIELDS.md) for detailed guidance on every field.
+
+## Status Lifecycle
+
+```
+Open → In Progress → Done
+           ↓
+        Blocked → In Progress
+```
+
+Change **Status** at the top of the ticket each time state changes. Add a dated note to the **Progress Log** section when doing so.
+
+## Filling In Outcomes
+
+When marking a ticket `Done`, complete the **Outcomes** section with:
+
+1. A brief summary of what was actually delivered
+2. Any deviations from the original plan and why
+3. Links to relevant files, PRs, or deliverables
+
+## Examples
+
+### Example 1: New feature ticket
+
+```markdown
+## RHI-012 · Set up Hugo project scaffold
+
+**Status:** In Progress  
+**Priority:** High  
+**Phase:** 3
+
+### Goal
+Initialize the Hugo project so content authors can add Markdown pages and the CI pipeline can produce a static build artifact.
+
+### Acceptance Criteria
+- [ ] `hugo.toml` exists at repository root with correct base URL
+- [ ] `hugo build` succeeds with zero errors
+- [ ] Output artifact lands in `public/`
+
+### Tasks
+- [x] Run `hugo new site .` in repository root
+- [x] Add `hugo.toml` with `baseURL`, `languageCode`, and `title`
+- [ ] Create placeholder homepage at `content/_index.md`
+- [ ] Verify CI build step runs `hugo --minify`
+```
+
+### Example 2: Completed ticket with outcomes
+
+```markdown
+## RHI-005 · Export WordPress URL inventory
+
+**Status:** Done  
+**Priority:** Critical  
+**Phase:** 1
+
+### Outcomes
+Exported all 205 URLs from `sitemap_index.xml` into `migration/url-inventory.raw.json`.
+Discovered 3 pagination routes not in sitemaps; added to manifest with `retire` disposition.
+Delivered: `migration/url-inventory.raw.json`, `migration/url-manifest.json`.
+```
+
+## References
+
+- [assets/ticket-template.md](assets/ticket-template.md) — Copy-paste blank ticket
+- [references/FIELDS.md](references/FIELDS.md) — Field definitions and guidance
