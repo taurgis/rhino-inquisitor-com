@@ -55,6 +55,7 @@ This ticket covers organic performance data, link equity, metadata quality, tech
 - [ ] Verify `robots.txt` content: fetch and record `https://www.rhino-inquisitor.com/robots.txt`
 - [ ] Verify sitemap index: fetch `sitemap_index.xml`; confirm it lists all 5 sub-sitemaps
 - [ ] Confirm `Sitemap:` directive in `robots.txt` matches actual sitemap URL
+  - ⚠️ **Live-site note:** Current `robots.txt` references `sitemap_index.xml` (e.g. `Sitemap: https://www.rhino-inquisitor.com/sitemap_index.xml`). Hugo generates a single `sitemap.xml` by default. Phase 5 must update `robots.txt` to point to the new `sitemap.xml`; document this in the baseline as a known migration task.
 - [ ] Probe security headers for homepage and one post; record in `migration/phase-1-security-header-matrix.md`
   - [ ] `Content-Security-Policy`
   - [ ] `Strict-Transport-Security`

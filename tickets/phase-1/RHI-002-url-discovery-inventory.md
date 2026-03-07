@@ -21,7 +21,8 @@ The inventory must include URLs from sitemaps, internal crawl, Search Console, s
 
 ### Acceptance Criteria
 
-- [ ] `migration/url-inventory.raw.json` exists and contains at least 150 entries (all 5 sitemaps account for 200 raw entries; 195 unique after de-duplication)
+- [ ] `migration/url-inventory.raw.json` exists and contains at least 200 entries (all 5 sitemaps account for 200 raw sitemap entries; source: live-site snapshot 2026-03-07)
+- [ ] `migration/url-inventory.normalized.json` contains at least 195 entries after de-duplication (all 5 video-sitemap URLs are duplicated in post-sitemap; no other cross-sitemap duplicates expected)
 - [ ] Every entry in the raw inventory has the fields: `url`, `path`, `source`, `url_type`, `http_status`, `canonical_target`, `indexability_signal`, `in_sitemap`, `lastmod`, `has_external_links`, `has_organic_traffic`
 - [ ] All 5 sitemap files are parsed: `post-sitemap.xml`, `page-sitemap.xml`, `category-sitemap.xml`, `video-sitemap.xml`, `e-landing-page-sitemap.xml`
 - [ ] De-duplication is applied: each normalised absolute URL appears exactly once with consolidated source list
