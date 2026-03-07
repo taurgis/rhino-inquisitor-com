@@ -39,8 +39,10 @@ A URL without a complete, approved mapping record is a migration risk. This tick
 - [ ] Apply URL class taxonomy from `analysis/plan/details/phase-1.md` to every URL in `migration/url-inventory.normalized.json`
   - [ ] `post` — from `post-sitemap.xml`
   - [ ] `page` — from `page-sitemap.xml`
+    - ⚠️ **Live-site flag:** The homepage `/` is present in `page-sitemap.xml`. It must be classified as `page` with `keep` disposition. In Hugo the homepage is served from `content/_index.md` (not a regular page file), so migration scripts must treat this URL specially rather than generating a standard content file.
     - ⚠️ **Live-site flag:** `/sample-page/` is a WordPress installation default page present in `page-sitemap.xml`. It has no migration value and should be default `retire`. Also note that several URLs in `page-sitemap.xml` look like article-type content (e.g., `/versioning-of-content-assets/`, `/can-a-isslot-element-have-a-dynamic-id/`) — verify intended content type during classification review.
     - ⚠️ **Live-site flag:** `/video/` appears in `page-sitemap.xml` and is the video listing page, not a video-type URL. It must be classified as `page`, not `video`. Preserve it as `keep` unless page traffic data suggests otherwise. The video-type URLs (from `video-sitemap.xml`) are at root level (e.g., `/sfcc-introduction/`).
+    - ⚠️ **Live-site flag:** Three pages form a nested URL hierarchy under `/ideas/`: `/ideas/` (parent listing), `/ideas/page-designer-add-ability-to-copy-paste-components/` and `/ideas/page-designer-dynamic-pages-optional-subcategories/` (child pages). WordPress hierarchical slugs must map to Hugo subdirectory paths (e.g., `content/pages/ideas/`) to preserve the URL structure. Verify that Hugo correctly emits these at their original paths.
   - [ ] `category` — from `category-sitemap.xml`
   - [ ] `video` — from `video-sitemap.xml`
     - ⚠️ **Live-site note:** All 5 video-sitemap URLs also appear in `post-sitemap.xml`. The classification of these URLs as `video` type takes precedence. Consolidated source provenance should reflect both sitemaps.

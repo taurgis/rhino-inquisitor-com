@@ -48,13 +48,13 @@ Observed from sitemaps and HTTP probes:
 
 1. Sitemap index contains 5 sitemap files:
 - `post-sitemap.xml` (150 URLs)
-- `page-sitemap.xml` (22 URLs)
+- `page-sitemap.xml` (22 URLs — includes homepage `/` as first entry)
 - `category-sitemap.xml` (22 URLs)
 - `video-sitemap.xml` (5 URLs — all 5 also appear in `post-sitemap.xml`)
-- `e-landing-page-sitemap.xml` (1 URL)
+- `e-landing-page-sitemap.xml` (1 URL — `/elementor-landing-page-1179/`, an Elementor test page)
 - Total: 200 raw sitemap entries; 195 unique after de-duplication
 
-2. `robots.txt` references `sitemap_index.xml`.
+2. `robots.txt` references `sitemap_index.xml` (Rank Math SEO plugin format). Phase 5 must update this to point to the Hugo-generated `sitemap.xml`.
 
 3. Canonical tags sampled on key pages point to `https://www.rhino-inquisitor.com/...`.
 
@@ -69,6 +69,11 @@ Observed from sitemaps and HTTP probes:
 - `/xmlrpc.php` (`405`)
 - `/author/admin/` (`200`) — note: `/author/thomas-theunen/` is the active author URL visible in video-sitemap uploader data; probe both routes during inventory
 - `/search/sfcc/` (`200`)
+
+7. Noteworthy page structure in `page-sitemap.xml`:
+- Homepage `/` is the first entry and must be classified as `page` with `keep`. In Hugo the homepage is served from `content/_index.md`, requiring special handling in migration scripts.
+- Three pages form a nested URL hierarchy: `/ideas/` (parent listing), `/ideas/page-designer-add-ability-to-copy-paste-components/`, and `/ideas/page-designer-dynamic-pages-optional-subcategories/`. WordPress hierarchical page slugs must map to Hugo subdirectory paths to preserve the URL structure.
+- `/video/` is a page-type listing page (not a video-type URL). Video-type URLs (`video-sitemap.xml`) are at root level, e.g. `/sfcc-introduction/`.
 
 Note: sampling is not exhaustive. Full coverage comes from Workstream 1.
 
