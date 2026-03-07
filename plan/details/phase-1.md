@@ -5,6 +5,27 @@ Create an authoritative migration baseline for https://www.rhino-inquisitor.com 
 
 Phase 1 is complete only when every known live URL is classified (`keep`, `merge`, `retire`) and mapped to explicit target behavior that is technically implementable on GitHub Pages.
 
+## URL Class Taxonomy (Normative)
+Every discovered URL must be assigned to exactly one class so preservation and retirement decisions are deterministic.
+
+| Class | Primary source | Example | Default outcome | Sitemap inclusion |
+| --- | --- | --- | --- | --- |
+| `post` | `post-sitemap.xml` | `/some-article/` | preserve same path | yes |
+| `page` | `page-sitemap.xml` | `/privacy-policy/` | preserve same path | yes |
+| `category` | `category-sitemap.xml` | `/category/sfcc/` | preserve by default; merge by exception | yes |
+| `video` | `video-sitemap.xml` | `/video/some-video/` | preserve by default; merge by exception | yes |
+| `landing` | `e-landing-page-sitemap.xml` | `/some-landing-page/` | preserve by default; merge by exception | yes |
+| `system` | crawl, logs, probes | `/wp-json/`, `/xmlrpc.php` | retire by default | no |
+| `attachment` | crawl, logs, probes | `/?attachment_id=123` | retire or redirect to parent content | no |
+| `pagination` | crawl, logs, probes | `/page/2/` | preserve for qualified classes; otherwise retire | conditional |
+
+Decision rules:
+1. Any URL class outside this matrix is a Phase 1 blocker until policy is defined.
+2. `system` and `attachment` default to `retire` unless approved by migration owner and SEO owner with explicit target behavior.
+3. Pagination retention requires measured value (minimum 100 clicks in 90 days or 10 referring domains) and SEO owner approval.
+4. Phase 1 must publish `migration/url-class-matrix.json` with class assignment for every normalized URL.
+5. `category`, `video`, and `landing` default to `keep`; `merge` is allowed only with explicit mapping rationale and approval from migration owner plus SEO owner.
+
 ## Critical Audit Corrections
 1. Move type must be split:
 - Same domain plus same URLs is primarily a hosting migration.

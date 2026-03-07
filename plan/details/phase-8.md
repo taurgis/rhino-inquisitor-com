@@ -313,9 +313,17 @@ Branch policy:
 ## Deliverables Produced by Phase 8
 1. [plan/details/phase-8.md](plan/details/phase-8.md) approved plan.
 2. CI validation scripts and workflows for all mandatory gates.
-3. Validation artifact bundle (`validation/*`) from final RC.
-4. Launch Go/No-Go checklist with named approvers.
-5. Rollback rehearsal report and handoff notes for Phase 9.
+3. Validation artifact bundle (`validation/*`) from final RC, including:
+- `validation/url-parity-report.json`
+- `validation/redirect-quality-report.json`
+- `validation/seo-consistency-report.json`
+- `validation/robots-sitemap-report.json`
+- `validation/structured-data-report.json`
+4. Launch Go/No-Go checklist with named approvers and `LAUNCH-GATE-PASS-SUMMARY.md`.
+5. `CUTOVER-VERIFICATION-CHECKLIST.md` completed at T-24h with ownership sign-off from engineering, SEO, and incident commander.
+- Minimum checklist sections: `DNS and HTTPS`, `Host and Canonical Behavior`, `Priority URL Smoke Tests`, `Sitemap and Robots Reachability`, and `Rollback Readiness`.
+- Detailed per-section execution steps must align with the Phase 7 launch-window execution plan.
+6. Rollback rehearsal report and handoff notes for Phase 9.
 
 ## Official References Incorporated
 1. Site moves with URL changes: https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes
