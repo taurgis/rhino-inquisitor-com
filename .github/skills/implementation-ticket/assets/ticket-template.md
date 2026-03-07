@@ -38,6 +38,7 @@ Copy this file to `tickets/{TICKET-ID}-{short-slug}.md` and fill in every sectio
 ### Tasks
 
 > Ordered checklist of concrete steps. Check off each item as it is completed.
+> In GitHub, optionally reference issue/PR IDs in a task item (for example `- [ ] #123`) for linked tracking.
 
 - [ ] {Step 1}
 - [ ] {Step 2}
