@@ -31,7 +31,7 @@ The engineering owner must approve this contract. The deployment contract is als
   - [ ] No broader permissions granted
 - [ ] Deployment job uses the official Pages Actions trio in correct order:
   - [ ] `actions/configure-pages`
-  - [ ] `actions/upload-pages-artifact` with `artifact: github-pages`
+  - [ ] `actions/upload-pages-artifact` with `name: github-pages` (the `name` input sets the artifact name; default value is `github-pages`)
   - [ ] `actions/deploy-pages`
 - [ ] Deploy job references `environment: github-pages` for OIDC token scoping
 - [ ] `concurrency` is configured correctly:

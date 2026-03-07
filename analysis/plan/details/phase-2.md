@@ -281,9 +281,9 @@ Phase 2 is complete only if all statements are true:
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
 | Hugo | 5 | 5 | 5 | 3 | 5 | 5 | 4 | 93 |
 | Eleventy | 5 | 3 | 4 | 5 | 4 | 4 | 4 | 84 |
-| Jekyll | 4 | 4 | 4 | 3 | 3 | 5 | 5 | 79 |
+| Jekyll | 4 | 4 | 4 | 3 | 3 | 5 | 5 | 77 |
 | Astro | 4 | 2 | 4 | 4 | 3 | 4 | 4 | 70 |
-| Next.js export | 4 | 1 | 4 | 3 | 2 | 3 | 3 | 61 |
+| Next.js export | 4 | 1 | 4 | 3 | 2 | 3 | 3 | 59 |
 
 ### Switch Conditions
 Switch to Eleventy if:

@@ -13,7 +13,7 @@
 
 ### Goal
 
-Formally close Phase 2 by verifying that all six workstream contracts are approved and documented, all architecture blockers for Phase 3 scaffolding are resolved, and the Phase 3 team has received and acknowledged the Phase 2 decision package. This ticket is the gate between Phase 2 (Stack and Architecture Decision) and Phase 3 (Hugo Scaffold and CI Setup).
+Formally close Phase 2 by verifying that all six workstream contracts (WS-A through WS-F) and the validation gates contract are approved and documented, all architecture blockers for Phase 3 scaffolding are resolved, and the Phase 3 team has received and acknowledged the Phase 2 decision package. This ticket is the gate between Phase 2 (Stack and Architecture Decision) and Phase 3 (Hugo Scaffold and CI Setup).
 
 Phase 3 must not begin until this ticket is `Done`. Any unresolved architecture decision identified here must either be resolved or explicitly accepted with documented risk before sign-off is recorded.
 
@@ -30,7 +30,7 @@ Phase 3 must not begin until this ticket is `Done`. Any unresolved architecture 
   - [ ] RHI-015 Done — Library and tooling contract approved
   - [ ] RHI-016 Done — Deployment and operations contract approved
   - [ ] RHI-017 Done — Validation gates contract defined
-- [ ] All six Architecture Principles from `analysis/plan/details/phase-2.md` are confirmed as reflected in approved contracts:
+- [ ] All five Architecture Principles from `analysis/plan/details/phase-2.md` are confirmed as reflected in approved contracts:
   - [ ] Preserve existing high-value URLs exactly whenever possible
   - [ ] Do not rely on canonical tags as a substitute for redirects
   - [ ] Make SEO behavior template-driven and testable

@@ -26,7 +26,7 @@ This is the highest-risk workstream in Phase 2 because static-hosting redirect l
 - [ ] Case policy is approved: all route outputs are lowercase; content `url` field enforces lowercase
 - [ ] Taxonomy route shapes are defined and approved:
   - [ ] Category archive: `/category/{slug}/`
-  - [ ] Video archive: `/videos/` (or documented alternative)
+  - [ ] Video archive: `/video/` (custom post type archive; confirmed from live site; separate from the `/category/video/` category archive which must also be preserved)
   - [ ] Post archive/pagination: `/page/{n}/` or documented path
   - [ ] Tag archive: `/tag/{slug}/` (or omitted if tags are not indexable)
 - [ ] Redirect mechanism is confirmed as Hugo `aliases` (HTML meta-refresh) with explicit acknowledgment that this is client-side, not HTTP 301/308 on Pages-only hosting
@@ -57,6 +57,7 @@ This is the highest-risk workstream in Phase 2 because static-hosting redirect l
 - [ ] Define taxonomy route shapes for categories, videos, tags, and post archives
   - Cross-reference against existing URL patterns in `migration/url-inventory.normalized.json`
   - Confirm routes with SEO owner against existing indexed taxonomy URLs
+  - Note: the live site has both a custom post type archive at `/video/` AND a category at `/category/video/`; both must be explicitly mapped in the route contract
 - [ ] Document redirect mechanism as Hugo `aliases` (client-side HTML meta-refresh)
   - Get explicit SEO owner acceptance that client-side redirect is acceptable under Pages-only hosting constraints
   - Record acceptance in Progress Log

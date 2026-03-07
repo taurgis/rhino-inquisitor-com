@@ -127,5 +127,5 @@ Phase 4 pipeline scripts and Phase 3 validation scripts both depend on this appr
 ### Notes
 
 - This ticket is intentionally lower priority than WS-A, WS-B, WS-C, and WS-D because tooling choices are more reversible than architecture decisions. However, it must complete before Phase 3 scripts are written.
-- `gray-matter` is the standard Hugo front matter parser for Node.js tooling; it handles TOML, YAML, and JSON front matter. Confirm this matches the front matter format decided in RHI-011 (`hugo.toml` implies TOML front matter convention).
+- `gray-matter` is the standard Hugo front matter parser for Node.js tooling; it handles TOML, YAML, and JSON front matter. The Hugo configuration file being `hugo.toml` (TOML format) does **not** imply that content front matter must also use TOML — Hugo supports YAML (`---`), TOML (`+++`), and JSON (`{`) front matter independently of the config file format. The front matter format for migrated content must be explicitly decided in RHI-012 (content model contract); confirm that `gray-matter` supports the chosen format.
 - Reference: `analysis/plan/details/phase-2.md` §Workstream E
