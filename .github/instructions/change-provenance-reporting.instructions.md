@@ -42,6 +42,6 @@ If provenance cannot be fully established (for example missing source evidence o
 
 ## Examples
 - ✅ Good: `- tool: runSubagent (Official Docs Researcher) | purpose: gather current official guidance | target: AI transparency policy references`
-- ✅ Good: `- instruction: .github/instructions/repo-research.instructions.md | rule: run Official Docs Researcher before modifying instructions/**`
+- ✅ Good: `- instruction: .github/instructions/pm-ba-subagent-research.instructions.md | rule: run Official Docs Researcher before modifying guidance artifacts`
 - ❌ Bad: `Used several tools and docs` (not specific)
 - ❌ Bad: `Validated everything` (no concrete checks)
