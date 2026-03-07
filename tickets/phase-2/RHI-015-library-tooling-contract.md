@@ -27,18 +27,18 @@ Phase 4 pipeline scripts and Phase 3 validation scripts both depend on this appr
 - [ ] All migration and audit tooling decisions are confirmed:
   - [ ] `turndown` — HTML-to-Markdown conversion; inclusion justified
   - [ ] `@joplin/turndown-plugin-gfm` — GFM tables and strikethrough; inclusion justified
-  - [ ] `fast-glob` — file pattern matching for batch processing; already in Phase 1 `package.json`
+  - [ ] `fast-glob` — file pattern matching for batch processing; required by Phase 1 plan tooling
   - [ ] `gray-matter` — front matter parsing for validation scripts; inclusion justified
-  - [ ] `fast-xml-parser` — WXR XML parsing; already in Phase 1 `package.json`
+  - [ ] `fast-xml-parser` — WXR XML parsing; required by Phase 1 plan tooling
   - [ ] `undici` (or Node native `fetch`) — HTTP fetching for crawl and validation; decision recorded
-  - [ ] `p-limit` — concurrency limiter for batch operations; already in Phase 1 `package.json`
+  - [ ] `p-limit` — concurrency limiter for batch operations; required by Phase 1 plan tooling
 - [ ] Optional package decisions are recorded with explicit accept/defer/reject and rationale:
   - [ ] HTML DOM parser (e.g. `node-html-parser` or `cheerio`) — for conversion cleanup edge cases
   - [ ] Output minification tool (e.g. `html-minifier-terser`) — deferred until correctness is stable
 - [ ] Explicitly avoided packages are listed with rationale:
   - [ ] Heavy client-side frameworks (React, Vue, etc.) — excluded; mostly static pages
   - [ ] Overlapping SEO plugins — excluded; SEO logic is template-driven per RHI-014 contract
-- [ ] Security advisory check result is recorded for all new packages (any package not already in Phase 1 `package.json`)
+- [ ] Security advisory check result is recorded for all new packages (any package not yet installed in the project `package.json`)
 - [ ] `package.json` will be updated in Phase 3 with the approved list; that update plan is noted here
 - [ ] Tooling contract is recorded in Outcomes and referenced from `analysis/plan/details/phase-2.md`
 
@@ -47,7 +47,7 @@ Phase 4 pipeline scripts and Phase 3 validation scripts both depend on this appr
 ### Tasks
 
 - [ ] Review `analysis/plan/details/phase-2.md` §Workstream E with engineering owner
-- [ ] Audit existing Phase 1 `package.json` for already-installed packages; identify gaps
+- [ ] Confirm which packages from the Phase 1 tooling plan (`analysis/plan/details/phase-1.md` §Tooling for Phase 1) are shared with Phase 2 and Phase 3 needs; identify gaps that require new packages
 - [ ] Evaluate each package in the core and migration tooling list:
   - For each package: confirm latest stable version, verify no known critical vulnerabilities, record justification
   - Check GitHub Advisory Database or `npm audit` output for each new package
@@ -75,7 +75,7 @@ Phase 4 pipeline scripts and Phase 3 validation scripts both depend on this appr
 |------------|------|--------|
 | RHI-010 Done — Phase 2 kickoff and decision owners confirmed | Ticket | Pending |
 | RHI-011 In Progress — Hugo version pin identified | Ticket | Pending |
-| Phase 1 `package.json` committed — existing dependency list available | Phase | Pending |
+| Phase 1 tooling plan reviewed — shared package requirements identified (`analysis/plan/details/phase-1.md` §Tooling for Phase 1) | Phase | Pending |
 | Engineering owner available for tooling evaluation | Access | Pending |
 
 ---

@@ -83,6 +83,8 @@ Required decisions:
 4. Taxonomy route policy: explicit category/video/archive path shape.
 5. Taxonomy route implementation: lock config-level taxonomies and permalink patterns, and reserve per-page `url` overrides for exceptions.
 
+Important note on `/video/` URL class: Phase 1 data confirms that `/video/` is a WordPress **page** (listed in `page-sitemap.xml`), NOT a custom post type archive or taxonomy route. It must be preserved as a `page` class URL, not as a taxonomy archive. The `/category/video/` URL is a separate category archive route and must be handled independently.
+
 Redirect policy:
 1. Primary moved-route mechanism: Hugo `aliases`.
 2. Alias behavior must be treated explicitly as client-side HTML redirect output (instant meta refresh), not guaranteed origin-level HTTP 301/308.

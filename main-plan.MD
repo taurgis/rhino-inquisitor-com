@@ -76,7 +76,7 @@ Migrate the current WordPress-powered site to a static Markdown-authored site us
 - Planned build/test scripts and dependencies: `package.json`.
 - Planned static utility files: `static/robots.txt`, `public/sitemap.xml` (generated), `static/CNAME`, `content/404.md`.
 - Planned redirect output area: generated from front matter `aliases`.
-- Tool-evaluation decision record: `plan/details/phase-2.md`.
+- Tool-evaluation decision record: `analysis/plan/details/phase-2.md`.
 
 **Verification**
 1. Build correctness: run a production Hugo build and assert successful output artifact.
