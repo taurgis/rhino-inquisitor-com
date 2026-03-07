@@ -1,0 +1,51 @@
+# hugo.toml — Base template for rhino-inquisitor.com
+# Copy this to the repository root and fill in all TODOs.
+# Run `hugo --minify --environment production` to verify.
+
+baseURL = "https://www.rhino-inquisitor.com/"   # Required: trailing slash, www canonical
+languageCode = "en-us"
+title = "Rhino Inquisitor"                       # TODO: confirm exact site title
+
+# Hugo extended features (image processing, Sass)
+# Requires Hugo extended binary in CI.
+
+[build]
+  # Production defaults — never override in production CI
+  # buildDrafts   = false  (default)
+  # buildFuture   = false  (default)
+  # buildExpired  = false  (default)
+
+[outputs]
+  home    = ["HTML", "RSS", "Sitemap"]
+  section = ["HTML", "RSS"]
+  page    = ["HTML"]
+  # taxonomy = ["HTML"]      # Enable if category/tag term pages needed
+  # term     = ["HTML"]      # Enable if individual term pages needed
+
+[taxonomies]
+  category = "categories"   # Matches front matter field name
+  tag      = "tags"         # Matches front matter field name
+
+[permalinks]
+  # Fallback permalink patterns — explicit `url` front matter takes precedence
+  # posts = "/:slug/"
+  # pages = "/:slug/"
+  # TODO: confirm permalink pattern aligns with Phase 1 URL policy
+
+[sitemap]
+  changefreq = "weekly"
+  filename   = "sitemap.xml"
+  priority   = 0.5
+
+[params]
+  description    = "TODO: site-level default meta description"
+  author         = "TODO: default author name"
+  defaultOgImage = "/images/og-default.webp"    # TODO: create default OG image
+
+  # Enable after DNS and HTTPS are validated
+  # googleAnalyticsID = ""   # Do not commit tracking IDs here; use environment config
+
+[security]
+  # Hugo security policy — review before enabling exec hooks
+  [security.exec]
+    allow = ["^(dart-)?sass(-embedded)?$", "^go$", "^npx$", "^postcss$"]
