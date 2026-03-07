@@ -300,9 +300,9 @@ Launch-week monitoring:
 3. Re-crawl top linked legacy URLs to confirm expected outcomes.
 
 Incident response thresholds:
-1. If indexable 404 spike exceeds agreed threshold, trigger rollback/patch window.
-2. If canonical mismatch rate exceeds threshold, block additional rollout batches.
-3. If high-value page impressions decline beyond expected migration variance, escalate technical audit.
+1. If indexable 404 spike exceeds 2 percent of indexed URLs or 25 priority URLs in any 24-hour window, trigger rollback/patch window.
+2. If canonical mismatch is detected on any priority URL or exceeds 0.5 percent across sampled indexable URLs, block additional rollout batches.
+3. If high-value page impressions decline more than 20 percent versus the Phase 1 baseline for 7 consecutive days (excluding expected launch-week volatility), escalate technical audit.
 
 Acceptance criteria:
 1. Monitoring runbook exists with owners, cadence, and escalation triggers.

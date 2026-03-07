@@ -41,7 +41,7 @@ Out of scope:
 
 ## Non-Negotiable Release Gates (Hard Blockers)
 1. URL parity gate passes for all in-scope legacy URLs with explicit outcomes.
-2. Redirect quality gate passes with redirects to final destinations and zero loops; redirect chains are avoided, and if unavoidable are kept low (ideally <= 3 hops and fewer than 5).
+2. Redirect quality gate passes with direct redirects to final destinations, zero loops, and zero redirect chains on migration routes.
 3. Canonical consistency gate passes (canonical, sitemap, internal links agree on final URLs).
 4. Robots/noindex gate passes (no accidental blocking or accidental `noindex` on indexable pages).
 5. Structured data gate passes on representative templates with no critical errors.
@@ -127,7 +127,7 @@ Goal: prove migrated routing behavior is complete and semantically correct.
 
 Mandatory checks:
 1. 100 percent of in-scope legacy URLs resolve to approved outcomes.
-2. Redirects go directly to final destinations wherever possible; if chains are technically unavoidable, keep chains low (ideally <= 3 hops and fewer than 5).
+2. Redirects go directly to final destinations; redirect chains are not allowed on migration routes.
 3. Zero redirect loops.
 4. Redirect destinations are topic-equivalent and not generic fallback shortcuts.
 5. Retired URLs return intended not-found behavior (`404` or `410` where supported).
@@ -306,7 +306,7 @@ Branch policy:
 1. All Phase 8 hard-blocker gates pass on the designated release-candidate commit.
 2. All validation artifacts are generated, archived, and reviewed by named owners.
 3. Go/No-Go decision is recorded with approvals and any explicit risk acceptances.
-4. Rollback drill is completed and within agreed recovery objective.
+4. Rollback drill is completed with recovery objective of initiating rollback within 60 minutes.
 5. Search Console migration readiness items are completed (verification continuity, sitemap submissions, and monitoring dashboards).
 6. Phase 9 monitoring handoff package is complete.
 

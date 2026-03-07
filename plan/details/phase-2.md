@@ -207,12 +207,30 @@ Phase 2 is complete only if all statements are true:
 5. Validation gates are defined for Phase 3 implementation.
 6. No unresolved architecture blockers remain for scaffolding.
 
-## Open Questions to Resolve Before Phase 3
-1. Exact acceptable URL-change threshold (default proposal 5 percent) and decision owner.
-2. Whether comments/feed/search legacy endpoints are preserved, redirected, or retired.
-3. Whether any route class requires strict historical pagination parity.
-4. Whether edge redirect infrastructure is approved now or only on threshold breach.
-5. Whether RSS-only output is sufficient, or RSS + Atom parity is required.
+## Resolved Decisions for Phase 3 Entry
+1. URL-change threshold and owner:
+- Threshold is fixed at 5 percent of indexed URL inventory.
+- Decision owner is migration owner, with required approval from SEO owner.
+2. Legacy endpoint policy:
+- `/feed/` is preserved directly or redirected to the canonical Hugo feed endpoint.
+- `/comments/feed/`, `/wp-json/`, `/xmlrpc.php`, and legacy `/author/*` system endpoints are retired with explicit not-found behavior (`404` on Pages-only hosting, `410` where edge layer is active).
+- Legacy on-site search endpoints (`/search/*`) are retired unless a production search feature is implemented and validated before cutover.
+3. Pagination parity policy:
+- Strict pagination parity is required only for URL classes with demonstrated value (at least 100 clicks in 90 days or at least 10 referring domains).
+- For non-critical deep pagination routes, intentional retirement is allowed with explicit mapping review.
+4. Edge redirect infrastructure timing:
+- Edge redirect infrastructure is conditionally approved and must be activated before launch if any Model B trigger is met.
+- If no trigger is met, Model A remains approved with explicit risk acceptance.
+5. Feed format scope:
+- RSS output is required; Atom parity is optional and non-blocking.
+
+## Decision Ownership and Sign-Off
+1. Migration owner:
+- owns redirect architecture choice, threshold enforcement, and rollout acceptance.
+2. SEO owner:
+- approves URL-change threshold usage, endpoint retire/keep outcomes, and pagination parity exceptions.
+3. Engineering owner:
+- approves implementation feasibility for Pages-only versus edge-layer path.
 
 ## Comparative Tool Decision Record (Separate Section)
 

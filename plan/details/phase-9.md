@@ -54,6 +54,17 @@ Out of scope:
 9. Rollback and hotfix operators are assigned by name before T-0.
 10. Redirect retention for moved URLs is maintained for as long as possible, generally at least 12 months.
 11. Incident timeline, decisions, and remediations must be logged for every Sev-1/Sev-2 event.
+12. Previous WordPress production stack remains rollback-ready through at least stabilization Week 2, and preferred through Week 6.
+
+## Fixed Operational Thresholds
+1. Sev-1 route-failure trigger:
+- 5 or more priority URLs unresolved or mismapped within any 60-minute window.
+2. Indexing anomaly trigger:
+- soft-404 or not-found defects affecting 2 percent or more of sampled priority legacy routes in 24 hours.
+3. Performance trigger:
+- homepage or article median Lighthouse Performance below 90 for three consecutive daily runs.
+4. Canonical consistency trigger:
+- any canonical mismatch on a priority URL, or mismatch rate above 0.5 percent in sampled indexable URLs.
 
 ## Critical Corrections Encoded in This Phase
 1. Indexing reality correction:
@@ -224,7 +235,7 @@ Core thresholds:
 3. CLS target: <= 0.1 at p75.
 
 Escalation triggers:
-1. Homepage or article template remains below agreed lab threshold for three consecutive daily runs.
+1. Homepage or article template remains below median Lighthouse Performance 90 for three consecutive daily runs.
 2. Field CWV category moves from Good to Needs Improvement/Poor on critical template groups once sufficient data exists.
 
 ## Workstream F: SEO, Schema, and Content-Signal Drift Monitoring
@@ -293,7 +304,7 @@ Exit criteria:
 2. Priority legacy URL set has approved outcomes with no unresolved gaps.
 3. Canonical, sitemap, and robots consistency remains stable for two consecutive weekly audits.
 4. Search Console indexing anomalies are understood, tracked, and non-escalating.
-5. Performance trend is stable against agreed thresholds.
+5. Performance trend is stable against fixed operational thresholds defined in this phase.
 6. Security/domain checks pass without critical exceptions.
 
 Handoff package:
@@ -408,7 +419,7 @@ T+24h:
 2. Priority route classes (current and legacy) are stable and policy-compliant.
 3. Indexing transition is monitored with documented trend interpretation and remediation actions.
 4. Canonical/sitemap/robots/redirect signals remain consistent throughout stabilization window.
-5. Performance and security posture remain within agreed thresholds.
+5. Performance and security posture remain within fixed operational thresholds.
 6. Redirect retention plan and ownership are documented through at least month 12.
 7. BAU monitoring ownership and cadence are accepted by operations and SEO owners.
 

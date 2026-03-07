@@ -14,7 +14,7 @@ Phase 7 converts the migration build output into production traffic serving. Thi
 6. Missing post-deploy verification can hide broken URLs, wrong canonicals, or incomplete redirects until search engines crawl.
 
 ## Phase Position and Dependencies
-From [main-plan.MD](main-plan.MD), Phase 7 depends on Phase 3 and can begin setup in parallel with Phases 4 and 5.
+From [main-plan.MD](main-plan.MD), Phase 7 setup starts after Phase 3, and launch cutover requires completed outputs from Phases 4, 5, and 6.
 
 Phase 7 consumes:
 1. [plan/details/phase-3.md](plan/details/phase-3.md): Hugo scaffolding, template architecture, SEO partials, CI baseline.
@@ -174,7 +174,7 @@ Tasks:
 Constraints and caveats:
 1. Certificate provisioning can lag DNS changes; launch plan must include waiting window.
 2. Enforce HTTPS availability can lag after domain changes; launch plan must include explicit wait/recheck logic.
-3. If HTTPS cannot be enforced within launch window, rollback or hold criteria must trigger.
+3. If HTTPS cannot be enforced within 60 minutes after DNS cutover, rollback or hold criteria must trigger.
 
 Acceptance criteria:
 1. HTTPS works for homepage and representative deep URLs.
@@ -266,7 +266,7 @@ T+1 to T+24 hours:
 Goal: bound migration risk with predefined, executable fallback options.
 
 Rollback triggers:
-1. Critical URLs returning 404/5xx above threshold after propagation window.
+1. Critical URLs returning 404/5xx for 5 or more priority routes after the propagation window.
 2. Broken HTTPS/certificate issuance not resolved inside launch SLO.
 3. Severe canonical/redirect defects on high-value templates.
 
@@ -281,6 +281,7 @@ Operational requirements:
 3. Shared incident log and timeline notes.
 4. Stakeholder notification template prepared before launch.
 5. Custom-domain safety note in runbook: do not leave DNS pointed at Pages if Pages site is disabled or detached.
+6. Previous WordPress production stack must remain rollback-ready through at least stabilization Week 2, and preferred through the full 6-week stabilization window.
 
 Acceptance criteria:
 1. Rollback dry run is completed pre-launch.

@@ -257,7 +257,7 @@ Tasks:
 4. Generate parity report artifact for CI and release reviews.
 
 Critical thresholds:
-1. If changed indexed URLs exceed agreed threshold (default from Phase 2 proposal: 5%), escalate to edge redirect layer decision before launch.
+1. If changed indexed URLs exceed 5 percent of indexed inventory, edge redirect layer becomes mandatory before launch.
 2. No redirect chains allowed in approved mapping.
 3. Redirect lifespan target is minimum 12 months, with longer retention preferred.
 

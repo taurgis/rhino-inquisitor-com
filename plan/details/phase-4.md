@@ -344,7 +344,7 @@ Validation sampling (minimum):
 
 Exit criteria:
 1. SEO smoke checks pass on sampled pages.
-2. Metadata completeness report exceeds agreed threshold (target 100 percent for title, description, canonical on indexable pages).
+2. Metadata completeness report achieves 100 percent for title, description, and canonical on indexable pages.
 3. Index-control checks pass (no unintended `noindex`; robots policy aligned with production intent).
 
 ## Workstream I: Accessibility and Content Semantics

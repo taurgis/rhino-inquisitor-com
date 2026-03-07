@@ -44,10 +44,10 @@ Migrate the current WordPress-powered site to a static Markdown-authored site us
 6.3. Preserve key legacy endpoints explicitly: homepage, archive, privacy-policy, category routes, video routes, and any externally linked landing pages.
 6.4. Build a URL parity checker that compares old sitemap URLs against final output + redirects.
 
-7. Phase 7: GitHub Pages Deployment and Domain Cutover (*depends on 3, can begin setup in parallel with 4/5*)
+7. Phase 7: GitHub Pages Deployment and Domain Cutover (*depends on 3, 4, 5, 6 for launch candidate*)
 7.1. Create Pages workflow using `actions/configure-pages`, `actions/upload-pages-artifact`, and `actions/deploy-pages`.
 7.2. Configure workflow permissions: `pages: write` and `id-token: write`.
-7.3. Configure custom domain (`www.rhino-inquisitor.com`) through Pages and `CNAME`.
+7.3. Configure custom domain (`www.rhino-inquisitor.com`) in GitHub Pages settings/API (repository `CNAME` is optional and non-authoritative for Actions publishing).
 7.4. Update DNS records to GitHub Pages targets and verify HTTPS issuance.
 7.5. Add `.nojekyll` in publish artifact when needed to prevent unintended Jekyll processing.
 
@@ -89,7 +89,7 @@ Migrate the current WordPress-powered site to a static Markdown-authored site us
 - Recommended generator: Hugo over Eleventy/Jekyll/Astro/Next static export due to strongest route and redirect primitives for static-host migration (`url` + `aliases`) while remaining fully Pages-compatible via Actions.
 - URL strategy: explicit per-document `url` to preserve current paths exactly where possible.
 - SEO strategy: template-driven metadata + generated sitemap/feed + structured data.
-- Redirect strategy: Hugo `aliases` generated redirects for unavoidable URL changes, with escalation to an edge redirect layer if URL churn is above threshold or true 301/308 coverage is required.
+- Redirect strategy: Hugo `aliases` generated redirects for unavoidable URL changes, with escalation to an edge redirect layer if URL churn exceeds 5 percent of indexed inventory or true 301/308 coverage is required.
 
 **Further Considerations**
 1. Domain topology recommendation: keep `www.rhino-inquisitor.com` as canonical and redirect apex to `www` at DNS/provider layer for consistency.

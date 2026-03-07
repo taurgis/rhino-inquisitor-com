@@ -285,7 +285,7 @@ Pre-cutover checklist:
 - top external referrer/backlink sources are queued for outreach updates.
 
 Rollback triggers:
-1. High-value URL failures exceed agreed threshold in first 24 hours.
+1. High-value URL failures exceed 5 priority URLs or 2 percent of priority-route sample in first 24 hours.
 2. Indexing anomalies show widespread canonical mismatch/soft-404 behavior.
 3. Critical route classes (homepage/article/category/privacy) fail parity checks.
 
