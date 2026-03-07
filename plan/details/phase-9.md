@@ -45,14 +45,15 @@ Out of scope:
 ## Non-Negotiable Stabilization Constraints (Operational Blockers)
 1. Canonical production host remains locked to `https://www.rhino-inquisitor.com` for the full stabilization window.
 2. Search Console property ownership and access must be active before cutover starts.
-3. Sitemap submitted on launch day must contain only final canonical URLs.
-4. Redirect policy from Phase 6 is enforceable in production for all priority legacy URLs.
-5. Any critical URL returning unintended `404`, `5xx`, or redirect loop is launch-day Sev-1.
-6. `robots.txt` and `noindex` policies are treated as controlled configuration, not ad-hoc edits.
-7. Mixed-content issues on homepage or article template are release blocking.
-8. Rollback and hotfix operators are assigned by name before T-0.
-9. Redirect retention for moved URLs is maintained for as long as possible, generally at least 12 months.
-10. Incident timeline, decisions, and remediations must be logged for every Sev-1/Sev-2 event.
+3. If this migration is host/platform-only with no user-visible URL changes, follow the site-move-no-URL-changes checklist and do not use Change of Address.
+4. Sitemap submitted on launch day must contain only final canonical URLs.
+5. Redirect policy from Phase 6 is enforceable in production for all priority legacy URLs.
+6. Any critical URL returning unintended `404`, `5xx`, or redirect loop is launch-day Sev-1.
+7. `robots.txt` and `noindex` policies are treated as controlled configuration, not ad-hoc edits.
+8. Mixed-content issues on homepage or article template are release blocking.
+9. Rollback and hotfix operators are assigned by name before T-0.
+10. Redirect retention for moved URLs is maintained for as long as possible, generally at least 12 months.
+11. Incident timeline, decisions, and remediations must be logged for every Sev-1/Sev-2 event.
 
 ## Critical Corrections Encoded in This Phase
 1. Indexing reality correction:
@@ -74,6 +75,10 @@ Out of scope:
 5. Performance interpretation correction:
 5.1. Lighthouse is immediate regression detection, not real-user truth.
 5.2. Field CWV uses trailing-window data and should be evaluated at p75.
+
+6. Search Console tooling correction:
+6.1. URL Inspection is per-URL and quota-limited; it is not a bulk substitute for Page Indexing telemetry.
+6.2. Search Console API automation can cover Search Analytics, Sitemaps, and sampled URL Inspection checks, but not a full Page Indexing export equivalent.
 
 ## Operating Model and Ownership
 Launch command roles:
@@ -104,6 +109,8 @@ T-24h checklist:
 3. Re-check domain verification TXT record and DNS snapshots for rollback.
 4. Confirm Search Console access and ownership continuity.
 5. Confirm monitoring scripts and dashboards are live.
+6. If HTTPS is still unavailable after DNS changes, prepare custom-domain remove/re-add recovery steps in the runbook.
+7. If publishing through GitHub Actions, treat repository settings as custom-domain source of truth and do not rely on a repository CNAME file.
 
 T-0 sequence:
 1. Deploy approved artifact.
@@ -129,8 +136,9 @@ Goal: migrate indexing signals cleanly and detect coverage defects early.
 
 Launch-day actions:
 1. Submit final production sitemap.
-2. Use URL Inspection for highest-priority templates and key legacy URLs.
-3. Confirm sitemap processing starts without parsing errors.
+2. Use URL Inspection for highest-priority URLs to compare indexed-versus-live state.
+3. Request indexing only for a small critical set of URLs; use sitemap submission for broad discovery/recrawl.
+4. Confirm sitemap processing starts without parsing errors.
 
 Week 1 actions:
 1. Daily review of Page Indexing report for:
@@ -138,8 +146,9 @@ Week 1 actions:
 1.2. Soft `404`
 1.3. Redirect errors
 1.4. Crawled/Discovered currently not indexed
-2. Daily review of Sitemaps report for submitted vs indexed trend.
+2. Daily review of Sitemaps report for fetch and parse health; treat sitemap status as discovery telemetry, not final index-coverage truth.
 3. Validate critical templates for canonical correctness when rendered live.
+4. Record Page Indexing trend snapshots from Search Console reports or exports as the source of truth for indexed/excluded direction.
 
 Week 2-6 actions:
 1. Weekly indexing trend review against baseline and expected migration curve.
@@ -150,6 +159,7 @@ Operational thresholds:
 1. Sev-1: high-value route class shows systemic `404`/soft-404 pattern.
 2. Sev-1: sitemap contains non-canonical or redirected URLs.
 3. Sev-2: indexing coverage trend stalls beyond expected migration window without clear cause.
+4. Sev-2: Search Console property verification continuity breaks on required canonical/variant properties.
 
 ## Workstream C: Redirect Retention and Legacy URL Governance (T+0 to T+12 months)
 Goal: preserve link equity and user continuity while minimizing redirect debt.
@@ -203,9 +213,10 @@ Immediate (Day 0-7):
 3. Investigate regressions in render-blocking resources, image payload, and layout shifts.
 
 Transitional (Week 2-6):
-1. Track field CWV in Search Console using p75 trend.
-2. Distinguish lab-only fluctuation from field degradation.
-3. Use trend-based thresholds, not single-run outliers.
+1. Track field CWV in Search Console using p75 trend on URL groups (not as a single-URL diagnostic).
+2. Expect temporary "No data available" gaps on low-traffic/new groups and continue using PSI/Lighthouse for short-window diagnostics.
+3. Distinguish lab-only fluctuation from field degradation.
+4. Use trend-based thresholds, not single-run outliers.
 
 Core thresholds:
 1. LCP target: <= 2.5s at p75.
@@ -249,6 +260,7 @@ Hardening governance:
 Escalation triggers:
 1. HTTPS disablement or certificate invalid state.
 2. Domain verification failure or risky DNS change.
+3. Repeated HTTP `429` responses indicating platform rate limiting or monitor-induced traffic pressure.
 
 ## Workstream H: Stabilization Cadence (Week-by-Week)
 Goal: convert raw telemetry into controlled recovery and closure decisions.
@@ -296,7 +308,7 @@ Required:
 2. `@lhci/cli`: repeatable Lighthouse regression snapshots.
 3. `fast-xml-parser`: sitemap consistency verification.
 4. `fast-glob`: deterministic sample discovery for generated output checks.
-5. `googleapis`: Search Console API automation for indexing/sitemap status snapshots.
+5. `googleapis`: Search Console API automation for Search Analytics and sitemap status/submission, plus sampled URL Inspection checks for priority URLs.
 6. `ajv`: JSON-schema validation for monitoring artifact contracts.
 
 Recommended:
@@ -308,18 +320,21 @@ Recommended:
 Implementation notes:
 1. Pin versions and archive outputs from every scheduled monitoring job.
 2. Keep monitor scripts deterministic and idempotent to avoid noisy false positives.
+3. Design API jobs around Search Console quotas (notably URL Inspection per-site daily/minute limits) to avoid monitor-induced blind spots.
+4. Treat Search Analytics rows as sampled/top-result output, not a complete site index inventory.
 
 ## Data Contracts and File Artifacts
 Planned artifacts:
 1. `monitoring/launch-cutover-log.md`: timestamped launch timeline and decisions.
-2. `monitoring/search-console-indexing-report.json`: indexed/excluded trend snapshot.
-3. `monitoring/sitemap-processing-report.json`: sitemap status and parsing outcomes.
-4. `monitoring/legacy-route-health-report.json`: priority legacy URL outcomes.
-5. `monitoring/canonical-consistency-report.json`: canonical/internal/sitemap alignment checks.
-6. `monitoring/cwv-lighthouse-trend.json`: daily Lighthouse trend during week 1.
-7. `monitoring/cwv-field-trend.md`: weekly field-CWV interpretation notes.
-8. `monitoring/security-domain-report.json`: HTTPS, verification, and mixed-content checks.
-9. `monitoring/stabilization-summary.md`: week 6 closure report and BAU handoff.
+2. `monitoring/search-console-indexing-report.md`: indexed/excluded trend notes from Search Console Page Indexing report/export, plus interpretation summary.
+3. `monitoring/url-inspection-sample-report.json`: sampled URL Inspection outcomes for priority URLs.
+4. `monitoring/sitemap-processing-report.json`: sitemap status and parsing outcomes.
+5. `monitoring/legacy-route-health-report.json`: priority legacy URL outcomes.
+6. `monitoring/canonical-consistency-report.json`: canonical/internal/sitemap alignment checks.
+7. `monitoring/cwv-lighthouse-trend.json`: daily Lighthouse trend during week 1.
+8. `monitoring/cwv-field-trend.md`: weekly field-CWV interpretation notes.
+9. `monitoring/security-domain-report.json`: HTTPS, verification, and mixed-content checks.
+10. `monitoring/stabilization-summary.md`: week 6 closure report and BAU handoff.
 
 Contract rules:
 1. Every report includes `runTimestamp`, `environment`, `commitSha`, `status`, `owner`, and `findings` fields.
@@ -334,7 +349,7 @@ Daily (Week 1):
 4. Lighthouse regression run on representative templates.
 
 Weekly (Week 2-6):
-1. Search Console indexing and sitemap trend review.
+1. Search Console Page Indexing trend review plus sampled URL Inspection checks for priority URLs.
 2. Structured data and social-preview sanity checks.
 3. Mixed-content and HTTPS posture review.
 4. Redirect debt review and chain reduction progress.
@@ -352,7 +367,7 @@ Manual spot checks:
 5. Treat soft-404 spikes and redirect warnings as urgent migration defects.
 6. Preserve structured data accuracy with visible-content parity on each template class.
 7. Avoid simultaneous major template rewrites during stabilization unless tied to incident mitigation.
-8. If domain changes beyond host/protocol are introduced, re-assess Change of Address applicability before execution.
+8. Change of Address applies only to domain-level moves; do not use it for `http` to `https`, `www` to apex (or apex to `www`), or path-only changes.
 
 ## Launch-Window Execution Checklist (Detailed)
 T-24h:
@@ -399,23 +414,31 @@ T+24h:
 
 ## Official References Incorporated
 1. Google site move with URL changes: https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes
-2. Google redirects guidance (`301`/`308`, JS/meta fallback): https://developers.google.com/search/docs/crawling-indexing/301-redirects
-3. Google canonical consolidation: https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls
-4. Google robots.txt introduction and behavior: https://developers.google.com/search/docs/crawling-indexing/robots/intro
-5. Google block indexing and `noindex` behavior: https://developers.google.com/search/docs/crawling-indexing/block-indexing
-6. Google HTTP status troubleshooting (soft-404 implications): https://developers.google.com/crawling/docs/troubleshooting/http-status-codes
-7. Google sitemaps overview: https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview
-8. Search Console Page Indexing report: https://support.google.com/webmasters/answer/7440203
-9. Search Console Sitemaps report: https://support.google.com/webmasters/answer/7451001
-10. Search Console URL Inspection: https://support.google.com/webmasters/answer/9012289
-11. Google structured data policies: https://developers.google.com/search/docs/appearance/structured-data/sd-policies
-12. GitHub Pages overview (static hosting model): https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages
-13. GitHub Pages custom domains overview: https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages
-14. GitHub Pages custom domain management: https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site
-15. GitHub Pages domain verification: https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages
-16. GitHub Pages HTTPS enforcement: https://docs.github.com/en/pages/getting-started-with-github-pages/securing-your-github-pages-site-with-https
-17. PageSpeed Insights methodology (lab vs field, p75): https://developers.google.com/speed/docs/insights/v5/about
-18. Search Console Core Web Vitals report: https://support.google.com/webmasters/answer/9205520
-19. Lighthouse overview: https://developer.chrome.com/docs/lighthouse/overview
-20. MDN mixed content guidance: https://developer.mozilla.org/en-US/docs/Web/Security/Mixed_content
-21. Robots Exclusion Protocol (RFC 9309): https://www.rfc-editor.org/rfc/rfc9309
+2. Google site move with no URL changes: https://developers.google.com/search/docs/crawling-indexing/site-move-no-url-changes
+3. Google redirects guidance (`301`/`308`, JS/meta fallback): https://developers.google.com/search/docs/crawling-indexing/301-redirects
+4. Google canonical consolidation: https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls
+5. Google robots.txt introduction and behavior: https://developers.google.com/search/docs/crawling-indexing/robots/intro
+6. Google block indexing and `noindex` behavior: https://developers.google.com/search/docs/crawling-indexing/block-indexing
+7. Google HTTP status troubleshooting (soft-404 implications): https://developers.google.com/crawling/docs/troubleshooting/http-status-codes
+8. Google sitemaps overview: https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview
+9. Google recrawl/indexing request guidance: https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl
+10. Search Console Page Indexing report: https://support.google.com/webmasters/answer/7440203
+11. Search Console Sitemaps report: https://support.google.com/webmasters/answer/7451001
+12. Search Console URL Inspection: https://support.google.com/webmasters/answer/9012289
+13. Search Console Change of Address tool: https://support.google.com/webmasters/answer/9370220
+14. Google Search Console API overview: https://developers.google.com/webmaster-tools/about
+15. Google Search Console API reference: https://developers.google.com/webmaster-tools/v1/api_reference_index
+16. Google Search Console API usage limits: https://developers.google.com/webmaster-tools/limits
+17. Google structured data policies: https://developers.google.com/search/docs/appearance/structured-data/sd-policies
+18. GitHub Pages overview (static hosting model): https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages
+19. GitHub Pages custom domains overview: https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/about-custom-domains-and-github-pages
+20. GitHub Pages custom domain management: https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site
+21. GitHub Pages custom-domain troubleshooting (HTTPS/CNAME): https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/troubleshooting-custom-domains-and-github-pages
+22. GitHub Pages domain verification: https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages
+23. GitHub Pages HTTPS enforcement: https://docs.github.com/en/pages/getting-started-with-github-pages/securing-your-github-pages-site-with-https
+24. GitHub Pages limits: https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits
+25. PageSpeed Insights methodology (lab vs field, p75): https://developers.google.com/speed/docs/insights/v5/about
+26. Search Console Core Web Vitals report: https://support.google.com/webmasters/answer/9205520
+27. Lighthouse overview: https://developer.chrome.com/docs/lighthouse/overview
+28. MDN mixed content guidance: https://developer.mozilla.org/en-US/docs/Web/Security/Mixed_content
+29. Robots Exclusion Protocol (RFC 9309): https://www.rfc-editor.org/rfc/rfc9309
