@@ -42,6 +42,7 @@ Required decisions:
 2. Confirm primary config file format and location (`hugo.toml`).
 3. Define output directory contract (`public/`) and artifact handoff to Pages workflow.
 4. Define environments (`local`, `ci`, `prod`) and variable handling for canonical origin.
+5. Define `baseURL` contract for production (canonical origin, trailing slash) and how CI injects it.
 
 Outputs:
 - Architecture section in this file approved.
@@ -68,9 +69,11 @@ Recommended fields:
 
 Rules:
 1. `url` is mandatory for migrated content.
-2. `canonical` must be absolute HTTPS URL.
-3. Draft pages must be excluded from production build outputs and sitemap.
-4. Any `aliases` value must map to known legacy URLs from the manifest.
+2. `url` normalization must be documented and enforced (leading slash behavior, lowercase policy, multilingual behavior if enabled).
+3. Canonical handling defaults to rendered page absolute URL; per-page canonical overrides are allowed only as absolute HTTPS URLs.
+4. Draft pages must be excluded from production build outputs and sitemap.
+5. Production builds must not use `--buildDrafts`, `--buildFuture`, or `--buildExpired`.
+6. Any `aliases` value must map to known legacy URLs from the manifest.
 
 ## Workstream C: Route and Redirect Contract
 Required decisions:
@@ -78,14 +81,23 @@ Required decisions:
 2. Trailing slash policy: preserve existing high-value behavior and avoid dual-indexable variants.
 3. Case policy: lowercase route outputs only.
 4. Taxonomy route policy: explicit category/video/archive path shape.
+5. Taxonomy route implementation: lock config-level taxonomies and permalink patterns, and reserve per-page `url` overrides for exceptions.
 
 Redirect policy:
 1. Primary moved-route mechanism: Hugo `aliases`.
-2. Keep fallback redirect artifacts for at least 12 months.
-3. If changed URLs exceed 5 percent of indexed inventory, edge redirect layer is mandatory before launch.
+2. Alias behavior must be treated explicitly as client-side HTML redirect output (instant meta refresh), not guaranteed origin-level HTTP 301/308.
+3. Prefer server-side permanent redirects (301/308) when hosting infrastructure supports them.
+4. Keep fallback redirect artifacts for at least 12 months.
+5. Avoid redirect chains; old URLs should resolve directly to final destination.
+6. If changed URLs exceed 5 percent of indexed inventory, edge redirect layer is mandatory before launch.
 
 Critical caveat:
 - GitHub Pages is static hosting, so generated redirects are not equivalent to full origin-level 301/308 control for all cases.
+
+Redirect acceptance criteria:
+1. SEO contract explicitly accepts client-side alias redirects on Pages-only hosting.
+2. URL parity validation proves every legacy URL resolves to the intended destination or explicit retire behavior.
+3. Alias coverage includes non-trivial legacy routes and does not silently skip required paths or required output formats.
 
 ## Workstream D: SEO and Discoverability Contract
 Each indexable template type must produce:
@@ -95,14 +107,18 @@ Each indexable template type must produce:
 4. Open Graph baseline (`og:title`, `og:description`, `og:type`, `og:url`, `og:image`).
 5. Twitter card compatibility tags (best-effort, non-blocking if platform docs change).
 6. JSON-LD:
-   - `BlogPosting` for article pages.
+   - `BlogPosting` (or `Article`) for article pages, with recommended properties (for example `headline`, `image`, `datePublished`, `dateModified`, `author`).
    - `WebSite` for site-level context.
-   - `BreadcrumbList` where hierarchy exists.
+   - `BreadcrumbList` where hierarchy exists, including required breadcrumb properties.
 
 Crawler surfaces:
 1. Sitemap generated from built pages only.
-2. `robots.txt` points to canonical sitemap URL.
-3. Redirect helper pages and drafts excluded from sitemap.
+2. `robots.txt` generation is intentional:
+   - either enable Hugo robots generation and override template behavior as needed,
+   - or ship a controlled static robots file.
+3. Add explicit `Sitemap: https://<canonical-host>/sitemap.xml` if used by policy.
+4. Redirect helper pages and drafts excluded from sitemap.
+5. Robots policy is never used as a substitute for noindex/index control.
 
 ## Workstream E: Library and Tooling Contract
 Core:
@@ -131,20 +147,36 @@ Workflow contract:
 1. Build static output in CI.
 2. Upload Pages artifact from Hugo output directory.
 3. Deploy via official Pages action.
-4. Explicit workflow permissions and minimal token scope.
-5. Include `.nojekyll` in artifact when relevant to avoid unintended processing.
+4. Explicit workflow permissions and minimal token scope (including `pages: write` and `id-token: write` for deployment).
+5. `.nojekyll` handling is conditional:
+   - required when publishing built output to a Pages source branch in external CI patterns,
+   - optional for artifact-based Pages deployment unless a concrete issue requires it.
 
 Operational constraints to record:
-1. Custom domain source of truth (repo settings + published `CNAME` behavior).
+1. Custom domain source of truth:
+   - configure domain in repository Pages settings or API for Actions publishing,
+   - do not assume a repository `CNAME` file alone sets or updates domain configuration.
 2. Artifact size and build-time budgets.
 3. Rollback plan for failed deploys.
+4. Pages artifact format constraints (single tar in gzip archive, no unsupported link types, size boundaries).
 
 ## Required Validation Gates (Defined in Phase 2, Implemented in Phase 3+)
 1. URL parity gate: compare legacy manifest against built outputs + redirects.
-2. SEO gate: validate canonical/meta/schema presence on representative templates.
-3. Link integrity gate: broken-link scan across generated site.
-4. Build gate: deterministic production build in CI.
-5. Launch-readiness gate: manual verification of robots, sitemap, core templates, and social preview tags.
+2. Redirect correctness gate: verify direct legacy-to-final resolution (no avoidable chains), and verify accepted redirect behavior type.
+3. SEO gate: validate canonical/meta/schema presence and correctness on representative templates.
+4. Link integrity gate: broken-link scan across generated site.
+5. Build gate: deterministic production build in CI with production flags.
+6. Deployment integrity gate: verify Pages deploy permissions, artifact validity, and custom-domain configuration.
+7. Launch-readiness gate: manual verification of robots, sitemap, core templates, and social preview tags.
+
+## Tightened Validation Checklist
+1. Every legacy URL maps to exactly one of: same-path output, intentional redirect target, or explicit retire behavior.
+2. No irrelevant mass redirects (for example broad redirect-to-home patterns without content equivalence).
+3. Canonical URLs are absolute and consistent with rendered paths.
+4. No unintended `noindex`, draft, or future content appears in production output.
+5. Structured data validates on representative templates (articles and breadcrumbs at minimum).
+6. robots and sitemap are intentionally generated and internally consistent.
+7. Deployment workflow uses official Pages actions and documented permissions.
 
 ## Risks and Mitigations
 1. Static-host redirect limitations can reduce migration signal transfer.
@@ -233,18 +265,24 @@ Avoid Astro/Next static export for this migration if:
 - https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages
 - https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site
 - https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
+- https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages
 - https://github.com/actions/upload-pages-artifact
 - https://github.com/actions/deploy-pages
 
 ### Google migration and redirects
 - https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes
 - https://developers.google.com/search/docs/crawling-indexing/301-redirects
+- https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls
+- https://developers.google.com/search/docs/crawling-indexing/robots/intro
 
 ### Hugo
 - https://gohugo.io/content-management/front-matter/
 - https://gohugo.io/content-management/urls/
 - https://gohugo.io/content-management/taxonomies/
+- https://gohugo.io/configuration/permalinks/
+- https://gohugo.io/getting-started/configuration/
 - https://gohugo.io/templates/sitemap/
+- https://gohugo.io/templates/robots/
 - https://gohugo.io/templates/rss/
 - https://gohugo.io/templates/embedded/
 - https://gohugo.io/hosting-and-deployment/hosting-on-github/
