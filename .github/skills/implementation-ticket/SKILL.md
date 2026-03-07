@@ -42,9 +42,9 @@ Before considering a ticket ready for execution, verify:
 When tickets are maintained in GitHub-flavored Markdown, follow these rules so checklists render and track correctly:
 
 - Use `- [ ]` for open tasks and `- [x]` for completed tasks
-- Reference issue/PR IDs in checklist items when possible (for example `- [ ] #123`) so ticket context is linked
+- Reference issue/PR IDs in checklist items when the task maps to an existing issue or PR (for example `- [ ] #123`) so ticket context is linked
 - Keep tasks small and actionable so progress is visible at a glance
-- For issue hierarchy and decomposition, prefer GitHub sub-issues (tasklist blocks are retired)
+- For issue hierarchy and decomposition, prefer GitHub sub-issues (Markdown tasklist blocks were retired; see the February 18, 2025 GitHub changelog entry)
 
 ## Ticket File Location
 
@@ -165,4 +165,5 @@ Delivered: `migration/url-inventory.raw.json`, `migration/url-manifest.json`.
 - [Agent Skills Specification](https://agentskills.io/specification) — official SKILL.md/frontmatter requirements and structure guidance
 - [GitHub Docs: About tasklists](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/about-tasklists) — official task list syntax and behavior
 - [GitHub Docs: Adding sub-issues](https://docs.github.com/en/issues/tracking-your-work-with-issues/using-issues/adding-sub-issues) — official replacement for retired tasklist blocks
+- [GitHub Changelog (2025-02-18)](https://github.blog/changelog/2025-02-18-github-issues-projects-february-18th-update/) — retirement notice for tasklist blocks
 - [The Scrum Guide](https://scrumguides.org/scrum-guide.html) — authoritative source for backlog refinement and Definition of Done practices
