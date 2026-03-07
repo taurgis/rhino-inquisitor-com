@@ -12,7 +12,7 @@ Every discovered URL must be assigned to exactly one class so preservation and r
 | --- | --- | --- | --- | --- |
 | `post` | `post-sitemap.xml` | `/some-article/` | preserve same path | yes |
 | `page` | `page-sitemap.xml` | `/privacy-policy/` | preserve same path | yes |
-| `category` | `category-sitemap.xml` | `/category/sfcc/` | preserve by default; merge by exception | yes |
+| `category` | `category-sitemap.xml` | `/category/salesforce-commerce-cloud/` | preserve by default; merge by exception | yes |
 | `video` | `video-sitemap.xml` | `/video/some-video/` | preserve by default; merge by exception | yes |
 | `landing` | `e-landing-page-sitemap.xml` | `/some-landing-page/` | preserve by default; merge by exception | yes |
 | `system` | crawl, logs, probes | `/wp-json/`, `/xmlrpc.php` | retire by default | no |
@@ -66,7 +66,7 @@ Observed from sitemaps and HTTP probes:
 - `/comments/feed/` (`200`)
 - `/wp-json/` (`200`)
 - `/xmlrpc.php` (`405`)
-- `/author/admin/` (`200`)
+- `/author/admin/` (`200`) — note: `/author/thomas-theunen/` is the active author URL visible in video-sitemap uploader data; probe both routes during inventory
 - `/search/sfcc/` (`200`)
 
 Note: sampling is not exhaustive. Full coverage comes from Workstream 1.
@@ -266,13 +266,14 @@ Unresolved item blocks Phase 2.
 ## Deliverables
 1. `migration/url-inventory.raw.json`
 2. `migration/url-inventory.normalized.json`
-3. `migration/url-manifest.json`
-4. `migration/url-manifest.csv`
-5. `migration/phase-1-seo-baseline.md`
-6. `migration/phase-1-performance-baseline.md`
-7. `migration/phase-1-security-header-matrix.md`
-8. `migration/risk-register.md`
-9. `migration/phase-1-signoff.md`
+3. `migration/url-class-matrix.json`
+4. `migration/url-manifest.json`
+5. `migration/url-manifest.csv`
+6. `migration/phase-1-seo-baseline.md`
+7. `migration/phase-1-performance-baseline.md`
+8. `migration/phase-1-security-header-matrix.md`
+9. `migration/risk-register.md`
+10. `migration/phase-1-signoff.md`
 
 ## Definition of Done
 1. All sitemap URLs in normalized manifest.
