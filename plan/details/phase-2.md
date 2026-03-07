@@ -213,19 +213,36 @@ Phase 2 is complete only if all statements are true:
 - Decision owner is migration owner, with required approval from SEO owner.
 2. Legacy endpoint policy:
 - `/feed/` is the canonical feed route and must resolve on the migrated site.
-- Legacy feed variants (`/feed/rss/`, `/feed/atom/`) must be explicitly mapped (redirect or retire) in the URL manifest.
+- Legacy feed variants (`/feed/rss/`, `/feed/atom/`) must be explicitly mapped (redirect or retire) in `migration/url-manifest.json`.
 - `/comments/feed/`, `/wp-json/`, `/xmlrpc.php`, and legacy `/author/*` system endpoints are retired with explicit not-found behavior (`404` on Pages-only hosting, `410` where edge layer is active).
 - Legacy on-site search endpoints (`/search/*`) are retired unless a production search feature is implemented and validated before cutover.
 3. Pagination parity policy:
 - Strict pagination parity is required only for URL classes with demonstrated value (at least 100 clicks in 90 days or at least 10 referring domains).
 - For non-critical deep pagination routes, intentional retirement is allowed with explicit mapping review.
 - Pagination exception decisions must be recorded in `migration/pagination-priority-manifest.json` before Phase 3 scaffolding.
+- `migration/pagination-priority-manifest.json` must be an array of entries containing `legacy_url`, `url_class`, `value_signal` object (`clicks_90d`, `ref_domains`), `decision` (`keep` or `retire`), and `approvers`.
+- Both value signals must be present; when one signal is unavailable, record it as `null` and document data-source limitation.
+- Example entry:
+```json
+[
+  {
+    "legacy_url": "/category/sfcc/page/2/",
+    "url_class": "pagination",
+    "value_signal": {
+      "clicks_90d": 145,
+      "ref_domains": 7
+    },
+    "decision": "keep",
+    "approvers": ["alex@rhino-inquisitor.com", "seo-lead@rhino-inquisitor.com"]
+  }
+]
+```
 4. Edge redirect infrastructure timing:
 - Edge redirect infrastructure is conditionally approved and must be activated before launch if any Model B trigger is met.
 - If no trigger is met, Model A remains approved with explicit risk acceptance.
 5. Feed format scope:
 - RSS output is required; Atom parity is optional and non-blocking.
-- Phase 4 must publish `migration/feed-compatibility-check.md` proving legacy feed endpoint outcomes.
+- Phase 4 must publish `migration/feed-compatibility-check.md` (a Phase 4 deliverable) as a table proving legacy feed endpoint outcomes (tested URL, observed status code, final destination URL, content type, and validation timestamp).
 
 ## Decision Ownership and Sign-Off
 1. Migration owner:

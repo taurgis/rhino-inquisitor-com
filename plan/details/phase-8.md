@@ -321,6 +321,8 @@ Branch policy:
 - `validation/structured-data-report.json`
 4. Launch Go/No-Go checklist with named approvers and `LAUNCH-GATE-PASS-SUMMARY.md`.
 5. `CUTOVER-VERIFICATION-CHECKLIST.md` completed at T-24h with ownership sign-off from engineering, SEO, and incident commander.
+- Minimum checklist sections: `DNS and HTTPS`, `Host and Canonical Behavior`, `Priority URL Smoke Tests`, `Sitemap and Robots Reachability`, and `Rollback Readiness`.
+- Detailed per-section execution steps must align with the Phase 7 launch-window execution plan.
 6. Rollback rehearsal report and handoff notes for Phase 9.
 
 ## Official References Incorporated
