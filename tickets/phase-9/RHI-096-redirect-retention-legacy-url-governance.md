@@ -22,7 +22,7 @@ Ensure all legacy URL dispositions defined in Phase 6 (`migration/url-manifest.j
 
 **Launch day:**
 - [ ] All `keep` URLs in `url-manifest.json` return HTTP 200 with correct content on the live host
-- [ ] All `merge` URLs return HTTP 301 resolving in a single hop to the target URL on the live host
+- [ ] All `merge` URLs resolve to the intended target in a single hop according to implementation layer (`301/308` where edge/origin redirects exist, alias/meta-refresh fallback for Pages-only paths)
 - [ ] All `retire` URLs return HTTP 404 or HTTP 410 (not 200, not soft-404 to homepage) on the live host
 - [ ] No redirect chains (two or more hops) exist in any priority-route redirect
 - [ ] No redirect loops detected in any sampled legacy URL
@@ -58,7 +58,7 @@ Ensure all legacy URL dispositions defined in Phase 6 (`migration/url-manifest.j
 
 **Launch-day baseline:**
 - [ ] Run `npm run check:url-parity` (or equivalent) against live production host; confirm all `keep` URLs return 200
-- [ ] Sample-check `merge` routes for correct 301 single-hop behavior using `playwright` or `curl`
+- [ ] Sample-check `merge` routes for correct single-hop target resolution using `playwright` or `curl`, and record whether the route is edge/origin redirect vs Pages alias fallback
 - [ ] Sample-check `retire` routes for correct 404/410 behavior
 - [ ] Record initial state in `monitoring/legacy-route-health-report.json` with `runTimestamp`, `environment`, `commitSha`, and per-URL outcomes
 - [ ] Confirm no broad catch-all redirects to homepage are masking retired URLs as soft-404
@@ -72,7 +72,7 @@ Ensure all legacy URL dispositions defined in Phase 6 (`migration/url-manifest.j
 
 **Week 2 confirmation check:**
 - [ ] Run full priority route audit and confirm all have approved outcomes
-- [ ] Document GitHub Pages redirect-capability findings: are all required redirect behaviors (e.g., 301, apex→www) achievable at origin, or is an edge-layer required?
+- [ ] Document redirect-capability findings by layer: host-level consolidation behavior, path-level legacy-route behavior, and any gaps requiring edge-layer uplift
 - [ ] If edge-layer is required, open a separate implementation ticket and escalate to engineering owner
 - [ ] Update link-reclamation list with contact/outreach strategy for top-value external links
 
@@ -115,7 +115,7 @@ Ensure all legacy URL dispositions defined in Phase 6 (`migration/url-manifest.j
 
 | Risk | Likelihood | Impact | Mitigation | Owner |
 |------|------------|--------|------------|-------|
-| GitHub Pages cannot serve 301 redirects for apex domain (no ALIAS/ANAME record) | Medium | High | Document behavior in Phase 7; if apex redirect is required, edge/proxy layer must be in place at T-0 | Engineering Owner |
+| Pages-only path redirects rely on alias/meta-refresh behavior instead of origin-level 301/308 control | Medium | High | Record behavior by route class; if stronger status-code control is required, escalate to edge/proxy layer | Engineering Owner |
 | Broad catch-all redirect to homepage masking retired URLs as soft-404 | Low | High | Phase 6/7 contracts forbid this; verify at launch with explicit retired-URL spot-checks | SEO Owner |
 | A high-value legacy URL missed in Phase 6 manifest is discovered post-launch | Medium | Medium | Assign explicit disposition via updated `url-manifest.json` (follow migration-data governance gate); implement redirect within same business day | Engineering Owner |
 | Redirect chain persists because Hugo alias creates intermediate page | Medium | Medium | Audit Hugo alias output during Phase 8; if chains are found post-launch, update front matter and redeploy | Engineering Owner |

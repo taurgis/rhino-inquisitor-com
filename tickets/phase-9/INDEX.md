@@ -120,7 +120,7 @@ RHI-092 (Phase 8 Sign-off)
 | Soft-404 / not-found rate | ≥ 2% of sampled priority legacy routes in 24h | Sev-1 |
 | Lighthouse Performance | < 90 for 3 consecutive daily runs on homepage/article | Sev-2 |
 | Canonical consistency | Any mismatch on priority URL or > 0.5% in sample | Sev-1 |
-| HTTPS enforcement | Certificate invalid or Enforce HTTPS disabled | Sev-1 |
+| HTTPS enforcement | Enforce HTTPS unavailable 60 minutes after DNS propagation confirmation, or certificate invalid after enforcement is available | Sev-1 |
 | LCP (field CWV, p75) | > 2.5 s | Track; escalate if trend worsening over 2+ weeks |
 | INP (field CWV, p75) | > 200 ms | Track; escalate if trend worsening |
 | CLS (field CWV, p75) | > 0.1 | Track; escalate if trend worsening |
@@ -151,7 +151,7 @@ These constraints are hard requirements from `analysis/plan/details/phase-9.md` 
 
 1. **Canonical production host locked to `https://www.rhino-inquisitor.com`** for the full stabilization window.
 2. **Search Console property verified and active before cutover starts** — sitemap submission requires it.
-3. **Do not use the Change of Address tool** — this is a platform-only migration with no URL path changes.
+3. **Do not use the Change of Address tool** unless the registered domain itself changes; host/platform moves and path-level redirects do not qualify.
 4. **Sitemap submitted on launch day must contain only final canonical URLs** — no helper, redirect, or draft pages.
 5. **Redirect policy from Phase 6 must be enforceable in production for all priority legacy URLs.**
 6. **Any critical URL returning `404`, `5xx`, or redirect loop is a launch-day Sev-1** regardless of traffic volume.
@@ -160,7 +160,26 @@ These constraints are hard requirements from `analysis/plan/details/phase-9.md` 
 9. **Rollback and hotfix operators assigned by name before T-0** — verbal or implicit assignment is not acceptable.
 10. **Redirect retention for moved URLs maintained for minimum 12 months** — no unilateral expiry.
 11. **Every Sev-1/Sev-2 incident must have a written timeline and root-cause entry** — no verbal-only resolutions.
-12. **WordPress production stack remains rollback-ready through at least stabilization Week 2** (preferred through Week 6).
+12. **WordPress production stack remains rollback-ready through stabilization Week 6 by default**; any shorter window requires explicit risk acceptance and can never be below Week 2.
+
+---
+
+## Non-Negotiable Constraint Traceability
+
+| Constraint | Primary Verification Ticket(s) | Evidence Required |
+|------------|-------------------------------|-------------------|
+| Canonical host lock to `https://www.rhino-inquisitor.com` | RHI-094, RHI-099, RHI-103 | Cutover log host checks + canonical consistency report |
+| Search Console verified before cutover | RHI-093, RHI-095 | Bootstrap checklist + Search Console verification evidence |
+| Change of Address not used for this migration type | RHI-095, RHI-103 | Search Console action log with no CoA action |
+| Launch-day sitemap is canonical-only | RHI-094, RHI-095, RHI-099 | Sitemap processing report + canonical consistency report |
+| Phase 6 redirect policy enforced on priority legacy routes | RHI-094, RHI-096 | Legacy route health report + disposition checks |
+| Critical URL `404`/`5xx`/loop is Sev-1 | RHI-094, RHI-097 | Incident log + Sev classification records |
+| `robots.txt` and `noindex` are controlled config | RHI-099, RHI-103 | SEO drift report + approved change log |
+| Mixed content on homepage/article is release-blocking | RHI-094, RHI-100 | Launch smoke checks + security-domain report |
+| Rollback and hotfix operators assigned by name pre-T-0 | RHI-093, RHI-097 | Bootstrap role assignment log |
+| Redirect retention maintained for at least 12 months | RHI-096, RHI-102, RHI-103 | Redirect retention calendar with owners and review dates |
+| Every Sev-1/Sev-2 has written timeline and RCA | RHI-097, RHI-102 | Incident entries linked to corrective actions |
+| WordPress stack rollback-ready through default Week 6 window | RHI-093, RHI-102, RHI-103 | Exit review evidence + explicit risk-acceptance record if shortened |
 
 ---
 

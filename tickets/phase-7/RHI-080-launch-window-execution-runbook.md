@@ -48,7 +48,7 @@ The runbook must be reviewed and validated against a dry-run deploy before the l
   - [ ] Three category page URLs (defined as the first three alphabetical category slugs with live pages) — (HTTP 200, expected canonical)
   - [ ] `/privacy-policy/` or equivalent — (HTTP 200)
   - [ ] At least one top legacy inbound URL from Phase 6 redirect map (highest-priority legacy URL marked `high` or `critical`) — correct redirect behavior
-  - [ ] `https://www.rhino-inquisitor.com/sitemap.xml` — (HTTP 200, XML content)
+  - [ ] Canonical sitemap endpoint (`/sitemap.xml` or `/sitemap_index.xml`, per configuration) — (HTTP 200, XML content)
   - [ ] `https://www.rhino-inquisitor.com/robots.txt` — (HTTP 200, correct Sitemap directive)
   - [ ] HTTP-to-HTTPS redirect: `http://www.rhino-inquisitor.com/` → `https://www.rhino-inquisitor.com/` (HTTP 301)
 - [ ] Dry-run validation is complete:
@@ -75,7 +75,7 @@ The runbook must be reviewed and validated against a dry-run deploy before the l
   - [ ] Send launch notification to stakeholders
 - [ ] Draft T-24 hours checklist:
   - [ ] Lower DNS TTL (per WS-C plan, RHI-076)
-  - [ ] Confirm custom domain in Pages settings is showing healthy
+  - [ ] Confirm custom domain is configured in Pages settings and no blocking validation errors are present
   - [ ] Confirm domain verification TXT is in place
   - [ ] Re-run release candidate CI with final content snapshot; confirm all gates pass
   - [ ] Record CI run URL in the runbook

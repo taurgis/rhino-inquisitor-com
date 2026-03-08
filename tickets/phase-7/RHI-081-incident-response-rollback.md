@@ -39,7 +39,7 @@ Rollback capability is not a contingency to think about on launch day — it is 
     - [ ] Verification steps after DNS revert
     - [ ] Conditions under which Option B is preferred over Option A
   - [ ] **Rollback option C — Hold crawl-sensitive endpoints**:
-    - [ ] Steps to temporarily restrict crawling of affected endpoints via `robots.txt`
+    - [ ] Steps to temporarily reduce crawler traffic on affected endpoints (`robots.txt`) and apply temporary `noindex` directives when de-indexing is required
     - [ ] Appropriate only for isolated defects — not for systematic failures
     - [ ] Must be treated as a temporary hold, not a permanent fix
   - [ ] **Named owners** for rollback authorization:
@@ -80,7 +80,8 @@ Rollback capability is not a contingency to think about on launch day — it is 
   - [ ] Dry run: rehearse the DNS commands in a test environment or document them with explicit before/after values
   - [ ] Estimate propagation time with TTL-reduced records
 - [ ] Document rollback Option C (restrict crawl):
-  - [ ] Write the exact `robots.txt` change to block a specific endpoint
+  - [ ] Write the exact `robots.txt` change to reduce crawl pressure on a specific endpoint
+  - [ ] Document corresponding temporary `noindex` implementation when the goal is de-indexing rather than crawl throttling
   - [ ] Confirm this is a hotfix action only — commits back to `main` and triggers a deploy
 - [ ] Confirm WordPress stack rollback-readiness:
   - [ ] Verify WordPress site is operational at existing host
@@ -171,7 +172,7 @@ Rollback capability is not a contingency to think about on launch day — it is 
 ### Notes
 
 - Rollback trigger criteria must be specific and pre-agreed — not improvised under stress on launch day. The criteria listed in the acceptance criteria are minimums; the team may add additional triggers, but they must not be vaguer than the ones listed.
-- Option A (redeploy last known-good artifact) should be the first response to most rollback triggers. It is fast (under 5 minutes for a Pages deploy) and does not require DNS changes. Reserve Option B (DNS revert) for scenarios where the GitHub Pages platform itself is unavailable or the custom domain configuration is corrupt.
+- Option A (redeploy last known-good artifact) should be the first response to most rollback triggers. It is typically faster than DNS rollback and does not require DNS changes. Reserve Option B (DNS revert) for scenarios where the GitHub Pages platform itself is unavailable or the custom domain configuration is corrupt.
 - The MTTR commitment (< 30 minutes) applies to initiating the rollback action, not to DNS propagation completing. For Option B, the team can begin the DNS revert immediately (MTTR < 30 min) but propagation takes additional time proportional to the TTL.
 - WordPress must remain live for the full stabilization window. Do not let the WordPress hosting lapse or domain redirect to a maintenance page while the Pages site is in active DNS rollback range.
 - Reference: `analysis/plan/details/phase-7.md` §Workstream H: Incident Response and Rollback

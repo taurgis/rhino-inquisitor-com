@@ -24,11 +24,12 @@ Establish and enforce measurable performance thresholds so the Hugo site does no
   - [ ] Accessibility ≥ 90 (median of three runs) for all sampled templates
   - [ ] SEO ≥ 95 (median of three runs) for all sampled templates
   - [ ] Best Practices ≥ 90 (median of three runs) for all sampled templates
-  - [ ] Thresholds apply to: homepage, at least 1 representative post, at least 1 category page
+  - [ ] Thresholds apply to deterministic URLs from `validation/sample-matrix.json`: homepage, first sampled post, first sampled category page
 - [ ] Core Web Vitals targets are documented (field data evaluated when available; lab gates enforced at launch):
   - [ ] LCP ≤ 2.5 s (target; lab equivalent used when field data unavailable)
   - [ ] INP ≤ 200 ms (target; note: static Hugo sites have minimal JS interaction)
   - [ ] CLS ≤ 0.1 (target; especially relevant for image-heavy pages if dimensions not set)
+  - [ ] Field CWV uses p75 when data is available; it is tracked as readiness evidence and not used to override blocking lab gates at launch when field data is sparse
 - [ ] Performance budget baseline is defined and documented:
   - [ ] Critical-path transfer target: < 170 KB compressed for initial page load
   - [ ] Budget applies to homepage and article template at minimum

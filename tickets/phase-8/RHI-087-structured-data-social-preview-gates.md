@@ -32,10 +32,10 @@ Confirm that every page template emits well-formed, content-accurate structured 
   - [ ] All string values passed through Hugo's `jsonify` function (no raw unescaped HTML in JSON-LD)
   - [ ] Schema values match visible page content (headline matches `<h1>`, image URL resolves)
 - [ ] Representative template URLs pass the Google Rich Results Test with no critical errors:
-  - [ ] Homepage
-  - [ ] At least 2 post/article pages
-  - [ ] At least 1 category page (if BreadcrumbList is emitted)
-  - [ ] At least 1 video page (if VideoObject is emitted)
+  - [ ] Homepage URL from `validation/sample-matrix.json`
+  - [ ] First 2 post/article URLs from `validation/sample-matrix.json` sorted by front matter `date` descending
+  - [ ] First category URL from `validation/sample-matrix.json` sorted by category slug alphabetically (if BreadcrumbList is emitted)
+  - [ ] First video URL from `validation/sample-matrix.json` (if `VideoObject` is in scope)
   - [ ] Rich Results Test results are documented with screenshots or export
 - [ ] Open Graph tags are present and correct on all pages in sample matrix:
   - [ ] `og:title` — present and matches `<title>`
@@ -79,10 +79,10 @@ Confirm that every page template emits well-formed, content-accurate structured 
   - [ ] Output `validation/social-preview-report.json`
   - [ ] Exit with non-zero code on blocking failures (missing `og:image` on priority pages; broken image URLs)
 - [ ] Run Google Rich Results Test manually on representative URLs:
-  - [ ] Homepage
-  - [ ] At least 2 post pages
-  - [ ] At least 1 category page
-  - [ ] At least 1 video page (if applicable)
+  - [ ] Homepage URL from `validation/sample-matrix.json`
+  - [ ] First 2 post URLs from `validation/sample-matrix.json` sorted by front matter `date` descending
+  - [ ] First category URL from `validation/sample-matrix.json` sorted by category slug alphabetically
+  - [ ] First video URL from `validation/sample-matrix.json` (if applicable)
   - [ ] Record results (screenshots or test result export) in `validation/rich-results-test-evidence/`
 - [ ] Run both structured data and social preview gate scripts against the RC build; archive reports as CI artifacts with 30-day retention
 - [ ] Update `.github/workflows/deploy-pages.yml`:

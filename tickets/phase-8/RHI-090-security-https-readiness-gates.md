@@ -157,5 +157,5 @@ Confirm that the production site posture is secure at launch: HTTPS is enforced 
 
 - GitHub Pages does not allow custom HTTP response header configuration at the origin. HSTS, CSP, and Referrer-Policy cannot be set through the repository or pages config. This is a known platform constraint. Document it; do not block launch on it for a static blog site.
 - Mixed content is the most common security regression in a WordPress-to-Hugo migration because WordPress sites often contain hardcoded HTTP media URLs in post bodies. Phase 4 should have cleaned these, but re-check every post in the sample matrix.
-- The custom domain verification TXT record should have been set in Phase 7. Confirm it is still active — GitHub periodically re-checks verification status and can disable custom domains if the TXT record is removed.
+- The custom domain verification TXT record should have been set in Phase 7. Confirm it is still active and retained to preserve domain verification and takeover protection.
 - Reference: `analysis/plan/details/phase-8.md` §Workstream G: Security and HTTPS Readiness Gates; https://docs.github.com/en/pages/getting-started-with-github-pages/securing-your-github-pages-site-with-https

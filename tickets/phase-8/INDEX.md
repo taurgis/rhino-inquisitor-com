@@ -75,6 +75,7 @@ RHI-082 (Phase 7 Sign-off)
 | Deliverable | Ticket | File Path |
 |-------------|--------|-----------|
 | RC record and freeze metadata | RHI-084 | `migration/phase-8-rc-record.md` |
+| Approver roster | RHI-083 | `migration/phase-8-approver-roster.md` |
 | Expected URL outcomes dataset | RHI-084 | `validation/expected-url-outcomes.json` |
 | Sample page matrix | RHI-084 | `validation/sample-matrix.json` |
 | Priority route set | RHI-084 | `validation/priority-routes.json` |
@@ -169,6 +170,23 @@ These constraints are hard requirements from `analysis/plan/details/phase-8.md` 
 8. **Zero critical axe accessibility violations on any representative template.**
 9. **Rollback drill completed with rollback initiation confirmed within 60 minutes.**
 10. **All required approvers have signed the go/no-go decision document** — no verbal approvals.
+
+---
+
+## Non-Negotiable Constraint Traceability
+
+| Constraint | Primary Verification Ticket(s) | Evidence Required |
+|------------|-------------------------------|-------------------|
+| URL parity gate passes for 100% of in-scope legacy URLs | RHI-085, RHI-091 | `validation/url-parity-report.json` + gate run URL |
+| Zero redirect chains on migration routes | RHI-085, RHI-091 | `validation/redirect-quality-report.json` showing zero chains/loops |
+| Zero canonical mismatches on priority routes | RHI-086, RHI-091 | `validation/seo-consistency-report.json` + sample matrix cross-check |
+| No accidental `noindex` on indexable pages | RHI-086, RHI-091 | `validation/seo-consistency-report.json` noindex findings section |
+| Required structured data schema types pass with no critical errors | RHI-087, RHI-091 | `validation/structured-data-report.json` + rich results evidence |
+| HTTPS enforced with valid cert and no critical mixed content | RHI-090, RHI-091 | `validation/https-security-report.json` + redirect/cert checks |
+| Lighthouse blocking thresholds pass on homepage and article template | RHI-088, RHI-091 | `validation/lhci-report/` + threshold assertions |
+| Zero critical axe accessibility violations on representative templates | RHI-089, RHI-091 | `validation/accessibility-axe-report.json` + manual checklist |
+| Rollback drill completed with rollback initiation within 60 minutes | RHI-091 | `migration/phase-8-rollback-drill-result.md` |
+| All required approvers sign go/no-go decision | RHI-083, RHI-091, RHI-092 | `migration/phase-8-approver-roster.md` + `migration/phase-8-go-nogo-decision.md` + `migration/phase-8-signoff.md` |
 
 ---
 

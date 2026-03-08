@@ -23,7 +23,7 @@ Launch with a measurable, documented accessibility baseline rather than aspirati
   - [ ] Zero `critical` severity axe violations on any sampled page
   - [ ] Zero `serious` severity axe violations on primary templates (homepage, article, category)
   - [ ] Any `moderate` violations are documented with owner and target resolution date
-  - [ ] axe checks cover: homepage, at least 5 post pages, at least 3 category pages, privacy page
+  - [ ] axe checks cover deterministic URLs from `validation/sample-matrix.json`: homepage, first 5 posts by front matter `date` descending (or all posts if fewer than 5), first 3 category slugs alphabetically (or all categories if fewer than 3), and privacy page
 - [ ] Manual WAI Easy Checks are completed and documented for all representative template types:
   - [ ] Page titles are descriptive and unique (confirmed, not just automated)
   - [ ] All images have meaningful, non-empty `alt` text (no `alt=""` on informational images)
@@ -159,7 +159,7 @@ Launch with a measurable, documented accessibility baseline rather than aspirati
 
 ### Notes
 
-- Automated axe checks detect approximately 30–40% of WCAG 2.2 AA issues. Manual checks (keyboard navigation, focus management, contrast) are not optional — they cover the gaps that automation cannot reliably detect.
+- Automated axe checks detect only a subset of WCAG issues. Manual checks (keyboard navigation, focus management, contrast) are not optional because they cover gaps that automation cannot reliably detect.
 - A formal WCAG conformance claim is only appropriate after a full WCAG-EM scoped evaluation. The outputs of this ticket establish a measurable baseline, not a conformance claim. Do not describe the site as "WCAG 2.2 AA conformant" based on these checks alone.
 - Missing `alt` text on images is the most common accessibility failure in migrated content and is also an SEO signal. If found, it must be fixed — not accepted — before launch.
 - Reference: `analysis/plan/details/phase-8.md` §Workstream F: Accessibility and Markup Conformance Gates; https://www.w3.org/WAI/test-evaluate/easy-checks/; https://www.w3.org/TR/WCAG22/

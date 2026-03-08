@@ -64,6 +64,7 @@ Phase 8 is the final technical control point before DNS cutover and public index
   - [ ] `validation/html-conformance-report.json`
   - [ ] `validation/https-security-report.json`
 - [ ] Migration owner, SEO owner, engineering owner, and DNS/operations owner are confirmed and available for Phase 8
+- [ ] `migration/phase-8-approver-roster.md` is committed with role-to-name mapping and backup contacts for migration owner, SEO owner, engineering owner, and DNS/operations owner
 - [ ] All Phase 8 workstream owners have read `analysis/plan/details/phase-8.md` and confirmed understanding
 - [ ] Go/no-go decision window is agreed (date, approvers, required present)
 - [ ] Phase 8 non-negotiable release gates reviewed with the full team:
@@ -89,6 +90,7 @@ Phase 8 is the final technical control point before DNS cutover and public index
 - [ ] Define and create `validation/` directory structure (empty files or README as placeholders)
 - [ ] Identify the release candidate commit SHA or branch; tag it as `phase-8-rc-v1`
 - [ ] Confirm Phase 8 team: migration owner, SEO owner, engineering owner, DNS/ops owner
+- [ ] Create `migration/phase-8-approver-roster.md` with primary and backup approvers by role
 - [ ] Share `analysis/plan/details/phase-8.md` with all workstream owners; request read confirmation
 - [ ] Review Phase 8 non-negotiable release gates with the full team; log confirmations in Progress Log
 - [ ] Set go/no-go decision window (target date, approver availability, meeting/async format)
@@ -178,5 +180,5 @@ Phase 8 is the final technical control point before DNS cutover and public index
 
 - Phase 8 is the final technical control point before DNS cutover and public indexing impact. A weak bootstrap here — skipping gate verification, missing tooling, or vague RC identification — propagates defects to the go/no-go decision and to live users.
 - The `phase-8-rc-v1` git tag is the immutable reference for the Phase 8 validation run. All workstreams must validate the same commit. If the RC is re-cut during Phase 8 due to a defect fix, the tag must be updated and all gates re-run from WS-A.
-- Phase 8 starts after deployment (Phase 7) is already operational. The live site may already be reachable. This means validation failures in Phase 8 have immediate real-world impact — treat every gate failure as a production incident.
+- Phase 8 starts after deployment (Phase 7) is already operational. Validation failures discovered in this phase are launch blockers and should be triaged with production-level urgency. If the production host is already serving Hugo traffic, treat failures as active production risk.
 - Reference: `analysis/plan/details/phase-8.md` §Phase Position and Dependencies, §Non-Negotiable Release Gates

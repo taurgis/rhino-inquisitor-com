@@ -14,13 +14,13 @@ Phase 7 converts the migration build output into production traffic serving. Thi
 6. Missing post-deploy verification can hide broken URLs, wrong canonicals, or incomplete redirects until search engines crawl.
 
 ## Phase Position and Dependencies
-From [main-plan.MD](main-plan.MD), Phase 7 setup starts after Phase 3, and launch cutover requires completed outputs from Phases 4, 5, and 6.
+From [main-plan.MD](../../../main-plan.MD), Phase 7 setup starts after Phase 3, and launch cutover requires completed outputs from Phases 4, 5, and 6.
 
 Phase 7 consumes:
-1. [plan/details/phase-3.md](plan/details/phase-3.md): Hugo scaffolding, template architecture, SEO partials, CI baseline.
-2. [plan/details/phase-4.md](plan/details/phase-4.md): migrated content, explicit URL fields, alias outputs, media paths.
-3. [plan/details/phase-5.md](plan/details/phase-5.md): canonical/metadata rules, sitemap/robots policy, schema requirements.
-4. [plan/details/phase-6.md](plan/details/phase-6.md): URL preservation map, redirect architecture decision, parity gate policy.
+1. [phase-3.md](phase-3.md): Hugo scaffolding, template architecture, SEO partials, CI baseline.
+2. [phase-4.md](phase-4.md): migrated content, explicit URL fields, alias outputs, media paths.
+3. [phase-5.md](phase-5.md): canonical/metadata rules, sitemap/robots policy, schema requirements.
+4. [phase-6.md](phase-6.md): URL preservation map, redirect architecture decision, parity gate policy.
 
 Phase 7 enables:
 1. Phase 8 launch-readiness validation on live infrastructure.
@@ -79,7 +79,7 @@ Out of scope:
 Goal: produce deterministic, auditable deployments with minimal cutover risk.
 
 Required workflow file:
-1. [.github/workflows/deploy-pages.yml](.github/workflows/deploy-pages.yml) with jobs for build, artifact upload, and deploy.
+1. `.github/workflows/deploy-pages.yml` with jobs for build, artifact upload, and deploy.
 
 Required workflow characteristics:
 1. Trigger on pushes to protected release branch and manual dispatch.
@@ -291,8 +291,8 @@ Acceptance criteria:
 2. Mean time to rollback objective is documented and feasible.
 
 ## Deliverables Produced by Phase 7
-1. [plan/details/phase-7.md](plan/details/phase-7.md) final approved plan.
-2. [.github/workflows/deploy-pages.yml](.github/workflows/deploy-pages.yml) production workflow with protected environment.
+1. [phase-7.md](phase-7.md) final approved plan.
+2. `.github/workflows/deploy-pages.yml` production workflow with protected environment.
 3. DNS change record and rollback snapshot.
 4. Launch checklist and signed runbook.
 5. Deployment validation report bundle (gates + smoke tests + DNS/HTTPS checks).

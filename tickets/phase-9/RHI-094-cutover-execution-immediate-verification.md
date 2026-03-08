@@ -35,7 +35,13 @@ Success means the canonical host responds correctly, HTTPS is enforced, priority
 **T-0 execution:**
 - [ ] Release artifact deployed from `phase-8-rc-v1` tag via GitHub Actions
 - [ ] DNS A/CNAME records updated per Phase 7 runbook (`migration/phase-7-launch-runbook.md`)
-- [ ] DNS propagation verified from at least two independent resolvers (e.g., `dig` + external DNS checker)
+- [ ] DNS propagation verified using explicit public resolvers:
+  - [ ] `dig @1.1.1.1 www.rhino-inquisitor.com CNAME +short`
+  - [ ] `dig @8.8.8.8 www.rhino-inquisitor.com CNAME +short`
+  - [ ] `dig @1.1.1.1 rhino-inquisitor.com A +short`
+  - [ ] `dig @8.8.8.8 rhino-inquisitor.com A +short`
+  - [ ] `dig @1.1.1.1 rhino-inquisitor.com AAAA +short`
+  - [ ] `dig @8.8.8.8 rhino-inquisitor.com AAAA +short`
 - [ ] All changes and timestamps recorded in `monitoring/launch-cutover-log.md`
 
 **T+0h to T+6h verification:**
@@ -44,17 +50,17 @@ Success means the canonical host responds correctly, HTTPS is enforced, priority
 - [ ] Apex → www redirect confirmed: `https://rhino-inquisitor.com` → `https://www.rhino-inquisitor.com`
 - [ ] All URLs in the post-launch smoke test matrix return expected status codes:
   - [ ] Homepage (`/`)
-  - [ ] At least 3 recent article pages
+  - [ ] 3 most-recent published article pages (by front matter date)
   - [ ] Archive page (`/archive/`)
-  - [ ] At least 3 category pages
+  - [ ] First 3 alphabetical category pages with live content
   - [ ] Privacy policy page
-  - [ ] At least 5 high-value legacy inbound URLs
+  - [ ] At least 5 high-value legacy inbound URLs (highest-priority `critical`/`high` set from Phase 6 manifest)
 - [ ] Canonical tags on homepage and article template reference `https://www.rhino-inquisitor.com/...`
 - [ ] `sitemap.xml` is reachable at `https://www.rhino-inquisitor.com/sitemap.xml` and returns 200
 - [ ] `robots.txt` is reachable at `https://www.rhino-inquisitor.com/robots.txt` and `Sitemap:` directive is correct
 - [ ] No `noindex` leakage on indexable pages confirmed via Playwright smoke check
 - [ ] No critical mixed content on homepage and article templates
-- [ ] Priority redirect mappings resolve in a single hop with HTTP 301 status
+- [ ] Priority redirect mappings resolve in a single hop according to the configured implementation layer (`301/308` at edge/origin where implemented, alias/meta-refresh fallback for Pages-only paths)
 - [ ] No redirect chains or loops detected in priority routes
 - [ ] Sitemap submitted to Search Console (RHI-095 task, but submission triggered here)
 - [ ] `monitoring/launch-cutover-log.md` is updated with all decisions, timestamps, and operator names
@@ -66,7 +72,7 @@ Success means the canonical host responds correctly, HTTPS is enforced, priority
 
 **T-24h preparation:**
 - [ ] Confirm `phase-8-rc-v1` tag exists and no post-RC commits are on `main` that haven't been validated
-- [ ] Log into GitHub Pages settings and confirm custom domain is set to `www.rhino-inquisitor.com` with Enforce HTTPS enabled
+- [ ] Log into GitHub Pages settings and confirm custom domain is set to `www.rhino-inquisitor.com`; verify Enforce HTTPS status and record a 60-minute post-propagation decision checkpoint if it is not yet available
 - [ ] Confirm TLS certificate status; if in issuance, confirm expected completion time before T-0
 - [ ] Record DNS rollback snapshot: copy current DNS record values and TTLs to `monitoring/launch-cutover-log.md`
 - [ ] Lower DNS TTLs to 300s (5 minutes) if not already done — enables faster rollback
@@ -80,7 +86,7 @@ Success means the canonical host responds correctly, HTTPS is enforced, priority
 - [ ] Confirm deployment workflow completes successfully; record Actions run URL in cutover log
 - [ ] Update DNS A/CNAME records at provider per `migration/phase-7-launch-runbook.md`
 - [ ] Record DNS change timestamps and operator name in `monitoring/launch-cutover-log.md`
-- [ ] Wait for DNS propagation (check TTL; verify from multiple resolvers)
+- [ ] Wait for DNS propagation (check TTL; verify using `@1.1.1.1` and `@8.8.8.8` checks listed in acceptance criteria)
 
 **T+0h to T+6h verification loop:**
 - [ ] Run smoke test matrix against live host; record pass/fail per URL in `monitoring/launch-cutover-log.md`

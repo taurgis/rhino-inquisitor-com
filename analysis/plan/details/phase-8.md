@@ -14,13 +14,13 @@ Phase 8 is the final technical control point before DNS cutover and public index
 6. Post-launch monitoring is ineffective if baselines and ownership were not defined pre-launch.
 
 ## Phase Position and Dependencies
-From [main-plan.MD](main-plan.MD), Phase 8 depends on Phases 4, 5, 6, and 7.
+From [main-plan.MD](../../../main-plan.MD), Phase 8 depends on Phases 4, 5, 6, and 7.
 
 Phase 8 consumes:
-1. [plan/details/phase-4.md](plan/details/phase-4.md): migrated content integrity, media paths, front matter completeness.
-2. [plan/details/phase-5.md](plan/details/phase-5.md): SEO policy, canonical rules, schema requirements, crawl/index controls.
-3. [plan/details/phase-6.md](plan/details/phase-6.md): URL manifest outcomes (`keep`/`redirect`/`retire`) and redirect architecture decision.
-4. [plan/details/phase-7.md](plan/details/phase-7.md): GitHub Pages workflow, domain setup, HTTPS readiness, deployment runbook.
+1. [phase-4.md](phase-4.md): migrated content integrity, media paths, front matter completeness.
+2. [phase-5.md](phase-5.md): SEO policy, canonical rules, schema requirements, crawl/index controls.
+3. [phase-6.md](phase-6.md): URL manifest outcomes (`keep`/`redirect`/`retire`) and redirect architecture decision.
+4. [phase-7.md](phase-7.md): GitHub Pages workflow, domain setup, HTTPS readiness, deployment runbook.
 
 Phase 8 enables:
 1. Phase 9 cutover and stabilization with measurable baselines.
@@ -111,9 +111,9 @@ Tasks:
 2. Snapshot legacy URL manifest and expected outcomes (`keep`/`redirect`/`retire`).
 3. Define representative page sample matrix:
 3.1. homepage
-3.2. at least 10 recent posts
+3.2. the 10 most-recent published posts by front matter date (or all published posts if fewer than 10)
 3.3. archive page(s)
-3.4. at least 5 category pages
+3.4. the first 5 alphabetical category slugs with live pages
 3.5. privacy/legal pages
 3.6. video and landing templates if retained
 4. Define priority route set (top organic and top backlink URLs).
@@ -281,12 +281,13 @@ Go/No-Go protocol:
 
 Launch smoke tests (minimum set):
 1. homepage
-2. top 3 recent posts
+2. 3 most-recent published posts by front matter date (from `validation/sample-matrix.json`)
 3. archive
-4. top 3 category pages
+4. first 3 alphabetical category slugs with live pages (from `validation/sample-matrix.json`)
 5. privacy-policy
 6. selected high-backlink legacy routes and their expected outcomes
 7. Search Console monitoring setup confirms new and old-URL sitemap submissions via the Sitemaps report/API and transition monitoring (including expected redirect warnings on old-URL sitemap entries).
+8. URL selection method for each smoke-test bucket is recorded in `migration/phase-8-smoke-test-results.md`.
 
 ## CI Integration and Pipeline Placement
 Required stages (in order):
@@ -311,7 +312,7 @@ Branch policy:
 6. Phase 9 monitoring handoff package is complete.
 
 ## Deliverables Produced by Phase 8
-1. [plan/details/phase-8.md](plan/details/phase-8.md) approved plan.
+1. [phase-8.md](phase-8.md) approved plan.
 2. CI validation scripts and workflows for all mandatory gates.
 3. Validation artifact bundle (`validation/*`) from final RC, including:
 - `validation/url-parity-report.json`

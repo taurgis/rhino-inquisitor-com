@@ -24,7 +24,7 @@ The strategy must be designed, documented, and **dry-run validated before any DN
 - [ ] `migration/phase-7-dns-cutover-plan.md` is committed and contains:
   - [ ] Current DNS record inventory (from bootstrap DNS snapshot — RHI-073)
   - [ ] Exact target DNS record set for cutover:
-    - [ ] `www.rhino-inquisitor.com` CNAME pointing to `<owner>.github.io` (current expected value: `taurgis.github.io`; verify at execution time)
+    - [ ] `www.rhino-inquisitor.com` CNAME pointing to `<owner>.github.io` (verify the exact owner host at execution time)
     - [ ] Apex `rhino-inquisitor.com` A records pointing to GitHub Pages IP addresses (185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153)
     - [ ] Apex `rhino-inquisitor.com` AAAA records pointing to GitHub Pages IPv6 addresses
     - [ ] No conflicting wildcard records or stale A records for `www`
@@ -36,13 +36,13 @@ The strategy must be designed, documented, and **dry-run validated before any DN
   - [ ] Two independent public resolver checks are defined explicitly using Cloudflare (`@1.1.1.1`) and Google (`@8.8.8.8`)
 - [ ] GitHub Pages settings are prepared before any DNS change:
   - [ ] Custom domain `www.rhino-inquisitor.com` is entered in repository Settings → Pages
-  - [ ] Pages settings show custom domain check as healthy (green DNS check indicator)
+  - [ ] Pages settings show no blocking custom-domain validation errors before cutover
   - [ ] Domain verification TXT record is confirmed in place in the DNS zone
 - [ ] DNS rollback snapshot is committed to `migration/phase-7-dns-snapshot.md` (from RHI-073 bootstrap or updated here)
 - [ ] T-24-hour pre-cutover checklist is documented in `migration/phase-7-dns-cutover-plan.md`:
   - [ ] Lower DNS TTL on all affected records
   - [ ] Re-run release candidate CI to confirm all gates pass on final content snapshot
-  - [ ] Confirm custom domain is set in Pages settings and showing healthy
+  - [ ] Confirm custom domain is set in Pages settings and no blocking validation errors are present
   - [ ] Confirm domain verification TXT is in place
   - [ ] Confirm Pages deployment workflow is ready and tested (RHI-074 Done)
   - [ ] Confirm incident commander, deployment operator, and DNS operator are available
@@ -168,7 +168,7 @@ The strategy must be designed, documented, and **dry-run validated before any DN
 ### Notes
 
 - **Always configure the custom domain in GitHub Pages settings before changing DNS records.** If DNS points to Pages before the custom domain is configured, any GitHub user could temporarily claim the domain by creating a repository with the same custom domain. The domain verification TXT record reduces but does not eliminate this window.
-- The correct `www` CNAME target is `taurgis.github.io` — this is the GitHub account/organization `<owner>.github.io` hostname, NOT a repository-specific URL. Do not include the repository name in the CNAME target.
-- Do not point `www` CNAME at the apex domain (`rhino-inquisitor.com`). Always point the CNAME directly at `taurgis.github.io`. Pointing `www` at the apex creates a CNAME loop if the apex also resolves through CNAME.
+- The correct `www` CNAME target is the account/organization `<owner>.github.io` hostname, NOT a repository-specific URL. Do not include the repository name in the CNAME target.
+- Do not point `www` CNAME at the apex domain (`rhino-inquisitor.com`). Always point the CNAME directly at `<owner>.github.io`. Pointing `www` at the apex creates a CNAME loop if the apex also resolves through CNAME.
 - The domain verification TXT record (`_github-pages-challenge-<owner>`) must stay in the DNS zone indefinitely after domain verification. Removing it revokes GitHub's claim on the domain and opens a takeover window.
 - Reference: `analysis/plan/details/phase-7.md` §Workstream C: Domain and DNS Cutover Strategy; GitHub custom domain docs: https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site

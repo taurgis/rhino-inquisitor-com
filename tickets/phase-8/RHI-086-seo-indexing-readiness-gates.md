@@ -26,7 +26,7 @@ Verify that every indexable page has correct, self-consistent SEO signals — ca
   - [ ] Canonical and sitemap `<loc>` entries agree for every URL in `validation/sample-matrix.json`
   - [ ] No canonical tag points to a `github.io` or staging URL
 - [ ] Sitemap integrity:
-  - [ ] `sitemap.xml` is reachable at `https://www.rhino-inquisitor.com/sitemap.xml` (or equivalent path)
+  - [ ] Canonical sitemap endpoint is reachable at `https://www.rhino-inquisitor.com/sitemap.xml` or `https://www.rhino-inquisitor.com/sitemap_index.xml` (depending on configuration)
   - [ ] All `<loc>` elements in the sitemap use absolute HTTPS `www.rhino-inquisitor.com` URLs
   - [ ] Sitemap does not include Hugo alias/redirect helper pages
   - [ ] Sitemap passes protocol constraints: UTF-8 encoding, fully qualified URLs, under 50 MB uncompressed or 50,000 URLs per file
@@ -38,7 +38,7 @@ Verify that every indexable page has correct, self-consistent SEO signals — ca
   - [ ] If staging/preview environments exist, they use `<meta name="robots" content="noindex">` — not relying solely on `robots.txt Disallow`
 - [ ] Noindex / indexability controls:
   - [ ] No accidental `noindex` on pages intended to be indexed (every page in sample matrix verified)
-  - [ ] No `robots` meta tag on pages that are intended to be crawled and indexed
+  - [ ] No restrictive robots directives (`noindex` or `nofollow`) on pages intended to be crawled and indexed
   - [ ] Pages that should be de-indexed (draft, staging, utility pages) have both `noindex` and remain crawlable so the directive is seen
 - [ ] Metadata completeness:
   - [ ] Every page in the sample matrix has a unique `<title>` tag (≤ 60 chars recommended)
@@ -66,10 +66,10 @@ Verify that every indexable page has correct, self-consistent SEO signals — ca
   - [ ] Output `validation/seo-consistency-report.json`
   - [ ] Exit with non-zero code on blocking failures (canonical mismatch on priority URLs, missing title/description on any sampled page)
 - [ ] Create or update `scripts/phase-8/check-robots-sitemap.js`:
-  - [ ] Parse `public/sitemap.xml` (and index file if present):
+  - [ ] Parse generated sitemap output (`public/sitemap.xml` or `public/sitemap_index.xml`):
     - [ ] Count total `<loc>` entries
     - [ ] Verify all `<loc>` values are absolute HTTPS `www.rhino-inquisitor.com` URLs
-    - [ ] Check file size and URL count against GitHub Pages sitemap constraints
+    - [ ] Check file size and URL count against Google sitemap protocol constraints
     - [ ] Check UTF-8 encoding and `<lastmod>` ISO 8601 format
     - [ ] Verify no alias/redirect pages appear in the sitemap
   - [ ] Parse `public/robots.txt` if present:

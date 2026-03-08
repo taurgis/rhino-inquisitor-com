@@ -45,7 +45,7 @@ Out of scope:
 ## Non-Negotiable Stabilization Constraints (Operational Blockers)
 1. Canonical production host remains locked to `https://www.rhino-inquisitor.com` for the full stabilization window.
 2. Search Console property ownership and access must be active before cutover starts.
-3. If this migration is host/platform-only with no user-visible URL changes, follow the site-move-no-URL-changes checklist and do not use Change of Address.
+3. Do not use Search Console Change of Address unless the registered domain itself changes; this migration keeps the same canonical domain and may include path-level redirects.
 4. Sitemap submitted on launch day must contain only final canonical URLs.
 5. Redirect policy from Phase 6 is enforceable in production for all priority legacy URLs.
 6. Any critical URL returning unintended `404`, `5xx`, or redirect loop is launch-day Sev-1.
@@ -54,7 +54,7 @@ Out of scope:
 9. Rollback and hotfix operators are assigned by name before T-0.
 10. Redirect retention for moved URLs is maintained for as long as possible, generally at least 12 months.
 11. Incident timeline, decisions, and remediations must be logged for every Sev-1/Sev-2 event.
-12. Previous WordPress production stack remains rollback-ready through at least stabilization Week 2, and preferred through Week 6.
+12. Previous WordPress production stack remains rollback-ready through stabilization Week 6 by default; any shorter window requires explicit risk acceptance and can never be shorter than Week 2.
 
 ## Fixed Operational Thresholds
 1. Sev-1 route-failure trigger:
@@ -126,8 +126,8 @@ T-24h checklist:
 T-0 sequence:
 1. Deploy approved artifact.
 2. Apply DNS changes per Phase 7 runbook.
-3. Verify DNS from at least two independent resolvers.
-4. Validate homepage, sample posts, archive, category pages, privacy page, and high-value legacy inbound URLs.
+3. Verify DNS using explicit independent resolvers: Cloudflare (`@1.1.1.1`) and Google (`@8.8.8.8`) for `www` CNAME and apex A/AAAA records.
+4. Validate homepage, three most-recent published posts, archive, first three alphabetical category pages, privacy page, and highest-priority legacy inbound URLs.
 5. Validate canonical tags and sitemap on live host.
 6. Submit sitemap in Search Console.
 
@@ -176,7 +176,7 @@ Operational thresholds:
 Goal: preserve link equity and user continuity while minimizing redirect debt.
 
 Mandatory policy:
-1. Moved URLs resolve to closest equivalent destination.
+1. Moved URLs resolve to closest equivalent destination using the configured implementation layer (`301/308` when edge/origin supports it, alias/meta-refresh fallback when running Pages-only).
 2. Deleted content returns intended not-found behavior (`404`/`410` where supported).
 3. Redirect chains are actively reduced; no loops tolerated.
 4. Redirect records for moved URLs are retained for as long as possible, generally at least 12 months.

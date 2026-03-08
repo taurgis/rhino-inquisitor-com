@@ -27,13 +27,13 @@ This workstream produces no new features or configuration — it is a validation
   - [ ] No canonical tag uses the apex host without `www` (`https://rhino-inquisitor.com/...`)
   - [ ] Verified on: homepage, three most-recent published posts by front matter date, one category page selected from the first alphabetical category slug, and one archive page
   - [ ] Sampling method and selected URLs are recorded in `migration/phase-7-seo-safety-report.md` for reproducibility
-- [ ] Sitemap (`public/sitemap.xml`) uses canonical host exclusively:
+- [ ] Sitemap output (`public/sitemap.xml` or `public/sitemap_index.xml`, depending on configured generator) uses canonical host exclusively:
   - [ ] All `<loc>` elements start with `https://www.rhino-inquisitor.com/`
   - [ ] No `github.io` URLs in sitemap
   - [ ] No HTTP URLs in sitemap
   - [ ] No redirected source paths (legacy URLs from Phase 6 redirect map) appear in sitemap
 - [ ] `public/robots.txt` references the canonical sitemap URL:
-  - [ ] `Sitemap: https://www.rhino-inquisitor.com/sitemap.xml` is present
+  - [ ] `Sitemap:` directive points to the configured canonical sitemap endpoint (`/sitemap.xml` or `/sitemap_index.xml`)
   - [ ] No staging-blocking `Disallow: /` directive present
   - [ ] `User-agent: *` with correct allow rules present
 - [ ] No `noindex` directive leakage from staging environments:
@@ -71,12 +71,12 @@ This workstream produces no new features or configuration — it is a validation
   - [ ] Search `public/` for any canonical tags with `http://`: `grep -r 'canonical.*http://' public/ --include="*.html" -l`
   - [ ] Fix any violations in SEO partials (RHI-024 outputs)
 - [ ] Audit sitemap:
-  - [ ] Parse `public/sitemap.xml` and check all `<loc>` values
+  - [ ] Parse the generated sitemap file (`public/sitemap.xml` or `public/sitemap_index.xml`) and check all `<loc>` values
   - [ ] Confirm all use `https://www.rhino-inquisitor.com/` prefix
   - [ ] Cross-check Phase 6 redirect source URLs against sitemap — none should appear
 - [ ] Audit `robots.txt`:
   - [ ] Open `public/robots.txt`
-  - [ ] Confirm `Sitemap:` directive points to `https://www.rhino-inquisitor.com/sitemap.xml`
+  - [ ] Confirm `Sitemap:` directive points to the configured canonical sitemap endpoint
   - [ ] Confirm no `Disallow: /` or similar crawl-blocking directives are present
 - [ ] Audit for `noindex` leakage:
   - [ ] `grep -r 'noindex' public/ --include="*.html" -l`
@@ -179,6 +179,6 @@ This workstream produces no new features or configuration — it is a validation
 
 - The canonical host check must run against the deployed Pages artifact, not just the local Hugo build. The Pages base URL injection (`actions/configure-pages` step providing `${{ steps.pages.outputs.base_url }}`) is what ensures the correct canonical host is embedded — a local build with a different `baseURL` may produce different canonical values. Always use `workflow_dispatch` to trigger a real deploy and inspect the live artifact.
 - No production page that is meant to be indexed should have `<meta name="robots" content="noindex">`. The only exception is the 404 page. The staging `noindex` pattern (sometimes applied in Phase 7 pre-launch staging builds) must be removed before the release candidate build.
-- The robots.txt Sitemap declaration must match exactly: `Sitemap: https://www.rhino-inquisitor.com/sitemap.xml`. Any deviation (wrong host, HTTP instead of HTTPS, missing trailing `/`, wrong path) is a crawlability defect.
+- The robots.txt Sitemap declaration must point to the configured canonical sitemap endpoint on `https://www.rhino-inquisitor.com` (for example, `/sitemap.xml` or `/sitemap_index.xml`). A wrong host, wrong protocol, or missing canonical endpoint is a crawlability defect.
 - The feed endpoint (`/index.xml`) continuity check is important for RSS subscribers. If the feed URL changed during migration, subscribers lose their feed. Verify the feed URL maps to the same path as the WordPress feed or that a redirect is in place.
 - Reference: `analysis/plan/details/phase-7.md` §Workstream E: SEO-Safe Deployment and Host Consolidation; Google canonical guidance: https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls

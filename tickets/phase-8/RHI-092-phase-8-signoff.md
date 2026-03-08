@@ -33,7 +33,7 @@ Any unresolved blocking gate failure or outstanding exception must be fixed or e
   - [ ] RHI-091 Done — Operational readiness, rehearsal, and Go/No-Go complete
 - [ ] Go/No-Go decision is recorded as Go:
   - [ ] `migration/phase-8-go-nogo-decision.md` is committed
-  - [ ] All required approvers (migration owner, SEO owner, engineering owner, DNS/operations owner) have signed with names and dates
+  - [ ] All required approvers from `migration/phase-8-approver-roster.md` (migration owner, SEO owner, engineering owner, DNS/operations owner) have signed with names and dates
   - [ ] All blocking gate failures are resolved
   - [ ] Any accepted warnings/exceptions are listed with owners and target resolution phase
 - [ ] `LAUNCH-GATE-PASS-SUMMARY.md` is committed and reviewed
@@ -72,6 +72,7 @@ Any unresolved blocking gate failure or outstanding exception must be fixed or e
 
 - [ ] Confirm all Phase 8 workstream tickets (RHI-083 through RHI-091) are `Done`
 - [ ] Verify the Go/No-Go decision in `migration/phase-8-go-nogo-decision.md` is Go with all approvals recorded
+- [ ] Verify approvals match `migration/phase-8-approver-roster.md`
 - [ ] Verify all Phase 8 validation artifacts are committed to `validation/` and retrievable from CI artifact storage
 - [ ] Draft `migration/phase-8-signoff.md`:
   - [ ] Table of workstream outcomes with ticket IDs and deliverable paths

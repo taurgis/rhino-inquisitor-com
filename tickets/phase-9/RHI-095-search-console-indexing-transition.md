@@ -78,7 +78,7 @@ Indexing changes are not instantaneous; ranking and coverage volatility is expec
 - [ ] Append weekly findings to `monitoring/search-console-indexing-report.md`
 
 **Ongoing hygiene:**
-- [ ] Do not use Change of Address tool — this is a platform-only migration with no URL scheme change; Change of Address is for domain-level moves only
+- [ ] Do not use Change of Address tool unless the registered domain changes; host/platform moves and path-level redirects do not qualify
 - [ ] Do not use Request Indexing as a substitute for sitemap-driven broad discovery — use it only for a small critical set (homepage + highest-value articles)
 - [ ] Monitor Search Console API quota usage if automation is active; do not exceed URL Inspection limits
 
@@ -158,5 +158,5 @@ Indexing changes are not instantaneous; ranking and coverage volatility is expec
 - Sitemap submission accelerates discovery but does not guarantee indexing timing. Do not interpret a 0% indexed rate on day 1 as a defect — assess by trend over the 6-week window.
 - The Page Indexing report is the primary bulk signal source for indexed/excluded direction. URL Inspection is per-URL and quota-limited; use it surgically for priority URLs only.
 - Search Console data lags by up to a few days. Compare week-over-week trends to identify systemic issues, not daily snapshots.
-- Do not use the Change of Address tool. This migration does not change URL paths or domain; it is a platform/hosting change only. Incorrect use of Change of Address creates irreversible signals in Google Search that are very difficult to undo.
+- Do not use the Change of Address tool unless the registered domain changes. This migration keeps the same canonical domain; path-level redirects and hosting moves are outside Change of Address scope.
 - Reference: `analysis/plan/details/phase-9.md` §Workstream B: Search Console Activation and Indexing Transition, §SEO Implications and Best-Practice Enforcement

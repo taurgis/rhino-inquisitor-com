@@ -51,18 +51,18 @@ Execute the full pre-launch rehearsal — running every gate suite against the R
 - [ ] Pre-launch rehearsal is complete:
   - [ ] RC artifact deployed through the production workflow (`workflow_dispatch` or release branch push)
   - [ ] All gate reports generated from the deployed RC
-  - [ ] Smoke tests executed against the production-like deployment (see smoke test list below)
+  - [ ] Smoke tests executed against the production-like deployment using deterministic URL selection from `validation/sample-matrix.json` and `validation/priority-routes.json`
   - [ ] Smoke test results recorded in `migration/phase-8-smoke-test-results.md`
 - [ ] Smoke tests pass (minimum set):
   - [ ] Homepage: HTTP 200, correct canonical, correct title
-  - [ ] Top 3 recent post URLs: HTTP 200
-  - [ ] Top 3 category pages: HTTP 200
+  - [ ] Top 3 post URLs from the deterministic sample matrix (most-recent by front matter date): HTTP 200
+  - [ ] Top 3 category pages from the deterministic sample matrix (alphabetical slug order): HTTP 200
   - [ ] Archive page: HTTP 200 or correct redirect
   - [ ] Privacy policy: HTTP 200
-  - [ ] At least 5 priority legacy redirect URLs: correct HTTP 301 to expected target
-  - [ ] `sitemap.xml`: HTTP 200, correct canonical host in `<loc>` elements, parseable XML
+  - [ ] Top 5 priority legacy redirect URLs from `validation/priority-routes.json`: expected permanent redirect outcome (301/308) to expected target in one hop
+  - [ ] Canonical sitemap endpoint (`/sitemap.xml` or `/sitemap_index.xml`, per configuration): HTTP 200, correct canonical host in `<loc>` elements, parseable XML
   - [ ] `robots.txt`: HTTP 200, correct `Sitemap:` directive
-  - [ ] RSS feed (if applicable): HTTP 200, parseable XML
+  - [ ] Feed endpoint documented in `validation/robots-sitemap-report.json` (for example `/index.xml` or `/feed/`) is reachable and parseable XML when feed output is enabled
 - [ ] Rollback drill is executed and timed:
   - [ ] Rollback initiated from the Phase 7 rollback runbook (`migration/phase-7-rollback-runbook.md`)
   - [ ] WordPress site is confirmed accessible (or equivalent rollback state)
@@ -70,10 +70,11 @@ Execute the full pre-launch rehearsal — running every gate suite against the R
   - [ ] Rollback drill result is committed to `migration/phase-8-rollback-drill-result.md`
 - [ ] Exception register compiled:
   - [ ] All accepted deviations from the Phase 8 gate requirements are listed with: gate name, deviation description, owner, risk level, and target resolution phase
+  - [ ] Risk levels use explicit severity classes: `blocking`, `warning`, `accepted`
   - [ ] No unresolved blocking gate failure is carried to the go/no-go decision
   - [ ] Exception register committed to `migration/phase-8-exception-register.md`
 - [ ] Go/No-Go decision is made and recorded:
-  - [ ] All required approvers sign off: migration owner, SEO owner, engineering owner, DNS/operations owner
+  - [ ] All required approvers from `migration/phase-8-approver-roster.md` sign off: migration owner, SEO owner, engineering owner, DNS/operations owner
   - [ ] Written risk acceptance is recorded for any warning-level issue carried into launch
   - [ ] If any blocking gate is unresolved, decision is explicit No-Go with documented blockers
   - [ ] Go/No-Go decision committed to `migration/phase-8-go-nogo-decision.md`
@@ -107,6 +108,7 @@ Execute the full pre-launch rehearsal — running every gate suite against the R
   - [ ] Run all gate scripts against the deployed URLs (not just the local `public/` directory)
 - [ ] Execute smoke tests against the deployed environment:
   - [ ] Use `playwright` or `curl` to verify each smoke test URL
+  - [ ] Use deterministic URL ordering from `validation/sample-matrix.json` and `validation/priority-routes.json`; record the exact URLs tested
   - [ ] Record HTTP status codes, redirect chains, canonical, and title for each URL
   - [ ] Commit results to `migration/phase-8-smoke-test-results.md`
 - [ ] Execute rollback drill:
@@ -116,7 +118,7 @@ Execute the full pre-launch rehearsal — running every gate suite against the R
   - [ ] Commit drill result to `migration/phase-8-rollback-drill-result.md`
 - [ ] Compile exception register:
   - [ ] Review all warnings and deviations from WS-B through WS-G workstream reports
-  - [ ] For each accepted deviation: document risk, owner, and resolution phase
+  - [ ] For each accepted deviation: document severity (`blocking`, `warning`, `accepted`), owner, and resolution phase
   - [ ] Commit to `migration/phase-8-exception-register.md`
 - [ ] Draft `LAUNCH-GATE-PASS-SUMMARY.md`:
   - [ ] One row per gate with all required fields
@@ -129,6 +131,7 @@ Execute the full pre-launch rehearsal — running every gate suite against the R
   - [ ] Confirm rollback runbook path and rollback window timeline
   - [ ] List Search Console actions for Phase 9 (sitemap submission, URL inspection, monitoring dashboards)
 - [ ] Convene Go/No-Go meeting with all required approvers:
+  - [ ] Confirm approver list against `migration/phase-8-approver-roster.md`
   - [ ] Present gate pass summary and exception register
   - [ ] Record each approver's decision and sign-off statement
   - [ ] If Go: proceed to Phase 9; if No-Go: document blockers and resolution plan

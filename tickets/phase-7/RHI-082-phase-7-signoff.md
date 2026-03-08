@@ -47,7 +47,7 @@ This sign-off is the authoritative record of the deployment state at the point o
   - [ ] Archive page (HTTP 200 or correct redirect)
   - [ ] Privacy policy (HTTP 200)
   - [ ] At least one top legacy redirect (correct redirect outcome)
-  - [ ] `sitemap.xml` (HTTP 200, correct canonical host in `<loc>` elements)
+  - [ ] Canonical sitemap endpoint (`/sitemap.xml` or `/sitemap_index.xml`, per configuration) (HTTP 200, correct canonical host in `<loc>` elements)
   - [ ] `robots.txt` (HTTP 200, correct `Sitemap:` directive)
 - [ ] All Phase 7 CI gates pass on the live release commit:
   - [ ] `npm run validate:frontmatter` exits with code 0

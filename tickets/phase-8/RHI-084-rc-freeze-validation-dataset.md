@@ -31,23 +31,30 @@ Lock the release candidate inputs so that all Phase 8 validation results are mea
   - [ ] Dataset is committed as `validation/expected-url-outcomes.json`
 - [ ] Representative page sample matrix is defined and committed to `validation/sample-matrix.json`:
   - [ ] Homepage (`/`)
-  - [ ] At least 10 recent post URLs (explicit list)
+  - [ ] 10 most-recent published post URLs by front matter `date` descending (or all posts if fewer than 10)
   - [ ] Archive page(s) URL(s)
-  - [ ] At least 5 category page URLs (explicit list)
+  - [ ] First 5 alphabetical category slugs with live pages (or all categories if fewer than 5)
   - [ ] Privacy/legal page URL(s)
   - [ ] Video template URL(s) if retained in scope
   - [ ] Landing page template URL(s) if retained in scope
-  - [ ] Every template family present in the Hugo build is represented by at least one URL
+  - [ ] Every template family present in the Hugo build is represented by one or more URLs, with selection method recorded in `validation/README.md`
 - [ ] Priority route set is defined and committed to `validation/priority-routes.json`:
-  - [ ] Top organic-traffic URLs (from Search Console data in `migration/phase-1-seo-baseline.md`)
-  - [ ] Top backlink URLs (from baseline external link report)
+  - [ ] Top 20 organic-traffic URLs (from Search Console data in `migration/phase-1-seo-baseline.md`)
+  - [ ] Top 20 backlink URLs (from baseline external link report)
   - [ ] Explicitly covers all URL classes: `post`, `page`, `category`, `video`, `landing`, `system`
   - [ ] Priority routes are annotated with expected outcome (`keep`, `redirect`, `retire`)
+  - [ ] Selection and ranking method is documented (source metric, sort order, tie-breaker)
+- [ ] RC toolchain versions are frozen in `migration/phase-8-rc-record.md`:
+  - [ ] `hugo version` output recorded
+  - [ ] `@lhci/cli` version recorded
+  - [ ] `@axe-core/playwright` version recorded
+  - [ ] `html-validate` version recorded
+  - [ ] `lighthouserc.js` checksum or commit reference recorded
 - [ ] Hugo production build of the RC commit succeeds with zero errors:
   - [ ] `hugo --gc --minify --environment production` exits 0 on the RC commit
   - [ ] Build output is confirmed at `./public` with a top-level `index.html`
   - [ ] Build output size is within GitHub Pages limits (< 1 GB)
-  - [ ] Build duration is documented (must complete within the 10-minute Pages deploy time budget)
+  - [ ] Build and publish timings are documented; if end-to-end Pages publication exceeds platform timeout expectations, launch is blocked until resolved
 - [ ] Validation dataset schema is documented in `validation/README.md`:
   - [ ] Schema for `expected-url-outcomes.json`
   - [ ] Schema for `sample-matrix.json`
@@ -64,6 +71,8 @@ Lock the release candidate inputs so that all Phase 8 validation results are mea
   - [ ] Date and time of freeze
   - [ ] Name of person who froze it
   - [ ] Hugo version used for the RC build
+  - [ ] Lighthouse, axe-core, and html-validate versions used for RC validation
+  - [ ] `lighthouserc.js` checksum or commit reference
   - [ ] Link to the Actions run that validated the Phase 7 gates
 - [ ] Derive expected URL outcomes dataset from `migration/url-manifest.json`:
   - [ ] Iterate all manifest entries
@@ -78,15 +87,16 @@ Lock the release candidate inputs so that all Phase 8 validation results are mea
   - [ ] Run `npm run validate:artifact` to confirm no symlinks or structure violations
 - [ ] Define representative page sample matrix:
   - [ ] Extract homepage URL
-  - [ ] Select at least 10 recent post URLs from the generated sitemap
+  - [ ] Select 10 most-recent posts by front matter `date` descending (or all posts if fewer than 10)
   - [ ] Identify archive page URL(s) from the Hugo output
-  - [ ] Select at least 5 category page URLs
+  - [ ] Select first 5 alphabetical category slugs with live pages (or all categories if fewer than 5)
   - [ ] Confirm privacy/legal URL(s)
   - [ ] Identify any video or landing templates and include at least one URL of each
   - [ ] Commit as `validation/sample-matrix.json`
 - [ ] Define priority route set:
-  - [ ] Cross-reference Search Console data from `migration/phase-1-seo-baseline.md` for top organic URLs
-  - [ ] Cross-reference external link data from SEO baseline for top backlink URLs
+  - [ ] Cross-reference Search Console data from `migration/phase-1-seo-baseline.md` for top 20 organic URLs
+  - [ ] Cross-reference external link data from SEO baseline for top 20 backlink URLs
+  - [ ] Document ranking method and tie-breaker in `validation/README.md`
   - [ ] Annotate each URL with URL class and expected outcome
   - [ ] Commit as `validation/priority-routes.json`
 - [ ] Draft `validation/README.md` with dataset schema and consumption instructions

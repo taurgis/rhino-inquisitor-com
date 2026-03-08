@@ -59,10 +59,10 @@ Keep the domain and transport security posture stable throughout the cutover and
 
 **Launch-day security checks:**
 - [ ] Verify TLS certificate in browser and via `curl -I https://www.rhino-inquisitor.com`
-- [ ] Confirm Enforce HTTPS is enabled in GitHub Pages repository settings
+- [ ] Confirm Enforce HTTPS status in GitHub Pages repository settings; if unavailable after DNS propagation, follow incident decision flow at the 60-minute checkpoint
 - [ ] Verify domain verification TXT record is present: `dig TXT _github-pages-challenge-taurgis.rhino-inquisitor.com`
 - [ ] Run mixed-content check on homepage and article template using browser DevTools Security tab
-- [ ] Check DNS for wildcard records: `dig *.rhino-inquisitor.com`; confirm none present
+- [ ] Check DNS for wildcard records via DNS provider zone review; additionally verify random-subdomain queries return no catch-all answer on both `@1.1.1.1` and `@8.8.8.8`
 - [ ] Record all launch-day security outcomes in `monitoring/security-domain-report.json`
 
 **Daily week-1 security checks:**
@@ -118,7 +118,7 @@ Keep the domain and transport security posture stable throughout the cutover and
 | Domain verification TXT record removed during DNS cleanup | Low | High | Include TXT record verification in DNS change review; document that this record must not be removed | DNS Operator |
 | Mixed content introduced by a new embedded video or social post in article content | Medium | Medium | Include mixed-content check in content review process during stabilization; automate where possible | Engineering Owner |
 | Monitoring script frequency causes `429` responses from GitHub Pages CDN | Low | Medium | Rate-limit synthetic checks; ensure check frequency does not exceed 1 request per 30 seconds per URL | Engineering Owner |
-| Wildcard DNS record created by mistake during DNS configuration | Low | High | DNS changes require review; `dig *.rhino-inquisitor.com` check added to post-change verification | DNS Operator |
+| Wildcard DNS record created by mistake during DNS configuration | Low | High | DNS changes require provider-zone review plus random-subdomain resolution checks on `@1.1.1.1` and `@8.8.8.8` | DNS Operator |
 | HTTPS is not enforced immediately after domain change (issuance delay) | Low | High | Pre-confirm TLS cert status at T-24h; if cert not ready, delay T-0 | DNS Operator |
 
 ---
@@ -157,7 +157,7 @@ Keep the domain and transport security posture stable throughout the cutover and
 
 ### Notes
 
-- GitHub Pages auto-manages TLS via Let's Encrypt but certificate renewal depends on the custom domain remaining correctly configured. If Enforce HTTPS is disabled or the domain verification TXT record is removed, certificate renewal can silently fail.
+- GitHub Pages auto-manages TLS via Let's Encrypt. Keep custom-domain and DNS records correctly configured and track Enforce HTTPS status during cutover because issuance/availability can lag after DNS changes.
 - Mixed content on GitHub Pages is most commonly introduced by content embeds (YouTube iframes, Twitter embeds, or image references from HTTP URLs in Markdown). Content editors must understand that all embedded resources must reference HTTPS URLs.
 - GitHub Pages cannot serve arbitrary security headers (no `Content-Security-Policy`, `X-Frame-Options`, etc.) at the origin level. This is a known constraint documented in Phase 8. If CSP is required, an edge/CDN layer is mandatory.
 - Reference: `analysis/plan/details/phase-9.md` §Workstream G: Security and Domain Posture Monitoring
