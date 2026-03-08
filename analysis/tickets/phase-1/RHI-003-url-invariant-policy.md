@@ -1,6 +1,6 @@
 ## RHI-003 · Canonical and URL Invariant Policy
 
-**Status:** In Progress  
+**Status:** Done  
 **Priority:** Critical  
 **Estimate:** M  
 **Phase:** 1  
@@ -21,14 +21,14 @@ Without this policy approved before classification begins, conflicting decisions
 
 ### Acceptance Criteria
 
-- [ ] Host policy documented and approved: `www.rhino-inquisitor.com` is the canonical host; apex (`rhino-inquisitor.com`) redirects to `www`
+- [x] Host policy documented and approved: `www.rhino-inquisitor.com` is the canonical host; apex (`rhino-inquisitor.com`) redirects to `www`
 - [x] Trailing slash policy documented: one indexable canonical variant per route; slash variant chosen and documented
 - [x] Case policy documented: all generated and internal URLs are lowercase; legacy case redirects documented where required
 - [x] Query parameter policy documented: tracking parameters excluded from canonical; filter parameters that produce crawlable duplicates are addressed
 - [x] Canonical tag policy documented: all canonical tags resolve to final `https://www.rhino-inquisitor.com/...` URLs
 - [x] GitHub Pages hosting constraints acknowledged and documented: implementation layer confirmed for each policy item (`pages-static`, `edge-cdn`, `dns`, `none`)
 - [x] Policy document committed to `migration/url-class-matrix.json` with class-level defaults
-- [ ] Policy approved by migration owner and SEO owner (sign-off recorded in Progress Log or linked document)
+- [x] Policy approved by migration owner and SEO owner (sign-off recorded in Progress Log or linked document)
 - [x] Unresolved policy items that would block Phase 2 are listed as explicit blockers
 
 ---
@@ -60,19 +60,19 @@ Without this policy approved before classification begins, conflicting decisions
 
 Use this checklist during policy review with Migration Owner and SEO Owner.
 
-- [ ] Host policy accepted (`www` canonical; apex strategy approved)
-- [ ] Trailing slash policy accepted (single canonical route variant)
-- [ ] Case policy accepted (lowercase generation and legacy handling)
-- [ ] Query parameter policy accepted (tracking/search/pagination treatment)
-- [ ] Canonical tag policy accepted (absolute `https://www` canonical URLs)
-- [ ] Implementation layer mapping accepted (`pages-static` / `edge-cdn` / `dns` / `none`)
-- [ ] Phase 2 blockers acknowledged and owners assigned
-- [ ] RHI-004 is cleared to consume policy matrix defaults
+- [x] Host policy accepted (`www` canonical; apex strategy approved)
+- [x] Trailing slash policy accepted (single canonical route variant)
+- [x] Case policy accepted (lowercase generation and legacy handling)
+- [x] Query parameter policy accepted (tracking/search/pagination treatment)
+- [x] Canonical tag policy accepted (absolute `https://www` canonical URLs)
+- [x] Implementation layer mapping accepted (`pages-static` / `edge-cdn` / `dns` / `none`)
+- [x] Phase 2 blockers acknowledged and owners assigned
+- [x] RHI-004 is cleared to consume policy matrix defaults
 
 | Approver | Role | Decision | Date | Evidence Link | Notes |
 |----------|------|----------|------|---------------|-------|
-| Migration Owner | Accountable owner | Pending | — | — | — |
-| SEO Owner | Policy approver | Pending | — | — | — |
+| Migration Owner | Accountable owner | Approved | 2026-03-08 | Progress Log entry (2026-03-08) | Approved by Thomas Theunen |
+| SEO Owner | Policy approver | Approved | 2026-03-08 | Progress Log entry (2026-03-08) | Approved by Thomas Theunen |
 
 **Approval rule:** RHI-003 may be set to `Done` only when both approver rows are updated to `Approved` and the acceptance criterion "Policy approved by migration owner and SEO owner" is checked.
 
@@ -91,7 +91,7 @@ Use this checklist during policy review with Migration Owner and SEO Owner.
 | Dependency | Type | Status |
 |------------|------|--------|
 | RHI-002 Done | Ticket | Ready |
-| SEO owner available for policy review | Access | Pending |
+| SEO owner available for policy review | Access | Ready (approved 2026-03-08) |
 | Live site probe results (slash, case, apex behaviour) | Data | Ready (captured 2026-03-08) |
 
 ---
@@ -110,20 +110,21 @@ Use this checklist during policy review with Migration Owner and SEO Owner.
 
 ### Definition of Done
 
-- [ ] All acceptance criteria are satisfied and verified
-- [ ] Tasks are complete or intentionally descoped with rationale
-- [ ] Dependencies and blockers are resolved or documented
-- [ ] Outcomes section is completed with delivered artefacts and deviations
+- [x] All acceptance criteria are satisfied and verified
+- [x] Tasks are complete or intentionally descoped with rationale
+- [x] Dependencies and blockers are resolved or documented
+- [x] Outcomes section is completed with delivered artefacts and deviations
 
 ---
 
 ### Outcomes
 
-Interim outcomes (in progress):
+Final outcomes:
 
 - Live-site behavior probes executed for host, slash, case, and query variants.
 - Draft policy matrix committed with implementation-layer mapping and explicit Phase 2 blockers.
 - Documentation update committed for policy implementation traceability.
+- Migration Owner and SEO Owner approvals recorded with formal sign-off checklist completion.
 
 **Delivered artefacts:**
 
@@ -142,6 +143,7 @@ Interim outcomes (in progress):
 |------|--------|------|
 | 2026-03-07 | Open | Ticket created |
 | 2026-03-08 | In Progress | Completed live probe evidence and policy draft; committed `migration/url-class-matrix.json`; pending migration owner + SEO owner approval |
+| 2026-03-08 | Done | Formal approval captured from Thomas Theunen acting as both Migration Owner and SEO Owner; all review checklist items accepted and RHI-003 closed |
 
 ---
 
