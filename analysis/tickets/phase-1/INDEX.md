@@ -14,7 +14,7 @@
 | Ticket ID | Title | Workstream | Priority | Status | Estimate | Target Date | Depends On |
 |-----------|-------|------------|----------|--------|----------|-------------|------------|
 | [RHI-001](RHI-001-phase-1-bootstrap.md) | Phase 1 Bootstrap: Access, Tooling, and Environment | Setup | Critical | Done | S | 2026-03-07 | — |
-| [RHI-002](RHI-002-url-discovery-inventory.md) | URL Discovery and Inventory | WS1 | Critical | In Progress | L | 2026-03-09 | RHI-001 |
+| [RHI-002](RHI-002-url-discovery-inventory.md) | URL Discovery and Inventory | WS1 | Critical | Done | L | 2026-03-09 | RHI-001 |
 | [RHI-003](RHI-003-url-invariant-policy.md) | Canonical and URL Invariant Policy | WS2 | Critical | Open | M | 2026-03-10 | RHI-002 |
 | [RHI-004](RHI-004-url-classification-mapping.md) | URL Classification and Disposition Mapping | WS3 | Critical | Open | L | 2026-03-11 | RHI-002, RHI-003 |
 | [RHI-005](RHI-005-seo-baseline.md) | SEO Baseline Capture | WS4 | High | Open | M | 2026-03-12 | RHI-001 |
@@ -68,7 +68,7 @@ RHI-001 (Bootstrap)
 All items below must be complete before Phase 2 work begins:
 
 - [x] RHI-001 Done — access confirmed, tooling installed
-- [ ] RHI-002 Done — all sitemap URLs in normalised inventory
+- [x] RHI-002 Done — all sitemap URLs in normalised inventory
 - [ ] RHI-003 Done — canonical/slash/case/query policies approved
 - [ ] RHI-004 Done — 100% URL mapping completeness, every URL has implementable behaviour
 - [ ] RHI-005 Done — SEO baseline approved as launch benchmark

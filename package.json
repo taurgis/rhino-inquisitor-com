@@ -9,6 +9,7 @@
   "scripts": {
     "phase1:parse-sitemap": "node scripts/parse-sitemap.js",
     "phase1:crawl-urls": "node scripts/crawl-urls.js",
+    "phase1:enrich-search-console": "node scripts/enrich-search-console.js",
     "phase1:classify-urls": "node scripts/classify-urls.js",
     "phase1:seo-baseline": "node scripts/seo-baseline.js",
     "phase1:perf-baseline": "node scripts/perf-baseline.js"

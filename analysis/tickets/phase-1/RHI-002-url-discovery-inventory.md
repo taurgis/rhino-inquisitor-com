@@ -1,6 +1,6 @@
 ## RHI-002 · URL Discovery and Inventory
 
-**Status:** In Progress  
+**Status:** Done  
 **Priority:** Critical  
 **Estimate:** L  
 **Phase:** 1  
@@ -48,13 +48,13 @@ The inventory must include URLs from sitemaps, internal crawl, Search Console, s
 - [x] Merge all discovered URLs, de-duplicate by normalised absolute URL
   - ⚠️ **Live-site note:** All 5 URLs in `video-sitemap.xml` also appear in `post-sitemap.xml`: `/sfcc-introduction/`, `/new-apis-and-features-for-a-headless-sfcc/`, `/what-is-new-in-the-23-8-commerce-cloud-release/`, `/sitegenesis-vs-sfra-vs-pwa/`, and `/everything-new-in-sfcc-23-4/`. De-duplication must consolidate source provenance for all five rather than treating them as separate inventory records.
 - [x] HTTP probe each unique URL: capture status code and final redirect destination
-- [ ] Enrich with Search Console data (impressions, clicks) using the Search Console API or CSV export
-- [ ] Enrich `has_external_links` field from Search Console Links report
+- [x] Enrich with Search Console data (impressions, clicks) using the Search Console API or CSV export
+- [x] Enrich `has_external_links` field from Search Console Links report
 - [x] Normalise all URLs: lowercase, enforce trailing slash where applicable, enforce `www` canonical host
 - [x] Output `migration/url-inventory.raw.json` (pre-normalisation with source provenance)
 - [x] Output `migration/url-inventory.normalized.json` (post-normalisation, de-duplicated)
 - [x] Validate both outputs against the expected field schema using `zod`
-- [ ] Review output with migration owner for completeness gaps
+- [x] Review output with migration owner for completeness gaps
 
 ---
 
@@ -72,7 +72,7 @@ The inventory must include URLs from sitemaps, internal crawl, Search Console, s
 | Dependency | Type | Status |
 |------------|------|--------|
 | RHI-001 Done | Ticket | Pending |
-| Search Console API access or CSV export | Access | Pending |
+| Search Console API access or CSV export | Access | Ready (CSV export ingested 2026-03-08) |
 | Live site is accessible and returning responses | External | Ready |
 | `fast-xml-parser`, `undici`, `p-limit`, `zod`, `fast-glob` installed | Tool | Pending (RHI-001) |
 
@@ -92,16 +92,26 @@ The inventory must include URLs from sitemaps, internal crawl, Search Console, s
 
 ### Definition of Done
 
-- [ ] All acceptance criteria are satisfied and verified
-- [ ] Tasks are complete or intentionally descoped with rationale
-- [ ] Dependencies and blockers are resolved or documented
-- [ ] Outcomes section is completed with delivered artefacts and deviations
+- [x] All acceptance criteria are satisfied and verified
+- [x] Tasks are complete or intentionally descoped with rationale
+- [x] Dependencies and blockers are resolved or documented
+- [x] Outcomes section is completed with delivered artefacts and deviations
 
 ---
 
 ### Outcomes
 
-{Leave blank until work is complete.}
+Search Console CSV enrichment executed via `scripts/enrich-search-console.js` against exports in `tmp/search-console/`.
+
+Key outcomes:
+
+- Raw inventory: `1360 -> 1446` records
+- Normalized inventory: `1113 -> 1199` records
+- Search Console-only URLs added to inventory: `86`
+- `has_organic_traffic` population: `true=320`, `false=879`, `null=0`
+- `has_external_links` population: `true=36`, `null=1163`
+
+The links export available in Search Console is a top-target-pages dataset, so `has_external_links` remains `null` for URLs not present in that export rather than being forced to `false`.
 
 **Delivered artefacts:**
 
@@ -109,10 +119,13 @@ The inventory must include URLs from sitemaps, internal crawl, Search Console, s
 - `migration/url-inventory.normalized.json`
 - `scripts/parse-sitemap.js`
 - `scripts/crawl-urls.js`
+- `scripts/enrich-search-console.js`
+- `migration/url-discovery.search-console.summary.json`
+- `migration/url-discovery.search-console.gaps.json`
 
 **Deviations from plan:**
 
-- None
+- Search Console enrichment used CSV exports only (no API access). `has_external_links` is enriched as `true` only for URLs present in Top target pages export; non-listed URLs remain `null`.
 
 ---
 
@@ -122,6 +135,8 @@ The inventory must include URLs from sitemaps, internal crawl, Search Console, s
 |------|--------|------|
 | 2026-03-07 | Open | Ticket created |
 | 2026-03-08 | In Progress | Implemented `parse-sitemap.js` and `crawl-urls.js`; generated `url-inventory.raw.json` (1360 records) and `url-inventory.normalized.json` (1113 records); Search Console enrichment pending access/export |
+| 2026-03-08 | In Progress | Executed Search Console CSV enrichment via `enrich-search-console.js`; inventory updated to 1446 raw / 1199 normalized records with 86 SC-only URLs added |
+| 2026-03-08 | Done | Owner review acknowledged; ticket marked complete for Phase 1 handoff |
 
 ---
 
