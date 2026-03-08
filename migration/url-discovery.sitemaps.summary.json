@@ -1,0 +1,21 @@
+{
+  "started_at": "2026-03-08T18:18:48.621Z",
+  "completed_at": "2026-03-08T18:18:49.824Z",
+  "sitemap_index": "https://www.rhino-inquisitor.com/sitemap_index.xml",
+  "required_sitemaps": [
+    "post-sitemap.xml",
+    "page-sitemap.xml",
+    "category-sitemap.xml",
+    "video-sitemap.xml",
+    "e-landing-page-sitemap.xml"
+  ],
+  "sitemap_counts": {
+    "post-sitemap.xml": 150,
+    "page-sitemap.xml": 22,
+    "e-landing-page-sitemap.xml": 1,
+    "category-sitemap.xml": 22,
+    "video-sitemap.xml": 5
+  },
+  "total_raw_records": 200,
+  "unique_normalized_urls": 195
+}

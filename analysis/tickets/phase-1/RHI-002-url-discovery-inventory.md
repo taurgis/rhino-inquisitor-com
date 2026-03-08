@@ -1,13 +1,13 @@
 ## RHI-002 · URL Discovery and Inventory
 
-**Status:** Open  
+**Status:** In Progress  
 **Priority:** Critical  
 **Estimate:** L  
 **Phase:** 1  
 **Assigned to:** Migration Engineer  
 **Target date:** 2026-03-09  
 **Created:** 2026-03-07  
-**Updated:** 2026-03-07
+**Updated:** 2026-03-08
 
 ---
 
@@ -21,39 +21,39 @@ The inventory must include URLs from sitemaps, internal crawl, Search Console, s
 
 ### Acceptance Criteria
 
-- [ ] `migration/url-inventory.raw.json` exists and contains at least 200 entries (all 5 sitemaps account for 200 raw sitemap entries; source: live-site snapshot 2026-03-07)
-- [ ] `migration/url-inventory.normalized.json` contains at least 195 entries after de-duplication (all 5 video-sitemap URLs are duplicated in post-sitemap; no other cross-sitemap duplicates expected)
-- [ ] Every entry in the raw inventory has the fields: `url`, `path`, `source`, `url_type`, `http_status`, `canonical_target`, `indexability_signal`, `in_sitemap`, `lastmod`, `has_external_links`, `has_organic_traffic`
-- [ ] All 5 sitemap files are parsed: `post-sitemap.xml`, `page-sitemap.xml`, `category-sitemap.xml`, `video-sitemap.xml`, `e-landing-page-sitemap.xml`
-- [ ] De-duplication is applied: each normalised absolute URL appears exactly once with consolidated source list
-- [ ] Non-sitemap seeds included: homepage, archive, category pages, 10–20 recent posts, footer links, utility links
-- [ ] System routes probed and included: `/feed/`, `/comments/feed/`, `/wp-json/`, `/xmlrpc.php`, `/author/admin/`, `/search/sfcc/`, paginated routes
-- [ ] `migration/url-inventory.normalized.json` exists with normalised absolute URLs (lowercase, trailing slash, `www` canonical host)
-- [ ] `scripts/parse-sitemap.js` is committed and documented
+- [x] `migration/url-inventory.raw.json` exists and contains at least 200 entries (all 5 sitemaps account for 200 raw sitemap entries; source: live-site snapshot 2026-03-07)
+- [x] `migration/url-inventory.normalized.json` contains at least 195 entries after de-duplication (all 5 video-sitemap URLs are duplicated in post-sitemap; no other cross-sitemap duplicates expected)
+- [x] Every entry in the raw inventory has the fields: `url`, `path`, `source`, `url_type`, `http_status`, `canonical_target`, `indexability_signal`, `in_sitemap`, `lastmod`, `has_external_links`, `has_organic_traffic`
+- [x] All 5 sitemap files are parsed: `post-sitemap.xml`, `page-sitemap.xml`, `category-sitemap.xml`, `video-sitemap.xml`, `e-landing-page-sitemap.xml`
+- [x] De-duplication is applied: each normalised absolute URL appears exactly once with consolidated source list
+- [x] Non-sitemap seeds included: homepage, archive, category pages, 10–20 recent posts, footer links, utility links
+- [x] System routes probed and included: `/feed/`, `/comments/feed/`, `/wp-json/`, `/xmlrpc.php`, `/author/admin/`, `/search/sfcc/`, paginated routes
+- [x] `migration/url-inventory.normalized.json` exists with normalised absolute URLs (lowercase, trailing slash, `www` canonical host)
+- [x] `scripts/parse-sitemap.js` is committed and documented
 
 ---
 
 ### Tasks
 
-- [ ] Write `scripts/parse-sitemap.js` to fetch and parse `sitemap_index.xml` using `fast-xml-parser`
-  - [ ] Parse `post-sitemap.xml` (expected ~150 URLs)
-  - [ ] Parse `page-sitemap.xml` (expected ~22 URLs)
-  - [ ] Parse `category-sitemap.xml` (expected ~22 URLs)
-  - [ ] Parse `video-sitemap.xml` (expected 5 URLs — note: all 5 also appear in `post-sitemap.xml`)
-  - [ ] Parse `e-landing-page-sitemap.xml` (expected ~1 URL)
-- [ ] Write `scripts/crawl-urls.js` to expand the seed set via internal crawl using `undici`
-  - [ ] Seed with homepage, archive, all category pages from sitemap
-  - [ ] Follow internal links to a configurable depth (start with depth 2)
-  - [ ] Probe known system routes explicitly (see list in phase-1.md §WS1 step 6); also probe `/author/thomas-theunen/` (the active author URL visible in video-sitemap uploader data — `/author/admin/` listed in phase-1.md may redirect or be a separate user)
-- [ ] Merge all discovered URLs, de-duplicate by normalised absolute URL
+- [x] Write `scripts/parse-sitemap.js` to fetch and parse `sitemap_index.xml` using `fast-xml-parser`
+  - [x] Parse `post-sitemap.xml` (expected ~150 URLs)
+  - [x] Parse `page-sitemap.xml` (expected ~22 URLs)
+  - [x] Parse `category-sitemap.xml` (expected ~22 URLs)
+  - [x] Parse `video-sitemap.xml` (expected 5 URLs — note: all 5 also appear in `post-sitemap.xml`)
+  - [x] Parse `e-landing-page-sitemap.xml` (expected ~1 URL)
+- [x] Write `scripts/crawl-urls.js` to expand the seed set via internal crawl using `undici`
+  - [x] Seed with homepage, archive, all category pages from sitemap
+  - [x] Follow internal links to a configurable depth (start with depth 2)
+  - [x] Probe known system routes explicitly (see list in phase-1.md §WS1 step 6); also probe `/author/thomas-theunen/` (the active author URL visible in video-sitemap uploader data — `/author/admin/` listed in phase-1.md may redirect or be a separate user)
+- [x] Merge all discovered URLs, de-duplicate by normalised absolute URL
   - ⚠️ **Live-site note:** All 5 URLs in `video-sitemap.xml` also appear in `post-sitemap.xml`: `/sfcc-introduction/`, `/new-apis-and-features-for-a-headless-sfcc/`, `/what-is-new-in-the-23-8-commerce-cloud-release/`, `/sitegenesis-vs-sfra-vs-pwa/`, and `/everything-new-in-sfcc-23-4/`. De-duplication must consolidate source provenance for all five rather than treating them as separate inventory records.
-- [ ] HTTP probe each unique URL: capture status code and final redirect destination
+- [x] HTTP probe each unique URL: capture status code and final redirect destination
 - [ ] Enrich with Search Console data (impressions, clicks) using the Search Console API or CSV export
 - [ ] Enrich `has_external_links` field from Search Console Links report
-- [ ] Normalise all URLs: lowercase, enforce trailing slash where applicable, enforce `www` canonical host
-- [ ] Output `migration/url-inventory.raw.json` (pre-normalisation with source provenance)
-- [ ] Output `migration/url-inventory.normalized.json` (post-normalisation, de-duplicated)
-- [ ] Validate both outputs against the expected field schema using `zod`
+- [x] Normalise all URLs: lowercase, enforce trailing slash where applicable, enforce `www` canonical host
+- [x] Output `migration/url-inventory.raw.json` (pre-normalisation with source provenance)
+- [x] Output `migration/url-inventory.normalized.json` (post-normalisation, de-duplicated)
+- [x] Validate both outputs against the expected field schema using `zod`
 - [ ] Review output with migration owner for completeness gaps
 
 ---
@@ -121,6 +121,7 @@ The inventory must include URLs from sitemaps, internal crawl, Search Console, s
 | Date | Status | Note |
 |------|--------|------|
 | 2026-03-07 | Open | Ticket created |
+| 2026-03-08 | In Progress | Implemented `parse-sitemap.js` and `crawl-urls.js`; generated `url-inventory.raw.json` (1360 records) and `url-inventory.normalized.json` (1113 records); Search Console enrichment pending access/export |
 
 ---
 

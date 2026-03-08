@@ -1,0 +1,26 @@
+{
+  "started_at": "2026-03-08T18:18:53.608Z",
+  "completed_at": "2026-03-08T18:19:37.391Z",
+  "sitemap_counts": {
+    "post-sitemap.xml": 150,
+    "page-sitemap.xml": 22,
+    "e-landing-page-sitemap.xml": 1,
+    "category-sitemap.xml": 22,
+    "video-sitemap.xml": 5
+  },
+  "crawl_depth": 2,
+  "crawl_concurrency": 6,
+  "max_crawl_urls": 1800,
+  "seed_url_count": 48,
+  "system_probe_count": 9,
+  "crawled_url_count": 1103,
+  "unique_probe_url_count": 1113,
+  "raw_record_count": 1360,
+  "normalized_record_count": 1113,
+  "required_system_routes_present": true,
+  "search_console_enrichment": {
+    "has_external_links": "pending",
+    "has_organic_traffic": "pending",
+    "note": "Set to null until Search Console export/API enrichment is completed."
+  }
+}
