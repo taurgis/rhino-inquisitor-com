@@ -18,8 +18,9 @@ Old behavior:
 New behavior:
 - A `Senior Developer` agent now handles implementation decomposition and parallel-safe orchestration.
 - Parallel execution is governed by a binary pass/fail rule set in `.github/instructions/parallel-developer-subagents.instructions.md`.
-- Every parallel subagent prompt must include cross-agent file-awareness language.
+- Every parallel subagent prompt must include standardized cross-agent file-awareness language.
 - Integration and overlap reconciliation are required before final delivery.
+- `AGENTS.md` now mirrors governance boundaries by requiring explicit user acceptance for parallelization and excluding governance-heavy paths from parallel execution.
 
 ## Impact
 
@@ -31,6 +32,7 @@ New behavior:
 
 - Manual verification of required sections in the new agent file (`Scope`, `Out of scope`, `Working approach`, output schema, verifiable quality rules).
 - Manual verification of required sections in the new instruction file (trigger conditions, binary compliance expectations, exemptions, escalation path, precedence relationship).
+- Manual alignment check between `AGENTS.md` and `.github/instructions/parallel-developer-subagents.instructions.md` for trigger and exemption parity.
 - Manual link and table consistency check in `AGENTS.md`.
 
 ## Related files

@@ -29,9 +29,10 @@ When trigger conditions are met:
 2. In every subagent prompt, include a cross-agent notice that peers may adjust related files:
    - Required sentence (or equivalent):
      - "Other subagents are running in parallel and may adjust related files you did not touch; treat those changes as expected and reconcile safely."
-3. Require each subagent to report files changed and unresolved overlaps.
-4. Run an integration pass after parallel execution to reconcile overlaps and finalize consistency.
-5. If independence cannot be proven, switch to sequential execution.
+3. Include full task context and acceptance criteria in each subagent prompt; do not assume subagents inherit full coordinator context.
+4. Require each subagent to report files changed and unresolved overlaps.
+5. Run an integration pass after parallel execution to reconcile overlaps and finalize consistency.
+6. If independence cannot be proven, switch to sequential execution.
 
 ## Binary Compliance Expectations
 

@@ -47,7 +47,7 @@ This file is the root agent guide for the repository. It complements agent files
 
 For implementation requests in this repository:
 
-1. Run Project Manager and Business Analyst for scope and requirements framing.
+1. Run Project Manager and Business Analyst on every request unless all exemption conditions in `.github/instructions/pm-ba-subagent-research.instructions.md` are satisfied.
 2. Run Tester when changes span multiple files or touch governance/quality controls.
 3. Run Official Docs Researcher before technical guidance updates or technical claims.
 4. Execute implementation only after the above recommendations are reconciled.
@@ -74,9 +74,13 @@ Primary governance source for this flow:
 When a user request contains multiple independent implementation features:
 
 1. Use `Senior Developer` to decompose work into `parallel-safe` and `sequential-only` slices.
-2. Run parallel developer subagents only when independence is explicit and accepted.
+2. Run parallel developer subagents only when independence is explicit and the user requested parallelization or explicitly accepted it in the current task.
 3. Require every parallel subagent prompt to include cross-agent file-awareness (other agents may adjust related files).
 4. Complete an integration pass before presenting final results.
+5. Do not use parallel developer subagents for governance-heavy paths:
+  - `.github/agents/**`
+  - `.github/instructions/**`
+  - `analysis/main-plan.MD`
 
 Governance source:
 - [.github/instructions/parallel-developer-subagents.instructions.md](.github/instructions/parallel-developer-subagents.instructions.md)
