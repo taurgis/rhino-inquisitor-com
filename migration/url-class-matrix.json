@@ -1,0 +1,238 @@
+{
+  "metadata": {
+    "artifact": "url-class-matrix",
+    "version": "2026-03-08",
+    "status": "draft-pending-approval",
+    "ticket": "RHI-003",
+    "phase": 1,
+    "owners": {
+      "migration_owner": "pending",
+      "seo_owner": "pending"
+    }
+  },
+  "inputs": {
+    "inventory": "migration/url-inventory.normalized.json",
+    "probe_sample_url": "https://www.rhino-inquisitor.com/sfcc-introduction/",
+    "probe_timestamp_utc": "2026-03-08T19:14:00Z"
+  },
+  "policy": {
+    "host": {
+      "decision": "Canonical host is https://www.rhino-inquisitor.com/. Apex host must redirect to canonical www host in one hop.",
+      "canonical_host": "https://www.rhino-inquisitor.com",
+      "non_canonical_hosts": [
+        "http://rhino-inquisitor.com",
+        "https://rhino-inquisitor.com",
+        "http://www.rhino-inquisitor.com"
+      ],
+      "implementation_layer": "dns",
+      "current_observation": {
+        "http://rhino-inquisitor.com/": {
+          "final_url": "https://rhino-inquisitor.com/",
+          "http_status": 200,
+          "compliant": false
+        },
+        "https://rhino-inquisitor.com/": {
+          "final_url": "https://rhino-inquisitor.com/",
+          "http_status": 200,
+          "compliant": false
+        },
+        "https://www.rhino-inquisitor.com/": {
+          "final_url": "https://www.rhino-inquisitor.com/",
+          "http_status": 200,
+          "compliant": true
+        }
+      },
+      "notes": "Current live behavior still allows indexable apex responses and requires DNS or edge enforcement before launch completion."
+    },
+    "trailing_slash": {
+      "decision": "Canonical variant is trailing-slash for all indexable content routes. Non-slash variants may remain reachable during migration but must canonicalize to trailing-slash route.",
+      "canonical_style": "trailing-slash",
+      "implementation_layer": "pages-static",
+      "current_observation": {
+        "https://www.rhino-inquisitor.com/sfcc-introduction/": {
+          "http_status": 200,
+          "canonical": "https://www.rhino-inquisitor.com/sfcc-introduction/",
+          "compliant": true
+        },
+        "https://www.rhino-inquisitor.com/sfcc-introduction": {
+          "http_status": 200,
+          "canonical": "https://www.rhino-inquisitor.com/sfcc-introduction/",
+          "compliant": true
+        }
+      },
+      "notes": "No-slash to slash HTTP redirects are not guaranteed by static hosting alone; this policy requires canonical alignment now and redirect hardening in later phases if needed."
+    },
+    "case": {
+      "decision": "All generated and internal URLs must be lowercase. Legacy mixed-case requests should canonicalize to lowercase and can be redirected at edge when required.",
+      "generated_url_rule": "lowercase-only",
+      "implementation_layer": "pages-static",
+      "current_observation": {
+        "https://www.rhino-inquisitor.com/Sfcc-introduction/": {
+          "http_status": 200,
+          "canonical": "https://www.rhino-inquisitor.com/sfcc-introduction/",
+          "compliant": true
+        }
+      },
+      "notes": "If strict request-time lowercase redirecting is required for all legacy variants, assign edge-cdn in Phase 2 routing decisions."
+    },
+    "query_parameters": {
+      "decision": "Tracking query parameters are excluded from canonical URLs. Crawlable filter states must either canonicalize to a stable URL or be explicitly controlled by indexability policy.",
+      "implementation_layer": "none",
+      "classes": [
+        {
+          "class": "tracking",
+          "patterns": [
+            "utm_*",
+            "gclid",
+            "fbclid"
+          ],
+          "indexability": "non-canonical",
+          "canonical_behavior": "strip from canonical"
+        },
+        {
+          "class": "internal_search",
+          "patterns": [
+            "s"
+          ],
+          "indexability": "noindex-or-exclude",
+          "canonical_behavior": "none-required"
+        },
+        {
+          "class": "pagination_query",
+          "patterns": [
+            "page"
+          ],
+          "indexability": "policy-controlled",
+          "canonical_behavior": "must map to approved canonical route"
+        },
+        {
+          "class": "unknown",
+          "patterns": [
+            "*"
+          ],
+          "indexability": "review-required",
+          "canonical_behavior": "default to stable canonical URL"
+        }
+      ],
+      "current_observation": {
+        "https://www.rhino-inquisitor.com/sfcc-introduction/?utm_source=test&utm_medium=qa": {
+          "http_status": 200,
+          "canonical": "https://www.rhino-inquisitor.com/sfcc-introduction/",
+          "compliant": true
+        },
+        "https://www.rhino-inquisitor.com/?s=sfcc": {
+          "http_status": 200,
+          "canonical": null,
+          "compliant": "requires explicit search indexability policy"
+        }
+      }
+    },
+    "canonical_tags": {
+      "decision": "Canonical tags must be absolute HTTPS URLs on the final www host and must match the canonical route variant.",
+      "format": "absolute-https-www",
+      "implementation_layer": "pages-static",
+      "current_observation": {
+        "https://rhino-inquisitor.com/": "https://www.rhino-inquisitor.com/",
+        "https://www.rhino-inquisitor.com/sfcc-introduction/": "https://www.rhino-inquisitor.com/sfcc-introduction/",
+        "https://www.rhino-inquisitor.com/sfcc-introduction": "https://www.rhino-inquisitor.com/sfcc-introduction/",
+        "https://www.rhino-inquisitor.com/Sfcc-introduction/": "https://www.rhino-inquisitor.com/sfcc-introduction/"
+      }
+    }
+  },
+  "class_defaults": {
+    "post": {
+      "default_disposition": "keep",
+      "canonical_host": "www",
+      "canonical_trailing_slash": true,
+      "lowercase_required": true,
+      "sitemap_inclusion": "yes"
+    },
+    "page": {
+      "default_disposition": "keep",
+      "canonical_host": "www",
+      "canonical_trailing_slash": true,
+      "lowercase_required": true,
+      "sitemap_inclusion": "yes"
+    },
+    "category": {
+      "default_disposition": "keep",
+      "canonical_host": "www",
+      "canonical_trailing_slash": true,
+      "lowercase_required": true,
+      "sitemap_inclusion": "yes"
+    },
+    "video": {
+      "default_disposition": "keep",
+      "canonical_host": "www",
+      "canonical_trailing_slash": true,
+      "lowercase_required": true,
+      "sitemap_inclusion": "yes"
+    },
+    "landing": {
+      "default_disposition": "keep",
+      "canonical_host": "www",
+      "canonical_trailing_slash": true,
+      "lowercase_required": true,
+      "sitemap_inclusion": "yes"
+    },
+    "system": {
+      "default_disposition": "retire",
+      "canonical_host": "www",
+      "canonical_trailing_slash": "route-specific",
+      "lowercase_required": true,
+      "sitemap_inclusion": "no"
+    },
+    "attachment": {
+      "default_disposition": "retire",
+      "canonical_host": "www",
+      "canonical_trailing_slash": "route-specific",
+      "lowercase_required": true,
+      "sitemap_inclusion": "no"
+    },
+    "pagination": {
+      "default_disposition": "conditional-keep-or-retire",
+      "canonical_host": "www",
+      "canonical_trailing_slash": true,
+      "lowercase_required": true,
+      "sitemap_inclusion": "conditional"
+    }
+  },
+  "phase2_blockers": [
+    {
+      "id": "P2-BLOCKER-001",
+      "topic": "Apex to www host enforcement",
+      "blocking_reason": "Current apex host remains directly indexable with HTTP 200.",
+      "required_decision": "Finalize DNS or edge implementation to enforce one-hop apex to www canonical host behavior.",
+      "owner": "Migration Owner",
+      "status": "open"
+    },
+    {
+      "id": "P2-BLOCKER-002",
+      "topic": "Strict request-time normalization for case and slash variants",
+      "blocking_reason": "Variants currently return 200 and rely on canonical tag normalization, not redirect normalization.",
+      "required_decision": "Decide whether edge redirects are required or canonical-tag-only behavior is accepted.",
+      "owner": "SEO Owner",
+      "status": "open"
+    },
+    {
+      "id": "P2-BLOCKER-003",
+      "topic": "Search and parameterized URL indexability policy",
+      "blocking_reason": "Search endpoint response lacks canonical tag and requires explicit indexability controls.",
+      "required_decision": "Define noindex and sitemap inclusion policy for search and parameterized URLs before Phase 2 architecture lock.",
+      "owner": "SEO Owner",
+      "status": "open"
+    }
+  ],
+  "approval": {
+    "migration_owner": {
+      "status": "pending",
+      "approved_at": null,
+      "notes": null
+    },
+    "seo_owner": {
+      "status": "pending",
+      "approved_at": null,
+      "notes": null
+    }
+  }
+}
