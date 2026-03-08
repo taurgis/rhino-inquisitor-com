@@ -7,6 +7,41 @@ This file is the root agent guide for the repository. It complements agent files
 - Help contributors choose the right agent quickly.
 - Standardize planning, analysis, testing, and documentation research flow.
 - Connect agent usage to repository skills and instruction gates.
+- Support analysis-phase closeout and implementation handoff decisions.
+
+## Repository Status
+
+- Analysis artifacts are in place and the project is finishing the analysis phase.
+- Current work is focused on analysis sign-off quality, evidence traceability, and implementation readiness.
+- Use phase detail and ticket indexes under `analysis/` as the source of truth for sequencing and acceptance criteria.
+
+## Current Project Structure
+
+```text
+.
+|-- .github/
+|   |-- agents/          # Agent role definitions
+|   |-- instructions/    # Governance and quality gates
+|   `-- skills/          # Domain skills and references
+|-- analysis/
+|   |-- main-plan.MD     # Migration master plan
+|   |-- design/          # Modernization direction, prompts, wireframes
+|   |-- documentation/   # Implementation checklists and analysis reports
+|   |-- plan/details/    # Phase 1-9 detailed plans
+|   `-- tickets/         # Phase-indexed execution tickets
+`-- README.md
+```
+
+## Analysis Artifacts To Consult First
+
+- Master plan: [analysis/main-plan.MD](analysis/main-plan.MD)
+- Phase sequencing: [analysis/plan/details/](analysis/plan/details/)
+- Phase work tracking: [analysis/tickets/INDEX.md](analysis/tickets/INDEX.md)
+- Design direction: [analysis/design/blog-modernization-designs-2026-03-08.md](analysis/design/blog-modernization-designs-2026-03-08.md)
+- Low-fi wireframes: [analysis/design/low-fi-wireframes-2026-03-08.md](analysis/design/low-fi-wireframes-2026-03-08.md)
+- Design prompt packs: [analysis/design/design-prompts/README.md](analysis/design/design-prompts/README.md)
+- Generated design examples guidance: [analysis/design/generated-images/design-examples/README.md](analysis/design/generated-images/design-examples/README.md)
+- UI implementation checklist: [analysis/documentation/ui-implementation-checklist-2026-03-08.md](analysis/documentation/ui-implementation-checklist-2026-03-08.md)
 
 ## Default Multi-Agent Workflow
 
@@ -16,6 +51,8 @@ For implementation requests in this repository:
 2. Run Tester when changes span multiple files or touch governance/quality controls.
 3. Run Official Docs Researcher before technical guidance updates or technical claims.
 4. Execute implementation only after the above recommendations are reconciled.
+
+For analysis-closeout updates (phase plans, ticket indexes, governance docs), use the same workflow and treat phase ticket indexes as acceptance-criteria anchors.
 
 Primary governance source for this flow:
 - [.github/instructions/pm-ba-subagent-research.instructions.md](.github/instructions/pm-ba-subagent-research.instructions.md)
@@ -36,6 +73,7 @@ Primary governance source for this flow:
 Domain skills are located in [.github/skills/](.github/skills/):
 
 - [content-migration](.github/skills/content-migration/SKILL.md)
+- [documentation](.github/skills/documentation/SKILL.md)
 - [hugo-development](.github/skills/hugo-development/SKILL.md)
 - [implementation-ticket](.github/skills/implementation-ticket/SKILL.md)
 - [javascript-development](.github/skills/javascript-development/SKILL.md)
