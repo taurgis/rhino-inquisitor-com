@@ -20,6 +20,7 @@ This is the top-level ticket index for the full migration project. Use the phase
 | 5 | SEO and Discoverability | RHI-047 – RHI-060 | Open | [phase-5/INDEX.md](phase-5/INDEX.md) |
 | 6 | URL Preservation and Redirect Strategy | RHI-061 – RHI-072 | Open | [phase-6/INDEX.md](phase-6/INDEX.md) |
 | 7 | GitHub Pages Deployment and Domain Cutover | RHI-073 – RHI-082 | Open | [phase-7/INDEX.md](phase-7/INDEX.md) |
+| 8 | Validation and Launch Readiness | RHI-083 – RHI-092 | Open | [phase-8/INDEX.md](phase-8/INDEX.md) |
 
 ---
 
@@ -109,6 +110,16 @@ This is the top-level ticket index for the full migration project. Use the phase
 | [RHI-080](phase-7/RHI-080-launch-window-execution-runbook.md) | Workstream G — Launch Window Execution Runbook | 7 | Critical | Open | M | 2026-05-29 |
 | [RHI-081](phase-7/RHI-081-incident-response-rollback.md) | Workstream H — Incident Response and Rollback | 7 | Critical | Open | M | 2026-05-30 |
 | [RHI-082](phase-7/RHI-082-phase-7-signoff.md) | Phase 7 Sign-off and Handover to Phase 8/9 | 7 | Critical | Open | S | 2026-06-02 |
+| [RHI-083](phase-8/RHI-083-phase-8-bootstrap.md) | Phase 8 Bootstrap: Kickoff and Validation Environment Setup | 8 | Critical | Open | S | 2026-06-03 |
+| [RHI-084](phase-8/RHI-084-rc-freeze-validation-dataset.md) | Workstream A — Release Candidate Freeze and Validation Dataset | 8 | Critical | Open | M | 2026-06-04 |
+| [RHI-085](phase-8/RHI-085-url-parity-redirect-integrity-gates.md) | Workstream B — URL Parity and Redirect Integrity Gates | 8 | Critical | Open | L | 2026-06-06 |
+| [RHI-086](phase-8/RHI-086-seo-indexing-readiness-gates.md) | Workstream C — SEO and Indexing Readiness Gates | 8 | Critical | Open | M | 2026-06-06 |
+| [RHI-087](phase-8/RHI-087-structured-data-social-preview-gates.md) | Workstream D — Structured Data and Social Preview Gates | 8 | High | Open | M | 2026-06-09 |
+| [RHI-088](phase-8/RHI-088-performance-core-web-vitals-gates.md) | Workstream E — Performance and Core Web Vitals Gates | 8 | High | Open | M | 2026-06-09 |
+| [RHI-089](phase-8/RHI-089-accessibility-markup-conformance-gates.md) | Workstream F — Accessibility and Markup Conformance Gates | 8 | High | Open | M | 2026-06-09 |
+| [RHI-090](phase-8/RHI-090-security-https-readiness-gates.md) | Workstream G — Security and HTTPS Readiness Gates | 8 | High | Open | S | 2026-06-10 |
+| [RHI-091](phase-8/RHI-091-operational-readiness-go-nogo.md) | Workstream H — Operational Readiness, Rehearsal, and Go/No-Go | 8 | Critical | Open | M | 2026-06-11 |
+| [RHI-092](phase-8/RHI-092-phase-8-signoff.md) | Phase 8 Sign-off and Handover to Phase 9 | 8 | Critical | Open | S | 2026-06-13 |
 
 ---
 
@@ -123,10 +134,11 @@ This is the top-level ticket index for the full migration project. Use the phase
 | RHI-047 – RHI-060 | Phase 5 | — (full) |
 | RHI-061 – RHI-072 | Phase 6 | — (full) |
 | RHI-073 – RHI-082 | Phase 7 | — (full) |
-| RHI-083 – | Phase 8+ | RHI-083 |
+| RHI-083 – RHI-092 | Phase 8 | — (full) |
+| RHI-093 – | Phase 9+ | RHI-093 |
 
 ---
 
 ## Search Tags
 
-`phase-1` `phase-2` `phase-3` `phase-4` `phase-5` `phase-6` `phase-7` `url-inventory` `seo-baseline` `url-manifest` `url-classification` `canonical-policy` `risk-register` `staging` `architecture-decision` `hugo` `hugo-scaffold` `hugo-config` `templates` `seo-partials` `json-ld` `url-parity` `redirect-baseline` `front-matter` `archetypes` `accessibility` `wcag` `core-web-vitals` `lighthouse` `lhci` `security` `ci-cd` `github-pages` `deployment` `deploy-pages` `pages-workflow` `github-actions` `wordpress` `migration` `content-migration` `wxr` `rest-api` `html-to-markdown` `turndown` `media-migration` `internal-links` `seo-signals` `metadata-completeness` `batch-migration` `pilot-batch` `canonical` `open-graph` `redirects` `url-consolidation` `crawlability` `robots-txt` `noindex` `sitemap` `rss-feed` `structured-data` `schema` `blogposting` `videoobject` `mobile-first` `cwv` `lcp` `cls` `alt-text` `image-seo` `video-seo` `pa11y` `search-console` `monitoring-runbook` `non-html` `artifact-integrity` `artifact` `build-limits` `symlinks` `redirect-architecture` `adr` `hugo-aliases` `static-redirects` `edge-redirects` `url-map` `redirect-chains` `soft-404` `host-protocol` `apex-www` `https-enforcement` `tls` `certificate` `lets-encrypt` `caa-records` `mixed-content` `seo-safe-deploy` `host-consolidation` `retirement` `404-page` `410-gone` `open-redirect` `owasp` `coverage-report` `canonical-alignment` `cutover-runbook` `rollback-runbook` `rollback-drill` `mttr` `launch-window` `dns` `dns-cutover` `cname` `ttl` `domain-verification` `custom-domain` `git-tag` `freeze` `go-no-go` `smoke-tests` `incident-response` `wordpress-rollback` `stabilization-window`
+`phase-1` `phase-2` `phase-3` `phase-4` `phase-5` `phase-6` `phase-7` `phase-8` `url-inventory` `seo-baseline` `url-manifest` `url-classification` `canonical-policy` `risk-register` `staging` `architecture-decision` `hugo` `hugo-scaffold` `hugo-config` `templates` `seo-partials` `json-ld` `url-parity` `redirect-baseline` `front-matter` `archetypes` `accessibility` `wcag` `wcag-2.2` `core-web-vitals` `lighthouse` `lhci` `security` `ci-cd` `github-pages` `deployment` `deploy-pages` `pages-workflow` `github-actions` `wordpress` `migration` `content-migration` `wxr` `rest-api` `html-to-markdown` `turndown` `media-migration` `internal-links` `seo-signals` `metadata-completeness` `batch-migration` `pilot-batch` `canonical` `open-graph` `twitter-card` `og-image` `redirects` `url-consolidation` `crawlability` `robots-txt` `noindex` `sitemap` `rss-feed` `structured-data` `schema` `blogposting` `videoobject` `mobile-first` `cwv` `lcp` `cls` `inp` `alt-text` `image-seo` `video-seo` `pa11y` `axe` `axe-core` `playwright` `html-validate` `search-console` `monitoring-runbook` `non-html` `artifact-integrity` `artifact` `build-limits` `symlinks` `redirect-architecture` `adr` `hugo-aliases` `static-redirects` `edge-redirects` `url-map` `redirect-chains` `soft-404` `host-protocol` `apex-www` `https-enforcement` `tls` `certificate` `lets-encrypt` `caa-records` `mixed-content` `seo-safe-deploy` `host-consolidation` `retirement` `404-page` `410-gone` `open-redirect` `owasp` `coverage-report` `canonical-alignment` `cutover-runbook` `rollback-runbook` `rollback-drill` `mttr` `launch-window` `dns` `dns-cutover` `cname` `ttl` `domain-verification` `custom-domain` `git-tag` `freeze` `go-no-go` `smoke-tests` `incident-response` `wordpress-rollback` `stabilization-window` `release-candidate` `rc-freeze` `validation` `launch-readiness` `url-parity-report` `redirect-quality-report` `seo-consistency-report` `performance-budget` `accessibility-axe` `html-conformance` `https-security` `security-headers` `csp` `hsts` `exception-register` `launch-gate-summary` `cutover-checklist` `phase-9-handover`
