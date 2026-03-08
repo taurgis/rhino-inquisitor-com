@@ -26,6 +26,8 @@ This ticket is the entry point of the entire migration pipeline. All subsequent 
   - [ ] Extracts all WordPress post types: `post`, `page`, `attachment`, `video` custom type (if present)
   - [ ] Preserves per-record fields: `sourceId`, `sourceType` (`wxr`/`rest`/`fallback`), `slug`, `status`, `postType`, `titleRaw`, `excerptRaw`, `bodyHtml`, `publishedAt`, `modifiedAt`, `author`, `categories`, `tags`, `legacyUrl`, `mediaRefs`
   - [ ] Records source timestamp on the extraction run
+  - [ ] Supports optional subset mode (by `sourceId` list and/or postType filter) for pilot runs
+  - [ ] Records extraction scope metadata (`mode`, selection input, record count) in extract summary
   - [ ] Is idempotent — re-running on the same source file produces identical output
   - [ ] Exits with a non-zero code and an actionable error message if source file is unreadable or malformed
 - [ ] WXR vs REST reconciliation report is produced:
@@ -43,7 +45,9 @@ This ticket is the entry point of the entire migration pipeline. All subsequent 
   - [ ] Total records extracted by type and status
   - [ ] Quarantine count and reason summary
   - [ ] Source timestamp and extraction method (`wxr`, `wxr+rest`, `wxr+rest+fallback`)
-- [ ] Coverage check: every URL in `migration/url-manifest.json` with disposition `keep` or `merge` has a corresponding extracted record
+- [ ] Coverage check:
+  - [ ] Full mode: every URL in `migration/url-manifest.json` with disposition `keep` or `merge` has a corresponding extracted record
+  - [ ] Subset mode: every selected `keep`/`merge` URL in the subset has a corresponding extracted record
 - [ ] Script is referenced in `package.json` as `npm run migrate:extract`
 
 ---
@@ -58,6 +62,7 @@ This ticket is the entry point of the entire migration pipeline. All subsequent 
   - [ ] Use `fast-xml-parser` with options to handle CDATA body fields and special characters
   - [ ] Define and validate parsed field list against canonical record model (WS-B schema preview)
   - [ ] Implement quarantine handler: catch parse errors per record; write to quarantine log
+  - [ ] Implement subset selectors (`--source-id-file` and/or `--post-type`) for pilot execution
   - [ ] Implement extraction summary writer
 - [ ] If REST supplement needed:
   - [ ] Implement REST pagination loop with `p-limit`-bounded concurrency

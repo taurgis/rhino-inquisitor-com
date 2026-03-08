@@ -33,7 +33,8 @@ Errors in this batch directly damage the migration's primary success criterion: 
   - [ ] Each of the 10 highest-traffic pages is spot-checked:
     - [ ] `title` is accurate, compelling, and under 60 characters
     - [ ] `description` is meaningful and SEO-quality (not just a body text excerpt)
-    - [ ] `url` matches the WordPress source URL exactly
+    - [ ] `url` matches manifest `targetUrl` for the page
+    - [ ] Disposition behavior is respected: `keep` preserves legacy path, `merge` validates redirect behavior from legacy URL to `targetUrl`
     - [ ] Body content renders correctly and is complete
     - [ ] Hero image renders with alt text and correct dimensions
     - [ ] Internal links are rewritten to canonical paths
@@ -61,6 +62,7 @@ Errors in this batch directly damage the migration's primary success criterion: 
 - [ ] Perform SEO spot-check on top-10 traffic pages:
   - [ ] Review generated `.md` files in `hugo server`
   - [ ] Review built HTML for canonical tag, OG tags, JSON-LD
+  - [ ] Verify each sampled URL/disposition against manifest `targetUrl` and redirect behavior
   - [ ] Author custom descriptions where auto-generated is inadequate
   - [ ] Update front matter directly; re-run `check:seo-completeness`
 - [ ] Update migration item report for this batch

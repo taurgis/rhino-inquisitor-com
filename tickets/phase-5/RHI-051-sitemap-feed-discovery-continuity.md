@@ -13,7 +13,7 @@
 
 ### Goal
 
-Validate that `sitemap.xml` is correct, machine-readable, and contains only canonical indexable URLs. Confirm the RSS feed endpoint is functional and backward-compatible with the WordPress `/feed/` path. Preserve category, video, and archive pages that carry organic search value as crawlable discovery surfaces.
+Validate that `sitemap.xml` is correct, machine-readable, and contains only canonical indexable URLs. Confirm the RSS feed endpoint is functional and that the canonical WordPress `/feed/` route must resolve (direct output or one-hop redirect). Preserve category, video, and archive pages that carry organic search value as crawlable discovery surfaces.
 
 Machine-readable discovery pathways are how search engines find and index content at scale. A broken sitemap, a missing feed redirect, or a silently removed archive page can cause organic traffic drops weeks before any visible page problem appears. This workstream validates and documents every discovery surface before cutover.
 
@@ -25,7 +25,7 @@ Machine-readable discovery pathways are how search engines find and index conten
   - [ ] Sitemap generation strategy (Hugo built-in vs custom template)
   - [ ] Sitemap inclusion/exclusion rules for drafts, redirects, and retired URLs
   - [ ] Sitemap split strategy if record count approaches Hugo single-file limits (50,000 URLs)
-  - [ ] Feed URL strategy (`/index.xml` or custom path) and `/feed/` compatibility decision
+  - [ ] Feed URL strategy (`/index.xml` or custom path) and `/feed/` must-resolve decision
   - [ ] Archive and category surface preservation decisions with rationale
 - [ ] Sitemap validation script `scripts/seo/check-sitemap.js` exists and:
   - [ ] Parses `public/sitemap.xml` (or sitemap index if split)
@@ -42,8 +42,8 @@ Machine-readable discovery pathways are how search engines find and index conten
   - [ ] Hugo RSS feed URL (e.g., `/index.xml`) returns valid Atom/RSS content in local build
   - [ ] Feed includes `<link>` elements with absolute canonical URLs
   - [ ] Feed items include `<pubDate>` or `<published>` with valid ISO 8601 dates
-  - [ ] WordPress `/feed/` path compatibility: either Hugo alias or documented edge redirect maps to new feed URL
-  - [ ] Feed redirect decision is recorded in `migration/phase-5-sitemap-feed-policy.md`
+  - [ ] WordPress `/feed/` route must resolve: either direct feed output or Hugo alias/edge redirect maps to the new feed URL
+  - [ ] Feed route decision is recorded in `migration/phase-5-sitemap-feed-policy.md`
 - [ ] Archive and category surfaces are confirmed:
   - [ ] All category pages from Phase 1 URL inventory with organic traffic are present in `public/`
   - [ ] Category pages return non-empty listing content (not orphan empty-list pages)
@@ -72,8 +72,8 @@ Machine-readable discovery pathways are how search engines find and index conten
   - [ ] Write per-URL results to `migration/reports/phase-5-sitemap-audit.csv`
 - [ ] Confirm Hugo RSS template output (from RHI-021):
   - [ ] Verify feed at `/index.xml` is generated with correct absolute URLs
-  - [ ] Decide on `/feed/` compatibility: Hugo alias or edge redirect
-  - [ ] Implement `/feed/` compatibility (alias or documented in redirect matrix)
+  - [ ] Decide on `/feed/` must-resolve implementation: direct output, Hugo alias, or edge redirect
+  - [ ] Implement `/feed/` must-resolve behavior (direct route or redirect documented in redirect matrix)
 - [ ] Confirm category and archive listing page output in local build
 - [ ] Draft `migration/phase-5-sitemap-feed-policy.md`
 - [ ] Add `"check:sitemap": "node scripts/seo/check-sitemap.js"` to `package.json`
@@ -131,7 +131,7 @@ Machine-readable discovery pathways are how search engines find and index conten
 - `migration/phase-5-sitemap-feed-policy.md`
 - `scripts/seo/check-sitemap.js`
 - `migration/reports/phase-5-sitemap-audit.csv`
-- `/feed/` compatibility alias or redirect implemented
+- `/feed/` must-resolve behavior implemented (direct route or redirect)
 - `package.json` updated with `check:sitemap` script
 - CI workflow updated with `check:sitemap` blocking gate
 

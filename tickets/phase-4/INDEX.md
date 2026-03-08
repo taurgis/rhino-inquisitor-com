@@ -131,6 +131,7 @@ Every batch PR must pass all gates before merge:
 | Redirect integrity check | `npm run check:redirects` | Yes | Yes (critical SEO URLs) |
 | SEO metadata completeness | `npm run check:seo-completeness` | Yes | Yes (title/desc/canonical) |
 | Index-control check | `npm run check:noindex` | Yes | Yes (unintended noindex) |
+| Feed compatibility check | `npm run check:feed-compatibility` | Yes | Yes (compatibility-critical feed routes) |
 | Media integrity check | `npm run check:media` | Yes | Yes |
 | Broken link check | `npm run check:links` | Yes | Yes (critical pages) |
 | Accessibility quick scan | `npm run check:a11y` | Yes | No (cap per batch) |

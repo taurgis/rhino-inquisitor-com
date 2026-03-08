@@ -56,7 +56,7 @@ This is typically the largest batch in terms of record count but the lowest risk
 - [ ] Plan taxonomy and archive page handling with SEO owner:
   - [ ] Confirm which category pages have organic traffic and must be preserved
   - [ ] Confirm video archive URL strategy
-  - [ ] Confirm date archive URL strategy (Hugo provides `/2023/`, `/2023/03/` etc. — confirm if these match WordPress)
+  - [ ] Confirm date archive URL strategy from manifest and baseline traffic data (do not assume Hugo generates WordPress-style date archives by default)
 - [ ] Run full pipeline on remaining records
 - [ ] Run exception closure pass:
   - [ ] Review `migration/reports/conversion-fallbacks.csv` — remediate or accept each outstanding item
@@ -106,7 +106,7 @@ This is typically the largest batch in terms of record count but the lowest risk
 | Taxonomy pages for high-traffic categories have no description data in WordPress | High | Medium | Use a template-based description fallback for category pages; flag for Phase 5 description enrichment | SEO Owner |
 | Large batch size causes Hugo build time to exceed CI timeout | Medium | Medium | Monitor build time on Batch 2 output; if build time trend is concerning, split Batch 3 into sub-batches | Engineering Owner |
 | Unresolved quarantine records silently missing from final site coverage | Low | High | Quarantine resolution is a hard acceptance criterion; do not merge Batch 3 with unresolved quarantine items | Migration Owner |
-| WordPress date archives diverge from Hugo's default date taxonomy behavior | Low | Medium | Test date archive URL generation in Hugo against manifest before committing date archive pages | Engineering Owner |
+| WordPress date archive URLs require explicit Hugo routing decisions | Low | Medium | Validate date archive behavior strictly from manifest mappings; implement only explicitly mapped archive URLs | Engineering Owner |
 | Exception closure incomplete — items accepted without owner assignment | Medium | Medium | Require owner field in fallback acceptance log; migration owner reviews before PR merge | Migration Owner |
 
 ---

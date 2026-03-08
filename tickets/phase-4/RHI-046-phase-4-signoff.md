@@ -48,6 +48,7 @@ Any unresolved exception, quarantine record, or failing gate identified here mus
   - [ ] `npm run check:redirects` exits with code 0
   - [ ] `npm run check:seo-completeness` exits with code 0
   - [ ] `npm run check:noindex` exits with code 0
+  - [ ] `npm run check:feed-compatibility` exits with code 0
   - [ ] `npm run check:media` exits with code 0
   - [ ] `npm run check:links` exits with code 0
   - [ ] `npm run check:a11y` exits with code 0 or within agreed cap

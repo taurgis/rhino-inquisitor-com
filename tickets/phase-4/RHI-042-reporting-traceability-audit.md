@@ -46,20 +46,22 @@ Traceability is not optional. If a piece of content is missing from the site aft
   - [ ] Enforces batch cap thresholds: HTML fallback conversions, a11y warnings
   - [ ] Exits with non-zero code if any zero-tolerance threshold is breached
   - [ ] Is referenced in `package.json` as `npm run check:migration-thresholds`
-- [ ] All report CSV files are produced and attached to CI artifacts:
+- [ ] All required report artifacts are produced and attached to CI artifacts in their specified formats:
   - [ ] `migration/reports/migration-item-report.csv`
   - [ ] `migration/reports/url-parity-report.csv`
   - [ ] `migration/reports/conversion-fallbacks.csv`
   - [ ] `migration/reports/media-integrity-report.csv`
   - [ ] `migration/reports/frontmatter-errors.csv`
   - [ ] `migration/reports/seo-completeness-report.csv`
+  - [ ] `migration/reports/feed-compatibility-report.csv`
   - [ ] `migration/reports/a11y-content-warnings.csv`
+  - [ ] `migration/reports/accessibility-scan-summary.md`
   - [ ] `migration/reports/security-content-scan.csv`
   - [ ] `migration/reports/link-rewrite-log.csv`
 - [ ] CI pipeline (from RHI-029) is updated to:
   - [ ] Run `npm run migrate:report` as part of the migration batch validation job
   - [ ] Run `npm run check:migration-thresholds` as a blocking gate
-  - [ ] Upload all `migration/reports/` CSV files as build artifacts (retained for 7 days minimum)
+  - [ ] Upload all `migration/reports/` artifacts (CSV and Markdown) as build artifacts (retained for 7 days minimum)
 - [ ] `csv-stringify` is used for all CSV serialization (consistent column ordering and escaping)
 
 ---

@@ -24,18 +24,19 @@ URL integrity failures are the primary cause of SEO equity loss during migration
 - [ ] URL parity validation script `scripts/migration/validate-url-parity.js` exists and:
   - [ ] Reads `migration/url-manifest.json` as source of truth
   - [ ] Reads Hugo-generated `public/` output to verify:
-    - [ ] Every `keep` URL has a corresponding `public/{path}/index.html` with matching `url` front matter
-    - [ ] Every `merge` URL has either a server redirect (HTTP 301/308) or a Hugo alias page at `public/{legacy-path}/index.html` with `http-equiv="refresh"` pointing to the correct target
+    - [ ] Every `keep` URL has a corresponding `public/{path}/index.html` and a source content file with explicit `url` front matter matching manifest `targetUrl`
+    - [ ] Every `merge` URL is validated against the configured redirect type (`server-301-308` or `meta-refresh`) from the redirect contract/manifest mapping
+    - [ ] `server-301-308`: HTTP status and `Location` target are correct
+    - [ ] `meta-refresh`: Hugo alias page exists at `public/{legacy-path}/index.html` with `http-equiv="refresh"` pointing to the correct target
     - [ ] Every `retire` URL does not have a corresponding `public/{path}/index.html` (true not-found)
   - [ ] Reports all failures with severity: `critical` (indexed URLs) and `warning` (low-traffic URLs)
   - [ ] Exits with non-zero code on any `critical` failure
   - [ ] Is referenced in `package.json` as `npm run check:url-parity` (extends or wraps the Phase 3 script from RHI-025)
 - [ ] Redirect integrity check script `scripts/migration/check-redirects.js` exists and:
-  - [ ] For each `merge` record, verifies the Hugo alias page:
-    - [ ] Returns HTTP `200` (Hugo alias pages are static HTML, not server redirects)
-    - [ ] Contains `<meta http-equiv="refresh" content="0; url=...">` pointing to the correct `targetUrl`
-    - [ ] Contains a canonical tag pointing to the `targetUrl`
-    - [ ] Does not return `404` or `200` with placeholder thin content
+  - [ ] For each `merge` record, validates behavior by configured redirect type:
+    - [ ] `server-301-308`: verifies redirect status code and `Location` target
+    - [ ] `meta-refresh`: verifies HTTP `200`, `<meta http-equiv="refresh" content="0; url=...">`, and canonical tag pointing to `targetUrl`
+    - [ ] Any mismatch between configured redirect type and observed behavior is a failure
   - [ ] Reports all redirect-type mismatches for critical SEO URLs
   - [ ] Is referenced in `package.json` as `npm run check:redirects`
 - [ ] No redirect chains exist: every legacy path resolves to a final target in one hop
@@ -53,15 +54,16 @@ URL integrity failures are the primary cause of SEO equity loss during migration
   - [ ] If 5% threshold was exceeded in Phase 3 (from RHI-030), escalate edge redirect decision before proceeding
 - [ ] Create `scripts/migration/validate-url-parity.js`:
   - [ ] Load `migration/url-manifest.json`
-  - [ ] For each `keep` record: verify `public/{path}/index.html` exists; parse `url` front matter and compare
-  - [ ] For each `merge` record: verify Hugo alias page exists at legacy path; verify meta-refresh target matches manifest `targetUrl`
+  - [ ] For each `keep` record: verify `public/{path}/index.html` exists and source `.md` `url` front matter matches manifest `targetUrl`
+  - [ ] For each `merge` record: branch validation by configured redirect type (`server-301-308` vs `meta-refresh`)
   - [ ] For each `retire` record: verify no HTML file exists at that path
   - [ ] Classify failures as `critical` or `warning` based on manifest `priority` field
   - [ ] Write results to `migration/reports/url-parity-report.csv`
   - [ ] Exit 1 if any `critical` failure exists
 - [ ] Create `scripts/migration/check-redirects.js`:
-  - [ ] Scan all alias `index.html` files in `public/`
-  - [ ] Parse `http-equiv="refresh"` content value and canonical tag
+  - [ ] Load redirect-type mapping for `merge` URLs from contract/manifest
+  - [ ] Validate `server-301-308` redirects by HTTP status and `Location`
+  - [ ] Validate `meta-refresh` alias pages in `public/` by refresh target and canonical tag
   - [ ] Detect redirect chains (target of one redirect is itself redirected)
   - [ ] Flag any alias page with a homepage target on a non-homepage content URL
   - [ ] Exit 1 on any critical integrity failure

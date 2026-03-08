@@ -127,7 +127,10 @@ Quality controls:
 4. Redirect target must match content intent (topic-level equivalence).
 
 Escalation trigger:
-1. If changed indexed URLs exceed 5 percent of indexed inventory, edge redirect layer becomes mandatory before launch.
+1. If URL change rate exceeds 5 percent, edge redirect layer becomes mandatory before launch.
+	- `indexed_urls = count(disposition == "keep" OR has_organic_traffic == true)`
+	- `changed_indexed_urls = count(indexed_urls where disposition != "keep")`
+	- `change_rate = changed_indexed_urls / indexed_urls * 100`
 2. If alias volume materially increases output footprint or deployment risk, move redirect handling to edge/server rules.
 
 Acceptance criteria:

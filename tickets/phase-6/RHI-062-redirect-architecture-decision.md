@@ -25,7 +25,10 @@ The output is a committed Architecture Decision Record (ADR): `migration/phase-6
 
 - [ ] URL change percentage calculated from `migration/url-manifest.json`:
   - [ ] Total in-scope legacy URLs counted
-  - [ ] `redirect` (merge) disposition count calculated as percentage of total indexed inventory
+  - [ ] Change rate calculated using explicit formula:
+    - [ ] `indexed_urls = count(disposition == "keep" OR has_organic_traffic == true)`
+    - [ ] `changed_indexed_urls = count(indexed_urls where disposition != "keep")`
+    - [ ] `change_rate = changed_indexed_urls / indexed_urls * 100`
   - [ ] Model B trigger threshold (>5% changed indexed URLs, or >100 high-value linked legacy URLs requiring redirect) evaluated
 - [ ] Architecture model selected and rationale documented:
   - [ ] **If Model A selected:** risk acceptance statement signed by SEO owner covering client-side redirect semantics, limitations of meta-refresh vs server-side 301/308, and the fact that true 410 responses are not achievable through this model
@@ -49,10 +52,10 @@ The output is a committed Architecture Decision Record (ADR): `migration/phase-6
   - [ ] Count total in-scope legacy URLs
   - [ ] Count URLs with `disposition: merge` (redirect candidates)
   - [ ] Count URLs with `disposition: retire`
-  - [ ] Calculate percentage of indexed inventory changing URL
+  - [ ] Calculate `change_rate = changed_indexed_urls / indexed_urls * 100` using explicit indexed-URL formula
   - [ ] Identify high-value linked legacy URLs (from Phase 1 backlink and Search Console data in `migration/phase-1-seo-baseline.md`)
 - [ ] Evaluate Model B trigger conditions:
-  - [ ] Does changed-URL percentage exceed 5% of indexed inventory?
+  - [ ] Does `change_rate` exceed 5?
   - [ ] Does high-value linked redirect count exceed 100?
   - [ ] Is there a hard requirement for true 301/308 or explicit 410 at origin?
 - [ ] If Model B is triggered:

@@ -43,7 +43,11 @@ Migration traffic equity depends on correct redirect signals. A redirect chain a
   - [ ] `keep` URLs: confirm they render at exact preserved route, no redirect needed
   - [ ] `merge` URLs: confirm redirect mechanism (`pages-static` Hugo alias or `edge-cdn`)
   - [ ] `retire` URLs: confirm `404` response behavior (not routed to homepage)
-- [ ] Escalation trigger assessed: if changed indexed URLs exceed 5% of indexed inventory, edge redirect layer decision is documented
+- [ ] Escalation trigger assessed using explicit formula and edge redirect layer decision is documented:
+  - [ ] `indexed_urls = count(disposition == "keep" OR has_organic_traffic == true)`
+  - [ ] `changed_indexed_urls = count(indexed_urls where disposition != "keep")`
+  - [ ] `change_rate = changed_indexed_urls / indexed_urls * 100`
+  - [ ] If `change_rate > 5`, edge redirect layer decision is documented
 - [ ] Zero redirect chains detected on `merge` disposition URLs in release candidate
 - [ ] Zero redirect loops detected
 - [ ] Zero broad irrelevant redirects to homepage for unrelated content
@@ -55,7 +59,7 @@ Migration traffic equity depends on correct redirect signals. A redirect chain a
 - [ ] Review `url-manifest.json` for all `merge` and `retire` disposition records:
   - [ ] Count total `merge` URLs and verify `target_url` is set and non-null
   - [ ] Count total `retire` URLs and verify `target_url` is `null` or mapped to 404 behavior
-  - [ ] Calculate changed URL percentage against Phase 1 indexed inventory — flag if >5%
+  - [ ] Calculate `change_rate = changed_indexed_urls / indexed_urls * 100` against Phase 1 indexed inventory baseline — flag if `change_rate > 5`
 - [ ] Build `migration/phase-5-redirect-signal-matrix.csv`:
   - [ ] For each `merge` URL: record `redirect_code`, `implementation_layer`, `chain_count`, `loop_detected`, `broad_redirect_risk`
   - [ ] For each `retire` URL: record disposition outcome, confirm no homepage catch-all
@@ -67,7 +71,7 @@ Migration traffic equity depends on correct redirect signals. A redirect chain a
   - [ ] Flag any `target_url` that equals `/` for non-homepage sources
   - [ ] Write per-URL results to `migration/reports/phase-5-redirect-validation.csv`
 - [ ] Verify Hugo alias files are generated for all `pages-static` mechanism URLs after a local build
-- [ ] Assess edge redirect escalation trigger: if >5% of indexed URLs are changing disposition, document the decision to add an edge redirect layer before launch
+- [ ] Assess edge redirect escalation trigger using explicit formula: if `change_rate > 5`, document the decision to add an edge redirect layer before launch
 - [ ] Add `"check:redirects:seo": "node scripts/seo/check-redirects.js"` to `package.json`
 - [ ] Integrate `check:redirects:seo` as a blocking step in the deploy CI workflow
 - [ ] Document redirect mechanism decision (static aliases vs edge layer) in Progress Log with owner sign-off
@@ -100,7 +104,7 @@ Migration traffic equity depends on correct redirect signals. A redirect chain a
 | Risk | Likelihood | Impact | Mitigation | Owner |
 |------|------------|--------|------------|-------|
 | Hugo `aliases` produce meta-refresh pages, not true HTTP 301/308 — may be insufficient for high-value moved URLs | High | High | Assess each `merge` URL against Phase 1 SEO baseline traffic and backlink data; escalate to edge redirect layer if any high-value URL is in scope | SEO Owner |
-| Changed URL count exceeds 5% of indexed inventory, triggering mandatory edge redirect decision | Medium | High | Run count at task start; communicate escalation decision to Phase 6 owner by Day 4 to avoid Phase 6 timeline delay | SEO Owner |
+| URL change rate exceeds 5% (`change_rate = changed_indexed_urls / indexed_urls * 100`), triggering mandatory edge redirect decision | Medium | High | Run change-rate calculation at task start using explicit indexed-URL formula; communicate escalation decision to Phase 6 owner by Day 4 to avoid Phase 6 timeline delay | SEO Owner |
 | Redirect chains introduced by multi-hop `merge` paths in manifest | Low | High | The chain detection script catches this; fix manifest records before release | Engineering Owner |
 | `retire` URLs silently resolving to 200 OK on Hugo's 404 fallback behavior | Medium | Medium | Verify 404 handling in Hugo config; confirm retired URLs return true 404 in local build | Engineering Owner |
 

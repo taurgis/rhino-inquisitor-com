@@ -136,7 +136,7 @@ All items below must be complete before Phase 6 and Phase 8 downstream work can 
 - [ ] RHI-048 Done — Metadata completeness 100%; canonical policy documented and CI gate passing
 - [ ] RHI-049 Done — Zero redirect chains/loops; redirect mechanism documented per URL class; 5% escalation decision made
 - [ ] RHI-050 Done — Zero unintended noindex on indexable pages; zero robots/noindex contradiction; staging suppression verified
-- [ ] RHI-051 Done — Sitemap valid and canonical-consistent; feed endpoint operational; `/feed/` compatibility implemented
+- [ ] RHI-051 Done — Sitemap valid and canonical-consistent; feed endpoint operational; `/feed/` must-resolve behavior implemented
 - [ ] RHI-052 Done — Zero critical schema property errors on representative templates; VideoObject scope confirmed
 - [ ] RHI-053 Done — Zero broken internal links on critical templates; zero orphan pages in representative set
 - [ ] RHI-054 Done — Lighthouse assertions passing on representative templates; mobile parity confirmed

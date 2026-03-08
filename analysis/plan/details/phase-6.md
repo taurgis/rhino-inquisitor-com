@@ -107,7 +107,7 @@ Model B: Edge redirect layer in front of Pages (recommended for medium/high URL 
 2. Pros: strongest migration signal control, cleaner diagnostics, deterministic status semantics.
 3. Cons: additional operational complexity and maintenance.
 4. Required when any trigger is met:
-- Changed indexed URLs exceed 5 percent of indexed inventory.
+- URL change rate exceeds 5 percent (`change_rate = changed_indexed_urls / indexed_urls * 100`, with `indexed_urls = count(disposition == "keep" OR has_organic_traffic == true)` and `changed_indexed_urls = count(indexed_urls where disposition != "keep")`).
 - More than 100 high-value linked legacy URLs require redirects.
 - There is a hard requirement for true `301`/`308` and/or explicit `410` responses.
 

@@ -91,7 +91,10 @@ Redirect policy:
 3. Prefer server-side permanent redirects (301/308) when hosting infrastructure supports them.
 4. Keep fallback redirect artifacts for at least 12 months.
 5. Avoid redirect chains; old URLs should resolve directly to final destination.
-6. If changed URLs exceed 5 percent of indexed inventory, edge redirect layer is mandatory before launch.
+6. If URL change rate exceeds 5 percent, edge redirect layer is mandatory before launch.
+   - `indexed_urls = count(disposition == "keep" OR has_organic_traffic == true)`
+   - `changed_indexed_urls = count(indexed_urls where disposition != "keep")`
+   - `change_rate = changed_indexed_urls / indexed_urls * 100`
 
 Critical caveat:
 - GitHub Pages is static hosting, so generated redirects are not equivalent to full origin-level 301/308 control for all cases.
@@ -212,6 +215,7 @@ Phase 2 is complete only if all statements are true:
 ## Resolved Decisions for Phase 3 Entry
 1. URL-change threshold and owner:
 - Threshold is fixed at 5 percent of indexed URL inventory.
+- Formula is fixed: `change_rate = changed_indexed_urls / indexed_urls * 100`, where `indexed_urls = count(disposition == "keep" OR has_organic_traffic == true)` and `changed_indexed_urls = count(indexed_urls where disposition != "keep")`.
 - Decision owner is migration owner, with required approval from SEO owner.
 2. Legacy endpoint policy:
 - `/feed/` is the canonical feed route and must resolve on the migrated site.

@@ -34,7 +34,7 @@ An incomplete inventory at this stage is the most common cause of post-launch 40
   - [ ] Phase 1 backlink data (`migration/phase-1-seo-baseline.md`) cross-checked against manifest
   - [ ] Any backlink target URL not in manifest added with source annotation and `has_external_links: true`
 - [ ] System and legal endpoints explicitly covered:
-  - [ ] `/feed/` and `/rss/` feed endpoints have explicit disposition
+  - [ ] `/feed/` must resolve and `/rss/` feed endpoint has explicit disposition
   - [ ] `/privacy-policy/` has explicit disposition
   - [ ] `/sitemap.xml` and sitemap index endpoints have explicit disposition
   - [ ] `/robots.txt` has explicit disposition

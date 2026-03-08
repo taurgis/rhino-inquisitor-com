@@ -33,7 +33,7 @@ If the pilot batch reveals pipeline defects, they must be fixed before Batch 2 b
   - [ ] Homepage (`/`)
   - [ ] 5 pages from the top-10 traffic list (from Phase 1 SEO baseline)
 - [ ] Full pipeline executes cleanly on pilot records:
-  - [ ] `npm run migrate:extract` (or subset mode) produces pilot records
+  - [ ] `npm run migrate:extract` runs in explicit subset mode (by pilot `sourceId` file and/or postType filter) and produces only pilot records
   - [ ] `npm run migrate:normalize` validates all pilot records against schema
   - [ ] `npm run migrate:convert` converts all pilot records with no unresolved fallbacks
   - [ ] `npm run migrate:download-media` downloads all referenced media for pilot records
@@ -48,6 +48,7 @@ If the pilot batch reveals pipeline defects, they must be fixed before Batch 2 b
   - [ ] `npm run check:redirects` exits with code 0
   - [ ] `npm run check:seo-completeness` exits with code 0
   - [ ] `npm run check:noindex` exits with code 0
+  - [ ] `npm run check:feed-compatibility` exits with code 0
   - [ ] `npm run check:media` exits with code 0
   - [ ] `npm run check:links` exits with code 0
   - [ ] `npm run check:a11y-content` exits with code 0 or agreed cap
@@ -70,7 +71,8 @@ If the pilot batch reveals pipeline defects, they must be fixed before Batch 2 b
 
 - [ ] Select pilot records (20–30) covering all content type categories listed in acceptance criteria
 - [ ] Document selected records in Progress Log (source IDs, slugs, content types)
-- [ ] Configure pipeline scripts to run in subset mode (by `sourceId` list or postType filter)
+- [ ] Create and commit pilot subset selection input (for example `migration/input/pilot-source-ids.txt`)
+- [ ] Configure pipeline scripts to run in subset mode (by `sourceId` list and/or postType filter)
 - [ ] Run full pipeline on pilot records:
   - [ ] Extract → Normalize → Convert → Download Media → Rewrite Media → Map Front Matter → Rewrite Links
 - [ ] Run report generation: `npm run migrate:report`
@@ -104,6 +106,7 @@ If the pilot batch reveals pipeline defects, they must be fixed before Batch 2 b
 | Dependency | Type | Status |
 |------------|------|--------|
 | RHI-032 Done — Extraction pipeline complete | Ticket | Pending |
+| RHI-032 subset-mode extraction support is available and documented | Ticket | Pending |
 | RHI-033 Done — Normalization complete | Ticket | Pending |
 | RHI-034 Done — HTML-to-MD conversion engine complete | Ticket | Pending |
 | RHI-035 Done — Front matter mapping complete | Ticket | Pending |
