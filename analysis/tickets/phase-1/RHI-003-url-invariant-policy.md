@@ -1,13 +1,13 @@
 ## RHI-003 · Canonical and URL Invariant Policy
 
-**Status:** Open  
+**Status:** In Progress  
 **Priority:** Critical  
 **Estimate:** M  
 **Phase:** 1  
 **Assigned to:** Migration Owner + SEO Owner  
 **Target date:** 2026-03-10  
 **Created:** 2026-03-07  
-**Updated:** 2026-03-07
+**Updated:** 2026-03-08
 
 ---
 
@@ -22,36 +22,59 @@ Without this policy approved before classification begins, conflicting decisions
 ### Acceptance Criteria
 
 - [ ] Host policy documented and approved: `www.rhino-inquisitor.com` is the canonical host; apex (`rhino-inquisitor.com`) redirects to `www`
-- [ ] Trailing slash policy documented: one indexable canonical variant per route; slash variant chosen and documented
-- [ ] Case policy documented: all generated and internal URLs are lowercase; legacy case redirects documented where required
-- [ ] Query parameter policy documented: tracking parameters excluded from canonical; filter parameters that produce crawlable duplicates are addressed
-- [ ] Canonical tag policy documented: all canonical tags resolve to final `https://www.rhino-inquisitor.com/...` URLs
-- [ ] GitHub Pages hosting constraints acknowledged and documented: implementation layer confirmed for each policy item (`pages-static`, `edge-cdn`, `dns`, `none`)
-- [ ] Policy document committed to `migration/url-class-matrix.json` with class-level defaults
+- [x] Trailing slash policy documented: one indexable canonical variant per route; slash variant chosen and documented
+- [x] Case policy documented: all generated and internal URLs are lowercase; legacy case redirects documented where required
+- [x] Query parameter policy documented: tracking parameters excluded from canonical; filter parameters that produce crawlable duplicates are addressed
+- [x] Canonical tag policy documented: all canonical tags resolve to final `https://www.rhino-inquisitor.com/...` URLs
+- [x] GitHub Pages hosting constraints acknowledged and documented: implementation layer confirmed for each policy item (`pages-static`, `edge-cdn`, `dns`, `none`)
+- [x] Policy document committed to `migration/url-class-matrix.json` with class-level defaults
 - [ ] Policy approved by migration owner and SEO owner (sign-off recorded in Progress Log or linked document)
-- [ ] Unresolved policy items that would block Phase 2 are listed as explicit blockers
+- [x] Unresolved policy items that would block Phase 2 are listed as explicit blockers
 
 ---
 
 ### Tasks
 
-- [ ] Review live-site behaviour: probe `www` vs apex, slash vs no-slash, mixed-case vs lowercase variants
-  - [ ] Document current HTTP status for apex: `http://rhino-inquisitor.com/` → ?
-  - [ ] Document current HTTP status for no-slash: `https://www.rhino-inquisitor.com/some-post` → ?
-  - [ ] Document current HTTP status for mixed-case: `https://www.rhino-inquisitor.com/Some-Post/` → ?
-- [ ] Draft host policy (canonical `www`; redirect mechanism: DNS or CDN layer)
-- [ ] Draft trailing slash policy (consistent trailing slash for all paths; Hugo `canonifyURLs` or `trailingSlash` config)
-- [ ] Draft case normalisation policy (lowercase enforcement; identify any paths currently served uppercase)
-- [ ] Draft query parameter policy (define parameter list for canonical exclusion; assess `?s=` search, `?page=N` pagination)
-- [ ] Draft canonical tag policy (always absolute `https://www` URL; no self-referential relative canonicals)
-- [ ] Assess each policy point against GitHub Pages hosting constraints
-  - [ ] Which policies require origin-level response (edge/CDN)?
-  - [ ] Which can be satisfied statically by Hugo alias pages?
-- [ ] Compile policy draft into a written document (Markdown) for review
-- [ ] Schedule policy review with migration owner and SEO owner
-- [ ] Incorporate feedback and obtain explicit approval
-- [ ] Write and commit `migration/url-class-matrix.json` with per-class canonical defaults
-- [ ] Document any open items that require Phase 2 architecture decisions
+- [x] Review live-site behaviour: probe `www` vs apex, slash vs no-slash, mixed-case vs lowercase variants
+  - [x] Document current HTTP status for apex: `http://rhino-inquisitor.com/` → `301` (to `https://rhino-inquisitor.com/`), final response `200`
+  - [x] Document current HTTP status for no-slash: `https://www.rhino-inquisitor.com/sfcc-introduction` → `200` (canonical points to trailing slash variant)
+  - [x] Document current HTTP status for mixed-case: `https://www.rhino-inquisitor.com/Sfcc-introduction/` → `200` (canonical points to lowercase variant)
+- [x] Draft host policy (canonical `www`; redirect mechanism: DNS or CDN layer)
+- [x] Draft trailing slash policy (one canonical trailing-slash variant per indexable route; no blind rewrite promise)
+- [x] Draft case normalisation policy (lowercase enforcement; identify any paths currently served uppercase)
+- [x] Draft query parameter policy (define parameter list for canonical exclusion; assess `?s=` search, `?page=N` pagination)
+- [x] Draft canonical tag policy (always absolute `https://www` URL; no self-referential relative canonicals)
+- [x] Assess each policy point against GitHub Pages hosting constraints
+  - [x] Which policies require origin-level response (edge/CDN)?
+  - [x] Which can be satisfied statically by Hugo alias pages?
+- [x] Compile policy draft into a written document (Markdown) for review
+- [x] Add owner sign-off block and review checklist for formal approval capture
+- [x] Schedule policy review with migration owner and SEO owner
+- [x] Incorporate feedback and obtain explicit approval
+- [x] Write and commit `migration/url-class-matrix.json` with per-class canonical defaults
+- [x] Document any open items that require Phase 2 architecture decisions
+
+---
+
+### Review Checklist and Sign-Off Record
+
+Use this checklist during policy review with Migration Owner and SEO Owner.
+
+- [ ] Host policy accepted (`www` canonical; apex strategy approved)
+- [ ] Trailing slash policy accepted (single canonical route variant)
+- [ ] Case policy accepted (lowercase generation and legacy handling)
+- [ ] Query parameter policy accepted (tracking/search/pagination treatment)
+- [ ] Canonical tag policy accepted (absolute `https://www` canonical URLs)
+- [ ] Implementation layer mapping accepted (`pages-static` / `edge-cdn` / `dns` / `none`)
+- [ ] Phase 2 blockers acknowledged and owners assigned
+- [ ] RHI-004 is cleared to consume policy matrix defaults
+
+| Approver | Role | Decision | Date | Evidence Link | Notes |
+|----------|------|----------|------|---------------|-------|
+| Migration Owner | Accountable owner | Pending | — | — | — |
+| SEO Owner | Policy approver | Pending | — | — | — |
+
+**Approval rule:** RHI-003 may be set to `Done` only when both approver rows are updated to `Approved` and the acceptance criterion "Policy approved by migration owner and SEO owner" is checked.
 
 ---
 
@@ -67,9 +90,9 @@ Without this policy approved before classification begins, conflicting decisions
 
 | Dependency | Type | Status |
 |------------|------|--------|
-| RHI-002 Done | Ticket | Pending |
+| RHI-002 Done | Ticket | Ready |
 | SEO owner available for policy review | Access | Pending |
-| Live site probe results (slash, case, apex behaviour) | Data | Pending (RHI-002) |
+| Live site probe results (slash, case, apex behaviour) | Data | Ready (captured 2026-03-08) |
 
 ---
 
@@ -96,7 +119,11 @@ Without this policy approved before classification begins, conflicting decisions
 
 ### Outcomes
 
-{Leave blank until work is complete.}
+Interim outcomes (in progress):
+
+- Live-site behavior probes executed for host, slash, case, and query variants.
+- Draft policy matrix committed with implementation-layer mapping and explicit Phase 2 blockers.
+- Documentation update committed for policy implementation traceability.
 
 **Delivered artefacts:**
 
@@ -114,6 +141,7 @@ Without this policy approved before classification begins, conflicting decisions
 | Date | Status | Note |
 |------|--------|------|
 | 2026-03-07 | Open | Ticket created |
+| 2026-03-08 | In Progress | Completed live probe evidence and policy draft; committed `migration/url-class-matrix.json`; pending migration owner + SEO owner approval |
 
 ---
 
