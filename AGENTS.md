@@ -63,10 +63,24 @@ Primary governance source for this flow:
 |---|---|---|
 | Project Manager | You need sequencing, milestones, risk framing, and delivery checkpoints | [.github/agents/project-manager.agent.md](.github/agents/project-manager.agent.md) |
 | Business Analyst | You need clear requirements, assumptions, acceptance criteria, and traceability | [.github/agents/business-analyst.agent.md](.github/agents/business-analyst.agent.md) |
+| Senior Developer | You need implementation decomposition, safe parallel subagent coordination, and integrated delivery across feature slices | [.github/agents/senior-developer.agent.md](.github/agents/senior-developer.agent.md) |
 | Tester | You need verification strategy, risk-based test coverage, and go or no-go quality advice | [.github/agents/tester.agent.md](.github/agents/tester.agent.md) |
 | Hugo Specialist | You need blog or website design direction plus Hugo implementation guidance for templates, configuration, and GitHub Pages workflows | [.github/agents/hugo-specialist.agent.md](.github/agents/hugo-specialist.agent.md) |
 | SEO Specialist | You need URL disposition, redirect architecture, canonical, structured data, or Search Console strategy | [.github/agents/seo-specialist.agent.md](.github/agents/seo-specialist.agent.md) |
 | Official Docs Researcher | You need official-source documentation evidence for technical claims and recommendations | [.github/agents/official-docs-researcher.agent.md](.github/agents/official-docs-researcher.agent.md) |
+
+## Parallel Implementation Option
+
+When a user request contains multiple independent implementation features:
+
+1. Use `Senior Developer` to decompose work into `parallel-safe` and `sequential-only` slices.
+2. Run parallel developer subagents only when independence is explicit and accepted.
+3. Require every parallel subagent prompt to include cross-agent file-awareness (other agents may adjust related files).
+4. Complete an integration pass before presenting final results.
+
+Governance source:
+- [.github/instructions/parallel-developer-subagents.instructions.md](.github/instructions/parallel-developer-subagents.instructions.md)
+
 
 ## Skills That Support Agent Work
 
