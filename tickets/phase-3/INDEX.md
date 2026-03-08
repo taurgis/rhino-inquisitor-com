@@ -102,7 +102,7 @@ All items below must be complete before Phase 4 work begins:
 
 ## Quality Gate Reference
 
-All gates must be passing before Phase 4 begins:
+All blocking gates must be passing before Phase 4 begins. Staged baseline gates must be run and either pass or be risk-accepted before Phase 4 begins:
 
 | Gate | Script | Blocking? | Phase Introduced |
 |------|--------|-----------|-----------------|
@@ -111,8 +111,8 @@ All gates must be passing before Phase 4 begins:
 | URL parity check | `npm run check:url-parity` | Yes | 3 |
 | SEO smoke check | `npm run check:seo` | Yes | 3 |
 | Broken link check | `npm run check:links` | Yes | 3 |
-| Accessibility check | `npm run check:a11y` | Yes | 3 |
-| Performance check (Lighthouse CI) | `npm run check:perf` | Yes | 3 |
+| Accessibility check | `npm run check:a11y` | No (Staged in Phase 3; required for sign-off) | 3 |
+| Performance check (Lighthouse CI) | `npm run check:perf` | No (Staged in Phase 3; required for sign-off) | 3 |
 
 ---
 
@@ -122,7 +122,7 @@ All gates must be passing before Phase 4 begins:
 |---------------|-------|---------|
 | Hugo version pin and project layout | Engineering Owner | RHI-020, RHI-021 |
 | Permalink and taxonomy configuration | Engineering Owner | RHI-021 |
-| Feed endpoint disposition (redirect/retire) | SEO Owner | RHI-021, RHI-024 |
+| Feed endpoint policy (`/feed/` must resolve; legacy variants mapped) | SEO Owner | RHI-021, RHI-024 |
 | Front matter contract enforcement | Engineering Owner | RHI-022 |
 | SEO partial architecture and JSON-LD obligations | SEO Owner | RHI-023, RHI-024 |
 | URL-change threshold and edge redirect requirement | SEO Owner, Migration Owner | RHI-025 |

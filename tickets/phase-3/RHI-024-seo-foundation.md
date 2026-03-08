@@ -40,8 +40,8 @@ Validate and complete the full SEO signal layer on top of the template scaffold 
   - [ ] Does not use `Disallow` as the sole mechanism for de-indexing
 - [ ] Staging environment enforces `noindex` via `<meta name="robots" content="noindex">` — not only `robots.txt Disallow`
 - [ ] Feed output path decision from RHI-013/RHI-021 is implemented:
-  - [ ] If WordPress `/feed/` is redirected: alias or redirect page exists and target is correct
-  - [ ] If `/feed/` is retired: disposition is recorded and no soft-404 risk exists
+  - [ ] WordPress `/feed/` resolves (direct feed output or one-hop redirect) and target is correct
+  - [ ] Legacy feed variants are mapped per RHI-013 (`/feed/rss/`, `/feed/atom/`)
 - [ ] SEO smoke-check script (`scripts/check-seo.js`) exists and:
   - [ ] Validates presence of canonical, meta description, and JSON-LD on representative pages in `public/`
   - [ ] Exits with non-zero code if any required SEO element is missing
@@ -71,8 +71,8 @@ Validate and complete the full SEO signal layer on top of the template scaffold 
   - [ ] Create `config/staging/hugo.toml` or template condition that emits `<meta name="robots" content="noindex">` in staging builds
   - [ ] Verify staging build does NOT emit `noindex` in production build
   - [ ] Confirm staging protection does not rely solely on `robots.txt Disallow`
-- [ ] Implement feed path disposition (per RHI-013 decision):
-  - [ ] If redirecting `/feed/` → add alias or redirect page in `static/feed/index.html`
+- [ ] Implement `/feed/` compatibility path (per RHI-013 decision):
+  - [ ] Ensure `/feed/` resolves via direct output or one-hop redirect page in `static/feed/index.html`
   - [ ] Verify redirect target is correct and does not create a redirect chain
 - [ ] Create `scripts/check-seo.js`:
   - [ ] Read HTML files from `public/` using `fast-glob`
@@ -102,7 +102,7 @@ Validate and complete the full SEO signal layer on top of the template scaffold 
 | RHI-019 Done — Phase 3 Bootstrap complete | Ticket | Pending |
 | RHI-021 Done — Output formats (sitemap, robots, RSS) enabled in config | Ticket | Pending |
 | RHI-023 Done — Template scaffold with SEO partials committed | Ticket | Pending |
-| RHI-013 Outcomes — Feed endpoint disposition (redirect/retire) approved | Ticket | Pending |
+| RHI-013 Outcomes — `/feed/` must resolve and legacy feed variants are mapped | Ticket | Pending |
 | RHI-014 Outcomes — SEO partial architecture and JSON-LD obligations approved | Ticket | Pending |
 
 ---

@@ -103,13 +103,15 @@ Required config decisions:
    - HTML
    - sitemap
    - RSS
-   - robots
-6. Feed compatibility policy:
+6. robots.txt generation policy:
+   - `enableRobotsTXT` is explicitly set.
+   - Generation mechanism is explicitly chosen and documented: Hugo template (`layouts/robots.txt`) or static file (`static/robots.txt`).
+7. Feed compatibility policy:
    - Hugo default feed output is `index.xml`.
-   - Preserve or redirect WordPress feed endpoints (for example `/feed/`) explicitly.
-7. Sitemap mode policy:
+   - WordPress `/feed/` must resolve explicitly (direct feed output or one-hop redirect).
+8. Sitemap mode policy:
    - Confirm expected sitemap shape for monolingual vs multilingual configuration.
-8. Build behavior:
+9. Build behavior:
    - drafts/future content excluded in production.
    - minification toggles controlled by environment.
 
@@ -225,7 +227,7 @@ Required SEO outputs per indexable page:
 Required crawler surfaces:
 1. `sitemap.xml` generated and deploy-visible.
 2. `robots.txt` with sitemap reference and validated directives.
-3. Feed outputs for existing subscriber paths (for example `/feed/`) if retained by policy.
+3. Feed output compatibility for existing subscriber paths with explicit `/feed/` resolution.
 4. Staging and temporary hosts enforce `noindex` without blocking crawler access to `noindex` directives.
 
 Critical implications:

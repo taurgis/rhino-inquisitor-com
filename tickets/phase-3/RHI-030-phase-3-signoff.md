@@ -13,7 +13,7 @@
 
 ### Goal
 
-Formally close Phase 3 by verifying that all ten workstream tickets are complete, the Hugo scaffold is deployable end-to-end, all quality gates are passing in CI, and the Phase 4 content migration team has received and acknowledged the Phase 3 handover package. Phase 4 content migration and Phase 5 SEO discoverability work must not begin until this ticket is `Done`. Any unresolved scaffold gap or failing quality gate identified here must be fixed or explicitly accepted with documented risk before sign-off is recorded.
+Formally close Phase 3 by verifying that all prerequisite and workstream tickets (RHI-019 through RHI-029) are complete, the Hugo scaffold is deployable end-to-end, all blocking quality gates are passing in CI, staged baseline checks are resolved or risk-accepted, and the Phase 4 content migration team has received and acknowledged the Phase 3 handover package. Phase 4 content migration and Phase 5 SEO discoverability work must not begin until this ticket is `Done`. Any unresolved scaffold gap or failing quality gate identified here must be fixed or explicitly accepted with documented risk before sign-off is recorded.
 
 ---
 
@@ -36,6 +36,8 @@ Formally close Phase 3 by verifying that all ten workstream tickets are complete
   - [ ] URL parity tooling is validated against a sampled subset of Phase 1 manifest
   - [ ] SEO smoke checks pass on all primary template classes
   - [ ] Deployment to Pages succeeds with correct canonical host behavior in non-production dry run
+  - [ ] Blocking gates pass in CI (`validate:frontmatter`, production build, `check:url-parity`, `check:seo`, `check:links`)
+  - [ ] Staged baseline gates (`check:a11y`, `check:perf`) are passing or explicitly risk-accepted with owners and target resolution phase
 - [ ] Phase 3 Definition of Done conditions are met:
   - [ ] Repository scaffolding supports deterministic local and CI builds
   - [ ] Core template types exist and include shared SEO primitives
@@ -60,12 +62,13 @@ Formally close Phase 3 by verifying that all ten workstream tickets are complete
 ### Tasks
 
 - [ ] Confirm each workstream ticket is `Done` (run through checklist in Acceptance Criteria)
-- [ ] Run all quality gates locally against the final scaffold commit to verify end-to-end pass:
+- [ ] Run all blocking quality gates locally against the final scaffold commit to verify end-to-end pass:
   - [ ] `npm run validate:frontmatter`
   - [ ] `hugo --minify --environment production`
   - [ ] `npm run check:url-parity`
   - [ ] `npm run check:seo`
   - [ ] `npm run check:links`
+- [ ] Run staged baseline gates locally and record outcomes:
   - [ ] `npm run check:a11y`
   - [ ] `npm run check:perf`
 - [ ] Review all Phase 3 Non-Negotiable Constraints from `analysis/plan/details/phase-3.md`:

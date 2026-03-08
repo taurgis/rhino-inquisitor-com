@@ -46,6 +46,10 @@ This ticket is the final integration gate for all Phase 3 workstreams — it pro
   - [ ] SEO smoke check (`npm run check:seo`)
   - [ ] Broken link check (`npm run check:links`)
 - [ ] Quality gate jobs use `needs:` dependency so deploy is blocked on any gate failure
+- [ ] Accessibility and performance baseline checks are run in CI as staged, non-deploy-blocking gates in Phase 3:
+  - [ ] Accessibility check (`npm run check:a11y`) runs and reports pass/fail
+  - [ ] Performance check (`npm run check:perf`) runs and reports pass/fail
+  - [ ] Any staged-gate failure is tracked and must be resolved or risk-accepted before RHI-030 closes
 - [ ] PR build validation workflow (`.github/workflows/build-pr.yml`) exists and:
   - [ ] Triggers on all PRs to `main`
   - [ ] Runs Hugo production build and front matter validation as minimum checks
@@ -61,6 +65,7 @@ This ticket is the final integration gate for all Phase 3 workstreams — it pro
   - [ ] How to trigger a deployment
   - [ ] How to interpret quality gate failures
   - [ ] Rollback procedure
+  - [ ] Search Console migration steps after cutover (new sitemap submission, transition handling, indexing/soft-404 monitoring)
 
 ---
 
@@ -97,6 +102,7 @@ This ticket is the final integration gate for all Phase 3 workstreams — it pro
   - [ ] Concurrency: `group: pr-${{ github.ref }}, cancel-in-progress: true` (OK for PR builds)
   - [ ] Run Hugo production build and `validate:frontmatter` on all PRs
   - [ ] Run URL parity and SEO smoke check on PRs touching `content/**`, `layouts/**`, or `hugo.toml`
+  - [ ] Run `check:a11y` and `check:perf` as non-blocking informational jobs in Phase 3
 - [ ] Create `scripts/check-links.js`:
   - [ ] Use `fast-glob` to find all HTML files in `public/`
   - [ ] Parse `href` attributes for internal links (links starting with `/`)
@@ -118,6 +124,7 @@ This ticket is the final integration gate for all Phase 3 workstreams — it pro
   - [ ] Trigger deployment: push to `main` or use `workflow_dispatch`
   - [ ] Quality gate failure response: which script to run locally to reproduce and debug
   - [ ] Rollback: re-run deploy job from last known-good run (do not re-run build-only job)
+  - [ ] Search Console migration steps: submit new sitemap set after cutover, keep old sitemap references during transition if needed, monitor indexing and soft-404 signals
 - [ ] Commit workflows, `scripts/check-links.js`, and updated `package.json`
 
 ---

@@ -32,10 +32,12 @@ Any subsequent change to `baseURL`, permalink rules, or taxonomy paths must trig
   - [ ] HTML output enabled
   - [ ] Sitemap output enabled
   - [ ] RSS output enabled with feed path compatibility considered (WordPress `/feed/` endpoint — see Notes)
-  - [ ] robots.txt output enabled
+ - [ ] robots generation mechanism is explicitly configured and documented:
+  - [ ] `enableRobotsTXT` is set explicitly (true or false)
+  - [ ] Mechanism is documented: Hugo template (`layouts/robots.txt`) or static file (`static/robots.txt`)
 - [ ] Feed compatibility policy from RHI-013 is implemented or explicitly deferred with a tracked decision:
   - [ ] Hugo default feed path (`/index.xml`) noted
-  - [ ] WordPress feed endpoint (`/feed/`) disposition recorded (redirect via alias, or retire — per RHI-013 decision)
+  - [ ] WordPress feed endpoint (`/feed/`) disposition recorded and enforced as must-resolve (direct output or one-hop redirect)
 - [ ] Build behavior is environment-gated:
   - [ ] `draft: true` content is excluded in production build
   - [ ] Future-dated content is excluded in production build
@@ -62,13 +64,16 @@ Any subsequent change to `baseURL`, permalink rules, or taxonomy paths must trig
   - [ ] HTML included for all types
   - [ ] RSS included for `home` and `section` types
   - [ ] Sitemap included for `home`
-  - [ ] robots.txt included for `home`
+ - [ ] Configure robots generation behavior explicitly:
+  - [ ] Set `enableRobotsTXT` explicitly in `hugo.toml`
+  - [ ] If enabled, document template source (`layouts/robots.txt` or embedded template)
+  - [ ] If disabled, document static source (`static/robots.txt`)
 - [ ] Add `[build]` section with environment-specific behavior:
   - [ ] Set production to exclude drafts and future content
   - [ ] Enable `minify` in production environment (`config/production/hugo.toml` or environment flags)
 - [ ] Record feed compatibility decision in configuration comments or `docs/migration/RUNBOOK.md`:
   - [ ] Document Hugo default feed output path (`/index.xml`)
-  - [ ] Record disposition for WordPress `/feed/` path (redirect, retire, or alias — from RHI-013)
+  - [ ] Record disposition for WordPress `/feed/` path as must-resolve (direct output or one-hop redirect)
 - [ ] Run `hugo --minify --environment production` and verify:
   - [ ] Exit code 0
   - [ ] `public/sitemap.xml` generated
@@ -85,7 +90,7 @@ Any subsequent change to `baseURL`, permalink rules, or taxonomy paths must trig
 - Front matter schema and archetypes (covered by RHI-022)
 - Redirect alias pages (covered by RHI-025)
 - CI workflow definition (covered by RHI-029)
-- robots.txt directive content beyond the output format enablement (covered by RHI-024)
+- robots.txt directive content beyond generation mechanism and output verification (covered by RHI-024)
 
 ---
 

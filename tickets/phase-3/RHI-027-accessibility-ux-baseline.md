@@ -34,8 +34,8 @@ Establish WCAG 2.2 AA accessibility conformance as a measurable baseline for all
 - [ ] Automated accessibility check tool is configured:
   - [ ] `pa11y-ci` (or equivalent) is installed as a dev dependency
   - [ ] Configuration file (`pa11y-ci` config or `.pa11yci.json`) targets representative scaffold pages
-  - [ ] WCAG 2.2 AA ruleset is set as the standard
-  - [ ] Runner exits with non-zero code on any WCAG AA violation
+  - [ ] Compliance target is WCAG 2.2 AA; automated tool baseline is documented as `WCAG2AA` with a manual WCAG 2.2 delta checklist
+  - [ ] Runner exits with non-zero code on any automated WCAG violation in the configured ruleset
 - [ ] `pa11y-ci` passes on all scaffold template types (homepage, article, page, archive, category term) with placeholder content
 - [ ] Color contrast: scaffold base styles (if any) meet WCAG AA minimum contrast ratio (4.5:1 for normal text, 3:1 for large text)
 - [ ] Known manual-review checks are documented in `docs/migration/RUNBOOK.md`:
@@ -63,7 +63,7 @@ Establish WCAG 2.2 AA accessibility conformance as a measurable baseline for all
 - [ ] Add minimal focus-visible styles to scaffold CSS (or document as a post-Phase 4 requirement if no CSS exists yet)
 - [ ] Install `pa11y-ci` as a dev dependency: `npm install pa11y-ci --save-dev --save-exact`
 - [ ] Create `.pa11yci.json` (or equivalent) config:
-  - [ ] Set `standard: "WCAG2AA"`
+  - [ ] Set `standard: "WCAG2AA"` and document this as tool-supported baseline for the WCAG 2.2 AA target
   - [ ] Add URLs for each representative scaffold template type
   - [ ] Configure `runners: ["axe", "htmlcs"]` for comprehensive coverage
 - [ ] Add `"check:a11y": "pa11y-ci"` to `package.json` scripts

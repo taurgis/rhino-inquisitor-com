@@ -41,7 +41,11 @@ Build the URL parity checking framework that validates every legacy URL in `migr
 - [ ] Script is referenced in `package.json` as `npm run check:url-parity`
 - [ ] Running `npm run check:url-parity` against a clean scaffold with no content exits gracefully (no manifest URLs to check or empty pass)
 - [ ] Running `npm run check:url-parity` with a sample manifest and a missing mapped URL exits with non-zero code
-- [ ] 5% threshold check: script computes the percentage of indexed `keep`/`merge` URLs changed and warns if the threshold (from RHI-013) is approached or exceeded
+- [ ] 5% threshold check uses an explicit indexed-URL formula and warns when threshold is reached:
+  - [ ] `indexed_urls = count(disposition == "keep" OR has_organic_traffic == true)`
+  - [ ] `changed_indexed_urls = count(indexed_urls where disposition != "keep")`
+  - [ ] `change_rate = changed_indexed_urls / indexed_urls * 100`
+  - [ ] Warn if `change_rate >= 5`
 
 ---
 
@@ -58,7 +62,7 @@ Build the URL parity checking framework that validates every legacy URL in `migr
   - [ ] Collect duplicate URL and alias collision data (complement to RHI-022 front-matter check)
   - [ ] Detect redirect chains by following alias targets one hop
   - [ ] Flag soft-404 risk: target is homepage, `/404/`, or unrelated section
-  - [ ] Compute percentage of `keep`/`merge` URLs that are absent; warn if ≥5% threshold
+  - [ ] Compute indexed URL change rate using the explicit formula; warn if `change_rate >= 5`
   - [ ] Write `migration/url-parity-report.json` with per-URL status and summary
   - [ ] Output human-readable summary to stdout
   - [ ] Exit 1 on any `missing`, `wrong-target`, `chain`, or `collision` status
@@ -104,7 +108,7 @@ Build the URL parity checking framework that validates every legacy URL in `migr
 |------|------------|--------|------------|-------|
 | `migration/url-manifest.json` not yet complete when RHI-025 runs | Medium | Medium | Script must handle an empty or partial manifest gracefully; document partial-manifest behavior in RUNBOOK | Engineering Owner |
 | Alias HTML pages do not contain a parseable redirect target (meta refresh format varies) | Low | Medium | Use a consistent alias template; test meta refresh parsing against Hugo alias output format | Engineering Owner |
-| 5% threshold calculation uses wrong denominator (total URLs vs indexed URLs) | Low | High | Use only URLs with `has_organic_traffic: true` or `disposition: keep` as the indexed subset; document calculation in script comments | SEO Owner |
+| 5% threshold calculation uses wrong denominator (total URLs vs indexed URLs) | Low | High | Use explicit indexed-URL formula: `indexed_urls = count(disposition == "keep" OR has_organic_traffic == true)` and `changed_indexed_urls = count(indexed_urls where disposition != "keep")`; document in script comments | SEO Owner |
 | Parity report grows large enough to be unwieldy in CI logs | Low | Low | Output summary counts to stdout; write per-URL detail to JSON file only | Engineering Owner |
 
 ---
