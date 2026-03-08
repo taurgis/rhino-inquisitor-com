@@ -34,7 +34,7 @@ The runbook must be reviewed and validated against a dry-run deploy before the l
   - [ ] Deploy the release candidate artifact to Pages (`workflow_dispatch` or push to release branch)
   - [ ] Verify all quality gates pass in CI
   - [ ] Apply DNS changes (exact records from `migration/phase-7-dns-cutover-plan.md`)
-  - [ ] Monitor DNS propagation (using two independent resolvers)
+  - [ ] Monitor DNS propagation using Cloudflare (`@1.1.1.1`) and Google (`@8.8.8.8`) resolvers
   - [ ] Verify Pages serves the correct artifact at `www.rhino-inquisitor.com`
   - [ ] Monitor HTTPS certificate issuance status in Pages settings
   - [ ] Enable Enforce HTTPS once certificate is issued
@@ -43,11 +43,11 @@ The runbook must be reviewed and validated against a dry-run deploy before the l
   - [ ] Record launch completion in Progress Log with timestamp
 - [ ] Smoke test checklist specifies the following with expected HTTP status and canonical URL:
   - [ ] `https://www.rhino-inquisitor.com/` — homepage (HTTP 200, canonical `https://www.rhino-inquisitor.com/`)
-  - [ ] Three recent post URLs — (HTTP 200, expected canonical)
+  - [ ] Three recent post URLs (defined as the three most-recent published posts by front matter date) — (HTTP 200, expected canonical)
   - [ ] `/archive/` or equivalent archive page — (HTTP 200 or redirect to existing equivalent)
-  - [ ] Three category page URLs — (HTTP 200, expected canonical)
+  - [ ] Three category page URLs (defined as the first three alphabetical category slugs with live pages) — (HTTP 200, expected canonical)
   - [ ] `/privacy-policy/` or equivalent — (HTTP 200)
-  - [ ] At least one top legacy inbound URL from Phase 6 redirect map — correct redirect behavior
+  - [ ] At least one top legacy inbound URL from Phase 6 redirect map (highest-priority legacy URL marked `high` or `critical`) — correct redirect behavior
   - [ ] `https://www.rhino-inquisitor.com/sitemap.xml` — (HTTP 200, XML content)
   - [ ] `https://www.rhino-inquisitor.com/robots.txt` — (HTTP 200, correct Sitemap directive)
   - [ ] HTTP-to-HTTPS redirect: `http://www.rhino-inquisitor.com/` → `https://www.rhino-inquisitor.com/` (HTTP 301)
@@ -57,9 +57,9 @@ The runbook must be reviewed and validated against a dry-run deploy before the l
   - [ ] Pages URL was accessible during dry run
   - [ ] Dry-run run URL is recorded in Progress Log
 - [ ] Go/no-go criteria are documented at each phase:
-  - [ ] Pre-cutover go/no-go: all Phase 7 workstream tickets Done; all CI gates passing; DNS operator confirmed; HTTPS monitoring plan confirmed
+  - [ ] Pre-cutover go/no-go: all Phase 7 workstream tickets Done; all 9 blocking CI gates passing (exit code 0); DNS operator confirmed; HTTPS monitoring plan confirmed
   - [ ] DNS cutover go/no-go: release candidate deployed successfully; artifact verified
-  - [ ] Launch complete criteria: DNS propagated; HTTPS enforced; all smoke tests pass
+  - [ ] Launch complete criteria: DNS propagated on both resolvers; HTTPS enforced (301 from HTTP); zero critical smoke-test failures
 
 ---
 
@@ -82,7 +82,7 @@ The runbook must be reviewed and validated against a dry-run deploy before the l
   - [ ] Confirm Pages dry-run deployment URL is accessible
   - [ ] Confirm rollback procedure is understood by all operators
 - [ ] Draft T-0 cutover sequence (ordered, with assigned owner per step)
-- [ ] Draft smoke test checklist with exact URLs and expected results
+- [ ] Draft smoke test checklist with exact URLs and expected results, including the deterministic URL-selection method used
 - [ ] Draft T+1 to T+24 monitoring section:
   - [ ] Check 404 rate in analytics or server logs
   - [ ] Confirm HTTPS enforcement is active

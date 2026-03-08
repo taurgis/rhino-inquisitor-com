@@ -25,7 +25,8 @@ This workstream produces no new features or configuration — it is a validation
   - [ ] No canonical tag contains `github.io` as the host
   - [ ] No canonical tag uses `http://` (all must be `https://`)
   - [ ] No canonical tag uses the apex host without `www` (`https://rhino-inquisitor.com/...`)
-  - [ ] Verified on: homepage, three post templates, one category page, one archive page
+  - [ ] Verified on: homepage, three most-recent published posts by front matter date, one category page selected from the first alphabetical category slug, and one archive page
+  - [ ] Sampling method and selected URLs are recorded in `migration/phase-7-seo-safety-report.md` for reproducibility
 - [ ] Sitemap (`public/sitemap.xml`) uses canonical host exclusively:
   - [ ] All `<loc>` elements start with `https://www.rhino-inquisitor.com/`
   - [ ] No `github.io` URLs in sitemap
@@ -44,8 +45,8 @@ This workstream produces no new features or configuration — it is a validation
   - [ ] No internal links using HTTP protocol
   - [ ] No internal links targeting legacy redirect source URLs (i.e., no internal link goes through a redirect hop)
 - [ ] Feed endpoint continuity:
-  - [ ] RSS feed (e.g., `/feed/`, `/index.xml`, or mapped equivalent) is accessible over HTTPS
-  - [ ] Feed `<link>` elements use canonical HTTPS host
+  - [ ] Canonical feed endpoint (`/index.xml` unless an explicit `/feed/` mapping is documented) is accessible over HTTPS
+  - [ ] Feed `<link>` or `<atom:link>` elements use canonical HTTPS host
 - [ ] Phase 6 redirect parity gate passes on the deployed artifact:
   - [ ] `npm run check:url-parity` exits with code 0
   - [ ] `npm run check:canonical-alignment` exits with code 0
@@ -64,7 +65,7 @@ This workstream produces no new features or configuration — it is a validation
 
 - [ ] Run Hugo production build: `hugo --gc --minify --environment production`
 - [ ] Audit canonical tags in generated HTML:
-  - [ ] Sample the homepage, three post pages, one category page, one archive page
+  - [ ] Select sample URLs deterministically: homepage, three most-recent published posts, first alphabetical category page, and archive page
   - [ ] Open each file and verify `<link rel="canonical" href="...">` uses `https://www.rhino-inquisitor.com`
   - [ ] Search `public/` for any canonical tags with `github.io`: `grep -r 'github.io' public/ --include="*.html" -l`
   - [ ] Search `public/` for any canonical tags with `http://`: `grep -r 'canonical.*http://' public/ --include="*.html" -l`
@@ -86,8 +87,7 @@ This workstream produces no new features or configuration — it is a validation
   - [ ] `grep -r 'href="https://github.io' public/ --include="*.html" -l`
   - [ ] Fix any violations in templates or content files
 - [ ] Check feed endpoint:
-  - [ ] Identify the RSS/Atom feed URL (e.g., `/index.xml` or `/feed/`)
-  - [ ] Confirm `public/index.xml` or equivalent exists
+  - [ ] Confirm `public/index.xml` exists; if a `/feed/` route is used, document its redirect mapping from the canonical endpoint
   - [ ] Verify `<link>` or `<atom:link>` in feed uses canonical HTTPS host
 - [ ] Run Phase 6 redirect parity gates:
   - [ ] `npm run check:url-parity`

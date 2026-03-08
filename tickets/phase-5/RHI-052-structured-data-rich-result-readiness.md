@@ -146,5 +146,5 @@ Rich-result eligibility is a meaningful discovery advantage. Schema errors intro
 ### Notes
 
 - Hugo's `jsonify` function must be used for all string values in `<script type="application/ld+json">` blocks. A raw `{{ .Title }}` in JSON-LD can break the JSON if the title contains quotes or special characters. Verify every string value in the Phase 3 partial uses `jsonify`.
-- `BlogPosting` structured data on list pages is a Google Rich Results Test violation. Confirm template conditional guards use explicit type checks (`{{ if eq .Type "posts" }}`) rather than implicit `.IsPage` checks.
+- Emitting `BlogPosting` structured data on list pages can cause rich-result ineligibility or policy issues. Confirm template conditional guards use explicit type checks (`{{ if eq .Type "posts" }}`) rather than implicit `.IsPage` checks.
 - Reference: `analysis/plan/details/phase-5.md` §Workstream E: Structured Data and Rich-Result Readiness

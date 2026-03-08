@@ -41,7 +41,7 @@ GitHub Pages automatically provisions a Let's Encrypt TLS certificate after a cu
   - [ ] Enforce HTTPS enablement confirmation with timestamp
   - [ ] HTTPS verification check results for homepage and representative routes
   - [ ] Mixed-content audit results
-- [ ] Launch SLO for HTTPS readiness is documented: if HTTPS cannot be enforced within 60 minutes after DNS propagation is confirmed, rollback or hold criteria must trigger (documented in WS-G runbook and WS-H rollback plan)
+- [ ] Launch HTTPS decision SLO is documented: if Enforce HTTPS is not available within 60 minutes after DNS propagation confirmation, trigger an incident hold and WS-H escalation; rollback decision is made per WS-H severity criteria while acknowledging GitHub certificate provisioning may take up to 24 hours
 
 ---
 
@@ -76,7 +76,7 @@ GitHub Pages automatically provisions a Let's Encrypt TLS certificate after a cu
   - [ ] Step 4: Enable Enforce HTTPS and verify HTTP-to-HTTPS redirect
   - [ ] Step 5: Test HTTPS on homepage and representative routes
   - [ ] Step 6: Confirm no mixed-content errors in browser console
-- [ ] Document rollback trigger: if HTTPS is not provisionable within 60 minutes of DNS propagation confirmation, escalate to WS-H incident response (RHI-081)
+- [ ] Document escalation trigger: if Enforce HTTPS is not available within 60 minutes of DNS propagation confirmation, open WS-H incident response (RHI-081), record GitHub status, and choose hold vs rollback per impact
 - [ ] Commit `migration/phase-7-https-checklist.md`, updated scripts, and `package.json`
 
 ---
@@ -106,7 +106,7 @@ GitHub Pages automatically provisions a Let's Encrypt TLS certificate after a cu
 
 | Risk | Likelihood | Impact | Mitigation | Owner |
 |------|------------|--------|------------|-------|
-| Certificate provisioning takes more than 24 hours after DNS cutover | Low | High | Document 60-minute SLO; if unresolved after 60 minutes, escalate to WS-H rollback. Note: Pages cert issuance typically completes within minutes if DNS is correctly configured, but can delay up to 24 hours in edge cases | Engineering Owner |
+| Certificate provisioning takes more than 24 hours after DNS cutover | Low | High | At 60 minutes, escalate to WS-H incident hold and decision review; rollback is conditional on impact/severity because GitHub docs allow certificate provisioning delays up to 24 hours | Engineering Owner |
 | CAA records block Let's Encrypt issuance | Low | High | Audit CAA records before DNS cutover; add `letsencrypt.org` authorization if missing — this is a pre-cutover task, not a post-problem | Engineering Owner |
 | Mixed-content errors from hard-coded HTTP image or script URLs survive into production | Medium | Medium | Run `check:mixed-content` as a blocking CI gate before artifact upload; fix any findings before cutover | Engineering Owner |
 | Enforce HTTPS toggle unavailable immediately after domain change | Medium | Low | This is an expected Pages behavior; document the monitoring wait period in the launch runbook (WS-G). It becomes available after cert provisioning, which can take up to 24 hours | Engineering Owner |

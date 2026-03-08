@@ -42,7 +42,7 @@ This workstream establishes and validates the artifact integrity gate that runs 
   - [ ] Exits with non-zero code on any structural violation
   - [ ] Is referenced in `package.json` as `npm run validate:artifact`
 - [ ] `npm run validate:artifact` is wired as a blocking step in `.github/workflows/deploy-pages.yml` before `actions/upload-pages-artifact`
-- [ ] Artifact validator report is attached as a CI artifact on every main branch build
+- [ ] Artifact validator report is attached as a CI artifact on every main branch build and must show zero structural violations on the release candidate
 
 ---
 
@@ -68,7 +68,7 @@ This workstream establishes and validates the artifact integrity gate that runs 
   - [ ] Output a structured report to stdout (JSON or human-readable summary)
   - [ ] Exit 1 on any structural violation or size breach
 - [ ] Add `"validate:artifact": "node scripts/phase-7/validate-artifact.js"` to `package.json` scripts
-- [ ] Add the artifact size and structure check to `mkdir scripts/phase-7/` if it does not exist
+- [ ] Create `scripts/phase-7/` if it does not exist and add the artifact size/structure validator there
 - [ ] Wire `npm run validate:artifact` into `.github/workflows/deploy-pages.yml` as a blocking step after Hugo build and before `actions/upload-pages-artifact`:
   - [ ] Step runs the artifact validator
   - [ ] Step fails the build on non-zero exit code
@@ -92,7 +92,7 @@ This workstream establishes and validates the artifact integrity gate that runs 
 | Dependency | Type | Status |
 |------------|------|--------|
 | RHI-073 Done — Phase 7 Bootstrap complete | Ticket | Pending |
-| RHI-074 Done — Deployment workflow architecture complete (workflow must exist to wire the gate) | Ticket | Pending |
+| RHI-074 baseline deploy workflow exists (`.github/workflows/deploy-pages.yml`) so WS-B can wire the gate when ready | Ticket | Pending |
 | Phase 4 media migration (RHI-037) output committed — artifact contains all production media | Ticket | Pending |
 | `fast-glob` available in `package.json` (from Phase 3 tooling) | Tool | Pending |
 

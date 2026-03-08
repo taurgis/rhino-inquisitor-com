@@ -33,7 +33,7 @@ Host/protocol fragmentation is a persistent post-migration index problem. If cra
   - [ ] `Enforce HTTPS` is enabled in GitHub Pages settings
   - [ ] Expected behavior documented: Pages enforces HTTPS; apex/www consolidation depends on DNS configuration
 - [ ] DNS consolidation plan confirmed for cutover:
-  - [ ] Apex-to-www redirect mechanism identified (DNS provider ALIAS/ANAME record, or CAA + 301 at DNS level)
+  - [ ] Apex-to-www redirect mechanism identified (DNS provider URL forwarding/redirect feature, CDN/edge redirect, or equivalent HTTP redirect layer)
   - [ ] `http://` to `https://` redirect is platform-enforced (GitHub Pages HTTPS enforcement)
   - [ ] DNS plan documented in `migration/phase-6-url-policy.md`
 - [ ] Non-production host canonical leakage check:
@@ -111,7 +111,7 @@ Host/protocol fragmentation is a persistent post-migration index problem. If cra
 | Risk | Likelihood | Impact | Mitigation | Owner |
 |------|------------|--------|------------|-------|
 | `hugo.toml` `baseURL` incorrect (apex instead of www, or HTTP), causing all canonicals and sitemap URLs to be wrong | Low | Critical | Audit `baseURL` as first task; treat any mismatch as a P0 blocker; fix before any other workstream uses build output | Engineering Owner |
-| DNS provider does not support apex-to-www redirect at DNS layer | Medium | Medium | Document the gap; explore alternatives (301 at application layer, CAA record); escalate to Phase 7 cutover planning | Migration Owner |
+| DNS provider does not support apex-to-www redirect at DNS layer | Medium | Medium | Document the gap; use provider URL forwarding, CDN/edge redirect, or an equivalent HTTP redirect mechanism; escalate to Phase 7 cutover planning | Migration Owner |
 | Staging deployment is accessible to Googlebot via canonical host (canonical leakage) | Low | High | Confirm staging is either on a non-crawlable domain or explicitly suppressed with `noindex` meta tag on every page | Engineering Owner |
 | Search Console properties not verified for all host variants, making post-cutover monitoring unreliable | Medium | Medium | Verify property ownership at this workstream; flag any unverifiable property to Phase 9 monitoring owner | SEO Owner |
 
@@ -154,7 +154,7 @@ Host/protocol fragmentation is a persistent post-migration index problem. If cra
 ### Notes
 
 - The canonical host policy is `https://www.rhino-inquisitor.com/`. This is fixed. Do not introduce flexibility here — any deviation requires explicit SEO owner approval and documentation as an exception.
-- GitHub Pages enforces HTTPS when `Enforce HTTPS` is enabled, but apex-to-www consolidation is a DNS-layer responsibility. Pages does not redirect apex to www automatically unless the DNS configuration points apex to Pages' IP addresses and the custom domain is set to `www`. The DNS plan must confirm this behavior.
+- GitHub Pages enforces HTTPS when `Enforce HTTPS` is enabled, but apex-to-www consolidation should not be assumed to happen automatically. The DNS plan must define and test an explicit apex-to-www redirect mechanism.
 - `http://` to `https://` is handled by GitHub Pages `Enforce HTTPS`. `https://rhino-inquisitor.com/` (apex) to `https://www.rhino-inquisitor.com/` requires correct DNS setup (ANAME/ALIAS record for apex → www, or a Pages-compatible apex redirect approach).
 - The Search Console property coverage verification is a prerequisite for the Phase 9 monitoring runbook (inherited from Phase 5: RHI-057). If Search Console properties are missing, post-cutover monitoring will have blind spots.
 - Reference: `analysis/plan/details/phase-6.md` §Workstream D, §URL Policy Contract (Final)

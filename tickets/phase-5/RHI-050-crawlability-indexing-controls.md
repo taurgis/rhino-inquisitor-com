@@ -24,7 +24,7 @@ This workstream makes crawl and index control correctness a machine-verified rel
 - [ ] Production `robots.txt` is correct and committed at `static/robots.txt`:
   - [ ] Does not `Disallow` any paths serving indexable content (posts, pages, categories, video pages)
   - [ ] Does not `Disallow` any paths required for canonical resolution or sitemap fetch
-  - [ ] Includes `Sitemap: https://www.rhino-inquisitor.com/sitemap.xml`
+  - [ ] Includes a valid sitemap directive for production (`https://www.rhino-inquisitor.com/sitemap.xml` or `https://www.rhino-inquisitor.com/sitemap_index.xml` when split/indexed sitemaps are used)
   - [ ] Allows all user-agents by default (`User-agent: *` with only intentional Disallow rules)
   - [ ] Staging/preview environments have additional `noindex` meta tags — `robots.txt` is never the sole mechanism for staging de-indexing
 - [ ] `noindex` audit passes on all indexable templates:

@@ -40,7 +40,7 @@ No Phase 7 workstream ticket (RHI-074 through RHI-081) should begin until this t
   - [ ] Hugo version is pinned in `HUGO_VERSION` env var
   - [ ] All Phase 3 quality gate scripts are available and passing
 - [ ] Migration owner, SEO owner, and engineering owner are confirmed and available for Phase 7
-- [ ] All Phase 7 workstream owners have read `analysis/plan/details/phase-7.md` and confirmed understanding
+- [ ] All Phase 7 workstream owners have read `analysis/plan/details/phase-7.md` and provided date-stamped acknowledgment in the Progress Log
 - [ ] Phase 7 non-negotiable constraints reviewed with the full team:
   - [ ] Pages publishing source is GitHub Actions (not branch-based Jekyll publishing)
   - [ ] Deploy job permissions include `pages: write` and `id-token: write`
@@ -76,7 +76,7 @@ No Phase 7 workstream ticket (RHI-074 through RHI-081) should begin until this t
 
 - [ ] Verify RHI-072 is `Done`; if not, document the blocker and pause Phase 7
 - [ ] Confirm migration owner, SEO owner, and engineering owner identities for Phase 7
-- [ ] Share `analysis/plan/details/phase-7.md` with all workstream owners; request read confirmation
+- [ ] Share `analysis/plan/details/phase-7.md` with all workstream owners; request and record read confirmation (name + date)
 - [ ] Verify Phase 6 URL preservation outputs are accessible:
   - [ ] Confirm `migration/phase-6-signoff.md` is committed and readable
   - [ ] Confirm git tag `phase-6-redirect-map-v1` exists and SHA is recorded
@@ -95,7 +95,7 @@ No Phase 7 workstream ticket (RHI-074 through RHI-081) should begin until this t
   - [ ] Run `dig rhino-inquisitor.com AAAA +short` and record result
   - [ ] Commit snapshot to `migration/phase-7-dns-snapshot.md`
 - [ ] Verify Phase 7 tooling dependencies are available or installable
-- [ ] Review Phase 7 Non-Negotiable Constraints with the full team; log confirmations in Progress Log
+- [ ] Review Phase 7 Non-Negotiable Constraints with the full team; log per-owner confirmations (name + date) in Progress Log
 - [ ] Name and record DNS cutover window (date and time range, low-traffic window)
 - [ ] Name incident commander, deployment operator, and DNS operator for launch day
 - [ ] Assign workstream owners for WS-A through WS-H

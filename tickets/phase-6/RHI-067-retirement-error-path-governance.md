@@ -48,7 +48,7 @@ Unmanaged URL retirement is a silent SEO defect. Retired URLs that redirect to i
 
 ### Tasks
 
-- [ ] Load all `dispose: retire` records from `migration/url-map.csv`
+- [ ] Load all `disposition: retire` records from `migration/url-map.csv`
 - [ ] For each retired URL record:
   - [ ] Document the retirement reason code (content removed, duplicate of kept URL, spam/low-quality, system/technical route, etc.)
   - [ ] Note organic traffic and external link status from Phase 1 baseline

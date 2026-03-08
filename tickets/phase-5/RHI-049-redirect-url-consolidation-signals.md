@@ -26,7 +26,7 @@ Migration traffic equity depends on correct redirect signals. A redirect chain a
   - [ ] `target_url` — final destination (or `null` for retire-to-404)
   - [ ] `redirect_code` — `301`, `308`, `meta-refresh`, or `none`
   - [ ] `implementation_layer` — `pages-static`, `edge-cdn`, `dns`, or `none`
-  - [ ] `chain_count` — number of hops from legacy to final destination (must be 0)
+  - [ ] `chain_count` — number of additional hops after the first legacy-to-target redirect (must be 0)
   - [ ] `loop_detected` — boolean (must be `false`)
   - [ ] `broad_redirect_risk` — boolean (flags redirects to homepage or unrelated content)
 - [ ] Redirect validation script `scripts/seo/check-redirects.js` exists and:
@@ -66,7 +66,7 @@ Migration traffic equity depends on correct redirect signals. A redirect chain a
 - [ ] Create `scripts/seo/check-redirects.js`:
   - [ ] Read manifest and resolve all `merge` targets
   - [ ] Traverse chain: follow each `target_url` until it is a `keep` record or an external URL
-  - [ ] Record chain length; fail on any chain > 0 hops
+  - [ ] Record additional chain hops beyond the first redirect; fail on any additional hops > 0
   - [ ] Detect cycles; fail on any loop
   - [ ] Flag any `target_url` that equals `/` for non-homepage sources
   - [ ] Write per-URL results to `migration/reports/phase-5-redirect-validation.csv`

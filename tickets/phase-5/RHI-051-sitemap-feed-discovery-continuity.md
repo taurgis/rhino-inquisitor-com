@@ -24,7 +24,7 @@ Machine-readable discovery pathways are how search engines find and index conten
 - [ ] `migration/phase-5-sitemap-feed-policy.md` is committed and contains:
   - [ ] Sitemap generation strategy (Hugo built-in vs custom template)
   - [ ] Sitemap inclusion/exclusion rules for drafts, redirects, and retired URLs
-  - [ ] Sitemap split strategy if record count approaches Hugo single-file limits (50,000 URLs)
+  - [ ] Sitemap split strategy if record count approaches sitemap protocol limits (50,000 URLs or 50 MB uncompressed per sitemap)
   - [ ] Feed URL strategy (`/index.xml` or custom path) and `/feed/` must-resolve decision
   - [ ] Archive and category surface preservation decisions with rationale
 - [ ] Sitemap validation script `scripts/seo/check-sitemap.js` exists and:
@@ -41,7 +41,7 @@ Machine-readable discovery pathways are how search engines find and index conten
 - [ ] RSS feed endpoint is operational and verified:
   - [ ] Hugo RSS feed URL (e.g., `/index.xml`) returns valid Atom/RSS content in local build
   - [ ] Feed includes `<link>` elements with absolute canonical URLs
-  - [ ] Feed items include `<pubDate>` or `<published>` with valid ISO 8601 dates
+  - [ ] Feed items include valid publication dates (`<pubDate>` for RSS or `<published>` for Atom) using the format required by the feed type
   - [ ] WordPress `/feed/` route must resolve: either direct feed output or Hugo alias/edge redirect maps to the new feed URL
   - [ ] Feed route decision is recorded in `migration/phase-5-sitemap-feed-policy.md`
 - [ ] Archive and category surfaces are confirmed:
@@ -61,7 +61,7 @@ Machine-readable discovery pathways are how search engines find and index conten
   - [ ] Confirm which archive routes exist and their traffic status
 - [ ] Review Hugo `hugo.toml` sitemap configuration (from RHI-021):
   - [ ] Confirm `[sitemap]` block is configured correctly
-  - [ ] Confirm `changefreq` and `priority` are set intentionally (or disabled if not maintained)
+  - [ ] Confirm `changefreq` and `priority` are either omitted or set intentionally for internal consistency (do not treat them as ranking signals)
   - [ ] Confirm `lastmod` is tied to meaningful content updates (Hugo `.GitInfo.AuthorDate` or front matter `lastmod`)
 - [ ] Create `scripts/seo/check-sitemap.js`:
   - [ ] Use `fast-xml-parser` to parse sitemap output

@@ -15,13 +15,13 @@ Most migration traffic loss comes from preventable technical mistakes, not conte
 6. Loss of legacy discoverability surfaces (feeds, archives, category/video hubs).
 
 ## Phase Position and Dependencies
-From [main-plan.MD](main-plan.MD), Phase 5 depends on Phase 3 and runs in parallel with Phase 4.
+From [main-plan.MD](../../../main-plan.MD), Phase 5 depends on Phase 3 and runs in parallel with Phase 4.
 
 Phase 5 consumes:
-1. [plan/details/phase-1.md](plan/details/phase-1.md): URL inventory, canonical host policy, disposition rules.
-2. [plan/details/phase-2.md](plan/details/phase-2.md): architecture decisions and redirect policy constraints.
-3. [plan/details/phase-3.md](plan/details/phase-3.md): template scaffolding, CI framework, baseline quality gates.
-4. [plan/details/phase-4.md](plan/details/phase-4.md): content completeness, front matter quality, URL mapping outputs.
+1. [phase-1.md](phase-1.md): URL inventory, canonical host policy, disposition rules.
+2. [phase-2.md](phase-2.md): architecture decisions and redirect policy constraints.
+3. [phase-3.md](phase-3.md): template scaffolding, CI framework, baseline quality gates.
+4. [phase-4.md](phase-4.md): content completeness, front matter quality, URL mapping outputs.
 
 ## Scope
 In scope:

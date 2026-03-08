@@ -24,7 +24,7 @@ Rollback capability is not a contingency to think about on launch day — it is 
 - [ ] `migration/phase-7-rollback-runbook.md` is committed and contains:
   - [ ] **Rollback trigger definitions** — specific, unambiguous criteria that mandate rollback (not subjective judgment calls):
     - [ ] 5 or more priority routes returning 404 or 5xx after the DNS propagation window closes
-    - [ ] HTTPS certificate not issued and Enforce HTTPS not activatable within 60 minutes of DNS propagation confirmation
+    - [ ] Enforce HTTPS unavailable 60 minutes after DNS propagation confirmation with incident impact requiring hold/rollback decision
     - [ ] Canonical tag or sitemap returning `github.io` host on live production domain
     - [ ] Any Priority-1 or Priority-2 URL returning a soft-404 (redirect to homepage for unrelated content)
     - [ ] Pages deployment environment unhealthy or unresponsive
@@ -46,12 +46,12 @@ Rollback capability is not a contingency to think about on launch day — it is 
     - [ ] Who can authorize Option A
     - [ ] Who can authorize Option B (DNS change)
     - [ ] Who can authorize Option C
-  - [ ] **Mean time to rollback (MTTR) objective**: < 30 minutes from trigger detection to active rollback
+  - [ ] **Mean time to rollback (MTTR) objective** is explicit by option: Option A action start < 30 minutes; Option B action start < 30 minutes with propagation tracked separately
   - [ ] **Stakeholder notification template** ready to send within 15 minutes of rollback decision
   - [ ] **Rollback deactivation criteria**: what must be true before rollback is reversed and re-launch is attempted
 - [ ] Previous WordPress production stack remains rollback-ready:
   - [ ] WordPress site is confirmed still operational at the current host during the stabilization window
-  - [ ] WordPress site owner / hosting team is notified not to decommission until Phase 7 rollback window closes (minimum: end of Week 2 post-launch; preferred: end of Week 6)
+  - [ ] WordPress site owner/hosting team is notified not to decommission until end of Week 6 post-launch (or explicitly risk-accepted by migration, SEO, and engineering owners to shorten, never below end of Week 2)
   - [ ] WordPress host configuration is documented (where it lives, how to re-point DNS to it) in `migration/phase-7-rollback-runbook.md`
 - [ ] Rollback dry run is completed and documented:
   - [ ] Option A tested: re-ran a previous deploy job from GitHub Actions and confirmed Pages URL served correct content

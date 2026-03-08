@@ -73,7 +73,7 @@ No Phase 5 workstream ticket (RHI-048 through RHI-059) should begin until this t
 - [ ] Review Phase 5 Non-Negotiable Constraints with the full team; log confirmations in Progress Log
 - [ ] Assign workstream owners for WS-A through WS-L
 - [ ] Agree on target dates for each workstream ticket (RHI-048 through RHI-059)
-- [ ] Establish Phase 5 CI gate sequence (metadata → redirect → crawl → sitemap → schema → links → performance → monitoring)
+- [ ] Establish Phase 5 CI gate sequence (metadata → redirects → crawl-controls → sitemap → schema → internal-links → images → accessibility → performance → pages-constraints)
 - [ ] Log all confirmations in Progress Log with names and dates
 - [ ] Announce Phase 5 kickoff with linked Phase 3 sign-off and Phase 5 plan
 

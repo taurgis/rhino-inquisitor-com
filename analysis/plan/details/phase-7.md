@@ -151,10 +151,13 @@ DNS record model:
 4. Do not point `www` CNAME at apex; point directly to `<owner>.github.io`.
 
 Validation commands for runbook:
-1. `dig www.rhino-inquisitor.com CNAME +short`
-2. `dig rhino-inquisitor.com A +short`
-3. `dig rhino-inquisitor.com AAAA +short`
-4. `dig _github-pages-challenge-<github-username-or-org>.rhino-inquisitor.com TXT +short`
+1. `dig @1.1.1.1 www.rhino-inquisitor.com CNAME +short`
+2. `dig @8.8.8.8 www.rhino-inquisitor.com CNAME +short`
+3. `dig @1.1.1.1 rhino-inquisitor.com A +short`
+4. `dig @8.8.8.8 rhino-inquisitor.com A +short`
+5. `dig @1.1.1.1 rhino-inquisitor.com AAAA +short`
+6. `dig @8.8.8.8 rhino-inquisitor.com AAAA +short`
+7. `dig _github-pages-challenge-<github-username-or-org>.rhino-inquisitor.com TXT +short`
 
 Cutover acceptance criteria:
 1. DNS responses match intended records from at least two independent resolvers.
@@ -174,7 +177,7 @@ Tasks:
 Constraints and caveats:
 1. Certificate provisioning can lag DNS changes; launch plan must include waiting window.
 2. Enforce HTTPS availability can lag after domain changes; launch plan must include explicit wait/recheck logic.
-3. If HTTPS cannot be enforced within 60 minutes after DNS cutover, rollback or hold criteria must trigger.
+3. If Enforce HTTPS is unavailable 60 minutes after DNS propagation confirmation, incident hold and WS-H escalation must trigger; rollback decision follows severity criteria while acknowledging certificate provisioning may take up to 24 hours.
 
 Acceptance criteria:
 1. HTTPS works for homepage and representative deep URLs.
@@ -248,11 +251,11 @@ T-0 cutover:
 1. Deploy signed release candidate artifact.
 2. Apply DNS changes.
 3. Monitor propagation and Pages health indicators.
-4. Run smoke tests:
+4. Run smoke tests using deterministic selection rules:
 4.1. homepage
-4.2. three recent posts
+4.2. three most-recent published posts by front matter date
 4.3. archive
-4.4. three category pages
+4.4. first three alphabetical category pages
 4.5. privacy-policy
 5. Confirm canonical and sitemap on live host.
 
@@ -281,7 +284,7 @@ Operational requirements:
 3. Shared incident log and timeline notes.
 4. Stakeholder notification template prepared before launch.
 5. Custom-domain safety note in runbook: do not leave DNS pointed at Pages if Pages site is disabled or detached.
-6. Previous WordPress production stack must remain rollback-ready through at least stabilization Week 2, and preferred through the full 6-week stabilization window.
+6. Previous WordPress production stack must remain rollback-ready through stabilization Week 6 unless migration, SEO, and engineering owners explicitly accept a shorter window (never below Week 2).
 
 Acceptance criteria:
 1. Rollback dry run is completed pre-launch.

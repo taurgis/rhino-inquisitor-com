@@ -15,7 +15,7 @@
 
 Produce a hardened, auditable GitHub Pages deployment workflow that can publish the migrated Hugo site deterministically from a protected release branch, enforces minimum permissions, prevents overlapping deploys, and exposes deployment URL and environment status so downstream smoke tests and sign-off can use it as a reliable reference.
 
-Phase 3 created a scaffold deployment workflow (RHI-029) as a structural baseline. This workstream upgrades it to a production-grade pipeline with environment protections, correct concurrency configuration, explicit dependency ordering between build and deploy jobs, and all required quality gates wired as blocking pre-deploy checks. The Phase 3 scaffold is not sufficient on its own for a live production cutover.
+Phase 3 created a scaffold deployment workflow (RHI-029) as a structural baseline. This workstream upgrades it to a production-grade pipeline with environment protections, correct concurrency configuration, explicit dependency ordering between build and deploy jobs, with a dedicated validation integration point for WS-F quality gates. The Phase 3 scaffold is not sufficient on its own for a live production cutover.
 
 ---
 
@@ -37,7 +37,7 @@ Phase 3 created a scaffold deployment workflow (RHI-029) as a structural baselin
   - [ ] Deploy job declares `environment: name: github-pages, url: ${{ steps.deployment.outputs.page_url }}`
   - [ ] Deploy job uses `actions/deploy-pages` as the final step
   - [ ] Deploy job has `permissions: pages: write` and `id-token: write` scoped to that job only
-  - [ ] All blocking quality gates (WS-F, RHI-079) are wired as `needs:` dependencies before the deploy job
+  - [ ] Deploy workflow includes a dedicated validation integration point (`validate` job or equivalent) for WS-F to wire full gate coverage without restructuring deploy semantics
 - [ ] `.github/workflows/build-pr.yml` exists and:
   - [ ] Triggers on `pull_request` targeting the release branch
   - [ ] Declares `permissions: contents: read`
@@ -48,7 +48,8 @@ Phase 3 created a scaffold deployment workflow (RHI-029) as a structural baselin
   - [ ] Environment protection rules restrict deployment to the release branch only
   - [ ] At least one required reviewer is configured if the repository has multiple contributors
 - [ ] Workflow is tested end-to-end via `workflow_dispatch`:
-  - [ ] All quality gates pass
+  - [ ] Build, artifact upload, and deploy jobs pass with expected ordering and permissions
+  - [ ] Negative check: an intentionally failing build step in a test branch prevents deploy from running (`needs` enforced)
   - [ ] Artifact is uploaded successfully
   - [ ] Deploy job completes with a valid Pages deployment URL in the run output
   - [ ] Actions run URL is recorded in the Progress Log
@@ -87,7 +88,8 @@ Phase 3 created a scaffold deployment workflow (RHI-029) as a structural baselin
   - [ ] Confirm path-filtered gates run on content/layout/config changes
 - [ ] Perform end-to-end test via `workflow_dispatch`:
   - [ ] Trigger from `main` or the release branch
-  - [ ] Verify all quality gates pass in CI
+  - [ ] Verify build -> upload -> deploy sequence succeeds on a valid commit
+  - [ ] Verify deploy does not run if build fails (test branch)
   - [ ] Verify artifact upload succeeds
   - [ ] Verify Pages deployment completes and URL is accessible
   - [ ] Record Actions run URL in Progress Log
@@ -113,7 +115,7 @@ Phase 3 created a scaffold deployment workflow (RHI-029) as a structural baselin
 |------------|------|--------|
 | RHI-073 Done — Phase 7 Bootstrap complete | Ticket | Pending |
 | RHI-029 Done — Phase 3 CI/CD scaffold committed (`deploy-pages.yml` baseline) | Ticket | Pending |
-| RHI-079 Done — WS-F quality gate scripts available and passing | Ticket | Pending |
+| WS-F integration point agreed (`validate` job or equivalent) for later full gate wiring in RHI-079 | Ticket | Pending |
 | GitHub repository Pages settings access (environment protection configuration) | Access | Pending |
 | Hugo version number confirmed for pinning | Tool | Pending |
 
@@ -171,4 +173,4 @@ Phase 3 created a scaffold deployment workflow (RHI-029) as a structural baselin
 - The build command must use `${{ steps.pages.outputs.base_url }}/` (from `actions/configure-pages`) as the base URL, not a hard-coded `https://www.rhino-inquisitor.com`. This ensures the workflow functions correctly during staging/preview deployments and correctly resolves to the production domain when deployed to the live `github-pages` environment.
 - For custom workflow deployments, the `github-pages` environment is the control plane. Environment protection rules are configured in Settings → Environments, not in the workflow file itself. The workflow file's `environment:` declaration binds the deploy job to that environment; the protection rules are enforced by GitHub.
 - `fetch-depth: 0` is required if Hugo uses `.GitInfo` or `.Lastmod` from git history. Without it, shallow clones return incorrect or empty git metadata, which can cause incorrect `lastmod` values in the sitemap.
-- Reference: `analysis/plan/details/phase-7.md` §Workstream A: Deployment Workflow Architecture; `.github/instructions/ci-workflow-standards.instructions.md`
+- Reference: `analysis/plan/details/phase-7.md` §Workstream A: Deployment Workflow Architecture; `.github/instructions/ci-workflow-standards.instructions.md`; https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages

@@ -17,13 +17,13 @@ Highest-risk failure modes:
 6. No post-launch redirect telemetry, causing late discovery of crawl/indexing regressions.
 
 ## Phase Position and Dependencies
-From [main-plan.MD](main-plan.MD), Phase 6 depends on Phases 1, 4, and 5.
+From [main-plan.MD](../../../main-plan.MD), Phase 6 depends on Phases 1, 4, and 5.
 
 Phase 6 consumes:
-1. [plan/details/phase-1.md](plan/details/phase-1.md): URL inventory, route classes, keep/merge/retire dispositions.
-2. [plan/details/phase-2.md](plan/details/phase-2.md): hosting and architecture constraints (Hugo + GitHub Pages).
-3. [plan/details/phase-4.md](plan/details/phase-4.md): migrated content outputs, explicit `url` assignments, alias candidates.
-4. [plan/details/phase-5.md](plan/details/phase-5.md): canonical policy, crawl/index rules, and SEO gates.
+1. [phase-1.md](phase-1.md): URL inventory, route classes, keep/merge/retire dispositions.
+2. [phase-2.md](phase-2.md): hosting and architecture constraints (Hugo + GitHub Pages).
+3. [phase-4.md](phase-4.md): migrated content outputs, explicit `url` assignments, alias candidates.
+4. [phase-5.md](phase-5.md): canonical policy, crawl/index rules, and SEO gates.
 
 Phase 6 enables:
 1. Phase 7 deployment cutover safety.

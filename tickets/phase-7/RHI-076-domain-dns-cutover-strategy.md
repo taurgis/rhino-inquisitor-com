@@ -24,7 +24,7 @@ The strategy must be designed, documented, and **dry-run validated before any DN
 - [ ] `migration/phase-7-dns-cutover-plan.md` is committed and contains:
   - [ ] Current DNS record inventory (from bootstrap DNS snapshot — RHI-073)
   - [ ] Exact target DNS record set for cutover:
-    - [ ] `www.rhino-inquisitor.com` CNAME pointing to `taurgis.github.io` (owner `github.io`, not repository-specific)
+    - [ ] `www.rhino-inquisitor.com` CNAME pointing to `<owner>.github.io` (current expected value: `taurgis.github.io`; verify at execution time)
     - [ ] Apex `rhino-inquisitor.com` A records pointing to GitHub Pages IP addresses (185.199.108.153, 185.199.109.153, 185.199.110.153, 185.199.111.153)
     - [ ] Apex `rhino-inquisitor.com` AAAA records pointing to GitHub Pages IPv6 addresses
     - [ ] No conflicting wildcard records or stale A records for `www`
@@ -33,7 +33,7 @@ The strategy must be designed, documented, and **dry-run validated before any DN
   - [ ] Exact `dig` commands to validate each record post-change
   - [ ] DNS rollback record set (the state to restore if DNS must be reverted)
   - [ ] Estimated propagation window based on lowered TTL
-  - [ ] Two independent DNS resolver check commands for validation
+  - [ ] Two independent public resolver checks are defined explicitly using Cloudflare (`@1.1.1.1`) and Google (`@8.8.8.8`)
 - [ ] GitHub Pages settings are prepared before any DNS change:
   - [ ] Custom domain `www.rhino-inquisitor.com` is entered in repository Settings → Pages
   - [ ] Pages settings show custom domain check as healthy (green DNS check indicator)
@@ -47,9 +47,12 @@ The strategy must be designed, documented, and **dry-run validated before any DN
   - [ ] Confirm Pages deployment workflow is ready and tested (RHI-074 Done)
   - [ ] Confirm incident commander, deployment operator, and DNS operator are available
 - [ ] Validation commands are included in the cutover plan and have been tested against the current DNS state (to confirm they work before cutover day):
-  - [ ] `dig www.rhino-inquisitor.com CNAME +short`
-  - [ ] `dig rhino-inquisitor.com A +short`
-  - [ ] `dig rhino-inquisitor.com AAAA +short`
+  - [ ] `dig @1.1.1.1 www.rhino-inquisitor.com CNAME +short`
+  - [ ] `dig @8.8.8.8 www.rhino-inquisitor.com CNAME +short`
+  - [ ] `dig @1.1.1.1 rhino-inquisitor.com A +short`
+  - [ ] `dig @8.8.8.8 rhino-inquisitor.com A +short`
+  - [ ] `dig @1.1.1.1 rhino-inquisitor.com AAAA +short`
+  - [ ] `dig @8.8.8.8 rhino-inquisitor.com AAAA +short`
   - [ ] `dig _github-pages-challenge-<owner>.rhino-inquisitor.com TXT +short`
   - [ ] `curl -s -o /dev/null -w "%{http_code} %{redirect_url}" https://www.rhino-inquisitor.com/`
 
@@ -60,7 +63,7 @@ The strategy must be designed, documented, and **dry-run validated before any DN
 - [ ] Research and confirm the correct GitHub Pages DNS targets:
   - [ ] Verify current GitHub Pages IP addresses (A records) from official documentation
   - [ ] Verify current GitHub Pages IPv6 addresses (AAAA records) from official documentation
-  - [ ] Confirm `www` CNAME target is `taurgis.github.io` (owner account `github.io`, not repo-specific)
+  - [ ] Confirm `<owner>.github.io` target from GitHub Pages settings; current expected value is `taurgis.github.io`
 - [ ] Configure custom domain in GitHub Pages settings (must be done before DNS records point to Pages):
   - [ ] Open repository Settings → Pages
   - [ ] Enter `www.rhino-inquisitor.com` as the custom domain
@@ -111,7 +114,7 @@ The strategy must be designed, documented, and **dry-run validated before any DN
 | RHI-074 Done — Deployment workflow architecture complete; Pages deployment working | Ticket | Pending |
 | GitHub Pages settings access (custom domain configuration) | Access | Pending |
 | DNS provider admin access for DNS operator | Access | Pending |
-| GitHub repository owner `github.io` hostname confirmed (`taurgis.github.io`) | Tool | Pending |
+| GitHub Pages owner hostname (`<owner>.github.io`) confirmed from current repository/account settings | Tool | Pending |
 | GitHub Pages IP addresses verified from official GitHub documentation | Tool | Pending |
 
 ---
@@ -124,7 +127,7 @@ The strategy must be designed, documented, and **dry-run validated before any DN
 | DNS provider does not support lowering TTL below 300 seconds, increasing propagation risk | Medium | Medium | Check TTL limits at bootstrap (RHI-073); if minimum TTL is 3600 seconds, increase lead time for TTL reduction to 48 hours | Engineering Owner |
 | Conflicting wildcard DNS record shadows `www` CNAME and prevents Pages serving | Medium | High | Audit entire DNS zone for wildcards at bootstrap; remove conflicting records before the cutover plan is finalized | Engineering Owner |
 | DNS propagation takes longer than the TTL reduction period, creating a window of mixed traffic | Medium | Medium | Use two independent resolvers to verify propagation; document propagation wait threshold in cutover plan; do not declare cutover complete until both resolvers return correct values | Engineering Owner |
-| `www` CNAME inadvertently pointed at the apex domain rather than `<owner>.github.io` (creates a CNAME loop) | Low | High | Use exactly `taurgis.github.io` as the CNAME target, not `rhino-inquisitor.com` | Engineering Owner |
+| `www` CNAME inadvertently pointed at the apex domain rather than `<owner>.github.io` (creates a CNAME loop) | Low | High | Use exactly `<owner>.github.io` as the CNAME target (current expected value: `taurgis.github.io`), not `rhino-inquisitor.com` | Engineering Owner |
 
 ---
 

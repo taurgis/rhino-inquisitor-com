@@ -32,9 +32,9 @@ This sign-off is the authoritative record of the deployment state at the point o
   - [ ] RHI-080 Done — Launch runbook committed and dry-run validated
   - [ ] RHI-081 Done — Rollback runbook committed and dry-run validated
 - [ ] DNS cutover is complete and confirmed:
-  - [ ] `dig www.rhino-inquisitor.com CNAME +short` returns `taurgis.github.io`
+  - [ ] `dig www.rhino-inquisitor.com CNAME +short` returns `<owner>.github.io` (current expected value: `taurgis.github.io`)
   - [ ] `dig rhino-inquisitor.com A +short` returns GitHub Pages IP addresses
-  - [ ] Two independent DNS resolvers return correct records
+  - [ ] Cloudflare (`@1.1.1.1`) and Google (`@8.8.8.8`) resolvers return correct records
   - [ ] Pages settings show custom domain check as healthy
 - [ ] Production site is live on the canonical domain:
   - [ ] `https://www.rhino-inquisitor.com/` returns HTTP 200 with the migrated Hugo site
@@ -42,8 +42,8 @@ This sign-off is the authoritative record of the deployment state at the point o
   - [ ] Correct TLS certificate is served (Let's Encrypt; not expired; valid for `www.rhino-inquisitor.com`)
 - [ ] All smoke tests from the WS-G launch runbook are verified as passed:
   - [ ] Homepage (HTTP 200, correct canonical)
-  - [ ] Three recent post URLs (HTTP 200)
-  - [ ] Three category page URLs (HTTP 200)
+  - [ ] Three recent post URLs (the three most-recent published posts by front matter date) (HTTP 200)
+  - [ ] Three category page URLs (first three alphabetical category slugs with live pages) (HTTP 200)
   - [ ] Archive page (HTTP 200 or correct redirect)
   - [ ] Privacy policy (HTTP 200)
   - [ ] At least one top legacy redirect (correct redirect outcome)
@@ -143,7 +143,7 @@ This sign-off is the authoritative record of the deployment state at the point o
 |------|------------|--------|------------|-------|
 | One or more workstream tickets not `Done` by target date | Medium | High | Track workstream progress daily in the last week of Phase 7; surface blockers 3 days before scheduled sign-off | Migration Owner |
 | DNS cutover reveals a failure not caught in dry run | Low | High | Use the Phase 7 rollback runbook (RHI-081) immediately if a rollback trigger condition is met; do not attempt to fix live DNS issues ad hoc | Migration Owner |
-| HTTPS enforcement unavailable within the launch SLO (60 minutes) | Low | High | Follow WS-D (RHI-077) HTTPS checklist exactly; trigger rollback protocol if 60-minute window passes without cert issuance | Engineering Owner |
+| Enforce HTTPS unavailable after 60-minute decision SLO with impact requiring hold/rollback decision | Low | High | Follow WS-D (RHI-077) HTTPS checklist, open WS-H incident response at 60 minutes, and decide hold vs rollback by severity while tracking GitHub certificate provisioning status | Engineering Owner |
 | Sign-off gate run reveals a systematic failure on the live domain not caught in CI | Low | High | Run all CI gates against the live domain with a content-production build, not just the dry-run build; schedule gates run 24 hours after DNS propagation to allow CDN caches to settle | Engineering Owner |
 | Phase 8 or Phase 9 teams unavailable to acknowledge handover | Low | Medium | Notify Phase 8/9 teams at T-3 days before sign-off; confirm handover receipt before closing RHI-082 | Migration Owner |
 

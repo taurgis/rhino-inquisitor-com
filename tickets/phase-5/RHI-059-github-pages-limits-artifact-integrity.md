@@ -99,7 +99,7 @@ GitHub Pages site limits are hard constraints — a site that exceeds the 1 GB p
 | Large number of Hugo alias redirect files inflates artifact size unexpectedly | Medium | Medium | Measure alias file size contribution early; if >200 MB from aliases alone, switch to edge redirect layer and remove from Hugo aliases | Engineering Owner |
 | Symbolic links in `public/` cause silent Pages deployment failure | Low | High | `check:pages-constraints` detects symbolic links as a blocking CI gate | Engineering Owner |
 | HTTPS certificate issuance fails after domain cutover due to Pages configuration mismatch | Low | High | Pre-verify DNS and Pages CNAME configuration before cutover; record in report as a pre-cutover checklist item | Engineering Owner |
-| Production build time exceeds GitHub Actions job timeout (6 hours) due to image volume | Very Low | High | Record baseline build time now; if it approaches 30+ minutes, investigate Hugo caching options | Engineering Owner |
+| Pages deployment step exceeds GitHub Pages deployment timeout (10 minutes) due to oversized artifact or publish bottlenecks | Low | High | Keep artifact size below gate threshold, monitor deploy-step duration, and split/optimize payload before release candidate | Engineering Owner |
 
 ---
 
@@ -140,6 +140,6 @@ GitHub Pages site limits are hard constraints — a site that exceeds the 1 GB p
 
 ### Notes
 
-- GitHub Pages published site size limit is 1 GB. This is a soft limit that GitHub recommends sites stay under. There is no hard error at exactly 1 GB, but GitHub may reject or throttle sites that consistently exceed it. Use 800 MB as the CI gate threshold to maintain safe headroom.
+- Published GitHub Pages sites may be no larger than 1 GB. Treat this as a hard cap for release readiness and keep the CI gate threshold at 800 MB to preserve operational headroom.
 - Custom GitHub Actions workflows (using `actions/upload-pages-artifact` and `actions/deploy-pages`) are NOT subject to the GitHub Pages 10 builds/hour soft limit that applies to native Jekyll builds. However, artifact upload size and format constraints still apply.
 - Reference: `analysis/plan/details/phase-5.md` §Workstream L: GitHub Pages Limits and Artifact Integrity

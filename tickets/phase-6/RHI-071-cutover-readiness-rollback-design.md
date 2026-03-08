@@ -97,7 +97,7 @@ Cutover is the highest-risk moment of the migration. A well-designed redirect st
   - [ ] Run `linkinator` or equivalent against production build
   - [ ] Document any residual legacy redirect sources found in internal links
 - [ ] Notify Phase 7 (deployment and DNS cutover: RHI-073+) that Phase 6 is complete
-- [ ] Notify Phase 8 (validation and launch readiness: RHI-073+) that Phase 6 CI gates are integrated and passing
+- [ ] Notify Phase 8 (validation and launch readiness: RHI-083+) that Phase 6 CI gates are integrated and passing
 - [ ] Record all notifications in Progress Log
 
 ---

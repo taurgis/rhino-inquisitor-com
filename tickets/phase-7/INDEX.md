@@ -149,6 +149,21 @@ These constraints are hard requirements from `analysis/plan/details/phase-7.md` 
 
 ---
 
+## Non-Negotiable Constraint Traceability
+
+| Constraint | Primary Verification Ticket(s) | Evidence Required |
+|------------|-------------------------------|-------------------|
+| Pages publishing source is GitHub Actions | RHI-074, RHI-079 | Workflow YAML and successful `workflow_dispatch` run URL |
+| Deploy permissions include `pages: write` and `id-token: write` | RHI-074 | Workflow permissions review checklist + run URL |
+| Artifact contains top-level `index.html` and no unsupported links/files | RHI-075 | `validate:artifact` output attached to CI artifact |
+| Canonical production host is locked before cutover | RHI-078, RHI-082 | SEO safety report + live-domain canonical sample checks |
+| Custom domain is configured in Pages settings before DNS changes | RHI-076, RHI-080 | Pages settings evidence + cutover runbook timestamps |
+| HTTPS is available and enforceable before launch complete | RHI-077, RHI-080, RHI-082 | HTTPS checklist + HTTP-to-HTTPS curl evidence |
+| Phase 6 URL parity and redirect gates pass on release candidate | RHI-073, RHI-079, RHI-082 | Gate outputs + release-candidate run URL |
+| Rollback procedure is validated with assigned owners before DNS cutover | RHI-081 | Rollback dry-run evidence + authorization matrix |
+| Deploy depends on successful build and validation sequence (`needs`) | RHI-074, RHI-079 | Negative test proving deploy does not run on failed build/gate |
+| `github-pages` environment protections are configured for approved refs/actors | RHI-074 | Environment protection settings log + verification run |
+
 ## Cross-Phase Dependencies
 
 | This Phase Consumes | From Phase Tickets | Required By |

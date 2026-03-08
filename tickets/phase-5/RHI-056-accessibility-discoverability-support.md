@@ -13,7 +13,7 @@
 
 ### Goal
 
-Confirm that all production templates meet a WCAG 2.2 AA accessibility baseline for in-scope pages. Accessibility and SEO are complementary: correct heading hierarchy, landmark regions, and non-text content alternatives help crawlers parse document structure, reduce bounce due to usability failures, and prevent legal and reputational risk. This workstream is not the full accessibility audit — it is the SEO-adjacent accessibility gate for launch readiness.
+Confirm that all production templates meet a WCAG 2.2 launch baseline for in-scope pages, with Level A as a hard blocker and Level AA defects triaged to closure with owners and target dates. Accessibility and SEO are complementary: correct heading hierarchy, landmark regions, and non-text content alternatives help crawlers parse document structure, reduce bounce due to usability failures, and prevent legal and reputational risk. This workstream is not the full accessibility audit — it is the SEO-adjacent accessibility gate for launch readiness.
 
 ---
 
@@ -26,7 +26,7 @@ Confirm that all production templates meet a WCAG 2.2 AA accessibility baseline 
   - [ ] Is referenced in `package.json` as `npm run check:a11y:seo`
   - [ ] CI integration: runs against a locally served `public/` build
   - [ ] Fails CI on any WCAG 2.2 Level A violation (critical)
-  - [ ] Warns on WCAG 2.2 Level AA violations (non-blocking for launch, must be reviewed)
+  - [ ] Fails CI on critical WCAG 2.2 Level AA violations on representative templates; non-critical Level AA violations must be triaged with owner and target resolution date
 - [ ] Heading hierarchy is correct on all template families:
   - [ ] Each page has exactly one `<h1>` matching the page `<title>` or primary topic
   - [ ] Heading levels do not skip (no `<h1>` → `<h3>` without `<h2>`)
@@ -50,7 +50,7 @@ Confirm that all production templates meet a WCAG 2.2 AA accessibility baseline 
 - [ ] Install and configure `pa11y-ci`:
   - [ ] Create `pa11y-ci.config.js` with target URL list and WCAG 2.2 AA standard
   - [ ] Configure to serve from local `public/` directory
-  - [ ] Set error threshold: fail on Level A; warn on Level AA
+  - [ ] Set error threshold: fail on Level A and critical Level AA; report non-critical Level AA with owner triage
 - [ ] Audit heading hierarchy across templates:
   - [ ] Check `layouts/_default/single.html` — confirm `<h1>` is emitted once per page
   - [ ] Check `layouts/_default/list.html` — confirm `<h1>` for list page context, not for each list item
@@ -64,7 +64,7 @@ Confirm that all production templates meet a WCAG 2.2 AA accessibility baseline 
   - [ ] Triage Level AA violations: fix if template-level, note if content-dependent
 - [ ] Perform manual keyboard navigation check on homepage and one article page
 - [ ] Add `"check:a11y:seo": "pa11y-ci"` (or equivalent) to `package.json`
-- [ ] Integrate `check:a11y:seo` as a CI step (blocking on Level A; non-blocking on AA for this phase)
+- [ ] Integrate `check:a11y:seo` as a CI step (blocking on Level A and critical Level AA defects)
 - [ ] Document all unresolved AA issues with owner and resolution target phase in Progress Log
 
 ---
@@ -72,7 +72,7 @@ Confirm that all production templates meet a WCAG 2.2 AA accessibility baseline 
 ### Out of Scope
 
 - Full WCAG 2.2 AAA compliance (beyond launch scope)
-- Colour contrast optimization (AA compliance only — deferred to post-launch if not critical)
+- AAA-level colour contrast enhancements beyond WCAG 2.2 AA thresholds
 - Screen reader testing with NVDA, VoiceOver (manual — deferred to post Phase 9 accessibility audit)
 - Accessibility of content body (word complexity, reading level) — post-launch
 - WCAG compliance for JavaScript-heavy interactive features (none expected on this static site)
@@ -120,7 +120,7 @@ Confirm that all production templates meet a WCAG 2.2 AA accessibility baseline 
 - `migration/reports/phase-5-accessibility-audit.md`
 - `package.json` updated with `check:a11y:seo` script
 - CI workflow updated with `check:a11y:seo` step
-- All Level A violations resolved; Level AA unresolved issues documented with owners
+- All Level A and critical Level AA violations resolved; remaining non-critical Level AA issues documented with owners
 
 **Deviations from plan:**
 

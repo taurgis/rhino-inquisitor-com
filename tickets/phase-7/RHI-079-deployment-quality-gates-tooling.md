@@ -32,6 +32,7 @@ This workstream is the integration layer for outputs from WS-A through WS-E. Its
   8. `npm run check:links` — broken internal link check (from Phase 3)
   9. `npm run validate:artifact` — artifact integrity and size check (from WS-B, RHI-075)
 - [ ] Each gate job is wired with `needs:` so the deploy job cannot run unless all gates pass
+- [ ] Release-candidate pass criteria are explicit: all nine blocking gates exit with code 0; any single failure blocks deploy
 - [ ] Gate failure produces a clear error message identifying the failing check and the affected file or URL
 - [ ] All gate output reports are uploaded as CI artifacts (`actions/upload-artifact`) and retained for at least 7 days
 - [ ] Targeted Lighthouse checks run on the release candidate (via `@lhci/cli`) on:
@@ -77,7 +78,8 @@ This workstream is the integration layer for outputs from WS-A through WS-E. Its
 - [ ] Test the complete gate suite in CI via `workflow_dispatch`:
   - [ ] All gates pass
   - [ ] Gate reports are attached as CI artifacts
-  - [ ] Deploy job runs and completes
+  - [ ] Negative test confirms a single failing gate prevents deploy
+  - [ ] Deploy job runs and completes on a fully passing run
   - [ ] Record Actions run URL in Progress Log
 - [ ] Commit all changes: workflow updates, new scripts, `package.json`, and CSV template
 
