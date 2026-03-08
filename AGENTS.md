@@ -27,7 +27,7 @@ Primary governance source for this flow:
 | Project Manager | You need sequencing, milestones, risk framing, and delivery checkpoints | [.github/agents/project-manager.agent.md](.github/agents/project-manager.agent.md) |
 | Business Analyst | You need clear requirements, assumptions, acceptance criteria, and traceability | [.github/agents/business-analyst.agent.md](.github/agents/business-analyst.agent.md) |
 | Tester | You need verification strategy, risk-based test coverage, and go or no-go quality advice | [.github/agents/tester.agent.md](.github/agents/tester.agent.md) |
-| Hugo Specialist | You need Hugo configuration, layout/template authoring, or GitHub Pages workflow guidance | [.github/agents/hugo-specialist.agent.md](.github/agents/hugo-specialist.agent.md) |
+| Hugo Specialist | You need blog or website design direction plus Hugo implementation guidance for templates, configuration, and GitHub Pages workflows | [.github/agents/hugo-specialist.agent.md](.github/agents/hugo-specialist.agent.md) |
 | SEO Specialist | You need URL disposition, redirect architecture, canonical, structured data, or Search Console strategy | [.github/agents/seo-specialist.agent.md](.github/agents/seo-specialist.agent.md) |
 | Official Docs Researcher | You need official-source documentation evidence for technical claims and recommendations | [.github/agents/official-docs-researcher.agent.md](.github/agents/official-docs-researcher.agent.md) |
 
