@@ -1,0 +1,28 @@
+{
+  "name": "rhino-inquisitor-com",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "phase1:parse-sitemap": "node scripts/parse-sitemap.js",
+    "phase1:crawl-urls": "node scripts/crawl-urls.js",
+    "phase1:classify-urls": "node scripts/classify-urls.js",
+    "phase1:seo-baseline": "node scripts/seo-baseline.js",
+    "phase1:perf-baseline": "node scripts/perf-baseline.js"
+  },
+  "dependencies": {
+    "csv-stringify": "6.6.0",
+    "fast-glob": "3.3.3",
+    "fast-xml-parser": "5.4.2",
+    "p-limit": "7.3.0",
+    "undici": "7.22.0",
+    "zod": "4.3.6"
+  },
+  "devDependencies": {
+    "lighthouse": "13.0.3",
+    "playwright": "1.58.2"
+  }
+}

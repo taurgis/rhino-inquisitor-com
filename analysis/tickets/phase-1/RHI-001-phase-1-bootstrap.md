@@ -1,13 +1,13 @@
 ## RHI-001 · Phase 1 Bootstrap: Access, Tooling, and Environment
 
-**Status:** Open  
+**Status:** Done  
 **Priority:** Critical  
 **Estimate:** S  
 **Phase:** 1  
 **Assigned to:** Migration Owner  
 **Target date:** 2026-03-07  
 **Created:** 2026-03-07  
-**Updated:** 2026-03-07
+**Updated:** 2026-03-08
 
 ---
 
@@ -21,29 +21,52 @@ This ticket is the prerequisite gate for all other Phase 1 tickets. No Phase 1 w
 
 ### Acceptance Criteria
 
-- [ ] Google Search Console access confirmed for both the Domain property and the `https://www` URL-prefix property for `rhino-inquisitor.com`
-- [ ] Google Analytics access confirmed; landing pages and organic traffic reports are readable
-- [ ] WordPress admin read access confirmed (export + REST API)
-- [ ] DNS provider access confirmed; current owner is identified
-- [ ] `node` ≥ 18 installed in the working environment and version pinned in `.nvmrc` or `package.json` engines
-- [ ] All required Phase 1 npm packages installed and recorded in `package.json` with exact versions: `fast-xml-parser`, `undici`, `p-limit`, `zod`, `csv-stringify`, `fast-glob`
-- [ ] Recommended packages installed or explicitly deferred with rationale: `playwright`, `lighthouse`
-- [ ] `package.json` committed with `scripts` stubs for the Phase 1 script entry points
-- [ ] All team members with Phase 1 responsibilities have confirmed access
+- [x] Google Search Console access confirmed for both the Domain property and the `https://www` URL-prefix property for `rhino-inquisitor.com`
+- [x] Google Analytics access confirmed; landing pages and organic traffic reports are readable
+- [x] WordPress admin read access confirmed (export + REST API)
+- [x] DNS provider access confirmed; current owner is identified
+- [x] `node` ≥ 18 installed in the working environment and version pinned in `.nvmrc` or `package.json` engines
+- [x] All required Phase 1 npm packages installed and recorded in `package.json` with exact versions: `fast-xml-parser`, `undici`, `p-limit`, `zod`, `csv-stringify`, `fast-glob`
+- [x] Recommended packages installed or explicitly deferred with rationale: `playwright`, `lighthouse`
+- [x] `package.json` committed with `scripts` stubs for the Phase 1 script entry points
+- [x] All team members with Phase 1 responsibilities have confirmed access
 
 ---
 
 ### Tasks
 
-- [ ] Send access requests for Search Console, Analytics, WordPress, and DNS to the relevant owners
-- [ ] Confirm receipt and working access for each system (log responses in Progress Log)
-- [ ] Create `package.json` at repository root with `"type": "module"` and `engines.node` constraint
-- [ ] Run `npm install fast-xml-parser undici p-limit zod csv-stringify fast-glob --save-exact`
-- [ ] Run `npm install playwright lighthouse --save-exact --save-dev` or document deferral reason
-- [ ] Add `scripts/` directory with placeholder entry-point files (`parse-sitemap.js`, `crawl-urls.js`, `classify-urls.js`, `seo-baseline.js`, `perf-baseline.js`)
-- [ ] Add `migration/` directory with a `.gitkeep` so the output folder is tracked
-- [ ] Commit `package.json`, `package-lock.json`, and `scripts/` stubs
-- [ ] Share confirmation summary with team noting all access and tooling ready
+- [x] Send access requests for Search Console, Analytics, WordPress, and DNS to the relevant owners
+- [x] Confirm receipt and working access for each system (log responses in Progress Log)
+- [x] Create `package.json` at repository root with `"type": "module"` and `engines.node` constraint
+- [x] Run `npm install fast-xml-parser undici p-limit zod csv-stringify fast-glob --save-exact`
+- [x] Run `npm install playwright lighthouse --save-exact --save-dev` or document deferral reason
+- [x] Add `scripts/` directory with placeholder entry-point files (`parse-sitemap.js`, `crawl-urls.js`, `classify-urls.js`, `seo-baseline.js`, `perf-baseline.js`)
+- [x] Add `migration/` directory with a `.gitkeep` so the output folder is tracked
+- [x] Commit `package.json`, `package-lock.json`, and `scripts/` stubs
+- [x] Share confirmation summary with team noting all access and tooling ready
+
+### Access Owners and Confirmation Checklist
+
+Use this checklist to assign named owners and capture evidence for each required access grant.
+
+| Access Area | Primary Owner (Name) | Backup Owner (Name) | Request Sent | Access Confirmed | Evidence Logged |
+|-------------|-----------------------|---------------------|--------------|------------------|-----------------|
+| Search Console (Domain + `https://www`) | [x] User-confirmed | [x] User-confirmed | [x] | [x] | [x] |
+| Google Analytics (landing + organic reports) | [x] User-confirmed | [x] User-confirmed | [x] | [x] | [x] |
+| WordPress admin read access (export + REST API) | [x] User-confirmed | [x] User-confirmed | [x] | [x] | [x] |
+| DNS provider access and owner verification | [x] User-confirmed | [x] User-confirmed | [x] | [x] | [x] |
+
+### Team Confirmation Checklist
+
+Mark each team member when they confirm Phase 1 access readiness.
+
+- [x] Migration Owner — user confirmed access readiness
+- [x] Engineering Owner — user confirmed access readiness
+- [x] SEO Owner — user confirmed access readiness
+- [x] Content Owner — user confirmed access readiness
+
+Completion rule:
+- When all rows in the access checklist and all team confirmations above are checked, update the ticket status to `Done` only if all Acceptance Criteria and Definition of Done checkboxes are also complete.
 
 ---
 
@@ -59,11 +82,11 @@ This ticket is the prerequisite gate for all other Phase 1 tickets. No Phase 1 w
 
 | Dependency | Type | Status |
 |------------|------|--------|
-| Search Console owner — must grant access | Access | Pending |
-| Analytics owner — must grant access | Access | Pending |
-| WordPress admin credentials | Access | Pending |
-| DNS provider owner — must grant or confirm access | Access | Pending |
-| Node.js ≥ 18 runtime in working environment | Tool | Pending |
+| Search Console owner — must grant access | Access | Done |
+| Analytics owner — must grant access | Access | Done |
+| WordPress admin credentials | Access | Done |
+| DNS provider owner — must grant or confirm access | Access | Done |
+| Node.js ≥ 18 runtime in working environment | Tool | Done |
 
 ---
 
@@ -80,16 +103,16 @@ This ticket is the prerequisite gate for all other Phase 1 tickets. No Phase 1 w
 
 ### Definition of Done
 
-- [ ] All acceptance criteria are satisfied and verified
-- [ ] Tasks are complete or intentionally descoped with rationale
-- [ ] Dependencies and blockers are resolved or documented
-- [ ] Outcomes section is completed with delivered artefacts and deviations
+- [x] All acceptance criteria are satisfied and verified
+- [x] Tasks are complete or intentionally descoped with rationale
+- [x] Dependencies and blockers are resolved or documented
+- [x] Outcomes section is completed with delivered artefacts and deviations
 
 ---
 
 ### Outcomes
 
-{Leave blank until work is complete.}
+RHI-001 is complete. Access to Search Console, Analytics, WordPress, and DNS was confirmed by the user, and team access readiness was confirmed. Bootstrap tooling artifacts are in place, and the full site filesystem and database export are available under `tmp/` for downstream migration work.
 
 **Delivered artefacts:**
 
@@ -102,6 +125,15 @@ This ticket is the prerequisite gate for all other Phase 1 tickets. No Phase 1 w
 
 - None
 
+**Confirmation summary:**
+
+- Search Console access available
+- Analytics access available
+- WordPress access available
+- DNS access available
+- Full site filesystem + database export available in `tmp/`
+- Team access readiness confirmed
+
 ---
 
 ### Progress Log
@@ -109,6 +141,9 @@ This ticket is the prerequisite gate for all other Phase 1 tickets. No Phase 1 w
 | Date | Status | Note |
 |------|--------|------|
 | 2026-03-07 | Open | Ticket created |
+| 2026-03-08 | In Progress | Local bootstrap artifacts created: `package.json`, exact dependency lockfile, `scripts/` stubs, and `migration/.gitkeep`; external access confirmations still pending |
+| 2026-03-08 | In Progress | Added owner-assignment and confirmation checklist template for access grants and team readiness tracking |
+| 2026-03-08 | Done | User confirmed Search Console, Analytics, WordPress, and DNS access plus team readiness; full site filesystem and database export are available in `tmp/`; commit task checked complete per user direction |
 
 ---
 
