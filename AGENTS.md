@@ -29,6 +29,11 @@ This file is the root agent guide for the repository. It complements agent files
 |   |-- documentation/   # Structured phase docs, checklists, and governance reports
 |   |-- plan/details/    # Phase 1-9 detailed plans
 |   `-- tickets/         # Phase-indexed execution tickets
+|-- migration/           # URL inventories, manifests, baselines, and sign-off evidence
+|-- scripts/             # Utility scripts for crawl, sitemap, performance, and SEO work
+|-- tmp/                 # Working evidence, Search Console exports, DNS checks, and WP source data
+|-- package.json         # Workspace package manifest
+|-- package-lock.json    # Locked dependency tree for workspace tooling
 `-- README.md
 ```
 
@@ -43,6 +48,12 @@ This file is the root agent guide for the repository. It complements agent files
 - Design prompt packs: [analysis/design/design-prompts/README.md](analysis/design/design-prompts/README.md)
 - Generated design examples guidance: [analysis/design/generated-images/design-examples/README.md](analysis/design/generated-images/design-examples/README.md)
 - UI implementation checklist: [analysis/documentation/checklists/ui-implementation-checklist-2026-03-08.md](analysis/documentation/checklists/ui-implementation-checklist-2026-03-08.md)
+
+## Supporting Execution Artifacts
+
+- Migration baselines and manifests: [migration/](migration/)
+- Validation and discovery scripts: [scripts/](scripts/)
+- Temporary evidence, exports, and source snapshots: [tmp/](tmp/)
 
 ## Default Multi-Agent Workflow
 
