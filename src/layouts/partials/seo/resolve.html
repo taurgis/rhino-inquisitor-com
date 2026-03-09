@@ -19,7 +19,17 @@
   {{ $image = . | absURL }}
 {{ else }}
   {{ with .Params.heroImage }}
-    {{ $image = . | absURL }}
+    {{ if or (hasPrefix . "http://") (hasPrefix . "https://") (hasPrefix . "/") }}
+      {{ $image = . | absURL }}
+    {{ else }}
+      {{ with $.Resources.GetMatch . }}
+        {{ if reflect.IsImageResourceProcessable . }}
+          {{ $image = (.Process "webp q80").Permalink }}
+        {{ else if reflect.IsImageResourceWithMeta . }}
+          {{ $image = .Permalink }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
   {{ else }}
     {{ with .Site.Params.defaultSocialImage }}
       {{ $image = . | absURL }}

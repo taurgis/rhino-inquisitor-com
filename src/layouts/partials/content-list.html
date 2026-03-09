@@ -11,6 +11,17 @@
     <ul>
       {{ range $paginator.Pages }}
         <li>
+          {{ $page := . }}
+          {{ with .Params.heroImage }}
+            {{ partial "media/image.html" (dict
+              "page" $page
+              "src" .
+              "alt" $page.Title
+              "class" "content-list-image"
+              "loading" "lazy"
+              "style" "display: block; margin-bottom: 0.75rem; max-width: 14rem; height: auto;"
+            ) }}
+          {{ end }}
           <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
           {{ with .Params.description }}
             <p>{{ . }}</p>

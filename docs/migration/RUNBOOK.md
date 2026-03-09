@@ -57,12 +57,23 @@ This runbook tracks the operational steps needed to move the repository from pla
   - scaffold mode is expected while `src/content/` has no migrated Markdown files; the command still validates manifest/report structure and writes the report, but route-level parity checks are skipped
   - once migrated content exists, any hard-failure status blocks release readiness and must be fixed before merge
   - query-string legacy URLs are still reported against the built output; if static hosting cannot represent them correctly, the report exposes the gap instead of masking it
+- Validate RHI-026 asset and performance baseline with:
+  - `npm run build:prod`
+  - `npm run check:perf:budget`
+  - `npm run check:perf`
+  - review `docs/migration/ASSET-POLICY.md` for the current image strategy, budget limits, and JavaScript policy
+  - confirm representative scaffold routes exist in the built output:
+    - `public/index.html`
+    - `public/phase-3-performance-baseline/index.html`
+    - `public/category/platform/index.html`
+  - review `tmp/lhci/` for the local Lighthouse CI reports written by the baseline run
 - Use the Phase 3 ticket set for workstream ownership and acceptance criteria:
   - `analysis/tickets/phase-3/RHI-020-repository-bootstrap.md`
   - `analysis/tickets/phase-3/RHI-021-hugo-config-hardening.md`
   - `analysis/tickets/phase-3/RHI-022-content-contract-archetypes.md`
   - `analysis/tickets/phase-3/RHI-024-seo-foundation.md`
   - `analysis/tickets/phase-3/RHI-025-url-parity-redirect-baseline.md`
+  - `analysis/tickets/phase-3/RHI-026-asset-performance-baseline.md`
   - `analysis/tickets/phase-3/RHI-029-cicd-deployment-scaffolding.md`
 
 ## Phase 4 - Content Migration

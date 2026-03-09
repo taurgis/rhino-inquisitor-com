@@ -20,6 +20,17 @@
       {{ with .Params.description }}
         <p>{{ . }}</p>
       {{ end }}
+      {{ with .Params.heroImage }}
+        {{ partial "media/image.html" (dict
+          "page" $
+          "src" .
+          "alt" $.Title
+          "class" "article-hero"
+          "loading" "eager"
+          "decoding" "sync"
+          "style" "display: block; margin-block: 1rem 1.5rem; max-width: 20rem; height: auto;"
+        ) }}
+      {{ end }}
     </header>
 
     {{ with .TableOfContents }}

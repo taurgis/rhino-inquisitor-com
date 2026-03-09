@@ -13,9 +13,12 @@
     "phase1:classify-urls": "node scripts/classify-urls.js",
     "phase1:seo-baseline": "node scripts/seo-baseline.js",
     "phase1:perf-baseline": "node scripts/perf-baseline.js",
+    "build:prod": "hugo --minify --environment production",
     "validate:frontmatter": "node scripts/validate-frontmatter.js",
     "check:url-parity": "node scripts/check-url-parity.js",
-    "check:seo": "node scripts/check-seo.js"
+    "check:seo": "node scripts/check-seo.js",
+    "check:perf:budget": "node scripts/check-perf-budget.js",
+    "check:perf": "npm run build:prod && npm run check:perf:budget && lhci autorun --config=./lighthouserc.json"
   },
   "dependencies": {
     "csv-stringify": "6.6.0",
@@ -27,6 +30,7 @@
     "zod": "4.3.6"
   },
   "devDependencies": {
+    "@lhci/cli": "0.15.1",
     "lighthouse": "13.0.3",
     "playwright": "1.58.2"
   }

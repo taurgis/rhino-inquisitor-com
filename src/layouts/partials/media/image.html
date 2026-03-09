@@ -1,0 +1,46 @@
+{{- $page := .page -}}
+{{- $requestedSrc := .src | default "" -}}
+{{- if eq $requestedSrc "" -}}
+  {{- return -}}
+{{- end -}}
+
+{{- $alt := .alt | default "" -}}
+{{- $class := .class | default "" -}}
+{{- $loading := .loading | default "lazy" -}}
+{{- $decoding := .decoding | default "async" -}}
+{{- $style := .style | default "max-width: 100%; height: auto;" -}}
+{{- $resource := false -}}
+
+{{- if and $page (not (or (hasPrefix $requestedSrc "http://") (hasPrefix $requestedSrc "https://") (hasPrefix $requestedSrc "/"))) -}}
+  {{- with $page.Resources.GetMatch $requestedSrc -}}
+    {{- $resource = . -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $resolvedSrc := $requestedSrc -}}
+{{- $width := .width | default 0 -}}
+{{- $height := .height | default 0 -}}
+
+{{- if and $resource (reflect.IsImageResourceProcessable $resource) -}}
+  {{- $processed := $resource.Process "webp q80" -}}
+  {{- $resolvedSrc = $processed.RelPermalink -}}
+  {{- $width = $processed.Width -}}
+  {{- $height = $processed.Height -}}
+{{- else if and $resource (reflect.IsImageResourceWithMeta $resource) -}}
+  {{- $resolvedSrc = $resource.RelPermalink -}}
+  {{- $width = $resource.Width -}}
+  {{- $height = $resource.Height -}}
+{{- else if or (eq $width 0) (eq $height 0) -}}
+  {{- errorf "RHI-026 image %q on %q must resolve to a local Hugo image resource or provide explicit width and height" $requestedSrc ($page.RelPermalink | default "unknown-page") -}}
+{{- end -}}
+
+<img
+  src="{{ $resolvedSrc }}"
+  alt="{{ $alt }}"
+  width="{{ $width }}"
+  height="{{ $height }}"
+  loading="{{ $loading }}"
+  decoding="{{ $decoding }}"
+  {{ with $class }}class="{{ . }}"{{ end }}
+  style="{{ $style }}"
+>
