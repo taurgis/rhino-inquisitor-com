@@ -60,31 +60,21 @@ Outputs:
 - Repository structure decisions recorded in main plan.
 
 ## Workstream B: Content Model and Data Contract
-Required front matter fields:
-- `title`
-- `description`
-- `date`
-- `lastmod`
-- `categories`
-- `tags`
-- `heroImage`
-- `url`
-- `aliases`
-- `canonical`
-- `draft`
-
-Recommended fields:
-- `slug`
-- `author`
-- `seo` object (`noindex`, `ogImage`, `twitterCard`, optional overrides)
+Approved contract:
+- Scope is limited to migrated WordPress `post` and `page` records that become Hugo content files; attachments/media and generated home/section/taxonomy/list pages are outside this per-file front matter contract.
+- YAML is the approved front matter serialization format for migrated content files.
+- Common required fields for migrated content files are `title`, `description`, `lastmod`, `url`, and `draft`.
+- Post-specific required fields are `date`, `categories`, and `tags`.
+- Repo-approved custom extension fields remain `heroImage`, `canonical`, and `seo` (`noindex`, `ogImage`, `twitterCard`) to preserve continuity with downstream Phase 3 and Phase 4 tickets.
 
 Rules:
-1. `url` is mandatory for migrated content.
-2. `url` normalization must be documented and enforced (leading slash behavior, lowercase policy, multilingual behavior if enabled).
-3. Canonical handling defaults to rendered page absolute URL; per-page canonical overrides are allowed only as absolute HTTPS URLs.
-4. Draft pages must be excluded from production build outputs and sitemap.
-5. Production builds must not use `--buildDrafts`, `--buildFuture`, or `--buildExpired`.
-6. Any `aliases` value must map to known legacy URLs from the manifest.
+1. `migration/url-manifest.json` `target_url` is the source of truth for `url`; migrated content never derives routes from `slug`.
+2. `url` values are mandatory for migrated regular content and must be path-only, lowercase, start with `/`, end with `/`, and contain no query strings or fragments.
+3. `aliases` values must be path-only legacy URLs from the manifest for the same target URL; arbitrary aliases, absolute URLs, and self-aliases are prohibited.
+4. Canonical handling defaults to the rendered page absolute URL on `https://www.rhino-inquisitor.com/`; per-page overrides are allowed only as same-host absolute HTTPS URLs.
+5. `draft` is derived from WordPress publication status: `publish` maps to `draft: false`; retained non-published states map to `draft: true`; trashed items do not produce content files.
+6. Draft pages must be excluded from production build outputs and sitemap.
+7. Production builds must not use `--buildDrafts`, `--buildFuture`, or `--buildExpired`.
 
 ## Workstream C: Route and Redirect Contract
 Required decisions:
@@ -92,7 +82,7 @@ Required decisions:
 2. Trailing slash policy: preserve existing high-value behavior and avoid dual-indexable variants.
 3. Case policy: lowercase route outputs only.
 4. Taxonomy route policy: explicit category/video/archive path shape.
-5. Taxonomy route implementation: lock config-level taxonomies and permalink patterns, and reserve per-page `url` overrides for exceptions.
+5. Taxonomy route implementation: lock config-level taxonomies and permalink patterns for generated list pages; migrated regular post/page content continues to use explicit manifest-driven `url` values, while per-page `url` overrides remain exception-only outside that migration contract.
 
 Important note on `/video/` URL class: Phase 1 data confirms that `/video/` is a WordPress **page** (listed in `page-sitemap.xml`), NOT a custom post type archive or taxonomy route. It must be preserved as a `page` class URL, not as a taxonomy archive. The `/category/video/` URL is a separate category archive route and must be handled independently.
 
@@ -106,6 +96,7 @@ Redirect policy:
    - `indexed_urls = count(disposition == "keep" OR has_organic_traffic == true)`
    - `changed_indexed_urls = count(indexed_urls where disposition != "keep")`
    - `change_rate = changed_indexed_urls / indexed_urls * 100`
+7. Tag archives are excluded from the default public Phase 3 route contract; the legacy `/tag/*` family remains retired unless an explicit exception is later approved in `migration/url-manifest.json`.
 
 Critical caveat:
 - GitHub Pages is static hosting, so generated redirects are not equivalent to full origin-level 301/308 control for all cases.
@@ -114,6 +105,7 @@ Redirect acceptance criteria:
 1. SEO contract explicitly accepts client-side alias redirects on Pages-only hosting.
 2. URL parity validation proves every legacy URL resolves to the intended destination or explicit retire behavior.
 3. Alias coverage includes non-trivial legacy routes and does not silently skip required paths or required output formats.
+4. Current manifest baseline calculation on `2026-03-09` is `39.1%` (`131 / 335`), so the Model B trigger is already met and edge redirect infrastructure is mandatory before launch.
 
 ## Workstream D: SEO and Discoverability Contract
 Each indexable template type must produce:
@@ -230,13 +222,14 @@ Phase 2 is complete only if all statements are true:
 - Decision owner is migration owner, with required approval from SEO owner.
 2. Legacy endpoint policy:
 - `/feed/` is the canonical feed route and must resolve on the migrated site.
-- Legacy feed variants (`/feed/rss/`, `/feed/atom/`) must be explicitly mapped (redirect or retire) in `migration/url-manifest.json`.
+- Legacy feed variants (`/feed/rss/`, `/feed/atom/`) merge directly to `/feed/` and must be recorded explicitly in `migration/url-manifest.json`.
 - `/comments/feed/`, `/wp-json/`, `/xmlrpc.php`, and legacy `/author/*` system endpoints are retired with explicit not-found behavior (`404` on Pages-only hosting, `410` where edge layer is active).
 - Legacy on-site search endpoints (`/search/*`) are retired unless a production search feature is implemented and validated before cutover.
+- Tag archives are not part of the approved public route contract for Phase 3; the legacy `/tag/*` family remains retired unless an explicit exception is approved later.
 3. Pagination parity policy:
 - Strict pagination parity is required only for URL classes with demonstrated value (at least 100 clicks in 90 days or at least 10 referring domains).
 - For non-critical deep pagination routes, intentional retirement is allowed with explicit mapping review.
-- Pagination exception decisions must be recorded in `migration/pagination-priority-manifest.json` before Phase 3 scaffolding.
+- `migration/pagination-priority-manifest.json` schema and scaffold file must exist before Phase 3 scaffolding; population is assigned to the migration engineer and must be completed before URL parity gate implementation.
 - `migration/pagination-priority-manifest.json` must be an array of entries containing `legacy_url`, `url_class`, `value_signal` object (`clicks_90d`, `ref_domains`), `decision` (`keep` or `retire`), and `approvers`.
 - Both value signals must be present; when one signal is unavailable, record it as `null` and document data-source limitation.
 - Example entry:
@@ -256,7 +249,8 @@ Phase 2 is complete only if all statements are true:
 ```
 4. Edge redirect infrastructure timing:
 - Edge redirect infrastructure is conditionally approved and must be activated before launch if any Model B trigger is met.
-- If no trigger is met, Model A remains approved with explicit risk acceptance.
+- Current approved baseline calculation is `39.1%` (`131 / 335`), so the trigger is already met and edge redirect infrastructure is mandatory before launch.
+- Hugo `aliases` remain approved only as Pages-only fallback behavior and for validation scenarios where origin or edge status-code redirects are not yet active.
 5. Feed format scope:
 - RSS output is required; Atom parity is optional and non-blocking.
 - Phase 4 must publish `migration/feed-compatibility-check.md` (a Phase 4 deliverable) as a table proving legacy feed endpoint outcomes (tested URL, observed status code, final destination URL, content type, and validation timestamp).

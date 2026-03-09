@@ -22,10 +22,10 @@ Phase 3 must not begin until this ticket is `Done`. Any unresolved architecture 
 ### Acceptance Criteria
 
 - [ ] All Phase 2 workstream tickets are `Done`:
-  - [ ] RHI-010 Done — Phase 2 kickoff and decision owner alignment complete
-  - [ ] RHI-011 Done — Generator and repo contract approved
-  - [ ] RHI-012 Done — Content model and front matter contract approved
-  - [ ] RHI-013 Done — Route and redirect contract approved (including SEO owner acceptance of alias redirect behavior)
+  - [x] RHI-010 Done — Phase 2 kickoff and decision owner alignment complete
+  - [x] RHI-011 Done — Generator and repo contract approved
+  - [x] RHI-012 Done — Content model and front matter contract approved
+  - [x] RHI-013 Done — Route and redirect contract approved (including SEO owner acceptance of alias redirect behavior)
   - [ ] RHI-014 Done — SEO and discoverability contract approved
   - [ ] RHI-015 Done — Library and tooling contract approved
   - [ ] RHI-016 Done — Deployment and operations contract approved
@@ -40,16 +40,16 @@ Phase 3 must not begin until this ticket is `Done`. Any unresolved architecture 
   - [ ] Hugo version pin confirmed (RHI-011)
   - [ ] `baseURL` and environment injection method confirmed (RHI-011)
   - [ ] Front matter `url` normalization rules approved (RHI-012)
-  - [ ] Redirect mechanism and SEO owner acceptance recorded (RHI-013)
-  - [ ] Edge redirect threshold calculation completed (RHI-013)
-  - [ ] Legacy system endpoint dispositions recorded in `migration/url-manifest.json` (RHI-013)
-  - [ ] Pagination parity manifest schema defined and assignment confirmed (RHI-013)
+  - [x] Redirect mechanism and SEO owner acceptance recorded (RHI-013)
+  - [x] Edge redirect threshold calculation completed (RHI-013)
+  - [x] Legacy system endpoint dispositions recorded in `migration/url-manifest.json` (RHI-013)
+  - [x] Pagination parity manifest schema defined and assignment confirmed (RHI-013)
   - [ ] SEO partial architecture approved (RHI-014)
   - [ ] Deployment workflow contract approved (RHI-016)
   - [ ] Validation gate specifications approved (RHI-017)
 - [ ] `migration/phase-2-signoff.md` is committed with decision summary and stakeholder approval
 - [ ] Phase 3 team has confirmed receipt of the Phase 2 decision package
-- [ ] RSS feed scope is confirmed: RSS required, Atom parity optional and non-blocking (from §Resolved Decisions for Phase 3 Entry)
+- [x] RSS feed scope is confirmed: RSS required, Atom parity optional and non-blocking (from §Resolved Decisions for Phase 3 Entry)
 - [ ] Feed compatibility check deliverable (`migration/feed-compatibility-check.md`) is noted as a Phase 4 dependency
 
 ---
@@ -58,16 +58,16 @@ Phase 3 must not begin until this ticket is `Done`. Any unresolved architecture 
 
 - [ ] Confirm each workstream ticket is `Done` (run through checklist in Acceptance Criteria)
 - [ ] Review each contract outcome against the six Architecture Principles; flag any principle not yet reflected in a contract decision
-- [ ] Verify that `migration/url-manifest.json` includes explicit entries for all legacy system endpoints (feed variants, wp-json, xmlrpc, author, search) — per RHI-013
-- [ ] Confirm pagination parity manifest schema is documented and ownership assigned — per RHI-013
-- [ ] Verify edge redirect threshold calculation is recorded with pass/fail status — per RHI-013
-- [ ] Verify SEO owner acceptance of alias redirect mechanism is recorded in RHI-013 Progress Log
+- [x] Verify that `migration/url-manifest.json` includes explicit entries for all legacy system endpoints (feed variants, wp-json, xmlrpc, author, search) — per RHI-013
+- [x] Confirm pagination parity manifest schema is documented and ownership assigned — per RHI-013
+- [x] Verify edge redirect threshold calculation is recorded with pass/fail status — per RHI-013
+- [x] Verify SEO owner acceptance of alias redirect mechanism is recorded in RHI-013 Progress Log
 - [ ] Review all Resolved Decisions for Phase 3 Entry from `analysis/plan/details/phase-2.md`:
-  - [ ] URL-change threshold and owner confirmed
-  - [ ] Legacy endpoint policy confirmed (feed, wp-json, xmlrpc, author, search)
-  - [ ] Pagination parity policy confirmed
-  - [ ] Edge redirect infrastructure timing confirmed
-  - [ ] Feed format scope confirmed (RSS required, Atom non-blocking)
+  - [x] URL-change threshold and owner confirmed
+  - [x] Legacy endpoint policy confirmed (feed, wp-json, xmlrpc, author, search)
+  - [x] Pagination parity policy confirmed
+  - [x] Edge redirect infrastructure timing confirmed
+  - [x] Feed format scope confirmed (RSS required, Atom non-blocking)
 - [ ] Draft `migration/phase-2-signoff.md`:
   - [ ] Summary of all Phase 2 decision tickets (RHI-010 bootstrap, RHI-011–RHI-016 workstreams, and RHI-017 validation gates) with outcomes and file paths
   - [ ] Architecture Principles compliance statement
@@ -93,10 +93,10 @@ Phase 3 must not begin until this ticket is `Done`. Any unresolved architecture 
 
 | Dependency | Type | Status |
 |------------|------|--------|
-| RHI-010 Done | Ticket | Pending |
-| RHI-011 Done | Ticket | Pending |
-| RHI-012 Done | Ticket | Pending |
-| RHI-013 Done | Ticket | Pending |
+| RHI-010 Done | Ticket | Done |
+| RHI-011 Done | Ticket | Done |
+| RHI-012 Done | Ticket | Done |
+| RHI-013 Done | Ticket | Done |
 | RHI-014 Done | Ticket | Pending |
 | RHI-015 Done | Ticket | Pending |
 | RHI-016 Done | Ticket | Pending |

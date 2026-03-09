@@ -15,8 +15,8 @@
 |-----------|-------|------------|----------|--------|----------|-------------|------------|
 | [RHI-010](RHI-010-phase-2-bootstrap.md) | Phase 2 Bootstrap: Kickoff and Decision Owner Alignment | Setup | Critical | Done | S | 2026-03-17 | RHI-009 |
 | [RHI-011](RHI-011-generator-repo-contract.md) | Workstream A — Generator and Repo Contract | WS-A | Critical | Done | M | 2026-03-19 | RHI-010 |
-| [RHI-012](RHI-012-content-model-contract.md) | Workstream B — Content Model and Front Matter Contract | WS-B | Critical | Open | M | 2026-03-19 | RHI-010, RHI-003 |
-| [RHI-013](RHI-013-route-redirect-contract.md) | Workstream C — Route and Redirect Contract | WS-C | Critical | Open | L | 2026-03-20 | RHI-010, RHI-004, RHI-012 |
+| [RHI-012](RHI-012-content-model-contract.md) | Workstream B — Content Model and Front Matter Contract | WS-B | Critical | Done | M | 2026-03-19 | RHI-010, RHI-003 |
+| [RHI-013](RHI-013-route-redirect-contract.md) | Workstream C — Route and Redirect Contract | WS-C | Critical | Done | L | 2026-03-20 | RHI-010, RHI-004, RHI-012 |
 | [RHI-014](RHI-014-seo-discoverability-contract.md) | Workstream D — SEO and Discoverability Contract | WS-D | High | Open | M | 2026-03-20 | RHI-010, RHI-011, RHI-013 |
 | [RHI-015](RHI-015-library-tooling-contract.md) | Workstream E — Library and Tooling Contract | WS-E | Medium | Open | S | 2026-03-18 | RHI-010 |
 | [RHI-016](RHI-016-deployment-operations-contract.md) | Workstream F — Deployment and Operations Contract | WS-F | High | Open | M | 2026-03-20 | RHI-010, RHI-011 |
@@ -71,8 +71,8 @@ All items below must be complete before Phase 3 work begins:
 
 - [x] RHI-010 Done — Phase 2 kickoff, decision owners confirmed, all Phase 1 deliverables accessible
 - [x] RHI-011 Done — Hugo project layout, root `hugo.toml`, canonical `baseURL`, environment model, and version pin all approved
-- [ ] RHI-012 Done — All front matter fields, normalization rules, and `draft` lifecycle approved
-- [ ] RHI-013 Done — Host/trailing-slash/case policy, taxonomy routes, redirect mechanism, edge threshold, legacy endpoints, and pagination policy all approved
+- [x] RHI-012 Done — All front matter fields, normalization rules, and `draft` lifecycle approved
+- [x] RHI-013 Done — Host/trailing-slash/case policy, taxonomy routes, redirect mechanism, edge threshold, legacy endpoints, and pagination policy all approved
 - [ ] RHI-014 Done — SEO metadata obligations, JSON-LD schema, sitemap, and robots policy approved
 - [ ] RHI-015 Done — Tooling list approved; security checks passed; optional package decisions recorded
 - [ ] RHI-016 Done — Deployment workflow contract approved; rollback plan documented

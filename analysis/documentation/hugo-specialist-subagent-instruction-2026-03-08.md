@@ -16,7 +16,7 @@ Old behavior:
 New behavior:
 - Hugo Specialist invocation is mandatory when defined design/Hugo trigger conditions are met.
 - The new instruction includes binary pass/fail compliance expectations, explicit exemptions, and an escalation path for ambiguous or conflicting guidance.
-- The requirement is additive and does not replace existing PM/BA/Tester/Official Docs governance requirements.
+- The requirement is additive and does not replace existing PM/BA/Senior QA Engineer/Official Docs governance requirements.
 
 ## Impact
 
