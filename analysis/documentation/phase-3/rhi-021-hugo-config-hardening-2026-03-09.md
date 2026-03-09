@@ -2,7 +2,7 @@
 
 ## Change summary
 
-Hardened the root Hugo configuration for Phase 3 by making locale defaults, generated category routes, rendered outputs, robots generation, and production build behavior explicit. Added the repo-owned `robots.txt` template required by the approved mechanism and documented the feed continuity boundary.
+Hardened the root Hugo configuration for Phase 3 by making locale defaults, generated category routes, rendered outputs, robots generation, and production build behavior explicit. Added the repo-owned `robots.txt` template required by the approved mechanism, documented the feed continuity boundary, and corrected the taxonomy permalink override keys so the configured `/category/` route contract actually applies in Hugo 0.157.
 
 ## Why this changed
 
@@ -21,6 +21,7 @@ New behavior:
 
 - Root `hugo.toml` now explicitly sets `defaultContentLanguage`, `languageCode`, `timeZone`, `buildDrafts`, `buildFuture`, `buildExpired`, `enableRobotsTXT`, and the rendered `outputs` list.
 - Generated public taxonomy routing is limited to categories using `/category/` and `/category/{slug}/`.
+- The taxonomy permalink overrides are now keyed by the taxonomy name (`categories`) instead of the singular alias, which is required for Hugo 0.157 to apply the configured taxonomy and term route overrides.
 - Tag archives remain retired by default to stay aligned with the approved Phase 2 route contract.
 - A repo-owned `src/layouts/robots.txt` template now backs `enableRobotsTXT = true`.
 - The runbook now documents Hugo's canonical home feed at `/index.xml` and records `/feed/` continuity as a downstream must-resolve dependency owned by RHI-024.
@@ -40,6 +41,8 @@ New behavior:
 - Spot-checked generated machine-readable outputs for canonical host consistency on `https://www.rhino-inquisitor.com/`.
 - Re-ran the build with `hugo --cleanDestinationDir --minify --environment production` to remove stale `public/` artifacts before final verification.
 - Recorded the expected missing-layout warnings for `home` and `taxonomy` HTML kinds as the downstream template-scaffolding dependency owned by RHI-023.
+- Revalidated the taxonomy route after the RHI-023 scaffold work exposed the mismatch, confirming `public/category/index.html` and `public/category/migration/index.html` render from the corrected config.
+- A full URL parity rerun could not be executed in this task because the expected RHI-025 tooling is not in the repo yet: `scripts/check-url-parity.js` and `migration/url-parity-report.json` are both still absent.
 
 ## Related files
 

@@ -1,0 +1,41 @@
+{{ define "main" }}
+  <section>
+    <h1>{{ .Site.Title }}</h1>
+    <p>{{ .Site.Params.description | default (printf "%s knowledge base, articles, and notes." .Site.Title) }}</p>
+  </section>
+
+  <section aria-labelledby="recent-posts-heading">
+    <h2 id="recent-posts-heading">Recent Posts</h2>
+    {{ $posts := first 5 (where .Site.RegularPages.ByDate.Reverse "Type" "posts") }}
+    {{ if gt (len $posts) 0 }}
+      <ul>
+        {{ range $posts }}
+          <li>
+            <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+            {{ with .Params.description }}
+              <p>{{ . }}</p>
+            {{ end }}
+          </li>
+        {{ end }}
+      </ul>
+    {{ else }}
+      <p>No posts have been added yet.</p>
+    {{ end }}
+  </section>
+
+  <section aria-labelledby="category-heading">
+    <h2 id="category-heading">Categories</h2>
+    {{ if .Site.Taxonomies.categories }}
+      <ul>
+        {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
+          <li>
+            <a href="{{ printf "%scategory/%s/" $.Site.Home.Permalink $name }}">{{ $name }}</a>
+            <span>({{ len $taxonomy }})</span>
+          </li>
+        {{ end }}
+      </ul>
+    {{ else }}
+      <p>No public categories are available yet.</p>
+    {{ end }}
+  </section>
+{{ end }}

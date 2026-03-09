@@ -1,0 +1,40 @@
+{{ define "main" }}
+  {{ partial "breadcrumbs.html" . }}
+
+  <article>
+    <header>
+      <h1>{{ .Title }}</h1>
+      <ul>
+        {{ if eq .Type "posts" }}
+          {{ with .Date }}
+            <li>Published: <time datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}">{{ .Format "2006-01-02" }}</time></li>
+          {{ end }}
+        {{ end }}
+        {{ with .Lastmod }}
+          <li>Updated: <time datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}">{{ .Format "2006-01-02" }}</time></li>
+        {{ end }}
+        {{ if eq .Type "posts" }}
+          <li>Reading time: {{ .ReadingTime }} min</li>
+        {{ end }}
+      </ul>
+      {{ with .Params.description }}
+        <p>{{ . }}</p>
+      {{ end }}
+    </header>
+
+    {{ with .TableOfContents }}
+      <aside>
+        <h2>Contents</h2>
+        {{ . }}
+      </aside>
+    {{ end }}
+
+    <section>
+      {{ if .Content }}
+        {{ .Content }}
+      {{ else }}
+        <p>No body content has been added yet.</p>
+      {{ end }}
+    </section>
+  </article>
+{{ end }}

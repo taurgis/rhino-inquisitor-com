@@ -17,7 +17,7 @@
 | [RHI-020](RHI-020-repository-bootstrap.md) | Workstream A — Repository Bootstrap | WS-A | Critical | Done | S | 2026-03-26 | RHI-019 |
 | [RHI-021](RHI-021-hugo-config-hardening.md) | Workstream B — Hugo Configuration Hardening | WS-B | Critical | Done | M | 2026-03-27 | RHI-019, RHI-020 |
 | [RHI-022](RHI-022-content-contract-archetypes.md) | Workstream C — Content Contract and Archetypes | WS-C | Critical | Done | M | 2026-03-28 | RHI-019, RHI-021 |
-| [RHI-023](RHI-023-template-scaffolding.md) | Workstream D — Template Scaffolding and Rendering Model | WS-D | Critical | Open | L | 2026-04-01 | RHI-019, RHI-021, RHI-022 |
+| [RHI-023](RHI-023-template-scaffolding.md) | Workstream D — Template Scaffolding and Rendering Model | WS-D | Critical | Done | L | 2026-04-01 | RHI-019, RHI-021, RHI-022 |
 | [RHI-024](RHI-024-seo-foundation.md) | Workstream E — SEO Foundation Implementation | WS-E | High | Open | M | 2026-04-02 | RHI-019, RHI-021, RHI-023 |
 | [RHI-025](RHI-025-url-parity-redirect-baseline.md) | Workstream F — URL Preservation and Redirect Baseline | WS-F | Critical | Open | M | 2026-04-02 | RHI-019, RHI-021, RHI-022 |
 | [RHI-026](RHI-026-asset-performance-baseline.md) | Workstream G — Asset and Performance Baseline | WS-G | Medium | Open | M | 2026-04-03 | RHI-019, RHI-023 |
@@ -65,7 +65,7 @@ RHI-018 (Phase 2 Sign-off)
 | Hugo archetypes | RHI-022 | `src/archetypes/posts.md`, `src/archetypes/pages.md`, `src/archetypes/categories.md`, `src/archetypes/default.md` |
 | Front matter validation script | RHI-022 | `scripts/validate-frontmatter.js` |
 | Base template and SEO partials | RHI-023 | `src/layouts/_default/baseof.html`, `src/layouts/partials/seo/` |
-| Primary section and taxonomy templates | RHI-023 | `src/layouts/index.html`, `src/layouts/_default/single.html`, `src/layouts/_default/list.html`, `src/layouts/_default/taxonomy.html`, `src/layouts/_default/term.html` |
+| Primary section and taxonomy templates | RHI-023 | `src/layouts/home.html`, `src/layouts/_default/single.html`, `src/layouts/_default/list.html`, `src/layouts/_default/taxonomy.html`, `src/layouts/_default/term.html` |
 | SEO smoke-check script | RHI-024 | `scripts/check-seo.js` |
 | Validated `sitemap.xml` and `robots.txt` output | RHI-024 | Generated: `public/sitemap.xml`, `public/robots.txt` |
 | URL parity script | RHI-025 | `scripts/check-url-parity.js` |
@@ -89,7 +89,7 @@ All items below must be complete before Phase 4 work begins:
 - [x] RHI-020 Done — Hugo project layout committed; clean clone builds with one command
 - [x] RHI-021 Done — `hugo.toml` with `baseURL`, generated routes, outputs, robots generation, and build behavior locked
 - [x] RHI-022 Done — Archetypes for all content types; `validate:frontmatter` script passing in CI
-- [ ] RHI-023 Done — All primary template types with shared SEO partials committed
+- [x] RHI-023 Done — All primary template types with shared SEO partials committed
 - [ ] RHI-024 Done — SEO signals verified; sitemap/robots validated; staging noindex confirmed; `check:seo` passing
 - [ ] RHI-025 Done — URL parity script implemented; `check:url-parity` passing; parity report generated
 - [ ] RHI-026 Done — Asset policy documented; Lighthouse CI passing CWV targets on scaffold

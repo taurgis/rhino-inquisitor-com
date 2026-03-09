@@ -30,10 +30,10 @@ term = ["html"]
 category = "categories"
 
 [permalinks.taxonomy]
-category = "/category/"
+categories = "/category/"
 
 [permalinks.term]
-category = "/category/:slug/"
+categories = "/category/:slug/"
 
 [sitemap]
 filename = "sitemap.xml"

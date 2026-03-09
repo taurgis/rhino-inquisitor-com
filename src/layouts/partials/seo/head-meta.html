@@ -1,0 +1,20 @@
+{{ $seo := partial "seo/resolve.html" . }}
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ $seo.title }}</title>
+<meta name="description" content="{{ $seo.description }}">
+<meta name="robots" content="{{ $seo.robots }}">
+<link rel="canonical" href="{{ $seo.canonical }}">
+
+{{ partial "seo/open-graph.html" . }}
+
+{{ if .IsHome }}
+  {{ partialCached "seo/json-ld-site.html" . "seo-json-ld-site" }}
+{{ end }}
+
+{{ if eq .Type "posts" }}
+  {{ partial "seo/json-ld-article.html" . }}
+{{ end }}
+
+{{ partial "seo/json-ld-breadcrumb.html" . }}

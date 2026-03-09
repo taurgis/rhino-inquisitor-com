@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "en-us" }}">
+  <head>
+    {{ block "head" . }}
+      {{ partial "seo/head-meta.html" . }}
+    {{ end }}
+  </head>
+  <body>
+    <header>
+      <div>
+        <a href="{{ .Site.Home.Permalink }}">{{ .Site.Title }}</a>
+      </div>
+      <nav aria-label="Primary">
+        <a href="{{ .Site.Home.Permalink }}">Home</a>
+        <a href="{{ .Site.Home.Permalink }}category/">Categories</a>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      {{ block "main" . }}{{ end }}
+    </main>
+
+    <footer>
+      <p>{{ .Site.Title }}</p>
+    </footer>
+
+    {{ block "scripts" . }}{{ end }}
+  </body>
+</html>

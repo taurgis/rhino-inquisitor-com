@@ -138,6 +138,7 @@ Approved implementation decisions:
 - Public generated taxonomy routing is limited to categories in Phase 3:
   - category list root: `/category/`
   - category term pages: `/category/{slug}/`
+- For Hugo `v0.157.0`, the taxonomy permalink override keys must match the taxonomy name (`categories`) inside `[permalinks.taxonomy]` and `[permalinks.term]`; using the singular alias does not apply the override even though `[taxonomies]` itself is declared as `category = "categories"`.
 - Tag archives remain intentionally retired by default per RHI-013. The `tags` front matter key remains valid metadata, but no public tag taxonomy is generated in Phase 3.
 - Output behavior is explicit for rendered page kinds:
   - `home = ["html", "rss"]`
@@ -163,6 +164,8 @@ Validation completed:
 - `public/sitemap.xml`, `public/robots.txt`, and `public/index.xml` were generated.
 - Generated outputs use the canonical `https://www.rhino-inquisitor.com/` host; no localhost, apex, or HTTP host drift was observed in the sampled machine-readable outputs.
 - The clean production build still emits expected warnings about missing `home` and `taxonomy` HTML layouts. Those warnings are a downstream RHI-023 template-scaffolding dependency, not a Hugo config error.
+- During RHI-023 validation, the taxonomy route contract was rechecked against rendered HTML and the config was corrected so the build now emits `public/category/index.html` and `public/category/migration/index.html` instead of falling back to Hugo's default `/categories/...` paths.
+- A full URL parity rerun could not be executed in this task because the expected RHI-025 tooling is not in the repo yet: `scripts/check-url-parity.js` and `migration/url-parity-report.json` are both still absent.
 
 **Delivered artefacts:**
 
@@ -188,6 +191,7 @@ Validation completed:
 | 2026-03-07 | Open | Ticket created |
 | 2026-03-09 | In Progress | Reviewed RHI-021 against RHI-011 through RHI-014, the Hugo skill guidance, Hugo specialist guidance, and official Hugo documentation for config, outputs, robots, RSS, and build semantics |
 | 2026-03-09 | In Progress | Hardened root `hugo.toml`, added a repo-owned `src/layouts/robots.txt`, and documented the explicit `/index.xml` feed contract plus `/feed/` downstream dependency in `docs/migration/RUNBOOK.md` |
+| 2026-03-09 | In Progress | RHI-023 scaffold validation exposed that the taxonomy permalink overrides in `hugo.toml` were keyed by the singular alias. The config was corrected to use the taxonomy name (`categories`) so the approved `/category/` and `/category/{slug}/` routes render as intended in Hugo `v0.157.0`. |
 | 2026-03-09 | Done | Production validation passed via `hugo --cleanDestinationDir --minify --environment production`; required machine-readable outputs were emitted, canonical-host drift was not observed in sampled outputs, and the remaining missing-layout warnings plus parity follow-up were recorded as downstream dependencies rather than blockers |
 
 ---
@@ -199,4 +203,5 @@ Validation completed:
 - RSS feed: Hugo default emits `/index.xml`. The WordPress feed endpoint is `/feed/`. If subscribers rely on the old path, an alias redirect must be created. This decision was made in RHI-013; this ticket implements or records the outcome.
 - Hugo's documented production gating uses explicit root settings (`buildDrafts`, `buildFuture`, `buildExpired`) plus the production build command, rather than a `[build]` section for content inclusion or minification behavior.
 - A full URL parity run still belongs to RHI-025. RHI-021 records the route contract and the parity rerun requirement, but does not own the parity tool implementation.
+- Because `hugo.toml` changed again during RHI-023 validation, RHI-025 remains a mandatory follow-up gate before merge once the parity tooling exists.
 - Reference: `analysis/plan/details/phase-3.md` §Workstream B: Hugo Configuration Hardening

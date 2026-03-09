@@ -1,0 +1,12 @@
+{{ $items := partial "breadcrumbs-data.html" . }}
+{{ if gt (len $items) 1 }}
+  <nav aria-label="Breadcrumb">
+    <ol>
+      {{ range $items }}
+        <li>
+          <a href="{{ .url }}">{{ .name }}</a>
+        </li>
+      {{ end }}
+    </ol>
+  </nav>
+{{ end }}

@@ -1,0 +1,53 @@
+{{ $seoParams := .Params.seo | default dict }}
+
+{{ $title := .Site.Title }}
+{{ if not .IsHome }}
+  {{ $title = printf "%s | %s" .Title .Site.Title }}
+{{ end }}
+
+{{ $description := .Params.description | default .Site.Params.description | default (printf "%s knowledge base, articles, and notes." .Site.Title) }}
+
+{{ $canonical := .Permalink }}
+{{ with .Params.canonical }}
+  {{ if hasPrefix . $.Site.BaseURL }}
+    {{ $canonical = . }}
+  {{ end }}
+{{ end }}
+
+{{ $image := "" }}
+{{ with index $seoParams "ogImage" }}
+  {{ $image = . | absURL }}
+{{ else }}
+  {{ with .Params.heroImage }}
+    {{ $image = . | absURL }}
+  {{ end }}
+{{ end }}
+
+{{ $robots := "index, follow" }}
+{{ if or (eq .Kind "404") (index $seoParams "noindex") }}
+  {{ $robots = "noindex, nofollow" }}
+{{ end }}
+
+{{ $twitterCard := index $seoParams "twitterCard" | default "" }}
+{{ if eq $twitterCard "" }}
+  {{ if ne $image "" }}
+    {{ $twitterCard = "summary_large_image" }}
+  {{ else }}
+    {{ $twitterCard = "summary" }}
+  {{ end }}
+{{ end }}
+
+{{ $ogType := "website" }}
+{{ if eq .Type "posts" }}
+  {{ $ogType = "article" }}
+{{ end }}
+
+{{ return dict
+  "title" $title
+  "description" $description
+  "canonical" $canonical
+  "image" $image
+  "robots" $robots
+  "twitterCard" $twitterCard
+  "ogType" $ogType
+}}

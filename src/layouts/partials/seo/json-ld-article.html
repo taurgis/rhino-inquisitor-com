@@ -1,0 +1,20 @@
+{{ if eq .Type "posts" }}
+  {{ $seo := partial "seo/resolve.html" . }}
+  {{ $published := .Date.Format "2006-01-02T15:04:05Z07:00" }}
+  {{ $modified := .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}
+  {{ $schema := dict
+    "@context" "https://schema.org"
+    "@type" "BlogPosting"
+    "headline" .Title
+    "description" $seo.description
+    "url" $seo.canonical
+    "datePublished" $published
+    "dateModified" $modified
+    "mainEntityOfPage" (dict "@type" "WebPage" "@id" $seo.canonical)
+    "author" (dict "@type" "Person" "name" (.Params.author | default .Site.Title))
+  }}
+  {{ if ne $seo.image "" }}
+    {{ $schema = merge $schema (dict "image" (slice $seo.image)) }}
+  {{ end }}
+  <script type="application/ld+json">{{ $schema | jsonify | safeJS }}</script>
+{{ end }}

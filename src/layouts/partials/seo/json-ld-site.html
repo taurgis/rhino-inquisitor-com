@@ -1,0 +1,9 @@
+{{ $seo := partial "seo/resolve.html" . }}
+{{ $schema := dict
+  "@context" "https://schema.org"
+  "@type" "WebSite"
+  "name" .Site.Title
+  "url" .Site.Home.Permalink
+  "description" $seo.description
+}}
+<script type="application/ld+json">{{ $schema | jsonify | safeJS }}</script>

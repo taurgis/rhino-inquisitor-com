@@ -1,0 +1,18 @@
+{{ $items := partial "breadcrumbs-data.html" . }}
+{{ if gt (len $items) 1 }}
+  {{ $crumbs := slice }}
+  {{ range $index, $item := $items }}
+    {{ $crumbs = $crumbs | append (dict
+      "@type" "ListItem"
+      "position" (add $index 1)
+      "name" $item.name
+      "item" $item.url
+    ) }}
+  {{ end }}
+  {{ $schema := dict
+    "@context" "https://schema.org"
+    "@type" "BreadcrumbList"
+    "itemListElement" $crumbs
+  }}
+  <script type="application/ld+json">{{ $schema | jsonify | safeJS }}</script>
+{{ end }}
