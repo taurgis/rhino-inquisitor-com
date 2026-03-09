@@ -13,7 +13,7 @@ This is the top-level ticket index for the full migration project. Use the phase
 
 | Phase | Title | Ticket Range | Status | Phase Index |
 |-------|-------|-------------|--------|-------------|
-| 1 | Baseline and URL Inventory | RHI-001 – RHI-009 | Open | [phase-1/INDEX.md](phase-1/INDEX.md) |
+| 1 | Baseline and URL Inventory | RHI-001 – RHI-009 | Done | [phase-1/INDEX.md](phase-1/INDEX.md) |
 | 2 | Stack and Architecture Decision | RHI-010 – RHI-018 | Open | [phase-2/INDEX.md](phase-2/INDEX.md) |
 | 3 | Repository Scaffolding and Quality Baseline | RHI-019 – RHI-030 | Open | [phase-3/INDEX.md](phase-3/INDEX.md) |
 | 4 | Content Migration Pipeline | RHI-031 – RHI-046 | Open | [phase-4/INDEX.md](phase-4/INDEX.md) |
@@ -29,15 +29,15 @@ This is the top-level ticket index for the full migration project. Use the phase
 
 | Ticket ID | Title | Phase | Priority | Status | Estimate | Target Date |
 |-----------|-------|-------|----------|--------|----------|-------------|
-| [RHI-001](phase-1/RHI-001-phase-1-bootstrap.md) | Phase 1 Bootstrap: Access, Tooling, and Environment | 1 | Critical | Open | S | 2026-03-07 |
-| [RHI-002](phase-1/RHI-002-url-discovery-inventory.md) | URL Discovery and Inventory | 1 | Critical | Open | L | 2026-03-09 |
-| [RHI-003](phase-1/RHI-003-url-invariant-policy.md) | Canonical and URL Invariant Policy | 1 | Critical | Open | M | 2026-03-10 |
-| [RHI-004](phase-1/RHI-004-url-classification-mapping.md) | URL Classification and Disposition Mapping | 1 | Critical | Open | L | 2026-03-11 |
-| [RHI-005](phase-1/RHI-005-seo-baseline.md) | SEO Baseline Capture | 1 | High | Open | M | 2026-03-12 |
-| [RHI-006](phase-1/RHI-006-performance-ux-baseline.md) | Performance and UX Baseline | 1 | High | Open | M | 2026-03-12 |
-| [RHI-007](phase-1/RHI-007-staging-indexing-guardrails.md) | Staging and Indexing Guardrails | 1 | Medium | Open | S | 2026-03-13 |
-| [RHI-008](phase-1/RHI-008-risk-register.md) | Risk Register and Mitigations | 1 | High | Open | M | 2026-03-12 |
-| [RHI-009](phase-1/RHI-009-phase-1-signoff.md) | Phase 1 Sign-off and Handover to Phase 2 | 1 | Critical | Open | S | 2026-03-16 |
+| [RHI-001](phase-1/RHI-001-phase-1-bootstrap.md) | Phase 1 Bootstrap: Access, Tooling, and Environment | 1 | Critical | Done | S | 2026-03-07 |
+| [RHI-002](phase-1/RHI-002-url-discovery-inventory.md) | URL Discovery and Inventory | 1 | Critical | Done | L | 2026-03-09 |
+| [RHI-003](phase-1/RHI-003-url-invariant-policy.md) | Canonical and URL Invariant Policy | 1 | Critical | Done | M | 2026-03-10 |
+| [RHI-004](phase-1/RHI-004-url-classification-mapping.md) | URL Classification and Disposition Mapping | 1 | Critical | Done | L | 2026-03-11 |
+| [RHI-005](phase-1/RHI-005-seo-baseline.md) | SEO Baseline Capture | 1 | High | Done | M | 2026-03-12 |
+| [RHI-006](phase-1/RHI-006-performance-ux-baseline.md) | Performance and UX Baseline | 1 | High | Done | M | 2026-03-12 |
+| [RHI-007](phase-1/RHI-007-staging-indexing-guardrails.md) | Staging and Indexing Guardrails | 1 | Medium | Done | S | 2026-03-13 |
+| [RHI-008](phase-1/RHI-008-risk-register.md) | Risk Register and Mitigations | 1 | High | Done | M | 2026-03-12 |
+| [RHI-009](phase-1/RHI-009-phase-1-signoff.md) | Phase 1 Sign-off and Handover to Phase 2 | 1 | Critical | Done | S | 2026-03-16 |
 | [RHI-010](phase-2/RHI-010-phase-2-bootstrap.md) | Phase 2 Bootstrap: Kickoff and Decision Owner Alignment | 2 | Critical | Open | S | 2026-03-17 |
 | [RHI-011](phase-2/RHI-011-generator-repo-contract.md) | Workstream A — Generator and Repo Contract | 2 | Critical | Open | M | 2026-03-19 |
 | [RHI-012](phase-2/RHI-012-content-model-contract.md) | Workstream B — Content Model and Front Matter Contract | 2 | Critical | Open | M | 2026-03-19 |

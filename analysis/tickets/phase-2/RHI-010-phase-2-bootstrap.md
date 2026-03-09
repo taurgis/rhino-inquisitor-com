@@ -7,7 +7,7 @@
 **Assigned to:** Migration Owner  
 **Target date:** 2026-03-17  
 **Created:** 2026-03-07  
-**Updated:** 2026-03-07
+**Updated:** 2026-03-09
 
 ---
 
@@ -21,7 +21,7 @@ Without alignment on ownership and access to Phase 1 outputs (particularly the U
 
 ### Acceptance Criteria
 
-- [ ] Phase 1 sign-off (RHI-009) is `Done` and `migration/phase-1-signoff.md` is committed
+- [x] Phase 1 sign-off (RHI-009) is `Done` and `migration/phase-1-signoff.md` is committed
 - [ ] Migration owner, SEO owner, and engineering owner are confirmed and reachable for Phase 2
 - [ ] All three decision owners have read `analysis/plan/details/phase-2.md` and confirmed understanding
 - [ ] Phase 1 deliverables are accessible to all Phase 2 decision owners:
@@ -37,7 +37,7 @@ Without alignment on ownership and access to Phase 1 outputs (particularly the U
 
 ### Tasks
 
-- [ ] Verify RHI-009 is `Done`; if not, document blocker in Progress Log and pause Phase 2
+- [x] Verify RHI-009 is `Done`; if not, document blocker in Progress Log and pause Phase 2
 - [ ] Confirm migration owner, SEO owner, and engineering owner identities and contact details
 - [ ] Share `analysis/plan/details/phase-2.md` with all three decision owners; request read confirmation
 - [ ] Share links to `migration/url-manifest.json`, `migration/phase-1-seo-baseline.md`, and `migration/risk-register.md`
@@ -66,7 +66,7 @@ Without alignment on ownership and access to Phase 1 outputs (particularly the U
 
 | Dependency | Type | Status |
 |------------|------|--------|
-| RHI-009 Done — Phase 1 sign-off recorded | Ticket | Pending |
+| RHI-009 Done — Phase 1 sign-off recorded | Ticket | Ready |
 | Migration owner available and confirmed | Access | Pending |
 | SEO owner available and confirmed | Access | Pending |
 | Engineering owner available and confirmed | Access | Pending |
@@ -115,6 +115,7 @@ Without alignment on ownership and access to Phase 1 outputs (particularly the U
 | Date | Status | Note |
 |------|--------|------|
 | 2026-03-07 | Open | Ticket created |
+| 2026-03-09 | Open | Phase 1 prerequisite cleared: RHI-009 is `Done`, `migration/phase-1-signoff.md` is present, and the bootstrap dependency is now ready for Phase 2 kickoff |
 
 ---
 
