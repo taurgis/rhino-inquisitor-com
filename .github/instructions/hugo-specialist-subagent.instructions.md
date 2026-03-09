@@ -29,7 +29,7 @@ When a trigger condition is met:
 
 This instruction is additive and does not replace existing governance requirements.
 
-1. Continue to follow `.github/instructions/pm-ba-subagent-research.instructions.md` for PM/BA/Tester/Official Docs requirements.
+1. Continue to follow `.github/instructions/pm-ba-subagent-research.instructions.md` for PM/BA/Senior QA Engineer/Official Docs requirements.
 2. Continue to follow `.github/instructions/hugo-coding-standards.instructions.md`, `.github/instructions/seo-compliance.instructions.md`, and `.github/instructions/ci-workflow-standards.instructions.md` when their `applyTo` scopes are matched.
 3. If advice conflicts, apply repository precedence and safety rules from `.github/instructions/agent-governance-quality.instructions.md`.
 

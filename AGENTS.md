@@ -48,7 +48,7 @@ This file is the root agent guide for the repository. It complements agent files
 For implementation requests in this repository:
 
 1. Run Project Manager and Business Analyst on every request unless all exemption conditions in `.github/instructions/pm-ba-subagent-research.instructions.md` are satisfied.
-2. Run Tester when changes span multiple files or touch governance/quality controls.
+2. Run Senior QA Engineer when changes span multiple files or touch governance/quality controls.
 3. Run Official Docs Researcher before technical guidance updates or technical claims.
 4. Execute implementation only after the above recommendations are reconciled.
 
@@ -64,7 +64,7 @@ Primary governance source for this flow:
 | Project Manager | You need sequencing, milestones, risk framing, and delivery checkpoints | [.github/agents/project-manager.agent.md](.github/agents/project-manager.agent.md) |
 | Business Analyst | You need clear requirements, assumptions, acceptance criteria, and traceability | [.github/agents/business-analyst.agent.md](.github/agents/business-analyst.agent.md) |
 | Senior Developer | You need implementation decomposition, safe parallel subagent coordination, and integrated delivery across feature slices | [.github/agents/senior-developer.agent.md](.github/agents/senior-developer.agent.md) |
-| Tester | You need verification strategy, risk-based test coverage, and go or no-go quality advice | [.github/agents/tester.agent.md](.github/agents/tester.agent.md) |
+| Senior QA Engineer | You need verification strategy, risk-based test coverage, and go or no-go quality advice | [.github/agents/senior-qa-engineer.agent.md](.github/agents/senior-qa-engineer.agent.md) |
 | Hugo Specialist | You need blog or website design direction plus Hugo implementation guidance for templates, configuration, and GitHub Pages workflows | [.github/agents/hugo-specialist.agent.md](.github/agents/hugo-specialist.agent.md) |
 | SEO Specialist | You need URL disposition, redirect architecture, canonical, structured data, or Search Console strategy | [.github/agents/seo-specialist.agent.md](.github/agents/seo-specialist.agent.md) |
 | Official Docs Researcher | You need official-source documentation evidence for technical claims and recommendations | [.github/agents/official-docs-researcher.agent.md](.github/agents/official-docs-researcher.agent.md) |
@@ -112,7 +112,7 @@ When instructions overlap, use the repository precedence model documented in:
 - Requirements example:
   - "Run Business Analyst to define FR and NFR acceptance criteria for this migration task."
 - Verification example:
-  - "Run Tester to build a requirement-to-test matrix and release recommendation."
+  - "Run Senior QA Engineer to build a requirement-to-test matrix and release recommendation."
 - Official evidence example:
   - "Run Official Docs Researcher to validate this platform behavior from official documentation."
 
