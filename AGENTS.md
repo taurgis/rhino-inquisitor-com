@@ -121,3 +121,7 @@ When instructions overlap, use the repository precedence model documented in:
 - Update this file when adding, removing, or renaming agent definitions in [.github/agents/](.github/agents/).
 - Keep workflow guidance synchronized with repository instruction files.
 - Keep links relative and valid.
+
+## Workspace Hygiene
+
+- Ignore incidental churn under `node_modules/` during audits and implementation tasks unless dependency updates are explicitly in scope.
