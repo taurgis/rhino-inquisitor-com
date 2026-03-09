@@ -19,7 +19,7 @@
 | [RHI-004](RHI-004-url-classification-mapping.md) | URL Classification and Disposition Mapping | WS3 | Critical | Done | L | 2026-03-11 | RHI-002, RHI-003 |
 | [RHI-005](RHI-005-seo-baseline.md) | SEO Baseline Capture | WS4 | High | Open | M | 2026-03-12 | RHI-001 |
 | [RHI-006](RHI-006-performance-ux-baseline.md) | Performance and UX Baseline | WS5 | High | Open | M | 2026-03-12 | RHI-001 |
-| [RHI-007](RHI-007-staging-indexing-guardrails.md) | Staging and Indexing Guardrails | WS6 | Medium | Open | S | 2026-03-13 | RHI-003 |
+| [RHI-007](RHI-007-staging-indexing-guardrails.md) | Staging and Indexing Guardrails | WS6 | Medium | Done | S | 2026-03-13 | RHI-003 |
 | [RHI-008](RHI-008-risk-register.md) | Risk Register and Mitigations | WS7 | High | Open | M | 2026-03-12 | RHI-002, RHI-003, RHI-004 |
 | [RHI-009](RHI-009-phase-1-signoff.md) | Phase 1 Sign-off and Handover to Phase 2 | Sign-off | Critical | Open | S | 2026-03-16 | RHI-002 through RHI-008 |
 
@@ -73,7 +73,7 @@ All items below must be complete before Phase 2 work begins:
 - [x] RHI-004 Done — 100% URL mapping completeness, every URL has implementable behaviour
 - [ ] RHI-005 Done — SEO baseline approved as launch benchmark
 - [ ] RHI-006 Done — performance and accessibility baselines captured
-- [ ] RHI-007 Done — staging noindex and DNS TTL plan approved
+- [x] RHI-007 Done — staging noindex and DNS TTL plan approved
 - [ ] RHI-008 Done — risk owners and mitigations documented
 - [ ] RHI-009 Done — stakeholder sign-off recorded
 
