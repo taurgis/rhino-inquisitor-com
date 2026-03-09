@@ -27,9 +27,9 @@ Phase 3 must not begin until this ticket is `Done`. Any unresolved architecture 
   - [x] RHI-012 Done — Content model and front matter contract approved
   - [x] RHI-013 Done — Route and redirect contract approved (including SEO owner acceptance of alias redirect behavior)
   - [x] RHI-014 Done — SEO and discoverability contract approved
-  - [ ] RHI-015 Done — Library and tooling contract approved
-  - [ ] RHI-016 Done — Deployment and operations contract approved
-  - [ ] RHI-017 Done — Validation gates contract defined
+  - [x] RHI-015 Done — Library and tooling contract approved
+  - [x] RHI-016 Done — Deployment and operations contract approved
+  - [x] RHI-017 Done — Validation gates contract defined
 - [ ] All five Architecture Principles from `analysis/plan/details/phase-2.md` are confirmed as reflected in approved contracts:
   - [ ] Preserve existing high-value URLs exactly whenever possible
   - [ ] Do not rely on canonical tags as a substitute for redirects
@@ -45,8 +45,8 @@ Phase 3 must not begin until this ticket is `Done`. Any unresolved architecture 
   - [x] Legacy system endpoint dispositions recorded in `migration/url-manifest.json` (RHI-013)
   - [x] Pagination parity manifest schema defined and assignment confirmed (RHI-013)
   - [x] SEO partial architecture approved (RHI-014)
-  - [ ] Deployment workflow contract approved (RHI-016)
-  - [ ] Validation gate specifications approved (RHI-017)
+  - [x] Deployment workflow contract approved (RHI-016)
+  - [x] Validation gate specifications approved (RHI-017)
 - [ ] `migration/phase-2-signoff.md` is committed with decision summary and stakeholder approval
 - [ ] Phase 3 team has confirmed receipt of the Phase 2 decision package
 - [x] RSS feed scope is confirmed: RSS required, Atom parity optional and non-blocking (from §Resolved Decisions for Phase 3 Entry)
@@ -98,9 +98,9 @@ Phase 3 must not begin until this ticket is `Done`. Any unresolved architecture 
 | RHI-012 Done | Ticket | Done |
 | RHI-013 Done | Ticket | Done |
 | RHI-014 Done | Ticket | Done |
-| RHI-015 Done | Ticket | Pending |
-| RHI-016 Done | Ticket | Pending |
-| RHI-017 Done | Ticket | Pending |
+| RHI-015 Done | Ticket | Done |
+| RHI-016 Done | Ticket | Done |
+| RHI-017 Done | Ticket | Done |
 | Migration owner, SEO owner, and engineering owner available for sign-off | Access | Pending |
 
 ---

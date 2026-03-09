@@ -195,13 +195,16 @@ Operational constraints to record:
 5. Action pinning strategy uses the official Pages action majors locked in Workstream E and never `latest`; future SHA hardening must preserve the same semantic versions.
 
 ## Required Validation Gates (Defined in Phase 2, Implemented in Phase 3+)
-1. URL parity gate: compare legacy manifest against built outputs + redirects.
-2. Redirect correctness gate: verify direct legacy-to-final resolution (no avoidable chains), and verify accepted redirect behavior type.
-3. SEO gate: validate canonical/meta/schema presence and correctness on representative templates.
-4. Link integrity gate: broken-link scan across generated site.
-5. Build gate: deterministic production build in CI with production flags.
-6. Deployment integrity gate: verify Pages deploy permissions, artifact validity, and custom-domain configuration.
-7. Launch-readiness gate: manual verification of robots, sitemap, core templates, and social preview tags.
+
+Detailed contract: `analysis/tickets/phase-2/RHI-017-validation-gates-contract.md`
+
+1. URL parity gate: validate every `keep`, `merge`, and `retire` outcome in `migration/url-manifest.json` against `public/`, with `migration/pagination-priority-manifest.json` as a hard pre-condition for pagination routes.
+2. Redirect correctness gate: verify one-hop direct legacy-to-final behavior, reject irrelevant mass redirects, and enforce the approved redirect mechanism for the active environment.
+3. SEO gate: validate the RHI-014 metadata, canonical, Open Graph, sitemap-membership, and JSON-LD obligations on indexable templates.
+4. Link integrity gate: block on internal-link and same-site asset failures; record external-link failures as advisory in CI and blocking at launch.
+5. Build integrity gate: run the approved Hugo production build contract, verify draft or future exclusion, and prove deterministic output from the same commit.
+6. Deployment integrity gate: verify the RHI-016 workflow contract, Pages artifact constraints, and pre-cutover Pages settings state.
+7. Launch-readiness gate: perform the live manual sign-off checks that cannot be proven from repository state alone, including robots, sitemap, feed continuity, social preview, and unintended production `noindex`.
 
 ## Tightened Validation Checklist
 1. Every legacy URL maps to exactly one of: same-path output, intentional redirect target, or explicit retire behavior.
