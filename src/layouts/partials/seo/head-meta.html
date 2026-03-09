@@ -6,6 +6,9 @@
 <meta name="description" content="{{ $seo.description }}">
 <meta name="robots" content="{{ $seo.robots }}">
 <link rel="canonical" href="{{ $seo.canonical }}">
+{{ with .Site.Home.OutputFormats.Get "rss" }}
+  <link rel="alternate" type="{{ .MediaType.Type }}" title="{{ $.Site.Title }}" href="{{ .Permalink }}">
+{{ end }}
 
 {{ partial "seo/open-graph.html" . }}
 
@@ -13,7 +16,7 @@
   {{ partialCached "seo/json-ld-site.html" . "seo-json-ld-site" }}
 {{ end }}
 
-{{ if eq .Type "posts" }}
+{{ if and .IsPage (eq .Type "posts") }}
   {{ partial "seo/json-ld-article.html" . }}
 {{ end }}
 

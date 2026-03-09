@@ -4,13 +4,9 @@
 <meta property="og:description" content="{{ $seo.description }}">
 <meta property="og:type" content="{{ $seo.ogType }}">
 <meta property="og:url" content="{{ $seo.canonical }}">
-{{ with $seo.image }}
-  <meta property="og:image" content="{{ . }}">
-{{ end }}
+<meta property="og:image" content="{{ $seo.image }}">
 
 <meta name="twitter:card" content="{{ $seo.twitterCard }}">
 <meta name="twitter:title" content="{{ $seo.title }}">
 <meta name="twitter:description" content="{{ $seo.description }}">
-{{ with $seo.image }}
-  <meta name="twitter:image" content="{{ . }}">
-{{ end }}
+<meta name="twitter:image" content="{{ $seo.image }}">

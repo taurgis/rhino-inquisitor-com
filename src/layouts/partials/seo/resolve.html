@@ -20,11 +20,15 @@
 {{ else }}
   {{ with .Params.heroImage }}
     {{ $image = . | absURL }}
+  {{ else }}
+    {{ with .Site.Params.defaultSocialImage }}
+      {{ $image = . | absURL }}
+    {{ end }}
   {{ end }}
 {{ end }}
 
 {{ $robots := "index, follow" }}
-{{ if or (eq .Kind "404") (index $seoParams "noindex") }}
+{{ if or (ne hugo.Environment "production") (eq .Kind "404") (index $seoParams "noindex") }}
   {{ $robots = "noindex, nofollow" }}
 {{ end }}
 
@@ -38,7 +42,7 @@
 {{ end }}
 
 {{ $ogType := "website" }}
-{{ if eq .Type "posts" }}
+{{ if and .IsPage (eq .Type "posts") }}
   {{ $ogType = "article" }}
 {{ end }}
 

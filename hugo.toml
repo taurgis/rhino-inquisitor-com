@@ -40,3 +40,7 @@ filename = "sitemap.xml"
 
 [minify]
 disableXML = false
+
+[params]
+description = "Technical articles, migration notes, and platform guidance from Rhino Inquisitor."
+defaultSocialImage = "/images/social-default.svg"
