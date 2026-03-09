@@ -11,7 +11,7 @@ Migrate the current WordPress-powered site to a static Markdown-authored site us
 
 2. Phase 2: Stack and Architecture Decision (*depends on 1*)
 2.1. Use Hugo as the static site generator (Markdown-first, explicit `url` control, built-in `aliases` redirects, static HTML output).
-2.2. Use GitHub Pages custom workflow deployment (build in Actions, deploy artifact) instead of native branch Jekyll build.
+2.2. Use GitHub Pages custom workflow deployment (build in Actions, deploy artifact) instead of native branch Jekyll build, and lock the generator/repo contract to root `hugo.toml`, canonical `baseURL = "https://www.rhino-inquisitor.com/"`, `public/` artifact output, and Hugo Extended `0.156.0` pinned through `HUGO_VERSION`.
 2.3. Add supporting libraries:
 - `turndown` + `@joplin/turndown-plugin-gfm` for WordPress HTML-to-Markdown conversion.
 - `fast-glob` for URL parity and content audits.
@@ -19,7 +19,7 @@ Migrate the current WordPress-powered site to a static Markdown-authored site us
 2.4. Define content model fields used in front matter: `title`, `description`, `date`, `lastmod`, `categories`, `tags`, `heroImage`, `url`, `aliases`, `canonical`, `draft`.
 
 3. Phase 3: Repository Scaffolding (*depends on 2*)
-3.1. Initialize Hugo project with `hugo.toml`, output folder (`public`), and clean URL generation.
+3.1. Initialize Hugo project with root `hugo.toml`, output folder (`public`), clean URL generation, and no Phase 2 config overlay split unless a later ticket explicitly introduces a validated non-production host.
 3.2. Create content directories for posts/pages/categories and base layouts/partials.
 3.3. Add reusable SEO partials for canonical, Open Graph, Twitter cards, and JSON-LD.
 3.4. Add deterministic URL strategy so every migrated URL is explicit rather than auto-generated.

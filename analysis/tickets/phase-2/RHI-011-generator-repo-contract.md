@@ -1,13 +1,13 @@
 ## RHI-011 · Workstream A — Generator and Repo Contract
 
-**Status:** Open  
+**Status:** Done  
 **Priority:** Critical  
 **Estimate:** M  
 **Phase:** 2  
 **Assigned to:** Engineering Owner  
 **Target date:** 2026-03-19  
 **Created:** 2026-03-07  
-**Updated:** 2026-03-07
+**Updated:** 2026-03-09
 
 ---
 
@@ -21,45 +21,45 @@ This workstream is the structural foundation; instability here cascades to every
 
 ### Acceptance Criteria
 
-- [ ] Hugo project directory layout is confirmed and documented:
-  - [ ] `content/` — Markdown source
-  - [ ] `layouts/` — templates and partials
-  - [ ] `static/` — pass-through assets (images, fonts, `robots.txt`)
-  - [ ] `assets/` — pipeline-processed assets (CSS, JS)
-  - [ ] `data/` — structured data files
-  - [ ] `public/` — build output (git-ignored, CI artifact)
-- [ ] Primary config file is confirmed as `hugo.toml` at repository root (TOML format)
-- [ ] `baseURL` production value is confirmed as `https://www.rhino-inquisitor.com/` (www, HTTPS, trailing slash)
-- [ ] Environment model is documented:
-  - [ ] `local` — development environment with relative URLs or localhost base
-  - [ ] `ci` — build validation environment; production flags, no draft/future/expired content
-  - [ ] `prod` — production deployment target; `baseURL` injected as environment variable or Hugo config
-- [ ] CI injection method for `baseURL` is chosen and documented (environment variable override vs. `config/production/hugo.toml` overlay)
-- [ ] Output directory contract is confirmed: Hugo writes to `./public/`; Pages artifact is sourced from `./public/`
-- [ ] Hugo version pin strategy is documented: specific version recorded in `analysis/plan/details/phase-2.md` and will be pinned in CI via `HUGO_VERSION` env var
-- [ ] Architecture decisions are recorded in the Outcomes section of this ticket
+- [x] Hugo project directory layout is confirmed and documented:
+  - [x] `content/` — Markdown source
+  - [x] `layouts/` — templates and partials
+  - [x] `static/` — pass-through assets (images, fonts, `robots.txt`)
+  - [x] `assets/` — pipeline-processed assets (CSS, JS)
+  - [x] `data/` — structured data files
+  - [x] `public/` — build output (git-ignored, CI artifact)
+- [x] Primary config file is confirmed as `hugo.toml` at repository root (TOML format)
+- [x] `baseURL` production value is confirmed as `https://www.rhino-inquisitor.com/` (www, HTTPS, trailing slash)
+- [x] Environment model is documented:
+  - [x] `local` — `hugo server` development mode for local preview; no separate production overlay is introduced in Phase 2
+  - [x] `ci` — build validation environment using production semantics (`--environment production --gc --minify`), excluding draft/future/expired content
+  - [x] `prod` — production deployment target reusing the exact CI-built artifact and canonical `baseURL` from root `hugo.toml`
+- [x] Variable handling contract for `baseURL` is chosen and documented: root `hugo.toml` is the canonical production source; `HUGO_BASEURL` is reserved only for exceptional preview overrides; no `config/production/hugo.toml` overlay is introduced in Phase 2
+- [x] Output directory contract is confirmed: Hugo writes to `./public/`; Pages artifact is sourced from `./public/`
+- [x] Hugo version pin strategy is documented: Hugo Extended `0.156.0` is recorded in `analysis/plan/details/phase-2.md` and will be pinned in CI via `HUGO_VERSION=0.156.0`
+- [x] Architecture decisions are recorded in the Outcomes section of this ticket
 
 ---
 
 ### Tasks
 
-- [ ] Review `analysis/plan/details/phase-2.md` §Workstream A with engineering owner and migration owner
-- [ ] Confirm Hugo directory layout as listed in Acceptance Criteria; document any deviations with rationale
-- [ ] Confirm `hugo.toml` as the config file (not `config.yaml` or `config/_default/`); document reason if changed
-- [ ] Confirm `baseURL` production value and trailing slash behavior
-- [ ] Decide and document CI `baseURL` injection method:
-  - Option 1: `HUGO_BASEURL` environment variable overriding `hugo.toml`
-  - Option 2: `config/production/hugo.toml` overlay file with `baseURL` only
-  - Record chosen option and rationale
-- [ ] Decide and document environment model:
-  - How does local development set `baseURL`?
-  - How does CI distinguish build-only from deploy runs?
-  - Document the `--environment` flag usage for Hugo builds
-- [ ] Identify the Hugo version to use; record it explicitly (e.g. `0.145.0`)
-- [ ] Confirm `public/` as the build output and Pages artifact directory
-- [ ] Draft the architecture decisions summary; share with migration owner for review
-- [ ] Record approved decisions in Outcomes
-- [ ] Update `analysis/plan/details/phase-2.md` §Workstream A "Architecture section approved" status
+- [x] Review `analysis/plan/details/phase-2.md` §Workstream A with engineering owner and migration owner
+- [x] Confirm Hugo directory layout as listed in Acceptance Criteria; no deviations approved for Phase 3 entry
+- [x] Confirm `hugo.toml` as the config file (not `config.yaml` or `config/_default/`)
+- [x] Confirm `baseURL` production value and trailing slash behavior
+- [x] Decide and document the `baseURL` variable-handling contract:
+  - [x] Root `hugo.toml` is the canonical production source of truth
+  - [x] Standard production CI builds do not introduce a separate `config/production/` overlay
+  - [x] `HUGO_BASEURL` remains available only for exceptional preview overrides if a future non-production host is introduced
+- [x] Decide and document environment model:
+  - [x] Local development uses `hugo server` development behavior for preview
+  - [x] CI uses `hugo --environment production --gc --minify` for validation and artifact generation
+  - [x] Production deploy reuses the exact CI-built `public/` artifact
+- [x] Identify the Hugo version to use; record Hugo Extended `0.156.0` explicitly (`v0.156.0` release tag)
+- [x] Confirm `public/` as the build output and Pages artifact directory
+- [x] Draft the architecture decisions summary; share with migration owner for review
+- [x] Record approved decisions in Outcomes
+- [x] Update `analysis/plan/details/phase-2.md` §Workstream A architecture section to reflect the approved contract
 
 ---
 
@@ -76,9 +76,9 @@ This workstream is the structural foundation; instability here cascades to every
 
 | Dependency | Type | Status |
 |------------|------|--------|
-| RHI-010 Done — Phase 2 kickoff and decision owners confirmed | Ticket | Pending |
-| Engineering owner available for architecture review | Access | Pending |
-| `analysis/plan/details/phase-2.md` reviewed by engineering owner | Phase | Pending |
+| RHI-010 Done — Phase 2 kickoff and decision owners confirmed | Ticket | Done |
+| Engineering owner available for architecture review | Access | Done |
+| `analysis/plan/details/phase-2.md` reviewed by engineering owner | Phase | Done |
 
 ---
 
@@ -95,25 +95,40 @@ This workstream is the structural foundation; instability here cascades to every
 
 ### Definition of Done
 
-- [ ] All acceptance criteria are satisfied and verified
-- [ ] Tasks are complete or intentionally descoped with rationale
-- [ ] Dependencies and blockers are resolved or documented
-- [ ] Outcomes section is completed with delivered artefacts and deviations
+- [x] All acceptance criteria are satisfied and verified
+- [x] Tasks are complete or intentionally descoped with rationale
+- [x] Dependencies and blockers are resolved or documented
+- [x] Outcomes section is completed with delivered artefacts and deviations
 
 ---
 
 ### Outcomes
 
-{Leave blank until work is complete.}
+Completed. Workstream A is now the approved repo contract for Phase 3 scaffolding and downstream Phase 2 contracts.
+
+Approved decisions:
+
+- Hugo repository layout is locked to `content/`, `layouts/`, `static/`, `assets/`, `data/`, with `public/` as generated output only.
+- Primary config file is root `hugo.toml` in TOML format. Phase 2 does not introduce `config/_default/` or `config/production/` overlays.
+- Canonical production `baseURL` is locked to `https://www.rhino-inquisitor.com/` with trailing slash.
+- Environment model is fixed as:
+  - `local`: `hugo server` development behavior for preview and authoring.
+  - `ci`: production-semantics validation build using `hugo --environment production --gc --minify` and producing `./public/`.
+  - `prod`: deploy the exact `./public/` artifact validated in CI; no separate production-only config tree is required.
+- `baseURL` handling contract is fixed as: root `hugo.toml` is the canonical production source of truth; standard production CI builds do not override it; `HUGO_BASEURL` is reserved for exceptional future preview-host use only.
+- Hugo version pin is fixed to Hugo Extended `0.156.0` (`v0.156.0` release tag), to be implemented in CI as `HUGO_VERSION=0.156.0`.
+- Pages artifact contract is fixed to `./public/` only.
 
 **Delivered artefacts:**
 
 - Architecture decisions summary (recorded in this ticket's Outcomes)
 - Updated `analysis/plan/details/phase-2.md` §Workstream A
+- Updated `analysis/main-plan.MD` Phase 2/3 repo-contract summary
+- Documentation note: `analysis/documentation/rhi-011-generator-repo-contract-2026-03-09.md`
 
 **Deviations from plan:**
 
-- None
+- The original ticket framed `baseURL` handling as a choice between CI env override and `config/production/` overlay. Approved owner direction narrows this further: root `hugo.toml` is the production source of truth, and `HUGO_BASEURL` is retained only as an escape hatch for future preview builds.
 
 ---
 
@@ -122,6 +137,9 @@ This workstream is the structural foundation; instability here cascades to every
 | Date | Status | Note |
 |------|--------|------|
 | 2026-03-07 | Open | Ticket created |
+| 2026-03-09 | In Progress | Reviewed Workstream A against the Phase 2 plan, Hugo repo skill, Hugo specialist guidance, and official Hugo/GitHub Pages documentation; confirmed that the repo already standardizes on root `hugo.toml`, canonical `baseURL`, and pinned `HUGO_VERSION` |
+| 2026-03-09 | In Progress | Owner decision recorded: keep root `hugo.toml` as the canonical production source, do not introduce `config/production/` in Phase 2, reserve `HUGO_BASEURL` for exceptional preview overrides only, and pin Hugo Extended release `v0.156.0` (`HUGO_VERSION=0.156.0`) |
+| 2026-03-09 | Done | All Workstream A acceptance criteria satisfied; Phase 2 plan and main plan updated to reflect the approved repo contract, unblocking downstream Phase 2 contracts and Phase 3 scaffolding |
 
 ---
 
@@ -130,5 +148,6 @@ This workstream is the structural foundation; instability here cascades to every
 - The Hugo version pin is non-negotiable. "Latest" in CI is a future build-break waiting to happen. Research current stable Hugo extended version before approving.
 - The `baseURL` trailing slash is load-bearing for canonical URL generation — do not omit it. Reference: Hugo docs on `baseURL` behavior with trailing slash.
 - Reference: `analysis/plan/details/phase-2.md` §Workstream A, §Architecture Principles
-- Reference: https://gohugo.io/getting-started/configuration/ (Hugo config docs)
-- Reference: https://gohugo.io/hosting-and-deployment/hosting-on-github/ (Pages deployment guidance)
+- Reference: https://gohugo.io/configuration/introduction/ (Hugo config docs)
+- Reference: https://gohugo.io/commands/hugo/ (Hugo build flags and environment handling)
+- Reference: https://gohugo.io/host-and-deploy/host-on-github-pages/ (Pages deployment guidance)

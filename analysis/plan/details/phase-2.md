@@ -44,6 +44,17 @@ Required decisions:
 4. Define environments (`local`, `ci`, `prod`) and variable handling for canonical origin.
 5. Define `baseURL` contract for production (canonical origin, trailing slash) and how CI injects it.
 
+Approved contract:
+- Repository layout is locked to `content/`, `layouts/`, `static/`, `assets/`, `data/`, with `public/` as generated output only.
+- Root `hugo.toml` is the primary config file; Phase 2 does not introduce `config/_default/` or `config/production/` overlays.
+- Canonical production `baseURL` is `https://www.rhino-inquisitor.com/` with trailing slash.
+- Environment model is fixed as:
+   - `local`: `hugo server` development preview.
+   - `ci`: `hugo --environment production --gc --minify` validation build producing `./public/`.
+   - `prod`: deploy the exact `./public/` artifact validated in CI.
+- `baseURL` handling is fixed as: root `hugo.toml` is the canonical production source of truth; standard production CI builds do not use a separate config overlay; `HUGO_BASEURL` is reserved only for exceptional future preview-host overrides.
+- Hugo version pin is fixed to Hugo Extended `0.156.0` and will be implemented in CI as `HUGO_VERSION=0.156.0`.
+
 Outputs:
 - Architecture section in this file approved.
 - Repository structure decisions recorded in main plan.
