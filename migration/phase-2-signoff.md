@@ -40,7 +40,7 @@ Ticket: `analysis/tickets/phase-2/RHI-018-phase-2-signoff.md`
 
 All Phase 2 blockers listed in RHI-018 are resolved and recorded in approved contracts:
 
-- Hugo version pin confirmed: Hugo Extended `0.156.0` is locked in RHI-011.
+- Hugo version pin confirmed: Hugo Extended `0.157.0` is locked in RHI-011.
 - `baseURL` and environment injection method confirmed: root `hugo.toml` remains the canonical production source; no production overlay is introduced in RHI-011.
 - Front matter `url` normalization rules approved: path-only, lowercase, leading and trailing slash, no query or fragment in RHI-012.
 - Redirect mechanism and SEO owner acceptance recorded: Hugo `aliases` are accepted only as Pages-only fallback behavior in RHI-013.
@@ -75,7 +75,7 @@ The following items are explicitly accepted as carry-forward execution constrain
 
 Phase 3 may begin because the following entry conditions are satisfied:
 
-- Repository and configuration contract is fixed: Phase 3 can scaffold against root `hugo.toml`, pinned Hugo version `0.156.0`, and `public/` output without further repo-layout decisions.
+- Repository and configuration contract is fixed: Phase 3 can scaffold against root `hugo.toml`, pinned Hugo version `0.157.0`, and `public/` output without further repo-layout decisions.
 - Content model contract is fixed: Phase 3 can implement validators, archetypes, and templates against the approved field set and normalization rules from RHI-012.
 - Route and redirect contract is fixed: Phase 3 can scaffold route handling, alias generation, and pagination manifest consumption against the approved URL policy from RHI-013.
 - SEO and discoverability contract is fixed: Phase 3 can implement `layouts/partials/seo/` and associated template behavior against the approved matrix from RHI-014.

@@ -36,7 +36,7 @@ This workstream is the structural foundation; instability here cascades to every
   - [x] `prod` — production deployment target reusing the exact CI-built artifact and canonical `baseURL` from root `hugo.toml`
 - [x] Variable handling contract for `baseURL` is chosen and documented: root `hugo.toml` is the canonical production source; `HUGO_BASEURL` is reserved only for exceptional preview overrides; no `config/production/hugo.toml` overlay is introduced in Phase 2
 - [x] Output directory contract is confirmed: Hugo writes to `./public/`; Pages artifact is sourced from `./public/`
-- [x] Hugo version pin strategy is documented: Hugo Extended `0.156.0` is recorded in `analysis/plan/details/phase-2.md` and will be pinned in CI via `HUGO_VERSION=0.156.0`
+- [x] Hugo version pin strategy is documented: Hugo Extended `0.157.0` is recorded in `analysis/plan/details/phase-2.md` and will be pinned in CI via `HUGO_VERSION=0.157.0`
 - [x] Architecture decisions are recorded in the Outcomes section of this ticket
 
 ---
@@ -55,7 +55,7 @@ This workstream is the structural foundation; instability here cascades to every
   - [x] Local development uses `hugo server` development behavior for preview
   - [x] CI uses `hugo --environment production --gc --minify` for validation and artifact generation
   - [x] Production deploy reuses the exact CI-built `public/` artifact
-- [x] Identify the Hugo version to use; record Hugo Extended `0.156.0` explicitly (`v0.156.0` release tag)
+- [x] Identify the Hugo version to use; record Hugo Extended `0.157.0` explicitly (`v0.157.0` release tag)
 - [x] Confirm `public/` as the build output and Pages artifact directory
 - [x] Draft the architecture decisions summary; share with migration owner for review
 - [x] Record approved decisions in Outcomes
@@ -116,7 +116,7 @@ Approved decisions:
   - `ci`: production-semantics validation build using `hugo --environment production --gc --minify` and producing `./public/`.
   - `prod`: deploy the exact `./public/` artifact validated in CI; no separate production-only config tree is required.
 - `baseURL` handling contract is fixed as: root `hugo.toml` is the canonical production source of truth; standard production CI builds do not override it; `HUGO_BASEURL` is reserved for exceptional future preview-host use only.
-- Hugo version pin is fixed to Hugo Extended `0.156.0` (`v0.156.0` release tag), to be implemented in CI as `HUGO_VERSION=0.156.0`.
+- Hugo version pin is fixed to Hugo Extended `0.157.0` (`v0.157.0` release tag), to be implemented in CI as `HUGO_VERSION=0.157.0`.
 - Pages artifact contract is fixed to `./public/` only.
 
 **Delivered artefacts:**
@@ -138,7 +138,7 @@ Approved decisions:
 |------|--------|------|
 | 2026-03-07 | Open | Ticket created |
 | 2026-03-09 | In Progress | Reviewed Workstream A against the Phase 2 plan, Hugo repo skill, Hugo specialist guidance, and official Hugo/GitHub Pages documentation; confirmed that the repo already standardizes on root `hugo.toml`, canonical `baseURL`, and pinned `HUGO_VERSION` |
-| 2026-03-09 | In Progress | Owner decision recorded: keep root `hugo.toml` as the canonical production source, do not introduce `config/production/` in Phase 2, reserve `HUGO_BASEURL` for exceptional preview overrides only, and pin Hugo Extended release `v0.156.0` (`HUGO_VERSION=0.156.0`) |
+| 2026-03-09 | In Progress | Owner decision recorded: keep root `hugo.toml` as the canonical production source, do not introduce `config/production/` in Phase 2, reserve `HUGO_BASEURL` for exceptional preview overrides only, and pin Hugo Extended release `v0.157.0` (`HUGO_VERSION=0.157.0`) |
 | 2026-03-09 | Done | All Workstream A acceptance criteria satisfied; Phase 2 plan and main plan updated to reflect the approved repo contract, unblocking downstream Phase 2 contracts and Phase 3 scaffolding |
 
 ---

@@ -37,7 +37,7 @@ The engineering owner must approve this contract. The deployment contract is als
 - [x] `concurrency` contract is documented:
   - [x] Build/test jobs use ref-scoped concurrency with `cancel-in-progress: true`
   - [x] Deploy job uses a dedicated Pages deployment concurrency group with `cancel-in-progress: false`
-- [x] Hugo version pin strategy is documented (ties to RHI-011 version decision): workflow-level `HUGO_VERSION=0.156.0`, never `latest`
+- [x] Hugo version pin strategy is documented (ties to RHI-011 version decision): workflow-level `HUGO_VERSION=0.157.0`, never `latest`
 - [x] Build command is confirmed: `hugo --gc --minify --environment production`
 - [x] Build flags explicitly excluded: `--buildDrafts`, `--buildFuture`, `--buildExpired`
 - [x] Artifact contract is confirmed:
@@ -76,7 +76,7 @@ The engineering owner must approve this contract. The deployment contract is als
 - [x] Define concurrency groups for build and deploy jobs separately:
   - [x] Build/test jobs use a ref-scoped group such as `ci-${{ github.ref }}` with `cancel-in-progress: true`
   - [x] Deploy job uses a dedicated Pages deployment group such as `pages-deploy` with `cancel-in-progress: false`
-- [x] Confirm Hugo version pin approach (from RHI-011); document `HUGO_VERSION=0.156.0` as a workflow-level environment variable
+- [x] Confirm Hugo version pin approach (from RHI-011); document `HUGO_VERSION=0.157.0` as a workflow-level environment variable
 - [x] Confirm build command and excluded flags
 - [x] Confirm artifact path and official artifact constraints (`./public`, default artifact name `github-pages`, no unsupported link types)
 - [x] Resolve checkout-depth decision using RHI-012:
@@ -157,7 +157,7 @@ Approved contract:
   - Build/test jobs use ref-scoped concurrency with `cancel-in-progress: true`.
   - Deploy job uses a dedicated Pages deployment concurrency group (for example `pages-deploy`) with `cancel-in-progress: false` so an in-progress production deployment is never cancelled.
 - Hugo build contract:
-  - Hugo Extended stays pinned to `0.156.0` per RHI-011 and is exposed in CI as `HUGO_VERSION=0.156.0`.
+  - Hugo Extended stays pinned to `0.157.0` per RHI-011 and is exposed in CI as `HUGO_VERSION=0.157.0`.
   - Canonical production build command is `hugo --gc --minify --environment production` from repository root.
   - Production deploy workflow must not use `--buildDrafts`, `--buildFuture`, or `--buildExpired`.
 - Checkout-depth contract:

@@ -2,18 +2,18 @@
 
 ## Change summary
 
-Closed RHI-011 by approving the Phase 2 Workstream A repo contract for Hugo project structure, configuration location, canonical `baseURL`, environment model, output artifact path, and Hugo version pin.
+Closed RHI-011 and amended the approved Phase 2 Workstream A repo contract to use Hugo Extended `0.157.0` for the version pin.
 
 ## Why this changed
 
-Phase 3 scaffolding and the downstream deployment contract depend on an explicit repo contract. Leaving `baseURL` handling, environment behavior, or Hugo version pinning ambiguous would create avoidable drift between local preview, CI validation, and production deploy behavior.
+Phase 3 scaffolding and the downstream deployment contract depend on an explicit repo contract. Leaving `baseURL` handling, environment behavior, or Hugo version pinning ambiguous would create avoidable drift between local preview, CI validation, and production deploy behavior. After the original contract closeout, the approved Hugo pin was amended to `0.157.0` so the repo contract matches the current official release and local runtime baseline.
 
 ## Behavior details
 
 Old behavior:
 - Workstream A described the decision space but did not close the owner choice for `baseURL` handling.
 - The repo contract did not name an exact Hugo Extended version.
-- The Phase 2 plan and main plan did not yet carry the finalized Workstream A contract.
+- Earlier approved Phase 2 artifacts referenced a now-superseded Hugo exact pin.
 
 New behavior:
 - Root `hugo.toml` is the approved primary config file and canonical production source of truth.
@@ -24,7 +24,7 @@ New behavior:
   - `ci`: production-semantics validation build using `hugo --environment production --gc --minify`.
   - `prod`: deploy the exact `./public/` artifact produced in CI.
 - `HUGO_BASEURL` remains available only for exceptional future preview overrides; it is not part of the standard production deploy path.
-- Hugo Extended `0.156.0` is the approved pin, to be implemented in CI as `HUGO_VERSION=0.156.0`.
+- Hugo Extended `0.157.0` is the approved pin, to be implemented in CI as `HUGO_VERSION=0.157.0`.
 
 ## Impact
 
@@ -37,6 +37,7 @@ New behavior:
 - Manual consistency check across the RHI-011 ticket, `analysis/plan/details/phase-2.md`, and `analysis/main-plan.MD`.
 - Verified that the approved contract matches the repo’s Hugo skill baseline: root `hugo.toml`, canonical `baseURL`, pinned `HUGO_VERSION`, and `public/` artifact output.
 - Verified the chosen version and config approach against official Hugo and GitHub Pages guidance used during the ticket review.
+- Verified local runtime alignment with `which hugo` and `hugo version`, and confirmed the official `v0.157.0` release assets for macOS and Linux CI install paths.
 
 ## Related files
 

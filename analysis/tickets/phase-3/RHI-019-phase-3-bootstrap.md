@@ -139,12 +139,12 @@ Completed. Phase 3 is formally kicked off with Phase 2 sign-off verified, contra
 - Progress Log entries confirming Phase 3 team alignment, Phase 2 contract receipt, and Phase 3 constraint acknowledgment
 - Phase 3 owner alignment and workstream ownership records in this ticket
 - Phase 3 schedule confirmed with target completion date `2026-04-08` and explicit integration/sign-off buffer
-- Local runtime verification evidence: Node `v22.22.0`, npm `10.9.4`, `package.json` present, and official Hugo `0.156.0` macOS/Linux release assets identified for pinned-version installability
+- Local runtime verification evidence: Node `v22.22.0`, npm `10.9.4`, `package.json` present, local Homebrew Hugo `v0.157.0+extended+withdeploy` verified in PATH, and official Hugo `0.157.0` macOS/Linux release assets identified for pinned-version installability
 - Phase 3 kickoff note: `analysis/documentation/phase-3/rhi-019-phase-3-bootstrap-2026-03-09.md`
 
 **Deviations from plan:**
 
-- Exact Hugo pin verification used official `v0.156.0` release assets for macOS and Linux instead of Homebrew because the current Homebrew formula advertises `0.157.0`; local PATH installation is deferred to the first scaffold task that needs the binary so the bootstrap gate stays non-invasive while preserving the pinned contract.
+- Exact Hugo pin verification now aligns local and planned CI usage on `v0.157.0`: the installed Homebrew binary was verified locally, and the official `v0.157.0` release assets remain the CI-install evidence path for deterministic workflow pinning.
 
 ---
 
@@ -156,7 +156,7 @@ Completed. Phase 3 is formally kicked off with Phase 2 sign-off verified, contra
 | 2026-03-09 | Open | Phase 2 prerequisite cleared: RHI-018 is `Done`, `migration/phase-2-signoff.md` is present, and the Phase 2 handover package explicitly marks Phase 3 receipt confirmed. |
 | 2026-03-09 | In Progress | Thomas Theunen confirmed Phase 3 owner alignment across Migration Owner, SEO Owner, and Engineering Owner responsibilities; reachable contact remains `thomas.theunen@forward.eu`; the direct kickoff instruction in chat was recorded as the Phase 3 start confirmation. |
 | 2026-03-09 | In Progress | `analysis/plan/details/phase-3.md`, `migration/phase-2-signoff.md`, and the Phase 2 contract tickets RHI-011 through RHI-017 were re-shared for Phase 3 entry; because all Phase 3 workstream owners map to the same confirmed owner set in this phase, the kickoff review in this task serves as the dated read confirmation for WS-A through WS-J. |
-| 2026-03-09 | In Progress | Verified local runtime readiness: `package.json` is accessible, Node `v22.22.0` and npm `10.9.4` satisfy the repo baseline `>=18`, and official Hugo `v0.156.0` install assets were confirmed for macOS (`hugo_extended_0.156.0_darwin-universal.pkg`) and Linux CI (`hugo_extended_0.156.0_linux-amd64.tar.gz`, `hugo_extended_0.156.0_linux-arm64.tar.gz`). Current Homebrew formula state (`0.157.0`) was noted and not used for exact pin validation. |
+| 2026-03-09 | In Progress | Verified local runtime readiness: `package.json` is accessible, Node `v22.22.0` and npm `10.9.4` satisfy the repo baseline `>=18`, local Hugo resolves from `/opt/homebrew/bin/hugo` and reports `hugo v0.157.0+extended+withdeploy`, and official Hugo `v0.157.0` install assets were confirmed for macOS (`hugo_extended_0.157.0_darwin-universal.pkg`) and Linux CI (`hugo_extended_0.157.0_linux-amd64.tar.gz`, `hugo_extended_0.157.0_linux-arm64.tar.gz`). |
 | 2026-03-09 | In Progress | WS-A through WS-J ownership was aligned to the downstream Phase 3 ticket assignees and target dates already recorded in the Phase 3 ticket set; phase target completion date is fixed to `2026-04-08` and buffer is reserved from `2026-04-06` through `2026-04-08` for integration, reruns, and sign-off closeout. |
 | 2026-03-09 | Done | Reviewed the Phase 3 non-negotiable constraints against the approved Phase 2 contracts: canonical `baseURL` with trailing slash, Hugo alias helper semantics, GitHub Pages artifact requirements, and Pages settings/API as the custom-domain source of truth remain understood and accepted for scaffold implementation. All RHI-019 acceptance criteria are satisfied and downstream Phase 3 workstreams may begin. |
 

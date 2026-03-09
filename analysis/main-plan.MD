@@ -11,7 +11,7 @@ Migrate the current WordPress-powered site to a static Markdown-authored site us
 
 2. Phase 2: Stack and Architecture Decision (*depends on 1*)
 2.1. Use Hugo as the static site generator (Markdown-first, explicit `url` control, built-in `aliases` redirects, static HTML output).
-2.2. Use GitHub Pages custom workflow deployment (build in Actions, deploy artifact) instead of native branch Jekyll build, and lock the generator/repo contract to root `hugo.toml`, canonical `baseURL = "https://www.rhino-inquisitor.com/"`, `public/` artifact output, and Hugo Extended `0.156.0` pinned through `HUGO_VERSION`.
+2.2. Use GitHub Pages custom workflow deployment (build in Actions, deploy artifact) instead of native branch Jekyll build, and lock the generator/repo contract to root `hugo.toml`, canonical `baseURL = "https://www.rhino-inquisitor.com/"`, `public/` artifact output, and Hugo Extended `0.157.0` pinned through `HUGO_VERSION`.
 2.3. Add supporting libraries:
 - `turndown` + `@joplin/turndown-plugin-gfm` for WordPress HTML-to-Markdown conversion.
 - `fast-glob` for URL parity and content audits.

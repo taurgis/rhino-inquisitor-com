@@ -107,7 +107,7 @@ Completed. Workstream E is now the approved tooling contract for repo-side migra
 Approved decisions:
 
 - Core tooling contract:
-  - Hugo Extended `0.156.0` remains the pinned SSG/build tool per RHI-011. It is treated as CI tooling, not an npm dependency.
+  - Hugo Extended `0.157.0` remains the pinned SSG/build tool per RHI-011. It is treated as CI tooling, not an npm dependency.
   - GitHub Pages custom workflow usage is locked to the official Pages Actions trio `actions/configure-pages@v5`, `actions/upload-pages-artifact@v4`, and `actions/deploy-pages@v4`. Detailed workflow semantics remain owned by RHI-016.
 - Approved repo-side packages:
   - Existing baseline retained: `fast-glob@3.3.3`, `fast-xml-parser@5.4.2`, `p-limit@7.3.0`

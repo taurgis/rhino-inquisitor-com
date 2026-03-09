@@ -53,7 +53,7 @@ Approved contract:
    - `ci`: `hugo --environment production --gc --minify` validation build producing `./public/`.
    - `prod`: deploy the exact `./public/` artifact validated in CI.
 - `baseURL` handling is fixed as: root `hugo.toml` is the canonical production source of truth; standard production CI builds do not use a separate config overlay; `HUGO_BASEURL` is reserved only for exceptional future preview-host overrides.
-- Hugo version pin is fixed to Hugo Extended `0.156.0` and will be implemented in CI as `HUGO_VERSION=0.156.0`.
+- Hugo version pin is fixed to Hugo Extended `0.157.0` and will be implemented in CI as `HUGO_VERSION=0.157.0`.
 
 Outputs:
 - Architecture section in this file approved.
@@ -155,7 +155,7 @@ Crawler surfaces:
 
 ## Workstream E: Library and Tooling Contract
 Approved contract:
-- Hugo Extended `0.156.0` remains the pinned SSG/build tool per Workstream A and is managed as CI tooling rather than as an npm dependency.
+- Hugo Extended `0.157.0` remains the pinned SSG/build tool per Workstream A and is managed as CI tooling rather than as an npm dependency.
 - GitHub Pages custom workflow usage is locked to the official Pages Actions trio `actions/configure-pages@v5`, `actions/upload-pages-artifact@v4`, and `actions/deploy-pages@v4`; detailed workflow semantics remain in Workstream F.
 - Approved repo-side migration and validation packages are:
    - existing baseline retained: `fast-glob@3.3.3`, `fast-xml-parser@5.4.2`, `p-limit@7.3.0`;
@@ -175,7 +175,7 @@ Avoid by default:
 Workflow contract:
 1. Workflow triggers are fixed to `push` on `main` and `workflow_dispatch`.
 2. Build job uses shallow checkout by default because RHI-012 makes front matter `lastmod` authoritative from WordPress export metadata; `fetch-depth: 0` becomes mandatory only if a later approved contract adopts Hugo `.GitInfo` or other git-derived lastmod behavior.
-3. Build contract is fixed to workflow-level `HUGO_VERSION=0.156.0` and `hugo --gc --minify --environment production`, producing `./public` and excluding draft, future, and expired content.
+3. Build contract is fixed to workflow-level `HUGO_VERSION=0.157.0` and `hugo --gc --minify --environment production`, producing `./public` and excluding draft, future, and expired content.
 4. Build/test jobs use ref-scoped concurrency with `cancel-in-progress: true`; deploy job uses a dedicated Pages deployment concurrency group with `cancel-in-progress: false` and depends on build via `needs`.
 5. Official Pages action sequence is fixed to `actions/configure-pages@v5`, `actions/upload-pages-artifact@v4` with `path: ./public` and default artifact `github-pages`, then `actions/deploy-pages@v4` targeting `environment: github-pages`.
 6. Deploy job minimum permissions are `contents: read`, `pages: write`, and `id-token: write`; broader repository write scopes are not part of this contract.
