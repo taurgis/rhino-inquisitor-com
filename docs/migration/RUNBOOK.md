@@ -67,6 +67,12 @@ This runbook tracks the operational steps needed to move the repository from pla
     - `public/phase-3-performance-baseline/index.html`
     - `public/category/platform/index.html`
   - review `tmp/lhci/` for the local Lighthouse CI reports written by the baseline run
+- Validate RHI-028 security and privacy hardening with:
+  - `hugo --cleanDestinationDir --minify --environment production`
+  - `npm run check:security`
+  - review `docs/migration/SECURITY-CONTROLS.md` for the current control matrix, owner assignments, and deferred analytics decision
+  - confirm the current scaffold still has no external `<script src>` references; only repo-owned inline JSON-LD remains in rendered HTML
+  - when validating draft exclusion changes, use a temporary `draft: true` fixture and confirm the route is absent from both `public/` and `public/sitemap.xml` before removing the fixture
 - Use the Phase 3 ticket set for workstream ownership and acceptance criteria:
   - `analysis/tickets/phase-3/RHI-020-repository-bootstrap.md`
   - `analysis/tickets/phase-3/RHI-021-hugo-config-hardening.md`
@@ -75,6 +81,7 @@ This runbook tracks the operational steps needed to move the repository from pla
   - `analysis/tickets/phase-3/RHI-025-url-parity-redirect-baseline.md`
   - `analysis/tickets/phase-3/RHI-026-asset-performance-baseline.md`
   - `analysis/tickets/phase-3/RHI-027-accessibility-ux-baseline.md`
+  - `analysis/tickets/phase-3/RHI-028-security-privacy-hardening.md`
   - `analysis/tickets/phase-3/RHI-029-cicd-deployment-scaffolding.md`
 
 ## RHI-027 Accessibility Manual Review Checklist

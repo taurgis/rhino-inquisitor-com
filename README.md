@@ -78,9 +78,10 @@ The workspace is planning-first: it contains migration phases, implementation gu
 - Local preview server: `hugo server`
 - Front matter validation: `npm run validate:frontmatter`
 - SEO smoke validation: `npm run check:seo`
+- Security and privacy validation: `npm run check:security`
 - Accessibility smoke validation: `npm run check:a11y`
 - Hugo source components live under `src/`, while root `hugo.toml` remains the canonical config entry point and `public/` remains the build artifact directory.
-- Validation scripts are introduced across later Phase 3 tickets. Planned commands include front matter, URL parity, SEO, link, accessibility, and performance checks.
+- Validation scripts are introduced across later Phase 3 tickets. Current commands cover front matter, URL parity, SEO, security/privacy, accessibility, and performance checks.
 
 See [docs/migration/RUNBOOK.md](docs/migration/RUNBOOK.md) for the phase-linked operational runbook.
 
