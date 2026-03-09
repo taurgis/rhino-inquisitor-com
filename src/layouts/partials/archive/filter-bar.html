@@ -1,7 +1,12 @@
 <section class="archive-controls" aria-label="Archive filters and sorting">
+  <div class="archive-controls__intro">
+    <p class="eyebrow">Control rail</p>
+    <p class="surface-note">Topic, type, year, and sort cues stay visible without introducing a JavaScript-only archive layer.</p>
+  </div>
+
   <div class="archive-controls__mobile">
     <details>
-      <summary>Browse by topic, type, and year</summary>
+      <summary>Open filters and sort</summary>
       {{ partial "archive/filter-groups.html" (merge . (dict "idPrefix" "archive-mobile")) }}
     </details>
   </div>

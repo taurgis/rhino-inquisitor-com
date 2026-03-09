@@ -40,33 +40,49 @@
   {{ if $featured }}{{ $startReadingHref = $featured.Permalink }}{{ end }}
   {{ $browseTopicsHref := "/category/" }}
   {{ with $topicsPage }}{{ $browseTopicsHref = .Permalink }}{{ end }}
+  {{ $rssHref := printf "%sindex.xml" .Site.Home.Permalink }}
+  {{ with .Site.Home.OutputFormats.Get "rss" }}{{ $rssHref = .Permalink }}{{ end }}
 
   <section class="page-hero" aria-labelledby="home-hero-title">
     <div class="page-hero__body">
       <div>
-        <p class="eyebrow">Discovery surfaces</p>
-        <h1 id="home-hero-title">Technical articles built for reading first and browsing second.</h1>
+        <p class="eyebrow">Editorial discovery</p>
+        <h1 id="home-hero-title">Long-form platform guidance with archive routes that stay quick to scan.</h1>
       </div>
       <p>{{ .Site.Params.description | default (printf "%s knowledge base, articles, and notes." .Site.Title) }}</p>
+      <p>Phase 3 keeps the reading path intentionally calm: darker editorial chrome, image-led discovery cards, and server-rendered archive controls instead of a brittle JavaScript-only browse experience.</p>
       <div class="hero-actions">
         <a href="{{ $startReadingHref }}">Start Reading</a>
         <a href="{{ $browseTopicsHref }}">Browse Topics</a>
       </div>
     </div>
 
-    <aside class="page-hero__aside" aria-label="Homepage scaffold summary">
-      <p class="eyebrow">Phase 3 summary</p>
-      <div class="topic-chip-list" role="list">
-        <span class="topic-chip" role="listitem">{{ len $posts }} published {{ cond (eq (len $posts) 1) "article" "articles" }}</span>
-        <span class="topic-chip" role="listitem">{{ len $topicItems }} topic hubs</span>
-        <span class="topic-chip" role="listitem">Server-rendered archive controls</span>
+    <aside class="page-hero__aside" aria-label="Homepage visual companion">
+      <div class="hero-aside__body">
+        <p class="eyebrow">Field guide</p>
+        <h2>Archive-first discovery, without the utilitarian look.</h2>
+        <p>Shared shell updates, metadata-first cards, and restrained support modules bring the scaffold in line with the approved screenshot direction while leaving routing and SEO untouched.</p>
       </div>
-      <p class="surface-help">The project rail is intentionally omitted until a stable data source exists.</p>
+      <dl class="hero-stat-list">
+        <div class="hero-stat">
+          <dt>Published now</dt>
+          <dd>{{ len $posts }}</dd>
+        </div>
+        <div class="hero-stat">
+          <dt>Topic hubs</dt>
+          <dd>{{ len $topicItems }}</dd>
+        </div>
+        <div class="hero-stat">
+          <dt>Archive mode</dt>
+          <dd>Server-rendered</dd>
+        </div>
+      </dl>
+      <p class="surface-help">The project rail remains intentionally omitted until a stable data source exists under src/data/.</p>
     </aside>
   </section>
 
   <div class="lane-grid">
-    <section class="lane" aria-labelledby="featured-lane-heading">
+    <section class="lane lane--featured" aria-labelledby="featured-lane-heading">
       <div class="lane-header">
         <div>
           <p class="eyebrow">DISC-01</p>
@@ -87,7 +103,7 @@
       {{ end }}
     </section>
 
-    <section class="lane" aria-labelledby="recent-lane-heading">
+    <section class="lane lane--recent" aria-labelledby="recent-lane-heading">
       <div class="lane-header">
         <div>
           <p class="eyebrow">DISC-02</p>
@@ -115,7 +131,7 @@
       {{ end }}
     </section>
 
-    <section class="lane" aria-label="Topic hubs">
+    <section class="lane lane--topics" aria-label="Topic hubs">
       {{ partial "archive/topic-hubs.html" (dict
         "eyebrow" "DISC-03"
         "title" "Topic hubs"
@@ -127,4 +143,21 @@
       ) }}
     </section>
   </div>
+
+  <section class="home-support-strip surface-panel" aria-labelledby="home-support-heading">
+    <div class="home-support-strip__intro">
+      <p class="eyebrow">Supporting modules</p>
+      <h2 id="home-support-heading">Keep the reading loop active.</h2>
+      <p>Phase 3 ships a compact dispatch lane through RSS and archive actions while the project rail stays intentionally absent until structured project data is available.</p>
+    </div>
+    <div class="home-support-strip__actions">
+      <a class="site-cta" href="{{ $rssHref }}">Follow via RSS</a>
+      <a class="home-support-strip__secondary" href="{{ $startReadingHref }}">Read the featured article</a>
+      <a class="home-support-strip__secondary" href="{{ $browseTopicsHref }}">Browse topics</a>
+    </div>
+    <div class="home-support-strip__note">
+      <p class="eyebrow">Project rail status</p>
+      <p class="surface-help">The repository still has no stable project dataset in src/data/, so this surface remains a documented omission rather than a placeholder.</p>
+    </div>
+  </section>
 {{ end }}

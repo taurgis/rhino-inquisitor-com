@@ -10,17 +10,12 @@
 {{ end }}
 {{ $cardClass := cond (eq $variant "featured") "feature-card" "article-card" }}
 {{ $ctaText := cond (eq $variant "featured") "Read featured article" "Open article" }}
+{{ $cardClasses := slice $cardClass }}
+{{ if not $hasImage }}
+  {{ $cardClasses = $cardClasses | append (printf "%s--no-media" $cardClass) }}
+{{ end }}
 
-<article class="{{ $cardClass }}">
-  <div class="{{ $cardClass }}__body">
-    {{ partial "article/meta-row.html" (dict "page" $page "label" "Card details") }}
-    <h3><a href="{{ $page.Permalink }}">{{ $page.LinkTitle }}</a></h3>
-    <p class="{{ $cardClass }}__excerpt">{{ $excerpt }}</p>
-    <div class="archive-control-row">
-      <a class="lane-header__action" href="{{ $page.Permalink }}">{{ $ctaText }}</a>
-    </div>
-  </div>
-
+<article class="{{ delimit $cardClasses " " }}">
   {{ if $hasImage }}
     <div class="{{ $cardClass }}__media">
       {{ partial "media/image.html" (dict
@@ -31,4 +26,13 @@
       ) }}
     </div>
   {{ end }}
+
+  <div class="{{ $cardClass }}__body">
+    {{ partial "article/meta-row.html" (dict "page" $page "label" "Card details") }}
+    <h3><a href="{{ $page.Permalink }}">{{ $page.LinkTitle }}</a></h3>
+    <p class="{{ $cardClass }}__excerpt">{{ $excerpt }}</p>
+    <div class="archive-control-row">
+      <a class="lane-header__action" href="{{ $page.Permalink }}">{{ $ctaText }}</a>
+    </div>
+  </div>
 </article>

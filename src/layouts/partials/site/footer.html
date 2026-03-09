@@ -1,9 +1,11 @@
 {{ $blogPage := site.GetPage "/posts" }}
 {{ $topicsPage := site.GetPage "/categories" }}
+{{ $aboutPage := site.GetPage "/about" }}
+{{ $privacyPage := site.GetPage "/privacy-policy" }}
 {{ $rssFormat := .Site.Home.OutputFormats.Get "rss" }}
 {{ $blogHref := printf "%sposts/" .Site.Home.Permalink }}
 {{ $topicsHref := printf "%scategory/" .Site.Home.Permalink }}
-{{ $aboutHref := printf "%sabout/#contact" .Site.Home.Permalink }}
+{{ $aboutHref := printf "%sabout/" .Site.Home.Permalink }}
 {{ $privacyHref := printf "%sprivacy-policy/" .Site.Home.Permalink }}
 {{ $archiveSearchHref := printf "%sposts/#archive-search" .Site.Home.Permalink }}
 {{ with $blogPage }}
@@ -11,12 +13,14 @@
   {{ $archiveSearchHref = printf "%s#archive-search" .Permalink }}
 {{ end }}
 {{ with $topicsPage }}{{ $topicsHref = .Permalink }}{{ end }}
+{{ with $aboutPage }}{{ $aboutHref = .Permalink }}{{ end }}
+{{ with $privacyPage }}{{ $privacyHref = .Permalink }}{{ end }}
 
 <footer class="site-footer">
   <div class="surface-shell site-footer__inner surface-panel">
     <div class="site-footer__lead">
       <p class="eyebrow">Rhino Inquisitor</p>
-      <p>An editorial Hugo scaffold for readable articles, durable archive browsing, and migration-safe discovery surfaces.</p>
+      <p>An editorial Hugo scaffold for readable long-form notes, metadata-first archive browsing, and a calmer migration-ready visual system.</p>
     </div>
 
     <div class="footer-link-grid">
