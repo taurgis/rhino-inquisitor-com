@@ -1,0 +1,123 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  HUGO_VERSION: 0.157.0
+  NODE_VERSION: 18
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Restore npm and node_modules cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.npm
+            node_modules
+          key: ${{ runner.os }}-node-${{ env.NODE_VERSION }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-${{ env.NODE_VERSION }}-
+
+      - name: Restore Hugo extended binary cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/hugo/${{ env.HUGO_VERSION }}
+          key: ${{ runner.os }}-hugo-${{ env.HUGO_VERSION }}
+
+      - name: Install Hugo extended
+        shell: bash
+        run: |
+          set -euo pipefail
+          HUGO_DIR="$HOME/.cache/hugo/${HUGO_VERSION}"
+          if [[ ! -x "$HUGO_DIR/hugo" ]]; then
+            mkdir -p "$HUGO_DIR"
+            curl -fsSL -o "$RUNNER_TEMP/hugo.tar.gz" "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
+            tar -xzf "$RUNNER_TEMP/hugo.tar.gz" -C "$HUGO_DIR" hugo
+          fi
+          echo "$HUGO_DIR" >> "$GITHUB_PATH"
+          hugo version
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Validate front matter
+        run: npm run validate:frontmatter
+
+      - name: Build production site
+        run: hugo --minify --environment production
+
+      - name: Run URL parity check
+        run: npm run check:url-parity
+
+      - name: Run SEO smoke check
+        run: npm run check:seo
+
+      - name: Run internal link check
+        run: npm run check:links
+
+      - name: Add .nojekyll marker
+        shell: bash
+        run: |
+          set -euo pipefail
+          touch public/.nojekyll
+
+      - name: Upload audit artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: phase-3-build-artifacts-${{ github.sha }}
+          path: |
+            public
+            migration/url-parity-report.json
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: ./public
+
+  deploy:
+    needs:
+      - build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    environment: github-pages
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Summarize deployed URL
+        shell: bash
+        run: |
+          echo "Pages URL: ${{ steps.deployment.outputs.page_url }}" >> "$GITHUB_STEP_SUMMARY"

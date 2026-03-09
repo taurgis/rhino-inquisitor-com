@@ -73,6 +73,14 @@ This runbook tracks the operational steps needed to move the repository from pla
   - review `docs/migration/SECURITY-CONTROLS.md` for the current control matrix, owner assignments, and deferred analytics decision
   - confirm the current scaffold still has no external `<script src>` references; only repo-owned inline JSON-LD remains in rendered HTML
   - when validating draft exclusion changes, use a temporary `draft: true` fixture and confirm the route is absent from both `public/` and `public/sitemap.xml` before removing the fixture
+- Validate RHI-029 CI/CD and deployment scaffolding with:
+  - `npm run validate:frontmatter`
+  - `hugo --cleanDestinationDir --minify --environment production`
+  - `npm run check:url-parity`
+  - `npm run check:seo`
+  - `npm run check:links`
+  - for PR workflow parity, run `npx markdownlint-cli2 <changed-markdown-files>` when Markdown files are in scope
+  - use `npm run check:a11y` and `npm run check:perf` as staged informational baselines; failures do not block Phase 3 deploys but do require fix or explicit risk acceptance before RHI-030 closes
 - Use the Phase 3 ticket set for workstream ownership and acceptance criteria:
   - `analysis/tickets/phase-3/RHI-020-repository-bootstrap.md`
   - `analysis/tickets/phase-3/RHI-021-hugo-config-hardening.md`
@@ -83,6 +91,44 @@ This runbook tracks the operational steps needed to move the repository from pla
   - `analysis/tickets/phase-3/RHI-027-accessibility-ux-baseline.md`
   - `analysis/tickets/phase-3/RHI-028-security-privacy-hardening.md`
   - `analysis/tickets/phase-3/RHI-029-cicd-deployment-scaffolding.md`
+
+## RHI-029 Deployment Runbook
+
+- Trigger deployment with either:
+  - a push to `main`, which runs `.github/workflows/deploy-pages.yml`
+  - a manual `workflow_dispatch` run of `Deploy to GitHub Pages` for a known commit
+- Expect the deploy workflow to run the blocking Phase 3 gates in this order before the Pages artifact is published:
+  - `npm run validate:frontmatter`
+  - `hugo --minify --environment production`
+  - `npm run check:url-parity`
+  - `npm run check:seo`
+  - `npm run check:links`
+- Use the PR workflow `.github/workflows/build-pr.yml` for pre-merge validation:
+  - every PR to `main` runs front matter validation and a production Hugo build
+  - route-sensitive PRs also run URL parity, SEO smoke, and internal link checks
+  - changed Markdown files are linted with `markdownlint-cli2`
+  - accessibility and performance jobs are informational in Phase 3 and must be reviewed when they fail
+- Reproduce quality gate failures locally with the matching command:
+  - front matter: `npm run validate:frontmatter`
+  - production build: `hugo --cleanDestinationDir --minify --environment production`
+  - URL parity: `npm run check:url-parity`
+  - SEO smoke: `npm run check:seo`
+  - internal links: `npm run check:links`
+  - accessibility baseline: `npm run check:a11y`
+  - performance baseline: `npm run check:perf`
+- Roll back by redeploying the last known-good commit from GitHub Actions:
+  - first choice: rerun the last known-good deployment while its artifact is still available in Actions
+  - fallback: use `workflow_dispatch` on the same known-good commit so CI rebuilds and redeploys the exact source revision
+  - do not rerun an isolated build-only job and assume it changed production; the rollback action must execute the Pages deploy path
+- Track deployment evidence for Phase 3 sign-off:
+  - successful workflow run URL
+  - deployed Pages URL returned by `actions/deploy-pages`
+  - any staged accessibility or performance failure together with its fix plan or risk acceptance
+- Search Console follow-up after cutover belongs to the deploy handoff checklist:
+  - submit `https://www.rhino-inquisitor.com/sitemap.xml` in the production property
+  - keep transition-era sitemap references only as long as they help Google discover the final canonical set
+  - monitor Page indexing and soft-404 reports after each production deploy during the cutover window
+  - inspect the highest-value legacy URLs if parity or redirect reports show regressions
 
 ## RHI-027 Accessibility Manual Review Checklist
 
