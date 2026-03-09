@@ -19,7 +19,7 @@
 | [RHI-022](RHI-022-content-contract-archetypes.md) | Workstream C — Content Contract and Archetypes | WS-C | Critical | Done | M | 2026-03-28 | RHI-019, RHI-021 |
 | [RHI-023](RHI-023-template-scaffolding.md) | Workstream D — Template Scaffolding and Rendering Model | WS-D | Critical | Done | L | 2026-04-01 | RHI-019, RHI-021, RHI-022 |
 | [RHI-024](RHI-024-seo-foundation.md) | Workstream E — SEO Foundation Implementation | WS-E | High | Done | M | 2026-04-02 | RHI-019, RHI-021, RHI-023 |
-| [RHI-025](RHI-025-url-parity-redirect-baseline.md) | Workstream F — URL Preservation and Redirect Baseline | WS-F | Critical | Open | M | 2026-04-02 | RHI-019, RHI-021, RHI-022 |
+| [RHI-025](RHI-025-url-parity-redirect-baseline.md) | Workstream F — URL Preservation and Redirect Baseline | WS-F | Critical | Done | M | 2026-04-02 | RHI-019, RHI-021, RHI-022 |
 | [RHI-026](RHI-026-asset-performance-baseline.md) | Workstream G — Asset and Performance Baseline | WS-G | Medium | Open | M | 2026-04-03 | RHI-019, RHI-023 |
 | [RHI-027](RHI-027-accessibility-ux-baseline.md) | Workstream H — Accessibility and UX Baseline | WS-H | Medium | Open | M | 2026-04-03 | RHI-019, RHI-023 |
 | [RHI-028](RHI-028-security-privacy-hardening.md) | Workstream I — Security, Privacy, and Operational Hardening | WS-I | Medium | Open | M | 2026-04-03 | RHI-019, RHI-021, RHI-023, RHI-024 |
@@ -91,7 +91,7 @@ All items below must be complete before Phase 4 work begins:
 - [x] RHI-022 Done — Archetypes for all content types; `validate:frontmatter` script passing in CI
 - [x] RHI-023 Done — All primary template types with shared SEO partials committed
 - [ ] RHI-024 Done — SEO signals verified; sitemap/robots validated; staging noindex confirmed; `check:seo` passing
-- [ ] RHI-025 Done — URL parity script implemented; `check:url-parity` passing; parity report generated
+- [x] RHI-025 Done — URL parity script implemented; `check:url-parity` passing; parity report generated
 - [ ] RHI-026 Done — Asset policy documented; Lighthouse CI passing CWV targets on scaffold
 - [ ] RHI-027 Done — WCAG AA automated checks passing; semantic structure and skip links in templates
 - [ ] RHI-028 Done — Security control matrix committed; mixed-content clean; migration artifacts not exposed in `public/`

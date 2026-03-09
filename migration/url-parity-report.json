@@ -1,0 +1,29 @@
+{
+  "generated_at": "2026-03-09T17:30:08.683Z",
+  "scaffold_mode": true,
+  "manifest_path": "migration/url-manifest.json",
+  "public_path": "public",
+  "content_path": "src/content",
+  "summary": {
+    "manifest_entries": 1201,
+    "content_files": 0,
+    "public_files": 9,
+    "checked_urls": 0,
+    "ok": 0,
+    "missing": 0,
+    "wrong_target": 0,
+    "chain": 0,
+    "collision": 0,
+    "hard_failures": 0,
+    "warnings": 0
+  },
+  "threshold": {
+    "indexed_urls": 335,
+    "changed_indexed_urls": 131,
+    "change_rate_percent": 39.1,
+    "warn_at_or_above_five_percent": true,
+    "edge_redirect_required_before_launch": true
+  },
+  "warnings": [],
+  "results": []
+}
