@@ -1,4 +1,52 @@
 {{ define "main" }}
+  {{ $pages := .RegularPages.ByDate.Reverse }}
+  {{ $paginator := .Paginate $pages }}
+  {{ $groups := $paginator.Pages.GroupByDate "2006" }}
+  {{ $yearLinks := slice }}
+  {{ range $groups }}
+    {{ $yearLinks = $yearLinks | append (dict "label" .Key "url" (printf "#year-%s" .Key)) }}
+  {{ end }}
+  {{ $blogPage := site.GetPage "/posts" }}
+  {{ $archiveDescription := .Params.description | default "" }}
+  {{ if eq $archiveDescription "" }}
+    {{ if eq .Section "pages" }}
+      {{ $archiveDescription = "Reference pages and scaffold utilities with the same archive controls used across the blog surfaces." }}
+    {{ else }}
+      {{ $archiveDescription = "Read long-form articles, browse by topic, and keep archive discovery server-rendered and crawl-safe." }}
+    {{ end }}
+  {{ end }}
+  {{ $emptyActionHref := .Site.Home.Permalink }}
+  {{ with $blogPage }}{{ $emptyActionHref = .Permalink }}{{ end }}
+
   {{ partial "breadcrumbs.html" . }}
-  {{ partial "content-list.html" . }}
+
+  <section class="archive-layout surface-panel">
+    <div class="archive-header">
+      <div>
+        <p class="eyebrow">ARCH-01</p>
+        <h1>{{ .Title }}</h1>
+      </div>
+      <p>{{ $archiveDescription }}</p>
+    </div>
+
+    {{ partial "archive/filter-bar.html" (dict "yearLinks" $yearLinks) }}
+
+    <div class="archive-layout__content">
+      {{ partial "search/search-bar.html" (dict
+        "page" .
+        "placeholder" "Search the blog archive by title, topic, or migration trail."
+      ) }}
+      {{ partial "archive/year-jump.html" (dict "links" $yearLinks) }}
+      {{ partial "content-list.html" (dict
+        "groups" $groups
+        "paginator" $paginator
+        "resultCount" (len $paginator.Pages)
+        "heading" "Metadata-first archive cards"
+        "emptyTitle" "The archive is waiting for its next batch"
+        "emptyCopy" "Keep using the topic, type, and year controls while future migrations fill this section."
+        "emptyActionHref" $emptyActionHref
+        "emptyActionLabel" "Return to the archive"
+      ) }}
+    </div>
+  </section>
 {{ end }}

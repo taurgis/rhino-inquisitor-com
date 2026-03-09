@@ -1,0 +1,34 @@
+{{ $page := .page }}
+{{ $variant := .variant | default "archive" }}
+{{ $hasImage := and $page.Params.heroImage (ne $page.Params.heroImage "") }}
+{{ $excerpt := $page.Params.description | default "" }}
+{{ if eq $excerpt "" }}
+  {{ $excerpt = $page.Summary | plainify | strings.TrimSpace }}
+{{ end }}
+{{ if eq $excerpt "" }}
+  {{ $excerpt = "This entry is ready for migrated body copy and structured archive browsing." }}
+{{ end }}
+{{ $cardClass := cond (eq $variant "featured") "feature-card" "article-card" }}
+{{ $ctaText := cond (eq $variant "featured") "Read featured article" "Open article" }}
+
+<article class="{{ $cardClass }}">
+  <div class="{{ $cardClass }}__body">
+    {{ partial "article/meta-row.html" (dict "page" $page "label" "Card details") }}
+    <h3><a href="{{ $page.Permalink }}">{{ $page.LinkTitle }}</a></h3>
+    <p class="{{ $cardClass }}__excerpt">{{ $excerpt }}</p>
+    <div class="archive-control-row">
+      <a class="lane-header__action" href="{{ $page.Permalink }}">{{ $ctaText }}</a>
+    </div>
+  </div>
+
+  {{ if $hasImage }}
+    <div class="{{ $cardClass }}__media">
+      {{ partial "media/image.html" (dict
+        "page" $page
+        "src" $page.Params.heroImage
+        "alt" ($page.Params.heroImageAlt | default $page.LinkTitle | default $page.Title)
+        "loading" (cond (eq $variant "featured") "eager" "lazy")
+      ) }}
+    </div>
+  {{ end }}
+</article>

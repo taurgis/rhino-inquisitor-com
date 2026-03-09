@@ -1,23 +1,91 @@
 {{ define "main" }}
   {{ partial "breadcrumbs.html" . }}
 
-  <section>
-    <h1>{{ .Title }}</h1>
-    {{ with .Params.description }}
-      <p>{{ . }}</p>
+  {{ if eq .Kind "term" }}
+    {{ $pages := .Pages.ByDate.Reverse }}
+    {{ $paginator := .Paginate $pages }}
+    {{ $groups := $paginator.Pages.GroupByDate "2006" }}
+    {{ $yearLinks := slice }}
+    {{ range $groups }}
+      {{ $yearLinks = $yearLinks | append (dict "label" .Key "url" (printf "#year-%s" .Key)) }}
     {{ end }}
 
-    {{ if .Data.Terms.Alphabetical }}
-      <ul>
-        {{ range .Data.Terms.Alphabetical }}
-          <li>
-            <a href="{{ .Page.Permalink }}">{{ .Page.LinkTitle }}</a>
-            <span>({{ .Count }})</span>
-          </li>
-        {{ end }}
-      </ul>
-    {{ else }}
-      <p>No taxonomy terms are available yet.</p>
+    <section class="archive-layout surface-panel">
+      <div class="archive-header">
+        <div>
+          <p class="eyebrow">ARCH-01</p>
+          <h1>{{ .Title }}</h1>
+        </div>
+        <p>{{ .Params.description | default (printf "Published entries filed under %s, with metadata-first cards and server-rendered archive controls." .Title) }}</p>
+      </div>
+
+      {{ partial "archive/filter-bar.html" (dict "yearLinks" $yearLinks) }}
+
+      <div class="archive-layout__content">
+        {{ partial "search/search-bar.html" (dict
+          "page" .
+          "placeholder" (printf "Search the blog archive from within %s." .Title)
+        ) }}
+        {{ partial "archive/year-jump.html" (dict "links" $yearLinks) }}
+        {{ partial "content-list.html" (dict
+          "groups" $groups
+          "paginator" $paginator
+          "resultCount" (len $paginator.Pages)
+          "heading" (printf "%s archive entries" .Title)
+          "emptyTitle" (printf "%s is ready for its first migrated article" .Title)
+          "emptyCopy" "This term page keeps the archive shell intact until matching content arrives."
+          "emptyActionHref" "/category/"
+          "emptyActionLabel" "Browse all topics"
+        ) }}
+      </div>
+    </section>
+  {{ else }}
+    {{ $topicItems := slice }}
+    {{ range .Data.Terms.Alphabetical }}
+      {{ $freshness := "" }}
+      {{ with first 1 (.Page.Pages.ByLastmod.Reverse) }}
+        {{ $freshness = printf "Updated %s" ((index . 0).Lastmod.Format "Jan 2") }}
+      {{ end }}
+      {{ $topicItems = $topicItems | append (dict
+        "name" .Page.LinkTitle
+        "url" .Page.Permalink
+        "count" .Count
+        "freshness" $freshness
+      ) }}
     {{ end }}
-  </section>
+    {{ $postGroups := (where site.RegularPages "Type" "posts").ByDate.Reverse.GroupByDate "2006" }}
+    {{ $yearLinks := slice }}
+    {{ range $postGroups }}
+      {{ $yearLinks = $yearLinks | append (dict "label" .Key "url" (printf "/posts/#year-%s" .Key)) }}
+    {{ end }}
+
+    <section class="archive-layout surface-panel">
+      <div class="archive-header">
+        <div>
+          <p class="eyebrow">ARCH-01</p>
+          <h1>{{ .Title }}</h1>
+        </div>
+        <p>{{ .Params.description | default "Browse topic hubs with server-rendered counts and freshness hints before deeper category term exploration." }}</p>
+      </div>
+
+      {{ partial "archive/filter-bar.html" (dict "yearLinks" $yearLinks) }}
+
+      <div class="archive-layout__content">
+        {{ partial "search/search-bar.html" (dict
+          "page" .
+          "placeholder" "Search the blog archive before drilling into a topic hub."
+        ) }}
+        {{ partial "archive/year-jump.html" (dict "links" $yearLinks) }}
+        {{ partial "archive/topic-hubs.html" (dict
+          "eyebrow" "ARCH-02"
+          "title" "Category hubs"
+          "items" $topicItems
+          "actionHref" "/posts/"
+          "actionLabel" "Open the archive"
+          "emptyTitle" "Topic hubs are ready for migration batches"
+          "emptyCopy" "Category landing pages stay crawl-safe and coherent even before the larger archive is imported."
+        ) }}
+      </div>
+    </section>
+  {{ end }}
 {{ end }}

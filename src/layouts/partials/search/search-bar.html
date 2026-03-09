@@ -1,0 +1,21 @@
+{{ $page := .page }}
+{{ $idBase := .idBase | default (printf "%s-search" ($page.Kind | default "archive")) }}
+{{ $inputId := printf "%s-input" $idBase }}
+{{ $helperId := printf "%s-helper" $idBase }}
+
+<form class="search-bar" id="archive-search" role="search" action="{{ printf "%s#archive-results" $page.RelPermalink }}" method="get">
+  <div class="search-bar__field">
+    <label for="{{ $inputId }}">Search the blog archive</label>
+    <div class="search-bar__row">
+      <input
+        id="{{ $inputId }}"
+        name="q"
+        type="search"
+        placeholder="{{ .placeholder | default "Search the blog archive by topic, title, or trailhead." }}"
+        aria-describedby="{{ $helperId }}"
+      >
+      <button type="submit">Search</button>
+    </div>
+  </div>
+  <p class="surface-note" id="{{ $helperId }}">Phase 3 keeps this surface crawl-safe and server-rendered. Browse by topic, type, year, or pagination until live search ships.</p>
+</form>

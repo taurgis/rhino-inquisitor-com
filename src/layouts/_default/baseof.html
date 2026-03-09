@@ -3,99 +3,21 @@
   <head>
     {{ block "head" . }}
       {{ partial "seo/head-meta.html" . }}
-      <style>
-        body {
-          margin: 0;
-        }
-
-        header,
-        main,
-        footer {
-          padding-inline: 1rem;
-        }
-
-        header,
-        footer {
-          padding-block: 1rem;
-        }
-
-        main {
-          padding-block: 1.5rem 2rem;
-        }
-
-        nav[aria-label="Primary navigation"] {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 1rem;
-        }
-
-        a:focus-visible,
-        button:focus-visible,
-        [tabindex]:focus-visible {
-          outline: 3px solid #0f3d99;
-          outline-offset: 3px;
-        }
-
-        .skip-link {
-          position: absolute;
-          top: 0.75rem;
-          left: 1rem;
-          z-index: 1000;
-          padding: 0.75rem 1rem;
-          background: #111827;
-          color: #ffffff;
-          text-decoration: none;
-          transform: translateY(-220%);
-          transition: transform 0.15s ease;
-        }
-
-        .skip-link:focus,
-        .skip-link:focus-visible {
-          transform: translateY(0);
-        }
-
-        .rhino-image {
-          display: block;
-          max-width: 100%;
-          height: auto;
-          margin-block-end: 0.75rem;
-        }
-
-        .article-hero {
-          max-width: 20rem;
-          margin-block: 1rem 1.5rem;
-        }
-
-        .home-post-image {
-          max-width: 16rem;
-        }
-
-        .content-list-image {
-          max-width: 14rem;
-        }
-      </style>
+      <link rel="stylesheet" href="{{ "styles/site.css" | relURL }}">
     {{ end }}
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
-    <header>
-      <div>
-        <a href="{{ .Site.Home.Permalink }}">{{ .Site.Title }}</a>
-      </div>
-      <nav aria-label="Primary navigation">
-        <a href="{{ .Site.Home.Permalink }}">Home</a>
-        <a href="{{ .Site.Home.Permalink }}category/">Categories</a>
-      </nav>
-    </header>
+    {{ partial "site/header.html" . }}
 
-    <main id="main-content" tabindex="-1">
-      {{ block "main" . }}{{ end }}
+    <main class="site-main" id="main-content" tabindex="-1">
+      <div class="surface-shell">
+        {{ block "main" . }}{{ end }}
+      </div>
     </main>
 
-    <footer>
-      <p>{{ .Site.Title }}</p>
-    </footer>
+    {{ partial "site/footer.html" . }}
 
     {{ block "scripts" . }}{{ end }}
   </body>

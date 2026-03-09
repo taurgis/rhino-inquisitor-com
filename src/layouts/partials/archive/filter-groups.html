@@ -1,0 +1,58 @@
+{{ $topicsPage := site.GetPage "/categories" }}
+{{ $postsPage := site.GetPage "/posts" }}
+{{ $pagesSection := site.GetPage "/pages" }}
+{{ $yearLinks := .yearLinks | default (slice) }}
+{{ $prefix := .idPrefix | default "archive" }}
+{{ $topicsId := printf "%s-filter-topics" $prefix }}
+{{ $typesId := printf "%s-filter-types" $prefix }}
+{{ $yearsId := printf "%s-filter-years" $prefix }}
+{{ $sortHeadingId := printf "%s-filter-sort" $prefix }}
+{{ $sortId := printf "%s-sort" $prefix }}
+{{ $sortNoteId := printf "%s-sort-note" $prefix }}
+
+<div class="archive-filter-groups">
+  <section class="archive-filter-group" aria-labelledby="{{ $topicsId }}">
+    <h3 id="{{ $topicsId }}">Topics</h3>
+    <div class="archive-filter-links">
+      {{ with $topicsPage }}<a href="{{ .Permalink }}">All topics</a>{{ end }}
+      {{ range $name, $_ := site.Taxonomies.categories }}
+        {{ with site.GetPage (printf "/categories/%s" ($name | urlize)) }}
+          <a href="{{ .Permalink }}">{{ $name }}</a>
+        {{ end }}
+      {{ end }}
+    </div>
+  </section>
+
+  <section class="archive-filter-group" aria-labelledby="{{ $typesId }}">
+    <h3 id="{{ $typesId }}">Type</h3>
+    <div class="archive-filter-links">
+      {{ with $postsPage }}<a href="{{ .Permalink }}">Articles</a>{{ end }}
+      {{ with $pagesSection }}<a href="{{ .Permalink }}">Pages</a>{{ end }}
+    </div>
+    <p class="surface-note">Categories remain the primary public archive surface in Phase 3.</p>
+  </section>
+
+  <section class="archive-filter-group" aria-labelledby="{{ $yearsId }}">
+    <h3 id="{{ $yearsId }}">Year</h3>
+    {{ if gt (len $yearLinks) 0 }}
+      <div class="archive-filter-links">
+        {{ range $yearLinks }}
+          <a href="{{ .url }}">{{ .label }}</a>
+        {{ end }}
+      </div>
+    {{ else }}
+      <p class="surface-note">Year jumps appear when the current archive surface contains dated content.</p>
+    {{ end }}
+  </section>
+
+  <section class="archive-filter-group" aria-labelledby="{{ $sortHeadingId }}">
+    <h3 id="{{ $sortHeadingId }}">Sort</h3>
+    <label for="{{ $sortId }}">Sort order</label>
+    <select id="{{ $sortId }}" name="sort" aria-describedby="{{ $sortNoteId }}">
+      <option selected>Newest first (active)</option>
+      <option disabled>Oldest first (planned)</option>
+      <option disabled>Title A-Z (planned)</option>
+    </select>
+    <p class="surface-note" id="{{ $sortNoteId }}">Additional sort modes stay out of the Phase 3 scaffold until the data model and query contract are finalized.</p>
+  </section>
+</div>

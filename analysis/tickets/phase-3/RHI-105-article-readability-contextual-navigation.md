@@ -7,7 +7,7 @@
 **Assigned to:** Engineering Owner  
 **Target date:** 2026-04-07  
 **Created:** 2026-03-09  
-**Updated:** 2026-03-09
+**Updated:** 2026-03-10
 
 ---
 
@@ -37,9 +37,15 @@ This ticket intentionally depends on RHI-104 so article-specific work can reuse 
   - [ ] Callout treatment exists for warnings, tips, or key takeaways without breaking Markdown rendering
   - [ ] Metadata row surfaces date, reading time, primary topic, and update status when available
   - [ ] Tap targets and toggle controls remain usable on mobile
+- [ ] The article page matches the approved high-fidelity article design examples for binding visual behavior and hierarchy:
+  - [ ] `analysis/design/generated-images/design-examples/article-desktop-design-v1.png` is used as the canonical desktop reference
+  - [ ] `analysis/design/generated-images/design-examples/article-mobile-design-v1.png` is used as the canonical mobile reference
+  - [ ] Title block, metadata row, summary box, code blocks, callouts, TOC rail, related-content matrix, and utility row reflect the screenshot-level visual hierarchy rather than only the low-fi wireframe structure
+  - [ ] Binding visual traits are documented separately from non-binding sample copy, example card counts, and illustration specifics
 - [ ] Traceability is explicit in the delivered implementation notes:
   - [ ] Wireframe IDs in scope: `WF-ART-D`, `WF-ART-M`
   - [ ] Annotation keys in scope: `ART-01`, `ART-02`, `ART-03`
+  - [ ] Design example references in scope: `article-desktop-design-v1.png`, `article-mobile-design-v1.png`
   - [ ] Checklist items in scope are mapped and closed: `CL-030` through `CL-036`, `CL-042`, `CL-043`, `CL-062`, `CL-070`, `CL-071`, `CL-072`
 - [ ] Existing Phase 3 quality gates still pass after the article UI changes:
   - [ ] `hugo --minify --environment production`
@@ -53,6 +59,7 @@ This ticket intentionally depends on RHI-104 so article-specific work can reuse 
 ### Tasks
 
 - [ ] Reconcile article wireframes and checklist items against the actual scaffold shipped by RHI-023 and the shared UI primitives delivered by RHI-104
+- [ ] Reconcile the approved article design examples against the current scaffold so article implementation captures both structural and visual acceptance
 - [ ] Create or extract article-specific partials as needed for:
   - [ ] metadata row composition
   - [ ] summary box
@@ -67,6 +74,7 @@ This ticket intentionally depends on RHI-104 so article-specific work can reuse 
   - [ ] fewer than three related items
   - [ ] articles whose headings do not produce a meaningful TOC
 - [ ] Re-run representative accessibility, SEO, and performance checks on at least one article route and one low-content route
+- [ ] Capture before/after evidence showing article desktop and mobile alignment against the approved design examples
 - [ ] Update ticket outcomes and related Phase 3 documentation with final file paths, fallback rules, and deferred items if any
 
 ---
@@ -89,6 +97,7 @@ This ticket intentionally depends on RHI-104 so article-specific work can reuse 
 | RHI-024 Done — Shared SEO partial architecture remains the only SEO source of truth | Ticket | Pending |
 | RHI-027 Done — Accessibility baseline exists for article semantics and skip-link behavior | Ticket | Pending |
 | RHI-104 Done — Shared UI primitives exist for metadata row and shell composition | Ticket | Pending |
+| RHI-107 Open — Shared visual-system alignment for homepage/archive/shell is tracked separately and should stay consistent with article styling choices | Ticket | Pending |
 | Approved article wireframes and checklist items remain available in `analysis/design/` and `analysis/documentation/checklists/` | Artifact | Done |
 
 ---
@@ -101,7 +110,7 @@ This ticket intentionally depends on RHI-104 so article-specific work can reuse 
 | Related-content buckets appear empty before Phase 4 metadata enrichment lands | High | Medium | Support explicit overrides and taxonomy-based fallback; require coherent empty states | Engineering Owner |
 | Summary box assumes metadata that does not yet exist on migrated content | Medium | Medium | Make summary optional and hide the module when no data is present | Engineering Owner |
 | Article UI refactor regresses current a11y or perf baselines | Medium | High | Re-run current Phase 3 gates on representative article routes before closure | Engineering Owner |
-| Callout styling requires broader visual system work than Phase 3 can absorb | Medium | Low | Keep callout scope structural and minimal; defer advanced styling polish if needed | Engineering Owner |
+| Article visual parity drifts from the shared shell/archive visual language being corrected in `RHI-107` | Medium | Medium | Coordinate shared tokens and document which visual traits are article-specific versus shared across the site | Engineering Owner |
 
 ---
 
@@ -135,6 +144,7 @@ This ticket intentionally depends on RHI-104 so article-specific work can reuse 
 | Date | Status | Note |
 |------|--------|------|
 | 2026-03-09 | Open | Ticket created to add article readability and contextual navigation coverage missing from the original Phase 3 scaffold. |
+| 2026-03-10 | Open | Acceptance criteria expanded so article implementation must meet the generated article design examples, not just the structural wireframe interpretation. |
 
 ---
 
@@ -143,3 +153,4 @@ This ticket intentionally depends on RHI-104 so article-specific work can reuse 
 - Reading time should use Hugo-derived output rather than a separate authored front matter field unless a later contract explicitly changes that choice.
 - Update status should continue to derive from existing date and `lastmod` semantics rather than a second top-level date field.
 - This ticket must preserve breadcrumb and SEO composition rules already established in the scaffold.
+- Screenshot sample copy and illustration specifics are not automatically binding; the binding contract is the article-page visual hierarchy, module presence, spacing rhythm, and control behavior shown in the approved design examples.

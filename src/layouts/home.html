@@ -1,51 +1,130 @@
 {{ define "main" }}
-  <section>
-    <h1>{{ .Site.Title }}</h1>
-    <p>{{ .Site.Params.description | default (printf "%s knowledge base, articles, and notes." .Site.Title) }}</p>
+  {{ $blogPage := site.GetPage "/posts" }}
+  {{ $topicsPage := site.GetPage "/categories" }}
+  {{ $posts := where .Site.RegularPages "Type" "posts" }}
+  {{ $posts = $posts.ByDate.Reverse }}
+  {{ $featured := false }}
+  {{ with first 1 (where $posts "Params.featured" true) }}
+    {{ $featured = index . 0 }}
+  {{ end }}
+  {{ if and (not $featured) (gt (len $posts) 0) }}
+    {{ $featured = index $posts 0 }}
+  {{ end }}
+  {{ $recent := slice }}
+  {{ range $posts }}
+    {{ if or (not $featured) (ne .Permalink $featured.Permalink) }}
+      {{ $recent = $recent | append . }}
+    {{ end }}
+  {{ end }}
+  {{ $recent = first 4 $recent }}
+  {{ $topicItems := slice }}
+  {{ range $name, $_ := .Site.Taxonomies.categories }}
+    {{ with site.GetPage (printf "/categories/%s" ($name | urlize)) }}
+      {{ $freshness := "" }}
+      {{ with first 1 (.Pages.ByLastmod.Reverse) }}
+        {{ $freshness = printf "Updated %s" ((index . 0).Lastmod.Format "Jan 2") }}
+      {{ end }}
+      {{ $topicItems = $topicItems | append (dict
+        "name" .LinkTitle
+        "url" .Permalink
+        "count" (len .Pages)
+        "freshness" $freshness
+      ) }}
+    {{ end }}
+  {{ end }}
+  {{ if gt (len $topicItems) 0 }}
+    {{ $topicItems = first 6 (sort $topicItems "count" "desc") }}
+  {{ end }}
+  {{ $startReadingHref := .Site.Home.Permalink }}
+  {{ if $blogPage }}{{ $startReadingHref = $blogPage.Permalink }}{{ end }}
+  {{ if $featured }}{{ $startReadingHref = $featured.Permalink }}{{ end }}
+  {{ $browseTopicsHref := "/category/" }}
+  {{ with $topicsPage }}{{ $browseTopicsHref = .Permalink }}{{ end }}
+
+  <section class="page-hero" aria-labelledby="home-hero-title">
+    <div class="page-hero__body">
+      <div>
+        <p class="eyebrow">Discovery surfaces</p>
+        <h1 id="home-hero-title">Technical articles built for reading first and browsing second.</h1>
+      </div>
+      <p>{{ .Site.Params.description | default (printf "%s knowledge base, articles, and notes." .Site.Title) }}</p>
+      <div class="hero-actions">
+        <a href="{{ $startReadingHref }}">Start Reading</a>
+        <a href="{{ $browseTopicsHref }}">Browse Topics</a>
+      </div>
+    </div>
+
+    <aside class="page-hero__aside" aria-label="Homepage scaffold summary">
+      <p class="eyebrow">Phase 3 summary</p>
+      <div class="topic-chip-list" role="list">
+        <span class="topic-chip" role="listitem">{{ len $posts }} published {{ cond (eq (len $posts) 1) "article" "articles" }}</span>
+        <span class="topic-chip" role="listitem">{{ len $topicItems }} topic hubs</span>
+        <span class="topic-chip" role="listitem">Server-rendered archive controls</span>
+      </div>
+      <p class="surface-help">The project rail is intentionally omitted until a stable data source exists.</p>
+    </aside>
   </section>
 
-  <section aria-labelledby="recent-posts-heading">
-    <h2 id="recent-posts-heading">Recent Posts</h2>
-    {{ $posts := first 5 (where .Site.RegularPages.ByDate.Reverse "Type" "posts") }}
-    {{ if gt (len $posts) 0 }}
-      <ul>
-        {{ range $posts }}
-          <li>
-            {{ $post := . }}
-            {{ with .Params.heroImage }}
-              {{ partial "media/image.html" (dict
-                "page" $post
-                "src" .
-                "alt" ($post.Params.heroImageAlt | default $post.LinkTitle | default $post.Title)
-                "class" "home-post-image"
-                "loading" "lazy"
-              ) }}
-            {{ end }}
-            <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
-            {{ with .Params.description }}
-              <p>{{ . }}</p>
-            {{ end }}
-          </li>
-        {{ end }}
-      </ul>
-    {{ else }}
-      <p>No posts have been added yet.</p>
-    {{ end }}
-  </section>
+  <div class="lane-grid">
+    <section class="lane" aria-labelledby="featured-lane-heading">
+      <div class="lane-header">
+        <div>
+          <p class="eyebrow">DISC-01</p>
+          <h2 id="featured-lane-heading">Featured long-form</h2>
+        </div>
+      </div>
 
-  <section aria-labelledby="category-heading">
-    <h2 id="category-heading">Categories</h2>
-    {{ if .Site.Taxonomies.categories }}
-      <ul>
-        {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
-          <li>
-            <a href="{{ printf "%scategory/%s/" $.Site.Home.Permalink $name }}">{{ $name }}</a>
-            <span>({{ len $taxonomy }})</span>
-          </li>
+      {{ if $featured }}
+        {{ partial "cards/article-card.html" (dict "page" $featured "variant" "featured") }}
+      {{ else }}
+        {{ partial "empty-state.html" (dict
+          "eyebrow" "DISC-01"
+          "title" "Featured work will anchor this lane"
+          "copy" "Mark a post as featured or publish the first migrated article to turn the hero lane into a guided starting point."
+          "actionHref" $startReadingHref
+          "actionLabel" "Open the archive"
+        ) }}
+      {{ end }}
+    </section>
+
+    <section class="lane" aria-labelledby="recent-lane-heading">
+      <div class="lane-header">
+        <div>
+          <p class="eyebrow">DISC-02</p>
+          <h2 id="recent-lane-heading">Recent posts</h2>
+        </div>
+        {{ with $blogPage }}
+          <a class="lane-header__action" href="{{ .Permalink }}">View archive</a>
         {{ end }}
-      </ul>
-    {{ else }}
-      <p>No public categories are available yet.</p>
-    {{ end }}
-  </section>
+      </div>
+
+      {{ if gt (len $recent) 0 }}
+        <ul class="article-card-grid" role="list">
+          {{ range $recent }}
+            <li>{{ partial "cards/article-card.html" (dict "page" .) }}</li>
+          {{ end }}
+        </ul>
+      {{ else }}
+        {{ partial "empty-state.html" (dict
+          "eyebrow" "DISC-02"
+          "title" "Recent entries will stack here"
+          "copy" "The current scaffold publishes one representative article, so this lane stays stable until more migrated posts arrive."
+          "actionHref" $startReadingHref
+          "actionLabel" "Read the current article"
+        ) }}
+      {{ end }}
+    </section>
+
+    <section class="lane" aria-label="Topic hubs">
+      {{ partial "archive/topic-hubs.html" (dict
+        "eyebrow" "DISC-03"
+        "title" "Topic hubs"
+        "items" $topicItems
+        "actionHref" $browseTopicsHref
+        "actionLabel" "Browse all topics"
+        "emptyTitle" "Topic hubs will appear here"
+        "emptyCopy" "Publish content with categories to unlock topic counts and freshness hints without any client-side scripting."
+      ) }}
+    </section>
+  </div>
 {{ end }}

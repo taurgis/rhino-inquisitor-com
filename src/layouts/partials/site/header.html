@@ -1,0 +1,43 @@
+{{ $blogPage := site.GetPage "/posts" }}
+{{ $topicsPage := site.GetPage "/categories" }}
+{{ $aboutPage := site.GetPage "/about" }}
+{{ $blogHref := "/posts/" }}
+{{ $topicsHref := "/category/" }}
+{{ $aboutHref := "/about/" }}
+{{ with $blogPage }}{{ $blogHref = .Permalink }}{{ end }}
+{{ with $topicsPage }}{{ $topicsHref = .Permalink }}{{ end }}
+{{ with $aboutPage }}{{ $aboutHref = .Permalink }}{{ end }}
+
+<header class="site-header">
+  <div class="surface-shell site-header__inner">
+    <div class="site-brand">
+      <a class="site-brand__mark" href="{{ .Site.Home.Permalink }}">{{ .Site.Title }}</a>
+      <p class="site-brand__tag">Readable migration notes, archive-first discovery, and long-form platform guidance.</p>
+    </div>
+
+    <a class="site-header__search" href="{{ printf "%s#archive-search" $blogHref }}">Search</a>
+
+    <details class="site-menu">
+      <summary class="site-menu__summary"><span>Menu</span></summary>
+      <div class="site-menu__panel">
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="{{ .Site.Home.Permalink }}"{{ if .IsHome }} aria-current="page"{{ end }}>Home</a>
+          <a href="{{ $blogHref }}"{{ if or (eq .Section "posts") (eq .RelPermalink "/posts/") }} aria-current="page"{{ end }}>Blog</a>
+          <a href="{{ $topicsHref }}"{{ if eq .Kind "taxonomy" }} aria-current="page"{{ end }}>Topics</a>
+          <a href="{{ $aboutHref }}"{{ if eq .RelPermalink "/about/" }} aria-current="page"{{ end }}>About</a>
+        </nav>
+        <a class="site-cta" href="{{ $blogHref }}">Start Reading</a>
+      </div>
+    </details>
+
+    <div class="site-header__desktop">
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="{{ .Site.Home.Permalink }}"{{ if .IsHome }} aria-current="page"{{ end }}>Home</a>
+        <a href="{{ $blogHref }}"{{ if or (eq .Section "posts") (eq .RelPermalink "/posts/") }} aria-current="page"{{ end }}>Blog</a>
+        <a href="{{ $topicsHref }}"{{ if eq .Kind "taxonomy" }} aria-current="page"{{ end }}>Topics</a>
+        <a href="{{ $aboutHref }}"{{ if eq .RelPermalink "/about/" }} aria-current="page"{{ end }}>About</a>
+      </nav>
+      <a class="site-cta" href="{{ $blogHref }}">Start Reading</a>
+    </div>
+  </div>
+</header>

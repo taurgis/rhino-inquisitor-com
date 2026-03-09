@@ -7,13 +7,13 @@
 **Assigned to:** Migration Owner  
 **Target date:** 2026-04-08  
 **Created:** 2026-03-07  
-**Updated:** 2026-03-07
+**Updated:** 2026-03-10
 
 ---
 
 ### Goal
 
-Formally close Phase 3 by verifying that all prerequisite and workstream tickets (RHI-019 through RHI-029 plus RHI-104 through RHI-105) are complete, the Hugo scaffold is deployable end-to-end, all blocking quality gates are passing in CI, staged baseline checks are resolved or risk-accepted, and the Phase 4 content migration team has received and acknowledged the Phase 3 handover package. Phase 4 content migration and Phase 5 SEO discoverability work must not begin until this ticket is `Done`. Any unresolved scaffold gap or failing quality gate identified here must be fixed or explicitly accepted with documented risk before sign-off is recorded.
+Formally close Phase 3 by verifying that all prerequisite and workstream tickets (RHI-019 through RHI-029 plus RHI-104, RHI-105, and RHI-107) are complete, the Hugo scaffold is deployable end-to-end, all blocking quality gates are passing in CI, staged baseline checks are resolved or risk-accepted, and the Phase 4 content migration team has received and acknowledged the Phase 3 handover package. Phase 4 content migration and Phase 5 SEO discoverability work must not begin until this ticket is `Done`. Any unresolved scaffold gap or failing quality gate identified here must be fixed or explicitly accepted with documented risk before sign-off is recorded.
 
 ---
 
@@ -32,6 +32,7 @@ Formally close Phase 3 by verifying that all prerequisite and workstream tickets
   - [ ] RHI-028 Done — Security, Privacy, and Operational Hardening (`SECURITY-CONTROLS.md` complete, mixed-content clean)
   - [ ] RHI-029 Done — CI/CD and Deployment Scaffolding (deployment workflow successful)
   - [ ] RHI-104 Done — Shared discovery surfaces and list-page UI implemented on the shipped scaffold paths
+  - [ ] RHI-107 Done — Homepage/archive/shared-shell visual alignment matches the approved generated design examples
   - [ ] RHI-105 Done — Article readability and contextual-navigation UI implemented with graceful fallbacks
 - [ ] All Phase 3 Exit Gate conditions are met (from `analysis/plan/details/phase-3.md §Exit Gate to Phase 4`):
   - [ ] CI pipeline is passing on scaffold-only content
@@ -44,6 +45,7 @@ Formally close Phase 3 by verifying that all prerequisite and workstream tickets
   - [ ] Repository scaffolding supports deterministic local and CI builds
   - [ ] Core template types exist and include shared SEO primitives
   - [ ] Discovery and article UI layers are implemented without duplicating SEO logic
+  - [ ] Structural and screenshot-level visual acceptance are both satisfied or explicitly risk-accepted with owner sign-off
   - [ ] Front matter contract is machine-validated in CI
   - [ ] URL parity checks are implemented and release-blocking
   - [ ] Pages deployment workflow is configured and successfully deploys test artifact
@@ -52,10 +54,11 @@ Formally close Phase 3 by verifying that all prerequisite and workstream tickets
   - [ ] Staging noindex controls are verified
   - [ ] Outstanding risks have owners, mitigations, and target resolution phases
 - [ ] `migration/phase-3-signoff.md` is committed with:
-  - [ ] Summary of all Phase 3 workstream outcomes (RHI-020 through RHI-029 plus RHI-104 through RHI-105) with ticket IDs and file paths
+  - [ ] Summary of all Phase 3 workstream outcomes (RHI-020 through RHI-029 plus RHI-104, RHI-105, and RHI-107) with ticket IDs and file paths
   - [ ] Phase 3 Definition of Done compliance statement
   - [ ] Outstanding risks with owners and mitigation plans
   - [ ] Phase 4 entry conditions — what Phase 4 can rely on from Phase 3 outputs
+  - [ ] Any accepted deviation from the approved generated design examples is explicitly documented with owner approval
   - [ ] Stakeholder sign-off block (migration owner, SEO owner, engineering owner)
 - [ ] Phase 4 team has confirmed receipt of the Phase 3 handover package
 - [ ] 5% URL-change threshold status is reported: is the edge redirect layer mandatory before Phase 7?
@@ -64,7 +67,7 @@ Formally close Phase 3 by verifying that all prerequisite and workstream tickets
 
 ### Tasks
 
-- [ ] Confirm each workstream ticket is `Done` (run through checklist in Acceptance Criteria)
+- [ ] Confirm each workstream ticket is `Done` (run through checklist in Acceptance Criteria), including `RHI-107` screenshot-fidelity scope
 - [ ] Run all blocking quality gates locally against the final scaffold commit to verify end-to-end pass:
   - [ ] `npm run validate:frontmatter`
   - [ ] `hugo --minify --environment production`
@@ -92,6 +95,7 @@ Formally close Phase 3 by verifying that all prerequisite and workstream tickets
   - [ ] Workstream outcomes table (ticket ID, deliverable, file path)
   - [ ] Definition of Done compliance checklist
   - [ ] Exit gate status (all four conditions from phase-3.md)
+  - [ ] Structural versus visual-acceptance status for the discovery and article surfaces
   - [ ] Outstanding risks accepted for Phase 4 (with owners)
   - [ ] Phase 4 entry conditions
   - [ ] 5% threshold status
@@ -129,6 +133,7 @@ Formally close Phase 3 by verifying that all prerequisite and workstream tickets
 | RHI-029 Done | Ticket | Pending |
 | RHI-104 Done | Ticket | Pending |
 | RHI-105 Done | Ticket | Pending |
+| RHI-107 Done | Ticket | Pending |
 | Migration owner, SEO owner, and engineering owner available for sign-off | Access | Pending |
 
 ---
@@ -161,7 +166,7 @@ Formally close Phase 3 by verifying that all prerequisite and workstream tickets
 **Delivered artefacts:**
 
 - `migration/phase-3-signoff.md`
-- All Phase 3 workstream tickets (RHI-020 through RHI-029 plus RHI-104 through RHI-105) confirmed `Done` and documented
+- All Phase 3 workstream tickets (RHI-020 through RHI-029 plus RHI-104, RHI-105, and RHI-107) confirmed `Done` and documented
 
 **Deviations from plan:**
 
@@ -174,6 +179,7 @@ Formally close Phase 3 by verifying that all prerequisite and workstream tickets
 | Date | Status | Note |
 |------|--------|------|
 | 2026-03-07 | Open | Ticket created |
+| 2026-03-10 | Open | Sign-off criteria expanded so discovery/article surfaces must also reconcile the approved generated design examples, not only the structural scaffold tickets. |
 
 ---
 

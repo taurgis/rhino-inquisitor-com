@@ -1,0 +1,12 @@
+<section class="archive-controls" aria-label="Archive filters and sorting">
+  <div class="archive-controls__mobile">
+    <details>
+      <summary>Browse by topic, type, and year</summary>
+      {{ partial "archive/filter-groups.html" (merge . (dict "idPrefix" "archive-mobile")) }}
+    </details>
+  </div>
+
+  <aside class="archive-rail" aria-label="Archive filter rail">
+    {{ partial "archive/filter-groups.html" (merge . (dict "idPrefix" "archive-desktop")) }}
+  </aside>
+</section>

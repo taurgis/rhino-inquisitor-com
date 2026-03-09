@@ -1,0 +1,49 @@
+{{ $blogPage := site.GetPage "/posts" }}
+{{ $topicsPage := site.GetPage "/categories" }}
+{{ $rssFormat := .Site.Home.OutputFormats.Get "rss" }}
+{{ $blogHref := printf "%sposts/" .Site.Home.Permalink }}
+{{ $topicsHref := printf "%scategory/" .Site.Home.Permalink }}
+{{ $aboutHref := printf "%sabout/#contact" .Site.Home.Permalink }}
+{{ $privacyHref := printf "%sprivacy-policy/" .Site.Home.Permalink }}
+{{ $archiveSearchHref := printf "%sposts/#archive-search" .Site.Home.Permalink }}
+{{ with $blogPage }}
+  {{ $blogHref = .Permalink }}
+  {{ $archiveSearchHref = printf "%s#archive-search" .Permalink }}
+{{ end }}
+{{ with $topicsPage }}{{ $topicsHref = .Permalink }}{{ end }}
+
+<footer class="site-footer">
+  <div class="surface-shell site-footer__inner surface-panel">
+    <div class="site-footer__lead">
+      <p class="eyebrow">Rhino Inquisitor</p>
+      <p>An editorial Hugo scaffold for readable articles, durable archive browsing, and migration-safe discovery surfaces.</p>
+    </div>
+
+    <div class="footer-link-grid">
+      <section class="footer-link-group">
+        <h2>Explore</h2>
+        <ul>
+          <li><a href="{{ .Site.Home.Permalink }}">Home</a></li>
+          <li><a href="{{ $blogHref }}">Blog Archive</a></li>
+          <li><a href="{{ $topicsHref }}">Topics</a></li>
+        </ul>
+      </section>
+
+      <section class="footer-link-group">
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="{{ $aboutHref }}">About and contact notes</a></li>
+          {{ with $rssFormat }}<li><a href="{{ .Permalink }}">RSS feed</a></li>{{ end }}
+        </ul>
+      </section>
+
+      <section class="footer-link-group">
+        <h2>Legal</h2>
+        <ul>
+          <li><a href="{{ $privacyHref }}">Privacy policy</a></li>
+          <li><a href="{{ $archiveSearchHref }}">Archive search surface</a></li>
+        </ul>
+      </section>
+    </div>
+  </div>
+</footer>

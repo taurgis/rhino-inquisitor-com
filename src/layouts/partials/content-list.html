@@ -1,36 +1,43 @@
-{{ $pages := .RegularPages.ByDate.Reverse }}
-{{ $paginator := .Paginate $pages }}
+{{ $groups := .groups | default (slice) }}
+{{ $paginator := .paginator }}
+{{ $resultCount := .resultCount | default 0 }}
 
-<section>
-  <h1>{{ .Title }}</h1>
-  {{ with .Params.description }}
-    <p>{{ . }}</p>
-  {{ end }}
+<section class="archive-results" id="archive-results" aria-labelledby="archive-results-heading">
+  <div class="archive-results__head">
+    <div>
+      <p class="eyebrow">ARCH-02</p>
+      <h2 id="archive-results-heading">{{ .heading | default "Browse the archive" }}</h2>
+    </div>
+    <p class="archive-results__summary">Showing <strong>{{ $resultCount }}</strong> {{ cond (eq $resultCount 1) "result" "results" }} in the current archive view.</p>
+  </div>
 
-  {{ if gt (len $paginator.Pages) 0 }}
-    <ul>
-      {{ range $paginator.Pages }}
-        <li>
-          {{ $page := . }}
-          {{ with .Params.heroImage }}
-            {{ partial "media/image.html" (dict
-              "page" $page
-              "src" .
-              "alt" ($page.Params.heroImageAlt | default $page.LinkTitle | default $page.Title)
-              "class" "content-list-image"
-              "loading" "lazy"
-            ) }}
-          {{ end }}
-          <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>
-          {{ with .Params.description }}
-            <p>{{ . }}</p>
-          {{ end }}
-        </li>
+  {{ if gt $resultCount 0 }}
+    <div class="archive-year-groups">
+      {{ range $groups }}
+        <section class="archive-year-group" id="year-{{ .Key }}">
+          <div class="archive-year-group__header">
+            <h3>{{ .Key }}</h3>
+            <p class="surface-note">{{ len .Pages }} {{ cond (eq (len .Pages) 1) "entry" "entries" }} in this year cluster.</p>
+          </div>
+          <ul class="article-card-grid" role="list">
+            {{ range .Pages }}
+              <li>{{ partial "cards/article-card.html" (dict "page" .) }}</li>
+            {{ end }}
+          </ul>
+        </section>
       {{ end }}
-    </ul>
+    </div>
   {{ else }}
-    <p>No content is available for this page yet.</p>
+    {{ partial "empty-state.html" (dict
+      "eyebrow" "ARCH-02"
+      "title" (.emptyTitle | default "This archive is ready for migrated content")
+      "copy" (.emptyCopy | default "Keep the search, filter, and pagination shell visible while future batches populate this surface.")
+      "actionHref" .emptyActionHref
+      "actionLabel" (.emptyActionLabel | default "Return home")
+    ) }}
   {{ end }}
 
-  {{ partial "pagination.html" $paginator }}
+  {{ with $paginator }}
+    {{ partial "pagination.html" . }}
+  {{ end }}
 </section>

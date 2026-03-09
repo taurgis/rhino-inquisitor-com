@@ -6,15 +6,24 @@ Scope: Implementation-ready checklist mapped to the shipped Phase 3 scaffold pat
 ## Scope and traceability
 
 - Wireframe source: [analysis/design/low-fi-wireframes-2026-03-08.md](analysis/design/low-fi-wireframes-2026-03-08.md)
+- High-fidelity visual reference source: [analysis/design/generated-images/design-examples/README.md](analysis/design/generated-images/design-examples/README.md)
 - Wireframe IDs in scope: WF-HOME-D, WF-HOME-M, WF-ARCH-D, WF-ARCH-M, WF-ART-D, WF-ART-M
 - Annotation keys in scope: NAV-01, HERO-01, DISC-01, DISC-02, DISC-03, PROJ-01, ARCH-01, ARCH-02, ART-01, ART-02, ART-03
+
+## Structural vs visual contract
+
+- The low-fidelity wireframes remain the source of truth for structural regions, responsive order, and module presence.
+- The generated design examples under `analysis/design/generated-images/design-examples/` are the source of truth for screenshot-level visual direction, including typography hierarchy, accent usage, card density, chrome treatment, and editorial spacing.
+- Sample copy, sample counts, and illustration specifics in the generated design examples are non-binding unless a ticket explicitly promotes them into a content requirement.
+- Structural completion and visual completion must be tracked separately in ticket outcomes so a ticket is not marked complete on structural coverage alone when screenshot parity is still outstanding.
 
 ## Ticket ownership
 
 - `RHI-104` owns the global shell, homepage discovery, archive/category listing, and shared UI primitives.
-- `RHI-105` owns article readability, TOC behavior, related-content presentation, and contextual footer actions.
+- `RHI-105` owns article readability, TOC behavior, related-content presentation, contextual footer actions, and article screenshot-level visual parity.
+- `RHI-107` owns homepage, archive, taxonomy, and shared-shell screenshot-level visual parity against the generated design examples.
 - `RHI-106` owns the optional discovery/readability metadata extension under `params`; it does not replace the existing front matter baseline.
-- Accessibility checks `CL-070` through `CL-072` are shared verification gates for both `RHI-104` and `RHI-105`.
+- Accessibility checks `CL-070` through `CL-072` are shared verification gates for `RHI-104`, `RHI-105`, and `RHI-107`.
 
 ## Hugo lookup contract (implementation guardrails)
 
@@ -49,13 +58,13 @@ Scope: Implementation-ready checklist mapped to the shipped Phase 3 scaffold pat
 
 | Wireframe ID | Annotation keys | Primary template/partials | Owner |
 |-------------|------------------|---------------------------|-------|
-| WF-HOME-D, WF-HOME-M | NAV-01, HERO-01, DISC-01, DISC-02, DISC-03, PROJ-01 | `src/layouts/home.html`, `src/layouts/_default/baseof.html`, shared site/card partial targets under `src/layouts/partials/` | `RHI-104` |
-| WF-ARCH-D, WF-ARCH-M | NAV-01, ARCH-01, ARCH-02 | `src/layouts/_default/list.html`, `src/layouts/_default/taxonomy.html`, `src/layouts/_default/term.html`, search/filter partial targets under `src/layouts/partials/` | `RHI-104` |
-| WF-ART-D, WF-ART-M | NAV-01, ART-01, ART-02, ART-03 | `src/layouts/_default/single.html`, `src/layouts/partials/breadcrumbs.html`, article partial targets under `src/layouts/partials/article/` | `RHI-105` |
+| WF-HOME-D, WF-HOME-M | NAV-01, HERO-01, DISC-01, DISC-02, DISC-03, PROJ-01 | `src/layouts/home.html`, `src/layouts/_default/baseof.html`, shared site/card partial targets under `src/layouts/partials/` | `RHI-104` structural, `RHI-107` visual |
+| WF-ARCH-D, WF-ARCH-M | NAV-01, ARCH-01, ARCH-02 | `src/layouts/_default/list.html`, `src/layouts/_default/taxonomy.html`, `src/layouts/_default/term.html`, search/filter partial targets under `src/layouts/partials/` | `RHI-104` structural, `RHI-107` visual |
+| WF-ART-D, WF-ART-M | NAV-01, ART-01, ART-02, ART-03 | `src/layouts/_default/single.html`, `src/layouts/partials/breadcrumbs.html`, article partial targets under `src/layouts/partials/article/` | `RHI-105` structural and visual |
 
 ## Global layout checklist (base, header, footer)
 
-Owner: `RHI-104`
+Owner: `RHI-104` for structural completion; `RHI-107` for screenshot-level visual parity on the same surfaces
 
 - [ ] CL-001 Base layout defines primary slots for head, header, main, and footer. (WF-HOME-*, WF-ARCH-*, WF-ART-*)
 - [ ] CL-002 Header includes logo, primary nav, and search entry in desktop layout. (NAV-01)
@@ -65,7 +74,7 @@ Owner: `RHI-104`
 
 ## Homepage checklist (hero + discovery lanes)
 
-Owner: `RHI-104`
+Owner: `RHI-104` for structural completion; `RHI-107` for screenshot-level visual parity on the same surfaces
 
 - [ ] CL-010 Hero contains short intro copy and two CTAs: Start Reading and Browse Topics. (HERO-01)
 - [ ] CL-011 Discovery lanes include Featured long-form, Recent posts, and Topic hubs. (DISC-01/02/03)
@@ -78,7 +87,7 @@ Owner: `RHI-104`
 
 ## Archive checklist (search + filters + listing)
 
-Owner: `RHI-104`
+Owner: `RHI-104` for structural completion; `RHI-107` for screenshot-level visual parity on the same surfaces
 
 - [ ] CL-020 Archive header includes title and one-line description. (WF-ARCH-*)
 - [ ] CL-021 Search bar defaults to blog scope, shows scope in placeholder text, and can be delivered as a crawl-safe UI shell without a search backend. (ARCH-01)
@@ -138,7 +147,8 @@ Shared verification gates for `RHI-104` and `RHI-105`
 
 - Shipped scaffold anchors take precedence over earlier proposed component paths; extracted partial targets should be confirmed by the owning ticket when implementation closes.
 - If front matter uses `type` or `layout`, align template paths with Hugo lookup rules.
-- `RHI-104` owns global shell, homepage, archive/category listing, and shared discovery primitives.
-- `RHI-105` owns article readability, TOC, related-content, and contextual navigation patterns.
+- `RHI-104` owns global shell, homepage, archive/category listing, and shared discovery primitives at the structural level.
+- `RHI-107` owns screenshot-level visual alignment for the shared shell, homepage, archive, and taxonomy surfaces.
+- `RHI-105` owns article readability, TOC, related-content, contextual navigation patterns, and article screenshot-level visual alignment.
 - `RHI-106` owns additive discovery/readability metadata under `params`; it does not replace the Phase 2 top-level front matter contract.
-- The checklist is designed to be used in parallel with the low-fidelity wireframes.
+- The checklist is designed to be used in parallel with the low-fidelity wireframes and the generated design examples.

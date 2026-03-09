@@ -1,50 +1,41 @@
 {{ define "main" }}
   {{ partial "breadcrumbs.html" . }}
 
-  <article>
-    <header>
+  <article class="page-article">
+    <header class="page-article__header">
       <h1>{{ .Title }}</h1>
-      <ul>
-        {{ if eq .Type "posts" }}
-          {{ with .Date }}
-            <li>Published: <time datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}">{{ .Format "2006-01-02" }}</time></li>
-          {{ end }}
-        {{ end }}
-        {{ with .Lastmod }}
-          <li>Updated: <time datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}">{{ .Format "2006-01-02" }}</time></li>
-        {{ end }}
-        {{ if eq .Type "posts" }}
-          <li>Reading time: {{ .ReadingTime }} min</li>
-        {{ end }}
-      </ul>
+      {{ partial "article/meta-row.html" (dict "page" . "label" "Article details") }}
       {{ with .Params.description }}
         <p>{{ . }}</p>
       {{ end }}
       {{ with .Params.heroImage }}
-        {{ partial "media/image.html" (dict
-          "page" $
-          "src" .
-          "alt" ($.Params.heroImageAlt | default $.LinkTitle | default $.Title)
-          "class" "article-hero"
-          "loading" "eager"
-          "decoding" "sync"
-        ) }}
+        <div class="page-article__hero">
+          {{ partial "media/image.html" (dict
+            "page" $
+            "src" .
+            "alt" ($.Params.heroImageAlt | default $.LinkTitle | default $.Title)
+            "loading" "eager"
+            "decoding" "sync"
+          ) }}
+        </div>
       {{ end }}
     </header>
 
-    {{ with .TableOfContents }}
-      <aside>
-        <h2 id="table-of-contents-heading">Contents</h2>
-        {{ replace . "<nav id=\"TableOfContents\">" "<nav id=\"TableOfContents\" aria-labelledby=\"table-of-contents-heading\">" | safeHTML }}
-      </aside>
-    {{ end }}
+    <div class="page-article__body">
+      <section class="article-body">
+        {{ if .Content }}
+          {{ .Content }}
+        {{ else }}
+          <p>No body content has been added yet.</p>
+        {{ end }}
+      </section>
 
-    <section>
-      {{ if .Content }}
-        {{ .Content }}
-      {{ else }}
-        <p>No body content has been added yet.</p>
+      {{ with .TableOfContents }}
+        <aside class="article-aside">
+          <h2 id="table-of-contents-heading">Contents</h2>
+          {{ replace . "<nav id=\"TableOfContents\">" "<nav id=\"TableOfContents\" aria-labelledby=\"table-of-contents-heading\">" | safeHTML }}
+        </aside>
       {{ end }}
-    </section>
+    </div>
   </article>
 {{ end }}

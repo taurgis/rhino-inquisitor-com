@@ -1,0 +1,8 @@
+<div class="empty-state"{{ with .id }} id="{{ . }}"{{ end }}>
+  <p class="eyebrow">{{ .eyebrow | default "Scaffold ready" }}</p>
+  <h3>{{ .title }}</h3>
+  <p>{{ .copy }}</p>
+  {{ with .actionHref }}
+    <a class="empty-state__action" href="{{ . }}">{{ $.actionLabel | default "Browse the archive" }}</a>
+  {{ end }}
+</div>
