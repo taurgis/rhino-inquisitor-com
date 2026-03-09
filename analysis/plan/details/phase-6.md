@@ -39,6 +39,7 @@ In scope:
 5. Redirect quality gates and parity validation automation.
 6. Post-launch redirect monitoring and incident response thresholds.
 7. Security controls for redirect safety (open redirect prevention, host enforcement).
+8. Preview-host validation boundaries so project-site rehearsal checks are not mistaken for final custom-domain or true `301`/`308` behavior.
 
 Out of scope:
 1. Bulk content transformation internals (Phase 4).
@@ -127,6 +128,7 @@ What Pages should not be assumed to do by itself:
 Implementation consequence:
 1. If migration needs deterministic per-path HTTP status behavior at scale, use Model B.
 2. If using Model A, use Hugo alias pages and verify outcomes with URL-level tests.
+3. The project-site preview host only validates subpath routing and alias-helper behavior; it does not prove final custom-domain consolidation, DNS, HTTPS issuance, or true server-side redirect semantics.
 
 ## Workstream A: Legacy URL Inventory Finalization
 Goal: lock redirect scope and prevent launch-time unknown URLs.
@@ -273,7 +275,7 @@ Goal: execute launch with bounded risk and fast recovery.
 Pre-cutover checklist:
 1. Redirect architecture decision is signed off.
 2. Final redirect map is frozen and version tagged.
-3. Representative legacy URLs (top traffic + top backlinks) pass manual verification.
+3. Representative legacy URLs (top traffic + top backlinks) pass manual verification on the preview Pages host where applicable.
 4. Search Console ownership and access continuity confirmed for all relevant host/protocol variants.
 5. Rollback trigger criteria agreed and communication path defined.
 6. Monitoring expectations are documented:
@@ -283,6 +285,7 @@ Pre-cutover checklist:
 7. Link-update plan is prepared:
 - internal links are fully migrated to destination URLs,
 - top external referrer/backlink sources are queued for outreach updates.
+8. Production validation build confirms zero preview-host targets in redirect helpers, canonicals, sitemaps, or other host-sensitive outputs.
 
 Rollback triggers:
 1. High-value URL failures exceed 5 priority URLs or 2 percent of priority-route sample in first 24 hours.
@@ -417,6 +420,7 @@ Phase 7 deployment cutover and Phase 8 launch readiness may proceed only if:
 2. Redirect map is frozen and signed off.
 3. Critical route-class manual verification is complete.
 4. Rollback path is tested at least once on staging/pre-production process.
+5. Preview Pages rehearsal verification is complete and the production build is free of preview-host leakage.
 
 ## Suggested Timeline (6-9 Working Days)
 1. Days 1-2: finalize inventory, mapping specification, and architecture decision.

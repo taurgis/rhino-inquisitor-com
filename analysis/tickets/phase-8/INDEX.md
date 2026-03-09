@@ -3,7 +3,7 @@
 ## Project: Rhino Inquisitor — WordPress to Hugo Migration
 
 **Phase:** 8 — Validation and Launch Readiness  
-**Goal:** Convert migration quality checks into objective release gates so the launch decision is evidence-based. Validate every hard-blocker gate (URL parity, redirect integrity, SEO consistency, structured data, performance, accessibility, security, and HTTPS) on the designated release candidate, execute a rehearsal deployment and smoke test run, drill the rollback, and record a formal go/no-go decision with named approvals before handing off to Phase 9 (Cutover and Post-Launch Monitoring).  
+**Goal:** Convert migration quality checks into objective release gates so the production cutover decision is evidence-based. Validate every hard-blocker gate on the designated release candidate, execute the public rehearsal on `https://taurgis.github.io/rhino-inquisitor-com/`, confirm the separate production validation build is clean, drill the rollback, and record a formal go/no-go decision with named approvals before handing off to Phase 9 production cutover.  
 **Timeline:** 8–10 working days  
 **Phase detail:** [`analysis/plan/details/phase-8.md`](../../analysis/plan/details/phase-8.md)
 
@@ -151,7 +151,7 @@ All items below must be complete before Phase 9 monitoring and cutover activitie
 - [ ] RHI-088 Done — Lighthouse CI blocking thresholds passing; performance budget report committed
 - [ ] RHI-089 Done — Axe accessibility gate passing; manual checklist completed; HTML conformance gate passing
 - [ ] RHI-090 Done — HTTPS enforcement confirmed; no mixed content; CAA and domain verification checked
-- [ ] RHI-091 Done — All gates pass on final RC; rehearsal deployment executed; smoke tests pass; rollback drilled; Go/No-Go decision recorded as Go
+- [ ] RHI-091 Done — All gates pass on final RC; preview-host rehearsal executed and verified; production validation build is clean; rollback drilled; Go/No-Go decision recorded as Go
 - [ ] RHI-092 Done — Phase 8 sign-off document committed; Phase 9 team acknowledges handover; `phase-8-signoff` git tag set
 
 ---
@@ -160,16 +160,18 @@ All items below must be complete before Phase 9 monitoring and cutover activitie
 
 These constraints are hard requirements from `analysis/plan/details/phase-8.md` — they are not optional and cannot be deferred:
 
-1. **URL parity gate must pass for 100% of in-scope legacy URLs** — no unresolved or mismapped URLs are carried to launch.
-2. **Zero redirect chains on migration routes** — any chain is a blocking defect regardless of chain depth.
-3. **Zero canonical mismatches on priority routes** — canonical, sitemap, and internal links must agree on final URLs.
-4. **No accidental `noindex` on indexable pages** — verified programmatically and by manual review.
-5. **All required structured data schema types pass Rich Results Test with no critical errors.**
-6. **HTTPS enforced on canonical host before go/no-go** — valid cert, Enforce HTTPS enabled, no critical mixed content.
-7. **Lighthouse blocking thresholds pass on homepage and article template** — Performance ≥ 90, SEO ≥ 95.
-8. **Zero critical axe accessibility violations on any representative template.**
-9. **Rollback drill completed with rollback initiation confirmed within 60 minutes.**
-10. **All required approvers have signed the go/no-go decision document** — no verbal approvals.
+1. **Preview-host rehearsal gate passes on `https://taurgis.github.io/rhino-inquisitor-com/`** — path-prefix behavior and preview `noindex` are verified before cutover approval.
+2. **URL parity gate must pass for 100% of in-scope legacy URLs** — no unresolved or mismapped URLs are carried to launch.
+3. **Zero redirect chains on migration routes** — any chain is a blocking defect regardless of chain depth.
+4. **Zero canonical mismatches on priority routes** — canonical, sitemap, and internal links must agree on final URLs.
+5. **No accidental `noindex` on indexable production pages** — verified programmatically and by manual review.
+6. **All required structured data schema types pass Rich Results Test with no critical errors.**
+7. **HTTPS enforced on canonical host before go/no-go** — valid cert, Enforce HTTPS enabled, no critical mixed content.
+8. **Lighthouse blocking thresholds pass on homepage and article template** — Performance ≥ 90, SEO ≥ 95.
+9. **Zero critical axe accessibility violations on any representative template.**
+10. **Production validation build shows zero preview-host leakage and zero accidental `noindex`.**
+11. **Rollback drill completed with rollback initiation confirmed within 60 minutes.**
+12. **All required approvers have signed the go/no-go decision document** — no verbal approvals.
 
 ---
 

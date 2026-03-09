@@ -7,15 +7,15 @@
 **Assigned to:** Engineering Owner  
 **Target date:** 2026-05-21  
 **Created:** 2026-03-07  
-**Updated:** 2026-03-07
+**Updated:** 2026-03-09
 
 ---
 
 ### Goal
 
-Produce a hardened, auditable GitHub Pages deployment workflow that can publish the migrated Hugo site deterministically from a protected release branch, enforces minimum permissions, prevents overlapping deploys, and exposes deployment URL and environment status so downstream smoke tests and sign-off can use it as a reliable reference.
+Produce a hardened, auditable GitHub Pages deployment workflow that can publish the migrated Hugo site deterministically from a protected release branch to the preview host `https://taurgis.github.io/rhino-inquisitor-com/`, enforces minimum permissions, prevents overlapping deploys, and exposes deployment URL and environment status so downstream smoke tests and sign-off can use it as a reliable reference.
 
-Phase 3 created a scaffold deployment workflow (RHI-029) as a structural baseline. This workstream upgrades it to a production-grade pipeline with environment protections, correct concurrency configuration, explicit dependency ordering between build and deploy jobs, with a dedicated validation integration point for WS-F quality gates. The Phase 3 scaffold is not sufficient on its own for a live production cutover.
+Phase 3 created a scaffold deployment workflow (RHI-029) as a structural baseline and public preview deployment. This workstream upgrades it to a production-grade pipeline with environment protections, correct concurrency configuration, explicit dependency ordering between build and deploy jobs, and a separate production-validation path so preview rehearsal and production cutover readiness can be assessed independently.
 
 ---
 
@@ -31,13 +31,15 @@ Phase 3 created a scaffold deployment workflow (RHI-029) as a structural baselin
   - [ ] `env: HUGO_VERSION` is set at workflow level to a pinned version (not `latest`)
   - [ ] Build job uses `actions/checkout@v4` with `fetch-depth: 0`
   - [ ] Build job runs `actions/configure-pages` before the Hugo build step
-  - [ ] Build command is `hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}/"` using the Pages-injected base URL
+  - [ ] Preview deployment build command is `hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}/"` using the Pages-injected base URL
   - [ ] `actions/upload-pages-artifact` is called with `path: ./public` after successful build
   - [ ] Deploy job declares `needs: build` (or the equivalent gate-job name) — deploy cannot run unless build succeeds
   - [ ] Deploy job declares `environment: name: github-pages, url: ${{ steps.deployment.outputs.page_url }}`
   - [ ] Deploy job uses `actions/deploy-pages` as the final step
   - [ ] Deploy job has `permissions: pages: write` and `id-token: write` scoped to that job only
   - [ ] Deploy workflow includes a dedicated validation integration point (`validate` job or equivalent) for WS-F to wire full gate coverage without restructuring deploy semantics
+  - [ ] Workflow records successful preview deployment evidence for `https://taurgis.github.io/rhino-inquisitor-com/`
+  - [ ] Workflow or documented companion job supports a separate production validation build with `https://www.rhino-inquisitor.com/` as the expected host before cutover approval
 - [ ] `.github/workflows/build-pr.yml` exists and:
   - [ ] Triggers on `pull_request` targeting the release branch
   - [ ] Declares `permissions: contents: read`
@@ -67,6 +69,8 @@ Phase 3 created a scaffold deployment workflow (RHI-029) as a structural baselin
   - [ ] Verify `HUGO_VERSION` is pinned and not `latest`
   - [ ] Verify `actions/configure-pages` is called before Hugo build
   - [ ] Verify `baseURL` uses `${{ steps.pages.outputs.base_url }}/` (not a hard-coded value)
+  - [ ] Verify preview deployment URL is captured and can be referenced by later rehearsal checks
+  - [ ] Verify the workflow architecture supports a separate production validation build path without changing deploy semantics
   - [ ] Verify deploy job has correct `needs`, `environment`, and permission scope
   - [ ] Verify no broader-than-required permissions exist at the top level
 - [ ] Harden `deploy-pages.yml` with any gaps found in the audit:
@@ -171,6 +175,7 @@ Phase 3 created a scaffold deployment workflow (RHI-029) as a structural baselin
 
 - `concurrency.cancel-in-progress: false` on the deploy job is a hard requirement. GitHub Pages deploys cannot be safely interrupted mid-flight — an interrupted deploy can leave the Pages site in a partially updated or unavailable state.
 - The build command must use `${{ steps.pages.outputs.base_url }}/` (from `actions/configure-pages`) as the base URL, not a hard-coded `https://www.rhino-inquisitor.com`. This ensures the workflow functions correctly during staging/preview deployments and correctly resolves to the production domain when deployed to the live `github-pages` environment.
+- RHI-029 already proved public preview deployment on the GitHub Pages project URL. This ticket hardens that preview deployment path and adds the production-validation readiness required before live cutover.
 - For custom workflow deployments, the `github-pages` environment is the control plane. Environment protection rules are configured in Settings → Environments, not in the workflow file itself. The workflow file's `environment:` declaration binds the deploy job to that environment; the protection rules are enforced by GitHub.
 - `fetch-depth: 0` is required if Hugo uses `.GitInfo` or `.Lastmod` from git history. Without it, shallow clones return incorrect or empty git metadata, which can cause incorrect `lastmod` values in the sitemap.
 - Reference: `analysis/plan/details/phase-7.md` §Workstream A: Deployment Workflow Architecture; `.github/instructions/ci-workflow-standards.instructions.md`; https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages

@@ -19,9 +19,9 @@ This is the top-level ticket index for the full migration project. Use the phase
 | 4 | Content Migration Pipeline | RHI-031 – RHI-046, RHI-106 | Open | [phase-4/INDEX.md](phase-4/INDEX.md) |
 | 5 | SEO and Discoverability | RHI-047 – RHI-060 | Open | [phase-5/INDEX.md](phase-5/INDEX.md) |
 | 6 | URL Preservation and Redirect Strategy | RHI-061 – RHI-072 | Open | [phase-6/INDEX.md](phase-6/INDEX.md) |
-| 7 | GitHub Pages Deployment and Domain Cutover | RHI-073 – RHI-082 | Open | [phase-7/INDEX.md](phase-7/INDEX.md) |
+| 7 | GitHub Pages Preview Deployment and Domain Cutover Readiness | RHI-073 – RHI-082 | Open | [phase-7/INDEX.md](phase-7/INDEX.md) |
 | 8 | Validation and Launch Readiness | RHI-083 – RHI-092 | Open | [phase-8/INDEX.md](phase-8/INDEX.md) |
-| 9 | Cutover and Post-Launch Monitoring | RHI-093 – RHI-103 | Open | [phase-9/INDEX.md](phase-9/INDEX.md) |
+| 9 | Production Cutover and Post-Launch Monitoring | RHI-093 – RHI-103 | Open | [phase-9/INDEX.md](phase-9/INDEX.md) |
 
 ---
 
@@ -57,7 +57,7 @@ This is the top-level ticket index for the full migration project. Use the phase
 | [RHI-026](phase-3/RHI-026-asset-performance-baseline.md) | Workstream G — Asset and Performance Baseline | 3 | Medium | Open | M | 2026-04-03 |
 | [RHI-027](phase-3/RHI-027-accessibility-ux-baseline.md) | Workstream H — Accessibility and UX Baseline | 3 | Medium | Open | M | 2026-04-03 |
 | [RHI-028](phase-3/RHI-028-security-privacy-hardening.md) | Workstream I — Security, Privacy, and Operational Hardening | 3 | Medium | Open | M | 2026-04-03 |
-| [RHI-029](phase-3/RHI-029-cicd-deployment-scaffolding.md) | Workstream J — CI/CD and Deployment Scaffolding | 3 | Critical | Open | L | 2026-04-04 |
+| [RHI-029](phase-3/RHI-029-cicd-deployment-scaffolding.md) | Workstream J — CI/CD and Deployment Scaffolding | 3 | Critical | Done | L | 2026-04-04 |
 | [RHI-030](phase-3/RHI-030-phase-3-signoff.md) | Phase 3 Sign-off and Handover to Phase 4 | 3 | Critical | Open | S | 2026-04-08 |
 | [RHI-031](phase-4/RHI-031-phase-4-bootstrap.md) | Phase 4 Bootstrap: Kickoff and Pipeline Environment Setup | 4 | Critical | Open | S | 2026-04-09 |
 | [RHI-032](phase-4/RHI-032-wordpress-content-extraction.md) | Workstream A — WordPress Content Extraction | 4 | Critical | Open | M | 2026-04-11 |
@@ -108,7 +108,7 @@ This is the top-level ticket index for the full migration project. Use the phase
 | [RHI-077](phase-7/RHI-077-https-issuance-security-controls.md) | Workstream D — HTTPS Issuance and Security Controls | 7 | High | Open | M | 2026-05-26 |
 | [RHI-078](phase-7/RHI-078-seo-safe-deployment-host-consolidation.md) | Workstream E — SEO-Safe Deployment and Host Consolidation | 7 | Critical | Open | M | 2026-05-27 |
 | [RHI-079](phase-7/RHI-079-deployment-quality-gates-tooling.md) | Workstream F — Deployment Quality Gates and Tooling | 7 | Critical | Open | M | 2026-05-28 |
-| [RHI-080](phase-7/RHI-080-launch-window-execution-runbook.md) | Workstream G — Launch Window Execution Runbook | 7 | Critical | Open | M | 2026-05-29 |
+| [RHI-080](phase-7/RHI-080-launch-window-execution-runbook.md) | Workstream G — Production Cutover Execution Runbook | 7 | Critical | Open | M | 2026-05-29 |
 | [RHI-081](phase-7/RHI-081-incident-response-rollback.md) | Workstream H — Incident Response and Rollback | 7 | Critical | Open | M | 2026-05-30 |
 | [RHI-082](phase-7/RHI-082-phase-7-signoff.md) | Phase 7 Sign-off and Handover to Phase 8/9 | 7 | Critical | Open | S | 2026-06-02 |
 | [RHI-083](phase-8/RHI-083-phase-8-bootstrap.md) | Phase 8 Bootstrap: Kickoff and Validation Environment Setup | 8 | Critical | Open | S | 2026-06-03 |
@@ -122,7 +122,7 @@ This is the top-level ticket index for the full migration project. Use the phase
 | [RHI-091](phase-8/RHI-091-operational-readiness-go-nogo.md) | Workstream H — Operational Readiness, Rehearsal, and Go/No-Go | 8 | Critical | Open | M | 2026-06-11 |
 | [RHI-092](phase-8/RHI-092-phase-8-signoff.md) | Phase 8 Sign-off and Handover to Phase 9 | 8 | Critical | Open | S | 2026-06-13 |
 | [RHI-093](phase-9/RHI-093-phase-9-bootstrap.md) | Phase 9 Bootstrap: Pre-Cutover Readiness and Team Alignment | 9 | Critical | Open | S | 2026-06-16 |
-| [RHI-094](phase-9/RHI-094-cutover-execution-immediate-verification.md) | Workstream A — Cutover Execution and Immediate Verification | 9 | Critical | Open | L | 2026-06-17 |
+| [RHI-094](phase-9/RHI-094-cutover-execution-immediate-verification.md) | Workstream A — Production Cutover Execution and Immediate Verification | 9 | Critical | Open | L | 2026-06-17 |
 | [RHI-095](phase-9/RHI-095-search-console-indexing-transition.md) | Workstream B — Search Console Activation and Indexing Transition | 9 | Critical | Open | M | 2026-07-29 |
 | [RHI-096](phase-9/RHI-096-redirect-retention-legacy-url-governance.md) | Workstream C — Redirect Retention and Legacy URL Governance | 9 | Critical | Open | M | 2026-07-29 |
 | [RHI-097](phase-9/RHI-097-incident-detection-triage-recovery.md) | Workstream D — Incident Detection, Triage, and Recovery | 9 | Critical | Open | M | 2026-07-29 |

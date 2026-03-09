@@ -3,7 +3,7 @@
 ## Purpose
 Convert migration quality checks into objective release gates so launch is evidence-based, not judgment-based.
 
-Phase 8 is the final technical control point before DNS cutover and public indexing impact. If Phase 8 is weak, migration regressions are discovered by users and crawlers instead of CI and controlled rehearsal.
+Phase 8 is the final technical control point between the GitHub Pages project-site rehearsal host and DNS cutover to the public custom domain. If Phase 8 is weak, migration regressions are discovered by users and crawlers instead of CI, preview-host rehearsal, and controlled launch checks.
 
 ## Why Phase 8 Is High Risk
 1. Passing build/deploy does not prove URL parity, crawlability, accessibility, or performance quality.
@@ -40,16 +40,18 @@ Out of scope:
 2. Long-term SEO growth experiments (handled after launch stabilization).
 
 ## Non-Negotiable Release Gates (Hard Blockers)
-1. URL parity gate passes for all in-scope legacy URLs with explicit outcomes.
-2. Redirect quality gate passes with direct redirects to final destinations, zero loops, and zero redirect chains on migration routes.
-3. Canonical consistency gate passes (canonical, sitemap, internal links agree on final URLs).
-4. Robots/noindex gate passes (no accidental blocking or accidental `noindex` on indexable pages).
-5. Structured data gate passes on representative templates with no critical errors.
-6. HTTPS gate passes (valid cert, enforce HTTPS enabled, no critical mixed content).
-7. Accessibility gate passes for defined representative templates and critical user paths against WCAG 2.2 AA criteria; no site-wide WCAG conformance claim is made without WCAG-EM evaluation/reporting.
-8. Performance gate passes required Lighthouse and budget thresholds.
-9. Launch smoke test gate passes on production-like environment.
-10. Rollback drill has been executed and timed before launch window.
+1. Preview-host rehearsal gate passes on `https://taurgis.github.io/rhino-inquisitor-com/` with correct path-prefix behavior and `noindex` protection.
+2. URL parity gate passes for all in-scope legacy URLs with explicit outcomes.
+3. Redirect quality gate passes with direct redirects to final destinations, zero loops, and zero redirect chains on migration routes.
+4. Canonical consistency gate passes (canonical, sitemap, internal links agree on final URLs).
+5. Robots/noindex gate passes (no accidental blocking or accidental `noindex` on indexable pages).
+6. Structured data gate passes on representative templates with no critical errors.
+7. HTTPS gate passes (valid cert, enforce HTTPS enabled, no critical mixed content).
+8. Accessibility gate passes for defined representative templates and critical user paths against WCAG 2.2 AA criteria; no site-wide WCAG conformance claim is made without WCAG-EM evaluation/reporting.
+9. Performance gate passes required Lighthouse and budget thresholds.
+10. Production validation build passes with zero preview-host leakage and zero accidental `noindex`.
+11. Launch smoke test gate passes on the live production host after cutover.
+12. Rollback drill has been executed and timed before launch window.
 
 ## Critical Corrections Encoded in This Phase
 1. Search migration signal correction:
@@ -73,9 +75,10 @@ Out of scope:
 5.2. If required security headers (for example CSP/HSTS) are not configurable at the origin host, enforce them through an edge/CDN layer.
 
 ## Validation Architecture
-Two-layer model:
+Three-layer model:
 1. Layer 1: CI gates on every release-candidate commit.
-2. Layer 2: pre-launch rehearsal against deployed release-candidate environment and live-domain dry run checks.
+2. Layer 2: pre-launch rehearsal against the deployed GitHub Pages project URL.
+3. Layer 3: production validation build before DNS cutover plus post-cutover smoke checks on the live custom domain.
 
 Principles:
 1. Every gate must produce machine-readable output artifacts.
@@ -309,7 +312,8 @@ Branch policy:
 3. Go/No-Go decision is recorded with approvals and any explicit risk acceptances.
 4. Rollback drill is completed with recovery objective of initiating rollback within 60 minutes.
 5. Search Console migration readiness items are completed (verification continuity, sitemap submissions, and monitoring dashboards).
-6. Phase 9 monitoring handoff package is complete.
+6. Preview-host rehearsal evidence and production-host revalidation evidence are both complete.
+7. Phase 9 monitoring handoff package is complete.
 
 ## Deliverables Produced by Phase 8
 1. [phase-8.md](phase-8.md) approved plan.
@@ -320,6 +324,8 @@ Branch policy:
 - `validation/seo-consistency-report.json`
 - `validation/robots-sitemap-report.json`
 - `validation/structured-data-report.json`
+- `validation/preview-launch-readiness-report.json`
+- `validation/production-host-smoke-report.json`
 4. Launch Go/No-Go checklist with named approvers and `LAUNCH-GATE-PASS-SUMMARY.md`.
 5. `CUTOVER-VERIFICATION-CHECKLIST.md` completed at T-24h with ownership sign-off from engineering, SEO, and incident commander.
 - Minimum checklist sections: `DNS and HTTPS`, `Host and Canonical Behavior`, `Priority URL Smoke Tests`, `Sitemap and Robots Reachability`, and `Rollback Readiness`.

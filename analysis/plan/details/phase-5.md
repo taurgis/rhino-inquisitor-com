@@ -148,6 +148,7 @@ Required controls:
 2. No accidental disallow rules for core content templates or required assets.
 3. `noindex` used intentionally and only where policy requires.
 4. Environment-specific controls for staging/previews to avoid accidental indexation.
+5. The preview host `https://taurgis.github.io/rhino-inquisitor-com/` remains crawlable `noindex`, uses preview-host URLs consistently, and is never submitted as the production Search Console or sitemap/feed target.
 
 Critical rule:
 1. Do not pair `Disallow` with a de-index objective when search engines need to crawl the page to see `noindex`.
@@ -162,6 +163,7 @@ Acceptance criteria:
 1. Zero unintended crawl blocks on indexable sections.
 2. Zero unintended `noindex` tags on release artifact.
 3. Zero `robots`/`noindex` contradiction defects in policy report.
+4. Production artifact contains zero preview-host references, and preview artifact checks are recorded separately as rehearsal evidence.
 
 ## Workstream D: Sitemap, Feed, and Discovery Surface Continuity
 Goal: preserve machine-readable discovery pathways before and after cutover.
@@ -173,6 +175,7 @@ Sitemap requirements:
 4. Maintain sitemap size/count limits with index files when needed.
 5. Ensure sitemap URLs are absolute and use the canonical scheme/host.
 6. Ensure `lastmod` is tied to meaningful content updates and not noisy rebuild timestamps.
+7. Preview Pages rehearsal outputs may emit preview-host sitemap/feed URLs for self-consistent testing, but those files are never submitted as production discovery signals.
 
 Feed requirements:
 1. Preserve active subscriber feed behavior (`/feed/` compatibility or explicit redirect mapping).
@@ -187,6 +190,7 @@ Archive and taxonomy requirements:
 Acceptance criteria:
 1. Sitemaps are valid, fetchable, and reference only canonical URLs.
 2. Feed endpoint behavior is documented, tested, and parity-checked.
+3. Production sitemap/feed artifacts contain zero `taurgis.github.io/rhino-inquisitor-com` references after the production build.
 
 ## Workstream E: Structured Data and Rich-Result Readiness
 Goal: maintain or improve rich-result eligibility and semantic clarity.
@@ -201,6 +205,7 @@ Policy requirements:
 1. Structured data must reflect visible page content.
 2. Required properties for each schema type must be present.
 3. Do not include unsupported or misleading structured data.
+4. Production structured-data URLs must use `https://www.rhino-inquisitor.com/`; preview-host structured data is allowed only in the crawlable `noindex` rehearsal artifact.
 
 Validation requirements:
 1. Rich Results Test pass for representative templates.

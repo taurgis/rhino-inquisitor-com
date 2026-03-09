@@ -3,7 +3,7 @@
 ## Project: Rhino Inquisitor — WordPress to Hugo Migration
 
 **Phase:** 9 — Cutover and Post-Launch Monitoring  
-**Goal:** Execute DNS and traffic cutover safely, then run a strict 6-week stabilization program that protects rankings, user experience, and security posture for https://www.rhino-inquisitor.com. Confirm the migration is complete with objective evidence and hand off to business-as-usual (BAU) operations.  
+**Goal:** Execute the production DNS and traffic cutover safely after preview-host rehearsal and Phase 8 go/no-go approval, then run a strict 6-week stabilization program that protects rankings, user experience, and security posture for https://www.rhino-inquisitor.com. Confirm the migration is complete with objective evidence and hand off to business-as-usual (BAU) operations.  
 **Timeline:** 7+ weeks (DNS cutover day + 6-week stabilization + sign-off)  
 **Phase detail:** [`analysis/plan/details/phase-9.md`](../../analysis/plan/details/phase-9.md)
 
@@ -16,7 +16,7 @@
 | Ticket ID | Title | Workstream | Priority | Status | Estimate | Target Date | Depends On |
 |-----------|-------|------------|----------|--------|----------|-------------|------------|
 | [RHI-093](RHI-093-phase-9-bootstrap.md) | Phase 9 Bootstrap: Pre-Cutover Readiness and Team Alignment | Setup | Critical | Open | S | 2026-06-16 | RHI-092 |
-| [RHI-094](RHI-094-cutover-execution-immediate-verification.md) | Workstream A — Cutover Execution and Immediate Verification | WS-A | Critical | Open | L | 2026-06-17 | RHI-093 |
+| [RHI-094](RHI-094-cutover-execution-immediate-verification.md) | Workstream A — Production Cutover Execution and Immediate Verification | WS-A | Critical | Open | L | 2026-06-17 | RHI-093 |
 | [RHI-095](RHI-095-search-console-indexing-transition.md) | Workstream B — Search Console Activation and Indexing Transition | WS-B | Critical | Open | M | 2026-07-29 | RHI-094 |
 | [RHI-096](RHI-096-redirect-retention-legacy-url-governance.md) | Workstream C — Redirect Retention and Legacy URL Governance | WS-C | Critical | Open | M | 2026-07-29 | RHI-094 |
 | [RHI-097](RHI-097-incident-detection-triage-recovery.md) | Workstream D — Incident Detection, Triage, and Recovery | WS-D | Critical | Open | M | 2026-07-29 | RHI-093 |
@@ -65,7 +65,7 @@ RHI-092 (Phase 8 Sign-off)
 | Workstream | Ticket | Focus Area | Timeline |
 |------------|--------|------------|----------|
 | Setup | RHI-093 | Bootstrap: pre-cutover readiness and role alignment | T-24h to T-0 |
-| WS-A | RHI-094 | Cutover execution and immediate verification | T-24h through T+24h |
+| WS-A | RHI-094 | Production cutover execution and immediate verification | T-24h through T+24h |
 | WS-B | RHI-095 | Search Console activation and indexing transition | T+0 through Week 6 |
 | WS-C | RHI-096 | Redirect retention and legacy URL governance | T+0 through Month 12 |
 | WS-D | RHI-097 | Incident detection, triage, and recovery | T-0 through Week 6 |
@@ -137,7 +137,7 @@ All items below must be complete before migration is formally closed:
 - [ ] RHI-096 Done — Priority legacy URL set approved; 12-month redirect retention calendar committed
 - [ ] RHI-097 Done — No open Sev-1 for 14 consecutive days; all Sev-2s resolved or accepted with owners
 - [ ] RHI-098 Done — Performance trend stable within Lighthouse and CWV thresholds through stabilization
-- [ ] RHI-099 Done — Canonical/sitemap/schema consistency stable for two consecutive weekly audits
+- [ ] RHI-099 Done — Canonical/sitemap/schema consistency stable for two consecutive weekly audits with zero preview-host leakage
 - [ ] RHI-100 Done — HTTPS enforced; TLS valid; no critical mixed content; domain verification active
 - [ ] RHI-101 Done — All weekly reviews complete; defect burndown stable; BAU schedule drafted
 - [ ] RHI-102 Done — All exit criteria met with evidence; stabilization summary signed; BAU handoff accepted
@@ -161,6 +161,8 @@ These constraints are hard requirements from `analysis/plan/details/phase-9.md` 
 10. **Redirect retention for moved URLs maintained for minimum 12 months** — no unilateral expiry.
 11. **Every Sev-1/Sev-2 incident must have a written timeline and root-cause entry** — no verbal-only resolutions.
 12. **WordPress production stack remains rollback-ready through stabilization Week 6 by default**; any shorter window requires explicit risk acceptance and can never be below Week 2.
+13. **Production launch is blocked unless preview-host rehearsal and production-host validation evidence are both complete.**
+14. **After cutover, no canonical, sitemap, Open Graph, JSON-LD, or internal absolute URL may still point at `https://taurgis.github.io/rhino-inquisitor-com/`.**
 
 ---
 

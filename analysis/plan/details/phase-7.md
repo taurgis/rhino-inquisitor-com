@@ -1,7 +1,7 @@
-# Phase 7 Detailed Plan: GitHub Pages Deployment and Domain Cutover
+# Phase 7 Detailed Plan: GitHub Pages Preview Deployment and Domain Cutover
 
 ## Purpose
-Deploy the migrated Hugo site to GitHub Pages and execute a controlled domain cutover for https://www.rhino-inquisitor.com with minimal SEO risk, minimal downtime, and explicit rollback safety.
+Deploy the migrated Hugo site first to the GitHub Pages project URL `https://taurgis.github.io/rhino-inquisitor-com/` for public rehearsal, then execute a controlled custom-domain cutover to https://www.rhino-inquisitor.com with minimal SEO risk, minimal downtime, and explicit rollback safety.
 
 Phase 7 converts the migration build output into production traffic serving. This is the highest blast-radius phase because deployment, DNS, HTTPS, canonical host behavior, and redirect behavior all converge here.
 
@@ -31,10 +31,11 @@ In scope:
 1. GitHub Pages custom workflow deployment pipeline.
 2. Workflow permissions, environment protections, and deployment guardrails.
 3. Artifact integrity constraints for Pages compatibility.
-4. Custom domain configuration and DNS cutover execution.
-5. HTTPS issuance and enforcement readiness.
-6. SEO-safe host canonicalization during cutover.
-7. Launch-day runbook, smoke tests, rollback strategy, and incident thresholds.
+4. Preview-host rehearsal deployment and validation before custom-domain changes.
+5. Custom domain configuration and DNS cutover execution.
+6. HTTPS issuance and enforcement readiness.
+7. SEO-safe host canonicalization during cutover.
+8. Launch-day runbook, smoke tests, rollback strategy, and incident thresholds.
 
 Out of scope:
 1. Bulk migration transformation internals (Phase 4).
@@ -46,12 +47,14 @@ Out of scope:
 2. Deploy job permissions include at least `pages: write` and `id-token: write`.
 3. Build artifact contains top-level `index.html` and is Pages-compatible (no symlinks/hard links in artifact).
 4. Canonical production host is locked before cutover and reflected in build outputs.
-5. Custom domain is configured in Pages settings before DNS records are pointed at GitHub Pages.
-6. HTTPS is available and enforceable before declaring launch complete.
-7. URL parity and redirect gates from Phase 6 pass on the release candidate.
-8. Rollback procedure is validated and owners are assigned before DNS cutover.
-9. Deploy job must depend on successful build and artifact upload stages (`needs`/equivalent dependency).
-10. `github-pages` environment protections are configured so only approved refs and actors can deploy.
+5. Preview rehearsal deployment to the project URL is completed and approved before custom domain is configured in Pages settings.
+6. Custom domain is configured in Pages settings before DNS records are pointed at GitHub Pages.
+7. HTTPS is available and enforceable before declaring launch complete.
+8. URL parity and redirect gates from Phase 6 pass on the release candidate.
+9. Rollback procedure is validated and owners are assigned before DNS cutover.
+10. Deploy job must depend on successful build and artifact upload stages (`needs`/equivalent dependency).
+11. `github-pages` environment protections are configured so only approved refs and actors can deploy.
+12. Preview and production artifacts are treated as separate host states; the repository Pages site must not be assumed to serve preview-noindex and production-canonical behavior simultaneously.
 
 ## Critical Corrections Encoded in This Phase
 1. GitHub Pages custom workflow behavior is explicit:
@@ -75,6 +78,11 @@ Out of scope:
 5.1. Canonical host for this migration is `https://www.rhino-inquisitor.com`.
 5.2. Apex and protocol variants must consolidate to this host.
 
+6. Preview-host discipline is explicit:
+6.1. `https://taurgis.github.io/rhino-inquisitor-com/` is a rehearsal host only.
+6.2. Preview-host artifacts must remain crawlable `noindex` and path-prefix correct.
+6.3. Preview-host artifacts do not prove final custom-domain, DNS, or HTTPS behavior by themselves.
+
 ## Workstream A: Deployment Workflow Architecture
 Goal: produce deterministic, auditable deployments with minimal cutover risk.
 
@@ -88,13 +96,14 @@ Required workflow characteristics:
 2.2. `pages: write`
 2.3. `id-token: write`
 3. Use `actions/configure-pages` before Hugo build.
-4. Build with production-compatible base URL:
-4.1. `hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}/"`
-5. Upload the `public` directory with `actions/upload-pages-artifact`.
-6. Deploy with `actions/deploy-pages` to the `github-pages` environment.
-7. Deploy job must explicitly depend on build and artifact upload completion (`needs`).
-8. Enforce deployment concurrency so only one production deploy runs at a time.
-9. Pin Actions to stable major versions or commit SHAs per repository policy.
+4. Build rehearsal deployments with the Pages-provided project-site base URL:
+4.1. `hugo --gc --minify --environment preview --baseURL "${{ steps.pages.outputs.base_url }}/"`
+5. Build a separate production validation artifact with `hugo --gc --minify --environment production --baseURL "https://www.rhino-inquisitor.com/"` before launch approval.
+6. Upload the `public` directory with `actions/upload-pages-artifact`.
+7. Deploy with `actions/deploy-pages` to the `github-pages` environment.
+8. Deploy job must explicitly depend on build and artifact upload completion (`needs`).
+9. Enforce deployment concurrency so only one production deploy runs at a time.
+10. Pin Actions to stable major versions or commit SHAs per repository policy.
 
 Recommended workflow hardening:
 1. Protect the `github-pages` environment with required reviewers and ref restrictions.
@@ -102,7 +111,7 @@ Recommended workflow hardening:
 3. Fail-fast gates before artifact upload (URL parity, link checks, metadata checks).
 
 Acceptance criteria:
-1. Workflow can deploy same commit repeatedly with functionally equivalent outputs (routing, canonical, and required SEO metadata checks remain stable).
+1. Workflow can deploy the same commit repeatedly to the preview host and validate a separate production artifact with functionally equivalent routing and required SEO metadata for its target host.
 2. Deploy logs show successful Pages deployment ID and environment URL.
 3. Deployment can be re-run without manual cleanup.
 
@@ -132,6 +141,10 @@ Acceptance criteria:
 
 ## Workstream C: Domain and DNS Cutover Strategy
 Goal: cut traffic to GitHub Pages cleanly while preserving canonical host and minimizing propagation uncertainty.
+
+Cutover precondition:
+1. Preview-host rehearsal validation on `https://taurgis.github.io/rhino-inquisitor-com/` is complete, approved, and archived.
+2. Production validation build is clean and contains zero preview-host leakage or accidental `noindex`.
 
 Canonical host decision:
 1. Canonical host remains `www.rhino-inquisitor.com`.
@@ -237,9 +250,10 @@ Goal: perform cutover in a predictable sequence with clear owner accountability.
 
 T-7 to T-2 days:
 1. Freeze workflow design and permissions.
-2. Dry-run full deploy to Pages using non-production domain or staging expectation.
-3. Validate all gates, smoke checks, and rollback steps.
-4. Confirm Search Console ownership access and monitoring dashboards.
+2. Dry-run full deploy to the GitHub Pages project URL and archive preview-host rehearsal evidence.
+3. Dry-run the production validation build separately and confirm zero preview-host leakage.
+4. Validate all gates, smoke checks, and rollback steps.
+5. Confirm Search Console ownership access and monitoring dashboards.
 
 T-24 hours:
 1. Lower DNS TTL where possible.
@@ -248,7 +262,7 @@ T-24 hours:
 4. Re-run release candidate CI with final content snapshot.
 
 T-0 cutover:
-1. Deploy signed release candidate artifact.
+1. Deploy the signed production release candidate artifact.
 2. Apply DNS changes.
 3. Monitor propagation and Pages health indicators.
 4. Run smoke tests using deterministic selection rules:
@@ -293,12 +307,13 @@ Acceptance criteria:
 ## Deliverables Produced by Phase 7
 1. [phase-7.md](phase-7.md) final approved plan.
 2. `.github/workflows/deploy-pages.yml` production workflow with protected environment.
-3. DNS change record and rollback snapshot.
-4. Launch checklist and signed runbook.
-5. Deployment validation report bundle (gates + smoke tests + DNS/HTTPS checks).
+3. Preview-host rehearsal validation record for `https://taurgis.github.io/rhino-inquisitor-com/`.
+4. DNS change record and rollback snapshot.
+5. Launch checklist and signed runbook.
+6. Deployment validation report bundle (preview gates + production artifact checks + smoke tests + DNS/HTTPS checks).
 
 ## Definition of Done
-1. Deployment pipeline publishes Hugo artifact successfully to GitHub Pages from protected workflow.
+1. Deployment pipeline publishes the preview rehearsal artifact successfully to GitHub Pages from the protected workflow and validates the production artifact separately before launch.
 2. Custom domain `www.rhino-inquisitor.com` is active, verified, and serving over HTTPS.
 3. Canonical host and sitemap consistency checks pass on live domain.
 4. URL parity and redirect gates pass with zero release-blocking defects.

@@ -41,8 +41,8 @@ Required decisions:
 1. Confirm Hugo project layout (`src/content/`, `src/layouts/`, `src/static/`, `src/assets/`, `src/data/`).
 2. Confirm primary config file format and location (`hugo.toml`).
 3. Define output directory contract (`public/`) and artifact handoff to Pages workflow.
-4. Define environments (`local`, `ci`, `prod`) and variable handling for canonical origin.
-5. Define `baseURL` contract for production (canonical origin, trailing slash) and how CI injects it.
+4. Define environments (`local`, `preview-pages`, `ci-prod`, `prod`) and variable handling for canonical origin plus the GitHub Pages project-site path prefix.
+5. Define `baseURL` contract for production (canonical origin, trailing slash) and for preview Pages rehearsal builds.
 
 Approved contract:
 - Repository layout is locked to root `hugo.toml` plus Hugo source components under `src/content/`, `src/layouts/`, `src/static/`, `src/assets/`, and `src/data/`, with `public/` as generated output only.
@@ -50,9 +50,10 @@ Approved contract:
 - Canonical production `baseURL` is `https://www.rhino-inquisitor.com/` with trailing slash.
 - Environment model is fixed as:
    - `local`: `hugo server` development preview.
-   - `ci`: `hugo --environment production --gc --minify` validation build producing `./public/`.
-   - `prod`: deploy the exact `./public/` artifact validated in CI.
-- `baseURL` handling is fixed as: root `hugo.toml` is the canonical production source of truth; standard production CI builds do not use a separate config overlay; `HUGO_BASEURL` is reserved only for exceptional future preview-host overrides.
+   - `preview-pages`: deployable rehearsal artifact built for `https://taurgis.github.io/rhino-inquisitor-com/` using the Pages-provided `base_url`.
+   - `ci-prod`: `hugo --environment production --gc --minify` validation build producing `./public/` with the canonical production host.
+   - `prod`: deploy the exact production artifact validated in CI after preview gates pass and the custom domain is configured.
+- `baseURL` handling is fixed as: root `hugo.toml` is the canonical production source of truth; preview-pages builds use an explicit build-time override from GitHub Pages `base_url`; preview and production artifacts are separate outputs and must not be treated as one interchangeable host state.
 - Hugo version pin is fixed to Hugo Extended `0.157.0` and will be implemented in CI as `HUGO_VERSION=0.157.0`.
 
 Outputs:
@@ -71,7 +72,7 @@ Rules:
 1. `migration/url-manifest.json` `target_url` is the source of truth for `url`; migrated content never derives routes from `slug`.
 2. `url` values are mandatory for migrated regular content and must be path-only, lowercase, start with `/`, end with `/`, and contain no query strings or fragments.
 3. `aliases` values must be path-only legacy URLs from the manifest for the same target URL; arbitrary aliases, absolute URLs, and self-aliases are prohibited.
-4. Canonical handling defaults to the rendered page absolute URL on `https://www.rhino-inquisitor.com/`; per-page overrides are allowed only as same-host absolute HTTPS URLs.
+4. Canonical handling defaults to the rendered page absolute URL from the active build `baseURL`; per-page overrides are allowed only as same-host absolute HTTPS URLs in that active environment.
 5. `draft` is derived from WordPress publication status: `publish` maps to `draft: false`; retained non-published states map to `draft: true`; trashed items do not produce content files.
 6. Draft pages must be excluded from production build outputs and sitemap.
 7. Production builds must not use `--buildDrafts`, `--buildFuture`, or `--buildExpired`.
@@ -141,13 +142,14 @@ Approved contract:
    - description comes from approved front matter `description`;
    - social image resolves from `seo.ogImage`, then `heroImage`, then an approved site-level default social image;
    - Twitter card type resolves from explicit `seo.twitterCard` or derives from image presence.
+11. Preview-pages artifacts must be internally self-consistent on `https://taurgis.github.io/rhino-inquisitor-com/`, remain `noindex`, and never be used as production submission targets; production validation builds must contain zero preview-host URLs and zero accidental `noindex`.
 
 Crawler surfaces:
 1. Use Hugo embedded sitemap generation as the baseline starting point.
 2. Draft pages remain excluded because production builds never enable draft, future, or expired content.
 3. Any built page that is non-indexable must also be explicitly excluded from sitemap output; `seo.noindex` alone is not assumed to change sitemap membership.
 4. Alias redirect helpers are not assumed to be excluded by default; Phase 3 must verify sitemap exclusion and override the sitemap template if needed.
-5. Canonical sitemap URL is fixed to `https://www.rhino-inquisitor.com/sitemap.xml`.
+5. Canonical sitemap URL is fixed to `https://www.rhino-inquisitor.com/sitemap.xml` for production builds; preview-pages builds may emit preview-host sitemap/feed URLs only for rehearsal validation and are never production submission targets.
 6. `robots.txt` is implemented via Hugo output (`enableRobotsTXT = true`) with a repo-owned `src/layouts/robots.txt` template that includes the canonical sitemap directive.
 7. `robots.txt` is crawl control only and is never used as a substitute for page-level `noindex`.
 8. Staging and preview environments must emit `<meta name="robots" content="noindex">` on every rendered page.
@@ -175,7 +177,9 @@ Avoid by default:
 Workflow contract:
 1. Workflow triggers are fixed to `push` on `main` and `workflow_dispatch`.
 2. Build job uses shallow checkout by default because RHI-012 makes front matter `lastmod` authoritative from WordPress export metadata; `fetch-depth: 0` becomes mandatory only if a later approved contract adopts Hugo `.GitInfo` or other git-derived lastmod behavior.
-3. Build contract is fixed to workflow-level `HUGO_VERSION=0.157.0` and `hugo --gc --minify --environment production`, producing `./public` and excluding draft, future, and expired content.
+3. Build contract is fixed to workflow-level `HUGO_VERSION=0.157.0` and two artifact modes:
+   - preview-pages rehearsal deploys use `actions/configure-pages` `base_url` with `hugo --gc --minify --environment preview --baseURL "${{ steps.pages.outputs.base_url }}/"`;
+   - production validation and launch builds use `hugo --gc --minify --environment production` with canonical `https://www.rhino-inquisitor.com/`, excluding draft, future, and expired content.
 4. Build/test jobs use ref-scoped concurrency with `cancel-in-progress: true`; deploy job uses a dedicated Pages deployment concurrency group with `cancel-in-progress: false` and depends on build via `needs`.
 5. Official Pages action sequence is fixed to `actions/configure-pages@v5`, `actions/upload-pages-artifact@v4` with `path: ./public` and default artifact `github-pages`, then `actions/deploy-pages@v4` targeting `environment: github-pages`.
 6. Deploy job minimum permissions are `contents: read`, `pages: write`, and `id-token: write`; broader repository write scopes are not part of this contract.
@@ -205,6 +209,7 @@ Detailed contract: `analysis/tickets/phase-2/RHI-017-validation-gates-contract.m
 5. Build integrity gate: run the approved Hugo production build contract, verify draft or future exclusion, and prove deterministic output from the same commit.
 6. Deployment integrity gate: verify the RHI-016 workflow contract, Pages artifact constraints, and pre-cutover Pages settings state.
 7. Launch-readiness gate: perform the live manual sign-off checks that cannot be proven from repository state alone, including robots, sitemap, feed continuity, social preview, and unintended production `noindex`.
+8. Preview-host gate: verify the deployed project-site rehearsal artifact is `noindex`, path-prefix-correct, and free of production-host assumptions before custom-domain cutover work begins.
 
 ## Tightened Validation Checklist
 1. Every legacy URL maps to exactly one of: same-path output, intentional redirect target, or explicit retire behavior.
@@ -214,6 +219,7 @@ Detailed contract: `analysis/tickets/phase-2/RHI-017-validation-gates-contract.m
 5. Structured data validates on representative templates (articles and breadcrumbs at minimum).
 6. robots and sitemap are intentionally generated and internally consistent.
 7. Deployment workflow uses official Pages actions and documented permissions.
+8. Preview-pages artifacts remain `noindex` and path-prefix-correct, and production artifacts contain zero preview-host leakage.
 
 ## Risks and Mitigations
 1. Static-host redirect limitations can reduce migration signal transfer.
@@ -228,6 +234,9 @@ Detailed contract: `analysis/tickets/phase-2/RHI-017-validation-gates-contract.m
 4. Metadata drift across templates can cause SEO regression.
 - Mitigation: centralize metadata partials and enforce CI checks.
 
+5. Preview and production artifact behavior can drift and hide host-specific defects.
+- Mitigation: require both preview-pages rehearsal validation and production-only build validation before launch approval.
+
 ## Phase 2 Deliverables
 1. Final architecture decision record (this file).
 2. Updated top-level migration plan reflecting chosen stack.
@@ -241,7 +250,7 @@ Phase 2 is complete only if all statements are true:
 2. Content model and route contract are fully specified.
 3. Redirect strategy and edge-escalation trigger are approved.
 4. SEO template obligations are explicit and testable.
-5. Validation gates are defined for Phase 3 implementation.
+6. Validation gates are defined for both preview-host rehearsal and production-host launch validation.
 6. No unresolved architecture blockers remain for scaffolding.
 
 ## Resolved Decisions for Phase 3 Entry

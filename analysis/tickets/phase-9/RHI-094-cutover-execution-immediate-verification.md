@@ -1,4 +1,4 @@
-## RHI-094 · Workstream A — Cutover Execution and Immediate Verification
+## RHI-094 · Workstream A — Production Cutover Execution and Immediate Verification
 
 **Status:** Open  
 **Priority:** Critical  
@@ -8,13 +8,13 @@
 **Assigned to:** Deployment Operator + DNS Operator  
 **Target date:** 2026-06-17  
 **Created:** 2026-03-08  
-**Updated:** 2026-03-08
+**Updated:** 2026-03-09
 
 ---
 
 ### Goal
 
-Execute the production DNS cutover with a controlled blast radius, perform immediate post-cutover verification, detect and resolve any Sev-1 faults within the launch window (T-0 to T+6h), and record a complete timestamped cutover log. This workstream is the point of no short-term return: once traffic routes to the new host, indexing signals begin accumulating and the WordPress rollback window enters its most critical period.
+Execute the production DNS cutover with a controlled blast radius, but only after preview-host rehearsal and Phase 8 go/no-go approval are complete. Perform immediate post-cutover verification, detect and resolve any Sev-1 faults within the launch window (T-0 to T+6h), and record a complete timestamped cutover log.
 
 Success means the canonical host responds correctly, HTTPS is enforced, priority routes resolve as expected, and no Sev-1 incident is left unresolved at the end of the launch window.
 
@@ -23,6 +23,8 @@ Success means the canonical host responds correctly, HTTPS is enforced, priority
 ### Acceptance Criteria
 
 **T-24h checks:**
+- [ ] Phase 8 preview-host rehearsal sign-off is complete and approved for production cutover
+- [ ] Production validation build evidence confirms zero preview-host leakage and zero accidental `noindex`
 - [ ] Final RC commit SHA confirmed and matches `phase-8-rc-v1` tag; no post-tagging changes committed
 - [ ] GitHub Pages custom domain (`www.rhino-inquisitor.com`) status is healthy and HTTPS certificate is valid or confirmed in final issuance
 - [ ] Domain verification TXT record is present and GitHub Pages domain verification is active
@@ -56,6 +58,7 @@ Success means the canonical host responds correctly, HTTPS is enforced, priority
   - [ ] Privacy policy page
   - [ ] At least 5 high-value legacy inbound URLs (highest-priority `critical`/`high` set from Phase 6 manifest)
 - [ ] Canonical tags on homepage and article template reference `https://www.rhino-inquisitor.com/...`
+- [ ] No canonical, sitemap, Open Graph, JSON-LD, or internal absolute URL points to `https://taurgis.github.io/rhino-inquisitor-com/`
 - [ ] `sitemap.xml` is reachable at `https://www.rhino-inquisitor.com/sitemap.xml` and returns 200
 - [ ] `robots.txt` is reachable at `https://www.rhino-inquisitor.com/robots.txt` and `Sitemap:` directive is correct
 - [ ] No `noindex` leakage on indexable pages confirmed via Playwright smoke check
@@ -71,6 +74,7 @@ Success means the canonical host responds correctly, HTTPS is enforced, priority
 ### Tasks
 
 **T-24h preparation:**
+- [ ] Confirm Phase 8 preview-host rehearsal sign-off and production validation build evidence are complete
 - [ ] Confirm `phase-8-rc-v1` tag exists and no post-RC commits are on `main` that haven't been validated
 - [ ] Log into GitHub Pages settings and confirm custom domain is set to `www.rhino-inquisitor.com`; verify Enforce HTTPS status and record a 60-minute post-propagation decision checkpoint if it is not yet available
 - [ ] Confirm TLS certificate status; if in issuance, confirm expected completion time before T-0
@@ -192,6 +196,7 @@ Success means the canonical host responds correctly, HTTPS is enforced, priority
 ### Notes
 
 - This is the highest-consequence workstream in Phase 9. DNS changes take effect for real users within minutes. Every action from T-0 onward must be timestamped and attributed to an operator.
+- The initial GitHub Pages deployment already exists before this ticket starts. This ticket activates the production custom domain and DNS path; it does not create the first public rehearsal deployment.
 - The 60-minute rollback SLA starts from Sev-1 acknowledgement, not from problem discovery. Confirm that DNS provider access is ready before T-0; a locked-out DNS operator negates the rollback plan entirely.
 - Do not rely on `robots.txt` for staging de-indexing at this point — the Phase 7 staging environment should have `noindex` headers. The production deployment must not accidentally carry over staging robots or noindex settings.
 - If HTTPS is still unavailable after DNS propagation completes, follow the GitHub Pages custom-domain remove/re-add recovery steps documented in the Phase 7 runbook before escalating further.

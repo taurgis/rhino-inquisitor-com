@@ -3,7 +3,7 @@
 ## Goal
 Create an authoritative migration baseline for https://www.rhino-inquisitor.com so later phases do not introduce SEO regressions, URL loss, or avoidable architecture mistakes.
 
-Phase 1 is complete only when every known live URL is classified (`keep`, `merge`, `retire`) and mapped to explicit target behavior that is technically implementable on GitHub Pages.
+Phase 1 is complete only when every known live URL is classified (`keep`, `merge`, `retire`), mapped to explicit target behavior that is technically implementable on GitHub Pages, and governed by an approved preview-host policy for `https://taurgis.github.io/rhino-inquisitor-com/`.
 
 ## URL Class Taxonomy (Normative)
 Every discovered URL must be assigned to exactly one class so preservation and retirement decisions are deterministic.
@@ -42,6 +42,11 @@ Decision rules:
 - `410` is only required where infrastructure can emit it.
 
 5. URL inventory must include non-HTML resources and Search Console links data.
+
+6. The GitHub Pages project URL preview model must be explicit:
+- `https://taurgis.github.io/rhino-inquisitor-com/` is a public rehearsal host, not the production canonical host.
+- Preview pages must stay crawlable with `noindex` and must not be submitted as production Search Console targets.
+- Preview validations must prove the `/rhino-inquisitor-com/` path prefix is preserved in generated absolute URLs, assets, feeds, and sitemap entries.
 
 ## Current Live-Site Snapshot (2026-03-07)
 Observed from sitemaps and HTTP probes:
@@ -83,6 +88,7 @@ In scope:
 - URL classification and migration behavior mapping.
 - SEO, crawl, performance, accessibility, and security baseline capture.
 - GitHub Pages feasibility checks for redirects and headers.
+- Preview-host indexing and path-prefix guardrails for the GitHub Pages project URL.
 - Risk register, blockers, and sign-off artifacts.
 
 Out of scope:
@@ -119,6 +125,7 @@ Recommended:
 - Fallback: static redirect pages with instant meta refresh and canonical tags.
 - Escalate to edge/CDN when redirect complexity exceeds static feasibility.
 5. Header controls may require edge/CDN for robust CSP variants and `X-Robots-Tag` on non-HTML resources.
+6. The GitHub Pages project site preview runs under a repository path prefix (`/rhino-inquisitor-com/`), so every preview validation set must prove assets, feeds, sitemap URLs, and absolute internal links remain correct under that prefix.
 
 ## Workstream 1: URL Discovery Inventory
 1. Parse all sitemap files from `sitemap_index.xml`.
@@ -235,13 +242,16 @@ Exit criteria:
 - Baseline metric table captured and reviewable.
 
 ## Workstream 6: Staging and Indexing Guardrails
-1. If using temporary host, apply `noindex` on staging pages.
-2. Remove temporary crawl/index blocks before launch.
-3. Validate representative URLs with URL inspection.
-4. Lower DNS TTL at least one week before cutover window.
+1. The default public rehearsal host is `https://taurgis.github.io/rhino-inquisitor-com/` until production cutover.
+2. Preview pages must remain crawlable and emit `noindex`; do not block crawlers from seeing that directive.
+3. Preview validations must prove the repository path prefix is preserved in canonical helpers, assets, feed URLs, sitemap entries, and internal absolute links.
+4. Preview host URLs are never production canonical targets and are never submitted to Search Console as production sitemap/feed sources.
+5. Remove temporary crawl/index blocks before launch.
+6. Validate representative preview URLs with URL inspection only as supplemental evidence, not as a substitute for artifact checks.
+7. Lower DNS TTL at least one week before cutover window.
 
 Exit criteria:
-- Approved staging-indexing and launch-unblock checklist.
+- Approved preview-host indexing/path-prefix checklist and launch-unblock checklist.
 
 ## Workstream 7: Risk Register and Mitigations
 Initial high-risk items:
@@ -288,7 +298,7 @@ Unresolved item blocks Phase 2.
 4. Canonical/slash/case/query policies approved.
 5. Hosting-only vs URL-change controls documented.
 6. SEO/performance/accessibility/security baselines captured.
-7. Search Console verification continuity and staging noindex plan approved.
+7. Search Console verification continuity, preview-host `noindex` plan, and preview path-prefix guardrails approved.
 8. Risk owners and mitigation plans documented.
 9. Stakeholder sign-off recorded.
 

@@ -74,6 +74,7 @@ These decisions are usually finalized in deployment phases, but Phase 4 depends 
 - template canonical generation,
 all use the same host.
 5. Do not use wildcard DNS records for GitHub Pages custom domain setup.
+6. Treat `https://taurgis.github.io/rhino-inquisitor-com/` as a preview-only rehearsal host injected at build time; migrated content and front matter must not depend on that host directly.
 
 ## Non-Negotiable Migration Constraints
 1. Legacy URL behavior must be explicit per URL record (`keep`, `merge`, `retire`).
@@ -85,6 +86,7 @@ all use the same host.
 7. Redirect implementation type must be explicit (`server-301-308`, `meta-refresh`, `none`) per migrated URL where applicable.
 8. Staging index controls must be removed from release artifacts before launch (`noindex` and accidental robots blocks are release blockers).
 9. Canonicalization signals must be consistent across canonical tags, sitemap URLs, internal links, and redirect targets.
+10. Generated content and front matter must remain environment-agnostic; no reusable field may hardcode the preview or production absolute host unless an approved same-host canonical override explicitly requires it.
 
 ## Staging Indexing Policy (No Contradictions)
 When staging is publicly reachable, use one of the following models and do not mix incompatible controls.
@@ -92,6 +94,7 @@ When staging is publicly reachable, use one of the following models and do not m
 1. Option A (public staging): allow crawling and apply `noindex` on staging pages so crawlers can see the directive.
 2. Option B (private staging): enforce access controls (auth/IP allowlist) and do not rely on crawler directives for protection.
 3. Do not disallow in `robots.txt` any URL where `noindex` must be discovered.
+4. For this program, the default public staging surface is the GitHub Pages project URL, and QA must exercise the `/rhino-inquisitor-com/` path prefix there before production cutover.
 
 ## Pipeline Architecture
 Implement Phase 4 as a staged pipeline with immutable artifacts between stages:
@@ -236,6 +239,7 @@ Mapping rules:
 3. `draft` must be `false` for launch-intended content.
 4. Description should be deterministic and length-capped if source excerpt is missing.
 5. Workstream D consumes the optional extension defined in Workstream L/RHI-106 but does not make those fields mandatory for migration success.
+6. Generated Markdown, front matter, and rewritten links must not hardcode `https://taurgis.github.io/rhino-inquisitor-com/`; host selection belongs to the active build/runtime contract.
 
 Validation rules:
 1. Reject duplicate `url` values.

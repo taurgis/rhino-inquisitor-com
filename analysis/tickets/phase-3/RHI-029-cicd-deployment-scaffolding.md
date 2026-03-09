@@ -7,13 +7,15 @@
 **Assigned to:** Engineering Owner  
 **Target date:** 2026-04-04  
 **Created:** 2026-03-07  
-**Updated:** 2026-03-07
+**Updated:** 2026-03-09
 
 ---
 
 ### Goal
 
 Create a deterministic, auditable GitHub Pages deployment workflow with all Phase 3 quality gates wired as blocking pre-deploy checks. The workflow must enforce the production build, URL parity, front matter validation, SEO smoke checks, and broken link checks before any artifact reaches Pages. Deploy behavior must be reproducible from a clean CI environment with no manual intervention, and the concurrency configuration must prevent overlapping Pages deployments from corrupting the live site.
+
+Under the preview-first deployment model, this ticket establishes the public rehearsal deployment baseline at `https://taurgis.github.io/rhino-inquisitor-com/`. It proves the scaffold can be built and published on GitHub Pages, but it does not execute or sign off the later custom-domain cutover to `https://www.rhino-inquisitor.com/`.
 
 This ticket is the final integration gate for all Phase 3 workstreams — it proves the scaffold is cohesive, buildable, and deployable end-to-end.
 
@@ -186,6 +188,7 @@ Final outcomes:
 - Aligned `scripts/check-url-parity.js` with the documented Phase 3 scaffold-fixture contract so placeholder scaffold routes do not disable scaffold mode before Phase 4 migration begins.
 - Updated the migration runbook and Phase 3 implementation documentation with deployment trigger, rollback, staged-gate handling, and successful public run evidence.
 - Completed a successful public deployment run at `https://github.com/taurgis/rhino-inquisitor-com/actions/runs/22871838125` and confirmed the Pages artifact is reachable at `https://taurgis.github.io/rhino-inquisitor-com/`.
+- Established the preview-host rehearsal surface used by later Phase 7 and Phase 8 tickets; production custom-domain cutover remains Phase 7/9 scope.
 
 **Delivered artefacts:**
 
@@ -222,4 +225,5 @@ Final outcomes:
 - `concurrency.cancel-in-progress` must be `false` for the deploy job. GitHub Pages deploys cannot be safely interrupted mid-flight. The `true` setting is only acceptable for the build/test jobs, not the deploy job.
 - Custom domain truth of record is in GitHub repository Settings → Pages, not in a committed `CNAME` file. For Actions-based publishing, `CNAME` is not the authoritative source. Verify settings/API state.
 - All quality gates must run as blocking `needs:` dependencies of the deploy job — not as steps after the deploy step. If gates fail, the artifact must not be uploaded and the deploy must not run.
+- This ticket closes on preview-host deployment readiness and public rehearsal evidence. Production host activation, DNS cutover, and post-cutover smoke tests are intentionally deferred to Phase 7 and Phase 9.
 - Reference: `analysis/plan/details/phase-3.md` §Workstream J: CI/CD and Deployment Scaffolding; `.github/instructions/ci-workflow-standards.instructions.md`

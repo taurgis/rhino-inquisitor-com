@@ -2,8 +2,8 @@
 
 ## Project: Rhino Inquisitor — WordPress to Hugo Migration
 
-**Phase:** 7 — GitHub Pages Deployment and Domain Cutover  
-**Goal:** Deploy the migrated Hugo site to GitHub Pages, execute a controlled DNS cutover to `www.rhino-inquisitor.com`, enforce HTTPS, verify SEO signal safety, and produce a fully tested and drilled rollback procedure — ensuring the transition from WordPress to GitHub Pages is irreversible only when every launch gate has passed.  
+**Phase:** 7 — GitHub Pages Preview Deployment and Domain Cutover Readiness  
+**Goal:** Harden the GitHub Pages workflow around the public rehearsal host `https://taurgis.github.io/rhino-inquisitor-com/`, validate preview-host behavior and production-artifact readiness, and finish the DNS, HTTPS, SEO-safety, runbook, and rollback preparation needed before Phase 9 executes the live production cutover to `www.rhino-inquisitor.com`.  
 **Timeline:** 8–10 working days  
 **Phase detail:** [`analysis/plan/details/phase-7.md`](../../analysis/plan/details/phase-7.md)
 
@@ -20,7 +20,7 @@
 | [RHI-077](RHI-077-https-issuance-security-controls.md) | Workstream D — HTTPS Issuance and Security Controls | WS-D | High | Open | M | 2026-05-26 | RHI-076 |
 | [RHI-078](RHI-078-seo-safe-deployment-host-consolidation.md) | Workstream E — SEO-Safe Deployment and Host Consolidation | WS-E | Critical | Open | M | 2026-05-27 | RHI-074 |
 | [RHI-079](RHI-079-deployment-quality-gates-tooling.md) | Workstream F — Deployment Quality Gates and Tooling | WS-F | Critical | Open | M | 2026-05-28 | RHI-074, RHI-075, RHI-078 |
-| [RHI-080](RHI-080-launch-window-execution-runbook.md) | Workstream G — Launch Window Execution Runbook | WS-G | Critical | Open | M | 2026-05-29 | RHI-076, RHI-077, RHI-079 |
+| [RHI-080](RHI-080-launch-window-execution-runbook.md) | Workstream G — Production Cutover Execution Runbook | WS-G | Critical | Open | M | 2026-05-29 | RHI-076, RHI-077, RHI-079 |
 | [RHI-081](RHI-081-incident-response-rollback.md) | Workstream H — Incident Response and Rollback | WS-H | Critical | Open | M | 2026-05-30 | RHI-080 |
 | [RHI-082](RHI-082-phase-7-signoff.md) | Phase 7 Sign-off and Handover to Phase 8/9 | Sign-off | Critical | Open | S | 2026-06-02 | RHI-073 through RHI-081 |
 
@@ -66,7 +66,7 @@ RHI-072 (Phase 6 Sign-off)
 | WS-E | RHI-078 | SEO-safe deployment and host consolidation | Day 3–4 |
 | WS-D | RHI-077 | HTTPS issuance and security controls | Day 4–5 |
 | WS-F | RHI-079 | Deployment quality gates and tooling | Day 5–6 |
-| WS-G | RHI-080 | Launch window execution runbook | Day 6–7 |
+| WS-G | RHI-080 | Production cutover execution runbook | Day 6–7 |
 | WS-H | RHI-081 | Incident response and rollback | Day 7–8 |
 | Sign-off | RHI-082 | Phase 7 sign-off and Phase 8/9 handover | Day 9–10 |
 
@@ -88,7 +88,7 @@ RHI-072 (Phase 6 Sign-off)
 | Local gate runner convenience script | RHI-079 | `scripts/phase-7/run-all-gates.sh` |
 | Gate summary CSV schema | RHI-079 | `migration/reports/phase-7-gate-summary.csv` |
 | Lighthouse CI configuration | RHI-079 | `lighthouserc.js` |
-| Launch window execution runbook | RHI-080 | `migration/phase-7-launch-runbook.md` |
+| Production cutover execution runbook | RHI-080 | `migration/phase-7-launch-runbook.md` |
 | Rollback runbook | RHI-081 | `migration/phase-7-rollback-runbook.md` |
 | Incident log template | RHI-081 | `migration/phase-7-incident-log.md` |
 | Phase 7 sign-off document | RHI-082 | `migration/phase-7-signoff.md` |
@@ -120,15 +120,15 @@ All gates run as blocking pre-deploy steps. Failure of any gate prevents artifac
 All items below must be complete before Phase 8 validation and Phase 9 monitoring can finalize their assessments:
 
 - [ ] RHI-073 Done — Phase 7 Bootstrap; Phase 6 contracts confirmed; team and cutover window established
-- [ ] RHI-074 Done — Deployment workflow hardened; end-to-end deploy tested; Pages environment protected
+- [ ] RHI-074 Done — Deployment workflow hardened; preview-host deploy and production-artifact validation path tested; Pages environment protected
 - [ ] RHI-075 Done — Artifact integrity gate operational; size budget validated
-- [ ] RHI-076 Done — DNS cutover plan complete; Pages custom domain configured; domain verification TXT in place; TTL reduced
+- [ ] RHI-076 Done — DNS cutover plan complete; preview-rehearsal preconditions defined; custom-domain and domain-verification steps ready for execution
 - [ ] RHI-077 Done — CAA records audited; mixed-content gate operational; HTTPS monitoring checklist committed
-- [ ] RHI-078 Done — All canonical, sitemap, robots.txt, and noindex checks passing; SEO safety report committed
+- [ ] RHI-078 Done — Preview-host `noindex` and path-prefix checks plus production-host leakage checks passing; SEO safety report committed
 - [ ] RHI-079 Done — All quality gates integrated and passing on release candidate; gate reports archived
-- [ ] RHI-080 Done — Launch runbook committed; dry-run deploy validated; smoke test checklist defined
+- [ ] RHI-080 Done — Production cutover runbook committed; preview prerequisites and dry-run validated; smoke test checklist defined
 - [ ] RHI-081 Done — Rollback runbook committed and dry-run validated; WordPress stack confirmed rollback-ready; incident log template committed
-- [ ] RHI-082 Done — DNS cutover complete; HTTPS enforced; all smoke tests pass; stakeholder sign-off recorded; Phase 8/9 handover acknowledged
+- [ ] RHI-082 Done — Preview-host rehearsal evidence archived; production cutover strategy accepted; stakeholder sign-off recorded; Phase 8/9 handover acknowledged
 
 ---
 
@@ -140,12 +140,13 @@ These constraints are hard requirements from `analysis/plan/details/phase-7.md` 
 2. Deploy job permissions include **at least** `pages: write` and `id-token: write` — nothing broader.
 3. Build artifact contains **top-level `index.html`** and is Pages-compatible (no symlinks).
 4. Canonical production host is **locked before cutover** and reflected in build outputs.
-5. **Custom domain must be configured in Pages settings before DNS records are changed.**
-6. HTTPS is **available and enforceable** before declaring launch complete.
-7. URL parity and redirect gates from Phase 6 **pass on the release candidate**.
-8. **Rollback procedure is validated** and owners are assigned before DNS cutover.
-9. Deploy job must depend on **successful build and gate completion** (`needs` dependency).
-10. `github-pages` environment protections are configured for **approved refs and actors only**.
+5. **Preview-host rehearsal deployment and validation evidence must exist before custom-domain cutover work is approved.**
+6. **Custom domain must be configured in Pages settings before DNS records are changed.**
+7. HTTPS is **available and enforceable** before declaring launch complete.
+8. URL parity and redirect gates from Phase 6 **pass on the release candidate**.
+9. **Rollback procedure is validated** and owners are assigned before DNS cutover.
+10. Deploy job must depend on **successful build and gate completion** (`needs` dependency).
+11. `github-pages` environment protections are configured for **approved refs and actors only**.
 
 ---
 

@@ -3,7 +3,7 @@
 ## Purpose
 Build a production-ready Hugo repository baseline for https://www.rhino-inquisitor.com so content migration in later phases can proceed without reworking architecture, SEO foundations, or deployment mechanics.
 
-Phase 3 converts Phase 2 decisions into executable scaffolding, guardrails, and CI checks.
+Phase 3 converts Phase 2 decisions into executable scaffolding, guardrails, and CI checks for both the GitHub Pages project-site rehearsal host `https://taurgis.github.io/rhino-inquisitor-com/` and the final production host `https://www.rhino-inquisitor.com`.
 
 ## Why Phase 3 Is Critical
 If Phase 3 is weak, later migration work will appear to progress while introducing hidden failures:
@@ -96,33 +96,37 @@ Goal: enforce route, metadata, and output behavior in configuration rather than 
 Required config decisions:
 1. Canonical site URL:
    - `baseURL = "https://www.rhino-inquisitor.com/"`
-2. Content language defaults and locale settings.
-3. Permalink strategy for posts/pages/categories that matches Phase 1 policy.
-4. Taxonomy definitions (`category`, `tag`, and any video taxonomy mapping if required).
-5. Output formats and enablement for:
+2. Preview Pages rehearsal URL:
+   - build-time `baseURL = "https://taurgis.github.io/rhino-inquisitor-com/"`
+3. Content language defaults and locale settings.
+4. Permalink strategy for posts/pages/categories that matches Phase 1 policy.
+5. Taxonomy definitions (`category`, `tag`, and any video taxonomy mapping if required).
+6. Output formats and enablement for:
    - HTML
    - sitemap
    - RSS
-6. robots.txt generation policy:
+7. robots.txt generation policy:
    - `enableRobotsTXT` is explicitly set.
    - Generation mechanism is explicitly chosen and documented: Hugo template (`src/layouts/robots.txt`) or static file (`src/static/robots.txt`).
-7. Feed compatibility policy:
+8. Feed compatibility policy:
    - Hugo default feed output is `index.xml`.
    - WordPress `/feed/` must resolve explicitly (direct feed output or one-hop redirect).
-8. Sitemap mode policy:
+9. Sitemap mode policy:
    - Confirm expected sitemap shape for monolingual vs multilingual configuration.
-9. Build behavior:
+10. Build behavior:
    - drafts/future content excluded in production.
    - minification toggles controlled by environment.
 
 Critical checks:
 1. Any change to `baseURL`, permalink rules, or taxonomy paths requires URL parity re-run.
 2. No environment-specific canonical host variation in production outputs.
+3. Preview rehearsal builds must fail if root-relative paths or hardcoded host assumptions strip the `/rhino-inquisitor-com/` path prefix.
 
 Acceptance criteria:
 1. Config expresses all routing/taxonomy rules required by migration.
 2. Production build emits expected machine-readable files (`sitemap.xml`, `robots.txt`, feed outputs).
 3. Feed and sitemap outputs match the agreed compatibility policy.
+4. Preview Pages rehearsal build and production validation build both succeed with the correct host-specific behavior.
 
 ## Workstream C: Content Contract and Archetypes
 Goal: standardize front matter and prevent inconsistent metadata during bulk import.
@@ -229,6 +233,7 @@ Required crawler surfaces:
 2. `robots.txt` with sitemap reference and validated directives.
 3. Feed output compatibility for existing subscriber paths with explicit `/feed/` resolution.
 4. Staging and temporary hosts enforce `noindex` without blocking crawler access to `noindex` directives.
+5. Preview Pages rehearsal artifacts resolve absolute URLs, assets, sitemap entries, feed URLs, and JSON-LD with the repository path prefix intact.
 
 Critical implications:
 1. Canonical tags do not replace missing redirects.
@@ -243,6 +248,7 @@ Acceptance criteria:
 1. Representative templates pass metadata and schema checks.
 2. Crawler files are present and match canonical host policy.
 3. Staging indexing controls are validated as `noindex`-based, not `robots.txt`-only.
+4. Preview rehearsal output is crawlable `noindex` and self-consistent on the project URL, while the production validation build contains zero preview-host references or accidental `noindex`.
 
 ## Workstream F: URL Preservation and Redirect Baseline
 Goal: build executable route-preservation controls before importing full content volume.
@@ -339,24 +345,26 @@ Tasks:
    - artifact name `github-pages`
    - use `actions/upload-pages-artifact` unless custom packaging exactly matches required format
    - no symbolic links or hard links in deployment artifact
-4. Add pre-deploy checks:
-   - Hugo production build
+4. Add pre-deploy checks for both artifact modes:
+   - preview Pages rehearsal build using the Pages-provided `base_url`
+   - Hugo production validation build
    - URL parity check
    - metadata/schema smoke checks
    - broken link check
-5. Configure custom domain in repository settings/API and verify DNS and HTTPS status during release checks.
+5. First deploy the rehearsal artifact to the GitHub Pages project URL and verify preview-host `noindex` plus path-prefix behavior.
+6. Configure custom domain in repository settings/API and verify DNS and HTTPS status during release checks only after preview-host gates pass.
    - Verify the custom domain with GitHub Pages before assigning it to the repository.
    - Avoid wildcard DNS records due to takeover risk.
-6. Add `.nojekyll` handling when needed to avoid unintended processing behavior.
-7. Include Search Console migration runbook steps:
+7. Add `.nojekyll` handling when needed to avoid unintended processing behavior.
+8. Include Search Console migration runbook steps:
    - submit new sitemap set after cutover
    - keep old sitemap references during transition as needed
    - monitor indexing and soft-404 signals during migration window
-8. Add workflow concurrency control for deployment jobs to prevent overlapping Pages deploys.
+9. Add workflow concurrency control for deployment jobs to prevent overlapping Pages deploys.
 
 Acceptance criteria:
-1. Main branch deployment is reproducible from clean CI environment.
-2. Deploy is blocked automatically on quality gate failures.
+1. Main branch rehearsal deployment is reproducible from clean CI environment, and the production artifact can be validated separately before launch.
+2. Deploy is blocked automatically on preview-host or production-host quality gate failures.
 
 ## Workstream K: Discovery Surfaces and Shared UI Components
 Goal: extend the shipped scaffold from Workstream D into usable home, archive, and category discovery surfaces without reopening the shared SEO architecture.
@@ -420,10 +428,10 @@ Phase 3 is complete only when all are true:
 2. Core template types exist and include shared SEO primitives.
 3. Front matter contract is machine-validated in CI.
 4. URL parity checks are implemented and release-blocking.
-5. Pages deployment workflow is configured and successfully deploys test artifact.
+5. Pages deployment workflow is configured, successfully deploys the preview rehearsal artifact, and separately validates the production artifact.
 6. Baseline performance/accessibility/security checks run and produce report artifacts.
 7. Custom domain and HTTPS readiness are validated from repository settings/API and DNS state.
-8. Staging noindex controls are verified to avoid accidental indexation.
+8. Preview-host `noindex` controls and project-path-prefix behavior are verified to avoid accidental indexation or broken rehearsal output.
 9. Outstanding risks have owners, mitigations, and target resolution phase.
 10. Discovery, archive/category, and article UI layers are implemented on shipped scaffold paths without duplicating shared SEO logic.
 
@@ -456,7 +464,7 @@ Phase 4 cannot start until:
 1. CI pipeline is passing on scaffold-only content.
 2. URL parity tooling is validated against a sampled subset of Phase 1 manifest.
 3. SEO smoke checks pass on all primary template classes.
-4. Deployment to Pages succeeds in non-production dry run with correct canonical host behavior.
+4. Deployment to Pages succeeds in preview rehearsal mode and in non-deployed production validation mode with correct host-specific behavior.
 
 ## Official References
 Hugo:

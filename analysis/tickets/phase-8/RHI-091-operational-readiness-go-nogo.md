@@ -7,13 +7,13 @@
 **Assigned to:** Migration Owner  
 **Target date:** 2026-06-11  
 **Created:** 2026-03-08  
-**Updated:** 2026-03-08
+**Updated:** 2026-03-09
 
 ---
 
 ### Goal
 
-Execute the full pre-launch rehearsal — running every gate suite against the RC, deploying through the production-equivalent workflow, completing smoke tests, and drilling the rollback — before the go/no-go decision is made. The go/no-go decision must be evidence-based: every gate result is reviewed by name, every open blocking issue has a disposition, and every approver sign-off is recorded. No launch window begins without this ticket being `Done`.
+Execute the full pre-launch rehearsal — running every gate suite against the RC, validating the public rehearsal host `https://taurgis.github.io/rhino-inquisitor-com/`, confirming the separate production validation build is clean, completing smoke tests, and drilling the rollback — before the go/no-go decision is made. The go/no-go decision must be evidence-based: every gate result is reviewed by name, every open blocking issue has a disposition, and every approver sign-off is recorded. No production cutover window begins without this ticket being `Done`.
 
 ---
 
@@ -49,17 +49,20 @@ Execute the full pre-launch rehearsal — running every gate suite against the R
   - [ ] `validation/html-conformance-report.json` — reviewed and signed off
   - [ ] `validation/https-security-report.json` — reviewed and signed off
 - [ ] Pre-launch rehearsal is complete:
-  - [ ] RC artifact deployed through the production workflow (`workflow_dispatch` or release branch push)
-  - [ ] All gate reports generated from the deployed RC
-  - [ ] Smoke tests executed against the production-like deployment using deterministic URL selection from `validation/sample-matrix.json` and `validation/priority-routes.json`
+  - [ ] RC artifact deployed to the preview host `https://taurgis.github.io/rhino-inquisitor-com/`
+  - [ ] All gate reports generated from the deployed rehearsal host and the production validation build
+  - [ ] Smoke tests executed against the preview-host deployment using deterministic URL selection from `validation/sample-matrix.json` and `validation/priority-routes.json`
   - [ ] Smoke test results recorded in `migration/phase-8-smoke-test-results.md`
+- [ ] Production validation build is complete:
+  - [ ] Canonical production host build passes with zero preview-host leakage
+  - [ ] No accidental `noindex` appears in the production validation build
 - [ ] Smoke tests pass (minimum set):
-  - [ ] Homepage: HTTP 200, correct canonical, correct title
+  - [ ] Homepage on preview host: HTTP 200, correct preview-host path-prefix behavior, preview `noindex`, correct title
   - [ ] Top 3 post URLs from the deterministic sample matrix (most-recent by front matter date): HTTP 200
   - [ ] Top 3 category pages from the deterministic sample matrix (alphabetical slug order): HTTP 200
   - [ ] Archive page: HTTP 200 or correct redirect
   - [ ] Privacy policy: HTTP 200
-  - [ ] Top 5 priority legacy redirect URLs from `validation/priority-routes.json`: expected permanent redirect outcome (301/308) to expected target in one hop
+  - [ ] Top 5 priority legacy redirect URLs from `validation/priority-routes.json`: expected preview-host rehearsal outcome according to the active implementation layer, with final production redirect behavior deferred to Phase 9 live checks
   - [ ] Canonical sitemap endpoint (`/sitemap.xml` or `/sitemap_index.xml`, per configuration): HTTP 200, correct canonical host in `<loc>` elements, parseable XML
   - [ ] `robots.txt`: HTTP 200, correct `Sitemap:` directive
   - [ ] Feed endpoint documented in `validation/robots-sitemap-report.json` (for example `/index.xml` or `/feed/`) is reachable and parseable XML when feed output is enabled
@@ -103,9 +106,9 @@ Execute the full pre-launch rehearsal — running every gate suite against the R
   - [ ] Assign one named reviewer per artifact
   - [ ] Record review completion in Progress Log with reviewer name and date
 - [ ] Execute pre-launch deployment rehearsal:
-  - [ ] Deploy RC through the production workflow to a production-like environment (staging Pages deployment or a tagged release)
-  - [ ] Confirm the site is reachable at the expected URLs
-  - [ ] Run all gate scripts against the deployed URLs (not just the local `public/` directory)
+  - [ ] Deploy RC to the GitHub Pages preview host
+  - [ ] Confirm the site is reachable at the expected preview URLs
+  - [ ] Run all gate scripts against the deployed preview URLs and the separate production validation build outputs (not just the local `public/` directory)
 - [ ] Execute smoke tests against the deployed environment:
   - [ ] Use `playwright` or `curl` to verify each smoke test URL
   - [ ] Use deterministic URL ordering from `validation/sample-matrix.json` and `validation/priority-routes.json`; record the exact URLs tested
@@ -223,7 +226,7 @@ Execute the full pre-launch rehearsal — running every gate suite against the R
 
 ### Notes
 
-- The go/no-go decision is not a formality. It is the authoritative evidence record that the launch was approved by named individuals who reviewed specific evidence. In the event of a post-launch incident, this document is the first thing examined.
+- The go/no-go decision is not a formality. It is the authoritative evidence record that preview rehearsal passed, the production validation build is clean, and named individuals approved proceeding to Phase 9 production cutover.
 - If the rollback drill cannot be completed successfully (e.g., the WordPress site is no longer available as a rollback target), that is a launch blocker. Do not proceed to Phase 9 without a tested fallback.
 - The 60-minute rollback target from `analysis/plan/details/phase-8.md` aligns with the Phase 7 incident response runbook. Verify this target is still achievable given the current deployment configuration.
 - Reference: `analysis/plan/details/phase-8.md` §Workstream H: Operational Readiness, Rehearsal, and Go/No-Go; §Definition of Done

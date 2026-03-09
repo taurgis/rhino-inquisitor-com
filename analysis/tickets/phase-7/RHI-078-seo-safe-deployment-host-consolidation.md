@@ -7,21 +7,25 @@
 **Assigned to:** SEO Owner  
 **Target date:** 2026-05-27  
 **Created:** 2026-03-07  
-**Updated:** 2026-03-07
+**Updated:** 2026-03-09
 
 ---
 
 ### Goal
 
-Verify that the Hugo build output emits the correct canonical host (`https://www.rhino-inquisitor.com`) exclusively in all canonical tags, sitemap URLs, `robots.txt` references, and internal links — and that no staging-era SEO anti-patterns (`noindex` leakage, `github.io` canonicals, canonical pointing to redirected paths) survive into the release candidate artifact. The Phase 6 redirect map must be active and parity-tested on the deployed artifact.
+Verify that SEO deployment behavior is safe in both artifact modes: the preview deployment on `https://taurgis.github.io/rhino-inquisitor-com/` must stay crawlable `noindex` and path-prefix-correct, while the production validation artifact must emit the canonical host (`https://www.rhino-inquisitor.com`) exclusively in canonical tags, sitemap URLs, `robots.txt` references, structured data, and internal absolute links.
 
-This workstream produces no new features or configuration — it is a validation and anti-regression gate that must be satisfied on every release candidate before launch. Its outputs are automated checks and a sign-off document confirming the site is SEO-safe for cutover.
+This workstream produces no new features or configuration — it is a validation and anti-regression gate that must be satisfied on every release candidate before launch. Its outputs are automated checks and a sign-off document confirming the preview host is safe for rehearsal and the production artifact is SEO-safe for cutover.
 
 ---
 
 ### Acceptance Criteria
 
-- [ ] All canonical tags in the generated `public/` HTML use the canonical host exclusively:
+- [ ] Preview-host rehearsal checks pass:
+  - [ ] Pages served from `https://taurgis.github.io/rhino-inquisitor-com/` emit crawlable `noindex`
+  - [ ] Preview-host canonical, Open Graph, JSON-LD, sitemap, feed, and internal absolute URLs remain self-consistent on the preview host
+  - [ ] The `/rhino-inquisitor-com/` path prefix is preserved in preview-host URLs and assets
+- [ ] All canonical tags in the generated production-validation `public/` HTML use the canonical host exclusively:
   - [ ] No canonical tag contains `github.io` as the host
   - [ ] No canonical tag uses `http://` (all must be `https://`)
   - [ ] No canonical tag uses the apex host without `www` (`https://rhino-inquisitor.com/...`)
@@ -36,11 +40,11 @@ This workstream produces no new features or configuration — it is a validation
   - [ ] `Sitemap:` directive points to the configured canonical sitemap endpoint (`/sitemap.xml` or `/sitemap_index.xml`)
   - [ ] No staging-blocking `Disallow: /` directive present
   - [ ] `User-agent: *` with correct allow rules present
-- [ ] No `noindex` directive leakage from staging environments:
+- [ ] No `noindex` directive leakage from preview or staging environments into the production validation artifact:
   - [ ] No `<meta name="robots" content="noindex">` in any page that should be indexable
   - [ ] No `X-Robots-Tag: noindex` in HTTP response headers (check via `curl -I`)
   - [ ] Checked on: homepage, a post, a category page
-- [ ] Internal links resolve to canonical host and final paths:
+- [ ] Internal links in the production validation artifact resolve to canonical host and final paths:
   - [ ] No internal links pointing to the `github.io` host
   - [ ] No internal links using HTTP protocol
   - [ ] No internal links targeting legacy redirect source URLs (i.e., no internal link goes through a redirect hop)
@@ -64,6 +68,10 @@ This workstream produces no new features or configuration — it is a validation
 ### Tasks
 
 - [ ] Run Hugo production build: `hugo --gc --minify --environment production`
+- [ ] Validate the deployed preview rehearsal host:
+  - [ ] Confirm preview-host `noindex`
+  - [ ] Confirm preview-host canonical/OG/JSON-LD/sitemap/feed/internal absolute URLs are self-consistent
+  - [ ] Confirm the `/rhino-inquisitor-com/` path prefix is preserved
 - [ ] Audit canonical tags in generated HTML:
   - [ ] Select sample URLs deterministically: homepage, three most-recent published posts, first alphabetical category page, and archive page
   - [ ] Open each file and verify `<link rel="canonical" href="...">` uses `https://www.rhino-inquisitor.com`
@@ -177,8 +185,8 @@ This workstream produces no new features or configuration — it is a validation
 
 ### Notes
 
-- The canonical host check must run against the deployed Pages artifact, not just the local Hugo build. The Pages base URL injection (`actions/configure-pages` step providing `${{ steps.pages.outputs.base_url }}`) is what ensures the correct canonical host is embedded — a local build with a different `baseURL` may produce different canonical values. Always use `workflow_dispatch` to trigger a real deploy and inspect the live artifact.
-- No production page that is meant to be indexed should have `<meta name="robots" content="noindex">`. The only exception is the 404 page. The staging `noindex` pattern (sometimes applied in Phase 7 pre-launch staging builds) must be removed before the release candidate build.
+- Run this ticket in two passes: preview-host rehearsal verification on `https://taurgis.github.io/rhino-inquisitor-com/`, then production-validation artifact verification for `https://www.rhino-inquisitor.com/` before cutover.
+- No production page that is meant to be indexed should have `<meta name="robots" content="noindex">`. Preview-host `noindex` is required for rehearsal safety, but it must never leak into the production validation artifact.
 - The robots.txt Sitemap declaration must point to the configured canonical sitemap endpoint on `https://www.rhino-inquisitor.com` (for example, `/sitemap.xml` or `/sitemap_index.xml`). A wrong host, wrong protocol, or missing canonical endpoint is a crawlability defect.
 - The feed endpoint (`/index.xml`) continuity check is important for RSS subscribers. If the feed URL changed during migration, subscribers lose their feed. Verify the feed URL maps to the same path as the WordPress feed or that a redirect is in place.
 - Reference: `analysis/plan/details/phase-7.md` §Workstream E: SEO-Safe Deployment and Host Consolidation; Google canonical guidance: https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls

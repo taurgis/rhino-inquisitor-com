@@ -1,4 +1,4 @@
-## RHI-080 · Workstream G — Launch Window Execution Runbook
+## RHI-080 · Workstream G — Production Cutover Execution Runbook
 
 **Status:** Open  
 **Priority:** Critical  
@@ -7,13 +7,13 @@
 **Assigned to:** Migration Owner  
 **Target date:** 2026-05-29  
 **Created:** 2026-03-07  
-**Updated:** 2026-03-07
+**Updated:** 2026-03-09
 
 ---
 
 ### Goal
 
-Produce a complete, step-by-step launch window execution runbook that can be followed by the migration team on cutover day without improvisation. The runbook must define every action from T-7 days to T+24 hours, assign clear owner accountability for each step, specify the go/no-go criteria at each phase of the cutover, and provide the exact commands and checks to verify the site is live and correct.
+Produce a complete, step-by-step production cutover execution runbook that can be followed by the migration team on cutover day without improvisation. The runbook must begin from the assumption that preview-host rehearsal and Phase 8 validation have already passed on `https://taurgis.github.io/rhino-inquisitor-com/`, then define every production action from T-7 days to T+24 hours.
 
 The runbook must be reviewed and validated against a dry-run deploy before the launch window is scheduled. A runbook that has not been tested is not a runbook — it is a wish list.
 
@@ -22,6 +22,7 @@ The runbook must be reviewed and validated against a dry-run deploy before the l
 ### Acceptance Criteria
 
 - [ ] `migration/phase-7-launch-runbook.md` is committed and contains all of the following sections:
+  - [ ] **Preview rehearsal prerequisites**: required preview-host validation evidence and Phase 8 sign-off inputs before T-7 planning begins
   - [ ] **T-7 to T-2 days**: pre-launch preparation checklist
   - [ ] **T-24 hours**: final preparation actions (exact commands and steps)
   - [ ] **T-0 cutover**: ordered step-by-step cutover sequence with owner per step
@@ -31,7 +32,8 @@ The runbook must be reviewed and validated against a dry-run deploy before the l
   - [ ] **Smoke test checklist**: exact URLs to verify with expected HTTP status codes and canonical values
   - [ ] **Escalation path**: who to contact if a gate fails or a rollback trigger is met
 - [ ] T-0 cutover sequence is fully specified with exact steps and owners:
-  - [ ] Deploy the release candidate artifact to Pages (`workflow_dispatch` or push to release branch)
+  - [ ] Confirm preview-host rehearsal evidence and Phase 8 go/no-go approval are complete
+  - [ ] Deploy the production release candidate artifact to Pages (`workflow_dispatch` or push to release branch)
   - [ ] Verify all quality gates pass in CI
   - [ ] Apply DNS changes (exact records from `migration/phase-7-dns-cutover-plan.md`)
   - [ ] Monitor DNS propagation using Cloudflare (`@1.1.1.1`) and Google (`@8.8.8.8`) resolvers
@@ -54,7 +56,7 @@ The runbook must be reviewed and validated against a dry-run deploy before the l
 - [ ] Dry-run validation is complete:
   - [ ] Dry-run deploy was performed using `workflow_dispatch` to the `github-pages` environment
   - [ ] All quality gates passed in the dry-run CI run
-  - [ ] Pages URL was accessible during dry run
+  - [ ] Preview Pages URL was accessible during dry run
   - [ ] Dry-run run URL is recorded in Progress Log
 - [ ] Go/no-go criteria are documented at each phase:
   - [ ] Pre-cutover go/no-go: all Phase 7 workstream tickets Done; all 9 blocking CI gates passing (exit code 0); DNS operator confirmed; HTTPS monitoring plan confirmed
@@ -66,6 +68,7 @@ The runbook must be reviewed and validated against a dry-run deploy before the l
 ### Tasks
 
 - [ ] Draft T-7 to T-2 days checklist:
+  - [ ] Confirm preview-host rehearsal has passed and Phase 8 sign-off artifacts are available
   - [ ] Freeze workflow design and permissions (no workflow changes after T-7)
   - [ ] Confirm all Phase 7 workstream tickets (RHI-074 through RHI-079, RHI-081) are Done
   - [ ] Confirm all Phase 6 CI gates still pass on latest `main`
@@ -173,6 +176,7 @@ The runbook must be reviewed and validated against a dry-run deploy before the l
 ### Notes
 
 - The dry-run deploy is non-optional. A runbook that has not been tested under real CI conditions (not just local builds) is not a trusted runbook. The dry run must use `workflow_dispatch` against the actual `github-pages` Pages environment — not a preview branch or local serve.
+- This runbook governs the production cutover window, not the initial preview deployment. Preview rehearsal on the GitHub Pages project URL is a prerequisite input to this ticket, not an output.
 - The launch window must be during a low-traffic period. Consult the current WordPress analytics to identify the lowest-traffic time slot. A weekday early morning (5–9 AM local time, site's primary audience timezone) is typically the safest window.
 - DNS propagation cannot be accelerated. The T-24 TTL reduction is the only lever. After the TTL has expired (post-reduction), new resolver caches will pick up the new records within the new TTL. Plan for up to 2× the reduced TTL as the propagation buffer.
 - The smoke test checklist should be run using both `curl -I` (for header inspection) and a real browser check for the homepage and a post to catch client-side issues that `curl` may miss.

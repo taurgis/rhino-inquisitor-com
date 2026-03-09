@@ -13,7 +13,7 @@
 
 ### Goal
 
-Formally close Phase 6 by verifying that all workstream deliverables are complete, all Phase 6 CI gates are passing on the latest release candidate build, the redirect map is frozen, and the Phase 7 (GitHub Pages Deployment and Domain Cutover) and Phase 8 (Validation and Launch Readiness) teams have received and acknowledged the Phase 6 handover package.
+Formally close Phase 6 by verifying that all workstream deliverables are complete, all Phase 6 CI gates are passing on the latest release candidate build, the redirect map is frozen, and the Phase 7 (GitHub Pages Preview Deployment and Domain Cutover Readiness) and Phase 8 (Validation and Launch Readiness) teams have received and acknowledged the Phase 6 handover package.
 
 Phase 7 DNS cutover and Phase 8 launch readiness assessments must not finalize until this sign-off is recorded. Any unresolved Phase 6 blocking defect must be fixed or explicitly accepted with a documented owner before sign-off proceeds. The Phase 6 sign-off document is the authoritative record of what URL preservation and redirect controls are in place for the launch window.
 
@@ -95,7 +95,7 @@ Phase 7 DNS cutover and Phase 8 launch readiness assessments must not finalize u
   - [ ] Stakeholder sign-off block
 - [ ] Circulate sign-off document for approval (migration owner, SEO owner, engineering owner)
 - [ ] Record final approval in Progress Log with approver names and dates
-- [ ] Notify Phase 7 team (GitHub Pages Deployment and Domain Cutover) that Phase 6 redirect policies, cutover runbook, and rollback runbook are available
+- [ ] Notify Phase 7 team (GitHub Pages Preview Deployment and Domain Cutover Readiness) that Phase 6 redirect policies, cutover runbook, and rollback runbook are available
 - [ ] Notify Phase 8 team (Validation and Launch Readiness) that Phase 6 CI gates are integrated and passing; share CI gate reference
 
 ---

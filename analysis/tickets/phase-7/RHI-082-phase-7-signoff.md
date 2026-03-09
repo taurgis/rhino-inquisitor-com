@@ -7,15 +7,15 @@
 **Assigned to:** Migration Owner  
 **Target date:** 2026-06-02  
 **Created:** 2026-03-07  
-**Updated:** 2026-03-07
+**Updated:** 2026-03-09
 
 ---
 
 ### Goal
 
-Formally close Phase 7 by verifying that all workstream deliverables are complete, all deployment quality gates are passing on the live production domain, the DNS cutover is confirmed complete, HTTPS is enforced, and the Phase 8 (Validation and Launch Readiness) and Phase 9 (Cutover and Post-Launch Monitoring) teams have received and acknowledged the Phase 7 handover package.
+Formally close Phase 7 by verifying that all workstream deliverables for preview-host rehearsal and production cutover readiness are complete, that the GitHub Pages project-site deployment at `https://taurgis.github.io/rhino-inquisitor-com/` is available for rehearsal, and that the Phase 8 and Phase 9 teams have received and acknowledged the handover package needed before live production cutover.
 
-This sign-off is the authoritative record of the deployment state at the point of launch. Phase 8 launch readiness assessments and Phase 9 monitoring baselines cannot be finalized until this sign-off is recorded. Any unresolved Phase 7 blocking defect must be fixed or explicitly accepted with a documented owner before sign-off proceeds.
+This sign-off is the authoritative record of readiness before launch, not proof that DNS cutover is already complete. Phase 8 launch-readiness assessments and Phase 9 production cutover execution cannot proceed until this sign-off is recorded. Any unresolved Phase 7 blocking defect must be fixed or explicitly accepted with a documented owner before sign-off proceeds.
 
 ---
 
@@ -31,25 +31,11 @@ This sign-off is the authoritative record of the deployment state at the point o
   - [ ] RHI-079 Done — All quality gates integrated and passing
   - [ ] RHI-080 Done — Launch runbook committed and dry-run validated
   - [ ] RHI-081 Done — Rollback runbook committed and dry-run validated
-- [ ] DNS cutover is complete and confirmed:
-  - [ ] `dig www.rhino-inquisitor.com CNAME +short` returns `<owner>.github.io` (current expected value: `taurgis.github.io`)
-  - [ ] `dig rhino-inquisitor.com A +short` returns GitHub Pages IP addresses
-  - [ ] Cloudflare (`@1.1.1.1`) and Google (`@8.8.8.8`) resolvers return correct records
-  - [ ] Pages settings show custom domain check as healthy
-- [ ] Production site is live on the canonical domain:
-  - [ ] `https://www.rhino-inquisitor.com/` returns HTTP 200 with the migrated Hugo site
-  - [ ] HTTPS is enforced: `http://www.rhino-inquisitor.com/` redirects to `https://www.rhino-inquisitor.com/`
-  - [ ] Correct TLS certificate is served (Let's Encrypt; not expired; valid for `www.rhino-inquisitor.com`)
-- [ ] All smoke tests from the WS-G launch runbook are verified as passed:
-  - [ ] Homepage (HTTP 200, correct canonical)
-  - [ ] Three recent post URLs (the three most-recent published posts by front matter date) (HTTP 200)
-  - [ ] Three category page URLs (first three alphabetical category slugs with live pages) (HTTP 200)
-  - [ ] Archive page (HTTP 200 or correct redirect)
-  - [ ] Privacy policy (HTTP 200)
-  - [ ] At least one top legacy redirect (correct redirect outcome)
-  - [ ] Canonical sitemap endpoint (`/sitemap.xml` or `/sitemap_index.xml`, per configuration) (HTTP 200, correct canonical host in `<loc>` elements)
-  - [ ] `robots.txt` (HTTP 200, correct `Sitemap:` directive)
-- [ ] All Phase 7 CI gates pass on the live release commit:
+- [ ] Preview-host rehearsal foundation is complete:
+  - [ ] `https://taurgis.github.io/rhino-inquisitor-com/` is reachable and recorded as the rehearsal host
+  - [ ] Preview-host deployment run URL and smoke evidence are included in the handover package
+  - [ ] Production validation build path and expected evidence are documented for Phase 8 and Phase 9
+- [ ] All Phase 7 CI gates pass on the designated release candidate and rehearsal artifact set:
   - [ ] `npm run validate:frontmatter` exits with code 0
   - [ ] `npm run check:url-parity` exits with code 0
   - [ ] `npm run check:redirect-chains` exits with code 0
@@ -61,10 +47,10 @@ This sign-off is the authoritative record of the deployment state at the point o
   - [ ] Hugo production build exits with code 0
 - [ ] `migration/phase-7-signoff.md` is committed with:
   - [ ] Summary of all Phase 7 workstream outcomes (RHI-074 through RHI-081) with ticket IDs and deliverable file paths
-  - [ ] DNS cutover confirmation (DNS check results with timestamps)
-  - [ ] HTTPS enforcement confirmation with timestamp
+  - [ ] Preview-host rehearsal evidence and recorded deployment URL
+  - [ ] DNS/custom-domain/HTTPS readiness state for the upcoming production cutover
   - [ ] CI gate compliance statement with evidence (Actions run URL)
-  - [ ] Smoke test results table
+  - [ ] Preview-host smoke evidence and Phase 8/9 entry conditions
   - [ ] Exception register: all accepted deviations from plan with owner, reason, and resolution phase
   - [ ] Phase 7 Definition of Done compliance checklist
   - [ ] Phase 8/9 entry conditions — what downstream phases can rely on from Phase 7
@@ -77,15 +63,8 @@ This sign-off is the authoritative record of the deployment state at the point o
 ### Tasks
 
 - [ ] Confirm all Phase 7 workstream tickets (RHI-073 through RHI-081) are `Done`
-- [ ] Execute DNS cutover per `migration/phase-7-launch-runbook.md` T-0 sequence:
-  - [ ] Deploy release candidate artifact via `workflow_dispatch` or release branch push
-  - [ ] Confirm all CI gates pass; record Actions run URL
-  - [ ] Apply DNS changes per `migration/phase-7-dns-cutover-plan.md`
-  - [ ] Monitor propagation with two independent resolvers
-  - [ ] Enable Enforce HTTPS when certificate is issued
-  - [ ] Run smoke tests against live domain
-  - [ ] Record cutover completion timestamp in Progress Log
-- [ ] Run all Phase 7 CI gates against the live release commit:
+- [ ] Confirm preview-host rehearsal deployment is reachable and that its evidence is archived for downstream phases
+- [ ] Run all Phase 7 CI gates against the designated release candidate:
   - [ ] Full gate list as above — every gate must pass
   - [ ] Record Actions run URL
 - [ ] Compile `migration/reports/phase-7-gate-summary.csv`:
@@ -95,10 +74,10 @@ This sign-off is the authoritative record of the deployment state at the point o
   - [ ] Confirm no deferred item represents an unacceptable risk for Phase 8
 - [ ] Draft `migration/phase-7-signoff.md`:
   - [ ] Workstream outcomes table
-  - [ ] DNS confirmation (dig outputs, timestamps)
-  - [ ] HTTPS enforcement confirmation
+  - [ ] Preview-host rehearsal evidence and deployment URL
+  - [ ] DNS/custom-domain/HTTPS readiness state
   - [ ] CI gate evidence (Actions run URL, pass/fail per gate)
-  - [ ] Smoke test results table
+  - [ ] Preview-host smoke evidence and handoff assumptions
   - [ ] Exception register
   - [ ] Phase 8/9 entry conditions
   - [ ] Outstanding risks with owners
@@ -118,6 +97,7 @@ This sign-off is the authoritative record of the deployment state at the point o
 
 ### Out of Scope
 
+- Executing live DNS cutover and confirming the live production domain (Phase 9 scope)
 - Full launch validation and synthetic monitoring setup (Phase 8 scope)
 - Post-launch Search Console submission and monitoring (Phase 9 scope)
 - Making any configuration changes to the live site after sign-off (these require a new ticket in Phase 8 or 9)
@@ -167,9 +147,9 @@ This sign-off is the authoritative record of the deployment state at the point o
 - `migration/phase-7-signoff.md`
 - `migration/reports/phase-7-gate-summary.csv`
 - All Phase 7 workstream tickets (RHI-074 through RHI-081) confirmed `Done`
-- DNS cutover confirmation (dig output, timestamps)
-- HTTPS enforcement confirmation (timestamp, curl check)
-- Live smoke test results
+- Preview-host rehearsal evidence and deployment URL
+- DNS/custom-domain/HTTPS readiness summary for Phase 9
+- Phase 8/9 handover confirmation
 
 **Deviations from plan:**
 
@@ -187,7 +167,7 @@ This sign-off is the authoritative record of the deployment state at the point o
 
 ### Notes
 
-- The Phase 7 sign-off document is the single handover artifact for Phase 8 and Phase 9. Phase 8 engineers must be able to read it and know: which CI gates are integrated, what the current pass/fail state is, what the live domain URL is, and whether any gates were accepted with exceptions. Phase 9 engineers must know the DNS configuration, the rollback window timeline, and where to find the rollback runbook.
+- The Phase 7 sign-off document is the handover artifact for preview-host rehearsal readiness and production cutover preparation. It is not the record of completed production DNS activation; that evidence belongs to Phase 9.
 - Any exception accepted at sign-off must have a named owner and a target resolution phase. Undocumented exceptions become invisible risks in Phase 8 and Phase 9.
 - The `migration/reports/phase-7-gate-summary.csv` provides Phase 8 with a machine-readable evidence trail for the Phase 8 launch readiness check.
 - Reference: `analysis/plan/details/phase-7.md` §Definition of Done; `analysis/plan/details/phase-8.md` §Phase Position and Dependencies

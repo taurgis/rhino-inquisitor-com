@@ -23,7 +23,7 @@ This ticket cannot be closed unless the exit criteria in RHI-102 are all met and
 
 - [ ] All Phase 9 workstream tickets are `Done`:
   - [ ] RHI-093 Done — Phase 9 Bootstrap complete
-  - [ ] RHI-094 Done — Cutover execution and immediate verification complete
+  - [ ] RHI-094 Done — Production cutover execution and immediate verification complete
   - [ ] RHI-095 Done — Search Console activation and 6-week indexing monitoring complete
   - [ ] RHI-096 Done — Redirect retention governance active; 12-month calendar committed
   - [ ] RHI-097 Done — Incident model operated throughout stabilization; no open Sev-1

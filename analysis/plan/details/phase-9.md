@@ -3,7 +3,7 @@
 ## Purpose
 Execute DNS and traffic cutover safely, then run a strict 6-week stabilization program that protects rankings, user experience, and security posture for https://www.rhino-inquisitor.com.
 
-Phase 9 is where migration outcomes become irreversible in public search and user behavior data. A technically successful deployment can still fail commercially if indexing, redirects, host canonicalization, or critical templates regress after launch.
+Phase 9 starts only after the GitHub Pages project-site rehearsal host has passed validation and the production artifact is ready for cutover. This is where migration outcomes become irreversible in public search and user behavior data. A technically successful deployment can still fail commercially if indexing, redirects, host canonicalization, or critical templates regress after launch.
 
 ## Why Phase 9 Is High Risk
 1. Crawl and indexing updates are not immediate; ranking and coverage volatility is expected for weeks.
@@ -55,6 +55,8 @@ Out of scope:
 10. Redirect retention for moved URLs is maintained for as long as possible, generally at least 12 months.
 11. Incident timeline, decisions, and remediations must be logged for every Sev-1/Sev-2 event.
 12. Previous WordPress production stack remains rollback-ready through stabilization Week 6 by default; any shorter window requires explicit risk acceptance and can never be shorter than Week 2.
+13. Production launch is blocked unless preview-host rehearsal and production-host validation evidence are both complete.
+14. After cutover, no canonical, sitemap entry, Open Graph URL, structured-data URL, or internal absolute link may continue pointing at `https://taurgis.github.io/rhino-inquisitor-com/`.
 
 ## Fixed Operational Thresholds
 1. Sev-1 route-failure trigger:
@@ -247,6 +249,7 @@ Weekly checks:
 3. `robots.txt` remains aligned with crawl policy and sitemap location.
 4. Structured data for homepage and article templates remains valid and content-aligned.
 5. Open Graph and social image URLs stay resolvable and HTTPS.
+6. No canonical, sitemap, Open Graph, JSON-LD, or internal absolute URL points to `https://taurgis.github.io/rhino-inquisitor-com/` after production cutover.
 
 Change-control rule:
 1. No template-level SEO field change without validation run and recorded owner approval during stabilization window.
@@ -421,7 +424,8 @@ T+24h:
 4. Canonical/sitemap/robots/redirect signals remain consistent throughout stabilization window.
 5. Performance and security posture remain within fixed operational thresholds.
 6. Redirect retention plan and ownership are documented through at least month 12.
-7. BAU monitoring ownership and cadence are accepted by operations and SEO owners.
+7. Preview-host leakage checks remain clean throughout stabilization.
+8. BAU monitoring ownership and cadence are accepted by operations and SEO owners.
 
 ## Official References Incorporated
 1. Google site move with URL changes: https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes
