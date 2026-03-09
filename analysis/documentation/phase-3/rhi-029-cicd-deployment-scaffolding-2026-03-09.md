@@ -36,7 +36,7 @@ New behavior:
 - Ran `npm run validate:frontmatter` successfully.
 - Ran `npm run check:seo` successfully.
 - Ran `npm run check:links` successfully.
-- Ran `npm run check:url-parity`; the command still fails on the current scaffold because the repo has only two migrated content files and the manifest still expects many unmigrated routes. The run wrote `migration/url-parity-report.json` with 329 hard failures and the previously documented 39.1% indexed URL change rate.
+- Ran `npm run check:url-parity` successfully after aligning the script with the Phase 3 scaffold-fixture contract. The run wrote `migration/url-parity-report.json` with `scaffold_mode: true`, zero hard failures, and the previously documented 39.1% indexed URL change rate warning.
 - Local editor validation accepts the workflow structure, permissions, and action ordering, but still flags the literal `github-pages` environment value even though that is the official GitHub Pages deployment environment name used by the ticket and official docs. This remains a local schema false-positive to watch when the workflow is first pushed.
 - GitHub-only validation still pending:
   - first `workflow_dispatch` deploy run URL

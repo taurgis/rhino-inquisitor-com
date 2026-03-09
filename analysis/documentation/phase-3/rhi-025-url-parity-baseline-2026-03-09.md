@@ -25,7 +25,7 @@ New behavior:
 - The script computes the indexed-URL change-rate formula explicitly and reports both:
   - early warning at `>= 5%`
   - mandatory edge-redirect requirement at `> 5%`
-- When `src/content/` has no Markdown content yet, the checker enters scaffold mode, still validates manifest/report generation, and exits cleanly without pretending route-level parity has already been proven.
+- When `src/content/` has no migration-owned Markdown content yet, the checker enters scaffold mode, still validates manifest/report generation, and exits cleanly without pretending route-level parity has already been proven. Scaffold-owned fixture pages marked with `scaffoldFixture: true` do not disable scaffold mode.
 
 ## Impact
 
@@ -36,7 +36,7 @@ New behavior:
 ## Verification
 
 - Ran `hugo --minify --environment production` successfully.
-- Ran `npm run check:url-parity` successfully on the current scaffold; generated `migration/url-parity-report.json` with `scaffold_mode: true` and zero hard failures.
+- Ran `npm run check:url-parity` successfully on the current scaffold; generated `migration/url-parity-report.json` with `scaffold_mode: true`, zero hard failures, `Content files: 2`, and `Migration-owned content files: 0`.
 - Ran isolated fixture validation with environment overrides:
   - passing keep-plus-merge case exited `0`
   - missing keep-route case exited `1`
@@ -45,6 +45,8 @@ New behavior:
 ## Related files
 
 - `scripts/check-url-parity.js`
+- `src/content/posts/phase-3-performance-baseline/index.md`
+- `src/content/pages/scaffold-readiness/index.md`
 - `package.json`
 - `migration/url-parity-report.json`
 - `docs/migration/RUNBOOK.md`

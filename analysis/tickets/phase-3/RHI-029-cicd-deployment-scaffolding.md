@@ -200,7 +200,7 @@ This ticket is the final integration gate for all Phase 3 workstreams — it pro
 | Date | Status | Note |
 |------|--------|------|
 | 2026-03-07 | Open | Ticket created |
-| 2026-03-09 | In Progress | Implemented the deploy workflow, PR validation workflow, broken-link gate, Markdown lint pin/config, and runbook update. Local production build, front matter, SEO, and internal-link checks passed. The existing URL parity baseline still fails on unmigrated routes, and GitHub-side `workflow_dispatch` plus Pages settings verification remain pending. |
+| 2026-03-09 | In Progress | Implemented the deploy workflow, PR validation workflow, broken-link gate, Markdown lint pin/config, and runbook update. Local production build, front matter, SEO, internal-link, and URL parity checks now pass on the scaffold after excluding scaffold-owned fixture content from parity gating. GitHub-side `workflow_dispatch` plus Pages settings verification remain pending. |
 
 ---
 

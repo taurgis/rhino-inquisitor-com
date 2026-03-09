@@ -10,6 +10,7 @@ tags:
   - performance
 heroImage: "hero.png"
 url: "/phase-3-performance-baseline/"
+scaffoldFixture: true
 draft: false
 author: "Engineering Owner"
 ---

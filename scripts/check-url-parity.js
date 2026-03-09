@@ -139,6 +139,10 @@ function getContentType(relativePath) {
   return 'default';
 }
 
+function isScaffoldFixtureContent(frontMatterData) {
+  return frontMatterData?.scaffoldFixture === true;
+}
+
 function priorityRank(priority) {
   const index = priorityOrder.indexOf(priority);
   return index === -1 ? priorityOrder.length : index;
@@ -287,17 +291,24 @@ async function collectContentRoutes() {
   })).sort();
   const primaryRouteMap = new Map();
   const outputRouteMap = new Map();
+  let migrationOwnedMarkdownCount = 0;
 
   for (const relativePath of markdownFiles) {
     const absolutePath = path.join(contentRoot, relativePath);
     const normalizedPath = toPosixPath(relativePath);
     const contentType = getContentType(normalizedPath);
 
+    const parsedFile = matter.read(absolutePath);
+    const isScaffoldFixture = isScaffoldFixtureContent(parsedFile.data);
+
+    if (!isScaffoldFixture) {
+      migrationOwnedMarkdownCount += 1;
+    }
+
     if (contentType === 'category') {
       continue;
     }
 
-    const parsedFile = matter.read(absolutePath);
     const routeValues = [];
 
     if (typeof parsedFile.data.url === 'string' && parsedFile.data.url.trim() !== '') {
@@ -354,6 +365,7 @@ async function collectContentRoutes() {
 
   return {
     markdown_file_count: markdownFiles.length,
+    migration_owned_markdown_count: migrationOwnedMarkdownCount,
     collisions
   };
 }
@@ -433,7 +445,7 @@ async function main() {
   const manifestRouteMap = new Map(
     manifestEntries.map((entry) => [normalizeUrlLike(entry.legacy_url).comparable, entry])
   );
-  const scaffoldMode = contentState.markdown_file_count === 0;
+  const scaffoldMode = contentState.migration_owned_markdown_count === 0;
 
   if (!publicState.fileRouteMap.has('/')) {
     const syntheticEntry = {
@@ -656,6 +668,7 @@ async function main() {
   console.log(`URL parity report written to ${path.relative(repoRoot, reportPath)}`);
   console.log(`Manifest entries: ${manifestEntries.length}`);
   console.log(`Content files: ${contentState.markdown_file_count}`);
+  console.log(`Migration-owned content files: ${contentState.migration_owned_markdown_count}`);
   console.log(`Public files: ${publicState.public_file_count}`);
   console.log(`Checked URLs: ${results.length}`);
   console.log(`Hard failures: ${hardFailures.length}`);
@@ -663,7 +676,7 @@ async function main() {
   console.log(`Indexed URL change rate: ${changeRate}% (${changedIndexedUrls}/${indexedUrls || 0})`);
 
   if (scaffoldMode) {
-    console.log('Scaffold mode active: no Markdown content files found under src/content, so route-level parity checks were skipped.');
+    console.log('Scaffold mode active: no migration-owned Markdown content files found under src/content, so route-level parity checks were skipped.');
   }
 
   if (changeRate >= 5) {
