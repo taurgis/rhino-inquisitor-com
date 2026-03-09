@@ -37,11 +37,12 @@ New behavior:
 - Ran `npm run check:seo` successfully.
 - Ran `npm run check:links` successfully.
 - Ran `npm run check:url-parity` successfully after aligning the script with the Phase 3 scaffold-fixture contract. The run wrote `migration/url-parity-report.json` with `scaffold_mode: true`, zero hard failures, and the previously documented 39.1% indexed URL change rate warning.
+- Confirmed a successful public GitHub Actions deploy run at `https://github.com/taurgis/rhino-inquisitor-com/actions/runs/22871838125` (`Deploy to GitHub Pages #3`, commit `2217b65aaeb89f474a33c12b7c9e14d0adf0f3f2`).
+- Confirmed the deployed Pages site is reachable at `https://taurgis.github.io/rhino-inquisitor-com/`.
 - Local editor validation accepts the workflow structure, permissions, and action ordering, but still flags the literal `github-pages` environment value even though that is the official GitHub Pages deployment environment name used by the ticket and official docs. This remains a local schema false-positive to watch when the workflow is first pushed.
-- GitHub-only validation still pending:
-  - first `workflow_dispatch` deploy run URL
-  - deployed Pages URL from `actions/deploy-pages`
-  - repository Pages custom-domain and HTTPS settings verification
+- Owner closeout decision:
+  - repository owner requested ticket completion after successful public deploy validation
+  - custom-domain and HTTPS settings are treated as owner-confirmed for this ticket closeout, with operational follow-through remaining relevant in Phase 7 cutover work
 
 ## Related files
 
