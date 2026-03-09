@@ -1,6 +1,6 @@
 ## RHI-010 · Phase 2 Bootstrap: Kickoff and Decision Owner Alignment
 
-**Status:** Open  
+**Status:** Done  
 **Priority:** Critical  
 **Estimate:** S  
 **Phase:** 2  
@@ -22,34 +22,57 @@ Without alignment on ownership and access to Phase 1 outputs (particularly the U
 ### Acceptance Criteria
 
 - [x] Phase 1 sign-off (RHI-009) is `Done` and `migration/phase-1-signoff.md` is committed
-- [ ] Migration owner, SEO owner, and engineering owner are confirmed and reachable for Phase 2
-- [ ] All three decision owners have read `analysis/plan/details/phase-2.md` and confirmed understanding
-- [ ] Phase 1 deliverables are accessible to all Phase 2 decision owners:
-  - [ ] `migration/url-manifest.json` — URL classification and disposition decisions
-  - [ ] `migration/phase-1-seo-baseline.md` — SEO baseline for risk assessment
-  - [ ] `migration/risk-register.md` — active risks that constrain architecture decisions
-- [ ] Workstream owner for each of WS-A through WS-F is named and recorded in the Progress Log
-- [ ] Schedule for Phase 2 review sessions is agreed (synchronous or async format documented)
-- [ ] Pagination priority manifest decision process is initiated (record how `migration/pagination-priority-manifest.json` will be populated — ticket or inline in RHI-013)
-- [ ] Phase 2 target completion date is set and agreed by all decision owners
+- [x] Migration owner, SEO owner, and engineering owner are confirmed and reachable for Phase 2
+- [x] All three decision owners have read `analysis/plan/details/phase-2.md` and confirmed understanding
+- [x] Phase 1 deliverables are accessible to all Phase 2 decision owners:
+  - [x] `migration/url-manifest.json` — URL classification and disposition decisions
+  - [x] `migration/phase-1-seo-baseline.md` — SEO baseline for risk assessment
+  - [x] `migration/risk-register.md` — active risks that constrain architecture decisions
+- [x] Workstream owner for each of WS-A through WS-F is named and recorded in the Progress Log
+- [x] Schedule for Phase 2 review sessions is agreed (synchronous or async format documented)
+- [x] Pagination priority manifest decision process is initiated (record how `migration/pagination-priority-manifest.json` will be populated — ticket or inline in RHI-013)
+- [x] Phase 2 target completion date is set and agreed by all decision owners
 
 ---
 
 ### Tasks
 
 - [x] Verify RHI-009 is `Done`; if not, document blocker in Progress Log and pause Phase 2
-- [ ] Confirm migration owner, SEO owner, and engineering owner identities and contact details
-- [ ] Share `analysis/plan/details/phase-2.md` with all three decision owners; request read confirmation
-- [ ] Share links to `migration/url-manifest.json`, `migration/phase-1-seo-baseline.md`, and `migration/risk-register.md`
-- [ ] Assign workstream owners for WS-A through WS-F (can be the same person for multiple workstreams)
-- [ ] Set Phase 2 review format: synchronous workshop, async doc-comment, or hybrid
-- [ ] Agree on target date for each workstream ticket (RHI-011 through RHI-017)
-- [ ] Confirm decision ownership table:
-  - [ ] Migration owner owns: redirect architecture, threshold enforcement, rollout acceptance
-  - [ ] SEO owner owns: URL-change threshold usage, endpoint retire/keep, pagination parity exceptions
-  - [ ] Engineering owner owns: Pages-only vs. edge-layer feasibility judgment
-- [ ] Log all confirmations in the Progress Log with names and dates
-- [ ] Announce Phase 2 kickoff to the team with linked Phase 1 summary
+- [x] Confirm migration owner, SEO owner, and engineering owner identities and contact details
+- [x] Share `analysis/plan/details/phase-2.md` with all three decision owners; request read confirmation
+- [x] Share links to `migration/url-manifest.json`, `migration/phase-1-seo-baseline.md`, and `migration/risk-register.md`
+- [x] Assign workstream owners for WS-A through WS-F (can be the same person for multiple workstreams)
+- [x] Set Phase 2 review format: synchronous workshop, async doc-comment, or hybrid
+- [x] Agree on target date for each workstream ticket (RHI-011 through RHI-017)
+- [x] Confirm decision ownership table:
+  - [x] Migration owner owns: redirect architecture, threshold enforcement, rollout acceptance
+  - [x] SEO owner owns: URL-change threshold usage, endpoint retire/keep, pagination parity exceptions
+  - [x] Engineering owner owns: Pages-only vs. edge-layer feasibility judgment
+- [x] Log all confirmations in the Progress Log with names and dates
+- [x] Announce Phase 2 kickoff to the team with linked Phase 1 summary
+
+### Phase 2 Owner Alignment Record
+
+| Role | Name | Contact | Phase 2 confirmation |
+|------|------|---------|----------------------|
+| Migration Owner | Thomas Theunen | thomas.theunen@forward.eu | Confirmed 2026-03-09 |
+| SEO Owner | Thomas Theunen | thomas.theunen@forward.eu | Confirmed 2026-03-09 |
+| Engineering Owner | Thomas Theunen | thomas.theunen@forward.eu | Confirmed 2026-03-09 |
+
+### Workstream Ownership And Review Record
+
+| Workstream | Ticket | Owner | Review mode | Target date |
+|------------|--------|-------|-------------|-------------|
+| WS-A — Generator and Repo Contract | RHI-011 | Engineering Owner | Async doc-comment; escalate synchronously only on blocking disputes | 2026-03-19 |
+| WS-B — Content Model and Front Matter Contract | RHI-012 | Migration Owner | Async doc-comment; escalate synchronously only on blocking disputes | 2026-03-19 |
+| WS-C — Route and Redirect Contract | RHI-013 | Migration Owner | Async doc-comment; escalate synchronously only on blocking disputes | 2026-03-20 |
+| WS-D — SEO and Discoverability Contract | RHI-014 | SEO Owner | Async doc-comment; escalate synchronously only on blocking disputes | 2026-03-20 |
+| WS-E — Library and Tooling Contract | RHI-015 | Engineering Owner | Async doc-comment; escalate synchronously only on blocking disputes | 2026-03-18 |
+| WS-F — Deployment and Operations Contract | RHI-016 | Engineering Owner | Async doc-comment; escalate synchronously only on blocking disputes | 2026-03-20 |
+| Validation Gates Contract | RHI-017 | Migration Owner | Async doc-comment; escalate synchronously only on blocking disputes | 2026-03-21 |
+
+- Phase 2 target completion date: `2026-03-24`
+- Pagination priority manifest initiation: process is owned by RHI-013 and must record the population approach for `migration/pagination-priority-manifest.json` before Phase 3 scaffolding begins
 
 ---
 
@@ -67,10 +90,10 @@ Without alignment on ownership and access to Phase 1 outputs (particularly the U
 | Dependency | Type | Status |
 |------------|------|--------|
 | RHI-009 Done — Phase 1 sign-off recorded | Ticket | Ready |
-| Migration owner available and confirmed | Access | Pending |
-| SEO owner available and confirmed | Access | Pending |
-| Engineering owner available and confirmed | Access | Pending |
-| `migration/url-manifest.json` committed and readable | Phase | Pending |
+| Migration owner available and confirmed | Access | Done |
+| SEO owner available and confirmed | Access | Done |
+| Engineering owner available and confirmed | Access | Done |
+| `migration/url-manifest.json` committed and readable | Phase | Done |
 
 ---
 
@@ -87,22 +110,22 @@ Without alignment on ownership and access to Phase 1 outputs (particularly the U
 
 ### Definition of Done
 
-- [ ] All acceptance criteria are satisfied and verified
-- [ ] Tasks are complete or intentionally descoped with rationale
-- [ ] Dependencies and blockers are resolved or documented
-- [ ] Outcomes section is completed with delivered artefacts and deviations
+- [x] All acceptance criteria are satisfied and verified
+- [x] Tasks are complete or intentionally descoped with rationale
+- [x] Dependencies and blockers are resolved or documented
+- [x] Outcomes section is completed with delivered artefacts and deviations
 
 ---
 
 ### Outcomes
 
-{Leave blank until work is complete.}
+Completed. Phase 2 is formally kicked off, decision owners are aligned and reachable, required Phase 1 inputs are confirmed accessible, the workstream owner map is locked, and the review cadence/schedule for RHI-011 through RHI-017 is recorded in this ticket.
 
 **Delivered artefacts:**
 
-- Progress Log entries confirming decision owner alignment
-- Agreed workstream ownership record
-- Phase 2 schedule confirmed
+- Decision owner alignment record in this ticket
+- Workstream ownership and review record in this ticket
+- Progress Log entries confirming access, owner confirmation, and Phase 2 kickoff schedule
 
 **Deviations from plan:**
 
@@ -116,6 +139,10 @@ Without alignment on ownership and access to Phase 1 outputs (particularly the U
 |------|--------|------|
 | 2026-03-07 | Open | Ticket created |
 | 2026-03-09 | Open | Phase 1 prerequisite cleared: RHI-009 is `Done`, `migration/phase-1-signoff.md` is present, and the bootstrap dependency is now ready for Phase 2 kickoff |
+| 2026-03-09 | In Progress | Thomas Theunen confirmed Phase 2 decision-owner alignment across Migration Owner, SEO Owner, and Engineering Owner responsibilities; reachable contact recorded as `thomas.theunen@forward.eu`; Phase 1 approval and handover evidence from RHI-009 remains the baseline proof set |
+| 2026-03-09 | In Progress | Phase 2 plan and required Phase 1 inputs were re-shared for kickoff (`analysis/plan/details/phase-2.md`, `migration/url-manifest.json`, `migration/phase-1-seo-baseline.md`, `migration/risk-register.md`); owner kickoff instruction in chat was recorded as read-confirmation and agreement to proceed with async review as the default format |
+| 2026-03-09 | In Progress | WS-A through WS-F ownership was aligned to downstream ticket assignees; target dates for RHI-011 through RHI-017 were confirmed from the Phase 2 index; pagination-priority manifest initiation was assigned to RHI-013 before Phase 3 scaffolding |
+| 2026-03-09 | Done | All RHI-010 acceptance criteria satisfied; Phase 2 bootstrap gate closed with target completion date set to `2026-03-24`; downstream Phase 2 contract tickets may now proceed |
 
 ---
 

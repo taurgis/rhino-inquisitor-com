@@ -13,7 +13,7 @@
 
 | Ticket ID | Title | Workstream | Priority | Status | Estimate | Target Date | Depends On |
 |-----------|-------|------------|----------|--------|----------|-------------|------------|
-| [RHI-010](RHI-010-phase-2-bootstrap.md) | Phase 2 Bootstrap: Kickoff and Decision Owner Alignment | Setup | Critical | Open | S | 2026-03-17 | RHI-009 |
+| [RHI-010](RHI-010-phase-2-bootstrap.md) | Phase 2 Bootstrap: Kickoff and Decision Owner Alignment | Setup | Critical | Done | S | 2026-03-17 | RHI-009 |
 | [RHI-011](RHI-011-generator-repo-contract.md) | Workstream A — Generator and Repo Contract | WS-A | Critical | Open | M | 2026-03-19 | RHI-010 |
 | [RHI-012](RHI-012-content-model-contract.md) | Workstream B — Content Model and Front Matter Contract | WS-B | Critical | Open | M | 2026-03-19 | RHI-010, RHI-003 |
 | [RHI-013](RHI-013-route-redirect-contract.md) | Workstream C — Route and Redirect Contract | WS-C | Critical | Open | L | 2026-03-20 | RHI-010, RHI-004, RHI-012 |
@@ -69,7 +69,7 @@ RHI-009 (Phase 1 Sign-off)
 
 All items below must be complete before Phase 3 work begins:
 
-- [ ] RHI-010 Done — Phase 2 kickoff, decision owners confirmed, all Phase 1 deliverables accessible
+- [x] RHI-010 Done — Phase 2 kickoff, decision owners confirmed, all Phase 1 deliverables accessible
 - [ ] RHI-011 Done — Hugo project layout, config, `baseURL`, environment model, version pin all approved
 - [ ] RHI-012 Done — All front matter fields, normalization rules, and `draft` lifecycle approved
 - [ ] RHI-013 Done — Host/trailing-slash/case policy, taxonomy routes, redirect mechanism, edge threshold, legacy endpoints, and pagination policy all approved
