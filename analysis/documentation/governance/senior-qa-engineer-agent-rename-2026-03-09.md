@@ -47,4 +47,4 @@ New behavior:
 - `.github/instructions/agent-governance-quality.instructions.md`
 - `.github/instructions/hugo-specialist-subagent.instructions.md`
 - `AGENTS.md`
-- `analysis/documentation/hugo-specialist-subagent-instruction-2026-03-08.md`
+- `analysis/documentation/governance/hugo-specialist-subagent-instruction-2026-03-08.md`

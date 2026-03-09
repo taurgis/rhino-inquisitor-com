@@ -124,7 +124,7 @@ Approved decisions:
 - Architecture decisions summary (recorded in this ticket's Outcomes)
 - Updated `analysis/plan/details/phase-2.md` §Workstream A
 - Updated `analysis/main-plan.MD` Phase 2/3 repo-contract summary
-- Documentation note: `analysis/documentation/rhi-011-generator-repo-contract-2026-03-09.md`
+- Documentation note: `analysis/documentation/phase-2/rhi-011-generator-repo-contract-2026-03-09.md`
 
 **Deviations from plan:**
 

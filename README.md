@@ -21,15 +21,22 @@ The workspace is planning-first: it contains migration phases, implementation gu
 |   `-- skills/          # Domain skills used by agents
 |-- analysis/
 |   |-- documentation/
+|   |   |-- README.md    # Documentation index and placement rules
+|   |   |-- TEMPLATE.md  # Feature documentation scaffold
+|   |   |-- checklists/  # Reusable cross-phase checklists
+|   |   |-- governance/  # Governance and agent change reports
+|   |   `-- phase-*/     # Phase-specific implementation and contract docs
+|   |-- main-plan.MD     # Migration master plan
 |   |-- plan/
 |   |   `-- details/     # Phase-by-phase implementation detail documents
 |   `-- tickets/         # Task tracking artifacts
-`-- main-plan.MD         # Top-level migration plan
+`-- README.md
 ```
 
 ## Key Documents
 
-- [Main Migration Plan](main-plan.MD)
+- [Main Migration Plan](analysis/main-plan.MD)
+- [Documentation Index](analysis/documentation/README.md)
 - [Phase 1](analysis/plan/details/phase-1.md)
 - [Phase 2](analysis/plan/details/phase-2.md)
 - [Phase 3](analysis/plan/details/phase-3.md)
@@ -45,11 +52,12 @@ The workspace is planning-first: it contains migration phases, implementation gu
 
 ## How To Work In This Repo
 
-1. Start with [main-plan.MD](main-plan.MD) for scope and phase ordering.
+1. Start with [analysis/main-plan.MD](analysis/main-plan.MD) for scope and phase ordering.
 2. Use the current phase file in [analysis/plan/details/](analysis/plan/details/) for execution details.
 3. Follow applicable rules in [.github/instructions/](.github/instructions/) before editing governed paths.
 4. Use [AGENTS.md](AGENTS.md) to pick the right subagent for planning, analysis, validation, or specialized research.
-5. Keep documentation changes traceable and consistent with phase acceptance criteria.
+5. Use [analysis/documentation/README.md](analysis/documentation/README.md) to place new documentation in the right phase or category.
+6. Keep documentation changes traceable and consistent with phase acceptance criteria.
 
 ## Current State
 

@@ -58,5 +58,7 @@ When not to use:
 ## Notes
 
 - Keep this file concise and specific to one feature or tightly related change set.
+- Place completed docs in the matching `analysis/documentation/phase-N/`, `analysis/documentation/checklists/`, or `analysis/documentation/governance/` directory.
+- Update `analysis/documentation/README.md` when a new documentation category or subdirectory is introduced.
 - For broad project-scope changes, also update main-plan.MD or analysis/plan files as needed.
 - Reference: .github/instructions/documentation-updates.instructions.md

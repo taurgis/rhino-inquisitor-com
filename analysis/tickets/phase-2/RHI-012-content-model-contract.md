@@ -211,7 +211,7 @@ draft: false
 - Approved front matter field contract (recorded in this ticket's Outcomes)
 - Field-to-WordPress-source mapping table
 - Updated `analysis/plan/details/phase-2.md` §Workstream B
-- Documentation note: `analysis/documentation/rhi-012-content-model-contract-2026-03-09.md`
+- Documentation note: `analysis/documentation/phase-2/rhi-012-content-model-contract-2026-03-09.md`
 - Phase 2 tracking updates in the ticket indexes and sign-off checklist
 
 **Deviations from plan:**

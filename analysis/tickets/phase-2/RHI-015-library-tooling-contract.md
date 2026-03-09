@@ -136,7 +136,7 @@ Approved decisions:
 - Approved tooling list with versions (recorded in this ticket's Outcomes)
 - Security advisory check results for new packages
 - Updated `analysis/plan/details/phase-2.md` §Workstream E
-- Documentation note: `analysis/documentation/rhi-015-library-tooling-contract-2026-03-09.md`
+- Documentation note: `analysis/documentation/phase-2/rhi-015-library-tooling-contract-2026-03-09.md`
 
 **Deviations from plan:**
 

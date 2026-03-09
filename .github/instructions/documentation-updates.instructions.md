@@ -21,7 +21,11 @@ Apply this gate when a change matched by `applyTo` adds, changes, or removes beh
 
 When triggered, the change must include at least one documentation update that meets **all** of the following:
 
-1. **Location**: Update a file in `analysis/documentation/**` (preferred) or update `main-plan.MD` / `analysis/plan/**` when plan or phase scope changes.
+1. **Location**: Update a file in `analysis/documentation/**` (preferred) using the structured layout below, or update `main-plan.MD` / `analysis/plan/**` when plan or phase scope changes.
+	- `analysis/documentation/phase-N/` for phase-specific implementation, kickoff, contract, and sign-off docs
+	- `analysis/documentation/checklists/` for reusable cross-phase checklists
+	- `analysis/documentation/governance/` for repository process, agent, instruction, or policy change reports
+	- Keep `analysis/documentation/TEMPLATE.md` and `analysis/documentation/README.md` at the root as the documentation anchors
 2. **Change summary**: Describe what changed and why.
 3. **Behavior details**: Include old vs new behavior when updating an existing feature.
 4. **Impact and verification**: State impacted components or workflows and how to verify the change (steps or a reference to an existing gate).
@@ -41,4 +45,4 @@ If this gate overlaps with a narrower instruction (for example `content-quality`
 
 ## Escalation
 
-If the documentation impact is unclear or no appropriate doc location exists, pause and ask for owner direction. Default to creating a new doc in `analysis/documentation/` with open questions noted.
+If the documentation impact is unclear or no appropriate doc location exists, pause and ask for owner direction. If the category is clear but the target subdirectory does not exist yet, create the matching location under `analysis/documentation/**` and add it to `analysis/documentation/README.md`.

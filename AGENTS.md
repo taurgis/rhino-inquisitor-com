@@ -26,7 +26,7 @@ This file is the root agent guide for the repository. It complements agent files
 |-- analysis/
 |   |-- main-plan.MD     # Migration master plan
 |   |-- design/          # Modernization direction, prompts, wireframes
-|   |-- documentation/   # Implementation checklists and analysis reports
+|   |-- documentation/   # Structured phase docs, checklists, and governance reports
 |   |-- plan/details/    # Phase 1-9 detailed plans
 |   `-- tickets/         # Phase-indexed execution tickets
 `-- README.md
@@ -35,13 +35,14 @@ This file is the root agent guide for the repository. It complements agent files
 ## Analysis Artifacts To Consult First
 
 - Master plan: [analysis/main-plan.MD](analysis/main-plan.MD)
+- Documentation index: [analysis/documentation/README.md](analysis/documentation/README.md)
 - Phase sequencing: [analysis/plan/details/](analysis/plan/details/)
 - Phase work tracking: [analysis/tickets/INDEX.md](analysis/tickets/INDEX.md)
 - Design direction: [analysis/design/blog-modernization-designs-2026-03-08.md](analysis/design/blog-modernization-designs-2026-03-08.md)
 - Low-fi wireframes: [analysis/design/low-fi-wireframes-2026-03-08.md](analysis/design/low-fi-wireframes-2026-03-08.md)
 - Design prompt packs: [analysis/design/design-prompts/README.md](analysis/design/design-prompts/README.md)
 - Generated design examples guidance: [analysis/design/generated-images/design-examples/README.md](analysis/design/generated-images/design-examples/README.md)
-- UI implementation checklist: [analysis/documentation/ui-implementation-checklist-2026-03-08.md](analysis/documentation/ui-implementation-checklist-2026-03-08.md)
+- UI implementation checklist: [analysis/documentation/checklists/ui-implementation-checklist-2026-03-08.md](analysis/documentation/checklists/ui-implementation-checklist-2026-03-08.md)
 
 ## Default Multi-Agent Workflow
 

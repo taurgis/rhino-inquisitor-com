@@ -211,7 +211,7 @@ Sitemap: https://www.rhino-inquisitor.com/sitemap.xml
 - Named SEO partial specifications and input contracts
 - `robots.txt` policy and production baseline content
 - Updated `analysis/plan/details/phase-2.md` §Workstream D
-- Documentation note: `analysis/documentation/rhi-014-seo-discoverability-contract-2026-03-09.md`
+- Documentation note: `analysis/documentation/phase-2/rhi-014-seo-discoverability-contract-2026-03-09.md`
 
 **Deviations from plan:**
 

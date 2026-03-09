@@ -196,7 +196,7 @@ Approved contract:
 - Approved deployment workflow contract (recorded in this ticket's Outcomes)
 - Rollback runbook
 - Updated `analysis/plan/details/phase-2.md` §Workstream F
-- Documentation note: `analysis/documentation/rhi-016-deployment-operations-contract-2026-03-09.md`
+- Documentation note: `analysis/documentation/phase-2/rhi-016-deployment-operations-contract-2026-03-09.md`
 
 **Deviations from plan:**
 

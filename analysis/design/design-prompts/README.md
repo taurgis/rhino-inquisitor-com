@@ -12,7 +12,7 @@ Reference inputs:
 
 - analysis/design/low-fi-wireframes-2026-03-08.md
 - analysis/design/blog-modernization-designs-2026-03-08.md
-- analysis/documentation/ui-implementation-checklist-2026-03-08.md
+- analysis/documentation/checklists/ui-implementation-checklist-2026-03-08.md
 
 Prompt files:
 

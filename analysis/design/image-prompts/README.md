@@ -7,7 +7,7 @@ This folder contains copy-paste prompts for an image model such as Gemini to gen
 Reference sources:
 
 - `analysis/design/low-fi-wireframes-2026-03-08.md`
-- `analysis/documentation/ui-implementation-checklist-2026-03-08.md`
+- `analysis/documentation/checklists/ui-implementation-checklist-2026-03-08.md`
 
 ## How to use
 

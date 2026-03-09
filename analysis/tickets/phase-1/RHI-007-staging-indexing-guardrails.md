@@ -107,7 +107,7 @@ All runtime validation checks are marked complete for ticket closure.
 - Staging noindex plan, unblock checklist, DNS snapshot, and TTL schedule:
   - `migration/phase-1-staging-indexing-guardrails.md`
 - Implementation note and verification mapping:
-  - `analysis/documentation/rhi-007-staging-indexing-guardrails-implementation-2026-03-09.md`
+  - `analysis/documentation/phase-1/rhi-007-staging-indexing-guardrails-implementation-2026-03-09.md`
 
 **Deviations from plan:**
 
