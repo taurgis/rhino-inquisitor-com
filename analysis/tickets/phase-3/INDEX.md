@@ -13,7 +13,7 @@
 
 | Ticket ID | Title | Workstream | Priority | Status | Estimate | Target Date | Depends On |
 |-----------|-------|------------|----------|--------|----------|-------------|------------|
-| [RHI-019](RHI-019-phase-3-bootstrap.md) | Phase 3 Bootstrap: Kickoff and Environment Readiness | Setup | Critical | Open | S | 2026-03-25 | RHI-018 |
+| [RHI-019](RHI-019-phase-3-bootstrap.md) | Phase 3 Bootstrap: Kickoff and Environment Readiness | Setup | Critical | Done | S | 2026-03-25 | RHI-018 |
 | [RHI-020](RHI-020-repository-bootstrap.md) | Workstream A — Repository Bootstrap | WS-A | Critical | Open | S | 2026-03-26 | RHI-019 |
 | [RHI-021](RHI-021-hugo-config-hardening.md) | Workstream B — Hugo Configuration Hardening | WS-B | Critical | Open | M | 2026-03-27 | RHI-019, RHI-020 |
 | [RHI-022](RHI-022-content-contract-archetypes.md) | Workstream C — Content Contract and Archetypes | WS-C | Critical | Open | M | 2026-03-28 | RHI-019, RHI-021 |
@@ -85,7 +85,7 @@ RHI-018 (Phase 2 Sign-off)
 
 All items below must be complete before Phase 4 work begins:
 
-- [ ] RHI-019 Done — Phase 3 Bootstrap; Phase 2 contracts confirmed accessible
+- [x] RHI-019 Done — Phase 3 Bootstrap; Phase 2 contracts confirmed accessible
 - [ ] RHI-020 Done — Hugo project layout committed; clean clone builds with one command
 - [ ] RHI-021 Done — `hugo.toml` with `baseURL`, permalinks, taxonomies, outputs, and build behavior locked
 - [ ] RHI-022 Done — Archetypes for all content types; `validate:frontmatter` script passing in CI

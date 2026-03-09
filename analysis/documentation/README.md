@@ -11,6 +11,7 @@ This directory holds structured analysis documentation for the migration project
 | `analysis/documentation/governance/` | Repository process, agent, instruction, and policy change reports |
 | `analysis/documentation/phase-1/` | Phase 1 implementation, kickoff, and sign-off docs |
 | `analysis/documentation/phase-2/` | Phase 2 contracts and implementation docs |
+| `analysis/documentation/phase-3/` | Phase 3 kickoff, bootstrap, implementation, and sign-off docs |
 
 ## Placement Rules
 
@@ -27,6 +28,7 @@ This directory holds structured analysis documentation for the migration project
 - [Governance docs](governance/)
 - [Phase 1 docs](phase-1/)
 - [Phase 2 docs](phase-2/)
+- [Phase 3 docs](phase-3/)
 
 ## Naming Conventions
 

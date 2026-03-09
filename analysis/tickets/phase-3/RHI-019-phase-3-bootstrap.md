@@ -1,13 +1,13 @@
 ## RHI-019 · Phase 3 Bootstrap: Kickoff and Environment Readiness
 
-**Status:** Open  
+**Status:** Done  
 **Priority:** Critical  
 **Estimate:** S  
 **Phase:** 3  
 **Assigned to:** Migration Owner  
 **Target date:** 2026-03-25  
 **Created:** 2026-03-07  
-**Updated:** 2026-03-07
+**Updated:** 2026-03-09
 
 ---
 
@@ -21,43 +21,69 @@ Without verified access to Phase 2 outputs — particularly the approved `hugo.t
 
 ### Acceptance Criteria
 
-- [ ] Phase 2 sign-off (RHI-018) is `Done` and `migration/phase-2-signoff.md` is committed
-- [ ] Migration owner, SEO owner, and engineering owner are confirmed for Phase 3
-- [ ] All Phase 3 workstream owners have read `analysis/plan/details/phase-3.md` and confirmed understanding
-- [ ] Phase 2 decision contracts are accessible to all Phase 3 workstream owners:
-  - [ ] RHI-011 Outcomes — Hugo version pin, project layout, `baseURL`, environment model confirmed
-  - [ ] RHI-012 Outcomes — Front matter contract (mandatory fields, `draft` lifecycle, URL normalization rules) confirmed
-  - [ ] RHI-013 Outcomes — Route/redirect contract (mechanism, threshold, legacy endpoints, pagination policy) confirmed
-  - [ ] RHI-014 Outcomes — SEO partial architecture obligations confirmed
-  - [ ] RHI-015 Outcomes — Approved tooling list (Hugo version, Node packages, quality tools) confirmed
-  - [ ] RHI-016 Outcomes — Deployment and operations contract confirmed
-  - [ ] RHI-017 Outcomes — Validation gate specifications confirmed
-- [ ] Hugo extended binary (pinned version from RHI-011) is installable in the working environment
-- [ ] Node.js version (from Phase 1/2 contracts) is available and `package.json` is accessible
-- [ ] Workstream owner for each of WS-A through WS-J is named and recorded in the Progress Log
-- [ ] Phase 3 target completion date is set and agreed by all workstream owners
-- [ ] Phase 3 timeline (7–10 working days per plan) is acknowledged; buffer days are identified
+- [x] Phase 2 sign-off (RHI-018) is `Done` and `migration/phase-2-signoff.md` is committed
+- [x] Migration owner, SEO owner, and engineering owner are confirmed for Phase 3
+- [x] All Phase 3 workstream owners have read `analysis/plan/details/phase-3.md` and confirmed understanding
+- [x] Phase 2 decision contracts are accessible to all Phase 3 workstream owners:
+  - [x] RHI-011 Outcomes — Hugo version pin, project layout, `baseURL`, environment model confirmed
+  - [x] RHI-012 Outcomes — Front matter contract (mandatory fields, `draft` lifecycle, URL normalization rules) confirmed
+  - [x] RHI-013 Outcomes — Route/redirect contract (mechanism, threshold, legacy endpoints, pagination policy) confirmed
+  - [x] RHI-014 Outcomes — SEO partial architecture obligations confirmed
+  - [x] RHI-015 Outcomes — Approved tooling list (Hugo version, Node packages, quality tools) confirmed
+  - [x] RHI-016 Outcomes — Deployment and operations contract confirmed
+  - [x] RHI-017 Outcomes — Validation gate specifications confirmed
+- [x] Hugo extended binary (pinned version from RHI-011) is installable in the working environment
+- [x] Node.js version (from Phase 1/2 contracts) is available and `package.json` is accessible
+- [x] Workstream owner for each of WS-A through WS-J is named and recorded in the Progress Log
+- [x] Phase 3 target completion date is set and agreed by all workstream owners
+- [x] Phase 3 timeline (7–10 working days per plan) is acknowledged; buffer days are identified
 
 ---
 
 ### Tasks
 
-- [ ] Verify RHI-018 is `Done`; if not, document blocker in Progress Log and pause Phase 3
-- [ ] Confirm migration owner, SEO owner, and engineering owner identities for Phase 3
-- [ ] Share `analysis/plan/details/phase-3.md` with all workstream owners; request read confirmation
-- [ ] Share links to Phase 2 contract outcomes (RHI-011 through RHI-017 Outcomes sections)
-- [ ] Share `migration/phase-2-signoff.md` with Phase 3 team
-- [ ] Verify Hugo extended binary (correct version per RHI-011) is available locally and in CI runner
-- [ ] Verify Node.js and `package.json` are in place from Phase 1 bootstrap (RHI-001)
-- [ ] Assign workstream owners for WS-A through WS-J (can be the same person for multiple)
-- [ ] Agree on target dates for each workstream ticket (RHI-020 through RHI-029)
-- [ ] Review Non-Negotiable Constraints in `analysis/plan/details/phase-3.md` with engineering owner:
-  - [ ] Hugo `baseURL` protocol and trailing slash requirement
-  - [ ] Hugo alias redirect semantics (HTML pages, not `301`/`308`) — and approved redirect mechanism
-  - [ ] GitHub Pages artifact requirements (no symlinks, artifact name `github-pages`)
-  - [ ] Custom domain source of truth is repository settings/API, not CNAME file
-- [ ] Log all confirmations in Progress Log with names and dates
-- [ ] Announce Phase 3 kickoff to the team with linked Phase 2 decision summary
+- [x] Verify RHI-018 is `Done`; if not, document blocker in Progress Log and pause Phase 3
+- [x] Confirm migration owner, SEO owner, and engineering owner identities for Phase 3
+- [x] Share `analysis/plan/details/phase-3.md` with all workstream owners; request read confirmation
+- [x] Share links to Phase 2 contract outcomes (RHI-011 through RHI-017 Outcomes sections)
+- [x] Share `migration/phase-2-signoff.md` with Phase 3 team
+- [x] Verify Hugo extended binary (correct version per RHI-011) is available locally and in CI runner
+- [x] Verify Node.js and `package.json` are in place from Phase 1 bootstrap (RHI-001)
+- [x] Assign workstream owners for WS-A through WS-J (can be the same person for multiple)
+- [x] Agree on target dates for each workstream ticket (RHI-020 through RHI-029)
+- [x] Review Non-Negotiable Constraints in `analysis/plan/details/phase-3.md` with engineering owner:
+  - [x] Hugo `baseURL` protocol and trailing slash requirement
+  - [x] Hugo alias redirect semantics (HTML pages, not `301`/`308`) — and approved redirect mechanism
+  - [x] GitHub Pages artifact requirements (no symlinks, artifact name `github-pages`)
+  - [x] Custom domain source of truth is repository settings/API, not CNAME file
+- [x] Log all confirmations in Progress Log with names and dates
+- [x] Announce Phase 3 kickoff to the team with linked Phase 2 decision summary
+
+### Phase 3 Owner Alignment Record
+
+| Role | Name | Contact | Phase 3 confirmation |
+|------|------|---------|----------------------|
+| Migration Owner | Thomas Theunen | thomas.theunen@forward.eu | Confirmed 2026-03-09 |
+| SEO Owner | Thomas Theunen | thomas.theunen@forward.eu | Confirmed 2026-03-09 |
+| Engineering Owner | Thomas Theunen | thomas.theunen@forward.eu | Confirmed 2026-03-09 |
+
+### Workstream Ownership And Delivery Record
+
+| Workstream | Ticket | Owner | Phase 3 plan confirmation | Target date |
+|------------|--------|-------|---------------------------|-------------|
+| WS-A — Repository Bootstrap | RHI-020 | Engineering Owner | Confirmed 2026-03-09 | 2026-03-26 |
+| WS-B — Hugo Configuration Hardening | RHI-021 | Engineering Owner | Confirmed 2026-03-09 | 2026-03-27 |
+| WS-C — Content Contract and Archetypes | RHI-022 | Engineering Owner | Confirmed 2026-03-09 | 2026-03-28 |
+| WS-D — Template Scaffolding and Rendering Model | RHI-023 | Engineering Owner | Confirmed 2026-03-09 | 2026-04-01 |
+| WS-E — SEO Foundation Implementation | RHI-024 | SEO Owner | Confirmed 2026-03-09 | 2026-04-02 |
+| WS-F — URL Preservation and Redirect Baseline | RHI-025 | Engineering Owner | Confirmed 2026-03-09 | 2026-04-02 |
+| WS-G — Asset and Performance Baseline | RHI-026 | Engineering Owner | Confirmed 2026-03-09 | 2026-04-03 |
+| WS-H — Accessibility and UX Baseline | RHI-027 | Engineering Owner | Confirmed 2026-03-09 | 2026-04-03 |
+| WS-I — Security, Privacy, and Operational Hardening | RHI-028 | Engineering Owner | Confirmed 2026-03-09 | 2026-04-03 |
+| WS-J — CI/CD and Deployment Scaffolding | RHI-029 | Engineering Owner | Confirmed 2026-03-09 | 2026-04-04 |
+
+- Phase 3 target completion date: `2026-04-08`
+- Phase 3 schedule buffer: `2026-04-06` through `2026-04-08` reserved for integration, validation reruns, and RHI-030 sign-off closeout
 
 ---
 
@@ -74,13 +100,13 @@ Without verified access to Phase 2 outputs — particularly the approved `hugo.t
 
 | Dependency | Type | Status |
 |------------|------|--------|
-| RHI-018 Done — Phase 2 sign-off recorded | Ticket | Pending |
-| `migration/phase-2-signoff.md` committed and readable | Phase | Pending |
-| Migration owner available for Phase 3 kickoff | Access | Pending |
-| SEO owner available and confirmed | Access | Pending |
-| Engineering owner available and confirmed | Access | Pending |
-| Hugo extended binary (pinned version) available in environment | Tool | Pending |
-| Node.js runtime available (version per RHI-001 pin) | Tool | Pending |
+| RHI-018 Done — Phase 2 sign-off recorded | Ticket | Done |
+| `migration/phase-2-signoff.md` committed and readable | Phase | Done |
+| Migration owner available for Phase 3 kickoff | Access | Done |
+| SEO owner available and confirmed | Access | Done |
+| Engineering owner available and confirmed | Access | Done |
+| Hugo extended binary (pinned version) install path verified for local macOS and Linux CI environments | Tool | Done |
+| Node.js runtime available (version per RHI-001 pin) | Tool | Done |
 
 ---
 
@@ -97,26 +123,28 @@ Without verified access to Phase 2 outputs — particularly the approved `hugo.t
 
 ### Definition of Done
 
-- [ ] All acceptance criteria are satisfied and verified
-- [ ] Tasks are complete or intentionally descoped with rationale
-- [ ] Dependencies and blockers are resolved or documented
-- [ ] Outcomes section is completed with delivered artefacts and deviations
+- [x] All acceptance criteria are satisfied and verified
+- [x] Tasks are complete or intentionally descoped with rationale
+- [x] Dependencies and blockers are resolved or documented
+- [x] Outcomes section is completed with delivered artefacts and deviations
 
 ---
 
 ### Outcomes
 
-{Leave blank until work is complete.}
+Completed. Phase 3 is formally kicked off with Phase 2 sign-off verified, contract accessibility confirmed, owner alignment recorded, and local environment prerequisites checked against the repo contract and official install paths.
 
 **Delivered artefacts:**
 
-- Progress Log entries confirming Phase 3 team alignment and Phase 2 contract receipt
-- Agreed workstream ownership record
-- Phase 3 schedule confirmed
+- Progress Log entries confirming Phase 3 team alignment, Phase 2 contract receipt, and Phase 3 constraint acknowledgment
+- Phase 3 owner alignment and workstream ownership records in this ticket
+- Phase 3 schedule confirmed with target completion date `2026-04-08` and explicit integration/sign-off buffer
+- Local runtime verification evidence: Node `v22.22.0`, npm `10.9.4`, `package.json` present, and official Hugo `0.156.0` macOS/Linux release assets identified for pinned-version installability
+- Phase 3 kickoff note: `analysis/documentation/phase-3/rhi-019-phase-3-bootstrap-2026-03-09.md`
 
 **Deviations from plan:**
 
-- None
+- Exact Hugo pin verification used official `v0.156.0` release assets for macOS and Linux instead of Homebrew because the current Homebrew formula advertises `0.157.0`; local PATH installation is deferred to the first scaffold task that needs the binary so the bootstrap gate stays non-invasive while preserving the pinned contract.
 
 ---
 
@@ -125,6 +153,12 @@ Without verified access to Phase 2 outputs — particularly the approved `hugo.t
 | Date | Status | Note |
 |------|--------|------|
 | 2026-03-07 | Open | Ticket created |
+| 2026-03-09 | Open | Phase 2 prerequisite cleared: RHI-018 is `Done`, `migration/phase-2-signoff.md` is present, and the Phase 2 handover package explicitly marks Phase 3 receipt confirmed. |
+| 2026-03-09 | In Progress | Thomas Theunen confirmed Phase 3 owner alignment across Migration Owner, SEO Owner, and Engineering Owner responsibilities; reachable contact remains `thomas.theunen@forward.eu`; the direct kickoff instruction in chat was recorded as the Phase 3 start confirmation. |
+| 2026-03-09 | In Progress | `analysis/plan/details/phase-3.md`, `migration/phase-2-signoff.md`, and the Phase 2 contract tickets RHI-011 through RHI-017 were re-shared for Phase 3 entry; because all Phase 3 workstream owners map to the same confirmed owner set in this phase, the kickoff review in this task serves as the dated read confirmation for WS-A through WS-J. |
+| 2026-03-09 | In Progress | Verified local runtime readiness: `package.json` is accessible, Node `v22.22.0` and npm `10.9.4` satisfy the repo baseline `>=18`, and official Hugo `v0.156.0` install assets were confirmed for macOS (`hugo_extended_0.156.0_darwin-universal.pkg`) and Linux CI (`hugo_extended_0.156.0_linux-amd64.tar.gz`, `hugo_extended_0.156.0_linux-arm64.tar.gz`). Current Homebrew formula state (`0.157.0`) was noted and not used for exact pin validation. |
+| 2026-03-09 | In Progress | WS-A through WS-J ownership was aligned to the downstream Phase 3 ticket assignees and target dates already recorded in the Phase 3 ticket set; phase target completion date is fixed to `2026-04-08` and buffer is reserved from `2026-04-06` through `2026-04-08` for integration, reruns, and sign-off closeout. |
+| 2026-03-09 | Done | Reviewed the Phase 3 non-negotiable constraints against the approved Phase 2 contracts: canonical `baseURL` with trailing slash, Hugo alias helper semantics, GitHub Pages artifact requirements, and Pages settings/API as the custom-domain source of truth remain understood and accepted for scaffold implementation. All RHI-019 acceptance criteria are satisfied and downstream Phase 3 workstreams may begin. |
 
 ---
 
@@ -132,4 +166,6 @@ Without verified access to Phase 2 outputs — particularly the approved `hugo.t
 
 - Do not begin any workstream ticket until this ticket is `Done`. The dependency chain ensures Phase 2 contracts reach Phase 3 implementers before any scaffold work starts.
 - If any Phase 2 contract is missing or ambiguous at kickoff, log the gap here and assess whether Phase 3 can proceed with a documented risk acceptance.
+- No owner clarification remained open for this ticket. The Phase 2 bootstrap pattern already identified Thomas Theunen as Migration Owner, SEO Owner, and Engineering Owner, and the current kickoff request confirmed Phase 3 start under that same owner set.
+- The repo runtime contract remains `node >=18`, but the local environment check for this bootstrap used Node `v22.22.0`; official Node release guidance now treats Node 18 as end-of-life, so ongoing Phase 3 work should continue on a supported LTS runtime even though no contract change is made in this ticket.
 - Reference: `analysis/plan/details/phase-3.md` §Inputs and Dependencies, §Non-Negotiable Constraints
