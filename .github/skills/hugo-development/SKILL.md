@@ -1,6 +1,6 @@
 ---
 name: hugo-development
-description: 'Hugo SSG configuration, templates, partials, front matter, URL/route management, and GitHub Pages deployment for the rhino-inquisitor.com WordPress-to-Hugo migration. Use when writing hugo.toml, layouts, partials, archetypes, or GitHub Pages deployment workflows, and when debugging Hugo build, routing, or output behaviour.'
+description: 'Hugo SSG configuration, templates, partials, front matter, URL/route management, and GitHub Pages deployment for the rhino-inquisitor.com WordPress-to-Hugo migration. Use when writing hugo.toml, src/layouts, src/partials, src/archetypes, or GitHub Pages deployment workflows, and when debugging Hugo build, routing, or output behaviour.'
 license: Forward Proprietary
 compatibility: 'Hugo extended v0.120+, GitHub Actions, GitHub Pages'
 ---
@@ -35,7 +35,7 @@ Practical guidance for Hugo SSG configuration, template authoring, URL strategy,
 
 1. Pin Hugo extended version in CI (`HUGO_VERSION` env var).
 2. Use `hugo.toml` (not `config.yaml`) for the primary config file.
-3. Use `content/posts/`, `content/pages/`, `content/categories/` directory layout.
+3. Use the repository contract: root `hugo.toml` with Hugo source components under `src/`, including `src/content/posts/`, `src/content/pages/`, and `src/content/categories/`.
 4. Run `hugo --minify --environment production` in CI.
 5. Upload `public/` as the Pages artifact using `actions/upload-pages-artifact`.
 
@@ -45,6 +45,13 @@ Practical guidance for Hugo SSG configuration, template authoring, URL strategy,
 baseURL = "https://www.rhino-inquisitor.com/"
 languageCode = "en-us"
 title = "Rhino Inquisitor"
+contentDir = "src/content"
+layoutDir = "src/layouts"
+staticDir = ["src/static"]
+assetDir = "src/assets"
+dataDir = "src/data"
+archetypeDir = "src/archetypes"
+publishDir = "public"
 
 [build]
   # Never enable in production CI
@@ -106,7 +113,7 @@ draft: false
 ## Template Hierarchy
 
 ```
-layouts/
+src/layouts/
 ├── _default/
 │   ├── baseof.html        # Master shell: head, body, footer blocks
 │   ├── single.html        # Article/page detail
@@ -210,7 +217,7 @@ jobs:
 | Error | Likely Cause | Fix |
 |-------|-------------|-----|
 | `duplicate output files` | Two pages produce same path | Check `url` collision in front matter |
-| `template ... not found` | Wrong lookup path | Check `layouts/` hierarchy and content type |
+| `template ... not found` | Wrong lookup path | Check `src/layouts/` hierarchy and content type |
 | Sitemap missing pages | `draft: true` or wrong output config | Verify `outputs.page` includes Sitemap |
 | Canonical shows `localhost` | `baseURL` not set for production | Pass `--baseURL` flag or use env config |
 | Alias pages appear in sitemap | Hugo bug or custom template | Explicitly exclude alias template from sitemap output |

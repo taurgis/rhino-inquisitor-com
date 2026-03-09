@@ -127,7 +127,7 @@ Initialize the Hugo project so content authors can add Markdown pages and the CI
 ### Tasks
 - [x] Run `hugo new site .` in repository root
 - [x] Add `hugo.toml` with `baseURL`, `languageCode`, and `title`
-- [ ] Create placeholder homepage at `content/_index.md`
+- [ ] Create placeholder homepage at `src/content/_index.md`
 - [ ] Verify CI build step runs `hugo --minify`
 
 ### Out of Scope

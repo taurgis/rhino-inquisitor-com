@@ -30,8 +30,8 @@
 
 | `wp:post_type` | Hugo content directory |
 |---------------|----------------------|
-| `post` | `content/posts/` |
-| `page` | `content/pages/` |
+| `post` | `src/content/posts/` |
+| `page` | `src/content/pages/` |
 | `attachment` | Handle separately (media asset) |
 | `nav_menu_item` | Skip |
 | `custom_css` | Skip |

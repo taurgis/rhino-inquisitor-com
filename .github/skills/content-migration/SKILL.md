@@ -49,9 +49,9 @@ WordPress (WXR file or REST API)
          ↓
   4. Generate Front Matter gray-matter, url-manifest mapping
          ↓
-  5. Write Hugo Content    content/posts/, content/pages/
-         ↓
-  6. Download Media        p-limit (concurrency), local static/
+    5. Write Hugo Content    src/content/posts/, src/content/pages/
+      ↓
+    6. Download Media        p-limit (concurrency), local src/static/
          ↓
   7. Relink Assets         update image paths in Markdown
          ↓
@@ -231,7 +231,7 @@ Each migrated item produces a record in `migration/migration-report.json`:
 ```json
 {
   "source_url": "/old-wordpress-slug/",
-  "hugo_file": "content/posts/old-wordpress-slug.md",
+  "hugo_file": "src/content/posts/old-wordpress-slug.md",
   "target_url": "/old-wordpress-slug/",
   "status": "ok",
   "warnings": [],
@@ -247,7 +247,7 @@ Summary CSV exported to `migration/migration-report.csv` using `csv-stringify`.
 - [ ] Every migrated file passes `FrontMatterSchema` validation
 - [ ] `url` values are unique across all content files (collision check)
 - [ ] All `aliases` values exist in `migration/url-manifest.json`
-- [ ] No broken image references in Markdown body (image path resolves under `static/`)
+- [ ] No broken image references in Markdown body (image path resolves under `src/static/`)
 - [ ] `draft: false` only for items with WordPress status `publish`
 - [ ] Migration report shows 0 `error`-status items before merge
 

@@ -18,7 +18,7 @@
 | `lastmod` | ISO 8601 string | WordPress `post_modified_gmt` → ISO 8601 UTC |
 | `categories` | string[] | WordPress `category` terms with domain=`category` |
 | `tags` | string[] | WordPress `category` terms with domain=`post_tag` |
-| `heroImage` | string | Relinked local path under `static/` |
+| `heroImage` | string | Relinked local path under `src/static/` |
 
 ### Pages
 | Field | Type | Rule |
@@ -91,4 +91,4 @@ draft: true
 ---
 ```
 
-Save as `archetypes/posts.md` and `archetypes/pages.md`.
+Save as `src/archetypes/posts.md` and `src/archetypes/pages.md`.

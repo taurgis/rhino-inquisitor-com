@@ -5,7 +5,7 @@ Hugo template code is shown alongside the JSON output shape.
 
 ## BlogPosting (Article Pages)
 
-Hugo partial: `layouts/partials/seo/json-ld-article.html`
+Hugo partial: `src/layouts/partials/seo/json-ld-article.html`
 
 ```json
 {
@@ -39,7 +39,7 @@ Hugo partial: `layouts/partials/seo/json-ld-article.html`
 
 ## WebSite (All Pages — Site-Level Context)
 
-Hugo partial: `layouts/partials/seo/json-ld-website.html`
+Hugo partial: `src/layouts/partials/seo/json-ld-website.html`
 Included once in `baseof.html` — not repeated per page.
 
 ```json
@@ -55,7 +55,7 @@ Optional: add `potentialAction` (SearchAction) only if a working search page exi
 
 ## BreadcrumbList (Section and Article Pages)
 
-Hugo partial: `layouts/partials/seo/json-ld-breadcrumb.html`
+Hugo partial: `src/layouts/partials/seo/json-ld-breadcrumb.html`
 
 ```json
 {

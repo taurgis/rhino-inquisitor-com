@@ -1,6 +1,6 @@
 # Hugo Template Patterns Reference
 
-## Base Template Block Architecture (`layouts/_default/baseof.html`)
+## Base Template Block Architecture (`src/layouts/_default/baseof.html`)
 
 ```go-html-template
 <!DOCTYPE html>
@@ -21,7 +21,7 @@
 </html>
 ```
 
-## Head Partial Assembly (`layouts/partials/head.html`)
+## Head Partial Assembly (`src/layouts/partials/head.html`)
 
 ```go-html-template
 {{ partial "seo/head-meta.html" . }}
@@ -35,7 +35,7 @@
 <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
 ```
 
-## SEO Head Meta Partial (`layouts/partials/seo/head-meta.html`)
+## SEO Head Meta Partial (`src/layouts/partials/seo/head-meta.html`)
 
 ```go-html-template
 <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
@@ -55,7 +55,7 @@
 - Canonical defaults to `.Permalink` (Hugo uses `baseURL` to build this correctly in production).
 - `noindex` is opt-in via front matter; default is indexable.
 
-## Open Graph Partial (`layouts/partials/seo/open-graph.html`)
+## Open Graph Partial (`src/layouts/partials/seo/open-graph.html`)
 
 ```go-html-template
 {{ $ogImage := .Site.Params.defaultOgImage }}
@@ -74,7 +74,7 @@
 {{ end }}
 ```
 
-## JSON-LD Article Partial (`layouts/partials/seo/json-ld-article.html`)
+## JSON-LD Article Partial (`src/layouts/partials/seo/json-ld-article.html`)
 
 ```go-html-template
 <script type="application/ld+json">
@@ -100,7 +100,7 @@
 </script>
 ```
 
-## BreadcrumbList Partial (`layouts/partials/seo/json-ld-breadcrumb.html`)
+## BreadcrumbList Partial (`src/layouts/partials/seo/json-ld-breadcrumb.html`)
 
 ```go-html-template
 {{ if not .IsHome }}
