@@ -84,11 +84,11 @@ Without a precise validation gate specification, Phase 3 build and CI tooling wi
 
 | Dependency | Type | Status |
 |------------|------|--------|
-| RHI-010 Done — Phase 2 kickoff confirmed | Ticket | Pending |
-| RHI-011 In Progress — Hugo output directory and build command confirmed | Ticket | Pending |
-| RHI-012 In Progress — content model defines what constitutes a valid indexable page | Ticket | Pending |
-| RHI-013 In Progress — redirect contract defines expected redirect behavior for Gate 1 and Gate 2 | Ticket | Pending |
-| RHI-014 In Progress — SEO contract defines the pass criteria for Gate 3 | Ticket | Pending |
+| RHI-010 Done — Phase 2 kickoff confirmed | Ticket | Done |
+| RHI-011 Done — Hugo output directory and build command confirmed | Ticket | Done |
+| RHI-012 Done — content model defines what constitutes a valid indexable page | Ticket | Done |
+| RHI-013 Done — redirect contract defines expected redirect behavior for Gate 1 and Gate 2 | Ticket | Done |
+| RHI-014 Done — SEO contract defines the pass criteria for Gate 3 | Ticket | Done |
 | RHI-016 In Progress — deployment contract defines the pass criteria for Gate 6 | Ticket | Pending |
 
 ---

@@ -108,25 +108,50 @@ Redirect acceptance criteria:
 4. Current manifest baseline calculation on `2026-03-09` is `39.1%` (`131 / 335`), so the Model B trigger is already met and edge redirect infrastructure is mandatory before launch.
 
 ## Workstream D: SEO and Discoverability Contract
-Each indexable template type must produce:
-1. Unique `title`.
-2. Unique meta description.
-3. Canonical URL.
-4. Open Graph baseline (`og:title`, `og:description`, `og:type`, `og:url`, `og:image`).
-5. Twitter card compatibility tags (best-effort, non-blocking if platform docs change).
-6. JSON-LD:
-   - `BlogPosting` (or `Article`) for article pages, with recommended properties (for example `headline`, `image`, `datePublished`, `dateModified`, `author`).
-   - `WebSite` for site-level context.
-   - `BreadcrumbList` where hierarchy exists, including required breadcrumb properties.
+Approved contract:
+1. All SEO metadata and schema output lives in `layouts/partials/seo/`; leaf templates must not duplicate canonical, Open Graph, or JSON-LD logic.
+2. Required named partials are fixed to `head-meta.html`, `open-graph.html`, `json-ld-article.html`, `json-ld-site.html`, and `json-ld-breadcrumb.html`.
+3. Canonical and `og:url` generation must use `.Permalink`; `.RelPermalink` is not allowed for absolute SEO URLs.
+4. Indexable template families are:
+   - homepage;
+   - article/post singles;
+   - standard page singles;
+   - the preserved `/video/` page route;
+   - category term pages;
+   - pagination pages intentionally retained under RHI-013 policy.
+5. Non-indexable surfaces are:
+   - tag pages by default;
+   - search results pages if a production search feature is later introduced;
+   - 404 pages;
+   - alias redirect helpers;
+   - every staging or preview page.
+6. Every indexable page must emit:
+   - unique `title`;
+   - unique meta description;
+   - canonical URL;
+   - Open Graph baseline (`og:title`, `og:description`, `og:type`, `og:url`, `og:image`).
+7. Twitter card tags remain best-effort, non-blocking compatibility tags using the same resolved title, description, and image inputs as the Open Graph layer.
+8. Structured data contract is fixed as:
+   - article singles emit `BlogPosting` with repo-required properties `headline`, `image`, `datePublished`, `dateModified`, and `author`;
+   - homepage emits `WebSite`;
+   - pages, lists, and terms may emit `BreadcrumbList` only when a real visible breadcrumb hierarchy exists;
+   - list, term, pagination, 404, and alias pages never emit `BlogPosting`.
+9. All string values inside JSON-LD must use Hugo `jsonify`.
+10. Metadata fallback precedence is fixed for Phase 3 implementation:
+   - description comes from approved front matter `description`;
+   - social image resolves from `seo.ogImage`, then `heroImage`, then an approved site-level default social image;
+   - Twitter card type resolves from explicit `seo.twitterCard` or derives from image presence.
 
 Crawler surfaces:
-1. Sitemap generated from built pages only.
-2. `robots.txt` generation is intentional:
-   - either enable Hugo robots generation and override template behavior as needed,
-   - or ship a controlled static robots file.
-3. Add explicit `Sitemap: https://<canonical-host>/sitemap.xml` if used by policy.
-4. Redirect helper pages and drafts excluded from sitemap.
-5. Robots policy is never used as a substitute for noindex/index control.
+1. Use Hugo embedded sitemap generation as the baseline starting point.
+2. Draft pages remain excluded because production builds never enable draft, future, or expired content.
+3. Any built page that is non-indexable must also be explicitly excluded from sitemap output; `seo.noindex` alone is not assumed to change sitemap membership.
+4. Alias redirect helpers are not assumed to be excluded by default; Phase 3 must verify sitemap exclusion and override the sitemap template if needed.
+5. Canonical sitemap URL is fixed to `https://www.rhino-inquisitor.com/sitemap.xml`.
+6. `robots.txt` is implemented via Hugo output (`enableRobotsTXT = true`) with a repo-owned `layouts/robots.txt` template that includes the canonical sitemap directive.
+7. `robots.txt` is crawl control only and is never used as a substitute for page-level `noindex`.
+8. Staging and preview environments must emit `<meta name="robots" content="noindex">` on every rendered page.
+9. The canonical feed route approved in Workstream C (`/feed/`) must remain crawlable and must not be blocked by the production robots policy.
 
 ## Workstream E: Library and Tooling Contract
 Core:

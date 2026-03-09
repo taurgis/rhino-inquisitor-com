@@ -7,7 +7,7 @@
 **Assigned to:** Migration Owner  
 **Target date:** 2026-03-24  
 **Created:** 2026-03-07  
-**Updated:** 2026-03-07
+**Updated:** 2026-03-09
 
 ---
 
@@ -26,7 +26,7 @@ Phase 3 must not begin until this ticket is `Done`. Any unresolved architecture 
   - [x] RHI-011 Done — Generator and repo contract approved
   - [x] RHI-012 Done — Content model and front matter contract approved
   - [x] RHI-013 Done — Route and redirect contract approved (including SEO owner acceptance of alias redirect behavior)
-  - [ ] RHI-014 Done — SEO and discoverability contract approved
+  - [x] RHI-014 Done — SEO and discoverability contract approved
   - [ ] RHI-015 Done — Library and tooling contract approved
   - [ ] RHI-016 Done — Deployment and operations contract approved
   - [ ] RHI-017 Done — Validation gates contract defined
@@ -44,7 +44,7 @@ Phase 3 must not begin until this ticket is `Done`. Any unresolved architecture 
   - [x] Edge redirect threshold calculation completed (RHI-013)
   - [x] Legacy system endpoint dispositions recorded in `migration/url-manifest.json` (RHI-013)
   - [x] Pagination parity manifest schema defined and assignment confirmed (RHI-013)
-  - [ ] SEO partial architecture approved (RHI-014)
+  - [x] SEO partial architecture approved (RHI-014)
   - [ ] Deployment workflow contract approved (RHI-016)
   - [ ] Validation gate specifications approved (RHI-017)
 - [ ] `migration/phase-2-signoff.md` is committed with decision summary and stakeholder approval
@@ -97,7 +97,7 @@ Phase 3 must not begin until this ticket is `Done`. Any unresolved architecture 
 | RHI-011 Done | Ticket | Done |
 | RHI-012 Done | Ticket | Done |
 | RHI-013 Done | Ticket | Done |
-| RHI-014 Done | Ticket | Pending |
+| RHI-014 Done | Ticket | Done |
 | RHI-015 Done | Ticket | Pending |
 | RHI-016 Done | Ticket | Pending |
 | RHI-017 Done | Ticket | Pending |
