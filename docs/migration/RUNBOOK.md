@@ -34,9 +34,15 @@ This runbook tracks the operational steps needed to move the repository from pla
   - `hugo --minify --environment production`
   - output checks for `public/sitemap.xml`, `public/robots.txt`, and `public/index.xml`
   - canonical-host spot checks in generated XML/text outputs
+- Validate RHI-022 front matter and archetype enforcement with:
+  - `npm run validate:frontmatter`
+  - `hugo new content posts/example.md` for post archetype spot checks
+  - `hugo new content pages/example.md` for page archetype spot checks
+  - `hugo new content categories/example/_index.md` for category term metadata spot checks
 - Use the Phase 3 ticket set for workstream ownership and acceptance criteria:
   - `analysis/tickets/phase-3/RHI-020-repository-bootstrap.md`
   - `analysis/tickets/phase-3/RHI-021-hugo-config-hardening.md`
+  - `analysis/tickets/phase-3/RHI-022-content-contract-archetypes.md`
   - `analysis/tickets/phase-3/RHI-029-cicd-deployment-scaffolding.md`
 
 ## Phase 4 - Content Migration

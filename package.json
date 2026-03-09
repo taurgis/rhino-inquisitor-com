@@ -12,12 +12,14 @@
     "phase1:enrich-search-console": "node scripts/enrich-search-console.js",
     "phase1:classify-urls": "node scripts/classify-urls.js",
     "phase1:seo-baseline": "node scripts/seo-baseline.js",
-    "phase1:perf-baseline": "node scripts/perf-baseline.js"
+    "phase1:perf-baseline": "node scripts/perf-baseline.js",
+    "validate:frontmatter": "node scripts/validate-frontmatter.js"
   },
   "dependencies": {
     "csv-stringify": "6.6.0",
     "fast-glob": "3.3.3",
     "fast-xml-parser": "5.4.2",
+    "gray-matter": "4.0.3",
     "p-limit": "7.3.0",
     "undici": "7.22.0",
     "zod": "4.3.6"
