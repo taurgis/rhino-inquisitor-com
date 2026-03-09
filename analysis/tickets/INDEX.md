@@ -15,8 +15,8 @@ This is the top-level ticket index for the full migration project. Use the phase
 |-------|-------|-------------|--------|-------------|
 | 1 | Baseline and URL Inventory | RHI-001 – RHI-009 | Done | [phase-1/INDEX.md](phase-1/INDEX.md) |
 | 2 | Stack and Architecture Decision | RHI-010 – RHI-018 | Open | [phase-2/INDEX.md](phase-2/INDEX.md) |
-| 3 | Repository Scaffolding and Quality Baseline | RHI-019 – RHI-030 | Open | [phase-3/INDEX.md](phase-3/INDEX.md) |
-| 4 | Content Migration Pipeline | RHI-031 – RHI-046 | Open | [phase-4/INDEX.md](phase-4/INDEX.md) |
+| 3 | Repository Scaffolding and Quality Baseline | RHI-019 – RHI-030, RHI-104 – RHI-105 | Open | [phase-3/INDEX.md](phase-3/INDEX.md) |
+| 4 | Content Migration Pipeline | RHI-031 – RHI-046, RHI-106 | Open | [phase-4/INDEX.md](phase-4/INDEX.md) |
 | 5 | SEO and Discoverability | RHI-047 – RHI-060 | Open | [phase-5/INDEX.md](phase-5/INDEX.md) |
 | 6 | URL Preservation and Redirect Strategy | RHI-061 – RHI-072 | Open | [phase-6/INDEX.md](phase-6/INDEX.md) |
 | 7 | GitHub Pages Deployment and Domain Cutover | RHI-073 – RHI-082 | Open | [phase-7/INDEX.md](phase-7/INDEX.md) |
@@ -132,6 +132,9 @@ This is the top-level ticket index for the full migration project. Use the phase
 | [RHI-101](phase-9/RHI-101-stabilization-cadence-weekly-reviews.md) | Workstream H — Stabilization Cadence and Weekly Reviews | 9 | High | Open | M | 2026-07-29 |
 | [RHI-102](phase-9/RHI-102-exit-criteria-bau-handoff.md) | Workstream I — Exit Criteria and BAU Handoff | 9 | Critical | Open | L | 2026-07-29 |
 | [RHI-103](phase-9/RHI-103-phase-9-signoff.md) | Phase 9 Sign-off and Migration Closure | 9 | Critical | Open | S | 2026-08-05 |
+| [RHI-104](phase-3/RHI-104-discovery-surfaces-shared-ui-components.md) | Workstream K — Discovery Surfaces and Shared UI Components | 3 | High | Open | L | 2026-04-05 |
+| [RHI-105](phase-3/RHI-105-article-readability-contextual-navigation.md) | Workstream L — Article Readability and Contextual Navigation | 3 | High | Open | L | 2026-04-07 |
+| [RHI-106](phase-4/RHI-106-discovery-metadata-extension.md) | Workstream L — Discovery Metadata Extension and Enrichment | 4 | High | Open | M | 2026-04-15 |
 
 ---
 
@@ -141,14 +144,14 @@ This is the top-level ticket index for the full migration project. Use the phase
 |-------|-------|----------------|
 | RHI-001 – RHI-009 | Phase 1 | — (full) |
 | RHI-010 – RHI-018 | Phase 2 | — (full) |
-| RHI-019 – RHI-030 | Phase 3 | — (full) |
-| RHI-031 – RHI-046 | Phase 4 | — (full) |
+| RHI-019 – RHI-030, RHI-104 – RHI-105 | Phase 3 | — (full) |
+| RHI-031 – RHI-046, RHI-106 | Phase 4 | — (full) |
 | RHI-047 – RHI-060 | Phase 5 | — (full) |
 | RHI-061 – RHI-072 | Phase 6 | — (full) |
 | RHI-073 – RHI-082 | Phase 7 | — (full) |
 | RHI-083 – RHI-092 | Phase 8 | — (full) |
 | RHI-093 – RHI-103 | Phase 9 | — (full) |
-| RHI-104 – | Phase 10+ | RHI-104 |
+| RHI-107 – | Phase 10+ | RHI-107 |
 
 ---
 

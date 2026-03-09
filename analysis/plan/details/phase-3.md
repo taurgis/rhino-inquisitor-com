@@ -358,6 +358,24 @@ Acceptance criteria:
 1. Main branch deployment is reproducible from clean CI environment.
 2. Deploy is blocked automatically on quality gate failures.
 
+## Workstream K: Discovery Surfaces and Shared UI Components
+Goal: extend the shipped scaffold from Workstream D into usable home, archive, and category discovery surfaces without reopening the shared SEO architecture.
+
+Execution note:
+1. Delivery is tracked in `RHI-104`.
+2. Work uses the shipped scaffold anchors in `src/layouts/home.html`, `src/layouts/_default/list.html`, `src/layouts/_default/taxonomy.html`, `src/layouts/_default/term.html`, `src/layouts/_default/baseof.html`, `src/layouts/partials/content-list.html`, and `src/layouts/partials/pagination.html`.
+3. Shared shell extraction, discovery lanes, archive/filter shells, and metadata-first list surfaces are in scope.
+4. Existing Phase 3 quality gates remain mandatory after the UI extension lands.
+
+## Workstream L: Article Readability and Contextual Navigation
+Goal: extend `src/layouts/_default/single.html` with readability and continuation patterns that reuse Workstream K primitives while preserving shared breadcrumbs and SEO behavior.
+
+Execution note:
+1. Delivery is tracked in `RHI-105`.
+2. Work covers article header structure, metadata row, summary box, heading-derived TOC, related-content fallback behavior, and contextual footer actions.
+3. Missing discovery/readability enrichment must degrade gracefully until Phase 4 metadata-extension work is complete.
+4. Existing Phase 3 quality gates remain mandatory after the article UI extension lands.
+
 ## Required Libraries and Tooling (Phase 3 Baseline)
 Hugo and deployment:
 1. Hugo extended (pinned)
@@ -394,6 +412,7 @@ If tool adoption creates high setup overhead, prioritize URL parity, build deter
 5. URL parity script and report artifact format.
 6. SEO smoke-check script and representative fixture pages.
 7. Phase 3 runbook doc covering local and CI execution.
+8. Discovery/list UI extension plan and article readability extension plan tracked through `RHI-104` and `RHI-105`.
 
 ## Definition of Done
 Phase 3 is complete only when all are true:
@@ -406,6 +425,7 @@ Phase 3 is complete only when all are true:
 7. Custom domain and HTTPS readiness are validated from repository settings/API and DNS state.
 8. Staging noindex controls are verified to avoid accidental indexation.
 9. Outstanding risks have owners, mitigations, and target resolution phase.
+10. Discovery, archive/category, and article UI layers are implemented on shipped scaffold paths without duplicating shared SEO logic.
 
 ## Critical Risks and Mitigations
 1. Risk: over-reliance on static alias redirects for high-volume moved URLs.

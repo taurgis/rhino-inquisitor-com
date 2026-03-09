@@ -13,7 +13,7 @@
 
 ### Goal
 
-Formally close Phase 3 by verifying that all prerequisite and workstream tickets (RHI-019 through RHI-029) are complete, the Hugo scaffold is deployable end-to-end, all blocking quality gates are passing in CI, staged baseline checks are resolved or risk-accepted, and the Phase 4 content migration team has received and acknowledged the Phase 3 handover package. Phase 4 content migration and Phase 5 SEO discoverability work must not begin until this ticket is `Done`. Any unresolved scaffold gap or failing quality gate identified here must be fixed or explicitly accepted with documented risk before sign-off is recorded.
+Formally close Phase 3 by verifying that all prerequisite and workstream tickets (RHI-019 through RHI-029 plus RHI-104 through RHI-105) are complete, the Hugo scaffold is deployable end-to-end, all blocking quality gates are passing in CI, staged baseline checks are resolved or risk-accepted, and the Phase 4 content migration team has received and acknowledged the Phase 3 handover package. Phase 4 content migration and Phase 5 SEO discoverability work must not begin until this ticket is `Done`. Any unresolved scaffold gap or failing quality gate identified here must be fixed or explicitly accepted with documented risk before sign-off is recorded.
 
 ---
 
@@ -31,6 +31,8 @@ Formally close Phase 3 by verifying that all prerequisite and workstream tickets
   - [ ] RHI-027 Done — Accessibility and UX Baseline (`check:a11y` passing, manual checklist documented)
   - [ ] RHI-028 Done — Security, Privacy, and Operational Hardening (`SECURITY-CONTROLS.md` complete, mixed-content clean)
   - [ ] RHI-029 Done — CI/CD and Deployment Scaffolding (deployment workflow successful)
+  - [ ] RHI-104 Done — Shared discovery surfaces and list-page UI implemented on the shipped scaffold paths
+  - [ ] RHI-105 Done — Article readability and contextual-navigation UI implemented with graceful fallbacks
 - [ ] All Phase 3 Exit Gate conditions are met (from `analysis/plan/details/phase-3.md §Exit Gate to Phase 4`):
   - [ ] CI pipeline is passing on scaffold-only content
   - [ ] URL parity tooling is validated against a sampled subset of Phase 1 manifest
@@ -41,6 +43,7 @@ Formally close Phase 3 by verifying that all prerequisite and workstream tickets
 - [ ] Phase 3 Definition of Done conditions are met:
   - [ ] Repository scaffolding supports deterministic local and CI builds
   - [ ] Core template types exist and include shared SEO primitives
+  - [ ] Discovery and article UI layers are implemented without duplicating SEO logic
   - [ ] Front matter contract is machine-validated in CI
   - [ ] URL parity checks are implemented and release-blocking
   - [ ] Pages deployment workflow is configured and successfully deploys test artifact
@@ -49,7 +52,7 @@ Formally close Phase 3 by verifying that all prerequisite and workstream tickets
   - [ ] Staging noindex controls are verified
   - [ ] Outstanding risks have owners, mitigations, and target resolution phases
 - [ ] `migration/phase-3-signoff.md` is committed with:
-  - [ ] Summary of all Phase 3 workstream outcomes (RHI-020 through RHI-029) with ticket IDs and file paths
+  - [ ] Summary of all Phase 3 workstream outcomes (RHI-020 through RHI-029 plus RHI-104 through RHI-105) with ticket IDs and file paths
   - [ ] Phase 3 Definition of Done compliance statement
   - [ ] Outstanding risks with owners and mitigation plans
   - [ ] Phase 4 entry conditions — what Phase 4 can rely on from Phase 3 outputs
@@ -124,6 +127,8 @@ Formally close Phase 3 by verifying that all prerequisite and workstream tickets
 | RHI-027 Done | Ticket | Pending |
 | RHI-028 Done | Ticket | Pending |
 | RHI-029 Done | Ticket | Pending |
+| RHI-104 Done | Ticket | Pending |
+| RHI-105 Done | Ticket | Pending |
 | Migration owner, SEO owner, and engineering owner available for sign-off | Access | Pending |
 
 ---
@@ -156,7 +161,7 @@ Formally close Phase 3 by verifying that all prerequisite and workstream tickets
 **Delivered artefacts:**
 
 - `migration/phase-3-signoff.md`
-- All Phase 3 workstream tickets (RHI-020 through RHI-029) confirmed `Done` and documented
+- All Phase 3 workstream tickets (RHI-020 through RHI-029 plus RHI-104 through RHI-105) confirmed `Done` and documented
 
 **Deviations from plan:**
 

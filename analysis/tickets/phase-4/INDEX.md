@@ -17,7 +17,8 @@
 | [RHI-032](RHI-032-wordpress-content-extraction.md) | Workstream A — WordPress Content Extraction | WS-A | Critical | Open | M | 2026-04-11 | RHI-031 |
 | [RHI-033](RHI-033-normalization-record-model.md) | Workstream B — Normalization and Canonical Record Model | WS-B | Critical | Open | M | 2026-04-14 | RHI-031, RHI-032 |
 | [RHI-034](RHI-034-html-to-markdown-conversion.md) | Workstream C — HTML-to-Markdown Conversion Engine | WS-C | Critical | Open | L | 2026-04-16 | RHI-031, RHI-033 |
-| [RHI-035](RHI-035-front-matter-mapping.md) | Workstream D — Front Matter Mapping and Hugo Contract | WS-D | Critical | Open | M | 2026-04-16 | RHI-031, RHI-033 |
+| [RHI-106](RHI-106-discovery-metadata-extension.md) | Workstream L — Discovery Metadata Extension and Enrichment | WS-L | High | Open | M | 2026-04-15 | RHI-012, RHI-031, RHI-033 |
+| [RHI-035](RHI-035-front-matter-mapping.md) | Workstream D — Front Matter Mapping and Hugo Contract | WS-D | Critical | Open | M | 2026-04-16 | RHI-031, RHI-033, RHI-106 |
 | [RHI-036](RHI-036-url-preservation-redirect-integrity.md) | Workstream E — URL Preservation and Redirect Integrity | WS-E | Critical | Open | M | 2026-04-17 | RHI-031, RHI-035 |
 | [RHI-037](RHI-037-media-migration-asset-hygiene.md) | Workstream F — Media Migration and Asset Hygiene | WS-F | High | Open | L | 2026-04-18 | RHI-031, RHI-034 |
 | [RHI-038](RHI-038-internal-link-navigation-rewrites.md) | Workstream G — Internal Link and Navigation Rewrites | WS-G | High | Open | M | 2026-04-18 | RHI-031, RHI-034, RHI-035, RHI-036 |
@@ -40,9 +41,10 @@ RHI-030 (Phase 3 Sign-off)
             ├── RHI-032 (WS-A: Extraction)
             │       └── RHI-033 (WS-B: Normalization)
             │               ├── RHI-034 (WS-C: HTML-to-MD Conversion) ◄─────────────────────┐
-            │               └── RHI-035 (WS-D: Front Matter Mapping)                        │
-            │                       ├── RHI-036 (WS-E: URL Preservation)                   │
-            │                       └── RHI-039 (WS-H: SEO Signal Preservation)             │
+            │               ├── RHI-106 (WS-L: Discovery Metadata Extension) ─┐              │
+            │               └── RHI-035 (WS-D: Front Matter Mapping) ◄─────────┘              │
+            │                       ├── RHI-036 (WS-E: URL Preservation)                    │
+            │                       └── RHI-039 (WS-H: SEO Signal Preservation)              │
             │                                                                                │
             ├── RHI-037 (WS-F: Media Migration) ◄─── needs RHI-034                          │
             ├── RHI-038 (WS-G: Internal Links)  ◄─── needs RHI-034, RHI-035, RHI-036        │
@@ -74,6 +76,7 @@ RHI-030 (Phase 3 Sign-off)
 | Normalization schema (Zod) | RHI-033 | `scripts/migration/schemas/record.schema.js` |
 | HTML-to-Markdown conversion script | RHI-034 | `scripts/migration/convert.js` |
 | Conversion fallback log | RHI-034 | `migration/reports/conversion-fallbacks.csv` |
+| Discovery metadata extension contract | RHI-106 | `src/archetypes/`, `scripts/validate-frontmatter.js`, `scripts/migration/map-frontmatter.js` |
 | Front matter mapping script | RHI-035 | `scripts/migration/map-frontmatter.js` |
 | Front matter error report | RHI-035 | `migration/reports/frontmatter-errors.csv` |
 | URL parity validation script | RHI-036 | `scripts/migration/validate-url-parity.js` |
@@ -104,6 +107,7 @@ All items below must be complete before Phase 5/6/8 downstream work can consume 
 - [ ] RHI-032 Done — WordPress content fully extracted; extract summary and quarantine log committed
 - [ ] RHI-033 Done — All in-scope records normalized to canonical schema; 100% `targetUrl` coverage
 - [ ] RHI-034 Done — HTML-to-Markdown conversion engine operational; fallback policy applied and logged
+- [ ] RHI-106 Done — Discovery metadata extension documented, validated, and available to mapping and batch review flows
 - [ ] RHI-035 Done — Front matter mapping validated; zero required-field errors in release candidate batch
 - [ ] RHI-036 Done — URL parity passing; redirect integrity validated; zero unresolved failures on critical URLs
 - [ ] RHI-037 Done — All media downloaded and relinked; media integrity report clean; no hotlinks to deprecated WordPress paths
@@ -157,6 +161,7 @@ Every batch PR must pass all gates before merge:
 | Canonical record schema and normalization rules | Engineering Owner | RHI-033 |
 | HTML conversion rules and fallback policy | Engineering Owner | RHI-034 |
 | Front matter field mapping and URL assignment | Engineering Owner, SEO Owner | RHI-035 |
+| Discovery metadata extension and optional enrichment contract | Engineering Owner | RHI-106 |
 | Redirect implementation type per URL | SEO Owner, Migration Owner | RHI-036 |
 | Media hosting strategy (static vs CDN) | Engineering Owner | RHI-037 |
 | Internal link rewrite scope | Engineering Owner | RHI-038 |
@@ -179,6 +184,7 @@ Every batch PR must pass all gates before merge:
 | Front matter contract | RHI-012 (Phase 2) | RHI-035 |
 | Route and redirect contract | RHI-013 (Phase 2) | RHI-036 |
 | Approved tooling list | RHI-015 (Phase 2) | RHI-032, RHI-034 |
+| Discovery/readability UI requirements | RHI-104, RHI-105 (Phase 3) | RHI-106 |
 | Hugo scaffold and archetypes | RHI-022 (Phase 3) | RHI-035 |
 | Front matter validation script | RHI-022 (Phase 3) | RHI-035 |
 | URL parity baseline script | RHI-025 (Phase 3) | RHI-036, RHI-043 |

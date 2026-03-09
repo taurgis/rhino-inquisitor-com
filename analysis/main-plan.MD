@@ -23,6 +23,7 @@ Migrate the current WordPress-powered site to a static Markdown-authored site us
 3.2. Create `src/content/` directories for posts/pages/categories and `src/layouts/` partial/template structure.
 3.3. Add reusable SEO partials for canonical, Open Graph, Twitter cards, and JSON-LD.
 3.4. Add deterministic URL strategy so every migrated URL is explicit rather than auto-generated.
+3.5. Track approved design artifacts through `RHI-104` and `RHI-105` so homepage, archive/category, and article UI execution is explicit before downstream SEO validation and migration batches rely on those surfaces.
 
 4. Phase 4: Content Migration Pipeline (*depends on 3, parallel with 5*)
 4.1. Export WordPress content (WXR or REST) and normalize into a migration input dataset.
@@ -30,6 +31,7 @@ Migrate the current WordPress-powered site to a static Markdown-authored site us
 4.3. Assign each migrated document an explicit `url` matching the current production URL path and use `aliases` for mapped legacy routes.
 4.4. Download and relink media assets to local static paths (or a dedicated CDN strategy if preferred).
 4.5. Generate per-item migration report: `source URL`, `new file`, `status`.
+4.6. Extend front matter with optional discovery/readability metadata under `params` through `RHI-106` so curated UI and downstream validation can consume enriched signals without changing the required routing-critical contract.
 
 5. Phase 5: SEO and Discoverability (*depends on 3, parallel with 4*)
 5.1. Generate `sitemap.xml` from built pages and keep it aligned with `robots.txt`.
@@ -37,6 +39,8 @@ Migrate the current WordPress-powered site to a static Markdown-authored site us
 5.3. Ensure every page has unique title + meta description and canonical URL.
 5.4. Emit JSON-LD (`BlogPosting` for articles, `WebSite` + optional `Person` for site-level).
 5.5. Preserve crawlable archives (`/archive/`, category pages) where they currently carry organic traffic.
+
+Design traceability note: approved design artifacts are now tracked through `RHI-104` to `RHI-106`, with `RHI-104` and `RHI-105` covering Phase 3 UI delivery and `RHI-106` covering the additive Phase 4 discovery-metadata extension.
 
 6. Phase 6: URL Preservation and Redirect Strategy (*depends on 1, 4, 5*)
 6.1. Keep all currently indexed URLs by matching old slug paths exactly whenever possible.

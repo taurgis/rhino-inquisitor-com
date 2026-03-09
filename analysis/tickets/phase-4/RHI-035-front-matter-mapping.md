@@ -13,7 +13,7 @@
 
 ### Goal
 
-Produce complete, schema-valid Hugo front matter for every in-scope migrated record and write the final `.md` content files to the `migration/output/` staging area (ready for validated batch import to `src/content/`). Front matter must adhere exactly to the Phase 2 contract (RHI-012). No content file may receive an auto-generated route — every `url` field must come from the URL manifest.
+Produce complete, schema-valid Hugo front matter for every in-scope migrated record and write the final `.md` content files to the `migration/output/` staging area (ready for validated batch import to `src/content/`). Front matter must adhere to the Phase 2 contract (RHI-012) plus the approved discovery-metadata extension from RHI-106. No content file may receive an auto-generated route — every `url` field must come from the URL manifest.
 
 This ticket is where the Hugo content files are first assembled. Errors here (missing fields, duplicate URLs, auto-generated routes) will manifest as broken pages, SEO failures, and redirect regressions in production.
 
@@ -35,6 +35,16 @@ This ticket is where the Hugo content files are first assembled. Errors here (mi
     - [ ] `url` — from `targetUrl` in manifest; never derived from slug
     - [ ] `aliases` — from `aliasUrls` in normalized record; only approved legacy paths
     - [ ] `draft` — `false` for `publish` status; `true` for all other statuses
+  - [ ] Preserves approved optional discovery metadata from RHI-106 under `params` when source data or curation rules provide it:
+    - [ ] `params.primaryTopic`
+    - [ ] `params.secondaryTopics`
+    - [ ] `params.contentType`
+    - [ ] `params.difficulty`
+    - [ ] `params.series`
+    - [ ] `params.summary`
+    - [ ] `params.relatedContent`
+    - [ ] `params.featuredHome`
+  - [ ] Does not fail launch-intended content solely because optional discovery metadata is absent
   - [ ] Validates that `url` values are unique across the output set (duplicate detection)
   - [ ] Validates that no `aliases` entry creates a loop (alias pointing to itself)
   - [ ] Validates that no auto-generated routes exist (every output file has explicit `url`)
@@ -53,7 +63,7 @@ This ticket is where the Hugo content files are first assembled. Errors here (mi
 
 ### Tasks
 
-- [ ] Review Phase 2 front matter contract (RHI-012 Outcomes) to confirm all required fields and validation rules
+- [ ] Review the Phase 2 front matter contract (RHI-012 Outcomes) plus the approved discovery-metadata extension from RHI-106 to confirm all required and optional validation rules
 - [ ] Create `scripts/migration/map-frontmatter.js`:
   - [ ] Load converted records from `migration/output/`
   - [ ] For each record with `disposition: keep` or `disposition: merge`:
@@ -61,6 +71,7 @@ This ticket is where the Hugo content files are first assembled. Errors here (mi
     - [ ] Apply description length cap (max 155 chars); log truncations as warnings
     - [ ] Validate `url` matches canonical path format: lowercase, starts with `/`, ends with `/`
     - [ ] Validate `aliases` are not self-referencing and not duplicates of `url`
+    - [ ] Preserve approved optional discovery metadata under `params` when present and validated by RHI-106
     - [ ] Write `.md` file to `migration/output/content/{postType}/{slug}.md`
   - [ ] Perform duplicate `url` detection across all output files; exit on any duplicate found
   - [ ] Write front matter errors to `migration/reports/frontmatter-errors.csv`
@@ -71,6 +82,7 @@ This ticket is where the Hugo content files are first assembled. Errors here (mi
   - [ ] Verify `draft: false` for published records
   - [ ] Verify `aliases` match expected redirect paths
   - [ ] Verify description is populated and under 155 chars
+  - [ ] Verify optional discovery metadata renders under `params` when supplied and is omitted cleanly when absent
 - [ ] Add `"migrate:map-frontmatter": "node scripts/migration/map-frontmatter.js"` to `package.json`
 - [ ] Commit mapping script and front matter error report template
 
@@ -92,6 +104,7 @@ This ticket is where the Hugo content files are first assembled. Errors here (mi
 | RHI-031 Done — Phase 4 Bootstrap complete | Ticket | Pending |
 | RHI-033 Done — Normalized records available | Ticket | Pending |
 | RHI-034 Done — Converted records available in `migration/output/` | Ticket | Pending |
+| RHI-106 Done — Discovery metadata extension contract and validation rules confirmed | Ticket | Pending |
 | RHI-012 Outcomes — Front matter contract confirmed (required fields, URL normalization rules, `draft` lifecycle) | Ticket | Pending |
 | RHI-022 Done — `validate:frontmatter` script callable | Ticket | Pending |
 | `gray-matter` installed | Tool | Pending |
@@ -105,6 +118,7 @@ This ticket is where the Hugo content files are first assembled. Errors here (mi
 | Duplicate `url` values across migrated content | Medium | Critical | Implement duplicate detection as a hard fail in the mapping script; do not allow batch merge with any URL collision | Engineering Owner |
 | `description` field empty for posts with no excerpt | High | High | Implement fallback: use first 155 chars of converted body text; log as warning; validate fallback is readable | Engineering Owner |
 | `aliases` contain stale or incorrect legacy paths | Medium | High | Cross-check alias paths against manifest `aliasUrls`; do not generate aliases outside approved manifest values | SEO Owner |
+| Optional discovery metadata fields drift in shape across scripts and content authors | Medium | Medium | Validate the approved `params` schema from RHI-106 before writing any optional discovery fields | Engineering Owner |
 | Auto-generated slug routes appearing if `url` is missing | Low | Critical | Add assertion: if `url` field is empty or not set, fail the script; never emit a content file without explicit `url` | Engineering Owner |
 | Gray-matter serialization produces unexpected YAML for complex fields (e.g., multiline strings) | Low | Medium | Test serialization of edge-case field values (long titles, special characters, multiline descriptions) before full run | Engineering Owner |
 
@@ -149,4 +163,5 @@ This ticket is where the Hugo content files are first assembled. Errors here (mi
 - The `url` field must always come from `migration/url-manifest.json` via the normalized record `targetUrl`. Any record without a `targetUrl` should have been caught and escalated in WS-B; if one slips through here, it must fail loudly, not silently default.
 - The description fallback (first 155 chars of body text) is acceptable for launch but should be reviewed during the high-value batch (RHI-044) for top-traffic pages where custom descriptions are worth crafting.
 - `draft` lifecycle: published WordPress posts → `draft: false`; draft/private/trash WordPress posts → `draft: true`. This is a hard rule, not a heuristic.
+- Discovery/readability enrichment fields remain optional and must live under `params`; reading time and update status remain derived unless a later approved ticket changes that rule.
 - Reference: `analysis/plan/details/phase-4.md` §Workstream D: Front Matter Mapping and Hugo Contract

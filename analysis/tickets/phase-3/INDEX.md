@@ -24,7 +24,9 @@
 | [RHI-027](RHI-027-accessibility-ux-baseline.md) | Workstream H — Accessibility and UX Baseline | WS-H | Medium | Open | M | 2026-04-03 | RHI-019, RHI-023 |
 | [RHI-028](RHI-028-security-privacy-hardening.md) | Workstream I — Security, Privacy, and Operational Hardening | WS-I | Medium | Open | M | 2026-04-03 | RHI-019, RHI-021, RHI-023, RHI-024 |
 | [RHI-029](RHI-029-cicd-deployment-scaffolding.md) | Workstream J — CI/CD and Deployment Scaffolding | WS-J | Critical | Open | L | 2026-04-04 | RHI-019, RHI-020 through RHI-025 |
-| [RHI-030](RHI-030-phase-3-signoff.md) | Phase 3 Sign-off and Handover to Phase 4 | Sign-off | Critical | Open | S | 2026-04-08 | RHI-019 through RHI-029 |
+| [RHI-104](RHI-104-discovery-surfaces-shared-ui-components.md) | Workstream K — Discovery Surfaces and Shared UI Components | WS-K | High | Open | L | 2026-04-05 | RHI-023, RHI-024, RHI-026, RHI-027 |
+| [RHI-105](RHI-105-article-readability-contextual-navigation.md) | Workstream L — Article Readability and Contextual Navigation | WS-L | High | Open | L | 2026-04-07 | RHI-023, RHI-024, RHI-027, RHI-104 |
+| [RHI-030](RHI-030-phase-3-signoff.md) | Phase 3 Sign-off and Handover to Phase 4 | Sign-off | Critical | Open | S | 2026-04-08 | RHI-019 through RHI-029, RHI-104, RHI-105 |
 
 ---
 
@@ -40,12 +42,14 @@ RHI-018 (Phase 2 Sign-off)
                             │               ├── RHI-024 (WS-E: SEO Foundation)
                             │               ├── RHI-026 (WS-G: Asset & Performance)
                             │               ├── RHI-027 (WS-H: Accessibility)
-                            │               └── RHI-028 (WS-I: Security Hardening) ◄─ also needs RHI-024
+                            │               ├── RHI-028 (WS-I: Security Hardening) ◄─ also needs RHI-024
+                            │               └── RHI-104 (WS-K: Discovery UI & Shared Components) ◄─ also needs RHI-024, RHI-026, RHI-027
+                            │                       └── RHI-105 (WS-L: Article Readability & Contextual Navigation) ◄─ also needs RHI-024, RHI-027
                             └── RHI-025 (WS-F: URL Parity Baseline) ◄─ also needs RHI-022
 
 [RHI-020 + RHI-021 + RHI-022 + RHI-023 + RHI-024 + RHI-025] ──► RHI-029 (WS-J: CI/CD)
 
-[RHI-019…RHI-029 all Done] ──────────────────────────────────► RHI-030 (Sign-off)
+[RHI-019…RHI-029 + RHI-104 + RHI-105 all Done] ─────────────► RHI-030 (Sign-off)
 ```
 
 > **Reading the graph:** RHI-019 is the hard gate — no Phase 3 workstream starts before it. RHI-020 and RHI-021 are the structural foundation; all other workstreams depend on them. RHI-022 (archetypes/validation) and RHI-023 (templates) can run in parallel after RHI-021. WS-E (RHI-024) depends on the template scaffold from RHI-023. WS-F (RHI-025, URL parity) also needs RHI-022 for the `url` validation logic. WS-G (RHI-026) and WS-H (RHI-027) depend only on the template scaffold. WS-I (RHI-028) waits for RHI-024 (staging noindex verified). WS-J (RHI-029, CI/CD) integrates all prior workstreams and must wait for all scripts to be ready. RHI-030 waits for everything.
@@ -77,6 +81,8 @@ RHI-018 (Phase 2 Sign-off)
 | Pages deployment workflow | RHI-029 | `.github/workflows/deploy-pages.yml` |
 | PR build validation workflow | RHI-029 | `.github/workflows/build-pr.yml` |
 | Broken link check script | RHI-029 | `scripts/check-links.js` |
+| Shared discovery UI partials | RHI-104 | `src/layouts/partials/site/`, `src/layouts/partials/cards/`, `src/layouts/home.html`, `src/layouts/_default/list.html`, `src/layouts/_default/taxonomy.html`, `src/layouts/_default/term.html` |
+| Article readability and contextual-navigation partials | RHI-105 | `src/layouts/_default/single.html`, `src/layouts/partials/article/`, `src/layouts/partials/breadcrumbs.html` |
 | Phase 3 sign-off document | RHI-030 | `migration/phase-3-signoff.md` |
 
 ---
@@ -96,6 +102,8 @@ All items below must be complete before Phase 4 work begins:
 - [ ] RHI-027 Done — WCAG AA automated checks passing; semantic structure and skip links in templates
 - [ ] RHI-028 Done — Security control matrix committed; mixed-content clean; migration artifacts not exposed in `public/`
 - [ ] RHI-029 Done — Pages deployment workflow successful; all quality gates blocking; PR build validation active
+- [ ] RHI-104 Done — Homepage, archive, taxonomy, and shared discovery UI implemented on the shipped scaffold paths
+- [ ] RHI-105 Done — Article readability, TOC, summary, and contextual-navigation UI implemented with graceful fallback behavior
 - [ ] RHI-030 Done — Stakeholder sign-off recorded; Phase 4 team notified and handover package confirmed
 
 ---
@@ -130,6 +138,8 @@ All blocking gates must be passing before Phase 4 begins. Staged baseline gates 
 | Accessibility conformance targets | Engineering Owner | RHI-027 |
 | Security control layer assignments (Pages vs edge) | Engineering Owner | RHI-028 |
 | CI deployment workflow and quality gates | Engineering Owner | RHI-029 |
+| Shared discovery UI composition and archive UX scope | Engineering Owner | RHI-104 |
+| Article readability and contextual-navigation scope | Engineering Owner | RHI-105 |
 | Phase 3 sign-off and Phase 4 readiness | Migration Owner | RHI-030 |
 
 ---

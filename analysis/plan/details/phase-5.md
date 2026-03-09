@@ -20,8 +20,10 @@ From [main-plan.MD](../../../main-plan.MD), Phase 5 depends on Phase 3 and runs 
 Phase 5 consumes:
 1. [phase-1.md](phase-1.md): URL inventory, canonical host policy, disposition rules.
 2. [phase-2.md](phase-2.md): architecture decisions and redirect policy constraints.
-3. [phase-3.md](phase-3.md): template scaffolding, CI framework, baseline quality gates.
-4. [phase-4.md](phase-4.md): content completeness, front matter quality, URL mapping outputs.
+3. [phase-3.md](phase-3.md): template scaffolding, CI framework, baseline quality gates, shared discovery/list-surface UI from `RHI-104`, and article readability/contextual-navigation UI from `RHI-105`.
+4. [phase-4.md](phase-4.md): content completeness, front matter quality, URL mapping outputs, and optional discovery/readability metadata enrichment from `RHI-106` where present.
+
+Phase 5 consumes these Phase 3 and Phase 4 outputs as SEO signal carriers and validation targets. It does not own the base UI implementation from `RHI-104` or `RHI-105`, and it must not treat the optional metadata extension from `RHI-106` as a new mandatory migration baseline.
 
 ## Scope
 In scope:
@@ -180,6 +182,7 @@ Feed requirements:
 Archive and taxonomy requirements:
 1. Preserve category/video/archive URLs with demonstrated organic value.
 2. Avoid removing pagination/archives without data-backed replacement strategy.
+3. Validate the archive, taxonomy, and article discovery surfaces implemented in `RHI-104` and `RHI-105` rather than redefining those UI structures in Phase 5.
 
 Acceptance criteria:
 1. Sitemaps are valid, fetchable, and reference only canonical URLs.
@@ -217,6 +220,7 @@ Required controls:
 2. Orphan pages are not allowed for indexable content.
 3. Breadcrumb and related-content modules must reinforce taxonomy relevance.
 4. Pagination and archive traversal must remain crawlable for important content sets.
+5. Shared discovery/list surfaces from `RHI-104` and article continuation surfaces from `RHI-105` are validation inputs for crawl-depth, orphan detection, and canonical-link targeting.
 
 Checks:
 1. Internal-link graph analysis to detect orphan nodes.

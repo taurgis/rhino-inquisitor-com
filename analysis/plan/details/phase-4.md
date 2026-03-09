@@ -51,6 +51,7 @@ Required from earlier phases:
 2. Phase 2 architecture contract (Hugo + Pages + front matter requirements).
 3. Phase 3 scaffolding:
 - Hugo config and template baseline.
+- Discovery and article UI expectations from `RHI-104` and `RHI-105`.
 - front matter validator.
 - CI baseline.
 
@@ -211,6 +212,19 @@ Required fields per migrated indexable item:
 9. `aliases`
 10. `draft`
 
+Optional discovery/readability extension (tracked in `RHI-106`):
+1. Custom enrichment fields live under `params`, not as new routing-critical top-level keys.
+2. Supported extension fields may include:
+	- `primaryTopic`
+	- `secondaryTopics`
+	- `contentType`
+	- `difficulty`
+	- `series`
+	- `summary`
+	- `relatedContent`
+	- `featuredHome`
+3. Reading time and update status remain derived unless a later approved ticket changes that rule.
+
 Canonical handling requirement:
 1. Every indexable page must render exactly one canonical tag.
 2. Default canonical should be self-referencing based on final rendered URL.
@@ -221,6 +235,7 @@ Mapping rules:
 2. `aliases` include only approved legacy paths, no broad wildcard behavior.
 3. `draft` must be `false` for launch-intended content.
 4. Description should be deterministic and length-capped if source excerpt is missing.
+5. Workstream D consumes the optional extension defined in Workstream L/RHI-106 but does not make those fields mandatory for migration success.
 
 Validation rules:
 1. Reject duplicate `url` values.
@@ -231,6 +246,15 @@ Validation rules:
 Exit criteria:
 1. Front matter validator passes for generated set.
 2. `migration/reports/frontmatter-errors.csv` is empty for release candidate batch.
+
+## Workstream L: Discovery Metadata Extension and Enrichment
+Goal: add an optional `params`-based discovery metadata layer that supports the Phase 3 UI tickets without changing routing-critical fields.
+
+Execution note:
+1. Delivery is tracked in `RHI-106`.
+2. The extension covers fields such as `primaryTopic`, `secondaryTopics`, `contentType`, `difficulty`, `series`, `summary`, `relatedContent`, and `featuredHome`.
+3. Validation and mapping must remain backward compatible when enrichment is absent.
+4. The extension supports UI behavior and curation; it does not reopen the Phase 2 required top-level front matter contract.
 
 ## Workstream E: URL Preservation and Redirect Integrity
 Goal: ensure migration preserves ranking signals and user pathways.
