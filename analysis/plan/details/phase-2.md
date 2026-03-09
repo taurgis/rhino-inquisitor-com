@@ -154,22 +154,18 @@ Crawler surfaces:
 9. The canonical feed route approved in Workstream C (`/feed/`) must remain crawlable and must not be blocked by the production robots policy.
 
 ## Workstream E: Library and Tooling Contract
-Core:
-- Hugo
-- GitHub Pages Actions deployment trio (`configure-pages`, `upload-pages-artifact`, `deploy-pages`)
-
-Migration and audit tooling:
-- `turndown`
-- `@joplin/turndown-plugin-gfm`
-- `fast-glob`
-- `gray-matter`
-- `fast-xml-parser`
-- `undici` (or Node native `fetch` on pinned runtime)
-- `p-limit`
-
-Optional (adopt only with justification):
-- HTML DOM parser for conversion cleanup edge cases.
-- Output minification after correctness is stable.
+Approved contract:
+- Hugo Extended `0.156.0` remains the pinned SSG/build tool per Workstream A and is managed as CI tooling rather than as an npm dependency.
+- GitHub Pages custom workflow usage is locked to the official Pages Actions trio `actions/configure-pages@v5`, `actions/upload-pages-artifact@v4`, and `actions/deploy-pages@v4`; detailed workflow semantics remain in Workstream F.
+- Approved repo-side migration and validation packages are:
+   - existing baseline retained: `fast-glob@3.3.3`, `fast-xml-parser@5.4.2`, `p-limit@7.3.0`;
+   - new exact pins approved for Phase 3: `turndown@7.2.2`, `@joplin/turndown-plugin-gfm@1.0.64`, `gray-matter@4.0.3`.
+- HTTP client contract is fixed as: Node native `fetch` is the default for new Phase 3+ scripts under the repo Node `>=18` baseline; existing Phase 1 `undici` usage may remain until later cleanup, but no new `undici` usage is required by this contract.
+- Existing Phase 1-only packages `zod` and `csv-stringify` remain available for current scripts, but Workstream E does not expand their Phase 3/4 role.
+- Optional package decisions are fixed as:
+   - HTML DOM parser is deferred to Phase 4 and may only be added if early conversion QA shows repeated DOM-cleanup cases beyond `turndown` plus the GFM plugin.
+   - Output minification tooling is deferred and may only be reconsidered if artifact-budget review or representative performance evidence shows material need after correctness and asset/template cleanup stabilize.
+- New package approvals must be exact-pinned in `package.json` and `package-lock.json`; a disposable `npm audit` check on `2026-03-09` returned zero known vulnerabilities for newly approved and deferred candidates.
 
 Avoid by default:
 - Heavy client-side frameworks for mostly static pages.

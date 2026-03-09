@@ -18,7 +18,7 @@
 | [RHI-012](RHI-012-content-model-contract.md) | Workstream B — Content Model and Front Matter Contract | WS-B | Critical | Done | M | 2026-03-19 | RHI-010, RHI-003 |
 | [RHI-013](RHI-013-route-redirect-contract.md) | Workstream C — Route and Redirect Contract | WS-C | Critical | Done | L | 2026-03-20 | RHI-010, RHI-004, RHI-012 |
 | [RHI-014](RHI-014-seo-discoverability-contract.md) | Workstream D — SEO and Discoverability Contract | WS-D | High | Done | M | 2026-03-20 | RHI-010, RHI-011, RHI-013 |
-| [RHI-015](RHI-015-library-tooling-contract.md) | Workstream E — Library and Tooling Contract | WS-E | Medium | Open | S | 2026-03-18 | RHI-010 |
+| [RHI-015](RHI-015-library-tooling-contract.md) | Workstream E — Library and Tooling Contract | WS-E | Medium | Done | S | 2026-03-18 | RHI-010 |
 | [RHI-016](RHI-016-deployment-operations-contract.md) | Workstream F — Deployment and Operations Contract | WS-F | High | Open | M | 2026-03-20 | RHI-010, RHI-011 |
 | [RHI-017](RHI-017-validation-gates-contract.md) | Validation Gates Contract Definition | Gates | High | Open | M | 2026-03-21 | RHI-011, RHI-012, RHI-013, RHI-014, RHI-016 |
 | [RHI-018](RHI-018-phase-2-signoff.md) | Phase 2 Sign-off and Handover to Phase 3 | Sign-off | Critical | Open | S | 2026-03-24 | RHI-010 through RHI-017 |
@@ -74,7 +74,7 @@ All items below must be complete before Phase 3 work begins:
 - [x] RHI-012 Done — All front matter fields, normalization rules, and `draft` lifecycle approved
 - [x] RHI-013 Done — Host/trailing-slash/case policy, taxonomy routes, redirect mechanism, edge threshold, legacy endpoints, and pagination policy all approved
 - [x] RHI-014 Done — SEO metadata obligations, JSON-LD schema, sitemap, and robots policy approved
-- [ ] RHI-015 Done — Tooling list approved; security checks passed; optional package decisions recorded
+- [x] RHI-015 Done — Tooling list approved; security checks passed; optional package decisions recorded
 - [ ] RHI-016 Done — Deployment workflow contract approved; rollback plan documented
 - [ ] RHI-017 Done — All seven validation gates specified with pass/fail criteria and implementation phase
 - [ ] RHI-018 Done — Stakeholder sign-off recorded; Phase 3 team notified
