@@ -54,7 +54,7 @@ Additionally, ensure that no migration artifacts, draft content, or internal URL
 ### Tasks
 
 - [ ] Review scaffold templates from RHI-023 for any HTTP (non-HTTPS) URLs in template code:
-  - [ ] Grep for `http://` in `layouts/` and `static/` directories
+  - [ ] Grep for `http://` in `src/layouts/` and `src/static/` directories
   - [ ] Fix any found references to use HTTPS
 - [ ] Build scaffold with `--environment production` and inspect `public/` HTML for mixed content:
   - [ ] Check `href`, `src`, and `action` attribute values in generated pages

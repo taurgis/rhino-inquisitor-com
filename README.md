@@ -2,7 +2,7 @@
 
 This repository tracks the migration of rhino-inquisitor.com from WordPress to Hugo, with deployment on GitHub Pages via GitHub Actions.
 
-The workspace is planning-first: it contains migration phases, implementation guidance, and governance rules used by contributors and coding agents.
+The workspace is planning-first: it contains migration phases, implementation guidance, governance rules, and the Phase 3 Hugo scaffold used by contributors and coding agents.
 
 ## Migration Goal
 
@@ -31,6 +31,13 @@ The workspace is planning-first: it contains migration phases, implementation gu
 |   |   `-- details/     # Phase-by-phase implementation detail documents
 |   `-- tickets/         # Task tracking artifacts
 `-- README.md
+|-- src/
+|   |-- content/         # Hugo content source files
+|   |-- layouts/         # Hugo templates and partials
+|   |-- static/          # Pass-through assets served by Hugo
+|   |-- assets/          # Pipeline-processed assets
+|   |-- data/            # Hugo data files
+|   `-- archetypes/      # Hugo archetype stubs
 ```
 
 ## Key Documents
@@ -59,11 +66,27 @@ The workspace is planning-first: it contains migration phases, implementation gu
 5. Use [analysis/documentation/README.md](analysis/documentation/README.md) to place new documentation in the right phase or category.
 6. Keep documentation changes traceable and consistent with phase acceptance criteria.
 
+## Local Prerequisites
+
+- Hugo Extended `0.157.0` pinned by the Phase 2 repo contract
+- Node.js `>=18` as declared in `package.json`
+- npm matching the active Node.js runtime
+
+## Local Commands
+
+- Production-style build: `hugo --minify --environment production`
+- Local preview server: `hugo server`
+- Hugo source components live under `src/`, while root `hugo.toml` remains the canonical config entry point and `public/` remains the build artifact directory.
+- Validation scripts are introduced across later Phase 3 tickets. Planned commands include front matter, URL parity, SEO, link, accessibility, and performance checks.
+
+See [docs/migration/RUNBOOK.md](docs/migration/RUNBOOK.md) for the phase-linked operational runbook.
+
 ## Current State
 
-- This repository is focused on planning and governance artifacts.
-- Runtime application scaffolding and CI implementation are phase-driven and documented in plan details.
-- Validation currently centers on document quality, link correctness, and governance compliance.
+- This repository remains planning-first, but Phase 3 now includes the root Hugo scaffold required for downstream implementation tickets.
+- The repository uses a hybrid layout: Hugo is still invoked from repository root, but the actual site source components live under `src/`.
+- Runtime application hardening, templates, archetypes, and CI workflows remain phase-driven and are implemented in later Phase 3 workstreams.
+- Validation currently centers on documented build reproducibility, document quality, link correctness, and governance compliance.
 
 ## Notes
 

@@ -72,12 +72,12 @@ Goal: establish deterministic project structure and local development ergonomics
 
 Tasks:
 1. Initialize Hugo project layout and commit baseline directories:
-   - `content/`
-   - `layouts/`
-   - `static/`
-   - `assets/`
-   - `data/`
-   - `archetypes/`
+   - `src/content/`
+   - `src/layouts/`
+   - `src/static/`
+   - `src/assets/`
+   - `src/data/`
+   - `src/archetypes/`
 2. Add root docs for migration context and run commands:
    - `README.md` with local dev/build/verification commands.
    - `docs/migration/` for phase-linked operational notes.
@@ -105,7 +105,7 @@ Required config decisions:
    - RSS
 6. robots.txt generation policy:
    - `enableRobotsTXT` is explicitly set.
-   - Generation mechanism is explicitly chosen and documented: Hugo template (`layouts/robots.txt`) or static file (`static/robots.txt`).
+   - Generation mechanism is explicitly chosen and documented: Hugo template (`src/layouts/robots.txt`) or static file (`src/static/robots.txt`).
 7. Feed compatibility policy:
    - Hugo default feed output is `index.xml`.
    - WordPress `/feed/` must resolve explicitly (direct feed output or one-hop redirect).

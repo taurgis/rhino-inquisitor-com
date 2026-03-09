@@ -30,6 +30,7 @@ This file is the root agent guide for the repository. It complements agent files
 |   |-- plan/details/    # Phase 1-9 detailed plans
 |   `-- tickets/         # Phase-indexed execution tickets
 |-- migration/           # URL inventories, manifests, baselines, and sign-off evidence
+|-- src/                 # Hugo site source tree (content, layouts, static, assets, data, archetypes)
 |-- scripts/             # Utility scripts for crawl, sitemap, performance, and SEO work
 |-- tmp/                 # Working evidence, Search Console exports, DNS checks, and WP source data
 |-- package.json         # Workspace package manifest

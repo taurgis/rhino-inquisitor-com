@@ -34,7 +34,7 @@ Any subsequent change to `baseURL`, permalink rules, or taxonomy paths must trig
   - [ ] RSS output enabled with feed path compatibility considered (WordPress `/feed/` endpoint — see Notes)
  - [ ] robots generation mechanism is explicitly configured and documented:
   - [ ] `enableRobotsTXT` is set explicitly (true or false)
-  - [ ] Mechanism is documented: Hugo template (`layouts/robots.txt`) or static file (`static/robots.txt`)
+  - [ ] Mechanism is documented: Hugo template (`src/layouts/robots.txt`) or static file (`src/static/robots.txt`)
 - [ ] Feed compatibility policy from RHI-013 is implemented or explicitly deferred with a tracked decision:
   - [ ] Hugo default feed path (`/index.xml`) noted
   - [ ] WordPress feed endpoint (`/feed/`) disposition recorded and enforced as must-resolve (direct output or one-hop redirect)
@@ -66,11 +66,11 @@ Any subsequent change to `baseURL`, permalink rules, or taxonomy paths must trig
   - [ ] Sitemap included for `home`
  - [ ] Configure robots generation behavior explicitly:
   - [ ] Set `enableRobotsTXT` explicitly in `hugo.toml`
-  - [ ] If enabled, document template source (`layouts/robots.txt` or embedded template)
-  - [ ] If disabled, document static source (`static/robots.txt`)
+  - [ ] If enabled, document template source (`src/layouts/robots.txt` or embedded template)
+  - [ ] If disabled, document static source (`src/static/robots.txt`)
 - [ ] Add `[build]` section with environment-specific behavior:
   - [ ] Set production to exclude drafts and future content
-  - [ ] Enable `minify` in production environment (`config/production/hugo.toml` or environment flags)
+  - [ ] Enable `minify` in production via root `hugo.toml` plus environment flags; do not introduce `config/production/` unless a later contract explicitly approves it
 - [ ] Record feed compatibility decision in configuration comments or `docs/migration/RUNBOOK.md`:
   - [ ] Document Hugo default feed output path (`/index.xml`)
   - [ ] Record disposition for WordPress `/feed/` path as must-resolve (direct output or one-hop redirect)
@@ -133,7 +133,7 @@ Any subsequent change to `baseURL`, permalink rules, or taxonomy paths must trig
 **Delivered artefacts:**
 
 - `hugo.toml` with routing, taxonomy, output, and build behavior locked
-- Environment config file (`config/production/hugo.toml`) if environment-split is used
+- Root `hugo.toml` with environment-aware build behavior; no production overlay unless a later contract explicitly approves it
 - Feed compatibility decision recorded in `docs/migration/RUNBOOK.md` or `hugo.toml` comments
 
 **Deviations from plan:**

@@ -2,7 +2,7 @@
 
 ## Change summary
 
-Closed RHI-011 and amended the approved Phase 2 Workstream A repo contract to use Hugo Extended `0.157.0` for the version pin.
+Closed RHI-011 and amended the approved Phase 2 Workstream A repo contract to use Hugo Extended `0.157.0` for the version pin while keeping root `hugo.toml` and moving Hugo source components under `src/`.
 
 ## Why this changed
 
@@ -17,6 +17,7 @@ Old behavior:
 
 New behavior:
 - Root `hugo.toml` is the approved primary config file and canonical production source of truth.
+- Hugo source components live under `src/` (`src/content/`, `src/layouts/`, `src/static/`, `src/assets/`, `src/data/`), while `public/` remains the root build artifact directory.
 - Production `baseURL` is fixed to `https://www.rhino-inquisitor.com/` with trailing slash.
 - Phase 2 does not introduce `config/_default/` or `config/production/` overlays.
 - Environment model is explicit:
@@ -30,7 +31,7 @@ New behavior:
 
 - Phase 3 can scaffold the repository without revisiting generator-contract decisions.
 - RHI-016 now has a stable Workstream A contract for workflow and artifact decisions.
-- Canonical-host handling is simpler and reviewable because production config remains rooted in committed `hugo.toml`.
+- Canonical-host handling is simpler and reviewable because production config remains rooted in committed `hugo.toml` while the site source tree is isolated from planning artifacts.
 
 ## Verification
 

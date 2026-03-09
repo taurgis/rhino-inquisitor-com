@@ -31,7 +31,7 @@ Images without alt text exclude blind and low-vision users and forfeit Google Im
   - [ ] Exits with non-zero code on missing alt text or broken image references
   - [ ] Is referenced in `package.json` as `npm run check:images`
 - [ ] All migrated images are:
-  - [ ] Served from `static/images/` or a documented CDN path — not from `wp-content`
+  - [ ] Served from `src/static/images/` or a documented CDN path — not from `wp-content`
   - [ ] Reachable as local files in the `public/` build
   - [ ] Named with stable, normalized filenames (lowercase, hyphens, no spaces)
 - [ ] Video page SEO is validated:
@@ -47,14 +47,14 @@ Images without alt text exclude blind and low-vision users and forfeit Google Im
 ### Tasks
 
 - [ ] Review Phase 4 media migration outcome (RHI-037):
-  - [ ] Confirm `static/images/` contains downloaded media files
+  - [ ] Confirm `src/static/images/` contains downloaded media files
   - [ ] Confirm `migration/reports/media-integrity-report.csv` shows no unresolved failures
   - [ ] Note any images that were not downloaded (quarantined) — confirm alt text or caption handles the gap
 - [ ] Create `scripts/seo/check-images.js`:
   - [ ] Use `cheerio` to parse HTML and extract `<img>` tags
   - [ ] Implement empty/absent alt text detection (skip decorative images with `alt=""` + `role="presentation"`)
   - [ ] Implement legacy WordPress URL detection in `src` attribute
-  - [ ] Implement local static file existence check against `public/` and `static/` directories
+  - [ ] Implement local static file existence check against `public/` and `src/static/` directories
   - [ ] Implement `width`/`height` absence warning
   - [ ] Write per-image results to `migration/reports/phase-5-image-audit.csv`
 - [ ] Validate video page SEO:

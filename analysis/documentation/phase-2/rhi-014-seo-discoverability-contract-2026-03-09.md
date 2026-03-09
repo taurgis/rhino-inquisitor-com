@@ -19,7 +19,7 @@ Old behavior:
 
 New behavior:
 - Article/post pages now use `BlogPosting` as the approved schema default.
-- Production `robots.txt` is locked to Hugo output using `enableRobotsTXT = true` and a repo-owned `layouts/robots.txt` template.
+- Production `robots.txt` is locked to Hugo output using `enableRobotsTXT = true` and a repo-owned `src/layouts/robots.txt` template.
 - Tag pages remain retired and non-indexable by default, aligned with RHI-013.
 - Twitter card tags remain in scope but are explicitly best-effort and non-blocking; Open Graph remains the blocking social-preview baseline.
 - Non-indexable built pages must be explicitly excluded from sitemap output; alias-helper exclusion is a verified Phase 3 implementation requirement rather than an assumed Hugo default.

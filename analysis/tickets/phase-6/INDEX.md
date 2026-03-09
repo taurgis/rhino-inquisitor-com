@@ -88,8 +88,8 @@ RHI-060 (Phase 5 Sign-off)
 | Redirect chain detection script | RHI-065 | `scripts/phase-6/check-redirect-chains.js` |
 | Host/protocol validation script | RHI-066 | `scripts/phase-6/check-host-protocol.js` |
 | Retired URL audit report | RHI-067 | `migration/reports/phase-6-retired-url-audit.csv` |
-| Custom 404 page (content) | RHI-067 | `content/404.md` |
-| Custom 404 layout | RHI-067 | `layouts/404.html` |
+| Custom 404 page (content) | RHI-067 | `src/content/404.md` |
+| Custom 404 layout | RHI-067 | `src/layouts/404.html` |
 | Retirement policy validation script | RHI-067 | `scripts/phase-6/check-retirement-policy.js` |
 | Redirect security validation script | RHI-068 | `scripts/phase-6/check-redirect-security.js` |
 | URL preservation and policy document | RHI-066, RHI-067, RHI-068 | `migration/phase-6-url-policy.md` |

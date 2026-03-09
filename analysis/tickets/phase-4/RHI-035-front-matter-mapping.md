@@ -13,7 +13,7 @@
 
 ### Goal
 
-Produce complete, schema-valid Hugo front matter for every in-scope migrated record and write the final `.md` content files to the `migration/output/` staging area (ready for validated batch import to `content/`). Front matter must adhere exactly to the Phase 2 contract (RHI-012). No content file may receive an auto-generated route — every `url` field must come from the URL manifest.
+Produce complete, schema-valid Hugo front matter for every in-scope migrated record and write the final `.md` content files to the `migration/output/` staging area (ready for validated batch import to `src/content/`). Front matter must adhere exactly to the Phase 2 contract (RHI-012). No content file may receive an auto-generated route — every `url` field must come from the URL manifest.
 
 This ticket is where the Hugo content files are first assembled. Errors here (missing fields, duplicate URLs, auto-generated routes) will manifest as broken pages, SEO failures, and redirect regressions in production.
 
@@ -79,7 +79,7 @@ This ticket is where the Hugo content files are first assembled. Errors here (mi
 ### Out of Scope
 
 - URL parity validation against the full manifest (Workstream E — RHI-036)
-- Copying files from `migration/output/content/` to `content/` (part of batch execution in RHI-043–RHI-045)
+- Copying files from `migration/output/content/` to `src/content/` (part of batch execution in RHI-043–RHI-045)
 - Media path rewriting (Workstream F — RHI-037)
 - Internal link rewriting (Workstream G — RHI-038)
 

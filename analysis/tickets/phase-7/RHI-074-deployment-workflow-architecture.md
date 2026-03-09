@@ -43,7 +43,7 @@ Phase 3 created a scaffold deployment workflow (RHI-029) as a structural baselin
   - [ ] Declares `permissions: contents: read`
   - [ ] Uses `concurrency: cancel-in-progress: true` (acceptable for PR builds, not deploys)
   - [ ] Runs Hugo production build and `npm run validate:frontmatter` on every PR
-  - [ ] Runs `npm run check:url-parity` and `npm run check:seo` on PRs touching `content/**`, `layouts/**`, or `hugo.toml`
+  - [ ] Runs `npm run check:url-parity` and `npm run check:seo` on PRs touching `src/content/**`, `src/layouts/**`, `src/static/**`, `src/archetypes/**`, or `hugo.toml`
 - [ ] `github-pages` environment is configured in repository Settings → Environments:
   - [ ] Environment protection rules restrict deployment to the release branch only
   - [ ] At least one required reviewer is configured if the repository has multiple contributors

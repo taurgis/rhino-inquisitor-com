@@ -38,14 +38,14 @@ Out of scope:
 
 ## Workstream A: Generator and Repo Contract
 Required decisions:
-1. Confirm Hugo project layout (`content/`, `layouts/`, `static/`, `assets/`, `data/`).
+1. Confirm Hugo project layout (`src/content/`, `src/layouts/`, `src/static/`, `src/assets/`, `src/data/`).
 2. Confirm primary config file format and location (`hugo.toml`).
 3. Define output directory contract (`public/`) and artifact handoff to Pages workflow.
 4. Define environments (`local`, `ci`, `prod`) and variable handling for canonical origin.
 5. Define `baseURL` contract for production (canonical origin, trailing slash) and how CI injects it.
 
 Approved contract:
-- Repository layout is locked to `content/`, `layouts/`, `static/`, `assets/`, `data/`, with `public/` as generated output only.
+- Repository layout is locked to root `hugo.toml` plus Hugo source components under `src/content/`, `src/layouts/`, `src/static/`, `src/assets/`, and `src/data/`, with `public/` as generated output only.
 - Root `hugo.toml` is the primary config file; Phase 2 does not introduce `config/_default/` or `config/production/` overlays.
 - Canonical production `baseURL` is `https://www.rhino-inquisitor.com/` with trailing slash.
 - Environment model is fixed as:
@@ -109,7 +109,7 @@ Redirect acceptance criteria:
 
 ## Workstream D: SEO and Discoverability Contract
 Approved contract:
-1. All SEO metadata and schema output lives in `layouts/partials/seo/`; leaf templates must not duplicate canonical, Open Graph, or JSON-LD logic.
+1. All SEO metadata and schema output lives in `src/layouts/partials/seo/`; leaf templates must not duplicate canonical, Open Graph, or JSON-LD logic.
 2. Required named partials are fixed to `head-meta.html`, `open-graph.html`, `json-ld-article.html`, `json-ld-site.html`, and `json-ld-breadcrumb.html`.
 3. Canonical and `og:url` generation must use `.Permalink`; `.RelPermalink` is not allowed for absolute SEO URLs.
 4. Indexable template families are:
@@ -148,7 +148,7 @@ Crawler surfaces:
 3. Any built page that is non-indexable must also be explicitly excluded from sitemap output; `seo.noindex` alone is not assumed to change sitemap membership.
 4. Alias redirect helpers are not assumed to be excluded by default; Phase 3 must verify sitemap exclusion and override the sitemap template if needed.
 5. Canonical sitemap URL is fixed to `https://www.rhino-inquisitor.com/sitemap.xml`.
-6. `robots.txt` is implemented via Hugo output (`enableRobotsTXT = true`) with a repo-owned `layouts/robots.txt` template that includes the canonical sitemap directive.
+6. `robots.txt` is implemented via Hugo output (`enableRobotsTXT = true`) with a repo-owned `src/layouts/robots.txt` template that includes the canonical sitemap directive.
 7. `robots.txt` is crawl control only and is never used as a substitute for page-level `noindex`.
 8. Staging and preview environments must emit `<meta name="robots" content="noindex">` on every rendered page.
 9. The canonical feed route approved in Workstream C (`/feed/`) must remain crawlable and must not be blocked by the production robots policy.

@@ -56,7 +56,7 @@ Phase 4 involves irreversible data transformations. Starting workstreams before 
 - [ ] Non-Negotiable Migration Constraints from `analysis/plan/details/phase-4.md` reviewed with engineering owner:
   - [ ] All migrated routes must be explicit — no implicit auto-generated routes
   - [ ] Migration scripts must be idempotent and rerunnable
-  - [ ] No batch merges to `content/` until validation gates pass
+  - [ ] No batch merges to `src/content/` until validation gates pass
   - [ ] Staging index controls must not leak into release artifacts
 - [ ] Phase 4 batch sequence is agreed: Pilot → High-Value → Long-Tail+Taxonomy
 - [ ] Workstream owner for each of WS-A through WS-K is named and recorded in the Progress Log

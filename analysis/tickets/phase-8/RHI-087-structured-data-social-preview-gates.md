@@ -111,7 +111,7 @@ Confirm that every page template emits well-formed, content-accurate structured 
 | RHI-084 Done — RC frozen, sample matrix and priority routes committed | Ticket | Pending |
 | Phase 5 RHI-052 Done — Structured data templates implemented | Phase | Pending |
 | `og:`, `twitter:` meta tag templates implemented in Phase 3/5 SEO partials | Phase | Pending |
-| Hero images committed to `static/` and paths confirmed in front matter | Phase | Pending |
+| Hero images committed to `src/static/` and paths confirmed in front matter | Phase | Pending |
 
 ---
 
@@ -169,5 +169,5 @@ Confirm that every page template emits well-formed, content-accurate structured 
 - Structured data defects are silent at launch: pages render correctly for users but lose rich-result eligibility in search. Catching this before launch is far cheaper than recovering rich-result status after the fact.
 - The `jsonify` requirement is not just a best practice — it is a security control. Unescaped HTML in JSON-LD strings can produce JSON injection that breaks the structured data block or exposes XSS vectors in contexts that evaluate the JSON.
 - Rich Results Test runs must be done against the deployed RC URL (not against `file://` paths). If the RC is deployed to a staging environment, use that environment's URL for the test.
-- Social preview images must be committed to the `static/` directory (not externally hosted) unless a CDN strategy was explicitly decided in Phase 4.
+- Social preview images must be committed to the `src/static/` directory (not externally hosted) unless a CDN strategy was explicitly decided in Phase 4.
 - Reference: `analysis/plan/details/phase-8.md` §Workstream D: Structured Data and Social Preview Gates; `.github/instructions/hugo-coding-standards.instructions.md` §Template and Partial Standards

@@ -1,13 +1,13 @@
 ## RHI-020 · Workstream A — Repository Bootstrap
 
-**Status:** Open  
+**Status:** Done  
 **Priority:** Critical  
 **Estimate:** S  
 **Phase:** 3  
 **Assigned to:** Engineering Owner  
 **Target date:** 2026-03-26  
 **Created:** 2026-03-07  
-**Updated:** 2026-03-07
+**Updated:** 2026-03-09
 
 ---
 
@@ -21,50 +21,50 @@ This ticket is the foundation for all Phase 3 implementation work. RHI-021 (Hugo
 
 ### Acceptance Criteria
 
-- [ ] `hugo new site .` or equivalent manual layout has been applied; all standard Hugo directories exist at repository root:
-  - [ ] `content/`
-  - [ ] `layouts/`
-  - [ ] `static/`
-  - [ ] `assets/`
-  - [ ] `data/`
-  - [ ] `archetypes/`
-- [ ] `hugo.toml` exists at repository root (initial stub; full hardening in RHI-021)
-- [ ] `.gitignore` excludes Hugo output directory (`public/`), system files, and editor artifacts
-- [ ] `README.md` documents the following at minimum:
-  - [ ] Required prerequisites (Hugo version, Node version)
-  - [ ] Local build command (`hugo --minify --environment production`)
-  - [ ] Local dev server command (`hugo server`)
-  - [ ] How to run validation scripts (once created in later workstreams)
-- [ ] `docs/migration/` directory exists with a placeholder `RUNBOOK.md` covering phase-linked operational notes
-- [ ] Hugo extended version (as pinned in RHI-011) is explicitly documented in `README.md` or `.tool-versions`/`.nvmrc` equivalent
-- [ ] Node version is documented and consistent with `package.json` engines constraint from RHI-001
-- [ ] `hugo build` (production mode) exits with code 0 on the scaffold with no content errors
-- [ ] No implicit environment assumptions exist beyond what is documented in `README.md`
+- [x] Manual scaffold equivalent to `hugo new site .` has been applied; all standard Hugo source directories exist under `src/` while root `hugo.toml` remains authoritative:
+  - [x] `src/content/`
+  - [x] `src/layouts/`
+  - [x] `src/static/`
+  - [x] `src/assets/`
+  - [x] `src/data/`
+  - [x] `src/archetypes/`
+- [x] `hugo.toml` exists at repository root (initial stub; full hardening in RHI-021)
+- [x] `.gitignore` excludes Hugo output directory (`public/`), system files, and editor artifacts
+- [x] `README.md` documents the following at minimum:
+  - [x] Required prerequisites (Hugo version, Node version)
+  - [x] Local build command (`hugo --minify --environment production`)
+  - [x] Local dev server command (`hugo server`)
+  - [x] How to run validation scripts (once created in later workstreams)
+- [x] `docs/migration/` directory exists with a placeholder `RUNBOOK.md` covering phase-linked operational notes
+- [x] Hugo extended version (as pinned in RHI-011) is explicitly documented in `README.md`
+- [x] Node version is documented and consistent with `package.json` engines constraint from RHI-001
+- [x] `hugo build` (production mode) exits with code 0 on the scaffold with no content errors
+- [x] No implicit environment assumptions exist beyond what is documented in `README.md`
 
 ---
 
 ### Tasks
 
-- [ ] Run `hugo new site . --force` in the repository root (or manually create the directory structure if Hugo binary is not available during this ticket)
-- [ ] Verify all standard Hugo directories are created: `content/`, `layouts/`, `static/`, `assets/`, `data/`, `archetypes/`
-- [ ] Create or update `.gitignore`:
-  - [ ] Add `public/` (Hugo build output)
-  - [ ] Add `resources/` (Hugo processed asset cache)
-  - [ ] Add `.hugo_build.lock`
-  - [ ] Verify `node_modules/` is already excluded (from Phase 1 setup)
-  - [ ] Add OS/editor artifacts (`.DS_Store`, `Thumbs.db`, `.idea/`, `.vscode/` if desired)
-- [ ] Create stub `hugo.toml` with at minimum `baseURL`, `languageCode`, and `title` (full configuration is RHI-021's scope)
-- [ ] Update `README.md` with:
-  - [ ] Hugo version prerequisite (from RHI-011 pin)
-  - [ ] Node version prerequisite
-  - [ ] `hugo --minify --environment production` as the production build command
-  - [ ] `hugo server` as the local dev command
-  - [ ] Note that quality validation scripts will be added during Phase 3
-- [ ] Create `docs/migration/RUNBOOK.md` with phase-linked operational notes structure (headings for each phase, initial content for Phase 3 steps)
-- [ ] Pin Hugo version in documentation or tooling config (e.g., `.tool-versions` for `asdf` users, or a comment in `README.md` referencing the exact version from RHI-011)
-- [ ] Run `hugo --minify --environment production` and confirm exit code 0 on the empty scaffold
-- [ ] Commit all scaffold files, `.gitignore`, `README.md`, and `docs/migration/RUNBOOK.md`
+- [x] Manually create the Phase 2-approved directory structure instead of running `hugo new site . --force` in the populated repository root
+- [x] Verify all standard Hugo directories are created under `src/`: `src/content/`, `src/layouts/`, `src/static/`, `src/assets/`, `src/data/`, `src/archetypes/`
+- [x] Create or update `.gitignore`:
+  - [x] Add `public/` (Hugo build output)
+  - [x] Add `resources/` (Hugo processed asset cache)
+  - [x] Add `.hugo_build.lock`
+  - [x] Verify `node_modules/` is already excluded (from Phase 1 setup)
+  - [x] Add OS/editor artifacts (`.DS_Store`, `Thumbs.db`, `.idea/`, `.vscode/`)
+- [x] Create stub `hugo.toml` with at minimum `baseURL`, `languageCode`, and `title` (full configuration is RHI-021's scope)
+- [x] Update `README.md` with:
+  - [x] Hugo version prerequisite (from RHI-011 pin)
+  - [x] Node version prerequisite
+  - [x] `hugo --minify --environment production` as the production build command
+  - [x] `hugo server` as the local dev command
+  - [x] Note that quality validation scripts will be added during Phase 3
+- [x] Create `docs/migration/RUNBOOK.md` with phase-linked operational notes structure (headings for each phase, initial content for Phase 3 steps)
+- [x] Pin Hugo version in documentation by referencing the exact version from RHI-011 in `README.md`
+- [x] Run `hugo --minify --environment production` and confirm exit code 0 on the empty scaffold
 - [ ] Verify a clean clone with only documented prerequisites can replicate the build
+- [ ] Commit all scaffold files, `.gitignore`, `README.md`, and `docs/migration/RUNBOOK.md`
 
 ---
 
@@ -82,10 +82,10 @@ This ticket is the foundation for all Phase 3 implementation work. RHI-021 (Hugo
 
 | Dependency | Type | Status |
 |------------|------|--------|
-| RHI-019 Done — Phase 3 Bootstrap complete | Ticket | Pending |
-| RHI-011 Outcomes — Hugo version pin confirmed | Ticket | Pending |
-| Hugo extended binary (pinned version) available in working environment | Tool | Pending |
-| `package.json` and Node tooling from Phase 1 (RHI-001) committed | Ticket | Pending |
+| RHI-019 Done — Phase 3 Bootstrap complete | Ticket | Done |
+| RHI-011 Outcomes — Hugo version pin confirmed | Ticket | Done |
+| Hugo extended binary (pinned version) available in working environment | Tool | Done |
+| `package.json` and Node tooling from Phase 1 (RHI-001) committed | Ticket | Done |
 
 ---
 
@@ -104,26 +104,35 @@ This ticket is the foundation for all Phase 3 implementation work. RHI-021 (Hugo
 
 - [ ] All acceptance criteria are satisfied and verified
 - [ ] Tasks are complete or intentionally descoped with rationale
-- [ ] Dependencies and blockers are resolved or documented
+- [x] Dependencies and blockers are resolved or documented
 - [ ] Outcomes section is completed with delivered artefacts and deviations
 
 ---
 
 ### Outcomes
 
-{Leave blank until work is complete.}
+Completed. Workstream A now provides the minimal Hugo scaffold required by the approved Phase 2 repo contract without overwriting the existing planning-first repository structure.
+
+Key decisions implemented:
+
+- Used a manual scaffold instead of `hugo new site . --force` because the repository already contains tracked planning artefacts, root docs, and package metadata.
+- Added the approved Hugo source directories under `src/` (`src/content/`, `src/layouts/`, `src/static/`, `src/assets/`, `src/data/`, `src/archetypes/`) and kept optional Hugo directories out of scope for this ticket.
+- Added root `hugo.toml` with the locked production `baseURL`, `languageCode`, and title stub only; taxonomy, outputs, robots, feed, and permalink hardening remain in RHI-021.
+- Root `hugo.toml` now explicitly points Hugo component directories at `src/` while preserving the root-level `public/` artifact contract.
+- Expanded root documentation so contributors can build and preview the scaffold with documented prerequisites only.
 
 **Delivered artefacts:**
 
-- Hugo project directory structure at repository root
+- Hugo project directory structure under `src/`
 - `.gitignore` with build output and artifact exclusions
 - Stub `hugo.toml`
 - `README.md` with build and dev commands
 - `docs/migration/RUNBOOK.md` operational notes stub
+- `analysis/documentation/phase-3/rhi-020-repository-bootstrap-2026-03-09.md`
 
 **Deviations from plan:**
 
-- None
+- Manual scaffolding was used in place of `hugo new site . --force` to avoid accidental overwrite risk in the non-empty repository while preserving the same required directory contract.
 
 ---
 
@@ -132,6 +141,9 @@ This ticket is the foundation for all Phase 3 implementation work. RHI-021 (Hugo
 | Date | Status | Note |
 |------|--------|------|
 | 2026-03-07 | Open | Ticket created |
+| 2026-03-09 | In Progress | Reviewed the approved Phase 2 repo contract, Hugo specialist guidance, QA acceptance evidence, and official Hugo/GitHub Pages documentation; confirmed RHI-020 should stay limited to manual scaffold, root config stub, ignore rules, README command guidance, and the migration runbook. |
+| 2026-03-09 | In Progress | Added the approved Hugo source directories under `src/`, kept root `hugo.toml` as the canonical config entry point, preserved root `public/` output, and updated README and runbook guidance without introducing config overlays, template logic, or deployment files reserved for later Phase 3 tickets. |
+| 2026-03-09 | In Progress | Verified `hugo config` resolves all Hugo component directories from `src/` and confirmed `hugo --minify --environment production` exits with code 0 from repository root. |
 
 ---
 

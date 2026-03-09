@@ -52,7 +52,7 @@ Canonical signal errors are among the most damaging SEO problems during a migrat
 ### Tasks
 
 - [ ] Audit Phase 3 SEO partial templates for canonical, title, and description output:
-  - [ ] Confirm `layouts/partials/seo/head-meta.html` outputs canonical correctly for all template types
+  - [ ] Confirm `src/layouts/partials/seo/head-meta.html` outputs canonical correctly for all template types
   - [ ] Confirm `<title>` uses Hugo front matter `title` field and site title suffix consistently
   - [ ] Confirm `<meta name="description">` falls back correctly when `description` is absent (or blocks as intended)
   - [ ] Confirm OG tags output correctly for article vs. list vs. page templates
@@ -89,7 +89,7 @@ Canonical signal errors are among the most damaging SEO problems during a migrat
 | Dependency | Type | Status |
 |------------|------|--------|
 | RHI-047 Done — Phase 5 Bootstrap complete | Ticket | Pending |
-| RHI-024 Done — Phase 3 SEO partials committed (`layouts/partials/seo/`) | Ticket | Pending |
+| RHI-024 Done — Phase 3 SEO partials committed (`src/layouts/partials/seo/`) | Ticket | Pending |
 | RHI-023 Done — Phase 3 template scaffolding complete (baseof.html, single.html, list.html) | Ticket | Pending |
 | RHI-014 Done — Phase 2 SEO and discoverability contract (canonical and metadata rules) | Ticket | Pending |
 | `cheerio` available in `package.json` | Tool | Pending |

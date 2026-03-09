@@ -33,20 +33,20 @@ The contract must also explicitly address how robots and sitemap interact, ensur
   - [x] Navigation hierarchy pages (category/taxonomy and pages that render a real breadcrumb trail): `BreadcrumbList` schema with required `item`, `name`, `position` properties
   - [x] List pages: no `BlogPosting`; `BreadcrumbList` only where applicable
 - [x] All string values in JSON-LD must be processed through Hugo `jsonify`; this is documented as a hard coding requirement
-- [x] Partial architecture is confirmed: all SEO meta generation lives in `layouts/partials/seo/`; no duplication across templates
+- [x] Partial architecture is confirmed: all SEO meta generation lives in `src/layouts/partials/seo/`; no duplication across templates
 - [x] Named partials are defined:
-  - [x] `layouts/partials/seo/head-meta.html` — title, description, canonical, robots meta
-  - [x] `layouts/partials/seo/open-graph.html` — OG tags and Twitter compatibility tags
-  - [x] `layouts/partials/seo/json-ld-article.html` — `BlogPosting` schema
-  - [x] `layouts/partials/seo/json-ld-site.html` — `WebSite` schema
-  - [x] `layouts/partials/seo/json-ld-breadcrumb.html` — `BreadcrumbList` schema
+  - [x] `src/layouts/partials/seo/head-meta.html` — title, description, canonical, robots meta
+  - [x] `src/layouts/partials/seo/open-graph.html` — OG tags and Twitter compatibility tags
+  - [x] `src/layouts/partials/seo/json-ld-article.html` — `BlogPosting` schema
+  - [x] `src/layouts/partials/seo/json-ld-site.html` — `WebSite` schema
+  - [x] `src/layouts/partials/seo/json-ld-breadcrumb.html` — `BreadcrumbList` schema
 - [x] Sitemap policy is approved:
   - [x] Sitemap generated from built pages only (Hugo embedded sitemap baseline)
   - [x] Draft pages excluded from sitemap (confirmed by `draft: true` build exclusion from RHI-012)
   - [x] Alias/redirect pages excluded from sitemap by verified implementation rule; Phase 3 must not assume an unvalidated Hugo default
   - [x] Sitemap URL matches canonical: `https://www.rhino-inquisitor.com/sitemap.xml`
 - [x] `robots.txt` policy is approved:
-  - [x] Hugo robots template output is the approved mechanism (`enableRobotsTXT = true` with repo-owned `layouts/robots.txt`)
+  - [x] Hugo robots template output is the approved mechanism (`enableRobotsTXT = true` with repo-owned `src/layouts/robots.txt`)
   - [x] `Sitemap:` directive included pointing to canonical sitemap URL
   - [x] `robots.txt` never used as sole mechanism for de-indexing; paired with `<meta name="robots" content="noindex">` where applicable
   - [x] Staging/preview environments must set `noindex` meta tag, not only robots.txt Disallow
@@ -74,15 +74,15 @@ The contract must also explicitly address how robots and sitemap interact, ensur
   - [x] Confirm `BlogPosting` as the article-page default with SEO owner
   - [x] Define required and recommended schema properties for each type
   - [x] Document the `jsonify` requirement for all string values
-- [x] Confirm partial architecture — all SEO logic in `layouts/partials/seo/`; single source of truth
+- [x] Confirm partial architecture — all SEO logic in `src/layouts/partials/seo/`; single source of truth
 - [x] Define the five named SEO partials listed in Acceptance Criteria; document their expected inputs (page context, site config, resolved SEO context)
 - [x] Define sitemap policy:
   - [x] Use Hugo embedded sitemap generation as the baseline
   - [x] Require explicit exclusion for any built non-indexable page (`seo.noindex`, alias helpers, 404, search results)
   - [x] Confirm sitemap URL
 - [x] Define `robots.txt` policy:
-  - [x] Evaluate Hugo robots template vs. static `static/robots.txt`
-  - [x] Choose Hugo robots template output with repo-owned `layouts/robots.txt`
+  - [x] Evaluate Hugo robots template vs. static `src/static/robots.txt`
+  - [x] Choose Hugo robots template output with repo-owned `src/layouts/robots.txt`
   - [x] Draft production `robots.txt` content and required directives
   - [x] Confirm staging noindex strategy
 - [x] Confirm `.Permalink` (not `.RelPermalink`) for all canonical and OG URL generation; document this as a coding rule
@@ -140,7 +140,7 @@ Completed. Workstream D is now the approved Phase 2 SEO and discoverability cont
 
 Approved decisions:
 
-- All SEO metadata generation is centralized under `layouts/partials/seo/`. Leaf templates must pass page context into shared partials rather than duplicate canonical, Open Graph, or schema logic.
+- All SEO metadata generation is centralized under `src/layouts/partials/seo/`. Leaf templates must pass page context into shared partials rather than duplicate canonical, Open Graph, or schema logic.
 - Canonical and Open Graph URLs must use `.Permalink`; `.RelPermalink` is prohibited for canonical and `og:url` generation.
 - Twitter card tags remain part of the contract, but they are best-effort compatibility tags and are non-blocking for closeout if platform expectations change. Open Graph tags remain the blocking social-preview baseline.
 - `BlogPosting` is the approved article schema type for migrated article/post pages. The contract requires `headline`, `image`, `datePublished`, `dateModified`, and `author`, with canonical URL alignment enforced in Phase 3 validation.
@@ -171,11 +171,11 @@ Approved SEO partial contracts:
 
 | Partial | Expected inputs | Required output |
 |---------|-----------------|-----------------|
-| `layouts/partials/seo/head-meta.html` | page context, resolved title, resolved description, resolved canonical, indexability flag | `<title>`, meta description, canonical, robots meta |
-| `layouts/partials/seo/open-graph.html` | page context, resolved title, resolved description, resolved canonical, resolved absolute image URL, content classification | Open Graph baseline plus Twitter compatibility tags |
-| `layouts/partials/seo/json-ld-article.html` | article page context, resolved headline, description, image, author, publish date, modify date, canonical URL | `BlogPosting` JSON-LD only on article/post singles |
-| `layouts/partials/seo/json-ld-site.html` | homepage context, site title, site description, canonical host | `WebSite` JSON-LD on homepage only |
-| `layouts/partials/seo/json-ld-breadcrumb.html` | page context plus an explicit breadcrumb list | `BreadcrumbList` JSON-LD only when the UI exposes a real breadcrumb hierarchy |
+| `src/layouts/partials/seo/head-meta.html` | page context, resolved title, resolved description, resolved canonical, indexability flag | `<title>`, meta description, canonical, robots meta |
+| `src/layouts/partials/seo/open-graph.html` | page context, resolved title, resolved description, resolved canonical, resolved absolute image URL, content classification | Open Graph baseline plus Twitter compatibility tags |
+| `src/layouts/partials/seo/json-ld-article.html` | article page context, resolved headline, description, image, author, publish date, modify date, canonical URL | `BlogPosting` JSON-LD only on article/post singles |
+| `src/layouts/partials/seo/json-ld-site.html` | homepage context, site title, site description, canonical host | `WebSite` JSON-LD on homepage only |
+| `src/layouts/partials/seo/json-ld-breadcrumb.html` | page context plus an explicit breadcrumb list | `BreadcrumbList` JSON-LD only when the UI exposes a real breadcrumb hierarchy |
 
 Phase 3 may introduce an internal helper partial to resolve the SEO context once per page, but these five named output partials are mandatory and remain the public contract.
 
@@ -189,7 +189,7 @@ Approved sitemap policy:
 
 Approved `robots.txt` policy:
 
-- Production `robots.txt` is implemented via Hugo output (`enableRobotsTXT = true`) with a repo-owned `layouts/robots.txt` template.
+- Production `robots.txt` is implemented via Hugo output (`enableRobotsTXT = true`) with a repo-owned `src/layouts/robots.txt` template.
 - `robots.txt` must include the canonical sitemap directive and must not block the canonical feed route approved in RHI-013.
 - `robots.txt` is crawl control only; it is never the sole de-indexing mechanism.
 - Staging and preview environments must emit `<meta name="robots" content="noindex">` on every rendered page even if robots rules also differ by environment.

@@ -1,2 +1,9 @@
 tmp/
 node_modules/
+public/
+resources/
+.hugo_build.lock
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

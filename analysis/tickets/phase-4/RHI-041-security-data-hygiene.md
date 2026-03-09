@@ -13,7 +13,7 @@
 
 ### Goal
 
-Prevent the migration from publishing unsafe, sensitive, or private content artifacts by scanning all generated output for script injection fragments, inline event handlers, private draft content, source-system metadata, and HTTPS-hostile references. The security content scan must be a blocking CI gate before any batch is committed to `content/`.
+Prevent the migration from publishing unsafe, sensitive, or private content artifacts by scanning all generated output for script injection fragments, inline event handlers, private draft content, source-system metadata, and HTTPS-hostile references. The security content scan must be a blocking CI gate before any batch is committed to `src/content/`.
 
 Static sites are not inherently safe from XSS if user-generated or third-party content is migrated without sanitization. WordPress content can include embedded JavaScript widgets, inline event handlers from legacy themes, and private metadata that should never reach a public static site.
 
@@ -35,7 +35,7 @@ Static sites are not inherently safe from XSS if user-generated or third-party c
   - [ ] Produces `migration/reports/security-content-scan.csv` with per-file findings
   - [ ] Exits with non-zero code on any `critical` finding
   - [ ] Is referenced in `package.json` as `npm run check:security-content`
-- [ ] All `critical` findings are resolved before any batch is merged to `content/`
+- [ ] All `critical` findings are resolved before any batch is merged to `src/content/`
 - [ ] No WordPress private drafts or protected posts appear in generated output with `draft: false`
 - [ ] No source-system-only metadata is present in generated front matter (e.g., `sourceId`, internal WordPress IDs must not appear in final Hugo content files)
 - [ ] GitHub Pages hosting constraints are documented:

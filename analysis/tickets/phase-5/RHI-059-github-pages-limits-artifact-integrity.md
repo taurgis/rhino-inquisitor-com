@@ -41,7 +41,7 @@ GitHub Pages site limits are hard constraints — a site that exceeds the 1 GB p
 - [ ] Custom domain and HTTPS readiness is verified (pre-cutover check):
   - [ ] Domain CNAME (`www.rhino-inquisitor.com`) points to the correct GitHub Pages target
   - [ ] HTTPS certificate issuance is confirmed by GitHub Pages settings
-  - [ ] `.nojekyll` file exists in `static/` to prevent unintended Jekyll processing
+  - [ ] `.nojekyll` file exists in `src/static/` to prevent unintended Jekyll processing
   - [ ] GitHub Pages custom domain configuration in repository Settings matches `CNAME` or API configuration
 - [ ] No symbolic links exist in `public/` after a local production build
 
@@ -60,8 +60,8 @@ GitHub Pages site limits are hard constraints — a site that exceeds the 1 GB p
   - [ ] Compare against configurable threshold (default 800 MB)
   - [ ] Detect symbolic links using `find -type l`
   - [ ] Output pass/fail summary to console
-- [ ] Verify `.nojekyll` file exists in `static/`:
-  - [ ] If absent, create `static/.nojekyll` (empty file)
+- [ ] Verify `.nojekyll` file exists in `src/static/`:
+  - [ ] If absent, create `src/static/.nojekyll` (empty file)
 - [ ] Verify GitHub Pages custom domain readiness:
   - [ ] Confirm CNAME DNS record for `www.rhino-inquisitor.com` exists and points to `taurgis.github.io` (or the correct Pages target)
   - [ ] Confirm HTTPS enforcement is enabled in Pages settings
@@ -120,7 +120,7 @@ GitHub Pages site limits are hard constraints — a site that exceeds the 1 GB p
 
 - `migration/reports/phase-5-pages-constraints-report.md`
 - `scripts/seo/check-pages-constraints.js`
-- `static/.nojekyll` confirmed or created
+- `src/static/.nojekyll` confirmed or created
 - `package.json` updated with `check:pages-constraints` script
 - CI workflow updated with `check:pages-constraints` blocking gate
 

@@ -52,10 +52,10 @@ Confirm that all production templates meet a WCAG 2.2 launch baseline for in-sco
   - [ ] Configure to serve from local `public/` directory
   - [ ] Set error threshold: fail on Level A and critical Level AA; report non-critical Level AA with owner triage
 - [ ] Audit heading hierarchy across templates:
-  - [ ] Check `layouts/_default/single.html` — confirm `<h1>` is emitted once per page
-  - [ ] Check `layouts/_default/list.html` — confirm `<h1>` for list page context, not for each list item
-  - [ ] Check `layouts/partials/` for any heading-emitting partials that could duplicate `<h1>`
-- [ ] Audit landmark regions in `layouts/_default/baseof.html`:
+  - [ ] Check `src/layouts/_default/single.html` — confirm `<h1>` is emitted once per page
+  - [ ] Check `src/layouts/_default/list.html` — confirm `<h1>` for list page context, not for each list item
+  - [ ] Check `src/layouts/partials/` for any heading-emitting partials that could duplicate `<h1>`
+- [ ] Audit landmark regions in `src/layouts/_default/baseof.html`:
   - [ ] Confirm `<header>`, `<main>`, `<nav>`, `<footer>` are present
   - [ ] Confirm skip navigation link exists (`<a href="#main-content">Skip to content</a>`)
 - [ ] Run `pa11y-ci` against the scaffold build:

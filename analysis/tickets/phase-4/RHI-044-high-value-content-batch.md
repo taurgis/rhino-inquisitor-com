@@ -120,7 +120,7 @@ Errors in this batch directly damage the migration's primary success criterion: 
 
 **Delivered artefacts:**
 
-- High-value batch `.md` files committed to `content/`
+- High-value batch `.md` files committed to `src/content/`
 - SEO spot-check findings documented in Progress Log
 - Migration item report updated for Batch 2
 - List of custom descriptions authored

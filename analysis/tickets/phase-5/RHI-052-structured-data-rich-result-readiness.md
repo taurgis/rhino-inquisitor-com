@@ -53,7 +53,7 @@ Rich-result eligibility is a meaningful discovery advantage. Schema errors intro
 ### Tasks
 
 - [ ] Audit Phase 3 JSON-LD partial templates (from RHI-024):
-  - [ ] Review `layouts/partials/seo/json-ld-article.html` (or equivalent) for required properties
+  - [ ] Review `src/layouts/partials/seo/json-ld-article.html` (or equivalent) for required properties
   - [ ] Verify `datePublished` and `dateModified` use ISO 8601 format with Hugo `.Date.Format`
   - [ ] Verify all string values pass through Hugo `jsonify` function
   - [ ] Verify `BlogPosting` is not emitted on list or taxonomy templates

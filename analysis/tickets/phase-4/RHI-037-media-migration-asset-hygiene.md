@@ -13,7 +13,7 @@
 
 ### Goal
 
-Download all referenced WordPress media assets to a controlled local path under `static/`, deduplicate them, generate responsive image variants where warranted, and rewrite all media references in converted content to point to the new local paths. The completed output must have zero hotlinks to deprecated WordPress upload paths and zero missing media references on any page that passes the migration gate.
+Download all referenced WordPress media assets to a controlled local path under `src/static/`, deduplicate them, generate responsive image variants where warranted, and rewrite all media references in converted content to point to the new local paths. The completed output must have zero hotlinks to deprecated WordPress upload paths and zero missing media references on any page that passes the migration gate.
 
 Media breakage is invisible at build time but immediately apparent to users and Lighthouse. Broken images cause CLS issues, reduce perceived quality, and harm Core Web Vitals scores.
 
@@ -26,7 +26,7 @@ Media breakage is invisible at build time but immediately apparent to users and 
   - [ ] Downloads each unique URL once (deduplication by checksum before writing)
   - [ ] Preserves original file extension
   - [ ] Normalizes file names to deterministic slug-based names (no spaces, special characters, or WordPress size-suffix patterns like `-300x200`)
-  - [ ] Writes media to `static/media/{year}/{slug}.{ext}` path structure
+  - [ ] Writes media to `src/static/media/{year}/{slug}.{ext}` path structure
   - [ ] Records source URL → local path mapping in `migration/intermediate/media-manifest.json`
   - [ ] Uses `p-limit` for bounded concurrent downloads
   - [ ] Retries failed downloads up to 3 times with exponential backoff
@@ -41,7 +41,7 @@ Media breakage is invisible at build time but immediately apparent to users and 
   - [ ] Is referenced in `package.json` as `npm run migrate:rewrite-media`
 - [ ] Media integrity check script `scripts/migration/check-media.js` exists and:
   - [ ] Scans all generated `.md` files and `public/` HTML for image `src` values
-  - [ ] Verifies each local image reference resolves to an existing file in `static/`
+  - [ ] Verifies each local image reference resolves to an existing file in `src/static/`
   - [ ] Detects any remaining hotlinks to `*.wordpress.com` or the original WordPress domain
   - [ ] Verifies MIME type aligns with file extension (using file signature)
   - [ ] Checks for mixed-content `http://` image references on HTTPS pages
@@ -61,7 +61,7 @@ Media breakage is invisible at build time but immediately apparent to users and 
   - [ ] Any media hosted on third-party CDNs (not WordPress origin)
   - [ ] Any WordPress-generated size variants (e.g., `-150x150`, `-300x225`) in references
 - [ ] Decide on image optimization strategy with engineering owner:
-  - [ ] Native `static/` only (simpler) vs `assets/` with Hugo image processing (better performance)
+  - [ ] Native `src/static/` only (simpler) vs `src/assets/` with Hugo image processing (better performance)
   - [ ] Record decision in Progress Log
 - [ ] Create `scripts/migration/download-media.js`:
   - [ ] Build unique URL set from all `mediaRefs` arrays in normalized records
@@ -137,7 +137,7 @@ Media breakage is invisible at build time but immediately apparent to users and 
 - `migration/reports/media-missing.csv` (empty for release candidate batch)
 - `migration/reports/media-hotlinks.csv`
 - `migration/reports/media-integrity-report.csv`
-- `static/media/` directory with downloaded assets
+- `src/static/media/` directory with downloaded assets
 - `package.json` updated with `migrate:download-media`, `migrate:rewrite-media`, `check:media` scripts
 
 **Deviations from plan:**
@@ -158,5 +158,5 @@ Media breakage is invisible at build time but immediately apparent to users and 
 
 - WordPress generates multiple size variants for every uploaded image (`-150x150`, `-300x225`, etc.). Content HTML often references these sized variants directly, not the original. Rewriting must handle all variant patterns and map them back to one canonical downloaded file.
 - GitHub Pages has a recommended site size of 1 GB. If the media audit shows the site will approach this, the CDN strategy decision should be made before the long-tail batch (RHI-045), not after.
-- The `heroImage` path must be a local path, not a WordPress URL, before any file is committed to `content/`. Check this explicitly in the media integrity script.
+- The `heroImage` path must be a local path, not a WordPress URL, before any file is committed to `src/content/`. Check this explicitly in the media integrity script.
 - Reference: `analysis/plan/details/phase-4.md` §Workstream F: Media Migration and Asset Hygiene

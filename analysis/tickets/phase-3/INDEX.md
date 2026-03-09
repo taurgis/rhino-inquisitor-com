@@ -14,7 +14,7 @@
 | Ticket ID | Title | Workstream | Priority | Status | Estimate | Target Date | Depends On |
 |-----------|-------|------------|----------|--------|----------|-------------|------------|
 | [RHI-019](RHI-019-phase-3-bootstrap.md) | Phase 3 Bootstrap: Kickoff and Environment Readiness | Setup | Critical | Done | S | 2026-03-25 | RHI-018 |
-| [RHI-020](RHI-020-repository-bootstrap.md) | Workstream A — Repository Bootstrap | WS-A | Critical | Open | S | 2026-03-26 | RHI-019 |
+| [RHI-020](RHI-020-repository-bootstrap.md) | Workstream A — Repository Bootstrap | WS-A | Critical | Done | S | 2026-03-26 | RHI-019 |
 | [RHI-021](RHI-021-hugo-config-hardening.md) | Workstream B — Hugo Configuration Hardening | WS-B | Critical | Open | M | 2026-03-27 | RHI-019, RHI-020 |
 | [RHI-022](RHI-022-content-contract-archetypes.md) | Workstream C — Content Contract and Archetypes | WS-C | Critical | Open | M | 2026-03-28 | RHI-019, RHI-021 |
 | [RHI-023](RHI-023-template-scaffolding.md) | Workstream D — Template Scaffolding and Rendering Model | WS-D | Critical | Open | L | 2026-04-01 | RHI-019, RHI-021, RHI-022 |
@@ -56,16 +56,16 @@ RHI-018 (Phase 2 Sign-off)
 
 | Deliverable | Ticket | File Path |
 |-------------|--------|-----------|
-| Hugo project directory structure | RHI-020 | `content/`, `layouts/`, `static/`, `assets/`, `data/`, `archetypes/` |
+| Hugo project directory structure | RHI-020 | `src/content/`, `src/layouts/`, `src/static/`, `src/assets/`, `src/data/`, `src/archetypes/` |
 | `.gitignore` with build exclusions | RHI-020 | `.gitignore` |
 | `README.md` with build commands | RHI-020 | `README.md` |
 | Migration operational runbook | RHI-020 | `docs/migration/RUNBOOK.md` |
 | Hardened `hugo.toml` | RHI-021 | `hugo.toml` |
 | Staging environment config | RHI-021, RHI-024 | `config/staging/hugo.toml` |
-| Hugo archetypes | RHI-022 | `archetypes/posts.md`, `archetypes/pages.md`, `archetypes/default.md` |
+| Hugo archetypes | RHI-022 | `src/archetypes/posts.md`, `src/archetypes/pages.md`, `src/archetypes/default.md` |
 | Front matter validation script | RHI-022 | `scripts/validate-frontmatter.js` |
-| Base template and SEO partials | RHI-023 | `layouts/_default/baseof.html`, `layouts/partials/seo/` |
-| Primary section and taxonomy templates | RHI-023 | `layouts/index.html`, `layouts/_default/single.html`, `layouts/_default/list.html`, `layouts/_default/taxonomy.html`, `layouts/_default/term.html` |
+| Base template and SEO partials | RHI-023 | `src/layouts/_default/baseof.html`, `src/layouts/partials/seo/` |
+| Primary section and taxonomy templates | RHI-023 | `src/layouts/index.html`, `src/layouts/_default/single.html`, `src/layouts/_default/list.html`, `src/layouts/_default/taxonomy.html`, `src/layouts/_default/term.html` |
 | SEO smoke-check script | RHI-024 | `scripts/check-seo.js` |
 | Validated `sitemap.xml` and `robots.txt` output | RHI-024 | Generated: `public/sitemap.xml`, `public/robots.txt` |
 | URL parity script | RHI-025 | `scripts/check-url-parity.js` |
@@ -86,7 +86,7 @@ RHI-018 (Phase 2 Sign-off)
 All items below must be complete before Phase 4 work begins:
 
 - [x] RHI-019 Done — Phase 3 Bootstrap; Phase 2 contracts confirmed accessible
-- [ ] RHI-020 Done — Hugo project layout committed; clean clone builds with one command
+- [x] RHI-020 Done — Hugo project layout committed; clean clone builds with one command
 - [ ] RHI-021 Done — `hugo.toml` with `baseURL`, permalinks, taxonomies, outputs, and build behavior locked
 - [ ] RHI-022 Done — Archetypes for all content types; `validate:frontmatter` script passing in CI
 - [ ] RHI-023 Done — All primary template types with shared SEO partials committed

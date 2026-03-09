@@ -22,7 +22,7 @@ Host/protocol fragmentation is a persistent post-migration index problem. If cra
 ### Acceptance Criteria
 
 - [ ] Hugo template canonical tags always output `https://www.rhino-inquisitor.com/` as the canonical host:
-  - [ ] `layouts/partials/seo/head-meta.html` (or equivalent) uses `.Permalink` which is derived from `baseURL = "https://www.rhino-inquisitor.com/"`
+  - [ ] `src/layouts/partials/seo/head-meta.html` (or equivalent) uses `.Permalink` which is derived from `baseURL = "https://www.rhino-inquisitor.com/"`
   - [ ] No hardcoded apex, HTTP, or non-www canonical URL exists in any template
   - [ ] `hugo.toml` `baseURL` is `"https://www.rhino-inquisitor.com/"` (www, HTTPS, trailing slash)
 - [ ] Sitemap output uses canonical host exclusively:
@@ -57,7 +57,7 @@ Host/protocol fragmentation is a persistent post-migration index problem. If cra
   - [ ] Confirm it is `"https://www.rhino-inquisitor.com/"` — exactly: HTTPS, www, trailing slash
   - [ ] Fix if incorrect; run production build and verify `.Permalink` output
 - [ ] Audit canonical tag template:
-  - [ ] Locate canonical tag generation in `layouts/partials/seo/`
+  - [ ] Locate canonical tag generation in `src/layouts/partials/seo/`
   - [ ] Confirm it uses `.Permalink` (not `.URL` or `.RelPermalink`)
   - [ ] Spot-check 5 sample canonical tags in the built `public/` directory with `cheerio`
 - [ ] Audit sitemap output:

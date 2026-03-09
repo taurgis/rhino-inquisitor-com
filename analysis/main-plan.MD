@@ -11,7 +11,7 @@ Migrate the current WordPress-powered site to a static Markdown-authored site us
 
 2. Phase 2: Stack and Architecture Decision (*depends on 1*)
 2.1. Use Hugo as the static site generator (Markdown-first, explicit `url` control, built-in `aliases` redirects, static HTML output).
-2.2. Use GitHub Pages custom workflow deployment (build in Actions, deploy artifact) instead of native branch Jekyll build, and lock the generator/repo contract to root `hugo.toml`, canonical `baseURL = "https://www.rhino-inquisitor.com/"`, `public/` artifact output, and Hugo Extended `0.157.0` pinned through `HUGO_VERSION`.
+2.2. Use GitHub Pages custom workflow deployment (build in Actions, deploy artifact) instead of native branch Jekyll build, and lock the generator/repo contract to root `hugo.toml`, Hugo source components under `src/`, canonical `baseURL = "https://www.rhino-inquisitor.com/"`, `public/` artifact output, and Hugo Extended `0.157.0` pinned through `HUGO_VERSION`.
 2.3. Add supporting libraries:
 - `turndown` + `@joplin/turndown-plugin-gfm` for WordPress HTML-to-Markdown conversion.
 - `fast-glob` for URL parity and content audits.
@@ -19,8 +19,8 @@ Migrate the current WordPress-powered site to a static Markdown-authored site us
 2.4. Define content model fields used in front matter: `title`, `description`, `date`, `lastmod`, `categories`, `tags`, `heroImage`, `url`, `aliases`, `canonical`, `draft`.
 
 3. Phase 3: Repository Scaffolding (*depends on 2*)
-3.1. Initialize Hugo project with root `hugo.toml`, output folder (`public`), clean URL generation, and no Phase 2 config overlay split unless a later ticket explicitly introduces a validated non-production host.
-3.2. Create content directories for posts/pages/categories and base layouts/partials.
+3.1. Initialize Hugo project with root `hugo.toml`, Hugo source components under `src/`, output folder (`public`), clean URL generation, and no Phase 2 config overlay split unless a later ticket explicitly introduces a validated non-production host.
+3.2. Create `src/content/` directories for posts/pages/categories and `src/layouts/` partial/template structure.
 3.3. Add reusable SEO partials for canonical, Open Graph, Twitter cards, and JSON-LD.
 3.4. Add deterministic URL strategy so every migrated URL is explicit rather than auto-generated.
 
@@ -68,13 +68,13 @@ Migrate the current WordPress-powered site to a static Markdown-authored site us
 - Planned document to create in repository root: `IMPLEMENTATION-PLAN.MD` (full migration plan for execution handoff).
 - Planned migration URL source snapshot: `migration/url-manifest.json`.
 - Planned Hugo config: `hugo.toml`.
-- Planned article content root: `content/posts/`.
-- Planned page content root: `content/pages/`.
-- Planned layouts: `layouts/`.
-- Planned SEO partials: `layouts/partials/seo.*`.
+- Planned article content root: `src/content/posts/`.
+- Planned page content root: `src/content/pages/`.
+- Planned layouts: `src/layouts/`.
+- Planned SEO partials: `src/layouts/partials/seo.*`.
 - Planned CI deploy workflow: `.github/workflows/deploy-pages.yml`.
 - Planned build/test scripts and dependencies: `package.json`.
-- Planned static utility files: `static/robots.txt`, `public/sitemap.xml` (generated), `static/CNAME`, `content/404.md`.
+- Planned static utility files: `src/static/robots.txt`, `public/sitemap.xml` (generated), `src/static/CNAME`, `src/content/404.md`.
 - Planned redirect output area: generated from front matter `aliases`.
 - Tool-evaluation decision record: `analysis/plan/details/phase-2.md`.
 

@@ -50,8 +50,8 @@ This is typically the largest batch in terms of record count but the lowest risk
 
 ### Tasks
 
-- [ ] Identify all remaining in-scope records not yet in `content/`:
-  - [ ] Query normalized records for records not present in `content/` directory
+- [ ] Identify all remaining in-scope records not yet in `src/content/`:
+  - [ ] Query normalized records for records not present in `src/content/` directory
   - [ ] Confirm all `retire`-disposition records are correctly excluded
 - [ ] Plan taxonomy and archive page handling with SEO owner:
   - [ ] Confirm which category pages have organic traffic and must be preserved
@@ -126,7 +126,7 @@ This is typically the largest batch in terms of record count but the lowest risk
 
 **Delivered artefacts:**
 
-- Long-tail and taxonomy batch `.md` files committed to `content/`
+- Long-tail and taxonomy batch `.md` files committed to `src/content/`
 - Complete migration item report for full record set
 - Exception closure summary (deferred items with owners)
 - CI gate evidence for Batch 3 PR

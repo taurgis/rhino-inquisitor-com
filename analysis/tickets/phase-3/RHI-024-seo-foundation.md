@@ -72,7 +72,7 @@ Validate and complete the full SEO signal layer on top of the template scaffold 
   - [ ] Verify staging build does NOT emit `noindex` in production build
   - [ ] Confirm staging protection does not rely solely on `robots.txt Disallow`
 - [ ] Implement `/feed/` compatibility path (per RHI-013 decision):
-  - [ ] Ensure `/feed/` resolves via direct output or one-hop redirect page in `static/feed/index.html`
+  - [ ] Ensure `/feed/` resolves via direct output or one-hop redirect page in `src/static/feed/index.html`
   - [ ] Verify redirect target is correct and does not create a redirect chain
 - [ ] Create `scripts/check-seo.js`:
   - [ ] Read HTML files from `public/` using `fast-glob`

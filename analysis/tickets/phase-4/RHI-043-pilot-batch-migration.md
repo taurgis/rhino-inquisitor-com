@@ -79,10 +79,10 @@ If the pilot batch reveals pipeline defects, they must be fixed before Batch 2 b
 - [ ] Run all CI gates locally and fix failures:
   - [ ] Iterate until all gates pass
   - [ ] Document each failure and fix in Progress Log
-- [ ] Copy approved pilot batch files from `migration/output/content/` to `content/`:
-  - [ ] Post files → `content/posts/`
-  - [ ] Page files → `content/pages/`
-  - [ ] Category files → `content/categories/` (if applicable)
+- [ ] Copy approved pilot batch files from `migration/output/content/` to `src/content/`:
+  - [ ] Post files → `src/content/posts/`
+  - [ ] Page files → `src/content/pages/`
+  - [ ] Category files → `src/content/categories/` (if applicable)
 - [ ] Open a PR for the pilot batch:
   - [ ] PR description includes: record list, gate results summary, manual review findings
   - [ ] All CI gates pass in the PR checks
@@ -147,7 +147,7 @@ If the pilot batch reveals pipeline defects, they must be fixed before Batch 2 b
 
 **Delivered artefacts:**
 
-- Pilot batch `.md` files committed to `content/`
+- Pilot batch `.md` files committed to `src/content/`
 - CI gate run results (links to passing GitHub Actions runs)
 - Migration item report for pilot batch
 - Manual review findings log in Progress Log

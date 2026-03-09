@@ -83,7 +83,7 @@ This ticket is the entry point of the entire migration pipeline. All subsequent 
 - Normalizing record fields into canonical schema (Workstream B — RHI-033)
 - Converting HTML body to Markdown (Workstream C — RHI-034)
 - Downloading media assets (Workstream F — RHI-037)
-- Any writes to `content/` directory
+- Any writes to `src/content/` directory
 
 ---
 
@@ -151,5 +151,5 @@ This ticket is the entry point of the entire migration pipeline. All subsequent 
 
 - WXR CDATA parsing is the single most common failure mode for WordPress extraction. The `fast-xml-parser` option `cdataTagName` must be configured correctly; test on real data before bulk extraction.
 - The extract summary record count must be reconciled against the Phase 1 URL manifest before WS-B begins. Any coverage gap must be documented and signed off as an explicit scope exception, not silently accepted.
-- Do not write generated files into `migration/output/` or `content/` from this script. The pipeline enforces immutable artifacts between stages: extract output goes to `migration/intermediate/` only.
+- Do not write generated files into `migration/output/` or `src/content/` from this script. The pipeline enforces immutable artifacts between stages: extract output goes to `migration/intermediate/` only.
 - Reference: `analysis/plan/details/phase-4.md` §Workstream A: Extraction Strategy

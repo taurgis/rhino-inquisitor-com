@@ -53,7 +53,7 @@ This ticket is the final integration gate for all Phase 3 workstreams — it pro
 - [ ] PR build validation workflow (`.github/workflows/build-pr.yml`) exists and:
   - [ ] Triggers on all PRs to `main`
   - [ ] Runs Hugo production build and front matter validation as minimum checks
-  - [ ] URL parity check and SEO smoke check also run on PRs touching `content/**`, `layouts/**`, or `hugo.toml`
+  - [ ] URL parity check and SEO smoke check also run on PRs touching `src/content/**`, `src/layouts/**`, `src/static/**`, `src/archetypes/**`, or `hugo.toml`
 - [ ] Broken link check script (`scripts/check-links.js`) exists and:
   - [ ] Scans all internal links in generated `public/` HTML
   - [ ] Reports any links pointing to non-existent `public/` paths
@@ -101,7 +101,7 @@ This ticket is the final integration gate for all Phase 3 workstreams — it pro
   - [ ] `permissions: contents: read`
   - [ ] Concurrency: `group: pr-${{ github.ref }}, cancel-in-progress: true` (OK for PR builds)
   - [ ] Run Hugo production build and `validate:frontmatter` on all PRs
-  - [ ] Run URL parity and SEO smoke check on PRs touching `content/**`, `layouts/**`, or `hugo.toml`
+  - [ ] Run URL parity and SEO smoke check on PRs touching `src/content/**`, `src/layouts/**`, `src/static/**`, `src/archetypes/**`, or `hugo.toml`
   - [ ] Run `check:a11y` and `check:perf` as non-blocking informational jobs in Phase 3
 - [ ] Create `scripts/check-links.js`:
   - [ ] Use `fast-glob` to find all HTML files in `public/`

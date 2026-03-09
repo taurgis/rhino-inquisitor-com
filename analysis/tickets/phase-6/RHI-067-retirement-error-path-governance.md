@@ -35,8 +35,8 @@ Unmanaged URL retirement is a silent SEO defect. Retired URLs that redirect to i
   - [ ] Return `410` only when: content is permanently removed AND edge layer is active AND removal is legally or editorially confirmed
   - [ ] Never redirect to homepage as a fallback for retired content
 - [ ] Custom `404` page is implemented and meets quality bar:
-  - [ ] `content/404.md` exists with front matter `url: "/404/"` and `layout: "404"`
-  - [ ] `layouts/404.html` (or `layouts/_default/404.html`) exists and renders a helpful error page
+  - [ ] `src/content/404.md` exists with front matter `url: "/404/"` and `layout: "404"`
+  - [ ] `src/layouts/404.html` (or `src/layouts/_default/404.html`) exists and renders a helpful error page
   - [ ] 404 page includes: clear "page not found" message, site search or navigation links, link to homepage, link to archive or categories
   - [ ] 404 page has `<meta name="robots" content="noindex">` to prevent indexing
   - [ ] 404 page returns HTTP 404 status code (GitHub Pages serves 404.html at HTTP 404 by default — verify this behavior)
@@ -57,8 +57,8 @@ Unmanaged URL retirement is a silent SEO defect. Retired URLs that redirect to i
 - [ ] Write `migration/reports/phase-6-retired-url-audit.csv`
 - [ ] Document retirement rubric in `migration/phase-6-url-policy.md`
 - [ ] Implement or verify custom `404` page:
-  - [ ] Create or update `content/404.md` with correct front matter
-  - [ ] Create or update `layouts/404.html` with navigation recovery elements
+  - [ ] Create or update `src/content/404.md` with correct front matter
+  - [ ] Create or update `src/layouts/404.html` with navigation recovery elements
   - [ ] Add `<meta name="robots" content="noindex">` to 404 template
   - [ ] Build production site; verify `public/404.html` exists
   - [ ] Test that GitHub Pages serves `404.html` on an unknown path (manual test with staging deploy or local Hugo server)
@@ -91,7 +91,7 @@ Unmanaged URL retirement is a silent SEO defect. Retired URLs that redirect to i
 | RHI-064 Done — intent review complete; no retired URL has an unapproved redirect destination | Ticket | Pending |
 | RHI-062 Done — architecture decision (determines `410` feasibility) | Ticket | Pending |
 | Phase 3 template scaffold (RHI-023) for 404 page layout | Phase | Pending |
-| Hugo content directory structure for `content/404.md` | Phase | Pending |
+| Hugo content directory structure for `src/content/404.md` | Phase | Pending |
 
 ---
 
@@ -123,8 +123,8 @@ Unmanaged URL retirement is a silent SEO defect. Retired URLs that redirect to i
 
 - `migration/reports/phase-6-retired-url-audit.csv` — retirement audit with outcomes and reviewer sign-off
 - `migration/phase-6-url-policy.md` — updated with retirement decision rubric
-- `content/404.md` — custom 404 page content file
-- `layouts/404.html` — custom 404 page layout
+- `src/content/404.md` — custom 404 page content file
+- `src/layouts/404.html` — custom 404 page layout
 - `scripts/phase-6/check-retirement-policy.js` — retirement policy validation script
 
 **Deviations from plan:**

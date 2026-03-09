@@ -11,8 +11,8 @@ Scope: Implementation-ready checklist mapped to proposed Hugo templates and part
 
 ## Hugo lookup contract (implementation guardrails)
 
-- Use `layouts/_default/single.html` for regular content pages unless front matter sets explicit `type` or `layout`.
-- Use `layouts/_default/list.html` for list pages unless front matter or section routing overrides it.
+- Use `src/layouts/_default/single.html` for regular content pages unless front matter sets explicit `type` or `layout`.
+- Use `src/layouts/_default/list.html` for list pages unless front matter or section routing overrides it.
 - Ensure base template composition rules are valid: content templates should use define blocks to participate in `baseof.html` composition.
 - Use partials for shared UI modules and pass explicit context (prefer dict when passing multiple values).
 - If using partial caching, define and document cache keys per module to avoid stale or cross-page leakage.
@@ -21,29 +21,29 @@ Scope: Implementation-ready checklist mapped to proposed Hugo templates and part
 
 | UI area | Hugo template or partial (proposed path) | Primary responsibilities |
 |---------|------------------------------------------|--------------------------|
-| Global layout | layouts/_default/baseof.html | Base HTML shell, global slots, shared assets |
-| Homepage | layouts/index.html | Homepage hero and discovery lanes |
-| Archive / blog index | layouts/_default/list.html | Search, filters, and card listing |
-| Article | layouts/_default/single.html | Article header, body, TOC, related content |
-| Header | layouts/partials/site/header.html | Logo, primary nav, search entry |
-| Footer | layouts/partials/site/footer.html | Global footer links and metadata |
-| SEO head | layouts/partials/seo/head-meta.html | Canonical, meta title, description |
-| Open Graph | layouts/partials/seo/open-graph.html | Social metadata tags |
-| Article JSON-LD | layouts/partials/seo/json-ld-article.html | Structured data for articles |
-| Card | layouts/partials/cards/article-card.html | Reusable cards for lists |
-| Article meta row | layouts/partials/article/meta-row.html | Date, read time, topic, updated |
-| TOC | layouts/partials/article/toc.html | Table of contents render |
-| Related content | layouts/partials/article/related.html | Next and related modules |
-| Search bar | layouts/partials/search/search-bar.html | Search input and scope hint |
-| Filter bar | layouts/partials/archive/filter-bar.html | Topic, type, sort, and year controls |
+| Global layout | src/layouts/_default/baseof.html | Base HTML shell, global slots, shared assets |
+| Homepage | src/layouts/index.html | Homepage hero and discovery lanes |
+| Archive / blog index | src/layouts/_default/list.html | Search, filters, and card listing |
+| Article | src/layouts/_default/single.html | Article header, body, TOC, related content |
+| Header | src/layouts/partials/site/header.html | Logo, primary nav, search entry |
+| Footer | src/layouts/partials/site/footer.html | Global footer links and metadata |
+| SEO head | src/layouts/partials/seo/head-meta.html | Canonical, meta title, description |
+| Open Graph | src/layouts/partials/seo/open-graph.html | Social metadata tags |
+| Article JSON-LD | src/layouts/partials/seo/json-ld-article.html | Structured data for articles |
+| Card | src/layouts/partials/cards/article-card.html | Reusable cards for lists |
+| Article meta row | src/layouts/partials/article/meta-row.html | Date, read time, topic, updated |
+| TOC | src/layouts/partials/article/toc.html | Table of contents render |
+| Related content | src/layouts/partials/article/related.html | Next and related modules |
+| Search bar | src/layouts/partials/search/search-bar.html | Search input and scope hint |
+| Filter bar | src/layouts/partials/archive/filter-bar.html | Topic, type, sort, and year controls |
 
 ## Traceability map
 
 | Wireframe ID | Annotation keys | Primary template/partials |
 |-------------|------------------|---------------------------|
-| WF-HOME-D, WF-HOME-M | NAV-01, HERO-01, DISC-01, DISC-02, DISC-03, PROJ-01 | `layouts/index.html`, `layouts/partials/site/header.html`, `layouts/partials/cards/article-card.html` |
-| WF-ARCH-D, WF-ARCH-M | NAV-01, ARCH-01, ARCH-02 | `layouts/_default/list.html`, `layouts/partials/search/search-bar.html`, `layouts/partials/archive/filter-bar.html` |
-| WF-ART-D, WF-ART-M | NAV-01, ART-01, ART-02, ART-03 | `layouts/_default/single.html`, `layouts/partials/article/meta-row.html`, `layouts/partials/article/toc.html`, `layouts/partials/article/related.html` |
+| WF-HOME-D, WF-HOME-M | NAV-01, HERO-01, DISC-01, DISC-02, DISC-03, PROJ-01 | `src/layouts/index.html`, `src/layouts/partials/site/header.html`, `src/layouts/partials/cards/article-card.html` |
+| WF-ARCH-D, WF-ARCH-M | NAV-01, ARCH-01, ARCH-02 | `src/layouts/_default/list.html`, `src/layouts/partials/search/search-bar.html`, `src/layouts/partials/archive/filter-bar.html` |
+| WF-ART-D, WF-ART-M | NAV-01, ART-01, ART-02, ART-03 | `src/layouts/_default/single.html`, `src/layouts/partials/article/meta-row.html`, `src/layouts/partials/article/toc.html`, `src/layouts/partials/article/related.html` |
 
 ## Global layout checklist (base, header, footer)
 

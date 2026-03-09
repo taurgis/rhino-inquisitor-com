@@ -43,7 +43,7 @@ URL integrity failures are the primary cause of SEO equity loss during migration
 - [ ] No `retire` URLs resolve to `200` with placeholder content (soft-404 prevention)
 - [ ] No `merge` URL redirects to the homepage as a catch-all
 - [ ] URL parity report `migration/reports/url-parity-report.csv` is produced with: `legacy_url`, `disposition`, `expected_target`, `actual_outcome`, `status` (`pass`/`fail`), `severity`
-- [ ] Zero unresolved `critical` failures before any batch is merged to `content/`
+- [ ] Zero unresolved `critical` failures before any batch is merged to `src/content/`
 
 ---
 

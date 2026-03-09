@@ -38,7 +38,7 @@ Any unresolved exception, quarantine record, or failing gate identified here mus
   - [ ] RHI-044 Done — High-value batch migrated and merged
   - [ ] RHI-045 Done — Long-tail and taxonomy batch migrated and merged
 - [ ] Final migration item report confirms:
-  - [ ] 100% of in-scope `keep` and `merge` records are present in `content/` or explicitly deferred with documented owner
+  - [ ] 100% of in-scope `keep` and `merge` records are present in `src/content/` or explicitly deferred with documented owner
   - [ ] Zero records with `qa_status: blocked`
   - [ ] All `retire`-disposition records are confirmed absent from Hugo output
 - [ ] All CI gates pass on the final `main` branch build:

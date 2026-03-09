@@ -35,7 +35,7 @@ This workstream prevents migration blind spots for non-HTML content that could r
 - [ ] For every non-HTML resource requiring index control:
   - [ ] If `X-Robots-Tag` is required but the hosting path cannot emit it: document the gap and proposed resolution (edge layer, retire the resource, or preserve on infrastructure that supports headers)
   - [ ] No non-HTML de-indexing need is left unresolved as of sign-off
-- [ ] Static assets committed to `static/` in the Hugo repo are confirmed:
+- [ ] Static assets committed to `src/static/` in the Hugo repo are confirmed:
   - [ ] Served correctly under their expected paths in the `public/` build
   - [ ] No legacy WordPress `wp-content/uploads` dependency remains for in-scope assets
 - [ ] `migration/reports/phase-5-non-html-policy.csv` is reviewed and signed off by SEO owner
@@ -51,7 +51,7 @@ This workstream prevents migration blind spots for non-HTML content that could r
   - [ ] Identify feed URLs (`/feed/`, category feeds) already handled in WS-D (RHI-051)
 - [ ] Classify each non-HTML resource:
   - [ ] Determine if the resource is still needed (`keep`) or can be retired
-  - [ ] If `keep`: confirm the file exists in `static/` and is served correctly
+  - [ ] If `keep`: confirm the file exists in `src/static/` and is served correctly
   - [ ] If `redirect`: record target URL and confirm mechanism (`pages-static` alias or `edge-cdn`)
   - [ ] If `retire`: confirm no organic traffic or backlinks exist (per Phase 1 baseline); confirm 404 behavior
 - [ ] Assess `X-Robots-Tag` feasibility for each non-HTML resource needing index control:
@@ -59,7 +59,7 @@ This workstream prevents migration blind spots for non-HTML content that could r
   - [ ] For each resource needing `noindex` header: document whether it can be retired, moved to edge, or preserved as-is
 - [ ] Build `migration/reports/phase-5-non-html-policy.csv`
 - [ ] Escalate any records requiring edge-layer or header-level controls to Phase 6 owner with documented handover
-- [ ] Confirm all in-scope `static/` assets are present in `public/` after a local build
+- [ ] Confirm all in-scope `src/static/` assets are present in `public/` after a local build
 - [ ] Record sign-off confirmation in Progress Log
 
 ---

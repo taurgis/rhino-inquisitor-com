@@ -1,0 +1,10 @@
+baseURL = "https://www.rhino-inquisitor.com/"
+languageCode = "en-us"
+title = "Rhino Inquisitor"
+contentDir = "src/content"
+layoutDir = "src/layouts"
+staticDir = ["src/static"]
+assetDir = "src/assets"
+dataDir = "src/data"
+archetypeDir = "src/archetypes"
+publishDir = "public"

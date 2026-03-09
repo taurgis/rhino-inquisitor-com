@@ -89,9 +89,9 @@ RHI-030 (Phase 3 Sign-off)
 | Security scan report | RHI-041 | `migration/reports/security-content-scan.csv` |
 | Migration item report | RHI-042 | `migration/reports/migration-item-report.csv` |
 | URL parity report | RHI-042 | `migration/reports/url-parity-report.csv` |
-| Pilot batch content (20–30 files) | RHI-043 | `content/` |
-| High-value batch content | RHI-044 | `content/` |
-| Long-tail and taxonomy content | RHI-045 | `content/` |
+| Pilot batch content (20–30 files) | RHI-043 | `src/content/` |
+| High-value batch content | RHI-044 | `src/content/` |
+| Long-tail and taxonomy content | RHI-045 | `src/content/` |
 | Phase 4 sign-off document | RHI-046 | `migration/phase-4-signoff.md` |
 
 ---

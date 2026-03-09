@@ -84,7 +84,7 @@ This is the most complex script in the pipeline. Quality here directly determine
 ### Out of Scope
 
 - Generating Hugo front matter YAML (Workstream D — RHI-035)
-- Writing final `.md` files to `content/` (Workstream D — RHI-035)
+- Writing final `.md` files to `src/content/` (Workstream D — RHI-035)
 - Media file downloads (Workstream F — RHI-037)
 - Image path rewriting (Workstream F — RHI-037)
 - Internal link rewriting to canonical paths (Workstream G — RHI-038)

@@ -21,7 +21,7 @@ This workstream makes crawl and index control correctness a machine-verified rel
 
 ### Acceptance Criteria
 
-- [ ] Production `robots.txt` is correct and committed at `static/robots.txt`:
+- [ ] Production `robots.txt` is correct and committed at `src/static/robots.txt`:
   - [ ] Does not `Disallow` any paths serving indexable content (posts, pages, categories, video pages)
   - [ ] Does not `Disallow` any paths required for canonical resolution or sitemap fetch
   - [ ] Includes a valid sitemap directive for production (`https://www.rhino-inquisitor.com/sitemap.xml` or `https://www.rhino-inquisitor.com/sitemap_index.xml` when split/indexed sitemaps are used)
@@ -32,7 +32,7 @@ This workstream makes crawl and index control correctness a machine-verified rel
   - [ ] Pages intended for non-indexation (404, privacy redirects, staging previews) have explicit `noindex` meta tags
   - [ ] No `noindex` page is also blocked by `robots.txt` (contradiction rule: Googlebot cannot see `noindex` if crawl is blocked)
 - [ ] Crawl control validation script `scripts/seo/check-crawl-controls.js` exists and:
-  - [ ] Parses `static/robots.txt` and flags any `Disallow` rule that blocks a URL class expected to be indexable
+  - [ ] Parses `src/static/robots.txt` and flags any `Disallow` rule that blocks a URL class expected to be indexable
   - [ ] Scans all generated HTML files for `<meta name="robots">` and `<meta name="googlebot">` tags
   - [ ] Detects `noindex` on pages that should be indexable (checks against `url-manifest.json` disposition)
   - [ ] Detects `robots.txt`/`noindex` contradiction (URL blocked in robots AND carrying `noindex`)
@@ -49,7 +49,7 @@ This workstream makes crawl and index control correctness a machine-verified rel
 
 ### Tasks
 
-- [ ] Review current `static/robots.txt` (from Phase 3 RHI-024):
+- [ ] Review current `src/static/robots.txt` (from Phase 3 RHI-024):
   - [ ] Verify no `Disallow` rules that block indexable content paths
   - [ ] Verify sitemap directive is present and correct
   - [ ] Compare against live WordPress `robots.txt` at `https://www.rhino-inquisitor.com/robots.txt` for any intentional rules that must carry over
@@ -117,7 +117,7 @@ This workstream makes crawl and index control correctness a machine-verified rel
 
 - `scripts/seo/check-crawl-controls.js`
 - `migration/reports/phase-5-crawl-control-audit.csv`
-- `static/robots.txt` verified (or updated) and committed
+- `src/static/robots.txt` verified (or updated) and committed
 - `package.json` updated with `check:crawl-controls` script
 - CI workflow updated with `check:crawl-controls` blocking gate
 

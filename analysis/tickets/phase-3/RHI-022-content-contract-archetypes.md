@@ -20,13 +20,13 @@ Encode the front matter contract approved in Phase 2 (RHI-012) into Hugo archety
 ### Acceptance Criteria
 
 - [ ] Archetypes exist for all primary content types with mandatory fields pre-populated and comments removed:
-  - [ ] `archetypes/posts.md` — includes `title`, `description`, `url`, `draft`, `date`, `lastmod`, `categories`, `tags`
-  - [ ] `archetypes/pages.md` — includes `title`, `description`, `url`, `draft`, `lastmod`
-  - [ ] `archetypes/default.md` — includes `title`, `description`, `url`, `draft` as a fallback
+  - [ ] `src/archetypes/posts.md` — includes `title`, `description`, `url`, `draft`, `date`, `lastmod`, `categories`, `tags`
+  - [ ] `src/archetypes/pages.md` — includes `title`, `description`, `url`, `draft`, `lastmod`
+  - [ ] `src/archetypes/default.md` — includes `title`, `description`, `url`, `draft` as a fallback
 - [ ] Archetype stubs include `heroImage` (or approved social image field) as a recommended but non-blocking field
 - [ ] Archetype stubs include extension fields as optional commented-out entries: `author`, `seo.noindex`, `seo.ogImage`, `seo.twitterCard`, `canonical`, `aliases`
 - [ ] Front matter validation script (`scripts/validate-frontmatter.js`) exists and:
-  - [ ] Reads all Markdown files in `content/` recursively
+  - [ ] Reads all Markdown files in `src/content/` recursively
   - [ ] Validates presence of all mandatory fields per content type
   - [ ] Reports each failing file with field name and violation type
   - [ ] Exits with non-zero code if any required-field violation is found
@@ -48,10 +48,10 @@ Encode the front matter contract approved in Phase 2 (RHI-012) into Hugo archety
   - [ ] Additional mandatory fields for articles: `date`, `lastmod`, `categories`, `tags`
   - [ ] Additional mandatory fields for pages: `lastmod`
   - [ ] Required when URL has mapped legacy paths: `aliases`
-- [ ] Create `archetypes/posts.md` with all mandatory fields and recommended extension fields
-- [ ] Create `archetypes/pages.md` with mandatory page fields and recommended extension fields
-- [ ] Create `archetypes/default.md` as a safe fallback with base mandatory fields
-- [ ] Review existing `archetypes/default.md` created by `hugo new site` and replace with contract-compliant version
+- [ ] Create `src/archetypes/posts.md` with all mandatory fields and recommended extension fields
+- [ ] Create `src/archetypes/pages.md` with mandatory page fields and recommended extension fields
+- [ ] Create `src/archetypes/default.md` as a safe fallback with base mandatory fields
+- [ ] Review existing `src/archetypes/default.md` scaffold placeholder and replace with contract-compliant version
 - [ ] Create `scripts/validate-frontmatter.js`:
   - [ ] Import `gray-matter` for front matter parsing
   - [ ] Import `fast-glob` for recursive file discovery
@@ -116,9 +116,9 @@ Encode the front matter contract approved in Phase 2 (RHI-012) into Hugo archety
 
 **Delivered artefacts:**
 
-- `archetypes/posts.md`
-- `archetypes/pages.md`
-- `archetypes/default.md`
+- `src/archetypes/posts.md`
+- `src/archetypes/pages.md`
+- `src/archetypes/default.md`
 - `scripts/validate-frontmatter.js`
 - `package.json` updated with `validate:frontmatter` script
 

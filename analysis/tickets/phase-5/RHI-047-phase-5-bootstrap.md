@@ -27,7 +27,7 @@ No Phase 5 workstream ticket (RHI-048 through RHI-059) should begin until this t
 - [ ] Migration owner, SEO owner, and engineering owner are confirmed and available for Phase 5
 - [ ] All Phase 5 workstream owners have read `analysis/plan/details/phase-5.md` and confirmed understanding
 - [ ] Phase 3 SEO scaffold outputs are accessible and verified:
-  - [ ] RHI-024 Outcomes — `layouts/partials/seo/` canonical, OG, and JSON-LD partials are committed and callable
+  - [ ] RHI-024 Outcomes — `src/layouts/partials/seo/` canonical, OG, and JSON-LD partials are committed and callable
   - [ ] RHI-025 Outcomes — `check:url-parity` script is callable; `migration/url-parity-report.json` exists
   - [ ] RHI-029 Outcomes — CI/CD pipeline runs to completion; Pages deployment is operational
 - [ ] Phase 1 and Phase 2 contracts are accessible:
@@ -65,9 +65,9 @@ No Phase 5 workstream ticket (RHI-048 through RHI-059) should begin until this t
 - [ ] Share `analysis/plan/details/phase-5.md` with all workstream owners; request read confirmation
 - [ ] Share links to Phase 2 contract outcomes (RHI-012, RHI-013, RHI-014)
 - [ ] Verify each Phase 3 SEO scaffold item is accessible from a clean install:
-  - [ ] Confirm `layouts/partials/seo/head-meta.html` (or equivalent) is committed
-  - [ ] Confirm `layouts/partials/seo/open-graph.html` is committed
-  - [ ] Confirm `layouts/partials/seo/json-ld-article.html` is committed
+  - [ ] Confirm `src/layouts/partials/seo/head-meta.html` (or equivalent) is committed
+  - [ ] Confirm `src/layouts/partials/seo/open-graph.html` is committed
+  - [ ] Confirm `src/layouts/partials/seo/json-ld-article.html` is committed
   - [ ] Confirm `npm run check:url-parity` exits with code 0 on scaffold
 - [ ] Verify Phase 5 tooling dependencies are installable (`npm install`)
 - [ ] Review Phase 5 Non-Negotiable Constraints with the full team; log confirmations in Progress Log
@@ -99,7 +99,7 @@ No Phase 5 workstream ticket (RHI-048 through RHI-059) should begin until this t
 | Migration owner available and confirmed | Access | Pending |
 | Engineering owner available and confirmed | Access | Pending |
 | `migration/url-manifest.json` with 100% disposition coverage | Phase | Pending |
-| Phase 3 SEO partials committed in `layouts/partials/seo/` | Phase | Pending |
+| Phase 3 SEO partials committed in `src/layouts/partials/seo/` | Phase | Pending |
 | Node.js runtime and `package.json` from Phase 3 | Tool | Pending |
 
 ---

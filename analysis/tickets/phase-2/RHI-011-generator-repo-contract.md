@@ -22,11 +22,11 @@ This workstream is the structural foundation; instability here cascades to every
 ### Acceptance Criteria
 
 - [x] Hugo project directory layout is confirmed and documented:
-  - [x] `content/` — Markdown source
-  - [x] `layouts/` — templates and partials
-  - [x] `static/` — pass-through assets (images, fonts, `robots.txt`)
-  - [x] `assets/` — pipeline-processed assets (CSS, JS)
-  - [x] `data/` — structured data files
+  - [x] `src/content/` — Markdown source
+  - [x] `src/layouts/` — templates and partials
+  - [x] `src/static/` — pass-through assets (images, fonts, `robots.txt`)
+  - [x] `src/assets/` — pipeline-processed assets (CSS, JS)
+  - [x] `src/data/` — structured data files
   - [x] `public/` — build output (git-ignored, CI artifact)
 - [x] Primary config file is confirmed as `hugo.toml` at repository root (TOML format)
 - [x] `baseURL` production value is confirmed as `https://www.rhino-inquisitor.com/` (www, HTTPS, trailing slash)
@@ -108,7 +108,7 @@ Completed. Workstream A is now the approved repo contract for Phase 3 scaffoldin
 
 Approved decisions:
 
-- Hugo repository layout is locked to `content/`, `layouts/`, `static/`, `assets/`, `data/`, with `public/` as generated output only.
+- Hugo repository layout is locked to root `hugo.toml` plus `src/content/`, `src/layouts/`, `src/static/`, `src/assets/`, and `src/data/`, with `public/` as generated output only.
 - Primary config file is root `hugo.toml` in TOML format. Phase 2 does not introduce `config/_default/` or `config/production/` overlays.
 - Canonical production `baseURL` is locked to `https://www.rhino-inquisitor.com/` with trailing slash.
 - Environment model is fixed as:
@@ -139,6 +139,7 @@ Approved decisions:
 | 2026-03-07 | Open | Ticket created |
 | 2026-03-09 | In Progress | Reviewed Workstream A against the Phase 2 plan, Hugo repo skill, Hugo specialist guidance, and official Hugo/GitHub Pages documentation; confirmed that the repo already standardizes on root `hugo.toml`, canonical `baseURL`, and pinned `HUGO_VERSION` |
 | 2026-03-09 | In Progress | Owner decision recorded: keep root `hugo.toml` as the canonical production source, do not introduce `config/production/` in Phase 2, reserve `HUGO_BASEURL` for exceptional preview overrides only, and pin Hugo Extended release `v0.157.0` (`HUGO_VERSION=0.157.0`) |
+| 2026-03-09 | In Progress | Repo contract amended to keep root `hugo.toml` and `public/` while moving the actual Hugo source components under `src/`; this keeps build and deploy commands stable while separating site files from planning artifacts at repository root |
 | 2026-03-09 | Done | All Workstream A acceptance criteria satisfied; Phase 2 plan and main plan updated to reflect the approved repo contract, unblocking downstream Phase 2 contracts and Phase 3 scaffolding |
 
 ---

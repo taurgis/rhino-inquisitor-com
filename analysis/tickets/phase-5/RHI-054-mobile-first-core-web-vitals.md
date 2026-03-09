@@ -55,7 +55,7 @@ Google uses mobile-first indexing: the mobile version of a page determines its i
   - [ ] Configure CI to serve the built `public/` directory locally during Lighthouse checks
   - [ ] Set target URL list: homepage, one article, one category page
 - [ ] Audit Hugo templates for mobile parity issues:
-  - [ ] Check `layouts/_default/baseof.html` for responsive viewport meta tag (`<meta name="viewport">`)
+  - [ ] Check `src/layouts/_default/baseof.html` for responsive viewport meta tag (`<meta name="viewport">`)
   - [ ] Check article single template for hero image `width`/`height` attribute presence
   - [ ] Check whether `loading="lazy"` is applied to hero images (remove if above-the-fold)
   - [ ] Verify that responsive `srcset` is used on high-impact images
