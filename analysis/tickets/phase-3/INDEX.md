@@ -15,7 +15,7 @@
 |-----------|-------|------------|----------|--------|----------|-------------|------------|
 | [RHI-019](RHI-019-phase-3-bootstrap.md) | Phase 3 Bootstrap: Kickoff and Environment Readiness | Setup | Critical | Done | S | 2026-03-25 | RHI-018 |
 | [RHI-020](RHI-020-repository-bootstrap.md) | Workstream A — Repository Bootstrap | WS-A | Critical | Done | S | 2026-03-26 | RHI-019 |
-| [RHI-021](RHI-021-hugo-config-hardening.md) | Workstream B — Hugo Configuration Hardening | WS-B | Critical | Open | M | 2026-03-27 | RHI-019, RHI-020 |
+| [RHI-021](RHI-021-hugo-config-hardening.md) | Workstream B — Hugo Configuration Hardening | WS-B | Critical | Done | M | 2026-03-27 | RHI-019, RHI-020 |
 | [RHI-022](RHI-022-content-contract-archetypes.md) | Workstream C — Content Contract and Archetypes | WS-C | Critical | Open | M | 2026-03-28 | RHI-019, RHI-021 |
 | [RHI-023](RHI-023-template-scaffolding.md) | Workstream D — Template Scaffolding and Rendering Model | WS-D | Critical | Open | L | 2026-04-01 | RHI-019, RHI-021, RHI-022 |
 | [RHI-024](RHI-024-seo-foundation.md) | Workstream E — SEO Foundation Implementation | WS-E | High | Open | M | 2026-04-02 | RHI-019, RHI-021, RHI-023 |
@@ -87,7 +87,7 @@ All items below must be complete before Phase 4 work begins:
 
 - [x] RHI-019 Done — Phase 3 Bootstrap; Phase 2 contracts confirmed accessible
 - [x] RHI-020 Done — Hugo project layout committed; clean clone builds with one command
-- [ ] RHI-021 Done — `hugo.toml` with `baseURL`, permalinks, taxonomies, outputs, and build behavior locked
+- [x] RHI-021 Done — `hugo.toml` with `baseURL`, generated routes, outputs, robots generation, and build behavior locked
 - [ ] RHI-022 Done — Archetypes for all content types; `validate:frontmatter` script passing in CI
 - [ ] RHI-023 Done — All primary template types with shared SEO partials committed
 - [ ] RHI-024 Done — SEO signals verified; sitemap/robots validated; staging noindex confirmed; `check:seo` passing

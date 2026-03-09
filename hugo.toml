@@ -1,5 +1,7 @@
 baseURL = "https://www.rhino-inquisitor.com/"
+defaultContentLanguage = "en"
 languageCode = "en-us"
+timeZone = "UTC"
 title = "Rhino Inquisitor"
 contentDir = "src/content"
 layoutDir = "src/layouts"
@@ -8,3 +10,33 @@ assetDir = "src/assets"
 dataDir = "src/data"
 archetypeDir = "src/archetypes"
 publishDir = "public"
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+enableRobotsTXT = true
+
+# Phase 3 remains monolingual, so Hugo emits a single root sitemap.xml.
+
+[outputs]
+home = ["html", "rss"]
+page = ["html"]
+section = ["html", "rss"]
+taxonomy = ["html"]
+term = ["html"]
+
+# IMPORTANT: Any change to generated route or taxonomy config below requires an
+# immediate RHI-025 URL parity re-run before merge.
+[taxonomies]
+category = "categories"
+
+[permalinks.taxonomy]
+category = "/category/"
+
+[permalinks.term]
+category = "/category/:slug/"
+
+[sitemap]
+filename = "sitemap.xml"
+
+[minify]
+disableXML = false

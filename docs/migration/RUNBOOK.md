@@ -12,6 +12,16 @@ This runbook tracks the operational steps needed to move the repository from pla
 - Use `hugo server` for local preview work during scaffold and template implementation.
 - Use `hugo --minify --environment production` to validate the production-style build locally.
 - Treat root `hugo.toml` as the canonical production config entry point until a later ticket explicitly changes that contract.
+- RHI-021 locks the Hugo configuration contract in root `hugo.toml`:
+  - `baseURL` stays fixed to `https://www.rhino-inquisitor.com/`
+  - locale defaults are explicit: `defaultContentLanguage = "en"`, `languageCode = "en-us"`, `timeZone = "UTC"`
+  - generated category routes are config-owned at `/category/` and `/category/{slug}/`
+  - tag archives remain retired by default; `tags` stay front matter metadata until a later approved exception
+  - `enableRobotsTXT = true` is backed by a repo-owned `src/layouts/robots.txt` template
+  - home RSS remains Hugo's canonical `/index.xml` output in Phase 3
+- Legacy feed continuity is tracked but not fully implemented in RHI-021:
+  - canonical Hugo feed output is `/index.xml`
+  - legacy WordPress `/feed/` must still resolve, with implementation deferred to RHI-024 so the redirect/output artifact can be tested with SEO outputs
 - Hugo source components live under `src/`:
   - `src/content/`
   - `src/layouts/`
@@ -20,6 +30,10 @@ This runbook tracks the operational steps needed to move the repository from pla
   - `src/data/`
   - `src/archetypes/`
 - `public/` remains the root build artifact directory for validation and Pages upload.
+- Validate RHI-021 changes with:
+  - `hugo --minify --environment production`
+  - output checks for `public/sitemap.xml`, `public/robots.txt`, and `public/index.xml`
+  - canonical-host spot checks in generated XML/text outputs
 - Use the Phase 3 ticket set for workstream ownership and acceptance criteria:
   - `analysis/tickets/phase-3/RHI-020-repository-bootstrap.md`
   - `analysis/tickets/phase-3/RHI-021-hugo-config-hardening.md`

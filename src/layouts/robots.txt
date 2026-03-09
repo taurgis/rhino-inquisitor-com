@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /wp-json/
+Disallow: /xmlrpc.php
+Disallow: /author/
+Sitemap: {{ "sitemap.xml" | absURL }}
