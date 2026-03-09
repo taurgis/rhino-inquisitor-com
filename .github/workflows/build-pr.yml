@@ -90,6 +90,7 @@ jobs:
             curl -fsSL -o "$RUNNER_TEMP/hugo.tar.gz" "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
             tar -xzf "$RUNNER_TEMP/hugo.tar.gz" -C "$HUGO_DIR" hugo
           fi
+          export PATH="$HUGO_DIR:$PATH"
           echo "$HUGO_DIR" >> "$GITHUB_PATH"
           hugo version
 
@@ -168,6 +169,7 @@ jobs:
             curl -fsSL -o "$RUNNER_TEMP/hugo.tar.gz" "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
             tar -xzf "$RUNNER_TEMP/hugo.tar.gz" -C "$HUGO_DIR" hugo
           fi
+          export PATH="$HUGO_DIR:$PATH"
           echo "$HUGO_DIR" >> "$GITHUB_PATH"
           hugo version
 
@@ -232,6 +234,7 @@ jobs:
             curl -fsSL -o "$RUNNER_TEMP/hugo.tar.gz" "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
             tar -xzf "$RUNNER_TEMP/hugo.tar.gz" -C "$HUGO_DIR" hugo
           fi
+          export PATH="$HUGO_DIR:$PATH"
           echo "$HUGO_DIR" >> "$GITHUB_PATH"
           hugo version
 
