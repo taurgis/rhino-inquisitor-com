@@ -4,11 +4,28 @@
   {{- return -}}
 {{- end -}}
 
-{{- $alt := .alt | default "" -}}
-{{- $class := .class | default "" -}}
+{{- $decorative := .decorative | default false -}}
+{{- $pageTitle := "" -}}
+{{- with $page -}}
+  {{- $pageTitle = .LinkTitle | default .Title -}}
+{{- end -}}
+{{- $alt := .alt | default $pageTitle | default "" -}}
+{{- $alt = $alt | strings.TrimSpace -}}
+{{- if $decorative -}}
+  {{- $alt = "" -}}
+{{- end -}}
+{{- if and (not $decorative) (eq $alt "") -}}
+  {{- return -}}
+{{- end -}}
+
+{{- $classNames := slice "rhino-image" -}}
+{{- with .class -}}
+  {{- $classNames = $classNames | append . -}}
+{{- end -}}
+{{- $class := delimit $classNames " " -}}
 {{- $loading := .loading | default "lazy" -}}
 {{- $decoding := .decoding | default "async" -}}
-{{- $style := .style | default "max-width: 100%; height: auto;" -}}
+{{- $style := .style | default "" -}}
 {{- $resource := false -}}
 
 {{- if and $page (not (or (hasPrefix $requestedSrc "http://") (hasPrefix $requestedSrc "https://") (hasPrefix $requestedSrc "/"))) -}}
@@ -41,6 +58,7 @@
   height="{{ $height }}"
   loading="{{ $loading }}"
   decoding="{{ $decoding }}"
-  {{ with $class }}class="{{ . }}"{{ end }}
-  style="{{ $style }}"
+  class="{{ $class }}"
+  {{ if $decorative }}role="presentation" aria-hidden="true"{{ end }}
+  {{ with $style }}style="{{ . }}"{{ end }}
 >

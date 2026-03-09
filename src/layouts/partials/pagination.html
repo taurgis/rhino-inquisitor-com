@@ -6,7 +6,7 @@
 
     {{ range .Pagers }}
       {{ if eq .PageNumber $.PageNumber }}
-        <strong>{{ .PageNumber }}</strong>
+        <span aria-current="page">{{ .PageNumber }}</span>
       {{ else }}
         <a href="{{ .URL }}">{{ .PageNumber }}</a>
       {{ end }}

@@ -1,0 +1,17 @@
+{
+  "defaults": {
+    "standard": "WCAG2AA",
+    "runners": ["axe", "htmlcs"],
+    "threshold": 0,
+    "timeout": 30000,
+    "wait": 500
+  },
+  "urls": [
+    "/",
+    "/phase-3-performance-baseline/",
+    "/scaffold-readiness/",
+    "/posts/",
+    "/category/",
+    "/category/platform/"
+  ]
+}

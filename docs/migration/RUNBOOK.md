@@ -74,7 +74,31 @@ This runbook tracks the operational steps needed to move the repository from pla
   - `analysis/tickets/phase-3/RHI-024-seo-foundation.md`
   - `analysis/tickets/phase-3/RHI-025-url-parity-redirect-baseline.md`
   - `analysis/tickets/phase-3/RHI-026-asset-performance-baseline.md`
+  - `analysis/tickets/phase-3/RHI-027-accessibility-ux-baseline.md`
   - `analysis/tickets/phase-3/RHI-029-cicd-deployment-scaffolding.md`
+
+## RHI-027 Accessibility Manual Review Checklist
+
+- Run `npm run check:a11y` after a production build. The command serves `public/` locally and runs `pa11y-ci` against the representative scaffold routes for the home, post, page, archive, taxonomy index, and category term templates.
+- Treat the automated `WCAG2AA` ruleset as the repo's Phase 3 baseline only. WCAG 2.2-specific manual checks still apply before later-phase sign-off.
+- Verify skip-link behavior on each representative route:
+  - load the page from the top
+  - press `Tab` once
+  - confirm the "Skip to main content" link becomes visible as the first focusable element
+  - activate it with `Enter`
+  - confirm focus lands on the main content region
+- Verify focus order with a keyboard-only walk:
+  - continue tabbing from the skip link through primary navigation, breadcrumbs, in-page links, pagination, and footer links
+  - confirm the tab order matches the visual reading order and no element traps focus
+- Verify focus visibility:
+  - confirm every link or other focusable control has a visible focus indicator
+  - if custom focus styling is overridden later, re-check contrast and thickness before merge
+- Verify contrast for custom UI additions not covered by the scaffold default browser styles:
+  - check any new custom text, badges, buttons, or focus rings against WCAG AA thresholds
+  - use browser DevTools or an approved contrast checker for any non-default color pair
+- Verify image semantics in rendered HTML:
+  - informative images must render with a non-empty `alt`
+  - decorative images must render with `alt=""` and `role="presentation"`
 
 ## Phase 4 - Content Migration
 

@@ -16,10 +16,9 @@
               {{ partial "media/image.html" (dict
                 "page" $post
                 "src" .
-                "alt" $post.Title
+                "alt" ($post.Params.heroImageAlt | default $post.LinkTitle | default $post.Title)
                 "class" "home-post-image"
                 "loading" "lazy"
-                "style" "display: block; margin-bottom: 0.75rem; max-width: 16rem; height: auto;"
               ) }}
             {{ end }}
             <a href="{{ .Permalink }}">{{ .LinkTitle }}</a>

@@ -1,10 +1,15 @@
 {{ $items := partial "breadcrumbs-data.html" . }}
 {{ if gt (len $items) 1 }}
-  <nav aria-label="Breadcrumb">
+  {{ $lastIndex := sub (len $items) 1 }}
+  <nav aria-label="Breadcrumbs">
     <ol>
-      {{ range $items }}
+      {{ range $index, $item := $items }}
         <li>
-          <a href="{{ .url }}">{{ .name }}</a>
+          {{ if eq $index $lastIndex }}
+            <span aria-current="page">{{ $item.name }}</span>
+          {{ else }}
+            <a href="{{ $item.url }}">{{ $item.name }}</a>
+          {{ end }}
         </li>
       {{ end }}
     </ol>
