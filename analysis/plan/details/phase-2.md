@@ -173,21 +173,26 @@ Avoid by default:
 
 ## Workstream F: Deployment and Operations Contract
 Workflow contract:
-1. Build static output in CI.
-2. Upload Pages artifact from Hugo output directory.
-3. Deploy via official Pages action.
-4. Explicit workflow permissions and minimal token scope (including `pages: write` and `id-token: write` for deployment).
-5. `.nojekyll` handling is conditional:
-   - required when publishing built output to a Pages source branch in external CI patterns,
-   - optional for artifact-based Pages deployment unless a concrete issue requires it.
+1. Workflow triggers are fixed to `push` on `main` and `workflow_dispatch`.
+2. Build job uses shallow checkout by default because RHI-012 makes front matter `lastmod` authoritative from WordPress export metadata; `fetch-depth: 0` becomes mandatory only if a later approved contract adopts Hugo `.GitInfo` or other git-derived lastmod behavior.
+3. Build contract is fixed to workflow-level `HUGO_VERSION=0.156.0` and `hugo --gc --minify --environment production`, producing `./public` and excluding draft, future, and expired content.
+4. Build/test jobs use ref-scoped concurrency with `cancel-in-progress: true`; deploy job uses a dedicated Pages deployment concurrency group with `cancel-in-progress: false` and depends on build via `needs`.
+5. Official Pages action sequence is fixed to `actions/configure-pages@v5`, `actions/upload-pages-artifact@v4` with `path: ./public` and default artifact `github-pages`, then `actions/deploy-pages@v4` targeting `environment: github-pages`.
+6. Deploy job minimum permissions are `contents: read`, `pages: write`, and `id-token: write`; broader repository write scopes are not part of this contract.
+7. Pages artifact constraints are fixed to the official model: a single gzip archive containing a single tar file generated from `./public` only, with files/directories only and no symbolic or hard links.
 
 Operational constraints to record:
 1. Custom domain source of truth:
    - configure domain in repository Pages settings or API for Actions publishing,
-   - do not assume a repository `CNAME` file alone sets or updates domain configuration.
-2. Artifact size and build-time budgets.
-3. Rollback plan for failed deploys.
-4. Pages artifact format constraints (single tar in gzip archive, no unsupported link types, size boundaries).
+   - committed `CNAME` files are ignored and are not required for custom GitHub Actions workflow publishing,
+   - save the custom domain in Pages settings before DNS changes.
+2. `.nojekyll` is not required for artifact-based Pages deployment and remains relevant only to branch-published or external-CI patterns.
+3. Rollback contract uses GitHub rerun of the last known good workflow within the 30-day rerun window or `workflow_dispatch` on the same known-good commit; do not depend on deploy-job-only reruns after artifact expiry.
+4. Planning budgets are fixed as guardrails:
+   - Phase 1 inventory profiling indicates roughly 220 primary rendered routes plus shared outputs,
+   - investigate if the compressed Pages artifact exceeds 100 MB or the CI production build exceeds 5 minutes,
+   - block release-candidate promotion if the compressed artifact exceeds 500 MB or Pages deployment approaches the 10-minute timeout window.
+5. Action pinning strategy uses the official Pages action majors locked in Workstream E and never `latest`; future SHA hardening must preserve the same semantic versions.
 
 ## Required Validation Gates (Defined in Phase 2, Implemented in Phase 3+)
 1. URL parity gate: compare legacy manifest against built outputs + redirects.
