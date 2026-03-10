@@ -1,13 +1,13 @@
 ## RHI-036 · Workstream E — URL Preservation and Redirect Integrity
 
-**Status:** Open  
+**Status:** In Progress  
 **Priority:** Critical  
 **Estimate:** M  
 **Phase:** 4  
 **Assigned to:** Engineering Owner  
 **Target date:** 2026-04-17  
 **Created:** 2026-03-07  
-**Updated:** 2026-03-07
+**Updated:** 2026-03-10
 
 ---
 
@@ -71,6 +71,8 @@ URL integrity failures are the primary cause of SEO equity loss during migration
   - [ ] `"check:url-parity": "node scripts/migration/validate-url-parity.js"`
   - [ ] `"check:redirects": "node scripts/migration/check-redirects.js"`
 - [ ] Run both scripts against a pilot-scale Hugo build and fix all failures
+  - [x] Run both scripts against a staged-content Hugo build (`tmp/rhi036-public`) and capture the first parity baseline
+  - [ ] Fix all unresolved failures
 - [ ] Commit scripts, updated `package.json`, and parity report template
 
 ---
@@ -88,12 +90,12 @@ URL integrity failures are the primary cause of SEO equity loss during migration
 
 | Dependency | Type | Status |
 |------------|------|--------|
-| RHI-031 Done — Phase 4 Bootstrap complete | Ticket | Pending |
-| RHI-035 Done — Front matter mapping complete; Hugo `url` and `aliases` fields populated | Ticket | Pending |
-| RHI-013 Outcomes — Redirect contract confirmed (type: Hugo aliases vs edge) | Ticket | Pending |
-| RHI-025 Done — Phase 3 URL parity baseline script available (extend, not replace) | Ticket | Pending |
-| `migration/url-manifest.json` with full disposition coverage from RHI-004 | Ticket | Pending |
-| Hugo build (`public/`) available for validation | Tool | Pending |
+| RHI-031 Done — Phase 4 Bootstrap complete | Ticket | Verified |
+| RHI-035 Done — Front matter mapping complete; Hugo `url` and `aliases` fields populated | Ticket | Verified |
+| RHI-013 Outcomes — Redirect contract confirmed (type: Hugo aliases vs edge) | Ticket | Verified |
+| RHI-025 Done — Phase 3 URL parity baseline script available (extend, not replace) | Ticket | Verified |
+| `migration/url-manifest.json` with full disposition coverage from RHI-004 | Ticket | Verified |
+| Hugo build (`public/`) available for validation | Tool | Verified via staged build `tmp/rhi036-public` |
 
 ---
 
@@ -120,18 +122,21 @@ URL integrity failures are the primary cause of SEO equity loss during migration
 
 ### Outcomes
 
-{Leave blank until work is complete.}
+Ticket remains open. The validator and redirect checker now exist, the critical parity blockers are cleared, and the remaining work is warning-level manifest/content cleanup before final closure.
 
 **Delivered artefacts:**
 
 - `scripts/migration/validate-url-parity.js`
 - `scripts/migration/check-redirects.js`
+- `scripts/migration/url-validation-helpers.js`
 - `migration/reports/url-parity-report.csv`
 - `package.json` updated with `check:url-parity` and `check:redirects` scripts
 
 **Deviations from plan:**
 
-- None
+- Query-style legacy URLs are validated as `deferred-edge-redirect` rows during Phase 4 static-output checks because Hugo cannot emit distinct `public/` files for `/?p=` routes. Full runtime redirect validation for those rows remains edge-layer work.
+- The first staged-content validation run did not pass: `migration/reports/url-parity-report.csv` recorded 38 failures, including 27 critical failures on kept category/list routes, one missing kept content route, and retired category pagination routes that still publish.
+- After route fixes and the owner-approved delta-exports merge decision, the latest staged-content validation run now reports 9 warning-level failures and 0 critical failures.
 
 ---
 
@@ -140,12 +145,19 @@ URL integrity failures are the primary cause of SEO equity loss during migration
 | Date | Status | Note |
 |------|--------|------|
 | 2026-03-07 | Open | Ticket created |
+| 2026-03-10 | In Progress | Owner decision recorded for Phase 4 static validation: query-style merge URLs that Hugo cannot represent are reported as `deferred-edge-redirect` rather than treated as false static-path failures. |
+| 2026-03-10 | In Progress | Implemented `scripts/migration/validate-url-parity.js`, `scripts/migration/check-redirects.js`, and shared helpers; updated `package.json`; fixed staged-build blocking template defects in `src/layouts/partials/article/related-content.html`. |
+| 2026-03-10 | In Progress | First staged-content parity run produced `migration/reports/url-parity-report.csv` with 38 failures (`27` critical). Redirect integrity produced zero critical failures but deferred all 125 merge URLs to the edge-layer contract. |
+| 2026-03-10 | In Progress | Added staged category term content for manifest-backed nested keep routes, removed taxonomy term pagination that published retired `/page/N/` URLs, and updated `/feed/` validation handling for the generated system helper route. |
+| 2026-03-10 | In Progress | Owner approved changing `/delta-exports-in-salesforce-b2c-commerce/` from `keep` to `merge` targeting `/delta-exports-in-salesforce-b2c-commerce-cloud/` on the `edge-cdn` layer. Latest staged parity run: 9 failures, 0 critical. |
 
 ---
 
 ### Notes
 
 - Hugo `aliases` generate HTML pages with `<meta http-equiv="refresh" content="0; url=...">`. This is a meta-refresh, NOT a server-side 301/308. Search engines do understand and follow meta refreshes, but with a processing delay compared to server redirects. If the 5% threshold was exceeded in Phase 3, a true redirect infrastructure decision must be made before this workstream locks in redirect behavior.
+- Phase 3 sign-off already confirmed the 5% threshold is exceeded (`39.1%`). Edge redirect infrastructure remains mandatory before launch; RHI-036 does not reopen that decision.
+- The current manifest shape matters for implementation: 123 merge URLs and 402 retire URLs are query-style legacy routes, so static Hugo validation can only report them and defer runtime behavior to the edge redirect layer.
 - No redirect should ever target the homepage for unrelated content. This pattern destroys Google's understanding of site structure and is a hard anti-pattern in `analysis/plan/details/phase-4.md`.
 - The parity check must run on a built `public/` directory, not on source files. Build first, then validate.
 - Reference: `analysis/plan/details/phase-4.md` §Workstream E: URL Preservation and Redirect Integrity

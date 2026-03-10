@@ -1,8 +1,7 @@
 {{ define "main" }}
   {{ $allTopicsHref := "category/" | relURL }}
   {{ $pages := .Pages.ByDate.Reverse }}
-  {{ $paginator := .Paginate $pages }}
-  {{ $groups := $paginator.Pages.GroupByDate "2006" }}
+  {{ $groups := $pages.GroupByDate "2006" }}
   {{ $yearLinks := slice }}
   {{ range $groups }}
     {{ $yearLinks = $yearLinks | append (dict "label" .Key "url" (printf "#year-%s" .Key)) }}
@@ -27,8 +26,7 @@
       {{ partial "archive/year-jump.html" (dict "links" $yearLinks) }}
       {{ partial "content-list.html" (dict
         "groups" $groups
-        "paginator" $paginator
-        "resultCount" (len $paginator.Pages)
+        "resultCount" (len $pages)
         "heading" (printf "%s archive entries" .Title)
         "emptyTitle" (printf "%s is ready for its first migrated article" .Title)
         "emptyCopy" "This term page keeps the archive shell intact until matching content arrives."

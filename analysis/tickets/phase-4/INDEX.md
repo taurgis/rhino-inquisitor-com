@@ -19,7 +19,7 @@
 | [RHI-034](RHI-034-html-to-markdown-conversion.md) | Workstream C — HTML-to-Markdown Conversion Engine | WS-C | Critical | Done | L | 2026-04-16 | RHI-031, RHI-033 |
 | [RHI-106](RHI-106-discovery-metadata-extension.md) | Workstream L — Discovery Metadata Extension and Enrichment | WS-L | High | Done | M | 2026-04-15 | RHI-012, RHI-031, RHI-033 |
 | [RHI-035](RHI-035-front-matter-mapping.md) | Workstream D — Front Matter Mapping and Hugo Contract | WS-D | Critical | Done | M | 2026-04-16 | RHI-031, RHI-033, RHI-106 |
-| [RHI-036](RHI-036-url-preservation-redirect-integrity.md) | Workstream E — URL Preservation and Redirect Integrity | WS-E | Critical | Open | M | 2026-04-17 | RHI-031, RHI-035 |
+| [RHI-036](RHI-036-url-preservation-redirect-integrity.md) | Workstream E — URL Preservation and Redirect Integrity | WS-E | Critical | In Progress | M | 2026-04-17 | RHI-031, RHI-035 |
 | [RHI-037](RHI-037-media-migration-asset-hygiene.md) | Workstream F — Media Migration and Asset Hygiene | WS-F | High | Open | L | 2026-04-18 | RHI-031, RHI-034 |
 | [RHI-038](RHI-038-internal-link-navigation-rewrites.md) | Workstream G — Internal Link and Navigation Rewrites | WS-G | High | Open | M | 2026-04-18 | RHI-031, RHI-034, RHI-035, RHI-036 |
 | [RHI-039](RHI-039-seo-signal-preservation.md) | Workstream H — SEO Signal Preservation | WS-H | High | Open | M | 2026-04-17 | RHI-031, RHI-035 |

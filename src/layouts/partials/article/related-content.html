@@ -111,7 +111,7 @@
       {{ range .Pages.ByDate }}
         {{ if and (ne .Permalink $page.Permalink) (lt $found 2) }}
           {{ if gt (.Date.Unix) ($page.Date.Unix) }}
-            {{ $nextItems = $nextItems | append . }}
+            {{ $nextItems = $nextItems | append (dict "page" . "title" "" "description" "") }}
             {{ $found = add $found 1 }}
           {{ end }}
         {{ end }}
@@ -120,7 +120,7 @@
       {{ if eq (len $nextItems) 0 }}
         {{ range first 2 (.Pages.ByDate.Reverse) }}
           {{ if ne .Permalink $page.Permalink }}
-            {{ $nextItems = $nextItems | append . }}
+            {{ $nextItems = $nextItems | append (dict "page" . "title" "" "description" "") }}
           {{ end }}
         {{ end }}
       {{ end }}
@@ -132,7 +132,7 @@
   {{ if gt (len $tags) 0 }}
     {{ $seen := dict $page.Permalink true }}
     {{ range $nextItems }}
-      {{ $seen = merge $seen (dict .Permalink true) }}
+      {{ $seen = merge $seen (dict .page.Permalink true) }}
     {{ end }}
     {{ range $tag := $tags }}
       {{ with site.GetPage (printf "/tags/%s" ($tag | urlize)) }}
@@ -146,7 +146,7 @@
               {{ end }}
             {{ end }}
             {{ if and $isDifferentCategory (lt (len $adjacentItems) 2) }}
-              {{ $adjacentItems = $adjacentItems | append . }}
+              {{ $adjacentItems = $adjacentItems | append (dict "page" . "title" "" "description" "") }}
               {{ $seen = merge $seen (dict .Permalink true) }}
             {{ end }}
           {{ end }}
@@ -159,15 +159,15 @@
   {{ if ne $primaryTopic "" }}
     {{ $seen := dict $page.Permalink true }}
     {{ range $nextItems }}
-      {{ $seen = merge $seen (dict .Permalink true) }}
+      {{ $seen = merge $seen (dict .page.Permalink true) }}
     {{ end }}
     {{ range $adjacentItems }}
-      {{ $seen = merge $seen (dict .Permalink true) }}
+      {{ $seen = merge $seen (dict .page.Permalink true) }}
     {{ end }}
     {{ with site.GetPage (printf "/categories/%s" ($primaryTopic | urlize)) }}
       {{ range first 4 .Pages.ByDate }}
         {{ if and (not (index $seen .Permalink)) (lt (len $foundationalItems) 2) }}
-          {{ $foundationalItems = $foundationalItems | append . }}
+          {{ $foundationalItems = $foundationalItems | append (dict "page" . "title" "" "description" "") }}
         {{ end }}
       {{ end }}
     {{ end }}

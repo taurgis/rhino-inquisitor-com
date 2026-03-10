@@ -271,6 +271,28 @@ This runbook tracks the operational steps needed to move the repository from pla
   - rerun `npm run migrate:map-frontmatter` and confirm the generated Markdown and both reports hash identically
   - spot-check 10 representative generated files against their `migration/output/*.json` source records for exact `url`, derived `draft`, description presence, and clean omission of optional fields when absent
 
+### RHI-036 - URL Preservation and Redirect Integrity
+
+- Phase 4 URL validation now uses two migration-owned scripts:
+  - `npm run check:url-parity` runs `scripts/migration/validate-url-parity.js`
+  - `npm run check:redirects` runs `scripts/migration/check-redirects.js`
+  - `npm run check:url-parity:baseline` preserves the Phase 3 scaffold baseline at `scripts/check-url-parity.js`
+- For staged Phase 4 validation, build Hugo against the generated migration content instead of `src/content/`:
+  - `hugo --minify --environment production --contentDir migration/output/content --destination tmp/rhi036-public`
+  - `npm run check:url-parity -- --content-dir migration/output/content --public-dir tmp/rhi036-public`
+  - `npm run check:redirects -- --public-dir tmp/rhi036-public`
+- Current validated 2026-03-10 behavior:
+  - `migration/reports/url-parity-report.csv` is generated with the required columns `legacy_url`, `disposition`, `expected_target`, `actual_outcome`, `status`, `severity`
+  - query-style legacy URLs that static Hugo output cannot represent are reported as `deferred-edge-redirect`
+  - the first staged run produced 1201 parity rows with 38 failures, including 27 critical failures
+  - after the staged taxonomy-route fixes and the owner-approved delta-exports disposition correction, the latest staged run now reports 9 warning-level failures, 0 critical failures, and 528 deferred edge-layer rows
+  - the remaining warning rows are unresolved keep URLs without source-backed staged content and should be treated as manifest/content cleanup rather than validator defects
+  - the redirect integrity checker now reports 126 merge URLs with 0 critical failures; all 126 are currently deferred to the edge layer because 123 merge records are `/?p=` routes and 3 merge records now require edge handling
+- Static-hosting contract locked for this workstream:
+  - 123 merge URLs and 402 retire URLs in `migration/url-manifest.json` are query-style legacy routes that Hugo cannot emit as distinct `public/` files
+  - these rows remain valid Phase 4 reporting inputs, but full runtime redirect validation stays with the required edge redirect layer
+- The staged Hugo build now completes, but it still emits three `warning-goldmark-raw-html` warnings for generated posts; keep those warnings visible until the underlying conversion/rendering issue is resolved upstream.
+
 ## Phase 5 - SEO and Discoverability
 
 Placeholder for sitemap, canonical, feed, and Search Console execution steps.
