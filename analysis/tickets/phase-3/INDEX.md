@@ -25,7 +25,7 @@
 | [RHI-028](RHI-028-security-privacy-hardening.md) | Workstream I — Security, Privacy, and Operational Hardening | WS-I | Medium | Open | M | 2026-04-03 | RHI-019, RHI-021, RHI-023, RHI-024 |
 | [RHI-029](RHI-029-cicd-deployment-scaffolding.md) | Workstream J — CI/CD and Deployment Scaffolding | WS-J | Critical | Done | L | 2026-04-04 | RHI-019, RHI-020 through RHI-025 |
 | [RHI-104](RHI-104-discovery-surfaces-shared-ui-components.md) | Workstream K — Discovery Surfaces and Shared UI Components | WS-K | High | Done | L | 2026-04-05 | RHI-023, RHI-024, RHI-026, RHI-027 |
-| [RHI-105](RHI-105-article-readability-contextual-navigation.md) | Workstream L — Article Readability and Contextual Navigation | WS-L | High | Open | L | 2026-04-07 | RHI-023, RHI-024, RHI-027, RHI-104 |
+| [RHI-105](RHI-105-article-readability-contextual-navigation.md) | Workstream L — Article Readability and Contextual Navigation | WS-L | High | Done | L | 2026-04-07 | RHI-023, RHI-024, RHI-027, RHI-104 |
 | [RHI-107](RHI-107-design-example-visual-alignment.md) | Workstream M — Design Example Visual Alignment | WS-M | High | Open | M | 2026-04-08 | RHI-104 |
 | [RHI-030](RHI-030-phase-3-signoff.md) | Phase 3 Sign-off and Handover to Phase 4 | Sign-off | Critical | Open | S | 2026-04-08 | RHI-019 through RHI-029, RHI-104, RHI-105, RHI-107 |
 
@@ -107,7 +107,7 @@ All items below must be complete before Phase 4 work begins:
 - [x] RHI-029 Done — Pages deployment workflow successful; preview-host deployment active at `https://taurgis.github.io/rhino-inquisitor-com/`; all quality gates blocking; PR build validation active
 - [x] RHI-104 Done — Homepage, archive, taxonomy, and shared discovery UI implemented on the shipped scaffold paths
 - [ ] RHI-107 Done — Homepage, archive, taxonomy, and shared shell visually align with the approved generated design examples
-- [ ] RHI-105 Done — Article readability, TOC, summary, contextual-navigation UI, and article screenshot parity implemented with graceful fallback behavior
+- [x] RHI-105 Done — Article readability, TOC, summary, contextual-navigation UI, and article screenshot parity implemented with graceful fallback behavior
 - [ ] RHI-030 Done — Stakeholder sign-off recorded; Phase 4 team notified and handover package confirmed
 
 ---

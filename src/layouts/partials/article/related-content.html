@@ -1,0 +1,157 @@
+{{/* Related-content matrix — 3 buckets: Next in topic, Adjacent topic, Foundational */}}
+{{ $page := .page }}
+{{ $explicit := $page.Params.relatedContent | default (dict) }}
+{{ $hasExplicit := or (isset $explicit "nextInTopic") (isset $explicit "adjacentTopic") (isset $explicit "foundational") }}
+{{ $nextItems := slice }}
+{{ $adjacentItems := slice }}
+{{ $foundationalItems := slice }}
+
+{{ if $hasExplicit }}
+  {{/* Use explicit front matter data */}}
+  {{ with $explicit.nextInTopic }}
+    {{ range . }}
+      {{ with site.GetPage . }}
+        {{ $nextItems = $nextItems | append . }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+  {{ with $explicit.adjacentTopic }}
+    {{ range . }}
+      {{ with site.GetPage . }}
+        {{ $adjacentItems = $adjacentItems | append . }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+  {{ with $explicit.foundational }}
+    {{ range . }}
+      {{ with site.GetPage . }}
+        {{ $foundationalItems = $foundationalItems | append . }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ else }}
+  {{/* Taxonomy-based fallback */}}
+  {{ $categories := $page.Params.categories | default (slice) }}
+  {{ $primaryTopic := "" }}
+  {{ with $page.Params.primaryTopic }}
+    {{ $primaryTopic = . }}
+  {{ end }}
+  {{ if and (eq $primaryTopic "") (gt (len $categories) 0) }}
+    {{ $primaryTopic = index $categories 0 }}
+  {{ end }}
+
+  {{/* Next in topic: next newer articles in same primary category */}}
+  {{ if ne $primaryTopic "" }}
+    {{ $topicPage := false }}
+    {{ with site.GetPage (printf "/categories/%s" ($primaryTopic | urlize)) }}
+      {{ $topicPage = . }}
+    {{ end }}
+    {{ with $topicPage }}
+      {{ $found := 0 }}
+      {{ range .Pages.ByDate }}
+        {{ if and (ne .Permalink $page.Permalink) (lt $found 2) }}
+          {{ if gt (.Date.Unix) ($page.Date.Unix) }}
+            {{ $nextItems = $nextItems | append . }}
+            {{ $found = add $found 1 }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+      {{/* If no newer, take most recent in same category */}}
+      {{ if eq (len $nextItems) 0 }}
+        {{ range first 2 (.Pages.ByDate.Reverse) }}
+          {{ if ne .Permalink $page.Permalink }}
+            {{ $nextItems = $nextItems | append . }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{/* Adjacent topic: articles sharing tags but in a different category */}}
+  {{ $tags := $page.Params.tags | default (slice) }}
+  {{ if gt (len $tags) 0 }}
+    {{ $seen := dict $page.Permalink true }}
+    {{ range $nextItems }}
+      {{ $seen = merge $seen (dict .Permalink true) }}
+    {{ end }}
+    {{ range $tag := $tags }}
+      {{ with site.GetPage (printf "/tags/%s" ($tag | urlize)) }}
+        {{ range first 4 .Pages }}
+          {{ if not (index $seen .Permalink) }}
+            {{ $isDifferentCategory := true }}
+            {{ $artCats := .Params.categories | default (slice) }}
+            {{ range $artCats }}
+              {{ if eq . $primaryTopic }}
+                {{ $isDifferentCategory = false }}
+              {{ end }}
+            {{ end }}
+            {{ if and $isDifferentCategory (lt (len $adjacentItems) 2) }}
+              {{ $adjacentItems = $adjacentItems | append . }}
+              {{ $seen = merge $seen (dict .Permalink true) }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  {{/* Foundational explainer: oldest articles in same category */}}
+  {{ if ne $primaryTopic "" }}
+    {{ $seen := dict $page.Permalink true }}
+    {{ range $nextItems }}
+      {{ $seen = merge $seen (dict .Permalink true) }}
+    {{ end }}
+    {{ range $adjacentItems }}
+      {{ $seen = merge $seen (dict .Permalink true) }}
+    {{ end }}
+    {{ with site.GetPage (printf "/categories/%s" ($primaryTopic | urlize)) }}
+      {{ range first 4 .Pages.ByDate }}
+        {{ if and (not (index $seen .Permalink)) (lt (len $foundationalItems) 2) }}
+          {{ $foundationalItems = $foundationalItems | append . }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ $totalItems := add (add (len $nextItems) (len $adjacentItems)) (len $foundationalItems) }}
+{{ if gt $totalItems 0 }}
+  <section class="article-related" aria-label="Related content">
+    <p class="eyebrow">Continue exploring</p>
+    <div class="article-related__grid">
+      {{ if gt (len $nextItems) 0 }}
+        {{ range $nextItems }}
+          <a class="article-related__card" href="{{ .Permalink }}">
+            <span class="article-related__bucket">Next in topic</span>
+            <span class="article-related__title">{{ .LinkTitle }}</span>
+            {{ with .Params.description }}
+              <span class="article-related__excerpt">{{ . }}</span>
+            {{ end }}
+          </a>
+        {{ end }}
+      {{ end }}
+      {{ if gt (len $adjacentItems) 0 }}
+        {{ range $adjacentItems }}
+          <a class="article-related__card" href="{{ .Permalink }}">
+            <span class="article-related__bucket">Adjacent topic</span>
+            <span class="article-related__title">{{ .LinkTitle }}</span>
+            {{ with .Params.description }}
+              <span class="article-related__excerpt">{{ . }}</span>
+            {{ end }}
+          </a>
+        {{ end }}
+      {{ end }}
+      {{ if gt (len $foundationalItems) 0 }}
+        {{ range $foundationalItems }}
+          <a class="article-related__card" href="{{ .Permalink }}">
+            <span class="article-related__bucket">Foundation</span>
+            <span class="article-related__title">{{ .LinkTitle }}</span>
+            {{ with .Params.description }}
+              <span class="article-related__excerpt">{{ . }}</span>
+            {{ end }}
+          </a>
+        {{ end }}
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

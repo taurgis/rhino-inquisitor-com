@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-03-09T19:49:56.769Z",
+  "generated_at": "2026-03-10T08:28:04.936Z",
   "scaffold_mode": true,
   "manifest_path": "migration/url-manifest.json",
   "public_path": "public",
   "content_path": "src/content",
   "summary": {
     "manifest_entries": 1201,
-    "content_files": 2,
-    "public_files": 20,
+    "content_files": 4,
+    "public_files": 25,
     "checked_urls": 0,
     "ok": 0,
     "missing": 0,

@@ -1,0 +1,17 @@
+{{- $alertTypes := dict "note" "Note" "tip" "Tip" "warning" "Warning" -}}
+{{- $type := "" -}}
+{{- with .AlertType -}}
+  {{- $type = . -}}
+{{- end -}}
+{{- $class := "article-callout" -}}
+{{- $label := "" -}}
+{{- if ne $type "" -}}
+  {{- $class = printf "article-callout article-callout--%s" $type -}}
+  {{- $label = index $alertTypes $type | default (title $type) -}}
+{{- end -}}
+<blockquote class="{{ $class }}">
+  {{- if ne $label "" -}}
+    <p class="article-callout__label">{{ $label }}</p>
+  {{- end -}}
+  {{ .Text }}
+</blockquote>

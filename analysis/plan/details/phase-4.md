@@ -56,9 +56,11 @@ Required from earlier phases:
 - CI baseline.
 
 Required external access:
-1. WordPress export source (WXR and/or REST).
-2. Media origin access.
-3. Search Console baseline data for QA comparisons.
+1. WordPress export/API sources (WXR and REST as available).
+2. Full WordPress SQL dump for metadata recovery and audit.
+3. Full WordPress filesystem snapshot for uploads and source-of-truth verification of content-bearing assets.
+4. Media origin access.
+5. Search Console baseline data for QA comparisons.
 
 ## Publishing Model and Domain Authority Prerequisites
 These decisions are usually finalized in deployment phases, but Phase 4 depends on them for canonical and redirect correctness.
@@ -121,20 +123,23 @@ Goal: build a complete source dataset with provenance.
 Preferred extraction order:
 1. Primary export: WXR snapshot for broad fidelity and point-in-time consistency.
 2. Secondary enrich: WordPress REST API for fields that are cleaner or missing in WXR.
-3. Optional fallback: targeted endpoint scraping only for edge records where source is inconsistent.
+3. Approved recovery source: SQL dump for required metadata, attachment relationships, or content fields that are incomplete in WXR/API.
+4. Approved recovery source: filesystem snapshot for uploads and content-bearing assets that need source-of-truth verification.
+5. Optional fallback: targeted endpoint scraping only for edge records where approved source artifacts are still inconsistent.
 
 Per-source capture requirements:
 1. Record source timestamp.
-2. Record source type (`wxr`, `rest`, `fallback`).
+2. Record primary source type (`wxr`, `rest`, `sql`, `filesystem`, `fallback`) and contributing source channels.
 3. Preserve original IDs and slugs.
 4. Store original raw HTML body.
 5. Store taxonomies, author, publish dates, modified dates, status.
 
 Critical checks:
-1. Reconciliation must report by post type and status across WXR and REST.
+1. Reconciliation must report by post type and status across the approved source channels used in the run.
 2. Coverage must include all URLs in the intersection of sitemap URLs and top-traffic/top-linked pages.
 3. REST pagination completeness must be verified so no pages are silently skipped.
-4. No records should be dropped for parse errors; quarantine them instead.
+4. SQL and filesystem capture timestamps must be compared to WXR/API timestamps before field precedence is approved.
+5. No records should be dropped for parse errors; quarantine them instead.
 
 Exit criteria:
 1. `migration/intermediate/extract-summary.json` with counts by type/status.

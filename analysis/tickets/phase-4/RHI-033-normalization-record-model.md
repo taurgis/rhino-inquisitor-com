@@ -7,7 +7,7 @@
 **Assigned to:** Engineering Owner  
 **Target date:** 2026-04-14  
 **Created:** 2026-03-07  
-**Updated:** 2026-03-07
+**Updated:** 2026-03-10
 
 ---
 
@@ -23,7 +23,8 @@ This ticket is the schema foundation for all transformation workstreams. WS-C an
 
 - [ ] Canonical record schema is defined using `zod` in `scripts/migration/schemas/record.schema.js` with required fields:
   - [ ] `sourceId` — unique WordPress post ID
-  - [ ] `sourceType` — `wxr`, `rest`, or `fallback`
+  - [ ] `sourceType` — primary extraction channel: `wxr`, `rest`, `sql`, `filesystem`, or `fallback`
+  - [ ] `sourceChannels` — array of contributing source channels used for the record
   - [ ] `postType` — `post`, `page`, `attachment`, `video`, or custom
   - [ ] `status` — `publish`, `draft`, `private`, `trash`
   - [ ] `titleRaw` — original unmodified title string
@@ -46,6 +47,7 @@ This ticket is the schema foundation for all transformation workstreams. WS-C an
   - [ ] Normalizes dates to ISO 8601 UTC
   - [ ] Normalizes taxonomy name/slug casing per URL invariant policy from RHI-003
   - [ ] Resolves HTML entity encoding and strips BOM/invalid UTF-8 sequences safely
+  - [ ] Preserves `sourceChannels` and any source artifact identifiers needed for downstream audit reporting
   - [ ] Preserves raw source fields under a `_raw` namespace for traceability
   - [ ] Is idempotent across runs
   - [ ] Exits with a non-zero code and actionable errors if schema validation fails
@@ -160,6 +162,7 @@ This ticket is the schema foundation for all transformation workstreams. WS-C an
 ### Notes
 
 - The canonical record model is the contract between the extraction layer and all transformation workstreams. Any field added or renamed here will require updates to WS-C, WS-D, WS-E, and WS-F.
+- Normalization must remain channel-agnostic: once WS-A has merged WXR, REST, SQL, and filesystem recovery data into the extraction output, downstream workstreams should not need source-specific parsing logic.
 - `aliasUrls` must come from the URL manifest, not from ad-hoc logic. Do not generate aliases outside of the approved manifest values.
 - The Zod schema is the single source of truth for the record model. Keep it co-located with the scripts and document it in the RUNBOOK so future contributors know where the schema lives.
 - Reference: `analysis/plan/details/phase-4.md` §Workstream B: Normalization and Canonical Record Model

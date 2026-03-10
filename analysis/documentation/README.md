@@ -12,6 +12,7 @@ This directory holds structured analysis documentation for the migration project
 | `analysis/documentation/phase-1/` | Phase 1 implementation, kickoff, and sign-off docs |
 | `analysis/documentation/phase-2/` | Phase 2 contracts and implementation docs |
 | `analysis/documentation/phase-3/` | Phase 3 kickoff, bootstrap, implementation, and sign-off docs |
+| `analysis/documentation/phase-4/` | Phase 4 migration-planning, source-policy, and sign-off docs |
 
 ## Placement Rules
 
@@ -29,6 +30,7 @@ This directory holds structured analysis documentation for the migration project
 - [Phase 1 docs](phase-1/)
 - [Phase 2 docs](phase-2/)
 - [Phase 3 docs](phase-3/)
+- [Phase 4 docs](phase-4/)
 
 ## Naming Conventions
 

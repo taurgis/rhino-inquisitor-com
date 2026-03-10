@@ -7,7 +7,7 @@
 **Assigned to:** Engineering Owner  
 **Target date:** 2026-04-17  
 **Created:** 2026-03-07  
-**Updated:** 2026-03-07
+**Updated:** 2026-03-10
 
 ---
 
@@ -26,6 +26,8 @@ Traceability is not optional. If a piece of content is missing from the site aft
   - [ ] Reads outputs from each pipeline stage (conversion, front matter, URL parity, media, links, SEO, a11y, security)
   - [ ] Produces `migration/reports/migration-item-report.csv` with per-item columns:
     - [ ] `source_id`
+    - [ ] `primary_source_type`
+    - [ ] `source_channel_set`
     - [ ] `source_url`
     - [ ] `target_file`
     - [ ] `target_url`
@@ -71,6 +73,7 @@ Traceability is not optional. If a piece of content is missing from the site aft
 - [ ] Design report schema with migration owner and SEO owner:
   - [ ] Confirm `qa_status` classification rules (`ready` / `review-required` / `blocked`)
   - [ ] Confirm batch cap values for HTML fallbacks and a11y warnings per batch
+  - [ ] Confirm how source-channel provenance is surfaced in per-item reporting and extract summaries
   - [ ] Record agreed thresholds in `docs/migration/RUNBOOK.md`
 - [ ] Create `scripts/migration/generate-report.js`:
   - [ ] Implement per-stage status aggregation (read each stage's output report)
@@ -105,7 +108,7 @@ Traceability is not optional. If a piece of content is missing from the site aft
 | Dependency | Type | Status |
 |------------|------|--------|
 | RHI-031 Done — Phase 4 Bootstrap complete | Ticket | Pending |
-| RHI-032 Done — Extraction complete; `extract-summary.json` available for report input | Ticket | Pending |
+| RHI-032 Done — Extraction complete; `extract-summary.json` with source-channel metadata available for report input | Ticket | Pending |
 | RHI-029 Done — CI pipeline in place for workflow update | Ticket | Pending |
 | `csv-stringify` installed | Tool | Pending |
 | All stage check scripts (RHI-034 through RHI-041) available as inputs | Ticket | Pending |
@@ -160,7 +163,7 @@ Traceability is not optional. If a piece of content is missing from the site aft
 
 ### Notes
 
-- The migration item report is the single audit trail that connects every WordPress source record to its Hugo output. It must be produced and attached to every batch PR's CI artifacts — not just the final batch.
+- The migration item report is the single audit trail that connects every WordPress source record to its Hugo output. It must preserve which approved source channels contributed to each record and be attached to every batch PR's CI artifacts — not just the final batch.
 - Threshold values must be agreed with the migration owner before the pilot batch (RHI-043). Do not run batches with unspecified thresholds.
 - The report generator depends on consistent output from all stage scripts. Define the per-stage report schemas before stage scripts are written (in WS-B, each stage should write its report to a known path and format).
 - Reference: `analysis/plan/details/phase-4.md` §Workstream K: Reporting, Traceability, and Audit

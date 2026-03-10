@@ -69,7 +69,7 @@ RHI-030 (Phase 3 Sign-off)
 
 | Deliverable | Ticket | File Path |
 |-------------|--------|-----------|
-| WordPress extraction dataset | RHI-032 | `migration/input/` |
+| WordPress extraction dataset and source-channel summary | RHI-032 | `migration/input/`, `migration/intermediate/extract-summary.json` |
 | Extract summary report | RHI-032 | `migration/intermediate/extract-summary.json` |
 | Quarantine log | RHI-032 | `migration/intermediate/extract-quarantine.json` |
 | Normalized canonical records | RHI-033 | `migration/intermediate/records.normalized.json` |
@@ -103,8 +103,8 @@ RHI-030 (Phase 3 Sign-off)
 
 All items below must be complete before Phase 5/6/8 downstream work can consume Phase 4 outputs:
 
-- [ ] RHI-031 Done — Phase 4 Bootstrap; Phase 3 contracts and pipeline environment confirmed accessible
-- [ ] RHI-032 Done — WordPress content fully extracted; extract summary and quarantine log committed
+- [ ] RHI-031 Done — Phase 4 Bootstrap; Phase 3 contracts and pipeline environment confirmed accessible and WordPress source artifacts verified
+- [ ] RHI-032 Done — WordPress content fully extracted; approved source-channel strategy, extract summary, and quarantine log committed
 - [ ] RHI-033 Done — All in-scope records normalized to canonical schema; 100% `targetUrl` coverage
 - [ ] RHI-034 Done — HTML-to-Markdown conversion engine operational; fallback policy applied and logged
 - [ ] RHI-106 Done — Discovery metadata extension documented, validated, and available to mapping and batch review flows
@@ -157,7 +157,7 @@ Every batch PR must pass all gates before merge:
 
 | Decision Area | Owner | Tickets |
 |---------------|-------|---------|
-| WordPress extraction method (WXR vs REST vs hybrid) | Engineering Owner | RHI-032 |
+| WordPress source-channel strategy (WXR, REST API, SQL dump, filesystem snapshot) | Engineering Owner | RHI-032 |
 | Canonical record schema and normalization rules | Engineering Owner | RHI-033 |
 | HTML conversion rules and fallback policy | Engineering Owner | RHI-034 |
 | Front matter field mapping and URL assignment | Engineering Owner, SEO Owner | RHI-035 |
@@ -195,4 +195,4 @@ Every batch PR must pass all gates before merge:
 
 ## Search Tags
 
-`phase-4` `content-migration` `wordpress-export` `wxr` `rest-api` `html-to-markdown` `turndown` `front-matter` `url-preservation` `redirects` `aliases` `media-migration` `asset-hygiene` `internal-links` `seo-signals` `metadata-completeness` `accessibility` `wcag` `security` `sanitization` `migration-reports` `audit` `pilot-batch` `hugo` `github-pages` `batch-migration`
+`phase-4` `content-migration` `wordpress-export` `wxr` `rest-api` `wordpress-sql` `wordpress-filesystem` `wp-content` `html-to-markdown` `turndown` `front-matter` `url-preservation` `redirects` `aliases` `media-migration` `asset-hygiene` `internal-links` `seo-signals` `metadata-completeness` `accessibility` `wcag` `security` `sanitization` `migration-reports` `audit` `pilot-batch` `hugo` `github-pages` `batch-migration`

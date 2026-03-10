@@ -1,0 +1,18 @@
+{{/* Article table of contents — heading-derived, sticky desktop rail, collapsible mobile */}}
+{{ $page := .page }}
+{{ $toc := $page.TableOfContents }}
+{{ if $toc }}
+  {{/* Desktop: visible sticky sidebar TOC */}}
+  <aside class="article-toc article-toc--desktop" aria-label="Table of contents">
+    <p class="eyebrow" id="toc-heading-desktop">Contents</p>
+    {{ replace $toc "<nav id=\"TableOfContents\">" "<nav id=\"TableOfContents\" aria-labelledby=\"toc-heading-desktop\">" | safeHTML }}
+  </aside>
+
+  {{/* Mobile: collapsible TOC */}}
+  <details class="article-toc article-toc--mobile">
+    <summary id="toc-heading-mobile">Contents</summary>
+    <div class="article-toc__body">
+      {{ replace $toc "<nav id=\"TableOfContents\">" "<nav aria-labelledby=\"toc-heading-mobile\">" | safeHTML }}
+    </div>
+  </details>
+{{ end }}

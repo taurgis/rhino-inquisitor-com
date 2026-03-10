@@ -6,7 +6,7 @@
       <h1>{{ .Title }}</h1>
       {{ partial "article/meta-row.html" (dict "page" . "label" "Article details") }}
       {{ with .Params.description }}
-        <p>{{ . }}</p>
+        <p class="page-article__description">{{ . }}</p>
       {{ end }}
       {{ with .Params.heroImage }}
         <div class="page-article__hero">
@@ -21,6 +21,8 @@
       {{ end }}
     </header>
 
+    {{ partial "article/summary-box.html" (dict "page" .) }}
+
     <div class="page-article__body">
       <section class="article-body">
         {{ if .Content }}
@@ -30,12 +32,10 @@
         {{ end }}
       </section>
 
-      {{ with .TableOfContents }}
-        <aside class="article-aside">
-          <h2 id="table-of-contents-heading">Contents</h2>
-          {{ replace . "<nav id=\"TableOfContents\">" "<nav id=\"TableOfContents\" aria-labelledby=\"table-of-contents-heading\">" | safeHTML }}
-        </aside>
-      {{ end }}
+      {{ partial "article/toc.html" (dict "page" .) }}
     </div>
+
+    {{ partial "article/related-content.html" (dict "page" .) }}
+    {{ partial "article/footer-actions.html" (dict "page" .) }}
   </article>
 {{ end }}

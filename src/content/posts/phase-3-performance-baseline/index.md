@@ -13,6 +13,10 @@ url: "/phase-3-performance-baseline/"
 scaffoldFixture: true
 draft: false
 author: "Engineering Owner"
+takeaways:
+  - "Validates asset policy, image handling, and Lighthouse CI"
+  - "Provides a deterministic article route for Phase 3 checks"
+  - "Baseline checks persist through Phase 4 content migration"
 ---
 
 ## Why this fixture exists
@@ -24,6 +28,15 @@ This article exists to give the Phase 3 scaffold one deterministic article route
 - The article template renders stable metadata and body structure.
 - The Hugo image partial emits width and height attributes.
 - Local performance checks can target a non-homepage route without depending on production content.
+
+> [!NOTE]
+> This fixture content is not intended for production. Phase 4 will replace it with migrated articles.
+
+> [!TIP]
+> When adding new performance checks, target this route to keep baseline comparisons stable.
+
+> [!WARNING]
+> Do not remove this fixture before Phase 4 migration scripts confirm replacement content coverage.
 
 ## Next step
 

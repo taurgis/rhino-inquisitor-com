@@ -7,7 +7,7 @@
 **Assigned to:** Migration Owner  
 **Target date:** 2026-05-02  
 **Created:** 2026-03-07  
-**Updated:** 2026-03-07
+**Updated:** 2026-03-10
 
 ---
 
@@ -41,6 +41,7 @@ Any unresolved exception, quarantine record, or failing gate identified here mus
   - [ ] 100% of in-scope `keep` and `merge` records are present in `src/content/` or explicitly deferred with documented owner
   - [ ] Zero records with `qa_status: blocked`
   - [ ] All `retire`-disposition records are confirmed absent from Hugo output
+  - [ ] Source-channel provenance is documented for migrated records and any waived source artifacts are explicitly noted
 - [ ] All CI gates pass on the final `main` branch build:
   - [ ] `hugo --minify --environment production` exits with code 0
   - [ ] `npm run validate:frontmatter` exits with code 0
@@ -61,6 +62,7 @@ Any unresolved exception, quarantine record, or failing gate identified here mus
 - [ ] `migration/phase-4-signoff.md` is committed with:
   - [ ] Summary of all Phase 4 workstream outcomes (RHI-032 through RHI-045) with ticket IDs and file paths
   - [ ] Final migration item report metrics (total records, by type, by status)
+  - [ ] Approved source artifacts used for migration runs, including any SQL or filesystem recovery notes
   - [ ] Exception register: all accepted deferrals with owner, reason, and target resolution phase
   - [ ] Phase 4 Definition of Done compliance statement
   - [ ] Phase 5/6/8 entry conditions — what downstream phases can rely on
@@ -79,6 +81,9 @@ Any unresolved exception, quarantine record, or failing gate identified here mus
 - [ ] Generate final migration item report:
   - [ ] `npm run migrate:report`
   - [ ] Verify 100% coverage and zero blocked items
+- [ ] Review source artifact evidence from RHI-031, RHI-032, and RHI-042:
+  - [ ] Confirm the approved source-channel strategy was documented for each batch
+  - [ ] Confirm any waived or unavailable source artifacts were accepted explicitly by the owner
 - [ ] Review exception register from Batch 3 (RHI-045):
   - [ ] Confirm all deferred items have owners and target phases
   - [ ] Confirm no deferred item represents an unacceptable launch risk
@@ -169,6 +174,7 @@ Any unresolved exception, quarantine record, or failing gate identified here mus
 ### Notes
 
 - The sign-off document must include a clear Phase 5/6 entry conditions section. Phase 5 and Phase 6 engineers should be able to read `migration/phase-4-signoff.md` and know exactly what content exists, what the redirect data covers, and what is still an open question.
+- Phase 4 sign-off also needs to show which approved WordPress source artifacts were actually relied on. Downstream teams should not have to infer whether metadata or media coverage depended on API, SQL, or filesystem recovery.
 - Any risk accepted at sign-off must be logged with the accepting owner's name. Undocumented risk acceptance is indistinguishable from overlooked risk — this is a hard rule, not a recommendation.
 - The exception register is not a place to hide problems. Every deferred item is a known gap. If the gap is too large to accept for launch, address it in Phase 4 before closing this ticket.
 - Reference: `analysis/plan/details/phase-4.md` §Definition of Done, §Exit Gate to Phase 5/6/8

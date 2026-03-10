@@ -7,13 +7,13 @@
 **Assigned to:** Engineering Owner  
 **Target date:** 2026-04-18  
 **Created:** 2026-03-07  
-**Updated:** 2026-03-07
+**Updated:** 2026-03-10
 
 ---
 
 ### Goal
 
-Prevent the migration from publishing unsafe, sensitive, or private content artifacts by scanning all generated output for script injection fragments, inline event handlers, private draft content, source-system metadata, and HTTPS-hostile references. The security content scan must be a blocking CI gate before any batch is committed to `src/content/`.
+Prevent the migration from publishing unsafe, sensitive, or private content artifacts by scanning all generated output for script injection fragments, inline event handlers, private draft content, source-system metadata, and HTTPS-hostile references. This includes ensuring that data recovered from the WordPress SQL dump or filesystem snapshot does not leak internal paths, configuration values, or non-publishable metadata into generated content. The security content scan must be a blocking CI gate before any batch is committed to `src/content/`.
 
 Static sites are not inherently safe from XSS if user-generated or third-party content is migrated without sanitization. WordPress content can include embedded JavaScript widgets, inline event handlers from legacy themes, and private metadata that should never reach a public static site.
 
@@ -37,7 +37,7 @@ Static sites are not inherently safe from XSS if user-generated or third-party c
   - [ ] Is referenced in `package.json` as `npm run check:security-content`
 - [ ] All `critical` findings are resolved before any batch is merged to `src/content/`
 - [ ] No WordPress private drafts or protected posts appear in generated output with `draft: false`
-- [ ] No source-system-only metadata is present in generated front matter (e.g., `sourceId`, internal WordPress IDs must not appear in final Hugo content files)
+- [ ] No source-system-only metadata is present in generated front matter (e.g., `sourceId`, internal WordPress IDs, SQL-only fields, or filesystem paths must not appear in final Hugo content files)
 - [ ] GitHub Pages hosting constraints are documented:
   - [ ] HTTP security header capabilities and limitations on GitHub Pages are recorded
   - [ ] Any header policy requiring edge/CDN layer is flagged for Phase 6/7 attention
@@ -50,6 +50,7 @@ Static sites are not inherently safe from XSS if user-generated or third-party c
 - [ ] Audit a sample of 20 converted records for security-relevant patterns:
   - [ ] Search for `<script>`, `on*=`, `javascript:` patterns
   - [ ] Check for WordPress admin/nonce artifacts
+  - [ ] Check for leaked filesystem paths, SQL-only metadata, or plugin/theme configuration values recovered during extraction
   - [ ] Check for `http://` image sources
   - [ ] Document findings in Progress Log
 - [ ] Create `scripts/migration/check-security-content.js`:
@@ -102,6 +103,7 @@ Static sites are not inherently safe from XSS if user-generated or third-party c
 | WordPress content contains embedded JavaScript widgets from legacy analytics or social tools | High | High | These must be stripped during Cheerio pre-processing in WS-C; verify the WS-C sanitization handles `<script>` removal | Engineering Owner |
 | Private WordPress posts accidentally published because WS-D `draft` mapping was misconfigured | Low | Critical | The WS-J draft mismatch check is a final safety net; but WS-D must map draft status correctly first | Engineering Owner |
 | WordPress admin URLs present in older post content (e.g., "edit this post" links in body) | Medium | Low | These are `warning`-level findings; strip admin links during WS-G link rewrite rather than failing the batch | Engineering Owner |
+| SQL dump or filesystem snapshot includes secrets, internal paths, or plugin settings that are accidentally surfaced in final content | Medium | High | Restrict extraction to publishable fields, scan for leaked internal paths/keys, and treat any source-system leakage as a blocker | Engineering Owner |
 | GitHub Pages header limitations expose site to clickjacking without X-Frame-Options | Medium | Medium | Document the limitation for Phase 7; do not block migration on a hosting infrastructure gap | Engineering Owner |
 
 ---

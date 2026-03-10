@@ -1,0 +1,44 @@
+{{/* Contextual footer actions — Back to topic hub + Next article */}}
+{{ $page := .page }}
+{{ $categories := $page.Params.categories | default (slice) }}
+{{ $primaryTopic := "" }}
+{{ with $page.Params.primaryTopic }}
+  {{ $primaryTopic = . }}
+{{ end }}
+{{ if and (eq $primaryTopic "") (gt (len $categories) 0) }}
+  {{ $primaryTopic = index $categories 0 }}
+{{ end }}
+
+{{ $topicPage := false }}
+{{ $nextArticle := false }}
+
+{{ if ne $primaryTopic "" }}
+  {{ with site.GetPage (printf "/categories/%s" ($primaryTopic | urlize)) }}
+    {{ $topicPage = . }}
+    {{/* Find the next newer article in the same category */}}
+    {{ $candidate := false }}
+    {{ range .Pages.ByDate }}
+      {{ if and (ne .Permalink $page.Permalink) (gt (.Date.Unix) ($page.Date.Unix)) }}
+        {{ if not $candidate }}
+          {{ $candidate = . }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    {{ $nextArticle = $candidate }}
+  {{ end }}
+{{ end }}
+
+{{ if or $topicPage $nextArticle }}
+  <nav class="article-footer-actions" aria-label="Article navigation">
+    {{ with $topicPage }}
+      <a class="site-cta site-cta--outline" href="{{ .Permalink }}">
+        &larr; Back to {{ $primaryTopic }}
+      </a>
+    {{ end }}
+    {{ with $nextArticle }}
+      <a class="site-cta" href="{{ .Permalink }}">
+        Next article &rarr;
+      </a>
+    {{ end }}
+  </nav>
+{{ end }}
