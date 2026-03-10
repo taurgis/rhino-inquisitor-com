@@ -3,11 +3,11 @@ title: Mastering Chunk-Oriented Job Steps in Salesforce B2C Commerce Cloud
 description: >-
   Salesforce B2C Commerce Cloud offers a robust, flexible Jobs framework vital
   for performing scheduled or on demand tasks for e commerce operations. One...
+date: '2023-12-04T08:55:16.000Z'
 lastmod: '2025-06-25T11:58:01.000Z'
 url: /mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/
 draft: false
 heroImage: /media/2023/boxes-grouped-in-warehouse-0d6eb67465.jpg
-date: '2023-12-04T08:55:16.000Z'
 categories:
   - Salesforce Commerce Cloud
   - Technical

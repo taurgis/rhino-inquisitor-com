@@ -3,11 +3,11 @@ title: What is the OCAPI session bridge?
 description: >-
   With the added attention to $1 in Salesforce B2C Commerce Cloud and the option
   for "$1," the $1 has also gotten some more airtime. But what is it? What...
+date: '2022-08-15T19:08:02.000Z'
 lastmod: '2023-12-07T10:36:32.000Z'
 url: /what-is-the-ocapi-session-bridge/
 draft: false
 heroImage: /media/2023/session-bridge-bbf2a7ba92.png
-date: '2022-08-15T19:08:02.000Z'
 categories:
   - Salesforce Commerce Cloud
   - Technical

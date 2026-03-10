@@ -4,11 +4,11 @@ description: >-
   When scouring the documentation for diagrams on the entity model of $1, you
   have probably come out empty handed. Sure, you find many diagrams on the
   ent...
+date: '2023-03-06T06:41:17.000Z'
 lastmod: '2023-03-06T06:49:17.000Z'
 url: /sfcc-basket-order-erd/
 draft: false
 heroImage: /media/2023/digital-shopping-carts-in-a-forest-a68ea4285a.jpg
-date: '2023-03-06T06:41:17.000Z'
 categories:
   - ERD
   - Salesforce Commerce Cloud

@@ -3,11 +3,11 @@ title: Effortlessly Create External Orders in Salesforce Commerce Cloud
 description: >-
   In this article, we will discuss the $1 used to create orders in the Commerce
   Cloud platform. The createOrders API is designed to create a fully calcula...
+date: '2023-10-09T09:54:18.000Z'
 lastmod: '2023-11-18T07:43:19.000Z'
 url: /the-createorders-api-in-sfcc/
 draft: false
 heroImage: /media/2023/delivery-on-a-phone-f8a4f5aeb3.jpg
-date: '2023-10-09T09:54:18.000Z'
 categories:
   - Salesforce Commerce Cloud
   - Technical

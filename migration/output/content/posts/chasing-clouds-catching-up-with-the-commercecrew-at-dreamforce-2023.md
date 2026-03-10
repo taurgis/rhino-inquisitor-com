@@ -3,11 +3,11 @@ title: 'Chasing Clouds & Catching Up with the #CommerceCrew at Dreamforce 2023'
 description: >-
   For those of you who have been wondering about my whereabouts some time ago, I
   enjoyed this massive gathering in San Francisco. It is always invigoratin...
+date: '2023-09-25T10:29:00.000Z'
 lastmod: '2023-09-25T11:43:07.000Z'
 url: /chasing-clouds-catching-up-with-the-commercecrew-at-dreamforce-2023/
 draft: false
 heroImage: /media/2023/einstein-at-dreamforce-8c54eb04ec.jpg
-date: '2023-09-25T10:29:00.000Z'
 categories:
   - Community
 tags:

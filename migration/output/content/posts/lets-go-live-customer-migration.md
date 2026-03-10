@@ -4,11 +4,11 @@ description: >-
   We have already gotten $1 of our GO LIVE story, but we are far from done.
   Going live with any Commerce project can be quite an endeavor. But
   hopefully,...
+date: '2022-10-17T17:49:09.000Z'
 lastmod: '2022-10-17T17:53:18.000Z'
 url: /lets-go-live-customer-migration/
 draft: false
 heroImage: /media/2022/data-migration-2fc1d03d2f.jpg
-date: '2022-10-17T17:49:09.000Z'
 categories:
   - GO-LIVE
   - Salesforce Commerce Cloud

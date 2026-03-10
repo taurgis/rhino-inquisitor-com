@@ -3,6 +3,7 @@ title: The path to being an Architect
 description: >-
   https://www.youtube.com/watch?v=caVpOV3TdzY The journey to being an architect
   has assumed many forms over the years, and does it all start at developmen...
+date: '2022-09-11T07:39:31.000Z'
 lastmod: '2022-09-11T07:50:23.000Z'
 url: /the-path-to-being-an-architect/
 draft: false

@@ -3,11 +3,11 @@ title: How to get Salesforce certification vouchers
 description: >-
   Earning a certification in Salesforce B2C Commerce Cloud $1 for those in the
   industry. However, it's worth noting that certifications do come with a cos...
+date: '2023-01-23T10:55:12.000Z'
 lastmod: '2023-01-24T15:14:57.000Z'
 url: /how-to-get-salesforce-certification-vouchers/
 draft: false
 heroImage: /media/2022/trailhead-academy-765c17a690.jpeg
-date: '2023-01-23T10:55:12.000Z'
 categories:
   - Certification
 tags:

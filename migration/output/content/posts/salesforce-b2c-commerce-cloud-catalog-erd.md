@@ -4,11 +4,11 @@ description: >-
   When scouring the documentation for the Product and Catalog ERD ($1) of $1,
   you have probably come out empty handed. Sure, you find many diagrams on
   the...
+date: '2023-02-13T06:16:52.000Z'
 lastmod: '2023-02-26T17:51:47.000Z'
 url: /salesforce-b2c-commerce-cloud-catalog-erd/
 draft: false
 heroImage: /media/2023/cardboard-boxes-connected-with-wires-d5a7ad5c03.jpg
-date: '2023-02-13T06:16:52.000Z'
 categories:
   - Salesforce Commerce Cloud
   - Technical

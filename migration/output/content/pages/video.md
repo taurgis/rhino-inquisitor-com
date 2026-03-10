@@ -4,6 +4,7 @@ description: >-
   This is quite a small list, and I hope to grow this content over time with
   engaging content about Salesforce B2C Commerce and other platforms within
   the...
+date: '2022-03-27T06:21:05.000Z'
 lastmod: '2022-08-16T17:25:15.000Z'
 url: /video/
 draft: false

@@ -5,11 +5,11 @@ title: >-
 description: >-
   As a content creator and Salesforce Commerce Cloud architect, I am fascinated
   by the seamless integration of technology and creativity. AI has revolutio...
+date: '2023-07-24T06:43:19.000Z'
 lastmod: '2023-07-24T06:43:36.000Z'
 url: /ai-as-an-architect-and-content-creator/
 draft: false
 heroImage: /media/2023/mixing-human-and-ai-scaled-adabfe2b5d.jpg
-date: '2023-07-24T06:43:19.000Z'
 categories:
   - AI
   - Salesforce Commerce Cloud

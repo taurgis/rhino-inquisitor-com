@@ -4,11 +4,11 @@ description: >-
   People working as Business Analysts, UX designers, or other non developer
   roles have felt a $1 in the Salesforce B2C Commerce Cloud certifications for
   a...
+date: '2023-04-24T08:47:47.000Z'
 lastmod: '2023-05-02T17:31:52.000Z'
 url: /non-technical-sfcc-certifications/
 draft: false
 heroImage: /media/2023/einstein-shopping-scaled-5e1e2b427b.jpeg
-date: '2023-04-24T08:47:47.000Z'
 categories:
   - Certification
 tags:

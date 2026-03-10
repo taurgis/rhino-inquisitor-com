@@ -3,11 +3,11 @@ title: Helpful Salesforce B2C Commerce Cloud Cartridges
 description: >-
   Over the years, an extensive list of cartridges has grown in the $1. These are
   certified integrations that have gone through a checklist and verified by...
+date: '2022-09-20T06:29:08.000Z'
 lastmod: '2022-09-20T06:31:08.000Z'
 url: /helpful-salesforce-b2c-commerce-cloud-cartridges/
 draft: false
 heroImage: /media/2022/modules-008e311b6f.jpg
-date: '2022-09-20T06:29:08.000Z'
 categories:
   - Salesforce Commerce Cloud
   - Technical

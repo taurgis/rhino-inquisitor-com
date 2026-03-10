@@ -397,6 +397,7 @@ function buildFrontMatter(record, discoveryParams, attachmentUrlBySourceId, erro
   const frontMatter = {
     title,
     description,
+    date: record.publishedAt,
     lastmod: record.modifiedAt,
     url: record.targetUrl,
     draft: record.status !== 'publish'
@@ -411,11 +412,7 @@ function buildFrontMatter(record, discoveryParams, attachmentUrlBySourceId, erro
     frontMatter.heroImage = heroImage;
   }
 
-  if (record.postType !== 'page') {
-    frontMatter.date = record.publishedAt;
-  }
-
-  if (record.postType === 'post' && record.categories.length > 0) {
+  if (record.postType === 'post') {
     frontMatter.categories = record.categories.map((term) => term.name);
   }
 

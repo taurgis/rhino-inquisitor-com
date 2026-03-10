@@ -3,11 +3,11 @@ title: 'Salesforce B2C Commerce Cloud: The 22.7 Release'
 description: >-
   Summer has arrived, and so has the next Salesforce B2C Commerce Cloud release!
   This time we look at the $1! Are you interested in last month’s release n...
+date: '2022-06-13T15:06:49.000Z'
 lastmod: '2022-07-23T21:59:53.000Z'
 url: /salesforce-b2c-commerce-cloud-the-22-7-release/
 draft: false
 heroImage: /media/2022/apache-rhino-engine-279b4d3146.png
-date: '2022-06-13T15:06:49.000Z'
 categories:
   - Release Notes
   - Salesforce Commerce Cloud

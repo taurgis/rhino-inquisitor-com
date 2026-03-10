@@ -4,11 +4,11 @@ description: >-
   In today's digitally connected world, personalization and $1 play a crucial
   role in delivering a tailored shopping experience. Salesforce B2C Commerce
   C...
+date: '2024-01-29T09:06:32.000Z'
 lastmod: '2024-01-31T08:11:45.000Z'
 url: /understanding-locale-fallback-in-sfcc/
 draft: false
 heroImage: /media/2024/different-languages-and-countries-of-the-world-0ec542fc07.jpg
-date: '2024-01-29T09:06:32.000Z'
 categories:
   - Salesforce Commerce Cloud
   - Technical

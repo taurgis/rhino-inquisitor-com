@@ -3,11 +3,11 @@ title: 'Mastering Sitemaps in Salesforce B2C Commerce: A Developer''s Guide'
 description: >-
   In Salesforce B2C Commerce Cloud (SFCC), the sitemap is more than just a list
   of links. It's a powerful, scalable system for telling search engines exac...
+date: '2025-06-16T07:30:19.000Z'
 lastmod: '2025-06-24T18:22:38.000Z'
 url: /mastering-sitemaps-in-sfcc/
 draft: false
 heroImage: /media/2025/sitemaps-in-sfcc-53a1b08bb8.jpg
-date: '2025-06-16T07:30:19.000Z'
 categories:
   - Salesforce Commerce Cloud
   - Technical

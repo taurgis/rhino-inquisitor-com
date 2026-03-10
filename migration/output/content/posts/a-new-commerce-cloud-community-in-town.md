@@ -4,11 +4,11 @@ description: >-
   Starting a community was a plan I have had in my head for a while now but
   never acted on with what was going on in the world: a pandemic, a war, and
   an...
+date: '2022-09-12T08:14:56.000Z'
 lastmod: '2022-09-12T17:52:21.000Z'
 url: /a-new-commerce-cloud-community-in-town/
 draft: false
 heroImage: /media/2022/trailblazer-community-group-c0e3b8a778.jpg
-date: '2022-09-12T08:14:56.000Z'
 categories:
   - Community
 tags:

@@ -4,11 +4,11 @@ description: >-
   Most of us have glanced at the "Page Meta Tag Rules" section in Business
   Manager, shrugged, and moved on to what we consider 'real' code. That's a
   mista...
+date: '2025-08-04T07:13:04.000Z'
 lastmod: '2025-08-04T12:14:46.000Z'
 url: /taming-the-beast-a-developers-deep-dive-into-sfcc-meta-tag-rules/
 draft: false
 heroImage: /media/2025/sfcc-meta-tag-rules-scaled-149974a893.jpeg
-date: '2025-08-04T07:13:04.000Z'
 categories:
   - Salesforce Commerce Cloud
   - Technical

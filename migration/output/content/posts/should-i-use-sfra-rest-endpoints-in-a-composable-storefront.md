@@ -6,11 +6,11 @@ description: >-
   When working with Salesforce B2C Commerce Cloud in a hybrid approach (using
   SFRA with a Composable Storefront project), you naturally end up with some
   p...
+date: '2024-10-21T09:36:19.000Z'
 lastmod: '2024-10-21T09:36:27.000Z'
 url: /should-i-use-sfra-rest-endpoints-in-a-composable-storefront/
 draft: false
 heroImage: /media/2024/a-modern-building-connected-to-old-architecture-b9920e4c92.jpg
-date: '2024-10-21T09:36:19.000Z'
 categories:
   - Salesforce Commerce Cloud
   - Technical

@@ -3,11 +3,11 @@ title: 'A New Day for Commerce: Recap'
 description: >-
   When we look at the Salesforce $1, Commerce seems like a speck on the entire
   Salesforce landscape (CRM). Luckily, when going to Salesforce events such a...
+date: '2023-03-20T07:55:32.000Z'
 lastmod: '2023-03-21T09:44:52.000Z'
 url: /a-new-day-for-commerce-recap/
 draft: false
 heroImage: /media/2023/community-meetup-square-9e6587d250.png
-date: '2023-03-20T07:55:32.000Z'
 categories:
   - Community
 tags:

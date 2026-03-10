@@ -22,7 +22,7 @@
 | [RHI-036](RHI-036-url-preservation-redirect-integrity.md) | Workstream E — URL Preservation and Redirect Integrity | WS-E | Critical | Done | M | 2026-04-17 | RHI-031, RHI-035 |
 | [RHI-037](RHI-037-media-migration-asset-hygiene.md) | Workstream F — Media Migration and Asset Hygiene | WS-F | High | Open | L | 2026-04-18 | RHI-031, RHI-034 |
 | [RHI-038](RHI-038-internal-link-navigation-rewrites.md) | Workstream G — Internal Link and Navigation Rewrites | WS-G | High | Done | M | 2026-04-18 | RHI-031, RHI-034, RHI-035, RHI-036 |
-| [RHI-039](RHI-039-seo-signal-preservation.md) | Workstream H — SEO Signal Preservation | WS-H | High | Open | M | 2026-04-17 | RHI-031, RHI-035 |
+| [RHI-039](RHI-039-seo-signal-preservation.md) | Workstream H — SEO Signal Preservation | WS-H | High | Done | M | 2026-04-17 | RHI-031, RHI-035 |
 | [RHI-040](RHI-040-accessibility-content-semantics.md) | Workstream I — Accessibility and Content Semantics | WS-I | Medium | Open | M | 2026-04-18 | RHI-031, RHI-034 |
 | [RHI-041](RHI-041-security-data-hygiene.md) | Workstream J — Security and Data Hygiene | WS-J | Medium | Open | M | 2026-04-18 | RHI-031, RHI-034 |
 | [RHI-042](RHI-042-reporting-traceability-audit.md) | Workstream K — Reporting, Traceability, and Audit | WS-K | High | Open | M | 2026-04-17 | RHI-031, RHI-032 |
@@ -85,7 +85,10 @@ RHI-030 (Phase 3 Sign-off)
 | Media integrity report | RHI-037 | `migration/reports/media-integrity-report.csv` |
 | Internal link rewrite script | RHI-038 | `scripts/migration/rewrite-links.js` |
 | SEO completeness validation script | RHI-039 | `scripts/migration/check-seo-completeness.js` |
+| Feed compatibility validation script | RHI-039 | `scripts/migration/check-feed-compatibility.js` |
+| Noindex validation script | RHI-039 | `scripts/check-noindex.js` |
 | SEO completeness report | RHI-039 | `migration/reports/seo-completeness-report.csv` |
+| Feed compatibility report | RHI-039 | `migration/reports/feed-compatibility-report.csv` |
 | Accessibility scan config/script | RHI-040 | `scripts/migration/check-a11y-content.js` |
 | Accessibility scan summary | RHI-040 | `migration/reports/accessibility-scan-summary.md` |
 | Security content scan script | RHI-041 | `scripts/migration/check-security-content.js` |
@@ -112,7 +115,7 @@ All items below must be complete before Phase 5/6/8 downstream work can consume 
 - [ ] RHI-036 Done — URL parity passing; redirect integrity validated; zero unresolved failures on critical URLs
 - [ ] RHI-037 Done — All media downloaded and relinked; media integrity report clean; no hotlinks to deprecated WordPress paths
 - [x] RHI-038 Done — Internal links rewritten to canonical paths; broken link scan passing on representative templates
-- [ ] RHI-039 Done — SEO completeness at 100% for title/description/canonical on all indexable pages; no unintended `noindex` in release artifacts
+- [x] RHI-039 Done — SEO completeness at 100% for title/description/canonical on all indexable pages; no unintended `noindex` in release artifacts
 - [ ] RHI-040 Done — Automated accessibility gate passing on sample set; manual checklist complete; no unresolved critical defects
 - [ ] RHI-041 Done — Security content scan clean for critical issues; no unsafe script fragments in generated output
 - [ ] RHI-042 Done — All migration reports generated, reproducible, and CI-attached; blocking thresholds enforced

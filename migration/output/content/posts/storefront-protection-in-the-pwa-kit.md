@@ -3,11 +3,11 @@ title: Storefront Protection For Your Composable Storefront
 description: >-
   Protecting online stores using Storefront Protection in SiteGenesis and SFRA
   is simple. But now that we have the Composable Storefront, we need to think...
+date: '2024-11-18T07:26:53.000Z'
 lastmod: '2024-11-20T12:36:26.000Z'
 url: /storefront-protection-in-the-pwa-kit/
 draft: false
 heroImage: /media/2024/storefront-protection-663257419b.jpeg
-date: '2024-11-18T07:26:53.000Z'
 categories:
   - Salesforce Commerce Cloud
   - Technical

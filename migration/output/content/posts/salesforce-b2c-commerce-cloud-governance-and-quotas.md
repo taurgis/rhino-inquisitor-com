@@ -3,11 +3,11 @@ title: Salesforce B2C Commerce Cloud Governance and Quotas
 description: >-
   One of the things that developers (not all) love about a SaaS platform is that
   all of the server management and setup is taken out of their hands by the...
+date: '2023-08-21T06:58:00.000Z'
 lastmod: '2024-01-08T18:17:38.000Z'
 url: /salesforce-b2c-commerce-cloud-governance-and-quotas/
 draft: false
 heroImage: /media/2022/quota-limits-27eb2c93aa.jpg
-date: '2023-08-21T06:58:00.000Z'
 categories:
   - Salesforce Commerce Cloud
   - Technical

@@ -3,11 +3,11 @@ title: 'Variation Groups 101: The attribute fallback system in Commerce Cloud'
 description: >-
   One of the features of B2C Commerce Cloud is the ability to create and use $1
   products, which share common attributes but differ in one or more aspects,...
+date: '2024-02-12T07:54:09.000Z'
 lastmod: '2024-02-12T07:54:18.000Z'
 url: /the-attribute-fallback-system-in-sfcc/
 draft: false
 heroImage: /media/2024/a-pyramid-of-shoes-ecf8500927.jpg
-date: '2024-02-12T07:54:09.000Z'
 categories:
   - Architecture
   - Salesforce Commerce Cloud

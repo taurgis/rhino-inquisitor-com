@@ -3,11 +3,11 @@ title: How to get a Salesforce B2C Commerce Cloud Sandbox
 description: >-
   As a developer, you want to know what you are getting yourself into to make a
   conscious choice of what you will be doing for the years to come. And look...
+date: '2022-04-05T05:36:43.000Z'
 lastmod: '2022-12-20T16:23:36.000Z'
 url: /how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/
 draft: false
 heroImage: /media/2022/sandbox-84618f4042.png
-date: '2022-04-05T05:36:43.000Z'
 categories:
   - Salesforce Commerce Cloud
 tags:

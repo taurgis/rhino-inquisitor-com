@@ -4,11 +4,11 @@ description: >-
   Have you ever wondered how Salesforce Commerce Cloud, especially $1
   (Storefront Reference Architecture), handles the rendering of pages based on
   control...
+date: '2024-10-07T07:17:57.000Z'
 lastmod: '2024-10-07T07:35:26.000Z'
 url: /where-to-hook-into-an-sfra-controller/
 draft: false
 heroImage: /media/2024/a-road-taking-odd-paths-a9419c4f36.jpeg
-date: '2024-10-07T07:17:57.000Z'
 categories:
   - Salesforce Commerce Cloud
   - Technical

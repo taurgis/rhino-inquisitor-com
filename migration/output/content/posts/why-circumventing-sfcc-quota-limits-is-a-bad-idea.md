@@ -4,11 +4,11 @@ description: >-
   Salesforce B2C Commerce Cloud empowers developers to create robust and
   scalable e commerce solutions. It is designed with certain $1 to maintain
   efficie...
+date: '2023-12-11T08:21:33.000Z'
 lastmod: '2023-12-11T08:29:25.000Z'
 url: /why-circumventing-sfcc-quota-limits-is-a-bad-idea/
 draft: false
 heroImage: /media/2023/a-certain-ceo-is-coming-to-get-you-9206639ea9.jpg
-date: '2023-12-11T08:21:33.000Z'
 categories:
   - Salesforce Commerce Cloud
   - Technical

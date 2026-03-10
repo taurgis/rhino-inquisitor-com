@@ -3,11 +3,11 @@ title: 'Let’s GO-LIVE: The Salesforce B2C Commerce Cloud Environment'
 description: >-
   Welcome to the $1, a set of articles about preparing for the launch of one or
   more channels on Salesforce B2C Commerce Cloud. This is only the second ar...
+date: '2022-08-22T17:37:46.000Z'
 lastmod: '2022-08-23T07:19:42.000Z'
 url: /the-salesforce-b2c-commerce-cloud-environment/
 draft: false
 heroImage: /media/2022/connected-systems-d281b9e674.jpg
-date: '2022-08-22T17:37:46.000Z'
 categories:
   - Architecture
   - GO-LIVE

@@ -4,11 +4,11 @@ description: >-
   We have been getting some lovely new goodies in the past few releases, but
   this trend is not ending! This time we look at the $1! Are you interested
   in...
+date: '2022-08-17T18:45:35.000Z'
 lastmod: '2022-08-18T08:09:00.000Z'
 url: /salesforce-b2c-commerce-cloud-22-9-release/
 draft: false
 heroImage: /media/2022/copy-paste-page-designer-full-d97d9a9ee9.jpg
-date: '2022-08-17T18:45:35.000Z'
 categories:
   - Release Notes
   - Salesforce Commerce Cloud

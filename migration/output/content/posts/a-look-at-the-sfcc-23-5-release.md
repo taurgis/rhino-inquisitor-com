@@ -4,12 +4,12 @@ description: >-
   Another month, another release! This time we look at the $1! Are you
   interested in last month’s release notes? $1! Platform Auto Renew CDN
   Certificates...
+date: '2023-04-20T05:52:49.000Z'
 lastmod: '2023-04-23T15:28:04.000Z'
 url: /a-look-at-the-sfcc-23-5-release/
 draft: false
 heroImage: >-
   /media/2023/a-shopping-mall-being-refurbished-with-workers-scaled-6d93cd6e04.jpeg
-date: '2023-04-20T05:52:49.000Z'
 categories:
   - Release Notes
   - Salesforce Commerce Cloud

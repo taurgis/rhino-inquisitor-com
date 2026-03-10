@@ -4,11 +4,11 @@ description: >-
   A common question within Salesforce (and other ecosystems) is the value of
   being a $1. To get certified, you need to spend a substantial amount of
   time...
+date: '2022-11-21T10:17:21.000Z'
 lastmod: '2023-02-15T20:40:06.000Z'
 url: /is-salesforce-certification-worth-it/
 draft: false
 heroImage: /media/2022/salesforce-certified-50dfbc80b5.jpeg
-date: '2022-11-21T10:17:21.000Z'
 categories:
   - Certification
 tags:

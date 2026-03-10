@@ -4,11 +4,11 @@ description: >-
   Deprecated Article Since the writing of this article, the eCDN business
   manager module has been updated to allow configuration of vanity domains on
   Stag...
+date: '2022-11-07T10:29:05.000Z'
 lastmod: '2024-10-14T16:50:08.000Z'
 url: /how-to-set-up-the-ecdn-in-sfcc-staging/
 draft: false
 heroImage: /media/2022/ssl-certificate-tw-8422f4751c.jpg
-date: '2022-11-07T10:29:05.000Z'
 categories:
   - Salesforce Commerce Cloud
   - Technical

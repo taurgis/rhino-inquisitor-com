@@ -4,11 +4,11 @@ description: >-
   $1 uses custom preferences to store configurable settings for a storefront.
   These settings can be anything from feature settings to loyalty
   calculations...
+date: '2023-10-16T12:01:58.000Z'
 lastmod: '2023-10-16T18:11:19.000Z'
 url: /custom-preferences-in-sfcc/
 draft: false
 heroImage: /media/2023/it-configuring-server-scaled-d8087e9ab9.jpeg
-date: '2023-10-16T12:01:58.000Z'
 categories:
   - Salesforce Commerce Cloud
   - Technical

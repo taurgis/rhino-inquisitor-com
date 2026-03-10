@@ -4,11 +4,11 @@ description: >-
   When going live with a website, SEO is an integral part that should not be
   overlooked. It is a long term strategy that should be started before your
   web...
+date: '2022-09-05T08:35:42.000Z'
 lastmod: '2022-11-19T10:02:48.000Z'
 url: /lets-go-live-seo/
 draft: false
 heroImage: /media/2022/sitemap-c717c2a8e7.png
-date: '2022-09-05T08:35:42.000Z'
 categories:
   - GO-LIVE
   - Salesforce Commerce Cloud

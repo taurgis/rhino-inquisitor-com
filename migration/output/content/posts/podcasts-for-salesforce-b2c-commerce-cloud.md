@@ -4,11 +4,11 @@ description: >-
   Over the years, a lot of podcasts have popped up around Salesforce. And
   amongst these, they organise quite a few themselves. The $1, and some podcasts
   h...
+date: '2022-12-05T16:08:12.000Z'
 lastmod: '2022-12-08T12:44:02.000Z'
 url: /podcasts-for-salesforce-b2c-commerce-cloud/
 draft: false
 heroImage: /media/2022/headphones-in-the-clouds-b2df8fafce.jpg
-date: '2022-12-05T16:08:12.000Z'
 categories:
   - Community
 tags:

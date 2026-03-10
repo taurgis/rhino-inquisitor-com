@@ -4,12 +4,12 @@ description: >-
   As a Salesforce B2C Commerce Cloud developer (starter or experienced),
   expanding your skill set and exploring new technologies is part of the job it
   all...
+date: '2023-12-25T13:46:42.000Z'
 lastmod: '2023-12-24T08:02:07.000Z'
 url: >-
   /the-move-from-sitegenesis-and-sfra-to-the-composable-storefront-as-a-developer/
 draft: false
 heroImage: /media/2023/react-js-c19d8f64a3.jpg
-date: '2023-12-25T13:46:42.000Z'
 categories:
   - Salesforce Commerce Cloud
   - Technical

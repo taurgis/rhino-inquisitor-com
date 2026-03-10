@@ -3,6 +3,7 @@ title: Can an isslot Element have a dynamic ID?
 description: >-
   TL;DR It is not possible to set a dynamic ID in the <isslot tag. $1 For quite
   some time now, Content Slots have been the go to method for displaying per...
+date: '2023-06-28T18:13:06.000Z'
 lastmod: '2023-06-28T18:56:00.000Z'
 url: /can-a-isslot-element-have-a-dynamic-id/
 draft: false

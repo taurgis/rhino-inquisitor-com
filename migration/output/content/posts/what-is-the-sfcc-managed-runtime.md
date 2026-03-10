@@ -4,11 +4,11 @@ description: >-
   In the last two years, more vocabulary has been added to the $1 ecosystem
   because of the $1. And one of the terms you might have heard is "$1", which
   pr...
+date: '2023-05-08T13:04:24.000Z'
 lastmod: '2023-05-08T13:15:51.000Z'
 url: /what-is-the-sfcc-managed-runtime/
 draft: false
 heroImage: /media/2023/people-maintaining-server-room-scaled-d510b8a413.jpg
-date: '2023-05-08T13:04:24.000Z'
 categories:
   - Salesforce Commerce Cloud
   - Technical

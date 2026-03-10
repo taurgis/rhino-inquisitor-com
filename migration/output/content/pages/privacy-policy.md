@@ -3,6 +3,7 @@ title: Privacy Policy
 description: >-
   Who we are Our website address is $1. Comments When visitors leave comments on
   the site we collect the data shown in the comments form, and also the vis...
+date: '2022-02-25T21:16:19.000Z'
 lastmod: '2023-03-06T13:57:39.000Z'
 url: /privacy-policy/
 draft: false

@@ -3,11 +3,11 @@ title: What does the Composable Storefront mean for SFCC Developers?
 description: >-
   Over the past year, I have seen increasing gossip (which I am partly to blame
   for) and discussions about what the Composable Storefront release means fo...
+date: '2023-01-30T07:59:37.000Z'
 lastmod: '2023-01-30T18:11:48.000Z'
 url: /what-does-the-composable-storefront-mean-for-sfcc-developers/
 draft: false
 heroImage: /media/2022/e0468610-0e86-403f-b486-743a38d4b763-d68cf607f8.png
-date: '2023-01-30T07:59:37.000Z'
 categories:
   - Salesforce Commerce Cloud
   - Technical

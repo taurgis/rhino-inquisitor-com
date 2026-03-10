@@ -3,11 +3,11 @@ title: Events and the Golden Hoodie
 description: >-
   June 2022, I think this month will stick in my memory for a long time to come.
   It has been a fun and 'event'ful one! The pandemic has not ended, but lif...
+date: '2022-06-21T04:14:28.000Z'
 lastmod: '2022-07-23T21:41:31.000Z'
 url: /events-and-the-golden-hoodie/
 draft: false
 heroImage: /media/2022/golden-hoodies-baefc3d7e9.jpg
-date: '2022-06-21T04:14:28.000Z'
 categories:
   - Community
 tags:

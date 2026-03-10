@@ -4,11 +4,11 @@ description: >-
   This article covers the reasons for opting to send emails via Salesforce
   Commerce Cloud, the platform's limitations, the steps for programmatically
   send...
+date: '2024-12-09T08:19:31.000Z'
 lastmod: '2024-12-11T16:13:38.000Z'
 url: /sending-emails-from-sfcc/
 draft: false
 heroImage: /media/2024/delivering-mail-in-sfcc-c46d2358ed.jpg
-date: '2024-12-09T08:19:31.000Z'
 categories:
   - Salesforce Commerce Cloud
   - Technical

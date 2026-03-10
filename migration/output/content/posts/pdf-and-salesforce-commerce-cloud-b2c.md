@@ -4,11 +4,11 @@ description: >-
   So, you need to whip up some documents in Salesforce B2C Commerce (SFCC).
   Invoices, return labels, maybe a digital gift card that looks suspiciously
   lik...
+date: '2022-02-24T13:18:00.000Z'
 lastmod: '2025-07-14T18:19:59.000Z'
 url: /pdf-and-salesforce-commerce-cloud-b2c/
 draft: false
 heroImage: /media/2022/pdf-and-sfcc-f66c1d7bc5.jpg
-date: '2022-02-24T13:18:00.000Z'
 categories:
   - Salesforce Commerce Cloud
   - Technical

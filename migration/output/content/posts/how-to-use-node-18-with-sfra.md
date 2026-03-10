@@ -4,11 +4,11 @@ description: >-
   As $1, it's important to stay up to date with the latest versions of our
   tools. The README of SFRA, unfortunately, reminds us that it is not always
   poss...
+date: '2023-07-10T08:09:37.000Z'
 lastmod: '2023-07-10T08:13:58.000Z'
 url: /how-to-use-node-18-with-sfra/
 draft: false
 heroImage: /media/2023/upgrading-f08d3d8bdc.jpg
-date: '2023-07-10T08:09:37.000Z'
 categories:
   - Salesforce Commerce Cloud
   - Technical

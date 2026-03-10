@@ -3,11 +3,11 @@ title: The journey from developer to architect
 description: >-
   So you want to be an $1, do you? At least, that is why I am guessing you came
   to this page! Well, you came to the right place! I have gone through this...
+date: '2024-02-26T06:36:00.000Z'
 lastmod: '2024-02-26T10:26:22.000Z'
 url: /the-journey-from-developer-to-architect/
 draft: false
 heroImage: /media/2022/developer-to-architect-0af54756df.png
-date: '2024-02-26T06:36:00.000Z'
 categories:
   - Corporate
 tags:

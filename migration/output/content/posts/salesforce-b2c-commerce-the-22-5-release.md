@@ -4,11 +4,11 @@ description: >-
   A new month, a new release of Salesforce B2C Commerce Cloud. Let us dig a
   little deeper in the $1 to see what is new! Are you interested in last
   month's...
+date: '2022-04-18T07:31:52.000Z'
 lastmod: '2022-07-23T21:51:46.000Z'
 url: /salesforce-b2c-commerce-the-22-5-release/
 draft: false
 heroImage: /media/2022/b2c-control-center-3581b7d6c3.png
-date: '2022-04-18T07:31:52.000Z'
 categories:
   - Release Notes
   - Salesforce Commerce Cloud

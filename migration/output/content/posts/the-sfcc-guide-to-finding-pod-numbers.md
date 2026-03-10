@@ -4,11 +4,11 @@ description: >-
   Knowing your POD number isn't just trivia; it's a critical piece of
   operational intelligence. It's the key to configuring firewalls, anticipating
   mainte...
+date: '2025-07-21T05:05:51.000Z'
 lastmod: '2025-07-21T05:42:08.000Z'
 url: /the-sfcc-guide-to-finding-pod-numbers/
 draft: false
 heroImage: /media/2025/sfcc-finding-your-pod-number-scaled-6830449d2b.jpeg
-date: '2025-07-21T05:05:51.000Z'
 categories:
   - Salesforce Commerce Cloud
   - Technical

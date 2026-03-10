@@ -3,12 +3,12 @@ title: 'Salesforce (Commerce) Payments: Payment Integration Simplified'
 description: >-
   As a $1 connoisseur, you know how important it is to have a seamless customer
   payment process. After all, a clunky checkout experience can result in aba...
+date: '2023-03-27T14:54:22.000Z'
 lastmod: '2023-03-31T07:19:52.000Z'
 url: /salesforce-payments-experience-explained/
 draft: false
 heroImage: >-
   /media/2023/person-holding-creditcard-next-to-register-vintage-scaled-859dbc394a.jpg
-date: '2023-03-27T14:54:22.000Z'
 categories:
   - Salesforce Commerce Cloud
 tags:

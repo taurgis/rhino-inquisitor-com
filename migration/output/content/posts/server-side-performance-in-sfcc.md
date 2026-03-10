@@ -3,11 +3,11 @@ title: Troubleshooting Server-Side Performance in Salesforce B2C Commerce Cloud
 description: >-
   All web developers understand the crucial role $1 plays for a website, both in
   terms of the visitor experience and as a quality benchmark. Not to forget...
+date: '2023-05-01T05:50:49.000Z'
 lastmod: '2025-07-29T12:37:49.000Z'
 url: /server-side-performance-in-sfcc/
 draft: false
 heroImage: /media/2022/performance-8200eea3e8.jpeg
-date: '2023-05-01T05:50:49.000Z'
 categories:
   - Salesforce Commerce Cloud
   - Technical

@@ -4,11 +4,11 @@ description: >-
   Another month, another release from Salesforce B2C Commerce Cloud! In this
   blog post, we'll dive into all the changes and improvements coming to the
   pla...
+date: '2023-02-15T14:19:00.000Z'
 lastmod: '2023-02-15T14:19:11.000Z'
 url: /salesforce-b2c-commerce-cloud-23-3-release/
 draft: false
 heroImage: /media/2023/shopping-cart-in-sand-7c8677e7ff.jpg
-date: '2023-02-15T14:19:00.000Z'
 categories:
   - Release Notes
   - Salesforce Commerce Cloud

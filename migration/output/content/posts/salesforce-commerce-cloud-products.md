@@ -3,11 +3,11 @@ title: 9 Salesforce Commerce Cloud Products
 description: >-
   You are probably here, reading this blog to learn more about $1. But over the
   past years, more products have been put under Salesforce Commerce Cloud "w...
+date: '2023-07-17T09:07:01.000Z'
 lastmod: '2023-07-17T09:11:18.000Z'
 url: /salesforce-commerce-cloud-products/
 draft: false
 heroImage: /media/2022/salesforce-commerce-cloud-af0419a10b.png
-date: '2023-07-17T09:07:01.000Z'
 categories:
   - Salesforce Commerce Cloud
 tags:

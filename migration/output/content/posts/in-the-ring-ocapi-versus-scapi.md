@@ -4,11 +4,11 @@ description: >-
   As we move into 2024, the SCAPI has received much attention and has been
   updated with new APIs, updates, and performance improvements. On the other
   hand...
+date: '2024-03-18T08:49:51.000Z'
 lastmod: '2024-03-19T15:11:36.000Z'
 url: /in-the-ring-ocapi-versus-scapi/
 draft: false
 heroImage: /media/2024/rest-apis-fighting-in-a-boxing-ring-60c6242717.jpg
-date: '2024-03-18T08:49:51.000Z'
 categories:
   - Architecture
   - Salesforce Commerce Cloud

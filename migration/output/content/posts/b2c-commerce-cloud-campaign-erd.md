@@ -4,11 +4,11 @@ description: >-
   When scouring the documentation for the Campaign ERD ($1) of $1, you have
   probably come out empty handed. Sure, you find many diagrams on the entity
   mod...
+date: '2023-02-27T08:24:42.000Z'
 lastmod: '2023-02-27T18:57:17.000Z'
 url: /b2c-commerce-cloud-campaign-erd/
 draft: false
 heroImage: /media/2023/newsletter-surrounded-by-cogwheels-83ae88881a.jpg
-date: '2023-02-27T08:24:42.000Z'
 categories:
   - Salesforce Commerce Cloud
   - Technical

@@ -3,11 +3,11 @@ title: How to setup OAuth JWT for the OCAPI
 description: >-
   IMPORTANT : This article is about server to server communication When working
   with the OCAPI ($1), you need to do some sort of authentication to prove w...
+date: '2022-06-27T17:49:25.000Z'
 lastmod: '2022-07-23T19:16:34.000Z'
 url: /how-to-setup-oauth-jwt-for-the-ocapi/
 draft: false
 heroImage: /media/2022/jwt-517bf34cae.png
-date: '2022-06-27T17:49:25.000Z'
 categories:
   - Salesforce Commerce Cloud
   - Technical

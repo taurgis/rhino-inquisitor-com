@@ -4,11 +4,11 @@ description: >-
   Within Salesforce, the Ohana (Hawaiian for Family) has a pretty significant
   meaning. Over the past decade, people passionate about Salesforce have
   built...
+date: '2022-02-27T14:02:53.000Z'
 lastmod: '2022-07-23T22:08:05.000Z'
 url: /the-state-of-ohana-for-salesforce-commerce-cloud/
 draft: false
 heroImage: /media/2022/connections-chicago-2019-b246c60ad0.jpg
-date: '2022-02-27T14:02:53.000Z'
 categories:
   - Community
 tags:

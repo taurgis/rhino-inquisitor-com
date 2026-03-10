@@ -4,11 +4,11 @@ description: >-
   In this post, we will be looking at the release notes of Salesforce B2C
   Commerce Cloud for March 2022. Let us dig deeper into any new and exciting
   featu...
+date: '2022-03-08T07:42:23.000Z'
 lastmod: '2022-07-23T21:43:46.000Z'
 url: /b2c-commerce-whats-new-in-the-22-3-release/
 draft: false
 heroImage: /media/2022/lightning-man-e1646654739934-c9812efc2b.jpg
-date: '2022-03-08T07:42:23.000Z'
 categories:
   - Release Notes
   - Salesforce Commerce Cloud

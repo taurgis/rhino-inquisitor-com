@@ -6,11 +6,11 @@ description: >-
   Info This article was updated with the latest and most important feature
   information as of 26 July 2025. So, you need to add a custom attribute to the
   b...
+date: '2022-10-31T13:03:53.000Z'
 lastmod: '2025-07-29T12:47:51.000Z'
 url: /how-to-use-ocapi-scapi-hooks/
 draft: false
 heroImage: /media/2022/26df11a8-62ec-44cd-bf3b-6ff9ab46bee8-5598d60cbd.jpg
-date: '2022-10-31T13:03:53.000Z'
 categories:
   - Salesforce Commerce Cloud
   - Technical

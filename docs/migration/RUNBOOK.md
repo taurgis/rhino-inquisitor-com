@@ -241,6 +241,40 @@ This runbook tracks the operational steps needed to move the repository from pla
   - treat residual `npm run migrate:rewrite-media` warnings for unmapped non-manifest media references as RHI-037 scope, not a blocker for the RHI-038 internal page-link gate
   - rerun `npm run migrate:normalize` and confirm the normalized artifact hashes remain stable
 
+### RHI-039 - SEO Signal Preservation
+
+- Run the SEO completeness validator after the staged migration corpus has completed the normal post-mapping preparation sequence:
+  - `npm run migrate:map-frontmatter`
+  - `npm run migrate:rewrite-media`
+  - `npm run migrate:rewrite-links`
+- The completeness validator reads migration-facing inputs from:
+  - `migration/output/content/`
+  - `migration/url-manifest.json`
+  - `migration/phase-1-seo-baseline.md`
+  - a built Hugo output directory (`public/` by default, or a staged directory passed through `--public-dir`)
+- Current validated contract for this workstream:
+  - all staged launch-intended Markdown files must have non-empty `title`, `description`, `url`, `date`, and `lastmod`
+  - post entries must carry at least one category in front matter
+  - indexable staged content must not set `noindex` in either top-level or `seo.noindex` front matter
+  - the validator performs sampled built-output checks for homepage, top-traffic pages from the Phase 1 baseline, category routes, video routes, backlink-backed routes, and merge-target routes when those routes are present in the built output
+  - sampled HTML checks enforce canonical-to-target parity, sitemap inclusion, and that internal links do not point at legacy merge routes or missing built routes
+- The completeness validator writes `migration/reports/seo-completeness-report.csv` and exits non-zero on blocking failures.
+- Build staged migrated content before sampled HTML validation when the default `public/` build does not correspond to `migration/output/content/`:
+  - `hugo --minify --environment production --contentDir migration/output/content --destination tmp/rhi039-public`
+  - `npm run check:seo-completeness -- --public-dir tmp/rhi039-public`
+- Run the feed compatibility validator with `npm run check:feed-compatibility` after a production-style build.
+- Run the noindex gate with `npm run check:noindex` on the same production-style build output. Use `CHECK_NOINDEX_PUBLIC_DIR=tmp/rhi039-public npm run check:noindex` when validating a staged migration build outside `public/`.
+- The feed validator checks:
+  - canonical Hugo feed output at `index.xml`
+  - Pages-compatible helper routes at `/feed/`, `/feed/rss/`, and `/feed/atom/`
+  - `robots.txt` does not disallow the canonical or compatibility feed endpoints
+- The feed validator writes `migration/reports/feed-compatibility-report.csv` and exits non-zero on feed regressions.
+- The noindex gate fails when production-style HTML emits `noindex` on indexable routes; feed helpers, other redirect pages, and the 404 route remain exempt.
+- Current repository behavior remains aligned with the Phase 2 and Phase 3 contract:
+  - Hugo emits the canonical XML feed at `/index.xml`
+  - Pages-safe helper routes under `src/static/feed/` meta-refresh to `/index.xml`
+  - edge redirects remain the required launch-time mechanism for canonical legacy feed preservation beyond Pages fallback behavior
+
 ### RHI-034 - HTML-to-Markdown Conversion
 
 - Run the converter with `npm run migrate:convert`.

@@ -3,6 +3,7 @@ title: 'Page Designer: Dynamic Pages - Optional Subcategories'
 description: >-
   A year after Salesforce released $1, many of the needed features were added.
   One of these features was called "$1." This feature allowed $1 pages to und...
+date: '2022-03-01T16:56:04.000Z'
 lastmod: '2022-03-06T08:51:38.000Z'
 url: /ideas/page-designer-dynamic-pages-optional-subcategories/
 draft: false

@@ -3,11 +3,11 @@ title: Simplifying the Salesforce Order of Execution
 description: >-
   When it comes to understanding how Salesforce operates, there are many factors
   to consider. One key aspect is the "Order of Execution", or the sequence...
+date: '2023-01-09T05:48:13.000Z'
 lastmod: '2023-02-26T17:38:41.000Z'
 url: /simplifying-the-salesforce-order-of-execution/
 draft: false
 heroImage: /media/2023/dominoes-in-middle-of-the-road-f4103f1e65.jpg
-date: '2023-01-09T05:48:13.000Z'
 categories:
   - Salesforce Platform
 tags:

@@ -4,11 +4,11 @@ description: >-
   $1 are a way to create personalised solutions that meet the needs of a
   particular business. If we are working with POST or PUT requests, developers
   need...
+date: '2023-04-03T06:57:02.000Z'
 lastmod: '2023-04-03T06:57:14.000Z'
 url: /the-request-body-in-an-sfcc-controller/
 draft: false
 heroImage: /media/2023/json-e912c3b91a.jpeg
-date: '2023-04-03T06:57:02.000Z'
 categories:
   - Salesforce Commerce Cloud
   - Technical

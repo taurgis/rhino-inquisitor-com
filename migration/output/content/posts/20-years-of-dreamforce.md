@@ -3,11 +3,11 @@ title: 20 years of Dreamforce
 description: >-
   Note : I gave the text "20 years of Salesforce Dreamforce" to an AI to render
   an image. The image you see above is what it created! Salesforce is celebr...
+date: '2022-08-24T19:21:06.000Z'
 lastmod: '2022-11-19T10:06:22.000Z'
 url: /20-years-of-dreamforce/
 draft: false
 heroImage: /media/2022/dreamforce-ai-8754307d6d.jpg
-date: '2022-08-24T19:21:06.000Z'
 categories:
   - Community
 tags:

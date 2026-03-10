@@ -3,11 +3,11 @@ title: 'The Realm Split: A Developer''s Field Guide to Migrating an SFCC Site'
 description: >-
   Have you ever found yourself in a deployment day standoff? Your team is ready
   to push a critical feature for the US site, but it's blocked because a see...
+date: '2025-09-08T09:14:15.000Z'
 lastmod: '2025-09-05T11:12:50.000Z'
 url: /the-realm-split-field-guide-to-migrating-an-sfcc-site/
 draft: false
 heroImage: /media/2025/realm-split-in-sfcc-c392b8965d.jpg
-date: '2025-09-08T09:14:15.000Z'
 categories:
   - Architecture
   - Salesforce Commerce Cloud

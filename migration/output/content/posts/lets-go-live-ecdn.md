@@ -3,11 +3,11 @@ title: 'Let''s GO-LIVE: eCDN'
 description: >-
   So, you want to set a website live on Salesforce B2C Commerce Cloud. It is all
   relatively new to you, but your task is to set up the Staging and Product...
+date: '2022-08-04T06:53:47.000Z'
 lastmod: '2022-08-05T07:52:02.000Z'
 url: /lets-go-live-ecdn/
 draft: false
 heroImage: /media/2022/ecdn-5035a37164.png
-date: '2022-08-04T06:53:47.000Z'
 categories:
   - GO-LIVE
   - Salesforce Commerce Cloud

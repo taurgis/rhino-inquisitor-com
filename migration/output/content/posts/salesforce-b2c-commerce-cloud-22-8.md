@@ -3,11 +3,11 @@ title: Salesforce B2C Commerce Cloud 22.8
 description: >-
   A new month means new candy for us in Salesforce B2C Commerce Cloud. But what
   will we find in that jar this month? Let us find out! Are you interested i...
+date: '2022-07-25T07:19:45.000Z'
 lastmod: '2022-07-25T14:32:45.000Z'
 url: /salesforce-b2c-commerce-cloud-22-8/
 draft: false
 heroImage: /media/2022/85e37556-72f2-49a5-b436-a5616e9776a7-3984eb1bb9.jpeg
-date: '2022-07-25T07:19:45.000Z'
 categories:
   - Release Notes
   - Salesforce Commerce Cloud

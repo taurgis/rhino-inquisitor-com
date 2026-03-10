@@ -4,11 +4,11 @@ description: >-
   It should be no secret that a URL is a vital part of any website In this
   article, we will dissect and explain the different parts of a Salesforce B2C
   Co...
+date: '2023-05-29T07:12:19.000Z'
 lastmod: '2023-05-29T11:16:52.000Z'
 url: /sfcc-url-cracking-the-code/
 draft: false
 heroImage: /media/2023/a-hand-delicately-slicing-into-a-screen-f3543bdd31.jpeg
-date: '2023-05-29T07:12:19.000Z'
 categories:
   - Salesforce Commerce Cloud
   - Technical

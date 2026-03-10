@@ -4,11 +4,11 @@ description: >-
   The holiday period was quiet for a long time regarding $1. This was because
   the monolithic system required the deployment of all components, which
   carri...
+date: '2023-11-13T09:54:35.000Z'
 lastmod: '2023-11-15T12:18:11.000Z'
 url: /new-apis-and-features-for-a-headless-sfcc/
 draft: false
 heroImage: /media/2023/robot-operating-on-its-own-head-797d8fde74.jpg
-date: '2023-11-13T09:54:35.000Z'
 categories:
   - Release Notes
   - Salesforce Commerce Cloud

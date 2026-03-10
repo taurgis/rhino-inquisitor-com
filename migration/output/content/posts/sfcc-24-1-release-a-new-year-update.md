@@ -3,11 +3,11 @@ title: 'Commerce Cloud 24.1 Release: A New Year Update'
 description: >-
   A new year means release notes for the back end have started again! This time,
   we look at the $1! Are you interested in last year's release notes? $1! P...
+date: '2024-01-08T09:10:13.000Z'
 lastmod: '2024-01-10T08:49:57.000Z'
 url: /sfcc-24-1-release-a-new-year-update/
 draft: false
 heroImage: /media/2024/shopping-carts-to-the-shredder-735353fe04.jpg
-date: '2024-01-08T09:10:13.000Z'
 categories:
   - Release Notes
   - Salesforce Commerce Cloud

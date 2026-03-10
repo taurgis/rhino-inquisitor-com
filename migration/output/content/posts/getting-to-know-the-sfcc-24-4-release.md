@@ -4,11 +4,11 @@ description: >-
   It's that time of the year again! The $1 release of Salesforce B2C Commerce
   Cloud is finally here, just in time for the spring season. Let's take a
   clos...
+date: '2024-04-01T08:03:24.000Z'
 lastmod: '2024-04-02T07:39:31.000Z'
 url: /getting-to-know-the-sfcc-24-4-release/
 draft: false
 heroImage: /media/2024/a-group-of-paintings-walking-on-a-road-d1415ca232.jpg
-date: '2024-04-01T08:03:24.000Z'
 categories:
   - Release Notes
   - Salesforce Commerce Cloud

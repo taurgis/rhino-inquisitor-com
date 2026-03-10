@@ -3,11 +3,11 @@ title: How to filter JSDoc in Storybook Autodocs
 description: >-
   Over the past few months, I have grown to love $1 as it gives me all the tools
   necessary to expose my components for testing and documentation. One of i...
+date: '2023-07-28T07:53:53.000Z'
 lastmod: '2023-07-28T13:57:31.000Z'
 url: /how-to-filter-jsdoc-in-storybook-autodocs/
 draft: false
 heroImage: /media/2023/frustrated-developer-illustration-a7d8092bbb.jpg
-date: '2023-07-28T07:53:53.000Z'
 categories:
   - React
 tags:

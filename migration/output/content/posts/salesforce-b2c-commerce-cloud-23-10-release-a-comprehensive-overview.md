@@ -3,11 +3,11 @@ title: 'Salesforce B2C Commerce Cloud 23.10 Release: A Comprehensive Overview'
 description: >-
   It's a yearly tradition not to release major updates during the holiday season
   to maintain platform stability, so here we are with the final release of...
+date: '2023-10-02T12:35:45.000Z'
 lastmod: '2023-10-02T12:35:58.000Z'
 url: /salesforce-b2c-commerce-cloud-23-10-release-a-comprehensive-overview/
 draft: false
 heroImage: /media/2023/shopping-carts-on-a-tablet-fa1824b0b9.jpeg
-date: '2023-10-02T12:35:45.000Z'
 categories:
   - Release Notes
   - Salesforce Commerce Cloud

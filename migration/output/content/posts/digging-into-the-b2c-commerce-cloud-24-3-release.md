@@ -4,11 +4,11 @@ description: >-
   As snowy days slowly turn into sunny ones, the 24.3 release of SFCC has
   arrived! Let us have a look at the $1. Are you interested in last month’s
   releas...
+date: '2024-03-04T09:04:46.000Z'
 lastmod: '2024-03-04T09:07:27.000Z'
 url: /digging-into-the-b2c-commerce-cloud-24-3-release/
 draft: false
 heroImage: /media/2024/a-shopping-cart-overfilled-with-products-2342f0919f.jpg
-date: '2024-03-04T09:04:46.000Z'
 categories:
   - Release Notes
   - Salesforce Commerce Cloud

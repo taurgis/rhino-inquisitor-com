@@ -4,12 +4,12 @@ description: >-
   As the clock ticks on a new month has arrived, and with that the next $1
   release! This time we look at the $1! Are you interested in last month’s
   releas...
+date: '2023-03-15T19:32:56.000Z'
 lastmod: '2023-03-15T19:51:03.000Z'
 url: /everything-new-in-sfcc-23-4/
 draft: false
 heroImage: >-
   /media/2023/vintage-style-photography-a-3d-bar-chart-showing-the-progress-of-a-project-against-it-00e672b142.jpeg
-date: '2023-03-15T19:32:56.000Z'
 categories:
   - Release Notes
   - Salesforce Commerce Cloud

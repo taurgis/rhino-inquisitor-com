@@ -4,11 +4,11 @@ description: >-
   "$1" is in our rear view mirror, but some new updates to the platform are
   ahead! This time, we look at the $1! Are you interested in last month’s
   releas...
+date: '2024-06-03T12:04:25.000Z'
 lastmod: '2024-06-03T12:04:39.000Z'
 url: /what-is-new-in-sfcc-24-6/
 draft: false
 heroImage: /media/2024/searching-on-a-highway-89effbcf76.jpg
-date: '2024-06-03T12:04:25.000Z'
 categories:
   - Release Notes
   - Salesforce Commerce Cloud

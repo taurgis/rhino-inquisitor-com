@@ -3,11 +3,11 @@ title: What is new in the 23.8 Commerce Cloud release?
 description: >-
   Everyone knows that getting ready for the holiday season starts in the summer
   in the Commerce Cloud world! And looking at the $1 this is apparent. Are y...
+date: '2023-07-27T13:28:13.000Z'
 lastmod: '2023-07-29T20:05:35.000Z'
 url: /what-is-new-in-the-23-8-commerce-cloud-release/
 draft: false
 heroImage: /media/2023/christmas-at-the-beach-scaled-75bd57b575.jpg
-date: '2023-07-27T13:28:13.000Z'
 categories:
   - Release Notes
   - Salesforce Commerce Cloud

@@ -4,11 +4,11 @@ description: >-
   An interactive guide for new SFCC developers. Explore SFRA architecture,
   compare frameworks, and learn essential tools, best practices, and common
   pitfa...
+date: '2026-01-12T14:05:43.000Z'
 lastmod: '2026-01-09T12:49:20.000Z'
 url: /kickstart-guide-for-new-sfcc-developers/
 draft: false
 heroImage: /media/2025/the-new-salesforce-developer-scaled-1f8ff6fbac.jpeg
-date: '2026-01-12T14:05:43.000Z'
 categories:
   - Salesforce Commerce Cloud
 tags:

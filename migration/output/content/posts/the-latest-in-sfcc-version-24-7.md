@@ -4,11 +4,11 @@ description: >-
   In some places there is too much rain, in other places it is too hot.The
   weather might not bee consistent, but the release schedule of SFCC sure is!
   Thi...
+date: '2024-07-08T07:51:29.000Z'
 lastmod: '2024-07-08T07:53:46.000Z'
 url: /the-latest-in-sfcc-version-24-7/
 draft: false
 heroImage: /media/2024/salesforce-b2c-commerce-cloud-24-7-release-notes-7b5bf8e6a0.jpg
-date: '2024-07-08T07:51:29.000Z'
 categories:
   - Release Notes
   - Salesforce Commerce Cloud

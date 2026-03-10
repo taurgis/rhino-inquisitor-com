@@ -4,11 +4,11 @@ description: >-
   $1, Salesforce's official learning platform, offers a wide range of courses
   that help individuals acquire the new skills and knowledge needed to
   succeed...
+date: '2024-04-29T07:43:13.000Z'
 lastmod: '2024-04-29T07:46:01.000Z'
 url: /the-sunsetting-of-arc300-architect-b2c-commerce-solutions/
 draft: false
 heroImage: /media/2024/sunsetting-arc300-course-65cd719d15.jpg
-date: '2024-04-29T07:43:13.000Z'
 categories:
   - Salesforce Commerce Cloud
 tags:

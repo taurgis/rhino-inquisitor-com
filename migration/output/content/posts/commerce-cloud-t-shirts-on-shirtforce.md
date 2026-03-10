@@ -3,11 +3,11 @@ title: 'Commerce Cloud t-shirts on #shirtforce'
 description: >-
   $1 was created as a community project, supplying (hopefully) humorous t Shirt
   designs to for folk in the tech industry, primarily focused at those in th...
+date: '2023-06-05T06:43:00.000Z'
 lastmod: '2023-06-06T08:54:49.000Z'
 url: /commerce-cloud-t-shirts-on-shirtforce/
 draft: false
 heroImage: /media/2022/shirtforce-bugs-f0a63ab31a.jpg
-date: '2023-06-05T06:43:00.000Z'
 categories:
   - Community
 tags:

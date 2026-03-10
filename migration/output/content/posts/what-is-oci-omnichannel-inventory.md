@@ -3,11 +3,11 @@ title: What is OCI (Omnichannel Inventory)
 description: >-
   OCI ($1) has been a part of the Salesforce B2C Commerce Cloud offering for a
   while. Originally it was part of the OMS ($1, but it was decided to split i...
+date: '2022-08-08T14:35:58.000Z'
 lastmod: '2022-11-19T10:09:21.000Z'
 url: /what-is-oci-omnichannel-inventory/
 draft: false
 heroImage: /media/2022/omnichannel-inventory-865b640973.jpg
-date: '2022-08-08T14:35:58.000Z'
 categories:
   - Salesforce Commerce Cloud
 tags:

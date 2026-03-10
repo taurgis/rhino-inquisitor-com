@@ -4,11 +4,11 @@ description: >-
   We have just received the final release ($1) of the year. But that does not
   mean there are no updates to some APIs and cartridges. Let us have a look
   wh...
+date: '2022-10-24T17:48:25.000Z'
 lastmod: '2022-10-24T17:52:28.000Z'
 url: /salesforce-b2c-commerce-cloud-october-updates/
 draft: false
 heroImage: /media/2022/people-upgrading-a-server-rack-0c2ba08791.png
-date: '2022-10-24T17:48:25.000Z'
 categories:
   - Release Notes
   - Salesforce Commerce Cloud

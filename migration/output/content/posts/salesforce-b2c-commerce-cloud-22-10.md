@@ -4,11 +4,11 @@ description: >-
   What a year it has been, and now it is time for the final release of this
   year: the $1! And yes, as it is every year, there will be no releases
   between...
+date: '2022-09-28T13:33:05.000Z'
 lastmod: '2022-10-03T11:59:36.000Z'
 url: /salesforce-b2c-commerce-cloud-22-10/
 draft: false
 heroImage: /media/2022/tiktok-1-d92d51296d.jpg
-date: '2022-09-28T13:33:05.000Z'
 categories:
   - Release Notes
   - Salesforce Commerce Cloud

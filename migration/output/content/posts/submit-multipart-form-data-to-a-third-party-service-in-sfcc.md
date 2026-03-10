@@ -3,11 +3,11 @@ title: Submit "multipart/form-data" to a third-party service in SFCC
 description: >-
   A use case you will not run into often is submitting a file to a third party
   service. And it is not easy to find documentation or examples on how to do...
+date: '2022-05-23T16:17:58.000Z'
 lastmod: '2022-07-23T22:01:29.000Z'
 url: /submit-multipart-form-data-to-a-third-party-service-in-sfcc/
 draft: false
 heroImage: /media/2022/files-cb310f59d5.jpeg
-date: '2022-05-23T16:17:58.000Z'
 categories:
   - Technical
 tags:

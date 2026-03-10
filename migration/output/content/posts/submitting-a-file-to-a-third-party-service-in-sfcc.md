@@ -4,11 +4,11 @@ description: >-
   Salesforce B2C Commerce Cloud provides developers and architects with a $1,
   making it much more streamlined to get up and running. With the $1 you get
   s...
+date: '2023-01-02T08:00:00.000Z'
 lastmod: '2022-12-29T18:02:41.000Z'
 url: /submitting-a-file-to-a-third-party-service-in-sfcc/
 draft: false
 heroImage: /media/2022/file-upload-86681d338b.jpg
-date: '2023-01-02T08:00:00.000Z'
 categories:
   - Salesforce Commerce Cloud
   - Technical

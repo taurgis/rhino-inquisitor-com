@@ -4,11 +4,11 @@ description: >-
   Clarity and efficiency are key in the strategic display and management of
   products in your online store. In an age where various product options and
   var...
+date: '2023-11-20T11:08:09.000Z'
 lastmod: '2023-11-20T11:59:10.000Z'
 url: /slicing-versus-variation-groups-in-sfcc/
 draft: false
 heroImage: /media/2023/a-tshirt-sliced-into-multiple-colors-scaled-4ed0b9ab1a.jpg
-date: '2023-11-20T11:08:09.000Z'
 categories:
   - Documentation
   - Salesforce Commerce Cloud

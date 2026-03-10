@@ -3,11 +3,11 @@ title: A look back at Origin Shielding
 description: >-
   September has shown its face, and the sunny weather (at least here) is ending.
   And with that also the complete activation of $1, or it simply: "Putting...
+date: '2022-09-07T19:53:27.000Z'
 lastmod: '2022-09-07T19:53:35.000Z'
 url: /a-look-back-at-origin-shielding/
 draft: false
 heroImage: /media/2022/look-back-scaled-7bb346c563.jpg
-date: '2022-09-07T19:53:27.000Z'
 categories:
   - Community
 tags:

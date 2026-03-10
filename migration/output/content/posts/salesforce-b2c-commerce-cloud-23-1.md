@@ -3,11 +3,11 @@ title: Salesforce B2C Commerce Cloud 23.1
 description: >-
   Summer has arrived, and so has the next Salesforce B2C Commerce Cloud release!
   This time we look at the $1! Are you interested in last month’s release n...
+date: '2022-12-19T08:35:50.000Z'
 lastmod: '2023-03-01T18:52:05.000Z'
 url: /salesforce-b2c-commerce-cloud-23-1/
 draft: false
 heroImage: /media/2022/a-shopping-cart-with-fireworks-d5005827cc.jpg
-date: '2022-12-19T08:35:50.000Z'
 categories:
   - Release Notes
   - Salesforce Commerce Cloud

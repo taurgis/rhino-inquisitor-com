@@ -4,11 +4,11 @@ description: >-
   The importance of security in any digital environment can not be stressed
   enough. Even though $1 is a SaaS solution, you are still in charge of your
   sys...
+date: '2024-01-15T17:47:00.000Z'
 lastmod: '2024-01-08T20:35:25.000Z'
 url: /three-things-to-secure-sfcc/
 draft: false
 heroImage: /media/2022/robot-locking-a-gate-9a4abf2129.png
-date: '2024-01-15T17:47:00.000Z'
 categories:
   - Salesforce Commerce Cloud
   - Technical

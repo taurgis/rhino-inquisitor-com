@@ -3,11 +3,11 @@ title: Transforming the Future with the 23.9 Release and Custom SCAPI Endpoints
 description: >-
   We are getting closer to the holiday period, and also one of the last releases
   of the year! This time we look at the $1! Are you interested in last mont...
+date: '2023-08-28T07:35:34.000Z'
 lastmod: '2023-08-28T07:35:45.000Z'
 url: /a-look-at-the-23-9-commerce-cloud-release/
 draft: false
 heroImage: /media/2023/japan-shopping-street-23-9-bd4ea7a693.jpeg
-date: '2023-08-28T07:35:34.000Z'
 categories:
   - Release Notes
   - Salesforce Commerce Cloud

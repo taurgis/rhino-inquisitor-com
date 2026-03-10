@@ -4,11 +4,11 @@ description: >-
   Have you ever wondered how some people seem to have it all together? How do
   they manage to balance work, family, and personal interests? I often get
   ask...
+date: '2023-11-06T17:31:55.000Z'
 lastmod: '2023-11-06T17:32:02.000Z'
 url: /life-is-about-choices/
 draft: false
 heroImage: /media/2023/choice-7e620aaf1c.jpeg
-date: '2023-11-06T17:31:55.000Z'
 categories:
   - Community
 tags:

@@ -3,11 +3,11 @@ title: 'Salesforce B2C Commerce: The 22.6 Release'
 description: >-
   Again, here we are with the latest $1 of Salesforce B2C Commerce Cloud; time
   flies by fast, doesn't it? Let us go over the $1! Einstein Dashboards In th...
+date: '2022-05-16T13:52:22.000Z'
 lastmod: '2022-07-23T21:54:27.000Z'
 url: /salesforce-b2c-commerce-the-22-6-release/
 draft: false
 heroImage: /media/2022/22-6-release-einstein-dashboards-722f4cbace.png
-date: '2022-05-16T13:52:22.000Z'
 categories:
   - Release Notes
   - Salesforce Commerce Cloud

@@ -3,11 +3,11 @@ title: 'B2C Commerce Cloud Introduction: Exploring Features & Tech Stacks'
 description: >-
   Join us for an insightful episode as we delve into the Salesforce B2C Commerce
   Cloud world! We’ll trace the product’s journey, including its acquisition...
+date: '2024-10-28T06:53:07.000Z'
 lastmod: '2024-10-28T06:53:53.000Z'
 url: /sfcc-introduction/
 draft: false
 heroImage: /media/2024/b2c-commerce-cloud-introduction-323fe8bb6c.jpg
-date: '2024-10-28T06:53:07.000Z'
 categories:
   - Uncategorized
 tags:

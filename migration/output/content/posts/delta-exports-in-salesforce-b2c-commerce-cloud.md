@@ -4,11 +4,11 @@ description: >-
   You probably already knew that it is possible to do full exports of your
   customer lists and catalogs from Salesforce B2C Commerce Cloud. This can be
   don...
+date: '2022-08-01T14:18:24.000Z'
 lastmod: '2022-09-10T04:43:39.000Z'
 url: /delta-exports-in-salesforce-b2c-commerce-cloud/
 draft: false
 heroImage: /media/2022/sharinglargefiles-c0cb3315f4.png
-date: '2022-08-01T14:18:24.000Z'
 categories:
   - Salesforce Commerce Cloud
   - Technical

@@ -3,11 +3,11 @@ title: Salesforce B2C Commerce Cloud 23.2
 description: >-
   February is almost here, and so is the $1 (23.2) release! If you are an avid
   user of Page Designer, this is the update you have been waiting for and Sal...
+date: '2023-01-18T19:00:06.000Z'
 lastmod: '2023-01-20T15:36:31.000Z'
 url: /salesforce-b2c-commerce-cloud-23-2/
 draft: false
 heroImage: /media/2023/artist-painting-on-screen-7d21e84105.jpg
-date: '2023-01-18T19:00:06.000Z'
 categories:
   - Release Notes
   - Salesforce Commerce Cloud

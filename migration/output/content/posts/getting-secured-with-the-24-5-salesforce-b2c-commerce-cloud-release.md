@@ -3,11 +3,11 @@ title: Getting secured with the 24.5 Salesforce B2C Commerce Cloud release
 description: >-
   Again, it is time for the monthly Salesforce B2C Commerce Cloud release! This
   time, we look at the $1! Are you interested in last month’s release notes?...
+date: '2024-05-03T11:25:41.000Z'
 lastmod: '2024-05-06T07:48:10.000Z'
 url: /getting-secured-with-the-24-5-salesforce-b2c-commerce-cloud-release/
 draft: false
 heroImage: /media/2024/robots-behind-bars-e1714735507313-e727779a98.jpg
-date: '2024-05-03T11:25:41.000Z'
 categories:
   - Release Notes
   - Salesforce Commerce Cloud

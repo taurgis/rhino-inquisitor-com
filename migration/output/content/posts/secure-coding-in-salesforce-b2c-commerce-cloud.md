@@ -3,11 +3,11 @@ title: Secure Coding in Salesforce B2C Commerce Cloud
 description: >-
   Salesforce B2C Commerce Cloud provides many security features out of the box.
   And because it is a $1 solution, the security of the servers is handled by...
+date: '2022-04-26T12:09:00.000Z'
 lastmod: '2022-07-23T21:36:32.000Z'
 url: /secure-coding-in-salesforce-b2c-commerce-cloud/
 draft: false
 heroImage: /media/2022/code-security-147ad97b77.jpeg
-date: '2022-04-26T12:09:00.000Z'
 categories:
   - Salesforce Commerce Cloud
   - Technical

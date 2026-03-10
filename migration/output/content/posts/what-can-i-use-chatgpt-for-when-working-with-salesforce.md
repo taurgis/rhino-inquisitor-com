@@ -4,11 +4,11 @@ description: >-
   The year is coming to an end, but what a year it has been. As the news was
   announcing lockdowns to be over and $1, the world was in turmoil again when
   R...
+date: '2022-12-26T06:44:32.000Z'
 lastmod: '2022-12-25T15:23:41.000Z'
 url: /what-can-i-use-chatgpt-for-when-working-with-salesforce/
 draft: false
 heroImage: /media/2022/robot-writing-code-chatgpt-4ba7e2995f.jpg
-date: '2022-12-26T06:44:32.000Z'
 categories:
   - Corporate
 tags:

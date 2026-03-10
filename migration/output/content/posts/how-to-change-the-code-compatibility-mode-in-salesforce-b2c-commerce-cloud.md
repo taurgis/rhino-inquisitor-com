@@ -4,11 +4,11 @@ description: >-
   "How do I update my Compatibility mode to vxx.xx?" This is a question that
   many have asked over the years, especially with the On Demand Sandboxes
   takin...
+date: '2022-11-14T08:04:44.000Z'
 lastmod: '2022-11-19T09:06:30.000Z'
 url: /how-to-change-the-code-compatibility-mode-in-salesforce-b2c-commerce-cloud/
 draft: false
 heroImage: /media/2022/sfcc-compatibility-mode-46f9d84af8.jpg
-date: '2022-11-14T08:04:44.000Z'
 categories:
   - Salesforce Commerce Cloud
   - Technical

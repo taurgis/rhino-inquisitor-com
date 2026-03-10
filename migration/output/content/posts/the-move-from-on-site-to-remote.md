@@ -3,11 +3,11 @@ title: The move from on-site to remote
 description: >-
   Ah, yes, working remotely. The bane of many employers before 2020 and the new
   normal now. If anything can be said about the health crisis that has been...
+date: '2022-12-12T08:15:25.000Z'
 lastmod: '2023-01-15T08:46:26.000Z'
 url: /the-move-from-on-site-to-remote/
 draft: false
 heroImage: /media/2022/remote-work-5d0888fb2c.png
-date: '2022-12-12T08:15:25.000Z'
 categories:
   - Corporate
 tags:

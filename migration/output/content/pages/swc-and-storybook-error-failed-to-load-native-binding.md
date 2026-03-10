@@ -3,6 +3,7 @@ title: 'SWC And Storybook: Error: Failed to load native binding'
 description: >-
   When switching between my M1 MacBook and Intel X64 MacBook today, I ran into
   an odd error: Solution Deleting my package lock.json file and node\ modules...
+date: '2024-10-19T16:33:40.000Z'
 lastmod: '2024-10-19T16:39:11.000Z'
 url: /swc-and-storybook-error-failed-to-load-native-binding/
 draft: false

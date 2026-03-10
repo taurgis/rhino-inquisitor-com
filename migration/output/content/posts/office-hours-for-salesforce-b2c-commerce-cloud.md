@@ -3,11 +3,11 @@ title: Office Hours for Salesforce B2C Commerce Cloud
 description: >-
   Office Hours are a great way to stay up to date on a specific topic within the
   Salesforce ecosystem. But what are these "Office Hours," and why should y...
+date: '2022-10-03T18:06:14.000Z'
 lastmod: '2022-10-03T18:06:22.000Z'
 url: /office-hours-for-salesforce-b2c-commerce-cloud/
 draft: false
 heroImage: /media/2022/question-answer-e73f7d862a.jpg
-date: '2022-10-03T18:06:14.000Z'
 categories:
   - Community
 tags:

@@ -4,11 +4,11 @@ description: >-
   Sooner or later, a client will ask: "Can we attach the PDF invoice to the
   order confirmation email?" In the world of Salesforce B2C Commerce Cloud, a
   se...
+date: '2022-03-15T06:04:04.000Z'
 lastmod: '2025-07-16T14:10:47.000Z'
 url: /mail-attachments-in-b2c-commerce-cloud/
 draft: false
 heroImage: /media/2022/mail-a7e287274f.jpg
-date: '2022-03-15T06:04:04.000Z'
 categories:
   - Salesforce Commerce Cloud
   - Technical

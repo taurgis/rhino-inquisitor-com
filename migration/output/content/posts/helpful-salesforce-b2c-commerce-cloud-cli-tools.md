@@ -3,11 +3,11 @@ title: Helpful Salesforce B2C Commerce Cloud CLI tools
 description: >-
   Although Salesforce B2C Commerce Cloud is a ‘niche’ developer space, there is
   no shortage of $1 available to make our lives a little bit easier. In this...
+date: '2023-09-11T17:19:00.000Z'
 lastmod: '2023-09-18T12:33:59.000Z'
 url: /helpful-salesforce-b2c-commerce-cloud-cli-tools/
 draft: false
 heroImage: /media/2022/5517c6d9-6282-4468-a840-0af54ac19068-9222fff64d.png
-date: '2023-09-11T17:19:00.000Z'
 categories:
   - Salesforce Commerce Cloud
   - Technical

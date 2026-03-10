@@ -5,11 +5,11 @@ title: >-
 description: >-
   For years, the Salesforce B2C Commerce go live process has been a well trodden
   path. The Site Readiness Assessment (SRA) served as our trusted map, guid...
+date: '2025-12-15T10:39:06.000Z'
 lastmod: '2025-12-19T09:56:27.000Z'
 url: /your-definitive-mobile-app-checklist/
 draft: false
 heroImage: /media/2025/headless-app-go-live-scaled-89b046ecca.jpeg
-date: '2025-12-15T10:39:06.000Z'
 categories:
   - Salesforce Commerce Cloud
 tags:

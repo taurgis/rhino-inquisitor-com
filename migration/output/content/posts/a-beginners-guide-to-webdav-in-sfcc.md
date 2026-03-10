@@ -5,11 +5,11 @@ title: >-
 description: >-
   File Management is critical and necessary in any project. How else can we work
   with mass data transfers or logging mechanisms? This blog post will explo...
+date: '2024-01-01T17:06:50.000Z'
 lastmod: '2023-12-31T19:52:11.000Z'
 url: /a-beginners-guide-to-webdav-in-sfcc/
 draft: false
 heroImage: /media/2023/webdav-storing-files-scaled-8c216a580f.jpg
-date: '2024-01-01T17:06:50.000Z'
 categories:
   - Salesforce Commerce Cloud
   - Technical

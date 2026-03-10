@@ -4,11 +4,11 @@ description: >-
   Salesforce B2C Commerce is a $1 that enables businesses to create highly
   customised and scalable digital storefronts. One of the key components (and
   adv...
+date: '2023-04-17T14:18:06.000Z'
 lastmod: '2023-04-17T14:18:18.000Z'
 url: /understanding-sfcc-instances/
 draft: false
 heroImage: /media/2023/salesforce-b2c-commerce-cloud-instances-scaled-59ed2cbb06.jpeg
-date: '2023-04-17T14:18:06.000Z'
 categories:
   - Architecture
   - Salesforce Commerce Cloud

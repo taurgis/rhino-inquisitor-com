@@ -4,11 +4,11 @@ description: >-
   You have probably come out empty handed when scouring the documentation for
   the Content ERD ($1) of $1. Sure, you find many diagrams on the entity
   model...
+date: '2023-02-20T05:40:33.000Z'
 lastmod: '2023-02-26T17:52:51.000Z'
 url: /salesforce-b2c-commerce-cloud-content-erd/
 draft: false
 heroImage: /media/2023/digital-documents-connected-with-wires-a9bf53e13a.jpg
-date: '2023-02-20T05:40:33.000Z'
 categories:
   - Salesforce Commerce Cloud
   - Technical

@@ -4,11 +4,11 @@ description: >-
   In the dynamic world of eCommerce, the concept of $1 holds significant
   importance. It empowers merchants to effectively present a range of product
   optio...
+date: '2025-04-14T07:17:18.000Z'
 lastmod: '2025-04-23T07:24:17.000Z'
 url: /local-vs-shared-variation-attributes-sfcc/
 draft: false
 heroImage: /media/2025/variation-attributes-e1743754688196-8eda8ce6ea.jpg
-date: '2025-04-14T07:17:18.000Z'
 categories:
   - Salesforce Commerce Cloud
   - Technical
