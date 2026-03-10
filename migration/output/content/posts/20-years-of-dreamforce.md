@@ -23,7 +23,7 @@ But how does Salesforce B2C Commerce Cloud fare in this large event, and what co
 
 ## Let us meet up!
 
-![](/media/2022/dreamforce-cosy-c3b16ff3d4.jpg)
+![Dreamforce attendee checking a phone in a lounge area.](/media/2022/dreamforce-cosy-c3b16ff3d4.jpg)
 
 Ok... don't be on your cellphone the entire time!
 
@@ -57,7 +57,7 @@ The keynotes can be viewed through [Salesforce+](https://www.salesforce.com/plus
 
 ## Building your agenda​
 
-![](/media/2022/writing-agenda-ba6ec896c4.jpg)
+![Notebook and laptop laid out while planning a conference agenda.](/media/2022/writing-agenda-ba6ec896c4.jpg)
 
 There are about 1200 sessions over three days at Dreamforce. Building a schedule will not be an easy task! And be sure your predefined schedule will be thrown in the trash when the day arrives.
 
@@ -112,7 +112,7 @@ Given the more prominent focus on allowing customers to go Headless on the Sales
 
 ### Architect’s Guide to Building a Cross-Cloud Career
 
-![](/media/2022/community-speaker-9f72758dd2.jpg)
+![Community speaker spotlight graphic used for featured sessions.](/media/2022/community-speaker-9f72758dd2.jpg)
 
 -   [Mike King](https://www.linkedin.com/in/mikeeking/)
 -   Theatre Session
@@ -137,7 +137,7 @@ _Who knows, I might be wearing a new fitting shirt design._
 
 ### Architect’s Review of Cross-Cloud Customer Data Modeling
 
-![](/media/2022/community-speaker-9f72758dd2.jpg)
+![Community speaker spotlight graphic used for featured sessions.](/media/2022/community-speaker-9f72758dd2.jpg)
 
 -   [Mike King](https://www.linkedin.com/in/mikeeking/)
 -   [Melissa Murphy](https://www.linkedin.com/in/melissa-murphy-312681b8/)
@@ -162,7 +162,7 @@ Headless, API-first, composable, etc., have many approaches. And hearing other p
 
 ### How to Boost Ecommerce Sales with Commerce for Social
 
-![](/media/2022/community-speaker-9f72758dd2.jpg)
+![Community speaker spotlight graphic used for featured sessions.](/media/2022/community-speaker-9f72758dd2.jpg)
 
 -   [Francesca Liu](https://www.linkedin.com/in/francesca-liu-b5757797/)
 -   [Bhagath Ganga](https://www.linkedin.com/in/bhagathganga/)
@@ -205,7 +205,7 @@ Another session about the roadmap, but always good to have a peak to learn what 
 
 ### Commerce Cloud Developer Experience
 
-![](/media/2022/community-speaker-9f72758dd2.jpg)
+![Community speaker spotlight graphic used for featured sessions.](/media/2022/community-speaker-9f72758dd2.jpg)
 
 -   [Andrew Lawrence](https://www.linkedin.com/in/andrew9990/)
 -   Theatre Session
@@ -222,16 +222,16 @@ Like mentioned before, there are over a 1000 sessions, so choices will have to b
 
 ## Party Time
 
-![](/media/2022/dreamforce-red-hot-chili-peppers-2e81650f2f.jpg)
+![Red Hot Chili Peppers performing on stage at Dreamforce.](/media/2022/dreamforce-red-hot-chili-peppers-2e81650f2f.jpg)
 
 It wouldn't be a Salesforce event if there weren't a big party! Dreamforce is no different; a fantastic night of entertainment has been planned.
 
 ## Red Hot Chili Peppers
 
-#### Red Hot Chili Peppers - Californication \[Official Music Video\]
+### Red Hot Chili Peppers - Californication \[Official Music Video\]
 
-#### Red Hot Chili Peppers - Otherside \[Official Music Video\]
+### Red Hot Chili Peppers - Otherside \[Official Music Video\]
 
-#### Red Hot Chili Peppers - Can't Stop \[Official Music Video\]
+### Red Hot Chili Peppers - Can't Stop \[Official Music Video\]
 
-#### Red Hot Chili Peppers - Under The Bridge \[Official Music Video\]
+### Red Hot Chili Peppers - Under The Bridge \[Official Music Video\]

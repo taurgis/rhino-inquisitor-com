@@ -13,7 +13,7 @@ author: Thomas Theunen
 
 One important rule when creating a new start-up: There are no shortcuts.
 
-[My Mission In Life](#mission)
+[My Mission In Life](#my-mission-statement)
 
 ### My Approach To Company Growth
 
@@ -21,7 +21,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. In elementum mi neque, 
 
 Phasellus ac nunc vel urna auctor sodales. Fusce id mauris scelerisque est bibendum gravida. Donec luctus est libero, mattis finibus urna facilisis vel. In tristique ex in dui facilisis malesuada. Etiam sit amet ultrices turpis, et congue nisi. Nullam at efficitur massa, quis eleifend mauris. Nullam sollicitudin ligula et maximus semper. Etiam suscipit elit arcu, nec maximus nibh tempus id. Nullam sit amet est a magna aliquet elementum eget et leo.
 
-![](/media/2022/about-page-pic1-d641346b49.jpg) ![](/media/2022/about-page-pic2-3662ca760e.jpg)
+![Founder portrait at a desk with office plants.](/media/2022/about-page-pic1-d641346b49.jpg) ![Workspace portrait with a laptop and studio greenery.](/media/2022/about-page-pic2-3662ca760e.jpg)
 
 ### My Mission Statement
 

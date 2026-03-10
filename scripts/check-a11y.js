@@ -7,7 +7,6 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, "..");
-const publicDir = path.join(rootDir, "public");
 const configPath = path.join(rootDir, ".pa11yci.json");
 const pa11yCiPath = path.join(
   rootDir,
@@ -38,7 +37,7 @@ function getContentType(filePath) {
   return contentTypes[path.extname(filePath).toLowerCase()] ?? "application/octet-stream";
 }
 
-function toFilePath(requestPathname) {
+function toFilePath(requestPathname, publicDir) {
   const decodedPath = decodeURIComponent(requestPathname);
   const normalizedPath = path.posix.normalize(decodedPath);
   const relativePath = normalizedPath === "/"
@@ -68,12 +67,13 @@ async function serveFile(filePath, response) {
 }
 
 async function createStaticServer() {
+  const publicDir = resolvePublicDir();
   await access(publicDir);
 
   const server = createServer(async (request, response) => {
     try {
       const requestUrl = new URL(request.url ?? "/", "http://127.0.0.1");
-      const primaryPath = toFilePath(requestUrl.pathname);
+      const primaryPath = toFilePath(requestUrl.pathname, publicDir);
 
       if (!primaryPath) {
         response.writeHead(400, { "Content-Type": "text/plain; charset=utf-8" });
@@ -112,6 +112,7 @@ async function createStaticServer() {
       const address = server.address();
       resolve({
         server,
+        publicDir,
         baseUrl: `http://127.0.0.1:${address.port}`,
       });
     });
@@ -122,7 +123,8 @@ async function createGeneratedConfig(baseUrl) {
   const rawConfig = JSON.parse(await readFile(configPath, "utf8"));
   const tempDir = await mkdtemp(path.join(tmpdir(), "rhi-pa11y-"));
   const generatedConfigPath = path.join(tempDir, ".pa11yci.generated.json");
-  const urls = (rawConfig.urls ?? []).map((entry) => {
+  const configuredUrls = readConfiguredUrls();
+  const urls = (configuredUrls ?? rawConfig.urls ?? []).map((entry) => {
     if (typeof entry === "string") {
       return new URL(entry, baseUrl).toString();
     }
@@ -160,11 +162,36 @@ async function runPa11y(configFile) {
   });
 }
 
+function resolvePublicDir() {
+  return path.resolve(process.env.CHECK_A11Y_PUBLIC_DIR ?? path.join(rootDir, "public"));
+}
+
+function readConfiguredUrls() {
+  const rawValue = process.env.CHECK_A11Y_URLS;
+  if (!rawValue) {
+    return null;
+  }
+
+  try {
+    const parsed = JSON.parse(rawValue);
+    if (Array.isArray(parsed)) {
+      return parsed;
+    }
+  } catch {
+    // Fall back to delimiter parsing below.
+  }
+
+  return rawValue
+    .split(/[\n,]/u)
+    .map((value) => value.trim())
+    .filter(Boolean);
+}
+
 async function main() {
-  const { server, baseUrl } = await createStaticServer();
+  const { server, baseUrl, publicDir } = await createStaticServer();
   const { generatedConfigPath, cleanup } = await createGeneratedConfig(baseUrl);
 
-  console.log(`Serving public/ at ${baseUrl}`);
+  console.log(`Serving ${path.relative(rootDir, publicDir) || "."}/ at ${baseUrl}`);
 
   try {
     const exitCode = await runPa11y(generatedConfigPath);

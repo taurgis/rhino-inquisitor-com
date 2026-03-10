@@ -23,7 +23,7 @@
 | [RHI-037](RHI-037-media-migration-asset-hygiene.md) | Workstream F — Media Migration and Asset Hygiene | WS-F | High | Open | L | 2026-04-18 | RHI-031, RHI-034 |
 | [RHI-038](RHI-038-internal-link-navigation-rewrites.md) | Workstream G — Internal Link and Navigation Rewrites | WS-G | High | Done | M | 2026-04-18 | RHI-031, RHI-034, RHI-035, RHI-036 |
 | [RHI-039](RHI-039-seo-signal-preservation.md) | Workstream H — SEO Signal Preservation | WS-H | High | Done | M | 2026-04-17 | RHI-031, RHI-035 |
-| [RHI-040](RHI-040-accessibility-content-semantics.md) | Workstream I — Accessibility and Content Semantics | WS-I | Medium | Open | M | 2026-04-18 | RHI-031, RHI-034 |
+| [RHI-040](RHI-040-accessibility-content-semantics.md) | Workstream I — Accessibility and Content Semantics | WS-I | Medium | In Progress | M | 2026-04-18 | RHI-031, RHI-034 |
 | [RHI-041](RHI-041-security-data-hygiene.md) | Workstream J — Security and Data Hygiene | WS-J | Medium | Open | M | 2026-04-18 | RHI-031, RHI-034 |
 | [RHI-042](RHI-042-reporting-traceability-audit.md) | Workstream K — Reporting, Traceability, and Audit | WS-K | High | Open | M | 2026-04-17 | RHI-031, RHI-032 |
 | [RHI-043](RHI-043-pilot-batch-migration.md) | Batch 1 — Pilot Migration Run (20–30 Records) | Batch | Critical | Open | M | 2026-04-22 | RHI-032 through RHI-042 |

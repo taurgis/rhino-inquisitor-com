@@ -378,6 +378,37 @@ This runbook tracks the operational steps needed to move the repository from pla
   - `npm run check:media -- --content-dir migration/output/content --public-dir tmp/rhi037-public` now reports 0 failures on the staged release-candidate content set
   - Markdown body images now resolve through a Hugo render hook backed by global resources, but bulk `.Process` transforms were intentionally not applied in the render hook after the staged build hit Hugo memory/panic failures
 
+### RHI-040 - Accessibility and Content Semantics
+
+- Run the Markdown-level accessibility gate with `npm run check:a11y-content`.
+- Current owner-approved threshold contract for the 2026-03-10 implementation:
+  - blocking cap: `0`
+  - weak-link warning cap: `5` findings per batch
+  - generic or filename-like alt text is `blocking`
+  - empty alt text is only allowed when the image is declared explicitly in `migration/input/a11y-content-exceptions.json`
+- Optional decorative-image exception file contract:
+  - path: `migration/input/a11y-content-exceptions.json`
+  - shape: `{ "decorativeImages": [{ "file": "posts/example.md", "src": "/media/example.jpg", "reason": "decorative separator" }] }`
+  - exceptions are matched by staged content-relative file path plus image `src`
+- The content gate scans all staged Markdown under `migration/output/content/` and records per-finding output at:
+  - `migration/reports/a11y-content-warnings.csv`
+- Finding classes currently enforced by the content gate:
+  - blocking: missing alt text, generic or filename-like alt text, body `h1` headings, empty Markdown table headers
+  - warnings: skipped heading levels, weak link text (`click here`, `read more`, `here`), Markdown tables missing a divider row
+- Representative rendered-page validation still uses the Phase 3 command surface. For staged migration content, build the staged site first and then point `npm run check:a11y` at that build and sample set:
+  - `hugo --minify --environment production --contentDir migration/output/content --destination tmp/rhi040-public`
+  - `CHECK_A11Y_PUBLIC_DIR=tmp/rhi040-public CHECK_A11Y_URLS='["/","/posts/","/category/","/category/release-notes/","/about/","/video/","/how-to-set-up-slas-for-the-composable-storefront/","/how-to-use-node-18-with-sfra/","/the-realm-split-field-guide-to-migrating-an-sfcc-site/","/what-can-i-use-chatgpt-for-when-working-with-salesforce/"]' npm run check:a11y`
+- `scripts/check-a11y.js` now serves the directory from `CHECK_A11Y_PUBLIC_DIR` when present and replaces the `.pa11yci.json` route list with `CHECK_A11Y_URLS` when that env var is set to a JSON array or comma/newline-delimited list.
+- Manual keyboard review for this workstream reuses the Phase 3 checklist above. At minimum, verify on one representative migrated article that:
+  - the skip link is the first focusable element
+  - activating the skip link moves focus to `#main-content`
+  - subsequent `Tab` navigation reaches article-region interactive elements with a visible focus indicator
+- Current validated 2026-03-10 baseline status:
+  - `npm run check:a11y-content` scans 171 staged Markdown files and currently reports 238 blocking findings plus 84 warnings; the dominant blockers are 140 missing-alt findings and 95 generic-alt findings
+  - the deterministic 10-page rendered sample now passes on 10 of 10 routes after the targeted `/about/`, SLAS, ChatGPT, and code-block remediations
+  - the current highest-blocking staged files are `delta-exports-in-salesforce-b2c-commerce-cloud`, `ai-as-an-architect-and-content-creator`, `how-to-change-the-code-compatibility-mode-in-salesforce-b2c-commerce-cloud`, `sitegenesis-vs-sfra-vs-pwa`, and `what-is-commerce-on-core`
+  - RHI-040 remains open until the blocking content defects are remediated or explicitly exceptioned under the approved contract
+
 ## Phase 5 - SEO and Discoverability
 
 Placeholder for sitemap, canonical, feed, and Search Console execution steps.

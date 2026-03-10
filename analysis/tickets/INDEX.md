@@ -68,7 +68,7 @@ This is the top-level ticket index for the full migration project. Use the phase
 | [RHI-037](phase-4/RHI-037-media-migration-asset-hygiene.md) | Workstream F — Media Migration and Asset Hygiene | 4 | High | Open | L | 2026-04-18 |
 | [RHI-038](phase-4/RHI-038-internal-link-navigation-rewrites.md) | Workstream G — Internal Link and Navigation Rewrites | 4 | High | Open | M | 2026-04-18 |
 | [RHI-039](phase-4/RHI-039-seo-signal-preservation.md) | Workstream H — SEO Signal Preservation | 4 | High | Open | M | 2026-04-17 |
-| [RHI-040](phase-4/RHI-040-accessibility-content-semantics.md) | Workstream I — Accessibility and Content Semantics | 4 | Medium | Open | M | 2026-04-18 |
+| [RHI-040](phase-4/RHI-040-accessibility-content-semantics.md) | Workstream I — Accessibility and Content Semantics | 4 | Medium | In Progress | M | 2026-04-18 |
 | [RHI-041](phase-4/RHI-041-security-data-hygiene.md) | Workstream J — Security and Data Hygiene | 4 | Medium | Open | M | 2026-04-18 |
 | [RHI-042](phase-4/RHI-042-reporting-traceability-audit.md) | Workstream K — Reporting, Traceability, and Audit | 4 | High | Open | M | 2026-04-17 |
 | [RHI-043](phase-4/RHI-043-pilot-batch-migration.md) | Batch 1 — Pilot Migration Run (20–30 Records) | 4 | Critical | Open | M | 2026-04-22 |

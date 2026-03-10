@@ -149,7 +149,7 @@ npm ERR! peer stylelint@"^8.0.0" from stylelint-config-standard@17.0.0
 
 ```
 
-![](/media/2023/upgrading-libraries-developer-d40cf53b81.jpg)
+![Developer reviewing dependency updates after a failed npm resolution.](/media/2023/upgrading-libraries-developer-d40cf53b81.jpg)
 
 Ok. Probably never 😅
 

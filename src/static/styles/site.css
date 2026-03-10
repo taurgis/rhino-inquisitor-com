@@ -1198,6 +1198,9 @@ summary {
 
 .article-body pre code {
   font-size: inherit;
+  display: block;
+  color: var(--ink-inverse);
+  background: var(--surface-inverse);
 }
 
 .article-body img {

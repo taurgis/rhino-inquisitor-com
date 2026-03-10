@@ -37,7 +37,7 @@ To put it in simple terms: it's [Cloudflare](https://www.cloudflare.com/)! If yo
 For the most part, Salesforce has put itself in between and taken complete control of the Cloudflare configuration.
 But luckily, they have left us with a few buttons and switches to fiddle with in the Business Manager.
 
-[![A screenshot of the eCDN configuration in the BM for the "my-domain.com" website.](/media/2022/ecdn-overview-fea46a41af.png)](/media/2022/ecdn-overview-fea46a41af.png)
+[![Embedded CDN settings for the my-domain.com storefront.](/media/2022/ecdn-overview-fea46a41af.png)](/media/2022/ecdn-overview-fea46a41af.png)
 
 Within this interface, you can configure:
 
@@ -59,7 +59,7 @@ This one should be pretty obvious, but I'll mention it anyway. Make sure the dom
 
 To point the domain to Salesforce B2C Commerce Cloud, you need access to the domain DNS configuration. In later steps, you (or someone else you are in contact with) must add [TXT](https://en.wikipedia.org/wiki/TXT_record) and [CNAME](https://en.wikipedia.org/wiki/CNAME_record) records to the DNS configuration.
 
- [![](/media/2022/add-dns-record-domain-com-245d883c43.jpg)](/media/2022/add-dns-record-domain-com-245d883c43.jpg)APEX Domain Pointing / Naked Domain It is essential to know that the APEX Domain or Naked Domain does not support CNAME records.
+ [![DNS record editor for the vanity domain.](/media/2022/add-dns-record-domain-com-245d883c43.jpg)](/media/2022/add-dns-record-domain-com-245d883c43.jpg)APEX Domain Pointing / Naked Domain It is essential to know that the APEX Domain or Naked Domain does not support CNAME records.
 
 Usually, a DNS provider has solutions for this, but this needs to be considered. In a worst-case scenario, you need to set up a "mini-server" to do the redirection of the naked domain to the www subdomain. You can find some [information on Salesforce Help](https://help.salesforce.com/s/articleView?id=000361629&type=1) on this topic.
 
@@ -110,13 +110,13 @@ To get to the eCDN configuration, go to
 
 Once the page has loaded (be patient), you will see the following at the top right of the page.
 
-[![](/media/2022/ecdn-add-hostname-719cd44c57.png)](/media/2022/ecdn-add-hostname-719cd44c57.png)
+[![Add Hostname action in Embedded CDN Settings.](/media/2022/ecdn-add-hostname-719cd44c57.png)](/media/2022/ecdn-add-hostname-719cd44c57.png)
 
 You should see the message "x hostname(s) available" if everything goes well. If not, go back to the Alias configuration to verify everything was saved correctly.
 
 Click "Add Hostname." A screen should show your configured Alias domain and to which site it is assigned.
 
-[![](/media/2022/ecdn-add-hostname-second-step-1cfd425363.png)](/media/2022/ecdn-add-hostname-second-step-1cfd425363.png)
+[![Create Zone dialog for the selected hostname.](/media/2022/ecdn-add-hostname-second-step-1cfd425363.png)](/media/2022/ecdn-add-hostname-second-step-1cfd425363.png)
 
 Click "Create Zone." Be patient; it can take a while before something happens.
 
@@ -124,13 +124,13 @@ Click "Create Zone." Be patient; it can take a while before something happens.
 
 Once the page responds in the previous step, you should see something like this.
 
-[![](/media/2022/ecdn-verification-needed-4d10fff1bf.png)](/media/2022/ecdn-verification-needed-4d10fff1bf.png)
+[![Hostname row marked as verification needed.](/media/2022/ecdn-verification-needed-4d10fff1bf.png)](/media/2022/ecdn-verification-needed-4d10fff1bf.png)
 
 If you see the above, you are well on your way! But there is a clear message: "Verification needed."
 
 Before continuing, we need to verify that we own the domain. Click the text "Verification needed," and you will see more information on the next steps.
 
-[![](/media/2022/ecdn-verification-needed-step2-7bd0bfea95.png)](/media/2022/ecdn-verification-needed-step2-7bd0bfea95.png)
+[![Verification details with the required TXT record value.](/media/2022/ecdn-verification-needed-step2-7bd0bfea95.png)](/media/2022/ecdn-verification-needed-step2-7bd0bfea95.png)
 
 This builds on the pre-work steps where you need access to the domain's DNS. Before we can continue with the following steps, a TXT record with the provided value needs to be added to the DNS settings of your domain.
 
@@ -144,19 +144,19 @@ From personal experience, this usually takes a couple of minutes rather than hou
 
 Now that we are a "verified owner" of the domain within the eCDN, we can start configuring that domain.
 
-[![A screenshot of the eCDN configuration in the BM for the "my-domain.com" website.](/media/2022/ecdn-overview-fea46a41af.png)](/media/2022/ecdn-overview-fea46a41af.png)
+[![Embedded CDN settings for the my-domain.com storefront.](/media/2022/ecdn-overview-fea46a41af.png)](/media/2022/ecdn-overview-fea46a41af.png)
 
 To start, click the "settings" to the right of the top-level domain.
 
 ### Set up an SSL Certificate
 
-[![](/media/2022/ecdn-crypto-settings-b5ebdefdd6.png)](/media/2022/ecdn-crypto-settings-b5ebdefdd6.png)
+[![TLS and certificate controls for the embedded CDN.](/media/2022/ecdn-crypto-settings-b5ebdefdd6.png)](/media/2022/ecdn-crypto-settings-b5ebdefdd6.png)
 
 The first screen you will land on is the "crypto" settings. This is where you manage everything about SSL and TLS settings.
 
 To add a certificate, click the "Add Certificate" button!
 
-[![](/media/2022/ecdn-upload-certificate-2447fc3d76.png)](/media/2022/ecdn-upload-certificate-2447fc3d76.png)
+[![Certificate upload form for the embedded CDN.](/media/2022/ecdn-upload-certificate-2447fc3d76.png)](/media/2022/ecdn-upload-certificate-2447fc3d76.png)
 
 The screen itself is pretty self-explanatory. If you followed the "get prepared" section at the beginning of this article, these should already be in your possession.
 
@@ -180,7 +180,7 @@ Since this includes all subdomains, ensure that no system besides Commerce Cloud
 
 ### Firewall Settings
 
-[![](/media/2022/ecdn-firewall-settings-ee94d7af54.png)](/media/2022/ecdn-firewall-settings-ee94d7af54.png)
+[![Firewall settings for security level and trusted IPs.](/media/2022/ecdn-firewall-settings-ee94d7af54.png)](/media/2022/ecdn-firewall-settings-ee94d7af54.png)
 
 You can manage the Security Level and Trusted IP Addresses in the firewall settings.
 
@@ -190,7 +190,7 @@ Using the IP Allowlisting feature, you can inform the firewall to ignore specifi
 
 ### WAF Settings
 
-[![](/media/2022/ecdn-waf-settings-3ec4c7f73e.png)](/media/2022/ecdn-waf-settings-3ec4c7f73e.png)
+[![Web application firewall controls for the embedded CDN.](/media/2022/ecdn-waf-settings-3ec4c7f73e.png)](/media/2022/ecdn-waf-settings-3ec4c7f73e.png)
 
 The WAF ([Web Application Firewall](https://www.cloudflare.com/learning/ddos/glossary/web-application-firewall-waf/)) is a Cloudflare feature that is well documented.
 
@@ -210,7 +210,7 @@ HTML Minification Those who have enabled this in the past might have wondered if
 
 If you have comments on an environment that have value for an external system, be sure not to activate this type of minification.
 
-_**Note:** This also breaks the deprecated toolkit on Development as it relies on comments._ [![](/media/2022/ecdn-speed-settings-cccba25f5e.png)](/media/2022/ecdn-speed-settings-cccba25f5e.png)
+_**Note:** This also breaks the deprecated toolkit on Development as it relies on comments._ [![Speed settings for minification and image optimization.](/media/2022/ecdn-speed-settings-cccba25f5e.png)](/media/2022/ecdn-speed-settings-cccba25f5e.png)
 
 Not much to say about this section; here, you can control a few settings that improve speed, such as minification of Javascript, CSS, and HTML.
 
@@ -224,7 +224,7 @@ Since these features are Cloudflare behind the scenes, you can also look at [the
 
 ### Customize Settings
 
-[![](/media/2022/ecdn-customize-settings-87c4ccf54c.png)](/media/2022/ecdn-customize-settings-87c4ccf54c.png)
+[![Custom error page settings for the embedded CDN.](/media/2022/ecdn-customize-settings-87c4ccf54c.png)](/media/2022/ecdn-customize-settings-87c4ccf54c.png)
 
 A section you hope you will never need. When "\*\*\*\* hits the fan," Cloudflare provides standard error pages. In this section, you can choose to load your own rather than the default.
 

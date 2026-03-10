@@ -21,11 +21,11 @@ What a year it has been, and now it is time for the final release of this year: 
 
 And yes, as it is every year, there will be no releases between November and January to provide stability on the platform during the holiday period.
 
-Are you interested in last month’s release notes? [Click here](/salesforce-b2c-commerce-cloud-22-9-release/)!
+Are you interested in last month’s release notes? [Read the September 2022 release notes](/salesforce-b2c-commerce-cloud-22-9-release/)!
 
 ## Staging eCDN configuration
 
-[![](/media/2022/ecdn-staging-464848555e.jpg)](/media/2022/ecdn-staging-464848555e.jpg)
+[![Staging eCDN configuration flow for a hybrid storefront.](/media/2022/ecdn-staging-464848555e.jpg)](/media/2022/ecdn-staging-464848555e.jpg)
 
 A big update for those working with hybrid deployments using the PWA Kit (Composable Storefront). Many issues popped up in the staging environment that had to do with custom certificates and SLAS. With this update, these will hopefully be out of the picture!
 
@@ -38,7 +38,7 @@ Business Manager The UI in the Business Manager will not reflect the changes mad
 
 ## TikTok for Ads
 
-[![](/media/2022/tiktok-bm-9172b705bb.jpg)](/media/2022/tiktok-bm-9172b705bb.jpg)
+[![Business Manager view for the TikTok integration cartridge.](/media/2022/tiktok-bm-9172b705bb.jpg)](/media/2022/tiktok-bm-9172b705bb.jpg)
 
 Since the start of this year, there has been a lot of talk about "Social Commerce," which means the integration of Salesforce B2C Commerce Cloud into different social channels such as TikTok.
 
@@ -52,7 +52,7 @@ The cartridge can be downloaded [here](https://github.com/SalesforceCommerceClou
 
 ### Origin Shielding Phase 3
 
-[![](/media/2022/origin-shielding-phase3-d9fa09fa33.jpg)](/media/2022/origin-shielding-phase3-d9fa09fa33.jpg)
+[![Origin shielding rollout note for Demandware.net lockdown.](/media/2022/origin-shielding-phase3-d9fa09fa33.jpg)](/media/2022/origin-shielding-phase3-d9fa09fa33.jpg)
 
 Phase three of Original Shielding will come into effect by locking down Demandware.net for Development and Production instances.
 
@@ -95,7 +95,7 @@ To fix some issues in the v1 hook:
 
 A new hook has been introduced.
 
- [![](/media/2022/new-hook-basket-f116a5da90.jpg)](/media/2022/new-hook-basket-f116a5da90.jpg)Deprecated Hook The v1 hook will continue to exist but is discouraged from being used.
+ [![beforePOST v2 basket hook reference in the API documentation.](/media/2022/new-hook-basket-f116a5da90.jpg)](/media/2022/new-hook-basket-f116a5da90.jpg)Deprecated Hook The v1 hook will continue to exist but is discouraged from being used.
 
 ### Edge Caching for SCAPI
 
@@ -136,7 +136,7 @@ https://admin.dx.commercecloud.salesforce.com/
 
 ## SFRA v6.2.0
 
-![](/media/2022/sfra-vs-sitegenesis-965c09b9a6.jpg)
+![Comparison between SiteGenesis and SFRA storefront stacks.](/media/2022/sfra-vs-sitegenesis-965c09b9a6.jpg)
 
 -   [https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/releases/tag/v6.2.0](https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/releases/tag/v6.2.0)
 
@@ -156,7 +156,7 @@ A new version of SFRA has popped up after months of silence, though nothing majo
 
 ## PWA Kit v2.2.0
 
-![](/media/2022/e0468610-0e86-403f-b486-743a38d4b763-d68cf607f8.png)
+![PWA Kit release graphic for version 2.2.0.](/media/2022/e0468610-0e86-403f-b486-743a38d4b763-d68cf607f8.png)
 
 -   [https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v2.2.0](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v2.2.0)
 
