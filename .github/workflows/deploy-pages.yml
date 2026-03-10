@@ -92,11 +92,35 @@ jobs:
         run: hugo --gc --minify --environment preview --baseURL "${{ steps.pages.outputs.base_url }}/"
 
       - name: Verify preview-host path prefix and noindex
+        env:
+          PAGES_BASE_URL: ${{ steps.pages.outputs.base_url }}
         shell: bash
         run: |
           set -euo pipefail
-          grep -q '/rhino-inquisitor-com/styles/site.css' public/index.html
-          grep -q 'noindex, nofollow' public/index.html
+          node <<'EOF'
+          const fs = require('node:fs');
+
+          const html = fs.readFileSync('public/index.html', 'utf8');
+          const baseUrl = process.env.PAGES_BASE_URL;
+
+          if (!baseUrl) {
+            throw new Error('Missing PAGES_BASE_URL from actions/configure-pages.');
+          }
+
+          const { pathname } = new URL(baseUrl);
+          const basePath = pathname === '/' ? '' : pathname.replace(/\/$/, '');
+          const expectedStylesheetPath = `${basePath}/styles/site.css`;
+          const escapedStylesheetPath = expectedStylesheetPath.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+          const stylesheetPattern = new RegExp(`href=(?:"|')?${escapedStylesheetPath}(?:"|')?`);
+
+          if (!stylesheetPattern.test(html)) {
+            throw new Error(`Preview HTML is missing the expected stylesheet path: ${expectedStylesheetPath}`);
+          }
+
+          if (!html.includes('noindex, nofollow')) {
+            throw new Error('Preview HTML is missing the expected noindex, nofollow robots directive.');
+          }
+          EOF
 
       - name: Add .nojekyll marker
         shell: bash
