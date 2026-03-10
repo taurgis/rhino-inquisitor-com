@@ -6,6 +6,7 @@ description: >-
 lastmod: '2025-06-25T11:58:01.000Z'
 url: /mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/
 draft: false
+heroImage: /media/2023/boxes-grouped-in-warehouse-0d6eb67465.jpg
 date: '2023-12-04T08:55:16.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -283,17 +284,17 @@ Keeping the default setting false is recommended to avoid this negative impact a
 
 Once your script module and `steptypes.json` are ready, upload them as part of your custom cartridge. You can then create a job in Business Manager with your custom chunk-oriented step to start processing data in chunks.
 
-[![A screenshot of the interface configuring a Chunk-Oriented Job Step in the Business Manager](https://www.rhino-inquisitor.com/wp-content/uploads/2023/12/configure-chunk-job-business-manager-1024x509.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/12/configure-chunk-job-business-manager-scaled.jpg)
+[![A screenshot of the interface configuring a Chunk-Oriented Job Step in the Business Manager](/media/2023/configure-chunk-job-business-manager-ce41f2bdab.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/12/configure-chunk-job-business-manager-scaled.jpg)
 
 ### Advantages of "total-count"
 
 If you decide to implement the "`total-count-function`", you can conveniently keep track of your job's progress in the Business Manager. This feature is handy if you have a large dataset and need to estimate when the job will be completed or if you want to know how far along the job has progressed on the list.
 
-![A screenshot with the processed amount showing on a custom job step in Salesforce B2C Commerce Cloud. This is an advantage of Chunk Oriented job steps.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/12/sfcc-job-status-total-count-chunks-1024x202.png)
+![A screenshot with the processed amount showing on a custom job step in Salesforce B2C Commerce Cloud. This is an advantage of Chunk Oriented job steps.](/media/2023/sfcc-job-status-total-count-chunks-299b79ade4.png)
 
 Without the "total-count-function," we only see the amount processed, not the total record count.
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/12/sfcc-job-status-total-count-chunks-with-total-1024x212.png)
+![](/media/2023/sfcc-job-status-total-count-chunks-with-total-e82b2b178e.png)
 
 Using the "total-count-function," we can determine the amount of processed records as well as the total number of records.
 

@@ -6,6 +6,7 @@ description: >-
 lastmod: '2023-05-15T12:09:08.000Z'
 url: /guide-to-the-getprops-method-in-sfcc/
 draft: false
+heroImage: /media/2023/traffic-warden-directing-traffic-ae24078be0.jpg
 date: '2023-05-15T09:58:07.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -260,7 +261,7 @@ The PWA Kit architecture ensures a seamless transition from server-side to clien
 
 After this transition, you lose access to some "server-side" properties in the getProps function, such as res (Express).
 
-![https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/rendering.html](https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/pwa-kit-isomorphic-constructs.jpg)
+![https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/rendering.html](/media/2023/pwa-kit-isomorphic-constructs-4f4cc1e134.jpg)
 
 [Isomorphic Code](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/rendering.html) explained on developer.salesforce.com
 

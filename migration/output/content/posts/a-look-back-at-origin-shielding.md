@@ -6,6 +6,7 @@ description: >-
 lastmod: '2022-09-07T19:53:35.000Z'
 url: /a-look-back-at-origin-shielding/
 draft: false
+heroImage: /media/2022/look-back-scaled-7bb346c563.jpg
 date: '2022-09-07T19:53:27.000Z'
 categories:
   - Community
@@ -20,11 +21,11 @@ September has shown its face, and the sunny weather (at least here) is ending. A
 
 ## Communication
 
-The first thing to make people aware of a change is communicating it to them as soon as possible. And from personal experience, I did get this notification quite a while in advance. I looked back in my documents and e-mails and found the first reference to this change in July 2021! A year in advance! [![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/origin-shielding-first-mention-1024x525.jpg) ](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/origin-shielding-first-mention.jpg)But, of course, the information given back then was pretty vague. And the impact on projects could not be estimated by this alone.
+The first thing to make people aware of a change is communicating it to them as soon as possible. And from personal experience, I did get this notification quite a while in advance. I looked back in my documents and e-mails and found the first reference to this change in July 2021! A year in advance! [![](/media/2022/origin-shielding-first-mention-9d41cb51f2.jpg) ](/media/2022/origin-shielding-first-mention-9d41cb51f2.jpg)But, of course, the information given back then was pretty vague. And the impact on projects could not be estimated by this alone.
 
 ### What about 2022?
 
-Months go by without any mention of this change, but I did know that this "Origin Shielding" for “dotted” URLs (i.e., http://production.xxx.demandware.net/) was [already active for new customers since June 21'](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_selective_origin_shielding_w9343605_je.htm&type=5). In March, I joined the B2C Roadmap Session again (or a different webinar, I can't remember), and here we got the announcement for "phase 2": Origin Shielding activation for ‘hyphenated’ URLs (i.e., production-xxx.demandware.net). [![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/march-2022-origin-shielding-1024x904.jpg) ](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/march-2022-origin-shielding.jpg)So again, quite a bit in advance: about six months to change demandware.net to your vanity domain. Over the months, this was shared across multiple channels: Trailblazer Communities, Webinars, [and slides shared with the release notes](https://help.salesforce.com/articleView?id=b2c_rn_release_notes.htm&type=5). I probably missed other media that might have been customer-facing. But as a partner, I do not get these. All in all, quite a lot of warnings ahead of time.
+Months go by without any mention of this change, but I did know that this "Origin Shielding" for “dotted” URLs (i.e., http://production.xxx.demandware.net/) was [already active for new customers since June 21'](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_selective_origin_shielding_w9343605_je.htm&type=5). In March, I joined the B2C Roadmap Session again (or a different webinar, I can't remember), and here we got the announcement for "phase 2": Origin Shielding activation for ‘hyphenated’ URLs (i.e., production-xxx.demandware.net). [![](/media/2022/march-2022-origin-shielding-815c30777b.jpg) ](/media/2022/march-2022-origin-shielding-815c30777b.jpg)So again, quite a bit in advance: about six months to change demandware.net to your vanity domain. Over the months, this was shared across multiple channels: Trailblazer Communities, Webinars, [and slides shared with the release notes](https://help.salesforce.com/articleView?id=b2c_rn_release_notes.htm&type=5). I probably missed other media that might have been customer-facing. But as a partner, I do not get these. All in all, quite a lot of warnings ahead of time.
 
 ## Monitoring of these channels
 

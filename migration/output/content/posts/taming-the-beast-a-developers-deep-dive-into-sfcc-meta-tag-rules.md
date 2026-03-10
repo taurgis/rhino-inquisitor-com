@@ -7,6 +7,7 @@ description: >-
 lastmod: '2025-08-04T12:14:46.000Z'
 url: /taming-the-beast-a-developers-deep-dive-into-sfcc-meta-tag-rules/
 draft: false
+heroImage: /media/2025/sfcc-meta-tag-rules-scaled-149974a893.jpeg
 date: '2025-08-04T07:13:04.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -37,13 +38,13 @@ The process of creating a rule within Business Manager at `Merchant Tools > SEO 
 
 #### Meta Tag Definitions (The "What")
 
-![A screenshot of the meta tag rule definitions screen in the Business Manager showing the description, og:url, robots, and title meta tag definition.](https://www.rhino-inquisitor.com/wp-content/uploads/2025/08/meta-tag-rules-definitions-1024x313.png)
+![A screenshot of the meta tag rule definitions screen in the Business Manager showing the description, og:url, robots, and title meta tag definition.](/media/2025/meta-tag-rules-definitions-b886cc1425.png)
 
 This is where you define the _type_ of HTML tag you intend to create. Think of it as defining the schema for your output. You specify the `Meta Tag Type` (e.g., `name`, `property`, or `title` for the `<title>` tag) and the `Meta Tag ID` (e.g., `description`, `keywords`, `og:title`). For a standard meta description, the `Type` would be `name` and the `ID` would be `description`, which corresponds to `<meta name="description"...>`.
 
 #### Rule Creation & Scopes (The "How" and "Where")
 
-![A screenshot of the Create Entry modal, displaying the form used to create a new rule for a specific scope, in this case, the Product Detail page.](https://www.rhino-inquisitor.com/wp-content/uploads/2025/08/new-meta-tag-rule-sfcc-1024x614.jpg)
+![A screenshot of the Create Entry modal, displaying the form used to create a new rule for a specific scope, in this case, the Product Detail page.](/media/2025/new-meta-tag-rule-sfcc-61609288f7.jpg)
 
 This is the core logic. You create a new rule, give it a name, and associate it with one of the `Meta Tag ID`s you just defined. Critically, you must select a `Scope`. The scope (e.g., Product, Category/PLP, Content Detail/CDP) is the context in which the rule is evaluated. It determines which platform objects and attributes are available to your rule's syntax.
 
@@ -51,13 +52,13 @@ For example, the `Product` object is available in the Product scope, but not in 
 
 #### Assignments (The "Who")
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2025/08/meta-tag-rule-assignments-sfcc-1024x530.jpg)
+![](/media/2025/meta-tag-rule-assignments-sfcc-5de863b5b6.jpg)
 
 Once a rule is defined, you must assign it to a part of your site. You can assign a rule to an entire catalog, a specific category and its children, or a content folder. This assignment triggers the platform to use your rule for the designated pages.
 
 ## The Syntax Cheat Sheet: Your Rosetta Stone
 
-[![A futuristic, glowing blue holographic Rosetta Stone displaying various code symbols and syntax, representing a cheat sheet for a complex language.](https://www.rhino-inquisitor.com/wp-content/uploads/2025/08/syntax-cheat-sheet-rosetta-stone-1024x559.jpeg)](https://www.rhino-inquisitor.com/wp-content/uploads/2025/08/syntax-cheat-sheet-rosetta-stone-scaled.jpeg)
+[![A futuristic, glowing blue holographic Rosetta Stone displaying various code symbols and syntax, representing a cheat sheet for a complex language.](/media/2025/syntax-cheat-sheet-rosetta-stone-683e787325.jpeg)](https://www.rhino-inquisitor.com/wp-content/uploads/2025/08/syntax-cheat-sheet-rosetta-stone-scaled.jpeg)
 
 Don't let the unique syntax of SFCC's Meta Tag Rules intimidate you. Think of this cheat sheet as your Rosetta Stone, unlocking the ability to create powerful, dynamic, and SEO-friendly tags for your entire site.
 
@@ -207,7 +208,7 @@ While powerful, the Meta Tag Rules engine is a minefield of potential "gotchas" 
 
 ## Troubleshooting the "Black Box"
 
-[![A screenshot of the Page Meta Tag Rules tab on a category in the Business Manager](https://www.rhino-inquisitor.com/wp-content/uploads/2025/08/page-meta-tag-rules-sfcc-preview-1024x347.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2025/08/page-meta-tag-rules-sfcc-preview-scaled.png)
+[![A screenshot of the Page Meta Tag Rules tab on a category in the Business Manager](/media/2025/page-meta-tag-rules-sfcc-preview-8796961d9d.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2025/08/page-meta-tag-rules-sfcc-preview-scaled.png)
 
 You cannot attach the Script Debugger to the rule engine or step through its execution. Troubleshooting is a process of indirect observation.
 
@@ -267,7 +268,7 @@ This ongoing expansion, as seen with enhancements to APIs like [Shopper Search](
 
 This evolution makes it easier than ever to fetch the meta tags for these pages. It validates the headless approach, allowing you to maintain a robust, **centralised SEO strategy** in the Business Manager while fully embracing the flexibility and performance of a modern front-end architecture.
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2025/08/sfcc-updates-headless-apis-for-meta-tag-rules.jpg)
+![](/media/2025/sfcc-updates-headless-apis-for-meta-tag-rules-f61ced3d60.jpg)
 
 ## Conclusion: Go Forth and Automate
 

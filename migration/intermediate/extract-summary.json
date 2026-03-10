@@ -739,7 +739,7 @@
       {
         "legacyUrl": "/delta-exports-in-salesforce-b2c-commerce/",
         "urlClass": "page",
-        "disposition": "keep"
+        "disposition": "merge"
       },
       {
         "legacyUrl": "/disclaimer/",

@@ -7,6 +7,7 @@ description: >-
 lastmod: '2023-02-15T20:40:06.000Z'
 url: /is-salesforce-certification-worth-it/
 draft: false
+heroImage: /media/2022/salesforce-certified-50dfbc80b5.jpeg
 date: '2022-11-21T10:17:21.000Z'
 categories:
   - Certification
@@ -31,7 +32,7 @@ Let's turn that previous topic upside down. Maybe you still need project experie
 
 ## Does it benefit someone else?
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/benefit.jpg) Of course, getting certified does not only benefit you! Many benefit from you being a Certified Professional!
+![](/media/2022/benefit-a5b0552ef8.jpg) Of course, getting certified does not only benefit you! Many benefit from you being a Certified Professional!
 
 ### Partners
 
@@ -51,7 +52,7 @@ Companies put their trust in you to do an exemplary implementation of Salesforce
 
 ## You want to land your first job
 
-This one is a bit controversial since you have to spend money to get a job to earn money. And this is not possible for everyone! So do you need a certification to land a job in Salesforce? Absolutely not! ![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/you-dont-hire-for-skills-you-hire-for-attitude-you-1024x576.jpg) Unfortunately, not everyone hires with the mindset of this quote by [Simon Sinek](https://simonsinek.com/). I hire for my team at [Forward](https://www.forward.eu) and have hired many people with no certifications or experience in the Salesforce ecosystem. If you are willing to invest, the certifications on your resume will put you higher up in the resume pile - above the people without them (on the same experience level).
+This one is a bit controversial since you have to spend money to get a job to earn money. And this is not possible for everyone! So do you need a certification to land a job in Salesforce? Absolutely not! ![](/media/2022/you-dont-hire-for-skills-you-hire-for-attitude-you-0d3739fc5c.jpg) Unfortunately, not everyone hires with the mindset of this quote by [Simon Sinek](https://simonsinek.com/). I hire for my team at [Forward](https://www.forward.eu) and have hired many people with no certifications or experience in the Salesforce ecosystem. If you are willing to invest, the certifications on your resume will put you higher up in the resume pile - above the people without them (on the same experience level).
 
 ## The harsh reality
 
@@ -69,7 +70,7 @@ With just the certificate pass, you will have just enough (minimally qualified) 
 
 ### Cheating
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/reality-is-a-harsh-mistress.jpg) Unfortunately, we live in a world where not everyone makes an effort to get certified correctly. There are many ways to cheat on certifications:
+![](/media/2022/reality-is-a-harsh-mistress-f67c988867.jpg) Unfortunately, we live in a world where not everyone makes an effort to get certified correctly. There are many ways to cheat on certifications:
 
 -   **Exam Dumps:** People buy actual exams with questions and answers and study that instead. You are not learning anything by doing this.
 -   **Have someone else take the exam:** This is something relatively new I saw pop up on Twitter. People are getting messages from companies who offer to take the exam for you with a 100% promise of passing. You won't learn anything at all by going this route. Plus, you will be paying for the exam and the service.

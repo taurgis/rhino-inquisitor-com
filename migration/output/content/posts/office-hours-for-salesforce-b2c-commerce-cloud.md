@@ -6,6 +6,7 @@ description: >-
 lastmod: '2022-10-03T18:06:22.000Z'
 url: /office-hours-for-salesforce-b2c-commerce-cloud/
 draft: false
+heroImage: /media/2022/question-answer-e73f7d862a.jpg
 date: '2022-10-03T18:06:14.000Z'
 categories:
   - Community

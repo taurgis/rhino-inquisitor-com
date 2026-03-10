@@ -7,6 +7,7 @@ description: >-
 lastmod: '2024-01-08T20:35:25.000Z'
 url: /three-things-to-secure-sfcc/
 draft: false
+heroImage: /media/2022/robot-locking-a-gate-9a4abf2129.png
 date: '2024-01-15T17:47:00.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -25,7 +26,7 @@ There is no time like the present, so let us look at three things you can do tod
 
 ## Verify account manager access
 
-![Someone on the stage of an opera house auditing the audience. This represents making account manager secure by doing regular audits.](https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/someone-auditing-an-audience-1536x512.jpg)
+![Someone on the stage of an opera house auditing the audience. This represents making account manager secure by doing regular audits.](/media/2024/someone-auditing-an-audience-bcf9568dda.jpg)
 
 As mentioned, user management is under your (or someone within your team) supervision. A few automations exist, [such as auto disabling of accounts](https://help.salesforce.com/s/articleView?id=sf.account_manager_rn_auto_disable_inactive_users_release.htm&type=5), but that doesn't mean you shouldn't have a look!
 
@@ -50,7 +51,7 @@ It might be a good idea to go and check out the repository and review the most s
 
 ## Third-party access
 
-![People grabbing keys from a treasure chest](https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/people-grabbing-keys-from-a-chest.jpg)
+![People grabbing keys from a treasure chest](/media/2024/people-grabbing-keys-from-a-chest-728c293140.jpg)
 
 Next to user access to the business manager of the environments, there are also API Keys that allow administrative access to the system through REST endpoints and the [WebDAV](https://www.rhino-inquisitor.com/a-beginners-guide-to-webdav-in-sfcc/).
 

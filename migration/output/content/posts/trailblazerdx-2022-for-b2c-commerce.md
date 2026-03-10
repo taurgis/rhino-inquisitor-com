@@ -7,6 +7,7 @@ description: >-
 lastmod: '2022-07-23T22:03:54.000Z'
 url: /trailblazerdx-2022-for-b2c-commerce/
 draft: false
+heroImage: /media/2022/weezer-66533fada7.png
 date: '2022-04-21T06:49:37.000Z'
 categories:
   - Community
@@ -143,7 +144,7 @@ Develop connected digital experiences that attract and convert customers – and
 
 ## [Party with Weezer!](https://reg.salesforce.com/flow/plus/trailblazerdx22/sessioncatalog/page/sessioncatalog/session/164980295926300167e9)
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/weezer.png)
+![](/media/2022/weezer-66533fada7.png)
 
 It also wouldn't be a Salesforce event if it didn't have a celebration at the end of day one!
 

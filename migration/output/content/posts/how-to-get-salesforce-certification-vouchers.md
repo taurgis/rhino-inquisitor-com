@@ -6,6 +6,7 @@ description: >-
 lastmod: '2023-01-24T15:14:57.000Z'
 url: /how-to-get-salesforce-certification-vouchers/
 draft: false
+heroImage: /media/2022/trailhead-academy-765c17a690.jpeg
 date: '2023-01-23T10:55:12.000Z'
 categories:
   - Certification
@@ -18,7 +19,7 @@ Earning a certification in Salesforce B2C Commerce Cloud [can be a valuable goal
 
 ## Certifications vs Accreditations
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/accreditations-vs-certifications-1024x609.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/accreditations-vs-certifications.png)
+[![](/media/2023/accreditations-vs-certifications-7c6224e505.png)](/media/2023/accreditations-vs-certifications-7c6224e505.png)
 
 Before we start, we need to [distinguish between the types of certifications](https://partners-salesforce.relayto.com/e/partner-guide-to-credentials-vfgkh7myki6y2/fUtftxtv3).
 
@@ -28,7 +29,7 @@ Most of the items discussed below are only for regular certifications, not accre
 
 ## Partner Vouchers
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/partner-benefits-1024x285.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/partner-benefits.png)
+[![](/media/2023/partner-benefits-0de8d66c3b.png)](/media/2023/partner-benefits-0de8d66c3b.png)
 
 Depending on what "level" you are as a partner with Salesforce, you get vouchers that cover the total cost of the certification exam.
 
@@ -98,7 +99,7 @@ Especially when a new accreditation or certificate is being introduced, this sli
 
 ## Bringing it all together
 
-[![Looking to save some money while getting certified in Salesforce? No problem! Here's a helpful overview of where you can find discounts and even free exam attempts to make your certification journey a little more budget-friendly. Partner Vouchers Community Events Trailhead Certification Events Partner Community Events Certification Days Trailhead Quests Salesforce Webinars](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/Salesforce-Credentials-Vouchers-personv2-768x384.jpeg)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/Salesforce-Credentials-Vouchers-personv2.jpeg)
+[![Looking to save some money while getting certified in Salesforce? No problem! Here's a helpful overview of where you can find discounts and even free exam attempts to make your certification journey a little more budget-friendly. Partner Vouchers Community Events Trailhead Certification Events Partner Community Events Certification Days Trailhead Quests Salesforce Webinars](/media/2023/salesforce-credentials-vouchers-personv2-bf4ee67f38.jpeg)](/media/2023/salesforce-credentials-vouchers-personv2-bf4ee67f38.jpeg)
 
 ## Any more?
 

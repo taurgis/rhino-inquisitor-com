@@ -8,6 +8,7 @@ description: >-
 lastmod: '2023-12-31T19:52:11.000Z'
 url: /a-beginners-guide-to-webdav-in-sfcc/
 draft: false
+heroImage: /media/2023/webdav-storing-files-scaled-8c216a580f.jpg
 date: '2024-01-01T17:06:50.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -50,7 +51,7 @@ When the WebDAV client is a Business Manager user utilising a client application
 
 To manage these folder-specific permissions, navigate to the [Roles module in Business Manager](https://help.salesforce.com/s/articleView?id=cc.b2c_roles_and_permissions.htm&type=5) and adjust the settings in the `WebDAV Permissions` tab. Here, you can assign different access levels—read, write, or both—to various directories within WebDAV, ensuring Business Manager users only have access to the files necessary for their role.
 
-[![A screenshot of the business manager showing the WebDAV Permissions for the "eCom Manager".](https://www.rhino-inquisitor.com/wp-content/uploads/2024/02/webdav-role-permissions-1024x499.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2024/02/webdav-role-permissions.png)
+[![A screenshot of the business manager showing the WebDAV Permissions for the "eCom Manager".](/media/2024/webdav-role-permissions-7d3baef818.png)](/media/2024/webdav-role-permissions-7d3baef818.png)
 
 A screenshot of the eCom Manager Role Permissions
 
@@ -106,7 +107,7 @@ For instance, an API client may have `read_write` permissions to the "`/impex/sr
 
 ```
 
-[![A screenshot of the WebDAV Client Application Permissions screen showing one configuration giving an API key access to the /impex folder and /cartridges folder.](https://www.rhino-inquisitor.com/wp-content/uploads/2024/02/webdav-client-application-permissions-1024x401.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2024/02/webdav-client-application-permissions.png)
+[![A screenshot of the WebDAV Client Application Permissions screen showing one configuration giving an API key access to the /impex folder and /cartridges folder.](/media/2024/webdav-client-application-permissions-8757d150cc.png)](/media/2024/webdav-client-application-permissions-8757d150cc.png)
 
 A screenshot of how this might look in the Business Manager
 

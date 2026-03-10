@@ -46,7 +46,8 @@
       "statusNormalizedFrom": "publish"
     },
     "extracted": {
-      "parentSlug": "salesforce-commerce-cloud"
+      "parentSlug": "salesforce-commerce-cloud",
+      "featuredImageUrl": null
     }
   },
   "bodyMarkdown": "",

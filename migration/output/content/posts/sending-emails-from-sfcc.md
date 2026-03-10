@@ -7,6 +7,7 @@ description: >-
 lastmod: '2024-12-11T16:13:38.000Z'
 url: /sending-emails-from-sfcc/
 draft: false
+heroImage: /media/2024/delivering-mail-in-sfcc-c46d2358ed.jpg
 date: '2024-12-09T08:19:31.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -32,7 +33,7 @@ In most Marketing platforms, you have the freedom to be highly flexible with the
 
 While you may not want to modify your transactional emails frequently, it's a lot easier to give them a nice 'holiday' or 'easter' styling for a few weeks in the year using dedicated marketing tools.
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2024/12/a-mail-across-the-year-1024x410.jpg)
+![](/media/2024/a-mail-across-the-year-15b12cb7bc.jpg)
 
 #### Page Designer to the rescue?
 
@@ -135,7 +136,7 @@ Configuring these SPF records is clearly documented [here](https://help.salesfor
 
 ## Can I Use My Own SMTP Server?
 
-[![A screenshot of the "Administration > Operations > Email Settings" screen, which enables administrators to configure custom email and DKIM settings.](https://www.rhino-inquisitor.com/wp-content/uploads/2024/12/sfcc-email-settings-1024x528.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2024/12/sfcc-email-settings.png)
+[![A screenshot of the "Administration > Operations > Email Settings" screen, which enables administrators to configure custom email and DKIM settings.](/media/2024/sfcc-email-settings-21507245df.png)](/media/2024/sfcc-email-settings-21507245df.png)
 
 Administration > Operations > Email Settings
 

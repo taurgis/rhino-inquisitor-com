@@ -7,6 +7,7 @@ description: >-
 lastmod: '2022-08-18T08:09:00.000Z'
 url: /salesforce-b2c-commerce-cloud-22-9-release/
 draft: false
+heroImage: /media/2022/copy-paste-page-designer-full-d97d9a9ee9.jpg
 date: '2022-08-17T18:45:35.000Z'
 categories:
   - Release Notes
@@ -24,7 +25,7 @@ Are you interested in last month’s release notes? [Click here](https://www.rhi
 
 ### WebDAV upload limit relaxed
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/upload-limit-relaxed-stonks-meme.jpg)
+![](/media/2022/upload-limit-relaxed-stonks-meme-f8e9bd0b5b.jpg)
 
 A big update that will make many happy! The limitation of 100MB has been relaxed to 500MB for uploading to the WebDAV.
 
@@ -54,7 +55,7 @@ I suspect this improvement is only for the performance of the Business Manager a
 
 ### AfterPay and Venmo added to Salesforce Payments
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/venmo.jpg)
+![](/media/2022/venmo-d5992ec262.jpg)
 
 Let your shoppers pay in interest-free installments with AfterPay. Salesforce Payments offers AfterPay through your Stripe Merchant account. When AfterPay is active on your storefront, the product details page and checkout cart list it as a payment option (Default SFRA & Payments Cartridge).
 

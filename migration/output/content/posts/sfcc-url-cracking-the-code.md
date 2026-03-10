@@ -7,6 +7,7 @@ description: >-
 lastmod: '2023-05-29T11:16:52.000Z'
 url: /sfcc-url-cracking-the-code/
 draft: false
+heroImage: /media/2023/a-hand-delicately-slicing-into-a-screen-f3543bdd31.jpeg
 date: '2023-05-29T07:12:19.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -21,7 +22,7 @@ It should be no secret that a URL is a vital part of any website In this article
 
 ## The URL Structure
 
-![Anatomy of a B2C Commerce Cloud URL](https://www.rhino-inquisitor.com/wp-content/uploads/2023/06/anatomy-of-a-url-768x180.png)
+![Anatomy of a B2C Commerce Cloud URL](/media/2023/anatomy-of-a-url-33092362d8.png)
 
 A typical Salesforce B2C Commerce Cloud URL consists of the following components:
 

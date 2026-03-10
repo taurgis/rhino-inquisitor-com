@@ -6,6 +6,7 @@ description: >-
 lastmod: '2023-12-07T10:36:32.000Z'
 url: /what-is-the-ocapi-session-bridge/
 draft: false
+heroImage: /media/2023/session-bridge-bbf2a7ba92.png
 date: '2022-08-15T19:08:02.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -47,7 +48,7 @@ In this scenario, it would be a shame if someone logged into the application wou
 
 Come into play the "Session Bridge!" The mobile application, before being redirected, exchanges its JWT token for a valid cookie and sets it before pushing the customer to the site. Result: Happy customer (hopefully 😊)!
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/Session-Bridge-Mobile-App-v3-scaled.jpeg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/Session-Bridge-Mobile-App-v3-scaled.jpeg)
+[![](/media/2022/session-bridge-mobile-app-v3-scaled-93e60b2f4b.jpeg)](/media/2022/session-bridge-mobile-app-v3-scaled-93e60b2f4b.jpeg)
 
 ## Scenario: OCAPI to Site
 
@@ -143,7 +144,7 @@ The result is a response containing the bearer token we need to continue talking
 
 But what you need is not visible in the response... huh? Not to worry, it is in the Authorization header!
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/02/bearer-token-authorization-header-1024x250.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/02/bearer-token-authorization-header.png)
+[![](/media/2023/bearer-token-authorization-header-e377c64b9c.png)](/media/2023/bearer-token-authorization-header-e377c64b9c.png)
 
 ### Step 2: Exchange the bearer JWT token for cookies
 
@@ -231,11 +232,11 @@ Suppose you are making use of SLAS to get a JWT token, no worries. This JWT toke
 
 Something to keep in mind when using the Session Bridge is how it handles sensitive data; let us look at two scenarios.
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/Session-Bridge-Guest-Basket-Secure-Order-1024x302.jpeg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/Session-Bridge-Guest-Basket-Secure-Order.jpeg)
+[![](/media/2022/session-bridge-guest-basket-secure-order-df1146c25d.jpeg)](/media/2022/session-bridge-guest-basket-secure-order-df1146c25d.jpeg)
 
 A secure way of working with sensitive data
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/Session-Bridge-Guest-Basket-Insecure-Order-1024x290.jpeg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/Session-Bridge-Guest-Basket-Insecure-Order.jpeg)
+[![](/media/2022/session-bridge-guest-basket-insecure-order-a252675925.jpeg)](/media/2022/session-bridge-guest-basket-insecure-order-a252675925.jpeg)
 
 SFCC Makes sure no sensitive data is shared in a possibly insecure scenario
 

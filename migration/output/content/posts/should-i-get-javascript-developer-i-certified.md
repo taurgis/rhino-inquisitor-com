@@ -6,6 +6,7 @@ description: >-
 lastmod: '2023-08-07T12:53:11.000Z'
 url: /should-i-get-javascript-developer-i-certified/
 draft: false
+heroImage: /media/2022/javascript-b29bda21e4.jpg
 date: '2023-08-07T12:51:32.000Z'
 categories:
   - Certification
@@ -23,13 +24,13 @@ Knowledge of vanilla JavaScript is essential. There are a lot of free courses fo
 
 ## Broaden your "JavaScript" horizons
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/superbadge-prerequisites.png) You must be prepared to dig into the Salesforce platform when interested in this certification. It wasn't explicitly designed for Salesforce B2C Commerce developers, but for [Lightning Web Component](https://developer.salesforce.com/docs/component-library/documentation/lwc) developers on the force.com platform. And you can't get it by just doing the certification exam on [Webassessor](https://www.webassessor.com/). You also need to complete a [Superbadge](https://trailhead.salesforce.com/en/content/learn/superbadges/superbadge_lwc_specialist), which does not have a strict timeline.
+![](/media/2022/superbadge-prerequisites-34c7470102.png) You must be prepared to dig into the Salesforce platform when interested in this certification. It wasn't explicitly designed for Salesforce B2C Commerce developers, but for [Lightning Web Component](https://developer.salesforce.com/docs/component-library/documentation/lwc) developers on the force.com platform. And you can't get it by just doing the certification exam on [Webassessor](https://www.webassessor.com/). You also need to complete a [Superbadge](https://trailhead.salesforce.com/en/content/learn/superbadges/superbadge_lwc_specialist), which does not have a strict timeline.
 
 > Superbadges are domain-based credentials that allow you to apply your Salesforce skills in a specific area (think: process automation or app customization) to hands-on, real-world business problems Salesforce
 
 ## No Salesforce CRM experience?
 
-![A group of Salesforce Mascots at a Salesforce event. Are they JavaScript Certified, I wonder?](https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/Mascots_Statues-1024x576.jpg) No worries, It's not rocket science! You will spend some time getting this [Superbadge](https://trailhead.salesforce.com/en/content/learn/superbadges/superbadge_lwc_specialist), but see it as a way to discover other opportunities within the Salesforce ecosystem. Looking at what has happened for the past years, it is clear that some knowledge of other Salesforce products will get you a long way. More and more "tight" integrations are working their way into the Salesforce B2C Commerce Cloud world. Look at the Salesforce OMS (Order Management System), which has a productised connection. It is also why [OCI](https://developer.salesforce.com/docs/commerce/commerce-api/references?meta=inventory-availability:Summary) (Omnichannel Inventory) has made its way into SFCC, being part of the license. More and more projects are also integrating with Service and Sales Cloud (though not through a productised connection).
+![A group of Salesforce Mascots at a Salesforce event. Are they JavaScript Certified, I wonder?](/media/2022/mascots-statues-4150ee8fae.jpg) No worries, It's not rocket science! You will spend some time getting this [Superbadge](https://trailhead.salesforce.com/en/content/learn/superbadges/superbadge_lwc_specialist), but see it as a way to discover other opportunities within the Salesforce ecosystem. Looking at what has happened for the past years, it is clear that some knowledge of other Salesforce products will get you a long way. More and more "tight" integrations are working their way into the Salesforce B2C Commerce Cloud world. Look at the Salesforce OMS (Order Management System), which has a productised connection. It is also why [OCI](https://developer.salesforce.com/docs/commerce/commerce-api/references?meta=inventory-availability:Summary) (Omnichannel Inventory) has made its way into SFCC, being part of the license. More and more projects are also integrating with Service and Sales Cloud (though not through a productised connection).
 
 ## Some preparation materials
 

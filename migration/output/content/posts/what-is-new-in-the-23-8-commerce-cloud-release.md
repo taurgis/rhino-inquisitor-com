@@ -6,6 +6,7 @@ description: >-
 lastmod: '2023-07-29T20:05:35.000Z'
 url: /what-is-new-in-the-23-8-commerce-cloud-release/
 draft: false
+heroImage: /media/2023/christmas-at-the-beach-scaled-75bd57b575.jpg
 date: '2023-07-27T13:28:13.000Z'
 categories:
   - Release Notes
@@ -81,7 +82,7 @@ I have written [extensively on this topic](https://www.rhino-inquisitor.com/the-
 
 ### Specify Enhanced Domain Names In Account Manager
 
-![A screenshot showing how Salesforce Identity allows you to log in with other services, which is part of the updates in 23.8](https://www.rhino-inquisitor.com/wp-content/uploads/2023/07/salesforce-identity.jpeg)
+![A screenshot showing how Salesforce Identity allows you to log in with other services, which is part of the updates in 23.8](/media/2023/salesforce-identity-b628afdc63.jpeg)
 
 > You can now configure Identity Federation with Salesforce Identity in Account Manager using supported enhanced domain names. You can specify the organization MyDomain subdomain name in Salesforce Core. The default domain suffix is my.salesforce.com. If the identity federation is allowed or enforced, you can change the value. For example, if you use a Salesforce Core sandbox, you can use sandbox.my.salesforce.com as the domain suffix.
 

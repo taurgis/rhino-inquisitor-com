@@ -6,6 +6,7 @@ description: >-
 lastmod: '2024-11-04T08:41:59.000Z'
 url: /the-importance-of-origin-shielding/
 draft: false
+heroImage: /media/2024/protecting-your-server-26dacc7cc4.jpg
 date: '2024-11-04T08:40:19.000Z'
 categories:
   - Architecture
@@ -31,7 +32,7 @@ This process helps reduce the risk of direct attacks on the origin infrastructur
 
 Long story short, origin shielding is a security measure for safeguarding cloud-hosted infrastructure, ensuring both the integrity and availability of Salesforce’s services.
 
-![A dramatic image of a superhero in front of a server, protecting it from a "bad" actor in the shadows.](https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/origin-shielding-v2-1024x579.jpg)
+![A dramatic image of a superhero in front of a server, protecting it from a "bad" actor in the shadows.](/media/2024/origin-shielding-v2-280aa345d3.jpg)
 
 Cloudflare is our "hero" protecting and routing traffic on our behalf!
 
@@ -43,7 +44,7 @@ Although this change was communicated multiple times in advance, [many projects 
 
 With the introduction of Origin Shielding, any third-party system attempting to access controllers or OCAPI APIs through the Demandware URL received an error page.
 
-[![A screenshot of the Cloudflare Origin Shielding error shows that the user has been blocked.](https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/cloudflare-origin-shielding-error-1024x857.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/cloudflare-origin-shielding-error.png)
+[![A screenshot of the Cloudflare Origin Shielding error shows that the user has been blocked.](/media/2024/cloudflare-origin-shielding-error-b81358c14c.png)](/media/2024/cloudflare-origin-shielding-error-b81358c14c.png)
 
 The Cloudflare error page.
 
@@ -92,7 +93,7 @@ Communicating this information to the right people will significantly reduce the
 
 Before launching, make sure to test everything thoroughly. Check that all third-party systems can access your storefront and API features through the vanity domain. This step will help you find and fix any issues before they affect your operations.
 
-![A cartoon depicting two people conversing with a chat bubble containing various colored emoticons.](https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/good-communication-1024x579.jpg)
+![A cartoon depicting two people conversing with a chat bubble containing various colored emoticons.](/media/2024/good-communication-8688aa2fb2.jpg)
 
 Good communication is key in any project.
 

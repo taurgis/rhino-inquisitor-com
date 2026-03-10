@@ -6,6 +6,7 @@ description: >-
 lastmod: '2022-12-20T16:23:36.000Z'
 url: /how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/
 draft: false
+heroImage: /media/2022/sandbox-84618f4042.png
 date: '2022-04-05T05:36:43.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -78,7 +79,7 @@ Just read all of the available documentation, and you should be good to go:
 
 ## Trailhead Academy
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/trailhead-academy-1024x439.jpeg)
+![](/media/2022/trailhead-academy-77b0322d57.jpeg)
 
 If all else above is unavailable to you and no sandbox is within your reach, a paid training course is the final option with [Trailhead Academy](https://trailheadacademy.salesforce.com/overview).
 

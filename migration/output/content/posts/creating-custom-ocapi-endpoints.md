@@ -7,6 +7,7 @@ description: >-
 lastmod: '2023-09-26T09:54:35.000Z'
 url: /creating-custom-ocapi-endpoints/
 draft: false
+heroImage: /media/2022/ocapi-bb5766fd49.jpg
 date: '2022-07-11T17:40:22.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -62,7 +63,7 @@ So let's get cracking! The first step is to create a new custom object type in t
 
 Go to "_Administration_" > "_Site Development_" > "_Custom Object Types_."
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/07/custom-api-custom-object-1024x460.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/07/custom-api-custom-object.png)
+[![](/media/2022/custom-api-custom-object-051e16e59a.png)](/media/2022/custom-api-custom-object-051e16e59a.png)
 
 The Custom Object Definition is quite simple:
 
@@ -83,7 +84,7 @@ Each custom API endpoint needs its unique object of the "CustomApi" type. So in 
 
 To do this go to "_Merchant Tools_" > "_Custom Objects_" > "_Manage Custom Objects_."
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/07/manage-get-customer-object-1024x372.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/07/manage-get-customer-object.png)
+[![](/media/2022/manage-get-customer-object-7b88237d34.png)](/media/2022/manage-get-customer-object-7b88237d34.png)
 
 The Custom Object is, again, easy to set up:
 
@@ -126,7 +127,7 @@ Fill in the following value for the type "_Shop_" and context "_Global (Organiza
 
 ```
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/07/ocapi-settings-1024x608.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/07/ocapi-settings.png)
+[![](/media/2022/ocapi-settings-46b5f9c8b0.png)](/media/2022/ocapi-settings-46b5f9c8b0.png)
 
 In the example, we make use of "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" ( 30 x a ), which is a Client Id that works on test environments without creating it in the Account Manager.
 
@@ -248,7 +249,7 @@ We add it to the sites because the API is part of the Shop API, which is meant f
 
 ## Step 6: Call the API!
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/07/get-customer-custom-api-response-1024x535.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/07/get-customer-custom-api-response.png)
+[![](/media/2022/get-customer-custom-api-response-a6c8902585.png)](/media/2022/get-customer-custom-api-response-a6c8902585.png)
 
 The final step is calling your endpoint (with the correct parameters). In this case, we have the parameter "customer\_no," which we use in our custom code to fetch the right customer.
 
@@ -256,7 +257,7 @@ To make it easier to understand how to test the API, I added a [Postman collecti
 
 This collection requires you to configure the following variables:
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/07/postman-variables-custom-api-1024x353.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/07/postman-variables-custom-api.png)
+[![](/media/2022/postman-variables-custom-api-ec0a89ffce.png)](/media/2022/postman-variables-custom-api-ec0a89ffce.png)
 
 -   **base\_url**: The domain of your environment.
 -   **client\_id:** Your client ID, you can use the default one.

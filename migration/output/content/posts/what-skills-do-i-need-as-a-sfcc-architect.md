@@ -6,6 +6,7 @@ description: >-
 lastmod: '2023-06-27T08:08:03.000Z'
 url: /what-skills-do-i-need-as-a-sfcc-architect/
 draft: false
+heroImage: /media/2023/an-architect-aa108258ed.jpg
 date: '2023-06-26T07:02:54.000Z'
 categories:
   - Architecture
@@ -40,7 +41,7 @@ Here are some specific areas where it can be helpful to develop a deep understan
 
 ## Expand your knowledge beyond (B2C) Commerce Cloud
 
-![An illustration of blurry systems connected in the clouds. It illustrates the path to the architect.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/06/understanding-multiple-systems-1024x512.jpg)
+![An illustration of blurry systems connected in the clouds. It illustrates the path to the architect.](/media/2023/understanding-multiple-systems-c824b11ed0.jpg)
 
 Understanding the connections between systems and eliminating the "blur" may take some time.
 
@@ -61,7 +62,7 @@ As an architect, you'll manage projects and lead development teams. It's importa
 
 ## Understand the business needs and goals of your organization
 
-![An illustration of a woman architect in front of a planning board.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/06/project-management-illustration-1024x510.jpg)
+![An illustration of a woman architect in front of a planning board.](/media/2023/project-management-illustration-f4cbfcccf1.jpg)
 
 Having a clear understanding of a business's needs and wants is essential.
 
@@ -97,7 +98,7 @@ By staying open to learning and continuous improvement, you can ensure that you'
 
 ## Build a network and seek out mentors
 
-![A group of architects is standing on a cloud, looking at more clouds with a blue sky.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/06/people-meeting-in-the-clouds-1024x512.jpg)
+![A group of architects is standing on a cloud, looking at more clouds with a blue sky.](/media/2023/people-meeting-in-the-clouds-fb0c92659f.jpg)
 
 It's impossible to have all the answers. It's okay to reach out and seek assistance from others!
 

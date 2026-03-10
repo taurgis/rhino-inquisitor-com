@@ -6,6 +6,7 @@ description: >-
 lastmod: '2023-11-18T07:43:19.000Z'
 url: /the-createorders-api-in-sfcc/
 draft: false
+heroImage: /media/2023/delivery-on-a-phone-f8a4f5aeb3.jpg
 date: '2023-10-09T09:54:18.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -55,7 +56,7 @@ channel_id:RefArchGlobal
 
 Within this body, we are authenticating a **guest** customer via "ecom" (B2C Commerce Cloud) for our site "**RefArchGlobal**".
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/10/slas-ts-ext-on-behalf-of-authentication.jpg)
+![](/media/2023/slas-ts-ext-on-behalf-of-authentication-3803569585.jpg)
 
 Screenshot of the form configuration in Postman
 
@@ -136,7 +137,7 @@ Almost there! Now we have everything to start creating our order (except the ord
 
 ```
 
-After submitting this request we should get an empty response with status [201](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#201) (CREATED). And with that, our order is visible in the Business Manager! [![SLAS: createOrders API request result](https://www.rhino-inquisitor.com/wp-content/uploads/2023/10/slas-order-on-behalf-order-1024x611.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/10/slas-order-on-behalf-order.jpg)
+After submitting this request we should get an empty response with status [201](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#201) (CREATED). And with that, our order is visible in the Business Manager! [![SLAS: createOrders API request result](/media/2023/slas-order-on-behalf-order-4b978450f7.jpg)](/media/2023/slas-order-on-behalf-order-4b978450f7.jpg)
 
 ## GMV
 

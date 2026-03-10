@@ -6,6 +6,7 @@ description: >-
 lastmod: '2024-02-12T07:54:18.000Z'
 url: /the-attribute-fallback-system-in-sfcc/
 draft: false
+heroImage: /media/2024/a-pyramid-of-shoes-ecf8500927.jpg
 date: '2024-02-12T07:54:09.000Z'
 categories:
   - Architecture
@@ -26,7 +27,7 @@ When it comes to varying on an attribute, there are two options within Salesforc
 
 ## How does the attribute fallback system work for variation products, groups, and base products?
 
-![A visual representation of the Variation Group model by using a t-shirt. There colours of shirts, each with their own set of sizes with one base product at the top.](https://www.rhino-inquisitor.com/wp-content/uploads/2024/02/variation-model-attribute-fallback-1536x1140.jpg)
+![A visual representation of the Variation Group model by using a t-shirt. There colours of shirts, each with their own set of sizes with one base product at the top.](/media/2024/variation-model-attribute-fallback-af1b94cc0e.jpg)
 
 An attempt at visualising the fallback system.
 
@@ -41,7 +42,7 @@ The attribute fallback system works as follows:
 
 ### Price
 
-![A variation group product detail page of a shirt where the variants have different prices, ending up with a "range".](https://www.rhino-inquisitor.com/wp-content/uploads/2024/02/modern-striped-shirt-price-range-1024x535.jpg)
+![A variation group product detail page of a shirt where the variants have different prices, ending up with a "range".](/media/2024/modern-striped-shirt-price-range-f088973939.jpg)
 
 A variation group with different prices for the variants
 
@@ -58,7 +59,7 @@ Luckily for the developers this system works seamlessly for developers and fetch
 -   `dw.catalog.Variant` class has attribute fallback behavior to first obtain attributes from (one or more) assigned variation groups and then from the base product.
 -   `dw.catalog.VariationGroup` class has attribute fallback behavior to obtain attributes from the base product, when the attribute isn't specified by the variation group.
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2024/02/variation-model-fallback-in-code-docs-1-1024x218.jpg)](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/index.html?target=class_dw_catalog_Product.html)
+[![](/media/2024/variation-model-fallback-in-code-docs-1-ba4d97c55f.jpg)](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/index.html?target=class_dw_catalog_Product.html)
 
 ## Advantages for data import
 

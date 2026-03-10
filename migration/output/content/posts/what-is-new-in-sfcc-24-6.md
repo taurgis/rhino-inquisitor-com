@@ -7,6 +7,7 @@ description: >-
 lastmod: '2024-06-03T12:04:39.000Z'
 url: /what-is-new-in-sfcc-24-6/
 draft: false
+heroImage: /media/2024/searching-on-a-highway-89effbcf76.jpg
 date: '2024-06-03T12:04:25.000Z'
 categories:
   - Release Notes
@@ -63,7 +64,7 @@ PWA Kit By default, the PWA Kit does not use this feature - meaning that this up
 
 ### Create Active Data Sorting Rules
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2024/06/search-query-testing-tool-sfcc.jpg)
+![](/media/2024/search-query-testing-tool-sfcc-8fb16cf218.jpg)
 
 > The Search Index Query Testing (SIQT) tool now supports sorting rules with active data sorting attributes. Get consistent sorting results in a storefront and when testing an active data sorting rule. Previously, if a sorting rule with active data was used in SIQT, the sorting used text relevance and didn’t consider active data.
 >

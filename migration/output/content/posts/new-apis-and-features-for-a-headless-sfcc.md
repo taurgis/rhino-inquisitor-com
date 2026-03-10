@@ -7,6 +7,7 @@ description: >-
 lastmod: '2023-11-15T12:18:11.000Z'
 url: /new-apis-and-features-for-a-headless-sfcc/
 draft: false
+heroImage: /media/2023/robot-operating-on-its-own-head-797d8fde74.jpg
 date: '2023-11-13T09:54:35.000Z'
 categories:
   - Release Notes
@@ -71,7 +72,7 @@ _I believe that in the future, we will witness endpoints to address some of the 
 
 ### Stores
 
-![A drawing of retail stores connected by lines; in this case, the lines are Ethernet cables referencing the REST APIs to fetch the store data in Headless applications.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/11/connected-stores-1024x382.jpg)
+![A drawing of retail stores connected by lines; in this case, the lines are Ethernet cables referencing the REST APIs to fetch the store data in Headless applications.](/media/2023/connected-stores-22cea94a19.jpg)
 
 If you remember, the SCAPI release included a "Shopper Stores" group that allowed developers to build their own Store Locator in Headless scenarios.
 

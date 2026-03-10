@@ -7,6 +7,7 @@ description: >-
 lastmod: '2023-04-03T06:57:14.000Z'
 url: /the-request-body-in-an-sfcc-controller/
 draft: false
+heroImage: /media/2023/json-e912c3b91a.jpeg
 date: '2023-04-03T06:57:02.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -21,7 +22,7 @@ author: Thomas Theunen
 
 ## TLDR;
 
- [![Example code in SiteGenesis of accessing the Request Body in the COPlaceOrder controller.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/reques-body-sfcc-1024x574.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/reques-body-sfcc.jpg)To get the request body in an SFCC controller, use the following script:
+ [![Example code in SiteGenesis of accessing the Request Body in the COPlaceOrder controller.](/media/2023/reques-body-sfcc-00c1f40887.jpg)](/media/2023/reques-body-sfcc-00c1f40887.jpg)To get the request body in an SFCC controller, use the following script:
 
 ```
 
@@ -69,7 +70,7 @@ var requestBodyJson = JSON.parse(requestBody);
 
 ## Handling Errors
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/security-check-border-api-security-1536x700.jpg) When working with data being submitted to the server, handling any errors that might occur, such as malformed JSON or an invalid request, is essential. You can use a try-catch block to catch any exception thrown during the processing of the request body.  Here's a basic example of how to handle errors:
+![](/media/2023/security-check-border-api-security-5695d3d810.jpg) When working with data being submitted to the server, handling any errors that might occur, such as malformed JSON or an invalid request, is essential. You can use a try-catch block to catch any exception thrown during the processing of the request body.  Here's a basic example of how to handle errors:
 
 ```
 

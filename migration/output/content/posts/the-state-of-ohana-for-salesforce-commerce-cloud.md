@@ -7,6 +7,7 @@ description: >-
 lastmod: '2022-07-23T22:08:05.000Z'
 url: /the-state-of-ohana-for-salesforce-commerce-cloud/
 draft: false
+heroImage: /media/2022/connections-chicago-2019-b246c60ad0.jpg
 date: '2022-02-27T14:02:53.000Z'
 categories:
   - Community
@@ -29,7 +30,7 @@ Let us start with a little bit of history. Salesforce Commerce Cloud B2C didn't 
 
 It is no secret that Salesforce is known for buying companies to take under its wing, and Demandware was no different. A bit of rebranding later, and "boom," it's Salesforce!
 
-![The older Demandware logo, from before the acquisition of Salesforce.](https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/demandware.jpg)
+![The older Demandware logo, from before the acquisition of Salesforce.](/media/2022/demandware-296437f0e6.jpg)
 
 ## A big Difference in Ohana
 
@@ -39,11 +40,11 @@ _Note: This is a "personal feeling" pie chart as I did not use any scientific me
 
 ### Core Platform
 
-[![A pie chart showing the different places people use to communicate within Ohana for the Core platform.](https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/ohana-core-1024x683.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/ohana-core.png)
+[![A pie chart showing the different places people use to communicate within Ohana for the Core platform.](/media/2022/ohana-core-7b4cd9574d.png)](/media/2022/ohana-core-7b4cd9574d.png)
 
 ### SFCC
 
-[![A pie chart showing the different places people use to communicate within Ohana for the SFCC platform.](https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/ohana-sfcc-1024x683.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/ohana-sfcc.png)
+[![A pie chart showing the different places people use to communicate within Ohana for the SFCC platform.](/media/2022/ohana-sfcc-1d03fd0cb0.png)](/media/2022/ohana-sfcc-1d03fd0cb0.png)
 
 Looking at the above charts, it is pretty clear that there is a significant difference in the way people ask questions and communicate within the #Ohana.
 
@@ -73,7 +74,7 @@ But is it also so surprising? The B2C community is also more isolated and not by
 
 The first community within Demandware / SFCC is undoubtedly the Xchange, discontinued and all of its histories erased! It has left many people annoyed as it contained a vast amount of knowledge that people were willing to share with their peers.
 
-![A screenshot of Account Manager roles & permissions showing the old Xchange.](https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/xchange.png)
+![A screenshot of Account Manager roles & permissions showing the old Xchange.](/media/2022/xchange-c2290f06af.png)
 
 I found this community (even though it was not as active as the Trailblazer Community is) a beneficial tool to find my way in the world of Salesforce Commerce Cloud. I still find myself assigning the role to every account in Account Manager in nostalgia, even though it does not do anything anymore.
 
@@ -89,7 +90,7 @@ Daily, people are asking questions, but not many people are answering (besides p
 
 ### Salesforce Developer Portal
 
-![The logo of the Trailblazer Community Groups](https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/community-groups.jpg)
+![The logo of the Trailblazer Community Groups](/media/2022/community-groups-de4eab826c.jpg)
 
 And this year (2022), all of that information is [moving again](https://developer.commercecloud.com/s/salesforce-developer-center)! The Commerce Cloud Developer Site did not live a long life, but that might be for the best as it had its issues.
 
@@ -109,7 +110,7 @@ In the past year, many people of the mothership have joined in as well—a big s
 
 All I want to say to the Slack community is
 
-![A drawing of Salesforce mascots waving with a "Thank You" message.](https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/thank-you-trailblazers-1024x576.jpg)
+![A drawing of Salesforce mascots waving with a "Thank You" message.](/media/2022/thank-you-trailblazers-aae5cae7b7.jpg)
 
 ## **Join the Slack Community**
 

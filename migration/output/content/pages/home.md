@@ -20,7 +20,7 @@ I am here to share my knowledge and experience to help others succeed in the Oha
 
 ## My Active Projects
 
-[MCP Aegis](https://aegis.rhino-inquisitor.com/) [SFCC DEV MCP ](https://sfcc-mcp-dev.rhino-inquisitor.com/)[![A picture of Thomas Theunen leaning on a desk at the office with plants on the background.](https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/1E8A7695.jpg) ](https://trailblazercommunitygroups.com/salesforce-developer-group-hasselt-belgium/)![A picture of Thomas Theunen leaning on a desk at the office with plants on the background.](https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/thomas-theunen-tablet2.jpg)
+[MCP Aegis](https://aegis.rhino-inquisitor.com/) [SFCC DEV MCP ](https://sfcc-mcp-dev.rhino-inquisitor.com/)[![A picture of Thomas Theunen leaning on a desk at the office with plants on the background.](/media/2022/1e8a7695-9e6f1ee7bd.jpg) ](https://trailblazercommunitygroups.com/salesforce-developer-group-hasselt-belgium/)![A picture of Thomas Theunen leaning on a desk at the office with plants on the background.](/media/2022/thomas-theunen-tablet2-7f501926d7.jpg)
 
 ## Explore Articles About Salesforce B2C Commerce Cloud (SFCC)
 

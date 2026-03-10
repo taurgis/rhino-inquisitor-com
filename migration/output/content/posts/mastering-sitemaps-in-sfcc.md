@@ -6,6 +6,7 @@ description: >-
 lastmod: '2025-06-24T18:22:38.000Z'
 url: /mastering-sitemaps-in-sfcc/
 draft: false
+heroImage: /media/2025/sitemaps-in-sfcc-53a1b08bb8.jpg
 date: '2025-06-16T07:30:19.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -33,7 +34,7 @@ You control all of this from the Business Manager: Merchant Tools > SEO > Sitema
 
 ### Your Control Panel: The Settings Tab
 
-[![A screenshot of the Sitemap Settings in Merchant tools in Salesforce B2C Commerce Cloud](https://www.rhino-inquisitor.com/wp-content/uploads/2025/06/sitemap-business-manager-sfcc-1024x493.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2025/06/sitemap-business-manager-sfcc.jpg)
+[![A screenshot of the Sitemap Settings in Merchant tools in Salesforce B2C Commerce Cloud](/media/2025/sitemap-business-manager-sfcc-1e208116dd.jpg)](/media/2025/sitemap-business-manager-sfcc-1e208116dd.jpg)
 
 The Sitemap Settings in the Business Manager
 
@@ -46,7 +47,7 @@ The Settings tab is your main control panel. Here’s what you, as a developer, 
 
 ### The Golden Rule of Scheduling
 
-[![Screenshot of the "Job" tab in Sitemap configuration in the Business Manager](https://www.rhino-inquisitor.com/wp-content/uploads/2025/06/sitemap-business-manager-job-1024x486.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2025/06/sitemap-business-manager-job.jpg)
+[![Screenshot of the "Job" tab in Sitemap configuration in the Business Manager](/media/2025/sitemap-business-manager-job-13ba1762a2.jpg)](/media/2025/sitemap-business-manager-job-13ba1762a2.jpg)
 
 The Job tab
 
@@ -58,7 +59,7 @@ If you run it before, all the new products and content from that day's replicati
 
 ## Going Custom: When the Built-in Isn't Enough
 
-[![The Custom tab in the Sitemap settings in the Business Manager](https://www.rhino-inquisitor.com/wp-content/uploads/2025/06/sitemap-business-manager-custom-sitemaps-sfcc-1024x361.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2025/06/sitemap-business-manager-custom-sitemaps-sfcc.png)
+[![The Custom tab in the Sitemap settings in the Business Manager](/media/2025/sitemap-business-manager-custom-sitemaps-sfcc-2fdf912121.png)](/media/2025/sitemap-business-manager-custom-sitemaps-sfcc-2fdf912121.png)
 
 The "Custom Sitemaps" tab
 

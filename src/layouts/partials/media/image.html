@@ -27,9 +27,15 @@
 {{- $decoding := .decoding | default "async" -}}
 {{- $style := .style | default "" -}}
 {{- $resource := false -}}
+{{- $globalResourcePath := strings.TrimPrefix "/" $requestedSrc -}}
 
 {{- if and $page (not (or (hasPrefix $requestedSrc "http://") (hasPrefix $requestedSrc "https://") (hasPrefix $requestedSrc "/"))) -}}
   {{- with $page.Resources.GetMatch $requestedSrc -}}
+    {{- $resource = . -}}
+  {{- end -}}
+{{- end -}}
+{{- if and (not $resource) (ne $globalResourcePath "") (not (or (hasPrefix $requestedSrc "http://") (hasPrefix $requestedSrc "https://"))) -}}
+  {{- with resources.Get $globalResourcePath -}}
     {{- $resource = . -}}
   {{- end -}}
 {{- end -}}

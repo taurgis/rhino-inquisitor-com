@@ -7,6 +7,7 @@ description: >-
 lastmod: '2024-04-02T07:39:31.000Z'
 url: /getting-to-know-the-sfcc-24-4-release/
 draft: false
+heroImage: /media/2024/a-group-of-paintings-walking-on-a-road-d1415ca232.jpg
 date: '2024-04-01T08:03:24.000Z'
 categories:
   - Release Notes
@@ -66,7 +67,7 @@ To reduce the risk of generating large queries, users are advised to make their 
 
 ## Manage More Images in Page Designer
 
-![A screenshot of the Image Picker in Page Designer showing 4 images available to select.](https://www.rhino-inquisitor.com/wp-content/uploads/2024/04/images-in-sfcc-page-designer-1024x512.png)
+![A screenshot of the Image Picker in Page Designer showing 4 images available to select.](/media/2024/images-in-sfcc-page-designer-2ae797ab98.png)
 
 > The Page Designer image and media picker now supports up to 1,000 images per folder. Previously, only 200 images within a folder were accessible in the image picker, even if more existed. The increased image limit improves the user experience for merchandisers and content creators and avoids workarounds, such as creating subfolders for extra images.
 
@@ -78,7 +79,7 @@ The good news is that the limit has been increased to 1000. This should provide 
 
 ### Configure eCDN for Staging in Business Manager
 
-![A screenshot of the Staging Business Manager showing the link "Embedded CDN Settings" highlighted.](https://www.rhino-inquisitor.com/wp-content/uploads/2024/04/ecdn-config-in-business-manager-staging-1024x577.png)
+![A screenshot of the Staging Business Manager showing the link "Embedded CDN Settings" highlighted.](/media/2024/ecdn-config-in-business-manager-staging-a7d7b2d965.png)
 
 > Business Manager now supports configuring eCDN for staging environments. eCDN settings are specific to each instance (development, staging, and production), and you manage them individually. When you create a proxy zone in production, the zone doesn’t replicate a corresponding proxy zone in your development or staging instance. The new eCDN configuration feature simplifies onboarding new sites for staging instances, making it easier to mimic your production instance. Because the configuration uses the existing CDN-API, you can use either Business Manager or the API to manage your eCDN configurations.
 
@@ -86,7 +87,7 @@ It feels like only yesterday that I [published my blog post](https://www.rhino-i
 
 ### Auto-Correction is Disabled by Default
 
-![A screenshot of the Searchable Attributes in the Business Manager showing the new default setting for Autocorrection to be "No".](https://www.rhino-inquisitor.com/wp-content/uploads/2024/04/searchable-attributes-in-commerce-cloud-1024x361.png)
+![A screenshot of the Searchable Attributes in the Business Manager showing the new default setting for Autocorrection to be "No".](/media/2024/searchable-attributes-in-commerce-cloud-db3ab0524f.png)
 
 > The default setting for auto-correction for searchable attributes added after the B2C Commerce 24.4 release is now set to No. This change affects searchable attributes added through the Business Manager UI or via import. Existing configurations aren’t affected. Previously, when you added a searchable attribute, the default setting was Yes, which could cause issues in instances when search functions shouldn’t correct values, such as the product SKU, ID, or ISBN. Additionally, the auto-correction dictionary’s size can incrementally increase over time, leading to search noise.
 

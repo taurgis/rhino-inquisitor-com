@@ -6,6 +6,7 @@ description: >-
 lastmod: '2025-07-29T12:37:49.000Z'
 url: /server-side-performance-in-sfcc/
 draft: false
+heroImage: /media/2022/performance-8200eea3e8.jpeg
 date: '2023-05-01T05:50:49.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -45,7 +46,7 @@ There are some things to keep in mind with Custom Caches:
 
 ## Don't forget page caching
 
-![A diagram of a web server and a web server. Showing the request of a page being handled by the Web Server to determine whether a cached page should be returned or to let the Application Server do the generation.](https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/b2c_page_caching.gif)
+![A diagram of a web server and a web server. Showing the request of a page being handled by the Web Server to determine whether a cached page should be returned or to let the Application Server do the generation.](/media/2022/b2c-page-caching-110c7fcba6.gif)
 
 In simple terms, page caching stores the Application Server responses (HTML, JSON, XML, ...) in the Web Server. By doing this, the requests coming from the browser don't have to traverse the entire stack again to render the same content as before.
 
@@ -79,7 +80,7 @@ The [Technical Dashboard](https://documentation.b2c.commercecloud.salesforce.com
 
 Looking at the list of data above, it makes sense to have a look at it!
 
-[![A screenshot of the "Reports & Dashboards" with the "Average Response Time" graph depicting a significant performance degradation (doubling in milliseconds).](https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/performance-dashboard-1024x486.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/performance-dashboard.png)
+[![A screenshot of the "Reports & Dashboards" with the "Average Response Time" graph depicting a significant performance degradation (doubling in milliseconds).](/media/2022/performance-dashboard-8a847df133.png)](/media/2022/performance-dashboard-8a847df133.png)
 
 Reports & Dashboards
 
@@ -93,13 +94,13 @@ _Don't be fooled by its name; it will profile more than pipelines!_
 
 The second tool you should be grabbing ahold of is the [Pipeline Profiler](https://documentation.b2c.commercecloud.salesforce.com/DOC1/index.jsp?topic=%2Fcom.demandware.dochelp%2FLegacyDevDoc%2FAnalyzePerformancePipelineProfiler.html). It is easy to use, will give you a high-level overview of all of your pipeline/controller endpoints, and show you how much processing time it needs to do its thing.
 
-![A screenshot of the Pipeline Profiler showing the Search-Show controller with two hits and its total processing time of 1023 milliseconds. Below the controller is the template performance, showing the searchResults.isml file.](https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/pipeline-profiler-1024x396.png)
+![A screenshot of the Pipeline Profiler showing the Search-Show controller with two hits and its total processing time of 1023 milliseconds. Below the controller is the template performance, showing the searchResults.isml file.](/media/2022/pipeline-profiler-24fb681d34.png)
 
 As you can see, the above screenshot shows a basic overview of the performance of a controller and the template (response) it renders. If the template uses local includes, you can see their processing time separately.
 
 All of the [Remote Includes](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/ops_troubleshooting/b2c_understanding_remote_includes.html) you have done are within the list of controllers.
 
-![A screenshot of the Pipeline Profiler showing a list of Remote Includes, with the "Tile-Show" controller marked with a red circle around it.](https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/pipeline-profile-remote-includes-1024x356.png)
+![A screenshot of the Pipeline Profiler showing a list of Remote Includes, with the "Tile-Show" controller marked with a red circle around it.](/media/2022/pipeline-profile-remote-includes-0e99481937.png)
 
 The information you get is quite basic, but it will give you the first indication of pain points and where to start looking. You can do this on production, but preferably as a last resort.
 
@@ -111,7 +112,7 @@ Cache This method only works for uncached endpoints if caching is enabled. Cache
 
 Last but not least, the [Code Profiler](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/site_performance/b2c_using_code_profiler.html) provides you with detailed insights on run-time performance. You can control how detailed you want that information as it supports three modes: Production, Development and Extended.
 
-![A screenshot of the Code Profiler with the activated "Extended Script Development Mode" setting. The screenshot includes an extensive list of functions and Javascript files executed in the server-side code.](https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/salesforce-code-profiler-extended-1024x488.png)
+![A screenshot of the Code Profiler with the activated "Extended Script Development Mode" setting. The screenshot includes an extensive list of functions and Javascript files executed in the server-side code.](/media/2022/salesforce-code-profiler-extended-eeb0fcbb69.png)
 
 Looking at the screenshot above, you can understand why they call it "Extended Script Development Mode." You get fine-grained details about the performance of your code, including information on which line in what JavaScript file.
 
@@ -127,7 +128,7 @@ Although the Pipeline Profiler isn't applicable in this scenario, you can still 
 
 Within these reports are dedicated tabs for OCAPI and SCAPI performance!
 
-[![A screenshot of the OCAPI / SCAPI Technical Reports and Dashboards showing the average response times and response distribution graphs.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/ocapi-and-scapi-performance-reports-1024x468.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/ocapi-and-scapi-performance-reports.jpg)
+[![A screenshot of the OCAPI / SCAPI Technical Reports and Dashboards showing the average response times and response distribution graphs.](/media/2023/ocapi-and-scapi-performance-reports-f411be08a3.jpg)](/media/2023/ocapi-and-scapi-performance-reports-f411be08a3.jpg)
 
 OCAPI and SCAPI Performance Reports
 

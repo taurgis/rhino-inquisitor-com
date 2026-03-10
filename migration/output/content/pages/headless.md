@@ -7,6 +7,7 @@ description: >-
 lastmod: '2022-09-11T08:23:01.000Z'
 url: /headless/
 draft: false
+heroImage: /media/2022/headless-b54918a1ae.jpg
 author: Thomas Theunen
 ---
 https://www.youtube.com/watch?v=BTS6OqwMiK4

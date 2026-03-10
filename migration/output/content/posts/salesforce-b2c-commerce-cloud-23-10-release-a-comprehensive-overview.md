@@ -6,6 +6,7 @@ description: >-
 lastmod: '2023-10-02T12:35:58.000Z'
 url: /salesforce-b2c-commerce-cloud-23-10-release-a-comprehensive-overview/
 draft: false
+heroImage: /media/2023/shopping-carts-on-a-tablet-fa1824b0b9.jpeg
 date: '2023-10-02T12:35:45.000Z'
 categories:
   - Release Notes
@@ -39,7 +40,7 @@ But I hope this will be changed with standard APIs in the future, or once we hav
 
 ### Get Einstein Recommendations for Large Product Catalogs
 
-![Einstein is standing in the middle of a warehouse lane, looking at the camera.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/10/einstein-standing-in-a-warehouse-1024x512.jpg)
+![Einstein is standing in the middle of a warehouse lane, looking at the camera.](/media/2023/einstein-standing-in-a-warehouse-1c76aa5ec5.jpg)
 
 > Commerce Cloud Einstein now generates recommendations for product catalogs that exceed 3 million product SKUs. Einstein Product Recommendations enable you to create and manage recommenders and assign strategies that predict the most relevant products to promote to individual shoppers. **How**: If you have a product catalog that exceeds 3 million product SKUs, Commerce Cloud Einstein compiles a reduced list of 3 million product SKUs by default–no action required. To compile the list, Einstein uses sorting and filtering logic based on pre-defined criteria. Einstein recommendations are generated from this list. If your catalog exceeds 3 million product SKUs, and you want to ensure that products matching specific criteria appear in the reduced product list, contact Commerce Cloud Support.
 
@@ -47,7 +48,7 @@ Having a large catalog and providing the right recommendations can be challengin
 
 ### Renew eCDN Certificates in Business Manager
 
-[![A screenshot of the new eCDN screen in the 23.10 release of Salesforce B2C Commerce Cloud](https://www.rhino-inquisitor.com/wp-content/uploads/2023/10/ecdn-renewable-certificates-1024x467.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/10/ecdn-renewable-certificates.png)
+[![A screenshot of the new eCDN screen in the 23.10 release of Salesforce B2C Commerce Cloud](/media/2023/ecdn-renewable-certificates-ae09665c51.png)](/media/2023/ecdn-renewable-certificates-ae09665c51.png)
 
 > You can now use Business Manager to auto-renew up to five proxy zone eCDN certificates per realm. The new feature simplifies the annual renewal for eCDN certificates. If you use custom certificates, you can easily switch to auto-renewing certificates in the Business Manager UI. When you create a CDN zone, you can select to use eCDN Managed certificates.
 

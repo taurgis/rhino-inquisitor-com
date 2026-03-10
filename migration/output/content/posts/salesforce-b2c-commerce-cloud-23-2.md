@@ -6,6 +6,7 @@ description: >-
 lastmod: '2023-01-20T15:36:31.000Z'
 url: /salesforce-b2c-commerce-cloud-23-2/
 draft: false
+heroImage: /media/2023/artist-painting-on-screen-7d21e84105.jpg
 date: '2023-01-18T19:00:06.000Z'
 categories:
   - Release Notes
@@ -26,11 +27,11 @@ _Are you interested in last month’s release notes? [Click here](https://www.rh
 
 ### Improved Page Designer Structure and Usability
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/page-designer-structure-oldv2-753x1024.jpeg)
+![](/media/2023/page-designer-structure-oldv2-56ca8ab276.jpeg)
 
 Old Page Designer Structure
 
-![New Page Designer Structure](https://www.rhino-inquisitor.com/wp-content/uploads/elementor/thumbs/page-designer-structure-new-q0uu07mbk2b779dng608ohzvqnewndt9ajezjc0u0w.png "page-designer-structure-new")
+![New Page Designer Structure](/media/external/page-designer-structure-new-q0uu07mbk2b779dng608ohzvqnewndt9ajezjc0u0w-f987195ba3.png "page-designer-structure-new")
 
 New Page Designer Structure
 
@@ -42,11 +43,11 @@ Overall, this will be a great step forward in enhancing the user experience.
 
 ### Move Components in Page Designer More Easily
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/page-designer-move.gif)
+![](/media/2023/page-designer-move-e9d6ec4100.gif)
 
 Old Moving Component
 
-![New Moving Component](https://www.rhino-inquisitor.com/wp-content/uploads/elementor/thumbs/page-designer-move-new-q0uu0xxsvfb2aqadmf5zcgd32825ysuaruhlziuh34.png "New Moving Component")
+![New Moving Component](/media/external/page-designer-move-new-q0uu0xxsvfb2aqadmf5zcgd32825ysuaruhlziuh34-537198b2f6.png "New Moving Component")
 
 New Moving Component
 

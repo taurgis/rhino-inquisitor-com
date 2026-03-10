@@ -6,6 +6,7 @@ description: >-
 lastmod: '2023-07-28T13:57:31.000Z'
 url: /how-to-filter-jsdoc-in-storybook-autodocs/
 draft: false
+heroImage: /media/2023/frustrated-developer-illustration-a7d8092bbb.jpg
 date: '2023-07-28T07:53:53.000Z'
 categories:
   - React
@@ -20,11 +21,11 @@ One of its features, called "[Autodocs](https://storybook.js.org/docs/7.0/react/
 
 Recently, I ran into an issue related to using JSDoc with Storybook. JSDoc was being printed out as Markdown but was erroneously formatted. Further, it was trying to execute the @example code, which led to console errors. I want to share how I resolved the issue through this blog post.
 
-![Storybook JSDocs before screenshot. We see way to much information.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/07/storybook-jsdocs-before-1024x764.png)
+![Storybook JSDocs before screenshot. We see way to much information.](/media/2023/storybook-jsdocs-before-90d7cc5222.png)
 
 Before
 
-![Storybook JSDocs after screenshot. We no longer see anything except the description.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/07/storybook-jsdocs-after-1024x667.png)
+![Storybook JSDocs after screenshot. We no longer see anything except the description.](/media/2023/storybook-jsdocs-after-8063d0ff66.png)
 
 After
 

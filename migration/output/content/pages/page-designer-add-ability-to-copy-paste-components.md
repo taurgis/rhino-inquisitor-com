@@ -16,7 +16,7 @@ Many years ago, the only way to manage content within Salesforce Commerce Cloud 
 Commerce Cloud needed a better way to manage content. Looking at the Core Platform, and specifically Experience Cloud (Community Cloud at the time), was the solution.
 
 
-![A screenshot of the Experience Cloud page editor](https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/experience-cloud.png)
+![A screenshot of the Experience Cloud page editor](/media/2022/experience-cloud-9470ae566b.png)
 
 Experience Cloud Page Editor
 

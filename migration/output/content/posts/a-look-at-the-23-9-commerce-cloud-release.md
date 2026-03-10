@@ -6,6 +6,7 @@ description: >-
 lastmod: '2023-08-28T07:35:45.000Z'
 url: /a-look-at-the-23-9-commerce-cloud-release/
 draft: false
+heroImage: /media/2023/japan-shopping-street-23-9-bd4ea7a693.jpeg
 date: '2023-08-28T07:35:34.000Z'
 categories:
   - Release Notes
@@ -21,7 +22,7 @@ This update is truly a game-changer for Commerce Cloud customers! With the intro
 
 ### Development
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/08/sfcc-custom-endpoints-1024x618.png) The development of custom endpoints will look a lot similar to how we build hooks:
+![](/media/2023/sfcc-custom-endpoints-138d76b101.png) The development of custom endpoints will look a lot similar to how we build hooks:
 
 -   A mapping file (like hooks.json)
 -   A script file (Development is similar to controllers and hooks)
@@ -49,7 +50,7 @@ From a Headless perspective, Salesforce Commerce Cloud had much to catch up on c
 
 > You can now enable a new language analyzer for Japanese locales in B2C Commerce. The new analyzer supports advanced methods for search query tokenization. This enhancement provides more relevant search results for product searches in the Japanese language. It also reduces the merchandising effort to optimize storefront search for Japanese locales. For example, setting up additional synonyms and search dictionary entries. **How**: To enable the new analyzer, in Business Manager, select site | Merchant Tools | Search | Search Indexes | Language Options. Select Japanese-Improved as the language analyzer for Japanese locales. An index rebuild is NOT required after this update. To change the analyzer setting requires the permission to update a Business Manager Search Indexes module
 
-![A screenshot of the Language Options in the Salesforce B2C Commerce Cloud Business Manager showing the new "Japanese Improved" option in the dropdown.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/08/sfcc-japanese-improved-search-1024x489.png) A new and exciting addition for Japanese customers. It is important to find the right product to ensure good conversion rates and improve customer experience.
+![A screenshot of the Language Options in the Salesforce B2C Commerce Cloud Business Manager showing the new "Japanese Improved" option in the dropdown.](/media/2023/sfcc-japanese-improved-search-fb4e7c018a.png) A new and exciting addition for Japanese customers. It is important to find the right product to ensure good conversion rates and improve customer experience.
 
 ## Business Manager
 
@@ -57,7 +58,7 @@ From a Headless perspective, Salesforce Commerce Cloud had much to catch up on c
 
 > The Code Profiler Script API calls (shown as SCRIPT\_API) are no longer measured when using Production Mode. This change improves code profiler tracking without causing performance issues.
 
-![A screenshot of the code profiler prior to the 23.9 release.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/08/sfcc-script-profile-productionmode-before-23.9-1024x326.png) Having "Production Mode" with less impact on performance will positively affect the TTFB (Time To First Byte), though it is not stated anywhere how much this will affect the storefront percentage-wise. You can still access this information in other modes within 23.9, which are more useful for performance debugging.
+![A screenshot of the code profiler prior to the 23.9 release.](/media/2023/sfcc-script-profile-productionmode-before-23-9-35fed622ef.png) Having "Production Mode" with less impact on performance will positively affect the TTFB (Time To First Byte), though it is not stated anywhere how much this will affect the storefront percentage-wise. You can still access this information in other modes within 23.9, which are more useful for performance debugging.
 
 ## OCAPI & SCAPI
 

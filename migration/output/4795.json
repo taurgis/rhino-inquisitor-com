@@ -63,7 +63,9 @@
   "aliasUrls": [
     "/?p=4795"
   ],
-  "mediaRefs": [],
+  "mediaRefs": [
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/image-2.jpg"
+  ],
   "_raw": {
     "sourceTimestamp": "2026-03-10T10:03:55.501Z",
     "status": "publish",
@@ -138,8 +140,11 @@
       "link": "/connecting-the-clouds-wedding-or-funeral/",
       "guid": "/?page_id=4795",
       "attachmentUrl": null,
+      "thumbnailId": "4820",
+      "metaDescription": "Connecting different clouds, in this case: B2C Commerce Cloud, CRM, and Marketing Cloud, to work together in harmony can be a challenge.",
       "postParent": "0",
-      "postMetaCount": 25
+      "postMetaCount": 25,
+      "featuredImageUrl": "/wp-content/uploads/2022/09/image-2.jpg"
     }
   },
   "bodyMarkdown": "",

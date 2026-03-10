@@ -7,6 +7,7 @@ description: >-
 lastmod: '2024-02-06T09:05:09.000Z'
 url: /a-look-at-the-salesforce-b2c-commerce-cloud-24-2-release/
 draft: false
+heroImage: /media/2024/a-question-mark-cloning-machine-12d5adc228.jpg
 date: '2024-02-05T06:59:49.000Z'
 categories:
   - Release Notes
@@ -27,7 +28,7 @@ You can always check out [last month's release notes](https://www.rhino-inquisit
 
 On By Default This new feature is automatically enabled with the 24.2 release and may cause unexpected behaviour if you have complex use cases involving cookies.
 
-Please turn it off until you have completed all necessary testing. Affects Hybrid Deployments An extra warning for those using hybrid deployments: it is important to test adequately as this change may disrupt standard customer flows. [![A screenshot showing the Feature switch called 'Partioned Cookies' with the default value of 'true'.](https://www.rhino-inquisitor.com/wp-content/uploads/2024/02/partioned-cookies-in-sfcc-1024x160.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2024/02/partioned-cookies-in-sfcc.png)
+Please turn it off until you have completed all necessary testing. Affects Hybrid Deployments An extra warning for those using hybrid deployments: it is important to test adequately as this change may disrupt standard customer flows. [![A screenshot showing the Feature switch called 'Partioned Cookies' with the default value of 'true'.](/media/2024/partioned-cookies-in-sfcc-cb426ac0c4.png)](/media/2024/partioned-cookies-in-sfcc-cb426ac0c4.png)
 
 Concerning browser vendors' ongoing deprecation of third-party cookies, a new feature in Salesforce B2C Commerce Cloud affects how cookies are handled: "[Partitioned Cookies](https://developer.mozilla.org/en-US/docs/Web/Privacy/Partitioned_cookies)"
 
@@ -85,11 +86,11 @@ Previously, we were unable to differentiate at the millisecond level, but that i
 
 > You can now modify the date settings format in Business Manager so that the script API method dw.util.Calendar.getFirstDayOfWeek() returns the first day of the week in the date format used by your site locale. Previously, you couldn’t modify the date format to match the local or regional context.
 
-![A screenshot of the date settings in a locale before the 24.2 release.](https://www.rhino-inquisitor.com/wp-content/uploads/2024/02/locale-date-settings-before-24.2-1024x169.png)
+![A screenshot of the date settings in a locale before the 24.2 release.](/media/2024/locale-date-settings-before-24-2-1107342948.png)
 
 Before
 
-![A screenshot of the date settings in a locale after the 24.2 release, showing the new start day of the week option.](https://www.rhino-inquisitor.com/wp-content/uploads/2024/02/locale-date-settings-after-24.2-1024x108.png)
+![A screenshot of the date settings in a locale after the 24.2 release, showing the new start day of the week option.](/media/2024/locale-date-settings-after-24-2-ed26c6c56a.png)
 
 After
 
@@ -157,7 +158,7 @@ A long-awaited update to SFRA is finally here with the long-promised update to n
 
 Effort Do not underestimate upgrading your projects, as this update also means that libraries have been upgraded!
 
-[![package.json changes in SFRA 7.0.0](https://www.rhino-inquisitor.com/wp-content/uploads/2024/02/package-json-changes-7.0.0-1024x617.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2024/02/package-json-changes-7.0.0.png)
+[![package.json changes in SFRA 7.0.0](/media/2024/package-json-changes-7-0-0-cecd2c2e2d.png)](/media/2024/package-json-changes-7-0-0-cecd2c2e2d.png)
 
 Many libraries have been updated!
 

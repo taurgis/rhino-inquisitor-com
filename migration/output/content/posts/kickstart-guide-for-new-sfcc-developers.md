@@ -7,6 +7,7 @@ description: >-
 lastmod: '2026-01-09T12:49:20.000Z'
 url: /kickstart-guide-for-new-sfcc-developers/
 draft: false
+heroImage: /media/2025/the-new-salesforce-developer-scaled-1f8ff6fbac.jpeg
 date: '2026-01-12T14:05:43.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -52,7 +53,7 @@ _**A word of warning**_: getting your hands on a sandbox is essential for learni
 
 ### The Business Manager: Your Command Center
 
-![A flat-style cartoon illustration of a high-tech command center featuring two operators monitoring multiple screens of analytics and storefront data, symbolizing the Salesforce B2C Commerce Cloud Business Manager interface for this kickstart guide.](https://www.rhino-inquisitor.com/wp-content/uploads/2026/01/business-manager-sfcc-command-center-1024x572.jpg)
+![A flat-style cartoon illustration of a high-tech command center featuring two operators monitoring multiple screens of analytics and storefront data, symbolizing the Salesforce B2C Commerce Cloud Business Manager interface for this kickstart guide.](/media/2026/business-manager-sfcc-command-center-79bc109bf3.jpg)
 
 If the instance structure is the map, the **Business Manager (BM)** is your command centre. It's a web-based tool that serves as the central nervous system for your entire storefront. It's not just a simple "admin panel"; it's a powerful interface where merchandising, administration, and development configurations converge.
 

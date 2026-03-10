@@ -1,0 +1,28 @@
+{{- $destination := .Destination | default "" -}}
+{{- $resourcePath := strings.TrimPrefix "/" $destination -}}
+{{- $resource := false -}}
+{{- if and (ne $resourcePath "") (not (or (hasPrefix $destination "http://") (hasPrefix $destination "https://"))) -}}
+  {{- with resources.Get $resourcePath -}}
+    {{- $resource = . -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $resolvedSrc := $destination -}}
+{{- $width := 0 -}}
+{{- $height := 0 -}}
+{{- if and $resource (reflect.IsImageResourceWithMeta $resource) -}}
+  {{- $resolvedSrc = $resource.RelPermalink -}}
+  {{- $width = $resource.Width -}}
+  {{- $height = $resource.Height -}}
+{{- end -}}
+
+<img
+  src="{{ $resolvedSrc }}"
+  alt="{{ .PlainText | default .Text }}"
+  loading="lazy"
+  decoding="async"
+  class="article-body-image"
+  {{ with .Title }}title="{{ . }}"{{ end }}
+  {{ if gt $width 0 }}width="{{ $width }}"{{ end }}
+  {{ if gt $height 0 }}height="{{ $height }}"{{ end }}
+>

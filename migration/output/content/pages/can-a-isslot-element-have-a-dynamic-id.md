@@ -6,9 +6,10 @@ description: >-
 lastmod: '2023-06-28T18:56:00.000Z'
 url: /can-a-isslot-element-have-a-dynamic-id/
 draft: false
+heroImage: /media/2023/isslot-element-d83390209d.jpg
 author: Thomas Theunen
 ---
-TL;DR It is not possible to set a dynamic ID in the `<isslot>` tag. ![Screenshot of the isslot official documentation.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/06/isslot-element.jpg)
+TL;DR It is not possible to set a dynamic ID in the `<isslot>` tag. ![Screenshot of the isslot official documentation.](/media/2023/isslot-element-d83390209d.jpg)
 
 -   [Official Documentation](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-isslot.html?q=isslot)
 

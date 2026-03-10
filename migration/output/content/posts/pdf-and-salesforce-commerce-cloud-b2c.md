@@ -7,6 +7,7 @@ description: >-
 lastmod: '2025-07-14T18:19:59.000Z'
 url: /pdf-and-salesforce-commerce-cloud-b2c/
 draft: false
+heroImage: /media/2022/pdf-and-sfcc-f66c1d7bc5.jpg
 date: '2022-02-24T13:18:00.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -45,7 +46,7 @@ A few hours later, I found 15 minutes to spare and created a working job step us
 
 And not to worry, these examples, together with the library, are available [here to download](https://github.com/taurgis/salesforce-commerce-cloud-libraries) and try out yourself.
 
-![An example of code using jsPDF and the resulting PDF preview on the right.](https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/jsPDF-Example-1024x438.png)
+![An example of code using jsPDF and the resulting PDF preview on the right.](/media/2022/jspdf-example-c6dcb73e48.png)
 
 ## With great power, comes great responsibility
 

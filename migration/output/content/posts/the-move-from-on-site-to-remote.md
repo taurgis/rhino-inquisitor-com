@@ -6,6 +6,7 @@ description: >-
 lastmod: '2023-01-15T08:46:26.000Z'
 url: /the-move-from-on-site-to-remote/
 draft: false
+heroImage: /media/2022/remote-work-5d0888fb2c.png
 date: '2022-12-12T08:15:25.000Z'
 categories:
   - Corporate
@@ -30,7 +31,7 @@ Those "short" commutes did come at a price, sort of speak. I started my days at 
 
 ### Thalia was born
 
-![Thalia Theunen-Vanhoof](https://www.rhino-inquisitor.com/wp-content/uploads/elementor/thumbs/thalia-scaled-psv25226nd87xk5yw4jl2gxdwd1vdrhw7avqfqo45c.jpg "Thalia Theunen-Vanhoof")
+![Thalia Theunen-Vanhoof](/media/external/thalia-scaled-psv25226nd87xk5yw4jl2gxdwd1vdrhw7avqfqo45c-8d4884e1a0.jpg "Thalia Theunen-Vanhoof")
 
 Your routine needs to change when you put a child into the world! I was mentally prepared for this, but oh boy. The first six months didn't change much since my wife was on maternity leave, but daycare came into the picture after that.
 
@@ -77,7 +78,7 @@ After a while, I moved my desk to a separate room to prevent us from disturbing 
 
 ## The new normal: remote
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/07/remote-working-300x245.png)
+![](/media/2022/remote-working-e716e903ff.png)
 
 Two years later, here we are. Thoroughly accustomed to remote work. And productivity has not plummeted as some anti-remote doomsday-sayers were predicting.
 
@@ -93,7 +94,7 @@ Instead of cramming everything into an hour, I have two hours to prepare everyth
 
 Woohoo! I don't have to face rush-hour traffic!
 
-![Obligatory proud-parent photo required](https://www.rhino-inquisitor.com/wp-content/uploads/elementor/thumbs/thano-psv24pu9kldk5x8zu262vki7uludwrj46gur4x75jm.jpg "Thano Theunen-Vanhoof")
+![Obligatory proud-parent photo required](/media/external/thano-psv24pu9kldk5x8zu262vki7uludwrj46gur4x75jm-99e877453d.jpg "Thano Theunen-Vanhoof")
 
 Obligatory proud-parent photo required
 

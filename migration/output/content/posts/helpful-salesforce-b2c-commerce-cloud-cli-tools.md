@@ -6,6 +6,7 @@ description: >-
 lastmod: '2023-09-18T12:33:59.000Z'
 url: /helpful-salesforce-b2c-commerce-cloud-cli-tools/
 draft: false
+heroImage: /media/2022/5517c6d9-6282-4468-a840-0af54ac19068-9222fff64d.png
 date: '2023-09-11T17:19:00.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -52,7 +53,7 @@ There are still more commands available, but I will not review them all.
 
 ## b2c-tools
 
-![A screenshot of B2C Tools depicting a migration](https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/b2c-tools.svg)
+![A screenshot of B2C Tools depicting a migration](/media/2022/b2c-tools-ff2c3df29f.svg)
 
 -   [GitHub Repository Link](https://github.com/SalesforceCommerceCloud/b2c-tools)
 

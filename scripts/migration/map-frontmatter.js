@@ -14,12 +14,14 @@ import {
 } from './schemas/discovery-metadata.schema.js';
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
+const canonicalHost = 'https://www.rhino-inquisitor.com';
 const urlPattern = /^\/(?:|[a-z0-9/-]*[a-z0-9-]\/?)$/;
 const aliasPattern = /^\/(?:|[a-z0-9/-]*[a-z0-9-]\/)$/;
 
 async function main() {
   const options = await resolveOptions(process.argv.slice(2));
   const curation = await loadDiscoveryCuration(options.discoveryFile);
+  const extractRecords = await readJsonFile(options.extractRecordsFile, 'extraction records');
   const outputPathToSourceIds = new Map();
   const mappingStats = {
     excludedNonPathAliasCount: 0
@@ -41,6 +43,7 @@ async function main() {
   const coverage = createCoverageReport(options, curation.__meta.exists);
   const mappedRecords = [];
   const urlToFiles = new Map();
+  const validatedRecords = [];
 
   for (const relativeFile of recordFiles) {
     const absoluteFile = path.join(options.recordsDir, relativeFile);
@@ -57,13 +60,21 @@ async function main() {
       continue;
     }
 
-    const record = validation.data;
+    validatedRecords.push({
+      relativeFile,
+      record: validation.data
+    });
+  }
+
+  const attachmentUrlBySourceId = buildAttachmentUrlLookup(Array.isArray(extractRecords) ? extractRecords : []);
+
+  for (const { relativeFile, record } of validatedRecords) {
     if (!['keep', 'merge'].includes(record.disposition) || record.postType === 'category') {
       continue;
     }
 
     const discoveryResult = resolveDiscoveryParams(record, curation, errors);
-    const frontMatter = buildFrontMatter(record, discoveryResult.params, errors, mappingStats);
+    const frontMatter = buildFrontMatter(record, discoveryResult.params, attachmentUrlBySourceId, errors, mappingStats);
     const outputRelativePath = buildOutputRelativePath(record);
     const outputPath = path.join(options.contentDir, outputRelativePath);
 
@@ -159,6 +170,9 @@ async function resolveOptions(argv) {
       case '--content-dir':
         parsed.contentDir = path.resolve(argv[++index]);
         break;
+      case '--extract-records-file':
+        parsed.extractRecordsFile = path.resolve(argv[++index]);
+        break;
       case '--discovery-file':
         parsed.discoveryFile = path.resolve(argv[++index]);
         break;
@@ -180,6 +194,7 @@ async function resolveOptions(argv) {
   return {
     recordsDir: parsed.recordsDir ?? path.join(repoRoot, 'migration/output'),
     contentDir: parsed.contentDir ?? path.join(repoRoot, 'migration/output/content'),
+    extractRecordsFile: parsed.extractRecordsFile ?? path.join(repoRoot, 'migration/intermediate/extract-records.json'),
     discoveryFile: parsed.discoveryFile ?? path.join(repoRoot, 'migration/input/discovery-metadata.json'),
     errorReport: parsed.errorReport ?? path.join(repoRoot, 'migration/reports/frontmatter-errors.csv'),
     coverageReport: parsed.coverageReport ?? path.join(repoRoot, 'migration/reports/discovery-metadata-coverage.json')
@@ -192,6 +207,8 @@ function printHelp() {
 Options:
   --records-dir <path>      Override migration/output input directory.
   --content-dir <path>      Override generated Markdown output directory.
+  --extract-records-file <path>
+                            Override migration/intermediate/extract-records.json used for attachment lookups.
   --discovery-file <path>   Override optional discovery metadata curation file.
   --error-report <path>     Override frontmatter-errors CSV path.
   --coverage-report <path>  Override discovery coverage JSON path.
@@ -284,7 +301,48 @@ function normalizeDiscoveryValue(value) {
   return value;
 }
 
-function buildFrontMatter(record, discoveryParams, errors, mappingStats) {
+function buildAttachmentUrlLookup(records) {
+  const lookup = new Map();
+
+  for (const record of records) {
+    if (record.postType !== 'attachment') {
+      continue;
+    }
+
+    const attachmentUrl = resolveAttachmentSourceUrl(record);
+    if (!attachmentUrl) {
+      continue;
+    }
+
+    lookup.set(String(record.sourceId), attachmentUrl);
+  }
+
+  return lookup;
+}
+
+function resolveAttachmentSourceUrl(record) {
+  const attachmentUrl = record?._raw?.extracted?.attachmentUrl ?? record?._raw?.attachmentUrl ?? null;
+  if (typeof attachmentUrl !== 'string') {
+    return null;
+  }
+
+  const normalized = attachmentUrl.trim();
+  if (!normalized) {
+    return null;
+  }
+
+  if (/^https?:\/\//iu.test(normalized)) {
+    return normalized;
+  }
+
+  if (normalized.startsWith('/')) {
+    return `${canonicalHost}${normalized}`;
+  }
+
+  return null;
+}
+
+function buildFrontMatter(record, discoveryParams, attachmentUrlBySourceId, errors, mappingStats) {
   const title = record.titleRaw.trim();
   if (title.length === 0) {
     errors.push(createErrorRow({
@@ -343,6 +401,15 @@ function buildFrontMatter(record, discoveryParams, errors, mappingStats) {
     url: record.targetUrl,
     draft: record.status !== 'publish'
   };
+
+  const thumbnailId = record?._raw?.extracted?.thumbnailId ?? null;
+  const normalizedFeaturedImageUrl = typeof record?._raw?.extracted?.featuredImageUrl === 'string'
+    ? record._raw.extracted.featuredImageUrl.trim()
+    : '';
+  const heroImage = normalizedFeaturedImageUrl || (thumbnailId ? attachmentUrlBySourceId.get(String(thumbnailId)) ?? null : null);
+  if (heroImage) {
+    frontMatter.heroImage = heroImage;
+  }
 
   if (record.postType !== 'page') {
     frontMatter.date = record.publishedAt;

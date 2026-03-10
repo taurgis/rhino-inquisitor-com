@@ -68,11 +68,14 @@
       "link": "/versioning-of-content-assets/",
       "guid": "/?page_id=1087",
       "attachmentUrl": null,
+      "thumbnailId": null,
+      "metaDescription": "Allow for versioning of content assets as they are edited, including the ability to roll back to prior versions.",
       "postParent": "0",
-      "postMetaCount": 24
+      "postMetaCount": 24,
+      "featuredImageUrl": null
     }
   },
-  "bodyMarkdown": "Everyone makes mistakes, big and small. There is no easy way to return within the Content Management system built into Salesforce B2C Commerce Cloud once you save a Content Asset. It is easy as pie to roll back changes to even months ago within many plugins and editors (including [Elementor](http://elementor.com), which I use for this blog.) This is most certainly a missing feature in Page Designer and Content Assets!\n\n![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/revision-blog-1024x536.jpg)\n\nRevisions in Elementor\n\n[Vote for this idea here](https://ideas.salesforce.com/s/idea/a0B8W00000GdVsJUAV/versioning-of-content-assets)",
+  "bodyMarkdown": "Everyone makes mistakes, big and small. There is no easy way to return within the Content Management system built into Salesforce B2C Commerce Cloud once you save a Content Asset. It is easy as pie to roll back changes to even months ago within many plugins and editors (including [Elementor](http://elementor.com), which I use for this blog.) This is most certainly a missing feature in Page Designer and Content Assets!\n\n![](/media/2022/revision-blog-12e6fdce00.jpg)\n\nRevisions in Elementor\n\n[Vote for this idea here](https://ideas.salesforce.com/s/idea/a0B8W00000GdVsJUAV/versioning-of-content-assets)",
   "conversionStatus": "converted",
   "manualReviewRequired": false,
   "fallbackTypes": [],

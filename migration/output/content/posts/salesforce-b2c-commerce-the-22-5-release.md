@@ -7,6 +7,7 @@ description: >-
 lastmod: '2022-07-23T21:51:46.000Z'
 url: /salesforce-b2c-commerce-the-22-5-release/
 draft: false
+heroImage: /media/2022/b2c-control-center-3581b7d6c3.png
 date: '2022-04-18T07:31:52.000Z'
 categories:
   - Release Notes
@@ -45,7 +46,7 @@ _**Note**: Salesforce is actively looking for customers in the AMER region who d
 
 ### Control Center
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/control-center-ods-scheduler.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/control-center-ods-scheduler.png)
+[![](/media/2022/control-center-ods-scheduler-6e883d6157.png)](/media/2022/control-center-ods-scheduler-6e883d6157.png)
 
 As On-Demand Sandboxes have become the new standard for Salesforce B2C Commerce, the UI of the [Control Center](https://controlcenter.commercecloud.salesforce.com/index.html) is being revamped as well.
 
@@ -53,7 +54,7 @@ We already had [the option to schedule our Sandboxes uptime through a REST API](
 
 ### Tiktok Integration
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/tiktok-for-business-1024x366.jpeg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/tiktok-for-business.jpeg)
+[![](/media/2022/tiktok-for-business-e34f4d0876.jpeg)](/media/2022/tiktok-for-business-e34f4d0876.jpeg)
 
 A beta program is available to test an integration between B2C Commerce Cloud and Tiktok. This Beta aims to create storefronts and advertise products on Tiktok using products and shopper activity data.
 
@@ -108,7 +109,7 @@ _**Update:** It turns out that HTML is supported; the API determines if it is pl
 
 ### Rule-Based Categorization
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/product-exclusion-list-rule-based.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/product-exclusion-list-rule-based.png)
+[![](/media/2022/product-exclusion-list-rule-based-0acada8ea8.png)](/media/2022/product-exclusion-list-rule-based-0acada8ea8.png)
 
 [Dynamic Categorization](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/categories/b2c_dynamic_categories.html) is a recent addition to the Salesforce B2C Commerce Cloud feature list, allowing the automatic (job-based) assignment of products to specific categories on configurable criteria.
 
@@ -136,7 +137,7 @@ It is good to see these features being added to the "native" payment option with
 
 ### Klarna for Salesforce Payments
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/klarnastripe-1024x576.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/klarnastripe.jpg)
+[![](/media/2022/klarnastripe-6dabc3b122.jpg)](/media/2022/klarnastripe-6dabc3b122.jpg)
 
 For most, [Klarna](https://www.klarna.com/international/) is a well-known payment method. This option has now been added to Salesforce Payments giving shoppers the ability to use the three different pay-later options that Klarna provides:
 

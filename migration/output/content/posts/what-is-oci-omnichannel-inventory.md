@@ -6,6 +6,7 @@ description: >-
 lastmod: '2022-11-19T10:09:21.000Z'
 url: /what-is-oci-omnichannel-inventory/
 draft: false
+heroImage: /media/2022/omnichannel-inventory-865b640973.jpg
 date: '2022-08-08T14:35:58.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -20,7 +21,7 @@ But why should you use it? And if you decide to use this product, what are the t
 
 ## Wait?!! It's included in the B2C license?
 
-[![A screenshot of a Quip document depicting the highlighted text "OCI is available to all B2C Commerce customers at no additional cost although there is a provisioning process".](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/oci-included-in-license.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/oci-included-in-license.png)
+[![A screenshot of a Quip document depicting the highlighted text "OCI is available to all B2C Commerce customers at no additional cost although there is a provisioning process".](/media/2022/oci-included-in-license-b4aca05118.png)](/media/2022/oci-included-in-license-b4aca05118.png)
 
 Let us first get this topic out of the way; I am sure this information will increase the interest in this product!
 
@@ -39,7 +40,7 @@ The OCI exists out of multiple components:
 
 -   **Omnichannel Inventory App:** A Salesforce console app to manage your locations and inventory availability in the [visual interface you know and love](https://www.salesforce.com/campaign/lightning/).
 
-   [![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/omnichannel-inventory.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/omnichannel-inventory.png)
+   [![](/media/2022/omnichannel-inventory-0b29da8f29.png)](/media/2022/omnichannel-inventory-0b29da8f29.png)
 
 The Omnichannel Inventory provides a set of Headless APIs so any system can communicate with it to get the latest inventory information, be it your website, app, or any other system connected to the web (which can include your physical stores).
 
@@ -64,7 +65,7 @@ Using OCI brings the following benefits:
 
 
 
-[![An overview of grouping inventory locations together into delivery groups. It shows for example a Physicial store and warehouse being merged to an inventory group to use for online delivery as a single "list".](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/inventory-grouping-1024x427.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/inventory-grouping.png)
+[![An overview of grouping inventory locations together into delivery groups. It shows for example a Physicial store and warehouse being merged to an inventory group to use for online delivery as a single "list".](/media/2022/inventory-grouping-6f9edbe7b9.png)](/media/2022/inventory-grouping-6f9edbe7b9.png)
 
 Example of location grouping
 

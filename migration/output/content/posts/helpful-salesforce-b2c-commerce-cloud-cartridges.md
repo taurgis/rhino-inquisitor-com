@@ -6,6 +6,7 @@ description: >-
 lastmod: '2022-09-20T06:31:08.000Z'
 url: /helpful-salesforce-b2c-commerce-cloud-cartridges/
 draft: false
+heroImage: /media/2022/modules-008e311b6f.jpg
 date: '2022-09-20T06:29:08.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -27,7 +28,7 @@ _**Note**: If you do not have access to the Salesforce B2C Commerce Cloud GitHub
 
 ## Custom Feeds
 
-[![A screenshot of the Custom Feeds interface in the Business Manager, showing a configuration for a Google Feed.](https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/custom-feed-1024x407.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/custom-feed.png)
+[![A screenshot of the Custom Feeds interface in the Business Manager, showing a configuration for a Google Feed.](/media/2022/custom-feed-9148030910.png)](/media/2022/custom-feed-9148030910.png)
 
 -   [GitHub Repository Link](https://github.com/SalesforceCommerceCloud/custom-feeds)
 
@@ -60,7 +61,7 @@ This cartridge integrates the SLAS (Shopper Login and API Access Service) within
 
 ## Resource Manager
 
-[![A screenshot of the Resource Manager in the business manager.](https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/resource-manager-1024x378.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/resource-manager.png)
+[![A screenshot of the Resource Manager in the business manager.](/media/2022/resource-manager-4a86b3a33c.png)](/media/2022/resource-manager-4a86b3a33c.png)
 
 -   [GitHub Repository Link](https://github.com/SalesforceCommerceCloud/resource-manager)
 
@@ -85,7 +86,7 @@ There are some things to keep in mind when switching to this method:
 
 ## Page Designer Plus
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/page-designer-plus.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/page-designer-plus.png)
+[![](/media/2022/page-designer-plus-9eedd5b72f.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/page-designer-plus.png)
 
 -   [GitHub Repository Link](https://github.com/SalesforceCommerceCloud/link_royalcyberpd)
 
@@ -119,7 +120,7 @@ The list hasn't grown much in the last two to three years (I switch side project
 
 ## B2C CRM Sync
 
-[![A slide from the B2C CRM Sync presentation showing a list of advantages and features.](https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/b2c-crm-sync-1024x576.gif)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/b2c-crm-sync.gif)
+[![A slide from the B2C CRM Sync presentation showing a list of advantages and features.](/media/2022/b2c-crm-sync-96c282e333.gif)](/media/2022/b2c-crm-sync-96c282e333.gif)
 
 -   [GitHub Repository Link](https://github.com/SalesforceCommerceCloud/b2c-crm-sync)
 

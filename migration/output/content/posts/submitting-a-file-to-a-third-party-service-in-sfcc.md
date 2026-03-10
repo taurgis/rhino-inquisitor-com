@@ -7,6 +7,7 @@ description: >-
 lastmod: '2022-12-29T18:02:41.000Z'
 url: /submitting-a-file-to-a-third-party-service-in-sfcc/
 draft: false
+heroImage: /media/2022/file-upload-86681d338b.jpg
 date: '2023-01-02T08:00:00.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -71,7 +72,7 @@ Or if you want more control over your request:
 
 ## Configuration in the Business Manager
 
-In the Business Manager go to: "Administration > Operations > Services" [![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/12/administration-operations-services-1024x170.jpg) ](https://www.rhino-inquisitor.com/wp-content/uploads/2022/12/administration-operations-services.jpg)And click the "New" button on the bottom right. Here we can configure our service: [![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/12/test-http-post-service.jpeg) ](https://www.rhino-inquisitor.com/wp-content/uploads/2022/12/test-http-post-service.jpeg)This example service is configured with the following values:
+In the Business Manager go to: "Administration > Operations > Services" [![](/media/2022/administration-operations-services-ecba1de963.jpg) ](/media/2022/administration-operations-services-ecba1de963.jpg)And click the "New" button on the bottom right. Here we can configure our service: [![](/media/2022/test-http-post-service-be40e7ba49.jpeg) ](/media/2022/test-http-post-service-be40e7ba49.jpeg)This example service is configured with the following values:
 
 -   **Name:** It can be any name as long as it matches the name (ID) used in the code.
 -   **Type:** In this case, HTTP service is selected. This ensures the Service Framework behind the scenes uses the correct client (HTTP).

@@ -9,6 +9,7 @@ description: >-
 lastmod: '2023-07-31T08:43:08.000Z'
 url: /fetching-data-in-a-locale-with-sfcc/
 draft: false
+heroImage: /media/2023/country-flags-427934b006.jpg
 date: '2023-07-31T08:40:09.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -73,7 +74,7 @@ Remember to restore the original language after the data has been fetched in the
 
 ## Use cases
 
-![A map of the world representing all locale in the world.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/07/people-around-the-world-1024x498.png) Some might ask, why would you need to do such a thing? Well, there are a few reasons which will cause you to resort to fiddling with the request:
+![A map of the world representing all locale in the world.](/media/2023/people-around-the-world-551b94bfa5.png) Some might ask, why would you need to do such a thing? Well, there are a few reasons which will cause you to resort to fiddling with the request:
 
 -   Fetching a content asset in a different language, a language selection popup, for example.
 -   Generating a single-file feed with multiple languages

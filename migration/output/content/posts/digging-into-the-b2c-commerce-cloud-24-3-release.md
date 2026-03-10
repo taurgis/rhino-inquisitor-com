@@ -7,6 +7,7 @@ description: >-
 lastmod: '2024-03-04T09:07:27.000Z'
 url: /digging-into-the-b2c-commerce-cloud-24-3-release/
 draft: false
+heroImage: /media/2024/a-shopping-cart-overfilled-with-products-2342f0919f.jpg
 date: '2024-03-04T09:04:46.000Z'
 categories:
   - Release Notes
@@ -25,7 +26,7 @@ Are you interested in last month’s release notes? [Click here](https://www.rhi
 
 ## Add More Product Line Items per Basket
 
-![A screenshot of the Business Manager basket preferences is displayed, featuring a new 200 default option for product line items.](https://www.rhino-inquisitor.com/wp-content/uploads/2024/03/basket-product-line-items-in-sfcc-1024x250.png)
+![A screenshot of the Business Manager basket preferences is displayed, featuring a new 200 default option for product line items.](/media/2024/basket-product-line-items-in-sfcc-d24a6fcde8.png)
 
 > If your site was limited to 50 line items per basket, the maximum number is increased to 200. This new limit doesn’t affect users who have been granted a lower or higher limit.
 
@@ -51,7 +52,7 @@ However, if you use this feature in other environments, you can use a system job
 
 ### Display Alert Messages in Business Manager
 
-![A screenshot of the Business Manager showing all different options on where to show certain notifications: Banner, Header, or Homepage](https://www.rhino-inquisitor.com/wp-content/uploads/2024/03/sfcc-alerts-business-manager-1024x308.png)
+![A screenshot of the Business Manager showing all different options on where to show certain notifications: Banner, Header, or Homepage](/media/2024/sfcc-alerts-business-manager-5ad8b6e1f2.png)
 
 > Display alerts as a persistent banner on the top of every Business Manager page. Alerts can relate to Business Manager modules and are only visible to users with permissions to access the module. Salesforce might also use the enhanced alerting framework to display critical system messages to Business Manager users.
 

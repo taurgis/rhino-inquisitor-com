@@ -6,6 +6,7 @@ description: >-
 lastmod: '2023-10-31T09:11:09.000Z'
 url: /getting-to-know-sfra-as-a-developer/
 draft: false
+heroImage: /media/2022/sfra-670d466bd1.png
 date: '2023-10-30T09:57:46.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -34,7 +35,7 @@ I wrote a separate post before explaining how to get your sandbox [here](https:/
 
 ### Learn Commerce Cloud
 
-Removed Unfortunately, this website no longer exists. ![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/learn-commerce-cloud-1024x340.jpg)
+Removed Unfortunately, this website no longer exists. ![](/media/2022/learn-commerce-cloud-67eab48d9b.jpg)
 
 -   [https://help.salesforce.com/s/articleView?language=en\_US&id=cc.b2c\_getting\_started.htm&type=5](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_getting_started.htm&type=5)
 -   [PDF Version of the old Learn Commerce Cloud Site](https://www.rhino-inquisitor.com/wp-content/uploads/2023/10/2d9abc21-7f77-4b94-81a5-07f15a0c28d3.pdf)
@@ -91,7 +92,7 @@ This website will tell you how to get started with your SFRA implementation with
 
 ### Partner Learning Camp
 
-![A screenshot of the Partner Learning Camp (PLC) that shows the "Get Started on the B2C Commerce Fast Path to Certifications: Foundations" course.](https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/B2C-foundations-1024x479.jpg)
+![A screenshot of the Partner Learning Camp (PLC) that shows the "Get Started on the B2C Commerce Fast Path to Certifications: Foundations" course.](/media/2022/b2c-foundations-2daffad6c6.jpg)
 
 -   [https://partnerlearningcamp.salesforce.com](https://partnerlearningcamp.salesforce.com/s/browse-catalog?plc__recordId=5iuux101vYk2UQtOkwn9%2BpFhmsL%2F5jynd8uOnEFtSg4JjoBEe8yyDv9MajFikOJe)
 

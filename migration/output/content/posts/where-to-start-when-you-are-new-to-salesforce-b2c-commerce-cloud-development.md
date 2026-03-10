@@ -6,6 +6,7 @@ description: >-
 lastmod: '2023-09-05T12:19:54.000Z'
 url: /where-to-start-when-you-are-new-to-salesforce-b2c-commerce-cloud-development/
 draft: false
+heroImage: /media/2023/where-to-start-sfcc-development-275a2b9576.jpg
 date: '2023-09-04T13:57:05.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -24,7 +25,7 @@ The path may be challenging, but trust us, the end result will be worth it. Plus
 
 ## Get to know the platform
 
-![A private investigator looking through books, reading about Salesforce Commerce Cloud development](https://www.rhino-inquisitor.com/wp-content/uploads/2023/09/wading-through-the-sfcc-documentation-1024x457.jpg)
+![A private investigator looking through books, reading about Salesforce Commerce Cloud development](/media/2023/wading-through-the-sfcc-documentation-20db11f9d3.jpg)
 
 Alright, before you dive into the fun stuff (coding, building, and creating), it's important to first get to know the Salesforce B2C Commerce Cloud platform like the back of your hand. Think of it like a blind date - you wouldn't want to show up unprepared, would you?
 
@@ -44,7 +45,7 @@ _**A word of warning**: If you are not part of a partner or customer company, ge
 
 ## Get started
 
-![A diver looking at code below the water. The code is illegible, but represents diving into SFCC development.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/09/diving-into-sfcc-development.jpg)
+![A diver looking at code below the water. The code is illegible, but represents diving into SFCC development.](/media/2023/diving-into-sfcc-development-4a0ef8622e.jpg)
 
 Now that you've got your Sandbox set up, it's time to dive into the fun part: coding! Depending on your situation and experience, the journey to becoming a Salesforce B2C Commerce Cloud pro may vary. But don't worry; plenty of resources are available to help you along the way.
 
@@ -54,7 +55,7 @@ If you're looking for a comprehensive guide that covers all the essential topics
 
 ## You are not alone
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/09/sfcc-unofficial-slack-1024x1024.png)](https://unofficialsfcc.com/)
+[![](/media/2023/sfcc-unofficial-slack-c73cdc0350.png)](https://unofficialsfcc.com/)
 
 One of the best things about the Salesforce ecosystem is the #Ohana, a community of users, developers, architects, and enthusiasts passionate about helping each other succeed. And in the Commerce Cloud space, we've got the "Commerce Crew" - a group of fellow Commerce Adventurers willing to support each other and share knowledge.
 

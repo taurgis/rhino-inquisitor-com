@@ -6,6 +6,7 @@ description: >-
 lastmod: '2022-07-23T21:59:53.000Z'
 url: /salesforce-b2c-commerce-cloud-the-22-7-release/
 draft: false
+heroImage: /media/2022/apache-rhino-engine-279b4d3146.png
 date: '2022-06-13T15:06:49.000Z'
 categories:
   - Release Notes
@@ -21,7 +22,7 @@ Are you interested in last month’s release notes? [Click here](https://www.rhi
 
 ## Social Commerce
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/social-commerce-salesforce-1024x768.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/social-commerce-salesforce-scaled.jpg)
+[![](/media/2022/social-commerce-salesforce-a88048dff4.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/social-commerce-salesforce-scaled.jpg)
 
 Forward-looking statements apply!
 

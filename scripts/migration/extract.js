@@ -425,6 +425,7 @@ function buildWxrItemRecord({ item, rawPostType, normalizedPostType, authors, so
   const sourceId = String(getNodeText(item['wp:post_id']) ?? '');
   const slug = getNodeText(item['wp:post_name']) ?? '';
   const attachmentUrl = normalizeSitePath(getNodeText(item['wp:attachment_url']));
+  const postMetaValues = extractWxrPostMetaValues(item['wp:postmeta']);
   const linkUrl = normalizeSitePath(getNodeText(item.link));
   const guidUrl = normalizeSitePath(getNodeText(item.guid));
   const legacyUrl = chooseLegacyUrl({
@@ -464,10 +465,28 @@ function buildWxrItemRecord({ item, rawPostType, normalizedPostType, authors, so
       link: linkUrl,
       guid: guidUrl,
       attachmentUrl,
+      thumbnailId: postMetaValues.get('_thumbnail_id') ?? null,
+      metaDescription: postMetaValues.get('_yoast_wpseo_metadesc') ?? null,
       postParent: getNodeText(item['wp:post_parent']) ?? null,
       postMetaCount: asArray(item['wp:postmeta']).length
     }
   };
+}
+
+function extractWxrPostMetaValues(postMetaNodes) {
+  const values = new Map();
+
+  for (const postMetaNode of asArray(postMetaNodes)) {
+    const metaKey = getNodeText(postMetaNode?.['wp:meta_key']);
+    if (!metaKey || !interestingSqlMetaKeys.has(metaKey)) {
+      continue;
+    }
+
+    const metaValue = getNodeText(postMetaNode?.['wp:meta_value']);
+    values.set(metaKey, metaValue == null ? null : metaValue.trim() || null);
+  }
+
+  return values;
 }
 
 function buildAuthorMap(authorNodes) {

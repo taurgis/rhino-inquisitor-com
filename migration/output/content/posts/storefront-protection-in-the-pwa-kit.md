@@ -6,6 +6,7 @@ description: >-
 lastmod: '2024-11-20T12:36:26.000Z'
 url: /storefront-protection-in-the-pwa-kit/
 draft: false
+heroImage: /media/2024/storefront-protection-663257419b.jpeg
 date: '2024-11-18T07:26:53.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -33,11 +34,11 @@ You can easily navigate through the Business Manager by following this path:
 
 We proceed on our journey by selecting the site you want to enable this for, then navigating to the site status tab after the page has finished loading.
 
-[![A screenshot of the business manager on the "Site Status" page, with a user clicking the](https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/online-protected-sfcc.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/online-protected-sfcc.jpg)
+[![A screenshot of the business manager on the "Site Status" page, with a user clicking the](/media/2024/online-protected-sfcc-b0634b710d.jpg)](/media/2024/online-protected-sfcc-b0634b710d.jpg)
 
 This page allows us to switch to "Online (Protected)," which unveils a new field.
 
-[![A screenshot displaying the new field along with a description of the information that appears after selecting the protected option.](https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/storefront-protection-password-sfcc.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/storefront-protection-password-sfcc.png)
+[![A screenshot displaying the new field along with a description of the information that appears after selecting the protected option.](/media/2024/storefront-protection-password-sfcc-c017798dc4.png)](/media/2024/storefront-protection-password-sfcc-c017798dc4.png)
 
 Here, you choose a password that allows users to access the storefront.
 

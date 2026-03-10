@@ -6,6 +6,7 @@ description: >-
 lastmod: '2023-11-29T06:47:22.000Z'
 url: /where-is-the-new-sfcc-documentation/
 draft: false
+heroImage: /media/2023/documentation-on-the-move-scaled-59762baa75.jpg
 date: '2023-07-03T06:32:44.000Z'
 categories:
   - Documentation
@@ -37,7 +38,7 @@ In case you didn't catch the official announcement, I've got you covered! Check 
 
 ## The new locations
 
-![Books with documentation scattered on multiple piles, falling over.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/07/documents-on-multiple-locations-1024x479.jpg)
+![Books with documentation scattered on multiple piles, falling over.](/media/2023/documents-on-multiple-locations-5bb9c96f2b.jpg)
 
 The word "locations" in the title of this section may be a concern for many people. Everything once found in a single place is now distributed among several. And the fact that this makes some veterans of SFCC nervous should come as no surprise.
 
@@ -99,11 +100,11 @@ Understandably, it is a huge effort to move this over - and monthly releases nee
 
 Are you completely lost in the new system? Maybe this [unofficial solution](https://github.com/clavery/docset-sfcc-b2c) for [Dash](https://kapeli.com/dash), built by [Charles Lavery](https://github.com/clavery) will help you!
 
-![A screenshot of Dash showing the B2C Commerce Cloud API documentation.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/07/charles-lavery-dash-1024x651.jpg)
+![A screenshot of Dash showing the B2C Commerce Cloud API documentation.](/media/2023/charles-lavery-dash-2de6a904d6.jpg)
 
 ## My opinion
 
-![Artwork of a person choosing between two flows.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/07/go-with-the-flow-1024x510.jpg)
+![Artwork of a person choosing between two flows.](/media/2023/go-with-the-flow-e1aeefde3e.jpg)
 
 I just go with the flow...but suggest improvements
 

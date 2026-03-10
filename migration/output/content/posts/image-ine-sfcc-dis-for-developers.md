@@ -7,6 +7,7 @@ description: >-
 lastmod: '2025-07-16T14:27:13.000Z'
 url: /image-ine-sfcc-dis-for-developers/
 draft: false
+heroImage: /media/2025/salesforce-b2c-commerce-cloud-dis-scaled-e55eb2de2c.jpeg
 date: '2025-07-14T06:44:24.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -47,7 +48,7 @@ Want to know precisely how all of these things work? Have a look at the [officia
 
 ## Why You Should Be Best Friends with DIS
 
-![A cartoon illustration of a developer shaking hands with a friendly, anthropomorphic cloud icon, as small, optimized images happily flow between them towards an e-commerce storefront. This symbolizes a strong, collaborative, and efficient relationship with the Dynamic Image Service.](https://www.rhino-inquisitor.com/wp-content/uploads/2025/07/developer-and-dis-are-friends-scaled-e1752256621645-1024x456.jpeg)
+![A cartoon illustration of a developer shaking hands with a friendly, anthropomorphic cloud icon, as small, optimized images happily flow between them towards an e-commerce storefront. This symbolizes a strong, collaborative, and efficient relationship with the Dynamic Image Service.](/media/2025/developer-and-dis-are-friends-scaled-e1752256621645-8ebda34ef5.jpeg)
 
 Best Friends with DIS: Seamless Image Optimization
 
@@ -208,7 +209,7 @@ DIS is powerful, but don't forget the fundamentals of image optimisation:
 
 ## When Not to Use It (Or When to Be Extra Careful)
 
-[![A cartoon illustration depicting a massive traffic jam of oversized, unoptimized images attempting to enter a cloud icon, which appears overwhelmed and unable to process the volume. The images are backed up on a road leading to the cloud, symbolizing a system bottleneck or overload.](https://www.rhino-inquisitor.com/wp-content/uploads/2025/07/dis-traffic-jam-1024x559.jpeg)](https://www.rhino-inquisitor.com/wp-content/uploads/2025/07/dis-traffic-jam-scaled.jpeg)
+[![A cartoon illustration depicting a massive traffic jam of oversized, unoptimized images attempting to enter a cloud icon, which appears overwhelmed and unable to process the volume. The images are backed up on a road leading to the cloud, symbolizing a system bottleneck or overload.](/media/2025/dis-traffic-jam-b798844f63.jpeg)](https://www.rhino-inquisitor.com/wp-content/uploads/2025/07/dis-traffic-jam-scaled.jpeg)
 
 Image Overload: When Your Service Gets Jammed
 
@@ -227,7 +228,7 @@ While DIS is a superhero, even superheroes have their kryptonite. There are a fe
     **Note:** The WebP transformation is handled by the [eCDN](https://www.rhino-inquisitor.com/lets-go-live-ecdn/), specifically through its configuration feature known as "the image Polish options," rather than by the DIS._
 
 
-[![A cartoon illustration showing a fork in the road. One path leads to a cloud labeled "Dynamic Image Service (DIS)," and the other, larger path, leads to icons representing a "Third Party CDN/DAM" and "Digital Asset Management System." A developer character is pointing towards the CDN/DAM path, indicating a choice for image management solutions.](https://www.rhino-inquisitor.com/wp-content/uploads/2025/07/sfcc-when-not-to-use-dis-1536x838.jpeg)](https://www.rhino-inquisitor.com/wp-content/uploads/2025/07/sfcc-when-not-to-use-dis-scaled.jpeg)
+[![A cartoon illustration showing a fork in the road. One path leads to a cloud labeled "Dynamic Image Service (DIS)," and the other, larger path, leads to icons representing a "Third Party CDN/DAM" and "Digital Asset Management System." A developer character is pointing towards the CDN/DAM path, indicating a choice for image management solutions.](/media/2025/sfcc-when-not-to-use-dis-8b8b9ec0b1.jpeg)](https://www.rhino-inquisitor.com/wp-content/uploads/2025/07/sfcc-when-not-to-use-dis-scaled.jpeg)
 
 Deciding between Salesforce's native DIS and external CDN/DAM solutions often comes down to specific project needs and existing infrastructure.
 

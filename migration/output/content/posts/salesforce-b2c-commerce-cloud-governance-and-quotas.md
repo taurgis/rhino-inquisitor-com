@@ -6,6 +6,7 @@ description: >-
 lastmod: '2024-01-08T18:17:38.000Z'
 url: /salesforce-b2c-commerce-cloud-governance-and-quotas/
 draft: false
+heroImage: /media/2022/quota-limits-27eb2c93aa.jpg
 date: '2023-08-21T06:58:00.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -47,7 +48,7 @@ More platform governance is in place, but some are not documented. Over the year
 
 ## What does "enforced" mean?
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/sfcc-enforced-quota.jpg)
+![](/media/2022/sfcc-enforced-quota-a495bb4270.jpg)
 
 Quota Status in Business Manager
 
@@ -74,7 +75,7 @@ Notice the word "**internal".** These are unenforced quotas that Salesforce uses
 
 ## But why?
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/but-why.jpg)
+![](/media/2022/but-why-91f791a77c.jpg)
 
 Those who have run into these "limits" have probably already asked themselves this question. Why is this quota here? Why wasn't it just one higher? Why do I have to work three days longer on this ticket because I ran into it?
 
@@ -121,7 +122,7 @@ The Business Manager has a monitoring page, which will give you the total overvi
 
 "Administration > Operations > Quota Status"
 
- [![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/sfcc-quota-alerts.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/sfcc-quota-alerts.jpg)Subscribe It is highly recommended to subscribe with multiple people to these alerts. Remember to do this in various environments, not just Production!
+ [![](/media/2022/sfcc-quota-alerts-7f9e795d58.jpg)](/media/2022/sfcc-quota-alerts-7f9e795d58.jpg)Subscribe It is highly recommended to subscribe with multiple people to these alerts. Remember to do this in various environments, not just Production!
 
 ## I hit a quota, and can't work around it
 
@@ -169,7 +170,7 @@ In a lot of cases, this is enough. But you could get in trouble if you work with
 
 ### Garbage Collection
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/duke-cleaning-up-garbage.jpg)
+![](/media/2022/duke-cleaning-up-garbage-7e114dc018.jpg)
 
 An important thing to keep in mind is that Salesforce B2C Commerce Cloud runs on Java. And an essential part of Java is its [garbage collection](https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/gc01/index.html) process.
 
@@ -254,4 +255,4 @@ This is [documented](https://help.salesforce.com/s/articleView?language=en_US&id
 
 ### Parallel OCAPI Requests
 
-![A screenshot of Slack with the following text “ @GPThomas 6 (Theunen) Not sure it's documented anywhere, but mentioned here https://sfcc-unofficial.slack.com/archives/CBB7YAAHW/p1675440396900169?thread_ts=1675380576.825429&cid=CBB7YAAHW. From experience we for sure were facing the same but for same session id BHV_REQUEST_TOO_MANY_REQUESTS_WITH_SAME_SESSION_ID (10 concurrent requests by default)”](https://www.rhino-inquisitor.com/wp-content/uploads/2023/08/IMG_0054-1024x319.jpeg) Although there is no rate limit in place on the OCAPI, there is a limit on how many parallel requests one can make.
+![A screenshot of Slack with the following text “ @GPThomas 6 (Theunen) Not sure it's documented anywhere, but mentioned here https://sfcc-unofficial.slack.com/archives/CBB7YAAHW/p1675440396900169?thread_ts=1675380576.825429&cid=CBB7YAAHW. From experience we for sure were facing the same but for same session id BHV_REQUEST_TOO_MANY_REQUESTS_WITH_SAME_SESSION_ID (10 concurrent requests by default)”](/media/2023/img-0054-72b5b079a0.jpeg) Although there is no rate limit in place on the OCAPI, there is a limit on how many parallel requests one can make.

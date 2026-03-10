@@ -7,6 +7,7 @@ description: >-
 lastmod: '2023-06-28T07:47:14.000Z'
 url: /a-deep-dive-into-the-23-7-sfcc-release/
 draft: false
+heroImage: /media/2023/person-looking-at-clothing-scaled-e57317ea0f.jpg
 date: '2023-06-28T07:47:03.000Z'
 categories:
   - Release Notes
@@ -29,7 +30,7 @@ Great news for users of Composable Storefront! You can now use the much-awaited 
 
 ## Improve Product Discoverability with the Google Inventory Listings Cartridge
 
-![A screenshot of the Google Local Inventory ads depicting two shoes and their location.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/06/local-inventory-1024x512.jpeg)
+![A screenshot of the Google Local Inventory ads depicting two shoes and their location.](/media/2023/local-inventory-7952c2d4a2.jpeg)
 
 > The Google Inventory cartridge is a B2C Commerce direct integration cartridge. You can use the cartridge to list your local store products on Google’s free product listings. Shoppers can discover products in stores near them. This increases local store foot traffic
 
@@ -45,7 +46,7 @@ A much-needed update in the platform to be warned that one of the orders was not
 
 ### Configure Up to 10 Categorization Conditions
 
-![A screenshot of the categorization rules in the 23.7 release](https://www.rhino-inquisitor.com/wp-content/uploads/2023/06/categorization-rules-in-23-7-1024x555.jpg)
+![A screenshot of the categorization rules in the 23.7 release](/media/2023/categorization-rules-in-23-7-affa83b506.jpg)
 
 > When configuring a categorization rule in Business Manager, you can now set up to ten categorization conditions per categorization rule set. Previously, Business Manager supported five conditions per rule set while the API supported ten conditions per rule set.
 
@@ -86,7 +87,7 @@ Just a gentle reminder to [vote](https://ideas.salesforce.com/s/search#t=All&sor
 > -   Add support for ES module import statements in ssr.js #1284
 > -   Support Node 18 and NPM 9. #1265
 
-This a minor release to ensure this version is compatible with the latest Node version (18), as the older versions will be deprecated soon! [![The deprecation notice of node 16 with the text: Changing the End-of-Life Date for Node.js 16 to September 11th, 2023 Summary We are moving the End-of-Life date of Node.js 16 by seven months to coincide with the end of support of OpenSSL 1.1.1 on September 11th, 2023.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/06/node-js-16-deprecation.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/06/node-js-16-deprecation.png)
+This a minor release to ensure this version is compatible with the latest Node version (18), as the older versions will be deprecated soon! [![The deprecation notice of node 16 with the text: Changing the End-of-Life Date for Node.js 16 to September 11th, 2023 Summary We are moving the End-of-Life date of Node.js 16 by seven months to coincide with the end of support of OpenSSL 1.1.1 on September 11th, 2023.](/media/2023/node-js-16-deprecation-b8d6f02bec.png)](/media/2023/node-js-16-deprecation-b8d6f02bec.png)
 
 ## PWA Kit v3.0.0
 

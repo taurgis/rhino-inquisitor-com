@@ -7,6 +7,7 @@ description: >-
 lastmod: '2023-05-02T17:31:52.000Z'
 url: /non-technical-sfcc-certifications/
 draft: false
+heroImage: /media/2023/einstein-shopping-scaled-5e1e2b427b.jpeg
 date: '2023-04-24T08:47:47.000Z'
 categories:
   - Certification
@@ -24,7 +25,7 @@ But in 2021, 2022, and 2023, some options became available for those who do not 
 
 ## User Experience (UX) Designer
 
-![Usability and UX Certifications](https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/Usability-vs-UX.png)
+![Usability and UX Certifications](/media/2022/usability-vs-ux-9753e7801d.png)
 
 -   [Trailhead - Certification](https://trailhead.salesforce.com/en/credentials/userexperiencedesigner)
 
@@ -36,7 +37,7 @@ To get this certification, having only SFCC knowledge, you must come out of your
 
 ## Strategy Designer
 
-![A digital drawing of a group of people standing in front of a window, looking at the skyscrapers of a modern city illuminated in the night.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/business-men-and-women-looking-at-a-skyline-1024x512.jpg)
+![A digital drawing of a group of people standing in front of a window, looking at the skyscrapers of a modern city illuminated in the night.](/media/2023/business-men-and-women-looking-at-a-skyline-76f36bbb13.jpg)
 
 -   [Trailhead - Certification](https://trailhead.salesforce.com/en/credentials/strategydesigner)
 
@@ -54,7 +55,7 @@ The preparation for this certification will take you across different products o
 
 ## Business Analyst
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/business-analyst-scaled-e1656834912690-1024x468.jpg)
+![](/media/2022/business-analyst-scaled-e1656834912690-1350424ea9.jpg)
 
 -   [Trailhead - Certification](https://trailhead.salesforce.com/en/credentials/businessanalyst)
 
@@ -78,7 +79,7 @@ Salesforce Admin is no longer required As of May 2, 2023, the Salesforce Adminis
 
 ## Sales Representative
 
-![A group of men and women sitting around a table e, drawn in the style of the 50's](https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/a-sales-meeting.jpg)
+![A group of men and women sitting around a table e, drawn in the style of the 50's](/media/2023/a-sales-meeting-0eb7bfc029.jpg)
 
 -   [Trailhead - Certification](https://trailhead.salesforce.com/en/credentials/salesrepresentative)
 
@@ -92,7 +93,7 @@ Trailmix Once the trailmix becomes available, I will update this section of the 
 
 -   [Partner Learning Camp - Accreditation](https://partnerlearningcamp.salesforce.com/s/credentials-catalog?plc__recordId=d%2Fx2y6m%2FknTcjnfe7C0GiHmOkms8uLPL82Zrct7hYQcVHqfIycgjEyVfwejd21xa)
 
-![A drawing of Einstein standing in a store, wearing a green vest with a red tie and shoes. The store walls are painted red and green, with the shopping racks filled with clothes and perfume.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/einstein-shopping-1024x510.jpeg)
+![A drawing of Einstein standing in a store, wearing a green vest with a red tie and shoes. The store walls are painted red and green, with the shopping racks filled with clothes and perfume.](/media/2023/einstein-shopping-c2fd371422.jpeg)
 
 We ran out of Trailhead Certifications, so now we are turning to the [Partner Learning Camp](https://partnerlearningcamp.salesforce.com/s/learner-dashboard) (PLC). Here you will find certifications targeted toward Partners and Employees of Salesforce, so if you are neither, this Accreditation is not an option for you.
 
@@ -106,7 +107,7 @@ The official description is as follows:
 
 ## Indirect Sales Accredited Professional
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/sales.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/sales.jpg)
+[![](/media/2022/sales-25d69d411e.jpg)](/media/2022/sales-25d69d411e.jpg)
 
 -   [Partner Learning Camp - Accreditation](https://partnerlearningcamp.salesforce.com/s/credentials-catalog?plc__recordId=huaR3i8ewEj9BrjQeVKHB51JTVgrOzyjjUy8ORjUXXoU52nqrMytajtg4M1c44Ux)
 

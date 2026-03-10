@@ -6,6 +6,7 @@ description: >-
 lastmod: '2023-03-03T12:25:16.000Z'
 url: /the-deprecation-of-the-uuid-token-for-api-clients/
 draft: false
+heroImage: /media/2022/stop-using-uuid-account-manager-d05c5bc597.jpg
 date: '2022-08-29T07:37:05.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -35,7 +36,7 @@ When doing an OAuth integration with Salesforce B2C Commerce Cloud, you must set
 
 _**Note:** Currently the default is JWT, but I am not sure if the default was UUID before._
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/account-manager-api-client-token-format.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/account-manager-api-client-token-format.jpg)
+[![](/media/2022/account-manager-api-client-token-format-808bcccc72.jpg)](/media/2022/account-manager-api-client-token-format-808bcccc72.jpg)
 
 ## How do I change it?
 

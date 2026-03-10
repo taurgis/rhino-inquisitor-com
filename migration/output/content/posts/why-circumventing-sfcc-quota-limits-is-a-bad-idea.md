@@ -7,6 +7,7 @@ description: >-
 lastmod: '2023-12-11T08:29:25.000Z'
 url: /why-circumventing-sfcc-quota-limits-is-a-bad-idea/
 draft: false
+heroImage: /media/2023/a-certain-ceo-is-coming-to-get-you-9206639ea9.jpg
 date: '2023-12-11T08:21:33.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -146,7 +147,7 @@ UnlimitedArray.prototype.get = function (position) {
 
 This construct "cleverly" uses nested arrays to exceed the Salesforce-imposed limit. However, it can result in inefficiencies when using methods such as push, get, includes, and indexOf, especially as the combined size of the nested arrays grows.
 
-[![A screenshot of the Business Manager. The system is warning that the quota limit for the array size has been reached.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/12/quota-limit-warning-1024x138.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/12/quota-limit-warning-scaled.jpg)
+[![A screenshot of the Business Manager. The system is warning that the quota limit for the array size has been reached.](/media/2023/quota-limit-warning-7f7a47522c.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/12/quota-limit-warning-scaled.jpg)
 
 We are at the edge, but never crossing the limit!
 
@@ -176,7 +177,7 @@ The `get`, `includes`, and `indexOf` functions iterate through each sub-array, k
 
 ## Why You Should Think Twice
 
-![A bear wearing an orange prison jumpsuit with a blue cloud logo on the back, walks into a prison with several guards waiting for it.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/12/cloud-prison-1024x341.jpg)
+![A bear wearing an orange prison jumpsuit with a blue cloud logo on the back, walks into a prison with several guards waiting for it.](/media/2023/cloud-prison-66083f6bcd.jpg)
 
 No... you aren't going to get arrested 🤣
 

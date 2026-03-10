@@ -7,6 +7,7 @@ description: >-
 lastmod: '2025-03-12T11:00:54.000Z'
 url: /ai-einstein-in-salesforce-b2c-commerce-cloud/
 draft: false
+heroImage: /media/2022/artificial-intelligence-fc68314ce7.jpg
 date: '2022-09-26T13:42:24.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -27,7 +28,7 @@ Even though the product is called Einstein right now, it wasn't always the case.
 
 You will still notice the reference in the URL when accessing the [Administrative Portal](https://configurator.cquotient.com).
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/CQuotient-Demandware-history-v2-768x375.png)
+![](/media/2022/cquotient-demandware-history-v2-942e794c7b.png)
 
 This history lesson also clarifies that this "Einstein" is unrelated to all of the other "Einstein" products [in the Salesforce lineup](https://www.salesforce.com/products/einstein/overview/). Though probably some connections are made behind the scenes, this is - like with different features - a black box.
 
@@ -49,7 +50,7 @@ For this sharing of data, consent needs to be given in the Business Manager at:
 
 _Administration_ > _Global Preferences_ > _Einstein Search Dictionaries Opt-In_
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/einstein-cquotient-shared-database-1024x333.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/einstein-cquotient-shared-database.jpg)
+[![](/media/2022/einstein-cquotient-shared-database-6ab8c2ae5e.jpg)](/media/2022/einstein-cquotient-shared-database-6ab8c2ae5e.jpg)
 
 ## Black Box
 
@@ -82,7 +83,7 @@ Documentation The necessary tools to comply with this are documented in the [Inf
 
 -   [Trailhead Module](https://trailhead.salesforce.com/content/learn/modules/cc-einstein-product-recommendations)
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/sfcc-einstein-product-recommendations-1024x384.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/sfcc-einstein-product-recommendations-scaled.jpg)
+[![](/media/2022/sfcc-einstein-product-recommendations-75e024ae7c.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/sfcc-einstein-product-recommendations-scaled.jpg)
 
 SFCC: Einstein Product Recommendations in the PWA Kit
 
@@ -96,7 +97,7 @@ One possible product recommendation type is "Complete the Set," which recommends
 
 -   [Trailhead Module](https://trailhead.salesforce.com/content/learn/modules/cc-einstein-plan-and-implement/cc-ai-work-better)
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/commerce-insights-report.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/commerce-insights-report.jpg)
+[![](/media/2022/commerce-insights-report-c598e1214b.jpg)](/media/2022/commerce-insights-report-c598e1214b.jpg)
 
 Einstein: Commerce Insights Report
 
@@ -108,7 +109,7 @@ So, in short: "An analytics tool to view shopper behavior on a product-by-produc
 
 -   [Trailhead Module](https://trailhead.salesforce.com/content/learn/modules/cc-einstein-smarter-search/cc-einstein-search-recommendations)
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/einstein-search-dictionaries-suggestion-phrases-1024x484.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/einstein-search-dictionaries-suggestion-phrases.jpg)
+[![](/media/2022/einstein-search-dictionaries-suggestion-phrases-467a548c85.jpg)](/media/2022/einstein-search-dictionaries-suggestion-phrases-467a548c85.jpg)
 
 Einstein Search Dictionaries
 
@@ -120,7 +121,7 @@ The important thing about this feature is that it only makes suggestions. You st
 
 -   [Trailhead Module](https://trailhead.salesforce.com/content/learn/modules/cc-einstein-smarter-search/cc-einstein-predictive-sort)
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/sfcc-category-page-1024x610.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/sfcc-category-page.jpg)
+[![](/media/2022/sfcc-category-page-3297251518.jpg)](/media/2022/sfcc-category-page-3297251518.jpg)
 
 Salesforce B2C Commerce Cloud Category Page
 
@@ -143,7 +144,7 @@ And do not forget to A/B test the comparison of Predictive Sort against your reg
 
 -   [Trailhead Module](https://trailhead.salesforce.com/content/learn/modules/cc-einstein-smarter-search/cc-einstein-search-recommendations)
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/sfcc-search-suggestions.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/sfcc-search-suggestions.jpg)
+[![](/media/2022/sfcc-search-suggestions-d172038c0b.jpg)](/media/2022/sfcc-search-suggestions-d172038c0b.jpg)
 
 Einstein: Search Suggestions
 

@@ -7,6 +7,7 @@ description: >-
 lastmod: '2022-10-03T11:59:36.000Z'
 url: /salesforce-b2c-commerce-cloud-22-10/
 draft: false
+heroImage: /media/2022/tiktok-1-d92d51296d.jpg
 date: '2022-09-28T13:33:05.000Z'
 categories:
   - Release Notes
@@ -24,7 +25,7 @@ Are you interested in last month’s release notes? [Click here](https://www.rhi
 
 ## Staging eCDN configuration
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/ecdn-staging-1024x514.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/ecdn-staging.jpg)
+[![](/media/2022/ecdn-staging-464848555e.jpg)](/media/2022/ecdn-staging-464848555e.jpg)
 
 A big update for those working with hybrid deployments using the PWA Kit (Composable Storefront). Many issues popped up in the staging environment that had to do with custom certificates and SLAS. With this update, these will hopefully be out of the picture!
 
@@ -37,7 +38,7 @@ Business Manager The UI in the Business Manager will not reflect the changes mad
 
 ## TikTok for Ads
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/tiktok-bm-1024x491.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/tiktok-bm-scaled.jpg)
+[![](/media/2022/tiktok-bm-9172b705bb.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/tiktok-bm-scaled.jpg)
 
 Since the start of this year, there has been a lot of talk about "Social Commerce," which means the integration of Salesforce B2C Commerce Cloud into different social channels such as TikTok.
 
@@ -51,7 +52,7 @@ The cartridge can be downloaded [here](https://github.com/SalesforceCommerceClou
 
 ### Origin Shielding Phase 3
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/origin-shielding-phase3-1024x529.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/origin-shielding-phase3.jpg)
+[![](/media/2022/origin-shielding-phase3-d9fa09fa33.jpg)](/media/2022/origin-shielding-phase3-d9fa09fa33.jpg)
 
 Phase three of Original Shielding will come into effect by locking down Demandware.net for Development and Production instances.
 
@@ -94,7 +95,7 @@ To fix some issues in the v1 hook:
 
 A new hook has been introduced.
 
- [![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/new-hook-basket-1024x412.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/new-hook-basket.jpg)Deprecated Hook The v1 hook will continue to exist but is discouraged from being used.
+ [![](/media/2022/new-hook-basket-f116a5da90.jpg)](/media/2022/new-hook-basket-f116a5da90.jpg)Deprecated Hook The v1 hook will continue to exist but is discouraged from being used.
 
 ### Edge Caching for SCAPI
 
@@ -135,7 +136,7 @@ https://admin.dx.commercecloud.salesforce.com/
 
 ## SFRA v6.2.0
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/07/sfra-vs-sitegenesis-1024x615.jpg)
+![](/media/2022/sfra-vs-sitegenesis-965c09b9a6.jpg)
 
 -   [https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/releases/tag/v6.2.0](https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/releases/tag/v6.2.0)
 
@@ -155,7 +156,7 @@ A new version of SFRA has popped up after months of silence, though nothing majo
 
 ## PWA Kit v2.2.0
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/E0468610-0E86-403F-B486-743A38D4B763-1024x740.png)
+![](/media/2022/e0468610-0e86-403f-b486-743a38d4b763-d68cf607f8.png)
 
 -   [https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v2.2.0](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v2.2.0)
 

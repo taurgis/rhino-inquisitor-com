@@ -8,6 +8,7 @@ description: >-
 lastmod: '2025-12-19T09:56:27.000Z'
 url: /your-definitive-mobile-app-checklist/
 draft: false
+heroImage: /media/2025/headless-app-go-live-scaled-89b046ecca.jpeg
 date: '2025-12-15T10:39:06.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -48,7 +49,7 @@ So, where does your SFRA site's configuration fit in? While the vanity domain is
 
 ## The Headless Go-Live Checklist: From Backend to App Store
 
-![Isometric illustration of a four-stage technical process pipeline. Part I: "Backend Foundation" shows a server rack, a database, and a padlock. Part II: "Headless Client" displays mobile phones with screens showing "CACHING," "ANALYTICS," and "WIRELESS" icons. Part III: "Performance Testing" features a speedometer and a target with arrows. Part IV: "Go-Live & App Store" has a rocket launching from a platform towards the Apple App Store and Google Play store logos.](https://www.rhino-inquisitor.com/wp-content/uploads/2025/12/headless-checklist-1024x559.jpg)
+![Isometric illustration of a four-stage technical process pipeline. Part I: "Backend Foundation" shows a server rack, a database, and a padlock. Part II: "Headless Client" displays mobile phones with screens showing "CACHING," "ANALYTICS," and "WIRELESS" icons. Part III: "Performance Testing" features a speedometer and a target with arrows. Part IV: "Go-Live & App Store" has a rocket launching from a platform towards the Apple App Store and Google Play store logos.](/media/2025/headless-checklist-58fce03496.jpg)
 
 With the hostname question settled, we can proceed to the full checklist. It is divided into four parts, moving from the foundational backend configuration to the new frontiers of client-side logic and app store deployment.
 
@@ -145,7 +146,7 @@ Effective client-side [caching](https://www.rhino-inquisitor.com/caching-rest-ap
 
 ### Part III: Performance & Load Testing (The New Discipline)
 
-![A cartoon infographic titled "PART II: THE HEADLESS CLIENT (THE NEW FRONTIER)". It has three panels. The left panel, "CLIENT-SIDE CACHING", shows a smartphone with RAM ("IN-MEMORY") and a hard drive ("DISK-BASED") protected by a "CACHE" shield from "NETWORK LATENCY" arrows. A timer ("TTL") is connected, and a bubble says "Snappy! No Network Needed". The middle panel, "ANALYTICS & TRACKING", shows a user icon with a magnifying glass, with arrows pointing to "PRODUCT VIEW", "ADD TO CART", and "CHECKOUT" icons, leading to an "ANALYTICS SDK" window with a "CONSENT" checkbox. The right panel, "PUSH NOTIFICATION SETUP", shows a smartphone with a "NEW DEAL! OPT-IN?" notification and a "YES/NO" toggle. A "PUSH PROVIDER" cloud sends a signal to an "AUDIENCE SEGMENTATION" target on a server rack. The background is a circuit board pattern.](https://www.rhino-inquisitor.com/wp-content/uploads/2025/12/the-headless-client-1024x572.jpg)
+![A cartoon infographic titled "PART II: THE HEADLESS CLIENT (THE NEW FRONTIER)". It has three panels. The left panel, "CLIENT-SIDE CACHING", shows a smartphone with RAM ("IN-MEMORY") and a hard drive ("DISK-BASED") protected by a "CACHE" shield from "NETWORK LATENCY" arrows. A timer ("TTL") is connected, and a bubble says "Snappy! No Network Needed". The middle panel, "ANALYTICS & TRACKING", shows a user icon with a magnifying glass, with arrows pointing to "PRODUCT VIEW", "ADD TO CART", and "CHECKOUT" icons, leading to an "ANALYTICS SDK" window with a "CONSENT" checkbox. The right panel, "PUSH NOTIFICATION SETUP", shows a smartphone with a "NEW DEAL! OPT-IN?" notification and a "YES/NO" toggle. A "PUSH PROVIDER" cloud sends a signal to an "AUDIENCE SEGMENTATION" target on a server rack. The background is a circuit board pattern.](/media/2025/the-headless-client-d56f678d67.jpg)
 
 This section details another significant process change from an SFRA go-live. The focus shifts from testing the holistic performance of a web page to the granular, methodical testing of the API endpoints that power the app.
 
@@ -177,7 +178,7 @@ A headless app's performance is a composite of the client, the network, and the 
 
 ### Part IV: The Final Countdown (Go-Live & Beyond)
 
-![A cartoon illustration shows a team of four people in a control room celebrating as one presses a large red "GO-LIVE" button. A digital timer reads "T-MINUS 00:00:00" and confetti falls. On a large screen, a rocket with Apple App Store and Google Play logos launches. A checklist on the wall shows green ticks for "DATA PURGE," "LEGACY IMPORT," and "CONFIG LOCK-DOWN." A robot sweeps "TEST DATA" into a bin. To the right, a gate labeled "APP STORE SUBMISSION (2025 GATES)" is open, with "Xcode 16" visible. A character in the foreground thinks, "SDK Signatures & Privacy Manifests: CHECKED!".](https://www.rhino-inquisitor.com/wp-content/uploads/2025/12/app-launch-1024x572.jpg)
+![A cartoon illustration shows a team of four people in a control room celebrating as one presses a large red "GO-LIVE" button. A digital timer reads "T-MINUS 00:00:00" and confetti falls. On a large screen, a rocket with Apple App Store and Google Play logos launches. A checklist on the wall shows green ticks for "DATA PURGE," "LEGACY IMPORT," and "CONFIG LOCK-DOWN." A robot sweeps "TEST DATA" into a bin. To the right, a gate labeled "APP STORE SUBMISSION (2025 GATES)" is open, with "Xcode 16" visible. A character in the foreground thinks, "SDK Signatures & Privacy Manifests: CHECKED!".](/media/2025/app-launch-ac5253524a.jpg)
 
 This section covers the final operational steps, including the crucial new gate: App Store submission.
 

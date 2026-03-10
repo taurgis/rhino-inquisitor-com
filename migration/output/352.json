@@ -54,8 +54,11 @@
       "link": "/archive/",
       "guid": "/?page_id=352",
       "attachmentUrl": null,
+      "thumbnailId": null,
+      "metaDescription": null,
       "postParent": "0",
-      "postMetaCount": 20
+      "postMetaCount": 20,
+      "featuredImageUrl": null
     }
   },
   "bodyMarkdown": "",

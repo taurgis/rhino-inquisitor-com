@@ -50,8 +50,11 @@
       "link": "/cookie-policy-eu/",
       "guid": "/cookie-policy-eu/",
       "attachmentUrl": null,
+      "thumbnailId": null,
+      "metaDescription": null,
       "postParent": "0",
-      "postMetaCount": 2
+      "postMetaCount": 2,
+      "featuredImageUrl": null
     }
   },
   "bodyMarkdown": "> Legacy Complianz document shortcode removed during migration. Recreate the required consent or cookie statement in Hugo before publishing.",

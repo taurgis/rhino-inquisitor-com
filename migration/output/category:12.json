@@ -46,7 +46,8 @@
       "statusNormalizedFrom": "publish"
     },
     "extracted": {
-      "parentSlug": null
+      "parentSlug": null,
+      "featuredImageUrl": null
     }
   },
   "bodyMarkdown": "Posts about Salesforce Commerce Cloud.",

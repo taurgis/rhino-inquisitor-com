@@ -6,6 +6,7 @@ description: >-
 lastmod: '2023-03-01T18:52:05.000Z'
 url: /salesforce-b2c-commerce-cloud-23-1/
 draft: false
+heroImage: /media/2022/a-shopping-cart-with-fireworks-d5005827cc.jpg
 date: '2022-12-19T08:35:50.000Z'
 categories:
   - Release Notes
@@ -74,11 +75,11 @@ To create an order from a previous order, use the _[SalesforcePaymentsMgr](https
 
 A new option for us to configure the max-age ourselves for the [HSTS](https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security) setting. We could already do this in the eCDN, but now we can also do this in instances without it.
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/12/hsts-1024x499.jpg)
+![](/media/2022/hsts-812238f9bc.jpg)
 
 HSTS in the eCDN
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/12/hsts-business-manager-sfcc-1024x516.jpg)
+![](/media/2022/hsts-business-manager-sfcc-95dbd0264e.jpg)
 
 HSTS in the Business Manager
 

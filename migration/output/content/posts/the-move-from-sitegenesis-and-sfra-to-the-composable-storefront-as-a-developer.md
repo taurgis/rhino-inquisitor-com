@@ -8,6 +8,7 @@ lastmod: '2023-12-24T08:02:07.000Z'
 url: >-
   /the-move-from-sitegenesis-and-sfra-to-the-composable-storefront-as-a-developer/
 draft: false
+heroImage: /media/2023/react-js-c19d8f64a3.jpg
 date: '2023-12-25T13:46:42.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -33,7 +34,7 @@ Salesforce (well ... the [Mobify](https://www.digitalcommerce360.com/2020/09/09/
 
 ## Transferrable Skills
 
-![A visual representation of playing with your developer knowledge, and using it to your advantage. The image shows you using your hands with a controller to use your brain.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/12/use-your-knowledge-1536x512.jpg)
+![A visual representation of playing with your developer knowledge, and using it to your advantage. The image shows you using your hands with a controller to use your brain.](/media/2023/use-your-knowledge-98ac47c97d.jpg)
 
 ### Development (Duh...)
 
@@ -57,7 +58,7 @@ For example, understanding the importance of accessibility, SEO, and performance
 
 ### Commerce Cloud
 
-![A person walking towards an office building with a Salesforce like logo and "Commerce Cloud" written above the entrance.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/12/commerce-cloud-as-a-building-1536x512.jpg)
+![A person walking towards an office building with a Salesforce like logo and "Commerce Cloud" written above the entrance.](/media/2023/commerce-cloud-as-a-building-16b551ef15.jpg)
 
 A deep [understanding](https://www.rhino-inquisitor.com/the-b2c-commerce-architect-certification/) of how Commerce Cloud functions in online and offline environments is vital. Furthermore, proficiency in utilising the platform is equally essential to succeed.
 
@@ -71,7 +72,7 @@ Here are some articles that might come in handy:
 
 ## Where to get started
 
-![Books with documentation scattered on multiple piles, falling over.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/07/documents-on-multiple-locations-1536x719.jpg)
+![Books with documentation scattered on multiple piles, falling over.](/media/2023/documents-on-multiple-locations-5bb9c96f2b.jpg)
 
 If you're a regular reader of my articles, you probably know by now that I'm not a fan of reinventing the wheel or regurgitating something already done. I like to keep things fresh, like a smoothie made with the season's best fruits.
 

@@ -7,6 +7,7 @@ description: >-
 lastmod: '2023-01-16T08:12:55.000Z'
 url: /how-to-set-up-slas-for-the-composable-storefront/
 draft: false
+heroImage: /media/2023/slas-public-client-registered-user-b2c-a930192dd5.jpg
 date: '2023-01-16T08:12:41.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -32,15 +33,15 @@ If you want to connect the Composable Storefront to your own APIs (including SLA
 
 After you have logged into the Business Manager of your environment, go to the following: "Administration > Site Development > Salesforce Commerce API Settings"
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/slas-admin-ui-button-business-manager-1024x381.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/slas-admin-ui-button-business-manager.jpg)
+[![](/media/2023/slas-admin-ui-button-business-manager-7bdbd7a798.jpg)](/media/2023/slas-admin-ui-button-business-manager-7bdbd7a798.jpg)
 
 The link is only visible if you have DWithEase (Browser Extension) installed.
 
-The link is not there If you do not see the link (The link is inserted by [DWithEase](https://dwithease.com/)), manually go to the URL: https://**{{Short\_Code}}**.api.commercecloud.salesforce.com/shopper/auth-admin/v1/sso/login On this screen, some necessary information to install the PWA Kit can be found. But besides the Short Code and the Organization ID, there is an interesting link present. "SLAS Admin UI" Let's click that now, shall we? [![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/slas-admin-ui-login-1024x278.jpg) ](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/slas-admin-ui-login.jpg)When we click this link, the above screen should become visible. It shows a blue button with the text "SLAS Admin UI Login". We are logged in with our Account Manager user when this link is clicked. To manage SLAS, we need the necessary permission (given to us by an Account Manager "Account Manager": Scopes Do not forget to assign the correct scopes to this role! [![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/slas-rights-account-manager.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/slas-rights-account-manager.jpg)
+The link is not there If you do not see the link (The link is inserted by [DWithEase](https://dwithease.com/)), manually go to the URL: https://**{{Short\_Code}}**.api.commercecloud.salesforce.com/shopper/auth-admin/v1/sso/login On this screen, some necessary information to install the PWA Kit can be found. But besides the Short Code and the Organization ID, there is an interesting link present. "SLAS Admin UI" Let's click that now, shall we? [![](/media/2023/slas-admin-ui-login-ff882d0848.jpg) ](/media/2023/slas-admin-ui-login-ff882d0848.jpg)When we click this link, the above screen should become visible. It shows a blue button with the text "SLAS Admin UI Login". We are logged in with our Account Manager user when this link is clicked. To manage SLAS, we need the necessary permission (given to us by an Account Manager "Account Manager": Scopes Do not forget to assign the correct scopes to this role! [![](/media/2023/slas-rights-account-manager-dfaa6aa6b8.jpg)](/media/2023/slas-rights-account-manager-dfaa6aa6b8.jpg)
 
 ## Step 3: Add a new SLAS Client
 
-If the used account has the correct permissions, we should be greeted by a friendly "Welcome screen".  [![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/slas-admin-welcome-ui-1024x795.jpg) ](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/slas-admin-welcome-ui.jpg)On this page, click the "Clients" tab to go to the list of active clients we are permitted to manage (see scopes in the previous step). [![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/slas-admin-add-client-1024x377.jpg) ](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/slas-admin-add-client.jpg)Click the "Add Client" button on this page to go to the next step. [![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/slas-admin-ui-new-client-pwa-kit-1011x1024.jpg) ](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/slas-admin-ui-new-client-pwa-kit.jpg)And with that, we are almost there! Fill in the following information:
+If the used account has the correct permissions, we should be greeted by a friendly "Welcome screen".  [![](/media/2023/slas-admin-welcome-ui-bbc3ad8da9.jpg) ](/media/2023/slas-admin-welcome-ui-bbc3ad8da9.jpg)On this page, click the "Clients" tab to go to the list of active clients we are permitted to manage (see scopes in the previous step). [![](/media/2023/slas-admin-add-client-c488a4b6e3.jpg) ](/media/2023/slas-admin-add-client-c488a4b6e3.jpg)Click the "Add Client" button on this page to go to the next step. [![](/media/2023/slas-admin-ui-new-client-pwa-kit-c70f8d1fd1.jpg) ](/media/2023/slas-admin-ui-new-client-pwa-kit-c70f8d1fd1.jpg)And with that, we are almost there! Fill in the following information:
 
 -   **What tenant will be used?:** Fill in the Tenant ID, part of the Organization ID, from step two. (format: xxxx\_sxx)
 -   **What site will be used?:** Here, we fill in the site IDs used - separated by a space.
@@ -54,7 +55,7 @@ As the final step: "Click Submit". Otherwise, not a lot is going to be happening
 
 ### Typo in the scopes
 
-Currently (January 16th, 2023), there is an error in the default scopes that needs to be fixed manually. Specifically, there is a missing space between "sfcc.shopper-myaccount.orders" and "sfcc.shopper-myaccount.paymentinstruments". [![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/typo-in-scopes-1024x176.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/typo-in-scopes.png)
+Currently (January 16th, 2023), there is an error in the default scopes that needs to be fixed manually. Specifically, there is a missing space between "sfcc.shopper-myaccount.orders" and "sfcc.shopper-myaccount.paymentinstruments". [![](/media/2023/typo-in-scopes-3b0626d7b7.png)](/media/2023/typo-in-scopes-3b0626d7b7.png)
 
 ## Step 4: Enable OCAPI endpoints
 
@@ -112,4 +113,4 @@ Now that we have SLAS up and running and our PWA Kit installed locally, all that
 
 ```
 
-A browser screen will automatically open. And if all goes well, a homepage will appear after a short wait! ![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/07/pwa-kit-1024x580.png) In conclusion, setting up the SLAS Client ID for your Composable Storefront may seem like a daunting task, but with the help of this guide, you'll be a pro in no time. And if you're still feeling a bit overwhelmed, remember that we've all been there. But hey, at least now you have a fancy new configured SLAS to show off to your friends and family, who are sure to be impressed by your technical prowess. So go forth and conquer the world of online business, one SLAS at a time.
+A browser screen will automatically open. And if all goes well, a homepage will appear after a short wait! ![](/media/2022/pwa-kit-03394b0f92.png) In conclusion, setting up the SLAS Client ID for your Composable Storefront may seem like a daunting task, but with the help of this guide, you'll be a pro in no time. And if you're still feeling a bit overwhelmed, remember that we've all been there. But hey, at least now you have a fancy new configured SLAS to show off to your friends and family, who are sure to be impressed by your technical prowess. So go forth and conquer the world of online business, one SLAS at a time.

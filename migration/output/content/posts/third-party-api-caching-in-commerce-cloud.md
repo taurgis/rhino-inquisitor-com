@@ -6,6 +6,7 @@ description: >-
 lastmod: '2024-11-13T09:26:49.000Z'
 url: /third-party-api-caching-in-commerce-cloud/
 draft: false
+heroImage: /media/2024/third-party-service-caching-6154196735.jpg
 date: '2024-11-11T05:35:00.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -25,7 +26,7 @@ Now, let’s delve into the process, its benefits, and some things to remember t
 
 ## Caching with LocalServiceRegistry?
 
-[![Salesforce Commerce Cloud Web Service Framework](https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/sfcc-service-framework.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/sfcc-service-framework.jpg)
+[![Salesforce Commerce Cloud Web Service Framework](/media/2024/sfcc-service-framework-b996d130d4.jpg)](/media/2024/sfcc-service-framework-b996d130d4.jpg)
 
 Salesforce Commerce Cloud Web Service Framework
 
@@ -61,7 +62,7 @@ Creating a service in the [LocalServiceRegistry](https://salesforcecommercecloud
 
 [In this snippet](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-webservices.html#configure-underlying-clients), the \`**enableCaching**\` method is invoked, enabling caching for the HTTP requests serviced by this configuration. The argument (in this case, \`1000\`) represents a timeout setting, which dictates how long a cached response will be valid before the subsequent request is made.
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/configuring-underlying-clients.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/configuring-underlying-clients.png)
+[![](/media/2024/configuring-underlying-clients-95d307a0e7.png)](/media/2024/configuring-underlying-clients-95d307a0e7.png)
 
 A screenshot of the official documentation on how to add caching to a service.
 
@@ -87,7 +88,7 @@ However, don't anticipate any "magic 🪄"—it's the accumulation of many small
 
 ## Clearing the cache
 
-[![A screenshot of the "Service Maintenance" configuration page in the Business Manager.](https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/clearing-httpclient-response-cache.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/clearing-httpclient-response-cache.png)
+[![A screenshot of the "Service Maintenance" configuration page in the Business Manager.](/media/2024/clearing-httpclient-response-cache-c4b7ab1863.png)](/media/2024/clearing-httpclient-response-cache-c4b7ab1863.png)
 
 A screenshot of the "Service Maintenance" configuration page in the Business Manager.
 
@@ -137,7 +138,7 @@ In conclusion, adding a caching mechanism to the LocalServiceRegistry for third-
 
 Here's an example of a successful (anonymised) result from using this cache and rate limiting bot traffic:
 
-[![A screenshot of a graph showing the results of third-party service improvements, including using Cloudflare and secondly adding caching.](https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/third-party-service-caching-results-e1731261763486-1024x495.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/third-party-service-caching-results-e1731261763486.jpg)
+[![A screenshot of a graph showing the results of third-party service improvements, including using Cloudflare and secondly adding caching.](/media/2024/third-party-service-caching-results-e1731261763486-2847fa50c4.jpg)](/media/2024/third-party-service-caching-results-e1731261763486-2847fa50c4.jpg)
 
 The number of requests handled by the API decreased considerably, leading to a lower monthly bill.
 

@@ -7,6 +7,7 @@ description: >-
 lastmod: '2025-08-06T20:01:22.000Z'
 url: /salesforce-b2c-commerce-cloud-documentation/
 draft: false
+heroImage: /media/2022/documentation-ea8c96aa90.jpg
 date: '2022-05-09T18:58:37.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -79,7 +80,7 @@ The existence and vibrancy of communities like CommerceCrew and the official Tra
 
 ## Your Trailhead Compass: Strategic Learning for Technical Experts
 
-![Astro cheering](https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/trailhead-commerce-1024x576.png)
+![Astro cheering](/media/2022/trailhead-commerce-29dc66c342.png)
 
 -   [https://trailhead.salesforce.com/](https://trailhead.salesforce.com/trails?products=commercecloud&sort=NEWEST)
 
@@ -97,7 +98,7 @@ Trailhead is Salesforce's free, online learning platform, and it's an ocean of c
 
 ## Partner Learning Camp: The Insider's Track
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/5B7A39EA-B9BC-486B-9CA3-C77AB5A306B1-e1653998526739-1024x594.jpeg)
+![](/media/2022/5b7a39ea-b9bc-486b-9ca3-c77ab5a306b1-e1653998526739-e73418c862.jpeg)
 
 -   [https://partnerlearningcamp.salesforce.com/s/learner-dashboard](https://partnerlearningcamp.salesforce.com/s/learner-dashboard)
 
@@ -107,7 +108,7 @@ The PLC offers curricula on topics like SFRA, Headless development, PWA Kit, and
 
 ## Salesforce Architects: The Multi-Cloud Command Center
 
-![The Solution Architect certification diagram.](https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/solution-architect-1024x741.png)
+![The Solution Architect certification diagram.](/media/2022/solution-architect-33ece62704.png)
 
 -   [https://architect.salesforce.com/](https://architect.salesforce.com/)
 

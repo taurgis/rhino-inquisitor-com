@@ -6,6 +6,7 @@ description: >-
 lastmod: '2023-06-06T08:54:49.000Z'
 url: /commerce-cloud-t-shirts-on-shirtforce/
 draft: false
+heroImage: /media/2022/shirtforce-bugs-f0a63ab31a.jpg
 date: '2023-06-05T06:43:00.000Z'
 categories:
   - Community
@@ -27,7 +28,7 @@ Let's not waste time and get straight to the designs and their backstory.
 
 ## Keep Calm And Go Headless
 
-![A headless-themed red t-shirt.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/06/keep-calm-and-go-headless.jpg)
+![A headless-themed red t-shirt.](/media/2023/keep-calm-and-go-headless-6e775cd9c3.jpg)
 
 -   [Get it now](https://my-store-5a6a56.creator-spring.com/listing/salesforce-ohana-rocks)
 
@@ -39,7 +40,7 @@ And with the option for hybrid (or phased) deployments...another idea popped int
 
 ## Hybrid Deployment Theory
 
-![A horse-printed t-shirt.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/06/hybrid-deployment-theory.jpg)
+![A horse-printed t-shirt.](/media/2023/hybrid-deployment-theory-491c6dcca5.jpg)
 
 -   [Get it now](https://my-store-5a6a56.creator-spring.com/listing/hybrid-deployment-theory)
 
@@ -49,7 +50,7 @@ So, if you're a Linkin Park fan or appreciate great music, I highly recommend ad
 
 ## #DynamiteDev
 
-![A blue shirt with the text "#DynamiteDev"](https://www.rhino-inquisitor.com/wp-content/uploads/2023/06/dynamite-dev.jpg)
+![A blue shirt with the text "#DynamiteDev"](/media/2023/dynamite-dev-3f8e65854b.jpg)
 
 -   [Get it now](https://teespring.com/dynamitedev?pid=389&cid=100020)
 
@@ -57,7 +58,7 @@ Without our developers, how would we ever build an eCommerce channel that matche
 
 ## #BadassBA
 
-![A blue t-shirt with the text "#BadassBA"](https://www.rhino-inquisitor.com/wp-content/uploads/2023/06/badass-ba.jpg)
+![A blue t-shirt with the text "#BadassBA"](/media/2023/badass-ba-c2f0429cdd.jpg)
 
 -   [Get it now](https://my-store-5a6a56.creator-spring.com/listing/badassba)
 
@@ -67,7 +68,7 @@ This design is not specifically for Salesforce B2C Commerce Cloud, but it applie
 
 ## Breaking Prod
 
-![A green t-shirt with the text "Breaking Prod" in the style of "Breaking Bad"](https://www.rhino-inquisitor.com/wp-content/uploads/2023/06/breaking-prod.jpg)
+![A green t-shirt with the text "Breaking Prod" in the style of "Breaking Bad"](/media/2023/breaking-prod-16547b5665.jpg)
 
 -   [Get it now](http://teespring.com/en-GB/breaking-prod)
 

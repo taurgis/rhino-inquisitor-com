@@ -6,6 +6,7 @@ description: >-
 lastmod: '2022-07-23T21:41:31.000Z'
 url: /events-and-the-golden-hoodie/
 draft: false
+heroImage: /media/2022/golden-hoodies-baefc3d7e9.jpg
 date: '2022-06-21T04:14:28.000Z'
 categories:
   - Community
@@ -69,7 +70,7 @@ People who could not join the event in person have to use [Salesforce+](https://
 
 ## Salesforce Live Belgium
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/salesforce-live-belgium.jpg)
+![](/media/2022/salesforce-live-belgium-bba64ad521.jpg)
 
 Being the first-ever Belgian Golden Hoodie recipient sure puts your picture as one giant slide at local Salesforce events!
 
@@ -85,7 +86,7 @@ Summing it up: I had a great time, but wearing the Golden Hoodie during summer a
 
 ## [YeurDreamin'](https://www.yeurdreamin.eu/)
 
-![YeurDreamin' - Headless](https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/yeurdreamin-headless.jpg)
+![YeurDreamin' - Headless](/media/2022/yeurdreamin-headless-dc38d91630.jpg)
 
 The year 2022 is also when I decided to become more involved in the local (and European) community events. The first (and the closest) that caught my attention was [YeurDreamin'](https://www.yeurdreamin.eu/), a Community Conference focusing on the Benelux.
 

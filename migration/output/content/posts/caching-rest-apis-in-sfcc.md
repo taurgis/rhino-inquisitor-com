@@ -7,6 +7,7 @@ description: >-
 lastmod: '2023-04-11T08:01:28.000Z'
 url: /caching-rest-apis-in-sfcc/
 draft: false
+heroImage: /media/2023/caching-87696b30b8.jpg
 date: '2023-04-10T06:46:06.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -53,7 +54,7 @@ This is easy to fix. But without enabling it, you cannot test your settings on a
 
 ## Overriding the OCAPI Cache Time
 
-It is possible to override the default 60 seconds of caching of an resource by adding it to the [OCAPI Settings](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/OCAPISettings.html?cp=0_16_2_24) in the Business Manager. _"Administration" > "Site Development" > "Open Commerce API Settings"_ [![OCAPI caching settings](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/ocapi-settings-with-cache.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/ocapi-settings-with-cache.png)
+It is possible to override the default 60 seconds of caching of an resource by adding it to the [OCAPI Settings](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/OCAPISettings.html?cp=0_16_2_24) in the Business Manager. _"Administration" > "Site Development" > "Open Commerce API Settings"_ [![OCAPI caching settings](/media/2023/ocapi-settings-with-cache-f7e7acfcf8.png)](/media/2023/ocapi-settings-with-cache-f7e7acfcf8.png)
 
 ```
 
@@ -102,7 +103,7 @@ Adding "cache\_time" to the resource configuration lets you easily control the t
 
 Lowest Cache Time When using the expand parameter to make a single request with the Open Commerce API, the Cache-Control header is automatically populated with the lowest caching time of the requested resources.
 
-[![OCAPI: Expand Parameter Caching](https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/ocapi-expand-parameter-caching.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/ocapi-expand-parameter-caching.jpg)
+[![OCAPI: Expand Parameter Caching](/media/2023/ocapi-expand-parameter-caching-c91c7001dd.jpg)](/media/2023/ocapi-expand-parameter-caching-c91c7001dd.jpg)
 
 Screenshot of the Infocenter about the "expand" parameter
 

@@ -6,6 +6,7 @@ description: >-
 lastmod: '2023-12-14T12:46:21.000Z'
 url: /unravelling-the-mystery-of-dates-in-the-ocapi/
 draft: false
+heroImage: /media/2023/a-developer-confused-by-dates-and-times-9d38bbf81d.jpg
 date: '2023-12-18T09:16:13.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -48,7 +49,7 @@ When crafting these date filters, adherence to the [ISO 8601](https://www.iso.or
 
 ## Range Filter
 
-![An image showing calendars with dates and a measure on a wooden table.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/12/measuring-dates-1536x512.jpg)
+![An image showing calendars with dates and a measure on a wooden table.](/media/2023/measuring-dates-7c1931cecc.jpg)
 
 If you need to find records that fall within a specific date interval, the [range\_filter](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-api?meta=type%3Arange_filter) is your go-to option. This filter can find records with a date value sitting between a specified start (from) and end (to) date.
 
@@ -107,7 +108,7 @@ A Range2Filter allows you to restrict search results to hits where the first ran
 
 ## Bool Filter
 
-![A woman combining different blocks in a particular order.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/12/combining-blocks-1536x399.jpg)
+![A woman combining different blocks in a particular order.](/media/2023/combining-blocks-bc1da56e90.jpg)
 
 Sometimes, the need for complexity arises when constructing date-based queries. The [bool\_filter](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-api?meta=type%3Abool_filter) permits the combination of numerous filters for complex logical expressions. This filter is specifically helpful for creating compound date queries that may, for instance, combine status checks with date ranges.
 

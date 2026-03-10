@@ -46,7 +46,8 @@
       "statusNormalizedFrom": "publish"
     },
     "extracted": {
-      "parentSlug": "external"
+      "parentSlug": "external",
+      "featuredImageUrl": null
     }
   },
   "bodyMarkdown": "",

@@ -7,6 +7,7 @@ description: >-
 lastmod: '2024-10-14T16:50:08.000Z'
 url: /how-to-set-up-the-ecdn-in-sfcc-staging/
 draft: false
+heroImage: /media/2022/ssl-certificate-tw-8422f4751c.jpg
 date: '2022-11-07T10:29:05.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -45,7 +46,7 @@ Salesforce [has written a guide](https://developer.salesforce.com/docs/commerce/
 
 tenantID The tenantID mentioned in the guide is the Realm ID (zzxx) combined with the Instance ID (001). This information is shown in the next step of this guide on the Staging instance.
 
-e.g.**zzxx\_001** Roles Remember to assign the "Salesforce Commerce API role to the API Client! [![A screenshot of the Account Manager where the "Salesforce Commerce API" role is assigned with the staging environment filter.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/commerce-cloud-api-client-roles.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/commerce-cloud-api-client-roles.jpg)
+e.g.**zzxx\_001** Roles Remember to assign the "Salesforce Commerce API role to the API Client! [![A screenshot of the Account Manager where the "Salesforce Commerce API" role is assigned with the staging environment filter.](/media/2023/commerce-cloud-api-client-roles-1a338d1f61.jpg)](/media/2023/commerce-cloud-api-client-roles-1a338d1f61.jpg)
 
 ## Step 2: Get the staging credentials
 
@@ -55,7 +56,7 @@ We get these settings here:
 
 "Administration > Site Development > Salesforce Commerce API Settings"
 
-[![A screenshot of the Business Manager "Salesforce Commerce API Settings" screen showing the Short Code and Organization ID needed for the staging ecdn.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/salesforce-commerce-api-settings.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/salesforce-commerce-api-settings.jpg)
+[![A screenshot of the Business Manager "Salesforce Commerce API Settings" screen showing the Short Code and Organization ID needed for the staging ecdn.](/media/2023/salesforce-commerce-api-settings-be8d59fe5b.jpg)](/media/2023/salesforce-commerce-api-settings-be8d59fe5b.jpg)
 
 ## Step 3: Get an access token
 

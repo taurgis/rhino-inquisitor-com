@@ -7,6 +7,7 @@ description: >-
 lastmod: '2023-11-27T09:29:35.000Z'
 url: /leveraging-generic-mappings-in-sfcc/
 draft: false
+heroImage: /media/2023/a-robot-connecting-data-files-3fa4ea9dce.jpg
 date: '2023-11-27T09:29:26.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -53,7 +54,7 @@ Here's an example of how your CSV might look:
 
 #### Compound Keys
 
-![This key is a unique representation of the "Compound Key" system in Generic Mappings, crafted from multiple metal puzzle pieces. The key is striking in its design, with a complete key lying in the center, surrounded by unused pieces that were likely intended to be used for different variations of the key. The craftsmanship of the metal pieces is impressive, with intricate designs etched into each individual piece. The key itself appears to be the final piece in a complex puzzle, with the other pieces surrounding it serving as potential alternative solutions to unlocking whatever the key is meant to open. Overall, this key is a fascinating example of the ingenuity and creativity that goes into the design of complex systems like Generic Mappings.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/11/a-key-created-with-puzzle-pieces-1024x496.jpg)
+![This key is a unique representation of the "Compound Key" system in Generic Mappings, crafted from multiple metal puzzle pieces. The key is striking in its design, with a complete key lying in the center, surrounded by unused pieces that were likely intended to be used for different variations of the key. The craftsmanship of the metal pieces is impressive, with intricate designs etched into each individual piece. The key itself appears to be the final piece in a complex puzzle, with the other pieces surrounding it serving as potential alternative solutions to unlocking whatever the key is meant to open. Overall, this key is a fascinating example of the ingenuity and creativity that goes into the design of complex systems like Generic Mappings.](/media/2023/a-key-created-with-puzzle-pieces-c01118782f.jpg)
 
 Compound keys in a CSV file refer to combining multiple columns to create a unique identifier for the mapping entries. Unlike a simple key using a single data point, a compound key requires two or more data points to form a unique one. You might need to use a compound key when you cannot uniquely identify an item with a single-column value. Instead, you need to use a combination of values to ensure uniqueness.
 
@@ -85,7 +86,7 @@ Just to remind you, mappings are global and must be explicitly imported on each 
 
 Now, it’s time to create an automation job using the [`ImportKeyValueMapping`](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/jobstepapi/html/index.html) step:
 
-[![A screenshot of a job with one job step "ImportKeyValueMapping" with the configuration described below this image.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/11/job-import-generic-mapping-1024x463.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/11/job-import-generic-mapping.jpg)
+[![A screenshot of a job with one job step "ImportKeyValueMapping" with the configuration described below this image.](/media/2023/job-import-generic-mapping-2cce4b36aa.jpg)](/media/2023/job-import-generic-mapping-2cce4b36aa.jpg)
 
 Job Step Parameters:
 

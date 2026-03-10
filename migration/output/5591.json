@@ -50,8 +50,11 @@
       "link": "/offline/",
       "guid": "/?page_id=5591",
       "attachmentUrl": null,
+      "thumbnailId": null,
+      "metaDescription": null,
       "postParent": "0",
-      "postMetaCount": 18
+      "postMetaCount": 18,
+      "featuredImageUrl": null
     }
   },
   "bodyMarkdown": "## Offline\n\nYou are currently offline, and this page was not saved to your device. Please try again once you reconnect to the internet.",

@@ -25,15 +25,27 @@
   {{ with .Params.heroImage }}
     {{ if or (hasPrefix . "http://") (hasPrefix . "https://") }}
       {{ $image = . }}
-    {{ else if hasPrefix . "/" }}
-      {{ $image = (strings.TrimPrefix "/" .) | absURL }}
     {{ else }}
+      {{ $heroImagePath := . }}
+      {{ $resourcePath := strings.TrimPrefix "/" . }}
+      {{ $resource := false }}
       {{ with $.Resources.GetMatch . }}
+        {{ $resource = . }}
+      {{ end }}
+      {{ if and (not $resource) (ne $resourcePath "") }}
+        {{ with resources.Get $resourcePath }}
+          {{ $resource = . }}
+        {{ end }}
+      {{ end }}
+      {{ with $resource }}
         {{ if reflect.IsImageResourceProcessable . }}
           {{ $image = (.Process "webp q80").Permalink }}
         {{ else if reflect.IsImageResourceWithMeta . }}
           {{ $image = .Permalink }}
         {{ end }}
+      {{ end }}
+      {{ if and (eq $image "") (hasPrefix $heroImagePath "/") }}
+        {{ $image = (strings.TrimPrefix "/" $heroImagePath) | absURL }}
       {{ end }}
     {{ end }}
   {{ else }}

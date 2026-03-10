@@ -6,6 +6,7 @@ description: >-
 lastmod: '2025-07-28T07:37:24.000Z'
 url: /field-guide-to-custom-caches-in-sfcc/
 draft: false
+heroImage: /media/2025/custom-caches-in-sfcc-scaled-c245e83c7a.jpeg
 date: '2025-07-28T07:32:55.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -60,7 +61,7 @@ Once you've determined that a Custom Cache is the right tool, implementation req
 
 ### The Blueprint: Defining Caches in caches.json
 
-![Image Alt Text: A friendly cartoon character in a flat vector style, building a data cache from a blueprint, with vibrant data lines flowing into the structure.](https://www.rhino-inquisitor.com/wp-content/uploads/2025/07/salesforce-commerce-cloud-blueprinting-caches-1024x559.jpeg)
+![Image Alt Text: A friendly cartoon character in a flat vector style, building a data cache from a blueprint, with vibrant data lines flowing into the structure.](/media/2025/salesforce-commerce-cloud-blueprinting-caches-c155ca3f8c.jpeg)
 
 Your cache's life begins with a simple declaration. This is done in a JSON file, conventionally named `caches.json`, which must reside within your cartridge.
 
@@ -102,7 +103,7 @@ The `id` must be **globally unique** across every single cartridge in your site'
 
 4. **Enable in Business Manager:** Finally, you must globally enable the custom cache feature. Navigate to **Administration > Operations > Custom Caches** and check the "Enable Caching" box.  Disabling this will clear all custom caches on the instance. This page will also become your primary tool for monitoring cache health.
 
-[![A screenshot of the "Administration > Operations > Custom Caches" screen in the business manager.](https://www.rhino-inquisitor.com/wp-content/uploads/2025/07/ods-custom-caches-business-manager-1024x365.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2025/07/ods-custom-caches-business-manager.png)
+[![A screenshot of the "Administration > Operations > Custom Caches" screen in the business manager.](/media/2025/ods-custom-caches-business-manager-c30167212b.png)](/media/2025/ods-custom-caches-business-manager-c30167212b.png)
 
 A screenshot of the "Administration > Operations > Custom Caches" screen in the business manager.
 

@@ -6,6 +6,7 @@ description: >-
 lastmod: '2024-01-10T08:49:57.000Z'
 url: /sfcc-24-1-release-a-new-year-update/
 draft: false
+heroImage: /media/2024/shopping-carts-to-the-shredder-735353fe04.jpg
 date: '2024-01-08T09:10:13.000Z'
 categories:
   - Release Notes
@@ -23,7 +24,7 @@ Are you interested in last year's release notes? [Click here](https://www.rhino-
 
 ### DKIM Support for Emails
 
-![A screenshot of the Email Settings in the Business Manager showing the new DKIM Checkbox](https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/dkim-in-commerce-cloud.png)
+![A screenshot of the Email Settings in the Business Manager showing the new DKIM Checkbox](/media/2024/dkim-in-commerce-cloud-0dbe52d4a2.png)
 
 Are you tired of missing out on important emails because they end up in your SPAM folder? We have great news for you! Commerce Cloud now comes with [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) support, designed to significantly reduce the chances of your emails being marked as SPAM.
 
@@ -43,7 +44,7 @@ PIG Only This option does not seem to be available on sandboxes.
 
 ### Enable Temporary Baskets for Immediate Order Requests in OCAPI
 
-![A person's hand touches a mobile phone, depicting multiple carts on top of it, representing the new Headless options for "temporary baskets."](https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/carts-on-a-mobile-phone-1536x512.jpg)
+![A person's hand touches a mobile phone, depicting multiple carts on top of it, representing the new Headless options for "temporary baskets."](/media/2024/carts-on-a-mobile-phone-022785d77e.jpg)
 
 > OCAPI 23.4 includes support for temporary baskets. Temporary baskets allow for immediate order requests in B2C Commerce. For example, a shopper uses a Buy Now option to purchase an item. The temporary basket, which has a limited lifetime of 15 minutes, is populated with all the data required to ready the basket for checkout without affecting the regular shopper basket.
 >

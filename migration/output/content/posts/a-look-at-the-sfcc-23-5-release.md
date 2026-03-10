@@ -7,6 +7,8 @@ description: >-
 lastmod: '2023-04-23T15:28:04.000Z'
 url: /a-look-at-the-sfcc-23-5-release/
 draft: false
+heroImage: >-
+  /media/2023/a-shopping-mall-being-refurbished-with-workers-scaled-6d93cd6e04.jpeg
 date: '2023-04-20T05:52:49.000Z'
 categories:
   - Release Notes
@@ -66,7 +68,7 @@ A relatively "small" change in this release is: Now the [XML](https://documentat
 
 > You can now exclude, cancel, and resubmit orders rejected by Salesforce Order Management in the Business Manager Orders page.
 
-[![Salesforce Order Management 23.5 Release](https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/salesfore-order-management-manage-rejected-orders-1024x448.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/salesfore-order-management-manage-rejected-orders.png)
+[![Salesforce Order Management 23.5 Release](/media/2023/salesfore-order-management-manage-rejected-orders-87ae4bdc6c.png)](/media/2023/salesfore-order-management-manage-rejected-orders-87ae4bdc6c.png)
 
 The screenshot displays three options for managing excluded orders in Salesforce Order Management.
 
@@ -98,7 +100,7 @@ New endpoints are now supported:
 
 ### New Channel Types supported for Baskets & Orders
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/scapi-channel-types-2023-1024x415.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/scapi-channel-types-2023.jpg)
+[![](/media/2023/scapi-channel-types-2023-2795e88145.jpg)](/media/2023/scapi-channel-types-2023-2795e88145.jpg)
 
 The list of channels before the update
 

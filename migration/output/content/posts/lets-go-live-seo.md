@@ -7,6 +7,7 @@ description: >-
 lastmod: '2022-11-19T10:02:48.000Z'
 url: /lets-go-live-seo/
 draft: false
+heroImage: /media/2022/sitemap-c717c2a8e7.png
 date: '2022-09-05T08:35:42.000Z'
 categories:
   - GO-LIVE

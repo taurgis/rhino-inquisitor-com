@@ -6,6 +6,7 @@ description: >-
 lastmod: '2022-11-19T10:18:39.000Z'
 url: /preparing-for-the-b2c-commerce-developer-certification/
 draft: false
+heroImage: /media/2022/b2c-commerce-developer-72d9df9035.png
 date: '2022-06-06T11:45:43.000Z'
 categories:
   - Certification

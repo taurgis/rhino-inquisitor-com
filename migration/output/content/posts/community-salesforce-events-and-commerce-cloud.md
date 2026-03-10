@@ -6,6 +6,7 @@ description: >-
 lastmod: '2022-07-23T19:15:14.000Z'
 url: /community-salesforce-events-and-commerce-cloud/
 draft: false
+heroImage: /media/2022/yeurdreamin-d42e49541c.jpg
 date: '2022-07-04T17:24:31.000Z'
 categories:
   - Community

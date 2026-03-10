@@ -6,6 +6,7 @@ description: >-
 lastmod: '2022-09-11T07:34:06.000Z'
 url: /me-myself-and-headless-a-composable-commerce-cloud-story/
 draft: false
+heroImage: /media/2022/image-596c8a1379.jpg
 author: Thomas Theunen
 ---
 https://www.youtube.com/watch?v=DIk88MbB-Hc&t=2355s

@@ -9,6 +9,7 @@ description: >-
 lastmod: '2023-10-21T18:06:29.000Z'
 url: /an-overview-of-sfcc-global-functions/
 draft: false
+heroImage: /media/2023/flowcharts-diagrams-on-a-wall-scaled-2fd3a78550.jpeg
 date: '2023-10-23T12:06:05.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -75,7 +76,7 @@ The [empty](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/co
 
 ## escape and unescape
 
-![A drawing of a jail cell with a man in orange.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/10/global-function-escape-drawing-1024x510.jpeg)
+![A drawing of a jail cell with a man in orange.](/media/2023/global-function-escape-drawing-a5cb04538d.jpeg)
 
 ```
 
@@ -106,7 +107,7 @@ The [eval](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com
 
 ## isFinite and isNaN
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/10/the-infinity-of-space-1024x384.jpg)
+![](/media/2023/the-infinity-of-space-5e44ec8ec6.jpg)
 
 ```
 

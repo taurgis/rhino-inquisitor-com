@@ -7,6 +7,7 @@ description: >-
 lastmod: '2023-10-16T18:11:19.000Z'
 url: /custom-preferences-in-sfcc/
 draft: false
+heroImage: /media/2023/it-configuring-server-scaled-d8087e9ab9.jpeg
 date: '2023-10-16T12:01:58.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -118,6 +119,6 @@ Right now, there is no SCAPI endpoint available to fetch site preferences. Only 
 
 ## Conclusion
 
-![A decision diagram of when to use which type of storage, visualising the article.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/10/global-preferenves-vs-site-specific-1024x930.png)
+![A decision diagram of when to use which type of storage, visualising the article.](/media/2023/global-preferenves-vs-site-specific-3a997fcbab.png)
 
 Using the appropriate type of preference can help ensure that settings are applied correctly and efficiently. Each option has pros and cons, and make sure to weigh in roles and users in making these decisions!

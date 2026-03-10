@@ -6,6 +6,7 @@ description: >-
 lastmod: '2022-09-11T07:50:23.000Z'
 url: /the-path-to-being-an-architect/
 draft: false
+heroImage: /media/2022/path-to-being-an-architect-576cef411b.jpg
 author: Thomas Theunen
 ---
 https://www.youtube.com/watch?v=caVpOV3TdzY

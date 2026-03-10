@@ -257,7 +257,8 @@ This runbook tracks the operational steps needed to move the repository from pla
   - `migration/reports/frontmatter-errors.csv` contains header-only output with zero data rows on the validated full run
   - `migration/reports/discovery-metadata-coverage.json` remains deterministic across reruns and reports 0 discovery-enriched records in the current corpus
   - 123 query-style `/?p=` aliases are intentionally excluded from front matter because the approved Phase 2 alias contract is path-only and the generated-content validator rejects non-path Hugo aliases
-  - `heroImage` remains omitted in the current validated run because the normalized and converted records do not yet carry featured-media lookup data; featured-image recovery and local-path rewriting stay in RHI-037 scope
+  - true featured-image linkage now survives extraction and normalization, so the mapper emits `heroImage` when `_raw.extracted.featuredImageUrl` is available; the current validated run produces `heroImage` for all 150 staged posts and 8 staged pages with true featured-image metadata
+  - mapper output still uses source-side media URLs at this stage; local `/media/...` rewriting remains the downstream RHI-037 responsibility
 - Mapper hard-fail behavior now includes:
   - empty `title`
   - invalid or missing canonical `url`
@@ -292,6 +293,34 @@ This runbook tracks the operational steps needed to move the repository from pla
   - 123 merge URLs and 402 retire URLs in `migration/url-manifest.json` are query-style legacy routes that Hugo cannot emit as distinct `public/` files
   - these rows remain valid Phase 4 reporting inputs, but full runtime redirect validation stays with the required edge redirect layer
 - The staged Hugo build now completes, but it still emits three `warning-goldmark-raw-html` warnings for generated posts; keep those warnings visible until the underlying conversion/rendering issue is resolved upstream.
+
+### RHI-037 - Media Migration and Asset Hygiene
+
+- Run the media downloader with `npm run migrate:download-media`.
+- The downloader reads `migration/intermediate/records.normalized.json`, groups media refs by canonical source URL, and writes:
+  - `migration/intermediate/media-manifest.json`
+  - `migration/reports/media-missing.csv`
+- Owner-approved storage contract for the current implementation:
+  - processable raster images are stored as Hugo global resources under `src/assets/media/`
+  - non-processable files and direct attachments stay under `src/static/media/`
+  - true featured images are emitted only when source channels provide verified linkage; no first-body-image fallback is synthesized
+  - the downloader can recover `404` WordPress-origin assets from the approved filesystem snapshot root at `tmp/website-wordpress-backup/wp-content` when HTTP fetches fail
+- Run the rewrite pass with `npm run migrate:rewrite-media`.
+- Build staged migration content before running the integrity gate:
+  - `hugo --minify --environment production --contentDir migration/output/content --destination tmp/rhi037-public`
+- Run the integrity gate with:
+  - `npm run check:media -- --content-dir migration/output/content --public-dir tmp/rhi037-public`
+- Current 2026-03-10 implementation status:
+  - normalization now adds verified featured-image source URLs into `mediaRefs`, which allows the media pipeline to download and rewrite hero-banner assets alongside body images
+  - the latest full corpus run groups 1803 source references into 574 canonical media items
+  - after HTTP download plus filesystem fallback recovery and the final normalization-time thumbnail remap, `migration/reports/media-missing.csv` is now header-only for the staged release-candidate batch
+  - `npm run migrate:download-media` now caps any localized hero image above the 2000px longest-edge budget during asset generation, which removes the previous 30 hero-size gate failures without changing content paths
+  - `npm run migrate:rewrite-media` now rewrites all staged post and page `heroImage` fields with verified featured-image linkage to local `/media/...` paths
+  - the rewrite pass now correctly replaces media URLs inside Markdown image and link syntax, which removes the prior WordPress hotlink left in `guide-to-the-getprops-method-in-sfcc`
+  - the staged `video` page now uses a local WordPress-backed fallback image for the final unresolved YouTube thumbnail instead of leaving a dead mixed-content URL in the rendered output
+  - the staged Hugo build now completes successfully against `migration/output/content`
+  - `npm run check:media -- --content-dir migration/output/content --public-dir tmp/rhi037-public` now reports 0 failures on the staged release-candidate content set
+  - Markdown body images now resolve through a Hugo render hook backed by global resources, but bulk `.Process` transforms were intentionally not applied in the render hook after the staged build hit Hugo memory/panic failures
 
 ## Phase 5 - SEO and Discoverability
 

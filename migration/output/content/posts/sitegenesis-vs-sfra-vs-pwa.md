@@ -7,6 +7,7 @@ description: >-
 lastmod: '2023-03-30T07:02:37.000Z'
 url: /sitegenesis-vs-sfra-vs-pwa/
 draft: false
+heroImage: /media/2022/sfra-vs-sitegenesis-965c09b9a6.jpg
 date: '2022-07-17T13:42:22.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -25,11 +26,11 @@ But after choosing SFCC to be the platform, a second big decision must be made. 
 
 Before we get started, here is a timeline showing the history of the "development architectures" used on Salesforce B2C Commerce Cloud throughout the years.
 
-[![SFCC History: 2009 - SiteGenesis 1.0, with version 2.0 being released in 2014. The next release was in 2017 with MFRA, being rebranded to SFRA in 2018. The latest release was the PWA Kit in 2021.](https://www.rhino-inquisitor.com/wp-content/uploads/2022/07/sfcc-history-1024x660.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/07/sfcc-history.png)
+[![SFCC History: 2009 - SiteGenesis 1.0, with version 2.0 being released in 2014. The next release was in 2017 with MFRA, being rebranded to SFRA in 2018. The latest release was the PWA Kit in 2021.](/media/2022/sfcc-history-86f56e594a.png)](/media/2022/sfcc-history-86f56e594a.png)
 
 ## SiteGenesis
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/07/sitegenesis-1024x657.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/07/sitegenesis.jpg)
+[![](/media/2022/sitegenesis-9a921c285a.jpg)](/media/2022/sitegenesis-9a921c285a.jpg)
 
 Let us start with the oldest (and least exciting option): [SiteGenesis](https://production-sitegenesis-dw.demandware.net/on/demandware.store/Sites-SiteGenesis-Site). If anyone still suggests that you start your journey with SiteGenesis, you should ask the question, "why do we need to do that?".
 
@@ -53,11 +54,11 @@ But since 2020, it is no longer required to build for SiteGenesis; SFRA compatib
 
 ### Pipelines VS Controllers
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/07/pipelines-1024x832.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/07/pipelines.png)
+[![](/media/2022/pipelines-eed67b4c67.png)](/media/2022/pipelines-eed67b4c67.png)
 
 Pipelines in SiteGenesis
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/07/controllers.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/07/controllers.png)
+[![](/media/2022/controllers-130298bfb4.png)](/media/2022/controllers-130298bfb4.png)
 
 Controllers in SiteGenesis
 
@@ -69,7 +70,7 @@ _**Note:** It is also substantially harder to find developers who know how to wo
 
 ## M(S)FRA
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/07/sfra-vs-sitegenesis-1024x615.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/07/sfra-vs-sitegenesis.jpg)
+[![](/media/2022/sfra-vs-sitegenesis-965c09b9a6.jpg)](/media/2022/sfra-vs-sitegenesis-965c09b9a6.jpg)
 
 This part of the article will cover both MFRA and [SFRA](https://production-sitegenesis-dw.demandware.net/s/RefArch/home?lang=en_US) as they are the same. You can see MFRA as the ALPHA/BETA version of SFRA or simply as a rebranding.
 
@@ -99,7 +100,7 @@ So choosing to go with SFRA now will be a good base for years to come. But be su
 
 ## PWA Kit & Managed Runtime
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/07/pwa-kit-1024x580.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/07/pwa-kit.png)
+[![](/media/2022/pwa-kit-03394b0f92.png)](/media/2022/pwa-kit-03394b0f92.png)
 
 The [PWA Kit](https://pwa-kit.mobify-storefront.com/) is the most recent addition to the SFCC family. And it is important to note that this solution is not marketed at the moment to replace SFRA. You might be wondering why, and there is a good reason for that.
 
@@ -167,4 +168,4 @@ All of these "missing items" can be resolved with custom development. So be prep
 
 The following overview compresses the information above.
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/07/comparison-sitegenesis-sfra-pwa-768x649.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/07/comparison-sitegenesis-sfra-pwa.png)
+[![](/media/2022/comparison-sitegenesis-sfra-pwa-5593ba325c.png)](/media/2022/comparison-sitegenesis-sfra-pwa-5593ba325c.png)

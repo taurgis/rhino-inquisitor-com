@@ -7,6 +7,7 @@ description: >-
 lastmod: '2024-04-29T07:46:01.000Z'
 url: /the-sunsetting-of-arc300-architect-b2c-commerce-solutions/
 draft: false
+heroImage: /media/2024/sunsetting-arc300-course-65cd719d15.jpg
 date: '2024-04-29T07:43:13.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -45,7 +46,7 @@ It was a great learning experience to convey knowledge to others and explain con
 
 ## Will there be a new course?
 
-![A group of people stands atop a mountain, overlooking a city where a Trailhead Academy cap hovers in the sky.](https://www.rhino-inquisitor.com/wp-content/uploads/2024/04/looking-to-the-future-of-trailhead-academy-1536x512.jpg)
+![A group of people stands atop a mountain, overlooking a city where a Trailhead Academy cap hovers in the sky.](/media/2024/looking-to-the-future-of-trailhead-academy-86a27ca5fe.jpg)
 
 While the 'Salesforce Architect B2C Commerce Solutions' course may have been sunsetted, a new course can always replace it. With the ever-evolving world of technology, keeping up to date with the latest industry trends and knowledge is essential. Salesforce is known for its commitment to continuous improvement, and the Trailhead Academy platform is a testament to this.
 

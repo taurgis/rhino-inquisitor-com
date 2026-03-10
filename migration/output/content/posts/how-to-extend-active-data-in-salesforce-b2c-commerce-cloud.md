@@ -7,6 +7,7 @@ description: >-
 lastmod: '2023-06-19T05:15:47.000Z'
 url: /how-to-extend-active-data-in-salesforce-b2c-commerce-cloud/
 draft: false
+heroImage: /media/2023/b2c-active-merchandising-slide-1-9a027d6449.gif
 date: '2023-06-19T05:13:10.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -20,7 +21,7 @@ When working on personalization and segmentation within Salesforce B2C Commerce 
 
 ## How is Active Data gathered?
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/b2c_active_merchandising_slide_1.gif)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/b2c_active_merchandising_slide_1.gif)
+[![](/media/2023/b2c-active-merchandising-slide-1-9a027d6449.gif)](/media/2023/b2c-active-merchandising-slide-1-9a027d6449.gif)
 
 ### Storefront
 
@@ -62,17 +63,17 @@ There are two System Objects that we can extend:
 
 In this case, we want to extend the Customer Active Data, so we head to: _Administration > Site Development > System Object Types > Customer Active Data_ On the "_Attribute Definitions_" tab, we click "New" to start creating our new attributes.
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/system-object-active-data-physicalVisits.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/system-object-active-data-physicalVisits.jpg)
+[![](/media/2023/system-object-active-data-physicalvisits-84071d27a1.jpg)](/media/2023/system-object-active-data-physicalvisits-84071d27a1.jpg)
 
 Create physicalVisits
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/system-object-active-data-physicalVisitsMonth.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/system-object-active-data-physicalVisitsMonth.jpg)
+[![](/media/2023/system-object-active-data-physicalvisitsmonth-e1e4a24148.jpg)](/media/2023/system-object-active-data-physicalvisitsmonth-e1e4a24148.jpg)
 
 Create physicalVisitsMonth
 
 As with any attribute, if we want to be able to view them in the Business Manager screens, we should not forget to add them to a new or existing "Attribute Group". To do this, we go to: _Administration > Site Development > System Object Types > Customer Active Data - Attribute Groups_ Once here, let us create a new group called "Physical Store Traffic", and assign our two new attributes.
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/system-object-active-data-attributegroup.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/system-object-active-data-attributegroup.jpg)
+[![](/media/2023/system-object-active-data-attributegroup-96d35b50eb.jpg)](/media/2023/system-object-active-data-attributegroup-96d35b50eb.jpg)
 
 Attribute Group Assignments
 
@@ -86,7 +87,7 @@ Now that our attribute model has been extended, we need to create a way of impor
 -   **Description:** Free text to describe the purpose of the feed
 -   **Fresh Period:** The value is the number of days after which the data becomes stale if it's not updated. 0 means the data is never considered stale.
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/new-customer-active-data-feed.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/new-customer-active-data-feed.jpg)
+[![](/media/2023/new-customer-active-data-feed-ec272e512c.jpg)](/media/2023/new-customer-active-data-feed-ec272e512c.jpg)
 
 New Customer Active Data
 
@@ -123,13 +124,13 @@ There are two ways to import this file:
 
 Once the import has been completed we can go and check on a profile if that import succeeded!
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/customer-active-data-sfcc.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/customer-active-data-sfcc.jpg)
+[![](/media/2023/customer-active-data-sfcc-c14383fa6a.jpg)](/media/2023/customer-active-data-sfcc-c14383fa6a.jpg)
 
 SFCC Customer Active Data
 
 And with this new addition, we can start creating new [Dynamic Customer Groups](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/active_merchandising/b2c_creating_a_dynamic_customer_group.html), for example!
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/dynamic-customer-group.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/dynamic-customer-group.jpg)
+[![](/media/2023/dynamic-customer-group-a8cdefb897.jpg)](/media/2023/dynamic-customer-group-a8cdefb897.jpg)
 
 Dynamic Customer Group: Visited today
 

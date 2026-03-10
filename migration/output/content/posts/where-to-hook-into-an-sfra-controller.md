@@ -7,6 +7,7 @@ description: >-
 lastmod: '2024-10-07T07:35:26.000Z'
 url: /where-to-hook-into-an-sfra-controller/
 draft: false
+heroImage: /media/2024/a-road-taking-odd-paths-a9419c4f36.jpeg
 date: '2024-10-07T07:17:57.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -47,7 +48,7 @@ Dangerous Like the onRequest hook, any delay or exception introduced here can be
 
 ## SFRA Routes?
 
-[![A screenshot of the Home.js controller file of the standard SFRA. It contains two routes: Show and ErrorNotFound.](https://www.rhino-inquisitor.com/wp-content/uploads/2024/10/home-controller-routes-in-sfra-1024x412.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2024/10/home-controller-routes-in-sfra.jpg)
+[![A screenshot of the Home.js controller file of the standard SFRA. It contains two routes: Show and ErrorNotFound.](/media/2024/home-controller-routes-in-sfra-ca8b9d167a.jpg)](/media/2024/home-controller-routes-in-sfra-ca8b9d167a.jpg)
 
 The "home.js" controller file of SFRA
 
@@ -67,7 +68,7 @@ These will serve as the 'base route', the starting point of our project. But rem
 
 Cartridge Path In this example, we are assuming that there is only one extra cartridge in the cartridge path. This simplifies the explanation, as adding more than one cartridge to the path with an expanding function would make it more difficult to understand.
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2024/10/home-show-sfra-controller-1024x451.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2024/10/home-show-sfra-controller.jpg)
+[![](/media/2024/home-show-sfra-controller-be0043f3bf.jpg)](/media/2024/home-show-sfra-controller-be0043f3bf.jpg)
 
 The standard Home-Show controller logic visualised
 
@@ -94,7 +95,7 @@ Here's a simple example of how you can use \`server.prepend\` with the homepage 
 
 ```
 
-[![SFRA prepending of Home-Show](https://www.rhino-inquisitor.com/wp-content/uploads/2024/10/sfra-prepend-home-show.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2024/10/sfra-prepend-home-show.jpg)
+[![SFRA prepending of Home-Show](/media/2024/sfra-prepend-home-show-de79cdab82.jpg)](/media/2024/sfra-prepend-home-show-de79cdab82.jpg)
 
 Visualising what "prepending" does in a single route (Home-Show)
 
@@ -116,7 +117,7 @@ Here's a simple example of how you can use \`server.append\` with the homepage f
 
 ```
 
-[![SFRA appending of Home-Show](https://www.rhino-inquisitor.com/wp-content/uploads/2024/10/sfra-append-home-show.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2024/10/sfra-append-home-show.jpg)
+[![SFRA appending of Home-Show](/media/2024/sfra-append-home-show-f8e98c7dcd.jpg)](/media/2024/sfra-append-home-show-f8e98c7dcd.jpg)
 
 Visualising what "appending" does in a single route (Home-Show)
 
@@ -145,7 +146,7 @@ Here's a simple example of how you can use \`server.replace\` with the homepage 
 
 ```
 
-[![SFRA replacing of Home-Show](https://www.rhino-inquisitor.com/wp-content/uploads/2024/10/sfra-replace-home-show.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2024/10/sfra-replace-home-show.jpg)
+[![SFRA replacing of Home-Show](/media/2024/sfra-replace-home-show-d90b35f072.jpg)](/media/2024/sfra-replace-home-show-d90b35f072.jpg)
 
 Visualising what "replacing" does in a single route (Home-Show)
 
@@ -174,7 +175,7 @@ The options explained above already give you quite a bit of flexibility. But wha
 
 ## Bringing it all together
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2024/10/sfra-home-route-with-all-extension-points-2.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2024/10/sfra-home-route-with-all-extension-points-2.jpg)
+[![](/media/2024/sfra-home-route-with-all-extension-points-2-7e4462fe3e.jpg)](/media/2024/sfra-home-route-with-all-extension-points-2-7e4462fe3e.jpg)
 
 Bringing all of the options together!
 

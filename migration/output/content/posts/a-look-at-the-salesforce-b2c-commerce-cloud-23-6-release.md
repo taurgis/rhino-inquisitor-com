@@ -7,6 +7,7 @@ description: >-
 lastmod: '2023-05-24T08:16:17.000Z'
 url: /a-look-at-the-salesforce-b2c-commerce-cloud-23-6-release/
 draft: false
+heroImage: /media/2023/a-neon-shopping-cart-scaled-863c5d17ed.jpg
 date: '2023-05-25T06:26:10.000Z'
 categories:
   - Release Notes

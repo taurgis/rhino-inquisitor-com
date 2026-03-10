@@ -104,11 +104,14 @@
       "link": "/can-a-isslot-element-have-a-dynamic-id/",
       "guid": "/?page_id=9446",
       "attachmentUrl": null,
+      "thumbnailId": "9447",
+      "metaDescription": null,
       "postParent": "0",
-      "postMetaCount": 17
+      "postMetaCount": 17,
+      "featuredImageUrl": "/wp-content/uploads/2023/06/isslot-element.jpg"
     }
   },
-  "bodyMarkdown": "TL;DR It is not possible to set a dynamic ID in the `<isslot>` tag. ![Screenshot of the isslot official documentation.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/06/isslot-element.jpg)\n\n-   [Official Documentation](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-isslot.html?q=isslot)\n\nFor quite some time now, Content Slots have been the go-to method for displaying personalized or scheduled content. However, the advent of Page Designer has given rise to a new option.\n\nDespite their popularity, one major limitation of [Content Slots](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-content-erd/) is the inability to set a dynamic ID. It's likely that the system scans all ISML files to determine which slots to display for configuration in the Business Manager, but this is merely speculation since it is a black box feature.\n\n## Alternative solutions to isslot\n\n### Page Designer\n\nUsing Page Designer will give you (and the merchandisers) a more modern option to manage their content!\n\n### Context\n\nSlots support \"category\" and \"folder\" context objects that may provide a solution in specific use cases.",
+  "bodyMarkdown": "TL;DR It is not possible to set a dynamic ID in the `<isslot>` tag. ![Screenshot of the isslot official documentation.](/media/2023/isslot-element-d83390209d.jpg)\n\n-   [Official Documentation](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-isslot.html?q=isslot)\n\nFor quite some time now, Content Slots have been the go-to method for displaying personalized or scheduled content. However, the advent of Page Designer has given rise to a new option.\n\nDespite their popularity, one major limitation of [Content Slots](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-content-erd/) is the inability to set a dynamic ID. It's likely that the system scans all ISML files to determine which slots to display for configuration in the Business Manager, but this is merely speculation since it is a black box feature.\n\n## Alternative solutions to isslot\n\n### Page Designer\n\nUsing Page Designer will give you (and the merchandisers) a more modern option to manage their content!\n\n### Context\n\nSlots support \"category\" and \"folder\" context objects that may provide a solution in specific use cases.",
   "conversionStatus": "converted",
   "manualReviewRequired": false,
   "fallbackTypes": [],

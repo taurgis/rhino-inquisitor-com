@@ -7,6 +7,7 @@ description: >-
 lastmod: '2023-08-15T07:44:20.000Z'
 url: /navigating-dates-calendars-in-sfcc/
 draft: false
+heroImage: /media/2023/a-clock-as-a-shopping-bag-7fc3eb9c21.jpg
 date: '2023-08-14T17:27:04.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -790,7 +791,7 @@ VST
 
 ## Pitfalls
 
-![A shadow in front of a gigantic clock, wondering about the intricacies of dates and times.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/08/a-shadow-in-front-of-a-clock-1024x341.jpg)
+![A shadow in front of a gigantic clock, wondering about the intricacies of dates and times.](/media/2023/a-shadow-in-front-of-a-clock-e925bae223.jpg)
 
 As we all know, with development, we run into some unexpected results and requirements that require thorough investigation and thought.
 
@@ -808,11 +809,11 @@ I put a warning up earlier, didn't I, with the Calendar - Date conversion? Well,
 
 The first thing I would recommend to anyone is to read the documentation carefully because it contains a very clear warning!
 
-![A screenshot of the documentation with the following text: "WARNING: Keep in mind that the given Date object is always interpreted in the time zone GMT. This means time zone information at the calendar object needs to be set separately by using the setTimeZone(String) method."](https://www.rhino-inquisitor.com/wp-content/uploads/2023/08/calendar-constructor-warning-1024x204.png)
+![A screenshot of the documentation with the following text: "WARNING: Keep in mind that the given Date object is always interpreted in the time zone GMT. This means time zone information at the calendar object needs to be set separately by using the setTimeZone(String) method."](/media/2023/calendar-constructor-warning-83ef0dcd2b.png)
 
 A warning when creating a Calendar from a Date
 
-![A screenshot of a warning inside of the documentation: "Keep in mind that the returned Date object's time is always interpreted in the time zone GMT. This means time zone information set at the calendar object will not be honored and gets lost."](https://www.rhino-inquisitor.com/wp-content/uploads/2023/08/calendar-to-date-warning-1024x219.png)
+![A screenshot of a warning inside of the documentation: "Keep in mind that the returned Date object's time is always interpreted in the time zone GMT. This means time zone information set at the calendar object will not be honored and gets lost."](/media/2023/calendar-to-date-warning-a652a2a931.png)
 
 A warning when converting from a Calendar to Date
 

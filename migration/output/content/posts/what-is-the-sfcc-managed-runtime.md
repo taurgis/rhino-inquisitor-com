@@ -7,6 +7,7 @@ description: >-
 lastmod: '2023-05-08T13:15:51.000Z'
 url: /what-is-the-sfcc-managed-runtime/
 draft: false
+heroImage: /media/2023/people-maintaining-server-room-scaled-d510b8a413.jpg
 date: '2023-05-08T13:04:24.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -30,13 +31,13 @@ Developers will use the PWA Kit tools to generate a bundle, a snapshot of the st
 
 Each project can have multiple bundles, but each environment has only one "deployed" bundle. Similar to the fact that you can only have one active "[Code Version](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/site_development/b2c_code_versions.html)" on the server side.
 
-[![A screenshot of the Managed Runtime showing the Organization "Salesforce Internal" with two projects called "sampleproject" and "projectx".](https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/salesforce-commerce-cloud-managed-runtime-1024x387.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/salesforce-commerce-cloud-managed-runtime.jpg)
+[![A screenshot of the Managed Runtime showing the Organization "Salesforce Internal" with two projects called "sampleproject" and "projectx".](/media/2023/salesforce-commerce-cloud-managed-runtime-e2b922960d.jpg)](/media/2023/salesforce-commerce-cloud-managed-runtime-e2b922960d.jpg)
 
 The Managed Runtime operates within a hierarchy of organisations and projects. Organisations can contain multiple projects for various storefronts, and each project can contain multiple environments.
 
 This structure allows for efficiently managing multiple environments and separating different work streams.
 
-[![A mindmap displays the managed runtime with three organisations. One organisation is split up into two projects, each with three environments. One of those environments is marked as "production", while the rest is marked as "development".](https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/managed-runtime-projects-environments-1024x442.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/managed-runtime-projects-environments.png)
+[![A mindmap displays the managed runtime with three organisations. One organisation is split up into two projects, each with three environments. One of those environments is marked as "production", while the rest is marked as "development".](/media/2023/managed-runtime-projects-environments-ba31af2d92.png)](/media/2023/managed-runtime-projects-environments-ba31af2d92.png)
 
 ### AWS Lambda
 
@@ -56,7 +57,7 @@ When a platform offers features, there are a lot of questions that will go throu
 
 ## Benefits of the Managed Runtime for developers
 
-![a woman wearing headphones sitting in front of two computer monitors.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/developer-working-on-multiple-monitors-1024x375.jpg)
+![a woman wearing headphones sitting in front of two computer monitors.](/media/2023/developer-working-on-multiple-monitors-27024b5da3.jpg)
 
 Developers working with Salesforce B2C Commerce Cloud can leverage this runtime to:
 
@@ -80,6 +81,6 @@ Some developers might hesitate to give up control when deciding whether to let S
 
 It's important to know that you don't have to use the Managed Runtime option and can create your own Headless Storefront for Salesforce B2C Commerce Cloud if you want to. But if you choose this route (build your own), the managed runtime might not be an option!
 
-[![A diagram depicting how you would roll your own Headless Storefront based on a custom Node.js server running APIs through Apollo.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/b2c-commerce-cloud-roll-your-own-1024x706.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/b2c-commerce-cloud-roll-your-own.jpg)
+[![A diagram depicting how you would roll your own Headless Storefront based on a custom Node.js server running APIs through Apollo.](/media/2023/b2c-commerce-cloud-roll-your-own-b16dfb6a8d.jpg)](/media/2023/b2c-commerce-cloud-roll-your-own-b16dfb6a8d.jpg)
 
 An example of a "roll your own" architecture

@@ -7,6 +7,7 @@ description: >-
 lastmod: '2023-04-17T14:18:18.000Z'
 url: /understanding-sfcc-instances/
 draft: false
+heroImage: /media/2023/salesforce-b2c-commerce-cloud-instances-scaled-59ed2cbb06.jpeg
 date: '2023-04-17T14:18:06.000Z'
 categories:
   - Architecture
@@ -20,7 +21,7 @@ author: Thomas Theunen
 ---
 Salesforce B2C Commerce is a [robust platform](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/) that enables businesses to create highly customised and scalable digital storefronts. One of the key components (and advantages) of B2C Commerce is the available instances, which contain the tools and resources needed for customising your storefront.  This blog post will discuss the different types of B2C Commerce instances, their uses, and how different teams within your organisation can utilise them.
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/POD-Realm-and-Instances-transparent-1024x794.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/POD-Realm-and-Instances-transparent.png)
+[![](/media/2023/pod-realm-and-instances-transparent-65c6b4e389.png)](/media/2023/pod-realm-and-instances-transparent-65c6b4e389.png)
 
 POD, Realm, Instances, and Domains
 
@@ -48,7 +49,7 @@ There are four types of B2C Commerce instances: Sandbox, Staging, Development, a
 
 ### Sandbox
 
-![A server in the desert](https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/a-server-in-the-desert-v2-1024x426.jpg) Developers use sandbox instances to create and update storefront code. These instances are located in a secondary instance group (SIG) and have most system jobs disabled. Deletion Sandboxes without login activity for 150 days might be deleted, but Salesforce will notify you before this occurs. Though honesty, I never saw this happen on the old system, and with On-Demand sandboxes having become the default option, you are in total control.
+![A server in the desert](/media/2023/a-server-in-the-desert-v2-f8f32e48de.jpg) Developers use sandbox instances to create and update storefront code. These instances are located in a secondary instance group (SIG) and have most system jobs disabled. Deletion Sandboxes without login activity for 150 days might be deleted, but Salesforce will notify you before this occurs. Though honesty, I never saw this happen on the old system, and with On-Demand sandboxes having become the default option, you are in total control.
 
 ### Staging
 
@@ -72,7 +73,7 @@ The role of an Architect in Salesforce B2C Commerce Cloud involves designing and
 
 ### Developer
 
-Developers play a critical role in shaping a digital storefront's look, feel, and functionality on the Salesforce B2C Commerce platform. They are responsible for creating and modifying templates, pipelines/controllers, and scripts that define the site's user experience and overall performance. Developers primarily work with three instances: Sandbox, development, and staging. The Sandbox instance is a safe environment for developers to experiment with and test their code without affecting the live storefront or other instances. It is an isolated space where developers can create, modify, and debug their code to ensure proper functionality and compatibility with the rest of the system. ![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/woman-developer-working-on-a-project-1-1024x510.jpeg) Once developers are satisfied with their work in the Sandbox instance, they move on to the Staging instance. The Development environment is where developers upload their finalised code, which is subject to further testing and integration with the content created by merchandisers. This ensures the code and content work seamlessly before being deployed to the Production instance. Depending on your process, the content is first replicated to the Development instance and tested with the latest code before moving it into staging, where bugs in the code can disrupt the daily merchandising activity. Developers may also export data added by merchandisers on the Staging instance to use as test data for their Sandbox environments. This helps them develop and test their code with realistic data that reflects the actual content and structure of the live storefront. Developers play a collaborative role within the organisation, working closely with merchandisers, SEO engineers, administrators, and QA engineers. This collaboration ensures that all aspects of the digital storefront are well-coordinated, resulting in a seamless and high-quality user experience.
+Developers play a critical role in shaping a digital storefront's look, feel, and functionality on the Salesforce B2C Commerce platform. They are responsible for creating and modifying templates, pipelines/controllers, and scripts that define the site's user experience and overall performance. Developers primarily work with three instances: Sandbox, development, and staging. The Sandbox instance is a safe environment for developers to experiment with and test their code without affecting the live storefront or other instances. It is an isolated space where developers can create, modify, and debug their code to ensure proper functionality and compatibility with the rest of the system. ![](/media/2023/woman-developer-working-on-a-project-1-4710b72058.jpeg) Once developers are satisfied with their work in the Sandbox instance, they move on to the Staging instance. The Development environment is where developers upload their finalised code, which is subject to further testing and integration with the content created by merchandisers. This ensures the code and content work seamlessly before being deployed to the Production instance. Depending on your process, the content is first replicated to the Development instance and tested with the latest code before moving it into staging, where bugs in the code can disrupt the daily merchandising activity. Developers may also export data added by merchandisers on the Staging instance to use as test data for their Sandbox environments. This helps them develop and test their code with realistic data that reflects the actual content and structure of the live storefront. Developers play a collaborative role within the organisation, working closely with merchandisers, SEO engineers, administrators, and QA engineers. This collaboration ensures that all aspects of the digital storefront are well-coordinated, resulting in a seamless and high-quality user experience.
 
 ### Merchandiser
 
@@ -84,7 +85,7 @@ A Quality Assurance (QA) Engineer is responsible for ensuring the optimal perfor
 
 ### SEO Specialist
 
-![SEO Specialist looking at a screen with the Google Logo](https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/seo-specialist-looking-at-google-1024x390.jpg) An [SEO Engineer](https://www.rhino-inquisitor.com/lets-go-live-seo/) is crucial in optimising a digital storefront for search engines, ensuring better visibility and higher organic traffic. Typically, an SEO Engineer will utilise the Staging instance to work on various aspects of search engine optimisation. SEOs can configure essential elements such as meta tags, sitemaps, and URL configurations in the Staging environment. These configurations are crucial for improving the website's search engine rankings and overall online visibility. Once the SEO optimisations have been implemented and tested in the Staging instance, they will be replicated in the Production instance. After replication, the SEO Engineer must verify that the changes work as intended on the Production instance. This ensures that the optimisations made in the Staging environment are correctly applied and functioning in the live storefront.
+![SEO Specialist looking at a screen with the Google Logo](/media/2023/seo-specialist-looking-at-google-1b930270d3.jpg) An [SEO Engineer](https://www.rhino-inquisitor.com/lets-go-live-seo/) is crucial in optimising a digital storefront for search engines, ensuring better visibility and higher organic traffic. Typically, an SEO Engineer will utilise the Staging instance to work on various aspects of search engine optimisation. SEOs can configure essential elements such as meta tags, sitemaps, and URL configurations in the Staging environment. These configurations are crucial for improving the website's search engine rankings and overall online visibility. Once the SEO optimisations have been implemented and tested in the Staging instance, they will be replicated in the Production instance. After replication, the SEO Engineer must verify that the changes work as intended on the Production instance. This ensures that the optimisations made in the Staging environment are correctly applied and functioning in the live storefront.
 
 ## Conclusion
 

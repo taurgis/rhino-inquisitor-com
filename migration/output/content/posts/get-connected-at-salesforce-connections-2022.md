@@ -6,6 +6,7 @@ description: >-
 lastmod: '2022-07-23T21:49:51.000Z'
 url: /get-connected-at-salesforce-connections-2022/
 draft: false
+heroImage: /media/2022/connections-2022-705603e7cd.png
 date: '2022-05-30T12:21:30.000Z'
 categories:
   - Community
@@ -32,7 +33,7 @@ There is already a channel on the Salesforce B2C Commerce Cloud Unofficial Slack
 
 And I will be there this year! I wasn't planning on it at first, but I got an offer I could not refuse! I will be taking part in the Main Keynote of the event.
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/offer-1024x576.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/offer.jpg)
+[![](/media/2022/offer-8124183637.jpg)](/media/2022/offer-8124183637.jpg)
 
 ## Can't attend?
 
@@ -285,7 +286,7 @@ The ending Main Keynote to finish off 2 days of learning and meeting people!
 
 ## Party Time
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/cnx-hp-band-one-republic-1024x494.png)
+![](/media/2022/cnx-hp-band-one-republic-23e3012477.png)
 
 It wouldn't be a Salesforce event if there weren't a big party at the end of day one! Connections is no different; a fantastic night of entertainment has been planned out.
 

@@ -6,6 +6,7 @@ description: >-
 lastmod: '2022-09-11T16:31:42.000Z'
 url: /life-with-goldie/
 draft: false
+heroImage: /media/2022/yte-hd-image-96d2c1f499.jpg
 author: Thomas Theunen
 ---
 https://www.youtube.com/watch?v=u0mlLP\_M6HU

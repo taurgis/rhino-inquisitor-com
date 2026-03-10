@@ -7,6 +7,7 @@ description: >-
 lastmod: '2025-04-23T07:24:17.000Z'
 url: /local-vs-shared-variation-attributes-sfcc/
 draft: false
+heroImage: /media/2025/variation-attributes-e1743754688196-8eda8ce6ea.jpg
 date: '2025-04-14T07:17:18.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -34,7 +35,7 @@ Supported Attribute Types Currently, only non-localizable string and integer fie
 
 Local variation attributes are specific to a single product or a small group of products within a catalog. These attributes apply only to the respective products that define them, which means they can vary significantly from one product to another. Local attributes are particularly useful when there is a need to cater to unique product offerings that don't apply to the broader catalog.
 
-![A screenshot of a product in the business manager showing the Variations tab with local variation attributes.](https://www.rhino-inquisitor.com/wp-content/uploads/2025/04/local-variation-attributes-1024x503.png)
+![A screenshot of a product in the business manager showing the Variations tab with local variation attributes.](/media/2025/local-variation-attributes-5fad46fb81.png)
 
 ### Implementation in Catalog Import XML
 
@@ -103,11 +104,11 @@ In this example, the main product defines a color and size variation attribute t
 
 On the other hand, shared variation attributes are those that can be applied across multiple products within the catalog. These attributes promote consistency and can streamline the management of products that share similar characteristics. For instance, if multiple shoes come in the same colors and sizes, having shared variation attributes simplifies catalog management.
 
-[![A screenshot of the Business Manager showing where to configure Shared Varaiation Attributes: Products and Catalogs > Shared Variation Attributes - Select Catalog](https://www.rhino-inquisitor.com/wp-content/uploads/2025/04/defining-shared-variation-attributes-1024x276.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2025/04/defining-shared-variation-attributes.png)
+[![A screenshot of the Business Manager showing where to configure Shared Varaiation Attributes: Products and Catalogs > Shared Variation Attributes - Select Catalog](/media/2025/defining-shared-variation-attributes-92b82313b9.png)](/media/2025/defining-shared-variation-attributes-92b82313b9.png)
 
 Merchant Tools > Products and Catalogs > Shared Variation Attributes
 
-[![A screenshot of a product in the business manager showing the Variations tab with shared variation attributes.](https://www.rhino-inquisitor.com/wp-content/uploads/2025/04/shared-variation-attributes-1024x417.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2025/04/shared-variation-attributes.png)
+[![A screenshot of a product in the business manager showing the Variations tab with shared variation attributes.](/media/2025/shared-variation-attributes-0d55796d17.png)](/media/2025/shared-variation-attributes-0d55796d17.png)
 
 ### Implementation in Catalog Import XML
 

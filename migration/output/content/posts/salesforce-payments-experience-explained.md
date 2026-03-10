@@ -6,6 +6,8 @@ description: >-
 lastmod: '2023-03-31T07:19:52.000Z'
 url: /salesforce-payments-experience-explained/
 draft: false
+heroImage: >-
+  /media/2023/person-holding-creditcard-next-to-register-vintage-scaled-859dbc394a.jpg
 date: '2023-03-27T14:54:22.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -18,7 +20,7 @@ As a [Commerce Cloud](https://www.rhino-inquisitor.com/the-salesforce-b2c-commer
 
 ## A plugin?
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/salesforce-payments-business-manager-1024x357.webp)
+![](/media/2023/salesforce-payments-business-manager-6773ef14af.webp)
 
 Salesforce Payments in the Business Manager
 
@@ -64,7 +66,7 @@ Do you have multiple Salesforce products in your architecture, such as Order Man
 
 ## How to get started
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/salesforce-payments-1024x576.jpg) For those familiar with my articles, I am not one to start reinventing (and writing) the wheel. And in this case, a rare one for B2C Commerce Cloud, Trailheads are available!
+![](/media/2023/salesforce-payments-7926558e4f.jpg) For those familiar with my articles, I am not one to start reinventing (and writing) the wheel. And in this case, a rare one for B2C Commerce Cloud, Trailheads are available!
 
 -   [Quick Look](https://trailhead.salesforce.com/en/content/learn/modules/cc-payments-processing)
 -   [Salesforce Payments for Administrators](https://trailhead.salesforce.com/en/content/learn/modules/cc-commerce-payments)

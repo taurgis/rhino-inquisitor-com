@@ -7,6 +7,7 @@ description: >-
 lastmod: '2022-07-23T21:46:22.000Z'
 url: /b2c-commerce-whats-new-in-22-4/
 draft: false
+heroImage: /media/2022/warehouse-5806bba713.jpg
 date: '2022-03-21T19:57:05.000Z'
 categories:
   - Release Notes
@@ -104,21 +105,21 @@ If you use Variation Groups, this feature will make the storefront search a litt
 
 Once enabled, merchandizers [will see extra options in the business manager](https://documentation.b2c.commercecloud.salesforce.com/DOC1/index.jsp?topic=%2Fcom.demandware.dochelp%2Fcontent%2Fb2c_commerce%2Ftopics%2Fproducts%2Fb2c_configure_variation_groups_display_mode.html).
 
-![A screenshot of the Variation Group mode configuration on a catalog.](https://www.rhino-inquisitor.com/wp-content/uploads/elementor/thumbs/category-option-plzwjt3ux7rivo7o7mgc8xhnroisdxv69lzyysd3pa.png "Category Options – Variation Groups")
+![A screenshot of the Variation Group mode configuration on a catalog.](/media/external/category-option-plzwjt3ux7rivo7o7mgc8xhnroisdxv69lzyysd3pa-a3eb0312c7.png "Category Options – Variation Groups")
 
 Category Attributes on a Catalog
 
 But once you enable this option, how does it translate in the storefront? Let's have a look!
 
-![Image depicting 3 variation groups of pants, being display seperate](https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/variation-groups-before-1024x565.jpg)
+![Image depicting 3 variation groups of pants, being display seperate](/media/2022/variation-groups-before-14c54a10bd.jpg)
 
 Storefront - Before
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/variation-groups-after-1024x539.png)
+![](/media/2022/variation-groups-after-513fc19983.png)
 
 Storefront - After
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/configuration-variation-groups-1024x352.png)
+![](/media/2022/configuration-variation-groups-32dec4386b.png)
 
 Configuration of a Category
 
@@ -137,7 +138,7 @@ But this option gives us more flexibility, which is never a bad thing!
 
 _**Note:** If you set the type to "merged" on the top level but "individual" on a sub-category, it will not work. The products do not display correctly anymore._
 
-![A screenshot of a broken product lister page, showing all attributes as "null" instead of product data.](https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/broken-category-1024x323.png)
+![A screenshot of a broken product lister page, showing all attributes as "null" instead of product data.](/media/2022/broken-category-08697befce.png)
 
 Broken category page
 
@@ -147,7 +148,7 @@ From now on, when you configure a "percentage discount promotion" on multiple it
 
 Before, you had to select the "Prorate Discount" option on the promotion.
 
-![A screenshot of the prorating option in the business manager.](https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/prorate-discount-1024x186.png)
+![A screenshot of the prorating option in the business manager.](/media/2022/prorate-discount-0a85da771a.png)
 
 ### Source Code Groups
 

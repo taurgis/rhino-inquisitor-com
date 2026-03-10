@@ -7,6 +7,7 @@ description: >-
 lastmod: '2023-11-20T11:59:10.000Z'
 url: /slicing-versus-variation-groups-in-sfcc/
 draft: false
+heroImage: /media/2023/a-tshirt-sliced-into-multiple-colors-scaled-4ed0b9ab1a.jpg
 date: '2023-11-20T11:08:09.000Z'
 categories:
   - Documentation
@@ -23,7 +24,7 @@ In this article (and I am giving away already which option blows the other out o
 
 ## What is slicing?
 
-![A robot slicing a cake shaped like a t-shirt](https://www.rhino-inquisitor.com/wp-content/uploads/2023/11/a-robot-slicing-a-tshirt-1024x475.jpg)
+![A robot slicing a cake shaped like a t-shirt](/media/2023/a-robot-slicing-a-tshirt-27ef2248fc.jpg)
 
 Slicing is a method of catalog management that hinges on separating product variants according to one attribute. It simplifies the distinct appearance of products by isolating them based on a characteristic like colour or size. For a while, this approach was quite popular as it provided a clear-cut way to handle product variations, particularly in systems with large counts of SKUs. The idea was that each variant stands alone, making it easy to list and manage inventory.
 
@@ -33,7 +34,7 @@ From an operational standpoint, slicing demands that you replicate this process 
 
 ## What are variation groups?
 
-[![A representation of the base product, variation group and variant system. A base product, with variation groups as colour and variants that represent the size.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/11/base-variation-group-variant-explained.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/11/base-variation-group-variant-explained.png)
+[![A representation of the base product, variation group and variant system. A base product, with variation groups as colour and variants that represent the size.](/media/2023/base-variation-group-variant-explained-ed19da17b7.png)](/media/2023/base-variation-group-variant-explained-ed19da17b7.png)
 
 The "Master Product" has been renamed to "Base Product" to be more inclusive.
 
@@ -55,13 +56,13 @@ Variation Groups also make it possible to tag products to promotions, which give
 -   **Composable Storefront**: Although SFRA and SiteGenesis supported slicing, the PWA Kit has never been tested with slicing and solely supports Variation Groups out of the box.
 -   **Slicing is kind of deprecated**: Although the [Trailhead Module](https://trailhead.salesforce.com/content/learn/modules/b2c-catalog-category-product/b2c-configure-variation-groups-slicing) and documentation no longer show a deprecation message (I somehow remember it visible in more places), it is a deprecated feature (proved by the previous point).
 
-![A screenshot of the ProductSearchHit script documentation with the following message below slicing: "Deprecated: Please use HIT_TYPE_VARIATION_GROUP instead."](https://www.rhino-inquisitor.com/wp-content/uploads/2023/11/sfcc-slicing-deprecated-1024x233.png)
+![A screenshot of the ProductSearchHit script documentation with the following message below slicing: "Deprecated: Please use HIT_TYPE_VARIATION_GROUP instead."](/media/2023/sfcc-slicing-deprecated-42f8438771.png)
 
 One location still has the deprecation message.
 
 ## Quota Limits
 
-[![A screenshot of the quota limit for variations in SFCC: The Variations per Base Product object relation quota consists of: Log file ID: object.ProductPO.relation.variationProductAssignmentPOs Description: The maximum number of variations for a base product. Limit: 1,000 (warning at 600)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/11/variations-quota-limit-sfcc.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/11/variations-quota-limit-sfcc.png)
+[![A screenshot of the quota limit for variations in SFCC: The Variations per Base Product object relation quota consists of: Log file ID: object.ProductPO.relation.variationProductAssignmentPOs Description: The maximum number of variations for a base product. Limit: 1,000 (warning at 600)](/media/2023/variations-quota-limit-sfcc-00862ef947.png)](/media/2023/variations-quota-limit-sfcc-00862ef947.png)
 
 When dealing with variations, it is crucial to be mindful of a single quota limit - the maximum number of variations per base product, similar to slicing.
 

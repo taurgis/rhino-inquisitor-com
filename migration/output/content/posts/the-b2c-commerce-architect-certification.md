@@ -6,6 +6,7 @@ description: >-
 lastmod: '2023-05-22T07:19:06.000Z'
 url: /the-b2c-commerce-architect-certification/
 draft: false
+heroImage: /media/2023/b2c-commerce-cloud-architect-fbcc847dcd.jpeg
 date: '2023-05-22T07:18:54.000Z'
 categories:
   - Architecture
@@ -61,7 +62,7 @@ Capturing business requirements and providing the best solution for the business
 
 ## Build (19%)
 
-![A group of people sitting at a table with laptops.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/11/b2c-commerce-architect-build-1024x512.jpg) The Official List
+![A group of people sitting at a table with laptops.](/media/2023/b2c-commerce-architect-build-1e15c905c7.jpg) The Official List
 
 -   Given a set of technical specifications, evaluate the implementation process to ensure the solution meets the business requirements.
 -   Given an implementation, validate that best practices are followed and guide their usage so that the end solution is secure, performant, and modular.
@@ -130,7 +131,7 @@ Salesforce B2C Commerce Cloud has many features out of the box, but it can't do 
 
 ## Launch (16%)
 
-![A group of people standing around a table drinking sparkling wine.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/11/b2c-commerce-architect-launch-1024x512.jpg) The Official List
+![A group of people standing around a table drinking sparkling wine.](/media/2023/b2c-commerce-architect-launch-959e1a842f.jpg) The Official List
 
 -   Given requirements for a site, set up aliases that follow SEO best practices and accurately land customers on desired domain, locale, and currency.
 -   Given a site launch checklist, identify rollback steps possibly required, plan post-production activities, and ensure all launch tasks are completed.

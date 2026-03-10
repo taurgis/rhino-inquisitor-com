@@ -7,6 +7,8 @@ description: >-
 lastmod: '2023-03-15T19:51:03.000Z'
 url: /everything-new-in-sfcc-23-4/
 draft: false
+heroImage: >-
+  /media/2023/vintage-style-photography-a-3d-bar-chart-showing-the-progress-of-a-project-against-it-00e672b142.jpeg
 date: '2023-03-15T19:32:56.000Z'
 categories:
   - Release Notes
@@ -45,7 +47,7 @@ Here is a list of all of the new APIs made available:
 
 ### Grouped Taxation Applied to Import and Export Orders
 
-![SFCC 23.4 Release: Taxation Groups](https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/sfcc-taxation-groups-1024x426.png)
+![SFCC 23.4 Release: Taxation Groups](/media/2023/sfcc-taxation-groups-5ebd5c5015.png)
 
 > B2C Commerce now recognizes imported and exported orders created with group taxation and uses the group taxation method to calculate tax for those orders.
 

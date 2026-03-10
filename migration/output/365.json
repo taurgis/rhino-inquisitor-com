@@ -54,8 +54,11 @@
       "link": "/ideas/",
       "guid": "/?page_id=365",
       "attachmentUrl": null,
+      "thumbnailId": null,
+      "metaDescription": "The IdeaExchange was brought into life by Salesforce to allow partners and clients to give input on want and need. Here are some of mine!",
       "postParent": "0",
-      "postMetaCount": 22
+      "postMetaCount": 22,
+      "featuredImageUrl": null
     }
   },
   "bodyMarkdown": "Salesforce allows its clients and partners to guide the internal product teams to prioritize features in their favorite products. The platform to facilitate this is called the [IdeaExchange](https://ideas.salesforce.com/s/search#t=All&sort=relevancy).\n\nYou can look at other people's ideas or submit your own on this website. Using a \"points\" system, you can vote for specific ideas to give them more visibility.\n\nOver the years, I have created and voted for some of these ideas. On this page, I have made an overview of all these ideas!",

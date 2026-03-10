@@ -6,6 +6,7 @@ description: >-
 lastmod: '2023-07-17T09:11:18.000Z'
 url: /salesforce-commerce-cloud-products/
 draft: false
+heroImage: /media/2022/salesforce-commerce-cloud-af0419a10b.png
 date: '2023-07-17T09:07:01.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -21,7 +22,7 @@ Let us have a look at them, and see how some are connected to SFCC (or not).
 
 ## SFCC - Salesforce B2C Commerce Cloud (Demandware)
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/07/sfra-vs-sitegenesis-1024x615.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/07/sfra-vs-sitegenesis.jpg)
+[![](/media/2022/sfra-vs-sitegenesis-965c09b9a6.jpg)](/media/2022/sfra-vs-sitegenesis-965c09b9a6.jpg)
 
 Let us start with the most expected item on the list: "Salesforce B2C Commerce Cloud", also known as Demandware, before being [acquired by Salesforce for $2.8B](https://techcrunch.com/2016/06/01/salesforce-buys-demandware-for-2-8b-taking-a-big-step-into-e-commerce/). It sounds like a good deal compared to the [acquisition of Slack,](https://techcrunch.com/2020/12/01/salesforce-buys-slack/) doesn't it 😜?
 
@@ -33,7 +34,7 @@ SFCC also offers some different "flavours," which I elaborated on [in an earlier
 
 ## Salesforce B2B Commerce Classic (CloudCraze)
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/cloudcraze.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/cloudcraze.png)
+[![](/media/2022/cloudcraze-cd6f91241b.png)](/media/2022/cloudcraze-cd6f91241b.png)
 
 This is where the confusion started to originate (I think). In 2018 [another acquisition happened](https://techcrunch.com/2018/03/12/salesforce-will-acquire-enterprise-e-commerce-software-startup-cloudcraze/) by Salesforce, but this time in the CRM space: "CloudCraze." It was a Managed Package on the CRM that stretched the imagination of what the platform could do by building a complete B2B Platform on top of it.
 
@@ -43,7 +44,7 @@ But once you did, you had a fully operating B2B site in [Visualforce](https://tr
 
 ## Salesforce B2B Commerce (Lightning)
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/b2b-lightning-1024x564.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/b2b-lightning.png)
+[![](/media/2022/b2b-lightning-b6e80d0718.png)](/media/2022/b2b-lightning-b6e80d0718.png)
 
 Since CloudCraze was a managed package on the classic environment, a new version was made in the Lightning Runtime. Salesforce started to rebuild the system from scratch to align with the CRM and allow customisations the same way as the rest of the product line.
 
@@ -55,7 +56,7 @@ Get to know more If you want to learn more about it, there is an excellent Youtu
 
 ## Salesforce D2C or B2B2C or Commerce on Core
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/salesforce-b2b2c-1024x519.webp)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/salesforce-b2b2c.webp)
+[![](/media/2022/salesforce-b2b2c-6f2e4e7217.webp)](/media/2022/salesforce-b2b2c-6f2e4e7217.webp)
 
 A more recent product (not acquired this time) is D2C, which is meant to work as an extension to a B2B website. And again, this one is also built on the CRM!
 
@@ -72,7 +73,7 @@ I hope that clarifies the "confusion" regarding B2C Commerce in the Salesforce s
 
 ## Salesforce Order Management
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/salesforce-order-management-1024x650.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/salesforce-order-management.png)
+[![](/media/2022/salesforce-order-management-533a060e99.png)](/media/2022/salesforce-order-management-533a060e99.png)
 
 Another product built on the CRM, but good news. We are starting to head back into B2C Commerce Cloud territory! You may already know that an OMS (Order Management System) was once [built into Salesforce B2C Commerce Cloud](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OrderManagement/OrderManagement.html).
 
@@ -84,7 +85,7 @@ If you want to learn more about this product, there are courses on the [Partner 
 
 ## OCI (Omnichannel Inventory)
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/omnichannel-inventory.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/omnichannel-inventory.png)
+[![](/media/2022/omnichannel-inventory-0b29da8f29.png)](/media/2022/omnichannel-inventory-0b29da8f29.png)
 
 A "smaller" product in the lineup: a "Headless" addon called [OCI (Omnichannel Inventory)](https://trailhead.salesforce.com/en/content/learn/modules/omnichannel-inventory). A set of headless APIs to manage all of your inventory.
 
@@ -94,7 +95,7 @@ License If you are a Salesforce B2C Commerce Cloud customer, this product is alr
 
 ## Commerce Marketplaces (Atonit)
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/atonit-tableau.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/atonit-tableau.png)
+[![](/media/2022/atonit-tableau-9dae3f80c1.png)](/media/2022/atonit-tableau-9dae3f80c1.png)
 
 > It has been our mission to create a marketplace management solution that is both easy to start and ready to scale, which is why we originally chose to build this solution on the Salesforce platform.
 >
@@ -110,7 +111,7 @@ The idea within Salesforce is to tightly integrate this solution with its "Comme
 
 ## Composable Storefront (PWA Kit and Managed Runtime)
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/pwa-kit-comparison-1024x480.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/pwa-kit-comparison.png)
+[![](/media/2022/pwa-kit-comparison-07aff406fd.png)](/media/2022/pwa-kit-comparison-07aff406fd.png)
 
 Last but certainly not least, we look at [another acquisition by Salesforce (Mobify)](https://www.digitalcommerce360.com/2020/09/09/salesforce-agrees-to-buy-headless-commerce-tech-firm-mobify/). The answer of Salesforce to the new buzzwords floating around:
 
@@ -128,7 +129,7 @@ And another advantage is the [Managed Runtime](https://developer.salesforce.com/
 
 ## Salesforce Payments
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/salesforce-payments-1024x576.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/salesforce-payments.jpg)
+[![](/media/2023/salesforce-payments-7926558e4f.jpg)](/media/2023/salesforce-payments-7926558e4f.jpg)
 
 [Salesforce Payments](https://www.rhino-inquisitor.com/salesforce-payments-experience-explained/) is a native payment solution developed for the Salesforce Commerce Cloud platforms. For B2C Commerce Cloud, it is a plugin consisting of a Business Manager interface and cartridge, which provides native integration with the payment provider Stripe.
 

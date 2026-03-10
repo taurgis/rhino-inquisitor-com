@@ -6,6 +6,7 @@ description: >-
 lastmod: '2024-08-19T06:57:31.000Z'
 url: /it-sure-has-been-quiet-on-this-blog/
 draft: false
+heroImage: /media/2024/04280668-2613-4195-b97c-c866acc6da3b-f0464ab845.jpeg
 date: '2024-08-19T06:57:25.000Z'
 categories:
   - Community
@@ -22,7 +23,7 @@ Looking at my habits, she asked why I had yet to switch wives. (**_Note_**: I am
 
 ## Smart Home
 
-![Nanoleaf Shapes that I can show the weather on](https://www.rhino-inquisitor.com/wp-content/uploads/2024/08/IMG_7215-1024x768.jpeg)
+![Nanoleaf Shapes that I can show the weather on](/media/2024/img-7215-47b9f2d828.jpeg)
 
 I can now display the day's weather to the kids in an entertaining way!
 
@@ -49,7 +50,7 @@ Maybe this is a reminder for some people:
 
 https://www.rhino-inquisitor.com/wp-content/uploads/2024/08/fastforward-business-manager-accelerator.mov
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2024/08/fastforward-storybook-1024x597.jpg)
+![](/media/2024/fastforward-storybook-7ad70ee20d.jpg)
 
 The storybook documentation.
 

@@ -6,6 +6,7 @@ description: >-
 lastmod: '2022-07-23T21:58:17.000Z'
 url: /certifications-for-salesforce-b2c-commerce-cloud/
 draft: false
+heroImage: /media/2022/certification-ce072f4076.jpg
 date: '2022-04-13T07:07:52.000Z'
 categories:
   - Certification
@@ -34,7 +35,7 @@ A little heads up already. You don't have many options if you are not a technica
 
 ### B2C Commerce Developer
 
-![The Certified B2C Commerce Developer badge.](https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/B2C-Commerce-Developer-150x150.png)
+![The Certified B2C Commerce Developer badge.](/media/2022/b2c-commerce-developer-72d9df9035.png)
 
 > The Salesforce B2C Commerce Developer credential is designed for those who have experience as full-stack developers for Salesforce Commerce Cloud Digital.
 
@@ -48,7 +49,7 @@ If you still think you need some preparation, look at the [exam guide](https://t
 
 ### B2C Commerce Architect
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/B2C-Commerce-Architect-150x150.png)
+![](/media/2022/b2c-commerce-architect-3d1b1f2f1e.png)
 
 > The Salesforce B2C Commerce Architect has experience designing global sites that support multiple brands and channels using standard design patterns.
 
@@ -83,7 +84,7 @@ But not to worry, there is [a course](https://partnerlearningcamp.salesforce.com
 
 ### Commerce Cloud Einstein
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/einstein-150x150.png)
+![](/media/2022/einstein-d7123b2738.png)
 
 > The Einstein Commerce Cloud Accredited Professional exam is intended for individuals who have the knowledge, skills, and experience with data ingestion processes, security, and access implementations.
 

@@ -9,6 +9,7 @@ description: >-
 lastmod: '2025-07-25T06:41:00.000Z'
 url: /slas-in-sfra-or-sitegenesis/
 draft: false
+heroImage: /media/2022/slas-84866c9e46.jpg
 date: '2025-07-24T20:52:39.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -28,7 +29,7 @@ With the release of native [Hybrid Authentication](https://developer.salesforce.
 
 ## What is SLAS?
 
-![A diagram showing the different steps of the SLAS process.](https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/slas-diagram-1024x576.png)
+![A diagram showing the different steps of the SLAS process.](/media/2022/slas-diagram-9890f180b6.png)
 
 But what is SLAS, anywho? It is a set of APIs that allows secure access to Commerce Cloud shopper APIs for headless applications.
 
@@ -84,7 +85,7 @@ While the `plugin_slas` cartridge solved an immediate and pressing problem, it c
 
 ## The New Sheriff in Town: Platform-Native Hybrid Authentication
 
-![A classic-style robot labeled "plugin_slas cartridge" hands a glowing purple key to a sleek, modern robot labeled "Hybrid Authentication." They are standing on a path leading from a quaint town labeled "SFRA" to a futuristic city skyline, under a bright, sunny sky.](https://www.rhino-inquisitor.com/wp-content/uploads/2025/07/plugin-slas-to-hybrid-authentication.jpg)
+![A classic-style robot labeled "plugin_slas cartridge" hands a glowing purple key to a sleek, modern robot labeled "Hybrid Authentication." They are standing on a path leading from a quaint town labeled "SFRA" to a futuristic city skyline, under a bright, sunny sky.](/media/2025/plugin-slas-to-hybrid-authentication-359f0381b0.jpg)
 
 The transition to the future of authentication, as the classic "plugin\_slas cartridge" passes the key to newest "Hybrid Authentication."
 

@@ -6,6 +6,7 @@ description: >-
 lastmod: '2022-07-23T22:01:29.000Z'
 url: /submit-multipart-form-data-to-a-third-party-service-in-sfcc/
 draft: false
+heroImage: /media/2022/files-cb310f59d5.jpeg
 date: '2022-05-23T16:17:58.000Z'
 categories:
   - Technical
@@ -67,7 +68,7 @@ As with any third-party integration, please use the built-in [LocalServiceRegist
 
 But how do you configure it in the Business Manager? Let's have a look!
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/form-service-1-1024x776.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/form-service-1.png)
+[![](/media/2022/form-service-1-e901798db6.png)](/media/2022/form-service-1-e901798db6.png)
 
 Select the type "HTTP"; otherwise, the LocalServiceRegistry code might not behave as expected.
 

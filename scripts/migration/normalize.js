@@ -8,6 +8,9 @@ import { CanonicalRecordSchema } from './schemas/record.schema.js';
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const canonicalHost = 'https://www.rhino-inquisitor.com';
+const knownMediaSourceFallbacks = new Map([
+  ['http://img.youtube.com/vi/u0mlLP_M6HU/maxresdefault.jpg', 'https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/yte-hd-image.jpg']
+]);
 const contentBackedManifestClasses = new Set(['post', 'page', 'attachment', 'video', 'category', 'landing']);
 const supportedMediaExtensions = new Set([
   'avif',
@@ -58,6 +61,7 @@ async function main() {
 
   const manifestByLegacyUrl = buildManifestLookup(manifest);
   const aliasUrlsByTargetUrl = buildAliasUrlsByTargetUrl(manifest);
+  const attachmentUrlBySourceId = buildAttachmentUrlLookup(extractRecords);
   const metrics = createMetrics();
   const normalizedRecords = [];
   const normalizeErrors = [];
@@ -101,6 +105,7 @@ async function main() {
       record: { ...record, legacyUrl: normalizedLegacyUrl },
       manifestEntry,
       aliasUrlsByTargetUrl,
+      attachmentUrlBySourceId,
       inventory,
       metrics
     });
@@ -271,7 +276,26 @@ function buildAliasUrlsByTargetUrl(manifest) {
   );
 }
 
-function buildNormalizedRecord({ record, manifestEntry, aliasUrlsByTargetUrl, inventory, metrics }) {
+function buildAttachmentUrlLookup(records) {
+  const lookup = new Map();
+
+  for (const record of Array.isArray(records) ? records : []) {
+    if (record?.postType !== 'attachment') {
+      continue;
+    }
+
+    const attachmentUrl = typeof record?._raw?.attachmentUrl === 'string' ? record._raw.attachmentUrl.trim() : '';
+    if (!attachmentUrl) {
+      continue;
+    }
+
+    lookup.set(String(record.sourceId), attachmentUrl);
+  }
+
+  return lookup;
+}
+
+function buildNormalizedRecord({ record, manifestEntry, aliasUrlsByTargetUrl, attachmentUrlBySourceId, inventory, metrics }) {
   const errors = [];
   const normalizedStatus = normalizeStatus(record.status);
   if (!normalizedStatus) {
@@ -341,12 +365,14 @@ function buildNormalizedRecord({ record, manifestEntry, aliasUrlsByTargetUrl, in
   const normalizedSlug = normalizeSlugValue(record.slug);
   const normalizedTitleRaw = decodeHtmlText(stripUnsafeTextArtifacts(record.titleRaw ?? ''));
   const normalizedExcerptRaw = decodeHtmlText(stripUnsafeTextArtifacts(record.excerptRaw ?? ''));
-  const normalizedBodyHtml = stripUnsafeTextArtifacts(record.bodyHtml ?? '');
+  const normalizedBodyHtml = replaceKnownMediaFallbacks(stripUnsafeTextArtifacts(record.bodyHtml ?? ''));
   const author = decodeHtmlText(stripUnsafeTextArtifacts(record.author ?? '')) || 'system';
+  const featuredImageUrl = resolveFeaturedImageUrl(record, attachmentUrlBySourceId);
   const mediaRefs = collectMediaRefs({
     bodyHtml: normalizedBodyHtml,
     legacyUrl: record.legacyUrl,
-    attachmentUrl: record?._raw?.attachmentUrl ?? null
+    attachmentUrl: record?._raw?.attachmentUrl ?? null,
+    featuredImageUrl
   });
   const aliasUrls = targetUrl == null ? [] : aliasUrlsByTargetUrl.get(targetUrl) ?? [];
 
@@ -386,7 +412,7 @@ function buildNormalizedRecord({ record, manifestEntry, aliasUrlsByTargetUrl, in
         author: record.author ?? null,
         categories: Array.isArray(record.categories) ? record.categories : [],
         tags: Array.isArray(record.tags) ? record.tags : [],
-        mediaRefs: Array.isArray(record.mediaRefs) ? record.mediaRefs : [],
+        mediaRefs: normalizeExplicitMediaRefs(record.mediaRefs),
         manifest: {
           legacyUrl: manifestEntry.legacy_url,
           targetUrl: manifestEntry.target_url,
@@ -401,10 +427,40 @@ function buildNormalizedRecord({ record, manifestEntry, aliasUrlsByTargetUrl, in
           usedModifiedAtFallback: !modifiedAtSource,
           statusNormalizedFrom: record.status ?? null
         },
-        extracted: record._raw ?? {}
+        extracted: {
+          ...(record._raw ?? {}),
+          featuredImageUrl
+        }
       }
     }
   };
+}
+
+function replaceKnownMediaFallbacks(value) {
+  let rewritten = String(value ?? '');
+  for (const [sourceUrl, replacementUrl] of knownMediaSourceFallbacks) {
+    rewritten = rewritten.split(sourceUrl).join(replacementUrl);
+  }
+  return rewritten;
+}
+
+function normalizeExplicitMediaRefs(values) {
+  if (!Array.isArray(values)) {
+    return [];
+  }
+
+  return [...new Set(values
+    .map((value) => normalizeMediaUrl(value) ?? String(value ?? '').trim())
+    .filter(Boolean))].sort((left, right) => left.localeCompare(right));
+}
+
+function resolveFeaturedImageUrl(record, attachmentUrlBySourceId) {
+  const thumbnailId = record?._raw?.thumbnailId;
+  if (thumbnailId == null || thumbnailId === '') {
+    return null;
+  }
+
+  return attachmentUrlBySourceId.get(String(thumbnailId)) ?? null;
 }
 
 function normalizeSourceChannel(value) {
@@ -490,9 +546,9 @@ function normalizeSlugValue(value) {
     .toLowerCase();
 }
 
-function collectMediaRefs({ bodyHtml, legacyUrl, attachmentUrl }) {
+function collectMediaRefs({ bodyHtml, legacyUrl, attachmentUrl, featuredImageUrl }) {
   const mediaRefs = new Set();
-  for (const candidate of [attachmentUrl, legacyUrl]) {
+  for (const candidate of [attachmentUrl, featuredImageUrl, legacyUrl]) {
     const normalized = normalizeMediaUrl(candidate);
     if (normalized) {
       mediaRefs.add(normalized);
@@ -534,7 +590,7 @@ function parseSrcSet(value) {
 }
 
 function normalizeMediaUrl(value) {
-  const trimmed = String(value ?? '').trim();
+  const trimmed = replaceKnownMediaFallbacks(String(value ?? '').trim());
   if (!trimmed) {
     return null;
   }

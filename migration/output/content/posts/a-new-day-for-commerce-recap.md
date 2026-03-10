@@ -6,6 +6,7 @@ description: >-
 lastmod: '2023-03-21T09:44:52.000Z'
 url: /a-new-day-for-commerce-recap/
 draft: false
+heroImage: /media/2023/community-meetup-square-9e6587d250.png
 date: '2023-03-20T07:55:32.000Z'
 categories:
   - Community
@@ -23,7 +24,7 @@ Come into play 'A New Day for Commerce', a dedicated Salesforce event for Commer
 
 ### Demandware XChange
 
-![Screenshot of the Demandware Xchange Website of 2015.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/demandware-xchange-2015-1024x529.png)
+![Screenshot of the Demandware Xchange Website of 2015.](/media/2023/demandware-xchange-2015-6b0d29c1ff.png)
 
 Before the acquisition of Salesforce, there were events in the United States and Europe dedicated to just Demandware, which was interesting for any customer, partner and developer! The agenda had something for everyone:
 
@@ -80,7 +81,7 @@ This is a good thing as many of these products have been becoming increasingly i
 
 ### Sales, technical, community?
 
-![A picture of Thomas Theunen, Igor Faletski, and Sander Felius sitting on a coach for a panel discussion.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/fireside-chat-a-new-day-for-commerce-1024x768.jpeg)
+![A picture of Thomas Theunen, Igor Faletski, and Sander Felius sitting on a coach for a panel discussion.](/media/2023/fireside-chat-a-new-day-for-commerce-cd97b9b2c7.jpeg)
 
 In the first place, the event was designed to be your standard Salesforce event to pitch the product to potential customers and show off the array of products available to existing customers looking to expand their horizons.
 
@@ -92,7 +93,7 @@ Nevertheless, people showed up for the Fireside Chat (some probably by accident)
 
 ### Sessions
 
-![A panel of four people sitting in front of a presentation about VidaXL at 'A New Day for Commerce'.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/vidaxl-forward-a-new-day-for-commerce-1024x760.jpeg)
+![A panel of four people sitting in front of a presentation about VidaXL at 'A New Day for Commerce'.](/media/2023/vidaxl-forward-a-new-day-for-commerce-e15a8ef783.jpeg)
 
 I mentioned before that, for the most part, it is a Sales event and only for the afternoon (2PM - 5PM). This meant there was not enough time for many different sessions. But each product had at least one dedicated session about the latest features and one technical Composable Firechat.
 
@@ -100,7 +101,7 @@ And as it is with every Salesforce event, an opening keynote showing off the roa
 
 ### Salesforce
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/a-new-day-for-commerce-community-1024x425.jpg)
+![](/media/2023/a-new-day-for-commerce-community-2cc42304c9.jpg)
 
 One of the biggest things that should be mentioned is that a large part of Commerce Cloud leadership had crossed the pond to be present in Amsterdam:
 

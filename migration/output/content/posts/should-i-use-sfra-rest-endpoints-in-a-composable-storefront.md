@@ -9,6 +9,7 @@ description: >-
 lastmod: '2024-10-21T09:36:27.000Z'
 url: /should-i-use-sfra-rest-endpoints-in-a-composable-storefront/
 draft: false
+heroImage: /media/2024/a-modern-building-connected-to-old-architecture-b9920e4c92.jpg
 date: '2024-10-21T09:36:19.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -67,7 +68,7 @@ A downside of calling a "controller API" is that it behaves like an SFRA request
 
 If we poorly implement a custom endpoint that is called on every page load to retrieve "mundane information," we will create thousands of sessions for no reason. These unnecessary sessions also need to be cleaned from the database, creating additional system load that could be better utilised.
 
-![A person using a calculator for Excel has built-in functions to do calculations for you. It represents inefficient work and creates a significant workload for no reason.](https://www.rhino-inquisitor.com/wp-content/uploads/2024/10/calculator-and-excel-e1728648264417.jpeg)
+![A person using a calculator for Excel has built-in functions to do calculations for you. It represents inefficient work and creates a significant workload for no reason.](/media/2024/calculator-and-excel-e1728648264417-2b10df8062.jpeg)
 
 Why create a big workload when it is not needed?
 

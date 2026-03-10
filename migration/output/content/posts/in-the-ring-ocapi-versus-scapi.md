@@ -7,6 +7,7 @@ description: >-
 lastmod: '2024-03-19T15:11:36.000Z'
 url: /in-the-ring-ocapi-versus-scapi/
 draft: false
+heroImage: /media/2024/rest-apis-fighting-in-a-boxing-ring-60c6242717.jpg
 date: '2024-03-18T08:49:51.000Z'
 categories:
   - Architecture
@@ -80,7 +81,7 @@ Oh my ... things aren't looking proper for the OCAPI.
 
 ## Infrastructure
 
-[![The Composable Storefront architecture](https://www.rhino-inquisitor.com/wp-content/uploads/2023/06/composable-storefront-architecture-1022x1024.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/06/composable-storefront-architecture-scaled.jpg)
+[![The Composable Storefront architecture](/media/2023/composable-storefront-architecture-54fe68c81a.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/06/composable-storefront-architecture-scaled.jpg)
 
 The architectural setups of the OCAPI and SCAPI options are entirely different.
 

@@ -7,6 +7,7 @@ description: >-
 lastmod: '2022-11-19T09:06:30.000Z'
 url: /how-to-change-the-code-compatibility-mode-in-salesforce-b2c-commerce-cloud/
 draft: false
+heroImage: /media/2022/sfcc-compatibility-mode-46f9d84af8.jpg
 date: '2022-11-14T08:04:44.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -40,13 +41,13 @@ As with all features baked into the Business Manager, Salesforce decides which m
 
 If the interface only allows us to upgrade, it is time to find ways to work around that "security"!
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/hackerman-hr-1024x576.jpg)
+![](/media/2022/hackerman-hr-6b82b63667.jpg)
 
 ### Manipulate the form?
 
 The first weapon we have is our browser console! Can we manipulate the HTML form and add the version we want?
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/manipulate-form-code-compatibility-1024x236.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/manipulate-form-code-compatibility.jpg)
+[![](/media/2022/manipulate-form-code-compatibility-1d501b0279.jpg)](/media/2022/manipulate-form-code-compatibility-1d501b0279.jpg)
 
 As it turns out... no. There is server-side validation in place. So we need to find another way to hack the system!
 
@@ -58,17 +59,17 @@ To retrieve the URL for the WebDAV go to:
 
 _"Administration > Site Development > Development Setup"_
 
- [![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/cartridges-webdav-1024x203.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/cartridges-webdav.jpg)DWithEase I use the browser plugin [DWithEase](https://dwithease.com/) to make WebDAV browsing much more pleasant.
+ [![](/media/2022/cartridges-webdav-88a388e63c.jpg)](/media/2022/cartridges-webdav-88a388e63c.jpg)DWithEase I use the browser plugin [DWithEase](https://dwithease.com/) to make WebDAV browsing much more pleasant.
 
 If you open the URL (and have the browser plugin installed), you will get a view such as this:
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/webdav-overview.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/webdav-overview.jpg)
+[![](/media/2022/webdav-overview-38949e23ef.jpg)](/media/2022/webdav-overview-38949e23ef.jpg)
 
 Click on the **active** Code Version (this is important)!
 
 Go into the folder, and a file called ".apiversion" will be there.
 
- [![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/code-version-1024x318.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/code-version.jpg)Missing FIle If you do not see the file, don't worry! You can upload it yourself to the folder.
+ [![](/media/2022/code-version-26171e5278.jpg)](/media/2022/code-version-26171e5278.jpg)Missing FIle If you do not see the file, don't worry! You can upload it yourself to the folder.
 
 Inside that file is where the "magic" happens, and it looks something like this:
 
@@ -100,7 +101,7 @@ _"Administration > Site Development > Code Deployment"_
 
 If all has gone well, the code versions have changed to the one in the file!
 
- [![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/new-code-version.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/new-code-version.jpg)Not visible If no changes are visible, try switching active code versions to trigger the system to re-read the WebDAV files.
+ [![](/media/2022/new-code-version-d4f4f68888.jpg)](/media/2022/new-code-version-d4f4f68888.jpg)Not visible If no changes are visible, try switching active code versions to trigger the system to re-read the WebDAV files.
 
 ## Dangerous?
 

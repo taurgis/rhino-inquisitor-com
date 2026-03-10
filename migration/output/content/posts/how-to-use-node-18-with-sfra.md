@@ -7,6 +7,7 @@ description: >-
 lastmod: '2023-07-10T08:13:58.000Z'
 url: /how-to-use-node-18-with-sfra/
 draft: false
+heroImage: /media/2023/upgrading-f08d3d8bdc.jpg
 date: '2023-07-10T08:09:37.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -28,7 +29,7 @@ No need to worry! If you're using an older version, there's a node-sass version 
 
 ## Activate Node 18 for your SFRA project
 
-![Install Node 18 for SFRA](https://www.rhino-inquisitor.com/wp-content/uploads/2023/07/node18-1024x576.jpg)
+![Install Node 18 for SFRA](/media/2023/node18-ac76311848.jpg)
 
 To use this version, it is necessary to install it first. Although I recommend using "[nvm](https://github.com/nvm-sh/nvm)", it may not be the best option for every setup. It is crucial to explore and find the most efficient method for your specific setup to ensure the successful installation of this version.
 
@@ -148,7 +149,7 @@ npm ERR! peer stylelint@"^8.0.0" from stylelint-config-standard@17.0.0
 
 ```
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/07/upgrading-libraries-developer-1024x470.jpg)
+![](/media/2023/upgrading-libraries-developer-d40cf53b81.jpg)
 
 Ok. Probably never 😅
 

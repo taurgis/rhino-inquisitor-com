@@ -6,6 +6,7 @@ description: >-
 lastmod: '2024-10-14T12:49:23.000Z'
 url: /caching-in-the-sfcc-composable-storefront/
 draft: false
+heroImage: /media/2024/multi-layered-caching-b85c120088.jpg
 date: '2024-10-14T09:42:12.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -98,7 +99,7 @@ These rules have been documented [here](https://developer.salesforce.com/docs/co
 
 For most, this option will already be enabled or will not even be visible anymore in the business manager. But verify that Server-Side Web-Tier Caching has been enabled in your feature switches. (_Administration> Global Preferences > Feature Switches_)
 
-[![A screenshot of the SCAPI Server-Side Web-Tier feature toggle in the Business Manager, used to enable caching for the SCAPI endpoints.](https://www.rhino-inquisitor.com/wp-content/uploads/2024/10/scapi-server-side-web-tier-caching-1024x143.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2024/10/scapi-server-side-web-tier-caching.jpg)
+[![A screenshot of the SCAPI Server-Side Web-Tier feature toggle in the Business Manager, used to enable caching for the SCAPI endpoints.](/media/2024/scapi-server-side-web-tier-caching-ead7ec1b79.jpg)](/media/2024/scapi-server-side-web-tier-caching-ead7ec1b79.jpg)
 
 The feature toggle in the Business Manager
 

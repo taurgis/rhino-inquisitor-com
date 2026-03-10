@@ -7,6 +7,7 @@ description: >-
 lastmod: '2022-09-12T17:52:21.000Z'
 url: /a-new-commerce-cloud-community-in-town/
 draft: false
+heroImage: /media/2022/trailblazer-community-group-c0e3b8a778.jpg
 date: '2022-09-12T08:14:56.000Z'
 categories:
   - Community
@@ -20,7 +21,7 @@ Starting a community was a plan I have had in my head for a while now but never 
 
 And at the end of August, I got the mail titled "Welcome to the Trailblazer Community Group Program!" I got accepted! But ... oh damn ... now I have to push on!
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/Join-the-Salesforce-Benelux-Commerce-Cloud-Community-v4.jpg)](https://trailblazercommunitygroups.com/salesforce-developer-group-hasselt-belgium/)
+[![](/media/2022/join-the-salesforce-benelux-commerce-cloud-community-v4-afd7195f3b.jpg)](https://trailblazercommunitygroups.com/salesforce-developer-group-hasselt-belgium/)
 
 ## What's in a name
 
@@ -108,7 +109,7 @@ The topics will range from technical workshops to networking events. Some ideas 
 
 Have ideas in mind of your own? Then join the 6th of October session or leave a comment!
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/Get-to-know-each-other-v2-1024x576.png)](https://trailblazercommunitygroups.com/events/details/salesforce-salesforce-developer-group-hasselt-belgium-presents-lets-get-to-know-each-other/)
+[![](/media/2022/get-to-know-each-other-v2-60539cfd30.png)](https://trailblazercommunitygroups.com/events/details/salesforce-salesforce-developer-group-hasselt-belgium-presents-lets-get-to-know-each-other/)
 
 ## Looking for speakers!
 

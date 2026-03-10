@@ -47,7 +47,9 @@
   "aliasUrls": [
     "/?p=4836"
   ],
-  "mediaRefs": [],
+  "mediaRefs": [
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/headless.jpg"
+  ],
   "_raw": {
     "sourceTimestamp": "2026-03-10T10:03:55.501Z",
     "status": "publish",
@@ -106,8 +108,11 @@
       "link": "/headless/",
       "guid": "/?page_id=4836",
       "attachmentUrl": null,
+      "thumbnailId": "4837",
+      "metaDescription": null,
       "postParent": "0",
-      "postMetaCount": 23
+      "postMetaCount": 23,
+      "featuredImageUrl": "/wp-content/uploads/2022/09/Headless.jpg"
     }
   },
   "bodyMarkdown": "https://www.youtube.com/watch?v=BTS6OqwMiK4\n\nIf your organization is looking for a way to improve its online presence and connect with more customers, Headless may be a good fit. Headless can help you create a more modern and responsive website and enhance customer engagement and conversions.\n\nHeadless commerce can provide a better user experience. In a traditional eCommerce setup, the front and back end are often tightly coupled, making it difficult to change the front end without affecting the back end.\n\nHowever, with a headless commerce setup, the front end can be developed independently of the back end, allowing for a more customized and personalized user experience.",

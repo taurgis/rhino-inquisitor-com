@@ -7,6 +7,7 @@ description: >-
 lastmod: '2023-02-15T14:19:11.000Z'
 url: /salesforce-b2c-commerce-cloud-23-3-release/
 draft: false
+heroImage: /media/2023/shopping-cart-in-sand-7c8677e7ff.jpg
 date: '2023-02-15T14:19:00.000Z'
 categories:
   - Release Notes
@@ -20,7 +21,7 @@ Another month, another release from Salesforce B2C Commerce Cloud! In this blog 
 
 ## Trial sandboxes???
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/02/salesforce-appexchange-300x81.png)
+![](/media/2023/salesforce-appexchange-654f2875a8.png)
 
 > B2C Commerce independent software vendor (ISV) partners can now get a trial sandbox environment within minutes of joining the AppExchange Partner program. ISV partner prospects can opt in for a 90-day trial sandbox when they register on the Partner Recruitment page. After their information is submitted, a trial sandbox is automatically provisioned, and the ISV partner receives an email with their sandbox credentials.
 
@@ -58,7 +59,7 @@ Before this 23.3 release, customer support had to be contacted to enable the Sho
 
 ### SLAS Admin UI Update
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/02/slas-admin-ui-1024x613.jpg) The [SLAS admin UI](https://developer.salesforce.com/docs/commerce/commerce-api/guide/slas.html) has gotten a bit of love this month, and reported bugs have been worked on a resolved! _I cannot comment on which ones were addressed, but we reported a fair few ones that got resolved in this update!_
+![](/media/2023/slas-admin-ui-1dc5370339.jpg) The [SLAS admin UI](https://developer.salesforce.com/docs/commerce/commerce-api/guide/slas.html) has gotten a bit of love this month, and reported bugs have been worked on a resolved! _I cannot comment on which ones were addressed, but we reported a fair few ones that got resolved in this update!_
 
 ## Account Manager
 

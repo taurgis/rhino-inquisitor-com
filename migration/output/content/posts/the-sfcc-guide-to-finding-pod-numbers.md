@@ -7,6 +7,7 @@ description: >-
 lastmod: '2025-07-21T05:42:08.000Z'
 url: /the-sfcc-guide-to-finding-pod-numbers/
 draft: false
+heroImage: /media/2025/sfcc-finding-your-pod-number-scaled-6830449d2b.jpeg
 date: '2025-07-21T05:05:51.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -123,7 +124,7 @@ Although this legacy URL is no longer a reliable method for active discovery, un
 
 ## The Official Channels: Guaranteed but Less Immediate
 
-![A friendly rhino in a 2D flat cartoon style, similar to Salesforce illustrations, walks towards an official building with a cloud logo, representing going to official channels for trusted information.](https://www.rhino-inquisitor.com/wp-content/uploads/2025/07/going-to-salesforce-official-channels-1024x559.jpeg)
+![A friendly rhino in a 2D flat cartoon style, similar to Salesforce illustrations, walks towards an official building with a cloud logo, representing going to official channels for trusted information.](/media/2025/going-to-salesforce-official-channels-b9f405d5e0.jpeg)
 
 On the right path: Getting information from the official source.
 

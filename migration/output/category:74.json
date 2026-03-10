@@ -46,7 +46,8 @@
       "statusNormalizedFrom": "publish"
     },
     "extracted": {
-      "parentSlug": "video"
+      "parentSlug": "video",
+      "featuredImageUrl": null
     }
   },
   "bodyMarkdown": "",

@@ -7,6 +7,7 @@ description: >-
 lastmod: '2022-10-24T17:52:28.000Z'
 url: /salesforce-b2c-commerce-cloud-october-updates/
 draft: false
+heroImage: /media/2022/people-upgrading-a-server-rack-0c2ba08791.png
 date: '2022-10-24T17:48:25.000Z'
 categories:
   - Release Notes
@@ -22,7 +23,7 @@ We have just received the final release ([22.10](https://www.rhino-inquisitor.co
 
 ### Trusted Agent
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/10/slas-trusted-agent-1024x483.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/10/slas-trusted-agent.png)
+[![](/media/2022/slas-trusted-agent-099b4e2206.png)](/media/2022/slas-trusted-agent-099b4e2206.png)
 
 -   [https://developer.salesforce.com/docs/commerce/commerce-api/guide/slas-trusted-agent.html](https://developer.salesforce.com/docs/commerce/commerce-api/guide/slas-trusted-agent.html)
 

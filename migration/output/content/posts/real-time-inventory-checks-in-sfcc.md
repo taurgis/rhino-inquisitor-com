@@ -6,6 +6,7 @@ description: >-
 lastmod: '2026-02-09T13:10:33.000Z'
 url: /real-time-inventory-checks-in-sfcc/
 draft: false
+heroImage: /media/2025/stampede-to-a-single-endpoin-t-scaled-2d591aef78.jpeg
 date: '2026-02-09T11:11:31.000Z'
 categories:
   - Architecture
@@ -60,7 +61,7 @@ That wait time directly murders your Time to First Byte (TTFB). Salesforce has p
 
 ### The Self-Inflicted Denial of Service
 
-![A cartoon infographic illustrating "The Self-Inflicted Denial of Service." On the left, users on an "SFCC Storefront" cloud generate "API Calls" and "Users" traffic towards a central server labeled "Legacy External Inventory System (ERP)." This server is being hammered by many hammers, is cracking, and emits smoke, with a "504 Gateway Timeout" error. Below it, a "Circuit Breaker Tripped" warning is shown. On the right, this leads to a "Cascading Failure" of a physical store building, which is crumbling with signs that read "Quota Exceeded," "Blocked Functionality," and a banner stating "Grinding Halt." A "0:10 Sec Timeout" timer is in the bottom left.](https://www.rhino-inquisitor.com/wp-content/uploads/2026/02/self-inflicted-dos-1024x559.png)
+![A cartoon infographic illustrating "The Self-Inflicted Denial of Service." On the left, users on an "SFCC Storefront" cloud generate "API Calls" and "Users" traffic towards a central server labeled "Legacy External Inventory System (ERP)." This server is being hammered by many hammers, is cracking, and emits smoke, with a "504 Gateway Timeout" error. Below it, a "Circuit Breaker Tripped" warning is shown. On the right, this leads to a "Cascading Failure" of a physical store building, which is crumbling with signs that read "Quota Exceeded," "Blocked Functionality," and a banner stating "Grinding Halt." A "0:10 Sec Timeout" timer is in the bottom left.](/media/2026/self-inflicted-dos-f3485c24ab.png)
 
 This cartoon illustrates how high traffic on an e-commerce storefront (SFCC) can overload a legacy backend system, creating a "self-inflicted denial of service." The resulting timeouts and failures cascade, ultimately bringing the entire online store to a grinding halt.
 
@@ -82,7 +83,7 @@ This knowledge unlocks more intelligent strategies. You're not just caching data
 
 ## The Pragmatist's Playbook: The Hybrid Threshold Model
 
-![An infographic illustrating the Hybrid Inventory Threshold Model. A bar graph shows that for 'High Stock' levels, efficient cached checks are used, while for 'Low Stock Threshold' levels, real-time API calls are made.](https://www.rhino-inquisitor.com/wp-content/uploads/2025/09/inventory-threshold-model-1536x838.jpeg)
+![An infographic illustrating the Hybrid Inventory Threshold Model. A bar graph shows that for 'High Stock' levels, efficient cached checks are used, while for 'Low Stock Threshold' levels, real-time API calls are made.](/media/2025/inventory-threshold-model-dfa3d5bd0f.jpeg)
 
 The playbook is simple and pragmatic. Above the threshold, you serve a cached 'in-stock' status for maximum speed. Once an item drops below that critical line, you switch tactics to precise, real-time API calls. This balances performance with accuracy.
 
@@ -182,7 +183,7 @@ A custom solution only makes sense in the rarest of cases. For the vast majority
 
 ## Your Architectural Mandate
 
-![Infographic titled 'Your Architectural Mandate: Choosing the Right Inventory Strategy,' showing three tiers of inventory strategy with corresponding mandates for SFCC-only, pragmatic omnichannel, and Salesforce-centric enterprises.](https://www.rhino-inquisitor.com/wp-content/uploads/2026/02/the-inventory-architectural-decision-1024x559.png)
+![Infographic titled 'Your Architectural Mandate: Choosing the Right Inventory Strategy,' showing three tiers of inventory strategy with corresponding mandates for SFCC-only, pragmatic omnichannel, and Salesforce-centric enterprises.](/media/2026/the-inventory-architectural-decision-fc1b43abe0.png)
 
 This infographic details the architectural mandates for different stages of omnichannel maturity, from the SFCC-only purist to the Salesforce-centric enterp
 

@@ -7,6 +7,7 @@ description: >-
 lastmod: '2022-07-23T21:43:46.000Z'
 url: /b2c-commerce-whats-new-in-the-22-3-release/
 draft: false
+heroImage: /media/2022/lightning-man-e1646654739934-c9812efc2b.jpg
 date: '2022-03-08T07:42:23.000Z'
 categories:
   - Release Notes
@@ -23,7 +24,7 @@ Check out the original release notes [here](https://help.salesforce.com/s/articl
 
 ## Lightning UX
 
-![SLDS showcase. This image shows a few example components.](https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/slds-1024x400.png)
+![SLDS showcase. This image shows a few example components.](/media/2022/slds-ba5571b0d8.png)
 
 As the prophecies have foretold, it would only be a matter of time before [Lightning Man](https://uk.news.yahoo.com/salesforce-lesser-known-cofounder-got-235259945.html?guccounter=1&guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&guce_referrer_sig=AQAAAEMzlHPYg71G3BXTV_zJ9VshBEckh_EEHlmqkdH1OxmCNHV9yKdhBatLjGJGpb1G3rjRqzyqZpwlaajHcyv1UhBB9Db0zi7jHduoV27cQlunovcuvalnh1sABTPyFDtMcKR1nMdtJO0kBa_TfOQJXAj1nt1N9sjXs5VJ-ar5A32I) made its way into the global interface of Salesforce B2C Commerce Cloud.
 
@@ -53,7 +54,7 @@ Between the 1st of march and the 14th of march, Page Shield will be enabled for 
 
 [Magecart](https://www.riskiq.com/what-is-magecart/) is a type of attack that compromises third-party JavaScript dependencies to gain control over the code served to the browser. Taking control of the code allows sensitive data to be stolen (like credit card info).
 
-![A diagram explaining the Magecart attack. It shows a hacker taking over a dependency of a third party script to skim credit card data.](https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/magecart-style-attack-flow-diagram_3x-1024x496.png)
+![A diagram explaining the Magecart attack. It shows a hacker taking over a dependency of a third party script to skim credit card data.](/media/2022/magecart-style-attack-flow-diagram-3x-2d5a5ce4e8.png)
 
 ### What does Page Shield do?
 
@@ -79,7 +80,7 @@ Until this update, you could set more than 50 bonus products in the business man
 
 This inconsistency caused quite a bit of confusion with content managers who configured a promotion, but it was not working the way they were expecting.
 
-![A screenshot of the documentation of bonus products.](https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/bonus-products-1024x88.png)
+![A screenshot of the documentation of bonus products.](/media/2022/bonus-products-ed6b9e3074.png)
 
 ## Other updates
 

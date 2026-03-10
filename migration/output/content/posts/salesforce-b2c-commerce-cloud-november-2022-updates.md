@@ -7,6 +7,7 @@ description: >-
 lastmod: '2022-11-29T10:33:29.000Z'
 url: /salesforce-b2c-commerce-cloud-november-2022-updates/
 draft: false
+heroImage: /media/2022/shopping-cart-in-the-clouds-4e07433888.jpg
 date: '2022-11-28T18:36:33.000Z'
 categories:
   - Release Notes

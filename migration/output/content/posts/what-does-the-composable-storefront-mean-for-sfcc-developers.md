@@ -6,6 +6,7 @@ description: >-
 lastmod: '2023-01-30T18:11:48.000Z'
 url: /what-does-the-composable-storefront-mean-for-sfcc-developers/
 draft: false
+heroImage: /media/2022/e0468610-0e86-403f-b486-743a38d4b763-d68cf607f8.png
 date: '2023-01-30T07:59:37.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -20,7 +21,7 @@ Over the past year, I have seen increasing gossip (which I am partly to blame fo
 
 ## Technology changes
 
-[![Image depicting 120 years of Moore’s Law](https://www.rhino-inquisitor.com/wp-content/uploads/2022/10/E094F768-3336-403F-8C75-9013CB07DF2F-1024x719.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/10/E094F768-3336-403F-8C75-9013CB07DF2F.png)
+[![Image depicting 120 years of Moore’s Law](/media/2022/e094f768-3336-403f-8c75-9013cb07df2f-b7c7a5e8f2.png)](/media/2022/e094f768-3336-403f-8c75-9013cb07df2f-b7c7a5e8f2.png)
 
 **Let us get one thing out of the way first. This article is my opinion and my opinion alone.**
 
@@ -37,7 +38,7 @@ _**That felt like an inspirational speech, didn't it?**_
 
 ## Advantages of a monolith
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/salesforce-commerce-cloud-monolith-768x384.jpg)
+![](/media/2023/salesforce-commerce-cloud-monolith-e3f50eb05b.jpg)
 
 I'll make sure to make one thing clear. Monolithic architecture has its advantages!
 
@@ -73,7 +74,7 @@ This competition serves as a reminder that complacency is not an option and driv
 
 ## Willingness to learn and evolve
 
-[![A women holding a laptop displaying the text “never stop learning”.](https://www.rhino-inquisitor.com/wp-content/uploads/2022/10/never-stop-learning-g3bc2c211b_1920-1024x579.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/10/never-stop-learning-g3bc2c211b_1920.jpg)
+[![A women holding a laptop displaying the text “never stop learning”.](/media/2022/never-stop-learning-g3bc2c211b-1920-3142164f98.jpg)](/media/2022/never-stop-learning-g3bc2c211b-1920-3142164f98.jpg)
 
 As developers and architects working in eCommerce, we must stay ahead of the constantly evolving technology landscape. This is especially true when working in a SaaS environment, where platforms continually update and change to meet the market's demands (and these updates are out of our control).
 

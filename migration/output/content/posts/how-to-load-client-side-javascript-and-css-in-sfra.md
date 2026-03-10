@@ -6,6 +6,7 @@ description: >-
 lastmod: '2024-02-19T08:31:26.000Z'
 url: /how-to-load-client-side-javascript-and-css-in-sfra/
 draft: false
+heroImage: /media/2023/client-side-js-e2475a2ea2.jpg
 date: '2024-02-19T08:28:48.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -72,7 +73,7 @@ So when you add JS and CSS within the remote include, the main request doesn't k
 
 Make sense?
 
-[![A visual representation of the Home-Show controller for explaining the scoping of assets.js](https://www.rhino-inquisitor.com/wp-content/uploads/2024/02/Javascript-and-CSS-scoping-in-SFRA-2-1024x610.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2024/02/Javascript-and-CSS-scoping-in-SFRA-2.png)
+[![A visual representation of the Home-Show controller for explaining the scoping of assets.js](/media/2024/javascript-and-css-scoping-in-sfra-2-5444adf22e.png)](/media/2024/javascript-and-css-scoping-in-sfra-2-5444adf22e.png)
 
 ### Caching
 

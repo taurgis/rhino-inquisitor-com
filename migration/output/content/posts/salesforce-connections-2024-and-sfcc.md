@@ -7,6 +7,7 @@ description: >-
 lastmod: '2024-05-16T09:28:17.000Z'
 url: /salesforce-connections-2024-and-sfcc/
 draft: false
+heroImage: /media/2024/salesforce-in-chicago-e1715782032168-b85c6a08d6.jpg
 date: '2024-05-16T09:28:06.000Z'
 categories:
   - Community
@@ -22,7 +23,7 @@ So, what does this iteration of Connections have in store for us? Will there be 
 
 ## No epic concert at Connections?
 
-![A picture was taken from the very top of the stadium overlooking the concert podium given at Dreamforce in 2023.](https://www.rhino-inquisitor.com/wp-content/uploads/2024/05/IMG_4015-1024x576.jpeg)
+![A picture was taken from the very top of the stadium overlooking the concert podium given at Dreamforce in 2023.](/media/2024/img-4015-9ece77c62f.jpeg)
 
 Let's pull this cat out of the bag before discussing Commerce Cloud-related matters. For a long time, we got used to getting an epic concert one of the evenings of the event, but that does not seem to be the case this time.
 

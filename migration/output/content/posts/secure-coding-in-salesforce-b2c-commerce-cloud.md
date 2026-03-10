@@ -6,6 +6,7 @@ description: >-
 lastmod: '2022-07-23T21:36:32.000Z'
 url: /secure-coding-in-salesforce-b2c-commerce-cloud/
 draft: false
+heroImage: /media/2022/code-security-147ad97b77.jpeg
 date: '2022-04-26T12:09:00.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -40,7 +41,7 @@ If an account becomes compromised, especially Account Managers, someone can get 
 
 ### 2FA (Two-Factor-Authentication)
 
-![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/mfa-1.jpg)
+![](/media/2022/mfa-1-6649345f2c.jpg)
 
 With Account Manager, it is possible to add 2FA to your account to secure it. Even if someone manages to figure out your account password, they still need to be able to provide the secondary authentication method.
 
@@ -218,7 +219,7 @@ I can go on about this topic, but the following blog post by Liran Tal tells the
 
 ## npm-audit
 
-[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/npm-audit-1024x320.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/npm-audit.png)
+[![](/media/2022/npm-audit-ab1e401b03.png)](/media/2022/npm-audit-ab1e401b03.png)
 
 As SFRA and PWA Kit use npm for their third-party libraries, it makes sense to use the out-of-the-box feature of npm to do a security audit of all of your packages.
 

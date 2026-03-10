@@ -20,7 +20,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. In elementum mi neque, 
 
 Phasellus ac nunc vel urna auctor sodales. Fusce id mauris scelerisque est bibendum gravida. Donec luctus est libero, mattis finibus urna facilisis vel. In tristique ex in dui facilisis malesuada. Etiam sit amet ultrices turpis, et congue nisi. Nullam at efficitur massa, quis eleifend mauris. Nullam sollicitudin ligula et maximus semper. Etiam suscipit elit arcu, nec maximus nibh tempus id. Nullam sit amet est a magna aliquet elementum eget et leo.
 
-![](https://therhinotimes.com/wp-content/uploads/2022/02/about-page-pic1.jpg) ![](https://therhinotimes.com/wp-content/uploads/2022/02/about-page-pic2.jpg)
+![](/media/2022/about-page-pic1-d641346b49.jpg) ![](/media/2022/about-page-pic2-3662ca760e.jpg)
 
 ### My Mission Statement
 

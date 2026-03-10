@@ -7,6 +7,7 @@ description: >-
 lastmod: '2025-07-16T14:10:47.000Z'
 url: /mail-attachments-in-b2c-commerce-cloud/
 draft: false
+heroImage: /media/2022/mail-a7e287274f.jpg
 date: '2022-03-15T06:04:04.000Z'
 categories:
   - Salesforce Commerce Cloud
@@ -383,7 +384,7 @@ When working with files (especially in the storefront), you have to keep watch o
 
 In my example, one is especially one to keep an eye on.
 
-![A screenshot of the quota limit surround string length in Salesforce Commerce CLoud.](https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/api.jsStringLength.png)
+![A screenshot of the quota limit surround string length in Salesforce Commerce CLoud.](/media/2022/api-jsstringlength-6ae1560d95.png)
 
 There are multiple ways to work around this limit, but we will not be digging into that in this post.
 
