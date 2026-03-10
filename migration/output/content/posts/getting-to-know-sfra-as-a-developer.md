@@ -31,7 +31,7 @@ You can't just start developing immediately on Salesforce B2C Commerce Cloud. Th
 
 Watching webinars and reading online texts can get tedious. Being able to apply what you learn immediately on a Sandbox is a lot more engaging and fun to do.
 
-I wrote a separate post before explaining how to get your sandbox [here](https://www.rhino-inquisitor.com/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox). Just a word of warning: if you are not working for a partner or customer - you might end up disappointed at the end of the article.
+I wrote a separate post before explaining how to get your sandbox [here](/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/). Just a word of warning: if you are not working for a partner or customer - you might end up disappointed at the end of the article.
 
 ### Learn Commerce Cloud
 
@@ -112,10 +112,10 @@ Here you will find a complete self-study-guided course into Salesforce B2C Comme
 
 ## Certification
 
-If you're considering pursuing certification, congratulations! It's a great way to demonstrate your expertise and stand out. To help you prepare, I've compiled [a comprehensive list of valuable topics to study](https://www.rhino-inquisitor.com/preparing-for-the-b2c-commerce-developer-certification/). By taking the time to delve deep into these subjects, you'll expand your knowledge and better position yourself for success.
+If you're considering pursuing certification, congratulations! It's a great way to demonstrate your expertise and stand out. To help you prepare, I've compiled [a comprehensive list of valuable topics to study](/preparing-for-the-b2c-commerce-developer-certification/). By taking the time to delve deep into these subjects, you'll expand your knowledge and better position yourself for success.
 
 ## That's not all folks
 
 The contents above will keep you busy for days and weeks (depending on whether you sleep.) But much more content is available to be seen, read, and heard!
 
-In [a previous post](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-documentation), I listed more sites you can use in your journey!
+In [a previous post](/salesforce-b2c-commerce-cloud-documentation/), I listed more sites you can use in your journey!

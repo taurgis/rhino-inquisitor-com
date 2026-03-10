@@ -16,7 +16,7 @@ tags:
   - trailhead
 author: Thomas Theunen
 ---
-A common question within Salesforce (and other ecosystems) is the value of being a [certified professional](https://www.rhino-inquisitor.com/certifications-for-salesforce-b2c-commerce-cloud/).  To get certified, you need to spend a substantial amount of time to prepare in some cases (I'm looking at you, the [Certified Technical Architects](https://www.salesforceben.com/become-a-salesforce-certified-technical-architect/) 😁.) And it isn't exactly free. Each attempt will set you back a few hundred dollars. In some cases, even a few thousand. I'm looking at you again, the CTA's. So it is understandable that new people to the ecosystem want to understand why they should make the investment (or the employer).
+A common question within Salesforce (and other ecosystems) is the value of being a [certified professional](/certifications-for-salesforce-b2c-commerce-cloud/).  To get certified, you need to spend a substantial amount of time to prepare in some cases (I'm looking at you, the [Certified Technical Architects](https://www.salesforceben.com/become-a-salesforce-certified-technical-architect/) 😁.) And it isn't exactly free. Each attempt will set you back a few hundred dollars. In some cases, even a few thousand. I'm looking at you again, the CTA's. So it is understandable that new people to the ecosystem want to understand why they should make the investment (or the employer).
 
 ## Is it worth it?
 
@@ -60,7 +60,7 @@ You just hired your first Certified Professional, with five certifications in al
 
 ### Certifications ≠ experience
 
-No matter how well you understand the theory and exercises on Trailhead, they will never match the [complexity of a real-life project](https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/go-live/). Doing projects in a team and learning from your more experienced peers will give you more knowledge than preparing for a certification ever will. You will hit "walls" in projects that need inventive ways around (or demolish) that you will not experience in Trailhead modules or superbadges. On the [latest episode](https://developer.salesforce.com/podcast/2022/11/episode-150-b2c-and-b2b-solution-architecture-with-shoby-abdi) of the Salesforce Developer Podcast, I heard a few sentences that resonated:
+No matter how well you understand the theory and exercises on Trailhead, they will never match the [complexity of a real-life project](/category/go-live/). Doing projects in a team and learning from your more experienced peers will give you more knowledge than preparing for a certification ever will. You will hit "walls" in projects that need inventive ways around (or demolish) that you will not experience in Trailhead modules or superbadges. On the [latest episode](https://developer.salesforce.com/podcast/2022/11/episode-150-b2c-and-b2b-solution-architecture-with-shoby-abdi) of the Salesforce Developer Podcast, I heard a few sentences that resonated:
 
 > An MQC is what’s called a **minimally-qualified** candidate. This is an individual who with at least some preparation, some experience, can they take this exam and pass it. The reason behind that minimally-qualified candidate, once again, it’s the words, “Minimally-qualified.” Do they have just enough to make it real?
 >

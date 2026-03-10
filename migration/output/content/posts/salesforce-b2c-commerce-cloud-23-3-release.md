@@ -17,7 +17,7 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-Another month, another release from Salesforce B2C Commerce Cloud! In this blog post, we'll dive into all the changes and improvements coming to the platform in the [23.3 release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_23_3_release.htm&type=5). In recent months, we've seen a strong focus on updates to the headless APIs and Page Designer, and we'll examine if this trend continues in this latest release. Are there new and exciting developments on the horizon for the platform? Let's find out! Are you interested in last month’s release notes? [Click here](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-23-2/)!
+Another month, another release from Salesforce B2C Commerce Cloud! In this blog post, we'll dive into all the changes and improvements coming to the platform in the [23.3 release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_23_3_release.htm&type=5). In recent months, we've seen a strong focus on updates to the headless APIs and Page Designer, and we'll examine if this trend continues in this latest release. Are there new and exciting developments on the horizon for the platform? Let's find out! Are you interested in last month’s release notes? [Click here](/salesforce-b2c-commerce-cloud-23-2/)!
 
 ## Trial sandboxes???
 
@@ -25,7 +25,7 @@ Another month, another release from Salesforce B2C Commerce Cloud! In this blog 
 
 > B2C Commerce independent software vendor (ISV) partners can now get a trial sandbox environment within minutes of joining the AppExchange Partner program. ISV partner prospects can opt in for a 90-day trial sandbox when they register on the Partner Recruitment page. After their information is submitted, a trial sandbox is automatically provisioned, and the ISV partner receives an email with their sandbox credentials.
 
-Getting a sandbox environment for testing and development [has challenged potential partners and customers for quite a long time](https://www.rhino-inquisitor.com/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/). But this process has become much easier with the latest 23.3 release of Salesforce B2C Commerce Cloud, at least for ISVs. _A little glimmer of light at the end of the tunnel!_ When ISV partners sign up for the AppExchange Partner program, they can opt for a 90-day trial sandbox. Once they register, a sandbox environment will automatically be set up for them, and they will receive an email with the details. This is excellent news for ISV partners (and the third-party ecosystem) who want to test and develop their solutions on the platform. With a 90-day trial, they can get a lot of work done immediately after signing up!
+Getting a sandbox environment for testing and development [has challenged potential partners and customers for quite a long time](/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/). But this process has become much easier with the latest 23.3 release of Salesforce B2C Commerce Cloud, at least for ISVs. _A little glimmer of light at the end of the tunnel!_ When ISV partners sign up for the AppExchange Partner program, they can opt for a 90-day trial sandbox. Once they register, a sandbox environment will automatically be set up for them, and they will receive an email with the details. This is excellent news for ISV partners (and the third-party ecosystem) who want to test and develop their solutions on the platform. With a 90-day trial, they can get a lot of work done immediately after signing up!
 
 ## Platform
 
@@ -47,7 +47,7 @@ Losing your basket halfway through your shopping experience is never a fun thing
 
 > The lifetime limit for a guest customer basket is now the lesser of 30 days and the registered customer basket lifetime. Previously, it was the lesser of 7 days and the registered customer basket lifetime. This limit applies to input validation in the BM Basket Preferences UI and Basket Preferences Import. It also affects resolving the guest basket lifetime if it isn’t set, for example, for the basket cleanup job.
 
-This update was moved from the [23.2](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-23-2/) release to this one, as I covered it in last month's release post.
+This update was moved from the [23.2](/salesforce-b2c-commerce-cloud-23-2/) release to this one, as I covered it in last month's release post.
 
 ## OCAPI & SCAPI
 

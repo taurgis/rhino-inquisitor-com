@@ -17,11 +17,11 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-Have you gone on [a wild goose chase searching for entity model diagrams of Salesforce B2C Commerce Cloud](https://architect.salesforce.com/diagrams#template-gallery) and come up with nothing? Fear not, as your luck has just changed. While finding diagrams for the entity model of [force.com](https://salesforce.stackexchange.com/questions/22720/standard-objects-in-salesforce) is as easy as pie, finding the same for [SFCC](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/) is a different story.
+Have you gone on [a wild goose chase searching for entity model diagrams of Salesforce B2C Commerce Cloud](https://architect.salesforce.com/diagrams#template-gallery) and come up with nothing? Fear not, as your luck has just changed. While finding diagrams for the entity model of [force.com](https://salesforce.stackexchange.com/questions/22720/standard-objects-in-salesforce) is as easy as pie, finding the same for [SFCC](/the-salesforce-b2c-commerce-cloud-environment/) is a different story.
 
 So I've taken it upon myself to create and share my own with the world!
 
-The first one on the [list](https://www.rhino-inquisitor.com/tag/erd/): the Account/Profile!
+The first one on the list: the Account/Profile!
 
 [![](/media/2023/salesforce-b2c-commerce-cloud-diagram-customer-erd-0511da2fc0.png)](/media/2023/salesforce-b2c-commerce-cloud-diagram-customer-erd-0511da2fc0.png)
 
@@ -45,7 +45,7 @@ It's because, technically, that list could be empty if the default groups aren't
 
 I marked complex entities in yellow to keep the diagram easy to understand, indicating they have multiple links to other entities not depicted in the chart.
 
-[_The diagrams for those sections will follow in the coming weeks._](https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/erd/)
+[_The diagrams for those sections will follow in the coming weeks._](/category/erd/)
 
 ### CDP
 
@@ -53,7 +53,7 @@ The CustomerCDPData object only applies to your project if you have purchased [C
 
 ## More to follow?
 
-Stay tuned! The next ERD on deck is catalog/product, [so keep an eye out](https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/erd/) for this blog.
+Stay tuned! The next ERD on deck is catalog/product, [so keep an eye out](/category/erd/) for this blog.
 
 ### Mistakes?
 

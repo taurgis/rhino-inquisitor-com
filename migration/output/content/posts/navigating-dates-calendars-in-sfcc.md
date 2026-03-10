@@ -17,7 +17,7 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-In today's world, managing dates, calendars, and time zones is expected for any e-commerce platform. [Salesforce B2C Commerce Cloud](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/) is no exception, and this article will explore the intricacies of working with dates and calendars in SFCC, focusing on the JavaScript Date object, the Java Calendar class.
+In today's world, managing dates, calendars, and time zones is expected for any e-commerce platform. [Salesforce B2C Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/) is no exception, and this article will explore the intricacies of working with dates and calendars in SFCC, focusing on the JavaScript Date object, the Java Calendar class.
 
 By understanding these concepts, you can ensure that your code works seamlessly across different regions and time zones.
 

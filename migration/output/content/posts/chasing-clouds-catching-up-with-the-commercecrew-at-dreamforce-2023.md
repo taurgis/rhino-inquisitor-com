@@ -35,7 +35,7 @@ The adventurous start did nothing to deter our enthusiasm – instead, it added 
 
 All energised to start Dreamforce!
 
-We kicked off day two (and the first day of Dreamforce) with gusto; the early bird catches the worm indeed! Tuesday commenced with breakfast with the #CommerceCrew (a big thank you being in order for Amalia!). The keynote right after gave an opportunity to reveal a new [Shirtforce](https://www.rhino-inquisitor.com/commerce-cloud-t-shirts-on-shirtforce/) t-shirt, specially designed for [Charlie](https://twitter.com/charlieisaacs) to celebrate his relentless efforts within Salesforce’s ever-evolving community ecosystem.
+We kicked off day two (and the first day of Dreamforce) with gusto; the early bird catches the worm indeed! Tuesday commenced with breakfast with the #CommerceCrew (a big thank you being in order for Amalia!). The keynote right after gave an opportunity to reveal a new [Shirtforce](/commerce-cloud-t-shirts-on-shirtforce/) t-shirt, specially designed for [Charlie](https://twitter.com/charlieisaacs) to celebrate his relentless efforts within Salesforce’s ever-evolving community ecosystem.
 
 ![A group of people all wearing a "Charlie's Sailblazer" t-shirt at the Dreamforce 2023 keynote.](/media/2023/7a6c01d9-e903-4479-ad6e-fb8b41445d64-1-105-c-90a3bbafe3.jpeg)
 
@@ -57,7 +57,7 @@ Fun fact: A hunt for cool goodies is an incredible icebreaker among participants
 
 Just as we thought the day couldn’t get any better, Dreamfest kicked off with an epic concert by none other than the Foo Fighters! Trust me; it was nothing short of a fantastic evening in San Francisco. Talk about going out with a bang!
 
-We went on an epic quest to find the mystical entrance to the ground floor, but alas, it remained shrouded in mystery. After much fruitless searching and getting rejected at every turn, we realised that perhaps we were not the chosen (e.g. not a customer) ones destined to enter. Maybe we just needed better directions. Or did I just have to flaunt my [Golden Hoodie](https://www.rhino-inquisitor.com/events-and-the-golden-hoodie/)?
+We went on an epic quest to find the mystical entrance to the ground floor, but alas, it remained shrouded in mystery. After much fruitless searching and getting rejected at every turn, we realised that perhaps we were not the chosen (e.g. not a customer) ones destined to enter. Maybe we just needed better directions. Or did I just have to flaunt my [Golden Hoodie](/events-and-the-golden-hoodie/)?
 
 ![A picture of the concert of the Foo Fighters at Dreamfest 2023, taken high above the stage.](/media/2023/1832c203-32d4-4a5b-922a-218cf2ecf468-1-102-a-d53635718f.jpeg)
 

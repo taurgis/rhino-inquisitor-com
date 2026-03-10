@@ -17,7 +17,7 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-The year is coming to an end, but what a year it has been. As the news was announcing lockdowns to be over and [events were starting](https://www.rhino-inquisitor.com/events-and-the-golden-hoodie/), the world was in turmoil again when Russia began to invade Ukraine - putting the world on its head again. Putting that aside (but not for too long), other big things have happened this year: Big strides in publically available AI tools. Although they have been around longer than this year, they have gotten quite a bit of attention as the ease of use has grown tremendously. People generate [images based on text descriptions](https://openai.com/dall-e-2/) and [write articles by asking questions](https://chat.openai.com/). ...What? Other Services Besides OpenAI, many services are popping up in different areas. Too many to even mention.
+The year is coming to an end, but what a year it has been. As the news was announcing lockdowns to be over and [events were starting](/events-and-the-golden-hoodie/), the world was in turmoil again when Russia began to invade Ukraine - putting the world on its head again. Putting that aside (but not for too long), other big things have happened this year: Big strides in publically available AI tools. Although they have been around longer than this year, they have gotten quite a bit of attention as the ease of use has grown tremendously. People generate [images based on text descriptions](https://openai.com/dall-e-2/) and [write articles by asking questions](https://chat.openai.com/). ...What? Other Services Besides OpenAI, many services are popping up in different areas. Too many to even mention.
 
 ## Some concerns
 

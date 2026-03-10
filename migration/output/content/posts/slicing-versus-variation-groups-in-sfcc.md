@@ -16,7 +16,7 @@ tags:
   - sfcc
 author: Thomas Theunen
 ---
-Clarity and efficiency are key in the strategic display and management of products in your online store. In an age where various product options and variations dominate e-commerce, [we must grasp the organisational tools at our disposal](https://www.rhino-inquisitor.com/getting-to-know-sfra-as-a-developer/).
+Clarity and efficiency are key in the strategic display and management of products in your online store. In an age where various product options and variations dominate e-commerce, [we must grasp the organisational tools at our disposal](/getting-to-know-sfra-as-a-developer/).
 
 Today, we're thoroughly examining two tools provided by Salesforce B2C Commerce Cloud: 'Slicing' and 'Variation Groups'. Both are an option in product management, but which is your best bet?
 

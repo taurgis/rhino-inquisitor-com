@@ -32,7 +32,7 @@ Let's tackle the first and most common point of confusion for teams moving from 
 
 The definitive answer is: **Yes, SCAPI and SLAS operate on a completely separate hostname infrastructure from your SFRA site's vanity domain.**
 
-Your mobile app will not make API calls to `www.your-brand.com`. Instead, all SCAPI and SLAS interactions are routed through the dedicated, globally scaled Salesforce Commerce API gateway. The endpoint URL follows a standard format: `https://{{short-code}}.api.commercecloud.salesforce.com/...`. This is your single, secure, and performant entry point for all API traffic. This move is intentional and reinforced by Salesforce's [deprecation](https://www.rhino-inquisitor.com/the-importance-of-origin-shielding/) of older, hyphenated hostnames (e.g., `production-realm-customer.demandware.net`) for API access, pushing all traffic to this unified gateway.
+Your mobile app will not make API calls to `www.your-brand.com`. Instead, all SCAPI and SLAS interactions are routed through the dedicated, globally scaled Salesforce Commerce API gateway. The endpoint URL follows a standard format: `https://{{short-code}}.api.commercecloud.salesforce.com/...`. This is your single, secure, and performant entry point for all API traffic. This move is intentional and reinforced by Salesforce's [deprecation](/the-importance-of-origin-shielding/) of older, hyphenated hostnames (e.g., `production-realm-customer.demandware.net`) for API access, pushing all traffic to this unified gateway.
 
 CORS Don't forget to [secure your API layer](https://developer.salesforce.com/docs/commerce/commerce-api/guide/cors.html)!
 
@@ -109,7 +109,7 @@ This entire section is new territory compared to the SFRA SRA. The mobile app, f
 
 #### Client-Side Caching Strategy (Your First Line of Defense)
 
-Effective client-side [caching](https://www.rhino-inquisitor.com/caching-rest-apis-in-sfcc/) is the single most important factor for a snappy, responsive mobile app experience and for staying within API quotas. Network calls from a mobile device are inherently latent and unreliable. The app must not go to the network for data it already has. A comprehensive go-live requires verification of a robust, multi-layered caching strategy.
+Effective client-side [caching](/caching-rest-apis-in-sfcc/) is the single most important factor for a snappy, responsive mobile app experience and for staying within API quotas. Network calls from a mobile device are inherently latent and unreliable. The app must not go to the network for data it already has. A comprehensive go-live requires verification of a robust, multi-layered caching strategy.
 
 
 
@@ -174,7 +174,7 @@ Traditional SFRA performance testing relies on tools like WebPageTest or GTmetri
 
 #### The Shared Responsibility Model
 
-A headless app's performance is a composite of the client, the network, and the backend API response. That backend response is itself a composite of out-of-the-box SCAPI code, your custom hook code, and the performance of your underlying data model. Teams cannot assume Salesforce is solely responsible for performance. A clear understanding of this [shared responsibility](https://www.rhino-inquisitor.com/a-survival-guide-to-sfcc-platform-limits/) is crucial for de-risking the project.
+A headless app's performance is a composite of the client, the network, and the backend API response. That backend response is itself a composite of out-of-the-box SCAPI code, your custom hook code, and the performance of your underlying data model. Teams cannot assume Salesforce is solely responsible for performance. A clear understanding of this [shared responsibility](/a-survival-guide-to-sfcc-platform-limits/) is crucial for de-risking the project.
 
 ### Part IV: The Final Countdown (Go-Live & Beyond)
 

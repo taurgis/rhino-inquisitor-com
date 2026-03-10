@@ -17,9 +17,9 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-All web developers understand the crucial role [performance](https://www.rhino-inquisitor.com/caching-rest-apis-in-sfcc/) plays for a website, both in terms of the visitor experience and as a quality benchmark. Not to forget, conserving CPU cycles contributes to environmental sustainability, albeit in small increments.
+All web developers understand the crucial role [performance](/caching-rest-apis-in-sfcc/) plays for a website, both in terms of the visitor experience and as a quality benchmark. Not to forget, conserving CPU cycles contributes to environmental sustainability, albeit in small increments.
 
-So, how can you maintain high performance on your pages within [Salesforce B2C Commerce Cloud](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/)? In this article, we'll focus on server-side implementation. Salesforce offers numerous tools to enhance and diagnose performance issues, and we'll explore a selection of these valuable resources!
+So, how can you maintain high performance on your pages within [Salesforce B2C Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/)? In this article, we'll focus on server-side implementation. Salesforce offers numerous tools to enhance and diagnose performance issues, and we'll explore a selection of these valuable resources!
 
 ## Write performant code
 
@@ -29,7 +29,7 @@ However, it's crucial to revisit the code and perform some refactoring. You may 
 
 ## Use Custom Caches for heavy-duty processes
 
-If you have never heard about Custom Caches, [time to read up](https://www.rhino-inquisitor.com/field-guide-to-custom-caches-in-sfcc/)!
+If you have never heard about Custom Caches, [time to read up](/field-guide-to-custom-caches-in-sfcc/)!
 
 Custom Caches can significantly enhance performance when you need to perform resource-intensive operations. Keep in mind that **Custom Caches are only suitable if the process's outcome remains constant**.
 

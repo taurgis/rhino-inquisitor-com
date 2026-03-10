@@ -20,9 +20,9 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-"[Connections](https://www.rhino-inquisitor.com/salesforce-connections-2024-and-sfcc/)" is in our rear-view mirror, but some new updates to the platform are ahead! This time, we look at the [June 2024 (24.6) release](https://help.salesforce.com/s/articleView?id=sf.b2c_rn_24_6_release.htm&type=5)!
+"[Connections](/salesforce-connections-2024-and-sfcc/)" is in our rear-view mirror, but some new updates to the platform are ahead! This time, we look at the [June 2024 (24.6) release](https://help.salesforce.com/s/articleView?id=sf.b2c_rn_24_6_release.htm&type=5)!
 
-Are you interested in last month’s release notes? [Click here](https://www.rhino-inquisitor.com/getting-secured-with-the-24-5-salesforce-b2c-commerce-cloud-release/)!
+Are you interested in last month’s release notes? [Click here](/getting-secured-with-the-24-5-salesforce-b2c-commerce-cloud-release/)!
 
 ## Commerce Concierge has arrived
 

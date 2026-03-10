@@ -16,7 +16,7 @@ tags:
   - trailhead
 author: Thomas Theunen
 ---
-When we look at the Salesforce [eco-system](https://www.rhino-inquisitor.com/the-state-of-ohana-for-salesforce-commerce-cloud/), Commerce seems like a speck on the entire Salesforce landscape (CRM). Luckily, when going to Salesforce events such as Connections, much attention is given to Commerce. But all that attention takes place in the [United States](https://www.rhino-inquisitor.com/20-years-of-dreamforce/). For many customers and partners, this is quite a ways out, meaning that a large part of the community is not being represented and allowed to network and learn at these large-scale events.
+When we look at the Salesforce [eco-system](/the-state-of-ohana-for-salesforce-commerce-cloud/), Commerce seems like a speck on the entire Salesforce landscape (CRM). Luckily, when going to Salesforce events such as Connections, much attention is given to Commerce. But all that attention takes place in the [United States](/20-years-of-dreamforce/). For many customers and partners, this is quite a ways out, meaning that a large part of the community is not being represented and allowed to network and learn at these large-scale events.
 
 Come into play 'A New Day for Commerce', a dedicated Salesforce event for Commerce Cloud in Europe! And big things start small, so let's recap the first edition! But first, a history lesson.
 
@@ -44,11 +44,11 @@ But now, after six years - there is a speck of light at the end of the tunnel!
 
 Don't get me wrong, even if it is not a dedicated event to Salesforce B2C Commerce Cloud - there is a lot to do and a fantastic place to connect with peers and to learn.
 
-But as a developer, you might return disappointed if you went to learn more about [B2C Commerce Cloud development and architecture](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/). If you look at last year's agenda, there were only a few technical presentations. But Connections is not advertised as a developer conference; TrailblazerDX is - but I'll get to that in a second.
+But as a developer, you might return disappointed if you went to learn more about [B2C Commerce Cloud development and architecture](/the-salesforce-b2c-commerce-cloud-environment/). If you look at last year's agenda, there were only a few technical presentations. But Connections is not advertised as a developer conference; TrailblazerDX is - but I'll get to that in a second.
 
 Go with the right expectations (for me, mainly networking and high-level feature/roadmap knowledge). It can be a fantastic event and well worth the travel and expenses that come with it.
 
-And it will always have a special place in my heart, having been allowed to tell my story on the main stage and getting that [Golden Hoodie](https://www.rhino-inquisitor.com/events-and-the-golden-hoodie/)!
+And it will always have a special place in my heart, having been allowed to tell my story on the main stage and getting that [Golden Hoodie](/events-and-the-golden-hoodie/)!
 
 ### TrailblazerDX
 
@@ -124,7 +124,7 @@ This meant there was a large gathering of people you could network and talk shop
 
 ## Next year!?
 
-I would like to see this event happen annually. It's widely agreed that Europe needs a specialised [Salesforce Commerce Cloud](https://www.rhino-inquisitor.com/the-state-of-ohana-for-salesforce-commerce-cloud/) event, and there's significant interest within the community to participate! This will likely happen if all of the boxes that Salesforce expected from this event have been checked.
+I would like to see this event happen annually. It's widely agreed that Europe needs a specialised [Salesforce Commerce Cloud](/the-state-of-ohana-for-salesforce-commerce-cloud/) event, and there's significant interest within the community to participate! This will likely happen if all of the boxes that Salesforce expected from this event have been checked.
 
 But some improvements can happen:
 

@@ -147,7 +147,7 @@ UnlimitedArray.prototype.get = function (position) {
 
 This construct "cleverly" uses nested arrays to exceed the Salesforce-imposed limit. However, it can result in inefficiencies when using methods such as push, get, includes, and indexOf, especially as the combined size of the nested arrays grows.
 
-[![A screenshot of the Business Manager. The system is warning that the quota limit for the array size has been reached.](/media/2023/quota-limit-warning-7f7a47522c.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/12/quota-limit-warning-scaled.jpg)
+[![A screenshot of the Business Manager. The system is warning that the quota limit for the array size has been reached.](/media/2023/quota-limit-warning-7f7a47522c.jpg)](/media/2023/quota-limit-warning-7f7a47522c.jpg)
 
 We are at the edge, but never crossing the limit!
 

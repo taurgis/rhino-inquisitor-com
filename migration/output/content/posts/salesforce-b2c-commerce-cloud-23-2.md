@@ -21,7 +21,7 @@ author: Thomas Theunen
 ---
 February is almost here, and so is the [February 2023](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_23_2_release.htm&type=5) (23.2) release! If you are an avid user of Page Designer, this is the update you have been waiting for - and Salesforce, keep 'em comin'!
 
-_Are you interested in last month’s release notes? [Click here](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-23-1/)!_
+_Are you interested in last month’s release notes? [Click here](/salesforce-b2c-commerce-cloud-23-1/)!_
 
 ## Page Designer Improvements
 
@@ -126,7 +126,7 @@ A nice improvement for locale management because it gives users complete control
 > -   All merchant data provided at design time.
 > -   Server-side scripting data provided at run time.
 
-The new "[Shopper Experience API](https://developer.salesforce.com/docs/commerce/commerce-api/references/shopper-experience?meta=Summary)" is a significant improvement for both Headless and Composable Storefront projects. In the past, solutions required complex workarounds to enable personalisation with [session bridging](https://www.rhino-inquisitor.com/what-is-the-ocapi-session-bridge/). But this update eliminates the need for those workarounds.
+The new "[Shopper Experience API](https://developer.salesforce.com/docs/commerce/commerce-api/references/shopper-experience?meta=Summary)" is a significant improvement for both Headless and Composable Storefront projects. In the past, solutions required complex workarounds to enable personalisation with [session bridging](/what-is-the-ocapi-session-bridge/). But this update eliminates the need for those workarounds.
 
 This change is highly anticipated, and I am sure it will be warmly welcomed by many. It brings more efficiency and ease of use to projects in need of the API.
 

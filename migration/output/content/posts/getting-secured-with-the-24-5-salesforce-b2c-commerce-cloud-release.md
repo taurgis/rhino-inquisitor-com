@@ -19,7 +19,7 @@ author: Thomas Theunen
 ---
 Again, it is time for the monthly Salesforce B2C Commerce Cloud release! This time, we look at the [May 2024 (24.5) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_24_5_release.htm&type=5)!
 
-Are you interested in last month’s release notes? [Click here](https://www.rhino-inquisitor.com/getting-to-know-the-sfcc-24-4-release/)!
+Are you interested in last month’s release notes? [Click here](/getting-to-know-the-sfcc-24-4-release/)!
 
 ## Platform
 

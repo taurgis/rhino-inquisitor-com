@@ -20,7 +20,7 @@ author: Thomas Theunen
 ---
 It's time to gear up for the February 2024 ([24.2](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_24_2_release.htm&type=5)) release of Salesforce B2C Commerce Cloud! With the arrival of this latest release, let's look at what's new and exciting!
 
-You can always check out [last month's release notes](https://www.rhino-inquisitor.com/sfcc-24-1-release-a-new-year-update/) by clicking here if you missed it.
+You can always check out [last month's release notes](/sfcc-24-1-release-a-new-year-update/) by clicking here if you missed it.
 
 ## Platform
 
@@ -134,7 +134,7 @@ However, I'm happy to report that this issue has finally been fixed, dramaticall
 > -   Infrastructure Updates
 > -   **UUID Tokens Switched to JWT Access Tokens**: As previously announced in June 2023, Account Manager no longer supports the use of UUID token formats. All new API Clients only support the JWT access token format.
 
-After quite a long warning beforehand, the [UUID](https://www.rhino-inquisitor.com/the-deprecation-of-the-uuid-token-for-api-clients/) option is now wholly gone for new API clients!
+After quite a long warning beforehand, the [UUID](/the-deprecation-of-the-uuid-token-for-api-clients/) option is now wholly gone for new API clients!
 
 ## SFRA v7.0.0
 

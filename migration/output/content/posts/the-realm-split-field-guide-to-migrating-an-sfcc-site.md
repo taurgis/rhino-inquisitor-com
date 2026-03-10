@@ -28,7 +28,7 @@ Before embarking on such a significant undertaking, it is imperative to understa
 
 ### A Technical Primer on the SFCC Realm
 
-In the SFCC ecosystem, a realm is the fundamental organisational unit. It is not merely a collection of sites but the entire [infrastructure](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/) stack provided by Salesforce to a customer. This stack contains all the necessary hardware and software components to develop, test, and deploy a storefront, including web servers, application servers, and database servers. For a developer, the realm is the entire world in which their sites live and operate.
+In the SFCC ecosystem, a realm is the fundamental organisational unit. It is not merely a collection of sites but the entire [infrastructure](/the-salesforce-b2c-commerce-cloud-environment/) stack provided by Salesforce to a customer. This stack contains all the necessary hardware and software components to develop, test, and deploy a storefront, including web servers, application servers, and database servers. For a developer, the realm is the entire world in which their sites live and operate.
 
 This world is rigidly structured into two distinct groups:
 

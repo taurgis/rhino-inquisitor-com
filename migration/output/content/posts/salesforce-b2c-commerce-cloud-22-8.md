@@ -18,7 +18,7 @@ author: Thomas Theunen
 ---
 A new month means new candy for us in Salesforce B2C Commerce Cloud. But what will we find in that jar this month? Let us find out!
 
-Are you interested in last month’s release notes? [Click here](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-the-22-7-release/)! Or are you looking for the [official release notes](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_8_release.htm&type=5)?
+Are you interested in last month’s release notes? [Click here](/salesforce-b2c-commerce-cloud-the-22-7-release/)! Or are you looking for the [official release notes](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_8_release.htm&type=5)?
 
 ## Language
 
@@ -176,7 +176,7 @@ Rather than having to manage/relax a quota at a "realm" level, quotas can now be
 
 ### Change History for campaigns & promotions
 
-[![](/media/2022/1da84b9d-7a51-4f6f-bcb0-b0217c4e5cb7-bf0735587c.jpeg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/07/1DA84B9D-7A51-4F6F-BCB0-B0217C4E5CB7-scaled.jpeg)
+[![](/media/2022/1da84b9d-7a51-4f6f-bcb0-b0217c4e5cb7-bf0735587c.jpeg)](/media/2022/1da84b9d-7a51-4f6f-bcb0-b0217c4e5cb7-bf0735587c.jpeg)
 
 The [Change History](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/change_history/b2c_change_history.html) feature is getting some more options! With this release, you can keep track (if you want to) of all modifications of:
 

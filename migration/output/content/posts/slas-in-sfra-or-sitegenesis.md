@@ -56,7 +56,7 @@ Previously, extending this timeout wasn't possible. Now, with SLAS, you can incr
 
 ## The Old Guard: A Necessary Evil Called plugin\_slas
 
-To understand where we're going, we have to respect where we've been. When Salesforce B2C Commerce Cloud began its push into the headless and composable world with the [PWA Kit](https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/), a significant architectural gap emerged.
+To understand where we're going, we have to respect where we've been. When Salesforce B2C Commerce Cloud began its push into the headless and composable world with the [PWA Kit](/sitegenesis-vs-sfra-vs-pwa/), a significant architectural gap emerged.
 
 The traditional monoliths, Storefront Reference Architecture (SFRA) and SiteGenesis, managed user sessions using a dwsid cookie. The new headless paradigm, however, operates on a completely different authentication mechanism: the Shopper Login and API Access Service (SLAS), which utilises JSON Web Tokens (JWTs).
 

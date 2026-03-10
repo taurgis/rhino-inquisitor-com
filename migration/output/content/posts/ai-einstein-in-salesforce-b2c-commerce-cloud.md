@@ -83,7 +83,7 @@ Documentation The necessary tools to comply with this are documented in the [Inf
 
 -   [Trailhead Module](https://trailhead.salesforce.com/content/learn/modules/cc-einstein-product-recommendations)
 
-[![](/media/2022/sfcc-einstein-product-recommendations-75e024ae7c.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/sfcc-einstein-product-recommendations-scaled.jpg)
+[![](/media/2022/sfcc-einstein-product-recommendations-75e024ae7c.jpg)](/media/2022/sfcc-einstein-product-recommendations-75e024ae7c.jpg)
 
 SFCC: Einstein Product Recommendations in the PWA Kit
 

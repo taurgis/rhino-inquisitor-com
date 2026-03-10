@@ -18,7 +18,7 @@ author: Thomas Theunen
 ---
 The weather (at least here) is giving us more sunshine, so let us shine a light on the next Salesforce B2C Commerce Cloud release! This time we look at the [June 2023 (23.6) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_23_6_release.htm&type=5)!
 
-Are you interested in last month’s release notes? [Click here](https://www.rhino-inquisitor.com/a-look-at-the-sfcc-23-5-release/)!
+Are you interested in last month’s release notes? [Click here](/a-look-at-the-sfcc-23-5-release/)!
 
 ## Enhance Storefront Search Scale and Performance
 

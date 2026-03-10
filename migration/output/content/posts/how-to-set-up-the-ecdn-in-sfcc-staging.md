@@ -23,7 +23,7 @@ Deprecated Article Since the writing of this article, the eCDN business manager 
 
 Read all about it [here](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_configure_ecdn_for_staging_in_bm.htm&type=5).
 
-Using the [Business Manager module](https://www.rhino-inquisitor.com/lets-go-live-ecdn/), setting up custom vanity domains and uploading certificates on the production instance is easy. But how about staging?
+Using the [Business Manager module](/lets-go-live-ecdn/), setting up custom vanity domains and uploading certificates on the production instance is easy. But how about staging?
 
 Until recently, we needed to contact support to set up custom vanity domains with a valid certificate on the staging instances. Luckily that has changed, and now we can fully control the domains and certificates for staging "just like production".
 

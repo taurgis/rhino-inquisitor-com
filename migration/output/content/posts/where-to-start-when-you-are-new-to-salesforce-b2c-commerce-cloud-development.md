@@ -29,9 +29,9 @@ The path may be challenging, but trust us, the end result will be worth it. Plus
 
 Alright, before you dive into the fun stuff (coding, building, and creating), it's important to first get to know the Salesforce B2C Commerce Cloud platform like the back of your hand. Think of it like a blind date - you wouldn't want to show up unprepared, would you?
 
-Knowing what's available out of the box is just as important as knowing how to build custom features. So, take the time to [get to know the platform](https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/), and you'll be ready to tackle any eCommerce challenge that comes your way.
+Knowing what's available out of the box is just as important as knowing how to build custom features. So, take the time to [get to know the platform](/sitegenesis-vs-sfra-vs-pwa/), and you'll be ready to tackle any eCommerce challenge that comes your way.
 
-And what better way than to use the [public documentation](https://www.rhino-inquisitor.com/where-is-the-new-sfcc-documentation/). Mastering the art of navigating through it is a skill of its own! Another starting point can be [this introductory blog post](https://osapishchuk.medium.com/how-to-understand-salesforce-commerce-cloud-78d71f1016de).
+And what better way than to use the [public documentation](/where-is-the-new-sfcc-documentation/). Mastering the art of navigating through it is a skill of its own! Another starting point can be [this introductory blog post](https://osapishchuk.medium.com/how-to-understand-salesforce-commerce-cloud-78d71f1016de).
 
 ## Get yourself a sandbox
 
@@ -41,7 +41,7 @@ A Sandbox is essentially a mini version of your production environment, where yo
 
 _**A word of warning**: If you are not part of a partner or customer company, getting one can be challenging._
 
-[Find out here how to get your hands on one!](https://www.rhino-inquisitor.com/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/)
+[Find out here how to get your hands on one!](/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/)
 
 ## Get started
 
@@ -49,9 +49,9 @@ _**A word of warning**: If you are not part of a partner or customer company, ge
 
 Now that you've got your Sandbox set up, it's time to dive into the fun part: coding! Depending on your situation and experience, the journey to becoming a Salesforce B2C Commerce Cloud pro may vary. But don't worry; plenty of resources are available to help you along the way.
 
-For starters, the [Salesforce Partner Learning Camp](https://partnerlearningcamp.salesforce.com/s/learner-dashboard) offers a variety of courses to help developers master the platform. And if you're not a partner, don't fret - plenty of [documentation and resources](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-documentation/) are still available to help you learn the ropes.
+For starters, the [Salesforce Partner Learning Camp](https://partnerlearningcamp.salesforce.com/s/learner-dashboard) offers a variety of courses to help developers master the platform. And if you're not a partner, don't fret - plenty of [documentation and resources](/salesforce-b2c-commerce-cloud-documentation/) are still available to help you learn the ropes.
 
-If you're looking for a comprehensive guide that covers all the essential topics for SFCC development, I highly recommend checking out the [Certification Guide](https://www.rhino-inquisitor.com/preparing-for-the-b2c-commerce-developer-certification/) I put together. It's like a roadmap for your journey to becoming a Salesforce B2C Commerce Cloud master! Ok Ok... I might be tooting my own horn a bit here.
+If you're looking for a comprehensive guide that covers all the essential topics for SFCC development, I highly recommend checking out the [Certification Guide](/preparing-for-the-b2c-commerce-developer-certification/) I put together. It's like a roadmap for your journey to becoming a Salesforce B2C Commerce Cloud master! Ok Ok... I might be tooting my own horn a bit here.
 
 ## You are not alone
 

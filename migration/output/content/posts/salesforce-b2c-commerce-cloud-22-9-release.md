@@ -19,7 +19,7 @@ author: Thomas Theunen
 ---
 We have been getting some lovely new goodies in the past few releases, but this trend is not ending! This time we look at the [September 2022 (22.9) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_9_release.htm&type=5)!
 
-Are you interested in last month’s release notes? [Click here](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-22-8/)!
+Are you interested in last month’s release notes? [Click here](/salesforce-b2c-commerce-cloud-22-8/)!
 
 ## Platform
 

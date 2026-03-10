@@ -25,7 +25,7 @@ Salesforce B2C Commerce Cloud provides developers and architects with a [framewo
 
 ### Multipart/Form-Data
 
-A [separate article is available](https://www.rhino-inquisitor.com/submit-multipart-form-data-to-a-third-party-service-in-sfcc/) if your service uses the Multipart format.
+A [separate article is available](/submit-multipart-form-data-to-a-third-party-service-in-sfcc/) if your service uses the Multipart format.
 
 ### Single File
 

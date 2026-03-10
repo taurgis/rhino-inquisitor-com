@@ -16,7 +16,7 @@ tags:
   - sfcc
 author: Thomas Theunen
 ---
-It is a slow period in B2C Commerce Cloud update land as no significant [releases](https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/release-notes/) happen during the holiday period. But updates still occur in other places!
+It is a slow period in B2C Commerce Cloud update land as no significant [releases](/category/release-notes/) happen during the holiday period. But updates still occur in other places!
 
 In this article, I consolidate all the updates I have found across the different areas encompassing Salesforce B2C Commerce Cloud.
 
@@ -49,7 +49,7 @@ Even though there are no "big releases", bugfix releases still happen in this pe
 
 ## Account Manager
 
-The Account Manager got some love again at the end of October (after my [last release notes post](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-october-updates/)).
+The Account Manager got some love again at the end of October (after my [last release notes post](/salesforce-b2c-commerce-cloud-october-updates/)).
 
 -   Security Fixes
 -   Bug Fixes

@@ -17,7 +17,7 @@ tags:
   - sfcc
 author: Thomas Theunen
 ---
-So you want to be an [architect](https://www.rhino-inquisitor.com/what-skills-do-i-need-as-a-sfcc-architect/), do you? At least, that is why I am guessing you came to this page! Well, you came to the right place! I have gone through this transition myself, and here are some topics I wanted to write about the role.
+So you want to be an [architect](/what-skills-do-i-need-as-a-sfcc-architect/), do you? At least, that is why I am guessing you came to this page! Well, you came to the right place! I have gone through this transition myself, and here are some topics I wanted to write about the role.
 
 ## What is an architect?
 

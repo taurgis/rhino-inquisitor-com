@@ -266,7 +266,7 @@ As you can see, base64 poses no real challenge for Salesforce Commerce Cloud, an
 
 Within the controller, we have multiple options to work with:
 
--   [On-the-fly generation of a file](https://www.rhino-inquisitor.com/pdf-and-salesforce-commerce-cloud-b2c/)
+-   [On-the-fly generation of a file](/pdf-and-salesforce-commerce-cloud-b2c/)
 -   Reading a file from the WebDAV
 
 

@@ -69,7 +69,7 @@ This adaptability is pure gold. And here's the cherry on top: by using the offic
 
 ```
 
-**Caching Like a Boss (and CDN's Best Friend):** DIS isn't just dynamic; it's smart. It caches (limited) transformations to deliver images at warp speed. If your Commerce Cloud instance is hooked up to a Content Delivery Network (newsflash: it is -> the [eCDN](https://www.rhino-inquisitor.com/lets-go-live-ecdn/)), the CDN helps optimise caching as well (through TTL headers).
+**Caching Like a Boss (and CDN's Best Friend):** DIS isn't just dynamic; it's smart. It caches (limited) transformations to deliver images at warp speed. If your Commerce Cloud instance is hooked up to a Content Delivery Network (newsflash: it is -> the [eCDN](/lets-go-live-ecdn/)), the CDN helps optimise caching as well (through TTL headers).
 
 When you update an image, there's no need for manual cache invalidation thanks to a [technique](https://help.salesforce.com/s/articleView?id=cc.b2c_clear_ecdn_cache_task.htm&type=5) known as **URL fingerprinting/asset fingerprinting**. Instead of just replacing the old file, the platform creates a new URL for the updated image, often by adding a unique identifier (a "fingerprint"). Because the URL has changed, it forces browsers and the eCDN to download the new version as if it were a completely new file, bypassing the old cached version.
 
@@ -194,7 +194,7 @@ DIS is powerful, but don't forget the fundamentals of image optimisation:
 -   **Pre-Compress (Gently):** While DIS handles quality, a little pre-compression on your source images (especially removing unnecessary metadata) can reduce file size by up to 30% without compromising visual quality.
 
 
--   **Leverage the CDN:** DIS already plays nicely with Salesforce's [Content Delivery Network](https://www.rhino-inquisitor.com/lets-go-live-ecdn/). This means your images are cached and delivered from servers closer to your global audience, making them appear almost instantly.
+-   **Leverage the CDN:** DIS already plays nicely with Salesforce's [Content Delivery Network](/lets-go-live-ecdn/). This means your images are cached and delivered from servers closer to your global audience, making them appear almost instantly.
 
 
 ### Troubleshooting: When Things Go Sideways
@@ -209,7 +209,7 @@ DIS is powerful, but don't forget the fundamentals of image optimisation:
 
 ## When Not to Use It (Or When to Be Extra Careful)
 
-[![A cartoon illustration depicting a massive traffic jam of oversized, unoptimized images attempting to enter a cloud icon, which appears overwhelmed and unable to process the volume. The images are backed up on a road leading to the cloud, symbolizing a system bottleneck or overload.](/media/2025/dis-traffic-jam-b798844f63.jpeg)](https://www.rhino-inquisitor.com/wp-content/uploads/2025/07/dis-traffic-jam-scaled.jpeg)
+[![A cartoon illustration depicting a massive traffic jam of oversized, unoptimized images attempting to enter a cloud icon, which appears overwhelmed and unable to process the volume. The images are backed up on a road leading to the cloud, symbolizing a system bottleneck or overload.](/media/2025/dis-traffic-jam-b798844f63.jpeg)](/media/2025/dis-traffic-jam-b798844f63.jpeg)
 
 Image Overload: When Your Service Gets Jammed
 
@@ -225,10 +225,10 @@ While DIS is a superhero, even superheroes have their kryptonite. There are a fe
 
 -   **You Need More Modern Features:** If you've been in the SFCC space for some time, you've likely noticed that little has changed regarding image resizing and format support over the years, although formats like WebP are managed by the eCDN. For those seeking the newest formats like [AVIF](https://en.wikipedia.org/wiki/AVIF), you'll need to look elsewhere at this time.
     _
-    **Note:** The WebP transformation is handled by the [eCDN](https://www.rhino-inquisitor.com/lets-go-live-ecdn/), specifically through its configuration feature known as "the image Polish options," rather than by the DIS._
+    **Note:** The WebP transformation is handled by the [eCDN](/lets-go-live-ecdn/), specifically through its configuration feature known as "the image Polish options," rather than by the DIS._
 
 
-[![A cartoon illustration showing a fork in the road. One path leads to a cloud labeled "Dynamic Image Service (DIS)," and the other, larger path, leads to icons representing a "Third Party CDN/DAM" and "Digital Asset Management System." A developer character is pointing towards the CDN/DAM path, indicating a choice for image management solutions.](/media/2025/sfcc-when-not-to-use-dis-8b8b9ec0b1.jpeg)](https://www.rhino-inquisitor.com/wp-content/uploads/2025/07/sfcc-when-not-to-use-dis-scaled.jpeg)
+[![A cartoon illustration showing a fork in the road. One path leads to a cloud labeled "Dynamic Image Service (DIS)," and the other, larger path, leads to icons representing a "Third Party CDN/DAM" and "Digital Asset Management System." A developer character is pointing towards the CDN/DAM path, indicating a choice for image management solutions.](/media/2025/sfcc-when-not-to-use-dis-8b8b9ec0b1.jpeg)](/media/2025/sfcc-when-not-to-use-dis-8b8b9ec0b1.jpeg)
 
 Deciding between Salesforce's native DIS and external CDN/DAM solutions often comes down to specific project needs and existing infrastructure.
 

@@ -17,7 +17,7 @@ tags:
   - sfcc
 author: Thomas Theunen
 ---
-The wait is almost over. Next week, it is time for Salesforce Connections 2024. I can't believe it has already been two years since then—and that one was quite memorable, as I was last [awarded my Golden Hoodie](https://www.rhino-inquisitor.com/events-and-the-golden-hoodie/) during the keynote!
+The wait is almost over. Next week, it is time for Salesforce Connections 2024. I can't believe it has already been two years since then—and that one was quite memorable, as I was last [awarded my Golden Hoodie](/events-and-the-golden-hoodie/) during the keynote!
 
 So, what does this iteration of Connections have in store for us? Will there be enough content for B2C enthusiasts to keep us occupied for two full days?
 

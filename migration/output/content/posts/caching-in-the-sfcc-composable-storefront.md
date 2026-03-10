@@ -19,7 +19,7 @@ author: Thomas Theunen
 ---
 Caching, Performance, Lighthouse Speed, CrUX, ... and probably many more terms have crossed your desk and mind ever since you got into web development and, more specifically, if you are here, Salesforce B2C Commerce Cloud.
 
-With the platform's various iterations, understanding the differences is crucial. [SFRA](https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/) differs from the Composable Storefront, so your experience with one may not directly apply to the other.
+With the platform's various iterations, understanding the differences is crucial. [SFRA](/sitegenesis-vs-sfra-vs-pwa/) differs from the Composable Storefront, so your experience with one may not directly apply to the other.
 
 But you aren't here for pretty intro speeches and chit-chat—let's get into the options you should know!
 

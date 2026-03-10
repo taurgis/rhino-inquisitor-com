@@ -284,7 +284,7 @@ Keeping the default setting false is recommended to avoid this negative impact a
 
 Once your script module and `steptypes.json` are ready, upload them as part of your custom cartridge. You can then create a job in Business Manager with your custom chunk-oriented step to start processing data in chunks.
 
-[![A screenshot of the interface configuring a Chunk-Oriented Job Step in the Business Manager](/media/2023/configure-chunk-job-business-manager-ce41f2bdab.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/12/configure-chunk-job-business-manager-scaled.jpg)
+[![A screenshot of the interface configuring a Chunk-Oriented Job Step in the Business Manager](/media/2023/configure-chunk-job-business-manager-ce41f2bdab.jpg)](/media/2023/configure-chunk-job-business-manager-ce41f2bdab.jpg)
 
 ### Advantages of "total-count"
 

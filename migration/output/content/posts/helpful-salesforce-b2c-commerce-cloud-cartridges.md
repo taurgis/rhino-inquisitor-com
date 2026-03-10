@@ -57,7 +57,7 @@ A convenient cartridge! But there are some things to keep in mind:
 
 -   [GitHub Repository Link](https://github.com/SalesforceCommerceCloud/plugin_slas)
 
-This cartridge integrates the SLAS (Shopper Login and API Access Service) within SFRA. [I have covered this one extensively](https://www.rhino-inquisitor.com/slas-in-sfra-or-sitegenesis/) in a separate article which I recommend reading!
+This cartridge integrates the SLAS (Shopper Login and API Access Service) within SFRA. [I have covered this one extensively](/slas-in-sfra-or-sitegenesis/) in a separate article which I recommend reading!
 
 ## Resource Manager
 
@@ -86,7 +86,7 @@ There are some things to keep in mind when switching to this method:
 
 ## Page Designer Plus
 
-[![](/media/2022/page-designer-plus-9eedd5b72f.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/page-designer-plus.png)
+[![](/media/2022/page-designer-plus-9eedd5b72f.jpg)](/media/2022/page-designer-plus-9eedd5b72f.jpg)
 
 -   [GitHub Repository Link](https://github.com/SalesforceCommerceCloud/link_royalcyberpd)
 
@@ -116,7 +116,7 @@ A few years ago, I was frustrated that I couldn't use a few popular libraries on
 -   ramda
 -   jsPDF
 
-The list hasn't grown much in the last two to three years (I switch side projects a little bit too much). But the most recent addition (jsPDF) [received an extensive blog post](https://www.rhino-inquisitor.com/pdf-and-salesforce-commerce-cloud-b2c/).
+The list hasn't grown much in the last two to three years (I switch side projects a little bit too much). But the most recent addition (jsPDF) [received an extensive blog post](/pdf-and-salesforce-commerce-cloud-b2c/).
 
 ## B2C CRM Sync
 
@@ -137,4 +137,4 @@ But why is it in there? Well, it is an excellent source of inspiration for other
 
 ## And many more
 
-There are [a lot of cartridges like this](https://www.rhino-inquisitor.com/community-repositories/) out there, and covering them all is quite impossible. But be sure to leave a comment if you have an interesting one to share! I might do a follow-up blog post with more cartridges that need some love.
+There are [a lot of cartridges like this](/community-repositories/) out there, and covering them all is quite impossible. But be sure to leave a comment if you have an interesting one to share! I might do a follow-up blog post with more cartridges that need some love.

@@ -18,7 +18,7 @@ author: Thomas Theunen
 ---
 A new year means release notes for the back end have started again! This time, we look at the [January 2024 (24.1) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_24_1_release.htm&type=5)!
 
-Are you interested in last year's release notes? [Click here](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-23-10-release-a-comprehensive-overview/)!
+Are you interested in last year's release notes? [Click here](/salesforce-b2c-commerce-cloud-23-10-release-a-comprehensive-overview/)!
 
 ## Platform
 

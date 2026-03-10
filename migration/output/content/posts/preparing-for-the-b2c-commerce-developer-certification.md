@@ -56,7 +56,7 @@ Why is this one in the second position? Good question; it is my opinion you need
 
 Knowing what built-in features exist is essential for answering the questions on the exam correctly (built-in always wins within certification exams) and for yourself and your implementations. There is no point in re-inventing the wheel, right?
 
-I'm going to put this site separately since it covers so many topics, and I have already mentioned this one in [a previous blog post](https://www.rhino-inquisitor.com/getting-to-know-sfra-as-a-developer):
+I'm going to put this site separately since it covers so many topics, and I have already mentioned this one in [a previous blog post](/getting-to-know-sfra-as-a-developer/):
 
 -   [https://b2c.learncommercecloud.com/](https://b2c.learncommercecloud.com/)
 

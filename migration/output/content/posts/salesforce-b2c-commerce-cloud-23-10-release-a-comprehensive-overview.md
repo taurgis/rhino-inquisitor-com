@@ -17,7 +17,7 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-It's a yearly tradition not to release major updates during the holiday season to maintain platform stability, so here we are with the final release of 2023. This time, we look at the [October 2023 (23.10) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_23_10_release.htm&type=5)! Are you interested in last month’s release notes? [Click here](https://www.rhino-inquisitor.com/a-look-at-the-23-9-commerce-cloud-release/)!
+It's a yearly tradition not to release major updates during the holiday season to maintain platform stability, so here we are with the final release of 2023. This time, we look at the [October 2023 (23.10) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_23_10_release.htm&type=5)! Are you interested in last month’s release notes? [Click here](/a-look-at-the-23-9-commerce-cloud-release/)!
 
 ## Temporary Baskets
 

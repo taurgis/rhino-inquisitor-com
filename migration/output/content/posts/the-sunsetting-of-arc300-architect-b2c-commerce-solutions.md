@@ -56,6 +56,6 @@ Although nothing has been confirmed yet, it is exciting to speculate on the futu
 
 ## How can I prepare for the Architect exam now?
 
-Since no alternative course is available yet, you will have to resort to all resources available on [Trailhead](https://trailhead.salesforce.com/trails?products=commercecloud&sort=RELEVANCE), the [Partner Learning Camp](http://partnerlearningcamp.salesforce.com) (if you have access), and, of course, my [own blog](https://www.rhino-inquisitor.com/the-b2c-commerce-architect-certification/), which has multiple resources available to get you started!
+Since no alternative course is available yet, you will have to resort to all resources available on [Trailhead](https://trailhead.salesforce.com/trails?products=commercecloud&sort=RELEVANCE), the [Partner Learning Camp](http://partnerlearningcamp.salesforce.com) (if you have access), and, of course, my [own blog](/the-b2c-commerce-architect-certification/), which has multiple resources available to get you started!
 
 If you are planning on taking the exam shortly, good luck!

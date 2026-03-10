@@ -19,6 +19,7 @@
     "migrate:map-frontmatter": "node scripts/migration/map-frontmatter.js",
     "migrate:download-media": "node scripts/migration/download-media.js",
     "migrate:rewrite-media": "node scripts/migration/rewrite-media-refs.js",
+    "migrate:rewrite-links": "node scripts/migration/rewrite-links.js",
     "build:prod": "hugo --minify --environment production",
     "validate:frontmatter": "node scripts/validate-frontmatter.js",
     "check:url-parity": "node scripts/migration/validate-url-parity.js",

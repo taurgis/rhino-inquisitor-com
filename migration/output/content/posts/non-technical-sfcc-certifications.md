@@ -17,9 +17,9 @@ tags:
   - trailhead
 author: Thomas Theunen
 ---
-People working as Business Analysts, UX designers, or other non-developer roles have felt a [gap](https://www.rhino-inquisitor.com/certifications-for-salesforce-b2c-commerce-cloud/) in the Salesforce B2C Commerce Cloud certifications for a while.
+People working as Business Analysts, UX designers, or other non-developer roles have felt a [gap](/certifications-for-salesforce-b2c-commerce-cloud/) in the Salesforce B2C Commerce Cloud certifications for a while.
 
-There have been [certifications](https://www.rhino-inquisitor.com/is-salesforce-certification-worth-it/) available for developers for a very long time now, but those require you to know how to code.
+There have been [certifications](/is-salesforce-certification-worth-it/) available for developers for a very long time now, but those require you to know how to code.
 
 But in 2021, 2022, and 2023, some options became available for those who do not have a developer background!
 
@@ -65,7 +65,7 @@ You understand and analyse business operations, processes, and requirements to i
 
 ~~While in the big picture of things in the Salesforce eco-system, it is a requirement that you have a solid knowledge of the platform that you are implementing, the fact that B2C Commerce Cloud is not built on the "core" means that we are at a disadvantage.~~
 
-~~The fact that there is no "administrator" like certification for B2C Commerce Cloud doesn't help... But if you are not afraid of a challenge and are preparing for [the world of tomorrow](https://www.rhino-inquisitor.com/what-is-commerce-on-core/), this certification might be worth pursuing!~~
+~~The fact that there is no "administrator" like certification for B2C Commerce Cloud doesn't help... But if you are not afraid of a challenge and are preparing for [the world of tomorrow](/what-is-commerce-on-core/), this certification might be worth pursuing!~~
 
 Salesforce Admin is no longer required As of May 2, 2023, the Salesforce Administrator certification is no longer a requirement!
 
@@ -97,7 +97,7 @@ Trailmix Once the trailmix becomes available, I will update this section of the 
 
 We ran out of Trailhead Certifications, so now we are turning to the [Partner Learning Camp](https://partnerlearningcamp.salesforce.com/s/learner-dashboard) (PLC). Here you will find certifications targeted toward Partners and Employees of Salesforce, so if you are neither, this Accreditation is not an option for you.
 
-[Einstein](https://www.rhino-inquisitor.com/ai-einstein-in-salesforce-b2c-commerce-cloud/) is one of the critical features of Salesforce B2C Commerce Cloud, providing many different AI features "natively" to the platform. And even though some development has to go into it, many of its features must be configured to work out of the box! Knowing where all those buttons and switches are is essential to any project.
+[Einstein](/ai-einstein-in-salesforce-b2c-commerce-cloud/) is one of the critical features of Salesforce B2C Commerce Cloud, providing many different AI features "natively" to the platform. And even though some development has to go into it, many of its features must be configured to work out of the box! Knowing where all those buttons and switches are is essential to any project.
 
 The official description is as follows:
 

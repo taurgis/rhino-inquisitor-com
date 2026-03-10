@@ -15,7 +15,7 @@ tags:
   - sfcc
 author: Thomas Theunen
 ---
-It sure has been quite a while since I made my [last blog post](https://www.rhino-inquisitor.com/the-latest-in-sfcc-version-24-7/); I even missed a release log - sorry about that. But why is that? And what have I been up to for the past two to three months? Is it the end of this blog?
+It sure has been quite a while since I made my [last blog post](/the-latest-in-sfcc-version-24-7/); I even missed a release log - sorry about that. But why is that? And what have I been up to for the past two to three months? Is it the end of this blog?
 
 Adaptability is a defining trait of mine. I thrive on learning and embracing change. As my wife can attest, my interests are ever-evolving—some change monthly, while others take years to shift.
 

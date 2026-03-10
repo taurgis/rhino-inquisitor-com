@@ -20,7 +20,7 @@ author: Thomas Theunen
 ---
 In some places there is too much rain, in other places it is too hot.The weather might not bee consistent, but the release schedule of SFCC sure is! This time we look at the [July 2024 (24.7) release](https://help.salesforce.com/s/articleView?id=sf.b2c_rn_24_7_release.htm&type=5)!
 
-Are you interested in last month’s release notes? [Click here](https://www.rhino-inquisitor.com/what-is-new-in-sfcc-24-6/)!
+Are you interested in last month’s release notes? [Click here](/what-is-new-in-sfcc-24-6/)!
 
 ## Migrate to eCDN WAFv2
 

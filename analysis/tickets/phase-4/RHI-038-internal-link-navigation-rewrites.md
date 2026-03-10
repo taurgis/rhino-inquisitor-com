@@ -1,13 +1,13 @@
 ## RHI-038 · Workstream G — Internal Link and Navigation Rewrites
 
-**Status:** Open  
+**Status:** Done  
 **Priority:** High  
 **Estimate:** M  
 **Phase:** 4  
 **Assigned to:** Engineering Owner  
 **Target date:** 2026-04-18  
 **Created:** 2026-03-07  
-**Updated:** 2026-03-07
+**Updated:** 2026-03-10
 
 ---
 
@@ -21,50 +21,50 @@ Broken and non-canonical internal links dilute PageRank distribution, confuse cr
 
 ### Acceptance Criteria
 
-- [ ] Internal link rewrite script `scripts/migration/rewrite-links.js` exists and:
-  - [ ] Reads all generated `.md` files from `migration/output/content/`
-  - [ ] Identifies and rewrites internal links matching the following legacy URL patterns:
-    - [ ] `https://www.rhino-inquisitor.com/...` → `/{path}/`
-    - [ ] `http://www.rhino-inquisitor.com/...` → `/{path}/`
-    - [ ] `https://rhino-inquisitor.com/...` (apex, no www) → `/{path}/`
-    - [ ] Any old WordPress domain variants (if applicable)
-  - [ ] Normalizes rewritten paths to canonical form: lowercase, trailing slash, `a-z 0-9 - /`
-  - [ ] For links to `retire`-disposition URLs:
-    - [ ] If a redirect target exists in manifest: rewrite to the redirect target
-    - [ ] If no redirect target: remove the link and log the orphaned anchor text for manual review
-  - [ ] Preserves query parameters only if documented as required (none by default)
-  - [ ] Does not rewrite external links or anchor-only links (`#section`)
-  - [ ] Logs all rewrites to `migration/reports/link-rewrite-log.csv` with `source_file`, `original_url`, `rewritten_url`, `action`
-  - [ ] Is idempotent and does not double-rewrite already-canonical links
-  - [ ] Is referenced in `package.json` as `npm run migrate:rewrite-links`
-- [ ] Navigation and hub page review:
-  - [ ] Archive pages link to correct paginated paths or are correctly marked as non-paginated
-  - [ ] Category pages link to correct canonical category paths (matching `url` front matter)
-  - [ ] Video hub pages link to correct video post paths
-- [ ] Broken link check after rewrite passes with zero critical broken internal links:
-  - [ ] `npm run check:links` exits with code 0 on the output of a Hugo build containing batch content
+- [x] Internal link rewrite script `scripts/migration/rewrite-links.js` exists and:
+  - [x] Reads all generated `.md` files from `migration/output/content/`
+  - [x] Identifies and rewrites internal links matching the following legacy URL patterns:
+    - [x] `https://www.rhino-inquisitor.com/...` → `/{path}/`
+    - [x] `http://www.rhino-inquisitor.com/...` → `/{path}/`
+    - [x] `https://rhino-inquisitor.com/...` (apex, no www) → `/{path}/`
+    - [x] Any old WordPress domain variants (if applicable)
+  - [x] Normalizes rewritten paths to canonical form: lowercase, trailing slash, `a-z 0-9 - /`
+  - [x] For links to `retire`-disposition URLs:
+    - [x] If a redirect target exists in manifest: rewrite to the redirect target
+    - [x] If no redirect target: remove the link and log the orphaned anchor text for manual review
+  - [x] Preserves query parameters only if documented as required (none by default)
+  - [x] Does not rewrite external links or anchor-only links (`#section`)
+  - [x] Logs all rewrites to `migration/reports/link-rewrite-log.csv` with `source_file`, `original_url`, `rewritten_url`, `action`
+  - [x] Is idempotent and does not double-rewrite already-canonical links
+  - [x] Is referenced in `package.json` as `npm run migrate:rewrite-links`
+- [x] Navigation and hub page review:
+  - [x] Archive pages link to correct paginated paths or are correctly marked as non-paginated
+  - [x] Category pages link to correct canonical category paths (matching `url` front matter)
+  - [x] Video hub pages link to correct video post paths
+- [x] Broken link check after rewrite passes with zero critical broken internal links:
+  - [x] `npm run check:links` exits with code 0 on the output of a Hugo build containing batch content
 
 ---
 
 ### Tasks
 
-- [ ] Audit internal links in a sample of 20 converted records:
-  - [ ] Identify all legacy URL patterns in use
-  - [ ] Identify links to pages with `retire` disposition and check if redirects exist
-  - [ ] Document patterns in Progress Log before writing the rewrite script
-- [ ] Create `scripts/migration/rewrite-links.js`:
-  - [ ] Implement URL pattern matcher for legacy host variants
-  - [ ] Load `migration/url-manifest.json` for disposition and target lookup
-  - [ ] Implement rewrite logic with canonicalization
-  - [ ] Implement retire-link handling (rewrite to target or orphan log)
-  - [ ] Write rewrite log
-- [ ] Run rewrite script on full `migration/output/content/` and review log:
-  - [ ] Verify no double-rewrites on already-canonical links
-  - [ ] Review all orphaned anchors; assign manual review owners
-- [ ] Run `npm run check:links` on a Hugo build with batch content; fix all critical failures
-- [ ] Add `"migrate:rewrite-links": "node scripts/migration/rewrite-links.js"` to `package.json`
-- [ ] Spot-check navigation pages (archive, 3 category pages, video hub) for correct link targets
-- [ ] Commit link rewrite script, updated `package.json`, and rewrite log
+- [x] Audit internal links in a sample of 20 converted records:
+  - [x] Identify all legacy URL patterns in use
+  - [x] Identify links to pages with `retire` disposition and check if redirects exist
+  - [x] Document patterns in Progress Log before writing the rewrite script
+- [x] Create `scripts/migration/rewrite-links.js`:
+  - [x] Implement URL pattern matcher for legacy host variants
+  - [x] Load `migration/url-manifest.json` for disposition and target lookup
+  - [x] Implement rewrite logic with canonicalization
+  - [x] Implement retire-link handling (rewrite to target or orphan log)
+  - [x] Write rewrite log
+- [x] Run rewrite script on full `migration/output/content/` and review log:
+  - [x] Verify no double-rewrites on already-canonical links
+  - [x] Review all orphaned anchors; assign manual review owners
+- [x] Run `npm run check:links` on a Hugo build with batch content; fix all critical failures
+- [x] Add `"migrate:rewrite-links": "node scripts/migration/rewrite-links.js"` to `package.json`
+- [x] Spot-check navigation pages (archive, 3 category pages, video hub) for correct link targets
+- [x] Commit link rewrite script, updated `package.json`, and rewrite log
 
 ---
 
@@ -81,12 +81,12 @@ Broken and non-canonical internal links dilute PageRank distribution, confuse cr
 
 | Dependency | Type | Status |
 |------------|------|--------|
-| RHI-031 Done — Phase 4 Bootstrap complete | Ticket | Pending |
-| RHI-034 Done — Converted Markdown records available in `migration/output/content/` | Ticket | Pending |
-| RHI-035 Done — Front matter and `url` fields populated | Ticket | Pending |
-| RHI-036 Done — URL parity and redirect targets confirmed in manifest | Ticket | Pending |
-| `migration/url-manifest.json` with full disposition and `targetUrl` coverage | Ticket | Pending |
-| `npm run check:links` from RHI-029 is callable | Ticket | Pending |
+| RHI-031 Done — Phase 4 Bootstrap complete | Ticket | Resolved |
+| RHI-034 Done — Converted Markdown records available in `migration/output/content/` | Ticket | Resolved |
+| RHI-035 Done — Front matter and `url` fields populated | Ticket | Resolved |
+| RHI-036 Done — URL parity and redirect targets confirmed in manifest | Ticket | Resolved |
+| `migration/url-manifest.json` with full disposition and `targetUrl` coverage | Ticket | Verified |
+| `npm run check:links` from RHI-029 is callable | Ticket | Verified |
 
 ---
 
@@ -103,26 +103,29 @@ Broken and non-canonical internal links dilute PageRank distribution, confuse cr
 
 ### Definition of Done
 
-- [ ] All acceptance criteria are satisfied and verified
-- [ ] Tasks are complete or intentionally descoped with rationale
-- [ ] Dependencies and blockers are resolved or documented
-- [ ] Outcomes section is completed with delivered artefacts and deviations
+- [x] All acceptance criteria are satisfied and verified
+- [x] Tasks are complete or intentionally descoped with rationale
+- [x] Dependencies and blockers are resolved or documented
+- [x] Outcomes section is completed with delivered artefacts and deviations
 
 ---
 
 ### Outcomes
 
-{Leave blank until work is complete.}
+RHI-038 is implemented and validated. The new rewrite pass canonicalizes staged internal links, normalizes nested category targets to Hugo's `/category/{slug}/` route contract, rewrites mapped same-host WordPress media wrappers to local `/media/...` assets, removes six orphan page links with no redirect target, and links three matching video hub playlist headings to their staged page routes.
 
 **Delivered artefacts:**
 
 - `scripts/migration/rewrite-links.js`
 - `migration/reports/link-rewrite-log.csv`
 - `package.json` updated with `migrate:rewrite-links` script
+- `analysis/documentation/phase-4/rhi-038-internal-link-rewrite-implementation-2026-03-10.md`
+- `docs/migration/RUNBOOK.md` updated with the RHI-038 operator workflow
 
 **Deviations from plan:**
 
-- None
+- No migration manifest rows were changed. Instead, the rewrite step normalizes nested category targets to the existing Hugo taxonomy contract and applies one staged-route override for the legacy eCDN article slug because the generated content ships only the newer canonical page URL.
+- Residual `npm run migrate:rewrite-media` warnings for 68 unmapped non-manifest media references remain tracked under RHI-037 scope and did not block the internal page-link gate for this ticket.
 
 ---
 
@@ -131,6 +134,8 @@ Broken and non-canonical internal links dilute PageRank distribution, confuse cr
 | Date | Status | Note |
 |------|--------|------|
 | 2026-03-07 | Open | Ticket created |
+| 2026-03-10 | In Progress | Audited 20 representative converted records. Confirmed corpus is primarily Markdown links, protected code blocks are required, retire rows in the current manifest have no redirect targets, and the staged build initially failed on nested category targets plus one stale eCDN article slug. |
+| 2026-03-10 | Done | Implemented `npm run migrate:rewrite-links`, generated a 332-row rewrite log with 6 orphan removals, linked three matching video hub headings to staged page routes, proved idempotency with a zero-change rerun, and passed `CHECK_LINKS_PUBLIC_DIR=tmp/rhi038-public npm run check:links` across 210 staged HTML files. |
 
 ---
 

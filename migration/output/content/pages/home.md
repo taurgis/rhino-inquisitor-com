@@ -26,4 +26,4 @@ I am here to share my knowledge and experience to help others succeed in the Oha
 
 I have been in the commerce world for more than a decade now implementing multiple platforms. I want to share that knowledge about [SFCC](https://www.salesforce.com/products/commerce-cloud/overview/) and how to integrate with the other products that [Salesforce](https://www.salesforce.com/eu/?ir=1) has to offer!
 
-For more articles, be sure to check out my [blog](https://www.rhino-inquisitor.com/archive/)!
+For more articles, be sure to check out my [blog](/archive/)!

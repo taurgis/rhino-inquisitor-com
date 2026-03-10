@@ -15,7 +15,7 @@ TL;DR It is not possible to set a dynamic ID in the `<isslot>` tag. ![Screenshot
 
 For quite some time now, Content Slots have been the go-to method for displaying personalized or scheduled content. However, the advent of Page Designer has given rise to a new option.
 
-Despite their popularity, one major limitation of [Content Slots](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-content-erd/) is the inability to set a dynamic ID. It's likely that the system scans all ISML files to determine which slots to display for configuration in the Business Manager, but this is merely speculation since it is a black box feature.
+Despite their popularity, one major limitation of [Content Slots](/salesforce-b2c-commerce-cloud-content-erd/) is the inability to set a dynamic ID. It's likely that the system scans all ISML files to determine which slots to display for configuration in the Business Manager, but this is merely speculation since it is a black box feature.
 
 ## Alternative solutions to isslot
 

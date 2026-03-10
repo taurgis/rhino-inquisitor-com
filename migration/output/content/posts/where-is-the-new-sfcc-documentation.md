@@ -18,7 +18,7 @@ author: Thomas Theunen
 ---
 In early 2023, we were notified that the Infocenter would be replaced with a supposedly more "modern" solution. While some may have looked forward to this update, others were disappointed by the news.
 
-Were these reactions anticipated? What changes are occurring? And where can we find the relevant [documentation](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-documentation/) now? Time to have a look!
+Were these reactions anticipated? What changes are occurring? And where can we find the relevant [documentation](/salesforce-b2c-commerce-cloud-documentation/) now? Time to have a look!
 
 ## The official announcement
 

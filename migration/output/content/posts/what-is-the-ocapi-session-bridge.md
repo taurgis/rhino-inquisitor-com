@@ -17,7 +17,7 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-With the added attention to [Headless architecture](https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/) in Salesforce B2C Commerce Cloud and the option for "[hybrid deployments](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/phased-headless-rollouts.html)," the [Session Bridge](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/SessionBridge.html) has also gotten some more airtime.
+With the added attention to [Headless architecture](/sitegenesis-vs-sfra-vs-pwa/) in Salesforce B2C Commerce Cloud and the option for "[hybrid deployments](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/phased-headless-rollouts.html)," the [Session Bridge](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/SessionBridge.html) has also gotten some more airtime.
 
 But what is it? What do I use it for? What do I watch out for? Let us dig deeper into these questions and try to give them a clear answer!
 
@@ -224,7 +224,7 @@ Matching customer\_id To verify that the flow worked, the "customer\_id" from st
 
 ## SCAPI & SLAS
 
-Suppose you are making use of SLAS to get a JWT token, no worries. This JWT token is also compatible with the session bridge and is used actively by the PWA Kit (Composable Storefront) and the [SFRA SLAS Plugin](https://www.rhino-inquisitor.com/slas-in-sfra-or-sitegenesis/).
+Suppose you are making use of SLAS to get a JWT token, no worries. This JWT token is also compatible with the session bridge and is used actively by the PWA Kit (Composable Storefront) and the [SFRA SLAS Plugin](/slas-in-sfra-or-sitegenesis/).
 
 ## Guest basket and sensitive data
 

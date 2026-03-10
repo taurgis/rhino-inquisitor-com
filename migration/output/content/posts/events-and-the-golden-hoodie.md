@@ -36,7 +36,7 @@ But boy, did Connections have more in store for me than I could have anticipated
 
 The short answer is no. You will mainly be able to see roadmap and customer cases presented here. But if you look around carefully, you will find sessions that have some technical learnings in there!
 
-If you want a Salesforce conference with more technical workshops and presentations, [TrailblazerDX](https://www.rhino-inquisitor.com/trailblazerdx-2022-for-b2c-commerce/) is the event to go to!
+If you want a Salesforce conference with more technical workshops and presentations, [TrailblazerDX](/trailblazerdx-2022-for-b2c-commerce/) is the event to go to!
 
 ### Receiving a "Golden Hoodie"
 

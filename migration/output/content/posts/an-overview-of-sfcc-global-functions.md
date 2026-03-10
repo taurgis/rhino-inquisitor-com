@@ -19,7 +19,7 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-In development, it's essential to have access to useful functions that can make your work more efficient. [Salesforce B2C Commerce Cloud](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/) offers several global functions which are helpful when working on the server side. These functions have a range of capabilities, from encoding and decoding characters in a URI to executing JavaScript code from a string. This article will explore these functions in detail and discuss how developers can use them to streamline their development process.
+In development, it's essential to have access to useful functions that can make your work more efficient. [Salesforce B2C Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/) offers several global functions which are helpful when working on the server side. These functions have a range of capabilities, from encoding and decoding characters in a URI to executing JavaScript code from a string. This article will explore these functions in detail and discuss how developers can use them to streamline their development process.
 
 ## encodeURI and encodeURIComponent
 

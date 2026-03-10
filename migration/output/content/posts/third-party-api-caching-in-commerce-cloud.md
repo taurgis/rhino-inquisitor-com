@@ -18,7 +18,7 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-Enhancing the performance of your different online channels is a given, including keeping an eye on any third-party integrations. All Salesforce Commerce Cloud sites rely on APIs in some capacity, such as for retrieving location data, weather updates, address verification, [submitting files](https://www.rhino-inquisitor.com/submitting-a-file-to-a-third-party-service-in-sfcc/), and more, all with different levels of performance stability. 😅.
+Enhancing the performance of your different online channels is a given, including keeping an eye on any third-party integrations. All Salesforce Commerce Cloud sites rely on APIs in some capacity, such as for retrieving location data, weather updates, address verification, [submitting files](/submitting-a-file-to-a-third-party-service-in-sfcc/), and more, all with different levels of performance stability. 😅.
 
 Understanding and applying caching for third-party services can enhance your third-party's integration performance and cost-effectiveness.
 
@@ -68,7 +68,7 @@ A screenshot of the official documentation on how to add caching to a service.
 
 ## Why Caching Matters
 
-[Caching](https://www.rhino-inquisitor.com/caching-rest-apis-in-sfcc/) has several benefits, especially for services with consistent data and infrequent updates. Let's have a look at how this minor code change can significantly affect the way your Salesforce Commerce Cloud channel works:
+[Caching](/caching-rest-apis-in-sfcc/) has several benefits, especially for services with consistent data and infrequent updates. Let's have a look at how this minor code change can significantly affect the way your Salesforce Commerce Cloud channel works:
 
 1.  **Faster performance**: Caching allows your site to retrieve data from "local" storage instead of repeatedly calling an external server. When a cached response is available, the app server can quickly fulfil requests, significantly reducing wait times.
 2.  **Greater Reliability**: With caching, your site becomes more robust. If a third-party service goes down or experiences issues, your app can still provide cached data, ensuring a smoother user experience.
@@ -76,7 +76,7 @@ A screenshot of the official documentation on how to add caching to a service.
 
 ## Everyday Use Cases for Caching
 
-Here are a few everyday situations where you might want to use [caching](https://www.rhino-inquisitor.com/caching-in-the-sfcc-composable-storefront/):
+Here are a few everyday situations where you might want to use [caching](/caching-in-the-sfcc-composable-storefront/):
 
 1.  **Google Location Services**: Location data doesn't change very often, so caching it can speed up response times in local applications.
 2.  **Address Verification Services**: Address information stays the same over time. Caching these responses can improve efficiency.

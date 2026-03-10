@@ -17,7 +17,7 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-We have just received the final release ([22.10](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-22-10/)) of the year. But that does not mean there are no updates to some APIs and cartridges.  Let us have a look what has changed in the past month.
+We have just received the final release ([22.10](/salesforce-b2c-commerce-cloud-22-10/)) of the year. But that does not mean there are no updates to some APIs and cartridges.  Let us have a look what has changed in the past month.
 
 ## OCAPI & SCAPI
 
@@ -27,7 +27,7 @@ We have just received the final release ([22.10](https://www.rhino-inquisitor.co
 
 -   [https://developer.salesforce.com/docs/commerce/commerce-api/guide/slas-trusted-agent.html](https://developer.salesforce.com/docs/commerce/commerce-api/guide/slas-trusted-agent.html)
 
-This month a new addition to the SLAS ([Shopper Login API](https://www.rhino-inquisitor.com/slas-in-sfra-or-sitegenesis/)) appeared! The ability to authenticate as a Trusted Agent (Customer Service) to log in on behalf of a customer. This is not a new feature, as this was already possible using the OCAPI. But it is good to see that this has also made its way to SLAS, so we do not have to combine authentication methods for these use cases. Another added advantage is that this authentication works with the Account Manager, so we do not have to worry about security on that part (2FA is included this way!) Permissions This new API depends on an Account Manager account with a "user" in that specific environment. Permissions and roles define what these users are capable of:
+This month a new addition to the SLAS ([Shopper Login API](/slas-in-sfra-or-sitegenesis/)) appeared! The ability to authenticate as a Trusted Agent (Customer Service) to log in on behalf of a customer. This is not a new feature, as this was already possible using the OCAPI. But it is good to see that this has also made its way to SLAS, so we do not have to combine authentication methods for these use cases. Another added advantage is that this authentication works with the Account Manager, so we do not have to worry about security on that part (2FA is included this way!) Permissions This new API depends on an Account Manager account with a "user" in that specific environment. Permissions and roles define what these users are capable of:
 
 -   Login\_On\_Behalf
 -   Create\_Order\_On\_Behalf

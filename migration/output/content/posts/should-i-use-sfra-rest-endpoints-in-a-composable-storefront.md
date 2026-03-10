@@ -23,7 +23,7 @@ author: Thomas Theunen
 ---
 When working with Salesforce B2C Commerce Cloud in a hybrid approach (using SFRA with a Composable Storefront project), you naturally end up with some pages as SFRA Controllers and other parts of the project built on the Composable Storefront.
 
-In that regard, you end up using [SFRA](https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/) Controllers, and it all works with the Composable Storefront through the magic of [SLAS](https://www.rhino-inquisitor.com/how-to-set-up-slas-for-the-composable-storefront/)! But is the same true for using controllers to create REST endpoints?
+In that regard, you end up using [SFRA](/sitegenesis-vs-sfra-vs-pwa/) Controllers, and it all works with the Composable Storefront through the magic of [SLAS](/how-to-set-up-slas-for-the-composable-storefront/)! But is the same true for using controllers to create REST endpoints?
 
 ## There is a better native solution
 
@@ -36,7 +36,7 @@ Besides all request methods, we get:
 -   [Same authentication methodology](https://developer.salesforce.com/docs/commerce/commerce-api/guide/custom-api-authentication.html) (SLAS JWT)
 -   [Personalisation & caching](https://developer.salesforce.com/docs/commerce/commerce-api/guide/custom-api-caching.html)
 
-So, if you have some controllers or [custom OCAPI endpoints](https://www.rhino-inquisitor.com/creating-custom-ocapi-endpoints/) left over on a project built before this, it might be a good time to add a ticket to your backlog to upgrade them.
+So, if you have some controllers or [custom OCAPI endpoints](/creating-custom-ocapi-endpoints/) left over on a project built before this, it might be a good time to add a ticket to your backlog to upgrade them.
 
 Are you still interested in the reason for this? If so, keep on reading!
 

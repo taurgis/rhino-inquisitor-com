@@ -217,6 +217,28 @@ This runbook tracks the operational steps needed to move the repository from pla
   - `npm run migrate:normalize`
   - confirm `migration/intermediate/normalize-errors.json` is empty
   - confirm `migration/intermediate/normalize-summary.json` shows `requiredManifestCount` equal to `normalizedRequiredCount`
+
+### RHI-038 - Internal Link and Navigation Rewrites
+
+- Run the internal link rewrite pass with `npm run migrate:rewrite-links` after `npm run migrate:map-frontmatter` and `npm run migrate:rewrite-media`.
+- The rewrite pass reads staged Markdown from `migration/output/content/` and URL governance data from:
+  - `migration/url-manifest.json`
+  - `migration/intermediate/media-manifest.json`
+- The script rewrites legacy same-host article links to Hugo-relative targets, rewrites mapped WordPress media wrappers to localized `/media/...` assets, removes orphan page links with no redirect target while preserving anchor text, and records every change in `migration/reports/link-rewrite-log.csv`.
+- Current validated 2026-03-10 behavior:
+  - the final rewrite report contains 332 logged actions with 6 orphan removals
+  - nested legacy category paths are normalized to the Hugo taxonomy contract at `/category/{slug}/`
+  - the legacy eCDN staging article slug is rewritten to the staged canonical route `/how-to-set-up-the-ecdn-in-sfcc-staging/`
+  - the video hub page links matching playlist headings to existing staged video-page routes when those pages are present in the staged corpus
+  - rerunning the command against already-rewritten staged Markdown is idempotent; the validated rerun updated 0 files and logged 0 actions when writing to `tmp/rhi038-idempotency.csv`
+- Validation steps for RHI-038:
+  - `npm run migrate:map-frontmatter`
+  - `npm run migrate:rewrite-media`
+  - `npm run migrate:rewrite-links`
+  - `hugo --minify --environment production --contentDir migration/output/content --destination tmp/rhi038-public`
+  - `CHECK_LINKS_PUBLIC_DIR=tmp/rhi038-public npm run check:links`
+  - spot-check `tmp/rhi038-public/archive/index.html`, one representative category term page such as `tmp/rhi038-public/category/release-notes/index.html`, and `tmp/rhi038-public/video/index.html`
+  - treat residual `npm run migrate:rewrite-media` warnings for unmapped non-manifest media references as RHI-037 scope, not a blocker for the RHI-038 internal page-link gate
   - rerun `npm run migrate:normalize` and confirm the normalized artifact hashes remain stable
 
 ### RHI-034 - HTML-to-Markdown Conversion

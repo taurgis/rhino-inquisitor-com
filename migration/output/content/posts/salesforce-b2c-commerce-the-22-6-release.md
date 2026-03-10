@@ -16,7 +16,7 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-Again, here we are with the latest [release notes](https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/release-notes/) of Salesforce B2C Commerce Cloud; time flies by fast, doesn't it? Let us go over the [June 2022 (22.6) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_6_release.htm&type=5)!
+Again, here we are with the latest [release notes](/category/release-notes/) of Salesforce B2C Commerce Cloud; time flies by fast, doesn't it? Let us go over the [June 2022 (22.6) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_6_release.htm&type=5)!
 
 ## Einstein Dashboards
 

@@ -117,7 +117,7 @@ The above commands will set up your project, start the development server, and a
 
 ## Accessing Sandboxes
 
-[Getting a sandbox](https://www.rhino-inquisitor.com/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/) is not easy if you are not a partner or customer.
+[Getting a sandbox](/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/) is not easy if you are not a partner or customer.
 
 ## Conclusion
 

@@ -20,7 +20,7 @@ author: Thomas Theunen
 ---
 A new month, a new release of Salesforce B2C Commerce Cloud. Let us dig a little deeper in the [release notes](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_5_release.htm&type=5) to see what is new!
 
-Are you interested in last month's release notes? [Click here](https://www.rhino-inquisitor.com/b2c-commerce-whats-new-in-22-4/)!
+Are you interested in last month's release notes? [Click here](/b2c-commerce-whats-new-in-22-4/)!
 
 ## Documentation and community move
 
@@ -30,7 +30,7 @@ But do not fear! All documentation has been safely migrated to the primary [Sale
 
 The communities that were part of the CCDC have also been migrated into the existing [Trailblazer Community](https://trailhead.salesforce.com/trailblazer-community/groups/0F94S000000H1fESAS?tab=discussion&sort=LAST_MODIFIED_DATE_DESC), so all of that information (questions and answers) is not lost!
 
-This is, in my opinion, an excellent move to integrate the Commerce Cloud community more into the [Salesforce Ohana](https://www.rhino-inquisitor.com/the-state-of-ohana-for-salesforce-commerce-cloud/).
+This is, in my opinion, an excellent move to integrate the Commerce Cloud community more into the [Salesforce Ohana](/the-state-of-ohana-for-salesforce-commerce-cloud/).
 
 ## Platform
 

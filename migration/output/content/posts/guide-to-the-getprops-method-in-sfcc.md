@@ -18,7 +18,7 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-As a developer, you're always looking for ways to improve the performance and functionality of your projects. The PWA Kit includes several features and functions that make creating high-performance, mobile- and [SEO](https://www.rhino-inquisitor.com/lets-go-live-seo/)\-friendly web applications accessible.
+As a developer, you're always looking for ways to improve the performance and functionality of your projects. The PWA Kit includes several features and functions that make creating high-performance, mobile- and [SEO](/lets-go-live-seo/)\-friendly web applications accessible.
 
 In this article, we'll explore one of the critical features of the PWA Kit: the getProps method.
 
@@ -176,7 +176,7 @@ And now we can use that new property in our ProductDetail component:
 
 ## Handling errors
 
-To handle [errors](https://www.rhino-inquisitor.com/secure-coding-in-salesforce-b2c-commerce-cloud/) in a getProps function, you have two options.
+To handle [errors](/secure-coding-in-salesforce-b2c-commerce-cloud/) in a getProps function, you have two options.
 
 The first option is to throw an HTTPError object, which can be imported from "pwa-kit-react-sdk/ssr/universal/errors". When you throw an HTTPError, a dedicated Error component is rendered.
 

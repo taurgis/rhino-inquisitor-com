@@ -18,7 +18,7 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-[Custom endpoints](https://www.rhino-inquisitor.com/creating-custom-ocapi-endpoints/) are a way to create personalised solutions that meet the needs of a particular business. If we are working with POST or PUT requests, developers need to be able to access and handle the submitted data within an SFCC controller. But where can we find this [request body](https://en.wikipedia.org/wiki/HTTP_message_body)?
+[Custom endpoints](/creating-custom-ocapi-endpoints/) are a way to create personalised solutions that meet the needs of a particular business. If we are working with POST or PUT requests, developers need to be able to access and handle the submitted data within an SFCC controller. But where can we find this [request body](https://en.wikipedia.org/wiki/HTTP_message_body)?
 
 ## TLDR;
 

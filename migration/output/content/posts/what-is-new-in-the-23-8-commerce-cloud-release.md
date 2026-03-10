@@ -19,7 +19,7 @@ author: Thomas Theunen
 ---
 Everyone knows that getting ready for the holiday season starts in the summer in the Commerce Cloud world! And looking at the [23.8 release notes,](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_23_8_release.htm&type=5) this is apparent.
 
-Are you interested in last month’s release notes? [Click here](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-the-22-6-release/)!
+Are you interested in last month’s release notes? [Click here](/salesforce-b2c-commerce-the-22-6-release/)!
 
 ## Infrastructure and Scaling
 
@@ -78,7 +78,7 @@ A bit of familiar maintenance has happened on the Account Manager. But not to wo
 
 ### UUID API Access Tokens Deprecated
 
-I have written [extensively on this topic](https://www.rhino-inquisitor.com/the-deprecation-of-the-uuid-token-for-api-clients/) before, so it's not something new. The due date has already passed and your only recourse now is to use JWT.
+I have written [extensively on this topic](/the-deprecation-of-the-uuid-token-for-api-clients/) before, so it's not something new. The due date has already passed and your only recourse now is to use JWT.
 
 ### Specify Enhanced Domain Names In Account Manager
 

@@ -27,7 +27,7 @@ Salesforce has a guide for this installation publicly available. Some steps are 
 
 ## Step 1: Get a sandbox
 
-If you want to connect the Composable Storefront to your own APIs (including SLAS), you need your own Sandbox. We will not be digging into this topic here, but the information to get one [is described in a previous article](https://www.rhino-inquisitor.com/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/) and [the official documentation](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/creating-an-on-demand-sandbox.html).
+If you want to connect the Composable Storefront to your own APIs (including SLAS), you need your own Sandbox. We will not be digging into this topic here, but the information to get one [is described in a previous article](/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/) and [the official documentation](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/creating-an-on-demand-sandbox.html).
 
 ## Step 2: Go to the Salesforce Commerce API Settings
 

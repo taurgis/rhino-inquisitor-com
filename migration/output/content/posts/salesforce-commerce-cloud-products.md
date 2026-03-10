@@ -14,7 +14,7 @@ tags:
   - sfcc
 author: Thomas Theunen
 ---
-You are probably here, reading this blog to learn more about [Salesforce B2C Commerce Cloud](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/). But over the past years, more products have been put under Salesforce Commerce Cloud "wings."
+You are probably here, reading this blog to learn more about [Salesforce B2C Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/). But over the past years, more products have been put under Salesforce Commerce Cloud "wings."
 
 Salesforce has quite the history of renaming products, causing some confusion with possible customers, partners, and within Salesforce itself!
 
@@ -30,7 +30,7 @@ Since this is an acquired product, it runs on a completely different stack than 
 
 This platform mainly aims at B2C customers but doesn't shy away from supporting B2B. And being a SaaS platform, it auto-scales very well to support high-traffic events such as [Black Friday and the holiday period](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_21_10_get_holiday_ready_je.htm&type=5)!
 
-SFCC also offers some different "flavours," which I elaborated on [in an earlier article](https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/).
+SFCC also offers some different "flavours," which I elaborated on [in an earlier article](/sitegenesis-vs-sfra-vs-pwa/).
 
 ## Salesforce B2B Commerce Classic (CloudCraze)
 
@@ -89,7 +89,7 @@ If you want to learn more about this product, there are courses on the [Partner 
 
 A "smaller" product in the lineup: a "Headless" addon called [OCI (Omnichannel Inventory)](https://trailhead.salesforce.com/en/content/learn/modules/omnichannel-inventory). A set of headless APIs to manage all of your inventory.
 
-I will not go into too much detail as I [already released a different article that digs into those details](https://www.rhino-inquisitor.com/what-is-oci-omnichannel-inventory/)!
+I will not go into too much detail as I [already released a different article that digs into those details](/what-is-oci-omnichannel-inventory/)!
 
 License If you are a Salesforce B2C Commerce Cloud customer, this product is already included in your license!
 
@@ -131,6 +131,6 @@ And another advantage is the [Managed Runtime](https://developer.salesforce.com/
 
 [![](/media/2023/salesforce-payments-7926558e4f.jpg)](/media/2023/salesforce-payments-7926558e4f.jpg)
 
-[Salesforce Payments](https://www.rhino-inquisitor.com/salesforce-payments-experience-explained/) is a native payment solution developed for the Salesforce Commerce Cloud platforms. For B2C Commerce Cloud, it is a plugin consisting of a Business Manager interface and cartridge, which provides native integration with the payment provider Stripe.
+[Salesforce Payments](/salesforce-payments-experience-explained/) is a native payment solution developed for the Salesforce Commerce Cloud platforms. For B2C Commerce Cloud, it is a plugin consisting of a Business Manager interface and cartridge, which provides native integration with the payment provider Stripe.
 
 Salesforce Payments is optional, and businesses can integrate any payment service provider (PSP) they desire. However, incorporating other PSPs may require more custom development work and offer different benefits than Salesforce Payments.

@@ -24,7 +24,7 @@ Knowing your POD number isn't just trivia; it's a critical piece of operational 
 
 ## What is an SFCC POD, and Why Should You Care?
 
-Before we dive into the "how," let's establish the "[what](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/)" and "why." In the Salesforce B2C Commerce ecosystem, a **POD (Point of Delivery)** is not just a single server. It is a complete, self-contained infrastructure cluster hosting the multi-tenant Software as a Service (SaaS) application. Think of it as a group of hardware—including firewalls, load balancers, application servers, and storage systems—that multiple customers share. Salesforce manages this grid, continually adding new PODs and refurbishing existing ones to balance loads, enhance performance, and improve disaster recovery capabilities.
+Before we dive into the "how," let's establish the "[what](/the-salesforce-b2c-commerce-cloud-environment/)" and "why." In the Salesforce B2C Commerce ecosystem, a **POD (Point of Delivery)** is not just a single server. It is a complete, self-contained infrastructure cluster hosting the multi-tenant Software as a Service (SaaS) application. Think of it as a group of hardware—including firewalls, load balancers, application servers, and storage systems—that multiple customers share. Salesforce manages this grid, continually adding new PODs and refurbishing existing ones to balance loads, enhance performance, and improve disaster recovery capabilities.
 
 
 

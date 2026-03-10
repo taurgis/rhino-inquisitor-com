@@ -21,7 +21,7 @@ What a year it has been, and now it is time for the final release of this year: 
 
 And yes, as it is every year, there will be no releases between November and January to provide stability on the platform during the holiday period.
 
-Are you interested in last month’s release notes? [Click here](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-22-9-release/)!
+Are you interested in last month’s release notes? [Click here](/salesforce-b2c-commerce-cloud-22-9-release/)!
 
 ## Staging eCDN configuration
 
@@ -38,7 +38,7 @@ Business Manager The UI in the Business Manager will not reflect the changes mad
 
 ## TikTok for Ads
 
-[![](/media/2022/tiktok-bm-9172b705bb.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/tiktok-bm-scaled.jpg)
+[![](/media/2022/tiktok-bm-9172b705bb.jpg)](/media/2022/tiktok-bm-9172b705bb.jpg)
 
 Since the start of this year, there has been a lot of talk about "Social Commerce," which means the integration of Salesforce B2C Commerce Cloud into different social channels such as TikTok.
 

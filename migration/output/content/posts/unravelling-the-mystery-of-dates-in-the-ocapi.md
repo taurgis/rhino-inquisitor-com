@@ -17,7 +17,7 @@ tags:
   - sfcc
 author: Thomas Theunen
 ---
-When we integrate third-party systems with [Salesforce B2C Commerce Cloud](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/) using OCAPI or SCAPI, we often have the requirement to filter data based on date ranges or only retrieve data that has been modified after a certain time.
+When we integrate third-party systems with [Salesforce B2C Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/) using OCAPI or SCAPI, we often have the requirement to filter data based on date ranges or only retrieve data that has been modified after a certain time.
 
 But how can we achieve this? Are there any other options available? Let's explore the various filtering and query options in detail.
 
@@ -168,7 +168,7 @@ For precision filtering, where a field must match an exact date, the [term\_quer
 
 ## Custom Endpoint
 
-It is currently not fully available / BETA, but you can create [custom GET endpoints](https://www.rhino-inquisitor.com/creating-custom-ocapi-endpoints/) tailored entirely to your requirements.
+It is currently not fully available / BETA, but you can create [custom GET endpoints](/creating-custom-ocapi-endpoints/) tailored entirely to your requirements.
 
 When creating these endpoints, it's important to consider performance and caching - these are your responsibility when utilising this option.
 

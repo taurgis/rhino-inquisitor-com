@@ -26,7 +26,7 @@ Info This article was updated with the latest and most important feature informa
 
 So, you need to add a custom attribute to the basket response, or maybe validate an order against a third-party fraud service before it's created. Your first thought? A SCAPI hook. You're not wrong, but you're only seeing the tip of the iceberg.
 
-Salesforce Commerce API (SCAPI) and OCAPI (Open Commerce API) hooks are one of the most powerful tools in our arsenal for extending the platform's [headless](https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/) capabilities. They allow us to inject custom logic directly into the API lifecycle, tailoring the out-of-the-box behaviour to meet unique business requirements. But let's be clear: with great power comes great responsibility.
+Salesforce Commerce API (SCAPI) and OCAPI (Open Commerce API) hooks are one of the most powerful tools in our arsenal for extending the platform's [headless](/sitegenesis-vs-sfra-vs-pwa/) capabilities. They allow us to inject custom logic directly into the API lifecycle, tailoring the out-of-the-box behaviour to meet unique business requirements. But let's be clear: with great power comes great responsibility.
 
 The official documentation provides the "what" and the "how," but it's in the wild, under a production load, where the real lessons are learned. These powerful tools, if used improperly, can be extremely hazardous, potentially introducing security vulnerabilities, performance bottlenecks, and maintenance issues.
 
@@ -44,7 +44,7 @@ Before we can master SCAPI and OCAPI hooks, we need to understand them from the 
 
 At their core, hooks are a mechanism for altering and extending the behaviour of _existing_ API resources using server-side B2C Commerce Script API logic. They are not standalone endpoints; rather, they are extension points that allow you to inject your custom code into the platform's standard API request lifecycle.
 
-This brings us to a critical architectural crossroads. The platform provides two primary methods for adding custom server-side logic to SCAPI and OCAPI: hooks (SCAPI / OCAPI) and Custom APIs ([SCAPI only](https://www.rhino-inquisitor.com/creating-custom-ocapi-endpoints/)). The choice you make here will define the maintainability and scalability of your solution.
+This brings us to a critical architectural crossroads. The platform provides two primary methods for adding custom server-side logic to SCAPI and OCAPI: hooks (SCAPI / OCAPI) and Custom APIs ([SCAPI only](/creating-custom-ocapi-endpoints/)). The choice you make here will define the maintainability and scalability of your solution.
 
 Hooks are fundamentally tethered to an existing Salesforce endpoint, like `/baskets` or `/orders`. They can only react to calls made to that endpoint. Their purpose is to _augment_ an existing process. For example:
 
@@ -358,7 +358,7 @@ The performance shared responsibility model is clear: Salesforce is responsible 
 
 ### Your Best Friend, The Code Profiler
 
-You can't optimise what you can't measure. The B2C Commerce [Code Profiler](https://www.rhino-inquisitor.com/server-side-performance-in-sfcc/) is the essential tool for diagnosing performance issues in your custom code. It allows you to see exactly how much time is being spent in different parts of the application flow.
+You can't optimise what you can't measure. The B2C Commerce [Code Profiler](/server-side-performance-in-sfcc/) is the essential tool for diagnosing performance issues in your custom code. It allows you to see exactly how much time is being spent in different parts of the application flow.
 
 The profiler has several modes, each with a different level of detail and performance impact :
 
@@ -387,7 +387,7 @@ Caching is a powerful tool, but with hooks, it's a double-edged sword. A `modify
 
 Therefore, you must be acutely aware of the "cacheability" of the data you inject. Use `modifyResponse` hooks on GET requests with extreme caution. If possible, load highly personalised data via a separate, non-cached API call from the client after the main, cacheable content has loaded.
 
-For expensive, repeatable operations _within_ a hook (like a complex data transformation), you can leverage B2C Commerce [Custom Caches](https://www.rhino-inquisitor.com/caching-in-the-sfcc-composable-storefront/) to store the result, but be mindful of their size limits (20MB total, 128KB per entry)
+For expensive, repeatable operations _within_ a hook (like a complex data transformation), you can leverage B2C Commerce [Custom Caches](/caching-in-the-sfcc-composable-storefront/) to store the result, but be mindful of their size limits (20MB total, 128KB per entry)
 
 #### Efficient Data Handling
 

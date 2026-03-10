@@ -17,7 +17,7 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-[Salesforce B2C Commerce Cloud](https://www.rhino-inquisitor.com/getting-to-know-sfra-as-a-developer/) offers many features that empower developers to build custom features on its platform. Generic Mapping are one feature that few use or have heard of. This enables developers to map keys to values stored in a high-performance data store—ideal for handling large datasets with speedy lookup times.
+[Salesforce B2C Commerce Cloud](/getting-to-know-sfra-as-a-developer/) offers many features that empower developers to build custom features on its platform. Generic Mapping are one feature that few use or have heard of. This enables developers to map keys to values stored in a high-performance data store—ideal for handling large datasets with speedy lookup times.
 
 In this article, we’ll dissect the inner workings of Generic Mapping, complemented by code examples and job configurations, to serve as a practical guide.
 

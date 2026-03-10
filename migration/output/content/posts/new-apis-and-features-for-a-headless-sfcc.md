@@ -17,7 +17,7 @@ tags:
   - sfcc
 author: Thomas Theunen
 ---
-The holiday period was quiet for a long time regarding [Salesforce B2C Commerce Cloud releases](https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/release-notes/). This was because the monolithic system required the deployment of all components, which carried the risk of bugs.
+The holiday period was quiet for a long time regarding [Salesforce B2C Commerce Cloud releases](/category/release-notes/). This was because the monolithic system required the deployment of all components, which carried the risk of bugs.
 
 However, more options are now available with multiple "layers" in the Headless architecture. Each layer can have its release schedule, and some layers are more modular than others, allowing for finer-grained releases that will not impact the rest (at least in theory).
 
@@ -54,7 +54,7 @@ With the changes happening in the managed runtime, two new releases have happene
 -   [3.2.0](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v3.2.0)
 -   [3.2.1](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v3.2.1)
 
-Besides the Storefront Preview feature, there are changes to how "[Content-Security-Policy](https://www.rhino-inquisitor.com/secure-coding-in-salesforce-b2c-commerce-cloud/)" is managed in this release. Be sure to review the changes as they are significant.
+Besides the Storefront Preview feature, there are changes to how "[Content-Security-Policy](/secure-coding-in-salesforce-b2c-commerce-cloud/)" is managed in this release. Be sure to review the changes as they are significant.
 
 ## OCAPI & SCAPI
 

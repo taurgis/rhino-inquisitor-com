@@ -16,7 +16,7 @@ tags:
   - sfcc
 author: Thomas Theunen
 ---
-It's summertime, which means we get to check out the fresh release of the Salesforce B2C Commerce Cloud. Join me as we delve into all the new features of the [July 2023 (23.7)](https://help.salesforce.com/s/articleView?language=en_US&id=sf.rn_b2c_rn_23_7_release.htm&type=5) release. Are you interested in last month’s release notes? [Click here](https://www.rhino-inquisitor.com/a-look-at-the-salesforce-b2c-commerce-cloud-23-6-release/)!
+It's summertime, which means we get to check out the fresh release of the Salesforce B2C Commerce Cloud. Join me as we delve into all the new features of the [July 2023 (23.7)](https://help.salesforce.com/s/articleView?language=en_US&id=sf.rn_b2c_rn_23_7_release.htm&type=5) release. Are you interested in last month’s release notes? [Click here](/a-look-at-the-salesforce-b2c-commerce-cloud-23-6-release/)!
 
 ## Environment Variables are now live on Managed Runtime
 

@@ -17,7 +17,7 @@ author: Thomas Theunen
 ---
 Summer has arrived, and so has the next Salesforce B2C Commerce Cloud release! This time we look at the [January 2023 (23.1) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_7_release.htm&type=5)!
 
-Are you interested in last month’s release notes? [Click here](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-22-10/)!
+Are you interested in last month’s release notes? [Click here](/salesforce-b2c-commerce-cloud-22-10/)!
 
 ## Migrate Deprecated Custom Jobs to Step-Based Jobs
 

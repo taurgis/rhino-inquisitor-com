@@ -137,7 +137,7 @@ Every PWA Kit developer will eventually face these common performance villains. 
 -   **Poorly Built Custom Components****:** A single custom React component that isn't optimised for performance can significantly impact your INP. This typically occurs through expensive calculations on every render or by triggering a chain reaction of unnecessary re-renders in its children.
 -   **Messed-Up Caching:** The MRT's CDN is powerful, but it's not magic. If you don't set your Cache-Control headers correctly, fail to filter out unnecessary query parameters, or misconfigure your [API](https://developer.salesforce.com/docs/commerce/commerce-api/guide/server-side-web-tier-caching.html) proxies, you'll experience a poor cache-hit ratio, and all the benefits of Server-Side Rendering (SSR) will be lost.
 
-[![A colorful cartoon of a chaotic factory illustrating four web performance bottlenecks. The bottlenecks shown are: a giant truck labeled 'Large Bundle Size' blocking the entrance, many small pipes labeled 'Network Waterfalls' slowly filling a tank, a complex machine for a simple task labeled 'Re-render Storms', and workers slipping on puddles labeled 'Memory Leaks'.](/media/2025/spa-performance-bottlenecks-6d6a3a6a62.jpeg)](https://www.rhino-inquisitor.com/wp-content/uploads/2025/06/spa-performance-bottlenecks-scaled.jpeg)
+[![A colorful cartoon of a chaotic factory illustrating four web performance bottlenecks. The bottlenecks shown are: a giant truck labeled 'Large Bundle Size' blocking the entrance, many small pipes labeled 'Network Waterfalls' slowly filling a tank, a complex machine for a simple task labeled 'Re-render Storms', and workers slipping on puddles labeled 'Memory Leaks'.](/media/2025/spa-performance-bottlenecks-6d6a3a6a62.jpeg)](/media/2025/spa-performance-bottlenecks-6d6a3a6a62.jpeg)
 
 Inside a struggling SPA: A visual guide to common performance bottlenecks.
 
@@ -179,7 +179,7 @@ Getting your CDN cache hit ratio as high as possible is the single most effectiv
 -   -   **Per-Page:** Inside a page's getProps function, you can set a custom cache time. A static "About Us" page can be cached for days (res.set('Cache-Control', 'public, max-age=86400')), while a product page might be cached for 15-30 minutes.
     -   **Use stale-while-revalidate:** This header is pure magic. Cache-Control: s-maxage=600, stale-while-revalidate=3600 tells the CDN to serve a cached version for 10 minutes. If a request comes in after that, it serves the _stale_ content instantly (so the user gets a fast response) and then fetches a fresh version in the background. It's the perfect balance of speed and freshness.
 
--   **Build Cache-Friendly Components:** To be [cached](https://www.rhino-inquisitor.com/caching-in-the-sfcc-composable-storefront/), your server-rendered HTML needs to be generic for all users. Any personalised content (like the user's name or cart count) must _only_ be rendered on the client. A simple trick is to wrap it in a check:
+-   **Build Cache-Friendly Components:** To be [cached](/caching-in-the-sfcc-composable-storefront/), your server-rendered HTML needs to be generic for all users. Any personalised content (like the user's name or cart count) must _only_ be rendered on the client. A simple trick is to wrap it in a check:
 
     {typeof window!== 'undefined' && `<MyPersonalizedComponent />`}.
 
@@ -192,7 +192,7 @@ Proxy Caching Caching proxies aren’t suitable for use with the B2C Commerce AP
 
 ### Tame the Third-Party Script Beast
 
-[![A cartoon developer is taming a large 'beast' made of code and tangled wires. The developer is putting a collar labeled 'async' and holding a leash labeled 'defer' on the beast, while corralling other parts of it towards a pen labeled 'Lazy Load Zone'.](/media/2025/taming-the-third-party-script-beast-8cac515268.jpeg)](https://www.rhino-inquisitor.com/wp-content/uploads/2025/06/taming-the-third-party-script-beast-scaled.jpeg)
+[![A cartoon developer is taming a large 'beast' made of code and tangled wires. The developer is putting a collar labeled 'async' and holding a leash labeled 'defer' on the beast, while corralling other parts of it towards a pen labeled 'Lazy Load Zone'.](/media/2025/taming-the-third-party-script-beast-8cac515268.jpeg)](/media/2025/taming-the-third-party-script-beast-8cac515268.jpeg)
 
 Taming the Third-Party Script Beast: A visual guide to managing external scripts for better web performance.
 

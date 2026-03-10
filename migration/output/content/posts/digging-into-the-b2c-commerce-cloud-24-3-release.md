@@ -20,7 +20,7 @@ author: Thomas Theunen
 ---
 As snowy days slowly turn into sunny ones, the 24.3 release of SFCC has arrived! Let us have a look at the [March release of 2024](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_24_3_release.htm&type=5).
 
-Are you interested in last month’s release notes? [Click here](https://www.rhino-inquisitor.com/a-look-at-the-salesforce-b2c-commerce-cloud-24-2-release/)!
+Are you interested in last month’s release notes? [Click here](/a-look-at-the-salesforce-b2c-commerce-cloud-24-2-release/)!
 
 ## Platform
 

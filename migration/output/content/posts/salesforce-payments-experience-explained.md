@@ -16,7 +16,7 @@ tags:
   - sfcc
 author: Thomas Theunen
 ---
-As a [Commerce Cloud](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/) connoisseur, you know how important it is to have a seamless customer payment process. After all, a clunky checkout experience can result in abandoned carts and lost sales. But what exactly is [Salesforce Payments](https://trailhead.salesforce.com/content/learn/modules/cc-commerce-payments) - or [Commerce Payments](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/salesforce_payments/b2c_salesforce_payments.html), and how can it benefit you with the payment provider implementation? In this article, we'll explore the ins and outs of Salesforce Payments, from its features and benefits to the integration.
+As a [Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/) connoisseur, you know how important it is to have a seamless customer payment process. After all, a clunky checkout experience can result in abandoned carts and lost sales. But what exactly is [Salesforce Payments](https://trailhead.salesforce.com/content/learn/modules/cc-commerce-payments) - or [Commerce Payments](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/salesforce_payments/b2c_salesforce_payments.html), and how can it benefit you with the payment provider implementation? In this article, we'll explore the ins and outs of Salesforce Payments, from its features and benefits to the integration.
 
 ## A plugin?
 
@@ -38,11 +38,11 @@ The key benefit of integrating Salesforce Payments into your e-commerce project 
 
 Usually, when you integrate with a payment provider, updates happen to their APIs - but it is still your responsibility to implement them. With Salesforce Payments, new features get added regularly. Let us have a look at the past few months:
 
--   [23.4 - Extend Payment Processing with Salesforce Payment APIs](https://www.rhino-inquisitor.com/everything-new-in-sfcc-23-4/)
--   [23.3 - Buy Now Items Get Their Own Cart](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-23-3-release/)
--   [23.2 - Set Up Payments for Immediate or Future Payment Capture](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-23-2/)
--   [23.1 - Orders from Stored Information with Salesforce Payments](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-23-1/)
--   [22.7 - AfterPay and Venmo added to Salesforce Payments](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-22-9-release/)
+-   [23.4 - Extend Payment Processing with Salesforce Payment APIs](/everything-new-in-sfcc-23-4/)
+-   [23.3 - Buy Now Items Get Their Own Cart](/salesforce-b2c-commerce-cloud-23-3-release/)
+-   [23.2 - Set Up Payments for Immediate or Future Payment Capture](/salesforce-b2c-commerce-cloud-23-2/)
+-   [23.1 - Orders from Stored Information with Salesforce Payments](/salesforce-b2c-commerce-cloud-23-1/)
+-   [22.7 - AfterPay and Venmo added to Salesforce Payments](/salesforce-b2c-commerce-cloud-22-9-release/)
 
 #### Double-Edged Sword?
 
@@ -58,7 +58,7 @@ I talked about the "Double-Edged Sword" before, but it's even more important to 
 
 ### Composable Storefront
 
-Currently, there is no readily available integration for the [PWA Kit,](https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/) a component of the Composable Storefront. However, plans are in place to include this integration in the future.
+Currently, there is no readily available integration for the [PWA Kit,](/sitegenesis-vs-sfra-vs-pwa/) a component of the Composable Storefront. However, plans are in place to include this integration in the future.
 
 ### Multi-Cloud (the future)
 

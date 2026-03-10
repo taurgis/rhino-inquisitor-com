@@ -19,7 +19,7 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-We have already gotten [a few parts down](https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/go-live/) of our GO-LIVE story, but we are far from done. Going live with any Commerce project can be quite an endeavor. But hopefully, with this series, the most critical parts of the puzzle are covered! On to the next piece: Customer migration!
+We have already gotten [a few parts down](/category/go-live/) of our GO-LIVE story, but we are far from done. Going live with any Commerce project can be quite an endeavor. But hopefully, with this series, the most critical parts of the puzzle are covered! On to the next piece: Customer migration!
 
 ## [Start sooner rather than later](http://t)
 

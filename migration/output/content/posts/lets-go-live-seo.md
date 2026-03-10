@@ -19,7 +19,7 @@ author: Thomas Theunen
 ---
 When going live with a website, SEO is an integral part that should not be overlooked. It is a long-term strategy that should be started before your website goes live.
 
-This article is part of a [GO-LIVE series](https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/go-live/) that should give you all the tools necessary to have a comfortable release!
+This article is part of a [GO-LIVE series](/category/go-live/) that should give you all the tools necessary to have a comfortable release!
 
 ## What is SEO?
 

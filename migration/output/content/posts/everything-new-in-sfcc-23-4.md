@@ -18,9 +18,9 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-As the clock ticks on a new month has arrived, and with that the next [Salesforce B2C Commerce Cloud](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/) release! This time we look at the [April 2023 (23.4) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_23_4_release.htm&language=en_US&type=5)!
+As the clock ticks on a new month has arrived, and with that the next [Salesforce B2C Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/) release! This time we look at the [April 2023 (23.4) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_23_4_release.htm&language=en_US&type=5)!
 
-Are you interested in last month’s release notes? [Click here](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-23-3-release/)!
+Are you interested in last month’s release notes? [Click here](/salesforce-b2c-commerce-cloud-23-3-release/)!
 
 ## Platform
 
@@ -28,7 +28,7 @@ Are you interested in last month’s release notes? [Click here](https://www.rhi
 
 > Use the new Salesforce Payment APIs to connect with third-party order management systems or platform-specific custom features. The APIs support capture, cancel, refund, and updates. For example, you can directly cancel or refund a payment in an order failure event by cleaning up payment authorizations. The APIs are available as Script APIs.
 
-Salesforce Payments continues to gain love from Salesforce with every new release. The [previous release](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-23-3-release/) included the addition of four temporary baskets, and this release introduced support for numerous new customer flows.
+Salesforce Payments continues to gain love from Salesforce with every new release. The [previous release](/salesforce-b2c-commerce-cloud-23-3-release/) included the addition of four temporary baskets, and this release introduced support for numerous new customer flows.
 
 Here is a list of all of the new APIs made available:
 
@@ -51,7 +51,7 @@ Here is a list of all of the new APIs made available:
 
 > B2C Commerce now recognizes imported and exported orders created with group taxation and uses the group taxation method to calculate tax for those orders.
 
-Import and export support has been incorporated, building on another feature [released in February](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-23-2/) to offer greater control over taxation in Japan.
+Import and export support has been incorporated, building on another feature [released in February](/salesforce-b2c-commerce-cloud-23-2/) to offer greater control over taxation in Japan.
 
 ## Business Manager
 
@@ -59,7 +59,7 @@ Import and export support has been incorporated, building on another feature [re
 
 > When editing in Page Designer, the page, region, and component rendering performance is now logged in your browser’s developer console. You can use the log to identify bottlenecks and optimise the rendering speed.
 
-Page Designer's performance has been criticised for some time, particularly when utilising multiple component types on a single page. Salesforce has been [working diligently](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-23-2/) to enhance the user experience in Business Manager, and with this release, developers are also receiving some attention. Performance metrics will now be logged in the developer console, offering insight into areas where improvements can be made on things developers can control.
+Page Designer's performance has been criticised for some time, particularly when utilising multiple component types on a single page. Salesforce has been [working diligently](/salesforce-b2c-commerce-cloud-23-2/) to enhance the user experience in Business Manager, and with this release, developers are also receiving some attention. Performance metrics will now be logged in the developer console, offering insight into areas where improvements can be made on things developers can control.
 
 ## OCAPI & SCAPI
 

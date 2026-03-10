@@ -69,7 +69,7 @@ Salesforce provides a handy tool to [build your schedule on the Dreamforce websi
 
 ## Sessions that stand out
 
-I created a schedule in previous editions of this event post ([TrailblazerDX](https://www.rhino-inquisitor.com/trailblazerdx-2022-for-b2c-commerce/) and [Connections](https://www.rhino-inquisitor.com/get-connected-at-salesforce-connections-2022/)). This time I will list the sessions that stand out or have exciting speakers! You will probably notice that I made sure to make the people active in the Salesforce Commerce Cloud community (Salesforce employees included) stand out a "little bit [😝](https://emojipedia.org/squinting-face-with-tongue/)."
+I created a schedule in previous editions of this event post ([TrailblazerDX](/trailblazerdx-2022-for-b2c-commerce/) and [Connections](/get-connected-at-salesforce-connections-2022/)). This time I will list the sessions that stand out or have exciting speakers! You will probably notice that I made sure to make the people active in the Salesforce Commerce Cloud community (Salesforce employees included) stand out a "little bit [😝](https://emojipedia.org/squinting-face-with-tongue/)."
 
 For now, session length and time are not known yet. I will update the article once this information is made public.
 

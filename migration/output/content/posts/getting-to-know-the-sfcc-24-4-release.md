@@ -19,7 +19,7 @@ author: Thomas Theunen
 ---
 It's that time of the year again! The [April 2024 (24.4)](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_24_4_release.htm&type=5) release of Salesforce B2C Commerce Cloud is finally here, just in time for the spring season. Let's take a closer look at all the exciting new features and improvements this release offers.
 
-Are you interested in last month’s release notes? [Click here](https://www.rhino-inquisitor.com/digging-into-the-b2c-commerce-cloud-24-3-release/)!
+Are you interested in last month’s release notes? [Click here](/digging-into-the-b2c-commerce-cloud-24-3-release/)!
 
 ## Added support for additional HTTP methods for Custom APIs
 
@@ -83,7 +83,7 @@ The good news is that the limit has been increased to 1000. This should provide 
 
 > Business Manager now supports configuring eCDN for staging environments. eCDN settings are specific to each instance (development, staging, and production), and you manage them individually. When you create a proxy zone in production, the zone doesn’t replicate a corresponding proxy zone in your development or staging instance. The new eCDN configuration feature simplifies onboarding new sites for staging instances, making it easier to mimic your production instance. Because the configuration uses the existing CDN-API, you can use either Business Manager or the API to manage your eCDN configurations.
 
-It feels like only yesterday that I [published my blog post](https://www.rhino-inquisitor.com/how-to-set-up-the-ecdn-in-sfcc-staging/) on how to upload certificates to the staging environment. With this latest release, we can now use the same user interface that we use in production and development. This is a great update that should simplify our lives, especially considering that in the past, we had to rely on support to get this done.
+It feels like only yesterday that I [published my blog post](/how-to-set-up-the-ecdn-in-sfcc-staging/) on how to upload certificates to the staging environment. With this latest release, we can now use the same user interface that we use in production and development. This is a great update that should simplify our lives, especially considering that in the past, we had to rely on support to get this done.
 
 ### Auto-Correction is Disabled by Default
 
@@ -115,7 +115,7 @@ With each new release, a new API seems to appear—[this time](https://developer
 
 > Use the Shopper Custom Objects API to retrieve custom object information. You can specify an object type ID as well as a key attribute for the object.
 
-Another use case where the [OCAPI](https://www.rhino-inquisitor.com/in-the-ring-ocapi-versus-scapi/) is no longer required, and we can access Custom Objects in our composable projects more easily.
+Another use case where the [OCAPI](/in-the-ring-ocapi-versus-scapi/) is no longer required, and we can access Custom Objects in our composable projects more easily.
 
 ### Check for Customization with SCAPI
 

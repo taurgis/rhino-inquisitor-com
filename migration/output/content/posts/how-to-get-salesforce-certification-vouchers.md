@@ -15,7 +15,7 @@ tags:
   - sfcc
 author: Thomas Theunen
 ---
-Earning a certification in Salesforce B2C Commerce Cloud [can be a valuable goal](https://www.rhino-inquisitor.com/is-salesforce-certification-worth-it/) for those in the industry. However, it's worth noting that certifications do come with a cost. If you're interested in exploring options for discounts or free certifications, this article will provide an overview of what's available.
+Earning a certification in Salesforce B2C Commerce Cloud [can be a valuable goal](/is-salesforce-certification-worth-it/) for those in the industry. However, it's worth noting that certifications do come with a cost. If you're interested in exploring options for discounts or free certifications, this article will provide an overview of what's available.
 
 ## Certifications vs Accreditations
 

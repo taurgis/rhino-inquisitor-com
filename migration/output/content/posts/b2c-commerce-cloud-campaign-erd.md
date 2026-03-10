@@ -18,11 +18,11 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-When scouring the documentation for the Campaign ERD ([Entity–relationship model](https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model)) of [Salesforce B2C Commerce Cloud](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/), you have probably come out empty-handed.
+When scouring the documentation for the Campaign ERD ([Entity–relationship model](https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model)) of [Salesforce B2C Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/), you have probably come out empty-handed.
 
 Sure, you find many diagrams on the entity model of [force.com](https://salesforce.stackexchange.com/questions/22720/standard-objects-in-salesforce) with a quick Google! But not so for SFCC. That is why I started to create my own, and share them with you!
 
-The fourth on the [list](https://www.rhino-inquisitor.com/tag/erd/): Campaigns! And this one has quite a few things to remember for such a small diagram.
+The fourth on the list: Campaigns! And this one has quite a few things to remember for such a small diagram.
 
 [![](/media/2023/salesforce-b2c-commerce-cloud-diagram-campaign-erd-4b241c1470.png)](/media/2023/salesforce-b2c-commerce-cloud-diagram-campaign-erd-4b241c1470.png)
 
@@ -74,13 +74,13 @@ It is possible to assign these to a campaign in the Business Manager, but they a
 
 ### SlotContent, SortingRule, and PriceBook
 
-These entities have been marked in yellow as there is a larger entity model behind them. These have been made available in other [ERD posts](https://www.rhino-inquisitor.com/tag/erd/) I have done (or will do) on this blog.
+These entities have been marked in yellow as there is a larger entity model behind them. These have been made available in other ERD posts I have done (or will do) on this blog.
 
 ## More to follow?
 
 You can be sure of that! Next is the basket and order ERD, so keep an eye out for this blog! There are still quite a few entities within Salesforce B2C Commerce Cloud, each in charge of an essential role within the entire flow.
 
-Next up is basket and order, [so keep an eye out](https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/erd/) for this blog!
+Next up is basket and order, [so keep an eye out](/category/erd/) for this blog!
 
 ### Mistakes?
 

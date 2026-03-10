@@ -16,11 +16,11 @@ tags:
   - sfcc
 author: Thomas Theunen
 ---
-As a [Salesforce Commerce Cloud developer](https://www.rhino-inquisitor.com/preparing-for-the-b2c-commerce-developer-certification/), you may have reached a point in your career where you feel ready to take on a more strategic role and transition into an architecture role. Making the jump from developer to [architect](https://www.rhino-inquisitor.com/the-b2c-commerce-architect-certification/) can be challenging and exciting, but you can successfully make that transition with the right approach and mindset!
+As a [Salesforce Commerce Cloud developer](/preparing-for-the-b2c-commerce-developer-certification/), you may have reached a point in your career where you feel ready to take on a more strategic role and transition into an architecture role. Making the jump from developer to [architect](/the-b2c-commerce-architect-certification/) can be challenging and exciting, but you can successfully make that transition with the right approach and mindset!
 
 ## Build a strong foundation in Commerce Cloud development
 
-Before you can become an architect, it's crucial to have a solid foundation in Commerce Cloud development. This includes understanding core concepts such as the [Salesforce Commerce Cloud architecture](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/), using APIs and integrations, and building and maintaining [custom functionality](https://www.rhino-inquisitor.com/preparing-for-the-b2c-commerce-developer-certification/).
+Before you can become an architect, it's crucial to have a solid foundation in Commerce Cloud development. This includes understanding core concepts such as the [Salesforce Commerce Cloud architecture](/the-salesforce-b2c-commerce-cloud-environment/), using APIs and integrations, and building and maintaining [custom functionality](/preparing-for-the-b2c-commerce-developer-certification/).
 
 ## Develop a broad understanding of the platform
 
@@ -49,9 +49,9 @@ As an architect, you must understand the various technologies and platforms used
 
 Here are some specific areas where it can be helpful to expand your knowledge:
 
--   **Integration options**: As an architect, you'll likely need to work with various integration technologies to connect the Commerce Cloud platform with other systems and data sources. This could include [APIs](https://www.rhino-inquisitor.com/creating-custom-ocapi-endpoints/), webhooks, and other integration technologies.
+-   **Integration options**: As an architect, you'll likely need to work with various integration technologies to connect the Commerce Cloud platform with other systems and data sources. This could include [APIs](/creating-custom-ocapi-endpoints/), webhooks, and other integration technologies.
 
--   **Other platforms and technologies**: Understanding different platforms and technologies that may be relevant to your organisation. For example, if you're working in the retail industry, you should understand point-of-sale systems, inventory management systems, and other [commonly-used technologies](https://www.rhino-inquisitor.com/salesforce-payments-experience-explained/).
+-   **Other platforms and technologies**: Understanding different platforms and technologies that may be relevant to your organisation. For example, if you're working in the retail industry, you should understand point-of-sale systems, inventory management systems, and other [commonly-used technologies](/salesforce-payments-experience-explained/).
 
 
 By expanding your knowledge beyond Commerce Cloud, you'll be better equipped to understand the broader context in which your solutions are being built and to design and develop more integrated and holistic solutions.
@@ -81,7 +81,7 @@ Here are some ways you can understand the business needs and goals of your organ
 
 ## Keep up with industry trends
 
-The technology field constantly evolves, and an architect must stay current on the latest trends. This could include reading industry blogs and publications, attending [conferences](https://www.rhino-inquisitor.com/community-salesforce-events-and-commerce-cloud/) and events, and participating in online communities and groups. Stay current on industry trends to ensure your organisation uses the best and most effective technologies and approaches.
+The technology field constantly evolves, and an architect must stay current on the latest trends. This could include reading industry blogs and publications, attending [conferences](/community-salesforce-events-and-commerce-cloud/) and events, and participating in online communities and groups. Stay current on industry trends to ensure your organisation uses the best and most effective technologies and approaches.
 
 ## Be open to learning and continuous improvement
 

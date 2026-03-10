@@ -17,7 +17,7 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-Although Salesforce B2C Commerce Cloud is a ‘niche’ developer space, there is no shortage of [open-source solutions](https://www.rhino-inquisitor.com/community-repositories/) available to make our lives a little bit easier.
+Although Salesforce B2C Commerce Cloud is a ‘niche’ developer space, there is no shortage of [open-source solutions](/community-repositories/) available to make our lives a little bit easier.
 
 In this article, we will list a few of these and provide information on their uses.
 

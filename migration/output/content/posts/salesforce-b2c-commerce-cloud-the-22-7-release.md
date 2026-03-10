@@ -18,17 +18,17 @@ author: Thomas Theunen
 ---
 Summer has arrived, and so has the next Salesforce B2C Commerce Cloud release! This time we look at the [July 2022 (22.7) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_7_release.htm&type=5)!
 
-Are you interested in last month’s release notes? [Click here](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-the-22-6-release/)!
+Are you interested in last month’s release notes? [Click here](/salesforce-b2c-commerce-the-22-6-release/)!
 
 ## Social Commerce
 
-[![](/media/2022/social-commerce-salesforce-a88048dff4.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/social-commerce-salesforce-scaled.jpg)
+[![](/media/2022/social-commerce-salesforce-a88048dff4.jpg)](/media/2022/social-commerce-salesforce-a88048dff4.jpg)
 
 Forward-looking statements apply!
 
-During the [Connections '22](https://www.rhino-inquisitor.com/get-connected-at-salesforce-connections-2022/) event, it became apparent a more significant focus has been put on Social Commerce!
+During the [Connections '22](/get-connected-at-salesforce-connections-2022/) event, it became apparent a more significant focus has been put on Social Commerce!
 
-I already mentioned this in the [22.5 release](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-the-22-5-release/), but a Tiktok and [Snapchat](https://forbusiness.snapchat.com/) integration is happening now.
+I already mentioned this in the [22.5 release](/salesforce-b2c-commerce-the-22-5-release/), but a Tiktok and [Snapchat](https://forbusiness.snapchat.com/) integration is happening now.
 
 To access these BETA features, contact your CSM (Customer Success Manager)!
 
@@ -83,7 +83,7 @@ I had a look at the "[Known Issues](https://trailblazer.salesforce.com/issues_in
 
 A new section to this monthly blogpost that I found could be handy for some people. The cartridges that have received updates in the past 30 days!
 
-Not all of them will be listed here, and I will mainly focus on [Salesforce and Community cartridges](https://www.rhino-inquisitor.com/community-repositories/).
+Not all of them will be listed here, and I will mainly focus on [Salesforce and Community cartridges](/community-repositories/).
 
 ### [b2c-tools (v0.7.1)](https://github.com/SalesforceCommerceCloud/b2c-tools/releases/tag/v0.7.1)
 
