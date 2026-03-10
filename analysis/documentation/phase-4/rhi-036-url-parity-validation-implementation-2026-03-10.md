@@ -31,7 +31,7 @@ New behavior:
 - Maintainers now have a repeatable command sequence for validating Phase 4 URL outcomes against generated content rather than the scaffold-only site tree.
 - The repository now preserves both validation modes: the scaffold/baseline Phase 3 parity check and the staged-content Phase 4 parity check.
 - Query-style merge and retire rows remain visible in reporting, but the repository no longer pretends Hugo can validate them as file-based alias pages.
-- RHI-036 remains open after this implementation pass because warning-level manifest/content gaps still remain, but the critical parity blockers are now cleared.
+- RHI-036 is now closed. Warning-level manifest/content gaps still remain, but Thomas Theunen accepted those nine residuals as downstream cleanup after staged parity reached zero critical failures.
 
 ## Verification
 
@@ -44,6 +44,7 @@ New behavior:
 - Applied the owner-approved manifest correction for `/delta-exports-in-salesforce-b2c-commerce/`, changing it from `keep` to `merge` toward `/delta-exports-in-salesforce-b2c-commerce-cloud/` on the `edge-cdn` layer.
 - Re-ran staged parity and verified the current report now shows 9 failures, all warning-level, with 0 critical failures and 528 deferred edge-layer rows.
 - Ran `node scripts/migration/check-redirects.js --public-dir tmp/rhi036-public` and verified zero critical failures with 126 deferred edge-layer rows.
+- Recorded owner acceptance of the remaining nine warning-level residual parity gaps and closed RHI-036 on the zero-critical-failure gate.
 
 ## Related files
 
