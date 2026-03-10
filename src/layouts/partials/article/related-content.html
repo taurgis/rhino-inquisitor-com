@@ -7,25 +7,85 @@
 {{ $foundationalItems := slice }}
 
 {{ if $hasExplicit }}
-  {{/* Use explicit front matter data */}}
+  {{/* Use explicit front matter data. Each entry may be a legacy path string or an object with path/title/description. */}}
   {{ with $explicit.nextInTopic }}
     {{ range . }}
-      {{ with site.GetPage . }}
-        {{ $nextItems = $nextItems | append . }}
+      {{ $entry := . }}
+      {{ $entryType := printf "%T" $entry }}
+      {{ $entryPath := "" }}
+      {{ if eq $entryType "string" }}
+        {{ $entryPath = $entry }}
+      {{ else }}
+        {{ with index $entry "path" }}
+          {{ $entryPath = . }}
+        {{ end }}
+      {{ end }}
+      {{ with site.GetPage $entryPath }}
+        {{ $overrideTitle := "" }}
+        {{ $overrideDescription := "" }}
+        {{ if ne $entryType "string" }}
+          {{ with index $entry "title" }}
+            {{ $overrideTitle = . }}
+          {{ end }}
+          {{ with index $entry "description" }}
+            {{ $overrideDescription = . }}
+          {{ end }}
+        {{ end }}
+        {{ $nextItems = $nextItems | append (dict "page" . "title" $overrideTitle "description" $overrideDescription) }}
       {{ end }}
     {{ end }}
   {{ end }}
   {{ with $explicit.adjacentTopic }}
     {{ range . }}
-      {{ with site.GetPage . }}
-        {{ $adjacentItems = $adjacentItems | append . }}
+      {{ $entry := . }}
+      {{ $entryType := printf "%T" $entry }}
+      {{ $entryPath := "" }}
+      {{ if eq $entryType "string" }}
+        {{ $entryPath = $entry }}
+      {{ else }}
+        {{ with index $entry "path" }}
+          {{ $entryPath = . }}
+        {{ end }}
+      {{ end }}
+      {{ with site.GetPage $entryPath }}
+        {{ $overrideTitle := "" }}
+        {{ $overrideDescription := "" }}
+        {{ if ne $entryType "string" }}
+          {{ with index $entry "title" }}
+            {{ $overrideTitle = . }}
+          {{ end }}
+          {{ with index $entry "description" }}
+            {{ $overrideDescription = . }}
+          {{ end }}
+        {{ end }}
+        {{ $adjacentItems = $adjacentItems | append (dict "page" . "title" $overrideTitle "description" $overrideDescription) }}
       {{ end }}
     {{ end }}
   {{ end }}
   {{ with $explicit.foundational }}
     {{ range . }}
-      {{ with site.GetPage . }}
-        {{ $foundationalItems = $foundationalItems | append . }}
+      {{ $entry := . }}
+      {{ $entryType := printf "%T" $entry }}
+      {{ $entryPath := "" }}
+      {{ if eq $entryType "string" }}
+        {{ $entryPath = $entry }}
+      {{ else }}
+        {{ with index $entry "path" }}
+          {{ $entryPath = . }}
+        {{ end }}
+      {{ end }}
+      {{ with site.GetPage $entryPath }}
+        {{ $overrideTitle := "" }}
+        {{ $overrideDescription := "" }}
+        {{ if ne $entryType "string" }}
+          {{ with index $entry "title" }}
+            {{ $overrideTitle = . }}
+          {{ end }}
+          {{ with index $entry "description" }}
+            {{ $overrideDescription = . }}
+          {{ end }}
+        {{ end }}
+        {{ $foundationalItems = $foundationalItems | append (dict "page" . "title" $overrideTitle "description" $overrideDescription) }}
       {{ end }}
     {{ end }}
   {{ end }}
@@ -121,10 +181,10 @@
     <div class="article-related__grid">
       {{ if gt (len $nextItems) 0 }}
         {{ range $nextItems }}
-          <a class="article-related__card" href="{{ .Permalink }}">
+            <a class="article-related__card" href="{{ .page.Permalink }}">
             <span class="article-related__bucket">Next in topic</span>
-            <span class="article-related__title">{{ .LinkTitle }}</span>
-            {{ with .Params.description }}
+              <span class="article-related__title">{{ .title | default .page.LinkTitle }}</span>
+              {{ with .description | default .page.Params.description }}
               <span class="article-related__excerpt">{{ . }}</span>
             {{ end }}
           </a>
@@ -132,10 +192,10 @@
       {{ end }}
       {{ if gt (len $adjacentItems) 0 }}
         {{ range $adjacentItems }}
-          <a class="article-related__card" href="{{ .Permalink }}">
+            <a class="article-related__card" href="{{ .page.Permalink }}">
             <span class="article-related__bucket">Adjacent topic</span>
-            <span class="article-related__title">{{ .LinkTitle }}</span>
-            {{ with .Params.description }}
+              <span class="article-related__title">{{ .title | default .page.LinkTitle }}</span>
+              {{ with .description | default .page.Params.description }}
               <span class="article-related__excerpt">{{ . }}</span>
             {{ end }}
           </a>
@@ -143,10 +203,10 @@
       {{ end }}
       {{ if gt (len $foundationalItems) 0 }}
         {{ range $foundationalItems }}
-          <a class="article-related__card" href="{{ .Permalink }}">
+            <a class="article-related__card" href="{{ .page.Permalink }}">
             <span class="article-related__bucket">Foundation</span>
-            <span class="article-related__title">{{ .LinkTitle }}</span>
-            {{ with .Params.description }}
+              <span class="article-related__title">{{ .title | default .page.LinkTitle }}</span>
+              {{ with .description | default .page.Params.description }}
               <span class="article-related__excerpt">{{ . }}</span>
             {{ end }}
           </a>

@@ -135,7 +135,7 @@ This is the top-level ticket index for the full migration project. Use the phase
 | [RHI-104](phase-3/RHI-104-discovery-surfaces-shared-ui-components.md) | Workstream K — Discovery Surfaces and Shared UI Components | 3 | High | Done | L | 2026-04-05 |
 | [RHI-105](phase-3/RHI-105-article-readability-contextual-navigation.md) | Workstream L — Article Readability and Contextual Navigation | 3 | High | Open | L | 2026-04-07 |
 | [RHI-107](phase-3/RHI-107-design-example-visual-alignment.md) | Workstream M — Design Example Visual Alignment | 3 | High | Open | M | 2026-04-08 |
-| [RHI-106](phase-4/RHI-106-discovery-metadata-extension.md) | Workstream L — Discovery Metadata Extension and Enrichment | 4 | High | Open | M | 2026-04-15 |
+| [RHI-106](phase-4/RHI-106-discovery-metadata-extension.md) | Workstream L — Discovery Metadata Extension and Enrichment | 4 | High | Done | M | 2026-04-15 |
 
 ---
 

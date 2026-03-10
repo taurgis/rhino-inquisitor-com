@@ -16,6 +16,7 @@
     "migrate:extract": "node scripts/migration/extract.js",
     "migrate:normalize": "node scripts/migration/normalize.js",
     "migrate:convert": "node scripts/migration/convert.js",
+    "migrate:map-frontmatter": "node scripts/migration/map-frontmatter.js",
     "build:prod": "hugo --minify --environment production",
     "validate:frontmatter": "node scripts/validate-frontmatter.js",
     "check:url-parity": "node scripts/check-url-parity.js",

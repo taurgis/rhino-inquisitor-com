@@ -5,12 +5,18 @@ import fg from 'fast-glob';
 import matter from 'gray-matter';
 import { z } from 'zod';
 
+import {
+  DiscoveryParamsSchema,
+  derivedDiscoveryFieldKeys,
+  discoveryFieldKeys
+} from './migration/schemas/discovery-metadata.schema.js';
+
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const contentRoot = path.join(repoRoot, 'src/content');
+const defaultContentRoot = path.join(repoRoot, 'src/content');
 const canonicalOrigin = 'https://www.rhino-inquisitor.com';
 const canonicalHost = 'www.rhino-inquisitor.com';
-const urlPattern = /^\/[a-z0-9/-]+\/$/;
-const aliasPattern = /^\/[a-z0-9/-]+\/$/;
+const urlPattern = /^\/(?:|[a-z0-9/-]*[a-z0-9-]\/?)$/;
+const aliasPattern = /^\/(?:|[a-z0-9/-]*[a-z0-9-]\/?)$/;
 const isoDateTimePattern =
   /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})$/;
 
@@ -40,7 +46,8 @@ const indexableBaseSchema = z
     heroImage: optionalString,
     canonical: optionalString,
     aliases: z.array(nonEmptyString).optional(),
-    seo: seoSchema
+    seo: seoSchema,
+    params: DiscoveryParamsSchema.optional()
   })
   .passthrough();
 
@@ -64,9 +71,42 @@ const categorySchema = z
     draft: z.boolean(),
     heroImage: optionalString,
     canonical: optionalString,
-    seo: seoSchema
+    seo: seoSchema,
+    params: DiscoveryParamsSchema.optional()
   })
   .passthrough();
+
+function parseArgs(argv) {
+  const parsed = {};
+
+  for (let index = 0; index < argv.length; index += 1) {
+    const arg = argv[index];
+    switch (arg) {
+      case '--content-dir':
+        parsed.contentRoot = path.resolve(argv[++index]);
+        break;
+      case '--help':
+        printHelp();
+        process.exit(0);
+        break;
+      default:
+        throw new Error(`Unknown argument: ${arg}`);
+    }
+  }
+
+  return {
+    contentRoot: parsed.contentRoot ?? defaultContentRoot
+  };
+}
+
+function printHelp() {
+  console.log(`Usage: node scripts/validate-frontmatter.js [options]
+
+Options:
+  --content-dir <path>  Override src/content validation root.
+  --help                Show this help message.
+`);
+}
 
 function toPosixPath(filePath) {
   return filePath.split(path.sep).join('/');
@@ -161,6 +201,8 @@ function validateAliases(aliases, currentUrl, relativePath, errors) {
 }
 
 function validateAdditionalRules(contentType, data, relativePath, errors) {
+  validateDiscoveryPlacement(data, relativePath, errors);
+
   if (contentType !== 'category') {
     if (!isValidIsoDateTime(data.lastmod)) {
       addError(
@@ -210,18 +252,50 @@ function validateAdditionalRules(contentType, data, relativePath, errors) {
   }
 }
 
+function validateDiscoveryPlacement(data, relativePath, errors) {
+  for (const fieldName of discoveryFieldKeys) {
+    if (fieldName in data) {
+      addError(
+        errors,
+        relativePath,
+        'discovery_field_placement',
+        `${fieldName} must live under params.${fieldName}, not as a top-level front matter field.`,
+        fieldName
+      );
+    }
+  }
+
+  const params = data?.params;
+  if (!params || typeof params !== 'object') {
+    return;
+  }
+
+  for (const fieldName of derivedDiscoveryFieldKeys) {
+    if (fieldName in params) {
+      addError(
+        errors,
+        relativePath,
+        'derived_field_authored',
+        `${fieldName} remains Hugo-derived and must not be authored under params.`,
+        `params.${fieldName}`
+      );
+    }
+  }
+}
+
 function formatZodIssuePath(issuePath) {
   return issuePath.length === 0 ? 'front matter' : issuePath.join('.');
 }
 
 async function main() {
+  const options = parseArgs(process.argv.slice(2));
   const markdownFiles = (await fg('**/*.md', {
-    cwd: contentRoot,
+    cwd: options.contentRoot,
     onlyFiles: true
   })).sort();
 
   if (markdownFiles.length === 0) {
-    console.log('No Markdown content found under src/content. Front matter validation passed.');
+    console.log(`No Markdown content found under ${toPosixPath(path.relative(repoRoot, options.contentRoot)) || '.'}. Front matter validation passed.`);
     return;
   }
 
@@ -229,7 +303,7 @@ async function main() {
   const urlToFiles = new Map();
 
   for (const relativePath of markdownFiles) {
-    const absolutePath = path.join(contentRoot, relativePath);
+    const absolutePath = path.join(options.contentRoot, relativePath);
     const normalizedPath = toPosixPath(relativePath);
     const contentType = getContentType(normalizedPath);
     const schema = getSchema(contentType);

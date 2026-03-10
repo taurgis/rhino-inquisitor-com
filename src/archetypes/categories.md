@@ -8,4 +8,6 @@ draft: true
 #   noindex: false
 #   ogImage: "/images/categories/category-slug/og.webp"
 #   twitterCard: summary_large_image
+# params:
+#   featuredHome: false
 ---

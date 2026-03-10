@@ -13,4 +13,10 @@ draft: true
 #   noindex: false
 #   ogImage: "/images/pages/{{ .File.ContentBaseName | urlize }}/og.webp"
 #   twitterCard: summary_large_image
+# params:
+#   primaryTopic: "about"
+#   contentType: article
+#   summary:
+#     - "Keep page summaries short and editorial."
+#   featuredHome: false
 ---

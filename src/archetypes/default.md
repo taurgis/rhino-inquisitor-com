@@ -12,4 +12,8 @@ draft: true
 #   noindex: false
 #   ogImage: "/images/default/{{ .File.ContentBaseName | urlize }}/og.webp"
 #   twitterCard: summary_large_image
+# params:
+#   primaryTopic: "general"
+#   contentType: article
+#   featuredHome: false
 ---

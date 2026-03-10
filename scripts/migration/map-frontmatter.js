@@ -1,0 +1,519 @@
+import fsp from 'node:fs/promises';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+import fg from 'fast-glob';
+import matter from 'gray-matter';
+import { stringify as stringifyCsv } from 'csv-stringify/sync';
+
+import { ConvertedRecordSchema } from './schemas/converted-record.schema.js';
+import {
+  DiscoveryMetadataCurationFileSchema,
+  DiscoveryParamsSchema,
+  discoveryFieldKeys
+} from './schemas/discovery-metadata.schema.js';
+
+const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
+const urlPattern = /^\/(?:|[a-z0-9/-]*[a-z0-9-]\/?)$/;
+
+async function main() {
+  const options = await resolveOptions(process.argv.slice(2));
+  const curation = await loadDiscoveryCuration(options.discoveryFile);
+  const recordFiles = (await fg('*.json', {
+    cwd: options.recordsDir,
+    onlyFiles: true
+  })).sort();
+
+  if (recordFiles.length === 0) {
+    throw new Error(`No converted records found under ${toRepoRelative(options.recordsDir)}.`);
+  }
+
+  await resetDirectory(options.contentDir);
+  await ensureDirectory(path.dirname(options.errorReport));
+  await ensureDirectory(path.dirname(options.coverageReport));
+
+  const errors = [];
+  const coverage = createCoverageReport(options, curation.__meta.exists);
+  const mappedRecords = [];
+  const urlToFiles = new Map();
+
+  for (const relativeFile of recordFiles) {
+    const absoluteFile = path.join(options.recordsDir, relativeFile);
+    const rawRecord = await readJsonFile(absoluteFile, `converted record ${relativeFile}`);
+    const validation = ConvertedRecordSchema.safeParse(rawRecord);
+    if (!validation.success) {
+      errors.push(createErrorRow({
+        sourceId: rawRecord?.sourceId ?? path.basename(relativeFile, '.json'),
+        file: relativeFile,
+        field: 'record',
+        errorType: 'schema',
+        errorMessage: validation.error.message
+      }));
+      continue;
+    }
+
+    const record = validation.data;
+    if (!['keep', 'merge'].includes(record.disposition) || record.postType === 'category') {
+      continue;
+    }
+
+    const discoveryResult = resolveDiscoveryParams(record, curation, errors);
+    const frontMatter = buildFrontMatter(record, discoveryResult.params, errors);
+    const outputRelativePath = buildOutputRelativePath(record);
+    const outputPath = path.join(options.contentDir, outputRelativePath);
+
+    recordCoverage(coverage, record, discoveryResult);
+
+    mappedRecords.push({
+      record,
+      frontMatter,
+      outputRelativePath,
+      outputPath
+    });
+
+    if (typeof frontMatter.url === 'string' && frontMatter.url.length > 0) {
+      const currentFiles = urlToFiles.get(frontMatter.url) ?? [];
+      currentFiles.push(outputRelativePath);
+      urlToFiles.set(frontMatter.url, currentFiles);
+    }
+  }
+
+  for (const [urlValue, filePaths] of urlToFiles.entries()) {
+    if (filePaths.length < 2) {
+      continue;
+    }
+
+    for (const filePath of filePaths) {
+      errors.push(createErrorRow({
+        sourceId: filePath,
+        file: filePath,
+        field: 'url',
+        errorType: 'url_collision',
+        errorMessage: `url collides with another generated file: ${urlValue}`
+      }));
+    }
+  }
+
+  const errorReport = serializeErrorRows(errors);
+  await fsp.writeFile(options.errorReport, errorReport, 'utf8');
+  await writeJsonFile(options.coverageReport, finalizeCoverageReport(coverage));
+
+  if (errors.length > 0) {
+    throw new Error(
+      `Front matter mapping failed with ${errors.length} error(s). Review ${toRepoRelative(options.errorReport)}.`
+    );
+  }
+
+  for (const mappedRecord of mappedRecords) {
+    await ensureDirectory(path.dirname(mappedRecord.outputPath));
+    const content = matter.stringify(`${mappedRecord.record.bodyMarkdown.trim()}\n`, mappedRecord.frontMatter, {
+      lineWidth: 0
+    });
+    await fsp.writeFile(mappedRecord.outputPath, content, 'utf8');
+  }
+
+  console.log(
+    [
+      `Mapped ${mappedRecords.length} keep/merge record(s) to ${toRepoRelative(options.contentDir)}.`,
+      `Discovery enrichment present on ${coverage.totals.enrichedRecords} record(s).`,
+      `Coverage report written to ${toRepoRelative(options.coverageReport)}.`
+    ].join(' ')
+  );
+}
+
+async function resolveOptions(argv) {
+  const parsed = {};
+
+  for (let index = 0; index < argv.length; index += 1) {
+    const arg = argv[index];
+    switch (arg) {
+      case '--records-dir':
+        parsed.recordsDir = path.resolve(argv[++index]);
+        break;
+      case '--content-dir':
+        parsed.contentDir = path.resolve(argv[++index]);
+        break;
+      case '--discovery-file':
+        parsed.discoveryFile = path.resolve(argv[++index]);
+        break;
+      case '--error-report':
+        parsed.errorReport = path.resolve(argv[++index]);
+        break;
+      case '--coverage-report':
+        parsed.coverageReport = path.resolve(argv[++index]);
+        break;
+      case '--help':
+        printHelp();
+        process.exit(0);
+        break;
+      default:
+        throw new Error(`Unknown argument: ${arg}`);
+    }
+  }
+
+  return {
+    recordsDir: parsed.recordsDir ?? path.join(repoRoot, 'migration/output'),
+    contentDir: parsed.contentDir ?? path.join(repoRoot, 'migration/output/content'),
+    discoveryFile: parsed.discoveryFile ?? path.join(repoRoot, 'migration/input/discovery-metadata.json'),
+    errorReport: parsed.errorReport ?? path.join(repoRoot, 'migration/reports/frontmatter-errors.csv'),
+    coverageReport: parsed.coverageReport ?? path.join(repoRoot, 'migration/reports/discovery-metadata-coverage.json')
+  };
+}
+
+function printHelp() {
+  console.log(`Usage: node scripts/migration/map-frontmatter.js [options]
+
+Options:
+  --records-dir <path>      Override migration/output input directory.
+  --content-dir <path>      Override generated Markdown output directory.
+  --discovery-file <path>   Override optional discovery metadata curation file.
+  --error-report <path>     Override frontmatter-errors CSV path.
+  --coverage-report <path>  Override discovery coverage JSON path.
+  --help                    Show this help message.
+`);
+}
+
+async function loadDiscoveryCuration(filePath) {
+  try {
+    await fsp.access(filePath);
+  } catch {
+    return {
+      __meta: {
+        exists: false
+      }
+    };
+  }
+
+  const raw = await readJsonFile(filePath, 'discovery metadata curation file');
+  const validation = DiscoveryMetadataCurationFileSchema.safeParse(raw);
+  if (!validation.success) {
+    throw new Error(`Discovery metadata curation file failed validation: ${validation.error.message}`);
+  }
+
+  return {
+    ...validation.data,
+    __meta: {
+      exists: true
+    }
+  };
+}
+
+function resolveDiscoveryParams(record, curation, errors) {
+  const rawEmbedded = normalizeDiscoveryValue(record._raw?.discoveryMetadata);
+  const curationEntry = normalizeDiscoveryValue(curation[record.sourceId]);
+  const merged = {
+    ...(rawEmbedded ?? {}),
+    ...(curationEntry ?? {})
+  };
+
+  const source = rawEmbedded && curationEntry
+    ? 'embedded+curation'
+    : rawEmbedded
+      ? 'embedded'
+      : curationEntry
+        ? 'curation'
+        : 'none';
+
+  if (Object.keys(merged).length === 0) {
+    return {
+      params: undefined,
+      source,
+      presentFields: []
+    };
+  }
+
+  const validation = DiscoveryParamsSchema.safeParse(merged);
+  if (!validation.success) {
+    for (const issue of validation.error.issues) {
+      errors.push(createErrorRow({
+        sourceId: record.sourceId,
+        file: `${record.sourceId}.json`,
+        field: issue.path.length === 0 ? 'params' : `params.${issue.path.join('.')}`,
+        errorType: 'discovery_metadata',
+        errorMessage: issue.message
+      }));
+    }
+
+    return {
+      params: undefined,
+      source,
+      presentFields: []
+    };
+  }
+
+  const params = orderDiscoveryParams(validation.data);
+
+  return {
+    params,
+    source,
+    presentFields: discoveryFieldKeys.filter((fieldName) => fieldName in params)
+  };
+}
+
+function normalizeDiscoveryValue(value) {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) {
+    return undefined;
+  }
+
+  return value;
+}
+
+function buildFrontMatter(record, discoveryParams, errors) {
+  const description = resolveDescription(record);
+  if (description.length === 0) {
+    errors.push(createErrorRow({
+      sourceId: record.sourceId,
+      file: `${record.sourceId}.json`,
+      field: 'description',
+      errorType: 'missing_required',
+      errorMessage: 'description resolved to an empty value.'
+    }));
+  }
+
+  if (!record.targetUrl || !urlPattern.test(record.targetUrl)) {
+    errors.push(createErrorRow({
+      sourceId: record.sourceId,
+      file: `${record.sourceId}.json`,
+      field: 'url',
+      errorType: 'invalid_url',
+      errorMessage: 'targetUrl is missing or violates the canonical path format.'
+    }));
+  }
+
+  if (record.aliasUrls.includes(record.targetUrl)) {
+    errors.push(createErrorRow({
+      sourceId: record.sourceId,
+      file: `${record.sourceId}.json`,
+      field: 'aliases',
+      errorType: 'alias_loop',
+      errorMessage: 'aliasUrls must not include the canonical targetUrl.'
+    }));
+  }
+
+  const frontMatter = {
+    title: record.titleRaw.trim(),
+    description,
+    lastmod: record.modifiedAt,
+    url: record.targetUrl,
+    draft: record.status !== 'publish'
+  };
+
+  if (record.postType !== 'page') {
+    frontMatter.date = record.publishedAt;
+  }
+
+  if (record.postType === 'post' && record.categories.length > 0) {
+    frontMatter.categories = record.categories.map((term) => term.name);
+  }
+
+  if (record.postType === 'post') {
+    frontMatter.tags = record.tags.map((term) => term.name);
+  }
+
+  if (record.aliasUrls.length > 0) {
+    frontMatter.aliases = record.aliasUrls;
+  }
+
+  if (record.author.trim().length > 0) {
+    frontMatter.author = record.author.trim();
+  }
+
+  if (discoveryParams && Object.keys(discoveryParams).length > 0) {
+    frontMatter.params = discoveryParams;
+  }
+
+  return frontMatter;
+}
+
+function resolveDescription(record) {
+  const excerpt = String(record.excerptRaw ?? '').replace(/\s+/gu, ' ').trim();
+  if (excerpt.length > 0) {
+    return clampDescription(excerpt);
+  }
+
+  const bodyText = String(record.bodyMarkdown ?? '')
+    .replace(/```[\s\S]*?```/gu, ' ')
+    .replace(/`([^`]+)`/gu, '$1')
+    .replace(/!\[[^\]]*\]\([^)]*\)/gu, ' ')
+    .replace(/\[[^\]]+\]\([^)]*\)/gu, '$1')
+    .replace(/[>#*_~-]/gu, ' ')
+    .replace(/\s+/gu, ' ')
+    .trim();
+
+  if (bodyText.length === 0) {
+    return clampDescription(record.titleRaw.trim());
+  }
+
+  return clampDescription(bodyText);
+}
+
+function clampDescription(value) {
+  if (value.length <= 155) {
+    return value;
+  }
+
+  const clamped = value.slice(0, 152).trimEnd();
+  return `${clamped}...`;
+}
+
+function buildOutputRelativePath(record) {
+  const directory = resolveOutputDirectory(record.postType);
+  const fileName = `${sanitizeFileSegment(record.slug || record.sourceId)}.md`;
+  return path.posix.join(directory, fileName);
+}
+
+function resolveOutputDirectory(postType) {
+  if (postType === 'post') {
+    return 'posts';
+  }
+
+  if (postType === 'page') {
+    return 'pages';
+  }
+
+  if (postType === 'category') {
+    return 'categories';
+  }
+
+  return sanitizeFileSegment(postType || 'content');
+}
+
+function sanitizeFileSegment(value) {
+  return String(value)
+    .toLowerCase()
+    .replace(/[^a-z0-9-]+/gu, '-')
+    .replace(/-{2,}/gu, '-')
+    .replace(/^-|-$/gu, '') || 'record';
+}
+
+function orderDiscoveryParams(params) {
+  const ordered = {};
+
+  for (const fieldName of discoveryFieldKeys) {
+    if (fieldName in params) {
+      ordered[fieldName] = params[fieldName];
+    }
+  }
+
+  for (const [fieldName, value] of Object.entries(params)) {
+    if (!(fieldName in ordered)) {
+      ordered[fieldName] = value;
+    }
+  }
+
+  return ordered;
+}
+
+function createCoverageReport(options, curationFilePresent) {
+  const fieldCoverage = {};
+  for (const fieldName of discoveryFieldKeys) {
+    fieldCoverage[fieldName] = {
+      present: 0,
+      missing: 0
+    };
+  }
+
+  return {
+    generatedAt: new Date().toISOString(),
+    inputs: {
+      recordsDir: toRepoRelative(options.recordsDir),
+      discoveryFile: toRepoRelative(options.discoveryFile),
+      curationFilePresent
+    },
+    totals: {
+      recordCount: 0,
+      enrichedRecords: 0,
+      recordsWithoutEnrichment: 0
+    },
+    sourceBreakdown: {
+      none: 0,
+      embedded: 0,
+      curation: 0,
+      'embedded+curation': 0
+    },
+    fieldCoverage,
+    records: []
+  };
+}
+
+function recordCoverage(coverage, record, discoveryResult) {
+  coverage.totals.recordCount += 1;
+  coverage.sourceBreakdown[discoveryResult.source] += 1;
+
+  if (discoveryResult.presentFields.length > 0) {
+    coverage.totals.enrichedRecords += 1;
+  } else {
+    coverage.totals.recordsWithoutEnrichment += 1;
+  }
+
+  for (const fieldName of discoveryFieldKeys) {
+    const hasField = discoveryResult.presentFields.includes(fieldName);
+    coverage.fieldCoverage[fieldName][hasField ? 'present' : 'missing'] += 1;
+  }
+
+  coverage.records.push({
+    sourceId: record.sourceId,
+    targetUrl: record.targetUrl,
+    postType: record.postType,
+    discoverySource: discoveryResult.source,
+    presentFields: discoveryResult.presentFields
+  });
+}
+
+function finalizeCoverageReport(coverage) {
+  return {
+    ...coverage,
+    records: coverage.records.sort((left, right) => left.targetUrl.localeCompare(right.targetUrl))
+  };
+}
+
+function createErrorRow({ sourceId, file, field, errorType, errorMessage }) {
+  return {
+    sourceId,
+    file,
+    field,
+    errorType,
+    errorMessage
+  };
+}
+
+function serializeErrorRows(rows) {
+  return stringifyCsv(rows, {
+    header: true,
+    columns: ['sourceId', 'file', 'field', 'errorType', 'errorMessage']
+  });
+}
+
+async function resetDirectory(directoryPath) {
+  await fsp.rm(directoryPath, {
+    recursive: true,
+    force: true
+  });
+  await ensureDirectory(directoryPath);
+}
+
+async function ensureDirectory(directoryPath) {
+  await fsp.mkdir(directoryPath, {
+    recursive: true
+  });
+}
+
+async function readJsonFile(filePath, label) {
+  const raw = await fsp.readFile(filePath, 'utf8');
+
+  try {
+    return JSON.parse(raw);
+  } catch (error) {
+    throw new Error(`Unable to parse ${label} at ${toRepoRelative(filePath)}: ${error instanceof Error ? error.message : String(error)}`);
+  }
+}
+
+async function writeJsonFile(filePath, data) {
+  await fsp.writeFile(filePath, `${JSON.stringify(data, null, 2)}\n`, 'utf8');
+}
+
+function toRepoRelative(filePath) {
+  return path.relative(repoRoot, filePath).split(path.sep).join('/');
+}
+
+await main();

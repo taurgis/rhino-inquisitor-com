@@ -57,6 +57,7 @@ If the pilot batch reveals pipeline defects, they must be fixed before Batch 2 b
 - [ ] Every generated content file is manually reviewed:
   - [ ] Body content renders correctly in `hugo server`
   - [ ] Front matter fields are correct and complete
+  - [ ] Optional discovery metadata is reviewed where present: `params.summary`, `params.primaryTopic`, `params.series`, `params.relatedContent`, and `params.featuredHome`
   - [ ] Images render with correct alt text and local paths
   - [ ] Internal links resolve to correct pages
   - [ ] Redirect pages (`merge` records) redirect to correct targets

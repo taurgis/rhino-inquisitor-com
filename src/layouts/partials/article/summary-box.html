@@ -1,6 +1,6 @@
-{{/* Article summary box — renders 1-3 bullet takeaways from params.takeaways */}}
+{{/* Article summary box — renders 1-3 bullet summaries, with legacy takeaways fallback */}}
 {{ $page := .page }}
-{{ $items := $page.Params.takeaways | default (slice) }}
+{{ $items := $page.Params.summary | default ($page.Params.takeaways | default (slice)) }}
 {{ $count := len $items }}
 {{ if gt $count 3 }}
   {{ $items = first 3 $items }}
