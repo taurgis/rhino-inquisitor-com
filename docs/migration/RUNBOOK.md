@@ -189,6 +189,36 @@ This runbook tracks the operational steps needed to move the repository from pla
 - Filesystem verification is optional but supported when the approved `wp-content` snapshot is available. Upload-backed attachment paths and body-media references are checked against the snapshot and recorded as a `filesystem` source channel when verified.
 - REST enrichment is not part of the current default run because the approved WXR and SQL inputs cover the Phase 4 content-backed scope. If a later run needs REST supplementation, use the WordPress REST pagination headers `X-WP-Total` and `X-WP-TotalPages` as the completeness gate.
 
+### RHI-033 - Canonical Record Normalization
+
+- Run the normalizer with `npm run migrate:normalize`.
+- The normalizer reads the Phase 4 extraction and URL-governance inputs:
+  - `migration/intermediate/extract-records.json`
+  - `migration/intermediate/extract-summary.json`
+  - `migration/url-manifest.json`
+  - `migration/url-inventory.normalized.json`
+- The canonical record schema is owned by `scripts/migration/schemas/record.schema.js` and validated with Zod before records are written.
+- Normalization behavior locked for the 2026-03-10 validated run:
+  - required `targetUrl` coverage follows the same `source-backed-content-only` denominator as RHI-032
+  - `aliasUrls` are derived from all manifest rows that share the same `target_url`, excluding the canonical target path itself
+  - `mediaRefs` are collected from `src` attributes plus parsed `srcset` candidate URLs; attachment upload URLs are preserved when available
+  - attachment `inherit` status is normalized to canonical `publish`
+  - when source timestamps are missing, `publishedAt` falls back to `modifiedAt` then `sourceTimestamp`, and `modifiedAt` falls back to `publishedAt` then `sourceTimestamp`
+- The normalizer writes deterministic artifacts to `migration/intermediate/` only:
+  - `records.normalized.json`
+  - `normalize-summary.json`
+  - `normalize-errors.json`
+- Output interpretation for the validated 2026-03-10 full run:
+  - `records.normalized.json` contains 331 normalized records with zero schema errors
+  - required coverage is 192 manifest-backed `keep` or `merge` records, all of which normalize with non-null `targetUrl`
+  - 138 manifest-backed `retire` records normalize with explicit `targetUrl: null`
+  - 616 extracted records without a manifest row are reported under `normalize-summary.json -> normalizationNotes.skippedWithoutManifest`; they are audit-visible but excluded from the owner-approved required scope
+- Validation steps for RHI-033:
+  - `npm run migrate:normalize`
+  - confirm `migration/intermediate/normalize-errors.json` is empty
+  - confirm `migration/intermediate/normalize-summary.json` shows `requiredManifestCount` equal to `normalizedRequiredCount`
+  - rerun `npm run migrate:normalize` and confirm the normalized artifact hashes remain stable
+
 ## Phase 5 - SEO and Discoverability
 
 Placeholder for sitemap, canonical, feed, and Search Console execution steps.
