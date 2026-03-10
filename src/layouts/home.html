@@ -45,119 +45,89 @@
 
   <section class="page-hero" aria-labelledby="home-hero-title">
     <div class="page-hero__body">
-      <div>
-        <p class="eyebrow">Editorial discovery</p>
-        <h1 id="home-hero-title">Long-form platform guidance with archive routes that stay quick to scan.</h1>
-      </div>
-      <p>{{ .Site.Params.description | default (printf "%s knowledge base, articles, and notes." .Site.Title) }}</p>
-      <p>Phase 3 keeps the reading path intentionally calm: darker editorial chrome, image-led discovery cards, and server-rendered archive controls instead of a brittle JavaScript-only browse experience.</p>
-      <div class="hero-actions">
-        <a href="{{ $startReadingHref }}">Start Reading</a>
-        <a href="{{ $browseTopicsHref }}">Browse Topics</a>
-      </div>
+      <p class="page-hero__tagline">{{ .Site.Params.description | default (printf "Deep technical deep dives and strategies. Confident advice for architects, developers, and business leaders.") }}</p>
+      <h1 id="home-hero-title" class="visually-hidden">{{ .Site.Title }}</h1>
     </div>
-
-    <aside class="page-hero__aside" aria-label="Homepage visual companion">
-      <div class="hero-aside__body">
-        <p class="eyebrow">Field guide</p>
-        <h2>Archive-first discovery, without the utilitarian look.</h2>
-        <p>Shared shell updates, metadata-first cards, and restrained support modules bring the scaffold in line with the approved screenshot direction while leaving routing and SEO untouched.</p>
-      </div>
-      <dl class="hero-stat-list">
-        <div class="hero-stat">
-          <dt>Published now</dt>
-          <dd>{{ len $posts }}</dd>
-        </div>
-        <div class="hero-stat">
-          <dt>Topic hubs</dt>
-          <dd>{{ len $topicItems }}</dd>
-        </div>
-        <div class="hero-stat">
-          <dt>Archive mode</dt>
-          <dd>Server-rendered</dd>
-        </div>
-      </dl>
-      <p class="surface-help">The project rail remains intentionally omitted until a stable data source exists under src/data/.</p>
-    </aside>
+    <div class="page-hero__illustration" aria-hidden="true">
+      <img src="/images/brand-mark.svg" width="180" height="237" alt="">
+    </div>
   </section>
 
-  <div class="lane-grid">
-    <section class="lane lane--featured" aria-labelledby="featured-lane-heading">
-      <div class="lane-header">
-        <div>
-          <p class="eyebrow">DISC-01</p>
-          <h2 id="featured-lane-heading">Featured long-form</h2>
-        </div>
-      </div>
+  <div class="hero-cta-bar">
+    <a class="site-cta" href="{{ $startReadingHref }}">Start Reading</a>
+    <a class="site-cta site-cta--outline" href="{{ $browseTopicsHref }}">Browse Topics</a>
+  </div>
 
+  <div class="home-content-grid">
+    <section class="home-section home-section--featured" aria-labelledby="featured-heading">
+      <h2 class="home-section__title" id="featured-heading">Featured Deep Dive</h2>
       {{ if $featured }}
-        {{ partial "cards/article-card.html" (dict "page" $featured "variant" "featured") }}
+        <article class="featured-article">
+          {{ with $featured.Params.heroImage }}
+            <div class="featured-article__media">
+              {{ partial "media/image.html" (dict
+                "page" $featured
+                "src" .
+                "alt" ($featured.Params.heroImageAlt | default $featured.LinkTitle | default $featured.Title)
+                "loading" "eager"
+              ) }}
+            </div>
+          {{ end }}
+          <h3><a href="{{ $featured.Permalink }}">{{ $featured.LinkTitle }}</a></h3>
+          <p class="featured-article__excerpt">{{ $featured.Params.description | default ($featured.Summary | plainify | strings.TrimSpace) }}</p>
+          {{ partial "article/meta-row.html" (dict "page" $featured "label" "Article details") }}
+        </article>
       {{ else }}
-        {{ partial "empty-state.html" (dict
-          "eyebrow" "DISC-01"
-          "title" "Featured work will anchor this lane"
-          "copy" "Mark a post as featured or publish the first migrated article to turn the hero lane into a guided starting point."
-          "actionHref" $startReadingHref
-          "actionLabel" "Open the archive"
-        ) }}
+        <p class="home-section__empty">Mark a post as <code>featured: true</code> or publish the first migrated article to anchor this lane.</p>
       {{ end }}
     </section>
 
-    <section class="lane lane--recent" aria-labelledby="recent-lane-heading">
-      <div class="lane-header">
-        <div>
-          <p class="eyebrow">DISC-02</p>
-          <h2 id="recent-lane-heading">Recent posts</h2>
-        </div>
+    <section class="home-section home-section--latest" aria-labelledby="latest-heading">
+      <div class="home-section__header">
+        <h2 class="home-section__title" id="latest-heading">Latest Posts</h2>
         {{ with $blogPage }}
-          <a class="lane-header__action" href="{{ .Permalink }}">View archive</a>
+          <a class="home-section__link" href="{{ .Permalink }}">View all &rarr;</a>
         {{ end }}
       </div>
-
       {{ if gt (len $recent) 0 }}
-        <ul class="article-card-grid" role="list">
+        <ul class="latest-list" role="list">
           {{ range $recent }}
-            <li>{{ partial "cards/article-card.html" (dict "page" .) }}</li>
+            <li class="latest-list__item">
+              <a href="{{ .Permalink }}">
+                <span class="latest-list__title">{{ .LinkTitle }}</span>
+                <span class="latest-list__excerpt">{{ .Params.description | default (.Summary | plainify | strings.TrimSpace | truncate 80) }}</span>
+                <span class="latest-list__meta">{{ .Date.Format "Jan 2, 2006" }} · {{ .ReadingTime }} min read{{ with .Params.categories }}{{ with index . 0 }} · {{ . }}{{ end }}{{ end }}</span>
+              </a>
+            </li>
           {{ end }}
         </ul>
       {{ else }}
-        {{ partial "empty-state.html" (dict
-          "eyebrow" "DISC-02"
-          "title" "Recent entries will stack here"
-          "copy" "The current scaffold publishes one representative article, so this lane stays stable until more migrated posts arrive."
-          "actionHref" $startReadingHref
-          "actionLabel" "Read the current article"
-        ) }}
+        <p class="home-section__empty">Recent posts will appear here as articles are published.</p>
       {{ end }}
     </section>
 
-    <section class="lane lane--topics" aria-label="Topic hubs">
-      {{ partial "archive/topic-hubs.html" (dict
-        "eyebrow" "DISC-03"
-        "title" "Topic hubs"
-        "items" $topicItems
-        "actionHref" $browseTopicsHref
-        "actionLabel" "Browse all topics"
-        "emptyTitle" "Topic hubs will appear here"
-        "emptyCopy" "Publish content with categories to unlock topic counts and freshness hints without any client-side scripting."
-      ) }}
+    <section class="home-section home-section--topics" aria-labelledby="topics-heading">
+      <h2 class="home-section__title" id="topics-heading">Top Topics</h2>
+      {{ if gt (len $topicItems) 0 }}
+        <div class="topic-pill-cloud">
+          {{ range $topicItems }}
+            <a class="topic-pill" href="{{ .url }}">{{ upper .name }} ({{ .count }})</a>
+          {{ end }}
+        </div>
+      {{ else }}
+        <p class="home-section__empty">Publish content with categories to activate topic discovery.</p>
+      {{ end }}
     </section>
   </div>
 
-  <section class="home-support-strip surface-panel" aria-labelledby="home-support-heading">
-    <div class="home-support-strip__intro">
-      <p class="eyebrow">Supporting modules</p>
-      <h2 id="home-support-heading">Keep the reading loop active.</h2>
-      <p>Phase 3 ships a compact dispatch lane through RSS and archive actions while the project rail stays intentionally absent until structured project data is available.</p>
+  <section class="home-newsletter" aria-labelledby="home-newsletter-heading">
+    <div class="home-newsletter__body">
+      <h2 id="home-newsletter-heading">Stay in the Loop</h2>
+      <p>Subscribe to our technical newsletter for the latest insights.</p>
     </div>
-    <div class="home-support-strip__actions">
+    <div class="home-newsletter__actions">
       <a class="site-cta" href="{{ $rssHref }}">Follow via RSS</a>
-      <a class="home-support-strip__secondary" href="{{ $startReadingHref }}">Read the featured article</a>
-      <a class="home-support-strip__secondary" href="{{ $browseTopicsHref }}">Browse topics</a>
-    </div>
-    <div class="home-support-strip__note">
-      <p class="eyebrow">Project rail status</p>
-      <p class="surface-help">The repository still has no stable project dataset in src/data/, so this surface remains a documented omission rather than a placeholder.</p>
+      <a class="site-cta site-cta--outline" href="{{ $startReadingHref }}">Read the latest</a>
     </div>
   </section>
 {{ end }}

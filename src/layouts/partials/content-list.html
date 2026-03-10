@@ -4,11 +4,8 @@
 
 <section class="archive-results" id="archive-results" aria-labelledby="archive-results-heading">
   <div class="archive-results__head">
-    <div>
-      <p class="eyebrow">ARCH-02</p>
-      <h2 id="archive-results-heading">{{ .heading | default "Browse the archive" }}</h2>
-    </div>
-    <p class="archive-results__summary">Showing <strong>{{ $resultCount }}</strong> {{ cond (eq $resultCount 1) "result" "results" }} in the current archive view.</p>
+    <h2 id="archive-results-heading">{{ .heading | default "Browse the archive" }}</h2>
+    <p class="archive-results__summary">Showing <strong>{{ $resultCount }}</strong> {{ cond (eq $resultCount 1) "result" "results" }}</p>
   </div>
 
   {{ if gt $resultCount 0 }}
@@ -17,7 +14,7 @@
         <section class="archive-year-group" id="year-{{ .Key }}">
           <div class="archive-year-group__header">
             <h3>{{ .Key }}</h3>
-            <p class="surface-note">{{ len .Pages }} {{ cond (eq (len .Pages) 1) "entry" "entries" }} in this year cluster.</p>
+            <p class="surface-note">{{ len .Pages }} {{ cond (eq (len .Pages) 1) "entry" "entries" }}</p>
           </div>
           <ul class="article-card-grid" role="list">
             {{ range .Pages }}
@@ -29,7 +26,6 @@
     </div>
   {{ else }}
     {{ partial "empty-state.html" (dict
-      "eyebrow" "ARCH-02"
       "title" (.emptyTitle | default "This archive is ready for migrated content")
       "copy" (.emptyCopy | default "Keep the search, filter, and pagination shell visible while future batches populate this surface.")
       "actionHref" .emptyActionHref

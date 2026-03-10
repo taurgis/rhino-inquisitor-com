@@ -1,5 +1,5 @@
 <div class="empty-state"{{ with .id }} id="{{ . }}"{{ end }}>
-  <p class="eyebrow">{{ .eyebrow | default "Scaffold ready" }}</p>
+  {{ with .eyebrow }}<p class="eyebrow">{{ . }}</p>{{ end }}
   <h3>{{ .title }}</h3>
   <p>{{ .copy }}</p>
   {{ with .actionHref }}

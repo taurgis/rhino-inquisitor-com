@@ -122,9 +122,24 @@ Implemented the screenshot-aligned visual pass across the shared shell, homepage
 - Phase 3 documentation note with screenshot-to-template traceability and binding-vs-illustrative guidance
 - Manual route verification and browser-session screenshot evidence for homepage and archive surfaces
 
+**Design system decisions established in this ticket:**
+
+- **Hero treatment:** White/light background with left-aligned tagline text and right-aligned brand illustration; replaces the original dark-gradient hero panel. No stat counters or aside panels.
+- **CTA hierarchy:** Primary solid button (`site-cta`) and outline variant (`site-cta--outline`) centered below the hero in a light accent bar. Used consistently for "Start Reading" (primary) and "Browse Topics" (outline).
+- **Homepage content grid:** 3-column layout (`home-content-grid`) with Featured Deep Dive card (image + title + excerpt + metadata), Latest Posts text list (title + excerpt + meta per row, hover highlight), and Top Topics pill cloud (filled accent-colored pills with count). Responsive: 2-column at 64rem, single-column at 48rem.
+- **Typography scale:** Reduced from oversized display sizes — h1 now `clamp(1.75rem, 4vw, 2.5rem)`, h2 `clamp(1.35rem, 3vw, 1.75rem)`, h3 `clamp(1.1rem, 2.5vw, 1.35rem)`. Section labels use `.home-section__title` at 0.8rem uppercase.
+- **Breadcrumbs:** Transparent inline text with muted color, no dark pill background. Font-size 0.85rem, slash separators, hover underline.
+- **Archive header:** Center-aligned with `.eyebrow` label above h1 and description text below. Light `#f7fbff` background with bottom border separator.
+- **Newsletter/support strip:** Light `#f0f4f8` background bar with left-aligned text (h2 + subtitle) and right-aligned CTA buttons. Replaces the dark `#0b1728` support strip.
+- **Eyebrow labels:** Reduced to contextual markers ("Archive", "Topics") at 0.75rem, muted color. Internal scaffold labels (DISC-01, ARCH-01, etc.) removed from all templates.
+- **Card grid:** Archive cards use `repeat(auto-fill, minmax(18rem, 1fr))` for responsive fill. Topic cards removed eyebrow "Topic" prefix.
+- **Color accents retained:** Deep-slate ink (`--ink-strong`), energetic blue accent (`--accent`, `--accent-strong`), soft blue backgrounds (`--accent-soft`). No dark chrome outside the header.
+
 **Deviations from plan:**
 
 - The project rail remains omitted by design because the repository still lacks a stable project data source under `src/data/`.
+- The homepage no longer uses lane-grid / feature-card / hero-stat patterns from the original scaffold; these were replaced with lighter purpose-built components that better match the design examples.
+- Topic hubs on the homepage use a pill cloud pattern instead of individual topic cards, matching the design example's compact topic discovery surface.
 
 ---
 

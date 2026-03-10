@@ -11,11 +11,9 @@
 
   <section class="archive-layout surface-panel">
     <div class="archive-header">
-      <div>
-        <p class="eyebrow">ARCH-01</p>
-        <h1>{{ .Title }}</h1>
-      </div>
-      <p>{{ .Params.description | default (printf "Published entries filed under %s, with metadata-first cards and server-rendered archive controls." .Title) }}</p>
+      <p class="eyebrow">Archive</p>
+      <h1>{{ .Title }}</h1>
+      <p>{{ .Params.description | default (printf "Articles and guides filed under %s." .Title) }}</p>
     </div>
 
     {{ partial "archive/filter-bar.html" (dict "yearLinks" $yearLinks) }}

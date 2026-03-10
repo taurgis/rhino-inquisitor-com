@@ -10,9 +10,9 @@
   {{ $archiveDescription := .Params.description | default "" }}
   {{ if eq $archiveDescription "" }}
     {{ if eq .Section "pages" }}
-      {{ $archiveDescription = "Reference pages and scaffold utilities with the same archive controls used across the blog surfaces." }}
+      {{ $archiveDescription = "Reference pages and scaffold utilities." }}
     {{ else }}
-      {{ $archiveDescription = "Read long-form articles, browse by topic, and keep archive discovery server-rendered and crawl-safe." }}
+      {{ $archiveDescription = "Find deep dives, guides, and best practices." }}
     {{ end }}
   {{ end }}
   {{ $emptyActionHref := .Site.Home.Permalink }}
@@ -22,10 +22,8 @@
 
   <section class="archive-layout surface-panel">
     <div class="archive-header">
-      <div>
-        <p class="eyebrow">ARCH-01</p>
-        <h1>{{ .Title }}</h1>
-      </div>
+      <p class="eyebrow">Archive</p>
+      <h1>{{ .Title }}</h1>
       <p>{{ $archiveDescription }}</p>
     </div>
 

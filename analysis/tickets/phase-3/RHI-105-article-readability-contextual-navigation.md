@@ -97,7 +97,7 @@ This ticket intentionally depends on RHI-104 so article-specific work can reuse 
 | RHI-024 Done — Shared SEO partial architecture remains the only SEO source of truth | Ticket | Pending |
 | RHI-027 Done — Accessibility baseline exists for article semantics and skip-link behavior | Ticket | Pending |
 | RHI-104 Done — Shared UI primitives exist for metadata row and shell composition | Ticket | Pending |
-| RHI-107 Open — Shared visual-system alignment for homepage/archive/shell is tracked separately and should stay consistent with article styling choices | Ticket | Pending |
+| RHI-107 Done — Shared visual-system alignment for homepage/archive/shell delivered; design system tokens and patterns documented in RHI-107 outcomes | Ticket | Done |
 | Approved article wireframes and checklist items remain available in `analysis/design/` and `analysis/documentation/checklists/` | Artifact | Done |
 
 ---
@@ -154,3 +154,17 @@ This ticket intentionally depends on RHI-104 so article-specific work can reuse 
 - Update status should continue to derive from existing date and `lastmod` semantics rather than a second top-level date field.
 - This ticket must preserve breadcrumb and SEO composition rules already established in the scaffold.
 - Screenshot sample copy and illustration specifics are not automatically binding; the binding contract is the article-page visual hierarchy, module presence, spacing rhythm, and control behavior shown in the approved design examples.
+
+#### Design context from RHI-107 (shared visual system)
+
+The following design decisions were established in `RHI-107` and must be respected by article-page work in this ticket:
+
+- **Typography scale:** h1 uses `clamp(1.75rem, 4vw, 2.5rem)`, h2 `clamp(1.35rem, 3vw, 1.75rem)`, h3 `clamp(1.1rem, 2.5vw, 1.35rem)`. Article headings should stay within this scale for visual consistency with archive and homepage surfaces.
+- **Breadcrumbs:** Transparent inline text, 0.85rem muted color, slash separators, no dark background pill. Already applied to the article template — do not revert.
+- **Eyebrow labels:** Used sparingly for contextual section markers at 0.75rem uppercase, muted color. Internal scaffold codes (DISC-xx, ARCH-xx, ART-xx) must not appear in rendered output.
+- **Color system:** Deep-slate ink for headings, muted gray for secondary text, energetic blue for links and accent buttons. No dark chrome outside the site header.
+- **Metadata row:** Already uses `src/layouts/partials/article/meta-row.html` with date, reading time, topic link, and optional update status. No changes needed to the shared partial.
+- **Card/surface styling:** White backgrounds with `var(--surface-border)` borders and `var(--shadow-soft)` elevation. The article page card wraps the full article content in a bordered surface panel.
+- **CTA buttons:** Primary uses `site-cta` (solid accent background), secondary uses `site-cta--outline` (transparent with border). Article footer actions should follow the same pattern.
+- **Responsive behavior:** Article body uses 2-column layout at 48rem+ (content + TOC sidebar). Below 48rem, single-column with collapsible TOC. This is already established and should not change.
+- **Newsletter strip pattern:** If article footer includes a subscribe or follow CTA, use the light `#f0f4f8` bar pattern from the homepage rather than dark chrome.

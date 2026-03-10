@@ -2,10 +2,7 @@
 {{ if gt (len $items) 0 }}
   <div class="topic-hubs">
     <div class="lane-header">
-      <div>
-        <p class="eyebrow">{{ .eyebrow | default "Topic hubs" }}</p>
-        <h2>{{ .title | default "Browse by topic" }}</h2>
-      </div>
+      <h2>{{ .title | default "Browse by topic" }}</h2>
       {{ with .actionHref }}
         <a class="lane-header__action" href="{{ . }}">{{ $.actionLabel | default "View all topics" }}</a>
       {{ end }}
@@ -16,7 +13,6 @@
         <li>
           <article class="topic-card">
             <div class="topic-card__body">
-              <p class="eyebrow">Topic</p>
               <h3><a href="{{ .url }}">{{ .name }}</a></h3>
               <div class="topic-card__stats">
                 <span>{{ .count }} {{ cond (eq .count 1) "entry" "entries" }}</span>

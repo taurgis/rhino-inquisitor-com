@@ -12,11 +12,9 @@
 
     <section class="archive-layout surface-panel">
       <div class="archive-header">
-        <div>
-          <p class="eyebrow">ARCH-01</p>
-          <h1>{{ .Title }}</h1>
-        </div>
-        <p>{{ .Params.description | default (printf "Published entries filed under %s, with metadata-first cards and server-rendered archive controls." .Title) }}</p>
+        <p class="eyebrow">Archive</p>
+        <h1>{{ .Title }}</h1>
+        <p>{{ .Params.description | default (printf "Articles and guides filed under %s." .Title) }}</p>
       </div>
 
       {{ partial "archive/filter-bar.html" (dict "yearLinks" $yearLinks) }}
@@ -61,11 +59,9 @@
 
     <section class="archive-layout surface-panel">
       <div class="archive-header">
-        <div>
-          <p class="eyebrow">ARCH-01</p>
-          <h1>{{ .Title }}</h1>
-        </div>
-        <p>{{ .Params.description | default "Browse topic hubs with server-rendered counts and freshness hints before deeper category term exploration." }}</p>
+        <p class="eyebrow">Topics</p>
+        <h1>{{ .Title }}</h1>
+        <p>{{ .Params.description | default "Browse all topics and find focused deep dives by subject area." }}</p>
       </div>
 
       {{ partial "archive/filter-bar.html" (dict "yearLinks" $yearLinks) }}

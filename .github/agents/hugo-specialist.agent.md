@@ -1,5 +1,6 @@
 ---
 name: Hugo Specialist
+model: Auto (copilot)
 description: Combined Hugo design and implementation specialist for blogs and websites. Use when you need visual direction, information architecture, template implementation, Hugo configuration, or GitHub Pages workflow guidance.
 ---
 
