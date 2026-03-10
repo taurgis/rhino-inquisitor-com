@@ -103,6 +103,10 @@ This runbook tracks the operational steps needed to move the repository from pla
   - `npm run check:url-parity`
   - `npm run check:seo`
   - `npm run check:links`
+- After the production validation gates pass, the workflow rebuilds the deployable preview artifact with the Pages project-site base URL and preview environment:
+  - `hugo --gc --minify --environment preview --baseURL "${{ steps.pages.outputs.base_url }}/"`
+  - this keeps the rehearsal artifact path-prefix-correct on `https://taurgis.github.io/rhino-inquisitor-com/`
+  - preview-host artifacts must emit `noindex, nofollow` and are not the same host-state as the production validation build
 - Use the PR workflow `.github/workflows/build-pr.yml` for pre-merge validation:
   - every PR to `main` runs front matter validation and a production Hugo build
   - route-sensitive PRs also run URL parity, SEO smoke, and internal link checks
@@ -111,6 +115,7 @@ This runbook tracks the operational steps needed to move the repository from pla
 - Reproduce quality gate failures locally with the matching command:
   - front matter: `npm run validate:frontmatter`
   - production build: `hugo --cleanDestinationDir --minify --environment production`
+  - preview-host rehearsal build: `hugo --gc --minify --environment preview --baseURL "https://taurgis.github.io/rhino-inquisitor-com/"`
   - URL parity: `npm run check:url-parity`
   - SEO smoke: `npm run check:seo`
   - internal links: `npm run check:links`

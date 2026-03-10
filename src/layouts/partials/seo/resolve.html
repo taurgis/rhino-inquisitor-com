@@ -16,11 +16,17 @@
 
 {{ $image := "" }}
 {{ with index $seoParams "ogImage" }}
-  {{ $image = . | absURL }}
+  {{ if or (hasPrefix . "http://") (hasPrefix . "https://") }}
+    {{ $image = . }}
+  {{ else }}
+    {{ $image = (strings.TrimPrefix "/" .) | absURL }}
+  {{ end }}
 {{ else }}
   {{ with .Params.heroImage }}
-    {{ if or (hasPrefix . "http://") (hasPrefix . "https://") (hasPrefix . "/") }}
-      {{ $image = . | absURL }}
+    {{ if or (hasPrefix . "http://") (hasPrefix . "https://") }}
+      {{ $image = . }}
+    {{ else if hasPrefix . "/" }}
+      {{ $image = (strings.TrimPrefix "/" .) | absURL }}
     {{ else }}
       {{ with $.Resources.GetMatch . }}
         {{ if reflect.IsImageResourceProcessable . }}
@@ -32,7 +38,11 @@
     {{ end }}
   {{ else }}
     {{ with .Site.Params.defaultSocialImage }}
-      {{ $image = . | absURL }}
+      {{ if or (hasPrefix . "http://") (hasPrefix . "https://") }}
+        {{ $image = . }}
+      {{ else }}
+        {{ $image = (strings.TrimPrefix "/" .) | absURL }}
+      {{ end }}
     {{ end }}
   {{ end }}
 {{ end }}

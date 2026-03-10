@@ -155,7 +155,7 @@ main {
   border: 1px solid #cbd5e0;
   font-size: 0.875rem;
   font-weight: 400;
-  color: #718096;
+  color: var(--ink-default);
   text-decoration: none;
   background: #f7fafc;
 }
@@ -1474,7 +1474,7 @@ summary {
   width: 100%;
   margin: 0;
   font-size: 0.8rem;
-  color: #718096;
+  color: var(--ink-muted);
   text-align: center;
 }
 

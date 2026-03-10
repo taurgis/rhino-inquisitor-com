@@ -24,6 +24,11 @@ New behavior:
 - `package.json` now exposes `npm run check:links`, and the repo includes a minimal `.markdownlint-cli2.jsonc` config so the PR workflow can lint changed Markdown without the existing long-line docs style becoming noise.
 - `docs/migration/RUNBOOK.md` now documents the deployment trigger paths, local gate reproduction commands, rollback path, staged-gate handling, and Search Console follow-up steps.
 
+Update on 2026-03-10:
+
+- The original deploy workflow validated a production artifact and then uploaded that same artifact to the GitHub Pages project-site host. Because the preview host lives under `/rhino-inquisitor-com/`, root-relative asset paths such as `/styles/site.css` resolved incorrectly and produced 404s on the deployed rehearsal site.
+- The deploy workflow now keeps the production validation build for gates, archives that output separately, then rebuilds the uploaded Pages artifact with `--environment preview` and the Pages-provided `base_url`. This makes the deployed rehearsal artifact path-prefix-correct and restores preview-host `noindex` behavior without changing the canonical production `baseURL` in `hugo.toml`.
+
 ## Impact
 
 - Phase 3 now has a concrete CI/CD scaffold that can gate GitHub Pages deployments instead of relying on manual local execution.
@@ -44,6 +49,14 @@ New behavior:
   - repository owner requested ticket completion after successful public deploy validation
   - custom-domain and HTTPS settings are treated as owner-confirmed for this ticket closeout, with operational follow-through remaining relevant in Phase 7 cutover work
 
+Additional verification on 2026-03-10:
+
+- Confirmed the broken deployed CSS path root cause in the rendered output: the preview host was serving a production-shaped artifact with `/styles/site.css` instead of the project-site-prefixed path.
+- Updated `.github/workflows/deploy-pages.yml` so the production validation build remains unchanged, but the uploaded rehearsal artifact is rebuilt with `hugo --gc --minify --environment preview --baseURL "${{ steps.pages.outputs.base_url }}/"`.
+- Added workflow verification for preview-host path-prefix correctness and preview `noindex` before the Pages artifact upload step.
+- Updated the shared header, footer, homepage hero, taxonomy empty-state/archive links, and SEO image resolver so preview-host builds stop emitting origin-root URLs such as `/images/brand-mark.svg` and `/styles/site.css` that bypass the project-site path prefix.
+- Updated `docs/migration/RUNBOOK.md` so local reproduction now distinguishes between the production validation build and the preview-host rehearsal build.
+
 ## Related files
 
 - `.github/workflows/deploy-pages.yml`
@@ -54,3 +67,4 @@ New behavior:
 - `.markdownlint-cli2.jsonc`
 - `docs/migration/RUNBOOK.md`
 - `analysis/tickets/phase-3/RHI-029-cicd-deployment-scaffolding.md`
+

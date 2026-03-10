@@ -38,7 +38,8 @@
   {{ $startReadingHref := .Site.Home.Permalink }}
   {{ if $blogPage }}{{ $startReadingHref = $blogPage.Permalink }}{{ end }}
   {{ if $featured }}{{ $startReadingHref = $featured.Permalink }}{{ end }}
-  {{ $browseTopicsHref := "/category/" }}
+  {{ $browseTopicsHref := "category/" | relURL }}
+  {{ $brandMarkHref := "images/brand-mark.svg" | relURL }}
   {{ with $topicsPage }}{{ $browseTopicsHref = .Permalink }}{{ end }}
   {{ $rssHref := printf "%sindex.xml" .Site.Home.Permalink }}
   {{ with .Site.Home.OutputFormats.Get "rss" }}{{ $rssHref = .Permalink }}{{ end }}
@@ -49,7 +50,7 @@
       <h1 id="home-hero-title" class="visually-hidden">{{ .Site.Title }}</h1>
     </div>
     <div class="page-hero__illustration" aria-hidden="true">
-      <img src="/images/brand-mark.svg" width="180" height="237" alt="">
+      <img src="{{ $brandMarkHref }}" width="180" height="237" alt="">
     </div>
   </section>
 

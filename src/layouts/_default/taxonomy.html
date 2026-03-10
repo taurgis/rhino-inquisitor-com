@@ -1,4 +1,7 @@
 {{ define "main" }}
+  {{ $allTopicsHref := "category/" | relURL }}
+  {{ $blogArchiveHref := "posts/" | relURL }}
+  {{ with site.GetPage "/posts" }}{{ $blogArchiveHref = .RelPermalink }}{{ end }}
   {{ partial "breadcrumbs.html" . }}
 
   {{ if eq .Kind "term" }}
@@ -32,7 +35,7 @@
           "heading" (printf "%s archive entries" .Title)
           "emptyTitle" (printf "%s is ready for its first migrated article" .Title)
           "emptyCopy" "This term page keeps the archive shell intact until matching content arrives."
-          "emptyActionHref" "/category/"
+          "emptyActionHref" $allTopicsHref
           "emptyActionLabel" "Browse all topics"
         ) }}
       </div>
@@ -54,7 +57,7 @@
     {{ $postGroups := (where site.RegularPages "Type" "posts").ByDate.Reverse.GroupByDate "2006" }}
     {{ $yearLinks := slice }}
     {{ range $postGroups }}
-      {{ $yearLinks = $yearLinks | append (dict "label" .Key "url" (printf "/posts/#year-%s" .Key)) }}
+      {{ $yearLinks = $yearLinks | append (dict "label" .Key "url" (printf "%s#year-%s" $blogArchiveHref .Key)) }}
     {{ end }}
 
     <section class="archive-layout surface-panel">
@@ -76,7 +79,7 @@
           "eyebrow" "ARCH-02"
           "title" "Category hubs"
           "items" $topicItems
-          "actionHref" "/posts/"
+          "actionHref" $blogArchiveHref
           "actionLabel" "Open the archive"
           "emptyTitle" "Topic hubs are ready for migration batches"
           "emptyCopy" "Category landing pages stay crawl-safe and coherent even before the larger archive is imported."

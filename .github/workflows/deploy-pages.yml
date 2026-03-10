@@ -59,6 +59,7 @@ jobs:
           hugo version
 
       - name: Configure GitHub Pages
+        id: pages
         uses: actions/configure-pages@v5
 
       - name: Install Node dependencies
@@ -67,7 +68,7 @@ jobs:
       - name: Validate front matter
         run: npm run validate:frontmatter
 
-      - name: Build production site
+      - name: Build production validation site
         run: hugo --minify --environment production
 
       - name: Run URL parity check
@@ -78,6 +79,24 @@ jobs:
 
       - name: Run internal link check
         run: npm run check:links
+
+      - name: Archive production validation output
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf tmp/ci-prod-public
+          mkdir -p tmp/ci-prod-public
+          cp -R public/. tmp/ci-prod-public/
+
+      - name: Build preview rehearsal site
+        run: hugo --gc --minify --environment preview --baseURL "${{ steps.pages.outputs.base_url }}/"
+
+      - name: Verify preview-host path prefix and noindex
+        shell: bash
+        run: |
+          set -euo pipefail
+          grep -q '/rhino-inquisitor-com/styles/site.css' public/index.html
+          grep -q 'noindex, nofollow' public/index.html
 
       - name: Add .nojekyll marker
         shell: bash
@@ -91,6 +110,7 @@ jobs:
           name: phase-3-build-artifacts-${{ github.sha }}
           path: |
             public
+            tmp/ci-prod-public
             migration/url-parity-report.json
           if-no-files-found: error
           retention-days: 7

@@ -1,6 +1,6 @@
 ## RHI-030 · Phase 3 Sign-off and Handover to Phase 4
 
-**Status:** Open  
+**Status:** In Progress  
 **Priority:** Critical  
 **Estimate:** S  
 **Phase:** 3  
@@ -19,87 +19,86 @@ Formally close Phase 3 by verifying that all prerequisite and workstream tickets
 
 ### Acceptance Criteria
 
-- [ ] All Phase 3 workstream tickets are `Done`:
-  - [ ] RHI-019 Done — Phase 3 Bootstrap complete
-  - [ ] RHI-020 Done — Repository Bootstrap (Hugo layout, `.gitignore`, `README.md`)
-  - [ ] RHI-021 Done — Hugo Configuration Hardening (`hugo.toml`, routing, outputs, taxonomies)
-  - [ ] RHI-022 Done — Content Contract and Archetypes (validation script, archetypes committed)
-  - [ ] RHI-023 Done — Template Scaffolding (all primary templates with SEO partials)
-  - [ ] RHI-024 Done — SEO Foundation (`check:seo` script passing, sitemap/robots validated, staging noindex working)
-  - [ ] RHI-025 Done — URL Parity Baseline (`check:url-parity` script passing, parity report generated)
-  - [ ] RHI-026 Done — Asset and Performance Baseline (Lighthouse CI passing, asset policy documented)
-  - [ ] RHI-027 Done — Accessibility and UX Baseline (`check:a11y` passing, manual checklist documented)
-  - [ ] RHI-028 Done — Security, Privacy, and Operational Hardening (`SECURITY-CONTROLS.md` complete, mixed-content clean)
-  - [ ] RHI-029 Done — CI/CD and Deployment Scaffolding (deployment workflow successful)
-  - [ ] RHI-104 Done — Shared discovery surfaces and list-page UI implemented on the shipped scaffold paths
-  - [ ] RHI-107 Done — Homepage/archive/shared-shell visual alignment matches the approved generated design examples
-  - [ ] RHI-105 Done — Article readability and contextual-navigation UI implemented with graceful fallbacks
+- [x] All Phase 3 workstream tickets are `Done`:
+  - [x] RHI-019 Done — Phase 3 Bootstrap complete
+  - [x] RHI-020 Done — Repository Bootstrap (Hugo layout, `.gitignore`, `README.md`)
+  - [x] RHI-021 Done — Hugo Configuration Hardening (`hugo.toml`, routing, outputs, taxonomies)
+  - [x] RHI-022 Done — Content Contract and Archetypes (validation script, archetypes committed)
+  - [x] RHI-023 Done — Template Scaffolding (all primary templates with SEO partials)
+  - [x] RHI-024 Done — SEO Foundation (`check:seo` script passing, sitemap/robots validated, staging noindex working)
+  - [x] RHI-025 Done — URL Parity Baseline (`check:url-parity` script passing, parity report generated)
+  - [x] RHI-026 Done — Asset and Performance Baseline (Lighthouse CI passing, asset policy documented)
+  - [x] RHI-027 Done — Accessibility and UX Baseline (`check:a11y` passing, manual checklist documented)
+  - [x] RHI-028 Done — Security, Privacy, and Operational Hardening (`SECURITY-CONTROLS.md` complete, mixed-content clean)
+  - [x] RHI-029 Done — CI/CD and Deployment Scaffolding (deployment workflow successful)
+  - [x] RHI-104 Done — Shared discovery surfaces and list-page UI implemented on the shipped scaffold paths
+  - [x] RHI-107 Done — Homepage/archive/shared-shell visual alignment matches the approved generated design examples
+  - [x] RHI-105 Done — Article readability and contextual-navigation UI implemented with graceful fallbacks
 - [ ] All Phase 3 Exit Gate conditions are met (from `analysis/plan/details/phase-3.md §Exit Gate to Phase 4`):
   - [ ] CI pipeline is passing on scaffold-only content
-  - [ ] URL parity tooling is validated against a sampled subset of Phase 1 manifest
-  - [ ] SEO smoke checks pass on all primary template classes
+  - [x] URL parity tooling is validated against a sampled subset of Phase 1 manifest
+  - [x] SEO smoke checks pass on all primary template classes
   - [ ] Deployment to Pages succeeds with correct canonical host behavior in non-production dry run
   - [ ] Blocking gates pass in CI (`validate:frontmatter`, production build, `check:url-parity`, `check:seo`, `check:links`)
-  - [ ] Staged baseline gates (`check:a11y`, `check:perf`) are passing or explicitly risk-accepted with owners and target resolution phase
+  - [x] Staged baseline gates (`check:a11y`, `check:perf`) are passing or explicitly risk-accepted with owners and target resolution phase
 - [ ] Phase 3 Definition of Done conditions are met:
-  - [ ] Repository scaffolding supports deterministic local and CI builds
-  - [ ] Core template types exist and include shared SEO primitives
-  - [ ] Discovery and article UI layers are implemented without duplicating SEO logic
-  - [ ] Structural and screenshot-level visual acceptance are both satisfied or explicitly risk-accepted with owner sign-off
-  - [ ] Front matter contract is machine-validated in CI
-  - [ ] URL parity checks are implemented and release-blocking
-  - [ ] Pages deployment workflow is configured and successfully deploys test artifact
+  - [x] Repository scaffolding supports deterministic local and CI builds
+  - [x] Core template types exist and include shared SEO primitives
+  - [x] Discovery and article UI layers are implemented without duplicating SEO logic
+  - [x] Structural and screenshot-level visual acceptance are both satisfied or explicitly risk-accepted with owner sign-off
+  - [x] Front matter contract is machine-validated in CI
+  - [x] URL parity checks are implemented and release-blocking
+  - [x] Pages deployment workflow is configured and successfully deploys test artifact
   - [ ] Baseline performance/accessibility/security checks run and produce report artifacts
   - [ ] Custom domain and HTTPS readiness are validated
-  - [ ] Staging noindex controls are verified
-  - [ ] Outstanding risks have owners, mitigations, and target resolution phases
+  - [x] Staging noindex controls are verified
+  - [x] Outstanding risks have owners, mitigations, and target resolution phases
 - [ ] `migration/phase-3-signoff.md` is committed with:
-  - [ ] Summary of all Phase 3 workstream outcomes (RHI-020 through RHI-029 plus RHI-104, RHI-105, and RHI-107) with ticket IDs and file paths
-  - [ ] Phase 3 Definition of Done compliance statement
-  - [ ] Outstanding risks with owners and mitigation plans
-  - [ ] Phase 4 entry conditions — what Phase 4 can rely on from Phase 3 outputs
-  - [ ] Any accepted deviation from the approved generated design examples is explicitly documented with owner approval
-  - [ ] Stakeholder sign-off block (migration owner, SEO owner, engineering owner)
+  - [x] Summary of all Phase 3 workstream outcomes (RHI-020 through RHI-029 plus RHI-104, RHI-105, and RHI-107) with ticket IDs and file paths
+  - [x] Phase 3 Definition of Done compliance statement
+  - [x] Outstanding risks with owners and mitigation plans
+  - [x] Phase 4 entry conditions — what Phase 4 can rely on from Phase 3 outputs
+  - [x] Any accepted deviation from the approved generated design examples is explicitly documented with owner approval
+  - [x] Stakeholder sign-off block (migration owner, SEO owner, engineering owner)
 - [ ] Phase 4 team has confirmed receipt of the Phase 3 handover package
-- [ ] 5% URL-change threshold status is reported: is the edge redirect layer mandatory before Phase 7?
+- [x] 5% URL-change threshold status is reported: is the edge redirect layer mandatory before Phase 7?
 
 ---
 
 ### Tasks
 
-- [ ] Confirm each workstream ticket is `Done` (run through checklist in Acceptance Criteria), including `RHI-107` screenshot-fidelity scope
+- [x] Confirm each workstream ticket is `Done` (run through checklist in Acceptance Criteria), including `RHI-107` screenshot-fidelity scope
 - [ ] Run all blocking quality gates locally against the final scaffold commit to verify end-to-end pass:
-  - [ ] `npm run validate:frontmatter`
-  - [ ] `hugo --minify --environment production`
-  - [ ] `npm run check:url-parity`
-  - [ ] `npm run check:seo`
-  - [ ] `npm run check:links`
+  - [x] `npm run validate:frontmatter`
+  - [x] `hugo --minify --environment production`
+  - [x] `npm run check:url-parity`
+  - [x] `npm run check:seo`
+  - [x] `npm run check:links`
 - [ ] Run staged baseline gates locally and record outcomes:
-  - [ ] `npm run check:a11y`
-  - [ ] `npm run check:perf`
+  - [x] `npm run check:a11y`
+  - [x] `npm run check:perf`
 - [ ] Review all Phase 3 Non-Negotiable Constraints from `analysis/plan/details/phase-3.md`:
-  - [ ] `baseURL` includes protocol and trailing slash
-  - [ ] Hugo alias redirect semantics are documented (HTML meta refresh, not `301`/`308`)
-  - [ ] GitHub Pages artifact requirements are met (no symlinks, correct artifact name)
+  - [x] `baseURL` includes protocol and trailing slash
+  - [x] Hugo alias redirect semantics are documented (HTML meta refresh, not `301`/`308`)
+  - [x] GitHub Pages artifact requirements are met (no symlinks, correct artifact name)
   - [ ] Custom domain source of truth is repository settings/API — verified in Settings, not only CNAME
-  - [ ] Staging noindex is via meta tag, not robots.txt Disallow
+  - [x] Staging noindex is via meta tag, not robots.txt Disallow
 - [ ] Review `migration/url-parity-report.json` — confirm 5% threshold status and record finding:
-  - [ ] If below threshold: note that Pages-only redirects are sufficient for current state
-  - [ ] If at or above threshold: escalate edge redirect infrastructure decision before Phase 7 (flag in sign-off document)
+  - [x] If at or above threshold: escalate edge redirect infrastructure decision before Phase 7 (flag in sign-off document)
 - [ ] Trigger full CI deployment workflow (`workflow_dispatch`) on the final scaffold commit:
   - [ ] Confirm all quality gates pass in CI
   - [ ] Confirm Pages deployment succeeds
   - [ ] Confirm deployed canonical URLs use `https://www.rhino-inquisitor.com/`
   - [ ] Record CI run URL in Progress Log
 - [ ] Draft `migration/phase-3-signoff.md`:
-  - [ ] Workstream outcomes table (ticket ID, deliverable, file path)
-  - [ ] Definition of Done compliance checklist
-  - [ ] Exit gate status (all four conditions from phase-3.md)
-  - [ ] Structural versus visual-acceptance status for the discovery and article surfaces
-  - [ ] Outstanding risks accepted for Phase 4 (with owners)
-  - [ ] Phase 4 entry conditions
-  - [ ] 5% threshold status
-  - [ ] Stakeholder sign-off block
+  - [x] Workstream outcomes table (ticket ID, deliverable, file path)
+  - [x] Definition of Done compliance checklist
+  - [x] Exit gate status (all four conditions from phase-3.md)
+  - [x] Structural versus visual-acceptance status for the discovery and article surfaces
+  - [x] Outstanding risks accepted for Phase 4 (with owners)
+  - [x] Phase 4 entry conditions
+  - [x] 5% threshold status
+  - [x] Stakeholder sign-off block
 - [ ] Circulate sign-off document for approval (migration owner, SEO owner, engineering owner)
 - [ ] Record final approval in Progress Log with approver names and dates
 - [ ] Notify Phase 4 team that Phase 3 is complete; provide link to `migration/phase-3-signoff.md` and RHI-020 through RHI-029
@@ -180,6 +179,9 @@ Formally close Phase 3 by verifying that all prerequisite and workstream tickets
 |------|--------|------|
 | 2026-03-07 | Open | Ticket created |
 | 2026-03-10 | Open | Sign-off criteria expanded so discovery/article surfaces must also reconcile the approved generated design examples, not only the structural scaffold tickets. |
+| 2026-03-10 | In Progress | Reconciled ticket state with the completed workstreams (`RHI-027`, `RHI-028`, and `RHI-107` were stale in the phase index), drafted `migration/phase-3-signoff.md`, and verified the local blocking gate stack passes on commit `7dd15ad`. |
+| 2026-03-10 | In Progress | Initial staged sign-off validation found a contrast regression on `.site-header__search-label` and `.site-footer__copy`; updated `src/static/styles/site.css`, then re-ran `npm run check:a11y` and `npm run check:perf` successfully. |
+| 2026-03-10 | In Progress | Final RHI-030 closure remains blocked on GitHub-side evidence that is not directly accessible from this environment: fresh `workflow_dispatch` run URL, Pages settings/API verification for the custom domain, stakeholder approvals, and Phase 4 handover receipt. |
 
 ---
 

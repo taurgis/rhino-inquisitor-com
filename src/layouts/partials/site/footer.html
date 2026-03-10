@@ -8,6 +8,7 @@
 {{ $aboutHref := printf "%sabout/" .Site.Home.Permalink }}
 {{ $privacyHref := printf "%sprivacy-policy/" .Site.Home.Permalink }}
 {{ $archiveSearchHref := printf "%sposts/#archive-search" .Site.Home.Permalink }}
+{{ $brandMarkHref := "images/brand-mark.svg" | relURL }}
 {{ with $blogPage }}
   {{ $blogHref = .Permalink }}
   {{ $archiveSearchHref = printf "%s#archive-search" .Permalink }}
@@ -19,7 +20,7 @@
 <footer class="site-footer">
   <div class="surface-shell site-footer__inner">
     <a class="site-footer__brand" href="{{ .Site.Home.Permalink }}">
-      <img src="/images/brand-mark.svg" width="28" height="37" alt="" aria-hidden="true">
+      <img src="{{ $brandMarkHref }}" width="28" height="37" alt="" aria-hidden="true">
       <span>{{ .Site.Title }}</span>
     </a>
 
