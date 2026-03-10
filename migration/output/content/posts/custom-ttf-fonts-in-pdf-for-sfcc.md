@@ -2,7 +2,7 @@
 title: Custom TTF fonts in PDF for Salesforce B2C Commerce Cloud
 description: >-
   A while ago, I wrote two articles on how to get PDF magic to work within SFCC:
-  $1 $1 As this is a common topic that many projects may encounter, I have...
+  - - As this is a common topic that many projects may encounter, I have
 date: '2023-06-12T08:12:49.000Z'
 lastmod: '2023-06-12T08:13:03.000Z'
 url: /custom-ttf-fonts-in-pdf-for-sfcc/

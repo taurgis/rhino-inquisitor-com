@@ -2,7 +2,7 @@
 title: 'Mastering Sitemaps in Salesforce B2C Commerce: A Developer''s Guide'
 description: >-
   In Salesforce B2C Commerce Cloud (SFCC), the sitemap is more than just a list
-  of links. It's a powerful, scalable system for telling search engines exac...
+  of links.
 date: '2025-06-16T07:30:19.000Z'
 lastmod: '2025-06-24T18:22:38.000Z'
 url: /mastering-sitemaps-in-sfcc/
@@ -34,7 +34,7 @@ You control all of this from the Business Manager: Merchant Tools > SEO > Sitema
 
 ### Your Control Panel: The Settings Tab
 
-[![A screenshot of the Sitemap Settings in Merchant tools in Salesforce B2C Commerce Cloud](/media/2025/sitemap-business-manager-sfcc-1e208116dd.jpg)](/media/2025/sitemap-business-manager-sfcc-1e208116dd.jpg)
+[![Sitemap settings panel in Business Manager.](/media/2025/sitemap-business-manager-sfcc-1e208116dd.jpg)](/media/2025/sitemap-business-manager-sfcc-1e208116dd.jpg)
 
 The Sitemap Settings in the Business Manager
 
@@ -47,7 +47,7 @@ The Settings tab is your main control panel. Here’s what you, as a developer, 
 
 ### The Golden Rule of Scheduling
 
-[![Screenshot of the "Job" tab in Sitemap configuration in the Business Manager](/media/2025/sitemap-business-manager-job-13ba1762a2.jpg)](/media/2025/sitemap-business-manager-job-13ba1762a2.jpg)
+[![Job tab for scheduling sitemap generation in Business Manager.](/media/2025/sitemap-business-manager-job-13ba1762a2.jpg)](/media/2025/sitemap-business-manager-job-13ba1762a2.jpg)
 
 The Job tab
 
@@ -81,11 +81,11 @@ Time to run Remember that the generation part won't be complete in just a few se
 
 ## Choices... choices
 
-|     |     |     |     |
+| Integration Method | Best For | Mechanism | Vibe |
 | --- | --- | --- | --- |
-| _Integration Method_ | _Best For_ | _Mechanism_ | _Vibe_ |
-| **Manual Upload** | One-offs, testing | UI in Business Manager | Quick & Dirty |
-| **Script API Job** | Batch processes (e.g., nightly sync) | Custom job step using dw.sitemap.SitemapMgr | Classic & Reliable |
+| Manual Upload | One-offs, testing | UI in Business Manager | Quick and dirty |
+| Script API Job | Batch processes such as nightly sync | Custom job step using dw.sitemap.SitemapMgr | Classic and reliable |
+| SCAPI Endpoint | Real-time, event-driven integrations | PUT request to the Shopper SEO API | Modern and agile |
 | **SCAPI Endpoint** | Real-time, event-driven integrations | PUT request to the Shopper SEO API | Modern & Agile |
 
 ## Sitemaps in the Headless Universe: PWA Kit Edition

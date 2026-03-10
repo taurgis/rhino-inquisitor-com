@@ -1,8 +1,8 @@
 ---
 title: 'Let''s GO-LIVE: eCDN'
 description: >-
-  So, you want to set a website live on Salesforce B2C Commerce Cloud. It is all
-  relatively new to you, but your task is to set up the Staging and Product...
+  So, you want to set a website live on Salesforce B2C Commerce Cloud. Read the
+  full article on Rhino Inquisitor for implementation details.
 date: '2022-08-04T06:53:47.000Z'
 lastmod: '2022-08-05T07:52:02.000Z'
 url: /lets-go-live-ecdn/
@@ -144,7 +144,7 @@ From personal experience, this usually takes a couple of minutes rather than hou
 
 Now that we are a "verified owner" of the domain within the eCDN, we can start configuring that domain.
 
-[![Embedded CDN settings for the my-domain.com storefront.](/media/2022/ecdn-overview-fea46a41af.png)](/media/2022/ecdn-overview-fea46a41af.png)
+[![A screenshot of the eCDN configuration in the BM for the "my-domain.com" website.](/media/2022/ecdn-overview-fea46a41af.png)](/media/2022/ecdn-overview-fea46a41af.png)
 
 To start, click the "settings" to the right of the top-level domain.
 

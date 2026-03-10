@@ -2,7 +2,7 @@
 title: 'Reflecting on Two Years of Blogging: My Journey in the SFCC Ecosystem'
 description: >-
   I am delighted to announce that I have completed two years of my journey with
-  the Rhino Inquisitor blog. This journey has been a blend of difficulties a...
+  the Rhino Inquisitor blog.
 date: '2024-03-11T20:17:04.000Z'
 lastmod: '2024-03-11T20:19:14.000Z'
 url: /reflecting-on-2-years-of-blogging/

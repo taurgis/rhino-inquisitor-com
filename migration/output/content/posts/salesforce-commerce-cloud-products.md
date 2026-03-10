@@ -1,8 +1,8 @@
 ---
 title: 9 Salesforce Commerce Cloud Products
 description: >-
-  You are probably here, reading this blog to learn more about $1. But over the
-  past years, more products have been put under Salesforce Commerce Cloud "w...
+  You are probably here, reading this blog to learn more about. Read the full
+  article on Rhino Inquisitor for implementation details.
 date: '2023-07-17T09:07:01.000Z'
 lastmod: '2023-07-17T09:11:18.000Z'
 url: /salesforce-commerce-cloud-products/

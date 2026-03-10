@@ -1,9 +1,9 @@
 ---
 title: Local vs Shared Variation Attributes in Commerce Cloud
 description: >-
-  In the dynamic world of eCommerce, the concept of $1 holds significant
-  importance. It empowers merchants to effectively present a range of product
-  optio...
+  In the dynamic world of eCommerce, the concept of holds significant
+  importance. Read the full article on Rhino Inquisitor for implementation
+  details.
 date: '2025-04-14T07:17:18.000Z'
 lastmod: '2025-04-23T07:24:17.000Z'
 url: /local-vs-shared-variation-attributes-sfcc/
@@ -35,7 +35,7 @@ Supported Attribute Types Currently, only non-localizable string and integer fie
 
 Local variation attributes are specific to a single product or a small group of products within a catalog. These attributes apply only to the respective products that define them, which means they can vary significantly from one product to another. Local attributes are particularly useful when there is a need to cater to unique product offerings that don't apply to the broader catalog.
 
-![A screenshot of a product in the business manager showing the Variations tab with local variation attributes.](/media/2025/local-variation-attributes-5fad46fb81.png)
+![Product Variations tab showing local variation attributes.](/media/2025/local-variation-attributes-5fad46fb81.png)
 
 ### Implementation in Catalog Import XML
 
@@ -104,11 +104,11 @@ In this example, the main product defines a color and size variation attribute t
 
 On the other hand, shared variation attributes are those that can be applied across multiple products within the catalog. These attributes promote consistency and can streamline the management of products that share similar characteristics. For instance, if multiple shoes come in the same colors and sizes, having shared variation attributes simplifies catalog management.
 
-[![A screenshot of the Business Manager showing where to configure Shared Varaiation Attributes: Products and Catalogs > Shared Variation Attributes - Select Catalog](/media/2025/defining-shared-variation-attributes-92b82313b9.png)](/media/2025/defining-shared-variation-attributes-92b82313b9.png)
+[![Business Manager path for configuring shared variation attributes.](/media/2025/defining-shared-variation-attributes-92b82313b9.png)](/media/2025/defining-shared-variation-attributes-92b82313b9.png)
 
 Merchant Tools > Products and Catalogs > Shared Variation Attributes
 
-[![A screenshot of a product in the business manager showing the Variations tab with shared variation attributes.](/media/2025/shared-variation-attributes-0d55796d17.png)](/media/2025/shared-variation-attributes-0d55796d17.png)
+[![Product Variations tab showing shared variation attributes.](/media/2025/shared-variation-attributes-0d55796d17.png)](/media/2025/shared-variation-attributes-0d55796d17.png)
 
 ### Implementation in Catalog Import XML
 

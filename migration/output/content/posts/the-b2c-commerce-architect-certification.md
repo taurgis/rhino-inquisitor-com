@@ -1,8 +1,8 @@
 ---
 title: 'B2C Commerce Architect Certification: A Complete Guide to Preparation'
 description: >-
-  Congratulations on your decision to become a $1! Obtaining certification is an
-  excellent way to validate your knowledge and ensure that it meets Salesfo...
+  Congratulations on your decision to become a! Read the full article on Rhino
+  Inquisitor for implementation details.
 date: '2023-05-22T07:18:54.000Z'
 lastmod: '2023-05-22T07:19:06.000Z'
 url: /the-b2c-commerce-architect-certification/

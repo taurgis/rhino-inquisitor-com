@@ -2,7 +2,7 @@
 title: The importance of Origin Shielding and your Commerce Cloud instance
 description: >-
   Today, we're exploring the crucial role of Origin Shielding in Salesforce B2C
-  Commerce Cloud. As online security becomes increasingly important (and alw...
+  Commerce Cloud.
 date: '2024-11-04T08:40:19.000Z'
 lastmod: '2024-11-04T08:41:59.000Z'
 url: /the-importance-of-origin-shielding/

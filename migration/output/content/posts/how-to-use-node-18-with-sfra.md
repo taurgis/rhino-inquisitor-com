@@ -1,9 +1,8 @@
 ---
 title: 'SFRA and Node 18: A Match Made in eCommerce Paradise or Hell?'
 description: >-
-  As $1, it's important to stay up to date with the latest versions of our
-  tools. The README of SFRA, unfortunately, reminds us that it is not always
-  poss...
+  Upgrade SFRA to Node 18 with fewer surprises by checking version support,
+  removing node-sass blockers, and validating your storefront toolchain.
 date: '2023-07-10T08:09:37.000Z'
 lastmod: '2023-07-10T08:13:58.000Z'
 url: /how-to-use-node-18-with-sfra/
@@ -40,11 +39,6 @@ Messing with node versions can seriously block development if not done right, an
 Fortunately, we can still perform the usual "npm install" without hassle. Please note that you may receive a warning about the system modifying package-lock.json to ensure compatibility with the current version of Node.
 
 ```
-
-					npm WARN old lockfile
-npm WARN old lockfile The package-lock.json file was created with an old version of npm,
-npm WARN old lockfile so supplemental metadata must be fetched from the registry.
-npm WARN old lockfile
 npm WARN old lockfile This is a one-time fix-up, please be patient...
 npm WARN old lockfile
 

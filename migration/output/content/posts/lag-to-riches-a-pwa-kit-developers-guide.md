@@ -2,8 +2,7 @@
 title: 'From Lag to Riches: A PWA Kit Developer''s Guide to Storefront Speed'
 description: >-
   Let's be honest: a slow e-commerce site is a silent killer of sales. In the
-  world of B2C Commerce, every millisecond is money. As a PWA Kit developer,
-  y...
+  world of B2C Commerce, every millisecond is money.
 date: '2025-06-23T17:00:05.000Z'
 lastmod: '2025-06-24T18:21:36.000Z'
 url: /lag-to-riches-a-pwa-kit-developers-guide/
@@ -67,7 +66,7 @@ Lighthouse is the tool that helps you get there.
 
 ### The Big Three: LCP, INP, and CLS Explained
 
-[!["A three-panel cartoon showing a website mascot experiencing performance issues. First, labeled 'Slow LCP', the mascot strains to lift a heavy image. Second, labeled 'High INP', the mascot is frozen in a block of ice, unresponsive to a user's click. Third, labeled 'High CLS', the mascot is knocked over by a falling ad block that displaces a button.](/media/2025/core-web-vitals-visualised-e1750704059141-9cbbc8c421.jpg)](/media/2025/core-web-vitals-visualised-e1750704059141-9cbbc8c421.jpg)
+[![Three-panel illustration of Slow LCP, High INP, and High CLS problems.](/media/2025/core-web-vitals-visualised-e1750704059141-9cbbc8c421.jpg)](/media/2025/core-web-vitals-visualised-e1750704059141-9cbbc8c421.jpg)
 
 A visual guide to Core Web Vital problems: How poor LCP, INP, and CLS create a frustrating user experience.
 
@@ -230,9 +229,8 @@ You have a powerful set of free tools to become a performance detective.
     -   **Network Panel:** Use this to inspect all network requests. Check your Cache-Control headers, analyse asset sizes, and use "Request blocking" to temporarily disable third-party scripts to see how much damage they're doing.
     -   **Application Panel:** This is your PWA command centre. Inspect your manifest, check your service worker's status, clear caches, and simulate being offline to test your app's reliability.
 
-|     |     |     |     |
-| --- | --- | --- | --- |
 | Symptom / Poor Metric | Likely PWA Kit Cause(s) | Recommended Diagnostic Tool(s) | Actionable Solution(s) |
+| --- | --- | --- | --- |
 | **Poor LCP on Product Detail Page** | 1\. Large, unoptimized hero image.
 
 2\. Slow, sequential API calls in getProps/useQuery during SSR.

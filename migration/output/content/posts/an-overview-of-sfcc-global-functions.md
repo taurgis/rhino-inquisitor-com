@@ -4,8 +4,7 @@ title: >-
   Commerce Cloud
 description: >-
   In development, it's essential to have access to useful functions that can
-  make your work more efficient. $1 offers several global functions which are
-  h...
+  make your work more efficient.
 date: '2023-10-23T12:06:05.000Z'
 lastmod: '2023-10-21T18:06:29.000Z'
 url: /an-overview-of-sfcc-global-functions/

@@ -4,7 +4,7 @@ title: >-
   Salesforce B2C Commerce Cloud
 description: >-
   Enhance your security beyond the basics on Salesforce B2C Commerce Cloud with
-  this comprehensive guide tailored for developers. It covers strategies to...
+  this comprehensive guide tailored for developers.
 date: '2026-01-19T08:02:08.000Z'
 lastmod: '2026-01-13T09:54:38.000Z'
 url: /a-dev-guide-to-combating-fraud-on-sfcc/

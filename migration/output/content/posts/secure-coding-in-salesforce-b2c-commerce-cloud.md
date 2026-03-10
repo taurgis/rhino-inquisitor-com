@@ -2,7 +2,7 @@
 title: Secure Coding in Salesforce B2C Commerce Cloud
 description: >-
   Salesforce B2C Commerce Cloud provides many security features out of the box.
-  And because it is a $1 solution, the security of the servers is handled by...
+  Read the full article on Rhino Inquisitor for implementation details.
 date: '2022-04-26T12:09:00.000Z'
 lastmod: '2022-07-23T21:36:32.000Z'
 url: /secure-coding-in-salesforce-b2c-commerce-cloud/

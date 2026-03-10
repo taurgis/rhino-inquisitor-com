@@ -1,8 +1,8 @@
 ---
 title: 'The Realm Split: A Developer''s Field Guide to Migrating an SFCC Site'
 description: >-
-  Have you ever found yourself in a deployment day standoff? Your team is ready
-  to push a critical feature for the US site, but it's blocked because a see...
+  Learn when an SFCC realm split is justified, how to plan the migration, and
+  which data, SEO, and operational risks demand the most attention.
 date: '2025-09-08T09:14:15.000Z'
 lastmod: '2025-09-05T11:12:50.000Z'
 url: /the-realm-split-field-guide-to-migrating-an-sfcc-site/
@@ -19,8 +19,6 @@ author: Thomas Theunen
 Have you ever found yourself in a deployment-day standoff? Your team is ready to push a critical feature for the US site, but it's blocked because a seemingly unrelated change for the EU site, which shares your codebase, has failed QA. You're stuck. This kind of organisational friction, where independent business units become entangled in a shared technical fate, is a clear signal that your single Salesforce B2C Commerce Cloud realm is cracking under pressure. The technical dependencies that once streamlined operations now create bottlenecks, and the shared codebase that once promised efficiency has become a source of risk and frustration.
 
 When this friction becomes unbearable, the business is faced with a monumental decision: a realm split. This is the architectural divorce of a site from its original family of instances, code, and data. It is a deliberate move to carve out a new, autonomous environment where a business unit can operate without being constrained by the priorities, schedules, and technical debt of its siblings. But like any divorce, it is complex, costly, and fraught with peril. A realm split is not a simple data replication or a POD move; it is a full-scale migration that touches every aspect of the platform, from the underlying infrastructure to third-party integrations and historical analytics.
-
-This field guide serves as a comprehensive, battle-tested [blueprint](https://help.salesforce.com/s/articleView?id=000391622&language=en_US&type=1) for SFCC developers and architects tasked with navigating this process. It provides a detailed plan of action that covers the strategic 'why,' the tactical 'how,' and the critical 'what to watch out for.' From justifying the immense cost and effort to executing a minute-by-minute cutover plan and managing the post-split reality, this document is designed to be the definitive resource for successfully cleaving a site into its own sovereign territory.
 
 ## Deconstructing the Monolith: The 'Why' and 'When' of a Realm Split
 
@@ -41,7 +39,7 @@ This architecture is designed for efficiency under a unified operational model. 
 
 The decision to split a realm is a lagging indicator of a fundamental misalignment between a company's organizational structure and its technical architecture. The initial choice of a single realm is often based on an assumption of a unified business strategy. The need for a split arises when that assumption is no longer valid. This manifests through several distinct business and technical drivers.
 
-![A 16:9 cinematic image showing two business teams in separate, modern offices on opposite sides. One office has a US flag. Both teams look stressed and frustrated as they are confronted with large, chaotic diagrams of business processes projected in the air. The two different diagrams collide violently in the center with a bright spark, directly above a cracked and broken image of the Earth, symbolizing a global business breakdown.](/media/2025/conflicts-across-the-world-on-processes-d64e01a143.jpg)
+![Two business teams pulling in different directions as their shared global process breaks down.](/media/2025/conflicts-across-the-world-on-processes-d64e01a143.jpg)
 
 When Workflows Clash: The Tipping Point for a Realm Split
 
@@ -69,7 +67,7 @@ If performance is the problem, a rigorous cycle of code optimisation and profili
 
 Executing a realm split is a major re-platforming project disguised as a migration. Success depends on a meticulously detailed, phased [plan](https://help.salesforce.com/s/articleView?id=000391622&language=en_US&type=1) that accounts for every dependency, from stakeholder alignment to data integrity and third-party coordination. The following blueprint breaks the process down into six critical phases.
 
-![](/media/2025/the-grand-blueprint-v2-9c2bcca94a.jpg)
+![Team collaborating around a blueprint for a phased realm-split migration.](/media/2025/the-grand-blueprint-v2-9c2bcca94a.jpg)
 
 Success in a complex project like a realm split hinges on a meticulously detailed, phased plan. This image visualizes a team of experts collaborating on a holographic blueprint, representing the strategic and coordinated effort required to navigate the six critical phases of the migration.
 
@@ -103,25 +101,20 @@ The complexity of data migration, with its varied methods and ownership, demands
 
 Also, please review [this page](https://help.salesforce.com/s/articleView?id=000391622&language=en_US&type=1) carefully, as it contains a wealth of information on the migration plan you need to set up.
 
-|     |     |     |     |
-| --- | --- | --- | --- |
 | Data Object | When | Key Considerations & Risks | Primary Owner |
-| **Product Catalog** | Continuous in the old and new realms | Includes products, categories, assignments, and sorting rules. Relatively low risk. | Dev Team / Merchandising |
-| **Price Books** | Continuous in the old and new realms | Ensure all relevant price books are included. Test pricing thoroughly post-import. | Dev Team / Merchandising |
-| **Content Assets & Libraries** | Manual syncs at pre-defined moments | Includes content assets, folders, and library assignments. | Dev Team / Content Team |
-| **Slot Configurations** | Manual syncs at pre-defined moments | Verify slot configurations on all page types post-import. | Dev Team / Merchandising |
-| **Promotions & Campaigns** | Manual syncs at pre-defined moments | Includes promotion definitions, campaigns, and customer groups. | Dev Team / Marketing |
-| **Custom Objects** | Manual syncs at pre-defined moments | Export definitions via Site Export. Migrate data using custom jobs with dw.io classes. | Dev Team |
-| **Site Preferences & Metadata** | Manual syncs at pre-defined moments | Many settings are included in site export, but some (e.g., sequence numbers) must be manually configured and verified. | Dev Team |
-| **Customer Profiles** | Complete migration 1-2 weeks before the go-live, delta during and after | **CRITICAL PII RISK:** Ensure the Customer Sequence Number in the new realm is set higher than the highest customer number being imported to prevent duplicate IDs and data exposure. | Dev Team |
-| **Customer Passwords** | Part of the Customer Profiles. | Passwords are encrypted, but can be exported and imported into different realms without any intervention from Salesforce. | Dev Team |
-| **Order History** | Complete migration 1-2 weeks before the go-live, delta during and after | You can export and import orders yourself as long as the site is not marked "live".
-
-**WARNING:** Ensure that you complete importing customers before importing orders, as the linking of orders to the correct customer will not occur in the background otherwise.
-
-**MANDATORY:** For a live site, order data migration _must_ be performed by Salesforce Support. This is a hard dependency requiring at least 10 working days' notice. | Dev Team / Salesforce Support |
-| **System-Generated Coupons** | **Salesforce Support Ticket** | **MANDATORY:** To ensure existing coupons remain valid, the underlying "seeds" must be migrated by Salesforce Support. Requires a separate, specific support ticket. | Salesforce Support |
-| **Active Data & Einstein** | **Salesforce Support Ticket, During Go-Live** | For different realms, this requires a support ticket. | Dev Team / SF Support |
+| --- | --- | --- | --- |
+| Product Catalog | Continuous in the old and new realms | Includes products, categories, assignments, and sorting rules. Relatively low risk. | Dev Team / Merchandising |
+| Price Books | Continuous in the old and new realms | Ensure all relevant price books are included. Test pricing thoroughly post-import. | Dev Team / Merchandising |
+| Content Assets & Libraries | Manual syncs at pre-defined moments | Includes content assets, folders, and library assignments. | Dev Team / Content Team |
+| Slot Configurations | Manual syncs at pre-defined moments | Verify slot configurations on all page types post-import. | Dev Team / Merchandising |
+| Promotions & Campaigns | Manual syncs at pre-defined moments | Includes promotion definitions, campaigns, and customer groups. | Dev Team / Marketing |
+| Custom Objects | Manual syncs at pre-defined moments | Export definitions via Site Export. Migrate data using custom jobs with dw.io classes. | Dev Team |
+| Site Preferences & Metadata | Manual syncs at pre-defined moments | Many settings are included in site export, but some such as sequence numbers must be manually configured and verified. | Dev Team |
+| Customer Profiles | Complete migration 1-2 weeks before the go-live, delta during and after | Critical PII risk: set the Customer Sequence Number in the new realm above the highest imported customer number to prevent duplicate IDs and data exposure. | Dev Team |
+| Customer Passwords | Part of the Customer Profiles | Passwords are encrypted, but can be exported and imported into different realms without Salesforce intervention. | Dev Team |
+| Order History | Complete migration 1-2 weeks before the go-live, delta during and after | You can export and import orders yourself as long as the site is not marked live. Import customers first so order-to-customer links are preserved. For a live site, Salesforce Support must perform the order migration with at least 10 working days' notice. | Dev Team / Salesforce Support |
+| System-Generated Coupons | Salesforce Support Ticket | Existing coupon seeds must be migrated by Salesforce Support so issued coupons remain valid. | Salesforce Support |
+| Active Data & Einstein | Salesforce Support Ticket, During Go-Live | Different realms require Salesforce Support coordination for this migration. | Dev Team / SF Support |
 
 ### Phase 4: Rebuilding the Engine - Code, Config, and Integrations
 
@@ -159,7 +152,7 @@ The sequence, based on Salesforce's official guidance, is as follows:
 
 ## The SEO Minefield: Preserving Your Digital Ghost
 
-![](/media/2025/seo-minefield-03b727d6da.jpg)
+![Navigator crossing an SEO minefield to preserve rankings during migration.](/media/2025/seo-minefield-03b727d6da.jpg)
 
 Underestimating the SEO impact of a realm split is a catastrophic error that can wipe out years of search equity. This image visualizes the high-stakes process of navigating this "SEO minefield," where a single misstep can have explosive consequences. The illuminated path represents the meticulous, non-negotiable strategy—like a comprehensive 301 redirect map—required to safely migrate a site and preserve its valuable "digital ghost."
 

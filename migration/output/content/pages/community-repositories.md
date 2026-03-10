@@ -1,8 +1,8 @@
 ---
 title: Community Repositories
 description: >-
-  Below you will find a list of many different contributions the $1 has made to
-  Salesforce B2C Commerce Cloud! This extends the platform and increases the...
+  Below you will find a list of many different contributions the has made to
+  Salesforce B2C Commerce Cloud!
 date: '2022-04-27T06:33:05.000Z'
 lastmod: '2023-02-15T14:08:10.000Z'
 url: /community-repositories/

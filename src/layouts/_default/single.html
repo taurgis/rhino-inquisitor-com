@@ -5,8 +5,10 @@
     <header class="page-article__header">
       <h1>{{ .Title }}</h1>
       {{ partial "article/meta-row.html" (dict "page" . "label" "Article details") }}
-      {{ with .Params.description }}
-        <p class="page-article__description">{{ . }}</p>
+      {{ if ne .Type "posts" }}
+        {{ with .Params.description }}
+          <p class="page-article__description">{{ . }}</p>
+        {{ end }}
       {{ end }}
       {{ with .Params.heroImage }}
         <div class="page-article__hero">

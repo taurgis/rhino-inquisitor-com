@@ -1,9 +1,8 @@
 ---
 title: What is the Salesforce B2C Commerce Cloud Managed Runtime?
 description: >-
-  In the last two years, more vocabulary has been added to the $1 ecosystem
-  because of the $1. And one of the terms you might have heard is "$1", which
-  pr...
+  In the last two years, more vocabulary has been added to the ecosystem because
+  of the.
 date: '2023-05-08T13:04:24.000Z'
 lastmod: '2023-05-08T13:15:51.000Z'
 url: /what-is-the-sfcc-managed-runtime/

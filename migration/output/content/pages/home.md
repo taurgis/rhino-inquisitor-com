@@ -1,8 +1,8 @@
 ---
 title: Home
 description: >-
-  Welcome! My name is Thomas, and I am the Head of Commerce at $1. I am a proud
-  father of two wonderful children: Thalia & Thano. I have a deep passion fo...
+  Welcome! My name is Thomas, and I am the Head of Commerce at. I am a proud
+  father of two wonderful children: Thalia & Thano.
 date: '2022-02-25T21:45:56.000Z'
 lastmod: '2025-09-21T06:26:21.000Z'
 url: /

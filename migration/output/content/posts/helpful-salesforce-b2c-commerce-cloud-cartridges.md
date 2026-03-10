@@ -1,8 +1,8 @@
 ---
 title: Helpful Salesforce B2C Commerce Cloud Cartridges
 description: >-
-  Over the years, an extensive list of cartridges has grown in the $1. These are
-  certified integrations that have gone through a checklist and verified by...
+  Over the years, an extensive list of cartridges has grown in the. Read the
+  full article on Rhino Inquisitor for implementation details.
 date: '2022-09-20T06:29:08.000Z'
 lastmod: '2022-09-20T06:31:08.000Z'
 url: /helpful-salesforce-b2c-commerce-cloud-cartridges/
@@ -28,7 +28,7 @@ _**Note**: If you do not have access to the Salesforce B2C Commerce Cloud GitHub
 
 ## Custom Feeds
 
-[![A screenshot of the Custom Feeds interface in the Business Manager, showing a configuration for a Google Feed.](/media/2022/custom-feed-9148030910.png)](/media/2022/custom-feed-9148030910.png)
+[![Custom Feeds configuration screen with a Google feed example.](/media/2022/custom-feed-9148030910.png)](/media/2022/custom-feed-9148030910.png)
 
 -   [GitHub Repository Link](https://github.com/SalesforceCommerceCloud/custom-feeds)
 
@@ -61,7 +61,7 @@ This cartridge integrates the SLAS (Shopper Login and API Access Service) within
 
 ## Resource Manager
 
-[![A screenshot of the Resource Manager in the business manager.](/media/2022/resource-manager-4a86b3a33c.png)](/media/2022/resource-manager-4a86b3a33c.png)
+[![Resource Manager interface inside Business Manager.](/media/2022/resource-manager-4a86b3a33c.png)](/media/2022/resource-manager-4a86b3a33c.png)
 
 -   [GitHub Repository Link](https://github.com/SalesforceCommerceCloud/resource-manager)
 
@@ -86,7 +86,7 @@ There are some things to keep in mind when switching to this method:
 
 ## Page Designer Plus
 
-[![](/media/2022/page-designer-plus-9eedd5b72f.jpg)](/media/2022/page-designer-plus-9eedd5b72f.jpg)
+[![Page Designer Plus example showing enhanced page-building components.](/media/2022/page-designer-plus-9eedd5b72f.jpg)](/media/2022/page-designer-plus-9eedd5b72f.jpg)
 
 -   [GitHub Repository Link](https://github.com/SalesforceCommerceCloud/link_royalcyberpd)
 

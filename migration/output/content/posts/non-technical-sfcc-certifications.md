@@ -1,9 +1,8 @@
 ---
 title: Salesforce B2C Commerce Certifications for Non-Technical Professionals
 description: >-
-  People working as Business Analysts, UX designers, or other non developer
-  roles have felt a $1 in the Salesforce B2C Commerce Cloud certifications for
-  a...
+  People working as Business Analysts, UX designers, or other non-developer
+  roles have felt a in the Salesforce B2C Commerce Cloud certifications for a
 date: '2023-04-24T08:47:47.000Z'
 lastmod: '2023-05-02T17:31:52.000Z'
 url: /non-technical-sfcc-certifications/

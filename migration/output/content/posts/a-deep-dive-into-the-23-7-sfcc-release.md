@@ -2,8 +2,7 @@
 title: A deep-dive into the 23.7 Commerce Cloud release
 description: >-
   It's summertime, which means we get to check out the fresh release of the
-  Salesforce B2C Commerce Cloud. Join me as we delve into all the new features
-  o...
+  Salesforce B2C Commerce Cloud.
 date: '2023-06-28T07:47:03.000Z'
 lastmod: '2023-06-28T07:47:14.000Z'
 url: /a-deep-dive-into-the-23-7-sfcc-release/
@@ -16,7 +15,7 @@ tags:
   - sfcc
 author: Thomas Theunen
 ---
-It's summertime, which means we get to check out the fresh release of the Salesforce B2C Commerce Cloud. Join me as we delve into all the new features of the [July 2023 (23.7)](https://help.salesforce.com/s/articleView?language=en_US&id=sf.rn_b2c_rn_23_7_release.htm&type=5) release. Are you interested in last month’s release notes? [Click here](/a-look-at-the-salesforce-b2c-commerce-cloud-23-6-release/)!
+It's summertime, which means we get to check out the fresh release of the Salesforce B2C Commerce Cloud. Join me as we delve into all the new features of the [July 2023 (23.7)](https://help.salesforce.com/s/articleView?language=en_US&id=sf.rn_b2c_rn_23_7_release.htm&type=5) release. Are you interested in last month’s release notes? [Read the 23.6 release notes](/a-look-at-the-salesforce-b2c-commerce-cloud-23-6-release/)!
 
 ## Environment Variables are now live on Managed Runtime
 
@@ -26,15 +25,15 @@ It's summertime, which means we get to check out the fresh release of the Salesf
 > -   Feature flags for application logic
 > -   Configuration that differs between environments
 
-Great news for users of Composable Storefront! You can now use the much-awaited feature of securely managing "secrets" and variables per environment! Currently, the API is the sole choice that is minimally (for now) documented [here](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/managed-runtime-administration.html#environment-variables).
+Great news for users of Composable Storefront! You can now use the much-awaited feature of securely managing "secrets" and variables per environment! Currently, the API is the sole choice that is minimally documented in the [Managed Runtime environment variables guide](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/managed-runtime-administration.html#environment-variables).
 
 ## Improve Product Discoverability with the Google Inventory Listings Cartridge
 
-![A screenshot of the Google Local Inventory ads depicting two shoes and their location.](/media/2023/local-inventory-7952c2d4a2.jpeg)
+![Google Local Inventory listing showing nearby shoe availability.](/media/2023/local-inventory-7952c2d4a2.jpeg)
 
 > The Google Inventory cartridge is a B2C Commerce direct integration cartridge. You can use the cartridge to list your local store products on Google’s free product listings. Shoppers can discover products in stores near them. This increases local store foot traffic
 
-In today's world, it's essential to connect with customers at multiple touchpoints. Among these touchpoints, Google stands out as one of the most significant. By showcasing your products in proximity to Google searches, you can attract both new and loyal customers to your physical stores or online shop.  It's a proven strategy that can help your business stand out from the competition. You can download the cartridge to add to your codebase [here](https://github.com/SalesforceCommerceCloud/social_channel_integrations) to get started.
+In today's world, it's essential to connect with customers at multiple touchpoints. Among these touchpoints, Google stands out as one of the most significant. By showcasing your products in proximity to Google searches, you can attract both new and loyal customers to your physical stores or online shop.  It's a proven strategy that can help your business stand out from the competition. You can download the cartridge from the [social_channel_integrations repository](https://github.com/SalesforceCommerceCloud/social_channel_integrations) to get started.
 
 ## Business Manager
 
@@ -46,7 +45,7 @@ A much-needed update in the platform to be warned that one of the orders was not
 
 ### Configure Up to 10 Categorization Conditions
 
-![A screenshot of the categorization rules in the 23.7 release](/media/2023/categorization-rules-in-23-7-affa83b506.jpg)
+![Categorization rule editor with support for up to ten conditions.](/media/2023/categorization-rules-in-23-7-affa83b506.jpg)
 
 > When configuring a categorization rule in Business Manager, you can now set up to ten categorization conditions per categorization rule set. Previously, Business Manager supported five conditions per rule set while the API supported ten conditions per rule set.
 

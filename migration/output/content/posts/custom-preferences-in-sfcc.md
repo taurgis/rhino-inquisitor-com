@@ -1,9 +1,8 @@
 ---
 title: 'Custom Preferences in Salesforce B2C Commerce Cloud: A Developer Guide'
 description: >-
-  $1 uses custom preferences to store configurable settings for a storefront.
-  These settings can be anything from feature settings to loyalty
-  calculations...
+  uses custom preferences to store configurable settings for a storefront. These
+  settings can be anything from feature settings to loyalty calculations.
 date: '2023-10-16T12:01:58.000Z'
 lastmod: '2023-10-16T18:11:19.000Z'
 url: /custom-preferences-in-sfcc/

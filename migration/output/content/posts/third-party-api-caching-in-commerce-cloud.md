@@ -2,7 +2,7 @@
 title: Third-Party API Caching in Commerce Cloud
 description: >-
   Enhancing the performance of applications that rely on third-party services is
-  crucial in today's digital environment. Numerous SFCC sites rely on APIs...
+  crucial in today's digital environment.
 date: '2024-11-11T05:35:00.000Z'
 lastmod: '2024-11-13T09:26:49.000Z'
 url: /third-party-api-caching-in-commerce-cloud/
@@ -62,7 +62,7 @@ Creating a service in the [LocalServiceRegistry](https://salesforcecommercecloud
 
 [In this snippet](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-webservices.html#configure-underlying-clients), the \`**enableCaching**\` method is invoked, enabling caching for the HTTP requests serviced by this configuration. The argument (in this case, \`1000\`) represents a timeout setting, which dictates how long a cached response will be valid before the subsequent request is made.
 
-[![](/media/2024/configuring-underlying-clients-95d307a0e7.png)](/media/2024/configuring-underlying-clients-95d307a0e7.png)
+[![Official documentation snippet showing enableCaching on an HTTP service.](/media/2024/configuring-underlying-clients-95d307a0e7.png)](/media/2024/configuring-underlying-clients-95d307a0e7.png)
 
 A screenshot of the official documentation on how to add caching to a service.
 
@@ -88,7 +88,7 @@ However, don't anticipate any "magic 🪄"—it's the accumulation of many small
 
 ## Clearing the cache
 
-[![A screenshot of the "Service Maintenance" configuration page in the Business Manager.](/media/2024/clearing-httpclient-response-cache-c4b7ab1863.png)](/media/2024/clearing-httpclient-response-cache-c4b7ab1863.png)
+[![Service Maintenance screen used to invalidate the HTTP client response cache.](/media/2024/clearing-httpclient-response-cache-c4b7ab1863.png)](/media/2024/clearing-httpclient-response-cache-c4b7ab1863.png)
 
 A screenshot of the "Service Maintenance" configuration page in the Business Manager.
 
@@ -138,7 +138,7 @@ In conclusion, adding a caching mechanism to the LocalServiceRegistry for third-
 
 Here's an example of a successful (anonymised) result from using this cache and rate limiting bot traffic:
 
-[![A screenshot of a graph showing the results of third-party service improvements, including using Cloudflare and secondly adding caching.](/media/2024/third-party-service-caching-results-e1731261763486-2847fa50c4.jpg)](/media/2024/third-party-service-caching-results-e1731261763486-2847fa50c4.jpg)
+[![Graph showing lower third-party API traffic after bot filtering and caching.](/media/2024/third-party-service-caching-results-e1731261763486-2847fa50c4.jpg)](/media/2024/third-party-service-caching-results-e1731261763486-2847fa50c4.jpg)
 
 The number of requests handled by the API decreased considerably, leading to a lower monthly bill.
 

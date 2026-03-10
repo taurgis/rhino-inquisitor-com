@@ -2,7 +2,7 @@
 title: 'Field Guide to Custom Caches: Wielding a Double-Edged Sword'
 description: >-
   You think you know caching. You’ve enabled page caching, fiddled with content
-  slot TTLs, and called it a day. And your Salesforce B2C Commerce Cloud sit...
+  slot TTLs, and called it a day.
 date: '2025-07-28T07:32:55.000Z'
 lastmod: '2025-07-28T07:37:24.000Z'
 url: /field-guide-to-custom-caches-in-sfcc/

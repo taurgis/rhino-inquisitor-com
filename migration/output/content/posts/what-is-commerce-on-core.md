@@ -3,7 +3,7 @@ title: What is Salesforce B2C Commerce on Core?
 description: >-
   People who have been around "$1" for a while and continued after the
   acquisition by Salesforce know that this announcement was bound to happen at
-  one po...
+  one
 date: '2022-10-09T14:17:31.000Z'
 lastmod: '2023-02-08T18:02:55.000Z'
 url: /what-is-commerce-on-core/
@@ -25,7 +25,7 @@ During Dreamforce, the first mention of this happening reared its face this year
 
 A big announcement for Marketing Cloud is "hidden" in this slide too 😉.
 
-[![](/media/2022/commerce-on-core-fda7921efd.jpg)](/media/2022/commerce-on-core-fda7921efd.jpg)
+[![Dreamforce keynote slide hinting at Commerce on Core.](/media/2022/commerce-on-core-fda7921efd.jpg)](/media/2022/commerce-on-core-fda7921efd.jpg)
 
 The Dreamforce '22 Main Keynote
 
@@ -33,7 +33,7 @@ There was another slide and a short presentation they gave during the Keynote, b
 
 However, I found another slide in one of the more recent presentations for onboarding new partners.
 
-[![](/media/2022/commerce-on-core-subscriptions-6a0584ff6d.jpg)](/media/2022/commerce-on-core-subscriptions-6a0584ff6d.jpg)
+[![Partner presentation slide showing multiple Commerce on Core shapes.](/media/2022/commerce-on-core-subscriptions-6a0584ff6d.jpg)](/media/2022/commerce-on-core-subscriptions-6a0584ff6d.jpg)
 
 Commerce on Core can take many shapes and forms.
 
@@ -55,7 +55,7 @@ _And more importantly, there is no reason to "**panic**." This change will take 
 
 ## What will it look like?
 
-![](/media/2022/experience-cloud-c8e89ddba1.jpg)
+![Experience Cloud interface representing the likely foundation for Commerce on Core.](/media/2022/experience-cloud-c8e89ddba1.jpg)
 
 Hard to say, looking from the outside in. But chances are incredibly high that it will be the [B2B2C](https://trailhead.salesforce.com/content/learn/modules/b2b2c-commerce-basics) offering that will be used as a basis for this product. And I am sure the Composable Storefront will play a significant role in this transition.
 
@@ -75,7 +75,7 @@ Many other products that followed, like Order Management and Commerce Marketplac
 
 ### Composable Storefront
 
-![](/media/2022/composable-storefront-6b029b5901.png)
+![Composable Storefront architecture sitting on top of SCAPI services.](/media/2022/composable-storefront-6b029b5901.png)
 
 Another separate product on its own "stack" is the [PWA Kit](/sitegenesis-vs-sfra-vs-pwa/) (or now rebranded to the Composable Storefront).
 
@@ -137,7 +137,7 @@ This could also open up the road for Trailhead to have hands-on exercises!
 
 ### Flows
 
-![](/media/2022/salesforceflow-8728e6c02c.jpg)
+![Salesforce Flow builder as a no-code automation option on the core platform.](/media/2022/salesforceflow-8728e6c02c.jpg)
 
 Does anyone miss pipelines? The good news is that there is a low / no-code alternative to Apex (code) to do automation: [Lightning Flow](https://www.salesforce.com/blog/introducing-lightning-flow-blog/).
 
@@ -173,7 +173,7 @@ And I hope Salesforce will give us a heads-up a few years in advance on the Comm
 
 ## Should I worry?
 
-![](/media/2022/confused-people-on-the-street-1713a479da.jpg)
+![People reacting with uncertainty while considering a future platform migration.](/media/2022/confused-people-on-the-street-1713a479da.jpg)
 
 As mentioned in the previous section, it will take a while before existing customers are contacted about migrating to the new platform. I guess a minimum of 5-7 years before this will start occurring, but who knows - I have been wrong before.
 

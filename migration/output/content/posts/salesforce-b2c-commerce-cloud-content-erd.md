@@ -1,9 +1,8 @@
 ---
 title: Salesforce B2C Commerce Cloud Content ERD
 description: >-
-  You have probably come out empty handed when scouring the documentation for
-  the Content ERD ($1) of $1. Sure, you find many diagrams on the entity
-  model...
+  You have probably come out empty-handed when scouring the documentation for
+  the Content ERD ($1) of.
 date: '2023-02-20T05:40:33.000Z'
 lastmod: '2023-02-26T17:52:51.000Z'
 url: /salesforce-b2c-commerce-cloud-content-erd/

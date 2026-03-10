@@ -2,7 +2,7 @@
 title: What does the Composable Storefront mean for SFCC Developers?
 description: >-
   Over the past year, I have seen increasing gossip (which I am partly to blame
-  for) and discussions about what the Composable Storefront release means fo...
+  for) and discussions about what the Composable Storefront release means for
 date: '2023-01-30T07:59:37.000Z'
 lastmod: '2023-01-30T18:11:48.000Z'
 url: /what-does-the-composable-storefront-mean-for-sfcc-developers/

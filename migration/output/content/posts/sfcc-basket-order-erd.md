@@ -1,9 +1,8 @@
 ---
 title: Salesforce B2C Commerce Cloud Basket & Order ERD
 description: >-
-  When scouring the documentation for diagrams on the entity model of $1, you
-  have probably come out empty handed. Sure, you find many diagrams on the
-  ent...
+  When scouring the documentation for diagrams on the entity model of, you have
+  probably come out empty-handed.
 date: '2023-03-06T06:41:17.000Z'
 lastmod: '2023-03-06T06:49:17.000Z'
 url: /sfcc-basket-order-erd/

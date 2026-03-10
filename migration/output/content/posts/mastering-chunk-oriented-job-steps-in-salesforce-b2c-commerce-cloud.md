@@ -2,7 +2,7 @@
 title: Mastering Chunk-Oriented Job Steps in Salesforce B2C Commerce Cloud
 description: >-
   Salesforce B2C Commerce Cloud offers a robust, flexible Jobs framework vital
-  for performing scheduled or on demand tasks for e commerce operations. One...
+  for performing scheduled or on-demand tasks for e-commerce operations.
 date: '2023-12-04T08:55:16.000Z'
 lastmod: '2025-06-25T11:58:01.000Z'
 url: /mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/
@@ -49,7 +49,7 @@ Salesforce provides a visualisation example in their documentation: [https://dev
 
 ## Creating a Chunk-Oriented Script Module
 
-We will start with the script. If you need an example for steptypes.json, [click here](#steptypes)!
+We will start with the script. If you need an example for steptypes.json, [jump to the steptypes example](#steptypes)!
 
 ### Importing what you need
 
@@ -284,17 +284,17 @@ Keeping the default setting false is recommended to avoid this negative impact a
 
 Once your script module and `steptypes.json` are ready, upload them as part of your custom cartridge. You can then create a job in Business Manager with your custom chunk-oriented step to start processing data in chunks.
 
-[![A screenshot of the interface configuring a Chunk-Oriented Job Step in the Business Manager](/media/2023/configure-chunk-job-business-manager-ce41f2bdab.jpg)](/media/2023/configure-chunk-job-business-manager-ce41f2bdab.jpg)
+[![Chunk-oriented job step configuration screen in Business Manager.](/media/2023/configure-chunk-job-business-manager-ce41f2bdab.jpg)](/media/2023/configure-chunk-job-business-manager-ce41f2bdab.jpg)
 
 ### Advantages of "total-count"
 
 If you decide to implement the "`total-count-function`", you can conveniently keep track of your job's progress in the Business Manager. This feature is handy if you have a large dataset and need to estimate when the job will be completed or if you want to know how far along the job has progressed on the list.
 
-![A screenshot with the processed amount showing on a custom job step in Salesforce B2C Commerce Cloud. This is an advantage of Chunk Oriented job steps.](/media/2023/sfcc-job-status-total-count-chunks-299b79ade4.png)
+![Job status view showing processed items when total-count is enabled.](/media/2023/sfcc-job-status-total-count-chunks-299b79ade4.png)
 
 Without the "total-count-function," we only see the amount processed, not the total record count.
 
-![](/media/2023/sfcc-job-status-total-count-chunks-with-total-e82b2b178e.png)
+![Job status view without total-count information for comparison.](/media/2023/sfcc-job-status-total-count-chunks-with-total-e82b2b178e.png)
 
 Using the "total-count-function," we can determine the amount of processed records as well as the total number of records.
 

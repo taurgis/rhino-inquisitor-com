@@ -2,8 +2,7 @@
 title: How to extend Active Data in Salesforce B2C Commerce Cloud
 description: >-
   When working on personalization and segmentation within Salesforce B2C
-  Commerce Cloud, $1 is one of the tools to help you along the way. By utilizing
-  da...
+  Commerce Cloud, is one of the tools to help you along the way.
 date: '2023-06-19T05:13:10.000Z'
 lastmod: '2023-06-19T05:15:47.000Z'
 url: /how-to-extend-active-data-in-salesforce-b2c-commerce-cloud/

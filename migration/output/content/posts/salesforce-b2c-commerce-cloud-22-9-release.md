@@ -2,8 +2,7 @@
 title: Salesforce B2C Commerce Cloud 22.9 release
 description: >-
   We have been getting some lovely new goodies in the past few releases, but
-  this trend is not ending! This time we look at the $1! Are you interested
-  in...
+  this trend is not ending! This time we look at the!
 date: '2022-08-17T18:45:35.000Z'
 lastmod: '2022-08-18T08:09:00.000Z'
 url: /salesforce-b2c-commerce-cloud-22-9-release/

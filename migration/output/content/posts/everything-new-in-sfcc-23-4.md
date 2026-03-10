@@ -1,9 +1,8 @@
 ---
 title: Everything new in Salesforce B2C Commerce Cloud 23.4
 description: >-
-  As the clock ticks on a new month has arrived, and with that the next $1
-  release! This time we look at the $1! Are you interested in last month’s
-  releas...
+  As the clock ticks on a new month has arrived, and with that the next release!
+  This time we look at the! Are you interested in last month’s release notes?!
 date: '2023-03-15T19:32:56.000Z'
 lastmod: '2023-03-15T19:51:03.000Z'
 url: /everything-new-in-sfcc-23-4/

@@ -2,8 +2,7 @@
 title: 'Let''s GO-LIVE: SEO'
 description: >-
   When going live with a website, SEO is an integral part that should not be
-  overlooked. It is a long term strategy that should be started before your
-  web...
+  overlooked.
 date: '2022-09-05T08:35:42.000Z'
 lastmod: '2022-11-19T10:02:48.000Z'
 url: /lets-go-live-seo/

@@ -3,8 +3,8 @@ title: >-
   The Headless Go-Live Gauntlet: Your Definitive SCAPI & SLAS Mobile App
   Checklist
 description: >-
-  For years, the Salesforce B2C Commerce go live process has been a well trodden
-  path. The Site Readiness Assessment (SRA) served as our trusted map, guid...
+  For years, the Salesforce B2C Commerce go-live process has been a well-trodden
+  path.
 date: '2025-12-15T10:39:06.000Z'
 lastmod: '2025-12-19T09:56:27.000Z'
 url: /your-definitive-mobile-app-checklist/

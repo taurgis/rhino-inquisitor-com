@@ -2,8 +2,7 @@
 title: Salesforce B2C Commerce Cloud 22.10
 description: >-
   What a year it has been, and now it is time for the final release of this
-  year: the $1! And yes, as it is every year, there will be no releases
-  between...
+  year: the!
 date: '2022-09-28T13:33:05.000Z'
 lastmod: '2022-10-03T11:59:36.000Z'
 url: /salesforce-b2c-commerce-cloud-22-10/

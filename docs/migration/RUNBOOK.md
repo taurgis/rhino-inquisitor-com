@@ -314,6 +314,7 @@ This runbook tracks the operational steps needed to move the repository from pla
   - `migration/reports/discovery-metadata-coverage.json` remains deterministic across reruns and reports 0 discovery-enriched records in the current corpus
   - 123 query-style `/?p=` aliases are intentionally excluded from front matter because the approved Phase 2 alias contract is path-only and the generated-content validator rejects non-path Hugo aliases
   - true featured-image linkage now survives extraction and normalization, so the mapper emits `heroImage` when `_raw.extracted.featuredImageUrl` is available; the current validated run produces `heroImage` for all 150 staged posts and 8 staged pages with true featured-image metadata
+  - description generation now normalizes Markdown artifacts, avoids forced ... truncation, and prefers sentence-complete metadata text with a concise fallback suffix when source copy is too short
   - mapper output still uses source-side media URLs at this stage; local `/media/...` rewriting remains the downstream RHI-037 responsibility
 - Mapper hard-fail behavior now includes:
   - empty `title`

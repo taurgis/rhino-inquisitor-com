@@ -1,9 +1,8 @@
 ---
 title: SiteGenesis vs SFRA vs PWA
 description: >-
-  $1 is a modern Commerce platform that empowers retailers of all sizes and
-  industries to harness the power of the cloud to deliver world class
-  omnichanne...
+  Compare SiteGenesis, SFRA, and PWA storefront architectures in SFCC so you
+  can choose the right foundation for performance, flexibility, and team fit.
 date: '2022-07-17T13:42:22.000Z'
 lastmod: '2023-03-30T07:02:37.000Z'
 url: /sitegenesis-vs-sfra-vs-pwa/
@@ -30,7 +29,7 @@ Before we get started, here is a timeline showing the history of the "developmen
 
 ## SiteGenesis
 
-[![](/media/2022/sitegenesis-9a921c285a.jpg)](/media/2022/sitegenesis-9a921c285a.jpg)
+[![SiteGenesis storefront example representing the legacy architecture.](/media/2022/sitegenesis-9a921c285a.jpg)](/media/2022/sitegenesis-9a921c285a.jpg)
 
 Let us start with the oldest (and least exciting option): [SiteGenesis](https://production-sitegenesis-dw.demandware.net/on/demandware.store/Sites-SiteGenesis-Site). If anyone still suggests that you start your journey with SiteGenesis, you should ask the question, "why do we need to do that?".
 
@@ -54,11 +53,11 @@ But since 2020, it is no longer required to build for SiteGenesis; SFRA compatib
 
 ### Pipelines VS Controllers
 
-[![](/media/2022/pipelines-eed67b4c67.png)](/media/2022/pipelines-eed67b4c67.png)
+[![Pipeline editor used in legacy SiteGenesis development.](/media/2022/pipelines-eed67b4c67.png)](/media/2022/pipelines-eed67b4c67.png)
 
 Pipelines in SiteGenesis
 
-[![](/media/2022/controllers-130298bfb4.png)](/media/2022/controllers-130298bfb4.png)
+[![Controller-based storefront code replacing pipelines in newer architectures.](/media/2022/controllers-130298bfb4.png)](/media/2022/controllers-130298bfb4.png)
 
 Controllers in SiteGenesis
 
@@ -70,7 +69,7 @@ _**Note:** It is also substantially harder to find developers who know how to wo
 
 ## M(S)FRA
 
-[![](/media/2022/sfra-vs-sitegenesis-965c09b9a6.jpg)](/media/2022/sfra-vs-sitegenesis-965c09b9a6.jpg)
+[![Comparison between SiteGenesis and SFRA storefront stacks.](/media/2022/sfra-vs-sitegenesis-965c09b9a6.jpg)](/media/2022/sfra-vs-sitegenesis-965c09b9a6.jpg)
 
 This part of the article will cover both MFRA and [SFRA](https://production-sitegenesis-dw.demandware.net/s/RefArch/home?lang=en_US) as they are the same. You can see MFRA as the ALPHA/BETA version of SFRA or simply as a rebranding.
 
@@ -100,7 +99,7 @@ So choosing to go with SFRA now will be a good base for years to come. But be su
 
 ## PWA Kit & Managed Runtime
 
-[![](/media/2022/pwa-kit-03394b0f92.png)](/media/2022/pwa-kit-03394b0f92.png)
+[![PWA Kit storefront running in the managed runtime.](/media/2022/pwa-kit-03394b0f92.png)](/media/2022/pwa-kit-03394b0f92.png)
 
 The [PWA Kit](https://pwa-kit.mobify-storefront.com/) is the most recent addition to the SFCC family. And it is important to note that this solution is not marketed at the moment to replace SFRA. You might be wondering why, and there is a good reason for that.
 
@@ -168,4 +167,4 @@ All of these "missing items" can be resolved with custom development. So be prep
 
 The following overview compresses the information above.
 
-[![](/media/2022/comparison-sitegenesis-sfra-pwa-5593ba325c.png)](/media/2022/comparison-sitegenesis-sfra-pwa-5593ba325c.png)
+[![Comparison table contrasting SiteGenesis, SFRA, and PWA Kit characteristics.](/media/2022/comparison-sitegenesis-sfra-pwa-5593ba325c.png)](/media/2022/comparison-sitegenesis-sfra-pwa-5593ba325c.png)

@@ -1,9 +1,8 @@
 ---
 title: How to retrieve the Request Body in an SFCC Controller easily
 description: >-
-  $1 are a way to create personalised solutions that meet the needs of a
-  particular business. If we are working with POST or PUT requests, developers
-  need...
+  are a way to create personalised solutions that meet the needs of a particular
+  business.
 date: '2023-04-03T06:57:02.000Z'
 lastmod: '2023-04-03T06:57:14.000Z'
 url: /the-request-body-in-an-sfcc-controller/

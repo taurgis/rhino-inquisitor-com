@@ -1,9 +1,8 @@
 ---
 title: Leveraging Generic Mapping for Efficient Data Integration
 description: >-
-  $1 offers many features that empower developers to build custom features on
-  its platform. Generic Mapping are one feature that few use or have heard
-  of....
+  offers many features that empower developers to build custom features on its
+  platform. Generic Mapping are one feature that few use or have heard of.
 date: '2023-11-27T09:29:26.000Z'
 lastmod: '2023-11-27T09:29:35.000Z'
 url: /leveraging-generic-mappings-in-sfcc/

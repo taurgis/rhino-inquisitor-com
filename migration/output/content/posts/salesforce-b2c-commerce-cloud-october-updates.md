@@ -2,8 +2,7 @@
 title: Salesforce B2C Commerce Cloud October Updates
 description: >-
   We have just received the final release ($1) of the year. But that does not
-  mean there are no updates to some APIs and cartridges. Let us have a look
-  wh...
+  mean there are no updates to some APIs and cartridges.
 date: '2022-10-24T17:48:25.000Z'
 lastmod: '2022-10-24T17:52:28.000Z'
 url: /salesforce-b2c-commerce-cloud-october-updates/

@@ -3,9 +3,8 @@ title: >-
   How do you fetch data in a different locale from Salesforce B2C Commerce
   Cloud?
 description: >-
-  SFCC provides a $1 in multiple languages. But sometimes, you want to show
-  something in a specific locale outside the current session context. How can
-  th...
+  SFCC provides a in multiple languages. But sometimes, you want to show
+  something in a specific locale outside the current session context.
 date: '2023-07-31T08:40:09.000Z'
 lastmod: '2023-07-31T08:43:08.000Z'
 url: /fetching-data-in-a-locale-with-sfcc/

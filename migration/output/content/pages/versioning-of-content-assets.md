@@ -1,8 +1,8 @@
 ---
 title: Versioning of Content Assets
 description: >-
-  Everyone makes mistakes, big and small. There is no easy way to return within
-  the Content Management system built into Salesforce B2C Commerce Cloud onc...
+  Everyone makes mistakes, big and small. Explore the full page on Rhino
+  Inquisitor for additional context.
 date: '2022-03-27T06:29:47.000Z'
 lastmod: '2022-03-27T06:52:42.000Z'
 url: /versioning-of-content-assets/

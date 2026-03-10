@@ -1,8 +1,8 @@
 ---
 title: Salesforce B2C Commerce Cloud 23.2
 description: >-
-  February is almost here, and so is the $1 (23.2) release! If you are an avid
-  user of Page Designer, this is the update you have been waiting for and Sal...
+  February is almost here, and so is the (23.2) release! Read the full article
+  on Rhino Inquisitor for implementation details.
 date: '2023-01-18T19:00:06.000Z'
 lastmod: '2023-01-20T15:36:31.000Z'
 url: /salesforce-b2c-commerce-cloud-23-2/

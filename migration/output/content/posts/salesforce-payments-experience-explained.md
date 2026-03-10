@@ -1,8 +1,8 @@
 ---
 title: 'Salesforce (Commerce) Payments: Payment Integration Simplified'
 description: >-
-  As a $1 connoisseur, you know how important it is to have a seamless customer
-  payment process. After all, a clunky checkout experience can result in aba...
+  As a connoisseur, you know how important it is to have a seamless customer
+  payment process.
 date: '2023-03-27T14:54:22.000Z'
 lastmod: '2023-03-31T07:19:52.000Z'
 url: /salesforce-payments-experience-explained/

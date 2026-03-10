@@ -1,8 +1,8 @@
 ---
 title: The journey from developer to architect
 description: >-
-  So you want to be an $1, do you? At least, that is why I am guessing you came
-  to this page! Well, you came to the right place! I have gone through this...
+  So you want to be an, do you? At least, that is why I am guessing you came to
+  this page! Well, you came to the right place!
 date: '2024-02-26T06:36:00.000Z'
 lastmod: '2024-02-26T10:26:22.000Z'
 url: /the-journey-from-developer-to-architect/

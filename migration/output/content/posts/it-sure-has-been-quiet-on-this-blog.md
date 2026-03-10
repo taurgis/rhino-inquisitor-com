@@ -1,8 +1,8 @@
 ---
 title: It sure has been quiet on this blog.
 description: >-
-  It sure has been quite a while since I made my $1; I even missed a release log
-  sorry about that. But why is that? And what have I been up to for the pas...
+  It sure has been quite a while since I made my; I even missed a release log -
+  sorry about that. But why is that?
 date: '2024-08-19T06:57:25.000Z'
 lastmod: '2024-08-19T06:57:31.000Z'
 url: /it-sure-has-been-quiet-on-this-blog/

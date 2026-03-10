@@ -3,9 +3,8 @@ title: >-
   The OCAPI/SCAPI Hooks Playbook: A Deep Dive into Salesforce B2C Commerce Best
   Practices
 description: >-
-  Info This article was updated with the latest and most important feature
-  information as of 26 July 2025. So, you need to add a custom attribute to the
-  b...
+    Understand how OCAPI and SCAPI hooks work in SFCC, when to use them, and
+    which implementation patterns avoid brittle or outdated integrations.
 date: '2022-10-31T13:03:53.000Z'
 lastmod: '2025-07-29T12:47:51.000Z'
 url: /how-to-use-ocapi-scapi-hooks/
@@ -74,7 +73,7 @@ Trying to shoehorn new functionality into an existing hook results in convoluted
 
 ### The Three Musketeers: before, after, and modifyResponse
 
-[![](/media/2022/26df11a8-62ec-44cd-bf3b-6ff9ab46bee8-5598d60cbd.jpg)](/media/2022/26df11a8-62ec-44cd-bf3b-6ff9ab46bee8-5598d60cbd.jpg)
+[![Illustration representing the before, after, and modifyResponse hook flow.](/media/2022/26df11a8-62ec-44cd-bf3b-6ff9ab46bee8-5598d60cbd.jpg)](/media/2022/26df11a8-62ec-44cd-bf3b-6ff9ab46bee8-5598d60cbd.jpg)
 
 SCAPI and OCAPI hooks come in three main flavours, each with a distinct role in the request lifecycle. Understanding their specific purpose and limitations is crucial to using them correctly.
 
@@ -99,7 +98,7 @@ As it stands, Salesforce B2C Commerce Cloud disables hooks by default for the SC
 
 "Administration > Global Preferences > Feature Switches"
 
-![](/media/2022/feature-switch-scapi-hooks-9a09bc135b.jpg)
+![Feature switch screen used to enable SCAPI hooks in Business Manager.](/media/2022/feature-switch-scapi-hooks-9a09bc135b.jpg)
 
 OCAPI Hooks are enabled by default for the OCAPI, and you don't need to do any configuration.
 
@@ -161,7 +160,7 @@ Before we start writing the code, we need to know what function to export in our
 
 First, we locate the endpoint we want to override. The documentation will show us more information about the [function behind it](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/shop/Resources/Baskets.html#id-1036385888__id1441479317).
 
-[![](/media/2022/screenshot-2022-06-01-at-20-31-35-e1654104790984-f648d18f90.png)](/media/2022/screenshot-2022-06-01-at-20-31-35-e1654104790984-f648d18f90.png)
+[![Hook documentation showing the exported function name and parameters.](/media/2022/screenshot-2022-06-01-at-20-31-35-e1654104790984-f648d18f90.png)](/media/2022/screenshot-2022-06-01-at-20-31-35-e1654104790984-f648d18f90.png)
 
 In this case, we need to export the function “beforePATCH” with the parameters “basket” and “basketInput.”
 
@@ -310,11 +309,11 @@ exports.beforePUT = function (customer, addressId, addressDoc) {
 
 The text above has been taken from the [Salesforce B2C Commerce Cloud Infocenter](https://developer.salesforce.com/docs/commerce/sfra/guide/b2c-sfra-hooks.html) and turns out not to be correct (at least for SCAPI/OCAPI hooks.
 
-[![](/media/2022/hooks-return-status-to-short-circuit-806c56df79.jpg)](/media/2022/hooks-return-status-to-short-circuit-806c56df79.jpg)
+[![Hook response example where returning Status.OK short-circuits later hooks.](/media/2022/hooks-return-status-to-short-circuit-806c56df79.jpg)](/media/2022/hooks-return-status-to-short-circuit-806c56df79.jpg)
 
 This does have a slight nuance: It is not the case for all endpoints. Luckily this is documented for every hook!
 
-[![](/media/2022/hook-return-behaviour-91893c6015.jpg)](/media/2022/hook-return-behaviour-91893c6015.jpg)
+[![Documentation excerpt showing hook return behavior for a specific endpoint.](/media/2022/hook-return-behaviour-91893c6015.jpg)](/media/2022/hook-return-behaviour-91893c6015.jpg)
 
 Read the documentation carefully for each hook!
 

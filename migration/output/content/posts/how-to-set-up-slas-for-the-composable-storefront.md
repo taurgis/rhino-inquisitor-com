@@ -1,9 +1,8 @@
 ---
 title: How to set up SLAS for the Composable Storefront
 description: >-
-  Are you setting up your Composable Storefront and wondering what the SLAS
-  Client ID is all about? You're not alone! The $1, or SLAS, has been gaining
-  po...
+  Set up SLAS for a Salesforce Composable Storefront step by step, from client
+  creation and scopes to the final local launch check.
 date: '2023-01-16T08:12:41.000Z'
 lastmod: '2023-01-16T08:12:55.000Z'
 url: /how-to-set-up-slas-for-the-composable-storefront/

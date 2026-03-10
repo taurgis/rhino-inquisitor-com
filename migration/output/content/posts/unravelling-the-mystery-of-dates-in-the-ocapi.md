@@ -1,8 +1,8 @@
 ---
 title: Unravelling the mystery of dates in the OCAPI
 description: >-
-  When we integrate third party systems with $1 using OCAPI or SCAPI, we often
-  have the requirement to filter data based on date ranges or only retrieve d...
+  When we integrate third-party systems with using OCAPI or SCAPI, we often have
+  the requirement to filter data based on date ranges or only retrieve data
 date: '2023-12-18T09:16:13.000Z'
 lastmod: '2023-12-14T12:46:21.000Z'
 url: /unravelling-the-mystery-of-dates-in-the-ocapi/

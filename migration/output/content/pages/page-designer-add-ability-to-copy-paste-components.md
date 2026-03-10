@@ -2,8 +2,7 @@
 title: 'Page Designer: Add ability to copy/paste components'
 description: >-
   This feature was implemented!!!! Many years ago, the only way to manage
-  content within Salesforce Commerce Cloud was $1 and $1. They do their job, but
-  i...
+  content within Salesforce Commerce Cloud was and.
 date: '2022-02-28T17:37:46.000Z'
 lastmod: '2022-10-15T07:02:04.000Z'
 url: /ideas/page-designer-add-ability-to-copy-paste-components/

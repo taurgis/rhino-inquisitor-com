@@ -1,9 +1,8 @@
 ---
 title: The sunsetting of ARC300 (Architect B2C Commerce Solutions)
 description: >-
-  $1, Salesforce's official learning platform, offers a wide range of courses
-  that help individuals acquire the new skills and knowledge needed to
-  succeed...
+  , Salesforce's official learning platform, offers a wide range of courses that
+  help individuals acquire the new skills and knowledge needed to succeed in
 date: '2024-04-29T07:43:13.000Z'
 lastmod: '2024-04-29T07:46:01.000Z'
 url: /the-sunsetting-of-arc300-architect-b2c-commerce-solutions/

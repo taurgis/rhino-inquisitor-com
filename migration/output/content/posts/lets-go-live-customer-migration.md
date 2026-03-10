@@ -1,9 +1,8 @@
 ---
 title: 'Let’s GO-LIVE: Customer Migration'
 description: >-
-  We have already gotten $1 of our GO LIVE story, but we are far from done.
-  Going live with any Commerce project can be quite an endeavor. But
-  hopefully,...
+  We have already gotten of our GO-LIVE story, but we are far from done. Going
+  live with any Commerce project can be quite an endeavor.
 date: '2022-10-17T17:49:09.000Z'
 lastmod: '2022-10-17T17:53:18.000Z'
 url: /lets-go-live-customer-migration/

@@ -2,7 +2,7 @@
 title: A look back at Origin Shielding
 description: >-
   September has shown its face, and the sunny weather (at least here) is ending.
-  And with that also the complete activation of $1, or it simply: "Putting...
+  Read the full article on Rhino Inquisitor for implementation details.
 date: '2022-09-07T19:53:27.000Z'
 lastmod: '2022-09-07T19:53:35.000Z'
 url: /a-look-back-at-origin-shielding/

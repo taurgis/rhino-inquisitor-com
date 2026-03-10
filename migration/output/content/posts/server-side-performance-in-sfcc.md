@@ -1,8 +1,8 @@
 ---
 title: Troubleshooting Server-Side Performance in Salesforce B2C Commerce Cloud
 description: >-
-  All web developers understand the crucial role $1 plays for a website, both in
-  terms of the visitor experience and as a quality benchmark. Not to forget...
+  All web developers understand the crucial role plays for a website, both in
+  terms of the visitor experience and as a quality benchmark.
 date: '2023-05-01T05:50:49.000Z'
 lastmod: '2025-07-29T12:37:49.000Z'
 url: /server-side-performance-in-sfcc/
@@ -80,7 +80,7 @@ The [Technical Dashboard](https://documentation.b2c.commercecloud.salesforce.com
 
 Looking at the list of data above, it makes sense to have a look at it!
 
-[![A screenshot of the "Reports & Dashboards" with the "Average Response Time" graph depicting a significant performance degradation (doubling in milliseconds).](/media/2022/performance-dashboard-8a847df133.png)](/media/2022/performance-dashboard-8a847df133.png)
+[![Technical dashboard showing a spike in average response time.](/media/2022/performance-dashboard-8a847df133.png)](/media/2022/performance-dashboard-8a847df133.png)
 
 Reports & Dashboards
 
@@ -94,13 +94,13 @@ _Don't be fooled by its name; it will profile more than pipelines!_
 
 The second tool you should be grabbing ahold of is the [Pipeline Profiler](https://documentation.b2c.commercecloud.salesforce.com/DOC1/index.jsp?topic=%2Fcom.demandware.dochelp%2FLegacyDevDoc%2FAnalyzePerformancePipelineProfiler.html). It is easy to use, will give you a high-level overview of all of your pipeline/controller endpoints, and show you how much processing time it needs to do its thing.
 
-![A screenshot of the Pipeline Profiler showing the Search-Show controller with two hits and its total processing time of 1023 milliseconds. Below the controller is the template performance, showing the searchResults.isml file.](/media/2022/pipeline-profiler-24fb681d34.png)
+![Pipeline Profiler result for Search-Show with controller and template timings.](/media/2022/pipeline-profiler-24fb681d34.png)
 
 As you can see, the above screenshot shows a basic overview of the performance of a controller and the template (response) it renders. If the template uses local includes, you can see their processing time separately.
 
 All of the [Remote Includes](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/ops_troubleshooting/b2c_understanding_remote_includes.html) you have done are within the list of controllers.
 
-![A screenshot of the Pipeline Profiler showing a list of Remote Includes, with the "Tile-Show" controller marked with a red circle around it.](/media/2022/pipeline-profile-remote-includes-0e99481937.png)
+![Pipeline Profiler listing remote includes, including the Tile-Show controller.](/media/2022/pipeline-profile-remote-includes-0e99481937.png)
 
 The information you get is quite basic, but it will give you the first indication of pain points and where to start looking. You can do this on production, but preferably as a last resort.
 
@@ -112,7 +112,7 @@ Cache This method only works for uncached endpoints if caching is enabled. Cache
 
 Last but not least, the [Code Profiler](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/site_performance/b2c_using_code_profiler.html) provides you with detailed insights on run-time performance. You can control how detailed you want that information as it supports three modes: Production, Development and Extended.
 
-![A screenshot of the Code Profiler with the activated "Extended Script Development Mode" setting. The screenshot includes an extensive list of functions and Javascript files executed in the server-side code.](/media/2022/salesforce-code-profiler-extended-eeb0fcbb69.png)
+![Code Profiler in Extended Script Development Mode with detailed script timings.](/media/2022/salesforce-code-profiler-extended-eeb0fcbb69.png)
 
 Looking at the screenshot above, you can understand why they call it "Extended Script Development Mode." You get fine-grained details about the performance of your code, including information on which line in what JavaScript file.
 
@@ -128,7 +128,7 @@ Although the Pipeline Profiler isn't applicable in this scenario, you can still 
 
 Within these reports are dedicated tabs for OCAPI and SCAPI performance!
 
-[![A screenshot of the OCAPI / SCAPI Technical Reports and Dashboards showing the average response times and response distribution graphs.](/media/2023/ocapi-and-scapi-performance-reports-f411be08a3.jpg)](/media/2023/ocapi-and-scapi-performance-reports-f411be08a3.jpg)
+[![OCAPI and SCAPI technical reports showing response time and distribution charts.](/media/2023/ocapi-and-scapi-performance-reports-f411be08a3.jpg)](/media/2023/ocapi-and-scapi-performance-reports-f411be08a3.jpg)
 
 OCAPI and SCAPI Performance Reports
 

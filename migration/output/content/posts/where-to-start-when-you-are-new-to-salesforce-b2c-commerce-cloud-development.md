@@ -2,7 +2,7 @@
 title: Where to start when you are new to Salesforce B2C Commerce Cloud development?
 description: >-
   Welcome to the exciting world of Salesforce B2C Commerce Cloud Development! If
-  you're new to the game, don't worry we've all been there. But let's be ho...
+  you're new to the game, don't worry - we've all been there.
 date: '2023-09-04T13:57:05.000Z'
 lastmod: '2023-09-05T12:19:54.000Z'
 url: /where-to-start-when-you-are-new-to-salesforce-b2c-commerce-cloud-development/

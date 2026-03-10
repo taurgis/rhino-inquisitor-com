@@ -1,9 +1,8 @@
 ---
 title: 'Image-ine: Salesforce B2C Commerce Cloud DIS for Developers'
 description: >-
-  in the wild, wild west of e-commerce, images aren't just pretty pictures.
-  They're your silent sales force, your conversion catalysts, and your SEO
-  super...
+  in the wild, wild west of e-commerce, images aren't just pretty pictures. Read
+  the full article on Rhino Inquisitor for implementation details.
 date: '2025-07-14T06:44:24.000Z'
 lastmod: '2025-07-16T14:27:13.000Z'
 url: /image-ine-sfcc-dis-for-developers/

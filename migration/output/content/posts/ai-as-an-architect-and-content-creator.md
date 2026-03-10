@@ -4,7 +4,7 @@ title: >-
   Creator
 description: >-
   As a content creator and Salesforce Commerce Cloud architect, I am fascinated
-  by the seamless integration of technology and creativity. AI has revolutio...
+  by the seamless integration of technology and creativity.
 date: '2023-07-24T06:43:19.000Z'
 lastmod: '2023-07-24T06:43:36.000Z'
 url: /ai-as-an-architect-and-content-creator/
@@ -33,7 +33,7 @@ As promised, I'll document my entire process of writing this article and include
 
 The first thing when writing a new blog post is... the subject. And generally, coming up with a topic is not the issue. There are [many things to write about](/archive/) in the Salesforce Commerce Cloud ecosystem and technology in general. But thinking of an engaging title is something entirely different...
 
-[![A screenshot of ChatGPT transforming the original title of this blogpost to some creative ones](/media/2023/generating-a-post-title-36528f6a0f.jpg)](/media/2023/generating-a-post-title-36528f6a0f.jpg)
+[![ChatGPT proposing alternate titles for the article draft.](/media/2023/generating-a-post-title-36528f6a0f.jpg)](/media/2023/generating-a-post-title-36528f6a0f.jpg)
 
 I give the starting point, it gives me inspiration!
 
@@ -47,7 +47,7 @@ And that is where ChatGPT comes into play, allowing me to ask for some ideas! Al
 
 Regarding images, many options are available - each requiring its own style of prompting and capabilities. When choosing image engines and models, I consider the style I want. For this particular image, I wanted a Cyberpunk-style face with a technological twist, but not excessively dystopian.
 
-[![A screenshot of Leonardo.AI of generating the image of this post using the prompt "a mix of a human male face wearing glasses with a robot"](/media/2023/generating-a-post-image-51933457be.jpg)](/media/2023/generating-a-post-image-51933457be.jpg)
+[![Leonardo.AI generating a cyberpunk portrait from the article prompt.](/media/2023/generating-a-post-image-51933457be.jpg)](/media/2023/generating-a-post-image-51933457be.jpg)
 
 You don't need to be too creative to get good results!
 
@@ -67,7 +67,7 @@ Honestly, I tried using AI to generate content. But for Salesforce B2C Commerce 
 
 After careful consideration, I decided to utilise [Grammarly](https://www.grammarly.com/) as a tool for fine-tuning the tone and detecting any spelling errors in my writing.  As English is not my primary language, this AI tool helps correct mistakes and adjust my writing for tone or technicality.
 
-[![A screenshot of this blog post being assisted with the Grammarly AI tool.](/media/2023/grammarly-and-content-cf057efe86.jpg)](/media/2023/grammarly-and-content-cf057efe86.jpg)
+[![Grammarly suggestions refining tone and grammar in the draft article.](/media/2023/grammarly-and-content-cf057efe86.jpg)](/media/2023/grammarly-and-content-cf057efe86.jpg)
 
 Grammarly has made my life much easier as a non-native English speaker!
 
@@ -84,7 +84,7 @@ Blogging is only a tiny part of my life, and I use AI in plenty of other places!
 
 For the past months, I have purchased a [Github Copilot](https://github.com/features/copilot) license for personal and professional use.
 
-[![A screenshot of Webstorm showing React testing code being generated.](/media/2023/github-copilot-react-e4aab607d7.jpg)](/media/2023/github-copilot-react-e4aab607d7.jpg)
+[![GitHub Copilot generating React testing code in WebStorm.](/media/2023/github-copilot-react-e4aab607d7.jpg)](/media/2023/github-copilot-react-e4aab607d7.jpg)
 
 Using Copilot has really enhanced my productivity!
 
@@ -97,7 +97,7 @@ While sometimes it generates "garbage", 99% of the time, it gives me great sugge
 
 Documentation and explaining how a feature works is not always a developer's most "exciting" job. Giving your code to the engine and asking for documentation can have some decent results!
 
-![A screenshot of the OpenAI GPT 4 playground, documenting a React Component.](/media/2023/documentation-with-gpt-4-b13ad915e5.jpg)
+![GPT-4 playground drafting developer documentation for a React component.](/media/2023/documentation-with-gpt-4-b13ad915e5.jpg)
 
 It could be better, but it gives you a great starting point!
 
@@ -118,7 +118,7 @@ As mentioned, I rely heavily on [Grammarly](https://www.grammarly.com/) for all 
 -   **Generation Engine**: Stable Diffusion
 -   **Model**: Depends on the design
 
-I have long been held back by my limitations in drawing, which prevented me from bringing my creative visions to life. But with the help of generative AI, I can now quickly turn my ideas into [reality](https://shirtforce.org/tee/hybrid-deployment-theory-salesforce-commerce-cloud-tshirt/). ![](/media/2023/hybrid-deployment-theory-02-poc-a7602136f7.jpg) The generated image usually gets me 50-80% there, and then I fine-tune the details in Photoshop! Even though that still takes a lot of time, it is much less than it would have taken me from scratch!
+I have long been held back by my limitations in drawing, which prevented me from bringing my creative visions to life. But with the help of generative AI, I can now quickly turn my ideas into [reality](https://shirtforce.org/tee/hybrid-deployment-theory-salesforce-commerce-cloud-tshirt/). ![Hybrid deployment T-shirt concept generated as a starting point for the final design.](/media/2023/hybrid-deployment-theory-02-poc-a7602136f7.jpg) The generated image usually gets me 50-80% there, and then I fine-tune the details in Photoshop! Even though that still takes a lot of time, it is much less than it would have taken me from scratch!
 
 ## How much time do I spend per arcticle?
 

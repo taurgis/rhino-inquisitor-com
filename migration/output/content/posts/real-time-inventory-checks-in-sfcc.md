@@ -2,7 +2,7 @@
 title: Taming Real-Time Inventory Checks in Salesforce B2C Commerce Cloud
 description: >-
   In the world of digital commerce, the "In Stock" button is more than a piece
-  of data; it's a promise to your customer. Break that promise with a follow...
+  of data; it's a promise to your customer.
 date: '2026-02-09T11:11:31.000Z'
 lastmod: '2026-02-09T13:10:33.000Z'
 url: /real-time-inventory-checks-in-sfcc/

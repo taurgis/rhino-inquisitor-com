@@ -2,8 +2,7 @@
 title: Why Circumventing Salesforce B2C Commerce Cloud Quota Limits Is a Bad Idea
 description: >-
   Salesforce B2C Commerce Cloud empowers developers to create robust and
-  scalable e commerce solutions. It is designed with certain $1 to maintain
-  efficie...
+  scalable e-commerce solutions.
 date: '2023-12-11T08:21:33.000Z'
 lastmod: '2023-12-11T08:29:25.000Z'
 url: /why-circumventing-sfcc-quota-limits-is-a-bad-idea/

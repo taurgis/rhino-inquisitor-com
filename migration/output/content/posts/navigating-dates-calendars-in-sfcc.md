@@ -2,8 +2,7 @@
 title: 'Navigating Dates, Calendars, and Timezones in Salesforce B2C Commerce Cloud'
 description: >-
   In today's world, managing dates, calendars, and time zones is expected for
-  any e commerce platform. $1 is no exception, and this article will explore
-  t...
+  any e-commerce platform.
 date: '2023-08-14T17:27:04.000Z'
 lastmod: '2023-08-15T07:44:20.000Z'
 url: /navigating-dates-calendars-in-sfcc/

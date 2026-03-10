@@ -2,8 +2,7 @@
 title: Delta exports in Salesforce B2C Commerce Cloud
 description: >-
   You probably already knew that it is possible to do full exports of your
-  customer lists and catalogs from Salesforce B2C Commerce Cloud. This can be
-  don...
+  customer lists and catalogs from Salesforce B2C Commerce Cloud.
 date: '2022-08-01T14:18:24.000Z'
 lastmod: '2022-09-10T04:43:39.000Z'
 url: /delta-exports-in-salesforce-b2c-commerce-cloud/
@@ -53,13 +52,13 @@ Once this feature has been enabled, you get a new toy to play with in the Busine
 
 You can consider this to work the same as configuring the Sitemap or replications. It is not under the regular list of jobs, but behind the scenes, they are one.
 
-[![](/media/2023/delta-jobs-overview-dccafc63a7.png)](/media/2023/delta-jobs-overview-dccafc63a7.png)
+[![Delta Exports module overview in Business Manager.](/media/2023/delta-jobs-overview-dccafc63a7.png)](/media/2023/delta-jobs-overview-dccafc63a7.png)
 
 Let us open that "Test" configuration!
 
 ### General
 
-[![](/media/2023/delta-job-selection-718f8a1686.png)](/media/2023/delta-job-selection-718f8a1686.png)
+[![Delta export configuration showing job name, consumers, and data type.](/media/2023/delta-job-selection-718f8a1686.png)](/media/2023/delta-job-selection-718f8a1686.png)
 
 When we create a new job or open an existing one, we configure multiple items:
 
@@ -71,17 +70,17 @@ When we create a new job or open an existing one, we configure multiple items:
 
 But? Huh? I see more types listed here than there are Job Steps available! And you are correct; you get more options here.
 
-A list of supported types can be found [here](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/import_export/b2c_delta_exports.html).
+A list of supported types can be found in the [delta exports reference](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/import_export/b2c_delta_exports.html).
 
 ### Schedule
 
-[![](/media/2023/delta-job-schedule-1c300976ae.png)](/media/2023/delta-job-schedule-1c300976ae.png)
+[![Schedule tab for running a delta export at a fixed interval.](/media/2023/delta-job-schedule-1c300976ae.png)](/media/2023/delta-job-schedule-1c300976ae.png)
 
 Just like regular jobs, you can schedule this to be executed at your chosen interval.
 
 ### History
 
-[![](/media/2023/history-70bccb6f6f.png)](/media/2023/history-70bccb6f6f.png)
+[![Delta export history showing previously generated files.](/media/2023/history-70bccb6f6f.png)](/media/2023/history-70bccb6f6f.png)
 
 This historical overview is unlike your usual "job" history, even though the description might seem similar.
 
@@ -89,7 +88,7 @@ This overview will show a history of all exported files rather than the job exec
 
 ### Consumer
 
-[![](/media/2023/delta-job-consumer-867e8bc380.png)](/media/2023/delta-job-consumer-867e8bc380.png)
+[![Consumer tab with the dedicated WebDAV export folder.](/media/2023/delta-job-consumer-867e8bc380.png)](/media/2023/delta-job-consumer-867e8bc380.png)
 
 For each "consumer" you have configured in the general tab, a new tab appears in which you get the path where the files are exported.
 
@@ -99,7 +98,7 @@ _**Note:** Remember that you can limit access to a third-party system to this sp
 
 ### Status
 
-[![](/media/2023/delta-job-status-9552cad99f.png)](/media/2023/delta-job-status-9552cad99f.png)
+[![Status tab showing the scheduled delta export job log.](/media/2023/delta-job-status-9552cad99f.png)](/media/2023/delta-job-status-9552cad99f.png)
 
 You can view the log of the scheduled job on this page.
 

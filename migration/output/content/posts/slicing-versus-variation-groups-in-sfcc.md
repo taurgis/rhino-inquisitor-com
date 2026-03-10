@@ -2,8 +2,7 @@
 title: Slicing versus Variation Groups in Commerce Cloud
 description: >-
   Clarity and efficiency are key in the strategic display and management of
-  products in your online store. In an age where various product options and
-  var...
+  products in your online store.
 date: '2023-11-20T11:08:09.000Z'
 lastmod: '2023-11-20T11:59:10.000Z'
 url: /slicing-versus-variation-groups-in-sfcc/

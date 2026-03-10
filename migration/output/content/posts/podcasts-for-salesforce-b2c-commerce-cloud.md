@@ -2,8 +2,7 @@
 title: Podcasts about Salesforce B2C Commerce Cloud
 description: >-
   Over the years, a lot of podcasts have popped up around Salesforce. And
-  amongst these, they organise quite a few themselves. The $1, and some podcasts
-  h...
+  amongst these, they organise quite a few themselves.
 date: '2022-12-05T16:08:12.000Z'
 lastmod: '2022-12-08T12:44:02.000Z'
 url: /podcasts-for-salesforce-b2c-commerce-cloud/

@@ -2,7 +2,7 @@
 title: Preparing for the B2C Commerce Developer Certification
 description: >-
   So, you decided to become a Certified B2C Commerce Developer. That is great!
-  Getting certified is a great way to confirm the knowledge you have gained f...
+  Read the full article on Rhino Inquisitor for implementation details.
 date: '2022-06-06T11:45:43.000Z'
 lastmod: '2022-11-19T10:18:39.000Z'
 url: /preparing-for-the-b2c-commerce-developer-certification/

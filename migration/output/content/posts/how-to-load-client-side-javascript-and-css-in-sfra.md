@@ -2,7 +2,7 @@
 title: How to load client-side JavaScript and CSS in SFRA
 description: >-
   Since you are here, I bet you've been banging your head against your keyboard
-  trying to figure out how to load some sweet client side javascript in Sale...
+  trying to figure out how to load some sweet client-side javascript in
 date: '2024-02-19T08:28:48.000Z'
 lastmod: '2024-02-19T08:31:26.000Z'
 url: /how-to-load-client-side-javascript-and-css-in-sfra/

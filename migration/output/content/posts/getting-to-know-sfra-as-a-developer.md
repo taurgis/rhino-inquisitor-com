@@ -2,7 +2,7 @@
 title: Getting to know SFRA as a developer
 description: >-
   So, you are new to Salesforce Commerce Cloud and have begun your journey with
-  SFRA! Congratulations, and welcome to the $1 of SFCC developers! But where...
+  SFRA! Congratulations, and welcome to the of SFCC developers!
 date: '2023-10-30T09:57:46.000Z'
 lastmod: '2023-10-31T09:11:09.000Z'
 url: /getting-to-know-sfra-as-a-developer/

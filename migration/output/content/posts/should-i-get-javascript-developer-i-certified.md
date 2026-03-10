@@ -2,7 +2,7 @@
 title: Should I get JavaScript Developer I certified?
 description: >-
   JavaScript is integral to Salesforce B2C Commerce Cloud development in both
-  the back and front ends. And with the addition of the $1, your knowledge of...
+  the back and front ends.
 date: '2023-08-07T12:51:32.000Z'
 lastmod: '2023-08-07T12:53:11.000Z'
 url: /should-i-get-javascript-developer-i-certified/

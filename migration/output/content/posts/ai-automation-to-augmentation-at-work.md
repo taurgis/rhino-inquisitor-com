@@ -1,9 +1,8 @@
 ---
 title: 'AI Automation to Augmentation: Its new role in the workplace'
 description: >-
-  As I walked into my office, I couldn't help but notice $1. The tomorrow of
-  work had arrived, and it was clear that this new era would require us to
-  adap...
+  As I walked into my office, I couldn't help but notice. The tomorrow of work
+  had arrived, and it was clear that this new era would require us to adapt.
 date: '2023-03-13T07:15:33.000Z'
 lastmod: '2023-03-15T07:28:13.000Z'
 url: /ai-automation-to-augmentation-at-work/

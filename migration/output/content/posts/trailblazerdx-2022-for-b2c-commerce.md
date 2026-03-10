@@ -2,8 +2,7 @@
 title: TrailblazerDX 2022 for B2C Commerce
 description: >-
   The pandemic is continuing its rounds worldwide, but luckily things are
-  starting to return to normal. And with things returning to normal, in person
-  eve...
+  starting to return to normal.
 date: '2022-04-21T06:49:37.000Z'
 lastmod: '2022-07-23T22:03:54.000Z'
 url: /trailblazerdx-2022-for-b2c-commerce/

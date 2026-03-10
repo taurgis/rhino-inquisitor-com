@@ -4,8 +4,7 @@ title: >-
   SiteGenesis
 description: >-
   Headless APIs have been available in Salesforce B2C Commerce Cloud for some
-  time, under the "$1.)." In 2020, a new set of APIs, known as the SCAPI
-  (Sale...
+  time, under the ".)." In 2020, a new set of APIs, known as the SCAPI
 date: '2025-07-24T20:52:39.000Z'
 lastmod: '2025-07-25T06:41:00.000Z'
 url: /slas-in-sfra-or-sitegenesis/

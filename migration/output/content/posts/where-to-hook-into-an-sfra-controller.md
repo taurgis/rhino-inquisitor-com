@@ -1,9 +1,8 @@
 ---
 title: Where can you "hook" into an SFRA request or controller?
 description: >-
-  Have you ever wondered how Salesforce Commerce Cloud, especially $1
-  (Storefront Reference Architecture), handles the rendering of pages based on
-  control...
+  Have you ever wondered how Salesforce Commerce Cloud, especially (Storefront
+  Reference Architecture), handles the rendering of pages based on controllers
 date: '2024-10-07T07:17:57.000Z'
 lastmod: '2024-10-07T07:35:26.000Z'
 url: /where-to-hook-into-an-sfra-controller/
@@ -48,7 +47,7 @@ Dangerous Like the onRequest hook, any delay or exception introduced here can be
 
 ## SFRA Routes?
 
-[![A screenshot of the Home.js controller file of the standard SFRA. It contains two routes: Show and ErrorNotFound.](/media/2024/home-controller-routes-in-sfra-ca8b9d167a.jpg)](/media/2024/home-controller-routes-in-sfra-ca8b9d167a.jpg)
+[![Standard Home.js controller with Show and ErrorNotFound routes.](/media/2024/home-controller-routes-in-sfra-ca8b9d167a.jpg)](/media/2024/home-controller-routes-in-sfra-ca8b9d167a.jpg)
 
 The "home.js" controller file of SFRA
 
@@ -68,7 +67,7 @@ These will serve as the 'base route', the starting point of our project. But rem
 
 Cartridge Path In this example, we are assuming that there is only one extra cartridge in the cartridge path. This simplifies the explanation, as adding more than one cartridge to the path with an expanding function would make it more difficult to understand.
 
-[![](/media/2024/home-show-sfra-controller-be0043f3bf.jpg)](/media/2024/home-show-sfra-controller-be0043f3bf.jpg)
+[![Flow diagram of the standard Home-Show controller logic.](/media/2024/home-show-sfra-controller-be0043f3bf.jpg)](/media/2024/home-show-sfra-controller-be0043f3bf.jpg)
 
 The standard Home-Show controller logic visualised
 
@@ -175,7 +174,7 @@ The options explained above already give you quite a bit of flexibility. But wha
 
 ## Bringing it all together
 
-[![](/media/2024/sfra-home-route-with-all-extension-points-2-7e4462fe3e.jpg)](/media/2024/sfra-home-route-with-all-extension-points-2-7e4462fe3e.jpg)
+[![Combined diagram of SFRA route middleware and hook extension points.](/media/2024/sfra-home-route-with-all-extension-points-2-7e4462fe3e.jpg)](/media/2024/sfra-home-route-with-all-extension-points-2-7e4462fe3e.jpg)
 
 Bringing all of the options together!
 

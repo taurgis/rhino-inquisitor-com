@@ -1,8 +1,8 @@
 ---
 title: The Salesforce B2C Commerce Cloud Data Model explained
 description: >-
-  $1 An unofficial overview of the SFCC data model Once upon a time, a budding
-  developer wanted to work with $1. Excited to dive into the platform, they s...
+  An unofficial overview of the SFCC data model Once upon a time, a budding
+  developer wanted to work with.
 date: '2023-02-26T19:09:43.000Z'
 lastmod: '2023-12-04T13:38:39.000Z'
 url: /salesforce-b2c-commerce-cloud-erd/

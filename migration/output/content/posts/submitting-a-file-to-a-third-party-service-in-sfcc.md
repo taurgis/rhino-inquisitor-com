@@ -1,9 +1,8 @@
 ---
 title: Submitting a file to a third party service in SFCC
 description: >-
-  Salesforce B2C Commerce Cloud provides developers and architects with a $1,
-  making it much more streamlined to get up and running. With the $1 you get
-  s...
+  Salesforce B2C Commerce Cloud provides developers and architects with a,
+  making it much more streamlined to get up and running.
 date: '2023-01-02T08:00:00.000Z'
 lastmod: '2022-12-29T18:02:41.000Z'
 url: /submitting-a-file-to-a-third-party-service-in-sfcc/

@@ -4,7 +4,7 @@ title: >-
   File Management
 description: >-
   File Management is critical and necessary in any project. How else can we work
-  with mass data transfers or logging mechanisms? This blog post will explo...
+  with mass data transfers or logging mechanisms?
 date: '2024-01-01T17:06:50.000Z'
 lastmod: '2023-12-31T19:52:11.000Z'
 url: /a-beginners-guide-to-webdav-in-sfcc/

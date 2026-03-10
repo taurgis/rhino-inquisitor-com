@@ -15,6 +15,9 @@ import {
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const canonicalHost = 'https://www.rhino-inquisitor.com';
+const maxDescriptionLength = 155;
+const minDescriptionLength = 120;
+const minAcceptableDescriptionLength = 80;
 const urlPattern = /^\/(?:|[a-z0-9/-]*[a-z0-9-]\/?)$/;
 const aliasPattern = /^\/(?:|[a-z0-9/-]*[a-z0-9-]\/)$/;
 
@@ -436,36 +439,119 @@ function buildFrontMatter(record, discoveryParams, attachmentUrlBySourceId, erro
 }
 
 function resolveDescription(record) {
-  const excerpt = String(record.excerptRaw ?? '').replace(/\s+/gu, ' ').trim();
+  const excerpt = normalizeDescriptionText(record.excerptRaw ?? '');
+  const bodyText = normalizeDescriptionText(record.bodyMarkdown ?? '');
+
+  const candidates = [];
   if (excerpt.length > 0) {
-    return clampDescription(excerpt);
+    candidates.push(excerpt);
+  }
+  if (bodyText.length > 0) {
+    candidates.push(bodyText);
   }
 
-  const bodyText = String(record.bodyMarkdown ?? '')
+  for (const candidate of candidates) {
+    const resolved = buildDescription(candidate);
+    if (resolved.length > 0) {
+      if (resolved.length >= minAcceptableDescriptionLength) {
+        return resolved;
+      }
+
+      const fallbackSuffix = record.postType === 'post'
+        ? 'Read the full article on Rhino Inquisitor for implementation details.'
+        : 'Explore the full page on Rhino Inquisitor for additional context.';
+      return buildDescription([resolved, fallbackSuffix].join(' '));
+    }
+  }
+
+  const titleFallback = normalizeDescriptionText(record.titleRaw ?? '');
+  if (titleFallback.length > 0) {
+    const context = record.postType === 'post'
+      ? 'Read practical Salesforce Commerce Cloud insights from Rhino Inquisitor.'
+      : 'Explore this Rhino Inquisitor page for migration-safe reference details.';
+    const titleEndsSentence = /[.?]$/u.test(titleFallback) || titleFallback.endsWith(String.fromCharCode(33));
+    const titleSentence = titleEndsSentence ? titleFallback : titleFallback + '.';
+    return buildDescription([titleSentence, context].join(' '));
+  }
+
+  return buildDescription('Visit Rhino Inquisitor for Salesforce Commerce Cloud migration and engineering insights.');
+}
+
+function buildDescription(sourceText) {
+  if (sourceText.length === 0) {
+    return '';
+  }
+
+  if (sourceText.length <= maxDescriptionLength) {
+    return sourceText;
+  }
+
+  const sentenceSummary = buildSentenceSummary(sourceText);
+  if (sentenceSummary.length > 0) {
+    return sentenceSummary;
+  }
+
+  return trimToWordBoundary(sourceText, maxDescriptionLength);
+}
+
+function buildSentenceSummary(sourceText) {
+  const sentences = sourceText
+    .split(/(?<=[.!?])\s+/u)
+    .map((sentence) => sentence.trim())
+    .filter((sentence) => sentence.length > 0);
+
+  let summary = '';
+  for (const sentence of sentences) {
+    const candidate = summary.length === 0 ? sentence : [summary, sentence].join(' ');
+    if (candidate.length > maxDescriptionLength) {
+      if (summary.length > 0) {
+        return summary;
+      }
+      break;
+    }
+    summary = candidate;
+    if (summary.length >= minDescriptionLength) {
+      return summary;
+    }
+  }
+
+  if (summary.length > 0) {
+    return summary;
+  }
+
+  return '';
+}
+
+function normalizeDescriptionText(value) {
+  return String(value)
     .replace(/```[\s\S]*?```/gu, ' ')
     .replace(/`([^`]+)`/gu, '$1')
     .replace(/!\[[^\]]*\]\([^)]*\)/gu, ' ')
     .replace(/\[[^\]]+\]\([^)]*\)/gu, '$1')
-    .replace(/[>#*_~-]/gu, ' ')
+    .replace(/<!--(?:[\s\S]*?)-->/gu, ' ')
+    .replace(/\[(?:\.{3}|\u2026|Read more)\]/giu, ' ')
+    .replace(/\$1(?=[!?.,;:]|\s|$)/gu, ' ')
+    .replace(/[>#*_~]/gu, ' ')
+    .replace(/\s+([,.;!?])/gu, '$1')
+    .replace(/(?:\.{3}|\u2026)+$/gu, '')
     .replace(/\s+/gu, ' ')
     .trim();
-
-  if (bodyText.length === 0) {
-    return clampDescription(record.titleRaw.trim());
-  }
-
-  return clampDescription(bodyText);
 }
 
-function clampDescription(value) {
-  if (value.length <= 155) {
+function trimToWordBoundary(value, maxLength) {
+  if (value.length <= maxLength) {
     return value;
   }
 
-  const clamped = value.slice(0, 152).trimEnd();
-  return `${clamped}...`;
-}
+  const sliced = value.slice(0, maxLength + 1).trimEnd();
+  const lastSpace = sliced.lastIndexOf(' ');
+  const minimumBoundary = Math.floor(maxLength * 0.6);
+  if (lastSpace >= minimumBoundary) {
+    return sliced.slice(0, lastSpace).trimEnd();
+  }
 
+  return value.slice(0, maxLength).trimEnd();
+}
 function buildOutputRelativePath(record) {
   const directory = resolveOutputDirectory(record.postType);
   const fileName = `${sanitizeFileSegment(record.slug || record.sourceId)}.md`;

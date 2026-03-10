@@ -1,9 +1,8 @@
 ---
 title: Leveraging Server-Side Caching to Improve SFCC REST API Speed
 description: >-
-  The $1 has been around for a long time (2016) and allows you to cache
-  responses to increase performance. By default, GET responses that support
-  caching...
+  The has been around for a long time (2016) and allows you to cache responses
+  to increase performance.
 date: '2023-04-10T06:46:06.000Z'
 lastmod: '2023-04-11T08:01:28.000Z'
 url: /caching-rest-apis-in-sfcc/

@@ -1,9 +1,8 @@
 ---
 title: The Salesforce B2C Commerce Cloud 23.3 release explained
 description: >-
-  Another month, another release from Salesforce B2C Commerce Cloud! In this
-  blog post, we'll dive into all the changes and improvements coming to the
-  pla...
+  Another month, another release from Salesforce B2C Commerce Cloud! Read the
+  full article on Rhino Inquisitor for implementation details.
 date: '2023-02-15T14:19:00.000Z'
 lastmod: '2023-02-15T14:19:11.000Z'
 url: /salesforce-b2c-commerce-cloud-23-3-release/
@@ -17,11 +16,11 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-Another month, another release from Salesforce B2C Commerce Cloud! In this blog post, we'll dive into all the changes and improvements coming to the platform in the [23.3 release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_23_3_release.htm&type=5). In recent months, we've seen a strong focus on updates to the headless APIs and Page Designer, and we'll examine if this trend continues in this latest release. Are there new and exciting developments on the horizon for the platform? Let's find out! Are you interested in last month’s release notes? [Click here](/salesforce-b2c-commerce-cloud-23-2/)!
+Another month, another release from Salesforce B2C Commerce Cloud! In this blog post, we'll dive into all the changes and improvements coming to the platform in the [23.3 release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_23_3_release.htm&type=5). In recent months, we've seen a strong focus on updates to the headless APIs and Page Designer, and we'll examine if this trend continues in this latest release. Are there new and exciting developments on the horizon for the platform? Let's find out! Are you interested in last month’s release notes? [Read the 23.2 release notes](/salesforce-b2c-commerce-cloud-23-2/)!
 
 ## Trial sandboxes???
 
-![](/media/2023/salesforce-appexchange-654f2875a8.png)
+![AppExchange partner program artwork used for the trial sandbox announcement.](/media/2023/salesforce-appexchange-654f2875a8.png)
 
 > B2C Commerce independent software vendor (ISV) partners can now get a trial sandbox environment within minutes of joining the AppExchange Partner program. ISV partner prospects can opt in for a 90-day trial sandbox when they register on the Partner Recruitment page. After their information is submitted, a trial sandbox is automatically provisioned, and the ISV partner receives an email with their sandbox credentials.
 
@@ -39,7 +38,7 @@ There is a [limit](https://documentation.b2c.commercecloud.salesforce.com/DOC1/t
 
 > Shoppers can now use Buy Now express checkout without losing the contents of an existing shopping cart. Buy Now express checkout puts items for purchase in a separate cart. To use this feature, upgrade the Payments plug-in (plugin\_commercepayments) to the latest version.
 
-Losing your basket halfway through your shopping experience is never a fun thing. For any projects making use of [Commerce Payments](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/salesforce_payments/b2c_salesforce_payments.html), this update is a welcome improvement. The plugin\_commercepayments repository can be found [here](https://github.com/SalesforceCommerceCloud/plugin_commercepayments). Access to the repository If you don’t have a GitHub account, see [Salesforce Commerce Cloud GitHub Repositories and Access](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/site_development/b2c_github_repo_access.html#github_repo).
+Losing your basket halfway through your shopping experience is never a fun thing. For any projects making use of [Commerce Payments](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/salesforce_payments/b2c_salesforce_payments.html), this update is a welcome improvement. The plugin\_commercepayments repository can be found in the [plugin_commercepayments repository](https://github.com/SalesforceCommerceCloud/plugin_commercepayments). Access to the repository If you don’t have a GitHub account, see [Salesforce Commerce Cloud GitHub Repositories and Access](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/site_development/b2c_github_repo_access.html#github_repo).
 
 ## Business Manager
 
@@ -59,13 +58,13 @@ Before this 23.3 release, customer support had to be contacted to enable the Sho
 
 ### SLAS Admin UI Update
 
-![](/media/2023/slas-admin-ui-1dc5370339.jpg) The [SLAS admin UI](https://developer.salesforce.com/docs/commerce/commerce-api/guide/slas.html) has gotten a bit of love this month, and reported bugs have been worked on a resolved! _I cannot comment on which ones were addressed, but we reported a fair few ones that got resolved in this update!_
+![SLAS Admin UI updated in the 23.3 release.](/media/2023/slas-admin-ui-1dc5370339.jpg) The [SLAS admin UI](https://developer.salesforce.com/docs/commerce/commerce-api/guide/slas.html) has gotten a bit of love this month, and reported bugs have been worked on a resolved! _I cannot comment on which ones were addressed, but we reported a fair few ones that got resolved in this update!_
 
 ## Account Manager
 
 A new release for [Account Manager](https://account.demandware.com/) has happened, containing the following updates
 
-#### New Multi-Factor Authentication Error Message
+### New Multi-Factor Authentication Error Message
 
 > During multi-factor authentication (MFA), when a user tries to Log in with an insecure Device, Account Manager displays the following prescriptive error message: Your log in request can't be completed. Set PIN, pattern or passcode to secure your mobile device and try again.
 
@@ -90,7 +89,7 @@ IMPORTANT! Account Manager is announcing an upcoming change to password requirem
 
 ## PWA Kit v2.6.0
 
-A new PWA Kit release happens every few weeks, so this month is no different. In this release, the biggest modification is a performance boost to the "[Mega Menu](https://github.com/SalesforceCommerceCloud/pwa-kit/blob/develop/packages/template-retail-react-app/app/components/drawer-menu/index.jsx)" by lazy loading menu items below a configured 'depth'. Want to see what else this new version has in store? Have a look [here](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v2.6.0) at the release notes.
+A new PWA Kit release happens every few weeks, so this month is no different. In this release, the biggest modification is a performance boost to the "[Mega Menu](https://github.com/SalesforceCommerceCloud/pwa-kit/blob/develop/packages/template-retail-react-app/app/components/drawer-menu/index.jsx)" by lazy loading menu items below a configured 'depth'. Want to see what else this new version has in store? Have a look at the [PWA Kit v2.6.0 release notes](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v2.6.0).
 
 ## Bugfixes
 

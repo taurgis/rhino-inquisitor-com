@@ -2,8 +2,7 @@
 title: 'B2C Commerce: What''s New In 22.4'
 description: >-
   In this post, we will be looking at the release notes of Salesforce B2C
-  Commerce Cloud for April 2022. Since the release cycles for B2C Commerce are
-  $1,...
+  Commerce Cloud for April 2022.
 date: '2022-03-21T19:57:05.000Z'
 lastmod: '2022-07-23T21:46:22.000Z'
 url: /b2c-commerce-whats-new-in-22-4/

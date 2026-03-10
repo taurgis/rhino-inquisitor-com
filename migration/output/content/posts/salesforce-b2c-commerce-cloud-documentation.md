@@ -2,8 +2,7 @@
 title: Salesforce B2C Commerce Cloud Documentation
 description: >-
   Let's be direct. Navigating the Salesforce B2C Commerce Cloud documentation
-  landscape has become a tactical challenge. For those of us who cut our
-  teeth...
+  landscape has become a tactical challenge.
 date: '2022-05-09T18:58:37.000Z'
 lastmod: '2025-08-06T20:01:22.000Z'
 url: /salesforce-b2c-commerce-cloud-documentation/

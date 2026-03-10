@@ -1,8 +1,8 @@
 ---
 title: Get connected at Salesforce Connections 2022
 description: >-
-  It seems like only yesterday that $1 happened, and here we are again. But this
-  time in Chicago! Unlike TrailblazerDX, Connections is focused on creating...
+  It seems like only yesterday that happened, and here we are again. But this
+  time in Chicago!
 date: '2022-05-30T12:21:30.000Z'
 lastmod: '2022-07-23T21:49:51.000Z'
 url: /get-connected-at-salesforce-connections-2022/

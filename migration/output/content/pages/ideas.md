@@ -2,7 +2,7 @@
 title: Ideas
 description: >-
   Salesforce allows its clients and partners to guide the internal product teams
-  to prioritize features in their favorite products. The platform to facili...
+  to prioritize features in their favorite products.
 date: '2022-02-28T17:24:02.000Z'
 lastmod: '2022-02-28T17:38:05.000Z'
 url: /ideas/

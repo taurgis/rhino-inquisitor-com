@@ -1,9 +1,8 @@
 ---
 title: Understanding Locale Fallback in Salesforce B2C Commerce Cloud
 description: >-
-  In today's digitally connected world, personalization and $1 play a crucial
-  role in delivering a tailored shopping experience. Salesforce B2C Commerce
-  C...
+  In today's digitally connected world, personalization and play a crucial role
+  in delivering a tailored shopping experience.
 date: '2024-01-29T09:06:32.000Z'
 lastmod: '2024-01-31T08:11:45.000Z'
 url: /understanding-locale-fallback-in-sfcc/

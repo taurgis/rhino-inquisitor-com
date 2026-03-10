@@ -2,8 +2,8 @@
 title: The move from SiteGenesis and SFRA to the Composable Storefront as a developer
 description: >-
   As a Salesforce B2C Commerce Cloud developer (starter or experienced),
-  expanding your skill set and exploring new technologies is part of the job it
-  all...
+  expanding your skill set and exploring new technologies is part of the job -
+  it all
 date: '2023-12-25T13:46:42.000Z'
 lastmod: '2023-12-24T08:02:07.000Z'
 url: >-

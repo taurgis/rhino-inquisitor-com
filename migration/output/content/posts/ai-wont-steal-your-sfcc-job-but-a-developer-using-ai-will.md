@@ -3,8 +3,8 @@ title: >-
   AI Won't Steal Your SFCC Job, But a Developer Using AI Will: The Rhino
   Inquisitor's Survival Guide
 description: >-
-  Let’s cut to the chase. The whispers in every virtual stand-up, the subtext of
-  every tech keynote, the existential dread creeping into your late-night c...
+  Let’s cut to the chase. Read the full article on Rhino Inquisitor for
+  implementation details.
 date: '2025-06-30T17:46:53.000Z'
 lastmod: '2025-07-02T21:37:51.000Z'
 url: /ai-wont-steal-your-sfcc-job-but-a-developer-using-ai-will/

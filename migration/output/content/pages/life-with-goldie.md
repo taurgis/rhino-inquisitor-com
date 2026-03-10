@@ -2,7 +2,7 @@
 title: Life With Goldie
 description: >-
   https://www.youtube.com/watch?v=u0mlLP\ M6HU A fun interview about my journey
-  within the Salesforce Ohana and how I received my Golden Hoodie in 2022 at...
+  within the Salesforce Ohana and how I received my Golden Hoodie in 2022 at
 date: '2022-09-11T08:28:07.000Z'
 lastmod: '2022-09-11T16:31:42.000Z'
 url: /life-with-goldie/

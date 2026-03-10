@@ -1,8 +1,8 @@
 ---
 title: Salesforce B2C Commerce Cloud Customer ERD
 description: >-
-  Have you gone on $1 and come up with nothing? Fear not, as your luck has just
-  changed. While finding diagrams for the entity model of $1 is as easy as p...
+  Have you gone on and come up with nothing? Fear not, as your luck has just
+  changed.
 date: '2023-02-06T08:52:39.000Z'
 lastmod: '2023-02-26T18:09:36.000Z'
 url: /salesforce-b2c-commerce-cloud-customer-erd/

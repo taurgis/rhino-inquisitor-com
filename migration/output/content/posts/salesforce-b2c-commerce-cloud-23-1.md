@@ -2,7 +2,7 @@
 title: Salesforce B2C Commerce Cloud 23.1
 description: >-
   Summer has arrived, and so has the next Salesforce B2C Commerce Cloud release!
-  This time we look at the $1! Are you interested in last month’s release n...
+  This time we look at the! Are you interested in last month’s release notes?!
 date: '2022-12-19T08:35:50.000Z'
 lastmod: '2023-03-01T18:52:05.000Z'
 url: /salesforce-b2c-commerce-cloud-23-1/
@@ -17,7 +17,7 @@ author: Thomas Theunen
 ---
 Summer has arrived, and so has the next Salesforce B2C Commerce Cloud release! This time we look at the [January 2023 (23.1) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_7_release.htm&type=5)!
 
-Are you interested in last month’s release notes? [Click here](/salesforce-b2c-commerce-cloud-22-10/)!
+Are you interested in last month’s release notes? [Read the 22.10 release notes](/salesforce-b2c-commerce-cloud-22-10/)!
 
 ## Migrate Deprecated Custom Jobs to Step-Based Jobs
 
@@ -75,11 +75,11 @@ To create an order from a previous order, use the _[SalesforcePaymentsMgr](https
 
 A new option for us to configure the max-age ourselves for the [HSTS](https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security) setting. We could already do this in the eCDN, but now we can also do this in instances without it.
 
-![](/media/2022/hsts-812238f9bc.jpg)
+![HSTS max-age setting shown in the eCDN interface.](/media/2022/hsts-812238f9bc.jpg)
 
 HSTS in the eCDN
 
-![](/media/2022/hsts-business-manager-sfcc-95dbd0264e.jpg)
+![HSTS max-age setting shown in Business Manager.](/media/2022/hsts-business-manager-sfcc-95dbd0264e.jpg)
 
 HSTS in the Business Manager
 
@@ -122,7 +122,7 @@ Some great new ideas were submitted!
 
 Another month, another update hits the PWA Kit with quite [an extensive changelog](https://github.com/SalesforceCommerceCloud/pwa-kit/compare/v2.3.0...v2.4.0). The “spotlight” change is that the new commerce-sdk-react library includes ready-made React hooks for fetching data from B2C Commerce.
 
-The full release notes are available [here](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v2.4.0).
+The full release notes are available in the [PWA Kit v2.4.0 release notes](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v2.4.0).
 
 ## Bugfixes
 

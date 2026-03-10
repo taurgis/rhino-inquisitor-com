@@ -1,9 +1,8 @@
 ---
 title: Getting to know the SFCC 24.4 Release
 description: >-
-  It's that time of the year again! The $1 release of Salesforce B2C Commerce
-  Cloud is finally here, just in time for the spring season. Let's take a
-  clos...
+  It's that time of the year again! The release of Salesforce B2C Commerce Cloud
+  is finally here, just in time for the spring season.
 date: '2024-04-01T08:03:24.000Z'
 lastmod: '2024-04-02T07:39:31.000Z'
 url: /getting-to-know-the-sfcc-24-4-release/
@@ -19,7 +18,7 @@ author: Thomas Theunen
 ---
 It's that time of the year again! The [April 2024 (24.4)](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_24_4_release.htm&type=5) release of Salesforce B2C Commerce Cloud is finally here, just in time for the spring season. Let's take a closer look at all the exciting new features and improvements this release offers.
 
-Are you interested in last month’s release notes? [Click here](/digging-into-the-b2c-commerce-cloud-24-3-release/)!
+Are you interested in last month’s release notes? [Read the 24.3 release notes](/digging-into-the-b2c-commerce-cloud-24-3-release/)!
 
 ## Added support for additional HTTP methods for Custom APIs
 
@@ -34,7 +33,7 @@ The newly enabled methods in 22.4 now allow us to create custom endpoints for an
 
 This update is highly anticipated by Headless projects, as it offers greater flexibility in the Composable Storefront than ever before!
 
-Read all about it [here](https://developer.salesforce.com/docs/commerce/commerce-api/guide/custom-apis.html).
+Read all about it in the [Custom APIs guide](https://developer.salesforce.com/docs/commerce/commerce-api/guide/custom-apis.html).
 
 ## Rogue Query Timeouts in B2C Commerce
 
@@ -67,7 +66,7 @@ To reduce the risk of generating large queries, users are advised to make their 
 
 ## Manage More Images in Page Designer
 
-![A screenshot of the Image Picker in Page Designer showing 4 images available to select.](/media/2024/images-in-sfcc-page-designer-2ae797ab98.png)
+![Page Designer image picker with four available assets.](/media/2024/images-in-sfcc-page-designer-2ae797ab98.png)
 
 > The Page Designer image and media picker now supports up to 1,000 images per folder. Previously, only 200 images within a folder were accessible in the image picker, even if more existed. The increased image limit improves the user experience for merchandisers and content creators and avoids workarounds, such as creating subfolders for extra images.
 
@@ -79,7 +78,7 @@ The good news is that the limit has been increased to 1000. This should provide 
 
 ### Configure eCDN for Staging in Business Manager
 
-![A screenshot of the Staging Business Manager showing the link "Embedded CDN Settings" highlighted.](/media/2024/ecdn-config-in-business-manager-staging-a7d7b2d965.png)
+![Staging Business Manager with Embedded CDN Settings highlighted.](/media/2024/ecdn-config-in-business-manager-staging-a7d7b2d965.png)
 
 > Business Manager now supports configuring eCDN for staging environments. eCDN settings are specific to each instance (development, staging, and production), and you manage them individually. When you create a proxy zone in production, the zone doesn’t replicate a corresponding proxy zone in your development or staging instance. The new eCDN configuration feature simplifies onboarding new sites for staging instances, making it easier to mimic your production instance. Because the configuration uses the existing CDN-API, you can use either Business Manager or the API to manage your eCDN configurations.
 
@@ -87,7 +86,7 @@ It feels like only yesterday that I [published my blog post](/how-to-set-up-the-
 
 ### Auto-Correction is Disabled by Default
 
-![A screenshot of the Searchable Attributes in the Business Manager showing the new default setting for Autocorrection to be "No".](/media/2024/searchable-attributes-in-commerce-cloud-db3ab0524f.png)
+![Searchable Attributes settings showing Autocorrection defaulting to No.](/media/2024/searchable-attributes-in-commerce-cloud-db3ab0524f.png)
 
 > The default setting for auto-correction for searchable attributes added after the B2C Commerce 24.4 release is now set to No. This change affects searchable attributes added through the Business Manager UI or via import. Existing configurations aren’t affected. Previously, when you added a searchable attribute, the default setting was Yes, which could cause issues in instances when search functions shouldn’t correct values, such as the product SKU, ID, or ISBN. Additionally, the auto-correction dictionary’s size can incrementally increase over time, leading to search noise.
 

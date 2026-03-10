@@ -1,8 +1,8 @@
 ---
 title: What skills do I need as a Salesforce Commerce Cloud Architect?
 description: >-
-  As a $1, you may have reached a point in your career where you feel ready to
-  take on a more strategic role and transition into an architecture role. Mak...
+  As a, you may have reached a point in your career where you feel ready to take
+  on a more strategic role and transition into an architecture role.
 date: '2023-06-26T07:02:54.000Z'
 lastmod: '2023-06-27T08:08:03.000Z'
 url: /what-skills-do-i-need-as-a-sfcc-architect/

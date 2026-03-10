@@ -2,8 +2,7 @@
 title: A look at the Salesforce B2C Commerce Cloud 24.2 release
 description: >-
   It's time to gear up for the February 2024 ($1) release of Salesforce B2C
-  Commerce Cloud! With the arrival of this latest release, let's look at
-  what's...
+  Commerce Cloud!
 date: '2024-02-05T06:59:49.000Z'
 lastmod: '2024-02-06T09:05:09.000Z'
 url: /a-look-at-the-salesforce-b2c-commerce-cloud-24-2-release/
@@ -20,7 +19,7 @@ author: Thomas Theunen
 ---
 It's time to gear up for the February 2024 ([24.2](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_24_2_release.htm&type=5)) release of Salesforce B2C Commerce Cloud! With the arrival of this latest release, let's look at what's new and exciting!
 
-You can always check out [last month's release notes](/sfcc-24-1-release-a-new-year-update/) by clicking here if you missed it.
+You can always check out [last month's release notes](/sfcc-24-1-release-a-new-year-update/) in the January release recap if you missed it.
 
 ## Platform
 
@@ -28,7 +27,7 @@ You can always check out [last month's release notes](/sfcc-24-1-release-a-new-y
 
 On By Default This new feature is automatically enabled with the 24.2 release and may cause unexpected behaviour if you have complex use cases involving cookies.
 
-Please turn it off until you have completed all necessary testing. Affects Hybrid Deployments An extra warning for those using hybrid deployments: it is important to test adequately as this change may disrupt standard customer flows. [![A screenshot showing the Feature switch called 'Partioned Cookies' with the default value of 'true'.](/media/2024/partioned-cookies-in-sfcc-cb426ac0c4.png)](/media/2024/partioned-cookies-in-sfcc-cb426ac0c4.png)
+Please turn it off until you have completed all necessary testing. Affects Hybrid Deployments An extra warning for those using hybrid deployments: it is important to test adequately as this change may disrupt standard customer flows. [![Feature switch showing Partitioned Cookies enabled by default.](/media/2024/partioned-cookies-in-sfcc-cb426ac0c4.png)](/media/2024/partioned-cookies-in-sfcc-cb426ac0c4.png)
 
 Concerning browser vendors' ongoing deprecation of third-party cookies, a new feature in Salesforce B2C Commerce Cloud affects how cookies are handled: "[Partitioned Cookies](https://developer.mozilla.org/en-US/docs/Web/Privacy/Partitioned_cookies)"
 
@@ -86,11 +85,11 @@ Previously, we were unable to differentiate at the millisecond level, but that i
 
 > You can now modify the date settings format in Business Manager so that the script API method dw.util.Calendar.getFirstDayOfWeek() returns the first day of the week in the date format used by your site locale. Previously, you couldn’t modify the date format to match the local or regional context.
 
-![A screenshot of the date settings in a locale before the 24.2 release.](/media/2024/locale-date-settings-before-24-2-1107342948.png)
+![Locale date settings before the 24.2 update.](/media/2024/locale-date-settings-before-24-2-1107342948.png)
 
 Before
 
-![A screenshot of the date settings in a locale after the 24.2 release, showing the new start day of the week option.](/media/2024/locale-date-settings-after-24-2-ed26c6c56a.png)
+![Locale date settings after the 24.2 update with start day of week.](/media/2024/locale-date-settings-after-24-2-ed26c6c56a.png)
 
 After
 

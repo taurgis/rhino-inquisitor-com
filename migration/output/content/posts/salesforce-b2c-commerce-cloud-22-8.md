@@ -2,7 +2,7 @@
 title: Salesforce B2C Commerce Cloud 22.8
 description: >-
   A new month means new candy for us in Salesforce B2C Commerce Cloud. But what
-  will we find in that jar this month? Let us find out! Are you interested i...
+  will we find in that jar this month? Let us find out!
 date: '2022-07-25T07:19:45.000Z'
 lastmod: '2022-07-25T14:32:45.000Z'
 url: /salesforce-b2c-commerce-cloud-22-8/
@@ -18,7 +18,7 @@ author: Thomas Theunen
 ---
 A new month means new candy for us in Salesforce B2C Commerce Cloud. But what will we find in that jar this month? Let us find out!
 
-Are you interested in last month’s release notes? [Click here](/salesforce-b2c-commerce-cloud-the-22-7-release/)! Or are you looking for the [official release notes](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_8_release.htm&type=5)?
+Are you interested in last month’s release notes? [Read the 22.7 release notes](/salesforce-b2c-commerce-cloud-the-22-7-release/)! Or are you looking for the [official release notes](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_8_release.htm&type=5)?
 
 ## Language
 
@@ -73,7 +73,7 @@ Good news: The weekly maintenance is moved to Saturday between 02:00 and 08:00 U
 
 ### HTTPClient.send quota limit doubled
 
-![](/media/2022/great-power-responsibility-844bd031ba.jpg)
+![Superhero-style image underscoring the responsibility that comes with higher HTTPClient limits.](/media/2022/great-power-responsibility-844bd031ba.jpg)
 
 Good news, but with a warning, for many developers who have done real-time integrations! The quote limit of external API calls you can do in a single request has doubled, going from 8 to 16.
 
@@ -147,7 +147,7 @@ The value is shown in the Business Manager after uploading the certificate.
 
 ### eCDN Interface Update
 
-[![](/media/2022/ecdn-interface-update-8e83d9ac74.png)](/media/2022/ecdn-interface-update-8e83d9ac74.png)
+[![Updated eCDN interface workflow for creating storefront zones.](/media/2022/ecdn-interface-update-8e83d9ac74.png)](/media/2022/ecdn-interface-update-8e83d9ac74.png)
 
 The workflow for creating zones gets an update:
 
@@ -168,7 +168,7 @@ This is nothing "too exciting," except if you have to configure about 50 zones. 
 
 ### Quotas: Site Specific
 
-[![](/media/2022/site-specific-quota-limit-information-c67623c0c3.png)](/media/2022/site-specific-quota-limit-information-c67623c0c3.png)
+[![Quota settings showing site-specific limit handling.](/media/2022/site-specific-quota-limit-information-c67623c0c3.png)](/media/2022/site-specific-quota-limit-information-c67623c0c3.png)
 
 This improvement is more for the engineering and performance team at Salesforce to make sure POD performance can be ensured.
 
@@ -176,7 +176,7 @@ Rather than having to manage/relax a quota at a "realm" level, quotas can now be
 
 ### Change History for campaigns & promotions
 
-[![](/media/2022/1da84b9d-7a51-4f6f-bcb0-b0217c4e5cb7-bf0735587c.jpeg)](/media/2022/1da84b9d-7a51-4f6f-bcb0-b0217c4e5cb7-bf0735587c.jpeg)
+[![Change History interface for campaigns, promotions, and coupons.](/media/2022/1da84b9d-7a51-4f6f-bcb0-b0217c4e5cb7-bf0735587c.jpeg)](/media/2022/1da84b9d-7a51-4f6f-bcb0-b0217c4e5cb7-bf0735587c.jpeg)
 
 The [Change History](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/change_history/b2c_change_history.html) feature is getting some more options! With this release, you can keep track (if you want to) of all modifications of:
 
@@ -211,7 +211,7 @@ Newly supported IDPs are:
 
 The PWA Kit is under continuous development as some features are still missing and new use-cases are presented to the team every week that might require some changes.
 
-This release can be found [here](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v2.1.0).
+This release can be found in the [PWA Kit v2.1.0 release notes](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v2.1.0).
 
 ### What’s New
 
@@ -221,14 +221,13 @@ This release can be found [here](https://github.com/SalesforceCommerceCloud/pwa-
 
 ### Changes
 
-##### pwa-kit-dev
+#### pwa-kit-dev
 
 -   Replace `Mobify` references/links with proper PWA Kit values. [#619](https://github.com/SalesforceCommerceCloud/pwa-kit/pull/619)
 -   Add support for a custom build directory to `pwa-kit-dev build`. [#628](https://github.com/SalesforceCommerceCloud/pwa-kit/pull/628)
 -   Introduce client-side hot module replacement. [#630](https://github.com/SalesforceCommerceCloud/pwa-kit/pull/630)
 
-###
-pwa-kit-react-sdk
+#### pwa-kit-react-sdk
 
 -   Remove console logs from route component. [#651](https://github.com/SalesforceCommerceCloud/pwa-kit/pull/651)
 
@@ -260,7 +259,7 @@ API Changes
 
 _Shopper Login New Endpoints_
 
-| **Endpoint Name** | **Description** |
+| Endpoint Name | Description |
 | --- | --- |
 | getPasswordResetToken | Request a reset password token |
 | resetPassword | Creates a new password |

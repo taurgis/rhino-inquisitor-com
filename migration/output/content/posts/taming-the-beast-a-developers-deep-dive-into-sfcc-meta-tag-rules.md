@@ -2,8 +2,7 @@
 title: 'Taming the Beast: A Developer''s Deep Dive into SFCC Meta Tag Rules'
 description: >-
   Most of us have glanced at the "Page Meta Tag Rules" section in Business
-  Manager, shrugged, and moved on to what we consider 'real' code. That's a
-  mista...
+  Manager, shrugged, and moved on to what we consider 'real' code.
 date: '2025-08-04T07:13:04.000Z'
 lastmod: '2025-08-04T12:14:46.000Z'
 url: /taming-the-beast-a-developers-deep-dive-into-sfcc-meta-tag-rules/
@@ -38,13 +37,13 @@ The process of creating a rule within Business Manager at `Merchant Tools > SEO 
 
 #### Meta Tag Definitions (The "What")
 
-![A screenshot of the meta tag rule definitions screen in the Business Manager showing the description, og:url, robots, and title meta tag definition.](/media/2025/meta-tag-rules-definitions-b886cc1425.png)
+![Meta tag definitions screen listing title, description, robots, and og:url entries.](/media/2025/meta-tag-rules-definitions-b886cc1425.png)
 
 This is where you define the _type_ of HTML tag you intend to create. Think of it as defining the schema for your output. You specify the `Meta Tag Type` (e.g., `name`, `property`, or `title` for the `<title>` tag) and the `Meta Tag ID` (e.g., `description`, `keywords`, `og:title`). For a standard meta description, the `Type` would be `name` and the `ID` would be `description`, which corresponds to `<meta name="description"...>`.
 
 #### Rule Creation & Scopes (The "How" and "Where")
 
-![A screenshot of the Create Entry modal, displaying the form used to create a new rule for a specific scope, in this case, the Product Detail page.](/media/2025/new-meta-tag-rule-sfcc-61609288f7.jpg)
+![Create Entry modal for adding a Product Detail meta tag rule.](/media/2025/new-meta-tag-rule-sfcc-61609288f7.jpg)
 
 This is the core logic. You create a new rule, give it a name, and associate it with one of the `Meta Tag ID`s you just defined. Critically, you must select a `Scope`. The scope (e.g., Product, Category/PLP, Content Detail/CDP) is the context in which the rule is evaluated. It determines which platform objects and attributes are available to your rule's syntax.
 
@@ -52,7 +51,7 @@ For example, the `Product` object is available in the Product scope, but not in 
 
 #### Assignments (The "Who")
 
-![](/media/2025/meta-tag-rule-assignments-sfcc-5de863b5b6.jpg)
+![Assignments screen showing where a meta tag rule is attached in the catalog.](/media/2025/meta-tag-rule-assignments-sfcc-5de863b5b6.jpg)
 
 Once a rule is defined, you must assign it to a part of your site. You can assign a rule to an entire catalog, a specific category and its children, or a content folder. This assignment triggers the platform to use your rule for the designated pages.
 
@@ -193,7 +192,7 @@ A user navigates directly to the "Backpacks" category page without any filters.
 
 Here we encounter a significant limitation: out of the box, the Meta Tag Rules engine does not work with standard Page Designer pages. The underlying `Page` API object lacks the necessary `pageMetaTags`. This creates a significant gap for sites that rely on content marketing and campaign landing pages built in Page Designer.
 
-Luckily, an already complete working "workaround" example has been created by David Pereira [here](https://dev.to/bolt04/how-to-use-the-seo-meta-tag-rules-module-for-page-designer-in-sfcc-20i8).
+Luckily, an already complete working "workaround" example has been created by David Pereira in the [Page Designer meta tag workaround article](https://dev.to/bolt04/how-to-use-the-seo-meta-tag-rules-module-for-page-designer-in-sfcc-20i8).
 
 ## The Minefield: Warnings, Pitfalls, and Troubleshooting
 
@@ -208,7 +207,7 @@ While powerful, the Meta Tag Rules engine is a minefield of potential "gotchas" 
 
 ## Troubleshooting the "Black Box"
 
-[![A screenshot of the Page Meta Tag Rules tab on a category in the Business Manager](/media/2025/page-meta-tag-rules-sfcc-preview-8796961d9d.png)](/media/2025/page-meta-tag-rules-sfcc-preview-8796961d9d.png)
+[![Category preview tab showing generated Page Meta Tag Rules output.](/media/2025/page-meta-tag-rules-sfcc-preview-8796961d9d.png)](/media/2025/page-meta-tag-rules-sfcc-preview-8796961d9d.png)
 
 You cannot attach the Script Debugger to the rule engine or step through its execution. Troubleshooting is a process of indirect observation.
 
@@ -268,7 +267,7 @@ This ongoing expansion, as seen with enhancements to APIs like [Shopper Search](
 
 This evolution makes it easier than ever to fetch the meta tags for these pages. It validates the headless approach, allowing you to maintain a robust, **centralised SEO strategy** in the Business Manager while fully embracing the flexibility and performance of a modern front-end architecture.
 
-![](/media/2025/sfcc-updates-headless-apis-for-meta-tag-rules-f61ced3d60.jpg)
+![SCAPI release update highlighting headless support for meta tag data.](/media/2025/sfcc-updates-headless-apis-for-meta-tag-rules-f61ced3d60.jpg)
 
 ## Conclusion: Go Forth and Automate
 

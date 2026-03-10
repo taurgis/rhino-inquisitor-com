@@ -3,8 +3,8 @@ title: >-
   The SFCC Quota Gauntlet: A Developer's Survival Guide to the Top Platform
   Limits
 description: >-
-  It is a scenario that haunts every e commerce developer: the 3 AM pager alert.
-  The production site is down, shoppers are seeing the dreaded "general err...
+  It is a scenario that haunts every e-commerce developer: the 3 AM pager alert.
+  Read the full article on Rhino Inquisitor for implementation details.
 date: '2025-11-24T12:41:24.000Z'
 lastmod: '2025-12-01T08:10:09.000Z'
 url: /a-survival-guide-to-sfcc-platform-limits/

@@ -1,9 +1,8 @@
 ---
 title: What is new in Salesforce Commerce Cloud 24.6?
 description: >-
-  "$1" is in our rear view mirror, but some new updates to the platform are
-  ahead! This time, we look at the $1! Are you interested in last month’s
-  releas...
+  "$1" is in our rear-view mirror, but some new updates to the platform are
+  ahead! This time, we look at the!
 date: '2024-06-03T12:04:25.000Z'
 lastmod: '2024-06-03T12:04:39.000Z'
 url: /what-is-new-in-sfcc-24-6/

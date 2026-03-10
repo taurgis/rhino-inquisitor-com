@@ -1,8 +1,8 @@
 ---
 title: 'Let’s GO-LIVE: The Salesforce B2C Commerce Cloud Environment'
 description: >-
-  Welcome to the $1, a set of articles about preparing for the launch of one or
-  more channels on Salesforce B2C Commerce Cloud. This is only the second ar...
+  Welcome to the, a set of articles about preparing for the launch of one or
+  more channels on Salesforce B2C Commerce Cloud.
 date: '2022-08-22T17:37:46.000Z'
 lastmod: '2022-08-23T07:19:42.000Z'
 url: /the-salesforce-b2c-commerce-cloud-environment/

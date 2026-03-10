@@ -1,9 +1,8 @@
 ---
 title: Creating custom OCAPI endpoints
 description: >-
-  Deprecated Since writing this article, Salesforce has provided a new and
-  better method for creating custom endpoints. You can find more information
-  abou...
+    Learn the legacy approach for custom OCAPI endpoints in SFCC, why it is now
+    deprecated, and where Salesforce recommends moving instead.
 date: '2022-07-11T17:40:22.000Z'
 lastmod: '2023-09-26T09:54:35.000Z'
 url: /creating-custom-ocapi-endpoints/
@@ -39,7 +38,7 @@ The only thing you are allowed to do is modify existing endpoints, but not all o
 
 I have created a complete example available on GitHub based on the [sfcc-hooks-collection](https://github.com/SalesforceCommerceCloud/sfcc-hooks-collection/) project provided by [Holger Nestmann](https://github.com/hnestmann).
 
-You can find that repository [here](https://github.com/taurgis/ocapi-custom-endpoints). Inside, you will find an example of a custom "get-customer" API added to the OCAPI**.**
+You can find that repository in the [OCAPI custom endpoints example repository](https://github.com/taurgis/ocapi-custom-endpoints). Inside, you will find an example of a custom "get-customer" API added to the OCAPI**.**
 
 ## Limitation of this custom solution
 
@@ -63,7 +62,7 @@ So let's get cracking! The first step is to create a new custom object type in t
 
 Go to "_Administration_" > "_Site Development_" > "_Custom Object Types_."
 
-[![](/media/2022/custom-api-custom-object-051e16e59a.png)](/media/2022/custom-api-custom-object-051e16e59a.png)
+[![Custom Object Types screen with the CustomApi definition.](/media/2022/custom-api-custom-object-051e16e59a.png)](/media/2022/custom-api-custom-object-051e16e59a.png)
 
 The Custom Object Definition is quite simple:
 
@@ -84,7 +83,7 @@ Each custom API endpoint needs its unique object of the "CustomApi" type. So in 
 
 To do this go to "_Merchant Tools_" > "_Custom Objects_" > "_Manage Custom Objects_."
 
-[![](/media/2022/manage-get-customer-object-7b88237d34.png)](/media/2022/manage-get-customer-object-7b88237d34.png)
+[![Manage Custom Objects screen with the get-customer object.](/media/2022/manage-get-customer-object-7b88237d34.png)](/media/2022/manage-get-customer-object-7b88237d34.png)
 
 The Custom Object is, again, easy to set up:
 
@@ -127,7 +126,7 @@ Fill in the following value for the type "_Shop_" and context "_Global (Organiza
 
 ```
 
-[![](/media/2022/ocapi-settings-46b5f9c8b0.png)](/media/2022/ocapi-settings-46b5f9c8b0.png)
+[![Open Commerce API Settings showing access for custom objects.](/media/2022/ocapi-settings-46b5f9c8b0.png)](/media/2022/ocapi-settings-46b5f9c8b0.png)
 
 In the example, we make use of "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" ( 30 x a ), which is a Client Id that works on test environments without creating it in the Account Manager.
 
@@ -249,7 +248,7 @@ We add it to the sites because the API is part of the Shop API, which is meant f
 
 ## Step 6: Call the API!
 
-[![](/media/2022/get-customer-custom-api-response-a6c8902585.png)](/media/2022/get-customer-custom-api-response-a6c8902585.png)
+[![Custom OCAPI response payload returned by the get-customer endpoint.](/media/2022/get-customer-custom-api-response-a6c8902585.png)](/media/2022/get-customer-custom-api-response-a6c8902585.png)
 
 The final step is calling your endpoint (with the correct parameters). In this case, we have the parameter "customer\_no," which we use in our custom code to fetch the right customer.
 
@@ -257,7 +256,7 @@ To make it easier to understand how to test the API, I added a [Postman collecti
 
 This collection requires you to configure the following variables:
 
-[![](/media/2022/postman-variables-custom-api-ec0a89ffce.png)](/media/2022/postman-variables-custom-api-ec0a89ffce.png)
+[![Postman variables required to call the custom OCAPI endpoint.](/media/2022/postman-variables-custom-api-ec0a89ffce.png)](/media/2022/postman-variables-custom-api-ec0a89ffce.png)
 
 -   **base\_url**: The domain of your environment.
 -   **client\_id:** Your client ID, you can use the default one.

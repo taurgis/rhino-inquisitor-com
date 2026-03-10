@@ -1,8 +1,8 @@
 ---
 title: 'A New Day for Commerce: Recap'
 description: >-
-  When we look at the Salesforce $1, Commerce seems like a speck on the entire
-  Salesforce landscape (CRM). Luckily, when going to Salesforce events such a...
+  When we look at the Salesforce, Commerce seems like a speck on the entire
+  Salesforce landscape (CRM).
 date: '2023-03-20T07:55:32.000Z'
 lastmod: '2023-03-21T09:44:52.000Z'
 url: /a-new-day-for-commerce-recap/
@@ -24,7 +24,7 @@ Come into play 'A New Day for Commerce', a dedicated Salesforce event for Commer
 
 ### Demandware XChange
 
-![Screenshot of the Demandware Xchange Website of 2015.](/media/2023/demandware-xchange-2015-6b0d29c1ff.png)
+![Demandware XChange 2015 event website.](/media/2023/demandware-xchange-2015-6b0d29c1ff.png)
 
 Before the acquisition of Salesforce, there were events in the United States and Europe dedicated to just Demandware, which was interesting for any customer, partner and developer! The agenda had something for everyone:
 
@@ -81,7 +81,7 @@ This is a good thing as many of these products have been becoming increasingly i
 
 ### Sales, technical, community?
 
-![A picture of Thomas Theunen, Igor Faletski, and Sander Felius sitting on a coach for a panel discussion.](/media/2023/fireside-chat-a-new-day-for-commerce-cd97b9b2c7.jpeg)
+![Thomas Theunen, Igor Faletski, and Sander Felius during the fireside chat.](/media/2023/fireside-chat-a-new-day-for-commerce-cd97b9b2c7.jpeg)
 
 In the first place, the event was designed to be your standard Salesforce event to pitch the product to potential customers and show off the array of products available to existing customers looking to expand their horizons.
 
@@ -101,7 +101,7 @@ And as it is with every Salesforce event, an opening keynote showing off the roa
 
 ### Salesforce
 
-![](/media/2023/a-new-day-for-commerce-community-2cc42304c9.jpg)
+![Commerce Cloud leadership and community attendees gathered in Amsterdam.](/media/2023/a-new-day-for-commerce-community-2cc42304c9.jpg)
 
 One of the biggest things that should be mentioned is that a large part of Commerce Cloud leadership had crossed the pond to be present in Amsterdam:
 

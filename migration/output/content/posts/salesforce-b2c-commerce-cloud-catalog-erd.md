@@ -1,9 +1,8 @@
 ---
 title: Salesforce B2C Commerce Cloud Product And Catalog ERD
 description: >-
-  When scouring the documentation for the Product and Catalog ERD ($1) of $1,
-  you have probably come out empty handed. Sure, you find many diagrams on
-  the...
+  When scouring the documentation for the Product and Catalog ERD ($1) of, you
+  have probably come out empty-handed.
 date: '2023-02-13T06:16:52.000Z'
 lastmod: '2023-02-26T17:51:47.000Z'
 url: /salesforce-b2c-commerce-cloud-catalog-erd/

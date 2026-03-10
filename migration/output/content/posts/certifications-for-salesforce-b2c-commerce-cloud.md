@@ -2,7 +2,7 @@
 title: Certifications for Salesforce B2C Commerce Cloud
 description: >-
   Certifications are a part of the Salesforce journey, and anyone who has looked
-  into this knows that there are $1 to give a stab at. But what about Sales...
+  into this knows that there are to give a stab at.
 date: '2022-04-13T07:07:52.000Z'
 lastmod: '2022-07-23T21:58:17.000Z'
 url: /certifications-for-salesforce-b2c-commerce-cloud/

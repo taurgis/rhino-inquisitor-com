@@ -2,7 +2,7 @@
 title: Community Salesforce Events and Commerce Cloud
 description: >-
   Salesforce is known for hosting spectacular events all over the world. But did
-  you know the community organizes some amazing ones as well? Maybe you don...
+  you know the community organizes some amazing ones as well?
 date: '2022-07-04T17:24:31.000Z'
 lastmod: '2022-07-23T19:15:14.000Z'
 url: /community-salesforce-events-and-commerce-cloud/

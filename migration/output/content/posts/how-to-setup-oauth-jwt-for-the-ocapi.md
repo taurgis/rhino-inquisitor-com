@@ -1,8 +1,8 @@
 ---
 title: How to setup OAuth JWT for the OCAPI
 description: >-
-  IMPORTANT : This article is about server to server communication When working
-  with the OCAPI ($1), you need to do some sort of authentication to prove w...
+  IMPORTANT : This article is about server-to-server communication When working
+  with the OCAPI ($1), you need to do some sort of authentication to prove who
 date: '2022-06-27T17:49:25.000Z'
 lastmod: '2022-07-23T19:16:34.000Z'
 url: /how-to-setup-oauth-jwt-for-the-ocapi/
@@ -60,7 +60,7 @@ Like always, when we set up a server-to-server connection, we need to generate a
 
 Follow the i[nstructions on the Infocenter](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/account_manager/b2c_account_manager_add_api_client_id.html), with a few minor changes.
 
-[![](/media/2022/account-manager-set-up-jwt-c2ed29ddca.jpg)](/media/2022/account-manager-set-up-jwt-c2ed29ddca.jpg)
+[![Account Manager client configuration for private_key_jwt authentication.](/media/2022/account-manager-set-up-jwt-c2ed29ddca.jpg)](/media/2022/account-manager-set-up-jwt-c2ed29ddca.jpg)
 
 1.  In the JWT field, copy and paste the entire contents of the "**cert.pem**" file we generated earlier (no modifications needed)
 
@@ -79,7 +79,7 @@ Ok, I made that title seem like this is an easy step to do. Generating the JWT m
 
 But let us look at the basics. A JWT has three different parts.
 
-[![](/media/2022/jwt-visualized-74d5a59116.jpg)](/media/2022/jwt-visualized-74d5a59116.jpg)
+[![Diagram showing the header, payload, and signature parts of a JWT.](/media/2022/jwt-visualized-74d5a59116.jpg)](/media/2022/jwt-visualized-74d5a59116.jpg)
 
 The **header,** which describes what type the JWT is and what algorithm it is using. In this case, [RS256](https://auth0.com/blog/rs256-vs-hs256-whats-the-difference/) is used.
 
@@ -149,6 +149,6 @@ Once the script is in place and all required variables are configured in the col
     -   client\_assertion\_type: urn:ietf:params:oauth:client-assertion-type:jwt-bearer
     -   grant\_type: client\_credentials
 
- [![](/media/2022/postman-authentication-ocapi-d973adb2eb.jpg)](/media/2022/postman-authentication-ocapi-d973adb2eb.jpg)[Download Postman Collection](https://gist.github.com/taurgis/df656968852275539d9f9d7a74bf62de)
+ [![Postman request configured for OCAPI JWT authentication.](/media/2022/postman-authentication-ocapi-d973adb2eb.jpg)](/media/2022/postman-authentication-ocapi-d973adb2eb.jpg)[Download Postman Collection](https://gist.github.com/taurgis/df656968852275539d9f9d7a74bf62de)
 
 _A big thanks to [Yuriy Boev](https://www.linkedin.com/in/yuriy-boev-3907002b/) and [John Boxall](https://www.linkedin.com/in/jboxall/) for helping me get to a working example! I will refer you to the [Unofficial Slack thread](https://sfcc-unofficial.slack.com/archives/CBB7YAAHW/p1656070265465869) for other scripts or languages!_

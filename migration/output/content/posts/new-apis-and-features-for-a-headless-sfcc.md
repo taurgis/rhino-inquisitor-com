@@ -1,9 +1,8 @@
 ---
 title: New APIs and Features for a Headless B2C Commerce Cloud
 description: >-
-  The holiday period was quiet for a long time regarding $1. This was because
-  the monolithic system required the deployment of all components, which
-  carri...
+  The holiday period was quiet for a long time regarding. Read the full article
+  on Rhino Inquisitor for implementation details.
 date: '2023-11-13T09:54:35.000Z'
 lastmod: '2023-11-15T12:18:11.000Z'
 url: /new-apis-and-features-for-a-headless-sfcc/
