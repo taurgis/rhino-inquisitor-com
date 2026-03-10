@@ -14,7 +14,7 @@
 | Ticket ID | Title | Workstream | Priority | Status | Estimate | Target Date | Depends On |
 |-----------|-------|------------|----------|--------|----------|-------------|------------|
 | [RHI-031](RHI-031-phase-4-bootstrap.md) | Phase 4 Bootstrap: Kickoff and Pipeline Environment Setup | Setup | Critical | Done | S | 2026-04-09 | RHI-030 |
-| [RHI-032](RHI-032-wordpress-content-extraction.md) | Workstream A — WordPress Content Extraction | WS-A | Critical | Open | M | 2026-04-11 | RHI-031 |
+| [RHI-032](RHI-032-wordpress-content-extraction.md) | Workstream A — WordPress Content Extraction | WS-A | Critical | Done | M | 2026-04-11 | RHI-031 |
 | [RHI-033](RHI-033-normalization-record-model.md) | Workstream B — Normalization and Canonical Record Model | WS-B | Critical | Open | M | 2026-04-14 | RHI-031, RHI-032 |
 | [RHI-034](RHI-034-html-to-markdown-conversion.md) | Workstream C — HTML-to-Markdown Conversion Engine | WS-C | Critical | Open | L | 2026-04-16 | RHI-031, RHI-033 |
 | [RHI-106](RHI-106-discovery-metadata-extension.md) | Workstream L — Discovery Metadata Extension and Enrichment | WS-L | High | Open | M | 2026-04-15 | RHI-012, RHI-031, RHI-033 |
@@ -104,7 +104,7 @@ RHI-030 (Phase 3 Sign-off)
 All items below must be complete before Phase 5/6/8 downstream work can consume Phase 4 outputs:
 
 - [ ] RHI-031 Done — Phase 4 Bootstrap; Phase 3 contracts and pipeline environment confirmed accessible and WordPress source artifacts verified
-- [ ] RHI-032 Done — WordPress content fully extracted; approved source-channel strategy, extract summary, and quarantine log committed
+- [x] RHI-032 Done — WordPress content fully extracted; approved source-channel strategy, extract summary, and quarantine log committed
 - [ ] RHI-033 Done — All in-scope records normalized to canonical schema; 100% `targetUrl` coverage
 - [ ] RHI-034 Done — HTML-to-Markdown conversion engine operational; fallback policy applied and logged
 - [ ] RHI-106 Done — Discovery metadata extension documented, validated, and available to mapping and batch review flows
