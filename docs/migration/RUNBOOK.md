@@ -160,7 +160,34 @@ This runbook tracks the operational steps needed to move the repository from pla
 
 ## Phase 4 - Content Migration
 
-Placeholder for import and validation steps once the Phase 4 ticket set begins implementation.
+### RHI-032 - WordPress Extraction
+
+- Run the extractor with `npm run migrate:extract`.
+- The extractor auto-discovers approved Phase 4 source artifacts in this order unless explicit paths are provided:
+  - WXR export from `migration/input/*.xml`, then `tmp/*.xml`
+  - SQL dump from `migration/input/*.sql`, then `tmp/wordpress-database.sql`
+  - filesystem snapshot from `migration/input/website-wordpress-backup/wp-content`, then `tmp/website-wordpress-backup/wp-content`
+- Current default extraction strategy is WXR-first with optional SQL recovery and filesystem verification. On the validated 2026-03-10 run, WXR plus filesystem verification satisfied the source-backed content scope and the SQL scan did not contribute additional recovered records.
+- The extractor writes immutable Phase 4 extraction artifacts to `migration/intermediate/` only:
+  - `extract-records.json`
+  - `extract-summary.json`
+  - `extract-quarantine.json`
+- Determinism rules:
+  - output records are sorted by `legacyUrl` then `sourceId`
+  - source timestamps are derived from source artifact modification times rather than wall-clock execution time
+  - summary selection metadata records whether the run was `full` or `subset`
+- Subset mode options:
+  - `--source-id-file <path>` limits the run to the listed source IDs
+  - `--post-type <types>` limits the run to specific post types such as `post,page,video`
+- Coverage behavior for RHI-032 is owner-confirmed as `source-backed-content-only`:
+  - blocking coverage targets: source-backed posts, page-sitemap-backed pages except the homepage, uploads-backed attachments, category term routes, and content detail custom types with source evidence
+  - reported-but-non-blocking routes: system, feed, query, pagination, homepage, and synthetic index routes
+- Quarantine policy:
+  - malformed or unmappable source records are written to `extract-quarantine.json` with `sourceId`, `errorType`, `errorMessage`, and a raw fragment
+  - quarantine is an escalation if it exceeds 5% of the extracted records
+  - the run exits non-zero when source-backed manifest coverage fails or the quarantine threshold is exceeded
+- Filesystem verification is optional but supported when the approved `wp-content` snapshot is available. Upload-backed attachment paths and body-media references are checked against the snapshot and recorded as a `filesystem` source channel when verified.
+- REST enrichment is not part of the current default run because the approved WXR and SQL inputs cover the Phase 4 content-backed scope. If a later run needs REST supplementation, use the WordPress REST pagination headers `X-WP-Total` and `X-WP-TotalPages` as the completeness gate.
 
 ## Phase 5 - SEO and Discoverability
 

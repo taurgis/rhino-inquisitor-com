@@ -13,6 +13,7 @@
     "phase1:classify-urls": "node scripts/classify-urls.js",
     "phase1:seo-baseline": "node scripts/seo-baseline.js",
     "phase1:perf-baseline": "node scripts/perf-baseline.js",
+    "migrate:extract": "node scripts/migration/extract.js",
     "build:prod": "hugo --minify --environment production",
     "validate:frontmatter": "node scripts/validate-frontmatter.js",
     "check:url-parity": "node scripts/check-url-parity.js",
