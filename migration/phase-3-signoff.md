@@ -8,11 +8,12 @@ Ticket: `analysis/tickets/phase-3/RHI-030-phase-3-signoff.md`
 ## Phase 3 Completion Snapshot
 
 - Objective Phase 3 workstream gate verified from ticket files: `RHI-019` through `RHI-029` plus `RHI-104`, `RHI-105`, and `RHI-107` are `Done`.
-- All local blocking gates passed on commit `7dd15ad`: `npm run validate:frontmatter`, `hugo --minify --environment production`, `npm run check:url-parity`, `npm run check:seo`, and `npm run check:links`.
-- All staged baseline gates passed locally on commit `7dd15ad`: `npm run check:a11y` and `npm run check:perf`.
+- All local blocking gates passed on commit `173e9f1`: `npm run validate:frontmatter`, `hugo --minify --environment production`, `npm run check:url-parity`, `npm run check:seo`, and `npm run check:links`.
+- All staged baseline gates passed locally on commit `173e9f1`: `npm run check:a11y` and `npm run check:perf`.
 - The first sign-off pass uncovered an accessibility blocker in the current shipped UI: insufficient contrast on `.site-header__search-label` and `.site-footer__copy`. This was fixed in `src/static/styles/site.css` before the staged gates were re-run.
 - URL parity remains in scaffold mode because Phase 4 migration-owned Markdown has not been imported yet, but the parity report still confirms the Phase 2 threshold finding: indexed URL change rate is `39.1%` (`131 / 335`), so the edge redirect layer remains mandatory before launch and must not wait until Phase 7.
-- Final RHI-030 closure is still pending GitHub-side evidence on the final scaffold revision: a fresh `workflow_dispatch` deploy run URL, Pages settings/API confirmation for the custom domain source of truth, stakeholder approvals, and Phase 4 handover receipt.
+- Preview-host rehearsal evidence is now confirmed on the deployed artifact: `https://taurgis.github.io/rhino-inquisitor-com/phase-3-performance-baseline/` renders successfully, the prefixed stylesheet endpoint `https://taurgis.github.io/rhino-inquisitor-com/styles/site.css` is reachable, and the deployed preview host is path-prefix-correct.
+- Final RHI-030 closure is still pending GitHub-side evidence that is not directly accessible from this local environment: the fresh `workflow_dispatch` run URL, Pages settings/API confirmation for the custom domain source of truth, stakeholder approvals, and Phase 4 handover receipt.
 
 ## Deliverables Verified
 
@@ -37,10 +38,10 @@ Ticket: `analysis/tickets/phase-3/RHI-030-phase-3-signoff.md`
 
 | Exit gate | Status | Evidence |
 |-----------|--------|----------|
-| CI pipeline is passing on scaffold-only content | Pending final GitHub run | Local equivalent gate stack passed on `7dd15ad`; final RHI-030 `workflow_dispatch` evidence still required |
+| CI pipeline is passing on scaffold-only content | Pending final GitHub run | Local equivalent gate stack passed on `173e9f1`; final RHI-030 `workflow_dispatch` evidence still required |
 | URL parity tooling is validated against the Phase 1 baseline | Verified for current scaffold baseline | `migration/url-parity-report.json` regenerated on 2026-03-10 with zero hard failures and explicit scaffold-mode reporting |
 | SEO smoke checks pass on all primary template classes | Verified | `npm run check:seo` passed on 2026-03-10 |
-| Deployment to Pages succeeds with correct canonical host behavior in non-production dry run | Pending final GitHub run | RHI-029 already verified preview-host deployment at `https://taurgis.github.io/rhino-inquisitor-com/`; final sign-off rerun is still required |
+| Deployment to Pages succeeds with correct canonical host behavior in non-production dry run | Verified on live preview host; run URL still pending | Live preview validated at `https://taurgis.github.io/rhino-inquisitor-com/phase-3-performance-baseline/`, stylesheet confirmed at `https://taurgis.github.io/rhino-inquisitor-com/styles/site.css`; final run URL is still not captured locally |
 | Blocking gates pass in CI | Pending final GitHub run | Local blocking gate stack passed on 2026-03-10 |
 | Staged baseline gates pass or are explicitly risk-accepted | Verified | `npm run check:a11y` and `npm run check:perf` both passed on 2026-03-10 |
 
@@ -105,7 +106,7 @@ Phase 4 must not assume the following are complete yet:
 |------|-----------------|--------|------|-------|
 | Migration Owner | Approve the Phase 3 sign-off package | Pending | - | Local validation complete; final approval awaits GitHub-side checks and handover confirmation |
 | SEO Owner | Approve the Phase 3 sign-off package | Pending | - | Threshold finding remains active and must stay visible |
-| Engineering Owner | Approve the Phase 3 sign-off package | Pending | - | Local gate stack passed on commit `7dd15ad` |
+| Engineering Owner | Approve the Phase 3 sign-off package | Pending | - | Local gate stack passed on commit `173e9f1`; live preview-host rehearsal validated |
 | Phase 4 Team | Confirm receipt of the Phase 3 handover package | Pending | - | Send `migration/phase-3-signoff.md` plus Phase 3 ticket references |
 
 ## Finalization Checklist

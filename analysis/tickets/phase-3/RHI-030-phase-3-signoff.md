@@ -87,7 +87,7 @@ Formally close Phase 3 by verifying that all prerequisite and workstream tickets
   - [x] If at or above threshold: escalate edge redirect infrastructure decision before Phase 7 (flag in sign-off document)
 - [ ] Trigger full CI deployment workflow (`workflow_dispatch`) on the final scaffold commit:
   - [ ] Confirm all quality gates pass in CI
-  - [ ] Confirm Pages deployment succeeds
+  - [x] Confirm Pages deployment succeeds
   - [ ] Confirm deployed canonical URLs use `https://www.rhino-inquisitor.com/`
   - [ ] Record CI run URL in Progress Log
 - [ ] Draft `migration/phase-3-signoff.md`:
@@ -182,6 +182,7 @@ Formally close Phase 3 by verifying that all prerequisite and workstream tickets
 | 2026-03-10 | In Progress | Reconciled ticket state with the completed workstreams (`RHI-027`, `RHI-028`, and `RHI-107` were stale in the phase index), drafted `migration/phase-3-signoff.md`, and verified the local blocking gate stack passes on commit `7dd15ad`. |
 | 2026-03-10 | In Progress | Initial staged sign-off validation found a contrast regression on `.site-header__search-label` and `.site-footer__copy`; updated `src/static/styles/site.css`, then re-ran `npm run check:a11y` and `npm run check:perf` successfully. |
 | 2026-03-10 | In Progress | Final RHI-030 closure remains blocked on GitHub-side evidence that is not directly accessible from this environment: fresh `workflow_dispatch` run URL, Pages settings/API verification for the custom domain, stakeholder approvals, and Phase 4 handover receipt. |
+| 2026-03-10 | In Progress | Preview-host rehearsal deploy now renders correctly at `https://taurgis.github.io/rhino-inquisitor-com/phase-3-performance-baseline/`; the prefixed stylesheet endpoint `https://taurgis.github.io/rhino-inquisitor-com/styles/site.css` is reachable, and the full local Phase 3 validation stack passed again on commit `173e9f1`. |
 
 ---
 
