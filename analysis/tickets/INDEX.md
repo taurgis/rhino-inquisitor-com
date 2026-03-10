@@ -63,7 +63,7 @@ This is the top-level ticket index for the full migration project. Use the phase
 | [RHI-032](phase-4/RHI-032-wordpress-content-extraction.md) | Workstream A — WordPress Content Extraction | 4 | Critical | Open | M | 2026-04-11 |
 | [RHI-033](phase-4/RHI-033-normalization-record-model.md) | Workstream B — Normalization and Canonical Record Model | 4 | Critical | Open | M | 2026-04-14 |
 | [RHI-034](phase-4/RHI-034-html-to-markdown-conversion.md) | Workstream C — HTML-to-Markdown Conversion Engine | 4 | Critical | Open | L | 2026-04-16 |
-| [RHI-035](phase-4/RHI-035-front-matter-mapping.md) | Workstream D — Front Matter Mapping and Hugo Contract | 4 | Critical | Open | M | 2026-04-16 |
+| [RHI-035](phase-4/RHI-035-front-matter-mapping.md) | Workstream D — Front Matter Mapping and Hugo Contract | 4 | Critical | Done | M | 2026-04-16 |
 | [RHI-036](phase-4/RHI-036-url-preservation-redirect-integrity.md) | Workstream E — URL Preservation and Redirect Integrity | 4 | Critical | Open | M | 2026-04-17 |
 | [RHI-037](phase-4/RHI-037-media-migration-asset-hygiene.md) | Workstream F — Media Migration and Asset Hygiene | 4 | High | Open | L | 2026-04-18 |
 | [RHI-038](phase-4/RHI-038-internal-link-navigation-rewrites.md) | Workstream G — Internal Link and Navigation Rewrites | 4 | High | Open | M | 2026-04-18 |

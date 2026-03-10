@@ -246,6 +246,31 @@ This runbook tracks the operational steps needed to move the repository from pla
   - rerun `npm run migrate:convert` and confirm the generated output hashes remain stable
   - build a temporary Hugo site from a representative 10-record sample and confirm Hugo emits zero `warning-goldmark-raw-html` warnings for the generated Markdown
 
+### RHI-035 - Front Matter Mapping
+
+- Run the mapper with `npm run migrate:map-frontmatter`.
+- The mapper reads converted Phase 4 JSON artifacts from `migration/output/` and writes final staged Markdown files to:
+  - `migration/output/content/posts/*.md`
+  - `migration/output/content/pages/*.md`
+- Current validated 2026-03-10 behavior:
+  - 171 keep/merge non-category records map successfully to staged Markdown
+  - `migration/reports/frontmatter-errors.csv` contains header-only output with zero data rows on the validated full run
+  - `migration/reports/discovery-metadata-coverage.json` remains deterministic across reruns and reports 0 discovery-enriched records in the current corpus
+  - 123 query-style `/?p=` aliases are intentionally excluded from front matter because the approved Phase 2 alias contract is path-only and the generated-content validator rejects non-path Hugo aliases
+  - `heroImage` remains omitted in the current validated run because the normalized and converted records do not yet carry featured-media lookup data; featured-image recovery and local-path rewriting stay in RHI-037 scope
+- Mapper hard-fail behavior now includes:
+  - empty `title`
+  - invalid or missing canonical `url`
+  - alias self-reference
+  - duplicate `url` values across generated files
+  - duplicate staged output file paths
+- Validation steps for RHI-035:
+  - `npm run migrate:map-frontmatter`
+  - `node scripts/validate-frontmatter.js --content-dir migration/output/content`
+  - confirm `migration/reports/frontmatter-errors.csv` remains header-only
+  - rerun `npm run migrate:map-frontmatter` and confirm the generated Markdown and both reports hash identically
+  - spot-check 10 representative generated files against their `migration/output/*.json` source records for exact `url`, derived `draft`, description presence, and clean omission of optional fields when absent
+
 ## Phase 5 - SEO and Discoverability
 
 Placeholder for sitemap, canonical, feed, and Search Console execution steps.

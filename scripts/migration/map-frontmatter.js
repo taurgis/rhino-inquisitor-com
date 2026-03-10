@@ -15,10 +15,15 @@ import {
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const urlPattern = /^\/(?:|[a-z0-9/-]*[a-z0-9-]\/?)$/;
+const aliasPattern = /^\/(?:|[a-z0-9/-]*[a-z0-9-]\/)$/;
 
 async function main() {
   const options = await resolveOptions(process.argv.slice(2));
   const curation = await loadDiscoveryCuration(options.discoveryFile);
+  const outputPathToSourceIds = new Map();
+  const mappingStats = {
+    excludedNonPathAliasCount: 0
+  };
   const recordFiles = (await fg('*.json', {
     cwd: options.recordsDir,
     onlyFiles: true
@@ -58,7 +63,7 @@ async function main() {
     }
 
     const discoveryResult = resolveDiscoveryParams(record, curation, errors);
-    const frontMatter = buildFrontMatter(record, discoveryResult.params, errors);
+    const frontMatter = buildFrontMatter(record, discoveryResult.params, errors, mappingStats);
     const outputRelativePath = buildOutputRelativePath(record);
     const outputPath = path.join(options.contentDir, outputRelativePath);
 
@@ -76,6 +81,10 @@ async function main() {
       currentFiles.push(outputRelativePath);
       urlToFiles.set(frontMatter.url, currentFiles);
     }
+
+    const currentSourceIds = outputPathToSourceIds.get(outputRelativePath) ?? [];
+    currentSourceIds.push(record.sourceId);
+    outputPathToSourceIds.set(outputRelativePath, currentSourceIds);
   }
 
   for (const [urlValue, filePaths] of urlToFiles.entries()) {
@@ -90,6 +99,22 @@ async function main() {
         field: 'url',
         errorType: 'url_collision',
         errorMessage: `url collides with another generated file: ${urlValue}`
+      }));
+    }
+  }
+
+  for (const [outputRelativePath, sourceIds] of outputPathToSourceIds.entries()) {
+    if (sourceIds.length < 2) {
+      continue;
+    }
+
+    for (const sourceId of sourceIds) {
+      errors.push(createErrorRow({
+        sourceId,
+        file: outputRelativePath,
+        field: 'file',
+        errorType: 'output_collision',
+        errorMessage: `output file collides with another generated record: ${outputRelativePath}`
       }));
     }
   }
@@ -116,7 +141,8 @@ async function main() {
     [
       `Mapped ${mappedRecords.length} keep/merge record(s) to ${toRepoRelative(options.contentDir)}.`,
       `Discovery enrichment present on ${coverage.totals.enrichedRecords} record(s).`,
-      `Coverage report written to ${toRepoRelative(options.coverageReport)}.`
+        `Excluded ${mappingStats.excludedNonPathAliasCount} non-path alias URL(s) from front matter.`,
+        `Coverage report written to ${toRepoRelative(options.coverageReport)}.`
     ].join(' ')
   );
 }
@@ -258,7 +284,18 @@ function normalizeDiscoveryValue(value) {
   return value;
 }
 
-function buildFrontMatter(record, discoveryParams, errors) {
+function buildFrontMatter(record, discoveryParams, errors, mappingStats) {
+  const title = record.titleRaw.trim();
+  if (title.length === 0) {
+    errors.push(createErrorRow({
+      sourceId: record.sourceId,
+      file: `${record.sourceId}.json`,
+      field: 'title',
+      errorType: 'missing_required',
+      errorMessage: 'titleRaw resolved to an empty value.'
+    }));
+  }
+
   const description = resolveDescription(record);
   if (description.length === 0) {
     errors.push(createErrorRow({
@@ -290,8 +327,17 @@ function buildFrontMatter(record, discoveryParams, errors) {
     }));
   }
 
+  const compatibleAliasUrls = record.aliasUrls.filter((aliasUrl) => {
+    const isCompatible = aliasPattern.test(aliasUrl) && !aliasUrl.includes('//');
+    if (!isCompatible) {
+      mappingStats.excludedNonPathAliasCount += 1;
+    }
+
+    return isCompatible;
+  });
+
   const frontMatter = {
-    title: record.titleRaw.trim(),
+    title,
     description,
     lastmod: record.modifiedAt,
     url: record.targetUrl,
@@ -310,8 +356,8 @@ function buildFrontMatter(record, discoveryParams, errors) {
     frontMatter.tags = record.tags.map((term) => term.name);
   }
 
-  if (record.aliasUrls.length > 0) {
-    frontMatter.aliases = record.aliasUrls;
+  if (compatibleAliasUrls.length > 0) {
+    frontMatter.aliases = compatibleAliasUrls;
   }
 
   if (record.author.trim().length > 0) {
@@ -414,7 +460,8 @@ function createCoverageReport(options, curationFilePresent) {
   }
 
   return {
-    generatedAt: new Date().toISOString(),
+    generatedAt: null,
+    _latestRecordTimestamp: null,
     inputs: {
       recordsDir: toRepoRelative(options.recordsDir),
       discoveryFile: toRepoRelative(options.discoveryFile),
@@ -440,6 +487,10 @@ function recordCoverage(coverage, record, discoveryResult) {
   coverage.totals.recordCount += 1;
   coverage.sourceBreakdown[discoveryResult.source] += 1;
 
+  if (coverage._latestRecordTimestamp == null || record.modifiedAt > coverage._latestRecordTimestamp) {
+    coverage._latestRecordTimestamp = record.modifiedAt;
+  }
+
   if (discoveryResult.presentFields.length > 0) {
     coverage.totals.enrichedRecords += 1;
   } else {
@@ -461,8 +512,11 @@ function recordCoverage(coverage, record, discoveryResult) {
 }
 
 function finalizeCoverageReport(coverage) {
+  const { _latestRecordTimestamp, ...rest } = coverage;
+
   return {
-    ...coverage,
+    ...rest,
+    generatedAt: _latestRecordTimestamp,
     records: coverage.records.sort((left, right) => left.targetUrl.localeCompare(right.targetUrl))
   };
 }
