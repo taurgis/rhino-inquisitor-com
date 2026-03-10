@@ -13,7 +13,7 @@
 
 | Ticket ID | Title | Workstream | Priority | Status | Estimate | Target Date | Depends On |
 |-----------|-------|------------|----------|--------|----------|-------------|------------|
-| [RHI-031](RHI-031-phase-4-bootstrap.md) | Phase 4 Bootstrap: Kickoff and Pipeline Environment Setup | Setup | Critical | Open | S | 2026-04-09 | RHI-030 |
+| [RHI-031](RHI-031-phase-4-bootstrap.md) | Phase 4 Bootstrap: Kickoff and Pipeline Environment Setup | Setup | Critical | Done | S | 2026-04-09 | RHI-030 |
 | [RHI-032](RHI-032-wordpress-content-extraction.md) | Workstream A — WordPress Content Extraction | WS-A | Critical | Open | M | 2026-04-11 | RHI-031 |
 | [RHI-033](RHI-033-normalization-record-model.md) | Workstream B — Normalization and Canonical Record Model | WS-B | Critical | Open | M | 2026-04-14 | RHI-031, RHI-032 |
 | [RHI-034](RHI-034-html-to-markdown-conversion.md) | Workstream C — HTML-to-Markdown Conversion Engine | WS-C | Critical | Open | L | 2026-04-16 | RHI-031, RHI-033 |
@@ -35,7 +35,7 @@
 
 ## Dependency Graph
 
-```
+```text
 RHI-030 (Phase 3 Sign-off)
     └── RHI-031 (Phase 4 Bootstrap)
             ├── RHI-032 (WS-A: Extraction)

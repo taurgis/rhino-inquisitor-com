@@ -58,8 +58,8 @@ This is the top-level ticket index for the full migration project. Use the phase
 | [RHI-027](phase-3/RHI-027-accessibility-ux-baseline.md) | Workstream H — Accessibility and UX Baseline | 3 | Medium | Open | M | 2026-04-03 |
 | [RHI-028](phase-3/RHI-028-security-privacy-hardening.md) | Workstream I — Security, Privacy, and Operational Hardening | 3 | Medium | Open | M | 2026-04-03 |
 | [RHI-029](phase-3/RHI-029-cicd-deployment-scaffolding.md) | Workstream J — CI/CD and Deployment Scaffolding | 3 | Critical | Done | L | 2026-04-04 |
-| [RHI-030](phase-3/RHI-030-phase-3-signoff.md) | Phase 3 Sign-off and Handover to Phase 4 | 3 | Critical | Open | S | 2026-04-08 |
-| [RHI-031](phase-4/RHI-031-phase-4-bootstrap.md) | Phase 4 Bootstrap: Kickoff and Pipeline Environment Setup | 4 | Critical | Open | S | 2026-04-09 |
+| [RHI-030](phase-3/RHI-030-phase-3-signoff.md) | Phase 3 Sign-off and Handover to Phase 4 | 3 | Critical | Done | S | 2026-04-08 |
+| [RHI-031](phase-4/RHI-031-phase-4-bootstrap.md) | Phase 4 Bootstrap: Kickoff and Pipeline Environment Setup | 4 | Critical | Done | S | 2026-04-09 |
 | [RHI-032](phase-4/RHI-032-wordpress-content-extraction.md) | Workstream A — WordPress Content Extraction | 4 | Critical | Open | M | 2026-04-11 |
 | [RHI-033](phase-4/RHI-033-normalization-record-model.md) | Workstream B — Normalization and Canonical Record Model | 4 | Critical | Open | M | 2026-04-14 |
 | [RHI-034](phase-4/RHI-034-html-to-markdown-conversion.md) | Workstream C — HTML-to-Markdown Conversion Engine | 4 | Critical | Open | L | 2026-04-16 |

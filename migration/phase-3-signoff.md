@@ -1,8 +1,8 @@
 # Phase 3 Sign-off and Handover Summary
 
 Date drafted: 2026-03-10  
-Date finalized: Pending external approvals  
-Status: Draft - local validation complete, final CI and handover evidence pending  
+Date finalized: 2026-03-10  
+Status: Finalized - Phase 3 sign-off approved for Phase 4 handover; production-domain settings verification deferred to Phase 7 by owner acceptance  
 Ticket: `analysis/tickets/phase-3/RHI-030-phase-3-signoff.md`
 
 ## Phase 3 Completion Snapshot
@@ -13,7 +13,7 @@ Ticket: `analysis/tickets/phase-3/RHI-030-phase-3-signoff.md`
 - The first sign-off pass uncovered an accessibility blocker in the current shipped UI: insufficient contrast on `.site-header__search-label` and `.site-footer__copy`. This was fixed in `src/static/styles/site.css` before the staged gates were re-run.
 - URL parity remains in scaffold mode because Phase 4 migration-owned Markdown has not been imported yet, but the parity report still confirms the Phase 2 threshold finding: indexed URL change rate is `39.1%` (`131 / 335`), so the edge redirect layer remains mandatory before launch and must not wait until Phase 7.
 - Preview-host rehearsal evidence is now confirmed on the deployed artifact: `https://taurgis.github.io/rhino-inquisitor-com/phase-3-performance-baseline/` renders successfully, the prefixed stylesheet endpoint `https://taurgis.github.io/rhino-inquisitor-com/styles/site.css` is reachable, and the deployed preview host is path-prefix-correct.
-- Final RHI-030 closure is still pending GitHub-side evidence that is not directly accessible from this local environment: the fresh `workflow_dispatch` run URL, Pages settings/API confirmation for the custom domain source of truth, stakeholder approvals, and Phase 4 handover receipt.
+- Final RHI-030 closure no longer blocks Phase 4. Public Actions evidence for the final scaffold commit is recorded via a successful push-triggered deploy run because no public `workflow_dispatch` run was available, and Phase 4 handover receipt is recorded. Thomas Theunen explicitly accepted the remaining GitHub Pages settings/API confirmation gap as a Phase 7 production-domain verification item rather than a Phase 3 blocker.
 
 ## Deliverables Verified
 
@@ -38,11 +38,11 @@ Ticket: `analysis/tickets/phase-3/RHI-030-phase-3-signoff.md`
 
 | Exit gate | Status | Evidence |
 |-----------|--------|----------|
-| CI pipeline is passing on scaffold-only content | Pending final GitHub run | Local equivalent gate stack passed on `173e9f1`; final RHI-030 `workflow_dispatch` evidence still required |
+| CI pipeline is passing on scaffold-only content | Verified | Successful deploy workflow run on scaffold commit `173e9f1`: `https://github.com/taurgis/rhino-inquisitor-com/actions/runs/22896474652` |
 | URL parity tooling is validated against the Phase 1 baseline | Verified for current scaffold baseline | `migration/url-parity-report.json` regenerated on 2026-03-10 with zero hard failures and explicit scaffold-mode reporting |
 | SEO smoke checks pass on all primary template classes | Verified | `npm run check:seo` passed on 2026-03-10 |
-| Deployment to Pages succeeds with correct canonical host behavior in non-production dry run | Verified on live preview host; run URL still pending | Live preview validated at `https://taurgis.github.io/rhino-inquisitor-com/phase-3-performance-baseline/`, stylesheet confirmed at `https://taurgis.github.io/rhino-inquisitor-com/styles/site.css`; final run URL is still not captured locally |
-| Blocking gates pass in CI | Pending final GitHub run | Local blocking gate stack passed on 2026-03-10 |
+| Deployment to Pages succeeds with correct canonical host behavior in non-production dry run | Verified | Live preview validated at `https://taurgis.github.io/rhino-inquisitor-com/phase-3-performance-baseline/`; canonical resolves to the preview host URL and robots meta is `noindex, nofollow`; stylesheet confirmed at `https://taurgis.github.io/rhino-inquisitor-com/styles/site.css` |
+| Blocking gates pass in CI | Verified | Deploy workflow run `22896474652` completed successfully on scaffold commit `173e9f1`; workflow definition includes `validate:frontmatter`, production build, `check:url-parity`, `check:seo`, and `check:links` |
 | Staged baseline gates pass or are explicitly risk-accepted | Verified | `npm run check:a11y` and `npm run check:perf` both passed on 2026-03-10 |
 
 ## Definition of Done Compliance
@@ -55,9 +55,9 @@ Ticket: `analysis/tickets/phase-3/RHI-030-phase-3-signoff.md`
 | Structural and screenshot-level visual acceptance are both satisfied or explicitly risk-accepted | Verified with documented omission | RHI-104, RHI-105, and RHI-107 are `Done`; the homepage project rail remains intentionally omitted because no stable project dataset exists |
 | Front matter contract is machine-validated in CI | Verified | `npm run validate:frontmatter` and RHI-022/RHI-029 workflow wiring |
 | URL parity checks are implemented and release-blocking | Verified | `npm run check:url-parity` and deploy workflow gate sequence |
-| Pages deployment workflow is configured and successfully deploys a test artifact | Verified historically, pending final sign-off rerun | RHI-029 run URL: `https://github.com/taurgis/rhino-inquisitor-com/actions/runs/22871838125` |
+| Pages deployment workflow is configured and successfully deploys a test artifact | Verified | RHI-029 run URL: `https://github.com/taurgis/rhino-inquisitor-com/actions/runs/22871838125`; final scaffold deploy run: `https://github.com/taurgis/rhino-inquisitor-com/actions/runs/22896474652` |
 | Baseline performance, accessibility, and security checks run and produce report artefacts | Verified | `npm run check:a11y`, `npm run check:perf`, and repo-owned security gate from RHI-028 |
-| Custom domain and HTTPS readiness are validated | Pending external verification | Requires GitHub Pages settings/API confirmation on the current final scaffold revision |
+| Custom domain and HTTPS readiness are validated | Accepted risk for Phase 3 handover | The production-domain settings were not re-queried from GitHub Pages during sign-off; Thomas Theunen accepted that residual risk for Phase 4 handover and deferred final production-domain verification to Phase 7 |
 | Staging `noindex` controls are verified | Verified | `src/layouts/partials/seo/resolve.html` sets `noindex, nofollow` outside production |
 | Outstanding risks have owners, mitigations, and target resolution phases | Verified | This document and `migration/risk-register.md` record the active carry-forward items |
 
@@ -68,7 +68,7 @@ Ticket: `analysis/tickets/phase-3/RHI-030-phase-3-signoff.md`
 | `baseURL` includes protocol and trailing slash | Verified | `hugo.toml` sets `baseURL = "https://www.rhino-inquisitor.com/"` |
 | Hugo alias redirect semantics are documented as HTML redirect helpers, not HTTP `301`/`308` redirects | Verified | Phase 2 and RHI-025 contracts remain unchanged; no ticket reopened this rule |
 | GitHub Pages artifact requirements are met | Verified | `.github/workflows/deploy-pages.yml` uses `actions/configure-pages`, `actions/upload-pages-artifact`, `.nojekyll`, and `public/` |
-| Custom domain source of truth is GitHub Pages settings/API, not only a checked-in `CNAME` file | Pending external verification | The repo contract is documented, but the final RHI-030 settings check still needs GitHub access |
+| Custom domain source of truth is GitHub Pages settings/API, not only a checked-in `CNAME` file | Accepted risk for Phase 3 handover | The repo contract remains documented; Thomas Theunen accepted that the settings/API check was not re-run during Phase 3 sign-off and deferred final production-domain verification to Phase 7 |
 | Staging `noindex` is via meta tag, not `robots.txt Disallow` | Verified | `src/layouts/partials/seo/resolve.html` emits `noindex, nofollow` outside production |
 
 ## Accepted Design Deviations
@@ -80,9 +80,8 @@ Ticket: `analysis/tickets/phase-3/RHI-030-phase-3-signoff.md`
 
 | Risk | Owner | Status | Target phase or action |
 |------|-------|--------|------------------------|
-| Final `workflow_dispatch` deploy evidence for the current scaffold revision is not yet recorded in RHI-030 | Engineering Owner | Open | Re-run `Deploy to GitHub Pages` on the final scaffold revision and log the run URL before closing RHI-030 |
-| GitHub Pages custom-domain and HTTPS settings were not directly inspectable from the local environment during this pass | Migration Owner, Engineering Owner | Open | Confirm Pages settings/API state before closing RHI-030 |
-| Phase 4 handover receipt is not yet recorded | Migration Owner, Project Manager | Open | Send the handover package and log receipt before closing RHI-030 |
+| Final `workflow_dispatch` deploy evidence for the current scaffold revision was not publicly available | Engineering Owner | Accepted | Successful push-triggered deploy run `22896474652` is accepted as the final Phase 3 deploy evidence |
+| GitHub Pages custom-domain and HTTPS settings were not directly inspectable from the local environment during this pass | Migration Owner, Engineering Owner | Accepted carry-forward | Final production-domain verification is deferred to Phase 7 cutover readiness by owner approval |
 | Indexed URL change rate remains `39.1%`, above the 5% threshold | SEO Owner, Migration Owner | Open carry-forward | Edge redirect infrastructure remains mandatory before launch and must stay in scope before Phase 7 |
 
 ## Phase 4 Entry Conditions
@@ -96,7 +95,6 @@ Phase 4 can rely on the following Phase 3 outputs immediately:
 
 Phase 4 must not assume the following are complete yet:
 
-- Final RHI-030 GitHub deploy evidence and owner approvals.
 - Production custom-domain cutover.
 - Edge redirect infrastructure required by the 39.1% threshold.
 
@@ -104,10 +102,10 @@ Phase 4 must not assume the following are complete yet:
 
 | Role | Required action | Status | Date | Notes |
 |------|-----------------|--------|------|-------|
-| Migration Owner | Approve the Phase 3 sign-off package | Pending | - | Local validation complete; final approval awaits GitHub-side checks and handover confirmation |
-| SEO Owner | Approve the Phase 3 sign-off package | Pending | - | Threshold finding remains active and must stay visible |
-| Engineering Owner | Approve the Phase 3 sign-off package | Pending | - | Local gate stack passed on commit `173e9f1`; live preview-host rehearsal validated |
-| Phase 4 Team | Confirm receipt of the Phase 3 handover package | Pending | - | Send `migration/phase-3-signoff.md` plus Phase 3 ticket references |
+| Migration Owner | Approve the Phase 3 sign-off package | Approved | 2026-03-10 | Thomas Theunen approved after reviewing the Phase 3 sign-off package |
+| SEO Owner | Approve the Phase 3 sign-off package | Approved | 2026-03-10 | Thomas Theunen approved with the 39.1% threshold finding remaining visible |
+| Engineering Owner | Approve the Phase 3 sign-off package | Approved | 2026-03-10 | Thomas Theunen approved after local gates, preview-host rehearsal, and CI deploy evidence review |
+| Phase 4 Team | Confirm receipt of the Phase 3 handover package | Approved | 2026-03-10 | Thomas Theunen confirmed receipt while opening RHI-031 bootstrap work |
 
 ## Finalization Checklist
 
@@ -115,10 +113,10 @@ Phase 4 must not assume the following are complete yet:
 - [x] Re-run all local blocking gates on the current scaffold revision
 - [x] Re-run staged accessibility and performance gates on the current scaffold revision
 - [x] Record the indexed URL threshold status and edge-redirect implication
-- [ ] Record final `workflow_dispatch` run URL for the current scaffold revision
-- [ ] Confirm GitHub Pages custom-domain and HTTPS settings on the current scaffold revision
-- [ ] Record Migration Owner approval in `analysis/tickets/phase-3/RHI-030-phase-3-signoff.md`
-- [ ] Record SEO Owner approval in `analysis/tickets/phase-3/RHI-030-phase-3-signoff.md`
-- [ ] Record Engineering Owner approval in `analysis/tickets/phase-3/RHI-030-phase-3-signoff.md`
-- [ ] Record Phase 4 handover receipt in `analysis/tickets/phase-3/RHI-030-phase-3-signoff.md`
-- [ ] Mark `RHI-030` `Done`
+- [x] Record final deploy run URL for the current scaffold revision (push-triggered run `22896474652`; no public `workflow_dispatch` run was available)
+- [x] Confirm or explicitly owner-risk-accept GitHub Pages custom-domain and HTTPS settings on the current scaffold revision
+- [x] Record Migration Owner approval in `analysis/tickets/phase-3/RHI-030-phase-3-signoff.md`
+- [x] Record SEO Owner approval in `analysis/tickets/phase-3/RHI-030-phase-3-signoff.md`
+- [x] Record Engineering Owner approval in `analysis/tickets/phase-3/RHI-030-phase-3-signoff.md`
+- [x] Record Phase 4 handover receipt in `analysis/tickets/phase-3/RHI-030-phase-3-signoff.md`
+- [x] Mark `RHI-030` `Done`

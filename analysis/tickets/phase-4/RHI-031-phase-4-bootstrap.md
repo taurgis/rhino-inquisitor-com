@@ -1,6 +1,6 @@
 ## RHI-031 · Phase 4 Bootstrap: Kickoff and Pipeline Environment Setup
 
-**Status:** Open  
+**Status:** Done  
 **Priority:** Critical  
 **Estimate:** S  
 **Phase:** 4  
@@ -21,84 +21,84 @@ Phase 4 involves irreversible data transformations. Starting workstreams before 
 
 ### Acceptance Criteria
 
-- [ ] Phase 3 sign-off (RHI-030) is `Done` and `migration/phase-3-signoff.md` is committed
-- [ ] Migration owner, SEO owner, and engineering owner are confirmed for Phase 4
-- [ ] All Phase 4 workstream owners have read `analysis/plan/details/phase-4.md` and confirmed understanding
-- [ ] Phase 3 scaffold outputs are accessible and verified:
-  - [ ] RHI-022 Outcomes — Archetypes committed; `validate:frontmatter` script is callable
-  - [ ] RHI-024 Outcomes — `check:seo` script is callable
-  - [ ] RHI-025 Outcomes — `check:url-parity` script is callable; `migration/url-parity-report.json` exists
-  - [ ] RHI-029 Outcomes — CI/CD pipeline runs to completion; Pages deployment operational
-- [ ] Phase 1 data artifacts are accessible and confirmed current:
-  - [ ] `migration/url-inventory.normalized.json` exists with expected record count
-  - [ ] `migration/url-manifest.json` exists with 100% disposition coverage
-- [ ] Phase 2 contracts are accessible by all Phase 4 workstream owners:
-  - [ ] RHI-012 Outcomes — Front matter contract (required fields, `draft` lifecycle, URL normalization rules)
-  - [ ] RHI-013 Outcomes — Route and redirect contract (mechanism, threshold, legacy endpoints)
-  - [ ] RHI-015 Outcomes — Approved tooling list (Hugo version, Node packages including `turndown`, `gray-matter`, `fast-xml-parser`)
-- [ ] WordPress source access is confirmed:
-  - [ ] WXR export file is available and parseable
-  - [ ] WordPress SQL dump is available and parseable for metadata recovery
-  - [ ] WordPress filesystem snapshot is available with documented content root and uploads path
-  - [ ] WordPress REST API endpoint is accessible if structured API enrichment is needed
-  - [ ] WordPress media origin is accessible for download
-  - [ ] Source artifact timestamps are recorded and any cross-source freshness mismatch is escalated before WS-A starts
-  - [ ] WordPress content type inventory is known (posts, pages, video, categories, tags)
-- [ ] Phase 4 migration workspace directories are created:
-  - [ ] `migration/input/` exists
-  - [ ] `migration/intermediate/` exists
-  - [ ] `migration/output/` exists
-  - [ ] `migration/reports/` exists
-  - [ ] `scripts/migration/` exists
-- [ ] Pipeline tooling dependencies are installable:
-  - [ ] `turndown` and `@joplin/turndown-plugin-gfm` available in `package.json`
-  - [ ] `gray-matter` available in `package.json`
-  - [ ] `fast-xml-parser` available in `package.json`
-  - [ ] `zod` available in `package.json`
-  - [ ] `p-limit` available in `package.json`
-  - [ ] `csv-stringify` available in `package.json`
-- [ ] Non-Negotiable Migration Constraints from `analysis/plan/details/phase-4.md` reviewed with engineering owner:
-  - [ ] All migrated routes must be explicit — no implicit auto-generated routes
-  - [ ] Migration scripts must be idempotent and rerunnable
-  - [ ] No batch merges to `src/content/` until validation gates pass
-  - [ ] Staging index controls must not leak into release artifacts
-- [ ] Phase 4 batch sequence is agreed: Pilot → High-Value → Long-Tail+Taxonomy
-- [ ] Workstream owner for each of WS-A through WS-K is named and recorded in the Progress Log
-- [ ] Phase 4 target completion date is set and agreed by all workstream owners
+- [x] Phase 3 sign-off (RHI-030) is `Done` and `migration/phase-3-signoff.md` is committed
+- [x] Migration owner, SEO owner, and engineering owner are confirmed for Phase 4
+- [x] All Phase 4 workstream owners have read `analysis/plan/details/phase-4.md` and confirmed understanding
+- [x] Phase 3 scaffold outputs are accessible and verified:
+  - [x] RHI-022 Outcomes — Archetypes committed; `validate:frontmatter` script is callable
+  - [x] RHI-024 Outcomes — `check:seo` script is callable
+  - [x] RHI-025 Outcomes — `check:url-parity` script is callable; `migration/url-parity-report.json` exists
+  - [x] RHI-029 Outcomes — CI/CD pipeline runs to completion; Pages deployment operational
+- [x] Phase 1 data artifacts are accessible and confirmed current:
+  - [x] `migration/url-inventory.normalized.json` exists with expected record count
+  - [x] `migration/url-manifest.json` exists with 100% disposition coverage
+- [x] Phase 2 contracts are accessible by all Phase 4 workstream owners:
+  - [x] RHI-012 Outcomes — Front matter contract (required fields, `draft` lifecycle, URL normalization rules)
+  - [x] RHI-013 Outcomes — Route and redirect contract (mechanism, threshold, legacy endpoints)
+  - [x] RHI-015 Outcomes — Approved tooling list (Hugo version, Node packages including `turndown`, `gray-matter`, `fast-xml-parser`)
+- [x] WordPress source access is confirmed:
+  - [x] WXR export file is available and parseable
+  - [x] WordPress SQL dump is available and parseable for metadata recovery
+  - [x] WordPress filesystem snapshot is available with documented content root and uploads path
+  - [x] WordPress REST API endpoint is accessible if structured API enrichment is needed
+  - [x] WordPress media origin is accessible for download
+  - [x] Source artifact timestamps are recorded and any cross-source freshness mismatch is escalated before WS-A starts
+  - [x] WordPress content type inventory is known (posts, pages, video, categories, tags)
+- [x] Phase 4 migration workspace directories are created:
+  - [x] `migration/input/` exists
+  - [x] `migration/intermediate/` exists
+  - [x] `migration/output/` exists
+  - [x] `migration/reports/` exists
+  - [x] `scripts/migration/` exists
+- [x] Pipeline tooling dependencies are installable:
+  - [x] `turndown` and `@joplin/turndown-plugin-gfm` available in `package.json`
+  - [x] `gray-matter` available in `package.json`
+  - [x] `fast-xml-parser` available in `package.json`
+  - [x] `zod` available in `package.json`
+  - [x] `p-limit` available in `package.json`
+  - [x] `csv-stringify` available in `package.json`
+- [x] Non-Negotiable Migration Constraints from `analysis/plan/details/phase-4.md` reviewed with engineering owner:
+  - [x] All migrated routes must be explicit — no implicit auto-generated routes
+  - [x] Migration scripts must be idempotent and rerunnable
+  - [x] No batch merges to `src/content/` until validation gates pass
+  - [x] Staging index controls must not leak into release artifacts
+- [x] Phase 4 batch sequence is agreed: Pilot → High-Value → Long-Tail+Taxonomy
+- [x] Workstream owner for each of WS-A through WS-K is named and recorded in the Progress Log
+- [x] Phase 4 target completion date is set and agreed by all workstream owners
 
 ---
 
 ### Tasks
 
-- [ ] Verify RHI-030 is `Done`; if not, document the blocker and pause Phase 4
-- [ ] Confirm migration owner, SEO owner, and engineering owner identities for Phase 4
-- [ ] Share `analysis/plan/details/phase-4.md` with all workstream owners; request read confirmation
-- [ ] Share links to Phase 2 contract outcomes (RHI-012, RHI-013, RHI-015)
-- [ ] Share `migration/phase-3-signoff.md` with Phase 4 team
-- [ ] Verify each Phase 3 script is callable from a clean install:
-  - [ ] `npm run validate:frontmatter` exits with code 0 on scaffold
-  - [ ] `npm run check:url-parity` exits with code 0 on scaffold
-  - [ ] `npm run check:seo` exits with code 0 on scaffold
-- [ ] Verify WordPress WXR export file exists and is parseable by `fast-xml-parser`
-- [ ] Verify WordPress SQL dump exists and is parseable enough to inspect core content/meta tables needed for migration recovery
-- [ ] Verify WordPress filesystem snapshot exists and document the effective `wp-content` / uploads location before WS-F planning begins
-- [ ] Verify REST API access (if API enrichment is needed): confirm pagination depth and rate limits
-- [ ] Record the approved source artifact paths and timestamps in the Progress Log before WS-A begins
-- [ ] Create Phase 4 workspace directories: `migration/input/`, `migration/intermediate/`, `migration/output/`, `migration/reports/`, `scripts/migration/`
-- [ ] Install Phase 4 pipeline dependencies via `npm install`:
-  - [ ] `turndown`
-  - [ ] `@joplin/turndown-plugin-gfm`
-  - [ ] `gray-matter`
-  - [ ] `fast-xml-parser`
-  - [ ] `zod`
-  - [ ] `p-limit`
-  - [ ] `csv-stringify`
-  - [ ] `cheerio` (strongly recommended for DOM cleanup)
-- [ ] Review Non-Negotiable Constraints with engineering owner; log confirmations in Progress Log
-- [ ] Assign workstream owners for WS-A through WS-K
-- [ ] Agree on target dates for each workstream ticket (RHI-032 through RHI-042)
-- [ ] Log all confirmations in Progress Log with names and dates
-- [ ] Announce Phase 4 kickoff with linked Phase 3 sign-off and Phase 4 plan
+- [x] Verify RHI-030 is `Done`; if not, document the blocker and pause Phase 4
+- [x] Confirm migration owner, SEO owner, and engineering owner identities for Phase 4
+- [x] Share `analysis/plan/details/phase-4.md` with all workstream owners; request read confirmation
+- [x] Share links to Phase 2 contract outcomes (RHI-012, RHI-013, RHI-015)
+- [x] Share `migration/phase-3-signoff.md` with Phase 4 team
+- [x] Verify each Phase 3 script is callable from a clean install:
+  - [x] `npm run validate:frontmatter` exits with code 0 on scaffold
+  - [x] `npm run check:url-parity` exits with code 0 on scaffold
+  - [x] `npm run check:seo` exits with code 0 on scaffold
+- [x] Verify WordPress WXR export file exists and is parseable by `fast-xml-parser`
+- [x] Verify WordPress SQL dump exists and is parseable enough to inspect core content/meta tables needed for migration recovery
+- [x] Verify WordPress filesystem snapshot exists and document the effective `wp-content` / uploads location before WS-F planning begins
+- [x] Verify REST API access (if API enrichment is needed): confirm pagination depth and rate limits
+- [x] Record the approved source artifact paths and timestamps in the Progress Log before WS-A begins
+- [x] Create Phase 4 workspace directories: `migration/input/`, `migration/intermediate/`, `migration/output/`, `migration/reports/`, `scripts/migration/`
+- [x] Install Phase 4 pipeline dependencies via `npm install`:
+  - [x] `turndown`
+  - [x] `@joplin/turndown-plugin-gfm`
+  - [x] `gray-matter`
+  - [x] `fast-xml-parser`
+  - [x] `zod`
+  - [x] `p-limit`
+  - [x] `csv-stringify`
+  - [x] `cheerio` (strongly recommended for DOM cleanup)
+- [x] Review Non-Negotiable Constraints with engineering owner; log confirmations in Progress Log
+- [x] Assign workstream owners for WS-A through WS-K
+- [x] Agree on target dates for each workstream ticket (RHI-032 through RHI-042)
+- [x] Log all confirmations in Progress Log with names and dates
+- [x] Announce Phase 4 kickoff with linked Phase 3 sign-off and Phase 4 plan
 
 ---
 
@@ -115,17 +115,17 @@ Phase 4 involves irreversible data transformations. Starting workstreams before 
 
 | Dependency | Type | Status |
 |------------|------|--------|
-| RHI-030 Done — Phase 3 sign-off recorded | Ticket | Pending |
-| `migration/phase-3-signoff.md` committed and readable | Phase | Pending |
-| Migration owner available for Phase 4 kickoff | Access | Pending |
-| SEO owner available and confirmed | Access | Pending |
-| Engineering owner available and confirmed | Access | Pending |
-| WordPress WXR export file available | Access | Pending |
-| WordPress SQL dump available | Access | Pending |
-| WordPress filesystem snapshot available with documented content root | Access | Pending |
-| WordPress REST API accessible (if needed) | Access | Pending |
-| WordPress media origin accessible | Access | Pending |
-| Node.js runtime and `package.json` from Phase 3 | Tool | Pending |
+| RHI-030 Done — Phase 3 sign-off recorded | Ticket | Verified |
+| `migration/phase-3-signoff.md` committed and readable | Phase | Verified locally |
+| Migration owner available for Phase 4 kickoff | Access | Verified — Thomas Theunen |
+| SEO owner available and confirmed | Access | Verified — Thomas Theunen |
+| Engineering owner available and confirmed | Access | Verified — Thomas Theunen |
+| WordPress WXR export file available | Access | Verified locally — `tmp/therhinoinquisitor.WordPress.2026-03-10.xml` parsed with 958 items |
+| WordPress SQL dump available | Access | Verified locally — `tmp/wordpress-database.sql` |
+| WordPress filesystem snapshot available with documented content root | Access | Verified locally — `tmp/website-wordpress-backup/wp-content` and `tmp/website-wordpress-backup/wp-content/uploads` |
+| WordPress REST API accessible (if needed) | Access | Verified locally — `GET /wp-json/wp/v2/posts?per_page=1&page=1` returned `200` |
+| WordPress media origin accessible | Access | Verified locally — direct sample upload request returned `200` |
+| Node.js runtime and `package.json` from Phase 3 | Tool | Verified locally — Node >=18 repo contract intact; Phase 4 dependencies installed |
 
 ---
 
@@ -144,16 +144,16 @@ Phase 4 involves irreversible data transformations. Starting workstreams before 
 
 ### Definition of Done
 
-- [ ] All acceptance criteria are satisfied and verified
-- [ ] Tasks are complete or intentionally descoped with rationale
-- [ ] Dependencies and blockers are resolved or documented
-- [ ] Outcomes section is completed with delivered artefacts and deviations
+- [x] All acceptance criteria are satisfied and verified
+- [x] Tasks are complete or intentionally descoped with rationale
+- [x] Dependencies and blockers are resolved or documented
+- [x] Outcomes section is completed with delivered artefacts and deviations
 
 ---
 
 ### Outcomes
 
-{Leave blank until work is complete.}
+Phase 4 bootstrap is complete. The repo-side migration workspace, dependency set, source inventory, owner assignments, and Phase 3 handoff evidence are in place for workstream execution.
 
 **Delivered artefacts:**
 
@@ -161,10 +161,12 @@ Phase 4 involves irreversible data transformations. Starting workstreams before 
 - Phase 4 workspace directories committed
 - `package.json` updated with Phase 4 pipeline dependencies
 - Agreed workstream ownership record
+- Verified WXR source artifact: `tmp/therhinoinquisitor.WordPress.2026-03-10.xml`
+- Phase 4 bootstrap readiness note: `analysis/documentation/phase-4/rhi-031-phase-4-bootstrap-readiness-2026-03-10.md`
 
 **Deviations from plan:**
 
-- None
+- The WXR export is newer than the SQL dump and filesystem snapshot by about two days. Thomas Theunen explicitly accepted this freshness mismatch for bootstrap, with WXR treated as the primary structured source and SQL/filesystem retained as recovery and audit inputs for later workstreams.
 
 ---
 
@@ -173,6 +175,13 @@ Phase 4 involves irreversible data transformations. Starting workstreams before 
 | Date | Status | Note |
 |------|--------|------|
 | 2026-03-07 | Open | Ticket created |
+| 2026-03-10 | In Progress | Verified local Phase 3 script callability: `npm run validate:frontmatter`, `npm run check:url-parity`, and `npm run check:seo` all exited with code 0 on the current scaffold. |
+| 2026-03-10 | In Progress | Confirmed Phase 1 data artifacts remain accessible: `migration/url-inventory.normalized.json` contains 1199 records and `migration/url-manifest.json` contains 1201 records with 1201/1201 dispositions populated. |
+| 2026-03-10 | In Progress | Bootstrapped the Phase 4 workspace by creating `migration/input/`, `migration/intermediate/`, `migration/output/`, `migration/reports/`, and `scripts/migration/`. Installed `turndown`, `@joplin/turndown-plugin-gfm`, and `cheerio` into `package.json`. |
+| 2026-03-10 | In Progress | Verified WordPress recovery sources available locally: WXR export `tmp/therhinoinquisitor.WordPress.2026-03-10.xml` timestamp `2026-03-10 11:03:55 +0100`, parsed with 958 items via `fast-xml-parser`; SQL dump timestamp `2026-03-08 16:23:08 +0100`; filesystem snapshot timestamp `2026-03-08 16:22:14 +0100`; content root `tmp/website-wordpress-backup/wp-content`; uploads path `tmp/website-wordpress-backup/wp-content/uploads`. Quick SQL inventory signal: `post 1448`, `page 99`, `video 9`, `attachment 1148`, `nav_menu_item 14`, `revision 935`. |
+| 2026-03-10 | In Progress | Recorded owner decisions from the ticket owner: Thomas Theunen is Migration Owner, SEO Owner, Engineering Owner, and the single owner for WS-A through WS-K. Thomas confirmed review of `analysis/plan/details/phase-4.md`, Phase 2 contracts RHI-012/RHI-013/RHI-015, the Non-Negotiable Migration Constraints, and the default batch sequence `Pilot → High-Value → Long-Tail+Taxonomy`. The current Phase 4 target dates in `analysis/tickets/phase-4/INDEX.md` remain the agreed initial schedule. |
+| 2026-03-10 | In Progress | WXR and REST inventory signals now confirm the content-type set needed for bootstrap: WXR includes `post 164`, `page 22`, and taxonomy domains `category` and `post_tag`; the SQL dump confirms additional `video 9` records. REST probe to `/wp-json/wp/v2/posts?per_page=1&page=1` returned `200`, `X-WP-TotalPages: 160`, and no explicit rate-limit headers. |
+| 2026-03-10 | Done | Thomas Theunen explicitly accepted the WXR-versus-SQL/filesystem freshness mismatch for bootstrap. WXR is the primary structured source for Phase 4 bootstrap readiness, while SQL and filesystem artifacts remain approved recovery and audit channels. RHI-030 is now `Done`, the Phase 3 handover package is accepted, and Phase 4 kickoff is approved to proceed. |
 
 ---
 
