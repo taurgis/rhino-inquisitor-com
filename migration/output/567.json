@@ -1,0 +1,129 @@
+{
+  "sourceId": "567",
+  "sourceType": "wxr",
+  "sourceChannels": [
+    "filesystem",
+    "wxr"
+  ],
+  "postType": "post",
+  "status": "publish",
+  "titleRaw": "B2C Commerce: What's new in the 22.3 release",
+  "excerptRaw": "",
+  "bodyHtml": "<p>In this post, we will be looking at the release notes of Salesforce B2C Commerce Cloud for March 2022. Let us dig deeper into any new and exciting features added to the platform.</p><p>Check out the original release notes <a href=\"https://help.salesforce.com/s/articleView?id=rn_b2c_rn_22_3_release.htm&amp;type=5&amp;language=en_US\" target=\"_blank\" rel=\"noopener\">here</a>.</p>\t\t\n\t\t\t<h2>Lightning UX</h2>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img width=\"800\" height=\"313\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/slds-1024x400.png\" alt=\"SLDS showcase. This image shows a few example components.\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/slds-1024x400.png 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/slds-300x117.png 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/slds-768x300.png 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/slds.png 1536w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t<p>As the prophecies have foretold, it would only be a matter of time before <a href=\"https://uk.news.yahoo.com/salesforce-lesser-known-cofounder-got-235259945.html?guccounter=1&amp;guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&amp;guce_referrer_sig=AQAAAEMzlHPYg71G3BXTV_zJ9VshBEckh_EEHlmqkdH1OxmCNHV9yKdhBatLjGJGpb1G3rjRqzyqZpwlaajHcyv1UhBB9Db0zi7jHduoV27cQlunovcuvalnh1sABTPyFDtMcKR1nMdtJO0kBa_TfOQJXAj1nt1N9sjXs5VJ-ar5A32I\" target=\"_blank\" rel=\"noopener\">Lightning Man</a> made its way into the global interface of Salesforce B2C Commerce Cloud.</p><p>If we look at any of the new features added over the past years, it should come as no surprise:</p><ul><li>Page Meta Tag Rules</li><li>Jobs</li><li>Page Designer</li><li>Reports &amp; Dashboards</li><li>Storefront Toolkit</li><li>...</li></ul> These features already used the <a href=\"https://www.lightningdesignsystem.com/\" target=\"_blank\" rel=\"noopener\">SLDS</a> (Salesforce Lightning Design System). Now slowly, the global items are getting a restyling as well. As this is a cosmetic change, Salesforce added no actual new functionality. From a multi-cloud perspective, having a generic style system across all platforms makes sense to give a \"familiar\" feel. But I can understand not everyone is a fan of this change. What is your thought about the redesign? Leave a comment!<br /><br />\t\t\n\t\t\t<h2>Page Shield</h2>\t\t\n\t\t<p>As trust is the number one value at Salesforce, security is one of the \"shields\" that form that trust.</p><p>Page Shield is part of the <a href=\"https://www.salesforce.com/products/commerce-cloud/resources/ecdn-for-commerce-cloud-digital-datasheet/\" target=\"_blank\" rel=\"noopener\">eCDN</a>, a Salesforce-managed Cloudflare to which we have \"minimal\" access.</p><p><a href=\"https://www.cloudflare.com/page-shield/\" target=\"_blank\" rel=\"noopener\">Page Shield</a> is one of the Cloudflare features. But since we can not fully control that Cloudflare instance, we depend on the Salesforce team to activate/purchase these features.</p><p>Between the 1st of march and the 14th of march, Page Shield will be enabled for all accounts and will start protecting against Magecart type attacks.</p>\t\t\n\t\t\t<h3>But what is Magecart?</h3>\t\t\n\t\t<p><a href=\"https://www.riskiq.com/what-is-magecart/\" target=\"_blank\" rel=\"noopener\">Magecart</a> is a type of attack that compromises third-party JavaScript dependencies to gain control over the code served to the browser. Taking control of the code allows sensitive data to be stolen (like credit card info).</p>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img width=\"800\" height=\"388\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/magecart-style-attack-flow-diagram_3x-1024x496.png\" alt=\"A diagram explaining the Magecart attack. It shows a hacker taking over a dependency of a third party script to skim credit card data.\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/magecart-style-attack-flow-diagram_3x-1024x496.png 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/magecart-style-attack-flow-diagram_3x-300x145.png 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/magecart-style-attack-flow-diagram_3x-768x372.png 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/magecart-style-attack-flow-diagram_3x-1536x744.png 1536w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/magecart-style-attack-flow-diagram_3x.png 1638w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t<h3>What does Page Shield do?</h3>\t\t\n\t\t<p>In simple terms: it keeps track of all of the JavaScript and its dependencies, monitoring them for changes.</p><p>The Salesforce Commerce Cloud security teams constantly monitor and review Page Shield forensic data and immediately act on and notify customers when suspicious activity is discovered.</p><p>So good news, no additional action is needed from the partner or customer side! I like those kinds of updates 😁.</p>\t\t\n\t\t\t<h2>SKU Specific Page Designer Pages</h2>\t\t\n\t\t<p>A small but substantial update to page designer <a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/page_designer/b2c_develop_dynamic_page.html\" target=\"_blank\" rel=\"noopener\">Dynamic Pages</a>!</p><p>The Dynamic Page feature allows you to use the Page Designer magic on lister and product detail pages, but only at a category level.</p><p>That has changed for Product Detail Pages, and it is now possible at the SKU level!</p>\t\t\n\t\t\t<h2>Promotion Bonus Products Limit</h2>\t\t\n\t\t<p>With this new update, the Business Manager will now show an error if you assign more than 50 bonus products within a single promotion.</p><p>Until this update, you could set more than 50 bonus products in the business manager, but the documentation mentioned otherwise.</p><p>This inconsistency caused quite a bit of confusion with content managers who configured a promotion, but it was not working the way they were expecting.</p>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img width=\"800\" height=\"69\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/bonus-products-1024x88.png\" alt=\"A screenshot of the documentation of bonus products.\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/bonus-products-1024x88.png 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/bonus-products-300x26.png 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/bonus-products-768x66.png 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/bonus-products.png 1306w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t<h2>Other updates</h2>\t\t\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://help.salesforce.com/s/articleView?id=rn_b2c_web_dav_je.htm&#038;type=5&#038;language=en_US\">\n\t\t\t\t\t\t\t\t\t\tRecursive Infite Copies no Longer Supported\n\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://help.salesforce.com/s/articleView?id=rn_b2c_custom_cache_w10671394_je.htm&#038;type=5&#038;language=en_US\">\n\t\t\t\t\t\t\t\t\t\tCustom Caches return Immutable Objects\n\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>",
+  "slug": "b2c-commerce-whats-new-in-the-22-3-release",
+  "publishedAt": "2022-03-08T07:42:23.000Z",
+  "modifiedAt": "2022-07-23T21:43:46.000Z",
+  "author": "Thomas Theunen",
+  "categories": [
+    {
+      "name": "Release Notes",
+      "slug": "release-notes"
+    },
+    {
+      "name": "Salesforce Commerce Cloud",
+      "slug": "salesforce-commerce-cloud"
+    }
+  ],
+  "tags": [
+    {
+      "name": "cloudflare",
+      "slug": "cloudflare"
+    },
+    {
+      "name": "pagedesigner",
+      "slug": "pagedesigner"
+    },
+    {
+      "name": "sfcc",
+      "slug": "sfcc"
+    }
+  ],
+  "legacyUrl": "/b2c-commerce-whats-new-in-the-22-3-release/",
+  "targetUrl": "/b2c-commerce-whats-new-in-the-22-3-release/",
+  "disposition": "keep",
+  "aliasUrls": [
+    "/?p=567"
+  ],
+  "mediaRefs": [
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/bonus-products-1024x88.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/bonus-products-300x26.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/bonus-products-768x66.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/bonus-products.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/magecart-style-attack-flow-diagram_3x-1024x496.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/magecart-style-attack-flow-diagram_3x-1536x744.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/magecart-style-attack-flow-diagram_3x-300x145.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/magecart-style-attack-flow-diagram_3x-768x372.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/magecart-style-attack-flow-diagram_3x.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/slds-1024x400.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/slds-300x117.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/slds-768x300.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/slds.png"
+  ],
+  "_raw": {
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "status": "publish",
+    "titleRaw": "B2C Commerce: What's new in the 22.3 release",
+    "excerptRaw": "",
+    "publishedAt": "2022-03-08T07:42:23.000Z",
+    "modifiedAt": "2022-07-23T21:43:46.000Z",
+    "author": "Thomas Theunen",
+    "categories": [
+      {
+        "name": "Release Notes",
+        "slug": "release-notes"
+      },
+      {
+        "name": "Salesforce Commerce Cloud",
+        "slug": "salesforce-commerce-cloud"
+      }
+    ],
+    "tags": [
+      {
+        "name": "cloudflare",
+        "slug": "cloudflare"
+      },
+      {
+        "name": "pagedesigner",
+        "slug": "pagedesigner"
+      },
+      {
+        "name": "sfcc",
+        "slug": "sfcc"
+      }
+    ],
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/bonus-products-1024x88.png",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/magecart-style-attack-flow-diagram_3x-1024x496.png",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/slds-1024x400.png"
+    ],
+    "manifest": {
+      "legacyUrl": "/b2c-commerce-whats-new-in-the-22-3-release/",
+      "targetUrl": "/b2c-commerce-whats-new-in-the-22-3-release/",
+      "disposition": "keep",
+      "redirectCode": null,
+      "implementationLayer": "none",
+      "urlClass": "post"
+    },
+    "normalization": {
+      "aliasUrlsDerivedFromSameTarget": [
+        "/?p=567"
+      ],
+      "usedPublishedAtFallback": false,
+      "usedModifiedAtFallback": false,
+      "statusNormalizedFrom": "publish"
+    },
+    "extracted": {
+      "sourcePostType": "post",
+      "link": "/b2c-commerce-whats-new-in-the-22-3-release/",
+      "guid": "/?p=567",
+      "attachmentUrl": null,
+      "postParent": "0",
+      "postMetaCount": 26
+    }
+  },
+  "bodyMarkdown": "In this post, we will be looking at the release notes of Salesforce B2C Commerce Cloud for March 2022. Let us dig deeper into any new and exciting features added to the platform.\n\nCheck out the original release notes [here](https://help.salesforce.com/s/articleView?id=rn_b2c_rn_22_3_release.htm&type=5&language=en_US).\n\n## Lightning UX\n\n![SLDS showcase. This image shows a few example components.](https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/slds-1024x400.png)\n\nAs the prophecies have foretold, it would only be a matter of time before [Lightning Man](https://uk.news.yahoo.com/salesforce-lesser-known-cofounder-got-235259945.html?guccounter=1&guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&guce_referrer_sig=AQAAAEMzlHPYg71G3BXTV_zJ9VshBEckh_EEHlmqkdH1OxmCNHV9yKdhBatLjGJGpb1G3rjRqzyqZpwlaajHcyv1UhBB9Db0zi7jHduoV27cQlunovcuvalnh1sABTPyFDtMcKR1nMdtJO0kBa_TfOQJXAj1nt1N9sjXs5VJ-ar5A32I) made its way into the global interface of Salesforce B2C Commerce Cloud.\n\nIf we look at any of the new features added over the past years, it should come as no surprise:\n\n-   Page Meta Tag Rules\n-   Jobs\n-   Page Designer\n-   Reports & Dashboards\n-   Storefront Toolkit\n-   ...\n\n These features already used the [SLDS](https://www.lightningdesignsystem.com/) (Salesforce Lightning Design System). Now slowly, the global items are getting a restyling as well. As this is a cosmetic change, Salesforce added no actual new functionality. From a multi-cloud perspective, having a generic style system across all platforms makes sense to give a \"familiar\" feel. But I can understand not everyone is a fan of this change. What is your thought about the redesign? Leave a comment!\n\n\n## Page Shield\n\nAs trust is the number one value at Salesforce, security is one of the \"shields\" that form that trust.\n\nPage Shield is part of the [eCDN](https://www.salesforce.com/products/commerce-cloud/resources/ecdn-for-commerce-cloud-digital-datasheet/), a Salesforce-managed Cloudflare to which we have \"minimal\" access.\n\n[Page Shield](https://www.cloudflare.com/page-shield/) is one of the Cloudflare features. But since we can not fully control that Cloudflare instance, we depend on the Salesforce team to activate/purchase these features.\n\nBetween the 1st of march and the 14th of march, Page Shield will be enabled for all accounts and will start protecting against Magecart type attacks.\n\n### But what is Magecart?\n\n[Magecart](https://www.riskiq.com/what-is-magecart/) is a type of attack that compromises third-party JavaScript dependencies to gain control over the code served to the browser. Taking control of the code allows sensitive data to be stolen (like credit card info).\n\n![A diagram explaining the Magecart attack. It shows a hacker taking over a dependency of a third party script to skim credit card data.](https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/magecart-style-attack-flow-diagram_3x-1024x496.png)\n\n### What does Page Shield do?\n\nIn simple terms: it keeps track of all of the JavaScript and its dependencies, monitoring them for changes.\n\nThe Salesforce Commerce Cloud security teams constantly monitor and review Page Shield forensic data and immediately act on and notify customers when suspicious activity is discovered.\n\nSo good news, no additional action is needed from the partner or customer side! I like those kinds of updates 😁.\n\n## SKU Specific Page Designer Pages\n\nA small but substantial update to page designer [Dynamic Pages](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/page_designer/b2c_develop_dynamic_page.html)!\n\nThe Dynamic Page feature allows you to use the Page Designer magic on lister and product detail pages, but only at a category level.\n\nThat has changed for Product Detail Pages, and it is now possible at the SKU level!\n\n## Promotion Bonus Products Limit\n\nWith this new update, the Business Manager will now show an error if you assign more than 50 bonus products within a single promotion.\n\nUntil this update, you could set more than 50 bonus products in the business manager, but the documentation mentioned otherwise.\n\nThis inconsistency caused quite a bit of confusion with content managers who configured a promotion, but it was not working the way they were expecting.\n\n![A screenshot of the documentation of bonus products.](https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/bonus-products-1024x88.png)\n\n## Other updates\n\n-   [Recursive Infite Copies no Longer Supported](https://help.salesforce.com/s/articleView?id=rn_b2c_web_dav_je.htm&type=5&language=en_US)\n-   [Custom Caches return Immutable Objects](https://help.salesforce.com/s/articleView?id=rn_b2c_custom_cache_w10671394_je.htm&type=5&language=en_US)",
+  "conversionStatus": "converted",
+  "manualReviewRequired": false,
+  "fallbackTypes": [],
+  "conversionWarnings": []
+}

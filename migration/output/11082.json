@@ -1,0 +1,114 @@
+{
+  "sourceId": "11082",
+  "sourceType": "wxr",
+  "sourceChannels": [
+    "filesystem",
+    "wxr"
+  ],
+  "postType": "post",
+  "status": "publish",
+  "titleRaw": "Commerce Cloud 24.1 Release: A New Year Update",
+  "excerptRaw": "",
+  "bodyHtml": "<p>A new year means release notes for the back end have started again! This time, we look at the <a href=\"https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_24_1_release.htm&amp;type=5\">January 2024 (24.1) release</a>!</p><p>Are you interested in last year's release notes? <a style=\"background-color: #f2f7fb;\" href=\"https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-23-10-release-a-comprehensive-overview/\" target=\"_blank\" rel=\"noopener\">Click here</a>!</p>\t\t\n\t\t\t<h2>Platform</h2>\t\t\n\t\t\t<h3>DKIM Support for Emails</h3>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img width=\"693\" height=\"547\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/dkim-in-commerce-cloud.png\" alt=\"A screenshot of the Email Settings in the Business Manager showing the new DKIM Checkbox\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/dkim-in-commerce-cloud.png 693w, https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/dkim-in-commerce-cloud-300x237.png 300w\" sizes=\"(max-width: 693px) 100vw, 693px\" />\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t<p>Are you tired of missing out on important emails because they end up in your SPAM folder? We have great news for you! Commerce Cloud now comes with <a href=\"https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail\" target=\"_blank\" rel=\"noopener\">DKIM</a> support, designed to significantly reduce the chances of your emails being marked as SPAM.</p>\t\t\n\t\t\tPIG Only\n\t\t\t\t\t\t\tThis option does not seem to be available on sandboxes.\n\t\t\t<h3>Improved log handling for Einstein Search Dictionaries and Einstein Predictive Sort</h3>\t\t\n\t\t\t\t\t<blockquote>\n\t\t\t<p>\n\t\t\t\tThe error handling for Einstein Search Dictionaries and Einstein Predictive Sort log files no longer creates log errors when an updated dataset isn’t available.\t\t\t</p>\n\t\t\t\t\t</blockquote>\n\t\t<p><strong>How: </strong>If you use Einstein Search Dictionaries or Einstein Predictive Sort, verify the Region setting in your staging instance. In <strong>Business Manager</strong> | <strong>Administration</strong> | <strong>Operations</strong> | <strong>Einstein Status Dashboard</strong> | <strong>site</strong>, set the Region to one of the following:</p><ul><li>Americas</li><li>APAC</li><li>EU</li></ul>\t\t\n\t\t\t<h2>OCAPI &amp; SCAPI</h2>\t\t\n\t\t\t<h3>Enable Temporary Baskets for Immediate Order Requests in OCAPI</h3>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img width=\"800\" height=\"267\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/carts-on-a-mobile-phone-1536x512.jpg\" alt=\"A person&#039;s hand touches a mobile phone, depicting multiple carts on top of it, representing the new Headless options for &quot;temporary baskets.&quot;\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/carts-on-a-mobile-phone-1536x512.jpg 1536w, https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/carts-on-a-mobile-phone-300x100.jpg 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/carts-on-a-mobile-phone-1024x341.jpg 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/carts-on-a-mobile-phone-768x256.jpg 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/carts-on-a-mobile-phone-2048x683.jpg 2048w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t<blockquote>\n\t\t\t<p>\n\t\t\t\t<p>OCAPI 23.4 includes support for temporary baskets. Temporary baskets allow for immediate order requests in B2C Commerce. For example, a shopper uses a Buy Now option to purchase an item. The temporary basket, which has a limited lifetime of 15 minutes, is populated with all the data required to ready the basket for checkout without affecting the regular shopper basket.\n</p>\n<p>\n<b>How:</b> Pass a query parameter temporaryBasket into POST baskets to create a temporary basket. With OCAPI 23.4 the basket document attribute isTemporary indicates a basket is temporary.\n</p>\t\t\t</p>\n\t\t\t\t\t</blockquote>\n\t\t<p>The recent introduction of temporary basket access in Headless setups is a significant breakthrough! This new feature unlocks a world of possibilities for mobile applications and the PWA Kit.</p><p>Have you ever received a request to allow only one product type in a single basket without allowing any combinations? Such requests were puzzling before <a href=\"https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_enable_temporaty_basket.htm&amp;type=5\" target=\"_blank\" rel=\"noopener\">this feature was added</a>. Where do you store the current basket? What if the product goes out of stock in the meantime? </p><p>Some things that you need to remember about these temporary baskets:</p><ul><li>Basket lifetime is limited compared to shopper baskets. A temporary lifetime of 15 minutes is used for basket retention.</li><li>Limit is separate from shopper and agent basket limits. The shopper can have up to 4 temporary baskets.</li><li>Available to all shoppers, including guests. (unlike agent baskets)</li></ul>\t\t\n\t\t\tSCAPI\n\t\t\t\t\t\t\tIt is unclear if this change translates to the SCAPI endpoint (<a href=\"https://developer.salesforce.com/docs/commerce/commerce-api/references/shopper-baskets?meta=createBasket\" target=\"_blanke\" rel=\"noopener\">https://developer.salesforce.com/docs/commerce/commerce-api/references/shopper-baskets?meta=createBasket</a>). Currently, the new query parameter is not mentioned in the documentation. However, it is expected that development on the SCAPI will resume in January, and hopefully, this feature will be on the roadmap.\n\t\t\t<h2>PWA Kit v3.3.0</h2>\t\t\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v3.3.0\">\n\t\t\t\t\t\t\t<svg aria-hidden=\"true\" viewBox=\"0 0 512 512\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z\"></path></svg>\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\thttps://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v3.3.0\n\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t<p>Some love again for the PWA Kit, wit the release of v3.3. The main changes are:</p><ul><li>Adding StorefrontPreview component ‘onContextChange’ property to prepare for future Storefront Preview release</li><li>Updating engine compatibility to include npm 10</li><li>Replacing max-age with s-maxage to only cache shared caches</li><li>Improving pwa-kit-dev start command to accept CLI arguments for babel-node</li><li>Adding source-map-loader plugin to webpack configuration</li><li>Creating a flag to allow toggling behavior that treats + character between words as space in search query</li><li>Implementing gift option for basket</li><li>Updating extract-default-messages script to support multiple locales</li><li>Adding support for localization in icon component</li><li>Making various accessibility improvements and bug fixes</li></ul>\t\t\n\t\t\t<h2>Bugfixes</h2>\t\t\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://issues.salesforce.com/issue/a028c00000suSwsAAE/issue-with-high-scale-price-books-feature-and-ocapi-search-endpoint\" target=\"_blank\" rel=\"noopener\">\n\t\t\t\t\t\t\t<svg aria-hidden=\"true\" viewBox=\"0 0 512 512\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M511.988 288.9c-.478 17.43-15.217 31.1-32.653 31.1H424v16c0 21.864-4.882 42.584-13.6 61.145l60.228 60.228c12.496 12.497 12.496 32.758 0 45.255-12.498 12.497-32.759 12.496-45.256 0l-54.736-54.736C345.886 467.965 314.351 480 280 480V236c0-6.627-5.373-12-12-12h-24c-6.627 0-12 5.373-12 12v244c-34.351 0-65.886-12.035-90.636-32.108l-54.736 54.736c-12.498 12.497-32.759 12.496-45.256 0-12.496-12.497-12.496-32.758 0-45.255l60.228-60.228C92.882 378.584 88 357.864 88 336v-16H32.666C15.23 320 .491 306.33.013 288.9-.484 270.816 14.028 256 32 256h56v-58.745l-46.628-46.628c-12.496-12.497-12.496-32.758 0-45.255 12.498-12.497 32.758-12.497 45.256 0L141.255 160h229.489l54.627-54.627c12.498-12.497 32.758-12.497 45.256 0 12.496 12.497 12.496 32.758 0 45.255L424 197.255V256h56c17.972 0 32.484 14.816 31.988 32.9zM257 0c-61.856 0-112 50.144-112 112h224C369 50.144 318.856 0 257 0z\"></path></svg>\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\tIssue with High Scale Price Books feature and OCAPI Search Endpoint\n\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t<p>Only one fix was made in the current release. However, <a href=\"https://issues.salesforce.com/#sortCriteria=%40sflast_modified_date_external__c%20descending&amp;f[sfcategoryfull]=Commerce%7CB2C%20Commerce\" target=\"_blank\" rel=\"noopener\">many items</a> are marked as \"Solution Scheduled\" and \"Solution Deploying\", which will hopefully be covered in next month's release blog post!</p>\t\t\n\t\t\t<h2>Updated Cartridges & Tools</h2>\t\t\n\t\t\t<h3>sgmf-scripts (3.x in the works)</h3>\t\t\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://github.com/SalesforceCommerceCloud/sgmf-scripts/commits/master/\" target=\"_blank\" rel=\"noopener\">\n\t\t\t\t\t\t\t<svg aria-hidden=\"true\" viewBox=\"0 0 512 512\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z\"></path></svg>\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\thttps://github.com/SalesforceCommerceCloud/sgmf-scripts/commits/master/\n\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t<blockquote>\n\t\t\t<p>\n\t\t\t\tThis repository contains a collection of scrips that are useful for creating Storefront Reference Architecture overlay cartridges. All of the scripts are executable through CLI.\t\t\t</p>\n\t\t\t\t\t</blockquote>\n\t\t<p>I've noticed that someone is currently working on developing version 3.x of this library. This is an exciting update that many people have been eagerly waiting for. It will be interesting to see what changes and enhancements are made in this new version.</p>",
+  "slug": "sfcc-24-1-release-a-new-year-update",
+  "publishedAt": "2024-01-08T09:10:13.000Z",
+  "modifiedAt": "2024-01-10T08:49:57.000Z",
+  "author": "Thomas Theunen",
+  "categories": [
+    {
+      "name": "Release Notes",
+      "slug": "release-notes"
+    },
+    {
+      "name": "Salesforce Commerce Cloud",
+      "slug": "salesforce-commerce-cloud"
+    }
+  ],
+  "tags": [
+    {
+      "name": "release notes",
+      "slug": "release-notes"
+    },
+    {
+      "name": "sfcc",
+      "slug": "sfcc"
+    }
+  ],
+  "legacyUrl": "/sfcc-24-1-release-a-new-year-update/",
+  "targetUrl": "/sfcc-24-1-release-a-new-year-update/",
+  "disposition": "keep",
+  "aliasUrls": [
+    "/?p=11082"
+  ],
+  "mediaRefs": [
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/carts-on-a-mobile-phone-1024x341.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/carts-on-a-mobile-phone-1536x512.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/carts-on-a-mobile-phone-2048x683.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/carts-on-a-mobile-phone-300x100.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/carts-on-a-mobile-phone-768x256.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/dkim-in-commerce-cloud-300x237.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/dkim-in-commerce-cloud.png"
+  ],
+  "_raw": {
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "status": "publish",
+    "titleRaw": "Commerce Cloud 24.1 Release: A New Year Update",
+    "excerptRaw": "",
+    "publishedAt": "2024-01-08T09:10:13.000Z",
+    "modifiedAt": "2024-01-10T08:49:57.000Z",
+    "author": "Thomas Theunen",
+    "categories": [
+      {
+        "name": "Release Notes",
+        "slug": "release-notes"
+      },
+      {
+        "name": "Salesforce Commerce Cloud",
+        "slug": "salesforce-commerce-cloud"
+      }
+    ],
+    "tags": [
+      {
+        "name": "release notes",
+        "slug": "release-notes"
+      },
+      {
+        "name": "sfcc",
+        "slug": "sfcc"
+      }
+    ],
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/carts-on-a-mobile-phone-1536x512.jpg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/dkim-in-commerce-cloud.png"
+    ],
+    "manifest": {
+      "legacyUrl": "/sfcc-24-1-release-a-new-year-update/",
+      "targetUrl": "/sfcc-24-1-release-a-new-year-update/",
+      "disposition": "keep",
+      "redirectCode": null,
+      "implementationLayer": "none",
+      "urlClass": "post"
+    },
+    "normalization": {
+      "aliasUrlsDerivedFromSameTarget": [
+        "/?p=11082"
+      ],
+      "usedPublishedAtFallback": false,
+      "usedModifiedAtFallback": false,
+      "statusNormalizedFrom": "publish"
+    },
+    "extracted": {
+      "sourcePostType": "post",
+      "link": "/sfcc-24-1-release-a-new-year-update/",
+      "guid": "/?p=11082",
+      "attachmentUrl": null,
+      "postParent": "0",
+      "postMetaCount": 19
+    }
+  },
+  "bodyMarkdown": "A new year means release notes for the back end have started again! This time, we look at the [January 2024 (24.1) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_24_1_release.htm&type=5)!\n\nAre you interested in last year's release notes? [Click here](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-23-10-release-a-comprehensive-overview/)!\n\n## Platform\n\n### DKIM Support for Emails\n\n![A screenshot of the Email Settings in the Business Manager showing the new DKIM Checkbox](https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/dkim-in-commerce-cloud.png)\n\nAre you tired of missing out on important emails because they end up in your SPAM folder? We have great news for you! Commerce Cloud now comes with [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) support, designed to significantly reduce the chances of your emails being marked as SPAM.\n\nPIG Only This option does not seem to be available on sandboxes.\n\n### Improved log handling for Einstein Search Dictionaries and Einstein Predictive Sort\n\n> The error handling for Einstein Search Dictionaries and Einstein Predictive Sort log files no longer creates log errors when an updated dataset isn’t available.\n\n**How:** If you use Einstein Search Dictionaries or Einstein Predictive Sort, verify the Region setting in your staging instance. In **Business Manager** | **Administration** | **Operations** | **Einstein Status Dashboard** | **site**, set the Region to one of the following:\n\n-   Americas\n-   APAC\n-   EU\n\n## OCAPI & SCAPI\n\n### Enable Temporary Baskets for Immediate Order Requests in OCAPI\n\n![A person's hand touches a mobile phone, depicting multiple carts on top of it, representing the new Headless options for \"temporary baskets.\"](https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/carts-on-a-mobile-phone-1536x512.jpg)\n\n> OCAPI 23.4 includes support for temporary baskets. Temporary baskets allow for immediate order requests in B2C Commerce. For example, a shopper uses a Buy Now option to purchase an item. The temporary basket, which has a limited lifetime of 15 minutes, is populated with all the data required to ready the basket for checkout without affecting the regular shopper basket.\n>\n> **How:** Pass a query parameter temporaryBasket into POST baskets to create a temporary basket. With OCAPI 23.4 the basket document attribute isTemporary indicates a basket is temporary.\n\nThe recent introduction of temporary basket access in Headless setups is a significant breakthrough! This new feature unlocks a world of possibilities for mobile applications and the PWA Kit.\n\nHave you ever received a request to allow only one product type in a single basket without allowing any combinations? Such requests were puzzling before [this feature was added](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_enable_temporaty_basket.htm&type=5). Where do you store the current basket? What if the product goes out of stock in the meantime?\n\nSome things that you need to remember about these temporary baskets:\n\n-   Basket lifetime is limited compared to shopper baskets. A temporary lifetime of 15 minutes is used for basket retention.\n-   Limit is separate from shopper and agent basket limits. The shopper can have up to 4 temporary baskets.\n-   Available to all shoppers, including guests. (unlike agent baskets)\n\nSCAPI It is unclear if this change translates to the SCAPI endpoint ([https://developer.salesforce.com/docs/commerce/commerce-api/references/shopper-baskets?meta=createBasket](https://developer.salesforce.com/docs/commerce/commerce-api/references/shopper-baskets?meta=createBasket)). Currently, the new query parameter is not mentioned in the documentation. However, it is expected that development on the SCAPI will resume in January, and hopefully, this feature will be on the roadmap.\n\n## PWA Kit v3.3.0\n\n-   [https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v3.3.0](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v3.3.0)\n\nSome love again for the PWA Kit, wit the release of v3.3. The main changes are:\n\n-   Adding StorefrontPreview component ‘onContextChange’ property to prepare for future Storefront Preview release\n-   Updating engine compatibility to include npm 10\n-   Replacing max-age with s-maxage to only cache shared caches\n-   Improving pwa-kit-dev start command to accept CLI arguments for babel-node\n-   Adding source-map-loader plugin to webpack configuration\n-   Creating a flag to allow toggling behavior that treats + character between words as space in search query\n-   Implementing gift option for basket\n-   Updating extract-default-messages script to support multiple locales\n-   Adding support for localization in icon component\n-   Making various accessibility improvements and bug fixes\n\n## Bugfixes\n\n-   [Issue with High Scale Price Books feature and OCAPI Search Endpoint](https://issues.salesforce.com/issue/a028c00000suSwsAAE/issue-with-high-scale-price-books-feature-and-ocapi-search-endpoint)\n\nOnly one fix was made in the current release. However, [many items](https://issues.salesforce.com/#sortCriteria=%40sflast_modified_date_external__c%20descending&f[sfcategoryfull]=Commerce%7CB2C%20Commerce) are marked as \"Solution Scheduled\" and \"Solution Deploying\", which will hopefully be covered in next month's release blog post!\n\n## Updated Cartridges & Tools\n\n### sgmf-scripts (3.x in the works)\n\n-   [https://github.com/SalesforceCommerceCloud/sgmf-scripts/commits/master/](https://github.com/SalesforceCommerceCloud/sgmf-scripts/commits/master/)\n\n> This repository contains a collection of scrips that are useful for creating Storefront Reference Architecture overlay cartridges. All of the scripts are executable through CLI.\n\nI've noticed that someone is currently working on developing version 3.x of this library. This is an exciting update that many people have been eagerly waiting for. It will be interesting to see what changes and enhancements are made in this new version.",
+  "conversionStatus": "converted",
+  "manualReviewRequired": false,
+  "fallbackTypes": [],
+  "conversionWarnings": []
+}

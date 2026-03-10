@@ -1,0 +1,67 @@
+{
+  "sourceId": "7726",
+  "sourceType": "wxr",
+  "sourceChannels": [
+    "wxr"
+  ],
+  "postType": "page",
+  "status": "publish",
+  "titleRaw": "Cookie Policy (EU)",
+  "excerptRaw": "",
+  "bodyHtml": "[cmplz-document type=\"cookie-statement\" region=\"eu\"]",
+  "slug": "cookie-policy-eu",
+  "publishedAt": "2023-03-06T13:35:03.000Z",
+  "modifiedAt": "2023-03-06T13:35:03.000Z",
+  "author": "Thomas Theunen",
+  "categories": [],
+  "tags": [],
+  "legacyUrl": "/cookie-policy-eu/",
+  "targetUrl": "/cookie-policy-eu/",
+  "disposition": "keep",
+  "aliasUrls": [],
+  "mediaRefs": [],
+  "_raw": {
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "status": "publish",
+    "titleRaw": "Cookie Policy (EU)",
+    "excerptRaw": "",
+    "publishedAt": "2023-03-06T13:35:03.000Z",
+    "modifiedAt": "2023-03-06T13:35:03.000Z",
+    "author": "Thomas Theunen",
+    "categories": [],
+    "tags": [],
+    "mediaRefs": [],
+    "manifest": {
+      "legacyUrl": "/cookie-policy-eu/",
+      "targetUrl": "/cookie-policy-eu/",
+      "disposition": "keep",
+      "redirectCode": null,
+      "implementationLayer": "none",
+      "urlClass": "page"
+    },
+    "normalization": {
+      "aliasUrlsDerivedFromSameTarget": [],
+      "usedPublishedAtFallback": false,
+      "usedModifiedAtFallback": false,
+      "statusNormalizedFrom": "publish"
+    },
+    "extracted": {
+      "sourcePostType": "page",
+      "link": "/cookie-policy-eu/",
+      "guid": "/cookie-policy-eu/",
+      "attachmentUrl": null,
+      "postParent": "0",
+      "postMetaCount": 2
+    }
+  },
+  "bodyMarkdown": "> Legacy Complianz document shortcode removed during migration. Recreate the required consent or cookie statement in Hugo before publishing.",
+  "conversionStatus": "converted",
+  "manualReviewRequired": false,
+  "fallbackTypes": [],
+  "conversionWarnings": [
+    {
+      "code": "shortcode-converted-to-note",
+      "message": "Shortcode cmplz-document in /cookie-policy-eu/ converted to an explicit Markdown note."
+    }
+  ]
+}

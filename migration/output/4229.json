@@ -1,0 +1,116 @@
+{
+  "sourceId": "4229",
+  "sourceType": "wxr",
+  "sourceChannels": [
+    "filesystem",
+    "wxr"
+  ],
+  "postType": "post",
+  "status": "publish",
+  "titleRaw": "Salesforce B2C Commerce Cloud 22.9 release",
+  "excerptRaw": "",
+  "bodyHtml": "<p>We have been getting some lovely new goodies in the past few releases, but this trend is not ending! This time we look at the <a href=\"https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_9_release.htm&amp;type=5\" target=\"_blank\" rel=\"noopener\">September 2022 (22.9) release</a>!</p><p>Are you interested in last month’s release notes? <a style=\"background-color: #f2f7fb;\" href=\"https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-22-8/\" target=\"_blank\" rel=\"noopener\">Click here</a>!</p>\t\t\n\t\t\t<h2>Platform</h2>\t\t\n\t\t\t<h3>WebDAV upload limit relaxed</h3>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img width=\"665\" height=\"285\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/upload-limit-relaxed-stonks-meme.jpg\" alt=\"\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/upload-limit-relaxed-stonks-meme.jpg 665w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/upload-limit-relaxed-stonks-meme-300x129.jpg 300w\" sizes=\"(max-width: 665px) 100vw, 665px\" />\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t<p>A big update that will make many happy! The limitation of 100MB has been relaxed to 500MB for uploading to the WebDAV.</p><p>This change will make it a lot easier to integrate with other systems that have to send over large amounts of data. Until now, you had to split it into multiple \"chunks\" of 100MB. </p><p>Some will still wish the limit was higher, but this is still a considerable improvement!</p>\t\t\n\t\t\t<h2>Business Manager</h2>\t\t\n\t\t\t<h3>Copy &amp; Paste components in Page Designer!</h3>\t\t\n\t\t<p>A big update to Page Designer as it will now be possible to copy and paste components (up to 10). Not only will this be possible in the same page, but to other pages - even across browser tabs!</p>\t\t\n\t\t\tIdea\n\t\t\t\t\t\t\tThis <a href=\"https://ideas.salesforce.com/s/idea/a0B8W00000GdYHjUAN/page-designer-add-ability-to-copypaste-components\" target=\"_blank\" rel=\"noopener\">feature</a> was initially submitted by <a href=\"https://www.linkedin.com/in/ryanrubis/\" target=\"_blank\" rel=\"noopener\">Ryan Rubis</a>.\n\t\thttps://youtu.be/jYaOZQcWHLI\t\t\n\t\t\t<h3>Target components to a specific locale in Page Designer</h3>\t\t\n\t\t<p>You could only target components to specific customer groups or campaigns until now. Starting from this release, locales have been added to that list!</p>https://youtu.be/uK_TioOU2rQ\t\t\n\t\t\t<h3>Performance increase to Page Designer</h3>\t\t\n\t\t<p>Pages loaded in Page Designer are responsive before all referenced images, external resources, or client-side scripts have completed loading, cutting down on wait time.</p><p>I suspect this improvement is only for the performance of the Business Manager as we are (mostly) in control of how the front behaves. But let's find out after this update hits the first sandboxes!</p>\t\t\n\t\t\t<h3>AfterPay and Venmo added to Salesforce Payments</h3>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img width=\"620\" height=\"350\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/venmo.jpg\" alt=\"\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/venmo.jpg 620w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/venmo-300x169.jpg 300w\" sizes=\"(max-width: 620px) 100vw, 620px\" />\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t<p>Let your shoppers pay in interest-free installments with AfterPay. Salesforce Payments offers AfterPay through your Stripe Merchant account. When AfterPay is active on your storefront, the product details page and checkout cart list it as a payment option (Default SFRA &amp; Payments Cartridge).</p><p>Venmo has also been added as an express and multi-step payment service for U.S.-based merchants. This integration does require a PayPal integration with Salesforce Payments, and a payment zone configured that conforms with the Venmo criteria.</p>\t\t\n\t\t\t<h2>OCAPI &amp; SCAPI</h2>\t\t\n\t\t\t<h3>Shopper Context API Enhancements</h3>\t\t\n\t\t<p>To personalize Headless applications with Salesforce B2C Commerce Cloud, you will need the <a href=\"https://developer.salesforce.com/docs/commerce/commerce-api/guide/shopper-context-api.html\" target=\"_blank\" rel=\"noopener\">Shopper Context API</a>. In this release, a few new options have been made available:</p><ul><li>Source code support (trigger promotions, payment, and shipping methods)</li><li>Support for Hybrid Deployments by adding support to the OCAPI for Shopper Context</li><li>Personalize prices and promotions based on store-specific promotion and pricing rules (imported with <a href=\"https://developer.salesforce.com/docs/commerce/commerce-api/guide/shopper-context-api-store-specific.html\" target=\"_blank\" rel=\"noopener\">assignments.xml</a>)</li></ul>\t\t\n\t\t\t<h2>Development</h2>\t\t\n\t\t\t<h3>Updated Retention Period of Unregistered baskets</h3>\t\t\n\t\t\t\t\t<blockquote>\n\t\t\t<p>\n\t\t\t\tUnregistered baskets are now stored a maximum of 7 days, depending upon preference settings, which mitigates the risk of negative performance and error rates.\t\t\t</p>\n\t\t\t\t\t</blockquote>\n\t\t<p>This one was already the case before this update, so not sure what has changed in this release. If you know, leave a comment!</p>\t\t\n\t\t\t<h2>Bugfixes</h2>\t\t\n\t\t<p>In August, someone at Salesforce has been cleaning house at the \"<a href=\"https://trailblazer.salesforce.com/issues_index?page=3&amp;tag=Commerce+Cloud+Platform\" target=\"_blank\" rel=\"noopener\">Known Issues</a>.\" Many were updated in the past few weeks with a \"Fixed\" status, but for past releases (22.4, 22.5, 22.7, and 22.8), I will only mention those here that were fixed in at least 22.8.</p>\t\t\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://trailblazer.salesforce.com/issues_view?id=a1p4V0000029kX2QAI&#038;title=attrubutevalueeditor-can-shows-wrong-values-for-enum-types\">\n\t\t\t\t\t\t\t<svg aria-hidden=\"true\"><use xlink:href=\"#fas-bug\" /></svg>\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\tAttrubuteValueEditor can shows wrong values for \"Enum\" types\n\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://trailblazer.salesforce.com/issues_view?id=a1p4V0000029kd3QAA&#038;title=currency-symbol-of-tanzanian-shilling-tzs-prices-is-null\">\n\t\t\t\t\t\t\t<svg aria-hidden=\"true\"><use xlink:href=\"#fas-bug\" /></svg>\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\tCurrency symbol of Tanzanian Shilling (TZS) prices is null\n\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t\t<h2>Updated Cartridges & Tools</h2>\t\t\n\t\t\t<h3>b2c-tools (v0.9.2-v0.10.0)</h3>\t\t\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://github.com/SalesforceCommerceCloud/b2c-tools\" target=\"_blank\" rel=\"noopener\">\n\t\t\t\t\t\t\t<svg aria-hidden=\"true\"><use xlink:href=\"#fas-link\" /></svg>\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\thttps://github.com/SalesforceCommerceCloud/b2c-tools\n\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t<blockquote>\n\t\t\t<p>\n\t\t\t\tb2c-tools is a CLI tool and library for data migrations, import/export, scripting and other tasks with SFCC B2C instances. It is intended to be complimentary to other tools such as sfcc-ci for development and CI/CD scenarios.\t\t\t</p>\n\t\t\t\t\t</blockquote>\n\t\t<ul><li>Fixes an out of order issue with the previous release when bootstrapping new instances</li><li>Code coverage for features</li><li>change in bootstrapping order to ensure that errors during bootstrapping do not leave an inconsistent state</li><li>Fixes the path for private library export. by <a href=\"https://github.com/mihaivilcuosf\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/mihaivilcuosf/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\">@mihaivilcuosf</a> in <a href=\"https://github.com/SalesforceCommerceCloud/b2c-tools/pull/77\" data-error-text=\"Failed to load title\" data-id=\"1335639356\" data-permission-text=\"Title is private\" data-url=\"https://github.com/SalesforceCommerceCloud/b2c-tools/issues/77\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/SalesforceCommerceCloud/b2c-tools/pull/77/hovercard\">#77</a></li><li>Fixes an out of order issue with features</li><li>delete cartridges prior to unzip to replace all files by <a href=\"https://github.com/sandragolden\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/sandragolden/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\">@sandragolden</a> in <a href=\"https://github.com/SalesforceCommerceCloud/b2c-tools/pull/78\" data-error-text=\"Failed to load title\" data-id=\"1336331370\" data-permission-text=\"Title is private\" data-url=\"https://github.com/SalesforceCommerceCloud/b2c-tools/issues/78\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/SalesforceCommerceCloud/b2c-tools/pull/78/hovercard\">#78</a></li><li>adds runAsScript method to execution migration scripts directly by <a href=\"https://github.com/clavery\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/clavery/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\">@clavery</a> in <a href=\"https://github.com/SalesforceCommerceCloud/b2c-tools/pull/80\" data-error-text=\"Failed to load title\" data-id=\"1337414302\" data-permission-text=\"Title is private\" data-url=\"https://github.com/SalesforceCommerceCloud/b2c-tools/issues/80\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/SalesforceCommerceCloud/b2c-tools/pull/80/hovercard\">#80</a><ul><li>see <code>examples/run-current-file.js</code></li></ul></li></ul><p> </p>\t\t\n\t\t\t<h3>link_beecloud_recaptcha (v2022.1.0)</h3>\t\t\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://github.com/SalesforceCommerceCloud/link_beecloud_recaptcha\" target=\"_blank\" rel=\"noopener\">\n\t\t\t\t\t\t\t<svg aria-hidden=\"true\"><use xlink:href=\"#fas-link\" /></svg>\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\thttps://github.com/SalesforceCommerceCloud/link_beecloud_recaptcha\n\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t<blockquote>\n\t\t\t<p>\n\t\t\t\tBeeCloud provides a LINK cartridge to integrate with Salesforce Commerce Cloud (SFCC). This cartridge provides integration with Google reCaptcha for checkout process.\t\t\t</p>\n\t\t\t\t\t</blockquote>\n\t\t<p>A new addition to public community repositories, always great to see! This one adds a quickstart to add Google reCaptcha to your order process!</p>",
+  "slug": "salesforce-b2c-commerce-cloud-22-9-release",
+  "publishedAt": "2022-08-17T18:45:35.000Z",
+  "modifiedAt": "2022-08-18T08:09:00.000Z",
+  "author": "Thomas Theunen",
+  "categories": [
+    {
+      "name": "Release Notes",
+      "slug": "release-notes"
+    },
+    {
+      "name": "Salesforce Commerce Cloud",
+      "slug": "salesforce-commerce-cloud"
+    }
+  ],
+  "tags": [
+    {
+      "name": "sfcc",
+      "slug": "sfcc"
+    },
+    {
+      "name": "technical",
+      "slug": "technical"
+    }
+  ],
+  "legacyUrl": "/salesforce-b2c-commerce-cloud-22-9-release/",
+  "targetUrl": "/salesforce-b2c-commerce-cloud-22-9-release/",
+  "disposition": "keep",
+  "aliasUrls": [],
+  "mediaRefs": [
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/upload-limit-relaxed-stonks-meme-300x129.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/upload-limit-relaxed-stonks-meme.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/venmo-300x169.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/venmo.jpg"
+  ],
+  "_raw": {
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "status": "publish",
+    "titleRaw": "Salesforce B2C Commerce Cloud 22.9 release",
+    "excerptRaw": "",
+    "publishedAt": "2022-08-17T18:45:35.000Z",
+    "modifiedAt": "2022-08-18T08:09:00.000Z",
+    "author": "Thomas Theunen",
+    "categories": [
+      {
+        "name": "Release Notes",
+        "slug": "release-notes"
+      },
+      {
+        "name": "Salesforce Commerce Cloud",
+        "slug": "salesforce-commerce-cloud"
+      }
+    ],
+    "tags": [
+      {
+        "name": "sfcc",
+        "slug": "sfcc"
+      },
+      {
+        "name": "technical",
+        "slug": "technical"
+      }
+    ],
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/upload-limit-relaxed-stonks-meme.jpg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/venmo.jpg"
+    ],
+    "manifest": {
+      "legacyUrl": "/salesforce-b2c-commerce-cloud-22-9-release/",
+      "targetUrl": "/salesforce-b2c-commerce-cloud-22-9-release/",
+      "disposition": "keep",
+      "redirectCode": null,
+      "implementationLayer": "none",
+      "urlClass": "post"
+    },
+    "normalization": {
+      "aliasUrlsDerivedFromSameTarget": [],
+      "usedPublishedAtFallback": false,
+      "usedModifiedAtFallback": false,
+      "statusNormalizedFrom": "publish"
+    },
+    "extracted": {
+      "sourcePostType": "post",
+      "link": "/salesforce-b2c-commerce-cloud-22-9-release/",
+      "guid": "/?p=4229",
+      "attachmentUrl": null,
+      "postParent": "0",
+      "postMetaCount": 34
+    }
+  },
+  "bodyMarkdown": "We have been getting some lovely new goodies in the past few releases, but this trend is not ending! This time we look at the [September 2022 (22.9) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_9_release.htm&type=5)!\n\nAre you interested in last month’s release notes? [Click here](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-22-8/)!\n\n## Platform\n\n### WebDAV upload limit relaxed\n\n![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/upload-limit-relaxed-stonks-meme.jpg)\n\nA big update that will make many happy! The limitation of 100MB has been relaxed to 500MB for uploading to the WebDAV.\n\nThis change will make it a lot easier to integrate with other systems that have to send over large amounts of data. Until now, you had to split it into multiple \"chunks\" of 100MB.\n\nSome will still wish the limit was higher, but this is still a considerable improvement!\n\n## Business Manager\n\n### Copy & Paste components in Page Designer!\n\nA big update to Page Designer as it will now be possible to copy and paste components (up to 10). Not only will this be possible in the same page, but to other pages - even across browser tabs!\n\nIdea This [feature](https://ideas.salesforce.com/s/idea/a0B8W00000GdYHjUAN/page-designer-add-ability-to-copypaste-components) was initially submitted by [Ryan Rubis](https://www.linkedin.com/in/ryanrubis/). https://youtu.be/jYaOZQcWHLI\n\n### Target components to a specific locale in Page Designer\n\nYou could only target components to specific customer groups or campaigns until now. Starting from this release, locales have been added to that list!\n\nhttps://youtu.be/uK\\_TioOU2rQ\n\n### Performance increase to Page Designer\n\nPages loaded in Page Designer are responsive before all referenced images, external resources, or client-side scripts have completed loading, cutting down on wait time.\n\nI suspect this improvement is only for the performance of the Business Manager as we are (mostly) in control of how the front behaves. But let's find out after this update hits the first sandboxes!\n\n### AfterPay and Venmo added to Salesforce Payments\n\n![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/venmo.jpg)\n\nLet your shoppers pay in interest-free installments with AfterPay. Salesforce Payments offers AfterPay through your Stripe Merchant account. When AfterPay is active on your storefront, the product details page and checkout cart list it as a payment option (Default SFRA & Payments Cartridge).\n\nVenmo has also been added as an express and multi-step payment service for U.S.-based merchants. This integration does require a PayPal integration with Salesforce Payments, and a payment zone configured that conforms with the Venmo criteria.\n\n## OCAPI & SCAPI\n\n### Shopper Context API Enhancements\n\nTo personalize Headless applications with Salesforce B2C Commerce Cloud, you will need the [Shopper Context API](https://developer.salesforce.com/docs/commerce/commerce-api/guide/shopper-context-api.html). In this release, a few new options have been made available:\n\n-   Source code support (trigger promotions, payment, and shipping methods)\n-   Support for Hybrid Deployments by adding support to the OCAPI for Shopper Context\n-   Personalize prices and promotions based on store-specific promotion and pricing rules (imported with [assignments.xml](https://developer.salesforce.com/docs/commerce/commerce-api/guide/shopper-context-api-store-specific.html))\n\n## Development\n\n### Updated Retention Period of Unregistered baskets\n\n> Unregistered baskets are now stored a maximum of 7 days, depending upon preference settings, which mitigates the risk of negative performance and error rates.\n\nThis one was already the case before this update, so not sure what has changed in this release. If you know, leave a comment!\n\n## Bugfixes\n\nIn August, someone at Salesforce has been cleaning house at the \"[Known Issues](https://trailblazer.salesforce.com/issues_index?page=3&tag=Commerce+Cloud+Platform).\" Many were updated in the past few weeks with a \"Fixed\" status, but for past releases (22.4, 22.5, 22.7, and 22.8), I will only mention those here that were fixed in at least 22.8.\n\n-   [AttrubuteValueEditor can shows wrong values for \"Enum\" types](https://trailblazer.salesforce.com/issues_view?id=a1p4V0000029kX2QAI&title=attrubutevalueeditor-can-shows-wrong-values-for-enum-types)\n-   [Currency symbol of Tanzanian Shilling (TZS) prices is null](https://trailblazer.salesforce.com/issues_view?id=a1p4V0000029kd3QAA&title=currency-symbol-of-tanzanian-shilling-tzs-prices-is-null)\n\n## Updated Cartridges & Tools\n\n### b2c-tools (v0.9.2-v0.10.0)\n\n-   [https://github.com/SalesforceCommerceCloud/b2c-tools](https://github.com/SalesforceCommerceCloud/b2c-tools)\n\n> b2c-tools is a CLI tool and library for data migrations, import/export, scripting and other tasks with SFCC B2C instances. It is intended to be complimentary to other tools such as sfcc-ci for development and CI/CD scenarios.\n\n-   Fixes an out of order issue with the previous release when bootstrapping new instances\n-   Code coverage for features\n-   change in bootstrapping order to ensure that errors during bootstrapping do not leave an inconsistent state\n-   Fixes the path for private library export. by [@mihaivilcuosf](https://github.com/mihaivilcuosf) in [#77](https://github.com/SalesforceCommerceCloud/b2c-tools/pull/77)\n-   Fixes an out of order issue with features\n-   delete cartridges prior to unzip to replace all files by [@sandragolden](https://github.com/sandragolden) in [#78](https://github.com/SalesforceCommerceCloud/b2c-tools/pull/78)\n-   adds runAsScript method to execution migration scripts directly by [@clavery](https://github.com/clavery) in [#80](https://github.com/SalesforceCommerceCloud/b2c-tools/pull/80)\n    -   see `examples/run-current-file.js`\n\n### link\\_beecloud\\_recaptcha (v2022.1.0)\n\n-   [https://github.com/SalesforceCommerceCloud/link\\_beecloud\\_recaptcha](https://github.com/SalesforceCommerceCloud/link_beecloud_recaptcha)\n\n> BeeCloud provides a LINK cartridge to integrate with Salesforce Commerce Cloud (SFCC). This cartridge provides integration with Google reCaptcha for checkout process.\n\nA new addition to public community repositories, always great to see! This one adds a quickstart to add Google reCaptcha to your order process!",
+  "conversionStatus": "converted",
+  "manualReviewRequired": false,
+  "fallbackTypes": [],
+  "conversionWarnings": [
+    {
+      "code": "missing-image-alt",
+      "message": "Image missing alt text in /salesforce-b2c-commerce-cloud-22-9-release/."
+    },
+    {
+      "code": "missing-image-alt",
+      "message": "Image missing alt text in /salesforce-b2c-commerce-cloud-22-9-release/."
+    }
+  ]
+}

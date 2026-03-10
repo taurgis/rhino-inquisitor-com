@@ -1,0 +1,94 @@
+{
+  "sourceId": "12435",
+  "sourceType": "wxr",
+  "sourceChannels": [
+    "wxr"
+  ],
+  "postType": "page",
+  "status": "publish",
+  "titleRaw": "SWC And Storybook: Error: Failed to load native binding",
+  "excerptRaw": "",
+  "bodyHtml": "<p>When switching between my M1 MacBook and Intel X64 MacBook today, I ran into an odd error:</p>\t\t\n\t\t\t<pre data-line=\"\">\n\t\t\t\t<code readonly=\"true\">\n\t\t\t\t\t<xmp>Error: Failed to load native binding\n    at Object.<anonymous> (/node_modules/@swc/core/binding.js:333:11)\n    at Module._compile (node:internal/modules/cjs/loader:1469:14)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)\n    at Object.newLoader (/node_modules/esbuild-register/dist/node.js:2262:9)\n    at extensions..js (/node_modules/esbuild-register/dist/node.js:4833:24)\n    at Module.load (node:internal/modules/cjs/loader:1288:32)\n    at Module._load (node:internal/modules/cjs/loader:1104:12)\n    at Module.require (node:internal/modules/cjs/loader:1311:19)\n    at require (node:internal/modules/helpers:179:18)\n    at Object.<anonymous> (/node_modules/@swc/core/index.js:49:17)\n</xmp>\n\t\t\t\t</code>\n\t\t\t</pre>\n\t\t\t<h2>Solution</h2>\t\t\n\t\t<p>Deleting my <strong>package-lock.json</strong> file and <strong>node_modules</strong>,and then running 'npm install' again magically fixed the problem!</p>",
+  "slug": "swc-and-storybook-error-failed-to-load-native-binding",
+  "publishedAt": "2024-10-19T16:33:40.000Z",
+  "modifiedAt": "2024-10-19T16:39:11.000Z",
+  "author": "Thomas Theunen",
+  "categories": [
+    {
+      "name": "Documentation",
+      "slug": "documentation"
+    }
+  ],
+  "tags": [
+    {
+      "name": "react",
+      "slug": "react"
+    },
+    {
+      "name": "technical",
+      "slug": "technical"
+    }
+  ],
+  "legacyUrl": "/swc-and-storybook-error-failed-to-load-native-binding/",
+  "targetUrl": "/swc-and-storybook-error-failed-to-load-native-binding/",
+  "disposition": "keep",
+  "aliasUrls": [
+    "/?p=12435"
+  ],
+  "mediaRefs": [],
+  "_raw": {
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "status": "publish",
+    "titleRaw": "SWC And Storybook: Error: Failed to load native binding",
+    "excerptRaw": "",
+    "publishedAt": "2024-10-19T16:33:40.000Z",
+    "modifiedAt": "2024-10-19T16:39:11.000Z",
+    "author": "Thomas Theunen",
+    "categories": [
+      {
+        "name": "Documentation",
+        "slug": "documentation"
+      }
+    ],
+    "tags": [
+      {
+        "name": "react",
+        "slug": "react"
+      },
+      {
+        "name": "technical",
+        "slug": "technical"
+      }
+    ],
+    "mediaRefs": [],
+    "manifest": {
+      "legacyUrl": "/swc-and-storybook-error-failed-to-load-native-binding/",
+      "targetUrl": "/swc-and-storybook-error-failed-to-load-native-binding/",
+      "disposition": "keep",
+      "redirectCode": null,
+      "implementationLayer": "none",
+      "urlClass": "page"
+    },
+    "normalization": {
+      "aliasUrlsDerivedFromSameTarget": [
+        "/?p=12435"
+      ],
+      "usedPublishedAtFallback": false,
+      "usedModifiedAtFallback": false,
+      "statusNormalizedFrom": "publish"
+    },
+    "extracted": {
+      "sourcePostType": "page",
+      "link": "/swc-and-storybook-error-failed-to-load-native-binding/",
+      "guid": "/?page_id=12435",
+      "attachmentUrl": null,
+      "postParent": "0",
+      "postMetaCount": 12
+    }
+  },
+  "bodyMarkdown": "When switching between my M1 MacBook and Intel X64 MacBook today, I ran into an odd error:\n\n```\n\n\t\t\t\t\tError: Failed to load native binding\n    at Object. (/node_modules/@swc/core/binding.js:333:11)\n    at Module._compile (node:internal/modules/cjs/loader:1469:14)\n    at Module._extensions..js (node:internal/modules/cjs/loader:1548:10)\n    at Object.newLoader (/node_modules/esbuild-register/dist/node.js:2262:9)\n    at extensions..js (/node_modules/esbuild-register/dist/node.js:4833:24)\n    at Module.load (node:internal/modules/cjs/loader:1288:32)\n    at Module._load (node:internal/modules/cjs/loader:1104:12)\n    at Module.require (node:internal/modules/cjs/loader:1311:19)\n    at require (node:internal/modules/helpers:179:18)\n    at Object. (/node_modules/@swc/core/index.js:49:17)\n\n\n\n```\n\n## Solution\n\nDeleting my **package-lock.json** file and **node\\_modules**,and then running 'npm install' again magically fixed the problem!",
+  "conversionStatus": "converted",
+  "manualReviewRequired": false,
+  "fallbackTypes": [],
+  "conversionWarnings": []
+}

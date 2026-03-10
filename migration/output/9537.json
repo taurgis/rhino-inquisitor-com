@@ -1,0 +1,117 @@
+{
+  "sourceId": "9537",
+  "sourceType": "wxr",
+  "sourceChannels": [
+    "filesystem",
+    "wxr"
+  ],
+  "postType": "post",
+  "status": "publish",
+  "titleRaw": "SFRA and Node 18: A Match Made in eCommerce Paradise or Hell?",
+  "excerptRaw": "",
+  "bodyHtml": "<p>As <a href=\"https://www.rhino-inquisitor.com/secure-coding-in-salesforce-b2c-commerce-cloud/\" target=\"_blank\" rel=\"noopener\">responsible developers</a>, it's important to stay up-to-date with the latest versions of our tools. The README of SFRA, unfortunately, reminds us that it is not always possible by recommending v12.21.0, which was the latest version at the time of launch (2017). </p><p>However, Node and SFRA packages have undergone many updates since then, and utilising the latest versions is crucial for security reasons. Let's keep our priorities in check and stay current with the latest updates.</p><p>Is it possible to upgrade to the latest Node version? And what steps do we need to undertake? Let's have a look!</p>\t\t\n\t\t\tSFRA versions prior to 6.2.0\n\t\t\t\t\t\t\tThis guide will only work if you are on one of the latest versions of SFRA. Because node-sass was removed in version 6.2.0, upgrading Node versions became a lot \"easier\".\n<br/><br/>\nNo need to worry! If you're using an older version, there's a node-sass version available for Node 18. But I will not cover that in this article.\n\t\t\t<h2>Activate Node 18 for your SFRA project</h2>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img width=\"800\" height=\"450\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/07/node18-1024x576.jpg\" alt=\"Install Node 18 for SFRA\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/07/node18-1024x576.jpg 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/07/node18-300x169.jpg 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/07/node18-768x432.jpg 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/07/node18-1536x864.jpg 1536w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/07/node18.jpg 1920w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t<p>To use this version, it is necessary to install it first. Although I recommend using \"<a href=\"https://github.com/nvm-sh/nvm\" target=\"_blank\" rel=\"noopener\">nvm</a>\", it may not be the best option for every setup. It is crucial to explore and find the most efficient method for your specific setup to ensure the successful installation of this version.</p><p>Messing with node versions can seriously block development if not done right, and we don't want to be stressing out on our day job now do we?</p>\t\t\n\t\t\t<h2>Install SFRA as usual</h2>\t\t\n\t\t<p>Fortunately, we can still perform the usual \"npm install\" without hassle. Please note that you may receive a warning about the system modifying package-lock.json to ensure compatibility with the current version of Node. </p>\t\t\n\t\t\t<pre data-line=\"\">\n\t\t\t\t<code readonly=\"true\">\n\t\t\t\t\t<xmp>npm WARN old lockfile \nnpm WARN old lockfile The package-lock.json file was created with an old version of npm,\nnpm WARN old lockfile so supplemental metadata must be fetched from the registry.\nnpm WARN old lockfile \nnpm WARN old lockfile This is a one-time fix-up, please be patient...\nnpm WARN old lockfile </xmp>\n\t\t\t\t</code>\n\t\t\t</pre>\n\t\t<p>So just as the message asks us, we will be patient.</p>\t\t\n\t\t\t<h2>SGMF Scripts and SSL</h2>\t\t\n\t\t<p>One of the hurdles in using the latest Node version is using a deprecated feature. Once you run any build or upload script, you will run into the following exception:</p>\t\t\n\t\t\t<pre data-line=\"\">\n\t\t\t\t<code readonly=\"true\">\n\t\t\t\t\t<xmp>Error: error:0308010C:digital envelope routines::unsupported</xmp>\n\t\t\t\t</code>\n\t\t\t</pre>\n\t\t<p>Luckily, a quick google search later, we find the solution to this error. Enabling the \"OpenSSL Legacy Provider\", and depending on your OS of choice a different command has to be used:</p>\t\t\n\t\t\t<pre data-line=\"\">\n\t\t\t\t<code readonly=\"true\">\n\t\t\t\t\t<xmp># Unix-like (Linux, macOS, etc...)\nexport NODE_OPTIONS=--openssl-legacy-provider\n# Windows\nset NODE_OPTIONS=--openssl-legacy-provider\n# PowerShell\n$env:NODE_OPTIONS = \"--openssl-legacy-provider\"\n</xmp>\n\t\t\t\t</code>\n\t\t\t</pre>\n\t\t<p>It is possible to update your package.json, depending on your (and the teams) setup:</p>\t\t\n\t\t\t<pre data-line=\"2,3,4,16,17,21,22,27,28,29,30\">\n\t\t\t\t<code readonly=\"true\">\n\t\t\t\t\t<xmp>  \"scripts\": {\n    \"test\": \"export NODE_OPTIONS=--openssl-legacy-provider && sgmf-scripts --test test/unit/**/*.js\",\n    \"cover\": \"export NODE_OPTIONS=--openssl-legacy-provider && sgmf-scripts --cover 'test/unit'\",\n    \"test:integration\": \"export NODE_OPTIONS=--openssl-legacy-provider && sgmf-scripts --integration 'test/integration/**/*.js'\",\n    \"test:acceptance:custom\": \"npx codeceptjs run --plugins retryFailedStep --profile\",\n    \"test:acceptance:deep\": \"npx codeceptjs run --plugins retryFailedStep --grep '(?=.*)^(?!.*@mobile)^(?!.*@tablet)^(?!.*@pageDesigner)' --profile\",\n    \"test:acceptance:smoke\": \"npx codeceptjs run --plugins retryFailedStep --grep @happyPath --profile\",\n    \"test:acceptance:pagedesigner\": \"npx codeceptjs run --plugins retryFailedStep --grep @pageDesigner --profile\",\n    \"test:acceptance:desktop\": \"npx codeceptjs run --plugins retryFailedStep --grep '(?=.*)^(?!.*@mobile)^(?!.*@tablet)^(?!.*@pageDesigner)^(?!.*@deepTest)' --profile\",\n    \"test:acceptance:mobile\": \"npx codeceptjs run --plugins retryFailedStep --profile sauce:phone --grep @mobile\",\n    \"test:acceptance:tablet\": \"npx codeceptjs run --plugins retryFailedStep --profile sauce:tablet --grep @tablet\",\n    \"test:acceptance:parallel\": \"npx codeceptjs run-multiple parallel --plugins retryFailedStep --profile\",\n    \"test:acceptance:multibrowsers\": \"npx codeceptjs run-multiple multibrowsers --plugins retryFailedStep --profile\",\n    \"test:acceptance:report\": \"./node_modules/.bin/allure serve test/acceptance/report\",\n    \"bdd:snippets\": \"./node_modules/.bin/codeceptjs bdd:snippets --path\",\n    \"compile:scss\": \"export NODE_OPTIONS=--openssl-legacy-provider && sgmf-scripts --compile css\",\n    \"compile:js\": \"export NODE_OPTIONS=--openssl-legacy-provider && sgmf-scripts --compile js\",\n    \"compile:fonts\": \"node bin/Makefile compileFonts\",\n    \"build\": \"npm run compile:js && npm run compile:fonts && npm run compile:scss\",\n    \"lint\": \"npm run lint:css && npm run lint:js\",\n    \"lint:css\": \"export NODE_OPTIONS=--openssl-legacy-provider && sgmf-scripts --lint css\",\n    \"lint:js\": \"export NODE_OPTIONS=--openssl-legacy-provider && sgmf-scripts --lint js\",\n    \"init:isml\": \"./node_modules/.bin/isml-linter --init\",\n    \"lint:isml\": \"./node_modules/.bin/isml-linter\",\n    \"build:isml\": \"./node_modules/.bin/isml-linter --build\",\n    \"fix:isml\": \"./node_modules/.bin/isml-linter --autofix\",\n    \"upload\": \"export NODE_OPTIONS=--openssl-legacy-provider && sgmf-scripts --upload\",\n    \"uploadCartridge\": \"export NODE_OPTIONS=--openssl-legacy-provider && sgmf-scripts --uploadCartridge app_storefront_base && sgmf-scripts --uploadCartridge modules && sgmf-scripts --uploadCartridge bm_app_storefront_base\",\n    \"watch\": \"export NODE_OPTIONS=--openssl-legacy-provider && sgmf-scripts --watch\",\n    \"watch:static\": \"export NODE_OPTIONS=--openssl-legacy-provider && sgmf-scripts --watch static\",\n    \"release\": \"node bin/Makefile release --\"\n  },</xmp>\n\t\t\t\t</code>\n\t\t\t</pre>\n\t\t\t<h2>Libraries</h2>\t\t\n\t\t<p>It seems like we still have a long way to go. The libraries we're using for SFRA are outdated and trying to access Node functions that are no longer available. </p><p>Let's get cracking, and give them an update!</p>\t\t\n\t\t\t<pre data-line=\"\">\n\t\t\t\t<code readonly=\"true\">\n\t\t\t\t\t<xmp>npm update</xmp>\n\t\t\t\t</code>\n\t\t\t</pre>\n\t\t\t<pre data-line=\"\">\n\t\t\t\t<code readonly=\"true\">\n\t\t\t\t\t<xmp>npm ERR! code ERESOLVE\nnpm ERR! ERESOLVE unable to resolve dependency tree\nnpm ERR! \nnpm ERR! While resolving: sfra@6.3.0\nnpm ERR! Found: stylelint@13.13.1\nnpm ERR! node_modules/stylelint\nnpm ERR!   dev stylelint@\"^13.13.1\" from the root project\nnpm ERR! \nnpm ERR! Could not resolve dependency:\nnpm ERR! peer stylelint@\"^8.0.0\" from stylelint-config-standard@17.0.0\n</xmp>\n\t\t\t\t</code>\n\t\t\t</pre>\n\t\t\t\t\t\t\t\t\t\t\t\t<figure>\n\t\t\t\t\t\t\t\t\t\t<img width=\"800\" height=\"367\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/07/upgrading-libraries-developer-1024x470.jpg\" alt=\"\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/07/upgrading-libraries-developer-1024x470.jpg 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/07/upgrading-libraries-developer-300x138.jpg 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/07/upgrading-libraries-developer-768x353.jpg 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/07/upgrading-libraries-developer.jpg 1200w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t\t\t\t<figcaption>Ok. Probably never 😅</figcaption>\n\t\t\t\t\t\t\t\t\t\t</figure>\n\t\t<p>This task will require a significant amount of effort, and the outcome may vary depending on the used cartridges. If you have been working on a project for an extended period, some libraries may have been updated, while others remain unchanged from the beginning.</p>\n<p>However, it seems that the essential scripts are functioning correctly:</p>\n<ul>\n<li>Compiling</li>\n<li>Linting</li>\n<li>Uploading\n</li>\n</ul>\n<p>And that is a good place to start! I hope this article proves helpful in updating your SFRA project to Node 18.</p>\n<p><em>Wishing you the best!</em></p>\t\t\n\t\t\t<h2>Shouldn't Salesforce make it compatible?</h2>\t\t\n\t\t<p>While the <a href=\"https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/\" target=\"_blank\" rel=\"noopener\">Composable Storefront</a> is generating a lot of excitement, SFRA remains a dependable choice for launching websites around the world. To stay current with the latest technology, it would make sense for Salesforce to simplify upgrading to Node 18. </p><p>One important question remains: what will happen to third-party cartridges? It will require some investment from numerous third-party suppliers. The real question is, are they willing to make such an investment?</p>",
+  "slug": "how-to-use-node-18-with-sfra",
+  "publishedAt": "2023-07-10T08:09:37.000Z",
+  "modifiedAt": "2023-07-10T08:13:58.000Z",
+  "author": "Thomas Theunen",
+  "categories": [
+    {
+      "name": "Salesforce Commerce Cloud",
+      "slug": "salesforce-commerce-cloud"
+    },
+    {
+      "name": "Technical",
+      "slug": "technical"
+    }
+  ],
+  "tags": [
+    {
+      "name": "sfcc",
+      "slug": "sfcc"
+    },
+    {
+      "name": "technical",
+      "slug": "technical"
+    }
+  ],
+  "legacyUrl": "/how-to-use-node-18-with-sfra/",
+  "targetUrl": "/how-to-use-node-18-with-sfra/",
+  "disposition": "keep",
+  "aliasUrls": [],
+  "mediaRefs": [
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/07/node18-1024x576.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/07/node18-1536x864.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/07/node18-300x169.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/07/node18-768x432.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/07/node18.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/07/upgrading-libraries-developer-1024x470.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/07/upgrading-libraries-developer-300x138.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/07/upgrading-libraries-developer-768x353.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/07/upgrading-libraries-developer.jpg"
+  ],
+  "_raw": {
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "status": "publish",
+    "titleRaw": "SFRA and Node 18: A Match Made in eCommerce Paradise or Hell?",
+    "excerptRaw": "",
+    "publishedAt": "2023-07-10T08:09:37.000Z",
+    "modifiedAt": "2023-07-10T08:13:58.000Z",
+    "author": "Thomas Theunen",
+    "categories": [
+      {
+        "name": "Salesforce Commerce Cloud",
+        "slug": "salesforce-commerce-cloud"
+      },
+      {
+        "name": "Technical",
+        "slug": "technical"
+      }
+    ],
+    "tags": [
+      {
+        "name": "sfcc",
+        "slug": "sfcc"
+      },
+      {
+        "name": "technical",
+        "slug": "technical"
+      }
+    ],
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/07/node18-1024x576.jpg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/07/upgrading-libraries-developer-1024x470.jpg"
+    ],
+    "manifest": {
+      "legacyUrl": "/how-to-use-node-18-with-sfra/",
+      "targetUrl": "/how-to-use-node-18-with-sfra/",
+      "disposition": "keep",
+      "redirectCode": null,
+      "implementationLayer": "none",
+      "urlClass": "post"
+    },
+    "normalization": {
+      "aliasUrlsDerivedFromSameTarget": [],
+      "usedPublishedAtFallback": false,
+      "usedModifiedAtFallback": false,
+      "statusNormalizedFrom": "publish"
+    },
+    "extracted": {
+      "sourcePostType": "post",
+      "link": "/how-to-use-node-18-with-sfra/",
+      "guid": "/?p=9537",
+      "attachmentUrl": null,
+      "postParent": "0",
+      "postMetaCount": 17
+    }
+  },
+  "bodyMarkdown": "As [responsible developers](https://www.rhino-inquisitor.com/secure-coding-in-salesforce-b2c-commerce-cloud/), it's important to stay up-to-date with the latest versions of our tools. The README of SFRA, unfortunately, reminds us that it is not always possible by recommending v12.21.0, which was the latest version at the time of launch (2017).\n\nHowever, Node and SFRA packages have undergone many updates since then, and utilising the latest versions is crucial for security reasons. Let's keep our priorities in check and stay current with the latest updates.\n\nIs it possible to upgrade to the latest Node version? And what steps do we need to undertake? Let's have a look!\n\nSFRA versions prior to 6.2.0 This guide will only work if you are on one of the latest versions of SFRA. Because node-sass was removed in version 6.2.0, upgrading Node versions became a lot \"easier\".\n\nNo need to worry! If you're using an older version, there's a node-sass version available for Node 18. But I will not cover that in this article.\n\n## Activate Node 18 for your SFRA project\n\n![Install Node 18 for SFRA](https://www.rhino-inquisitor.com/wp-content/uploads/2023/07/node18-1024x576.jpg)\n\nTo use this version, it is necessary to install it first. Although I recommend using \"[nvm](https://github.com/nvm-sh/nvm)\", it may not be the best option for every setup. It is crucial to explore and find the most efficient method for your specific setup to ensure the successful installation of this version.\n\nMessing with node versions can seriously block development if not done right, and we don't want to be stressing out on our day job now do we?\n\n## Install SFRA as usual\n\nFortunately, we can still perform the usual \"npm install\" without hassle. Please note that you may receive a warning about the system modifying package-lock.json to ensure compatibility with the current version of Node.\n\n```\n\n\t\t\t\t\tnpm WARN old lockfile\nnpm WARN old lockfile The package-lock.json file was created with an old version of npm,\nnpm WARN old lockfile so supplemental metadata must be fetched from the registry.\nnpm WARN old lockfile\nnpm WARN old lockfile This is a one-time fix-up, please be patient...\nnpm WARN old lockfile\n\n\n```\n\nSo just as the message asks us, we will be patient.\n\n## SGMF Scripts and SSL\n\nOne of the hurdles in using the latest Node version is using a deprecated feature. Once you run any build or upload script, you will run into the following exception:\n\n```\n\n\t\t\t\t\tError: error:0308010C:digital envelope routines::unsupported\n\n\n```\n\nLuckily, a quick google search later, we find the solution to this error. Enabling the \"OpenSSL Legacy Provider\", and depending on your OS of choice a different command has to be used:\n\n```\n\n\t\t\t\t\t# Unix-like (Linux, macOS, etc...)\nexport NODE_OPTIONS=--openssl-legacy-provider\n# Windows\nset NODE_OPTIONS=--openssl-legacy-provider\n# PowerShell\n$env:NODE_OPTIONS = \"--openssl-legacy-provider\"\n\n\n\n```\n\nIt is possible to update your package.json, depending on your (and the teams) setup:\n\n```\n\n\t\t\t\t\t  \"scripts\": {\n    \"test\": \"export NODE_OPTIONS=--openssl-legacy-provider && sgmf-scripts --test test/unit/**/*.js\",\n    \"cover\": \"export NODE_OPTIONS=--openssl-legacy-provider && sgmf-scripts --cover 'test/unit'\",\n    \"test:integration\": \"export NODE_OPTIONS=--openssl-legacy-provider && sgmf-scripts --integration 'test/integration/**/*.js'\",\n    \"test:acceptance:custom\": \"npx codeceptjs run --plugins retryFailedStep --profile\",\n    \"test:acceptance:deep\": \"npx codeceptjs run --plugins retryFailedStep --grep '(?=.*)^(?!.*@mobile)^(?!.*@tablet)^(?!.*@pageDesigner)' --profile\",\n    \"test:acceptance:smoke\": \"npx codeceptjs run --plugins retryFailedStep --grep @happyPath --profile\",\n    \"test:acceptance:pagedesigner\": \"npx codeceptjs run --plugins retryFailedStep --grep @pageDesigner --profile\",\n    \"test:acceptance:desktop\": \"npx codeceptjs run --plugins retryFailedStep --grep '(?=.*)^(?!.*@mobile)^(?!.*@tablet)^(?!.*@pageDesigner)^(?!.*@deepTest)' --profile\",\n    \"test:acceptance:mobile\": \"npx codeceptjs run --plugins retryFailedStep --profile sauce:phone --grep @mobile\",\n    \"test:acceptance:tablet\": \"npx codeceptjs run --plugins retryFailedStep --profile sauce:tablet --grep @tablet\",\n    \"test:acceptance:parallel\": \"npx codeceptjs run-multiple parallel --plugins retryFailedStep --profile\",\n    \"test:acceptance:multibrowsers\": \"npx codeceptjs run-multiple multibrowsers --plugins retryFailedStep --profile\",\n    \"test:acceptance:report\": \"./node_modules/.bin/allure serve test/acceptance/report\",\n    \"bdd:snippets\": \"./node_modules/.bin/codeceptjs bdd:snippets --path\",\n    \"compile:scss\": \"export NODE_OPTIONS=--openssl-legacy-provider && sgmf-scripts --compile css\",\n    \"compile:js\": \"export NODE_OPTIONS=--openssl-legacy-provider && sgmf-scripts --compile js\",\n    \"compile:fonts\": \"node bin/Makefile compileFonts\",\n    \"build\": \"npm run compile:js && npm run compile:fonts && npm run compile:scss\",\n    \"lint\": \"npm run lint:css && npm run lint:js\",\n    \"lint:css\": \"export NODE_OPTIONS=--openssl-legacy-provider && sgmf-scripts --lint css\",\n    \"lint:js\": \"export NODE_OPTIONS=--openssl-legacy-provider && sgmf-scripts --lint js\",\n    \"init:isml\": \"./node_modules/.bin/isml-linter --init\",\n    \"lint:isml\": \"./node_modules/.bin/isml-linter\",\n    \"build:isml\": \"./node_modules/.bin/isml-linter --build\",\n    \"fix:isml\": \"./node_modules/.bin/isml-linter --autofix\",\n    \"upload\": \"export NODE_OPTIONS=--openssl-legacy-provider && sgmf-scripts --upload\",\n    \"uploadCartridge\": \"export NODE_OPTIONS=--openssl-legacy-provider && sgmf-scripts --uploadCartridge app_storefront_base && sgmf-scripts --uploadCartridge modules && sgmf-scripts --uploadCartridge bm_app_storefront_base\",\n    \"watch\": \"export NODE_OPTIONS=--openssl-legacy-provider && sgmf-scripts --watch\",\n    \"watch:static\": \"export NODE_OPTIONS=--openssl-legacy-provider && sgmf-scripts --watch static\",\n    \"release\": \"node bin/Makefile release --\"\n  },\n\n\n```\n\n## Libraries\n\nIt seems like we still have a long way to go. The libraries we're using for SFRA are outdated and trying to access Node functions that are no longer available.\n\nLet's get cracking, and give them an update!\n\n```\n\n\t\t\t\t\tnpm update\n\n\n```\n\n```\n\n\t\t\t\t\tnpm ERR! code ERESOLVE\nnpm ERR! ERESOLVE unable to resolve dependency tree\nnpm ERR!\nnpm ERR! While resolving: sfra@6.3.0\nnpm ERR! Found: stylelint@13.13.1\nnpm ERR! node_modules/stylelint\nnpm ERR!   dev stylelint@\"^13.13.1\" from the root project\nnpm ERR!\nnpm ERR! Could not resolve dependency:\nnpm ERR! peer stylelint@\"^8.0.0\" from stylelint-config-standard@17.0.0\n\n\n\n```\n\n![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/07/upgrading-libraries-developer-1024x470.jpg)\n\nOk. Probably never 😅\n\nThis task will require a significant amount of effort, and the outcome may vary depending on the used cartridges. If you have been working on a project for an extended period, some libraries may have been updated, while others remain unchanged from the beginning.\n\nHowever, it seems that the essential scripts are functioning correctly:\n\n-   Compiling\n-   Linting\n-   Uploading\n\nAnd that is a good place to start! I hope this article proves helpful in updating your SFRA project to Node 18.\n\n_Wishing you the best!_\n\n## Shouldn't Salesforce make it compatible?\n\nWhile the [Composable Storefront](https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/) is generating a lot of excitement, SFRA remains a dependable choice for launching websites around the world. To stay current with the latest technology, it would make sense for Salesforce to simplify upgrading to Node 18.\n\nOne important question remains: what will happen to third-party cartridges? It will require some investment from numerous third-party suppliers. The real question is, are they willing to make such an investment?",
+  "conversionStatus": "converted",
+  "manualReviewRequired": false,
+  "fallbackTypes": [],
+  "conversionWarnings": [
+    {
+      "code": "missing-image-alt",
+      "message": "Image missing alt text in /how-to-use-node-18-with-sfra/."
+    }
+  ]
+}

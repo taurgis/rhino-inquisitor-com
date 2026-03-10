@@ -1,0 +1,152 @@
+{
+  "sourceId": "1307",
+  "sourceType": "wxr",
+  "sourceChannels": [
+    "filesystem",
+    "wxr"
+  ],
+  "postType": "post",
+  "status": "publish",
+  "titleRaw": "Salesforce B2C Commerce: The 22.5 Release",
+  "excerptRaw": "",
+  "bodyHtml": "<p>A new month, a new release of Salesforce B2C Commerce Cloud. Let us dig a little deeper in the <a href=\"https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_5_release.htm&amp;type=5\" target=\"_blank\" rel=\"noopener\">release notes</a> to see what is new!</p><p>Are you interested in last month's release notes? <a href=\"https://www.rhino-inquisitor.com/b2c-commerce-whats-new-in-22-4/\" target=\"_blank\" rel=\"noopener\">Click here</a>!</p>\t\t\n\t\t\t<h2>Documentation and community move</h2>\t\t\n\t\t<p>In May, a significant change is the decommissioning of the <a href=\"https://developer.commercecloud.com/\" target=\"_blank\" rel=\"noopener\">CCDC</a> (Commerce Cloud Developer Center).</p><p>But do not fear! All documentation has been safely migrated to the primary <a href=\"http://developer.salesforce.com/developer-centers/commerce-cloud\" target=\"_blank\" rel=\"noopener\">Salesforce Developer Center</a>!</p><p>The communities that were part of the CCDC have also been migrated into the existing <a href=\"https://trailhead.salesforce.com/trailblazer-community/groups/0F94S000000H1fESAS?tab=discussion&amp;sort=LAST_MODIFIED_DATE_DESC\" target=\"_blank\" rel=\"noopener\">Trailblazer Community</a>, so all of that information (questions and answers) is not lost!</p><p>This is, in my opinion, an excellent move to integrate the Commerce Cloud community more into the <a href=\"https://www.rhino-inquisitor.com/the-state-of-ohana-for-salesforce-commerce-cloud/\" target=\"_blank\" rel=\"noopener\">Salesforce Ohana</a>. </p>\t\t\n\t\t\t<h2>Platform</h2>\t\t\n\t\t\t<h3>Encryption at Rest</h3>\t\t\n\t\t<p>To improve the platform's security, a new <strong>PILOT </strong>program was started. This program aims to encrypt all customer data on the Salesforce B2C Commerce platform stored on the POD (servers).</p><p>This is achieved using Host Disk Encryption offered by the OS and <a href=\"https://docs.netapp.com/us-en/ontap/encryption-at-rest/configure-netapp-volume-encryption-concept.html\" target=\"_blank\" rel=\"noopener\">Volume Encryption</a> provided by NetApp.</p><p>Another great move to ensure all sensitive data stored on Salesforce servers are protected from \"prying eyes.\" 2022 is undoubtedly a year with a significant focus on improving the platform's (already solid) base.</p><p><i><strong>Note</strong>: Salesforce is actively looking for customers in the AMER region who deal with highly sensitive data (health information). If you are already an active customer, <b>a realm move will be required.</b></i></p>\t\t\n\t\t\t<h3>Control Center</h3>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/control-center-ods-scheduler.png\" data-elementor-open-lightbox=\"yes\" data-elementor-lightbox-title=\"Control Center: On-Demand Sandbox Scheduler\" e-action-hash=\"#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MTMyNywidXJsIjoiaHR0cHM6XC9cL3d3dy5yaGluby1pbnF1aXNpdG9yLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyMlwvMDRcL2NvbnRyb2wtY2VudGVyLW9kcy1zY2hlZHVsZXIucG5nIn0%3D\">\n\t\t\t\t\t\t\t<img width=\"800\" height=\"421\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/control-center-ods-scheduler.png\" alt=\"\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/control-center-ods-scheduler.png 958w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/control-center-ods-scheduler-300x158.png 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/control-center-ods-scheduler-768x404.png 768w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t</a>\n\t\t<p>As On-Demand Sandboxes have become the new standard for Salesforce B2C Commerce, the UI of the <a href=\"https://controlcenter.commercecloud.salesforce.com/index.html\" target=\"_blank\" rel=\"noopener\">Control Center</a> is being revamped as well.</p><p>We already had <a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/sandboxes/b2c_sandbox_operation_scheduler.html\" target=\"_blank\" rel=\"noopener\">the option to schedule our Sandboxes uptime through a REST API</a>, but a UI is now available to make life a little easier.</p>\t\t\n\t\t\t<h3>Tiktok Integration</h3>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/tiktok-for-business.jpeg\" data-elementor-open-lightbox=\"yes\" data-elementor-lightbox-title=\"Tiktok for Business\" e-action-hash=\"#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MTM0NiwidXJsIjoiaHR0cHM6XC9cL3d3dy5yaGluby1pbnF1aXNpdG9yLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyMlwvMDRcL3Rpa3Rvay1mb3ItYnVzaW5lc3MuanBlZyJ9\">\n\t\t\t\t\t\t\t<img width=\"800\" height=\"286\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/tiktok-for-business-1024x366.jpeg\" alt=\"\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/tiktok-for-business-1024x366.jpeg 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/tiktok-for-business-300x107.jpeg 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/tiktok-for-business-768x274.jpeg 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/tiktok-for-business-1536x549.jpeg 1536w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/tiktok-for-business.jpeg 1960w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t</a>\n\t\t<p>A beta program is available to test an integration between B2C Commerce Cloud and Tiktok. This Beta aims to create storefronts and advertise products on Tiktok using products and shopper activity data.</p><p><em><strong>Currently, recruiting for this feature is paused until further notice!</strong></em></p><p>Even though recruiting is currently on hold, it is good to see the Salesforce team is actively investigating integrating with social channels.</p>\t\t\n\t\t\t<h2>PWA Kit v1.5.x</h2>\t\t\n\t\t<p>As with SFRA, the first years will see quick releases with new features added. Besides the major \"2.x\" release currently in the developer preview, improvements are being made to the \"1.x\" version concurrently.</p><p>In this release, these new features and improvements were added:</p><ul><li><a href=\"https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/multiple-sites.html\">Multiple Sites support</a></li><li>Forgot Password Flow (<a href=\"https://github.com/SalesforceCommerceCloud/pwa-kit/pull/373\" target=\"_blank\" rel=\"noopener\">Community Contribution</a>)</li><li>Support Hybrid Storefronts (<a href=\"https://github.com/SalesforceCommerceCloud/pwa-kit/pull/429\" target=\"_blank\" rel=\"noopener\">SFRA and PWA Kit</a>)</li><li><a href=\"https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v1.5.0\" target=\"_blank\" rel=\"noopener\">Bug Fixes</a><br /><br /><br /></li></ul>\t\t\n\t\t\t<h2>SCAPI</h2>\t\t\n\t\t\t<h3>Shopper Context API</h3>\t\t\n\t\t<p>The Shopper Context API will enable customers to build headless storefronts with personalization. This API is currently in the BETA stage, so you may opt in at your discretion.</p>\t\t\n\t\t\t\t\t<blockquote>\n\t\t\t<p>\n\t\t\t\tThe context information is evaluated against the customer group definitions to determine a customer group (shopper segment) and then used to activate the experiences associated with a particular segment, such as promotions.\t\t\t</p>\n\t\t\t\t\t</blockquote>\n\t\t<p>Want to make use of this API? The documentation is available <a href=\"https://developer.salesforce.com/docs/commerce/commerce-api/references?meta=shopper-context:Summary\" target=\"_blank\" rel=\"noopener\">here</a>!</p>\t\t\n\t\t\t<h3>SLAS Password-less Login</h3>\t\t\n\t\t<p>This new addition to the SLAS APIs will allow registered customers to log in without using a password.</p><p>Instead, it will allow you to log in using a private link sent to your email (and later through SMS or a TOTP application).</p><p>The documentation is available here:</p><ul><li><a href=\"https://developer.salesforce.com/docs/commerce/commerce-api/references?meta=shopper-login:/organizations/%7BorganizationId%7D/oauth2/passwordless/login\" target=\"_blank\" rel=\"noopener\">Shopper</a></li><li><a href=\"https://developer.salesforce.com/docs/commerce/commerce-api/references?meta=slas-admin:/tenants/%7BtenantId%7D/clients/%7BclientId%7D/passwordless-templates\" target=\"_blank\" rel=\"noopener\">Admin</a><br /><br /></li></ul><p>This change gives us more flexibility in providing login options to customers.</p><p><em><strong>Note: </strong>This API is only available for private clients<del>, and the email login templates only support plain text. For now, styling the e-mail for the password-less login option is out of the question.</del></em></p><p><em><strong>Update: </strong>It turns out that HTML is supported; the API determines if it is plain text or not. <strong>Be sure to validate your HTML on different email clients,</strong> as the service does not do any validation of the template!</em></p>\t\t\n\t\t\t<h2>Business Manager</h2>\t\t\n\t\t\t<h3>Rule-Based Categorization</h3>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/product-exclusion-list-rule-based.png\" data-elementor-open-lightbox=\"yes\" data-elementor-lightbox-title=\"Rule Based Categorization: Exclusion\" e-action-hash=\"#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MTMxOSwidXJsIjoiaHR0cHM6XC9cL3d3dy5yaGluby1pbnF1aXNpdG9yLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyMlwvMDRcL3Byb2R1Y3QtZXhjbHVzaW9uLWxpc3QtcnVsZS1iYXNlZC5wbmcifQ%3D%3D\">\n\t\t\t\t\t\t\t<img width=\"800\" height=\"307\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/product-exclusion-list-rule-based.png\" alt=\"\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/product-exclusion-list-rule-based.png 860w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/product-exclusion-list-rule-based-300x115.png 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/product-exclusion-list-rule-based-768x295.png 768w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t</a>\n\t\t<p><a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/categories/b2c_dynamic_categories.html\" target=\"_blank\" rel=\"noopener\">Dynamic Categorization</a> is a recent addition to the Salesforce B2C Commerce Cloud feature list, allowing the automatic (job-based) assignment of products to specific categories on configurable criteria.</p><p>Over the past months, a lot of feedback has been provided on this feature. And in this release, two new updates are announced:</p><ul><li>Ability to create exclusion rules for products</li><li>Maximum conditions for a rule have been increased from 5 to 20<br /><br /></li></ul><p>Having the option to set more than five conditions will give merchandisers more flexibility when organizing their categories.</p>\t\t\n\t\t\t<h3>Salesforce Payments Credentials Storage</h3>\t\t\n\t\t<p>Salesforce Payments is getting some love in this release. The first addition is storing payment card credentials for:</p><ul><li><strong>Future off-session use: </strong>Support for recurring subscription payments or delayed payments (pay when order is fulfilled)<br /><br /></li><li><strong>Save for on-session use: </strong>Store payment options for a quicker customer check-out (only available in a shopper session)<br /><br /></li></ul><p>It is good to see these features being added to the \"native\" payment option within Commerce Cloud. Storing payment methods will open the door for new use-cases and allow customers to place orders faster and have a better user experience!</p>\t\t\n\t\t\t<h3>Klarna for Salesforce Payments</h3>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/klarnastripe.jpg\" data-elementor-open-lightbox=\"yes\" data-elementor-lightbox-title=\"Klarna + Stripe\" e-action-hash=\"#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MTMyMywidXJsIjoiaHR0cHM6XC9cL3d3dy5yaGluby1pbnF1aXNpdG9yLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyMlwvMDRcL2tsYXJuYXN0cmlwZS5qcGcifQ%3D%3D\">\n\t\t\t\t\t\t\t<img width=\"800\" height=\"450\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/klarnastripe-1024x576.jpg\" alt=\"\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/klarnastripe-1024x576.jpg 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/klarnastripe-300x169.jpg 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/klarnastripe-768x432.jpg 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/klarnastripe-1536x864.jpg 1536w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/klarnastripe.jpg 2048w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t</a>\n\t\t<p>For most, <a href=\"https://www.klarna.com/international/\" target=\"_blank\" rel=\"noopener\">Klarna</a> is a well-known payment method. This option has now been added to Salesforce Payments giving shoppers the ability to use the three different pay-later options that Klarna provides:</p><ul><li>Installments</li><li>Pay Later</li><li>Financing<br /><br /></li></ul><p>Another advantage for merchants is that no additional agreement needs to be signed with Klarna. But as always, with payment providers, check the costs per payment that are part of your <a href=\"https://stripe.com/en-be/pricing?utm_campaign=paid_brand-BE_en_Search_Brand_Stripe-868855632&amp;utm_medium=cpc&amp;utm_source=google&amp;ad_content=307877157763&amp;utm_term=kwd-487920435973&amp;utm_matchtype=e&amp;utm_adposition=&amp;utm_device=c\" target=\"_blank\" rel=\"noopener\">existing agreement</a> with Stripe.</p><p><em><strong>Note: </strong>The merchant receives payments <a href=\"https://www.klarna.com/uk/business/merchant-support/when-will-we-receive-payment-from-klarna/\" target=\"_blank\" rel=\"noopener\">according to a payout schedule</a> even though customers pay the amount later.</em></p>\t\t\n\t\t\t<h2>Development</h2>\t\t\n\t\t\t<h3>Custom Job Steps Context</h3>\t\t\n\t\t<p>Jobs that store non-primitive data types of values in <strong>dw.job.JobExecution.getContext()</strong> now fail. Previously, the job logged a warning, ignored the invalid value, and continued.</p>\t\t\n\t\t\t<h3>Known Issue Bugfixes</h3>\t\t\n\t\t<p>I have looked at the recently updated issues but found that they are still \"In Review,\" and none have been updated to resolve for this release.</p>",
+  "slug": "salesforce-b2c-commerce-the-22-5-release",
+  "publishedAt": "2022-04-18T07:31:52.000Z",
+  "modifiedAt": "2022-07-23T21:51:46.000Z",
+  "author": "Thomas Theunen",
+  "categories": [
+    {
+      "name": "Release Notes",
+      "slug": "release-notes"
+    },
+    {
+      "name": "Salesforce Commerce Cloud",
+      "slug": "salesforce-commerce-cloud"
+    }
+  ],
+  "tags": [
+    {
+      "name": "on demand sandbox",
+      "slug": "on-demand-sandbox"
+    },
+    {
+      "name": "sfcc",
+      "slug": "sfcc"
+    },
+    {
+      "name": "technical",
+      "slug": "technical"
+    }
+  ],
+  "legacyUrl": "/salesforce-b2c-commerce-the-22-5-release/",
+  "targetUrl": "/salesforce-b2c-commerce-the-22-5-release/",
+  "disposition": "keep",
+  "aliasUrls": [
+    "/?p=1307"
+  ],
+  "mediaRefs": [
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/control-center-ods-scheduler-300x158.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/control-center-ods-scheduler-768x404.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/control-center-ods-scheduler.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/klarnastripe-1024x576.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/klarnastripe-1536x864.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/klarnastripe-300x169.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/klarnastripe-768x432.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/klarnastripe.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/product-exclusion-list-rule-based-300x115.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/product-exclusion-list-rule-based-768x295.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/product-exclusion-list-rule-based.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/tiktok-for-business-1024x366.jpeg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/tiktok-for-business-1536x549.jpeg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/tiktok-for-business-300x107.jpeg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/tiktok-for-business-768x274.jpeg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/tiktok-for-business.jpeg"
+  ],
+  "_raw": {
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "status": "publish",
+    "titleRaw": "Salesforce B2C Commerce: The 22.5 Release",
+    "excerptRaw": "",
+    "publishedAt": "2022-04-18T07:31:52.000Z",
+    "modifiedAt": "2022-07-23T21:51:46.000Z",
+    "author": "Thomas Theunen",
+    "categories": [
+      {
+        "name": "Release Notes",
+        "slug": "release-notes"
+      },
+      {
+        "name": "Salesforce Commerce Cloud",
+        "slug": "salesforce-commerce-cloud"
+      }
+    ],
+    "tags": [
+      {
+        "name": "on demand sandbox",
+        "slug": "on-demand-sandbox"
+      },
+      {
+        "name": "sfcc",
+        "slug": "sfcc"
+      },
+      {
+        "name": "technical",
+        "slug": "technical"
+      }
+    ],
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/control-center-ods-scheduler.png",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/klarnastripe-1024x576.jpg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/klarnastripe.jpg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/product-exclusion-list-rule-based.png",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/tiktok-for-business-1024x366.jpeg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/tiktok-for-business.jpeg"
+    ],
+    "manifest": {
+      "legacyUrl": "/salesforce-b2c-commerce-the-22-5-release/",
+      "targetUrl": "/salesforce-b2c-commerce-the-22-5-release/",
+      "disposition": "keep",
+      "redirectCode": null,
+      "implementationLayer": "none",
+      "urlClass": "post"
+    },
+    "normalization": {
+      "aliasUrlsDerivedFromSameTarget": [
+        "/?p=1307"
+      ],
+      "usedPublishedAtFallback": false,
+      "usedModifiedAtFallback": false,
+      "statusNormalizedFrom": "publish"
+    },
+    "extracted": {
+      "sourcePostType": "post",
+      "link": "/salesforce-b2c-commerce-the-22-5-release/",
+      "guid": "/?p=1307",
+      "attachmentUrl": null,
+      "postParent": "0",
+      "postMetaCount": 27
+    }
+  },
+  "bodyMarkdown": "A new month, a new release of Salesforce B2C Commerce Cloud. Let us dig a little deeper in the [release notes](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_5_release.htm&type=5) to see what is new!\n\nAre you interested in last month's release notes? [Click here](https://www.rhino-inquisitor.com/b2c-commerce-whats-new-in-22-4/)!\n\n## Documentation and community move\n\nIn May, a significant change is the decommissioning of the [CCDC](https://developer.commercecloud.com/) (Commerce Cloud Developer Center).\n\nBut do not fear! All documentation has been safely migrated to the primary [Salesforce Developer Center](http://developer.salesforce.com/developer-centers/commerce-cloud)!\n\nThe communities that were part of the CCDC have also been migrated into the existing [Trailblazer Community](https://trailhead.salesforce.com/trailblazer-community/groups/0F94S000000H1fESAS?tab=discussion&sort=LAST_MODIFIED_DATE_DESC), so all of that information (questions and answers) is not lost!\n\nThis is, in my opinion, an excellent move to integrate the Commerce Cloud community more into the [Salesforce Ohana](https://www.rhino-inquisitor.com/the-state-of-ohana-for-salesforce-commerce-cloud/).\n\n## Platform\n\n### Encryption at Rest\n\nTo improve the platform's security, a new **PILOT** program was started. This program aims to encrypt all customer data on the Salesforce B2C Commerce platform stored on the POD (servers).\n\nThis is achieved using Host Disk Encryption offered by the OS and [Volume Encryption](https://docs.netapp.com/us-en/ontap/encryption-at-rest/configure-netapp-volume-encryption-concept.html) provided by NetApp.\n\nAnother great move to ensure all sensitive data stored on Salesforce servers are protected from \"prying eyes.\" 2022 is undoubtedly a year with a significant focus on improving the platform's (already solid) base.\n\n_**Note**: Salesforce is actively looking for customers in the AMER region who deal with highly sensitive data (health information). If you are already an active customer, **a realm move will be required.**_\n\n### Control Center\n\n[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/control-center-ods-scheduler.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/control-center-ods-scheduler.png)\n\nAs On-Demand Sandboxes have become the new standard for Salesforce B2C Commerce, the UI of the [Control Center](https://controlcenter.commercecloud.salesforce.com/index.html) is being revamped as well.\n\nWe already had [the option to schedule our Sandboxes uptime through a REST API](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/sandboxes/b2c_sandbox_operation_scheduler.html), but a UI is now available to make life a little easier.\n\n### Tiktok Integration\n\n[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/tiktok-for-business-1024x366.jpeg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/tiktok-for-business.jpeg)\n\nA beta program is available to test an integration between B2C Commerce Cloud and Tiktok. This Beta aims to create storefronts and advertise products on Tiktok using products and shopper activity data.\n\n_**Currently, recruiting for this feature is paused until further notice!**_\n\nEven though recruiting is currently on hold, it is good to see the Salesforce team is actively investigating integrating with social channels.\n\n## PWA Kit v1.5.x\n\nAs with SFRA, the first years will see quick releases with new features added. Besides the major \"2.x\" release currently in the developer preview, improvements are being made to the \"1.x\" version concurrently.\n\nIn this release, these new features and improvements were added:\n\n-   [Multiple Sites support](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/multiple-sites.html)\n-   Forgot Password Flow ([Community Contribution](https://github.com/SalesforceCommerceCloud/pwa-kit/pull/373))\n-   Support Hybrid Storefronts ([SFRA and PWA Kit](https://github.com/SalesforceCommerceCloud/pwa-kit/pull/429))\n-   [Bug Fixes](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v1.5.0)\n\n\n\n\n## SCAPI\n\n### Shopper Context API\n\nThe Shopper Context API will enable customers to build headless storefronts with personalization. This API is currently in the BETA stage, so you may opt in at your discretion.\n\n> The context information is evaluated against the customer group definitions to determine a customer group (shopper segment) and then used to activate the experiences associated with a particular segment, such as promotions.\n\nWant to make use of this API? The documentation is available [here](https://developer.salesforce.com/docs/commerce/commerce-api/references?meta=shopper-context:Summary)!\n\n### SLAS Password-less Login\n\nThis new addition to the SLAS APIs will allow registered customers to log in without using a password.\n\nInstead, it will allow you to log in using a private link sent to your email (and later through SMS or a TOTP application).\n\nThe documentation is available here:\n\n-   [Shopper](https://developer.salesforce.com/docs/commerce/commerce-api/references?meta=shopper-login:/organizations/%7BorganizationId%7D/oauth2/passwordless/login)\n-   [Admin](https://developer.salesforce.com/docs/commerce/commerce-api/references?meta=slas-admin:/tenants/%7BtenantId%7D/clients/%7BclientId%7D/passwordless-templates)\n\n\n\nThis change gives us more flexibility in providing login options to customers.\n\n_**Note:** This API is only available for private clients~~, and the email login templates only support plain text. For now, styling the e-mail for the password-less login option is out of the question.~~_\n\n_**Update:** It turns out that HTML is supported; the API determines if it is plain text or not. **Be sure to validate your HTML on different email clients,** as the service does not do any validation of the template!_\n\n## Business Manager\n\n### Rule-Based Categorization\n\n[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/product-exclusion-list-rule-based.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/product-exclusion-list-rule-based.png)\n\n[Dynamic Categorization](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/categories/b2c_dynamic_categories.html) is a recent addition to the Salesforce B2C Commerce Cloud feature list, allowing the automatic (job-based) assignment of products to specific categories on configurable criteria.\n\nOver the past months, a lot of feedback has been provided on this feature. And in this release, two new updates are announced:\n\n-   Ability to create exclusion rules for products\n-   Maximum conditions for a rule have been increased from 5 to 20\n\n\n\nHaving the option to set more than five conditions will give merchandisers more flexibility when organizing their categories.\n\n### Salesforce Payments Credentials Storage\n\nSalesforce Payments is getting some love in this release. The first addition is storing payment card credentials for:\n\n-   **Future off-session use:** Support for recurring subscription payments or delayed payments (pay when order is fulfilled)\n\n\n-   **Save for on-session use:** Store payment options for a quicker customer check-out (only available in a shopper session)\n\n\n\nIt is good to see these features being added to the \"native\" payment option within Commerce Cloud. Storing payment methods will open the door for new use-cases and allow customers to place orders faster and have a better user experience!\n\n### Klarna for Salesforce Payments\n\n[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/klarnastripe-1024x576.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/klarnastripe.jpg)\n\nFor most, [Klarna](https://www.klarna.com/international/) is a well-known payment method. This option has now been added to Salesforce Payments giving shoppers the ability to use the three different pay-later options that Klarna provides:\n\n-   Installments\n-   Pay Later\n-   Financing\n\n\n\nAnother advantage for merchants is that no additional agreement needs to be signed with Klarna. But as always, with payment providers, check the costs per payment that are part of your [existing agreement](https://stripe.com/en-be/pricing?utm_campaign=paid_brand-BE_en_Search_Brand_Stripe-868855632&utm_medium=cpc&utm_source=google&ad_content=307877157763&utm_term=kwd-487920435973&utm_matchtype=e&utm_adposition=&utm_device=c) with Stripe.\n\n_**Note:** The merchant receives payments [according to a payout schedule](https://www.klarna.com/uk/business/merchant-support/when-will-we-receive-payment-from-klarna/) even though customers pay the amount later._\n\n## Development\n\n### Custom Job Steps Context\n\nJobs that store non-primitive data types of values in **dw.job.JobExecution.getContext()** now fail. Previously, the job logged a warning, ignored the invalid value, and continued.\n\n### Known Issue Bugfixes\n\nI have looked at the recently updated issues but found that they are still \"In Review,\" and none have been updated to resolve for this release.",
+  "conversionStatus": "converted",
+  "manualReviewRequired": false,
+  "fallbackTypes": [],
+  "conversionWarnings": [
+    {
+      "code": "missing-image-alt",
+      "message": "Image missing alt text in /salesforce-b2c-commerce-the-22-5-release/."
+    },
+    {
+      "code": "missing-image-alt",
+      "message": "Image missing alt text in /salesforce-b2c-commerce-the-22-5-release/."
+    },
+    {
+      "code": "missing-image-alt",
+      "message": "Image missing alt text in /salesforce-b2c-commerce-the-22-5-release/."
+    },
+    {
+      "code": "missing-image-alt",
+      "message": "Image missing alt text in /salesforce-b2c-commerce-the-22-5-release/."
+    }
+  ]
+}

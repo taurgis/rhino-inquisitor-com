@@ -1,0 +1,110 @@
+{
+  "sourceId": "4863",
+  "sourceType": "wxr",
+  "sourceChannels": [
+    "wxr"
+  ],
+  "postType": "page",
+  "status": "publish",
+  "titleRaw": "Inside the Ohana",
+  "excerptRaw": "",
+  "bodyHtml": "https://www.youtube.com/watch?v=6bLF9vioUm4<p>An interview of my story within the Ohana and how I found my way into a beautiful community of Salesforce enthusiasts!</p>",
+  "slug": "inside-the-ohana",
+  "publishedAt": "2022-09-11T08:34:33.000Z",
+  "modifiedAt": "2022-09-11T08:36:40.000Z",
+  "author": "Thomas Theunen",
+  "categories": [
+    {
+      "name": "Podcasts",
+      "slug": "podcasts"
+    },
+    {
+      "name": "Video",
+      "slug": "video"
+    }
+  ],
+  "tags": [
+    {
+      "name": "ohana",
+      "slug": "ohana"
+    },
+    {
+      "name": "podcast",
+      "slug": "podcast"
+    },
+    {
+      "name": "sfcc",
+      "slug": "sfcc"
+    }
+  ],
+  "legacyUrl": "/inside-the-ohana/",
+  "targetUrl": "/inside-the-ohana/",
+  "disposition": "keep",
+  "aliasUrls": [
+    "/?p=4863"
+  ],
+  "mediaRefs": [],
+  "_raw": {
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "status": "publish",
+    "titleRaw": "Inside the Ohana",
+    "excerptRaw": "",
+    "publishedAt": "2022-09-11T08:34:33.000Z",
+    "modifiedAt": "2022-09-11T08:36:40.000Z",
+    "author": "Thomas Theunen",
+    "categories": [
+      {
+        "name": "Podcasts",
+        "slug": "podcasts"
+      },
+      {
+        "name": "Video",
+        "slug": "video"
+      }
+    ],
+    "tags": [
+      {
+        "name": "ohana",
+        "slug": "ohana"
+      },
+      {
+        "name": "podcast",
+        "slug": "podcast"
+      },
+      {
+        "name": "sfcc",
+        "slug": "sfcc"
+      }
+    ],
+    "mediaRefs": [],
+    "manifest": {
+      "legacyUrl": "/inside-the-ohana/",
+      "targetUrl": "/inside-the-ohana/",
+      "disposition": "keep",
+      "redirectCode": null,
+      "implementationLayer": "none",
+      "urlClass": "page"
+    },
+    "normalization": {
+      "aliasUrlsDerivedFromSameTarget": [
+        "/?p=4863"
+      ],
+      "usedPublishedAtFallback": false,
+      "usedModifiedAtFallback": false,
+      "statusNormalizedFrom": "publish"
+    },
+    "extracted": {
+      "sourcePostType": "page",
+      "link": "/inside-the-ohana/",
+      "guid": "/?page_id=4863",
+      "attachmentUrl": null,
+      "postParent": "0",
+      "postMetaCount": 26
+    }
+  },
+  "bodyMarkdown": "https://www.youtube.com/watch?v=6bLF9vioUm4\n\nAn interview of my story within the Ohana and how I found my way into a beautiful community of Salesforce enthusiasts!",
+  "conversionStatus": "converted",
+  "manualReviewRequired": false,
+  "fallbackTypes": [],
+  "conversionWarnings": []
+}

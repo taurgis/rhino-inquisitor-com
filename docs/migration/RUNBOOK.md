@@ -219,6 +219,33 @@ This runbook tracks the operational steps needed to move the repository from pla
   - confirm `migration/intermediate/normalize-summary.json` shows `requiredManifestCount` equal to `normalizedRequiredCount`
   - rerun `npm run migrate:normalize` and confirm the normalized artifact hashes remain stable
 
+### RHI-034 - HTML-to-Markdown Conversion
+
+- Run the converter with `npm run migrate:convert`.
+- The converter reads the canonical normalized record set from `migration/intermediate/records.normalized.json` and processes only manifest-backed `keep` and `merge` records.
+- The converter writes deterministic Phase 4 conversion artifacts to:
+  - `migration/output/*.json` as one converted JSON record per `sourceId`
+  - `migration/reports/conversion-fallbacks.csv` as the fallback work queue
+- Current validated 2026-03-10 behavior:
+  - 193 keep/merge records convert successfully on the full run
+  - the validated fallback report contains header-only output with zero rows
+  - warning distribution on the validated full run is:
+    - `missing-image-alt`: 211
+    - `shortcode-converted-to-note`: 2
+  - body-heading normalization reserves `h1` for the template title by shifting body `h1` elements to `h2`
+  - literal technical examples such as `<iscache>`, `<iframe>`, `<picture>`, `<img>`, `<video>`, `<object>`, `<link rel="preload">`, and placeholder tokens like `<key>` are preserved as inline code so Hugo Goldmark can render them with raw HTML disabled
+  - known shortcode handling on the current corpus converts `matomo_opt_out` and `cmplz-document` to explicit Markdown notes rather than silent removal
+  - unknown iframe handling remains implemented as a commented marker plus fallback-log entry, but the validated keep/merge corpus currently contains zero iframe embeds
+- Corpus audit findings used to shape the converter rules:
+  - Gutenberg wrapper comments currently appear only as `paragraph` and `heading`
+  - real shortcode usage in the keep/merge corpus is limited to `matomo_opt_out` and `cmplz-document`
+  - no iframe hosts are present in the current keep/merge corpus
+- Validation steps for RHI-034:
+  - `npm run migrate:convert`
+  - confirm `migration/reports/conversion-fallbacks.csv` is present and review any rows before batch inclusion
+  - rerun `npm run migrate:convert` and confirm the generated output hashes remain stable
+  - build a temporary Hugo site from a representative 10-record sample and confirm Hugo emits zero `warning-goldmark-raw-html` warnings for the generated Markdown
+
 ## Phase 5 - SEO and Discoverability
 
 Placeholder for sitemap, canonical, feed, and Search Console execution steps.

@@ -1,0 +1,144 @@
+{
+  "sourceId": "1894",
+  "sourceType": "wxr",
+  "sourceChannels": [
+    "filesystem",
+    "wxr"
+  ],
+  "postType": "post",
+  "status": "publish",
+  "titleRaw": "Salesforce B2C Commerce: The 22.6 Release",
+  "excerptRaw": "",
+  "bodyHtml": "<p>Again, here we are with the latest <a href=\"https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/release-notes/\" target=\"_blank\" rel=\"noopener\">release notes</a> of Salesforce B2C Commerce Cloud; time flies by fast, doesn't it? Let us go over the <a href=\"https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_6_release.htm&amp;type=5\" target=\"_blank\" rel=\"noopener\">June 2022 (22.6) release</a>!</p>\t\t\n\t\t\t<h2>Einstein Dashboards</h2>\t\t\n\t\t<p>In this release, Einstein is getting a bit of love with better insights into the performance of your recommenders!</p>\t\t\n\t\t\t<h3>Drill down to a single recommender</h3>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/22.6-release-einstein-dashboards.png\" data-elementor-open-lightbox=\"yes\" data-elementor-lightbox-title=\"22.6 Release: Einstein Dashboards\" e-action-hash=\"#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MTg5NSwidXJsIjoiaHR0cHM6XC9cL3d3dy5yaGluby1pbnF1aXNpdG9yLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyMlwvMDVcLzIyLjYtcmVsZWFzZS1laW5zdGVpbi1kYXNoYm9hcmRzLnBuZyJ9\">\n\t\t\t\t\t\t\t<img width=\"800\" height=\"450\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/22.6-release-einstein-dashboards.png\" alt=\"\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/22.6-release-einstein-dashboards.png 1006w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/22.6-release-einstein-dashboards-300x169.png 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/22.6-release-einstein-dashboards-768x432.png 768w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t</a>\n\t\t<p>It will now be possible to drill down to a single recommender in the dashboards to see how they perform over a selected period of time.</p><p>This will give merchants a better understanding of performance trends.</p><p>These metrics include:</p><ul><li>Click-through Rate (CTR)</li><li>Add to Cart</li><li>Cart Conversion Rate</li><li>Attributed Revenue.<br /><br /><br /></li></ul>\t\t\n\t\t\t<h3>View top purchased and top viewed products</h3>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/einstein-dashoards-addtocarts-sfcc.png\" data-elementor-open-lightbox=\"yes\" data-elementor-lightbox-title=\"Einstein Dashboards: Recommenders add to cart\" e-action-hash=\"#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MTkwNiwidXJsIjoiaHR0cHM6XC9cL3d3dy5yaGluby1pbnF1aXNpdG9yLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyMlwvMDVcL2VpbnN0ZWluLWRhc2hvYXJkcy1hZGR0b2NhcnRzLXNmY2MucG5nIn0%3D\">\n\t\t\t\t\t\t\t<img width=\"800\" height=\"386\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/einstein-dashoards-addtocarts-sfcc-1024x494.png\" alt=\"A screenshot of the Einstein Dashboards depicting the information of a specific product and its statistics.\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/einstein-dashoards-addtocarts-sfcc-1024x494.png 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/einstein-dashoards-addtocarts-sfcc-300x145.png 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/einstein-dashoards-addtocarts-sfcc-768x371.png 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/einstein-dashoards-addtocarts-sfcc-1536x741.png 1536w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/einstein-dashoards-addtocarts-sfcc.png 1666w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t</a>\n\t\t<p>With this addition to these dashboards, you will be able to see more information about the performance of a recommender.</p><p>Reports now show how specific products perform, by being recommended in a particular recommender.</p>\t\t\n\t\t\t<h2>PWA Kit v1.5.2</h2>\t\t\n\t\t<p><a href=\"https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v1.5.2\" target=\"_blank\" rel=\"noopener\">A minor release</a> has been made for the PWA Kit, containing a few bugfixes:</p><ul><li>Fix invalid refresh token by <a href=\"https://github.com/kevinxh\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/kevinxh/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\">@kevinxh</a> in <a href=\"https://github.com/SalesforceCommerceCloud/pwa-kit/pull/527\" data-error-text=\"Failed to load title\" data-id=\"1210338704\" data-permission-text=\"Title is private\" data-url=\"https://github.com/SalesforceCommerceCloud/pwa-kit/issues/527\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/SalesforceCommerceCloud/pwa-kit/pull/527/hovercard\">#527</a></li><li>Webpack config: no longer assumes that <code>config</code> dir exists by <a href=\"https://github.com/vmarta\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/vmarta/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\">@vmarta</a> in <a href=\"https://github.com/SalesforceCommerceCloud/pwa-kit/pull/522\" data-error-text=\"Failed to load title\" data-id=\"1207609079\" data-permission-text=\"Title is private\" data-url=\"https://github.com/SalesforceCommerceCloud/pwa-kit/issues/522\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/SalesforceCommerceCloud/pwa-kit/pull/522/hovercard\">#522</a></li><li>Fix minor typos in readme and jsdoc by <a href=\"https://github.com/alexvuong\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/alexvuong/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\">@alexvuong</a> in <a href=\"https://github.com/SalesforceCommerceCloud/pwa-kit/pull/531\" data-error-text=\"Failed to load title\" data-id=\"1211435414\" data-permission-text=\"Title is private\" data-url=\"https://github.com/SalesforceCommerceCloud/pwa-kit/issues/531\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/SalesforceCommerceCloud/pwa-kit/pull/531/hovercard\">#531</a><br /><br /><br /></li></ul>\t\t\n\t\t\t<h2>OCAPI</h2>\t\t\n\t\t\t<h3>Access Key Management</h3>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/access-key-management-ocapi.png\" data-elementor-open-lightbox=\"yes\" data-elementor-lightbox-title=\"Access Key Management through OCAPI\" e-action-hash=\"#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MTkxMCwidXJsIjoiaHR0cHM6XC9cL3d3dy5yaGluby1pbnF1aXNpdG9yLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyMlwvMDVcL2FjY2Vzcy1rZXktbWFuYWdlbWVudC1vY2FwaS5wbmcifQ%3D%3D\">\n\t\t\t\t\t\t\t<img width=\"800\" height=\"432\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/access-key-management-ocapi-1024x553.png\" alt=\"A screenshot depicting the new APIs under the user DATA OCAPI endpoints.\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/access-key-management-ocapi-1024x553.png 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/access-key-management-ocapi-300x162.png 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/access-key-management-ocapi-768x415.png 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/access-key-management-ocapi.png 1378w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t</a>\n\t\t<p>New endpoints have been made available to manage access keys from an external application. Although this addition is mainly for in-store agents, according to the documentation, the addition will sound like music to the ears of people in charge of DevOps and CI solutions. </p><p>To access these APIs, ensure the user has the \"<a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC3/topic/com.demandware.dochelp/ReleaseNotes/22_6/OCAPI_acess_keys_data_API_mc.html\" target=\"_blank\" rel=\"noopener\">Manage_Users_Access_Key</a>\" permission.</p>\t\t\n\t\t\t<h2>Business Manager</h2>\t\t\n\t\t\t<h3>EPS added to Salesforce Payments</h3>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/eps-logo-austria.png\" data-elementor-open-lightbox=\"yes\" data-elementor-lightbox-title=\"EPS Logo\" e-action-hash=\"#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MTkyNywidXJsIjoiaHR0cHM6XC9cL3d3dy5yaGluby1pbnF1aXNpdG9yLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyMlwvMDVcL2Vwcy1sb2dvLWF1c3RyaWEucG5nIn0%3D\">\n\t\t\t\t\t\t\t<img width=\"300\" height=\"195\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/eps-logo-austria.png\" alt=\"\" loading=\"lazy\" />\t\t\t\t\t\t\t\t</a>\n\t\t<p>EPS is an Austria-based payment method supported by all Austrian banks. You can add the EPS option to your storefront in Business Manager Payment Settings.</p>\t\t\n\t\t\t<h3>Avoid Chargebacks with Salesforce Payments</h3>\t\t\n\t\t<p>Use a site-specific descriptor to help shoppers identify the source of an account charge on their credit card statements to reduce payment disputes and chargeback requests. You set the customer statement descriptor in <a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC3/topic/com.demandware.dochelp/content/b2c_commerce/topics/salesforce_payments/b2c_payment_statement_descriptor.html?resultof=%22%64%65%73%63%72%69%70%74%6f%72%22%20\" target=\"_blank\" rel=\"noopener\">Business Manager Payment Settings</a>. The setting overrides the value specified in your Stripe merchant account.</p>\t\t\n\t\t\t<h2>Development</h2>\t\t\n\t\t\t<h3>Log Center</h3>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/troubleshoot-storefront-errors-logcenter.png\" data-elementor-open-lightbox=\"yes\" data-elementor-lightbox-title=\"Troubleshoot Storefront Errors in the Log Center\" e-action-hash=\"#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MTkyMywidXJsIjoiaHR0cHM6XC9cL3d3dy5yaGluby1pbnF1aXNpdG9yLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyMlwvMDVcL3Ryb3VibGVzaG9vdC1zdG9yZWZyb250LWVycm9ycy1sb2djZW50ZXIucG5nIn0%3D\">\n\t\t\t\t\t\t\t<img width=\"800\" height=\"352\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/troubleshoot-storefront-errors-logcenter-1024x451.png\" alt=\"\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/troubleshoot-storefront-errors-logcenter-1024x451.png 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/troubleshoot-storefront-errors-logcenter-300x132.png 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/troubleshoot-storefront-errors-logcenter-768x338.png 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/troubleshoot-storefront-errors-logcenter-1536x677.png 1536w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/troubleshoot-storefront-errors-logcenter.png 1664w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t</a>\n\t\t<p>Filter and find storefront implementation errors, such as broken includes, significant header errors, and large request errors with a new filter option below the \"Service Type.\"</p><p><strong>How: </strong>To find storefront implementation errors with Log Center, set the Service Type filter to \"jwa\" (see screenshot above).</p>\t\t\n\t\t\t<h3>Bugfixes</h3>\t\t\n\t\t\t<h4>Unnecessary Product Update Index Task is performed after the Full Index Rebuild</h4>\t\t\n\t\t<p>An unnecessary Product Update Index Task was performed after the Full Index Rebuild, which publishes a new<br />index even if 0 documents have changed. This happened only if Incremental Index was enabled, <br />even if NO product change had been performed after the Full Index Rebuild. Now, after a full search index update in<br />done and no documents have changed, the platform is not doing an Incremental Index afterward.</p>\t\t\n\t\t\t<h4>Rule Based Product Categorization - UI Changes to Include SiteContext when Saving/Fetching Rules</h4>\t\t\n\t\t<p>When creating/editing a ruleset, a dropdown is now provided (similar to the Locale dropdown). The dropdown<br />will be auto-selected to \"default\" and include all valid active Sites for that instance. When the merchandiser saves<br />the ruleset, the API to PUT/POST rules will consist of a new field to persist the SiteContext selected.</p>\t\t\n\t\t\t<h4>Dynamic Categorization - Value selection for String attributes with the \"is one of\" selector isn't working</h4>\t\t\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://trailblazer.salesforce.com/issues_view?id=a1p4V0000012YmiQAE&#038;title=dynamic-categorization-value-selection-for-string-attributes-with-the-is-one-of-selector-isn-t-working\" target=\"_blank\" rel=\"noopener\">\n\t\t\t\t\t\t\t\t\t\tIssue\n\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t\t\t\t<blockquote>\n\t\t\t<p>\n\t\t\t\tValue selection for String attributes with the \"is one of\" selector isn't working. When the \"is one of\" selector is chosen, the user should be able to select multiple values. For String attributes, this isn't possible because you only get a normal input field for entering the value, with no possibility of adding various values.\nExpected\nProducts should be shown in the preview tab based on the categorization rule.\nActual\nProducts are not categorized when multiple comma-separated values are used.\t\t\t</p>\n\t\t\t\t\t</blockquote>\n\t\t<p>Although the status has recently changed to \"fixed,\" no version/release was linked. So it might be in the next or this release.</p>",
+  "slug": "salesforce-b2c-commerce-the-22-6-release",
+  "publishedAt": "2022-05-16T13:52:22.000Z",
+  "modifiedAt": "2022-07-23T21:54:27.000Z",
+  "author": "Thomas Theunen",
+  "categories": [
+    {
+      "name": "Release Notes",
+      "slug": "release-notes"
+    },
+    {
+      "name": "Salesforce Commerce Cloud",
+      "slug": "salesforce-commerce-cloud"
+    }
+  ],
+  "tags": [
+    {
+      "name": "sfcc",
+      "slug": "sfcc"
+    },
+    {
+      "name": "technical",
+      "slug": "technical"
+    }
+  ],
+  "legacyUrl": "/salesforce-b2c-commerce-the-22-6-release/",
+  "targetUrl": "/salesforce-b2c-commerce-the-22-6-release/",
+  "disposition": "keep",
+  "aliasUrls": [
+    "/?p=1894"
+  ],
+  "mediaRefs": [
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/22.6-release-einstein-dashboards-300x169.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/22.6-release-einstein-dashboards-768x432.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/22.6-release-einstein-dashboards.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/access-key-management-ocapi-1024x553.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/access-key-management-ocapi-300x162.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/access-key-management-ocapi-768x415.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/access-key-management-ocapi.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/einstein-dashoards-addtocarts-sfcc-1024x494.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/einstein-dashoards-addtocarts-sfcc-1536x741.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/einstein-dashoards-addtocarts-sfcc-300x145.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/einstein-dashoards-addtocarts-sfcc-768x371.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/einstein-dashoards-addtocarts-sfcc.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/eps-logo-austria.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/troubleshoot-storefront-errors-logcenter-1024x451.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/troubleshoot-storefront-errors-logcenter-1536x677.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/troubleshoot-storefront-errors-logcenter-300x132.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/troubleshoot-storefront-errors-logcenter-768x338.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/troubleshoot-storefront-errors-logcenter.png"
+  ],
+  "_raw": {
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "status": "publish",
+    "titleRaw": "Salesforce B2C Commerce: The 22.6 Release",
+    "excerptRaw": "",
+    "publishedAt": "2022-05-16T13:52:22.000Z",
+    "modifiedAt": "2022-07-23T21:54:27.000Z",
+    "author": "Thomas Theunen",
+    "categories": [
+      {
+        "name": "Release Notes",
+        "slug": "release-notes"
+      },
+      {
+        "name": "Salesforce Commerce Cloud",
+        "slug": "salesforce-commerce-cloud"
+      }
+    ],
+    "tags": [
+      {
+        "name": "sfcc",
+        "slug": "sfcc"
+      },
+      {
+        "name": "technical",
+        "slug": "technical"
+      }
+    ],
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/22.6-release-einstein-dashboards.png",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/access-key-management-ocapi-1024x553.png",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/access-key-management-ocapi.png",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/einstein-dashoards-addtocarts-sfcc-1024x494.png",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/einstein-dashoards-addtocarts-sfcc.png",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/eps-logo-austria.png",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/troubleshoot-storefront-errors-logcenter-1024x451.png",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/troubleshoot-storefront-errors-logcenter.png"
+    ],
+    "manifest": {
+      "legacyUrl": "/salesforce-b2c-commerce-the-22-6-release/",
+      "targetUrl": "/salesforce-b2c-commerce-the-22-6-release/",
+      "disposition": "keep",
+      "redirectCode": null,
+      "implementationLayer": "none",
+      "urlClass": "post"
+    },
+    "normalization": {
+      "aliasUrlsDerivedFromSameTarget": [
+        "/?p=1894"
+      ],
+      "usedPublishedAtFallback": false,
+      "usedModifiedAtFallback": false,
+      "statusNormalizedFrom": "publish"
+    },
+    "extracted": {
+      "sourcePostType": "post",
+      "link": "/salesforce-b2c-commerce-the-22-6-release/",
+      "guid": "/?p=1894",
+      "attachmentUrl": null,
+      "postParent": "0",
+      "postMetaCount": 26
+    }
+  },
+  "bodyMarkdown": "Again, here we are with the latest [release notes](https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/release-notes/) of Salesforce B2C Commerce Cloud; time flies by fast, doesn't it? Let us go over the [June 2022 (22.6) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_6_release.htm&type=5)!\n\n## Einstein Dashboards\n\nIn this release, Einstein is getting a bit of love with better insights into the performance of your recommenders!\n\n### Drill down to a single recommender\n\n[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/22.6-release-einstein-dashboards.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/22.6-release-einstein-dashboards.png)\n\nIt will now be possible to drill down to a single recommender in the dashboards to see how they perform over a selected period of time.\n\nThis will give merchants a better understanding of performance trends.\n\nThese metrics include:\n\n-   Click-through Rate (CTR)\n-   Add to Cart\n-   Cart Conversion Rate\n-   Attributed Revenue.\n\n\n\n\n### View top purchased and top viewed products\n\n[![A screenshot of the Einstein Dashboards depicting the information of a specific product and its statistics.](https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/einstein-dashoards-addtocarts-sfcc-1024x494.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/einstein-dashoards-addtocarts-sfcc.png)\n\nWith this addition to these dashboards, you will be able to see more information about the performance of a recommender.\n\nReports now show how specific products perform, by being recommended in a particular recommender.\n\n## PWA Kit v1.5.2\n\n[A minor release](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v1.5.2) has been made for the PWA Kit, containing a few bugfixes:\n\n-   Fix invalid refresh token by [@kevinxh](https://github.com/kevinxh) in [#527](https://github.com/SalesforceCommerceCloud/pwa-kit/pull/527)\n-   Webpack config: no longer assumes that `config` dir exists by [@vmarta](https://github.com/vmarta) in [#522](https://github.com/SalesforceCommerceCloud/pwa-kit/pull/522)\n-   Fix minor typos in readme and jsdoc by [@alexvuong](https://github.com/alexvuong) in [#531](https://github.com/SalesforceCommerceCloud/pwa-kit/pull/531)\n\n\n\n\n## OCAPI\n\n### Access Key Management\n\n[![A screenshot depicting the new APIs under the user DATA OCAPI endpoints.](https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/access-key-management-ocapi-1024x553.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/access-key-management-ocapi.png)\n\nNew endpoints have been made available to manage access keys from an external application. Although this addition is mainly for in-store agents, according to the documentation, the addition will sound like music to the ears of people in charge of DevOps and CI solutions.\n\nTo access these APIs, ensure the user has the \"[Manage\\_Users\\_Access\\_Key](https://documentation.b2c.commercecloud.salesforce.com/DOC3/topic/com.demandware.dochelp/ReleaseNotes/22_6/OCAPI_acess_keys_data_API_mc.html)\" permission.\n\n## Business Manager\n\n### EPS added to Salesforce Payments\n\n[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/eps-logo-austria.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/eps-logo-austria.png)\n\nEPS is an Austria-based payment method supported by all Austrian banks. You can add the EPS option to your storefront in Business Manager Payment Settings.\n\n### Avoid Chargebacks with Salesforce Payments\n\nUse a site-specific descriptor to help shoppers identify the source of an account charge on their credit card statements to reduce payment disputes and chargeback requests. You set the customer statement descriptor in [Business Manager Payment Settings](https://documentation.b2c.commercecloud.salesforce.com/DOC3/topic/com.demandware.dochelp/content/b2c_commerce/topics/salesforce_payments/b2c_payment_statement_descriptor.html?resultof=%22%64%65%73%63%72%69%70%74%6f%72%22%20). The setting overrides the value specified in your Stripe merchant account.\n\n## Development\n\n### Log Center\n\n[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/troubleshoot-storefront-errors-logcenter-1024x451.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/troubleshoot-storefront-errors-logcenter.png)\n\nFilter and find storefront implementation errors, such as broken includes, significant header errors, and large request errors with a new filter option below the \"Service Type.\"\n\n**How:** To find storefront implementation errors with Log Center, set the Service Type filter to \"jwa\" (see screenshot above).\n\n### Bugfixes\n\n#### Unnecessary Product Update Index Task is performed after the Full Index Rebuild\n\nAn unnecessary Product Update Index Task was performed after the Full Index Rebuild, which publishes a new\nindex even if 0 documents have changed. This happened only if Incremental Index was enabled,\neven if NO product change had been performed after the Full Index Rebuild. Now, after a full search index update in\ndone and no documents have changed, the platform is not doing an Incremental Index afterward.\n\n#### Rule Based Product Categorization - UI Changes to Include SiteContext when Saving/Fetching Rules\n\nWhen creating/editing a ruleset, a dropdown is now provided (similar to the Locale dropdown). The dropdown\nwill be auto-selected to \"default\" and include all valid active Sites for that instance. When the merchandiser saves\nthe ruleset, the API to PUT/POST rules will consist of a new field to persist the SiteContext selected.\n\n#### Dynamic Categorization - Value selection for String attributes with the \"is one of\" selector isn't working\n\n-   [Issue](https://trailblazer.salesforce.com/issues_view?id=a1p4V0000012YmiQAE&title=dynamic-categorization-value-selection-for-string-attributes-with-the-is-one-of-selector-isn-t-working)\n\n> Value selection for String attributes with the \"is one of\" selector isn't working. When the \"is one of\" selector is chosen, the user should be able to select multiple values. For String attributes, this isn't possible because you only get a normal input field for entering the value, with no possibility of adding various values. Expected Products should be shown in the preview tab based on the categorization rule. Actual Products are not categorized when multiple comma-separated values are used.\n\nAlthough the status has recently changed to \"fixed,\" no version/release was linked. So it might be in the next or this release.",
+  "conversionStatus": "converted",
+  "manualReviewRequired": false,
+  "fallbackTypes": [],
+  "conversionWarnings": [
+    {
+      "code": "missing-image-alt",
+      "message": "Image missing alt text in /salesforce-b2c-commerce-the-22-6-release/."
+    },
+    {
+      "code": "missing-image-alt",
+      "message": "Image missing alt text in /salesforce-b2c-commerce-the-22-6-release/."
+    },
+    {
+      "code": "missing-image-alt",
+      "message": "Image missing alt text in /salesforce-b2c-commerce-the-22-6-release/."
+    }
+  ]
+}

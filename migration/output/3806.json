@@ -1,0 +1,125 @@
+{
+  "sourceId": "3806",
+  "sourceType": "wxr",
+  "sourceChannels": [
+    "filesystem",
+    "wxr"
+  ],
+  "postType": "post",
+  "status": "publish",
+  "titleRaw": "Salesforce B2C Commerce Cloud Content ERD",
+  "excerptRaw": "",
+  "bodyHtml": "<p>You have probably come out empty-handed when scouring the documentation for the Content ERD (<a href=\"https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model\" target=\"_blank\" rel=\"noopener\">Entity–relationship model</a>) of <a href=\"https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/\" target=\"_blank\" rel=\"noopener\">Salesforce B2C Commerce Cloud</a>.</p><p>Sure, you find many diagrams on the entity model of <a href=\"https://salesforce.stackexchange.com/questions/22720/standard-objects-in-salesforce\" target=\"_blank\" rel=\"noopener\">force.com</a> with a quick Google! But not so for SFCC. That is why I started to create my own, and share them with you!</p><p>The third on the <a href=\"https://www.rhino-inquisitor.com/tag/erd/\" target=\"_blank\" rel=\"noopener\">list</a>: Content! Probably one of the smallest diagrams in the set!</p>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/02/Salesforce-B2C-Commerce-Cloud-Diagram-Content-ERD-1.png\" data-elementor-open-lightbox=\"no\">\n\t\t\t\t\t\t\t<img width=\"800\" height=\"429\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/02/Salesforce-B2C-Commerce-Cloud-Diagram-Content-ERD-1-1024x549.png\" alt=\"\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/02/Salesforce-B2C-Commerce-Cloud-Diagram-Content-ERD-1-1024x549.png 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/02/Salesforce-B2C-Commerce-Cloud-Diagram-Content-ERD-1-300x161.png 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/02/Salesforce-B2C-Commerce-Cloud-Diagram-Content-ERD-1-768x412.png 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/02/Salesforce-B2C-Commerce-Cloud-Diagram-Content-ERD-1-1536x823.png 1536w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/02/Salesforce-B2C-Commerce-Cloud-Diagram-Content-ERD-1-2048x1097.png 2048w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t</a>\n\t\t<p style=\"text-align: center;\"><a href=\"https://viewer.diagrams.net/?tags=%7B%7D&amp;highlight=0000ff&amp;edit=_blank&amp;layers=1&amp;nav=1&amp;title=Salesforce%20B2C%20Commerce%20Cloud%20Diagram%20(1).drawio#R7V1pd6o8F%2F01Xet5P9RFwvwRnOpUbZ39hhIQZSri%2BOvfoGBF0ds6a2nvrXJAAsk5O3snh%2FhCJo1Z1pHsfsmSkf4CCXn2QqZeIAQ0S%2BEXzzJfWTgCrAyqo8n%2BQd%2BGqrZAvpHwrWNNRqPQga5l6a5mh409yzRRzw3ZJMexpuHDFEsPl2pLKtoxVHuSvmttarLb9%2B%2BCJr7tb0hT%2B0HJgPD3GFJwsG8Y9SXZmm6YyPQLmXQsy129M2ZJpHuVF9TL6nOZPXvXF%2BYg0%2F3JB6B%2FGe48uLfJSJ7lUvg9eCFFRdP1pKVbDt42LRMfIqqOJGv47Ftm78iyLfU012tTAltGrmMN0ZbN2zLVmmVjwyv5bREt17WMLWMRKe6W6dOv1aXNtjTTXTYlLeJ%2FRILgXmCSSPCs9%2FJC49tJLu083LLjf6SoS12ki1JvqDrW2JS3bmhpQ7JfEaub2Tqk7xq6v3%2Fa11xUxdfo1eIUez227baF3zwT5LhotmHy2yaLLAO5zhwf4u8lAbv6iB8oDORX29Nvt6Mp%2F7T9DZeDjO%2Ftvqer61N%2FOwN%2B4%2FtDtG%2BQ%2B30DbvnGCySV5c%2FJDtKXbK%2BwkYvMnqb%2FN2nUirJVUtMVQtLNPMYNMScCYzITJpRY01r5wqxdJkYKyVhGqVuSDLZjySQ7WuiLgaAp%2Fb4EmpP0XExyiK%2B36lSvyVWVtFHWJbYOc3muWtFwO2XKi%2FEkO8Zv0Lg%2F5tFntT0oMXlnXkjXjNmb3qLZd30qldppxhHUwge%2BCtTGf%2FKjxkyrV6weM1R7HbYyF8zcSJaG3LCSHaoVpTUrW0J5UJh3ypLGFdpfcrpktGRRRGUmn5UaXfKj6XYLi0adqGY1WuLn47Zj8Gati%2BY5rW7Qn6Q9Bm0rP6iCkgu56tfsg9Nl8m38np0PP1E6My9MUDbXG5R7SXXcKRdtl5Dwbbzh%2F6RMcIuC9v7VGfGs7naGH5nMsMWQxbZbGH3hI0RZV8yW1tZntSYAarHMMuUu3WM%2BJmKKKsmT%2F108YJdRSYeCFUTYVtsgwkYcHdC%2Fjl3449i9Rmz6HehE0sd%2BbL5ARscFiLI2CQUt8zX2OhNRsUz3dbTsSgV8ALBn3%2FvwO9V%2FXZ7DjjyDpGuqiT%2Fdw3WCcMWKhuSomvmqL1tdYL4tzupmN02u50ECxKWuTV3fhQRiacXV6r5quIm8Ghc8MJgEJRqaLHsXg2%2FOwf25ZnlG3XVWl7znJrwb%2FmdNACbBk8vil1ZFMjQdY5EgOJqE617srXwI1xgp8ZLS5SIvQkcurpFX3%2BXXd6RrJnoNWl5YkgAam60A8QSw%2F%2Bq7gaGKWcdIsRzsnZAQse9DImkZBloZkro1lvHr69KM28W759UZsAt1t8%2BKbatq2THbEbalKwXWra7Aay2viWK2cCa24AGLhimmsPL51Nrn%2FSBIrcMufK5TkMrfCxM0FaIZMBHg1iaWkUyC5iLgDCRo%2FnREo%2FezDerhfOuGHdu9MFWajmCqcNd9ADjdd5j9vkNfm6lmKtMlUy107TKuHJixMqTwVa8zLsoLMK%2FzCp%2B3m9UyHMPeW6mVk%2BjesMWVip0vIqd9ErUJi0UsFA1eI7Uapc4IVpGyn3xTE7nPCj0fERRcvJHEOz6GSGfy1VLRMsaW1S1LadRALW7WEIj21F7k3gTNUVikjMoFgquLSjvZljLNvGimc2jRsVE3m%2BmV%2BDLd%2FHjLdIRJdZCWs50vrlz%2F6hklo%2FuOULPCauVxXcIsdVLM12z6K5cd8VJqNm53DXxnLaNF1WzJmhZazIy0RtpQU0vVmZ2xmtVJecrnhrRjpicVvixWayVLr7V1Pd1DLItRRCS9usFM1hw2qYWCezGWqdSE4uxNGHUqbJP4aJmzUaqPDxoQoF0USgULjpnUuMPOmV7qrZqiskpqkFlqZzIVc9XN6KWP46oXik425qpn4ap8guPuiarW%2BpaB%2FQIStT4am8h88caaiBc2uXqDf%2BHleWfMDR6Gl%2F4clfbxUsw02QheyiZghMzGyu4MtJTbTy2YX7leZN2vjMEY8sV9b%2BVnZITvbWsgz89esUQC1%2Bu0fk05KQ6GvIMnqR3nADyx6xksebpf8Pv9gv095dwhk51Kt%2BcNe%2BYkpT90SbVSFwA0mbfhPDm3qwWVac%2B6gBtJ1S%2FJ1pV3spt7Uxx8zRmMwqI4xkRvkpSUFPMOuxV7MoBinst15l3HbaFBMq2Nk4j6osnWoIVMtj%2BoTDoWi5tcHMhKb0rW3rLlRb%2Fca40L%2BUYvNWzgPW3wrmH8ziQzDW9goUqJc34wmUzlwjyjl8iWUyg45uJrgH1kkE%2FRLrQ%2Bx2XGDgY5i0XpS2vbqSZyPeLalIpdb9jVMBgx109%2FsMRA%2BZQMgdZGdUGa5erigO%2FW3IqVMYrJKduYMj27VykRQr%2BM2HZ%2BnMMdRKaC%2B57McGILNVooqEKh0RFE9GET2U5KHRBFeur1Ov1y6q3Xbc7e%2BzZsNjj2vVDVxqQ3Ppr82KCOoeDEDcZS3u9OhMJn7R2IYyKWO4ZmXiwig8nBqJDkdkOSWP78iipsBWl90YDFEZ0rpvuN91rOKmpmYUFQ7oKY2vOGAGQ9DUojpzQnVHeuTcWRXn1vNZrvplyZa6BY0%2FAd5YscyKn4TS6fHqatjwJmejCTyn4mxXpVMTpMp1zXasN6Wm%2BUxN6CV3PFci5b7%2BAgqhltNCTdfHVBf8z5TofJ2BIFmmWmD2qAKVNiqZ9ENW5SmtezzY8PzrBEYajlgCwc4fhPS4uewfGDnvOOBBaxK7A2TCuBRdybwAIwwUYIrCQuuetoYYm1ho9jJRbA7GrzBxwzOXDTIf%2BY%2F57Af88nq34ORsFemAiP1UI2Qe%2BO9wOGTkTIKsCsDz4JtA5knvAP51hEhGMRkY7ljVUnwYZj%2BXaWjrZ7w%2BphT%2FR3cFTkjpU7Qxhh5OhLOfMZxBzH0rcTc%2BBAqgsgYjkXy7m%2FwGoDSL4XWksdCMrtdINY0MWC7olcPxgqjxXdX1N0GUuXce3fRNDFvPvBePf5ROQvAPCuVOSBzB%2Fwu6nhu3DnxLY33qFS2552Y2nmikqNPdDgR%2BR6xUotVmoPSFeZ%2B6KrB5IkwPYocazUYqX2RK7Px0rtjyq1iqSiEnKlmqTe6JGbmOBeVBL9HGnuSRLBA2kwYDsP5v49JmrK9iFlEgAgwhUu1S8F1xvpBdvjPLFOinXSU5LFAAvvhCzCAzkPMGKaOdZJsU56FtcnY530h3XSjQRSTHevLZp%2BATt3JZoO5JpA8uG8KCJ%2F9YGFE%2BR2F726XEd1YB0KuD3gEgunWDg9J3ukfhy1VwnKA9P8MGLWNxZOsXB6Fte%2Fw9UzYuF0FeH0iVSv5JtIp5j03kY%2B%2FRx87ko%2BHUgAgdvLITykJz2CTqKY3cVRLtcvHVgAA0Y8bh%2FrpFgnPSFZvK%2BVAMgDc%2F8wYtY31kmxTnoW148XwfirOilpGTZ26VstgxET3Atrosdc4II8kOxB%2Fm619LDLyEiRxktHvXny5rUWS5GlUX99rLdRkTx0MZcWjNznEVQcF9ZTV513Ig8sQUHCWE%2FFeuovkMoANO%2BFVB5ICyC3R0hjPRXrqSdy%2FXgJir%2BqpwTXdbTu2L1R1t5J5PheHmt6vGUEf4E%2FdyWzDqSGkI%2BX%2F%2FlQXzNyqsK66hp%2F5IGVI8j4iahYYD1ayB7HMu%2Fr8XnyQOIAFT8RFQusJ3b9eOWIvyqwqrrl3nTl9pgY36kGe8wlJ6gDaSdeUyJZRVV%2F39p7JMcVHMeaftuQKW9ZlkdVl2G%2B%2FCJPfMTG1k43uP7au%2FN64t723WjL37gTmmluy4uZBMGRgOUhz9I8S1CQDva2l3t5BtAkRwV%2FGX9naubH23JjvrFRQY6GG89ztZXNxA25KomHFAQUBViWonjA8MHe%2FSV5e7%2BLWm7NN7e2C9srD0fW2On5buGPMeBmVZEbMnk%2BctDhHaRLrjZBoXNHea3%2F0YqHH9%2BB8rr1CUtRRp6w%2BfZy7HvSfOMIH4C242B9ST8LjTgt5Uy9PEhA%2Fmfffrn6OaGT%2F9G3XyrLhXpH5%2B%2Bsvx9fhkdhZ%2FoTm2pWSTLnByGUj4LQdd3dDYRuDsWEcXSnew2AFWCORkOGBDTL8RRLruBujaskAbCJY4LX43HVG9oNl8RRMAytUYVdBFq5XWgFl8bWa4MpjMH0OcG0p0ujkaZgiPBK2FkD%2FezIuoeVHsozggnvTggmsdSP%2F8RgQzLl8j9I7FMjMAgBIxtC4E1AxK%2FURRE4qrA%2FjcDRBBkrg0QwJhXMz3D05hmP%2BAh%2Bs7qOoyH%2FQFocBY7kRwvkWM9DkA5qzH9QIZrA8cLjvatXeHwgEuGgizrxRYIuGDLZjDruuSVl8IxozIKejAX5rn453rPqho9GzD%2FNZw7BKAQ8YDmCC16Ph9Hogr5xNURlVs15EVgNiMtRZCbAR8zNGMLnB7cnOGAZhJtchSYO0pvdD%2FDseclNnGP5pEg%2BGnczFx8fJJmY%2Fx4H597Xey2VYiBSA8Ru%2B5IyPGZHnkCLExulLCF9E8%2F3FHV%2FiH4mpjw%2FnThHF8AT4cxCjmUSTAisd9GdCFLc937mdIAP5nNjgH8ygMchtE6T%2F%2B9%2FlwR5Ogb5I0E%2BRNHPONKBz7Wfol8T0oPFdjchnbwWpLPhgT%2BGOzemA45KBMN%2F6%2B%2FQoLjzAnS8ul4M0CcCNBUD9CMBNEgQkCV5FjL%2B6%2BUGUaJmhG6Fz68scQ2ApgnqvADNxQB9UYC%2BTJr0jyB6oo20ro7Wy%2FdcdKyEiFH6SJRO0Bs4HY2eR%2BP0zZgztYvMF582vPY84aEVOuOhwx%2BkZz%2Bj40dIxiAYnsXx%2FWmd0x5VZlhqS3oyZ3joK3jaIqYzz6Y3r5zBCPfkhscZjKfSnm%2BQZrfyCjcxG2xD9nrv2SGbjoDsq03c0OF5lfPP3AACsImtmZg11p5LRdJx4viTwu7ln8KBx2aZxk%2FhHH4KB4RH%2FE6h01v53%2BBGSB1Frh8oA5yHVILmt5CYPO94Hh1%2FD%2BzTjufZkopKyJVqknrRxyJPS2L9w4gcHtE4c55TaEjjipMsUU%2FdMBfG3DOw4Z%2BPb%2BBNx%2FIC7ftwR7L7JUtG3hH%2FBw%3D%3D\" target=\"_blank\" rel=\"noopener\">View this diagram on draw.io!</a></p>\t\t\n\t\t\t<h2>Additional explanation of the Content ERD</h2>\t\t\n\t\t\t<h3>Content vs Page</h3>\t\t\n\t\t<p>It is essential to understand that there are two systems in place to handle content in Salesforce B2C Commerce Cloud:</p><ul><li><a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/content/b2c_content_slots.html\" target=\"_blank\" rel=\"noopener\">Content Assets in combination with Content Slots</a></li><li><a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/page_designer/b2c_dev_for_page_designer.html\" target=\"_blank\" rel=\"noopener\">Page Designer</a><br /><br /></li></ul><p>Both operate in different ways and have a significant differences in features. So be sure to check out the documentation if you are unfamiliar with them.</p>\t\t\n\t\t\t<h3>Attribute</h3>\t\t\n\t\t<p>Even though \"Attribute\" is <a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_experience_Component.html#dw_experience_Component_getAttribute_String_DetailAnchor\" target=\"_blank\" rel=\"noopener\">not a separate entity</a> within <a href=\"_wp_link_placeholder\" data-wplink-edit=\"true\">Page Designer</a> entities, I decided to add it as a separate one to show which entities supported \"custom attributes.\"</p>\t\t\n\t\t\t<h2>More to follow?</h2>\t\t\n\t\t<p>There are still quite a few entities within Salesforce B2C Commerce Cloud, each in charge of an essential role within the entire flow.</p><p>Next up are promotions and campaigns, <a style=\"background-color: #f2f7fb; word-spacing: 1.92px;\" href=\"https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/erd/\" target=\"_blank\" rel=\"noopener\">so keep an eye out</a> for this blog! </p>\t\t\n\t\t\t<h3>Mistakes?</h3>\t\t\n\t\t<p>Don’t you love being human? We get to make mistakes and call it part of the experience. Please don't be shy if you spot something that needs fixing in this Content ERD. Let me know!</p>",
+  "slug": "salesforce-b2c-commerce-cloud-content-erd",
+  "publishedAt": "2023-02-20T05:40:33.000Z",
+  "modifiedAt": "2023-02-26T17:52:51.000Z",
+  "author": "Thomas Theunen",
+  "categories": [
+    {
+      "name": "Salesforce Commerce Cloud",
+      "slug": "salesforce-commerce-cloud"
+    },
+    {
+      "name": "Technical",
+      "slug": "technical"
+    }
+  ],
+  "tags": [
+    {
+      "name": "erd",
+      "slug": "erd"
+    },
+    {
+      "name": "sfcc",
+      "slug": "sfcc"
+    },
+    {
+      "name": "technical",
+      "slug": "technical"
+    }
+  ],
+  "legacyUrl": "/salesforce-b2c-commerce-cloud-content-erd/",
+  "targetUrl": "/salesforce-b2c-commerce-cloud-content-erd/",
+  "disposition": "keep",
+  "aliasUrls": [
+    "/?p=3806"
+  ],
+  "mediaRefs": [
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/02/salesforce-b2c-commerce-cloud-diagram-content-erd-1-1024x549.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/02/salesforce-b2c-commerce-cloud-diagram-content-erd-1-1536x823.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/02/salesforce-b2c-commerce-cloud-diagram-content-erd-1-2048x1097.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/02/salesforce-b2c-commerce-cloud-diagram-content-erd-1-300x161.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/02/salesforce-b2c-commerce-cloud-diagram-content-erd-1-768x412.png"
+  ],
+  "_raw": {
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "status": "publish",
+    "titleRaw": "Salesforce B2C Commerce Cloud Content ERD",
+    "excerptRaw": "",
+    "publishedAt": "2023-02-20T05:40:33.000Z",
+    "modifiedAt": "2023-02-26T17:52:51.000Z",
+    "author": "Thomas Theunen",
+    "categories": [
+      {
+        "name": "Salesforce Commerce Cloud",
+        "slug": "salesforce-commerce-cloud"
+      },
+      {
+        "name": "Technical",
+        "slug": "technical"
+      }
+    ],
+    "tags": [
+      {
+        "name": "erd",
+        "slug": "erd"
+      },
+      {
+        "name": "sfcc",
+        "slug": "sfcc"
+      },
+      {
+        "name": "technical",
+        "slug": "technical"
+      }
+    ],
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/02/Salesforce-B2C-Commerce-Cloud-Diagram-Content-ERD-1-1024x549.png",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/02/Salesforce-B2C-Commerce-Cloud-Diagram-Content-ERD-1.png"
+    ],
+    "manifest": {
+      "legacyUrl": "/salesforce-b2c-commerce-cloud-content-erd/",
+      "targetUrl": "/salesforce-b2c-commerce-cloud-content-erd/",
+      "disposition": "keep",
+      "redirectCode": null,
+      "implementationLayer": "none",
+      "urlClass": "post"
+    },
+    "normalization": {
+      "aliasUrlsDerivedFromSameTarget": [
+        "/?p=3806"
+      ],
+      "usedPublishedAtFallback": false,
+      "usedModifiedAtFallback": false,
+      "statusNormalizedFrom": "publish"
+    },
+    "extracted": {
+      "sourcePostType": "post",
+      "link": "/salesforce-b2c-commerce-cloud-content-erd/",
+      "guid": "/?p=3806",
+      "attachmentUrl": null,
+      "postParent": "0",
+      "postMetaCount": 29
+    }
+  },
+  "bodyMarkdown": "You have probably come out empty-handed when scouring the documentation for the Content ERD ([Entity–relationship model](https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model)) of [Salesforce B2C Commerce Cloud](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/).\n\nSure, you find many diagrams on the entity model of [force.com](https://salesforce.stackexchange.com/questions/22720/standard-objects-in-salesforce) with a quick Google! But not so for SFCC. That is why I started to create my own, and share them with you!\n\nThe third on the [list](https://www.rhino-inquisitor.com/tag/erd/): Content! Probably one of the smallest diagrams in the set!\n\n[![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/02/Salesforce-B2C-Commerce-Cloud-Diagram-Content-ERD-1-1024x549.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/02/Salesforce-B2C-Commerce-Cloud-Diagram-Content-ERD-1.png)\n\n[View this diagram on draw.io!](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Salesforce%20B2C%20Commerce%20Cloud%20Diagram%20\\(1\\).drawio#R7V1pd6o8F%2F01Xet5P9RFwvwRnOpUbZ39hhIQZSri%2BOvfoGBF0ds6a2nvrXJAAsk5O3snh%2FhCJo1Z1pHsfsmSkf4CCXn2QqZeIAQ0S%2BEXzzJfWTgCrAyqo8n%2BQd%2BGqrZAvpHwrWNNRqPQga5l6a5mh409yzRRzw3ZJMexpuHDFEsPl2pLKtoxVHuSvmttarLb9%2B%2BCJr7tb0hT%2B0HJgPD3GFJwsG8Y9SXZmm6YyPQLmXQsy129M2ZJpHuVF9TL6nOZPXvXF%2BYg0%2F3JB6B%2FGe48uLfJSJ7lUvg9eCFFRdP1pKVbDt42LRMfIqqOJGv47Ftm78iyLfU012tTAltGrmMN0ZbN2zLVmmVjwyv5bREt17WMLWMRKe6W6dOv1aXNtjTTXTYlLeJ%2FRILgXmCSSPCs9%2FJC49tJLu083LLjf6SoS12ki1JvqDrW2JS3bmhpQ7JfEaub2Tqk7xq6v3%2Fa11xUxdfo1eIUez227baF3zwT5LhotmHy2yaLLAO5zhwf4u8lAbv6iB8oDORX29Nvt6Mp%2F7T9DZeDjO%2Ftvqer61N%2FOwN%2B4%2FtDtG%2BQ%2B30DbvnGCySV5c%2FJDtKXbK%2BwkYvMnqb%2FN2nUirJVUtMVQtLNPMYNMScCYzITJpRY01r5wqxdJkYKyVhGqVuSDLZjySQ7WuiLgaAp%2Fb4EmpP0XExyiK%2B36lSvyVWVtFHWJbYOc3muWtFwO2XKi%2FEkO8Zv0Lg%2F5tFntT0oMXlnXkjXjNmb3qLZd30qldppxhHUwge%2BCtTGf%2FKjxkyrV6weM1R7HbYyF8zcSJaG3LCSHaoVpTUrW0J5UJh3ypLGFdpfcrpktGRRRGUmn5UaXfKj6XYLi0adqGY1WuLn47Zj8Gati%2BY5rW7Qn6Q9Bm0rP6iCkgu56tfsg9Nl8m38np0PP1E6My9MUDbXG5R7SXXcKRdtl5Dwbbzh%2F6RMcIuC9v7VGfGs7naGH5nMsMWQxbZbGH3hI0RZV8yW1tZntSYAarHMMuUu3WM%2BJmKKKsmT%2F108YJdRSYeCFUTYVtsgwkYcHdC%2Fjl3449i9Rmz6HehE0sd%2BbL5ARscFiLI2CQUt8zX2OhNRsUz3dbTsSgV8ALBn3%2FvwO9V%2FXZ7DjjyDpGuqiT%2Fdw3WCcMWKhuSomvmqL1tdYL4tzupmN02u50ECxKWuTV3fhQRiacXV6r5quIm8Ghc8MJgEJRqaLHsXg2%2FOwf25ZnlG3XVWl7znJrwb%2FmdNACbBk8vil1ZFMjQdY5EgOJqE617srXwI1xgp8ZLS5SIvQkcurpFX3%2BXXd6RrJnoNWl5YkgAam60A8QSw%2F%2Bq7gaGKWcdIsRzsnZAQse9DImkZBloZkro1lvHr69KM28W759UZsAt1t8%2BKbatq2THbEbalKwXWra7Aay2viWK2cCa24AGLhimmsPL51Nrn%2FSBIrcMufK5TkMrfCxM0FaIZMBHg1iaWkUyC5iLgDCRo%2FnREo%2FezDerhfOuGHdu9MFWajmCqcNd9ADjdd5j9vkNfm6lmKtMlUy107TKuHJixMqTwVa8zLsoLMK%2FzCp%2B3m9UyHMPeW6mVk%2BjesMWVip0vIqd9ErUJi0UsFA1eI7Uapc4IVpGyn3xTE7nPCj0fERRcvJHEOz6GSGfy1VLRMsaW1S1LadRALW7WEIj21F7k3gTNUVikjMoFgquLSjvZljLNvGimc2jRsVE3m%2BmV%2BDLd%2FHjLdIRJdZCWs50vrlz%2F6hklo%2FuOULPCauVxXcIsdVLM12z6K5cd8VJqNm53DXxnLaNF1WzJmhZazIy0RtpQU0vVmZ2xmtVJecrnhrRjpicVvixWayVLr7V1Pd1DLItRRCS9usFM1hw2qYWCezGWqdSE4uxNGHUqbJP4aJmzUaqPDxoQoF0USgULjpnUuMPOmV7qrZqiskpqkFlqZzIVc9XN6KWP46oXik425qpn4ap8guPuiarW%2BpaB%2FQIStT4am8h88caaiBc2uXqDf%2BHleWfMDR6Gl%2F4clfbxUsw02QheyiZghMzGyu4MtJTbTy2YX7leZN2vjMEY8sV9b%2BVnZITvbWsgz89esUQC1%2Bu0fk05KQ6GvIMnqR3nADyx6xksebpf8Pv9gv095dwhk51Kt%2BcNe%2BYkpT90SbVSFwA0mbfhPDm3qwWVac%2B6gBtJ1S%2FJ1pV3spt7Uxx8zRmMwqI4xkRvkpSUFPMOuxV7MoBinst15l3HbaFBMq2Nk4j6osnWoIVMtj%2BoTDoWi5tcHMhKb0rW3rLlRb%2Fca40L%2BUYvNWzgPW3wrmH8ziQzDW9goUqJc34wmUzlwjyjl8iWUyg45uJrgH1kkE%2FRLrQ%2Bx2XGDgY5i0XpS2vbqSZyPeLalIpdb9jVMBgx109%2FsMRA%2BZQMgdZGdUGa5erigO%2FW3IqVMYrJKduYMj27VykRQr%2BM2HZ%2BnMMdRKaC%2B57McGILNVooqEKh0RFE9GET2U5KHRBFeur1Ov1y6q3Xbc7e%2BzZsNjj2vVDVxqQ3Ppr82KCOoeDEDcZS3u9OhMJn7R2IYyKWO4ZmXiwig8nBqJDkdkOSWP78iipsBWl90YDFEZ0rpvuN91rOKmpmYUFQ7oKY2vOGAGQ9DUojpzQnVHeuTcWRXn1vNZrvplyZa6BY0%2FAd5YscyKn4TS6fHqatjwJmejCTyn4mxXpVMTpMp1zXasN6Wm%2BUxN6CV3PFci5b7%2BAgqhltNCTdfHVBf8z5TofJ2BIFmmWmD2qAKVNiqZ9ENW5SmtezzY8PzrBEYajlgCwc4fhPS4uewfGDnvOOBBaxK7A2TCuBRdybwAIwwUYIrCQuuetoYYm1ho9jJRbA7GrzBxwzOXDTIf%2BY%2F57Af88nq34ORsFemAiP1UI2Qe%2BO9wOGTkTIKsCsDz4JtA5knvAP51hEhGMRkY7ljVUnwYZj%2BXaWjrZ7w%2BphT%2FR3cFTkjpU7Qxhh5OhLOfMZxBzH0rcTc%2BBAqgsgYjkXy7m%2FwGoDSL4XWksdCMrtdINY0MWC7olcPxgqjxXdX1N0GUuXce3fRNDFvPvBePf5ROQvAPCuVOSBzB%2Fwu6nhu3DnxLY33qFS2552Y2nmikqNPdDgR%2BR6xUotVmoPSFeZ%2B6KrB5IkwPYocazUYqX2RK7Px0rtjyq1iqSiEnKlmqTe6JGbmOBeVBL9HGnuSRLBA2kwYDsP5v49JmrK9iFlEgAgwhUu1S8F1xvpBdvjPLFOinXSU5LFAAvvhCzCAzkPMGKaOdZJsU56FtcnY530h3XSjQRSTHevLZp%2BATt3JZoO5JpA8uG8KCJ%2F9YGFE%2BR2F726XEd1YB0KuD3gEgunWDg9J3ukfhy1VwnKA9P8MGLWNxZOsXB6Fte%2Fw9UzYuF0FeH0iVSv5JtIp5j03kY%2B%2FRx87ko%2BHUgAgdvLITykJz2CTqKY3cVRLtcvHVgAA0Y8bh%2FrpFgnPSFZvK%2BVAMgDc%2F8wYtY31kmxTnoW148XwfirOilpGTZ26VstgxET3Atrosdc4II8kOxB%2Fm619LDLyEiRxktHvXny5rUWS5GlUX99rLdRkTx0MZcWjNznEVQcF9ZTV513Ig8sQUHCWE%2FFeuovkMoANO%2BFVB5ICyC3R0hjPRXrqSdy%2FXgJir%2BqpwTXdbTu2L1R1t5J5PheHmt6vGUEf4E%2FdyWzDqSGkI%2BX%2F%2FlQXzNyqsK66hp%2F5IGVI8j4iahYYD1ayB7HMu%2Fr8XnyQOIAFT8RFQusJ3b9eOWIvyqwqrrl3nTl9pgY36kGe8wlJ6gDaSdeUyJZRVV%2F39p7JMcVHMeaftuQKW9ZlkdVl2G%2B%2FCJPfMTG1k43uP7au%2FN64t723WjL37gTmmluy4uZBMGRgOUhz9I8S1CQDva2l3t5BtAkRwV%2FGX9naubH23JjvrFRQY6GG89ztZXNxA25KomHFAQUBViWonjA8MHe%2FSV5e7%2BLWm7NN7e2C9srD0fW2On5buGPMeBmVZEbMnk%2BctDhHaRLrjZBoXNHea3%2F0YqHH9%2BB8rr1CUtRRp6w%2BfZy7HvSfOMIH4C242B9ST8LjTgt5Uy9PEhA%2Fmfffrn6OaGT%2F9G3XyrLhXpH5%2B%2Bsvx9fhkdhZ%2FoTm2pWSTLnByGUj4LQdd3dDYRuDsWEcXSnew2AFWCORkOGBDTL8RRLruBujaskAbCJY4LX43HVG9oNl8RRMAytUYVdBFq5XWgFl8bWa4MpjMH0OcG0p0ujkaZgiPBK2FkD%2FezIuoeVHsozggnvTggmsdSP%2F8RgQzLl8j9I7FMjMAgBIxtC4E1AxK%2FURRE4qrA%2FjcDRBBkrg0QwJhXMz3D05hmP%2BAh%2Bs7qOoyH%2FQFocBY7kRwvkWM9DkA5qzH9QIZrA8cLjvatXeHwgEuGgizrxRYIuGDLZjDruuSVl8IxozIKejAX5rn453rPqho9GzD%2FNZw7BKAQ8YDmCC16Ph9Hogr5xNURlVs15EVgNiMtRZCbAR8zNGMLnB7cnOGAZhJtchSYO0pvdD%2FDseclNnGP5pEg%2BGnczFx8fJJmY%2Fx4H597Xey2VYiBSA8Ru%2B5IyPGZHnkCLExulLCF9E8%2F3FHV%2FiH4mpjw%2FnThHF8AT4cxCjmUSTAisd9GdCFLc937mdIAP5nNjgH8ygMchtE6T%2F%2B9%2FlwR5Ogb5I0E%2BRNHPONKBz7Wfol8T0oPFdjchnbwWpLPhgT%2BGOzemA45KBMN%2F6%2B%2FQoLjzAnS8ul4M0CcCNBUD9CMBNEgQkCV5FjL%2B6%2BUGUaJmhG6Fz68scQ2ApgnqvADNxQB9UYC%2BTJr0jyB6oo20ro7Wy%2FdcdKyEiFH6SJRO0Bs4HY2eR%2BP0zZgztYvMF582vPY84aEVOuOhwx%2BkZz%2Bj40dIxiAYnsXx%2FWmd0x5VZlhqS3oyZ3joK3jaIqYzz6Y3r5zBCPfkhscZjKfSnm%2BQZrfyCjcxG2xD9nrv2SGbjoDsq03c0OF5lfPP3AACsImtmZg11p5LRdJx4viTwu7ln8KBx2aZxk%2FhHH4KB4RH%2FE6h01v53%2BBGSB1Frh8oA5yHVILmt5CYPO94Hh1%2FD%2BzTjufZkopKyJVqknrRxyJPS2L9w4gcHtE4c55TaEjjipMsUU%2FdMBfG3DOw4Z%2BPb%2BBNx%2FIC7ftwR7L7JUtG3hH%2FBw%3D%3D)\n\n## Additional explanation of the Content ERD\n\n### Content vs Page\n\nIt is essential to understand that there are two systems in place to handle content in Salesforce B2C Commerce Cloud:\n\n-   [Content Assets in combination with Content Slots](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/content/b2c_content_slots.html)\n-   [Page Designer](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/page_designer/b2c_dev_for_page_designer.html)\n\n\n\nBoth operate in different ways and have a significant differences in features. So be sure to check out the documentation if you are unfamiliar with them.\n\n### Attribute\n\nEven though \"Attribute\" is [not a separate entity](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_experience_Component.html#dw_experience_Component_getAttribute_String_DetailAnchor) within [Page Designer](_wp_link_placeholder) entities, I decided to add it as a separate one to show which entities supported \"custom attributes.\"\n\n## More to follow?\n\nThere are still quite a few entities within Salesforce B2C Commerce Cloud, each in charge of an essential role within the entire flow.\n\nNext up are promotions and campaigns, [so keep an eye out](https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/erd/) for this blog!\n\n### Mistakes?\n\nDon’t you love being human? We get to make mistakes and call it part of the experience. Please don't be shy if you spot something that needs fixing in this Content ERD. Let me know!",
+  "conversionStatus": "converted",
+  "manualReviewRequired": false,
+  "fallbackTypes": [],
+  "conversionWarnings": [
+    {
+      "code": "missing-image-alt",
+      "message": "Image missing alt text in /salesforce-b2c-commerce-cloud-content-erd/."
+    }
+  ]
+}

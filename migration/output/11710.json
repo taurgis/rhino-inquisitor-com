@@ -1,0 +1,102 @@
+{
+  "sourceId": "11710",
+  "sourceType": "wxr",
+  "sourceChannels": [
+    "wxr"
+  ],
+  "postType": "post",
+  "status": "publish",
+  "titleRaw": "How to migrate passwords from Magento using Argon2",
+  "excerptRaw": "",
+  "bodyHtml": "<p>As a developer, you might encounter situations where you need to <a href=\"https://osapishchuk.medium.com/legacy-customers-password-migration-3fa1596303cc\" target=\"_blank\" rel=\"noopener\">migrate</a> data from one platform to another securely. This requires handling sensitive data like passwords with utmost care. In the case of Magento, password hashing is done using the Argon2 algorithm (depending on the Magento version, your mileage may vary), which is known for its security and resistance against brute force attacks.</p><p>Now, if you're migrating from Magento to Salesforce B2C Commerce Cloud, you need to make sure that the passwords are securely migrated as well. The bad news is that Salesforce B2C Commerce Cloud does not support the Argon2 algorithm out of the box for importing.</p><p>The good news is that I managed to migrate a Python script to Node.js that verifies the Magento password hash using the Argon2 algorithm. </p>\t\t\n\t\t\t<h2>TL;DR; The script</h2>\t\t\n\t\t<p>I have created a <a href=\"https://osapishchuk.medium.com/legacy-customers-password-migration-3fa1596303cc\" target=\"_blank\" rel=\"noopener\">script</a> that can be used for various purposes. However, I would strongly suggest using it only for educational purposes or with proper authorisation. You can just change this script to meet your specific needs. For example, you can use it to develop a microservice for migrational purposes with proper authorisation.</p>\t\t\n\t\t\t<h3>hashes.txt</h3>\t\t\n\t\t\t<pre data-line=\"\">\n\t\t\t\t<code readonly=\"true\">\n\t\t\t\t\t<xmp>ab5ebf8d273b085b6a60336198e0a5a2090fdc3e0606a678315c7274ab06e046:5PiKJRn28bBKoFMopMaaKuV47aJ6GzVg:3_32_2_67108864\n</xmp>\n\t\t\t\t</code>\n\t\t\t</pre>\n\t\t\t<h3>wordlist.txt</h3>\t\t\n\t\t\t<pre data-line=\"\">\n\t\t\t\t<code readonly=\"true\">\n\t\t\t\t\t<xmp>Password1\nPassword2\nPassword@\nPassword3</xmp>\n\t\t\t\t</code>\n\t\t\t</pre>\n\t\t\t<h3>Script</h3>\t\t\n\t\t\t<pre data-line=\"\">\n\t\t\t\t<code readonly=\"true\">\n\t\t\t\t\t<xmp>const argon2 = require('argon2');\nconst fs = require('fs');\nconst readline = require('readline');\nconst path = require('path');\nconst hashFilePath = path.join(__dirname, 'hashes.txt');\nconst wordlistFilePath = path.join(__dirname, 'wordlist.txt');\n/**\n * Verifies the given hash string with the given password.\n *\n * @param {string} hashString - The hash string to verify.\n * @param {string} password - The password to verify the hash with.\n *\n * @returns {Promise<void>}\n */\nasync function verifyHash(hashString, password) {\n    const split = hashString.trim().split(\":\");\n    if (split.length !== 3) {\n        console.log(`Invalid hash format: ${hashString}`);\n        return;\n    }\n    let [hash, salt_b64, version] = split;\n    if (version === \"2\" || version === \"3\") {\n        version += \"_32_2_67108864\";\n        hashString = `${hash}:${salt_b64}:${version}`;\n    }\n    const salt = Buffer.from(salt_b64.substring(0, 16));\n    const versionInfo = version.split(\"_\");\n    if (versionInfo.length !== 4) {\n        console.log(`Invalid version format: ${hashString}`);\n        return;\n    }\n    const hashLength = parseInt(versionInfo[1]);\n    const hashTimeCost = parseInt(versionInfo[2]);\n    const hashMemory = parseInt(versionInfo[3]) / 1024;\n    password = Buffer.from(password.trim());\n    const result = await argon2.hash(password, {\n        salt,\n        type: argon2.argon2id,\n        memoryCost: hashMemory,\n        timeCost: hashTimeCost,\n        parallelism: 1,\n        hashLength: hashLength,\n        raw: true\n    });\n    const hexHash = result.toString('hex');\n    if (hexHash === hash) {\n        console.log(`${hashString.trim()}:${password.toString()}`);\n    }\n}\n/**\n * Processes each line of the file at the given file path.\n *\n * @param {string} filePath - The path to the file to process.\n * @param {Function} processLine - The function to process each line of the file.\n *\n * @returns {Promise<void>}\n */\nasync function processFile(filePath, processLine) {\n    const fileStream = fs.createReadStream(filePath);\n    const rl = readline.createInterface({\n        input: fileStream,\n        crlfDelay: Infinity\n    });\n    for await (const line of rl) {\n        await processLine(line);\n    }\n}\n/**\n * Processes each hash string in the hash file and verifies it with each password in the wordlist file.\n */\nprocessFile(hashFilePath, async (hashString) => {\n    await processFile(wordlistFilePath, async (password) => {\n        await verifyHash(hashString, password);\n    });\n}).then(() => {\n    console.log(\"Done\");\n});\n</xmp>\n\t\t\t\t</code>\n\t\t\t</pre>\n\t\t\t<h2>Breaking It Down</h2>\t\t\n\t\t\t<h3>Dependencies</h3>\t\t\n\t\t<p>The code relies on the <code>argon2</code> library to hash passwords securely using the Argon2 algorithm, which should not come as a surprise. The downside is that this module is written in C, which makes it impossible to use in the back-end of Commerce Cloud.</p><p>It is possible to migrate (probably), but it would require a significant amount of effort.</p><p>It also uses the <code style=\"font-size: 20px; text-align: var(--text-align);\">fs</code> module for reading files, <code style=\"font-size: 20px; text-align: var(--text-align);\">readline</code> for processing lines, and <code style=\"font-size: 20px; text-align: var(--text-align);\">path</code> for handling file paths.</p>\t\t\n\t\t\t<h3>VerifyHash</h3>\t\t\n\t\t<p>This function takes a stored hash (<code>hashString</code>) and a candidate password (<code>password</code>).</p><p>It performs the following steps:</p><ul><li style=\"list-style-type: none;\"><ul><li>Parses the hash string into its components (hash, salt, and version).</li><li>Adjusts the version if needed.</li><li>Extracts the salt.</li><li>Retrieves information about hash length, time cost, and memory cost.</li><li>Computes a new hash using Argon2 with the same parameters.</li><li>Compares the computed hash with the stored hash.</li><li>If they match, it logs the hash and the original password.</li></ul></li></ul>\t\t\n\t\t\t<h4>Version Information</h4>\t\t\n\t\t<p>Luckily, Magento stores the required parameters for Argon2 in its version number, which can be extracted for our purposes:</p><p><em>hash</em>:<em>salt</em>:<strong>3_32_2_67108864</strong></p>\t\t\n\t\t\t<h2>Conclusion</h2>\t\t\n\t\t<p>Although Commerce Cloud does not support Argon2 by default, this workaround is available. You can create a Microservice in Node.js to enable frictionless migration for customers.</p><p>During login, you can call the service to verify the entered credentials and update the Commerce Cloud password with the available plain text password.</p><p>After the migration, you should have an attribute to turn off this service call for that account to avoid unnecessary calls.</p>\t\t\n\t\t\tSecurity\n\t\t\t\t\t\t\tAs we are dealing with sensitive data, it is crucial to ensure that your service is built securely and that hashes or passwords are never exposed to the outside world.",
+  "slug": "migrate-magento-passwords-using-argon2",
+  "publishedAt": "2024-03-27T08:47:32.000Z",
+  "modifiedAt": "2024-03-28T15:01:14.000Z",
+  "author": "Thomas Theunen",
+  "categories": [
+    {
+      "name": "Salesforce Commerce Cloud",
+      "slug": "salesforce-commerce-cloud"
+    },
+    {
+      "name": "Technical",
+      "slug": "technical"
+    }
+  ],
+  "tags": [
+    {
+      "name": "sfcc",
+      "slug": "sfcc"
+    },
+    {
+      "name": "technical",
+      "slug": "technical"
+    }
+  ],
+  "legacyUrl": "/migrate-magento-passwords-using-argon2/",
+  "targetUrl": "/migrate-magento-passwords-using-argon2/",
+  "disposition": "keep",
+  "aliasUrls": [
+    "/?p=11710"
+  ],
+  "mediaRefs": [],
+  "_raw": {
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "status": "publish",
+    "titleRaw": "How to migrate passwords from Magento using Argon2",
+    "excerptRaw": "",
+    "publishedAt": "2024-03-27T08:47:32.000Z",
+    "modifiedAt": "2024-03-28T15:01:14.000Z",
+    "author": "Thomas Theunen",
+    "categories": [
+      {
+        "name": "Salesforce Commerce Cloud",
+        "slug": "salesforce-commerce-cloud"
+      },
+      {
+        "name": "Technical",
+        "slug": "technical"
+      }
+    ],
+    "tags": [
+      {
+        "name": "sfcc",
+        "slug": "sfcc"
+      },
+      {
+        "name": "technical",
+        "slug": "technical"
+      }
+    ],
+    "mediaRefs": [],
+    "manifest": {
+      "legacyUrl": "/migrate-magento-passwords-using-argon2/",
+      "targetUrl": "/migrate-magento-passwords-using-argon2/",
+      "disposition": "keep",
+      "redirectCode": null,
+      "implementationLayer": "none",
+      "urlClass": "post"
+    },
+    "normalization": {
+      "aliasUrlsDerivedFromSameTarget": [
+        "/?p=11710"
+      ],
+      "usedPublishedAtFallback": false,
+      "usedModifiedAtFallback": false,
+      "statusNormalizedFrom": "publish"
+    },
+    "extracted": {
+      "sourcePostType": "post",
+      "link": "/migrate-magento-passwords-using-argon2/",
+      "guid": "/?p=11710",
+      "attachmentUrl": null,
+      "postParent": "0",
+      "postMetaCount": 19
+    }
+  },
+  "bodyMarkdown": "As a developer, you might encounter situations where you need to [migrate](https://osapishchuk.medium.com/legacy-customers-password-migration-3fa1596303cc) data from one platform to another securely. This requires handling sensitive data like passwords with utmost care. In the case of Magento, password hashing is done using the Argon2 algorithm (depending on the Magento version, your mileage may vary), which is known for its security and resistance against brute force attacks.\n\nNow, if you're migrating from Magento to Salesforce B2C Commerce Cloud, you need to make sure that the passwords are securely migrated as well. The bad news is that Salesforce B2C Commerce Cloud does not support the Argon2 algorithm out of the box for importing.\n\nThe good news is that I managed to migrate a Python script to Node.js that verifies the Magento password hash using the Argon2 algorithm.\n\n## TL;DR; The script\n\nI have created a [script](https://osapishchuk.medium.com/legacy-customers-password-migration-3fa1596303cc) that can be used for various purposes. However, I would strongly suggest using it only for educational purposes or with proper authorisation. You can just change this script to meet your specific needs. For example, you can use it to develop a microservice for migrational purposes with proper authorisation.\n\n### hashes.txt\n\n```\n\n\t\t\t\t\tab5ebf8d273b085b6a60336198e0a5a2090fdc3e0606a678315c7274ab06e046:5PiKJRn28bBKoFMopMaaKuV47aJ6GzVg:3_32_2_67108864\n\n\n\n```\n\n### wordlist.txt\n\n```\n\n\t\t\t\t\tPassword1\nPassword2\nPassword@\nPassword3\n\n\n```\n\n### Script\n\n```\n\n\t\t\t\t\tconst argon2 = require('argon2');\nconst fs = require('fs');\nconst readline = require('readline');\nconst path = require('path');\nconst hashFilePath = path.join(__dirname, 'hashes.txt');\nconst wordlistFilePath = path.join(__dirname, 'wordlist.txt');\n/**\n * Verifies the given hash string with the given password.\n *\n * @param {string} hashString - The hash string to verify.\n * @param {string} password - The password to verify the hash with.\n *\n * @returns {Promise}\n */\nasync function verifyHash(hashString, password) {\n    const split = hashString.trim().split(\":\");\n    if (split.length !== 3) {\n        console.log(`Invalid hash format: ${hashString}`);\n        return;\n    }\n    let [hash, salt_b64, version] = split;\n    if (version === \"2\" || version === \"3\") {\n        version += \"_32_2_67108864\";\n        hashString = `${hash}:${salt_b64}:${version}`;\n    }\n    const salt = Buffer.from(salt_b64.substring(0, 16));\n    const versionInfo = version.split(\"_\");\n    if (versionInfo.length !== 4) {\n        console.log(`Invalid version format: ${hashString}`);\n        return;\n    }\n    const hashLength = parseInt(versionInfo[1]);\n    const hashTimeCost = parseInt(versionInfo[2]);\n    const hashMemory = parseInt(versionInfo[3]) / 1024;\n    password = Buffer.from(password.trim());\n    const result = await argon2.hash(password, {\n        salt,\n        type: argon2.argon2id,\n        memoryCost: hashMemory,\n        timeCost: hashTimeCost,\n        parallelism: 1,\n        hashLength: hashLength,\n        raw: true\n    });\n    const hexHash = result.toString('hex');\n    if (hexHash === hash) {\n        console.log(`${hashString.trim()}:${password.toString()}`);\n    }\n}\n/**\n * Processes each line of the file at the given file path.\n *\n * @param {string} filePath - The path to the file to process.\n * @param {Function} processLine - The function to process each line of the file.\n *\n * @returns {Promise}\n */\nasync function processFile(filePath, processLine) {\n    const fileStream = fs.createReadStream(filePath);\n    const rl = readline.createInterface({\n        input: fileStream,\n        crlfDelay: Infinity\n    });\n    for await (const line of rl) {\n        await processLine(line);\n    }\n}\n/**\n * Processes each hash string in the hash file and verifies it with each password in the wordlist file.\n */\nprocessFile(hashFilePath, async (hashString) => {\n    await processFile(wordlistFilePath, async (password) => {\n        await verifyHash(hashString, password);\n    });\n}).then(() => {\n    console.log(\"Done\");\n});\n\n\n\n```\n\n## Breaking It Down\n\n### Dependencies\n\nThe code relies on the `argon2` library to hash passwords securely using the Argon2 algorithm, which should not come as a surprise. The downside is that this module is written in C, which makes it impossible to use in the back-end of Commerce Cloud.\n\nIt is possible to migrate (probably), but it would require a significant amount of effort.\n\nIt also uses the `fs` module for reading files, `readline` for processing lines, and `path` for handling file paths.\n\n### VerifyHash\n\nThis function takes a stored hash (`hashString`) and a candidate password (`password`).\n\nIt performs the following steps:\n\n-   -   Parses the hash string into its components (hash, salt, and version).\n    -   Adjusts the version if needed.\n    -   Extracts the salt.\n    -   Retrieves information about hash length, time cost, and memory cost.\n    -   Computes a new hash using Argon2 with the same parameters.\n    -   Compares the computed hash with the stored hash.\n    -   If they match, it logs the hash and the original password.\n\n#### Version Information\n\nLuckily, Magento stores the required parameters for Argon2 in its version number, which can be extracted for our purposes:\n\n_hash_:_salt_:**3\\_32\\_2\\_67108864**\n\n## Conclusion\n\nAlthough Commerce Cloud does not support Argon2 by default, this workaround is available. You can create a Microservice in Node.js to enable frictionless migration for customers.\n\nDuring login, you can call the service to verify the entered credentials and update the Commerce Cloud password with the available plain text password.\n\nAfter the migration, you should have an attribute to turn off this service call for that account to avoid unnecessary calls.\n\nSecurity As we are dealing with sensitive data, it is crucial to ensure that your service is built securely and that hashes or passwords are never exposed to the outside world.",
+  "conversionStatus": "converted",
+  "manualReviewRequired": false,
+  "fallbackTypes": [],
+  "conversionWarnings": []
+}

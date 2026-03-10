@@ -1,0 +1,155 @@
+{
+  "sourceId": "7979",
+  "sourceType": "wxr",
+  "sourceChannels": [
+    "filesystem",
+    "wxr"
+  ],
+  "postType": "post",
+  "status": "publish",
+  "titleRaw": "Understanding Salesforce B2C Commerce Instances: A Comprehensive Guide",
+  "excerptRaw": "",
+  "bodyHtml": "Salesforce B2C Commerce is a <a href=\"https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/\" target=\"_blank\" rel=\"noopener\">robust platform</a> that enables businesses to create highly customised and scalable digital storefronts. One of the key components (and advantages) of B2C Commerce is the available instances, which contain the tools and resources needed for customising your storefront.&nbsp;\n\nThis blog post will discuss the different types of B2C Commerce instances, their uses, and how different teams within your organisation can utilise them.\n<figure>\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/POD-Realm-and-Instances-transparent.png\" data-elementor-open-lightbox=\"no\">\n<img width=\"800\" height=\"620\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/POD-Realm-and-Instances-transparent-1024x794.png\" alt=\"\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/POD-Realm-and-Instances-transparent-1024x794.png 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/POD-Realm-and-Instances-transparent-300x232.png 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/POD-Realm-and-Instances-transparent-768x595.png 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/POD-Realm-and-Instances-transparent-1536x1190.png 1536w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/POD-Realm-and-Instances-transparent-2048x1587.png 2048w\" sizes=\"(max-width: 800px) 100vw, 800px\">\t\t\t\t\t\t\t\t</a><figcaption>POD, Realm, Instances, and Domains</figcaption></figure>\n<h2>POD (Point of Delivery)</h2>\nIn Salesforce B2C Commerce, a Point of Delivery (POD) is a comprehensive infrastructure hosting a multi-tenant Software as a Service (SaaS) application. This infrastructure comprises computing, networking, and storage services, which work together to support the&nbsp;operation of the B2C Commerce platform.\n\nThe POD architecture ensures that resources are allocated effectively to handle various tenants' needs on the platform while maintaining high performance and availability. This approach allows businesses to focus on building and managing their digital storefronts without worrying about the underlying infrastructure.&nbsp;\n\nSalesforce takes care of maintaining the POD and ensuring its optimal performance.\n\nDeprecation\nThis also means that <a href=\"https://www.rhino-inquisitor.com/a-look-back-at-origin-shielding/\" target=\"_blanke\" rel=\"noopener\">Salesforce makes crucial decisions on this infrastructure</a> that must be considered during development.\n<h2>Realms</h2>\nA realm is an essential organisational component that houses instances required for developing, testing, and deploying your online storefront. Typically, a single realm is adequate for managing multiple sites with different branding or locales. This setup allows for flexible management, as individuals overseeing the storefront sites can be located in various places. However, consider using multiple realms if you have distinct lines of business, global teams with unique processes, or separate organisations with different backend integrations.&nbsp;\n\nWhile sites within the same realm can share product catalogs, sites in other realms cannot share data through the catalog structure.\n\nYou can, however, set up a CI/CD system to automate the synchronisation of the data when working with multiple realms.\n<h2>PIG vs SIG</h2>\nWithin a&nbsp;<a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/getting_started/b2c_platform_overview.html\" target=\"_blank\" rel=\"noopener\">realm</a>, instances are organised into Primary Instance Group (PIG) and Secondary Instance Group (SIG).&nbsp;\n\nThe PIG comprises three instances:\n<ul>\n \t<li>Development</li>\n \t<li>Staging</li>\n \t<li>Production</li>\n</ul>\nThese are used for site configuration, testing, and hosting the live site. In the SIG, you will find the Developer Sandboxes.\n\n<em><strong>Note: </strong></em><em>Each realm can have only one PIG and SIG.</em>\n<h2>Instance Types</h2>\nThere are four types of B2C Commerce instances: Sandbox, Staging, Development, and Production. Each instance type has a unique purpose and set of features, making it suitable for specific tasks within the development and management of your storefront.\n<h3>Sandbox</h3>\n<img width=\"800\" height=\"333\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/a-server-in-the-desert-v2-1024x426.jpg\" alt=\"A server in the desert\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/a-server-in-the-desert-v2-1024x426.jpg 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/a-server-in-the-desert-v2-300x125.jpg 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/a-server-in-the-desert-v2-768x320.jpg 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/a-server-in-the-desert-v2-1536x640.jpg 1536w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/a-server-in-the-desert-v2-2048x853.jpg 2048w\" sizes=\"(max-width: 800px) 100vw, 800px\">\n\nDevelopers use sandbox instances to create and update storefront code. These instances are located in a secondary instance group (SIG) and have most system jobs disabled.\n\nDeletion\nSandboxes without login activity for 150 days might be deleted, but Salesforce will notify you before this occurs. Though honesty, I never saw this happen on the old system, and with On-Demand sandboxes having become the default option, you are in total control.\n<h3>Staging</h3>\nThe staging instance is where merchandising work takes place. This instance simulates the production environment and is used as the final step in testing the intersection of content and code. Staging instances are located in the realm's primary instance group (PIG) and are (<a href=\"https://www.rhino-inquisitor.com/how-to-set-up-the-ecdn-for-staging-in-salesforce-b2c-commerce-cloud/\" target=\"_blank\" rel=\"noopener\">since recently</a>) connected to the eCDN.\n<h3>Development</h3>\nDevelopment instances are used to replicate the production environment closely and are ideal for testing purposes. Like Staging instances, they are located in the PIG and have data and code replicated from the Staging instance.&nbsp;\n<h3>Production</h3>\nThe production instance is the live environment used for storefront transactions. It is also located in the PIG and is connected to the eCDN provided by B2C Commerce.\n\nCaching\nCaching can not be disabled in this instance.\n<h2>Matching Roles with Instances</h2>\nDepending on the size of your team, one person may play more than one role. Here is a breakdown of the different roles within an organization and the instance types they typically use.\n<h3>Architect</h3>\nThe role of an Architect in Salesforce B2C Commerce Cloud involves designing and implementing scalable, reliable, and high-performance solutions to meet the needs of the business. They work closely with stakeholders to understand requirements and develop technical solutions using best practices and industry standards. Architects also oversee the development and deployment of customisations, integrations, and extensions to ensure that they align with the overall architecture and roadmap of the platform.\n\nIn terms of instances, Architects will be interacting will all instances that Salesforce has to offer.\n<h3>Developer</h3>\nDevelopers play a critical role in shaping a digital storefront's look, feel, and functionality on the Salesforce B2C Commerce platform. They are responsible for creating and modifying templates, pipelines/controllers, and scripts that define the site's user experience and overall performance. Developers primarily work with three instances: Sandbox, development, and staging.\n\nThe Sandbox instance is a safe environment for developers to experiment with and test their code without affecting the live storefront or other instances. It is an isolated space where developers can create, modify, and debug their code to ensure proper functionality and compatibility with the rest of the system.\n\n<img width=\"800\" height=\"398\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/woman-developer-working-on-a-project-1-1024x510.jpeg\" alt=\"\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/woman-developer-working-on-a-project-1-1024x510.jpeg 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/woman-developer-working-on-a-project-1-300x149.jpeg 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/woman-developer-working-on-a-project-1-768x382.jpeg 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/woman-developer-working-on-a-project-1-1536x765.jpeg 1536w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/woman-developer-working-on-a-project-1-2048x1020.jpeg 2048w\" sizes=\"(max-width: 800px) 100vw, 800px\">\n\nOnce developers are satisfied with their work in the Sandbox instance, they move on to the Staging instance. The Development environment is where developers upload their finalised code, which is subject to further testing and integration with the content created by merchandisers. This ensures the code and content work seamlessly before being deployed to the Production instance.\n\nDepending on your process, the content is first replicated to the Development instance and tested with the latest code before moving it into staging, where bugs in the code can disrupt the daily merchandising activity.\n\nDevelopers may also export data added by merchandisers on the Staging instance to use as test data for their Sandbox environments. This helps them develop and test their code with realistic data that reflects the actual content and structure of the live storefront.\n\nDevelopers play a collaborative role within the organisation, working closely with merchandisers, SEO engineers, administrators, and QA engineers. This collaboration ensures that all aspects of the digital storefront are well-coordinated, resulting in a seamless and high-quality user experience.\n<h3>Merchandiser</h3>\nA Merchandiser plays a vital role in creating and managing content for a digital storefront, such as campaigns, promotions, and product information. In the Salesforce B2C Commerce ecosystem, Merchandisers typically work within the Staging instance.\n\nThe Staging environment allows Merchandisers to develop and refine their content strategies and marketing efforts without affecting the live storefront. They can also configure search behaviour to optimise the user experience. Once satisfied with their work, the changes are replicated in the Production instance for seamless integration.\n<h3>Quality Assurance Engineer</h3>\nA Quality Assurance (QA) Engineer is responsible for ensuring the optimal performance and functionality of a digital storefront before it goes live. In the context of Salesforce B2C Commerce, QA Engineers primarily work with the Development instance.\n\nThe Development instance offers a close replication of the Production environment, allowing QA Engineers to test the site under conditions similar to the live storefront. By thoroughly examining the website's features, design, and user experience, QA Engineers can identify and address any issues before they impact the end-users.\n<h3>SEO Specialist</h3>\n<img width=\"800\" height=\"305\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/seo-specialist-looking-at-google-1024x390.jpg\" alt=\"SEO Specialist looking at a screen with the Google Logo\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/seo-specialist-looking-at-google-1024x390.jpg 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/seo-specialist-looking-at-google-300x114.jpg 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/seo-specialist-looking-at-google-768x292.jpg 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/seo-specialist-looking-at-google-1536x585.jpg 1536w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/seo-specialist-looking-at-google-2048x780.jpg 2048w\" sizes=\"(max-width: 800px) 100vw, 800px\">\n\nAn <a href=\"https://www.rhino-inquisitor.com/lets-go-live-seo/\" target=\"_blank\" rel=\"noopener\">SEO Engineer</a> is crucial in optimising a digital storefront for search engines, ensuring better visibility and higher organic traffic. Typically, an SEO Engineer will utilise the Staging instance to work on various aspects of search engine optimisation.\n\nSEOs can configure essential elements such as meta tags, sitemaps, and URL configurations in the Staging environment. These configurations are crucial for improving the website's search engine rankings and overall online visibility. Once the SEO optimisations have been implemented and tested in the Staging instance, they will be replicated in the Production instance.\n\nAfter replication, the SEO Engineer must verify that the changes work as intended on the Production instance. This ensures that the optimisations made in the Staging environment are correctly applied and functioning in the live storefront.\n<h2>Conclusion</h2>\nUnderstanding the different types of Salesforce B2C Commerce instances and their specific uses is crucial for successfully managing and developing your digital storefront. By assigning the appropriate instance types to the relevant team members within your organization, you can ensure a streamlined and efficient development process, ultimately leading to a better end-user experience for your customers.",
+  "slug": "understanding-sfcc-instances",
+  "publishedAt": "2023-04-17T14:18:06.000Z",
+  "modifiedAt": "2023-04-17T14:18:18.000Z",
+  "author": "Thomas Theunen",
+  "categories": [
+    {
+      "name": "Architecture",
+      "slug": "architecture"
+    },
+    {
+      "name": "Salesforce Commerce Cloud",
+      "slug": "salesforce-commerce-cloud"
+    }
+  ],
+  "tags": [
+    {
+      "name": "architect",
+      "slug": "architect"
+    },
+    {
+      "name": "instance",
+      "slug": "instance"
+    },
+    {
+      "name": "sfcc",
+      "slug": "sfcc"
+    },
+    {
+      "name": "technical",
+      "slug": "technical"
+    }
+  ],
+  "legacyUrl": "/understanding-sfcc-instances/",
+  "targetUrl": "/understanding-sfcc-instances/",
+  "disposition": "keep",
+  "aliasUrls": [
+    "/?p=7979"
+  ],
+  "mediaRefs": [
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/a-server-in-the-desert-v2-1024x426.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/a-server-in-the-desert-v2-1536x640.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/a-server-in-the-desert-v2-2048x853.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/a-server-in-the-desert-v2-300x125.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/a-server-in-the-desert-v2-768x320.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/pod-realm-and-instances-transparent-1024x794.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/pod-realm-and-instances-transparent-1536x1190.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/pod-realm-and-instances-transparent-2048x1587.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/pod-realm-and-instances-transparent-300x232.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/pod-realm-and-instances-transparent-768x595.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/seo-specialist-looking-at-google-1024x390.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/seo-specialist-looking-at-google-1536x585.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/seo-specialist-looking-at-google-2048x780.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/seo-specialist-looking-at-google-300x114.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/seo-specialist-looking-at-google-768x292.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/woman-developer-working-on-a-project-1-1024x510.jpeg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/woman-developer-working-on-a-project-1-1536x765.jpeg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/woman-developer-working-on-a-project-1-2048x1020.jpeg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/woman-developer-working-on-a-project-1-300x149.jpeg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/woman-developer-working-on-a-project-1-768x382.jpeg"
+  ],
+  "_raw": {
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "status": "publish",
+    "titleRaw": "Understanding Salesforce B2C Commerce Instances: A Comprehensive Guide",
+    "excerptRaw": "",
+    "publishedAt": "2023-04-17T14:18:06.000Z",
+    "modifiedAt": "2023-04-17T14:18:18.000Z",
+    "author": "Thomas Theunen",
+    "categories": [
+      {
+        "name": "Architecture",
+        "slug": "architecture"
+      },
+      {
+        "name": "Salesforce Commerce Cloud",
+        "slug": "salesforce-commerce-cloud"
+      }
+    ],
+    "tags": [
+      {
+        "name": "architect",
+        "slug": "architect"
+      },
+      {
+        "name": "instance",
+        "slug": "instance"
+      },
+      {
+        "name": "sfcc",
+        "slug": "sfcc"
+      },
+      {
+        "name": "technical",
+        "slug": "technical"
+      }
+    ],
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/POD-Realm-and-Instances-transparent-1024x794.png",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/POD-Realm-and-Instances-transparent.png",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/a-server-in-the-desert-v2-1024x426.jpg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/seo-specialist-looking-at-google-1024x390.jpg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/woman-developer-working-on-a-project-1-1024x510.jpeg"
+    ],
+    "manifest": {
+      "legacyUrl": "/understanding-sfcc-instances/",
+      "targetUrl": "/understanding-sfcc-instances/",
+      "disposition": "keep",
+      "redirectCode": null,
+      "implementationLayer": "none",
+      "urlClass": "post"
+    },
+    "normalization": {
+      "aliasUrlsDerivedFromSameTarget": [
+        "/?p=7979"
+      ],
+      "usedPublishedAtFallback": false,
+      "usedModifiedAtFallback": false,
+      "statusNormalizedFrom": "publish"
+    },
+    "extracted": {
+      "sourcePostType": "post",
+      "link": "/understanding-sfcc-instances/",
+      "guid": "/?p=7979",
+      "attachmentUrl": null,
+      "postParent": "0",
+      "postMetaCount": 16
+    }
+  },
+  "bodyMarkdown": "Salesforce B2C Commerce is a [robust platform](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/) that enables businesses to create highly customised and scalable digital storefronts. One of the key components (and advantages) of B2C Commerce is the available instances, which contain the tools and resources needed for customising your storefront.  This blog post will discuss the different types of B2C Commerce instances, their uses, and how different teams within your organisation can utilise them.\n\n[![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/POD-Realm-and-Instances-transparent-1024x794.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/POD-Realm-and-Instances-transparent.png)\n\nPOD, Realm, Instances, and Domains\n\n## POD (Point of Delivery)\n\nIn Salesforce B2C Commerce, a Point of Delivery (POD) is a comprehensive infrastructure hosting a multi-tenant Software as a Service (SaaS) application. This infrastructure comprises computing, networking, and storage services, which work together to support the operation of the B2C Commerce platform. The POD architecture ensures that resources are allocated effectively to handle various tenants' needs on the platform while maintaining high performance and availability. This approach allows businesses to focus on building and managing their digital storefronts without worrying about the underlying infrastructure.  Salesforce takes care of maintaining the POD and ensuring its optimal performance. Deprecation This also means that [Salesforce makes crucial decisions on this infrastructure](https://www.rhino-inquisitor.com/a-look-back-at-origin-shielding/) that must be considered during development.\n\n## Realms\n\nA realm is an essential organisational component that houses instances required for developing, testing, and deploying your online storefront. Typically, a single realm is adequate for managing multiple sites with different branding or locales. This setup allows for flexible management, as individuals overseeing the storefront sites can be located in various places. However, consider using multiple realms if you have distinct lines of business, global teams with unique processes, or separate organisations with different backend integrations.  While sites within the same realm can share product catalogs, sites in other realms cannot share data through the catalog structure. You can, however, set up a CI/CD system to automate the synchronisation of the data when working with multiple realms.\n\n## PIG vs SIG\n\nWithin a [realm](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/getting_started/b2c_platform_overview.html), instances are organised into Primary Instance Group (PIG) and Secondary Instance Group (SIG).  The PIG comprises three instances:\n\n-   Development\n-   Staging\n-   Production\n\nThese are used for site configuration, testing, and hosting the live site. In the SIG, you will find the Developer Sandboxes. _**Note:**_ _Each realm can have only one PIG and SIG._\n\n## Instance Types\n\nThere are four types of B2C Commerce instances: Sandbox, Staging, Development, and Production. Each instance type has a unique purpose and set of features, making it suitable for specific tasks within the development and management of your storefront.\n\n### Sandbox\n\n![A server in the desert](https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/a-server-in-the-desert-v2-1024x426.jpg) Developers use sandbox instances to create and update storefront code. These instances are located in a secondary instance group (SIG) and have most system jobs disabled. Deletion Sandboxes without login activity for 150 days might be deleted, but Salesforce will notify you before this occurs. Though honesty, I never saw this happen on the old system, and with On-Demand sandboxes having become the default option, you are in total control.\n\n### Staging\n\nThe staging instance is where merchandising work takes place. This instance simulates the production environment and is used as the final step in testing the intersection of content and code. Staging instances are located in the realm's primary instance group (PIG) and are ([since recently](https://www.rhino-inquisitor.com/how-to-set-up-the-ecdn-for-staging-in-salesforce-b2c-commerce-cloud/)) connected to the eCDN.\n\n### Development\n\nDevelopment instances are used to replicate the production environment closely and are ideal for testing purposes. Like Staging instances, they are located in the PIG and have data and code replicated from the Staging instance.\n\n### Production\n\nThe production instance is the live environment used for storefront transactions. It is also located in the PIG and is connected to the eCDN provided by B2C Commerce. Caching Caching can not be disabled in this instance.\n\n## Matching Roles with Instances\n\nDepending on the size of your team, one person may play more than one role. Here is a breakdown of the different roles within an organization and the instance types they typically use.\n\n### Architect\n\nThe role of an Architect in Salesforce B2C Commerce Cloud involves designing and implementing scalable, reliable, and high-performance solutions to meet the needs of the business. They work closely with stakeholders to understand requirements and develop technical solutions using best practices and industry standards. Architects also oversee the development and deployment of customisations, integrations, and extensions to ensure that they align with the overall architecture and roadmap of the platform. In terms of instances, Architects will be interacting will all instances that Salesforce has to offer.\n\n### Developer\n\nDevelopers play a critical role in shaping a digital storefront's look, feel, and functionality on the Salesforce B2C Commerce platform. They are responsible for creating and modifying templates, pipelines/controllers, and scripts that define the site's user experience and overall performance. Developers primarily work with three instances: Sandbox, development, and staging. The Sandbox instance is a safe environment for developers to experiment with and test their code without affecting the live storefront or other instances. It is an isolated space where developers can create, modify, and debug their code to ensure proper functionality and compatibility with the rest of the system. ![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/woman-developer-working-on-a-project-1-1024x510.jpeg) Once developers are satisfied with their work in the Sandbox instance, they move on to the Staging instance. The Development environment is where developers upload their finalised code, which is subject to further testing and integration with the content created by merchandisers. This ensures the code and content work seamlessly before being deployed to the Production instance. Depending on your process, the content is first replicated to the Development instance and tested with the latest code before moving it into staging, where bugs in the code can disrupt the daily merchandising activity. Developers may also export data added by merchandisers on the Staging instance to use as test data for their Sandbox environments. This helps them develop and test their code with realistic data that reflects the actual content and structure of the live storefront. Developers play a collaborative role within the organisation, working closely with merchandisers, SEO engineers, administrators, and QA engineers. This collaboration ensures that all aspects of the digital storefront are well-coordinated, resulting in a seamless and high-quality user experience.\n\n### Merchandiser\n\nA Merchandiser plays a vital role in creating and managing content for a digital storefront, such as campaigns, promotions, and product information. In the Salesforce B2C Commerce ecosystem, Merchandisers typically work within the Staging instance. The Staging environment allows Merchandisers to develop and refine their content strategies and marketing efforts without affecting the live storefront. They can also configure search behaviour to optimise the user experience. Once satisfied with their work, the changes are replicated in the Production instance for seamless integration.\n\n### Quality Assurance Engineer\n\nA Quality Assurance (QA) Engineer is responsible for ensuring the optimal performance and functionality of a digital storefront before it goes live. In the context of Salesforce B2C Commerce, QA Engineers primarily work with the Development instance. The Development instance offers a close replication of the Production environment, allowing QA Engineers to test the site under conditions similar to the live storefront. By thoroughly examining the website's features, design, and user experience, QA Engineers can identify and address any issues before they impact the end-users.\n\n### SEO Specialist\n\n![SEO Specialist looking at a screen with the Google Logo](https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/seo-specialist-looking-at-google-1024x390.jpg) An [SEO Engineer](https://www.rhino-inquisitor.com/lets-go-live-seo/) is crucial in optimising a digital storefront for search engines, ensuring better visibility and higher organic traffic. Typically, an SEO Engineer will utilise the Staging instance to work on various aspects of search engine optimisation. SEOs can configure essential elements such as meta tags, sitemaps, and URL configurations in the Staging environment. These configurations are crucial for improving the website's search engine rankings and overall online visibility. Once the SEO optimisations have been implemented and tested in the Staging instance, they will be replicated in the Production instance. After replication, the SEO Engineer must verify that the changes work as intended on the Production instance. This ensures that the optimisations made in the Staging environment are correctly applied and functioning in the live storefront.\n\n## Conclusion\n\nUnderstanding the different types of Salesforce B2C Commerce instances and their specific uses is crucial for successfully managing and developing your digital storefront. By assigning the appropriate instance types to the relevant team members within your organization, you can ensure a streamlined and efficient development process, ultimately leading to a better end-user experience for your customers.",
+  "conversionStatus": "converted",
+  "manualReviewRequired": false,
+  "fallbackTypes": [],
+  "conversionWarnings": [
+    {
+      "code": "missing-image-alt",
+      "message": "Image missing alt text in /understanding-sfcc-instances/."
+    },
+    {
+      "code": "missing-image-alt",
+      "message": "Image missing alt text in /understanding-sfcc-instances/."
+    }
+  ]
+}

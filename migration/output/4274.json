@@ -1,0 +1,153 @@
+{
+  "sourceId": "4274",
+  "sourceType": "wxr",
+  "sourceChannels": [
+    "filesystem",
+    "wxr"
+  ],
+  "postType": "post",
+  "status": "publish",
+  "titleRaw": "Let’s GO-LIVE: The Salesforce B2C Commerce Cloud Environment",
+  "excerptRaw": "",
+  "bodyHtml": "<p>Welcome to the <a href=\"https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/go-live/\" target=\"_blank\" rel=\"noopener\">GO-LIVE series</a>, a set of articles about preparing for the launch of one or more channels on Salesforce B2C Commerce Cloud.</p><p>This is only the second article so far, but after releasing the first one about the <a href=\"https://www.rhino-inquisitor.com/lets-go-live-ecdn/\" target=\"_blank\" rel=\"noopener\">eCDN</a>, I felt I might have skipped some vital information.</p><p>Sure, there was an explanation of the eCDN and its use. But not how it fits in the \"bigger picture.\" So let us look at the architecture of the different environments in Salesforce B2C Commerce Cloud!</p>\t\t\n\t\t\t<h2>An overview</h2>\t\t\n\t\t<p>Before we move into the details where the <a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/admin/b2c_embedded_cdn.html\" target=\"_blank\" rel=\"noopener\">Embedded CDN</a> (eCDN) is mentioned, let us get an overview of the components that make up \"SFCC.\"</p>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/System-Overview-Systems-v2.jpeg\" target=\"_blank\" rel=\"noopener\">\n\t\t\t\t\t\t\t<img width=\"800\" height=\"508\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/System-Overview-Systems-v2-1024x650.jpeg\" alt=\"\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/System-Overview-Systems-v2-1024x650.jpeg 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/System-Overview-Systems-v2-300x190.jpeg 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/System-Overview-Systems-v2-768x488.jpeg 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/System-Overview-Systems-v2-1536x975.jpeg 1536w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/System-Overview-Systems-v2-2048x1300.jpeg 2048w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t</a>\n\t\t<p style=\"text-align: center;\"><a href=\"https://lucid.app/lucidchart/b0626d57-dcec-4892-a5e9-5931606b6347/edit?viewport_loc=-594%2C632%2C3328%2C1558%2CCbsI46FLCC7p&amp;invitationId=inv_90859153-9efa-47b0-89e1-e099b200ab73#\" target=\"_blank\" rel=\"noopener\">View on Lucidchart</a></p>\t\t\n\t\t\t<h3>Commerce Cloud Core</h3>\t\t\n\t\t<p>It all starts with the big chunk of functionality at the center, \"Commerce Cloud,\" which consists of:</p><ul><li>The monolithic storefront using <a href=\"https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/\" target=\"_blank\" rel=\"noopener\">SFRA or SiteGenesis</a></li><li>The <a href=\"https://www.rhino-inquisitor.com/?s=ocapi\" target=\"_blank\" rel=\"noopener\">Open Commerce API</a> for Headless applications</li><li>The WebDAV filesystem <br /><br /></li></ul>\t\t\n\t\t\t<h3>Einstein</h3>\t\t\n\t\t<p>We can't forget about one of the big selling points of SFCC, the \"built-in\" AI that will analyze shopper behavior and give recommendations to increase revenue and the average size of the basket.</p><p><em><strong>Note:</strong> I have an article explaining what Einstein is and what it can do in the pipeline!</em></p>\t\t\n\t\t\t<h3>SCAPI</h3>\t\t\n\t\t<p>As you can see in the diagram at the top of the section, the SCAPI is a set of RESTful APIs built in MuleSoft that proxy the OCAPI behind the scenes to allow some extra things on top of the original OCAPI.</p><p>But besides having some APIs that the OCAPI does not have, there are <a href=\"https://developer.salesforce.com/docs/commerce/commerce-api/guide/get-started.html\" target=\"_blank\" rel=\"noopener\">some drawbacks (for now)</a>.</p>\t\t\n\t\t\tMuleSoft\n\t\t\t\t\t\t\tEven though this is MuleSoft, you do not get access to it yourself. It is fully managed by Salesforce and has probably been put in place to allow for flexibility in the future.\n\t\t\t<h3>Log Center</h3>\t\t\n\t\t<p>Can't find your way in the logs on the WebDAV? Have no fear; Log Center is here. </p><p>In the Log Center, you can easily filter and search for specific log entries and even be notified when particular thresholds are met.</p>\t\t\n\t\t\t<h3>Reports &amp; Dashboards</h3>\t\t\n\t\t<p>Need insights on your sales or site performance? In this tool, you can view statistics on:</p><ul><li>Sales</li><li>Products</li><li>Promotions</li><li>Search</li><li>Traffic</li><li>Einstein</li><li>Technical data (performance) <br /><br /></li></ul>\t\t\n\t\t\t<h3>Control Center</h3>\t\t\n\t\t<p>The place to be if you want to manage all of your environments (Sandboxes, PIG Instances). Using this tool, you can create, start, restart, stop and reset environments linked to your account.</p>\t\t\n\t\t\t<h3>Composable Storefront</h3>\t\t\n\t\t<p>The latest addition to the diagram, the answer to all your <a href=\"https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/\" target=\"_blank\" rel=\"noopener\">Headless Storefront needs</a>!</p>\t\t\n\t\t\t<h3>Account Manager</h3>\t\t\n\t\t<p>Since all of the items mentioned above are separate tools/sites you have to visit, it would be a shame if you had to keep track of different credentials (you had to for a long time).</p>\n<p>Account Manager provides you with \"<a href=\"https://help.salesforce.com/s/articleView?id=000358615&amp;language=en_US&amp;type=1\" target=\"_blank\" rel=\"noopener\">Unified Authentication</a>\" so that permissions and user credentials can be managed from a central location, rather than having separate ones for each application.</p>\t\t\n\t\t\t<h2>From the perspective of a request</h2>\t\t\n\t\t<p>In the diagram below, we look at a potential request to an SFRA or SiteGenesis channel and see what different layers it passes before a visitor gets a page rendered in their browser!</p><p>In this case, the explanation of each component of the environment is in the diagram itself. Word of warning though, this is a lot more \"technical\" than the previous section.</p>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/System-Overview-Journey-of-a-request.jpeg\" target=\"_blank\" rel=\"noopener\">\n\t\t\t\t\t\t\t<img width=\"534\" height=\"1024\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/System-Overview-Journey-of-a-request-534x1024.jpeg\" alt=\"\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/System-Overview-Journey-of-a-request-534x1024.jpeg 534w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/System-Overview-Journey-of-a-request-156x300.jpeg 156w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/System-Overview-Journey-of-a-request-768x1473.jpeg 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/System-Overview-Journey-of-a-request-801x1536.jpeg 801w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/System-Overview-Journey-of-a-request-1068x2048.jpeg 1068w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/System-Overview-Journey-of-a-request-scaled.jpeg 1335w\" sizes=\"(max-width: 534px) 100vw, 534px\" />\t\t\t\t\t\t\t\t</a>\n\t\t<p style=\"text-align: center;\"><a href=\"https://lucid.app/lucidchart/b0626d57-dcec-4892-a5e9-5931606b6347/edit?viewport_loc=-658%2C62%2C3328%2C1558%2C0_0&amp;invitationId=inv_90859153-9efa-47b0-89e1-e099b200ab73#\" target=\"_blank\" rel=\"noopener\">View on Lucidchart</a></p>\t\t\n\t\t\t<h3>Layering the CDN</h3>\t\t\n\t\t<p>It is possible to introduce your CDN (e.g., Akamai) or your own Cloudflare account next to the eCDN.</p><p>The critical thing to remember is that the eCDN will <strong>always be part of the chain</strong>!</p>\t\t\n\t\t\t<h3>Origin Shielding</h3>\t\t\n\t\t<p>As of August 2022,<a href=\"https://help.salesforce.com/s/articleView?id=000364472&amp;type=1\" target=\"_blank\" rel=\"noopener\"> Origin Shielding</a> has become active. All storefront (shopper) traffic must pass through the eCDN (Cloudflare).</p><p>This change does not affect:</p><ul><li>Business Manager</li><li>Inventory Service</li><li>Analytics Service</li><li>Mainstreet Order Management Service</li><li>Order Integration Service</li><li>Salesforce Commerce API (SCAPI) calls</li><li>Shopper Login (SLAS)</li><li>Image Downloader Service</li><li>WebDAV calls</li><li>/dw/monitor calls for health checks</li><li>sffc-ci tool (developer instance only)</li><li>Data APIs</li></ul>",
+  "slug": "the-salesforce-b2c-commerce-cloud-environment",
+  "publishedAt": "2022-08-22T17:37:46.000Z",
+  "modifiedAt": "2022-08-23T07:19:42.000Z",
+  "author": "Thomas Theunen",
+  "categories": [
+    {
+      "name": "Architecture",
+      "slug": "architecture"
+    },
+    {
+      "name": "GO-LIVE",
+      "slug": "go-live"
+    },
+    {
+      "name": "Salesforce Commerce Cloud",
+      "slug": "salesforce-commerce-cloud"
+    },
+    {
+      "name": "Technical",
+      "slug": "technical"
+    }
+  ],
+  "tags": [
+    {
+      "name": "security",
+      "slug": "security"
+    },
+    {
+      "name": "sfcc",
+      "slug": "sfcc"
+    },
+    {
+      "name": "technical",
+      "slug": "technical"
+    }
+  ],
+  "legacyUrl": "/the-salesforce-b2c-commerce-cloud-environment/",
+  "targetUrl": "/the-salesforce-b2c-commerce-cloud-environment/",
+  "disposition": "keep",
+  "aliasUrls": [
+    "/?p=4274"
+  ],
+  "mediaRefs": [
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/system-overview-journey-of-a-request-1068x2048.jpeg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/system-overview-journey-of-a-request-156x300.jpeg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/system-overview-journey-of-a-request-534x1024.jpeg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/system-overview-journey-of-a-request-768x1473.jpeg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/system-overview-journey-of-a-request-801x1536.jpeg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/system-overview-journey-of-a-request-scaled.jpeg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/system-overview-systems-v2-1024x650.jpeg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/system-overview-systems-v2-1536x975.jpeg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/system-overview-systems-v2-2048x1300.jpeg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/system-overview-systems-v2-300x190.jpeg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/system-overview-systems-v2-768x488.jpeg"
+  ],
+  "_raw": {
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "status": "publish",
+    "titleRaw": "Let’s GO-LIVE: The Salesforce B2C Commerce Cloud Environment",
+    "excerptRaw": "",
+    "publishedAt": "2022-08-22T17:37:46.000Z",
+    "modifiedAt": "2022-08-23T07:19:42.000Z",
+    "author": "Thomas Theunen",
+    "categories": [
+      {
+        "name": "Architecture",
+        "slug": "architecture"
+      },
+      {
+        "name": "GO-LIVE",
+        "slug": "go-live"
+      },
+      {
+        "name": "Salesforce Commerce Cloud",
+        "slug": "salesforce-commerce-cloud"
+      },
+      {
+        "name": "Technical",
+        "slug": "technical"
+      }
+    ],
+    "tags": [
+      {
+        "name": "security",
+        "slug": "security"
+      },
+      {
+        "name": "sfcc",
+        "slug": "sfcc"
+      },
+      {
+        "name": "technical",
+        "slug": "technical"
+      }
+    ],
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/System-Overview-Journey-of-a-request-534x1024.jpeg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/System-Overview-Journey-of-a-request.jpeg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/System-Overview-Systems-v2-1024x650.jpeg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/System-Overview-Systems-v2.jpeg"
+    ],
+    "manifest": {
+      "legacyUrl": "/the-salesforce-b2c-commerce-cloud-environment/",
+      "targetUrl": "/the-salesforce-b2c-commerce-cloud-environment/",
+      "disposition": "keep",
+      "redirectCode": null,
+      "implementationLayer": "none",
+      "urlClass": "post"
+    },
+    "normalization": {
+      "aliasUrlsDerivedFromSameTarget": [
+        "/?p=4274"
+      ],
+      "usedPublishedAtFallback": false,
+      "usedModifiedAtFallback": false,
+      "statusNormalizedFrom": "publish"
+    },
+    "extracted": {
+      "sourcePostType": "post",
+      "link": "/the-salesforce-b2c-commerce-cloud-environment/",
+      "guid": "/?p=4274",
+      "attachmentUrl": null,
+      "postParent": "0",
+      "postMetaCount": 30
+    }
+  },
+  "bodyMarkdown": "Welcome to the [GO-LIVE series](https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/go-live/), a set of articles about preparing for the launch of one or more channels on Salesforce B2C Commerce Cloud.\n\nThis is only the second article so far, but after releasing the first one about the [eCDN](https://www.rhino-inquisitor.com/lets-go-live-ecdn/), I felt I might have skipped some vital information.\n\nSure, there was an explanation of the eCDN and its use. But not how it fits in the \"bigger picture.\" So let us look at the architecture of the different environments in Salesforce B2C Commerce Cloud!\n\n## An overview\n\nBefore we move into the details where the [Embedded CDN](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/admin/b2c_embedded_cdn.html) (eCDN) is mentioned, let us get an overview of the components that make up \"SFCC.\"\n\n[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/System-Overview-Systems-v2-1024x650.jpeg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/System-Overview-Systems-v2.jpeg)\n\n[View on Lucidchart](https://lucid.app/lucidchart/b0626d57-dcec-4892-a5e9-5931606b6347/edit?viewport_loc=-594%2C632%2C3328%2C1558%2CCbsI46FLCC7p&invitationId=inv_90859153-9efa-47b0-89e1-e099b200ab73#)\n\n### Commerce Cloud Core\n\nIt all starts with the big chunk of functionality at the center, \"Commerce Cloud,\" which consists of:\n\n-   The monolithic storefront using [SFRA or SiteGenesis](https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/)\n-   The [Open Commerce API](https://www.rhino-inquisitor.com/?s=ocapi) for Headless applications\n-   The WebDAV filesystem\n\n\n\n### Einstein\n\nWe can't forget about one of the big selling points of SFCC, the \"built-in\" AI that will analyze shopper behavior and give recommendations to increase revenue and the average size of the basket.\n\n_**Note:** I have an article explaining what Einstein is and what it can do in the pipeline!_\n\n### SCAPI\n\nAs you can see in the diagram at the top of the section, the SCAPI is a set of RESTful APIs built in MuleSoft that proxy the OCAPI behind the scenes to allow some extra things on top of the original OCAPI.\n\nBut besides having some APIs that the OCAPI does not have, there are [some drawbacks (for now)](https://developer.salesforce.com/docs/commerce/commerce-api/guide/get-started.html).\n\nMuleSoft Even though this is MuleSoft, you do not get access to it yourself. It is fully managed by Salesforce and has probably been put in place to allow for flexibility in the future.\n\n### Log Center\n\nCan't find your way in the logs on the WebDAV? Have no fear; Log Center is here.\n\nIn the Log Center, you can easily filter and search for specific log entries and even be notified when particular thresholds are met.\n\n### Reports & Dashboards\n\nNeed insights on your sales or site performance? In this tool, you can view statistics on:\n\n-   Sales\n-   Products\n-   Promotions\n-   Search\n-   Traffic\n-   Einstein\n-   Technical data (performance)\n\n\n\n### Control Center\n\nThe place to be if you want to manage all of your environments (Sandboxes, PIG Instances). Using this tool, you can create, start, restart, stop and reset environments linked to your account.\n\n### Composable Storefront\n\nThe latest addition to the diagram, the answer to all your [Headless Storefront needs](https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/)!\n\n### Account Manager\n\nSince all of the items mentioned above are separate tools/sites you have to visit, it would be a shame if you had to keep track of different credentials (you had to for a long time).\n\nAccount Manager provides you with \"[Unified Authentication](https://help.salesforce.com/s/articleView?id=000358615&language=en_US&type=1)\" so that permissions and user credentials can be managed from a central location, rather than having separate ones for each application.\n\n## From the perspective of a request\n\nIn the diagram below, we look at a potential request to an SFRA or SiteGenesis channel and see what different layers it passes before a visitor gets a page rendered in their browser!\n\nIn this case, the explanation of each component of the environment is in the diagram itself. Word of warning though, this is a lot more \"technical\" than the previous section.\n\n[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/System-Overview-Journey-of-a-request-534x1024.jpeg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/System-Overview-Journey-of-a-request.jpeg)\n\n[View on Lucidchart](https://lucid.app/lucidchart/b0626d57-dcec-4892-a5e9-5931606b6347/edit?viewport_loc=-658%2C62%2C3328%2C1558%2C0_0&invitationId=inv_90859153-9efa-47b0-89e1-e099b200ab73#)\n\n### Layering the CDN\n\nIt is possible to introduce your CDN (e.g., Akamai) or your own Cloudflare account next to the eCDN.\n\nThe critical thing to remember is that the eCDN will **always be part of the chain**!\n\n### Origin Shielding\n\nAs of August 2022, [Origin Shielding](https://help.salesforce.com/s/articleView?id=000364472&type=1) has become active. All storefront (shopper) traffic must pass through the eCDN (Cloudflare).\n\nThis change does not affect:\n\n-   Business Manager\n-   Inventory Service\n-   Analytics Service\n-   Mainstreet Order Management Service\n-   Order Integration Service\n-   Salesforce Commerce API (SCAPI) calls\n-   Shopper Login (SLAS)\n-   Image Downloader Service\n-   WebDAV calls\n-   /dw/monitor calls for health checks\n-   sffc-ci tool (developer instance only)\n-   Data APIs",
+  "conversionStatus": "converted",
+  "manualReviewRequired": false,
+  "fallbackTypes": [],
+  "conversionWarnings": [
+    {
+      "code": "missing-image-alt",
+      "message": "Image missing alt text in /the-salesforce-b2c-commerce-cloud-environment/."
+    },
+    {
+      "code": "missing-image-alt",
+      "message": "Image missing alt text in /the-salesforce-b2c-commerce-cloud-environment/."
+    }
+  ]
+}

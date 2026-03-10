@@ -1,0 +1,66 @@
+{
+  "sourceId": "352",
+  "sourceType": "wxr",
+  "sourceChannels": [
+    "wxr"
+  ],
+  "postType": "page",
+  "status": "publish",
+  "titleRaw": "Archive",
+  "excerptRaw": "",
+  "bodyHtml": "",
+  "slug": "archive",
+  "publishedAt": "2022-02-28T10:35:37.000Z",
+  "modifiedAt": "2023-12-04T13:31:47.000Z",
+  "author": "Thomas Theunen",
+  "categories": [],
+  "tags": [],
+  "legacyUrl": "/archive/",
+  "targetUrl": "/archive/",
+  "disposition": "keep",
+  "aliasUrls": [
+    "/?p=352"
+  ],
+  "mediaRefs": [],
+  "_raw": {
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "status": "publish",
+    "titleRaw": "Archive",
+    "excerptRaw": "",
+    "publishedAt": "2022-02-28T10:35:37.000Z",
+    "modifiedAt": "2023-12-04T13:31:47.000Z",
+    "author": "Thomas Theunen",
+    "categories": [],
+    "tags": [],
+    "mediaRefs": [],
+    "manifest": {
+      "legacyUrl": "/archive/",
+      "targetUrl": "/archive/",
+      "disposition": "keep",
+      "redirectCode": null,
+      "implementationLayer": "none",
+      "urlClass": "page"
+    },
+    "normalization": {
+      "aliasUrlsDerivedFromSameTarget": [
+        "/?p=352"
+      ],
+      "usedPublishedAtFallback": false,
+      "usedModifiedAtFallback": false,
+      "statusNormalizedFrom": "publish"
+    },
+    "extracted": {
+      "sourcePostType": "page",
+      "link": "/archive/",
+      "guid": "/?page_id=352",
+      "attachmentUrl": null,
+      "postParent": "0",
+      "postMetaCount": 20
+    }
+  },
+  "bodyMarkdown": "",
+  "conversionStatus": "skipped",
+  "manualReviewRequired": false,
+  "fallbackTypes": [],
+  "conversionWarnings": []
+}

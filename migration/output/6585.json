@@ -1,0 +1,119 @@
+{
+  "sourceId": "6585",
+  "sourceType": "wxr",
+  "sourceChannels": [
+    "filesystem",
+    "wxr"
+  ],
+  "postType": "post",
+  "status": "publish",
+  "titleRaw": "How to load client-side JavaScript and CSS in SFRA",
+  "excerptRaw": "",
+  "bodyHtml": "<p>Since you are here, I bet you've been banging your head against your keyboard trying to figure out how to load some sweet client-side javascript in Salesforce Commerce Cloud's <a href=\"https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/\" target=\"_blank\" rel=\"noopener\">SFRA</a> (Storefront Reference Architecture). Well, fear not, because I'm here to help (hopefully)!</p><p>First, let's ensure we're on the same page. SFRA uses ISML (<a href=\"https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-working-with-templates.html\" target=\"_blank\" rel=\"noopener\">Internet Store Markup Language</a>) for its templates and layouts, which means that to load in some javascript, we'll need to use certain ISML tags and SFRA \"features\" to include it in our templates.</p>\t\t\n\t\t\t<h2>SFRA provides a helper</h2>\t\t\n\t\t<p>The Storefront Reference Architecture provides many features and \"helpers\" to make developers' lives easier. One of those features is the \"<a href=\"https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/blob/master/cartridges/app_storefront_base/cartridge/scripts/assets.js\" target=\"_blank\" rel=\"noopener\">assets.js</a>\" file to load client-side JavaScript and CSS in a structured way.</p>\t\t\n\t\t\t<pre data-line=\"\">\n\t\t\t\t<code readonly=\"true\">\n\t\t\t\t\t<xmp><isscript>\n    var assets = require('*/cartridge/scripts/assets.js');\n    assets.addCss('/css/account/my-file.css');\n    assets.addJs('/js/my-file.js');\n</isscript></xmp>\n\t\t\t\t</code>\n\t\t\t</pre>\n\t\t\t<h3>What is it?</h3>\t\t\n\t\t<p>In short: It is a \"singleton\" type class with two arrays that stores all CSS and JavaScript files that need to be loaded for the current page.</p>\t\t\n\t\t\t<h3>When does it load the files?</h3>\t\t\n\t\t\t<h4>CSS</h4>\t\t\n\t\t<p>The \"<a href=\"https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/blob/50ee82face6e0a000f649a51f162e8a3f171531c/cartridges/app_storefront_base/cartridge/templates/default/common/htmlHead.isml\" target=\"_blank\" rel=\"noopener\">htmlHead.isml</a>\" template is loaded within the pages of your project. And within that template, you'll find the following code:</p><p>This code is responsible for loading all the fancy styles that are present in that array we talked about earlier.</p>\t\t\n\t\t\t<pre data-line=\"\">\n\t\t\t\t<code readonly=\"true\">\n\t\t\t\t\t<xmp><isloop items=\"${ require('*/cartridge/scripts/assets.js').styles }\" var=\"style\">\n    <link rel=\"stylesheet\" href=\"${style.src}\" <isif condition=\"${style.integrity != null}\">integrity=\"${style.integrity}\" crossorigin=\"anonymous\"</isif> />\n</isloop></xmp>\n\t\t\t\t</code>\n\t\t\t</pre>\n\t\t\t<h4>JavaScript</h4>\t\t\n\t\t<p>Like styles, you can also load JavaScript files into your SFRA project using ISML. The main difference is that you'll be using the <a href=\"https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/blob/master/cartridges/app_storefront_base/cartridge/templates/default/common/scripts.isml\" target=\"_blank\" rel=\"noopener\">scripts.isml</a> template instead of htmlHead.isml. And if you want to see the big picture, you can check out the \"<a href=\"https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/blob/master/cartridges/app_storefront_base/cartridge/templates/default/common/layout/page.isml#L32\" target=\"_blank\" rel=\"noopener\">page.isml</a>\" file, which is the highest-level ISML file used in SFRA.</p>\t\t\n\t\t\t<pre data-line=\"\">\n\t\t\t\t<code readonly=\"true\">\n\t\t\t\t\t<xmp>\n<isloop items=\"${ require('*/cartridge/scripts/assets.js').scripts }\" var=\"script\">\n    <isif condition=\"${script.integrity != null}\">\n    <iselse>\n    </isif>\n</isloop></xmp>\n\t\t\t\t</code>\n\t\t\t</pre>\n\t\t\t<h2>It doesn't work! Why????</h2>\t\t\n\t\t\t<h3>Remote Includes</h3>\t\t\n\t\t<p>If you're using a <a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/ops_troubleshooting/b2c_understanding_remote_includes.html\" target=\"_blank\" rel=\"noopener\">remote include</a> to render your component and loading the CSS and JS within that component with \"assets.js\", you might have noticed that it doesn't work. Here's why:</p><p>When you make a remote include, it's essentially a separate internal request. And here's the thing about \"assets.js\" - it works in a singleton way - but only on the request level, meaning that variables are only stored per request and not for all requests. </p><p>So when you add JS and CSS within the remote include, the main request doesn't know about it because it's being stored in a separate store. As a result, the added JS and CSS are not rendered on the page. </p><p>Make sense?</p>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2024/02/Javascript-and-CSS-scoping-in-SFRA-2.png\" data-elementor-open-lightbox=\"yes\" data-elementor-lightbox-title=\"A visual representation of the Home-Show controller for explaining the scoping of assets.js\" data-e-action-hash=\"#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MTE0NTMsInVybCI6Imh0dHBzOlwvXC93d3cucmhpbm8taW5xdWlzaXRvci5jb21cL3dwLWNvbnRlbnRcL3VwbG9hZHNcLzIwMjRcLzAyXC9KYXZhc2NyaXB0LWFuZC1DU1Mtc2NvcGluZy1pbi1TRlJBLTIucG5nIn0%3D\">\n\t\t\t\t\t\t\t<img loading=\"lazy\" width=\"800\" height=\"477\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2024/02/Javascript-and-CSS-scoping-in-SFRA-2-1024x610.png\" alt=\"A visual representation of the Home-Show controller for explaining the scoping of assets.js\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2024/02/Javascript-and-CSS-scoping-in-SFRA-2-1024x610.png 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2024/02/Javascript-and-CSS-scoping-in-SFRA-2-300x179.png 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2024/02/Javascript-and-CSS-scoping-in-SFRA-2-768x457.png 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2024/02/Javascript-and-CSS-scoping-in-SFRA-2.png 1480w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t</a>\n\t\t\t<h3>Caching</h3>\t\t\n\t\t<p>This might seem like a no-brainer, but it's worth mentioning: remember to clear your cache or disable it entirely if necessary (in your development environment).</p><p>Trust me; it can save you a lot of headaches.</p>\t\t\n\t\t\t<h3>A controller without \"page.isml\"</h3>\t\t\n\t\t<p>If you need to render a small component or a unique page type that isn't like the central styling of SFRA, you might need to take matters into your own hands (re-create it or use a different system).</p><p>Without the ISML templates we mentioned earlier, there's no way for the CSS and JS files to be rendered in HTML. Keep that in mind.</p><p>As a reference, here is how a controller template in SFRA is usually \"decorated\", which includes our \"assets.js\" templates:</p>\t\t\n\t\t\t<pre data-line=\"\">\n\t\t\t\t<code readonly=\"true\">\n\t\t\t\t\t<xmp><isdecorate template=\"common/layout/page\">\n    <!-- The template between the header and footer --->\n</isdecorate></xmp>\n\t\t\t\t</code>\n\t\t\t</pre>\n\t\t\t<h2>Conclusion</h2>\t\t\n\t\t<p>Getting your JavaScript and CSS to appear in the HTML code is not a difficult task. However, a few crucial elements are required to make it happen in a structured way, which SFRA (Storefront Reference Architecture) provides. You should utilise the tools provided to you, as they can make your life just a tiny bit easier.</p>",
+  "slug": "how-to-load-client-side-javascript-and-css-in-sfra",
+  "publishedAt": "2024-02-19T08:28:48.000Z",
+  "modifiedAt": "2024-02-19T08:31:26.000Z",
+  "author": "Thomas Theunen",
+  "categories": [
+    {
+      "name": "Salesforce Commerce Cloud",
+      "slug": "salesforce-commerce-cloud"
+    },
+    {
+      "name": "Technical",
+      "slug": "technical"
+    }
+  ],
+  "tags": [
+    {
+      "name": "sfcc",
+      "slug": "sfcc"
+    },
+    {
+      "name": "sfra",
+      "slug": "sfra"
+    },
+    {
+      "name": "technical",
+      "slug": "technical"
+    }
+  ],
+  "legacyUrl": "/how-to-load-client-side-javascript-and-css-in-sfra/",
+  "targetUrl": "/how-to-load-client-side-javascript-and-css-in-sfra/",
+  "disposition": "keep",
+  "aliasUrls": [
+    "/?p=6585"
+  ],
+  "mediaRefs": [
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2024/02/javascript-and-css-scoping-in-sfra-2-1024x610.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2024/02/javascript-and-css-scoping-in-sfra-2-300x179.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2024/02/javascript-and-css-scoping-in-sfra-2-768x457.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2024/02/javascript-and-css-scoping-in-sfra-2.png"
+  ],
+  "_raw": {
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "status": "publish",
+    "titleRaw": "How to load client-side JavaScript and CSS in SFRA",
+    "excerptRaw": "",
+    "publishedAt": "2024-02-19T08:28:48.000Z",
+    "modifiedAt": "2024-02-19T08:31:26.000Z",
+    "author": "Thomas Theunen",
+    "categories": [
+      {
+        "name": "Salesforce Commerce Cloud",
+        "slug": "salesforce-commerce-cloud"
+      },
+      {
+        "name": "Technical",
+        "slug": "technical"
+      }
+    ],
+    "tags": [
+      {
+        "name": "sfcc",
+        "slug": "sfcc"
+      },
+      {
+        "name": "sfra",
+        "slug": "sfra"
+      },
+      {
+        "name": "technical",
+        "slug": "technical"
+      }
+    ],
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2024/02/Javascript-and-CSS-scoping-in-SFRA-2-1024x610.png",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2024/02/Javascript-and-CSS-scoping-in-SFRA-2.png"
+    ],
+    "manifest": {
+      "legacyUrl": "/how-to-load-client-side-javascript-and-css-in-sfra/",
+      "targetUrl": "/how-to-load-client-side-javascript-and-css-in-sfra/",
+      "disposition": "keep",
+      "redirectCode": null,
+      "implementationLayer": "none",
+      "urlClass": "post"
+    },
+    "normalization": {
+      "aliasUrlsDerivedFromSameTarget": [
+        "/?p=6585"
+      ],
+      "usedPublishedAtFallback": false,
+      "usedModifiedAtFallback": false,
+      "statusNormalizedFrom": "publish"
+    },
+    "extracted": {
+      "sourcePostType": "post",
+      "link": "/how-to-load-client-side-javascript-and-css-in-sfra/",
+      "guid": "/?p=6585",
+      "attachmentUrl": null,
+      "postParent": "0",
+      "postMetaCount": 28
+    }
+  },
+  "bodyMarkdown": "Since you are here, I bet you've been banging your head against your keyboard trying to figure out how to load some sweet client-side javascript in Salesforce Commerce Cloud's [SFRA](https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/) (Storefront Reference Architecture). Well, fear not, because I'm here to help (hopefully)!\n\nFirst, let's ensure we're on the same page. SFRA uses ISML ([Internet Store Markup Language](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-working-with-templates.html)) for its templates and layouts, which means that to load in some javascript, we'll need to use certain ISML tags and SFRA \"features\" to include it in our templates.\n\n## SFRA provides a helper\n\nThe Storefront Reference Architecture provides many features and \"helpers\" to make developers' lives easier. One of those features is the \"[assets.js](https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/blob/master/cartridges/app_storefront_base/cartridge/scripts/assets.js)\" file to load client-side JavaScript and CSS in a structured way.\n\n```\n\n\n    var assets = require('*/cartridge/scripts/assets.js');\n    assets.addCss('/css/account/my-file.css');\n    assets.addJs('/js/my-file.js');\n\n\n\n```\n\n### What is it?\n\nIn short: It is a \"singleton\" type class with two arrays that stores all CSS and JavaScript files that need to be loaded for the current page.\n\n### When does it load the files?\n\n#### CSS\n\nThe \"[htmlHead.isml](https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/blob/50ee82face6e0a000f649a51f162e8a3f171531c/cartridges/app_storefront_base/cartridge/templates/default/common/htmlHead.isml)\" template is loaded within the pages of your project. And within that template, you'll find the following code:\n\nThis code is responsible for loading all the fancy styles that are present in that array we talked about earlier.\n\n```\n\n\n    integrity=\"${style.integrity}\" crossorigin=\"anonymous\" />\n\n\n\n```\n\n#### JavaScript\n\nLike styles, you can also load JavaScript files into your SFRA project using ISML. The main difference is that you'll be using the [scripts.isml](https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/blob/master/cartridges/app_storefront_base/cartridge/templates/default/common/scripts.isml) template instead of htmlHead.isml. And if you want to see the big picture, you can check out the \"[page.isml](https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/blob/master/cartridges/app_storefront_base/cartridge/templates/default/common/layout/page.isml#L32)\" file, which is the highest-level ISML file used in SFRA.\n\n## It doesn't work! Why????\n\n### Remote Includes\n\nIf you're using a [remote include](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/ops_troubleshooting/b2c_understanding_remote_includes.html) to render your component and loading the CSS and JS within that component with \"assets.js\", you might have noticed that it doesn't work. Here's why:\n\nWhen you make a remote include, it's essentially a separate internal request. And here's the thing about \"assets.js\" - it works in a singleton way - but only on the request level, meaning that variables are only stored per request and not for all requests.\n\nSo when you add JS and CSS within the remote include, the main request doesn't know about it because it's being stored in a separate store. As a result, the added JS and CSS are not rendered on the page.\n\nMake sense?\n\n[![A visual representation of the Home-Show controller for explaining the scoping of assets.js](https://www.rhino-inquisitor.com/wp-content/uploads/2024/02/Javascript-and-CSS-scoping-in-SFRA-2-1024x610.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2024/02/Javascript-and-CSS-scoping-in-SFRA-2.png)\n\n### Caching\n\nThis might seem like a no-brainer, but it's worth mentioning: remember to clear your cache or disable it entirely if necessary (in your development environment).\n\nTrust me; it can save you a lot of headaches.\n\n### A controller without \"page.isml\"\n\nIf you need to render a small component or a unique page type that isn't like the central styling of SFRA, you might need to take matters into your own hands (re-create it or use a different system).\n\nWithout the ISML templates we mentioned earlier, there's no way for the CSS and JS files to be rendered in HTML. Keep that in mind.\n\nAs a reference, here is how a controller template in SFRA is usually \"decorated\", which includes our \"assets.js\" templates:\n\n## Conclusion\n\nGetting your JavaScript and CSS to appear in the HTML code is not a difficult task. However, a few crucial elements are required to make it happen in a structured way, which SFRA (Storefront Reference Architecture) provides. You should utilise the tools provided to you, as they can make your life just a tiny bit easier.",
+  "conversionStatus": "converted",
+  "manualReviewRequired": false,
+  "fallbackTypes": [],
+  "conversionWarnings": []
+}

@@ -1,0 +1,142 @@
+{
+  "sourceId": "2536",
+  "sourceType": "wxr",
+  "sourceChannels": [
+    "filesystem",
+    "wxr"
+  ],
+  "postType": "post",
+  "status": "publish",
+  "titleRaw": "How to setup OAuth JWT for the OCAPI",
+  "excerptRaw": "",
+  "bodyHtml": "<p><strong><em>IMPORTANT</em>: This article is about server-to-server communication</strong></p><p>When working with the OCAPI (<a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/OpenCommerceAPI.html?cp=0_16\" target=\"_blank\" rel=\"noopener\">Open Commerce API</a>), you need to do some sort of authentication to prove who you are and to verify what actions you are allowed to take.</p><p>Salesforce B2C Commerce Cloud provides multiple methods for server-to-server authentication scenarios depending on the use case:</p><ul><li>Basic Authentication using the API Key and the Secret</li><li>Basic Authentication using the API Key, Secret, Username, and User Password</li><li>JWT <br /><br /></li></ul><p>In this article, we will focus on the one most 'challenging?' to set up: the JWT token.</p>\t\t\n\t\t\t<h2>Generating a public and private key pair</h2>\t\t\n\t\t<p>When working with JWT, we will use a signing method to verify the authenticity of the requests sent to the server. These are easy to generate, and you have complete control over how long they are valid.</p><p>Open up your favorite terminal and execute the following command in your folder of choice:</p>\t\t\n\t\t\t<pre data-line=\"\">\n\t\t\t\t<code readonly=\"true\">\n\t\t\t\t\t<xmp>openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes</xmp>\n\t\t\t\t</code>\n\t\t\t</pre>\n\t\t<p>This command will create two files:</p><ul><li><strong>key.pem</strong>: Your private key that will be used to sign requests to the OCAPI authorization endpoint <br /><br /></li><li><strong>cert.pem: </strong>The certificate containing the public key will be needed later when setting up the API key in AM (Account Manager).<br /><br /></li></ul>\t\t\n\t\t\t<h2>Create a new API Key</h2>\t\t\n\t\t<p>Like always, when we set up a server-to-server connection, we need to generate an API key in the <a href=\"https://account.demandware.com/\" target=\"_blank\" rel=\"noopener\">Account Manager</a>.</p><p>Follow the i<a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/account_manager/b2c_account_manager_add_api_client_id.html\" target=\"_blank\" rel=\"noopener\">nstructions on the Infocenter</a>, with a few minor changes.</p>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/account-manager-set-up-JWT.jpg\" data-elementor-open-lightbox=\"yes\" data-elementor-lightbox-title=\"Account Manger: Set up a JWT API Client\" e-action-hash=\"#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MjU0MywidXJsIjoiaHR0cHM6XC9cL3d3dy5yaGluby1pbnF1aXNpdG9yLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyMlwvMDZcL2FjY291bnQtbWFuYWdlci1zZXQtdXAtSldULmpwZyJ9\">\n\t\t\t\t\t\t\t<img width=\"800\" height=\"701\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/account-manager-set-up-JWT.jpg\" alt=\"\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/account-manager-set-up-JWT.jpg 959w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/account-manager-set-up-JWT-300x263.jpg 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/account-manager-set-up-JWT-768x673.jpg 768w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t</a>\n\t\t<ol><li>In the JWT field, copy and paste the entire contents of the \"<strong>cert.pem</strong>\" file we generated earlier (no modifications needed)<br /><br /></li><li>Set the Token Endpoint Auth Method to <strong>private_key_jwt</strong>.<br /><br /></li></ol><p>And click save!</p>\t\t\n\t\t\t<h2>Authenticate!</h2>\t\t\n\t\t<p>Ok, I made that title seem like this is an easy step to do. Generating the JWT might be the most challenging part as you need to be very specific, and there is a signing step with that private key mentioned before.</p>\t\t\n\t\t\t<h3>JWT</h3>\t\t\n\t\t<p>But let us look at the basics. A JWT has three different parts.</p>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/jwt-visualized.jpg\" data-elementor-open-lightbox=\"yes\" data-elementor-lightbox-title=\"JWT\" e-action-hash=\"#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MjU0NywidXJsIjoiaHR0cHM6XC9cL3d3dy5yaGluby1pbnF1aXNpdG9yLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyMlwvMDZcL2p3dC12aXN1YWxpemVkLmpwZyJ9\">\n\t\t\t\t\t\t\t<img width=\"800\" height=\"610\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/jwt-visualized.jpg\" alt=\"\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/jwt-visualized.jpg 1018w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/jwt-visualized-300x229.jpg 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/jwt-visualized-768x585.jpg 768w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t</a>\n\t\t<p>The <strong>header,</strong> which describes what type the JWT is and what algorithm it is using. In this case, <a href=\"https://auth0.com/blog/rs256-vs-hs256-whats-the-difference/\" target=\"_blank\" rel=\"noopener\">RS256</a> is used.</p><p>The <strong>payload,</strong> which is the data we are trying to send to the server. To get a token back, Salesforce B2C Commerce Cloud requires the following information to be in the JWT:</p><ul><li><strong>iss (issuer)</strong>: The client ID (API Key)</li><li><strong>sub (subject)</strong>: The client ID (API key)</li><li><strong>exp (expiration time)</strong>: Current time + x seconds (1 second should do it)</li><li><strong>aud (audience)</strong>: The Account Manager auth endpoint<br /><br /></li></ul><p>The <strong>signature</strong>, which is the header and payload signed with the private key to verify that you are allowed to send it to the server.</p>\t\t\n\t\t\t<h3>Generating it</h3>\t\t\n\t\t<p>If you look at the above example, the contents of a JWT are far from \"rocket science.\" The hard part is signing it correctly, as you need to find a sound library in your programming language of choice to get it done.</p><p>As an example, I have created a postman library to get you started!</p><p>In this example, you need to set two collection variables:</p><ul><li><strong>pkey</strong>: The entire contents of the <em><strong>key.pem</strong></em> file we generated earlier<br /><br /></li><li><strong>api_key</strong>: The API key you generated in the Account Manager<br /><br /></li></ul><p>There is also a variable called <a href=\"https://joolfe.github.io/postman-util-lib/dist/bundle.js\" target=\"_blank\" rel=\"noopener\"><strong>pmlib</strong></a>: a third-party library meant to extend the capabilities of the scripting framework within <a href=\"https://www.postman.com/\" target=\"_blank\" rel=\"noopener\">Postman</a>. In the collection, a request called \"1. Download JS for Postman\" downloads it in case the initial value is not working.</p><p>Since Postman does not support generating JWT tokens out-of-the-box there is a \"Pre-request script\" within the second call \"2. Authorization (JWT)\" which generates it and stores it in a collection variable used during the request.</p>\t\t\n\t\t\t<pre data-line=\"\">\n\t\t\t\t<code readonly=\"true\">\n\t\t\t\t\t<xmp>// Load third party library\neval(pm.collectionVariables.get(\"pmlib\"));\n// Prepare timestamp in seconds\nvar currentTimestamp = Math.floor(Date.now() / 1000)\n// Create header and payload objects\nvar header = {\n  \"typ\": \"JWT\",\n  \"alg\": \"RS256\"\n};\nvar payload = {\n\t'iss': pm.collectionVariables.get('api_key'),\n\t'sub': pm.collectionVariables.get('api_key'),\n\t'iat': currentTimestamp,\n\t'exp': currentTimestamp + 300, // expiry time is 30 seconds from time of creation\n\t'aud': 'https://account.demandware.com:443/dwsso/oauth2/access_token'\n};\n// Generate the JWT and sign it\nvar sJWT = pmlib.jwtSign(pm.collectionVariables.get('pkey'), payload, header);\n// Store the JWT to set in the body\npm.collectionVariables.set(\"jwt_signed\", sJWT);</xmp>\n\t\t\t\t</code>\n\t\t\t</pre>\n\t\t<p>Once the script is in place and all required variables are configured in the collection we can execute the request as follows:</p><ul><li>A <strong>POST </strong>to <a href=\"https://account.demandware.com/dwsso/oauth2/access_token\" target=\"_blank\" rel=\"noopener\">https://account.demandware.com/dwsso/oauth2/access_token</a><br /><br /></li><li>A body containing these 3 values as a <strong>x-www-form-urlencoded</strong> type:<ul><li>client_assertion: The signed JWT generated by the script</li><li>client_assertion_type: urn:ietf:params:oauth:client-assertion-type:jwt-bearer</li><li>grant_type: client_credentials</li></ul></li></ul>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/postman-authentication-ocapi.jpg\" data-elementor-open-lightbox=\"yes\" data-elementor-lightbox-title=\"Postman Authentication example\" e-action-hash=\"#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MjU2MCwidXJsIjoiaHR0cHM6XC9cL3d3dy5yaGluby1pbnF1aXNpdG9yLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyMlwvMDZcL3Bvc3RtYW4tYXV0aGVudGljYXRpb24tb2NhcGkuanBnIn0%3D\">\n\t\t\t\t\t\t\t<img width=\"800\" height=\"253\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/postman-authentication-ocapi.jpg\" alt=\"\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/postman-authentication-ocapi.jpg 1006w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/postman-authentication-ocapi-300x95.jpg 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/postman-authentication-ocapi-768x243.jpg 768w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t</a>\n\t\t\t<a href=\"https://gist.github.com/taurgis/df656968852275539d9f9d7a74bf62de\" role=\"button\">\n\t\t\t\t\t\tDownload Postman Collection\n\t\t\t\t\t</a>\n\t\t<p><em>A big thanks to <a href=\"https://www.linkedin.com/in/yuriy-boev-3907002b/\" target=\"_blank\" rel=\"noopener\">Yuriy Boev</a> and <a href=\"https://www.linkedin.com/in/jboxall/\" target=\"_blank\" rel=\"noopener\">John Boxall</a> for helping me get to a working example! I will refer you to the <a href=\"https://sfcc-unofficial.slack.com/archives/CBB7YAAHW/p1656070265465869\" target=\"_blank\" rel=\"noopener\">Unofficial Slack thread</a> for other scripts or languages!</em></p>",
+  "slug": "how-to-setup-oauth-jwt-for-the-ocapi",
+  "publishedAt": "2022-06-27T17:49:25.000Z",
+  "modifiedAt": "2022-07-23T19:16:34.000Z",
+  "author": "Thomas Theunen",
+  "categories": [
+    {
+      "name": "Salesforce Commerce Cloud",
+      "slug": "salesforce-commerce-cloud"
+    },
+    {
+      "name": "Technical",
+      "slug": "technical"
+    }
+  ],
+  "tags": [
+    {
+      "name": "jwt",
+      "slug": "jwt"
+    },
+    {
+      "name": "security",
+      "slug": "security"
+    },
+    {
+      "name": "sfcc",
+      "slug": "sfcc"
+    },
+    {
+      "name": "technical",
+      "slug": "technical"
+    }
+  ],
+  "legacyUrl": "/how-to-setup-oauth-jwt-for-the-ocapi/",
+  "targetUrl": "/how-to-setup-oauth-jwt-for-the-ocapi/",
+  "disposition": "keep",
+  "aliasUrls": [],
+  "mediaRefs": [
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/account-manager-set-up-jwt-300x263.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/account-manager-set-up-jwt-768x673.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/account-manager-set-up-jwt.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/jwt-visualized-300x229.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/jwt-visualized-768x585.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/jwt-visualized.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/postman-authentication-ocapi-300x95.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/postman-authentication-ocapi-768x243.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/postman-authentication-ocapi.jpg"
+  ],
+  "_raw": {
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "status": "publish",
+    "titleRaw": "How to setup OAuth JWT for the OCAPI",
+    "excerptRaw": "",
+    "publishedAt": "2022-06-27T17:49:25.000Z",
+    "modifiedAt": "2022-07-23T19:16:34.000Z",
+    "author": "Thomas Theunen",
+    "categories": [
+      {
+        "name": "Salesforce Commerce Cloud",
+        "slug": "salesforce-commerce-cloud"
+      },
+      {
+        "name": "Technical",
+        "slug": "technical"
+      }
+    ],
+    "tags": [
+      {
+        "name": "jwt",
+        "slug": "jwt"
+      },
+      {
+        "name": "security",
+        "slug": "security"
+      },
+      {
+        "name": "sfcc",
+        "slug": "sfcc"
+      },
+      {
+        "name": "technical",
+        "slug": "technical"
+      }
+    ],
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/account-manager-set-up-JWT.jpg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/jwt-visualized.jpg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/postman-authentication-ocapi.jpg"
+    ],
+    "manifest": {
+      "legacyUrl": "/how-to-setup-oauth-jwt-for-the-ocapi/",
+      "targetUrl": "/how-to-setup-oauth-jwt-for-the-ocapi/",
+      "disposition": "keep",
+      "redirectCode": null,
+      "implementationLayer": "none",
+      "urlClass": "post"
+    },
+    "normalization": {
+      "aliasUrlsDerivedFromSameTarget": [],
+      "usedPublishedAtFallback": false,
+      "usedModifiedAtFallback": false,
+      "statusNormalizedFrom": "publish"
+    },
+    "extracted": {
+      "sourcePostType": "post",
+      "link": "/how-to-setup-oauth-jwt-for-the-ocapi/",
+      "guid": "/?p=2536",
+      "attachmentUrl": null,
+      "postParent": "0",
+      "postMetaCount": 26
+    }
+  },
+  "bodyMarkdown": "**_IMPORTANT_: This article is about server-to-server communication**\n\nWhen working with the OCAPI ([Open Commerce API](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/OpenCommerceAPI.html?cp=0_16)), you need to do some sort of authentication to prove who you are and to verify what actions you are allowed to take.\n\nSalesforce B2C Commerce Cloud provides multiple methods for server-to-server authentication scenarios depending on the use case:\n\n-   Basic Authentication using the API Key and the Secret\n-   Basic Authentication using the API Key, Secret, Username, and User Password\n-   JWT\n\n\n\nIn this article, we will focus on the one most 'challenging?' to set up: the JWT token.\n\n## Generating a public and private key pair\n\nWhen working with JWT, we will use a signing method to verify the authenticity of the requests sent to the server. These are easy to generate, and you have complete control over how long they are valid.\n\nOpen up your favorite terminal and execute the following command in your folder of choice:\n\n```\n\n\t\t\t\t\topenssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes\n\n\n```\n\nThis command will create two files:\n\n-   **key.pem**: Your private key that will be used to sign requests to the OCAPI authorization endpoint\n\n\n-   **cert.pem:** The certificate containing the public key will be needed later when setting up the API key in AM (Account Manager).\n\n\n\n## Create a new API Key\n\nLike always, when we set up a server-to-server connection, we need to generate an API key in the [Account Manager](https://account.demandware.com/).\n\nFollow the i[nstructions on the Infocenter](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/account_manager/b2c_account_manager_add_api_client_id.html), with a few minor changes.\n\n[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/account-manager-set-up-JWT.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/account-manager-set-up-JWT.jpg)\n\n1.  In the JWT field, copy and paste the entire contents of the \"**cert.pem**\" file we generated earlier (no modifications needed)\n\n\n2.  Set the Token Endpoint Auth Method to **private\\_key\\_jwt**.\n\n\n\nAnd click save!\n\n## Authenticate!\n\nOk, I made that title seem like this is an easy step to do. Generating the JWT might be the most challenging part as you need to be very specific, and there is a signing step with that private key mentioned before.\n\n### JWT\n\nBut let us look at the basics. A JWT has three different parts.\n\n[![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/jwt-visualized.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/jwt-visualized.jpg)\n\nThe **header,** which describes what type the JWT is and what algorithm it is using. In this case, [RS256](https://auth0.com/blog/rs256-vs-hs256-whats-the-difference/) is used.\n\nThe **payload,** which is the data we are trying to send to the server. To get a token back, Salesforce B2C Commerce Cloud requires the following information to be in the JWT:\n\n-   **iss (issuer)**: The client ID (API Key)\n-   **sub (subject)**: The client ID (API key)\n-   **exp (expiration time)**: Current time + x seconds (1 second should do it)\n-   **aud (audience)**: The Account Manager auth endpoint\n\n\n\nThe **signature**, which is the header and payload signed with the private key to verify that you are allowed to send it to the server.\n\n### Generating it\n\nIf you look at the above example, the contents of a JWT are far from \"rocket science.\" The hard part is signing it correctly, as you need to find a sound library in your programming language of choice to get it done.\n\nAs an example, I have created a postman library to get you started!\n\nIn this example, you need to set two collection variables:\n\n-   **pkey**: The entire contents of the _**key.pem**_ file we generated earlier\n\n\n-   **api\\_key**: The API key you generated in the Account Manager\n\n\n\nThere is also a variable called [**pmlib**](https://joolfe.github.io/postman-util-lib/dist/bundle.js): a third-party library meant to extend the capabilities of the scripting framework within [Postman](https://www.postman.com/). In the collection, a request called \"1. Download JS for Postman\" downloads it in case the initial value is not working.\n\nSince Postman does not support generating JWT tokens out-of-the-box there is a \"Pre-request script\" within the second call \"2. Authorization (JWT)\" which generates it and stores it in a collection variable used during the request.\n\n```\n\n\t\t\t\t\t// Load third party library\neval(pm.collectionVariables.get(\"pmlib\"));\n// Prepare timestamp in seconds\nvar currentTimestamp = Math.floor(Date.now() / 1000)\n// Create header and payload objects\nvar header = {\n  \"typ\": \"JWT\",\n  \"alg\": \"RS256\"\n};\nvar payload = {\n\t'iss': pm.collectionVariables.get('api_key'),\n\t'sub': pm.collectionVariables.get('api_key'),\n\t'iat': currentTimestamp,\n\t'exp': currentTimestamp + 300, // expiry time is 30 seconds from time of creation\n\t'aud': 'https://account.demandware.com:443/dwsso/oauth2/access_token'\n};\n// Generate the JWT and sign it\nvar sJWT = pmlib.jwtSign(pm.collectionVariables.get('pkey'), payload, header);\n// Store the JWT to set in the body\npm.collectionVariables.set(\"jwt_signed\", sJWT);\n\n\n```\n\nOnce the script is in place and all required variables are configured in the collection we can execute the request as follows:\n\n-   A **POST** to [https://account.demandware.com/dwsso/oauth2/access\\_token](https://account.demandware.com/dwsso/oauth2/access_token)\n\n\n-   A body containing these 3 values as a **x-www-form-urlencoded** type:\n    -   client\\_assertion: The signed JWT generated by the script\n    -   client\\_assertion\\_type: urn:ietf:params:oauth:client-assertion-type:jwt-bearer\n    -   grant\\_type: client\\_credentials\n\n [![](https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/postman-authentication-ocapi.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/postman-authentication-ocapi.jpg)[Download Postman Collection](https://gist.github.com/taurgis/df656968852275539d9f9d7a74bf62de)\n\n_A big thanks to [Yuriy Boev](https://www.linkedin.com/in/yuriy-boev-3907002b/) and [John Boxall](https://www.linkedin.com/in/jboxall/) for helping me get to a working example! I will refer you to the [Unofficial Slack thread](https://sfcc-unofficial.slack.com/archives/CBB7YAAHW/p1656070265465869) for other scripts or languages!_",
+  "conversionStatus": "converted",
+  "manualReviewRequired": false,
+  "fallbackTypes": [],
+  "conversionWarnings": [
+    {
+      "code": "missing-image-alt",
+      "message": "Image missing alt text in /how-to-setup-oauth-jwt-for-the-ocapi/."
+    },
+    {
+      "code": "missing-image-alt",
+      "message": "Image missing alt text in /how-to-setup-oauth-jwt-for-the-ocapi/."
+    },
+    {
+      "code": "missing-image-alt",
+      "message": "Image missing alt text in /how-to-setup-oauth-jwt-for-the-ocapi/."
+    }
+  ]
+}

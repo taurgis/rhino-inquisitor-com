@@ -1,0 +1,97 @@
+{
+  "sourceId": "7485",
+  "sourceType": "wxr",
+  "sourceChannels": [
+    "filesystem",
+    "wxr"
+  ],
+  "postType": "page",
+  "status": "publish",
+  "titleRaw": "The Salesforce B2C Commerce Cloud Data Model explained",
+  "excerptRaw": "",
+  "bodyHtml": "<img width=\"800\" height=\"275\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/02/salesforce-b2c-commerce-cloud-erd.jpeg\" alt=\"\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/02/salesforce-b2c-commerce-cloud-erd.jpeg 1280w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/02/salesforce-b2c-commerce-cloud-erd-300x103.jpeg 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/02/salesforce-b2c-commerce-cloud-erd-1024x352.jpeg 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/02/salesforce-b2c-commerce-cloud-erd-768x264.jpeg 768w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t<a href=\"https://lucid.app/lucidchart/f1c8c33a-d575-4761-ba41-245c9762a5f8/edit?viewport_loc=-362%2C21%2C4352%2C2276%2Ch24CqrZw216W&#038;invitationId=inv_9439a330-b96e-4081-a588-e91ae8b714a0\" target=\"_blank\" rel=\"noopener\">\n\t\t\t\t<svg aria-hidden=\"true\" viewBox=\"0 0 512 512\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M428.8 137.6h-86.177a115.52 115.52 0 0 0 2.176-22.4c0-47.914-35.072-83.2-92-83.2-45.314 0-57.002 48.537-75.707 78.784-7.735 12.413-16.994 23.317-25.851 33.253l-.131.146-.129.148C135.662 161.807 127.764 168 120.8 168h-2.679c-5.747-4.952-13.536-8-22.12-8H32c-17.673 0-32 12.894-32 28.8v230.4C0 435.106 14.327 448 32 448h64c8.584 0 16.373-3.048 22.12-8h2.679c28.688 0 67.137 40 127.2 40h21.299c62.542 0 98.8-38.658 99.94-91.145 12.482-17.813 18.491-40.785 15.985-62.791A93.148 93.148 0 0 0 393.152 304H428.8c45.435 0 83.2-37.584 83.2-83.2 0-45.099-38.101-83.2-83.2-83.2zm0 118.4h-91.026c12.837 14.669 14.415 42.825-4.95 61.05 11.227 19.646 1.687 45.624-12.925 53.625 6.524 39.128-10.076 61.325-50.6 61.325H248c-45.491 0-77.21-35.913-120-39.676V215.571c25.239-2.964 42.966-21.222 59.075-39.596 11.275-12.65 21.725-25.3 30.799-39.875C232.355 112.712 244.006 80 252.8 80c23.375 0 44 8.8 44 35.2 0 35.2-26.4 53.075-26.4 70.4h158.4c18.425 0 35.2 16.5 35.2 35.2 0 18.975-16.225 35.2-35.2 35.2zM88 384c0 13.255-10.745 24-24 24s-24-10.745-24-24 10.745-24 24-24 24 10.745 24 24z\"></path></svg>\t\t\t\n\t\t\t\t\t\tview on Lucidchart\n\t\t\t\t\t</a>\n\t\t\t<h2>An unofficial overview of the SFCC data model</h2>\t\t\n\t\t<p>Once upon a time, a budding developer wanted to work with <a href=\"https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/\" target=\"_blank\" rel=\"noopener\">Salesforce B2C Commerce Cloud</a>. Excited to dive into the platform, they searched for ERDs to help them understand the system's underlying components. But alas, there were no official ERDs available!</p><p>After a few years, our intrepid developer set out on a mission to create their own ERDs for Salesforce B2C Commerce Cloud. They spent countless hours reviewing documentation, analysing the platform's architecture, and mapping out relationships between objects. And after much blood, sweat, and tears, they emerged victorious with not one, but multiple ERDs!</p><p>But why must new (and experienced) developers and architects understand this? Well, let's face it, the Salesforce B2C Commerce Cloud data model can be a bit of a beast. With its many objects, relationships, and business rules, it can be overwhelming to wrap your head around everything. By having access to these ERDs, developers and architects can gain a deeper understanding of how the system works and how its various components fit together. This can help them build better solutions and save countless hours of frustration and confusion.</p>\t\t\n\t\t\t<h2>The full picture</h2>\t\t\n\t\t<p>For those who want to get the complete picture of Salesforce B2C Commerce Cloud at once, <a href=\"https://lucid.app/lucidchart/f1c8c33a-d575-4761-ba41-245c9762a5f8/edit?invitationId=inv_9439a330-b96e-4081-a588-e91ae8b714a0\" target=\"_blank\" rel=\"noopener\">a full ERD is available on Lucid</a>. This diagram provides a comprehensive overview of the system's objects and the relationships between them.</p><p>Using this ERD, developers and architects can quickly grasp the breadth and complexity of the platform, as well as identify areas of interest for their specific projects. It can also be a helpful reference tool when designing new solutions or troubleshooting issues.</p><p>However, it's important to note that the full ERD can be overwhelming at first glance. With many objects and relationships, figuring out where to start can take time. That's why I have also created several smaller, focused articles that highlight specific areas of the platform. </p><p>These provide a more targeted view of the system and can be a useful starting point for developers and architects looking to dive deeper into a particular aspect of Salesforce B2C Commerce Cloud.</p>\t\t\n\t\t\t<h2>Diving into the details</h2>\t\t\n\t\t<p>So without further ado, let's dive into the different ERDs for Salesforce B2C Commerce Cloud and see what insights we can glean from them.</p>\t\t\n\t\t\t<h2>Ever-changing model</h2>\t\t\n\t\t<p>As the Salesforce B2C Commerce Cloud platform evolves, so do its entities and their relationships. While I have created several ERDs to help developers and architects understand the system, it's important to note that keeping these diagrams up to date is a challenging feat.</p><p>As the platform's entities change, I will do my best to update the ERDs accordingly. However, due to the constantly shifting nature of the system, some diagrams may become outdated over time.</p><p>That's why it's essential for developers and architects not to rely solely on these <strong>unofficial </strong>ERDs but also to regularly consult the official documentation and keep up to date with the latest platform updates (keep a close watch on my blog 😉).</p><p>By staying informed about changes to the system, you can ensure you are building solutions that are both effective and future-proof.</p>",
+  "slug": "salesforce-b2c-commerce-cloud-erd",
+  "publishedAt": "2023-02-26T19:09:43.000Z",
+  "modifiedAt": "2023-12-04T13:38:39.000Z",
+  "author": "Thomas Theunen",
+  "categories": [
+    {
+      "name": "ERD",
+      "slug": "erd"
+    },
+    {
+      "name": "Salesforce Commerce Cloud",
+      "slug": "salesforce-commerce-cloud"
+    }
+  ],
+  "tags": [],
+  "legacyUrl": "/salesforce-b2c-commerce-cloud-erd/",
+  "targetUrl": "/salesforce-b2c-commerce-cloud-erd/",
+  "disposition": "keep",
+  "aliasUrls": [
+    "/?p=7485"
+  ],
+  "mediaRefs": [
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/02/salesforce-b2c-commerce-cloud-erd-1024x352.jpeg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/02/salesforce-b2c-commerce-cloud-erd-300x103.jpeg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/02/salesforce-b2c-commerce-cloud-erd-768x264.jpeg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/02/salesforce-b2c-commerce-cloud-erd.jpeg"
+  ],
+  "_raw": {
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "status": "publish",
+    "titleRaw": "The Salesforce B2C Commerce Cloud Data Model explained",
+    "excerptRaw": "",
+    "publishedAt": "2023-02-26T19:09:43.000Z",
+    "modifiedAt": "2023-12-04T13:38:39.000Z",
+    "author": "Thomas Theunen",
+    "categories": [
+      {
+        "name": "ERD",
+        "slug": "erd"
+      },
+      {
+        "name": "Salesforce Commerce Cloud",
+        "slug": "salesforce-commerce-cloud"
+      }
+    ],
+    "tags": [],
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/02/salesforce-b2c-commerce-cloud-erd.jpeg"
+    ],
+    "manifest": {
+      "legacyUrl": "/salesforce-b2c-commerce-cloud-erd/",
+      "targetUrl": "/salesforce-b2c-commerce-cloud-erd/",
+      "disposition": "keep",
+      "redirectCode": null,
+      "implementationLayer": "none",
+      "urlClass": "page"
+    },
+    "normalization": {
+      "aliasUrlsDerivedFromSameTarget": [
+        "/?p=7485"
+      ],
+      "usedPublishedAtFallback": false,
+      "usedModifiedAtFallback": false,
+      "statusNormalizedFrom": "publish"
+    },
+    "extracted": {
+      "sourcePostType": "page",
+      "link": "/salesforce-b2c-commerce-cloud-erd/",
+      "guid": "/?page_id=7485",
+      "attachmentUrl": null,
+      "postParent": "0",
+      "postMetaCount": 19
+    }
+  },
+  "bodyMarkdown": "![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/02/salesforce-b2c-commerce-cloud-erd.jpeg) [view on Lucidchart](https://lucid.app/lucidchart/f1c8c33a-d575-4761-ba41-245c9762a5f8/edit?viewport_loc=-362%2C21%2C4352%2C2276%2Ch24CqrZw216W&invitationId=inv_9439a330-b96e-4081-a588-e91ae8b714a0)\n\n## An unofficial overview of the SFCC data model\n\nOnce upon a time, a budding developer wanted to work with [Salesforce B2C Commerce Cloud](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/). Excited to dive into the platform, they searched for ERDs to help them understand the system's underlying components. But alas, there were no official ERDs available!\n\nAfter a few years, our intrepid developer set out on a mission to create their own ERDs for Salesforce B2C Commerce Cloud. They spent countless hours reviewing documentation, analysing the platform's architecture, and mapping out relationships between objects. And after much blood, sweat, and tears, they emerged victorious with not one, but multiple ERDs!\n\nBut why must new (and experienced) developers and architects understand this? Well, let's face it, the Salesforce B2C Commerce Cloud data model can be a bit of a beast. With its many objects, relationships, and business rules, it can be overwhelming to wrap your head around everything. By having access to these ERDs, developers and architects can gain a deeper understanding of how the system works and how its various components fit together. This can help them build better solutions and save countless hours of frustration and confusion.\n\n## The full picture\n\nFor those who want to get the complete picture of Salesforce B2C Commerce Cloud at once, [a full ERD is available on Lucid](https://lucid.app/lucidchart/f1c8c33a-d575-4761-ba41-245c9762a5f8/edit?invitationId=inv_9439a330-b96e-4081-a588-e91ae8b714a0). This diagram provides a comprehensive overview of the system's objects and the relationships between them.\n\nUsing this ERD, developers and architects can quickly grasp the breadth and complexity of the platform, as well as identify areas of interest for their specific projects. It can also be a helpful reference tool when designing new solutions or troubleshooting issues.\n\nHowever, it's important to note that the full ERD can be overwhelming at first glance. With many objects and relationships, figuring out where to start can take time. That's why I have also created several smaller, focused articles that highlight specific areas of the platform.\n\nThese provide a more targeted view of the system and can be a useful starting point for developers and architects looking to dive deeper into a particular aspect of Salesforce B2C Commerce Cloud.\n\n## Diving into the details\n\nSo without further ado, let's dive into the different ERDs for Salesforce B2C Commerce Cloud and see what insights we can glean from them.\n\n## Ever-changing model\n\nAs the Salesforce B2C Commerce Cloud platform evolves, so do its entities and their relationships. While I have created several ERDs to help developers and architects understand the system, it's important to note that keeping these diagrams up to date is a challenging feat.\n\nAs the platform's entities change, I will do my best to update the ERDs accordingly. However, due to the constantly shifting nature of the system, some diagrams may become outdated over time.\n\nThat's why it's essential for developers and architects not to rely solely on these **unofficial** ERDs but also to regularly consult the official documentation and keep up to date with the latest platform updates (keep a close watch on my blog 😉).\n\nBy staying informed about changes to the system, you can ensure you are building solutions that are both effective and future-proof.",
+  "conversionStatus": "converted",
+  "manualReviewRequired": false,
+  "fallbackTypes": [],
+  "conversionWarnings": [
+    {
+      "code": "missing-image-alt",
+      "message": "Image missing alt text in /salesforce-b2c-commerce-cloud-erd/."
+    }
+  ]
+}

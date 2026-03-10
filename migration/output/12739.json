@@ -1,0 +1,121 @@
+{
+  "sourceId": "12739",
+  "sourceType": "wxr",
+  "sourceChannels": [
+    "filesystem",
+    "wxr"
+  ],
+  "postType": "post",
+  "status": "publish",
+  "titleRaw": "Storefront Protection For Your Composable Storefront",
+  "excerptRaw": "Protecting online stores using Storefront Protection in SiteGenesis and SFRA is simple. But now that we have the Composable Storefront, we need to think about whether those protections still work. This blog post will talk about how to keep your Composable Storefront safe and what this new technology means for security.",
+  "bodyHtml": "<p>Protecting online stores using <a href=\"https://help.salesforce.com/s/articleView?id=cc.b2c_storefront_password_protection.htm&amp;type=5\" target=\"_blank\" rel=\"noopener\">Storefront Protection</a> in <a href=\"https://www.rhino-inquisitor.com/the-move-from-sitegenesis-and-sfra-to-the-composable-storefront-as-a-developer/\">SiteGenesis and SFRA</a> is simple. But now that we have the <a href=\"https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/\" target=\"_blank\" rel=\"noopener\">Composable Storefront</a>, we need to think about whether those protections still work. This blog post will talk about how to keep your Composable Storefront safe and what this new technology means for security.</p>\t\t\n\t\t\t<h2>The Shift from Business Manager to Managed Runtime</h2>\t\t\n\t\t<p>When utilising SFCC with SiteGenesis or SFRA (Salesforce Reference Architecture) sites, enabling Storefront Protection was a straightforward process. </p><p>You can easily navigate through the Business Manager by following this path:</p>\t\t\n\t\t\t<pre data-line=\"\">\n\t\t\t\t<code readonly=\"true\">\n\t\t\t\t\t<xmp>Administration > Sites > Manage Sites  </xmp>\n\t\t\t\t</code>\n\t\t\t</pre>\n\t\t<p>We proceed on our journey by selecting the site you want to enable this for, then navigating to the site status tab after the page has finished loading.</p>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/online-protected-sfcc.jpg\" data-elementor-open-lightbox=\"yes\" data-elementor-lightbox-title=\"Selecting &quot;Online (Protected)&quot; for a site.\" data-e-action-hash=\"#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MTI3NDIsInVybCI6Imh0dHBzOlwvXC93d3cucmhpbm8taW5xdWlzaXRvci5jb21cL3dwLWNvbnRlbnRcL3VwbG9hZHNcLzIwMjRcLzExXC9vbmxpbmUtcHJvdGVjdGVkLXNmY2MuanBnIn0%3D\">\n\t\t\t\t\t\t\t<img loading=\"lazy\" width=\"800\" height=\"422\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/online-protected-sfcc.jpg\" alt=\"A screenshot of the business manager on the &quot;Site Status&quot; page, with a user clicking the\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/online-protected-sfcc.jpg 889w, https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/online-protected-sfcc-300x158.jpg 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/online-protected-sfcc-768x405.jpg 768w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t</a>\n\t\t<p>This page allows us to switch to \"Online (Protected),\" which unveils a new field.</p>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/storefront-protection-password-sfcc.png\" data-elementor-open-lightbox=\"yes\" data-elementor-lightbox-title=\"Storefront Protection Password Field is revealed\" data-e-action-hash=\"#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MTI3NDMsInVybCI6Imh0dHBzOlwvXC93d3cucmhpbm8taW5xdWlzaXRvci5jb21cL3dwLWNvbnRlbnRcL3VwbG9hZHNcLzIwMjRcLzExXC9zdG9yZWZyb250LXByb3RlY3Rpb24tcGFzc3dvcmQtc2ZjYy5wbmcifQ%3D%3D\">\n\t\t\t\t\t\t\t<img loading=\"lazy\" width=\"800\" height=\"220\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/storefront-protection-password-sfcc.png\" alt=\"A screenshot displaying the new field along with a description of the information that appears after selecting the protected option.\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/storefront-protection-password-sfcc.png 998w, https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/storefront-protection-password-sfcc-300x83.png 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/storefront-protection-password-sfcc-768x212.png 768w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t</a>\n\t\t<p>Here, you choose a password that allows users to access the storefront.</p>\t\t\n\t\t\t<h3>1. simple 2. effortless 3. straightforward</h3>\t\t\n\t\t<p>The Storefront Protection method helps keep your online store safe and controls who can access it. However, things have changed with the new SFCC PWAs (Progressive Web Apps). Moving from Business Manager to Managed Runtime (MRT) is a big shift, and developers need to know that the protection settings from Business Manager don’t work for PWAs anymore.</p><p>Because of this change, we must find new ways to keep our online stores safe. Password protection is still very important, especially when we're working on a site or when we need to limit who can see it.</p><p>So, how can we keep SFCC PWA storefronts safe and restrict access?</p>\t\t\n\t\t\t<h2>Implementing Basic Authentication in  The Composable Storefront</h2>\t\t\n\t\t<p>A straightforward way to limit who can access your SFCC PWA storefront is to use <a href=\"https://en.wikipedia.org/wiki/Basic_access_authentication\" target=\"_blank\" rel=\"noopener\">Basic Authentication</a>. This method works on the server side, meaning it runs on the computer that hosts your website. It involves setting up a special middleware function for the login process. Here are the steps to help you get started.</p>\t\t\n\t\t\t<h3>Step 1: Locate the `ssr.js` File</h3>\t\t\n\t\t<p>First, find your `ssr.js` file in your SFCC PWA project folder. This file is important because it helps with server-side rendering, which is necessary for safely displaying your online store's content.</p>\t\t\n\t\t\t<h3>Step 2: Create Middleware for Basic Authentication</h3>\t\t\n\t\t<p>I’m not particularly eager to do things all over again if someone has already done a fantastic job. Here are some examples of how to add your own authentication middleware:</p>\t\t\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://github.com/SalesforceCommerceCloud/pwa-kit/pull/732/files\">\n\t\t\t\t\t\t\t<svg aria-hidden=\"true\" viewBox=\"0 0 512 512\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z\"></path></svg>\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\tA deprecated method (just for reference)\n\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://gist.github.com/taurgis/e6a60e14672df31a0e1d7ea311671f3c\">\n\t\t\t\t\t\t\t<svg aria-hidden=\"true\" viewBox=\"0 0 512 512\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z\"></path></svg>\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\tThe latest example made by John Boxall\n\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.digitscommerce.com/sfcc-pwa-ssr.js\">\n\t\t\t\t\t\t\t<svg aria-hidden=\"true\" viewBox=\"0 0 512 512\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z\"></path></svg>\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\tAn example Hamza Javed made recently on LinkedIn\n\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t\t<h2>Why would you do this?</h2>\t\t\n\t\t<p>Making sure your SFCC PWA store has a password is really important. This is especially true when you’re still working on it or it’s not ready for everyone to see. Because it’s in the cloud, anything you put online can be accessed unless you put up some protection. If you don’t secure it, people who shouldn’t see your work might get access to important information and unfinished parts of the site.</p><p>Also, if the site isn’t protected, search engines might find it too soon and show it to everyone, even though it’s not finished. This could hurt your website’s reputation and lower how it ranks in search results. </p><p>By using a simple password protection, you can keep your work safe and ensure only the right people can check it out. This helps keep your project intact and protects your brand’s reputation.</p>\t\t\n\t\t\t<h2>Is there an interface planned?</h2>\t\t\n\t\t<p>Right now, the main suggestion (to my knowledge) is to stick with the coding solution. I haven’t seen any plans for an interface for \"Storefront Protection\".</p>\n<p>This feature can be added easily with just a little development using environment variables. I believe the time and resources spent on improving the PWA Kit project would be better used on other priorities instead of creating interfaces for these features.</p>",
+  "slug": "storefront-protection-in-the-pwa-kit",
+  "publishedAt": "2024-11-18T07:26:53.000Z",
+  "modifiedAt": "2024-11-20T12:36:26.000Z",
+  "author": "Thomas Theunen",
+  "categories": [
+    {
+      "name": "Salesforce Commerce Cloud",
+      "slug": "salesforce-commerce-cloud"
+    },
+    {
+      "name": "Technical",
+      "slug": "technical"
+    }
+  ],
+  "tags": [
+    {
+      "name": "pwa kit",
+      "slug": "pwa-kit"
+    },
+    {
+      "name": "sfcc",
+      "slug": "sfcc"
+    },
+    {
+      "name": "sfra",
+      "slug": "sfra"
+    }
+  ],
+  "legacyUrl": "/storefront-protection-in-the-pwa-kit/",
+  "targetUrl": "/storefront-protection-in-the-pwa-kit/",
+  "disposition": "keep",
+  "aliasUrls": [
+    "/?p=12739"
+  ],
+  "mediaRefs": [
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/online-protected-sfcc-300x158.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/online-protected-sfcc-768x405.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/online-protected-sfcc.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/storefront-protection-password-sfcc-300x83.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/storefront-protection-password-sfcc-768x212.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/storefront-protection-password-sfcc.png"
+  ],
+  "_raw": {
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "status": "publish",
+    "titleRaw": "Storefront Protection For Your Composable Storefront",
+    "excerptRaw": "Protecting online stores using Storefront Protection in SiteGenesis and SFRA is simple. But now that we have the Composable Storefront, we need to think about whether those protections still work. This blog post will talk about how to keep your Composable Storefront safe and what this new technology means for security.",
+    "publishedAt": "2024-11-18T07:26:53.000Z",
+    "modifiedAt": "2024-11-20T12:36:26.000Z",
+    "author": "Thomas Theunen",
+    "categories": [
+      {
+        "name": "Salesforce Commerce Cloud",
+        "slug": "salesforce-commerce-cloud"
+      },
+      {
+        "name": "Technical",
+        "slug": "technical"
+      }
+    ],
+    "tags": [
+      {
+        "name": "pwa kit",
+        "slug": "pwa-kit"
+      },
+      {
+        "name": "sfcc",
+        "slug": "sfcc"
+      },
+      {
+        "name": "sfra",
+        "slug": "sfra"
+      }
+    ],
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/online-protected-sfcc.jpg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/storefront-protection-password-sfcc.png"
+    ],
+    "manifest": {
+      "legacyUrl": "/storefront-protection-in-the-pwa-kit/",
+      "targetUrl": "/storefront-protection-in-the-pwa-kit/",
+      "disposition": "keep",
+      "redirectCode": null,
+      "implementationLayer": "none",
+      "urlClass": "post"
+    },
+    "normalization": {
+      "aliasUrlsDerivedFromSameTarget": [
+        "/?p=12739"
+      ],
+      "usedPublishedAtFallback": false,
+      "usedModifiedAtFallback": false,
+      "statusNormalizedFrom": "publish"
+    },
+    "extracted": {
+      "sourcePostType": "post",
+      "link": "/storefront-protection-in-the-pwa-kit/",
+      "guid": "/?p=12739",
+      "attachmentUrl": null,
+      "postParent": "0",
+      "postMetaCount": 20
+    }
+  },
+  "bodyMarkdown": "Protecting online stores using [Storefront Protection](https://help.salesforce.com/s/articleView?id=cc.b2c_storefront_password_protection.htm&type=5) in [SiteGenesis and SFRA](https://www.rhino-inquisitor.com/the-move-from-sitegenesis-and-sfra-to-the-composable-storefront-as-a-developer/) is simple. But now that we have the [Composable Storefront](https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/), we need to think about whether those protections still work. This blog post will talk about how to keep your Composable Storefront safe and what this new technology means for security.\n\n## The Shift from Business Manager to Managed Runtime\n\nWhen utilising SFCC with SiteGenesis or SFRA (Salesforce Reference Architecture) sites, enabling Storefront Protection was a straightforward process.\n\nYou can easily navigate through the Business Manager by following this path:\n\n```\n\n\t\t\t\t\tAdministration > Sites > Manage Sites\n\n\n```\n\nWe proceed on our journey by selecting the site you want to enable this for, then navigating to the site status tab after the page has finished loading.\n\n[![A screenshot of the business manager on the \"Site Status\" page, with a user clicking the](https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/online-protected-sfcc.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/online-protected-sfcc.jpg)\n\nThis page allows us to switch to \"Online (Protected),\" which unveils a new field.\n\n[![A screenshot displaying the new field along with a description of the information that appears after selecting the protected option.](https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/storefront-protection-password-sfcc.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/storefront-protection-password-sfcc.png)\n\nHere, you choose a password that allows users to access the storefront.\n\n### 1\\. simple 2. effortless 3. straightforward\n\nThe Storefront Protection method helps keep your online store safe and controls who can access it. However, things have changed with the new SFCC PWAs (Progressive Web Apps). Moving from Business Manager to Managed Runtime (MRT) is a big shift, and developers need to know that the protection settings from Business Manager don’t work for PWAs anymore.\n\nBecause of this change, we must find new ways to keep our online stores safe. Password protection is still very important, especially when we're working on a site or when we need to limit who can see it.\n\nSo, how can we keep SFCC PWA storefronts safe and restrict access?\n\n## Implementing Basic Authentication in The Composable Storefront\n\nA straightforward way to limit who can access your SFCC PWA storefront is to use [Basic Authentication](https://en.wikipedia.org/wiki/Basic_access_authentication). This method works on the server side, meaning it runs on the computer that hosts your website. It involves setting up a special middleware function for the login process. Here are the steps to help you get started.\n\n### Step 1: Locate the \\`ssr.js\\` File\n\nFirst, find your \\`ssr.js\\` file in your SFCC PWA project folder. This file is important because it helps with server-side rendering, which is necessary for safely displaying your online store's content.\n\n### Step 2: Create Middleware for Basic Authentication\n\nI’m not particularly eager to do things all over again if someone has already done a fantastic job. Here are some examples of how to add your own authentication middleware:\n\n-   [A deprecated method (just for reference)](https://github.com/SalesforceCommerceCloud/pwa-kit/pull/732/files)\n-   [The latest example made by John Boxall](https://gist.github.com/taurgis/e6a60e14672df31a0e1d7ea311671f3c)\n-   [An example Hamza Javed made recently on LinkedIn](https://www.digitscommerce.com/sfcc-pwa-ssr.js)\n\n## Why would you do this?\n\nMaking sure your SFCC PWA store has a password is really important. This is especially true when you’re still working on it or it’s not ready for everyone to see. Because it’s in the cloud, anything you put online can be accessed unless you put up some protection. If you don’t secure it, people who shouldn’t see your work might get access to important information and unfinished parts of the site.\n\nAlso, if the site isn’t protected, search engines might find it too soon and show it to everyone, even though it’s not finished. This could hurt your website’s reputation and lower how it ranks in search results.\n\nBy using a simple password protection, you can keep your work safe and ensure only the right people can check it out. This helps keep your project intact and protects your brand’s reputation.\n\n## Is there an interface planned?\n\nRight now, the main suggestion (to my knowledge) is to stick with the coding solution. I haven’t seen any plans for an interface for \"Storefront Protection\".\n\nThis feature can be added easily with just a little development using environment variables. I believe the time and resources spent on improving the PWA Kit project would be better used on other priorities instead of creating interfaces for these features.",
+  "conversionStatus": "converted",
+  "manualReviewRequired": false,
+  "fallbackTypes": [],
+  "conversionWarnings": []
+}

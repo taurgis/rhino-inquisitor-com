@@ -1,0 +1,123 @@
+{
+  "sourceId": "2253",
+  "sourceType": "wxr",
+  "sourceChannels": [
+    "filesystem",
+    "wxr"
+  ],
+  "postType": "post",
+  "status": "publish",
+  "titleRaw": "Three things you can do today to secure your SFCC environment",
+  "excerptRaw": "",
+  "bodyHtml": "<p>The importance of security in any digital environment can not be stressed enough. Even though <a href=\"https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/\" target=\"_blank\" rel=\"noopener\">Salesforce Commerce Cloud</a> is a SaaS solution, you are still in charge of your system and how some aspects are secured. </p><p>A good example is user management; you securely handle access to different environments. Salesforce provides the tools to secure it, but you must use them correctly for optimal protection.</p><p>There is no time like the present, so let us look at three things you can do today to secure your Salesforce B2C Commerce Cloud environment!</p>\t\t\n\t\t\t<h2>Verify account manager access</h2>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img width=\"800\" height=\"267\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/someone-auditing-an-audience-1536x512.jpg\" alt=\"Someone on the stage of an opera house auditing the audience. This represents making account manager secure by doing regular audits.\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/someone-auditing-an-audience-1536x512.jpg 1536w, https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/someone-auditing-an-audience-300x100.jpg 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/someone-auditing-an-audience-1024x341.jpg 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/someone-auditing-an-audience-768x256.jpg 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/someone-auditing-an-audience-2048x683.jpg 2048w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t<p>As mentioned, user management is under your (or someone within your team) supervision. A few automations exist,&nbsp;<a href=\"https://help.salesforce.com/s/articleView?id=sf.account_manager_rn_auto_disable_inactive_users_release.htm&amp;type=5\" target=\"_blank\" rel=\"noopener\">such as auto disabling of accounts</a>, but that doesn't mean you shouldn't have a look!</p>\n<p>So why not do an audit now? Look at all the accounts and what access rights they have. Ask the question: “Do they need access to this now?” They might have needed access to administer an environment at one point, but that was aeons ago. So why not restrict that access?</p>\n<p>You should always have a&nbsp;<a href=\"https://en.wikipedia.org/wiki/Principle_of_least_privilege\" target=\"_blank\" rel=\"noopener\">system of least privilege</a>, but mistakes happen - we are only human!&nbsp;Or off-boarding procedures that need to be correctly followed. So, an audit every once in a while is a good idea.</p>\n<p>But why do this, you might ask? Well, there are quite a few reasons for this:</p>\n<ul>\n<li>People do administrative tasks in the wrong environment by accident, even though they have not been working on that project for weeks/months/years (it happens)</li>\n<li>An account was hacked that had access to multiple projects they no longer worked on</li>\n<li>Someone left the company on bad terms and decided to abuse their access</li>\n<li>… and many more</li>\n</ul>\n<p>I am not saying that with a system of least privilege, all damage could have been prevented, but they could have done much less damage if the correct procedures had been adhered to.</p>\t\t\n\t\t\t<h2>Check the code for security issues</h2>\t\t\n\t\t<p>Just as user access is something you and your team are in charge of, so is the security quality of the code deployed to the environments.</p><p>It might be a good idea to go and check out the repository and review the most sensitive areas, looking for security holes. Don’t know where to start? I wrote <a style=\"font-size: 1.25rem;\" href=\"https://www.rhino-inquisitor.com/secure-coding-in-salesforce-b2c-commerce-cloud/\" target=\"_blank\" rel=\"noopener\">an extensive article about security best practices</a> to remember during development.</p>\t\t\n\t\t\t<h2>Third-party access</h2>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img width=\"800\" height=\"252\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/people-grabbing-keys-from-a-chest.jpg\" alt=\"People grabbing keys from a treasure chest\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/people-grabbing-keys-from-a-chest.jpg 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/people-grabbing-keys-from-a-chest-300x94.jpg 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/people-grabbing-keys-from-a-chest-768x242.jpg 768w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t<p>Next to user access to the business manager of the environments, there are also API Keys that allow administrative access to the system through REST endpoints and the <a href=\"https://www.rhino-inquisitor.com/a-beginners-guide-to-webdav-in-sfcc/\" target=\"_blank\" rel=\"noopener\">WebDAV</a>.</p><p>If you have systems that integrate with Salesforce B2C Commerce Cloud, document those systems and how they integrate. And again, make sure they work with a <a href=\"https://www.cisa.gov/uscert/bsi/articles/knowledge/principles/least-privilege\" target=\"_blank\" rel=\"noopener\">Principle of Least Privilege</a>. </p><p>An excellent example of such an integration is an ERP system that updates orders via the OCAPI and uploads Price Book files to WebDAV. Verify that the ERP can only do those two things with the API Key it has been given.</p><p>There may be an integration that is no longer active or an API key that has been replaced. Ensure these are removed from the configuration so no one can abuse them if they are accidentally shared outside your organisation.</p><p>We always hope people who get these by accident bear no ill will, but that is not the world we live in.</p>\t\t\n\t\t\t<h2>Get crackin’</h2>\t\t\n\t\t<p>These three items are just to get you started, there are many other things that you can check today to make sure your environments are secured. And make sure to check the documentation for helpful features and tools that Salesforce provides<a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/account_manager/b2c_account_manager_register_verification_methods_for_mfa.html\" target=\"_blank\" rel=\"noopener\">tools that Salesforce provides</a> to make your life easier.</p>",
+  "slug": "three-things-to-secure-sfcc",
+  "publishedAt": "2024-01-15T17:47:00.000Z",
+  "modifiedAt": "2024-01-08T20:35:25.000Z",
+  "author": "Thomas Theunen",
+  "categories": [
+    {
+      "name": "Salesforce Commerce Cloud",
+      "slug": "salesforce-commerce-cloud"
+    },
+    {
+      "name": "Technical",
+      "slug": "technical"
+    }
+  ],
+  "tags": [
+    {
+      "name": "security",
+      "slug": "security"
+    },
+    {
+      "name": "sfcc",
+      "slug": "sfcc"
+    },
+    {
+      "name": "technical",
+      "slug": "technical"
+    }
+  ],
+  "legacyUrl": "/three-things-to-secure-sfcc/",
+  "targetUrl": "/three-things-to-secure-sfcc/",
+  "disposition": "keep",
+  "aliasUrls": [
+    "/?p=2253"
+  ],
+  "mediaRefs": [
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/people-grabbing-keys-from-a-chest-300x94.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/people-grabbing-keys-from-a-chest-768x242.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/people-grabbing-keys-from-a-chest.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/someone-auditing-an-audience-1024x341.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/someone-auditing-an-audience-1536x512.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/someone-auditing-an-audience-2048x683.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/someone-auditing-an-audience-300x100.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/someone-auditing-an-audience-768x256.jpg"
+  ],
+  "_raw": {
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "status": "publish",
+    "titleRaw": "Three things you can do today to secure your SFCC environment",
+    "excerptRaw": "",
+    "publishedAt": "2024-01-15T17:47:00.000Z",
+    "modifiedAt": "2024-01-08T20:35:25.000Z",
+    "author": "Thomas Theunen",
+    "categories": [
+      {
+        "name": "Salesforce Commerce Cloud",
+        "slug": "salesforce-commerce-cloud"
+      },
+      {
+        "name": "Technical",
+        "slug": "technical"
+      }
+    ],
+    "tags": [
+      {
+        "name": "security",
+        "slug": "security"
+      },
+      {
+        "name": "sfcc",
+        "slug": "sfcc"
+      },
+      {
+        "name": "technical",
+        "slug": "technical"
+      }
+    ],
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/people-grabbing-keys-from-a-chest.jpg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/someone-auditing-an-audience-1536x512.jpg"
+    ],
+    "manifest": {
+      "legacyUrl": "/three-things-to-secure-sfcc/",
+      "targetUrl": "/three-things-to-secure-sfcc/",
+      "disposition": "keep",
+      "redirectCode": null,
+      "implementationLayer": "none",
+      "urlClass": "post"
+    },
+    "normalization": {
+      "aliasUrlsDerivedFromSameTarget": [
+        "/?p=2253"
+      ],
+      "usedPublishedAtFallback": false,
+      "usedModifiedAtFallback": false,
+      "statusNormalizedFrom": "publish"
+    },
+    "extracted": {
+      "sourcePostType": "post",
+      "link": "/three-things-to-secure-sfcc/",
+      "guid": "/?p=2253",
+      "attachmentUrl": null,
+      "postParent": "0",
+      "postMetaCount": 24
+    }
+  },
+  "bodyMarkdown": "The importance of security in any digital environment can not be stressed enough. Even though [Salesforce Commerce Cloud](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/) is a SaaS solution, you are still in charge of your system and how some aspects are secured.\n\nA good example is user management; you securely handle access to different environments. Salesforce provides the tools to secure it, but you must use them correctly for optimal protection.\n\nThere is no time like the present, so let us look at three things you can do today to secure your Salesforce B2C Commerce Cloud environment!\n\n## Verify account manager access\n\n![Someone on the stage of an opera house auditing the audience. This represents making account manager secure by doing regular audits.](https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/someone-auditing-an-audience-1536x512.jpg)\n\nAs mentioned, user management is under your (or someone within your team) supervision. A few automations exist, [such as auto disabling of accounts](https://help.salesforce.com/s/articleView?id=sf.account_manager_rn_auto_disable_inactive_users_release.htm&type=5), but that doesn't mean you shouldn't have a look!\n\nSo why not do an audit now? Look at all the accounts and what access rights they have. Ask the question: “Do they need access to this now?” They might have needed access to administer an environment at one point, but that was aeons ago. So why not restrict that access?\n\nYou should always have a [system of least privilege](https://en.wikipedia.org/wiki/Principle_of_least_privilege), but mistakes happen - we are only human! Or off-boarding procedures that need to be correctly followed. So, an audit every once in a while is a good idea.\n\nBut why do this, you might ask? Well, there are quite a few reasons for this:\n\n-   People do administrative tasks in the wrong environment by accident, even though they have not been working on that project for weeks/months/years (it happens)\n-   An account was hacked that had access to multiple projects they no longer worked on\n-   Someone left the company on bad terms and decided to abuse their access\n-   … and many more\n\nI am not saying that with a system of least privilege, all damage could have been prevented, but they could have done much less damage if the correct procedures had been adhered to.\n\n## Check the code for security issues\n\nJust as user access is something you and your team are in charge of, so is the security quality of the code deployed to the environments.\n\nIt might be a good idea to go and check out the repository and review the most sensitive areas, looking for security holes. Don’t know where to start? I wrote [an extensive article about security best practices](https://www.rhino-inquisitor.com/secure-coding-in-salesforce-b2c-commerce-cloud/) to remember during development.\n\n## Third-party access\n\n![People grabbing keys from a treasure chest](https://www.rhino-inquisitor.com/wp-content/uploads/2024/01/people-grabbing-keys-from-a-chest.jpg)\n\nNext to user access to the business manager of the environments, there are also API Keys that allow administrative access to the system through REST endpoints and the [WebDAV](https://www.rhino-inquisitor.com/a-beginners-guide-to-webdav-in-sfcc/).\n\nIf you have systems that integrate with Salesforce B2C Commerce Cloud, document those systems and how they integrate. And again, make sure they work with a [Principle of Least Privilege](https://www.cisa.gov/uscert/bsi/articles/knowledge/principles/least-privilege).\n\nAn excellent example of such an integration is an ERP system that updates orders via the OCAPI and uploads Price Book files to WebDAV. Verify that the ERP can only do those two things with the API Key it has been given.\n\nThere may be an integration that is no longer active or an API key that has been replaced. Ensure these are removed from the configuration so no one can abuse them if they are accidentally shared outside your organisation.\n\nWe always hope people who get these by accident bear no ill will, but that is not the world we live in.\n\n## Get crackin’\n\nThese three items are just to get you started, there are many other things that you can check today to make sure your environments are secured. And make sure to check the documentation for helpful features and tools that Salesforce provides[tools that Salesforce provides](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/account_manager/b2c_account_manager_register_verification_methods_for_mfa.html) to make your life easier.",
+  "conversionStatus": "converted",
+  "manualReviewRequired": false,
+  "fallbackTypes": [],
+  "conversionWarnings": []
+}

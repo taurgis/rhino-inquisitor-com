@@ -1,0 +1,144 @@
+{
+  "sourceId": "168",
+  "sourceType": "wxr",
+  "sourceChannels": [
+    "filesystem",
+    "wxr"
+  ],
+  "postType": "post",
+  "status": "publish",
+  "titleRaw": "The state of Ohana for Salesforce Commerce Cloud",
+  "excerptRaw": "",
+  "bodyHtml": "<p><!-- wp:paragraph --></p>\n<p><strong>Within Salesforce, the Ohana (Hawaiian for Family) has a pretty significant meaning. Over the past decade, people passionate about Salesforce have built up an enormous community around the platform.</strong></p>\n<p>The number of people helping each other every day on <a href=\"https://trailhead.salesforce.com/trailblazer-community/groups?tab=myGroups\">Trailblazer Communities</a>, <a href=\"https://twitter.com/hashtag/Ohana\">Twitter</a>, <a href=\"https://salesforce.stackexchange.com/\" target=\"_blank\" rel=\"noopener\">Stackexchange</a>, <a href=\"https://meighanrockssf.com/2019/04/02/salesforce-ohana-slack/\">OhanaSlack</a>, and more is just amazing.<br />But then again, how does this reflect on the Salesforce Commerce Cloud B2C community?</p>\n<p><!-- /wp:paragraph --></p>\t\t\n\t\t\t<h2>Demandware</h2>\t\t\n\t\t<p>Let us start with a little bit of history. Salesforce Commerce Cloud B2C didn't exist before 2016, and then it was still known as <a href=\"https://en.wikipedia.org/wiki/Demandware\">Demandware</a>.</p>\n<p>It is no secret that Salesforce is known for buying companies to take under its wing, and Demandware was no different. A bit of rebranding later, and \"boom,\" it's Salesforce!</p>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img width=\"750\" height=\"560\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/demandware.jpg\" alt=\"The older Demandware logo, from before the acquisition of Salesforce.\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/demandware.jpg 750w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/demandware-300x224.jpg 300w\" sizes=\"(max-width: 750px) 100vw, 750px\" />\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t<h2>A big Difference in Ohana</h2>\t\t\n\t\t<p>I listed a few places where the community was active within the #ohana of Salesforce, so how do the different platforms compare? Based on my personal experience, the used communication channels show a big difference.</p>\n<p><i>Note: This is a \"personal feeling\" pie chart as I did not use any scientific methodology by comparing numbers etc. So take it with a grain of salt! I also left out LinkedIn as it is more business than questions/answers than socializing on Twitter.</i></p>\t\t\n\t\t\t<h3>Core Platform</h3>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/ohana-core.png\" data-elementor-open-lightbox=\"yes\" data-elementor-lightbox-title=\"Ohana - The Core Platform\" e-action-hash=\"#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MTgzLCJ1cmwiOiJodHRwczpcL1wvd3d3LnJoaW5vLWlucXVpc2l0b3IuY29tXC93cC1jb250ZW50XC91cGxvYWRzXC8yMDIyXC8wMlwvb2hhbmEtY29yZS5wbmcifQ%3D%3D\">\n\t\t\t\t\t\t\t<img width=\"800\" height=\"534\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/ohana-core-1024x683.png\" alt=\"A pie chart showing the different places people use to communicate within Ohana for the Core platform.\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/ohana-core-1024x683.png 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/ohana-core-300x200.png 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/ohana-core-768x512.png 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/ohana-core.png 1200w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t</a>\n\t\t\t<h3>SFCC</h3>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/ohana-sfcc.png\" data-elementor-open-lightbox=\"yes\" data-elementor-lightbox-title=\"Ohana - SFCC\" e-action-hash=\"#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MTg1LCJ1cmwiOiJodHRwczpcL1wvd3d3LnJoaW5vLWlucXVpc2l0b3IuY29tXC93cC1jb250ZW50XC91cGxvYWRzXC8yMDIyXC8wMlwvb2hhbmEtc2ZjYy5wbmcifQ%3D%3D\">\n\t\t\t\t\t\t\t<img width=\"800\" height=\"534\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/ohana-sfcc-1024x683.png\" alt=\"A pie chart showing the different places people use to communicate within Ohana for the SFCC platform.\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/ohana-sfcc-1024x683.png 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/ohana-sfcc-300x200.png 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/ohana-sfcc-768x512.png 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/ohana-sfcc.png 1200w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t</a>\n\t\t<p>Looking at the above charts, it is pretty clear that there is a significant difference in the way people ask questions and communicate within the #Ohana. </p>\t\t\n\t\t\t<h3>Twitter</h3>\t\t\n\t\t<p>I became active on <a href=\"https://twitter.com/theunenth\" target=\"_blank\" rel=\"noopener\">Twitter</a> a little less than a year ago to get in contact with more people who have an interest in Salesforce.</p>\n<p>And boy, a lot is going on there:</p>\n<ul>\n<li><a href=\"https://twitter.com/Secret_Ohana\" target=\"_blank\" rel=\"noopener\"><strong>Ohana Pears</strong></a>: Helping to grow &amp; nurture friendships within Ohana </li>\n<li><a href=\"https://twitter.com/shirtforceOrg\" target=\"_blank\" rel=\"noopener\"><strong>shirtforce</strong></a>: Giving through tees</li>\n<li><a href=\"https://twitter.com/SMStickerSwap\"><strong>SnailMailStickerSwap</strong></a>: Exchanging Salesforce related stickers through Snail Mail</li>\n<li>And the list goes on and on...</li>\n</ul>\n<p><br />Of course, the main drivers of these are Salesforce CRM Administrators. But does it end at the Salesforce platform? No! All of the groups mentioned above have a target group containing all clouds! So don't be afraid to mingle 😁.</p>\n<p>Maybe we should turn in a design for <a href=\"https://shirtforce.org/\">#shirtforce</a>?</p>\t\t\n\t\t\t<h2>A second class citizen of Salesforce Ohana</h2>\t\t\n\t\t<p>Over the years, a part of the community has felt they are not part of the \"bigger\" Ohana picture. Things like voting on the <a style=\"font-family: var( --e-global-typography-text-font-family ), Sans-serif; font-size: var( --e-global-typography-text-font-size ); font-style: var( --e-global-typography-text-font-style ); font-weight: var( --e-global-typography-text-font-weight ); text-transform: var( --e-global-typography-text-text-transform );\" href=\"https://ideas.salesforce.com/s/prioritization\" target=\"_blank\" rel=\"noopener\">feature prioritization</a> and <a href=\"https://www.salesforce.com/blog/welcome-2022-mvps\">MVP</a> seem like an impossible/pointless task as the smaller B2C community can not even make a dent in the \"Salesforce CRM\" vehicle.</p>\n<p>But is it also so surprising? The B2C community is also more isolated and not by its fault looking at the history.</p>\t\t\n\t\t\t<h3>Xchange</h3>\t\t\n\t\t<p>The first community within Demandware / SFCC is undoubtedly the Xchange, discontinued and all of its histories erased! It has left many people annoyed as it contained a vast amount of knowledge that people were willing to share with their peers.</p>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img width=\"768\" height=\"88\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/xchange.png\" alt=\"A screenshot of Account Manager roles &amp; permissions showing the old Xchange.\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/xchange.png 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/xchange-300x34.png 300w\" sizes=\"(max-width: 768px) 100vw, 768px\" />\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t<p>I found this community (even though it was not as active as the Trailblazer Community is) a beneficial tool to find my way in the world of Salesforce Commerce Cloud. I still find myself assigning the role to every account in Account Manager in nostalgia, even though it does not do anything anymore.</p>\t\t\n\t\t\t<h3>Commerce Cloud Developer Site</h3>\t\t\n\t\t<p>In replacement of the Xchange came <a href=\"https://developer.commercecloud.com/s/discussion-groups\">the communities on the developer site</a>. A group of communities separated from the Trailblazer Communities, and it is far less active than the Trailblazer ones.</p>\n<p>But why is that? Is it because people don't know it exists? It is pretty hidden. If people even know the site exists at all. </p>\n<p>If you are not actively working with the headless SCAPI/OCAPI options, you wouldn't be searching on this site.</p>\n<p>Daily, people are asking questions, but not many people are answering (besides people from Salesforce) and a few others, including me. So maybe people get discouraged from asking more questions because it is always the same people answering?</p>\t\t\n\t\t\t<h3>Salesforce Developer Portal</h3>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img width=\"200\" height=\"200\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/community-groups.jpg\" alt=\"The logo of the Trailblazer Community Groups\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/community-groups.jpg 200w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/community-groups-150x150.jpg 150w\" sizes=\"(max-width: 200px) 100vw, 200px\" />\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t<p>And this year (2022), all of that information is <a href=\"https://developer.commercecloud.com/s/salesforce-developer-center\">moving again</a>! The Commerce Cloud Developer Site did not live a long life, but that might be for the best as it had its issues.</p>\n<p>And we will also be merging more and more into the \"General Population\" together with all of the other products, which might bring some more exposure within the main #Ohana!</p>\n<p>Also, some good news: this time, the Community Groups will not disappear and will also be migrated into the Trailblazer Community!</p>\n<p>Yeeey, all of the work I put in answering people's questions is not going into the Garbage Bin!</p>\t\t\n\t\t\t<h2>Slack to the rescue</h2>\t\t\n\t\t<p>Looking back at this blog post, it all seems to have a \"negative\" tone. But all of this has had a tremendous impact on our primary communication channel: Slack!</p>\n<p>A large community of people active in the Salesforce Commerce Cloud world chatting away with each other and sharing their wins, challenges, and grievances. Questions are asked on an hourly basis on different topics and get answered quickly, or at least getting pointed in the right direction.</p>\n<p>In the past year, many people of the mothership have joined in as well—a big shout out to the Salesforce Commerce Cloud team for being active within the community (headless, PWA-kit, documentation, business manager, Page Designer, ...). And not to forget our excellent admin team for bringing everyone together!</p>\n<p>All I want to say to the Slack community is</p>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img width=\"800\" height=\"450\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/thank-you-trailblazers-1024x576.jpg\" alt=\"A drawing of Salesforce mascots waving with a &quot;Thank You&quot; message.\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/thank-you-trailblazers-1024x576.jpg 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/thank-you-trailblazers-300x169.jpg 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/thank-you-trailblazers-768x432.jpg 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/thank-you-trailblazers-1536x864.jpg 1536w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/thank-you-trailblazers.jpg 1600w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t<h2><b>Join the Slack Community</b></h2>\t\t\n\t\t<p>Take this moment to join a growing community of Salesforce Commerce Cloud enthusiasts!</p>\t\t\n\t\t\t<a href=\"https://github.com/sfcc-unofficial/docs/blob/master/getting-started.md\" role=\"button\">\n\t\t\t\t\t\tJoin here\n\t\t\t\t\t</a>",
+  "slug": "the-state-of-ohana-for-salesforce-commerce-cloud",
+  "publishedAt": "2022-02-27T14:02:53.000Z",
+  "modifiedAt": "2022-07-23T22:08:05.000Z",
+  "author": "Thomas Theunen",
+  "categories": [
+    {
+      "name": "Community",
+      "slug": "community"
+    }
+  ],
+  "tags": [
+    {
+      "name": "ohana",
+      "slug": "ohana"
+    },
+    {
+      "name": "sfcc",
+      "slug": "sfcc"
+    },
+    {
+      "name": "slack",
+      "slug": "slack"
+    },
+    {
+      "name": "trailhead",
+      "slug": "trailhead"
+    },
+    {
+      "name": "twitter",
+      "slug": "twitter"
+    }
+  ],
+  "legacyUrl": "/the-state-of-ohana-for-salesforce-commerce-cloud/",
+  "targetUrl": "/the-state-of-ohana-for-salesforce-commerce-cloud/",
+  "disposition": "keep",
+  "aliasUrls": [],
+  "mediaRefs": [
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/community-groups-150x150.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/community-groups.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/demandware-300x224.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/demandware.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/ohana-core-1024x683.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/ohana-core-300x200.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/ohana-core-768x512.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/ohana-core.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/ohana-sfcc-1024x683.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/ohana-sfcc-300x200.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/ohana-sfcc-768x512.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/ohana-sfcc.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/thank-you-trailblazers-1024x576.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/thank-you-trailblazers-1536x864.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/thank-you-trailblazers-300x169.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/thank-you-trailblazers-768x432.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/thank-you-trailblazers.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/xchange-300x34.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/xchange.png"
+  ],
+  "_raw": {
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "status": "publish",
+    "titleRaw": "The state of Ohana for Salesforce Commerce Cloud",
+    "excerptRaw": "",
+    "publishedAt": "2022-02-27T14:02:53.000Z",
+    "modifiedAt": "2022-07-23T22:08:05.000Z",
+    "author": "Thomas Theunen",
+    "categories": [
+      {
+        "name": "Community",
+        "slug": "community"
+      }
+    ],
+    "tags": [
+      {
+        "name": "ohana",
+        "slug": "ohana"
+      },
+      {
+        "name": "sfcc",
+        "slug": "sfcc"
+      },
+      {
+        "name": "slack",
+        "slug": "slack"
+      },
+      {
+        "name": "trailhead",
+        "slug": "trailhead"
+      },
+      {
+        "name": "twitter",
+        "slug": "twitter"
+      }
+    ],
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/community-groups.jpg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/demandware.jpg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/ohana-core-1024x683.png",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/ohana-core.png",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/ohana-sfcc-1024x683.png",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/ohana-sfcc.png",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/thank-you-trailblazers-1024x576.jpg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/xchange.png"
+    ],
+    "manifest": {
+      "legacyUrl": "/the-state-of-ohana-for-salesforce-commerce-cloud/",
+      "targetUrl": "/the-state-of-ohana-for-salesforce-commerce-cloud/",
+      "disposition": "keep",
+      "redirectCode": null,
+      "implementationLayer": "none",
+      "urlClass": "post"
+    },
+    "normalization": {
+      "aliasUrlsDerivedFromSameTarget": [],
+      "usedPublishedAtFallback": false,
+      "usedModifiedAtFallback": false,
+      "statusNormalizedFrom": "publish"
+    },
+    "extracted": {
+      "sourcePostType": "post",
+      "link": "/the-state-of-ohana-for-salesforce-commerce-cloud/",
+      "guid": "/?p=168",
+      "attachmentUrl": null,
+      "postParent": "0",
+      "postMetaCount": 29
+    }
+  },
+  "bodyMarkdown": "**Within Salesforce, the Ohana (Hawaiian for Family) has a pretty significant meaning. Over the past decade, people passionate about Salesforce have built up an enormous community around the platform.**\n\nThe number of people helping each other every day on [Trailblazer Communities](https://trailhead.salesforce.com/trailblazer-community/groups?tab=myGroups), [Twitter](https://twitter.com/hashtag/Ohana), [Stackexchange](https://salesforce.stackexchange.com/), [OhanaSlack](https://meighanrockssf.com/2019/04/02/salesforce-ohana-slack/), and more is just amazing.\nBut then again, how does this reflect on the Salesforce Commerce Cloud B2C community?\n\n## Demandware\n\nLet us start with a little bit of history. Salesforce Commerce Cloud B2C didn't exist before 2016, and then it was still known as [Demandware](https://en.wikipedia.org/wiki/Demandware).\n\nIt is no secret that Salesforce is known for buying companies to take under its wing, and Demandware was no different. A bit of rebranding later, and \"boom,\" it's Salesforce!\n\n![The older Demandware logo, from before the acquisition of Salesforce.](https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/demandware.jpg)\n\n## A big Difference in Ohana\n\nI listed a few places where the community was active within the #ohana of Salesforce, so how do the different platforms compare? Based on my personal experience, the used communication channels show a big difference.\n\n_Note: This is a \"personal feeling\" pie chart as I did not use any scientific methodology by comparing numbers etc. So take it with a grain of salt! I also left out LinkedIn as it is more business than questions/answers than socializing on Twitter._\n\n### Core Platform\n\n[![A pie chart showing the different places people use to communicate within Ohana for the Core platform.](https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/ohana-core-1024x683.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/ohana-core.png)\n\n### SFCC\n\n[![A pie chart showing the different places people use to communicate within Ohana for the SFCC platform.](https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/ohana-sfcc-1024x683.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/ohana-sfcc.png)\n\nLooking at the above charts, it is pretty clear that there is a significant difference in the way people ask questions and communicate within the #Ohana.\n\n### Twitter\n\nI became active on [Twitter](https://twitter.com/theunenth) a little less than a year ago to get in contact with more people who have an interest in Salesforce.\n\nAnd boy, a lot is going on there:\n\n-   [**Ohana Pears**](https://twitter.com/Secret_Ohana): Helping to grow & nurture friendships within Ohana\n-   [**shirtforce**](https://twitter.com/shirtforceOrg): Giving through tees\n-   [**SnailMailStickerSwap**](https://twitter.com/SMStickerSwap): Exchanging Salesforce related stickers through Snail Mail\n-   And the list goes on and on...\n\n\nOf course, the main drivers of these are Salesforce CRM Administrators. But does it end at the Salesforce platform? No! All of the groups mentioned above have a target group containing all clouds! So don't be afraid to mingle 😁.\n\nMaybe we should turn in a design for [#shirtforce](https://shirtforce.org/)?\n\n## A second class citizen of Salesforce Ohana\n\nOver the years, a part of the community has felt they are not part of the \"bigger\" Ohana picture. Things like voting on the [feature prioritization](https://ideas.salesforce.com/s/prioritization) and [MVP](https://www.salesforce.com/blog/welcome-2022-mvps) seem like an impossible/pointless task as the smaller B2C community can not even make a dent in the \"Salesforce CRM\" vehicle.\n\nBut is it also so surprising? The B2C community is also more isolated and not by its fault looking at the history.\n\n### Xchange\n\nThe first community within Demandware / SFCC is undoubtedly the Xchange, discontinued and all of its histories erased! It has left many people annoyed as it contained a vast amount of knowledge that people were willing to share with their peers.\n\n![A screenshot of Account Manager roles & permissions showing the old Xchange.](https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/xchange.png)\n\nI found this community (even though it was not as active as the Trailblazer Community is) a beneficial tool to find my way in the world of Salesforce Commerce Cloud. I still find myself assigning the role to every account in Account Manager in nostalgia, even though it does not do anything anymore.\n\n### Commerce Cloud Developer Site\n\nIn replacement of the Xchange came [the communities on the developer site](https://developer.commercecloud.com/s/discussion-groups). A group of communities separated from the Trailblazer Communities, and it is far less active than the Trailblazer ones.\n\nBut why is that? Is it because people don't know it exists? It is pretty hidden. If people even know the site exists at all.\n\nIf you are not actively working with the headless SCAPI/OCAPI options, you wouldn't be searching on this site.\n\nDaily, people are asking questions, but not many people are answering (besides people from Salesforce) and a few others, including me. So maybe people get discouraged from asking more questions because it is always the same people answering?\n\n### Salesforce Developer Portal\n\n![The logo of the Trailblazer Community Groups](https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/community-groups.jpg)\n\nAnd this year (2022), all of that information is [moving again](https://developer.commercecloud.com/s/salesforce-developer-center)! The Commerce Cloud Developer Site did not live a long life, but that might be for the best as it had its issues.\n\nAnd we will also be merging more and more into the \"General Population\" together with all of the other products, which might bring some more exposure within the main #Ohana!\n\nAlso, some good news: this time, the Community Groups will not disappear and will also be migrated into the Trailblazer Community!\n\nYeeey, all of the work I put in answering people's questions is not going into the Garbage Bin!\n\n## Slack to the rescue\n\nLooking back at this blog post, it all seems to have a \"negative\" tone. But all of this has had a tremendous impact on our primary communication channel: Slack!\n\nA large community of people active in the Salesforce Commerce Cloud world chatting away with each other and sharing their wins, challenges, and grievances. Questions are asked on an hourly basis on different topics and get answered quickly, or at least getting pointed in the right direction.\n\nIn the past year, many people of the mothership have joined in as well—a big shout out to the Salesforce Commerce Cloud team for being active within the community (headless, PWA-kit, documentation, business manager, Page Designer, ...). And not to forget our excellent admin team for bringing everyone together!\n\nAll I want to say to the Slack community is\n\n![A drawing of Salesforce mascots waving with a \"Thank You\" message.](https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/thank-you-trailblazers-1024x576.jpg)\n\n## **Join the Slack Community**\n\nTake this moment to join a growing community of Salesforce Commerce Cloud enthusiasts!\n\n[Join here](https://github.com/sfcc-unofficial/docs/blob/master/getting-started.md)",
+  "conversionStatus": "converted",
+  "manualReviewRequired": false,
+  "fallbackTypes": [],
+  "conversionWarnings": []
+}

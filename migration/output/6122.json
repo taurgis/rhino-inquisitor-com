@@ -1,0 +1,148 @@
+{
+  "sourceId": "6122",
+  "sourceType": "wxr",
+  "sourceChannels": [
+    "filesystem",
+    "wxr"
+  ],
+  "postType": "post",
+  "status": "publish",
+  "titleRaw": "What is the Salesforce B2C Commerce Cloud Managed Runtime?",
+  "excerptRaw": "",
+  "bodyHtml": "<p>In the last two years, more vocabulary has been added to the <a href=\"https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/\" target=\"_blank\" rel=\"noopener\">Salesforce B2C Commerce Cloud</a> ecosystem because of the <a href=\"https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/\" target=\"_blank\" rel=\"noopener\">Composable Storefront</a>.</p><p>And one of the terms you might have heard is \"<a href=\"https://runtime.commercecloud.com/login\" target=\"_blank\" rel=\"noopener\">Managed Runtime</a>\", which provides the infrastructure to deploy, host, and monitor your Progressive Web App (PWA) Kit storefront. In this article, we will explore the inner workings of Managed Runtime, its benefits, and how it empowers developers to build storefronts without having to think (much) about the underlying infrastructure.</p>\t\t\n\t\t\t<h2>What does the Managed Runtime do?</h2>\t\t\n\t\t<p>The <a href=\"https://runtime.commercecloud.com/login\" target=\"_blank\" rel=\"noopener\">Managed Runtime</a> is designed to support applications created from a PWA Kit template in the <a href=\"https://github.com/SalesforceCommerceCloud/pwa-kit\" target=\"_blank\" rel=\"noopener\">PWA Kit repository</a> on GitHub. It operates within environments, which is the term to describe all of the cloud infrastructure and configuration values. It is possible within that infrastructure to differentiate between development and production environments.</p><p>Developers will use the PWA Kit tools to generate a bundle, a snapshot of the storefront code at a specific time, and push it to Managed Runtime. Once the bundle is pushed, it is possible to use the Runtime Admin Web Interface or <a href=\"https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/using-the-managed-runtime-api.html\" target=\"_blank\" rel=\"noopener\">Managed Runtime API</a> to designate that bundle as \"deployed.\" </p><p>Each project can have multiple bundles, but each environment has only one \"deployed\" bundle. Similar to the fact that you can only have one active \"<a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/site_development/b2c_code_versions.html\" target=\"_blank\" rel=\"noopener\">Code Version</a>\" on the server side.</p>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/salesforce-commerce-cloud-managed-runtime.jpg\" data-elementor-open-lightbox=\"yes\" data-elementor-lightbox-title=\"The Managed Runtime - Overview\" data-e-action-hash=\"#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6ODc5OSwidXJsIjoiaHR0cHM6XC9cL3d3dy5yaGluby1pbnF1aXNpdG9yLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMDVcL3NhbGVzZm9yY2UtY29tbWVyY2UtY2xvdWQtbWFuYWdlZC1ydW50aW1lLmpwZyJ9\">\n\t\t\t\t\t\t\t<img width=\"800\" height=\"302\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/salesforce-commerce-cloud-managed-runtime-1024x387.jpg\" alt=\"A screenshot of the Managed Runtime showing the Organization &quot;Salesforce Internal&quot; with two projects called &quot;sampleproject&quot; and &quot;projectx&quot;.\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/salesforce-commerce-cloud-managed-runtime-1024x387.jpg 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/salesforce-commerce-cloud-managed-runtime-300x113.jpg 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/salesforce-commerce-cloud-managed-runtime-768x290.jpg 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/salesforce-commerce-cloud-managed-runtime-1536x580.jpg 1536w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/salesforce-commerce-cloud-managed-runtime.jpg 1960w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t</a>\n\t\t<p>The Managed Runtime operates within a hierarchy of organisations and projects. Organisations can contain multiple projects for various storefronts, and each project can contain multiple environments.</p><p>This structure allows for efficiently managing multiple environments and separating different work streams.</p>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/managed-runtime-projects-environments.png\" data-elementor-open-lightbox=\"yes\" data-elementor-lightbox-title=\"a diagram of organization x and organization x.\" data-e-action-hash=\"#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6ODgzMywidXJsIjoiaHR0cHM6XC9cL3d3dy5yaGluby1pbnF1aXNpdG9yLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMDVcL21hbmFnZWQtcnVudGltZS1wcm9qZWN0cy1lbnZpcm9ubWVudHMucG5nIn0%3D\">\n\t\t\t\t\t\t\t<img width=\"800\" height=\"345\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/managed-runtime-projects-environments-1024x442.png\" alt=\"A mindmap displays the managed runtime with three organisations. One organisation is split up into two projects, each with three environments. One of those environments is marked as &quot;production&quot;, while the rest is marked as &quot;development&quot;.\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/managed-runtime-projects-environments-1024x442.png 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/managed-runtime-projects-environments-300x130.png 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/managed-runtime-projects-environments-768x332.png 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/managed-runtime-projects-environments-1536x664.png 1536w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/managed-runtime-projects-environments-2048x885.png 2048w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t</a>\n\t\t\t<h3>AWS Lambda</h3>\t\t\n\t\t<p>Under the hood, the Managed Runtime uses AWS Lambda, a serverless computing service provided by Amazon Web Services (AWS) that allows you to run your code without provisioning or managing servers. </p><p>Curious about Lambda? <a href=\"https://aws.amazon.com/lambda/\" target=\"_blank\" rel=\"noopener\">Here you go</a>!</p>\t\t\n\t\t\t<h2>Benefits of the Managed Runtime for businesses</h2>\t\t\n\t\t<p>When a platform offers features, there are a lot of questions that will go through your mind. And one of them will probably be, \"What benefits does it bring?\":</p><ol><li><b>Included in the license</b>: It is not a phrase you often see in the Salesforce Eco-system, but the managed runtime is ready to be taken advantage of if you have a license for B2C Commerce Cloud!</li><li><strong>Simplified deployment</strong>: Managed Runtime streamlines deploying and hosting your PWA Kit storefront, meaning that developers only need to develop - and not worry about the infrastructure. And that saves time and, ultimately, money.</li><li><strong>Scalability</strong>: Nothing new to B2C Commerce Cloud, but the infrastructure provided by Managed Runtime allows your storefront to scale seamlessly as your business grows, ensuring optimal performance and customer experience just like the \"<a href=\"https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/\" target=\"_blank\" rel=\"noopener\">monolithic solution</a>\".</li><li><strong>Security</strong>: Managed Runtime offers robust security features that protect your storefront from potential threats and vulnerabilities like the back end.</li><li><strong>Improved troubleshooting</strong>: The immutable nature of bundles allows for a complete and accurate history of deployments, making it easier to identify and resolve issues or even do a quick rollback to a previous version!</li></ol>\t\t\n\t\t\t<h2>Benefits of the Managed Runtime for developers</h2>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img width=\"800\" height=\"293\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/developer-working-on-multiple-monitors-1024x375.jpg\" alt=\"a woman wearing headphones sitting in front of two computer monitors.\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/developer-working-on-multiple-monitors-1024x375.jpg 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/developer-working-on-multiple-monitors-300x110.jpg 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/developer-working-on-multiple-monitors-768x282.jpg 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/developer-working-on-multiple-monitors-1536x563.jpg 1536w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/developer-working-on-multiple-monitors-2048x751.jpg 2048w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t<p>Developers working with Salesforce B2C Commerce Cloud can leverage this runtime to:</p><ol><li><strong>Accelerate development</strong>: This was already mentioned, but the fact that, as a developer, you do not have to worry about the infrastructure is a significant benefit!</li><li><strong>Streamline collaboration</strong>: The organisation and project structure within Managed Runtime enables you to work together more efficiently, sharing knowledge and resources across multiple environments.</li><li><strong>Enhance productivity</strong>: With the ability to designate specific bundles as deployed, developers can easily switch between different versions of their storefront, making testing and iterating on new features more accessible.</li><li><b>No credits: </b>The environments on the managed runtime do not work on the same system as the sandboxes (credits for uptime). That means no extra processes have to be set up!</li></ol>\t\t\n\t\t\t<h2>APIs?</h2>\t\t\n\t\t<p>Salesforce offers <a href=\"https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/using-the-managed-runtime-api.html\" target=\"_blank\" rel=\"noopener\">a range of APIs</a> that developers can use to interact with the platform, including:</p><ol><li><strong>Managed Runtime APIs</strong>: This API allows developers to manage bundles, environments, and deployments within their projects.</li><li><strong>Admin</strong> <b>APIs</b>: This API provides access to administrative functions, such as managing users, organisations, and projects.</li></ol>These APIs make setting up CI/CD pipelines and automating specific processes much easier!\t\t\n\t\t\t<h2>Conclusion</h2>\t\t\n\t\t<p>Some developers might hesitate to give up control when deciding whether to let Salesforce manage its environment. Others might appreciate the specialised skills needed to manage infrastructure and will gladly pass on the baton to Salesforce.</p><p>It's important to know that you don't have to use the Managed Runtime option and can create your own Headless Storefront for Salesforce B2C Commerce Cloud if you want to. But if you choose this route (build your own), the managed runtime might not be an option!</p>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t<figure>\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/b2c-commerce-cloud-roll-your-own.jpg\" data-elementor-open-lightbox=\"yes\" data-elementor-lightbox-title=\"a diagram of a web application.\" data-e-action-hash=\"#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6ODg0NCwidXJsIjoiaHR0cHM6XC9cL3d3dy5yaGluby1pbnF1aXNpdG9yLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMDVcL2IyYy1jb21tZXJjZS1jbG91ZC1yb2xsLXlvdXItb3duLmpwZyJ9\">\n\t\t\t\t\t\t\t<img width=\"800\" height=\"552\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/b2c-commerce-cloud-roll-your-own-1024x706.jpg\" alt=\"A diagram depicting how you would roll your own Headless Storefront based on a custom Node.js server running APIs through Apollo.\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/b2c-commerce-cloud-roll-your-own-1024x706.jpg 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/b2c-commerce-cloud-roll-your-own-300x207.jpg 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/b2c-commerce-cloud-roll-your-own-768x530.jpg 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/b2c-commerce-cloud-roll-your-own-1536x1059.jpg 1536w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/b2c-commerce-cloud-roll-your-own-2048x1412.jpg 2048w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t\t\t<figcaption>An example of a \"roll your own\" architecture</figcaption>\n\t\t\t\t\t\t\t\t\t\t</figure>",
+  "slug": "what-is-the-sfcc-managed-runtime",
+  "publishedAt": "2023-05-08T13:04:24.000Z",
+  "modifiedAt": "2023-05-08T13:15:51.000Z",
+  "author": "Thomas Theunen",
+  "categories": [
+    {
+      "name": "Salesforce Commerce Cloud",
+      "slug": "salesforce-commerce-cloud"
+    },
+    {
+      "name": "Technical",
+      "slug": "technical"
+    }
+  ],
+  "tags": [
+    {
+      "name": "composable storefront",
+      "slug": "composable-storefront"
+    },
+    {
+      "name": "headless",
+      "slug": "headless"
+    },
+    {
+      "name": "sfcc",
+      "slug": "sfcc"
+    },
+    {
+      "name": "technical",
+      "slug": "technical"
+    }
+  ],
+  "legacyUrl": "/what-is-the-sfcc-managed-runtime/",
+  "targetUrl": "/what-is-the-sfcc-managed-runtime/",
+  "disposition": "keep",
+  "aliasUrls": [
+    "/?p=6122"
+  ],
+  "mediaRefs": [
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/b2c-commerce-cloud-roll-your-own-1024x706.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/b2c-commerce-cloud-roll-your-own-1536x1059.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/b2c-commerce-cloud-roll-your-own-2048x1412.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/b2c-commerce-cloud-roll-your-own-300x207.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/b2c-commerce-cloud-roll-your-own-768x530.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/developer-working-on-multiple-monitors-1024x375.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/developer-working-on-multiple-monitors-1536x563.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/developer-working-on-multiple-monitors-2048x751.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/developer-working-on-multiple-monitors-300x110.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/developer-working-on-multiple-monitors-768x282.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/managed-runtime-projects-environments-1024x442.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/managed-runtime-projects-environments-1536x664.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/managed-runtime-projects-environments-2048x885.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/managed-runtime-projects-environments-300x130.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/managed-runtime-projects-environments-768x332.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/salesforce-commerce-cloud-managed-runtime-1024x387.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/salesforce-commerce-cloud-managed-runtime-1536x580.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/salesforce-commerce-cloud-managed-runtime-300x113.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/salesforce-commerce-cloud-managed-runtime-768x290.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/salesforce-commerce-cloud-managed-runtime.jpg"
+  ],
+  "_raw": {
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "status": "publish",
+    "titleRaw": "What is the Salesforce B2C Commerce Cloud Managed Runtime?",
+    "excerptRaw": "",
+    "publishedAt": "2023-05-08T13:04:24.000Z",
+    "modifiedAt": "2023-05-08T13:15:51.000Z",
+    "author": "Thomas Theunen",
+    "categories": [
+      {
+        "name": "Salesforce Commerce Cloud",
+        "slug": "salesforce-commerce-cloud"
+      },
+      {
+        "name": "Technical",
+        "slug": "technical"
+      }
+    ],
+    "tags": [
+      {
+        "name": "composable storefront",
+        "slug": "composable-storefront"
+      },
+      {
+        "name": "headless",
+        "slug": "headless"
+      },
+      {
+        "name": "sfcc",
+        "slug": "sfcc"
+      },
+      {
+        "name": "technical",
+        "slug": "technical"
+      }
+    ],
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/b2c-commerce-cloud-roll-your-own-1024x706.jpg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/b2c-commerce-cloud-roll-your-own.jpg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/developer-working-on-multiple-monitors-1024x375.jpg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/managed-runtime-projects-environments-1024x442.png",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/managed-runtime-projects-environments.png",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/salesforce-commerce-cloud-managed-runtime-1024x387.jpg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/salesforce-commerce-cloud-managed-runtime.jpg"
+    ],
+    "manifest": {
+      "legacyUrl": "/what-is-the-sfcc-managed-runtime/",
+      "targetUrl": "/what-is-the-sfcc-managed-runtime/",
+      "disposition": "keep",
+      "redirectCode": null,
+      "implementationLayer": "none",
+      "urlClass": "post"
+    },
+    "normalization": {
+      "aliasUrlsDerivedFromSameTarget": [
+        "/?p=6122"
+      ],
+      "usedPublishedAtFallback": false,
+      "usedModifiedAtFallback": false,
+      "statusNormalizedFrom": "publish"
+    },
+    "extracted": {
+      "sourcePostType": "post",
+      "link": "/what-is-the-sfcc-managed-runtime/",
+      "guid": "/?p=6122",
+      "attachmentUrl": null,
+      "postParent": "0",
+      "postMetaCount": 26
+    }
+  },
+  "bodyMarkdown": "In the last two years, more vocabulary has been added to the [Salesforce B2C Commerce Cloud](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/) ecosystem because of the [Composable Storefront](https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/).\n\nAnd one of the terms you might have heard is \"[Managed Runtime](https://runtime.commercecloud.com/login)\", which provides the infrastructure to deploy, host, and monitor your Progressive Web App (PWA) Kit storefront. In this article, we will explore the inner workings of Managed Runtime, its benefits, and how it empowers developers to build storefronts without having to think (much) about the underlying infrastructure.\n\n## What does the Managed Runtime do?\n\nThe [Managed Runtime](https://runtime.commercecloud.com/login) is designed to support applications created from a PWA Kit template in the [PWA Kit repository](https://github.com/SalesforceCommerceCloud/pwa-kit) on GitHub. It operates within environments, which is the term to describe all of the cloud infrastructure and configuration values. It is possible within that infrastructure to differentiate between development and production environments.\n\nDevelopers will use the PWA Kit tools to generate a bundle, a snapshot of the storefront code at a specific time, and push it to Managed Runtime. Once the bundle is pushed, it is possible to use the Runtime Admin Web Interface or [Managed Runtime API](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/using-the-managed-runtime-api.html) to designate that bundle as \"deployed.\"\n\nEach project can have multiple bundles, but each environment has only one \"deployed\" bundle. Similar to the fact that you can only have one active \"[Code Version](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/site_development/b2c_code_versions.html)\" on the server side.\n\n[![A screenshot of the Managed Runtime showing the Organization \"Salesforce Internal\" with two projects called \"sampleproject\" and \"projectx\".](https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/salesforce-commerce-cloud-managed-runtime-1024x387.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/salesforce-commerce-cloud-managed-runtime.jpg)\n\nThe Managed Runtime operates within a hierarchy of organisations and projects. Organisations can contain multiple projects for various storefronts, and each project can contain multiple environments.\n\nThis structure allows for efficiently managing multiple environments and separating different work streams.\n\n[![A mindmap displays the managed runtime with three organisations. One organisation is split up into two projects, each with three environments. One of those environments is marked as \"production\", while the rest is marked as \"development\".](https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/managed-runtime-projects-environments-1024x442.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/managed-runtime-projects-environments.png)\n\n### AWS Lambda\n\nUnder the hood, the Managed Runtime uses AWS Lambda, a serverless computing service provided by Amazon Web Services (AWS) that allows you to run your code without provisioning or managing servers.\n\nCurious about Lambda? [Here you go](https://aws.amazon.com/lambda/)!\n\n## Benefits of the Managed Runtime for businesses\n\nWhen a platform offers features, there are a lot of questions that will go through your mind. And one of them will probably be, \"What benefits does it bring?\":\n\n1.  **Included in the license**: It is not a phrase you often see in the Salesforce Eco-system, but the managed runtime is ready to be taken advantage of if you have a license for B2C Commerce Cloud!\n2.  **Simplified deployment**: Managed Runtime streamlines deploying and hosting your PWA Kit storefront, meaning that developers only need to develop - and not worry about the infrastructure. And that saves time and, ultimately, money.\n3.  **Scalability**: Nothing new to B2C Commerce Cloud, but the infrastructure provided by Managed Runtime allows your storefront to scale seamlessly as your business grows, ensuring optimal performance and customer experience just like the \"[monolithic solution](https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/)\".\n4.  **Security**: Managed Runtime offers robust security features that protect your storefront from potential threats and vulnerabilities like the back end.\n5.  **Improved troubleshooting**: The immutable nature of bundles allows for a complete and accurate history of deployments, making it easier to identify and resolve issues or even do a quick rollback to a previous version!\n\n## Benefits of the Managed Runtime for developers\n\n![a woman wearing headphones sitting in front of two computer monitors.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/developer-working-on-multiple-monitors-1024x375.jpg)\n\nDevelopers working with Salesforce B2C Commerce Cloud can leverage this runtime to:\n\n1.  **Accelerate development**: This was already mentioned, but the fact that, as a developer, you do not have to worry about the infrastructure is a significant benefit!\n2.  **Streamline collaboration**: The organisation and project structure within Managed Runtime enables you to work together more efficiently, sharing knowledge and resources across multiple environments.\n3.  **Enhance productivity**: With the ability to designate specific bundles as deployed, developers can easily switch between different versions of their storefront, making testing and iterating on new features more accessible.\n4.  **No credits:** The environments on the managed runtime do not work on the same system as the sandboxes (credits for uptime). That means no extra processes have to be set up!\n\n## APIs?\n\nSalesforce offers [a range of APIs](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/using-the-managed-runtime-api.html) that developers can use to interact with the platform, including:\n\n1.  **Managed Runtime APIs**: This API allows developers to manage bundles, environments, and deployments within their projects.\n2.  **Admin** **APIs**: This API provides access to administrative functions, such as managing users, organisations, and projects.\n\nThese APIs make setting up CI/CD pipelines and automating specific processes much easier!\n\n## Conclusion\n\nSome developers might hesitate to give up control when deciding whether to let Salesforce manage its environment. Others might appreciate the specialised skills needed to manage infrastructure and will gladly pass on the baton to Salesforce.\n\nIt's important to know that you don't have to use the Managed Runtime option and can create your own Headless Storefront for Salesforce B2C Commerce Cloud if you want to. But if you choose this route (build your own), the managed runtime might not be an option!\n\n[![A diagram depicting how you would roll your own Headless Storefront based on a custom Node.js server running APIs through Apollo.](https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/b2c-commerce-cloud-roll-your-own-1024x706.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/05/b2c-commerce-cloud-roll-your-own.jpg)\n\nAn example of a \"roll your own\" architecture",
+  "conversionStatus": "converted",
+  "manualReviewRequired": false,
+  "fallbackTypes": [],
+  "conversionWarnings": []
+}

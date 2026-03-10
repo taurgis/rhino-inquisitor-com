@@ -1,0 +1,190 @@
+{
+  "sourceId": "3089",
+  "sourceType": "wxr",
+  "sourceChannels": [
+    "filesystem",
+    "wxr"
+  ],
+  "postType": "post",
+  "status": "publish",
+  "titleRaw": "Delta exports in Salesforce B2C Commerce Cloud",
+  "excerptRaw": "",
+  "bodyHtml": "<p>You probably already knew that it is possible to do full exports of your customer lists and catalogs from Salesforce B2C Commerce Cloud. This can be done through the <a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/import_export/b2c_catalog_object_import_export.html\" target=\"_blank\" rel=\"noopener\">business manager</a> or a <a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/jobstepapi/html/api/jobstep.ExportCatalog.html\" target=\"_blank\" rel=\"noopener\">job</a>.</p><p>But did you also know that delta job steps are available for the following items?</p><ul><li><a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/jobstepapi/html/api/jobstep.CatalogDeltaExport.html\" target=\"_blank\" rel=\"noopener\">Catalog</a></li><li><a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/jobstepapi/html/api/jobstep.LibraryDeltaExport.html\" target=\"_blank\" rel=\"noopener\">Content Library</a></li><li><a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/jobstepapi/html/api/jobstep.CustomerListsDeltaExport.html\" target=\"_blank\" rel=\"noopener\">Customer Lists</a></li><li>Maybe even more? Stick around to find out!<br /><br /></li></ul><p>But as with many things, a few things should be kept in mind before using this functionality. Let us take a look!</p>\t\t\n\t\t<p><em>A big thanks to <a href=\"https://www.linkedin.com/in/tloibl/\" target=\"_blank\" rel=\"noopener\">Tim Loibl</a> for experimenting with this feature and sharing some intel!</em></p>\t\t\n\t\t\t<h2>Support needs to enable these</h2>\t\t\n\t\t<p>If you already opened the links in the introduction you probably noticed a warning.</p>\t\t\n\t\t\t\t\t<blockquote>\n\t\t\t<p>\n\t\t\t\tSupport must be contacted to enable delta exports.\t\t\t</p>\n\t\t\t\t\t</blockquote>\n\t\t<p>This is because it is a hidden <a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/admin/b2c_feature_switches.html\" target=\"_blank\" rel=\"noopener\">feature switch</a> and is only available for Salesforce support. So keep in mind you might have to wait a few hours to a few days, depending on how quickly support can activate this switch.</p><p><em><strong>Important:</strong></em> <em>This switch has to be turned on separately in each environment (DEV, STG &amp; PRD). So be sure to mention in the ticket which ones you want this switch turned over.</em></p>\t\t\n\t\t\t<h2>Business Manager Module</h2>\t\t\n\t\t<p>Once this feature has been enabled, you get a new toy to play with in the Business Manager at \"<i>Administration</i>\" &gt; \"<i>Site Development</i>\" &gt; \"<i>Delta Exports.</i>\"</p><p>You can consider this to work the same as configuring the Sitemap or replications. It is not under the regular list of jobs, but behind the scenes, they are one.</p>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-jobs-overview.png\" data-elementor-open-lightbox=\"yes\" data-elementor-lightbox-title=\"Delta Jobs: Overview\" e-action-hash=\"#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzEyOCwidXJsIjoiaHR0cHM6XC9cL3d3dy5yaGluby1pbnF1aXNpdG9yLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMDFcL2RlbHRhLWpvYnMtb3ZlcnZpZXcucG5nIn0%3D\">\n\t\t\t\t\t\t\t<img width=\"768\" height=\"235\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-jobs-overview-768x235.png\" alt=\"\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-jobs-overview-768x235.png 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-jobs-overview-300x92.png 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-jobs-overview-1024x313.png 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-jobs-overview-1536x469.png 1536w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-jobs-overview-2048x626.png 2048w\" sizes=\"(max-width: 768px) 100vw, 768px\" />\t\t\t\t\t\t\t\t</a>\n\t\t<p>Let us open that \"Test\" configuration!</p>\t\t\n\t\t\t<h3>General</h3>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-selection.png\" data-elementor-open-lightbox=\"yes\" data-elementor-lightbox-title=\"Delta Job: Selection\" e-action-hash=\"#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzEzMiwidXJsIjoiaHR0cHM6XC9cL3d3dy5yaGluby1pbnF1aXNpdG9yLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMDFcL2RlbHRhLWpvYi1zZWxlY3Rpb24ucG5nIn0%3D\">\n\t\t\t\t\t\t\t<img width=\"768\" height=\"378\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-selection-768x378.png\" alt=\"\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-selection-768x378.png 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-selection-300x148.png 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-selection-1024x504.png 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-selection-1536x755.png 1536w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-selection.png 2017w\" sizes=\"(max-width: 768px) 100vw, 768px\" />\t\t\t\t\t\t\t\t</a>\n\t\t<p>When we create a new job or open an existing one, we configure multiple items:</p><ul><li><strong>Name</strong>: The name of the job</li><li><strong>Consumers:</strong> The comma-separated list of external systems you are generating this for (consumers of the feed)</li><li><strong>Data: </strong>The data to export <br /><br /></li></ul><p>But? Huh? I see more types listed here than there are Job Steps available! And you are correct; you get more options here.</p><p>A list of supported types can be found <a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/import_export/b2c_delta_exports.html\" target=\"_blank\" rel=\"noopener\">here</a>.</p>\t\t\n\t\t\t<h3>Schedule</h3>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-schedule.png\" data-elementor-open-lightbox=\"yes\" data-elementor-lightbox-title=\"Delta Job: Schedule\" e-action-hash=\"#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzEzMywidXJsIjoiaHR0cHM6XC9cL3d3dy5yaGluby1pbnF1aXNpdG9yLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMDFcL2RlbHRhLWpvYi1zY2hlZHVsZS5wbmcifQ%3D%3D\">\n\t\t\t\t\t\t\t<img width=\"768\" height=\"383\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-schedule-768x383.png\" alt=\"\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-schedule-768x383.png 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-schedule-300x150.png 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-schedule-1024x511.png 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-schedule-1536x767.png 1536w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-schedule.png 2027w\" sizes=\"(max-width: 768px) 100vw, 768px\" />\t\t\t\t\t\t\t\t</a>\n\t\t<p>Just like regular jobs, you can schedule this to be executed at your chosen interval.</p>\t\t\n\t\t\t<h3>History</h3>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/History.png\" data-elementor-open-lightbox=\"yes\" data-elementor-lightbox-title=\"Delta Exports: History\" e-action-hash=\"#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzMxMCwidXJsIjoiaHR0cHM6XC9cL3d3dy5yaGluby1pbnF1aXNpdG9yLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMDFcL0hpc3RvcnkucG5nIn0%3D\">\n\t\t\t\t\t\t\t<img width=\"768\" height=\"205\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/History-768x205.png\" alt=\"\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/History-768x205.png 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/History-300x80.png 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/History-1024x273.png 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/History-1536x410.png 1536w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/History.png 2035w\" sizes=\"(max-width: 768px) 100vw, 768px\" />\t\t\t\t\t\t\t\t</a>\n\t\t<p>This historical overview is unlike your usual \"job\" history, even though the description might seem similar.</p><p>This overview will show a history of all exported files rather than the job executions. Only if a job execution produces a file will it appear in this overview.</p>\t\t\n\t\t\t<h3>Consumer</h3>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-consumer.png\" data-elementor-open-lightbox=\"yes\" data-elementor-lightbox-title=\"Delta Job: Consumer\" e-action-hash=\"#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzEzOCwidXJsIjoiaHR0cHM6XC9cL3d3dy5yaGluby1pbnF1aXNpdG9yLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMDFcL2RlbHRhLWpvYi1jb25zdW1lci5wbmcifQ%3D%3D\">\n\t\t\t\t\t\t\t<img width=\"768\" height=\"266\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-consumer-768x266.png\" alt=\"\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-consumer-768x266.png 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-consumer-300x104.png 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-consumer-1024x354.png 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-consumer.png 1408w\" sizes=\"(max-width: 768px) 100vw, 768px\" />\t\t\t\t\t\t\t\t</a>\n\t\t<p>For each \"consumer\" you have configured in the general tab, a new tab appears in which you get the path where the files are exported.</p><p>This gives each external system (consumer) its dedicated folder on the WebDAV to monitor.</p><p><em><strong>Note: </strong>Remember that you can limit access to a third-party system to this specific folder with <a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/permissions/b2c_web_dav_client_permissions.html\" target=\"_blank\" rel=\"noopener\">WebDAV Client Permissions</a>!</em></p>\t\t\n\t\t\t<h3>Status</h3>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-status.png\" data-elementor-open-lightbox=\"yes\" data-elementor-lightbox-title=\"Delta Job: Status\" e-action-hash=\"#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzEzOSwidXJsIjoiaHR0cHM6XC9cL3d3dy5yaGluby1pbnF1aXNpdG9yLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMDFcL2RlbHRhLWpvYi1zdGF0dXMucG5nIn0%3D\">\n\t\t\t\t\t\t\t<img width=\"768\" height=\"233\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-status-768x233.png\" alt=\"\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-status-768x233.png 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-status-300x91.png 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-status-1024x311.png 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-status.png 1253w\" sizes=\"(max-width: 768px) 100vw, 768px\" />\t\t\t\t\t\t\t\t</a>\n\t\t<p>You can view the log of the scheduled job on this page.</p>\t\t\n\t\t\t<h2>Only available on PIG instances</h2>\t\t\n\t\t<p>If you were hoping to test out this functionality on your sandbox, you are out of luck. This feature only works in these environments because it depends on the Change Log to operate. </p><p>You can make use of delta exports on:</p><ul><li>Staging</li><li>Development</li><li>Production</li></ul>\t\t\n\t\t\t<h2>Impact on performance</h2>\t\t\n\t\t\t\t\t<blockquote>\n\t\t\t<p>\n\t\t\t\tThe Delta Exports feature requires the Change Log feature to be active, which can cause a slight (<5%) database performance penalty. This affects update and delete transactions on any entity types that can be selected for delta exports (not only the types that actually are selected).\t\t\t</p>\n\t\t\t\t\t</blockquote>\n\t\t<p>Since an extra step is being added when making modifications to these objects, a minor performance penalty takes place (less than 5 %). </p><p>But if you have a lot of jobs that modify objects (imports), you need to take this information into account and recalculate the time you expect these processes to run.</p>\t\t\n\t\t\t<h2>Initial enablement</h2>\t\t\n\t\t<p>If you expect the first export to contain all objects, this will not be the case. The initial export will only include the objects that have been modified since the enablement of the feature.</p><p>A solution for this is easy; use the existing options to do the full export if necessary.</p>\t\t\n\t\t\t<h2>Seven days</h2>\t\t\n\t\t<p>The retention time of the Change Logs is seven days, so make sure to do your exports once every seven days to ensure your delta exports towards external systems are correct!</p><p>A good habit is to provide a full export to external systems every once in a while (maybe every month?) to ensure all systems are in sync!</p>\t\t\n\t\t\t<h2>Large amount of modifications to data in SFCC</h2>\t\t\n\t\t<p>The delta will become bloated when multiple processes (API Calls, Jobs, and manual) modify data within Salesforce B2C Commerce Cloud. This will cause the job runtime to be long, causing this feature to lose its value.</p>\t\t\n\t\t\t<h2>Other Considerations</h2>\t\t\n\t\t<p>In the <a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/import_export/b2c_delta_exports.html\" target=\"_blank\" rel=\"noopener\">Info Center</a>, there are more items to consider.</p>",
+  "slug": "delta-exports-in-salesforce-b2c-commerce-cloud",
+  "publishedAt": "2022-08-01T14:18:24.000Z",
+  "modifiedAt": "2022-09-10T04:43:39.000Z",
+  "author": "Thomas Theunen",
+  "categories": [
+    {
+      "name": "Salesforce Commerce Cloud",
+      "slug": "salesforce-commerce-cloud"
+    },
+    {
+      "name": "Technical",
+      "slug": "technical"
+    }
+  ],
+  "tags": [
+    {
+      "name": "file",
+      "slug": "file"
+    },
+    {
+      "name": "jobs",
+      "slug": "jobs"
+    },
+    {
+      "name": "sfcc",
+      "slug": "sfcc"
+    },
+    {
+      "name": "sftp",
+      "slug": "sftp"
+    },
+    {
+      "name": "technical",
+      "slug": "technical"
+    }
+  ],
+  "legacyUrl": "/delta-exports-in-salesforce-b2c-commerce-cloud/",
+  "targetUrl": "/delta-exports-in-salesforce-b2c-commerce-cloud/",
+  "disposition": "keep",
+  "aliasUrls": [],
+  "mediaRefs": [
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-consumer-1024x354.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-consumer-300x104.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-consumer-768x266.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-consumer.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-schedule-1024x511.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-schedule-1536x767.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-schedule-300x150.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-schedule-768x383.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-schedule.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-selection-1024x504.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-selection-1536x755.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-selection-300x148.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-selection-768x378.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-selection.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-status-1024x311.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-status-300x91.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-status-768x233.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-status.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-jobs-overview-1024x313.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-jobs-overview-1536x469.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-jobs-overview-2048x626.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-jobs-overview-300x92.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-jobs-overview-768x235.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/history-1024x273.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/history-1536x410.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/history-300x80.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/history-768x205.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/history.png"
+  ],
+  "_raw": {
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "status": "publish",
+    "titleRaw": "Delta exports in Salesforce B2C Commerce Cloud",
+    "excerptRaw": "",
+    "publishedAt": "2022-08-01T14:18:24.000Z",
+    "modifiedAt": "2022-09-10T04:43:39.000Z",
+    "author": "Thomas Theunen",
+    "categories": [
+      {
+        "name": "Salesforce Commerce Cloud",
+        "slug": "salesforce-commerce-cloud"
+      },
+      {
+        "name": "Technical",
+        "slug": "technical"
+      }
+    ],
+    "tags": [
+      {
+        "name": "file",
+        "slug": "file"
+      },
+      {
+        "name": "jobs",
+        "slug": "jobs"
+      },
+      {
+        "name": "sfcc",
+        "slug": "sfcc"
+      },
+      {
+        "name": "sftp",
+        "slug": "sftp"
+      },
+      {
+        "name": "technical",
+        "slug": "technical"
+      }
+    ],
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/History-768x205.png",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/History.png",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-consumer-768x266.png",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-consumer.png",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-schedule-768x383.png",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-schedule.png",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-selection-768x378.png",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-selection.png",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-status-768x233.png",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-status.png",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-jobs-overview-768x235.png",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-jobs-overview.png"
+    ],
+    "manifest": {
+      "legacyUrl": "/delta-exports-in-salesforce-b2c-commerce-cloud/",
+      "targetUrl": "/delta-exports-in-salesforce-b2c-commerce-cloud/",
+      "disposition": "keep",
+      "redirectCode": null,
+      "implementationLayer": "none",
+      "urlClass": "post"
+    },
+    "normalization": {
+      "aliasUrlsDerivedFromSameTarget": [],
+      "usedPublishedAtFallback": false,
+      "usedModifiedAtFallback": false,
+      "statusNormalizedFrom": "publish"
+    },
+    "extracted": {
+      "sourcePostType": "post",
+      "link": "/delta-exports-in-salesforce-b2c-commerce-cloud/",
+      "guid": "/?p=3089",
+      "attachmentUrl": null,
+      "postParent": "0",
+      "postMetaCount": 29
+    }
+  },
+  "bodyMarkdown": "You probably already knew that it is possible to do full exports of your customer lists and catalogs from Salesforce B2C Commerce Cloud. This can be done through the [business manager](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/import_export/b2c_catalog_object_import_export.html) or a [job](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/jobstepapi/html/api/jobstep.ExportCatalog.html).\n\nBut did you also know that delta job steps are available for the following items?\n\n-   [Catalog](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/jobstepapi/html/api/jobstep.CatalogDeltaExport.html)\n-   [Content Library](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/jobstepapi/html/api/jobstep.LibraryDeltaExport.html)\n-   [Customer Lists](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/jobstepapi/html/api/jobstep.CustomerListsDeltaExport.html)\n-   Maybe even more? Stick around to find out!\n\n\n\nBut as with many things, a few things should be kept in mind before using this functionality. Let us take a look!\n\n_A big thanks to [Tim Loibl](https://www.linkedin.com/in/tloibl/) for experimenting with this feature and sharing some intel!_\n\n## Support needs to enable these\n\nIf you already opened the links in the introduction you probably noticed a warning.\n\n> Support must be contacted to enable delta exports.\n\nThis is because it is a hidden [feature switch](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/admin/b2c_feature_switches.html) and is only available for Salesforce support. So keep in mind you might have to wait a few hours to a few days, depending on how quickly support can activate this switch.\n\n_**Important:**_ _This switch has to be turned on separately in each environment (DEV, STG & PRD). So be sure to mention in the ticket which ones you want this switch turned over._\n\n## Business Manager Module\n\nOnce this feature has been enabled, you get a new toy to play with in the Business Manager at \"_Administration_\" > \"_Site Development_\" > \"_Delta Exports._\"\n\nYou can consider this to work the same as configuring the Sitemap or replications. It is not under the regular list of jobs, but behind the scenes, they are one.\n\n[![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-jobs-overview-768x235.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-jobs-overview.png)\n\nLet us open that \"Test\" configuration!\n\n### General\n\n[![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-selection-768x378.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-selection.png)\n\nWhen we create a new job or open an existing one, we configure multiple items:\n\n-   **Name**: The name of the job\n-   **Consumers:** The comma-separated list of external systems you are generating this for (consumers of the feed)\n-   **Data:** The data to export\n\n\n\nBut? Huh? I see more types listed here than there are Job Steps available! And you are correct; you get more options here.\n\nA list of supported types can be found [here](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/import_export/b2c_delta_exports.html).\n\n### Schedule\n\n[![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-schedule-768x383.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-schedule.png)\n\nJust like regular jobs, you can schedule this to be executed at your chosen interval.\n\n### History\n\n[![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/History-768x205.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/History.png)\n\nThis historical overview is unlike your usual \"job\" history, even though the description might seem similar.\n\nThis overview will show a history of all exported files rather than the job executions. Only if a job execution produces a file will it appear in this overview.\n\n### Consumer\n\n[![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-consumer-768x266.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-consumer.png)\n\nFor each \"consumer\" you have configured in the general tab, a new tab appears in which you get the path where the files are exported.\n\nThis gives each external system (consumer) its dedicated folder on the WebDAV to monitor.\n\n_**Note:** Remember that you can limit access to a third-party system to this specific folder with [WebDAV Client Permissions](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/permissions/b2c_web_dav_client_permissions.html)!_\n\n### Status\n\n[![](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-status-768x233.png)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/delta-job-status.png)\n\nYou can view the log of the scheduled job on this page.\n\n## Only available on PIG instances\n\nIf you were hoping to test out this functionality on your sandbox, you are out of luck. This feature only works in these environments because it depends on the Change Log to operate.\n\nYou can make use of delta exports on:\n\n-   Staging\n-   Development\n-   Production\n\n## Impact on performance\n\n> The Delta Exports feature requires the Change Log feature to be active, which can cause a slight (<5%) database performance penalty. This affects update and delete transactions on any entity types that can be selected for delta exports (not only the types that actually are selected).\n\nSince an extra step is being added when making modifications to these objects, a minor performance penalty takes place (less than 5 %).\n\nBut if you have a lot of jobs that modify objects (imports), you need to take this information into account and recalculate the time you expect these processes to run.\n\n## Initial enablement\n\nIf you expect the first export to contain all objects, this will not be the case. The initial export will only include the objects that have been modified since the enablement of the feature.\n\nA solution for this is easy; use the existing options to do the full export if necessary.\n\n## Seven days\n\nThe retention time of the Change Logs is seven days, so make sure to do your exports once every seven days to ensure your delta exports towards external systems are correct!\n\nA good habit is to provide a full export to external systems every once in a while (maybe every month?) to ensure all systems are in sync!\n\n## Large amount of modifications to data in SFCC\n\nThe delta will become bloated when multiple processes (API Calls, Jobs, and manual) modify data within Salesforce B2C Commerce Cloud. This will cause the job runtime to be long, causing this feature to lose its value.\n\n## Other Considerations\n\nIn the [Info Center](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/import_export/b2c_delta_exports.html), there are more items to consider.",
+  "conversionStatus": "converted",
+  "manualReviewRequired": false,
+  "fallbackTypes": [],
+  "conversionWarnings": [
+    {
+      "code": "missing-image-alt",
+      "message": "Image missing alt text in /delta-exports-in-salesforce-b2c-commerce-cloud/."
+    },
+    {
+      "code": "missing-image-alt",
+      "message": "Image missing alt text in /delta-exports-in-salesforce-b2c-commerce-cloud/."
+    },
+    {
+      "code": "missing-image-alt",
+      "message": "Image missing alt text in /delta-exports-in-salesforce-b2c-commerce-cloud/."
+    },
+    {
+      "code": "missing-image-alt",
+      "message": "Image missing alt text in /delta-exports-in-salesforce-b2c-commerce-cloud/."
+    },
+    {
+      "code": "missing-image-alt",
+      "message": "Image missing alt text in /delta-exports-in-salesforce-b2c-commerce-cloud/."
+    },
+    {
+      "code": "missing-image-alt",
+      "message": "Image missing alt text in /delta-exports-in-salesforce-b2c-commerce-cloud/."
+    }
+  ]
+}
