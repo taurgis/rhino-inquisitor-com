@@ -246,19 +246,29 @@ This runbook tracks the operational steps needed to move the repository from pla
 ### Post-Generation Content Corrections
 
 - Run the staged-content correction pass with `npm run migrate:apply-corrections` after `npm run migrate:rewrite-links`.
-- The correction pass reads staged Markdown from `migration/output/content/` and applies three deterministic fixes to generated Markdown only:
+- The correction pass reads staged Markdown from `migration/output/content/` and applies deterministic generated-content fixes plus curated text overrides:
   - fenced-code cleanup for WordPress wrapper indentation and blank-first-line artifacts
   - image paragraph normalization when generated Markdown keeps images and prose in the same paragraph block
+  - malformed table repair when a generated Markdown table contains an empty placeholder header row before the real header row
   - curated alt-text overrides from `migration/input/image-alt-corrections.csv`
+  - curated weak-link label overrides from `migration/input/link-text-corrections.csv`
 - Use `npm run migrate:finalize-content` after `npm run migrate:map-frontmatter` when you want the standard post-mapping sequence in one command.
 - The seeded alt-text corrections file contract is:
   - path: `migration/input/image-alt-corrections.csv`
   - required columns: `page_url`, `image_src`, `occurrence_index`, `corrected_alt`
   - optional columns: `original_alt`, `source_file`
   - matching rule: `page_url + image_src + occurrence_index` identifies a specific Markdown image occurrence in the staged corpus
+- The weak-link corrections file contract is:
+  - path: `migration/input/link-text-corrections.csv`
+  - required columns: `page_url`, `target`, `corrected_text`
+  - optional columns: `occurrence_index`, `original_text`, `source_file`
+  - matching rule: `page_url + target + occurrence_index` identifies a specific Markdown link occurrence in the staged corpus
+  - rows with a blank `corrected_text` are treated as seed inventory and are ignored by the correction pass until curated text is supplied
+- Seed or refresh the weak-link inventory with `npm run migrate:export-link-text-corrections`.
 - The correction pass writes:
   - `migration/reports/content-corrections-summary.json`
   - `migration/reports/image-alt-corrections-audit.csv`
+  - `migration/reports/link-text-corrections-audit.csv`
 - Current validated 2026-03-11 behavior on a fresh staged-content temp run:
   - updated 133 of 171 staged Markdown files on the first correction pass
   - normalized 187 fenced code blocks carrying wrapper indentation artifacts
@@ -267,8 +277,14 @@ This runbook tracks the operational steps needed to move the repository from pla
   - reported 0 unmatched curated alt corrections
   - reran idempotently with 0 updated files on the second pass
   - reduced the fenced-code indentation scan from 185 findings across 50 files to 0 findings across 0 files after the final heuristic adjustment
+- Current validated 2026-03-11 follow-up behavior after the accessibility remediation refresh:
+  - `npm run migrate:export-link-text-corrections` seeded 47 weak-link inventory rows in `migration/input/link-text-corrections.csv`
+  - `npm run migrate:apply-corrections` updated 4 files on the first rerun after the script change, auto-promoted 3 malformed table header rows, and applied 1 curated alt correction
+  - after curating descriptive labels in `migration/input/link-text-corrections.csv`, `npm run migrate:apply-corrections` updated 37 files with 46 link-text replacements, and a second occurrence-specific ERD follow-up updated 1 file with 2 more replacements
+  - `npm run check:a11y-content` now reports 0 blocking findings and 2 warnings: 1 remaining weak-link row in the PWA Kit v2.6.0 sentence plus 1 multiline-table warning in the realm-split article
 - Validation steps for the correction pass:
   - `npm run migrate:export-alt-corrections -- --current-dir migration/output/content --baseline-dir tmp/rhi-correction-validate-content --output-file migration/input/image-alt-corrections.csv` when reseeding curated alt text from reviewed staged content
+  - `npm run migrate:export-link-text-corrections`
   - `npm run migrate:apply-corrections`
   - rerun `npm run migrate:apply-corrections` and confirm the summary reports 0 updated files
   - `hugo --minify --environment production --contentDir migration/output/content --destination tmp/rhi-corrections-public`
@@ -321,9 +337,11 @@ This runbook tracks the operational steps needed to move the repository from pla
   - warning distribution on the validated full run is:
     - `missing-image-alt`: 211
     - `shortcode-converted-to-note`: 2
-  - body-heading normalization reserves `h1` for the template title by shifting body `h1` elements to `h2`
+  - body-heading normalization reserves `h1` for the template title by shifting body `h1` elements to `h2`, and now also clamps later heading jumps so generated Markdown does not skip directly from `h2` to `h4` or deeper levels
   - literal technical examples such as `<iscache>`, `<iframe>`, `<picture>`, `<img>`, `<video>`, `<object>`, `<link rel="preload">`, and placeholder tokens like `<key>` are preserved as inline code so Hugo Goldmark can render them with raw HTML disabled
   - known shortcode handling on the current corpus converts `matomo_opt_out` and `cmplz-document` to explicit Markdown notes rather than silent removal
+  - loose WordPress alert paragraphs such as `Asynchronous`, `Limitations`, `Deprecated`, `Documentation`, and `Important` are rewritten into GitHub-style blockquote alerts so Hugo renders them through the existing article callout blockquote hook instead of flattening them into body text
+  - Hugo now renders non-alert blockquotes as regular editorial quotes while keeping alert-designated blockquotes on the labeled callout path, so quotations and warnings no longer share the same presentation
   - unknown iframe handling remains implemented as a commented marker plus fallback-log entry, but the validated keep/merge corpus currently contains zero iframe embeds
 - Corpus audit findings used to shape the converter rules:
   - Gutenberg wrapper comments currently appear only as `paragraph` and `heading`
@@ -333,6 +351,8 @@ This runbook tracks the operational steps needed to move the repository from pla
   - `npm run migrate:convert`
   - confirm `migration/reports/conversion-fallbacks.csv` is present and review any rows before batch inclusion
   - rerun `npm run migrate:convert` and confirm the generated output hashes remain stable
+  - spot-check `migration/output/14050.json` and `migration/output/content/posts/real-time-inventory-checks-in-sfcc.md` when alert-heavy posts are in scope
+  - spot-check `migration/output/1845.json` and `migration/output/content/posts/get-connected-at-salesforce-connections-2022.md` when heading-heavy schedule or playlist content is in scope
   - build a temporary Hugo site from a representative 10-record sample and confirm Hugo emits zero `warning-goldmark-raw-html` warnings for the generated Markdown
 
 ### RHI-035 - Front Matter Mapping
@@ -438,10 +458,10 @@ This runbook tracks the operational steps needed to move the repository from pla
   - activating the skip link moves focus to `#main-content`
   - subsequent `Tab` navigation reaches article-region interactive elements with a visible focus indicator
 - Current validated 2026-03-10 baseline status:
-  - `npm run check:a11y-content` scans 171 staged Markdown files and currently reports 238 blocking findings plus 84 warnings; the dominant blockers are 140 missing-alt findings and 95 generic-alt findings
+  - `npm run check:a11y-content` now scans 171 staged Markdown files and reports 0 blocking findings plus 2 warnings; 1 is a remaining weak-link warning and 1 is the multiline-table warning in the realm-split article
   - the deterministic 10-page rendered sample now passes on 10 of 10 routes after the targeted `/about/`, SLAS, ChatGPT, and code-block remediations
-  - the current highest-blocking staged files are `delta-exports-in-salesforce-b2c-commerce-cloud`, `ai-as-an-architect-and-content-creator`, `how-to-change-the-code-compatibility-mode-in-salesforce-b2c-commerce-cloud`, `sitegenesis-vs-sfra-vs-pwa`, and `what-is-commerce-on-core`
-  - RHI-040 remains open until the blocking content defects are remediated or explicitly exceptioned under the approved contract
+  - the default Phase 3 rendered route set still passes on 6 of 6 routes, and a staged 4-page sample covering the newly corrected Einstein, PWA Kit, sitemap, and realm-split articles also passes on 4 of 4 routes
+  - the owner-approved weak-link cap is now satisfied at `1/5`; the remaining cleanup work is limited to the single unresolved PWA Kit weak-link sentence and the multiline-table warning in the realm-split article
 
 ## Phase 5 - SEO and Discoverability
 

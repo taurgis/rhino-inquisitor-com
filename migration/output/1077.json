@@ -75,11 +75,35 @@
       "featuredImageUrl": null
     }
   },
-  "bodyMarkdown": "This is quite a small list, and I hope to grow this content over time with engaging content about Salesforce B2C Commerce and other platforms within the Salesforce ecosystem.\n\nRome wasn't built in one day, and neither will this list!\n\n## Playlist\n\n6 Videos ![](/media/external/maxresdefault-7015ae5c52.jpg)\n\n#### The path to being an Architect\n\n51:12 ![](/media/external/maxresdefault-8d65474e08.jpg)\n\n#### FORWARD TV - Headless\n\n23:42 ![](/media/external/maxresdefault-69627c54a3.jpg)\n\n#### Connections 2022 - Receiving the Golden Hoodie\n\n5:08 ![](/media/external/maxresdefault-d89d97bb12.jpg)\n\n#### Me, Myself and Headless: A composable Commerce Cloud Story\n\n49:25 ![](/media/external/maxresdefault-cca267c1bb.jpg)\n\n#### Connecting The Clouds: Wedding or funeral\n\n49:55 ![](/media/2022/yte-hd-image-96d2c1f499.jpg)\n\n#### EP9: Thomas Theunen - Golden Hoodie Recipient 2022\n\n31:45",
+  "bodyMarkdown": "This is quite a small list, and I hope to grow this content over time with engaging content about Salesforce B2C Commerce and other platforms within the Salesforce ecosystem.\n\nRome wasn't built in one day, and neither will this list!\n\n## Playlist\n\n6 Videos ![](/media/external/maxresdefault-7015ae5c52.jpg)\n\n### The path to being an Architect\n\n51:12 ![](/media/external/maxresdefault-8d65474e08.jpg)\n\n### FORWARD TV - Headless\n\n23:42 ![](/media/external/maxresdefault-69627c54a3.jpg)\n\n### Connections 2022 - Receiving the Golden Hoodie\n\n5:08 ![](/media/external/maxresdefault-d89d97bb12.jpg)\n\n### Me, Myself and Headless: A composable Commerce Cloud Story\n\n49:25 ![](/media/external/maxresdefault-cca267c1bb.jpg)\n\n### Connecting The Clouds: Wedding or funeral\n\n49:55 ![](/media/2022/yte-hd-image-96d2c1f499.jpg)\n\n### EP9: Thomas Theunen - Golden Hoodie Recipient 2022\n\n31:45",
   "conversionStatus": "converted",
   "manualReviewRequired": false,
   "fallbackTypes": [],
   "conversionWarnings": [
+    {
+      "code": "heading-level-normalized",
+      "message": "Heading level normalized from h4 to h3 in /video/."
+    },
+    {
+      "code": "heading-level-normalized",
+      "message": "Heading level normalized from h4 to h3 in /video/."
+    },
+    {
+      "code": "heading-level-normalized",
+      "message": "Heading level normalized from h4 to h3 in /video/."
+    },
+    {
+      "code": "heading-level-normalized",
+      "message": "Heading level normalized from h4 to h3 in /video/."
+    },
+    {
+      "code": "heading-level-normalized",
+      "message": "Heading level normalized from h4 to h3 in /video/."
+    },
+    {
+      "code": "heading-level-normalized",
+      "message": "Heading level normalized from h4 to h3 in /video/."
+    },
     {
       "code": "missing-image-alt",
       "message": "Image missing alt text in /video/."

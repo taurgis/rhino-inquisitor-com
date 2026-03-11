@@ -19,7 +19,7 @@ author: Thomas Theunen
 ---
 In this post, we will be looking at the release notes of Salesforce B2C Commerce Cloud for March 2022. Let us dig deeper into any new and exciting features added to the platform.
 
-Check out the original release notes in the [March 2022 release notes](https://help.salesforce.com/s/articleView?id=rn_b2c_rn_22_3_release.htm&type=5&language=en_US).
+Check out the original release notes [for March 2022](https://help.salesforce.com/s/articleView?id=rn_b2c_rn_22_3_release.htm&type=5&language=en_US).
 
 ## Lightning UX
 

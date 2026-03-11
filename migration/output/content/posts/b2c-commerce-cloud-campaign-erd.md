@@ -61,7 +61,8 @@ I experimented with the [StoreMgr.setStoreIDToSession()](https://documentation.b
 
 If anyone has gotten this feature to work, please let me know on the social channels I am active on!
 
-Thanks Thanks to [Paul Shaver](https://www.linkedin.com/in/paulshaver/) for telling me about the "hidden feature switch"!
+> [!NOTE]
+> **Thanks:** Thanks to [Paul Shaver](https://www.linkedin.com/in/paulshaver/) for telling me about the "hidden feature switch"!
 
 #### Import
 

@@ -1,8 +1,9 @@
 ---
 title: SiteGenesis vs SFRA vs PWA
 description: >-
-  Compare SiteGenesis, SFRA, and PWA storefront architectures in SFCC so you
-  can choose the right foundation for performance, flexibility, and team fit.
+  is a modern Commerce platform that empowers retailers of all sizes and
+  industries to harness the power of the cloud to deliver world-class
+  omnichannel
 date: '2022-07-17T13:42:22.000Z'
 lastmod: '2023-03-30T07:02:37.000Z'
 url: /sitegenesis-vs-sfra-vs-pwa/
@@ -131,7 +132,8 @@ Another significant change in working is that the PWA Kit is built upon [React](
 
 It will be easier to find and educate developers in this setup.
 
-Important to note that developers will still need to learn about the SCAPI and OCAPI endpoints, which have a steady learning curve.
+> [!WARNING]
+> **Important:** to note that developers will still need to learn about the SCAPI and OCAPI endpoints, which have a steady learning curve.
 
 _**Note:** The PWA Kit is only responsible for the front end. The back-end integrations such as importing products, prices, and inventory will still need to be done the "old-fashioned" way._
 

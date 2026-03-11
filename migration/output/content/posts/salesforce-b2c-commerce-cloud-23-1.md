@@ -116,7 +116,7 @@ Some great new ideas were submitted!
 
 Another month, another update hits the PWA Kit with quite [an extensive changelog](https://github.com/SalesforceCommerceCloud/pwa-kit/compare/v2.3.0...v2.4.0). The “spotlight” change is that the new commerce-sdk-react library includes ready-made React hooks for fetching data from B2C Commerce.
 
-The full release notes are available in the [PWA Kit v2.4.0 release notes](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v2.4.0).
+The full release notes are available [in the PWA Kit v2.4.0 release notes](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v2.4.0).
 
 ## Bugfixes
 

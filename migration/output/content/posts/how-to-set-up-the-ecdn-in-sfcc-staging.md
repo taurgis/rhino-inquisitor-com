@@ -1,8 +1,8 @@
 ---
 title: How to set up the eCDN for Staging in Salesforce B2C Commerce Cloud
 description: >-
-  Deprecated Article Since the writing of this article, the eCDN business
-  manager module has been updated to allow configuration of vanity domains on
+  [!WARNING] Deprecated: Article Since the writing of this article, the eCDN
+  business manager module has been updated to allow configuration of vanity
 date: '2022-11-07T10:29:05.000Z'
 lastmod: '2024-10-14T16:50:08.000Z'
 url: /how-to-set-up-the-ecdn-in-sfcc-staging/
@@ -18,9 +18,10 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-Deprecated Article Since the writing of this article, the eCDN business manager module has been updated to allow configuration of vanity domains on Staging. Therefore, there is no need to use API calls as described in this article (unless you really, really want to...).
+> [!WARNING]
+> **Deprecated:** Article Since the writing of this article, the eCDN business manager module has been updated to allow configuration of vanity domains on Staging. Therefore, there is no need to use API calls as described in this article (unless you really, really want to...).
 
-Read all about it in the [staging eCDN Business Manager release note](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_configure_ecdn_for_staging_in_bm.htm&type=5).
+Read all about it [in the staging eCDN Business Manager release note](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_configure_ecdn_for_staging_in_bm.htm&type=5).
 
 Using the [Business Manager module](/lets-go-live-ecdn/), setting up custom vanity domains and uploading certificates on the production instance is easy. But how about staging?
 

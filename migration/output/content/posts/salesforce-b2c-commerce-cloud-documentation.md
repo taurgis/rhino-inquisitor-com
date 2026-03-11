@@ -44,14 +44,16 @@ This migration wasn't a simple one-to-one mapping. Some outdated documentation, 
 
 ### The Infocenter Relocation Map
 
--   **B2C Commerce Release Notes**: Administrator & Developer. [https://help.salesforce.com/s/articleView?id=sf.b2c\_rn\_release\_notes.htm&type=5](https://help.salesforce.com/s/articleView?id=sf.b2c_rn_release_notes.htm&type=5)
--   **Developing Your Site**: Developer. [https://developer.salesforce.com/docs/commerce/b2c-commerce/overview](https://developer.salesforce.com/docs/commerce/b2c-commerce/overview)
--   **Open Commerce API (OCAPI)**: Developer. [https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/api-doc.html](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/api-doc.html)
--   **B2C Commerce API (Script API)**: Developer. [https://salesforcecommercecloud.github.io/b2c-dev-doc/](https://salesforcecommercecloud.github.io/b2c-dev-doc/)
--   **Merchandising Your Site**: Administrator & Merchandiser. [https://help.salesforce.com/s/articleView?id=cc.b2c\_merchandising.htm&type=5](https://help.salesforce.com/s/articleView?id=cc.b2c_merchandising.htm&type=5)
--   **Administering Your Organization**: Administrator & Merchandiser. [https://help.salesforce.com/s/articleView?id=cc.b2c\_administering.htm&type=5](https://help.salesforce.com/s/articleView?id=cc.b2c_administering.htm&type=5)
--   **B2C Commerce Security Guide**: Administrator & Developer. [https://help.salesforce.com/s/articleView?id=sf.b2c\_security\_guide.htm&type=5](https://help.salesforce.com/s/articleView?id=sf.b2c_security_guide.htm&type=5)
--   **Legacy Developer Documentation**: Developer. [https://salesforcecommercecloud.github.io/b2c-dev-doc/](https://salesforcecommercecloud.github.io/b2c-dev-doc/)
+| Old Infocenter Section | Audience | New Location & Direct Link |
+| --- | --- | --- |
+| B2C Commerce Release Notes | Administrator & Developer | [https://help.salesforce.com/s/articleView?id=sf.b2c\_rn\_release\_notes.htm&type=5](https://help.salesforce.com/s/articleView?id=sf.b2c_rn_release_notes.htm&type=5) |
+| Developing Your Site | Developer | [https://developer.salesforce.com/docs/commerce/b2c-commerce/overview](https://developer.salesforce.com/docs/commerce/b2c-commerce/overview) |
+| Open Commerce API (OCAPI) | Developer | [https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/api-doc.html](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/api-doc.html) |
+| B2C Commerce API (Script API) | Developer | [https://salesforcecommercecloud.github.io/b2c-dev-doc/](https://salesforcecommercecloud.github.io/b2c-dev-doc/) |
+| Merchandising Your Site | Administrator & Merchandiser | [https://help.salesforce.com/s/articleView?id=cc.b2c\_merchandising.htm&type=5](https://help.salesforce.com/s/articleView?id=cc.b2c_merchandising.htm&type=5) |
+| Administering Your Organization | Administrator & Merchandiser | [https://help.salesforce.com/s/articleView?id=cc.b2c\_administering.htm&type=5](https://help.salesforce.com/s/articleView?id=cc.b2c_administering.htm&type=5) |
+| B2C Commerce Security Guide | Administrator & Developer | [https://help.salesforce.com/s/articleView?id=sf.b2c\_security\_guide.htm&type=5](https://help.salesforce.com/s/articleView?id=sf.b2c_security_guide.htm&type=5) |
+| Legacy Developer Documentation | Developer | [https://salesforcecommercecloud.github.io/b2c-dev-doc/](https://salesforcecommercecloud.github.io/b2c-dev-doc/) |
 
 ## In the Trenches: The Unofficial SFCC Community (CommerceCrew)
 
@@ -85,11 +87,13 @@ Trailhead is Salesforce's free, online learning platform, and it's an ocean of c
 
 ### Your Trailhead Compass: Essential Learning Paths
 
--   **Mastering the Dev Environment**: [https://trailhead.salesforce.com/content/learn/modules/cc-digital-for-developers](https://trailhead.salesforce.com/content/learn/modules/cc-digital-for-developers)
--   **Architectural Foundation**: [https://trailhead.salesforce.com/en/content/learn/trails/build-your-career-as-a-salesforce-b2c-commerce-technical-architect](https://trailhead.salesforce.com/content/learn/modules/architecture-of-sf-b2c-commerce)
--   **Headless Development**: [https://trailhead.salesforce.com/en/content/learn/modules/b2c-headless-commerce-basics](https://trailhead.salesforce.com/content/learn/modules/headless-commerce-basics)
--   **On-Demand Sandboxes**: [https://trailhead.salesforce.com/content/learn/modules/b2c-on-demand-sandbox](https://trailhead.salesforce.com/content/learn/modules/b2c-on-demand-sandbox)
--   **Functional Implementation**: [https://trailhead.salesforce.com/content/learn/modules/b2c-implement-functional-solution](https://trailhead.salesforce.com/content/learn/modules/b2c-implement-functional-solution)
+| Learning Goal | Recommended Trail/Module |
+| --- | --- |
+| **Mastering the Dev Environment** | [https://trailhead.salesforce.com/content/learn/modules/cc-digital-for-developers](https://trailhead.salesforce.com/content/learn/modules/cc-digital-for-developers) |
+| **Architectural Foundation** | [https://trailhead.salesforce.com/en/content/learn/trails/build-your-career-as-a-salesforce-b2c-commerce-technical-architect](https://trailhead.salesforce.com/content/learn/modules/architecture-of-sf-b2c-commerce) |
+| **Headless Development** | [https://trailhead.salesforce.com/en/content/learn/modules/b2c-headless-commerce-basics](https://trailhead.salesforce.com/content/learn/modules/headless-commerce-basics) |
+| **On-Demand Sandboxes** | [https://trailhead.salesforce.com/content/learn/modules/b2c-on-demand-sandbox](https://trailhead.salesforce.com/content/learn/modules/b2c-on-demand-sandbox) |
+| **Functional Implementation** | [https://trailhead.salesforce.com/content/learn/modules/b2c-implement-functional-solution](https://trailhead.salesforce.com/content/learn/modules/b2c-implement-functional-solution) |
 
 ## Partner Learning Camp: The Insider's Track
 

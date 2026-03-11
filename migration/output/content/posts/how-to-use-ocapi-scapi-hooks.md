@@ -3,8 +3,8 @@ title: >-
   The OCAPI/SCAPI Hooks Playbook: A Deep Dive into Salesforce B2C Commerce Best
   Practices
 description: >-
-  Understand how OCAPI and SCAPI hooks work in SFCC, when to use them, and which
-  implementation patterns avoid brittle or outdated integrations.
+  Info This article was updated with the latest and most important feature
+  information as of 26 July 2025.
 date: '2022-10-31T13:03:53.000Z'
 lastmod: '2025-07-29T12:47:51.000Z'
 url: /how-to-use-ocapi-scapi-hooks/

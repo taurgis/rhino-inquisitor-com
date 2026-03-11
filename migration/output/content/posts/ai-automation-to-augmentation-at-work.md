@@ -86,7 +86,8 @@ As these tools receive more information, their responses become increasingly pre
 
 An excellent illustration of this concept is [EinsteinGPT](https://www.salesforce.com/news/stories/salesforce-ai-evolution/), which was recently introduced. This tool is equipped with the context of the record it is processing and all the visible, invisible, and linked information. By using all of this information, the tool can produce much more accurate and relevant results for the task it's trying to accomplish.
 
-Context Know there can be different interpretations of the term "context." As a language model, ChatGPT relies on a scoring system that considers the words provided to predict the most appropriate sequence of words. The more data it has to refine its scoring mechanism, its predictions will be more accurate. ChatGPT does not grasp what content it's analysing, such as a Salesforce Record - it just looks at what "words" are used.
+> [!NOTE]
+> **Context:** Know there can be different interpretations of the term "context." As a language model, ChatGPT relies on a scoring system that considers the words provided to predict the most appropriate sequence of words. The more data it has to refine its scoring mechanism, its predictions will be more accurate. ChatGPT does not grasp what content it's analysing, such as a Salesforce Record - it just looks at what "words" are used.
 
 This is precisely why ChatGPT can sometimes provide us with inaccurate information - because it doesn't truly understand the subject matter. Instead, it generates responses by analysing and selecting words most likely to fit together cohesively.
 

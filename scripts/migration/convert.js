@@ -23,6 +23,27 @@ const shortcodeNoteByTag = new Map([
   ['matomo_opt_out', 'Legacy Matomo opt-out widget removed during migration. Add a Hugo-safe replacement before publishing.'],
   ['cmplz-document', 'Legacy Complianz document shortcode removed during migration. Recreate the required consent or cookie statement in Hugo before publishing.']
 ]);
+const looseAlertTypeByLabel = new Map([
+  ['asynchronous', 'warning'],
+  ['caution', 'warning'],
+  ['deprecated', 'warning'],
+  ['deprecation', 'warning'],
+  ['important', 'warning'],
+  ['limitations', 'warning'],
+  ['removed', 'warning'],
+  ['warning', 'warning'],
+  ['warnings', 'warning'],
+  ['context', 'note'],
+  ['documentation', 'note'],
+  ['effort', 'note'],
+  ['note', 'note'],
+  ['notes', 'note'],
+  ['thanks', 'note']
+]);
+const looseAlertLabels = [...looseAlertTypeByLabel.keys()]
+  .sort((left, right) => right.length - left.length)
+  .map(escapeRegExp);
+const looseAlertLinePattern = new RegExp(`^(${looseAlertLabels.join('|')})(?:\\s+(.+))?$`, 'iu');
 
 async function main() {
   const options = await resolveOptions(process.argv.slice(2));
@@ -419,8 +440,11 @@ function postProcessMarkdown({ bodyMarkdown, record, fallbackRows, warnings }) {
   const lines = String(bodyMarkdown ?? '').replace(/\r\n?/gu, '\n').split('\n');
   const processedLines = [];
   let insideFence = false;
+  let lastOriginalHeadingLevel = 1;
+  let lastNormalizedHeadingLevel = 1;
 
-  for (const line of lines) {
+  for (let index = 0; index < lines.length; index += 1) {
+    const line = lines[index];
     if (/^`{3,}/u.test(line.trim())) {
       insideFence = !insideFence;
       processedLines.push(line);
@@ -429,6 +453,27 @@ function postProcessMarkdown({ bodyMarkdown, record, fallbackRows, warnings }) {
 
     if (insideFence) {
       processedLines.push(line);
+      continue;
+    }
+
+    const normalizedHeadingLine = normalizeHeadingLine({
+      line,
+      record,
+      warnings,
+      lastOriginalHeadingLevel,
+      lastNormalizedHeadingLevel
+    });
+    if (normalizedHeadingLine) {
+      processedLines.push(normalizedHeadingLine.line);
+      lastOriginalHeadingLevel = normalizedHeadingLine.originalHeadingLevel;
+      lastNormalizedHeadingLevel = normalizedHeadingLine.normalizedHeadingLevel;
+      continue;
+    }
+
+    const looseAlert = convertLooseAlertParagraph(lines, index);
+    if (looseAlert) {
+      processedLines.push(...looseAlert.lines);
+      index += looseAlert.consumed - 1;
       continue;
     }
 
@@ -486,6 +531,123 @@ function postProcessMarkdown({ bodyMarkdown, record, fallbackRows, warnings }) {
     bodyMarkdown: normalizedMarkdown,
     hasUnexpectedHtml: containsUnexpectedHtml(normalizedMarkdown)
   };
+}
+
+function normalizeHeadingLine({ line, record, warnings, lastOriginalHeadingLevel, lastNormalizedHeadingLevel }) {
+  const headingMatch = String(line ?? '').match(/^(#{1,6})(\s+.+)$/u);
+  if (!headingMatch) {
+    return null;
+  }
+
+  const originalLevel = headingMatch[1].length;
+  const content = headingMatch[2];
+  const minimumLevel = 2;
+  let normalizedLevel = Math.max(originalLevel, minimumLevel);
+
+  if (lastOriginalHeadingLevel <= 1) {
+    normalizedLevel = minimumLevel;
+  } else if (originalLevel === lastOriginalHeadingLevel) {
+    normalizedLevel = lastNormalizedHeadingLevel;
+  } else if (originalLevel > lastOriginalHeadingLevel) {
+    normalizedLevel = lastNormalizedHeadingLevel + Math.min(originalLevel - lastOriginalHeadingLevel, 1);
+  } else {
+    normalizedLevel = lastNormalizedHeadingLevel - (lastOriginalHeadingLevel - originalLevel);
+  }
+
+  normalizedLevel = Math.min(6, Math.max(minimumLevel, normalizedLevel));
+
+  if (normalizedLevel === originalLevel) {
+    return {
+      line,
+      originalHeadingLevel: originalLevel,
+      normalizedHeadingLevel: normalizedLevel
+    };
+  }
+
+  warnings.push({
+    code: 'heading-level-normalized',
+    message: `Heading level normalized from h${originalLevel} to h${normalizedLevel} in ${record.legacyUrl}.`
+  });
+
+  return {
+    line: `${'#'.repeat(normalizedLevel)}${content}`,
+    originalHeadingLevel: originalLevel,
+    normalizedHeadingLevel: normalizedLevel
+  };
+}
+
+function convertLooseAlertParagraph(lines, index) {
+  const line = String(lines[index] ?? '');
+  const trimmedLine = line.trim();
+  if (trimmedLine.length === 0 || startsMarkdownBlock(trimmedLine)) {
+    return null;
+  }
+
+  const previousLine = index > 0 ? String(lines[index - 1] ?? '').trim() : '';
+  if (previousLine.length > 0 && !startsMarkdownBlock(previousLine)) {
+    return null;
+  }
+
+  const match = trimmedLine.match(looseAlertLinePattern);
+  if (!match) {
+    return null;
+  }
+
+  const label = match[1];
+  const alertType = looseAlertTypeByLabel.get(label.toLowerCase());
+  if (!alertType) {
+    return null;
+  }
+
+  let body = normalizeLooseAlertBody(match[2] ?? '');
+  let consumed = 1;
+
+  while (index + consumed < lines.length) {
+    const candidate = String(lines[index + consumed] ?? '');
+    const trimmedCandidate = candidate.trim();
+    if (trimmedCandidate.length === 0 || startsMarkdownBlock(trimmedCandidate)) {
+      break;
+    }
+
+    if (looseAlertLinePattern.test(trimmedCandidate)) {
+      break;
+    }
+
+    body = [body, normalizeLooseAlertBody(trimmedCandidate)].filter(Boolean).join(' ').trim();
+    consumed += 1;
+  }
+
+  if (body.length < 20) {
+    return null;
+  }
+
+  return {
+    consumed,
+    lines: [
+      `> [!${alertType.toUpperCase()}]`,
+      `> **${formatLooseAlertLabel(label)}:** ${body}`
+    ]
+  };
+}
+
+function normalizeLooseAlertBody(value) {
+  return String(value ?? '')
+    .replace(/^[\s:;,.!\-–—]+/u, '')
+    .replace(/\s+/gu, ' ')
+    .trim();
+}
+
+function formatLooseAlertLabel(value) {
+  const normalizedValue = String(value ?? '').trim();
+  if (normalizedValue.length === 0) {
+    return '';
+  }
+
+  return normalizedValue.charAt(0).toUpperCase() + normalizedValue.slice(1);
+}
+
+function startsMarkdownBlock(value) {
+  return /^(?:#{1,6}\s|>|[-*+]\s|\d+\.\s|```|~~~|\|)/u.test(String(value ?? '').trim());
 }
 
 function containsUnexpectedHtml(markdown) {
@@ -630,6 +792,10 @@ function extractYouTubeId(value) {
 
 function escapeAttribute(value) {
   return String(value ?? '').replace(/&/gu, '&amp;').replace(/"/gu, '&quot;');
+}
+
+function escapeRegExp(value) {
+  return String(value ?? '').replace(/[.*+?^${}()|[\]\\]/gu, '\\$&');
 }
 
 async function cleanOutputDirectory(directoryPath) {

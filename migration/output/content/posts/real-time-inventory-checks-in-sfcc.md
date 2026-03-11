@@ -53,7 +53,8 @@ Here's what happens when you make that call:
 5.  Only after the response is received can SFCC finish building the page and send the first byte back to the user's browser.
 
 
-Asynchronous You can, of course, defer a part of your page to an asynchronous API call - but keep reading for some important considerations!
+> [!WARNING]
+> **Asynchronous:** You can, of course, defer a part of your page to an asynchronous API call - but keep reading for some important considerations!
 
 ### TTFB Under Fire
 

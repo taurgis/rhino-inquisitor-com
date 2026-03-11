@@ -30,7 +30,8 @@ Are you interested in last month’s release notes? [Read the 23.4 release notes
 
 If you use Cloudflare provisioned SSL certificates, this update is a big ease-of-life improvement!
 
-Limitations You can renew up to 10 auto-renewing certificates. Signature Customers can renew up to 50 auto-renewing certificates.
+> [!WARNING]
+> **Limitations:** You can renew up to 10 auto-renewing certificates. Signature Customers can renew up to 50 auto-renewing certificates.
 
 ### Log Users Views of Personal Identification Information
 

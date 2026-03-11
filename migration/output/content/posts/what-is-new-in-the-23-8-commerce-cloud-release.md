@@ -19,7 +19,7 @@ author: Thomas Theunen
 ---
 Everyone knows that getting ready for the holiday season starts in the summer in the Commerce Cloud world! And looking at the [23.8 release notes,](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_23_8_release.htm&type=5) this is apparent.
 
-Are you interested in last month’s release notes? [Read the previous release notes](/salesforce-b2c-commerce-the-22-6-release/)!
+Are you interested in last month’s release notes? [Read the 22.6 release notes](/salesforce-b2c-commerce-the-22-6-release/)!
 
 ## Infrastructure and Scaling
 

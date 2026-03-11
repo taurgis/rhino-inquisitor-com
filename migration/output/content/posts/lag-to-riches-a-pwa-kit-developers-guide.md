@@ -229,51 +229,45 @@ You have a powerful set of free tools to become a performance detective.
     -   **Network Panel:** Use this to inspect all network requests. Check your Cache-Control headers, analyse asset sizes, and use "Request blocking" to temporarily disable third-party scripts to see how much damage they're doing.
     -   **Application Panel:** This is your PWA command centre. Inspect your manifest, check your service worker's status, clear caches, and simulate being offline to test your app's reliability.
 
-### Troubleshooting Matrix
+| Symptom / Poor Metric | Likely PWA Kit Cause(s) | Recommended Diagnostic Tool(s) | Actionable Solution(s) |
+| --- | --- | --- | --- |
+| **Poor LCP on Product Detail Page** | 1\. Large, unoptimized hero image.
 
-#### Poor LCP on Product Detail Page
+2\. Slow, sequential API calls in getProps/useQuery during SSR.
 
-- Likely causes:
-  1. Large, unoptimized hero image.
-  2. Slow, sequential API calls in `getProps` or `useQuery` during SSR.
-  3. Low CDN cache hit ratio.
-- Recommended diagnostics:
-  1. PageSpeed Insights to identify the LCP element.
-  2. `?__server_timing=true` to inspect `ssr:fetch-strategies` timing.
-  3. MRT logs and CDN analytics.
-- Actionable solutions:
-  1. Compress the hero image, serve it in WebP format, and use `srcset`.
-  2. Refactor data fetching to use `Promise.all` or a single aggregated API call.
-  3. Set longer `Cache-Control` headers.
+3\. Low CDN cache hit ratio. | 1\. PageSpeed Insights to identify the LCP element.
 
-#### Poor INP on Product Listing Page
+2\. ?\_\_server\_timing=true to check ssr:fetch-strategies time.
 
-- Likely causes:
-  1. Long JavaScript task during client-side hydration.
-  2. Excessive re-renders when applying filters.
-  3. A blocking third-party analytics script.
-- Recommended diagnostics:
-  1. DevTools Performance Panel to identify long tasks.
-  2. React DevTools Profiler to visualize component renders.
-  3. DevTools Network Panel to block the script and re-test.
-- Actionable solutions:
-  1. Code-split the PLP JavaScript.
-  2. Use `React.memo`, `useCallback`, and `useMemo` on filter components.
-  3. Defer or lazy-load the third-party script.
+3\. MRT logs and CDN analytics. | 1\. Compress hero image, serve in WebP format, use srcset.
 
-#### High CLS on Homepage
+2\. Refactor data fetching to use Promise.all or a single aggregated API call.
 
-- Likely causes:
-  1. Images loading without width and height attributes.
-  2. A cookie consent banner or ad injected dynamically.
-  3. Web fonts causing a flash of unstyled text (FOUT).
-- Recommended diagnostics:
-  1. Lighthouse audit to identify elements causing shifts.
-  2. DevTools Performance Panel with Screenshots enabled to see the shifts happen.
-- Actionable solutions:
-  1. Add explicit width and height to all `<img>` tags.
-  2. Reserve space for the banner or ad with CSS.
-  3. Preload key fonts using `<link rel="preload">`.
+3\. Set longer Cache-Control headers. |
+| **Poor INP on Product Listing Page** | 1\. Long JavaScript task during client-side hydration.
+
+2\. Excessive re-renders when applying filters.
+
+3\. A blocking third-party analytics script. | 1\. DevTools Performance Panel to identify long tasks.
+
+2\. React DevTools Profiler to visualize component renders.
+
+3\. DevTools Network Panel to block the script and re-test. | 1\. Code-split the PLP's JavaScript.
+
+2\. Use React.memo, useCallback, and useMemo on filter components.
+
+3\. Defer or lazy-load the third-party script. |
+| **High CLS on Homepage** | 1\. Images loading without width and height attributes.
+
+2\. A cookie consent banner or ad injected dynamically.
+
+3\. Web fonts causing a flash of unstyled text (FOUT). | 1\. Lighthouse audit to identify elements causing shifts.
+
+2\. DevTools Performance Panel with "Screenshots" enabled to see the shifts happen. | 1\. Add explicit width and height to all `<img>` tags.
+
+2\. Reserve space for the banner/ad with CSS.
+
+3\. Preload key fonts using `<link rel="preload">`. |
 
 ### PWA Kit-Specific Debugging Tricks
 

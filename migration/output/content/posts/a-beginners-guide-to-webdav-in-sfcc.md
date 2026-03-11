@@ -110,7 +110,8 @@ A screenshot of how this might look in the Business Manager
 
 #### Things to keep in mind
 
-Note that the permission paths for different clients cannot intersect each other, meaning that if you configure one client with permissions for `/impex/src`, you can't have another set for `/impex/src/foo`. This restriction is in place to prevent potential conflicts and overlaps in permissions.
+> [!NOTE]
+> **Note:** that the permission paths for different clients cannot intersect each other, meaning that if you configure one client with permissions for `/impex/src`, you can't have another set for `/impex/src/foo`. This restriction is in place to prevent potential conflicts and overlaps in permissions.
 
 Salesforce B2C Commerce Cloud's security measures don't permit write operations in specific directories. For example, the `/securitylogs` directory can only be granted `read` permissions.
 

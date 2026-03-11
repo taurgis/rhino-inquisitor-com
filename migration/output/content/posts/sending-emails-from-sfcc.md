@@ -121,7 +121,7 @@ Production Hide this endpoint, or never deploy this controller to production.
 
 Sender Policy Framework ([SPF](https://en.wikipedia.org/wiki/SPF)) records are crucial for ensuring email deliverability. If this is not configured, providers such as Outlook and Gmail will simply prevent your emails from arriving. They will be completely blocked and will not even arrive in the spam folder.
 
-Configuring these SPF records is clearly documented in the [Salesforce SPF setup guide](https://help.salesforce.com/s/articleView?id=000391416&type=1).
+Configuring these SPF records is clearly documented [in the Salesforce SPF setup guide](https://help.salesforce.com/s/articleView?id=000391416&type=1).
 
 ## Can I Use My Own SMTP Server?
 

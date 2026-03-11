@@ -72,7 +72,7 @@ const Home = () => {
 
 CDN Know that the CDN part of the Managed Runtime takes care of this caching mechanism. At the time of writing, this is CloudFront. The plan is to migrate to the eCDN for a generic architecture (Forward-Looking Statement). Default Cache Times Be aware that the default cache time is only 15 minutes, which is low. Consider changing this to a few hours!
 
-But keep in mind that the replication does not automatically clear its cache in the Managed Runtime like we are used to in SFRA, but a cache invalidation API is available.
+But keep in mind that the replication does not automatically clear its cache in the Managed Runtime like we are used to in SFRA, but an API is available (hint, hint).
 
 ## API Caching
 
@@ -90,7 +90,7 @@ In Business Manager, go to Administration > Sites > Manage Sites > Site Name - C
 
 Salesforce B2C Commerce Cloud comes with many REST APIs out of the box (some you can extend, others you can not). These APIs have their own rules for caching and personalised caching.
 
-These rules have been documented in the [server-side web-tier caching guide](https://developer.salesforce.com/docs/commerce/commerce-api/guide/server-side-web-tier-caching.html); be sure to have a look!
+These rules have been documented [in the server-side web-tier caching guide](https://developer.salesforce.com/docs/commerce/commerce-api/guide/server-side-web-tier-caching.html); be sure to have a look!
 
 #### Feature Switch
 

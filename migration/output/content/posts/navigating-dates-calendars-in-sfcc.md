@@ -791,7 +791,8 @@ A warning when creating a Calendar from a Date
 
 A warning when converting from a Calendar to Date
 
-Documentation Many Calendar functions have helpful examples to understand the intricacies of working with timezones.
+> [!NOTE]
+> **Documentation:** Many Calendar functions have helpful examples to understand the intricacies of working with timezones.
 
 ### Caching
 

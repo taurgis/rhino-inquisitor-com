@@ -38,7 +38,7 @@ There is a [limit](https://documentation.b2c.commercecloud.salesforce.com/DOC1/t
 
 > Shoppers can now use Buy Now express checkout without losing the contents of an existing shopping cart. Buy Now express checkout puts items for purchase in a separate cart. To use this feature, upgrade the Payments plug-in (plugin\_commercepayments) to the latest version.
 
-Losing your basket halfway through your shopping experience is never a fun thing. For any projects making use of [Commerce Payments](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/salesforce_payments/b2c_salesforce_payments.html), this update is a welcome improvement. The plugin\_commercepayments repository can be found in the [plugin_commercepayments repository](https://github.com/SalesforceCommerceCloud/plugin_commercepayments). Access to the repository If you don’t have a GitHub account, see [Salesforce Commerce Cloud GitHub Repositories and Access](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/site_development/b2c_github_repo_access.html#github_repo).
+Losing your basket halfway through your shopping experience is never a fun thing. For any projects making use of [Commerce Payments](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/salesforce_payments/b2c_salesforce_payments.html), this update is a welcome improvement. The plugin\_commercepayments repository can be found [on GitHub](https://github.com/SalesforceCommerceCloud/plugin_commercepayments). Access to the repository If you don’t have a GitHub account, see [Salesforce Commerce Cloud GitHub Repositories and Access](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/site_development/b2c_github_repo_access.html#github_repo).
 
 ## Business Manager
 
@@ -70,15 +70,15 @@ A new release for [Account Manager](https://account.demandware.com/) has happene
 
 > During multi-factor authentication (MFA), when a user tries to Log in with an insecure Device, Account Manager displays the following prescriptive error message: Your log in request can't be completed. Set PIN, pattern or passcode to secure your mobile device and try again.
 
-#### Use the Last Log In Date to Track User Activity
+### Use the Last Log In Date to Track User Activity
 
 > The Account Manager User Detail page now displays the user's last log in date. Admins can use this date to track user activity and identify inactive users
 
-#### Prevent Org Invitations to Deleted Users
+### Prevent Org Invitations to Deleted Users
 
 > You can no longer add deleted users to an organization. Attempts to add a deleted user returns the following error message: Only enabled users can be invited into an organization.
 
-#### New Account Manager Password Requirements
+### New Account Manager Password Requirements
 
 IMPORTANT! Account Manager is announcing an upcoming change to password requirements for stronger passwords and better security. These changes are not part of the current release and are being announced in advance, so users are aware of them. The new requirements are as follows:
 
@@ -91,7 +91,7 @@ IMPORTANT! Account Manager is announcing an upcoming change to password requirem
 
 ## PWA Kit v2.6.0
 
-A new PWA Kit release happens every few weeks, so this month is no different. In this release, the biggest modification is a performance boost to the "[Mega Menu](https://github.com/SalesforceCommerceCloud/pwa-kit/blob/develop/packages/template-retail-react-app/app/components/drawer-menu/index.jsx)" by lazy loading menu items below a configured 'depth'. Want to see what else this new version has in store? Have a look at the [PWA Kit v2.6.0 release notes](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v2.6.0).
+A new PWA Kit release happens every few weeks, so this month is no different. In this release, the biggest modification is a performance boost to the "[Mega Menu](https://github.com/SalesforceCommerceCloud/pwa-kit/blob/develop/packages/template-retail-react-app/app/components/drawer-menu/index.jsx)" by lazy loading menu items below a configured 'depth'. Want to see what else this new version has in store? Have a look [here](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v2.6.0) at the release notes.
 
 ## Bugfixes
 

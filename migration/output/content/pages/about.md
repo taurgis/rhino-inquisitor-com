@@ -13,7 +13,7 @@ author: Thomas Theunen
 
 One important rule when creating a new start-up: There are no shortcuts.
 
-[My Mission In Life](#my-mission-statement)
+[My Mission In Life](#mission)
 
 ### My Approach To Company Growth
 

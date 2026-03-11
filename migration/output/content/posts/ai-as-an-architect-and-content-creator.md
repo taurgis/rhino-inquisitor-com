@@ -95,7 +95,8 @@ While sometimes it generates "garbage", 99% of the time, it gives me great sugge
 -   **Generation Type**: Text
 -   **Generation Engine**: OpenAI GPT 4
 
-Documentation and explaining how a feature works is not always a developer's most "exciting" job. Giving your code to the engine and asking for documentation can have some decent results!
+> [!NOTE]
+> **Documentation:** and explaining how a feature works is not always a developer's most "exciting" job. Giving your code to the engine and asking for documentation can have some decent results!
 
 ![GPT-4 playground drafting developer documentation for a React component.](/media/2023/documentation-with-gpt-4-b13ad915e5.jpg)
 

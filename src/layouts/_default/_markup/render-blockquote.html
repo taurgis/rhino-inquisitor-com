@@ -1,4 +1,9 @@
 {{- $alertTypes := dict "note" "Note" "tip" "Tip" "warning" "Warning" -}}
+{{- if ne .Type "alert" -}}
+<blockquote class="article-quote">
+  {{ .Text }}
+</blockquote>
+{{- else -}}
 {{- $type := "" -}}
 {{- with .AlertType -}}
   {{- $type = . -}}
@@ -15,3 +20,4 @@
   {{- end -}}
   {{ .Text }}
 </blockquote>
+{{- end -}}

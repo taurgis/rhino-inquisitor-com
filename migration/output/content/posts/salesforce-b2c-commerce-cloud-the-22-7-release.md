@@ -54,7 +54,7 @@ If we look at this list, it is also clear this is an update to the 1.7.14 versio
 
 Some significant encryption changes have been made to the [Order.getOrderExportXML](https://documentation.b2c.commercecloud.salesforce.com/DOC3/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_order_Order.html#dw_order_Order_getOrderExportXML_DetailAnchor) API, mainly around the encryption of payment instrument data.
 
-A complete list of changes is available in the [order export encryption update notes](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_OCAPI_order_export_mc.htm&type=5).
+A complete list of changes is available [in the order export encryption update notes](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_OCAPI_order_export_mc.htm&type=5).
 
 ## PWA Kit v2.0.0
 

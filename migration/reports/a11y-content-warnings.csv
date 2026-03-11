@@ -1,1 +1,3 @@
 file,line,issueType,status,severity,value,message,suggestion
+migration/output/content/posts/salesforce-b2c-commerce-cloud-23-3-release.md,76,weak_link_text,warn,medium,here,Link text is too generic to stand alone reliably.,Replace the link text with a destination-specific label.
+migration/output/content/posts/the-realm-split-field-guide-to-migrating-an-sfcc-site.md,103,table_missing_header_divider,warn,medium,"**MANDATORY:** For a live site, order data migration _must_ be performed by Salesforce Support. This is a hard dependency requiring at least 10 working days' notice. | Dev Team / Salesforce Support |",Possible GFM table is missing a header divider row.,Add a Markdown table divider row such as | --- | --- |.

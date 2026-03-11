@@ -385,7 +385,7 @@ function rewriteVideoHubHeadings(source, context) {
     return source;
   }
 
-  return source.replace(/^(####\s+)(?!\[)(.+)$/gmu, (match, prefix, headingText) => {
+  return source.replace(/^(#{3,4}\s+)(?!\[)(.+)$/gmu, (match, prefix, headingText) => {
     const normalizedHeading = normalizeLookupText(headingText);
     const targetUrl = context.pageTitleLookup.get(normalizedHeading);
     if (!targetUrl) {

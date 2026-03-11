@@ -35,7 +35,7 @@ For those who want a quick answer to this, I have created a postman collection w
 
 A new option is available for session bridging linked to SLAS. This alternative is handy if you primarily work with SCAPI endpoints and SLAS. It provides a more efficient and effective way to manage sessions and streamline your transfer workflow.
 
-You can find the documentation in the [SLAS Session Bridge guide](https://developer.salesforce.com/docs/commerce/commerce-api/guide/slas-session-bridge-auth.html?q=session%20bridge)!
+You can find the documentation [in the SLAS Session Bridge guide](https://developer.salesforce.com/docs/commerce/commerce-api/guide/slas-session-bridge-auth.html?q=session%20bridge)!
 
 ## What is it?
 
@@ -140,7 +140,8 @@ Let us exchange that token for a cookie, shall we? And for that, we need the "se
 
 -   [/sessions](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/shop/Resources/Sessions.html#id-2104258718__id-514053870)
 
-Important information The link above contains much information on things to keep in mind! Be sure to give it a good read.
+> [!WARNING]
+> **Important:** information The link above contains much information on things to keep in mind! Be sure to give it a good read.
 
 The request itself is pretty easy! Call the endpoint with the correct authorization header (type bearer), and you are as good as gold!
 

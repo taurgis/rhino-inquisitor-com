@@ -1,8 +1,8 @@
 ---
 title: How to get a Salesforce B2C Commerce Cloud Sandbox
 description: >-
-  Learn the realistic ways to get access to a Salesforce B2C Commerce sandbox,
-  from employer access to partner routes and on-demand options.
+  As a developer, you want to know what you are getting yourself into to make a
+  conscious choice of what you will be doing for the years to come.
 date: '2022-04-05T05:36:43.000Z'
 lastmod: '2022-12-20T16:23:36.000Z'
 url: /how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/
@@ -49,7 +49,7 @@ The primary purpose is to provide a contact point for accounts that already have
 
 So, for now, the message is as follows:
 
-> To obtain a trial sandbox please reach out to either your Commerce Cloud Account Executive (customers) or your Partner Manager (partners). For details on the partner program look at the [partner program overview](https://partners.salesforce.com/pdx/s/learn/article/isv-b2c-commerce-MCDSZA63SNTNCRRBPDZX3PU7OGWI?language=en_US).
+> To obtain a trial sandbox please reach out to either your Commerce Cloud Account Executive (customers) or your Partner Manager (partners). For details on the partner program look [at the partner program overview](https://partners.salesforce.com/pdx/s/learn/article/isv-b2c-commerce-MCDSZA63SNTNCRRBPDZX3PU7OGWI?language=en_US).
 
 ### PWA Kit
 

@@ -49,7 +49,7 @@ Salesforce provides a visualisation example in their documentation: [https://dev
 
 ## Creating a Chunk-Oriented Script Module
 
-We will start with the script. If you need an example for steptypes.json, [jump to the steptypes example](#steptypes)!
+We will start with the script. If you need an example for steptypes.json, [see the steptypes example](#steptypes)!
 
 ### Importing what you need
 

@@ -1,8 +1,8 @@
 ---
 title: 'Understanding Salesforce B2C Commerce Instances: A Comprehensive Guide'
 description: >-
-  Understand the different SFCC instance types, what each environment is for,
-  and how development, staging, and production fit into daily delivery work.
+  Salesforce B2C Commerce is a that enables businesses to create highly
+  customised and scalable digital storefronts.
 date: '2023-04-17T14:18:06.000Z'
 lastmod: '2023-04-17T14:18:18.000Z'
 url: /understanding-sfcc-instances/

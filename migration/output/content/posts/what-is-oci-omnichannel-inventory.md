@@ -40,7 +40,7 @@ The OCI exists out of multiple components:
 
 -   **Omnichannel Inventory App:** A Salesforce console app to manage your locations and inventory availability in the [visual interface you know and love](https://www.salesforce.com/campaign/lightning/).
 
-  [![Omnichannel Inventory app interface for managing locations and availability.](/media/2022/omnichannel-inventory-0b29da8f29.png)](/media/2022/omnichannel-inventory-0b29da8f29.png)
+   [![Omnichannel Inventory app interface for managing locations and availability.](/media/2022/omnichannel-inventory-0b29da8f29.png)](/media/2022/omnichannel-inventory-0b29da8f29.png)
 
 The Omnichannel Inventory provides a set of Headless APIs so any system can communicate with it to get the latest inventory information, be it your website, app, or any other system connected to the web (which can include your physical stores).
 

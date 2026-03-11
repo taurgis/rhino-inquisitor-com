@@ -143,8 +143,6 @@ Once the script is in place and all required variables are configured in the col
     -   client\_assertion\_type: urn:ietf:params:oauth:client-assertion-type:jwt-bearer
     -   grant\_type: client\_credentials
 
-[![Postman request configured for OCAPI JWT authentication.](/media/2022/postman-authentication-ocapi-d973adb2eb.jpg)](/media/2022/postman-authentication-ocapi-d973adb2eb.jpg)
-
-[Download Postman Collection](https://gist.github.com/taurgis/df656968852275539d9f9d7a74bf62de)
+ [![Postman request configured for OCAPI JWT authentication.](/media/2022/postman-authentication-ocapi-d973adb2eb.jpg)](/media/2022/postman-authentication-ocapi-d973adb2eb.jpg)[Download Postman Collection](https://gist.github.com/taurgis/df656968852275539d9f9d7a74bf62de)
 
 _A big thanks to [Yuriy Boev](https://www.linkedin.com/in/yuriy-boev-3907002b/) and [John Boxall](https://www.linkedin.com/in/jboxall/) for helping me get to a working example! I will refer you to the [Unofficial Slack thread](https://sfcc-unofficial.slack.com/archives/CBB7YAAHW/p1656070265465869) for other scripts or languages!_

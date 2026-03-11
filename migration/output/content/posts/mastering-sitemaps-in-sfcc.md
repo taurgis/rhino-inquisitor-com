@@ -81,20 +81,11 @@ Time to run Remember that the generation part won't be complete in just a few se
 
 ## Choices... choices
 
-- **Manual Upload**
-  - Best for: one-offs and testing.
-  - Mechanism: UI in Business Manager.
-  - Vibe: quick and dirty.
-
-- **Script API Job**
-  - Best for: batch processes such as nightly sync.
-  - Mechanism: custom job step using `dw.sitemap.SitemapMgr`.
-  - Vibe: classic and reliable.
-
-- **SCAPI Endpoint**
-  - Best for: real-time, event-driven integrations.
-  - Mechanism: `PUT` request to the Shopper SEO API.
-  - Vibe: modern and agile.
+| _Integration Method_ | _Best For_ | _Mechanism_ | _Vibe_ |
+| --- | --- | --- | --- |
+| **Manual Upload** | One-offs, testing | UI in Business Manager | Quick & Dirty |
+| **Script API Job** | Batch processes (e.g., nightly sync) | Custom job step using dw.sitemap.SitemapMgr | Classic & Reliable |
+| **SCAPI Endpoint** | Real-time, event-driven integrations | PUT request to the Shopper SEO API | Modern & Agile |
 
 ## Sitemaps in the Headless Universe: PWA Kit Edition
 

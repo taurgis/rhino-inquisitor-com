@@ -112,7 +112,7 @@ _**Note:**_ _This session is not aimed at Salesforce B2C Commerce Cloud._
 
 Join Parker Harris, the chief product officers from Salesforce, MuleSoft, Slack, and Tableau, and product managers for a one-of-a-kind question-and-answer forum about our product roadmap.
 
-**Have a question or topic you’d like to see the executives address during True to the Core? Send them through the [Trailblazer Community thread](https://trailhead.salesforce.com/trailblazer-community/feed/0D54S00000FUYl1SAH).**
+**Have a question or topic you’d like to see the executives address during True to the Core? Send them [through the Trailblazer Community thread](https://trailhead.salesforce.com/trailblazer-community/feed/0D54S00000FUYl1SAH).**
 
 _**Note:** This session is not aimed at Salesforce B2C Commerce cloud but is an excellent opportunity to get to know other products in the ecosystem. And it's the second day keynote, so be there or be square!_
 

@@ -1,8 +1,8 @@
 ---
 title: How to set up SLAS for the Composable Storefront
 description: >-
-  Set up SLAS for a Salesforce Composable Storefront step by step, from client
-  creation and scopes to the final local launch check.
+  Are you setting up your Composable Storefront and wondering what the SLAS
+  Client ID is all about? You're not alone!
 date: '2023-01-16T08:12:41.000Z'
 lastmod: '2023-01-16T08:12:55.000Z'
 url: /how-to-set-up-slas-for-the-composable-storefront/
@@ -36,35 +36,29 @@ After you have logged into the Business Manager of your environment, go to the f
 
 The link is only visible if you have DWithEase (Browser Extension) installed.
 
-The link is not there. If you do not see the link (the link is inserted by [DWithEase](https://dwithease.com/)), manually go to the URL: https://**{{Short\_Code}}**.api.commercecloud.salesforce.com/shopper/auth-admin/v1/sso/login
+The link is not there If you do not see the link (The link is inserted by [DWithEase](https://dwithease.com/)), manually go to the URL: https://**{{Short\_Code}}**.api.commercecloud.salesforce.com/shopper/auth-admin/v1/sso/login On this screen, some necessary information to install the PWA Kit can be found. But besides the Short Code and the Organization ID, there is an interesting link present. "SLAS Admin UI" Let's click that now, shall we? [
 
-On this screen, some necessary information to install the PWA Kit can be found. But besides the Short Code and the Organization ID, there is an interesting link present: "SLAS Admin UI". Let's click that now, shall we?
+![Sign-in page that links to the SLAS Admin UI.](/media/2023/slas-admin-ui-login-ff882d0848.jpg)
 
-[![Sign-in page that links to the SLAS Admin UI.](/media/2023/slas-admin-ui-login-ff882d0848.jpg)](/media/2023/slas-admin-ui-login-ff882d0848.jpg)
-
-When we click this link, the above screen should become visible. It shows a blue button with the text "SLAS Admin UI Login". We are logged in with our Account Manager user when this link is clicked.
-
-To manage SLAS, we need the necessary permission given to us by an Account Manager.
-
-Account Manager: Scopes. Do not forget to assign the correct scopes to this role!
+](/media/2023/slas-admin-ui-login-ff882d0848.jpg)When we click this link, the above screen should become visible. It shows a blue button with the text "SLAS Admin UI Login". We are logged in with our Account Manager user when this link is clicked. To manage SLAS, we need the necessary permission (given to us by an Account Manager "Account Manager": Scopes Do not forget to assign the correct scopes to this role!
 
 [![Account Manager role scopes required for SLAS administration.](/media/2023/slas-rights-account-manager-dfaa6aa6b8.jpg)](/media/2023/slas-rights-account-manager-dfaa6aa6b8.jpg)
 
 ## Step 3: Add a new SLAS Client
 
-If the used account has the correct permissions, we should be greeted by a friendly "Welcome screen".
+If the used account has the correct permissions, we should be greeted by a friendly "Welcome screen".  [
 
-[![SLAS Admin UI welcome page after a successful sign-in.](/media/2023/slas-admin-welcome-ui-bbc3ad8da9.jpg)](/media/2023/slas-admin-welcome-ui-bbc3ad8da9.jpg)
+![SLAS Admin UI welcome page after a successful sign-in.](/media/2023/slas-admin-welcome-ui-bbc3ad8da9.jpg)
 
-On this page, click the "Clients" tab to go to the list of active clients we are permitted to manage (see scopes in the previous step).
+](/media/2023/slas-admin-welcome-ui-bbc3ad8da9.jpg)On this page, click the "Clients" tab to go to the list of active clients we are permitted to manage (see scopes in the previous step). [
 
-[![Client list in the SLAS Admin UI.](/media/2023/slas-admin-add-client-c488a4b6e3.jpg)](/media/2023/slas-admin-add-client-c488a4b6e3.jpg)
+![Client list in the SLAS Admin UI.](/media/2023/slas-admin-add-client-c488a4b6e3.jpg)
 
-Click the "Add Client" button on this page to go to the next step.
+](/media/2023/slas-admin-add-client-c488a4b6e3.jpg)Click the "Add Client" button on this page to go to the next step. [
 
-[![New client form for a PWA Kit SLAS application.](/media/2023/slas-admin-ui-new-client-pwa-kit-c70f8d1fd1.jpg)](/media/2023/slas-admin-ui-new-client-pwa-kit-c70f8d1fd1.jpg)
+![New client form for a PWA Kit SLAS application.](/media/2023/slas-admin-ui-new-client-pwa-kit-c70f8d1fd1.jpg)
 
-And with that, we are almost there! Fill in the following information:
+](/media/2023/slas-admin-ui-new-client-pwa-kit-c70f8d1fd1.jpg)And with that, we are almost there! Fill in the following information:
 
 -   **What tenant will be used?:** Fill in the Tenant ID, part of the Organization ID, from step two. (format: xxxx\_sxx)
 -   **What site will be used?:** Here, we fill in the site IDs used - separated by a space.

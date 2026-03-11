@@ -20,7 +20,7 @@ author: Thomas Theunen
 ---
 In this post, we will be looking at the release notes of Salesforce B2C Commerce Cloud for April 2022. Since the release cycles for B2C Commerce are [a lot quicker than the other Salesforce platforms](https://medium.com/inside-the-salesforce-ecosystem/a-partners-guide-to-navigating-the-salesforce-release-cycle-efa36ed3c64), not every month will be as extensive a list as the other.
 
-Check out the [original 22.4 release notes](https://help.salesforce.com/s/articleView?id=rn_b2c_rn_22_4_release.htm&type=5&language=en_US).
+Check out the original release notes [for April 2022](https://help.salesforce.com/s/articleView?id=rn_b2c_rn_22_4_release.htm&type=5&language=en_US).
 
 ## PWA Kit
 

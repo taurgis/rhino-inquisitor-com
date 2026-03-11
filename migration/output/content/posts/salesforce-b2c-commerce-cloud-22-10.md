@@ -20,7 +20,7 @@ What a year it has been, and now it is time for the final release of this year: 
 
 And yes, as it is every year, there will be no releases between November and January to provide stability on the platform during the holiday period.
 
-Are you interested in last month’s release notes? [Read the September 2022 release notes](/salesforce-b2c-commerce-cloud-22-9-release/)!
+Are you interested in last month’s release notes? [Read the 22.9 release notes](/salesforce-b2c-commerce-cloud-22-9-release/)!
 
 ## Staging eCDN configuration
 
@@ -45,7 +45,7 @@ A positive move that has been made is this is a cartridge that you can install y
 
 This gives developers (and architects) more power over how the integration with these Social Channels is made!
 
-The cartridge can be downloaded from the [Social Channel Integrations repository](https://github.com/SalesforceCommerceCloud/social_channel_integrations)!
+The cartridge can be downloaded [from the Social Channel Integrations repository](https://github.com/SalesforceCommerceCloud/social_channel_integrations)!
 
 ## Platform
 
@@ -93,7 +93,7 @@ A new hook has been introduced.
 
 [![beforePOST v2 basket hook reference in the API documentation.](/media/2022/new-hook-basket-f116a5da90.jpg)](/media/2022/new-hook-basket-f116a5da90.jpg)
 
-Deprecated Hook. The v1 hook will continue to exist but is discouraged from being used.
+Deprecated Hook The v1 hook will continue to exist but is discouraged from being used.
 
 ### Edge Caching for SCAPI
 
@@ -109,7 +109,8 @@ The performance of the SCAPI will improve with this change, as it no longer reli
 
 This will increase the response time and allow the Mulesoft layer to scale better since it is no longer responsible for serving 100% of the requests.
 
-Documentation ~~The documentation for this change is not available yet, so questions like "Can we manipulate the time?" or "Can we clear this cache?" is not something that we can answer yet.~~
+> [!NOTE]
+> **Documentation:** ~~The documentation for this change is not available yet, so questions like "Can we manipulate the time?" or "Can we clear this cache?" is not something that we can answer yet.~~
 
 
 _**Update**: It is not possible to manipulate the cache time, or clear it. (For now, at least. This might change in the future)_

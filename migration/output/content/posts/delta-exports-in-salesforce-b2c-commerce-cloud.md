@@ -70,7 +70,7 @@ When we create a new job or open an existing one, we configure multiple items:
 
 But? Huh? I see more types listed here than there are Job Steps available! And you are correct; you get more options here.
 
-A list of supported types can be found in the [delta exports reference](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/import_export/b2c_delta_exports.html).
+A list of supported types can be found [in the Delta Exports documentation](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/import_export/b2c_delta_exports.html).
 
 ### Schedule
 

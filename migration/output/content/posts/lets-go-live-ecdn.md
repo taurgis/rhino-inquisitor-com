@@ -61,7 +61,7 @@ To point the domain to Salesforce B2C Commerce Cloud, you need access to the dom
 
 [![DNS record editor for the vanity domain.](/media/2022/add-dns-record-domain-com-245d883c43.jpg)](/media/2022/add-dns-record-domain-com-245d883c43.jpg)
 
-APEX Domain Pointing / Naked Domain. It is essential to know that the APEX Domain or Naked Domain does not support CNAME records.
+APEX Domain Pointing / Naked Domain It is essential to know that the APEX Domain or Naked Domain does not support CNAME records.
 
 Usually, a DNS provider has solutions for this, but this needs to be considered. In a worst-case scenario, you need to set up a "mini-server" to do the redirection of the naked domain to the www subdomain. You can find some [information on Salesforce Help](https://help.salesforce.com/s/articleView?id=000361629&type=1) on this topic.
 

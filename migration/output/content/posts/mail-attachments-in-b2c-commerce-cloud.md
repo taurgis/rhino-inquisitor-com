@@ -25,7 +25,7 @@ This report will deconstruct the MIME protocol, build a bulletproof, reusable se
 
 For those who want a quick solution to their attachment problem without extensive reading, here you go!
 
-An alternative example can also be found in the [jsPDF attachment controller example](https://github.com/taurgis/salesforce-commerce-cloud-libraries/blob/master/cartridges/plugin_testlibraries/cartridge/controllers/jsPDF.js)!
+An alternative example can also be found [in the jsPDF attachment controller example](https://github.com/taurgis/salesforce-commerce-cloud-libraries/blob/master/cartridges/plugin_testlibraries/cartridge/controllers/jsPDF.js)!
 
 ### Controller
 

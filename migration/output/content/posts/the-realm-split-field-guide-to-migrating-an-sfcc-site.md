@@ -1,8 +1,8 @@
 ---
 title: 'The Realm Split: A Developer''s Field Guide to Migrating an SFCC Site'
 description: >-
-  Learn when an SFCC realm split is justified, how to plan the migration, and
-  which data, SEO, and operational risks demand the most attention.
+  Have you ever found yourself in a deployment-day standoff? Read the full
+  article on Rhino Inquisitor for implementation details.
 date: '2025-09-08T09:14:15.000Z'
 lastmod: '2025-09-05T11:12:50.000Z'
 url: /the-realm-split-field-guide-to-migrating-an-sfcc-site/
@@ -19,6 +19,8 @@ author: Thomas Theunen
 Have you ever found yourself in a deployment-day standoff? Your team is ready to push a critical feature for the US site, but it's blocked because a seemingly unrelated change for the EU site, which shares your codebase, has failed QA. You're stuck. This kind of organisational friction, where independent business units become entangled in a shared technical fate, is a clear signal that your single Salesforce B2C Commerce Cloud realm is cracking under pressure. The technical dependencies that once streamlined operations now create bottlenecks, and the shared codebase that once promised efficiency has become a source of risk and frustration.
 
 When this friction becomes unbearable, the business is faced with a monumental decision: a realm split. This is the architectural divorce of a site from its original family of instances, code, and data. It is a deliberate move to carve out a new, autonomous environment where a business unit can operate without being constrained by the priorities, schedules, and technical debt of its siblings. But like any divorce, it is complex, costly, and fraught with peril. A realm split is not a simple data replication or a POD move; it is a full-scale migration that touches every aspect of the platform, from the underlying infrastructure to third-party integrations and historical analytics.
+
+This field guide serves as a comprehensive, battle-tested [blueprint](https://help.salesforce.com/s/articleView?id=000391622&language=en_US&type=1) for SFCC developers and architects tasked with navigating this process. It provides a detailed plan of action that covers the strategic 'why,' the tactical 'how,' and the critical 'what to watch out for.' From justifying the immense cost and effort to executing a minute-by-minute cutover plan and managing the post-split reality, this document is designed to be the definitive resource for successfully cleaving a site into its own sovereign territory.
 
 ## Deconstructing the Monolith: The 'Why' and 'When' of a Realm Split
 
@@ -101,65 +103,24 @@ The complexity of data migration, with its varied methods and ownership, demands
 
 Also, please review [this page](https://help.salesforce.com/s/articleView?id=000391622&language=en_US&type=1) carefully, as it contains a wealth of information on the migration plan you need to set up.
 
-- **Product Catalog**
-  - When: continuous in the old and new realms.
-  - Key considerations and risks: includes products, categories, assignments, and sorting rules. Relatively low risk.
-  - Primary owner: Dev Team / Merchandising.
+| Data Object | When | Key Considerations & Risks | Primary Owner |
+| --- | --- | --- | --- |
+| **Product Catalog** | Continuous in the old and new realms | Includes products, categories, assignments, and sorting rules. Relatively low risk. | Dev Team / Merchandising |
+| **Price Books** | Continuous in the old and new realms | Ensure all relevant price books are included. Test pricing thoroughly post-import. | Dev Team / Merchandising |
+| **Content Assets & Libraries** | Manual syncs at pre-defined moments | Includes content assets, folders, and library assignments. | Dev Team / Content Team |
+| **Slot Configurations** | Manual syncs at pre-defined moments | Verify slot configurations on all page types post-import. | Dev Team / Merchandising |
+| **Promotions & Campaigns** | Manual syncs at pre-defined moments | Includes promotion definitions, campaigns, and customer groups. | Dev Team / Marketing |
+| **Custom Objects** | Manual syncs at pre-defined moments | Export definitions via Site Export. Migrate data using custom jobs with dw.io classes. | Dev Team |
+| **Site Preferences & Metadata** | Manual syncs at pre-defined moments | Many settings are included in site export, but some (e.g., sequence numbers) must be manually configured and verified. | Dev Team |
+| **Customer Profiles** | Complete migration 1-2 weeks before the go-live, delta during and after | **CRITICAL PII RISK:** Ensure the Customer Sequence Number in the new realm is set higher than the highest customer number being imported to prevent duplicate IDs and data exposure. | Dev Team |
+| **Customer Passwords** | Part of the Customer Profiles. | Passwords are encrypted, but can be exported and imported into different realms without any intervention from Salesforce. | Dev Team |
+| **Order History** | Complete migration 1-2 weeks before the go-live, delta during and after | You can export and import orders yourself as long as the site is not marked "live".
 
-- **Price Books**
-  - When: continuous in the old and new realms.
-  - Key considerations and risks: ensure all relevant price books are included. Test pricing thoroughly post-import.
-  - Primary owner: Dev Team / Merchandising.
+**WARNING:** Ensure that you complete importing customers before importing orders, as the linking of orders to the correct customer will not occur in the background otherwise.
 
-- **Content Assets & Libraries**
-  - When: manual syncs at pre-defined moments.
-  - Key considerations and risks: includes content assets, folders, and library assignments.
-  - Primary owner: Dev Team / Content Team.
-
-- **Slot Configurations**
-  - When: manual syncs at pre-defined moments.
-  - Key considerations and risks: verify slot configurations on all page types post-import.
-  - Primary owner: Dev Team / Merchandising.
-
-- **Promotions & Campaigns**
-  - When: manual syncs at pre-defined moments.
-  - Key considerations and risks: includes promotion definitions, campaigns, and customer groups.
-  - Primary owner: Dev Team / Marketing.
-
-- **Custom Objects**
-  - When: manual syncs at pre-defined moments.
-  - Key considerations and risks: export definitions via Site Export. Migrate data using custom jobs with `dw.io` classes.
-  - Primary owner: Dev Team.
-
-- **Site Preferences & Metadata**
-  - When: manual syncs at pre-defined moments.
-  - Key considerations and risks: many settings are included in site export, but some such as sequence numbers must be manually configured and verified.
-  - Primary owner: Dev Team.
-
-- **Customer Profiles**
-  - When: complete migration 1-2 weeks before the go-live, with delta during and after.
-  - Key considerations and risks: critical PII risk. Set the Customer Sequence Number in the new realm above the highest imported customer number to prevent duplicate IDs and data exposure.
-  - Primary owner: Dev Team.
-
-- **Customer Passwords**
-  - When: part of the Customer Profiles migration.
-  - Key considerations and risks: passwords are encrypted, but can be exported and imported into different realms without Salesforce intervention.
-  - Primary owner: Dev Team.
-
-- **Order History**
-  - When: complete migration 1-2 weeks before the go-live, with delta during and after.
-  - Key considerations and risks: you can export and import orders yourself as long as the site is not marked live. Import customers first so order-to-customer links are preserved. For a live site, Salesforce Support must perform the order migration with at least 10 working days' notice.
-  - Primary owner: Dev Team / Salesforce Support.
-
-- **System-Generated Coupons**
-  - When: Salesforce Support ticket.
-  - Key considerations and risks: existing coupon seeds must be migrated by Salesforce Support so issued coupons remain valid.
-  - Primary owner: Salesforce Support.
-
-- **Active Data & Einstein**
-  - When: Salesforce Support ticket during go-live.
-  - Key considerations and risks: different realms require Salesforce Support coordination for this migration.
-  - Primary owner: Dev Team / SF Support.
+**MANDATORY:** For a live site, order data migration _must_ be performed by Salesforce Support. This is a hard dependency requiring at least 10 working days' notice. | Dev Team / Salesforce Support |
+| **System-Generated Coupons** | **Salesforce Support Ticket** | **MANDATORY:** To ensure existing coupons remain valid, the underlying "seeds" must be migrated by Salesforce Support. Requires a separate, specific support ticket. | Salesforce Support |
+| **Active Data & Einstein** | **Salesforce Support Ticket, During Go-Live** | For different realms, this requires a support ticket. | Dev Team / SF Support |
 
 ### Phase 4: Rebuilding the Engine - Code, Config, and Integrations
 

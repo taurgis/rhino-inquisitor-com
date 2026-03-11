@@ -19,6 +19,8 @@ author: Thomas Theunen
 ---
 When you are first introduced to Salesforce B2C Commerce Cloud, one of the selling features that will increase conversion and customer satisfaction is [Einstein](https://www.salesforce.com/products/commerce-cloud/commerce-cloud-einstein/).
 
+Einstein is the "built-in" AI engine that powers product recommendations and other tools to guide a potential buyer. But what are these features, and will they increase my AOV (Average Order Value) by 26% as advertised?
+
 ## History
 
 Even though the product is called Einstein right now, it wasn't always the case. Before Salesforce acquired Demandware, it was called CQuotient ([which was acquired by Demandware in 2014](https://www.businesswire.com/news/home/20141014005186/en/Demandware-Acquires-CQuotient)).
@@ -33,14 +35,33 @@ This history lesson also clarifies that this "Einstein" is unrelated to all of t
 
 As CQuotient was an acquired AI product, it has a separate management console which I mentioned in the previous section.
 
+There are some screens inside the Business Manager, but they mainly push or pull data out of CQuotient:
+
+-   [Slot Configuration](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/recommendations/b2c_configuring_slots_for_predictive_recommendations.html)
 -   Page Designer components
 -   [Einstein Status Dashboard](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/recommendations/b2c_configure_einstein_deployment.html) (Configuration & Monitoring)
 
+## Shared Data Model
+
+For an AI (Artificial Intelligence) to work, it needs to be fed with **quality** data. And the more data, the better it can give the correct responses to given questions.
+
 For this sharing of data, consent needs to be given in the Business Manager at:
+
+_Administration_ > _Global Preferences_ > _Einstein Search Dictionaries Opt-In_
+
+[![Einstein Search Dictionaries Opt-In setting used to enable shared-data consent.](/media/2022/einstein-cquotient-shared-database-6ab8c2ae5e.jpg)](/media/2022/einstein-cquotient-shared-database-6ab8c2ae5e.jpg)
 
 ## Black Box
 
+Before we continue with this story about Einstein, one thing to understand is that the general idea is to give merchandisers easy access to AI with point-and-click tools without having to worry about any of the technicalities behind it.
+
+This is great on one side. But on the other, it means that Salesforce controls 90% of how the AI does its thing.
+
 And we do not get any insights into how it does it unless you work at Salesforce on this particular product.
+
+## Privacy for the consumer
+
+For the AI (Einstein) to learn, I already mention it needs to collect quality data. And that data is extracted from the visitors of the SFCC sites:
 
 -   Categories navigated too
 -   Products viewed
@@ -53,7 +74,8 @@ And we do not get any insights into how it does it unless you work at Salesforce
 
 And for this to work, the consumer needs to be tracked. Some visitors will want to block these behaviors by looking at GDPR, CCPA, and [Do Not Track](https://allaboutdnt.com/) options.
 
-Documentation The necessary tools to comply with this are documented in the [Infocenter](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/einstein/b2c_einstein_set_privacy_preferences.html).
+> [!NOTE]
+> **Documentation:** The necessary tools to comply with this are documented in the [Infocenter](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/einstein/b2c_einstein_set_privacy_preferences.html).
 
 ## Features
 

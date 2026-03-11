@@ -25,7 +25,7 @@ It's summertime, which means we get to check out the fresh release of the Salesf
 > -   Feature flags for application logic
 > -   Configuration that differs between environments
 
-Great news for users of Composable Storefront! You can now use the much-awaited feature of securely managing "secrets" and variables per environment! Currently, the API is the sole choice that is minimally documented in the [Managed Runtime environment variables guide](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/managed-runtime-administration.html#environment-variables).
+Great news for users of Composable Storefront! You can now use the much-awaited feature of securely managing "secrets" and variables per environment! Currently, the API is the sole choice that is minimally (for now) documented [in the Managed Runtime environment variables guide](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/managed-runtime-administration.html#environment-variables).
 
 ## Improve Product Discoverability with the Google Inventory Listings Cartridge
 
@@ -33,7 +33,7 @@ Great news for users of Composable Storefront! You can now use the much-awaited 
 
 > The Google Inventory cartridge is a B2C Commerce direct integration cartridge. You can use the cartridge to list your local store products on Google’s free product listings. Shoppers can discover products in stores near them. This increases local store foot traffic
 
-In today's world, it's essential to connect with customers at multiple touchpoints. Among these touchpoints, Google stands out as one of the most significant. By showcasing your products in proximity to Google searches, you can attract both new and loyal customers to your physical stores or online shop.  It's a proven strategy that can help your business stand out from the competition. You can download the cartridge from the [social_channel_integrations repository](https://github.com/SalesforceCommerceCloud/social_channel_integrations) to get started.
+In today's world, it's essential to connect with customers at multiple touchpoints. Among these touchpoints, Google stands out as one of the most significant. By showcasing your products in proximity to Google searches, you can attract both new and loyal customers to your physical stores or online shop.  It's a proven strategy that can help your business stand out from the competition. You can download the cartridge to add to your codebase [from the Social Channel Integrations repository](https://github.com/SalesforceCommerceCloud/social_channel_integrations) to get started.
 
 ## Business Manager
 

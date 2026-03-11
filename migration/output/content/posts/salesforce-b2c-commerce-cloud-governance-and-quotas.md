@@ -121,7 +121,7 @@ The Business Manager has a monitoring page, which will give you the total overvi
 
 [![Quota alert subscription settings in Business Manager.](/media/2022/sfcc-quota-alerts-7f9e795d58.jpg)](/media/2022/sfcc-quota-alerts-7f9e795d58.jpg)
 
-Subscribe. It is highly recommended to subscribe with multiple people to these alerts. Remember to do this in various environments, not just Production!
+Subscribe It is highly recommended to subscribe with multiple people to these alerts. Remember to do this in various environments, not just Production!
 
 ## I hit a quota, and can't work around it
 

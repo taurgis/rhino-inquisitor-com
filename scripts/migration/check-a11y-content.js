@@ -337,10 +337,19 @@ function scanWeakLinks({ relativePath, lines }) {
 function scanTables({ relativePath, lines }) {
   const findings = [];
 
-  for (let index = 0; index < lines.length - 1; index += 1) {
+  for (let index = 0; index < lines.length; index += 1) {
     const headerLine = lines[index];
+    if (!looksLikeTableLine(headerLine)) {
+      continue;
+    }
+
+    const previousLine = index > 0 ? lines[index - 1] : '';
+    if (looksLikeTableLine(previousLine)) {
+      continue;
+    }
+
     const nextLine = lines[index + 1];
-    if (!looksLikeTableLine(headerLine) || !looksLikeTableLine(nextLine)) {
+    if (!looksLikeTableLine(nextLine)) {
       continue;
     }
 

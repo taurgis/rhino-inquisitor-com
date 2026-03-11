@@ -1,8 +1,8 @@
 ---
 title: 'In the ring: OCAPI versus SCAPI'
 description: >-
-  Compare OCAPI and SCAPI in SFCC, understand where each API fits, and decide
-  when SCAPI is worth adopting over established OCAPI integrations.
+  As we move into 2024, the SCAPI has received much attention and has been
+  updated with new APIs, updates, and performance improvements.
 date: '2024-03-18T08:49:51.000Z'
 lastmod: '2024-03-19T15:11:36.000Z'
 url: /in-the-ring-ocapi-versus-scapi/

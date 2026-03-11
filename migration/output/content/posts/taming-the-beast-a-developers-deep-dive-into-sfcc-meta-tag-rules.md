@@ -192,7 +192,7 @@ A user navigates directly to the "Backpacks" category page without any filters.
 
 Here we encounter a significant limitation: out of the box, the Meta Tag Rules engine does not work with standard Page Designer pages. The underlying `Page` API object lacks the necessary `pageMetaTags`. This creates a significant gap for sites that rely on content marketing and campaign landing pages built in Page Designer.
 
-Luckily, an already complete working "workaround" example has been created by David Pereira in the [Page Designer meta tag workaround article](https://dev.to/bolt04/how-to-use-the-seo-meta-tag-rules-module-for-page-designer-in-sfcc-20i8).
+Luckily, an already complete working "workaround" example has been created by David Pereira [in the Page Designer meta tag workaround article](https://dev.to/bolt04/how-to-use-the-seo-meta-tag-rules-module-for-page-designer-in-sfcc-20i8).
 
 ## The Minefield: Warnings, Pitfalls, and Troubleshooting
 

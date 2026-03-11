@@ -1,8 +1,8 @@
 ---
 title: Creating custom OCAPI endpoints
 description: >-
-  Learn the legacy approach for custom OCAPI endpoints in SFCC, why it is now
-  deprecated, and where Salesforce recommends moving instead.
+  [!WARNING] Deprecated: Since writing this article, Salesforce has provided a
+  new and better method for creating custom endpoints.
 date: '2022-07-11T17:40:22.000Z'
 lastmod: '2023-09-26T09:54:35.000Z'
 url: /creating-custom-ocapi-endpoints/
@@ -18,7 +18,8 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-Deprecated Since writing this article, Salesforce has provided a new and better method for creating custom endpoints. You can find more information about it at [https://developer.salesforce.com/docs/commerce/commerce-api/guide/custom-apis.html](https://developer.salesforce.com/docs/commerce/commerce-api/guide/custom-apis.html).
+> [!WARNING]
+> **Deprecated:** Since writing this article, Salesforce has provided a new and better method for creating custom endpoints. You can find more information about it at [https://developer.salesforce.com/docs/commerce/commerce-api/guide/custom-apis.html](https://developer.salesforce.com/docs/commerce/commerce-api/guide/custom-apis.html).
 
 The OCAPI ([Open Commerce API](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/OpenCommerceAPI.html?cp=0_16)) has been around for many years, giving the platform a sound basis for "headless" applications to connect to different parts of Salesforce B2C Commerce Cloud.
 
@@ -38,7 +39,7 @@ The only thing you are allowed to do is modify existing endpoints, but not all o
 
 I have created a complete example available on GitHub based on the [sfcc-hooks-collection](https://github.com/SalesforceCommerceCloud/sfcc-hooks-collection/) project provided by [Holger Nestmann](https://github.com/hnestmann).
 
-You can find that repository in the [OCAPI custom endpoints example repository](https://github.com/taurgis/ocapi-custom-endpoints). Inside, you will find an example of a custom "get-customer" API added to the OCAPI**.**
+You can find that repository [in the OCAPI custom endpoints example repository](https://github.com/taurgis/ocapi-custom-endpoints). Inside, you will find an example of a custom "get-customer" API added to the OCAPI**.**
 
 ## Limitation of this custom solution
 

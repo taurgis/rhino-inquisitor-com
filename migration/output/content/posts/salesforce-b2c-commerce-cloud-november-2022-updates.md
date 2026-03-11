@@ -125,4 +125,4 @@ Some new ideas made their way to the IdeaExchange!
 
 > b2c-tools is a CLI tool and library for data migrations, import/export, scripting and other tasks with SFCC B2C instances. It is intended to be complimentary to other tools such as sfcc-ci for development and CI/CD scenarios.
 
-The changelog is visible in the [b2c-tools v0.13.2 to v0.13.3 comparison](https://github.com/SalesforceCommerceCloud/b2c-tools/compare/v0.13.2...v0.13.3).
+The changelog is visible [in the b2c-tools v0.13.2 to v0.13.3 comparison](https://github.com/SalesforceCommerceCloud/b2c-tools/compare/v0.13.2...v0.13.3).

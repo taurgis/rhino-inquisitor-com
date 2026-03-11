@@ -10,12 +10,18 @@ import matter from 'gray-matter';
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const defaultContentDir = path.join(repoRoot, 'migration/output/content');
 const defaultCorrectionsFile = path.join(repoRoot, 'migration/input/image-alt-corrections.csv');
+const defaultLinkCorrectionsFile = path.join(repoRoot, 'migration/input/link-text-corrections.csv');
 const defaultSummaryReport = path.join(repoRoot, 'migration/reports/content-corrections-summary.json');
 const defaultAltAuditReport = path.join(repoRoot, 'migration/reports/image-alt-corrections-audit.csv');
+const defaultLinkAuditReport = path.join(repoRoot, 'migration/reports/link-text-corrections-audit.csv');
+const weakLinkTexts = new Set(['click here', 'read more', 'here']);
+const tableDividerPattern = /^\s*\|?(?:\s*:?-{3,}:?\s*\|)+\s*:?-{3,}:?\s*\|?\s*$/u;
+const markdownLinkPattern = /(?<!!)\[([^\]]+)\]\(([^)]+)\)/gu;
 
 async function main() {
   const options = parseArgs(process.argv.slice(2));
   const altCorrections = await loadAltCorrections(options.correctionsFile);
+  const linkCorrections = await loadLinkCorrections(options.linkCorrectionsFile);
   const markdownFiles = (await fg('**/*.md', {
     cwd: options.contentDir,
     absolute: true,
@@ -26,16 +32,23 @@ async function main() {
     contentDir: toRepoRelative(options.contentDir),
     correctionsFile: toRepoRelative(options.correctionsFile),
     correctionsFilePresent: altCorrections.exists,
+    linkCorrectionsFile: toRepoRelative(options.linkCorrectionsFile),
+    linkCorrectionsFilePresent: linkCorrections.exists,
     markdownFileCount: markdownFiles.length,
     filesChanged: 0,
     fencedBlocksNormalized: 0,
     mixedImageLinesSplit: 0,
     imageParagraphSpacersInserted: 0,
+    tableHeaderRowsNormalized: 0,
     altCorrectionsApplied: 0,
-    unmatchedAltCorrections: 0
+    unmatchedAltCorrections: 0,
+    linkTextCorrectionsApplied: 0,
+    unmatchedLinkTextCorrections: 0
   };
-  const auditRows = [];
-  const seenCorrectionKeys = new Set();
+  const altAuditRows = [];
+  const linkAuditRows = [];
+  const seenAltCorrectionKeys = new Set();
+  const seenLinkCorrectionKeys = new Set();
 
   for (const markdownFile of markdownFiles) {
     const source = await fs.readFile(markdownFile, 'utf8');
@@ -45,17 +58,26 @@ async function main() {
 
     const fenceResult = normalizeFencedCodeBlocks(parsed.content);
     const imageResult = normalizeImageParagraphs(fenceResult.content);
+    const tableResult = normalizeMarkdownTables(imageResult.content);
     const altResult = applyAltCorrections({
-      bodyContent: imageResult.content,
+      bodyContent: tableResult.content,
       pageUrl,
       fileLabel,
       correctionsByKey: altCorrections.byKey,
-      seenCorrectionKeys,
-      auditRows
+      seenCorrectionKeys: seenAltCorrectionKeys,
+      auditRows: altAuditRows
+    });
+    const linkResult = applyLinkTextCorrections({
+      bodyContent: altResult.content,
+      pageUrl,
+      fileLabel,
+      correctionsByKey: linkCorrections.byKey,
+      seenCorrectionKeys: seenLinkCorrectionKeys,
+      auditRows: linkAuditRows
     });
 
-    if (altResult.content !== parsed.content) {
-      const rewritten = matter.stringify(altResult.content.trimEnd() ? `${altResult.content.trimEnd()}\n` : '', parsed.data, {
+    if (linkResult.content !== parsed.content) {
+      const rewritten = matter.stringify(linkResult.content.trimEnd() ? `${linkResult.content.trimEnd()}\n` : '', parsed.data, {
         lineWidth: 0
       });
       await fs.writeFile(markdownFile, rewritten, 'utf8');
@@ -65,17 +87,19 @@ async function main() {
     summary.fencedBlocksNormalized += fenceResult.normalizedBlocks;
     summary.mixedImageLinesSplit += imageResult.mixedImageLinesSplit;
     summary.imageParagraphSpacersInserted += imageResult.imageParagraphSpacersInserted;
+    summary.tableHeaderRowsNormalized += tableResult.normalizedTables;
     summary.altCorrectionsApplied += altResult.appliedCount;
+    summary.linkTextCorrectionsApplied += linkResult.appliedCount;
   }
 
   for (const row of altCorrections.rows) {
     const key = buildCorrectionKey(row.pageUrl, row.imageSrc, row.occurrenceIndex);
-    if (seenCorrectionKeys.has(key)) {
+    if (seenAltCorrectionKeys.has(key)) {
       continue;
     }
 
     summary.unmatchedAltCorrections += 1;
-    auditRows.push({
+    altAuditRows.push({
       page_url: row.pageUrl,
       image_src: row.imageSrc,
       occurrence_index: row.occurrenceIndex,
@@ -86,10 +110,30 @@ async function main() {
     });
   }
 
+  for (const row of linkCorrections.rows) {
+    const key = buildLinkCorrectionKey(row.pageUrl, row.target, row.occurrenceIndex);
+    if (seenLinkCorrectionKeys.has(key)) {
+      continue;
+    }
+
+    summary.unmatchedLinkTextCorrections += 1;
+    linkAuditRows.push({
+      page_url: row.pageUrl,
+      target: row.target,
+      occurrence_index: row.occurrenceIndex,
+      original_text: '',
+      corrected_text: row.correctedText,
+      source_file: row.sourceFile,
+      status: 'unmatched'
+    });
+  }
+
   await ensureDirectory(path.dirname(options.summaryReport));
   await ensureDirectory(path.dirname(options.altAuditReport));
+  await ensureDirectory(path.dirname(options.linkAuditReport));
   await fs.writeFile(options.summaryReport, `${JSON.stringify(summary, null, 2)}\n`, 'utf8');
-  await fs.writeFile(options.altAuditReport, serializeAltAuditRows(auditRows), 'utf8');
+  await fs.writeFile(options.altAuditReport, serializeAltAuditRows(altAuditRows), 'utf8');
+  await fs.writeFile(options.linkAuditReport, serializeLinkAuditRows(linkAuditRows), 'utf8');
 
   console.log(
     [
@@ -98,8 +142,11 @@ async function main() {
       `Fenced blocks normalized: ${summary.fencedBlocksNormalized}.`,
       `Mixed image lines split: ${summary.mixedImageLinesSplit}.`,
       `Image paragraph spacers inserted: ${summary.imageParagraphSpacersInserted}.`,
+      `Table headers normalized: ${summary.tableHeaderRowsNormalized}.`,
       `Alt corrections applied: ${summary.altCorrectionsApplied}.`,
       `Unmatched alt corrections: ${summary.unmatchedAltCorrections}.`,
+      `Link-text corrections applied: ${summary.linkTextCorrectionsApplied}.`,
+      `Unmatched link-text corrections: ${summary.unmatchedLinkTextCorrections}.`,
       `Summary: ${toRepoRelative(options.summaryReport)}.`
     ].join(' ')
   );
@@ -109,8 +156,10 @@ function parseArgs(argv) {
   const options = {
     contentDir: defaultContentDir,
     correctionsFile: defaultCorrectionsFile,
+    linkCorrectionsFile: defaultLinkCorrectionsFile,
     summaryReport: defaultSummaryReport,
-    altAuditReport: defaultAltAuditReport
+    altAuditReport: defaultAltAuditReport,
+    linkAuditReport: defaultLinkAuditReport
   };
 
   for (let index = 0; index < argv.length; index += 1) {
@@ -122,11 +171,17 @@ function parseArgs(argv) {
       case '--corrections-file':
         options.correctionsFile = path.resolve(argv[++index]);
         break;
+      case '--link-corrections-file':
+        options.linkCorrectionsFile = path.resolve(argv[++index]);
+        break;
       case '--summary-report':
         options.summaryReport = path.resolve(argv[++index]);
         break;
       case '--alt-audit-report':
         options.altAuditReport = path.resolve(argv[++index]);
+        break;
+      case '--link-audit-report':
+        options.linkAuditReport = path.resolve(argv[++index]);
         break;
       case '--help':
         printHelp();
@@ -146,8 +201,11 @@ function printHelp() {
 Options:
   --content-dir <path>        Override migration/output/content directory.
   --corrections-file <path>   Override migration/input/image-alt-corrections.csv.
+  --link-corrections-file <path>
+                              Override migration/input/link-text-corrections.csv.
   --summary-report <path>     Override migration/reports/content-corrections-summary.json.
   --alt-audit-report <path>   Override migration/reports/image-alt-corrections-audit.csv.
+  --link-audit-report <path>  Override migration/reports/link-text-corrections-audit.csv.
   --help                      Show this help message.
 `);
 }
@@ -201,6 +259,74 @@ async function loadAltCorrections(filePath) {
     if (existing) {
       if (existing.correctedAlt !== row.correctedAlt) {
         throw new Error(`Alt corrections CSV contains conflicting corrections for ${row.pageUrl} ${row.imageSrc} occurrence ${row.occurrenceIndex}.`);
+      }
+      continue;
+    }
+
+    rows.push(row);
+    byKey.set(key, row);
+  }
+
+  return {
+    exists: true,
+    rows,
+    byKey
+  };
+}
+
+async function loadLinkCorrections(filePath) {
+  let raw;
+  try {
+    raw = await fs.readFile(filePath, 'utf8');
+  } catch (error) {
+    if (error?.code === 'ENOENT') {
+      return {
+        exists: false,
+        rows: [],
+        byKey: new Map()
+      };
+    }
+    throw error;
+  }
+
+  const records = parseCsv(raw, {
+    bom: true,
+    columns: true,
+    skip_empty_lines: true,
+    trim: true
+  });
+  const requiredColumns = ['page_url', 'target', 'corrected_text'];
+  const rows = [];
+  const byKey = new Map();
+
+  for (const record of records) {
+    for (const column of requiredColumns) {
+      if (!(column in record)) {
+        throw new Error(`Link-text corrections CSV is missing required column ${column}.`);
+      }
+    }
+
+    const row = {
+      pageUrl: normalizePageUrl(record.page_url),
+      target: normalizeLinkTarget(record.target),
+      occurrenceIndex: normalizeOccurrenceIndex(record.occurrence_index),
+      correctedText: normalizeLinkTextValue(record.corrected_text),
+      sourceFile: String(record.source_file ?? '').trim()
+    };
+
+    if (!row.pageUrl || !row.target) {
+      throw new Error(`Link-text corrections CSV contains an incomplete row for page ${record.page_url ?? 'unknown'}.`);
+    }
+
+    if (!row.correctedText) {
+      continue;
+    }
+
+    const key = buildLinkCorrectionKey(row.pageUrl, row.target, row.occurrenceIndex);
+    const existing = byKey.get(key);
+    if (existing) {
+      if (existing.correctedText !== row.correctedText) {
+        throw new Error(`Link-text corrections CSV contains conflicting corrections for ${row.pageUrl} ${row.target} occurrence ${row.occurrenceIndex}.`);
       }
       continue;
     }
@@ -390,6 +516,81 @@ function normalizeImageParagraphs(content) {
   };
 }
 
+function normalizeMarkdownTables(content) {
+  const lines = String(content ?? '').replace(/\r\n?/gu, '\n').split('\n');
+  const normalizedLines = [];
+  let normalizedTables = 0;
+  let insideFence = false;
+
+  for (let index = 0; index < lines.length; index += 1) {
+    const line = lines[index];
+    if (/^(`{3,}|~{3,})/u.test(line.trim())) {
+      insideFence = !insideFence;
+      normalizedLines.push(line);
+      continue;
+    }
+
+    if (insideFence || !looksLikeTableLine(line)) {
+      normalizedLines.push(line);
+      continue;
+    }
+
+    const tableLines = [];
+    let tableIndex = index;
+    while (tableIndex < lines.length && looksLikeTableLine(lines[tableIndex])) {
+      tableLines.push(lines[tableIndex]);
+      tableIndex += 1;
+    }
+
+    const normalizedTable = normalizeTableHeaderRow(tableLines);
+    normalizedLines.push(...normalizedTable.lines);
+    normalizedTables += normalizedTable.normalizedTables;
+    index = tableIndex - 1;
+  }
+
+  return {
+    content: normalizedLines.join('\n'),
+    normalizedTables
+  };
+}
+
+function normalizeTableHeaderRow(tableLines) {
+  if (tableLines.length < 3) {
+    return {
+      lines: tableLines,
+      normalizedTables: 0
+    };
+  }
+
+  const headerCells = splitTableCells(tableLines[0]);
+  if (headerCells.length === 0 || headerCells.some((cell) => cell.length > 0)) {
+    return {
+      lines: tableLines,
+      normalizedTables: 0
+    };
+  }
+
+  if (!tableDividerPattern.test(tableLines[1])) {
+    return {
+      lines: tableLines,
+      normalizedTables: 0
+    };
+  }
+
+  const promotedHeaderCells = splitTableCells(tableLines[2]);
+  if (promotedHeaderCells.length === 0 || promotedHeaderCells.every((cell) => cell.length === 0)) {
+    return {
+      lines: tableLines,
+      normalizedTables: 0
+    };
+  }
+
+  return {
+    lines: [tableLines[2], tableLines[1], ...tableLines.slice(3)],
+    normalizedTables: 1
+  };
+}
+
 function splitMixedImageLine(line) {
   if (!line.includes('![')) {
     return [line];
@@ -512,8 +713,68 @@ function applyAltCorrections({ bodyContent, pageUrl, fileLabel, correctionsByKey
   };
 }
 
+function applyLinkTextCorrections({ bodyContent, pageUrl, fileLabel, correctionsByKey, seenCorrectionKeys, auditRows }) {
+  if (!pageUrl || correctionsByKey.size === 0) {
+    return {
+      content: bodyContent,
+      appliedCount: 0
+    };
+  }
+
+  const linkOccurrences = new Map();
+  let appliedCount = 0;
+
+  const content = bodyContent.replace(markdownLinkPattern, (match, linkText, rawTarget) => {
+    const normalizedTarget = normalizeLinkTarget(extractMarkdownTarget(rawTarget));
+    const nextOccurrenceIndex = (linkOccurrences.get(normalizedTarget) ?? 0) + 1;
+    linkOccurrences.set(normalizedTarget, nextOccurrenceIndex);
+
+    const correctionKey = buildLinkCorrectionKey(pageUrl, normalizedTarget, nextOccurrenceIndex);
+    const correction = correctionsByKey.get(correctionKey);
+    if (!correction) {
+      return match;
+    }
+
+    seenCorrectionKeys.add(correctionKey);
+    if (normalizeLinkTextValue(linkText) === correction.correctedText) {
+      auditRows.push({
+        page_url: pageUrl,
+        target: normalizedTarget,
+        occurrence_index: nextOccurrenceIndex,
+        original_text: linkText,
+        corrected_text: correction.correctedText,
+        source_file: correction.sourceFile || fileLabel,
+        status: 'already-current'
+      });
+      return match;
+    }
+
+    appliedCount += 1;
+    auditRows.push({
+      page_url: pageUrl,
+      target: normalizedTarget,
+      occurrence_index: nextOccurrenceIndex,
+      original_text: linkText,
+      corrected_text: correction.correctedText,
+      source_file: correction.sourceFile || fileLabel,
+      status: 'applied'
+    });
+
+    return `[${escapeMarkdownLinkText(correction.correctedText)}](${rawTarget})`;
+  });
+
+  return {
+    content,
+    appliedCount
+  };
+}
+
 function buildCorrectionKey(pageUrl, imageSrc, occurrenceIndex = 1) {
   return `${pageUrl}\u0000${imageSrc}\u0000${occurrenceIndex}`;
+}
+
+function buildLinkCorrectionKey(pageUrl, target, occurrenceIndex = 1) {
+  return `${pageUrl}\u0000${target}\u0000${occurrenceIndex}`;
 }
 
 function normalizePageUrl(value) {
@@ -556,7 +817,28 @@ function normalizeImageSrc(value) {
   return trimmedValue;
 }
 
+function normalizeLinkTarget(value) {
+  const trimmedValue = String(value ?? '').trim();
+  if (!trimmedValue) {
+    return '';
+  }
+
+  try {
+    const parsed = new URL(trimmedValue, 'https://www.rhino-inquisitor.com');
+    if (parsed.origin === 'https://www.rhino-inquisitor.com') {
+      return normalizePageUrl(`${parsed.pathname}${parsed.search}${parsed.hash}`);
+    }
+    return parsed.href;
+  } catch {
+    return trimmedValue;
+  }
+}
+
 function normalizeAltText(value) {
+  return String(value ?? '').replace(/\r\n?/gu, ' ').replace(/\s+/gu, ' ').trim();
+}
+
+function normalizeLinkTextValue(value) {
   return String(value ?? '').replace(/\r\n?/gu, ' ').replace(/\s+/gu, ' ').trim();
 }
 
@@ -569,11 +851,42 @@ function escapeMarkdownAlt(value) {
   return normalizeAltText(value).replace(/\]/gu, '\\]');
 }
 
+function escapeMarkdownLinkText(value) {
+  return normalizeLinkTextValue(value).replace(/\]/gu, '\\]');
+}
+
 function serializeAltAuditRows(rows) {
   return stringifyCsv(rows, {
     header: true,
     columns: ['page_url', 'image_src', 'occurrence_index', 'original_alt', 'corrected_alt', 'source_file', 'status']
   });
+}
+
+function serializeLinkAuditRows(rows) {
+  return stringifyCsv(rows, {
+    header: true,
+    columns: ['page_url', 'target', 'occurrence_index', 'original_text', 'corrected_text', 'source_file', 'status']
+  });
+}
+
+function looksLikeTableLine(line) {
+  const trimmed = String(line ?? '').trim();
+  if (!trimmed || trimmed.startsWith('>')) {
+    return false;
+  }
+  return (trimmed.match(/\|/gu) ?? []).length >= 2;
+}
+
+function splitTableCells(line) {
+  const trimmed = String(line ?? '').trim().replace(/^\||\|$/gu, '');
+  return trimmed.split('|').map((cell) => cell.trim());
+}
+
+function extractMarkdownTarget(rawTarget) {
+  return String(rawTarget ?? '')
+    .trim()
+    .replace(/^<|>$/gu, '')
+    .split(/\s+['"]/u, 1)[0];
 }
 
 async function ensureDirectory(directoryPath) {

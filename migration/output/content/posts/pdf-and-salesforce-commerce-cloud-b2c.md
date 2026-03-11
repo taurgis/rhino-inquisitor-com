@@ -37,7 +37,8 @@ Even as the platform has learned new tricks, embracing modern JavaScript feature
 
 As luck would have it, one of the "solutions" I had used until now was generating the PDF files client-side using [jsPDF](https://github.com/parallax/jsPDF) created by [Parallax](https://parall.ax/). Although the effort you have to make to create complex PDF files is relatively high, it gets the job done wonderfully.
 
-Thanks to [Oleg Sapishchuk](https://www.linkedin.com/in/osapishchuk/) for looking into this. It turns out that an older version of this plugin (with minor modifications) is compatible with the Rhino engine!
+> [!NOTE]
+> **Thanks:** to [Oleg Sapishchuk](https://www.linkedin.com/in/osapishchuk/) for looking into this. It turns out that an older version of this plugin (with minor modifications) is compatible with the Rhino engine!
 
 After reading that message on the Unofficial Slack, I could not contain myself to try this out. And what do you know, only an hour later, I had a working prototype that would generate a PDF server-side and render it on the client-side on the fly!
 

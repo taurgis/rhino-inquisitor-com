@@ -31,11 +31,12 @@ You can't just start developing immediately on Salesforce B2C Commerce Cloud. Th
 
 Watching webinars and reading online texts can get tedious. Being able to apply what you learn immediately on a Sandbox is a lot more engaging and fun to do.
 
-I wrote a separate post before explaining [how to get your sandbox](/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/). Just a word of warning: if you are not working for a partner or customer - you might end up disappointed at the end of the article.
+I wrote a separate post before explaining how to get your sandbox [in this guide to getting your sandbox](/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/). Just a word of warning: if you are not working for a partner or customer - you might end up disappointed at the end of the article.
 
 ### Learn Commerce Cloud
 
-Removed Unfortunately, this website no longer exists.
+> [!WARNING]
+> **Removed:** Unfortunately, this website no longer exists.
 
 ![Archived Learn Commerce Cloud landing page.](/media/2022/learn-commerce-cloud-67eab48d9b.jpg)
 

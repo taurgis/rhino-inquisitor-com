@@ -83,7 +83,7 @@ The Shopper Context API will enable customers to build headless storefronts with
 
 > The context information is evaluated against the customer group definitions to determine a customer group (shopper segment) and then used to activate the experiences associated with a particular segment, such as promotions.
 
-Want to make use of this API? The documentation is available in the [Shopper Context API reference](https://developer.salesforce.com/docs/commerce/commerce-api/references?meta=shopper-context:Summary)!
+Want to make use of this API? The documentation is available [in the Shopper Context API reference](https://developer.salesforce.com/docs/commerce/commerce-api/references?meta=shopper-context:Summary)!
 
 ### SLAS Password-less Login
 

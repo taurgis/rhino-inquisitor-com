@@ -33,7 +33,7 @@ The newly enabled methods in 22.4 now allow us to create custom endpoints for an
 
 This update is highly anticipated by Headless projects, as it offers greater flexibility in the Composable Storefront than ever before!
 
-Read all about it in the [Custom APIs guide](https://developer.salesforce.com/docs/commerce/commerce-api/guide/custom-apis.html).
+Read all about it [in the Custom APIs guide](https://developer.salesforce.com/docs/commerce/commerce-api/guide/custom-apis.html).
 
 ## Rogue Query Timeouts in B2C Commerce
 

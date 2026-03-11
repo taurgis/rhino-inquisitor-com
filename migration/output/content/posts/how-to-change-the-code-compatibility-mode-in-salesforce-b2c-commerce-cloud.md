@@ -60,7 +60,7 @@ _"Administration > Site Development > Development Setup"_
 
 [![Development Setup page with the cartridges WebDAV endpoint.](/media/2022/cartridges-webdav-88a388e63c.jpg)](/media/2022/cartridges-webdav-88a388e63c.jpg)
 
-DWithEase. I use the browser plugin [DWithEase](https://dwithease.com/) to make WebDAV browsing much more pleasant.
+DWithEase I use the browser plugin [DWithEase](https://dwithease.com/) to make WebDAV browsing much more pleasant.
 
 If you open the URL (and have the browser plugin installed), you will get a view such as this:
 
@@ -72,7 +72,7 @@ Go into the folder, and a file called ".apiversion" will be there.
 
 [![Active code version folder containing the .apiversion file.](/media/2022/code-version-26171e5278.jpg)](/media/2022/code-version-26171e5278.jpg)
 
-Missing File. If you do not see the file, don't worry! You can upload it yourself to the folder.
+Missing FIle If you do not see the file, don't worry! You can upload it yourself to the folder.
 
 Inside that file is where the "magic" happens, and it looks something like this:
 
@@ -100,7 +100,7 @@ If all has gone well, the code versions have changed to the one in the file!
 
 [![Manage Code Versions screen after the compatibility mode change is applied.](/media/2022/new-code-version-d4f4f68888.jpg)](/media/2022/new-code-version-d4f4f68888.jpg)
 
-Not visible. If no changes are visible, try switching active code versions to trigger the system to re-read the WebDAV files.
+Not visible If no changes are visible, try switching active code versions to trigger the system to re-read the WebDAV files.
 
 ## Dangerous?
 

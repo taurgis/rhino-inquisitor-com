@@ -21,7 +21,7 @@ When we integrate third-party systems with [Salesforce B2C Commerce Cloud](/the-
 
 But how can we achieve this? Are there any other options available? Let's explore the various filtering and query options in detail.
 
-### Querying
+## Querying
 
 Not all endpoints are alike, but within the OCAPI the way of searching for different objects remains the same: making use of Queries and Filtering options.
 
@@ -32,11 +32,11 @@ Here are some of the example endpoints:
 -   [Search for customers in a customer list (0CAPI)](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-data-api?meta=Search%2Bfor%2Bcustomers%2Bin%2Ba%2Bcustomer%2Blist)
 -   [Search Products (SCAPI)](https://developer.salesforce.com/docs/commerce/commerce-api/references/products?meta=searchProducts)
 
-#### Attributes
+### Attributes
 
 Make sure to check the documentation pages for the specific endpoint to view the supported attributes before building your query.
 
-#### Date Format
+### Date Format
 
 When crafting these date filters, adherence to the [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html#:~:text=Therefore%2C%20the%20order%20of%20the,27%2018%3A00%3A00.000.) date format (YYYY-MM-DDTHH:MM:SS.mmmZ) is essential for the API to parse the values correctly. Additionally, ensure that the field names, like `creation_date`, `valid_from`, `valid_to`, and others, correspond to your Salesforce Commerce Cloud data model's actual date-related fields.
 

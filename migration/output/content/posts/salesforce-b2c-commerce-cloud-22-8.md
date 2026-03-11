@@ -185,7 +185,7 @@ Newly supported IDPs are:
 
 The PWA Kit is under continuous development as some features are still missing and new use-cases are presented to the team every week that might require some changes.
 
-This release can be found in the [PWA Kit v2.1.0 release notes](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v2.1.0).
+This release can be found [in the PWA Kit v2.1.0 release notes](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v2.1.0).
 
 ### What’s New
 
@@ -201,7 +201,8 @@ This release can be found in the [PWA Kit v2.1.0 release notes](https://github.c
 -   Add support for a custom build directory to `pwa-kit-dev build`. [#628](https://github.com/SalesforceCommerceCloud/pwa-kit/pull/628)
 -   Introduce client-side hot module replacement. [#630](https://github.com/SalesforceCommerceCloud/pwa-kit/pull/630)
 
-#### pwa-kit-react-sdk
+##
+pwa-kit-react-sdk
 
 -   Remove console logs from route component. [#651](https://github.com/SalesforceCommerceCloud/pwa-kit/pull/651)
 
@@ -233,8 +234,10 @@ API Changes
 
 _Shopper Login New Endpoints_
 
--   `getPasswordResetToken`: Request a reset password token.
--   `resetPassword`: Creates a new password.
+| **Endpoint Name** | **Description** |
+| --- | --- |
+| getPasswordResetToken | Request a reset password token |
+| resetPassword | Creates a new password |
 
 
 Enchancements
@@ -284,7 +287,8 @@ I don't think anything has changed in this release besides updating the package 
 
 Changes
 
-Removed some redundant code which is now part of SFRA
+> [!WARNING]
+> **Removed:** some redundant code which is now part of SFRA
 
 ### plugin\_einstein\_api (v0.0.4)
 

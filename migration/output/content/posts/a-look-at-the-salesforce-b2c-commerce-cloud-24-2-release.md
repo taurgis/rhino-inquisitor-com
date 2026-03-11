@@ -19,7 +19,7 @@ author: Thomas Theunen
 ---
 It's time to gear up for the February 2024 ([24.2](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_24_2_release.htm&type=5)) release of Salesforce B2C Commerce Cloud! With the arrival of this latest release, let's look at what's new and exciting!
 
-You can always check out [last month's release notes](/sfcc-24-1-release-a-new-year-update/) in the January release recap if you missed it.
+You can always check out [last month's release notes](/sfcc-24-1-release-a-new-year-update/) by clicking here if you missed it.
 
 ## Platform
 
@@ -151,7 +151,8 @@ After quite a long warning beforehand, the [UUID](/the-deprecation-of-the-uuid-t
 
 A long-awaited update to SFRA is finally here with the long-promised update to node 18!
 
-Effort Do not underestimate upgrading your projects, as this update also means that libraries have been upgraded!
+> [!NOTE]
+> **Effort:** Do not underestimate upgrading your projects, as this update also means that libraries have been upgraded!
 
 [![package.json changes in SFRA 7.0.0](/media/2024/package-json-changes-7-0-0-cecd2c2e2d.png)](/media/2024/package-json-changes-7-0-0-cecd2c2e2d.png)
 

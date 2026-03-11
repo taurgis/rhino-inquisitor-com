@@ -23,6 +23,7 @@
     "migrate:apply-corrections": "node scripts/migration/apply-content-corrections.js",
     "migrate:finalize-content": "npm run migrate:rewrite-media && npm run migrate:rewrite-links && npm run migrate:apply-corrections",
     "migrate:export-alt-corrections": "node scripts/migration/export-alt-text-corrections.js",
+    "migrate:export-link-text-corrections": "node scripts/migration/export-link-text-corrections.js",
     "build:prod": "hugo --minify --environment production",
     "validate:frontmatter": "node scripts/validate-frontmatter.js",
     "check:url-parity": "node scripts/migration/validate-url-parity.js",

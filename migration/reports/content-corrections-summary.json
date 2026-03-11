@@ -2,11 +2,16 @@
   "contentDir": "migration/output/content",
   "correctionsFile": "migration/input/image-alt-corrections.csv",
   "correctionsFilePresent": true,
+  "linkCorrectionsFile": "migration/input/link-text-corrections.csv",
+  "linkCorrectionsFilePresent": true,
   "markdownFileCount": 171,
-  "filesChanged": 44,
-  "fencedBlocksNormalized": 149,
+  "filesChanged": 1,
+  "fencedBlocksNormalized": 0,
   "mixedImageLinesSplit": 0,
   "imageParagraphSpacersInserted": 0,
+  "tableHeaderRowsNormalized": 0,
   "altCorrectionsApplied": 0,
-  "unmatchedAltCorrections": 0
+  "unmatchedAltCorrections": 0,
+  "linkTextCorrectionsApplied": 2,
+  "unmatchedLinkTextCorrections": 0
 }
