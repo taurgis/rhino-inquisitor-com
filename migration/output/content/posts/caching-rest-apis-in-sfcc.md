@@ -44,9 +44,7 @@ Before we start, we must understand that not all API endpoints support caching. 
 An important thing to remember before starting to tinker with the [Shop API](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/ShopAPIResources.html) (part of the OCAPI) caching is to enable the "[Page Cache](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/site_development/b2c_configure_page_cache.html)" for the site you will be working with. If the Page Cache is disabled, you will see this header value on every response:
 
 ```
-
-					cache-control: no-cache, no-store, must-revalidate
-
+cache-control: no-cache, no-store, must-revalidate
 ```
 
 This is easy to fix. But without enabling it, you cannot test your settings on a sandbox where this is usually disabled. Something to keep in mind It is not possible to clear the Page Cache for the OCAPI only, it will take your storefront (SiteGenesis/SFRA) with it. Clearing the page cache can create a heavy load on the application servers. Only clear the page cache manually when necessary, and avoid clearing it during times of high traffic.
@@ -58,8 +56,7 @@ It is possible to override the default 60 seconds of caching of an resource by a
 [![OCAPI caching settings](/media/2023/ocapi-settings-with-cache-f7e7acfcf8.png)](/media/2023/ocapi-settings-with-cache-f7e7acfcf8.png)
 
 ```
-
-					{
+{
 	"_v": "22.6",
 	"clients": [
 		{
@@ -95,7 +92,6 @@ It is possible to override the default 60 seconds of caching of an resource by a
 		}
 	]
 }
-
 ```
 
 Adding "cache\_time" to the resource configuration lets you easily control the time responses are cached. You can set a **maximum value of 86.400 seconds** (1 day).
@@ -113,8 +109,7 @@ Screenshot of the Infocenter about the "expand" parameter
 Personalized caching is enabled by default based on the customer context (JWT). It is possible to disable this for a resource to improve performance.
 
 ```
-
-					{
+{
 	"_v": "22.6",
 	"clients": [
 		{
@@ -135,7 +130,6 @@ Personalized caching is enabled by default based on the customer context (JWT). 
 		}
 	]
 }
-
 ```
 
 By setting the "personalized\_caching\_enabled" option to false, personalization will be disabled for that resource. Something to keep in mind You can find information about other options (not related to caching) for resources in the [Infocenter](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/OCAPISettings.html).

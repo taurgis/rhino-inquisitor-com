@@ -72,10 +72,7 @@ Cartridge Path In this example, we are assuming that there is only one extra car
 The standard Home-Show controller logic visualised
 
 ```
-
-					Cartridge path: plugin_custom:app_storefront_base
-
-
+Cartridge path: plugin_custom:app_storefront_base
 ```
 
 ### server.prepend()
@@ -85,13 +82,10 @@ The \`server.prepend\` function adds a middleware function to the beginning of t
 Here's a simple example of how you can use \`server.prepend\` with the homepage function:
 
 ```
-
-					server.prepend('Show', function (req, res, next) {
+server.prepend('Show', function (req, res, next) {
  // Your code here will be executed before the app_storefront_base
  next();
 });
-
-
 ```
 
 [![SFRA prepending of Home-Show](/media/2024/sfra-prepend-home-show-de79cdab82.jpg)](/media/2024/sfra-prepend-home-show-de79cdab82.jpg)
@@ -107,13 +101,10 @@ The \`server.append\` function adds a middleware function to the end of the rout
 Here's a simple example of how you can use \`server.append\` with the homepage function:
 
 ```
-
-					server.append('Show', function (req, res, next) {
+server.append('Show', function (req, res, next) {
  // Your code here will be executed after the show function in app_storefront_base
  next();
 });
-
-
 ```
 
 [![SFRA appending of Home-Show](/media/2024/sfra-append-home-show-f8e98c7dcd.jpg)](/media/2024/sfra-append-home-show-f8e98c7dcd.jpg)
@@ -127,8 +118,7 @@ The \`server.replace\` function replaces the entire route stack up until that po
 Here's a simple example of how you can use \`server.replace\` with the homepage function:
 
 ```
-
-					server.replace('Show', function (req, res, next) {
+server.replace('Show', function (req, res, next) {
     var Site = require('dw/system/Site');
     var PageMgr = require('dw/experience/PageMgr');
     var pageMetaHelper = require('*/cartridge/scripts/helpers/pageMetaHelper');
@@ -141,8 +131,6 @@ Here's a simple example of how you can use \`server.replace\` with the homepage 
     }
     next();
 });
-
-
 ```
 
 [![SFRA replacing of Home-Show](/media/2024/sfra-replace-home-show-d90b35f072.jpg)](/media/2024/sfra-replace-home-show-d90b35f072.jpg)
@@ -160,16 +148,13 @@ The options explained above already give you quite a bit of flexibility. But wha
 -   **route:Redirect:** Executed when a "res.redirect()" is executed.
 
 ```
-
-					server.replace('Show', function (req, res, next) {
+server.replace('Show', function (req, res, next) {
      this.on('route:BeforeComplete', function (req, res) {
         var viewData = res.getViewData();
        // Your custom logic, executed at the end of the route
     });
     next();
 });
-
-
 ```
 
 ## Bringing it all together

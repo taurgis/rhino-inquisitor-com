@@ -91,9 +91,7 @@ Follow step "Update Open Commerce API Settings" on the following page using the 
 Now that we have our SLAS Client, Short Code, and Organization ID, we can start installing the PWA Kit! Open up your favorite terminal and enter:
 
 ```
-
-					npx pwa-kit-create-app
-
+npx pwa-kit-create-app
 ```
 
 During the execution you will be prompted to enter certain information.
@@ -107,9 +105,7 @@ You can choose whatever name makes the most sense for you. Keep in mind that thi
 Fill in the URL of your sandbox, and this looks something like:
 
 ```
-
-					https://xxxx-0xx.dx.commercecloud.salesforce.com/
-
+https://xxxx-0xx.dx.commercecloud.salesforce.com/
 ```
 
 ### What is your SLAS Client ID?
@@ -133,9 +129,7 @@ This information can be found in the "Salesforce Commerce API Settings" in the B
 Now that we have SLAS up and running and our PWA Kit installed locally, all that is left is to run our application by going into the new folder the command has created, and doing:
 
 ```
-
-					npm start
-
+npm start
 ```
 
 A browser screen will automatically open. And if all goes well, a homepage will appear after a short wait!

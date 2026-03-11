@@ -90,51 +90,25 @@ The customer import ([customer.xsd](https://documentation.b2c.commercecloud.sale
 _**Note:** This information points to where the data is, not the actual data._
 
 ```
-
-
-
-            This element is for use with Salesforce Payments to track references of customer profiles between systems.
-
-
-
-
+This element is for use with Salesforce Payments to track references of customer profiles between systems.
 ```
 
 ```
+The ID of the payment account used to create the customer payment profile.
 
 
 
 
 
 
+The type of the payment account used to create the customer payment profile.
 
 
 
 
 
 
-
-                The ID of the payment account used to create the customer payment profile.
-
-
-
-
-
-
-                The type of the payment account used to create the customer payment profile.
-
-
-
-
-
-
-                The ID of the customer payment profile in the payment account.
-
-
-
-
-
-
+The ID of the customer payment profile in the payment account.
 ```
 
 ### Verify Hostname Ownership

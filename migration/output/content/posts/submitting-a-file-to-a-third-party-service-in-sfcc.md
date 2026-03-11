@@ -31,8 +31,7 @@ A [separate article is available](/submit-multipart-form-data-to-a-third-party-s
 For those who want a code snippet to copy and paste, here you go!
 
 ```
-
-					LocalServiceRegistry.createService('test.http.post', {
+LocalServiceRegistry.createService('test.http.post', {
         createRequest: function (svc, args) {
             var File = require('dw/io/File');
             // In case you have a variable endpoint
@@ -43,14 +42,12 @@ For those who want a code snippet to copy and paste, here you go!
             return client.text;
         }
     })
-
 ```
 
 Or if you want more control over your request:
 
 ```
-
-					LocalServiceRegistry.createService('test.http.post', {
+LocalServiceRegistry.createService('test.http.post', {
 	 	createRequest: function (svc, args) {
 	 	    // In case you have a variable endpoint
 			svc.setURL(args.uploadUrl);
@@ -66,7 +63,6 @@ Or if you want more control over your request:
             return client.text;
         }
 });
-
 ```
 
 ## Configuration in the Business Manager
@@ -95,14 +91,12 @@ Now everything is configured in the Business Manager, and we can move on to writ
 ## Returning the file in createRequest
 
 ```
-
-					LocalServiceRegistry.createService('test.http.post', {
+LocalServiceRegistry.createService('test.http.post', {
         createRequest: function (svc, args) {
             ...
             return new File(args.filePath);
         }
     })
-
 ```
 
 No rocket science is happening here. The Service Framework automatically detects it is a file being returned and executes the appropriate logic on the [HTTPClient](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_net_HTTPClient.html) "beneath the surface".
@@ -110,8 +104,7 @@ No rocket science is happening here. The Service Framework automatically detects
 ## In case we override the execute logic
 
 ```
-
-					LocalServiceRegistry.createService('test.http.post', {
+LocalServiceRegistry.createService('test.http.post', {
 	 	createRequest: function (svc, args) {
 	 	    ...
     	},
@@ -125,7 +118,6 @@ No rocket science is happening here. The Service Framework automatically detects
             ...
         }
 });
-
 ```
 
 Overriding the "execute" logic is quite simple. As explained in the [ServiceCallback](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_svc_ServiceCallback.html) documentation, we can use the "_executeOverride_" flag to write some custom code on how the external service is called. In this case, we get the original [HTTPClient](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_net_HTTPClient.html) from the [Service](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_svc_HTTPService.html) using "_svc.client._" This client has a function for us to send a file over to an external endpoint: [send(File)](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_net_HTTPClient.html#dw_net_HTTPClient_send_File_DetailAnchor).
@@ -135,8 +127,6 @@ Overriding the "execute" logic is quite simple. As explained in the [ServiceCall
 When working with files, the function "[_filterLogMessage_](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_svc_ServiceCallback.html#dw_svc_ServiceCallback_filterLogMessage_String_DetailAnchor)" receives what you return in the "_createRequest_" call rather than the request's body. This might be a good thing if you are sending large files.
 
 ```
-
-					INFO PipelineCallServlet|1954691750|Sites-RefArch-Site|Login-Post|PipelineCall|kxZB-_nwKL custom.service.test.http.post.COMM []  Request:
+INFO PipelineCallServlet|1954691750|Sites-RefArch-Site|Login-Post|PipelineCall|kxZB-_nwKL custom.service.test.http.post.COMM []  Request:
 [File path=/TEMP/my-file.zip]
-
 ```

@@ -26,10 +26,7 @@ When utilising SFCC with SiteGenesis or SFRA (Salesforce Reference Architecture)
 You can easily navigate through the Business Manager by following this path:
 
 ```
-
-					Administration > Sites > Manage Sites
-
-
+Administration > Sites > Manage Sites
 ```
 
 We proceed on our journey by selecting the site you want to enable this for, then navigating to the site status tab after the page has finished loading.

@@ -66,8 +66,7 @@ This configuration involves creating a JSON document that accurately represents 
 For instance, an API client may have `read_write` permissions to the "`/impex/src/foo"` directory and `read` permission to the "`/impex/src/logs` and `/catalogs"` directories. The client\_id and permissions (each having path and operation) must be clearly defined in this JSON document.
 
 ```
-
-					{
+{
    "clients":[
       {
          "client_id":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
@@ -103,8 +102,6 @@ For instance, an API client may have `read_write` permissions to the "`/impex/sr
             }
          ]
       }
-
-
 ```
 
 [![WebDAV Client Application Permissions with API access to impex and cartridges.](/media/2024/webdav-client-application-permissions-8757d150cc.png)](/media/2024/webdav-client-application-permissions-8757d150cc.png)

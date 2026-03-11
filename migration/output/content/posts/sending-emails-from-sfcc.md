@@ -68,8 +68,7 @@ Marketing Mails Sending transactional emails via Commerce Cloud remains the most
 Emails can be sent from Salesforce B2C Commerce Cloud via code easily. Here's a basic example using server-side scripts:
 
 ```
-
-					function sendMail() {
+function sendMail() {
     var mail = new dw.net.Mail();
     mail.addTo("to@example.org");
     mail.setFrom("from@example.org");
@@ -77,15 +76,12 @@ Emails can be sent from Salesforce B2C Commerce Cloud via code easily. Here's a 
     mail.setContent('my basic text content');
     mail.send();//returns either Status.ERROR or Status.OK, mail might not be sent yet, when this method returns
 }
-
-
 ```
 
 You can enhance your options further by creating custom ISML templates, offering greater flexibility:
 
 ```
-
-					function sendMail() {
+function sendMail() {
     var template = new dw.util.Template("myTemplate.isml");
     var content = template.render(o);
     var mail = new dw.net.Mail();
@@ -95,8 +91,6 @@ You can enhance your options further by creating custom ISML templates, offering
     mail.setContent(content);
     mail.send();//returns either Status.ERROR or Status.OK, mail might not be sent yet, when this method returns
 }
-
-
 ```
 
 But then, of course, comes the next question...
@@ -116,11 +110,7 @@ Production Hide this endpoint, or never deploy this controller to production.
 You could also build a controller that will send an email to an address passed, with other parameters like:
 
 ```
-
-					TestEmail-Send?email=myemail@mail.com&orderId=10000001
-
-
-
+TestEmail-Send?email=myemail@mail.com&orderId=10000001
 ```
 
 This would send an email for that specific order to the email passed, allowing testers and developers to verify the template without having to go through the entire checkout flow.

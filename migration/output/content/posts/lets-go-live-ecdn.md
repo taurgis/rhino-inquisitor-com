@@ -86,16 +86,13 @@ A prerequisite for a domain to be available in the eCDN is that it is configured
 An example config you can use to get you up and running quickly:
 
 ```
-
-					{
+{
   "__version": "1",
   "settings": {
     "http-host": "www.my-domain.com",
     "https-host": "www.my-domain.com"
   }
 }
-
-
 ```
 
 Once an Alias is configured on at least one site in your production environment, we can continue to the next step!

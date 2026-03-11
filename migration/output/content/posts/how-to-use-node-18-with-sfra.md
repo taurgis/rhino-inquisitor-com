@@ -41,8 +41,6 @@ Fortunately, we can still perform the usual "npm install" without hassle. Please
 ```
 npm WARN old lockfile This is a one-time fix-up, please be patient...
 npm WARN old lockfile
-
-
 ```
 
 So just as the message asks us, we will be patient.
@@ -52,32 +50,24 @@ So just as the message asks us, we will be patient.
 One of the hurdles in using the latest Node version is using a deprecated feature. Once you run any build or upload script, you will run into the following exception:
 
 ```
-
-					Error: error:0308010C:digital envelope routines::unsupported
-
-
+Error: error:0308010C:digital envelope routines::unsupported
 ```
 
 Luckily, a quick google search later, we find the solution to this error. Enabling the "OpenSSL Legacy Provider", and depending on your OS of choice a different command has to be used:
 
 ```
-
-					# Unix-like (Linux, macOS, etc...)
+# Unix-like (Linux, macOS, etc...)
 export NODE_OPTIONS=--openssl-legacy-provider
 # Windows
 set NODE_OPTIONS=--openssl-legacy-provider
 # PowerShell
 $env:NODE_OPTIONS = "--openssl-legacy-provider"
-
-
-
 ```
 
 It is possible to update your package.json, depending on your (and the teams) setup:
 
 ```
-
-					  "scripts": {
+"scripts": {
     "test": "export NODE_OPTIONS=--openssl-legacy-provider && sgmf-scripts --test test/unit/**/*.js",
     "cover": "export NODE_OPTIONS=--openssl-legacy-provider && sgmf-scripts --cover 'test/unit'",
     "test:integration": "export NODE_OPTIONS=--openssl-legacy-provider && sgmf-scripts --integration 'test/integration/**/*.js'",
@@ -109,8 +99,6 @@ It is possible to update your package.json, depending on your (and the teams) se
     "watch:static": "export NODE_OPTIONS=--openssl-legacy-provider && sgmf-scripts --watch static",
     "release": "node bin/Makefile release --"
   },
-
-
 ```
 
 ## Libraries
@@ -120,15 +108,11 @@ It seems like we still have a long way to go. The libraries we're using for SFRA
 Let's get cracking, and give them an update!
 
 ```
-
-					npm update
-
-
+npm update
 ```
 
 ```
-
-					npm ERR! code ERESOLVE
+npm ERR! code ERESOLVE
 npm ERR! ERESOLVE unable to resolve dependency tree
 npm ERR!
 npm ERR! While resolving: sfra@6.3.0
@@ -138,9 +122,6 @@ npm ERR!   dev stylelint@"^13.13.1" from the root project
 npm ERR!
 npm ERR! Could not resolve dependency:
 npm ERR! peer stylelint@"^8.0.0" from stylelint-config-standard@17.0.0
-
-
-
 ```
 
 ![Developer reviewing dependency updates after a failed npm resolution.](/media/2023/upgrading-libraries-developer-d40cf53b81.jpg)

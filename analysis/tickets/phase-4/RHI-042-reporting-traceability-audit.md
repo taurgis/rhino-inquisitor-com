@@ -7,7 +7,7 @@
 **Assigned to:** Engineering Owner  
 **Target date:** 2026-04-17  
 **Created:** 2026-03-07  
-**Updated:** 2026-03-10
+**Updated:** 2026-03-11
 
 ---
 
@@ -23,7 +23,7 @@ Traceability is not optional. If a piece of content is missing from the site aft
 
 - [ ] Migration item report script `scripts/migration/generate-report.js` exists and:
   - [ ] Reads normalized records from `migration/intermediate/records.normalized.json`
-  - [ ] Reads outputs from each pipeline stage (conversion, front matter, URL parity, media, links, SEO, a11y, security)
+  - [ ] Reads outputs from each pipeline stage (conversion, front matter, media, content corrections, links, URL parity, SEO, a11y, security)
   - [ ] Produces `migration/reports/migration-item-report.csv` with per-item columns:
     - [ ] `source_id`
     - [ ] `primary_source_type`
@@ -38,6 +38,7 @@ Traceability is not optional. If a piece of content is missing from the site aft
     - [ ] `a11y_status` (`pass`, `warn`, `fail`)
     - [ ] `security_status` (`pass`, `warn`, `fail`)
     - [ ] `url_parity_status` (`pass`, `fail`)
+    - [ ] `content_corrections_status` (`clean`, `corrected`, `review-required`)
     - [ ] `qa_status` (`ready`, `review-required`, `blocked`)
     - [ ] `owner`
   - [ ] Is idempotent — re-running the report generator on the same inputs produces identical output
@@ -60,9 +61,12 @@ Traceability is not optional. If a piece of content is missing from the site aft
   - [ ] `migration/reports/accessibility-scan-summary.md`
   - [ ] `migration/reports/security-content-scan.csv`
   - [ ] `migration/reports/link-rewrite-log.csv`
+  - [ ] `migration/reports/content-corrections-summary.json`
+  - [ ] `migration/reports/image-alt-corrections-audit.csv`
 - [ ] CI pipeline (from RHI-029) is updated to:
   - [ ] Run `npm run migrate:report` as part of the migration batch validation job
   - [ ] Run `npm run check:migration-thresholds` as a blocking gate
+  - [ ] Run report generation only after `npm run migrate:finalize-content` (or the explicit `rewrite-media -> rewrite-links -> apply-corrections` sequence) has completed for the batch under test
   - [ ] Upload all `migration/reports/` artifacts (CSV and Markdown) as build artifacts (retained for 7 days minimum)
 - [ ] `csv-stringify` is used for all CSV serialization (consistent column ordering and escaping)
 
@@ -72,11 +76,13 @@ Traceability is not optional. If a piece of content is missing from the site aft
 
 - [ ] Design report schema with migration owner and SEO owner:
   - [ ] Confirm `qa_status` classification rules (`ready` / `review-required` / `blocked`)
+  - [ ] Confirm `content_corrections_status` rollup rules from `migration/reports/content-corrections-summary.json` and `migration/reports/image-alt-corrections-audit.csv`
   - [ ] Confirm batch cap values for HTML fallbacks and a11y warnings per batch
   - [ ] Confirm how source-channel provenance is surfaced in per-item reporting and extract summaries
   - [ ] Record agreed thresholds in `docs/migration/RUNBOOK.md`
 - [ ] Create `scripts/migration/generate-report.js`:
   - [ ] Implement per-stage status aggregation (read each stage's output report)
+  - [ ] Merge correction-stage outputs into per-item reporting so reviewers can see whether a record was corrected, stayed clean, or still needs review
   - [ ] Implement `qa_status` rollup logic
   - [ ] Implement CSV serialization using `csv-stringify`
 - [ ] Create `scripts/migration/check-migration-thresholds.js`:
@@ -84,7 +90,7 @@ Traceability is not optional. If a piece of content is missing from the site aft
   - [ ] Implement threshold checks with configurable caps (read from a config object or `.env`-style config)
   - [ ] Exit 1 on any zero-tolerance breach; print actionable error message with record IDs
 - [ ] Update CI workflow (`.github/workflows/build-pr.yml` from RHI-029) to include report generation and threshold check:
-  - [ ] Add `npm run migrate:report` step after migration scripts run
+  - [ ] Add `npm run migrate:report` step after `npm run migrate:finalize-content` completes for the batch
   - [ ] Add `npm run check:migration-thresholds` as a blocking gate before Hugo build
   - [ ] Add artifact upload step for `migration/reports/`
 - [ ] Add script references to `package.json`:
@@ -166,4 +172,5 @@ Traceability is not optional. If a piece of content is missing from the site aft
 - The migration item report is the single audit trail that connects every WordPress source record to its Hugo output. It must preserve which approved source channels contributed to each record and be attached to every batch PR's CI artifacts — not just the final batch.
 - Threshold values must be agreed with the migration owner before the pilot batch (RHI-043). Do not run batches with unspecified thresholds.
 - The report generator depends on consistent output from all stage scripts. Define the per-stage report schemas before stage scripts are written (in WS-B, each stage should write its report to a known path and format).
+- The correction stage is now part of the auditable pipeline contract. Batch reporting must include `migration/reports/content-corrections-summary.json` and `migration/reports/image-alt-corrections-audit.csv`, not treat Markdown cleanup as invisible manual work.
 - Reference: `analysis/plan/details/phase-4.md` §Workstream K: Reporting, Traceability, and Audit

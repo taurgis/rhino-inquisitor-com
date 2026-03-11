@@ -70,8 +70,7 @@ Your cache's life begins with a simple declaration. This is done in a JSON file,
 2. **Define Your Caches:** The file contains a single JSON object with a `caches` key, which is an array of cache definitions. Each definition requires an `id` and can optionally include an `expireAfterSeconds` property.
 
 ```
-
-					{
+{
   "caches": [
     {
       "id": "UnlimitedTestCache"
@@ -82,8 +81,6 @@ Your cache's life begins with a simple declaration. This is done in a JSON file,
     }
   ]
 }
-
-
 ```
 
 The `id` must be **globally unique** across every single cartridge in your site's cartridge path. A duplicate ID will cause the cache to silently fail to initialize, with the only evidence being an error in the logs. The `expireAfterSeconds` sets a TTL for entries in that cache. If omitted, entries have no time-based expiration and persist until the next global cache clear event.
@@ -93,12 +90,9 @@ The `id` must be **globally unique** across every single cartridge in your site'
 
 
 ```
-
-					{
+{
     "caches": "./caches.json"
 }
-
-
 ```
 
 4. **Enable in Business Manager:** Finally, you must globally enable the custom cache feature. Navigate to **Administration > Operations > Custom Caches** and check the "Enable Caching" box.  Disabling this will clear all custom caches on the instance. This page will also become your primary tool for monitoring cache health.
@@ -136,8 +130,7 @@ This method combines the get and put operations into a single, atomic action on 
 Here is the implementation for fetching data from a third-party API:
 
 ```
-
-					var CacheMgr = require('dw/system/CacheMgr');
+var CacheMgr = require('dw/system/CacheMgr');
 var MyHTTPService = require('~/cartridge/scripts/services/myHTTPService');
 var Site = require('dw/system/Site');
 /**
@@ -171,8 +164,6 @@ function getApiData(apiEndpoint) {
     });
     return result;
 }
-
-
 ```
 
 ## The Art of the Key: Your Cache's True Identity
@@ -221,23 +212,19 @@ The only performant and safe approach is to map the data you need from the heavy
 ### Anti-Pattern: Caching the Full API Object
 
 ```
-
-					// DO NOT DO THIS
+// DO NOT DO THIS
 var ProductMgr = require('dw/catalog/ProductMgr');
 var productCache = CacheMgr.getCache('ProductData');
 productCache.get('some-product-id', function () {
     var product = ProductMgr.getProduct('some-product-id');
     return product; // Caching the entire, heavy dw.catalog.Product object
 });
-
-
 ```
 
 ### Correct Pattern: Caching a Lightweight POJO
 
 ```
-
-					// THIS IS THE CORRECT WAY
+// THIS IS THE CORRECT WAY
 var ProductMgr = require('dw/catalog/ProductMgr');
 var productCache = CacheMgr.getCache('ProductData');
 productCache.get('some-product-id', function () {
@@ -255,8 +242,6 @@ productCache.get('some-product-id', function () {
     };
     return productPOJO; // Cache the small, clean object
 });
-
-
 ```
 
 This approach creates smaller, faster, and safer cache entries. It decouples your cached data from the live object model and respects the platform's limitations.

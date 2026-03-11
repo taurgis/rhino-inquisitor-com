@@ -62,10 +62,7 @@ For developers navigating the Salesforce B2C Commerce Cloud universe, DIS isn't 
 This adaptability is pure gold. And here's the cherry on top: by using the official Script API for URL generation, your image URLs are future-proofed. Salesforce can change its internal plumbing all it wants; your code remains rock-solid, reducing technical debt and maintenance headaches.
 
 ```
-
-					URLUtils.imageURL( '//image.png', { scaleWidth: 100, format: 'jpg' } );
-
-
+URLUtils.imageURL( '//image.png', { scaleWidth: 100, format: 'jpg' } );
 ```
 
 **Caching Like a Boss (and CDN's Best Friend):** DIS isn't just dynamic; it's smart. It caches (limited) transformations to deliver images at warp speed. If your Commerce Cloud instance is hooked up to a Content Delivery Network (newsflash: it is -> the [eCDN](/lets-go-live-ecdn/)), the CDN helps optimise caching as well (through TTL headers).
@@ -73,10 +70,7 @@ This adaptability is pure gold. And here's the cherry on top: by using the offic
 When you update an image, there's no need for manual cache invalidation thanks to a [technique](https://help.salesforce.com/s/articleView?id=cc.b2c_clear_ecdn_cache_task.htm&type=5) known as **URL fingerprinting/asset fingerprinting**. Instead of just replacing the old file, the platform creates a new URL for the updated image, often by adding a unique identifier (a "fingerprint"). Because the URL has changed, it forces browsers and the eCDN to download the new version as if it were a completely new file, bypassing the old cached version.
 
 ```
-
-					/dw/image/v2/BCQR_PRD/on/demandware.static/-/Sites-master/default/dw515e574c/4.jpg
-
-
+/dw/image/v2/BCQR_PRD/on/demandware.static/-/Sites-master/default/dw515e574c/4.jpg
 ```
 
 Do you notice that _dw515e574c_? It represents the unique "cache" ID managed by SFCC to ensure cached images are served. When the image updates, a new ID is generated so the customer _always_ sees the latest version!
@@ -96,8 +90,7 @@ It's the official, validated, and future-proof way to do it. Here's a little sni
 
 
 ```
-
-					var product = // obtain your product object
+var product = // obtain your product object
 var thumbnailImage = product.getImage('thumbnail', 0);
 if (thumbnailImage) {
     var imageUrl = thumbnailImage.getImageURL({
@@ -107,8 +100,6 @@ if (thumbnailImage) {
     });
     // The 'imageUrl' variable now holds the dynamically generated URL
 }
-
-
 ```
 
 ### Know Your Image Limits (and How to Work Around Them)
@@ -137,8 +128,7 @@ When it comes to image formats, transforming **PNG** files to **JPEG** using the
 Here's how you might implement this in a **controller:**
 
 ```
-
-					'use strict';
+'use strict';
 var server = require('server');
 var ProductMgr = require('dw/catalog/ProductMgr');
 var URLUtils = require('dw/web/URLUtils');
@@ -176,8 +166,6 @@ server.get('ProductImageExample', function (req, res, next) {
 });
 // Export the controller module.
 module.exports = server.exports();
-
-
 ```
 
 ### General Image Zen for Speed and Quality

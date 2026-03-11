@@ -7,7 +7,7 @@
 **Assigned to:** Migration Owner  
 **Target date:** 2026-04-22  
 **Created:** 2026-03-07  
-**Updated:** 2026-03-10
+**Updated:** 2026-03-11
 
 ---
 
@@ -37,9 +37,12 @@ If the pilot batch reveals pipeline defects, they must be fixed before Batch 2 b
   - [ ] `npm run migrate:normalize` validates all pilot records against schema
   - [ ] `npm run migrate:convert` converts all pilot records with no unresolved fallbacks
   - [ ] `npm run migrate:download-media` downloads all referenced media for pilot records
-  - [ ] `npm run migrate:rewrite-media` rewrites media references to local paths
   - [ ] `npm run migrate:map-frontmatter` generates front matter for all pilot records
-  - [ ] `npm run migrate:rewrite-links` rewrites internal links for all pilot records
+  - [ ] `npm run migrate:finalize-content` runs the standard post-mapping sequence for all pilot records:
+    - [ ] `npm run migrate:rewrite-media` rewrites media references to local paths
+    - [ ] `npm run migrate:rewrite-links` rewrites internal links for all pilot records
+    - [ ] `npm run migrate:apply-corrections` applies fenced-code cleanup, mixed image-paragraph normalization, and curated alt-text overrides from `migration/input/image-alt-corrections.csv`
+  - [ ] A second `npm run migrate:apply-corrections` run is idempotent and reports zero file changes on the corrected pilot content
   - [ ] `npm run migrate:report` generates migration item report for pilot batch
 - [ ] All CI gates pass on the pilot batch PR:
   - [ ] `hugo --minify --environment production` exits with code 0
@@ -62,7 +65,15 @@ If the pilot batch reveals pipeline defects, they must be fixed before Batch 2 b
   - [ ] Internal links resolve to correct pages
   - [ ] Redirect pages (`merge` records) redirect to correct targets
   - [ ] `retire` records produce no Hugo page output
+- [ ] Any manual review finding that affects generated Markdown is turned into a durable input or scripted fix before rerun:
+  - [ ] Curated image-alt improvements are recorded in `migration/input/image-alt-corrections.csv`
+  - [ ] Discovery/SEO metadata changes are recorded in approved pre-mapping curation inputs rather than patched directly into generated `.md` files
+  - [ ] Structural Markdown cleanup gaps are fixed in the pipeline scripts, not as one-off edits in `migration/output/content/**`
 - [ ] All findings from manual review are logged in the Progress Log
+- [ ] Pilot batch PR evidence includes the correction outputs used to approve the batch:
+  - [ ] `migration/reports/content-corrections-summary.json`
+  - [ ] `migration/reports/image-alt-corrections-audit.csv`
+  - [ ] Confirmation that the second `npm run migrate:apply-corrections` run reported zero file changes
 - [ ] Pilot batch PR is merged to `main` only after all gate failures are resolved and manual review is complete
 - [ ] Pipeline defects discovered are backlogged as explicit follow-up items before Batch 2 begins
 
@@ -76,7 +87,11 @@ If the pilot batch reveals pipeline defects, they must be fixed before Batch 2 b
 - [ ] Create and commit pilot subset selection input (for example `migration/input/pilot-source-ids.txt`)
 - [ ] Configure pipeline scripts to run in subset mode (by `sourceId` list and/or postType filter)
 - [ ] Run full pipeline on pilot records:
-  - [ ] Extract → Normalize → Convert → Download Media → Rewrite Media → Map Front Matter → Rewrite Links
+  - [ ] Extract → Normalize → Convert → Download Media → Map Front Matter → Finalize Content
+- [ ] Seed and maintain durable correction inputs before final validation:
+  - [ ] Create or update `migration/input/image-alt-corrections.csv` for curated image-alt overrides discovered during pilot review
+  - [ ] If discovery metadata or custom copy must change, update the approved pre-mapping curation input and rerun `npm run migrate:map-frontmatter` followed by `npm run migrate:finalize-content`
+  - [ ] Do not patch `migration/output/content/**` directly for fixes that must survive reruns
 - [ ] Run report generation: `npm run migrate:report`
 - [ ] Run all CI gates locally and fix failures:
   - [ ] Iterate until all gates pass
@@ -86,7 +101,7 @@ If the pilot batch reveals pipeline defects, they must be fixed before Batch 2 b
   - [ ] Page files → `src/content/pages/`
   - [ ] Category files → `src/content/categories/` (if applicable)
 - [ ] Open a PR for the pilot batch:
-  - [ ] PR description includes: record list, gate results summary, manual review findings
+  - [ ] PR description includes: record list, gate results summary, manual review findings, `migration/reports/content-corrections-summary.json`, `migration/reports/image-alt-corrections-audit.csv`, and idempotency confirmation for the second correction pass
   - [ ] All CI gates pass in the PR checks
 - [ ] Manually review every generated file in the PR diff
 - [ ] Merge pilot batch PR after sign-off from migration owner and engineering owner
@@ -153,6 +168,8 @@ If the pilot batch reveals pipeline defects, they must be fixed before Batch 2 b
 - Pilot batch `.md` files committed to `src/content/`
 - CI gate run results (links to passing GitHub Actions runs)
 - Migration item report for pilot batch
+- `migration/reports/content-corrections-summary.json`
+- `migration/reports/image-alt-corrections-audit.csv`
 - Manual review findings log in Progress Log
 - Pipeline defect backlog before Batch 2
 
@@ -176,4 +193,5 @@ If the pilot batch reveals pipeline defects, they must be fixed before Batch 2 b
 - If the pilot needs SQL, API, or filesystem supplementation to recover representative fields, capture that explicitly in the pilot evidence. Batch 2 should not rediscover a hidden source dependency.
 - Include at least one record with `merge` disposition to verify the redirect alias generates correctly in the pilot. Finding a redirect error in Batch 1 is far better than finding it in Batch 3.
 - CI gate failures during the pilot are expected and acceptable — that is the point. What is not acceptable is merging the pilot batch with unresolved gate failures or unreviewed files.
+- Manual review is still mandatory in the pilot, but durable fixes must land in scripts or curated input files. If a reviewer changes generated Markdown directly and the change must survive reruns, the ticket is not complete until that change is encoded in the pipeline or in an approved upstream curation input.
 - Reference: `analysis/plan/details/phase-4.md` §Batch Strategy and Execution Cadence

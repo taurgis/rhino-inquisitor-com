@@ -1,8 +1,8 @@
 ---
 title: Creating custom OCAPI endpoints
 description: >-
-    Learn the legacy approach for custom OCAPI endpoints in SFCC, why it is now
-    deprecated, and where Salesforce recommends moving instead.
+  Learn the legacy approach for custom OCAPI endpoints in SFCC, why it is now
+  deprecated, and where Salesforce recommends moving instead.
 date: '2022-07-11T17:40:22.000Z'
 lastmod: '2023-09-26T09:54:35.000Z'
 url: /creating-custom-ocapi-endpoints/
@@ -102,8 +102,7 @@ We also need to make sure we can access the GET call for the Custom Objects endp
 Fill in the following value for the type "_Shop_" and context "_Global (Organization-wide)_."
 
 ```
-
-					{
+{
 	"_v": "22.6",
 	"clients": [
 		{
@@ -122,8 +121,6 @@ Fill in the following value for the type "_Shop_" and context "_Global (Organiza
 		}
 	]
 }
-
-
 ```
 
 [![Open Commerce API Settings showing access for custom objects.](/media/2022/ocapi-settings-46b5f9c8b0.png)](/media/2022/ocapi-settings-46b5f9c8b0.png)
@@ -139,19 +136,15 @@ Time to start coding (finally)! But before we start creating our scripts, we nee
 For this, we create a [package.json](https://github.com/taurgis/ocapi-custom-endpoints/blob/main/cartridges/plugin_custom_ocapi_endpoints/package.json) file in the root of our cartridge with the following contents.
 
 ```
-
-					{
+{
   "hooks": "./hooks.json"
 }
-
-
 ```
 
 This file says a "hooks" config file is available in our project. Now we also have to make [that file](https://github.com/taurgis/ocapi-custom-endpoints/blob/main/cartridges/plugin_custom_ocapi_endpoints/hooks.json)!
 
 ```
-
-					{
+{
     "hooks": [
         {
             "name": "dw.ocapi.shop.custom_object.modifyGETResponse",
@@ -159,8 +152,6 @@ This file says a "hooks" config file is available in our project. Now we also ha
         }
     ]
 }
-
-
 ```
 
 In this file, we declare that we want to modify the GET response of the Custom Object endpoint with a specific script.
@@ -170,8 +161,7 @@ Not sure where to create these files? Have a peek at the [GitHub repository](htt
 You probably noticed that we also need to create a script file 😉. So let us also do that at the location defined in "[hooks.json](https://github.com/taurgis/ocapi-custom-endpoints/blob/main/cartridges/plugin_custom_ocapi_endpoints/hooks.json)."
 
 ```
-
-					'use strict';
+'use strict';
 var toCamel = function (s) {
     // eslint-disable-next-line no-useless-escape
     return s.replace(/(-[a-z])/g, function ($1) { return $1.toUpperCase().replace('-', ''); });
@@ -187,8 +177,6 @@ exports.modifyGETResponse = function (customObject, doc) {
         doc.c_result = result;
     }
 };
-
-
 ```
 
 Another simple step as the script does not contain anything complicated. It does the following things:
@@ -210,8 +198,7 @@ Another simple step as the script does not contain anything complicated. It does
 In our example, the code will execute our "getCustomer.js" file, which looks something like this:
 
 ```
-
-					'use strict';
+'use strict';
 /**
  * Fetch customer data using the Customer Number.
  *
@@ -234,8 +221,6 @@ exports.get = function (httpParams) {
     }
     return result;
 };
-
-
 ```
 
 Are you a bit confused about where to place these files? Have a look at the [GitHub repository](https://github.com/taurgis/ocapi-custom-endpoints/tree/main/cartridges/plugin_custom_ocapi_endpoints/cartridge/scripts)!

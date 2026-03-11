@@ -27,25 +27,18 @@ The JavaScript Date object is a built-in object that represents and manipulates 
 Example 1: Creating a Date object and displaying the current date and time
 
 ```
-
-					const currentDate = new Date();
+const currentDate = new Date();
 console.log("Current date and time:", currentDate.toString());
-
-
-
 ```
 
 Example 2: Calculating the difference between two dates
 
 ```
-
-					const startDate = new Date("2023-01-01");
+const startDate = new Date("2023-01-01");
 const endDate = new Date("2023-12-31");
 const timeDifference = endDate - startDate;
 const daysDifference = timeDifference / (1000 * 60 * 60 * 24);
 console.log("Days between the two dates:", daysDifference);
-
-
 ```
 
 ## Calendar (Rhino / Java)
@@ -63,25 +56,19 @@ e.g. "Calendar.getInstance()" in Java vs "new Calendar()" in the Rhino Engine.
 Example 1: Creating a Calendar instance and setting the date
 
 ```
-
-					var Calendar = require('dw/util/Calendar');
+var Calendar = require('dw/util/Calendar');
 var calendarInstance = new Calendar()
 calendarInstance.set(2023, Calendar.JANUARY, 1);
-
-
 ```
 
 Example 2: Adding days to a Calendar instance with a particular timezone and converting to a JavaScript Date object
 
 ```
-
-					var Calendar = require('dw/util/Calendar');
+var Calendar = require('dw/util/Calendar');
 var calendarInstance = new Calendar();
 calendarInstance.setTimeZone( "Etc/GMT+1" );
 calendarInstance.add(Calendar.DATE, 10);
 var dateInstance = calendarInstance.getTime();
-
-
 ```
 
 But in this use case, "odd things" happen. Watch for the "pitfalls" section at the end of this article!
@@ -108,11 +95,8 @@ Once you have these configured, you kind of hope that there is some way to acces
 Example 1: Getting the Instance Time Zone
 
 ```
-
-					var System = require('dw/system/System');
+var System = require('dw/system/System');
 var instanceTimeZone = System.getInstanceTimeZone();
-
-
 ```
 
 -   [Function Documentation](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_system_System.html#dw_system_System_getInstanceTimeZone_DetailAnchor)
@@ -120,13 +104,10 @@ var instanceTimeZone = System.getInstanceTimeZone();
 Example 2: Getting the Site Time Zone
 
 ```
-
-					var Site = require('dw/system/Site');
+var Site = require('dw/system/Site');
 var siteTimeZone = Site.getCurrent().getTimezone();
 // Get it as a Calendar with the timezone set.
 var siteTimeZoneCalendar = Site.getCalendar();
-
-
 ```
 
 -   [Function Documentation](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_system_Site.html#dw_system_Site_getTimezone_DetailAnchor)
@@ -136,8 +117,7 @@ var siteTimeZoneCalendar = Site.getCalendar();
 To get the list of supported zones, I executed some Java code:
 
 ```
-
-					import java.util.TimeZone;
+import java.util.TimeZone;
 public class HelloWorld {
     public static void main(String []args) {
         String [] zones = TimeZone.getAvailableIDs();
@@ -146,15 +126,12 @@ public class HelloWorld {
         }
     }
 }
-
-
 ```
 
 Which results in this list:
 
 ```
-
-					Africa/Abidjan
+Africa/Abidjan
 Africa/Accra
 Africa/Addis_Ababa
 Africa/Algiers
@@ -784,8 +761,6 @@ PRT
 PST
 SST
 VST
-
-
 ```
 
 ## Pitfalls

@@ -7,7 +7,7 @@
 **Assigned to:** Migration Owner  
 **Target date:** 2026-04-29  
 **Created:** 2026-03-07  
-**Updated:** 2026-03-07
+**Updated:** 2026-03-11
 
 ---
 
@@ -31,9 +31,13 @@ This is typically the largest batch in terms of record count but the lowest risk
   - [ ] Archive page structure (date-based archives, if applicable) is handled per manifest
 - [ ] All outstanding HTML fallback conversion records from earlier batches are resolved:
   - [ ] Each fallback item is either:
-    - [ ] Manually remediated and converted to clean Markdown
+    - [ ] Remediated through a durable script or approved curated input and converted to clean Markdown
     - [ ] Or explicitly accepted as HTML fallback with documented owner and planned Phase 5/8 remediation
   - [ ] Fallback acceptance is recorded in `migration/reports/conversion-fallbacks.csv`
+- [ ] Full staged-content execution uses the standard post-mapping sequence before gates run:
+  - [ ] `npm run migrate:map-frontmatter`
+  - [ ] `npm run migrate:finalize-content` (or the explicit `rewrite-media -> rewrite-links -> apply-corrections` sequence)
+  - [ ] `npm run migrate:report`
 - [ ] Quarantine log (`migration/intermediate/extract-quarantine.json`) is fully resolved:
   - [ ] Each quarantined record is either extracted, deferred with owner, or excluded with documented rationale
   - [ ] No quarantine item is silently dropped
@@ -44,6 +48,10 @@ This is typically the largest batch in terms of record count but the lowest risk
 - [ ] Exception closure summary is documented:
   - [ ] List of all deferred items with owner and target resolution phase (Phase 5 SEO, Phase 8 validation)
   - [ ] Approved by migration owner before this ticket is `Done`
+- [ ] Batch 3 PR evidence includes the cumulative correction outputs used to approve the batch:
+  - [ ] `migration/reports/content-corrections-summary.json`
+  - [ ] `migration/reports/image-alt-corrections-audit.csv`
+  - [ ] Confirmation that the finalized long-tail corpus passed a zero-change correction rerun
 - [ ] Batch 3 PR is merged to `main` only after all CI gates pass and exception closure summary is approved
 
 ---
@@ -57,17 +65,21 @@ This is typically the largest batch in terms of record count but the lowest risk
   - [ ] Confirm which category pages have organic traffic and must be preserved
   - [ ] Confirm video archive URL strategy
   - [ ] Confirm date archive URL strategy from manifest and baseline traffic data (do not assume Hugo generates WordPress-style date archives by default)
-- [ ] Run full pipeline on remaining records
+- [ ] Run full pipeline on remaining records, including `npm run migrate:finalize-content` after `npm run migrate:map-frontmatter`
 - [ ] Run exception closure pass:
   - [ ] Review `migration/reports/conversion-fallbacks.csv` — remediate or accept each outstanding item
+  - [ ] If remediation is required, encode it in the migration scripts or approved curated inputs rather than patching generated Markdown by hand
   - [ ] Review `migration/intermediate/extract-quarantine.json` — resolve each entry
   - [ ] Document all accepted exceptions with owner in Progress Log
+- [ ] Record durable post-generation curation updates discovered during long-tail review:
+  - [ ] Add curated image-alt overrides to `migration/input/image-alt-corrections.csv`
+  - [ ] Add any approved pre-mapping metadata updates to the supported curation input before rerunning `npm run migrate:map-frontmatter` and `npm run migrate:finalize-content`
 - [ ] Run all CI gates and fix failures
 - [ ] Run complete migration item report across full record set:
   - [ ] Verify 100% coverage for `keep` and `merge` records
   - [ ] Verify zero `blocked` items
 - [ ] Open Batch 3 PR:
-  - [ ] PR description includes: record count, taxonomy pages list, exception closure summary, gate results
+  - [ ] PR description includes: record count, taxonomy pages list, exception closure summary, gate results, `migration/reports/content-corrections-summary.json`, `migration/reports/image-alt-corrections-audit.csv`, and correction-rerun idempotency confirmation
   - [ ] Migration owner reviews exception closure list and approves
   - [ ] All CI gates pass
 - [ ] Merge Batch 3 PR
@@ -128,6 +140,8 @@ This is typically the largest batch in terms of record count but the lowest risk
 
 - Long-tail and taxonomy batch `.md` files committed to `src/content/`
 - Complete migration item report for full record set
+- `migration/reports/content-corrections-summary.json`
+- `migration/reports/image-alt-corrections-audit.csv`
 - Exception closure summary (deferred items with owners)
 - CI gate evidence for Batch 3 PR
 - Phase 4 sign-off package (input to RHI-046)
@@ -151,4 +165,5 @@ This is typically the largest batch in terms of record count but the lowest risk
 - Taxonomy (category) pages in Hugo are automatically generated from front matter `categories` fields. However, the URL for the generated taxonomy pages must match the legacy WordPress category URL paths. Verify this mapping explicitly before running the batch.
 - Date-based archives (`/2020/`, `/2020/10/`) may or may not exist in WordPress. Check the URL manifest for any date archive URLs with traffic before assuming they should be preserved.
 - The exception closure pass is not a rubber stamp. Every deferred item represents a known gap in the migration. The migration owner must explicitly accept each one — undocumented deferrals are equivalent to untracked risks.
+- Long-tail remediation must still be reproducible. If a fallback or formatting issue needs a fix that survives reruns, turn it into a scripted rule or curated input update before this ticket is closed.
 - Reference: `analysis/plan/details/phase-4.md` §Batch Strategy and Execution Cadence

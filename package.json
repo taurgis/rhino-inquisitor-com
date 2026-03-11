@@ -20,6 +20,9 @@
     "migrate:download-media": "node scripts/migration/download-media.js",
     "migrate:rewrite-media": "node scripts/migration/rewrite-media-refs.js",
     "migrate:rewrite-links": "node scripts/migration/rewrite-links.js",
+    "migrate:apply-corrections": "node scripts/migration/apply-content-corrections.js",
+    "migrate:finalize-content": "npm run migrate:rewrite-media && npm run migrate:rewrite-links && npm run migrate:apply-corrections",
+    "migrate:export-alt-corrections": "node scripts/migration/export-alt-text-corrections.js",
     "build:prod": "hugo --minify --environment production",
     "validate:frontmatter": "node scripts/validate-frontmatter.js",
     "check:url-parity": "node scripts/migration/validate-url-parity.js",
@@ -40,6 +43,7 @@
   "dependencies": {
     "@joplin/turndown-plugin-gfm": "^1.0.64",
     "cheerio": "^1.2.0",
+    "csv-parse": "^5.6.0",
     "csv-stringify": "6.6.0",
     "fast-glob": "3.3.3",
     "fast-xml-parser": "5.4.2",

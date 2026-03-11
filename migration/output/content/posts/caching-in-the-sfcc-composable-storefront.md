@@ -57,8 +57,7 @@ If they are not cached, all of these items can raise your TTFB (time to first by
 Luckily, we can easily enable this mechanic via the code:
 
 ```
-
-					const Home = () => {
+const Home = () => {
     ...
     const {res} = useServerContext()
     if (res) {
@@ -69,8 +68,6 @@ Luckily, we can easily enable this mechanic via the code:
     }
     ...
 }
-
-
 ```
 
 CDN Know that the CDN part of the Managed Runtime takes care of this caching mechanism. At the time of writing, this is CloudFront. The plan is to migrate to the eCDN for a generic architecture (Forward-Looking Statement). Default Cache Times Be aware that the default cache time is only 15 minutes, which is low. Consider changing this to a few hours!
@@ -110,14 +107,11 @@ The feature toggle in the Business Manager
 Within a hook or custom endpoint you can modify the cache time with a simple line of code: `response.setExpires()`
 
 ```
-
-					exports.modifyGETResponse = function(scriptCategory, categoryWO)
+exports.modifyGETResponse = function(scriptCategory, categoryWO)
 {
     response.setExpires(Date.now() + 3600000);
     return new Status( Status.OK );
 }
-
-
 ```
 
 ### Personalisation
@@ -129,12 +123,9 @@ It's important to use the [Shopper Context API](https://developer.salesforce.com
 You can also enable this within a hook or custom API with this line of code: `response.setVaryBy("price_promotion");`
 
 ```
-
-					exports.modifyGETResponse = function(scriptCategory, categoryWO)
+exports.modifyGETResponse = function(scriptCategory, categoryWO)
 {
     response.setVaryBy("price_promotion");
     return new Status( Status.OK );
 }
-
-
 ```

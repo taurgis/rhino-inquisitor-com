@@ -10,7 +10,9 @@ draft: false
 heroImage: /media/2023/isslot-element-d83390209d.jpg
 author: Thomas Theunen
 ---
-TL;DR It is not possible to set a dynamic ID in the `<isslot>` tag. ![Official isslot documentation showing the static slot identifier requirement.](/media/2023/isslot-element-d83390209d.jpg)
+TL;DR It is not possible to set a dynamic ID in the `<isslot>` tag.
+
+![Official isslot documentation showing the static slot identifier requirement.](/media/2023/isslot-element-d83390209d.jpg)
 
 -   [Official Documentation](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-isslot.html?q=isslot)
 

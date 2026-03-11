@@ -36,8 +36,7 @@ One of those built-in features is caching responses from third-party APIs, which
 Creating a service in the [LocalServiceRegistry](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/index.html?target=class_dw_svc_LocalServiceRegistry.html) comes with a simple configuration for managing request handling. Here's a basic example of how to create a service with a caching feature:
 
 ```
-
-					var callTestGet = LocalServiceRegistry.createService("test.http.get", {
+var callTestGet = LocalServiceRegistry.createService("test.http.get", {
         createRequest: function(svc: HTTPService, args) {
   		    svc.client.enableCaching(1000);
             	svc.setRequestMethod("GET");
@@ -56,8 +55,6 @@ Creating a service in the [LocalServiceRegistry](https://salesforcecommercecloud
             return msg.replace("headers", "OFFWITHTHEHEADERS");
         }
     });
-
-
 ```
 
 [In this snippet](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-webservices.html#configure-underlying-clients), the \`**enableCaching**\` method is invoked, enabling caching for the HTTP requests serviced by this configuration. The argument (in this case, \`1000\`) represents a timeout setting, which dictates how long a cached response will be valid before the subsequent request is made.

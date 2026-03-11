@@ -7,7 +7,7 @@
 **Assigned to:** Engineering Owner  
 **Target date:** 2026-04-18  
 **Created:** 2026-03-07  
-**Updated:** 2026-03-10
+**Updated:** 2026-03-11
 
 ---
 
@@ -22,7 +22,7 @@ Static sites are not inherently safe from XSS if user-generated or third-party c
 ### Acceptance Criteria
 
 - [ ] Security content scan script `scripts/migration/check-security-content.js` exists and:
-  - [ ] Scans all generated `.md` files and converted HTML output for:
+  - [ ] Scans corrected staged `.md` files after `npm run migrate:apply-corrections` (or `npm run migrate:finalize-content`) and converted HTML output built from that corrected state for:
     - [ ] `<script>` tags in content (not in code blocks/pre elements)
     - [ ] Inline event handler attributes: `onload`, `onclick`, `onerror`, and all `on*` patterns
     - [ ] Suspicious `<iframe>` elements not in the approved list (YouTube, Vimeo approved; others flagged)
@@ -42,6 +42,7 @@ Static sites are not inherently safe from XSS if user-generated or third-party c
   - [ ] HTTP security header capabilities and limitations on GitHub Pages are recorded
   - [ ] Any header policy requiring edge/CDN layer is flagged for Phase 6/7 attention
 - [ ] `migration/reports/security-content-scan.csv` has zero critical findings in the release candidate batch
+- [ ] Batch execution guidance makes the scan order explicit: `npm run migrate:map-frontmatter` is followed by `npm run migrate:finalize-content` before `npm run check:security-content` runs
 
 ---
 
@@ -72,6 +73,13 @@ Static sites are not inherently safe from XSS if user-generated or third-party c
   - [ ] List any headers requiring edge/CDN layer (CSP, HSTS preload, Permissions-Policy)
   - [ ] Record recommendations for Phase 6/7 header strategy decision
 - [ ] Run `check:security-content` on pilot batch and fix all critical findings
+- [ ] Document the batch execution sequence in `docs/migration/RUNBOOK.md` and downstream batch tickets:
+  - [ ] `npm run migrate:map-frontmatter`
+  - [ ] `npm run migrate:finalize-content` (or the explicit `rewrite-media -> rewrite-links -> apply-corrections` sequence)
+  - [ ] `npm run check:security-content`
+- [ ] Confirm generated-content cleanup remains script-owned:
+  - [ ] If the scan reveals a Markdown cleanup issue, fix the pipeline script or curated correction input and rerun the correction flow
+  - [ ] Do not hand-edit `migration/output/content/**` just to satisfy the security gate
 - [ ] Add `"check:security-content": "node scripts/migration/check-security-content.js"` to `package.json`
 - [ ] Commit security scan script and scan report
 
@@ -83,6 +91,7 @@ Static sites are not inherently safe from XSS if user-generated or third-party c
 - HTTPS enforcement configuration (GitHub Pages setting — Phase 7)
 - Penetration testing or runtime security assessment
 - Scanning WordPress source HTML for vulnerabilities (only scanning migration output)
+- Manual cleanup of generated Markdown that is now owned by the scripted correction pipeline
 
 ---
 
@@ -146,4 +155,5 @@ Static sites are not inherently safe from XSS if user-generated or third-party c
 
 - Goldmark's `unsafe: false` is the primary defense against raw HTML script injection in Hugo-rendered content. Confirm this is set correctly in `hugo.toml` before any batch is built. Any content that relies on raw HTML rendering for legitimate reasons (e.g., a complex data visualization) must be reviewed and explicitly approved as a documented exception.
 - `sourceId` and internal WordPress IDs must not appear in final `.md` front matter. They belong in migration audit artifacts only, not in publishable content. The WS-D mapping script must filter them out — WS-J is the verification check, not the fix.
+- The security scan validates the corrected staged Markdown, not the pre-correction draft state. Treat fenced-code cleanup, mixed image-paragraph normalization, and curated alt-text overrides as pipeline inputs, not manual pre-scan chores.
 - Reference: `analysis/plan/details/phase-4.md` §Workstream J: Security and Data Hygiene

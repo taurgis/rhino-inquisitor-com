@@ -66,27 +66,21 @@ To communicate with the [Zones API](https://developer.salesforce.com/docs/commer
 tenantID The tenantID combines the Realm ID and the Instance ID with an underscore. (e.g.**zzxx\_001**)
 
 ```
-
-					curl -i -k
+curl -i -k
 --data 'grant_type=client_credentials&scope=SALESFORCE_COMMERCE_API: sfcc.cdn-zones sfcc.cdn-zones.rw'
 --user ':'
 -X POST 'https://account.demandware.com/dwsso/oauth2/access_token'
-
-
 ```
 
 If all goes well, a response similar to the one below appears.
 
 ```
-
-					{
+{
     "access_token": "eyJ0eXAiOiJKV1QiLCJraWQiOiJEMWhPUDdEODN4TjBqZWlqaTI3WWFvZFRjL0E9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiIxZDc2MzI2MS02NTIyLTQ5MTMtOWQ1Mi01ZDk0N2QzYjk0YzQiLCJjdHMiOiJPQVVUSDJfU1RBVEVMRVNTX0dSQU5UIiwiYXVkaXRUcmFja2luZ0lkIjoiZDBkZDk4MjItMmI3ZC00MThiLTkzZTktYzg2YjgxYjZjZGFhLTE2OTY2NTI3MSIsInN1Ym5hbWUiOiIxZDc2MzI2MS02NTIyLTQ5MTMtOWQ1Mi01ZDk0N2QzYjk0YzQiLCJpc3MiOiJodHRwczovL2FjY291bnQuZGVtYW5kd2FyZS5jb206NDQzL2R3c3NvL29hdXRoMiIsInRva2VuTmFtZSI6ImFjY2Vzc190b2tlbiIsInRva2VuX3R5cGUiOiJCZWFyZXIiLCJhdXRoR3JhbnRJZCI6IjcyWTZ0Slk1bm9vdEhMX2YzLWN5SzZrajVsOCIsImF1ZCI6IjFkNzYzMjYxLTY1MjItNDkxMy05ZDUyLTVkOTQ3ZDNiOTRjNCIsIm5iZiI6MTY1MTYyMjUzOCwiZ3JhbnRfdHlwZSI6ImNsaWVudF9jcmVkZW50aWFscyIsInNjb3BlIjpbIlNBTEVTRk9SQ0VfQ09NTUVSQ0VfQVBJOnp6dGVfMDUzIiwic2ZjYy5jYXRhbG9ncyIsIm1haWwiLCJ0ZW5hbnRGaWx0ZXIiLCJvcGVuSWQiLCJyb2xlcyJdLCJhdXRoX3RpbWUiOjE2NTE2MjI1MzgsInJlYWxtIjoiLyIsImV4cCI6MTY1MTYyNDMzOCwiaWF0IjoxNjUxNjIyNTM4LCJleHBpcmVzX2luIjoxODAwLCJqdGkiOiJlaXdlanNyWmxRdEpmMXhPZ0lJaVQ3REo2LTgiLCJjbGllbnRfaWQiOiIxZDc2MzI2MS02NTIyLTQ5MTMtOWQ1Mi01ZDk0N2QzYjk0YzQiLCJ0ZW5hbnRGaWx0ZXIiOiJTQUxFU0ZPUkNFX0NPTU1FUkNFX0FQSTp6enRlXzA1MyIsInJvbGVzIjpbIlNBTEVTRk9SQ0VfQ09NTUVSQ0VfQVBJIl19.N_D2gZuJfQcIo-X42O4i-hz1j4_KxYzaqYb4CqVSf96Zt9w5-WmDPP_swuIz2eCivxwrs0hyfKmDTS7mQG_fLXiuAr6FT0bMVYndfmSbngJl24eCXu2U6b5-cMlUmwAG7mO7Uji4_cXtayUCA9XGUSVXxu1HuiFzANws_D-cCWlgoaWpEvPmkhq3o_ICJvhcqaZTYDaoQ62hDToMqdojbRQFe6s2kDLiqOIi6Ey_VYev8bRTu4RtXmJ6Pfj_xp0mgc4ak8zaxCVcykZ-ziEE9TqO-tN1U6n0QnuTh-t3wz2iSyEcfJ3fOtv9v9zz1BYpe1qMCYDTkKnMq_alERtKZg",
     "scope": "SALESFORCE_COMMERCE_API:zzxx_001 sfcc.cdn-zones sfcc.cdn-zones.rw",
     "token_type": "Bearer",
     "expires_in": 1799
 }
-
-
 ```
 
 ## Step 4: Get all zones
@@ -96,24 +90,17 @@ First, check that we can use our newly fetched "access\_token" to call the Zones
 shortCode and organizationId The shortCode and organizationId in the URL below are obtained in step 2.
 
 ```
-
-					https://{shortCode}.api.commercecloud.salesforce.com/cdn/zones/v1/organizations/{organizationId}/zones/info
-
-
-
+https://{shortCode}.api.commercecloud.salesforce.com/cdn/zones/v1/organizations/{organizationId}/zones/info
 ```
 
 If all the steps have been adhered to above, a response like the one below will magically appear!
 
 ```
-
-					[{
+[{
   "zoneId": "example1-zone-Id",
   "name": "example1.com",
   "status": "pending"
 }]
-
-
 ```
 
 ## Step 5: Create a zone (register domain)
@@ -126,19 +113,15 @@ Top-level domain In this step, the top-level domain is used even if you plan to 
 e.g. To use "stg.cc-merchant.com", "cc-merchant.com" is submitted in the request of this step.
 
 ```
-
-					curl "https://{shortCode}.api.commercecloud.salesforce.com/cdn/zones/v1/organizations/{organizationId}/storefront-zones"
+curl "https://{shortCode}.api.commercecloud.salesforce.com/cdn/zones/v1/organizations/{organizationId}/storefront-zones"
   -X POST
   -d "{n  "domainName": "cc-merchant.com"n}"
-
-
 ```
 
 If the zone did not exist already and is created successfully, the following response is given:
 
 ```
-
-					{
+{
   "data": {
     "zoneId": "023e105f4ecef8ad9ca31a8372d0c353",
     "zoneName": "stg-zzzz-cc-merchant-com.cc-ecdn.net",
@@ -146,8 +129,6 @@ If the zone did not exist already and is created successfully, the following res
     "status": "active"
   }
 }
-
-
 ```
 
 Status The status could also be "pending". Give Cloudflare a bit of time to process your request. It is always possible to do the GET call in step 3 to keep an eye on it.
@@ -159,31 +140,23 @@ Certificate and Private Key Before starting this step, please ensure you have ac
 Finally, we get to the "goal": Uploading the certificate. To do that, an API call is made to the "[Add certificate for zone](https://developer.salesforce.com/docs/commerce/commerce-api/references/cdn-api-process-apis?meta=addCertificateForZone)" endpoint.
 
 ```
-
-					https://{shortCode}.api.commercecloud.salesforce.com/cdn/zones/v1/organizations/{organizationId}/zones/{zoneId}/certificates
-
-
+https://{shortCode}.api.commercecloud.salesforce.com/cdn/zones/v1/organizations/{organizationId}/zones/{zoneId}/certificates
 ```
 
 This is a POST call with the following body:
 
 ```
-
-					{
+{
   "hostname": "cc-merchant.com",
   "certificate": "-----BEGIN CERTIFICATE-----\nMIIDtTCCAp2gAwIBAgIJAMHAwfXZ5/PWMA0GCSqGSIb3DQEBCwUAMEUxCzAJBgNV\nBAYTAkFVMRMwEQYDVQQIEwpTb21lLVN0YXRlMSEwHwYDVQQKExhJbnRlcm5ldCBX\naWRnaXRzIFB0eSBMdGQwHhcNMTYwODI0MTY0MzAxWhcNMTYxMTIyMTY0MzAxWjBF\nMQswCQYDVQQGEwJBVTETMBEGA1UECBMKU29tZS1TdGF0ZTEhMB8GA1UEChMYSW50\nZXJuZXQgV2lkZ2l0cyBQdHkgTHRkMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIB\nCgKCAQEAwQHoetcl9+5ikGzV6cMzWtWPJHqXT3wpbEkRU9Yz7lgvddmGdtcGbg/1\nCGZu0jJGkMoppoUo4c3dts3iwqRYmBikUP77wwY2QGmDZw2FvkJCJlKnabIRuGvB\nKwzESIXgKk2016aTP6/dAjEHyo6SeoK8lkIySUvK0fyOVlsiEsCmOpidtnKX/a+5\n0GjB79CJH4ER2lLVZnhePFR/zUOyPxZQQ4naHf7yu/b5jhO0f8fwt+pyFxIXjbEI\ndZliWRkRMtzrHOJIhrmJ2A1J7iOrirbbwillwjjNVUWPf3IJ3M12S9pEewooaeO2\nizNTERcG9HzAacbVRn2Y2SWIyT/18QIDAQABo4GnMIGkMB0GA1UdDgQWBBT/LbE4\n9rWf288N6sJA5BRb6FJIGDB1BgNVHSMEbjBsgBT/LbE49rWf288N6sJA5BRb6FJI\nGKFJpEcwRTELMAkGA1UEBhMCQVUxEzARBgNVBAgTClNvbWUtU3RhdGUxITAfBgNV\nBAoTGEludGVybmV0IFdpZGdpdHMgUHR5IEx0ZIIJAMHAwfXZ5/PWMAwGA1UdEwQF\nMAMBAf8wDQYJKoZIhvcNAQELBQADggEBAHHFwl0tH0quUYZYO0dZYt4R7SJ0pCm2\n2satiyzHl4OnXcHDpekAo7/a09c6Lz6AU83cKy/+x3/djYHXWba7HpEu0dR3ugQP\nMlr4zrhd9xKZ0KZKiYmtJH+ak4OM4L3FbT0owUZPyjLSlhMtJVcoRp5CJsjAMBUG\nSvD8RX+T01wzox/Qb+lnnNnOlaWpqu8eoOenybxKp1a9ULzIVvN/LAcc+14vioFq\n2swRWtmocBAs8QR9n4uvbpiYvS8eYueDCWMM4fvFfBhaDZ3N9IbtySh3SpFdQDhw\nYbjM2rxXiyLGxB4Bol7QTv4zHif7Zt89FReT/NBy4rzaskDJY5L6xmY=\n-----END CERTIFICATE-----\n",
   "privateKey": "-----BEGIN RSA PRIVATE KEY-----\nMIIEowIBAAKCAQEAwQHoetcl9+5ikGzV6cMzWtWPJHqXT3wpbEkRU9Yz7lgvddmG\ndtcGbg/1CGZu0jJGkMoppoUo4c3dts3iwqRYmBikUP77wwY2QGmDZw2FvkJCJlKn\nabIRuGvBKwzESIXgKk2016aTP6/dAjEHyo6SeoK8lkIySUvK0fyOVlsiEsCmOpid\ntnKX/a+50GjB79CJH4ER2lLVZnhePFR/zUOyPxZQQ4naHf7yu/b5jhO0f8fwt+py\nFxIXjbEIdZliWRkRMtzrHOJIhrmJ2A1J7iOrirbbwillwjjNVUWPf3IJ3M12S9pE\newooaeO2izNTERcG9HzAacbVRn2Y2SWIyT/18QIDAQABAoIBACbhTYXBZYKmYPCb\nHBR1IBlCQA2nLGf0qRuJNJZg5iEzXows/6tc8YymZkQE7nolapWsQ+upk2y5Xdp/\naxiuprIs9JzkYK8Ox0r+dlwCG1kSW+UAbX0bQ/qUqlsTvU6muVuMP8vZYHxJ3wmb\n+ufRBKztPTQ/rYWaYQcgC0RWI20HTFBMxlTAyNxYNWzX7RKFkGVVyB9RsAtmcc8g\n+j4OdosbfNoJPS0HeIfNpAznDfHKdxDk2Yc1tV6RHBrC1ynyLE9+TaflIAdo2MVv\nKLMLq51GqYKtgJFIlBRPQqKoyXdz3fGvXrTkf/WY9QNq0J1Vk5ERePZ54mN8iZB7\n9lwy/AkCgYEA6FXzosxswaJ2wQLeoYc7ceaweX/SwTvxHgXzRyJIIT0eJWgx13Wo\n/WA3Iziimsjf6qE+SI/8laxPp2A86VMaIt3Z3mJN/CqSVGw8LK2AQst+OwdPyDMu\niacE8lj/IFGC8mwNUAb9CzGU3JpU4PxxGFjS/eMtGeRXCWkK4NE+G08CgYEA1Kp9\nN2JrVlqUz+gAX+LPmE9OEMAS9WQSQsfCHGogIFDGGcNf7+uwBM7GAaSJIP01zcoe\nVAgWdzXCv3FLhsaZoJ6RyLOLay5phbu1iaTr4UNYm5WtYTzMzqh8l1+MFFDl9xDB\nvULuCIIrglM5MeS/qnSg1uMoH2oVPj9TVst/ir8CgYEAxrI7Ws9Zc4Bt70N1As+U\nlySjaEVZCMkqvHJ6TCuVZFfQoE0r0whdLdRLU2PsLFP+q7qaeZQqgBaNSKeVcDYR\n9B+nY/jOmQoPewPVsp/vQTCnE/R81spu0mp0YI6cIheT1Z9zAy322svcc43JaWB7\nmEbeqyLOP4Z4qSOcmghZBSECgYACvR9Xs0DGn+wCsW4vze/2ei77MD4OQvepPIFX\ndFZtlBy5ADcgE9z0cuVB6CiL8DbdK5kwY9pGNr8HUCI03iHkW6Zs+0L0YmihfEVe\nPG19PSzK9CaDdhD9KFZSbLyVFmWfxOt50H7YRTTiPMgjyFpfi5j2q348yVT0tEQS\nfhRqaQKBgAcWPokmJ7EbYQGeMbS7HC8eWO/RyamlnSffdCdSc7ue3zdVJxpAkQ8W\nqu80pEIF6raIQfAf8MXiiZ7auFOSnHQTXUbhCpvDLKi0Mwq3G8Pl07l+2s6dQG6T\nlv6XTQaMyf6n1yjzL+fzDrH3qXMxHMO/b13EePXpDMpY7HQpoLDi\n-----END RSA PRIVATE KEY-----\n"
 }
-
-
-
 ```
 
 When the request succeeds, and the certificate is checked to be valid, the information needed for the next step is in the response.
 
 ```
-
-					{
+{
   "certificateId": "3822ff90-ea29-44df-9e55-21300bb9419b",
   "status": "EXPIRED",
   "hosts": [
@@ -200,8 +173,6 @@ When the request succeeds, and the certificate is checked to be valid, the infor
   "customHostname": "cc-merchant.com",
   "customHostnameStatus": "PENDING"
 }
-
-
 ```
 
 Status Notice that the customHostnameStatus is "PENDING".
@@ -223,15 +194,12 @@ For this step, we need the person who manages the DNS records of the domain in q
 The data of this TXT record was in the response of the previous step:
 
 ```
-
-					{
+{
   ...
   "customHostnameVerificationTXTName": "_example.com",
   "customHostnameVerificationTXTValue": "4c9c3f4f-2e91-4c5d-a902-f12f9c285b9e",
   ...
 }
-
-
 ```
 
 Once this record is added, the "[Get certificates](https://developer.salesforce.com/docs/commerce/commerce-api/references/cdn-api-process-apis?meta=getCertificates)" endpoint is available to track the status. As soon as it changes to "ACTIVE", you can go to the next step!
@@ -247,10 +215,7 @@ The "zone\_name" was retrieved in step 4 when the zone was created. It is always
 An example:
 
 ```
-
-					commcloud.stg-zzzz-cc-merchant-com.cc-ecdn.net
-
-
+commcloud.stg-zzzz-cc-merchant-com.cc-ecdn.net
 ```
 
 ## Step 9: Business Manager (Optional)

@@ -65,10 +65,7 @@ But even if the quota is not enforced, you must investigate the code causing you
 Besides this screen, you will also find [logs](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-log-files-overview.html?q=log) on the WebDAV. And these can contain messages along these lines:
 
 ```
-
-					Quota api.queryObjects@JOB (internal, limit 0): limit exceeded 5 time(s)
-
-
+Quota api.queryObjects@JOB (internal, limit 0): limit exceeded 5 time(s)
 ```
 
 Notice the word "**internal".** These are unenforced quotas that Salesforce uses for statistical purposes (maybe it will become a quota in the future). So you can ignore them!
@@ -185,8 +182,7 @@ To keep the "garbage" as empty as possible, there are a few things you can do a 
 Accessing or fetching objects and not doing anything will cause extra cleanup! Below is an example of things to keep in mind.
 
 ```
-
-					/**
+/**
  * An example of a function that does many things you should not do...
  */
 function doUnnecessaryCalls() {
@@ -207,8 +203,6 @@ function doUnnecessaryCalls() {
     }
     allMyProducts.close();
 }
-
-
 ```
 
 #### Good Cache Hit Ratio
@@ -224,8 +218,7 @@ When a file is parsed/accessed, it will execute all of the global requires, whic
 The shorter the chain, the better the performance and the less garbage collection.
 
 ```
-
-					/**
+/**
  * Logs forbidden access requests to Sentry. If a user is logged in, the customer number is logged.
  */
 server.prepend('Forbidden', function (req, res, next) {
@@ -237,8 +230,6 @@ server.prepend('Forbidden', function (req, res, next) {
     }
     next();
 });
-
-
 ```
 
 ### Maximum Images Per Folder

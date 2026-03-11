@@ -178,11 +178,8 @@ JWKS (JSON Web Key Set) provides a set of keys that includes the current, past, 
 New functions have been exposed on the SalesforcePaymentRequest:
 
 ```
-
-					salesforcePaymentRequest.getCardCaptureAutomatic();
+salesforcePaymentRequest.getCardCaptureAutomatic();
 salesforcePaymentRequest.setCardCaptureAutomatic(Boolean);
-
-
 ```
 
 ### Do More When Calculating VAT
@@ -190,14 +187,10 @@ salesforcePaymentRequest.setCardCaptureAutomatic(Boolean);
 New functions are now exposed to work with the new rounding options per group (see the item about Japanese Taxation):
 
 ```
-
-					lineItemCtnr.getTaxTotalsPerTaxRate();
+lineItemCtnr.getTaxTotalsPerTaxRate();
 lineItemCtnr.isTaxRoundedAtGroup();
 basket.isTaxRoundedAtGroup();
 order.isTaxRoundedAtGroup()
-
-
-
 ```
 
 ## PWA Kit v2.5.0

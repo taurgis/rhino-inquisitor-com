@@ -42,8 +42,7 @@ The problem primarily lay in how `<Description/>` was utilised in preview.js. As
 Luckily storybook allows us to customise the page templates by setting the "page" rendering function in preview.js(x).
 
 ```
-
-					// .storybook/preview.jsx
+// .storybook/preview.jsx
 import { Title, Subtitle, Description, Primary, Controls, Stories } from '@storybook/blocks';
 export default {
   parameters: {
@@ -68,8 +67,6 @@ export default {
     },
   },
 };
-
-
 ```
 
 And the component of interest in this override is the ``<Description />`!`
@@ -86,8 +83,7 @@ To create our component, I decided to dig into the Storybook source code to see 
 After digging into the code I found this function:
 
 ```
-
-					const getDescriptionFromResolvedOf = (resolvedOf) => {
+const getDescriptionFromResolvedOf = (resolvedOf) => {
     switch (resolvedOf.type) {
         case 'story': {
             return resolvedOf.story.parameters.docs?.description?.story || null;
@@ -124,8 +120,6 @@ After digging into the code I found this function:
         }
     }
 };
-
-
 ```
 
 This function will extract the description based on what page we are looking at!
@@ -135,8 +129,7 @@ This function will extract the description based on what page we are looking at!
 Now we need our own component to utilise this function:
 
 ```
-
-					const ModifiedDescription = (props) => {
+const ModifiedDescription = (props) => {
     const { of } = props;
     if ('of' in props && of === undefined) {
         throw new Error('Unexpected `of={undefined}`, did you mistype a CSF file reference?');
@@ -153,8 +146,6 @@ Now we need our own component to utilise this function:
 
     )
 }
-
-
 ```
 
 Here, we use Storybook's built-in Markdown to display the content by removing everything after '@param'. This results in displaying only the description we wanted.
@@ -164,8 +155,7 @@ Here, we use Storybook's built-in Markdown to display the content by removing ev
 Next, we replace the `<Description/>` in the Docs.page of Storybook with our custom `<ModifiedDescription/>` component.
 
 ```
-
-					 const preview = {
+const preview = {
     parameters: {
         docs: {
             page: () => (
@@ -180,15 +170,12 @@ Next, we replace the `<Description/>` in the Docs.page of Storybook with our cus
                 )
         },
     };
-
-
 ```
 
 ## Putting it all together
 
 ```
-
-					import {
+import {
     Title,
     Subtitle,
     Primary,
@@ -269,7 +256,4 @@ const preview = {
   },
 };
 export default preview;
-
-
-
 ```

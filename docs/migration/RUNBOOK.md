@@ -221,6 +221,7 @@ This runbook tracks the operational steps needed to move the repository from pla
 ### RHI-038 - Internal Link and Navigation Rewrites
 
 - Run the internal link rewrite pass with `npm run migrate:rewrite-links` after `npm run migrate:map-frontmatter` and `npm run migrate:rewrite-media`.
+- After `npm run migrate:rewrite-links`, run `npm run migrate:apply-corrections` to normalize staged Markdown structure and apply curated image-alt overrides, or use `npm run migrate:finalize-content` as the combined post-mapping sequence.
 - The rewrite pass reads staged Markdown from `migration/output/content/` and URL governance data from:
   - `migration/url-manifest.json`
   - `migration/intermediate/media-manifest.json`
@@ -235,11 +236,43 @@ This runbook tracks the operational steps needed to move the repository from pla
   - `npm run migrate:map-frontmatter`
   - `npm run migrate:rewrite-media`
   - `npm run migrate:rewrite-links`
+  - `npm run migrate:apply-corrections`
   - `hugo --minify --environment production --contentDir migration/output/content --destination tmp/rhi038-public`
   - `CHECK_LINKS_PUBLIC_DIR=tmp/rhi038-public npm run check:links`
   - spot-check `tmp/rhi038-public/archive/index.html`, one representative category term page such as `tmp/rhi038-public/category/release-notes/index.html`, and `tmp/rhi038-public/video/index.html`
   - treat residual `npm run migrate:rewrite-media` warnings for unmapped non-manifest media references as RHI-037 scope, not a blocker for the RHI-038 internal page-link gate
   - rerun `npm run migrate:normalize` and confirm the normalized artifact hashes remain stable
+
+### Post-Generation Content Corrections
+
+- Run the staged-content correction pass with `npm run migrate:apply-corrections` after `npm run migrate:rewrite-links`.
+- The correction pass reads staged Markdown from `migration/output/content/` and applies three deterministic fixes to generated Markdown only:
+  - fenced-code cleanup for WordPress wrapper indentation and blank-first-line artifacts
+  - image paragraph normalization when generated Markdown keeps images and prose in the same paragraph block
+  - curated alt-text overrides from `migration/input/image-alt-corrections.csv`
+- Use `npm run migrate:finalize-content` after `npm run migrate:map-frontmatter` when you want the standard post-mapping sequence in one command.
+- The seeded alt-text corrections file contract is:
+  - path: `migration/input/image-alt-corrections.csv`
+  - required columns: `page_url`, `image_src`, `occurrence_index`, `corrected_alt`
+  - optional columns: `original_alt`, `source_file`
+  - matching rule: `page_url + image_src + occurrence_index` identifies a specific Markdown image occurrence in the staged corpus
+- The correction pass writes:
+  - `migration/reports/content-corrections-summary.json`
+  - `migration/reports/image-alt-corrections-audit.csv`
+- Current validated 2026-03-11 behavior on a fresh staged-content temp run:
+  - updated 133 of 171 staged Markdown files on the first correction pass
+  - normalized 187 fenced code blocks carrying wrapper indentation artifacts
+  - split 57 mixed image-and-prose paragraph lines into separate Markdown blocks
+  - applied 314 curated image-alt corrections from `migration/input/image-alt-corrections.csv`
+  - reported 0 unmatched curated alt corrections
+  - reran idempotently with 0 updated files on the second pass
+  - reduced the fenced-code indentation scan from 185 findings across 50 files to 0 findings across 0 files after the final heuristic adjustment
+- Validation steps for the correction pass:
+  - `npm run migrate:export-alt-corrections -- --current-dir migration/output/content --baseline-dir tmp/rhi-correction-validate-content --output-file migration/input/image-alt-corrections.csv` when reseeding curated alt text from reviewed staged content
+  - `npm run migrate:apply-corrections`
+  - rerun `npm run migrate:apply-corrections` and confirm the summary reports 0 updated files
+  - `hugo --minify --environment production --contentDir migration/output/content --destination tmp/rhi-corrections-public`
+  - `npm run check:a11y-content`
 
 ### RHI-039 - SEO Signal Preservation
 

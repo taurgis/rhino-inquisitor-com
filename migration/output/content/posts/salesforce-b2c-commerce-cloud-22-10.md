@@ -74,15 +74,12 @@ Permissions It might be necessary to give permission to your role in the Busines
 It will no longer be possible to set negative values for the allocation amount in an inventory record using the PUT/PATCH endpoint. Not sure why anyone would want to do this, but at least now you can't.
 
 ```
-
-					/inventory_lists/{}/product_inventory_records/{}
+/inventory_lists/{}/product_inventory_records/{}
 //error
 status code: 400
 "type": "PropertyConstraintViolationException"
 "message": "An error occurred while decoding the request. There's a value constraint
 violation of property '$.allocation.amount' in document 'product_inventory_record'.”
-
-
 ```
 
 ### beforePOST v2 for baskets

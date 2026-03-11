@@ -3,8 +3,8 @@ title: >-
   The OCAPI/SCAPI Hooks Playbook: A Deep Dive into Salesforce B2C Commerce Best
   Practices
 description: >-
-    Understand how OCAPI and SCAPI hooks work in SFCC, when to use them, and
-    which implementation patterns avoid brittle or outdated integrations.
+  Understand how OCAPI and SCAPI hooks work in SFCC, when to use them, and which
+  implementation patterns avoid brittle or outdated integrations.
 date: '2022-10-31T13:03:53.000Z'
 lastmod: '2025-07-29T12:47:51.000Z'
 url: /how-to-use-ocapi-scapi-hooks/
@@ -111,8 +111,7 @@ The first step in writing hooks for our APIs is registering them with the server
 We need to create a JSON file that describes which endpoints we want to customise called “hooks.json.” This file can be put anywhere in a cartridge. But in this case, we will put it in the root  ( e.g. "my\_project/cartridges/my\_cartridge/hooks.json ) as an example.
 
 ```
-
-					{
+{
     "hooks": [
         {
             "name": "dw.ocapi.shop.basket.beforePATCH",
@@ -124,8 +123,6 @@ We need to create a JSON file that describes which endpoints we want to customis
         }
     ]
 }
-
-
 ```
 
 In this file, we “hook” the customisation script to the REST endpoint we want to extend.
@@ -139,13 +136,10 @@ The next step is to create or edit your cartridge's "package.json" file.
 The file should be in the root folder of your cartridge. (e.g. "my\_project/cartridges/my\_cartridge/package.json")
 
 ```
-
-					{
+{
   "hooks": "./hooks.json",
   ...
 }
-
-
 ```
 
 Salesforce B2C Commerce Cloud parses this file to enable specific customisations, including hooks.
@@ -171,8 +165,7 @@ Case sensitivity The function name is case-sensitive, so match it to the documen
 Now that we know what function to use, we can start writing some code.
 
 ```
-
-					/**
+/**
  * This can be used to update the basket server side, if for instance we need to call a tax service or sync the basket.
  * The client app can retrieve this updated basket by doing a PATCH request.
  */
@@ -183,8 +176,6 @@ exports.beforePATCH = function (basket, basketInput) {
         productLineItems[i].setLineItemText('PRODUCT ' + productLineItems[i].getLineItemText());
     }
 };
-
-
 ```
 
 ### Detecting OCAPI vs SCAPI
@@ -192,10 +183,7 @@ exports.beforePATCH = function (basket, basketInput) {
 We may have a scenario where the OCAPI and the SCAPI use the same endpoint and have their unique customisations. To detect SCAPI calls, the request object/class has recently received [a helper function:](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_system_Request.html?resultof=%22%69%73%73%63%61%70%69%22%20#dw_system_Request_isSCAPI_DetailAnchor)
 
 ```
-
-					request.isSCAPI()
-
-
+request.isSCAPI()
 ```
 
 ## Step 3: Test if it works!
@@ -237,8 +225,7 @@ This principle must be applied rigorously. When your hook code deals with sensit
 For instance, the `dw.order.OrderMgr` class provides two ways to retrieve an order. One is dangerously insecure in this context; the other is the correct choice.
 
 ```
-
-					var OrderMgr = require('dw/order/OrderMgr');
+var OrderMgr = require('dw/order/OrderMgr');
 // INSECURE: AVOID in hooks where ownership is not yet verified.
 // An attacker could pass any valid order number.
 var order = OrderMgr.getOrder(orderNumber);
@@ -246,8 +233,6 @@ var order = OrderMgr.getOrder(orderNumber);
 // The orderToken is a secret known only to the user who placed the order.
 // This token should be passed in the request from the client.
 var order = OrderMgr.getOrder(orderNumber, orderToken);
-
-
 ```
 
 This pattern extends to other sensitive objects. Always perform additional checks to confirm the user's authority to perform the requested action.
@@ -263,8 +248,7 @@ The best practice here is to adopt a **whitelisting** (or allowlisting) approach
 Your validation logic should check for type, length, format, and range on every single field you process.
 
 ```
-
-					// Example validation in a beforePUT hook for a customer address
+// Example validation in a beforePUT hook for a customer address
 exports.beforePUT = function (customer, addressId, addressDoc) {
     var Status = require('dw/system/Status');
     var status; // This will hold the Status.ERROR object if any validation fails.
@@ -297,8 +281,6 @@ exports.beforePUT = function (customer, addressId, addressDoc) {
     // Otherwise, all checks passed, so return an OK status.
     return status || new Status(Status.OK);
 };
-
-
 ```
 
 ### Implement the same hook in multiple cartridges
@@ -320,10 +302,7 @@ Read the documentation carefully for each hook!
 So basically: never return the following code in your hooks when your custom code completes successfully (if the endpoint supports it):
 
 ```
-
-					return new Status(Status.OK);
-
-
+return new Status(Status.OK);
 ```
 
 Sometimes, your linter will complain about not returning a value in all branches. But you must ignore that warning to avoid breaking another cartridge hook. (Unless you want to break the chain!)
@@ -331,8 +310,7 @@ Sometimes, your linter will complain about not returning a value in all branches
 An example where a linter will complain:
 
 ```
-
-					exports.beforePOST = function beforePOST(registration) {
+exports.beforePOST = function beforePOST(registration) {
     var Status = require('dw/system/Status');
     var verificationResult = validate(registration.customer);
     if (!verificationResult) {
@@ -340,9 +318,6 @@ An example where a linter will complain:
     }
     // Your linter will want a return statement here
 };
-
-
-
 ```
 
 ## The Need for Speed: Performance Tuning Your Hooks

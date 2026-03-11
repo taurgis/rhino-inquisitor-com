@@ -56,20 +56,16 @@ Previously, we were unable to differentiate at the millisecond level, but that i
 #### XML Import example
 
 ```
-
-					// example import with seconds
+// example import with seconds
 2023-11-22T06:56:01Z
 // example import with milliseconds
 2023-11-22T06:56:01.567Z
-
-
 ```
 
 #### OCAPI
 
 ```
-
-					// Request body example with millis
+// Request body example with millis
 { 'allocation': { 'amount': 17, 'reset_date': '2023-11-23T08:39:23.456Z' } }
 // Response always with millis
 .... 'reset_date': '2023-11-23T08:39:23.456Z'
@@ -77,8 +73,6 @@ Previously, we were unable to differentiate at the millisecond level, but that i
 { 'allocation': { 'amount': 17, 'reset_date': '2023-11-23T08:41:23Z' } }
 // Response always with millis
 .... 'reset_date': '2023-11-23T08:41:23.000Z'
-
-
 ```
 
 ## Business Manager

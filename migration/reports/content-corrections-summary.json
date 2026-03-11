@@ -1,0 +1,12 @@
+{
+  "contentDir": "migration/output/content",
+  "correctionsFile": "migration/input/image-alt-corrections.csv",
+  "correctionsFilePresent": true,
+  "markdownFileCount": 171,
+  "filesChanged": 44,
+  "fencedBlocksNormalized": 149,
+  "mixedImageLinesSplit": 0,
+  "imageParagraphSpacersInserted": 0,
+  "altCorrectionsApplied": 0,
+  "unmatchedAltCorrections": 0
+}

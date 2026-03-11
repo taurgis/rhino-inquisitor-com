@@ -42,13 +42,10 @@ The first task is to structure a .csv file that defines your mapping. The file s
 Here's an example of how your CSV might look:
 
 ```
-
-					backendSKU,commerceCloudSKU
+backendSKU,commerceCloudSKU
 12345,67890
 12346,67891
 ...
-
-
 ```
 
 #### Compound Keys
@@ -60,14 +57,11 @@ Compound keys in a CSV file refer to combining multiple columns to create a uniq
 Here’s how you might define a mapping with compound keys in your `.csv` file:
 
 ```
-
-					productCode,locationCode,commerceCloudSKU
+productCode,locationCode,commerceCloudSKU
 PROD001,LOC001,CC_SKU_001
 PROD001,LOC002,CC_SKU_002
 PROD002,LOC001,CC_SKU_003
 ...
-
-
 ```
 
 This will affect how you do configurations in the following steps. I may be getting ahead of myself, but here are some essential things to remember:
@@ -102,15 +96,12 @@ Job Step Parameters:
 After the mapping is set up and the job is created, access the mappings in your script using the `dw.util.MappingMgr` class:
 
 ```
-
-					var MappingMgr = require('dw/util/MappingMgr');
+var MappingMgr = require('dw/util/MappingMgr');
 var MappingKey = require('dw/util/MappingKey');
 // Retrieving the entire map with all properties for a specific key
 var map = MappingMgr.get('backend-to-web-skus', new MappingKey('12345'));
 // Accessing the B2C Commerce SKU associated with a backend SKU
 var commerceCloudSKU = map.get('commerceCloudSKU');
-
-
 ```
 
 #### Advanced Usage: Iterators and Mapping Names
@@ -118,15 +109,12 @@ var commerceCloudSKU = map.get('commerceCloudSKU');
 Iterate over all keys or list all known mappings to enable more dynamic and adaptive script implementations:
 
 ```
-
-					var iterator = MappingMgr.keyIterator('backend-to-web-skus');
+var iterator = MappingMgr.keyIterator('backend-to-web-skus');
 while (iterator.hasNext()) {
     var key = iterator.next();
     var value = MappingMgr.getFirst('backend-to-web-skus', key);
     // Processing code here
 }
-
-
 ```
 
 ## Best Practices and Limitations

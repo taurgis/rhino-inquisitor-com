@@ -57,10 +57,7 @@ Come into play the "Session Bridge!" The mobile application, before being redire
 For this scenario, we will be making use of the following API key:
 
 ```
-
-					aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-
-
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 ```
 
 For those unaware, the above key does not need to be configured in the Account Manager to be used on Sandboxes and test systems. **It is not meant to be used in production!**
@@ -70,8 +67,7 @@ With this API key, we can configure access to the necessary APIs in the Business
 "_Administration_" > "_Site Development_" > "_Open Commerce API Settings_"
 
 ```
-
-					{
+{
 	"_v": "22.6",
 	"clients": [
 		{
@@ -98,8 +94,6 @@ With this API key, we can configure access to the necessary APIs in the Business
 		}
 	]
 }
-
-
 ```
 
 ### Step 1: Get a OCAPI session JWT
@@ -113,8 +107,7 @@ The first resource we need to call is customer authentication. And with this, we
 In this example, to make it a bit easier to test out, we will use a guest session by forming a request like this:
 
 ```
-
-					REQUEST:
+REQUEST:
 POST /s/RefArch/dw/shop/v22_6/customers/auth HTTP/1.1
 Host: example.com
 Content-Type: application/json
@@ -122,15 +115,12 @@ x-dw-client-id: [your_own_client_id]
 {
   "type" : "guest"
 }
-
-
 ```
 
 The result is a response containing the bearer token we need to continue talking to the OCAPI.
 
 ```
-
-					{
+{
     "_v": "22.6",
     "_type": "customer",
     "auth_type": "guest",
@@ -138,8 +128,6 @@ The result is a response containing the bearer token we need to continue talking
     "preferred_locale": "en_US",
     "visit_id": "477caf41e8a3d6a4ede60aa354"
 }
-
-
 ```
 
 But what you need is not visible in the response... huh? Not to worry, it is in the Authorization header!
@@ -157,26 +145,20 @@ Important information The link above contains much information on things to keep
 The request itself is pretty easy! Call the endpoint with the correct authorization header (type bearer), and you are as good as gold!
 
 ```
-
-					POST /s/RefArch/dw/shop/v22_6/sessions HTTP/1.1
+POST /s/RefArch/dw/shop/v22_6/sessions HTTP/1.1
 Host: example.com
 x-dw-client-id: [your_own_client_id]
 Authorization: Bearer eyJfdiI6IjXXXXXX.eyJfdiI6IjEiLCJleHAXXXXXXX.-d5wQW4c4O4wt-Zkl7_fiEiALW1XXXX
-
-
 ```
 
 If all goes well, you will get a response that will attempt to set cookies on the current host domain.
 
 ```
-
-					RESPONSE:
+RESPONSE:
 HTTP/1.1 204 NO CONTENT
 Set-Cookie : dwsecuretoken_a85a5236a2e852d714eb6f1585efb61c=""; Expires=Thu, 01-Jan-1970 00:00:10 GMT;
 Set-Cookie : dwsid=eXv5R3FZGI4BBfbK1Opk5s1mJ-41Aw7ZuaMKxeye5xa16fJMX--AnNkXsvmakbi1UZSzP1zoPmUILgoom1_jKg==;
 Set-Cookie : dwanonymous_a85a5236a2e852d714eb6f1585efb61c=bdjalnzmfrkJ0FtYliwud5db67; Max-Age=15552000;
-
-
 ```
 
 For the next step to work, copy the **dwsid** cookie. We need it to convert the cookie back to a JWT bearer token.
@@ -190,8 +172,7 @@ In some scenarios, we need to be able to do it the other way around and convert 
 The most significant difference from step 1 is that we send a different body and, of course, our cookie.
 
 ```
-
-					REQUEST:
+REQUEST:
 POST /s/RefArch/dw/shop/v22_6/customers/auth HTTP/1.1
 Host: example.com
 Content-Type: application/json
@@ -200,15 +181,12 @@ Cookie: dwsid=pATvWUO3KSdt-Kmcy-8-RsxKnoO4BMDwoec7ACVlW6tZNnhaOL7gt7mHqL-h7QYn5T
 {
   "type" : "session"
 }
-
-
 ```
 
 Similar to our first request, we get a JSON response with the JWT token in the "Authorization" header.
 
 ```
-
-					{
+{
     "_v": "22.6",
     "_type": "customer",
     "auth_type": "guest",
@@ -216,8 +194,6 @@ Similar to our first request, we get a JSON response with the JWT token in the "
     "preferred_locale": "en_US",
     "visit_id": "51e8f8af5015bd57bfeea12bed"
 }
-
-
 ```
 
 Matching customer\_id To verify that the flow worked, the "customer\_id" from step 1 should match the value you receive in response to this call.

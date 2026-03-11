@@ -41,10 +41,7 @@ Make sure to check the documentation pages for the specific endpoint to view the
 When crafting these date filters, adherence to the [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html#:~:text=Therefore%2C%20the%20order%20of%20the,27%2018%3A00%3A00.000.) date format (YYYY-MM-DDTHH:MM:SS.mmmZ) is essential for the API to parse the values correctly. Additionally, ensure that the field names, like `creation_date`, `valid_from`, `valid_to`, and others, correspond to your Salesforce Commerce Cloud data model's actual date-related fields.
 
 ```
-
-					2012-03-19T07:22:59Z // example
-
-
+2012-03-19T07:22:59Z // example
 ```
 
 ## Range Filter
@@ -54,8 +51,7 @@ When crafting these date filters, adherence to the [ISO 8601](https://www.iso.or
 If you need to find records that fall within a specific date interval, the [range\_filter](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-api?meta=type%3Arange_filter) is your go-to option. This filter can find records with a date value sitting between a specified start (from) and end (to) date.
 
 ```
-
-					{
+{
   "query": {
     "filtered_query": {
       "filter": {
@@ -71,8 +67,6 @@ If you need to find records that fall within a specific date interval, the [rang
     }
   }
 }
-
-
 ```
 
 ## Range2 Filter
@@ -86,8 +80,7 @@ A Range2Filter allows you to restrict search results to hits where the first ran
 -   `contained`: `R1` is contained in `R2`
 
 ```
-
-					 "query" : {
+"query" : {
         "filtered_query": {
            "filter": {
                 "range2_filter": {
@@ -101,9 +94,6 @@ A Range2Filter allows you to restrict search results to hits where the first ran
            "query": { "match_all_query": {} }
        }
    }
-
-
-
 ```
 
 ## Bool Filter
@@ -113,8 +103,7 @@ A Range2Filter allows you to restrict search results to hits where the first ran
 Sometimes, the need for complexity arises when constructing date-based queries. The [bool\_filter](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-api?meta=type%3Abool_filter) permits the combination of numerous filters for complex logical expressions. This filter is specifically helpful for creating compound date queries that may, for instance, combine status checks with date ranges.
 
 ```
-
-					{
+{
   "query": {
     "filtered_query": {
       "query": {
@@ -143,8 +132,6 @@ Sometimes, the need for complexity arises when constructing date-based queries. 
     }
   }
 }
-
-
 ```
 
 ## Term Query
@@ -152,8 +139,7 @@ Sometimes, the need for complexity arises when constructing date-based queries. 
 For precision filtering, where a field must match an exact date, the [term\_query](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-api?meta=type%3Aterm_query) becomes the instrument of choice. This query matches records based on absolute equality with the specified date.
 
 ```
-
-					{
+{
   "query": {
     "term_query": {
       "fields": ["creation_date"],
@@ -162,8 +148,6 @@ For precision filtering, where a field must match an exact date, the [term\_quer
     }
   }
 }
-
-
 ```
 
 ## Custom Endpoint

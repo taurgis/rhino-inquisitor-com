@@ -32,10 +32,7 @@ When looking at "out-of-the-box" data gathering, we mean all data gathered by an
 The data collection happens either by client-side tracking (JavaScript - e.g. [`<isobject>`](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/active_merchandising/b2c_add_isobject_tags.html)) for information such as product views or server-side events such as placing orders.
 
 ```
-
-					// Example of the client-side generated scripts
-
-
+// Example of the client-side generated scripts
 ```
 
 PWA Kit / Headless SiteGenesis and SFRA make use of `<isactivedatahead>`, `<isactivedataconext>`, and `<isobject>` tags to insert JavaScript client side to take care of the tracking of information. This is not the case for the PWA Kit or custom headless implementations! A custom implementation will be needed to add support for some of these "standard" Active Data fields again.
@@ -95,14 +92,11 @@ New Customer Active Data
 SFCC understands what we want to send to the system by defining the feed.  Now on to creating the file for import! A simple CSV file, with the data that our external system is generating.
 
 ```
-
-					‎
+‎
 customer-physicial-store-information-feed
 customerNo,custom.physicalVisits,custom.physicalVisitsMonth
 "W00000001",0,5
 "W00000006",1,2
-
-
 ```
 
 Some things to keep in mind with this file:
@@ -136,12 +130,9 @@ Dynamic Customer Group: Visited today
 Active Data Custom feed imports do not show in the Business Manager if the "standard" Active Data fields are empty for a customer or product. You might have to do a manual import on your sandbox to force the visibility. For that reason, I have provided an example file below!
 
 ```
-
-					‎
+‎
 Demandware Customer Active Data
 customerNo,visitsWeek,visitsMonth,orderValueMonth,productsViewedMonth,productsAbandonedMonth,visitsYear,orders,orderValue,discountValueWithoutCoupon,discountValueWithCoupon,giftUnits,avgOrderValue,sourceCodeOrders,topCategoriesOrdered,productsOrdered,giftOrders
 "W00000001",0,0,0.0,,,0,1,37.29,0.0,0.0,0.0,37.29,0,,"""8571677"",""8642255"",""8705308""",0
 "W00000006",0,0,0.0,,,0,1,18.1,0.0,0.0,0.0,18.1,0,,"""8704168"",""8714462""",0
-
-
 ```

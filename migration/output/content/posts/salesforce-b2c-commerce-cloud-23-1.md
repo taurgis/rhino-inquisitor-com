@@ -36,19 +36,13 @@ Feel free to poke me on Slack with screenshots and feedback on this new tool!
 A new set of URLs is introduced to make it easier to access sandboxes and not think about which cluster they are part of. For example:
 
 ```
-
-					xxxx-006.sandbox.us03.dx.commercecloud.salesforce.com
-
-
+xxxx-006.sandbox.us03.dx.commercecloud.salesforce.com
 ```
 
 becomes
 
 ```
-
-					xxxx-006.dx.commercecloud.salesforce.com
-
-
+xxxx-006.dx.commercecloud.salesforce.com
 ```
 
 There is already an automatic redirect in place to make this transition easier.

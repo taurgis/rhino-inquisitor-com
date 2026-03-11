@@ -47,8 +47,7 @@ The tool described above will spew out a JavaScript file that you can add to you
 Add your font JS file to the cartridge and folder that makes the most sense to you!
 
 ```
-
-					module.exports = function (jsPDFAPI) {
+module.exports = function (jsPDFAPI) {
     var font = 'BASE64 HERE';
     var callAddFont = function () {
         this.addFileToVFS('broc-webfont-normal.ttf', font);
@@ -56,7 +55,6 @@ Add your font JS file to the cartridge and folder that makes the most sense to y
     };
     jsPDFAPI.events.push(['addFonts', callAddFont]);
 };
-
 ```
 
 ### Load in the font
@@ -64,8 +62,7 @@ Add your font JS file to the cartridge and folder that makes the most sense to y
 Next we need to expand [main.js](https://github.com/taurgis/salesforce-commerce-cloud-libraries/blob/master/cartridges/jsPDF/main.js) to load in the fonts.
 
 ```
-
-					var jsPDF = require('./jsPDF');
+var jsPDF = require('./jsPDF');
 // libs
 require('./libs/ttffont')(jsPDF.API);
 // plugins
@@ -76,7 +73,6 @@ require('./plugins/total_pages')(jsPDF.API);
 require('./fonts/angin-senja-normal')(jsPDF.API);
 require('./fonts/broc-webfont-normal')(jsPDF.API);
 module.exports = jsPDF;
-
 ```
 
 As with any other script file, it's entirely within your control to override it on your cartridge. It's a given that you won't be needing those two sample fonts anyway!
@@ -86,14 +82,12 @@ As with any other script file, it's entirely within your control to override it 
 After loading your font, it's time to put it to use! Simply add the following code in your controller or job.
 
 ```
-
-					var JSPDF = require('jsPDF');
+var JSPDF = require('jsPDF');
 var doc = new JSPDF();
 doc.setFontSize(25);
 doc.setFont('broc-webfont', 'normal');
 doc.text(35, 10, 'Forward loves jsPDF');
 response.writer.print(doc.output());
-
 ```
 
 The first parameter of the setFont function is the font name defined in the initial JavaScript file we generated using the font conversion tool. If they do not match, it will not work! But if set up correctly, you should get a result like this (an example from the [GitHub repository code](https://github.com/taurgis/salesforce-commerce-cloud-libraries/blob/master/cartridges/plugin_testlibraries/cartridge/controllers/jsPDF.js)):

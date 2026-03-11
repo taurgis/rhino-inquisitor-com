@@ -79,10 +79,7 @@ That is more like it! There is much more public code available for the Salesforc
 Maybe formulating the questions in a specific manner will generate higher-quality responses. Perhaps something like this:
 
 ```
-
-					Write a Salesforce apex trigger to download reviews from a third party when a product is saved, making use of best practices and avoiding governor limits
-
-
+Write a Salesforce apex trigger to download reviews from a third party when a product is saved, making use of best practices and avoiding governor limits
 ```
 
 Invalid Code Even with the corrections in the Apex Trigger mentioned above, there is still a big issue with the code generated: ['Callout from triggers are currently not supported' error](https://help.salesforce.com/s/articleView?id=000386018&type=1) But it is a starting point.

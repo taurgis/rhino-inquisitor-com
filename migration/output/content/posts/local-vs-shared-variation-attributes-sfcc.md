@@ -42,11 +42,7 @@ Local variation attributes are specific to a single product or a small group of 
 In the [catalog import XML](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/xsd/catalog.xsd), local variation attributes are defined under the specific product they are associated with, which distinguishes them from shared attributes. The XML snippet below illustrates how local variation attributes are structured:
 
 ```
-
-
-
-
-  	...
+...
 
 
 
@@ -91,11 +87,6 @@ In the [catalog import XML](https://salesforcecommercecloud.github.io/b2c-dev-do
 			white
 			006
 			Z
-
-
-
-
-
 ```
 
 In this example, the main product defines a color and size variation attribute that only applies to this particular main product and its variants.
@@ -115,10 +106,7 @@ Merchant Tools > Products and Catalogs > Shared Variation Attributes
 Shared variation attributes in the catalog import XML are referenced as part of the catalog, rather than an individual product. The following XML example showcases how shared variation attributes are represented:
 
 ```
-
-
-
-		Kleur
+Kleur
 
 
 				Black
@@ -181,11 +169,6 @@ Shared variation attributes in the catalog import XML are referenced as part of 
 
 			black
 			18
-
-
-
-
-
 ```
 
 In this case, both products utilise the same shared attributes for "Color," demonstrating the shared nature of these attributes.

@@ -29,30 +29,22 @@ I have created a [script](https://osapishchuk.medium.com/legacy-customers-passwo
 ### hashes.txt
 
 ```
-
-					ab5ebf8d273b085b6a60336198e0a5a2090fdc3e0606a678315c7274ab06e046:5PiKJRn28bBKoFMopMaaKuV47aJ6GzVg:3_32_2_67108864
-
-
-
+ab5ebf8d273b085b6a60336198e0a5a2090fdc3e0606a678315c7274ab06e046:5PiKJRn28bBKoFMopMaaKuV47aJ6GzVg:3_32_2_67108864
 ```
 
 ### wordlist.txt
 
 ```
-
-					Password1
+Password1
 Password2
 Password@
 Password3
-
-
 ```
 
 ### Script
 
 ```
-
-					const argon2 = require('argon2');
+const argon2 = require('argon2');
 const fs = require('fs');
 const readline = require('readline');
 const path = require('path');
@@ -129,9 +121,6 @@ processFile(hashFilePath, async (hashString) => {
 }).then(() => {
     console.log("Done");
 });
-
-
-
 ```
 
 ## Breaking It Down

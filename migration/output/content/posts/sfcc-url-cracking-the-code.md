@@ -33,17 +33,11 @@ A typical Salesforce B2C Commerce Cloud URL consists of the following components
 Example URLs:
 
 ```
-
-					https://www.example.com/on/demandware.store/Sites-MySite-Site/en_US/MyPipeline-MyAction?param1=value1¶m2=value2
-
-
+https://www.example.com/on/demandware.store/Sites-MySite-Site/en_US/MyPipeline-MyAction?param1=value1¶m2=value2
 ```
 
 ```
-
-					https://www.example.com/my-site/en_US/route?param1=value1¶m2=value2
-
-
+https://www.example.com/my-site/en_US/route?param1=value1¶m2=value2
 ```
 
 ## Protocol
@@ -53,30 +47,23 @@ The protocol is the foundation of how data is transmitted across the internet. I
 [Salesforce B2C Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/) only allows HTTPS and has blocked the use of HTTP for quite a few years now. When working locally with the PWA Kit, HTTP is used, however.
 
 ```
-
-					// SFRA - SiteGenesis
+// SFRA - SiteGenesis
 request.getHttpProtocol();
 // PWA KIT Client Side
 window.location.protocol
 // PWA Kit Server Side (getProps)
 req.protocol
-
-
-
 ```
 
 ## Domain & subdomain
 
 ```
-
-					// SFRA - SiteGenesis
+// SFRA - SiteGenesis
 request.getHttpHost();
 // PWA KIT Client Side
 window.location.hostname
 // PWA Kit Server Side (getProps)
 req.hostname
-
-
 ```
 
 The [domain](https://en.wikipedia.org/wiki/Domain_name) is the unique address of your website on the internet. It is the identifier that users will type into their browser to access your site, and search engines also use it to index.
@@ -88,15 +75,11 @@ Choosing a domain that is easy to remember and represents your brand is crucial,
 ## Path
 
 ```
-
-					// SFRA - SiteGenesis
+// SFRA - SiteGenesis
 request.getHttpPath();
 // PWA KIT
 import {useLocation} from 'react-router-dom'
 const { pathname } = useLocation()
-
-
-
 ```
 
 The "[path](https://en.wikipedia.org/wiki/URL)" of a URL refers to the hierarchical structure of a website that designates the specific location of a resource, such as a web page, an image, or a file, on the web server. The path helps users and search engines navigate and understand the organisation of a website's content. It is an essential part of the URL, following the domain name and starting with a forward slash (/).
@@ -110,17 +93,13 @@ A well-structured and descriptive URL path can improve a website's search engine
 ## Query Parameters
 
 ```
-
-					// SFRA - SiteGenesis
+// SFRA - SiteGenesis
 request.getHttpParameterMap();
 request.getHttpParameters();
 request.getHttpQueryString();
 // PWA KIT
 import {useLocation} from 'react-router-dom'
 const { search } = useLocation()
-
-
-
 ```
 
 [Query parameters](https://en.wikipedia.org/wiki/Query_string) are optional components of a Salesforce B2C Commerce Cloud URL that are used to pass additional data to a server-side controller. They are key-value pairs that are appended to the end of the URL, starting with a question mark (?) and separated by an ampersand (&). Query parameters can transmit data such as filters, search terms, or pagination information. You can create dynamic and interactive user experiences by utilising query parameters and optimising your site's performance.

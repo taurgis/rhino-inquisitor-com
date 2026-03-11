@@ -26,8 +26,7 @@ For the people who want a quick solution to their file upload problem without mu
 And before you start commenting that I put everything in a controller, it is just an example. Please use helper classes and the works, and don't put everything in a controller.
 
 ```
-
-					'use strict';
+'use strict';
 var server = require('server');
 server.get('SubmitFile', function (req, res, next) {
     var LocalServiceRegistry = require('dw/svc/LocalServiceRegistry');
@@ -49,9 +48,6 @@ server.get('SubmitFile', function (req, res, next) {
     next();
 });
 module.exports = server.exports();
-
-
-
 ```
 
 ## Pieces of the puzzle
@@ -77,14 +73,11 @@ As for the profile and credentials linked to your service, they will depend on y
 ### Building the request
 
 ```
-
-					var zipFile = new File(new File(File.TEMP), 'myFile.zip.gz');
+var zipFile = new File(new File(File.TEMP), 'myFile.zip.gz');
 return [
     new HTTPRequestPart('zipFile', zipFile, 'application/gzip', 'UTF-8'),
     new HTTPRequestPart('zipFile-two', zipFile, 'application/gzip', 'UTF-8'),
 ];
-
-
 ```
 
 To build up the multipart request, we need to ensure that we return an Array of [HTTPRequestParts](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_net_HTTPRequestPart.html). We submit the same file twice; they can, of course, be different.
@@ -98,10 +91,7 @@ In this example, we pass multiple [files](https://documentation.b2c.commerceclou
 ### Encoding
 
 ```
-
-					new HTTPRequestPart('zipFile', zipFile, 'application/gzip', 'UTF-8');
-
-
+new HTTPRequestPart('zipFile', zipFile, 'application/gzip', 'UTF-8');
 ```
 
 When working with files, you must [send extra information](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_net_HTTPRequestPart.html#dw_net_HTTPRequestPart_HTTPRequestPart_String_Bytes_String_String_String_DetailAnchor) along the way:
@@ -117,12 +107,7 @@ When working with files, you must [send extra information](https://documentation
 ## The Response
 
 ```
-
-
 res.print(myFormSubmissionService.call().object.text)
-
-
-
 ```
 
 Nothing special to mention here. You will be able to handle the response like any service call and check whether or not the call was successful.

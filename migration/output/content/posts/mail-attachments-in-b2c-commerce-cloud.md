@@ -30,8 +30,7 @@ An alternative example can also be found in the [jsPDF attachment controller exa
 ### Controller
 
 ```
-
-					'use strict';
+'use strict';
 var server = require('server');
 /**
  * Encodes a string into a base64 string with an email-safe line width
@@ -126,16 +125,12 @@ server.get('Test', function (req, res, next) {
     next();
 });
 module.exports = server.exports();
-
-
-
 ```
 
 ### Template
 
 ```
-
-					--001a113414f6401b8604f1451630
+--001a113414f6401b8604f1451630
 Content-Type: multipart/mixed; boundary=001a113414f6401b8604f1451630
 --001a113414f6401b8604f1451630
 Content-Type: text/plain; charset=ISO-8859-1
@@ -152,9 +147,6 @@ Content-Disposition: attachment; filename="${key}"; size=${fileContent.length}; 
 Content-Transfer-Encoding: base64
 ${fileContent}
 --001a113414f6401b8604f1451630--
-
-
-
 ```
 
 ## Deconstructing the Challenge: Why dw.net.Mail Plays Hard to Get
@@ -204,8 +196,7 @@ To work with files (and emails), [base64 encoding](https://en.wikipedia.org/wiki
 We have the following function in the controller to help us get the required string to use in the mail.
 
 ```
-
-					/**
+/**
  * Encodes a string into a base64 string with an email-safe line width
  *
  * @param {string} str String the string to encode
@@ -236,8 +227,6 @@ function encodeBase64ForEmail(str, characterEncoding) {
     stringWriter.close();
     return strBase64LB;
 }
-
-
 ```
 
 And once we have that base64 encoded string, we can use it in our mail template. And inside that template, we are adding some metadata to give information about the file we are trying to send:
@@ -248,15 +237,12 @@ And once we have that base64 encoded string, we can use it in our mail template.
 -   **Content-Transfer-Encoding**: Here, we tell the mail client that the attachment is encoded using base64
 
 ```
-
-					--001a113414f6401b8604f1451630
+--001a113414f6401b8604f1451630
 Content-Type: application/pdf; name="${key}";
 Content-Description: ${key}
 Content-Disposition: attachment; filename="${key}"; size=${fileContent.length}; creation-date="${(new Date()).toISOString()}"; modification-date="${(new Date()).toISOString()}"
 Content-Transfer-Encoding: base64
 ${fileContent}
-
-
 ```
 
 As you can see, base64 poses no real challenge for Salesforce Commerce Cloud, and we will be able to send attachments quite easily using it.
@@ -273,8 +259,7 @@ Within the controller, we have multiple options to work with:
 In this example, we will be using the second option.
 
 ```
-
-					/**
+/**
  * Read a file to a String (encoded in IS0-8859-1)
  *
  * @param {string} filePath - The file path to read
@@ -297,8 +282,6 @@ function readPDFFile(filePath) {
     } while (line != null);
     return pdfContent;
 }
-
-
 ```
 
 While this solution relies on `[ISO-8859-1](https://en.wikipedia.org/wiki/ISO/IEC_8859-1)`, the modern and recommended standard for all email development is **`UTF-8`**. For any new implementation in Salesforce B2C Commerce Cloud, you should attempt to use `UTF-8`. This encoding provides universal compatibility, correctly handling international characters, symbols (e.g., €, ©), and emojis that are common in today's digital landscape and would otherwise fail or cause issues with a more limited character set.
@@ -324,11 +307,8 @@ Boundary definition error On recent code compatibility modes, we have noticed an
 Removing the "Content-Type: multipart/mixed; boundary=001a113414f6401b8604f1451630" below the tag resolves this.
 
 ```
-
-					--001a113414f6401b8604f1451630
+--001a113414f6401b8604f1451630
 Content-Type: multipart/mixed; boundary=001a113414f6401b8604f1451630
-
-
 ```
 
 Once the key has been set, it can "split up" the mail into different parts. A good example is a separate part for the plain-text and HTML emails.
@@ -336,8 +316,7 @@ Once the key has been set, it can "split up" the mail into different parts. A go
 _Note: Do not forget the '--' in front of the key as you see them in the examples._
 
 ```
-
-					--001a113414f6401b8604f1451630
+--001a113414f6401b8604f1451630
 Content-Type: text/plain; charset=ISO-8859-1
 Content-Transfer-Encoding: quoted-printable
 
@@ -346,25 +325,17 @@ Content-Type: text/html; charset=ISO-8859-1
 Content-Transfer-Encoding: quoted-printable
 
 --001a113414f6401b8604f1451630--
-
-
 ```
 
 The same methodology is used for the files. Each attachment gets its own "section" separated by that same key.
 
 ```
-
-
-
 --001a113414f6401b8604f1451630
 Content-Type: application/pdf; name="${key}";
 Content-Description: ${key}
 Content-Disposition: attachment; filename="${key}"; size=${fileContent.length}; creation-date="${(new Date()).toISOString()}"; modification-date="${(new Date()).toISOString()}"
 Content-Transfer-Encoding: base64
 ${fileContent}
-
-
-
 ```
 
 #### Watch out for spaces and new lines

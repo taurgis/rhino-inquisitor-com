@@ -61,7 +61,7 @@ RHI-030 (Phase 3 Sign-off)
 [RHI-031…RHI-045 all Done] ─────────────────► RHI-046 (Sign-off)
 ```
 
-> **Reading the graph:** RHI-031 is the hard gate — no Phase 4 workstream starts before it. RHI-032 (extraction) and RHI-033 (normalization) are the sequential foundation; all transformation workstreams depend on normalized records. RHI-034 (HTML-to-MD) and RHI-035 (front matter) can run in parallel after RHI-033. RHI-036 (URL) depends on RHI-035. RHI-037 (media) and WS-I (RHI-040), WS-J (RHI-041) depend on RHI-034. WS-G (RHI-038) depends on RHI-034 + RHI-035 + RHI-036. WS-K (RHI-042) reporting framework can be built early after extraction. All pipeline workstreams must be Done before the Pilot batch begins. Batches are sequential — each batch proves the pipeline before the next batch expands scope.
+> **Reading the graph:** RHI-031 is the hard gate — no Phase 4 workstream starts before it. RHI-032 (extraction) and RHI-033 (normalization) are the sequential foundation; all transformation workstreams depend on normalized records. RHI-034 (HTML-to-MD) and RHI-035 (front matter) can run in parallel after RHI-033. RHI-036 (URL) depends on RHI-035. RHI-037 (media) and WS-I (RHI-040), WS-J (RHI-041) depend on RHI-034. WS-G (RHI-038) depends on RHI-034 + RHI-035 + RHI-036. WS-K (RHI-042) reporting framework can be built early after extraction. All pipeline workstreams must be Done before the Pilot batch begins. Every batch uses the same post-mapping execution contract: `npm run migrate:map-frontmatter`, then `npm run migrate:finalize-content`, then `npm run migrate:report` before CI gates and PR review. Batches are sequential — each batch proves the pipeline before the next batch expands scope.
 
 ---
 
@@ -79,6 +79,9 @@ RHI-030 (Phase 3 Sign-off)
 | Discovery metadata extension contract | RHI-106 | `scripts/migration/schemas/discovery-metadata.schema.js`, `src/archetypes/`, `scripts/validate-frontmatter.js`, `scripts/migration/map-frontmatter.js`, `src/layouts/partials/article/`, `analysis/documentation/phase-4/rhi-106-discovery-metadata-contract-2026-03-10.md` |
 | Front matter mapping script | RHI-035 | `scripts/migration/map-frontmatter.js` |
 | Front matter error report | RHI-035 | `migration/reports/frontmatter-errors.csv` |
+| Curated image-alt corrections input | RHI-043, RHI-044, RHI-045 | `migration/input/image-alt-corrections.csv` |
+| Content corrections summary | RHI-043, RHI-044, RHI-045 | `migration/reports/content-corrections-summary.json` |
+| Image-alt corrections audit | RHI-043, RHI-044, RHI-045 | `migration/reports/image-alt-corrections-audit.csv` |
 | URL parity validation script | RHI-036 | `scripts/migration/validate-url-parity.js` |
 | Redirect integrity check script | RHI-036 | `scripts/migration/check-redirects.js` |
 | Media download and relink script | RHI-037 | `scripts/migration/download-media.js` |
@@ -119,9 +122,9 @@ All items below must be complete before Phase 5/6/8 downstream work can consume 
 - [x] RHI-040 Done — Automated accessibility gate passing on sample set; manual checklist complete; no unresolved critical defects
 - [ ] RHI-041 Done — Security content scan clean for critical issues; no unsafe script fragments in generated output
 - [ ] RHI-042 Done — All migration reports generated, reproducible, and CI-attached; blocking thresholds enforced
-- [ ] RHI-043 Done — Pilot batch passed all CI gates; pipeline proven end-to-end on representative records
-- [ ] RHI-044 Done — High-value batch committed and passing all gates; top-traffic pages verified manually
-- [ ] RHI-045 Done — Long-tail and taxonomy batch committed; archive and category routes preserved correctly
+- [ ] RHI-043 Done — Pilot batch passed all CI gates; pipeline proven end-to-end on representative records; correction artifacts and idempotent rerun evidence attached to the pilot PR
+- [ ] RHI-044 Done — High-value batch committed and passing all gates; top-traffic pages verified manually; correction artifacts attached to the batch PR
+- [ ] RHI-045 Done — Long-tail and taxonomy batch committed; archive and category routes preserved correctly; cumulative correction artifacts and exception evidence reviewed
 - [ ] RHI-046 Done — Stakeholder sign-off recorded; Phase 5/6 team notified and handover package confirmed
 
 ---
@@ -129,6 +132,8 @@ All items below must be complete before Phase 5/6/8 downstream work can consume 
 ## CI Gate Reference (Per Migration Batch PR)
 
 Every batch PR must pass all gates before merge:
+
+Before these gates run, each batch must complete the standard post-mapping sequence so the correction artifacts exist for review: `npm run migrate:map-frontmatter`, `npm run migrate:finalize-content`, and `npm run migrate:report`.
 
 | Gate | Script | Blocking? | Zero-Tolerance? |
 |------|--------|-----------|-----------------|
@@ -150,9 +155,9 @@ Every batch PR must pass all gates before merge:
 
 | Batch | Records | Scope | Gate Before Next Batch |
 |-------|---------|-------|------------------------|
-| Pilot (RHI-043) | 20–30 | Representative: 1 of each content type, 1 video, 1 category, homepage | All CI gates green; manual review of every generated file |
-| High-value (RHI-044) | 30–50 | Top traffic + top backlink pages per Search Console baseline | All CI gates green; SEO spot-check on 10 pages |
-| Long-tail + taxonomy (RHI-045) | Remainder | All remaining posts/pages/categories/archives | All CI gates green; exception log reviewed and signed off |
+| Pilot (RHI-043) | 20–30 | Representative: 1 of each content type, 1 video, 1 category, homepage | All CI gates green; manual review of every generated file; `content-corrections-summary.json` and `image-alt-corrections-audit.csv` attached to PR with idempotency confirmation |
+| High-value (RHI-044) | 30–50 | Top traffic + top backlink pages per Search Console baseline | All CI gates green; SEO spot-check on 10 pages; correction artifacts attached to PR |
+| Long-tail + taxonomy (RHI-045) | Remainder | All remaining posts/pages/categories/archives | All CI gates green; cumulative correction artifacts attached; exception log reviewed and signed off |
 
 ---
 

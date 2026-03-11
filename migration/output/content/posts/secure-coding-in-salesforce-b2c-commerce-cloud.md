@@ -112,8 +112,7 @@ To increase the channel's security, Salesforce allows developers to set specific
 A [config file](https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/blob/master/cartridges/app_storefront_base/cartridge/config/httpHeadersConf.json) was introduced into the SFRA to easily set headers for all responses, rather than having to do it for each endpoint separately.
 
 ```
-
-					[
+[
     {
         "id": "Content-Security-Policy",
         "value": "frame-ancestors 'self'"
@@ -123,8 +122,6 @@ A [config file](https://github.com/SalesforceCommerceCloud/storefront-reference-
         "value": "nosniff"
     }
 ]
-
-
 ```
 
 The standard file (httpHeadersConf.json) only sets two security headers, but it is possible to develop more.

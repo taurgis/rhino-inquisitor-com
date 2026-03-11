@@ -26,9 +26,7 @@ author: Thomas Theunen
 To get the request body in an SFCC controller, use the following script:
 
 ```
-
-					request.httpParameterMap.requestBodyAsString
-
+request.httpParameterMap.requestBodyAsString
 ```
 
 This attribute will provide a string representation of the request data, which can then be parsed and processed. Global Variable "request" is a [global variable](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_TopLevel_global.html) available everywhere in the back end.
@@ -42,8 +40,7 @@ In the context of SFCC, a controller is a script module that takes care of proce
 To access the body in an SFCC controller, you must use the "[request](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_system_Request.html)" object provided by the controller's execution context. This object represents the incoming HTTP request and provides various attributes and methods for accessing request data. The "request.[httpParameterMap](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_web_HttpParameterMap.html)" attribute is a collection of all input parameters received in the HTTP request. This includes query parameters, form parameters, and the request body. You can use the "[requestBodyAsString](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_web_HttpParameterMap.html#dw_web_HttpParameterMap_getRequestBodyAsString_DetailAnchor)" attribute to access the request body. This attribute provides a string representation of the request body, allowing you to parse and process the data as needed. Here's an example of how to use the "request.httpParameterMap.requestBodyAsString" attribute to access the request body inside a basic SFCC controller (without the SFRA wrapping):
 
 ```
-
-					var ISML = require('dw/template/ISML');
+var ISML = require('dw/template/ISML');
 function start() {
     var requestBody = request.httpParameterMap.requestBodyAsString;
     // Process the request body here
@@ -53,7 +50,6 @@ function start() {
     });
 }
 exports.Start = start;
-
 ```
 
 The "requestBodyAsString" attribute gets the request body as a string (what's in a name). You can then process the value as needed, such as parsing it into a JSON object or using it to perform server-side validation.
@@ -63,10 +59,8 @@ The "requestBodyAsString" attribute gets the request body as a string (what's in
 In many cases, the request body will be a JSON string that needs to be parsed into a JavaScript object. You can use the "JSON.parse()" method to do this. Here's an example of how to parse these requests into a JSON object:
 
 ```
-
-					var requestBody = request.httpParameterMap.requestBodyAsString;
+var requestBody = request.httpParameterMap.requestBodyAsString;
 var requestBodyJson = JSON.parse(requestBody);
-
 ```
 
 ## Handling Errors
@@ -76,15 +70,13 @@ var requestBodyJson = JSON.parse(requestBody);
 When working with data being submitted to the server, handling any errors that might occur, such as malformed JSON or an invalid request, is essential. You can use a try-catch block to catch any exception thrown during the processing of the request body.  Here's a basic example of how to handle errors:
 
 ```
-
-					var requestBody = request.httpParameterMap.requestBodyAsString;
+var requestBody = request.httpParameterMap.requestBodyAsString;
 var requestBodyJson;
 try {
     requestBodyJson = JSON.parse(requestBody);
 } catch (error) {
     // Handle the error, such as sending an error response or logging the error
 }
-
 ```
 
 Validation It is always a good idea to have some validation of the made request, such as:

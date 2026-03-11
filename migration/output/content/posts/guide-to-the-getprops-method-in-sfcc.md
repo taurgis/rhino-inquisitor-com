@@ -61,8 +61,7 @@ The getProps method is used to supply data fetched from API requests to the rout
 Here is a snippet from the PWA Kit where the "wrapping" happens on the client side.
 
 ```
-
-					const props = {
+const props = {
     error: window.__ERROR__,
     locals: locals,
     routes: getRoutes(locals),
@@ -84,16 +83,12 @@ export const OuterApp = ({routes, error, WrappedApp, locals}) => {
 
     )
 }
-
-
-
 ```
 
 ### getProps Example
 
 ```
-
-					const ProductDetails = ({name}) => (
+const ProductDetails = ({name}) => (
   {name}
 )
 ProductDetails.getProps = async () => {
@@ -101,9 +96,6 @@ ProductDetails.getProps = async () => {
   const data = await response.json()
   return data // {name: "product_name}
 }
-
-
-
 ```
 
 In this example, we define a ProductDetails component that takes one prop: name. We also define a getProps function for the component that fetches data from an API and returns it as props.
@@ -120,13 +112,9 @@ The getProps method receives a JavaScript object with properties based on the re
 -   **location:** the URL of the request and is available on both client and server sides, but is not part of the Express API.
 
 ```
-
-					ProductDetails.getProps = async ({params, req, res, location}) => {
+ProductDetails.getProps = async ({params, req, res, location}) => {
   ...
 }
-
-
-
 ```
 
 ### Add your own properties
@@ -140,8 +128,7 @@ This is achieved by defining the extraGetPropsArgs function to return an object 
 Here is an example of how it is defined in [AppConfig](https://github.com/SalesforceCommerceCloud/pwa-kit/blob/develop/packages/template-retail-react-app/app/components/_app-config/index.jsx#L82):
 
 ```
-
-					AppConfig.restore = (locals = {}) => {
+AppConfig.restore = (locals = {}) => {
   locals.api = new CommerceAPI(apiConfig)
 }
 AppConfig.freeze = () => undefined
@@ -150,15 +137,12 @@ AppConfig.extraGetPropsArgs = (locals = {}) => {
     api: locals.api
   }
 }
-
-
 ```
 
 And now we can use that new property in our ProductDetail component:
 
 ```
-
-					ProductDetail.getProps = async ({res, params, location, api}) => {
+ProductDetail.getProps = async ({res, params, location, api}) => {
     const {productId} = params
     let category, product
     const urlParams = new URLSearchParams(location.search)
@@ -170,8 +154,6 @@ And now we can use that new property in our ProductDetail component:
     })
     ...
 }
-
-
 ```
 
 ## Handling errors
@@ -185,8 +167,7 @@ The second option is to use props to inform the rendered component of the error 
 Here's an example of how to handle errors in a getProps function:
 
 ```
-
-					ProductDetails.getProps = async ({res}) => {
+ProductDetails.getProps = async ({res}) => {
   const response = await fetch(`https://httpbin.org/status/404`)
   if (!response.ok) {
     if (response.status !== 404) {
@@ -198,9 +179,6 @@ Here's an example of how to handle errors in a getProps function:
   const data = await response.json()
   return data
 }
-
-
-
 ```
 
 ## Things to keep in mind
@@ -210,8 +188,7 @@ When writing getProps functions, it's important to be selective in what data to 
 You should also write conditional code in your components to handle undefined props, and render a placeholder component while props are undefined.
 
 ```
-
-					const ProductDetails = ({name}) => (
+const ProductDetails = ({name}) => (
   {name ?? 'My fallback'}
 )
 ProductDetails.getProps = async ({params}) => {
@@ -219,8 +196,6 @@ ProductDetails.getProps = async ({params}) => {
   const data = await response.json()
   return data || {}
 }
-
-
 ```
 
 ### Caching
@@ -228,8 +203,7 @@ ProductDetails.getProps = async ({params}) => {
 Just like in SiteGenesis or SFRA it is possible to cache the server-side response! By setting the '[Cache-Control](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/maximizing-your-cache-hit-ratio.html)' header, the CDN knows that it should cache the response.
 
 ```
-
-					const ProductDetails = ({name}) => (
+const ProductDetails = ({name}) => (
   {name ?? 'My fallback'}
 )
 ProductDetails.getProps = async ({params, res}) => {
@@ -241,8 +215,6 @@ ProductDetails.getProps = async ({params, res}) => {
     }
   return data || {}
 }
-
-
 ```
 
 ### Personalisation

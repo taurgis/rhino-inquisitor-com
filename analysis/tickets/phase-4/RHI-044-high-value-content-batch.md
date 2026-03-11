@@ -7,7 +7,7 @@
 **Assigned to:** Migration Owner  
 **Target date:** 2026-04-25  
 **Created:** 2026-03-07  
-**Updated:** 2026-03-07
+**Updated:** 2026-03-11
 
 ---
 
@@ -27,7 +27,10 @@ Errors in this batch directly damage the migration's primary success criterion: 
   - [ ] Any records from the pilot batch are excluded (already migrated)
   - [ ] Record selection is reviewed and approved by SEO owner before pipeline run
 - [ ] All pipeline defects discovered in the pilot batch are resolved before this batch begins
-- [ ] Full pipeline executes cleanly on high-value records (same scripts as Batch 1)
+- [ ] Full pipeline executes cleanly on high-value records using the same standard sequence proven in Batch 1:
+  - [ ] `npm run migrate:map-frontmatter`
+  - [ ] `npm run migrate:finalize-content` (or the explicit `rewrite-media -> rewrite-links -> apply-corrections` sequence)
+  - [ ] `npm run migrate:report`
 - [ ] All CI gates pass on the high-value batch PR (same gate set as Batch 1)
 - [ ] SEO-specific review is performed on top-10 traffic pages:
   - [ ] Each of the 10 highest-traffic pages is spot-checked:
@@ -43,7 +46,13 @@ Errors in this batch directly damage the migration's primary success criterion: 
 - [ ] All `merge`-disposition pages in this batch have correctly generated redirect alias pages
 - [ ] Custom SEO descriptions are authored for top-10 traffic pages if auto-generated descriptions are inadequate:
   - [ ] Descriptions are human-authored, 120–155 characters, and accurately describe page intent
-  - [ ] Updated descriptions pass `check:seo-completeness`
+  - [ ] The curated description source is updated through an approved pre-mapping input (for example `migration/input/discovery-metadata.json`), not by patching generated Markdown directly
+  - [ ] After description updates, `npm run migrate:map-frontmatter` and `npm run migrate:finalize-content` are rerun before `check:seo-completeness`
+- [ ] Curated image-alt improvements found during high-value review are recorded in `migration/input/image-alt-corrections.csv` and re-applied through `npm run migrate:finalize-content`, not as one-off edits in `migration/output/content/**`
+- [ ] High-value batch PR evidence includes the correction outputs used to approve the batch:
+  - [ ] `migration/reports/content-corrections-summary.json`
+  - [ ] `migration/reports/image-alt-corrections-audit.csv`
+  - [ ] Confirmation that the correction rerun for the finalized batch reported zero file changes
 - [ ] High-value batch PR is merged to `main` only after SEO owner approval and all CI gates pass
 
 ---
@@ -57,17 +66,19 @@ Errors in this batch directly damage the migration's primary success criterion: 
   - [ ] Build candidate list; remove pilot batch records
 - [ ] Review candidate list with SEO owner; confirm final selection (30–50 records)
 - [ ] Confirm all pilot batch pipeline defects are resolved (review RHI-043 Progress Log)
-- [ ] Run full pipeline on high-value record set (same sequence as RHI-043)
+- [ ] Run full pipeline on high-value record set (same sequence as RHI-043, including `npm run migrate:finalize-content` after `npm run migrate:map-frontmatter`)
 - [ ] Run all CI gates and fix any failures
 - [ ] Perform SEO spot-check on top-10 traffic pages:
   - [ ] Review generated `.md` files in `hugo server`
   - [ ] Review built HTML for canonical tag, OG tags, JSON-LD
   - [ ] Verify each sampled URL/disposition against manifest `targetUrl` and redirect behavior
   - [ ] Author custom descriptions where auto-generated is inadequate
-  - [ ] Update front matter directly; re-run `check:seo-completeness`
+  - [ ] Record custom descriptions in the approved pre-mapping curation input and rerun `npm run migrate:map-frontmatter` plus `npm run migrate:finalize-content`
+  - [ ] Record curated image-alt overrides in `migration/input/image-alt-corrections.csv` and rerun `npm run migrate:finalize-content`
+  - [ ] Re-run `check:seo-completeness` after the regenerated content reflects those curated updates
 - [ ] Update migration item report for this batch
 - [ ] Open high-value batch PR:
-  - [ ] PR description includes: record list, SEO spot-check summary, gate results
+  - [ ] PR description includes: record list, SEO spot-check summary, gate results, `migration/reports/content-corrections-summary.json`, `migration/reports/image-alt-corrections-audit.csv`, and correction-rerun idempotency confirmation
   - [ ] SEO owner reviews and approves PR before merge
   - [ ] All CI gates pass
 - [ ] Merge high-value batch PR
@@ -123,6 +134,8 @@ Errors in this batch directly damage the migration's primary success criterion: 
 - High-value batch `.md` files committed to `src/content/`
 - SEO spot-check findings documented in Progress Log
 - Migration item report updated for Batch 2
+- `migration/reports/content-corrections-summary.json`
+- `migration/reports/image-alt-corrections-audit.csv`
 - List of custom descriptions authored
 
 **Deviations from plan:**
@@ -143,5 +156,6 @@ Errors in this batch directly damage the migration's primary success criterion: 
 
 - This batch contains the pages that matter most for SEO equity. If any gate failure is found in this batch that was not caught in the pilot, it must be treated as a pipeline gap, not a content anomaly — fix the pipeline, re-run the entire batch.
 - Custom description authoring is the one task in this batch that cannot be automated. Budget time for it explicitly. A 10-minute description investment on a top-traffic page pays dividends in click-through rate for months.
+- Even when the review is manual, durable changes must flow through curated inputs and reruns. Do not treat `migration/output/content/**` as the long-term source of truth for custom descriptions or image-alt fixes.
 - The SEO spot-check structured data check (JSON-LD in rendered HTML) must be done on the built HTML, not on the Markdown source. Build with `hugo server` and inspect the actual rendered `<script type="application/ld+json">` block.
 - Reference: `analysis/plan/details/phase-4.md` §Batch Strategy and Execution Cadence

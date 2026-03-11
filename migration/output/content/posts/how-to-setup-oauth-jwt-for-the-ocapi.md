@@ -39,10 +39,7 @@ When working with JWT, we will use a signing method to verify the authenticity o
 Open up your favorite terminal and execute the following command in your folder of choice:
 
 ```
-
-					openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes
-
-
+openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes
 ```
 
 This command will create two files:
@@ -114,8 +111,7 @@ There is also a variable called [**pmlib**](https://joolfe.github.io/postman-uti
 Since Postman does not support generating JWT tokens out-of-the-box there is a "Pre-request script" within the second call "2. Authorization (JWT)" which generates it and stores it in a collection variable used during the request.
 
 ```
-
-					// Load third party library
+// Load third party library
 eval(pm.collectionVariables.get("pmlib"));
 // Prepare timestamp in seconds
 var currentTimestamp = Math.floor(Date.now() / 1000)
@@ -135,8 +131,6 @@ var payload = {
 var sJWT = pmlib.jwtSign(pm.collectionVariables.get('pkey'), payload, header);
 // Store the JWT to set in the body
 pm.collectionVariables.set("jwt_signed", sJWT);
-
-
 ```
 
 Once the script is in place and all required variables are configured in the collection we can execute the request as follows:

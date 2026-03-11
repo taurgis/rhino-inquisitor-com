@@ -44,14 +44,12 @@ After you are done, click "Submit" and save the generated Secret that will appea
 Before we can start pushing in orders for anonymous or registered users, we need to get a [Trusted System Access Token](https://developer.salesforce.com/docs/commerce/commerce-api/references/shopper-login?meta=getTrustedSystemAccessToken). With this token, we will allow our third-party system to act on behalf of a guest or registered user without knowing their credentials. Short Code & Organization ID You can get this information via "Administration > Site Development > Salesforce Commerce API Settings" **URL:** https://{shortCode}.api.commercecloud.salesforce.com/shopper/auth/v1/organizations/{organizationId}/oauth2/trusted-system/token **Authorisation**: Basic Authentication **Authorisation Format:** {SLAS Client}:{SLAS Secret} **Body:** application/x-www-form-urlencoded
 
 ```
-
-					// guest
+// guest
 grant_type:client_credentials
 hint:ts_ext_on_behalf_of
 login_id:guest
 idp_origin:ecom
 channel_id:RefArchGlobal
-
 ```
 
 Within this body, we are authenticating a **guest** customer via "ecom" (B2C Commerce Cloud) for our site "**RefArchGlobal**".
@@ -63,8 +61,7 @@ Screenshot of the form configuration in Postman
 When submitting your request, the following response should pop out!
 
 ```
-
-					{
+{
     "access_token": "JWT TOKEN",
     "id_token": "",
     "refresh_token": "A-dhgTIz-WCGVDrt5OwVb4lWD3f2-KmkCAI7e4",
@@ -75,7 +72,6 @@ When submitting your request, the following response should pop out!
     "enc_user_id": "",
     "idp_access_token": null
 }
-
 ```
 
 And with our **access\_token** we can continue our journey and push an order into Commerce Cloud!
@@ -85,8 +81,7 @@ And with our **access\_token** we can continue our journey and push an order int
 Almost there! Now we have everything to start creating our order (except the order itself). We need to do a second API call using the bearer token we generated in the previous step, linking us to that specific customer. **URL:** https://{shortCode}.api.commercecloud.salesforce.com/checkout/orders/v1/organizations/{organizationId}/orders **Authorisation:** Bearer token **Body:**
 
 ```
-
-					{
+{
   "billingAddress": {
     "address1": "43 Main Rd.",
     "city": "Burlington",
@@ -134,7 +129,6 @@ Almost there! Now we have everything to start creating our order (except the ord
     }
   ]
 }
-
 ```
 
 After submitting this request we should get an empty response with status [201](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#201) (CREATED). And with that, our order is visible in the Business Manager!

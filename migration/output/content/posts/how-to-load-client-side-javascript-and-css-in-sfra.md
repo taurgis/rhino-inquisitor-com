@@ -26,14 +26,9 @@ First, let's ensure we're on the same page. SFRA uses ISML ([Internet Store Mark
 The Storefront Reference Architecture provides many features and "helpers" to make developers' lives easier. One of those features is the "[assets.js](https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/blob/master/cartridges/app_storefront_base/cartridge/scripts/assets.js)" file to load client-side JavaScript and CSS in a structured way.
 
 ```
-
-
-    var assets = require('*/cartridge/scripts/assets.js');
-    assets.addCss('/css/account/my-file.css');
-    assets.addJs('/js/my-file.js');
-
-
-
+var assets = require('*/cartridge/scripts/assets.js');
+assets.addCss('/css/account/my-file.css');
+assets.addJs('/js/my-file.js');
 ```
 
 ### What is it?
@@ -49,12 +44,7 @@ The "[htmlHead.isml](https://github.com/SalesforceCommerceCloud/storefront-refer
 This code is responsible for loading all the fancy styles that are present in that array we talked about earlier.
 
 ```
-
-
-    integrity="${style.integrity}" crossorigin="anonymous" />
-
-
-
+integrity="${style.integrity}" crossorigin="anonymous" />
 ```
 
 #### JavaScript

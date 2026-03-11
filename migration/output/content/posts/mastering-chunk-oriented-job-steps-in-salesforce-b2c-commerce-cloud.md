@@ -56,14 +56,11 @@ We will start with the script. If you need an example for steptypes.json, [jump 
 Before writing our chunk-oriented script module, let's ensure we have the required modules imported and variables set:
 
 ```
-
-					'use strict';
+'use strict';
 var CustomerMgr = require('dw/customer/CustomerMgr');
 var Transaction = require('dw/system/Transaction');
 var ArrayList = require('dw/util/ArrayList');
 var customerNoIterator;
-
-
 ```
 
 ### before-step-function
@@ -71,15 +68,11 @@ var customerNoIterator;
 Let's initialise our iterator to retrieve all customer numbers.
 
 ```
-
-					// Define the beforeStep function to initialize any resources before processing
+// Define the beforeStep function to initialize any resources before processing
 exports.beforeStep = function (parameters, stepExecution) {
     var customerNumbers = new ArrayList(['customer1', 'customer2', 'customer3']); // Example customer Numbers
     customerNoIterator = customerNumbers.iterator();
 };
-
-
-
 ```
 
 ### read-function
@@ -87,8 +80,7 @@ exports.beforeStep = function (parameters, stepExecution) {
 This function would retrieve the next customer profile to update.
 
 ```
-
-					// Mockup read function - replace with actual logic to retrieve customers
+// Mockup read function - replace with actual logic to retrieve customers
 exports.read = function (parameters, stepExecution) {
     if (customerNoIterator && customerNoIterator.hasNext()) {
         // If there's an existing iterator, return the next customer
@@ -96,8 +88,6 @@ exports.read = function (parameters, stepExecution) {
         return CustomerMgr.getCustomerByCustomerNumber(customerNo);
     }
 };
-
-
 ```
 
 ### process-function
@@ -105,16 +95,13 @@ exports.read = function (parameters, stepExecution) {
 Here we would perform the business logic to update the custom attribute:
 
 ```
-
-					exports.process = function(customer, parameters, stepExecution) {
+exports.process = function(customer, parameters, stepExecution) {
     // Update the 'myBoolean' custom attribute to a new value
     Transaction.wrap(function() {
         customer.custom.myBoolean = true; // set this to the desired value
     });
     return customer;
 };
-
-
 ```
 
 ### write-function
@@ -124,8 +111,7 @@ As the customer profile is updated in the process step within a transaction, the
 If required, it could look like:
 
 ```
-
-					// Mockup write function - replace with actual logic if writing out
+// Mockup write function - replace with actual logic if writing out
 exports.write = function(updatedCustomers, parameters, stepExecution) {
     // Optional: Log the update or perform other write operations
     var Logger = require('dw/system/Logger');
@@ -136,15 +122,12 @@ exports.write = function(updatedCustomers, parameters, stepExecution) {
             customer.getProfile().custom.myBoolean);
     });
 };
-
-
 ```
 
 ### Putting it all together
 
 ```
-
-					/**
+/**
 * Copyright 2022-2025 FORWARD SERVICES
 * Project: FastForward
 *
@@ -199,9 +182,6 @@ exports.afterStep = function (success, parameters, stepExecution) {
         customerNoIterator = null; // Clear the iterator
     }
 };
-
-
-
 ```
 
 ### Adding the Chunk Size and Configuration
@@ -209,8 +189,7 @@ exports.afterStep = function (success, parameters, stepExecution) {
 Finally, don't forget to define the custom job step in your [steptypes.json](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-step-types-json-example.html), including specifying the chunk size and the path to your custom module:
 
 ```
-
-					{
+{
   "step-types": {
     "chunk-script-module-step": [
       {
@@ -253,8 +232,6 @@ Finally, don't forget to define the custom job step in your [steptypes.json](htt
     ]
   }
 }
-
-
 ```
 
 Remember that the process function wraps the update code within a transaction using `Transaction.wrap()`. This ensures the integrity of your data update operation.
