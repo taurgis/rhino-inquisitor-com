@@ -1,6 +1,6 @@
 ## RHI-042 · Workstream K — Reporting, Traceability, and Audit
 
-**Status:** Open  
+**Status:** In Progress  
 **Priority:** High  
 **Estimate:** M  
 **Phase:** 4  
@@ -164,6 +164,7 @@ Traceability is not optional. If a piece of content is missing from the site aft
 | Date | Status | Note |
 |------|--------|------|
 | 2026-03-07 | Open | Ticket created |
+| 2026-03-11 | In Progress | Implemented `migrate:report` and `check:migration-thresholds`, updated the PR workflow to run the reporting gate and upload `migration/reports/` artifacts for 7 days, documented the threshold contract in the runbook, and validated the local batch path. Remote workflow execution and artifact-download confirmation remain pending before closeout. |
 
 ---
 

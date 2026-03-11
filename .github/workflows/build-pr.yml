@@ -4,6 +4,7 @@ on:
   pull_request:
     branches:
       - main
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -22,6 +23,7 @@ jobs:
     outputs:
       route_sensitive: ${{ steps.changes.outputs.route_sensitive }}
       markdown_changed: ${{ steps.changes.outputs.markdown_changed }}
+      migration_batch_changed: ${{ steps.changes.outputs.migration_batch_changed }}
 
     steps:
       - name: Check out repository
@@ -34,6 +36,14 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            printf '.github/workflows/build-pr.yml\n' | tee changed-files.txt
+            echo "route_sensitive=true" >> "$GITHUB_OUTPUT"
+            echo "markdown_changed=true" >> "$GITHUB_OUTPUT"
+            echo "migration_batch_changed=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
           git diff --name-only "${{ github.event.pull_request.base.sha }}" "${{ github.event.pull_request.head.sha }}" | tee changed-files.txt
 
           if grep -Eq '^(src/content/|src/layouts/|src/static/|src/archetypes/|hugo\.toml$|scripts/|migration/url-manifest\.json$)' changed-files.txt; then
@@ -47,6 +57,107 @@ jobs:
           else
             echo "markdown_changed=false" >> "$GITHUB_OUTPUT"
           fi
+
+          if grep -Eq '^(migration/|scripts/|docs/migration/|package\.json$|package-lock\.json$|\.github/workflows/build-pr\.yml$)' changed-files.txt; then
+            echo "migration_batch_changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "migration_batch_changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+  migration-batch-validation:
+    needs:
+      - prepare
+    if: needs.prepare.outputs.migration_batch_changed == 'true'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Restore npm and node_modules cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.npm
+            node_modules
+          key: ${{ runner.os }}-node-${{ env.NODE_VERSION }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-${{ env.NODE_VERSION }}-
+
+      - name: Restore Hugo extended binary cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/hugo/${{ env.HUGO_VERSION }}
+          key: ${{ runner.os }}-hugo-${{ env.HUGO_VERSION }}
+
+      - name: Install Hugo extended
+        shell: bash
+        run: |
+          set -euo pipefail
+          HUGO_DIR="$HOME/.cache/hugo/${HUGO_VERSION}"
+          if [[ ! -x "$HUGO_DIR/hugo" ]]; then
+            mkdir -p "$HUGO_DIR"
+            curl -fsSL -o "$RUNNER_TEMP/hugo.tar.gz" "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
+            tar -xzf "$RUNNER_TEMP/hugo.tar.gz" -C "$HUGO_DIR" hugo
+          fi
+          export PATH="$HUGO_DIR:$PATH"
+          echo "$HUGO_DIR" >> "$GITHUB_PATH"
+          hugo version
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Finalize staged migration content
+        run: npm run migrate:finalize-content
+
+      - name: Generate migration item report
+        run: npm run migrate:report
+
+      - name: Enforce migration thresholds
+        run: npm run check:migration-thresholds
+
+      - name: Build staged migration site
+        run: hugo --minify --environment production --contentDir migration/output/content --destination tmp/migration-pr-public
+
+      - name: Verify expected migration report artifacts exist
+        shell: bash
+        run: |
+          set -euo pipefail
+          required_reports=(
+            migration/reports/migration-item-report.csv
+            migration/reports/url-parity-report.csv
+            migration/reports/conversion-fallbacks.csv
+            migration/reports/media-integrity-report.csv
+            migration/reports/frontmatter-errors.csv
+            migration/reports/seo-completeness-report.csv
+            migration/reports/feed-compatibility-report.csv
+            migration/reports/a11y-content-warnings.csv
+            migration/reports/accessibility-scan-summary.md
+            migration/reports/security-content-scan.csv
+            migration/reports/link-rewrite-log.csv
+            migration/reports/content-corrections-summary.json
+            migration/reports/image-alt-corrections-audit.csv
+          )
+
+          for report in "${required_reports[@]}"; do
+            [[ -f "$report" ]]
+          done
+
+      - name: Upload migration reports
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: migration-reports-${{ github.run_id }}
+          path: migration/reports/
+          if-no-files-found: error
+          retention-days: 7
 
   build:
     needs:

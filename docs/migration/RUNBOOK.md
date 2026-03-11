@@ -292,6 +292,56 @@ This runbook tracks the operational steps needed to move the repository from pla
 
 ### RHI-039 - SEO Signal Preservation
 
+### RHI-042 - Reporting, Traceability, and Threshold Enforcement
+
+- Run reporting only after the standard post-mapping sequence has completed for the batch under review:
+  - `npm run migrate:map-frontmatter`
+  - `npm run migrate:finalize-content`
+  - `npm run migrate:report`
+  - `npm run check:migration-thresholds`
+- `npm run migrate:report` reads:
+  - `migration/intermediate/records.normalized.json`
+  - `migration/output/*.json`
+  - staged Markdown under `migration/output/content/`
+  - stage reports under `migration/reports/`
+- `npm run migrate:report` writes `migration/reports/migration-item-report.csv` with the Phase 4 per-item audit trail columns:
+  - `source_id`, `primary_source_type`, `source_channel_set`, `source_url`
+  - `target_file`, `target_url`, `disposition`, `conversion_mode`
+  - `media_status`, `seo_status`, `a11y_status`, `security_status`, `url_parity_status`
+  - `content_corrections_status`, `qa_status`, `owner`
+- Approved 2026-03-11 rollup rules for batch reporting:
+  - `primary_source_type` comes from the normalized record `sourceType`; `source_channel_set` joins the normalized `sourceChannels` array in deterministic order
+  - `conversion_mode` resolves to `markdown` for standard converted records, `html-fallback` when fallback rows exist without manual-review escalation, and `manual` for manual-review conversions plus non-generated disposition records such as retire/category decisions
+  - `content_corrections_status` resolves to `clean` when no correction audit rows were applied, `corrected` when the alt-text or link-text audits show applied fixes, and `review-required` when any correction audit row is unmatched
+  - `qa_status` resolves to `blocked` on any fail state, missing or hotlinked media, front matter errors, or manual-review conversions for generated content; `review-required` on warnings, `html-fallback`, or applied correction rows; otherwise `ready`
+- Approved 2026-03-11 threshold defaults:
+  - zero tolerance: any `url_parity_status=fail` on a file-backed migrated content row (`target_file` present)
+  - zero tolerance: any required front matter failure from `migration/reports/frontmatter-errors.csv` or the blocking front matter checks in `migration/reports/seo-completeness-report.csv`
+  - zero tolerance: any `noindex_absent` failure from `migration/reports/seo-completeness-report.csv`
+  - cap: maximum `5` `html-fallback` rows per batch
+  - cap: maximum `25` item rows with `a11y_status=warn`
+- Taxonomy and other generated surfaces without a migration-owned `target_file` remain visible in `migration-item-report.csv` and `migration/reports/url-parity-report.csv`, but they do not block `check:migration-thresholds`; those route-level gaps stay owned by the dedicated URL parity and route-governance workstreams.
+- Threshold caps can be overridden for dry runs or future owner-approved changes with:
+  - `MIGRATION_THRESHOLD_HTML_FALLBACK_CAP=<count>`
+  - `MIGRATION_THRESHOLD_A11Y_WARNING_CAP=<count>`
+- Current CI contract in `.github/workflows/build-pr.yml`:
+  - the migration batch validation job runs `npm run migrate:finalize-content`, `npm run migrate:report`, `npm run check:migration-thresholds`, then builds `tmp/migration-pr-public` as a staged sanity check
+  - the job explicitly verifies that the required `migration/reports/` files exist before uploading the artifact bundle
+  - `migration/reports/` uploads as a GitHub Actions artifact with `retention-days: 7`, even when the threshold gate fails
+- Report artifacts that must exist for batch review:
+  - `migration/reports/migration-item-report.csv`
+  - `migration/reports/url-parity-report.csv`
+  - `migration/reports/conversion-fallbacks.csv`
+  - `migration/reports/media-integrity-report.csv`
+  - `migration/reports/frontmatter-errors.csv`
+  - `migration/reports/seo-completeness-report.csv`
+  - `migration/reports/feed-compatibility-report.csv`
+  - `migration/reports/a11y-content-warnings.csv`
+  - `migration/reports/security-content-scan.csv`
+  - `migration/reports/link-rewrite-log.csv`
+  - `migration/reports/content-corrections-summary.json`
+  - `migration/reports/image-alt-corrections-audit.csv`
+
 - Run the SEO completeness validator after the staged migration corpus has completed the normal post-mapping preparation sequence:
   - `npm run migrate:map-frontmatter`
   - `npm run migrate:rewrite-media`
