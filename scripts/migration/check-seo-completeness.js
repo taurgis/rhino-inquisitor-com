@@ -3,11 +3,17 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { load as loadHtml } from 'cheerio';
 import fg from 'fast-glob';
 import { XMLParser } from 'fast-xml-parser';
 import matter from 'gray-matter';
 import { stringify as stringifyCsv } from 'csv-stringify/sync';
+
+// Cheerio's current dependency chain expects a global File on Node 18.
+if (typeof globalThis.File === 'undefined') {
+  globalThis.File = class File {};
+}
+
+const { load: loadHtml } = await import('cheerio');
 
 import {
   loadManifest,
