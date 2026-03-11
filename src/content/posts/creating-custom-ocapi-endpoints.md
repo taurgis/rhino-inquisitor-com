@@ -66,12 +66,12 @@ Go to "_Administration_" > "_Site Development_" > "_Custom Object Types_."
 
 The Custom Object Definition is quite simple:
 
--   **ID**: CustomApi
--   **Key Attribute:**  ID of the type _String_
--   **Name:** Custom API (though this doesn't matter)
--   **Description:** Whatever you like ;-)
--   **Data Replication:** Replicable (we don't want to configure this separately per environment)
--   **Storage Scope:** Organization (it doesn't make sense to do this on the Site level)
+- **ID**: CustomApi
+- **Key Attribute:**  ID of the type _String_
+- **Name:** Custom API (though this doesn't matter)
+- **Description:** Whatever you like ;-)
+- **Data Replication:** Replicable (we don't want to configure this separately per environment)
+- **Storage Scope:** Organization (it doesn't make sense to do this on the Site level)
 
 There is also an [import file available on the GitHub repository](https://github.com/taurgis/ocapi-custom-endpoints/blob/main/metadata/custom-object-types.xml).
 
@@ -85,7 +85,7 @@ To do this go to "_Merchant Tools_" > "_Custom Objects_" > "_Manage Custom Objec
 
 The Custom Object is, again, easy to set up:
 
--   **ID**: get-customer (this is important as we need this ID to call the service and the script we will put behind it)
+- **ID**: get-customer (this is important as we need this ID to call the service and the script we will put behind it)
 
 There is also an [import file available on the GitHub repository](https://github.com/taurgis/ocapi-custom-endpoints/blob/main/metadata/CustomApi.xml).
 
@@ -97,25 +97,25 @@ We also need to make sure we can access the GET call for the Custom Objects endp
 
 Fill in the following value for the type "_Shop_" and context "_Global (Organization-wide)_."
 
-```
+```json
 {
-	"_v": "22.6",
-	"clients": [
-		{
-			"client_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-			"allowed_origins": [],
-			"resources": [
-				{
-					"resource_id": "/custom_objects/*/*",
-					"methods": [
-						"get"
-					],
-					"read_attributes": "(**)",
-					"write_attributes": "(**)"
-				}
-			]
-		}
-	]
+ "_v": "22.6",
+ "clients": [
+  {
+   "client_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+   "allowed_origins": [],
+   "resources": [
+    {
+     "resource_id": "/custom_objects/*/*",
+     "methods": [
+      "get"
+     ],
+     "read_attributes": "(**)",
+     "write_attributes": "(**)"
+    }
+   ]
+  }
+ ]
 }
 ```
 
@@ -131,7 +131,7 @@ Time to start coding (finally)! But before we start creating our scripts, we nee
 
 For this, we create a [package.json](https://github.com/taurgis/ocapi-custom-endpoints/blob/main/cartridges/plugin_custom_ocapi_endpoints/package.json) file in the root of our cartridge with the following contents.
 
-```
+```json
 {
   "hooks": "./hooks.json"
 }
@@ -139,7 +139,7 @@ For this, we create a [package.json](https://github.com/taurgis/ocapi-custom-end
 
 This file says a "hooks" config file is available in our project. Now we also have to make [that file](https://github.com/taurgis/ocapi-custom-endpoints/blob/main/cartridges/plugin_custom_ocapi_endpoints/hooks.json)!
 
-```
+```json
 {
     "hooks": [
         {
@@ -156,7 +156,7 @@ Not sure where to create these files? Have a peek at the [GitHub repository](htt
 
 You probably noticed that we also need to create a script file 😉. So let us also do that at the location defined in "[hooks.json](https://github.com/taurgis/ocapi-custom-endpoints/blob/main/cartridges/plugin_custom_ocapi_endpoints/hooks.json)."
 
-```
+```javascript
 'use strict';
 var toCamel = function (s) {
     // eslint-disable-next-line no-useless-escape
@@ -177,19 +177,19 @@ exports.modifyGETResponse = function (customObject, doc) {
 
 Another simple step as the script does not contain anything complicated. It does the following things:
 
-1.  Check if the API call is for an object of type "CustomApi," which we created earlier. We should not execute any custom code if it is of another type.
+1. Check if the API call is for an object of type "CustomApi," which we created earlier. We should not execute any custom code if it is of another type.
 
-2.  Use the custom object ID we defined to call the correct script. This is, however, treated to become a camel-case filename.
+2. Use the custom object ID we defined to call the correct script. This is, however, treated to become a camel-case filename.
 
 For example: "get-customer" becomes "getCustomer."
 
-3.  The dynamic require is executed, and the result object is stored in a variable.
+- The dynamic require is executed, and the result object is stored in a variable.
 
-4.  The resulting object is added to the response object prefixed with "[c\_](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/CustomProperties.html?resultof=%22%6f%63%61%70%69%22%20%22%63%5f%22%20%22%63%22%20)."
+- The resulting object is added to the response object prefixed with "[c\_](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/CustomProperties.html?resultof=%22%6f%63%61%70%69%22%20%22%63%5f%22%20%22%63%22%20)."
 
 In our example, the code will execute our "getCustomer.js" file, which looks something like this:
 
-```
+```javascript
 'use strict';
 /**
  * Fetch customer data using the Customer Number.
@@ -223,7 +223,7 @@ As with any cartridge, we need to upload it to our environment. Don't forget to 
 
 We add it to the sites because the API is part of the Shop API, which is meant for Storefront applications.
 
-## Step 6: Call the API!
+## Step 6: Call the API
 
 [![Custom OCAPI response payload returned by the get-customer endpoint.](/media/2022/get-customer-custom-api-response-a6c8902585.png)](/media/2022/get-customer-custom-api-response-a6c8902585.png)
 
@@ -235,15 +235,15 @@ This collection requires you to configure the following variables:
 
 [![Postman variables required to call the custom OCAPI endpoint.](/media/2022/postman-variables-custom-api-ec0a89ffce.png)](/media/2022/postman-variables-custom-api-ec0a89ffce.png)
 
--   **base\_url**: The domain of your environment.
--   **client\_id:** Your client ID, you can use the default one.
--   **client\_pw:** Your client password, you can use the default one.
+- **base\_url**: The domain of your environment.
+- **client\_id:** Your client ID, you can use the default one.
+- **client\_pw:** Your client password, you can use the default one.
 
 The collection also contains two premade API calls:
 
--   **1\. GetOAuth2 client token:** This fetches the bearer token
+- **1\. GetOAuth2 client token:** This fetches the bearer token
 
--   **2\. Custom API: Get Customer:** The call to fetch the Custom Object with the customized response
+- **2\. Custom API: Get Customer:** The call to fetch the Custom Object with the customized response
 
 ## Final thoughts
 
