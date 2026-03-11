@@ -58,8 +58,8 @@ If you, however, plan on working on the storefront with [PWA-Kit](http://pwa-kit
 
 Being a partner will make finding documentation a little easier and a lot more confusing, weird right! On the [partner community](https://partners.salesforce.com/pdx/s/), you will find two groups that contain helpful information on becoming a Salesforce B2C Commerce Cloud-enabled partner:
 
--   **[B2C Commerce](https://partners.salesforce.com/_ui/core/chatter/groups/GroupProfilePage?g=0F93A0000009SFY):** A group that contains the documentation required to become "[enabled](https://partners.salesforce.com/0693A000006lGVl?retUrl=%2F_ui%2Fcore%2Fchatter%2Fcontent%2FGroupFileListPage)."
--   **[Partner On-Demand Sandboxes](https://partners.salesforce.com/_ui/core/chatter/groups/GroupProfilePage?g=0F93A000000DQ6f):** A group containing all information about ODS, more specifically the ones used by partners
+- **[B2C Commerce](https://partners.salesforce.com/_ui/core/chatter/groups/GroupProfilePage?g=0F93A0000009SFY):** A group that contains the documentation required to become "[enabled](https://partners.salesforce.com/0693A000006lGVl?retUrl=%2F_ui%2Fcore%2Fchatter%2Fcontent%2FGroupFileListPage)."
+- **[Partner On-Demand Sandboxes](https://partners.salesforce.com/_ui/core/chatter/groups/GroupProfilePage?g=0F93A000000DQ6f):** A group containing all information about ODS, more specifically the ones used by partners
 
 _Note: Depending on your journey towards B2C, you might want to send an email to the trial address mentioned in the previous section._
 
@@ -71,8 +71,8 @@ Watch out! If you go overboard, [extra charges will be added to your contract](h
 
 Just read all of the available documentation, and you should be good to go:
 
--   [Documentation Site](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/sandboxes/b2c_developer_sandboxes.html)
--   [Trailhead](https://trailhead.salesforce.com/content/learn/modules/b2c-on-demand-sandbox)
+- [Documentation Site](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/sandboxes/b2c_developer_sandboxes.html)
+- [Trailhead](https://trailhead.salesforce.com/content/learn/modules/b2c-on-demand-sandbox)
 
 ## Trailhead Academy
 
@@ -82,6 +82,6 @@ If all else above is unavailable to you and no sandbox is within your reach, a p
 
 There is one course available that gives you access to a Sandbox for about three weeks:
 
--   [CCD102: B2C Commerce Developer (SFRA) Training](https://trailheadacademy.salesforce.com/classes/ccd102-b2c-commerce-developer-with-sfra?_ga=2.254667784.102261915.1666000067-1536331326.1643878545)
+- [CCD102: B2C Commerce Developer (SFRA) Training](https://trailheadacademy.salesforce.com/classes/ccd102-b2c-commerce-developer-with-sfra?_ga=2.254667784.102261915.1666000067-1536331326.1643878545)
 
 The critical thing to note here is that this course is not the cheapest and will force you to dig deeper into your pockets. On the flip side, you immediately get training on how to develop for Salesforce B2C Commerce Cloud.

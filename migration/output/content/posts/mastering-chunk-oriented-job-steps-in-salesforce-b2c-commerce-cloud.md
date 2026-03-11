@@ -30,31 +30,31 @@ Each [chunk-oriented job](https://developer.salesforce.com/docs/commerce/b2c-com
 
 When developing a chunk-oriented job step, you need to implement several functions:
 
-1.  **`read-function`:** Retrieves one item or null if no more items are left to process.
-2.  **Process function**: Applies business logic to each item, transforming it as necessary.
-3.  `**write-function**`: Writes the processed items, typically to a file or database.
+1. **`read-function`:** Retrieves one item or null if no more items are left to process.
+2. **Process function**: Applies business logic to each item, transforming it as necessary.
+3. `**write-function**`: Writes the processed items, typically to a file or database.
 
 There are optional functions you can implement for further control:
 
--   `total-count-function`: Returns the total number of items available for processing. This can improve monitoring and progress feedback.
--   `before-step-function`: Executes logic before all chunks are processed.
--   `before-chunk-function`: Runs logic before each chunk is processed.
--   `after-chunk-function`: Invoked after each chunk is successfully processed.
--   `after-step-function`: Executes after all chunks have been processed.
+- `total-count-function`: Returns the total number of items available for processing. This can improve monitoring and progress feedback.
+- `before-step-function`: Executes logic before all chunks are processed.
+- `before-chunk-function`: Runs logic before each chunk is processed.
+- `after-chunk-function`: Invoked after each chunk is successfully processed.
+- `after-step-function`: Executes after all chunks have been processed.
 
 ### An example
 
-Salesforce provides a visualisation example in their documentation: [https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-custom-job-steps.html#chunk-oriented-script-module](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-custom-job-steps.html#chunk-oriented-script-module).
+Salesforce provides a visualisation example in their documentation: [chunk-oriented script module](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-custom-job-steps.html#chunk-oriented-script-module).
 
 ## Creating a Chunk-Oriented Script Module
 
-We will start with the script. If you need an example for steptypes.json, [see the steptypes example](#steptypes)!
+We will start with the script. If you need an example for `steptypes.json`, [see the chunk-size configuration example](#adding-the-chunk-size-and-configuration).
 
 ### Importing what you need
 
 Before writing our chunk-oriented script module, let's ensure we have the required modules imported and variables set:
 
-```
+```javascript
 'use strict';
 var CustomerMgr = require('dw/customer/CustomerMgr');
 var Transaction = require('dw/system/Transaction');
@@ -66,7 +66,7 @@ var customerNoIterator;
 
 Let's initialise our iterator to retrieve all customer numbers.
 
-```
+```javascript
 // Define the beforeStep function to initialize any resources before processing
 exports.beforeStep = function (parameters, stepExecution) {
     var customerNumbers = new ArrayList(['customer1', 'customer2', 'customer3']); // Example customer Numbers
@@ -78,7 +78,7 @@ exports.beforeStep = function (parameters, stepExecution) {
 
 This function would retrieve the next customer profile to update.
 
-```
+```javascript
 // Mockup read function - replace with actual logic to retrieve customers
 exports.read = function (parameters, stepExecution) {
     if (customerNoIterator && customerNoIterator.hasNext()) {
@@ -93,7 +93,7 @@ exports.read = function (parameters, stepExecution) {
 
 Here we would perform the business logic to update the custom attribute:
 
-```
+```javascript
 exports.process = function(customer, parameters, stepExecution) {
     // Update the 'myBoolean' custom attribute to a new value
     Transaction.wrap(function() {
@@ -109,7 +109,7 @@ As the customer profile is updated in the process step within a transaction, the
 
 If required, it could look like:
 
-```
+```javascript
 // Mockup write function - replace with actual logic if writing out
 exports.write = function(updatedCustomers, parameters, stepExecution) {
     // Optional: Log the update or perform other write operations
@@ -125,7 +125,7 @@ exports.write = function(updatedCustomers, parameters, stepExecution) {
 
 ### Putting it all together
 
-```
+```javascript
 /**
 * Copyright 2022-2025 FORWARD SERVICES
 * Project: FastForward
@@ -187,7 +187,7 @@ exports.afterStep = function (success, parameters, stepExecution) {
 
 Finally, don't forget to define the custom job step in your [steptypes.json](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-step-types-json-example.html), including specifying the chunk size and the path to your custom module:
 
-```
+```json
 {
   "step-types": {
     "chunk-script-module-step": [
@@ -245,8 +245,8 @@ The "Chunk Size" option refers to the number of data items processed in each chu
 
 The ideal chunk size for a script module depends on various factors, such as:
 
--   **The processing logic's complexity:** Depending on the operations that must be done and other database objects that need to be fetched, we need to remember memory management. For example, choosing a smaller chunk size will allow the system to clean up more efficiently after processing each chunk.
--   **The data set's size & t****he risk of optimistic locking:** When working with a "high risk" object such as profiles that can be modified at any time, setting a smaller chunk size and committing these immediately to the database will reduce the risk of running into [Optimistic Concurrency](https://help.salesforce.com/s/articleView?id=000393690&language=en_US&type=1) Exceptions!
+- **The processing logic's complexity:** Depending on the operations that must be done and other database objects that need to be fetched, we need to remember memory management. For example, choosing a smaller chunk size will allow the system to clean up more efficiently after processing each chunk.
+- **The data set's size & t****he risk of optimistic locking:** When working with a "high risk" object such as profiles that can be modified at any time, setting a smaller chunk size and committing these immediately to the database will reduce the risk of running into [Optimistic Concurrency](https://help.salesforce.com/s/articleView?id=000393690&language=en_US&type=1) Exceptions!
 
 ### Transactional?
 
@@ -278,7 +278,7 @@ Using the "total-count-function," we can determine the amount of processed recor
 
 When working with chunk-oriented job steps, keep the following best practices in mind for optimal performance:
 
--   **Focus on memory management**: Only keep necessary items in memory and promptly discard references to processed items.
--   **Stream data when appropriate**: Avoid accumulating large amounts of data in memory.
--   **Utilise transactions strategically**: Wrap operations in transactions only when necessary to avoid locking resources for extended periods.
--   **Monitor and handle errors**: Ensure your job can gracefully handle and recover from errors.
+- **Focus on memory management**: Only keep necessary items in memory and promptly discard references to processed items.
+- **Stream data when appropriate**: Avoid accumulating large amounts of data in memory.
+- **Utilise transactions strategically**: Wrap operations in transactions only when necessary to avoid locking resources for extended periods.
+- **Monitor and handle errors**: Ensure your job can gracefully handle and recover from errors.

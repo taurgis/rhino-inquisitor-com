@@ -11,7 +11,7 @@ author: Thomas Theunen
 ---
 When switching between my M1 MacBook and Intel X64 MacBook today, I ran into an odd error:
 
-```
+```text
 Error: Failed to load native binding
     at Object. (/node_modules/@swc/core/binding.js:333:11)
     at Module._compile (node:internal/modules/cjs/loader:1469:14)
