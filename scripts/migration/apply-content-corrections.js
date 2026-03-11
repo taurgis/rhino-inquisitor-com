@@ -62,6 +62,7 @@ async function main() {
     mixedImageLinesSplit: 0,
     imageParagraphSpacersInserted: 0,
     tableHeaderRowsNormalized: 0,
+    pseudoTagMarkupNormalized: 0,
     bodyOverridesApplied: 0,
     altCorrectionsApplied: 0,
     unmatchedAltCorrections: 0,
@@ -93,8 +94,9 @@ async function main() {
     const tableResult = normalizeMarkdownTables(imageResult.content);
     const calloutResult = normalizeInlineLabelCallouts(tableResult.content);
     const linkRepairResult = normalizeBrokenInlineLinks(calloutResult.content);
+    const pseudoTagResult = normalizePseudoTagMarkup(linkRepairResult.content);
     const altResult = applyAltCorrections({
-      bodyContent: linkRepairResult.content,
+      bodyContent: pseudoTagResult.content,
       pageUrl,
       fileLabel,
       correctionsByKey: altCorrections.byKey,
@@ -125,6 +127,7 @@ async function main() {
     summary.tableHeaderRowsNormalized += tableResult.normalizedTables;
     summary.inlineLabelCalloutsNormalized = (summary.inlineLabelCalloutsNormalized ?? 0) + calloutResult.normalizedCallouts;
     summary.inlineLinksRepaired = (summary.inlineLinksRepaired ?? 0) + linkRepairResult.repairedLinks;
+    summary.pseudoTagMarkupNormalized += pseudoTagResult.normalizedPatterns;
     summary.altCorrectionsApplied += altResult.appliedCount;
     summary.linkTextCorrectionsApplied += linkResult.appliedCount;
   }
@@ -180,6 +183,7 @@ async function main() {
       `Mixed image lines split: ${summary.mixedImageLinesSplit}.`,
       `Image paragraph spacers inserted: ${summary.imageParagraphSpacersInserted}.`,
       `Table headers normalized: ${summary.tableHeaderRowsNormalized}.`,
+      `Pseudo-tag markup normalized: ${summary.pseudoTagMarkupNormalized}.`,
       `Body overrides applied: ${summary.bodyOverridesApplied}.`,
       `Alt corrections applied: ${summary.altCorrectionsApplied}.`,
       `Unmatched alt corrections: ${summary.unmatchedAltCorrections}.`,
@@ -920,6 +924,34 @@ function normalizeBrokenInlineLinks(content) {
   return {
     content: normalizedContent,
     repairedLinks
+  };
+}
+
+function normalizePseudoTagMarkup(content) {
+  let normalizedPatterns = 0;
+  let normalizedContent = String(content ?? '');
+
+  normalizedContent = normalizedContent.replace(
+    /`\[`<iscache>`\]\((https:\/\/developer\.salesforce\.com\/docs\/commerce\/b2c-commerce\/guide\/b2c-content-cache\.html)\)`/gu,
+    (_match, target) => {
+      normalizedPatterns += 1;
+      return `[ <iscache> ](${target})`;
+    }
+  );
+
+  normalizedContent = normalizedContent.replace(
+    /`https:\/\/logcenter-`<POD-No\.>``<Cylinder>`-hippo\.demandware\.net\/logcenter`/gu,
+    () => {
+      normalizedPatterns += 1;
+      return '`https://logcenter-<POD-No.><Cylinder>-hippo.demandware.net/logcenter`';
+    }
+  );
+
+  normalizedContent = normalizedContent.replace(/\u0000/gu, '`');
+
+  return {
+    content: normalizedContent,
+    normalizedPatterns
   };
 }
 

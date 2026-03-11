@@ -1,0 +1,50 @@
+# RHI-044 high-value batch locked 2026-03-11
+# SEO owner decision: re-check the original top-10 traffic pages in the combined build
+# Batch target: 35 records
+# Selection basis: non-pilot high-value union of 90-day traffic, backlink-backed long-tail routes,
+# top category routes by traffic, video-related pages, and 28-day trending/editorial routes
+
+# 90-day traffic priority records (ranks 12-25, excluding pilot records)
+6429
+3042
+8465
+5406
+1551
+3641
+12129
+12775
+6585
+4099
+7485
+4411
+2536
+617
+
+# Backlink-backed long-tail routes not already covered above
+5618
+1207
+431
+2978
+1894
+6325
+12535
+
+# Top category routes by traffic (taxonomy validation targets)
+category:28
+category:98
+category:73
+category:69
+category:45
+
+# Video-related pages to exercise video taxonomies in the staged build
+4795
+4836
+4863
+
+# 28-day trending and editorial-significance routes
+12990
+13328
+12947
+13311
+13621
+805

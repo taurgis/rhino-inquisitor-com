@@ -1,8 +1,8 @@
 ---
 title: Home
 description: >-
-  My name is Thomas Theunen, and I write about all things related to Salesforce
-  Commerce Cloud and its community.
+  Technical articles, migration notes, and practical Salesforce Commerce Cloud
+  guidance for developers across SFRA, composable, and platform operations.
 date: '2022-02-25T21:45:56.000Z'
 lastmod: '2025-09-21T06:26:21.000Z'
 url: /

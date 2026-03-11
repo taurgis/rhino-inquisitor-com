@@ -2,10 +2,10 @@
   "mode": "subset",
   "selection": {
     "sourceIdFileUsed": true,
-    "sourceIdFile": "migration/input/pilot-source-ids.txt",
-    "sourceIdCount": 20,
+    "sourceIdFile": "migration/input/batch2-source-ids.txt",
+    "sourceIdCount": 35,
     "postTypes": [],
-    "recordCount": 20
+    "recordCount": 35
   },
   "sourceCoverageScope": "source-backed-content-only",
   "inputFiles": {
@@ -20,8 +20,8 @@
     "errors": "migration/intermediate/normalize-errors.json"
   },
   "totals": {
-    "extracted": 20,
-    "normalized": 20,
+    "extracted": 35,
+    "normalized": 35,
     "errors": 0,
     "blockingErrors": 0,
     "nonBlockingErrors": 0,
@@ -30,24 +30,24 @@
     "inventoryEntries": 1199
   },
   "byPostType": {
-    "category": 1,
-    "page": 5,
-    "post": 14
+    "category": 5,
+    "page": 4,
+    "post": 26
   },
   "byStatus": {
-    "publish": 20
+    "publish": 35
   },
   "byDisposition": {
-    "keep": 19,
-    "retire": 1
+    "keep": 31,
+    "merge": 4
   },
   "coverage": {
     "requiredScope": "source-backed-content-only",
-    "requiredManifestCount": 18,
-    "normalizedRequiredCount": 18,
+    "requiredManifestCount": 35,
+    "normalizedRequiredCount": 35,
     "missingRequiredUrls": [],
     "keepMergeMissingTargetUrlCount": 0,
-    "retireWithExplicitNullTargetUrlCount": 1,
+    "retireWithExplicitNullTargetUrlCount": 0,
     "blockingErrorCount": 0,
     "nonBlockingErrorCount": 0
   },
@@ -55,8 +55,8 @@
     "aliasContract": "Derived aliasUrls from manifest rows that share the same target_url, excluding the canonical target URL itself.",
     "mediaScope": "Collected mediaRefs from src attributes plus srcset candidate URLs, with attachment upload URLs preserved when available.",
     "timestampFallbacks": {
-      "publishedAt": 1,
-      "modifiedAt": 1,
+      "publishedAt": 5,
+      "modifiedAt": 5,
       "policy": "When source timestamps are missing, publishedAt falls back to modifiedAt then sourceTimestamp; modifiedAt falls back to publishedAt then sourceTimestamp."
     },
     "statusTransforms": {},

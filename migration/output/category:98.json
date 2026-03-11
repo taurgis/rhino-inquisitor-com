@@ -1,0 +1,58 @@
+{
+  "sourceId": "category:98",
+  "sourceType": "wxr",
+  "sourceChannels": [
+    "wxr"
+  ],
+  "postType": "category",
+  "status": "publish",
+  "titleRaw": "Documentation",
+  "excerptRaw": "",
+  "bodyHtml": "",
+  "slug": "documentation",
+  "publishedAt": "2026-03-10T10:03:55.501Z",
+  "modifiedAt": "2026-03-10T10:03:55.501Z",
+  "author": "system",
+  "categories": [],
+  "tags": [],
+  "legacyUrl": "/category/salesforce-commerce-cloud/documentation/",
+  "targetUrl": "/category/salesforce-commerce-cloud/documentation/",
+  "disposition": "keep",
+  "aliasUrls": [],
+  "mediaRefs": [],
+  "_raw": {
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "status": "publish",
+    "titleRaw": "Documentation",
+    "excerptRaw": "",
+    "publishedAt": null,
+    "modifiedAt": null,
+    "author": null,
+    "categories": [],
+    "tags": [],
+    "mediaRefs": [],
+    "manifest": {
+      "legacyUrl": "/category/salesforce-commerce-cloud/documentation/",
+      "targetUrl": "/category/salesforce-commerce-cloud/documentation/",
+      "disposition": "keep",
+      "redirectCode": null,
+      "implementationLayer": "none",
+      "urlClass": "category"
+    },
+    "normalization": {
+      "aliasUrlsDerivedFromSameTarget": [],
+      "usedPublishedAtFallback": true,
+      "usedModifiedAtFallback": true,
+      "statusNormalizedFrom": "publish"
+    },
+    "extracted": {
+      "parentSlug": "salesforce-commerce-cloud",
+      "featuredImageUrl": null
+    }
+  },
+  "bodyMarkdown": "",
+  "conversionStatus": "skipped",
+  "manualReviewRequired": false,
+  "fallbackTypes": [],
+  "conversionWarnings": []
+}

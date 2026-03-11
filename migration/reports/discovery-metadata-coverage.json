@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2025-12-01T08:10:09.000Z",
+  "generatedAt": "2026-01-09T12:49:20.000Z",
   "inputs": {
     "recordsDir": "migration/output",
     "discoveryFile": "migration/input/discovery-metadata.json",
     "curationFilePresent": false
   },
   "totals": {
-    "recordCount": 18,
+    "recordCount": 30,
     "enrichedRecords": 0,
-    "recordsWithoutEnrichment": 18
+    "recordsWithoutEnrichment": 30
   },
   "sourceBreakdown": {
-    "none": 18,
+    "none": 30,
     "embedded": 0,
     "curation": 0,
     "embedded+curation": 0
@@ -19,161 +19,245 @@
   "fieldCoverage": {
     "primaryTopic": {
       "present": 0,
-      "missing": 18
+      "missing": 30
     },
     "secondaryTopics": {
       "present": 0,
-      "missing": 18
+      "missing": 30
     },
     "contentType": {
       "present": 0,
-      "missing": 18
+      "missing": 30
     },
     "difficulty": {
       "present": 0,
-      "missing": 18
+      "missing": 30
     },
     "series": {
       "present": 0,
-      "missing": 18
+      "missing": 30
     },
     "summary": {
       "present": 0,
-      "missing": 18
+      "missing": 30
     },
     "relatedContent": {
       "present": 0,
-      "missing": 18
+      "missing": 30
     },
     "featuredHome": {
       "present": 0,
-      "missing": 18
+      "missing": 30
     }
   },
   "records": [
     {
-      "sourceId": "73",
-      "targetUrl": "/",
+      "sourceId": "4099",
+      "targetUrl": "/ai-einstein-in-salesforce-b2c-commerce-cloud/",
+      "postType": "post",
+      "discoverySource": "none",
+      "presentFields": []
+    },
+    {
+      "sourceId": "4795",
+      "targetUrl": "/connecting-the-clouds-wedding-or-funeral/",
       "postType": "page",
       "discoverySource": "none",
       "presentFields": []
     },
     {
-      "sourceId": "4455",
-      "targetUrl": "/20-years-of-dreamforce/",
+      "sourceId": "3042",
+      "targetUrl": "/custom-ttf-fonts-in-pdf-for-sfcc/",
       "postType": "post",
       "discoverySource": "none",
       "presentFields": []
     },
     {
-      "sourceId": "8698",
-      "targetUrl": "/a-beginners-guide-to-webdav-in-sfcc/",
+      "sourceId": "13328",
+      "targetUrl": "/field-guide-to-custom-caches-in-sfcc/",
       "postType": "post",
       "discoverySource": "none",
       "presentFields": []
     },
     {
-      "sourceId": "9316",
-      "targetUrl": "/a-deep-dive-into-the-23-7-sfcc-release/",
-      "postType": "post",
-      "discoverySource": "none",
-      "presentFields": []
-    },
-    {
-      "sourceId": "14004",
-      "targetUrl": "/a-survival-guide-to-sfcc-platform-limits/",
-      "postType": "post",
-      "discoverySource": "none",
-      "presentFields": []
-    },
-    {
-      "sourceId": "68",
-      "targetUrl": "/about/",
+      "sourceId": "4836",
+      "targetUrl": "/headless/",
       "postType": "page",
       "discoverySource": "none",
       "presentFields": []
     },
     {
-      "sourceId": "12231",
-      "targetUrl": "/caching-in-the-sfcc-composable-storefront/",
+      "sourceId": "4411",
+      "targetUrl": "/how-to-extend-active-data-in-salesforce-b2c-commerce-cloud/",
       "postType": "post",
       "discoverySource": "none",
       "presentFields": []
     },
     {
-      "sourceId": "2770",
-      "targetUrl": "/creating-custom-ocapi-endpoints/",
+      "sourceId": "2978",
+      "targetUrl": "/how-to-get-salesforce-certification-vouchers/",
       "postType": "post",
       "discoverySource": "none",
       "presentFields": []
     },
     {
-      "sourceId": "3089",
-      "targetUrl": "/delta-exports-in-salesforce-b2c-commerce-cloud/",
+      "sourceId": "6585",
+      "targetUrl": "/how-to-load-client-side-javascript-and-css-in-sfra/",
       "postType": "post",
       "discoverySource": "none",
       "presentFields": []
     },
     {
-      "sourceId": "528",
-      "targetUrl": "/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/",
+      "sourceId": "6429",
+      "targetUrl": "/how-to-set-up-slas-for-the-composable-storefront/",
       "postType": "post",
       "discoverySource": "none",
       "presentFields": []
     },
     {
-      "sourceId": "2265",
-      "targetUrl": "/how-to-use-ocapi-scapi-hooks/",
+      "sourceId": "5618",
+      "targetUrl": "/how-to-set-up-the-ecdn-in-sfcc-staging/",
       "postType": "post",
       "discoverySource": "none",
       "presentFields": []
     },
     {
-      "sourceId": "11658",
-      "targetUrl": "/in-the-ring-ocapi-versus-scapi/",
+      "sourceId": "2536",
+      "targetUrl": "/how-to-setup-oauth-jwt-for-the-ocapi/",
       "postType": "post",
       "discoverySource": "none",
       "presentFields": []
     },
     {
-      "sourceId": "10642",
-      "targetUrl": "/mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/",
-      "postType": "post",
-      "discoverySource": "none",
-      "presentFields": []
-    },
-    {
-      "sourceId": "2942",
-      "targetUrl": "/salesforce-b2c-commerce-cloud-22-8/",
-      "postType": "post",
-      "discoverySource": "none",
-      "presentFields": []
-    },
-    {
-      "sourceId": "1389",
-      "targetUrl": "/sitegenesis-vs-sfra-vs-pwa/",
-      "postType": "post",
-      "discoverySource": "none",
-      "presentFields": []
-    },
-    {
-      "sourceId": "12435",
-      "targetUrl": "/swc-and-storybook-error-failed-to-load-native-binding/",
+      "sourceId": "4863",
+      "targetUrl": "/inside-the-ohana/",
       "postType": "page",
       "discoverySource": "none",
       "presentFields": []
     },
     {
-      "sourceId": "7979",
-      "targetUrl": "/understanding-sfcc-instances/",
+      "sourceId": "13621",
+      "targetUrl": "/kickstart-guide-for-new-sfcc-developers/",
       "postType": "post",
       "discoverySource": "none",
       "presentFields": []
     },
     {
-      "sourceId": "1077",
-      "targetUrl": "/video/",
+      "sourceId": "12990",
+      "targetUrl": "/lag-to-riches-a-pwa-kit-developers-guide/",
+      "postType": "post",
+      "discoverySource": "none",
+      "presentFields": []
+    },
+    {
+      "sourceId": "1207",
+      "targetUrl": "/lets-go-live-ecdn/",
+      "postType": "post",
+      "discoverySource": "none",
+      "presentFields": []
+    },
+    {
+      "sourceId": "431",
+      "targetUrl": "/mail-attachments-in-b2c-commerce-cloud/",
+      "postType": "post",
+      "discoverySource": "none",
+      "presentFields": []
+    },
+    {
+      "sourceId": "12947",
+      "targetUrl": "/mastering-sitemaps-in-sfcc/",
+      "postType": "post",
+      "discoverySource": "none",
+      "presentFields": []
+    },
+    {
+      "sourceId": "805",
+      "targetUrl": "/salesforce-b2c-commerce-cloud-documentation/",
+      "postType": "post",
+      "discoverySource": "none",
+      "presentFields": []
+    },
+    {
+      "sourceId": "7485",
+      "targetUrl": "/salesforce-b2c-commerce-cloud-erd/",
       "postType": "page",
+      "discoverySource": "none",
+      "presentFields": []
+    },
+    {
+      "sourceId": "5406",
+      "targetUrl": "/salesforce-b2c-commerce-cloud-governance-and-quotas/",
+      "postType": "post",
+      "discoverySource": "none",
+      "presentFields": []
+    },
+    {
+      "sourceId": "1894",
+      "targetUrl": "/salesforce-b2c-commerce-the-22-6-release/",
+      "postType": "post",
+      "discoverySource": "none",
+      "presentFields": []
+    },
+    {
+      "sourceId": "1551",
+      "targetUrl": "/secure-coding-in-salesforce-b2c-commerce-cloud/",
+      "postType": "post",
+      "discoverySource": "none",
+      "presentFields": []
+    },
+    {
+      "sourceId": "12775",
+      "targetUrl": "/sending-emails-from-sfcc/",
+      "postType": "post",
+      "discoverySource": "none",
+      "presentFields": []
+    },
+    {
+      "sourceId": "6325",
+      "targetUrl": "/simplifying-the-salesforce-order-of-execution/",
+      "postType": "post",
+      "discoverySource": "none",
+      "presentFields": []
+    },
+    {
+      "sourceId": "617",
+      "targetUrl": "/slas-in-sfra-or-sitegenesis/",
+      "postType": "post",
+      "discoverySource": "none",
+      "presentFields": []
+    },
+    {
+      "sourceId": "8465",
+      "targetUrl": "/the-b2c-commerce-architect-certification/",
+      "postType": "post",
+      "discoverySource": "none",
+      "presentFields": []
+    },
+    {
+      "sourceId": "13311",
+      "targetUrl": "/the-sfcc-guide-to-finding-pod-numbers/",
+      "postType": "post",
+      "discoverySource": "none",
+      "presentFields": []
+    },
+    {
+      "sourceId": "12535",
+      "targetUrl": "/third-party-api-caching-in-commerce-cloud/",
+      "postType": "post",
+      "discoverySource": "none",
+      "presentFields": []
+    },
+    {
+      "sourceId": "3641",
+      "targetUrl": "/what-is-the-ocapi-session-bridge/",
+      "postType": "post",
+      "discoverySource": "none",
+      "presentFields": []
+    },
+    {
+      "sourceId": "12129",
+      "targetUrl": "/where-to-hook-into-an-sfra-controller/",
+      "postType": "post",
       "discoverySource": "none",
       "presentFields": []
     }

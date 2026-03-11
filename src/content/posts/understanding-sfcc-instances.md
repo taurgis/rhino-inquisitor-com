@@ -1,5 +1,5 @@
 ---
-title: 'Understanding Salesforce B2C Commerce Instances: A Comprehensive Guide'
+title: Understanding SFCC Instances
 description: >-
   Salesforce B2C Commerce is a robust platform that enables businesses to create
   highly customised and scalable digital storefronts.

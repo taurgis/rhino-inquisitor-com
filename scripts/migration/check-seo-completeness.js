@@ -369,7 +369,7 @@ function validateRenderedSamples({ baselineSource, contentEntries, contentByRout
     }
   }
 
-  const sampleSets = buildSampleSets({ baselineSource, availableRoutes, manifest, mergeTargetMap });
+  const sampleSets = buildSampleSets({ baselineSource, availableRoutes, manifest, mergeTargetMap, contentEntries });
 
   for (const coverageCheck of sampleSets.coverageChecks) {
     recordRow(rows, coverageCheck.status === 'fail' ? failures : warnings, coverageCheck);
@@ -573,7 +573,7 @@ function validateRenderedSamples({ baselineSource, contentEntries, contentByRout
   }
 }
 
-function buildSampleSets({ baselineSource, availableRoutes, manifest, mergeTargetMap }) {
+function buildSampleSets({ baselineSource, availableRoutes, manifest, mergeTargetMap, contentEntries }) {
   const trafficUrls = parseTableUrls(
     baselineSource,
     '### Top pages by clicks (90-day export)',
@@ -591,12 +591,15 @@ function buildSampleSets({ baselineSource, availableRoutes, manifest, mergeTarge
     .filter((route) => route.startsWith('/category/') && route !== '/category/')
     .sort((left, right) => left.localeCompare(right));
   const categoryUrls = takeUnique([...baselineCategoryUrls, ...renderedCategoryUrls], 5);
-  const videoUrls = takeUnique(
-    manifest
-      .filter((entry) => entry.url_class === 'video' && typeof entry.target_url === 'string' && availableRoutes.has(entry.target_url))
-      .map((entry) => entry.target_url),
-    3
-  );
+  const videoContentRoutes = contentEntries
+    .filter((entry) => entry.route && availableRoutes.has(entry.route))
+    .filter((entry) => Array.isArray(entry.data.categories))
+    .filter((entry) => entry.data.categories.some((category) => String(category).trim().toLowerCase() === 'video'))
+    .map((entry) => entry.route);
+  const manifestVideoRoutes = manifest
+    .filter((entry) => entry.url_class === 'video' && typeof entry.target_url === 'string' && availableRoutes.has(entry.target_url))
+    .map((entry) => entry.target_url);
+  const videoUrls = takeUnique([...videoContentRoutes, ...manifestVideoRoutes], 3);
   const mergeTargetUrls = takeUnique(
     [...mergeTargetMap.keys()]
       .filter((route) => route !== '/feed/' && availableRoutes.has(route))

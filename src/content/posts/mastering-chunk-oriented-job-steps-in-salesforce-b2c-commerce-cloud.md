@@ -1,5 +1,5 @@
 ---
-title: Mastering Chunk-Oriented Job Steps in Salesforce B2C Commerce Cloud
+title: Mastering Chunk-Oriented Job Steps in SFCC
 description: >-
   Salesforce B2C Commerce Cloud offers a robust, flexible Jobs framework vital
   for performing scheduled or on-demand tasks for e-commerce operations.

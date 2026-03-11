@@ -1,7 +1,5 @@
 ---
-title: >-
-  A Beginner's Guide to WebDAV for Salesforce B2C Commerce Cloud: Simplifying
-  File Management
+title: WebDAV Guide for Salesforce B2C Commerce
 description: >-
   File Management is critical and necessary in any project. How else can we work
   with mass data transfers or logging mechanisms?

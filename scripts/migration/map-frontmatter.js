@@ -415,7 +415,7 @@ function buildFrontMatter(record, discoveryParams, attachmentUrlBySourceId, erro
     frontMatter.heroImage = heroImage;
   }
 
-  if (record.postType === 'post') {
+  if (record.categories.length > 0) {
     frontMatter.categories = record.categories.map((term) => term.name);
   }
 

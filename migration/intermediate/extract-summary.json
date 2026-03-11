@@ -2,10 +2,10 @@
   "mode": "subset",
   "selection": {
     "sourceIdFileUsed": true,
-    "sourceIdFile": "migration/input/pilot-source-ids.txt",
-    "sourceIdCount": 20,
+    "sourceIdFile": "migration/input/batch2-source-ids.txt",
+    "sourceIdCount": 35,
     "postTypes": [],
-    "recordCount": 20
+    "recordCount": 35
   },
   "selectedSourceChannels": [
     "filesystem",
@@ -40,12 +40,12 @@
   ],
   "totals": {
     "byPostType": {
-      "category": 1,
-      "page": 5,
-      "post": 14
+      "category": 5,
+      "page": 4,
+      "post": 26
     },
     "byStatus": {
-      "publish": 20
+      "publish": 35
     }
   },
   "quarantine": {
@@ -59,29 +59,29 @@
     "elementor_library": 16,
     "landing": 1,
     "nav_menu_item": 14,
-    "page": 17,
-    "post": 150,
+    "page": 18,
+    "post": 138,
     "rank_math_schema": 1,
     "wp_global_styles": 2
   },
   "reconciliation": {
     "filesystem": {
       "byPostType": {
-        "page": 2,
-        "post": 14
+        "page": 1,
+        "post": 26
       },
       "byStatus": {
-        "publish": 16
+        "publish": 27
       }
     },
     "wxr": {
       "byPostType": {
-        "category": 1,
-        "page": 5,
-        "post": 14
+        "category": 5,
+        "page": 4,
+        "post": 26
       },
       "byStatus": {
-        "publish": 20
+        "publish": 35
       }
     }
   },
@@ -91,8 +91,8 @@
       "Posts, pages except the homepage, uploads-backed attachments, category term routes, and content detail custom types are blocking coverage targets.",
       "System, feed, query, pagination, homepage, and synthetic index routes are reported separately and do not block extraction completeness."
     ],
-    "contentBackedManifestCount": 19,
-    "matchedManifestCount": 19,
+    "contentBackedManifestCount": 35,
+    "matchedManifestCount": 35,
     "missingManifestUrls": [],
     "reportedNonContentKeepMergeUrls": [
       {
@@ -786,11 +786,11 @@
   "sourceDetails": {
     "wxr": {
       "itemCounts": {
-        "page": 5,
-        "post": 14
+        "page": 4,
+        "post": 26
       },
       "categoryCounts": {
-        "category": 1
+        "category": 5
       }
     },
     "sql": {
@@ -799,7 +799,7 @@
       "byStatus": {}
     },
     "filesystem": {
-      "verified": 82,
+      "verified": 129,
       "missing": 0
     }
   },

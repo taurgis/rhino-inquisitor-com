@@ -1,0 +1,121 @@
+{
+  "sourceId": "4836",
+  "sourceType": "wxr",
+  "sourceChannels": [
+    "wxr"
+  ],
+  "postType": "page",
+  "status": "publish",
+  "titleRaw": "Headless",
+  "excerptRaw": "",
+  "bodyHtml": "https://www.youtube.com/watch?v=BTS6OqwMiK4<p>If your organization is looking for a way to improve its online presence and connect with more customers, Headless may be a good fit. Headless can help you create a more modern and responsive website and enhance customer engagement and conversions.</p><p>Headless commerce can provide a better user experience. In a traditional eCommerce setup, the front and back end are often tightly coupled, making it difficult to change the front end without affecting the back end.</p><p>However, with a headless commerce setup, the front end can be developed independently of the back end, allowing for a more customized and personalized user experience.</p>",
+  "slug": "headless",
+  "publishedAt": "2022-09-11T08:06:14.000Z",
+  "modifiedAt": "2022-09-11T08:23:01.000Z",
+  "author": "Thomas Theunen",
+  "categories": [
+    {
+      "name": "Podcasts",
+      "slug": "podcasts"
+    },
+    {
+      "name": "Video",
+      "slug": "video"
+    }
+  ],
+  "tags": [
+    {
+      "name": "headless",
+      "slug": "headless"
+    },
+    {
+      "name": "podcast",
+      "slug": "podcast"
+    },
+    {
+      "name": "sfcc",
+      "slug": "sfcc"
+    },
+    {
+      "name": "technical",
+      "slug": "technical"
+    }
+  ],
+  "legacyUrl": "/headless/",
+  "targetUrl": "/headless/",
+  "disposition": "keep",
+  "aliasUrls": [
+    "/?p=4836"
+  ],
+  "mediaRefs": [],
+  "_raw": {
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "status": "publish",
+    "titleRaw": "Headless",
+    "excerptRaw": "",
+    "publishedAt": "2022-09-11T08:06:14.000Z",
+    "modifiedAt": "2022-09-11T08:23:01.000Z",
+    "author": "Thomas Theunen",
+    "categories": [
+      {
+        "name": "Podcasts",
+        "slug": "podcasts"
+      },
+      {
+        "name": "Video",
+        "slug": "video"
+      }
+    ],
+    "tags": [
+      {
+        "name": "headless",
+        "slug": "headless"
+      },
+      {
+        "name": "podcast",
+        "slug": "podcast"
+      },
+      {
+        "name": "sfcc",
+        "slug": "sfcc"
+      },
+      {
+        "name": "technical",
+        "slug": "technical"
+      }
+    ],
+    "mediaRefs": [],
+    "manifest": {
+      "legacyUrl": "/headless/",
+      "targetUrl": "/headless/",
+      "disposition": "keep",
+      "redirectCode": null,
+      "implementationLayer": "none",
+      "urlClass": "page"
+    },
+    "normalization": {
+      "aliasUrlsDerivedFromSameTarget": [
+        "/?p=4836"
+      ],
+      "usedPublishedAtFallback": false,
+      "usedModifiedAtFallback": false,
+      "statusNormalizedFrom": "publish"
+    },
+    "extracted": {
+      "sourcePostType": "page",
+      "link": "/headless/",
+      "guid": "/?page_id=4836",
+      "attachmentUrl": null,
+      "thumbnailId": "4837",
+      "metaDescription": null,
+      "postParent": "0",
+      "postMetaCount": 23,
+      "featuredImageUrl": null
+    }
+  },
+  "bodyMarkdown": "https://www.youtube.com/watch?v=BTS6OqwMiK4\n\nIf your organization is looking for a way to improve its online presence and connect with more customers, Headless may be a good fit. Headless can help you create a more modern and responsive website and enhance customer engagement and conversions.\n\nHeadless commerce can provide a better user experience. In a traditional eCommerce setup, the front and back end are often tightly coupled, making it difficult to change the front end without affecting the back end.\n\nHowever, with a headless commerce setup, the front end can be developed independently of the back end, allowing for a more customized and personalized user experience.",
+  "conversionStatus": "converted",
+  "manualReviewRequired": false,
+  "fallbackTypes": [],
+  "conversionWarnings": []
+}
