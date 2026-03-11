@@ -12,6 +12,7 @@ import {
   DiscoveryParamsSchema,
   discoveryFieldKeys
 } from './schemas/discovery-metadata.schema.js';
+import { FrontMatterOverridesFileSchema } from './schemas/frontmatter-overrides.schema.js';
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const canonicalHost = 'https://www.rhino-inquisitor.com';
@@ -24,10 +25,12 @@ const aliasPattern = /^\/(?:|[a-z0-9/-]*[a-z0-9-]\/)$/;
 async function main() {
   const options = await resolveOptions(process.argv.slice(2));
   const curation = await loadDiscoveryCuration(options.discoveryFile);
+  const frontMatterOverrides = await loadFrontMatterOverrides(options.frontMatterOverridesFile);
   const extractRecords = await readJsonFile(options.extractRecordsFile, 'extraction records');
   const outputPathToSourceIds = new Map();
   const mappingStats = {
-    excludedNonPathAliasCount: 0
+    excludedNonPathAliasCount: 0,
+    frontMatterOverrideCount: 0
   };
   const recordFiles = (await fg('*.json', {
     cwd: options.recordsDir,
@@ -77,7 +80,15 @@ async function main() {
     }
 
     const discoveryResult = resolveDiscoveryParams(record, curation, errors);
-    const frontMatter = buildFrontMatter(record, discoveryResult.params, attachmentUrlBySourceId, errors, mappingStats);
+    const frontMatterOverride = frontMatterOverrides[String(record.sourceId)];
+    const frontMatter = buildFrontMatter(
+      record,
+      discoveryResult.params,
+      frontMatterOverride,
+      attachmentUrlBySourceId,
+      errors,
+      mappingStats
+    );
     const outputRelativePath = buildOutputRelativePath(record);
     const outputPath = path.join(options.contentDir, outputRelativePath);
 
@@ -155,6 +166,7 @@ async function main() {
     [
       `Mapped ${mappedRecords.length} keep/merge record(s) to ${toRepoRelative(options.contentDir)}.`,
       `Discovery enrichment present on ${coverage.totals.enrichedRecords} record(s).`,
+        `Front matter overrides applied on ${mappingStats.frontMatterOverrideCount} record(s).`,
         `Excluded ${mappingStats.excludedNonPathAliasCount} non-path alias URL(s) from front matter.`,
         `Coverage report written to ${toRepoRelative(options.coverageReport)}.`
     ].join(' ')
@@ -179,6 +191,9 @@ async function resolveOptions(argv) {
       case '--discovery-file':
         parsed.discoveryFile = path.resolve(argv[++index]);
         break;
+      case '--frontmatter-overrides-file':
+        parsed.frontMatterOverridesFile = path.resolve(argv[++index]);
+        break;
       case '--error-report':
         parsed.errorReport = path.resolve(argv[++index]);
         break;
@@ -199,6 +214,7 @@ async function resolveOptions(argv) {
     contentDir: parsed.contentDir ?? path.join(repoRoot, 'migration/output/content'),
     extractRecordsFile: parsed.extractRecordsFile ?? path.join(repoRoot, 'migration/intermediate/extract-records.json'),
     discoveryFile: parsed.discoveryFile ?? path.join(repoRoot, 'migration/input/discovery-metadata.json'),
+    frontMatterOverridesFile: parsed.frontMatterOverridesFile ?? path.join(repoRoot, 'migration/input/frontmatter-overrides.json'),
     errorReport: parsed.errorReport ?? path.join(repoRoot, 'migration/reports/frontmatter-errors.csv'),
     coverageReport: parsed.coverageReport ?? path.join(repoRoot, 'migration/reports/discovery-metadata-coverage.json')
   };
@@ -213,6 +229,8 @@ Options:
   --extract-records-file <path>
                             Override migration/intermediate/extract-records.json used for attachment lookups.
   --discovery-file <path>   Override optional discovery metadata curation file.
+  --frontmatter-overrides-file <path>
+                            Override optional title/description curation file.
   --error-report <path>     Override frontmatter-errors CSV path.
   --coverage-report <path>  Override discovery coverage JSON path.
   --help                    Show this help message.
@@ -242,6 +260,22 @@ async function loadDiscoveryCuration(filePath) {
       exists: true
     }
   };
+}
+
+async function loadFrontMatterOverrides(filePath) {
+  try {
+    await fsp.access(filePath);
+  } catch {
+    return {};
+  }
+
+  const raw = await readJsonFile(filePath, 'front matter override file');
+  const validation = FrontMatterOverridesFileSchema.safeParse(raw);
+  if (!validation.success) {
+    throw new Error(`Front matter override file failed validation: ${validation.error.message}`);
+  }
+
+  return validation.data;
 }
 
 function resolveDiscoveryParams(record, curation, errors) {
@@ -345,8 +379,10 @@ function resolveAttachmentSourceUrl(record) {
   return null;
 }
 
-function buildFrontMatter(record, discoveryParams, attachmentUrlBySourceId, errors, mappingStats) {
-  const title = record.titleRaw.trim();
+function buildFrontMatter(record, discoveryParams, frontMatterOverride, attachmentUrlBySourceId, errors, mappingStats) {
+  const title = typeof frontMatterOverride?.title === 'string'
+    ? frontMatterOverride.title.trim()
+    : record.titleRaw.trim();
   if (title.length === 0) {
     errors.push(createErrorRow({
       sourceId: record.sourceId,
@@ -357,7 +393,7 @@ function buildFrontMatter(record, discoveryParams, attachmentUrlBySourceId, erro
     }));
   }
 
-  const description = resolveDescription(record);
+  const description = resolveDescription(record, frontMatterOverride);
   if (description.length === 0) {
     errors.push(createErrorRow({
       sourceId: record.sourceId,
@@ -366,6 +402,10 @@ function buildFrontMatter(record, discoveryParams, attachmentUrlBySourceId, erro
       errorType: 'missing_required',
       errorMessage: 'description resolved to an empty value.'
     }));
+  }
+
+  if (frontMatterOverride) {
+    mappingStats.frontMatterOverrideCount += 1;
   }
 
   if (!record.targetUrl || !urlPattern.test(record.targetUrl)) {
@@ -438,7 +478,11 @@ function buildFrontMatter(record, discoveryParams, attachmentUrlBySourceId, erro
   return frontMatter;
 }
 
-function resolveDescription(record) {
+function resolveDescription(record, frontMatterOverride) {
+  if (typeof frontMatterOverride?.description === 'string') {
+    return frontMatterOverride.description.trim();
+  }
+
   const metaDescription = normalizeDescriptionText(record?._raw?.extracted?.metaDescription ?? '');
   const excerpt = normalizeDescriptionText(record.excerptRaw ?? '');
   const bodyText = normalizeDescriptionText(record.bodyMarkdown ?? '');

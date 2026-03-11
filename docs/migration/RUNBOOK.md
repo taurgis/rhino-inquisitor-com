@@ -475,7 +475,14 @@ This runbook tracks the operational steps needed to move the repository from pla
   - true featured-image linkage now survives extraction and normalization, so the mapper emits `heroImage` when `_raw.extracted.featuredImageUrl` is available; the current validated run produces `heroImage` for all 150 staged posts and 8 staged pages with true featured-image metadata
   - description generation now normalizes Markdown artifacts, avoids forced ... truncation, and prefers sentence-complete metadata text with a concise fallback suffix when source copy is too short
   - when `_raw.extracted.metaDescription` is present, the mapper now prefers that source metadata before falling back to excerpt/body-derived text, and Markdown link text is preserved during description normalization
+  - optional durable metadata overrides now load from `migration/input/frontmatter-overrides.json`; entries are keyed by `sourceId` and may provide curated top-level `title` and `description` values before staged Markdown is generated
+  - the current validated 2026-03-11 Batch 2 rerun applied 13 curated front matter override entries and restored the staged Batch 2 SEO completeness report to 0 warning rows and 0 failure rows after regeneration
   - mapper output still uses source-side media URLs at this stage; local `/media/...` rewriting remains the downstream RHI-037 responsibility
+- The front matter override contract is:
+  - path: `migration/input/frontmatter-overrides.json`
+  - key: source record id as a string
+  - supported fields per entry: `title`, `description`
+  - intended use: durable SEO metadata curation that must survive `npm run migrate:map-frontmatter` reruns without patching generated Markdown directly
 - Mapper hard-fail behavior now includes:
   - empty `title`
   - invalid or missing canonical `url`
@@ -484,7 +491,11 @@ This runbook tracks the operational steps needed to move the repository from pla
   - duplicate staged output file paths
 - Validation steps for RHI-035:
   - `npm run migrate:map-frontmatter`
+  - `npm run migrate:finalize-content` when override changes must flow through the full staged Markdown post-processing sequence
   - `node scripts/validate-frontmatter.js --content-dir migration/output/content`
+  - `hugo --minify --environment production --contentDir migration/output/content --destination tmp/rhi035-public`
+  - `npm run check:seo-completeness -- --content-dir migration/output/content --public-dir tmp/rhi035-public`
+  - `CHECK_NOINDEX_PUBLIC_DIR=tmp/rhi035-public npm run check:noindex`
   - confirm `migration/reports/frontmatter-errors.csv` remains header-only
   - rerun `npm run migrate:map-frontmatter` and confirm the generated Markdown and both reports hash identically
   - spot-check 10 representative generated files against their `migration/output/*.json` source records for exact `url`, derived `draft`, description presence, and clean omission of optional fields when absent

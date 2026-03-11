@@ -35,6 +35,7 @@ legacy_url,disposition,expected_target,actual_outcome,status,severity
 /sending-emails-from-sfcc/,keep,/sending-emails-from-sfcc/,live-page,pass,critical
 /the-sfcc-guide-to-finding-pod-numbers/,keep,/the-sfcc-guide-to-finding-pod-numbers/,live-page,pass,critical
 /what-is-the-ocapi-session-bridge/,keep,/what-is-the-ocapi-session-bridge/,live-page,pass,critical
+/wp-content/uploads/2022/05/22.6-release-einstein-dashboards.png,retire,,true-not-found,pass,critical
 /?p=10100,merge,/chasing-clouds-catching-up-with-the-commercecrew-at-dreamforce-2023/,deferred-edge-redirect,pass,warning
 /?p=1011,merge,/preparing-for-the-b2c-commerce-developer-certification/,deferred-edge-redirect,pass,warning
 /?p=10175,merge,/salesforce-b2c-commerce-cloud-23-10-release-a-comprehensive-overview/,deferred-edge-redirect,pass,warning

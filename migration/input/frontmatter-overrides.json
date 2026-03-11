@@ -1,0 +1,44 @@
+{
+  "3042": {
+    "description": "Learn how to use custom TTF fonts in Salesforce B2C Commerce Cloud PDF generation so branded documents render correctly in production."
+  },
+  "13328": {
+    "description": "Learn when Custom Caches help in SFCC, where they create risk, and how to use them safely without hurting performance or maintainability."
+  },
+  "4411": {
+    "description": "Learn what Active Data can track in Salesforce B2C Commerce Cloud, where the platform stops, and how far you can extend it safely."
+  },
+  "5618": {
+    "title": "Set Up the eCDN for SFCC Staging"
+  },
+  "13621": {
+    "title": "Kickstart Guide for New SFCC Developers",
+    "description": "An interactive guide for new SFCC developers covering storefront patterns, platform concepts, and practical next steps for hands-on learning."
+  },
+  "12990": {
+    "title": "PWA Kit Developer's Guide to Storefront Speed"
+  },
+  "431": {
+    "description": "Learn how to send emails with attachments from Salesforce B2C Commerce Cloud using ISML, including setup details and implementation pitfalls."
+  },
+  "12947": {
+    "title": "Mastering Sitemaps in SFCC",
+    "description": "Learn how sitemaps work in Salesforce B2C Commerce Cloud, how to configure them correctly, and what developers should monitor for SEO."
+  },
+  "12775": {
+    "title": "Sending Emails from SFCC"
+  },
+  "617": {
+    "title": "SLAS Session Sync in SFRA and SiteGenesis"
+  },
+  "8465": {
+    "title": "B2C Commerce Architect Certification Guide",
+    "description": "Prepare for the Salesforce B2C Commerce Architect certification with a guide to exam domains, study priorities, and practical preparation."
+  },
+  "13311": {
+    "description": "Learn how to find your SFCC POD number, why it matters for troubleshooting, and where to verify it across tools and environments."
+  },
+  "12535": {
+    "description": "Learn how to cache third-party API responses in Commerce Cloud to improve performance, control latency, and avoid stale-data pitfalls."
+  }
+}
