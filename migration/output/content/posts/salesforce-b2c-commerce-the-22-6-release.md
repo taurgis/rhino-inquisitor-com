@@ -7,6 +7,7 @@ date: '2022-05-16T13:52:22.000Z'
 lastmod: '2022-07-23T21:54:27.000Z'
 url: /salesforce-b2c-commerce-the-22-6-release/
 draft: false
+heroImage: /media/2022/22-6-release-einstein-dashboards-722f4cbace.png
 categories:
   - Release Notes
   - Salesforce Commerce Cloud

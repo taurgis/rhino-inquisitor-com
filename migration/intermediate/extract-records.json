@@ -1907,5 +1907,1025 @@
       "postParent": "0",
       "postMetaCount": 17
     }
+  },
+  {
+    "sourceId": "690",
+    "sourceType": "wxr",
+    "sourceChannels": [
+      "filesystem",
+      "wxr"
+    ],
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "slug": "mail",
+    "status": "inherit",
+    "postType": "attachment",
+    "titleRaw": "Mail Attachments",
+    "excerptRaw": "",
+    "bodyHtml": "",
+    "publishedAt": "2022-03-12T10:32:52.000Z",
+    "modifiedAt": "2022-03-12T10:33:15.000Z",
+    "author": "Thomas Theunen",
+    "categories": [],
+    "tags": [],
+    "legacyUrl": "/wp-content/uploads/2022/03/mail.jpg",
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/mail.jpg"
+    ],
+    "_raw": {
+      "sourcePostType": "attachment",
+      "link": "/mail-attachments-in-b2c-commerce-cloud/mail/",
+      "guid": "/wp-content/uploads/2022/03/mail.jpg",
+      "attachmentUrl": "/wp-content/uploads/2022/03/mail.jpg",
+      "thumbnailId": null,
+      "metaDescription": null,
+      "postParent": "431",
+      "postMetaCount": 8
+    }
+  },
+  {
+    "sourceId": "619",
+    "sourceType": "wxr",
+    "sourceChannels": [
+      "filesystem",
+      "wxr"
+    ],
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "slug": "slas",
+    "status": "inherit",
+    "postType": "attachment",
+    "titleRaw": "SLAS - Security and logging in",
+    "excerptRaw": "",
+    "bodyHtml": "",
+    "publishedAt": "2022-03-11T14:55:47.000Z",
+    "modifiedAt": "2022-03-11T14:56:12.000Z",
+    "author": "Thomas Theunen",
+    "categories": [],
+    "tags": [],
+    "legacyUrl": "/wp-content/uploads/2022/03/slas.jpg",
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/slas.jpg"
+    ],
+    "_raw": {
+      "sourcePostType": "attachment",
+      "link": "/slas-in-sfra-or-sitegenesis/slas/",
+      "guid": "/wp-content/uploads/2022/03/slas.jpg",
+      "attachmentUrl": "/wp-content/uploads/2022/03/slas.jpg",
+      "thumbnailId": null,
+      "metaDescription": null,
+      "postParent": "617",
+      "postMetaCount": 8
+    }
+  },
+  {
+    "sourceId": "1553",
+    "sourceType": "wxr",
+    "sourceChannels": [
+      "filesystem",
+      "wxr"
+    ],
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "slug": "code-security",
+    "status": "inherit",
+    "postType": "attachment",
+    "titleRaw": "Code Security",
+    "excerptRaw": "",
+    "bodyHtml": "",
+    "publishedAt": "2022-04-22T12:12:00.000Z",
+    "modifiedAt": "2022-04-22T12:12:09.000Z",
+    "author": "Thomas Theunen",
+    "categories": [],
+    "tags": [],
+    "legacyUrl": "/wp-content/uploads/2022/04/code-security.jpeg",
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/code-security.jpeg"
+    ],
+    "_raw": {
+      "sourcePostType": "attachment",
+      "link": "/secure-coding-in-salesforce-b2c-commerce-cloud/code-security/",
+      "guid": "/wp-content/uploads/2022/04/code-security.jpeg",
+      "attachmentUrl": "/wp-content/uploads/2022/04/code-security.jpeg",
+      "thumbnailId": null,
+      "metaDescription": null,
+      "postParent": "1551",
+      "postMetaCount": 7
+    }
+  },
+  {
+    "sourceId": "1895",
+    "sourceType": "wxr",
+    "sourceChannels": [
+      "filesystem",
+      "wxr"
+    ],
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "slug": "22-6-release-einstein-dashboards",
+    "status": "inherit",
+    "postType": "attachment",
+    "titleRaw": "22.6 Release: Einstein Dashboards",
+    "excerptRaw": "",
+    "bodyHtml": "",
+    "publishedAt": "2022-05-08T06:16:12.000Z",
+    "modifiedAt": "2022-05-08T06:16:27.000Z",
+    "author": "Thomas Theunen",
+    "categories": [],
+    "tags": [],
+    "legacyUrl": "/wp-content/uploads/2022/05/22.6-release-einstein-dashboards.png",
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/22.6-release-einstein-dashboards.png"
+    ],
+    "_raw": {
+      "sourcePostType": "attachment",
+      "link": "/salesforce-b2c-commerce-the-22-6-release/22-6-release-einstein-dashboards/",
+      "guid": "/wp-content/uploads/2022/05/22.6-release-einstein-dashboards.png",
+      "attachmentUrl": "/wp-content/uploads/2022/05/22.6-release-einstein-dashboards.png",
+      "thumbnailId": null,
+      "metaDescription": null,
+      "postParent": "1894",
+      "postMetaCount": 7
+    }
+  },
+  {
+    "sourceId": "807",
+    "sourceType": "wxr",
+    "sourceChannels": [
+      "filesystem",
+      "wxr"
+    ],
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "slug": "papers-documents-robot-work-documentation-projects",
+    "status": "inherit",
+    "postType": "attachment",
+    "titleRaw": "Documentation",
+    "excerptRaw": "",
+    "bodyHtml": "",
+    "publishedAt": "2022-03-16T12:51:09.000Z",
+    "modifiedAt": "2022-03-16T12:51:40.000Z",
+    "author": "Thomas Theunen",
+    "categories": [],
+    "tags": [],
+    "legacyUrl": "/wp-content/uploads/2022/05/documentation.jpg",
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/documentation.jpg"
+    ],
+    "_raw": {
+      "sourcePostType": "attachment",
+      "link": "/salesforce-b2c-commerce-cloud-documentation/papers-documents-robot-work-documentation-projects/",
+      "guid": "/wp-content/uploads/2022/05/documentation.jpg",
+      "attachmentUrl": "/wp-content/uploads/2022/05/documentation.jpg",
+      "thumbnailId": null,
+      "metaDescription": null,
+      "postParent": "805",
+      "postMetaCount": 8
+    }
+  },
+  {
+    "sourceId": "2537",
+    "sourceType": "wxr",
+    "sourceChannels": [
+      "filesystem",
+      "wxr"
+    ],
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "slug": "jwt",
+    "status": "inherit",
+    "postType": "attachment",
+    "titleRaw": "jwt",
+    "excerptRaw": "",
+    "bodyHtml": "",
+    "publishedAt": "2022-06-25T08:23:43.000Z",
+    "modifiedAt": "2022-06-25T08:23:43.000Z",
+    "author": "Thomas Theunen",
+    "categories": [],
+    "tags": [],
+    "legacyUrl": "/wp-content/uploads/2022/06/jwt.png",
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/jwt.png"
+    ],
+    "_raw": {
+      "sourcePostType": "attachment",
+      "link": "/how-to-setup-oauth-jwt-for-the-ocapi/jwt/",
+      "guid": "/wp-content/uploads/2022/06/jwt.png",
+      "attachmentUrl": "/wp-content/uploads/2022/06/jwt.png",
+      "thumbnailId": null,
+      "metaDescription": null,
+      "postParent": "2536",
+      "postMetaCount": 7
+    }
+  },
+  {
+    "sourceId": "1209",
+    "sourceType": "wxr",
+    "sourceChannels": [
+      "filesystem",
+      "wxr"
+    ],
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "slug": "ecdn",
+    "status": "inherit",
+    "postType": "attachment",
+    "titleRaw": "ECDN",
+    "excerptRaw": "",
+    "bodyHtml": "",
+    "publishedAt": "2022-04-02T09:24:47.000Z",
+    "modifiedAt": "2022-04-02T09:24:57.000Z",
+    "author": "Thomas Theunen",
+    "categories": [],
+    "tags": [],
+    "legacyUrl": "/wp-content/uploads/2022/07/ecdn.png",
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/07/ecdn.png"
+    ],
+    "_raw": {
+      "sourcePostType": "attachment",
+      "link": "/lets-go-live-ecdn/ecdn/",
+      "guid": "/wp-content/uploads/2022/07/ecdn.png",
+      "attachmentUrl": "/wp-content/uploads/2022/07/ecdn.png",
+      "thumbnailId": null,
+      "metaDescription": null,
+      "postParent": "1207",
+      "postMetaCount": 7
+    }
+  },
+  {
+    "sourceId": "2979",
+    "sourceType": "wxr",
+    "sourceChannels": [
+      "filesystem",
+      "wxr"
+    ],
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "slug": "trailhead-academy",
+    "status": "inherit",
+    "postType": "attachment",
+    "titleRaw": "Trailhead Academy",
+    "excerptRaw": "",
+    "bodyHtml": "",
+    "publishedAt": "2022-07-09T17:31:01.000Z",
+    "modifiedAt": "2022-07-09T17:31:08.000Z",
+    "author": "Thomas Theunen",
+    "categories": [],
+    "tags": [],
+    "legacyUrl": "/wp-content/uploads/2022/07/trailhead-academy.jpeg",
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/07/trailhead-academy.jpeg"
+    ],
+    "_raw": {
+      "sourcePostType": "attachment",
+      "link": "/how-to-get-salesforce-certification-vouchers/trailhead-academy/",
+      "guid": "/wp-content/uploads/2022/07/trailhead-academy.jpeg",
+      "attachmentUrl": "/wp-content/uploads/2022/07/trailhead-academy.jpeg",
+      "thumbnailId": null,
+      "metaDescription": null,
+      "postParent": "2978",
+      "postMetaCount": 7
+    }
+  },
+  {
+    "sourceId": "4100",
+    "sourceType": "wxr",
+    "sourceChannels": [
+      "filesystem",
+      "wxr"
+    ],
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "slug": "artificial-intelligence",
+    "status": "inherit",
+    "postType": "attachment",
+    "titleRaw": "Artificial Intelligence",
+    "excerptRaw": "",
+    "bodyHtml": "",
+    "publishedAt": "2022-08-07T08:06:41.000Z",
+    "modifiedAt": "2022-08-07T08:06:51.000Z",
+    "author": "Thomas Theunen",
+    "categories": [],
+    "tags": [],
+    "legacyUrl": "/wp-content/uploads/2022/08/artificial-intelligence.jpg",
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/artificial-intelligence.jpg"
+    ],
+    "_raw": {
+      "sourcePostType": "attachment",
+      "link": "/ai-einstein-in-salesforce-b2c-commerce-cloud/artificial-intelligence/",
+      "guid": "/wp-content/uploads/2022/08/artificial-intelligence.jpg",
+      "attachmentUrl": "/wp-content/uploads/2022/08/artificial-intelligence.jpg",
+      "thumbnailId": null,
+      "metaDescription": null,
+      "postParent": "4099",
+      "postMetaCount": 4
+    }
+  },
+  {
+    "sourceId": "4837",
+    "sourceType": "wxr",
+    "sourceChannels": [
+      "filesystem",
+      "wxr"
+    ],
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "slug": "headless",
+    "status": "inherit",
+    "postType": "attachment",
+    "titleRaw": "Headless",
+    "excerptRaw": "",
+    "bodyHtml": "",
+    "publishedAt": "2022-09-11T08:06:07.000Z",
+    "modifiedAt": "2022-09-11T08:06:07.000Z",
+    "author": "Thomas Theunen",
+    "categories": [],
+    "tags": [],
+    "legacyUrl": "/wp-content/uploads/2022/09/Headless.jpg",
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/Headless.jpg"
+    ],
+    "_raw": {
+      "sourcePostType": "attachment",
+      "link": "/headless/headless/",
+      "guid": "/wp-content/uploads/2022/09/Headless.jpg",
+      "attachmentUrl": "/wp-content/uploads/2022/09/Headless.jpg",
+      "thumbnailId": null,
+      "metaDescription": null,
+      "postParent": "4836",
+      "postMetaCount": 4
+    }
+  },
+  {
+    "sourceId": "4820",
+    "sourceType": "wxr",
+    "sourceChannels": [
+      "filesystem",
+      "wxr"
+    ],
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "slug": "image-2",
+    "status": "inherit",
+    "postType": "attachment",
+    "titleRaw": "image 2",
+    "excerptRaw": "",
+    "bodyHtml": "",
+    "publishedAt": "2022-09-10T20:12:46.000Z",
+    "modifiedAt": "2022-09-10T20:12:46.000Z",
+    "author": "Thomas Theunen",
+    "categories": [],
+    "tags": [],
+    "legacyUrl": "/wp-content/uploads/2022/09/image-2.jpg",
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/image-2.jpg"
+    ],
+    "_raw": {
+      "sourcePostType": "attachment",
+      "link": "/connecting-the-clouds-wedding-or-funeral/image-2/",
+      "guid": "/wp-content/uploads/2022/09/image-2.jpg",
+      "attachmentUrl": "/wp-content/uploads/2022/09/image-2.jpg",
+      "thumbnailId": null,
+      "metaDescription": null,
+      "postParent": "4795",
+      "postMetaCount": 4
+    }
+  },
+  {
+    "sourceId": "4864",
+    "sourceType": "wxr",
+    "sourceChannels": [
+      "filesystem",
+      "wxr"
+    ],
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "slug": "inside-the-ohana",
+    "status": "inherit",
+    "postType": "attachment",
+    "titleRaw": "Inside the Ohana",
+    "excerptRaw": "",
+    "bodyHtml": "",
+    "publishedAt": "2022-09-11T08:34:18.000Z",
+    "modifiedAt": "2022-09-11T08:34:27.000Z",
+    "author": "Thomas Theunen",
+    "categories": [],
+    "tags": [],
+    "legacyUrl": "/wp-content/uploads/2022/09/Inside-the-ohana.jpg",
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/Inside-the-ohana.jpg"
+    ],
+    "_raw": {
+      "sourcePostType": "attachment",
+      "link": "/inside-the-ohana/inside-the-ohana/",
+      "guid": "/wp-content/uploads/2022/09/Inside-the-ohana.jpg",
+      "attachmentUrl": "/wp-content/uploads/2022/09/Inside-the-ohana.jpg",
+      "thumbnailId": null,
+      "metaDescription": null,
+      "postParent": "4863",
+      "postMetaCount": 4
+    }
+  },
+  {
+    "sourceId": "5407",
+    "sourceType": "wxr",
+    "sourceChannels": [
+      "filesystem",
+      "wxr"
+    ],
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "slug": "quota-limits",
+    "status": "inherit",
+    "postType": "attachment",
+    "titleRaw": "quota limits",
+    "excerptRaw": "",
+    "bodyHtml": "",
+    "publishedAt": "2022-10-26T07:01:52.000Z",
+    "modifiedAt": "2022-10-26T07:01:52.000Z",
+    "author": "Thomas Theunen",
+    "categories": [],
+    "tags": [],
+    "legacyUrl": "/wp-content/uploads/2022/10/quota-limits.jpg",
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/10/quota-limits.jpg"
+    ],
+    "_raw": {
+      "sourcePostType": "attachment",
+      "link": "/salesforce-b2c-commerce-cloud-governance-and-quotas/quota-limits/",
+      "guid": "/wp-content/uploads/2022/10/quota-limits.jpg",
+      "attachmentUrl": "/wp-content/uploads/2022/10/quota-limits.jpg",
+      "thumbnailId": null,
+      "metaDescription": null,
+      "postParent": "5406",
+      "postMetaCount": 4
+    }
+  },
+  {
+    "sourceId": "5620",
+    "sourceType": "wxr",
+    "sourceChannels": [
+      "filesystem",
+      "wxr"
+    ],
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "slug": "ssl_certificate_tw",
+    "status": "inherit",
+    "postType": "attachment",
+    "titleRaw": "SSL_certificate_tw",
+    "excerptRaw": "",
+    "bodyHtml": "",
+    "publishedAt": "2022-11-02T08:38:17.000Z",
+    "modifiedAt": "2022-11-02T08:38:17.000Z",
+    "author": "Thomas Theunen",
+    "categories": [],
+    "tags": [],
+    "legacyUrl": "/wp-content/uploads/2022/11/SSL_certificate_tw.jpg",
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/SSL_certificate_tw.jpg"
+    ],
+    "_raw": {
+      "sourcePostType": "attachment",
+      "link": "/how-to-set-up-the-ecdn-in-sfcc-staging/ssl_certificate_tw/",
+      "guid": "/wp-content/uploads/2022/11/SSL_certificate_tw.jpg",
+      "attachmentUrl": "/wp-content/uploads/2022/11/SSL_certificate_tw.jpg",
+      "thumbnailId": null,
+      "metaDescription": null,
+      "postParent": "5618",
+      "postMetaCount": 4
+    }
+  },
+  {
+    "sourceId": "4417",
+    "sourceType": "wxr",
+    "sourceChannels": [
+      "filesystem",
+      "wxr"
+    ],
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "slug": "b2c_active_merchandising_slide_1",
+    "status": "inherit",
+    "postType": "attachment",
+    "titleRaw": "Salesforce B2C Commerce Cloud: Active Merchandizing",
+    "excerptRaw": "",
+    "bodyHtml": "",
+    "publishedAt": "2022-08-20T10:00:55.000Z",
+    "modifiedAt": "2022-08-20T10:01:09.000Z",
+    "author": "Thomas Theunen",
+    "categories": [],
+    "tags": [],
+    "legacyUrl": "/wp-content/uploads/2023/01/b2c_active_merchandising_slide_1.gif",
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/b2c_active_merchandising_slide_1.gif"
+    ],
+    "_raw": {
+      "sourcePostType": "attachment",
+      "link": "/how-to-extend-active-data-in-salesforce-b2c-commerce-cloud/b2c_active_merchandising_slide_1/",
+      "guid": "/wp-content/uploads/2023/01/b2c_active_merchandising_slide_1.gif",
+      "attachmentUrl": "/wp-content/uploads/2023/01/b2c_active_merchandising_slide_1.gif",
+      "thumbnailId": null,
+      "metaDescription": null,
+      "postParent": "4411",
+      "postMetaCount": 4
+    }
+  },
+  {
+    "sourceId": "6586",
+    "sourceType": "wxr",
+    "sourceChannels": [
+      "filesystem",
+      "wxr"
+    ],
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "slug": "client-side-js",
+    "status": "inherit",
+    "postType": "attachment",
+    "titleRaw": "client-side-js",
+    "excerptRaw": "",
+    "bodyHtml": "",
+    "publishedAt": "2023-01-08T17:47:25.000Z",
+    "modifiedAt": "2023-01-08T17:47:25.000Z",
+    "author": "Thomas Theunen",
+    "categories": [],
+    "tags": [],
+    "legacyUrl": "/wp-content/uploads/2023/01/client-side-js.jpg",
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/client-side-js.jpg"
+    ],
+    "_raw": {
+      "sourcePostType": "attachment",
+      "link": "/how-to-load-client-side-javascript-and-css-in-sfra/client-side-js/",
+      "guid": "/wp-content/uploads/2023/01/client-side-js.jpg",
+      "attachmentUrl": "/wp-content/uploads/2023/01/client-side-js.jpg",
+      "thumbnailId": null,
+      "metaDescription": null,
+      "postParent": "6585",
+      "postMetaCount": 4
+    }
+  },
+  {
+    "sourceId": "6326",
+    "sourceType": "wxr",
+    "sourceChannels": [
+      "filesystem",
+      "wxr"
+    ],
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "slug": "dominoes-in-middle-of-the-road",
+    "status": "inherit",
+    "postType": "attachment",
+    "titleRaw": "dominoes-in-middle-of-the-road",
+    "excerptRaw": "",
+    "bodyHtml": "",
+    "publishedAt": "2023-01-03T16:52:05.000Z",
+    "modifiedAt": "2023-01-03T16:52:05.000Z",
+    "author": "Thomas Theunen",
+    "categories": [],
+    "tags": [],
+    "legacyUrl": "/wp-content/uploads/2023/01/dominoes-in-middle-of-the-road.jpg",
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/dominoes-in-middle-of-the-road.jpg"
+    ],
+    "_raw": {
+      "sourcePostType": "attachment",
+      "link": "/simplifying-the-salesforce-order-of-execution/dominoes-in-middle-of-the-road/",
+      "guid": "/wp-content/uploads/2023/01/dominoes-in-middle-of-the-road.jpg",
+      "attachmentUrl": "/wp-content/uploads/2023/01/dominoes-in-middle-of-the-road.jpg",
+      "thumbnailId": null,
+      "metaDescription": null,
+      "postParent": "6325",
+      "postMetaCount": 4
+    }
+  },
+  {
+    "sourceId": "3044",
+    "sourceType": "wxr",
+    "sourceChannels": [
+      "filesystem",
+      "wxr"
+    ],
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "slug": "fonts",
+    "status": "inherit",
+    "postType": "attachment",
+    "titleRaw": "Fonts",
+    "excerptRaw": "",
+    "bodyHtml": "",
+    "publishedAt": "2022-07-12T08:00:14.000Z",
+    "modifiedAt": "2022-07-12T08:00:19.000Z",
+    "author": "Thomas Theunen",
+    "categories": [],
+    "tags": [],
+    "legacyUrl": "/wp-content/uploads/2023/01/fonts.jpg",
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/fonts.jpg"
+    ],
+    "_raw": {
+      "sourcePostType": "attachment",
+      "link": "/custom-ttf-fonts-in-pdf-for-sfcc/fonts/",
+      "guid": "/wp-content/uploads/2023/01/fonts.jpg",
+      "attachmentUrl": "/wp-content/uploads/2023/01/fonts.jpg",
+      "thumbnailId": null,
+      "metaDescription": null,
+      "postParent": "3042",
+      "postMetaCount": 7
+    }
+  },
+  {
+    "sourceId": "6431",
+    "sourceType": "wxr",
+    "sourceChannels": [
+      "filesystem",
+      "wxr"
+    ],
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "slug": "slas-public-client-registered-user-b2c",
+    "status": "inherit",
+    "postType": "attachment",
+    "titleRaw": "slas-public-client-registered-user-b2c",
+    "excerptRaw": "",
+    "bodyHtml": "",
+    "publishedAt": "2023-01-04T13:04:54.000Z",
+    "modifiedAt": "2023-01-04T13:04:54.000Z",
+    "author": "Thomas Theunen",
+    "categories": [],
+    "tags": [],
+    "legacyUrl": "/wp-content/uploads/2023/01/slas-public-client-registered-user-b2c.jpg",
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/slas-public-client-registered-user-b2c.jpg"
+    ],
+    "_raw": {
+      "sourcePostType": "attachment",
+      "link": "/how-to-set-up-slas-for-the-composable-storefront/slas-public-client-registered-user-b2c/",
+      "guid": "/wp-content/uploads/2023/01/slas-public-client-registered-user-b2c.jpg",
+      "attachmentUrl": "/wp-content/uploads/2023/01/slas-public-client-registered-user-b2c.jpg",
+      "thumbnailId": null,
+      "metaDescription": null,
+      "postParent": "6429",
+      "postMetaCount": 4
+    }
+  },
+  {
+    "sourceId": "7502",
+    "sourceType": "wxr",
+    "sourceChannels": [
+      "filesystem",
+      "wxr"
+    ],
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "slug": "salesforce-b2c-commerce-cloud-erd-2",
+    "status": "inherit",
+    "postType": "attachment",
+    "titleRaw": "Salesforce B2C Commerce Cloud Entity-Relationship model",
+    "excerptRaw": "",
+    "bodyHtml": "",
+    "publishedAt": "2023-02-26T19:36:13.000Z",
+    "modifiedAt": "2023-02-26T19:36:30.000Z",
+    "author": "Thomas Theunen",
+    "categories": [],
+    "tags": [],
+    "legacyUrl": "/wp-content/uploads/2023/02/salesforce-b2c-commerce-cloud-erd.jpeg",
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/02/salesforce-b2c-commerce-cloud-erd.jpeg"
+    ],
+    "_raw": {
+      "sourcePostType": "attachment",
+      "link": "/salesforce-b2c-commerce-cloud-erd/salesforce-b2c-commerce-cloud-erd-2/",
+      "guid": "/wp-content/uploads/2023/02/salesforce-b2c-commerce-cloud-erd.jpeg",
+      "attachmentUrl": "/wp-content/uploads/2023/02/salesforce-b2c-commerce-cloud-erd.jpeg",
+      "thumbnailId": null,
+      "metaDescription": null,
+      "postParent": "7485",
+      "postMetaCount": 2
+    }
+  },
+  {
+    "sourceId": "3645",
+    "sourceType": "wxr",
+    "sourceChannels": [
+      "filesystem",
+      "wxr"
+    ],
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "slug": "session-bridge",
+    "status": "inherit",
+    "postType": "attachment",
+    "titleRaw": "Session Bridge",
+    "excerptRaw": "",
+    "bodyHtml": "",
+    "publishedAt": "2022-07-27T06:35:07.000Z",
+    "modifiedAt": "2022-07-27T06:35:07.000Z",
+    "author": "Thomas Theunen",
+    "categories": [],
+    "tags": [],
+    "legacyUrl": "/wp-content/uploads/2023/02/Session-Bridge.png",
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/02/Session-Bridge.png"
+    ],
+    "_raw": {
+      "sourcePostType": "attachment",
+      "link": "/what-is-the-ocapi-session-bridge/session-bridge/",
+      "guid": "/wp-content/uploads/2023/02/Session-Bridge.png",
+      "attachmentUrl": "/wp-content/uploads/2023/02/Session-Bridge.png",
+      "thumbnailId": null,
+      "metaDescription": null,
+      "postParent": "3641",
+      "postMetaCount": 7
+    }
+  },
+  {
+    "sourceId": "8466",
+    "sourceType": "wxr",
+    "sourceChannels": [
+      "filesystem",
+      "wxr"
+    ],
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "slug": "b2c-commerce-cloud-architect",
+    "status": "inherit",
+    "postType": "attachment",
+    "titleRaw": "A woman is writing on a whiteboard with a marker.",
+    "excerptRaw": "",
+    "bodyHtml": "",
+    "publishedAt": "2023-04-16T12:00:59.000Z",
+    "modifiedAt": "2023-04-30T19:29:51.000Z",
+    "author": "Thomas Theunen",
+    "categories": [],
+    "tags": [],
+    "legacyUrl": "/wp-content/uploads/2023/04/b2c-commerce-cloud-architect.jpeg",
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/b2c-commerce-cloud-architect.jpeg"
+    ],
+    "_raw": {
+      "sourcePostType": "attachment",
+      "link": "/the-b2c-commerce-architect-certification/b2c-commerce-cloud-architect/",
+      "guid": "/wp-content/uploads/2023/04/b2c-commerce-cloud-architect.jpeg",
+      "attachmentUrl": "/wp-content/uploads/2023/04/b2c-commerce-cloud-architect.jpeg",
+      "thumbnailId": null,
+      "metaDescription": null,
+      "postParent": "8465",
+      "postMetaCount": 6
+    }
+  },
+  {
+    "sourceId": "12130",
+    "sourceType": "wxr",
+    "sourceChannels": [
+      "filesystem",
+      "wxr"
+    ],
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "slug": "a-road-taking-odd-paths",
+    "status": "inherit",
+    "postType": "attachment",
+    "titleRaw": "A road taking weird turns.",
+    "excerptRaw": "",
+    "bodyHtml": "",
+    "publishedAt": "2024-10-06T07:06:05.000Z",
+    "modifiedAt": "2024-10-06T07:06:39.000Z",
+    "author": "Thomas Theunen",
+    "categories": [],
+    "tags": [],
+    "legacyUrl": "/wp-content/uploads/2024/10/a-road-taking-odd-paths.jpeg",
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2024/10/a-road-taking-odd-paths.jpeg"
+    ],
+    "_raw": {
+      "sourcePostType": "attachment",
+      "link": "/where-to-hook-into-an-sfra-controller/a-road-taking-odd-paths/",
+      "guid": "/wp-content/uploads/2024/10/a-road-taking-odd-paths.jpeg",
+      "attachmentUrl": "/wp-content/uploads/2024/10/a-road-taking-odd-paths.jpeg",
+      "thumbnailId": null,
+      "metaDescription": null,
+      "postParent": "12129",
+      "postMetaCount": 3
+    }
+  },
+  {
+    "sourceId": "12536",
+    "sourceType": "wxr",
+    "sourceChannels": [
+      "filesystem",
+      "wxr"
+    ],
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "slug": "third-party-service-caching",
+    "status": "inherit",
+    "postType": "attachment",
+    "titleRaw": "Third Party Service Caching",
+    "excerptRaw": "",
+    "bodyHtml": "",
+    "publishedAt": "2024-11-02T19:38:26.000Z",
+    "modifiedAt": "2024-11-02T19:40:08.000Z",
+    "author": "Thomas Theunen",
+    "categories": [],
+    "tags": [],
+    "legacyUrl": "/wp-content/uploads/2024/11/third-party-service-caching.jpg",
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/third-party-service-caching.jpg"
+    ],
+    "_raw": {
+      "sourcePostType": "attachment",
+      "link": "/third-party-api-caching-in-commerce-cloud/third-party-service-caching/",
+      "guid": "/wp-content/uploads/2024/11/third-party-service-caching.jpg",
+      "attachmentUrl": "/wp-content/uploads/2024/11/third-party-service-caching.jpg",
+      "thumbnailId": null,
+      "metaDescription": null,
+      "postParent": "12535",
+      "postMetaCount": 3
+    }
+  },
+  {
+    "sourceId": "12776",
+    "sourceType": "wxr",
+    "sourceChannels": [
+      "filesystem",
+      "wxr"
+    ],
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "slug": "delivering-mail-in-sfcc",
+    "status": "inherit",
+    "postType": "attachment",
+    "titleRaw": "A pigeon delivering mail to houses by dropping them from the air.",
+    "excerptRaw": "",
+    "bodyHtml": "",
+    "publishedAt": "2024-12-06T12:16:08.000Z",
+    "modifiedAt": "2024-12-06T12:16:43.000Z",
+    "author": "Thomas Theunen",
+    "categories": [],
+    "tags": [],
+    "legacyUrl": "/wp-content/uploads/2024/12/delivering-mail-in-sfcc.jpg",
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2024/12/delivering-mail-in-sfcc.jpg"
+    ],
+    "_raw": {
+      "sourcePostType": "attachment",
+      "link": "/sending-emails-from-sfcc/delivering-mail-in-sfcc/",
+      "guid": "/wp-content/uploads/2024/12/delivering-mail-in-sfcc.jpg",
+      "attachmentUrl": "/wp-content/uploads/2024/12/delivering-mail-in-sfcc.jpg",
+      "thumbnailId": null,
+      "metaDescription": null,
+      "postParent": "12775",
+      "postMetaCount": 3
+    }
+  },
+  {
+    "sourceId": "12991",
+    "sourceType": "wxr",
+    "sourceChannels": [
+      "filesystem",
+      "wxr"
+    ],
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "slug": "developer-manipulating-performance",
+    "status": "inherit",
+    "postType": "attachment",
+    "titleRaw": "developer-manipulating-performance",
+    "excerptRaw": "",
+    "bodyHtml": "",
+    "publishedAt": "2025-06-14T21:04:00.000Z",
+    "modifiedAt": "2025-06-14T21:04:00.000Z",
+    "author": "Thomas Theunen",
+    "categories": [],
+    "tags": [],
+    "legacyUrl": "/wp-content/uploads/2025/06/developer-manipulating-performance-scaled.jpeg",
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2025/06/developer-manipulating-performance-scaled.jpeg"
+    ],
+    "_raw": {
+      "sourcePostType": "attachment",
+      "link": "/lag-to-riches-a-pwa-kit-developers-guide/developer-manipulating-performance/",
+      "guid": "/wp-content/uploads/2025/06/developer-manipulating-performance.jpeg",
+      "attachmentUrl": "/wp-content/uploads/2025/06/developer-manipulating-performance-scaled.jpeg",
+      "thumbnailId": null,
+      "metaDescription": null,
+      "postParent": "12990",
+      "postMetaCount": 2
+    }
+  },
+  {
+    "sourceId": "12948",
+    "sourceType": "wxr",
+    "sourceChannels": [
+      "filesystem",
+      "wxr"
+    ],
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "slug": "sitemaps-in-sfcc",
+    "status": "inherit",
+    "postType": "attachment",
+    "titleRaw": "sitemaps-in-sfcc",
+    "excerptRaw": "",
+    "bodyHtml": "",
+    "publishedAt": "2025-06-14T17:57:40.000Z",
+    "modifiedAt": "2025-06-14T17:58:55.000Z",
+    "author": "Thomas Theunen",
+    "categories": [],
+    "tags": [],
+    "legacyUrl": "/wp-content/uploads/2025/06/sitemaps-in-sfcc.jpg",
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2025/06/sitemaps-in-sfcc.jpg"
+    ],
+    "_raw": {
+      "sourcePostType": "attachment",
+      "link": "/mastering-sitemaps-in-sfcc/sitemaps-in-sfcc/",
+      "guid": "/wp-content/uploads/2025/06/sitemaps-in-sfcc.png",
+      "attachmentUrl": "/wp-content/uploads/2025/06/sitemaps-in-sfcc.jpg",
+      "thumbnailId": null,
+      "metaDescription": null,
+      "postParent": "12947",
+      "postMetaCount": 3
+    }
+  },
+  {
+    "sourceId": "13329",
+    "sourceType": "wxr",
+    "sourceChannels": [
+      "filesystem",
+      "wxr"
+    ],
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "slug": "custom-caches-in-sfcc",
+    "status": "inherit",
+    "postType": "attachment",
+    "titleRaw": "High-Speed Data Cache for Salesforce B2C Commerce Cloud",
+    "excerptRaw": "",
+    "bodyHtml": "",
+    "publishedAt": "2025-07-11T07:34:16.000Z",
+    "modifiedAt": "2025-07-11T07:34:30.000Z",
+    "author": "Thomas Theunen",
+    "categories": [],
+    "tags": [],
+    "legacyUrl": "/wp-content/uploads/2025/07/custom-caches-in-sfcc-scaled.jpeg",
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2025/07/custom-caches-in-sfcc-scaled.jpeg"
+    ],
+    "_raw": {
+      "sourcePostType": "attachment",
+      "link": "/field-guide-to-custom-caches-in-sfcc/custom-caches-in-sfcc/",
+      "guid": "/wp-content/uploads/2025/07/custom-caches-in-sfcc.jpeg",
+      "attachmentUrl": "/wp-content/uploads/2025/07/custom-caches-in-sfcc-scaled.jpeg",
+      "thumbnailId": null,
+      "metaDescription": null,
+      "postParent": "13328",
+      "postMetaCount": 3
+    }
+  },
+  {
+    "sourceId": "13312",
+    "sourceType": "wxr",
+    "sourceChannels": [
+      "filesystem",
+      "wxr"
+    ],
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "slug": "sfcc-finding-your-pod-number",
+    "status": "inherit",
+    "postType": "attachment",
+    "titleRaw": "The Rhino Inquisitor on the case, hunting for the elusive POD number.",
+    "excerptRaw": "",
+    "bodyHtml": "",
+    "publishedAt": "2025-07-09T06:42:04.000Z",
+    "modifiedAt": "2025-07-09T06:42:15.000Z",
+    "author": "Thomas Theunen",
+    "categories": [],
+    "tags": [],
+    "legacyUrl": "/wp-content/uploads/2025/07/sfcc-finding-your-pod-number-scaled.jpeg",
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2025/07/sfcc-finding-your-pod-number-scaled.jpeg"
+    ],
+    "_raw": {
+      "sourcePostType": "attachment",
+      "link": "/the-sfcc-guide-to-finding-pod-numbers/sfcc-finding-your-pod-number/",
+      "guid": "/wp-content/uploads/2025/07/sfcc-finding-your-pod-number.jpeg",
+      "attachmentUrl": "/wp-content/uploads/2025/07/sfcc-finding-your-pod-number-scaled.jpeg",
+      "thumbnailId": null,
+      "metaDescription": null,
+      "postParent": "13311",
+      "postMetaCount": 3
+    }
+  },
+  {
+    "sourceId": "13622",
+    "sourceType": "wxr",
+    "sourceChannels": [
+      "filesystem",
+      "wxr"
+    ],
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "slug": "the-new-salesforce-developer",
+    "status": "inherit",
+    "postType": "attachment",
+    "titleRaw": "Developer Crafting an E-commerce Experience",
+    "excerptRaw": "A vibrant, flat cartoon illustration captures a developer in the process of building a modern e-commerce platform. Surrounded by graphical elements representing user interfaces, analytics, and customer interaction, he works diligently on his laptop to create a seamless online shopping experience.",
+    "bodyHtml": "",
+    "publishedAt": "2025-07-14T14:05:52.000Z",
+    "modifiedAt": "2025-07-14T14:06:05.000Z",
+    "author": "Thomas Theunen",
+    "categories": [],
+    "tags": [],
+    "legacyUrl": "/wp-content/uploads/2025/07/the-new-salesforce-developer-scaled.jpeg",
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2025/07/the-new-salesforce-developer-scaled.jpeg"
+    ],
+    "_raw": {
+      "sourcePostType": "attachment",
+      "link": "/kickstart-guide-for-new-sfcc-developers/the-new-salesforce-developer/",
+      "guid": "/wp-content/uploads/2025/07/the-new-salesforce-developer.jpeg",
+      "attachmentUrl": "/wp-content/uploads/2025/07/the-new-salesforce-developer-scaled.jpeg",
+      "thumbnailId": null,
+      "metaDescription": null,
+      "postParent": "13621",
+      "postMetaCount": 3
+    }
   }
 ]

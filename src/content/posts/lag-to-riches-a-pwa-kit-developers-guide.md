@@ -1,5 +1,5 @@
 ---
-title: 'PWA Kit Developer''s Guide to Storefront Speed'
+title: 'From Lag to Riches: A PWA Kit Developer''s Guide to Storefront Speed'
 description: >-
   Let's be honest: a slow e-commerce site is a silent killer of sales. In the
   world of B2C Commerce, every millisecond is money.
@@ -7,6 +7,7 @@ date: '2025-06-23T17:00:05.000Z'
 lastmod: '2025-06-24T18:21:36.000Z'
 url: /lag-to-riches-a-pwa-kit-developers-guide/
 draft: false
+heroImage: /media/2025/developer-manipulating-performance-scaled-3869da0b9c.jpeg
 categories:
   - Salesforce Commerce Cloud
   - Technical

@@ -7,6 +7,7 @@ date: '2022-07-17T13:42:22.000Z'
 lastmod: '2023-03-30T07:02:37.000Z'
 url: /sitegenesis-vs-sfra-vs-pwa/
 draft: false
+heroImage: /media/2022/sfra-vs-sitegenesis-965c09b9a6.jpg
 categories:
   - Salesforce Commerce Cloud
 tags:
@@ -42,7 +43,7 @@ An example is the SCSS, which uses "[responsive design](https://en.wikipedia.org
 
 Responsive Design still has a place, especially if most of your visitors are not mobile but on desktop devices. But for most merchants, mobile claims the most significant percentage of visitors.
 
-### Third-party integrations for SFRA
+### Third-party integrations
 
 Salesforce B2C Commerce Cloud comes with a lot of features out-of-the-box. But it can't do everything, so it depends on third parties to create "cartridges" that extend that base (payment providers, shipping providers, OMS, ERP, ...).
 
@@ -90,7 +91,7 @@ This gives customers and partners the flexibility to only include the features t
 
 Salesforce is also actively pushing customers towards SFRA, even though a new headless architecture has become available (PWA Kit). The reason for this will become more apparent as you continue reading.
 
-### Third-party integrations for PWA Kit
+### Third-party integrations
 
 I will keep this short. Third parties are actively integrating with SFRA and updating their cartridges!
 
@@ -110,11 +111,11 @@ It is an entirely different type of architecture than the "[monolithic](https://
 
 But what does this mean, going Headless? You can find more information about it in this [blog post](https://forward.eu/blog/headless/) or look at the following YouTube video where I explain what it means to go Headless with Salesforce B2C Commerce Cloud.
 
-<https://www.youtube.com/watch?v=BTS6OqwMiK4&feature=emb\_title>
+https://www.youtube.com/watch?v=BTS6OqwMiK4&feature=emb\_title
 
 A great podcast is also available on the "Unofficial Salesforce Commerce Cloud Podcast" about Headless and the PWA Kit.
 
-<https://www.youtube.com/watch?v=hIghXeYIsEs&list=PLAQgCOXBCvL360AJzTZKTQe1wqvq4TLkD&index=6>
+https://www.youtube.com/watch?v=hIghXeYIsEs&list=PLAQgCOXBCvL360AJzTZKTQe1wqvq4TLkD&index=6
 
 ### Managed Runtime
 
@@ -141,7 +142,7 @@ I will not go into much detail on what Progressive Web Apps are. There is a lot 
 
 And again, there is a podcast episode available dedicated to this topic!
 
-<https://www.youtube.com/watch?v=eOFC5rLHZZ4&list=PLAQgCOXBCvL360AJzTZKTQe1wqvq4TLkD&index=3>
+https://www.youtube.com/watch?v=eOFC5rLHZZ4&list=PLAQgCOXBCvL360AJzTZKTQe1wqvq4TLkD&index=3
 
 ### Third-party integrations
 
@@ -153,12 +154,12 @@ Looking at the past few weeks/months, there is a [good amount of interest](https
 
 I may sound like a broken record, but a few features built into SFRA are not in the PWA Kit since the solution is new. A few examples are:
 
-- [A/B Testing](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/ab_testing/b2c_ab_testing.html)
-- ~~Personalization~~ (Added in 2023)
-- [~~Page Designer~~](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/page_designer/b2c_dev_for_page_designer.html) ( Added in 2023)
-- [Sitemap](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/search_engine_optimization/b2c_sitemap_overview.html)
-- [SEO URL Configuration](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/search_engine_optimization/b2c_configuring_seo_urls.html)
-- [Page Meta Tag Rules](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/categories/b2c_page_meta_tag_rules.htm)
+-   [A/B Testing](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/ab_testing/b2c_ab_testing.html)
+-   ~~Personalization~~ (Added in 2023)
+-   [~~Page Designer~~](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/page_designer/b2c_dev_for_page_designer.html) ( Added in 2023)
+-   [Sitemap](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/search_engine_optimization/b2c_sitemap_overview.html)
+-   [SEO URL Configuration](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/search_engine_optimization/b2c_configuring_seo_urls.html)
+-   [Page Meta Tag Rules](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/categories/b2c_page_meta_tag_rules.htm)
 
 All of these "missing items" can be resolved with custom development. So be prepared to spend more time and budget to build these features if needed. And many of these are on the roadmap of Salesforce, so if you wait a bit longer (or adapt your implementation timeline/order of implementation), the above list will be much smaller.
 

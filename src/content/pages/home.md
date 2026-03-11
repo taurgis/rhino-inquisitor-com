@@ -1,15 +1,15 @@
 ---
 title: Home
 description: >-
-  Technical articles, migration notes, and practical Salesforce Commerce Cloud
-  guidance for developers across SFRA, composable, and platform operations.
+  My name is Thomas Theunen, and I write about all things related to Salesforce
+  Commerce Cloud and its community.
 date: '2022-02-25T21:45:56.000Z'
 lastmod: '2025-09-21T06:26:21.000Z'
 url: /
 draft: false
 author: Thomas Theunen
 ---
-## Welcome
+## Welcome!
 
 My name is Thomas, and I am the Head of Commerce at [Forward](https://www.forward.eu). I am a proud father of two wonderful children: Thalia & Thano.
 
@@ -21,7 +21,7 @@ I am here to share my knowledge and experience to help others succeed in the Oha
 
 ## My Active Projects
 
-[MCP Aegis](https://aegis.rhino-inquisitor.com/) [SFCC DEV MCP](https://sfcc-mcp-dev.rhino-inquisitor.com/)
+[MCP Aegis](https://aegis.rhino-inquisitor.com/) [SFCC DEV MCP ](https://sfcc-mcp-dev.rhino-inquisitor.com/)
 
 [![Thomas Theunen at the office beside a desk and plants.](/media/2022/1e8a7695-9e6f1ee7bd.jpg)](https://trailblazercommunitygroups.com/salesforce-developer-group-hasselt-belgium/)
 

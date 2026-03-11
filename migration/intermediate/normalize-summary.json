@@ -5,7 +5,8 @@
     "sourceIdFile": "migration/input/batch2-source-ids.txt",
     "sourceIdCount": 35,
     "postTypes": [],
-    "recordCount": 35
+    "recordCount": 65,
+    "supportRecordCount": 30
   },
   "sourceCoverageScope": "source-backed-content-only",
   "inputFiles": {
@@ -20,26 +21,28 @@
     "errors": "migration/intermediate/normalize-errors.json"
   },
   "totals": {
-    "extracted": 35,
-    "normalized": 35,
+    "extracted": 65,
+    "normalized": 36,
     "errors": 0,
     "blockingErrors": 0,
     "nonBlockingErrors": 0,
-    "skippedWithoutManifest": 0,
+    "skippedWithoutManifest": 29,
     "manifestEntries": 1201,
     "inventoryEntries": 1199
   },
   "byPostType": {
+    "attachment": 1,
     "category": 5,
     "page": 4,
     "post": 26
   },
   "byStatus": {
-    "publish": 35
+    "publish": 36
   },
   "byDisposition": {
     "keep": 31,
-    "merge": 4
+    "merge": 4,
+    "retire": 1
   },
   "coverage": {
     "requiredScope": "source-backed-content-only",
@@ -47,7 +50,7 @@
     "normalizedRequiredCount": 35,
     "missingRequiredUrls": [],
     "keepMergeMissingTargetUrlCount": 0,
-    "retireWithExplicitNullTargetUrlCount": 0,
+    "retireWithExplicitNullTargetUrlCount": 1,
     "blockingErrorCount": 0,
     "nonBlockingErrorCount": 0
   },
@@ -59,15 +62,145 @@
       "modifiedAt": 5,
       "policy": "When source timestamps are missing, publishedAt falls back to modifiedAt then sourceTimestamp; modifiedAt falls back to publishedAt then sourceTimestamp."
     },
-    "statusTransforms": {},
+    "statusTransforms": {
+      "inherit->publish": 1
+    },
     "taxonomyTransforms": {
       "total": 0,
       "samples": []
     },
     "skippedWithoutManifest": {
-      "count": 0,
-      "byPostType": {},
-      "samples": []
+      "count": 29,
+      "byPostType": {
+        "attachment": 29
+      },
+      "samples": [
+        {
+          "sourceId": "690",
+          "postType": "attachment",
+          "legacyUrl": "/wp-content/uploads/2022/03/mail.jpg"
+        },
+        {
+          "sourceId": "619",
+          "postType": "attachment",
+          "legacyUrl": "/wp-content/uploads/2022/03/slas.jpg"
+        },
+        {
+          "sourceId": "1553",
+          "postType": "attachment",
+          "legacyUrl": "/wp-content/uploads/2022/04/code-security.jpeg"
+        },
+        {
+          "sourceId": "807",
+          "postType": "attachment",
+          "legacyUrl": "/wp-content/uploads/2022/05/documentation.jpg"
+        },
+        {
+          "sourceId": "2537",
+          "postType": "attachment",
+          "legacyUrl": "/wp-content/uploads/2022/06/jwt.png"
+        },
+        {
+          "sourceId": "1209",
+          "postType": "attachment",
+          "legacyUrl": "/wp-content/uploads/2022/07/ecdn.png"
+        },
+        {
+          "sourceId": "2979",
+          "postType": "attachment",
+          "legacyUrl": "/wp-content/uploads/2022/07/trailhead-academy.jpeg"
+        },
+        {
+          "sourceId": "4100",
+          "postType": "attachment",
+          "legacyUrl": "/wp-content/uploads/2022/08/artificial-intelligence.jpg"
+        },
+        {
+          "sourceId": "4837",
+          "postType": "attachment",
+          "legacyUrl": "/wp-content/uploads/2022/09/headless.jpg"
+        },
+        {
+          "sourceId": "4820",
+          "postType": "attachment",
+          "legacyUrl": "/wp-content/uploads/2022/09/image-2.jpg"
+        },
+        {
+          "sourceId": "4864",
+          "postType": "attachment",
+          "legacyUrl": "/wp-content/uploads/2022/09/inside-the-ohana.jpg"
+        },
+        {
+          "sourceId": "5407",
+          "postType": "attachment",
+          "legacyUrl": "/wp-content/uploads/2022/10/quota-limits.jpg"
+        },
+        {
+          "sourceId": "5620",
+          "postType": "attachment",
+          "legacyUrl": "/wp-content/uploads/2022/11/ssl_certificate_tw.jpg"
+        },
+        {
+          "sourceId": "4417",
+          "postType": "attachment",
+          "legacyUrl": "/wp-content/uploads/2023/01/b2c_active_merchandising_slide_1.gif"
+        },
+        {
+          "sourceId": "6586",
+          "postType": "attachment",
+          "legacyUrl": "/wp-content/uploads/2023/01/client-side-js.jpg"
+        },
+        {
+          "sourceId": "6326",
+          "postType": "attachment",
+          "legacyUrl": "/wp-content/uploads/2023/01/dominoes-in-middle-of-the-road.jpg"
+        },
+        {
+          "sourceId": "3044",
+          "postType": "attachment",
+          "legacyUrl": "/wp-content/uploads/2023/01/fonts.jpg"
+        },
+        {
+          "sourceId": "6431",
+          "postType": "attachment",
+          "legacyUrl": "/wp-content/uploads/2023/01/slas-public-client-registered-user-b2c.jpg"
+        },
+        {
+          "sourceId": "7502",
+          "postType": "attachment",
+          "legacyUrl": "/wp-content/uploads/2023/02/salesforce-b2c-commerce-cloud-erd.jpeg"
+        },
+        {
+          "sourceId": "3645",
+          "postType": "attachment",
+          "legacyUrl": "/wp-content/uploads/2023/02/session-bridge.png"
+        },
+        {
+          "sourceId": "8466",
+          "postType": "attachment",
+          "legacyUrl": "/wp-content/uploads/2023/04/b2c-commerce-cloud-architect.jpeg"
+        },
+        {
+          "sourceId": "12130",
+          "postType": "attachment",
+          "legacyUrl": "/wp-content/uploads/2024/10/a-road-taking-odd-paths.jpeg"
+        },
+        {
+          "sourceId": "12536",
+          "postType": "attachment",
+          "legacyUrl": "/wp-content/uploads/2024/11/third-party-service-caching.jpg"
+        },
+        {
+          "sourceId": "12776",
+          "postType": "attachment",
+          "legacyUrl": "/wp-content/uploads/2024/12/delivering-mail-in-sfcc.jpg"
+        },
+        {
+          "sourceId": "12991",
+          "postType": "attachment",
+          "legacyUrl": "/wp-content/uploads/2025/06/developer-manipulating-performance-scaled.jpeg"
+        }
+      ]
     }
   }
 }

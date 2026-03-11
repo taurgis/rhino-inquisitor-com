@@ -43,7 +43,9 @@
   "aliasUrls": [
     "/?p=4863"
   ],
-  "mediaRefs": [],
+  "mediaRefs": [
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/inside-the-ohana.jpg"
+  ],
   "_raw": {
     "sourceTimestamp": "2026-03-10T10:03:55.501Z",
     "status": "publish",
@@ -102,7 +104,7 @@
       "metaDescription": "Episode Summary - Thomas Theunen, Head of Commerce at Forward and the first Belgian Golden Hoodie winner, shares practical tips!",
       "postParent": "0",
       "postMetaCount": 26,
-      "featuredImageUrl": null
+      "featuredImageUrl": "/wp-content/uploads/2022/09/Inside-the-ohana.jpg"
     }
   },
   "bodyMarkdown": "https://www.youtube.com/watch?v=6bLF9vioUm4\n\nAn interview of my story within the Ohana and how I found my way into a beautiful community of Salesforce enthusiasts!",

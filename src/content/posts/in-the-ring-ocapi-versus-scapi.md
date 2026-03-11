@@ -7,6 +7,7 @@ date: '2024-03-18T08:49:51.000Z'
 lastmod: '2024-03-19T15:11:36.000Z'
 url: /in-the-ring-ocapi-versus-scapi/
 draft: false
+heroImage: /media/2024/rest-apis-fighting-in-a-boxing-ring-60c6242717.jpg
 categories:
   - Architecture
   - Salesforce Commerce Cloud
@@ -50,10 +51,10 @@ In the future, it is clear that any significant new APIs will only be added to t
 
 It's an authentication orchestration service that can handle various scenarios without requiring the creation of custom code for each one separately. (Some tweaking of parameters and configuration is still required, but that's not the focus of this article.):
 
-- **B2C Authentication**: Normal login with Salesforce B2C Commerce Cloud
-- **Social Login** (Third-party login): Login with platforms such as Google and Facebook
-- **Passwordless** **Login**: Login via e-mail or SMS
-- **Trusted Agent**: Have a third-party person or system login on behalf of a customer
+-   **B2C Authentication**: Normal login with Salesforce B2C Commerce Cloud
+-   **Social Login** (Third-party login): Login with platforms such as Google and Facebook
+-   **Passwordless** **Login**: Login via e-mail or SMS
+-   **Trusted Agent**: Have a third-party person or system login on behalf of a customer
 
 Although it is possible to use this service in conjunction with OCAPI, it is more part of the SCAPI offering, so let us give a point to SCAPI in this case.
 

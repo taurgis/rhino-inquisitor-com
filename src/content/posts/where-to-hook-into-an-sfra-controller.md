@@ -7,6 +7,7 @@ date: '2024-10-07T07:17:57.000Z'
 lastmod: '2024-10-07T07:35:26.000Z'
 url: /where-to-hook-into-an-sfra-controller/
 draft: false
+heroImage: /media/2024/a-road-taking-odd-paths-a9419c4f36.jpeg
 categories:
   - Salesforce Commerce Cloud
   - Technical

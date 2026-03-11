@@ -44,6 +44,7 @@
     "disposition": "keep",
     "aliasUrls": [],
     "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/artificial-intelligence.jpg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/commerce-insights-report-300x174.jpg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/commerce-insights-report.jpg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/cquotient-demandware-history-v2-300x146.png",
@@ -139,7 +140,7 @@
         "metaDescription": "Salesforce B2C Commerce Cloud has an AI that can power different areas of the site. But what is it, why use it, and what can it do for me?",
         "postParent": "0",
         "postMetaCount": 28,
-        "featuredImageUrl": null
+        "featuredImageUrl": "/wp-content/uploads/2022/08/artificial-intelligence.jpg"
       }
     }
   },
@@ -489,7 +490,9 @@
     "aliasUrls": [
       "/?p=4795"
     ],
-    "mediaRefs": [],
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/image-2.jpg"
+    ],
     "_raw": {
       "sourceTimestamp": "2026-03-10T10:03:55.501Z",
       "status": "publish",
@@ -568,7 +571,7 @@
         "metaDescription": "Connecting different clouds, in this case: B2C Commerce Cloud, CRM, and Marketing Cloud, to work together in harmony can be a challenge.",
         "postParent": "0",
         "postMetaCount": 25,
-        "featuredImageUrl": null
+        "featuredImageUrl": "/wp-content/uploads/2022/09/image-2.jpg"
       }
     }
   },
@@ -620,7 +623,8 @@
     ],
     "mediaRefs": [
       "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/custom-font-result-300x252.png",
-      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/custom-font-result.png"
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/custom-font-result.png",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/fonts.jpg"
     ],
     "_raw": {
       "sourceTimestamp": "2026-03-10T10:03:55.501Z",
@@ -682,7 +686,7 @@
         "metaDescription": "We already figured out PDF generation is something SFCC can handle, but how do we use our brand's fonts? Find out here!",
         "postParent": "0",
         "postMetaCount": 29,
-        "featuredImageUrl": null
+        "featuredImageUrl": "/wp-content/uploads/2023/01/fonts.jpg"
       }
     }
   },
@@ -733,6 +737,7 @@
       "/?p=13328"
     ],
     "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2025/07/custom-caches-in-sfcc-scaled.jpeg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2025/07/ods-custom-caches-business-manager-1024x365.png",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2025/07/ods-custom-caches-business-manager-300x107.png",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2025/07/ods-custom-caches-business-manager-768x274.png",
@@ -805,7 +810,7 @@
         "metaDescription": null,
         "postParent": "0",
         "postMetaCount": 22,
-        "featuredImageUrl": null
+        "featuredImageUrl": "/wp-content/uploads/2025/07/custom-caches-in-sfcc-scaled.jpeg"
       }
     }
   },
@@ -858,7 +863,9 @@
     "aliasUrls": [
       "/?p=4836"
     ],
-    "mediaRefs": [],
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/headless.jpg"
+    ],
     "_raw": {
       "sourceTimestamp": "2026-03-10T10:03:55.501Z",
       "status": "publish",
@@ -921,7 +928,7 @@
         "metaDescription": null,
         "postParent": "0",
         "postMetaCount": 23,
-        "featuredImageUrl": null
+        "featuredImageUrl": "/wp-content/uploads/2022/09/Headless.jpg"
       }
     }
   },
@@ -1045,7 +1052,7 @@
         "metaDescription": "Active Data is a feature available in Salesforce B2C Commerce Cloud. But what can I do with it, and can I extend it?",
         "postParent": "0",
         "postMetaCount": 28,
-        "featuredImageUrl": null
+        "featuredImageUrl": "/wp-content/uploads/2023/01/b2c_active_merchandising_slide_1.gif"
       }
     }
   },
@@ -1088,6 +1095,7 @@
       "/?p=2978"
     ],
     "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/07/trailhead-academy.jpeg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/accreditations-vs-certifications-1024x609.png",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/accreditations-vs-certifications-1536x914.png",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/accreditations-vs-certifications-300x178.png",
@@ -1160,7 +1168,7 @@
         "metaDescription": "Getting certified with Salesforce is one of the people's many goals within the ecosystem. But they come at a price! Where can I score a deal?",
         "postParent": "0",
         "postMetaCount": 27,
-        "featuredImageUrl": null
+        "featuredImageUrl": "/wp-content/uploads/2022/07/trailhead-academy.jpeg"
       }
     }
   },
@@ -1211,6 +1219,7 @@
       "/?p=6585"
     ],
     "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/client-side-js.jpg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2024/02/javascript-and-css-scoping-in-sfra-2-1024x610.png",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2024/02/javascript-and-css-scoping-in-sfra-2-300x179.png",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2024/02/javascript-and-css-scoping-in-sfra-2-768x457.png",
@@ -1277,7 +1286,7 @@
         "metaDescription": "Client-side JavaScript is quite necessary these days to create functionalities and have a good user experience. But how do you load it in SFRA?",
         "postParent": "0",
         "postMetaCount": 28,
-        "featuredImageUrl": null
+        "featuredImageUrl": "/wp-content/uploads/2023/01/client-side-js.jpg"
       }
     }
   },
@@ -1357,6 +1366,7 @@
       "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/slas-admin-welcome-ui-300x233.jpg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/slas-admin-welcome-ui-768x597.jpg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/slas-admin-welcome-ui.jpg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/slas-public-client-registered-user-b2c.jpg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/slas-rights-account-manager-300x264.jpg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/slas-rights-account-manager-768x675.jpg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/slas-rights-account-manager.jpg",
@@ -1440,7 +1450,7 @@
         "metaDescription": "Setting up SLAS for the first time can be quite a headache. Or maybe not? Is there an easy way to set up SLAS for the PWA Kit?",
         "postParent": "0",
         "postMetaCount": 30,
-        "featuredImageUrl": null
+        "featuredImageUrl": "/wp-content/uploads/2023/01/slas-public-client-registered-user-b2c.jpg"
       }
     }
   },
@@ -1493,6 +1503,7 @@
     "disposition": "keep",
     "aliasUrls": [],
     "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/ssl_certificate_tw.jpg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/commerce-cloud-api-client-roles-300x75.jpg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/commerce-cloud-api-client-roles.jpg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/salesforce-commerce-api-settings-300x126.jpg",
@@ -1561,7 +1572,7 @@
         "metaDescription": "New APIs have been made available to manage certificates on the staging eCDN ourselves. But how does it work? What do I need to keep in mind?",
         "postParent": "0",
         "postMetaCount": 31,
-        "featuredImageUrl": null
+        "featuredImageUrl": "/wp-content/uploads/2022/11/SSL_certificate_tw.jpg"
       }
     }
   },
@@ -1620,6 +1631,7 @@
       "https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/jwt-visualized-300x229.jpg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/jwt-visualized-768x585.jpg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/jwt-visualized.jpg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/jwt.png",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/postman-authentication-ocapi-300x95.jpg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/postman-authentication-ocapi-768x243.jpg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/postman-authentication-ocapi.jpg"
@@ -1688,7 +1700,7 @@
         "metaDescription": "Setting up JWT with the OCAPI has not been the easiest thing to do. The documentation makes you make assumptions with vague instructions.",
         "postParent": "0",
         "postMetaCount": 26,
-        "featuredImageUrl": null
+        "featuredImageUrl": "/wp-content/uploads/2022/06/jwt.png"
       }
     }
   },
@@ -1737,7 +1749,9 @@
     "aliasUrls": [
       "/?p=4863"
     ],
-    "mediaRefs": [],
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/inside-the-ohana.jpg"
+    ],
     "_raw": {
       "sourceTimestamp": "2026-03-10T10:03:55.501Z",
       "status": "publish",
@@ -1796,7 +1810,7 @@
         "metaDescription": "Episode Summary - Thomas Theunen, Head of Commerce at Forward and the first Belgian Golden Hoodie winner, shares practical tips!",
         "postParent": "0",
         "postMetaCount": 26,
-        "featuredImageUrl": null
+        "featuredImageUrl": "/wp-content/uploads/2022/09/Inside-the-ohana.jpg"
       }
     }
   },
@@ -1851,6 +1865,7 @@
       "/?p=13621"
     ],
     "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2025/07/the-new-salesforce-developer-scaled.jpeg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2026/01/business-manager-sfcc-command-center-1024x572.jpg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2026/01/business-manager-sfcc-command-center-300x167.jpg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2026/01/business-manager-sfcc-command-center-768x429.jpg",
@@ -1920,7 +1935,7 @@
         "metaDescription": null,
         "postParent": "0",
         "postMetaCount": 21,
-        "featuredImageUrl": null
+        "featuredImageUrl": "/wp-content/uploads/2025/07/the-new-salesforce-developer-scaled.jpeg"
       }
     }
   },
@@ -1974,6 +1989,7 @@
       "https://www.rhino-inquisitor.com/wp-content/uploads/2025/06/core-web-vitals-visualised-e1750704059141-300x134.jpg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2025/06/core-web-vitals-visualised-e1750704059141-768x342.jpg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2025/06/core-web-vitals-visualised-e1750704059141.jpg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2025/06/developer-manipulating-performance-scaled.jpeg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2025/06/server-side-rendering-client-side-300x164.jpg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2025/06/server-side-rendering-client-side-768x419.jpg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2025/06/server-side-rendering-client-side.jpg",
@@ -2053,7 +2069,7 @@
         "metaDescription": null,
         "postParent": "0",
         "postMetaCount": 23,
-        "featuredImageUrl": null
+        "featuredImageUrl": "/wp-content/uploads/2025/06/developer-manipulating-performance-scaled.jpeg"
       }
     }
   },
@@ -2138,7 +2154,8 @@
       "https://www.rhino-inquisitor.com/wp-content/uploads/2022/07/ecdn-verification-needed.png",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2022/07/ecdn-waf-settings-300x229.png",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2022/07/ecdn-waf-settings-768x587.png",
-      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/07/ecdn-waf-settings.png"
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/07/ecdn-waf-settings.png",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/07/ecdn.png"
     ],
     "_raw": {
       "sourceTimestamp": "2026-03-10T10:03:55.501Z",
@@ -2217,7 +2234,7 @@
         "metaDescription": "Bringing your first site live on SFCC can be challenging. In this series, we will be looking at different parts. Part I: eCDN",
         "postParent": "0",
         "postMetaCount": 28,
-        "featuredImageUrl": null
+        "featuredImageUrl": "/wp-content/uploads/2022/07/ecdn.png"
       }
     }
   },
@@ -2270,7 +2287,8 @@
     "mediaRefs": [
       "https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/api.jsstringlength-300x104.png",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/api.jsstringlength-768x267.png",
-      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/api.jsstringlength.png"
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/api.jsstringlength.png",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/mail.jpg"
     ],
     "_raw": {
       "sourceTimestamp": "2026-03-10T10:03:55.501Z",
@@ -2332,7 +2350,7 @@
         "metaDescription": "In this blog we explain how to add attachments to a mail sent from Salesforce B2C Commerce Cloud using ISML.",
         "postParent": "0",
         "postMetaCount": 27,
-        "featuredImageUrl": null
+        "featuredImageUrl": "/wp-content/uploads/2022/03/mail.jpg"
       }
     }
   },
@@ -2399,7 +2417,8 @@
       "https://www.rhino-inquisitor.com/wp-content/uploads/2025/06/sitemap-business-manager-sfcc-1536x739.jpg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2025/06/sitemap-business-manager-sfcc-300x144.jpg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2025/06/sitemap-business-manager-sfcc-768x370.jpg",
-      "https://www.rhino-inquisitor.com/wp-content/uploads/2025/06/sitemap-business-manager-sfcc.jpg"
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2025/06/sitemap-business-manager-sfcc.jpg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2025/06/sitemaps-in-sfcc.jpg"
     ],
     "_raw": {
       "sourceTimestamp": "2026-03-10T10:03:55.501Z",
@@ -2470,7 +2489,7 @@
         "metaDescription": null,
         "postParent": "0",
         "postMetaCount": 22,
-        "featuredImageUrl": null
+        "featuredImageUrl": "/wp-content/uploads/2025/06/sitemaps-in-sfcc.jpg"
       }
     }
   },
@@ -2517,6 +2536,7 @@
       "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/5b7a39ea-b9bc-486b-9ca3-c77ab5a306b1-e1653998526739-300x174.jpeg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/5b7a39ea-b9bc-486b-9ca3-c77ab5a306b1-e1653998526739-768x445.jpeg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/5b7a39ea-b9bc-486b-9ca3-c77ab5a306b1-e1653998526739.jpeg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/documentation.jpg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/solution-architect-1024x741.png",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/solution-architect-300x217.png",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/solution-architect-768x556.png",
@@ -2582,7 +2602,7 @@
         "metaDescription": "Finding the documentation for a specific topic in Salesforce B2C Commerce Cloud can be a challenge sometimes. These are the options!",
         "postParent": "0",
         "postMetaCount": 38,
-        "featuredImageUrl": null
+        "featuredImageUrl": "/wp-content/uploads/2022/05/documentation.jpg"
       }
     }
   },
@@ -2672,7 +2692,7 @@
         "metaDescription": null,
         "postParent": "0",
         "postMetaCount": 19,
-        "featuredImageUrl": null
+        "featuredImageUrl": "/wp-content/uploads/2023/02/salesforce-b2c-commerce-cloud-erd.jpeg"
       }
     }
   },
@@ -2723,6 +2743,7 @@
       "/?p=5406"
     ],
     "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/10/quota-limits.jpg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/but-why-300x144.jpg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/but-why-768x368.jpg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/but-why.jpg",
@@ -2805,7 +2826,7 @@
         "metaDescription": "Salesforce Platform Limits and Quotas are not new and exist for a reason. But why? And are there limits that are not documented?",
         "postParent": "0",
         "postMetaCount": 28,
-        "featuredImageUrl": null
+        "featuredImageUrl": "/wp-content/uploads/2022/10/quota-limits.jpg"
       }
     }
   },
@@ -2934,7 +2955,7 @@
         "metaDescription": "Are you interested in what is new in each Salesforce B2C Commerce Cloud release? Then this is the article for you! Let us look at 22.6",
         "postParent": "0",
         "postMetaCount": 26,
-        "featuredImageUrl": null
+        "featuredImageUrl": "/wp-content/uploads/2022/05/22.6-release-einstein-dashboards.png"
       }
     }
   },
@@ -2985,6 +3006,7 @@
       "/?p=1551"
     ],
     "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/code-security.jpeg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/mfa-1-300x183.jpg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/mfa-1.jpg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/npm-audit-1024x320.png",
@@ -3054,7 +3076,7 @@
         "metaDescription": "Security within Salesforce B2C Commerce might not be a concern because of out-of-the-box features. There are a few things to keep in mind!",
         "postParent": "0",
         "postMetaCount": 26,
-        "featuredImageUrl": null
+        "featuredImageUrl": "/wp-content/uploads/2022/04/code-security.jpeg"
       }
     }
   },
@@ -3114,6 +3136,7 @@
       "https://www.rhino-inquisitor.com/wp-content/uploads/2024/12/a-mail-across-the-year-2048x819.jpg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2024/12/a-mail-across-the-year-300x120.jpg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2024/12/a-mail-across-the-year-768x307.jpg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2024/12/delivering-mail-in-sfcc.jpg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2024/12/sfcc-email-settings-1024x528.png",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2024/12/sfcc-email-settings-300x155.png",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2024/12/sfcc-email-settings-768x396.png",
@@ -3185,7 +3208,7 @@
         "metaDescription": null,
         "postParent": "0",
         "postMetaCount": 17,
-        "featuredImageUrl": null
+        "featuredImageUrl": "/wp-content/uploads/2024/12/delivering-mail-in-sfcc.jpg"
       }
     }
   },
@@ -3236,6 +3259,7 @@
       "/?p=6325"
     ],
     "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/dominoes-in-middle-of-the-road.jpg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/order-of-execution-simplified-apex-api-v56.0-1084x2048.png",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/order-of-execution-simplified-apex-api-v56.0-159x300.png",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/order-of-execution-simplified-apex-api-v56.0-542x1024.png",
@@ -3304,7 +3328,7 @@
         "metaDescription": "How can we simplify the Order of Execution in Salesforce? Find out in this article where we only use modern and KISS solutions!",
         "postParent": "0",
         "postMetaCount": 29,
-        "featuredImageUrl": null
+        "featuredImageUrl": "/wp-content/uploads/2023/01/dominoes-in-middle-of-the-road.jpg"
       }
     }
   },
@@ -3359,6 +3383,7 @@
       "https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/slas-diagram-300x169.png",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/slas-diagram-768x432.png",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/slas-diagram.png",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/03/slas.jpg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2025/07/plugin-slas-to-hybrid-authentication-300x164.jpg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2025/07/plugin-slas-to-hybrid-authentication-768x419.jpg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2025/07/plugin-slas-to-hybrid-authentication.jpg"
@@ -3424,7 +3449,7 @@
         "metaDescription": "SLAS (Shopper Login And API Access Service) is one of the headless APIs made available by Salesforce. But how can we use it in SFRA?",
         "postParent": "0",
         "postMetaCount": 33,
-        "featuredImageUrl": null
+        "featuredImageUrl": "/wp-content/uploads/2022/03/slas.jpg"
       }
     }
   },
@@ -3471,6 +3496,7 @@
       "/?p=8465"
     ],
     "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/b2c-commerce-cloud-architect.jpeg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2023/11/b2c-commerce-architect-build-1024x512.jpg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2023/11/b2c-commerce-architect-build-300x150.jpg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2023/11/b2c-commerce-architect-build-768x384.jpg",
@@ -3537,7 +3563,7 @@
         "metaDescription": null,
         "postParent": "0",
         "postMetaCount": 17,
-        "featuredImageUrl": null
+        "featuredImageUrl": "/wp-content/uploads/2023/04/b2c-commerce-cloud-architect.jpeg"
       }
     }
   },
@@ -3592,7 +3618,8 @@
       "https://www.rhino-inquisitor.com/wp-content/uploads/2025/07/going-to-salesforce-official-channels-1536x838.jpeg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2025/07/going-to-salesforce-official-channels-2048x1117.jpeg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2025/07/going-to-salesforce-official-channels-300x164.jpeg",
-      "https://www.rhino-inquisitor.com/wp-content/uploads/2025/07/going-to-salesforce-official-channels-768x419.jpeg"
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2025/07/going-to-salesforce-official-channels-768x419.jpeg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2025/07/sfcc-finding-your-pod-number-scaled.jpeg"
     ],
     "_raw": {
       "sourceTimestamp": "2026-03-10T10:03:55.501Z",
@@ -3654,7 +3681,7 @@
         "metaDescription": null,
         "postParent": "0",
         "postMetaCount": 22,
-        "featuredImageUrl": null
+        "featuredImageUrl": "/wp-content/uploads/2025/07/sfcc-finding-your-pod-number-scaled.jpeg"
       }
     }
   },
@@ -3719,7 +3746,8 @@
       "https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/third-party-service-caching-results-e1731261763486-1024x495.jpg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/third-party-service-caching-results-e1731261763486-300x145.jpg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/third-party-service-caching-results-e1731261763486-768x372.jpg",
-      "https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/third-party-service-caching-results-e1731261763486.jpg"
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/third-party-service-caching-results-e1731261763486.jpg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/third-party-service-caching.jpg"
     ],
     "_raw": {
       "sourceTimestamp": "2026-03-10T10:03:55.501Z",
@@ -3789,7 +3817,7 @@
         "metaDescription": null,
         "postParent": "0",
         "postMetaCount": 17,
-        "featuredImageUrl": null
+        "featuredImageUrl": "/wp-content/uploads/2024/11/third-party-service-caching.jpg"
       }
     }
   },
@@ -3860,7 +3888,8 @@
       "https://www.rhino-inquisitor.com/wp-content/uploads/2023/02/bearer-token-authorization-header-1536x374.png",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2023/02/bearer-token-authorization-header-2048x499.png",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2023/02/bearer-token-authorization-header-300x73.png",
-      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/02/bearer-token-authorization-header-768x187.png"
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/02/bearer-token-authorization-header-768x187.png",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/02/session-bridge.png"
     ],
     "_raw": {
       "sourceTimestamp": "2026-03-10T10:03:55.501Z",
@@ -3928,7 +3957,7 @@
         "metaDescription": "It is possible to link a SiteGenesis/SFRA session with an OCAPI \"session.\" But how can we do it, and what is it suitable for?",
         "postParent": "0",
         "postMetaCount": 28,
-        "featuredImageUrl": null
+        "featuredImageUrl": "/wp-content/uploads/2023/02/Session-Bridge.png"
       }
     }
   },
@@ -3977,6 +4006,7 @@
     "disposition": "keep",
     "aliasUrls": [],
     "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2024/10/a-road-taking-odd-paths.jpeg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2024/10/home-controller-routes-in-sfra-1024x412.jpg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2024/10/home-controller-routes-in-sfra-300x121.jpg",
       "https://www.rhino-inquisitor.com/wp-content/uploads/2024/10/home-controller-routes-in-sfra-768x309.jpg",
@@ -4063,6 +4093,71 @@
         "metaDescription": null,
         "postParent": "0",
         "postMetaCount": 17,
+        "featuredImageUrl": "/wp-content/uploads/2024/10/a-road-taking-odd-paths.jpeg"
+      }
+    }
+  },
+  {
+    "sourceId": "1895",
+    "sourceType": "wxr",
+    "sourceChannels": [
+      "filesystem",
+      "wxr"
+    ],
+    "postType": "attachment",
+    "status": "publish",
+    "titleRaw": "22.6 Release: Einstein Dashboards",
+    "excerptRaw": "",
+    "bodyHtml": "",
+    "slug": "22-6-release-einstein-dashboards",
+    "publishedAt": "2022-05-08T06:16:12.000Z",
+    "modifiedAt": "2022-05-08T06:16:27.000Z",
+    "author": "Thomas Theunen",
+    "categories": [],
+    "tags": [],
+    "legacyUrl": "/wp-content/uploads/2022/05/22.6-release-einstein-dashboards.png",
+    "targetUrl": null,
+    "disposition": "retire",
+    "aliasUrls": [],
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/22.6-release-einstein-dashboards.png"
+    ],
+    "_raw": {
+      "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+      "status": "inherit",
+      "titleRaw": "22.6 Release: Einstein Dashboards",
+      "excerptRaw": "",
+      "publishedAt": "2022-05-08T06:16:12.000Z",
+      "modifiedAt": "2022-05-08T06:16:27.000Z",
+      "author": "Thomas Theunen",
+      "categories": [],
+      "tags": [],
+      "mediaRefs": [
+        "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/22.6-release-einstein-dashboards.png"
+      ],
+      "manifest": {
+        "legacyUrl": "/wp-content/uploads/2022/05/22.6-release-einstein-dashboards.png",
+        "targetUrl": null,
+        "disposition": "retire",
+        "redirectCode": null,
+        "implementationLayer": "none",
+        "urlClass": "attachment"
+      },
+      "normalization": {
+        "aliasUrlsDerivedFromSameTarget": [],
+        "usedPublishedAtFallback": false,
+        "usedModifiedAtFallback": false,
+        "statusNormalizedFrom": "inherit"
+      },
+      "extracted": {
+        "sourcePostType": "attachment",
+        "link": "/salesforce-b2c-commerce-the-22-6-release/22-6-release-einstein-dashboards/",
+        "guid": "/wp-content/uploads/2022/05/22.6-release-einstein-dashboards.png",
+        "attachmentUrl": "/wp-content/uploads/2022/05/22.6-release-einstein-dashboards.png",
+        "thumbnailId": null,
+        "metaDescription": null,
+        "postParent": "1894",
+        "postMetaCount": 7,
         "featuredImageUrl": null
       }
     }

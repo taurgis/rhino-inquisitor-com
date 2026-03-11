@@ -1,12 +1,13 @@
 ---
 title: 'Field Guide to Custom Caches: Wielding a Double-Edged Sword'
 description: >-
-  Learn when Custom Caches help in SFCC, where they create risk, and how to use
-  them safely without hurting performance or maintainability.
+  You think you know caching. You’ve enabled page caching, fiddled with content
+  slot TTLs, and called it a day.
 date: '2025-07-28T07:32:55.000Z'
 lastmod: '2025-07-28T07:37:24.000Z'
 url: /field-guide-to-custom-caches-in-sfcc/
 draft: false
+heroImage: /media/2025/custom-caches-in-sfcc-scaled-c245e83c7a.jpeg
 categories:
   - Salesforce Commerce Cloud
   - Technical

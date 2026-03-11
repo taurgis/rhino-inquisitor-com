@@ -7,6 +7,7 @@ date: '2022-09-11T08:06:14.000Z'
 lastmod: '2022-09-11T08:23:01.000Z'
 url: /headless/
 draft: false
+heroImage: /media/2022/headless-b54918a1ae.jpg
 categories:
   - Podcasts
   - Video

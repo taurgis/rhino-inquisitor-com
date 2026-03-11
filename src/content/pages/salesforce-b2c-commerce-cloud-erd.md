@@ -7,6 +7,7 @@ date: '2023-02-26T19:09:43.000Z'
 lastmod: '2023-12-04T13:38:39.000Z'
 url: /salesforce-b2c-commerce-cloud-erd/
 draft: false
+heroImage: /media/2023/salesforce-b2c-commerce-cloud-erd-0bdb8b007c.jpeg
 categories:
   - ERD
   - Salesforce Commerce Cloud

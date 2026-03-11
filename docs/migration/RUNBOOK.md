@@ -179,6 +179,8 @@ This runbook tracks the operational steps needed to move the repository from pla
 - Subset mode options:
   - `--source-id-file <path>` limits the run to the listed source IDs
   - `--post-type <types>` limits the run to specific post types such as `post,page,video`
+  - subset runs now auto-include any WXR attachment records referenced by selected records' verified `_thumbnail_id` links so featured-image recovery remains structurally complete without manually adding attachment IDs to the subset input file
+  - the extractor records these support rows in `extract-summary.json -> featuredImageDependencies` and exits non-zero if any selected thumbnail attachment cannot be recovered from the approved WXR source
 - Coverage behavior for RHI-032 is owner-confirmed as `source-backed-content-only`:
   - blocking coverage targets: source-backed posts, page-sitemap-backed pages except the homepage, uploads-backed attachments, category term routes, and content detail custom types with source evidence
   - reported-but-non-blocking routes: system, feed, query, pagination, homepage, and synthetic index routes

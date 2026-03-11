@@ -1,17 +1,19 @@
 ---
 title: 'SWC And Storybook: Error: Failed to load native binding'
 description: >-
-  Fix the SWC native binding error when switching between M1 and Intel Macs by
-  resetting lockfiles and reinstalling project dependencies.
+  When switching between my M1 MacBook and Intel X64 MacBook today, I ran into
+  an odd error: Solution Deleting my package-lock.json file and node\
 date: '2024-10-19T16:33:40.000Z'
 lastmod: '2024-10-19T16:39:11.000Z'
 url: /swc-and-storybook-error-failed-to-load-native-binding/
 draft: false
+categories:
+  - Documentation
 author: Thomas Theunen
 ---
 When switching between my M1 MacBook and Intel X64 MacBook today, I ran into an odd error:
 
-```text
+```
 Error: Failed to load native binding
     at Object. (/node_modules/@swc/core/binding.js:333:11)
     at Module._compile (node:internal/modules/cjs/loader:1469:14)

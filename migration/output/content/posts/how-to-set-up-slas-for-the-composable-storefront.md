@@ -7,6 +7,7 @@ date: '2023-01-16T08:12:41.000Z'
 lastmod: '2023-01-16T08:12:55.000Z'
 url: /how-to-set-up-slas-for-the-composable-storefront/
 draft: false
+heroImage: /media/2023/slas-public-client-registered-user-b2c-a930192dd5.jpg
 categories:
   - Salesforce Commerce Cloud
   - Technical

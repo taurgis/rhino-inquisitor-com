@@ -7,6 +7,7 @@ date: '2022-08-15T19:08:02.000Z'
 lastmod: '2023-12-07T10:36:32.000Z'
 url: /what-is-the-ocapi-session-bridge/
 draft: false
+heroImage: /media/2023/session-bridge-bbf2a7ba92.png
 categories:
   - Salesforce Commerce Cloud
   - Technical

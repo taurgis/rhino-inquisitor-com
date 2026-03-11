@@ -7,6 +7,7 @@ date: '2022-09-26T13:42:24.000Z'
 lastmod: '2025-03-12T11:00:54.000Z'
 url: /ai-einstein-in-salesforce-b2c-commerce-cloud/
 draft: false
+heroImage: /media/2022/artificial-intelligence-fc68314ce7.jpg
 categories:
   - Salesforce Commerce Cloud
 tags:

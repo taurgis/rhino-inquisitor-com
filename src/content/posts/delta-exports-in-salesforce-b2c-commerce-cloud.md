@@ -7,6 +7,7 @@ date: '2022-08-01T14:18:24.000Z'
 lastmod: '2022-09-10T04:43:39.000Z'
 url: /delta-exports-in-salesforce-b2c-commerce-cloud/
 draft: false
+heroImage: /media/2022/sharinglargefiles-c0cb3315f4.png
 categories:
   - Salesforce Commerce Cloud
   - Technical
@@ -24,10 +25,10 @@ You probably already knew that it is possible to do full exports of your custome
 
 But did you also know that delta job steps are available for the following items?
 
-- [Catalog](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/jobstepapi/html/api/jobstep.CatalogDeltaExport.html)
-- [Content Library](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/jobstepapi/html/api/jobstep.LibraryDeltaExport.html)
-- [Customer Lists](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/jobstepapi/html/api/jobstep.CustomerListsDeltaExport.html)
-- Maybe even more? Stick around to find out!
+-   [Catalog](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/jobstepapi/html/api/jobstep.CatalogDeltaExport.html)
+-   [Content Library](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/jobstepapi/html/api/jobstep.LibraryDeltaExport.html)
+-   [Customer Lists](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/jobstepapi/html/api/jobstep.CustomerListsDeltaExport.html)
+-   Maybe even more? Stick around to find out!
 
 But as with many things, a few things should be kept in mind before using this functionality. Let us take a look!
 
@@ -59,9 +60,9 @@ Let us open that "Test" configuration!
 
 When we create a new job or open an existing one, we configure multiple items:
 
-- **Name**: The name of the job
-- **Consumers:** The comma-separated list of external systems you are generating this for (consumers of the feed)
-- **Data:** The data to export
+-   **Name**: The name of the job
+-   **Consumers:** The comma-separated list of external systems you are generating this for (consumers of the feed)
+-   **Data:** The data to export
 
 But? Huh? I see more types listed here than there are Job Steps available! And you are correct; you get more options here.
 
@@ -103,9 +104,9 @@ If you were hoping to test out this functionality on your sandbox, you are out o
 
 You can make use of delta exports on:
 
-- Staging
-- Development
-- Production
+-   Staging
+-   Development
+-   Production
 
 ## Impact on performance
 

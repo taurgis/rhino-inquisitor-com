@@ -74,6 +74,14 @@ async function main() {
     });
   }
 
+  const featuredImageDependencyStats = await supplementFeaturedImageAttachments({
+    wxrFile: options.wxrFile,
+    manifestByUrl,
+    recordsBySourceId,
+    quarantine,
+    extractionMethods
+  });
+
   let filesystemStats = createFilesystemStats();
   if (options.filesystemRoot) {
     filesystemStats = await applyFilesystemVerification({
@@ -108,6 +116,7 @@ async function main() {
     excludedRecords,
     coverage,
     reconciliation,
+    featuredImageDependencyStats,
     wxrStats,
     sqlStats,
     filesystemStats,
@@ -140,6 +149,12 @@ async function main() {
   if (coverage.missingInventoryUrls.length > 0) {
     validationErrors.push(
       `Inventory reconciliation failed: ${coverage.missingInventoryUrls.length} source-backed inventory URL(s) are absent from extracted records.`
+    );
+  }
+
+  if (featuredImageDependencyStats.missingCount > 0) {
+    validationErrors.push(
+      `Featured-image dependency closure failed: ${featuredImageDependencyStats.missingCount} selected record thumbnail attachment(s) were not recovered from the WXR source.`
     );
   }
 
@@ -325,23 +340,7 @@ async function extractFromWxr({
 
   let document;
   try {
-    const parser = new XMLParser({
-      ignoreAttributes: false,
-      attributeNamePrefix: '@_',
-      cdataPropName: '__cdata',
-      textNodeName: '__text',
-      parseTagValue: false,
-      trimValues: false,
-      processEntities: false,
-      isArray: (_, jPath) => new Set([
-        'rss.channel.item',
-        'rss.channel.wp:author',
-        'rss.channel.wp:category',
-        'rss.channel.wp:tag',
-        'rss.channel.wp:term'
-      ]).has(jPath) || jPath.endsWith('.category') || jPath.endsWith('.wp:postmeta')
-    });
-    document = parser.parse(xmlSource);
+    document = parseWxrDocument(xmlSource);
   } catch (error) {
     throw new Error(`Unable to parse the WXR export at ${toRepoRelative(wxrFile)}: ${error.message}`);
   }
@@ -736,6 +735,117 @@ async function extractSqlSupplement({
   };
 }
 
+async function supplementFeaturedImageAttachments({
+  wxrFile,
+  manifestByUrl,
+  recordsBySourceId,
+  quarantine,
+  extractionMethods
+}) {
+  const requiredAttachmentIds = new Set();
+  let selectedRecordCountWithThumbnail = 0;
+
+  for (const record of recordsBySourceId.values()) {
+    if (record.postType === 'attachment') {
+      continue;
+    }
+
+    const thumbnailId = String(record?._raw?.thumbnailId ?? '').trim();
+    if (!thumbnailId) {
+      continue;
+    }
+
+    selectedRecordCountWithThumbnail += 1;
+    requiredAttachmentIds.add(thumbnailId);
+  }
+
+  const existingAttachmentIds = new Set(
+    [...requiredAttachmentIds].filter((sourceId) => recordsBySourceId.get(sourceId)?.postType === 'attachment')
+  );
+  const missingAttachmentIds = [...requiredAttachmentIds]
+    .filter((sourceId) => !existingAttachmentIds.has(sourceId))
+    .sort((left, right) => left.localeCompare(right));
+
+  if (missingAttachmentIds.length === 0) {
+    return {
+      selectedRecordCountWithThumbnail,
+      requiredCount: requiredAttachmentIds.size,
+      existingCount: existingAttachmentIds.size,
+      addedCount: 0,
+      missingCount: 0,
+      missingSourceIds: []
+    };
+  }
+
+  const xmlSource = await readTextFile(wxrFile, 'WXR export');
+  let document;
+  try {
+    document = parseWxrDocument(xmlSource);
+  } catch (error) {
+    throw new Error(`Unable to parse the WXR export at ${toRepoRelative(wxrFile)}: ${error.message}`);
+  }
+
+  const channel = document?.rss?.channel;
+  if (!channel) {
+    throw new Error(`The WXR export at ${toRepoRelative(wxrFile)} did not contain rss.channel content.`);
+  }
+
+  const authors = buildAuthorMap(asArray(channel['wp:author']));
+  const sourceTimestamp = await getFileTimestamp(wxrFile);
+  const outstandingAttachmentIds = new Set(missingAttachmentIds);
+  let addedCount = 0;
+
+  for (const item of asArray(channel.item)) {
+    if (outstandingAttachmentIds.size === 0) {
+      break;
+    }
+
+    if (getNodeText(item['wp:post_type']) !== 'attachment') {
+      continue;
+    }
+
+    const sourceId = String(getNodeText(item['wp:post_id']) ?? '');
+    if (!outstandingAttachmentIds.has(sourceId)) {
+      continue;
+    }
+
+    try {
+      const record = buildWxrItemRecord({
+        item,
+        rawPostType: 'attachment',
+        normalizedPostType: 'attachment',
+        authors,
+        sourceTimestamp,
+        manifestByUrl
+      });
+      recordsBySourceId.set(record.sourceId, record);
+      outstandingAttachmentIds.delete(record.sourceId);
+      addedCount += 1;
+    } catch (error) {
+      quarantine.push({
+        sourceId: sourceId || null,
+        errorType: 'wxr-featured-image-attachment-parse-error',
+        errorMessage: error.message,
+        rawFragment: safeJsonFragment(item)
+      });
+    }
+  }
+
+  extractionMethods.push({
+    channel: 'wxr',
+    summary: `Expanded the selected extraction set with ${addedCount} featured-image attachment dependency record(s) referenced by selected content rows${outstandingAttachmentIds.size > 0 ? `; ${outstandingAttachmentIds.size} referenced attachment(s) remain unresolved.` : '.'}`
+  });
+
+  return {
+    selectedRecordCountWithThumbnail,
+    requiredCount: requiredAttachmentIds.size,
+    existingCount: existingAttachmentIds.size,
+    addedCount,
+    missingCount: outstandingAttachmentIds.size,
+    missingSourceIds: [...outstandingAttachmentIds].sort((left, right) => left.localeCompare(right))
+  };
+}
+
 function buildSqlRecord({ row, sourceTimestamp, userMap, termMap, taxonomyMap, relationships, postMetaByPostId }) {
   const sourceId = String(row[0]);
   const slug = String(row[11] ?? '').trim();
@@ -979,6 +1089,7 @@ function createSummary({
   excludedRecords,
   coverage,
   reconciliation,
+  featuredImageDependencyStats,
   wxrStats,
   sqlStats,
   filesystemStats,
@@ -991,7 +1102,8 @@ function createSummary({
       sourceIdFile: sourceIdFile ? toRepoRelative(sourceIdFile) : null,
       sourceIdCount: requestedSourceIds.size,
       postTypes: [...requestedPostTypes].sort(),
-      recordCount: sortedRecords.length
+      recordCount: sortedRecords.length,
+      supportRecordCount: featuredImageDependencyStats.addedCount
     },
     selectedSourceChannels: [...new Set(sortedRecords.flatMap((record) => record.sourceChannels))].sort(),
     sourceArtifacts: sourceArtifacts.sort((left, right) => left.channel.localeCompare(right.channel)),
@@ -1003,6 +1115,7 @@ function createSummary({
     quarantine: quarantineSummary,
     excludedWxrPostTypes: sortObject(excludedRecords),
     reconciliation,
+    featuredImageDependencies: featuredImageDependencyStats,
     coverage,
     sourceDetails: {
       wxr: wxrStats,
@@ -1337,6 +1450,27 @@ async function readTextFile(filePath, label) {
   } catch (error) {
     throw new Error(`Unable to read ${label} at ${toRepoRelative(filePath)}: ${error.message}`);
   }
+}
+
+function parseWxrDocument(xmlSource) {
+  const parser = new XMLParser({
+    ignoreAttributes: false,
+    attributeNamePrefix: '@_',
+    cdataPropName: '__cdata',
+    textNodeName: '__text',
+    parseTagValue: false,
+    trimValues: false,
+    processEntities: false,
+    isArray: (_, jPath) => new Set([
+      'rss.channel.item',
+      'rss.channel.wp:author',
+      'rss.channel.wp:category',
+      'rss.channel.wp:tag',
+      'rss.channel.wp:term'
+    ]).has(jPath) || jPath.endsWith('.category') || jPath.endsWith('.wp:postmeta')
+  });
+
+  return parser.parse(xmlSource);
 }
 
 async function getFileTimestamp(filePath) {

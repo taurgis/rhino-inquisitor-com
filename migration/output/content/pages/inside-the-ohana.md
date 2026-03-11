@@ -7,6 +7,7 @@ date: '2022-09-11T08:34:33.000Z'
 lastmod: '2022-09-11T08:36:40.000Z'
 url: /inside-the-ohana/
 draft: false
+heroImage: /media/2022/inside-the-ohana-d67410c73c.jpg
 categories:
   - Podcasts
   - Video

@@ -1,12 +1,13 @@
 ---
 title: Third-Party API Caching in Commerce Cloud
 description: >-
-  Learn how to cache third-party API responses in Commerce Cloud to improve
-  performance, control latency, and avoid stale-data pitfalls.
+  Enhancing the performance of applications that rely on third-party services is
+  crucial in today's digital environment.
 date: '2024-11-11T05:35:00.000Z'
 lastmod: '2024-11-13T09:26:49.000Z'
 url: /third-party-api-caching-in-commerce-cloud/
 draft: false
+heroImage: /media/2024/third-party-service-caching-6154196735.jpg
 categories:
   - Salesforce Commerce Cloud
   - Technical

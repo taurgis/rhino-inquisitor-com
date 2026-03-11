@@ -7,6 +7,7 @@ date: '2023-01-23T10:55:12.000Z'
 lastmod: '2023-01-24T15:14:57.000Z'
 url: /how-to-get-salesforce-certification-vouchers/
 draft: false
+heroImage: /media/2022/trailhead-academy-765c17a690.jpeg
 categories:
   - Certification
 tags:

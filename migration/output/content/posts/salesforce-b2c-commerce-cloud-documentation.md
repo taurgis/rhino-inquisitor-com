@@ -7,6 +7,7 @@ date: '2022-05-09T18:58:37.000Z'
 lastmod: '2025-08-06T20:01:22.000Z'
 url: /salesforce-b2c-commerce-cloud-documentation/
 draft: false
+heroImage: /media/2022/documentation-ea8c96aa90.jpg
 categories:
   - Salesforce Commerce Cloud
 tags:

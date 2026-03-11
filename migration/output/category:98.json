@@ -16,9 +16,11 @@
   "categories": [],
   "tags": [],
   "legacyUrl": "/category/salesforce-commerce-cloud/documentation/",
-  "targetUrl": "/category/salesforce-commerce-cloud/documentation/",
-  "disposition": "keep",
-  "aliasUrls": [],
+  "targetUrl": "/category/salesforce-commerce-cloud/",
+  "disposition": "merge",
+  "aliasUrls": [
+    "/category/salesforce-commerce-cloud/documentation/"
+  ],
   "mediaRefs": [],
   "_raw": {
     "sourceTimestamp": "2026-03-10T10:03:55.501Z",
@@ -33,14 +35,16 @@
     "mediaRefs": [],
     "manifest": {
       "legacyUrl": "/category/salesforce-commerce-cloud/documentation/",
-      "targetUrl": "/category/salesforce-commerce-cloud/documentation/",
-      "disposition": "keep",
-      "redirectCode": null,
-      "implementationLayer": "none",
+      "targetUrl": "/category/salesforce-commerce-cloud/",
+      "disposition": "merge",
+      "redirectCode": 301,
+      "implementationLayer": "edge-cdn",
       "urlClass": "category"
     },
     "normalization": {
-      "aliasUrlsDerivedFromSameTarget": [],
+      "aliasUrlsDerivedFromSameTarget": [
+        "/category/salesforce-commerce-cloud/documentation/"
+      ],
       "usedPublishedAtFallback": true,
       "usedModifiedAtFallback": true,
       "statusNormalizedFrom": "publish"

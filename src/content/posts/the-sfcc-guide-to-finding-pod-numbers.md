@@ -1,12 +1,13 @@
 ---
 title: The Ultimate SFCC Guide to Finding Your POD Number
 description: >-
-  Learn how to find your SFCC POD number, why it matters for troubleshooting,
-  and where to verify it across tools and environments.
+  Knowing your POD number isn't just trivia; it's a critical piece of
+  operational intelligence.
 date: '2025-07-21T05:05:51.000Z'
 lastmod: '2025-07-21T05:42:08.000Z'
 url: /the-sfcc-guide-to-finding-pod-numbers/
 draft: false
+heroImage: /media/2025/sfcc-finding-your-pod-number-scaled-6830449d2b.jpeg
 categories:
   - Salesforce Commerce Cloud
   - Technical

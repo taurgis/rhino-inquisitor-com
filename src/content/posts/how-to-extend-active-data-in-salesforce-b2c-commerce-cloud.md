@@ -1,12 +1,13 @@
 ---
 title: How to extend Active Data in Salesforce B2C Commerce Cloud
 description: >-
-  Learn what Active Data can track in Salesforce B2C Commerce Cloud, where the
-  platform stops, and how far you can extend it safely.
+  Active Data is a feature available in Salesforce B2C Commerce Cloud. But what
+  can I do with it, and can I extend it?
 date: '2023-06-19T05:13:10.000Z'
 lastmod: '2023-06-19T05:15:47.000Z'
 url: /how-to-extend-active-data-in-salesforce-b2c-commerce-cloud/
 draft: false
+heroImage: /media/2023/b2c-active-merchandising-slide-1-9a027d6449.gif
 categories:
   - Salesforce Commerce Cloud
   - Technical

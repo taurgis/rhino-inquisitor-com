@@ -1,5 +1,7 @@
 ---
-title: WebDAV Guide for Salesforce B2C Commerce
+title: >-
+  A Beginner's Guide to WebDAV for Salesforce B2C Commerce Cloud: Simplifying
+  File Management
 description: >-
   File Management is critical and necessary in any project. How else can we work
   with mass data transfers or logging mechanisms?
@@ -7,6 +9,7 @@ date: '2024-01-01T17:06:50.000Z'
 lastmod: '2023-12-31T19:52:11.000Z'
 url: /a-beginners-guide-to-webdav-in-sfcc/
 draft: false
+heroImage: /media/2023/webdav-storing-files-scaled-8c216a580f.jpg
 categories:
   - Salesforce Commerce Cloud
   - Technical
@@ -32,11 +35,11 @@ WebDAV is a versatile technology that allows developers to manage files and data
 
 WebDAV has quite a few use cases in Salesforce B2C Commerce Cloud:
 
-- Thanks to WebDAV, developers can easily [manage](https://help.salesforce.com/s/articleView?id=cc.b2c_access_files_webdav.htm&language=en_us&release=2.0.1&type=5) product images on their online stores, including uploading, updating, and deleting images.
-- This file system can be used for importing and exporting data, which lets developers quickly [transfer data files](https://help.salesforce.com/s/articleView?id=cc.b2c_transferring_files_to_an_instance.htm&type=5) to and from the platform for analysis or backup purposes.
-- WebDAV provides a way to manage log files on the platform, including [debugging](https://help.salesforce.com/s/articleView?id=cc.b2c_secure_logging.htm&type=5), error logging, and security logging. It is a critical tool to monitor the platform's health and [security](https://help.salesforce.com/s/articleView?id=cc.b2c_security_event_auditing.htm&type=5) and quickly identify and address any issues.
-- Developers can use it to [create](https://help.salesforce.com/s/articleView?id=cc.b2c_automating_file_transfer_through_scripts.htm&type=5) full or incremental backups of their online store data and files, ensuring they can recover from data loss or other catastrophic events.
-- WebDAV can temporarily store files when performing file operations on the platform, such as [transferring](https://help.salesforce.com/s/articleView?id=cc.b2c_transferring_files_to_an_instance.htm&type=5) files between servers.
+-   Thanks to WebDAV, developers can easily [manage](https://help.salesforce.com/s/articleView?id=cc.b2c_access_files_webdav.htm&language=en_us&release=2.0.1&type=5) product images on their online stores, including uploading, updating, and deleting images.
+-   This file system can be used for importing and exporting data, which lets developers quickly [transfer data files](https://help.salesforce.com/s/articleView?id=cc.b2c_transferring_files_to_an_instance.htm&type=5) to and from the platform for analysis or backup purposes.
+-   WebDAV provides a way to manage log files on the platform, including [debugging](https://help.salesforce.com/s/articleView?id=cc.b2c_secure_logging.htm&type=5), error logging, and security logging. It is a critical tool to monitor the platform's health and [security](https://help.salesforce.com/s/articleView?id=cc.b2c_security_event_auditing.htm&type=5) and quickly identify and address any issues.
+-   Developers can use it to [create](https://help.salesforce.com/s/articleView?id=cc.b2c_automating_file_transfer_through_scripts.htm&type=5) full or incremental backups of their online store data and files, ensuring they can recover from data loss or other catastrophic events.
+-   WebDAV can temporarily store files when performing file operations on the platform, such as [transferring](https://help.salesforce.com/s/articleView?id=cc.b2c_transferring_files_to_an_instance.htm&type=5) files between servers.
 
 ## Authentication
 
@@ -56,13 +59,13 @@ A screenshot of the eCom Manager Role Permissions
 
 API clients engage in machine-to-machine communication and authenticate through an authorisation token [generated in the Account Manager](https://help.salesforce.com/s/articleView?id=cc.b2c_generate_api_client_id.htm&type=5). To get this authorisation token, an API client must present its unique `client-id` and `client-secret`. After successful authorisation, WebDAV permissions for the API client can be configured in Business Manager in the `WebDAV Client Permissions` module.
 
-Business Manager path: Administration > Organization > WebDAV Client Permissions.
+_Administration > Organization > WebDAV Client Permissions_
 
 This configuration involves creating a JSON document that accurately represents each API client's permissions over specific directories.
 
 For instance, an API client may have `read_write` permissions to the "`/impex/src/foo"` directory and `read` permission to the "`/impex/src/logs` and `/catalogs"` directories. The client\_id and permissions (each having path and operation) must be clearly defined in this JSON document.
 
-```json
+```
 {
    "clients":[
       {

@@ -1,5 +1,5 @@
 ---
-title: Understanding SFCC Instances
+title: 'Understanding Salesforce B2C Commerce Instances: A Comprehensive Guide'
 description: >-
   Salesforce B2C Commerce is a robust platform that enables businesses to create
   highly customised and scalable digital storefronts.
@@ -7,6 +7,7 @@ date: '2023-04-17T14:18:06.000Z'
 lastmod: '2023-04-17T14:18:18.000Z'
 url: /understanding-sfcc-instances/
 draft: false
+heroImage: /media/2023/salesforce-b2c-commerce-cloud-instances-scaled-59ed2cbb06.jpeg
 categories:
   - Architecture
   - Salesforce Commerce Cloud
@@ -38,9 +39,9 @@ A realm is an essential organisational component that houses instances required 
 
 Within a [realm](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/getting_started/b2c_platform_overview.html), instances are organised into Primary Instance Group (PIG) and Secondary Instance Group (SIG). The PIG comprises three instances:
 
-- Development
-- Staging
-- Production
+-   Development
+-   Staging
+-   Production
 
 These are used for site configuration, testing, and hosting the live site. In the SIG, you will find the Developer Sandboxes. _**Note:**_ _Each realm can have only one PIG and SIG._
 

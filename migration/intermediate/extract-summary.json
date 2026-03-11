@@ -5,7 +5,8 @@
     "sourceIdFile": "migration/input/batch2-source-ids.txt",
     "sourceIdCount": 35,
     "postTypes": [],
-    "recordCount": 35
+    "recordCount": 65,
+    "supportRecordCount": 30
   },
   "selectedSourceChannels": [
     "filesystem",
@@ -34,17 +35,23 @@
       "summary": "Parsed the WXR export with fast-xml-parser using CDATA-preserving options and deterministic array handling."
     },
     {
+      "channel": "wxr",
+      "summary": "Expanded the selected extraction set with 30 featured-image attachment dependency record(s) referenced by selected content rows."
+    },
+    {
       "channel": "filesystem",
       "summary": "Verified attachment and body-media upload references against the approved filesystem snapshot when uploads paths were available."
     }
   ],
   "totals": {
     "byPostType": {
+      "attachment": 30,
       "category": 5,
       "page": 4,
       "post": 26
     },
     "byStatus": {
+      "inherit": 30,
       "publish": 35
     }
   },
@@ -67,23 +74,35 @@
   "reconciliation": {
     "filesystem": {
       "byPostType": {
+        "attachment": 30,
         "page": 1,
         "post": 26
       },
       "byStatus": {
+        "inherit": 30,
         "publish": 27
       }
     },
     "wxr": {
       "byPostType": {
+        "attachment": 30,
         "category": 5,
         "page": 4,
         "post": 26
       },
       "byStatus": {
+        "inherit": 30,
         "publish": 35
       }
     }
+  },
+  "featuredImageDependencies": {
+    "selectedRecordCountWithThumbnail": 30,
+    "requiredCount": 30,
+    "existingCount": 0,
+    "addedCount": 30,
+    "missingCount": 0,
+    "missingSourceIds": []
   },
   "coverage": {
     "scope": "source-backed-content-only",
@@ -799,7 +818,7 @@
       "byStatus": {}
     },
     "filesystem": {
-      "verified": 129,
+      "verified": 159,
       "missing": 0
     }
   },
