@@ -35,6 +35,7 @@
     "check:seo-completeness": "node scripts/migration/check-seo-completeness.js",
     "check:feed-compatibility": "node scripts/migration/check-feed-compatibility.js",
     "check:links": "node scripts/check-links.js",
+    "check:security-content": "hugo --cleanDestinationDir --minify --environment production --contentDir migration/output/content --destination tmp/rhi041-public && node scripts/migration/check-security-content.js --public-dir tmp/rhi041-public",
     "check:security": "npm run build:prod && node scripts/check-security.js",
     "check:a11y-content": "node scripts/migration/check-a11y-content.js",
     "check:a11y": "npm run build:prod && node scripts/check-a11y.js",

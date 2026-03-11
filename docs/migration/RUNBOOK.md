@@ -463,6 +463,39 @@ This runbook tracks the operational steps needed to move the repository from pla
   - the default Phase 3 rendered route set still passes on 6 of 6 routes, and a staged 4-page sample covering the newly corrected Einstein, PWA Kit, sitemap, and realm-split articles also passes on 4 of 4 routes
   - the owner-approved weak-link cap is now satisfied at `1/5`; the remaining cleanup work is limited to the single unresolved PWA Kit weak-link sentence and the multiline-table warning in the realm-split article
 
+### RHI-041 - Security and Data Hygiene
+
+- Run the staged migration security gate with `npm run check:security-content`.
+- The command now builds a production-style staged site from `migration/output/content/` into `tmp/rhi041-public` and then scans both:
+  - staged Markdown under `migration/output/content/`
+  - rendered article-body HTML under `tmp/rhi041-public`
+- Current blocking findings for this gate are:
+  - raw `<script>` tags in content
+  - inline `on*=` event handler attributes
+  - `javascript:` URI schemes
+  - WordPress nonce or auth artifacts such as `_wpnonce`, `X-WP-Nonce`, `wordpress_logged_in_*`, `wordpress_sec_*`, `wp-postpass_*`, or `wp-settings-*`
+  - `draft: false` when the mapped source record status is not `publish`
+  - source-system-only front matter keys such as `sourceId`, `legacyUrl`, `_raw`, `wpPostId`, or leaked local filesystem paths
+- Current warning findings for this gate are:
+  - unapproved `<iframe>` hosts; approved allowlist entries are YouTube (`youtube.com`, `youtu.be`, `youtube-nocookie.com`) and Vimeo (`vimeo.com`, `player.vimeo.com`)
+  - WordPress admin or REST API URLs in content (`/wp-admin/`, `/wp-json/wp/v2/`)
+  - `http://` image references on pages that will be served over HTTPS
+- Goldmark safety contract for this workstream:
+  - Hugo Goldmark raw HTML remains non-rendering in the staged migration build, and the current validated run still emits `warning-goldmark-raw-html` warnings for three posts while omitting that raw HTML from rendered output
+  - keep those warnings visible as evidence that inline raw HTML is not being rendered; do not suppress them just to make the build quieter
+- Batch execution sequence for pilot and downstream migration batches:
+  - `npm run migrate:map-frontmatter`
+  - `npm run migrate:finalize-content`
+  - `npm run check:security-content`
+- Current validated 2026-03-11 status:
+  - pre-implementation spot-audit on a 20-record sample found no live `<script>`, inline `on*=`, or `javascript:` patterns in corrected Markdown; only non-blocking general `http://` links and one prose `<iframe>` mention were observed during manual review
+  - `npm run check:security-content` now scans 171 staged Markdown files plus 171 rendered article pages and writes `migration/reports/security-content-scan.csv`
+  - the validated release-candidate report is header-only with `0` critical findings and `0` warnings
+- GitHub Pages hosting constraints for this gate:
+  - GitHub Pages HTTPS enforcement remains the documented platform control for the public site; keep `Enforce HTTPS` enabled
+  - stricter response-header policy decisions such as CSP, HSTS, `X-Frame-Options` or `frame-ancestors`, `Permissions-Policy`, and `X-Content-Type-Options` remain edge/CDN follow-up work rather than repository-artifact controls
+  - see `docs/migration/SECURITY-CONTROLS.md` and `migration/phase-1-security-header-matrix.md` before Phase 6/7 cutover decisions
+
 ## Phase 5 - SEO and Discoverability
 
 Placeholder for sitemap, canonical, feed, and Search Console execution steps.

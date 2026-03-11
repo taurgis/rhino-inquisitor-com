@@ -24,7 +24,7 @@
 | [RHI-038](RHI-038-internal-link-navigation-rewrites.md) | Workstream G — Internal Link and Navigation Rewrites | WS-G | High | Done | M | 2026-04-18 | RHI-031, RHI-034, RHI-035, RHI-036 |
 | [RHI-039](RHI-039-seo-signal-preservation.md) | Workstream H — SEO Signal Preservation | WS-H | High | Done | M | 2026-04-17 | RHI-031, RHI-035 |
 | [RHI-040](RHI-040-accessibility-content-semantics.md) | Workstream I — Accessibility and Content Semantics | WS-I | Medium | Done | M | 2026-04-18 | RHI-031, RHI-034 |
-| [RHI-041](RHI-041-security-data-hygiene.md) | Workstream J — Security and Data Hygiene | WS-J | Medium | Open | M | 2026-04-18 | RHI-031, RHI-034 |
+| [RHI-041](RHI-041-security-data-hygiene.md) | Workstream J — Security and Data Hygiene | WS-J | Medium | Done | M | 2026-04-18 | RHI-031, RHI-034 |
 | [RHI-042](RHI-042-reporting-traceability-audit.md) | Workstream K — Reporting, Traceability, and Audit | WS-K | High | Open | M | 2026-04-17 | RHI-031, RHI-032 |
 | [RHI-043](RHI-043-pilot-batch-migration.md) | Batch 1 — Pilot Migration Run (20–30 Records) | Batch | Critical | Open | M | 2026-04-22 | RHI-032 through RHI-042 |
 | [RHI-044](RHI-044-high-value-content-batch.md) | Batch 2 — High-Value Content Migration | Batch | Critical | Open | L | 2026-04-25 | RHI-043 |
@@ -120,7 +120,7 @@ All items below must be complete before Phase 5/6/8 downstream work can consume 
 - [x] RHI-038 Done — Internal links rewritten to canonical paths; broken link scan passing on representative templates
 - [x] RHI-039 Done — SEO completeness at 100% for title/description/canonical on all indexable pages; no unintended `noindex` in release artifacts
 - [x] RHI-040 Done — Automated accessibility gate passing on sample set; manual checklist complete; no unresolved critical defects
-- [ ] RHI-041 Done — Security content scan clean for critical issues; no unsafe script fragments in generated output
+- [x] RHI-041 Done — Security content scan clean for critical issues; no unsafe script fragments in generated output
 - [ ] RHI-042 Done — All migration reports generated, reproducible, and CI-attached; blocking thresholds enforced
 - [ ] RHI-043 Done — Pilot batch passed all CI gates; pipeline proven end-to-end on representative records; correction artifacts and idempotent rerun evidence attached to the pilot PR
 - [ ] RHI-044 Done — High-value batch committed and passing all gates; top-traffic pages verified manually; correction artifacts attached to the batch PR
