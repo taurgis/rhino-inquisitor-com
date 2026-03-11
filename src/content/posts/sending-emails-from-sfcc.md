@@ -22,7 +22,7 @@ Salesforce B2C Commerce Cloud is known as a [monolithic](https://www.atlassian.c
 
 In this article, we will discuss the reasons for choosing to send emails from Salesforce Commerce Cloud, the limitations of the platform, the steps to programmatically send an email, how to test email templates, the process of configuring SPF records, and whether you can utilise your own SMTP server.
 
-## Why Choose Salesforce B2C Commerce Cloud for Email?
+## Why Choose Salesforce B2C Commerce Cloud for Email
 
 In many past projects, I have opted to send emails from a Marketing Automation platform since it has many benefits compared to the built-in functionality. But if the items below do not affect you, SFCC can be a great platform to send your [transactional emails](https://help.salesforce.com/s/articleView?id=sf.icx_b2c_transactionalemail_req_workflow.htm&type=5) (order confirmation, password reset, registration, etc.).
 
@@ -34,16 +34,16 @@ While you may not want to modify your transactional emails frequently, it's a lo
 
 ![Illustration of seasonal variations in transactional email design.](/media/2024/a-mail-across-the-year-15b12cb7bc.jpg)
 
-#### Page Designer to the rescue?
+#### Page Designer to the rescue
 
 With the addition of [Page Designer](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-dev-for-page-designer.html) a few years ago, we have gotten a more "visual" way of creating pages, compared to static ISML templates with slots and Content Assets.
 
 But with choosing to go this route, a few things need to be kept in mind:
 
--   A separate "master" template is required without the regular header/footer
--   Only components that include HTML/CSS understood by mail clients should be used (modern HTML & CSS can cause issues in some mail clients).
--   Personalization (Customer Groups in particular) can pose difficulties when the mail originates from a job rather than a direct storefront request, as the session "current customer" is not readily accessible.
--   If a user inadvertently deletes the page (yes, accidents happen), there should be a backup option or a notification to resolve the issue promptly.
+- A separate "master" template is required without the regular header/footer
+- Only components that include HTML/CSS understood by mail clients should be used (modern HTML & CSS can cause issues in some mail clients).
+- Personalization (Customer Groups in particular) can pose difficulties when the mail originates from a job rather than a direct storefront request, as the session "current customer" is not readily accessible.
+- If a user inadvertently deletes the page (yes, accidents happen), there should be a backup option or a notification to resolve the issue promptly.
 
 ### Only Basic Features
 
@@ -53,7 +53,7 @@ Salesforce's email capabilities may not be as feature-rich as those of dedicated
 
 Ensuring high deliverability rates can be challenging because you're relying on shared IP addresses, which may affect the reputation of your emails. We will return to this topic later in the article since the platform provides us with some solutions!
 
-### Cost!
+### Cost
 
 The previous points may seem like I'm advocating for a dedicated email platform. However, the marketing automation features I mentioned come with costs!
 
@@ -67,7 +67,7 @@ Marketing Mails Sending transactional emails via Commerce Cloud remains the most
 
 Emails can be sent from Salesforce B2C Commerce Cloud via code easily. Here's a basic example using server-side scripts:
 
-```
+```js
 function sendMail() {
     var mail = new dw.net.Mail();
     mail.addTo("to@example.org");
@@ -80,7 +80,7 @@ function sendMail() {
 
 You can enhance your options further by creating custom ISML templates, offering greater flexibility:
 
-```
+```js
 function sendMail() {
     var template = new dw.util.Template("myTemplate.isml");
     var content = template.render(o);
@@ -95,7 +95,7 @@ function sendMail() {
 
 But then, of course, comes the next question...
 
-## How do I test email templates in Commerce Cloud?
+## How do I test email templates in Commerce Cloud
 
 Unlike many Marketing Automation tools available today, the SFCC platform lacks an out-of-the-box email testing feature. However, there are ways to custom-build a solution.
 
@@ -109,7 +109,7 @@ Production Hide this endpoint, or never deploy this controller to production.
 
 You could also build a controller that will send an email to an address passed, with other parameters like:
 
-```
+```text
 TestEmail-Send?email=myemail@mail.com&orderId=10000001
 ```
 
@@ -123,7 +123,7 @@ Sender Policy Framework ([SPF](https://en.wikipedia.org/wiki/SPF)) records are c
 
 Configuring these SPF records is clearly documented [in the Salesforce SPF setup guide](https://help.salesforce.com/s/articleView?id=000391416&type=1).
 
-## Can I Use My Own SMTP Server?
+## Can I Use My Own SMTP Server
 
 [![Email Settings screen used to configure SMTP and DKIM options.](/media/2024/sfcc-email-settings-21507245df.png)](/media/2024/sfcc-email-settings-21507245df.png)
 
@@ -135,17 +135,17 @@ Salesforce B2C Commerce Cloud supports [the use of an external SMTP server for s
 
 Using these SMTP settings, you can set up [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) directly on the same page in the Business Manager.
 
-## What rules must I follow?
+## What rules must I follow
 
 Under typical usage, you should encounter no issues. However, certain security measures may lead to a [lockout](https://help.salesforce.com/s/articleView?id=000395276&type=1).
 
 In the worst case, you will not be able to send emails for 48 hours.
 
-## Are attachments possible?
+## Are attachments possible
 
 Absolutely! This was among the first articles I published on the blog: [How to send PDFs as attachments](/mail-attachments-in-b2c-commerce-cloud/) (though you're certainly not restricted to just PDFs).
 
-## Can I send mails from the Composable Storefront?
+## Can I send mails from the Composable Storefront
 
 Directly from the Managed Runtime? No.
 

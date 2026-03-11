@@ -249,6 +249,7 @@ This runbook tracks the operational steps needed to move the repository from pla
 
 - Run the staged-content correction pass with `npm run migrate:apply-corrections` after `npm run migrate:rewrite-links`.
 - The correction pass reads staged Markdown from `migration/output/content/` and applies deterministic generated-content fixes plus curated text overrides:
+  - markdown-structure normalization for lint-sensitive generated content, including hard-tab expansion, unlabeled fence language assignment, list-marker spacing and indentation cleanup, ordered-list prefix normalization, spaced-emphasis cleanup, bare-URL wrapping, multiline table flattening, and blank-line insertion around normalized table blocks
   - fenced-code cleanup for WordPress wrapper indentation and blank-first-line artifacts
   - image paragraph normalization when generated Markdown keeps images and prose in the same paragraph block
   - inline label/callout reconstruction when flattened WordPress text leaves labels such as `Info`, `CDN`, `Default Cache Times`, `Not Found`, `Replication`, `Deprecation`, `Deletion`, or `Caching` embedded in plain paragraphs
@@ -298,11 +299,17 @@ This runbook tracks the operational steps needed to move the repository from pla
   - a pilot rerun after script updates repaired flattened inline callout labels in the caching, hooks, and instance articles, repaired the split-word WebDAV inline link, and split the home-page link-and-image block into separate Markdown blocks
   - the correction pass now supports page-level body overrides and was used to replace the legacy About-page placeholder source via `migration/input/body-overrides.json` and `migration/input/body-overrides/about.md`
   - a second `npm run migrate:apply-corrections` rerun remained idempotent with `filesChanged: 0`
+- Current validated 2026-03-11 markdown-structure follow-up behavior for the RHI-044 branch:
+  - the correction pass normalized markdownlint-sensitive structures in the staged 30-file Batch 2 corpus without changing lint rules or the PR workflow
+  - the changed-markdown lint scope returned `0` errors after the correction rerun and source-content resync
+  - front matter validation, staged SEO completeness, noindex checks, and staged accessibility-content checks remained clean after the structural normalization pass
 - Validation steps for the correction pass:
   - `npm run migrate:export-alt-corrections -- --current-dir migration/output/content --baseline-dir tmp/rhi-correction-validate-content --output-file migration/input/image-alt-corrections.csv` when reseeding curated alt text from reviewed staged content
   - `npm run migrate:export-link-text-corrections`
   - `npm run migrate:apply-corrections`
   - rerun `npm run migrate:apply-corrections` and confirm the summary reports 0 updated files
+  - `markdown_files=$(git diff --name-only -- migration/output/content src/content | grep -E '\.md$' | sort -u)`
+  - `printf '%s\n' "$markdown_files" | xargs npx markdownlint-cli2` when the correction pass output will be synced or reviewed in Git
   - `hugo --minify --environment production --contentDir migration/output/content --destination tmp/rhi-corrections-public`
   - `npm run check:a11y-content`
 

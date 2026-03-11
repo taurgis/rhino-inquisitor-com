@@ -58,10 +58,21 @@ async function main() {
     bodyOverridesFilePresent: bodyOverrides.exists,
     markdownFileCount: markdownFiles.length,
     filesChanged: 0,
+    hardTabsExpanded: 0,
     fencedBlocksNormalized: 0,
+    fenceLanguagesAssigned: 0,
+    listIndentationNormalized: 0,
+    unorderedListMarkerSpacingNormalized: 0,
+    orderedListMarkerSpacingNormalized: 0,
+    orderedListPrefixesNormalized: 0,
+    repeatedListMarkersCollapsed: 0,
+    headingPunctuationNormalized: 0,
+    emphasisSpacingNormalized: 0,
+    bareUrlsWrapped: 0,
     mixedImageLinesSplit: 0,
     imageParagraphSpacersInserted: 0,
     tableHeaderRowsNormalized: 0,
+    multilineTablesNormalized: 0,
     pseudoTagMarkupNormalized: 0,
     bodyOverridesApplied: 0,
     altCorrectionsApplied: 0,
@@ -89,8 +100,13 @@ async function main() {
       summary.bodyOverridesApplied += 1;
     }
 
-    const fenceResult = normalizeFencedCodeBlocks(parsed.content);
-    const imageResult = normalizeImageParagraphs(fenceResult.content);
+    const tabResult = normalizeHardTabs(parsed.content);
+    const fenceResult = normalizeFencedCodeBlocks(tabResult.content);
+    const listResult = normalizeMarkdownLists(fenceResult.content);
+    const headingResult = normalizeHeadingPunctuation(listResult.content);
+    const emphasisResult = normalizeSpacedEmphasis(headingResult.content);
+    const urlResult = wrapBareUrls(emphasisResult.content);
+    const imageResult = normalizeImageParagraphs(urlResult.content);
     const tableResult = normalizeMarkdownTables(imageResult.content);
     const calloutResult = normalizeInlineLabelCallouts(tableResult.content);
     const linkRepairResult = normalizeBrokenInlineLinks(calloutResult.content);
@@ -121,10 +137,21 @@ async function main() {
       summary.filesChanged += 1;
     }
 
+    summary.hardTabsExpanded += tabResult.expandedTabs;
     summary.fencedBlocksNormalized += fenceResult.normalizedBlocks;
+    summary.fenceLanguagesAssigned += fenceResult.assignedLanguages;
+    summary.listIndentationNormalized += listResult.listIndentationNormalized;
+    summary.unorderedListMarkerSpacingNormalized += listResult.unorderedSpacingNormalized;
+    summary.orderedListMarkerSpacingNormalized += listResult.orderedSpacingNormalized;
+    summary.orderedListPrefixesNormalized += listResult.orderedPrefixesNormalized;
+    summary.repeatedListMarkersCollapsed += listResult.repeatedMarkersCollapsed;
+    summary.headingPunctuationNormalized += headingResult.normalizedHeadings;
+    summary.emphasisSpacingNormalized += emphasisResult.normalizedEmphasis;
+    summary.bareUrlsWrapped += urlResult.wrappedUrls;
     summary.mixedImageLinesSplit += imageResult.mixedImageLinesSplit;
     summary.imageParagraphSpacersInserted += imageResult.imageParagraphSpacersInserted;
     summary.tableHeaderRowsNormalized += tableResult.normalizedTables;
+    summary.multilineTablesNormalized += tableResult.multilineTablesNormalized;
     summary.inlineLabelCalloutsNormalized = (summary.inlineLabelCalloutsNormalized ?? 0) + calloutResult.normalizedCallouts;
     summary.inlineLinksRepaired = (summary.inlineLinksRepaired ?? 0) + linkRepairResult.repairedLinks;
     summary.pseudoTagMarkupNormalized += pseudoTagResult.normalizedPatterns;
@@ -179,10 +206,21 @@ async function main() {
     [
       `Scanned ${markdownFiles.length} staged Markdown file(s).`,
       `Updated ${summary.filesChanged} file(s).`,
+      `Hard tabs expanded: ${summary.hardTabsExpanded}.`,
       `Fenced blocks normalized: ${summary.fencedBlocksNormalized}.`,
+      `Fence languages assigned: ${summary.fenceLanguagesAssigned}.`,
+      `List indentation normalized: ${summary.listIndentationNormalized}.`,
+      `Repeated list markers collapsed: ${summary.repeatedListMarkersCollapsed}.`,
+      `Unordered list spacing normalized: ${summary.unorderedListMarkerSpacingNormalized}.`,
+      `Ordered list spacing normalized: ${summary.orderedListMarkerSpacingNormalized}.`,
+      `Ordered list prefixes normalized: ${summary.orderedListPrefixesNormalized}.`,
+      `Heading punctuation normalized: ${summary.headingPunctuationNormalized}.`,
+      `Emphasis spacing normalized: ${summary.emphasisSpacingNormalized}.`,
+      `Bare URLs wrapped: ${summary.bareUrlsWrapped}.`,
       `Mixed image lines split: ${summary.mixedImageLinesSplit}.`,
       `Image paragraph spacers inserted: ${summary.imageParagraphSpacersInserted}.`,
       `Table headers normalized: ${summary.tableHeaderRowsNormalized}.`,
+      `Multiline tables normalized: ${summary.multilineTablesNormalized}.`,
       `Pseudo-tag markup normalized: ${summary.pseudoTagMarkupNormalized}.`,
       `Body overrides applied: ${summary.bodyOverridesApplied}.`,
       `Alt corrections applied: ${summary.altCorrectionsApplied}.`,
@@ -476,21 +514,33 @@ function normalizeDescriptionOverride(value) {
     .trim();
 }
 
+function normalizeHardTabs(content) {
+  const source = String(content ?? '').replace(/\r\n?/gu, '\n');
+  const matches = source.match(/\t/gu);
+
+  return {
+    content: source.replace(/\t/gu, '    '),
+    expandedTabs: matches ? matches.length : 0
+  };
+}
+
 function normalizeFencedCodeBlocks(content) {
   const lines = String(content ?? '').replace(/\r\n?/gu, '\n').split('\n');
   const normalizedLines = [];
   let normalizedBlocks = 0;
+  let assignedLanguages = 0;
 
   for (let index = 0; index < lines.length; index += 1) {
     const line = lines[index];
-    const openingFence = line.match(/^(`{3,}|~{3,})(.*)$/u);
+    const openingFence = line.match(/^(\s*)(`{3,}|~{3,})(.*)$/u);
     if (!openingFence) {
       normalizedLines.push(line);
       continue;
     }
 
-    const fenceMarker = openingFence[1];
-    normalizedLines.push(line);
+    const fenceIndent = openingFence[1];
+    const fenceMarker = openingFence[2];
+    const fenceInfo = openingFence[3].trim();
     const blockLines = [];
     index += 1;
 
@@ -505,9 +555,15 @@ function normalizeFencedCodeBlocks(content) {
     }
 
     const normalizedBlock = normalizeFenceBlockLines(blockLines);
+    let openingFenceLine = line;
+    if (!fenceInfo) {
+      openingFenceLine = `${fenceIndent}${fenceMarker}${detectFenceLanguage(normalizedBlock.lines)}`;
+      assignedLanguages += 1;
+    }
     if (normalizedBlock.changed) {
       normalizedBlocks += 1;
     }
+    normalizedLines.push(openingFenceLine);
     normalizedLines.push(...normalizedBlock.lines);
 
     if (index < lines.length) {
@@ -517,8 +573,43 @@ function normalizeFencedCodeBlocks(content) {
 
   return {
     content: normalizedLines.join('\n'),
-    normalizedBlocks
+    normalizedBlocks,
+    assignedLanguages
   };
+}
+
+function detectFenceLanguage(blockLines) {
+  const joined = blockLines.join('\n').trim();
+  if (!joined) {
+    return 'text';
+  }
+
+  if (/^(\{|\[)[\s\S]*(\}|\])$/u.test(joined)) {
+    try {
+      JSON.parse(joined);
+      return 'json';
+    } catch {
+      // Fall through to heuristic detection.
+    }
+  }
+
+  if (/<\/?[a-z][\w:-]*\b[^>]*>/iu.test(joined)) {
+    return 'html';
+  }
+
+  if (/^(npm|yarn|pnpm|git|curl|node|hugo|sfcc-ci)\b/mu.test(joined) || /^\$\s+/mu.test(joined) || /^#!/u.test(joined)) {
+    return 'bash';
+  }
+
+  if (/\b(module\.exports|require\(|exports\.|function\b|const\b|let\b|var\b|=>)\b/u.test(joined)) {
+    return 'js';
+  }
+
+  if (/^(SELECT|INSERT|UPDATE|DELETE|CREATE|ALTER)\b/imu.test(joined)) {
+    return 'sql';
+  }
+
+  return 'text';
 }
 
 function normalizeFenceBlockLines(blockLines) {
@@ -579,6 +670,231 @@ function findCommonLeadingWhitespace(values) {
 
 function getIndentWidth(value) {
   return [...String(value ?? '')].reduce((total, character) => total + (character === '\t' ? 4 : 1), 0);
+}
+
+function normalizeMarkdownLists(content) {
+  const lines = String(content ?? '').replace(/\r\n?/gu, '\n').split('\n');
+  const normalizedLines = [];
+  let repeatedMarkersCollapsed = 0;
+  let listIndentationNormalized = 0;
+  let unorderedSpacingNormalized = 0;
+  let orderedSpacingNormalized = 0;
+  let orderedPrefixesNormalized = 0;
+  let insideFence = false;
+  let previousNonEmptyLine = '';
+
+  for (const line of lines) {
+    if (/^(`{3,}|~{3,})/u.test(line.trim())) {
+      insideFence = !insideFence;
+      normalizedLines.push(line);
+      previousNonEmptyLine = line.trim().length > 0 ? line : previousNonEmptyLine;
+      continue;
+    }
+
+    if (insideFence) {
+      normalizedLines.push(line);
+      previousNonEmptyLine = line.trim().length > 0 ? line : previousNonEmptyLine;
+      continue;
+    }
+
+    let updatedLine = line;
+    const repeatedMarkerMatch = updatedLine.match(/^(\s*)([*+-]|\d+\.)\s+(?:[*+-]|\d+\.)\s+(.*)$/u);
+    if (repeatedMarkerMatch) {
+      updatedLine = `${repeatedMarkerMatch[1]}${repeatedMarkerMatch[2]} ${repeatedMarkerMatch[3]}`;
+      repeatedMarkersCollapsed += 1;
+    }
+
+    const orderedMatch = updatedLine.match(/^(\s*)(\d+)\.(\s+)(.*)$/u);
+    if (orderedMatch) {
+      let normalizedIndent = normalizeListIndentation(orderedMatch[1]);
+      if (/^ {2}1\. /u.test(`${normalizedIndent}1. ${orderedMatch[4]}`) && /^1\. /u.test(previousNonEmptyLine.trim())) {
+        normalizedIndent = '';
+      }
+      if (normalizedIndent !== orderedMatch[1]) {
+        listIndentationNormalized += 1;
+      }
+      if (orderedMatch[3] !== ' ') {
+        orderedSpacingNormalized += 1;
+      }
+      if (orderedMatch[2] !== '1') {
+        orderedPrefixesNormalized += 1;
+      }
+      const normalizedLine = `${normalizedIndent}1. ${orderedMatch[4]}`;
+      normalizedLines.push(normalizedLine);
+      previousNonEmptyLine = normalizedLine;
+      continue;
+    }
+
+    const unorderedMatch = updatedLine.match(/^(\s*)([*+-])(\s+)(.*)$/u);
+    if (unorderedMatch) {
+      const normalizedIndent = normalizeListIndentation(unorderedMatch[1]);
+      if (normalizedIndent !== unorderedMatch[1]) {
+        listIndentationNormalized += 1;
+      }
+      if (unorderedMatch[3] !== ' ') {
+        unorderedSpacingNormalized += 1;
+      }
+      const normalizedLine = `${normalizedIndent}${unorderedMatch[2]} ${unorderedMatch[4]}`;
+      normalizedLines.push(normalizedLine);
+      previousNonEmptyLine = normalizedLine;
+      continue;
+    }
+
+    normalizedLines.push(updatedLine);
+    previousNonEmptyLine = updatedLine.trim().length > 0 ? updatedLine : previousNonEmptyLine;
+  }
+
+  return {
+    content: normalizedLines.join('\n'),
+    repeatedMarkersCollapsed,
+    listIndentationNormalized,
+    unorderedSpacingNormalized,
+    orderedSpacingNormalized,
+    orderedPrefixesNormalized
+  };
+}
+
+function normalizeListIndentation(value) {
+  const indent = String(value ?? '');
+  if (!indent || /[^ ]/u.test(indent) || indent.length < 4) {
+    return indent;
+  }
+
+  return ' '.repeat(Math.floor(indent.length / 2));
+}
+
+function normalizeHeadingPunctuation(content) {
+  const lines = String(content ?? '').replace(/\r\n?/gu, '\n').split('\n');
+  const normalizedLines = [];
+  let normalizedHeadings = 0;
+  let insideFence = false;
+
+  for (const line of lines) {
+    if (/^(`{3,}|~{3,})/u.test(line.trim())) {
+      insideFence = !insideFence;
+      normalizedLines.push(line);
+      continue;
+    }
+
+    if (insideFence) {
+      normalizedLines.push(line);
+      continue;
+    }
+
+    const headingMatch = line.match(/^(\s{0,3}#{1,6}\s+)(.*?)(\s+#+\s*)?$/u);
+    if (!headingMatch) {
+      normalizedLines.push(line);
+      continue;
+    }
+
+    const headingText = headingMatch[2].trimEnd();
+    const normalizedText = stripTrailingHeadingPunctuation(headingText);
+    if (normalizedText !== headingText) {
+      normalizedHeadings += 1;
+    }
+
+    normalizedLines.push(`${headingMatch[1]}${normalizedText}${headingMatch[3] ?? ''}`);
+  }
+
+  return {
+    content: normalizedLines.join('\n'),
+    normalizedHeadings
+  };
+}
+
+function stripTrailingHeadingPunctuation(value) {
+  const headingText = String(value ?? '');
+  if (/[!?;:]$/u.test(headingText)) {
+    return headingText.replace(/[!?;:]+$/u, '').trimEnd();
+  }
+
+  if (/\.$/u.test(headingText) && !/\b[A-Z]\.$/u.test(headingText)) {
+    return headingText.replace(/\.+$/u, '').trimEnd();
+  }
+
+  return headingText;
+}
+
+function normalizeSpacedEmphasis(content) {
+  const lines = String(content ?? '').replace(/\r\n?/gu, '\n').split('\n');
+  const normalizedLines = [];
+  let normalizedEmphasis = 0;
+  let insideFence = false;
+
+  for (let index = 0; index < lines.length; index += 1) {
+    let line = lines[index];
+
+    if (/^(`{3,}|~{3,})/u.test(line.trim())) {
+      insideFence = !insideFence;
+      normalizedLines.push(line);
+      continue;
+    }
+
+    if (insideFence) {
+      normalizedLines.push(line);
+      continue;
+    }
+
+    const nextLine = lines[index + 1] ?? '';
+    if (/^\s*>\s*_[^_]+$/u.test(line) && /^\s*>\s*_\s*$/u.test(nextLine)) {
+      line = `${line.trimEnd()}_`;
+      normalizedEmphasis += 1;
+      index += 1;
+    }
+
+    const normalizedLine = line
+      .replace(/^(\s*>\s*)_(\s+)(.+?)(\s+)_$/u, '$1_$3_')
+      .replace(/^(\s*)_(\s+)(.+?)(\s+)_$/u, '$1_$3_')
+      .replace(/^(\s*)_(\s+)(.+?)_$/u, '$1_$3_')
+      .replace(/^(\s*)_(.+?)(\s+)_$/u, '$1_$2_');
+
+    if (normalizedLine !== line) {
+      normalizedEmphasis += 1;
+    }
+
+    normalizedLines.push(normalizedLine);
+  }
+
+  return {
+    content: normalizedLines.join('\n'),
+    normalizedEmphasis
+  };
+}
+
+function wrapBareUrls(content) {
+  const lines = String(content ?? '').replace(/\r\n?/gu, '\n').split('\n');
+  const normalizedLines = [];
+  let wrappedUrls = 0;
+  let insideFence = false;
+
+  for (const line of lines) {
+    if (/^(`{3,}|~{3,})/u.test(line.trim())) {
+      insideFence = !insideFence;
+      normalizedLines.push(line);
+      continue;
+    }
+
+    if (insideFence) {
+      normalizedLines.push(line);
+      continue;
+    }
+
+    let normalizedLine = line;
+    normalizedLine = normalizedLine.replace(/(?<![\[<(])\bhttps?:\/\/[^\s<>()]+[^\s<>().,!?;:]/gu, (match) => {
+      wrappedUrls += 1;
+      return `<${match}>`;
+    });
+    normalizedLine = normalizedLine.replace(/(?<![\w/<(])\bwww\.[^\s<>()]+[^\s<>().,!?;:]/gu, (match) => {
+      wrappedUrls += 1;
+      return `<${match}>`;
+    });
+    normalizedLines.push(normalizedLine);
+  }
+
+  return {
+    content: normalizedLines.join('\n'),
+    wrappedUrls
+  };
 }
 
 function normalizeImageParagraphs(content) {
@@ -654,6 +970,7 @@ function normalizeMarkdownTables(content) {
   const lines = String(content ?? '').replace(/\r\n?/gu, '\n').split('\n');
   const normalizedLines = [];
   let normalizedTables = 0;
+  let multilineTablesNormalized = 0;
   let insideFence = false;
 
   for (let index = 0; index < lines.length; index += 1) {
@@ -664,28 +981,160 @@ function normalizeMarkdownTables(content) {
       continue;
     }
 
-    if (insideFence || !looksLikeTableLine(line)) {
+    if (insideFence || !looksLikeTableLine(line) || !tableDividerPattern.test(lines[index + 1] ?? '')) {
       normalizedLines.push(line);
       continue;
     }
 
-    const tableLines = [];
-    let tableIndex = index;
-    while (tableIndex < lines.length && looksLikeTableLine(lines[tableIndex])) {
-      tableLines.push(lines[tableIndex]);
-      tableIndex += 1;
+    const tableBlock = collectTableBlock(lines, index);
+    const normalizedMultilineTable = normalizeMultilineTableRows(tableBlock.lines);
+    const normalizedTable = normalizeTableHeaderRow(normalizedMultilineTable.lines);
+    if (normalizedLines.length > 0 && normalizedLines.at(-1) !== '') {
+      normalizedLines.push('');
     }
-
-    const normalizedTable = normalizeTableHeaderRow(tableLines);
     normalizedLines.push(...normalizedTable.lines);
     normalizedTables += normalizedTable.normalizedTables;
-    index = tableIndex - 1;
+    multilineTablesNormalized += normalizedMultilineTable.normalizedTables;
+    if (tableBlock.nextIndex < lines.length && lines[tableBlock.nextIndex].trim().length > 0) {
+      normalizedLines.push('');
+    }
+    index = tableBlock.nextIndex - 1;
   }
 
   return {
     content: normalizedLines.join('\n'),
+    normalizedTables,
+    multilineTablesNormalized
+  };
+}
+
+function collectTableBlock(lines, startIndex) {
+  const collectedLines = [lines[startIndex], lines[startIndex + 1]];
+  let index = startIndex + 2;
+  let currentRow = [];
+  const expectedCells = splitTableCells(lines[startIndex]).length;
+
+  while (index < lines.length) {
+    const line = lines[index];
+    const trimmed = line.trim();
+
+    if (trimmed.length === 0 && currentRow.length === 0) {
+      break;
+    }
+
+    if (/^(`{3,}|~{3,})/u.test(trimmed)) {
+      break;
+    }
+
+    if (/^\s*\|/u.test(line)) {
+      if (currentRow.length > 0) {
+        collectedLines.push(...currentRow);
+      }
+      currentRow = [line];
+      index += 1;
+      continue;
+    }
+
+    if (currentRow.length === 0) {
+      break;
+    }
+
+    if (isTableRowClosed(currentRow, expectedCells) && trimmed.length > 0) {
+      break;
+    }
+
+    currentRow.push(line);
+    index += 1;
+  }
+
+  if (currentRow.length > 0) {
+    collectedLines.push(...currentRow);
+  }
+
+  return {
+    lines: collectedLines,
+    nextIndex: index
+  };
+}
+
+function isTableRowClosed(rowLines, expectedCells) {
+  const rowText = rowLines.join('\n').trim();
+  if (!rowText.endsWith('|')) {
+    return false;
+  }
+
+  return splitRawTableRow(rowText).length === expectedCells;
+}
+
+function normalizeMultilineTableRows(tableLines) {
+  if (tableLines.length < 3) {
+    return {
+      lines: tableLines,
+      normalizedTables: 0
+    };
+  }
+
+  const normalizedLines = [tableLines[0], tableLines[1]];
+  const expectedCells = splitTableCells(tableLines[0]).length;
+  let index = 2;
+  let normalizedTables = 0;
+
+  while (index < tableLines.length) {
+    const rowBlock = [tableLines[index]];
+    index += 1;
+
+    while (index < tableLines.length && !/^\s*\|/u.test(tableLines[index])) {
+      rowBlock.push(tableLines[index]);
+      index += 1;
+    }
+
+    const normalizedRow = normalizeMultilineTableRow(rowBlock, expectedCells);
+    if (normalizedRow.changed) {
+      normalizedTables += 1;
+    }
+    normalizedLines.push(normalizedRow.line);
+  }
+
+  return {
+    lines: normalizedLines,
     normalizedTables
   };
+}
+
+function normalizeMultilineTableRow(rowLines, expectedCells) {
+  const sourceText = rowLines.join('\n');
+  const cells = splitRawTableRow(sourceText);
+  if (cells.length !== expectedCells) {
+    return {
+      line: rowLines[0],
+      changed: false
+    };
+  }
+
+  const normalizedCells = cells.map((cell) => cell
+    .replace(/\r\n?/gu, '\n')
+    .split(/\n\s*\n+/u)
+    .map((part) => part.replace(/\s*\n\s*/gu, ' ').replace(/\s+/gu, ' ').trim())
+    .filter(Boolean)
+    .join(' '));
+  const normalizedLine = `| ${normalizedCells.join(' | ')} |`;
+
+  return {
+    line: normalizedLine,
+    changed: normalizedLine !== rowLines[0] || rowLines.length > 1
+  };
+}
+
+function splitRawTableRow(value) {
+  const normalized = String(value ?? '').trim();
+  if (!normalized.startsWith('|') || !normalized.endsWith('|')) {
+    return [];
+  }
+
+  return normalized
+    .slice(1, -1)
+    .split('|')
+    .map((cell) => cell.trim());
 }
 
 function normalizeTableHeaderRow(tableLines) {

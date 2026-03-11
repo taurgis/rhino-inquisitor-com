@@ -37,8 +37,8 @@ In an API-first manner, REST APIs are available to manage the eCDN (Cloudflare) 
 
 To connect to the SCAPI, we need to create an API client with the correct scopes:
 
--   sfcc.cdn-zones
--   sfcc.cdn-zones.rw
+- sfcc.cdn-zones
+- sfcc.cdn-zones.rw
 
 Salesforce [has written a guide](https://developer.salesforce.com/docs/commerce/commerce-api/references/cdn-api-process-apis?meta=Summary#before-you-begin) on the developer support site to create an API Client for this use case.
 
@@ -64,7 +64,7 @@ To communicate with the [Zones API](https://developer.salesforce.com/docs/commer
 
 tenantID The tenantID combines the Realm ID and the Instance ID with an underscore. (e.g.**zzxx\_001**)
 
-```
+```bash
 curl -i -k
 --data 'grant_type=client_credentials&scope=SALESFORCE_COMMERCE_API: sfcc.cdn-zones sfcc.cdn-zones.rw'
 --user ':'
@@ -73,7 +73,7 @@ curl -i -k
 
 If all goes well, a response similar to the one below appears.
 
-```
+```json
 {
     "access_token": "eyJ0eXAiOiJKV1QiLCJraWQiOiJEMWhPUDdEODN4TjBqZWlqaTI3WWFvZFRjL0E9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiIxZDc2MzI2MS02NTIyLTQ5MTMtOWQ1Mi01ZDk0N2QzYjk0YzQiLCJjdHMiOiJPQVVUSDJfU1RBVEVMRVNTX0dSQU5UIiwiYXVkaXRUcmFja2luZ0lkIjoiZDBkZDk4MjItMmI3ZC00MThiLTkzZTktYzg2YjgxYjZjZGFhLTE2OTY2NTI3MSIsInN1Ym5hbWUiOiIxZDc2MzI2MS02NTIyLTQ5MTMtOWQ1Mi01ZDk0N2QzYjk0YzQiLCJpc3MiOiJodHRwczovL2FjY291bnQuZGVtYW5kd2FyZS5jb206NDQzL2R3c3NvL29hdXRoMiIsInRva2VuTmFtZSI6ImFjY2Vzc190b2tlbiIsInRva2VuX3R5cGUiOiJCZWFyZXIiLCJhdXRoR3JhbnRJZCI6IjcyWTZ0Slk1bm9vdEhMX2YzLWN5SzZrajVsOCIsImF1ZCI6IjFkNzYzMjYxLTY1MjItNDkxMy05ZDUyLTVkOTQ3ZDNiOTRjNCIsIm5iZiI6MTY1MTYyMjUzOCwiZ3JhbnRfdHlwZSI6ImNsaWVudF9jcmVkZW50aWFscyIsInNjb3BlIjpbIlNBTEVTRk9SQ0VfQ09NTUVSQ0VfQVBJOnp6dGVfMDUzIiwic2ZjYy5jYXRhbG9ncyIsIm1haWwiLCJ0ZW5hbnRGaWx0ZXIiLCJvcGVuSWQiLCJyb2xlcyJdLCJhdXRoX3RpbWUiOjE2NTE2MjI1MzgsInJlYWxtIjoiLyIsImV4cCI6MTY1MTYyNDMzOCwiaWF0IjoxNjUxNjIyNTM4LCJleHBpcmVzX2luIjoxODAwLCJqdGkiOiJlaXdlanNyWmxRdEpmMXhPZ0lJaVQ3REo2LTgiLCJjbGllbnRfaWQiOiIxZDc2MzI2MS02NTIyLTQ5MTMtOWQ1Mi01ZDk0N2QzYjk0YzQiLCJ0ZW5hbnRGaWx0ZXIiOiJTQUxFU0ZPUkNFX0NPTU1FUkNFX0FQSTp6enRlXzA1MyIsInJvbGVzIjpbIlNBTEVTRk9SQ0VfQ09NTUVSQ0VfQVBJIl19.N_D2gZuJfQcIo-X42O4i-hz1j4_KxYzaqYb4CqVSf96Zt9w5-WmDPP_swuIz2eCivxwrs0hyfKmDTS7mQG_fLXiuAr6FT0bMVYndfmSbngJl24eCXu2U6b5-cMlUmwAG7mO7Uji4_cXtayUCA9XGUSVXxu1HuiFzANws_D-cCWlgoaWpEvPmkhq3o_ICJvhcqaZTYDaoQ62hDToMqdojbRQFe6s2kDLiqOIi6Ey_VYev8bRTu4RtXmJ6Pfj_xp0mgc4ak8zaxCVcykZ-ziEE9TqO-tN1U6n0QnuTh-t3wz2iSyEcfJ3fOtv9v9zz1BYpe1qMCYDTkKnMq_alERtKZg",
     "scope": "SALESFORCE_COMMERCE_API:zzxx_001 sfcc.cdn-zones sfcc.cdn-zones.rw",
@@ -88,13 +88,13 @@ First, check that we can use our newly fetched "access\_token" to call the Zones
 
 shortCode and organizationId The shortCode and organizationId in the URL below are obtained in step 2.
 
-```
+```text
 https://{shortCode}.api.commercecloud.salesforce.com/cdn/zones/v1/organizations/{organizationId}/zones/info
 ```
 
 If all the steps have been adhered to above, a response like the one below will magically appear!
 
-```
+```json
 [{
   "zoneId": "example1-zone-Id",
   "name": "example1.com",
@@ -110,7 +110,7 @@ To achieve this, the following API call must be made to the "[Create storefront 
 
 Top-level domain In this step, the top-level domain is used even if you plan to use a subdomain for Staging. e.g. To use "stg.cc-merchant.com", "cc-merchant.com" is submitted in the request of this step.
 
-```
+```bash
 curl "https://{shortCode}.api.commercecloud.salesforce.com/cdn/zones/v1/organizations/{organizationId}/storefront-zones"
   -X POST
   -d "{n  "domainName": "cc-merchant.com"n}"
@@ -118,7 +118,7 @@ curl "https://{shortCode}.api.commercecloud.salesforce.com/cdn/zones/v1/organiza
 
 If the zone did not exist already and is created successfully, the following response is given:
 
-```
+```json
 {
   "data": {
     "zoneId": "023e105f4ecef8ad9ca31a8372d0c353",
@@ -137,13 +137,13 @@ Certificate and Private Key Before starting this step, please ensure you have ac
 
 Finally, we get to the "goal": Uploading the certificate. To do that, an API call is made to the "[Add certificate for zone](https://developer.salesforce.com/docs/commerce/commerce-api/references/cdn-api-process-apis?meta=addCertificateForZone)" endpoint.
 
-```
+```text
 https://{shortCode}.api.commercecloud.salesforce.com/cdn/zones/v1/organizations/{organizationId}/zones/{zoneId}/certificates
 ```
 
 This is a POST call with the following body:
 
-```
+```json
 {
   "hostname": "cc-merchant.com",
   "certificate": "-----BEGIN CERTIFICATE-----\nMIIDtTCCAp2gAwIBAgIJAMHAwfXZ5/PWMA0GCSqGSIb3DQEBCwUAMEUxCzAJBgNV\nBAYTAkFVMRMwEQYDVQQIEwpTb21lLVN0YXRlMSEwHwYDVQQKExhJbnRlcm5ldCBX\naWRnaXRzIFB0eSBMdGQwHhcNMTYwODI0MTY0MzAxWhcNMTYxMTIyMTY0MzAxWjBF\nMQswCQYDVQQGEwJBVTETMBEGA1UECBMKU29tZS1TdGF0ZTEhMB8GA1UEChMYSW50\nZXJuZXQgV2lkZ2l0cyBQdHkgTHRkMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIB\nCgKCAQEAwQHoetcl9+5ikGzV6cMzWtWPJHqXT3wpbEkRU9Yz7lgvddmGdtcGbg/1\nCGZu0jJGkMoppoUo4c3dts3iwqRYmBikUP77wwY2QGmDZw2FvkJCJlKnabIRuGvB\nKwzESIXgKk2016aTP6/dAjEHyo6SeoK8lkIySUvK0fyOVlsiEsCmOpidtnKX/a+5\n0GjB79CJH4ER2lLVZnhePFR/zUOyPxZQQ4naHf7yu/b5jhO0f8fwt+pyFxIXjbEI\ndZliWRkRMtzrHOJIhrmJ2A1J7iOrirbbwillwjjNVUWPf3IJ3M12S9pEewooaeO2\nizNTERcG9HzAacbVRn2Y2SWIyT/18QIDAQABo4GnMIGkMB0GA1UdDgQWBBT/LbE4\n9rWf288N6sJA5BRb6FJIGDB1BgNVHSMEbjBsgBT/LbE49rWf288N6sJA5BRb6FJI\nGKFJpEcwRTELMAkGA1UEBhMCQVUxEzARBgNVBAgTClNvbWUtU3RhdGUxITAfBgNV\nBAoTGEludGVybmV0IFdpZGdpdHMgUHR5IEx0ZIIJAMHAwfXZ5/PWMAwGA1UdEwQF\nMAMBAf8wDQYJKoZIhvcNAQELBQADggEBAHHFwl0tH0quUYZYO0dZYt4R7SJ0pCm2\n2satiyzHl4OnXcHDpekAo7/a09c6Lz6AU83cKy/+x3/djYHXWba7HpEu0dR3ugQP\nMlr4zrhd9xKZ0KZKiYmtJH+ak4OM4L3FbT0owUZPyjLSlhMtJVcoRp5CJsjAMBUG\nSvD8RX+T01wzox/Qb+lnnNnOlaWpqu8eoOenybxKp1a9ULzIVvN/LAcc+14vioFq\n2swRWtmocBAs8QR9n4uvbpiYvS8eYueDCWMM4fvFfBhaDZ3N9IbtySh3SpFdQDhw\nYbjM2rxXiyLGxB4Bol7QTv4zHif7Zt89FReT/NBy4rzaskDJY5L6xmY=\n-----END CERTIFICATE-----\n",
@@ -153,7 +153,7 @@ This is a POST call with the following body:
 
 When the request succeeds, and the certificate is checked to be valid, the information needed for the next step is in the response.
 
-```
+```json
 {
   "certificateId": "3822ff90-ea29-44df-9e55-21300bb9419b",
   "status": "EXPIRED",
@@ -191,7 +191,7 @@ For this step, we need the person who manages the DNS records of the domain in q
 
 The data of this TXT record was in the response of the previous step:
 
-```
+```text
 {
   ...
   "customHostnameVerificationTXTName": "_example.com",
@@ -212,7 +212,7 @@ The "zone\_name" was retrieved in step 4 when the zone was created. It is always
 
 An example:
 
-```
+```text
 commcloud.stg-zzzz-cc-merchant-com.cc-ecdn.net
 ```
 
@@ -224,8 +224,7 @@ If you make use of vanity domains in the business manager, you will have to cont
 >
 > Commerce Cloud Engineering services include the demandware.net lockdown protections that protect your production and development instances.
 >
-> _**Post-migration tasks:**
-> _
+> _**Post-migration tasks:**_
 > 1\. **Revert to the \*.demandware.net certificate at the origin:** This step applies to custom certificates installed to the POD for the staging instance. Commerce Cloud Engineering validates that traffic is flowing through eCDN for the configured host names. After validation, the certificate at the origin level is reverted back to the standard \*.demandware.net certificate. The Salesforce Commerce API (SCAPI) can then connect to your staging instance.
 >
 > 2\. **Create and activate a staging Business Manager zone:** Commerce Cloud Engineering creates and activates the Business Manager zone for your implementation.
@@ -236,6 +235,6 @@ If you make use of vanity domains in the business manager, you will have to cont
 >
 > Infocenter (04/05/2023)
 
-## All done!
+## All done
 
 After all of these steps are complete, the domain can be used to reach the staging environment with a valid certificate!

@@ -31,22 +31,22 @@ Those who have joined from the force.com platform can compare these so-called "Q
 
 You will run into this system with many SaaS solutions, but each one will have a different term or name for them.
 
-## What are they?
+## What are they
 
 You can view them as restrictions on data volume and API usage set by the platform. They come in many forms and are placed on [different levels within the Salesforce B2C Commerce Cloud's stack](/the-salesforce-b2c-commerce-cloud-environment/).
 
 A basic example of a limit would be the maximum time a single request is allowed to take or how many elements you can put in an [Array](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/index.html?target=class_TopLevel_Array.html).
 
-## Where are they documented?
+## Where are they documented
 
 Luckily a large percentage of these limits are documented and categorised per type:
 
--   [Object Quotas](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/quota/html/Object_Quotas.html) (Data Volume)
--   [API Quotas](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/quota/html/API_Quotas.html) (Code)
+- [Object Quotas](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/quota/html/Object_Quotas.html) (Data Volume)
+- [API Quotas](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/quota/html/API_Quotas.html) (Code)
 
 More platform governance is in place, but some are not documented. Over the years, I have encountered several of these undocumented quotas. But don't fret - I'm sharing them later in this article!
 
-## What does "enforced" mean?
+## What does "enforced" mean
 
 ![Quota Status screen showing an enforced quota in Business Manager.](/media/2022/sfcc-enforced-quota-a495bb4270.jpg)
 
@@ -64,13 +64,13 @@ But even if the quota is not enforced, you must investigate the code causing you
 
 Besides this screen, you will also find [logs](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-log-files-overview.html?q=log) on the WebDAV. And these can contain messages along these lines:
 
-```
+```text
 Quota api.queryObjects@JOB (internal, limit 0): limit exceeded 5 time(s)
 ```
 
 Notice the word "**internal".** These are unenforced quotas that Salesforce uses for statistical purposes (maybe it will become a quota in the future). So you can ignore them!
 
-## But why?
+## But why
 
 ![Illustration reacting to the frustration of hitting a platform quota.](/media/2022/but-why-91f791a77c.jpg)
 
@@ -82,9 +82,9 @@ Well, there are a few good reasons for these to exist.
 
 The imposed "quotas" keep us, the user, from overloading the platform. These limitations concern:
 
--   Memory Usage (Don't fill up the memory with too much data that the system needs to clean later)
--   Resource Consumption (Keep the CPU free to make sure people can buy without delay)
--   Business Object limits (Only store within SFCC what needs to be stored)
+- Memory Usage (Don't fill up the memory with too much data that the system needs to clean later)
+- Resource Consumption (Keep the CPU free to make sure people can buy without delay)
+- Business Object limits (Only store within SFCC what needs to be stored)
 
 If you dig deeper into these Quotas, you will find that they are pretty forgiving, and some will require a large enterprise customer to reach. And even then, there are solutions available!
 
@@ -102,11 +102,11 @@ If you need to do this many requests in the front end, consider revisiting the a
 
 Even though this will not solve all performance issues, some imposed quotas prevent you from doing insecure operations or writing code that will negatively impact performance. Examples of these are:
 
--   **api.dw.catalog.ProductInventoryRecord.update():** No front-end request can manipulate the inventory records, meaning that someone with bad intentions will never have a route to abuse.
+- **api.dw.catalog.ProductInventoryRecord.update():** No front-end request can manipulate the inventory records, meaning that someone with bad intentions will never have a route to abuse.
 
--   **api.jsArraySize:** We can only store 20.000 items in a single array. This will keep us from filling up the memory and wasting resources filling up this array and reading from it in large volumes.
+- **api.jsArraySize:** We can only store 20.000 items in a single array. This will keep us from filling up the memory and wasting resources filling up this array and reading from it in large volumes.
 
--   **api.dw.catalog.PriceBookMgr.assignPriceBookToSite(PriceBook,String):** This API is used only for management purposes and has no business in the storefront. This will force developers to find an alternative ([and better)](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_catalog_PriceBookMgr.html?resultof=%22%70%72%69%63%65%62%6f%6f%6b%6d%67%72%22%20#dw_catalog_PriceBookMgr_setApplicablePriceBooks_PriceBook_DetailAnchor) way to build the appropriate behaviour.
+- **api.dw.catalog.PriceBookMgr.assignPriceBookToSite(PriceBook,String):** This API is used only for management purposes and has no business in the storefront. This will force developers to find an alternative ([and better)](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_catalog_PriceBookMgr.html?resultof=%22%70%72%69%63%65%62%6f%6f%6b%6d%67%72%22%20#dw_catalog_PriceBookMgr_setApplicablePriceBooks_PriceBook_DetailAnchor) way to build the appropriate behaviour.
 
 Let me be clear: You can still easily write insecure and inadequate performant code without hitting any of the quotas. **_Always keep security and performance in mind when writing custom features!_**
 
@@ -138,9 +138,9 @@ If you look well in the documentation, you will find the information on [this pa
 
 This page has some other platform limitations documented too:
 
--   Emails are limited to 3MB
--   Video files are limited to 20MB
--   The default Script Timeout is 30 seconds
+- Emails are limited to 3MB
+- Video files are limited to 20MB
+- The default Script Timeout is 30 seconds
 
 But again, you need to look around to find this information as it is [scattered](/where-is-the-new-sfcc-documentation/) all over.
 
@@ -160,9 +160,9 @@ If you have written an infinite loop in the storefront, no worries! Salesforce w
 
 ODS disk space is also a [documented](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-developer-sandboxes.html) quota. But an important one to keep in mind!
 
--   **M**: 10 GB
--   **L**: 20 GB
--   **XL**: 50 GB
+- **M**: 10 GB
+- **L**: 20 GB
+- **XL**: 50 GB
 
 In a lot of cases, this is enough. But you could get in trouble if you work with many images on your Sandboxes.
 
@@ -180,7 +180,7 @@ To keep the "garbage" as empty as possible, there are a few things you can do a 
 
 Accessing or fetching objects and not doing anything will cause extra cleanup! Below is an example of things to keep in mind.
 
-```
+```js
 /**
  * An example of a function that does many things you should not do...
  */
@@ -216,7 +216,7 @@ When a file is parsed/accessed, it will execute all of the global requires, whic
 
 The shorter the chain, the better the performance and the less garbage collection.
 
-```
+```js
 /**
  * Logs forbidden access requests to Sentry. If a user is logged in, the customer number is logged.
  */

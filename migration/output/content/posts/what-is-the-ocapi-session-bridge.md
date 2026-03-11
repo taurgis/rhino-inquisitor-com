@@ -25,19 +25,19 @@ But what is it? What do I use it for? What do I watch out for? Let us dig deeper
 
 For those who want a quick answer to this, I have created a postman collection with three API calls:
 
--   Start an anonymous session in the OCAPI
--   Exchange JWT for cookies
--   Exchange cookies for JWT (_Postman automatically stores the cookies to the domain in the second call - that is why you will not see any variable or script in this call_)
+- Start an anonymous session in the OCAPI
+- Exchange JWT for cookies
+- Exchange cookies for JWT (_Postman automatically stores the cookies to the domain in the second call - that is why you will not see any variable or script in this call_)
 
--   [OCAPI- Session Bridge.postman\_collection.json](https://gist.github.com/taurgis/5c31294867fc406669effa6fddc48b8a)
+- [OCAPI- Session Bridge.postman\_collection.json](https://gist.github.com/taurgis/5c31294867fc406669effa6fddc48b8a)
 
-### Looking for the SLAS Session Bridge?
+### Looking for the SLAS Session Bridge
 
 A new option is available for session bridging linked to SLAS. This alternative is handy if you primarily work with SCAPI endpoints and SLAS. It provides a more efficient and effective way to manage sessions and streamline your transfer workflow.
 
 You can find the documentation [in the SLAS Session Bridge guide](https://developer.salesforce.com/docs/commerce/commerce-api/guide/slas-session-bridge-auth.html?q=session%20bridge)!
 
-## What is it?
+## What is it
 
 First things first, let us dig into what the Session Bridge is. And luckily for us, it is not rocket science!
 
@@ -55,7 +55,7 @@ Come into play the "Session Bridge!" The mobile application, before being redire
 
 For this scenario, we will be making use of the following API key:
 
-```
+```text
 aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 ```
 
@@ -65,33 +65,33 @@ With this API key, we can configure access to the necessary APIs in the Business
 
 "_Administration_" > "_Site Development_" > "_Open Commerce API Settings_"
 
-```
+```json
 {
-	"_v": "22.6",
-	"clients": [
-		{
-			"client_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-			"allowed_origins": [],
-			"resources": [
-				{
-					"resource_id": "/customers/auth",
-					"methods": [
-						"post"
-					],
-					"read_attributes": "(**)",
-					"write_attributes": "(**)"
-				},
-				{
-					"resource_id": "/sessions",
-					"methods": [
-						"post"
-					],
-					"read_attributes": "(**)",
-					"write_attributes": "(**)"
-				}
-			]
-		}
-	]
+    "_v": "22.6",
+    "clients": [
+        {
+            "client_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "allowed_origins": [],
+            "resources": [
+                {
+                    "resource_id": "/customers/auth",
+                    "methods": [
+                        "post"
+                    ],
+                    "read_attributes": "(**)",
+                    "write_attributes": "(**)"
+                },
+                {
+                    "resource_id": "/sessions",
+                    "methods": [
+                        "post"
+                    ],
+                    "read_attributes": "(**)",
+                    "write_attributes": "(**)"
+                }
+            ]
+        }
+    ]
 }
 ```
 
@@ -101,11 +101,11 @@ Site ID In the examples below, you will see the site "RefArch" used. Do not forg
 
 The first resource we need to call is customer authentication. And with this, we will get a JWT bearer token we can use other OCAPI endpoints linked to that customer "session."
 
--   [/customers/auth](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/shop/Resources/Customers.html#id152105914__id-98588883)
+- [/customers/auth](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/shop/Resources/Customers.html#id152105914__id-98588883)
 
 In this example, to make it a bit easier to test out, we will use a guest session by forming a request like this:
 
-```
+```text
 REQUEST:
 POST /s/RefArch/dw/shop/v22_6/customers/auth HTTP/1.1
 Host: example.com
@@ -118,7 +118,7 @@ x-dw-client-id: [your_own_client_id]
 
 The result is a response containing the bearer token we need to continue talking to the OCAPI.
 
-```
+```json
 {
     "_v": "22.6",
     "_type": "customer",
@@ -137,14 +137,14 @@ But what you need is not visible in the response... huh? Not to worry, it is in 
 
 Let us exchange that token for a cookie, shall we? And for that, we need the "sessions" endpoint.
 
--   [/sessions](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/shop/Resources/Sessions.html#id-2104258718__id-514053870)
+- [/sessions](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/shop/Resources/Sessions.html#id-2104258718__id-514053870)
 
 > [!WARNING]
 > **Important:** information The link above contains much information on things to keep in mind! Be sure to give it a good read.
 
 The request itself is pretty easy! Call the endpoint with the correct authorization header (type bearer), and you are as good as gold!
 
-```
+```text
 POST /s/RefArch/dw/shop/v22_6/sessions HTTP/1.1
 Host: example.com
 x-dw-client-id: [your_own_client_id]
@@ -153,7 +153,7 @@ Authorization: Bearer eyJfdiI6IjXXXXXX.eyJfdiI6IjEiLCJleHAXXXXXXX.-d5wQW4c4O4wt-
 
 If all goes well, you will get a response that will attempt to set cookies on the current host domain.
 
-```
+```text
 RESPONSE:
 HTTP/1.1 204 NO CONTENT
 Set-Cookie : dwsecuretoken_a85a5236a2e852d714eb6f1585efb61c=""; Expires=Thu, 01-Jan-1970 00:00:10 GMT;
@@ -167,11 +167,11 @@ For the next step to work, copy the **dwsid** cookie. We need it to convert the 
 
 In some scenarios, we need to be able to do it the other way around and convert our cookie to a JWT token. To do this, we use a familiar endpoint (step 1)!
 
--   [/customers/auth](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/shop/Resources/Customers.html#id152105914__id-98588883)
+- [/customers/auth](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/shop/Resources/Customers.html#id152105914__id-98588883)
 
 The most significant difference from step 1 is that we send a different body and, of course, our cookie.
 
-```
+```text
 REQUEST:
 POST /s/RefArch/dw/shop/v22_6/customers/auth HTTP/1.1
 Host: example.com
@@ -185,7 +185,7 @@ Cookie: dwsid=pATvWUO3KSdt-Kmcy-8-RsxKnoO4BMDwoec7ACVlW6tZNnhaOL7gt7mHqL-h7QYn5T
 
 Similar to our first request, we get a JSON response with the JWT token in the "Authorization" header.
 
-```
+```json
 {
     "_v": "22.6",
     "_type": "customer",
