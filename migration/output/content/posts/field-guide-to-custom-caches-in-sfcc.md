@@ -33,9 +33,9 @@ In SFCC, you have several options for storing temporary data, and choosing the c
 
 Developers new to the platform frequently conflate Custom Caches and the Page Cache. They are fundamentally different beasts operating at different layers of the architecture. Mistaking one for the other is like using a hammer to turn a screw.
 
--   **Page Cache** is for caching **rendered output**. It operates at the **web server tier** and stores full HTTP responses—typically HTML fragments generated from ISML templates. You control it with the [`<iscache>`](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-content-cache.html) tag or the [`response.setExpires()`](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_system_Response.html#dw_system_Response_setExpires_Number_DetailAnchor) script API method. When a request hits a URL whose response is in the Page Cache, the [web server](/the-salesforce-b2c-commerce-cloud-environment/) serves it directly, never even bothering the application server. It is incredibly fast and is the primary defence against high traffic for storefront pages.
+- **Page Cache** is for caching **rendered output**. It operates at the **web server tier** and stores full HTTP responses—typically HTML fragments generated from ISML templates. You control it with the [`<iscache>`](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-content-cache.html) tag or the [`response.setExpires()`](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_system_Response.html#dw_system_Response_setExpires_Number_DetailAnchor) script API method. When a request hits a URL whose response is in the Page Cache, the [web server](/the-salesforce-b2c-commerce-cloud-environment/) serves it directly, never even bothering the application server. It is incredibly fast and is the primary defence against high traffic for storefront pages.
 
--   **Custom Cache** is for caching **application data**. It operates at the **application server tier** and stores JavaScript objects and primitives inside a script or controller's execution context. You control it exclusively through the `dw.system.CacheMgr` script API. It's designed to avoid recalculating expensive data or re-fetching it from an external source during the execution of a controller that will ultimately produce a response.
+- **Custom Cache** is for caching **application data**. It operates at the **application server tier** and stores JavaScript objects and primitives inside a script or controller's execution context. You control it exclusively through the `dw.system.CacheMgr` script API. It's designed to avoid recalculating expensive data or re-fetching it from an external source during the execution of a controller that will ultimately produce a response.
 
 The distinction is critical: **Cache the final, cooked meal with Page Cache, cache the raw ingredients with Custom Cache.** To avoid re-rendering a product tile's HTML, use Page Cache with a remote include. If you need to avoid re-fetching the product's third-party ratings data _before_ you render the tile, use a Custom Cache.
 
@@ -47,9 +47,9 @@ To keep this article straightforward, we'll concentrate on caching third-party c
 
 Within the application tier, you have three primary ways to store temporary, non-persistent data during script execution. Their scopes and lifetimes are vastly different, and choosing the wrong one can lead to performance degradation, security vulnerabilities, or bizarre bugs.
 
--   `request.custom`: This [object](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_system_Request.html#dw_system_Request_getCustom_DetailAnchor) lives for the duration of a **single HTTP request**. It is the most ephemeral of the scopes. Its primary purpose is to pass data between middleware steps in an SFRA controller chain or from a controller to the rendering template _within the same server call_. It's a scratchpad for the current transaction and nothing more.
--   `session.custom` / `session.privacy`: These [objects](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_system_Session.html#dw_system_Session_getPrivacy_DetailAnchor) live for the duration of a **user's session**. The platform defines this with a 30-minute soft timeout (which logs the user out and clears privacy data) and a six-hour hard timeout (after which the session ID is invalid). This scope is user-specific and sticky to a single application server. The critical difference is that writing to `session.custom` can trigger a re-evaluation of the user's dynamic customer groups, while `session.privacy` does not. Data in `session.privacy` is also automatically cleared on logout.
--   `dw.system.CacheMgr`: [This](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_system_CacheMgr.html) is an **application-wide, server-specific cache**. The data is shared by _all users and all sessions_ that happen to land on the same application server. Its lifetime is determined either by a configured time-to-live (TTL) or until a major invalidation event occurs, such as a code activation or data replication.
+- `request.custom`: This [object](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_system_Request.html#dw_system_Request_getCustom_DetailAnchor) lives for the duration of a **single HTTP request**. It is the most ephemeral of the scopes. Its primary purpose is to pass data between middleware steps in an SFRA controller chain or from a controller to the rendering template _within the same server call_. It's a scratchpad for the current transaction and nothing more.
+- `session.custom` / `session.privacy`: These [objects](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_system_Session.html#dw_system_Session_getPrivacy_DetailAnchor) live for the duration of a **user's session**. The platform defines this with a 30-minute soft timeout (which logs the user out and clears privacy data) and a six-hour hard timeout (after which the session ID is invalid). This scope is user-specific and sticky to a single application server. The critical difference is that writing to `session.custom` can trigger a re-evaluation of the user's dynamic customer groups, while `session.privacy` does not. Data in `session.privacy` is also automatically cleared on logout.
+- `dw.system.CacheMgr`: [This](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_system_CacheMgr.html) is an **application-wide, server-specific cache**. The data is shared by _all users and all sessions_ that happen to land on the same application server. Its lifetime is determined either by a configured time-to-live (TTL) or until a major invalidation event occurs, such as a code activation or data replication.
 
 ## The Forge: Mechanics of a Custom Cache
 
@@ -63,9 +63,9 @@ Your cache's life begins with a simple declaration. This is done in a JSON file,
 
 1. **Create `caches.json`:** Inside your cartridge, create the file. For example: `int_mycartridge/caches.json`.
 
-2. **Define Your Caches:** The file contains a single JSON object with a `caches` key, which is an array of cache definitions. Each definition requires an `id` and can optionally include an `expireAfterSeconds` property.
+1. **Define Your Caches:** The file contains a single JSON object with a `caches` key, which is an array of cache definitions. Each definition requires an `id` and can optionally include an `expireAfterSeconds` property.
 
-```
+```json
 {
   "caches": [
     {
@@ -83,13 +83,13 @@ The `id` must be **globally unique** across every single cartridge in your site'
 
 3**. Register in `package.json`:** The platform needs to know where to find your definition file. Reference it in your cartridge's `package.json` using the `caches` key. The path is relative to the `package.json` file itself.
 
-```
+```json
 {
     "caches": "./caches.json"
 }
 ```
 
-4. **Enable in Business Manager:** Finally, you must globally enable the custom cache feature. Navigate to **Administration > Operations > Custom Caches** and check the "Enable Caching" box.  Disabling this will clear all custom caches on the instance. This page will also become your primary tool for monitoring cache health.
+1. **Enable in Business Manager:** Finally, you must globally enable the custom cache feature. Navigate to **Administration > Operations > Custom Caches** and check the "Enable Caching" box.  Disabling this will clear all custom caches on the instance. This page will also become your primary tool for monitoring cache health.
 
 [![Custom Caches screen in Business Manager.](/media/2025/ods-custom-caches-business-manager-c30167212b.png)](/media/2025/ods-custom-caches-business-manager-c30167212b.png)
 
@@ -99,13 +99,13 @@ A screenshot of the "Administration > Operations > Custom Caches" screen in the 
 
 The script API for interacting with your defined caches is straightforward, revolving around two classes: `dw.system.CacheMgr` and `dw.system.Cache`.
 
--   `CacheMgr.getCache(cacheID)`: [This](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_system_CacheMgr.html#dw_system_CacheMgr_getCache_String_DetailAnchor) is your entry point. It retrieves the cache object that you defined in `caches.json`.
+- `CacheMgr.getCache(cacheID)`: [This](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_system_CacheMgr.html#dw_system_CacheMgr_getCache_String_DetailAnchor) is your entry point. It retrieves the cache object that you defined in `caches.json`.
 
--   `cache.put(key, value)`: Directly [places](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_system_Cache.html#dw_system_Cache_put_String_Object_DetailAnchor) an object into the cache under a specific key, overwriting any existing entry.
+- `cache.put(key, value)`: Directly [places](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_system_Cache.html#dw_system_Cache_put_String_Object_DetailAnchor) an object into the cache under a specific key, overwriting any existing entry.
 
--   `cache.get(key)`: Directly [retrieves](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_system_Cache.html#dw_system_Cache_get_String_DetailAnchor) an object from the cache for a given key. It returns `undefined` if the key is not found.
+- `cache.get(key)`: Directly [retrieves](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_system_Cache.html#dw_system_Cache_get_String_DetailAnchor) an object from the cache for a given key. It returns `undefined` if the key is not found.
 
--   `cache.invalidate(key)`: Manually [removes](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_system_Cache.html#dw_system_Cache_invalidate_String_DetailAnchor) a single entry from the cache.
+- `cache.invalidate(key)`: Manually [removes](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_system_Cache.html#dw_system_Cache_invalidate_String_DetailAnchor) a single entry from the cache.
 
 While these methods are simple, using them directly is a beginner's trap. A typical but flawed pattern is
 
@@ -121,7 +121,7 @@ This method combines the get and put operations into a single, atomic action on 
 
 Here is the implementation for fetching data from a third-party API:
 
-```
+```js
 var CacheMgr = require('dw/system/CacheMgr');
 var MyHTTPService = require('~/cartridge/scripts/services/myHTTPService');
 var Site = require('dw/system/Site');
@@ -168,17 +168,17 @@ An anti-pattern, such as adding a dynamic and irrelevant product position parame
 
 A robust cache key is not just a string; it's a self-documenting, collision-proof identifier. Every key you create should be:
 
-1.  **Unique:** It must uniquely identify a single piece of cacheable data.
+1. **Unique:** It must uniquely identify a single piece of cacheable data.
 
-2.  **Predictable:** You must be able to deterministically reconstruct the exact same key whenever you need to access the data.
+1. **Predictable:** You must be able to deterministically reconstruct the exact same key whenever you need to access the data.
 
-3.  **Scoped:** It must contain all the context necessary to distinguish it from similar data for other sites, locales, or conditions.
+1. **Scoped:** It must contain all the context necessary to distinguish it from similar data for other sites, locales, or conditions.
 
 A highly effective pattern is to build keys from concatenated, delimited parts: `PURPOSE::SCOPE::IDENTIFIER::CONTEXT`.
 
--   **Bad Key:** `'12345'` (What is it? A product? A category? For which site?)
+- **Bad Key:** `'12345'` (What is it? A product? A category? For which site?)
 
--   **Good Key:** `'product_tile_data::RefArch_US::12345_blue::en_US'`
+- **Good Key:** `'product_tile_data::RefArch_US::12345_blue::en_US'`
 
 This structure prevents a product cache from colliding with a content cache, ensures data for the US site doesn't leak into the EU site, and makes debugging from logs infinitely easier because the key itself tells you exactly what it's for. Always include `Site.current.ID` and the current locale for any site- or language-specific data.
 
@@ -200,7 +200,7 @@ The only performant and safe approach is to map the data you need from the heavy
 
 ### Anti-Pattern: Caching the Full API Object
 
-```
+```js
 // DO NOT DO THIS
 var ProductMgr = require('dw/catalog/ProductMgr');
 var productCache = CacheMgr.getCache('ProductData');
@@ -212,7 +212,7 @@ productCache.get('some-product-id', function () {
 
 ### Correct Pattern: Caching a Lightweight POJO
 
-```
+```js
 // THIS IS THE CORRECT WAY
 var ProductMgr = require('dw/catalog/ProductMgr');
 var productCache = CacheMgr.getCache('ProductData');
@@ -273,11 +273,11 @@ The `cache.invalidate(key)` method is a _trap_. It is functionally useless for e
 
 The only ways to reliably clear a custom cache across an entire instance are these "sledgehammer" approaches :
 
--   **Data Replication:** A full or partial data replication will clear all custom caches.
+- **Data Replication:** A full or partial data replication will clear all custom caches.
 
--   **Code Activation:** Activating a new code version clears all custom caches.
+- **Code Activation:** Activating a new code version clears all custom caches.
 
--   **Manual Invalidation:** A Business Manager user navigating to **Administration > Operations > Custom Caches** and clicking the "Clear" button for a specific cache (for each app server).
+- **Manual Invalidation:** A Business Manager user navigating to **Administration > Operations > Custom Caches** and clicking the "Clear" button for a specific cache (for each app server).
 
 This limitation has profound architectural implications. It means you **must design your caching strategy around time-based expiration (`expireAfterSeconds`)**. You have to accept and plan for a window of potential data staleness. Do not attempt to build a complex, event-driven invalidation system (e.g., trying to have a job invalidate a key). It is doomed to fail in a multi-server environment.
 
@@ -289,11 +289,11 @@ Use `session.privacy` for user-specific data.
 
 ### The Rogue's Gallery: Other Common Pitfalls
 
--   **Ignoring the 20MB Total Limit:** This is a hard limit for _all_ custom caches on a single application server. One misbehaving cache that stores massive objects can pollute the entire 20MB space, causing the eviction of other, well-behaved caches.
+- **Ignoring the 20MB Total Limit:** This is a hard limit for _all_ custom caches on a single application server. One misbehaving cache that stores massive objects can pollute the entire 20MB space, causing the eviction of other, well-behaved caches.
 
--   **Ignoring the 128KB Entry Limit:** Trying to `put` an object larger than 128KB will result in a "write failure" that is only visible in the Business Manager cache statistics and custom logs. It does not throw an exception, so your code will appear to work while the cache remains empty.
+- **Ignoring the 128KB Entry Limit:** Trying to `put` an object larger than 128KB will result in a "write failure" that is only visible in the Business Manager cache statistics and custom logs. It does not throw an exception, so your code will appear to work while the cache remains empty.
 
--   **Assuming Cache is Persistent:** It is transient, in-memory storage. It is not a database. A server restart, code deployment, or random eviction can wipe your data at any time. Your code must _always_ be able to function correctly on a cache miss.
+- **Assuming Cache is Persistent:** It is transient, in-memory storage. It is not a database. A server restart, code deployment, or random eviction can wipe your data at any time. Your code must _always_ be able to function correctly on a cache miss.
 
 ## The Watchtower: Monitoring Your Cache's Health
 
@@ -303,40 +303,40 @@ You cannot manage what you do not measure. A "set it and forget it" approach to 
 
 Your primary dashboard is located at **Administration > Operations > Custom Caches**. This page lists all registered caches and provides statistics for the last 15 minutes on the current application server. The key metrics to watch are:
 
--   **Hits / Total:** This is your hit ratio. For a frequently accessed cache, this number should be very high (ideally 95%+). A low hit ratio means your cache is ineffective. This could be due to poorly designed keys, a TTL that is too short, or constant cache clearing.
+- **Hits / Total:** This is your hit ratio. For a frequently accessed cache, this number should be very high (ideally 95%+). A low hit ratio means your cache is ineffective. This could be due to poorly designed keys, a TTL that is too short, or constant cache clearing.
 
--   **Write Failures:** This number must be **zero**. A non-zero value is a critical alert. It almost certainly means you are violating the 128KB per-entry size limit, likely by trying to cache a full API object instead of a POJO.
+- **Write Failures:** This number must be **zero**. A non-zero value is a critical alert. It almost certainly means you are violating the 128KB per-entry size limit, likely by trying to cache a full API object instead of a POJO.
 
--   **Clear Button:** The manual override. Use it when you need to force a refresh of a specific cache's data across all application servers.
+- **Clear Button:** The manual override. Use it when you need to force a refresh of a specific cache's data across all application servers.
 
 ### A Debugging Workflow: From Dashboard to Code
 
 When you identify a performance problem, follow this systematic process to diagnose cache-related issues :
 
-1.  **Observe (Production):** Start in **Reports & Dashboards > Technical**. Sort by "Percentage of Processing Time" or "Average Response Time" to find your slowest controllers and remote includes. These are your top suspects. Note their cache hit ratios in the report. A low hit ratio on a slow controller is a huge red flag.
+1. **Observe (Production):** Start in **Reports & Dashboards > Technical**. Sort by "Percentage of Processing Time" or "Average Response Time" to find your slowest controllers and remote includes. These are your top suspects. Note their cache hit ratios in the report. A low hit ratio on a slow controller is a huge red flag.
 
-2.  **Hypothesize (Business Manager):** Go to the **Custom Caches** page. Does the slow controller use a custom cache? Is that cache showing a low hit rate or, worse, write failures? This helps correlate the storefront performance issue with a specific cache's health.
+1. **Hypothesize (Business Manager):** Go to the **Custom Caches** page. Does the slow controller use a custom cache? Is that cache showing a low hit rate or, worse, write failures? This helps correlate the storefront performance issue with a specific cache's health.
 
-3.  **Reproduce & Pinpoint (Development):** Switch to a development instance. Use the **Pipeline Profiler** to get a high-level timing breakdown of the suspect controller. This tool confirms which parts of the request are slow, but it does not show cached requests. To dig deeper into the code itself, use the
+1. **Reproduce & Pinpoint (Development):** Switch to a development instance. Use the **Pipeline Profiler** to get a high-level timing breakdown of the suspect controller. This tool confirms which parts of the request are slow, but it does not show cached requests. To dig deeper into the code itself, use the
 
-4.  **Code Profiler**. Run the uncached controller and look for the specific script lines or API calls that consume the most execution time. This will tell you exactly what expensive operation needs to be wrapped in a cache call.
+1. **Code Profiler**. Run the uncached controller and look for the specific script lines or API calls that consume the most execution time. This will tell you exactly what expensive operation needs to be wrapped in a cache call.
 
 ## Wielding the Cache with Confidence
 
 Custom Caches are not inherently good or bad. They are powerful. And like any powerful tool, they demand respect, understanding, and discipline. The path to mastery is not through memorising API calls, but through internalising a set of non-negotiable principles.
 
-1.  **Cache Data, Not HTML:** Use Custom Cache for application data, Page Cache for rendered output.
+1. **Cache Data, Not HTML:** Use Custom Cache for application data, Page Cache for rendered output.
 
-2.  **Choose the Right Scope:** Understand the difference between `request`, `session`, and `cache`. Misuse is costly.
+1. **Choose the Right Scope:** Understand the difference between `request`, `session`, and `cache`. Misuse is costly.
 
-3.  **The Key is the Strategy:** Be deliberate and systematic in how you name things. A good key is self-documenting and collision-proof.
+1. **The Key is the Strategy:** Be deliberate and systematic in how you name things. A good key is self-documenting and collision-proof.
 
-4.  **Embrace "Get-or-Load":** The `cache.get(key, loader)` pattern is the only safe and atomic way to populate a cache. Use it. Always.
+1. **Embrace "Get-or-Load":** The `cache.get(key, loader)` pattern is the only safe and atomic way to populate a cache. Use it. Always.
 
-5.  **Cache POJOs, Not API Objects:** Map heavy API objects to lightweight POJOs before caching to save memory and avoid errors.
+1. **Cache POJOs, Not API Objects:** Map heavy API objects to lightweight POJOs before caching to save memory and avoid errors.
 
-6.  **Accept the Invalidation Myth:** Granular, cross-server invalidation is not a feature. Design around TTL and embrace a small window of potential staleness.
+1. **Accept the Invalidation Myth:** Granular, cross-server invalidation is not a feature. Design around TTL and embrace a small window of potential staleness.
 
-7.  **Monitor Relentlessly:** Use the Business Manager dashboards and profilers to keep a constant watch on your cache's health.
+1. **Monitor Relentlessly:** Use the Business Manager dashboards and profilers to keep a constant watch on your cache's health.
 
 By adhering to these rules, you transform the custom cache from a source of unpredictable bugs into a reliable, high-performance asset.

@@ -29,7 +29,7 @@ An alternative example can also be found [in the jsPDF attachment controller exa
 
 ### Controller
 
-```
+```js
 'use strict';
 var server = require('server');
 /**
@@ -129,7 +129,7 @@ module.exports = server.exports();
 
 ### Template
 
-```
+```text
 --001a113414f6401b8604f1451630
 Content-Type: multipart/mixed; boundary=001a113414f6401b8604f1451630
 --001a113414f6401b8604f1451630
@@ -195,7 +195,7 @@ To work with files (and emails), [base64 encoding](https://en.wikipedia.org/wiki
 
 We have the following function in the controller to help us get the required string to use in the mail.
 
-```
+```js
 /**
  * Encodes a string into a base64 string with an email-safe line width
  *
@@ -231,12 +231,12 @@ function encodeBase64ForEmail(str, characterEncoding) {
 
 And once we have that base64 encoded string, we can use it in our mail template. And inside that template, we are adding some metadata to give information about the file we are trying to send:
 
--   **Content-Type**: Here, we will mark which file type and what name the file has.
--   **Content-Description:** The description of the file
--   **Content-Disposition:** Here, we provide more information about the file like its filename, the size of the PDF, ...
--   **Content-Transfer-Encoding**: Here, we tell the mail client that the attachment is encoded using base64
+- **Content-Type**: Here, we will mark which file type and what name the file has.
+- **Content-Description:** The description of the file
+- **Content-Disposition:** Here, we provide more information about the file like its filename, the size of the PDF, ...
+- **Content-Transfer-Encoding**: Here, we tell the mail client that the attachment is encoded using base64
 
-```
+```text
 --001a113414f6401b8604f1451630
 Content-Type: application/pdf; name="${key}";
 Content-Description: ${key}
@@ -251,12 +251,12 @@ As you can see, base64 poses no real challenge for Salesforce Commerce Cloud, an
 
 Within the controller, we have multiple options to work with:
 
--   [On-the-fly generation of a file](/pdf-and-salesforce-commerce-cloud-b2c/)
--   Reading a file from the WebDAV
+- [On-the-fly generation of a file](/pdf-and-salesforce-commerce-cloud-b2c/)
+- Reading a file from the WebDAV
 
 In this example, we will be using the second option.
 
-```
+```js
 /**
  * Read a file to a String (encoded in IS0-8859-1)
  *
@@ -304,7 +304,7 @@ Boundary definition error On recent code compatibility modes, we have noticed an
 
 Removing the "Content-Type: multipart/mixed; boundary=001a113414f6401b8604f1451630" below the tag resolves this.
 
-```
+```text
 --001a113414f6401b8604f1451630
 Content-Type: multipart/mixed; boundary=001a113414f6401b8604f1451630
 ```
@@ -313,7 +313,7 @@ Once the key has been set, it can "split up" the mail into different parts. A go
 
 _Note: Do not forget the '--' in front of the key as you see them in the examples._
 
-```
+```text
 --001a113414f6401b8604f1451630
 Content-Type: text/plain; charset=ISO-8859-1
 Content-Transfer-Encoding: quoted-printable
@@ -327,7 +327,7 @@ Content-Transfer-Encoding: quoted-printable
 
 The same methodology is used for the files. Each attachment gets its own "section" separated by that same key.
 
-```
+```text
 --001a113414f6401b8604f1451630
 Content-Type: application/pdf; name="${key}";
 Content-Description: ${key}
@@ -374,8 +374,8 @@ We have been working with PDF in this example, but you can also use this solutio
 
 It wouldn't be fair to the authors if I did not provide links to the sources I used to get a working example.
 
--   [GitHub: dpavlikovskiy](https://github.com/dpavlikovskiy/mhe_enhancements/blob/f437062fd851d96c15c4f4366d48ddcdf8147c1f/cartridges/int_simplefeed_jfw/cartridge/templates/default/mail/emailTemplateAttachment.isml)
--   [Salesforce B2C Commerce Cloud Unofficial Slack](https://sfcc-unofficial.slack.com/archives/CAT794PC3/p1616592855270900)
+- [GitHub: dpavlikovskiy](https://github.com/dpavlikovskiy/mhe_enhancements/blob/f437062fd851d96c15c4f4366d48ddcdf8147c1f/cartridges/int_simplefeed_jfw/cartridge/templates/default/mail/emailTemplateAttachment.isml)
+- [Salesforce B2C Commerce Cloud Unofficial Slack](https://sfcc-unofficial.slack.com/archives/CAT794PC3/p1616592855270900)
 
 ## The Composable Storefront Consideration
 
@@ -397,22 +397,22 @@ The choice becomes clear when framed by project needs.
 
 Use the **Native SFCC Method** when:
 
--   The use case is strictly for low-volume, transactional emails with attachments.
+- The use case is strictly for low-volume, transactional emails with attachments.
 
--   The attached files are consistently small (well under 1 MB to leave room for the email body) to avoid breaching the 3 MB limit.
+- The attached files are consistently small (well under 1 MB to leave room for the email body) to avoid breaching the 3 MB limit.
 
--   Cost is the absolute primary driver, and leveraging the included platform functionality is a mandate.
+- Cost is the absolute primary driver, and leveraging the included platform functionality is a mandate.
 
--   There is no business requirement for email tracking, analytics, or advanced deliverability management.
+- There is no business requirement for email tracking, analytics, or advanced deliverability management.
 
 Use a **Third-Party ESP** when:
 
--   Emails need to be sent at any significant scale.
+- Emails need to be sent at any significant scale.
 
--   Deliverability and inbox placement are paramount for the business.
+- Deliverability and inbox placement are paramount for the business.
 
--   The business requires analytics on open rates, click-throughs, and user engagement.
+- The business requires analytics on open rates, click-throughs, and user engagement.
 
--   Attachments regularly exceed 1-2 MB, making the native 3 MB limit a constant risk.
+- Attachments regularly exceed 1-2 MB, making the native 3 MB limit a constant risk.
 
--   The development team's time is better spent on core commerce features than on manually managing MIME complexities.
+- The development team's time is better spent on core commerce features than on manually managing MIME complexities.

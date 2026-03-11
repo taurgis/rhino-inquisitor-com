@@ -13,7 +13,7 @@ categories:
   - Video
 author: Thomas Theunen
 ---
-https://www.youtube.com/watch?v=BTS6OqwMiK4
+<https://www.youtube.com/watch?v=BTS6OqwMiK4>
 
 If your organization is looking for a way to improve its online presence and connect with more customers, Headless may be a good fit. Headless can help you create a more modern and responsive website and enhance customer engagement and conversions.
 

@@ -18,7 +18,7 @@ author: Thomas Theunen
 ---
 When working on personalization and segmentation within Salesforce B2C Commerce Cloud, [Active Merchandizing](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/active_merchandising/b2c_active_merchandising.html) is one of the tools to help you along the way. By utilizing data collected automatically by Salesforce B2C Commerce Cloud, you can gain a deeper understanding of your customers' behavior and tailor campaigns accordingly. For instance, we display a distinctive banner to frequent visitors compared to those who only visit sporadically.
 
-## How is Active Data gathered?
+## How is Active Data gathered
 
 [![Slide introducing Active Merchandising data collection across commerce channels.](/media/2023/b2c-active-merchandising-slide-1-9a027d6449.gif)](/media/2023/b2c-active-merchandising-slide-1-9a027d6449.gif)
 
@@ -26,12 +26,12 @@ When working on personalization and segmentation within Salesforce B2C Commerce 
 
 When looking at "out-of-the-box" data gathering, we mean all data gathered by analytics that happens on Salesforce B2C Commerce Cloud channels such as:
 
--   Storefront Sites such as SiteGenesis / SFRA
--   Headless OCAPI / SCAPI channels
+- Storefront Sites such as SiteGenesis / SFRA
+- Headless OCAPI / SCAPI channels
 
 The data collection happens either by client-side tracking (JavaScript - e.g. [`<isobject>`](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/active_merchandising/b2c_add_isobject_tags.html)) for information such as product views or server-side events such as placing orders.
 
-```
+```text
 // Example of the client-side generated scripts
 ```
 
@@ -45,8 +45,8 @@ This can be particularly useful if you create campaigns/personalisation based on
 
 As for the example flow, we are going to be using visits to a physical store as an example:
 
--   Visits in the last 24 hours
--   Visits in the last 30 days
+- Visits in the last 24 hours
+- Visits in the last 30 days
 
 By utilising this information, we can categorise individuals into a specific customer group and create a marketing campaign to target those who make purchases online and offline.
 
@@ -54,8 +54,8 @@ By utilising this information, we can categorise individuals into a specific cus
 
 There are two System Objects that we can extend:
 
--   [CustomerActiveData](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_customer_CustomerActiveData.html)
--   [ProductActiveData](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_catalog_ProductActiveData.html)
+- [CustomerActiveData](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_customer_CustomerActiveData.html)
+- [ProductActiveData](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_catalog_ProductActiveData.html)
 
 In this case, we want to extend the Customer Active Data, so we head to: _Administration > Site Development > System Object Types > Customer Active Data_ On the "_Attribute Definitions_" tab, we click "New" to start creating our new attributes.
 
@@ -79,9 +79,9 @@ Attribute Group For many screens, attributes that are not assigned to a group wi
 
 Now that our attribute model has been extended, we need to create a way of importing that data. The first step to allowing CSV import is to create a "feed". To do this we need to head over to the "Feed Definitions": _Merchant Tools > Online Marketing > Active Data > Feed Definitions_ In the overview, we see our two types of active data again. Here we will be creating a feed for Customer Active Data. Click the "new" button and create our feed! On the next screen decide on the following fields:
 
--   **ID**: The ID of the feed. We will need this in our CSV file later (I have chosen "customer-physicial-store-information-feed")
--   **Description:** Free text to describe the purpose of the feed
--   **Fresh Period:** The value is the number of days after which the data becomes stale if it's not updated. 0 means the data is never considered stale.
+- **ID**: The ID of the feed. We will need this in our CSV file later (I have chosen "customer-physicial-store-information-feed")
+- **Description:** Free text to describe the purpose of the feed
+- **Fresh Period:** The value is the number of days after which the data becomes stale if it's not updated. 0 means the data is never considered stale.
 
 [![New Customer Active Data feed definition form.](/media/2023/new-customer-active-data-feed-ec272e512c.jpg)](/media/2023/new-customer-active-data-feed-ec272e512c.jpg)
 
@@ -91,7 +91,7 @@ New Customer Active Data
 
 SFCC understands what we want to send to the system by defining the feed. Now on to creating the file for import! A simple CSV file, with the data that our external system is generating.
 
-```
+```text
 ‎
 customer-physicial-store-information-feed
 customerNo,custom.physicalVisits,custom.physicalVisitsMonth
@@ -101,19 +101,19 @@ customerNo,custom.physicalVisits,custom.physicalVisitsMonth
 
 Some things to keep in mind with this file:
 
--   The first line should be empty!
--   The second line is the ID of the feed we defined earlier (it tells SFCC which feed this file is for)
--   The third line is our header
--   Custom attributes, like in code, are defined in the header starting with "custom."
+- The first line should be empty!
+- The second line is the ID of the feed we defined earlier (it tells SFCC which feed this file is for)
+- The third line is our header
+- Custom attributes, like in code, are defined in the header starting with "custom."
 
 ### Step 4: Import the CSV file
 
 There are two ways to import this file:
 
--   Through the business manager_Merchant Tools > Online Marketing > Active Data > Import & Export_
--   Through an automated job using the Job Step "[ImportActiveData](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/jobstepapi/html/api/jobstep.ImportActiveData.html)"
+- Through the business manager_Merchant Tools > Online Marketing > Active Data > Import & Export_
+- Through an automated job using the Job Step "[ImportActiveData](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/jobstepapi/html/api/jobstep.ImportActiveData.html)"
 
-### Step 5: Check that it worked!
+### Step 5: Check that it worked
 
 Once the import has been completed we can go and check on a profile if that import succeeded!
 
@@ -129,7 +129,7 @@ Dynamic Customer Group: Visited today
 
 Active Data Custom feed imports do not show in the Business Manager if the "standard" Active Data fields are empty for a customer or product. You might have to do a manual import on your sandbox to force the visibility. For that reason, I have provided an example file below!
 
-```
+```text
 ‎
 Demandware Customer Active Data
 customerNo,visitsWeek,visitsMonth,orderValueMonth,productsViewedMonth,productsAbandonedMonth,visitsYear,orders,orderValue,discountValueWithoutCoupon,discountValueWithCoupon,giftUnits,avgOrderValue,sourceCodeOrders,topCategoriesOrdered,productsOrdered,giftOrders

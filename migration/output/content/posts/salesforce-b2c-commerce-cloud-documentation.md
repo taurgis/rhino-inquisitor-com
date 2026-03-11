@@ -29,11 +29,11 @@ The single source of truth, `documentation.b2c.commercecloud.salesforce.com`, is
 
 The three new homes for B2C Commerce documentation are:
 
-1.  **Salesforce Help**: This is the new hub for content aimed at administrators and merchandisers. It covers topics like site administration, merchandising, and using Business Manager tools. It aligns B2C Commerce with the standard support and documentation model used across the broader Salesforce ecosystem.
+1. **Salesforce Help**: This is the new hub for content aimed at administrators and merchandisers. It covers topics like site administration, merchandising, and using Business Manager tools. It aligns B2C Commerce with the standard support and documentation model used across the broader Salesforce ecosystem.
 
-2.  **Commerce Cloud Developer Center**: This is the primary destination for most developer-focused content, especially materials related to modern, headless development. This is where you will find documentation for SCAPI, PWA Kit, and composable storefronts.
+1. **Commerce Cloud Developer Center**: This is the primary destination for most developer-focused content, especially materials related to modern, headless development. This is where you will find documentation for SCAPI, PWA Kit, and composable storefronts.
 
-3.  **Salesforce B2C Developer Documentation Resources**: Hosted on GitHub Pages, this site is a repository for deep technical references. It houses the B2C Commerce Script API documentation (`dw.*` packages), import/export schemas, and legacy developer documents that were preserved in [PDF](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/LegacyDeveloperDocumentation.pdf) format.
+1. **Salesforce B2C Developer Documentation Resources**: Hosted on GitHub Pages, this site is a repository for deep technical references. It houses the B2C Commerce Script API documentation (`dw.*` packages), import/export schemas, and legacy developer documents that were preserved in [PDF](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/LegacyDeveloperDocumentation.pdf) format.
 
 This migration wasn't a simple one-to-one mapping. Some outdated documentation, particularly for deprecated features, was archived into a single PDF to preserve the information without cluttering the new platforms. For developers with years of muscle memory tied to the Infocenter's structure, the following map is an essential tool for reorienting to the new landscape.
 
@@ -56,14 +56,14 @@ Official documentation can tell you how a feature is _supposed_ to work. The com
 
 For real-time problem-solving, debugging complex issues, and getting feedback on architectural patterns, the **Unofficial SFCC Slack community (CommerceCrew)** is an indispensable, primary resource. It is often faster and more practical than logging an official support ticket.
 
--   **How to Join:** The correct and direct way to join is via the community's official website: **[https://unofficialsfcc.com/](https://unofficialsfcc.com/)**.
+- **How to Join:** The correct and direct way to join is via the community's official website: **[https://unofficialsfcc.com/](https://unofficialsfcc.com/)**.
 
--   **What's Inside:** This hub provides access to several key resources :
-    -   The **Slack workspace**, with over 12,000 members, includes developers, architects, and even Salesforce employees who actively help answer questions.
+- **What's Inside:** This hub provides access to several key resources :
+  - The **Slack workspace**, with over 12,000 members, includes developers, architects, and even Salesforce employees who actively help answer questions.
 
-    -   **Open Source Projects** on GitHub, offering shared tools and resources.
+  - **Open Source Projects** on GitHub, offering shared tools and resources.
 
-    -   The **Podcasts** provide news and deep dives into relevant topics.
+  - The **Podcasts** provide news and deep dives into relevant topics.
 
 The existence and vibrancy of communities like CommerceCrew and the official Trailblazer Community Groups underscore a critical shift in professional practice. The platform's complexity and the pace of change mean that relying solely on static documentation is an inefficient strategy. The modern SFCC expert's toolkit includes not only their code and official docs but also their network and their active engagement with peers. This collaborative ecosystem is where the toughest problems are solved and where true mastery is forged.
 
@@ -71,7 +71,7 @@ The existence and vibrancy of communities like CommerceCrew and the official Tra
 
 ![Astro cheering](/media/2022/trailhead-commerce-29dc66c342.png)
 
--   [https://trailhead.salesforce.com/](https://trailhead.salesforce.com/trails?products=commercecloud&sort=NEWEST)
+- [https://trailhead.salesforce.com/](https://trailhead.salesforce.com/trails?products=commercecloud&sort=NEWEST)
 
 Trailhead is Salesforce's free, online learning platform, and it's an ocean of content. For an experienced developer or architect, the challenge isn't a lack of information, but finding the advanced, relevant modules without wading through introductory material. This curated compass points directly to the trails and modules that provide the most value for technical experts.
 
@@ -89,7 +89,7 @@ Trailhead is Salesforce's free, online learning platform, and it's an ocean of c
 
 ![Partner Learning Camp dashboard used to introduce the partner-only training track.](/media/2022/5b7a39ea-b9bc-486b-9ca3-c77ab5a306b1-e1653998526739-e73418c862.jpeg)
 
--   [https://partnerlearningcamp.salesforce.com/s/learner-dashboard](https://partnerlearningcamp.salesforce.com/s/learner-dashboard)
+- [https://partnerlearningcamp.salesforce.com/s/learner-dashboard](https://partnerlearningcamp.salesforce.com/s/learner-dashboard)
 
 While Trailhead is the public square for Salesforce knowledge, the Partner Learning Camp (PLC) is the exclusive, members-only club for Salesforce partners and employees. This is not just a rebranded Trailhead; it is a distinct learning destination designed to give partners the specialised knowledge needed to meet complex customer demands.
 
@@ -99,7 +99,7 @@ The PLC offers curricula on topics like SFRA, Headless development, PWA Kit, and
 
 ![The Solution Architect certification diagram.](/media/2022/solution-architect-33ece62704.png)
 
--   [https://architect.salesforce.com/](https://architect.salesforce.com/)
+- [https://architect.salesforce.com/](https://architect.salesforce.com/)
 
 While the Developer Centre is for hands-on coding, architect.salesforce.com is the strategic command centre for those designing the blueprints. This is the home base for Salesforce Architects but with a critical distinction: its lens is wide, focusing on multi-cloud architecture and the core Salesforce platform, not just B2C Commerce.
 

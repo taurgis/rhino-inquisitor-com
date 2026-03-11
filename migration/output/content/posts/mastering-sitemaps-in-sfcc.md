@@ -40,10 +40,10 @@ The Sitemap Settings in the Business Manager
 
 The Settings tab is your main control panel. Here’s what you, as a developer, need to care about 4:
 
--   **Content Inclusion:** You can choose exactly what gets included: products, categories, content assets, and even product images.
--   **Priority & Change Frequency:** These settings are direct hints to search engine crawlers. Priority (a scale of 0.1 to 1.0) suggests a URL's importance relative to other pages on your site. Change Frequency (from always to never) suggests how often a page's content is updated.
--   **Product Rules:** You can get granular, choosing to include only available products, available and orderable products, or all products. This directly ties into your inventory and data strategy.
--   **hreflang for Multi-Locale Sites (Alternate URLs):** If you manage a site with multiple languages or regions, enabling Include alternate URLs (hreflang) is a huge win. It automatically adds the necessary tags to tell search engines about the different versions of a page, a task that can be a manual pain on other platforms.
+- **Content Inclusion:** You can choose exactly what gets included: products, categories, content assets, and even product images.
+- **Priority & Change Frequency:** These settings are direct hints to search engine crawlers. Priority (a scale of 0.1 to 1.0) suggests a URL's importance relative to other pages on your site. Change Frequency (from always to never) suggests how often a page's content is updated.
+- **Product Rules:** You can get granular, choosing to include only available products, available and orderable products, or all products. This directly ties into your inventory and data strategy.
+- **hreflang for Multi-Locale Sites (Alternate URLs):** If you manage a site with multiple languages or regions, enabling Include alternate URLs (hreflang) is a huge win. It automatically adds the necessary tags to tell search engines about the different versions of a page, a task that can be a manual pain on other platforms.
 
 ### The Golden Rule of Scheduling
 
@@ -97,10 +97,10 @@ Instead, you use the backend's power and bridge the gap.
 
 ### The Standard Headless Playbook
 
-1.  **Configure the Hostname Alias:** This is the most critical step. In Business Manager (Merchant Tools > SEO > Aliases), you must create an alias that exactly matches your PWA Kit's live domain (e.g., www.your-pwa.com). This ensures the backend generates URLs with the correct domain.
-2.  **Generate in Business Manager:** Use the standard job you've already configured.
-3.  **Update robots.txt:** In your PWA Kit project's code, add the Sitemap directive to your robots.txt file, pointing to the full URL of the sitemap index (e.g., Sitemap: https://www.your-pwa.com/sitemap\_index.xml).
-4.  **Proxy the Request:** Your PWA Kit app needs to handle requests for the sitemap. You can add a rule to your server-side rendering logic (often in app/ssr.js) to proxy requests for /sitemap\_index.xml and its children to the SFCC backend where the files actually live. Or use the [eCDN for this job!](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/ecdn-rules-for-phased-headless-rollout.html)
+1. **Configure the Hostname Alias:** This is the most critical step. In Business Manager (Merchant Tools > SEO > Aliases), you must create an alias that exactly matches your PWA Kit's live domain (e.g., <www.your-pwa.com>). This ensures the backend generates URLs with the correct domain.
+1. **Generate in Business Manager:** Use the standard job you've already configured.
+1. **Update robots.txt:** In your PWA Kit project's code, add the Sitemap directive to your robots.txt file, pointing to the full URL of the sitemap index (e.g., Sitemap: <https://www.your-pwa.com/sitemap\_index.xml>).
+1. **Proxy the Request:** Your PWA Kit app needs to handle requests for the sitemap. You can add a rule to your server-side rendering logic (often in app/ssr.js) to proxy requests for /sitemap\_index.xml and its children to the SFCC backend where the files actually live. Or use the [eCDN for this job!](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/ecdn-rules-for-phased-headless-rollout.html)
 
 ### The Hybrid Approach for PWA-Only Routes
 
@@ -108,11 +108,11 @@ But what about pages that _only_ exist in your PWA? Think of custom React-based 
 
 The solution is an elegant hybrid approach that you can automate in your CI/CD pipeline:
 
-1.  **Backend Generates Core Sitemap:** The scheduled job on SFCC runs as normal, creating sitemaps for all products, categories, and content assets.
+1. **Backend Generates Core Sitemap:** The scheduled job on SFCC runs as normal, creating sitemaps for all products, categories, and content assets.
 
-2.  **Frontend Generates Custom Sitemap:** As a build step in your CI/CD pipeline, run a script that scans your PWA Kit's routes and generates a small, separate sitemap file (e.g., `pwa-custom.xml`) containing only these frontend-specific URLs.
+1. **Frontend Generates Custom Sitemap:** As a build step in your CI/CD pipeline, run a script that scans your PWA Kit's routes and generates a small, separate sitemap file (e.g., `pwa-custom.xml`) containing only these frontend-specific URLs.
 
-3.  **Automate the Merge:** The final step of your deployment script makes a `PUT` request to the `uploadCustomSitemapAndTriggerSitemapGeneration` SCAPI endpoint, uploading the `pwa-custom.xml` file. This tells SFCC to regenerate the main index, adding a link to your new custom file.
+1. **Automate the Merge:** The final step of your deployment script makes a `PUT` request to the `uploadCustomSitemapAndTriggerSitemapGeneration` SCAPI endpoint, uploading the `pwa-custom.xml` file. This tells SFCC to regenerate the main index, adding a link to your new custom file.
 
 This strategy uses the right tool for the job: the backend's efficiency for the massive catalog and the frontend's build process to handle its own unique pages.
 

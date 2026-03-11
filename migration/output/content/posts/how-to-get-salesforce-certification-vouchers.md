@@ -37,8 +37,8 @@ So if you are working for a partner company, ask if some are available for your 
 
 From what I gathered, getting vouchers for the Accredited Professional exams is also possible (at the very least with a discount).
 
--   Certifications
--   Accreditations
+- Certifications
+- Accreditations
 
 ## Community Events
 
@@ -46,8 +46,8 @@ Participating in community events can potentially be a great way to earn certifi
 
 Since these events are for everyone, chances are low to non-existing that the vouchers are for Accredited Professional certifications.
 
--   Certifications
--   Accreditations
+- Certifications
+- Accreditations
 
 ## Trailhead Certification Events
 
@@ -55,8 +55,8 @@ Keep an eye out in the [Trailhead Community groups](https://trailhead.salesforce
 
 _An example:_ [https://trailhead.salesforce.com/trailblazer-community/feed/0D54S00000H3HLp](https://trailhead.salesforce.com/trailblazer-community/feed/0D54S00000H3HLp)
 
--   Certifications
--   Accreditations
+- Certifications
+- Accreditations
 
 ## Partner Community Certification Events
 
@@ -64,11 +64,11 @@ In the [Partner Community](https://partners.salesforce.com/_ui/core/chatter/ui/C
 
 _Some examples:_
 
--   [400 free certification vouchers](https://partners.salesforce.com/_ui/core/chatter/groups/GroupProfilePage?g=0F93A000000HZ5o&fId=0D54V000068aOr9&s1oid=00D300000000iTz&OpenCommentForEdit=1&s1nid=0DB3000000007Uh&emkind=chatterPostNotification&s1uid=0053A00000EITbU&emtm=1653576584272&fromEmail=1&s1ext=0)
--   [Free Slack vouchers](https://partners.salesforce.com/_ui/core/chatter/groups/GroupProfilePage?g=0F94V0000002Bv7&fId=0D54V00005vVcoA&s1oid=00D300000000iTz&OpenCommentForEdit=1&s1nid=0DB3000000007Uh&emkind=chatterPostNotification&s1uid=0053A00000EITbU&emtm=1645544651873&fromEmail=1&s1ext=0)
+- [400 free certification vouchers](https://partners.salesforce.com/_ui/core/chatter/groups/GroupProfilePage?g=0F93A000000HZ5o&fId=0D54V000068aOr9&s1oid=00D300000000iTz&OpenCommentForEdit=1&s1nid=0DB3000000007Uh&emkind=chatterPostNotification&s1uid=0053A00000EITbU&emtm=1653576584272&fromEmail=1&s1ext=0)
+- [Free Slack vouchers](https://partners.salesforce.com/_ui/core/chatter/groups/GroupProfilePage?g=0F94V0000002Bv7&fId=0D54V00005vVcoA&s1oid=00D300000000iTz&OpenCommentForEdit=1&s1nid=0DB3000000007Uh&emkind=chatterPostNotification&s1uid=0053A00000EITbU&emtm=1645544651873&fromEmail=1&s1ext=0)
 
--   Certifications
--   Accreditations
+- Certifications
+- Accreditations
 
 ## Certification Days
 
@@ -76,8 +76,8 @@ Every year there is something called "[Certification Days](https://www.salesforc
 
 After participating, you can get a 40$ discount, which doesn't cover the entire thing. But every discount helps, right?
 
--   Certifications
--   Accreditations
+- Certifications
+- Accreditations
 
 ## Trailhead Quests
 
@@ -85,8 +85,8 @@ After participating, you can get a 40$ discount, which doesn't cover the entire 
 
 The rewards range from SWAG to Certification Vouchers, and there are new quests every month. So keep an eye out!
 
--   Certifications
--   Accreditations
+- Certifications
+- Accreditations
 
 ## Salesforce Webinars
 
@@ -94,13 +94,13 @@ Attending webinars can be a great way to learn about the latest updates and deve
 
 Especially when a new accreditation or certificate is being introduced, this slide may offer valuable discounts or even a form to enter for a chance to win a free attempt at the exam.
 
--   Certifications
--   Accreditations
+- Certifications
+- Accreditations
 
 ## Bringing it all together
 
 [![Looking to save some money while getting certified in Salesforce? No problem! Here's a helpful overview of where you can find discounts and even free exam attempts to make your certification journey a little more budget-friendly. Partner Vouchers Community Events Trailhead Certification Events Partner Community Events Certification Days Trailhead Quests Salesforce Webinars](/media/2023/salesforce-credentials-vouchers-personv2-bf4ee67f38.jpeg)](/media/2023/salesforce-credentials-vouchers-personv2-bf4ee67f38.jpeg)
 
-## Any more?
+## Any more
 
 Know about other methods to get our hands on these tasty vouchers? Please let me know via [Twitter](https://twitter.com/theunenth) or [LinkedIn](https://www.linkedin.com/in/thomas-theunen-10905680/)!
