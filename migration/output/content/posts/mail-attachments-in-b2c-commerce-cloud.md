@@ -1,8 +1,8 @@
 ---
 title: Mail Attachments in B2C Commerce Cloud
 description: >-
-  In this blog we explain how to add attachments to a mail sent from Salesforce
-  B2C Commerce Cloud using ISML.
+    Learn how to send emails with attachments from Salesforce B2C Commerce Cloud
+    using ISML, including setup details and implementation pitfalls.
 date: '2022-03-15T06:04:04.000Z'
 lastmod: '2025-07-16T14:10:47.000Z'
 url: /mail-attachments-in-b2c-commerce-cloud/

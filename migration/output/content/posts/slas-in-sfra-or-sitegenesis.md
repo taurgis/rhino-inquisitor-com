@@ -1,7 +1,5 @@
 ---
-title: >-
-  Session Sync Showdown: From plugin_slas to Native Hybrid Auth in SFRA and
-  SiteGenesis
+title: SLAS Session Sync in SFRA and SiteGenesis
 description: >-
   SLAS (Shopper Login And API Access Service) is one of the headless APIs made
   available by Salesforce. But how can we use it in SFRA?

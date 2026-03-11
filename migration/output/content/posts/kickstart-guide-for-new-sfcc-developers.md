@@ -1,8 +1,8 @@
 ---
-title: The Kickstart Guide for New Salesforce B2C Commerce Developers
+title: Kickstart Guide for New SFCC Developers
 description: >-
-  An interactive guide for new SFCC developers. Read the full article on Rhino
-  Inquisitor for implementation details.
+  An interactive guide for new SFCC developers covering storefront patterns,
+  platform concepts, and practical next steps for hands-on learning.
 date: '2026-01-12T14:05:43.000Z'
 lastmod: '2026-01-09T12:49:20.000Z'
 url: /kickstart-guide-for-new-sfcc-developers/

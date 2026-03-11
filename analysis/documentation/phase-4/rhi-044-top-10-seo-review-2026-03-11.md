@@ -2,7 +2,7 @@
 
 ## Change summary
 
-Completed the PR-facing top-10 traffic review for RHI-044 by tightening the remaining front matter title and description exceptions in the combined build and by updating the SEO completeness sampler so page-backed video routes count toward the Batch 2 video sample.
+Completed the PR-facing top-10 traffic review for RHI-044, tightened the remaining non-top-10 metadata-length warnings in the Batch 2 cohort, and corrected the SEO completeness summary so pass-level sample coverage rows no longer inflate the printed warning count.
 
 ## Why this changed
 
@@ -29,6 +29,8 @@ New behavior:
 - The reviewed top-10 front matter titles are now all at or below 60 characters.
 - The malformed SWC/Storybook description was replaced with a readable manual description and the homepage front matter description was tightened for the PR-facing review pass.
 - `scripts/migration/check-seo-completeness.js` now treats staged content tagged with the `Video` category as valid video-sample candidates, which matches the page-backed taxonomy behavior restored during RHI-044 execution.
+- A narrow second-pass metadata cleanup reduced the remaining non-top-10 `title_length` and `description_length` findings to zero actual warning rows in the staged Batch 2 SEO report.
+- `scripts/migration/check-seo-completeness.js` now counts only real `warn` rows in its summary output; sample-coverage `pass` rows no longer inflate the printed warning total.
 - The post-fix correction rerun now reports `filesChanged: 0` in `migration/reports/content-corrections-summary.json`, so the idempotency evidence requested by the ticket is present.
 
 ## Impact
@@ -60,11 +62,13 @@ New behavior:
    - all 10 reviewed routes render canonical URLs matching the expected route
    - JSON-LD is present on all reviewed routes (`1` or `2` blocks depending on page type)
    - 9 reviewed routes expose a first-image alt text in the rendered HTML; `/swc-and-storybook-error-failed-to-load-native-binding/` has no hero image and was treated as `N/A`
-5. Residual staged Batch 2 SEO warnings after the closeout pass:
-   - `9` `description_length` warnings
-   - `7` `title_length` warnings
-   - `0` sampling warnings
-   - `0` failures
+5. Narrow second-pass cleanup on non-top-10 Batch 2 metadata warnings:
+   - shortened the remaining overlong titles on eCDN staging, Kickstart Guide, PWA Kit speed, Sending Emails, SLAS session sync, Architect Certification, and Mastering Sitemaps
+   - expanded the remaining short descriptions on custom TTF fonts, Custom Caches, Active Data, Kickstart Guide, Mail Attachments, Mastering Sitemaps, Architect Certification, POD numbers, and third-party API caching
+6. Final staged Batch 2 SEO report state after the second pass:
+   - `0` warning rows
+   - `0` failure rows
+   - `video sample_coverage: pass (3/3)`
 
 ## Related files
 

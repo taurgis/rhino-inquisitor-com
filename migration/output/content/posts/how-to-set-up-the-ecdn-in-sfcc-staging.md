@@ -1,5 +1,5 @@
 ---
-title: How to set up the eCDN for Staging in Salesforce B2C Commerce Cloud
+title: Set Up the eCDN for SFCC Staging
 description: >-
   New APIs have been made available to manage certificates on the staging eCDN
   ourselves. But how does it work? What do I need to keep in mind?

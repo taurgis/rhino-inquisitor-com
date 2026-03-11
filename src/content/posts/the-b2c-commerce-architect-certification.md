@@ -1,8 +1,8 @@
 ---
-title: 'B2C Commerce Architect Certification: A Complete Guide to Preparation'
+title: B2C Commerce Architect Certification Guide
 description: >-
-  Congratulations on your decision to become a certified Salesforce B2C Commerce
-  Architect!
+  Prepare for the Salesforce B2C Commerce Architect certification with a guide
+  to exam domains, study priorities, and practical preparation.
 date: '2023-05-22T07:18:54.000Z'
 lastmod: '2023-05-22T07:19:06.000Z'
 url: /the-b2c-commerce-architect-certification/

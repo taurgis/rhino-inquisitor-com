@@ -1,5 +1,5 @@
 ---
-title: 'Sending Emails from Salesforce B2C Commerce Cloud: A Comprehensive Guide'
+title: Sending Emails from SFCC
 description: >-
   This article covers the reasons for opting to send emails via Salesforce
   Commerce Cloud, the platform's limitations, the steps for programmatically

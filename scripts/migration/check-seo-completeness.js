@@ -372,7 +372,15 @@ function validateRenderedSamples({ baselineSource, contentEntries, contentByRout
   const sampleSets = buildSampleSets({ baselineSource, availableRoutes, manifest, mergeTargetMap, contentEntries });
 
   for (const coverageCheck of sampleSets.coverageChecks) {
-    recordRow(rows, coverageCheck.status === 'fail' ? failures : warnings, coverageCheck);
+    recordRow(
+      rows,
+      coverageCheck.status === 'fail'
+        ? failures
+        : coverageCheck.status === 'warn'
+          ? warnings
+          : [],
+      coverageCheck
+    );
   }
 
   if (availableRoutes.size === 0) {
