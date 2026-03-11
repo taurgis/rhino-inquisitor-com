@@ -73,7 +73,9 @@ Remember to restore the original language after the data has been fetched in the
 
 ## Use cases
 
-![A map of the world representing all locale in the world.](/media/2023/people-around-the-world-551b94bfa5.png) Some might ask, why would you need to do such a thing? Well, there are a few reasons which will cause you to resort to fiddling with the request:
+![A map of the world representing all locale in the world.](/media/2023/people-around-the-world-551b94bfa5.png)
+
+Some might ask, why would you need to do such a thing? Well, there are a few reasons which will cause you to resort to fiddling with the request:
 
 -   Fetching a content asset in a different language, a language selection popup, for example.
 -   Generating a single-file feed with multiple languages

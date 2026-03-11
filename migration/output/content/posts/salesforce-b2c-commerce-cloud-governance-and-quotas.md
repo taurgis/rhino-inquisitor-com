@@ -122,7 +122,9 @@ The Business Manager has a monitoring page, which will give you the total overvi
 
 "Administration > Operations > Quota Status"
 
- [![Quota alert subscription settings in Business Manager.](/media/2022/sfcc-quota-alerts-7f9e795d58.jpg)](/media/2022/sfcc-quota-alerts-7f9e795d58.jpg)Subscribe It is highly recommended to subscribe with multiple people to these alerts. Remember to do this in various environments, not just Production!
+[![Quota alert subscription settings in Business Manager.](/media/2022/sfcc-quota-alerts-7f9e795d58.jpg)](/media/2022/sfcc-quota-alerts-7f9e795d58.jpg)
+
+Subscribe. It is highly recommended to subscribe with multiple people to these alerts. Remember to do this in various environments, not just Production!
 
 ## I hit a quota, and can't work around it
 
@@ -255,4 +257,6 @@ This is [documented](https://help.salesforce.com/s/articleView?language=en_US&id
 
 ### Parallel OCAPI Requests
 
-![Slack note documenting the per-session OCAPI parallel-request limit.](/media/2023/img-0054-72b5b079a0.jpeg) Although there is no rate limit in place on the OCAPI, there is a limit on how many parallel requests one can make.
+![Slack note documenting the per-session OCAPI parallel-request limit.](/media/2023/img-0054-72b5b079a0.jpeg)
+
+Although there is no rate limit in place on the OCAPI, there is a limit on how many parallel requests one can make.

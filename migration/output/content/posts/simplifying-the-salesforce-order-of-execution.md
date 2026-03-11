@@ -21,7 +21,9 @@ When it comes to understanding how Salesforce operates, there are many factors t
 
 ## tl;dr - show me the diagram
 
-For the impatient amongst us, here is the diagram showing the simplified representation of the "Order of Execution" based on [the original diagram posted on the Salesforce Architects blog](https://medium.com/salesforce-architects/salesforce-order-of-execution-visualized-76ac45721eba). [![Simplified Salesforce order-of-execution diagram.](/media/2023/order-of-execution-simplified-apex-api-v56-0-23130ad657.png)](/media/2023/order-of-execution-simplified-apex-api-v56-0-23130ad657.png)
+For the impatient amongst us, here is the diagram showing the simplified representation of the "Order of Execution" based on [the original diagram posted on the Salesforce Architects blog](https://medium.com/salesforce-architects/salesforce-order-of-execution-visualized-76ac45721eba).
+
+[![Simplified Salesforce order-of-execution diagram.](/media/2023/order-of-execution-simplified-apex-api-v56-0-23130ad657.png)](/media/2023/order-of-execution-simplified-apex-api-v56-0-23130ad657.png)
 
 [View on Lucid](https://lucid.app/lucidchart/17edf202-1994-4772-8a0b-4d2835a9799e/edit?viewport_loc=3530%2C810%2C1844%2C838%2C0_0&invitationId=inv_f7af9e9a-9783-47ca-ab06-1142226cad87)
 
@@ -70,7 +72,9 @@ Another consideration to simplify the chain is to look at processes that only ru
 
 ## Putting it all together
 
-Now that we have taken out all the above from consideration, we end up with the following updated visual: [![Simplified Salesforce order-of-execution diagram.](/media/2023/order-of-execution-simplified-apex-api-v56-0-23130ad657.png)](/media/2023/order-of-execution-simplified-apex-api-v56-0-23130ad657.png)
+Now that we have taken out all the above from consideration, we end up with the following updated visual:
+
+[![Simplified Salesforce order-of-execution diagram.](/media/2023/order-of-execution-simplified-apex-api-v56-0-23130ad657.png)](/media/2023/order-of-execution-simplified-apex-api-v56-0-23130ad657.png)
 
 [View on Lucid](https://lucid.app/lucidchart/17edf202-1994-4772-8a0b-4d2835a9799e/edit?viewport_loc=3530%2C810%2C1844%2C838%2C0_0&invitationId=inv_f7af9e9a-9783-47ca-ab06-1142226cad87)
 

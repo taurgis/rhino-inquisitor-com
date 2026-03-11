@@ -27,7 +27,9 @@ You can always check out [last month's release notes](/sfcc-24-1-release-a-new-y
 
 On By Default This new feature is automatically enabled with the 24.2 release and may cause unexpected behaviour if you have complex use cases involving cookies.
 
-Please turn it off until you have completed all necessary testing. Affects Hybrid Deployments An extra warning for those using hybrid deployments: it is important to test adequately as this change may disrupt standard customer flows. [![Feature switch showing Partitioned Cookies enabled by default.](/media/2024/partioned-cookies-in-sfcc-cb426ac0c4.png)](/media/2024/partioned-cookies-in-sfcc-cb426ac0c4.png)
+Please turn it off until you have completed all necessary testing. Affects Hybrid Deployments An extra warning for those using hybrid deployments: it is important to test adequately as this change may disrupt standard customer flows.
+
+[![Feature switch showing Partitioned Cookies enabled by default.](/media/2024/partioned-cookies-in-sfcc-cb426ac0c4.png)](/media/2024/partioned-cookies-in-sfcc-cb426ac0c4.png)
 
 Concerning browser vendors' ongoing deprecation of third-party cookies, a new feature in Salesforce B2C Commerce Cloud affects how cookies are handled: "[Partitioned Cookies](https://developer.mozilla.org/en-US/docs/Web/Privacy/Partitioned_cookies)"
 

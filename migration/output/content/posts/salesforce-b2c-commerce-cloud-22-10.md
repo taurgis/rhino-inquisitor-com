@@ -94,7 +94,9 @@ To fix some issues in the v1 hook:
 
 A new hook has been introduced.
 
- [![beforePOST v2 basket hook reference in the API documentation.](/media/2022/new-hook-basket-f116a5da90.jpg)](/media/2022/new-hook-basket-f116a5da90.jpg)Deprecated Hook The v1 hook will continue to exist but is discouraged from being used.
+[![beforePOST v2 basket hook reference in the API documentation.](/media/2022/new-hook-basket-f116a5da90.jpg)](/media/2022/new-hook-basket-f116a5da90.jpg)
+
+Deprecated Hook. The v1 hook will continue to exist but is discouraged from being used.
 
 ### Edge Caching for SCAPI
 

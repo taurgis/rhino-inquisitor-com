@@ -118,7 +118,11 @@ As mentioned, I rely heavily on [Grammarly](https://www.grammarly.com/) for all 
 -   **Generation Engine**: Stable Diffusion
 -   **Model**: Depends on the design
 
-I have long been held back by my limitations in drawing, which prevented me from bringing my creative visions to life. But with the help of generative AI, I can now quickly turn my ideas into [reality](https://shirtforce.org/tee/hybrid-deployment-theory-salesforce-commerce-cloud-tshirt/). ![Hybrid deployment T-shirt concept generated as a starting point for the final design.](/media/2023/hybrid-deployment-theory-02-poc-a7602136f7.jpg) The generated image usually gets me 50-80% there, and then I fine-tune the details in Photoshop! Even though that still takes a lot of time, it is much less than it would have taken me from scratch!
+I have long been held back by my limitations in drawing, which prevented me from bringing my creative visions to life. But with the help of generative AI, I can now quickly turn my ideas into [reality](https://shirtforce.org/tee/hybrid-deployment-theory-salesforce-commerce-cloud-tshirt/).
+
+![Hybrid deployment T-shirt concept generated as a starting point for the final design.](/media/2023/hybrid-deployment-theory-02-poc-a7602136f7.jpg)
+
+The generated image usually gets me 50-80% there, and then I fine-tune the details in Photoshop! Even though that still takes a lot of time, it is much less than it would have taken me from scratch!
 
 ## How much time do I spend per arcticle?
 

@@ -71,7 +71,15 @@ Or if you want more control over your request:
 
 ## Configuration in the Business Manager
 
-In the Business Manager go to: "Administration > Operations > Services" [![Administration and Operations menu path to Services.](/media/2022/administration-operations-services-ecba1de963.jpg) ](/media/2022/administration-operations-services-ecba1de963.jpg)And click the "New" button on the bottom right. Here we can configure our service: [![Example HTTP POST service configuration in Business Manager.](/media/2022/test-http-post-service-be40e7ba49.jpeg) ](/media/2022/test-http-post-service-be40e7ba49.jpeg)This example service is configured with the following values:
+In the Business Manager go to: "Administration > Operations > Services"
+
+[![Administration and Operations menu path to Services.](/media/2022/administration-operations-services-ecba1de963.jpg)](/media/2022/administration-operations-services-ecba1de963.jpg)
+
+Click the "New" button on the bottom right. Here we can configure our service:
+
+[![Example HTTP POST service configuration in Business Manager.](/media/2022/test-http-post-service-be40e7ba49.jpeg)](/media/2022/test-http-post-service-be40e7ba49.jpeg)
+
+This example service is configured with the following values:
 
 -   **Name:** It can be any name as long as it matches the name (ID) used in the code.
 -   **Type:** In this case, HTTP service is selected. This ensures the Service Framework behind the scenes uses the correct client (HTTP).

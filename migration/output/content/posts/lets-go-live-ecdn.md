@@ -59,7 +59,9 @@ This one should be pretty obvious, but I'll mention it anyway. Make sure the dom
 
 To point the domain to Salesforce B2C Commerce Cloud, you need access to the domain DNS configuration. In later steps, you (or someone else you are in contact with) must add [TXT](https://en.wikipedia.org/wiki/TXT_record) and [CNAME](https://en.wikipedia.org/wiki/CNAME_record) records to the DNS configuration.
 
- [![DNS record editor for the vanity domain.](/media/2022/add-dns-record-domain-com-245d883c43.jpg)](/media/2022/add-dns-record-domain-com-245d883c43.jpg)APEX Domain Pointing / Naked Domain It is essential to know that the APEX Domain or Naked Domain does not support CNAME records.
+[![DNS record editor for the vanity domain.](/media/2022/add-dns-record-domain-com-245d883c43.jpg)](/media/2022/add-dns-record-domain-com-245d883c43.jpg)
+
+APEX Domain Pointing / Naked Domain. It is essential to know that the APEX Domain or Naked Domain does not support CNAME records.
 
 Usually, a DNS provider has solutions for this, but this needs to be considered. In a worst-case scenario, you need to set up a "mini-server" to do the redirection of the naked domain to the www subdomain. You can find some [information on Salesforce Help](https://help.salesforce.com/s/articleView?id=000361629&type=1) on this topic.
 
@@ -210,7 +212,9 @@ HTML Minification Those who have enabled this in the past might have wondered if
 
 If you have comments on an environment that have value for an external system, be sure not to activate this type of minification.
 
-_**Note:** This also breaks the deprecated toolkit on Development as it relies on comments._ [![eCDN Speed panel showing Auto Minify and Polish options for the storefront.](/media/2022/ecdn-speed-settings-cccba25f5e.png)](/media/2022/ecdn-speed-settings-cccba25f5e.png)
+_**Note:** This also breaks the deprecated toolkit on Development as it relies on comments._
+
+[![eCDN Speed panel showing Auto Minify and Polish options for the storefront.](/media/2022/ecdn-speed-settings-cccba25f5e.png)](/media/2022/ecdn-speed-settings-cccba25f5e.png)
 
 Not much to say about this section; here, you can control a few settings that improve speed, such as minification of Javascript, CSS, and HTML.
 

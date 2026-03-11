@@ -58,7 +58,9 @@ Before this 23.3 release, customer support had to be contacted to enable the Sho
 
 ### SLAS Admin UI Update
 
-![SLAS Admin UI updated in the 23.3 release.](/media/2023/slas-admin-ui-1dc5370339.jpg) The [SLAS admin UI](https://developer.salesforce.com/docs/commerce/commerce-api/guide/slas.html) has gotten a bit of love this month, and reported bugs have been worked on a resolved! _I cannot comment on which ones were addressed, but we reported a fair few ones that got resolved in this update!_
+![SLAS Admin UI updated in the 23.3 release.](/media/2023/slas-admin-ui-1dc5370339.jpg)
+
+The [SLAS admin UI](https://developer.salesforce.com/docs/commerce/commerce-api/guide/slas.html) has gotten a bit of love this month, and reported bugs have been worked on a resolved! _I cannot comment on which ones were addressed, but we reported a fair few ones that got resolved in this update!_
 
 ## Account Manager
 

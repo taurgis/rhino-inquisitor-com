@@ -45,7 +45,9 @@ Salesforce [has written a guide](https://developer.salesforce.com/docs/commerce/
 
 tenantID The tenantID mentioned in the guide is the Realm ID (zzxx) combined with the Instance ID (001). This information is shown in the next step of this guide on the Staging instance.
 
-e.g.**zzxx\_001** Roles Remember to assign the "Salesforce Commerce API role to the API Client! [![Account Manager roles screen with the Salesforce Commerce API role enabled for staging.](/media/2023/commerce-cloud-api-client-roles-1a338d1f61.jpg)](/media/2023/commerce-cloud-api-client-roles-1a338d1f61.jpg)
+e.g.**zzxx\_001** Roles Remember to assign the "Salesforce Commerce API role to the API Client!
+
+[![Account Manager roles screen with the Salesforce Commerce API role enabled for staging.](/media/2023/commerce-cloud-api-client-roles-1a338d1f61.jpg)](/media/2023/commerce-cloud-api-client-roles-1a338d1f61.jpg)
 
 ## Step 2: Get the staging credentials
 

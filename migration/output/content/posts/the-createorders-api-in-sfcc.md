@@ -137,7 +137,9 @@ Almost there! Now we have everything to start creating our order (except the ord
 
 ```
 
-After submitting this request we should get an empty response with status [201](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#201) (CREATED). And with that, our order is visible in the Business Manager! [![SLAS: createOrders API request result](/media/2023/slas-order-on-behalf-order-4b978450f7.jpg)](/media/2023/slas-order-on-behalf-order-4b978450f7.jpg)
+After submitting this request we should get an empty response with status [201](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#201) (CREATED). And with that, our order is visible in the Business Manager!
+
+[![SLAS: createOrders API request result](/media/2023/slas-order-on-behalf-order-4b978450f7.jpg)](/media/2023/slas-order-on-behalf-order-4b978450f7.jpg)
 
 ## GMV
 

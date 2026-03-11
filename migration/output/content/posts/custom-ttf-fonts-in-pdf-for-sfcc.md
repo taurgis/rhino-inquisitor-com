@@ -96,7 +96,9 @@ response.writer.print(doc.output());
 
 ```
 
-The first parameter of the setFont function is the font name defined in the initial JavaScript file we generated using the font conversion tool. If they do not match, it will not work! But if set up correctly, you should get a result like this (an example from the [GitHub repository code](https://github.com/taurgis/salesforce-commerce-cloud-libraries/blob/master/cartridges/plugin_testlibraries/cartridge/controllers/jsPDF.js)): ![Generated PDF preview showing multiple custom fonts rendered in the output.](/media/2023/custom-font-result-df8aa2e64b.png)
+The first parameter of the setFont function is the font name defined in the initial JavaScript file we generated using the font conversion tool. If they do not match, it will not work! But if set up correctly, you should get a result like this (an example from the [GitHub repository code](https://github.com/taurgis/salesforce-commerce-cloud-libraries/blob/master/cartridges/plugin_testlibraries/cartridge/controllers/jsPDF.js)):
+
+![Generated PDF preview showing multiple custom fonts rendered in the output.](/media/2023/custom-font-result-df8aa2e64b.png)
 
 ## Something to keep in mind
 

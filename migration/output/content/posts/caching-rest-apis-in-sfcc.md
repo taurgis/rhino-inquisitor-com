@@ -53,7 +53,9 @@ This is easy to fix. But without enabling it, you cannot test your settings on a
 
 ## Overriding the OCAPI Cache Time
 
-It is possible to override the default 60 seconds of caching of an resource by adding it to the [OCAPI Settings](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/OCAPISettings.html?cp=0_16_2_24) in the Business Manager. _"Administration" > "Site Development" > "Open Commerce API Settings"_ [![OCAPI caching settings](/media/2023/ocapi-settings-with-cache-f7e7acfcf8.png)](/media/2023/ocapi-settings-with-cache-f7e7acfcf8.png)
+It is possible to override the default 60 seconds of caching of an resource by adding it to the [OCAPI Settings](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/OCAPISettings.html?cp=0_16_2_24) in the Business Manager. _"Administration" > "Site Development" > "Open Commerce API Settings"_
+
+[![OCAPI caching settings](/media/2023/ocapi-settings-with-cache-f7e7acfcf8.png)](/media/2023/ocapi-settings-with-cache-f7e7acfcf8.png)
 
 ```
 

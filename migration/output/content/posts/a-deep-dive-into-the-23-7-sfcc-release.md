@@ -86,7 +86,9 @@ Just a gentle reminder to [vote](https://ideas.salesforce.com/s/search#t=All&sor
 > -   Add support for ES module import statements in ssr.js #1284
 > -   Support Node 18 and NPM 9. #1265
 
-This a minor release to ensure this version is compatible with the latest Node version (18), as the older versions will be deprecated soon! [![The deprecation notice of node 16 with the text: Changing the End-of-Life Date for Node.js 16 to September 11th, 2023 Summary We are moving the End-of-Life date of Node.js 16 by seven months to coincide with the end of support of OpenSSL 1.1.1 on September 11th, 2023.](/media/2023/node-js-16-deprecation-b8d6f02bec.png)](/media/2023/node-js-16-deprecation-b8d6f02bec.png)
+This a minor release to ensure this version is compatible with the latest Node version (18), as the older versions will be deprecated soon!
+
+[![The deprecation notice of node 16 with the text: Changing the End-of-Life Date for Node.js 16 to September 11th, 2023 Summary We are moving the End-of-Life date of Node.js 16 by seven months to coincide with the end of support of OpenSSL 1.1.1 on September 11th, 2023.](/media/2023/node-js-16-deprecation-b8d6f02bec.png)](/media/2023/node-js-16-deprecation-b8d6f02bec.png)
 
 ## PWA Kit v3.0.0
 

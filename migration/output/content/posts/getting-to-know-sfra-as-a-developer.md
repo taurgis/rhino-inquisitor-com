@@ -35,7 +35,9 @@ I wrote a separate post before explaining [how to get your sandbox](/how-to-get-
 
 ### Learn Commerce Cloud
 
-Removed Unfortunately, this website no longer exists. ![Archived Learn Commerce Cloud landing page.](/media/2022/learn-commerce-cloud-67eab48d9b.jpg)
+Removed Unfortunately, this website no longer exists.
+
+![Archived Learn Commerce Cloud landing page.](/media/2022/learn-commerce-cloud-67eab48d9b.jpg)
 
 -   [https://help.salesforce.com/s/articleView?language=en\_US&id=cc.b2c\_getting\_started.htm&type=5](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_getting_started.htm&type=5)
 -   [PDF Version of the old Learn Commerce Cloud Site](https://www.rhino-inquisitor.com/wp-content/uploads/2023/10/2d9abc21-7f77-4b94-81a5-07f15a0c28d3.pdf)
