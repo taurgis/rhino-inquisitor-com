@@ -45,7 +45,7 @@ A positive move that has been made is this is a cartridge that you can install y
 
 This gives developers (and architects) more power over how the integration with these Social Channels is made!
 
-The cartridge can be downloaded [here](https://github.com/SalesforceCommerceCloud/social_channel_integrations)!
+The cartridge can be downloaded from the [Social Channel Integrations repository](https://github.com/SalesforceCommerceCloud/social_channel_integrations)!
 
 ## Platform
 

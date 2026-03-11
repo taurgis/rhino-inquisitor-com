@@ -41,7 +41,7 @@ If an account becomes compromised, especially Account Managers, someone can get 
 
 ### 2FA (Two-Factor-Authentication)
 
-![](/media/2022/mfa-1-6649345f2c.jpg)
+![Account Manager multi-factor authentication setup screen.](/media/2022/mfa-1-6649345f2c.jpg)
 
 With Account Manager, it is possible to add 2FA to your account to secure it. Even if someone manages to figure out your account password, they still need to be able to provide the secondary authentication method.
 
@@ -219,7 +219,7 @@ I can go on about this topic, but the following blog post by Liran Tal tells the
 
 ## npm-audit
 
-[![](/media/2022/npm-audit-ab1e401b03.png)](/media/2022/npm-audit-ab1e401b03.png)
+[![npm audit output showing dependency vulnerability results.](/media/2022/npm-audit-ab1e401b03.png)](/media/2022/npm-audit-ab1e401b03.png)
 
 As SFRA and PWA Kit use npm for their third-party libraries, it makes sense to use the out-of-the-box feature of npm to do a security audit of all of your packages.
 

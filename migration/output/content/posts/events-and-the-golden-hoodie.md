@@ -70,7 +70,7 @@ People who could not join the event in person have to use [Salesforce+](https://
 
 ## Salesforce Live Belgium
 
-![](/media/2022/salesforce-live-belgium-bba64ad521.jpg)
+![Salesforce Live Belgium event slide featuring the author's Golden Hoodie recognition.](/media/2022/salesforce-live-belgium-bba64ad521.jpg)
 
 Being the first-ever Belgian Golden Hoodie recipient sure puts your picture as one giant slide at local Salesforce events!
 

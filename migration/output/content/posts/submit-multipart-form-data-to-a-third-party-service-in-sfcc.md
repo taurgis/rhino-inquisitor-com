@@ -68,7 +68,7 @@ As with any third-party integration, please use the built-in [LocalServiceRegist
 
 But how do you configure it in the Business Manager? Let's have a look!
 
-[![](/media/2022/form-service-1-e901798db6.png)](/media/2022/form-service-1-e901798db6.png)
+[![Third-party form service screen used in the multipart submission example.](/media/2022/form-service-1-e901798db6.png)](/media/2022/form-service-1-e901798db6.png)
 
 Select the type "HTTP"; otherwise, the LocalServiceRegistry code might not behave as expected.
 

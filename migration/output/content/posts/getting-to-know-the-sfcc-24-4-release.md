@@ -66,7 +66,7 @@ To reduce the risk of generating large queries, users are advised to make their 
 
 ## Manage More Images in Page Designer
 
-![Page Designer image picker with four available assets.](/media/2024/images-in-sfcc-page-designer-2ae797ab98.png)
+![Page Designer media picker showing support for browsing up to 1,000 images in one folder.](/media/2024/images-in-sfcc-page-designer-2ae797ab98.png)
 
 > The Page Designer image and media picker now supports up to 1,000 images per folder. Previously, only 200 images within a folder were accessible in the image picker, even if more existed. The increased image limit improves the user experience for merchandisers and content creators and avoids workarounds, such as creating subfolders for extra images.
 

@@ -49,7 +49,7 @@ The primary purpose is to provide a contact point for accounts that already have
 
 So, for now, the message is as follows:
 
-> To obtain a trial sandbox please reach out to either your Commerce Cloud Account Executive (customers) or your Partner Manager (partners). For details on the partner program look [here](https://partners.salesforce.com/pdx/s/learn/article/isv-b2c-commerce-MCDSZA63SNTNCRRBPDZX3PU7OGWI?language=en_US).
+> To obtain a trial sandbox please reach out to either your Commerce Cloud Account Executive (customers) or your Partner Manager (partners). For details on the partner program look at the [partner program overview](https://partners.salesforce.com/pdx/s/learn/article/isv-b2c-commerce-MCDSZA63SNTNCRRBPDZX3PU7OGWI?language=en_US).
 
 ### PWA Kit
 
@@ -79,7 +79,7 @@ Just read all of the available documentation, and you should be good to go:
 
 ## Trailhead Academy
 
-![](/media/2022/trailhead-academy-77b0322d57.jpeg)
+![Trailhead Academy branding for the paid sandbox training option.](/media/2022/trailhead-academy-77b0322d57.jpeg)
 
 If all else above is unavailable to you and no sandbox is within your reach, a paid training course is the final option with [Trailhead Academy](https://trailheadacademy.salesforce.com/overview).
 

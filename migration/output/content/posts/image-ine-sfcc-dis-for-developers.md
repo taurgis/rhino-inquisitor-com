@@ -47,7 +47,7 @@ Want to know precisely how all of these things work? Have a look at the [officia
 
 ## Why You Should Be Best Friends with DIS
 
-![A cartoon illustration of a developer shaking hands with a friendly, anthropomorphic cloud icon, as small, optimized images happily flow between them towards an e-commerce storefront. This symbolizes a strong, collaborative, and efficient relationship with the Dynamic Image Service.](/media/2025/developer-and-dis-are-friends-scaled-e1752256621645-8ebda34ef5.jpeg)
+![Developer and cloud mascot shaking hands to symbolize storefront code working with DIS transformations.](/media/2025/developer-and-dis-are-friends-scaled-e1752256621645-8ebda34ef5.jpeg)
 
 Best Friends with DIS: Seamless Image Optimization
 
@@ -227,7 +227,7 @@ While DIS is a superhero, even superheroes have their kryptonite. There are a fe
     **Note:** The WebP transformation is handled by the [eCDN](/lets-go-live-ecdn/), specifically through its configuration feature known as "the image Polish options," rather than by the DIS._
 
 
-[![A cartoon illustration showing a fork in the road. One path leads to a cloud labeled "Dynamic Image Service (DIS)," and the other, larger path, leads to icons representing a "Third Party CDN/DAM" and "Digital Asset Management System." A developer character is pointing towards the CDN/DAM path, indicating a choice for image management solutions.](/media/2025/sfcc-when-not-to-use-dis-8b8b9ec0b1.jpeg)](/media/2025/sfcc-when-not-to-use-dis-8b8b9ec0b1.jpeg)
+[![Fork-in-the-road illustration comparing DIS with third-party CDN and DAM options.](/media/2025/sfcc-when-not-to-use-dis-8b8b9ec0b1.jpeg)](/media/2025/sfcc-when-not-to-use-dis-8b8b9ec0b1.jpeg)
 
 Deciding between Salesforce's native DIS and external CDN/DAM solutions often comes down to specific project needs and existing infrastructure.
 

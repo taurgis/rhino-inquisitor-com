@@ -23,7 +23,7 @@ Looking at my habits, she asked why I had yet to switch wives. (**_Note_**: I am
 
 ## Smart Home
 
-![Nanoleaf Shapes that I can show the weather on](/media/2024/img-7215-47b9f2d828.jpeg)
+![Nanoleaf wall panels configured to display the day's weather for the kids.](/media/2024/img-7215-47b9f2d828.jpeg)
 
 I can now display the day's weather to the kids in an entertaining way!
 
@@ -48,9 +48,10 @@ Maybe this is a reminder for some people:
 -   A starter template, just like SiteGenesis, SFRA, and the PWA-Kit, to speed up getting started
 -   ...
 
+![FastForward Business Manager Accelerator Storybook interface.](/media/2024/fastforward-storybook-7ad70ee20d.jpg)
+
 https://www.rhino-inquisitor.com/wp-content/uploads/2024/08/fastforward-business-manager-accelerator.mov
 
-![](/media/2024/fastforward-storybook-7ad70ee20d.jpg)
 
 The storybook documentation.
 

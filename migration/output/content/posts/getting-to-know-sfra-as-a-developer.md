@@ -31,11 +31,11 @@ You can't just start developing immediately on Salesforce B2C Commerce Cloud. Th
 
 Watching webinars and reading online texts can get tedious. Being able to apply what you learn immediately on a Sandbox is a lot more engaging and fun to do.
 
-I wrote a separate post before explaining how to get your sandbox [here](/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/). Just a word of warning: if you are not working for a partner or customer - you might end up disappointed at the end of the article.
+I wrote a separate post before explaining [how to get your sandbox](/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/). Just a word of warning: if you are not working for a partner or customer - you might end up disappointed at the end of the article.
 
 ### Learn Commerce Cloud
 
-Removed Unfortunately, this website no longer exists. ![](/media/2022/learn-commerce-cloud-67eab48d9b.jpg)
+Removed Unfortunately, this website no longer exists. ![Archived Learn Commerce Cloud landing page.](/media/2022/learn-commerce-cloud-67eab48d9b.jpg)
 
 -   [https://help.salesforce.com/s/articleView?language=en\_US&id=cc.b2c\_getting\_started.htm&type=5](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_getting_started.htm&type=5)
 -   [PDF Version of the old Learn Commerce Cloud Site](https://www.rhino-inquisitor.com/wp-content/uploads/2023/10/2d9abc21-7f77-4b94-81a5-07f15a0c28d3.pdf)
@@ -92,7 +92,7 @@ This website will tell you how to get started with your SFRA implementation with
 
 ### Partner Learning Camp
 
-![A screenshot of the Partner Learning Camp (PLC) that shows the "Get Started on the B2C Commerce Fast Path to Certifications: Foundations" course.](/media/2022/b2c-foundations-2daffad6c6.jpg)
+![Partner Learning Camp catalog showing the B2C Commerce Foundations course.](/media/2022/b2c-foundations-2daffad6c6.jpg)
 
 -   [https://partnerlearningcamp.salesforce.com](https://partnerlearningcamp.salesforce.com/s/browse-catalog?plc__recordId=5iuux101vYk2UQtOkwn9%2BpFhmsL%2F5jynd8uOnEFtSg4JjoBEe8yyDv9MajFikOJe)
 

@@ -18,13 +18,13 @@ author: Thomas Theunen
 ---
 We have been getting some lovely new goodies in the past few releases, but this trend is not ending! This time we look at the [September 2022 (22.9) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_9_release.htm&type=5)!
 
-Are you interested in last month’s release notes? [Click here](/salesforce-b2c-commerce-cloud-22-8/)!
+Are you interested in last month’s release notes? [Read the 22.8 release notes](/salesforce-b2c-commerce-cloud-22-8/)!
 
 ## Platform
 
 ### WebDAV upload limit relaxed
 
-![](/media/2022/upload-limit-relaxed-stonks-meme-f8e9bd0b5b.jpg)
+![Meme-style graphic celebrating the higher WebDAV upload limit.](/media/2022/upload-limit-relaxed-stonks-meme-f8e9bd0b5b.jpg)
 
 A big update that will make many happy! The limitation of 100MB has been relaxed to 500MB for uploading to the WebDAV.
 
@@ -54,7 +54,7 @@ I suspect this improvement is only for the performance of the Business Manager a
 
 ### AfterPay and Venmo added to Salesforce Payments
 
-![](/media/2022/venmo-d5992ec262.jpg)
+![AfterPay and Venmo payment options highlighted for Salesforce Payments.](/media/2022/venmo-d5992ec262.jpg)
 
 Let your shoppers pay in interest-free installments with AfterPay. Salesforce Payments offers AfterPay through your Stripe Merchant account. When AfterPay is active on your storefront, the product details page and checkout cart list it as a payment option (Default SFRA & Payments Cartridge).
 

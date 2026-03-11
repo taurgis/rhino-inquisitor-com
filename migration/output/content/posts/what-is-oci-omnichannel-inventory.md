@@ -21,7 +21,7 @@ But why should you use it? And if you decide to use this product, what are the t
 
 ## Wait?!! It's included in the B2C license?
 
-[![A screenshot of a Quip document depicting the highlighted text "OCI is available to all B2C Commerce customers at no additional cost although there is a provisioning process".](/media/2022/oci-included-in-license-b4aca05118.png)](/media/2022/oci-included-in-license-b4aca05118.png)
+[![Quip note highlighting that OCI is included for B2C Commerce customers.](/media/2022/oci-included-in-license-b4aca05118.png)](/media/2022/oci-included-in-license-b4aca05118.png)
 
 Let us first get this topic out of the way; I am sure this information will increase the interest in this product!
 
@@ -40,7 +40,7 @@ The OCI exists out of multiple components:
 
 -   **Omnichannel Inventory App:** A Salesforce console app to manage your locations and inventory availability in the [visual interface you know and love](https://www.salesforce.com/campaign/lightning/).
 
-   [![](/media/2022/omnichannel-inventory-0b29da8f29.png)](/media/2022/omnichannel-inventory-0b29da8f29.png)
+  [![Omnichannel Inventory app interface for managing locations and availability.](/media/2022/omnichannel-inventory-0b29da8f29.png)](/media/2022/omnichannel-inventory-0b29da8f29.png)
 
 The Omnichannel Inventory provides a set of Headless APIs so any system can communicate with it to get the latest inventory information, be it your website, app, or any other system connected to the web (which can include your physical stores).
 

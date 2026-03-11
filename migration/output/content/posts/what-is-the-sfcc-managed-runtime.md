@@ -30,7 +30,7 @@ Developers will use the PWA Kit tools to generate a bundle, a snapshot of the st
 
 Each project can have multiple bundles, but each environment has only one "deployed" bundle. Similar to the fact that you can only have one active "[Code Version](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/site_development/b2c_code_versions.html)" on the server side.
 
-[![A screenshot of the Managed Runtime showing the Organization "Salesforce Internal" with two projects called "sampleproject" and "projectx".](/media/2023/salesforce-commerce-cloud-managed-runtime-e2b922960d.jpg)](/media/2023/salesforce-commerce-cloud-managed-runtime-e2b922960d.jpg)
+[![Managed Runtime project list showing one organization with two storefront projects.](/media/2023/salesforce-commerce-cloud-managed-runtime-e2b922960d.jpg)](/media/2023/salesforce-commerce-cloud-managed-runtime-e2b922960d.jpg)
 
 The Managed Runtime operates within a hierarchy of organisations and projects. Organisations can contain multiple projects for various storefronts, and each project can contain multiple environments.
 

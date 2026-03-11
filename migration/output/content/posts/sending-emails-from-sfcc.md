@@ -32,7 +32,7 @@ In most Marketing platforms, you have the freedom to be highly flexible with the
 
 While you may not want to modify your transactional emails frequently, it's a lot easier to give them a nice 'holiday' or 'easter' styling for a few weeks in the year using dedicated marketing tools.
 
-![](/media/2024/a-mail-across-the-year-15b12cb7bc.jpg)
+![Illustration of seasonal variations in transactional email design.](/media/2024/a-mail-across-the-year-15b12cb7bc.jpg)
 
 #### Page Designer to the rescue?
 
@@ -131,11 +131,11 @@ Production Hide this endpoint, or never deploy this controller to production.
 
 Sender Policy Framework ([SPF](https://en.wikipedia.org/wiki/SPF)) records are crucial for ensuring email deliverability. If this is not configured, providers such as Outlook and Gmail will simply prevent your emails from arriving. They will be completely blocked and will not even arrive in the spam folder.
 
-Configuring these SPF records is clearly documented [here](https://help.salesforce.com/s/articleView?id=000391416&type=1).
+Configuring these SPF records is clearly documented in the [Salesforce SPF setup guide](https://help.salesforce.com/s/articleView?id=000391416&type=1).
 
 ## Can I Use My Own SMTP Server?
 
-[![A screenshot of the "Administration > Operations > Email Settings" screen, which enables administrators to configure custom email and DKIM settings.](/media/2024/sfcc-email-settings-21507245df.png)](/media/2024/sfcc-email-settings-21507245df.png)
+[![Email Settings screen used to configure SMTP and DKIM options.](/media/2024/sfcc-email-settings-21507245df.png)](/media/2024/sfcc-email-settings-21507245df.png)
 
 Administration > Operations > Email Settings
 

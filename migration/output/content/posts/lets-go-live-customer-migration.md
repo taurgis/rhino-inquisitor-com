@@ -36,7 +36,7 @@ Ultimately, it does not matter who does it as long as they have the required kno
 
 ## Handle with care
 
-![](/media/2022/data-breach-7096540e7a.jpg) I have mentioned this before, but we deal with people's personal information in this process! Be sure that the data you work with is handled properly! Transfer the data securely, and only transfer it to people who need to work with this data. _😱 Don't email the database unencrypted to everyone involved in the project. 😱_ And also important, once the people have done their task, they must delete the data from their systems.
+![Security illustration introducing the risks of mishandling customer data.](/media/2022/data-breach-7096540e7a.jpg) I have mentioned this before, but we deal with people's personal information in this process! Be sure that the data you work with is handled properly! Transfer the data securely, and only transfer it to people who need to work with this data. _😱 Don't email the database unencrypted to everyone involved in the project. 😱_ And also important, once the people have done their task, they must delete the data from their systems.
 
 ## Make a deployment plan
 
@@ -52,7 +52,7 @@ I will not elaborate on this one too much, but compared to the other data in a c
 
 ## Monitoring
 
-![](/media/2022/robot-monitoring-a-screen-4af85584a4.jpg) The final step, as with many things, is monitoring after go-live. Make sure people can log in - and make Customer Service aware to note down all the information to track potential bugs. It is vital to keep this part of your daily routine for the first few days (amongst other things) after the big release.
+![Monitoring illustration for post-go-live customer migration checks.](/media/2022/robot-monitoring-a-screen-4af85584a4.jpg) The final step, as with many things, is monitoring after go-live. Make sure people can log in - and make Customer Service aware to note down all the information to track potential bugs. It is vital to keep this part of your daily routine for the first few days (amongst other things) after the big release.
 
 ## Rollback
 

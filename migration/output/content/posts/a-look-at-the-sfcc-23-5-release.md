@@ -20,7 +20,7 @@ author: Thomas Theunen
 ---
 Another month, another release! This time we look at the [May 2023 (23.5) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_7_release.htm&type=5)!
 
-Are you interested in last month’s release notes? [Click here](/everything-new-in-sfcc-23-4/)!
+Are you interested in last month’s release notes? [Read the 23.4 release notes](/everything-new-in-sfcc-23-4/)!
 
 ## Platform
 
@@ -99,7 +99,7 @@ New endpoints are now supported:
 
 ### New Channel Types supported for Baskets & Orders
 
-[![](/media/2023/scapi-channel-types-2023-2795e88145.jpg)](/media/2023/scapi-channel-types-2023-2795e88145.jpg)
+[![Channel-type list showing the new basket and order channels added in the 23.5 release.](/media/2023/scapi-channel-types-2023-2795e88145.jpg)](/media/2023/scapi-channel-types-2023-2795e88145.jpg)
 
 The list of channels before the update
 

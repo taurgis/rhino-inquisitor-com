@@ -75,7 +75,7 @@ Luckily, we can easily enable this mechanic via the code:
 
 CDN Know that the CDN part of the Managed Runtime takes care of this caching mechanism. At the time of writing, this is CloudFront. The plan is to migrate to the eCDN for a generic architecture (Forward-Looking Statement). Default Cache Times Be aware that the default cache time is only 15 minutes, which is low. Consider changing this to a few hours!
 
-But keep in mind that the replication does not automatically clear its cache in the Managed Runtime like we are used to in SFRA, but an API is available (hint, hint).
+But keep in mind that the replication does not automatically clear its cache in the Managed Runtime like we are used to in SFRA, but a cache invalidation API is available.
 
 ## API Caching
 
@@ -93,13 +93,13 @@ In Business Manager, go to Administration > Sites > Manage Sites > Site Name - C
 
 Salesforce B2C Commerce Cloud comes with many REST APIs out of the box (some you can extend, others you can not). These APIs have their own rules for caching and personalised caching.
 
-These rules have been documented [here](https://developer.salesforce.com/docs/commerce/commerce-api/guide/server-side-web-tier-caching.html); be sure to have a look!
+These rules have been documented in the [server-side web-tier caching guide](https://developer.salesforce.com/docs/commerce/commerce-api/guide/server-side-web-tier-caching.html); be sure to have a look!
 
 #### Feature Switch
 
 For most, this option will already be enabled or will not even be visible anymore in the business manager. But verify that Server-Side Web-Tier Caching has been enabled in your feature switches. (_Administration> Global Preferences > Feature Switches_)
 
-[![A screenshot of the SCAPI Server-Side Web-Tier feature toggle in the Business Manager, used to enable caching for the SCAPI endpoints.](/media/2024/scapi-server-side-web-tier-caching-ead7ec1b79.jpg)](/media/2024/scapi-server-side-web-tier-caching-ead7ec1b79.jpg)
+[![Business Manager feature toggle for enabling SCAPI server-side web-tier caching.](/media/2024/scapi-server-side-web-tier-caching-ead7ec1b79.jpg)](/media/2024/scapi-server-side-web-tier-caching-ead7ec1b79.jpg)
 
 The feature toggle in the Business Manager
 

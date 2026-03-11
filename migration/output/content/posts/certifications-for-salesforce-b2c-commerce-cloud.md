@@ -49,7 +49,7 @@ If you still think you need some preparation, look at the [exam guide](https://t
 
 ### B2C Commerce Architect
 
-![](/media/2022/b2c-commerce-architect-3d1b1f2f1e.png)
+![Salesforce Certified B2C Commerce Architect badge.](/media/2022/b2c-commerce-architect-3d1b1f2f1e.png)
 
 > The Salesforce B2C Commerce Architect has experience designing global sites that support multiple brands and channels using standard design patterns.
 
@@ -84,7 +84,7 @@ But not to worry, there is [a course](https://partnerlearningcamp.salesforce.com
 
 ### Commerce Cloud Einstein
 
-![](/media/2022/einstein-d7123b2738.png)
+![Einstein Commerce Cloud Accredited Professional badge.](/media/2022/einstein-d7123b2738.png)
 
 > The Einstein Commerce Cloud Accredited Professional exam is intended for individuals who have the knowledge, skills, and experience with data ingestion processes, security, and access implementations.
 

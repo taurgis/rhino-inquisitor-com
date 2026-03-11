@@ -49,7 +49,7 @@ When crafting these date filters, adherence to the [ISO 8601](https://www.iso.or
 
 ## Range Filter
 
-![An image showing calendars with dates and a measure on a wooden table.](/media/2023/measuring-dates-7c1931cecc.jpg)
+![Calendars and ruler illustration introducing OCAPI date-range filtering.](/media/2023/measuring-dates-7c1931cecc.jpg)
 
 If you need to find records that fall within a specific date interval, the [range\_filter](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-api?meta=type%3Arange_filter) is your go-to option. This filter can find records with a date value sitting between a specified start (from) and end (to) date.
 

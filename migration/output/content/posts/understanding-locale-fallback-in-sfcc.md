@@ -33,7 +33,7 @@ Manage Translations Thoroughly Ensuring a positive user experience on your site 
 
 ## How Locale Fallback Works
 
-![Locale Fallback explained with a decision tree going from en_US to en, and finally to default.](/media/2024/locale-fallback-explained-bfdfc55392.png)
+![Decision tree showing locale fallback from en_US to en and then default.](/media/2024/locale-fallback-explained-bfdfc55392.png)
 
 Is there a translation present?
 
@@ -50,7 +50,7 @@ Inconsistent languages on a single page. If you configure the fallback system di
 
 ## Configuring Locale Fallback
 
-[![A screenshot showing the locale config in 'Administration > Global Preferences > Locales'](/media/2024/sfcc-localisation-config-e5d2f27043.jpg)](/media/2024/sfcc-localisation-config-e5d2f27043.jpg)
+[![Locale configuration screen in Administration and Global Preferences.](/media/2024/sfcc-localisation-config-e5d2f27043.jpg)](/media/2024/sfcc-localisation-config-e5d2f27043.jpg)
 
 Locales and fallback can be configured at "Administration > Global Preferences > Locales"
 
@@ -68,7 +68,7 @@ Fallback to different language You are only allowed to fall back within the same
 **Not allowed**: fr\_FR > fr\_BE > Default
 **Not allowed**: fr\_FR > de\_DE > Default
 
-[![Screenshot of the locale fallback for en-GB](/media/2024/locale-fallback-en-uk-bd32fc597d.png)](/media/2024/locale-fallback-en-uk-bd32fc597d.png)
+[![Example locale fallback configuration for en-GB.](/media/2024/locale-fallback-en-uk-bd32fc597d.png)](/media/2024/locale-fallback-en-uk-bd32fc597d.png)
 
 The possible fallback options for en\_GB
 

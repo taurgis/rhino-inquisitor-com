@@ -20,7 +20,7 @@ As a [Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/) connoisse
 
 ## A plugin?
 
-![](/media/2023/salesforce-payments-business-manager-6773ef14af.webp)
+![Salesforce Payments interface inside Business Manager.](/media/2023/salesforce-payments-business-manager-6773ef14af.webp)
 
 Salesforce Payments in the Business Manager
 
@@ -66,7 +66,7 @@ Do you have multiple Salesforce products in your architecture, such as Order Man
 
 ## How to get started
 
-![](/media/2023/salesforce-payments-7926558e4f.jpg) For those familiar with my articles, I am not one to start reinventing (and writing) the wheel. And in this case, a rare one for B2C Commerce Cloud, Trailheads are available!
+![Salesforce Payments promotional artwork introducing the getting-started resources.](/media/2023/salesforce-payments-7926558e4f.jpg) For those familiar with my articles, I am not one to start reinventing (and writing) the wheel. And in this case, a rare one for B2C Commerce Cloud, Trailheads are available!
 
 -   [Quick Look](https://trailhead.salesforce.com/en/content/learn/modules/cc-payments-processing)
 -   [Salesforce Payments for Administrators](https://trailhead.salesforce.com/en/content/learn/modules/cc-commerce-payments)

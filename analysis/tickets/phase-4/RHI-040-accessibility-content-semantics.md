@@ -1,13 +1,13 @@
 ## RHI-040 · Workstream I — Accessibility and Content Semantics
 
-**Status:** In Progress  
+**Status:** Done  
 **Priority:** Medium  
 **Estimate:** M  
 **Phase:** 4  
 **Assigned to:** Engineering Owner  
 **Target date:** 2026-04-18  
 **Created:** 2026-03-07  
-**Updated:** 2026-03-10
+**Updated:** 2026-03-11
 
 ---
 
@@ -21,7 +21,7 @@ Accessibility issues introduced during content migration are often harder to fix
 
 ### Acceptance Criteria
 
-- [ ] Accessibility content check script `scripts/migration/check-a11y-content.js` exists and:
+- [x] Accessibility content check script `scripts/migration/check-a11y-content.js` exists and:
   - [x] Scans all generated `.md` files in `migration/output/content/` for:
     - [x] Images with missing or empty `alt` text — `![]()` or `![image]()` patterns
     - [x] Heading hierarchy violations: skipped heading levels (e.g., `##` followed by `####`)
@@ -31,16 +31,16 @@ Accessibility issues introduced during content migration are often harder to fix
   - [x] Distinguishes `blocking` issues (missing alt text on informative images, completely empty headers) from `warnings` (non-descriptive link text, cosmetic only)
   - [x] Exits with non-zero code on any blocking issue count exceeding the agreed batch cap
   - [x] Is referenced in `package.json` as `npm run check:a11y-content`
-- [ ] Automated accessibility scan on Hugo-rendered output:
+- [x] Automated accessibility scan on Hugo-rendered output:
   - [x] `npm run check:a11y` from Phase 3 (RHI-027/RHI-029) passes on a representative 10-page sample from each batch
   - [x] Results are recorded in `migration/reports/accessibility-scan-summary.md`
-- [ ] Manual keyboard accessibility check for article template with migrated content:
-  - [ ] Tab navigation reaches all interactive elements
+- [x] Manual keyboard accessibility check for article template with migrated content:
+  - [x] Tab navigation reaches all interactive elements
   - [x] Focus indicators are visible
   - [x] Skip-to-main-content link works correctly
-- [ ] All informative images in migrated content have non-empty, descriptive alt text
-- [ ] Heading order is logical and non-skipping in all validated pages
-- [ ] No unresolved critical (WCAG 2.2 Level A) accessibility failures in the release candidate batch
+- [x] All informative images in migrated content have non-empty, descriptive alt text
+- [x] Heading order is logical and non-skipping in all validated pages
+- [x] No unresolved critical (WCAG 2.2 Level A) accessibility failures in the release candidate batch
 
 ---
 
@@ -59,13 +59,13 @@ Accessibility issues introduced during content migration are often harder to fix
   - [x] Implement link text quality checker (flag known problematic patterns)
   - [x] Implement GFM table header checker
   - [x] Write findings to `migration/reports/a11y-content-warnings.csv`
-- [ ] Run `check:a11y-content` on pilot batch; fix all blocking issues before RHI-043
+- [x] Run `check:a11y-content` on pilot batch; fix all blocking issues before RHI-043
 - [x] Run `npm run check:a11y` (pa11y-ci) on a representative 10-page staged sample
 - [x] Record results in `migration/reports/accessibility-scan-summary.md`
 - [x] Conduct manual keyboard navigation check on rendered article template with migrated content
-- [ ] Document any accepted exceptions with owner and planned remediation date
+- [x] Document any accepted exceptions with owner and planned remediation date
 - [x] Add `"check:a11y-content": "node scripts/migration/check-a11y-content.js"` to `package.json`
-- [ ] Commit accessibility check script, findings, and summary report
+- [x] Commit accessibility check script, findings, and summary report
 
 ---
 
@@ -102,16 +102,16 @@ Accessibility issues introduced during content migration are often harder to fix
 
 ### Definition of Done
 
-- [ ] All acceptance criteria are satisfied and verified
-- [ ] Tasks are complete or intentionally descoped with rationale
-- [ ] Dependencies and blockers are resolved or documented
-- [ ] Outcomes section is completed with delivered artefacts and deviations
+- [x] All acceptance criteria are satisfied and verified
+- [x] Tasks are complete or intentionally descoped with rationale
+- [x] Dependencies and blockers are resolved or documented
+- [x] Outcomes section is completed with delivered artefacts and deviations
 
 ---
 
 ### Outcomes
 
-{Leave blank until work is complete.}
+RHI-040 closed after the staged migration corpus reached a clean accessibility content scan (`0` blocking findings, `0` warnings, `0` weak-link warnings), the deterministic 10-route rendered sample passed `10/10`, and the representative article template completed a full keyboard tab cycle back to the skip link without trapping focus.
 
 **Delivered artefacts:**
 
@@ -136,6 +136,7 @@ Accessibility issues introduced during content migration are often harder to fix
 | 2026-03-10 | In Progress | Baseline evidence recorded in `migration/reports/accessibility-scan-summary.md`: the Markdown gate scanned 171 staged files and reported 315 blocking findings plus 88 warnings; the deterministic 10-page rendered sample passed on 6 of 10 routes; and a manual keyboard spot-check confirmed skip-link behavior plus visible focus styling on `/the-realm-split-field-guide-to-migrating-an-sfcc-site/`. |
 | 2026-03-10 | In Progress | Targeted remediation on the highest-priority staged files reduced the Markdown gate to 270 blocking findings plus 87 warnings and brought the deterministic 10-page rendered sample to 10 of 10 passing routes. RHI-040 remains open because the Markdown gate still exceeds the zero-blocking threshold. |
 | 2026-03-10 | In Progress | A second remediation slice on the next highest-blocking files reduced the Markdown gate further to 238 blocking findings plus 84 warnings while keeping the deterministic rendered sample at 10 of 10 passing routes. |
+| 2026-03-11 | Done | Final remediation closed the staged Markdown gate at `0` blocking findings, `0` warnings, and `0/5` weak-link warnings. The deterministic 10-route rendered sample passed again at `10/10`, and a top-of-page keyboard traversal on `/the-realm-split-field-guide-to-migrating-an-sfcc-site/` reached 51 unique interactive elements before wrapping back to the skip link. No accessibility exceptions were accepted. |
 
 ---
 

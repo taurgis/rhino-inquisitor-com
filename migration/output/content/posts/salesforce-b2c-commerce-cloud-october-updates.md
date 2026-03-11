@@ -22,7 +22,7 @@ We have just received the final release ([22.10](/salesforce-b2c-commerce-cloud-
 
 ### Trusted Agent
 
-[![](/media/2022/slas-trusted-agent-099b4e2206.png)](/media/2022/slas-trusted-agent-099b4e2206.png)
+[![Diagram showing SLAS trusted-agent authentication in the October updates article.](/media/2022/slas-trusted-agent-099b4e2206.png)](/media/2022/slas-trusted-agent-099b4e2206.png)
 
 -   [https://developer.salesforce.com/docs/commerce/commerce-api/guide/slas-trusted-agent.html](https://developer.salesforce.com/docs/commerce/commerce-api/guide/slas-trusted-agent.html)
 

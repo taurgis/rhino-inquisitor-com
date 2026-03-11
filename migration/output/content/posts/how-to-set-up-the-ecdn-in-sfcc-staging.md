@@ -20,7 +20,7 @@ author: Thomas Theunen
 ---
 Deprecated Article Since the writing of this article, the eCDN business manager module has been updated to allow configuration of vanity domains on Staging. Therefore, there is no need to use API calls as described in this article (unless you really, really want to...).
 
-Read all about it [here](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_configure_ecdn_for_staging_in_bm.htm&type=5).
+Read all about it in the [staging eCDN Business Manager release note](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_configure_ecdn_for_staging_in_bm.htm&type=5).
 
 Using the [Business Manager module](/lets-go-live-ecdn/), setting up custom vanity domains and uploading certificates on the production instance is easy. But how about staging?
 
@@ -45,7 +45,7 @@ Salesforce [has written a guide](https://developer.salesforce.com/docs/commerce/
 
 tenantID The tenantID mentioned in the guide is the Realm ID (zzxx) combined with the Instance ID (001). This information is shown in the next step of this guide on the Staging instance.
 
-e.g.**zzxx\_001** Roles Remember to assign the "Salesforce Commerce API role to the API Client! [![A screenshot of the Account Manager where the "Salesforce Commerce API" role is assigned with the staging environment filter.](/media/2023/commerce-cloud-api-client-roles-1a338d1f61.jpg)](/media/2023/commerce-cloud-api-client-roles-1a338d1f61.jpg)
+e.g.**zzxx\_001** Roles Remember to assign the "Salesforce Commerce API role to the API Client! [![Account Manager roles screen with the Salesforce Commerce API role enabled for staging.](/media/2023/commerce-cloud-api-client-roles-1a338d1f61.jpg)](/media/2023/commerce-cloud-api-client-roles-1a338d1f61.jpg)
 
 ## Step 2: Get the staging credentials
 
@@ -55,7 +55,7 @@ We get these settings here:
 
 "Administration > Site Development > Salesforce Commerce API Settings"
 
-[![A screenshot of the Business Manager "Salesforce Commerce API Settings" screen showing the Short Code and Organization ID needed for the staging ecdn.](/media/2023/salesforce-commerce-api-settings-be8d59fe5b.jpg)](/media/2023/salesforce-commerce-api-settings-be8d59fe5b.jpg)
+[![Salesforce Commerce API Settings screen with the short code and organization ID for staging.](/media/2023/salesforce-commerce-api-settings-be8d59fe5b.jpg)](/media/2023/salesforce-commerce-api-settings-be8d59fe5b.jpg)
 
 ## Step 3: Get an access token
 

@@ -32,7 +32,7 @@ This process helps reduce the risk of direct attacks on the origin infrastructur
 
 Long story short, origin shielding is a security measure for safeguarding cloud-hosted infrastructure, ensuring both the integrity and availability of Salesforce’s services.
 
-![A dramatic image of a superhero in front of a server, protecting it from a "bad" actor in the shadows.](/media/2024/origin-shielding-v2-280aa345d3.jpg)
+![Illustration of origin shielding protecting an application server from hostile traffic.](/media/2024/origin-shielding-v2-280aa345d3.jpg)
 
 Cloudflare is our "hero" protecting and routing traffic on our behalf!
 
@@ -44,7 +44,7 @@ Although this change was communicated multiple times in advance, [many projects 
 
 With the introduction of Origin Shielding, any third-party system attempting to access controllers or OCAPI APIs through the Demandware URL received an error page.
 
-[![A screenshot of the Cloudflare Origin Shielding error shows that the user has been blocked.](/media/2024/cloudflare-origin-shielding-error-b81358c14c.png)](/media/2024/cloudflare-origin-shielding-error-b81358c14c.png)
+[![Cloudflare block page shown when origin shielding denies direct access.](/media/2024/cloudflare-origin-shielding-error-b81358c14c.png)](/media/2024/cloudflare-origin-shielding-error-b81358c14c.png)
 
 The Cloudflare error page.
 

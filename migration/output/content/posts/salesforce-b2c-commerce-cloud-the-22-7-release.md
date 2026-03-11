@@ -18,11 +18,11 @@ author: Thomas Theunen
 ---
 Summer has arrived, and so has the next Salesforce B2C Commerce Cloud release! This time we look at the [July 2022 (22.7) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_7_release.htm&type=5)!
 
-Are you interested in last month’s release notes? [Click here](/salesforce-b2c-commerce-the-22-6-release/)!
+Are you interested in last month’s release notes? [Read the 22.6 release notes](/salesforce-b2c-commerce-the-22-6-release/)!
 
 ## Social Commerce
 
-[![](/media/2022/social-commerce-salesforce-a88048dff4.jpg)](/media/2022/social-commerce-salesforce-a88048dff4.jpg)
+[![Social commerce artwork introducing the 22.7 release theme.](/media/2022/social-commerce-salesforce-a88048dff4.jpg)](/media/2022/social-commerce-salesforce-a88048dff4.jpg)
 
 Forward-looking statements apply!
 
@@ -54,7 +54,7 @@ If we look at this list, it is also clear this is an update to the 1.7.14 versio
 
 Some significant encryption changes have been made to the [Order.getOrderExportXML](https://documentation.b2c.commercecloud.salesforce.com/DOC3/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_order_Order.html#dw_order_Order_getOrderExportXML_DetailAnchor) API, mainly around the encryption of payment instrument data.
 
-A complete list of changes is available [here](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_OCAPI_order_export_mc.htm&type=5).
+A complete list of changes is available in the [order export encryption update notes](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_OCAPI_order_export_mc.htm&type=5).
 
 ## PWA Kit v2.0.0
 

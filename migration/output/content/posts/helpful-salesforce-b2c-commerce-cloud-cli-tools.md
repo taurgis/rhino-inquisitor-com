@@ -53,7 +53,7 @@ There are still more commands available, but I will not review them all.
 
 ## b2c-tools
 
-![A screenshot of B2C Tools depicting a migration](/media/2022/b2c-tools-ff2c3df29f.svg)
+![B2C Tools CLI graphic illustrating migration support between environments.](/media/2022/b2c-tools-ff2c3df29f.svg)
 
 -   [GitHub Repository Link](https://github.com/SalesforceCommerceCloud/b2c-tools)
 

@@ -73,7 +73,7 @@ But is it also so surprising? The B2C community is also more isolated and not by
 
 The first community within Demandware / SFCC is undoubtedly the Xchange, discontinued and all of its histories erased! It has left many people annoyed as it contained a vast amount of knowledge that people were willing to share with their peers.
 
-![A screenshot of Account Manager roles & permissions showing the old Xchange.](/media/2022/xchange-c2290f06af.png)
+![Account Manager roles and permissions page still listing the old Xchange integration.](/media/2022/xchange-c2290f06af.png)
 
 I found this community (even though it was not as active as the Trailblazer Community is) a beneficial tool to find my way in the world of Salesforce Commerce Cloud. I still find myself assigning the role to every account in Account Manager in nostalgia, even though it does not do anything anymore.
 

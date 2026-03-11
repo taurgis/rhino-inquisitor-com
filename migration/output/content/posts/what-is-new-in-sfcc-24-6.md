@@ -21,7 +21,7 @@ author: Thomas Theunen
 ---
 "[Connections](/salesforce-connections-2024-and-sfcc/)" is in our rear-view mirror, but some new updates to the platform are ahead! This time, we look at the [June 2024 (24.6) release](https://help.salesforce.com/s/articleView?id=sf.b2c_rn_24_6_release.htm&type=5)!
 
-Are you interested in last month’s release notes? [Click here](/getting-secured-with-the-24-5-salesforce-b2c-commerce-cloud-release/)!
+Are you interested in last month’s release notes? [Read the 24.5 release notes](/getting-secured-with-the-24-5-salesforce-b2c-commerce-cloud-release/)!
 
 ## Commerce Concierge has arrived
 
@@ -63,7 +63,7 @@ PWA Kit By default, the PWA Kit does not use this feature - meaning that this up
 
 ### Create Active Data Sorting Rules
 
-![](/media/2024/search-query-testing-tool-sfcc-8fb16cf218.jpg)
+![Search Index Query Testing tool showing active-data sorting support.](/media/2024/search-query-testing-tool-sfcc-8fb16cf218.jpg)
 
 > The Search Index Query Testing (SIQT) tool now supports sorting rules with active data sorting attributes. Get consistent sorting results in a storefront and when testing an active data sorting rule. Previously, if a sorting rule with active data was used in SIQT, the sorting used text relevance and didn’t consider active data.
 >

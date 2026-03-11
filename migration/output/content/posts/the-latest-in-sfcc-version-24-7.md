@@ -19,7 +19,7 @@ author: Thomas Theunen
 ---
 In some places there is too much rain, in other places it is too hot.The weather might not bee consistent, but the release schedule of SFCC sure is! This time we look at the [July 2024 (24.7) release](https://help.salesforce.com/s/articleView?id=sf.b2c_rn_24_7_release.htm&type=5)!
 
-Are you interested in last month’s release notes? [Click here](/what-is-new-in-sfcc-24-6/)!
+Are you interested in last month’s release notes? [Read the 24.6 release notes](/what-is-new-in-sfcc-24-6/)!
 
 ## Migrate to eCDN WAFv2
 
@@ -155,7 +155,7 @@ This is a big update for any business working in multiple online and offline cha
 
 A big release focusing on many different areas important to any project: Support for new APIs, performance, and accessibility!
 
-#### Improvements
+### Improvements
 
 -   **Product Tile Revamp**: Displays different pricing for various products on product tiles and PDP, and shows pricing on cart, checkout, and wishlist pages.
 -   **Promotional Callouts**: Promotional messages are now visible on product list and detail pages.
@@ -163,7 +163,7 @@ A big release focusing on many different areas important to any project: Support
 -   **Badges and Lazy Basket Creation**: New badges are displayed, and baskets are created lazily to improve performance.
 -   **Cache Control**: Implements the `stale-while-revalidate` directive for better caching.
 
-#### Accessibility Enhancements
+### Accessibility Enhancements
 
 -   Added live region support to components.
 -   Replaced `<p>` tags with heading tags on the cart page.
@@ -171,11 +171,11 @@ A big release focusing on many different areas important to any project: Support
 -   Added `aria-hidden` to the search icon and explicit headers to the cart modal.
 -   Autocomplete is now available for text input fields, and error messages include an error icon.
 
-#### Performance Improvements
+### Performance Improvements
 
 -   Navigation components now load their categories lazy, enhancing performance.
 
-#### Bug Fixes
+### Bug Fixes
 
 -   Fixed SEO component to correctly set the keywords meta tag.
 -   Resolved issues with the RecommendedProducts component toggling the favourite icon.

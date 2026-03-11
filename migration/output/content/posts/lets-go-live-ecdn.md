@@ -144,7 +144,7 @@ From personal experience, this usually takes a couple of minutes rather than hou
 
 Now that we are a "verified owner" of the domain within the eCDN, we can start configuring that domain.
 
-[![A screenshot of the eCDN configuration in the BM for the "my-domain.com" website.](/media/2022/ecdn-overview-fea46a41af.png)](/media/2022/ecdn-overview-fea46a41af.png)
+[![eCDN overview screen for a configured storefront domain.](/media/2022/ecdn-overview-fea46a41af.png)](/media/2022/ecdn-overview-fea46a41af.png)
 
 To start, click the "settings" to the right of the top-level domain.
 
@@ -190,7 +190,7 @@ Using the IP Allowlisting feature, you can inform the firewall to ignore specifi
 
 ### WAF Settings
 
-[![Web application firewall controls for the embedded CDN.](/media/2022/ecdn-waf-settings-3ec4c7f73e.png)](/media/2022/ecdn-waf-settings-3ec4c7f73e.png)
+[![Cloudflare Speed tab with Auto Minify for HTML, CSS, and JavaScript plus Polish enabled.](/media/2022/ecdn-waf-settings-3ec4c7f73e.png)](/media/2022/ecdn-waf-settings-3ec4c7f73e.png)
 
 The WAF ([Web Application Firewall](https://www.cloudflare.com/learning/ddos/glossary/web-application-firewall-waf/)) is a Cloudflare feature that is well documented.
 
@@ -210,7 +210,7 @@ HTML Minification Those who have enabled this in the past might have wondered if
 
 If you have comments on an environment that have value for an external system, be sure not to activate this type of minification.
 
-_**Note:** This also breaks the deprecated toolkit on Development as it relies on comments._ [![Speed settings for minification and image optimization.](/media/2022/ecdn-speed-settings-cccba25f5e.png)](/media/2022/ecdn-speed-settings-cccba25f5e.png)
+_**Note:** This also breaks the deprecated toolkit on Development as it relies on comments._ [![eCDN Speed panel showing Auto Minify and Polish options for the storefront.](/media/2022/ecdn-speed-settings-cccba25f5e.png)](/media/2022/ecdn-speed-settings-cccba25f5e.png)
 
 Not much to say about this section; here, you can control a few settings that improve speed, such as minification of Javascript, CSS, and HTML.
 

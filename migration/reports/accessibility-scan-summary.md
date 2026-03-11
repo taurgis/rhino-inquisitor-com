@@ -3,7 +3,7 @@
 ## Scope
 
 - Ticket: `RHI-040`
-- Date: `2026-03-10`
+- Date: `2026-03-11`
 - Corpus: staged Phase 4 Markdown under `migration/output/content/`
 - Owner-approved thresholds:
   - blocking cap: `0`
@@ -22,39 +22,25 @@ npm run check:a11y-content
 Result:
 
 - `171` staged Markdown files scanned
-- `238` blocking findings
-- `84` warnings
-- `45` weak-link warnings against a cap of `5`
+- `0` blocking findings
+- `0` warnings
+- `0` weak-link warnings against a cap of `5`
 - Decorative exceptions loaded: `0`
 
 Finding breakdown:
 
 | Issue type | Count | Status |
 |---|---:|---|
-| `missing_alt_text` | 140 | blocking |
-| `generic_alt_text` | 95 | blocking |
-| `heading_level_skip` | 5 | warning |
-| `weak_link_text` | 45 | warning |
-| `table_empty_headers` | 3 | blocking |
-| `table_missing_header_divider` | 34 | warning |
-
-Highest-blocking staged files:
-
-| File | Blocking findings | Notes |
-|---|---:|---|
-| `migration/output/content/posts/delta-exports-in-salesforce-b2c-commerce-cloud.md` | 6 | 6 missing-alt, 1 weak-link warning |
-| `migration/output/content/posts/ai-as-an-architect-and-content-creator.md` | 6 | 5 generic-alt, 1 missing-alt |
-| `migration/output/content/posts/how-to-change-the-code-compatibility-mode-in-salesforce-b2c-commerce-cloud.md` | 6 | 6 missing-alt |
-| `migration/output/content/posts/sitegenesis-vs-sfra-vs-pwa.md` | 6 | 6 missing-alt |
-| `migration/output/content/posts/what-is-commerce-on-core.md` | 6 | 6 missing-alt |
+| none | 0 | clean pass |
 
 Artifact:
 
 - `migration/reports/a11y-content-warnings.csv`
+- Artifact state: header-only CSV after the clean pass
 
 Status:
 
-- Failing. The Markdown gate improved again after the second remediation slice, but the staged corpus still does not meet the approved threshold contract.
+- Passing. The staged Markdown corpus now meets the approved threshold contract.
 
 ## Rendered sample gate
 
@@ -103,6 +89,9 @@ Observed behavior:
 - Activating the skip link with `Enter` moved focus to `#main-content`.
 - The next `Tab` moved focus into the article region and reached the breadcrumb link.
 - The active breadcrumb link reported a visible focus style of `outline: 3px solid rgb(10, 132, 255)`.
+- A clean top-of-page tab traversal reached `51` unique interactive elements before wrapping back to `Skip to main content`.
+- The first ten focus targets covered the skip link, site home link, search, mobile-navigation close control, primary navigation links, and reading/search CTAs.
+- The final five focus targets before wrap covered privacy and social links, then returned to the skip link.
 
 Status:
 
@@ -115,4 +104,4 @@ Status:
 
 ## Conclusion
 
-RHI-040 is implemented and the rendered 10-page sample now passes, but the ticket is not ready to close. The staged corpus still fails the Markdown gate due primarily to missing or placeholder alt text in migrated content outside the current remediation slice.
+RHI-040 is ready to close. The staged Markdown gate is clean, the deterministic 10-page rendered sample passes, the representative article route passes the manual keyboard check, and no accessibility exceptions were accepted for this batch.

@@ -19,7 +19,7 @@ author: Thomas Theunen
 ---
 Everyone knows that getting ready for the holiday season starts in the summer in the Commerce Cloud world! And looking at the [23.8 release notes,](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_23_8_release.htm&type=5) this is apparent.
 
-Are you interested in last month’s release notes? [Click here](/salesforce-b2c-commerce-the-22-6-release/)!
+Are you interested in last month’s release notes? [Read the previous release notes](/salesforce-b2c-commerce-the-22-6-release/)!
 
 ## Infrastructure and Scaling
 
@@ -82,7 +82,7 @@ I have written [extensively on this topic](/the-deprecation-of-the-uuid-token-fo
 
 ### Specify Enhanced Domain Names In Account Manager
 
-![A screenshot showing how Salesforce Identity allows you to log in with other services, which is part of the updates in 23.8](/media/2023/salesforce-identity-b628afdc63.jpeg)
+![Salesforce Identity screen showing sign-in with external identity services.](/media/2023/salesforce-identity-b628afdc63.jpeg)
 
 > You can now configure Identity Federation with Salesforce Identity in Account Manager using supported enhanced domain names. You can specify the organization MyDomain subdomain name in Salesforce Core. The default domain suffix is my.salesforce.com. If the identity federation is allowed or enforced, you can change the value. For example, if you use a Salesforce Core sandbox, you can use sandbox.my.salesforce.com as the domain suffix.
 

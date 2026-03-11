@@ -19,7 +19,7 @@ author: Thomas Theunen
 ---
 As the clock ticks on a new month has arrived, and with that the next [Salesforce B2C Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/) release! This time we look at the [April 2023 (23.4) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_23_4_release.htm&language=en_US&type=5)!
 
-Are you interested in last month’s release notes? [Click here](/salesforce-b2c-commerce-cloud-23-3-release/)!
+Are you interested in last month’s release notes? [Read the 23.3 release notes](/salesforce-b2c-commerce-cloud-23-3-release/)!
 
 ## Platform
 

@@ -25,7 +25,7 @@ This report will deconstruct the MIME protocol, build a bulletproof, reusable se
 
 For those who want a quick solution to their attachment problem without extensive reading, here you go!
 
-An alternative example can also be found [here](https://github.com/taurgis/salesforce-commerce-cloud-libraries/blob/master/cartridges/plugin_testlibraries/cartridge/controllers/jsPDF.js)!
+An alternative example can also be found in the [jsPDF attachment controller example](https://github.com/taurgis/salesforce-commerce-cloud-libraries/blob/master/cartridges/plugin_testlibraries/cartridge/controllers/jsPDF.js)!
 
 ### Controller
 
@@ -383,7 +383,7 @@ When working with files (especially in the storefront), you have to keep watch o
 
 In my example, one is especially one to keep an eye on.
 
-![A screenshot of the quota limit surround string length in Salesforce Commerce CLoud.](/media/2022/api-jsstringlength-6ae1560d95.png)
+![Quota documentation showing the JavaScript string-length limit in Salesforce Commerce Cloud.](/media/2022/api-jsstringlength-6ae1560d95.png)
 
 There are multiple ways to work around this limit, but we will not be digging into that in this post.
 

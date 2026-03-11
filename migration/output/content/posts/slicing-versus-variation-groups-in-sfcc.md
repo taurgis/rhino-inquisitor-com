@@ -55,13 +55,13 @@ Variation Groups also make it possible to tag products to promotions, which give
 -   **Composable Storefront**: Although SFRA and SiteGenesis supported slicing, the PWA Kit has never been tested with slicing and solely supports Variation Groups out of the box.
 -   **Slicing is kind of deprecated**: Although the [Trailhead Module](https://trailhead.salesforce.com/content/learn/modules/b2c-catalog-category-product/b2c-configure-variation-groups-slicing) and documentation no longer show a deprecation message (I somehow remember it visible in more places), it is a deprecated feature (proved by the previous point).
 
-![A screenshot of the ProductSearchHit script documentation with the following message below slicing: "Deprecated: Please use HIT_TYPE_VARIATION_GROUP instead."](/media/2023/sfcc-slicing-deprecated-42f8438771.png)
+![ProductSearchHit documentation warning that slicing is deprecated in favor of variation groups.](/media/2023/sfcc-slicing-deprecated-42f8438771.png)
 
 One location still has the deprecation message.
 
 ## Quota Limits
 
-[![A screenshot of the quota limit for variations in SFCC: The Variations per Base Product object relation quota consists of: Log file ID: object.ProductPO.relation.variationProductAssignmentPOs Description: The maximum number of variations for a base product. Limit: 1,000 (warning at 600)](/media/2023/variations-quota-limit-sfcc-00862ef947.png)](/media/2023/variations-quota-limit-sfcc-00862ef947.png)
+[![Quota documentation showing the maximum number of variations per base product.](/media/2023/variations-quota-limit-sfcc-00862ef947.png)](/media/2023/variations-quota-limit-sfcc-00862ef947.png)
 
 When dealing with variations, it is crucial to be mindful of a single quota limit - the maximum number of variations per base product, similar to slicing.
 

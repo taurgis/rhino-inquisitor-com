@@ -100,7 +100,7 @@ Understandably, it is a huge effort to move this over - and monthly releases nee
 
 Are you completely lost in the new system? Maybe this [unofficial solution](https://github.com/clavery/docset-sfcc-b2c) for [Dash](https://kapeli.com/dash), built by [Charles Lavery](https://github.com/clavery) will help you!
 
-![A screenshot of Dash showing the B2C Commerce Cloud API documentation.](/media/2023/charles-lavery-dash-2de6a904d6.jpg)
+![Dash app indexing the B2C Commerce API documentation for offline lookup.](/media/2023/charles-lavery-dash-2de6a904d6.jpg)
 
 ## My opinion
 

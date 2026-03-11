@@ -56,7 +56,7 @@ channel_id:RefArchGlobal
 
 Within this body, we are authenticating a **guest** customer via "ecom" (B2C Commerce Cloud) for our site "**RefArchGlobal**".
 
-![](/media/2023/slas-ts-ext-on-behalf-of-authentication-3803569585.jpg)
+![Trusted-system extension authentication flow used before calling createOrders.](/media/2023/slas-ts-ext-on-behalf-of-authentication-3803569585.jpg)
 
 Screenshot of the form configuration in Postman
 

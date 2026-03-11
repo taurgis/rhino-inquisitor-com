@@ -22,7 +22,7 @@ So, what does this iteration of Connections have in store for us? Will there be 
 
 ## No epic concert at Connections?
 
-![A picture was taken from the very top of the stadium overlooking the concert podium given at Dreamforce in 2023.](/media/2024/img-4015-9ece77c62f.jpeg)
+![Wide stadium view from the upper stands looking down at the concert stage.](/media/2024/img-4015-9ece77c62f.jpeg)
 
 Let's pull this cat out of the bag before discussing Commerce Cloud-related matters. For a long time, we got used to getting an epic concert one of the evenings of the event, but that does not seem to be the case this time.
 

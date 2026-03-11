@@ -54,7 +54,7 @@ The preparation for this certification will take you across different products o
 
 ## Business Analyst
 
-![](/media/2022/business-analyst-scaled-e1656834912690-1350424ea9.jpg)
+![Illustration representing the Business Analyst certification track.](/media/2022/business-analyst-scaled-e1656834912690-1350424ea9.jpg)
 
 -   [Trailhead - Certification](https://trailhead.salesforce.com/en/credentials/businessanalyst)
 
@@ -106,7 +106,7 @@ The official description is as follows:
 
 ## Indirect Sales Accredited Professional
 
-[![](/media/2022/sales-25d69d411e.jpg)](/media/2022/sales-25d69d411e.jpg)
+[![Illustration representing the Indirect Sales accreditation path.](/media/2022/sales-25d69d411e.jpg)](/media/2022/sales-25d69d411e.jpg)
 
 -   [Partner Learning Camp - Accreditation](https://partnerlearningcamp.salesforce.com/s/credentials-catalog?plc__recordId=huaR3i8ewEj9BrjQeVKHB51JTVgrOzyjjUy8ORjUXXoU52nqrMytajtg4M1c44Ux)
 

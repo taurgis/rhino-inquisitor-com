@@ -35,7 +35,7 @@ The changes get replicated to production, and the next day you start getting cal
 
 This happened because your landing page also got assigned automatically to the Blue and Black Jeans subcategories, and there is no way to turn this off (besides custom development).
 
-![A screenshot of page designer where a user selects a category to assign the page to.](/media/2022/page-designer-subcategories-8ed50d99ab.png)
+![Page Designer category assignment screen showing how a page is linked to a category.](/media/2022/page-designer-subcategories-8ed50d99ab.png)
 
 Page Designer - Category Selection
 

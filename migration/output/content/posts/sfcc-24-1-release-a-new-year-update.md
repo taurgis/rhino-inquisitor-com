@@ -18,13 +18,13 @@ author: Thomas Theunen
 ---
 A new year means release notes for the back end have started again! This time, we look at the [January 2024 (24.1) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_24_1_release.htm&type=5)!
 
-Are you interested in last year's release notes? [Click here](/salesforce-b2c-commerce-cloud-23-10-release-a-comprehensive-overview/)!
+Are you interested in last year's release notes? [Read the 23.10 release notes](/salesforce-b2c-commerce-cloud-23-10-release-a-comprehensive-overview/)!
 
 ## Platform
 
 ### DKIM Support for Emails
 
-![A screenshot of the Email Settings in the Business Manager showing the new DKIM Checkbox](/media/2024/dkim-in-commerce-cloud-0dbe52d4a2.png)
+![Email Settings screen in Business Manager with the new DKIM option.](/media/2024/dkim-in-commerce-cloud-0dbe52d4a2.png)
 
 Are you tired of missing out on important emails because they end up in your SPAM folder? We have great news for you! Commerce Cloud now comes with [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) support, designed to significantly reduce the chances of your emails being marked as SPAM.
 

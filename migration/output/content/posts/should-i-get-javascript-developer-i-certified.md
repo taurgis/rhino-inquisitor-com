@@ -24,7 +24,7 @@ Knowledge of vanilla JavaScript is essential. There are a lot of free courses fo
 
 ## Broaden your "JavaScript" horizons
 
-![](/media/2022/superbadge-prerequisites-34c7470102.png) You must be prepared to dig into the Salesforce platform when interested in this certification. It wasn't explicitly designed for Salesforce B2C Commerce developers, but for [Lightning Web Component](https://developer.salesforce.com/docs/component-library/documentation/lwc) developers on the force.com platform. And you can't get it by just doing the certification exam on [Webassessor](https://www.webassessor.com/). You also need to complete a [Superbadge](https://trailhead.salesforce.com/en/content/learn/superbadges/superbadge_lwc_specialist), which does not have a strict timeline.
+![Superbadge prerequisites shown for the JavaScript Developer I certification path.](/media/2022/superbadge-prerequisites-34c7470102.png) You must be prepared to dig into the Salesforce platform when interested in this certification. It wasn't explicitly designed for Salesforce B2C Commerce developers, but for [Lightning Web Component](https://developer.salesforce.com/docs/component-library/documentation/lwc) developers on the force.com platform. And you can't get it by just doing the certification exam on [Webassessor](https://www.webassessor.com/). You also need to complete a [Superbadge](https://trailhead.salesforce.com/en/content/learn/superbadges/superbadge_lwc_specialist), which does not have a strict timeline.
 
 > Superbadges are domain-based credentials that allow you to apply your Salesforce skills in a specific area (think: process automation or app customization) to hands-on, real-world business problems Salesforce
 

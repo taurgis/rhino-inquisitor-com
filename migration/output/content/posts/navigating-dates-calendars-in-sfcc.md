@@ -808,11 +808,11 @@ I put a warning up earlier, didn't I, with the Calendar - Date conversion? Well,
 
 The first thing I would recommend to anyone is to read the documentation carefully because it contains a very clear warning!
 
-![A screenshot of the documentation with the following text: "WARNING: Keep in mind that the given Date object is always interpreted in the time zone GMT. This means time zone information at the calendar object needs to be set separately by using the setTimeZone(String) method."](/media/2023/calendar-constructor-warning-83ef0dcd2b.png)
+![Documentation warning about Calendar constructor dates being interpreted in GMT.](/media/2023/calendar-constructor-warning-83ef0dcd2b.png)
 
 A warning when creating a Calendar from a Date
 
-![A screenshot of a warning inside of the documentation: "Keep in mind that the returned Date object's time is always interpreted in the time zone GMT. This means time zone information set at the calendar object will not be honored and gets lost."](/media/2023/calendar-to-date-warning-a652a2a931.png)
+![Documentation warning that Calendar.toDate loses the configured time zone and returns GMT.](/media/2023/calendar-to-date-warning-a652a2a931.png)
 
 A warning when converting from a Calendar to Date
 

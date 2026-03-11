@@ -34,7 +34,7 @@ Salesforce (well ... the [Mobify](https://www.digitalcommerce360.com/2020/09/09/
 
 ## Transferrable Skills
 
-![A visual representation of playing with your developer knowledge, and using it to your advantage. The image shows you using your hands with a controller to use your brain.](/media/2023/use-your-knowledge-98ac47c97d.jpg)
+![Illustration of a game controller and brain symbolizing transferable developer knowledge.](/media/2023/use-your-knowledge-98ac47c97d.jpg)
 
 ### Development (Duh...)
 

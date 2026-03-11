@@ -21,7 +21,7 @@ Over the past year, I have seen increasing gossip (which I am partly to blame fo
 
 ## Technology changes
 
-[![Image depicting 120 years of Moore’s Law](/media/2022/e094f768-3336-403f-8c75-9013cb07df2f-b7c7a5e8f2.png)](/media/2022/e094f768-3336-403f-8c75-9013cb07df2f-b7c7a5e8f2.png)
+[![Graphic illustrating the long-term acceleration of computing progress.](/media/2022/e094f768-3336-403f-8c75-9013cb07df2f-b7c7a5e8f2.png)](/media/2022/e094f768-3336-403f-8c75-9013cb07df2f-b7c7a5e8f2.png)
 
 **Let us get one thing out of the way first. This article is my opinion and my opinion alone.**
 
@@ -38,7 +38,7 @@ _**That felt like an inspirational speech, didn't it?**_
 
 ## Advantages of a monolith
 
-![](/media/2023/salesforce-commerce-cloud-monolith-e3f50eb05b.jpg)
+![Illustration representing the strengths of a monolithic commerce architecture.](/media/2023/salesforce-commerce-cloud-monolith-e3f50eb05b.jpg)
 
 I'll make sure to make one thing clear. Monolithic architecture has its advantages!
 

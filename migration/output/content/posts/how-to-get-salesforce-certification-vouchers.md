@@ -19,7 +19,7 @@ Earning a certification in Salesforce B2C Commerce Cloud [can be a valuable goal
 
 ## Certifications vs Accreditations
 
-[![](/media/2023/accreditations-vs-certifications-7c6224e505.png)](/media/2023/accreditations-vs-certifications-7c6224e505.png)
+[![Comparison graphic for accreditations versus certifications.](/media/2023/accreditations-vs-certifications-7c6224e505.png)](/media/2023/accreditations-vs-certifications-7c6224e505.png)
 
 Before we start, we need to [distinguish between the types of certifications](https://partners-salesforce.relayto.com/e/partner-guide-to-credentials-vfgkh7myki6y2/fUtftxtv3).
 
@@ -29,7 +29,7 @@ Most of the items discussed below are only for regular certifications, not accre
 
 ## Partner Vouchers
 
-[![](/media/2023/partner-benefits-0de8d66c3b.png)](/media/2023/partner-benefits-0de8d66c3b.png)
+[![Partner benefits graphic used in the voucher overview.](/media/2023/partner-benefits-0de8d66c3b.png)](/media/2023/partner-benefits-0de8d66c3b.png)
 
 Depending on what "level" you are as a partner with Salesforce, you get vouchers that cover the total cost of the certification exam.
 

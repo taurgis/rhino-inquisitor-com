@@ -106,7 +106,7 @@ The [eval](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com
 
 ## isFinite and isNaN
 
-![](/media/2023/the-infinity-of-space-5e44ec8ec6.jpg)
+![Space-themed illustration introducing the breadth of SFCC global functions.](/media/2023/the-infinity-of-space-5e44ec8ec6.jpg)
 
 ```
 

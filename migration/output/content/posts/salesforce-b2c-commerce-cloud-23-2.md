@@ -21,13 +21,13 @@ author: Thomas Theunen
 ---
 February is almost here, and so is the [February 2023](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_23_2_release.htm&type=5) (23.2) release! If you are an avid user of Page Designer, this is the update you have been waiting for - and Salesforce, keep 'em comin'!
 
-_Are you interested in last month’s release notes? [Click here](/salesforce-b2c-commerce-cloud-23-1/)!_
+_Are you interested in last month’s release notes? [Read the 23.1 release notes](/salesforce-b2c-commerce-cloud-23-1/)!_
 
 ## Page Designer Improvements
 
 ### Improved Page Designer Structure and Usability
 
-![](/media/2023/page-designer-structure-oldv2-56ca8ab276.jpeg)
+![Old Page Designer structure before the 23.2 redesign.](/media/2023/page-designer-structure-oldv2-56ca8ab276.jpeg)
 
 Old Page Designer Structure
 
@@ -43,7 +43,7 @@ Overall, this will be a great step forward in enhancing the user experience.
 
 ### Move Components in Page Designer More Easily
 
-![](/media/2023/page-designer-move-e9d6ec4100.gif)
+![Old drag-and-drop component movement in Page Designer.](/media/2023/page-designer-move-e9d6ec4100.gif)
 
 Old Moving Component
 

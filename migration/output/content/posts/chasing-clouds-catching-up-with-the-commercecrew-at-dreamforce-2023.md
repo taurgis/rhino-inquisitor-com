@@ -31,7 +31,7 @@ The adventurous start did nothing to deter our enthusiasm – instead, it added 
 
 ## A Welcoming Tuesday
 
-![Three people smiling on a picture at a breakfast meeting in San Francisco including Thomas Theunen and Amalia Murray.](/media/2023/04cd6b21-12ba-4307-9ce5-3a60768e6ba0-1-105-c-c78a87bbb3.jpeg)
+![Breakfast meetup with the CommerceCrew before Dreamforce sessions.](/media/2023/04cd6b21-12ba-4307-9ce5-3a60768e6ba0-1-105-c-c78a87bbb3.jpeg)
 
 All energised to start Dreamforce!
 
@@ -59,7 +59,7 @@ Just as we thought the day couldn’t get any better, Dreamfest kicked off with 
 
 We went on an epic quest to find the mystical entrance to the ground floor, but alas, it remained shrouded in mystery. After much fruitless searching and getting rejected at every turn, we realised that perhaps we were not the chosen (e.g. not a customer) ones destined to enter. Maybe we just needed better directions. Or did I just have to flaunt my [Golden Hoodie](/events-and-the-golden-hoodie/)?
 
-![A picture of the concert of the Foo Fighters at Dreamfest 2023, taken high above the stage.](/media/2023/1832c203-32d4-4a5b-922a-218cf2ecf468-1-102-a-d53635718f.jpeg)
+![View of the Foo Fighters performing at Dreamfest 2023.](/media/2023/1832c203-32d4-4a5b-922a-218cf2ecf468-1-102-a-d53635718f.jpeg)
 
 In the clouds at Dreamfest 2023
 

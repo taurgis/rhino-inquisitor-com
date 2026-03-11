@@ -101,20 +101,65 @@ The complexity of data migration, with its varied methods and ownership, demands
 
 Also, please review [this page](https://help.salesforce.com/s/articleView?id=000391622&language=en_US&type=1) carefully, as it contains a wealth of information on the migration plan you need to set up.
 
-| Data Object | When | Key Considerations & Risks | Primary Owner |
-| --- | --- | --- | --- |
-| Product Catalog | Continuous in the old and new realms | Includes products, categories, assignments, and sorting rules. Relatively low risk. | Dev Team / Merchandising |
-| Price Books | Continuous in the old and new realms | Ensure all relevant price books are included. Test pricing thoroughly post-import. | Dev Team / Merchandising |
-| Content Assets & Libraries | Manual syncs at pre-defined moments | Includes content assets, folders, and library assignments. | Dev Team / Content Team |
-| Slot Configurations | Manual syncs at pre-defined moments | Verify slot configurations on all page types post-import. | Dev Team / Merchandising |
-| Promotions & Campaigns | Manual syncs at pre-defined moments | Includes promotion definitions, campaigns, and customer groups. | Dev Team / Marketing |
-| Custom Objects | Manual syncs at pre-defined moments | Export definitions via Site Export. Migrate data using custom jobs with dw.io classes. | Dev Team |
-| Site Preferences & Metadata | Manual syncs at pre-defined moments | Many settings are included in site export, but some such as sequence numbers must be manually configured and verified. | Dev Team |
-| Customer Profiles | Complete migration 1-2 weeks before the go-live, delta during and after | Critical PII risk: set the Customer Sequence Number in the new realm above the highest imported customer number to prevent duplicate IDs and data exposure. | Dev Team |
-| Customer Passwords | Part of the Customer Profiles | Passwords are encrypted, but can be exported and imported into different realms without Salesforce intervention. | Dev Team |
-| Order History | Complete migration 1-2 weeks before the go-live, delta during and after | You can export and import orders yourself as long as the site is not marked live. Import customers first so order-to-customer links are preserved. For a live site, Salesforce Support must perform the order migration with at least 10 working days' notice. | Dev Team / Salesforce Support |
-| System-Generated Coupons | Salesforce Support Ticket | Existing coupon seeds must be migrated by Salesforce Support so issued coupons remain valid. | Salesforce Support |
-| Active Data & Einstein | Salesforce Support Ticket, During Go-Live | Different realms require Salesforce Support coordination for this migration. | Dev Team / SF Support |
+- **Product Catalog**
+  - When: continuous in the old and new realms.
+  - Key considerations and risks: includes products, categories, assignments, and sorting rules. Relatively low risk.
+  - Primary owner: Dev Team / Merchandising.
+
+- **Price Books**
+  - When: continuous in the old and new realms.
+  - Key considerations and risks: ensure all relevant price books are included. Test pricing thoroughly post-import.
+  - Primary owner: Dev Team / Merchandising.
+
+- **Content Assets & Libraries**
+  - When: manual syncs at pre-defined moments.
+  - Key considerations and risks: includes content assets, folders, and library assignments.
+  - Primary owner: Dev Team / Content Team.
+
+- **Slot Configurations**
+  - When: manual syncs at pre-defined moments.
+  - Key considerations and risks: verify slot configurations on all page types post-import.
+  - Primary owner: Dev Team / Merchandising.
+
+- **Promotions & Campaigns**
+  - When: manual syncs at pre-defined moments.
+  - Key considerations and risks: includes promotion definitions, campaigns, and customer groups.
+  - Primary owner: Dev Team / Marketing.
+
+- **Custom Objects**
+  - When: manual syncs at pre-defined moments.
+  - Key considerations and risks: export definitions via Site Export. Migrate data using custom jobs with `dw.io` classes.
+  - Primary owner: Dev Team.
+
+- **Site Preferences & Metadata**
+  - When: manual syncs at pre-defined moments.
+  - Key considerations and risks: many settings are included in site export, but some such as sequence numbers must be manually configured and verified.
+  - Primary owner: Dev Team.
+
+- **Customer Profiles**
+  - When: complete migration 1-2 weeks before the go-live, with delta during and after.
+  - Key considerations and risks: critical PII risk. Set the Customer Sequence Number in the new realm above the highest imported customer number to prevent duplicate IDs and data exposure.
+  - Primary owner: Dev Team.
+
+- **Customer Passwords**
+  - When: part of the Customer Profiles migration.
+  - Key considerations and risks: passwords are encrypted, but can be exported and imported into different realms without Salesforce intervention.
+  - Primary owner: Dev Team.
+
+- **Order History**
+  - When: complete migration 1-2 weeks before the go-live, with delta during and after.
+  - Key considerations and risks: you can export and import orders yourself as long as the site is not marked live. Import customers first so order-to-customer links are preserved. For a live site, Salesforce Support must perform the order migration with at least 10 working days' notice.
+  - Primary owner: Dev Team / Salesforce Support.
+
+- **System-Generated Coupons**
+  - When: Salesforce Support ticket.
+  - Key considerations and risks: existing coupon seeds must be migrated by Salesforce Support so issued coupons remain valid.
+  - Primary owner: Salesforce Support.
+
+- **Active Data & Einstein**
+  - When: Salesforce Support ticket during go-live.
+  - Key considerations and risks: different realms require Salesforce Support coordination for this migration.
+  - Primary owner: Dev Team / SF Support.
 
 ### Phase 4: Rebuilding the Engine - Code, Config, and Integrations
 

@@ -29,7 +29,7 @@ Sure, there was an explanation of the eCDN and its use. But not how it fits in t
 
 Before we move into the details where the [Embedded CDN](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/admin/b2c_embedded_cdn.html) (eCDN) is mentioned, let us get an overview of the components that make up "SFCC."
 
-[![](/media/2022/system-overview-systems-v2-96d8264c0f.jpeg)](/media/2022/system-overview-systems-v2-96d8264c0f.jpeg)
+[![System overview diagram of the main Salesforce B2C Commerce environment components.](/media/2022/system-overview-systems-v2-96d8264c0f.jpeg)](/media/2022/system-overview-systems-v2-96d8264c0f.jpeg)
 
 [View on Lucidchart](https://lucid.app/lucidchart/b0626d57-dcec-4892-a5e9-5931606b6347/edit?viewport_loc=-594%2C632%2C3328%2C1558%2CCbsI46FLCC7p&invitationId=inv_90859153-9efa-47b0-89e1-e099b200ab73#)
 
@@ -97,7 +97,7 @@ In the diagram below, we look at a potential request to an SFRA or SiteGenesis c
 
 In this case, the explanation of each component of the environment is in the diagram itself. Word of warning though, this is a lot more "technical" than the previous section.
 
-[![](/media/2022/system-overview-journey-of-a-request-de0673b3bd.jpeg)](/media/2022/system-overview-journey-of-a-request-de0673b3bd.jpeg)
+[![Request flow diagram showing how traffic moves through the Salesforce B2C Commerce environment.](/media/2022/system-overview-journey-of-a-request-de0673b3bd.jpeg)](/media/2022/system-overview-journey-of-a-request-de0673b3bd.jpeg)
 
 [View on Lucidchart](https://lucid.app/lucidchart/b0626d57-dcec-4892-a5e9-5931606b6347/edit?viewport_loc=-658%2C62%2C3328%2C1558%2C0_0&invitationId=inv_90859153-9efa-47b0-89e1-e099b200ab73#)
 

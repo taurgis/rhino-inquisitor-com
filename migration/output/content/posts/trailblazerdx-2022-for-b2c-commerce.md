@@ -112,7 +112,7 @@ _**Note:**_ _This session is not aimed at Salesforce B2C Commerce Cloud._
 
 Join Parker Harris, the chief product officers from Salesforce, MuleSoft, Slack, and Tableau, and product managers for a one-of-a-kind question-and-answer forum about our product roadmap.
 
-**Have a question or topic you’d like to see the executives address during True to the Core? Send them [here](https://trailhead.salesforce.com/trailblazer-community/feed/0D54S00000FUYl1SAH).**
+**Have a question or topic you’d like to see the executives address during True to the Core? Send them through the [Trailblazer Community thread](https://trailhead.salesforce.com/trailblazer-community/feed/0D54S00000FUYl1SAH).**
 
 _**Note:** This session is not aimed at Salesforce B2C Commerce cloud but is an excellent opportunity to get to know other products in the ecosystem. And it's the second day keynote, so be there or be square!_
 
@@ -143,7 +143,7 @@ Develop connected digital experiences that attract and convert customers – and
 
 ## [Party with Weezer!](https://reg.salesforce.com/flow/plus/trailblazerdx22/sessioncatalog/page/sessioncatalog/session/164980295926300167e9)
 
-![](/media/2022/weezer-66533fada7.png)
+![TrailblazerDX party announcement featuring Weezer.](/media/2022/weezer-66533fada7.png)
 
 It also wouldn't be a Salesforce event if it didn't have a celebration at the end of day one!
 
@@ -151,12 +151,12 @@ Need a refresher? Here is a playlist!
 
 ## Weezer
 
-#### Weezer - Say It Ain't So (Official Video)
+### Weezer - Say It Ain't So (Official Video)
 
-#### Weezer - Island In The Sun (Spike Jonze Version)
+### Weezer - Island In The Sun (Spike Jonze Version)
 
-#### Weezer - Buddy Holly (Official Music Video)
+### Weezer - Buddy Holly (Official Music Video)
 
-#### Weezer - Beverly Hills
+### Weezer - Beverly Hills
 
-#### Weezer - Pork And Beans (Closed Captioned)
+### Weezer - Pork And Beans (Closed Captioned)

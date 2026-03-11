@@ -85,7 +85,7 @@ Just to remind you, mappings are global and must be explicitly imported on each 
 
 Now, it’s time to create an automation job using the [`ImportKeyValueMapping`](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/jobstepapi/html/index.html) step:
 
-[![A screenshot of a job with one job step "ImportKeyValueMapping" with the configuration described below this image.](/media/2023/job-import-generic-mapping-2cce4b36aa.jpg)](/media/2023/job-import-generic-mapping-2cce4b36aa.jpg)
+[![Job configuration showing the ImportKeyValueMapping step for generic mappings.](/media/2023/job-import-generic-mapping-2cce4b36aa.jpg)](/media/2023/job-import-generic-mapping-2cce4b36aa.jpg)
 
 Job Step Parameters:
 

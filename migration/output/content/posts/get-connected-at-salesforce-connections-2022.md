@@ -33,7 +33,7 @@ There is already a channel on the Salesforce B2C Commerce Cloud Unofficial Slack
 
 And I will be there this year! I wasn't planning on it at first, but I got an offer I could not refuse! I will be taking part in the Main Keynote of the event.
 
-[![](/media/2022/offer-8124183637.jpg)](/media/2022/offer-8124183637.jpg)
+[![Invitation graphic for speaking in the Connections 2022 keynote.](/media/2022/offer-8124183637.jpg)](/media/2022/offer-8124183637.jpg)
 
 ## Can't attend?
 
@@ -286,7 +286,7 @@ The ending Main Keynote to finish off 2 days of learning and meeting people!
 
 ## Party Time
 
-![](/media/2022/cnx-hp-band-one-republic-23e3012477.png)
+![Connections party announcement featuring OneRepublic.](/media/2022/cnx-hp-band-one-republic-23e3012477.png)
 
 It wouldn't be a Salesforce event if there weren't a big party at the end of day one! Connections is no different; a fantastic night of entertainment has been planned out.
 
@@ -296,10 +296,10 @@ It turns out it is OneRepublic!
 
 ## OneRebpulic
 
-#### OneRepublic - Apologize (Official Music Video)
+### OneRepublic - Apologize (Official Music Video)
 
-#### OneRepublic - Counting Stars (Official Music Video)
+### OneRepublic - Counting Stars (Official Music Video)
 
-#### OneRepublic - Good Life (Official Music Video)
+### OneRepublic - Good Life (Official Music Video)
 
-#### OneRepublic - Love Runs Out (Official Music Video)
+### OneRepublic - Love Runs Out (Official Music Video)

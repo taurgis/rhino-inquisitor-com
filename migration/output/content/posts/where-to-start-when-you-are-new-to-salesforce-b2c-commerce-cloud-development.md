@@ -55,7 +55,7 @@ If you're looking for a comprehensive guide that covers all the essential topics
 
 ## You are not alone
 
-[![](/media/2023/sfcc-unofficial-slack-c73cdc0350.png)](https://unofficialsfcc.com/)
+[![Unofficial SFCC community homepage featuring the Slack entry point.](/media/2023/sfcc-unofficial-slack-c73cdc0350.png)](https://unofficialsfcc.com/)
 
 One of the best things about the Salesforce ecosystem is the #Ohana, a community of users, developers, architects, and enthusiasts passionate about helping each other succeed. And in the Commerce Cloud space, we've got the "Commerce Crew" - a group of fellow Commerce Adventurers willing to support each other and share knowledge.
 

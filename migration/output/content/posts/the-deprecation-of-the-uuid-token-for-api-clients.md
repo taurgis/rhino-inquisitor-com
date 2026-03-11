@@ -36,7 +36,7 @@ When doing an OAuth integration with Salesforce B2C Commerce Cloud, you must set
 
 _**Note:** Currently the default is JWT, but I am not sure if the default was UUID before._
 
-[![](/media/2022/account-manager-api-client-token-format-808bcccc72.jpg)](/media/2022/account-manager-api-client-token-format-808bcccc72.jpg)
+[![Account Manager screen showing API client token format options.](/media/2022/account-manager-api-client-token-format-808bcccc72.jpg)](/media/2022/account-manager-api-client-token-format-808bcccc72.jpg)
 
 ## How do I change it?
 
