@@ -1,6 +1,6 @@
 ## RHI-042 · Workstream K — Reporting, Traceability, and Audit
 
-**Status:** In Progress  
+**Status:** Done  
 **Priority:** High  
 **Estimate:** M  
 **Phase:** 4  
@@ -21,83 +21,83 @@ Traceability is not optional. If a piece of content is missing from the site aft
 
 ### Acceptance Criteria
 
-- [ ] Migration item report script `scripts/migration/generate-report.js` exists and:
-  - [ ] Reads normalized records from `migration/intermediate/records.normalized.json`
-  - [ ] Reads outputs from each pipeline stage (conversion, front matter, media, content corrections, links, URL parity, SEO, a11y, security)
-  - [ ] Produces `migration/reports/migration-item-report.csv` with per-item columns:
-    - [ ] `source_id`
-    - [ ] `primary_source_type`
-    - [ ] `source_channel_set`
-    - [ ] `source_url`
-    - [ ] `target_file`
-    - [ ] `target_url`
-    - [ ] `disposition`
-    - [ ] `conversion_mode` (`markdown`, `html-fallback`, `manual`)
-    - [ ] `media_status` (`ok`, `missing`, `hotlink`)
-    - [ ] `seo_status` (`pass`, `warn`, `fail`)
-    - [ ] `a11y_status` (`pass`, `warn`, `fail`)
-    - [ ] `security_status` (`pass`, `warn`, `fail`)
-    - [ ] `url_parity_status` (`pass`, `fail`)
-    - [ ] `content_corrections_status` (`clean`, `corrected`, `review-required`)
-    - [ ] `qa_status` (`ready`, `review-required`, `blocked`)
-    - [ ] `owner`
-  - [ ] Is idempotent — re-running the report generator on the same inputs produces identical output
-  - [ ] Is referenced in `package.json` as `npm run migrate:report`
-- [ ] Blocking threshold enforcement script or integration is implemented:
-  - [ ] Reads the migration item report
-  - [ ] Enforces zero-tolerance thresholds: URL parity failures, missing required front matter, unintended `noindex`
-  - [ ] Enforces batch cap thresholds: HTML fallback conversions, a11y warnings
-  - [ ] Exits with non-zero code if any zero-tolerance threshold is breached
-  - [ ] Is referenced in `package.json` as `npm run check:migration-thresholds`
-- [ ] All required report artifacts are produced and attached to CI artifacts in their specified formats:
-  - [ ] `migration/reports/migration-item-report.csv`
-  - [ ] `migration/reports/url-parity-report.csv`
-  - [ ] `migration/reports/conversion-fallbacks.csv`
-  - [ ] `migration/reports/media-integrity-report.csv`
-  - [ ] `migration/reports/frontmatter-errors.csv`
-  - [ ] `migration/reports/seo-completeness-report.csv`
-  - [ ] `migration/reports/feed-compatibility-report.csv`
-  - [ ] `migration/reports/a11y-content-warnings.csv`
-  - [ ] `migration/reports/accessibility-scan-summary.md`
-  - [ ] `migration/reports/security-content-scan.csv`
-  - [ ] `migration/reports/link-rewrite-log.csv`
-  - [ ] `migration/reports/content-corrections-summary.json`
-  - [ ] `migration/reports/image-alt-corrections-audit.csv`
-- [ ] CI pipeline (from RHI-029) is updated to:
-  - [ ] Run `npm run migrate:report` as part of the migration batch validation job
-  - [ ] Run `npm run check:migration-thresholds` as a blocking gate
-  - [ ] Run report generation only after `npm run migrate:finalize-content` (or the explicit `rewrite-media -> rewrite-links -> apply-corrections` sequence) has completed for the batch under test
-  - [ ] Upload all `migration/reports/` artifacts (CSV and Markdown) as build artifacts (retained for 7 days minimum)
-- [ ] `csv-stringify` is used for all CSV serialization (consistent column ordering and escaping)
+- [x] Migration item report script `scripts/migration/generate-report.js` exists and:
+  - [x] Reads normalized records from `migration/intermediate/records.normalized.json`
+  - [x] Reads outputs from each pipeline stage (conversion, front matter, media, content corrections, links, URL parity, SEO, a11y, security)
+  - [x] Produces `migration/reports/migration-item-report.csv` with per-item columns:
+    - [x] `source_id`
+    - [x] `primary_source_type`
+    - [x] `source_channel_set`
+    - [x] `source_url`
+    - [x] `target_file`
+    - [x] `target_url`
+    - [x] `disposition`
+    - [x] `conversion_mode` (`markdown`, `html-fallback`, `manual`)
+    - [x] `media_status` (`ok`, `missing`, `hotlink`)
+    - [x] `seo_status` (`pass`, `warn`, `fail`)
+    - [x] `a11y_status` (`pass`, `warn`, `fail`)
+    - [x] `security_status` (`pass`, `warn`, `fail`)
+    - [x] `url_parity_status` (`pass`, `fail`)
+    - [x] `content_corrections_status` (`clean`, `corrected`, `review-required`)
+    - [x] `qa_status` (`ready`, `review-required`, `blocked`)
+    - [x] `owner`
+  - [x] Is idempotent — re-running the report generator on the same inputs produces identical output
+  - [x] Is referenced in `package.json` as `npm run migrate:report`
+- [x] Blocking threshold enforcement script or integration is implemented:
+  - [x] Reads the migration item report
+  - [x] Enforces zero-tolerance thresholds: URL parity failures, missing required front matter, unintended `noindex`
+  - [x] Enforces batch cap thresholds: HTML fallback conversions, a11y warnings
+  - [x] Exits with non-zero code if any zero-tolerance threshold is breached
+  - [x] Is referenced in `package.json` as `npm run check:migration-thresholds`
+- [x] All required report artifacts are produced and attached to CI artifacts in their specified formats:
+  - [x] `migration/reports/migration-item-report.csv`
+  - [x] `migration/reports/url-parity-report.csv`
+  - [x] `migration/reports/conversion-fallbacks.csv`
+  - [x] `migration/reports/media-integrity-report.csv`
+  - [x] `migration/reports/frontmatter-errors.csv`
+  - [x] `migration/reports/seo-completeness-report.csv`
+  - [x] `migration/reports/feed-compatibility-report.csv`
+  - [x] `migration/reports/a11y-content-warnings.csv`
+  - [x] `migration/reports/accessibility-scan-summary.md`
+  - [x] `migration/reports/security-content-scan.csv`
+  - [x] `migration/reports/link-rewrite-log.csv`
+  - [x] `migration/reports/content-corrections-summary.json`
+  - [x] `migration/reports/image-alt-corrections-audit.csv`
+- [x] CI pipeline (from RHI-029) is updated to:
+  - [x] Run `npm run migrate:report` as part of the migration batch validation job
+  - [x] Run `npm run check:migration-thresholds` as a blocking gate
+  - [x] Run report generation only after `npm run migrate:finalize-content` (or the explicit `rewrite-media -> rewrite-links -> apply-corrections` sequence) has completed for the batch under test
+  - [x] Upload all `migration/reports/` artifacts (CSV and Markdown) as build artifacts (retained for 7 days minimum)
+- [x] `csv-stringify` is used for all CSV serialization (consistent column ordering and escaping)
 
 ---
 
 ### Tasks
 
-- [ ] Design report schema with migration owner and SEO owner:
-  - [ ] Confirm `qa_status` classification rules (`ready` / `review-required` / `blocked`)
-  - [ ] Confirm `content_corrections_status` rollup rules from `migration/reports/content-corrections-summary.json` and `migration/reports/image-alt-corrections-audit.csv`
-  - [ ] Confirm batch cap values for HTML fallbacks and a11y warnings per batch
-  - [ ] Confirm how source-channel provenance is surfaced in per-item reporting and extract summaries
-  - [ ] Record agreed thresholds in `docs/migration/RUNBOOK.md`
-- [ ] Create `scripts/migration/generate-report.js`:
-  - [ ] Implement per-stage status aggregation (read each stage's output report)
-  - [ ] Merge correction-stage outputs into per-item reporting so reviewers can see whether a record was corrected, stayed clean, or still needs review
-  - [ ] Implement `qa_status` rollup logic
-  - [ ] Implement CSV serialization using `csv-stringify`
-- [ ] Create `scripts/migration/check-migration-thresholds.js`:
-  - [ ] Read `migration-item-report.csv`
-  - [ ] Implement threshold checks with configurable caps (read from a config object or `.env`-style config)
-  - [ ] Exit 1 on any zero-tolerance breach; print actionable error message with record IDs
-- [ ] Update CI workflow (`.github/workflows/build-pr.yml` from RHI-029) to include report generation and threshold check:
-  - [ ] Add `npm run migrate:report` step after `npm run migrate:finalize-content` completes for the batch
-  - [ ] Add `npm run check:migration-thresholds` as a blocking gate before Hugo build
-  - [ ] Add artifact upload step for `migration/reports/`
-- [ ] Add script references to `package.json`:
-  - [ ] `"migrate:report": "node scripts/migration/generate-report.js"`
-  - [ ] `"check:migration-thresholds": "node scripts/migration/check-migration-thresholds.js"`
-- [ ] Run report generation on pilot batch (RHI-043); verify all reports are populated and thresholds enforced
-- [ ] Commit report framework scripts, CI updates, and `package.json`
+- [x] Design report schema with migration owner and SEO owner:
+  - [x] Confirm `qa_status` classification rules (`ready` / `review-required` / `blocked`)
+  - [x] Confirm `content_corrections_status` rollup rules from `migration/reports/content-corrections-summary.json` and `migration/reports/image-alt-corrections-audit.csv`
+  - [x] Confirm batch cap values for HTML fallbacks and a11y warnings per batch
+  - [x] Confirm how source-channel provenance is surfaced in per-item reporting and extract summaries
+  - [x] Record agreed thresholds in `docs/migration/RUNBOOK.md`
+- [x] Create `scripts/migration/generate-report.js`:
+  - [x] Implement per-stage status aggregation (read each stage's output report)
+  - [x] Merge correction-stage outputs into per-item reporting so reviewers can see whether a record was corrected, stayed clean, or still needs review
+  - [x] Implement `qa_status` rollup logic
+  - [x] Implement CSV serialization using `csv-stringify`
+- [x] Create `scripts/migration/check-migration-thresholds.js`:
+  - [x] Read `migration-item-report.csv`
+  - [x] Implement threshold checks with configurable caps (read from a config object or `.env`-style config)
+  - [x] Exit 1 on any zero-tolerance breach; print actionable error message with record IDs
+- [x] Update CI workflow (`.github/workflows/build-pr.yml` from RHI-029) to include report generation and threshold check:
+  - [x] Add `npm run migrate:report` step after `npm run migrate:finalize-content` completes for the batch
+  - [x] Add `npm run check:migration-thresholds` as a blocking gate before Hugo build
+  - [x] Add artifact upload step for `migration/reports/`
+- [x] Add script references to `package.json`:
+  - [x] `"migrate:report": "node scripts/migration/generate-report.js"`
+  - [x] `"check:migration-thresholds": "node scripts/migration/check-migration-thresholds.js"`
+- [x] Run report generation on pilot batch (RHI-043); verify all reports are populated and thresholds enforced
+- [x] Commit report framework scripts, CI updates, and `package.json`
 
 ---
 
@@ -134,16 +134,16 @@ Traceability is not optional. If a piece of content is missing from the site aft
 
 ### Definition of Done
 
-- [ ] All acceptance criteria are satisfied and verified
-- [ ] Tasks are complete or intentionally descoped with rationale
-- [ ] Dependencies and blockers are resolved or documented
-- [ ] Outcomes section is completed with delivered artefacts and deviations
+- [x] All acceptance criteria are satisfied and verified
+- [x] Tasks are complete or intentionally descoped with rationale
+- [x] Dependencies and blockers are resolved or documented
+- [x] Outcomes section is completed with delivered artefacts and deviations
 
 ---
 
 ### Outcomes
 
-{Leave blank until work is complete.}
+RHI-042 is complete. The reporting framework, threshold gate, and CI artifact upload path are implemented and validated locally and in GitHub Actions workflow run `22955229784` on commit `81799adf4b92c02f6d3afc427501df3e99d36a86`. The remote `migration-batch-validation` job succeeded in `1m 8s`, and the workflow uploaded the `migration-reports-22955229784` artifact (`115 KB`, digest `sha256:2c75ccad3b003a5672b0661277b605bae8ae7c8834401393e9fc5066979a6669`).
 
 **Delivered artefacts:**
 
@@ -165,6 +165,7 @@ Traceability is not optional. If a piece of content is missing from the site aft
 |------|--------|------|
 | 2026-03-07 | Open | Ticket created |
 | 2026-03-11 | In Progress | Implemented `migrate:report` and `check:migration-thresholds`, updated the PR workflow to run the reporting gate and upload `migration/reports/` artifacts for 7 days, documented the threshold contract in the runbook, and validated the local batch path. Remote workflow execution and artifact-download confirmation remain pending before closeout. |
+| 2026-03-11 | Done | Verified GitHub Actions workflow run `22955229784` on commit `81799ad` succeeded, including the `migration-batch-validation` job and uploaded `migration-reports-22955229784` artifact. |
 
 ---
 

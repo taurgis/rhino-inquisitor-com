@@ -134,7 +134,7 @@ If the pilot batch reveals pipeline defects, they must be fixed before Batch 2 b
 | RHI-039 Done — SEO completeness check available | Ticket | Pending |
 | RHI-040 Done — Accessibility content check available | Ticket | Pending |
 | RHI-041 Done — Security content scan available | Ticket | Pending |
-| RHI-042 Done — Reporting framework and threshold checks available | Ticket | Pending |
+| RHI-042 Done — Reporting framework and threshold checks available | Ticket | Done |
 | Phase 1 SEO baseline available for traffic-priority selection | Ticket | Pending |
 
 ---
