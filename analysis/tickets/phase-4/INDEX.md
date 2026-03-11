@@ -27,7 +27,7 @@
 | [RHI-041](RHI-041-security-data-hygiene.md) | Workstream J — Security and Data Hygiene | WS-J | Medium | Done | M | 2026-04-18 | RHI-031, RHI-034 |
 | [RHI-042](RHI-042-reporting-traceability-audit.md) | Workstream K — Reporting, Traceability, and Audit | WS-K | High | Done | M | 2026-04-17 | RHI-031, RHI-032 |
 | [RHI-043](RHI-043-pilot-batch-migration.md) | Batch 1 — Pilot Migration Run (20–30 Records) | Batch | Critical | Done | M | 2026-04-22 | RHI-032 through RHI-042 |
-| [RHI-044](RHI-044-high-value-content-batch.md) | Batch 2 — High-Value Content Migration | Batch | Critical | In Progress | L | 2026-04-25 | RHI-043 |
+| [RHI-044](RHI-044-high-value-content-batch.md) | Batch 2 — High-Value Content Migration | Batch | Critical | Done | L | 2026-04-25 | RHI-043 |
 | [RHI-045](RHI-045-long-tail-taxonomy-batch.md) | Batch 3 — Long-Tail and Taxonomy Migration | Batch | High | Open | L | 2026-04-29 | RHI-044 |
 | [RHI-046](RHI-046-phase-4-signoff.md) | Phase 4 Sign-off and Handover to Phase 5/6 | Sign-off | Critical | Open | S | 2026-05-02 | RHI-031 through RHI-045 |
 
@@ -123,7 +123,7 @@ All items below must be complete before Phase 5/6/8 downstream work can consume 
 - [x] RHI-041 Done — Security content scan clean for critical issues; no unsafe script fragments in generated output
 - [x] RHI-042 Done — All migration reports generated, reproducible, and CI-attached; blocking thresholds enforced
 - [ ] RHI-043 Done — Pilot batch passed all CI gates; pipeline proven end-to-end on representative records; correction artifacts and idempotent rerun evidence attached to the pilot PR
-- [ ] RHI-044 Done — High-value batch committed and passing all gates; top-traffic pages verified manually; correction artifacts attached to the batch PR
+- [x] RHI-044 Done — High-value batch committed and passing all gates; top-traffic pages verified manually; correction artifacts attached to the batch PR
 - [ ] RHI-045 Done — Long-tail and taxonomy batch committed; archive and category routes preserved correctly; cumulative correction artifacts and exception evidence reviewed
 - [ ] RHI-046 Done — Stakeholder sign-off recorded; Phase 5/6 team notified and handover package confirmed
 

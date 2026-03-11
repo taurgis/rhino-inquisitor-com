@@ -104,7 +104,7 @@ This is typically the largest batch in terms of record count but the lowest risk
 
 | Dependency | Type | Status |
 |------------|------|--------|
-| RHI-044 Done — High-value batch completed | Ticket | Pending |
+| RHI-044 Done — High-value batch completed | Ticket | Resolved |
 | All Batch 2 gate failures and SEO spot-check findings resolved | Ticket | Pending |
 | SEO owner available for taxonomy page strategy decision | Access | Pending |
 | All outstanding HTML fallback owners reachable for exception closure | Access | Pending |

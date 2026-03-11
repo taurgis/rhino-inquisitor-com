@@ -1,6 +1,6 @@
 ## RHI-044 · Batch 2 — High-Value Content Migration
 
-**Status:** In Progress  
+**Status:** Done  
 **Priority:** Critical  
 **Estimate:** L  
 **Phase:** 4  
@@ -31,29 +31,30 @@ Errors in this batch directly damage the migration's primary success criterion: 
   - [x] `npm run migrate:map-frontmatter`
   - [x] `npm run migrate:finalize-content` (or the explicit `rewrite-media -> rewrite-links -> apply-corrections` sequence)
   - [x] `npm run migrate:report`
-- [ ] All CI gates pass on the high-value batch PR (same gate set as Batch 1)
-- [ ] SEO-specific review is performed on top-10 traffic pages:
-  - [ ] Each of the 10 highest-traffic pages is spot-checked:
-    - [ ] `title` is accurate, compelling, and under 60 characters
-    - [ ] `description` is meaningful and SEO-quality (not just a body text excerpt)
-    - [ ] `url` matches manifest `targetUrl` for the page
-    - [ ] Disposition behavior is respected: `keep` preserves legacy path, `merge` validates redirect behavior from legacy URL to `targetUrl`
-    - [ ] Body content renders correctly and is complete
-    - [ ] Hero image renders with alt text and correct dimensions
-    - [ ] Internal links are rewritten to canonical paths
-    - [ ] JSON-LD structured data renders correctly (verify via `<script type="application/ld+json">` in built HTML)
+- [x] All CI gates pass on the high-value batch PR (same gate set as Batch 1)
+- [x] SEO-specific review is performed on top-10 traffic pages:
+  - [x] Each of the 10 highest-traffic pages is spot-checked:
+    - [x] `title` is accurate, compelling, and under 60 characters
+    - [x] `description` is meaningful and SEO-quality (not just a body text excerpt)
+    - [x] `url` matches manifest `targetUrl` for the page
+    - [x] Disposition behavior is respected: `keep` preserves legacy path, `merge` validates redirect behavior from legacy URL to `targetUrl`
+    - [x] Body content renders correctly and is complete
+    - [x] Hero image renders with alt text and correct dimensions
+    - [x] Internal links are rewritten to canonical paths
+    - [x] JSON-LD structured data renders correctly (verify via `<script type="application/ld+json">` in built HTML)
   - [x] SEO spot-check findings are documented in Progress Log
-- [ ] All `merge`-disposition pages in this batch have correctly generated redirect alias pages
-- [ ] Custom SEO descriptions are authored for top-10 traffic pages if auto-generated descriptions are inadequate:
-  - [ ] Descriptions are human-authored, 120–155 characters, and accurately describe page intent
-  - [ ] The curated description source is updated through an approved pre-mapping input (for example `migration/input/discovery-metadata.json`), not by patching generated Markdown directly
-  - [ ] After description updates, `npm run migrate:map-frontmatter` and `npm run migrate:finalize-content` are rerun before `check:seo-completeness`
-- [ ] Curated image-alt improvements found during high-value review are recorded in `migration/input/image-alt-corrections.csv` and re-applied through `npm run migrate:finalize-content`, not as one-off edits in `migration/output/content/**`
-- [ ] High-value batch PR evidence includes the correction outputs used to approve the batch:
+- [x] All `merge`-disposition pages in this batch have correctly generated redirect alias pages
+- [x] Custom SEO descriptions are authored for top-10 traffic pages if auto-generated descriptions are inadequate:
+  - [x] Descriptions are human-authored, 120–155 characters, and accurately describe page intent
+  - [x] The curated description source is updated through an approved pre-mapping input (for example `migration/input/discovery-metadata.json`), not by patching generated Markdown directly
+  - [x] After description updates, `npm run migrate:map-frontmatter` and `npm run migrate:finalize-content` are rerun before `check:seo-completeness`
+- [x] Curated image-alt improvements found during high-value review are recorded in `migration/input/image-alt-corrections.csv` and re-applied through `npm run migrate:finalize-content`, not as one-off edits in `migration/output/content/**`
+- [x] High-value batch PR evidence includes the correction outputs used to approve the batch:
   - [x] `migration/reports/content-corrections-summary.json`
   - [x] `migration/reports/image-alt-corrections-audit.csv`
   - [x] Confirmation that the correction rerun for the finalized batch reported zero file changes
-- [ ] High-value batch PR is merged to `main` only after SEO owner approval and all CI gates pass
+  - [x] PR description includes: record list, SEO spot-check summary, gate results, `migration/reports/content-corrections-summary.json`, `migration/reports/image-alt-corrections-audit.csv`, and correction-rerun idempotency confirmation
+- [x] High-value batch PR is merged to `main` only after SEO owner approval and all CI gates pass
 
 ---
 
@@ -68,20 +69,20 @@ Errors in this batch directly damage the migration's primary success criterion: 
 - [x] Confirm all pilot batch pipeline defects are resolved (review RHI-043 Progress Log)
 - [x] Run full pipeline on high-value record set (same sequence as RHI-043, including `npm run migrate:finalize-content` after `npm run migrate:map-frontmatter`)
 - [x] Run all CI gates and fix any failures
-- [ ] Perform SEO spot-check on top-10 traffic pages:
-  - [ ] Review generated `.md` files in `hugo server`
-  - [ ] Review built HTML for canonical tag, OG tags, JSON-LD
-  - [ ] Verify each sampled URL/disposition against manifest `targetUrl` and redirect behavior
-  - [ ] Author custom descriptions where auto-generated is inadequate
-  - [ ] Record custom descriptions in the approved pre-mapping curation input and rerun `npm run migrate:map-frontmatter` plus `npm run migrate:finalize-content`
-  - [ ] Record curated image-alt overrides in `migration/input/image-alt-corrections.csv` and rerun `npm run migrate:finalize-content`
-  - [ ] Re-run `check:seo-completeness` after the regenerated content reflects those curated updates
+- [x] Perform SEO spot-check on top-10 traffic pages:
+  - [x] Review generated `.md` files in `hugo server`
+  - [x] Review built HTML for canonical tag, OG tags, JSON-LD
+  - [x] Verify each sampled URL/disposition against manifest `targetUrl` and redirect behavior
+  - [x] Author custom descriptions where auto-generated is inadequate
+  - [x] Record custom descriptions in the approved pre-mapping curation input and rerun `npm run migrate:map-frontmatter` plus `npm run migrate:finalize-content`
+  - [x] Record curated image-alt overrides in `migration/input/image-alt-corrections.csv` and rerun `npm run migrate:finalize-content`
+  - [x] Re-run `check:seo-completeness` after the regenerated content reflects those curated updates
 - [x] Update migration item report for this batch
-- [ ] Open high-value batch PR:
-  - [ ] PR description includes: record list, SEO spot-check summary, gate results, `migration/reports/content-corrections-summary.json`, `migration/reports/image-alt-corrections-audit.csv`, and correction-rerun idempotency confirmation
-  - [ ] SEO owner reviews and approves PR before merge
-  - [ ] All CI gates pass
-- [ ] Merge high-value batch PR
+- [x] Open high-value batch PR:
+  - [x] PR description includes: record list, SEO spot-check summary, gate results, `migration/reports/content-corrections-summary.json`, `migration/reports/image-alt-corrections-audit.csv`, and correction-rerun idempotency confirmation
+  - [x] SEO owner reviews and approves PR before merge
+  - [x] All CI gates pass
+- [x] Merge high-value batch PR
 - [x] Record batch metrics in Progress Log: total records, gate failures, SEO issues, custom descriptions authored
 
 ---
@@ -118,16 +119,16 @@ Errors in this batch directly damage the migration's primary success criterion: 
 
 ### Definition of Done
 
-- [ ] All acceptance criteria are satisfied and verified
-- [ ] Tasks are complete or intentionally descoped with rationale
-- [ ] Dependencies and blockers are resolved or documented
-- [ ] Outcomes section is completed with delivered artefacts and deviations
+- [x] All acceptance criteria are satisfied and verified
+- [x] Tasks are complete or intentionally descoped with rationale
+- [x] Dependencies and blockers are resolved or documented
+- [x] Outcomes section is completed with delivered artefacts and deviations
 
 ---
 
 ### Outcomes
 
-{Leave blank until work is complete.}
+Completed the 35-record high-value batch through the durable Phase 4 migration pipeline, merged PR #26 to `main` after successful CI run `22971068144`, and closed the remaining RHI-044 batch-review gap by moving the last metadata and markdown-structure fixes into rerunnable scripted inputs and correction steps.
 
 **Delivered artefacts:**
 
@@ -136,11 +137,14 @@ Errors in this batch directly damage the migration's primary success criterion: 
 - Migration item report updated for Batch 2
 - `migration/reports/content-corrections-summary.json`
 - `migration/reports/image-alt-corrections-audit.csv`
-- List of custom descriptions authored
+- `migration/input/frontmatter-overrides.json`
+- `analysis/documentation/phase-4/rhi-044-top-10-seo-review-2026-03-11.md`
+- `analysis/documentation/phase-4/rhi-044-markdown-structure-normalization-2026-03-11.md`
+- List of custom descriptions authored via durable pre-mapping overrides
 
 **Deviations from plan:**
 
-- None
+- Four nested high-value category routes (`architecture`, `documentation`, `go-live`, `release-notes`) were flattened to the approved Hugo route strategy and treated as owner-approved edge-redirect exceptions rather than literal nested-path preservation.
 
 ---
 
@@ -157,6 +161,7 @@ Errors in this batch directly damage the migration's primary success criterion: 
 | 2026-03-11 | In Progress | A later hero-image fix required rerunning the migration scripts and refreshing the staged Batch 2 outputs. Revalidation shows the blocking gate suite still passes: front matter, selected-record parity, redirects, feed compatibility, media, links, accessibility-content, security-content, noindex, migration reporting, and threshold enforcement all remain green, `migration/reports/content-corrections-summary.json` still reports `filesChanged: 0`, and the alt/link audit rows now show `already-current` for the previously curated media-related fixes. |
 | 2026-03-11 | In Progress | The refreshed staged SEO evidence temporarily returned to `16` warning rows (`9` `description_length`, `7` `title_length`) and `0` failures because the rerun regenerated `migration/output/content/**` without the earlier hand-tightened non-top-10 metadata values. Representative rendered article checks still showed local hero images with alt text and explicit dimensions, which isolated the remaining gap to durable metadata curation rather than media behavior. |
 | 2026-03-11 | In Progress | Added a dedicated pre-mapping metadata input at `migration/input/frontmatter-overrides.json` and updated `scripts/migration/map-frontmatter.js` to apply curated top-level `title` and `description` overrides by `sourceId`. The Batch 2 rerun now applies 13 durable overrides, restores `migration/reports/seo-completeness-report.csv` to `0` warning rows and `0` failures, and ends with `migration/reports/content-corrections-summary.json` back at `filesChanged: 0` after the idempotency rerun. Remaining closeout work is PR/open-merge workflow plus final SEO-owner approval of the now-clean local batch evidence. |
+| 2026-03-11 | Done | PR #26 merged to `main` at merge commit `31fe1d2` after GitHub Actions run `22971068144` completed successfully. User-owner confirmation in chat accepted the now-green PR as the final SEO-owner approval for closeout. All acceptance criteria are satisfied, the correction artifacts and durable metadata inputs are committed, and Batch 3 (RHI-045) is unblocked. |
 
 ---
 

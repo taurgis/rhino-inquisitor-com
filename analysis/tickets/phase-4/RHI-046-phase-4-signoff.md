@@ -35,7 +35,7 @@ Any unresolved exception, quarantine record, or failing gate identified here mus
   - [ ] RHI-041 Done — Security and data hygiene complete
   - [x] RHI-042 Done — Reporting, traceability, and audit framework complete
   - [ ] RHI-043 Done — Pilot batch migrated and merged
-  - [ ] RHI-044 Done — High-value batch migrated and merged
+  - [x] RHI-044 Done — High-value batch migrated and merged
   - [ ] RHI-045 Done — Long-tail and taxonomy batch migrated and merged
 - [ ] Final migration item report confirms:
   - [ ] 100% of in-scope `keep` and `merge` records are present in `src/content/` or explicitly deferred with documented owner
