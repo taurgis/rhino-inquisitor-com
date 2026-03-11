@@ -24,6 +24,8 @@ jobs:
       route_sensitive: ${{ steps.changes.outputs.route_sensitive }}
       markdown_changed: ${{ steps.changes.outputs.markdown_changed }}
       migration_batch_changed: ${{ steps.changes.outputs.migration_batch_changed }}
+      full_site_route_validation_required: ${{ steps.changes.outputs.full_site_route_validation_required }}
+      validation_mode: ${{ steps.changes.outputs.validation_mode }}
 
     steps:
       - name: Check out repository
@@ -37,32 +39,58 @@ jobs:
         run: |
           set -euo pipefail
           if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
-            printf '.github/workflows/build-pr.yml\n' | tee changed-files.txt
-            echo "route_sensitive=true" >> "$GITHUB_OUTPUT"
-            echo "markdown_changed=true" >> "$GITHUB_OUTPUT"
-            echo "migration_batch_changed=true" >> "$GITHUB_OUTPUT"
-            exit 0
+            git fetch --no-tags --prune origin main
+            diff_base=$(git merge-base HEAD origin/main)
+            git diff --name-only "$diff_base" HEAD | tee changed-files.txt
+          else
+            git diff --name-only "${{ github.event.pull_request.base.sha }}" "${{ github.event.pull_request.head.sha }}" | tee changed-files.txt
           fi
 
-          git diff --name-only "${{ github.event.pull_request.base.sha }}" "${{ github.event.pull_request.head.sha }}" | tee changed-files.txt
-
+          route_sensitive=false
           if grep -Eq '^(src/content/|src/layouts/|src/static/|src/archetypes/|hugo\.toml$|scripts/|migration/url-manifest\.json$)' changed-files.txt; then
-            echo "route_sensitive=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "route_sensitive=false" >> "$GITHUB_OUTPUT"
+            route_sensitive=true
           fi
+          echo "route_sensitive=$route_sensitive" >> "$GITHUB_OUTPUT"
 
+          markdown_changed=false
           if grep -Eq '\.md$' changed-files.txt; then
-            echo "markdown_changed=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "markdown_changed=false" >> "$GITHUB_OUTPUT"
+            markdown_changed=true
+          fi
+          echo "markdown_changed=$markdown_changed" >> "$GITHUB_OUTPUT"
+
+          migration_batch_changed=false
+          if grep -Eq '^(migration/|scripts/|docs/migration/|package\.json$|package-lock\.json$|\.github/workflows/build-pr\.yml$)' changed-files.txt; then
+            migration_batch_changed=true
+          fi
+          echo "migration_batch_changed=$migration_batch_changed" >> "$GITHUB_OUTPUT"
+
+          full_site_route_validation_required=false
+          validation_mode=baseline
+
+          if [[ "$route_sensitive" == "true" ]]; then
+            if [[ "$migration_batch_changed" == "true" ]]; then
+              validation_mode=migration-batch-only
+            else
+              full_site_route_validation_required=true
+              validation_mode=full-site-route-sensitive
+            fi
+          elif [[ "$migration_batch_changed" == "true" ]]; then
+            validation_mode=migration-supporting
           fi
 
-          if grep -Eq '^(migration/|scripts/|docs/migration/|package\.json$|package-lock\.json$|\.github/workflows/build-pr\.yml$)' changed-files.txt; then
-            echo "migration_batch_changed=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "migration_batch_changed=false" >> "$GITHUB_OUTPUT"
-          fi
+          echo "full_site_route_validation_required=$full_site_route_validation_required" >> "$GITHUB_OUTPUT"
+          echo "validation_mode=$validation_mode" >> "$GITHUB_OUTPUT"
+
+      - name: Summarize validation mode
+        shell: bash
+        run: |
+          {
+            echo "### PR validation mode"
+            echo "- validation_mode: ${{ steps.changes.outputs.validation_mode }}"
+            echo "- route_sensitive: ${{ steps.changes.outputs.route_sensitive }}"
+            echo "- migration_batch_changed: ${{ steps.changes.outputs.migration_batch_changed }}"
+            echo "- full_site_route_validation_required: ${{ steps.changes.outputs.full_site_route_validation_required }}"
+          } >> "$GITHUB_STEP_SUMMARY"
 
   migration-batch-validation:
     needs:
@@ -125,6 +153,18 @@ jobs:
 
       - name: Build staged migration site
         run: hugo --minify --environment production --contentDir migration/output/content --destination tmp/migration-pr-public
+
+      - name: Validate selected-record URL parity
+        run: node scripts/migration/validate-url-parity.js --scope selected-records --records-file migration/intermediate/records.normalized.json --content-dir migration/output/content --public-dir tmp/migration-pr-public
+
+      - name: Validate selected-record redirects
+        run: node scripts/migration/check-redirects.js --scope selected-records --records-file migration/intermediate/records.normalized.json --public-dir tmp/migration-pr-public
+
+      - name: Run staged SEO completeness check
+        run: npm run check:seo-completeness -- --content-dir migration/output/content --public-dir tmp/migration-pr-public
+
+      - name: Run staged internal link check
+        run: CHECK_LINKS_PUBLIC_DIR=tmp/migration-pr-public CHECK_LINKS_ALLOW_MANIFEST_TARGETS=1 npm run check:links
 
       - name: Verify expected migration report artifacts exist
         shell: bash
@@ -226,15 +266,15 @@ jobs:
         run: hugo --minify --environment production
 
       - name: Run URL parity check
-        if: needs.prepare.outputs.route_sensitive == 'true'
+        if: needs.prepare.outputs.full_site_route_validation_required == 'true'
         run: npm run check:url-parity
 
       - name: Run SEO smoke check
-        if: needs.prepare.outputs.route_sensitive == 'true'
+        if: needs.prepare.outputs.full_site_route_validation_required == 'true'
         run: npm run check:seo
 
       - name: Run internal link check
-        if: needs.prepare.outputs.route_sensitive == 'true'
+        if: needs.prepare.outputs.full_site_route_validation_required == 'true'
         run: npm run check:links
 
   accessibility:
