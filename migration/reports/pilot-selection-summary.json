@@ -1,0 +1,969 @@
+{
+  "inputs": {
+    "normalizedRecordsFile": "migration/intermediate/records.normalized.json",
+    "convertedRecordsDir": "migration/output",
+    "manifestFile": "migration/url-manifest.json",
+    "baselineFile": "migration/phase-1-seo-baseline.md"
+  },
+  "counts": {
+    "contentBackedCandidates": 193,
+    "routeValidationCandidates": 2,
+    "top90Top10Candidates": 10,
+    "top28Top10Candidates": 10,
+    "aliasBackedRedirectCandidates": 1,
+    "sourceBackedMergeCandidates": 0,
+    "sourceBackedVideoCandidates": 0,
+    "videoPageCandidates": 1,
+    "mergeManifestRows": 126,
+    "queryMergeManifestRows": 123,
+    "pathMergeManifestRows": 3,
+    "top90TrackedUrls": 25,
+    "top28TrackedUrls": 25
+  },
+  "openQuestions": [
+    "Choose the authoritative traffic window for the pilot top-10 requirement: 90-day export or 28-day export.",
+    "Confirm whether the existing /video/ page satisfies the \"video-related post\" criterion because the normalized corpus has no source-backed postType=video records.",
+    "Confirm whether an alias-backed keep record plus one manifest merge URL is acceptable for redirect validation because the normalized corpus has no source-backed merge records."
+  ],
+  "keyFindings": [
+    "No source-backed normalized records currently carry disposition=merge.",
+    "No source-backed normalized records currently carry postType=video.",
+    "1 keep records already expose one or more Hugo-compatible alias paths for static redirect validation.",
+    "123 manifest merge rows are query-style legacy URLs that require route-level or edge-layer validation rather than source-id subset selection."
+  ],
+  "recommendedValidationRoutes": {
+    "aliasRedirectCandidates": [
+      {
+        "sourceId": "3089",
+        "postType": "post",
+        "disposition": "keep",
+        "legacyUrl": "/delta-exports-in-salesforce-b2c-commerce-cloud/",
+        "targetUrl": "/delta-exports-in-salesforce-b2c-commerce-cloud/",
+        "top90Rank": null,
+        "top28Rank": null,
+        "compatibleAliasCount": 1,
+        "coverageTags": [
+          "standard-article",
+          "redirect-alias-scenario"
+        ]
+      }
+    ],
+    "manifestMergeCandidates": [
+      {
+        "legacyUrl": "/delta-exports-in-salesforce-b2c-commerce/",
+        "targetUrl": "/delta-exports-in-salesforce-b2c-commerce-cloud/",
+        "implementationLayer": "edge-cdn",
+        "priority": "high"
+      },
+      {
+        "legacyUrl": "/feed/rss/",
+        "targetUrl": "/feed/",
+        "implementationLayer": "edge-cdn",
+        "priority": "high"
+      },
+      {
+        "legacyUrl": "/feed/atom/",
+        "targetUrl": "/feed/",
+        "implementationLayer": "edge-cdn",
+        "priority": "medium"
+      },
+      {
+        "legacyUrl": "/?p=10100",
+        "targetUrl": "/chasing-clouds-catching-up-with-the-commercecrew-at-dreamforce-2023/",
+        "implementationLayer": "pages-static",
+        "priority": "low"
+      },
+      {
+        "legacyUrl": "/?p=1011",
+        "targetUrl": "/preparing-for-the-b2c-commerce-developer-certification/",
+        "implementationLayer": "pages-static",
+        "priority": "low"
+      }
+    ],
+    "retireCandidates": [
+      {
+        "sourceId": "1179",
+        "postType": "landing",
+        "disposition": "retire",
+        "legacyUrl": "/elementor-landing-page-1179/",
+        "targetUrl": "",
+        "top90Rank": null,
+        "top28Rank": null,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "retire-route"
+        ]
+      },
+      {
+        "sourceId": "2",
+        "postType": "page",
+        "disposition": "retire",
+        "legacyUrl": "/sample-page/",
+        "targetUrl": "",
+        "top90Rank": null,
+        "top28Rank": null,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "page",
+          "retire-route"
+        ]
+      }
+    ]
+  },
+  "candidateBuckets": {
+    "standardArticle": [
+      {
+        "sourceId": "4455",
+        "postType": "post",
+        "disposition": "keep",
+        "legacyUrl": "/20-years-of-dreamforce/",
+        "targetUrl": "/20-years-of-dreamforce/",
+        "top90Rank": null,
+        "top28Rank": null,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "standard-article"
+        ]
+      },
+      {
+        "sourceId": "9316",
+        "postType": "post",
+        "disposition": "keep",
+        "legacyUrl": "/a-deep-dive-into-the-23-7-sfcc-release/",
+        "targetUrl": "/a-deep-dive-into-the-23-7-sfcc-release/",
+        "top90Rank": null,
+        "top28Rank": null,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "standard-article"
+        ]
+      },
+      {
+        "sourceId": "13802",
+        "postType": "post",
+        "disposition": "keep",
+        "legacyUrl": "/a-dev-guide-to-combating-fraud-on-sfcc/",
+        "targetUrl": "/a-dev-guide-to-combating-fraud-on-sfcc/",
+        "top90Rank": null,
+        "top28Rank": null,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "standard-article"
+        ]
+      },
+      {
+        "sourceId": "9935",
+        "postType": "post",
+        "disposition": "keep",
+        "legacyUrl": "/a-look-at-the-23-9-commerce-cloud-release/",
+        "targetUrl": "/a-look-at-the-23-9-commerce-cloud-release/",
+        "top90Rank": null,
+        "top28Rank": null,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "standard-article"
+        ]
+      },
+      {
+        "sourceId": "9054",
+        "postType": "post",
+        "disposition": "keep",
+        "legacyUrl": "/a-look-at-the-salesforce-b2c-commerce-cloud-23-6-release/",
+        "targetUrl": "/a-look-at-the-salesforce-b2c-commerce-cloud-23-6-release/",
+        "top90Rank": null,
+        "top28Rank": null,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "standard-article"
+        ]
+      },
+      {
+        "sourceId": "8232",
+        "postType": "post",
+        "disposition": "keep",
+        "legacyUrl": "/a-look-at-the-sfcc-23-5-release/",
+        "targetUrl": "/a-look-at-the-sfcc-23-5-release/",
+        "top90Rank": null,
+        "top28Rank": null,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "standard-article"
+        ]
+      },
+      {
+        "sourceId": "4640",
+        "postType": "post",
+        "disposition": "keep",
+        "legacyUrl": "/a-look-back-at-origin-shielding/",
+        "targetUrl": "/a-look-back-at-origin-shielding/",
+        "top90Rank": null,
+        "top28Rank": null,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "standard-article"
+        ]
+      },
+      {
+        "sourceId": "4667",
+        "postType": "post",
+        "disposition": "keep",
+        "legacyUrl": "/a-new-commerce-cloud-community-in-town/",
+        "targetUrl": "/a-new-commerce-cloud-community-in-town/",
+        "top90Rank": null,
+        "top28Rank": null,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "standard-article"
+        ]
+      },
+      {
+        "sourceId": "7774",
+        "postType": "post",
+        "disposition": "keep",
+        "legacyUrl": "/a-new-day-for-commerce-recap/",
+        "targetUrl": "/a-new-day-for-commerce-recap/",
+        "top90Rank": null,
+        "top28Rank": null,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "standard-article"
+        ]
+      },
+      {
+        "sourceId": "14004",
+        "postType": "post",
+        "disposition": "keep",
+        "legacyUrl": "/a-survival-guide-to-sfcc-platform-limits/",
+        "targetUrl": "/a-survival-guide-to-sfcc-platform-limits/",
+        "top90Rank": null,
+        "top28Rank": 4,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "standard-article",
+          "top-10-traffic-28d"
+        ]
+      }
+    ],
+    "longFormCodeTable": [
+      {
+        "sourceId": "2942",
+        "postType": "post",
+        "disposition": "keep",
+        "legacyUrl": "/salesforce-b2c-commerce-cloud-22-8/",
+        "targetUrl": "/salesforce-b2c-commerce-cloud-22-8/",
+        "top90Rank": null,
+        "top28Rank": null,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "long-form-code-table"
+        ]
+      }
+    ],
+    "embeddedMedia": [
+      {
+        "sourceId": "10100",
+        "postType": "post",
+        "disposition": "keep",
+        "legacyUrl": "/chasing-clouds-catching-up-with-the-commercecrew-at-dreamforce-2023/",
+        "targetUrl": "/chasing-clouds-catching-up-with-the-commercecrew-at-dreamforce-2023/",
+        "top90Rank": null,
+        "top28Rank": null,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "embedded-media"
+        ]
+      },
+      {
+        "sourceId": "2616",
+        "postType": "post",
+        "disposition": "keep",
+        "legacyUrl": "/community-salesforce-events-and-commerce-cloud/",
+        "targetUrl": "/community-salesforce-events-and-commerce-cloud/",
+        "top90Rank": null,
+        "top28Rank": null,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "embedded-media"
+        ]
+      },
+      {
+        "sourceId": "2434",
+        "postType": "post",
+        "disposition": "keep",
+        "legacyUrl": "/events-and-the-golden-hoodie/",
+        "targetUrl": "/events-and-the-golden-hoodie/",
+        "top90Rank": null,
+        "top28Rank": null,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "embedded-media"
+        ]
+      },
+      {
+        "sourceId": "4836",
+        "postType": "page",
+        "disposition": "keep",
+        "legacyUrl": "/headless/",
+        "targetUrl": "/headless/",
+        "top90Rank": null,
+        "top28Rank": null,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "embedded-media",
+          "page"
+        ]
+      },
+      {
+        "sourceId": "4863",
+        "postType": "page",
+        "disposition": "keep",
+        "legacyUrl": "/inside-the-ohana/",
+        "targetUrl": "/inside-the-ohana/",
+        "top90Rank": null,
+        "top28Rank": null,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "embedded-media",
+          "page"
+        ]
+      },
+      {
+        "sourceId": "4854",
+        "postType": "page",
+        "disposition": "keep",
+        "legacyUrl": "/life-with-goldie/",
+        "targetUrl": "/life-with-goldie/",
+        "top90Rank": null,
+        "top28Rank": null,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "embedded-media",
+          "page"
+        ]
+      },
+      {
+        "sourceId": "4801",
+        "postType": "page",
+        "disposition": "keep",
+        "legacyUrl": "/me-myself-and-headless-a-composable-commerce-cloud-story/",
+        "targetUrl": "/me-myself-and-headless-a-composable-commerce-cloud-story/",
+        "top90Rank": null,
+        "top28Rank": null,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "embedded-media",
+          "page"
+        ]
+      },
+      {
+        "sourceId": "4229",
+        "postType": "post",
+        "disposition": "keep",
+        "legacyUrl": "/salesforce-b2c-commerce-cloud-22-9-release/",
+        "targetUrl": "/salesforce-b2c-commerce-cloud-22-9-release/",
+        "top90Rank": null,
+        "top28Rank": null,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "embedded-media"
+        ]
+      },
+      {
+        "sourceId": "1988",
+        "postType": "post",
+        "disposition": "keep",
+        "legacyUrl": "/salesforce-commerce-cloud-products/",
+        "targetUrl": "/salesforce-commerce-cloud-products/",
+        "top90Rank": null,
+        "top28Rank": null,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "embedded-media"
+        ]
+      },
+      {
+        "sourceId": "12459",
+        "postType": "post",
+        "disposition": "keep",
+        "legacyUrl": "/sfcc-introduction/",
+        "targetUrl": "/sfcc-introduction/",
+        "top90Rank": null,
+        "top28Rank": null,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "embedded-media"
+        ]
+      }
+    ],
+    "page": [
+      {
+        "sourceId": "73",
+        "postType": "page",
+        "disposition": "keep",
+        "legacyUrl": "/",
+        "targetUrl": "/",
+        "top90Rank": 6,
+        "top28Rank": 2,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "page",
+          "homepage",
+          "top-10-traffic-90d",
+          "top-10-traffic-28d"
+        ]
+      },
+      {
+        "sourceId": "68",
+        "postType": "page",
+        "disposition": "keep",
+        "legacyUrl": "/about/",
+        "targetUrl": "/about/",
+        "top90Rank": null,
+        "top28Rank": null,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "page"
+        ]
+      },
+      {
+        "sourceId": "352",
+        "postType": "page",
+        "disposition": "keep",
+        "legacyUrl": "/archive/",
+        "targetUrl": "/archive/",
+        "top90Rank": null,
+        "top28Rank": null,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "page"
+        ]
+      },
+      {
+        "sourceId": "9446",
+        "postType": "page",
+        "disposition": "keep",
+        "legacyUrl": "/can-a-isslot-element-have-a-dynamic-id/",
+        "targetUrl": "/can-a-isslot-element-have-a-dynamic-id/",
+        "top90Rank": null,
+        "top28Rank": null,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "page"
+        ]
+      },
+      {
+        "sourceId": "1678",
+        "postType": "page",
+        "disposition": "keep",
+        "legacyUrl": "/community-repositories/",
+        "targetUrl": "/community-repositories/",
+        "top90Rank": null,
+        "top28Rank": null,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "page"
+        ]
+      },
+      {
+        "sourceId": "4795",
+        "postType": "page",
+        "disposition": "keep",
+        "legacyUrl": "/connecting-the-clouds-wedding-or-funeral/",
+        "targetUrl": "/connecting-the-clouds-wedding-or-funeral/",
+        "top90Rank": null,
+        "top28Rank": null,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "page"
+        ]
+      },
+      {
+        "sourceId": "7726",
+        "postType": "page",
+        "disposition": "keep",
+        "legacyUrl": "/cookie-policy-eu/",
+        "targetUrl": "/cookie-policy-eu/",
+        "top90Rank": null,
+        "top28Rank": null,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "page"
+        ]
+      },
+      {
+        "sourceId": "4836",
+        "postType": "page",
+        "disposition": "keep",
+        "legacyUrl": "/headless/",
+        "targetUrl": "/headless/",
+        "top90Rank": null,
+        "top28Rank": null,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "embedded-media",
+          "page"
+        ]
+      },
+      {
+        "sourceId": "365",
+        "postType": "page",
+        "disposition": "keep",
+        "legacyUrl": "/ideas/",
+        "targetUrl": "/ideas/",
+        "top90Rank": null,
+        "top28Rank": null,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "page"
+        ]
+      },
+      {
+        "sourceId": "376",
+        "postType": "page",
+        "disposition": "keep",
+        "legacyUrl": "/ideas/page-designer-add-ability-to-copy-paste-components/",
+        "targetUrl": "/ideas/page-designer-add-ability-to-copy-paste-components/",
+        "top90Rank": null,
+        "top28Rank": null,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "page"
+        ]
+      }
+    ],
+    "homepage": [
+      {
+        "sourceId": "73",
+        "postType": "page",
+        "disposition": "keep",
+        "legacyUrl": "/",
+        "targetUrl": "/",
+        "top90Rank": 6,
+        "top28Rank": 2,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "page",
+          "homepage",
+          "top-10-traffic-90d",
+          "top-10-traffic-28d"
+        ]
+      }
+    ],
+    "categoryListing": [
+      {
+        "sourceId": "category:40",
+        "postType": "category",
+        "disposition": "keep",
+        "legacyUrl": "/category/certification/",
+        "targetUrl": "/category/certification/",
+        "top90Rank": null,
+        "top28Rank": null,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "category-listing"
+        ]
+      },
+      {
+        "sourceId": "category:11",
+        "postType": "category",
+        "disposition": "keep",
+        "legacyUrl": "/category/community/",
+        "targetUrl": "/category/community/",
+        "top90Rank": null,
+        "top28Rank": null,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "category-listing"
+        ]
+      },
+      {
+        "sourceId": "category:42",
+        "postType": "category",
+        "disposition": "keep",
+        "legacyUrl": "/category/corporate/",
+        "targetUrl": "/category/corporate/",
+        "top90Rank": null,
+        "top28Rank": null,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "category-listing"
+        ]
+      },
+      {
+        "sourceId": "category:77",
+        "postType": "category",
+        "disposition": "keep",
+        "legacyUrl": "/category/external/",
+        "targetUrl": "/category/external/",
+        "top90Rank": null,
+        "top28Rank": null,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "category-listing"
+        ]
+      },
+      {
+        "sourceId": "category:80",
+        "postType": "category",
+        "disposition": "keep",
+        "legacyUrl": "/category/external/forward/",
+        "targetUrl": "/category/external/forward/",
+        "top90Rank": null,
+        "top28Rank": null,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "category-listing"
+        ]
+      },
+      {
+        "sourceId": "category:83",
+        "postType": "category",
+        "disposition": "keep",
+        "legacyUrl": "/category/external/linkedin/",
+        "targetUrl": "/category/external/linkedin/",
+        "top90Rank": null,
+        "top28Rank": null,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "category-listing"
+        ]
+      },
+      {
+        "sourceId": "category:96",
+        "postType": "category",
+        "disposition": "keep",
+        "legacyUrl": "/category/external/salesforce-architects-blog/",
+        "targetUrl": "/category/external/salesforce-architects-blog/",
+        "top90Rank": null,
+        "top28Rank": null,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "category-listing"
+        ]
+      },
+      {
+        "sourceId": "category:91",
+        "postType": "category",
+        "disposition": "keep",
+        "legacyUrl": "/category/external/salesforce-ben/",
+        "targetUrl": "/category/external/salesforce-ben/",
+        "top90Rank": null,
+        "top28Rank": null,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "category-listing"
+        ]
+      },
+      {
+        "sourceId": "category:100",
+        "postType": "category",
+        "disposition": "keep",
+        "legacyUrl": "/category/react/",
+        "targetUrl": "/category/react/",
+        "top90Rank": null,
+        "top28Rank": null,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "category-listing"
+        ]
+      },
+      {
+        "sourceId": "category:12",
+        "postType": "category",
+        "disposition": "keep",
+        "legacyUrl": "/category/salesforce-commerce-cloud/",
+        "targetUrl": "/category/salesforce-commerce-cloud/",
+        "top90Rank": null,
+        "top28Rank": null,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "category-listing"
+        ]
+      }
+    ],
+    "traffic90dTop10": [
+      {
+        "sourceId": "73",
+        "postType": "page",
+        "disposition": "keep",
+        "legacyUrl": "/",
+        "targetUrl": "/",
+        "top90Rank": 6,
+        "top28Rank": 2,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "page",
+          "homepage",
+          "top-10-traffic-90d",
+          "top-10-traffic-28d"
+        ]
+      },
+      {
+        "sourceId": "8698",
+        "postType": "post",
+        "disposition": "keep",
+        "legacyUrl": "/a-beginners-guide-to-webdav-in-sfcc/",
+        "targetUrl": "/a-beginners-guide-to-webdav-in-sfcc/",
+        "top90Rank": 5,
+        "top28Rank": 14,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "top-10-traffic-90d"
+        ]
+      },
+      {
+        "sourceId": "2770",
+        "postType": "post",
+        "disposition": "keep",
+        "legacyUrl": "/creating-custom-ocapi-endpoints/",
+        "targetUrl": "/creating-custom-ocapi-endpoints/",
+        "top90Rank": 8,
+        "top28Rank": 23,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "top-10-traffic-90d"
+        ]
+      },
+      {
+        "sourceId": "528",
+        "postType": "post",
+        "disposition": "keep",
+        "legacyUrl": "/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/",
+        "targetUrl": "/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/",
+        "top90Rank": 10,
+        "top28Rank": 13,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "standard-article",
+          "top-10-traffic-90d"
+        ]
+      },
+      {
+        "sourceId": "2265",
+        "postType": "post",
+        "disposition": "keep",
+        "legacyUrl": "/how-to-use-ocapi-scapi-hooks/",
+        "targetUrl": "/how-to-use-ocapi-scapi-hooks/",
+        "top90Rank": 2,
+        "top28Rank": 3,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "top-10-traffic-90d",
+          "top-10-traffic-28d"
+        ]
+      },
+      {
+        "sourceId": "11658",
+        "postType": "post",
+        "disposition": "keep",
+        "legacyUrl": "/in-the-ring-ocapi-versus-scapi/",
+        "targetUrl": "/in-the-ring-ocapi-versus-scapi/",
+        "top90Rank": 3,
+        "top28Rank": 15,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "standard-article",
+          "top-10-traffic-90d"
+        ]
+      },
+      {
+        "sourceId": "10642",
+        "postType": "post",
+        "disposition": "keep",
+        "legacyUrl": "/mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/",
+        "targetUrl": "/mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/",
+        "top90Rank": 4,
+        "top28Rank": 5,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "top-10-traffic-90d",
+          "top-10-traffic-28d"
+        ]
+      },
+      {
+        "sourceId": "1389",
+        "postType": "post",
+        "disposition": "keep",
+        "legacyUrl": "/sitegenesis-vs-sfra-vs-pwa/",
+        "targetUrl": "/sitegenesis-vs-sfra-vs-pwa/",
+        "top90Rank": 7,
+        "top28Rank": 16,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "embedded-media",
+          "top-10-traffic-90d"
+        ]
+      },
+      {
+        "sourceId": "12435",
+        "postType": "page",
+        "disposition": "keep",
+        "legacyUrl": "/swc-and-storybook-error-failed-to-load-native-binding/",
+        "targetUrl": "/swc-and-storybook-error-failed-to-load-native-binding/",
+        "top90Rank": 1,
+        "top28Rank": 8,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "page",
+          "top-10-traffic-90d",
+          "top-10-traffic-28d"
+        ]
+      },
+      {
+        "sourceId": "7979",
+        "postType": "post",
+        "disposition": "keep",
+        "legacyUrl": "/understanding-sfcc-instances/",
+        "targetUrl": "/understanding-sfcc-instances/",
+        "top90Rank": 9,
+        "top28Rank": 24,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "standard-article",
+          "top-10-traffic-90d"
+        ]
+      }
+    ],
+    "traffic28dTop10": [
+      {
+        "sourceId": "73",
+        "postType": "page",
+        "disposition": "keep",
+        "legacyUrl": "/",
+        "targetUrl": "/",
+        "top90Rank": 6,
+        "top28Rank": 2,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "page",
+          "homepage",
+          "top-10-traffic-90d",
+          "top-10-traffic-28d"
+        ]
+      },
+      {
+        "sourceId": "14004",
+        "postType": "post",
+        "disposition": "keep",
+        "legacyUrl": "/a-survival-guide-to-sfcc-platform-limits/",
+        "targetUrl": "/a-survival-guide-to-sfcc-platform-limits/",
+        "top90Rank": null,
+        "top28Rank": 4,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "standard-article",
+          "top-10-traffic-28d"
+        ]
+      },
+      {
+        "sourceId": "12231",
+        "postType": "post",
+        "disposition": "keep",
+        "legacyUrl": "/caching-in-the-sfcc-composable-storefront/",
+        "targetUrl": "/caching-in-the-sfcc-composable-storefront/",
+        "top90Rank": 11,
+        "top28Rank": 7,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "top-10-traffic-28d"
+        ]
+      },
+      {
+        "sourceId": "13328",
+        "postType": "post",
+        "disposition": "keep",
+        "legacyUrl": "/field-guide-to-custom-caches-in-sfcc/",
+        "targetUrl": "/field-guide-to-custom-caches-in-sfcc/",
+        "top90Rank": null,
+        "top28Rank": 6,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "top-10-traffic-28d"
+        ]
+      },
+      {
+        "sourceId": "2265",
+        "postType": "post",
+        "disposition": "keep",
+        "legacyUrl": "/how-to-use-ocapi-scapi-hooks/",
+        "targetUrl": "/how-to-use-ocapi-scapi-hooks/",
+        "top90Rank": 2,
+        "top28Rank": 3,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "top-10-traffic-90d",
+          "top-10-traffic-28d"
+        ]
+      },
+      {
+        "sourceId": "12990",
+        "postType": "post",
+        "disposition": "keep",
+        "legacyUrl": "/lag-to-riches-a-pwa-kit-developers-guide/",
+        "targetUrl": "/lag-to-riches-a-pwa-kit-developers-guide/",
+        "top90Rank": null,
+        "top28Rank": 1,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "top-10-traffic-28d"
+        ]
+      },
+      {
+        "sourceId": "10642",
+        "postType": "post",
+        "disposition": "keep",
+        "legacyUrl": "/mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/",
+        "targetUrl": "/mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/",
+        "top90Rank": 4,
+        "top28Rank": 5,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "top-10-traffic-90d",
+          "top-10-traffic-28d"
+        ]
+      },
+      {
+        "sourceId": "12947",
+        "postType": "post",
+        "disposition": "keep",
+        "legacyUrl": "/mastering-sitemaps-in-sfcc/",
+        "targetUrl": "/mastering-sitemaps-in-sfcc/",
+        "top90Rank": null,
+        "top28Rank": 9,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "top-10-traffic-28d"
+        ]
+      },
+      {
+        "sourceId": "12435",
+        "postType": "page",
+        "disposition": "keep",
+        "legacyUrl": "/swc-and-storybook-error-failed-to-load-native-binding/",
+        "targetUrl": "/swc-and-storybook-error-failed-to-load-native-binding/",
+        "top90Rank": 1,
+        "top28Rank": 8,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "page",
+          "top-10-traffic-90d",
+          "top-10-traffic-28d"
+        ]
+      },
+      {
+        "sourceId": "13311",
+        "postType": "post",
+        "disposition": "keep",
+        "legacyUrl": "/the-sfcc-guide-to-finding-pod-numbers/",
+        "targetUrl": "/the-sfcc-guide-to-finding-pod-numbers/",
+        "top90Rank": null,
+        "top28Rank": 10,
+        "compatibleAliasCount": 0,
+        "coverageTags": [
+          "standard-article",
+          "top-10-traffic-28d"
+        ]
+      }
+    ]
+  }
+}

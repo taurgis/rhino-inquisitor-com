@@ -11,17 +11,37 @@ const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../
 const defaultContentDir = path.join(repoRoot, 'migration/output/content');
 const defaultCorrectionsFile = path.join(repoRoot, 'migration/input/image-alt-corrections.csv');
 const defaultLinkCorrectionsFile = path.join(repoRoot, 'migration/input/link-text-corrections.csv');
+const defaultBodyOverridesFile = path.join(repoRoot, 'migration/input/body-overrides.json');
+const defaultBodyOverridesDir = path.join(repoRoot, 'migration/input/body-overrides');
 const defaultSummaryReport = path.join(repoRoot, 'migration/reports/content-corrections-summary.json');
 const defaultAltAuditReport = path.join(repoRoot, 'migration/reports/image-alt-corrections-audit.csv');
 const defaultLinkAuditReport = path.join(repoRoot, 'migration/reports/link-text-corrections-audit.csv');
 const weakLinkTexts = new Set(['click here', 'read more', 'here']);
 const tableDividerPattern = /^\s*\|?(?:\s*:?-{3,}:?\s*\|)+\s*:?-{3,}:?\s*\|?\s*$/u;
 const markdownLinkPattern = /(?<!!)\[([^\]]+)\]\(([^)]+)\)/gu;
+const inlineLabelTypeByLabel = new Map([
+  ['caching', 'note'],
+  ['cdn', 'note'],
+  ['clearing the cache', 'note'],
+  ['default cache times', 'note'],
+  ['deleted', 'warning'],
+  ['deletion', 'warning'],
+  ['deprecated', 'warning'],
+  ['deprecation', 'warning'],
+  ['info', 'note'],
+  ['not found', 'note'],
+  ['replication', 'note']
+]);
+const inlineLabelCandidates = [...inlineLabelTypeByLabel.keys()].sort((left, right) => right.length - left.length);
+const linkedImageTokenPattern = /\[\s*!\[[^\]]*\]\([^)]*\)\s*\]\([^)]*\)|!\[[^\]]*\]\([^)]*\)/gu;
+const standaloneImagePattern = /^(?:\[\s*!\[[^\]]*\]\([^)]*\)\s*\]\([^)]*\)|!\[[^\]]*\]\([^)]*\))$/u;
+const brokenInlineLinkPattern = /(?<!!)\[([^\]]+)\]\(([^)]+)\)([a-z]{1,20})(?=(?:\s|[.,;:!?)]|$))/gu;
 
 async function main() {
   const options = parseArgs(process.argv.slice(2));
   const altCorrections = await loadAltCorrections(options.correctionsFile);
   const linkCorrections = await loadLinkCorrections(options.linkCorrectionsFile);
+  const bodyOverrides = await loadBodyOverrides(options.bodyOverridesFile, options.bodyOverridesDir);
   const markdownFiles = (await fg('**/*.md', {
     cwd: options.contentDir,
     absolute: true,
@@ -34,12 +54,15 @@ async function main() {
     correctionsFilePresent: altCorrections.exists,
     linkCorrectionsFile: toRepoRelative(options.linkCorrectionsFile),
     linkCorrectionsFilePresent: linkCorrections.exists,
+    bodyOverridesFile: toRepoRelative(options.bodyOverridesFile),
+    bodyOverridesFilePresent: bodyOverrides.exists,
     markdownFileCount: markdownFiles.length,
     filesChanged: 0,
     fencedBlocksNormalized: 0,
     mixedImageLinesSplit: 0,
     imageParagraphSpacersInserted: 0,
     tableHeaderRowsNormalized: 0,
+    bodyOverridesApplied: 0,
     altCorrectionsApplied: 0,
     unmatchedAltCorrections: 0,
     linkTextCorrectionsApplied: 0,
@@ -55,12 +78,23 @@ async function main() {
     const parsed = matter(source);
     const pageUrl = normalizePageUrl(parsed.data.url);
     const fileLabel = toRepoRelative(markdownFile);
+    const bodyOverride = pageUrl ? bodyOverrides.byPageUrl.get(pageUrl) ?? null : null;
+
+    if (bodyOverride) {
+      parsed.content = bodyOverride.bodyMarkdown;
+      if (bodyOverride.description) {
+        parsed.data.description = bodyOverride.description;
+      }
+      summary.bodyOverridesApplied += 1;
+    }
 
     const fenceResult = normalizeFencedCodeBlocks(parsed.content);
     const imageResult = normalizeImageParagraphs(fenceResult.content);
     const tableResult = normalizeMarkdownTables(imageResult.content);
+    const calloutResult = normalizeInlineLabelCallouts(tableResult.content);
+    const linkRepairResult = normalizeBrokenInlineLinks(calloutResult.content);
     const altResult = applyAltCorrections({
-      bodyContent: tableResult.content,
+      bodyContent: linkRepairResult.content,
       pageUrl,
       fileLabel,
       correctionsByKey: altCorrections.byKey,
@@ -76,10 +110,11 @@ async function main() {
       auditRows: linkAuditRows
     });
 
-    if (linkResult.content !== parsed.content) {
-      const rewritten = matter.stringify(linkResult.content.trimEnd() ? `${linkResult.content.trimEnd()}\n` : '', parsed.data, {
-        lineWidth: 0
-      });
+    const rewritten = matter.stringify(linkResult.content.trimEnd() ? `${linkResult.content.trimEnd()}\n` : '', parsed.data, {
+      lineWidth: 0
+    });
+
+    if (rewritten !== source) {
       await fs.writeFile(markdownFile, rewritten, 'utf8');
       summary.filesChanged += 1;
     }
@@ -88,6 +123,8 @@ async function main() {
     summary.mixedImageLinesSplit += imageResult.mixedImageLinesSplit;
     summary.imageParagraphSpacersInserted += imageResult.imageParagraphSpacersInserted;
     summary.tableHeaderRowsNormalized += tableResult.normalizedTables;
+    summary.inlineLabelCalloutsNormalized = (summary.inlineLabelCalloutsNormalized ?? 0) + calloutResult.normalizedCallouts;
+    summary.inlineLinksRepaired = (summary.inlineLinksRepaired ?? 0) + linkRepairResult.repairedLinks;
     summary.altCorrectionsApplied += altResult.appliedCount;
     summary.linkTextCorrectionsApplied += linkResult.appliedCount;
   }
@@ -143,6 +180,7 @@ async function main() {
       `Mixed image lines split: ${summary.mixedImageLinesSplit}.`,
       `Image paragraph spacers inserted: ${summary.imageParagraphSpacersInserted}.`,
       `Table headers normalized: ${summary.tableHeaderRowsNormalized}.`,
+      `Body overrides applied: ${summary.bodyOverridesApplied}.`,
       `Alt corrections applied: ${summary.altCorrectionsApplied}.`,
       `Unmatched alt corrections: ${summary.unmatchedAltCorrections}.`,
       `Link-text corrections applied: ${summary.linkTextCorrectionsApplied}.`,
@@ -157,6 +195,8 @@ function parseArgs(argv) {
     contentDir: defaultContentDir,
     correctionsFile: defaultCorrectionsFile,
     linkCorrectionsFile: defaultLinkCorrectionsFile,
+    bodyOverridesFile: defaultBodyOverridesFile,
+    bodyOverridesDir: defaultBodyOverridesDir,
     summaryReport: defaultSummaryReport,
     altAuditReport: defaultAltAuditReport,
     linkAuditReport: defaultLinkAuditReport
@@ -173,6 +213,12 @@ function parseArgs(argv) {
         break;
       case '--link-corrections-file':
         options.linkCorrectionsFile = path.resolve(argv[++index]);
+        break;
+      case '--body-overrides-file':
+        options.bodyOverridesFile = path.resolve(argv[++index]);
+        break;
+      case '--body-overrides-dir':
+        options.bodyOverridesDir = path.resolve(argv[++index]);
         break;
       case '--summary-report':
         options.summaryReport = path.resolve(argv[++index]);
@@ -203,6 +249,10 @@ Options:
   --corrections-file <path>   Override migration/input/image-alt-corrections.csv.
   --link-corrections-file <path>
                               Override migration/input/link-text-corrections.csv.
+  --body-overrides-file <path>
+                              Override migration/input/body-overrides.json.
+  --body-overrides-dir <path>
+                              Override migration/input/body-overrides directory.
   --summary-report <path>     Override migration/reports/content-corrections-summary.json.
   --alt-audit-report <path>   Override migration/reports/image-alt-corrections-audit.csv.
   --link-audit-report <path>  Override migration/reports/link-text-corrections-audit.csv.
@@ -340,6 +390,86 @@ async function loadLinkCorrections(filePath) {
     rows,
     byKey
   };
+}
+
+async function loadBodyOverrides(filePath, overridesDir) {
+  let raw;
+  try {
+    raw = await fs.readFile(filePath, 'utf8');
+  } catch (error) {
+    if (error?.code === 'ENOENT') {
+      return {
+        exists: false,
+        rows: [],
+        byPageUrl: new Map()
+      };
+    }
+    throw error;
+  }
+
+  let records;
+  try {
+    records = JSON.parse(raw);
+  } catch (error) {
+    throw new Error(`Body overrides file ${toRepoRelative(filePath)} is not valid JSON: ${error.message}`);
+  }
+
+  if (!Array.isArray(records)) {
+    throw new Error(`Body overrides file ${toRepoRelative(filePath)} must contain a JSON array.`);
+  }
+
+  const rows = [];
+  const byPageUrl = new Map();
+
+  for (const record of records) {
+    const pageUrl = normalizePageUrl(record?.page_url);
+    const bodyFile = String(record?.body_file ?? '').trim();
+    const description = normalizeDescriptionOverride(record?.description ?? '');
+    if (!pageUrl || !bodyFile) {
+      throw new Error(`Body overrides file ${toRepoRelative(filePath)} contains an incomplete row.`);
+    }
+
+    const bodyFilePath = path.resolve(overridesDir, bodyFile);
+    let bodyMarkdown;
+    try {
+      bodyMarkdown = await fs.readFile(bodyFilePath, 'utf8');
+    } catch (error) {
+      throw new Error(`Unable to read body override ${toRepoRelative(bodyFilePath)} for ${pageUrl}: ${error.message}`);
+    }
+
+    const normalizedRow = {
+      pageUrl,
+      bodyFile: toRepoRelative(bodyFilePath),
+      bodyMarkdown: normalizeOverrideBody(bodyMarkdown),
+      description
+    };
+
+    if (byPageUrl.has(pageUrl)) {
+      throw new Error(`Body overrides file ${toRepoRelative(filePath)} contains duplicate page_url ${pageUrl}.`);
+    }
+
+    rows.push(normalizedRow);
+    byPageUrl.set(pageUrl, normalizedRow);
+  }
+
+  return {
+    exists: true,
+    rows,
+    byPageUrl
+  };
+}
+
+function normalizeOverrideBody(value) {
+  return String(value ?? '')
+    .replace(/\r\n?/gu, '\n')
+    .trim();
+}
+
+function normalizeDescriptionOverride(value) {
+  return String(value ?? '')
+    .replace(/\r\n?/gu, ' ')
+    .replace(/\s+/gu, ' ')
+    .trim();
 }
 
 function normalizeFencedCodeBlocks(content) {
@@ -591,16 +721,217 @@ function normalizeTableHeaderRow(tableLines) {
   };
 }
 
+function normalizeInlineLabelCallouts(content) {
+  const lines = String(content ?? '').replace(/\r\n?/gu, '\n').split('\n');
+  const normalizedLines = [];
+  let normalizedCallouts = 0;
+  let insideFence = false;
+  let paragraphLines = [];
+
+  const flushParagraph = () => {
+    if (paragraphLines.length === 0) {
+      return;
+    }
+
+    const paragraphText = paragraphLines.join(' ').replace(/\s+/gu, ' ').trim();
+    paragraphLines = [];
+    if (!paragraphText) {
+      return;
+    }
+
+    const rewritten = rewriteParagraphWithInlineLabels(paragraphText);
+    normalizedLines.push(...rewritten.lines);
+    normalizedCallouts += rewritten.normalizedCallouts;
+  };
+
+  for (const line of lines) {
+    const trimmedLine = line.trim();
+    if (/^(`{3,}|~{3,})/u.test(trimmedLine)) {
+      flushParagraph();
+      insideFence = !insideFence;
+      normalizedLines.push(line);
+      continue;
+    }
+
+    if (insideFence) {
+      normalizedLines.push(line);
+      continue;
+    }
+
+    if (trimmedLine.length === 0) {
+      flushParagraph();
+      if (normalizedLines.at(-1) !== '') {
+        normalizedLines.push('');
+      }
+      continue;
+    }
+
+    if (startsNewMarkdownBlock(trimmedLine) || isStandaloneImageLine(trimmedLine)) {
+      flushParagraph();
+      normalizedLines.push(line);
+      continue;
+    }
+
+    paragraphLines.push(trimmedLine);
+  }
+
+  flushParagraph();
+
+  return {
+    content: normalizedLines.join('\n').replace(/\n{3,}/gu, '\n\n'),
+    normalizedCallouts
+  };
+}
+
+function rewriteParagraphWithInlineLabels(paragraphText) {
+  const labelMatches = findInlineLabelMatches(paragraphText);
+  if (labelMatches.length === 0) {
+    return {
+      lines: [paragraphText],
+      normalizedCallouts: 0
+    };
+  }
+
+  const renderedBlocks = [];
+  let cursor = 0;
+
+  for (let index = 0; index < labelMatches.length; index += 1) {
+    const match = labelMatches[index];
+    const prefix = paragraphText.slice(cursor, match.index).trim();
+    if (prefix) {
+      renderedBlocks.push(prefix);
+    }
+
+    const nextIndex = index + 1 < labelMatches.length ? labelMatches[index + 1].index : paragraphText.length;
+    const body = paragraphText.slice(match.index + match.label.length, nextIndex).trim();
+    if (body) {
+      renderedBlocks.push(buildInlineLabelCallout(match.label, match.type, body));
+    } else {
+      renderedBlocks.push(match.label);
+    }
+    cursor = nextIndex;
+  }
+
+  const tail = paragraphText.slice(cursor).trim();
+  if (tail) {
+    renderedBlocks.push(tail);
+  }
+
+  const lines = [];
+  renderedBlocks.forEach((block, index) => {
+    if (index > 0) {
+      lines.push('');
+    }
+
+    if (Array.isArray(block)) {
+      lines.push(...block);
+      return;
+    }
+
+    lines.push(block);
+  });
+
+  return {
+    lines,
+    normalizedCallouts: labelMatches.length
+  };
+}
+
+function findInlineLabelMatches(paragraphText) {
+  const lowerText = paragraphText.toLowerCase();
+  const matches = [];
+
+  for (const label of inlineLabelCandidates) {
+    let searchIndex = 0;
+    while (searchIndex < lowerText.length) {
+      const index = lowerText.indexOf(label, searchIndex);
+      if (index === -1) {
+        break;
+      }
+
+      if (isInlineLabelBoundary(paragraphText, index, label)) {
+        matches.push({
+          index,
+          label: paragraphText.slice(index, index + label.length),
+          type: inlineLabelTypeByLabel.get(label)
+        });
+      }
+
+      searchIndex = index + label.length;
+    }
+  }
+
+  return matches
+    .sort((left, right) => left.index - right.index || right.label.length - left.label.length)
+    .filter((match, index, collection) => {
+      if (index === 0) {
+        return true;
+      }
+
+      const previous = collection[index - 1];
+      return match.index >= previous.index + previous.label.length;
+    });
+}
+
+function isInlineLabelBoundary(text, index, label) {
+  const before = text.slice(0, index).trimEnd();
+  if (before.length > 0) {
+    const previousCharacter = before.at(-1);
+    if (!previousCharacter || !'.!?:'.includes(previousCharacter)) {
+      return false;
+    }
+  }
+
+  const after = text.slice(index + label.length);
+  const whitespaceMatch = after.match(/^\s+/u);
+  if (!whitespaceMatch) {
+    return false;
+  }
+
+  const nextCharacter = after.slice(whitespaceMatch[0].length).charAt(0);
+  return /[A-Z0-9("“‘]/u.test(nextCharacter);
+}
+
+function buildInlineLabelCallout(label, type, body) {
+  return [
+    `> [!${String(type ?? 'note').toUpperCase()}]`,
+    `> **${formatInlineLabel(label)}:** ${body}`
+  ];
+}
+
+function formatInlineLabel(label) {
+  return String(label ?? '')
+    .split(/\s+/u)
+    .filter(Boolean)
+    .map((segment) => segment.charAt(0).toUpperCase() + segment.slice(1).toLowerCase())
+    .join(' ');
+}
+
+function normalizeBrokenInlineLinks(content) {
+  let repairedLinks = 0;
+  const normalizedContent = String(content ?? '').replace(
+    brokenInlineLinkPattern,
+    (match, label, target, suffix) => {
+      repairedLinks += 1;
+      return `[${label}${suffix}](${target})`;
+    }
+  );
+
+  return {
+    content: normalizedContent,
+    repairedLinks
+  };
+}
+
 function splitMixedImageLine(line) {
   if (!line.includes('![')) {
     return [line];
   }
 
-  const tokenPattern = /\[!\[[^\]]*\]\([^)]*\)\]\([^)]*\)|!\[[^\]]*\]\([^)]*\)/gu;
   const blocks = [];
   let lastIndex = 0;
 
-  for (const match of line.matchAll(tokenPattern)) {
+  for (const match of line.matchAll(linkedImageTokenPattern)) {
     const start = match.index ?? 0;
     if (start > lastIndex) {
       blocks.push({
@@ -634,14 +965,14 @@ function splitMixedImageLine(line) {
 
 function blockHasMeaningfulText(value) {
   return value
-    .replace(/\[[^\]]*\]\([^)]*\)/gu, '')
+    .replace(/\[([^\]]*)\]\([^)]*\)/gu, '$1')
     .replace(/[_*`>#-]/gu, ' ')
     .replace(/\s+/gu, ' ')
     .trim().length > 0;
 }
 
 function isStandaloneImageLine(value) {
-  return /^(?:\[!\[[^\]]*\]\([^)]*\)\]\([^)]*\)|!\[[^\]]*\]\([^)]*\))$/u.test(value);
+  return standaloneImagePattern.test(value);
 }
 
 function startsNewMarkdownBlock(value) {
@@ -656,7 +987,7 @@ function applyAltCorrections({ bodyContent, pageUrl, fileLabel, correctionsByKey
     };
   }
 
-  const imagePattern = /\[!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]*)")?\)\]\(([^)]+)\)|!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]*)")?\)/gu;
+  const imagePattern = /\[\s*!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]*)")?\)\s*\]\(([^)]+)\)|!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]*)")?\)/gu;
   let appliedCount = 0;
   const imageOccurrences = new Map();
 

@@ -1,14 +1,3 @@
----
-title: About
-description: >-
-  Rhino Inquisitor is Thomas Theunen's working notebook for Salesforce B2C
-  Commerce Cloud architecture, delivery lessons, and practical field guidance.
-date: '2022-02-25T21:45:53.000Z'
-lastmod: '2022-02-25T21:45:55.000Z'
-url: /about/
-draft: false
-author: Thomas Theunen
----
 ## Hard Work And Dedication Is The Main Key For Success
 
 One important rule when creating a new start-up or rebuilding an existing platform is that there are no shortcuts. Sustainable growth comes from clear priorities, honest trade-offs, and the discipline to keep improving the fundamentals.

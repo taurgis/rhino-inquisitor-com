@@ -1,5 +1,5 @@
 endpoint,check,status,severity,behavior,redirectTarget,xmlValid,itemCount,message
-/index.xml,canonical_feed_exists,pass,none,xml,,true,171,Canonical feed XML is present and parseable.
+/index.xml,canonical_feed_exists,pass,none,xml,,true,18,Canonical feed XML is present and parseable.
 /feed/,helper_route_behavior,pass,none,meta-refresh,/index.xml,,,Feed helper route resolves through the approved Pages-compatible compatibility pattern.
 /feed/rss/,helper_route_behavior,pass,none,meta-refresh,/index.xml,,,Feed helper route resolves through the approved Pages-compatible compatibility pattern.
 /feed/atom/,helper_route_behavior,pass,none,meta-refresh,/index.xml,,,Feed helper route resolves through the approved Pages-compatible compatibility pattern.

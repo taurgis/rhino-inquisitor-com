@@ -439,10 +439,14 @@ function buildFrontMatter(record, discoveryParams, attachmentUrlBySourceId, erro
 }
 
 function resolveDescription(record) {
+  const metaDescription = normalizeDescriptionText(record?._raw?.extracted?.metaDescription ?? '');
   const excerpt = normalizeDescriptionText(record.excerptRaw ?? '');
   const bodyText = normalizeDescriptionText(record.bodyMarkdown ?? '');
 
   const candidates = [];
+  if (metaDescription.length > 0) {
+    candidates.push(metaDescription);
+  }
   if (excerpt.length > 0) {
     candidates.push(excerpt);
   }
@@ -527,10 +531,9 @@ function normalizeDescriptionText(value) {
     .replace(/```[\s\S]*?```/gu, ' ')
     .replace(/`([^`]+)`/gu, '$1')
     .replace(/!\[[^\]]*\]\([^)]*\)/gu, ' ')
-    .replace(/\[[^\]]+\]\([^)]*\)/gu, '$1')
+    .replace(/\[([^\]]+)\]\([^)]*\)/gu, '$1')
     .replace(/<!--(?:[\s\S]*?)-->/gu, ' ')
     .replace(/\[(?:\.{3}|\u2026|Read more)\]/giu, ' ')
-    .replace(/\$1(?=[!?.,;:]|\s|$)/gu, ' ')
     .replace(/[>#*_~]/gu, ' ')
     .replace(/\s+([,.;!?])/gu, '$1')
     .replace(/(?:\.{3}|\u2026)+$/gu, '')

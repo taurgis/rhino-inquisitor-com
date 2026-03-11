@@ -1,0 +1,34 @@
+# RHI-043 pilot selection locked 2026-03-11
+# Traffic window: 90-day export
+# Homepage rule: homepage is required in addition to 5 top-traffic pages
+# Video criterion: use the /video/ page
+# Redirect criterion: use an alias-backed keep record plus the matching manifest merge URL
+# Accessibility warning cap: 25
+
+# Homepage and route coverage
+73
+1077
+category:12
+2
+3089
+
+# Representative page coverage
+68
+12435
+
+# Top-traffic 90-day records
+2265
+11658
+10642
+8698
+1389
+2770
+7979
+528
+
+# Additional representative pilot records
+2942
+12231
+14004
+4455
+9316

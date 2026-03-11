@@ -1,5 +1,7 @@
 import path from 'node:path';
 
+import fs from 'node:fs/promises';
+
 import {
   canonicalOrigin,
   collectPublicHtmlState,
@@ -20,7 +22,9 @@ const defaults = {
   contentRoot: path.join(repoRoot, 'src/content'),
   publicRoot: path.join(repoRoot, 'public'),
   reportPath: path.join(repoRoot, 'migration/reports/redirect-integrity-report.csv'),
-  baseUrl: null
+  baseUrl: null,
+  recordsPath: path.join(repoRoot, 'migration/intermediate/records.normalized.json'),
+  scope: 'full-manifest'
 };
 
 function printHelp() {
@@ -29,6 +33,8 @@ function printHelp() {
 Options:
   --manifest <path>      Override manifest path.
   --public-dir <path>    Override built public directory (defaults to public).
+  --records-file <path>  Override normalized records path used by selected-records scope.
+  --scope <mode>         Validation scope: full-manifest or selected-records.
   --base-url <url>       Optional deployed base URL for runtime redirect checks.
   --help                 Show this help message.
 `);
@@ -105,10 +111,14 @@ async function main() {
 
   const manifestEntries = await loadManifest(options.manifestPath);
   const publicState = await collectPublicHtmlState(options.publicRoot);
-  const manifestChains = resolveManifestChains(manifestEntries);
+  const selectedRecords = options.scope === 'selected-records'
+    ? await loadSelectedRecords(options.recordsPath)
+    : [];
+  const scopedManifestEntries = filterMergeEntriesForScope({ manifestEntries, selectedRecords, publicState, scope: options.scope });
+  const manifestChains = resolveManifestChains(scopedManifestEntries);
   const results = [];
 
-  for (const entry of manifestEntries.filter((candidate) => candidate.disposition === 'merge').sort(sortManifestEntries)) {
+  for (const entry of scopedManifestEntries.sort(sortManifestEntries)) {
     const severity = severityForEntry(entry);
     const legacyInfo = normalizeUrlLike(entry.legacy_url);
     const targetInfo = ensureExpectedTarget(entry);
@@ -181,6 +191,7 @@ async function main() {
   const deferredCount = results.filter((result) => result.actual_outcome === 'deferred-edge-redirect').length;
 
   console.log(`Redirect integrity checked for ${results.length} merge URL(s).`);
+  console.log(`Validation scope: ${options.scope}`);
   console.log(`Public directory: ${toRepoRelative(options.publicRoot)}`);
   if (options.baseUrl) {
     console.log(`Runtime base URL: ${new URL(options.baseUrl, canonicalOrigin).toString()}`);
@@ -198,6 +209,46 @@ async function main() {
   if (criticalFailures.length > 0) {
     process.exitCode = 1;
   }
+}
+
+async function loadSelectedRecords(recordsPath) {
+  const source = await fs.readFile(recordsPath, 'utf8');
+  const parsed = JSON.parse(source);
+
+  if (!Array.isArray(parsed)) {
+    throw new Error(`Expected selected records at ${toRepoRelative(recordsPath)} to be a JSON array.`);
+  }
+
+  return parsed;
+}
+
+function filterMergeEntriesForScope({ manifestEntries, selectedRecords, publicState, scope }) {
+  const mergeEntries = manifestEntries.filter((candidate) => candidate.disposition === 'merge');
+
+  if (scope !== 'selected-records') {
+    return mergeEntries;
+  }
+
+  const selectedLegacyUrls = new Set();
+  const selectedAliasUrls = new Set(publicState.htmlRoutes.keys());
+
+  for (const record of selectedRecords) {
+    if (typeof record?.legacyUrl === 'string' && record.legacyUrl.trim()) {
+      selectedLegacyUrls.add(normalizeUrlLike(record.legacyUrl).comparablePathOnly);
+    }
+    if (Array.isArray(record?.aliasUrls)) {
+      for (const aliasUrl of record.aliasUrls) {
+        if (typeof aliasUrl === 'string' && aliasUrl.trim()) {
+          selectedAliasUrls.add(normalizeUrlLike(aliasUrl).comparablePathOnly);
+        }
+      }
+    }
+  }
+
+  return mergeEntries.filter((entry) => {
+    const legacyInfo = normalizeUrlLike(entry.legacy_url);
+    return selectedAliasUrls.has(legacyInfo.comparablePathOnly) || selectedLegacyUrls.has(legacyInfo.comparablePathOnly);
+  });
 }
 
 await main();

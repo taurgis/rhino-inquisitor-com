@@ -138,7 +138,8 @@ async function main() {
     manifest,
     normalizedRecords: sortedNormalizedRecords,
     normalizeErrors: sortedErrors,
-    requiredScope: extractSummary?.coverage?.scope ?? 'source-backed-content-only'
+    requiredScope: extractSummary?.coverage?.scope ?? 'source-backed-content-only',
+    selectionMode: extractSummary?.mode ?? 'full'
   });
   const summary = createNormalizeSummary({
     extractRecords,
@@ -749,8 +750,9 @@ function createSchemaError({ record, manifestEntry, validationError, blocking })
   };
 }
 
-function buildCoverageReport({ manifest, normalizedRecords, normalizeErrors, requiredScope }) {
+function buildCoverageReport({ manifest, normalizedRecords, normalizeErrors, requiredScope, selectionMode }) {
   const normalizedByLegacyUrl = new Map(normalizedRecords.map((record) => [record.legacyUrl, record]));
+  const selectedLegacyUrls = new Set(normalizedRecords.map((record) => record.legacyUrl).filter(Boolean));
   const requiredManifestEntries = manifest
     .map((entry) => ({
       ...entry,
@@ -761,6 +763,7 @@ function buildCoverageReport({ manifest, normalizedRecords, normalizeErrors, req
       (entry) => entry.legacy_url
         && isSourceBackedManifestEntry(entry)
         && (entry.disposition === 'keep' || entry.disposition === 'merge')
+        && (selectionMode !== 'subset' || selectedLegacyUrls.has(entry.legacy_url))
     );
   const missingRequiredUrls = requiredManifestEntries
     .filter((entry) => !normalizedByLegacyUrl.has(entry.legacy_url))

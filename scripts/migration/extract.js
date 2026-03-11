@@ -867,6 +867,7 @@ async function applyFilesystemVerification({ filesystemRoot, recordsBySourceId, 
 
 function buildCoverageReport({ records, manifest, inventory, requestedSourceIds, requestedPostTypes, selectionMode, manifestByUrl }) {
   const extractedPaths = new Set(records.map((record) => record.legacyUrl).filter(Boolean));
+  const selectedLegacyUrls = new Set(extractedPaths);
   const sourceBackedManifestEntries = manifest.filter((entry) => {
     if (!isSourceBackedManifestEntry(entry)) {
       return false;
@@ -905,6 +906,21 @@ function buildCoverageReport({ records, manifest, inventory, requestedSourceIds,
   const missingInventoryUrls = inventory
     .map((entry) => ({ ...entry, manifest: manifestByUrl.get(entry.path) ?? null }))
     .filter((entry) => entry.manifest && isSourceBackedManifestEntry(entry.manifest) && (entry.manifest.disposition === 'keep' || entry.manifest.disposition === 'merge'))
+    .filter((entry) => {
+      if (selectionMode !== 'subset') {
+        return true;
+      }
+
+      if (requestedSourceIds.size > 0) {
+        return selectedLegacyUrls.has(entry.path);
+      }
+
+      if (requestedPostTypes.size > 0) {
+        return requestedPostTypes.has(normalizePostType(entry.manifest.url_class));
+      }
+
+      return true;
+    })
     .filter((entry) => !extractedPaths.has(entry.path))
     .map((entry) => ({
       path: entry.path,

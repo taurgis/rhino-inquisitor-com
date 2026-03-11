@@ -249,7 +249,10 @@ This runbook tracks the operational steps needed to move the repository from pla
 - The correction pass reads staged Markdown from `migration/output/content/` and applies deterministic generated-content fixes plus curated text overrides:
   - fenced-code cleanup for WordPress wrapper indentation and blank-first-line artifacts
   - image paragraph normalization when generated Markdown keeps images and prose in the same paragraph block
+  - inline label/callout reconstruction when flattened WordPress text leaves labels such as `Info`, `CDN`, `Default Cache Times`, `Not Found`, `Replication`, `Deprecation`, `Deletion`, or `Caching` embedded in plain paragraphs
+  - split-word inline-link repair when source anchor markup cuts through a single word boundary in generated Markdown
   - malformed table repair when a generated Markdown table contains an empty placeholder header row before the real header row
+  - page-level body and description overrides from `migration/input/body-overrides.json` plus Markdown bodies stored under `migration/input/body-overrides/`
   - curated alt-text overrides from `migration/input/image-alt-corrections.csv`
   - curated weak-link label overrides from `migration/input/link-text-corrections.csv`
 - Use `npm run migrate:finalize-content` after `npm run migrate:map-frontmatter` when you want the standard post-mapping sequence in one command.
@@ -264,6 +267,13 @@ This runbook tracks the operational steps needed to move the repository from pla
   - optional columns: `occurrence_index`, `original_text`, `source_file`
   - matching rule: `page_url + target + occurrence_index` identifies a specific Markdown link occurrence in the staged corpus
   - rows with a blank `corrected_text` are treated as seed inventory and are ignored by the correction pass until curated text is supplied
+- The page body override contract is:
+  - manifest path: `migration/input/body-overrides.json`
+  - body directory: `migration/input/body-overrides/`
+  - required JSON keys per row: `page_url`, `body_file`
+  - optional JSON key: `description`
+  - matching rule: `page_url` identifies the staged Markdown file whose body should be replaced during the correction pass; `body_file` resolves relative to `migration/input/body-overrides/`
+  - intended use: durable authored replacements for source-content defects that are not pipeline bugs but must survive reruns
 - Seed or refresh the weak-link inventory with `npm run migrate:export-link-text-corrections`.
 - The correction pass writes:
   - `migration/reports/content-corrections-summary.json`
@@ -282,6 +292,10 @@ This runbook tracks the operational steps needed to move the repository from pla
   - `npm run migrate:apply-corrections` updated 4 files on the first rerun after the script change, auto-promoted 3 malformed table header rows, and applied 1 curated alt correction
   - after curating descriptive labels in `migration/input/link-text-corrections.csv`, `npm run migrate:apply-corrections` updated 37 files with 46 link-text replacements, and a second occurrence-specific ERD follow-up updated 1 file with 2 more replacements
   - `npm run check:a11y-content` now reports 0 blocking findings and 2 warnings: 1 remaining weak-link row in the PWA Kit v2.6.0 sentence plus 1 multiline-table warning in the realm-split article
+- Current validated 2026-03-11 pilot remediation behavior:
+  - a pilot rerun after script updates repaired flattened inline callout labels in the caching, hooks, and instance articles, repaired the split-word WebDAV inline link, and split the home-page link-and-image block into separate Markdown blocks
+  - the correction pass now supports page-level body overrides and was used to replace the legacy About-page placeholder source via `migration/input/body-overrides.json` and `migration/input/body-overrides/about.md`
+  - a second `npm run migrate:apply-corrections` rerun remained idempotent with `filesChanged: 0`
 - Validation steps for the correction pass:
   - `npm run migrate:export-alt-corrections -- --current-dir migration/output/content --baseline-dir tmp/rhi-correction-validate-content --output-file migration/input/image-alt-corrections.csv` when reseeding curated alt text from reviewed staged content
   - `npm run migrate:export-link-text-corrections`
@@ -341,6 +355,46 @@ This runbook tracks the operational steps needed to move the repository from pla
   - `migration/reports/link-rewrite-log.csv`
   - `migration/reports/content-corrections-summary.json`
   - `migration/reports/image-alt-corrections-audit.csv`
+
+### RHI-043 - Pilot Selection and Batch Prep
+
+- Generate the pilot candidate ledger before selecting `migration/input/pilot-source-ids.txt`:
+  - `npm run migrate:pilot-candidates`
+- `npm run migrate:pilot-candidates` reads:
+  - `migration/intermediate/records.normalized.json`
+  - `migration/output/*.json`
+  - `migration/url-manifest.json`
+  - `migration/phase-1-seo-baseline.md`
+- The command writes:
+  - `migration/reports/pilot-selection-candidates.csv`
+  - `migration/reports/pilot-selection-summary.json`
+- Candidate ledger columns identify source-backed pilot coverage signals without patching generated Markdown:
+  - traffic rank from the owner-approved Phase 1 SEO baseline tables (`top_90_rank`, `top_28_rank`)
+  - Hugo-compatible alias coverage for static redirect validation (`compatible_alias_count`)
+  - content-shape heuristics for long-form/code/table and embedded-media candidates
+  - route-validation-only retire candidates that should produce no staged output
+- Current validated 2026-03-11 findings from the generated summary:
+  - the normalized corpus has `0` source-backed `merge` records, so redirect coverage must be planned with alias-backed keep records and one manifest merge URL
+  - the normalized corpus has `0` source-backed `postType=video` records; the current video-related candidate is the `/video/` page
+  - the Phase 1 baseline contains both 90-day and 28-day top-page lists, so the migration owner must choose the authoritative traffic window before locking the pilot source-id file
+- Owner decisions recorded on 2026-03-11 for the first pilot lock:
+  - top-traffic window: `90-day`
+  - homepage counts separately from the five traffic-priority pages
+  - `/video/` satisfies the video-related criterion
+  - the redirect scenario uses the alias-backed keep record `/delta-exports-in-salesforce-b2c-commerce-cloud/` plus its matching manifest merge URL `/delta-exports-in-salesforce-b2c-commerce/`
+  - the pilot accessibility warning cap stays at `25`
+- The locked source-backed pilot input currently lives at `migration/input/pilot-source-ids.txt` and contains 20 records.
+- With the locked `migration/input/pilot-source-ids.txt` in place, run the subset pipeline starting with:
+  - `npm run migrate:extract -- --source-id-file migration/input/pilot-source-ids.txt`
+  - `npm run migrate:normalize`
+  - `npm run migrate:convert`
+  - `npm run migrate:download-media`
+  - `npm run migrate:map-frontmatter`
+  - `npm run migrate:finalize-content`
+  - `npm run migrate:report`
+  - `npm run check:migration-thresholds`
+- For staged pilot-only link validation, allow manifest-backed non-pilot targets so the checker validates rewrite correctness instead of requiring the full site corpus in the temporary build:
+  - `CHECK_LINKS_PUBLIC_DIR=tmp/rhi043-public CHECK_LINKS_ALLOW_MANIFEST_TARGETS=1 npm run check:links`
 
 - Run the SEO completeness validator after the staged migration corpus has completed the normal post-mapping preparation sequence:
   - `npm run migrate:map-frontmatter`
@@ -418,6 +472,7 @@ This runbook tracks the operational steps needed to move the repository from pla
   - 123 query-style `/?p=` aliases are intentionally excluded from front matter because the approved Phase 2 alias contract is path-only and the generated-content validator rejects non-path Hugo aliases
   - true featured-image linkage now survives extraction and normalization, so the mapper emits `heroImage` when `_raw.extracted.featuredImageUrl` is available; the current validated run produces `heroImage` for all 150 staged posts and 8 staged pages with true featured-image metadata
   - description generation now normalizes Markdown artifacts, avoids forced ... truncation, and prefers sentence-complete metadata text with a concise fallback suffix when source copy is too short
+  - when `_raw.extracted.metaDescription` is present, the mapper now prefers that source metadata before falling back to excerpt/body-derived text, and Markdown link text is preserved during description normalization
   - mapper output still uses source-side media URLs at this stage; local `/media/...` rewriting remains the downstream RHI-037 responsibility
 - Mapper hard-fail behavior now includes:
   - empty `title`

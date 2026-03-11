@@ -1,11 +1,11 @@
 {
-  "mode": "full",
+  "mode": "subset",
   "selection": {
-    "sourceIdFileUsed": false,
-    "sourceIdFile": null,
-    "sourceIdCount": 0,
+    "sourceIdFileUsed": true,
+    "sourceIdFile": "migration/input/pilot-source-ids.txt",
+    "sourceIdCount": 20,
     "postTypes": [],
-    "recordCount": 947
+    "recordCount": 20
   },
   "sourceCoverageScope": "source-backed-content-only",
   "inputFiles": {
@@ -20,36 +20,34 @@
     "errors": "migration/intermediate/normalize-errors.json"
   },
   "totals": {
-    "extracted": 947,
-    "normalized": 331,
+    "extracted": 20,
+    "normalized": 20,
     "errors": 0,
     "blockingErrors": 0,
     "nonBlockingErrors": 0,
-    "skippedWithoutManifest": 616,
+    "skippedWithoutManifest": 0,
     "manifestEntries": 1201,
     "inventoryEntries": 1199
   },
   "byPostType": {
-    "attachment": 136,
-    "category": 22,
-    "landing": 1,
-    "page": 22,
-    "post": 150
+    "category": 1,
+    "page": 5,
+    "post": 14
   },
   "byStatus": {
-    "publish": 331
+    "publish": 20
   },
   "byDisposition": {
-    "keep": 193,
-    "retire": 138
+    "keep": 19,
+    "retire": 1
   },
   "coverage": {
     "requiredScope": "source-backed-content-only",
-    "requiredManifestCount": 192,
-    "normalizedRequiredCount": 192,
+    "requiredManifestCount": 18,
+    "normalizedRequiredCount": 18,
     "missingRequiredUrls": [],
     "keepMergeMissingTargetUrlCount": 0,
-    "retireWithExplicitNullTargetUrlCount": 138,
+    "retireWithExplicitNullTargetUrlCount": 1,
     "blockingErrorCount": 0,
     "nonBlockingErrorCount": 0
   },
@@ -57,151 +55,19 @@
     "aliasContract": "Derived aliasUrls from manifest rows that share the same target_url, excluding the canonical target URL itself.",
     "mediaScope": "Collected mediaRefs from src attributes plus srcset candidate URLs, with attachment upload URLs preserved when available.",
     "timestampFallbacks": {
-      "publishedAt": 22,
-      "modifiedAt": 22,
+      "publishedAt": 1,
+      "modifiedAt": 1,
       "policy": "When source timestamps are missing, publishedAt falls back to modifiedAt then sourceTimestamp; modifiedAt falls back to publishedAt then sourceTimestamp."
     },
-    "statusTransforms": {
-      "inherit->publish": 136
-    },
+    "statusTransforms": {},
     "taxonomyTransforms": {
       "total": 0,
       "samples": []
     },
     "skippedWithoutManifest": {
-      "count": 616,
-      "byPostType": {
-        "post": 14,
-        "category": 1,
-        "attachment": 601
-      },
-      "samples": [
-        {
-          "sourceId": "10599",
-          "postType": "post",
-          "legacyUrl": "/?p=10599"
-        },
-        {
-          "sourceId": "13839",
-          "postType": "post",
-          "legacyUrl": "/?p=13839"
-        },
-        {
-          "sourceId": "523",
-          "postType": "post",
-          "legacyUrl": "/?p=523"
-        },
-        {
-          "sourceId": "6635",
-          "postType": "post",
-          "legacyUrl": "/?p=6635"
-        },
-        {
-          "sourceId": "5702",
-          "postType": "post",
-          "legacyUrl": "/blog/automaton/"
-        },
-        {
-          "sourceId": "5695",
-          "postType": "post",
-          "legacyUrl": "/blog/dreamforce-22-commerce-cloud-announcements/"
-        },
-        {
-          "sourceId": "5699",
-          "postType": "post",
-          "legacyUrl": "/blog/salesforce-commerce-cloud-22/"
-        },
-        {
-          "sourceId": "category:78",
-          "postType": "category",
-          "legacyUrl": "/category/external/salesforce-developers-blog/"
-        },
-        {
-          "sourceId": "11178",
-          "postType": "post",
-          "legacyUrl": "/pulse/cautionary-tale-importance-reliable-customer-service-during-theunen-mu3ue%3ftrackingid=i%252bs3keqctlkbc82em5n4na%253d%253d/?trackingid=i%2bs3keqctlkbc82em5n4na%3d%3d"
-        },
-        {
-          "sourceId": "12944",
-          "postType": "post",
-          "legacyUrl": "/pulse/london-calling-ai-community-secret-house-titan-thomas-theunen-haeae/"
-        },
-        {
-          "sourceId": "14152",
-          "postType": "post",
-          "legacyUrl": "/pulse/taming-ai-beast-custom-toolkit-supercharge-copilot-commerce-theunen-0i7se/"
-        },
-        {
-          "sourceId": "6264",
-          "postType": "post",
-          "legacyUrl": "/pulse/year-review-thomas-theunen/"
-        },
-        {
-          "sourceId": "9198",
-          "postType": "post",
-          "legacyUrl": "/salesforce-architects/a-day-in-the-life-of-a-composable-storefront-request-f2b39b957a39/"
-        },
-        {
-          "sourceId": "7133",
-          "postType": "post",
-          "legacyUrl": "/salesforce-b2c-commerce-cloud-architecture-explained/"
-        },
-        {
-          "sourceId": "9210",
-          "postType": "post",
-          "legacyUrl": "/tips-to-get-the-most-out-of-salesforce-b2c-commerce-cloud/"
-        },
-        {
-          "sourceId": "84",
-          "postType": "attachment",
-          "legacyUrl": "/wp-content/uploads/2022/02/1e8a7695.jpg"
-        },
-        {
-          "sourceId": "69",
-          "postType": "attachment",
-          "legacyUrl": "/wp-content/uploads/2022/02/about-page-pic1.jpg"
-        },
-        {
-          "sourceId": "70",
-          "postType": "attachment",
-          "legacyUrl": "/wp-content/uploads/2022/02/about-page-pic2.jpg"
-        },
-        {
-          "sourceId": "198",
-          "postType": "attachment",
-          "legacyUrl": "/wp-content/uploads/2022/02/community-groups.jpg"
-        },
-        {
-          "sourceId": "171",
-          "postType": "attachment",
-          "legacyUrl": "/wp-content/uploads/2022/02/connections-chicago-2019.jpg"
-        },
-        {
-          "sourceId": "21",
-          "postType": "attachment",
-          "legacyUrl": "/wp-content/uploads/2022/02/divider.svg"
-        },
-        {
-          "sourceId": "386",
-          "postType": "attachment",
-          "legacyUrl": "/wp-content/uploads/2022/02/experience-cloud.png"
-        },
-        {
-          "sourceId": "74",
-          "postType": "attachment",
-          "legacyUrl": "/wp-content/uploads/2022/02/homepage-hero-pic.jpg"
-        },
-        {
-          "sourceId": "155",
-          "postType": "attachment",
-          "legacyUrl": "/wp-content/uploads/2022/02/jspdf-example.png"
-        },
-        {
-          "sourceId": "183",
-          "postType": "attachment",
-          "legacyUrl": "/wp-content/uploads/2022/02/ohana-core.png"
-        }
-      ]
+      "count": 0,
+      "byPostType": {},
+      "samples": []
     }
   }
 }

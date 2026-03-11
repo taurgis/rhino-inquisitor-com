@@ -8,6 +8,10 @@ const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), ".."
 const publicDir = process.env.CHECK_LINKS_PUBLIC_DIR
   ? path.resolve(process.env.CHECK_LINKS_PUBLIC_DIR)
   : path.join(repoRoot, "public");
+const manifestPath = process.env.CHECK_LINKS_MANIFEST
+  ? path.resolve(process.env.CHECK_LINKS_MANIFEST)
+  : path.join(repoRoot, "migration", "url-manifest.json");
+const allowManifestTargets = process.env.CHECK_LINKS_ALLOW_MANIFEST_TARGETS === "1";
 
 function toPosixPath(filePath) {
   return filePath.split(path.sep).join("/");
@@ -75,7 +79,37 @@ function buildCandidatePaths(pathname) {
   return [trimmedPath, `${trimmedPath}.html`, `${trimmedPath}/index.html`];
 }
 
+async function loadAllowedManifestTargets() {
+  if (!allowManifestTargets) {
+    return new Set();
+  }
+
+  const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
+  const allowedTargets = new Set();
+
+  for (const row of Array.isArray(manifest) ? manifest : []) {
+    if (!["keep", "merge"].includes(row?.disposition)) {
+      continue;
+    }
+
+    const targetUrl = typeof row?.target_url === "string" ? row.target_url.trim() : "";
+    if (!targetUrl.startsWith("/")) {
+      continue;
+    }
+
+    const normalizedTarget = targetUrl === "/"
+      ? "/"
+      : targetUrl.endsWith("/")
+        ? targetUrl
+        : `${targetUrl}/`;
+    allowedTargets.add(normalizedTarget);
+  }
+
+  return allowedTargets;
+}
+
 async function main() {
+  const allowedManifestTargets = await loadAllowedManifestTargets();
   const htmlFiles = await fg("**/*.html", {
     cwd: publicDir,
     absolute: true,
@@ -106,6 +140,16 @@ async function main() {
       const candidatePaths = buildCandidatePaths(pathname);
       const exists = candidatePaths.some((candidatePath) => existingPaths.has(candidatePath));
 
+      const normalizedPathname = pathname === "/"
+        ? "/"
+        : pathname.endsWith("/")
+          ? pathname
+          : `${pathname}/`;
+
+      if (!exists && allowManifestTargets && allowedManifestTargets.has(normalizedPathname)) {
+        continue;
+      }
+
       if (!exists) {
         failures.push({
           sourceRoute,
@@ -127,6 +171,9 @@ async function main() {
   }
 
   console.log(`Internal link check passed across ${htmlFiles.length} HTML files.`);
+  if (allowManifestTargets) {
+    console.log(`Manifest-backed unresolved targets were allowed using ${path.relative(repoRoot, manifestPath) || manifestPath}.`);
+  }
 }
 
 main().catch((error) => {

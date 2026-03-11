@@ -278,7 +278,9 @@ export function parseCommonArgs(argv, defaults) {
     contentRoot: defaults.contentRoot,
     publicRoot: defaults.publicRoot,
     reportPath: defaults.reportPath,
-    baseUrl: defaults.baseUrl ?? null
+    baseUrl: defaults.baseUrl ?? null,
+    recordsPath: defaults.recordsPath ?? null,
+    scope: defaults.scope ?? 'full-manifest'
   };
 
   for (let index = 0; index < argv.length; index += 1) {
@@ -299,6 +301,17 @@ export function parseCommonArgs(argv, defaults) {
       case '--base-url':
         options.baseUrl = argv[++index].trim();
         break;
+      case '--records-file':
+        options.recordsPath = path.resolve(argv[++index]);
+        break;
+      case '--scope': {
+        const scope = argv[++index].trim();
+        if (!['full-manifest', 'selected-records'].includes(scope)) {
+          throw new Error(`Unknown validation scope: ${scope}`);
+        }
+        options.scope = scope;
+        break;
+      }
       case '--help':
         options.help = true;
         break;

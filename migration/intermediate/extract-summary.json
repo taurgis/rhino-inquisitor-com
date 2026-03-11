@@ -1,11 +1,11 @@
 {
-  "mode": "full",
+  "mode": "subset",
   "selection": {
-    "sourceIdFileUsed": false,
-    "sourceIdFile": null,
-    "sourceIdCount": 0,
+    "sourceIdFileUsed": true,
+    "sourceIdFile": "migration/input/pilot-source-ids.txt",
+    "sourceIdCount": 20,
     "postTypes": [],
-    "recordCount": 947
+    "recordCount": 20
   },
   "selectedSourceChannels": [
     "filesystem",
@@ -40,16 +40,12 @@
   ],
   "totals": {
     "byPostType": {
-      "attachment": 737,
-      "category": 23,
-      "landing": 1,
-      "page": 22,
-      "post": 164
+      "category": 1,
+      "page": 5,
+      "post": 14
     },
     "byStatus": {
-      "draft": 4,
-      "inherit": 737,
-      "publish": 206
+      "publish": 20
     }
   },
   "quarantine": {
@@ -58,36 +54,34 @@
     "reasons": {}
   },
   "excludedWxrPostTypes": {
+    "attachment": 737,
     "elementor_font": 1,
     "elementor_library": 16,
+    "landing": 1,
     "nav_menu_item": 14,
+    "page": 17,
+    "post": 150,
     "rank_math_schema": 1,
     "wp_global_styles": 2
   },
   "reconciliation": {
     "filesystem": {
       "byPostType": {
-        "attachment": 737,
-        "page": 7,
-        "post": 139
+        "page": 2,
+        "post": 14
       },
       "byStatus": {
-        "inherit": 737,
-        "publish": 146
+        "publish": 16
       }
     },
     "wxr": {
       "byPostType": {
-        "attachment": 737,
-        "category": 23,
-        "landing": 1,
-        "page": 22,
-        "post": 164
+        "category": 1,
+        "page": 5,
+        "post": 14
       },
       "byStatus": {
-        "draft": 4,
-        "inherit": 737,
-        "publish": 206
+        "publish": 20
       }
     }
   },
@@ -97,8 +91,8 @@
       "Posts, pages except the homepage, uploads-backed attachments, category term routes, and content detail custom types are blocking coverage targets.",
       "System, feed, query, pagination, homepage, and synthetic index routes are reported separately and do not block extraction completeness."
     ],
-    "contentBackedManifestCount": 192,
-    "matchedManifestCount": 192,
+    "contentBackedManifestCount": 19,
+    "matchedManifestCount": 19,
     "missingManifestUrls": [],
     "reportedNonContentKeepMergeUrls": [
       {
@@ -792,13 +786,11 @@
   "sourceDetails": {
     "wxr": {
       "itemCounts": {
-        "attachment": 737,
-        "landing": 1,
-        "page": 22,
-        "post": 164
+        "page": 5,
+        "post": 14
       },
       "categoryCounts": {
-        "category": 23
+        "category": 1
       }
     },
     "sql": {
@@ -807,8 +799,8 @@
       "byStatus": {}
     },
     "filesystem": {
-      "verified": 1296,
-      "missing": 1
+      "verified": 82,
+      "missing": 0
     }
   },
   "outputFiles": {
