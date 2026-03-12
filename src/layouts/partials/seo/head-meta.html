@@ -13,7 +13,7 @@
 {{ partial "seo/open-graph.html" . }}
 
 {{ if .IsHome }}
-  {{ partialCached "seo/json-ld-site.html" . "seo-json-ld-site" }}
+  {{ partial "seo/json-ld-site.html" . }}
 {{ end }}
 
 {{ if and .IsPage (eq .Type "posts") }}
