@@ -33,6 +33,7 @@
     "check:redirects": "node scripts/migration/check-redirects.js",
     "check:media": "node scripts/migration/check-media.js",
     "check:seo": "npm run build:prod && node scripts/check-seo.js",
+    "check:seo:artifact": "node scripts/check-seo.js",
     "check:noindex": "node scripts/check-noindex.js",
     "check:seo-completeness": "node scripts/migration/check-seo-completeness.js",
     "check:feed-compatibility": "node scripts/migration/check-feed-compatibility.js",

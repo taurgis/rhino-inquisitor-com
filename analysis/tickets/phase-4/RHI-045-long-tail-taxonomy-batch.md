@@ -22,11 +22,11 @@ This is typically the largest batch in terms of record count but the lowest risk
 ### Acceptance Criteria
 
 - [x] All remaining in-scope `keep` and `merge` records not migrated in Batch 1 or Batch 2 are included
-- [ ] Taxonomy and category pages are migrated with correct handling:
-  - [ ] Each category with organic traffic has a corresponding Hugo taxonomy term page with:
-    - [ ] Correct `url` matching legacy WordPress category URL
-    - [ ] `description` front matter (category description if available in WordPress)
-    - [ ] `title` matching category display name
+- [x] Taxonomy and category pages are migrated with correct handling:
+  - [x] Each category with organic traffic has a corresponding Hugo taxonomy term page with:
+    - [x] Correct `url` matching legacy WordPress category URL
+    - [x] `description` front matter (category description if available in WordPress)
+    - [x] `title` matching category display name
   - [x] Video archive and hub pages are migrated with correct URL assignment
   - [x] Archive page structure (date-based archives, if applicable) is handled per manifest
 - [x] All outstanding HTML fallback conversion records from earlier batches are resolved:
@@ -45,7 +45,7 @@ This is typically the largest batch in terms of record count but the lowest risk
 - [x] Migration item report is complete for the full record set:
   - [x] 100% of in-scope `keep` and `merge` records have a `qa_status` of `ready` or `review-required`
   - [x] Zero records with `qa_status: blocked` remain unresolved
-- [ ] Exception closure summary is documented:
+- [x] Exception closure summary is documented:
   - [x] List of all deferred items with owner and target resolution phase (Phase 5 SEO, Phase 8 validation)
   - [x] Approved by migration owner before this ticket is `Done`
 - [ ] Batch 3 PR evidence includes the cumulative correction outputs used to approve the batch:
@@ -62,19 +62,19 @@ This is typically the largest batch in terms of record count but the lowest risk
 - [x] Identify all remaining in-scope records not yet in `src/content/`:
   - [x] Query normalized records for records not present in `src/content/` directory
   - [x] Confirm all `retire`-disposition records are correctly excluded
-- [ ] Plan taxonomy and archive page handling with SEO owner:
+- [x] Plan taxonomy and archive page handling with SEO owner:
   - [x] Confirm which category pages have organic traffic and must be preserved
   - [x] Confirm video archive URL strategy
   - [x] Confirm date archive URL strategy from manifest and baseline traffic data (do not assume Hugo generates WordPress-style date archives by default)
 - [x] Run full pipeline on remaining records, including `npm run migrate:finalize-content` after `npm run migrate:map-frontmatter`
-- [ ] Run exception closure pass:
+- [x] Run exception closure pass:
   - [x] Review `migration/reports/conversion-fallbacks.csv` — remediate or accept each outstanding item
-  - [ ] If remediation is required, encode it in the migration scripts or approved curated inputs rather than patching generated Markdown by hand
+  - [x] If remediation is required, encode it in the migration scripts or approved curated inputs rather than patching generated Markdown by hand
   - [x] Review `migration/intermediate/extract-quarantine.json` — resolve each entry
-  - [ ] Document all accepted exceptions with owner in Progress Log
-- [ ] Record durable post-generation curation updates discovered during long-tail review:
-  - [ ] Add curated image-alt overrides to `migration/input/image-alt-corrections.csv`
-  - [ ] Add any approved pre-mapping metadata updates to the supported curation input before rerunning `npm run migrate:map-frontmatter` and `npm run migrate:finalize-content`
+  - [x] Document all accepted exceptions with owner in Progress Log
+- [x] Record durable post-generation curation updates discovered during long-tail review:
+  - [x] Add curated image-alt overrides to `migration/input/image-alt-corrections.csv`
+  - [x] Add any approved pre-mapping metadata updates to the supported curation input before rerunning `npm run migrate:map-frontmatter` and `npm run migrate:finalize-content`
 - [x] Run all CI gates and fix failures
 - [x] Run complete migration item report across full record set:
   - [x] Verify 100% coverage for `keep` and `merge` records
@@ -143,6 +143,8 @@ Completed the Batch 3 closeout package, opened PR #27, and recorded a successful
 
 Current evidence review on 2026-03-12 reopened the ticket because the correction-rerun proof still does not support the zero-change acceptance criterion. The checked-in correction summary is now current for the regenerated staged corpus and reports `filesChanged: 166`, but a fresh temp-copy rerun investigation on the current `migration/output/content/` corpus still did not converge to `0` across five sequential correction passes (`60 -> 21 -> 17 -> 16 -> 16`).
 
+Current verification on 2026-03-12 confirms the migration coverage itself is complete for article-like and in-scope taxonomy content: all `150` article-like `keep` or `merge` records (`post` plus `video`) match promoted files under `src/content/posts/` with explicit `url` front matter, and all `17` `keep`-disposition category routes with organic traffic are backed by taxonomy term bundles plus matching `public/sitemap.xml` entries. The remaining blocker is correction-rerun evidence, not missing migrated content.
+
 **Delivered artefacts:**
 
 - Long-tail and taxonomy batch `.md` files committed to `src/content/`
@@ -163,7 +165,12 @@ Current evidence review on 2026-03-12 reopened the ticket because the correction
 
 ### Batch 3 Closeout Evidence Snapshot
 
+- Article coverage evidence:
+  - All `150` article-like `keep` or `merge` manifest records (`post` plus `video`) are present in `src/content/posts/*.md` with matching `url` front matter.
+  - All corresponding migration item report rows are `qa_status=ready`, including the five `video`-class routes promoted as posts.
+
 - Taxonomy evidence:
+  - The `17` `keep`-disposition category routes with organic traffic are backed by term bundles under `src/content/categories/**/_index.md`, matching generated `public/category/**/index.html` output, and current `public/sitemap.xml` entries.
   - Durable category term bundles now exist under `src/content/categories/**/_index.md`, including `video`, `podcasts`, and `sessions`.
   - The owner-approved flat taxonomy contract remains the active Batch 3 rule for nested long-tail category paths.
 - Video evidence:
@@ -178,6 +185,7 @@ Current evidence review on 2026-03-12 reopened the ticket because the correction
   - `migration/reports/content-corrections-summary.json` currently reports `filesChanged: 166`; this checked-in file is current for the regenerated staged corpus and still does not support the zero-change rerun claim.
   - A fresh temp-copy rerun investigation against the current `migration/output/content/` corpus remained non-idempotent across five sequential passes: `60 -> 21 -> 17 -> 16 -> 16` files changed.
   - The net residual pass-5 diff collapsed to a single post with malformed nested angle-bracket token patterns: `what-is-new-in-sfcc-24-6.md`.
+  - A separate temp-copy replay of the full `migrate:apply-corrections` workflow, including `markdownlint-cli2 --fix`, converged at the final-tree level after four completed passes (`166 -> 48 -> 3 -> 0` net diffs between finished pass snapshots), but it still fails the stricter first-rerun zero-change acceptance criterion.
   - Supporting investigation note: `analysis/documentation/phase-4/rhi-045-correction-rerun-nonconvergence-2026-03-12.md`.
   - `migration/reports/migration-item-report.csv` now reports `331` `ready`, `0` `review-required`, and `0` `blocked` after the final clean-cohort metadata batch.
   - `migration/reports/seo-completeness-report.csv` now reports `0` warnings and `0` failures after the category taxonomy description closure.
@@ -222,12 +230,14 @@ Current evidence review on 2026-03-12 reopened the ticket because the correction
 | 2026-03-12 | In Progress | Applied the remaining 20 corrected SEO metadata fixes through `frontmatter-overrides.json`, reran `migrate:map-frontmatter` plus `migrate:rewrite-media`, synchronized the affected staged/promoted content, and extended `src/layouts/sitemap.xml` so `check:seo` includes Hugo paginator routes in `public/sitemap.xml`. Fresh evidence: `check:seo-completeness` now reports `14` warnings, `migrate:report` now reports `322` `ready`, `9` `review-required`, `0` `blocked`, `build:prod` passes, and `check:seo` passes for `215` indexable routes. |
 | 2026-03-12 | In Progress | Applied the final 9 clean SEO metadata fixes through `frontmatter-overrides.json`, reran `migrate:map-frontmatter` plus `migrate:rewrite-media`, synchronized the affected staged/promoted content, and refreshed the closeout evidence. Fresh evidence: `check:seo-completeness` now reports `3` warnings, `migrate:report` now reports `331` `ready`, `0` `review-required`, `0` `blocked`, `build:prod` passes, and `check:seo` passes for `215` indexable routes. |
 | 2026-03-12 | In Progress | Resolved the final 3 category taxonomy `description_length` warnings by making `map-frontmatter.js` honor `category:${sourceId}` override keys already present in `frontmatter-overrides.json`, regenerated the staged category `_index.md` files, and synchronized those three files into `src/content/categories/`. Fresh evidence: `check:seo-completeness` now reports `0` warnings and `0` failures while `migrate:report`, `build:prod`, and `check:seo` remain green. |
+| 2026-03-12 | In Progress | Verified the remaining Batch 3 migration coverage open items. Current evidence confirms all `150` article-like `keep` or `merge` routes (`post` plus `video`) are promoted in `src/content/posts/` with matching `url` front matter, all `17` keep-disposition category routes with organic traffic are backed by taxonomy term bundles and current sitemap entries, and durable curation inputs remain recorded in `migration/input/image-alt-corrections.csv` (`315` rows) plus `migration/input/frontmatter-overrides.json` (`86` keys). A temp-copy replay of the full correction workflow converged at the final-tree level after four passes (`166 -> 48 -> 3 -> 0` net diffs), but the first rerun still changes files, so the zero-change rerun blocker remains open. |
 
 ---
 
 ### Notes
 
 - Taxonomy (category) pages in Hugo are automatically generated from front matter `categories` fields, but Batch 3 now uses an owner-approved flattening exception for nested long-tail category paths that conflict with the current flat `/category/:slug/` Hugo contract. Keep the manifest and generated term bundles aligned with that approved target set before rerunning the batch.
+- Category term URLs are enforced through `[permalinks.term].categories = "/category/:slug/"` in `hugo.toml`; the generated `_index.md` term bundles intentionally rely on that routing contract instead of duplicating per-file `url` front matter.
 - Date-based archives (`/2020/`, `/2020/10/`) may or may not exist in WordPress. Check the URL manifest for any date archive URLs with traffic before assuming they should be preserved.
 - The exception closure pass is not a rubber stamp. Every deferred item represents a known gap in the migration. The migration owner must explicitly accept each one — undocumented deferrals are equivalent to untracked risks.
 - Long-tail remediation must still be reproducible. If a fallback or formatting issue needs a fix that survives reruns, turn it into a scripted rule or curated input update before this ticket is closed.

@@ -113,6 +113,12 @@ function readJsonLdBlocks(html) {
   return blocks;
 }
 
+function hasRawSchemaType(html, schemaType) {
+  const escapedType = schemaType.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const pattern = new RegExp(`"@type"\\s*:\\s*"${escapedType}"`);
+  return pattern.test(html);
+}
+
 function flattenSchemaTypes(blocks) {
   return blocks.flatMap((block) => {
     if (Array.isArray(block)) {
@@ -224,7 +230,9 @@ function validateHtmlPage(route, html) {
 
   if (route === "/") {
     if (!websiteSchema) {
-      failures.push("missing WebSite JSON-LD on homepage");
+      const schemaTypeSummary = schemaTypes.length > 0 ? schemaTypes.join(", ") : "none";
+      const rawWebsiteMarker = hasRawSchemaType(html, "WebSite") ? "present" : "absent";
+      failures.push(`missing WebSite JSON-LD on homepage (schema types: ${schemaTypeSummary}; raw WebSite marker: ${rawWebsiteMarker})`);
     }
     if (articleSchema) {
       failures.push("BlogPosting JSON-LD emitted on homepage");

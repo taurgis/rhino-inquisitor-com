@@ -120,3 +120,64 @@
 - `scripts/migration/apply-content-corrections.js`
 - `analysis/documentation/phase-4/rhi-045-correction-rerun-nonconvergence-2026-03-12.md`
 - `migration/output/content/posts/what-is-new-in-sfcc-24-6.md`
+
+## Validation update (2026-03-12, full workflow replay)
+
+### Change summary
+
+- Replayed the full `npm run migrate:apply-corrections` workflow against a temp copy of the current `migration/output/content/` corpus, including the trailing `markdownlint-cli2 --fix` step.
+- Separated the Node correction summary counters from the net final-tree diffs between completed pass snapshots.
+- Confirmed that the current workflow still fails the stricter first-rerun zero-change expectation, even though the completed filesystem output now converges after repeated full-workflow passes.
+
+### Behavior details
+
+#### Node correction summary counters
+
+- pass 1: `166` files changed
+- pass 2: `57` files changed
+- pass 3: `19` files changed
+- pass 4: `16` files changed
+
+These counts come from `content-corrections-summary.json` emitted by `scripts/migration/apply-content-corrections.js` before `markdownlint-cli2 --fix` runs.
+
+#### Final-tree diffs after each completed workflow pass
+
+- pass 0 -> pass 1: `166` files differ
+- pass 1 -> pass 2: `48` files differ
+- pass 2 -> pass 3: `3` files differ
+- pass 3 -> pass 4: `0` files differ
+
+The late-pass final-tree diffs were limited to:
+
+- `pages/page-designer-dynamic-pages-optional-subcategories.md`
+- `posts/salesforce-b2c-commerce-the-22-5-release.md`
+- `posts/your-definitive-mobile-app-checklist.md`
+
+Those residual diffs were list indentation, malformed `Note **:` emphasis spacing, and fenced/autolink-style angle-bracket URL normalization. No additional files changed between completed passes 3 and 4.
+
+### Impact
+
+- RHI-045 still cannot claim the explicit Batch 3 acceptance criterion that the finalized long-tail corpus passed a zero-change correction rerun, because the first replayed full workflow pass still changes `166` files and the second still changes `48` files at the final-tree level.
+- The current evidence is stronger than the earlier non-convergence note because it distinguishes two different truths:
+  - the first rerun is still not zero-change
+  - the overall completed workflow now reaches a stable end state after repeated passes
+- Ticket and sign-off wording should treat that as a remaining acceptance-gap on the first-rerun rule, not as missing migration coverage.
+
+### Verification
+
+1. Created `tmp/rhi045_rerun_snapshots/pass0` from the current `migration/output/content/` corpus.
+2. Replayed four full correction passes on successive temp-copy snapshots using:
+   - `node scripts/migration/apply-content-corrections.js --content-dir ...`
+   - `npx markdownlint-cli2 --fix ".../**/*.md"`
+3. Recorded `summary1.json` through `summary4.json` for the Node correction counters.
+4. Compared completed pass trees with `git diff --no-index --name-only` and confirmed `166 -> 48 -> 3 -> 0` net diffs.
+
+### Related files
+
+- `analysis/tickets/phase-4/RHI-045-long-tail-taxonomy-batch.md`
+- `scripts/migration/apply-content-corrections.js`
+- `migration/reports/content-corrections-summary.json`
+- `tmp/rhi045_rerun_snapshots/summary1.json`
+- `tmp/rhi045_rerun_snapshots/summary2.json`
+- `tmp/rhi045_rerun_snapshots/summary3.json`
+- `tmp/rhi045_rerun_snapshots/summary4.json`

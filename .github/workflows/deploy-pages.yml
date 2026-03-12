@@ -75,12 +75,13 @@ jobs:
         run: npm run check:url-parity
 
       - name: Run SEO smoke check
-        run: npm run check:seo
+        run: npm run check:seo:artifact
 
       - name: Run internal link check
         run: npm run check:links
 
       - name: Archive production validation output
+        if: ${{ !cancelled() }}
         shell: bash
         run: |
           set -euo pipefail
@@ -129,6 +130,7 @@ jobs:
           touch public/.nojekyll
 
       - name: Upload audit artifacts
+        if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v4
         with:
           name: phase-3-build-artifacts-${{ github.sha }}
