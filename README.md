@@ -77,7 +77,7 @@ The workspace is planning-first: it contains migration phases, implementation gu
 - Production-style build: `hugo --minify --environment production`
 - Local preview server: `hugo server`
 - Front matter validation: `npm run validate:frontmatter`
-- SEO smoke validation: `npm run check:seo`
+- SEO smoke validation: `npm run check:seo` (runs a fresh production build before validating)
 - Security and privacy validation: `npm run check:security`
 - Accessibility smoke validation: `npm run check:a11y`
 - Hugo source components live under `src/`, while root `hugo.toml` remains the canonical config entry point and `public/` remains the build artifact directory.
