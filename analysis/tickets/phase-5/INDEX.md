@@ -13,7 +13,7 @@
 
 | Ticket ID | Title | Workstream | Priority | Status | Estimate | Target Date | Depends On |
 |-----------|-------|------------|----------|--------|----------|-------------|------------|
-| [RHI-047](RHI-047-phase-5-bootstrap.md) | Phase 5 Bootstrap: Kickoff and SEO Governance Environment Setup | Setup | Critical | Open | S | 2026-04-09 | RHI-030 |
+| [RHI-047](RHI-047-phase-5-bootstrap.md) | Phase 5 Bootstrap: Kickoff and SEO Governance Environment Setup | Setup | Critical | Done | S | 2026-04-09 | RHI-030 |
 | [RHI-048](RHI-048-metadata-canonical-architecture.md) | Workstream A — Metadata and Canonical Signal Architecture | WS-A | Critical | Open | M | 2026-04-11 | RHI-047 |
 | [RHI-049](RHI-049-redirect-url-consolidation-signals.md) | Workstream B — Redirect and URL Consolidation Signals | WS-B | Critical | Open | M | 2026-04-14 | RHI-047 |
 | [RHI-050](RHI-050-crawlability-indexing-controls.md) | Workstream C — Crawlability and Indexing Controls | WS-C | Critical | Open | M | 2026-04-14 | RHI-047 |
@@ -32,9 +32,9 @@
 
 ## Dependency Graph
 
-```
+```text
 RHI-030 (Phase 3 Sign-off)
-    └── RHI-047 (Phase 5 Bootstrap) ◄─── also requires Phase 3; runs parallel with Phase 4
+    └── RHI-047 (Phase 5 Bootstrap) ◄─── also requires Phase 3; planned in parallel with Phase 4, now operating from the finalized Phase 4 handover state
             ├── RHI-048 (WS-A: Metadata & Canonical)
             │       ├── RHI-051 (WS-D: Sitemap & Feed) ◄─── canonical policy needed
             │       └── RHI-053 (WS-F: Internal Linking) ◄─── canonical URL targets needed

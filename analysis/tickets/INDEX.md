@@ -75,7 +75,7 @@ This is the top-level ticket index for the full migration project. Use the phase
 | [RHI-044](phase-4/RHI-044-high-value-content-batch.md) | Batch 2 — High-Value Content Migration | 4 | Critical | Done | L | 2026-04-25 |
 | [RHI-045](phase-4/RHI-045-long-tail-taxonomy-batch.md) | Batch 3 — Long-Tail and Taxonomy Migration | 4 | High | Done | L | 2026-04-29 |
 | [RHI-046](phase-4/RHI-046-phase-4-signoff.md) | Phase 4 Sign-off and Handover to Phase 5/6 | 4 | Critical | Done | S | 2026-05-02 |
-| [RHI-047](phase-5/RHI-047-phase-5-bootstrap.md) | Phase 5 Bootstrap: Kickoff and SEO Governance Environment Setup | 5 | Critical | Open | S | 2026-04-09 |
+| [RHI-047](phase-5/RHI-047-phase-5-bootstrap.md) | Phase 5 Bootstrap: Kickoff and SEO Governance Environment Setup | 5 | Critical | Done | S | 2026-04-09 |
 | [RHI-048](phase-5/RHI-048-metadata-canonical-architecture.md) | Workstream A — Metadata and Canonical Signal Architecture | 5 | Critical | Open | M | 2026-04-11 |
 | [RHI-049](phase-5/RHI-049-redirect-url-consolidation-signals.md) | Workstream B — Redirect and URL Consolidation Signals | 5 | Critical | Open | M | 2026-04-14 |
 | [RHI-050](phase-5/RHI-050-crawlability-indexing-controls.md) | Workstream C — Crawlability and Indexing Controls | 5 | Critical | Open | M | 2026-04-14 |
