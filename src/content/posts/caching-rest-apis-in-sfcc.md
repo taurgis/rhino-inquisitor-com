@@ -132,7 +132,7 @@ Personalized caching is enabled by default based on the customer context (JWT). 
 }
 ```
 
-By setting the "personalized\_caching\_enabled" option to false, personalization will be disabled for that resource. Something to keep in mind You can find information about other options (not related to caching) for resources in the [Infocenter](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/OCAPISettings.html).
+By setting the "personalized\_caching\_ enabled" option to false, personalization will be disabled for that resource. Something to keep in mind You can find information about other options (not related to caching) for resources in the [Infocenter](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/OCAPISettings.html).
 
 ## SCAPI (Salesforce Commerce API)
 

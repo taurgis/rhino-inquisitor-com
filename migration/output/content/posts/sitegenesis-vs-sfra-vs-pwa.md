@@ -47,7 +47,7 @@ Responsive Design still has a place, especially if most of your visitors are not
 
 Salesforce B2C Commerce Cloud comes with a lot of features out-of-the-box. But it can't do everything, so it depends on third parties to create "cartridges" that extend that base (payment providers, shipping providers, OMS, ERP, ...).
 
-_**NOTE:** The above statement is also true for other platforms besides SFCC._
+**NOTE:** The above statement is also true for other platforms besides SFCC.
 
 But since 2020, it is no longer required to build for SiteGenesis; SFRA compatibility is enough. This shows that Salesforce wants to push new (and existing) clients away from using SiteGenesis.
 
@@ -65,7 +65,7 @@ Looking at the timeline, you will see that pipelines have disappeared in MFRA (2
 
 It is time to migrate if you are still using SiteGenesis with pipelines in your project/site since new features will not be available in this framework.
 
-_**Note:** It is also substantially harder to find developers who know how to work with Pipelines. And working with pipelines is not supported by the latest and greatest development tools._
+**Note:** It is also substantially harder to find developers who know how to work with Pipelines. And working with pipelines is not supported by the latest and greatest development tools.
 
 ## M(S)FRA
 
@@ -91,7 +91,7 @@ This gives customers and partners the flexibility to only include the features t
 
 Salesforce is also actively pushing customers towards SFRA, even though a new headless architecture has become available (PWA Kit). The reason for this will become more apparent as you continue reading.
 
-### Third-party integrations
+### Third-party integrations (M(S)FRA)
 
 I will keep this short. Third parties are actively integrating with SFRA and updating their cartridges!
 
@@ -134,7 +134,7 @@ It will be easier to find and educate developers in this setup.
 > [!WARNING]
 > **Important:** to note that developers will still need to learn about the SCAPI and OCAPI endpoints, which have a steady learning curve.
 
-_**Note:** The PWA Kit is only responsible for the front end. The back-end integrations such as importing products, prices, and inventory will still need to be done the "old-fashioned" way._
+**Note:** The PWA Kit is only responsible for the front end. The back-end integrations such as importing products, prices, and inventory will still need to be done the "old-fashioned" way.
 
 ### Progressive Web Apps
 
@@ -144,7 +144,7 @@ And again, there is a podcast episode available dedicated to this topic!
 
 <https://www.youtube.com/watch?v=eOFC5rLHZZ4&list=PLAQgCOXBCvL360AJzTZKTQe1wqvq4TLkD&index=3>
 
-### Third-party integrations
+### Third-party integrations (PWA Kit & Managed Runtime)
 
 As this solution is pretty new, few third-party solutions are plug-and-play like SFRA. A more considerable investment in budget/time is required for now.
 

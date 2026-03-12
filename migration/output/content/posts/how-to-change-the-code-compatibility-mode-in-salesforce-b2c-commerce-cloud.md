@@ -56,7 +56,7 @@ Let us next see if we can do anything in the WebDAV to manipulate the Compatibil
 
 To retrieve the URL for the WebDAV go to:
 
-_"Administration > Site Development > Development Setup"_
+"Administration > Site Development > Development Setup"
 
 [![Development Setup page with the cartridges WebDAV endpoint.](/media/2022/cartridges-webdav-88a388e63c.jpg)](/media/2022/cartridges-webdav-88a388e63c.jpg)
 
@@ -94,7 +94,7 @@ api.version=18.10
 
 Let us head back to the business manager and go to the "Manage Code Versions" screen:
 
-_"Administration > Site Development > Code Deployment"_
+"Administration > Site Development > Code Deployment"
 
 If all has gone well, the code versions have changed to the one in the file!
 

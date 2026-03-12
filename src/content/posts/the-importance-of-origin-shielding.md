@@ -80,7 +80,7 @@ The first thing to do to prevent access interruptions is to configure a vanity d
 
 A vanity domain serves as a friendly URL that is easier to remember and manage while also being recognised by Origin Shielding ([and configured in the eCDN itself](/lets-go-live-ecdn/) ).
 
-Rather than having '_https://production-eu01-mybrand.demandware.net_', we can use a nicer domain such as '_https://brand.com_'
+Rather than having '_`<https://production-eu01-mybrand.demandware.net>`_', we can use a nicer domain such as '_ `<https://brand.com_'>`
 
 ### 2\. Use the domains
 

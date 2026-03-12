@@ -54,9 +54,7 @@ Verify integrations With any update such as this, verify all third-party integra
 ### Implement Enhanced Security Controls in Commerce Cloud
 
 > Commerce Cloud is implementing a new security measure that blocks traffic to staging instances that doesn’t originate from Commerce Cloud eCDN from accessing the hyphenated demandware.net hostname. This change rejects all calls using ‌hyphenated hostnames, such as staging-, to access the Open Commerce API (OCAPI) or Storefront.
->
 > The introduction of Origin Shielding for staging impacts Commerce Cloud customers who currently have implementations that involve direct calls to POD IPs.
->
 > You can create a proxy zone on Staging instances through the Business Manager and configure a custom hostname with an automatically renewing eCDN Managed certificate for added protection.
 
 Verify integrations With any update such as this, verify all third-party integrations before this release hits your production instance!

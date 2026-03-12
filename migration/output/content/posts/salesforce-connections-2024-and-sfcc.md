@@ -31,9 +31,7 @@ It is unfortunate, but it should also technically not be the only reason you got
 And not to worry—in its place comes "Connections Celebration," which will appeal to some people more than the concert—you can't please everyone!
 
 > The Connections Celebration brings together everyone for an end-of-day celebration with entertainment, networking, and fun.
->
 > DJ Jem, the pinnacle of Chicago nightlife entertainment, will be setting the mood, while cirque performers will surprise and delight from the theater stages. Plus, we’ll have three unique photo opportunities to indulge in.
->
 > And what’s a celebration without snacks? Delicious bites, along with spiked coffee stations, top tier wine, and nonalcoholic mocktails, will be available throughout the celebration.
 
 ## Agenda for B2C
@@ -126,7 +124,7 @@ Get a sneak peek into our new business manager experience and discover how it is
 
 ### Thursday May 23
 
-#### [Win the Digital Experience: B2C Commerce Roadmap Deep Dive](https://reg.salesforce.com/flow/plus/cnx24/sessioncatalog/page/Catalog/session/1706836533834001c0Lh)
+#### [Win the Digital Experience: B2C Commerce Roadmap Deep Dive](https://reg.salesforce.com/flow/plus/cnx24/sessioncatalog/page/Catalog/session/1706836533834001c0Lh) (Thursday May 23)
 
 - 04:00 PM
 - 40 Minutes
@@ -142,7 +140,7 @@ Get a sneak peek into the future of B2C Commerce. Discover innovations empowerin
 
 Learn about Salesforce’s latest integration with Adyen that streamlines global payments for your customers, ensuring a swift, secure, and efficient checkout experience for your e-commerce business.
 
-#### [Composable Success in B2C Commerce](https://reg.salesforce.com/flow/plus/cnx24/sessioncatalog/page/Catalog/session/1708477055712001uVgz)
+#### [Composable Success in B2C Commerce](https://reg.salesforce.com/flow/plus/cnx24/sessioncatalog/page/Catalog/session/1708477055712001uVgz) (Thursday May 23)
 
 - 8:45 AM
 - 60 Minutes

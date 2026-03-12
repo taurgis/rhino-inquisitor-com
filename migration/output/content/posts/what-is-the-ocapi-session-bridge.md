@@ -63,7 +63,7 @@ For those unaware, the above key does not need to be configured in the Account M
 
 With this API key, we can configure access to the necessary APIs in the Business Manager at
 
-"_Administration_" > "_Site Development_" > "_Open Commerce API Settings_"
+"_Administration _" > "_ Site Development _" > "_ Open Commerce API Settings_"
 
 ```json
 {
@@ -196,7 +196,7 @@ Similar to our first request, we get a JSON response with the JWT token in the "
 }
 ```
 
-Matching customer\_id To verify that the flow worked, the "customer\_id" from step 1 should match the value you receive in response to this call.
+Matching customer\_id To verify that the flow worked, the "customer\_ id" from step 1 should match the value you receive in response to this call.
 
 ## SCAPI & SLAS
 
@@ -216,7 +216,7 @@ A secure way of working with sensitive data
 
 SFCC Makes sure no sensitive data is shared in a possibly insecure scenario
 
-_**A basket is created/modified**_ _**after the session handover**_ in the second scenario.
+_**A basket is created/modified **_ _** after the session handover**_ in the second scenario.
 
 As a security precaution, Salesforce ensures that SiteGenesis/SFRA can not access this data.
 

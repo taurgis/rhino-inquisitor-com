@@ -47,10 +47,10 @@ Customer Support It is not possible to activate this feature manually, a ticket 
 
 Some metrics are disappearing from the [code profiler](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/site_performance/b2c_using_code_profiler.html), a tool available in the Business Manager to check the performance of your custom code:
 
-- total\_wait\_time
-- total\_wait\_time\_avg
-- own\_wait\_time
-- own\_wait\_time\_avg
+- total\_wait\_ time
+- total\_wait\_ time\_avg
+- own\_wait\_ time
+- own\_wait\_ time\_avg
 
 CSV Export The CSV report generated from system job sfcc-export-code-profiler-reports and the CSV report accessible from the Code Profiler Business Manager module maintain these columns, filled with zeros as data.
 
@@ -155,10 +155,10 @@ It is no secret that hybrid deployment projects will be happening more and more.
 
 - [https://github.com/SalesforceCommerceCloud/b2c-japan-package](https://github.com/SalesforceCommerceCloud/b2c-japan-package)
 
-> This is a demo repository of commonly used business solutions in Japan.This cartridge enhances the SFRA(app\_storefront\_base).
+> This is a demo repository of commonly used business solutions in Japan.This cartridge enhances the SFRA(app\_storefront\_ base).
 
-- Release plugin\_groputax\_ex
-- Release plugin\_groputax\_ex\_sg
+- Release plugin\_groputax\_ ex
+- Release plugin\_groputax\_ ex\_sg
 
 I am assuming it is supposed to say "grouptax". A feature which has been added in a [recent update](/salesforce-b2c-commerce-cloud-23-2/).
 

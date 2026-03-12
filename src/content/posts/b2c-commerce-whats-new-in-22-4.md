@@ -30,7 +30,7 @@ To access the logs of the Managed Runtime, you had to request access to the AWS 
 
 It will now be possible to tail or download the logs via the Runtime Admin UI! This update will make it easier for developers to debug, analyze, and address issues on a deployed version of their PWA Kit!
 
-_**Note:** Keep in mind that the Managed Runtime is on a different release cycle, so it will probably not match the "B2C core" release dates._
+**Note:** Keep in mind that the Managed Runtime is on a different release cycle, so it will probably not match the "B2C core" release dates.
 
 ### v2.0 Developer Preview
 
@@ -51,7 +51,7 @@ When using the login endpoint, if an outage happens in the Account Manager, cust
 
 To mitigate this dependency, the/login endpoint is deprecated and replaced by [SLAS](https://developer.commercecloud.com/s/api-details/a003k00000VWfNDAA1/commerce-cloud-developer-centershopperloginandapiaccessservice) (Shopper Login and API Access Service).
 
-**Benefits of this change:**
+### Benefits of this change
 
 - Account Manager outages will no longer impact the ability to log in or checkout in the storefront applications
 - SLAS is more secure
@@ -77,7 +77,7 @@ Over the years, some frustration with developers has been that some fields or fu
 
 Salesforce has heard our concerns and has slowly closed these holes over the years. However, there are still some big ones (e.g., Price Books).
 
-**With this update, the following changes have happened:**
+With this update, the following changes have happened:
 
 - **Search and sort by creation and last modified date:** Now, more data APIs allow you to utilize the create and last-modified dates.
 
@@ -85,11 +85,11 @@ This change will make it a lot easier to acquire **delta** information!
 
 The following [DATA APIs](https://documentation.b2c.commercecloud.salesforce.com/DOC3/topic/com.demandware.dochelp/OCAPI/current/usage/DataAPIResources.html?cp=0_16_4) have been extended:
 
-  - Order Search
-  - Product Search
-  - Customer Search
-  - Custom Object Search
-  - Catalog Search
+- Order Search
+- Product Search
+- Customer Search
+- Custom Object Search
+- Catalog Search
 - **[Guest Flag](https://documentation.b2c.commercecloud.salesforce.com/DOC3/index.jsp?topic=%2Fcom.demandware.dochelp%2FOCAPI%2Fcurrent%2Fshop%2FDocuments%2FOrder.html&anchor=id1520261250):** It is now easier to detect an order made by a guest checkout or a registered customer.
 
 ## Business Manager
@@ -124,13 +124,13 @@ But why use this option? Could you assign the master product to the category to 
 
 The above is not valid. I got lucky with the products I assigned during my test to match the swatches exactly, and it acts the same as you would assign the master. Does that mean that there are no differences? Probably not. I feel there will be slight changes in how the [SearchModel](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_catalog_ProductSearchHit.htm) represents products, and a good place to start looking is the "[Represented Products](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_catalog_ProductSearchHit.html#dw_catalog_ProductSearchHit_getRepresentedProducts_DetailAnchor)."
 
-**Have you experimented with this feature already and found differences? Share your findings in the comments!**
+Have you experimented with this feature already and found differences? Share your findings in the comments!
 
 Is it necessary for everyone to turn the switch on? No, this depends on your situation and how you want to present your products to the customer.
 
 But this option gives us more flexibility, which is never a bad thing!
 
-_**Note:** If you set the type to "merged" on the top level but "individual" on a sub-category, it will not work. The products do not display correctly anymore._
+**Note:** If you set the type to "merged" on the top level but "individual" on a sub-category, it will not work. The products do not display correctly anymore.
 
 ![Broken product lister page rendering null values after an invalid variation-group setup.](/media/2022/broken-category-08697befce.png)
 

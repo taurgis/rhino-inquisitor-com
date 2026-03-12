@@ -34,7 +34,7 @@ PIG Only This option does not seem to be available on sandboxes.
 
 > The error handling for Einstein Search Dictionaries and Einstein Predictive Sort log files no longer creates log errors when an updated dataset isn’t available.
 
-**How:** If you use Einstein Search Dictionaries or Einstein Predictive Sort, verify the Region setting in your staging instance. In **Business Manager** | **Administration** | **Operations** | **Einstein Status Dashboard** | **site**, set the Region to one of the following:
+**How: ** If you use Einstein Search Dictionaries or Einstein Predictive Sort, verify the Region setting in your staging instance. In**Business Manager **|** Administration **|** Operations **|** Einstein Status Dashboard **|** site**, set the Region to one of the following:
 
 - Americas
 - APAC
@@ -47,7 +47,6 @@ PIG Only This option does not seem to be available on sandboxes.
 ![A person's hand touches a mobile phone, depicting multiple carts on top of it, representing the new Headless options for "temporary baskets."](/media/2024/carts-on-a-mobile-phone-022785d77e.jpg)
 
 > OCAPI 23.4 includes support for temporary baskets. Temporary baskets allow for immediate order requests in B2C Commerce. For example, a shopper uses a Buy Now option to purchase an item. The temporary basket, which has a limited lifetime of 15 minutes, is populated with all the data required to ready the basket for checkout without affecting the regular shopper basket.
->
 > **How:** Pass a query parameter temporaryBasket into POST baskets to create a temporary basket. With OCAPI 23.4 the basket document attribute isTemporary indicates a basket is temporary.
 
 The recent introduction of temporary basket access in Headless setups is a significant breakthrough! This new feature unlocks a world of possibilities for mobile applications and the PWA Kit.

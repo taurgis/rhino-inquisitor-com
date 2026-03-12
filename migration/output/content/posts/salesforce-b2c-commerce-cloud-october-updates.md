@@ -28,8 +28,8 @@ We have just received the final release ([22.10](/salesforce-b2c-commerce-cloud-
 
 This month a new addition to the SLAS ([Shopper Login API](/slas-in-sfra-or-sitegenesis/)) appeared! The ability to authenticate as a Trusted Agent (Customer Service) to log in on behalf of a customer. This is not a new feature, as this was already possible using the OCAPI. But it is good to see that this has also made its way to SLAS, so we do not have to combine authentication methods for these use cases. Another added advantage is that this authentication works with the Account Manager, so we do not have to worry about security on that part (2FA is included this way!) Permissions This new API depends on an Account Manager account with a "user" in that specific environment. Permissions and roles define what these users are capable of:
 
-- Login\_On\_Behalf
-- Create\_Order\_On\_Behalf
+- Login\_On\_ Behalf
+- Create\_Order\_ On\_Behalf
 
 ## Account Manager
 
@@ -49,11 +49,11 @@ Whether or not you believe this works to get things prioritized, giving good ide
 
 ## Updated Cartridges & Tools
 
-### plugin\_reorder\_demo
+### plugin\_reorder\_ demo
 
 - [https://github.com/SalesforceCommerceCloud/plugin\_reorder\_demo](https://github.com/SalesforceCommerceCloud/plugin_reorder_demo)
 
-> This is the repository for the plugin\_reorder\_demo plugin. This plugin enhances the plugin\_commercepayments cartridge by providing re-order functionality, including the following capabilities: - Registered shoppers can re-order previously placed orders from their accounts
+> This is the repository for the plugin\_reorder\_ demo plugin. This plugin enhances the plugin\_commercepayments cartridge by providing re-order functionality, including the following capabilities: - Registered shoppers can re-order previously placed orders from their accounts
 
 A new cartridge popped up with re-ordering functionalities. Although it requires the Salesforce Payments cartridge, you can use the code as a cheat sheet when implementing your version that does not use it.
 

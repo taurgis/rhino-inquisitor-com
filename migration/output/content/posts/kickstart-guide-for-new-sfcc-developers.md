@@ -34,13 +34,13 @@ At the highest level, your [SFCC environments](/understanding-sfcc-instances/) a
 
 - **Primary Instance Group (PIG):** This is where the magic happens for your live site. It contains the three core environments that form the backbone of any project's lifecycle:
 
-  1. **Development:** A shared environment for developers to integrate their work and for QA to test features.
+1. **Development:** A shared environment for developers to integrate their work and for QA to test features.
 
 1. **Staging:** A pre-production environment used for final testing, data replication, and client UAT. It's meant to be a mirror of Production.
 
 1. **Production:** The live storefront that serves your customers.
 
-- **Secondary Instance Group (SIG):** This group houses your **Sandboxes**. A [sandbox](/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/) is your personal development playground. It's, when provisioned, an empty environment where you can test new ideas, develop features, and break things without any real-world consequences.
+- **Secondary Instance Group (SIG): ** This group houses your**Sandboxes**. A [sandbox](/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/) is your personal development playground. It's, when provisioned, an empty environment where you can test new ideas, develop features, and break things without any real-world consequences.
 
 The flow is critical: [developers](/understanding-sfcc-instances/) work on features in their individual sandboxes. Once complete, the code is pushed and integrated into the shared Development instance. From there, it moves to Staging for final validation, and finally, it's deployed to Production.
 
@@ -58,17 +58,17 @@ As a developer, you'll find yourself wearing two hats within the Business Manage
 
 1. **The Administrator/Developer Hat:** This is your primary domain. Under the `Administration` tab, you'll perform critical development tasks like managing code versions, [configuring](https://help.salesforce.com/s/articleView?id=cc.b2c_getting_started.htm&type=5) site cartridge paths, setting up data import/export jobs, managing API clients, and controlling the site cache.
 
-You'll also work with powerful merchandising tools like **Page Designer** and **Content Slots**. While merchandisers use these [tools](/salesforce-b2c-commerce-cloud-content-erd/) to build pages visually, developers create the underlying custom components that power them. Understanding the Business Manager isn't optional; it's a core competency for any SFCC developer.
+You'll also work with powerful merchandising tools like **Page Designer ** and** Content Slots**. While merchandisers use these [tools](/salesforce-b2c-commerce-cloud-content-erd/) to build pages visually, developers create the underlying custom components that power them. Understanding the Business Manager isn't optional; it's a core competency for any SFCC developer.
 
 ### The Great Architectural Divide: SFRA, Composable, and the Ghost of SiteGenesis
 
 This is one of the most critical and often confusing topics for newcomers. The architecture you build dictates everything about your development process. There are [three](/sitegenesis-vs-sfra-vs-pwa/) names you'll hear constantly: SiteGenesis, SFRA, and Composable Storefront (or PWA Kit). Let's clear this up once and for all.
 
-- **SiteGenesis (SG):** This is the legacy architecture. Let me be blunt: if anyone suggests you start a new project on SiteGenesis in this day and age, you should question their motives. It was built on an outdated technology called **pipelines**—a visual workflow tool for server-side logic that is no longer supported by modern development tools, and for which it is challenging to find experienced developers. Since 2020, third-party cartridge providers are no longer required to support SiteGenesis, signalling that Salesforce has firmly moved on. It is not mobile-first, and customising it often involves duplicating large amounts of code, leading to maintenance nightmares.
+- **SiteGenesis (SG): ** This is the legacy architecture. Let me be blunt: if anyone suggests you start a new project on SiteGenesis in this day and age, you should question their motives. It was built on an outdated technology called**pipelines**—a visual workflow tool for server-side logic that is no longer supported by modern development tools, and for which it is challenging to find experienced developers. Since 2020, third-party cartridge providers are no longer required to support SiteGenesis, signalling that Salesforce has firmly moved on. It is not mobile-first, and customising it often involves duplicating large amounts of code, leading to maintenance nightmares.
 
-- **Storefront Reference Architecture (SFRA):** The modern industry-standard architecture for most new SFCC projects. Introduced around 2016, SFRA was a complete paradigm shift away from SiteGenesis. It is built on a **mobile-first** philosophy and uses a familiar Model-View-Controller (MVC) pattern. Instead of proprietary Pipelines, it uses modern **JavaScript controllers** that will be comfortable to anyone with experience with Node.js or Express.js. Its key advantage is an extensible cartridge-based model that lets you layer customisations on top of a base template without modifying the core code, dramatically improving maintainability and making upgrades easier. For a deeper dive, I've written a detailed comparison in my article [**SiteGenesis vs SFRA vs PWA**](/sitegenesis-vs-sfra-vs-pwa/).
+- **Storefront Reference Architecture (SFRA): ** The modern industry-standard architecture for most new SFCC projects. Introduced around 2016, SFRA was a complete paradigm shift away from SiteGenesis. It is built on a**mobile-first ** philosophy and uses a familiar Model-View-Controller (MVC) pattern. Instead of proprietary Pipelines, it uses modern**JavaScript controllers** that will be comfortable to anyone with experience with Node.js or Express.js. Its key advantage is an extensible cartridge-based model that lets you layer customisations on top of a base template without modifying the core code, dramatically improving maintainability and making upgrades easier. For a deeper dive, I've written a detailed comparison in my article [**SiteGenesis vs SFRA vs PWA**](/sitegenesis-vs-sfra-vs-pwa/).
 
-- **Composable Storefront (PWA Kit & Managed Runtime):** This is the future-facing, **headless** architecture. Where SFRA is a "monolithic" application (the front-end and back-end are tightly coupled), the Composable Storefront decouples them completely. The front-end is typically a Progressive Web App (PWA) built with **React** and runs on a separate server environment called the **Managed Runtime**. This front-end communicates with the SFCC back-end (which still handles all the commerce logic) via REST APIs, specifically the Salesforce Commerce API (SCAPI) and the Open Commerce API (OCAPI). This approach provides maximum flexibility for the user experience but requires a more significant investment and a different skillset, including strong React expertise. It represents a major shift in the ecosystem, and I discuss the implications for developers in my article about [**the move from SiteGenesis and SFRA to the Composable Storefront**.](/the-move-from-sitegenesis-and-sfra-to-the-composable-storefront-as-a-developer/)
+- **Composable Storefront (PWA Kit & Managed Runtime): ** This is the future-facing,**headless ** architecture. Where SFRA is a "monolithic" application (the front-end and back-end are tightly coupled), the Composable Storefront decouples them completely. The front-end is typically a Progressive Web App (PWA) built with**React ** and runs on a separate server environment called the**Managed Runtime**. This front-end communicates with the SFCC back-end (which still handles all the commerce logic) via REST APIs, specifically the Salesforce Commerce API (SCAPI) and the Open Commerce API (OCAPI). This approach provides maximum flexibility for the user experience but requires a more significant investment and a different skillset, including strong React expertise. It represents a major shift in the ecosystem, and I discuss the implications for developers in my article about [**the move from SiteGenesis and SFRA to the Composable Storefront**.](/the-move-from-sitegenesis-and-sfra-to-the-composable-storefront-as-a-developer/)
 
 The evolution from SiteGenesis to SFRA and now to Composable isn't just a series of technical upgrades; it's a mirror of the entire e-commerce industry's journey from tightly-coupled platforms to API-first, headless solutions. This progression has profound implications for you as a developer. In the SiteGenesis era, you needed a highly specialised, platform-specific skill set centred on Pipelines. SFRA opened the doors to a broader pool of web developers by adopting more standard technologies, such as JavaScript controllers.
 
@@ -80,7 +80,7 @@ Now that you understand the landscape, it's time to set up your digital workbenc
 
 ### The Modern Workspace: VS Code
 
-While you might hear veterans talk about an old IDE called UX Studio, the modern standard for SFCC development is **Visual Studio Code (VS Code)** combined with the **your SFCC plugin of choice (such as** [Prophet](https://marketplace.visualstudio.com/items?itemName=SqrTT.prophet)**).** This setup provides the robust features you'd expect from a modern development environment.
+While you might hear veterans talk about an old IDE called UX Studio, the modern standard for SFCC development is **Visual Studio Code (VS Code) ** combined with the** your SFCC plugin of choice (such as **[Prophet](https://marketplace.visualstudio.com/items?itemName=SqrTT.prophet)**).** This setup provides the robust features you'd expect from a modern development environment.
 
 This setup is vastly superior to older methods because it integrates seamlessly with version control systems like Git and provides the powerful debugging and code navigation tools necessary for complex projects.
 
@@ -96,19 +96,19 @@ The **cartridge path** is arguably the most important and unique concept in SFCC
 
 In Business Manager, under `Administration > Sites > Manage Sites > Settings`, you define a colon-separated list of cartridge names. A typical path looks like this:
 
-`app_custom_mybrand:plugin_payment:app_storefront_base`
+`app _custom _ mybrand:plugin_payment:app _ storefront_base`
 
 When a request comes in for a specific [controller](https://beeit.io/blog/getting-started-with-controllers-models-and-decorators-sfcc) or template (e.g., `Cart-Show`), the system searches for that resource from **left to right** in the cartridge path.
 
-1. It first looks in `app_custom_mybrand`. If it finds a `Cart.js` controller, it uses that one and stops searching.
+1. It first looks in `app _custom_ mybrand`. If it finds a `Cart.js` controller, it uses that one and stops searching.
 
 1. If not found, it looks in `plugin_payment`.
 
-1. If it's still not found, it finally looks in the base cartridge, `app_storefront_base`.
+1. If it's still not found, it finally looks in the base cartridge, `app _storefront_ base`.
 
-This is how you customize the storefront. You never modify `app_storefront_base` directly. Instead, you create a new controller or template with the same name in your custom cartridge (`app_custom_mybrand`), and it will automatically override the base version.
+This is how you customize the storefront. You never modify `app _storefront _ base` directly. Instead, you create a new controller or template with the same name in your custom cartridge (`app_custom_ mybrand`), and it will automatically override the base version.
 
-But what if you don't want to completely replace a controller, but just add some logic before or after it runs? For this, [SFRA provides](https://developer.salesforce.com/docs/commerce/sfra/guide/b2c-sfra-modules.html) the `superModule`. By requiring `superModule` in your custom controller, you can use `server.prepend()` to execute code _before_ the base controller's route, `server.append()` to execute code _after_, or `server.replace()` to override it completely.
+But what if you don't want to completely replace a controller, but just add some logic before or after it runs? For this, [SFRA provides](https://developer.salesforce.com/docs/commerce/sfra/guide/b2c-sfra-modules.html) the `superModule`. By requiring `superModule` in your custom controller, you can use `server.prepend()` to execute code _before _ the base controller's route, `server.append()` to execute code _ after_, or `server.replace()` to override it completely.
 
 This extensibility model is powerful, but it comes with a responsibility. A developer's architectural choices here have massive long-term consequences for the site's maintainability. The easy path is often to copy an entire base controller into your custom cartridge and make a small change. This is a `replace` by default. However, a year later, when Salesforce releases a critical security patch for that base controller, your site won't receive it because you've completely overridden the original file. Your code is now brittle and carries significant technical debt.
 
@@ -132,13 +132,13 @@ Authentication can be handled via your Business Manager user account (using Basi
 
 SFCC provides a rich set of standard business objects (like Product, Order, Customer), but you'll almost always need to store additional, business-specific data. You can achieve this in two ways:
 
-1. **Extend System Objects:** You can add custom attributes to existing system objects. For example, you could add a `loyaltyTier` attribute to the `Profile` object. This is done in `Administration > Site Development > System Object Types`. I've written about using this technique to create **Custom Preferences** for site-wide settings.
+1. **Extend System Objects: ** You can add custom attributes to existing system objects. For example, you could add a `loyaltyTier` attribute to the `Profile` object. This is done in `Administration > Site Development > System Object Types`. I've written about using this technique to create**Custom Preferences** for site-wide settings.
 
 1. **Create Custom Objects:** For data that doesn't fit into a standard object, you can define entirely new custom object types with their own attributes. This is done in `Administration > Site Development > Custom Object Types`.
 
 For handling large-scale data operations—like importing a catalog with millions of products or exporting all orders from the last quarter—you'll use the **Jobs Framework**. Jobs are processes that run asynchronously in the background, either on a schedule or on demand. They are essential for any task that would be too slow or memory-intensive to run in a storefront request.
 
-A common and powerful type of job step is the **chunk-oriented job step**. This is designed to process a large list of items by breaking it into manageable chunks, preventing you from hitting platform memory limits. To learn how to build these correctly, I highly recommend my deep-dive article, [**Mastering Chunk-Oriented Job Steps in Salesforce B2C Commerce Cloud**](/mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/). For specialised cases involving large sets of static key-value data, you can also look into **[Leveraging Generic Mappings for Efficient Data Integration](/leveraging-generic-mappings-in-sfcc/).**
+A common and powerful type of job step is the **chunk-oriented job step **. This is designed to process a large list of items by breaking it into manageable chunks, preventing you from hitting platform memory limits. To learn how to build these correctly, I highly recommend my deep-dive article, [**Mastering Chunk-Oriented Job Steps in Salesforce B2C Commerce Cloud**](/mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/). For specialised cases involving large sets of static key-value data, you can also look into**[Leveraging Generic Mappings for Efficient Data Integration](/leveraging-generic-mappings-in-sfcc/).**
 
 ## Pro-Level Tips & Tricks from the Trenches
 
@@ -150,7 +150,7 @@ In the multi-tenant SaaS world of SFCC, performance is non-negotiable. Your inef
 
 - **Caching is King:** This is the single most important performance concept in SFCC. There are multiple layers of caching, and your goal is always to serve a request from the highest (fastest) layer possible. The layers are:
 
-  1. Shopper's Browser
+1. Shopper's Browser
 
 1. eCDN (Content Delivery Network)
 
@@ -162,7 +162,7 @@ In the multi-tenant SaaS world of SFCC, performance is non-negotiable. Your inef
 
 **I cover caching strategies for APIs in [Leveraging Server-Side Caching to Improve SFCC REST API Speed](/caching-rest-apis-in-sfcc/)** and for the modern stack in [**Caching in the Salesforce Composable Storefront**](/caching-in-the-sfcc-composable-storefront/).
 
-- **Image Optimization with DIS:** Huge, unoptimized images are a primary culprit for slow page loads. SFCC's **Dynamic Image Service (DIS)** is your best friend here. It allows you to upload one high-resolution source image and then transform it on-the-fly via URL parameters—resizing, cropping, and changing quality—without ever touching the original. My guide, [**Image-ine: Salesforce B2C Commerce Cloud DIS for Developers**](/image-ine-sfcc-dis-for-developers/), is a must-read on this topic.
+- **Image Optimization with DIS: ** Huge, unoptimized images are a primary culprit for slow page loads. SFCC's**Dynamic Image Service (DIS)** is your best friend here. It allows you to upload one high-resolution source image and then transform it on-the-fly via URL parameters—resizing, cropping, and changing quality—without ever touching the original. My guide, [**Image-ine: Salesforce B2C Commerce Cloud DIS for Developers**](/image-ine-sfcc-dis-for-developers/), is a must-read on this topic.
 
 - **Frontend Optimization:** Don't forget the basics. Minify your JavaScript and CSS, reduce the number of HTTP requests, and place your CSS in the `<head>` and your JavaScript just before the closing `</body>` tag for better perceived performance. For a detailed look at how to manage this in SFRA, see my post on [**how to load client-side JavaScript and CSS**](/how-to-load-client-side-javascript-and-css-in-sfra/). And for the Composable world, the principles in [**From Lag to Riches: A PWA Kit Developer's Guide to Storefront Speed**](/lag-to-riches-a-pwa-kit-developers-guide/) are essential.
 
@@ -212,7 +212,7 @@ Here are the cardinal sins of [cache](https://developer.salesforce.com/docs/comm
 
 Finally, here are a few specific "gotchas" that bite new developers:
 
-- **The Remote Include Asset Trap:** You'll find that including client-side assets using the standard `assets.js` helper doesn't work inside a remote include (`<isinclude url="...">`). This is because the asset list is scoped to a single request, and a remote include is technically a separate, internal request. I explain this specific problem and how to work around it in my guide to **[loading client-side JavaScript and CSS in SFRA](/how-to-load-client-side-javascript-and-css-in-sfra/).**
+- **The Remote Include Asset Trap: ** You'll find that including client-side assets using the standard `assets.js` helper doesn't work inside a remote include (`<isinclude url="...">`). This is because the asset list is scoped to a single request, and a remote include is technically a separate, internal request. I explain this specific problem and how to work around it in my guide to**[loading client-side JavaScript and CSS in SFRA](/how-to-load-client-side-javascript-and-css-in-sfra/).**
 
 - **Massive Image Folders:** While WebDAV is great, dumping a million product images into a single folder is a recipe for terrible performance, both for file system listing and for your import/export jobs. Salesforce recommends a maximum of 100,000 files per folder. You must have a strategy for organizing images into a logical sub-folder structure.
 

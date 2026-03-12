@@ -74,7 +74,7 @@ The General Data Protection Regulation (GDPR) has fundamentally changed how busi
 
 The legal requirement to retain invoices for 10 years, as mentioned in the previous section, presents a direct conflict with the right to be forgotten. In this scenario, the legal obligation to retain the invoice takes precedence over the individual's request for data deletion. However, this does not mean that the personal data on the invoice can be kept indefinitely or used for other purposes.
 
-To navigate this, businesses should adopt the principle of **data minimisation** and consider **pseudonymization**. Here's how this can be applied:
+To navigate this, businesses should adopt the principle of **data minimisation ** and consider** pseudonymization**. Here's how this can be applied:
 
 - **Data Minimisation:** Only collect and retain the personal data that is strictly necessary for the transaction and for legal compliance.
 

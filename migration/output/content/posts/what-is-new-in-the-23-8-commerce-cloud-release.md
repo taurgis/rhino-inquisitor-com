@@ -30,10 +30,8 @@ Let's take a look!
 ## PWA Kit (3.1.0)
 
 > The latest release of the PWA Kit now allows for the conditional enabling of cookies within Managed Runtime. Previously, cookies were not allowed on SSR requests, optimising performance but limited use cases where cookie data was required.
->
 > With this new functionality, you can enable cookies per environment and modify their application logic and response via ssr.js. This means that after a customer logs in, the experience can be altered by setting the cache control header to private and leveraging the cookie on the response.
->
-> To enable cookies, set the allow\_cookies attribute on an environment with the projects\_target\_partial\_update endpoint and use PWA Kit version 3.1.0 or greater.
+> To enable cookies, set the allow\_cookies attribute on an environment with the projects\_ target\_partial\_ update endpoint and use PWA Kit version 3.1.0 or greater.
 
 With this new update, we get more flexibility to support use cases! It is crucial, however, to think about performance, as this can potentially **lower your cache-hit ratio**!
 
@@ -43,17 +41,17 @@ With this new update, we get more flexibility to support use cases! It is crucia
 
 ### Get Accurate Allocation Amounts with a Null Allocation Payload
 
-> PATCH and PUT /product\_inventory\_records/{product\_id} now supports a null allocation payload while keeping accurate account of product allocation amounts and allocation reset date. Previously, sending a Patch or Put call to set a custom inventory record attribute using a null allocation payload resulted in an invalid reset date.
+> PATCH and PUT /product\_inventory\_ records/{product\_id} now supports a null allocation payload while keeping accurate account of product allocation amounts and allocation reset date. Previously, sending a Patch or Put call to set a custom inventory record attribute using a null allocation payload resulted in an invalid reset date.
 
 Salesforce has implemented a bugfix in the [Inventory API](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-data-api?meta=Update%2BProduct%2BInventory%2BRecord) to ensure that the allocation reset date remains in a valid state and does not become invalid. There is not much else to report about this update.
 
 ### SCAPI
 
-> -   Optional query parameter locale, is now supported for mergeBasket, transferBasket and all delete endpoints in Shopper Orders and Shopper Baskets, with the exception of deleteBasket.
-> -   PaymentCardSpec includes a new field securityCodeLength. This is available in the response for Shopper baskets - getPaymentMethodsForBasket and Shopper Orders- getPaymentMethodsForOrder endpoints.
-> -   Coming soon: mergeBasket and transferBasket response will no longer include the property notes. Previously, this property was sent with an empty value in the response.
-> -   Fix coming soon: mergeBasket will return an HTTP 409 error response no-source-basket-exception if the guest's basket has already been ordered. Previously, the ordered guest basket was merged with the new basket.
-> -   Shopper Search productSearch now correctly handles storefront search queries with the & character and considers all terms before and after the &. Previously, the search query was incorrectly truncated before the & character and subsequent terms were missing in the query.
+> - Optional query parameter locale, is now supported for mergeBasket, transferBasket and all delete endpoints in Shopper Orders and Shopper Baskets, with the exception of deleteBasket.
+> - PaymentCardSpec includes a new field securityCodeLength. This is available in the response for Shopper baskets - getPaymentMethodsForBasket and Shopper Orders- getPaymentMethodsForOrder endpoints.
+> - Coming soon: mergeBasket and transferBasket response will no longer include the property notes. Previously, this property was sent with an empty value in the response.
+> - Fix coming soon: mergeBasket will return an HTTP 409 error response no-source-basket-exception if the guest's basket has already been ordered. Previously, the ordered guest basket was merged with the new basket.
+> - Shopper Search productSearch now correctly handles storefront search queries with the & character and considers all terms before and after the &. Previously, the search query was incorrectly truncated before the & character and subsequent terms were missing in the query.
 
 More support for the "locale" parameter should make many people happy!
 
@@ -61,18 +59,18 @@ Nothing else to report except future bugfix statements and actual bug fixes. And
 
 ### SLAS
 
-> -   SLAS Infrastructure and scale improvements.
-> -   SLAS Admin UI improvements related to user search and get user statistics.
-> -   Fixed logout implementation. SLAS to OCAPI calls no longer fail throwing (ClientAccessForbiddenException)
-> -   As part of our efforts to scale the SLAS service for the upcoming holiday volume, temporarily, starting the week of August 7th, registered shopper sessions are valid for only 45 days. This applies to shopping apps integrated with SLAS, and to shoppers who have not returned to the shopping app at least once in the last 45 days need to relogin. This temporary state will conclude until September 15. After September 15, registered shopper login sessions will resume their full 90 day, standard duration. Shopper Guest sessions and B2C Commerce basket retention is not affected in any way.
+> - SLAS Infrastructure and scale improvements.
+> - SLAS Admin UI improvements related to user search and get user statistics.
+> - Fixed logout implementation. SLAS to OCAPI calls no longer fail throwing (ClientAccessForbiddenException)
+> - As part of our efforts to scale the SLAS service for the upcoming holiday volume, temporarily, starting the week of August 7th, registered shopper sessions are valid for only 45 days. This applies to shopping apps integrated with SLAS, and to shoppers who have not returned to the shopping app at least once in the last 45 days need to relogin. This temporary state will conclude until September 15. After September 15, registered shopper login sessions will resume their full 90 day, standard duration. Shopper Guest sessions and B2C Commerce basket retention is not affected in any way.
 
 As I previously stated, the emphasis is on enhancing infrastructure and expanding scalability. However, it is essential to note that **SLAS will now only maintain active sessions for 45 days instead of the previous 90 days** until September 15th. If you are using SLAS in your projects, please keep in mind this temporary change.
 
 ## Account Manager
 
-> -   Security Fixes
-> -   Bug Fixes
-> -   Infrastructure Updates
+> - Security Fixes
+> - Bug Fixes
+> - Infrastructure Updates
 
 A bit of familiar maintenance has happened on the Account Manager. But not to worry: there is more!
 
@@ -96,7 +94,7 @@ Only new passwords These new requirements will only be enforced when a password 
 
 > For stronger passwords and better security, new password requirements are now enforced for Account Manager API Clients.
 
-To ensure better security, there are new password requirements in place. Passwords must be **at least 12 characters long** and have a minimum complexity that includes **three out of four - numbers, symbols, lower case, and upper case**.
+To ensure better security, there are new password requirements in place. Passwords must be **at least 12 characters long ** and have a minimum complexity that includes** three out of four - numbers, symbols, lower case, and upper case**.
 
 Passwords **cannot include any part of your name, username, or UUID**.
 

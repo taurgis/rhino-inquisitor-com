@@ -40,7 +40,6 @@ Most people won't notice a difference, but this change may have side effects if 
 ### Allow Duplicate Terms in Search Phrases
 
 > B2C Commerce search now accepts long-tail search phrases with duplicate search terms. When an exact match for a given phrase is found, the suggestion processor returns highly relevant search results.
->
 > Previously, duplicate words in long-tail search phrases were autocorrected to slightly different versions. Autocorrecting terms in the search phrase can result in irrelevant search results.
 
 Improvements in the built-in search engine are always welcomed. A reliable search function across all channels enhances user experience and increases conversion rates.
@@ -99,7 +98,7 @@ The promised helper functions have arrived with the new custom endpoints going G
 
 ## OCAPI & SCAPI
 
-### Custom SCAPI Endpoints
+### Custom SCAPI Endpoints (OCAPI & SCAPI)
 
 Although this [option](https://developer.salesforce.com/docs/commerce/commerce-api/guide/custom-apis.html) has existed since September last year, this feature is now officially out of BETA and can be safely used in production environments.
 
@@ -109,12 +108,12 @@ The [documentation](https://developer.salesforce.com/docs/commerce/commerce-api/
 
 ### SLAS Updates
 
-> -   Improved error handling for TSOB(Trusted system on Behalf) for "customer not found" user scenarios.
-> -   Support added for using SAP Customer Data Cloud socialize REST endpoints.
-> -   IDP configuration now allows the IDP client credentials to be added to the POST body. SLAS now supports OIDC client\_secret\_basic and client\_secret\_post for client authentication.
-> -   Updated the /introspect endpoint to include a “sub” claim in the response.
-> -   Improved validation in Session Bridge(SESB) flow by checking for the customer\_id and failing the request if the customer is already registered.
-> -   Includes SLAS Admin UI and API bug fix to address the cache synchronization issue when a client is edited or deleted.
+> - Improved error handling for TSOB(Trusted system on Behalf) for "customer not found" user scenarios.
+> - Support added for using SAP Customer Data Cloud socialize REST endpoints.
+> - IDP configuration now allows the IDP client credentials to be added to the POST body. SLAS now supports OIDC client\_secret\_ basic and client\_secret\_ post for client authentication.
+> - Updated the /introspect endpoint to include a “sub” claim in the response.
+> - Improved validation in Session Bridge(SESB) flow by checking for the customer\_id and failing the request if the customer is already registered.
+> - Includes SLAS Admin UI and API bug fix to address the cache synchronization issue when a client is edited or deleted.
 
 SLAS updates this month include some critical changes. One of the issues that has been bothering me for the past year was the visual cache of the SLAS admin UI, which caused a lot of confusion by displaying outdated information.
 
@@ -124,10 +123,10 @@ However, I'm happy to report that this issue has finally been fixed, dramaticall
 
 ### 1.32.0 Release
 
-> -   Security Fixes
-> -   Bug Fixes
-> -   Infrastructure Updates
-> -   **UUID Tokens Switched to JWT Access Tokens**: As previously announced in June 2023, Account Manager no longer supports the use of UUID token formats. All new API Clients only support the JWT access token format.
+> - Security Fixes
+> - Bug Fixes
+> - Infrastructure Updates
+> - **UUID Tokens Switched to JWT Access Tokens**: As previously announced in June 2023, Account Manager no longer supports the use of UUID token formats. All new API Clients only support the JWT access token format.
 
 After quite a long warning beforehand, the [UUID](/the-deprecation-of-the-uuid-token-for-api-clients/) option is now wholly gone for new API clients!
 
@@ -137,17 +136,16 @@ After quite a long warning beforehand, the [UUID](/the-deprecation-of-the-uuid-t
 
 > **BREAKING CHANGE: SFRA v7.0.0 has been updated to support Node 18**
 >
->
-> -   Setup Github Actions config by @shethj in #1337
-> -   Allow arbitrary-length TLDs by @wjhsf in #1352
-> -   Fix broken locale selector on Page Designer pages. by @wjhsf in #1354
-> -   Fix search with multiple refinements on PLP by @shethj in #1365
-> -   Bug: avoid XSS attacks in addressBook.js by @mjuszczyk1 in #1366
-> -   Update: seo friendly urls for search refinements by @sandragolden in #1331
-> -   Bug: fix transformations not being applied (W-8851964) by @wjhsf in #1183
-> -   Use standard ignore for generated files by @wjhsf in #1182
-> -   Bump version to v7.0.0 by @shethj in #1373
-> -   Add node18 release note by @shethj in #1374
+> - Setup Github Actions config by @shethj in #1337
+> - Allow arbitrary-length TLDs by @wjhsf in #1352
+> - Fix broken locale selector on Page Designer pages. by @wjhsf in #1354
+> - Fix search with multiple refinements on PLP by @shethj in #1365
+> - Bug: avoid XSS attacks in addressBook.js by @mjuszczyk1 in #1366
+> - Update: seo friendly urls for search refinements by @sandragolden in #1331
+> - Bug: fix transformations not being applied (W-8851964) by @wjhsf in #1183
+> - Use standard ignore for generated files by @wjhsf in #1182
+> - Bump version to v7.0.0 by @shethj in #1373
+> - Add node18 release note by @shethj in #1374
 
 A long-awaited update to SFRA is finally here with the long-promised update to node 18!
 
@@ -162,25 +160,19 @@ Many libraries have been updated!
 
 > **General**
 >
-> -   Add support for node 20 #1612
-> -   Fix bug when running in an iframe #1629
-> -   Generate SSR source map with environment variable #1571
-> -   Display selected refinements on PLP, even if the selected refinement has no hits #1622
-> -   Added option to specify isLoginPage function to the withRegistration component. The default behavior is "all pages ending in /login". #1572
->
->
+> - Add support for node 20 #1612
+> - Fix bug when running in an iframe #1629
+> - Generate SSR source map with environment variable #1571
+> - Display selected refinements on PLP, even if the selected refinement has no hits #1622
+> - Added option to specify isLoginPage function to the withRegistration component. The default behavior is "all pages ending in /login". #1572
 > **Accessibility**
->
-> -   Add correct keyboard interaction behavior for variation attribute radio buttons #1587
-> -   Change radio refinements (for example, filtering by Price) from radio inputs to styled buttons #1605
-> -   Update search refinements ARIA labels to include "add/remove filter" #1607
-> -   Improve focus behavior on my account pages, address forms, and promo codes #1625
->
->
+> - Add correct keyboard interaction behavior for variation attribute radio buttons #1587
+> - Change radio refinements (for example, filtering by Price) from radio inputs to styled buttons #1605
+> - Update search refinements ARIA labels to include "add/remove filter" #1607
+> - Improve focus behavior on my account pages, address forms, and promo codes #1625
 > **Storefront Preview**
->
-> -   We've added a new context input field for Customer Group. This is a text input for now but we imagine a dropdown in the future.
-> -   We know many of you will bring third party CMS's to the mix. We want you to be able to use Storefront Preview with these as well! On that note please check out our new guidance on Preview extensibility. Essentially you can forward context changes onto a third party to set their version of context in the given platform meaning your Previewed storefront can faithfully render all the content relevant to your context settings.
+> - We've added a new context input field for Customer Group. This is a text input for now but we imagine a dropdown in the future.
+> - We know many of you will bring third party CMS's to the mix. We want you to be able to use Storefront Preview with these as well! On that note please check out our new guidance on Preview extensibility. Essentially you can forward context changes onto a third party to set their version of context in the given platform meaning your Previewed storefront can faithfully render all the content relevant to your context settings.
 
 - [https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v3.4.0](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v3.4.0)
 

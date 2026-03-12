@@ -159,7 +159,7 @@ This is the Keynote for everything Commerce related, so be there or be square!
 
 Dropshipping and marketplaces are becoming more prominent within the retail market. Learn how you can use Commerce Cloud to allow others to sell your products on their platform by connecting to B2C Commerce Cloud.
 
-**One to certainly join! Doing a shameless plug for my colleagues!**
+One to certainly join! Doing a shameless plug for my colleagues!
 
 ### [Innovation in the Partner Ecosystem Beyond the Buy Button](https://reg.salesforce.com/flow/plus/cnx22/connections2022contentcatalog/page/sessioncatalog/session/1648704753602001RD7R)
 

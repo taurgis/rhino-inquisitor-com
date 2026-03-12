@@ -45,14 +45,14 @@ In the 24.6 Release in June 2024, the allowed offset value will be limited to 10
 
 To reduce the risk of generating large queries, users are advised to make their queries more targeted via filters and offset values.
 
-**What batch APIs can be used to still retrieve large datasets?**
+What batch APIs can be used to still retrieve large datasets?
 
 - For orders
-  - **[processOrders](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_order_OrderMgr.html#dw_order_OrderMgr_processOrders_Function_String_Object_DetailAnchor)**
-  - **[Class OrderMgr](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_order_OrderMgr.html)**
+- **[processOrders](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_order_OrderMgr.html#dw_order_OrderMgr_processOrders_Function_String_Object_DetailAnchor)**
+- **[Class OrderMgr](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_order_OrderMgr.html)**
 - For customers
-  - **[processProfiles](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_customer_CustomerMgr.html#dw_customer_CustomerMgr_processProfiles_Function_String_Object_DetailAnchor)**
-  - **[Class CustomerMgr](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_customer_CustomerMgr.html)**
+- **[processProfiles](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_customer_CustomerMgr.html#dw_customer_CustomerMgr_processProfiles_Function_String_Object_DetailAnchor)**
+- **[Class CustomerMgr](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_customer_CustomerMgr.html)**
 
 ```text
 application failed to invoke [search_protocol.search()] on server, responding with
@@ -99,7 +99,7 @@ This is a nice change that will improve the overall user experience.
 
 Hooks have been a go-to patch for information like this for a while now, and being able to replace these customisations with platform-native solutions will help keep our projects maintainable.
 
-_Hook cleanup time!_
+Hook cleanup time!
 
 ### New API: searchCustomerGroup
 
@@ -120,7 +120,7 @@ Another use case where the [OCAPI](/in-the-ring-ocapi-versus-scapi/) is no longe
 Two new headers have made their way into the SCAPI:
 
 1. **`sfdc_customization`**–indicates whether customization has been applied during the request execution. Currently, the only possible value for the header is “HOOK”, which indicates that a hook execution was registered.
-1. **`sfdc_customization_error`**–if the value is “1", an error occurred within a hook execution.
+1. **`sfdc _customization_ error`**–if the value is “1", an error occurred within a hook execution.
 
 This is a great addition that will allow us to get more information on the client side of what is going on and take some of the guesswork out of it.
 

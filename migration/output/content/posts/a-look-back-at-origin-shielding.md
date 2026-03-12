@@ -29,7 +29,7 @@ But, of course, the information given back then was pretty vague. And the impact
 
 ### What about 2022
 
-Months go by without any mention of this change, but I did know that this "Origin Shielding" for “dotted” URLs (i.e., <http://production.xxx.demandware.net/>) was [already active for new customers since June 21'](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_selective_origin_shielding_w9343605_je.htm&type=5). In March, I joined the B2C Roadmap Session again (or a different webinar, I can't remember), and here we got the announcement for "phase 2": Origin Shielding activation for ‘hyphenated’ URLs (i.e., production-xxx.demandware.net).
+Months go by without any mention of this change, but I did know that this "Origin Shielding" for “dotted” URLs (i.e., `<http://production.xxx.demandware.net/>`) was [already active for new customers since June 21'](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_selective_origin_shielding_w9343605_je.htm&type=5). In March, I joined the B2C Roadmap Session again (or a different webinar, I can't remember), and here we got the announcement for "phase 2": Origin Shielding activation for ‘hyphenated’ URLs (i.e., production-xxx.demandware.net).
 
 [![March 2022 roadmap slide announcing the next origin shielding phase.](/media/2022/march-2022-origin-shielding-815c30777b.jpg)](/media/2022/march-2022-origin-shielding-815c30777b.jpg)
 

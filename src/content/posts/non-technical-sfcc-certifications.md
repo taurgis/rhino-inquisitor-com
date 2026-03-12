@@ -69,11 +69,8 @@ You understand and analyse business operations, processes, and requirements to i
 Salesforce Admin is no longer required As of May 2, 2023, the Salesforce Administrator certification is no longer a requirement!
 
 > Effective today, May 2, 2023, the Salesforce Administrator Certification will no longer be required prior to earning the Salesforce Business Analyst Certification.
->
 > As a result of this change, Salesforce Business Analyst Certification will no longer be maintained with Salesforce Administrator Certification maintenance. A Business Analyst maintenance module will be available with the start of Summer ’23. For more maintenance info, visit the [Certification Maintenance Schedule Help article](http://click.mail.salesforce.com/?qs=0e0922571fda7b008a681bf990b59c2f7b900a3427d9add675a77798af335adaeae10a342e704083c34ab11d8ab098ad2d996f3a680b73dc).
->
 > For more information, please visit the [Salesforce Certified Business Analyst FAQ](http://click.mail.salesforce.com/?qs=0e0922571fda7b00223dfa49da8843ba54e3e7fc99e3741274f7e195bb9cf6b9a25eb0a6d3410fc592f3597d5a741ecf4563b416e552dc2c).
->
 > Salesforce Certification Mail
 
 ## Sales Representative

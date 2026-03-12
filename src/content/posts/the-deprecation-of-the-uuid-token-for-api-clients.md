@@ -32,7 +32,7 @@ When doing an OAuth integration with Salesforce B2C Commerce Cloud, you must set
 - JWT
 - UUID
 
-_**Note:** Currently the default is JWT, but I am not sure if the default was UUID before._
+**Note:** Currently the default is JWT, but I am not sure if the default was UUID before.
 
 [![Account Manager screen showing API client token format options.](/media/2022/account-manager-api-client-token-format-808bcccc72.jpg)](/media/2022/account-manager-api-client-token-format-808bcccc72.jpg)
 
@@ -114,7 +114,7 @@ That is a lot more information to work with, which is why this change is happeni
 
 ## Why do this change
 
-_Before we get started, I do not work for Salesforce! So I will be making some assumptions here based on the small amount of information that has been shared._
+Before we get started, I do not work for Salesforce! So I will be making some assumptions here based on the small amount of information that has been shared.
 
 The change itself makes sense. Because the UUID does not contain much information, the Account Manager needs to "fill in the blanks" when doing an authentication call. This causes extra "strain" on the servers (probably additional database calls and processing) to fetch certain information and do validation.
 

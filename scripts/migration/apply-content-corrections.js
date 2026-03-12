@@ -66,9 +66,18 @@ async function main() {
     orderedListMarkerSpacingNormalized: 0,
     orderedListPrefixesNormalized: 0,
     repeatedListMarkersCollapsed: 0,
+    blockquoteLinesNormalized: 0,
+    listSpacingNormalized: 0,
+    malformedRepositoryLinksNormalized: 0,
     headingPunctuationNormalized: 0,
+    duplicateHeadingsDisambiguated: 0,
     emphasisSpacingNormalized: 0,
+    emphasisHeadingsNormalized: 0,
+    codeSpanSpacingNormalized: 0,
+    markdownLinkTextSpacingNormalized: 0,
     bareUrlsWrapped: 0,
+    inPageFragmentsNormalized: 0,
+    inlineHtmlEscaped: 0,
     mixedImageLinesSplit: 0,
     imageParagraphSpacersInserted: 0,
     tableHeaderRowsNormalized: 0,
@@ -103,10 +112,18 @@ async function main() {
     const tabResult = normalizeHardTabs(parsed.content);
     const fenceResult = normalizeFencedCodeBlocks(tabResult.content);
     const listResult = normalizeMarkdownLists(fenceResult.content);
-    const headingResult = normalizeHeadingPunctuation(listResult.content);
-    const emphasisResult = normalizeSpacedEmphasis(headingResult.content);
-    const urlResult = wrapBareUrls(emphasisResult.content);
-    const imageResult = normalizeImageParagraphs(urlResult.content);
+    const blockquoteResult = normalizeBlockquoteSpacing(listResult.content);
+    const listSpacingResult = normalizeBlankLinesAroundLists(blockquoteResult.content);
+    const repositoryLinkResult = normalizeRepositoryEntryLinks(listSpacingResult.content);
+    const headingResult = normalizeHeadingPunctuation(repositoryLinkResult.content);
+    const duplicateHeadingResult = normalizeDuplicateHeadings(headingResult.content);
+    const emphasisResult = normalizeSpacedEmphasis(duplicateHeadingResult.content);
+    const codeSpanResult = normalizeCodeSpanSpacing(emphasisResult.content);
+    const linkTextResult = normalizeMarkdownLinkTextSpacing(codeSpanResult.content);
+    const fragmentResult = normalizeInPageFragments(linkTextResult.content);
+    const urlResult = wrapBareUrls(fragmentResult.content);
+    const inlineHtmlResult = normalizeInlineHtmlTokens(urlResult.content);
+    const imageResult = normalizeImageParagraphs(inlineHtmlResult.content);
     const tableResult = normalizeMarkdownTables(imageResult.content);
     const calloutResult = normalizeInlineLabelCallouts(tableResult.content);
     const linkRepairResult = normalizeBrokenInlineLinks(calloutResult.content);
@@ -145,9 +162,18 @@ async function main() {
     summary.orderedListMarkerSpacingNormalized += listResult.orderedSpacingNormalized;
     summary.orderedListPrefixesNormalized += listResult.orderedPrefixesNormalized;
     summary.repeatedListMarkersCollapsed += listResult.repeatedMarkersCollapsed;
+    summary.blockquoteLinesNormalized += blockquoteResult.normalizedBlockquoteLines;
+    summary.listSpacingNormalized += listSpacingResult.normalizedListSpacing;
+    summary.malformedRepositoryLinksNormalized += repositoryLinkResult.normalizedEntries;
     summary.headingPunctuationNormalized += headingResult.normalizedHeadings;
+    summary.duplicateHeadingsDisambiguated += duplicateHeadingResult.duplicateHeadingsDisambiguated;
     summary.emphasisSpacingNormalized += emphasisResult.normalizedEmphasis;
+    summary.emphasisHeadingsNormalized += emphasisResult.normalizedHeadingLikeEmphasis;
+    summary.codeSpanSpacingNormalized += codeSpanResult.normalizedCodeSpans;
+    summary.markdownLinkTextSpacingNormalized += linkTextResult.normalizedLinks;
     summary.bareUrlsWrapped += urlResult.wrappedUrls;
+    summary.inPageFragmentsNormalized += fragmentResult.normalizedFragments;
+    summary.inlineHtmlEscaped += inlineHtmlResult.escapedTokens;
     summary.mixedImageLinesSplit += imageResult.mixedImageLinesSplit;
     summary.imageParagraphSpacersInserted += imageResult.imageParagraphSpacersInserted;
     summary.tableHeaderRowsNormalized += tableResult.normalizedTables;
@@ -215,8 +241,17 @@ async function main() {
       `Ordered list spacing normalized: ${summary.orderedListMarkerSpacingNormalized}.`,
       `Ordered list prefixes normalized: ${summary.orderedListPrefixesNormalized}.`,
       `Heading punctuation normalized: ${summary.headingPunctuationNormalized}.`,
+      `Duplicate headings disambiguated: ${summary.duplicateHeadingsDisambiguated}.`,
+      `Blockquote lines normalized: ${summary.blockquoteLinesNormalized}.`,
+      `Blank lines around lists normalized: ${summary.listSpacingNormalized}.`,
+      `Malformed repository links normalized: ${summary.malformedRepositoryLinksNormalized}.`,
       `Emphasis spacing normalized: ${summary.emphasisSpacingNormalized}.`,
+      `Heading-like emphasis normalized: ${summary.emphasisHeadingsNormalized}.`,
+      `Code spans normalized: ${summary.codeSpanSpacingNormalized}.`,
+      `Markdown link text spacing normalized: ${summary.markdownLinkTextSpacingNormalized}.`,
       `Bare URLs wrapped: ${summary.bareUrlsWrapped}.`,
+      `In-page fragments normalized: ${summary.inPageFragmentsNormalized}.`,
+      `Inline HTML escaped: ${summary.inlineHtmlEscaped}.`,
       `Mixed image lines split: ${summary.mixedImageLinesSplit}.`,
       `Image paragraph spacers inserted: ${summary.imageParagraphSpacersInserted}.`,
       `Table headers normalized: ${summary.tableHeaderRowsNormalized}.`,
@@ -704,37 +739,45 @@ function normalizeMarkdownLists(content) {
       repeatedMarkersCollapsed += 1;
     }
 
-    const orderedMatch = updatedLine.match(/^(\s*)(\d+)\.(\s+)(.*)$/u);
+    const orderedMatch = updatedLine.match(/^(?<blockquote>(?:>\s*)*)(?<indent>\s*)(?<prefix>\d+)\.(?<spacing>\s+)(?<rest>.*)$/u);
     if (orderedMatch) {
-      let normalizedIndent = normalizeListIndentation(orderedMatch[1]);
-      if (/^ {2}1\. /u.test(`${normalizedIndent}1. ${orderedMatch[4]}`) && /^1\. /u.test(previousNonEmptyLine.trim())) {
+      const blockquotePrefix = orderedMatch.groups.blockquote ?? '';
+      let normalizedIndent = normalizeListIndentation(orderedMatch.groups.indent ?? '', {
+        blockquotePrefix,
+        previousNonEmptyLine
+      });
+      if (/^ {2}1\. /u.test(`${normalizedIndent}1. ${orderedMatch.groups.rest}`) && /^1\. /u.test(stripBlockquotePrefix(previousNonEmptyLine).trim())) {
         normalizedIndent = '';
       }
-      if (normalizedIndent !== orderedMatch[1]) {
+      if (normalizedIndent !== (orderedMatch.groups.indent ?? '')) {
         listIndentationNormalized += 1;
       }
-      if (orderedMatch[3] !== ' ') {
+      if ((orderedMatch.groups.spacing ?? '') !== ' ') {
         orderedSpacingNormalized += 1;
       }
-      if (orderedMatch[2] !== '1') {
+      if ((orderedMatch.groups.prefix ?? '') !== '1') {
         orderedPrefixesNormalized += 1;
       }
-      const normalizedLine = `${normalizedIndent}1. ${orderedMatch[4]}`;
+      const normalizedLine = `${blockquotePrefix}${normalizedIndent}1. ${orderedMatch.groups.rest}`;
       normalizedLines.push(normalizedLine);
       previousNonEmptyLine = normalizedLine;
       continue;
     }
 
-    const unorderedMatch = updatedLine.match(/^(\s*)([*+-])(\s+)(.*)$/u);
+    const unorderedMatch = updatedLine.match(/^(?<blockquote>(?:>\s*)*)(?<indent>\s*)(?<marker>[*+-])(?<spacing>\s+)(?<rest>.*)$/u);
     if (unorderedMatch) {
-      const normalizedIndent = normalizeListIndentation(unorderedMatch[1]);
-      if (normalizedIndent !== unorderedMatch[1]) {
+      const blockquotePrefix = unorderedMatch.groups.blockquote ?? '';
+      const normalizedIndent = normalizeListIndentation(unorderedMatch.groups.indent ?? '', {
+        blockquotePrefix,
+        previousNonEmptyLine
+      });
+      if (normalizedIndent !== (unorderedMatch.groups.indent ?? '')) {
         listIndentationNormalized += 1;
       }
-      if (unorderedMatch[3] !== ' ') {
+      if ((unorderedMatch.groups.spacing ?? '') !== ' ') {
         unorderedSpacingNormalized += 1;
       }
-      const normalizedLine = `${normalizedIndent}${unorderedMatch[2]} ${unorderedMatch[4]}`;
+      const normalizedLine = `${blockquotePrefix}${normalizedIndent}${unorderedMatch.groups.marker} ${unorderedMatch.groups.rest}`;
       normalizedLines.push(normalizedLine);
       previousNonEmptyLine = normalizedLine;
       continue;
@@ -754,13 +797,153 @@ function normalizeMarkdownLists(content) {
   };
 }
 
-function normalizeListIndentation(value) {
+function normalizeListIndentation(value, { blockquotePrefix = '', previousNonEmptyLine = '' } = {}) {
   const indent = String(value ?? '');
-  if (!indent || /[^ ]/u.test(indent) || indent.length < 4) {
+  if (!indent || /[^ ]/u.test(indent)) {
     return indent;
   }
 
-  return ' '.repeat(Math.floor(indent.length / 2));
+  if (indent.length >= 4) {
+    return ' '.repeat(Math.max(2, Math.floor(indent.length / 4) * 2));
+  }
+
+  if (indent.length === 2) {
+    const previousContext = extractListContext(previousNonEmptyLine);
+    if (!previousContext || previousContext.blockquotePrefix !== blockquotePrefix) {
+      return '';
+    }
+
+    return previousContext.indent.length >= 2 ? '  ' : '';
+  }
+
+  return '';
+}
+
+function extractListContext(line) {
+  const match = String(line ?? '').match(/^(?<blockquote>(?:>\s*)*)(?<indent>\s*)(?<marker>(?:[*+-]|\d+\.))\s+(?<rest>.*)$/u);
+  if (!match) {
+    return null;
+  }
+
+  return {
+    blockquotePrefix: match.groups.blockquote ?? '',
+    indent: match.groups.indent ?? '',
+    marker: match.groups.marker ?? '',
+    rest: match.groups.rest ?? ''
+  };
+}
+
+function stripBlockquotePrefix(line) {
+  return String(line ?? '').replace(/^(?:>\s*)+/u, '');
+}
+
+function normalizeBlockquoteSpacing(content) {
+  const lines = String(content ?? '').replace(/\r\n?/gu, '\n').split('\n');
+  const normalizedLines = [];
+  let normalizedBlockquoteLines = 0;
+  let insideFence = false;
+
+  for (let index = 0; index < lines.length; index += 1) {
+    const line = lines[index];
+    const trimmedLine = line.trim();
+
+    if (/^(`{3,}|~{3,})/u.test(trimmedLine)) {
+      insideFence = !insideFence;
+      normalizedLines.push(line);
+      continue;
+    }
+
+    if (insideFence) {
+      normalizedLines.push(line);
+      continue;
+    }
+
+    if (trimmedLine.length === 0 || /^>\s*$/u.test(trimmedLine)) {
+      const previous = normalizedLines.at(-1)?.trim() ?? '';
+      const next = (lines[index + 1] ?? '').trim();
+      if (previous.startsWith('>') && next.startsWith('>')) {
+        normalizedBlockquoteLines += 1;
+        continue;
+      }
+    }
+
+    normalizedLines.push(line);
+  }
+
+  return {
+    content: normalizedLines.join('\n'),
+    normalizedBlockquoteLines
+  };
+}
+
+function normalizeBlankLinesAroundLists(content) {
+  const lines = String(content ?? '').replace(/\r\n?/gu, '\n').split('\n');
+  const normalizedLines = [];
+  let normalizedListSpacing = 0;
+  let insideFence = false;
+
+  for (let index = 0; index < lines.length; index += 1) {
+    const line = lines[index];
+    const trimmedLine = line.trim();
+
+    if (/^(`{3,}|~{3,})/u.test(trimmedLine)) {
+      insideFence = !insideFence;
+      normalizedLines.push(line);
+      continue;
+    }
+
+    if (!insideFence && isMarkdownListLine(trimmedLine)) {
+      const isBlockquoteList = /^(?:>\s*)+/.test(trimmedLine);
+      const previousLine = normalizedLines.at(-1) ?? '';
+      if (!isBlockquoteList && previousLine.trim().length > 0 && !isMarkdownListLine(previousLine.trim()) && !previousLine.trim().startsWith('> [!')) {
+        normalizedLines.push('');
+        normalizedListSpacing += 1;
+      }
+
+      normalizedLines.push(line);
+
+      const nextLine = lines[index + 1] ?? '';
+      if (!isBlockquoteList && nextLine.trim().length > 0 && !isMarkdownListLine(nextLine.trim()) && !startsNewMarkdownBlock(nextLine.trim())) {
+        normalizedLines.push('');
+        normalizedListSpacing += 1;
+      }
+      continue;
+    }
+
+    normalizedLines.push(line);
+  }
+
+  return {
+    content: normalizedLines.join('\n').replace(/\n{3,}/gu, '\n\n'),
+    normalizedListSpacing
+  };
+}
+
+function isMarkdownListLine(value) {
+  return /^(?:>\s*)*(?:[*+-]\s|\d+\.\s)/u.test(String(value ?? '').trim());
+}
+
+function normalizeRepositoryEntryLinks(content) {
+  let normalizedEntries = 0;
+  const repositoryPattern = /\[\s*\n+(?:###\s+Author\s*\n+)([\s\S]+?)\s+(Download & Install|Go to repository|Go to the tool|Got to the tool)\]\((https?:\/\/[^\s)]+)\)/gu;
+  const normalizedContent = String(content ?? '').replace(repositoryPattern, (_match, author, action, href) => {
+    normalizedEntries += 1;
+    const normalizedAuthor = normalizeRepositoryEntryText(author);
+    const normalizedAction = action === 'Got to the tool' ? 'Go to the tool' : action;
+    return `**Author:** ${normalizedAuthor}\n\n[${normalizedAction}](${href})`;
+  });
+
+  return {
+    content: normalizedContent,
+    normalizedEntries
+  };
+}
+
+function normalizeRepositoryEntryText(value) {
+  return String(value ?? '')
+    .replace(/\r\n?/gu, ' ')
+    .replace(/\s+/gu, ' ')
+    .trim();
 }
 
 function normalizeHeadingPunctuation(content) {
@@ -819,6 +1002,7 @@ function normalizeSpacedEmphasis(content) {
   const lines = String(content ?? '').replace(/\r\n?/gu, '\n').split('\n');
   const normalizedLines = [];
   let normalizedEmphasis = 0;
+  let normalizedHeadingLikeEmphasis = 0;
   let insideFence = false;
 
   for (let index = 0; index < lines.length; index += 1) {
@@ -842,11 +1026,19 @@ function normalizeSpacedEmphasis(content) {
       index += 1;
     }
 
-    const normalizedLine = line
-      .replace(/^(\s*>\s*)_(\s+)(.+?)(\s+)_$/u, '$1_$3_')
-      .replace(/^(\s*)_(\s+)(.+?)(\s+)_$/u, '$1_$3_')
-      .replace(/^(\s*)_(\s+)(.+?)_$/u, '$1_$3_')
-      .replace(/^(\s*)_(.+?)(\s+)_$/u, '$1_$2_');
+    const standaloneEmphasis = normalizeStandaloneEmphasisLine({
+      line,
+      previousLine: lines[index - 1] ?? '',
+      nextLine: lines[index + 1] ?? ''
+    });
+    if (standaloneEmphasis) {
+      normalizedLines.push(standaloneEmphasis.line);
+      normalizedEmphasis += 1;
+      normalizedHeadingLikeEmphasis += standaloneEmphasis.normalizedHeadingLikeEmphasis;
+      continue;
+    }
+
+    const normalizedLine = transformPreservingMarkdownLinks(line, rewriteEmphasisSpacingLine);
 
     if (normalizedLine !== line) {
       normalizedEmphasis += 1;
@@ -857,8 +1049,240 @@ function normalizeSpacedEmphasis(content) {
 
   return {
     content: normalizedLines.join('\n'),
-    normalizedEmphasis
+    normalizedEmphasis,
+    normalizedHeadingLikeEmphasis
   };
+}
+
+function normalizeStandaloneEmphasisLine({ line, previousLine, nextLine }) {
+  const trimmedLine = String(line ?? '').trim();
+  const match = trimmedLine.match(/^(\*\*|__|\*|_)(.+?)\1$/u);
+  if (!match) {
+    return null;
+  }
+
+  if (String(previousLine ?? '').trim().length > 0 || String(nextLine ?? '').trim().length > 0) {
+    return null;
+  }
+
+  const label = match[2].trim();
+  if (!label) {
+    return null;
+  }
+
+  if (/[>/]/u.test(label) || label.length > 50) {
+    return {
+      line: label,
+      normalizedHeadingLikeEmphasis: 1
+    };
+  }
+
+  if (label.split(/\s+/u).length <= 6 && !/[.!?]$/u.test(label)) {
+    return {
+      line: `### ${stripTrailingHeadingPunctuation(label)}`,
+      normalizedHeadingLikeEmphasis: 1
+    };
+  }
+
+  return {
+    line: label,
+    normalizedHeadingLikeEmphasis: 1
+  };
+}
+
+function rewriteEmphasisSpacingLine(value) {
+  let current = String(value ?? '');
+  for (let iteration = 0; iteration < 3; iteration += 1) {
+    const next = current
+      .replace(/^(\s*>\s*)_(\s+)(.+?)(\s+)_$/u, '$1_$3_')
+      .replace(/^(\s*)_(\s+)(.+?)(\s+)_$/u, '$1_$3_')
+      .replace(/^(\s*)_(\s+)(.+?)_$/u, '$1_$3_')
+      .replace(/^(\s*)_(.+?)(\s+)_$/u, '$1_$2_')
+      .replace(/\*\*(\s+)([^*\n]+?)\*\*/gu, '**$2**')
+      .replace(/\*\*([^*\n]+?)(\s+)\*\*/gu, '**$1**')
+      .replace(/\*\*([^*\n]+?)\s+\*\*(?=\S)/gu, '**$1** ')
+      .replace(/\*\*(\s+)([^*\n]+?)(\s+)\*\*/gu, '**$2**')
+      .replace(/\*(\s+)([^*\n]+?)(\s+)\*/gu, '*$2*')
+      .replace(/_\s+([^_\n]+?)_/gu, '_$1_')
+      .replace(/_([^_\n]+?)\s+_/gu, '_$1_')
+      .replace(/\*\*([^*\n]+?)\s+:\*\*/gu, '**$1:**')
+      .replace(/([A-Za-z0-9).,:;!?])(\*\*[^*\n]+?\*\*)/gu, '$1 $2')
+      .replace(/(\*\*[^*\n]+?\*\*)([A-Za-z0-9(`])/gu, '$1 $2')
+      .replace(/([A-Za-z0-9).,:;!?])(_[^_\n]+?_)/gu, '$1 $2')
+      .replace(/(_[^_\n]+?_)([A-Za-z0-9(`])/gu, '$1 $2')
+      .replace(/\*\*([^*\n]+)\*\*:\*\*/gu, '**$1:**')
+      .replace(/\*\*([^*\n]+?)\*\*\*\*(?=[:;,.!?])/gu, '**$1**');
+    if (next === current) {
+      return next;
+    }
+    current = next;
+  }
+  return current;
+}
+
+function normalizeCodeSpanSpacing(content) {
+  const lines = String(content ?? '').replace(/\r\n?/gu, '\n').split('\n');
+  const normalizedLines = [];
+  let normalizedCodeSpans = 0;
+  let insideFence = false;
+
+  for (const line of lines) {
+    const trimmedLine = line.trim();
+    if (/^(`{3,}|~{3,})/u.test(trimmedLine)) {
+      insideFence = !insideFence;
+      normalizedLines.push(line);
+      continue;
+    }
+
+    if (insideFence) {
+      normalizedLines.push(line);
+      continue;
+    }
+
+    const normalizedLine = line
+      .replace(/`([^`\n<]+)`<([^>\n]+)>``/gu, (_match, prefix, suffix) => {
+        normalizedCodeSpans += 1;
+        return `\`${prefix}<${suffix}>\``;
+      })
+      .replace(/`([^`\n<]+)`<([^>\n]+)>`([^`\n]+)`/gu, (_match, prefix, middle, suffix) => {
+        normalizedCodeSpans += 1;
+        return `\`${prefix}<${middle}>${suffix}\``;
+      })
+      .replace(/`<([^>\n`]+)`>/gu, (_match, inner) => {
+        normalizedCodeSpans += 1;
+        return `\`<${inner}>\``;
+      })
+      .replace(/``(<[^>\n]+>)`/gu, (_match, inner) => {
+        normalizedCodeSpans += 1;
+        return `\`${inner}\``;
+      })
+      .replace(/`([^`\n]*?)`/gu, (match, inner) => {
+        const trimmedInner = inner.trim();
+        if (!trimmedInner || trimmedInner === inner) {
+          return match;
+        }
+        normalizedCodeSpans += 1;
+        return `\`${trimmedInner}\``;
+      });
+
+    normalizedLines.push(normalizedLine);
+  }
+
+  return {
+    content: normalizedLines.join('\n'),
+    normalizedCodeSpans
+  };
+}
+
+function normalizeMarkdownLinkTextSpacing(content) {
+  let normalizedLinks = 0;
+  const normalizedContent = String(content ?? '').replace(markdownLinkPattern, (_match, label, target) => {
+    const trimmedLabel = label.replace(/\s+/gu, ' ').trim();
+    const normalizedTarget = target.replace(/\s+/gu, '');
+    if (trimmedLabel === label && normalizedTarget === target) {
+      return `[${label}](${target})`;
+    }
+    normalizedLinks += 1;
+    return `[${trimmedLabel}](${normalizedTarget})`;
+  });
+
+  return {
+    content: normalizedContent,
+    normalizedLinks
+  };
+}
+
+function transformPreservingMarkdownLinks(line, transform) {
+  const tokens = [];
+  const protectedLine = String(line ?? '').replace(markdownLinkPattern, (match) => {
+    const token = `§§RHILINK${tokens.length}§§`;
+    tokens.push(match);
+    return token;
+  });
+  const transformedLine = transform(protectedLine);
+  return transformedLine.replace(/§§RHILINK(\d+)§§/gu, (_match, index) => tokens[Number.parseInt(index, 10)] ?? '');
+}
+
+function normalizeDuplicateHeadings(content) {
+  const lines = String(content ?? '').replace(/\r\n?/gu, '\n').split('\n');
+  const normalizedLines = [];
+  const seenHeadings = new Set();
+  const headingStack = [];
+  let duplicateHeadingsDisambiguated = 0;
+  let insideFence = false;
+
+  for (const line of lines) {
+    const trimmedLine = line.trim();
+    if (/^(`{3,}|~{3,})/u.test(trimmedLine)) {
+      insideFence = !insideFence;
+      normalizedLines.push(line);
+      continue;
+    }
+
+    if (insideFence) {
+      normalizedLines.push(line);
+      continue;
+    }
+
+    const headingMatch = line.match(/^(#{1,6})\s+(.+)$/u);
+    if (!headingMatch) {
+      normalizedLines.push(line);
+      continue;
+    }
+
+    const level = headingMatch[1].length;
+    const originalText = headingMatch[2].trim();
+    let finalText = originalText;
+    let normalizedKey = normalizeHeadingKey(finalText);
+
+    if (seenHeadings.has(normalizedKey)) {
+      duplicateHeadingsDisambiguated += 1;
+      const parentContext = buildDuplicateHeadingContext(headingStack, level);
+      finalText = parentContext ? `${originalText} (${parentContext})` : `${originalText} (${countHeadingOccurrences(seenHeadings, normalizedKey) + 1})`;
+      normalizedKey = normalizeHeadingKey(finalText);
+      let suffix = 2;
+      while (seenHeadings.has(normalizedKey)) {
+        finalText = `${originalText} (${parentContext || 'Section'} ${suffix})`;
+        normalizedKey = normalizeHeadingKey(finalText);
+        suffix += 1;
+      }
+    }
+
+    seenHeadings.add(normalizedKey);
+    headingStack[level - 1] = finalText;
+    headingStack.length = level;
+    normalizedLines.push(`${headingMatch[1]} ${finalText}`);
+  }
+
+  return {
+    content: normalizedLines.join('\n'),
+    duplicateHeadingsDisambiguated
+  };
+}
+
+function buildDuplicateHeadingContext(headingStack, level) {
+  const parent = headingStack[level - 2] ?? '';
+  return String(parent).trim();
+}
+
+function countHeadingOccurrences(seenHeadings, keyPrefix) {
+  let count = 0;
+  for (const key of seenHeadings) {
+    if (key === keyPrefix || key.startsWith(`${keyPrefix}(`)) {
+      count += 1;
+    }
+  }
+  return count;
+}
+
+function normalizeHeadingKey(value) {
+  return String(value ?? '')
+    .toLowerCase()
+    .replace(/\[([^\]]+)\]\([^)]*\)/gu, '$1')
+    .replace(/[`*_]/gu, '')
+    .replace(/[^a-z0-9\s-]/gu, '')
+    .replace(/\s+/gu, ' ')
+    .trim();
 }
 
 function wrapBareUrls(content) {
@@ -880,11 +1304,15 @@ function wrapBareUrls(content) {
     }
 
     let normalizedLine = line;
-    normalizedLine = normalizedLine.replace(/(?<![\[<(])\bhttps?:\/\/[^\s<>()]+[^\s<>().,!?;:]/gu, (match) => {
+    normalizedLine = normalizedLine.replace(/(?<!\]\()(?<![\[<])\bhttps?:\/\/[^\s<>()]+[^\s<>().,!?;:]/gu, (match) => {
       wrappedUrls += 1;
       return `<${match}>`;
     });
-    normalizedLine = normalizedLine.replace(/(?<![\w/<(])\bwww\.[^\s<>()]+[^\s<>().,!?;:]/gu, (match) => {
+    normalizedLine = normalizedLine.replace(/(?<!\]\()(?<![\w/<])\bwww\.[^\s<>()]+[^\s<>().,!?;:]/gu, (match) => {
+      wrappedUrls += 1;
+      return `<${match}>`;
+    });
+    normalizedLine = normalizedLine.replace(/(?<!\]\()(?<![\[<`])\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/giu, (match) => {
       wrappedUrls += 1;
       return `<${match}>`;
     });
@@ -894,6 +1322,134 @@ function wrapBareUrls(content) {
   return {
     content: normalizedLines.join('\n'),
     wrappedUrls
+  };
+}
+
+function normalizeInPageFragments(content) {
+  const headingSlugs = collectHeadingSlugs(content);
+  let normalizedFragments = 0;
+  const normalizedContent = String(content ?? '').replace(markdownLinkPattern, (match, label, target) => {
+    if (!target.startsWith('#')) {
+      return match;
+    }
+
+    const fragment = target.slice(1);
+    if (headingSlugs.has(fragment)) {
+      return match;
+    }
+
+    const fallbackFragment = findClosestHeadingSlug(headingSlugs, fragment);
+    if (fallbackFragment) {
+      normalizedFragments += 1;
+      return `[${label}](#${fallbackFragment})`;
+    }
+
+    if (fragment === 'steptypes') {
+      normalizedFragments += 1;
+      return label;
+    }
+
+    if (/leave a reply/iu.test(label)) {
+      normalizedFragments += 1;
+      return label;
+    }
+
+    return match;
+  });
+
+  return {
+    content: normalizedContent,
+    normalizedFragments
+  };
+}
+
+function collectHeadingSlugs(content) {
+  const slugs = new Set();
+  const lines = String(content ?? '').replace(/\r\n?/gu, '\n').split('\n');
+  let insideFence = false;
+
+  for (const line of lines) {
+    const trimmedLine = line.trim();
+    if (/^(`{3,}|~{3,})/u.test(trimmedLine)) {
+      insideFence = !insideFence;
+      continue;
+    }
+
+    if (insideFence) {
+      continue;
+    }
+
+    const headingMatch = line.match(/^#{1,6}\s+(.+)$/u);
+    if (!headingMatch) {
+      continue;
+    }
+
+    slugs.add(slugifyHeading(headingMatch[1]));
+  }
+
+  return slugs;
+}
+
+function findClosestHeadingSlug(headingSlugs, fragment) {
+  const normalizedFragment = String(fragment ?? '').toLowerCase();
+  const fragmentComparable = normalizedFragment.replace(/-/gu, '');
+  for (const slug of headingSlugs) {
+    const comparable = slug.replace(/-/gu, '');
+    if (slug === normalizedFragment || slug.startsWith(normalizedFragment) || comparable === fragmentComparable || comparable.startsWith(fragmentComparable)) {
+      return slug;
+    }
+  }
+  return '';
+}
+
+function slugifyHeading(value) {
+  return String(value ?? '')
+    .toLowerCase()
+    .replace(/\[([^\]]+)\]\([^)]*\)/gu, '$1')
+    .replace(/[`*_]/gu, '')
+    .replace(/[^a-z0-9\s-]/gu, '')
+    .trim()
+    .replace(/\s+/gu, '-');
+}
+
+function normalizeInlineHtmlTokens(content) {
+  let normalizedContent = String(content ?? '')
+    .replace(/<HTTP _Method>/gu, '&lt;HTTP Method&gt;')
+    .replace(/<POD-No\.>/gu, '&lt;POD-No.&gt;')
+    .replace(/<Cylinder>/gu, '&lt;Cylinder&gt;');
+  const lines = normalizedContent.replace(/\r\n?/gu, '\n').split('\n');
+  const normalizedLines = [];
+  let escapedTokens = 0;
+  let insideFence = false;
+
+  for (const line of lines) {
+    const trimmedLine = line.trim();
+    if (/^(`{3,}|~{3,})/u.test(trimmedLine)) {
+      insideFence = !insideFence;
+      normalizedLines.push(line);
+      continue;
+    }
+
+    if (insideFence || /^<!--/u.test(trimmedLine) || /^<[^>]+>$/u.test(trimmedLine)) {
+      normalizedLines.push(line);
+      continue;
+    }
+
+    const normalizedLine = line.replace(/<\/?[A-Za-z][^>\n]*>/gu, (match, offset, source) => {
+      const before = source.slice(0, offset);
+      const after = source.slice(offset + match.length);
+      if (before.endsWith('`') && after.startsWith('`')) {
+        return match;
+      }
+      escapedTokens += 1;
+      return `\`${match}\``;
+    });
+    normalizedLines.push(normalizedLine);
+  }
+
+  return {
+    content: normalizedLines.join('\n'),
+    escapedTokens
   };
 }
 

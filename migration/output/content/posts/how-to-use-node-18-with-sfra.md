@@ -142,7 +142,7 @@ However, it seems that the essential scripts are functioning correctly:
 
 And that is a good place to start! I hope this article proves helpful in updating your SFRA project to Node 18.
 
-_Wishing you the best!_
+Wishing you the best!
 
 ## Shouldn't Salesforce make it compatible
 

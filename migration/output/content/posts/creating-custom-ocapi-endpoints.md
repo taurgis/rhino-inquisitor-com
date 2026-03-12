@@ -39,7 +39,7 @@ The only thing you are allowed to do is modify existing endpoints, but not all o
 
 I have created a complete example available on GitHub based on the [sfcc-hooks-collection](https://github.com/SalesforceCommerceCloud/sfcc-hooks-collection/) project provided by [Holger Nestmann](https://github.com/hnestmann).
 
-You can find that repository [in the OCAPI custom endpoints example repository](https://github.com/taurgis/ocapi-custom-endpoints). Inside, you will find an example of a custom "get-customer" API added to the OCAPI**.**
+You can find that repository [in the OCAPI custom endpoints example repository](https://github.com/taurgis/ocapi-custom-endpoints). Inside, you will find an example of a custom "get-customer" API added to the OCAPI **.**
 
 ## Limitation of this custom solution
 
@@ -50,7 +50,6 @@ This is because we will add a hook to the [GET call of Custom Objects](https://d
 And a limitation of a hook added to a GET call is that opening transactions is forbidden (no creates or updates in the database).
 
 > _**Note**: Do not modify a Script API object in an HTTP GET request or a modifyResponse hook, because they are never executed in a transactional context. It can cause an ORMTransactionException and an HTTP 500 fault response._
->
 > Infocenter
 
 ## Custom Objects
@@ -61,7 +60,7 @@ Yes, custom objects! Since we have complete control of the naming and creation o
 
 So let's get cracking! The first step is to create a new custom object type in the business manager that we can use in the OCAPI.
 
-Go to "_Administration_" > "_Site Development_" > "_Custom Object Types_."
+Go to "_Administration _" > "_ Site Development _" > "_ Custom Object Types_."
 
 [![Custom Object Types screen with the CustomApi definition.](/media/2022/custom-api-custom-object-051e16e59a.png)](/media/2022/custom-api-custom-object-051e16e59a.png)
 
@@ -80,7 +79,7 @@ There is also an [import file available on the GitHub repository](https://github
 
 Each custom API endpoint needs its unique object of the "CustomApi" type. So in this example, we will make one get customers by their "Customer Number."
 
-To do this go to "_Merchant Tools_" > "_Custom Objects_" > "_Manage Custom Objects_."
+To do this go to "_Merchant Tools _" > "_ Custom Objects _" > "_ Manage Custom Objects_."
 
 [![Manage Custom Objects screen with the get-customer object.](/media/2022/manage-get-customer-object-7b88237d34.png)](/media/2022/manage-get-customer-object-7b88237d34.png)
 
@@ -94,9 +93,9 @@ There is also an [import file available on the GitHub repository](https://github
 
 We also need to make sure we can access the GET call for the Custom Objects endpoint. To provide access we go to:
 
-"_Administration_" > "_Site Development_" > "_Open Commerce API Settings._"
+"_Administration _" > "_ Site Development _" > "_ Open Commerce API Settings._"
 
-Fill in the following value for the type "_Shop_" and context "_Global (Organization-wide)_."
+Fill in the following value for the type "_Shop _" and context "_ Global (Organization-wide)_."
 
 ```json
 {

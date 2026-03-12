@@ -104,7 +104,7 @@ An interesting new cartridge which you can track to see how Social selling will 
 
 ### [plugin\_commercepayments (v4.2.0)](https://github.com/SalesforceCommerceCloud/plugin_commercepayments/releases/tag/v4.2.0)
 
-> This is the repository for the plugin\_commercepayments plugin. This plugin enhances the app\_storefront\_base cartridge by providing payment functionality via Stripe.
+> This is the repository for the plugin\_commercepayments plugin. This plugin enhances the app\_ storefront\_base cartridge by providing payment functionality via Stripe.
 
 What's new:
 

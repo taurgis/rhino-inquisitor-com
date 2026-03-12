@@ -47,7 +47,7 @@ But unfortunately, there is no track available for anyone wanting to get some Sa
 
 Looking at the ecosystem's growth within Salesforce B2C Commerce Cloud, I feel there could be room to add a Bootcamp for Salesforce B2C Commerce Cloud to this list.
 
-_**Note**: Such a Bootcamp generally costs around $3000. But for a 4-day on-site training and two certification attempts, it is well worth it._
+**Note**: Such a Bootcamp generally costs around $3000. But for a 4-day on-site training and two certification attempts, it is well worth it.
 
 ## Wednesday, April 27
 
@@ -60,7 +60,7 @@ _**Note**: Such a Bootcamp generally costs around $3000. But for a 4-day on-site
 
 Join Parker Harris and guests to learn how Trailblazers can come together to use the latest innovations across the Customer 360 Platform, MuleSoft, Slack, and Tableau to build the future of work.
 
-_**Note:** This session is not aimed at Salesforce B2C Commerce cloud but is an excellent opportunity to get to know other products in the ecosystem. And it's the keynote, so be there or be square!_
+**Note:** This session is not aimed at Salesforce B2C Commerce cloud but is an excellent opportunity to get to know other products in the ecosystem. And it's the keynote, so be there or be square!
 
 ### [Build Fast Shopping Websites for Fun and Profit](https://reg.salesforce.com/flow/plus/trailblazerdx22/sessioncatalog/page/sessioncatalog/session/1644620463459001sLXn)
 
@@ -78,7 +78,7 @@ Studies show fast storefronts convert better than slow ones. Headless storefront
 
 We will focus on integration from a beginner's mind. If you want to learn about integration from the beginning to a point where you start understanding the big picture, this session is for you.
 
-_**Note:**_ _This session is not aimed at Salesforce B2C Commerce Cloud._
+**Note:**__ This session is not aimed at Salesforce B2C Commerce Cloud.
 
 ### [Ship a React Storefront on B2C Commerce APIs in 5 Minutes](https://reg.salesforce.com/flow/plus/trailblazerdx22/sessioncatalog/page/sessioncatalog/session/1643413378171001GApD)
 
@@ -99,7 +99,7 @@ Developing with B2C Commerce can be a daunting experience for new users. We'll u
 
 Join this Ask Me Anything session to connect with Salesforce developer advocates and engineers and get your questions about continuous integration answered.
 
-_**Note:**_ _This session is not aimed at Salesforce B2C Commerce Cloud._
+**Note:**__ This session is not aimed at Salesforce B2C Commerce Cloud.
 
 ## Thursday, April 28
 
@@ -112,9 +112,9 @@ _**Note:**_ _This session is not aimed at Salesforce B2C Commerce Cloud._
 
 Join Parker Harris, the chief product officers from Salesforce, MuleSoft, Slack, and Tableau, and product managers for a one-of-a-kind question-and-answer forum about our product roadmap.
 
-**Have a question or topic you’d like to see the executives address during True to the Core? Send them [through the Trailblazer Community thread](https://trailhead.salesforce.com/trailblazer-community/feed/0D54S00000FUYl1SAH).**
+Have a question or topic you’d like to see the executives address during True to the Core? Send them [through the Trailblazer Community thread](https://trailhead.salesforce.com/trailblazer-community/feed/0D54S00000FUYl1SAH).
 
-_**Note:** This session is not aimed at Salesforce B2C Commerce cloud but is an excellent opportunity to get to know other products in the ecosystem. And it's the second day keynote, so be there or be square!_
+**Note:** This session is not aimed at Salesforce B2C Commerce cloud but is an excellent opportunity to get to know other products in the ecosystem. And it's the second day keynote, so be there or be square!
 
 ### [Apply DevOps Best Practices for B2C Commerce](https://reg.salesforce.com/flow/plus/trailblazerdx22/sessioncatalog/page/sessioncatalog/session/1643929899349001wODh)
 

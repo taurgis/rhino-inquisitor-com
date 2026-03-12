@@ -103,4 +103,4 @@ But it is a consultancy firm; if a customer asks to work at the office, there is
 
 It's hard to say where this will go, but remote work is here to stay. And that is a good thing! We have all the proof now that working from home does not negatively impact productivity; for many people, it has increased productivity a lot!
 
-_**Side note:** [Events are back!](/community-salesforce-events-and-commerce-cloud/) Wooohooo!_
+**Side note:** [Events are back!](/community-salesforce-events-and-commerce-cloud/) Wooohooo!

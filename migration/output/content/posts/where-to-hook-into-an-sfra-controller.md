@@ -76,7 +76,7 @@ Cartridge path: plugin_custom:app_storefront_base
 
 ### server.prepend()
 
-The \`server.prepend\` function adds a middleware function to the beginning of the route stack. This allows you to execute code before the base (app\_storefront\_base) processing begins.
+The \`server.prepend\` function adds a middleware function to the beginning of the route stack. This allows you to execute code before the base (app\_storefront\_ base) processing begins.
 
 Here's a simple example of how you can use \`server.prepend\` with the homepage function:
 
@@ -95,7 +95,7 @@ Fun Fact Prepending was one of the first [pull requests](https://github.com/Sale
 
 ### server.append()
 
-The \`server.append\` function adds a middleware function to the end of the route stack. This allows you to execute code after the base (app\_storefront\_base) processing finishes.
+The \`server.append\` function adds a middleware function to the end of the route stack. This allows you to execute code after the base (app\_storefront\_ base) processing finishes.
 
 Here's a simple example of how you can use \`server.append\` with the homepage function:
 
@@ -112,7 +112,7 @@ Visualising what "appending" does in a single route (Home-Show)
 
 ### server.replace()
 
-The \`server.replace\` function replaces the entire route stack up until that point. This allows you to replace code in the base (app\_storefront\_base) fully.
+The \`server.replace\` function replaces the entire route stack up until that point. This allows you to replace code in the base (app\_storefront\_ base) fully.
 
 Here's a simple example of how you can use \`server.replace\` with the homepage function:
 

@@ -108,7 +108,7 @@ As the pace of technological advancement continues to accelerate, it's clear tha
 
 I expect AI to significantly impact "tedious" manual tasks, particularly when large amounts of data must be sifted through to take action. For instance, consider the example of search keywords. In this scenario, Salesforce B2C Commerce Cloud provides reports on the search terms that yield results and those that do not. Matching a list of thousands of words to another can be hours (if not days) of work.
 
-**Why not let AI handle this task for you? You can then review the outcomes for accuracy. Imagine the amount of work that could be saved by doing so!**
+Why not let AI handle this task for you? You can then review the outcomes for accuracy. Imagine the amount of work that could be saved by doing so!
 
 AI is also likely to play an essential role in decision-making processes. By analysing data from multiple sources, AI algorithms can provide valuable insights to inform business decisions. For example, in the healthcare industry, AI-powered systems can analyse patient data to identify potential health risks and suggest personalised treatment plans.
 

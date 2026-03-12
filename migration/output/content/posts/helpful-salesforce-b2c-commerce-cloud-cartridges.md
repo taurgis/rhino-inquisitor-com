@@ -24,7 +24,7 @@ But besides these third-party integrations, there are a lot of other cartridges 
 
 Let us have a look at a few of these!
 
-_**Note**: If you do not have access to the Salesforce B2C Commerce Cloud GitHub repositories, follow the [documentation](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/site_development/b2c_github_repo_access.html)._
+**Note**: If you do not have access to the Salesforce B2C Commerce Cloud GitHub repositories, follow the [documentation](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/site_development/b2c_github_repo_access.html).
 
 ## Custom Feeds
 
@@ -48,7 +48,7 @@ So for anyone new to the cartridge, it is no longer plug-and-play. You will need
 
 - **Demandware library:** Besides being "old," it is also dependent on a secondary cartridge called "Demandware library." This cartridge was "abandoned" more than five years ago.
 
-- **Heavy Job:** The cartridge uses a job to generate all configured feeds. Remember that the more data you have, the longer the job will run. **With an extensive catalog, it could run for hours!**
+- **Heavy Job:** The cartridge uses a job to generate all configured feeds. Remember that the more data you have, the longer the job will run.**With an extensive catalog, it could run for hours!**
 
 ## plugin\_slas
 

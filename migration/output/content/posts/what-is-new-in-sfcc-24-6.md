@@ -66,8 +66,7 @@ PWA Kit By default, the PWA Kit does not use this feature - meaning that this up
 ![Search Index Query Testing tool showing active-data sorting support.](/media/2024/search-query-testing-tool-sfcc-8fb16cf218.jpg)
 
 > The Search Index Query Testing (SIQT) tool now supports sorting rules with active data sorting attributes. Get consistent sorting results in a storefront and when testing an active data sorting rule. Previously, if a sorting rule with active data was used in SIQT, the sorting used text relevance and didn’t consider active data.
->
-> **How**: To access the SIQT tool, in Business Manager, select **Merchant Tools | Search | Search Index Query Testing**.
+> **How **: To access the SIQT tool, in Business Manager, select** Merchant Tools | Search | Search Index Query Testing**.
 
 With this new update, we are finally able to correctly test our sorting rules, which makes our lives just a little bit easier when debugging what is going on in the storefront.
 
@@ -90,7 +89,6 @@ A "quota limit" has been added to the [Custom Objects API](https://developer.sal
 ### Error message clarification
 
 > SLAS IDP integration has enhanced error handling to return more meaningful error messages to the caller. No change in error code information.
->
 > The refined error message: “The Account is disabled” is returned for any user account disabled in B2C Commerce. No change in the error code.
 
 A small update to make debugging life just a little better.
@@ -105,8 +103,8 @@ This might not be the most common use-case, but does open the door for more comp
 
 > With B2C Commerce version 24.5, the Shopper Baskets API supports patching variations within product bundles in a single call. This enhancement provides:
 >
-> -   More efficient and streamlined product bundle management, making it easier to update multiple variations within a bundle without the need for multiple API calls.
-> -   Increased productivity for developers managing complex product bundles.
+> - More efficient and streamlined product bundle management, making it easier to update multiple variations within a bundle without the need for multiple API calls.
+> - Increased productivity for developers managing complex product bundles.
 
 Bundle support in the PWA Kit (and headless in general) was not known to provide the best experience. Over the past two years, updates have been made in multiple locations to improve this experience.
 
@@ -125,15 +123,13 @@ We'll take any increase in speed for the APIs, especially one that contains esse
 ### Service Framework Is Upgraded
 
 > B2C Commerce is upgrading the supported SFTP algorithms in the service framework.
->
->
 > The algorithms now include:
 >
-> -   Host Key—ssh-ed25519, ecdsa-sha2-nistp256, ecdsa-sha2-nistp384, ecdsa-sha2-nistp521, rsa-sha2-512, rsa-sha2-256, ssh-rsa, ssh-dss
-> -   Key Exchange (KEX)—curve25519-sha256, curve25519-sha256@libssh.org, ecdh-sha2-nistp256, ecdh-sha2-nistp384, ecdh-sha2-nistp521, diffie-hellman-group-exchange-sha256, diffie-hellman-group16-sha512, diffie-hellman-group18-sha512, diffie-hellman-group14-sha256, diffie-hellman-group14-sha1, diffie-hellman-group-exchange-sha1, diffie-hellman-group1-sha1
-> -   Cipher—aes128-ctr, aes192-ctr, aes256-ctr, aes128-gcm@openssh.com, aes256-gcm@openssh.com, aes128-cbc, 3des-ctr, 3des-cbc, blowfish-cbc, aes192-cbc, aes256-cbc
-> -   Message Authentication Code (MAC)—hmac-sha2-256-etm@openssh.com, hmac-sha2-512-etm@openssh.com, hmac-sha1-etm@openssh.com, hmac-sha2-256, hmac-sha2-512, hmac-sha1, hmac-md5, hmac-sha1-96, hmac-md5-96
-> -   Public Key Authentication—rsa-sha2-512, rsa-sha2-256, ssh-rsa
+> - Host Key—ssh-ed25519, ecdsa-sha2-nistp256, ecdsa-sha2-nistp384, ecdsa-sha2-nistp521, rsa-sha2-512, rsa-sha2-256, ssh-rsa, ssh-dss
+> - Key Exchange (KEX)—curve25519-sha256, `<curve25519<-<sha256@libssh.org>`>`>`, ecdh-sha2-nistp256, ecdh-sha2-nistp384, ecdh-sha2-nistp521, diffie-hellman-group-exchange-sha256, diffie-hellman-group16-sha512, diffie-hellman-group18-sha512, diffie-hellman-group14-sha256, diffie-hellman-group14-sha1, diffie-hellman-group-exchange-sha1, diffie-hellman-group1-sha1
+> - Cipher—aes128-ctr, aes192-ctr, aes256-ctr, `<aes128<-<gcm@openssh.com>`>`>`,`<aes256<-<gcm@openssh.com>`>`>`, aes128-cbc, 3des-ctr, 3des-cbc, blowfish-cbc, aes192-cbc, aes256-cbc
+> - Message Authentication Code (MAC)—``<hmac<-<sha2<-<256-etm@openssh.com>`>`>`>`>`,``<hmac<-<sha2<-<512-etm@openssh.com>`>`>`>`>`, ``<hmac<-<sha1<-<etm@openssh.com>`>`>`>`>`, hmac-sha2-256, hmac-sha2-512, hmac-sha1, hmac-md5, hmac-sha1-96, hmac-md5-96
+> - Public Key Authentication—rsa-sha2-512, rsa-sha2-256, ssh-rsa
 
 It has been a while since any changes were made to the Service Framework. With this update, we now have better support for SFTP algorithms and security options, which is always great to see!
 

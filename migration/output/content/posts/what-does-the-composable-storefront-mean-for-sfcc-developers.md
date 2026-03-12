@@ -23,7 +23,7 @@ Over the past year, I have seen increasing gossip (which I am partly to blame fo
 
 [![Graphic illustrating the long-term acceleration of computing progress.](/media/2022/e094f768-3336-403f-8c75-9013cb07df2f-b7c7a5e8f2.png)](/media/2022/e094f768-3336-403f-8c75-9013cb07df2f-b7c7a5e8f2.png)
 
-**Let us get one thing out of the way first. This article is my opinion and my opinion alone.**
+Let us get one thing out of the way first. This article is my opinion and my opinion alone.
 
 As commerce and web developers, we are constantly reminded that technology never stands still. The world is rapidly evolving, and it's up to us to adapt and evolve with it. The rise of "Headless, API First, Composable Commerce, MACH Alliance, etc." has brought new opportunities to the eCommerce world.
 
@@ -33,7 +33,7 @@ I understand that there may be some concerns in the community about SFRA being p
 
 Let's embrace this change, take on the challenge, and make sure that Salesforce B2C Commerce Cloud is at the forefront of eCommerce technology. We are the ones shaping the future of commerce. Let's make it a bright one.
 
-_**That felt like an inspirational speech, didn't it?**_
+That felt like an inspirational speech, didn't it?
 
 ## Advantages of a monolith
 
@@ -47,7 +47,7 @@ With a monolithic approach, you can quickly scale up the entire application by a
 
 A monolithic architecture may not be as trendy as microservices, but it has its perks!
 
-**_And sometimes, simplicity is the key to success._**
+And sometimes, simplicity is the key to success.
 
 ## The Composable Storefront uses "boring" technology
 
@@ -117,4 +117,4 @@ The future is uncertain, and it's hard to predict when certain technologies or s
 
 So, let's ask ourselves, are we content with being a mere spectator of the eCommerce landscape or do we want to be a driving force shaping its future?
 
-**_The choice is ours._**
+### _The choice is ours._

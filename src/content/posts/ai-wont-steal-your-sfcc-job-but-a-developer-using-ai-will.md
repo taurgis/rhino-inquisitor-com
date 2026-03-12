@@ -22,15 +22,15 @@ The Rhino Inquisitor I went all "Rhino" up in this place, be prepared for some a
 
 ## The Elephant (or Rhino) in the Room: Staring Down the AI Hype
 
-**Let’s cut to the chase. The whispers in every virtual stand-up, the subtext of every tech keynote, the existential dread creeping into your late-night coding sessions—it all boils down to one question: Is Artificial Intelligence coming for your job? As a Salesforce Commerce Cloud developer, you’re standing at the intersection of a specialised, high-stakes platform and the most disruptive technological wave of our generation.**
+Let’s cut to the chase. The whispers in every virtual stand-up, the subtext of every tech keynote, the existential dread creeping into your late-night coding sessions—it all boils down to one question: Is Artificial Intelligence coming for your job? As a Salesforce Commerce Cloud developer, you’re standing at the intersection of a specialised, high-stakes platform and the most disruptive technological wave of our generation.
 
-**_The anxiety is palpable, and it’s not unfounded._**
+The anxiety is palpable, and it’s not unfounded.
 
 But the job of the Rhino Inquisitor is to charge head-first through the fog of fear and hype to uncover the hard, practical truth. So here it is: No, AI is not going to make you obsolete. However, it will, unequivocally, and without mercy, render developers who refuse to adapt obsolete. The threat isn't the algorithm. It's atrophy.
 
 This isn't some far-off future. The shift is already here. The 2024 [DORA](https://dora.dev/research/2024/) Report reveals that 76% of developers are already using AI-powered tools in their daily work. A GitHub survey from the same year found that a staggering 97% of developers have used generative AI platforms.
 
-**_This is no longer an experimental niche... It's a rapidly adopted standard._**
+This is no longer an experimental niche... It's a rapidly adopted standard.
 
 Businesses are (or will go) all-in, with 78% of organisations reporting AI usage in 2024, a massive jump from 55% the previous year. The data is clear: AI is being integrated into the software development lifecycle at a breathtaking pace, promising boosts in productivity, code quality, and even developer focus.
 
@@ -38,7 +38,7 @@ However, the most dangerous misconception is that simply using AI to write code 
 
 Consider this scenario: you use GitHub Copilot to generate a controller with helpers and its test class in 30 minutes, a task that previously took you 90. You've just saved an hour. But what happens to that hour? In many organisations, it evaporates into a vacuum of inefficiency. It's consumed by an extra status update meeting, a flurry of low-priority Slack messages, or simply waiting for a manual, bottlenecked deployment process to inch forward. The micro-level productivity gain is completely nullified by macro-level organisational drag.
 
-This reveals a more profound truth. The most successful developers in this new era won't just be the ones who master AI tools. They will be the ones who leverage the productivity gains from those tools to focus on high-value work that AI _cannot_ do: architecting complex, scalable systems, mentoring junior developers, collaborating with business stakeholders to solve the _right_ problems, and championing the process improvements needed to ensure that saved time is reinvested, not wasted.
+This reveals a more profound truth. The most successful developers in this new era won't just be the ones who master AI tools. They will be the ones who leverage the productivity gains from those tools to focus on high-value work that AI _cannot _ do: architecting complex, scalable systems, mentoring junior developers, collaborating with business stakeholders to solve the _ right_ problems, and championing the process improvements needed to ensure that saved time is reinvested, not wasted.
 
 The challenge is as much about changing your organisation's culture as it is about changing your own code editor.
 
@@ -80,7 +80,7 @@ The reality was an expansion of responsibility. The developer's role grew to enc
 
 This history reveals an undeniable pattern: every wave of automation and abstraction has elevated the role of the developer, pushing them to operate at a higher level of strategic thinking.
 
-_However, there is one crucial difference this time around._
+However, there is one crucial difference this time around.
 
 The pace of change is accelerating at an exponential rate. The transition from machine code to high-level languages took the better part of a decade. The widespread adoption of generative AI coding assistants has occurred in less than three years.
 
@@ -136,11 +136,11 @@ Debugging and testing are two of the most time-consuming aspects of development,
 
 AI is poised to revolutionise this space, acting as a tireless QA engineer that can catch issues before they ever reach a human reviewer. Tools like [Qodo AI](https://www.qodo.ai/) (formerly CodiumAI) can analyse your code and automatically generate meaningful unit tests, covering edge cases you might have missed. For debugging, [Workik](https://workik.com/) offers context-aware analysis, allowing you to provide error messages and relevant code snippets to receive intelligent, plain-English explanations of the root cause. More advanced tools even allow you to have a conversation with your debugger, asking questions like, "Why is this orderTotal variable null at this point in the execution?"
 
-_For an SFCC developer, this means a future where the soul-crushing task of writing boilerplate test data setup is automated._
+For an SFCC developer, this means a future where the soul-crushing task of writing boilerplate test data setup is automated.
 
-_It means pasting a cryptic `NullPointerException` stack trace into an AI tool and getting back a precise explanation and a suggested fix._
+It means pasting a cryptic `NullPointerException` stack trace into an AI tool and getting back a precise explanation and a suggested fix.
 
-_It means integrating security scanners like [SnykCode](https://snyk.io/product/snyk-code/) directly into your IDE to flag vulnerabilities in your custom code in real-time, long before a pull request is ever created._
+It means integrating security scanners like [SnykCode](https://snyk.io/product/snyk-code/) directly into your IDE to flag vulnerabilities in your custom code in real-time, long before a pull request is ever created.
 
 This isn't about replacing QA. It's about augmenting it, freeing up human testers to focus on complex user experience issues and business logic validation.
 
@@ -158,11 +158,11 @@ As AI dramatically lowers the barrier to implementation, the relative importance
 
 The SFCC developer of the future adds value long before the first line of AI-generated code is produced. Your expertise is no longer demonstrated by your ability to write a perfect `for` loop in ISML script. It is shown in your ability to analyse a business requirement and make critical architectural decisions.
 
-_Can this new requirement be leveraged using out-of-the-box features, or should we write a custom controller that utilises the existing SFRA framework?_
+Can this new requirement be leveraged using out-of-the-box features, or should we write a custom controller that utilises the existing SFRA framework?
 
-_Should this feature use custom objects or custom caches?_
+Should this feature use custom objects or custom caches?
 
-_Is it a candidate for a third-party API integration? Or can the business goal be met more effectively by leveraging a native feature?_
+Is it a candidate for a third-party API integration? Or can the business goal be met more effectively by leveraging a native feature?
 
 This is the architect's mindset. It's about understanding the entire ecosystem—the platform's capabilities, the available APIs, the business goals, and the long-term maintenance implications—and charting the most effective course. This strategic thinking is a uniquely human skill that AI, in its current form, cannot replicate.
 
@@ -186,7 +186,7 @@ It's possible that AI might encounter a roadblock within the next two years - a 
 
 The history of software development is a history of abstraction. Each new layer, from the compiler to the IDE to the cloud, has eliminated a class of manual labour and, in doing so, has empowered developers to build things that were previously unimaginable. Generative AI is the most profound abstraction layer we have ever witnessed. It is abstracting the very act of writing code itself.
 
-**_This is not a cause for fear! It is a cause for action._**
+This is not a cause for fear! It is a cause for action.
 
 It does not make you obsolete; it gives you unprecedented leverage. The developers who face extinction are those who cling to the past, defining their value by the tasks that AI can now do better and faster. They are the dodos of this new era, unable to adapt to a changing environment.
 

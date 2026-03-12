@@ -63,7 +63,7 @@ It also touches on all different aspects of commerce in general:
 
 That is a lot of ground this single site covers! And be sure that it will keep you busy for a couple of days, and you won't be writing a single line of code...sorry, not sorry. 😋
 
-_**Note:**_ _Be sure to have your sandbox ready so you can try out some of the concepts in your environment. Not everything can be done on a Sandbox (like Einstein), but most of it is._
+**Note:**__ Be sure to have your sandbox ready so you can try out some of the concepts in your environment. Not everything can be done on a Sandbox (like Einstein), but most of it is.
 
 ### Storefront Reference Architecture (SFRA) Overview
 
@@ -99,7 +99,7 @@ This website will tell you how to get started with your SFRA implementation with
 
 - [https://partnerlearningcamp.salesforce.com](https://partnerlearningcamp.salesforce.com/s/browse-catalog?plc__recordId=5iuux101vYk2UQtOkwn9%2BpFhmsL%2F5jynd8uOnEFtSg4JjoBEe8yyDv9MajFikOJe)
 
-**This website is only available if you are a partner of Salesforce; if you are a customer, you will not be able to access this content (sorry).**
+This website is only available if you are a partner of Salesforce; if you are a customer, you will not be able to access this content (sorry).
 
 Here you will find a complete self-study-guided course into Salesforce B2C Commerce Cloud SFRA development. It starts at setting up your environment (sandbox) and slowly moves you through all of the different concepts of SFRA development:
 

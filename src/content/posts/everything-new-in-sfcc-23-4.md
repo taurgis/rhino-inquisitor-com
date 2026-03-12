@@ -32,16 +32,16 @@ Salesforce Payments continues to gain love from Salesforce with every new releas
 Here is a list of all of the new APIs made available:
 
 - **SalesforcePaymentIntent**
-  - getClientSecret()
-  - isCancelable()
-  - isRefundable()
+- getClientSecret()
+- isCancelable()
+- isRefundable()
 
 - **SalesforcePaymentsMgr**
-  - cancelPaymentIntent(SalesforcePaymentIntent, Object)
-  - capturePaymentIntent(SalesforcePaymentIntent, Money)
-  - createPaymentIntent(Basket, Shipment, String, Money, Boolean, Object)
-  - refundPaymentIntent(SalesforcePaymentIntent, Money, Object)
-  - updatePaymentIntent(SalesforcePaymentIntent, Shipment, Money, String, Object)
+- cancelPaymentIntent(SalesforcePaymentIntent, Object)
+- capturePaymentIntent(SalesforcePaymentIntent, Money)
+- createPaymentIntent(Basket, Shipment, String, Money, Boolean, Object)
+- refundPaymentIntent(SalesforcePaymentIntent, Money, Object)
+- updatePaymentIntent(SalesforcePaymentIntent, Shipment, Money, String, Object)
 
 ### Grouped Taxation Applied to Import and Export Orders
 
@@ -69,12 +69,12 @@ Good news for live and in-development projects who have chosen to go the "hybrid
 
 From this release on, we can manage all of this with a new set of APIs:
 
-- [getMrtRules](https://developer.salesforce.com/docs/commerce/commerce-api/references/cdn-api-process-apis?meta=getMrtRules "getMrtRules - HTML (New Window)")
-- [createMrtRules](https://developer.salesforce.com/docs/commerce/commerce-api/references/cdn-api-process-apis?meta=createMrtRules "createMrtRules - HTML (New Window)")
-- [updateMrtRule](https://developer.salesforce.com/docs/commerce/commerce-api/references/cdn-api-process-apis?meta=updateMrtRule "updateMrtRule - HTML (New Window)")
-- [updateMrtHostname](https://developer.salesforce.com/docs/commerce/commerce-api/references/cdn-api-process-apis?meta=updateMrtHostname "updateMrtHostname - HTML (New Window)")
-- [deleteMrtRuleset](https://developer.salesforce.com/docs/commerce/commerce-api/references/cdn-api-process-apis?meta=deleteMrtRuleset "deleteMrtRuleset - HTML (New Window)")
-- [deleteMrtRule](https://developer.salesforce.com/docs/commerce/commerce-api/references/cdn-api-process-apis?meta=deleteMrtRule "deleteMrtRule - HTML (New Window)")
+- [getMrtRules](https://developer.salesforce.com/docs/commerce/commerce-api/references/cdn-api-process-apis?meta=getMrtRules"getMrtRules-HTML(NewWindow)")
+- [createMrtRules](https://developer.salesforce.com/docs/commerce/commerce-api/references/cdn-api-process-apis?meta=createMrtRules"createMrtRules-HTML(NewWindow)")
+- [updateMrtRule](https://developer.salesforce.com/docs/commerce/commerce-api/references/cdn-api-process-apis?meta=updateMrtRule"updateMrtRule-HTML(NewWindow)")
+- [updateMrtHostname](https://developer.salesforce.com/docs/commerce/commerce-api/references/cdn-api-process-apis?meta=updateMrtHostname"updateMrtHostname-HTML(NewWindow)")
+- [deleteMrtRuleset](https://developer.salesforce.com/docs/commerce/commerce-api/references/cdn-api-process-apis?meta=deleteMrtRuleset"deleteMrtRuleset-HTML(NewWindow)")
+- [deleteMrtRule](https://developer.salesforce.com/docs/commerce/commerce-api/references/cdn-api-process-apis?meta=deleteMrtRule"deleteMrtRule-HTML(NewWindow)")
 
 ### SLAS Database Update (03/07/2023)
 
@@ -117,7 +117,7 @@ Having searched the "Known Issues" section, I found it difficult to determine if
 > b2c-tools is a CLI tool and library for data migrations, import/export, scripting and other tasks with SFCC B2C instances and administrative APIs (SCAPI, ODS, etc). It is intended to be complimentary to other tools such as sfcc-ci for development and CI/CD scenarios.
 
 - support feature dependencies by [@clavery](https://github.com/clavery) in [#102](https://github.com/SalesforceCommerceCloud/b2c-tools/pull/102)
-  - this is a BREAKING change from 0.15.4 in the feature script callbacks for those who use the second argument (you know who you are).
+- this is a BREAKING change from 0.15.4 in the feature script callbacks for those who use the second argument (you know who you are).
 
 ### Passwordless Login(v1.1.1)
 
@@ -126,4 +126,4 @@ Having searched the "Known Issues" section, I found it difficult to determine if
 > Passwordless login is a way to verify a user’s identity without using a password. It offers protection against the most prevalent cyberattacks, such as phishing and brute-force password cracking. Passwordless login systems use authentication methods that are more secure than regular passwords, including magic links, one-time codes, registered devices or tokens, and biometrics.
 
 - [#9](https://github.com/SalesforceCommerceCloud/plugin_passwordlesslogin/issues/9) fix isStorefrontSession by [@sandragolden](https://github.com/sandragolden) in [#10](https://github.com/SalesforceCommerceCloud/plugin_passwordlesslogin/pull/10)
-  - ref same issue in `plugin_slas`: [SalesforceCommerceCloud/plugin\_slas#91](https://github.com/SalesforceCommerceCloud/plugin_slas/pull/91)
+- ref same issue in `plugin_slas`: [SalesforceCommerceCloud/plugin\_slas#91](https://github.com/SalesforceCommerceCloud/plugin_slas/pull/91)

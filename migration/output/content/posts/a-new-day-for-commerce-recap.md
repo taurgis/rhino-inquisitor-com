@@ -113,7 +113,7 @@ And some closer to home:
 - [Christian Sylvestre](https://www.linkedin.com/in/christiansylvestre/) (RVP Commerce Practice Leader Northern Europe)
 - [Sander Felius](https://www.linkedin.com/in/sanderfelius/) ( Senior Technical Architect )
 
-This meant there was a large gathering of people you could network and talk shop with! _It was also a big reminder of how bad I am at remembering faces and names, sorry_ _everyone!_
+This meant there was a large gathering of people you could network and talk shop with! _It was also a big reminder of how bad I am at remembering faces and names, sorry _ _ everyone!_
 
 ## Next year
 

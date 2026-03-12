@@ -18,7 +18,7 @@ tags:
   - twitter
 author: Thomas Theunen
 ---
-**Within Salesforce, the Ohana (Hawaiian for Family) has a pretty significant meaning. Over the past decade, people passionate about Salesforce have built up an enormous community around the platform.**
+Within Salesforce, the Ohana (Hawaiian for Family) has a pretty significant meaning. Over the past decade, people passionate about Salesforce have built up an enormous community around the platform.
 
 The number of people helping each other every day on [Trailblazer Communities](https://trailhead.salesforce.com/trailblazer-community/groups?tab=myGroups), [Twitter](https://twitter.com/hashtag/Ohana), [Stackexchange](https://salesforce.stackexchange.com/), [OhanaSlack](https://meighanrockssf.com/2019/04/02/salesforce-ohana-slack/), and more is just amazing. But then again, how does this reflect on the Salesforce Commerce Cloud B2C community?
 
@@ -34,7 +34,7 @@ It is no secret that Salesforce is known for buying companies to take under its 
 
 I listed a few places where the community was active within the #ohana of Salesforce, so how do the different platforms compare? Based on my personal experience, the used communication channels show a big difference.
 
-_Note: This is a "personal feeling" pie chart as I did not use any scientific methodology by comparing numbers etc. So take it with a grain of salt! I also left out LinkedIn as it is more business than questions/answers than socializing on Twitter._
+Note: This is a "personal feeling" pie chart as I did not use any scientific methodology by comparing numbers etc. So take it with a grain of salt! I also left out LinkedIn as it is more business than questions/answers than socializing on Twitter.
 
 ### Core Platform
 

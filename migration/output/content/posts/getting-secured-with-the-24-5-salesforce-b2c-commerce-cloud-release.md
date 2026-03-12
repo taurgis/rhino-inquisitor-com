@@ -32,15 +32,13 @@ This update aims to provide more reliable and complete logs—nothing much to sa
 ### Upgrade Your Security Posture with eCDN WAFv2
 
 > B2C Commerce announces the upgraded version of our eCDN, now featuring WAFv2, bringing a host of advanced security features to safeguard your online presence.
->
->
 > Here’s what you can expect with eCDN WAFv2:
 >
-> -   **Open Web Application Security Project (OWASP) Ruleset Integration:** The eCDN OWASP Core Ruleset integrates the latest OWASP ModSecurity Core Rule Set (CRS). Your CDN provider routinely monitors for updates from OWASP based on the latest version available from the official code repository.
-> -   **eCDN Managed Rules:** Provide fast and effective protection for all your applications. The rule set is frequently updated to address emerging vulnerabilities and reduce false positives.
-> -   **eCDN Exposed Credentials Check:** A managed ruleset of pre-configured rules for well-known CMS applications. The ruleset conducts a check against a public database of stolen credentials.
-> -   **Configurability via Business Manager UI and CDN Zones API:** With this update, configuring the eCDN WAFv2 settings is now accessible through the Business Manager UI and for new zones, through the CDN Zones API.
-> -   **Reduced False Positive Detections:** The upgraded WAFv2 includes updated managed rulesets that reduce false positives. The rulesets enhance threat detection accuracy while minimizing disruptions to your normal operations.
+> - **Open Web Application Security Project (OWASP) Ruleset Integration:** The eCDN OWASP Core Ruleset integrates the latest OWASP ModSecurity Core Rule Set (CRS). Your CDN provider routinely monitors for updates from OWASP based on the latest version available from the official code repository.
+> - **eCDN Managed Rules:** Provide fast and effective protection for all your applications. The rule set is frequently updated to address emerging vulnerabilities and reduce false positives.
+> - **eCDN Exposed Credentials Check:** A managed ruleset of pre-configured rules for well-known CMS applications. The ruleset conducts a check against a public database of stolen credentials.
+> - **Configurability via Business Manager UI and CDN Zones API:** With this update, configuring the eCDN WAFv2 settings is now accessible through the Business Manager UI and for new zones, through the CDN Zones API.
+> - **Reduced False Positive Detections:** The upgraded WAFv2 includes updated managed rulesets that reduce false positives. The rulesets enhance threat detection accuracy while minimizing disruptions to your normal operations.
 
 This is a significant update to the WAF! Increasing security is always on everyone's mind, so getting an upgrade is much needed.
 
@@ -70,7 +68,7 @@ It is well known that filling in all the necessary data in the [Tax Tables](http
 
 Now, with [a clear path](https://developer.salesforce.com/docs/commerce/commerce-api/references/shopper-baskets?meta=Summary) to follow in Salesforce Commerce Cloud's headless space, integrating these third-party systems has become much easier. However, it's important to protect these endpoints from unauthorised access and potential misuse.
 
-_When following the link, we are greeted with this documentation:_
+When following the link, we are greeted with this documentation:
 
 The B2C Commerce API calculates taxes internally using tax tables. If you want to integrate with a third-party tax provider or calculate taxes on your own, you can use the external taxation feature to add a taxation rate and optional taxation value. When setting a taxation rate, the taxation is calculated for this specific rate. If you pass a value, this value is used as a taxation value, as well, without recalculation. To use this feature, set the `taxMode` parameter externally when creating the basket.
 
@@ -82,8 +80,8 @@ If the tax mode of a basket is set to `external`, a tax item is required for all
 
 > The following Shopper Baskets (v1 and v2) endpoints are deprecated and are no longer supported:
 >
-> -   addPriceBooksToBasket
-> -   getPriceBooksForBasket
+> - addPriceBooksToBasket
+> - getPriceBooksForBasket
 
 If you are using any of these APIs, take this into account. However, no documentation on these endpoints yet gives alternatives.
 
@@ -92,7 +90,6 @@ If you are using any of these APIs, take this into account. However, no document
 ### Enhance Order Access Security with the Allow List
 
 > Enable the Allow-List feature on the Limit Storefront Order Access setting if you aren’t yet limiting Storefront Order Access at all. This feature enhances security and control over who can access orders and which controllers can access order functions.
->
 > **How**: In Business Manager | Orders | Order Preferences. Set the Limit Storefront Order Access dropdown to Allow List. Enter allowed storefront controllers as a comma-separated list. Only the controllers on the allow list can access customer orders.
 
 For projects on SiteGenesis or SFRA, we now have more fine-grained control over Order Access security now.
@@ -104,29 +101,27 @@ However, we should always aim to secure everything. But this option provides us 
 ### Upcoming Removal of Deprecated Roles in Account Manager
 
 > Salesforce is removing deprecated roles from Account Manager. To prevent any disruption in your organization's workflow, ensure you aren’t using the deprecated roles. How: Review the list of deprecated roles that are slated for removal. Reassign any users currently using these roles. For assistance with reassigning roles, see Edit a User Account.
->
 > The affected roles include:
 >
->
-> -   SLAS Organization Admin role (Deprecated for API Clients only)
-> -   XChange roles
-> -   Documentation User, Documentation Linguist, Documentation Reviewer
-> -   statuspage.io User
-> -   Business Manager Partner
-> -   CQuotient Configurator Administrator
-> -   Order Management Admin
-> -   Order Management User
+> - SLAS Organization Admin role (Deprecated for API Clients only)
+> - XChange roles
+> - Documentation User, Documentation Linguist, Documentation Reviewer
+> - statuspage.io User
+> - Business Manager Partner
+> - CQuotient Configurator Administrator
+> - Order Management Admin
+> - Order Management User
 
 A bit of cleaning up is happening here! But if you use these roles in an "old" automation routine, you might want to remove them to avoid exceptions.
 
 ## PWA Kit v3.5.x
 
-> -   Add Support for SLAS private flow #1722
-> -   Fix invalid query params warnings and allow custom query #1655
-> -   Fix cannot read properties of undefined (reading 'unshift') #1689
-> -   Add Shopper SEO hook #1688
-> -   Update useLocalStorage implementation to be more responsive #1703
-> -   Storefront Preview: avoid stale cached Commerce API responses, whenever the Shopper Context is set #1701
+> - Add Support for SLAS private flow #1722
+> - Fix invalid query params warnings and allow custom query #1655
+> - Fix cannot read properties of undefined (reading 'unshift') #1689
+> - Add Shopper SEO hook #1688
+> - Update useLocalStorage implementation to be more responsive #1703
+> - Storefront Preview: avoid stale cached Commerce API responses, whenever the Shopper Context is set #1701
 
 There is a new [release](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v3.5.0) of the PWA Kit, with the most significant addition being support for an SLAS private flow. This update should boost performance, as fewer API calls are needed to get the ball rolling!
 

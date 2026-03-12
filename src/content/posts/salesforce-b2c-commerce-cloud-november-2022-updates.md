@@ -54,6 +54,7 @@ The Account Manager got some love again at the end of October (after my [last re
 - Usability Improvements to the API Client List Page
 
 - **[Updated API Client List Page](https://help.salesforce.com/s/articleView?id=sf.b2c_rn_am_api_client_list_page_je.htm&type=5&language=en_US)**
+
 With the addition of two new columns and filters, the Account Manager API Client List page is now easier to use.
 
 ## New Ideas
@@ -73,13 +74,13 @@ Some new ideas made their way to the IdeaExchange!
 
 > Adyen provides a LINK cartridge to integrate with Salesforce Commerce Cloud (SFCC). This cartridge enables a SFCC storefront to use the Adyen payment service. This cartridge supports SFRA version 5.x.x & 6.x.x and SiteGenesis JS-Controllers version 103.1.11 and higher.
 
-**New**
+### New
 
 - Support for the new India live environment. Use this environment with the corresponding India location-based live endpoint.
 - A custom [Business Manager configuration page](https://docs.adyen.com/plugins/salesforce-commerce-cloud/set-up-the-cartridge#set-up-the-business-manager).
 - New supported payment method: [UPI](https://docs.adyen.com/payment-methods/upi).
 
-**Improved**
+### Improved
 
 - The cartridge now uses [Web Components v5.28.0](https://docs.adyen.com/online-payments/release-notes#releaseNote=2022-10-10-web-componentsdrop-in-5.28.0) and [Checkout API v69](https://docs.adyen.com/online-payments/release-notes?integration_type=api&version=69).
 - You can now persist gift card information in the payment form after the shopper has filled in the gift card information.

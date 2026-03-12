@@ -31,7 +31,7 @@ The actual name for the group is: "**Benelux Salesforce Commerce Cloud Community
 
 Setting up and running a community is not easy, and that is why I will not be doing this alone! To ensure the group will continue to thrive, not depending on one person to keep it alive, I will do this together with two others!
 
-_A big thanks to them for making this community happen!_
+A big thanks to them for making this community happen!
 
 ### Wouter de Boer
 
@@ -105,4 +105,4 @@ Have ideas in mind of your own? Then join the 6th of October session or leave a 
 
 ## Looking for speakers
 
-Have something to share with everyone; no matter where you are, I want to make it happen! So please send me a mail at thomas.theunen@trailblazercgl.com or contact me on [LinkedIn](https://www.linkedin.com/in/thomas-theunen-10905680).
+Have something to share with everyone; no matter where you are, I want to make it happen! So please send me a mail at `<thomas<.<theunen@trailblazercgl.com>`>`>` or contact me on [LinkedIn](https://www.linkedin.com/in/thomas-theunen-10905680).

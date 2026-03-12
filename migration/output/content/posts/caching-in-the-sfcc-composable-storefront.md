@@ -72,7 +72,6 @@ const Home = () => {
 
 > [!NOTE]
 > **Cdn:** Know that the CDN part of the Managed Runtime takes care of this caching mechanism. At the time of writing, this is CloudFront. The plan is to migrate to the eCDN for a generic architecture (Forward-Looking Statement).
-
 > [!NOTE]
 > **Default Cache Times:** Be aware that the default cache time is only 15 minutes, which is low. Consider changing this to a few hours!
 
@@ -88,10 +87,8 @@ Also: warnings ahead!!!!
 
 > [!NOTE]
 > **Not Found:** 404 responses for a GET call are automatically cached when the feature flag "Web Adapter Caching of 404 Responses for Dynamic Content" is enabled.
-
 > [!NOTE]
 > **Replication:** When replicating new code changes to the SCAPI or OCAPI, it's important to remember that there is a 15-minute delay in cache clearing. This is because SCAPI and OCAPI caching are linked to the "Page Cache" setting that we are familiar with in SFRA and SiteGenesis.
-
 > [!NOTE]
 > **Clearing The Cache:** Currently, the only way to manually invalidate the cache is to invalidate the entire site page cache.
 

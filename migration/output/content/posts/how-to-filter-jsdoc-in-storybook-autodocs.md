@@ -69,7 +69,7 @@ export default {
 };
 ```
 
-And the component of interest in this override is the ``<Description />`!`
+And the component of interest in this override is the `<Description />`!`
 
 ### Create a custom description component
 

@@ -22,7 +22,7 @@ So, you want to set a website live on Salesforce B2C Commerce Cloud. It is all r
 
 Not to worry! The ECDN is not rocket science, far from it. Once you have set up your first vanity domain, the second one will be peanuts.
 
-_**Update August 5, 2022:**_ _Added some warnings to this post with things to keep in mind. Thank you, [Sachin Upmany,](https://www.linkedin.com/in/sachin-upmanyu-82428828/) for the reminder that this information is also essential in these guides!_
+**Update August 5, 2022:**__ Added some warnings to this post with things to keep in mind. Thank you, [Sachin Upmany,](https://www.linkedin.com/in/sachin-upmanyu-82428828/) for the reminder that this information is also essential in these guides!
 
 ## What is the eCDN
 
@@ -64,7 +64,7 @@ APEX Domain Pointing / Naked Domain It is essential to know that the APEX Domain
 
 Usually, a DNS provider has solutions for this, but this needs to be considered. In a worst-case scenario, you need to set up a "mini-server" to do the redirection of the naked domain to the www subdomain. You can find some [information on Salesforce Help](https://help.salesforce.com/s/articleView?id=000361629&type=1) on this topic.
 
-With a naked domain we mean **<https://mybrand.com**> (without the www). × Dismiss alert
+With a naked domain we mean **`<https://mybrand.com**>` (without the www). × Dismiss alert
 
 ### Get your SSL certificates
 
@@ -75,7 +75,7 @@ To do the configuration later, you need the following:
 - The certificate
 - The private key
 
-_Note: If you are unfamiliar with how certificates can be obtained, [a lot of helpful information](https://letmegooglethat.com/?q=how+to+get+a+ssl+certificate) is floating around on the net._
+Note: If you are unfamiliar with how certificates can be obtained, [a lot of helpful information](https://letmegooglethat.com/?q=how+to+get+a+ssl+certificate) is floating around on the net.
 
 ## Alias Configuration
 
@@ -103,7 +103,7 @@ Use the correct environment Setting up the eCDN is done on the production instan
 
 To get to the eCDN configuration, go to
 
-"**Administration**" > "**Sites**" >"**Embedded CDN Settings**"
+"**Administration **" > "** Sites **" >"** Embedded CDN Settings**"
 
 Once the page has loaded (be patient), you will see the following at the top right of the page.
 
@@ -131,7 +131,7 @@ Before continuing, we need to verify that we own the domain. Click the text "Ver
 
 This builds on the pre-work steps where you need access to the domain's DNS. Before we can continue with the following steps, a TXT record with the provided value needs to be added to the DNS settings of your domain.
 
-**DO NOT DO THIS ON THE DAY OF THE GO-LIVE.**
+DO NOT DO THIS ON THE DAY OF THE GO-LIVE.
 
 As the warning says, it can take up to 6 hours for these changes to take effect. And on the go-live day, you don't want to spend your time "stressing out" on something you have no control over.
 
@@ -207,7 +207,7 @@ HTML Minification Those who have enabled this in the past might have wondered if
 
 If you have comments on an environment that have value for an external system, be sure not to activate this type of minification.
 
-_**Note:** This also breaks the deprecated toolkit on Development as it relies on comments._
+**Note:** This also breaks the deprecated toolkit on Development as it relies on comments.
 
 [![eCDN Speed panel showing Auto Minify and Polish options for the storefront.](/media/2022/ecdn-speed-settings-cccba25f5e.png)](/media/2022/ecdn-speed-settings-cccba25f5e.png)
 

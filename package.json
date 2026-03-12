@@ -20,7 +20,7 @@
     "migrate:download-media": "node scripts/migration/download-media.js",
     "migrate:rewrite-media": "node scripts/migration/rewrite-media-refs.js",
     "migrate:rewrite-links": "node scripts/migration/rewrite-links.js",
-    "migrate:apply-corrections": "node scripts/migration/apply-content-corrections.js",
+    "migrate:apply-corrections": "node scripts/migration/apply-content-corrections.js && npx markdownlint-cli2 --fix \"migration/output/content/**/*.md\"",
     "migrate:finalize-content": "npm run migrate:rewrite-media && npm run migrate:rewrite-links && npm run migrate:apply-corrections",
     "migrate:report": "node scripts/migration/generate-report.js",
     "migrate:pilot-candidates": "node scripts/migration/generate-pilot-candidates.js",

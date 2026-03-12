@@ -54,7 +54,7 @@ Quota Status in Business Manager
 
 Enforced quotas will throw an unrecoverable exception if you hit them.
 
-_Translation: **Someone sees an error page**!_
+Translation: **Someone sees an error page**!
 
 So if you hit an enforced quota on production, this needs to be resolved as soon as possible!
 

@@ -223,7 +223,7 @@ This runbook tracks the operational steps needed to move the repository from pla
 ### RHI-038 - Internal Link and Navigation Rewrites
 
 - Run the internal link rewrite pass with `npm run migrate:rewrite-links` after `npm run migrate:map-frontmatter` and `npm run migrate:rewrite-media`.
-- After `npm run migrate:rewrite-links`, run `npm run migrate:apply-corrections` to normalize staged Markdown structure and apply curated image-alt overrides, or use `npm run migrate:finalize-content` as the combined post-mapping sequence.
+- After `npm run migrate:rewrite-links`, run `npm run migrate:apply-corrections` to normalize staged Markdown structure, apply curated text overrides, and run `markdownlint-cli2 --fix` across `migration/output/content/**/*.md`, or use `npm run migrate:finalize-content` as the combined post-mapping sequence.
 - The rewrite pass reads staged Markdown from `migration/output/content/` and URL governance data from:
   - `migration/url-manifest.json`
   - `migration/intermediate/media-manifest.json`
@@ -250,6 +250,7 @@ This runbook tracks the operational steps needed to move the repository from pla
 - Run the staged-content correction pass with `npm run migrate:apply-corrections` after `npm run migrate:rewrite-links`.
 - The correction pass reads staged Markdown from `migration/output/content/` and applies deterministic generated-content fixes plus curated text overrides:
   - markdown-structure normalization for lint-sensitive generated content, including hard-tab expansion, unlabeled fence language assignment, list-marker spacing and indentation cleanup, ordered-list prefix normalization, spaced-emphasis cleanup, bare-URL wrapping, multiline table flattening, and blank-line insertion around normalized table blocks
+  - a final `markdownlint-cli2 --fix` sweep over `migration/output/content/**/*.md` to resolve residual markdownlint-safe formatting issues that remain after deterministic normalization
   - fenced-code cleanup for WordPress wrapper indentation and blank-first-line artifacts
   - image paragraph normalization when generated Markdown keeps images and prose in the same paragraph block
   - inline label/callout reconstruction when flattened WordPress text leaves labels such as `Info`, `CDN`, `Default Cache Times`, `Not Found`, `Replication`, `Deprecation`, `Deletion`, or `Caching` embedded in plain paragraphs
@@ -259,6 +260,10 @@ This runbook tracks the operational steps needed to move the repository from pla
   - curated alt-text overrides from `migration/input/image-alt-corrections.csv`
   - curated weak-link label overrides from `migration/input/link-text-corrections.csv`
 - Use `npm run migrate:finalize-content` after `npm run migrate:map-frontmatter` when you want the standard post-mapping sequence in one command.
+- Current validated 2026-03-12 behavior:
+  - `npm run migrate:apply-corrections` now combines the deterministic correction script with `markdownlint-cli2 --fix` over the staged migration corpus
+  - the deterministic pass repaired Batch 3 generator defects including malformed repository-entry links, blockquote/list spacing issues, duplicate heading disambiguation, inline-fragment cleanup, and markdownlint-sensitive emphasis/code-span formatting
+  - rerunning `npm run migrate:apply-corrections` remains rerun-safe on the staged corpus; after convergence, the changed-markdown lint scope for generated content reached 0 markdownlint errors
 - The seeded alt-text corrections file contract is:
   - path: `migration/input/image-alt-corrections.csv`
   - required columns: `page_url`, `image_src`, `occurrence_index`, `corrected_alt`

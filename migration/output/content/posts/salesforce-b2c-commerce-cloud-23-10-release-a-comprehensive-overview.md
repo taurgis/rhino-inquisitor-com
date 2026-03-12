@@ -72,10 +72,10 @@ A highly requested feature to expand the possibilities of custom hooks has been 
 
 > You can now update a main product variant in a bundled line item. This change allows shoppers to select a main product variant when adding a bundled line item to a cart. For example, a product bundle contains a belt and a T-shirt. The T-shirt is a main product with red, blue, and green variations. When the shopper adds the product bundle to a basket, the belt and T-shirt are added as bundled items, and the shopper can select a T-shirt color, one of the T-shirt variants. Previously, the API didn’t support selecting a main product variant when a main product was included in a line item bundle. You can update these properties using (PATCH /baskets/\[basketId\]/items/\[itemId\]) .
 >
-> -   productId
-> -   isGift
-> -   giftMessage
-> -   Custom properties
+> - productId
+> - isGift
+> - giftMessage
+> - Custom properties
 
 The support for headless scenarios is essential as the Composable Storefront gains more prominence in customer projects. Therefore, it is a great addition. However, it is unclear whether this support is for the OCAPI, the SCAPI, or both. Since the SCAPI has a different release log, it is suspected that the support is for the OCAPI, which flows through to the SCAPI as it is a layer on top of the OCAPI. Does someone care to experiment and let me know?
 
@@ -102,7 +102,7 @@ This minor release is packed with enhancements and bug fixes to help you build b
 - Updated commerce-sdk-isomorphic to v1.10.4 for improved performance and stability.
 - Streamlined the development process by moving typedoc-related dependencies to dev dependencies (Issue #1425).
 
-**@salesforce/retail-react-app@2.0.0**
+@salesforce/retail-react-app@2.0.0
 
 - Fixed a critical issue with the Checkout Card Number in V3 (Issue #1424).
 - Cleaned up incorrect import paths for the page-designer component (Issue #1441).
@@ -110,6 +110,6 @@ This minor release is packed with enhancements and bug fixes to help you build b
 - Exported an icon helper function for targeting via overrides (Issue #1420).
 - Migrated Page Designer core types to commerce-sdk-react (Issue #1441).
 
-**@salesforce/pwa-kit-dev@3.1.1**
+@salesforce/pwa-kit-dev@3.1.1
 
 - Resolved a performance issue caused by webpack stats in V3 (Issue #1391).

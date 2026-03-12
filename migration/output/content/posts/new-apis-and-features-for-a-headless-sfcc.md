@@ -67,7 +67,7 @@ Meet the new [URL Resolution API](https://developer.salesforce.com/docs/commerce
 
 Performance I suggest following the best practices mentioned in the documentation and using your routing system as the primary option. This API should only be used as a backup. Keep in mind that making an API call involves network hops that can potentially slow down your application.
 
-_I believe that in the future, we will witness endpoints to address some of the gaps that exist compared to SFRA. I have also learned that an upcoming feature will enable direct resolution to the SCAPI payload rather than just the relative ObjectID._
+I believe that in the future, we will witness endpoints to address some of the gaps that exist compared to SFRA. I have also learned that an upcoming feature will enable direct resolution to the SCAPI payload rather than just the relative ObjectID.
 
 ### Stores
 

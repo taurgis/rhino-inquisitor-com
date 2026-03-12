@@ -21,7 +21,7 @@ author: Thomas Theunen
 ---
 February is almost here, and so is the [February 2023](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_23_2_release.htm&type=5) (23.2) release! If you are an avid user of Page Designer, this is the update you have been waiting for - and Salesforce, keep 'em comin'!
 
-_Are you interested in last month’s release notes? [Read the 23.1 release notes](/salesforce-b2c-commerce-cloud-23-1/)!_
+Are you interested in last month’s release notes? [Read the 23.1 release notes](/salesforce-b2c-commerce-cloud-23-1/)!
 
 ## Page Designer Improvements
 
@@ -52,17 +52,11 @@ Old Moving Component
 New Moving Component
 
 > Dragging components in Page Designer is now more intuitive. Know exactly where you can place a component. And after you drop a component and refresh the page, the component remains in focus and highlighted until another selection is made in the canvas.
->
 > **How**: Improvements to the drag functionality improve the Page Designer workflow.
 >
->
-> -   Minimal changes in page structure during the drag function. When You initiate the drag process, you don’t lose the orientation to your starting location and desired drop location.
->
->
-> -   Clearly identifiable drop zones identify where you can drop a component. After you drop a component and refresh the page, the component remains in focus and highlighted.
->
->
-> -   After you drop a component and refresh the page, the component remains in focus and highlighted.
+> - Minimal changes in page structure during the drag function. When You initiate the drag process, you don’t lose the orientation to your starting location and desired drop location.
+> - Clearly identifiable drop zones identify where you can drop a component. After you drop a component and refresh the page, the component remains in focus and highlighted.
+> - After you drop a component and refresh the page, the component remains in focus and highlighted.
 
 This update will make Page Designer more user-friendly. The ability to place components with minimal changes to the page structure, clear drop zones, and the component remaining in focus after refreshing the page are all features that will enhance the user's experience with the designer.
 
@@ -97,7 +91,6 @@ Not all reports work yet Please be aware that a patch is coming in early Februar
 ### Do More When Calculating VAT
 
 > You can now calculate tax and use rounding based on tax groups, which is a legal requirement for Japanese taxation. The calculation method uses a new Tax Rounding Level site preference called Group. The tax groups are exposed via OCAPI and Script API to support customisation.
->
 > How: To enable rounding per grouped tax rate, in Business Manager Site Preferences, set the Order Item Price Rounding Policy to GROUP.
 
 As I am not familiar with Japanese tax law, so it is not something I can go into. But for anyone who has a project active in Japan, I am sure it is a needed improvement.
@@ -105,13 +98,11 @@ As I am not familiar with Japanese tax law, so it is not something I can go into
 ### Fine-Tune Your Site’s Regional Settings
 
 > You now have full control in Business Manager over all parameters used for converting numbers and dates into strings. Use the new Format Symbols tab and regional parameters to add Locale details.
->
 > **Where**: In Business Manager, select Administration | Locales | local ID
 >
->
-> -   The Format Symbols tab is added for Locale details.
-> -   The Numeral System settings are removed on the Locale details General Tab.
-> -   New Regional setting parameters are added to Export and Import of locales.
+> - The Format Symbols tab is added for Locale details.
+> - The Numeral System settings are removed on the Locale details General Tab.
+> - New Regional setting parameters are added to Export and Import of locales.
 
 A nice improvement for locale management because it gives users complete control over all parameters used for converting numbers and dates into strings with configuration. This is beneficial because it provides more flexibility and precision in formatting numbers and dates according to regional and language-specific standards.
 
@@ -121,10 +112,9 @@ A nice improvement for locale management because it gives users complete control
 
 > You can now use the Shopper Experience SCAPI API to add content created in Page Designer to your B2C Commerce headless implementation. Use the SCAPI Shopper Experience API to look up page information for pages created in Page Designer. The Shopper Experience API responses include:
 >
->
-> -   The entire component hierarchy of the page at design time.
-> -   All merchant data provided at design time.
-> -   Server-side scripting data provided at run time.
+> - The entire component hierarchy of the page at design time.
+> - All merchant data provided at design time.
+> - Server-side scripting data provided at run time.
 
 The new "[Shopper Experience API](https://developer.salesforce.com/docs/commerce/commerce-api/references/shopper-experience?meta=Summary)" is a significant improvement for both Headless and Composable Storefront projects. In the past, solutions required complex workarounds to enable personalisation with [session bridging](/what-is-the-ocapi-session-bridge/). But this update eliminates the need for those workarounds.
 
@@ -181,7 +171,7 @@ salesforcePaymentRequest.getCardCaptureAutomatic();
 salesforcePaymentRequest.setCardCaptureAutomatic(Boolean);
 ```
 
-### Do More When Calculating VAT
+### Do More When Calculating VAT (Development)
 
 New functions are now exposed to work with the new rounding options per group (see the item about Japanese Taxation):
 

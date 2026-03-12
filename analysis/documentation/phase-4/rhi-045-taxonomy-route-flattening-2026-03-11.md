@@ -52,24 +52,24 @@ New behavior:
 - Remaining warning-level carryover items are still visible for owner review:
   - 89 SEO completeness warnings
   - 1 accessibility-content weak-link warning
-   - 7 warning-level URL parity failures with 0 critical failures
+  - 7 warning-level URL parity failures with 0 critical failures
   - 2 Hugo `warning-goldmark-raw-html` render warnings
 
 ## Closeout status
 
 - Video route handling is confirmed in the promoted repository state:
-   - `/video/` is backed by `src/content/pages/video.md`
-   - `/category/video/`, `/category/podcasts/`, and `/category/sessions/` render as generated taxonomy routes
-   - `/category/video/podcasts/` and `/category/video/sessions/` are handled as merge-based deferred-edge redirects
+  - `/video/` is backed by `src/content/pages/video.md`
+  - `/category/video/`, `/category/podcasts/`, and `/category/sessions/` render as generated taxonomy routes
+  - `/category/video/podcasts/` and `/category/video/sessions/` are handled as merge-based deferred-edge redirects
 - Archive handling is mostly confirmed:
-   - `/archive/` is backed by `src/content/pages/archive.md`
-   - `/archive/2/` through `/archive/8/` are explicitly retired and pass parity as true not found
-   - Official Hugo documentation confirms date-grouped archives are a custom template choice, not an automatic built-in page kind
+  - `/archive/` is backed by `src/content/pages/archive.md`
+  - `/archive/2/` through `/archive/8/` are explicitly retired and pass parity as true not found
+  - Official Hugo documentation confirms date-grouped archives are a custom template choice, not an automatic built-in page kind
 - One manifest-policy mismatch remains before honest PR-readiness:
 - The former manual seed mismatch at `/archives/` and `/blog/` has been resolved:
-   - user-owner approved retiring both routes
-   - both routes now pass URL parity as `retire -> true-not-found`
-   - the full-manifest parity report now shows 7 warning-level failures with 0 critical failures
+  - user-owner approved retiring both routes
+  - both routes now pass URL parity as `retire -> true-not-found`
+  - the full-manifest parity report now shows 7 warning-level failures with 0 critical failures
 - The closeout work is now isolated on branch `copilot/rhi-045-batch-3-closeout` so the remaining decision can be resolved without reworking the validated Batch 3 corpus.
 
 ## Verification

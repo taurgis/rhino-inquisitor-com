@@ -32,11 +32,11 @@ Imagine a world where you upload one glorious, high-resolution image, and then, 
 
 Instead of a digital assembly line of pre-processed images, DIS acts like a master chef. You provide it with the finest ingredients (your single, high-res source image), and when a customer's browser requests a specific dish—say, a tiny thumbnail for a search result or a sprawling, detailed shot for a product page—DIS delivers it instantly. No waiting, no fuss - just the right-sized image, served hot and fresh.
 
-And you, the developer, are the culinary artist! DIS hands you a robust toolkit of transformation parameters, giving you pixel-level control. Want to resize? `**scaleWidth**` or `**scaleHeight**` are your pals. Need to snip out a specific detail? `**cropX**`, `**cropY**`, `**cropWidth**`, and `**cropHeight**` are your precision scissors (remember, you need all four for the magic to happen!). Fancy a different file type? `**format**` lets you switch between `gif`, `jp2`, `jpg`, `jpeg`, `jxr`, and `png` from a smorgasbord of source formats, including `tif` and `tiff`.
+And you, the developer, are the culinary artist! DIS hands you a robust toolkit of transformation parameters, giving you pixel-level control. Want to resize? `**scaleWidth **` or `**scaleHeight **` are your pals. Need to snip out a specific detail? `**cropX **`, `**cropY **`, `**cropWidth **`, and `**cropHeight **` are your precision scissors (remember, you need all four for the magic to happen!). Fancy a different file type? `**format**` lets you switch between `gif`, `jp2`, `jpg`, `jpeg`, `jxr`, and `png` from a smorgasbord of source formats, including `tif` and `tiff`.
 
-Ever wanted to add a "SALE!" image badge to an image without using Photoshop? `**imageX**`, `**imageY**`, and `**imageURI**` are your go-to options for the overlay. _Though honestly, why not just use CSS for this, right?_
+Ever wanted to add a "SALE!" image badge to an image without using Photoshop? `**imageX **`, `**imageY **`, and `**imageURI**` are your go-to options for the overlay. _Though honestly, why not just use CSS for this, right?_
 
-And for that perfect balance between crispness and speed, `**quality**` lets you fine-tune compression for JPG(1-100, default 80) and PNGs. Even pesky transparent backgrounds can be tamed with `**bgcolor**`, and metadata stripped with `**strip**`.
+And for that perfect balance between crispness and speed, `**quality **` lets you fine-tune compression for JPG(1-100, default 80) and PNGs. Even pesky transparent backgrounds can be tamed with `**bgcolor **`, and metadata stripped with `**strip**`.
 
 Pro Tip DIS has a very specific "recipe" for applying these transformations. It's not a free-for-all! The order is always: Image Format, then Image Crop, then Image Scale, then Image Overlay, and finally Image Quality. Understanding this sequence is key to avoiding "oops, that's not what I wanted" moments.
 
@@ -52,7 +52,7 @@ For developers navigating the Salesforce B2C Commerce Cloud universe, DIS isn't 
 
 **Kiss Manual Image Management Goodbye:** Seriously, who has time to create 10 different versions of the same product shot? With DIS, you upload one glorious, high-resolution image to Commerce Cloud, and DIS handles the rest, generating every size and format on demand. This means your creative and merchandising teams can focus on crafting stunning visuals, not on tedious, repetitive image grunt work. More creativity, less clicking!
 
-**Speed Demon & Responsive Rockstar:** In the e-commerce race, speed wins. DIS helps you cross the finish line first by serving up images that are _just right_ for every scenario. No oversized behemoths slow down your product pages, and no pixelated thumbnails ruin your search results. This precision means faster page loads, which directly translates into happier customers, improved SEO, and ultimately, more conversions. Plus, DIS is your built-in responsive design partner, ensuring your storefront looks sharp and loads lightning-fast on any device, from desktops to smartphones. As I've discussed in my blog post, [From Lag to Riches: A PWA Kit Developer’s Guide to Storefront Speed](https://www.google.com/search?q=<https://www.rhino-inquisitor.com/blog/from-lag-to-riches-a-pwa-kit-developers-guide-to-storefront-speed>), performance is paramount.
+**Speed Demon & Responsive Rockstar:** In the e-commerce race, speed wins. DIS helps you cross the finish line first by serving up images that are _just right_ for every scenario. No oversized behemoths slow down your product pages, and no pixelated thumbnails ruin your search results. This precision means faster page loads, which directly translates into happier customers, improved SEO, and ultimately, more conversions. Plus, DIS is your built-in responsive design partner, ensuring your storefront looks sharp and loads lightning-fast on any device, from desktops to smartphones. As I've discussed in my blog post, [From Lag to Riches: A PWA Kit Developer’s Guide to Storefront Speed](https://www.google.com/search?q=`<https://www.rhino-inquisitor.com/blog/from-lag-to-riches-a-pwa-kit-developers-guide-to-storefront-speed>`), performance is paramount.
 
 **Flexibility That'll Make You Giddy:** Ever had a designer suddenly decide to change the entire product grid layout? From four items at 150x150 pixels to three at 250x250? Without DIS, that's a full-blown panic attack. With DIS? You tweak a few parameters in your templates, and _bam!_—new layout, perfectly sized images, no re-processing, no re-uploading, no re-assigning. Do you need a new promotional banner with a custom image size for a flash sale? Generate it instantly! (Ok...Ok, I might be a bit too optimistic here, some foresight and extra editor fields in Page Designer are needed for use-cases like this.)
 
@@ -70,7 +70,7 @@ When you update an image, there's no need for manual cache invalidation thanks t
 /dw/image/v2/BCQR_PRD/on/demandware.static/-/Sites-master/default/dw515e574c/4.jpg
 ```
 
-Do you notice that _dw515e574c_? It represents the unique "cache" ID managed by SFCC to ensure cached images are served. When the image updates, a new ID is generated so the customer _always_ sees the latest version!
+Do you notice that _dw515e574c _? It represents the unique "cache" ID managed by SFCC to ensure cached images are served. When the image updates, a new ID is generated so the customer _ always_ sees the latest version!
 
 Not "always" always The system behind this is somewhat of a black box to us, so there could still be delays before an image updates and becomes visible to customers.
 
@@ -105,7 +105,7 @@ Even superheroes have weaknesses. DIS has a few, and knowing them is half the ba
 
 - **Size Matters (A Lot):** This is a big one. Images over 6MB in file size or larger than 3000x3000 pixels? DIS will politely decline to transform them and serve them up in their original, unoptimized glory. The first time you request an oversized image, you may encounter an error; however, subsequent requests typically proceed without issue. The takeaway? Keep your source images just under these limits (think 5.9MB or 2999x2999 pixels) to ensure DIS always works its magic.
 
-_**Note**: [One source](https://help.salesforce.com/s/articleView?id=000391251&type=1) states a 10MB limit in the documentation, but to be cautious, always follow the 6MB limit._
+**Note**: [One source](https://help.salesforce.com/s/articleView?id=000391251&type=1) states a 10MB limit in the documentation, but to be cautious, always follow the 6MB limit.
 
 - **Transformation Timeout:** DIS has a 29-second deadline. If a transformation is super complex (especially on animated GIFs, where every frame needs processing), it might time out, giving you a dreaded 408 error. If you hit this, simplify your transformations or pre-process those extra-fancy assets.
 
@@ -113,7 +113,7 @@ _**Note**: [One source](https://help.salesforce.com/s/articleView?id=000391251&t
 
 ### Transform DIS PNG to JPG
 
-When it comes to image formats, transforming **PNG** files to **JPEG** using the SFCC Dynamic Image Service can be a **game-changer**, especially when you don't need those transparent backgrounds. This simple trick alone can significantly **reduce file sizes**, leading to faster page loads and a smoother user experience.
+When it comes to image formats, transforming **PNG ** files to** JPEG ** using the SFCC Dynamic Image Service can be a**game-changer **, especially when you don't need those transparent backgrounds. This simple trick alone can significantly** reduce file sizes**, leading to faster page loads and a smoother user experience.
 
 Here's how you might implement this in a **controller:**
 
@@ -195,7 +195,8 @@ While DIS is a superhero, even superheroes have their kryptonite. There are a fe
 - **For Very Simple, Static Images with No Transformation Needs:** If you have a tiny, static icon or a simple logo that never changes size, format, or quality, and you don't anticipate any future dynamic needs, the overhead of routing it through DIS might be overkill. While DIS is designed for flexibility, for truly unchanging, small, and already optimised assets, direct static hosting might be marginally simpler, though the benefits of DIS's caching and CDN integration often outweigh this. However, given the "future-proofing" aspect, it's generally still a good idea to use DIS for consistency.
 
 - **You Need More Modern Features:** If you've been in the SFCC space for some time, you've likely noticed that little has changed regarding image resizing and format support over the years, although formats like WebP are managed by the eCDN. For those seeking the newest formats like [AVIF](https://en.wikipedia.org/wiki/AVIF), you'll need to look elsewhere at this time.
-_**Note:** The WebP transformation is handled by the [eCDN](/lets-go-live-ecdn/), specifically through its configuration feature known as "the image Polish options," rather than by the DIS._
+
+**Note:** The WebP transformation is handled by the [eCDN](/lets-go-live-ecdn/), specifically through its configuration feature known as "the image Polish options," rather than by the DIS.
 
 [![Fork-in-the-road illustration comparing DIS with third-party CDN and DAM options.](/media/2025/sfcc-when-not-to-use-dis-8b8b9ec0b1.jpeg)](/media/2025/sfcc-when-not-to-use-dis-8b8b9ec0b1.jpeg)
 

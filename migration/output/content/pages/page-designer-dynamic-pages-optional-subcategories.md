@@ -18,16 +18,16 @@ Now, as with many things, no good deed comes unpunished. There is a "problem" wi
 Maybe a use-case to explain this. Your catalog structure is as follows:
 
 - Pants
-  - Shorts
-  - Jeans
-  - Blue Jeans
-  - Black Jeans
+- Shorts
+- Jeans
+- Blue Jeans
+- Black Jeans
 
 You decide to create a category landing page for Jeans to highlight all options.
 
 Page Designer is "the" tool to do this. You assign a page to "Jeans" and add all components to highlight some products and content.
 
-You are confident with what you have done and visit the page in the storefront (https://my-brand.com/pants/jeans), and it all looks **perfect**.
+You are confident with what you have done and visit the page in the storefront (`<https://my-brand.com/pants/jeans>`), and it all looks **perfect**.
 
 The changes get replicated to production, and the next day you start getting calls from customers who can no longer visit the Blue and Black jeans categories. All they see is your category landing page (possibly linking to those subcategories), seemingly putting them in an infinite loop of clicking.
 

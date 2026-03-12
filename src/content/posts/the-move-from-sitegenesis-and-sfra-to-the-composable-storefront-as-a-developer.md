@@ -44,7 +44,7 @@ One of the significant advantages of knowing native JavaScript is understanding 
 
 Knowing native JavaScript can also give you a better understanding of the web development ecosystem. This knowledge will help you make informed decisions about your tools and technologies and how they interact.
 
-_Taking the [JavaScript Developer I](/should-i-get-javascript-developer-i-certified/) certification is not such a bad idea, right?_
+Taking the [JavaScript Developer I](/should-i-get-javascript-developer-i-certified/) certification is not such a bad idea, right?
 
 ### Commerce
 

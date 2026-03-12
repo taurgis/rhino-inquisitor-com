@@ -41,7 +41,7 @@ This is achieved using Host Disk Encryption offered by the OS and [Volume Encryp
 
 Another great move to ensure all sensitive data stored on Salesforce servers are protected from "prying eyes." 2022 is undoubtedly a year with a significant focus on improving the platform's (already solid) base.
 
-_**Note**: Salesforce is actively looking for customers in the AMER region who deal with highly sensitive data (health information). If you are already an active customer, **a realm move will be required.**_
+Note **: Salesforce is actively looking for customers in the AMER region who deal with highly sensitive data (health information). If you are already an active customer,** a realm move will be required.
 
 ### Control Center
 
@@ -57,7 +57,7 @@ We already had [the option to schedule our Sandboxes uptime through a REST API](
 
 A beta program is available to test an integration between B2C Commerce Cloud and Tiktok. This Beta aims to create storefronts and advertise products on Tiktok using products and shopper activity data.
 
-_**Currently, recruiting for this feature is paused until further notice!**_
+Currently, recruiting for this feature is paused until further notice!
 
 Even though recruiting is currently on hold, it is good to see the Salesforce team is actively investigating integrating with social channels.
 
@@ -95,9 +95,9 @@ The documentation is available here:
 
 This change gives us more flexibility in providing login options to customers.
 
-_**Note:** This API is only available for private clients~~, and the email login templates only support plain text. For now, styling the e-mail for the password-less login option is out of the question.~~_
+**Note:** This API is only available for private clients~~, and the email login templates only support plain text. For now, styling the e-mail for the password-less login option is out of the question.~~
 
-_**Update:** It turns out that HTML is supported; the API determines if it is plain text or not. **Be sure to validate your HTML on different email clients,** as the service does not do any validation of the template!_
+**Update:** It turns out that HTML is supported; the API determines if it is plain text or not.**Be sure to validate your HTML on different email clients,** as the service does not do any validation of the template!
 
 ## Business Manager
 
@@ -136,7 +136,7 @@ For most, [Klarna](https://www.klarna.com/international/) is a well-known paymen
 
 Another advantage for merchants is that no additional agreement needs to be signed with Klarna. But as always, with payment providers, check the costs per payment that are part of your [existing agreement](https://stripe.com/en-be/pricing?utm_campaign=paid_brand-BE_en_Search_Brand_Stripe-868855632&utm_medium=cpc&utm_source=google&ad_content=307877157763&utm_term=kwd-487920435973&utm_matchtype=e&utm_adposition=&utm_device=c) with Stripe.
 
-_**Note:** The merchant receives payments [according to a payout schedule](https://www.klarna.com/uk/business/merchant-support/when-will-we-receive-payment-from-klarna/) even though customers pay the amount later._
+**Note:** The merchant receives payments [according to a payout schedule](https://www.klarna.com/uk/business/merchant-support/when-will-we-receive-payment-from-klarna/) even though customers pay the amount later.
 
 ## Development
 

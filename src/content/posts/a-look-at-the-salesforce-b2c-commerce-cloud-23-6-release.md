@@ -22,7 +22,6 @@ Are you interested in last month’s release notes? [Read the 23.5 release notes
 ## Enhance Storefront Search Scale and Performance
 
 > Enhance the scale and performance of storefront search for keyword search and product browsing with the new B2C Commerce search settings option. Improve page load times for large product catalogs when processing search results that exceed a configurable threshold. Shoppers get quicker results when performing a keyword search, refinement calculation, product grouping, sorting, and category browsing. For example, if your storefront doesn’t use search refinement counts in the refinement bar, a setting is available to improve refinement calculation and search and category page load times.
->
 > **How**: To activate the new search settings, contact Salesforce Customer Support or work with your Technical Account Manager and Customer Success Group representatives. Salesforce recommends that you test the new functionality on a development or dedicated test instance before enabling them on a staging or production environment.
 
 If you have been in the eco-system for a while, you may have noticed that the built-in search engine did not get much love (visibly) in the past few years. Looking at the past two months, that appears to have changed!
@@ -49,19 +48,19 @@ I hope more information will pop up in the documentation soon, as this is a welc
 
 ### Shopper Login (SLAS)
 
-> -   Updated the getTrustedAgentAccessToken endpoint to make the agent\_id parameter optional.
-> -   Updated the SLAS Admin UI with specific error messaging for issues with logging into Account Manager.
-> -   Private clients now support grant\_type=authorization\_code in addition to grant\_type=authorization\_code\_pkce.
-> -   Removals of customer records in B2C Commerce are now synchronized with SLAS. If a customer record is deleted in B2C Commerce, this change is recognized by SLAS.
-> -   Infrastructure and scale improvements to handle higher transaction volume for the upcoming holiday season.
-> -   NEW SLAS-Marketing Cloud SMS for Passwordless login is ready! See Passwordless Login with SMS to get started.
-> -   Improved exception handling for invalid passwords. Returns 400 with clear messaging.
-> -   The /userinfo endpoint now handles extended UT\_08 character set.
-> -   The /userinfo endpoint now allows trusted system on behalf (TSOB) access tokens.
-> -   Security library updates.
-> -   Deprecated the CredQuality API.
-> -   Improved Guest Shopper validation to allow B2C Commerce IDP origin for session bridge.
-> -   Session Bridge: fixed 500 server error on incorrect hint. SLAS Admin UI: Fixed issues related to Tenant ID format check at browser level.
+> - Updated the getTrustedAgentAccessToken endpoint to make the agent\_id parameter optional.
+> - Updated the SLAS Admin UI with specific error messaging for issues with logging into Account Manager.
+> - Private clients now support grant\_type=authorization\_ code in addition to grant\_type=authorization\_ code\_pkce.
+> - Removals of customer records in B2C Commerce are now synchronized with SLAS. If a customer record is deleted in B2C Commerce, this change is recognized by SLAS.
+> - Infrastructure and scale improvements to handle higher transaction volume for the upcoming holiday season.
+> - NEW SLAS-Marketing Cloud SMS for Passwordless login is ready! See Passwordless Login with SMS to get started.
+> - Improved exception handling for invalid passwords. Returns 400 with clear messaging.
+> - The /userinfo endpoint now handles extended UT\_08 character set.
+> - The /userinfo endpoint now allows trusted system on behalf (TSOB) access tokens.
+> - Security library updates.
+> - Deprecated the CredQuality API.
+> - Improved Guest Shopper validation to allow B2C Commerce IDP origin for session bridge.
+> - Session Bridge: fixed 500 server error on incorrect hint. SLAS Admin UI: Fixed issues related to Tenant ID format check at browser level.
 
 No month goes by without new additions to the SLAS service. As the Composable Storefront (and hybrid deployments) get more traction, this service needs to get some "love" and provide the flexibility brands need.
 

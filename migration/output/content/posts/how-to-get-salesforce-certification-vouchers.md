@@ -62,7 +62,7 @@ _An example:_ [https://trailhead.salesforce.com/trailblazer-community/feed/0D54S
 
 In the [Partner Community](https://partners.salesforce.com/_ui/core/chatter/ui/ChatterPage) there are also some groups to keep an eye out for!
 
-_Some examples:_
+### Some examples
 
 - [400 free certification vouchers](https://partners.salesforce.com/_ui/core/chatter/groups/GroupProfilePage?g=0F93A000000HZ5o&fId=0D54V000068aOr9&s1oid=00D300000000iTz&OpenCommentForEdit=1&s1nid=0DB3000000007Uh&emkind=chatterPostNotification&s1uid=0053A00000EITbU&emtm=1653576584272&fromEmail=1&s1ext=0)
 - [Free Slack vouchers](https://partners.salesforce.com/_ui/core/chatter/groups/GroupProfilePage?g=0F94V0000002Bv7&fId=0D54V00005vVcoA&s1oid=00D300000000iTz&OpenCommentForEdit=1&s1nid=0DB3000000007Uh&emkind=chatterPostNotification&s1uid=0053A00000EITbU&emtm=1645544651873&fromEmail=1&s1ext=0)

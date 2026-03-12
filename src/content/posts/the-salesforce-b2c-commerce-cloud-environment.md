@@ -45,7 +45,7 @@ It all starts with the big chunk of functionality at the center, "Commerce Cloud
 
 We can't forget about one of the big selling points of SFCC, the "built-in" AI that will analyze shopper behavior and give recommendations to increase revenue and the average size of the basket.
 
-_**Note:** I have an article explaining what Einstein is and what it can do in the pipeline!_
+**Note:** I have an article explaining what Einstein is and what it can do in the pipeline!
 
 ### SCAPI
 

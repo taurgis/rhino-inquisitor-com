@@ -140,18 +140,18 @@ This function takes a stored hash (`hashString`) and a candidate password (`pass
 It performs the following steps:
 
 - Parses the hash string into its components (hash, salt, and version).
-  - Adjusts the version if needed.
-  - Extracts the salt.
-  - Retrieves information about hash length, time cost, and memory cost.
-  - Computes a new hash using Argon2 with the same parameters.
-  - Compares the computed hash with the stored hash.
-  - If they match, it logs the hash and the original password.
+- Adjusts the version if needed.
+- Extracts the salt.
+- Retrieves information about hash length, time cost, and memory cost.
+- Computes a new hash using Argon2 with the same parameters.
+- Compares the computed hash with the stored hash.
+- If they match, it logs the hash and the original password.
 
 #### Version Information
 
 Luckily, Magento stores the required parameters for Argon2 in its version number, which can be extracted for our purposes:
 
-_hash_:_salt_:**3\_32\_2\_67108864**
+_hash _:_ salt_: **3\_ 32\_2\_ 67108864**
 
 ## Conclusion
 

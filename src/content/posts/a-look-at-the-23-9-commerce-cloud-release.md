@@ -70,16 +70,16 @@ Having "Production Mode" with less impact on performance will positively affect 
 
 ### Custom Shopper Login IDPs (SLAS)
 
-> -   Default IDP configuration allows for SSO/OIDC configuration with other IDPs outside the list of SLAS supported IDPs. Configuration can be performed via the Admin API or Admin UI. For more information, see Configure a Default IDP.
-> -   Preferred IDP configuration cleanup and functionality added to Admin UI.
+> - Default IDP configuration allows for SSO/OIDC configuration with other IDPs outside the list of SLAS supported IDPs. Configuration can be performed via the Admin API or Admin UI. For more information, see Configure a Default IDP.
+> - Preferred IDP configuration cleanup and functionality added to Admin UI.
 
 This a massive update to IDP support in SLAS and a very welcome one. Before, we were limited to integrating with IDPs [officially supported](https://developer.salesforce.com/docs/commerce/commerce-api/guide/slas-identity-providers.html) by SLAS, [but now it is possible to bring your own](https://developer.salesforce.com/docs/commerce/commerce-api/guide/slas-default-idp.html)!
 
 ### Shopper Login (SLAS)
 
-> -   Addressed a limitation in plugin\_slas integration with SLAS around Merge Cart for Guest to Registered flow.
-> -   For the getSessionBridgeAccessToken endpoint, the returned TokenResponse now correctly includes the enc\_user\_id attribute.
-> -   As part of our efforts to scale the SLAS service for temporary holiday volume, registered shopper refresh tokens (new and existing) are valid for only 45 days beginning the week of August 7. This applies to shopping apps integrated with SLAS, and to shoppers who have not returned to the shopping app at least one time in the last 45 days. This temporary state ends on September 15. After September 15, registered shopper login tokens resume their full 90-day standard duration. Ideally, customers should be Shopper Guest sessions, and B2C Commerce basket retention is not affected in any way.
+> - Addressed a limitation in plugin\_slas integration with SLAS around Merge Cart for Guest to Registered flow.
+> - For the getSessionBridgeAccessToken endpoint, the returned TokenResponse now correctly includes the enc\_user\_ id attribute.
+> - As part of our efforts to scale the SLAS service for temporary holiday volume, registered shopper refresh tokens (new and existing) are valid for only 45 days beginning the week of August 7. This applies to shopping apps integrated with SLAS, and to shoppers who have not returned to the shopping app at least one time in the last 45 days. This temporary state ends on September 15. After September 15, registered shopper login tokens resume their full 90-day standard duration. Ideally, customers should be Shopper Guest sessions, and B2C Commerce basket retention is not affected in any way.
 
 The **SLAS sessions will be limited to 45 days until September 15th**, which was also mentioned in last month's release notes - and a very important one to take note of.
 
@@ -95,7 +95,7 @@ If you want to know what is cooking, check out the nightly builds that are now a
 
 > Salesforce B2C Commerce / CRM Sync is an enablement solution designed by Salesforce Architects to teach Salesforce's B2C Customer Data Strategy for multi-cloud use-cases. The solution demonstrates a contemporary approach to the integration between Salesforce B2C Commerce and the Cloud products running on the Salesforce Customer 360 Platform.
 
-- Rename lib/\_common/request/\_createOCAPIAUthRequestDef.js by [@jbachelet](https://github.com/jbachelet) in [#235](https://github.com/SalesforceCommerceCloud/b2c-crm-sync/pull/235)
+- Rename lib/\_common/request/\_ createOCAPIAUthRequestDef.js by [@jbachelet](https://github.com/jbachelet) in [#235](https://github.com/SalesforceCommerceCloud/b2c-crm-sync/pull/235)
 - Fix/173 by [@jbachelet](https://github.com/jbachelet) in [#237](https://github.com/SalesforceCommerceCloud/b2c-crm-sync/pull/237)
 - Change b2ccrm\_syncResponseText from set-of-string to JSON to reduce the performance impact on high-scale brands by [@jbachelet](https://github.com/jbachelet) in [#251](https://github.com/SalesforceCommerceCloud/b2c-crm-sync/pull/251)
 - Bump word-wrap from 1.2.3 to 1.2.4 by [@dependabot](https://github.com/dependabot) in [#250](https://github.com/SalesforceCommerceCloud/b2c-crm-sync/pull/250)

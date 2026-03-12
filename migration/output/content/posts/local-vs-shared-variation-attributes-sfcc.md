@@ -81,7 +81,7 @@ Merchant Tools > Products and Catalogs > Shared Variation Attributes
 
 [![Product Variations tab showing shared variation attributes.](/media/2025/shared-variation-attributes-0d55796d17.png)](/media/2025/shared-variation-attributes-0d55796d17.png)
 
-### Implementation in Catalog Import XML
+### Implementation in Catalog Import XML (What Are Shared Variation Attributes)
 
 Shared variation attributes in the catalog import XML are referenced as part of the catalog, rather than an individual product. The following XML example showcases how shared variation attributes are represented:
 
@@ -130,14 +130,14 @@ In this case, both products utilise the same shared attributes for "Color," demo
 
 ## Pros and Cons of Shared Variation Attributes
 
-### Pros
+### Pros (Pros and Cons of Shared Variation Attributes)
 
 1. **Consistency**: Shared attributes ensure consistency across products, creating a more streamlined shopping experience for customers.
 1. **Ease of Management**: Managing shared attributes can be less complex since changes made to these attributes automatically apply to all associated products.
 1. **Scalability**: Shared attributes offer a scalable approach; as new products are added, they can easily adopt existing attributes without requiring extensive modifications.
 1. **Import performance:** A smaller XML to import, with less duplication, means faster import speeds.
 
-### Cons
+### Cons (Pros and Cons of Shared Variation Attributes)
 
 1. **Lack of Flexibility**: The main drawback of shared variation attributes is the potential lack of flexibility when unique attributes are necessary for specific products.
 1. **Limiting Options**: Merchants may find it challenging to personalise products since shared attributes can constrain variation options.

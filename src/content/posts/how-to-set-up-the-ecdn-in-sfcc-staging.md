@@ -44,7 +44,7 @@ Salesforce [has written a guide](https://developer.salesforce.com/docs/commerce/
 
 tenantID The tenantID mentioned in the guide is the Realm ID (zzxx) combined with the Instance ID (001). This information is shown in the next step of this guide on the Staging instance.
 
-e.g.**zzxx\_001** Roles Remember to assign the "Salesforce Commerce API role to the API Client!
+e.g. **zzxx\_001** Roles Remember to assign the "Salesforce Commerce API role to the API Client!
 
 [![Account Manager roles screen with the Salesforce Commerce API role enabled for staging.](/media/2023/commerce-cloud-api-client-roles-1a338d1f61.jpg)](/media/2023/commerce-cloud-api-client-roles-1a338d1f61.jpg)
 
@@ -62,7 +62,7 @@ We get these settings here:
 
 To communicate with the [Zones API](https://developer.salesforce.com/docs/commerce/commerce-api/references/cdn-api-process-apis?meta=Summary), we need a bearer token. This is fetched using the following API call to the Account Manager
 
-tenantID The tenantID combines the Realm ID and the Instance ID with an underscore. (e.g.**zzxx\_001**)
+tenantID The tenantID combines the Realm ID and the Instance ID with an underscore. (e.g. **zzxx\_001**)
 
 ```bash
 curl -i -k
@@ -221,18 +221,12 @@ commcloud.stg-zzzz-cc-merchant-com.cc-ecdn.net
 If you make use of vanity domains in the business manager, you will have to contact Support in order to manage this "zone" through the API.
 
 > Post-migration tasks validate your eCDN traffic flow and setup. To complete the post-migration process, coordinate with Commerce Cloud Engineering.Commerce Cloud Engineering creates and activates a staging Business Manager zone to handle your Business Manager traffic that goes through only your Business Manager host name, for example, staging-`<realm>`-`<customer>`.demandware.net. Business Manager doesn’t have an eCDN management page for staging instances.
->
 > Commerce Cloud Engineering services include the demandware.net lockdown protections that protect your production and development instances.
->
 > _**Post-migration tasks:**_
 > 1\. **Revert to the \*.demandware.net certificate at the origin:** This step applies to custom certificates installed to the POD for the staging instance. Commerce Cloud Engineering validates that traffic is flowing through eCDN for the configured host names. After validation, the certificate at the origin level is reverted back to the standard \*.demandware.net certificate. The Salesforce Commerce API (SCAPI) can then connect to your staging instance.
->
 > 2\. **Create and activate a staging Business Manager zone:** Commerce Cloud Engineering creates and activates the Business Manager zone for your implementation.
->
 > If you use the self-service steps to create an eCDN zone and certificate, contact SFCC Support. They contact Commerce Cloud Engineering to create and activate a staging Business Manager zone.
->
 > If you implement an existing custom certificate for your staging instance, Commerce Cloud Engineering creates and activates the staging Business Manager zone without a GUS request. You can request to opt out of this component.
->
 > Infocenter (04/05/2023)
 
 ## All done

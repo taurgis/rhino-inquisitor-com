@@ -15,7 +15,7 @@ tags:
   - sfcc
 author: Thomas Theunen
 ---
-_**Note**: I gave the text "20 years of Salesforce Dreamforce" to an AI to render an image. The image you see above is what it created!_
+**Note**: I gave the text "20 years of Salesforce Dreamforce" to an AI to render an image. The image you see above is what it created!
 
 Salesforce is celebrating 20 years of Dreamforce, which is quite a track record! As with all Salesforce events, it is the opportune moment to meet people, learn and have fun!
 
@@ -35,7 +35,7 @@ There is already a channel on the Salesforce B2C Commerce Cloud Unofficial Slack
 
 I will be there this year! It will be my first Dreamforce, and coincidently, it is my birthday on the 21st of September! Even though there is no "official" meetup on the schedule, it doesn't mean we can't get together!
 
-**Be sure to also leave a message in the [Commerce Trailblazers](https://trailhead.salesforce.com/trailblazer-community/feed/0D54S00000HFCBv) group to make it ✨extra special✨!**
+Be sure to also leave a message in the [Commerce Trailblazers](https://trailhead.salesforce.com/trailblazer-community/feed/0D54S00000HFCBv) group to make it ✨extra special✨!
 
 ### Commerce Lodge
 
@@ -133,7 +133,7 @@ And it is being presented by Mike King!
 
 Getting insights into the roadmap for the upcoming holiday season and social commerce is something to keep your eye on!
 
-_Who knows, I might be wearing a new fitting shirt design._
+Who knows, I might be wearing a new fitting shirt design.
 
 ### Architect’s Review of Cross-Cloud Customer Data Modeling
 

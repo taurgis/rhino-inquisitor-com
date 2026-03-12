@@ -24,7 +24,7 @@ We'll begin by understanding the enemy, dissecting the modern fraud landscape to
 
 Finally, we'll survey the professional mercenaries on the AppExchange, calling in specialised reinforcements when the fight demands it. This is the definitive guide for SFCC developers on fraud prevention, packed with actionable code, clear-headed analysis, and an unbiased look at the partner ecosystem.
 
-_Let's build our fortress._
+Let's build our fortress.
 
 ![A cartoon illustration depicting a stone fortress labeled 'Checkout Flow'. Developers equipped with tools are building defensive machines labeled 'Fraud Prevention Layers' and 'Risk Scoring' to protect the castle from cartoon burglars, with a Salesforce shield hanging above the gate.](/media/2026/the-sfcc-fortress-for-fraud-5d4d80990b.jpg)
 
@@ -110,7 +110,7 @@ Leveraging SFCC's built-in defenses: The eCDN as the first line against maliciou
 
 SFCC is designed to be payment-agnostic, allowing seamless integration with major processors, such as Adyen, Braintree, Stripe, and Cybersource, through configuration in the Business Manager.
 
-When configuring these processors, enable and enforce payment processor features, such as **Address Verification System (AVS)** and **Card Verification Value (CVV)** checks.
+When configuring these processors, enable and enforce payment processor features, such as **Address Verification System (AVS) ** and** Card Verification Value (CVV)** checks.
 
 AVS compares the numeric parts of the billing address provided by the customer to the address on file with the card issuer, while the CVV check validates the 3- or 4-digit code on the card.
 
@@ -127,7 +127,6 @@ Many customers and partners believe that Salesforce implements protections again
 Since the eCDN behind the scenes is Cloudflare, some protections are enabled by default, but more complex bots will require you to look elsewhere.
 
 > B2C Commerce doesn’t identify bots as good or bad, nor do we suggest whether certain traffic is allowed to make purchases on our commerce platform. Our customers have the flexibility to adopt the bot management strategy that aligns with their business needs.
->
 > Salesforce Help
 
 ## Foundational Security Practices (The Developer's Responsibility)
@@ -140,7 +139,7 @@ According to the shared responsibility model, developers are responsible for the
 
 - **Data Validation:** Proper validation of all user-provided input is the bedrock of application security. This is your primary defence against a host of vulnerabilities, including Cross-Site Scripting (XSS) and server-side script injection.
 
-- **Bot Management:** Salesforce's official stance is that it provides the tools for bot management (like eCDN rules and rate limiting), but **_the strategy and ongoing tuning are the customer's responsibility_**.  Salesforce does not classify bots as "good" or "bad," as a bot that is desirable for one merchant (e.g., a search engine crawler) may be malicious for another (e.g., an inventory scraper).
+- **Bot Management: ** Salesforce's official stance is that it provides the tools for bot management (like eCDN rules and rate limiting), but**_the strategy and ongoing tuning are the customer's responsibility_**.  Salesforce does not classify bots as "good" or "bad," as a bot that is desirable for one merchant (e.g., a search engine crawler) may be malicious for another (e.g., an inventory scraper).
 
 ## Getting Your Hands Dirty: The Custom Scoring Engine
 
@@ -178,7 +177,7 @@ These platforms dedicate all their resources to combating fraud and offer powerf
 
 Here’s a look at some leading providers and who they are best for:
 
-- **[Riskified](https://appexchange.salesforce.com/appxListingDetail?listingId=d719d10c-198a-4d46-9df8-c4a8920c023e)** & [Signifyd](https://www.signifyd.com/salesforce-commerce-cloud/)**:** Merchants who want a "set it and forget it" solution with financial peace of mind. Their key offering is a chargeback guarantee, making them ideal for businesses that want to maximize sales approvals while completely offloading the financial risk of fraudulent chargebacks.
+- **[Riskified](https://appexchange.salesforce.com/appxListingDetail?listingId=d719d10c-198a-4d46-9df8-c4a8920c023e)**& [Signifyd](https://www.signifyd.com/salesforce-commerce-cloud/):** Merchants who want a "set it and forget it" solution with financial peace of mind. Their key offering is a chargeback guarantee, making them ideal for businesses that want to maximize sales approvals while completely offloading the financial risk of fraudulent chargebacks.
 
 - **[Kount](https://kount.com/partners/salesforce-commerce-cloud-fraud-prevention/):** Businesses with in-house fraud teams that want control and deep insights. Kount provides a wealth of data and customizable rules, empowering merchants to actively manage their own fraud prevention strategy and fine-tune their risk tolerance.
 

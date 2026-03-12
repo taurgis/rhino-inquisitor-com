@@ -63,7 +63,7 @@ This is probably the deadline for customers requesting a migration extension.
 
 Before you had to contact support in order to provision an OMS integration, after this release this is something we will have full control over and do ourselves at:
 
-_"Administration > Global Preferences > Salesforce Order Management Configuration"_
+"Administration > Global Preferences > Salesforce Order Management Configuration"
 
 Permissions It might be necessary to give permission to your role in the Business Manager before seeing this new menu item!
 
@@ -111,7 +111,7 @@ This will increase the response time and allow the Mulesoft layer to scale bette
 > [!NOTE]
 > **Documentation:** ~~The documentation for this change is not available yet, so questions like "Can we manipulate the time?" or "Can we clear this cache?" is not something that we can answer yet.~~
 
-_**Update**: It is not possible to manipulate the cache time, or clear it. (For now, at least. This might change in the future)_
+**Update**: It is not possible to manipulate the cache time, or clear it. (For now, at least. This might change in the future)
 
 ## Development
 
@@ -123,11 +123,11 @@ A singular URL will be introduced for both the sandbox and the management APIs t
 
 **Current ODS URL**:
 
-zzzz-001.sandbox.us01.dx.commercecloud.salesforce.com/on/demandware.store/Sites-Site <https://admin.us01.dx.commercecloud.salesforce.com/>
+zzzz-001.sandbox.us01.dx.commercecloud.salesforce.com/on/demandware.store/Sites-Site `<https://admin.us01.dx.commercecloud.salesforce.com/>`
 
 **New Unified ODS URL**:
 
-zzzz-001.dx.commercecloud.salesforce.com/on/demandware.store/Sites-Site <https://admin.dx.commercecloud.salesforce.com/>
+zzzz-001.dx.commercecloud.salesforce.com/on/demandware.store/Sites-Site `<https://admin.dx.commercecloud.salesforce.com/>`
 
 ## SFRA v6.2.0
 
@@ -182,16 +182,16 @@ Here is a list of fixes made to the platform in the past month or planned in the
 
 Some significant code changes have made their way into this cartridge, hopefully fixing some issues people have run into in production environments.
 
-**Updates **Use latest sgmf-scripts [#36](https://github.com/SalesforceCommerceCloud/plugin_slas/pull/36)
+**Updates** Use latest sgmf-scripts [#36](https://github.com/SalesforceCommerceCloud/plugin_slas/pull/36)
 
-**Bugs**
+### Bugs
 
 - Prevent httpRedirect in SLAS Auth service [#45](https://github.com/SalesforceCommerceCloud/plugin_slas/pull/45)
 - Add session guard to preserve sessions after session bridge [#26](https://github.com/SalesforceCommerceCloud/plugin_slas/pull/26)
 - Preserve client IP through the session bridge [#32](https://github.com/SalesforceCommerceCloud/plugin_slas/pull/32)
 - Restore missing authenticated customer data for other plugins [#38](https://github.com/SalesforceCommerceCloud/plugin_slas/pull/38)
 
-**Chores **Include and run prettier [#46](https://github.com/SalesforceCommerceCloud/plugin_slas/pull/46)
+**Chores** Include and run prettier [#46](https://github.com/SalesforceCommerceCloud/plugin_slas/pull/46)
 
 ### b2c-tools (v0.11.0)
 

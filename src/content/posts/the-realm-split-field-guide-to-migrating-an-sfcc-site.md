@@ -63,7 +63,7 @@ It is crucial to understand that a realm split is a "complex and costly undertak
 
 If performance is the problem, a rigorous cycle of code optimisation and profiling should be the first course of action. A realm split introduces significant new overhead in terms of infrastructure costs and management complexity.
 
-**_It should only be pursued when the strategic benefits of autonomy and isolation unequivocally outweigh these substantial new burdens._**
+It should only be pursued when the strategic benefits of autonomy and isolation unequivocally outweigh these substantial new burdens.
 
 ## The Grand Blueprint: A Phased Plan of Attack
 
@@ -114,7 +114,7 @@ Also, please review [this page](https://help.salesforce.com/s/articleView?id=000
 | **Site Preferences & Metadata** | Manual syncs at pre-defined moments | Many settings are included in site export, but some (e.g., sequence numbers) must be manually configured and verified. | Dev Team |
 | **Customer Profiles** | Complete migration 1-2 weeks before the go-live, delta during and after | **CRITICAL PII RISK:** Ensure the Customer Sequence Number in the new realm is set higher than the highest customer number being imported to prevent duplicate IDs and data exposure. | Dev Team |
 | **Customer Passwords** | Part of the Customer Profiles. | Passwords are encrypted, but can be exported and imported into different realms without any intervention from Salesforce. | Dev Team |
-| **Order History** | Complete migration 1-2 weeks before the go-live, delta during and after | You can export and import orders yourself as long as the site is not marked "live". **WARNING:** Ensure that you complete importing customers before importing orders, as the linking of orders to the correct customer will not occur in the background otherwise. **MANDATORY:** For a live site, order data migration _must_ be performed by Salesforce Support. This is a hard dependency requiring at least 10 working days' notice. | Dev Team / Salesforce Support |
+| **Order History** | Complete migration 1-2 weeks before the go-live, delta during and after | You can export and import orders yourself as long as the site is not marked "live".**WARNING: **Ensure that you complete importing customers before importing orders, as the linking of orders to the correct customer will not occur in the background otherwise.** MANDATORY:** For a live site, order data migration _must_ be performed by Salesforce Support. This is a hard dependency requiring at least 10 working days' notice. | Dev Team / Salesforce Support |
 | **System-Generated Coupons** | **Salesforce Support Ticket** | **MANDATORY:** To ensure existing coupons remain valid, the underlying "seeds" must be migrated by Salesforce Support. Requires a separate, specific support ticket. | Salesforce Support |
 | **Active Data & Einstein** | **Salesforce Support Ticket, During Go-Live** | For different realms, this requires a support ticket. | Dev Team / SF Support |
 
@@ -150,7 +150,7 @@ The sequence, based on Salesforce's official guidance, is as follows:
 1. **Migration Complete:** Once all data is moved, perform a final smoke test on the new Production instance using internal hostnames (bypassing public DNS).
 1. Update the public DNS records (e.g., the www CNAME) to point the storefront domain to the new realm's Production instance endpoint.
 1. Once DNS propagation is confirmed, set the new site's status to **Online** in Business Manager. Update the Salesforce Support ticket again with the exact timestamp.
-1. **Post-Launch Hypercare****:** All hands on deck. Intensively monitor server logs, analytics dashboards, and order flow for any anomalies. The project team should be on standby to address any immediate issues.
+1. **Post-Launch Hypercare:** All hands on deck. Intensively monitor server logs, analytics dashboards, and order flow for any anomalies. The project team should be on standby to address any immediate issues.
 
 ## The SEO Minefield: Preserving Your Digital Ghost
 
@@ -162,11 +162,13 @@ A realm split, from a search engine's perspective, is essentially a complete sit
 
 - **The 301 Redirect Map is Non-Negotiable:** This is the single most critical SEO artefact for the migration. You must create a comprehensive map that pairs every single indexable URL on the old site with its corresponding URL on the new site. This includes the homepage, all category pages, all product detail pages, and any content or marketing pages. Use a site crawler to generate a comprehensive list of URLs from the old site, ensuring 100% coverage. These redirects must be implemented in Business Manager (Merchant Tools > SEO > URL Redirects) and be live the moment the new site is launched.
 
-_**Note:** This only applies if the URL structure changed._
+**Note:** This only applies if the URL structure changed.
 
 - **Replicate URL Rules and Configuration:** The structure of your URLs is a key ranking signal. In the new realm's Business Manager, you must meticulously replicate the URL Rules (Merchant Tools > SEO > URL Rules) from the old realm. Pay close attention to settings for forcing lowercase URLs and defining character replacements for spaces and special characters. This ensures that the URLs generated by the new site will match the old ones to the letter.
 - **Manage Sitemaps and Robots.txt:** The moment the new site is live and DNS has propagated, you must generate a new sitemap.xml file from the new realm's Business Manager and submit it to Google Search Console (only if the location changed). This tells Google to begin crawling the new site structure. Simultaneously, ensure that the
+
 robots.txt file for the new site is correctly configured, allowing crawlers to access all important pages and blocking any non-public sections of the site (like internal search or cart pipelines).
+
 - **Coordinate with SEO and Marketing Teams:** SEO migration is not solely a technical task. The SEO and marketing teams must be integral members of the project team from day one. They are responsible for auditing the redirect map, setting up the new Google Search Console property, monitoring for crawl errors post-launch, and tracking keyword rankings and organic traffic to measure the impact of the migration.
 
 ## The Developer's Survival Guide: Warnings, Pitfalls, and Pro-Tips
@@ -175,19 +177,21 @@ The difference between a smooth migration and a career-limiting disaster often c
 
 ### Red Alerts (Warnings)
 
-- **Irreversible Analytics Loss****:** This cannot be overstated. Historical analytics data from Reports & Dashboards **does not transfer** to the new realm. The new realm begins with a zeroed-out dashboard. While you can still access the old data by selecting the old realm ID in the Reports & Dashboards interface, the data from the two realms is never combined into a single view
+- **Irreversible Analytics Loss: ** This cannot be overstated. Historical analytics data from Reports & Dashboards**does not transfer** to the new realm. The new realm begins with a zeroed-out dashboard. While you can still access the old data by selecting the old realm ID in the Reports & Dashboards interface, the data from the two realms is never combined into a single view
 
-**Actionable Advice****:** Before the split, work with the business and analytics teams to identify and export all critical historical reports. This data must be preserved externally, as it will be inaccessible from the new realm's reporting interface.
+**Actionable Advice:** Before the split, work with the business and analytics teams to identify and export all critical historical reports. This data must be preserved externally, as it will be inaccessible from the new realm's reporting interface.
+
 - **The Data Corruption Gauntlet:** Heed the warnings from Salesforce Support. The cutover runbook is not a suggestion; it is a strict protocol. Changing the old site back to "Online" after the migration process has started, or failing to follow the instructions, can result in irreversible data corruption. There is no room for error in the cutover sequence.
-- **PII and the Sequence Number Bomb****:** The warning about Customer Sequence Numbers is critical enough to repeat. Suppose you import customer profiles with customer numbers (e.g., cust\_no = 5000) into a new realm where the sequence number is still at its default (e.g., 1000). In that case, the system will eventually start creating new customers with numbers that conflict with your imported data. This can lead to a catastrophic PII breach where one customer logs in and sees another customer's profile, address, and order history. (e.g. a customer wasn't imported because of "whatever reason", and their number is "taken over".)
+- **PII and the Sequence Number Bomb:** The warning about Customer Sequence Numbers is critical enough to repeat. Suppose you import customer profiles with customer numbers (e.g., cust\_no = 5000) into a new realm where the sequence number is still at its default (e.g., 1000). In that case, the system will eventually start creating new customers with numbers that conflict with your imported data. This can lead to a catastrophic PII breach where one customer logs in and sees another customer's profile, address, and order history. (e.g. a customer wasn't imported because of "whatever reason", and their number is "taken over".)
 
-**Actionable Advice****:** Before importing any customer data, go to Administration > Global Preferences > Sequence Numbers in the new realm and manually set the Customer Number to a value safely above the highest customer number in your import file.
+**Actionable Advice:** Before importing any customer data, go to Administration > Global Preferences > Sequence Numbers in the new realm and manually set the Customer Number to a value safely above the highest customer number in your import file.
 
 ### Common Traps (Pitfalls)
 
 - **The Obscure Realm Setting:** A realm is more than what you see in Business Manager. There are underlying configurations that are only visible to Salesforce Support.
 
 **Lesson Learned:** Never assume the new realm is a perfect 1:1 clone of the old one. Suppose you encounter a bizarre, inexplicable bug that defies all logical debugging. In that case, your next step should be to open a high-priority support case and make sure that they perform a full comparison of all underlying realm configurations between the source and the destination.
+
 - **Forgetting the "Small" Data:** It is easy to focus on the big-ticket items like products and orders and completely forget smaller but equally critical data points. The migration of system-generated coupon seeds is a perfect example. If you use these types of coupons and forget to open the specific support ticket to have the seeds migrated, all previously issued coupons will become invalid the moment you go live, leading to failed promotions and customer frustration.
 - **Underestimating Integration Timelines:** A realm split is an integration project for every single system that connects to SFCC. Third-party vendors have their own change control processes, support SLAs, and technical resource availability. Assuming a vendor can instantly provide new credentials or update an IP allowlist on your go-live day is a recipe for failure.
 
@@ -212,6 +216,6 @@ An illustration of a realm split, where a single, monolithic system fractures in
 
 One of the most significant new challenges is data synchronisation. If the business still requires a shared product catalog or consistent promotional data across realms, this can no longer be achieved through the platform's native sharing capabilities. Sites in different realms cannot share a catalog directly. Instead, you must build and maintain a new operational process, likely a set of automated jobs and a CI/CD pipeline, to handle the export of data from a "master" realm and its import into the "subscriber" realm.
 
-**_This introduces a new potential point of failure and a new set of tasks for the operations team._**
+This introduces a new potential point of failure and a new set of tasks for the operations team.
 
 Ultimately, a realm split is an immense undertaking that fundamentally reshapes a company's digital commerce architecture. It is the right decision—and often the only decision—when the organisational friction and technical limitations of a single realm become an insurmountable barrier to growth. The significant cost and complexity are justified only when the business and technical autonomy it unlocks is a strategic necessity.

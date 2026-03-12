@@ -97,9 +97,7 @@ License If you are a Salesforce B2C Commerce Cloud customer, this product is alr
 [![Marketplace analytics dashboard from the Atonit product suite.](/media/2022/atonit-tableau-9dae3f80c1.png)](/media/2022/atonit-tableau-9dae3f80c1.png)
 
 > It has been our mission to create a marketplace management solution that is both easy to start and ready to scale, which is why we originally chose to build this solution on the Salesforce platform.
->
 > Salesforce has been a company that has inspired us for many years, so it is particularly exciting for us to be the first company headquartered in Brazil to be acquired by Salesforce.
->
 > Atonit Corporate Blog Post
 
 The most recent of acquisitions in the Commerce landscape: [Atonit](https://www.salesforceben.com/salesforce-signs-agreement-to-acquire-atonit/). A marketplace solution allows merchants to sell third-party products on their own website (or other channels).

@@ -33,11 +33,11 @@ It is an entirely different "stack" and has no relation to the Salesforce Core P
 
 Because of this, getting access to this system is [an entirely different process](https://trailhead.salesforce.com/en/content/learn/trails/build-your-b2c-commerce-consulting-practice).
 
-_I also wrote a post recently explaining the [difference in the community](/the-state-of-ohana-for-salesforce-commerce-cloud/)._
+I also wrote a post recently explaining the [difference in the community](/the-state-of-ohana-for-salesforce-commerce-cloud/).
 
 ### So then ... how do I get access
 
-~~There is no automated system yet to spin up a sandbox easily. The only way I am aware of is to send an e-mail to [sfcc-b2c-trial@salesforce.com](mailto:sfcc-b2c-trial@salesforce.com).~~
+~~There is no automated system yet to spin up a sandbox easily. The only way I am aware of is to send an e-mail to [sfcc<-`<b2c<-<trial@salesforce.com>`>`>`>](mailto:``<sfcc<-<b2c<-<trial@salesforce.com>`>`>`>`>`).~~
 
 ~~Unfortunately, that is all I have.~~
 
@@ -62,7 +62,7 @@ Being a partner will make finding documentation a little easier and a lot more c
 - **[B2C Commerce](https://partners.salesforce.com/_ui/core/chatter/groups/GroupProfilePage?g=0F93A0000009SFY):** A group that contains the documentation required to become "[enabled](https://partners.salesforce.com/0693A000006lGVl?retUrl=%2F_ui%2Fcore%2Fchatter%2Fcontent%2FGroupFileListPage)."
 - **[Partner On-Demand Sandboxes](https://partners.salesforce.com/_ui/core/chatter/groups/GroupProfilePage?g=0F93A000000DQ6f):** A group containing all information about ODS, more specifically the ones used by partners
 
-_Note: Depending on your journey towards B2C, you might want to send an email to the trial address mentioned in the previous section._
+Note: Depending on your journey towards B2C, you might want to send an email to the trial address mentioned in the previous section.
 
 ## You are a B2C partner or Client
 

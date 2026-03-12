@@ -36,7 +36,7 @@ After you have logged into the Business Manager of your environment, go to the f
 
 The link is only visible if you have DWithEase (Browser Extension) installed.
 
-The link is not there If you do not see the link (The link is inserted by [DWithEase](https://dwithease.com/)), manually go to the URL: <https://**{{Short\_Code}}**.api.commercecloud.salesforce.com/shopper/auth-admin/v1/sso/login> On this screen, some necessary information to install the PWA Kit can be found. But besides the Short Code and the Organization ID, there is an interesting link present. "SLAS Admin UI" Let's click that now, shall we?
+The link is not there If you do not see the link (The link is inserted by [DWithEase](https://dwithease.com/)), manually go to the URL: `<https://**{{Short\_Code}}**.api.commercecloud.salesforce.com/shopper/auth-admin/v1/sso/login>` On this screen, some necessary information to install the PWA Kit can be found. But besides the Short Code and the Organization ID, there is an interesting link present. "SLAS Admin UI" Let's click that now, shall we?
 
 [![Sign-in page that links to the SLAS Admin UI.](/media/2023/slas-admin-ui-login-ff882d0848.jpg)](/media/2023/slas-admin-ui-login-ff882d0848.jpg)
 
@@ -63,7 +63,7 @@ And with that, we are almost there! Fill in the following information:
 - **What tenant will be used?:** Fill in the Tenant ID, part of the Organization ID, from step two. (format: xxxx\_sxx)
 - **What site will be used?:** Here, we fill in the site IDs used - separated by a space.
 - **Which App Type will be used?:** Well... the article is for the Composable Storefront - So let us select "_PWA Kit or SFRA or Mobile_".Selecting this option will make a "[Public Client](https://developer.salesforce.com/docs/commerce/commerce-api/guide/slas-public-client.html)".
-- **Client Id:** The Client ID to use during the installation of the PWA Kit. This can be left as-is. _**Note:**_ _This Client Id does not need to exist as an API Client in the Account Manager - They are not related!!!_
+- **Client Id: ** The Client ID to use during the installation of the PWA Kit. This can be left as-is. _** Note:**__ This Client Id does not need to exist as an API Client in the Account Manager - They are not related!!!_
 - **Secret:** Public Clients do not need a secret
 - **Do you want the default shopper scopes?:** Since we will be using the PWA Kit, leave this checked.
 - **Enter custom shopper scopes:** This step can be left empty.

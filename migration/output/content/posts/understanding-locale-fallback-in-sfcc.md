@@ -56,13 +56,13 @@ Locales and fallback can be configured at "Administration > Global Preferences >
 
 Salesforce B2C Commerce Cloud allows for customized fallback configurations. You can skip levels in the fallback chain or even eliminate fallback entirely for particular locales, depending on your specific requirements.
 
-For the `en_US` example, the fallback chain by default is `en_US > en > default`. However, you could configure `en_US` to bypass the `en` step and go straight to `default`, or you might decide that `en_US` should not fallback at all.
+For the `en _US` example, the fallback chain by default is `en _ US > en > default`. However, you could configure `en_US` to bypass the `en` step and go straight to `default`, or you might decide that `en_ US` should not fallback at all.
 
 Fallback to different language You are only allowed to fall back within the same language:
 
-**Allowed**: fr\_FR > FR > Default **Allowed**: fr\_FR > Default **Allowed**: fr\_FR > Disabled
+**Allowed **: fr\_FR > FR > Default** Allowed **: fr\_ FR > Default** Allowed**: fr\_FR > Disabled
 
-**Not allowed**: fr\_FR > DE > Default **Not allowed**: fr\_FR > fr\_BE > Default **Not allowed**: fr\_FR > de\_DE > Default
+**Not allowed **: fr\_FR > DE > Default** Not allowed **: fr\_ FR > fr\_BE > Default** Not allowed**: fr\_ FR > de\_ DE > Default
 
 [![Example locale fallback configuration for en-GB.](/media/2024/locale-fallback-en-uk-bd32fc597d.png)](/media/2024/locale-fallback-en-uk-bd32fc597d.png)
 

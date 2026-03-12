@@ -24,7 +24,7 @@ Are you interested in last month’s release notes? [Read the 22.7 release notes
 
 A few changes are happening in "terms" used in Salesforce B2C Commerce Cloud:
 
-- **master product/variation** **master:** base product
+- **master product/variation****master:** base product
 - **master catalog/master product catalog:** product catalog
 - **master and child items:** main items and secondary items
 - **master document:** main document
@@ -46,19 +46,12 @@ With the steady growth of on-demand sandbox usage, Salesforce will add new clust
 This change will affect partner sandboxes as they will be moved to US03. Currently, this is US01.
 
 > The usage of the on-demand sandbox has been steadily growing. To meet the demand and while maintaining the availability and performance of the on-demand sandbox, new ODS clusters have been added to provide more resources overall to all ODS.
->
 > A change coming to this community is that the ODS you currently use will be moved to a new and dedicated cluster: US03. Salesforce engineers will make the move itself in batches. No actions are required from you, and your sandboxes should still work as they are after the move. The expected move is in batches and will be done in August on Friday evenings and Saturdays. More details will be posted here in the following days.
->
 > All new realms provisioned after this announcement (including realm zyfo and zyft that are being provisioned) will be on the new cluster US03. If your realms fall into this category, please note the following:
 >
-> -   The documentation and instructions you have received may still have the URLs that contain "us01" (e.g., [https://admin.us01.dx.commercecloud.salesforce.com/](https://admin.us01.dx.commercecloud.salesforce.com)). If that is the case, replace "us01" with "us03" in those URLs
->
->
-> -   Please use the API, not the Control Center, to manage your sandbox for the time being as the integration of cluster US03 with Control Center is still in its final test stage
->
->
-> -   If any issues create or access your sandbox, [please post in this forum and tag John Zhao directly.](https://partners.salesforce.com/_ui/core/chatter/groups/GroupProfilePage?g=0F93A000000DQ6f&fId=0D54V00006G4PZ2&s1oid=00D300000000iTz&OpenCommentForEdit=1&s1nid=0DB3000000007Uh&emkind=chatterPostNotification&s1uid=0053A00000EITbU&emtm=1658419675624&fromEmail=1&s1ext=0)
->
+> - The documentation and instructions you have received may still have the URLs that contain "us01" (e.g., [https://admin.us01.dx.commercecloud.salesforce.com/](https://admin.us01.dx.commercecloud.salesforce.com)). If that is the case, replace "us01" with "us03" in those URLs
+> - Please use the API, not the Control Center, to manage your sandbox for the time being as the integration of cluster US03 with Control Center is still in its final test stage
+> - If any issues create or access your sandbox, [please post in this forum and tag John Zhao directly.](https://partners.salesforce.com/_ui/core/chatter/groups/GroupProfilePage?g=0F93A000000DQ6f&fId=0D54V00006G4PZ2&s1oid=00D300000000iTz&OpenCommentForEdit=1&s1nid=0DB3000000007Uh&emkind=chatterPostNotification&s1uid=0053A00000EITbU&emtm=1658419675624&fromEmail=1&s1ext=0)
 > John Zhao (21/07/2022)
 
 ### New Sandbox maintenance times
@@ -79,13 +72,13 @@ But with great power comes great responsibility. Even though you can do more API
 
 As always, when implementing third-party integrations, keep in mind performance. Ask the question: “Does this really have to happen in real-time? Or can I do this async in a job?”
 
-**Any delay the third-party introduces will impact the storefront performance and user experience!**
+Any delay the third-party introduces will impact the storefront performance and user experience!
 
 ### Salesforce Payment Information in Customer Import
 
 The customer import ([customer.xsd](https://documentation.b2c.commercecloud.salesforce.com/DOC3/topic/com.demandware.dochelp/DWAPI/xsd/customer.xsd)) has added additional site-specific data about payments.
 
-_**Note:** This information points to where the data is, not the actual data._
+**Note:** This information points to where the data is, not the actual data.
 
 ```text
 This element is for use with Salesforce Payments to track references of customer profiles between systems.
@@ -151,7 +144,7 @@ In this release, you get a new function/attribute on the [Request](https://docum
 
 [request.isSCAPI()](https://documentation.b2c.commercecloud.salesforce.com/DOC3/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_system_Request.html?resultof=%22%53%63%61%70%69%22%20%22%73%63%61%70%69%22%20%22%72%65%71%75%65%73%74%22%20#dw_system_Request_isSCAPI_DetailAnchor)
 
-> When writing your hook logic, it’s important to keep in mind the context of the API that is calling the hook. Both OCAPI and SCAPI share the same hooks, so it’s possible to write a hook that is used for both. Use request.isSCAPI() to determine SCAPI or OCAPI usage, especially if you’re already using the calculate hook in the context of controllers and use transactions in that hook, as that breaks SCAPI. Direct access to the \_sfdc\_mercury HTTP header is deprecated.
+> When writing your hook logic, it’s important to keep in mind the context of the API that is calling the hook. Both OCAPI and SCAPI share the same hooks, so it’s possible to write a hook that is used for both. Use request.isSCAPI() to determine SCAPI or OCAPI usage, especially if you’re already using the calculate hook in the context of controllers and use transactions in that hook, as that breaks SCAPI. Direct access to the \_sfdc\_ mercury HTTP header is deprecated.
 
 ### New SLAS Identity Providers supported
 
@@ -212,9 +205,9 @@ Fixes [#1](https://github.com/sfccdevops/sfcc-cartridge-overrides-vscode-extensi
 
 API Changes
 
-_Shopper Login New Endpoints_
+### Shopper Login New Endpoints
 
-| **Endpoint Name** | **Description** |
+| **Endpoint Name**|**Description** |
 | --- | --- |
 | getPasswordResetToken | Request a reset password token |
 | resetPassword | Creates a new password |
@@ -269,12 +262,11 @@ Changes
 > [!WARNING]
 > **Removed:** some redundant code which is now part of SFRA
 
-### plugin\_einstein\_api (v0.0.4)
+### plugin\_einstein\_ api (v0.0.4)
 
 - [https://github.com/SalesforceCommerceCloud/plugin\_einstein\_api](https://github.com/SalesforceCommerceCloud/plugin_einstein_api)
 
-> This is the repository for the plugin\_einstein\_api plugin. This plugin enhances the app\_storefront\_base cartridge by adding the Einstein API capabilities.
->
+> This is the repository for the plugin\_einstein\_ api plugin. This plugin enhances the app\_storefront\_ base cartridge by adding the Einstein API capabilities.
 > Einstein API is the API-led interface from Salesforce B2C Commerce Einstein, and can be leverage to include Einstein product recommendations in places that are not displayed through a content slot on the storefront, or even outside of the storefront.
 
 What's Changed

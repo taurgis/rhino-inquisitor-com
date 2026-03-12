@@ -32,7 +32,7 @@ We can only start the list of podcasts by putting the Unofficial SFCC podcast at
 
 Various topics are discussed, going from development to recruitment within the ecosystem.
 
-_**Note:** It has been a while since a new episode was released. Hopefully, new episodes are in the making!_
+**Note:** It has been a while since a new episode was released. Hopefully, new episodes are in the making!
 
 ## Salesforce Commerce Cloud Innovations
 

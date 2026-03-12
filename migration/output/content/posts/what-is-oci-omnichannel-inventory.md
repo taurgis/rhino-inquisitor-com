@@ -25,7 +25,7 @@ But why should you use it? And if you decide to use this product, what are the t
 
 Let us first get this topic out of the way; I am sure this information will increase the interest in this product!
 
-**_If you are a B2C Commerce Cloud customer, OCI is included!_**
+If you are a B2C Commerce Cloud customer, OCI is included!
 
 I only learned about this because I took the OMS Administrator and Developer certification exam (and passed 😊).
 

@@ -38,7 +38,7 @@ Make sure to check the documentation pages for the specific endpoint to view the
 
 ### Date Format
 
-When crafting these date filters, adherence to the [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html#:~:text=Therefore%2C%20the%20order%20of%20the,27%2018%3A00%3A00.000.) date format (YYYY-MM-DDTHH:MM:SS.mmmZ) is essential for the API to parse the values correctly. Additionally, ensure that the field names, like `creation_date`, `valid_from`, `valid_to`, and others, correspond to your Salesforce Commerce Cloud data model's actual date-related fields.
+When crafting these date filters, adherence to the [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html#:~:text=Therefore%2C%20the%20order%20of%20the,27%2018%3A00%3A00.000.) date format (YYYY-MM-DDTHH:MM:SS.mmmZ) is essential for the API to parse the values correctly. Additionally, ensure that the field names, like `creation _date`, `valid _ from`, `valid_to`, and others, correspond to your Salesforce Commerce Cloud data model's actual date-related fields.
 
 ```text
 2012-03-19T07:22:59Z // example
@@ -73,7 +73,7 @@ If you need to find records that fall within a specific date interval, the [rang
 
 To deal with scenarios where you have two date fields and want to filter records with an overlapping date range, use the [range2\_filter](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-api?meta=type%3Arange2_filter). This allows the specification of a date range that overlaps the range between the two fields you are considering.
 
-A Range2Filter allows you to restrict search results to hits where the first range (`R1`), defined by a pair of attributes (e.g., `valid_from` and `valid_to`), has a specific relationship to a second range (`R2`), defined by two values (`from_value` and `to_value`). The relationship between the two ranges is determined by the `filter_mode`, which can be one of the following:
+A Range2Filter allows you to restrict search results to hits where the first range (`R1`), defined by a pair of attributes (e.g., `valid _from` and `valid _ to`), has a specific relationship to a second range (`R2`), defined by two values (`from_value` and `to _ value`). The relationship between the two ranges is determined by the `filter_mode`, which can be one of the following:
 
 - `overlap`: `R1` overlaps fully or partially with `R2`
 - `containing`: `R1` contains `R2`
@@ -160,6 +160,6 @@ When creating these endpoints, it's important to consider performance and cachin
 
 The search API capabilities of OCAPI in Salesforce B2C Commerce Cloud offer robust and flexible options for date-related searches.
 
-You can customize your searches using range\_filter, range2\_filter, bool\_filter, and term\_query as per your requirements. It is important to use the correct date format and field names to make the most out of these tools. These data querying capabilities can help you segment promotional data, manage catalog validity, or filter orders based on dates, making your commerce data handling more streamlined.
+You can customize your searches using range\_filter, range2\_ filter, bool\_filter, and term\_ query as per your requirements. It is important to use the correct date format and field names to make the most out of these tools. These data querying capabilities can help you segment promotional data, manage catalog validity, or filter orders based on dates, making your commerce data handling more streamlined.
 
 Happy coding!

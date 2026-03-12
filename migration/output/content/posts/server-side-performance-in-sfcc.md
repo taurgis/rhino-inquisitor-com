@@ -57,7 +57,7 @@ But how do you set this up? There are two ways:
 
 I will not cover all of the details of what page caching offers. That deserves a dedicated blog post, as this can become quite the rabbit hole! And as luck would have it, [there is a blog post about it](https://medium.com/salesforce-architects/caching-in-salesforce-commerce-cloud-part-1-e49b5f3e1801) (and more)!
 
-_[Here is a link](https://medium.com/salesforce-architects/caching-in-salesforce-commerce-cloud-part-2-cc2adc664a1) to part 2 of that same blog post for completeness._
+[Here is a link](https://medium.com/salesforce-architects/caching-in-salesforce-commerce-cloud-part-2-cc2adc664a1) to part 2 of that same blog post for completeness.
 
 ## Performance Debugging
 
@@ -88,7 +88,7 @@ This dashboard is an excellent starting point for identifying caching issues and
 
 ### Pipeline Profiler
 
-_Don't be fooled by its name; it will profile more than pipelines!_
+Don't be fooled by its name; it will profile more than pipelines!
 
 The second tool you should be grabbing ahold of is the [Pipeline Profiler](https://documentation.b2c.commercecloud.salesforce.com/DOC1/index.jsp?topic=%2Fcom.demandware.dochelp%2FLegacyDevDoc%2FAnalyzePerformancePipelineProfiler.html). It is easy to use, will give you a high-level overview of all of your pipeline/controller endpoints, and show you how much processing time it needs to do its thing.
 
@@ -130,7 +130,7 @@ Within these reports are dedicated tabs for OCAPI and SCAPI performance!
 
 OCAPI and SCAPI Performance Reports
 
-### Code Profiler
+### Code Profiler (What about the Composable Storefront)
 
 This report includes all Custom Hooks implemented for SCAPI and OCAPI, providing you with the opportunity to analyze the performance impact of your API customizations.
 

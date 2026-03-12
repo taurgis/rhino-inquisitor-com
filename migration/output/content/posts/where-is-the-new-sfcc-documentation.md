@@ -28,12 +28,9 @@ In case you didn't catch the official announcement, I've got you covered! Check 
 
 > Beginning June 15, 2023, the information currently hosted on the Salesforce B2C Commerce Infocenter will be published across three locations.
 >
->
-> -   Salesforce Help is the new home for administrator and merchandiser content.
-> -   Commerce Cloud Developer Center is the new home for most developer-focused content.
-> -   Salesforce B2C Commerce Developer Documentation Resources is the new home for the B2C Commerce API and other developer-focused content, including legacy developer documentation.
->
->
+> - Salesforce Help is the new home for administrator and merchandiser content.
+> - Commerce Cloud Developer Center is the new home for most developer-focused content.
+> - Salesforce B2C Commerce Developer Documentation Resources is the new home for the B2C Commerce API and other developer-focused content, including legacy developer documentation.
 > Many improvements were made to the documentation as a part of the migration. As a result, there won’t always be a direct one-to-one mapping between topics in the Salesforce B2C Commerce Infocenter and topics in their new locations. Between June 15 and July 15, B2C Commerce documentation will be available in both the Infocenter and its new locations to help ensure a smooth transition for users. On July 15, 2023, the Infocenter will be retired and will no longer be available.
 
 ## The new locations

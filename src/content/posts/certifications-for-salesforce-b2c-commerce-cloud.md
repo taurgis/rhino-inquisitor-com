@@ -55,7 +55,7 @@ If you still think you need some preparation, look at the [exam guide](https://t
 
 The next step in the journey of the Certified B2C Commerce Developer! Focussing more on the project lifecycle compared to development.
 
-**Important to note that you can only achieve this certification if you are a Certified B2C Developer.**
+Important to note that you can only achieve this certification if you are a Certified B2C Developer.
 
 It should not surprise that this certificate is on "another" level than the Developer certification. Do not expect questions like "how do you log a message to the error log" but more like "You have three domains that have to be linked to these two sites. Which of the following four answers is the correct [Hostname Alias](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/search_engine_optimization/b2c_hostname_aliases.html) configuration?".
 
@@ -67,7 +67,7 @@ If you feel like an in-person or virtual training is more suited for you, the [A
 
 Last year a new type of certification made its way into the Salesforce ecosystem: "Accreditations."
 
-**Before you read more about this, be warned that this is a certification only available for Salesforce Partners (and Salesforce employees looking at LinkedIn) **
+Before you read more about this, be warned that this is a certification only available for Salesforce Partners (and Salesforce employees looking at LinkedIn)
 
 You can look at these Accreditations as a "specialization" certification. While the other certifications will look at a broad spectrum of platform features, accreditations will test your knowledge of a specific feature or part.
 
@@ -108,4 +108,4 @@ I feel that this is a gap within the ecosystem that should be filled; developing
 
 This non-technical certification would allow people to publicly show that they know how to get your company up and running on Salesforce B2C Commerce Cloud (using standard features or knowing when custom development is needed).
 
-_If anyone at the Salesforce Credentials team is reading this, give me a shout to discuss this 😇._
+If anyone at the Salesforce Credentials team is reading this, give me a shout to discuss this 😇.

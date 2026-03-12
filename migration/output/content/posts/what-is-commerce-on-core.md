@@ -50,7 +50,7 @@ As I have mentioned, a roadmap is not yet publicly available, nor is much inform
 
 What can be speculated is that this will only be for new customers and likely only for small to medium businesses at first. The reasons why this will be the case should become more apparent as you continue reading.
 
-_And more importantly, there is no reason to "**panic**." This change will take many more years to complete, and innovations will keep happening to the current set-up (albeit in a different form - Composable microservices, anyone?). So please keep on reading!_
+And more importantly, there is no reason to "**panic**." This change will take many more years to complete, and innovations will keep happening to the current set-up (albeit in a different form - Composable microservices, anyone?). So please keep on reading!
 
 ## What will it look like
 
@@ -206,4 +206,4 @@ But then again, the current stack has a lot of advantages over the force.com pla
 
 ### How do you feel about this change
 
-[Leave a reply](#reply-title) on this page to express your opinion!
+Leave a reply on this page to express your opinion!

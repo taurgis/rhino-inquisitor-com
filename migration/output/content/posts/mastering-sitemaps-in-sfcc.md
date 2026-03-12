@@ -18,7 +18,7 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-**Let's be honest, as developers, "SEO" can sometimes feel like a four-letter word handed down from the marketing team. But what if I told you that one of the most critical SEO tools, the sitemap, is actually a fascinating piece of platform architecture you can control, automate, and even extend with code?**
+Let's be honest, as developers, "SEO" can sometimes feel like a four-letter word handed down from the marketing team. But what if I told you that one of the most critical SEO tools, the sitemap, is actually a fascinating piece of platform architecture you can control, automate, and even extend with code?
 
 In Salesforce B2C Commerce Cloud (SFCC), the sitemap serves a purpose beyond simply listing links. It is a robust and scalable system that communicates to search engines precisely what content exists on your site and its level of importance. Properly configuring your sitemap results in faster indexing, improved visibility, and greater satisfaction for your marketing team. If done incorrectly, however, it could render your newly launched products invisible to search engines like Google, as well as tools such as ChatGPT and Google Gemini.
 
@@ -28,7 +28,7 @@ This guide will walk you through everything you need to know, from leveraging th
 
 Think of the standard SFCC sitemap [generator](https://help.salesforce.com/s/articleView?id=cc.b2c_sitemap_topology.htm&language=de&type=5) as the "easy button" that handles 80% of the work for you. For massive e-commerce sites with millions of URLs, this is a lifesaver.
 
-At its core, the platform cleverly sidesteps search engine limitations, like the 50,000 URL or 10MB file size cap, by creating a two-tiered system. It generates a main sitemap\_index.xml file, which is the only URL you need to give to Google. This index file then points to a series of child sitemaps (sitemap\_0.xml, sitemap\_1.xml, etc.) that contain the actual URLs.
+At its core, the platform cleverly sidesteps search engine limitations, like the 50,000 URL or 10MB file size cap, by creating a two-tiered system. It generates a main sitemap\_index.xml file, which is the only URL you need to give to Google. This index file then points to a series of child sitemaps (sitemap\_ 0.xml, sitemap\_1.xml, etc.) that contain the actual URLs.
 
 You control all of this from the Business Manager: Merchant Tools > SEO > Sitemaps.
 
@@ -53,7 +53,7 @@ The Job tab
 
 You can run the sitemap generation manually or, more practically, schedule it as a recurring job from the Job tab. Here is the single most important operational detail:
 
-_**Always schedule the sitemap job to run** **after** **your daily data replication from the staging instance.**_
+Always schedule the sitemap job to run ****after**** your daily data replication from the staging instance.
 
 If you run it before, all the new products and content from that day's replication will be missing from the sitemap, rendering it stale the moment it's created.
 
@@ -81,7 +81,7 @@ Time to run Remember that the generation part won't be complete in just a few se
 
 ## Choices... choices
 
-| _Integration Method_ | _Best For_ | _Mechanism_ | _Vibe_ |
+| _Integration Method_|_Best For_|_Mechanism_|_Vibe_ |
 | --- | --- | --- | --- |
 | **Manual Upload** | One-offs, testing | UI in Business Manager | Quick & Dirty |
 | **Script API Job** | Batch processes (e.g., nightly sync) | Custom job step using dw.sitemap.SitemapMgr | Classic & Reliable |
@@ -97,9 +97,9 @@ Instead, you use the backend's power and bridge the gap.
 
 ### The Standard Headless Playbook
 
-1. **Configure the Hostname Alias:** This is the most critical step. In Business Manager (Merchant Tools > SEO > Aliases), you must create an alias that exactly matches your PWA Kit's live domain (e.g., <www.your-pwa.com>). This ensures the backend generates URLs with the correct domain.
+1. **Configure the Hostname Alias:** This is the most critical step. In Business Manager (Merchant Tools > SEO > Aliases), you must create an alias that exactly matches your PWA Kit's live domain (e.g., `<www.your-pwa.com>`). This ensures the backend generates URLs with the correct domain.
 1. **Generate in Business Manager:** Use the standard job you've already configured.
-1. **Update robots.txt:** In your PWA Kit project's code, add the Sitemap directive to your robots.txt file, pointing to the full URL of the sitemap index (e.g., Sitemap: <https://www.your-pwa.com/sitemap\_index.xml>).
+1. **Update robots.txt:** In your PWA Kit project's code, add the Sitemap directive to your robots.txt file, pointing to the full URL of the sitemap index (e.g., Sitemap: `<https://www.your-pwa.com/sitemap\_index.xml>`).
 1. **Proxy the Request:** Your PWA Kit app needs to handle requests for the sitemap. You can add a rule to your server-side rendering logic (often in app/ssr.js) to proxy requests for /sitemap\_index.xml and its children to the SFCC backend where the files actually live. Or use the [eCDN for this job!](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/ecdn-rules-for-phased-headless-rollout.html)
 
 ### The Hybrid Approach for PWA-Only Routes

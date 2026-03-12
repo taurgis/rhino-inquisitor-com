@@ -29,7 +29,7 @@ This guide will dissect this powerful feature from a developer's perspective. We
 
 The first mental hurdle to clear is that Meta Tag Rules are not an imperative script. They are a declarative system. You are not writing code that executes line by line. Instead, you are defining a set of instructions—a recipe—that the platform's engine interprets to generate a string of text. This distinction is fundamental because it dictates how these rules are built, tested, and debugged.
 
-It's a specialised, declarative [Domain-Specific Language](https://en.wikipedia.org/wiki/Domain-specific_language) (DSL), not a general-purpose scripting environment like Demandware Script. This explains why you can't just call arbitrary script APIs from within a rule and why the error feedback is limited. It's about defining _what_ you want the output to be and letting the platform's engine figure out _how_ to generate it.
+It's a specialised, declarative [Domain-Specific Language](https://en.wikipedia.org/wiki/Domain-specific_language) (DSL), not a general-purpose scripting environment like Demandware Script. This explains why you can't just call arbitrary script APIs from within a rule and why the error feedback is limited. It's about defining _what _ you want the output to be and letting the platform's engine figure out _ how_ to generate it.
 
 ### The Three Pillars of Rule Creation
 
@@ -111,13 +111,13 @@ Once you've mastered the fundamentals of syntax and inheritance, you can begin t
 
 #### The Perfect PDP Title (Hybrid)
 
-Combines the product's manual title, or falls back to its name, brand, and the site name. ` ${Product.pageTitle ELSE Product.name AND Constant(' - ') AND Product.brand AND Constant(' | ') AND Site.displayName}`
+Combines the product's manual title, or falls back to its name, brand, and the site name. `${Product.pageTitle ELSE Product.name AND Constant(' - ') AND Product.brand AND Constant(' | ') AND Site.displayName}`
 
-_Scenario 1 (Manual `pageTitle` exists):_
+### Scenario 1 (Manual `pageTitle` exists)
 
 Data: `Product.pageTitle` = "Best Trail Running Shoe for Rocky Terrain" Generated Output: `Best Trail Running Shoe for Rocky Terrain`
 
-_Scenario 2 (No manual `pageTitle`, falls back to dynamic pattern):_
+Scenario 2 (No manual `pageTitle`, falls back to dynamic pattern):
 
 **Data:** `Product.name` = "SummitPro Runner" `Product.brand` = "Peak Performance" `Site.displayName` = "GoOutdoors"
 
@@ -129,13 +129,13 @@ Checks for a manual category description, otherwise generates a compelling, dyna
 
 `${Category.pageDescription ELSE Constant('Shop our wide selection of ') AND Category.displayName AND Constant(' at ') AND Site.displayName AND Constant('. Free shipping on orders over $50!')}`
 
-_Scenario 1 (Manual `pageDescription` exists):_
+### Scenario 1 (Manual `pageDescription` exists)
 
 Data: `Category.pageDescription` = "Explore our premium, all-weather tents. Designed for durability and easy setup, perfect for solo hikers or family camping trips."
 
 Generated Output: `Explore our premium, all-weather tents. Designed for durability and easy setup, perfect for solo hikers or family camping trips.`
 
-_Scenario 2 (No manual `pageDescription`, falls back to dynamic pattern):_
+Scenario 2 (No manual `pageDescription`, falls back to dynamic pattern):
 
 **Data:** `Category.displayName` = "Camping Tents" `Site.displayName` = "GoOutdoors"
 
@@ -147,31 +147,31 @@ Create separate rules for `og:title` and `og:description` using the same hybrid 
 
 `${ProductImageURL.viewType}` (Note: The specific `viewtype` is needed, e.g. `large`)
 
-**Scenario:** A user shares a product page on a social platform. **Data:** The system has an image assigned to the product in the 'large' slot. **Generated Output:** `<https://www.gooutdoors.com/images/products/large/PROD12345_1.jpg`>
+**Scenario:** A user shares a product page on a social platform.**Data:** The system has an image assigned to the product in the 'large' slot.**Generated Output:** `<https://www.gooutdoors.com/images/products/large/PROD12345_1.jpg>``
 
-#### Dynamic OpenGraph Tags
+#### Dynamic OpenGraph Tags (Crafting Killer Rules: Practical Examples)
 
 This is a truly advanced use case that demonstrates how rules can implement sophisticated SEO strategy. This rule helps prevent crawl budget waste and duplicate content issues by telling search engines not to index faceted search pages.
 
 `${IF SearchRefinement.refinementColor OR SearchPhrase THEN Constant('noindex,nofollow') ELSE Constant('index,follow')}`
 
-**_Scenario 1 (User refines a category by color):_**
+Scenario 1 (User refines a category by color):
 
 A user is on the "Backpacks" category page and clicks the "Blue" color swatch to filter the results.
 
-**Data:** `SearchRefinement.refinementColor` has a value ("Blue"). **Generated Output:** `noindex,nofollow ` **Result:** This filtered page won't be indexed by Google, saving crawl budget.
+**Data:** `SearchRefinement.refinementColor` has a value ("Blue").**Generated Output:** `noindex,nofollow`**Result:** This filtered page won't be indexed by Google, saving crawl budget.
 
-**_Scenario 2 (User performs a site search):_**
+Scenario 2 (User performs a site search):
 
 A user types "waterproof socks" into the search bar.
 
-**Data:** `SearchPhrase` has a value ("waterproof socks"). **Generated Output:** `noindex,nofollow ` **Result:** The search results page won't be indexed.
+**Data:** `SearchPhrase` has a value ("waterproof socks").**Generated Output:** `noindex,nofollow`**Result:** The search results page won't be indexed.
 
-**_Scenario 3 (User lands on a standard category page):_**
+Scenario 3 (User lands on a standard category page):
 
 A user navigates directly to the "Backpacks" category page without any filters.
 
-**Data:** `SearchRefinement.refinementColor` is empty AND `SearchPhrase` is empty. **Generated Output:** `index,follow ` **Result:** The main category page will be indexed by Google as intended.
+**Data:** `SearchRefinement.refinementColor` is empty AND `SearchPhrase` is empty.**Generated Output:** `index,follow`**Result:** The main category page will be indexed by Google as intended.
 
 ## The Page Designer Conundrum: The Unofficial Unofficial Workaround
 
@@ -185,9 +185,9 @@ While powerful, the Meta Tag Rules engine is a minefield of potential "gotchas" 
 
 - **Warning - The "Accidental Override":** This cannot be overstated. A simple, non-hybrid rule (`${Product.name}`) deployed to production can instantly nullify months of careful, manual SEO work by the merchandising team. The Hybrid Pattern (`${Product.pageTitle ELSE...}`) is your shield. Always use it. This is fundamentally a process failure, not just a technical one, highlighting the need for a clear "contract" between development and business teams about who owns which data.
 
-- **Pitfall - The "30-Minute Wait of Despair":** When you save or assign a rule in Business Manager, it can take up to [30 minutes](https://help.salesforce.com/s/articleView?id=cc.b2c_creating_page_meta_tag_rules.htm&type=5) for the change to appear on the storefront. This is due to platform-level caching. This delay is a classic initiation rite for new SFCC developers who are convinced their rule is broken. The solution is patience: save your rule, then go get a coffee before you start frantically debugging. (_**Note:** I personally have never had to wait this long)_
+- **Pitfall - The "30-Minute Wait of Despair": ** When you save or assign a rule in Business Manager, it can take up to [30 minutes](https://help.salesforce.com/s/articleView?id=cc.b2c_creating_page_meta_tag_rules.htm&type=5) for the change to appear on the storefront. This is due to platform-level caching. This delay is a classic initiation rite for new SFCC developers who are convinced their rule is broken. The solution is patience: save your rule, then go get a coffee before you start frantically debugging. (_** Note:** I personally have never had to wait this long)_
 
-- **Pitfall - The Empty Attribute Trap:** If your rule references an attribute (`Product.custom.seoKeywords`) that is empty for a particular product, the engine treats it as a null/false value. This can cause your conditional logic to fall through to an `ELSE` condition you didn't expect. This underscores that the effectiveness of your rules is **directly dependent on the quality and completeness of your catalog** and content data.
+- **Pitfall - The Empty Attribute Trap: ** If your rule references an attribute (`Product.custom.seoKeywords`) that is empty for a particular product, the engine treats it as a null/false value. This can cause your conditional logic to fall through to an `ELSE` condition you didn't expect. This underscores that the effectiveness of your rules is**directly dependent on the quality and completeness of your catalog** and content data.
 
 ## Troubleshooting the "Black Box"
 
@@ -215,9 +215,9 @@ When deciding how to manage SEO metadata in SFCC, developers face three philosop
 
 - Manually populating the `pageTitle`, `pageDescription`, etc., for every item in Business Manager.
 
-  - **Pros:** Absolute, granular control. Perfect for a small catalog or a handful of critical landing pages.
+- **Pros:** Absolute, granular control. Perfect for a small catalog or a handful of critical landing pages.
 
-  - **Cons:** Completely unscalable. Highly prone to human error and data gaps. A maintenance and governance nightmare for any site of significant size.
+- **Cons:** Completely unscalable. Highly prone to human error and data gaps. A maintenance and governance nightmare for any site of significant size.
 
 ### Custom ISML/Controller Logic (The Re-inventor)
 
@@ -237,7 +237,7 @@ Using the native feature as intended.
 
 ## What about the PWA Kit
 
-Yes, you can absolutely continue to leverage the power of **Page Meta Tag Rules** from the Business Manager in a **headless setup**. The key is understanding that your headless front end (like a PWA) communicates with the SFCC backend via APIs.
+Yes, you can absolutely continue to leverage the power of **Page Meta Tag Rules ** from the Business Manager in a** headless setup**. The key is understanding that your headless front end (like a PWA) communicates with the SFCC backend via APIs.
 
 While historically this might have required a development task to extend a standard API or create a new endpoint to expose the dynamically generated meta tag values, this is becoming increasingly unnecessary. Salesforce is actively expanding the **Shopper Commerce API ([SCAPI](/in-the-ring-ocapi-versus-scapi/))**, continuously adding new endpoints and enriching existing ones to expose more data directly.
 

@@ -69,20 +69,19 @@ The new standard after March 12th Be sure to test all your channels with the fea
 
 ## SCAPI - Shopper SEO
 
-> -   Updated getUrlMapping's response to include the optional property resourceSubType, which indicates whether the resolved object is a Page Designer content asset or a Content Slot asset. For more information, see the UrlMapping type reference.
-> -   Updated getUrlMapping to support URL redirects. For more information, see the URL Resolution guide.
-> -   Updated getUrlMapping to support these hooks: dw.shop.seo.url\_mapping.beforeGET and dw.shop.seo.url\_mapping.modifyGETResponse.
+> - Updated getUrlMapping's response to include the optional property resourceSubType, which indicates whether the resolved object is a Page Designer content asset or a Content Slot asset. For more information, see the UrlMapping type reference.
+> - Updated getUrlMapping to support URL redirects. For more information, see the URL Resolution guide.
+> - Updated getUrlMapping to support these hooks: dw.shop.seo.url\_mapping.beforeGET and dw.shop.seo.url\_ mapping.modifyGETResponse.
 
 Some updates to the [URL mapping endpoint](https://developer.salesforce.com/docs/commerce/commerce-api/references/shopper-seo?meta=getUrlMapping), which include support for [URL Redirection from the Business Manager](https://help.salesforce.com/s/articleView?id=cc.b2c_url_redirects.htm&type=5)!
 
 ## Shopper Baskets v2
 
-> -   Provides support for temporary baskets. Temporary baskets can perform calculations to generate totals, line items, promotions, and item availability without affecting the shopper’s storefront cart. You can use these calculations for temporary basket checkout.
-> -   New Shopper Basket v2 response fields:
->     1.  groupedTaxItems
->     2.  taxRoundedAtGroup
->     3.  temporaryBasket
-
+> - Provides support for temporary baskets. Temporary baskets can perform calculations to generate totals, line items, promotions, and item availability without affecting the shopper’s storefront cart. You can use these calculations for temporary basket checkout.
+> - New Shopper Basket v2 response fields:
+>     1. groupedTaxItems
+>     1. taxRoundedAtGroup
+>     1. temporaryBasket
 > [!WARNING]
 > **Deprecation:** The dw.ocapi.shop.basket.beforePOST hook is no longer supported in Shopper Baskets V2 and is replaced by the dw.ocapi.shop.basket.beforePOST\_v2 hook.
 
@@ -90,9 +89,9 @@ The new version for Shopper Baskets looks a bit different from v1, so adjust you
 
 ## SCAPI Load Shedding
 
-> -   If the system reaches a load threshold, an HTTP 503 response is returned for a subset of API families.
-> -   Covers APIs not covered by rate limits that are considered non-critical, for example: endpoints related to search, products, and authentication. Load shedding is not used for checkout-related endpoints, such as Shopper Baskets and Shopper Orders, to ensure that shoppers can complete an in-progress checkout.
-> -   Includes additional HTTP response headers that allow you to understand the current system load: sfdc\_load, which represents a load percentage with higher percentages indicating higher loads, and sfdc\_load\_status, which is a enum WARN|THROTTLE that helps you understand the relative health of the system.
+> - If the system reaches a load threshold, an HTTP 503 response is returned for a subset of API families.
+> - Covers APIs not covered by rate limits that are considered non-critical, for example: endpoints related to search, products, and authentication. Load shedding is not used for checkout-related endpoints, such as Shopper Baskets and Shopper Orders, to ensure that shoppers can complete an in-progress checkout.
+> - Includes additional HTTP response headers that allow you to understand the current system load: sfdc\_load, which represents a load percentage with higher percentages indicating higher loads, and sfdc\_ load\_status, which is a enum WARN|THROTTLE that helps you understand the relative health of the system.
 
 We received a notification regarding removing rate limits for SCAPI endpoints some time ago.
 
