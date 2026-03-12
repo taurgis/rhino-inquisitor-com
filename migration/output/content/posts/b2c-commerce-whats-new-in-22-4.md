@@ -20,7 +20,7 @@ author: Thomas Theunen
 ---
 In this post, we will be looking at the release notes of Salesforce B2C Commerce Cloud for April 2022. Since the release cycles for B2C Commerce are [a lot quicker than the other Salesforce platforms](https://medium.com/inside-the-salesforce-ecosystem/a-partners-guide-to-navigating-the-salesforce-release-cycle-efa36ed3c64), not every month will be as extensive a list as the other.
 
-Check out the original release notes [here](https://help.salesforce.com/s/articleView?id=rn_b2c_rn_22_4_release.htm&type=5&language=en_US).
+Check out the original release notes [for April 2022](https://help.salesforce.com/s/articleView?id=rn_b2c_rn_22_4_release.htm&type=5&language=en_US).
 
 ## PWA Kit
 
@@ -36,10 +36,10 @@ _**Note:** Keep in mind that the Managed Runtime is on a different release cycle
 
 A new major release of PWA Kit is on the horizon! This release has a few new toys:
 
--   First steps towards Typescript support
--   The development server is updated to support hot-reloading of the server-side
--   An all-new CLI tool called "mrt" that combines Webpack, Jest, and Babel to support zero-config projects
--   Experimental support for non-React projects is added
+- First steps towards Typescript support
+- The development server is updated to support hot-reloading of the server-side
+- An all-new CLI tool called "mrt" that combines Webpack, Jest, and Babel to support zero-config projects
+- Experimental support for non-React projects is added
 
 You can find more information about this release on [GitHub](https://github.com/SalesforceCommerceCloud/pwa-kit/discussions/395).
 
@@ -51,13 +51,11 @@ When using the login endpoint, if an outage happens in the Account Manager, cust
 
 To mitigate this dependency, the/login endpoint is deprecated and replaced by [SLAS](https://developer.commercecloud.com/s/api-details/a003k00000VWfNDAA1/commerce-cloud-developer-centershopperloginandapiaccessservice) (Shopper Login and API Access Service).
 
-**Benefits of this change:**
+### Benefits of this change
 
--   Account Manager outages will no longer impact the ability to log in or checkout in the storefront applications
--   SLAS is more secure
--   SLAS supports more login mechanisms
-
-
+- Account Manager outages will no longer impact the ability to log in or checkout in the storefront applications
+- SLAS is more secure
+- SLAS supports more login mechanisms
 
 ## OCAPI
 
@@ -67,9 +65,9 @@ With this update, eCDN caching is enabled for the GET Products API! The update w
 
 **But it is not enabled by default!** To take advantage of this update, you need to do the following:
 
--   Set "cache-control" headers
--   Ensure the client ID is included as a query parameter or in the "x-dw-client-id" and "cache-control" header.
--   Do not include an "Authorization" header with the request. Adding it will disable caching.
+- Set "cache-control" headers
+- Ensure the client ID is included as a query parameter or in the "x-dw-client-id" and "cache-control" header.
+- Do not include an "Authorization" header with the request. Adding it will disable caching.
 
 If you still have questions about caching in the OCAPI, [you can find more information in the Infocenter](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/Caching.html).
 
@@ -81,20 +79,18 @@ Salesforce has heard our concerns and has slowly closed these holes over the yea
 
 **With this update, the following changes have happened:**
 
--   **Search and sort by creation and last modified date:** Now, more data APIs allow you to utilize the create and last-modified dates.
+- **Search and sort by creation and last modified date:** Now, more data APIs allow you to utilize the create and last-modified dates.
 
     This change will make it a lot easier to acquire **delta** information!
 
     The following [DATA APIs](https://documentation.b2c.commercecloud.salesforce.com/DOC3/topic/com.demandware.dochelp/OCAPI/current/usage/DataAPIResources.html?cp=0_16_4) have been extended:
 
-    -   Order Search
-    -   Product Search
-    -   Customer Search
-    -   Custom Object Search
-    -   Catalog Search
--   **[Guest Flag](https://documentation.b2c.commercecloud.salesforce.com/DOC3/index.jsp?topic=%2Fcom.demandware.dochelp%2FOCAPI%2Fcurrent%2Fshop%2FDocuments%2FOrder.html&anchor=id1520261250):** It is now easier to detect an order made by a guest checkout or a registered customer.
-
-
+  - Order Search
+  - Product Search
+  - Customer Search
+  - Custom Object Search
+  - Catalog Search
+- **[Guest Flag](https://documentation.b2c.commercecloud.salesforce.com/DOC3/index.jsp?topic=%2Fcom.demandware.dochelp%2FOCAPI%2Fcurrent%2Fshop%2FDocuments%2FOrder.html&anchor=id1520261250):** It is now easier to detect an order made by a guest checkout or a registered customer.
 
 ## Business Manager
 
@@ -104,21 +100,21 @@ If you use Variation Groups, this feature will make the storefront search a litt
 
 Once enabled, merchandizers [will see extra options in the business manager](https://documentation.b2c.commercecloud.salesforce.com/DOC1/index.jsp?topic=%2Fcom.demandware.dochelp%2Fcontent%2Fb2c_commerce%2Ftopics%2Fproducts%2Fb2c_configure_variation_groups_display_mode.html).
 
-![A screenshot of the Variation Group mode configuration on a catalog.](/media/external/category-option-plzwjt3ux7rivo7o7mgc8xhnroisdxv69lzyysd3pa-a3eb0312c7.png "Category Options – Variation Groups")
+![Catalog setting that switches variation groups to merged or individual display.](/media/external/category-option-plzwjt3ux7rivo7o7mgc8xhnroisdxv69lzyysd3pa-a3eb0312c7.png "Category Options – Variation Groups")
 
 Category Attributes on a Catalog
 
 But once you enable this option, how does it translate in the storefront? Let's have a look!
 
-![Image depicting 3 variation groups of pants, being display seperate](/media/2022/variation-groups-before-14c54a10bd.jpg)
+![Three variation-group products shown as separate pants tiles.](/media/2022/variation-groups-before-14c54a10bd.jpg)
 
 Storefront - Before
 
-![](/media/2022/variation-groups-after-513fc19983.png)
+![Merged variation-group storefront result with shared swatches.](/media/2022/variation-groups-after-513fc19983.png)
 
 Storefront - After
 
-![](/media/2022/configuration-variation-groups-32dec4386b.png)
+![Category configuration panel for assigning variation-group display behavior.](/media/2022/configuration-variation-groups-32dec4386b.png)
 
 Configuration of a Category
 
@@ -137,7 +133,7 @@ But this option gives us more flexibility, which is never a bad thing!
 
 _**Note:** If you set the type to "merged" on the top level but "individual" on a sub-category, it will not work. The products do not display correctly anymore._
 
-![A screenshot of a broken product lister page, showing all attributes as "null" instead of product data.](/media/2022/broken-category-08697befce.png)
+![Broken product lister page rendering null values after an invalid variation-group setup.](/media/2022/broken-category-08697befce.png)
 
 Broken category page
 
@@ -147,7 +143,7 @@ From now on, when you configure a "percentage discount promotion" on multiple it
 
 Before, you had to select the "Prorate Discount" option on the promotion.
 
-![A screenshot of the prorating option in the business manager.](/media/2022/prorate-discount-0a85da771a.png)
+![Promotion setting that enables discount proration across line items.](/media/2022/prorate-discount-0a85da771a.png)
 
 ### Source Code Groups
 
@@ -159,5 +155,5 @@ Before this change, you could enter an ID that was longer, but it would be trunc
 
 Last but not least, we will have a look at if any of the bugs that customers and partners reported have been fixed in this release!
 
--   [Stored Basket returns already ordered basket](https://trailblazer.salesforce.com/issues_view?id=a1p4V000000pOrSQAU)
--   [Source Code Group export fails due to trailing white space in ID](https://trailblazer.salesforce.com/issues_view?id=a1p4V000001nT8NQAU&title=source-code-group-export-fails-due-to-trailing-white-space-in-id)
+- [Stored Basket returns already ordered basket](https://trailblazer.salesforce.com/issues_view?id=a1p4V000000pOrSQAU)
+- [Source Code Group export fails due to trailing white space in ID](https://trailblazer.salesforce.com/issues_view?id=a1p4V000001nT8NQAU&title=source-code-group-export-fails-due-to-trailing-white-space-in-id)

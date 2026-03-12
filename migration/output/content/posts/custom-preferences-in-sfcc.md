@@ -20,8 +20,8 @@ author: Thomas Theunen
 
 Custom preferences can be created at two levels:
 
--   global (organisation)
--   site
+- global (organisation)
+- site
 
 As a Salesforce B2C Commerce Cloud developer, you must understand the differences between Global Preferences and Site Preferences and use each appropriately.
 
@@ -33,13 +33,10 @@ For example, if all sites in an organisation use the same preference value, usin
 
 Global Preferences can be accessed using the System Preferences API:
 
-```
-
-					var System = require('dw/system');
+```js
+var System = require('dw/system');
 var orgPrefs = System.getPreferences();
 var myCustomPreference = orgPrefs.getCustom().myCustomPreference;
-
-
 ```
 
 To add your preferences on this global level, head here in the Business Manager:
@@ -54,13 +51,10 @@ For example, if a site has a particular loyalty program calculation not used by 
 
 Site Preferences can be accessed using the Site API:
 
-```
-
-					var Site = require('dw/system/Site');
+```js
+var Site = require('dw/system/Site');
 var sitePrefs = Site.getCurrent().getCustom();
 var loyaltyEnabled = sitePrefs.loyaltyEnabled;
-
-
 ```
 
 To add your preferences on this site level, head here in the Business Manager:
@@ -71,9 +65,8 @@ To add your preferences on this site level, head here in the Business Manager:
 
 Using a config file can be a better alternative to Custom Preferences. A config file is a file that stores application-specific settings that should not be modifiable in the Business Manager. This can be useful for settings that are not expected to change frequently, such as project-specific settings.
 
-```
-
-					// config.json
+```js
+// config.json
 {
   "loyaltyCalculation": "simple"
 }
@@ -82,8 +75,6 @@ var config = require('path/to/config.json');
 if(config.loyaltyCalculation === 'simple') {
  // Do some things
 }
-
-
 ```
 
 Cartridge Overrides Like script files, using “\*” in the path to allow overrides according to the set cartridge path is possible.

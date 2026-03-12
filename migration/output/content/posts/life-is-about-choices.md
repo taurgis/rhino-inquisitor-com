@@ -21,7 +21,7 @@ Have you ever wondered how some people seem to have it all together? How do they
 
 As the Head of Commerce at Forward, I have a deep passion for everything Salesforce, specifically [Salesforce B2C Commerce Cloud](https://www.salesforce.com/nl/campaign/sem/commerce-cloud/?d=7013y000000ZiZWAA0&utm_source=google&utm_medium=sem&utm_campaign=nl_alllobcon&utm_content=_7013y000000ZiZWAA0&soc=Google-commerce-cloud&ef_id=Cj0KCQjw-pyqBhDmARIsAKd9XIN5JEeCyJb-jki0mVkSNGsVjJRRwZzvvahGq5KearIHpTEixKnOtzoaAophEALw_wcB:G:s&s_kwcid=AL!7501!3!442529105175!p!!g!!salesforce%20b2c%20commerce&&mkwid=s&pcrid=442529105175&pkw=salesforce%20b2c%20commerce&pmt=p&pdv=c&gad_source=1&gclsrc=ds) (duh). I've worked with Salesforce for a long time and have built a wealth of knowledge and experience in the field. I've also been an active member of the Salesforce Ohana, contributing to the community and sharing my knowledge to help others succeed. But my passions don't stop there. I am also a proud father of two wonderful children, and being a dad is one of the most rewarding experiences of my life. I always make time for my family, which is the most important thing to me.
 
-![A comic book like drawing of a family at the zoo. Husband and wife with a daughter and son.](/media/2023/img-0051-979cd7bd1c.jpeg)
+![Comic-style family portrait at the zoo underscoring the family-priority theme.](/media/2023/img-0051-979cd7bd1c.jpeg)
 
 However, this balance means I have had to choose how to spend my time. That meant prioritising my family and Salesforce over other personal interests. It's not always easy, but it's a decision that I am happy with. By following my passion for Salesforce and being there for my family, I can be the best version of myself. I understand that it's not possible to have it all, but I'm content with my choices and focus on what truly matters to me.
 
@@ -41,7 +41,7 @@ Being a part of the Salesforce Ohana has allowed me to attend many exciting even
 
 In life, we are constantly faced with choices and decisions. Whether deciding between a career move, starting a family, attending an event, staying home with loved ones or going out with friends. These choices shape our lives and shape who we are.
 
-![A visualisation of the life you see and the life you don't. A man happy at work on the left, but in a mirror image unhappy at home, because not all choices have a happy ending.](/media/2023/img-0058-3f3716c170.jpeg)
+![Split-scene illustration contrasting visible career success with unseen sacrifices at home.](/media/2023/img-0058-3f3716c170.jpeg)
 
 The life you see versus the part you don't. This may be an over-dramatic representation...
 

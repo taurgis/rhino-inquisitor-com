@@ -34,7 +34,7 @@ Salesforce (well ... the [Mobify](https://www.digitalcommerce360.com/2020/09/09/
 
 ## Transferrable Skills
 
-![A visual representation of playing with your developer knowledge, and using it to your advantage. The image shows you using your hands with a controller to use your brain.](/media/2023/use-your-knowledge-98ac47c97d.jpg)
+![Illustration of a game controller and brain symbolizing transferable developer knowledge.](/media/2023/use-your-knowledge-98ac47c97d.jpg)
 
 ### Development (Duh...)
 
@@ -64,11 +64,11 @@ A deep [understanding](https://www.rhino-inquisitor.com/the-b2c-commerce-archite
 
 Here are some articles that might come in handy:
 
--   [SFCC Architecture Explained](https://www.salesforceben.com/salesforce-b2c-commerce-cloud-architecture-explained/)
--   [The SFCC Environment](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/)
--   [How to use OCAPI/SCAPI Hooks](https://www.rhino-inquisitor.com/how-to-use-ocapi-scapi-hooks/)
--   [What is the OCAPI Session Bridge](https://www.rhino-inquisitor.com/what-is-the-ocapi-session-bridge/)
--   [How to set up SLAS](https://www.rhino-inquisitor.com/how-to-set-up-slas-for-the-composable-storefront/)
+- [SFCC Architecture Explained](https://www.salesforceben.com/salesforce-b2c-commerce-cloud-architecture-explained/)
+- [The SFCC Environment](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/)
+- [How to use OCAPI/SCAPI Hooks](https://www.rhino-inquisitor.com/how-to-use-ocapi-scapi-hooks/)
+- [What is the OCAPI Session Bridge](https://www.rhino-inquisitor.com/what-is-the-ocapi-session-bridge/)
+- [How to set up SLAS](https://www.rhino-inquisitor.com/how-to-set-up-slas-for-the-composable-storefront/)
 
 ## Where to get started
 
@@ -78,6 +78,6 @@ If you're a regular reader of my articles, you probably know by now that I'm not
 
 So, kudos to the Salesforce team for providing some tremendous getting-started documentation:
 
--   [Skills for Success](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/skills-for-success.html)
--   [Getting Started](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/getting-started.html)
--   [Community!!!!](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/community.html)
+- [Skills for Success](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/skills-for-success.html)
+- [Getting Started](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/getting-started.html)
+- [Community!!!!](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/community.html)

@@ -25,20 +25,18 @@ But what does this mean? And what can be done to make sure integrations keep wor
 
 Update ( 03/03/2023 ) A date has been published: [June 15th 2023.](https://help.salesforce.com/s/articleView?id=000394343&type=1)
 
-## UUID Token?
+## UUID Token
 
 When doing an OAuth integration with Salesforce B2C Commerce Cloud, you must set up an "[API Client](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/account_manager/b2c_account_manager_add_api_client_id.html)" in Account Manager. During this process, you have the option of choosing which type of "bearer (access) token" format you want to use:
 
--   JWT
--   UUID
-
-
+- JWT
+- UUID
 
 _**Note:** Currently the default is JWT, but I am not sure if the default was UUID before._
 
-[![](/media/2022/account-manager-api-client-token-format-808bcccc72.jpg)](/media/2022/account-manager-api-client-token-format-808bcccc72.jpg)
+[![Account Manager screen showing API client token format options.](/media/2022/account-manager-api-client-token-format-808bcccc72.jpg)](/media/2022/account-manager-api-client-token-format-808bcccc72.jpg)
 
-## How do I change it?
+## How do I change it
 
 Changing your API Client from UUID to JWT is a straightforward process. You go to [Account Manager](https://account.demandware.com/), open your API Client and go to the "Access Token Format" shown on the screenshot in the previous section.
 
@@ -46,15 +44,14 @@ Change that option from UUID to JWT and click "Save"!
 
 That's it! Easy isn't it?
 
-## What is the effect of this change?
+## What is the effect of this change
 
 Not a lot actually. To put it as "simple" as possible: "**Your bearer token becomes a much larger string."**
 
 Your bearer token changes from a simple and short UUID to a [JWT](https://jwt.io/).
 
-```
-
-					// An examle of a UUID token response to:
+```text
+// An examle of a UUID token response to:
 // URL: https://account.demandware.com/dw/oauth2/access_token
 {
     "access_token": "aEVhfDrzSoQ23Xd1m9m-nb8PKL4",
@@ -62,15 +59,12 @@ Your bearer token changes from a simple and short UUID to a [JWT](https://jwt.io
     "token_type": "Bearer",
     "expires_in": 1799
 }
-
-
 ```
 
 The above token is 27 characters long, which does not leave much room for "usable information." A JWT is much more suited for that. So let me change this API Client to the JWT format!
 
-```
-
-					// An examle of a JWT response to:
+```text
+// An examle of a JWT response to:
 // URL: https://account.demandware.com/dw/oauth2/access_token
 {
     "access_token": "eyJ0eXAiOiJKV1QiLCJraWQiOiJEMWhPUDdEODN4TjBqZWlqaTI3WWFvZFRjL0E9IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJhMmIzMmZlMy05MzczLTRjYTEtYjY0My02MDM1NWE2Y2VmZTIiLCJjdHMiOiJPQVVUSDJfU1RBVEVMRVNTX0dSQU5UIiwiYXVkaXRUcmFja2luZ0lkIjoiYWM3YjI2NDUtZTcxYi00OWE5LTg1MzktMjg0NmVhNDQ5ZDFhLTI3MjgwOTY0MyIsInN1Ym5hbWUiOiJhMmIzMmZlMy05MzczLTRjYTEtYjY0My02MDM1NWE2Y2VmZTIiLCJpc3MiOiJodHRwczovL2FjY291bnQuZGVtYW5kd2FyZS5jb206NDQzL2R3c3NvL29hdXRoMiIsInRva2VuTmFtZSI6ImFjY2Vzc190b2tlbiIsInRva2VuX3R5cGUiOiJCZWFyZXIiLCJhdXRoR3JhbnRJZCI6IldBSHJEdjVxMlZwdWY0QmxCUWJ4SVVxVlIyRSIsImF1ZCI6ImEyYjMyZmUzLTkzNzMtNGNhMS1iNjQzLTYwMzU1YTZjZWZlMiIsIm5iZiI6MTY2MTc1NzY0MCwiZ3JhbnRfdHlwZSI6ImNsaWVudF9jcmVkZW50aWFscyIsInNjb3BlIjpbIm1haWwiXSwiYXV0aF90aW1lIjoxNjYxNzU3NjQwLCJyZWFsbSI6Ii8iLCJleHAiOjE2NjE3NTk0NDAsImlhdCI6MTY2MTc1NzY0MCwiZXhwaXJlc19pbiI6MTgwMCwianRpIjoiYmFYY3VmbzNlMFlxdkpNYWRYbEVTNWM4QWpBIiwiY2xpZW50X2lkIjoiYTJiMzJmZTMtOTM3My00Y2ExLWI2NDMtNjAzNTVhNmNlZmUyIn0.apPgK_kzt_HdVhJtoIbXapiyV6akGThOgR9rbu1b8Bq-ES2F4IfTv5yEgJIUaNWE-9DwXpKi9F1YDJ7iIi1BIsWoFLBfoIGBCSJimtbNn1dBiQuDF9tABeA9T6UtgJFSXQxMCNox3h8fJeEE_5Gzejpc50kF5gjZAWC4na5PHOttjO5b4TTM4XGsdwhSObGBqgmzUDVbgj6wMMB_VtTVZHI5_ui42zbXNoOWJp5MuvDKFk88SaofoTPeOWiAKH3LLrT2_vmRfKdypLpX_eMy0K1pQEJjqcdYpdZUKQZ-8KNMnfho5cvjsm9dy5KOEpwu2e5VuV0yHsIvxfkKnAaNiw",
@@ -78,8 +72,6 @@ The above token is 27 characters long, which does not leave much room for "usabl
     "token_type": "Bearer",
     "expires_in": 1799
 }
-
-
 ```
 
 Pfoo... that is quite a bit longer, isn't it? About 1269 characters, which is a lot more than 27! But that is because this access token contains much more information than the UUID we previously saw.
@@ -88,13 +80,12 @@ Pfoo... that is quite a bit longer, isn't it? About 1269 characters, which is a 
 
 Like before, you can use the (longer) token to call other APIs.
 
-## What information can be found in the JWT?
+## What information can be found in the JWT
 
 To figure that out, we need to [undo the encoding](https://jwt.io/) of our "access\_token". If we do that, we get the following information:
 
-```
-
-					{
+```json
+{
   "sub": "a2b32fe3-9373-4ca1-b643-60355a6cefe2",
   "cts": "OAUTH2_STATELESS_GRANT",
   "auditTrackingId": "ac7b2645-e71b-49a9-8539-2846ea449d1a-272809643",
@@ -117,13 +108,11 @@ To figure that out, we need to [undo the encoding](https://jwt.io/) of our "acce
   "jti": "baXcufo3e0YqvJMadXlES5c8AjA",
   "client_id": "a2b32fe3-9373-4ca1-b643-60355a6cefe2"
 }
-
-
 ```
 
 That is a lot more information to work with, which is why this change is happening!
 
-## Why do this change?
+## Why do this change
 
 _Before we get started, I do not work for Salesforce! So I will be making some assumptions here based on the small amount of information that has been shared._
 
@@ -132,7 +121,7 @@ This causes extra "strain" on the servers (probably additional database calls an
 
 This change will cause the Account Manager load to drop, leaving more room for other, more important things. And in the end, make the solution more scalable for the future!
 
-## When should we migrate?
+## When should we migrate
 
 Just be sure to contact your third-party integration teams about this change.
 Why? Because it needs to be verified if they can handle this longer token. We are going from 27 characters to more than a thousand, which could mean database changes need to be made to facilitate this change.

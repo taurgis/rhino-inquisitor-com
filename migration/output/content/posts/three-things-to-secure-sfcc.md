@@ -35,10 +35,10 @@ You should always have a [system of least privilege](https://en.wikipedia.org/wi
 
 But why do this, you might ask? Well, there are quite a few reasons for this:
 
--   People do administrative tasks in the wrong environment by accident, even though they have not been working on that project for weeks/months/years (it happens)
--   An account was hacked that had access to multiple projects they no longer worked on
--   Someone left the company on bad terms and decided to abuse their access
--   … and many more
+- People do administrative tasks in the wrong environment by accident, even though they have not been working on that project for weeks/months/years (it happens)
+- An account was hacked that had access to multiple projects they no longer worked on
+- Someone left the company on bad terms and decided to abuse their access
+- … and many more
 
 I am not saying that with a system of least privilege, all damage could have been prevented, but they could have done much less damage if the correct procedures had been adhered to.
 

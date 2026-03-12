@@ -31,7 +31,7 @@ The adventurous start did nothing to deter our enthusiasm – instead, it added 
 
 ## A Welcoming Tuesday
 
-![Three people smiling on a picture at a breakfast meeting in San Francisco including Thomas Theunen and Amalia Murray.](/media/2023/04cd6b21-12ba-4307-9ce5-3a60768e6ba0-1-105-c-c78a87bbb3.jpeg)
+![Breakfast meetup with the CommerceCrew before Dreamforce sessions.](/media/2023/04cd6b21-12ba-4307-9ce5-3a60768e6ba0-1-105-c-c78a87bbb3.jpeg)
 
 All energised to start Dreamforce!
 
@@ -43,7 +43,7 @@ That is a lot of Sailblazers!
 
 No time for food comas here; post-lunch called for participation on my behalf in a session revolving around AI and its ethical impact. Explorer at heart, I reveled delving deep into generative AI - indeed quite an informative afternoon.
 
-## Wednesday: Swags and Rock n Roll!
+## Wednesday: Swags and Rock n Roll
 
 ![Thomas Theunen sitting in between studio lights with a camera pointed at him. Multiple screens show his face.](/media/2023/372a213b-a01b-47e2-9157-022c8d8baa65-1-105-c-89c973c920.jpeg)
 
@@ -59,7 +59,7 @@ Just as we thought the day couldn’t get any better, Dreamfest kicked off with 
 
 We went on an epic quest to find the mystical entrance to the ground floor, but alas, it remained shrouded in mystery. After much fruitless searching and getting rejected at every turn, we realised that perhaps we were not the chosen (e.g. not a customer) ones destined to enter. Maybe we just needed better directions. Or did I just have to flaunt my [Golden Hoodie](https://www.rhino-inquisitor.com/events-and-the-golden-hoodie/)?
 
-![A picture of the concert of the Foo Fighters at Dreamfest 2023, taken high above the stage.](/media/2023/1832c203-32d4-4a5b-922a-218cf2ecf468-1-102-a-d53635718f.jpeg)
+![View of the Foo Fighters performing at Dreamfest 2023.](/media/2023/1832c203-32d4-4a5b-922a-218cf2ecf468-1-102-a-d53635718f.jpeg)
 
 In the clouds at Dreamfest 2023
 
@@ -73,7 +73,7 @@ Thursday was comparatively calmer but every bit exciting in its unique way. It b
 
 The rest of the day shadowed opportunities to connect and exchange ideas among peers culminating in an intimate discussion revolving around AI in a cozy setup - the perfect unwinding activity after three days of intense power walking.
 
-## In closing...
+## In closing
 
 As someone privileged to attend Dreamforce’23, I was amazed by the remarkable presence of generative AI in various sessions and keynotes. However, I couldn't help but feel a little disappointed that there weren't more B2C Commerce Cloud innovations that didn't require other products in the Salesforce range.
 

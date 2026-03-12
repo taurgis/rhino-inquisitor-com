@@ -60,14 +60,11 @@ Just so you know, while this is a specific requirement for France, other countri
 
 But what does this mean?
 
--   **On-The-Fly**: This is no longer an option since you are not persisting the generated invoice yourself. Therefore, it must be stored somewhere before being given to the consumer to comply with local legislation.
+- **On-The-Fly:** This is no longer an option since you are not persisting the generated invoice yourself. Therefore, it must be stored somewhere before being given to the consumer to comply with local legislation.
 
-
--   **Storing it on the WebDAV**: In the context of Commerce Cloud, this isn't the ideal choice, as such information should be stored closer to your invoicing system.
+- **Storing it on the WebDAV:** In the context of Commerce Cloud, this isn't the ideal choice, as such information should be stored closer to your invoicing system.
 
     Retaining all generated invoices on B2C Commerce for ten years is excessive. The platform is made for commerce, not finance.
-
-
 
 Looking at the above statements, let something else take care of these invoices! But this will, again, depend on where you operate and what the rules of engagement are.
 
@@ -77,18 +74,17 @@ The General Data Protection Regulation (GDPR) has fundamentally changed how busi
 
 The legal requirement to retain invoices for 10 years, as mentioned in the previous section, presents a direct conflict with the right to be forgotten. In this scenario, the legal obligation to retain the invoice takes precedence over the individual's request for data deletion. However, this does not mean that the personal data on the invoice can be kept indefinitely or used for other purposes.
 
-To navigate this, businesses should adopt the principle of **data minimisation** and consider **pseudonymization**. Here's how this can be applied:
+To navigate this, businesses should adopt the principle of **data minimisation** and consider**pseudonymization**. Here's how this can be applied:
 
--   **Data Minimisation:** Only collect and retain the personal data that is strictly necessary for the transaction and for legal compliance.
+- **Data Minimisation:** Only collect and retain the personal data that is strictly necessary for the transaction and for legal compliance.
 
--   **Pseudonymization:** After a certain period (for example, once the return window for an order has closed), you can pseudonymize the personal data on the invoice. This means replacing personally identifiable information (such as name, address, and contact details) with a non-identifiable token or code. The transactional data on the invoice (products purchased, price, etc.) remains, ensuring compliance with the 10-year retention law, while the customer's personal data is protected.
-
+- **Pseudonymization:** After a certain period (for example, once the return window for an order has closed), you can pseudonymize the personal data on the invoice. This means replacing personally identifiable information (such as name, address, and contact details) with a non-identifiable token or code. The transactional data on the invoice (products purchased, price, etc.) remains, ensuring compliance with the 10-year retention law, while the customer's personal data is protected.
 
 By implementing such a strategy, you can fulfil your legal obligations while still respecting the spirit of GDPR. It is also vital to be transparent with your customers.
 
 The privacy policy should clearly state your data retention policies, explaining why specific data is kept for extended periods and how you protect it. This transparency will not only ensure GDPR compliance but will also foster a relationship of trust and confidence with your customers.
 
-## What about the Composable Storefront?
+## What about the Composable Storefront
 
 The [Composable Storefront](https://www.rhino-inquisitor.com/the-move-from-sitegenesis-and-sfra-to-the-composable-storefront-as-a-developer/) is a whole new game. It's less like a pre-built castle and more like an infinite set of high-tech Lego bricks. Your frontend is a slick, fast Progressive Web App (PWA), completely separate from the backend commerce engine. They talk to each other exclusively through APIs, like the Salesforce Commerce API (SCAPI) and OCAPI.
 

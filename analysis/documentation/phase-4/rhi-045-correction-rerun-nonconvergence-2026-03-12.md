@@ -123,13 +123,13 @@
 
 ## Validation update (2026-03-12, full workflow replay)
 
-### Change summary
+### Replay change summary
 
 - Replayed the full `npm run migrate:apply-corrections` workflow against a temp copy of the current `migration/output/content/` corpus, including the trailing `markdownlint-cli2 --fix` step.
 - Separated the Node correction summary counters from the net final-tree diffs between completed pass snapshots.
 - Confirmed that the current workflow still fails the stricter first-rerun zero-change expectation, even though the completed filesystem output now converges after repeated full-workflow passes.
 
-### Behavior details
+### Replay behavior details
 
 #### Node correction summary counters
 
@@ -155,7 +155,7 @@ The late-pass final-tree diffs were limited to:
 
 Those residual diffs were list indentation, malformed `Note **:` emphasis spacing, and fenced/autolink-style angle-bracket URL normalization. No additional files changed between completed passes 3 and 4.
 
-### Impact
+### Replay impact
 
 - RHI-045 still cannot claim the explicit Batch 3 acceptance criterion that the finalized long-tail corpus passed a zero-change correction rerun, because the first replayed full workflow pass still changes `166` files and the second still changes `48` files at the final-tree level.
 - The current evidence is stronger than the earlier non-convergence note because it distinguishes two different truths:
@@ -163,7 +163,7 @@ Those residual diffs were list indentation, malformed `Note **:` emphasis spacin
   - the overall completed workflow now reaches a stable end state after repeated passes
 - Ticket and sign-off wording should treat that as a remaining acceptance-gap on the first-rerun rule, not as missing migration coverage.
 
-### Verification
+### Replay verification
 
 1. Created `tmp/rhi045_rerun_snapshots/pass0` from the current `migration/output/content/` corpus.
 2. Replayed four full correction passes on successive temp-copy snapshots using:
@@ -172,7 +172,7 @@ Those residual diffs were list indentation, malformed `Note **:` emphasis spacin
 3. Recorded `summary1.json` through `summary4.json` for the Node correction counters.
 4. Compared completed pass trees with `git diff --no-index --name-only` and confirmed `166 -> 48 -> 3 -> 0` net diffs.
 
-### Related files
+### Replay related files
 
 - `analysis/tickets/phase-4/RHI-045-long-tail-taxonomy-batch.md`
 - `scripts/migration/apply-content-corrections.js`
@@ -181,3 +181,103 @@ Those residual diffs were list indentation, malformed `Note **:` emphasis spacin
 - `tmp/rhi045_rerun_snapshots/summary2.json`
 - `tmp/rhi045_rerun_snapshots/summary3.json`
 - `tmp/rhi045_rerun_snapshots/summary4.json`
+
+## Resolution update (2026-03-12, convergence-aware correction pipeline)
+
+### Resolution change summary
+
+- Added `scripts/migration/run-correction-pipeline.js` and repointed `npm run migrate:apply-corrections` to the new runner.
+- Tightened `scripts/migration/apply-content-corrections.js` for the dominant non-idempotent signatures: fenced-code wrapper indentation, nested-list indentation preservation, standalone emphasis handling, malformed emphasis spacing, and malformed autolink cleanup.
+- Revalidated the current staged corpus with a fresh temp-copy two-run replay and confirmed the external rerun contract is now satisfied.
+
+### Resolution behavior details
+
+#### Previous behavior
+
+- A single `npm run migrate:apply-corrections` run did not reach a stable filesystem end state.
+- Temp-copy replays of the current staged corpus required repeated external reruns to converge and still failed the first-rerun zero-change requirement.
+
+#### Updated behavior
+
+- `npm run migrate:apply-corrections` now runs a convergence-aware pipeline wrapper:
+  1. run `scripts/migration/apply-content-corrections.js`
+  2. run `markdownlint-cli2 --fix`
+  3. snapshot the staged Markdown tree
+  4. repeat until the staged tree stops changing or the configured pass cap is reached
+- `migration/reports/content-corrections-summary.json` is now written as a pipeline-level summary for the full command and records:
+  - net `filesChanged` for the whole command
+  - `converged`
+  - `convergencePasses`
+  - `rawFilesChangedFirstPass`
+  - `rawFilesChangedLastPass`
+  - per-pass `passSummaries`
+
+### Resolution impact
+
+- The RHI-045 correction-rerun blocker is resolved at the pipeline level.
+- The current staged corpus now satisfies the external zero-change rerun requirement even though raw internal correction passes still report transient normalization work before markdownlint restores the stable end state.
+- Maintainers now have a summary artifact that reflects the full pipeline contract instead of a single raw pass.
+
+### Resolution verification
+
+1. Ran `node scripts/migration/run-correction-pipeline.js --content-dir tmp/rhi045_pipeline_validate2/content --summary-report tmp/rhi045_pipeline_validate2/summary-run1.json --alt-audit-report tmp/rhi045_pipeline_validate2/alt-run1.csv --link-audit-report tmp/rhi045_pipeline_validate2/link-run1.csv` against a temp copy of the current `migration/output/content/` corpus.
+2. Confirmed first-run convergence in `4` internal passes with:
+   - raw script changes: `166 -> 25 -> 19 -> 16`
+   - net pass-to-pass diffs: `166 -> 12 -> 3 -> 0`
+3. Re-ran the same command against the already-stable temp corpus and confirmed:
+   - `summary-run2.json -> filesChanged: 0`
+   - `summary-run2.json -> convergencePasses: 1`
+   - `run1-run2-diff.txt` is empty
+
+### Resolution related files
+
+- `scripts/migration/apply-content-corrections.js`
+- `scripts/migration/run-correction-pipeline.js`
+- `package.json`
+- `analysis/tickets/phase-4/RHI-045-long-tail-taxonomy-batch.md`
+- `tmp/rhi045_pipeline_validate2/summary-run1.json`
+- `tmp/rhi045_pipeline_validate2/summary-run2.json`
+- `tmp/rhi045_pipeline_validate2/run1-run2-diff.txt`
+
+## Follow-up update (2026-03-12, real staged corpus rerun and PR #27 merge-evidence guardrail)
+
+### Follow-up change summary
+
+- Reran `npm run migrate:apply-corrections` against the real staged corpus in `migration/output/content/` and refreshed checked-in correction artifacts.
+- Updated PR-facing checklist and sign-off wording in RHI-045 so pre-merge evidence can be marked complete without marking merge-dependent completion complete.
+
+### Follow-up rationale
+
+- The follow-up request required two explicit outcomes: refresh checked-in correction artifacts on the real staged corpus and tighten PR #27 completion wording around direct merge evidence.
+
+### Follow-up behavior details
+
+#### Follow-up previous behavior
+
+- The checked-in correction summary reflected an older run state (`filesChanged: 166`) and did not reflect the latest real-corpus rerun.
+- PR closeout wording still allowed interpretation that pre-merge approval could imply completion without direct GitHub merge evidence.
+
+#### Follow-up new behavior
+
+- The refreshed `migration/reports/content-corrections-summary.json` now records `filesChanged: 0`, `convergencePasses: 1`, `rawFilesChangedFirstPass: 16`, `rawFilesChangedLastPass: 16`, and pass-level net deltas.
+- `migration/reports/image-alt-corrections-audit.csv` was regenerated from the same real-corpus run.
+- RHI-045 now marks the PR-open checklist slice as complete while keeping merge-dependent completion open until merged PR state plus merge-commit URL on `main` is recorded.
+
+### Follow-up impact
+
+- Pre-merge correction evidence is now current and can be referenced as refreshed.
+- RHI-045 and downstream sign-off must remain In Progress until direct GitHub merge evidence is captured.
+
+### Follow-up verification
+
+1. Ran `npm run migrate:apply-corrections` from the repository root against the real staged corpus.
+2. Confirmed `migration/reports/content-corrections-summary.json` reports `filesChanged: 0` with convergence metadata.
+3. Confirmed correction report deltas exist in `migration/reports/content-corrections-summary.json` and `migration/reports/image-alt-corrections-audit.csv`.
+4. Updated and reviewed PR-facing acceptance/task wording in `analysis/tickets/phase-4/RHI-045-long-tail-taxonomy-batch.md`.
+
+### Follow-up related files
+
+- `migration/reports/content-corrections-summary.json`
+- `migration/reports/image-alt-corrections-audit.csv`
+- `analysis/tickets/phase-4/RHI-045-long-tail-taxonomy-batch.md`
+- `analysis/documentation/phase-4/rhi-045-correction-rerun-nonconvergence-2026-03-12.md`

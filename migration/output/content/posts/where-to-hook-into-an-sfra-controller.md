@@ -45,9 +45,9 @@ It can be used to customise the session behaviour (like [plugin\_slas](https://g
 
 Dangerous Like the onRequest hook, any delay or exception introduced here can be devastating.
 
-## SFRA Routes?
+## SFRA Routes
 
-[![A screenshot of the Home.js controller file of the standard SFRA. It contains two routes: Show and ErrorNotFound.](/media/2024/home-controller-routes-in-sfra-ca8b9d167a.jpg)](/media/2024/home-controller-routes-in-sfra-ca8b9d167a.jpg)
+[![Standard Home.js controller with Show and ErrorNotFound routes.](/media/2024/home-controller-routes-in-sfra-ca8b9d167a.jpg)](/media/2024/home-controller-routes-in-sfra-ca8b9d167a.jpg)
 
 The "home.js" controller file of SFRA
 
@@ -58,8 +58,8 @@ When a user navigates to a specific URL within the SFRA storefront, the controll
 
 The standard available options, and the most common ones, are:
 
--   GET
--   POST
+- GET
+- POST
 
 These will serve as the 'base route', the starting point of our project. But remember, this is just the beginning. We have the power to extend and customize this base route of SFRA, as we'll discover in the options outlined in this blog post.
 
@@ -67,31 +67,25 @@ These will serve as the 'base route', the starting point of our project. But rem
 
 Cartridge Path In this example, we are assuming that there is only one extra cartridge in the cartridge path. This simplifies the explanation, as adding more than one cartridge to the path with an expanding function would make it more difficult to understand.
 
-[![](/media/2024/home-show-sfra-controller-be0043f3bf.jpg)](/media/2024/home-show-sfra-controller-be0043f3bf.jpg)
+[![Flow diagram of the standard Home-Show controller logic.](/media/2024/home-show-sfra-controller-be0043f3bf.jpg)](/media/2024/home-show-sfra-controller-be0043f3bf.jpg)
 
 The standard Home-Show controller logic visualised
 
-```
-
-					Cartridge path: plugin_custom:app_storefront_base
-
-
+```text
+Cartridge path: plugin_custom:app_storefront_base
 ```
 
 ### server.prepend()
 
-The \`server.prepend\` function adds a middleware function to the beginning of the route stack. This allows you to execute code before the base (app\_storefront\_base) processing begins.
+The \`server.prepend\` function adds a middleware function to the beginning of the route stack. This allows you to execute code before the base (app\_storefront\_ base) processing begins.
 
 Here's a simple example of how you can use \`server.prepend\` with the homepage function:
 
-```
-
-					server.prepend('Show', function (req, res, next) {
+```js
+server.prepend('Show', function (req, res, next) {
  // Your code here will be executed before the app_storefront_base
  next();
 });
-
-
 ```
 
 [![SFRA prepending of Home-Show](/media/2024/sfra-prepend-home-show-de79cdab82.jpg)](/media/2024/sfra-prepend-home-show-de79cdab82.jpg)
@@ -102,18 +96,15 @@ Fun Fact Prepending was one of the first [pull requests](https://github.com/Sale
 
 ### server.append()
 
-The \`server.append\` function adds a middleware function to the end of the route stack. This allows you to execute code after the base (app\_storefront\_base) processing finishes.
+The \`server.append\` function adds a middleware function to the end of the route stack. This allows you to execute code after the base (app\_storefront\_ base) processing finishes.
 
 Here's a simple example of how you can use \`server.append\` with the homepage function:
 
-```
-
-					server.append('Show', function (req, res, next) {
+```js
+server.append('Show', function (req, res, next) {
  // Your code here will be executed after the show function in app_storefront_base
  next();
 });
-
-
 ```
 
 [![SFRA appending of Home-Show](/media/2024/sfra-append-home-show-f8e98c7dcd.jpg)](/media/2024/sfra-append-home-show-f8e98c7dcd.jpg)
@@ -122,27 +113,24 @@ Visualising what "appending" does in a single route (Home-Show)
 
 ### server.replace()
 
-The \`server.replace\` function replaces the entire route stack up until that point. This allows you to replace code in the base (app\_storefront\_base) fully.
+The \`server.replace\` function replaces the entire route stack up until that point. This allows you to replace code in the base (app\_storefront\_ base) fully.
 
 Here's a simple example of how you can use \`server.replace\` with the homepage function:
 
-```
-
-					server.replace('Show', function (req, res, next) {
-    var Site = require('dw/system/Site');
-    var PageMgr = require('dw/experience/PageMgr');
-    var pageMetaHelper = require('*/cartridge/scripts/helpers/pageMetaHelper');
-    pageMetaHelper.setPageMetaTags(req.pageMetaData, Site.current);
-    var page = PageMgr.getPage('homepage');
-    if (page && page.isVisible()) {
-        res.page('homepage');
-    } else {
-        res.render('home/homePage');
-    }
-    next();
+```js
+server.replace('Show', function (req, res, next) {
+var Site = require('dw/system/Site');
+var PageMgr = require('dw/experience/PageMgr');
+var pageMetaHelper = require('*/cartridge/scripts/helpers/pageMetaHelper');
+pageMetaHelper.setPageMetaTags(req.pageMetaData, Site.current);
+var page = PageMgr.getPage('homepage');
+if (page && page.isVisible()) {
+res.page('homepage');
+} else {
+res.render('home/homePage');
+}
+next();
 });
-
-
 ```
 
 [![SFRA replacing of Home-Show](/media/2024/sfra-replace-home-show-d90b35f072.jpg)](/media/2024/sfra-replace-home-show-d90b35f072.jpg)
@@ -153,28 +141,25 @@ Visualising what "replacing" does in a single route (Home-Show)
 
 The options explained above already give you quite a bit of flexibility. But what if I told you there is even more to come? The route itself also exposes a few "events" in which we can hook into:
 
--   **route:Start:** Executes at the start of the route, before any middleware defined using "server.\*"
--   **route:BeforeComplete:** Executes after all route middleware is finished but before the "route:Complete" event.
--   **route:Complete:** The final event, after everything else.
--   **route:Step:** Executed between each route middleware.
--   **route:Redirect:** Executed when a "res.redirect()" is executed.
+- **route: Start:** Executes at the start of the route, before any middleware defined using "server.\*"
+- **route: BeforeComplete:** Executes after all route middleware is finished but before the "route:Complete" event.
+- **route: Complete:** The final event, after everything else.
+- **route: Step:** Executed between each route middleware.
+- **route: Redirect:** Executed when a "res.redirect()" is executed.
 
-```
-
-					server.replace('Show', function (req, res, next) {
-     this.on('route:BeforeComplete', function (req, res) {
-        var viewData = res.getViewData();
-       // Your custom logic, executed at the end of the route
-    });
-    next();
+```js
+server.replace('Show', function (req, res, next) {
+this.on('route:BeforeComplete', function (req, res) {
+var viewData = res.getViewData();
+// Your custom logic, executed at the end of the route
 });
-
-
+next();
+});
 ```
 
 ## Bringing it all together
 
-[![](/media/2024/sfra-home-route-with-all-extension-points-2-7e4462fe3e.jpg)](/media/2024/sfra-home-route-with-all-extension-points-2-7e4462fe3e.jpg)
+[![Combined diagram of SFRA route middleware and hook extension points.](/media/2024/sfra-home-route-with-all-extension-points-2-7e4462fe3e.jpg)](/media/2024/sfra-home-route-with-all-extension-points-2-7e4462fe3e.jpg)
 
 Bringing all of the options together!
 

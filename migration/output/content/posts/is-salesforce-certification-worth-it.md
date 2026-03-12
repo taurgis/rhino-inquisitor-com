@@ -17,7 +17,7 @@ author: Thomas Theunen
 ---
 A common question within Salesforce (and other ecosystems) is the value of being a [certified professional](https://www.rhino-inquisitor.com/certifications-for-salesforce-b2c-commerce-cloud/).  To get certified, you need to spend a substantial amount of time to prepare in some cases (I'm looking at you, the [Certified Technical Architects](https://www.salesforceben.com/become-a-salesforce-certified-technical-architect/) 😁.) And it isn't exactly free. Each attempt will set you back a few hundred dollars. In some cases, even a few thousand. I'm looking at you again, the CTA's. So it is understandable that new people to the ecosystem want to understand why they should make the investment (or the employer).
 
-## Is it worth it?
+## Is it worth it
 
 Let's get this question out of the way as soon as possible. Yes, it is. But why is it worth your effort and time? Let's look at a few benefits!
 
@@ -29,9 +29,9 @@ Certifications (and Accreditations) can verify that your knowledge is on par wit
 
 Let's turn that previous topic upside down. Maybe you still need project experience, but you have one in a few weeks/months. You want to be prepared! But where to start? A certification could be a good guideline for getting to know the platform, features, and capabilities. And it is always nice that you can take the exam at the end of the road, which will verify if you understand the concepts you have been learning about in the past weeks and months.
 
-## Does it benefit someone else?
+## Does it benefit someone else
 
-![](/media/2022/benefit-a5b0552ef8.jpg)
+![Illustration emphasizing the wider benefits of certification.](/media/2022/benefit-a5b0552ef8.jpg)
 
 Of course, getting certified does not only benefit you! Many benefit from you being a Certified Professional!
 
@@ -43,9 +43,9 @@ If you work for an ISV (Independent Software Vendor) or SI (System Integrator), 
 
 It shouldn't surprise you that Salesforce themselves benefit from providing certifications! They benefit most from this system, but let me tell you why.
 
-1.  **It is an excellent way to see and grow partner expertise**: The eco-system becomes more prominent every year, and more and more companies join the fray. Salesforce needs measurement tools to pick the best partner for each client to pitch. Certifications are an excellent way to be pointed in the right direction (but it is only some of it)!
-2.  **It benefits Salesforce customers:** Having Certified Professionals ensures they have the knowledge to help customers with their challenges and needs. You can't just let anyone do an implementation, which might end in disaster if they do not have the required knowledge in-house!
-3.  **It is a steady income:** Salesforce invests in creating these certifications, but there is an ROI because so many people take them (and the trainings to prepare).
+1. **It is an excellent way to see and grow partner expertise:** The eco-system becomes more prominent every year, and more and more companies join the fray. Salesforce needs measurement tools to pick the best partner for each client to pitch. Certifications are an excellent way to be pointed in the right direction (but it is only some of it)!
+1. **It benefits Salesforce customers:** Having Certified Professionals ensures they have the knowledge to help customers with their challenges and needs. You can't just let anyone do an implementation, which might end in disaster if they do not have the required knowledge in-house!
+1. **It is a steady income:** Salesforce invests in creating these certifications, but there is an ROI because so many people take them (and the trainings to prepare).
 
 ### Salesforce Customers
 
@@ -55,7 +55,7 @@ Companies put their trust in you to do an exemplary implementation of Salesforce
 
 This one is a bit controversial since you have to spend money to get a job to earn money. And this is not possible for everyone! So do you need a certification to land a job in Salesforce? Absolutely not!
 
-![](/media/2022/you-dont-hire-for-skills-you-hire-for-attitude-you-0d3739fc5c.jpg)
+![Simon Sinek quote about hiring for attitude rather than only skills.](/media/2022/you-dont-hire-for-skills-you-hire-for-attitude-you-0d3739fc5c.jpg)
 
 Unfortunately, not everyone hires with the mindset of this quote by [Simon Sinek](https://simonsinek.com/). I hire for my team at [Forward](https://www.forward.eu) and have hired many people with no certifications or experience in the Salesforce ecosystem. If you are willing to invest, the certifications on your resume will put you higher up in the resume pile - above the people without them (on the same experience level).
 
@@ -68,19 +68,18 @@ You just hired your first Certified Professional, with five certifications in al
 No matter how well you understand the theory and exercises on Trailhead, they will never match the [complexity of a real-life project](https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/go-live/). Doing projects in a team and learning from your more experienced peers will give you more knowledge than preparing for a certification ever will. You will hit "walls" in projects that need inventive ways around (or demolish) that you will not experience in Trailhead modules or superbadges. On the [latest episode](https://developer.salesforce.com/podcast/2022/11/episode-150-b2c-and-b2b-solution-architecture-with-shoby-abdi) of the Salesforce Developer Podcast, I heard a few sentences that resonated:
 
 > An MQC is what’s called a **minimally-qualified** candidate. This is an individual who with at least some preparation, some experience, can they take this exam and pass it. The reason behind that minimally-qualified candidate, once again, it’s the words, “Minimally-qualified.” Do they have just enough to make it real?
->
 > Shoby Abdi
 
 With just the certificate pass, you will have just enough (minimally qualified) knowledge to get projects up and running. Still, there is **a lot of room to grow** in experience - and this experience will consist of challenges you might run into and how to resolve them in the best possible way! If you are put on a complex project without prior experience, ensure you have someone who has your back when \*\*\*\* hits the fan! You might worsen things and wall yourself in if you are alone without expert help.
 
 ### Cheating
 
-![](/media/2022/reality-is-a-harsh-mistress-f67c988867.jpg)
+![Illustration introducing the harsher realities behind certifications.](/media/2022/reality-is-a-harsh-mistress-f67c988867.jpg)
 
 Unfortunately, we live in a world where not everyone makes an effort to get certified correctly. There are many ways to cheat on certifications:
 
--   **Exam Dumps:** People buy actual exams with questions and answers and study that instead. You are not learning anything by doing this.
--   **Have someone else take the exam:** This is something relatively new I saw pop up on Twitter. People are getting messages from companies who offer to take the exam for you with a 100% promise of passing. You won't learn anything at all by going this route. Plus, you will be paying for the exam and the service.
+- **Exam Dumps:** People buy actual exams with questions and answers and study that instead. You are not learning anything by doing this.
+- **Have someone else take the exam:** This is something relatively new I saw pop up on Twitter. People are getting messages from companies who offer to take the exam for you with a 100% promise of passing. You won't learn anything at all by going this route. Plus, you will be paying for the exam and the service.
 
 ### Some certifications are just too easy
 

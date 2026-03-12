@@ -17,37 +17,37 @@ Rome wasn't built in one day, and neither will this list!
 
 6 Videos
 
-![](/media/external/maxresdefault-7015ae5c52.jpg)
+![Video thumbnail for The path to being an Architect.](/media/external/maxresdefault-7015ae5c52.jpg)
 
 ### The path to being an Architect
 
 51:12
 
-![](/media/external/maxresdefault-8d65474e08.jpg)
+![Video thumbnail for FORWARD TV - Headless.](/media/external/maxresdefault-8d65474e08.jpg)
 
 ### FORWARD TV - Headless
 
 23:42
 
-![](/media/external/maxresdefault-69627c54a3.jpg)
+![Video thumbnail for Connections 2022 - Receiving the Golden Hoodie.](/media/external/maxresdefault-69627c54a3.jpg)
 
 ### Connections 2022 - Receiving the Golden Hoodie
 
 5:08
 
-![](/media/external/maxresdefault-d89d97bb12.jpg)
+![Video thumbnail for Me, Myself and Headless: A composable Commerce Cloud Story.](/media/external/maxresdefault-d89d97bb12.jpg)
 
 ### Me, Myself and Headless: A composable Commerce Cloud Story
 
 49:25
 
-![](/media/external/maxresdefault-cca267c1bb.jpg)
+![Video thumbnail for Connecting The Clouds: Wedding or funeral.](/media/external/maxresdefault-cca267c1bb.jpg)
 
 ### Connecting The Clouds: Wedding or funeral
 
 49:55
 
-![](/media/2022/yte-hd-image-96d2c1f499.jpg)
+![Video thumbnail for EP9: Thomas Theunen - Golden Hoodie Recipient 2022.](/media/2022/yte-hd-image-96d2c1f499.jpg)
 
 ### EP9: Thomas Theunen - Golden Hoodie Recipient 2022
 

@@ -15,9 +15,9 @@ author: Thomas Theunen
 ---
 TL;DR It is not possible to set a dynamic ID in the `<isslot>` tag.
 
-![Screenshot of the isslot official documentation.](/media/2023/isslot-element-d83390209d.jpg)
+![Official isslot documentation showing the static slot identifier requirement.](/media/2023/isslot-element-d83390209d.jpg)
 
--   [Official Documentation](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-isslot.html?q=isslot)
+- [Official Documentation](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-isslot.html?q=isslot)
 
 For quite some time now, Content Slots have been the go-to method for displaying personalized or scheduled content. However, the advent of Page Designer has given rise to a new option.
 

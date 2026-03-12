@@ -21,11 +21,11 @@ One of its features, called "[Autodocs](https://storybook.js.org/docs/7.0/react/
 
 Recently, I ran into an issue related to using JSDoc with Storybook. JSDoc was being printed out as Markdown but was erroneously formatted. Further, it was trying to execute the @example code, which led to console errors. I want to share how I resolved the issue through this blog post.
 
-![Storybook JSDocs before screenshot. We see way to much information.](/media/2023/storybook-jsdocs-before-90d7cc5222.png)
+![Storybook Autodocs before filtering, showing excessive JSDoc output.](/media/2023/storybook-jsdocs-before-90d7cc5222.png)
 
 Before
 
-![Storybook JSDocs after screenshot. We no longer see anything except the description.](/media/2023/storybook-jsdocs-after-8063d0ff66.png)
+![Storybook Autodocs after filtering, showing only the cleaned description.](/media/2023/storybook-jsdocs-after-8063d0ff66.png)
 
 After
 
@@ -41,9 +41,8 @@ The problem primarily lay in how `<Description/>` was utilised in preview.js. As
 
 Luckily storybook allows us to customise the page templates by setting the "page" rendering function in preview.js(x).
 
-```
-
-					// .storybook/preview.jsx
+```html
+// .storybook/preview.jsx
 import { Title, Subtitle, Description, Primary, Controls, Stories } from '@storybook/blocks';
 export default {
   parameters: {
@@ -68,64 +67,59 @@ export default {
     },
   },
 };
-
-
 ```
 
-And the component of interest in this override is the ``<Description />`!`
+And the component of interest in this override is the `<Description />`!`
 
 ### Create a custom description component
 
 To create our component, I decided to dig into the Storybook source code to see what is necessary:
 
-1.  The description
-2.  Our own component
+1. The description
+1. Our own component
 
 #### Getting the description
 
 After digging into the code I found this function:
 
-```
-
-					const getDescriptionFromResolvedOf = (resolvedOf) => {
-    switch (resolvedOf.type) {
-        case 'story': {
-            return resolvedOf.story.parameters.docs?.description?.story || null;
-        }
-        case 'meta': {
-            const { parameters, component } = resolvedOf.preparedMeta;
-            const metaDescription = parameters.docs?.description?.component;
-            if (metaDescription) {
-                return metaDescription;
-            }
-            return (
-                parameters.docs?.extractComponentDescription?.(component, {
-                    component,
-                    parameters,
-                }) || null
-            );
-        }
-        case 'component': {
-            const {
-                component,
-                projectAnnotations: { parameters },
-            } = resolvedOf;
-            return (
-                parameters.docs?.extractComponentDescription?.(component, {
-                    component,
-                    parameters,
-                }) || null
-            );
-        }
-        default: {
-            throw new Error(
-                `Unrecognized module type resolved from 'useOf', got: ${(resolvedOf).type}`
-            );
-        }
-    }
+```js
+const getDescriptionFromResolvedOf = (resolvedOf) => {
+switch (resolvedOf.type) {
+case 'story': {
+return resolvedOf.story.parameters.docs?.description?.story || null;
+}
+case 'meta': {
+const { parameters, component } = resolvedOf.preparedMeta;
+const metaDescription = parameters.docs?.description?.component;
+if (metaDescription) {
+return metaDescription;
+}
+return (
+parameters.docs?.extractComponentDescription?.(component, {
+component,
+parameters,
+}) || null
+);
+}
+case 'component': {
+const {
+component,
+projectAnnotations: { parameters },
+} = resolvedOf;
+return (
+parameters.docs?.extractComponentDescription?.(component, {
+component,
+parameters,
+}) || null
+);
+}
+default: {
+throw new Error(
+`Unrecognized module type resolved from 'useOf', got: ${(resolvedOf).type}`
+);
+}
+}
 };
-
-
 ```
 
 This function will extract the description based on what page we are looking at!
@@ -134,27 +128,24 @@ This function will extract the description based on what page we are looking at!
 
 Now we need our own component to utilise this function:
 
-```
-
-					const ModifiedDescription = (props) => {
-    const { of } = props;
-    if ('of' in props && of === undefined) {
-        throw new Error('Unexpected `of={undefined}`, did you mistype a CSF file reference?');
-    }
-    const resolvedOf = useOf(of || 'meta');
-    // if @param exists, only show description up to @param
-    let description = getDescriptionFromResolvedOf(resolvedOf);
-    if (description) {
-        description = description.split('@param')[0];
-    }
-    return (
+```js
+const ModifiedDescription = (props) => {
+const { of } = props;
+if ('of' in props && of === undefined) {
+throw new Error('Unexpected `of={undefined}`, did you mistype a CSF file reference?');
+}
+const resolvedOf = useOf(of || 'meta');
+// if @param exists, only show description up to @param
+let description = getDescriptionFromResolvedOf(resolvedOf);
+if (description) {
+description = description.split('@param')[0];
+}
+return (
 
             {description}
 
     )
 }
-
-
 ```
 
 Here, we use Storybook's built-in Markdown to display the content by removing everything after '@param'. This results in displaying only the description we wanted.
@@ -163,39 +154,35 @@ Here, we use Storybook's built-in Markdown to display the content by removing ev
 
 Next, we replace the `<Description/>` in the Docs.page of Storybook with our custom `<ModifiedDescription/>` component.
 
-```
+```html
+const preview = {
+parameters: {
+    docs: {
+        page: () => (
+                <>
 
-					 const preview = {
-    parameters: {
-        docs: {
-            page: () => (
-                    <>
-
-                        <Subtitle />
-                        <ModifiedDescription />
-                        <Primary />
-                        <Controls />
-                        <Stories />
-                    </>
-                )
-        },
-    };
-
-
+                    <Subtitle />
+                    <ModifiedDescription />
+                    <Primary />
+                    <Controls />
+                    <Stories />
+                </>
+            )
+    },
+};
 ```
 
 ## Putting it all together
 
-```
-
-					import {
-    Title,
-    Subtitle,
-    Primary,
-    Controls,
-    Stories,
-    useOf,
-    Markdown
+```html
+import {
+Title,
+Subtitle,
+Primary,
+Controls,
+Stories,
+useOf,
+Markdown
 } from '@storybook/blocks';
 const getDescriptionFromResolvedOf = (resolvedOf) => {
     switch (resolvedOf.type) {
@@ -269,7 +256,4 @@ const preview = {
   },
 };
 export default preview;
-
-
-
 ```

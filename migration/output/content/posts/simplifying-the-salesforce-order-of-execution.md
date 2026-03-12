@@ -23,7 +23,7 @@ When it comes to understanding how Salesforce operates, there are many factors t
 
 For the impatient amongst us, here is the diagram showing the simplified representation of the "Order of Execution" based on [the original diagram posted on the Salesforce Architects blog](https://medium.com/salesforce-architects/salesforce-order-of-execution-visualized-76ac45721eba).
 
-[![](/media/2023/order-of-execution-simplified-apex-api-v56-0-23130ad657.png)](/media/2023/order-of-execution-simplified-apex-api-v56-0-23130ad657.png)
+[![Simplified Salesforce order-of-execution diagram.](/media/2023/order-of-execution-simplified-apex-api-v56-0-23130ad657.png)](/media/2023/order-of-execution-simplified-apex-api-v56-0-23130ad657.png)
 
 [View on Lucid](https://lucid.app/lucidchart/17edf202-1994-4772-8a0b-4d2835a9799e/edit?viewport_loc=3530%2C810%2C1844%2C838%2C0_0&invitationId=inv_f7af9e9a-9783-47ca-ab06-1142226cad87)
 
@@ -39,16 +39,16 @@ Small (or significant) changes happen to the "Order of Execution" over time. And
 
 When looking at all the different [automation tools](https://help.salesforce.com/s/articleView?id=sf.process_which_tool.htm&language=en_US) available within the Salesforce platform, it is easy to get overwhelmed. And that is not even considering the order they are executed in on the data.
 
--   [Workflow Rules](https://help.salesforce.com/s/articleView?id=customize_wf.htm) (retiring)
--   [Process Builder](https://help.salesforce.com/s/articleView?id=sf.process_overview.htm&type=5&language=en_US) (retiring)
--   [Flow Builder](https://help.salesforce.com/s/articleView?id=sf.flow.htm&type=5&language=en_US)
--   [Apex](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_triggers.htm)
--   [Assignment Rules](https://help.salesforce.com/s/articleView?id=sf.customize_leadrules.htm&language=en_US) (Lead & Case)
--   [Escalation Rules](https://help.salesforce.com/s/articleView?id=sf.rules_escalation_best_practices.htm&type=5) (Case)
--   [Entitlement Rules](https://help.salesforce.com/s/articleView?id=sf.entitlements_overview.htm&type=5) (Case & Work Order)
--   [Sharing Rules](https://help.salesforce.com/apex/HTViewHelpDoc?id=sf.security_about_sharing_rules.htm&language=en_us)
--   [Restriction Rules](https://help.salesforce.com/s/articleView?id=sf.security_restriction_rule.htm&release=240.17.0&language=en_us&type=5)
--   [Validation Rules](https://help.salesforce.com/s/articleView?id=sf.fields_defining_field_validation_rules.htm&type=5)
+- [Workflow Rules](https://help.salesforce.com/s/articleView?id=customize_wf.htm) (retiring)
+- [Process Builder](https://help.salesforce.com/s/articleView?id=sf.process_overview.htm&type=5&language=en_US) (retiring)
+- [Flow Builder](https://help.salesforce.com/s/articleView?id=sf.flow.htm&type=5&language=en_US)
+- [Apex](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_triggers.htm)
+- [Assignment Rules](https://help.salesforce.com/s/articleView?id=sf.customize_leadrules.htm&language=en_US) (Lead & Case)
+- [Escalation Rules](https://help.salesforce.com/s/articleView?id=sf.rules_escalation_best_practices.htm&type=5) (Case)
+- [Entitlement Rules](https://help.salesforce.com/s/articleView?id=sf.entitlements_overview.htm&type=5) (Case & Work Order)
+- [Sharing Rules](https://help.salesforce.com/apex/HTViewHelpDoc?id=sf.security_about_sharing_rules.htm&language=en_us)
+- [Restriction Rules](https://help.salesforce.com/s/articleView?id=sf.security_restriction_rule.htm&release=240.17.0&language=en_us&type=5)
+- [Validation Rules](https://help.salesforce.com/s/articleView?id=sf.fields_defining_field_validation_rules.htm&type=5)
 
  All in all, quite a list, correct? But behind a few of them, we notice that they are retiring or only apply to one or two object types. So what happens if we take those out of the equation? Does that make our "Order of Execution" easier?
 
@@ -56,29 +56,29 @@ When looking at all the different [automation tools](https://help.salesforce.com
 
 Salesforce [announced in 2021](https://admin.salesforce.com/blog/2021/go-with-the-flow-whats-happening-with-workflow-rules-and-process-builder) that it is retiring the Workflow Rules and Process Builder features in favour of Flow. This change is part of Salesforce's effort to streamline and modernize its platform. For those unfamiliar with Workflow and Process Builder, they are tools that allow users to automate various processes within Salesforce. Workflow Rules is a set of rules that can automatically trigger specific actions based on certain criteria, such as sending an email or updating a field. On the other hand, Process Builder is a visual tool for building automated processes and workflows, allowing users to create complex automation without needing code. It's worth noting that Workflow Rules and Process Builder will not disappear overnight – Salesforce has stated that they will continue supporting these features for the foreseeable future. However, it is strongly recommended that users begin transitioning to Flow as soon as possible, as support for Workflow Rules and Process Builder will eventually be phased out. The first signs are already here, as [you can no longer create new Workflow Rules](https://help.salesforce.com/s/articleView?id=release-notes.rn_automate_flow_mgmt_block_workflow_rules.htm&release=240.17.0&language=en_us&type=5). And yes, not being able to create new automation with Process Builder is next! _So let us take these out of the equation, shall we? Why? Because they are known for some quirky behaviour_:
 
--   The order of execution takes a turn for the worse in complexity
-    -   Custom validation rules, flows, duplicate rules, processes, and escalation rules aren't run again with Workflow field updates.
-    -   Workflow Rules executes before update triggers and after update triggers, regardless of the record operation (insert or update), one more time (and only one more time).
--   Recursion (up to 5 more times) in both Workflow Rules and Process Builder
--   Workflow Rules and Process Builder can run Flows - that's a fun one to start debugging
+- The order of execution takes a turn for the worse in complexity
+  - Custom validation rules, flows, duplicate rules, processes, and escalation rules aren't run again with Workflow field updates.
+  - Workflow Rules executes before update triggers and after update triggers, regardless of the record operation (insert or update), one more time (and only one more time).
+- Recursion (up to 5 more times) in both Workflow Rules and Process Builder
+- Workflow Rules and Process Builder can run Flows - that's a fun one to start debugging
 
 ### Object specific features
 
 Another consideration to simplify the chain is to look at processes that only run for a limited set of objects. It may have all started with Sales and Service Cloud. But in the meantime, many new products have joined the ecosystem that do not rely on these object types (and the automation that comes with them). Knowing that we can eliminate:
 
--   Assignment Rules (Lead & Case)
--   Escalation Rules (Case)
--   Entitlement Rules (Case & Work Order)
+- Assignment Rules (Lead & Case)
+- Escalation Rules (Case)
+- Entitlement Rules (Case & Work Order)
 
 ## Putting it all together
 
 Now that we have taken out all the above from consideration, we end up with the following updated visual:
 
-[![](/media/2023/order-of-execution-simplified-apex-api-v56-0-23130ad657.png)](/media/2023/order-of-execution-simplified-apex-api-v56-0-23130ad657.png)
+[![Simplified Salesforce order-of-execution diagram.](/media/2023/order-of-execution-simplified-apex-api-v56-0-23130ad657.png)](/media/2023/order-of-execution-simplified-apex-api-v56-0-23130ad657.png)
 
 [View on Lucid](https://lucid.app/lucidchart/17edf202-1994-4772-8a0b-4d2835a9799e/edit?viewport_loc=3530%2C810%2C1844%2C838%2C0_0&invitationId=inv_f7af9e9a-9783-47ca-ab06-1142226cad87)
 
-## Why create this diagram?
+## Why create this diagram
 
 I am well aware that there is [already a clear and documented visual](https://medium.com/salesforce-architects/salesforce-order-of-execution-visualized-76ac45721eba), and it is linked in the article! But this diagram considers all the items I mentioned before (retiring and object-specific), and I wanted a simplified version taking out all of these and seeing what remained. Not for everyone This diagram is meant to assist those starting a new project or has already migrated all of their automation to Flow. Remember that it may not work for every organization, as many have Workflow Rules and Process Builder automation that cannot be migrated overnight. If you are working on Sales or Service Cloud, the original diagram still applies to you if you use these types of automation. The goal is to help you make informed decisions about your automation strategy.​
 
@@ -90,7 +90,7 @@ When all of the retiring options are taken out, many of the known "quirks" fade 
 
 Another advantage is that debugging the automation becomes a lot easier! There are fewer areas to keep track of, and your logs are cleaner. You don't have to catch them all; it is not a game of Pokémon! [Keep it simple, stupid!](https://en.wikipedia.org/wiki/KISS_principle)
 
-### "Recursion" begone (almost)!
+### "Recursion" begone (almost)
 
 With the disappearance of recursion (up to 5x with Workflow Rules and Process Builder), we do not have to remember that some automation does not run inside that recursion. It is still possible to [create recursion](https://help.salesforce.com/HTViewSolution?id=000199485) with the remaining options, but it is much harder to do so - especially if you follow best practices in Apex and Flow.
 

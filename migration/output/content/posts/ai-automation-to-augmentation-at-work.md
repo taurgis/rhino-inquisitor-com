@@ -21,9 +21,9 @@ And the benefits are undeniable: increased efficiency, improved accuracy, and co
 
 In this article, we will explore the benefits and challenges of AI in the workplace and the steps we can take to prepare. So buckle up because the future of work is here, and it's time to adapt.
 
-## What is AI?
+## What is AI
 
-![](/media/2023/salesforce-einstein-c26c4593ed.jpeg)
+![Salesforce Einstein branding used to introduce workplace AI.](/media/2023/salesforce-einstein-c26c4593ed.jpeg)
 
 AI, or [Artificial Intelligence](https://en.wikipedia.org/wiki/Artificial_intelligence), is a technology that enables machines to perform tasks that would typically require human intelligence. Some examples are speech recognition, decision-making, and language translation.
 
@@ -39,15 +39,13 @@ The benefits of Artificial Intelligence in the workplace are particularly releva
 
 A good example is [the recent plugin I wrote](https://www.forward.eu/blog/the-power-of-openai-and-commerce-cloud/) for Salesforce Commerce cloud with the following features:
 
--   **Generate HTML in Content ([Page Designer](https://documentation.b2c.commercecloud.salesforce.com/DOC3/topic/com.demandware.dochelp/content/b2c_commerce/topics/page_designer/b2c_what_is_page_designer.html) / [Assets](https://documentation.b2c.commercecloud.salesforce.com/DOC3/topic/com.demandware.dochelp/content/b2c_commerce/topics/content/b2c_content_assets.html))**: This feature allows people with minimal HTML / React.js knowledge to generate HTML by describing what they want!
+- **Generate HTML in Content ([Page Designer](https://documentation.b2c.commercecloud.salesforce.com/DOC3/topic/com.demandware.dochelp/content/b2c_commerce/topics/page_designer/b2c_what_is_page_designer.html) / [Assets](https://documentation.b2c.commercecloud.salesforce.com/DOC3/topic/com.demandware.dochelp/content/b2c_commerce/topics/content/b2c_content_assets.html)):** This feature allows people with minimal HTML / React.js knowledge to generate HTML by describing what they want!
 
+- **Generate Texts (Page Designer / Assets):** Need inspiration for an article or FAQ? Let AI help you out!
 
--   **Generate Texts (Page Designer / Assets):** Need inspiration for an article or FAQ? Let AI help you out!
+- **Summarise product information for SEO:** Are you still manually summarising texts for a page title and description for thousands of products? Why not let AI do the hard work?
 
-
--   **Summarise product information for SEO:** Are you still manually summarising texts for a page title and description for thousands of products? Why not let AI do the hard work?
-
-[![](/media/2023/sfcc-content-assets-with-ai-8805d0d3cd.jpg)](/media/2023/sfcc-content-assets-with-ai-8805d0d3cd.jpg)
+[![Content asset editor using AI-assisted generation in Salesforce Commerce Cloud.](/media/2023/sfcc-content-assets-with-ai-8805d0d3cd.jpg)](/media/2023/sfcc-content-assets-with-ai-8805d0d3cd.jpg)
 
 The ideas I have to make repetitive tasks in the business manager easier do not seem to stop!
 
@@ -63,10 +61,9 @@ Using publicly available tools such as ChatGPT is fun to experiment with. But th
 
 Some possible scenarios:
 
--   Message sentiment
--   Scoring data quality of a customer
--   Data completion on personal information
-
+- Message sentiment
+- Scoring data quality of a customer
+- Data completion on personal information
 
 When considering privacy and regulations, you could end up in real trouble! So please think twice before feeding it customer data, and read the fine print!
 
@@ -97,7 +94,7 @@ Another challenge with certain tools, such as ChatGPT, that 'remember' the conte
 
 If we let conversations drag on, it loses the context given to them initially, which can end in frustration. That is why **keeping the conversations short and rebooting occasionally is a good idea**!
 
-### Unemployment?
+### Unemployment
 
 One of the concerns that people have shouted from the rooftops is that specific roles will disappear with this new technology. But is this true? With any new technology, people have repeated this line over and over again.
 
@@ -110,7 +107,6 @@ But isn't that the case with any change? Take the auto industry as an example. T
 As the pace of technological advancement continues to accelerate, it's clear that Artificial Intelligence will play an increasingly important role in the workplace. In the future, we can expect to see even more ways AI will transform our work.
 
 I expect AI to significantly impact "tedious" manual tasks, particularly when large amounts of data must be sifted through to take action. For instance, consider the example of search keywords. In this scenario, Salesforce B2C Commerce Cloud provides reports on the search terms that yield results and those that do not. Matching a list of thousands of words to another can be hours (if not days) of work.
-
 
 **Why not let AI handle this task for you? You can then review the outcomes for accuracy. Imagine the amount of work that could be saved by doing so!**
 

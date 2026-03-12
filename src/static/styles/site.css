@@ -14,6 +14,7 @@
   --ink-inverse: #f4f8ff;
   --accent: #0a5fc8;
   --accent-strong: #003f8a;
+  --accent-strong-hover: #002f68;
   --accent-soft: #d8efff;
   --accent-cyan: #0bc6d3;
   --focus-ring: #0a84ff;
@@ -184,6 +185,15 @@ main {
   white-space: nowrap;
   color: #ffffff;
   background-color: var(--accent-strong);
+  transition: background-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+
+.site-cta:not(.site-cta--outline):hover,
+.site-cta:not(.site-cta--outline):focus-visible {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: var(--accent-strong-hover);
+  transform: translateY(-1px);
 }
 
 .empty-state__action,
@@ -199,6 +209,7 @@ main {
   border: 1px solid transparent;
   font-weight: 700;
   text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
 }
 
 .home-support-strip__secondary,
@@ -215,6 +226,37 @@ main {
   background-color: var(--accent-strong);
   background-image: none;
   box-shadow: 0 14px 24px rgba(17, 141, 255, 0.24);
+}
+
+.empty-state__action:hover,
+.empty-state__action:focus-visible,
+.hero-actions a:first-child:hover,
+.hero-actions a:first-child:focus-visible,
+.lane-header__action:hover,
+.lane-header__action:focus-visible,
+.home-support-strip__secondary:hover,
+.home-support-strip__secondary:focus-visible {
+  text-decoration: none;
+  transform: translateY(-1px);
+}
+
+.empty-state__action:hover,
+.empty-state__action:focus-visible,
+.hero-actions a:first-child:hover,
+.hero-actions a:first-child:focus-visible,
+.lane-header__action:hover,
+.lane-header__action:focus-visible {
+  color: #ffffff;
+  background-color: var(--accent-strong-hover);
+}
+
+.home-support-strip__secondary:hover,
+.home-support-strip__secondary:focus-visible,
+.hero-actions a:last-child:hover,
+.hero-actions a:last-child:focus-visible {
+  color: var(--ink-inverse);
+  background: #0f1d2f;
+  border-color: #354a63;
 }
 
 /* ── Mobile menu toggle ── */
@@ -699,11 +741,15 @@ summary {
   font-weight: 700;
   letter-spacing: 0.04em;
   text-decoration: none;
-  transition: background 0.15s ease;
+  transition: background-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
 }
 
-.topic-pill:hover {
-  background: var(--accent);
+.topic-pill:hover,
+.topic-pill:focus-visible {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: var(--accent-strong-hover);
+  transform: translateY(-1px);
 }
 
 /* ── Homepage newsletter ── */
@@ -748,8 +794,12 @@ summary {
   border: 1px solid var(--surface-border-strong);
 }
 
-.site-cta--outline:hover {
+.site-cta--outline:hover,
+.site-cta--outline:focus-visible {
+  color: var(--ink-strong);
+  text-decoration: none;
   background: rgba(0, 0, 0, 0.04);
+  transform: translateY(-1px);
 }
 
 /* ── Remaining lane/topic/card grid ── */
@@ -978,6 +1028,13 @@ summary {
   background-color: var(--accent-strong);
   background-image: none;
   cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.search-bar button:hover,
+.search-bar button:focus-visible {
+  background-color: var(--accent-strong-hover);
+  transform: translateY(-1px);
 }
 
 .archive-controls__mobile {
@@ -1205,6 +1262,11 @@ summary {
 
 .article-body img {
   border-radius: var(--radius-md);
+}
+
+.article-body-image {
+  display: block;
+  height: auto;
 }
 
 /* ── Summary box ── */

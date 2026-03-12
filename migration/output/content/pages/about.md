@@ -1,8 +1,8 @@
 ---
 title: About
 description: >-
-  Hard Work And Dedication Is The Main Key For Success One important rule when
-  creating a new start-up: There are no shortcuts.
+  Rhino Inquisitor is Thomas Theunen's working notebook for Salesforce B2C
+  Commerce Cloud architecture, delivery lessons, and practical field guidance.
 date: '2022-02-25T21:45:53.000Z'
 lastmod: '2022-02-25T21:45:55.000Z'
 url: /about/
@@ -11,44 +11,44 @@ author: Thomas Theunen
 ---
 ## Hard Work And Dedication Is The Main Key For Success
 
-One important rule when creating a new start-up: There are no shortcuts.
+One important rule when creating a new start-up or rebuilding an existing platform is that there are no shortcuts. Sustainable growth comes from clear priorities, honest trade-offs, and the discipline to keep improving the fundamentals.
 
-[My Mission In Life](#mission)
+[My Mission In Life](#my-mission-statement)
 
 ### My Approach To Company Growth
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. In elementum mi neque, placerat iaculis nulla convallis quis. Suspendisse commodo feugiat felis, a tincidunt augue consequat eu. Praesent egestas lectus libero amet auctor risus tempor sit amet.
+I care about building commerce teams and delivery practices that can scale without becoming fragile. That means combining technical depth with practical decision-making: choosing the right architecture for the current stage, keeping quality visible, and making sure every new capability is something a team can operate with confidence.
 
-Phasellus ac nunc vel urna auctor sodales. Fusce id mauris scelerisque est bibendum gravida. Donec luctus est libero, mattis finibus urna facilisis vel. In tristique ex in dui facilisis malesuada. Etiam sit amet ultrices turpis, et congue nisi. Nullam at efficitur massa, quis eleifend mauris. Nullam sollicitudin ligula et maximus semper. Etiam suscipit elit arcu, nec maximus nibh tempus id. Nullam sit amet est a magna aliquet elementum eget et leo.
+At Forward, I work on Salesforce B2C Commerce Cloud initiatives that sit at the intersection of architecture, delivery, and long-term maintainability. Rhino Inquisitor is where I turn those day-to-day lessons into field guidance for developers, architects, and delivery leads.
 
-![](/media/2022/about-page-pic1-d641346b49.jpg) ![](/media/2022/about-page-pic2-3662ca760e.jpg)
+![Founder portrait at a desk with office plants.](/media/2022/about-page-pic1-d641346b49.jpg)
+
+![Workspace portrait with a laptop and studio greenery.](/media/2022/about-page-pic2-3662ca760e.jpg)
 
 ### My Mission Statement
 
-Lorem ipsum dolor sit amet, consectetur adipiscing eli letum neque placerat iaculis nulla convallis quis. Suspe ndisse commodo feugiat felis, a tincidunt augue consuat praesent egestas lectus libero amet auctor risus tempor sit amet sapien purus varius metus, ornare viverra dui velit sed lectus. Aliquam lorem eros, congue imperdiet eros eu, blandit dapib aloma tolos dory alon moder the old sutter.
+My mission is simple: make complex commerce work easier to understand and safer to implement. I want the content on Rhino Inquisitor to be practical enough for someone to apply the same day, whether the topic is SFCC architecture, debugging, migrations, release changes, or platform governance.
 
-## “Every Good Startup Begins With Preparation And Real Understanding That In Every Moment You Can Fail”
+## Every Good Startup Begins With Preparation And Real Understanding That In Every Moment You Can Fail
 
-### How To Measure Success
+### How I Measure Success
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. In elementum mlo neque, alora too placerat iaculis nulla convallis quis spendisse commdo feugiat felis  tincidunt augue consuat the raesent egestas lectus libero amet auctor risus tempor sit amet. nullam sem nulla, fermentum porta sagittis sed, auctor sit amet ligula.
+Success is not just shipping a feature or launching on time. It is delivering something that improves the customer experience, gives the team confidence, and remains understandable when the pressure is on. If a solution cannot be maintained, monitored, and extended without drama, it is not really done.
 
-Maecenas venenatis lacinia bibendum. Etiam eget elit nisl. Integer convallis sapien quam, sed commodo leomo. purus varius metus, ornare viverra dui velit sed lectus. Aliquam lorem eros, congue imperdiet eros eu, blandit dapibus nisi. Maecenas et libero sit amet
+I measure outcomes by clarity, resilience, and momentum: can the team explain the system, can they trust it in production, and can they move faster because of what they just built?
 
 ### Years Of Experience
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. In elementum mlo neque, alora too placerat iaculis nulla convallis quis spendisse commodo feugiat felis, a tincidunt augue consequat the raesent egestas lectus libero amet auctor risus tempor sit amet.
+I have spent more than a decade working in commerce implementation and strategy, with a strong focus on Salesforce B2C Commerce Cloud. That experience taught me that the best results come from connecting business intent to technical execution instead of treating them as separate conversations.
 
-Diam in arcu cursus esmod quis viverra nibh. Varius morbi enim nunc faucibus a. Vel turpis nunc eget lorem dolor sed viverra Vitae tortor condimentum lacinia quis. Risus ultris tristique nulla aliquet enim tortor. Urna cursus eget nunc scelque villora mauris in. Id aliquet risus feugiat in ante alora tolda folty urban the old foys.
+Rhino Inquisitor exists to document those lessons in a direct way, especially for people who need more than promotional overview content and want the details that actually help them make a decision.
 
-### How Can I Help You With Your Next Adventure?
+### How Can I Help You With Your Next Adventure
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. In elementum mlo neque, alora too placerat iaculis nulla convallis quis spendisse commodo feugiat felis, a tincidunt augue consequat the raesent egestas lectus libero amet auctor risus tempor sit amet.
+If you are working on Salesforce B2C Commerce Cloud, this site is built for you. You will find practical content on architecture decisions, performance, SCAPI and OCAPI, release readiness, migration risks, and the kinds of delivery pitfalls that are easier to avoid than to clean up later.
 
-Diam in arcu cursus esmod quis viverra nibh. Varius morbi enim nunc faucibus a. Vel turpis nunc eget lorem dolor sed viverra Vitae tortor condimentum lacinia quis. Risus ultris tristique nulla aliquet enim tortor cursus eget nunc scelque villo. Id aliquet risus feugiat in ante alora tolda folty urban the old foys.
+Whether you are planning a migration, debugging an integration, or trying to choose a safe implementation path, my goal is to leave you with guidance that is concrete, defensible, and usable.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. In elementum mlo neque, alora too placerat iaculis nulla convallis quis spendisse commodo feugiat felis, a tincidunt augue consequat the raesent egestas lectus libero amet auctor risus tempor sit amet. siam in arcu cursus esmod quis viverra nibh. Varius morbi enim nunc faucibus a. Vel turpis nunc eget.
+### Explore Articles About Growth Strategy and Tips For New Startups
 
-Lorem dolor sed viverra Vitae tortor condimentum lacinia quis. Risus ultris tristique nulla aliquet enim tortor. Urna cursus eget nunc scelora aliquet risus feugiat in ante alora tolda folty urban the old foys.
-
-### Explore Articles about Growth Strategy and Tips For New Startups
+Start with the [blog](/posts/) if you want the latest articles, or browse [topics](/category/) to jump straight into a specific area of Salesforce Commerce Cloud work.

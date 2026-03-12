@@ -21,7 +21,7 @@ Over the past year, I have seen increasing gossip (which I am partly to blame fo
 
 ## Technology changes
 
-[![Image depicting 120 years of Moore’s Law](/media/2022/e094f768-3336-403f-8c75-9013cb07df2f-b7c7a5e8f2.png)](/media/2022/e094f768-3336-403f-8c75-9013cb07df2f-b7c7a5e8f2.png)
+[![Graphic illustrating the long-term acceleration of computing progress.](/media/2022/e094f768-3336-403f-8c75-9013cb07df2f-b7c7a5e8f2.png)](/media/2022/e094f768-3336-403f-8c75-9013cb07df2f-b7c7a5e8f2.png)
 
 **Let us get one thing out of the way first. This article is my opinion and my opinion alone.**
 
@@ -38,7 +38,7 @@ _**That felt like an inspirational speech, didn't it?**_
 
 ## Advantages of a monolith
 
-![](/media/2023/salesforce-commerce-cloud-monolith-e3f50eb05b.jpg)
+![Illustration representing the strengths of a monolithic commerce architecture.](/media/2023/salesforce-commerce-cloud-monolith-e3f50eb05b.jpg)
 
 I'll make sure to make one thing clear. Monolithic architecture has its advantages!
 
@@ -87,7 +87,7 @@ However, it's important to note that while the platform is evolving, it doesn't 
 
 There will still be a fair share of projects starting today on SFRA!
 
-## What about back-end development?
+## What about back-end development
 
 That knowledge is transferrable! The Rhino Engine and ISML are still crucial for creating custom Business Manager modules and API hooks, and we will need a lot of this type of development in the coming years. And who knows, we might even be able to build custom SCAPI endpoints using the same system as controllers soon!
 
@@ -99,17 +99,15 @@ To make things easier, do we need a BFRA (Back-End Reference Architecture) to as
 
 A potential path for existing Salesforce B2C Commerce Cloud customers is [the "hybrid" or "phased rollouts" solution](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/phased-headless-rollouts.html?q=phased). With this approach, you gradually migrate away from SiteGenesis or SFRA one page type at a time. For example, you can start with content pages, move on to lister and product detail pages, and finish with the checkout. This has several benefits:
 
--   No big-bang release
--   Risk is spread over time
--   More current-budget-friendly
--   One big development team, separate development teams, or something in between -> flexibility!
-
-
+- No big-bang release
+- Risk is spread over time
+- More current-budget-friendly
+- One big development team, separate development teams, or something in between -> flexibility!
 
 Additionally, this also provides an opportunity for experienced SFCC developers:
 
--   The perfect chance to transition into the Composable Storefront, one page-type at a time
--   Keeps the know-how of both setups fresh
+- The perfect chance to transition into the Composable Storefront, one page-type at a time
+- Keeps the know-how of both setups fresh
 
 ## Career Aspirations
 
@@ -121,4 +119,4 @@ The future is uncertain, and it's hard to predict when certain technologies or s
 
 So, let's ask ourselves, are we content with being a mere spectator of the eCommerce landscape or do we want to be a driving force shaping its future?
 
-**_The choice is ours._**
+### _The choice is ours._

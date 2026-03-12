@@ -19,12 +19,12 @@ author: Thomas Theunen
 ---
 A while ago, I wrote two articles on how to get PDF magic to work within SFCC:
 
--   [PDF Generation](https://www.rhino-inquisitor.com/pdf-and-salesforce-commerce-cloud-b2c/)
--   [How to send PDF files as attachments in e-mails](https://www.rhino-inquisitor.com/mail-attachments-in-b2c-commerce-cloud/)
+- [PDF Generation](https://www.rhino-inquisitor.com/pdf-and-salesforce-commerce-cloud-b2c/)
+- [How to send PDF files as attachments in e-mails](https://www.rhino-inquisitor.com/mail-attachments-in-b2c-commerce-cloud/)
 
 As this is a common topic that many projects may encounter, I have chosen to write a third article to conclude the series. Companies need to have a consistent and recognisable identity that is reflected in all their communication channels, even in attachments such as PDFs. A personalised font that complements the brand's aesthetic can help achieve this goal. But how do you add them to a PDF? Let us find out!
 
-## Only TTF?
+## Only TTF
 
 To my knowledge, jsPDF solely supports TTF fonts. This information can be found in the "Read Me" section of the documentation:
 
@@ -34,38 +34,35 @@ To my knowledge, jsPDF solely supports TTF fonts. This information can be found 
 
 To use a custom font, they need to be part of our code-base as a base64 encoded string. Luckily, jsPDF has provided a tool to convert your TTF files to a jsPDF-compatible string. [Click here to go to the tool](https://rawgit.com/MrRio/jsPDF/master/fontconverter/fontconverter.html) I could explain how to use this tool elaborately, but luckily [someone has already done this for me](https://www.devlinpeck.com/tutorials/jspdf-custom-font)!
 
-## Ready to go!
+## Ready to go
 
 ### Add the file to your codebase
 
 The tool described above will spew out a JavaScript file that you can add to your code-base with some small modifications. An example of such files have been added to my GitHub:
 
--   [angin-senja-normal.js](https://github.com/taurgis/salesforce-commerce-cloud-libraries/blob/master/cartridges/jsPDF/fonts/angin-senja-normal.js)
+- [angin-senja-normal.js](https://github.com/taurgis/salesforce-commerce-cloud-libraries/blob/master/cartridges/jsPDF/fonts/angin-senja-normal.js)
 
--   [broc-webfont-normal.js](https://github.com/taurgis/salesforce-commerce-cloud-libraries/blob/master/cartridges/jsPDF/fonts/broc-webfont-normal.js)
+- [broc-webfont-normal.js](https://github.com/taurgis/salesforce-commerce-cloud-libraries/blob/master/cartridges/jsPDF/fonts/broc-webfont-normal.js)
 
 Add your font JS file to the cartridge and folder that makes the most sense to you!
 
-```
-
-					module.exports = function (jsPDFAPI) {
-    var font = 'BASE64 HERE';
-    var callAddFont = function () {
-        this.addFileToVFS('broc-webfont-normal.ttf', font);
-        this.addFont('broc-webfont-normal.ttf', 'broc-webfont', 'normal');
-    };
-    jsPDFAPI.events.push(['addFonts', callAddFont]);
+```js
+module.exports = function (jsPDFAPI) {
+var font = 'BASE64 HERE';
+var callAddFont = function () {
+this.addFileToVFS('broc-webfont-normal.ttf', font);
+this.addFont('broc-webfont-normal.ttf', 'broc-webfont', 'normal');
 };
-
+jsPDFAPI.events.push(['addFonts', callAddFont]);
+};
 ```
 
 ### Load in the font
 
 Next we need to expand [main.js](https://github.com/taurgis/salesforce-commerce-cloud-libraries/blob/master/cartridges/jsPDF/main.js) to load in the fonts.
 
-```
-
-					var jsPDF = require('./jsPDF');
+```js
+var jsPDF = require('./jsPDF');
 // libs
 require('./libs/ttffont')(jsPDF.API);
 // plugins
@@ -76,29 +73,26 @@ require('./plugins/total_pages')(jsPDF.API);
 require('./fonts/angin-senja-normal')(jsPDF.API);
 require('./fonts/broc-webfont-normal')(jsPDF.API);
 module.exports = jsPDF;
-
 ```
 
 As with any other script file, it's entirely within your control to override it on your cartridge. It's a given that you won't be needing those two sample fonts anyway!
 
-### Use your font!
+### Use your font
 
 After loading your font, it's time to put it to use! Simply add the following code in your controller or job.
 
-```
-
-					var JSPDF = require('jsPDF');
+```js
+var JSPDF = require('jsPDF');
 var doc = new JSPDF();
 doc.setFontSize(25);
 doc.setFont('broc-webfont', 'normal');
 doc.text(35, 10, 'Forward loves jsPDF');
 response.writer.print(doc.output());
-
 ```
 
 The first parameter of the setFont function is the font name defined in the initial JavaScript file we generated using the font conversion tool. If they do not match, it will not work! But if set up correctly, you should get a result like this (an example from the [GitHub repository code](https://github.com/taurgis/salesforce-commerce-cloud-libraries/blob/master/cartridges/plugin_testlibraries/cartridge/controllers/jsPDF.js)):
 
-![A screenshot of a generated PDF showing different fonts.](/media/2023/custom-font-result-df8aa2e64b.png)
+![Generated PDF preview showing multiple custom fonts rendered in the output.](/media/2023/custom-font-result-df8aa2e64b.png)
 
 ## Something to keep in mind
 

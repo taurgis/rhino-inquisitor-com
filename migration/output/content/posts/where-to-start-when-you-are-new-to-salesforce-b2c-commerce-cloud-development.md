@@ -39,7 +39,7 @@ Before diving headfirst into the Salesforce B2C Commerce Cloud development world
 
 A Sandbox is essentially a mini version of your production environment, where you can try out different features, configurations, and customisations without affecting the live site. It's a safe space for developers where you can test and iterate on your ideas (or development of project tickets) without any risk of disrupting the customer experience. So, before you start coding away, set up your Sandbox and experiment with confidence.
 
-_**A word of warning**: If you are not part of a partner or customer company, getting one can be challenging._
+_**A word of warning:** If you are not part of a partner or customer company, getting one can be challenging._
 
 [Find out here how to get your hands on one!](https://www.rhino-inquisitor.com/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/)
 
@@ -55,7 +55,7 @@ If you're looking for a comprehensive guide that covers all the essential topics
 
 ## You are not alone
 
-[![](/media/2023/sfcc-unofficial-slack-c73cdc0350.png)](https://unofficialsfcc.com/)
+[![Unofficial SFCC community homepage featuring the Slack entry point.](/media/2023/sfcc-unofficial-slack-c73cdc0350.png)](https://unofficialsfcc.com/)
 
 One of the best things about the Salesforce ecosystem is the #Ohana, a community of users, developers, architects, and enthusiasts passionate about helping each other succeed. And in the Commerce Cloud space, we've got the "Commerce Crew" - a group of fellow Commerce Adventurers willing to support each other and share knowledge.
 

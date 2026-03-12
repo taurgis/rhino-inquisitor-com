@@ -30,20 +30,19 @@ Let's tackle the first and most common point of confusion for teams moving from 
 
 The definitive answer is: **Yes, SCAPI and SLAS operate on a completely separate hostname infrastructure from your SFRA site's vanity domain.**
 
-Your mobile app will not make API calls to `www.your-brand.com`. Instead, all SCAPI and SLAS interactions are routed through the dedicated, globally scaled Salesforce Commerce API gateway. The endpoint URL follows a standard format: `https://{{short-code}}.api.commercecloud.salesforce.com/...`. This is your single, secure, and performant entry point for all API traffic. This move is intentional and reinforced by Salesforce's [deprecation](https://www.rhino-inquisitor.com/the-importance-of-origin-shielding/) of older, hyphenated hostnames (e.g., `production-realm-customer.demandware.net`) for API access, pushing all traffic to this unified gateway.
+Your mobile app will not make API calls to <www.your-brand.com>. Instead, all SCAPI and SLAS interactions are routed through the dedicated, globally scaled Salesforce Commerce API gateway. The endpoint URL follows a standard format: <https://{{short-code}}.api.commercecloud.salesforce.com/...>. This is your single, secure, and performant entry point for all API traffic. This move is intentional and reinforced by Salesforce's [deprecation](https://www.rhino-inquisitor.com/the-importance-of-origin-shielding/) of older, hyphenated hostnames (e.g., `production-realm-customer.demandware.net`) for API access, pushing all traffic to this unified gateway.
 
 CORS Don't forget to [secure your API layer](https://developer.salesforce.com/docs/commerce/commerce-api/guide/cors.html)!
 
 This separation of hostnames is not an arbitrary technical detail; it reflects the fundamental architectural decoupling that is the core promise of headless commerce.
 
--   Your **vanity domain** (e.g., `www.your-brand.com`) is for the **presentation layer**. It's what customers see. The DNS manages routing and hostname alias configuration within B2C Commerce, which directs traffic through the eCDN.
+- Your **vanity domain** (e.g., <www.your-brand.com>) is for the **presentation layer**. It's what customers see. The DNS manages routing and hostname alias configuration within B2C Commerce, which directs traffic through the eCDN.
 
--   The **API gateway domain** (`{{short-code}}.api.commercecloud.salesforce.com`) is for the **data and service layer**. It is a purpose-built infrastructure designed for high-scale, secure API transactions.
-
+- The **API gateway domain** (`{{short-code}}.api.commercecloud.salesforce.com`) is for the **data and service layer**. It is a purpose-built infrastructure designed for high-scale, secure API transactions.
 
 This separation allows for independent scaling, security policies, and evolution. You can completely redesign your mobile app (the "head") without ever touching the API endpoint, and vice versa. SLAS, as the gatekeeper for Shopper APIs, runs on this same infrastructure, which is why its admin UI and authentication endpoints share the same base URL structure. The flow is simple: your mobile app calls SLAS to get a JSON Web Token (JWT), and then it includes that JWT in the `Authorization` header for all subsequent SCAPI calls.
 
-So, where does your SFRA site's configuration fit in? While the vanity domain isn't the API endpoint, the underlying site configuration is still critical. Every SCAPI request includes a `siteId` query parameter. This `siteId` tells B2C Commerce which site's context to use for the request—which catalog, which price books, which promotions to apply. That site is, in turn, configured in Business Manager and linked to your hostnames via the alias file. The hostname alias configuration remains essential for defining the _context_ of your API calls, even though it's not the _endpoint_ you call directly.
+So, where does your SFRA site's configuration fit in? While the vanity domain isn't the API endpoint, the underlying site configuration is still critical. Every SCAPI request includes a `siteId` query parameter. This `siteId` tells B2C Commerce which site's context to use for the request—which catalog, which price books, which promotions to apply. That site is, in turn, configured in Business Manager and linked to your hostnames via the alias file. The hostname alias configuration remains essential for defining the _context _ of your API calls, even though it's not the_endpoint_ you call directly.
 
 ## The Headless Go-Live Checklist: From Backend to App Store
 
@@ -57,49 +56,43 @@ This section adapts the SRA's architectural principles to a headless context. Th
 
 #### API & Data Model Finalization (Your Contract with the Client)
 
--   **Data Flow & Mapping:** All data flow diagrams must be updated to reflect a decoupled architecture where the mobile app (or Headless site) is a primary target system. This includes verifying the flows for customer, product, inventory, and order data.
+- **Data Flow & Mapping:** All data flow diagrams must be updated to reflect a decoupled architecture where the mobile app (or Headless site) is a primary target system. This includes verifying the flows for customer, product, inventory, and order data.
 
--   **Custom Attributes & Objects:** Every custom attribute and object required by the app must be finalised and documented. An attribute that is acceptable in a rarely-used SFRA template might become a performance bottleneck when requested in every `/products` API call. Its performance impact must be understood.
+- **Custom Attributes & Objects:** Every custom attribute and object required by the app must be finalised and documented. An attribute that is acceptable in a rarely-used SFRA template might become a performance bottleneck when requested in every `/products` API call. Its performance impact must be understood.
 
--   **Media Strategy:** The strategy for serving images and video must be confirmed. Whether the app calls the B2C Commerce Dynamic Imaging Service (DIS) or an external provider like Amplience or Scene7 directly impacts implementation and performance.
+- **Media Strategy:** The strategy for serving images and video must be confirmed. Whether the app calls the B2C Commerce Dynamic Imaging Service (DIS) or an external provider like Amplience or Scene7 directly impacts implementation and performance.
 
--   **Localisation & Multi-Site:** The underlying site architecture (single vs. multi-site, locales, currencies) must be finalised. The mobile app will depend on this configuration to request the correct context for each user.
+- **Localisation & Multi-Site:** The underlying site architecture (single vs. multi-site, locales, currencies) must be finalised. The mobile app will depend on this configuration to request the correct context for each user.
 
--   **API Quotas:** This is a **LAUNCH BLOCKER**. The development team must formally acknowledge and document all relevant API quotas. The mobile app's design _must_ operate within these limits to prevent service disruptions.
-
-
+- **API Quotas:** This is a**LAUNCH BLOCKER**. The development team must formally acknowledge and document all relevant API quotas. The mobile app's design _must_ operate within these limits to prevent service disruptions.
 
 #### Authentication & Security Configuration (Locking the Gates)
 
--   **SLAS Client Configuration:** A final SLAS client for the production environment must be created and configured. If a customer facing system (in this case an app) is not able to securely store (and hide) a secret token, this must be a **Public Client**. The exact `redirectUri` used for the OAuth flow within the app must be defined and allow-listed in the client configuration. If using third-party social logins (e.g., Google, Facebook), the Identity Providers (IDPs) must be fully configured in SLAS for the production tenant. In most cases a native application [is able to store](https://developer.salesforce.com/docs/commerce/commerce-api/guide/slas-private-client.html) this information securely, but an audit is mandatory.
+- **SLAS Client Configuration:** A final SLAS client for the production environment must be created and configured. If a customer facing system (in this case an app) is not able to securely store (and hide) a secret token, this must be a**Public Client**. The exact `redirectUri` used for the OAuth flow within the app must be defined and allow-listed in the client configuration. If using third-party social logins (e.g., Google, Facebook), the Identity Providers (IDPs) must be fully configured in SLAS for the production tenant. In most cases a native application [is able to store](https://developer.salesforce.com/docs/commerce/commerce-api/guide/slas-private-client.html) this information securely, but an audit is mandatory.
 
--   **OAuth Scopes (Least Privilege Principle):** Granting overly permissive scopes is a common and dangerous oversight. A final audit of all scopes assigned to the production SLAS client is critical. This review should map every API endpoint the app uses to a specific, required scope and ensure no unnecessary permissions are granted. For example, if the app only reads basket data, it should not have the sfcc.shopper-baskets-orders.`rw` scope. This adherence to the principle of least privilege reduces the "blast radius" if a token is ever compromised.
+- **OAuth Scopes (Least Privilege Principle):** Granting overly permissive scopes is a common and dangerous oversight. A final audit of all scopes assigned to the production SLAS client is critical. This review should map every API endpoint the app uses to a specific, required scope and ensure no unnecessary permissions are granted. For example, if the app only reads basket data, it should not have the sfcc.shopper-baskets-orders.`rw` scope. This adherence to the principle of least privilege reduces the "blast radius" if a token is ever compromised.
 
--   **Custom API Security:** Every custom API endpoint must be adequately secured with a `ShopperToken` security scheme and a unique custom scope (prefixed with `c_`) in its OpenAPI Specification (OAS 3.0) definition. Unsecured custom endpoints are a critical vulnerability and will not be registered by the platform.
+- **Custom API Security:** Every custom API endpoint must be adequately secured with a `ShopperToken` security scheme and a unique custom scope (prefixed with `c_`) in its OpenAPI Specification (OAS 3.0) definition. Unsecured custom endpoints are a critical vulnerability and will not be registered by the platform.
 
--   **CORS Policy:** While less critical for native mobile apps than for web apps, if any web-based technologies or views are used, the Cross-Origin Resource Sharing (CORS) headers configured on the platform should be as restrictive as possible to prevent unauthorised cross-domain requests.
-
-
+- **CORS Policy:** While less critical for native mobile apps than for web apps, if any web-based technologies or views are used, the Cross-Origin Resource Sharing (CORS) headers configured on the platform should be as restrictive as possible to prevent unauthorised cross-domain requests.
 
 SLAS Private Key If a secret was ever embedded in the mobile app, immediately rotate the secret in the SLAS Admin UI and release a hotfix to the app removing it.
 
 #### Infrastructure & eCDN (The Pipes)
 
--   **SSL Certificates:** Valid SSL certificates for all relevant domains must be in place and uploaded to the platform via Business Manager or the CDN-API. This is a launch blocker for secure communication.
+- **SSL Certificates:** Valid SSL certificates for all relevant domains must be in place and uploaded to the platform via Business Manager or the CDN-API. This is a launch blocker for secure communication.
 
--   **Firewall Rules:** All IP addresses for third-party integrations (payment, tax, OMS, etc.) must be allow-listed in the Commerce Cloud firewall. Forgetting this is a common go-live "gotcha" that can bring down critical services at the worst possible time.
+- **Firewall Rules:** All IP addresses for third-party integrations (payment, tax, OMS, etc.) must be allow-listed in the Commerce Cloud firewall. Forgetting this is a common go-live "gotcha" that can bring down critical services at the worst possible time.
 
--   **eCDN WAFv2:** Be aware of the Web Application Firewall (WAF) rules. While Salesforce manages the core OWASP ruleset, it is important to ensure that no legitimate traffic patterns from the mobile app are being inadvertently blocked.
-
+- **eCDN WAFv2:** Be aware of the Web Application Firewall (WAF) rules. While Salesforce manages the core OWASP ruleset, it is important to ensure that no legitimate traffic patterns from the mobile app are being inadvertently blocked.
 
 #### Integrations & Jobs (The Engine Room)
 
--   **Third-Party Services:** All third-party integrations must be pointing to their respective **production** endpoints and must have been tested end-to-end.
+- **Third-Party Services:** All third-party integrations must be pointing to their respective**production** endpoints and must have been tested end-to-end.
 
--   **Fault Tolerance:** Critical integrations must use the B2C Commerce Service Framework with aggressive timeouts and circuit-breaker patterns. The mobile app or headless site must be designed to handle a failure of a third-party service gracefully, without crashing or locking up.
+- **Fault Tolerance:** Critical integrations must use the B2C Commerce Service Framework with aggressive timeouts and circuit-breaker patterns. The mobile app or headless site must be designed to handle a failure of a third-party service gracefully, without crashing or locking up.
 
--   **Backend Jobs:** The entire job schedule on the PIG (Primary Instance Group) instances must be reviewed. Data import jobs (inventory, pricing, ...) and data replication schedules should be staggered, run during off-peak hours, and use delta feeds wherever possible to minimise performance impact on the live application.
-
+- **Backend Jobs:** The entire job schedule on the PIG (Primary Instance Group) instances must be reviewed. Data import jobs (inventory, pricing, ...) and data replication schedules should be staggered, run during off-peak hours, and use delta feeds wherever possible to minimise performance impact on the live application.
 
 ### Part II: The Headless Client (The New Frontier)
 
@@ -109,38 +102,33 @@ This entire section is new territory compared to the SFRA SRA. The mobile app, f
 
 Effective client-side [caching](https://www.rhino-inquisitor.com/caching-rest-apis-in-sfcc/) is the single most important factor for a snappy, responsive mobile app experience and for staying within API quotas. Network calls from a mobile device are inherently latent and unreliable. The app must not go to the network for data it already has. A comprehensive go-live requires verification of a robust, multi-layered caching strategy.
 
+- **HTTP Caching:** Verify the app correctly respects `Cache-Control` headers from SCAPI responses. This is the simplest level of caching, often handled by the mobile OS's networking stack.
 
+- **In-Memory Cache:** For frequently accessed, short-lived data (e.g., data for the currently visible screen), confirm that an in-memory cache is used. This data is volatile and lost when the app closes.
 
--   **HTTP Caching:** Verify the app correctly respects `Cache-Control` headers from SCAPI responses. This is the simplest level of caching, often handled by the mobile OS's networking stack.
+- **"Disk-Based" Cache (Persistence):** For data that must persist between app sessions (e.g., product catalog data, category structures, user preferences).
 
--   **In-Memory Cache:** For frequently accessed, short-lived data (e.g., data for the currently visible screen), confirm that an in-memory cache is used. This data is volatile and lost when the app closes.
-
--   **"Disk-Based" Cache (Persistence):** For data that must persist between app sessions (e.g., product catalog data, category structures, user preferences).
-
--   **Cache Invalidation:** Confirm that a clear strategy for cache invalidation is in place. Is it based on a Time-to-Live (TTL)? Is it cleared on specific user actions like logout? Stale data is as bad as no data.
-
+- **Cache Invalidation:** Confirm that a clear strategy for cache invalidation is in place. Is it based on a Time-to-Live (TTL)? Is it cleared on specific user actions like logout? Stale data is as bad as no data.
 
 #### Analytics & Tracking Implementation
 
--   **Event Tracking:** A comprehensive analytics plan must be defined and implemented. Key user actions (e.g., product view, add to cart, checkout step, search performed) must be tracked.
+- **Event Tracking:** A comprehensive analytics plan must be defined and implemented. Key user actions (e.g., product view, add to cart, checkout step, search performed) must be tracked.
 
--   **Tooling:** The chosen analytics SDK (e.g., Google Analytics for Firebase, Adobe Analytics) must be correctly integrated and configured to point to the production environment.
+- **Tooling:** The chosen analytics SDK (e.g., Google Analytics for Firebase, Adobe Analytics) must be correctly integrated and configured to point to the production environment.
 
--   **Data Privacy & Consent:** Verify that no tracking events are fired until the user has given appropriate consent, in compliance with regulations like GDPR and CCPA.
-
+- **Data Privacy & Consent:** Verify that no tracking events are fired until the user has given appropriate consent, in compliance with regulations like GDPR and CCPA.
 
 #### Push Notification Setup
 
--   **Service Integration:** The mobile app must be fully integrated with the chosen push notification provider, such as Salesforce Marketing Cloud MobilePush or Firebase Cloud Messaging.
+- **Service Integration:** The mobile app must be fully integrated with the chosen push notification provider, such as Salesforce Marketing Cloud MobilePush or Firebase Cloud Messaging.
 
--   **SDK & Configuration:** The provider's SDK must be correctly configured within the app to handle device registration and the receipt of notifications.
+- **SDK & Configuration:** The provider's SDK must be correctly configured within the app to handle device registration and the receipt of notifications.
 
--   **Opt-in/Opt-out:** The app must provide a clear and accessible UI for users to manage their push notification preferences.
+- **Opt-in/Opt-out:** The app must provide a clear and accessible UI for users to manage their push notification preferences.
 
--   **Audience & Segmentation:** In the backend system (e.g., Marketing Cloud), ensure that the necessary lists, data extensions, or audiences are created and populated to allow for targeted push campaigns immediately at launch.
+- **Audience & Segmentation:** In the backend system (e.g., Marketing Cloud), ensure that the necessary lists, data extensions, or audiences are created and populated to allow for targeted push campaigns immediately at launch.
 
--   **T****est Plan:** A plan to send test notifications to specific test devices must be in place to verify the entire pipeline is working before go-live.
-
+- **T**est Plan:** A plan to send test notifications to specific test devices must be in place to verify the entire pipeline is working before go-live.
 
 ### Part III: Performance & Load Testing (The New Discipline)
 
@@ -154,21 +142,19 @@ Traditional SFRA performance testing relies on tools like WebPageTest or GTmetri
 
 #### API Load & Stress Testing
 
--   **Test Scenarios:** Define realistic test scenarios that mimic user behaviour in the app. This involves simulating thousands of users simultaneously performing searches, viewing products, adding to cart, and checking out.
+- **Test Scenarios:** Define realistic test scenarios that mimic user behaviour in the app. This involves simulating thousands of users simultaneously performing searches, viewing products, adding to cart, and checking out.
 
+- **Identify Critical Endpoints:** Prioritise testing on the most critical and frequently called SCAPI endpoints, including `product-search`, `products/{id}`, `baskets`, `orders`, and any high-traffic custom APIs.
 
--   **Identify Critical Endpoints:** Prioritise testing on the most critical and frequently called SCAPI endpoints, including `product-search`, `products/{id}`, `baskets`, `orders`, and any high-traffic custom APIs.
+- **Test Types:**
 
--   **Test Types:**
+  - **Load Test:** Can the backend sustain the expected peak traffic (e.g., 500 concurrent API users for 2 hours) without performance degradation?.
 
-    -   **Load Test:** Can the backend sustain the expected peak traffic (e.g., 500 concurrent API users for 2 hours) without performance degradation?.
+  - **Stress Test:** At what point does the system break? Methodically ramp up the number of virtual users until response times become unacceptable or the error rate spikes. This identifies the system's absolute ceiling.
 
-    -   **Stress Test:** At what point does the system break? Methodically ramp up the number of virtual users until response times become unacceptable or the error rate spikes. This identifies the system's absolute ceiling.
+  - **Spike Test:** Can the system handle a sudden, massive influx of traffic, such as the one generated by a major push notification campaign?.
 
-    -   **Spike Test:** Can the system handle a sudden, massive influx of traffic, such as the one generated by a major push notification campaign?.
-
--   **Environment:** All load tests must be conducted against a production-sized environment (a "loaner realm" or the production instance). The IP addresses of the load-generating machines must be communicated to Salesforce Support well in advance to ensure they are not blocked.
-
+- **Environment:** All load tests must be conducted against a production-sized environment (a "loaner realm" or the production instance). The IP addresses of the load-generating machines must be communicated to Salesforce Support well in advance to ensure they are not blocked.
 
 #### The Shared Responsibility Model
 
@@ -182,12 +168,11 @@ This section covers the final operational steps, including the crucial new gate:
 
 #### Data & Configuration Readiness
 
--   **Data Purge:** All test data, including customers and orders, must be purged from the production instance.
+- **Data Purge:** All test data, including customers and orders, must be purged from the production instance.
 
--   **Legacy Data Import:** If migrating data from a legacy system, the final import must be completed and verified.
+- **Legacy Data Import:** If migrating data from a legacy system, the final import must be completed and verified.
 
--   **Production Configuration Lock-Down:** Final API keys, client IDs, and secrets must be configured in the app. All third-party integration endpoints must be switched to their production URLs. Business Manager settings (caching, feature switches, order preferences) must be set for production, and logging levels should be set to appropriate production levels (not verbose debug). Finally, alerting must be enabled and directed to the production support team.
-
+- **Production Configuration Lock-Down:** Final API keys, client IDs, and secrets must be configured in the app. All third-party integration endpoints must be switched to their production URLs. Business Manager settings (caching, feature switches, order preferences) must be set for production, and logging levels should be set to appropriate production levels (not verbose debug). Finally, alerting must be enabled and directed to the production support team.
 
 #### The Go/No-Go Review
 
@@ -199,18 +184,17 @@ For an SFRA site, go-live is often a DNS change. For a mobile app, it is a submi
 
 The "submit and wait" era is over. In 2025, a successful submission requires proactive compliance with Apple's supply chain and privacy mandates. Use this protocol to ensure your binary passes static analysis and manual review.
 
--   ****Supply Chain Security (SDK Signatures):** As of February 2025, Apple strictly enforces manifest requirements for "Commonly Used Third-Party SDKs" (e.g., Firebase, Facebook, various ad networks). You must audit your `Podfile` or Swift Package Manager dependencies to ensure every SDK is updated to a version that includes a digital signature and its own Privacy Manifest.**
+- **Supply Chain Security (SDK Signatures):** As of February 2025, Apple strictly enforces manifest requirements for "Commonly Used Third-Party SDKs" (e.g., Firebase, Facebook, various ad networks). You must audit your `Podfile` or Swift Package Manager dependencies to ensure every SDK is updated to a version that includes a digital signature and its own Privacy Manifest.**
 
--   **Packaging:** The final, production-signed app binary must be built and tested. Ensure your CI/CD pipeline is using **Xcode 16** (targeting the iOS 18 SDK). This became the mandatory baseline for all App Store submissions starting April 2025.
+- **Packaging:** The final, production-signed app binary must be built and tested. Ensure your CI/CD pipeline is using**Xcode 16** (targeting the iOS 18 SDK). This became the mandatory baseline for all App Store submissions starting April 2025.
 
--   **Store Listings:** All required metadata must be prepared: app name, description, production-quality screenshots for all required device sizes, keywords, and a publicly accessible Privacy Policy URL.
+- **Store Listings:** All required metadata must be prepared: app name, description, production-quality screenshots for all required device sizes, keywords, and a publicly accessible Privacy Policy URL.
 
--   **Reviewer Information:** Prepare test account credentials and any special instructions needed for the app store reviewer to fully test the app's functionality (e.g., how to complete a purchase).
+- **Reviewer Information:** Prepare test account credentials and any special instructions needed for the app store reviewer to fully test the app's functionality (e.g., how to complete a purchase).
 
--   **Submission:** The app must be uploaded to App Store Connect and the Google Play Console and formally submitted for review.
+- **Submission:** The app must be uploaded to App Store Connect and the Google Play Console and formally submitted for review.
 
--   **Contingency Planning:** A plan must be in place for a potential rejection. Have common rejection reasons (e.g., crashes, incomplete functionality, poor UI, issues with in-app purchases) been proactively mitigated?. Apps that are primarily websites wrapped in a native shell or are nearly identical to existing apps are aggressively rejected under [Guideline 4.2 and 4.3](https://developer.apple.com/app-store/review/guidelines/#design).
-
+- **Contingency Planning:** A plan must be in place for a potential rejection. Have common rejection reasons (e.g., crashes, incomplete functionality, poor UI, issues with in-app purchases) been proactively mitigated?. Apps that are primarily websites wrapped in a native shell or are nearly identical to existing apps are aggressively rejected under [Guideline 4.2 and 4.3](https://developer.apple.com/app-store/review/guidelines/#design).
 
 A PWA Kit Wrapper App Whilst you can easily "wrap" a PWA Kit site in a native app, there is the risk of rejection if the application does not provide any additional "value" to the user.
 
@@ -220,11 +204,10 @@ The transition from a monolithic SFRA architecture to a headless mobile applicat
 
 Success in this new era hinges on embracing three core tenets:
 
-1.  **The API is the Product:** The API contract, its performance, and its security are paramount. It must be designed, tested, and documented with the same rigour as a physical product.
+1. **The API is the Product:** The API contract, its performance, and its security are paramount. It must be designed, tested, and documented with the same rigour as a physical product.
 
-2.  **Performance is a Shared Responsibility:** The speed of your application is a direct result of your custom code, your data model, and your client-side implementation, not just the underlying platform. You own a significant piece of the performance puzzle.
+1. **Performance is a Shared Responsibility:** The speed of your application is a direct result of your custom code, your data model, and your client-side implementation, not just the underlying platform. You own a significant piece of the performance puzzle.
 
-3.  **The Client is Intelligent:** The mobile app is not a dumb renderer of HTML. It is a critical part of the architecture, with its own responsibilities for caching, state management, and providing a resilient user experience.
-
+1. **The Client is Intelligent:** The mobile app is not a dumb renderer of HTML. It is a critical part of the architecture, with its own responsibilities for caching, state management, and providing a resilient user experience.
 
 By augmenting the proven wisdom of the SRA with this new, headless-specific checklist, teams can navigate the go-live gauntlet with confidence, prepared for the unique challenges and immense opportunities of the headless commerce landscape.

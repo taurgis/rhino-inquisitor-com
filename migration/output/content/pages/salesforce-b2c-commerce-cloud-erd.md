@@ -13,7 +13,7 @@ categories:
   - Salesforce Commerce Cloud
 author: Thomas Theunen
 ---
-![](/media/2023/salesforce-b2c-commerce-cloud-erd-0bdb8b007c.jpeg)
+![Full Salesforce B2C Commerce Cloud entity relationship diagram.](/media/2023/salesforce-b2c-commerce-cloud-erd-0bdb8b007c.jpeg)
 
 [view on Lucidchart](https://lucid.app/lucidchart/f1c8c33a-d575-4761-ba41-245c9762a5f8/edit?viewport_loc=-362%2C21%2C4352%2C2276%2Ch24CqrZw216W&invitationId=inv_9439a330-b96e-4081-a588-e91ae8b714a0)
 

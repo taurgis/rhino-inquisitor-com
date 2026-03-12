@@ -32,8 +32,8 @@ In the SFCC ecosystem, a realm is the fundamental organisational unit. It is not
 
 This world is rigidly structured into two distinct groups:
 
--   **Primary Instance Group (PIG):** This is the core operational group, and a realm can have only one. It consists of three instances: Production (the live storefront), Staging (for data setup and pre-deployment testing), and Development (for data enrichment and configuration).
--   **Secondary Instance Group (SIG):** This group contains the developer sandboxes.  Like the PIG, a realm can only have one SIG.
+- **Primary Instance Group (PIG):** This is the core operational group, and a realm can have only one. It consists of three instances: Production (the live storefront), Staging (for data setup and pre-deployment testing), and Development (for data enrichment and configuration).
+- **Secondary Instance Group (SIG):** This group contains the developer sandboxes.  Like the PIG, a realm can only have one SIG.
 
 This architecture is designed for efficiency under a unified operational model. Sites within the same realm can share a master product catalog, a single codebase, and a standard set of administrative and development teams, creating significant economies of scale. However, this inherent sharing is also its greatest weakness when the business model diverges from its core.
 
@@ -41,21 +41,21 @@ This architecture is designed for efficiency under a unified operational model. 
 
 The decision to split a realm is a lagging indicator of a fundamental misalignment between a company's organizational structure and its technical architecture. The initial choice of a single realm is often based on an assumption of a unified business strategy. The need for a split arises when that assumption is no longer valid. This manifests through several distinct business and technical drivers.
 
-![A 16:9 cinematic image showing two business teams in separate, modern offices on opposite sides. One office has a US flag. Both teams look stressed and frustrated as they are confronted with large, chaotic diagrams of business processes projected in the air. The two different diagrams collide violently in the center with a bright spark, directly above a cracked and broken image of the Earth, symbolizing a global business breakdown.](/media/2025/conflicts-across-the-world-on-processes-d64e01a143.jpg)
+![Two business teams pulling in different directions as their shared global process breaks down.](/media/2025/conflicts-across-the-world-on-processes-d64e01a143.jpg)
 
 When Workflows Clash: The Tipping Point for a Realm Split
 
 #### Business Drivers
 
--   **Divergent Business Processes:** The most compelling reason for a split is when different business units can no longer operate under a single set of rules. For example, a pharmaceutical site that requires doctor's prescription validation has a fundamentally different checkout and order processing logic than a standard apparel site. Forcing both to coexist in a single realm with a shared codebase leads to immense complexity and risk.
--   **Independent P&L and Operational Autonomy:** When business units have separate Profit & Loss (P&L) responsibilities, they often need the authority to define, prioritise, and fund initiatives independently. If the European division needs to launch a feature to meet a local market demand, it cannot be blocked by the North American division's development schedule. A shared realm creates a zero-sum game for resources and deployment windows, whereas separate realms provide the necessary autonomy.
--   **Global Teams and Conflicting Schedules:** A single realm has a unified maintenance and release schedule. This becomes untenable for global teams operating in different time zones. A release that requires downtime at 2 AM in the US might be prime shopping time in the Asia-Pacific region. Separate realms allow for independent operational schedules tailored to each market.
+- **Divergent Business Processes:** The most compelling reason for a split is when different business units can no longer operate under a single set of rules. For example, a pharmaceutical site that requires doctor's prescription validation has a fundamentally different checkout and order processing logic than a standard apparel site. Forcing both to coexist in a single realm with a shared codebase leads to immense complexity and risk.
+- **Independent P&L and Operational Autonomy:** When business units have separate Profit & Loss (P&L) responsibilities, they often need the authority to define, prioritise, and fund initiatives independently. If the European division needs to launch a feature to meet a local market demand, it cannot be blocked by the North American division's development schedule. A shared realm creates a zero-sum game for resources and deployment windows, whereas separate realms provide the necessary autonomy.
+- **Global Teams and Conflicting Schedules:** A single realm has a unified maintenance and release schedule. This becomes untenable for global teams operating in different time zones. A release that requires downtime at 2 AM in the US might be prime shopping time in the Asia-Pacific region. Separate realms allow for independent operational schedules tailored to each market.
 
 #### Technical Drivers
 
--   **Data Residency and Compliance:** This is often a non-negotiable, legally mandated driver. Regulations like the GDPR may require that all personally identifiable information (PII) for European customers be stored in a data centre (or POD) located within the EU. If the existing realm is hosted on a US POD, a new, separate realm must be provisioned in the correct region to achieve compliance.
--   **Codebase Complexity and Deployment Risk:** As divergent business requirements are shoehorned into a single codebase, it inevitably becomes a tangled mess of site-specific conditional logic (if (site.ID === 'US') {... } else if (site.ID === 'EU') {... }). This increases the cognitive load for developers, slows down development, and dramatically increases the risk that a change for one site will have unintended, catastrophic consequences for another. A realm split allows the departing site to start with a clean, purpose-built codebase, free from the technical debt of its former siblings.
--   **Performance and Governor Limits:** While it should be the last option considered, severe performance degradation can be a driver for a split. If extensive code optimisation fails to resolve issues and distinct business units consistently create resource contention or hit governor limits, isolating the high-traffic or computationally intensive site in its own realm can restore stability for all parties.
+- **Data Residency and Compliance:** This is often a non-negotiable, legally mandated driver. Regulations like the GDPR may require that all personally identifiable information (PII) for European customers be stored in a data centre (or POD) located within the EU. If the existing realm is hosted on a US POD, a new, separate realm must be provisioned in the correct region to achieve compliance.
+- **Codebase Complexity and Deployment Risk:** As divergent business requirements are shoehorned into a single codebase, it inevitably becomes a tangled mess of site-specific conditional logic (if (site.ID === 'US') {... } else if (site.ID === 'EU') {... }). This increases the cognitive load for developers, slows down development, and dramatically increases the risk that a change for one site will have unintended, catastrophic consequences for another. A realm split allows the departing site to start with a clean, purpose-built codebase, free from the technical debt of its former siblings.
+- **Performance and Governor Limits:** While it should be the last option considered, severe performance degradation can be a driver for a split. If extensive code optimisation fails to resolve issues and distinct business units consistently create resource contention or hit governor limits, isolating the high-traffic or computationally intensive site in its own realm can restore stability for all parties.
 
 ## The Cardinal Rule: A Realm Split is the Last Resort
 
@@ -69,7 +69,7 @@ If performance is the problem, a rigorous cycle of code optimisation and profili
 
 Executing a realm split is a major re-platforming project disguised as a migration. Success depends on a meticulously detailed, phased [plan](https://help.salesforce.com/s/articleView?id=000391622&language=en_US&type=1) that accounts for every dependency, from stakeholder alignment to data integrity and third-party coordination. The following blueprint breaks the process down into six critical phases.
 
-![](/media/2025/the-grand-blueprint-v2-9c2bcca94a.jpg)
+![Team collaborating around a blueprint for a phased realm-split migration.](/media/2025/the-grand-blueprint-v2-9c2bcca94a.jpg)
 
 Success in a complex project like a realm split hinges on a meticulously detailed, phased plan. This image visualizes a team of experts collaborating on a holographic blueprint, representing the strategic and coordinated effort required to navigate the six critical phases of the migration.
 
@@ -77,19 +77,19 @@ Success in a complex project like a realm split hinges on a meticulously detaile
 
 This initial phase is about building the business case and creating a comprehensive map of the existing environment. Rushing this stage is a recipe for budget overruns and unforeseen complications.
 
--   **Define Clear Goals and Objectives:** Before any technical work begins, all stakeholders—business, marketing, development, and operations—must agree on what a successful split looks like. These goals should be specific and measurable (e.g., "The new EU site is live on the new realm with a 15% improvement in average page load time," or "The EU development team can execute independent weekly deployments without impacting the US release schedule"). This provides a north star for the project and a clear definition of what is considered "done."
--   **Conduct a Thorough Audit of the Source Realm:** A new realm is a clean slate; do not pollute it with the cruft of the old one. Conduct a deep audit of the source environment to identify and catalogue every component. This includes all custom cartridges, jobs, services, custom object definitions, site preferences, and integrations. Any stale, redundant, or unused metadata should be earmarked for cleanup _before_ the migration begins. This reduces the complexity of the new environment and prevents future headaches.
--   **Map Every Integration:** This is one of the most critical and frequently underestimated tasks. Create a definitive diagram and inventory of every single third-party system that communicates with the SFCC instance. For each integration (payment gateways, tax services, OMS, ERP, PIM, etc.), determine its fate: Will it connect to the new realm only? Does it need to connect to both? Will it require a completely new configuration or even a new contract? Answering these questions early is essential for planning and vendor coordination.
+- **Define Clear Goals and Objectives:** Before any technical work begins, all stakeholders—business, marketing, development, and operations—must agree on what a successful split looks like. These goals should be specific and measurable (e.g., "The new EU site is live on the new realm with a 15% improvement in average page load time," or "The EU development team can execute independent weekly deployments without impacting the US release schedule"). This provides a north star for the project and a clear definition of what is considered "done."
+- **Conduct a Thorough Audit of the Source Realm:** A new realm is a clean slate; do not pollute it with the cruft of the old one. Conduct a deep audit of the source environment to identify and catalogue every component. This includes all custom cartridges, jobs, services, custom object definitions, site preferences, and integrations. Any stale, redundant, or unused metadata should be earmarked for cleanup _before_ the migration begins. This reduces the complexity of the new environment and prevents future headaches.
+- **Map Every Integration:** This is one of the most critical and frequently underestimated tasks. Create a definitive diagram and inventory of every single third-party system that communicates with the SFCC instance. For each integration (payment gateways, tax services, OMS, ERP, PIM, etc.), determine its fate: Will it connect to the new realm only? Does it need to connect to both? Will it require a completely new configuration or even a new contract? Answering these questions early is essential for planning and vendor coordination.
 
 ### Phase 2: Engaging the Gatekeepers - Navigating Salesforce Support
 
 Several key steps in a realm split can only be performed by Salesforce. Engaging with their support and provisioning teams early and clearly is a hard dependency for the entire project.
 
--   **Order the New Realm:** A new realm is a new commercial product. The process begins by working with your Salesforce account executive to submit a standard realm order form. This initiates the provisioning of the new PIG and SIG infrastructure.
+- **Order the New Realm:** A new realm is a new commercial product. The process begins by working with your Salesforce account executive to submit a standard realm order form. This initiates the provisioning of the new PIG and SIG infrastructure.
 
--   **Data Migration Support:** Some pieces of data can only be migrated by Salesforce; keep this dependency in mind!
--   **Open the Go-Live Ticket:** If the site being moved will be the _first_ site in the new realm, you are required to go through the full, formal "Go Live" process. This is a structured engagement with Salesforce that has its own set of checklists, performance reviews, and timelines. This process must be initiated by opening a Go Live ticket well in advance of your target launch date.
--   **Establish Clear Communication Channels:** Use the Salesforce Help portal to log all cases related to the realm split. It is critical to ensure you select the correct B2C tenant/realm ID in the case details for both the source and destination environments. This ensures your requests are routed correctly and provides an official channel for coordinating the migration steps that require Salesforce intervention.
+- **Data Migration Support:** Some pieces of data can only be migrated by Salesforce; keep this dependency in mind!
+- **Open the Go-Live Ticket:** If the site being moved will be the _first_ site in the new realm, you are required to go through the full, formal "Go Live" process. This is a structured engagement with Salesforce that has its own set of checklists, performance reviews, and timelines. This process must be initiated by opening a Go Live ticket well in advance of your target launch date.
+- **Establish Clear Communication Channels:** Use the Salesforce Help portal to log all cases related to the realm split. It is critical to ensure you select the correct B2C tenant/realm ID in the case details for both the source and destination environments. This ensures your requests are routed correctly and provides an official channel for coordinating the migration steps that require Salesforce intervention.
 
 ### Phase 3: The Great Data Exodus - A Migration Deep Dive
 
@@ -103,9 +103,8 @@ The complexity of data migration, with its varied methods and ownership, demands
 
 Also, please review [this page](https://help.salesforce.com/s/articleView?id=000391622&language=en_US&type=1) carefully, as it contains a wealth of information on the migration plan you need to set up.
 
-|     |     |     |     |
-| --- | --- | --- | --- |
 | Data Object | When | Key Considerations & Risks | Primary Owner |
+| --- | --- | --- | --- |
 | **Product Catalog** | Continuous in the old and new realms | Includes products, categories, assignments, and sorting rules. Relatively low risk. | Dev Team / Merchandising |
 | **Price Books** | Continuous in the old and new realms | Ensure all relevant price books are included. Test pricing thoroughly post-import. | Dev Team / Merchandising |
 | **Content Assets & Libraries** | Manual syncs at pre-defined moments | Includes content assets, folders, and library assignments. | Dev Team / Content Team |
@@ -115,11 +114,7 @@ Also, please review [this page](https://help.salesforce.com/s/articleView?id=000
 | **Site Preferences & Metadata** | Manual syncs at pre-defined moments | Many settings are included in site export, but some (e.g., sequence numbers) must be manually configured and verified. | Dev Team |
 | **Customer Profiles** | Complete migration 1-2 weeks before the go-live, delta during and after | **CRITICAL PII RISK:** Ensure the Customer Sequence Number in the new realm is set higher than the highest customer number being imported to prevent duplicate IDs and data exposure. | Dev Team |
 | **Customer Passwords** | Part of the Customer Profiles. | Passwords are encrypted, but can be exported and imported into different realms without any intervention from Salesforce. | Dev Team |
-| **Order History** | Complete migration 1-2 weeks before the go-live, delta during and after | You can export and import orders yourself as long as the site is not marked "live".
-
-**WARNING:** Ensure that you complete importing customers before importing orders, as the linking of orders to the correct customer will not occur in the background otherwise.
-
-**MANDATORY:** For a live site, order data migration _must_ be performed by Salesforce Support. This is a hard dependency requiring at least 10 working days' notice. | Dev Team / Salesforce Support |
+| **Order History** | Complete migration 1-2 weeks before the go-live, delta during and after | You can export and import orders yourself as long as the site is not marked "live". **WARNING:** Ensure that you complete importing customers before importing orders, as the linking of orders to the correct customer will not occur in the background otherwise.**MANDATORY:** For a live site, order data migration _must_ be performed by Salesforce Support. This is a hard dependency requiring at least 10 working days' notice. | Dev Team / Salesforce Support |
 | **System-Generated Coupons** | **Salesforce Support Ticket** | **MANDATORY:** To ensure existing coupons remain valid, the underlying "seeds" must be migrated by Salesforce Support. Requires a separate, specific support ticket. | Salesforce Support |
 | **Active Data & Einstein** | **Salesforce Support Ticket, During Go-Live** | For different realms, this requires a support ticket. | Dev Team / SF Support |
 
@@ -127,20 +122,20 @@ Also, please review [this page](https://help.salesforce.com/s/articleView?id=000
 
 With the new realm provisioned, the focus shifts to building out the application and its ecosystem.
 
--   **Establish a New CI/CD Pipeline:** Your existing deployment pipeline is tied to the old realm. A new, parallel pipeline must be created that targets the sandboxes and PIG instances of the new realm. The full codebase for the migrating site should be deployed and tested through this new pipeline.
--   **Replicate and Validate Configuration:** Although site import/export handles most of the configuration, several critical settings must be manually replicated and validated in the new realm's Business Manager. This includes global preferences like sequence numbers, security settings, and any custom site preferences that are not part of the standard export package.
--   **Execute the Integration Plan:** This is where the audit from Phase 1 becomes an action plan.
+- **Establish a New CI/CD Pipeline:** Your existing deployment pipeline is tied to the old realm. A new, parallel pipeline must be created that targets the sandboxes and PIG instances of the new realm. The full codebase for the migrating site should be deployed and tested through this new pipeline.
+- **Replicate and Validate Configuration:** Although site import/export handles most of the configuration, several critical settings must be manually replicated and validated in the new realm's Business Manager. This includes global preferences like sequence numbers, security settings, and any custom site preferences that are not part of the standard export package.
+- **Execute the Integration Plan:** This is where the audit from Phase 1 becomes an action plan.
 
--   **Create New API Clients:** An API client in Account Manager is tied to a specific realm and cannot be moved (although they can be used by a different realm). You must create entirely new API clients for the new realm, which will generate new Client IDs and secrets for every single integration.
--   **Coordinate with Third-Party Vendors:** Proactively contact every third-party vendor. Provide them with the new API credentials and the new hostnames for the Staging and Production instances. Update any IP allowlists on both sides. This process can take time and must be initiated well in advance of the planned cutover.
+- **Create New API Clients:** An API client in Account Manager is tied to a specific realm and cannot be moved (although they can be used by a different realm). You must create entirely new API clients for the new realm, which will generate new Client IDs and secrets for every single integration.
+- **Coordinate with Third-Party Vendors:** Proactively contact every third-party vendor. Provide them with the new API credentials and the new hostnames for the Staging and Production instances. Update any IP allowlists on both sides. This process can take time and must be initiated well in advance of the planned cutover.
 
 ### Phase 5: The Crucible of Testing
 
 Rigorous, end-to-end testing is the only way to ensure a smooth launch. The new Staging instance is your battlefield for uncovering issues before they impact customers.
 
--   **User Acceptance Testing (UAT):** Business users and QA teams must conduct exhaustive testing of every user journey on the new Staging instance. This includes account creation, login, searching and browsing, adding to cart, applying promotions, and completing checkout with all supported payment methods.
--   **End-to-End Integration Validation:** It is not enough to test the SFCC functionality in isolation. Every single third-party integration must be tested end-to-end. Place test orders that flow through to your payment gateway, tax service, and Order Management System. Verify that inventory updates and shipping notifications are working correctly.
--   **Performance and Load Testing:** The new realm is a new set of infrastructure. Use the Business Manager Code Profiler to identify any server-side performance regressions. Conduct a full-scale load test against the new PIG (either on the pre-production environment or a dedicated "loaner realm") to simulate peak traffic and ensure the new environment is appropriately scaled and configured to handle the production load.
+- **User Acceptance Testing (UAT):** Business users and QA teams must conduct exhaustive testing of every user journey on the new Staging instance. This includes account creation, login, searching and browsing, adding to cart, applying promotions, and completing checkout with all supported payment methods.
+- **End-to-End Integration Validation:** It is not enough to test the SFCC functionality in isolation. Every single third-party integration must be tested end-to-end. Place test orders that flow through to your payment gateway, tax service, and Order Management System. Verify that inventory updates and shipping notifications are working correctly.
+- **Performance and Load Testing:** The new realm is a new set of infrastructure. Use the Business Manager Code Profiler to identify any server-side performance regressions. Conduct a full-scale load test against the new PIG (either on the pre-production environment or a dedicated "loaner realm") to simulate peak traffic and ensure the new environment is appropriately scaled and configured to handle the production load.
 
 ### Phase 6: The Cutover - A Minute-by-Minute Runbook
 
@@ -148,31 +143,33 @@ The go-live event should be a precisely choreographed execution of a pre-written
 
 The sequence, based on Salesforce's official guidance, is as follows:
 
-1.  Final communications to all stakeholders. Freeze all administrative changes in the old realm's Business Manager.
-2.  Place the old site into **Maintenance Mode**. Immediately update the primary Salesforce Support ticket with the exact timestamp.
-3.  **Go-Live:** The migration process can now begin. This 90-minute waiting period is a mandatory requirement from Salesforce.
-4.  Execute the final delta data migration jobs (new customers, new orders, etc.). Coordinate closely with Salesforce Support as they perform their required migration tasks (active data).
-5.  **Migration Complete:** Once all data is moved, perform a final smoke test on the new Production instance using internal hostnames (bypassing public DNS).
-6.  Update the public DNS records (e.g., the www CNAME) to point the storefront domain to the new realm's Production instance endpoint.
-7.  Once DNS propagation is confirmed, set the new site's status to **Online** in Business Manager. Update the Salesforce Support ticket again with the exact timestamp.
-8.  **Post-Launch Hypercare****:** All hands on deck. Intensively monitor server logs, analytics dashboards, and order flow for any anomalies. The project team should be on standby to address any immediate issues.
+1. Final communications to all stakeholders. Freeze all administrative changes in the old realm's Business Manager.
+1. Place the old site into **Maintenance Mode**. Immediately update the primary Salesforce Support ticket with the exact timestamp.
+1. **Go-Live:** The migration process can now begin. This 90-minute waiting period is a mandatory requirement from Salesforce.
+1. Execute the final delta data migration jobs (new customers, new orders, etc.). Coordinate closely with Salesforce Support as they perform their required migration tasks (active data).
+1. **Migration Complete:** Once all data is moved, perform a final smoke test on the new Production instance using internal hostnames (bypassing public DNS).
+1. Update the public DNS records (e.g., the www CNAME) to point the storefront domain to the new realm's Production instance endpoint.
+1. Once DNS propagation is confirmed, set the new site's status to **Online** in Business Manager. Update the Salesforce Support ticket again with the exact timestamp.
+1. **Post-Launch Hypercare:** All hands on deck. Intensively monitor server logs, analytics dashboards, and order flow for any anomalies. The project team should be on standby to address any immediate issues.
 
 ## The SEO Minefield: Preserving Your Digital Ghost
 
-![](/media/2025/seo-minefield-03b727d6da.jpg)
+![Navigator crossing an SEO minefield to preserve rankings during migration.](/media/2025/seo-minefield-03b727d6da.jpg)
 
 Underestimating the SEO impact of a realm split is a catastrophic error that can wipe out years of search equity. This image visualizes the high-stakes process of navigating this "SEO minefield," where a single misstep can have explosive consequences. The illuminated path represents the meticulous, non-negotiable strategy—like a comprehensive 301 redirect map—required to safely migrate a site and preserve its valuable "digital ghost."
 
 A realm split, from a search engine's perspective, is essentially a complete site migration. Underestimating the SEO impact is a catastrophic error that can instantly wipe out years of accumulated search equity, traffic, and revenue. Google's own representatives have stated that split and merge operations take "considerably longer for Google to process" than standard migrations because their algorithms must re-crawl and re-evaluate the entire structure of the new site (But if your site looks the same, has the same URL structure, etc, Google will not know anything changed at all - besides IP addresses). Patience and meticulous planning are paramount.
 
--   **The 301 Redirect Map is Non-Negotiable:** This is the single most critical SEO artefact for the migration. You must create a comprehensive map that pairs every single indexable URL on the old site with its corresponding URL on the new site. This includes the homepage, all category pages, all product detail pages, and any content or marketing pages. Use a site crawler to generate a comprehensive list of URLs from the old site, ensuring 100% coverage. These redirects must be implemented in Business Manager (Merchant Tools > SEO > URL Redirects) and be live the moment the new site is launched.
+- **The 301 Redirect Map is Non-Negotiable:** This is the single most critical SEO artefact for the migration. You must create a comprehensive map that pairs every single indexable URL on the old site with its corresponding URL on the new site. This includes the homepage, all category pages, all product detail pages, and any content or marketing pages. Use a site crawler to generate a comprehensive list of URLs from the old site, ensuring 100% coverage. These redirects must be implemented in Business Manager (Merchant Tools > SEO > URL Redirects) and be live the moment the new site is launched.
 
     _**Note:** This only applies if the URL structure changed._
 
--   **Replicate URL Rules and Configuration:** The structure of your URLs is a key ranking signal. In the new realm's Business Manager, you must meticulously replicate the URL Rules (Merchant Tools > SEO > URL Rules) from the old realm. Pay close attention to settings for forcing lowercase URLs and defining character replacements for spaces and special characters. This ensures that the URLs generated by the new site will match the old ones to the letter.
--   **Manage Sitemaps and Robots.txt:** The moment the new site is live and DNS has propagated, you must generate a new sitemap.xml file from the new realm's Business Manager and submit it to Google Search Console (only if the location changed). This tells Google to begin crawling the new site structure. Simultaneously, ensure that the
+- **Replicate URL Rules and Configuration:** The structure of your URLs is a key ranking signal. In the new realm's Business Manager, you must meticulously replicate the URL Rules (Merchant Tools > SEO > URL Rules) from the old realm. Pay close attention to settings for forcing lowercase URLs and defining character replacements for spaces and special characters. This ensures that the URLs generated by the new site will match the old ones to the letter.
+- **Manage Sitemaps and Robots.txt:** The moment the new site is live and DNS has propagated, you must generate a new sitemap.xml file from the new realm's Business Manager and submit it to Google Search Console (only if the location changed). This tells Google to begin crawling the new site structure. Simultaneously, ensure that the
+
     robots.txt file for the new site is correctly configured, allowing crawlers to access all important pages and blocking any non-public sections of the site (like internal search or cart pipelines).
--   **Coordinate with SEO and Marketing Teams:** SEO migration is not solely a technical task. The SEO and marketing teams must be integral members of the project team from day one. They are responsible for auditing the redirect map, setting up the new Google Search Console property, monitoring for crawl errors post-launch, and tracking keyword rankings and organic traffic to measure the impact of the migration.
+
+- **Coordinate with SEO and Marketing Teams:** SEO migration is not solely a technical task. The SEO and marketing teams must be integral members of the project team from day one. They are responsible for auditing the redirect map, setting up the new Google Search Console property, monitoring for crawl errors post-launch, and tracking keyword rankings and organic traffic to measure the impact of the migration.
 
 ## The Developer's Survival Guide: Warnings, Pitfalls, and Pro-Tips
 
@@ -180,28 +177,30 @@ The difference between a smooth migration and a career-limiting disaster often c
 
 ### Red Alerts (Warnings)
 
--   **Irreversible Analytics Loss****:** This cannot be overstated. Historical analytics data from Reports & Dashboards **does not transfer** to the new realm. The new realm begins with a zeroed-out dashboard. While you can still access the old data by selecting the old realm ID in the Reports & Dashboards interface, the data from the two realms is never combined into a single view
+- **Irreversible Analytics Loss:** **This cannot be overstated. Historical analytics data from Reports & Dashboards** does not transfer** to the new realm. The new realm begins with a zeroed-out dashboard. While you can still access the old data by selecting the old realm ID in the Reports & Dashboards interface, the data from the two realms is never combined into a single view
 
-    **Actionable Advice****:** Before the split, work with the business and analytics teams to identify and export all critical historical reports. This data must be preserved externally, as it will be inaccessible from the new realm's reporting interface.
--   **The Data Corruption Gauntlet:** Heed the warnings from Salesforce Support. The cutover runbook is not a suggestion; it is a strict protocol. Changing the old site back to "Online" after the migration process has started, or failing to follow the instructions, can result in irreversible data corruption. There is no room for error in the cutover sequence.
--   **PII and the Sequence Number Bomb****:** The warning about Customer Sequence Numbers is critical enough to repeat. Suppose you import customer profiles with customer numbers (e.g., cust\_no = 5000) into a new realm where the sequence number is still at its default (e.g., 1000). In that case, the system will eventually start creating new customers with numbers that conflict with your imported data. This can lead to a catastrophic PII breach where one customer logs in and sees another customer's profile, address, and order history. (e.g. a customer wasn't imported because of "whatever reason", and their number is "taken over".)
+    **Actionable Advice:** Before the split, work with the business and analytics teams to identify and export all critical historical reports. This data must be preserved externally, as it will be inaccessible from the new realm's reporting interface.
 
-    **Actionable Advice****:** Before importing any customer data, go to Administration > Global Preferences > Sequence Numbers in the new realm and manually set the Customer Number to a value safely above the highest customer number in your import file.
+- **The Data Corruption Gauntlet:** Heed the warnings from Salesforce Support. The cutover runbook is not a suggestion; it is a strict protocol. Changing the old site back to "Online" after the migration process has started, or failing to follow the instructions, can result in irreversible data corruption. There is no room for error in the cutover sequence.
+- **PII and the Sequence Number Bomb:** The warning about Customer Sequence Numbers is critical enough to repeat. Suppose you import customer profiles with customer numbers (e.g., cust\_no = 5000) into a new realm where the sequence number is still at its default (e.g., 1000). In that case, the system will eventually start creating new customers with numbers that conflict with your imported data. This can lead to a catastrophic PII breach where one customer logs in and sees another customer's profile, address, and order history. (e.g. a customer wasn't imported because of "whatever reason", and their number is "taken over".)
+
+    **Actionable Advice:** Before importing any customer data, go to Administration > Global Preferences > Sequence Numbers in the new realm and manually set the Customer Number to a value safely above the highest customer number in your import file.
 
 ### Common Traps (Pitfalls)
 
--   **The Obscure Realm Setting:** A realm is more than what you see in Business Manager. There are underlying configurations that are only visible to Salesforce Support.
+- **The Obscure Realm Setting:** A realm is more than what you see in Business Manager. There are underlying configurations that are only visible to Salesforce Support.
 
     **Lesson Learned:** Never assume the new realm is a perfect 1:1 clone of the old one. Suppose you encounter a bizarre, inexplicable bug that defies all logical debugging. In that case, your next step should be to open a high-priority support case and make sure that they perform a full comparison of all underlying realm configurations between the source and the destination.
--   **Forgetting the "Small" Data:** It is easy to focus on the big-ticket items like products and orders and completely forget smaller but equally critical data points. The migration of system-generated coupon seeds is a perfect example. If you use these types of coupons and forget to open the specific support ticket to have the seeds migrated, all previously issued coupons will become invalid the moment you go live, leading to failed promotions and customer frustration.
--   **Underestimating Integration Timelines:** A realm split is an integration project for every single system that connects to SFCC. Third-party vendors have their own change control processes, support SLAs, and technical resource availability. Assuming a vendor can instantly provide new credentials or update an IP allowlist on your go-live day is a recipe for failure.
+
+- **Forgetting the "Small" Data:** It is easy to focus on the big-ticket items like products and orders and completely forget smaller but equally critical data points. The migration of system-generated coupon seeds is a perfect example. If you use these types of coupons and forget to open the specific support ticket to have the seeds migrated, all previously issued coupons will become invalid the moment you go live, leading to failed promotions and customer frustration.
+- **Underestimating Integration Timelines:** A realm split is an integration project for every single system that connects to SFCC. Third-party vendors have their own change control processes, support SLAs, and technical resource availability. Assuming a vendor can instantly provide new credentials or update an IP allowlist on your go-live day is a recipe for failure.
 
 ### Veteran's Wisdom (Pro-Tips)
 
--   **Rehearse, Rehearse, Rehearse:** Conduct at least one, and preferably several, full dry runs of the entire data migration and cutover process. This can be done by migrating data from a sandbox in the old realm to a sandbox in the new realm. A rehearsal will inevitably uncover flawed assumptions, broken scripts, or missing data in a low-stakes environment, allowing you to fix the process before the high-pressure production event.
--   **Script Everything Possible:** Any manual step in a cutover plan is a potential point of failure. Automate as much of the process as you can. Write scripts for exporting and transforming data, for replicating configurations via Business Manager APIs (where possible), and for post-launch validation checks. Automation reduces the risk of human error and speeds up the execution of the runbook.
--   **Benchmark Performance Before and After:** Do not rely on subjective feelings about site speed. Before the split, use the Code Profiler and external web performance tools (like WebPageTest) to establish a clear, quantitative performance baseline for the site on the old realm. After the new site is live, run the exact same tests. This provides concrete data to demonstrate that performance has not degraded, allowing you to quantify any improvements gained from the new, isolated infrastructure.
--   **Plan for a Rollback, but Work to Not Need It:** Your runbook must include a clear "point of no return" and a detailed rollback plan. A rollback is technically possible in the early stages of the cutover (primarily by reverting the DNS change), as the old realm and site will still exist. However, it becomes exponentially more difficult with every new order and customer registration that occurs on the new site. The rollback plan is a critical safety net, but the primary focus should be on meticulous planning and testing to ensure it is never needed.
+- **Rehearse, Rehearse, Rehearse:** Conduct at least one, and preferably several, full dry runs of the entire data migration and cutover process. This can be done by migrating data from a sandbox in the old realm to a sandbox in the new realm. A rehearsal will inevitably uncover flawed assumptions, broken scripts, or missing data in a low-stakes environment, allowing you to fix the process before the high-pressure production event.
+- **Script Everything Possible:** Any manual step in a cutover plan is a potential point of failure. Automate as much of the process as you can. Write scripts for exporting and transforming data, for replicating configurations via Business Manager APIs (where possible), and for post-launch validation checks. Automation reduces the risk of human error and speeds up the execution of the runbook.
+- **Benchmark Performance Before and After:** Do not rely on subjective feelings about site speed. Before the split, use the Code Profiler and external web performance tools (like WebPageTest) to establish a clear, quantitative performance baseline for the site on the old realm. After the new site is live, run the exact same tests. This provides concrete data to demonstrate that performance has not degraded, allowing you to quantify any improvements gained from the new, isolated infrastructure.
+- **Plan for a Rollback, but Work to Not Need It:** Your runbook must include a clear "point of no return" and a detailed rollback plan. A rollback is technically possible in the early stages of the cutover (primarily by reverting the DNS change), as the old realm and site will still exist. However, it becomes exponentially more difficult with every new order and customer registration that occurs on the new site. The rollback plan is a critical safety net, but the primary focus should be on meticulous planning and testing to ensure it is never needed.
 
 ## Conclusion: Life in the Multiverse
 

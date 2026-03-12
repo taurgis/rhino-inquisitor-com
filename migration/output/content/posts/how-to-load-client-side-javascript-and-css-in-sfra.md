@@ -25,22 +25,17 @@ First, let's ensure we're on the same page. SFRA uses ISML ([Internet Store Mark
 
 The Storefront Reference Architecture provides many features and "helpers" to make developers' lives easier. One of those features is the "[assets.js](https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/blob/master/cartridges/app_storefront_base/cartridge/scripts/assets.js)" file to load client-side JavaScript and CSS in a structured way.
 
+```js
+var assets = require('*/cartridge/scripts/assets.js');
+assets.addCss('/css/account/my-file.css');
+assets.addJs('/js/my-file.js');
 ```
 
-
-    var assets = require('*/cartridge/scripts/assets.js');
-    assets.addCss('/css/account/my-file.css');
-    assets.addJs('/js/my-file.js');
-
-
-
-```
-
-### What is it?
+### What is it
 
 In short: It is a "singleton" type class with two arrays that stores all CSS and JavaScript files that need to be loaded for the current page.
 
-### When does it load the files?
+### When does it load the files
 
 #### CSS
 
@@ -48,20 +43,15 @@ The "[htmlHead.isml](https://github.com/SalesforceCommerceCloud/storefront-refer
 
 This code is responsible for loading all the fancy styles that are present in that array we talked about earlier.
 
-```
-
-
-    integrity="${style.integrity}" crossorigin="anonymous" />
-
-
-
+```text
+integrity="${style.integrity}" crossorigin="anonymous" />
 ```
 
 #### JavaScript
 
 Like styles, you can also load JavaScript files into your SFRA project using ISML. The main difference is that you'll be using the [scripts.isml](https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/blob/master/cartridges/app_storefront_base/cartridge/templates/default/common/scripts.isml) template instead of htmlHead.isml. And if you want to see the big picture, you can check out the "[page.isml](https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/blob/master/cartridges/app_storefront_base/cartridge/templates/default/common/layout/page.isml#L32)" file, which is the highest-level ISML file used in SFRA.
 
-## It doesn't work! Why????
+## It doesn't work! Why
 
 ### Remote Includes
 

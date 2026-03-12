@@ -17,10 +17,9 @@ author: Thomas Theunen
 ---
 Starting a community was a plan I have had in my head for a while now but never acted on - with what was going on in the world: a pandemic, a war, and an economic crisis. The list never ends with reasons to delay, so I stopped waiting and plowed ahead!
 
-
 And at the end of August, I got the mail titled "Welcome to the Trailblazer Community Group Program!" I got accepted! But ... oh damn ... now I have to push on!
 
-[![](/media/2022/join-the-salesforce-benelux-commerce-cloud-community-v4-afd7195f3b.jpg)](https://trailblazercommunitygroups.com/salesforce-developer-group-hasselt-belgium/)
+[![Trailblazer Community Group welcome banner for the Benelux commerce community.](/media/2022/join-the-salesforce-benelux-commerce-cloud-community-v4-afd7195f3b.jpg)](https://trailblazercommunitygroups.com/salesforce-developer-group-hasselt-belgium/)
 
 ## What's in a name
 
@@ -36,7 +35,7 @@ _A big thanks to them for making this community happen!_
 
 ### Wouter de Boer
 
--   [View profile](https://www.linkedin.com/in/wouterdeboer)
+- [View profile](https://www.linkedin.com/in/wouterdeboer)
 
 Wouter is the lead Architect at [Wolfpack Agency](https://www.wolfpack-agency.com/), designing solutions for Salesforce B2C/B2B Commerce Cloud, Service Cloud, and Marketing Cloud.
 
@@ -44,13 +43,13 @@ With 7+ years of knowledge of the Commerce Cloud (Demandware), he started as a d
 
 ### Kiran George
 
--   [View profile](https://www.linkedin.com/in/kirantgeorge)
+- [View profile](https://www.linkedin.com/in/kirantgeorge)
 
 Salesforce technical/solution consultant with a deep affinity towards Ecommerce and the Salesforce platform's omnichannel possibilities. Working with SFCC/Demandware since 2011. Still fond of working with pipelines. Currently living in Amstelveen, NL . Co-Founder of [CommerceForz](https://www.commerceforz.com/).
 
 ### Thomas Theunen
 
--   [View profile](https://www.linkedin.com/in/thomas-theunen-10905680)
+- [View profile](https://www.linkedin.com/in/thomas-theunen-10905680)
 
 Thomas started in 2011 as an Intershop Commerce developer and, after seeing the light six years later, switched to Salesforce B2C Commerce Cloud.
 
@@ -64,52 +63,46 @@ Besides keeping himself busy with Salesforce during working hours, he owns a Sal
 
 The main goal of this community group is to gather all Salesforce Commerce Cloud enthusiasts in the Benelux:
 
--   Developers
--   Merchandisers
--   Project Managers
--   Business Analysts
--   Job-hunters
-
-
+- Developers
+- Merchandisers
+- Project Managers
+- Business Analysts
+- Job-hunters
 
 And what about products? Anything within the Salesforce Commerce Cloud range of products:
 
--   B2C Commerce Cloud
--   B2B Commerce Cloud
--   B2B2C Commerce Cloud
--   OMS
--   OCI
--   Commerce Marketplaces (Atonit)
+- B2C Commerce Cloud
+- B2B Commerce Cloud
+- B2B2C Commerce Cloud
+- OMS
+- OCI
+- Commerce Marketplaces (Atonit)
 
-
-
-### What about people outside of the Benelux?
+### What about people outside of the Benelux
 
 As the language of choice will be English, global attendees are more than welcome to join the Hybrid and Virtual meetings!
 
-## When is the first meeting?
+## When is the first meeting
 
 Very soon! The first session is scheduled for the [6th of October](https://trailblazercommunitygroups.com/events/details/salesforce-salesforce-developer-group-hasselt-belgium-presents-lets-get-to-know-each-other/)!
 
-## What will be the topics?
+## What will be the topics
 
 The topics will range from technical workshops to networking events. Some ideas that I have for topics are:
 
--   How to get started with B2C Commerce Cloud?
--   How to get started with B2B Commerce Cloud?
--   B2C vs B2B vs B2B2C
--   The future of Salesforce Commerce Cloud
--   OMS and Commerce Cloud, how does it work?
--   How does Composable and Headless fit into the Salesforce ecosystem
--   How to get certified
--   ....
-
-
+- How to get started with B2C Commerce Cloud?
+- How to get started with B2B Commerce Cloud?
+- B2C vs B2B vs B2B2C
+- The future of Salesforce Commerce Cloud
+- OMS and Commerce Cloud, how does it work?
+- How does Composable and Headless fit into the Salesforce ecosystem
+- How to get certified
+- ....
 
 Have ideas in mind of your own? Then join the 6th of October session or leave a comment!
 
-[![](/media/2022/get-to-know-each-other-v2-60539cfd30.png)](https://trailblazercommunitygroups.com/events/details/salesforce-salesforce-developer-group-hasselt-belgium-presents-lets-get-to-know-each-other/)
+[![Announcement card for the community's first get-to-know-each-other session.](/media/2022/get-to-know-each-other-v2-60539cfd30.png)](https://trailblazercommunitygroups.com/events/details/salesforce-salesforce-developer-group-hasselt-belgium-presents-lets-get-to-know-each-other/)
 
-## Looking for speakers!
+## Looking for speakers
 
-Have something to share with everyone; no matter where you are, I want to make it happen! So please send me a mail at thomas.theunen@trailblazercgl.com or contact me on [LinkedIn](https://www.linkedin.com/in/thomas-theunen-10905680).
+Have something to share with everyone; no matter where you are, I want to make it happen! So please send me a mail at <thomas.theunen@trailblazercgl.com> or contact me on [LinkedIn](https://www.linkedin.com/in/thomas-theunen-10905680).

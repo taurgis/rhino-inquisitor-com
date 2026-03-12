@@ -250,7 +250,7 @@ This runbook tracks the operational steps needed to move the repository from pla
 - Run the staged-content correction pass with `npm run migrate:apply-corrections` after `npm run migrate:rewrite-links`.
 - The correction pass reads staged Markdown from `migration/output/content/` and applies deterministic generated-content fixes plus curated text overrides:
   - markdown-structure normalization for lint-sensitive generated content, including hard-tab expansion, unlabeled fence language assignment, list-marker spacing and indentation cleanup, ordered-list prefix normalization, spaced-emphasis cleanup, bare-URL wrapping, multiline table flattening, and blank-line insertion around normalized table blocks
-  - a final `markdownlint-cli2 --fix` sweep over `migration/output/content/**/*.md` to resolve residual markdownlint-safe formatting issues that remain after deterministic normalization
+  - a convergence-aware `markdownlint-cli2 --fix` sweep over `migration/output/content/**/*.md` that is rerun until the staged tree stops changing
   - fenced-code cleanup for WordPress wrapper indentation and blank-first-line artifacts
   - image paragraph normalization when generated Markdown keeps images and prose in the same paragraph block
   - inline label/callout reconstruction when flattened WordPress text leaves labels such as `Info`, `CDN`, `Default Cache Times`, `Not Found`, `Replication`, `Deprecation`, `Deletion`, or `Caching` embedded in plain paragraphs
@@ -261,10 +261,12 @@ This runbook tracks the operational steps needed to move the repository from pla
   - curated weak-link label overrides from `migration/input/link-text-corrections.csv`
 - Use `npm run migrate:finalize-content` after `npm run migrate:map-frontmatter` when you want the standard post-mapping sequence in one command.
 - Current validated 2026-03-12 behavior:
-  - `npm run migrate:apply-corrections` now combines the deterministic correction script with `markdownlint-cli2 --fix` over the staged migration corpus
+  - `npm run migrate:apply-corrections` now runs `scripts/migration/run-correction-pipeline.js`, which loops the deterministic correction script plus `markdownlint-cli2 --fix` until the staged migration corpus reaches a stable filesystem end state
   - the deterministic pass repaired Batch 3 generator defects including malformed repository-entry links, blockquote/list spacing issues, duplicate heading disambiguation, inline-fragment cleanup, and markdownlint-sensitive emphasis/code-span formatting
   - the emphasis repair logic now preserves recoverable callout semantics by reconstructing malformed label-style emphasis such as `**Note:**`, `**Important:**`, and dated `**Update ...:**` lines instead of flattening those cues to plain text when the generated Markdown still exposes the label intent
-  - rerunning `npm run migrate:apply-corrections` remains rerun-safe on the staged corpus; after convergence, the changed-markdown lint scope for generated content reached 0 markdownlint errors
+  - the first temp-copy validation run on the current staged corpus converged in `4` internal passes with net pass-to-pass diffs `166 -> 12 -> 3 -> 0`
+  - a second temp-copy validation run on the already-stable corpus reported `filesChanged: 0` and completed with an empty run-to-run diff
+  - `migration/reports/content-corrections-summary.json` now reports the pipeline-level net `filesChanged` value and includes convergence metadata (`converged`, `convergencePasses`, `rawFilesChangedFirstPass`, `rawFilesChangedLastPass`, `passSummaries`)
 - The seeded alt-text corrections file contract is:
   - path: `migration/input/image-alt-corrections.csv`
   - required columns: `page_url`, `image_src`, `occurrence_index`, `corrected_alt`
@@ -313,7 +315,7 @@ This runbook tracks the operational steps needed to move the repository from pla
   - `npm run migrate:export-alt-corrections -- --current-dir migration/output/content --baseline-dir tmp/rhi-correction-validate-content --output-file migration/input/image-alt-corrections.csv` when reseeding curated alt text from reviewed staged content
   - `npm run migrate:export-link-text-corrections`
   - `npm run migrate:apply-corrections`
-  - rerun `npm run migrate:apply-corrections` and confirm the summary reports 0 updated files
+  - rerun `npm run migrate:apply-corrections` and confirm `migration/reports/content-corrections-summary.json` reports `filesChanged: 0`
   - `markdown_files=$(git diff --name-only -- migration/output/content src/content | grep -E '\.md$' | sort -u)`
   - `printf '%s\n' "$markdown_files" | xargs npx markdownlint-cli2` when the correction pass output will be synced or reviewed in Git
   - `hugo --minify --environment production --contentDir migration/output/content --destination tmp/rhi-corrections-public`

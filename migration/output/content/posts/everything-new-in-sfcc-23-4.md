@@ -19,7 +19,7 @@ author: Thomas Theunen
 ---
 As the clock ticks on a new month has arrived, and with that the next [Salesforce B2C Commerce Cloud](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/) release! This time we look at the [April 2023 (23.4) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_23_4_release.htm&language=en_US&type=5)!
 
-Are you interested in last month’s release notes? [Click here](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-23-3-release/)!
+Are you interested in last month’s release notes? [Read the 23.3 release notes](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-23-3-release/)!
 
 ## Platform
 
@@ -31,18 +31,17 @@ Salesforce Payments continues to gain love from Salesforce with every new releas
 
 Here is a list of all of the new APIs made available:
 
--   **SalesforcePaymentIntent**
-    -   getClientSecret()
-    -   isCancelable()
-    -   isRefundable()
+- **SalesforcePaymentIntent**
+  - getClientSecret()
+  - isCancelable()
+  - isRefundable()
 
-
--   **SalesforcePaymentsMgr**
-    -   cancelPaymentIntent(SalesforcePaymentIntent, Object)
-    -   capturePaymentIntent(SalesforcePaymentIntent, Money)
-    -   createPaymentIntent(Basket, Shipment, String, Money, Boolean, Object)
-    -   refundPaymentIntent(SalesforcePaymentIntent, Money, Object)
-    -   updatePaymentIntent(SalesforcePaymentIntent, Shipment, Money, String, Object)
+- **SalesforcePaymentsMgr**
+  - cancelPaymentIntent(SalesforcePaymentIntent, Object)
+  - capturePaymentIntent(SalesforcePaymentIntent, Money)
+  - createPaymentIntent(Basket, Shipment, String, Money, Boolean, Object)
+  - refundPaymentIntent(SalesforcePaymentIntent, Money, Object)
+  - updatePaymentIntent(SalesforcePaymentIntent, Shipment, Money, String, Object)
 
 ### Grouped Taxation Applied to Import and Export Orders
 
@@ -70,12 +69,12 @@ Good news for live and in-development projects who have chosen to go the "hybrid
 
 From this release on, we can manage all of this with a new set of APIs:
 
--   [getMrtRules](https://developer.salesforce.com/docs/commerce/commerce-api/references/cdn-api-process-apis?meta=getMrtRules "getMrtRules - HTML (New Window)")
--   [createMrtRules](https://developer.salesforce.com/docs/commerce/commerce-api/references/cdn-api-process-apis?meta=createMrtRules "createMrtRules - HTML (New Window)")
--   [updateMrtRule](https://developer.salesforce.com/docs/commerce/commerce-api/references/cdn-api-process-apis?meta=updateMrtRule "updateMrtRule - HTML (New Window)")
--   [updateMrtHostname](https://developer.salesforce.com/docs/commerce/commerce-api/references/cdn-api-process-apis?meta=updateMrtHostname "updateMrtHostname - HTML (New Window)")
--   [deleteMrtRuleset](https://developer.salesforce.com/docs/commerce/commerce-api/references/cdn-api-process-apis?meta=deleteMrtRuleset "deleteMrtRuleset - HTML (New Window)")
--   [deleteMrtRule](https://developer.salesforce.com/docs/commerce/commerce-api/references/cdn-api-process-apis?meta=deleteMrtRule "deleteMrtRule - HTML (New Window)")
+- [getMrtRules](https://developer.salesforce.com/docs/commerce/commerce-api/references/cdn-api-process-apis?meta=getMrtRules"getMrtRules-HTML(NewWindow)")
+- [createMrtRules](https://developer.salesforce.com/docs/commerce/commerce-api/references/cdn-api-process-apis?meta=createMrtRules"createMrtRules-HTML(NewWindow)")
+- [updateMrtRule](https://developer.salesforce.com/docs/commerce/commerce-api/references/cdn-api-process-apis?meta=updateMrtRule"updateMrtRule-HTML(NewWindow)")
+- [updateMrtHostname](https://developer.salesforce.com/docs/commerce/commerce-api/references/cdn-api-process-apis?meta=updateMrtHostname"updateMrtHostname-HTML(NewWindow)")
+- [deleteMrtRuleset](https://developer.salesforce.com/docs/commerce/commerce-api/references/cdn-api-process-apis?meta=deleteMrtRuleset"deleteMrtRuleset-HTML(NewWindow)")
+- [deleteMrtRule](https://developer.salesforce.com/docs/commerce/commerce-api/references/cdn-api-process-apis?meta=deleteMrtRule"deleteMrtRule-HTML(NewWindow)")
 
 ### SLAS Database Update (03/07/2023)
 
@@ -89,9 +88,9 @@ In this case, the database has been updated from 14.1 to 14.6, as mandated by AW
 
 I had another look at the IdeaExchange and found some interesting new submissions:
 
--   [Bulk or Auto Run/Refresh Dynamic Categorization Rules](https://ideas.salesforce.com/s/idea/a0B8W00000NXb63UAD)
--   [User Search, Auditing, and Improved Filtering in SFCC Account Manager](https://ideas.salesforce.com/s/idea/a0B8W00000NY1OZUA1/user-search-auditing-and-improved-filtering-in-sfcc-account-manager)
--   [OMS integration status](https://ideas.salesforce.com/s/idea/a0B8W00000NLdunUAD/oms-integration-status)
+- [Bulk or Auto Run/Refresh Dynamic Categorization Rules](https://ideas.salesforce.com/s/idea/a0B8W00000NXb63UAD)
+- [User Search, Auditing, and Improved Filtering in SFCC Account Manager](https://ideas.salesforce.com/s/idea/a0B8W00000NY1OZUA1/user-search-auditing-and-improved-filtering-in-sfcc-account-manager)
+- [OMS integration status](https://ideas.salesforce.com/s/idea/a0B8W00000NLdunUAD/oms-integration-status)
 
 ## PWA Kit v2.7.0
 
@@ -99,7 +98,7 @@ The [latest updates](https://github.com/SalesforceCommerceCloud/pwa-kit/releases
 
 Here are some recordings by Salesforce made available explaining these new features:
 
-https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/pwa-kit-page-designer.mp4https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/product-sets-244-mid-release-demo.mp4
+<https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/pwa-kit-page-designer.mp4https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/product-sets-244-mid-release-demo.mp4>
 
 But the most significant change that marks the start of the upgrade required in the future version 3.0 is the update from Node 14 to Node 16.
 
@@ -113,18 +112,18 @@ Having searched the "Known Issues" section, I found it difficult to determine if
 
 ### b2c-tools (v0.16.0)
 
--   [https://github.com/SalesforceCommerceCloud/b2c-tools](https://github.com/SalesforceCommerceCloud/b2c-tools)
+- [https://github.com/SalesforceCommerceCloud/b2c-tools](https://github.com/SalesforceCommerceCloud/b2c-tools)
 
 > b2c-tools is a CLI tool and library for data migrations, import/export, scripting and other tasks with SFCC B2C instances and administrative APIs (SCAPI, ODS, etc). It is intended to be complimentary to other tools such as sfcc-ci for development and CI/CD scenarios.
 
--   support feature dependencies by [@clavery](https://github.com/clavery) in [#102](https://github.com/SalesforceCommerceCloud/b2c-tools/pull/102)
-    -   this is a BREAKING change from 0.15.4 in the feature script callbacks for those who use the second argument (you know who you are).
+- support feature dependencies by [@clavery](https://github.com/clavery) in [#102](https://github.com/SalesforceCommerceCloud/b2c-tools/pull/102)
+  - this is a BREAKING change from 0.15.4 in the feature script callbacks for those who use the second argument (you know who you are).
 
 ### Passwordless Login(v1.1.1)
 
--   [https://github.com/SalesforceCommerceCloud/plugin\_passwordlesslogin](https://github.com/SalesforceCommerceCloud/plugin_passwordlesslogin)
+- [https://github.com/SalesforceCommerceCloud/plugin\_passwordlesslogin](https://github.com/SalesforceCommerceCloud/plugin_passwordlesslogin)
 
 > Passwordless login is a way to verify a user’s identity without using a password. It offers protection against the most prevalent cyberattacks, such as phishing and brute-force password cracking. Passwordless login systems use authentication methods that are more secure than regular passwords, including magic links, one-time codes, registered devices or tokens, and biometrics.
 
--   [#9](https://github.com/SalesforceCommerceCloud/plugin_passwordlesslogin/issues/9) fix isStorefrontSession by [@sandragolden](https://github.com/sandragolden) in [#10](https://github.com/SalesforceCommerceCloud/plugin_passwordlesslogin/pull/10)
-    -   ref same issue in `plugin_slas`: [SalesforceCommerceCloud/plugin\_slas#91](https://github.com/SalesforceCommerceCloud/plugin_slas/pull/91)
+- [#9](https://github.com/SalesforceCommerceCloud/plugin_passwordlesslogin/issues/9) fix isStorefrontSession by [@sandragolden](https://github.com/sandragolden) in [#10](https://github.com/SalesforceCommerceCloud/plugin_passwordlesslogin/pull/10)
+  - ref same issue in `plugin_slas`: [SalesforceCommerceCloud/plugin\_slas#91](https://github.com/SalesforceCommerceCloud/plugin_slas/pull/91)

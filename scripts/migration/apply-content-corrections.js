@@ -689,12 +689,25 @@ function normalizeFenceBlockLines(blockLines) {
     : trimmedLines;
   let changed = startIndex > 0 || endIndex < blockLines.length - 1 || shouldDedent;
 
-  const firstLineIndent = normalizedLines[0]?.match(/^[\t ]*/u)?.[0] ?? '';
-  const firstLineIndentWidth = getIndentWidth(firstLineIndent);
-  if (!shouldDedent && firstLineIndent.length > 0 && (firstLineIndent.includes('\t') || firstLineIndentWidth >= 4)) {
-    normalizedLines = [...normalizedLines];
-    normalizedLines[0] = normalizedLines[0].slice(firstLineIndent.length);
-    changed = true;
+  if (normalizedLines.length > 0) {
+    const dedentedLeadingLines = [...normalizedLines];
+    let leadingLinesDedented = 0;
+
+    for (let index = 0; index < dedentedLeadingLines.length; index += 1) {
+      const indent = dedentedLeadingLines[index].match(/^[\t ]*/u)?.[0] ?? '';
+      const indentWidth = getIndentWidth(indent);
+      if (!indent || (!indent.includes('\t') && indentWidth < 4)) {
+        break;
+      }
+
+      dedentedLeadingLines[index] = dedentedLeadingLines[index].slice(indent.length);
+      leadingLinesDedented += 1;
+    }
+
+    if (leadingLinesDedented > 0) {
+      normalizedLines = dedentedLeadingLines;
+      changed = true;
+    }
   }
 
   return {
@@ -823,20 +836,8 @@ function normalizeListIndentation(value, { blockquotePrefix = '', previousNonEmp
     return indent;
   }
 
-  if (indent.length >= 4) {
-    return ' '.repeat(Math.max(2, Math.floor(indent.length / 4) * 2));
-  }
-
-  if (indent.length === 2) {
-    const previousContext = extractListContext(previousNonEmptyLine);
-    if (!previousContext || previousContext.blockquotePrefix !== blockquotePrefix) {
-      return '';
-    }
-
-    return previousContext.indent.length >= 2 ? '  ' : '';
-  }
-
-  return '';
+  const evenIndentWidth = indent.length - (indent.length % 2);
+  return evenIndentWidth === indent.length ? indent : ' '.repeat(evenIndentWidth);
 }
 
 function extractListContext(line) {
@@ -1092,13 +1093,6 @@ function normalizeStandaloneEmphasisLine({ line, previousLine, nextLine }) {
     return null;
   }
 
-  if (/[>/]/u.test(label) || label.length > 50) {
-    return {
-      line: label,
-      normalizedHeadingLikeEmphasis: 1
-    };
-  }
-
   if (label.split(/\s+/u).length <= 6 && !/[.!?]$/u.test(label)) {
     return {
       line: `### ${stripTrailingHeadingPunctuation(label)}`,
@@ -1106,10 +1100,14 @@ function normalizeStandaloneEmphasisLine({ line, previousLine, nextLine }) {
     };
   }
 
-  return {
-    line: label,
-    normalizedHeadingLikeEmphasis: 1
-  };
+  if (label.includes('>') || /^["'“‘(]/u.test(label)) {
+    return {
+      line: label,
+      normalizedHeadingLikeEmphasis: 1
+    };
+  }
+
+  return null;
 }
 
 function rewriteEmphasisSpacingLine(value) {
@@ -1121,19 +1119,24 @@ function rewriteEmphasisSpacingLine(value) {
       .replace(/^(\s*)_(\s+)(.+?)_$/u, '$1_$3_')
       .replace(/^(\s*)_(.+?)(\s+)_$/u, '$1_$2_')
       .replace(/_\*\*\s*Note\s*:\s*\*\*\s*_\s*_\s*([^_\n]+?)\s*_/giu, '**Note:** $1')
+      .replace(/([A-Za-z0-9)])_>\s*_([A-Za-z])/gu, '$1 > $2')
+      .replace(/(>\s*)_([A-Za-z])/gu, '$1$2')
+      .replace(/([A-Za-z0-9)])_(?=\s*>)/gu, '$1')
       .replace(/\*\*OCAPI:\*\*\s*([0-9]+)\s*\*\*SCAPI:\*\*\s*([0-9]+)/gu, '**OCAPI:** $1 **SCAPI:** $2')
       .replace(/\*\*guest\*\*(?=customer\b)/giu, '**guest** ')
       .replace(/\s*[×x]\s*Dismiss alert\b/giu, '')
-      .replace(/\*\*(\s+)([^*\n]+?)\*\*/gu, '**$2**')
-      .replace(/\*\*([^*\n]+?)(\s+)\*\*/gu, '**$1**')
-      .replace(/\*\*([^*\n]+?)\s+\*\*(?=\S)/gu, '**$1** ')
-      .replace(/\*\*(\s+)([^*\n]+?)(\s+)\*\*/gu, '**$2**')
+      .replace(/([A-Za-z0-9),.!?])(?=\*\*(?=[A-Za-z0-9<`]))/gu, '$1 ')
+      .replace(/\*\*(?=[A-Za-z0-9<`])(\s+)([^*\n]+?)\*\*/gu, '**$2**')
+      .replace(/\*\*(?=[A-Za-z0-9<`])([^*\n]+?)(\s+)\*\*/gu, '**$1**')
+      .replace(/\*\*(?=[A-Za-z0-9<`])([^*\n]+?)\s+\*\*(?=\S)/gu, '**$1** ')
+      .replace(/\*\*(?=[A-Za-z0-9<`])(\s+)([^*\n]+?)(\s+)\*\*/gu, '**$2**')
       .replace(/\*(\s+)([^*\n]+?)(\s+)\*/gu, '*$2*')
       .replace(/_\s+([^_\n]+?)_/gu, '_$1_')
       .replace(/_([^_\n]+?)\s+_/gu, '_$1_')
       .replace(/\*\*([^*\n]+?)\s+:\*\*/gu, '**$1:**')
-      .replace(/([A-Za-z0-9).,:;!?])(\*\*[^*\n]+?\*\*)/gu, '$1 $2')
-      .replace(/(\*\*[^*\n]+?\*\*)([A-Za-z0-9(`])/gu, '$1 $2')
+      .replace(/([A-Za-z0-9).,:;!?])(\*\*(?=[A-Za-z0-9<`])[^*\n]+?\*\*)/gu, '$1 $2')
+      .replace(/(\*\*(?=[A-Za-z0-9<`])[^*\n]+?\*\*)([A-Za-z0-9(`])/gu, '$1 $2')
+      .replace(/(\*\*(?=[A-Za-z0-9<`])[^*\n]+?\*\*)([,;:.!?])(?=[A-Za-z0-9])/gu, '$1$2 ')
       .replace(/([A-Za-z0-9).,:;!?])(_[^_\n]+?_)/gu, '$1 $2')
       .replace(/(_[^_\n]+?_)([A-Za-z0-9(`])/gu, '$1 $2')
       .replace(/\*\*([^*\n]+)\*\*:\*\*/gu, '**$1:**')
@@ -1177,8 +1180,8 @@ function repairMalformedEmphasisSyntaxLine(value) {
             : ' ';
         return `**${leftText}${joiner}${rightText}**`;
       })
-      .replace(/\*\*\s+([^*\n]+?)\*\*/gu, '**$1**')
-      .replace(/\*\*([^*\n]+?)\s+\*\*/gu, '**$1**');
+      .replace(/\*\*(?=[A-Za-z0-9<`])\s+([^*\n]+?)\*\*/gu, '**$1**')
+      .replace(/\*\*(?=[A-Za-z0-9<`])([^*\n]+?)\s+\*\*/gu, '**$1**');
 
     if (next === current) {
       return next;
@@ -1210,6 +1213,18 @@ function normalizeCodeSpanSpacing(content) {
     }
 
     const normalizedLine = line
+      .replace(/`(<https?:\/\/[^>\n`]+>)`/giu, (_match, inner) => {
+        normalizedCodeSpans += 1;
+        return inner;
+      })
+      .replace(/`(<www\.[^>\n`]+>)`/giu, (_match, inner) => {
+        normalizedCodeSpans += 1;
+        return inner;
+      })
+      .replace(/`(<[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}>)`/giu, (_match, inner) => {
+        normalizedCodeSpans += 1;
+        return inner;
+      })
       .replace(/\*\*`<\s*(https?:\/\/[^\s`>*]+)\s*\*\*>`/gu, (_match, url) => {
         normalizedCodeSpans += 1;
         return `\`<${url}>\``;

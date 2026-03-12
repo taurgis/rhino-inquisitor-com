@@ -13,12 +13,10 @@ categories:
   - Video
 author: Thomas Theunen
 ---
-https://www.youtube.com/watch?v=DIk88MbB-Hc&t=2355s
+<https://www.youtube.com/watch?v=DIk88MbB-Hc&t=2355s>
 
 Salesforce Commerce Cloud has shifted its focus to investing in Headless development for the past two years. Mobify was acquired and rebranded to PWA Kit And Managed Runtime, providing the next headless storefront offering.
 
-
 But the PWA Kit requires an entirely new way of development in React.js. Does that mean the knowledge you have built up of the Salesforce Commerce Cloud products will be thrown into the trash can in a few years? What if you don’t like React.js?
-
 
 And what does “Composable Commerce” mean? Many terms are thrown around, confusing the Commerce space. At the end of this presentation, we hope to have eliminated some of this confusion.

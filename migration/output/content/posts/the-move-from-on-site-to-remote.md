@@ -53,11 +53,9 @@ After that, we decided to bend the rules and let the grandparents help (thank yo
 
 Luckily [our company](https://www.forward.eu/) decided to embrace this new way of working entirely, and we got a complete set of working materials to do our thing at home:
 
--   Standing desk
--   Screen
--   Chair
-
-
+- Standing desk
+- Screen
+- Chair
 
 This made it a lot easier to organise our workspaces.
 
@@ -78,7 +76,7 @@ After a while, I moved my desk to a separate room to prevent us from disturbing 
 
 ## The new normal: remote
 
-![](/media/2022/remote-working-e716e903ff.png)
+![Remote-work illustration showing the shift from office life to long-term work from home.](/media/2022/remote-working-e716e903ff.png)
 
 Two years later, here we are. Thoroughly accustomed to remote work. And productivity has not plummeted as some anti-remote doomsday-sayers were predicting.
 
@@ -94,7 +92,7 @@ Instead of cramming everything into an hour, I have two hours to prepare everyth
 
 Woohoo! I don't have to face rush-hour traffic!
 
-![Obligatory proud-parent photo required](/media/external/thano-psv24pu9kldk5x8zu262vki7uludwrj46gur4x75jm-99e877453d.jpg "Thano Theunen-Vanhoof")
+![Portrait of Thano used in the family chapter about adapting to remote work.](/media/external/thano-psv24pu9kldk5x8zu262vki7uludwrj46gur4x75jm-99e877453d.jpg "Thano Theunen-Vanhoof")
 
 Obligatory proud-parent photo required
 

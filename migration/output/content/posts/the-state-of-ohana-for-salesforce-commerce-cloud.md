@@ -53,11 +53,10 @@ I became active on [Twitter](https://twitter.com/theunenth) a little less than a
 
 And boy, a lot is going on there:
 
--   [**Ohana Pears**](https://twitter.com/Secret_Ohana): Helping to grow & nurture friendships within Ohana
--   [**shirtforce**](https://twitter.com/shirtforceOrg): Giving through tees
--   [**SnailMailStickerSwap**](https://twitter.com/SMStickerSwap): Exchanging Salesforce related stickers through Snail Mail
--   And the list goes on and on...
-
+- [**Ohana Pears**](https://twitter.com/Secret_Ohana): Helping to grow & nurture friendships within Ohana
+- [**shirtforce**](https://twitter.com/shirtforceOrg): Giving through tees
+- [**SnailMailStickerSwap**](https://twitter.com/SMStickerSwap): Exchanging Salesforce related stickers through Snail Mail
+- And the list goes on and on...
 
 Of course, the main drivers of these are Salesforce CRM Administrators. But does it end at the Salesforce platform? No! All of the groups mentioned above have a target group containing all clouds! So don't be afraid to mingle 😁.
 
@@ -73,7 +72,7 @@ But is it also so surprising? The B2C community is also more isolated and not by
 
 The first community within Demandware / SFCC is undoubtedly the Xchange, discontinued and all of its histories erased! It has left many people annoyed as it contained a vast amount of knowledge that people were willing to share with their peers.
 
-![A screenshot of Account Manager roles & permissions showing the old Xchange.](/media/2022/xchange-c2290f06af.png)
+![Account Manager roles and permissions page still listing the old Xchange integration.](/media/2022/xchange-c2290f06af.png)
 
 I found this community (even though it was not as active as the Trailblazer Community is) a beneficial tool to find my way in the world of Salesforce Commerce Cloud. I still find myself assigning the role to every account in Account Manager in nostalgia, even though it does not do anything anymore.
 

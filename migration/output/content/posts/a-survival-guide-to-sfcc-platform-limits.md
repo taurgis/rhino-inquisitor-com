@@ -33,33 +33,25 @@ These are the foundational limits that every Salesforce B2C Commerce developer m
 
 **The Limit:** An instance can hold a maximum of 400,000 replicable (stageable) custom objects and a separate 400,000 non-replicable (non-stageable) custom objects.
 
-
-
 **The Danger Zone:** This limit, while seemingly vast, is often threatened by insidious data accumulation. Common culprits include using custom objects to store transactional data, such as detailed integration logs or granular user interaction events, which rightfully belong in an external system of record.
 
 Another frequent anti-pattern is the complete lack of data retention policies, allowing temporary data—such as tokens for password resets or abandoned cart information—to accumulate indefinitely until the limit is reached.
 
-
-
 **The Fallout:** Once this enforced quota is hit, the consequences are severe. Any call to `dw.object.CustomObjectMgr.create()` will fail with an uncatchable exception. This means any feature relying on the creation of new custom objects, from saving a user's address preference to logging a critical integration failure, will cease to function. It is a systemic failure that can cripple significant portions of a site's custom functionality.
-
-
 
 **The Pro Move:** The key to avoiding this downfall is architectural discipline and rigorous data hygiene.
 
--   **Be Ruthless with Data:** Before storing anything in a custom object, developers and architects must ask the critical question: "Is B2C Commerce the correct system of record for this data?". If the data originates from or is primarily used by another platform (like a CRM or Marketing Cloud), it should reside there.
+- **Be Ruthless with Data:** Before storing anything in a custom object, developers and architects must ask the critical question: "Is B2C Commerce the correct system of record for this data?". If the data originates from or is primarily used by another platform (like a CRM or Marketing Cloud), it should reside there.
 
--   **Mandate Cleanup:** No custom object intended for temporary storage should be created without a corresponding, regularly scheduled purge job. A clear data retention period must be defined and enforced as part of the development lifecycle for that feature.
+- **Mandate Cleanup:** No custom object intended for temporary storage should be created without a corresponding, regularly scheduled purge job. A clear data retention period must be defined and enforced as part of the development lifecycle for that feature.
 
--   **Extend, Don't Invent:** Before creating a new custom object type, developers should exhaust all possibilities of extending existing system objects with custom attributes. System objects are generally more performant and do not count against this specific quota.
+- **Extend, Don't Invent:** Before creating a new custom object type, developers should exhaust all possibilities of extending existing system objects with custom attributes. System objects are generally more performant and do not count against this specific quota.
 
 Beyond the hard limit, there is a more subtle performance drag to consider. The documentation and best practices repeatedly warn that custom objects are not optimised for high-performance database access. This means that even when an instance is well below the 400,000 object ceiling, heavy reliance on custom objects for frequent read/write operations (e.g., a custom inventory system or a real-time logging mechanism) creates significant database churn. This churn leads to a gradual degradation of site performance—slower page loads, longer job execution times—that does not trigger a hard quota violation but insidiously damages the user experience and erodes site stability. The limit is a hard stop, but the performance penalty begins long before the wall is hit.
 
 ## The Blueprint Boundary: Object Type Definitions (300 Limit)
 
 **The Limit:** An instance is [capped](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/quota/html/Object_Quotas.html) at a maximum of 300 total business object definitions. This count includes all the platform's built-in system object types, as well as any custom object types created by developers.
-
-
 
 **The Danger Zone:** This limit is rarely a concern for typical, single-brand e-commerce sites. However, it can become a very real constraint for large, complex, multi-brand organisations operating on a single B2C Commerce instance. In such environments, numerous bespoke features, each potentially demanding its own custom data model, can quickly consume the available slots for new object types.
 
@@ -75,21 +67,17 @@ PWA Kit / Headless If you're working with a Headless or Composable setup, refer 
 
 **The Limit:** Any script running within a storefront request context, such as a controller or a script module it calls, has a [maximum execution time](https://developer.salesforce.com/docs/commerce/commerce-api/guide/timeout-troubleshoot.html) of 5 minutes (300,000 milliseconds).
 
-
-
 **The Danger Zone:** This limit is typically breached by one of three culprits: highly complex, unoptimized calculations performed in real-time; synchronous calls to slow or unresponsive third-party services; or inefficient loops that iterate over massive datasets without proper optimisation.
 
 **The Fallout:** The platform shows no mercy. A non-catchable `ScriptingTimeoutError` is thrown, the script is immediately aborted, and the user is presented with an error page. There is no opportunity for graceful recovery; the transaction is dead.
 
 **The Pro Move:** Adhering to this limit requires a shift in thinking from synchronous to asynchronous processing.
 
--   **Offload to Jobs:** Any process that is not absolutely essential for the immediate, initial rendering of the page should be moved to an asynchronous job. This is the canonical pattern for tasks like order export, complex report generation, or large data synchronisations.
+- **Offload to Jobs:** Any process that is not absolutely essential for the immediate, initial rendering of the page should be moved to an asynchronous job. This is the canonical pattern for tasks like order export, complex report generation, or large data synchronisations.
 
--   **Write Efficient Code:** This is a table-stakes requirement for any performance-conscious developer. Optimise loops by using efficient APIs like `seekable` iterators instead of loading entire large collections into memory. Cache the results of expensive or repeated operations within a single request.
+- **Write Efficient Code:** This is a table-stakes requirement for any performance-conscious developer. Optimise loops by using efficient APIs like `seekable` iterators instead of loading entire large collections into memory. Cache the results of expensive or repeated operations within a single request.
 
--   **Use the Service Framework:** For all external API calls, the Service Framework is mandatory. It allows for the configuration of aggressive timeouts and circuit breakers, enabling the system to "fail fast" rather than waiting for a slow third-party service to consume the entire 5-minute budget.
-
-
+- **Use the Service Framework:** For all external API calls, the Service Framework is mandatory. It allows for the configuration of aggressive timeouts and circuit breakers, enabling the system to "fail fast" rather than waiting for a slow third-party service to consume the entire 5-minute budget.
 
 A critical nuance is the interplay of different timeout contexts.
 
@@ -109,13 +97,11 @@ Remember old party lines? B2C Commerce's HTTPClient is similar. You only get 16 
 
 **The Pro Move:** Avoiding this limit requires a deliberate integration strategy that favours consolidation and caching over chattiness.
 
--   **API Aggregation:** When the external services are within the team's control, the best practice is to create an aggregation layer or a Backend-for-Frontend (BFF) service. This service can receive a single request from B2C Commerce, make multiple downstream calls itself, and return a consolidated data payload in one response.
+- **API Aggregation:** When the external services are within the team's control, the best practice is to create an aggregation layer or a Backend-for-Frontend (BFF) service. This service can receive a single request from B2C Commerce, make multiple downstream calls itself, and return a consolidated data payload in one response.
 
+- **Aggressive Caching:** Responses from external systems that do not change on every request should be aggressively cached using B2C Commerce's custom cache framework. This avoids making a network call on every single page load for the same data.
 
--   **Aggressive Caching:** Responses from external systems that do not change on every request should be aggressively cached using B2C Commerce's custom cache framework. This avoids making a network call on every single page load for the same data.
-
-
--   **Switch to Data Feeds:** For data that does not require real-time updates (e.g., product specifications, warehouse inventory), the entire model should be transitioned from real-time API calls to scheduled data feed imports. Importing inventory levels every 15 minutes via a job is far more scalable and performant than hitting an inventory API on every product page view.
+- **Switch to Data Feeds:** For data that does not require real-time updates (e.g., product specifications, warehouse inventory), the entire model should be transitioned from real-time API calls to scheduled data feed imports. Importing inventory levels every 15 minutes via a job is far more scalable and performant than hitting an inventory API on every product page view.
 
 This limit of 16 calls is more than just a technical constraint; it is a powerful driving force for better architecture. It actively discourages a naive, chatty integration pattern where the storefront directly communicates with a fleet of microservices. This quota, especially when combined with the 5-minute script timeout, compels architects to adopt more robust and performant patterns, such as the API Gateway. The limit is not just about preventing resource exhaustion on the B2C Commerce side; it is about enforcing a more resilient and scalable integration architecture for the entire solution.
 
@@ -129,12 +115,9 @@ This limit of 16 calls is more than just a technical constraint; it is a powerfu
 
 **The Pro Move:** Handling this limit requires different strategies for B2B and B2C.
 
--   **B2B Solutions:** For B2B use cases, a custom solution is often required. One approach is to build logic that automatically splits a large order into multiple, smaller baskets behind the scenes, presenting it to the user as a single order confirmation. Another is to guide the user through the UI to create several smaller orders.
+- **B2B Solutions:** For B2B use cases, a custom solution is often required. One approach is to build logic that automatically splits a large order into multiple, smaller baskets behind the scenes, presenting it to the user as a single order confirmation. Another is to guide the user through the UI to create several smaller orders.
 
-
--   **B2C Graceful Handling:** For B2C, the focus is on clear user feedback. When the cart approaches the limit, the UI should display a non-intrusive message. When the limit is hit, a clear, helpful error message should explain the situation: "Your shopping cart is full. To add more items, please proceed to checkout with your current selection or save items to a wishlist for later."
-
-
+- **B2C Graceful Handling:** For B2C, the focus is on clear user feedback. When the cart approaches the limit, the UI should display a non-intrusive message. When the limit is hit, a clear, helpful error message should explain the situation: "Your shopping cart is full. To add more items, please proceed to checkout with your current selection or save items to a wishlist for later."
 
 ## The Promotion Paradox: Enabled Promotions (10,000 Limit)
 
@@ -160,12 +143,9 @@ Like an ancient, endless scroll, an ISML template can grow beyond its bounds. Ke
 
 **The Pro Move:** This limit enforces fundamental web performance best practices.
 
--   **Pagination is Not Optional:** All product listing pages, search result pages, and any other page that displays a potentially large list of items must implement robust and user-friendly pagination. The "Infinite scroll" feature can be utilised, but it must be implemented intelligently with asynchronous calls to fetch subsequent pages of data.
+- **Pagination is Not Optional:** All product listing pages, search result pages, and any other page that displays a potentially large list of items must implement robust and user-friendly pagination. The "Infinite scroll" feature can be utilised, but it must be implemented intelligently with asynchronous calls to fetch subsequent pages of data.
 
-
--   **Lazy Loading:** For content that is "below the fold" (not immediately visible to the user), use lazy loading techniques to defer the loading of that content until the user scrolls down.
-
-
+- **Lazy Loading:** For content that is "below the fold" (not immediately visible to the user), use lazy loading techniques to defer the loading of that content until the user scrolls down.
 
 **Keep Logic Out of ISML:** ISML templates should be used solely for presentation logic. All complex data preparation, filtering, and business logic should be handled in controller or script module files before being passed to the template. This keeps templates clean, small, and focused on rendering.
 
@@ -179,10 +159,9 @@ Like an ancient, endless scroll, an ISML template can grow beyond its bounds. Ke
 
 **The Pro Move:** The session should be treated as a tiny, temporary backpack, not a storage warehouse.
 
--   **Store Identifiers, Not Objects:** The correct pattern is to store only small, primitive identifiers in the session, such as productID, customerNo, or orderID. The full objects should be re-fetched from the database or, preferably, from a cache when they are needed on a subsequent page.
+- **Store Identifiers, Not Objects:** The correct pattern is to store only small, primitive identifiers in the session, such as productID, customerNo, or orderID. The full objects should be re-fetched from the database or, preferably, from a cache when they are needed on a subsequent page.
 
--   **Use session.privacy:** For data that is specific to a user's logged-in session and should be cleared upon logout (like temporary preferences), use the session.privacy custom attributes. The platform automatically handles the cleanup of this data.
-
+- **Use session.privacy:** For data that is specific to a user's logged-in session and should be cleared upon logout (like temporary preferences), use the session.privacy custom attributes. The platform automatically handles the cleanup of this data.
 
 ## The Ten Commandments of Creation: API Custom Object Creation Per Page (10 Limit)
 
@@ -204,13 +183,11 @@ Like an ancient, endless scroll, an ISML template can grow beyond its bounds. Ke
 
 **The Pro Move:** Any form of dynamic file generation must happen in an asynchronous job context. The canonical pattern is as follows:
 
-1.  A user on a storefront page clicks a button to request a file (e.g., "Download My Order History").
-2.  The storefront controller does not generate the file. Instead, it creates a "token" custom object with a status of "pending" and triggers a job, passing the ID of this token object as a parameter.
-3.  The user's page receives a confirmation and begins to poll a separate, lightweight controller every few seconds, checking the status of the token object. The job executes in the background. It performs the heavy lifting of querying the data and generating the file, which it then saves to a temporary location in the WebDAV impex or temp directory. Once complete, the job updates the token custom object's status to "complete" and adds the path to the generated file.
-4.  The polling mechanism on the user's page sees the "complete" status, retrieves the file path, and presents the user with a direct download link to the file in WebDAV.
-5.  Clean up your custom objects! Remember 😇
-
-
+1. A user on a storefront page clicks a button to request a file (e.g., "Download My Order History").
+1. The storefront controller does not generate the file. Instead, it creates a "token" custom object with a status of "pending" and triggers a job, passing the ID of this token object as a parameter.
+1. The user's page receives a confirmation and begins to poll a separate, lightweight controller every few seconds, checking the status of the token object. The job executes in the background. It performs the heavy lifting of querying the data and generating the file, which it then saves to a temporary location in the WebDAV impex or temp directory. Once complete, the job updates the token custom object's status to "complete" and adds the path to the generated file.
+1. The polling mechanism on the user's page sees the "complete" status, retrieves the file path, and presents the user with a direct download link to the file in WebDAV.
+1. Clean up your custom objects! Remember 😇
 
 ## The Headless Frontier: A PWA Kit & SCAPI Hit List
 
@@ -224,21 +201,17 @@ Welcome to the headless frontier. Here, developers are like astronauts, decoupli
 
 **The Limit:** Unlike the hard-and-fast quotas of the monolith, SCAPI operates on a system of rate limiting and load shedding. There is not one single number to watch. Instead, when the platform determines that a client is making too many requests in a given timeframe, it will respond with an `HTTP 429 Too Many Requests` status code. Specific, high-volume API families, like Omnichannel Inventory (OCI), have very granular, published rate limits. For instance, the `get-availability` endpoint can handle a massive 10,000 requests every 10 seconds, while the `imports` endpoint is limited to just 2 requests per 10 seconds.
 
-
-
 **The Danger Zone:** The primary risk factor is a high-traffic site with poorly implemented or non-existent caching for API responses. A classic example is a product list page (PLP) in a PWA Kit application where, for every user, the browser makes individual, uncached calls to the Shopper Products and OCI Availability APIs for every single product tile visible on the page. During a sales event, this can quickly overwhelm the rate limits.
 
 **The Fallout:** The API client—the PWA Kit application running in the user's browser—gets throttled. If the client-side code is not built to handle the 429 response gracefully, the UI will simply fail to load the required data. Users will see endless loading spinners, empty components, or jarring error messages, resulting in a broken and untrustworthy user experience.
 
 **The Pro Move:** Resilience is the name of the game.
 
--   **Honor `Retry-After`:** The 429 response is often accompanied by a `Retry-After` header, which specifies the number of seconds the client should wait before attempting to reconnect. Client-side code _must_ be built to respect this header. The best practice is to implement an exponential backoff strategy, where the delay between retries increases with each subsequent failure, thereby preventing a "thundering herd" of retries from exacerbating the problem.
+- **Honor `Retry-After`:** The 429 response is often accompanied by a `Retry-After` header, which specifies the number of seconds the client should wait before attempting to reconnect. Client-side code _must_ be built to respect this header. The best practice is to implement an exponential backoff strategy, where the delay between retries increases with each subsequent failure, thereby preventing a "thundering herd" of retries from exacerbating the problem.
 
--   **Embrace Client-Side Caching:** Modern libraries like React Query, which is a standard part of the PWA Kit, are essential. They provide sophisticated client-side caching, automatically preventing the application from making redundant API calls for data that it has recently fetched and that has not yet been invalidated.
+- **Embrace Client-Side Caching:** Modern libraries like React Query, which is a standard part of the PWA Kit, are essential. They provide sophisticated client-side caching, automatically preventing the application from making redundant API calls for data that it has recently fetched and that has not yet been invalidated.
 
--   **Leverage CDN Caching for APIs:** For API endpoints that return public, non-personalised data (e.g., product details for a guest user), the PWA Kit's Managed Runtime proxy can be configured to cache the API JSON response at the CDN edge. This is achieved by changing the request path prefix from `/proxy/` to `/caching/`.
-
-
+- **Leverage CDN Caching for APIs:** For API endpoints that return public, non-personalised data (e.g., product details for a guest user), the PWA Kit's Managed Runtime proxy can be configured to cache the API JSON response at the CDN edge. This is achieved by changing the request path prefix from `/proxy/` to `/caching/`.
 
 This shift to rate-limiting signals a profound change in responsibility. In a traditional SFRA architecture, the server owns the execution and is responsible for handling errors that may occur. If a quota is hit, the server throws a fatal exception. In the headless SCAPI world, the platform simply puts its hand up and says "no more for now" with a 429 code. The responsibility for handling this rejection and maintaining a coherent, resilient user experience shifts almost entirely to the client-side application. Headless development is not just about a different frontend technology; it requires a more sophisticated level of client-side engineering, with a deep understanding of state management, asynchronous error handling, and fault-tolerance patterns.
 
@@ -246,25 +219,19 @@ This shift to rate-limiting signals a profound change in responsibility. In a tr
 
 **The Limit:** The Shopper Login and API Access Service (SLAS), which governs all authentication and authorisation for Shopper APIs, has its own distinct, high-level rate limits: 24,000 requests per minute (RPM) for production tenants and 500 RPM for non-production tenants.
 
-
-
 **The Danger Zone:** The most common way to violate this limit is with a poorly configured client application that requests a new guest user token on every single API call, rather than caching and reusing the token it has already received.
 
 **The Fallout:** Authentication fails. Guest shoppers are unable to obtain the necessary JWT to perform actions such as adding items to a cart, and registered users are unable to log in or refresh their sessions. Essentially, all authenticated or basket-related e-commerce functionality grinds to a halt.
 
 **The Pro Move:** Token management is paramount.
 
--   **Token Caching is Mandatory:** A standard SLAS JWT is valid for 30 minutes. The client application must be designed to cache this token (e.g., in browser local storage) and include it in the `Authorization` header of all subsequent API calls. A new token should only be requested when the current one does not exist or is nearing its expiration time.
+- **Token Caching is Mandatory:** A standard SLAS JWT is valid for 30 minutes. The client application must be designed to cache this token (e.g., in browser local storage) and include it in the `Authorization` header of all subsequent API calls. A new token should only be requested when the current one does not exist or is nearing its expiration time.
 
-
--   **Master the Refresh Token Flow:** For registered users, the client should use the provided refresh token to obtain a new access token in the background seamlessly, without requiring the user to re-authenticate. Developers should be aware of the latest security enhancements, such as mandatory refresh token rotation, which prohibits the reuse of a refresh token after it has been used once.
-
+- **Master the Refresh Token Flow:** For registered users, the client should use the provided refresh token to obtain a new access token in the background seamlessly, without requiring the user to re-authenticate. Developers should be aware of the latest security enhancements, such as mandatory refresh token rotation, which prohibits the reuse of a refresh token after it has been used once.
 
 ## The 30-Second Lifeline: PWA Kit Managed Runtime Proxy Timeout
 
 **The Limit:** Any request that is proxied through the PWA Kit's Managed Runtime to an external, third-party API is subject to a hard, non-configurable timeout of 30 seconds.
-
-
 
 **The Danger Zone:** This becomes a problem when using the proxy to make a synchronous call to a system known for slow response times. This could be a legacy ERP system for a complex price lookup or a third-party service that provides real-time, computationally intensive freight shipping calculations.
 
@@ -278,8 +245,6 @@ Custom Timeouts Timeouts for STANDARD API endpoints can be [overridden](https://
 
 **The Limit:** While SCAPI is the future, many implementations still use OCAPI, especially during a phased migration. Scripts executed within OCAPI hooks (e.g., `dw.ocapi.shop.basket.beforePOST`, `afterPOST`) are constrained by a very tight 30-second execution timeout.
 
-
-
 **The Danger Zone:** It is a common temptation for teams migrating from SFRA to lift heavy business logic from their old controllers and drop it directly into an OCAPI hook to modify API behaviour. This could include complex custom price adjustments, intricate promotion applications, or calls to multiple external systems.
 
 **The Fallout:** If the script in the hook exceeds the 30-second limit, the entire OCAPI API call fails, typically returning a generic 500 error to the client. The hook's logic is aborted mid-execution, which carries the additional risk of leaving data in an inconsistent state.
@@ -290,24 +255,19 @@ Custom Timeouts Timeouts for STANDARD API endpoints can be [overridden](https://
 
 **The Limit:** The Custom APIs framework, which allows developers to extend SCAPI with their own endpoints, is built on a fundamental two-tier system: "Shopper" endpoints and "Admin" endpoints. Shopper endpoints are designed for high-scale, low-latency, user-facing interactions and are therefore subject to stricter, unpublished limits on execution runtime and request/response body size. They must be associated with a `siteId` and are secured using SLAS tokens. Admin endpoints, by contrast, are more permissive but require authentication via Account Manager OAuth and are intended for backend or administrative tasks.
 
-
-
 **The Danger Zone:** The primary mistake is attempting to perform a data-intensive or long-running operation through a Shopper-scoped Custom API. This might include a user-triggered request to generate a large, custom data export or a complex calculation over a customer's entire order history.
 
 **The Fallout:** The request will likely encounter an uncatchable platform timeout or resource limit, resulting in the operation failing for the user.
 
 **The Pro Move:** The architecture of any custom API must be designed with this split in mind from day one.
 
--   **Shopper Endpoints:** Utilise for high-frequency, low-latency operations integral to the core user journey (e.g., retrieving a custom piece of data for the product page).
+- **Shopper Endpoints:** Utilise for high-frequency, low-latency operations integral to the core user journey (e.g., retrieving a custom piece of data for the product page).
 
--   **Admin Endpoints:** Use for heavy, backend processes or administrative functions that might be called by a custom Business Manager module, an external system, or an asynchronous job (e.g., triggering a bulk data synchronisation).
-
+- **Admin Endpoints:** Use for heavy, backend processes or administrative functions that might be called by a custom Business Manager module, an external system, or an asynchronous job (e.g., triggering a bulk data synchronisation).
 
 ## The Ghost in the Machine: dw.system.Session in a Headless World
 
 **The Limit:** This is not a formal quota but a critical architectural anti-pattern. The `dw.system.Session` object is a construct of the B2C Commerce server-side web tier. In a pure, stateless SCAPI architecture, there is no server session. However, in hybrid architectures or during a phased migration from SFRA, developers may be tempted to use OCAPI session bridging or pass the `dwsid` session cookie in custom headers to SCAPI calls to maintain a semblance of the old session-based state.
-
-
 
 **The Danger Zone:** Relying on the server-side session to manage state in an application that is supposed to be headless. This creates a tight, brittle coupling to the old monolithic architecture, negating many of the benefits of going headless, such as the independent scaling and deployment of the frontend. It is a recipe for bizarre and hard-to-debug caching and state management bugs.
 
@@ -320,7 +280,5 @@ Custom Timeouts Timeouts for STANDARD API endpoints can be [overridden](https://
 The extensive landscape of quotas and limits within Salesforce B2C Commerce Cloud should not be viewed as a field of landmines for developers. Instead, these constraints are a design partner, a set of rules that, when understood and respected, guide the development of applications that are inherently more performant, stable, and scalable.
 
 The most successful B2C Commerce developers are not those who discover clever workarounds to circumvent limits—a path that inevitably leads to performance bottlenecks, maintenance nightmares, and platform instability. The true experts are those who architect their solutions to thrive within these boundaries. A quota-fluent developer internalises these limits and uses them as a lens through which they evaluate every technical decision. They write efficient code, choose the right tool for the job (a real-time API versus an asynchronous job), cache intelligently at every layer, and have a deep understanding of the unique constraints of their chosen architecture, whether it's a traditional monolith or a modern headless application.
-
-
 
 The path to this fluency begins with proactive monitoring. The Quota Status dashboard in Business Manager should be a regular destination, not just a reactive tool used during an outage. Every `WARN` level message in the quota logs should be treated as a valuable, early signal—an opportunity to refactor, optimise, and improve before a minor inefficiency becomes a major production incident. By embracing these limits as a core part of the development process, teams can transition from being quota-fearing to quota-fluent —a critical step in mastering the art of building elite e-commerce experiences on the Salesforce platform.

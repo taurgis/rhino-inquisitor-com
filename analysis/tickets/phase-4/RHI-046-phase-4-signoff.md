@@ -7,7 +7,7 @@
 **Assigned to:** Migration Owner  
 **Target date:** 2026-05-02  
 **Created:** 2026-03-07  
-**Updated:** 2026-03-11
+**Updated:** 2026-03-12
 
 ---
 
@@ -36,16 +36,16 @@ Any unresolved exception, quarantine record, or failing gate identified here mus
   - [x] RHI-042 Done — Reporting, traceability, and audit framework complete
   - [ ] RHI-043 Done — Pilot batch migrated and merged
   - [x] RHI-044 Done — High-value batch migrated and merged
-  - [ ] RHI-045 Done — Long-tail and taxonomy batch migrated and merged
+  - [x] RHI-045 Done — Long-tail and taxonomy batch migrated and merged (Batch 3 merge evidence recorded from commit `596298f2fc2ea5ae9a2fcc5081ba196ce6901339` on `main`)
 - [ ] Final migration item report confirms:
   - [ ] 100% of in-scope `keep` and `merge` records are present in `src/content/` or explicitly deferred with documented owner
   - [ ] Zero records with `qa_status: blocked`
   - [ ] All `retire`-disposition records are confirmed absent from Hugo output
   - [ ] Source-channel provenance is documented for migrated records and any waived source artifacts are explicitly noted
 - [ ] The final post-generation correction contract is verified and preserved:
-  - [ ] `migration/input/image-alt-corrections.csv` is committed as the durable curated alt-text input used by the final Phase 4 batches
-  - [ ] `migration/reports/content-corrections-summary.json` and `migration/reports/image-alt-corrections-audit.csv` are present in the final evidence set
-  - [ ] Re-running `npm run migrate:apply-corrections` on the final staged corpus is idempotent
+  - [x] `migration/input/image-alt-corrections.csv` is committed as the durable curated alt-text input used by the final Phase 4 batches
+  - [x] `migration/reports/content-corrections-summary.json` and `migration/reports/image-alt-corrections-audit.csv` are present in the final evidence set
+  - [x] Re-running `npm run migrate:apply-corrections` on the final staged corpus is idempotent
 - [ ] All CI gates pass on the final `main` branch build:
   - [ ] `hugo --minify --environment production` exits with code 0
   - [ ] `npm run validate:frontmatter` exits with code 0
@@ -87,9 +87,10 @@ Any unresolved exception, quarantine record, or failing gate identified here mus
   - [ ] `npm run migrate:report`
   - [ ] Verify 100% coverage and zero blocked items
 - [ ] Verify final correction evidence before handover:
-  - [ ] Confirm `migration/input/image-alt-corrections.csv` is committed and reflects the approved curated overrides from the final batches
-  - [ ] Re-run `npm run migrate:apply-corrections` on the final staged corpus and confirm the rerun is idempotent
-  - [ ] Include `migration/reports/content-corrections-summary.json` and `migration/reports/image-alt-corrections-audit.csv` in the handover evidence set
+  - [x] Confirm `migration/input/image-alt-corrections.csv` is committed and reflects the approved curated overrides from the final batches
+  - [x] Re-run `npm run migrate:apply-corrections` on the final staged corpus and confirm the rerun is idempotent
+  - [x] Include `migration/reports/content-corrections-summary.json` and `migration/reports/image-alt-corrections-audit.csv` in the handover evidence set
+  - [x] Confirm PR #27 closeout evidence references the refreshed staged-corpus rerun (`filesChanged: 0`) and the `main` merge commit
 - [ ] Review source artifact evidence from RHI-031, RHI-032, and RHI-042:
   - [ ] Confirm the approved source-channel strategy was documented for each batch
   - [ ] Confirm any waived or unavailable source artifacts were accepted explicitly by the owner
@@ -177,6 +178,9 @@ Any unresolved exception, quarantine record, or failing gate identified here mus
 | Date | Status | Note |
 |------|--------|------|
 | 2026-03-07 | Open | Ticket created |
+| 2026-03-12 | In Progress | PR #27 remains the gating path for RHI-045 closeout. Sign-off wording now requires refreshed correction evidence plus direct merge proof on `main` before RHI-046 can treat RHI-045 as complete. |
+| 2026-03-12 | In Progress | Re-ran `npm run migrate:apply-corrections` twice against the real staged corpus and reconfirmed the stable contract in-place: both runs converged in `1` internal pass, both rewrote `migration/reports/content-corrections-summary.json` with `filesChanged: 0`, and both completed with `markdownlint-cli2` reporting `0` errors. Updated the sign-off checklist so correction-evidence items are closed while PR #27 merge-proof items remain open. |
+| 2026-03-12 | In Progress | Verified merge commit `596298f2fc2ea5ae9a2fcc5081ba196ce6901339` (`Merge branch 'copilot/rhi-045-batch-3-closeout'`) in local git history and confirmed it is contained by both local `main` and `origin/main`. Updated RHI-046 so the RHI-045 dependency and PR-closeout evidence items are closed, while broader Phase 4 sign-off gates remain open. |
 
 ---
 

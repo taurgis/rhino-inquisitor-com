@@ -13,7 +13,7 @@ categories:
   - Video
 author: Thomas Theunen
 ---
-https://www.youtube.com/watch?v=caVpOV3TdzY
+<https://www.youtube.com/watch?v=caVpOV3TdzY>
 
 The journey to being an architect has assumed many forms over the years, and does it all start at development? I started as a Java developer more than a decade ago and slowly moved towards being a "Salesforce Solution Architect
 

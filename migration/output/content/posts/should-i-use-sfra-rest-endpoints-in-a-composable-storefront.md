@@ -31,8 +31,8 @@ While controllers were the only option in the past, we now have a more flexible 
 
 Besides all request methods, we get:
 
--   [Same authentication methodology](https://developer.salesforce.com/docs/commerce/commerce-api/guide/custom-api-authentication.html) (SLAS JWT)
--   [Personalisation & caching](https://developer.salesforce.com/docs/commerce/commerce-api/guide/custom-api-caching.html)
+- [Same authentication methodology](https://developer.salesforce.com/docs/commerce/commerce-api/guide/custom-api-authentication.html) (SLAS JWT)
+- [Personalisation & caching](https://developer.salesforce.com/docs/commerce/commerce-api/guide/custom-api-caching.html)
 
 So, if you have some controllers or [custom OCAPI endpoints](https://www.rhino-inquisitor.com/creating-custom-ocapi-endpoints/) left over on a project built before this, it might be a good time to add a ticket to your backlog to upgrade them.
 
@@ -70,6 +70,6 @@ If we poorly implement a custom endpoint that is called on every page load to re
 
 Why create a big workload when it is not needed?
 
-## Conclusion?
+## Conclusion
 
 The conclusion was already shared at the [start of the article](#conclusion)!

@@ -28,15 +28,15 @@ Although this series is about GO-LIVE, which happens at the end of a project - a
 
 Salesforce B2C Commerce Cloud only allows formats it defines, which means that with any migration, some transformation needs to happen from the format of the previous platform to that of SFCC. And there is only one option: [XML](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/xsd/Schemas.html) (Business Manager or Automated job). But what do you mean by "who is in charge?". Well, who is going to be doing that transformation? Depending on the answer, this will affect your planning. There are a few options for who takes ownership of this:
 
-1.  The Consulting (Implementation) Partner
-2.  The Salesforce customer
-3.  The previous implementation partner
+1. The Consulting (Implementation) Partner
+1. The Salesforce customer
+1. The previous implementation partner
 
 Ultimately, it does not matter who does it as long as they have the required knowledge of both the old and new formats. There is enough [documentation](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/import_export/b2c_customer_object_import_export.html) available to get anyone started on the process, and guidance from the Implementation Partner is always a good thing.
 
 ## Handle with care
 
-![](/media/2022/data-breach-7096540e7a.jpg)
+![Security illustration introducing the risks of mishandling customer data.](/media/2022/data-breach-7096540e7a.jpg)
 
 I have mentioned this before, but we deal with people's personal information in this process! Be sure that the data you work with is handled properly! Transfer the data securely, and only transfer it to people who need to work with this data. _😱 Don't email the database unencrypted to everyone involved in the project. 😱_ And also important, once the people have done their task, they must delete the data from their systems.
 
@@ -54,7 +54,7 @@ I will not elaborate on this one too much, but compared to the other data in a c
 
 ## Monitoring
 
-![](/media/2022/robot-monitoring-a-screen-4af85584a4.jpg)
+![Monitoring illustration for post-go-live customer migration checks.](/media/2022/robot-monitoring-a-screen-4af85584a4.jpg)
 
 The final step, as with many things, is monitoring after go-live. Make sure people can log in - and make Customer Service aware to note down all the information to track potential bugs. It is vital to keep this part of your daily routine for the first few days (amongst other things) after the big release.
 

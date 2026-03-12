@@ -32,16 +32,12 @@ This isn't some far-off future. The shift is already here. The 2024 [DORA](https
 
 Businesses are (or will go) all-in, with 78% of organisations reporting AI usage in 2024, a massive jump from 55% the previous year. The data is clear: AI is being integrated into the software development lifecycle at a breathtaking pace, promising boosts in productivity, code quality, and even developer focus.
 
-
-
 However, the most dangerous misconception is that simply using AI to write code faster automatically translates to greater value. This brings us to a critical, non-obvious threat that developers must understand: the "Vacuum Hypothesis."
 Introduced in the [DORA](https://dora.dev/research/2024/) Report, this concept tells us that the time developers save by using AI is often immediately absorbed by lower-value activities, such as endless meetings, bureaucratic red tape, and context-switching between trivial tasks.
 
-
-
 Consider this scenario: you use GitHub Copilot to generate a controller with helpers and its test class in 30 minutes, a task that previously took you 90. You've just saved an hour. But what happens to that hour? In many organisations, it evaporates into a vacuum of inefficiency. It's consumed by an extra status update meeting, a flurry of low-priority Slack messages, or simply waiting for a manual, bottlenecked deployment process to inch forward. The micro-level productivity gain is completely nullified by macro-level organisational drag.
 
-This reveals a more profound truth. The most successful developers in this new era won't just be the ones who master AI tools. They will be the ones who leverage the productivity gains from those tools to focus on high-value work that AI _cannot_ do: architecting complex, scalable systems, mentoring junior developers, collaborating with business stakeholders to solve the _right_ problems, and championing the process improvements needed to ensure that saved time is reinvested, not wasted.
+This reveals a more profound truth. The most successful developers in this new era won't just be the ones who master AI tools. They will be the ones who leverage the productivity gains from those tools to focus on high-value work that AI _cannot _ do: architecting complex, scalable systems, mentoring junior developers, collaborating with business stakeholders to solve the_right_ problems, and championing the process improvements needed to ensure that saved time is reinvested, not wasted.
 
 The challenge is as much about changing your organisation's culture as it is about changing your own code editor.
 
@@ -54,8 +50,6 @@ They were moments of abstraction that, rather than replacing developers, freed t
 ### The Compiler Revolution (1950s-1960s): From Machine Whisperer to System Architect
 
 In the pioneering days of computing, programming was a tedious and painstaking process. Developers wrote instructions directly in binary or low-level assembly code, a process that required an intimate, almost mystical, understanding of the machine's hardware. Then came the [compiler](https://en.wikipedia.org/wiki/History_of_compiler_construction#:~:text=The%20first%20practical%20compiler%20was,awarded%20anywhere%20in%20the%20world.). Tools like FORTRAN and COBOL introduced high-level languages that allowed programmers to write in a more human-readable syntax. The compiler would then automate the translation of this code into the ones and zeros the machine understood.
-
-
 
 The "threat" was obvious: what would happen to the programmers who had spent years mastering the intricacies of machine code? Would this automation make them redundant?
 
@@ -119,28 +113,21 @@ Large Language Models (LLMs) like ChatGPT, Claude, and Gemini are your strategic
 
 This is the art and science of crafting instructions that guide the AI to produce the desired output. Key principles include:
 
+- **Role Prompting:** Begin your prompt by assigning a persona. "Act as a senior SFCC technical architect with 15 years of experience in high-volume retail." This frames the AI's knowledge and response style.
 
+- **Providing Context:** Give the AI all the relevant background. Paste in existing code, business requirements, or error messages.
 
--   **Role Prompting:** Begin your prompt by assigning a persona. "Act as a senior SFCC technical architect with 15 years of experience in high-volume retail." This frames the AI's knowledge and response style.
-
--   **Providing Context:** Give the AI all the relevant background. Paste in existing code, business requirements, or error messages.
-
--   **Using Delimiters:** Clearly separate your instructions from the data you provide using markers like triple backticks (\`\`\`) or XML tags.
-
+- **Using Delimiters:** Clearly separate your instructions from the data you provide using markers like triple backticks (\`\`\`) or XML tags.
 
 Armed with these techniques, you can use LLMs for high-level tasks that go far beyond simple code generation :
 
+- **Architectural Brainstorming:** "I need to build a custom 'Quick Order' feature on an SFCC PWA Kit store. Provide me with three different technical approaches for comparison: the use of a custom SCAPI endpoint, a server-side SFCC controller with a traditional form post, and a standard SCAPI endpoint. Analyse the pros and cons of each regarding performance, scalability, and development effort."
 
+- **Legacy Code Archaeology:** "Here is a legacy SFCC pipelet script from a SiteGenesis implementation. Explain what it does, identify its inputs and outputs, and highlight potential points of failure or performance bottlenecks."
 
--   **Architectural Brainstorming:** "I need to build a custom 'Quick Order' feature on an SFCC PWA Kit store. Provide me with three different technical approaches for comparison: the use of a custom SCAPI endpoint, a server-side SFCC controller with a traditional form post, and a standard SCAPI endpoint. Analyse the pros and cons of each regarding performance, scalability, and development effort."
+- **Documentation on Demand:** "Generate a JSDoc comment block for the following JavaScript method, explaining its parameters, return value, and purpose."
 
--   **Legacy Code Archaeology:** "Here is a legacy SFCC pipelet script from a SiteGenesis implementation. Explain what it does, identify its inputs and outputs, and highlight potential points of failure or performance bottlenecks."
-
-
--   **Documentation on Demand:** "Generate a JSDoc comment block for the following JavaScript method, explaining its parameters, return value, and purpose."
-
--   **Test Plan Generation:** "Create a comprehensive test plan for an e-commerce checkout flow. Include test cases for different payment methods (credit card, PayPal), shipping options, guest vs. registered user checkout, and handling of invalid coupon codes. Here is a description of all the steps in our checkout process: ..."
-
+- **Test Plan Generation:** "Create a comprehensive test plan for an e-commerce checkout flow. Include test cases for different payment methods (credit card, PayPal), shipping options, guest vs. registered user checkout, and handling of invalid coupon codes. Here is a description of all the steps in our checkout process: ..."
 
 #### Your AI QA Engineer: Smarter Testing & Debugging
 
@@ -167,8 +154,6 @@ The AI-augmented developer: Spending less time on the keyboard and more time tra
 ### The Architect's Mindset: Your Most Valuable Asset
 
 As AI dramatically lowers the barrier to implementation, the relative importance of high-quality system design, clear interface definitions, and robust architectural boundaries skyrockets. A poorly architected system, even if coded flawlessly and instantly by an AI, is still a poorly architected system. It will be brittle, difficult to maintain, and unable to scale.
-
-
 
 The SFCC developer of the future adds value long before the first line of AI-generated code is produced. Your expertise is no longer demonstrated by your ability to write a perfect `for` loop in ISML script. It is shown in your ability to analyse a business requirement and make critical architectural decisions.
 
@@ -210,10 +195,9 @@ The future of the SFCC developer is not that of a simple coder, but of a technic
 
 Please don't wait. The time for passive observation is over.
 
--   **Get your hands dirty, now.** If you don't have a GitHub Copilot license, buy one this week. The $10 per month is the single best investment you can make in your career. (For your projects, customer/company code is a bit trickier on the legalities)
+- **Get your hands dirty, now.** If you don't have a GitHub Copilot license, buy one this week. The $10 per month is the single best investment you can make in your career. (For your projects, customer/company code is a bit trickier on the legalities)
 
--   **Experiment relentlessly with prompts.** Take a piece of your own code and ask Copilot to refactor it, explain it, or find bugs in it. Learn the language of AI.
-
+- **Experiment relentlessly with prompts.** Take a piece of your own code and ask Copilot to refactor it, explain it, or find bugs in it. Learn the language of AI.
 
 The future isn't something that happens _to_ you; it's something that you create. It's something you build. Stop worrying about being replaced. Pick up the tools, sharpen your horn, and become the AI-augmented rhino that leads the charge.
 

@@ -124,7 +124,7 @@ All items below must be complete before Phase 5/6/8 downstream work can consume 
 - [x] RHI-042 Done — All migration reports generated, reproducible, and CI-attached; blocking thresholds enforced
 - [ ] RHI-043 Done — Pilot batch passed all CI gates; pipeline proven end-to-end on representative records; correction artifacts and idempotent rerun evidence attached to the pilot PR
 - [x] RHI-044 Done — High-value batch committed and passing all gates; top-traffic pages verified manually; correction artifacts attached to the batch PR
-- [x] RHI-045 Done — Long-tail and taxonomy batch committed; archive and category routes preserved correctly; cumulative correction artifacts and exception evidence reviewed
+- [x] RHI-045 Done — Long-tail and taxonomy batch correction evidence is refreshed, archive/category routes are preserved correctly, and merge proof is recorded on `main`
 - [ ] RHI-046 Done — Stakeholder sign-off recorded; Phase 5/6 team notified and handover package confirmed
 
 ---

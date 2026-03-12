@@ -50,14 +50,9 @@ This is one of the most challenging types of fraud to combat because it originat
 
 Automated bots are the force multipliers of the fraud world, enabling criminals to execute attacks at a scale and speed impossible for humans.
 
+- **Card Testing (Card Cracking):** Bots are used to make thousands of small, often $1, transactions to test the validity of massive lists of stolen credit card numbers. A successful small transaction confirms the card is active and can be used for larger fraudulent purchases later.
 
-
--   **Card Testing (Card Cracking):** Bots are used to make thousands of small, often $1, transactions to test the validity of massive lists of stolen credit card numbers. A successful small transaction confirms the card is active and can be used for larger fraudulent purchases later.
-
-
--   **Inventory Hoarding/Depletion Fraud:** During high-demand events like product launches or flash sales, bots can swamp a site to buy up all available limited-stock inventory. These items are then resold on secondary markets at inflated prices, denying legitimate customers the opportunity to purchase and damaging brand perception.
-
-
+- **Inventory Hoarding/Depletion Fraud:** During high-demand events like product launches or flash sales, bots can swamp a site to buy up all available limited-stock inventory. These items are then resold on secondary markets at inflated prices, denying legitimate customers the opportunity to purchase and damaging brand perception.
 
 #### Sophisticated Schemes
 
@@ -67,10 +62,9 @@ Beyond simple theft: A visual breakdown of how fraudsters manipulate supply chai
 
 As merchants' defences improve, fraudsters devise more complex schemes.
 
--   **Triangulation Fraud:** This is a cunning three-party scheme. A fraudster sets up a fake online store or an auction listing for a popular product at a low price. An unsuspecting customer buys the item and provides their payment and shipping details. The fraudster then uses that shipping information to access a legitimate merchant's website (like yours) and purchases the same item with a different, stolen credit card, which is then shipped directly to the original customer. The fraudster pockets the customer's initial payment, the legitimate merchant is hit with a chargeback from the card's owner, and the customer receives the product, often unaware that their actions have fueled a fraudulent transaction.
+- **Triangulation Fraud:** This is a cunning three-party scheme. A fraudster sets up a fake online store or an auction listing for a popular product at a low price. An unsuspecting customer buys the item and provides their payment and shipping details. The fraudster then uses that shipping information to access a legitimate merchant's website (like yours) and purchases the same item with a different, stolen credit card, which is then shipped directly to the original customer. The fraudster pockets the customer's initial payment, the legitimate merchant is hit with a chargeback from the card's owner, and the customer receives the product, often unaware that their actions have fueled a fraudulent transaction.
 
--   **Synthetic Identity Fraud:** This is one of the fastest-growing and most dangerous forms of financial crime. Instead of stealing a single, complete identity, fraudsters combine pieces of real, stolen information (like a valid Social Security number) with fabricated details (a fake name and address) to create a brand-new, fictitious identity. This "synthetic" identity has no prior credit history, making it difficult for traditional systems to flag as fraudulent. The fraudster can then use this identity to open new lines of credit, make purchases, and commit fraud that is incredibly difficult to trace back to a real person.
-
+- **Synthetic Identity Fraud:** This is one of the fastest-growing and most dangerous forms of financial crime. Instead of stealing a single, complete identity, fraudsters combine pieces of real, stolen information (like a valid Social Security number) with fabricated details (a fake name and address) to create a brand-new, fictitious identity. This "synthetic" identity has no prior credit history, making it difficult for traditional systems to flag as fraudulent. The fraudster can then use this identity to open new lines of credit, make purchases, and commit fraud that is incredibly difficult to trace back to a real person.
 
 The evolution from simple CNP fraud to more complex schemes, such as synthetic identity and triangulation, marks a critical shift. Fraudsters are no longer just exploiting stolen data; they are creating fraudulent entities and manipulating entire supply chains. This progression means a static fraud detection strategy is doomed to fail. Defences must evolve from simple data point validation (e.g., "does the CVV match?") to holistic, pattern-based analysis ("does this entire transaction _profile_ look legitimate?"). This reality underscores the need for a custom risk-scoring engine and machine learning-based third-party tools that will be discussed in later chapters.
 
@@ -114,7 +108,7 @@ Leveraging SFCC's built-in defenses: The eCDN as the first line against maliciou
 
 SFCC is designed to be payment-agnostic, allowing seamless integration with major processors, such as Adyen, Braintree, Stripe, and Cybersource, through configuration in the Business Manager.
 
-When configuring these processors, enable and enforce payment processor features, such as **Address Verification System (AVS)** and **Card Verification Value (CVV)** checks.
+When configuring these processors, enable and enforce payment processor features, such as **Address Verification System (AVS)** and**Card Verification Value (CVV)** checks.
 
 AVS compares the numeric parts of the billing address provided by the customer to the address on file with the card issuer, while the CVV check validates the 3- or 4-digit code on the card.
 
@@ -131,25 +125,19 @@ Many customers and partners believe that Salesforce implements protections again
 Since the eCDN behind the scenes is Cloudflare, some protections are enabled by default, but more complex bots will require you to look elsewhere.
 
 > B2C Commerce doesn’t identify bots as good or bad, nor do we suggest whether certain traffic is allowed to make purchases on our commerce platform. Our customers have the flexibility to adopt the bot management strategy that aligns with their business needs.
->
 > Salesforce Help
 
 ## Foundational Security Practices (The Developer's Responsibility)
 
 According to the shared responsibility model, developers are responsible for the security of their custom code and configurations. Adhering to these best practices is non-negotiable.
 
+- **Authentication & Authorisation:** Enforce strict, server-side access control checks for all sensitive business functions. In SFRA, use the [userLoggedIn](https://help.salesforce.com/s/articleView?id=cc.b2c_developer_authentication_and_authorization.htm&type=5) middleware to protect controller endpoints that should only be accessible to authenticated users. Never trust that a request is legitimate just because it was sent; always validate on the server.
 
+- **Guest Shopper Security:** Guest checkouts are a major vector for fraud because they lack the historical context of a registered account. Implementing robust authorisation for guest order lookup is critical. Never grant access to an order solely based on the order number. At a minimum, require a combination of the order number, the email address used for the order, and the billing postal code to prevent unauthorised users from accessing order details.
 
--   **Authentication & Authorisation:** Enforce strict, server-side access control checks for all sensitive business functions. In SFRA, use the [userLoggedIn](https://help.salesforce.com/s/articleView?id=cc.b2c_developer_authentication_and_authorization.htm&type=5) middleware to protect controller endpoints that should only be accessible to authenticated users. Never trust that a request is legitimate just because it was sent; always validate on the server.
+- **Data Validation:** Proper validation of all user-provided input is the bedrock of application security. This is your primary defence against a host of vulnerabilities, including Cross-Site Scripting (XSS) and server-side script injection.
 
-
--   **Guest Shopper Security:** Guest checkouts are a major vector for fraud because they lack the historical context of a registered account. Implementing robust authorisation for guest order lookup is critical. Never grant access to an order solely based on the order number. At a minimum, require a combination of the order number, the email address used for the order, and the billing postal code to prevent unauthorised users from accessing order details.
-
-
--   **Data Validation:** Proper validation of all user-provided input is the bedrock of application security. This is your primary defence against a host of vulnerabilities, including Cross-Site Scripting (XSS) and server-side script injection.
-
--   **Bot Management:** Salesforce's official stance is that it provides the tools for bot management (like eCDN rules and rate limiting), but **_the strategy and ongoing tuning are the customer's responsibility_**.  Salesforce does not classify bots as "good" or "bad," as a bot that is desirable for one merchant (e.g., a search engine crawler) may be malicious for another (e.g., an inventory scraper).
-
+- **Bot Management:** Salesforce's official stance is that it provides the tools for bot management (like eCDN rules and rate limiting), but**_the strategy and ongoing tuning are the customer's responsibility_**.  Salesforce does not classify bots as "good" or "bad," as a bot that is desirable for one merchant (e.g., a search engine crawler) may be malicious for another (e.g., an inventory scraper).
 
 ## Getting Your Hands Dirty: The Custom Scoring Engine
 
@@ -157,16 +145,15 @@ For the bold and the brave, relying solely on third-party scores isn't the only 
 
 However, let's be crystal clear: this is not a trivial task. Building a reliable fraud detection system is a complex challenge in software engineering. You are essentially building a stateful, data-driven application within your e-commerce platform. Some of the building blocks for such a system would include:
 
--   **Address Scoring:** Programmatically comparing billing and shipping addresses. Are they in the same country? Same city? Do they look like mail forwarders?
+- **Address Scoring:** Programmatically comparing billing and shipping addresses. Are they in the same country? Same city? Do they look like mail forwarders?
 
--   **IP Verification & Geolocation:** Integrating with an IP intelligence service to check if the customer's IP is a known proxy or data centre, and comparing its location to the billing address country.
+- **IP Verification & Geolocation:** Integrating with an IP intelligence service to check if the customer's IP is a known proxy or data centre, and comparing its location to the billing address country.
 
--   **Velocity Checks:** Tracking how many orders are placed by an IP, a customer email, or a device fingerprint within a certain timeframe. This requires diligent use of Custom Objects to maintain state.
+- **Velocity Checks:** Tracking how many orders are placed by an IP, a customer email, or a device fingerprint within a certain timeframe. This requires diligent use of Custom Objects to maintain state.
 
--   **Email Domain Risk:** Analysing the customer's email address. Is it from a disposable email provider?
+- **Email Domain Risk:** Analysing the customer's email address. Is it from a disposable email provider?
 
--   **High-Risk Order Profiling:** Flagging orders that combine multiple risk factors, such as a new customer placing an unusually large, high-demand product order to be shipped to a different country.
-
+- **High-Risk Order Profiling:** Flagging orders that combine multiple risk factors, such as a new customer placing an unusually large, high-demand product order to be shipped to a different country.
 
 The most critical aspect of running your own custom solution is that its maintenance becomes your paramount responsibility. A poorly tuned algorithm is a double-edged sword; it might block fraudsters, but it can also create a torrent of "false positives," blocking legitimate, high-value customers who then leave your site frustrated.
 
@@ -188,12 +175,11 @@ These platforms dedicate all their resources to combating fraud and offer powerf
 
 Here’s a look at some leading providers and who they are best for:
 
--   **[Riskified](https://appexchange.salesforce.com/appxListingDetail?listingId=d719d10c-198a-4d46-9df8-c4a8920c023e)** & [Signifyd](https://www.signifyd.com/salesforce-commerce-cloud/)**:** Merchants who want a "set it and forget it" solution with financial peace of mind. Their key offering is a chargeback guarantee, making them ideal for businesses that want to maximize sales approvals while completely offloading the financial risk of fraudulent chargebacks.
+- **[Riskified](https://appexchange.salesforce.com/appxListingDetail?listingId=d719d10c-198a-4d46-9df8-c4a8920c023e)**& [Signifyd](https://www.signifyd.com/salesforce-commerce-cloud/):** Merchants who want a "set it and forget it" solution with financial peace of mind. Their key offering is a chargeback guarantee, making them ideal for businesses that want to maximize sales approvals while completely offloading the financial risk of fraudulent chargebacks.
 
--   **[Kount](https://kount.com/partners/salesforce-commerce-cloud-fraud-prevention/):** Businesses with in-house fraud teams that want control and deep insights. Kount provides a wealth of data and customizable rules, empowering merchants to actively manage their own fraud prevention strategy and fine-tune their risk tolerance.
+- **[Kount](https://kount.com/partners/salesforce-commerce-cloud-fraud-prevention/):** Businesses with in-house fraud teams that want control and deep insights. Kount provides a wealth of data and customizable rules, empowering merchants to actively manage their own fraud prevention strategy and fine-tune their risk tolerance.
 
--   **[DataDome](https://appexchange.salesforce.com/appxListingDetail?listingId=6dfa8305-611a-4752-8bd5-b51e0144a80a):** Retailers are heavily targeted by malicious bots and automated attacks. This is a foundational security layer, ideal for businesses that need to prevent credential stuffing, card testing, and scraper bots from reaching the checkout stage and causing damage.
-
+- **[DataDome](https://appexchange.salesforce.com/appxListingDetail?listingId=6dfa8305-611a-4752-8bd5-b51e0144a80a):** Retailers are heavily targeted by malicious bots and automated attacks. This is a foundational security layer, ideal for businesses that need to prevent credential stuffing, card testing, and scraper bots from reaching the checkout stage and causing damage.
 
 ## Architecting Your Fortress - A Layered and Evolving Strategy
 

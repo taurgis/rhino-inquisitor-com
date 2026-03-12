@@ -26,26 +26,19 @@ The JavaScript Date object is a built-in object that represents and manipulates 
 
 Example 1: Creating a Date object and displaying the current date and time
 
-```
-
-					const currentDate = new Date();
+```js
+const currentDate = new Date();
 console.log("Current date and time:", currentDate.toString());
-
-
-
 ```
 
 Example 2: Calculating the difference between two dates
 
-```
-
-					const startDate = new Date("2023-01-01");
+```js
+const startDate = new Date("2023-01-01");
 const endDate = new Date("2023-12-31");
 const timeDifference = endDate - startDate;
 const daysDifference = timeDifference / (1000 * 60 * 60 * 24);
 console.log("Days between the two dates:", daysDifference);
-
-
 ```
 
 ## Calendar (Rhino / Java)
@@ -62,26 +55,20 @@ e.g. "Calendar.getInstance()" in Java vs "new Calendar()" in the Rhino Engine.
 
 Example 1: Creating a Calendar instance and setting the date
 
-```
-
-					var Calendar = require('dw/util/Calendar');
+```js
+var Calendar = require('dw/util/Calendar');
 var calendarInstance = new Calendar()
 calendarInstance.set(2023, Calendar.JANUARY, 1);
-
-
 ```
 
 Example 2: Adding days to a Calendar instance with a particular timezone and converting to a JavaScript Date object
 
-```
-
-					var Calendar = require('dw/util/Calendar');
+```js
+var Calendar = require('dw/util/Calendar');
 var calendarInstance = new Calendar();
 calendarInstance.setTimeZone( "Etc/GMT+1" );
 calendarInstance.add(Calendar.DATE, 10);
 var dateInstance = calendarInstance.getTime();
-
-
 ```
 
 But in this use case, "odd things" happen. Watch for the "pitfalls" section at the end of this article!
@@ -90,16 +77,16 @@ But in this use case, "odd things" happen. Watch for the "pitfalls" section at t
 
 In the previous section, we discussed how to work with time zones in the Calendar class. But there are multiple functions available to manipulate the zones, such as:
 
-1.  **Setting the timezone**: You can set the timezone for a Calendar instance using the [setTimeZone()](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_util_Calendar.html#dw_util_Calendar_setTimeZone_String_DetailAnchor) method, which accepts a TimeZone object as its argument.
-2.  **Getting the timezone**: To retrieve the timezone of a Calendar instance, use the [getTimeZone()](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_util_Calendar.html#dw_util_Calendar_getTimeZone_DetailAnchor) method, which returns a TimeZone object.
-3.  **Converting between timezones**: To convert a date and time between different timezones, you can create a new Calendar instance with the desired timezone and set its time using the [setTime()](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_util_Calendar.html#dw_util_Calendar_setTime_Date_DetailAnchor) method.
+1. **Setting the timezone:** You can set the timezone for a Calendar instance using the [setTimeZone()](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_util_Calendar.html#dw_util_Calendar_setTimeZone_String_DetailAnchor) method, which accepts a TimeZone object as its argument.
+1. **Getting the timezone:** To retrieve the timezone of a Calendar instance, use the [getTimeZone()](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_util_Calendar.html#dw_util_Calendar_getTimeZone_DetailAnchor) method, which returns a TimeZone object.
+1. **Converting between timezones:** To convert a date and time between different timezones, you can create a new Calendar instance with the desired timezone and set its time using the [setTime()](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_util_Calendar.html#dw_util_Calendar_setTime_Date_DetailAnchor) method.
 
 ### Configuring timezones
 
 If you didn't know already, it is possible to configure what time zone your instance uses and what time zone your sites are in.
 
--   [Setting your Instance Time Zone](https://help.salesforce.com/s/articleView?id=cc.b2c_instance_time_zone.htm&language=en_us&release=2.0.1&type=5)
--   [Setting your Site Time Zone](https://help.salesforce.com/s/articleView?id=cc.b2c_site_time_zone.htm&language=en_us&release=2.0.1&type=5)
+- [Setting your Instance Time Zone](https://help.salesforce.com/s/articleView?id=cc.b2c_instance_time_zone.htm&language=en_us&release=2.0.1&type=5)
+- [Setting your Site Time Zone](https://help.salesforce.com/s/articleView?id=cc.b2c_site_time_zone.htm&language=en_us&release=2.0.1&type=5)
 
 ### Getting the configured values
 
@@ -107,37 +94,30 @@ Once you have these configured, you kind of hope that there is some way to acces
 
 Example 1: Getting the Instance Time Zone
 
-```
-
-					var System = require('dw/system/System');
+```js
+var System = require('dw/system/System');
 var instanceTimeZone = System.getInstanceTimeZone();
-
-
 ```
 
--   [Function Documentation](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_system_System.html#dw_system_System_getInstanceTimeZone_DetailAnchor)
+- [Function Documentation](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_system_System.html#dw_system_System_getInstanceTimeZone_DetailAnchor)
 
 Example 2: Getting the Site Time Zone
 
-```
-
-					var Site = require('dw/system/Site');
+```js
+var Site = require('dw/system/Site');
 var siteTimeZone = Site.getCurrent().getTimezone();
 // Get it as a Calendar with the timezone set.
 var siteTimeZoneCalendar = Site.getCalendar();
-
-
 ```
 
--   [Function Documentation](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_system_Site.html#dw_system_Site_getTimezone_DetailAnchor)
+- [Function Documentation](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_system_Site.html#dw_system_Site_getTimezone_DetailAnchor)
 
 ### List of zone IDs
 
 To get the list of supported zones, I executed some Java code:
 
-```
-
-					import java.util.TimeZone;
+```text
+import java.util.TimeZone;
 public class HelloWorld {
     public static void main(String []args) {
         String [] zones = TimeZone.getAvailableIDs();
@@ -146,15 +126,12 @@ public class HelloWorld {
         }
     }
 }
-
-
 ```
 
 Which results in this list:
 
-```
-
-					Africa/Abidjan
+```text
+Africa/Abidjan
 Africa/Accra
 Africa/Addis_Ababa
 Africa/Algiers
@@ -784,8 +761,6 @@ PRT
 PST
 SST
 VST
-
-
 ```
 
 ## Pitfalls
@@ -808,11 +783,11 @@ I put a warning up earlier, didn't I, with the Calendar - Date conversion? Well,
 
 The first thing I would recommend to anyone is to read the documentation carefully because it contains a very clear warning!
 
-![A screenshot of the documentation with the following text: "WARNING: Keep in mind that the given Date object is always interpreted in the time zone GMT. This means time zone information at the calendar object needs to be set separately by using the setTimeZone(String) method."](/media/2023/calendar-constructor-warning-83ef0dcd2b.png)
+![Documentation warning about Calendar constructor dates being interpreted in GMT.](/media/2023/calendar-constructor-warning-83ef0dcd2b.png)
 
 A warning when creating a Calendar from a Date
 
-![A screenshot of a warning inside of the documentation: "Keep in mind that the returned Date object's time is always interpreted in the time zone GMT. This means time zone information set at the calendar object will not be honored and gets lost."](/media/2023/calendar-to-date-warning-a652a2a931.png)
+![Documentation warning that Calendar.toDate loses the configured time zone and returns GMT.](/media/2023/calendar-to-date-warning-a652a2a931.png)
 
 A warning when converting from a Calendar to Date
 
@@ -831,9 +806,9 @@ We mentioned the function to get the Calendar automatically in the Site timezone
 
 To ensure your code incorporates the toolkit, it is necessary to utilise this function. To provide a more precise understanding, I have recorded a video demonstrating this behaviour:
 
-https://www.rhino-inquisitor.com/wp-content/uploads/2023/08/storefront-tookit-and-calendars.mov
+<https://www.rhino-inquisitor.com/wp-content/uploads/2023/08/storefront-tookit-and-calendars.mov>
 
-### Is there a third-party way?
+### Is there a third-party way
 
 Funny you should ask 😉, a few years ago, I asked myself the same question [and got the crazy idea of making well-known libraries compatible with the Rhino Engine](https://github.com/taurgis/salesforce-commerce-cloud-libraries).
 

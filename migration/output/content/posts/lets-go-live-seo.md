@@ -20,17 +20,17 @@ When going live with a website, SEO is an integral part that should not be overl
 
 This article is part of a [GO-LIVE series](https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/go-live/) that should give you all the tools necessary to have a comfortable release!
 
-## What is SEO?
+## What is SEO
 
 Let us start with the basics here; what is SEO? Well, it stands for [Search Engine Optimization](https://en.wikipedia.org/wiki/Search_engine_optimization). This is a process you want to use to ensure that the people looking for your site or a specific part (products most likely in the Salesforce B2C Commerce Cloud space) can easily find that page.
 
 The people who use a search engine and consequently find the page are called "organic" traffic, a term you will come across quite often when working on traffic analytics data.
 
-## Why should I care?
+## Why should I care
 
 I think the answer to that question is quite obvious! Any owner of a website/store wants to drive traffic to it. And optimizing a website so that Search Engines and other channels will put those pages at the top of the results is a fundamental way to do that.
 
-## When should I start the analysis and investigation?
+## When should I start the analysis and investigation
 
 This will depend on the project and who you have available (maybe a specialist is in the team that focuses on this?). But a general rule of thumb is to start as soon as possible, as SEO can impact a project on multiple levels.
 
@@ -44,13 +44,12 @@ Think of it this way: to get good SEO, you need good quality data and content. A
 
 So involvement is required from:
 
--   The team managing the marketing/content
--   The team managing the product data ( PIM, ERP, ... )
--   The commercial team
--   The development team
--   ...
--   Oh... and the SEO team 😎
-
+- The team managing the marketing/content
+- The team managing the product data ( PIM, ERP, ... )
+- The commercial team
+- The development team
+- ...
+- Oh... and the SEO team 😎
 
 That is a lot of people that need to talk to each other, right? Unless someone manages all the above on their own (good luck to them)!
 
@@ -79,16 +78,15 @@ Or maybe the required data wasn't provided by the PIM? Then the development work
 
 Detecting these issues/challenges as early as possible is critical to your strategy. But that doesn't only apply to SEO, now does it?
 
-## Where do I start?
+## Where do I start
 
 I am not someone who likes to re-invent the wheel or write an article when there is already great content about all the different steps in a project and how to configure Salesforce B2C Commerce Cloud.
 
 So here is a list of some great articles by [Edwin Romero](https://www.linkedin.com/in/edwinromero/):
 
--   [SEO Glossary](https://www.edwindanromero.com/seo-glossary/)
--   [How to do an SEO Project Plan](https://www.edwindanromero.com/seo-project-plan/)
--   [Salesforce Commerce Cloud SEO Guide](https://www.edwindanromero.com/salesforce-commerce-cloud-seo-guide/) (The Business Manager Explained)
--   [Site Migration](https://www.edwindanromero.com/website-migrations-seo-timeline-of-launch-essentials/)
-
+- [SEO Glossary](https://www.edwindanromero.com/seo-glossary/)
+- [How to do an SEO Project Plan](https://www.edwindanromero.com/seo-project-plan/)
+- [Salesforce Commerce Cloud SEO Guide](https://www.edwindanromero.com/salesforce-commerce-cloud-seo-guide/) (The Business Manager Explained)
+- [Site Migration](https://www.edwindanromero.com/website-migrations-seo-timeline-of-launch-essentials/)
 
 There is much more great content available on his site! So be sure to do a bit of perusing.

@@ -25,13 +25,12 @@ This report will deconstruct the MIME protocol, build a bulletproof, reusable se
 
 For those who want a quick solution to their attachment problem without extensive reading, here you go!
 
-An alternative example can also be found [here](https://github.com/taurgis/salesforce-commerce-cloud-libraries/blob/master/cartridges/plugin_testlibraries/cartridge/controllers/jsPDF.js)!
+An alternative example can also be found [in the jsPDF attachment controller example](https://github.com/taurgis/salesforce-commerce-cloud-libraries/blob/master/cartridges/plugin_testlibraries/cartridge/controllers/jsPDF.js)!
 
 ### Controller
 
-```
-
-					'use strict';
+```js
+'use strict';
 var server = require('server');
 /**
  * Encodes a string into a base64 string with an email-safe line width
@@ -126,16 +125,12 @@ server.get('Test', function (req, res, next) {
     next();
 });
 module.exports = server.exports();
-
-
-
 ```
 
 ### Template
 
-```
-
-					--001a113414f6401b8604f1451630
+```text
+--001a113414f6401b8604f1451630
 Content-Type: multipart/mixed; boundary=001a113414f6401b8604f1451630
 --001a113414f6401b8604f1451630
 Content-Type: text/plain; charset=ISO-8859-1
@@ -152,9 +147,6 @@ Content-Disposition: attachment; filename="${key}"; size=${fileContent.length}; 
 Content-Transfer-Encoding: base64
 ${fileContent}
 --001a113414f6401b8604f1451630--
-
-
-
 ```
 
 ## Deconstructing the Challenge: Why dw.net.Mail Plays Hard to Get
@@ -203,9 +195,8 @@ To work with files (and emails), [base64 encoding](https://en.wikipedia.org/wiki
 
 We have the following function in the controller to help us get the required string to use in the mail.
 
-```
-
-					/**
+```js
+/**
  * Encodes a string into a base64 string with an email-safe line width
  *
  * @param {string} str String the string to encode
@@ -236,27 +227,22 @@ function encodeBase64ForEmail(str, characterEncoding) {
     stringWriter.close();
     return strBase64LB;
 }
-
-
 ```
 
 And once we have that base64 encoded string, we can use it in our mail template. And inside that template, we are adding some metadata to give information about the file we are trying to send:
 
--   **Content-Type**: Here, we will mark which file type and what name the file has.
--   **Content-Description:** The description of the file
--   **Content-Disposition:** Here, we provide more information about the file like its filename, the size of the PDF, ...
--   **Content-Transfer-Encoding**: Here, we tell the mail client that the attachment is encoded using base64
+- **Content-Type:** Here, we will mark which file type and what name the file has.
+- **Content-Description:** The description of the file
+- **Content-Disposition:** Here, we provide more information about the file like its filename, the size of the PDF, ...
+- **Content-Transfer-Encoding:** Here, we tell the mail client that the attachment is encoded using base64
 
-```
-
-					--001a113414f6401b8604f1451630
+```text
+--001a113414f6401b8604f1451630
 Content-Type: application/pdf; name="${key}";
 Content-Description: ${key}
 Content-Disposition: attachment; filename="${key}"; size=${fileContent.length}; creation-date="${(new Date()).toISOString()}"; modification-date="${(new Date()).toISOString()}"
 Content-Transfer-Encoding: base64
 ${fileContent}
-
-
 ```
 
 As you can see, base64 poses no real challenge for Salesforce Commerce Cloud, and we will be able to send attachments quite easily using it.
@@ -265,16 +251,13 @@ As you can see, base64 poses no real challenge for Salesforce Commerce Cloud, an
 
 Within the controller, we have multiple options to work with:
 
--   [On-the-fly generation of a file](https://www.rhino-inquisitor.com/pdf-and-salesforce-commerce-cloud-b2c/)
--   Reading a file from the WebDAV
-
-
+- [On-the-fly generation of a file](https://www.rhino-inquisitor.com/pdf-and-salesforce-commerce-cloud-b2c/)
+- Reading a file from the WebDAV
 
 In this example, we will be using the second option.
 
-```
-
-					/**
+```js
+/**
  * Read a file to a String (encoded in IS0-8859-1)
  *
  * @param {string} filePath - The file path to read
@@ -297,15 +280,16 @@ function readPDFFile(filePath) {
     } while (line != null);
     return pdfContent;
 }
-
-
 ```
 
 While this solution relies on `[ISO-8859-1](https://en.wikipedia.org/wiki/ISO/IEC_8859-1)`, the modern and recommended standard for all email development is **`UTF-8`**. For any new implementation in Salesforce B2C Commerce Cloud, you should attempt to use `UTF-8`. This encoding provides universal compatibility, correctly handling international characters, symbols (e.g., €, ©), and emojis that are common in today's digital landscape and would otherwise fail or cause issues with a more limited character set.
 
 The principle of consistency, however, remains paramount. Whichever encoding you choose—and we strongly recommend it **`UTF-8`**—it must be applied uniformly at every single step of the process. This means specifying `UTF-8` when reading the file's bytes into a string, when declaring the charset in your `<iscontent>` tag, and in every `Content-Type` header within the MIME structure. This discipline is not optional; it is the key to ensuring that the receiving email client can correctly reconstruct the file, preventing data corruption and guaranteeing a valid attachment for the end-user.
 
-ISO-8859-1 This encoding was chosen because the jsPDF library I used during testing relies on the 'addImage' plugin, which has ISO-8859-1 hard-coded for adding JPEG images to PDFS. When this encoding isn't used consistently across the examples, the PDF renders correctly but the images do not display. Encoding Might Differ In my experience, ISO-8859-1 encoding works best for handling files. However, if you encounter unreadable files, experimenting with the encoding settings in the reader, template, or other levels could help resolve the problem.
+> [!NOTE]
+> **ISO-8859-1:** This encoding was chosen because the jsPDF library I used during testing relies on the 'addImage' plugin, which has ISO-8859-1 hard-coded for adding JPEG images to PDFS. When this encoding isn't used consistently across the examples, the PDF renders correctly but the images do not display.
+> [!NOTE]
+> **Encoding Might Differ:** In my experience, ISO-8859-1 encoding works best for handling files. However, if you encounter unreadable files, experimenting with the encoding settings in the reader, template, or other levels could help resolve the problem.
 
 ### The template
 
@@ -323,21 +307,17 @@ Boundary definition error On recent code compatibility modes, we have noticed an
 
 Removing the "Content-Type: multipart/mixed; boundary=001a113414f6401b8604f1451630" below the tag resolves this.
 
-```
-
-					--001a113414f6401b8604f1451630
+```text
+--001a113414f6401b8604f1451630
 Content-Type: multipart/mixed; boundary=001a113414f6401b8604f1451630
-
-
 ```
 
 Once the key has been set, it can "split up" the mail into different parts. A good example is a separate part for the plain-text and HTML emails.
 
 _Note: Do not forget the '--' in front of the key as you see them in the examples._
 
-```
-
-					--001a113414f6401b8604f1451630
+```text
+--001a113414f6401b8604f1451630
 Content-Type: text/plain; charset=ISO-8859-1
 Content-Transfer-Encoding: quoted-printable
 
@@ -346,25 +326,17 @@ Content-Type: text/html; charset=ISO-8859-1
 Content-Transfer-Encoding: quoted-printable
 
 --001a113414f6401b8604f1451630--
-
-
 ```
 
 The same methodology is used for the files. Each attachment gets its own "section" separated by that same key.
 
-```
-
-
-
+```text
 --001a113414f6401b8604f1451630
 Content-Type: application/pdf; name="${key}";
 Content-Description: ${key}
 Content-Disposition: attachment; filename="${key}"; size=${fileContent.length}; creation-date="${(new Date()).toISOString()}"; modification-date="${(new Date()).toISOString()}"
 Content-Transfer-Encoding: base64
 ${fileContent}
-
-
-
 ```
 
 #### Watch out for spaces and new lines
@@ -383,7 +355,7 @@ When working with files (especially in the storefront), you have to keep watch o
 
 In my example, one is especially one to keep an eye on.
 
-![A screenshot of the quota limit surround string length in Salesforce Commerce CLoud.](/media/2022/api-jsstringlength-6ae1560d95.png)
+![Quota documentation showing the JavaScript string-length limit in Salesforce Commerce Cloud.](/media/2022/api-jsstringlength-6ae1560d95.png)
 
 There are multiple ways to work around this limit, but we will not be digging into that in this post.
 
@@ -405,8 +377,8 @@ We have been working with PDF in this example, but you can also use this solutio
 
 It wouldn't be fair to the authors if I did not provide links to the sources I used to get a working example.
 
--   [GitHub: dpavlikovskiy](https://github.com/dpavlikovskiy/mhe_enhancements/blob/f437062fd851d96c15c4f4366d48ddcdf8147c1f/cartridges/int_simplefeed_jfw/cartridge/templates/default/mail/emailTemplateAttachment.isml)
--   [Salesforce B2C Commerce Cloud Unofficial Slack](https://sfcc-unofficial.slack.com/archives/CAT794PC3/p1616592855270900)
+- [GitHub: dpavlikovskiy](https://github.com/dpavlikovskiy/mhe_enhancements/blob/f437062fd851d96c15c4f4366d48ddcdf8147c1f/cartridges/int_simplefeed_jfw/cartridge/templates/default/mail/emailTemplateAttachment.isml)
+- [Salesforce B2C Commerce Cloud Unofficial Slack](https://sfcc-unofficial.slack.com/archives/CAT794PC3/p1616592855270900)
 
 ## The Composable Storefront Consideration
 
@@ -428,23 +400,22 @@ The choice becomes clear when framed by project needs.
 
 Use the **Native SFCC Method** when:
 
--   The use case is strictly for low-volume, transactional emails with attachments.
+- The use case is strictly for low-volume, transactional emails with attachments.
 
--   The attached files are consistently small (well under 1 MB to leave room for the email body) to avoid breaching the 3 MB limit.
+- The attached files are consistently small (well under 1 MB to leave room for the email body) to avoid breaching the 3 MB limit.
 
--   Cost is the absolute primary driver, and leveraging the included platform functionality is a mandate.
+- Cost is the absolute primary driver, and leveraging the included platform functionality is a mandate.
 
--   There is no business requirement for email tracking, analytics, or advanced deliverability management.
-
+- There is no business requirement for email tracking, analytics, or advanced deliverability management.
 
 Use a **Third-Party ESP** when:
 
--   Emails need to be sent at any significant scale.
+- Emails need to be sent at any significant scale.
 
--   Deliverability and inbox placement are paramount for the business.
+- Deliverability and inbox placement are paramount for the business.
 
--   The business requires analytics on open rates, click-throughs, and user engagement.
+- The business requires analytics on open rates, click-throughs, and user engagement.
 
--   Attachments regularly exceed 1-2 MB, making the native 3 MB limit a constant risk.
+- Attachments regularly exceed 1-2 MB, making the native 3 MB limit a constant risk.
 
--   The development team's time is better spent on core commerce features than on manually managing MIME complexities.
+- The development team's time is better spent on core commerce features than on manually managing MIME complexities.

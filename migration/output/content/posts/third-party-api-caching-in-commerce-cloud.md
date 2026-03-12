@@ -24,7 +24,7 @@ Understanding and applying caching for third-party services can enhance your thi
 
 Now, let’s delve into the process, its benefits, and some things to remember to get you going.
 
-## Caching with LocalServiceRegistry?
+## Caching with LocalServiceRegistry
 
 [![Salesforce Commerce Cloud Web Service Framework](/media/2024/sfcc-service-framework-b996d130d4.jpg)](/media/2024/sfcc-service-framework-b996d130d4.jpg)
 
@@ -35,34 +35,31 @@ One of those built-in features is caching responses from third-party APIs, which
 
 Creating a service in the [LocalServiceRegistry](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/index.html?target=class_dw_svc_LocalServiceRegistry.html) comes with a simple configuration for managing request handling. Here's a basic example of how to create a service with a caching feature:
 
-```
-
-					var callTestGet = LocalServiceRegistry.createService("test.http.get", {
-        createRequest: function(svc: HTTPService, args) {
-  		    svc.client.enableCaching(1000);
-            	svc.setRequestMethod("GET");
-        },
-        parseResponse: function(svc: HTTPService, client: HTTPClient) {
-            return client.text;
-        },
-        mockCall: function(svc: HTTPService, client: HTTPClient) {
-            return {
-                statusCode: 200,
-                statusMessage: "Success",
-                text: "MOCK RESPONSE (" + svc.URL + ")"
-            };
-        },
-        filterLogMessage: function(msg: String) {
-            return msg.replace("headers", "OFFWITHTHEHEADERS");
-        }
-    });
-
-
+```js
+var callTestGet = LocalServiceRegistry.createService("test.http.get", {
+createRequest: function(svc: HTTPService, args) {
+svc.client.enableCaching(1000);
+svc.setRequestMethod("GET");
+},
+parseResponse: function(svc: HTTPService, client: HTTPClient) {
+return client.text;
+},
+mockCall: function(svc: HTTPService, client: HTTPClient) {
+return {
+statusCode: 200,
+statusMessage: "Success",
+text: "MOCK RESPONSE (" + svc.URL + ")"
+};
+},
+filterLogMessage: function(msg: String) {
+return msg.replace("headers", "OFFWITHTHEHEADERS");
+}
+});
 ```
 
 [In this snippet](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-webservices.html#configure-underlying-clients), the \`**enableCaching**\` method is invoked, enabling caching for the HTTP requests serviced by this configuration. The argument (in this case, \`1000\`) represents a timeout setting, which dictates how long a cached response will be valid before the subsequent request is made.
 
-[![](/media/2024/configuring-underlying-clients-95d307a0e7.png)](/media/2024/configuring-underlying-clients-95d307a0e7.png)
+[![Official documentation snippet showing enableCaching on an HTTP service.](/media/2024/configuring-underlying-clients-95d307a0e7.png)](/media/2024/configuring-underlying-clients-95d307a0e7.png)
 
 A screenshot of the official documentation on how to add caching to a service.
 
@@ -70,17 +67,17 @@ A screenshot of the official documentation on how to add caching to a service.
 
 [Caching](https://www.rhino-inquisitor.com/caching-rest-apis-in-sfcc/) has several benefits, especially for services with consistent data and infrequent updates. Let's have a look at how this minor code change can significantly affect the way your Salesforce Commerce Cloud channel works:
 
-1.  **Faster performance**: Caching allows your site to retrieve data from "local" storage instead of repeatedly calling an external server. When a cached response is available, the app server can quickly fulfil requests, significantly reducing wait times.
-2.  **Greater Reliability**: With caching, your site becomes more robust. If a third-party service goes down or experiences issues, your app can still provide cached data, ensuring a smoother user experience.
-3.  **Better Rate Limit Management**: Many APIs limit the number of requests you can make within a specific timeframe. Using cached responses reduces the number of requests sent out, helping you stay within these limits and preventing potential service interruptions.
+1. **Faster performance:** Caching allows your site to retrieve data from "local" storage instead of repeatedly calling an external server. When a cached response is available, the app server can quickly fulfil requests, significantly reducing wait times.
+1. **Greater Reliability:** With caching, your site becomes more robust. If a third-party service goes down or experiences issues, your app can still provide cached data, ensuring a smoother user experience.
+1. **Better Rate Limit Management:** Many APIs limit the number of requests you can make within a specific timeframe. Using cached responses reduces the number of requests sent out, helping you stay within these limits and preventing potential service interruptions.
 
 ## Everyday Use Cases for Caching
 
 Here are a few everyday situations where you might want to use [caching](https://www.rhino-inquisitor.com/caching-in-the-sfcc-composable-storefront/):
 
-1.  **Google Location Services**: Location data doesn't change very often, so caching it can speed up response times in local applications.
-2.  **Address Verification Services**: Address information stays the same over time. Caching these responses can improve efficiency.
-3.  **Weather Services**: Weather data can be cached for short periods. While it might change frequently, most applications don't require constant real-time updates.
+1. **Google Location Services:** Location data doesn't change very often, so caching it can speed up response times in local applications.
+1. **Address Verification Services:** Address information stays the same over time. Caching these responses can improve efficiency.
+1. **Weather Services:** Weather data can be cached for short periods. While it might change frequently, most applications don't require constant real-time updates.
 
 Implementing caching for these services can significantly enhance performance, boost speed, and reduce expenses.
 
@@ -88,7 +85,7 @@ However, don't anticipate any "magic 🪄"—it's the accumulation of many small
 
 ## Clearing the cache
 
-[![A screenshot of the "Service Maintenance" configuration page in the Business Manager.](/media/2024/clearing-httpclient-response-cache-c4b7ab1863.png)](/media/2024/clearing-httpclient-response-cache-c4b7ab1863.png)
+[![Service Maintenance screen used to invalidate the HTTP client response cache.](/media/2024/clearing-httpclient-response-cache-c4b7ab1863.png)](/media/2024/clearing-httpclient-response-cache-c4b7ab1863.png)
 
 A screenshot of the "Service Maintenance" configuration page in the Business Manager.
 
@@ -102,13 +99,14 @@ Service Specific There isn't an option to clear the cache for a specific service
 
 ### General Caching Warnings
 
-Caching HTTP responses has numerous benefits, yet it's crucial to be mindful of potential drawbacks.
+> [!NOTE]
+> **Caching:** HTTP responses has numerous benefits, yet it's crucial to be mindful of potential drawbacks.
 
--   **Stale Data**: Cached data can become outdated, especially if the third-party API updates its responses frequently. Be sure to set a cache expiration period that matches the data's update frequency.
--   **Inconsistent States**: Relying too much on cached data without refreshing it can lead to users receiving outdated or incorrect information. This can negatively affect user experience and erode trust.
--   **Error Propagation**: If there's an error from the external service and you cache this response, users might keep encountering the same error until the cache is cleared or expires.
--   **Debugging Complexity**: Debugging can get tricky if cached responses interfere with your expectations while developing or testing your application. It's important to know precisely what data is being cached.
--   **Impact on Business Logic**: Cached responses might not show real-time changes crucial for essential business processes. This can result in making incorrect decisions based on outdated data.
+- **Stale Data:** Cached data can become outdated, especially if the third-party API updates its responses frequently. Be sure to set a cache expiration period that matches the data's update frequency.
+- **Inconsistent States:** Relying too much on cached data without refreshing it can lead to users receiving outdated or incorrect information. This can negatively affect user experience and erode trust.
+- **Error Propagation:** If there's an error from the external service and you cache this response, users might keep encountering the same error until the cache is cleared or expires.
+- **Debugging Complexity:** Debugging can get tricky if cached responses interfere with your expectations while developing or testing your application. It's important to know precisely what data is being cached.
+- **Impact on Business Logic:** Cached responses might not show real-time changes crucial for essential business processes. This can result in making incorrect decisions based on outdated data.
 
 ### LocalServiceRegistry-Specific Considerations
 
@@ -138,7 +136,7 @@ In conclusion, adding a caching mechanism to the LocalServiceRegistry for third-
 
 Here's an example of a successful (anonymised) result from using this cache and rate limiting bot traffic:
 
-[![A screenshot of a graph showing the results of third-party service improvements, including using Cloudflare and secondly adding caching.](/media/2024/third-party-service-caching-results-e1731261763486-2847fa50c4.jpg)](/media/2024/third-party-service-caching-results-e1731261763486-2847fa50c4.jpg)
+[![Graph showing lower third-party API traffic after bot filtering and caching.](/media/2024/third-party-service-caching-results-e1731261763486-2847fa50c4.jpg)](/media/2024/third-party-service-caching-results-e1731261763486-2847fa50c4.jpg)
 
 The number of requests handled by the API decreased considerably, leading to a lower monthly bill.
 

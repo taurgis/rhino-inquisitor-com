@@ -28,11 +28,11 @@ Going back to events, for me, started with a blast! Back to Chicago and Connecti
 
 I was thrilled to be going again, this time not just as a visitor but as a speaker! With a lot of help (and pushing) from [Amalia,](https://www.linkedin.com/in/amaliamurray/) we got a spot on multiple stages! I was thrilled to get this opportunity to tell my story and have colleagues present one of our customer cases.
 
-https://www.youtube.com/watch?list=PL9MknC1SggvKAXr33VuslT-eaenf0RRxI&v=VE-XxWXKBz4&feature=emb\_title
+<https://www.youtube.com/watch?list=PL9MknC1SggvKAXr33VuslT-eaenf0RRxI&v=VE-XxWXKBz4&feature=emb\_title>
 
 But boy, did Connections have more in store for me than I could have anticipated! I was already amazed that I could be in the keynote, but there was a bigger surprise in store for me.
 
-### Is it a technical conference?
+### Is it a technical conference
 
 The short answer is no. You will mainly be able to see roadmap and customer cases presented here. But if you look around carefully, you will find sessions that have some technical learnings in there!
 
@@ -48,7 +48,7 @@ She has "keeper of the Goldies" in her Twitter description... That might have be
 
 Well, I didn't pick up on it in the slightest. But it will be a moment I will never forget, you can be sure about that!
 
-https://www.youtube.com/watch?v=lWY-5s7OwCA
+<https://www.youtube.com/watch?v=lWY-5s7OwCA>
 
 And since then, I have gotten the question quite often, "what do you have to do to get a Golden Hoodie?"
 
@@ -70,7 +70,7 @@ People who could not join the event in person have to use [Salesforce+](https://
 
 ## Salesforce Live Belgium
 
-![](/media/2022/salesforce-live-belgium-bba64ad521.jpg)
+![Salesforce Live Belgium event slide featuring the author's Golden Hoodie recognition.](/media/2022/salesforce-live-belgium-bba64ad521.jpg)
 
 Being the first-ever Belgian Golden Hoodie recipient sure puts your picture as one giant slide at local Salesforce events!
 
@@ -94,10 +94,8 @@ As with most Salesforce events, I saw a lack of Commerce Cloud-related talks, so
 
 I submitted two possible topics:
 
--   Headless
--   Multi-Cloud Projects (With Commerce at the center, no worries 😀)
-
-
+- Headless
+- Multi-Cloud Projects (With Commerce at the center, no worries 😀)
 
 I was happy to get the message that one submission was accepted a month later: Multi-Cloud! And because one speaker could not make it, I was also allowed to talk about Headless.
 
@@ -117,7 +115,7 @@ But as I mentioned, there are not many talks related to Salesforce B2C Commerce 
 
 All sessions were recorded. As soon as I have them available, I will add them to this article!
 
-## What now?
+## What now
 
 Well, not much new. I am going to continue doing what I love doing at the pace of my choosing.
 

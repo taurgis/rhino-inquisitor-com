@@ -24,15 +24,13 @@ Come into play 'A New Day for Commerce', a dedicated Salesforce event for Commer
 
 ### Demandware XChange
 
-![Screenshot of the Demandware Xchange Website of 2015.](/media/2023/demandware-xchange-2015-6b0d29c1ff.png)
+![Demandware XChange 2015 event website.](/media/2023/demandware-xchange-2015-6b0d29c1ff.png)
 
 Before the acquisition of Salesforce, there were events in the United States and Europe dedicated to just Demandware, which was interesting for any customer, partner and developer! The agenda had something for everyone:
 
--   Existing and potential Demandware customers
--   Architects
--   Developers
-
-
+- Existing and potential Demandware customers
+- Architects
+- Developers
 
 That resulted in various parts of the community attending the event: Going from business to deeply technical.
 
@@ -68,20 +66,18 @@ Nevertheless, the event quickly sold out with a limit of only 500 people (the ve
 
 As it is a dedicated event to Salesforce Commerce Cloud, you need to distinguish it from B2C Commerce Cloud. The event itself was tailored to all of the different products that make out the portfolio of Salesforce:
 
--   B2C Commerce Cloud
--   B2B Commerce Cloud
--   D2C Commerce Cloud
--   Order Management
--   Marketplaces
--   Payments
-
-
+- B2C Commerce Cloud
+- B2B Commerce Cloud
+- D2C Commerce Cloud
+- Order Management
+- Marketplaces
+- Payments
 
 This is a good thing as many of these products have been becoming increasingly interconnected over the years - and for people who have read my articles before, I like to broaden my horizons.
 
-### Sales, technical, community?
+### Sales, technical, community
 
-![A picture of Thomas Theunen, Igor Faletski, and Sander Felius sitting on a coach for a panel discussion.](/media/2023/fireside-chat-a-new-day-for-commerce-cd97b9b2c7.jpeg)
+![Thomas Theunen, Igor Faletski, and Sander Felius during the fireside chat.](/media/2023/fireside-chat-a-new-day-for-commerce-cd97b9b2c7.jpeg)
 
 In the first place, the event was designed to be your standard Salesforce event to pitch the product to potential customers and show off the array of products available to existing customers looking to expand their horizons.
 
@@ -101,35 +97,32 @@ And as it is with every Salesforce event, an opening keynote showing off the roa
 
 ### Salesforce
 
-![](/media/2023/a-new-day-for-commerce-community-2cc42304c9.jpg)
+![Commerce Cloud leadership and community attendees gathered in Amsterdam.](/media/2023/a-new-day-for-commerce-community-2cc42304c9.jpg)
 
 One of the biggest things that should be mentioned is that a large part of Commerce Cloud leadership had crossed the pond to be present in Amsterdam:
 
--   [Michael Affronti](https://www.linkedin.com/in/michaelaffronti/) (SVP & General Manager)
--   [Luke Ball](https://www.linkedin.com/in/lukeball/) (SVP Product Management)
--   [Igor Faletski](https://www.linkedin.com/in/igorfaletski/) (VP of Product Management & Mobify Founder)
--   [Kelly Thacker](https://www.linkedin.com/in/kellyhautjames/) (SVP, Product Marketing & CMO, Retail & Consumer Goods)
-
+- [Michael Affronti](https://www.linkedin.com/in/michaelaffronti/) (SVP & General Manager)
+- [Luke Ball](https://www.linkedin.com/in/lukeball/) (SVP Product Management)
+- [Igor Faletski](https://www.linkedin.com/in/igorfaletski/) (VP of Product Management & Mobify Founder)
+- [Kelly Thacker](https://www.linkedin.com/in/kellyhautjames/) (SVP, Product Marketing & CMO, Retail & Consumer Goods)
 
 And some closer to home:
 
--   [Gurpreet Kaur](https://www.linkedin.com/in/gkaur2/) (Director PMM EMEA)
--   [Mike Kolman](https://www.linkedin.com/in/mikekolman/) (Senior Product Marketing Manager EMEA)
--   [Christian Sylvestre](https://www.linkedin.com/in/christiansylvestre/) (RVP Commerce Practice Leader Northern Europe)
--   [Sander Felius](https://www.linkedin.com/in/sanderfelius/) ( Senior Technical Architect )
+- [Gurpreet Kaur](https://www.linkedin.com/in/gkaur2/) (Director PMM EMEA)
+- [Mike Kolman](https://www.linkedin.com/in/mikekolman/) (Senior Product Marketing Manager EMEA)
+- [Christian Sylvestre](https://www.linkedin.com/in/christiansylvestre/) (RVP Commerce Practice Leader Northern Europe)
+- [Sander Felius](https://www.linkedin.com/in/sanderfelius/) ( Senior Technical Architect )
 
+This meant there was a large gathering of people you could network and talk shop with! _It was also a big reminder of how bad I am at remembering faces and names, sorry _ _ everyone!_
 
-
-This meant there was a large gathering of people you could network and talk shop with! _It was also a big reminder of how bad I am at remembering faces and names, sorry_ _everyone!_
-
-## Next year!?
+## Next year
 
 I would like to see this event happen annually. It's widely agreed that Europe needs a specialised [Salesforce Commerce Cloud](https://www.rhino-inquisitor.com/the-state-of-ohana-for-salesforce-commerce-cloud/) event, and there's significant interest within the community to participate! This will likely happen if all of the boxes that Salesforce expected from this event have been checked.
 
 But some improvements can happen:
 
--   Announced more in advance
--   A bigger venue
--   The agenda/folders should include the developer session(s)
--   More developer sessions! 💯
--   The developer (community) lounge needs to be manned and more inviting 🙈
+- Announced more in advance
+- A bigger venue
+- The agenda/folders should include the developer session(s)
+- More developer sessions! 💯
+- The developer (community) lounge needs to be manned and more inviting 🙈

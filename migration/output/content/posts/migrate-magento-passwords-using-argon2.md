@@ -28,31 +28,23 @@ I have created a [script](https://osapishchuk.medium.com/legacy-customers-passwo
 
 ### hashes.txt
 
-```
-
-					ab5ebf8d273b085b6a60336198e0a5a2090fdc3e0606a678315c7274ab06e046:5PiKJRn28bBKoFMopMaaKuV47aJ6GzVg:3_32_2_67108864
-
-
-
+```text
+ab5ebf8d273b085b6a60336198e0a5a2090fdc3e0606a678315c7274ab06e046:5PiKJRn28bBKoFMopMaaKuV47aJ6GzVg:3_32_2_67108864
 ```
 
 ### wordlist.txt
 
-```
-
-					Password1
+```text
+Password1
 Password2
 Password@
 Password3
-
-
 ```
 
 ### Script
 
-```
-
-					const argon2 = require('argon2');
+```js
+const argon2 = require('argon2');
 const fs = require('fs');
 const readline = require('readline');
 const path = require('path');
@@ -129,9 +121,6 @@ processFile(hashFilePath, async (hashString) => {
 }).then(() => {
     console.log("Done");
 });
-
-
-
 ```
 
 ## Breaking It Down
@@ -150,19 +139,19 @@ This function takes a stored hash (`hashString`) and a candidate password (`pass
 
 It performs the following steps:
 
--   -   Parses the hash string into its components (hash, salt, and version).
-    -   Adjusts the version if needed.
-    -   Extracts the salt.
-    -   Retrieves information about hash length, time cost, and memory cost.
-    -   Computes a new hash using Argon2 with the same parameters.
-    -   Compares the computed hash with the stored hash.
-    -   If they match, it logs the hash and the original password.
+- Parses the hash string into its components (hash, salt, and version).
+  - Adjusts the version if needed.
+  - Extracts the salt.
+  - Retrieves information about hash length, time cost, and memory cost.
+  - Computes a new hash using Argon2 with the same parameters.
+  - Compares the computed hash with the stored hash.
+  - If they match, it logs the hash and the original password.
 
 #### Version Information
 
 Luckily, Magento stores the required parameters for Argon2 in its version number, which can be extracted for our purposes:
 
-_hash_:_salt_:**3\_32\_2\_67108864**
+_hash _:_ salt_: **3\_ 32\_2\_ 67108864**
 
 ## Conclusion
 

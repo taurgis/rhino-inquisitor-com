@@ -25,9 +25,8 @@ For the people who want a quick solution to their file upload problem without mu
 
 And before you start commenting that I put everything in a controller, it is just an example. Please use helper classes and the works, and don't put everything in a controller.
 
-```
-
-					'use strict';
+```js
+'use strict';
 var server = require('server');
 server.get('SubmitFile', function (req, res, next) {
     var LocalServiceRegistry = require('dw/svc/LocalServiceRegistry');
@@ -49,9 +48,6 @@ server.get('SubmitFile', function (req, res, next) {
     next();
 });
 module.exports = server.exports();
-
-
-
 ```
 
 ## Pieces of the puzzle
@@ -68,7 +64,7 @@ As with any third-party integration, please use the built-in [LocalServiceRegist
 
 But how do you configure it in the Business Manager? Let's have a look!
 
-[![](/media/2022/form-service-1-e901798db6.png)](/media/2022/form-service-1-e901798db6.png)
+[![Third-party form service screen used in the multipart submission example.](/media/2022/form-service-1-e901798db6.png)](/media/2022/form-service-1-e901798db6.png)
 
 Select the type "HTTP"; otherwise, the LocalServiceRegistry code might not behave as expected.
 
@@ -76,53 +72,40 @@ As for the profile and credentials linked to your service, they will depend on y
 
 ### Building the request
 
-```
-
-					var zipFile = new File(new File(File.TEMP), 'myFile.zip.gz');
+```js
+var zipFile = new File(new File(File.TEMP), 'myFile.zip.gz');
 return [
     new HTTPRequestPart('zipFile', zipFile, 'application/gzip', 'UTF-8'),
     new HTTPRequestPart('zipFile-two', zipFile, 'application/gzip', 'UTF-8'),
 ];
-
-
 ```
 
 To build up the multipart request, we need to ensure that we return an Array of [HTTPRequestParts](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_net_HTTPRequestPart.html). We submit the same file twice; they can, of course, be different.
 
 In this example, we pass multiple [files](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_io_File.html). But it can also be other types:
 
--   [File](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_io_File.html)
--   [String](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_TopLevel_String.html)
--   [Bytes](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_util_Bytes.html)
+- [File](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_io_File.html)
+- [String](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_TopLevel_String.html)
+- [Bytes](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_util_Bytes.html)
 
 ### Encoding
 
-```
-
-					new HTTPRequestPart('zipFile', zipFile, 'application/gzip', 'UTF-8');
-
-
+```text
+new HTTPRequestPart('zipFile', zipFile, 'application/gzip', 'UTF-8');
 ```
 
 When working with files, you must [send extra information](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_net_HTTPRequestPart.html#dw_net_HTTPRequestPart_HTTPRequestPart_String_Bytes_String_String_String_DetailAnchor) along the way:
 
--   **Content-Type:** The type of file, in this case, a zipped file (application/gzip)
+- **Content-Type:** The type of file, in this case, a zipped file (application/gzip)
 
+- **Encoding:**  The type of encoding of the file; if it is incorrect, it will be unreadable at the other end. Or it might open but show unreadable content.
 
--   **Encoding:**  The type of encoding of the file; if it is incorrect, it will be unreadable at the other end. Or it might open but show unreadable content.
-
-
--   **File Name:** You can also send the file name along if needed.
+- **File Name:** You can also send the file name along if needed.
 
 ## The Response
 
-```
-
-
+```text
 res.print(myFormSubmissionService.call().object.text)
-
-
-
 ```
 
 Nothing special to mention here. You will be able to handle the response like any service call and check whether or not the call was successful.
