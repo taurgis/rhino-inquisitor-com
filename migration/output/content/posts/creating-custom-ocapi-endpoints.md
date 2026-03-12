@@ -7,7 +7,7 @@ date: '2022-07-11T17:40:22.000Z'
 lastmod: '2023-09-26T09:54:35.000Z'
 url: /creating-custom-ocapi-endpoints/
 draft: false
-heroImage: /wp-content/uploads/2022/07/ocapi.jpg
+heroImage: /media/2022/ocapi-bb5766fd49.jpg
 categories:
   - Salesforce Commerce Cloud
   - Technical

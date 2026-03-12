@@ -7,7 +7,7 @@ date: '2024-11-18T07:26:53.000Z'
 lastmod: '2024-11-20T12:36:26.000Z'
 url: /storefront-protection-in-the-pwa-kit/
 draft: false
-heroImage: /wp-content/uploads/2024/11/storefront-protection.jpeg
+heroImage: /media/2024/storefront-protection-663257419b.jpeg
 categories:
   - Salesforce Commerce Cloud
   - Technical
@@ -17,7 +17,7 @@ tags:
   - sfra
 author: Thomas Theunen
 ---
-Protecting online stores using [Storefront Protection](https://help.salesforce.com/s/articleView?id=cc.b2c_storefront_password_protection.htm&type=5) in [SiteGenesis and SFRA](https://www.rhino-inquisitor.com/the-move-from-sitegenesis-and-sfra-to-the-composable-storefront-as-a-developer/) is simple. But now that we have the [Composable Storefront](https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/), we need to think about whether those protections still work. This blog post will talk about how to keep your Composable Storefront safe and what this new technology means for security.
+Protecting online stores using [Storefront Protection](https://help.salesforce.com/s/articleView?id=cc.b2c_storefront_password_protection.htm&type=5) in [SiteGenesis and SFRA](/the-move-from-sitegenesis-and-sfra-to-the-composable-storefront-as-a-developer/) is simple. But now that we have the [Composable Storefront](/sitegenesis-vs-sfra-vs-pwa/), we need to think about whether those protections still work. This blog post will talk about how to keep your Composable Storefront safe and what this new technology means for security.
 
 ## The Shift from Business Manager to Managed Runtime
 

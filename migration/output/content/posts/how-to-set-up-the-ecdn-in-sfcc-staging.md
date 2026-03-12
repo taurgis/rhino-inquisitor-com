@@ -7,7 +7,7 @@ date: '2022-11-07T10:29:05.000Z'
 lastmod: '2024-10-14T16:50:08.000Z'
 url: /how-to-set-up-the-ecdn-in-sfcc-staging/
 draft: false
-heroImage: /wp-content/uploads/2022/11/SSL_certificate_tw.jpg
+heroImage: /media/2022/ssl-certificate-tw-8422f4751c.jpg
 categories:
   - Salesforce Commerce Cloud
   - Technical
@@ -25,7 +25,7 @@ author: Thomas Theunen
 
 Read all about it [in the staging eCDN Business Manager release note](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_configure_ecdn_for_staging_in_bm.htm&type=5).
 
-Using the [Business Manager module](https://www.rhino-inquisitor.com/lets-go-live-ecdn/), setting up custom vanity domains and uploading certificates on the production instance is easy. But how about staging?
+Using the [Business Manager module](/lets-go-live-ecdn/), setting up custom vanity domains and uploading certificates on the production instance is easy. But how about staging?
 
 Until recently, we needed to contact support to set up custom vanity domains with a valid certificate on the staging instances. Luckily that has changed, and now we can fully control the domains and certificates for staging "just like production".
 

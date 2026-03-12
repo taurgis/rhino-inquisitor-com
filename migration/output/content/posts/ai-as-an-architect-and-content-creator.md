@@ -7,7 +7,7 @@ date: '2023-07-24T06:43:19.000Z'
 lastmod: '2023-07-24T06:43:36.000Z'
 url: /ai-as-an-architect-and-content-creator/
 draft: false
-heroImage: /wp-content/uploads/2023/07/mixing-human-and-ai-scaled.jpg
+heroImage: /media/2023/mixing-human-and-ai-scaled-adabfe2b5d.jpg
 categories:
   - AI
   - Salesforce Commerce Cloud
@@ -29,7 +29,7 @@ As promised, I'll document my entire process of writing this article and include
 - **Generation Type:** Text
 - **Generation Engine:** OpenAI GPT 3.5 Turbo
 
-The first thing when writing a new blog post is... the subject. And generally, coming up with a topic is not the issue. There are [many things to write about](https://www.rhino-inquisitor.com/archive/) in the Salesforce Commerce Cloud ecosystem and technology in general. But thinking of an engaging title is something entirely different...
+The first thing when writing a new blog post is... the subject. And generally, coming up with a topic is not the issue. There are [many things to write about](/archive/) in the Salesforce Commerce Cloud ecosystem and technology in general. But thinking of an engaging title is something entirely different...
 
 [![ChatGPT proposing alternate titles for the article draft.](/media/2023/generating-a-post-title-36528f6a0f.jpg)](/media/2023/generating-a-post-title-36528f6a0f.jpg)
 
@@ -86,7 +86,7 @@ For the past months, I have purchased a [Github Copilot](https://github.com/feat
 
 Using Copilot has really enhanced my productivity!
 
-While sometimes it generates "garbage", 99% of the time, it gives me great suggestions and understands my intent within my code. While I love the tool, I see some dangers for junior developers. And for one big reason: "_You must [understand](https://www.rhino-inquisitor.com/preparing-for-the-b2c-commerce-developer-certification/) the code generated for you; if you don't, it will hinder your growth and career._"
+While sometimes it generates "garbage", 99% of the time, it gives me great suggestions and understands my intent within my code. While I love the tool, I see some dangers for junior developers. And for one big reason: "_You must [understand](/preparing-for-the-b2c-commerce-developer-certification/) the code generated for you; if you don't, it will hinder your growth and career._"
 
 ### Developer Documentation
 
@@ -125,4 +125,4 @@ The generated image usually gets me 50-80% there, and then I fine-tune the detai
 
 ## How much time do I spend per arcticle
 
-Many people probably want an answer to this, wondering where I find the time to do all of this. I spend about 2-4 hours on a single article, and the time depends on the subject. A well-documented feature will take less time than a [non-documented feature](https://www.rhino-inquisitor.com/delta-exports-in-salesforce-b2c-commerce-cloud/), hidden away by a feature switch that not everyone knows exists. Although some articles may not require much time, the accompanying attachments can take weeks. A great example of this is the [ERD series.](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-erd/)
+Many people probably want an answer to this, wondering where I find the time to do all of this. I spend about 2-4 hours on a single article, and the time depends on the subject. A well-documented feature will take less time than a [non-documented feature](/delta-exports-in-salesforce-b2c-commerce-cloud/), hidden away by a feature switch that not everyone knows exists. Although some articles may not require much time, the accompanying attachments can take weeks. A great example of this is the [ERD series.](/salesforce-b2c-commerce-cloud-erd/)

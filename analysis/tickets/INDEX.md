@@ -16,7 +16,7 @@ This is the top-level ticket index for the full migration project. Use the phase
 | 1 | Baseline and URL Inventory | RHI-001 – RHI-009 | Done | [phase-1/INDEX.md](phase-1/INDEX.md) |
 | 2 | Stack and Architecture Decision | RHI-010 – RHI-018 | Open | [phase-2/INDEX.md](phase-2/INDEX.md) |
 | 3 | Repository Scaffolding and Quality Baseline | RHI-019 – RHI-030, RHI-104 – RHI-105 | Open | [phase-3/INDEX.md](phase-3/INDEX.md) |
-| 4 | Content Migration Pipeline | RHI-031 – RHI-046, RHI-106 | Open | [phase-4/INDEX.md](phase-4/INDEX.md) |
+| 4 | Content Migration Pipeline | RHI-031 – RHI-046, RHI-106 | Done | [phase-4/INDEX.md](phase-4/INDEX.md) |
 | 5 | SEO and Discoverability | RHI-047 – RHI-060 | Open | [phase-5/INDEX.md](phase-5/INDEX.md) |
 | 6 | URL Preservation and Redirect Strategy | RHI-061 – RHI-072 | Open | [phase-6/INDEX.md](phase-6/INDEX.md) |
 | 7 | GitHub Pages Preview Deployment and Domain Cutover Readiness | RHI-073 – RHI-082 | Open | [phase-7/INDEX.md](phase-7/INDEX.md) |
@@ -60,21 +60,21 @@ This is the top-level ticket index for the full migration project. Use the phase
 | [RHI-029](phase-3/RHI-029-cicd-deployment-scaffolding.md) | Workstream J — CI/CD and Deployment Scaffolding | 3 | Critical | Done | L | 2026-04-04 |
 | [RHI-030](phase-3/RHI-030-phase-3-signoff.md) | Phase 3 Sign-off and Handover to Phase 4 | 3 | Critical | Done | S | 2026-04-08 |
 | [RHI-031](phase-4/RHI-031-phase-4-bootstrap.md) | Phase 4 Bootstrap: Kickoff and Pipeline Environment Setup | 4 | Critical | Done | S | 2026-04-09 |
-| [RHI-032](phase-4/RHI-032-wordpress-content-extraction.md) | Workstream A — WordPress Content Extraction | 4 | Critical | Open | M | 2026-04-11 |
-| [RHI-033](phase-4/RHI-033-normalization-record-model.md) | Workstream B — Normalization and Canonical Record Model | 4 | Critical | Open | M | 2026-04-14 |
-| [RHI-034](phase-4/RHI-034-html-to-markdown-conversion.md) | Workstream C — HTML-to-Markdown Conversion Engine | 4 | Critical | Open | L | 2026-04-16 |
+| [RHI-032](phase-4/RHI-032-wordpress-content-extraction.md) | Workstream A — WordPress Content Extraction | 4 | Critical | Done | M | 2026-04-11 |
+| [RHI-033](phase-4/RHI-033-normalization-record-model.md) | Workstream B — Normalization and Canonical Record Model | 4 | Critical | Done | M | 2026-04-14 |
+| [RHI-034](phase-4/RHI-034-html-to-markdown-conversion.md) | Workstream C — HTML-to-Markdown Conversion Engine | 4 | Critical | Done | L | 2026-04-16 |
 | [RHI-035](phase-4/RHI-035-front-matter-mapping.md) | Workstream D — Front Matter Mapping and Hugo Contract | 4 | Critical | Done | M | 2026-04-16 |
-| [RHI-036](phase-4/RHI-036-url-preservation-redirect-integrity.md) | Workstream E — URL Preservation and Redirect Integrity | 4 | Critical | Open | M | 2026-04-17 |
-| [RHI-037](phase-4/RHI-037-media-migration-asset-hygiene.md) | Workstream F — Media Migration and Asset Hygiene | 4 | High | Open | L | 2026-04-18 |
-| [RHI-038](phase-4/RHI-038-internal-link-navigation-rewrites.md) | Workstream G — Internal Link and Navigation Rewrites | 4 | High | Open | M | 2026-04-18 |
-| [RHI-039](phase-4/RHI-039-seo-signal-preservation.md) | Workstream H — SEO Signal Preservation | 4 | High | Open | M | 2026-04-17 |
-| [RHI-040](phase-4/RHI-040-accessibility-content-semantics.md) | Workstream I — Accessibility and Content Semantics | 4 | Medium | In Progress | M | 2026-04-18 |
-| [RHI-041](phase-4/RHI-041-security-data-hygiene.md) | Workstream J — Security and Data Hygiene | 4 | Medium | Open | M | 2026-04-18 |
-| [RHI-042](phase-4/RHI-042-reporting-traceability-audit.md) | Workstream K — Reporting, Traceability, and Audit | 4 | High | Open | M | 2026-04-17 |
-| [RHI-043](phase-4/RHI-043-pilot-batch-migration.md) | Batch 1 — Pilot Migration Run (20–30 Records) | 4 | Critical | Open | M | 2026-04-22 |
+| [RHI-036](phase-4/RHI-036-url-preservation-redirect-integrity.md) | Workstream E — URL Preservation and Redirect Integrity | 4 | Critical | Done | M | 2026-04-17 |
+| [RHI-037](phase-4/RHI-037-media-migration-asset-hygiene.md) | Workstream F — Media Migration and Asset Hygiene | 4 | High | Done | L | 2026-04-18 |
+| [RHI-038](phase-4/RHI-038-internal-link-navigation-rewrites.md) | Workstream G — Internal Link and Navigation Rewrites | 4 | High | Done | M | 2026-04-18 |
+| [RHI-039](phase-4/RHI-039-seo-signal-preservation.md) | Workstream H — SEO Signal Preservation | 4 | High | Done | M | 2026-04-17 |
+| [RHI-040](phase-4/RHI-040-accessibility-content-semantics.md) | Workstream I — Accessibility and Content Semantics | 4 | Medium | Done | M | 2026-04-18 |
+| [RHI-041](phase-4/RHI-041-security-data-hygiene.md) | Workstream J — Security and Data Hygiene | 4 | Medium | Done | M | 2026-04-18 |
+| [RHI-042](phase-4/RHI-042-reporting-traceability-audit.md) | Workstream K — Reporting, Traceability, and Audit | 4 | High | Done | M | 2026-04-17 |
+| [RHI-043](phase-4/RHI-043-pilot-batch-migration.md) | Batch 1 — Pilot Migration Run (20–30 Records) | 4 | Critical | Done | M | 2026-04-22 |
 | [RHI-044](phase-4/RHI-044-high-value-content-batch.md) | Batch 2 — High-Value Content Migration | 4 | Critical | Done | L | 2026-04-25 |
 | [RHI-045](phase-4/RHI-045-long-tail-taxonomy-batch.md) | Batch 3 — Long-Tail and Taxonomy Migration | 4 | High | Done | L | 2026-04-29 |
-| [RHI-046](phase-4/RHI-046-phase-4-signoff.md) | Phase 4 Sign-off and Handover to Phase 5/6 | 4 | Critical | Open | S | 2026-05-02 |
+| [RHI-046](phase-4/RHI-046-phase-4-signoff.md) | Phase 4 Sign-off and Handover to Phase 5/6 | 4 | Critical | Done | S | 2026-05-02 |
 | [RHI-047](phase-5/RHI-047-phase-5-bootstrap.md) | Phase 5 Bootstrap: Kickoff and SEO Governance Environment Setup | 5 | Critical | Open | S | 2026-04-09 |
 | [RHI-048](phase-5/RHI-048-metadata-canonical-architecture.md) | Workstream A — Metadata and Canonical Signal Architecture | 5 | Critical | Open | M | 2026-04-11 |
 | [RHI-049](phase-5/RHI-049-redirect-url-consolidation-signals.md) | Workstream B — Redirect and URL Consolidation Signals | 5 | Critical | Open | M | 2026-04-14 |

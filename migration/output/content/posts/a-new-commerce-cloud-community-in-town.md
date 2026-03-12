@@ -7,7 +7,7 @@ date: '2022-09-12T08:14:56.000Z'
 lastmod: '2022-09-12T17:52:21.000Z'
 url: /a-new-commerce-cloud-community-in-town/
 draft: false
-heroImage: /wp-content/uploads/2022/09/trailblazer-community-group.jpg
+heroImage: /media/2022/trailblazer-community-group-c0e3b8a778.jpg
 categories:
   - Community
 tags:
@@ -55,9 +55,9 @@ Thomas started in 2011 as an Intershop Commerce developer and, after seeing the 
 
 Spreading his wings, Thomas learned about multiple products of Salesforce over the past few years to implement multi-cloud projects (Commerce, Service, and Marketing.) Leading a team of 60, Thomas is currently the Head of Commerce at [Forward](https://www.forward.eu).
 
-Since 2021 Thomas is also a Salesforce Instructor for the ARC300 (B2C Commerce Architect) course and, since 2022, the recipient of [the first Belgian and Commerce Cloud Golden Hoodie](https://www.rhino-inquisitor.com/events-and-the-golden-hoodie/).
+Since 2021 Thomas is also a Salesforce Instructor for the ARC300 (B2C Commerce Architect) course and, since 2022, the recipient of [the first Belgian and Commerce Cloud Golden Hoodie](/events-and-the-golden-hoodie/).
 
-Besides keeping himself busy with Salesforce during working hours, he owns a Salesforce B2C Commerce Cloud Blog: [https://www.rhino-inquisitor.com/](https://www.rhino-inquisitor.com/), where you can find the latest news about the platform!
+Besides keeping himself busy with Salesforce during working hours, he owns a Salesforce B2C Commerce Cloud Blog: [https://www.rhino-inquisitor.com/](/), where you can find the latest news about the platform!
 
 ## The goal
 

@@ -7,7 +7,7 @@ date: '2024-12-09T08:19:31.000Z'
 lastmod: '2024-12-11T16:13:38.000Z'
 url: /sending-emails-from-sfcc/
 draft: false
-heroImage: /wp-content/uploads/2024/12/delivering-mail-in-sfcc.jpg
+heroImage: /media/2024/delivering-mail-in-sfcc-c46d2358ed.jpg
 categories:
   - Salesforce Commerce Cloud
   - Technical
@@ -143,13 +143,13 @@ In the worst case, you will not be able to send emails for 48 hours.
 
 ## Are attachments possible
 
-Absolutely! This was among the first articles I published on the blog: [How to send PDFs as attachments](https://www.rhino-inquisitor.com/mail-attachments-in-b2c-commerce-cloud/) (though you're certainly not restricted to just PDFs).
+Absolutely! This was among the first articles I published on the blog: [How to send PDFs as attachments](/mail-attachments-in-b2c-commerce-cloud/) (though you're certainly not restricted to just PDFs).
 
 ## Can I send mails from the Composable Storefront
 
 Directly from the Managed Runtime? No.
 
-You will have to make an API call to a [custom API](https://www.rhino-inquisitor.com/in-the-ring-ocapi-versus-scapi/) or [hook](https://www.rhino-inquisitor.com/how-to-use-ocapi-scapi-hooks/) into an existing standard API to attach sending an email through the platform.
+You will have to make an API call to a [custom API](/in-the-ring-ocapi-versus-scapi/) or [hook](/how-to-use-ocapi-scapi-hooks/) into an existing standard API to attach sending an email through the platform.
 
 ## Conclusion
 

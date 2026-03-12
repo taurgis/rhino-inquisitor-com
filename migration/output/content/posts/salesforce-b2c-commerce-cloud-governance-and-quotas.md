@@ -7,7 +7,7 @@ date: '2023-08-21T06:58:00.000Z'
 lastmod: '2024-01-08T18:17:38.000Z'
 url: /salesforce-b2c-commerce-cloud-governance-and-quotas/
 draft: false
-heroImage: /wp-content/uploads/2022/10/quota-limits.jpg
+heroImage: /media/2022/quota-limits-27eb2c93aa.jpg
 categories:
   - Salesforce Commerce Cloud
   - Technical
@@ -33,7 +33,7 @@ You will run into this system with many SaaS solutions, but each one will have a
 
 ## What are they
 
-You can view them as restrictions on data volume and API usage set by the platform. They come in many forms and are placed on [different levels within the Salesforce B2C Commerce Cloud's stack](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/).
+You can view them as restrictions on data volume and API usage set by the platform. They come in many forms and are placed on [different levels within the Salesforce B2C Commerce Cloud's stack](/the-salesforce-b2c-commerce-cloud-environment/).
 
 A basic example of a limit would be the maximum time a single request is allowed to take or how many elements you can put in an [Array](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/index.html?target=class_TopLevel_Array.html).
 
@@ -142,7 +142,7 @@ This page has some other platform limitations documented too:
 - Video files are limited to 20MB
 - The default Script Timeout is 30 seconds
 
-But again, you need to look around to find this information as it is [scattered](https://www.rhino-inquisitor.com/where-is-the-new-sfcc-documentation/) all over.
+But again, you need to look around to find this information as it is [scattered](/where-is-the-new-sfcc-documentation/) all over.
 
 ### Rate limit on Storefront Requests
 

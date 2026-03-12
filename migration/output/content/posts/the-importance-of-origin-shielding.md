@@ -7,7 +7,7 @@ date: '2024-11-04T08:40:19.000Z'
 lastmod: '2024-11-04T08:41:59.000Z'
 url: /the-importance-of-origin-shielding/
 draft: false
-heroImage: /wp-content/uploads/2024/10/protecting-your-server.jpg
+heroImage: /media/2024/protecting-your-server-26dacc7cc4.jpg
 categories:
   - Architecture
   - Salesforce Commerce Cloud
@@ -40,7 +40,7 @@ Cloudflare is our "hero" protecting and routing traffic on our behalf!
 
 Origin shielding was implemented to manage access to the Demandware URLs of our storefronts and the OCAPI on the "Primary Instance Groups."
 
-Although this change was communicated multiple times in advance, [many projects still encountered unexpected disconnections from third-party services](https://www.rhino-inquisitor.com/a-look-back-at-origin-shielding/).
+Although this change was communicated multiple times in advance, [many projects still encountered unexpected disconnections from third-party services](/a-look-back-at-origin-shielding/).
 
 With the introduction of Origin Shielding, any third-party system attempting to access controllers or OCAPI APIs through the Demandware URL received an error page.
 
@@ -79,7 +79,7 @@ All PIG instances are behind it In recent years, the "Origin Shielding" transfor
 
 The first thing to do to prevent access interruptions is to configure a vanity domain for all your environments, including staging, development, and production.
 
-A vanity domain serves as a friendly URL that is easier to remember and manage while also being recognised by Origin Shielding ([and configured in the eCDN itself](https://www.rhino-inquisitor.com/lets-go-live-ecdn/) ).
+A vanity domain serves as a friendly URL that is easier to remember and manage while also being recognised by Origin Shielding ([and configured in the eCDN itself](/lets-go-live-ecdn/) ).
 
 Rather than having '_<https://production-eu01-mybrand.demandware.net>_', we can use a nicer domain such as '_<https://brand.com_'>
 

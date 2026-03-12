@@ -7,7 +7,7 @@ date: '2024-01-29T09:06:32.000Z'
 lastmod: '2024-01-31T08:11:45.000Z'
 url: /understanding-locale-fallback-in-sfcc/
 draft: false
-heroImage: /wp-content/uploads/2024/01/different-languages-and-countries-of-the-world.jpg
+heroImage: /media/2024/different-languages-and-countries-of-the-world-0ec542fc07.jpg
 categories:
   - Salesforce Commerce Cloud
   - Technical
@@ -84,7 +84,7 @@ The possible fallback options for en\_GB
 
 Developers must carefully consider the implications of the fallback system when creating custom modules and localisable attributes. Aspects to keep in mind include:
 
-- **Implementation of Fallback Logic:** Developers need to incorporate logic that respects the fallback configurations when developing customisations involving localisable content. Generally, nothing needs to be done, but [workarounds](https://www.rhino-inquisitor.com/fetching-data-in-a-locale-with-sfcc/) are required for some use cases.
+- **Implementation of Fallback Logic:** Developers need to incorporate logic that respects the fallback configurations when developing customisations involving localisable content. Generally, nothing needs to be done, but [workarounds](/fetching-data-in-a-locale-with-sfcc/) are required for some use cases.
 
 - **Testing:** Custom fallback configurations require thorough testing across different locales to ensure the expected behaviour and prevent content gaps.
 

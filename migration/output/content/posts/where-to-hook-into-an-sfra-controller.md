@@ -7,7 +7,7 @@ date: '2024-10-07T07:17:57.000Z'
 lastmod: '2024-10-07T07:35:26.000Z'
 url: /where-to-hook-into-an-sfra-controller/
 draft: false
-heroImage: /wp-content/uploads/2024/10/a-road-taking-odd-paths.jpeg
+heroImage: /media/2024/a-road-taking-odd-paths-a9419c4f36.jpeg
 categories:
   - Salesforce Commerce Cloud
   - Technical
@@ -17,7 +17,7 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-Have you ever wondered how Salesforce Commerce Cloud, especially [SFRA](https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/) (Storefront Reference Architecture), handles the rendering of pages based on controllers and routes?
+Have you ever wondered how Salesforce Commerce Cloud, especially [SFRA](/sitegenesis-vs-sfra-vs-pwa/) (Storefront Reference Architecture), handles the rendering of pages based on controllers and routes?
 
 It's like embarking from point A to point B, with controlled detours and sudden stops. This blog will explore how SFRA allows us to navigate these situations and the various options available at different locations.
 

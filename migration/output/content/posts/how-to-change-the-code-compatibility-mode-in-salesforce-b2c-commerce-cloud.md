@@ -7,7 +7,7 @@ date: '2022-11-14T08:04:44.000Z'
 lastmod: '2022-11-19T09:06:30.000Z'
 url: /how-to-change-the-code-compatibility-mode-in-salesforce-b2c-commerce-cloud/
 draft: false
-heroImage: /wp-content/uploads/2022/11/sfcc-compatibility-mode.jpg
+heroImage: /media/2022/sfcc-compatibility-mode-46f9d84af8.jpg
 categories:
   - Salesforce Commerce Cloud
   - Technical

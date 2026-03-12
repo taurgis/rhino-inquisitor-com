@@ -20,7 +20,7 @@
 | [RHI-106](RHI-106-discovery-metadata-extension.md) | Workstream L — Discovery Metadata Extension and Enrichment | WS-L | High | Done | M | 2026-04-15 | RHI-012, RHI-031, RHI-033 |
 | [RHI-035](RHI-035-front-matter-mapping.md) | Workstream D — Front Matter Mapping and Hugo Contract | WS-D | Critical | Done | M | 2026-04-16 | RHI-031, RHI-033, RHI-106 |
 | [RHI-036](RHI-036-url-preservation-redirect-integrity.md) | Workstream E — URL Preservation and Redirect Integrity | WS-E | Critical | Done | M | 2026-04-17 | RHI-031, RHI-035 |
-| [RHI-037](RHI-037-media-migration-asset-hygiene.md) | Workstream F — Media Migration and Asset Hygiene | WS-F | High | Open | L | 2026-04-18 | RHI-031, RHI-034 |
+| [RHI-037](RHI-037-media-migration-asset-hygiene.md) | Workstream F — Media Migration and Asset Hygiene | WS-F | High | Done | L | 2026-04-18 | RHI-031, RHI-034 |
 | [RHI-038](RHI-038-internal-link-navigation-rewrites.md) | Workstream G — Internal Link and Navigation Rewrites | WS-G | High | Done | M | 2026-04-18 | RHI-031, RHI-034, RHI-035, RHI-036 |
 | [RHI-039](RHI-039-seo-signal-preservation.md) | Workstream H — SEO Signal Preservation | WS-H | High | Done | M | 2026-04-17 | RHI-031, RHI-035 |
 | [RHI-040](RHI-040-accessibility-content-semantics.md) | Workstream I — Accessibility and Content Semantics | WS-I | Medium | Done | M | 2026-04-18 | RHI-031, RHI-034 |
@@ -29,7 +29,7 @@
 | [RHI-043](RHI-043-pilot-batch-migration.md) | Batch 1 — Pilot Migration Run (20–30 Records) | Batch | Critical | Done | M | 2026-04-22 | RHI-032 through RHI-042 |
 | [RHI-044](RHI-044-high-value-content-batch.md) | Batch 2 — High-Value Content Migration | Batch | Critical | Done | L | 2026-04-25 | RHI-043 |
 | [RHI-045](RHI-045-long-tail-taxonomy-batch.md) | Batch 3 — Long-Tail and Taxonomy Migration | Batch | High | Done | L | 2026-04-29 | RHI-044 |
-| [RHI-046](RHI-046-phase-4-signoff.md) | Phase 4 Sign-off and Handover to Phase 5/6 | Sign-off | Critical | Open | S | 2026-05-02 | RHI-031 through RHI-045 |
+| [RHI-046](RHI-046-phase-4-signoff.md) | Phase 4 Sign-off and Handover to Phase 5/6 | Sign-off | Critical | Done | S | 2026-05-02 | RHI-031 through RHI-045 |
 
 ---
 
@@ -109,23 +109,23 @@ RHI-030 (Phase 3 Sign-off)
 
 All items below must be complete before Phase 5/6/8 downstream work can consume Phase 4 outputs:
 
-- [ ] RHI-031 Done — Phase 4 Bootstrap; Phase 3 contracts and pipeline environment confirmed accessible and WordPress source artifacts verified
+- [x] RHI-031 Done — Phase 4 Bootstrap; Phase 3 contracts and pipeline environment confirmed accessible and WordPress source artifacts verified
 - [x] RHI-032 Done — WordPress content fully extracted; approved source-channel strategy, extract summary, and quarantine log committed
 - [x] RHI-033 Done — All in-scope records normalized to canonical schema; 100% `targetUrl` coverage
 - [x] RHI-034 Done — HTML-to-Markdown conversion engine operational; fallback policy applied and logged
 - [x] RHI-106 Done — Discovery metadata extension documented, validated, and available to mapping and batch review flows
 - [x] RHI-035 Done — Front matter mapping validated; zero required-field errors in release candidate batch
-- [ ] RHI-036 Done — URL parity passing; redirect integrity validated; zero unresolved failures on critical URLs
-- [ ] RHI-037 Done — All media downloaded and relinked; media integrity report clean; no hotlinks to deprecated WordPress paths
+- [x] RHI-036 Done — URL parity passing; redirect integrity validated; zero unresolved failures on critical URLs
+- [x] RHI-037 Done — All media downloaded and relinked; media integrity report clean; no hotlinks to deprecated WordPress paths
 - [x] RHI-038 Done — Internal links rewritten to canonical paths; broken link scan passing on representative templates
 - [x] RHI-039 Done — SEO completeness at 100% for title/description/canonical on all indexable pages; no unintended `noindex` in release artifacts
 - [x] RHI-040 Done — Automated accessibility gate passing on sample set; manual checklist complete; no unresolved critical defects
 - [x] RHI-041 Done — Security content scan clean for critical issues; no unsafe script fragments in generated output
 - [x] RHI-042 Done — All migration reports generated, reproducible, and CI-attached; blocking thresholds enforced
-- [ ] RHI-043 Done — Pilot batch passed all CI gates; pipeline proven end-to-end on representative records; correction artifacts and idempotent rerun evidence attached to the pilot PR
+- [x] RHI-043 Done — Pilot batch passed all CI gates; pipeline proven end-to-end on representative records; correction artifacts and idempotent rerun evidence attached to the pilot PR
 - [x] RHI-044 Done — High-value batch committed and passing all gates; top-traffic pages verified manually; correction artifacts attached to the batch PR
 - [x] RHI-045 Done — Long-tail and taxonomy batch correction evidence is refreshed, archive/category routes are preserved correctly, and merge proof is recorded on `main`
-- [ ] RHI-046 Done — Stakeholder sign-off recorded; Phase 5/6 team notified and handover package confirmed
+- [x] RHI-046 Done — Stakeholder sign-off recorded; Phase 5/6 team notified and handover package confirmed
 
 ---
 

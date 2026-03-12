@@ -7,7 +7,7 @@ date: '2023-06-05T06:43:00.000Z'
 lastmod: '2023-06-06T08:54:49.000Z'
 url: /commerce-cloud-t-shirts-on-shirtforce/
 draft: false
-heroImage: /wp-content/uploads/2022/03/shirtforce-bugs.jpg
+heroImage: /media/2022/shirtforce-bugs-f0a63ab31a.jpg
 categories:
   - Community
 tags:
@@ -20,7 +20,7 @@ author: Thomas Theunen
 
 If you read the hashtag wrong, I don't blame you! Just have a look at [the FAQ on the #shirtforce website](https://shirtforce.org/faq/).
 
-Until last year, no Commerce Cloud-related options were available. And this is because [it isn't known within the Commerce Cloud community](https://www.rhino-inquisitor.com/the-state-of-ohana-for-salesforce-commerce-cloud/).
+Until last year, no Commerce Cloud-related options were available. And this is because [it isn't known within the Commerce Cloud community](/the-state-of-ohana-for-salesforce-commerce-cloud/).
 
 A week into the war in Ukraine (2022), I looked for options to donate and help, and my "[penny](https://www.linkedin.com/in/toddhalfpenny/)" dropped! There already is a Salesforce-related charity option. Why not hop on the same wagon rather than re-inventing the wheel? And with this, we have something permanent rather than a one-time donation.
 

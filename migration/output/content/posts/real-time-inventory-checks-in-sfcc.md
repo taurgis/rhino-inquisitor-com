@@ -7,7 +7,7 @@ date: '2026-02-09T11:11:31.000Z'
 lastmod: '2026-02-09T13:10:33.000Z'
 url: /real-time-inventory-checks-in-sfcc/
 draft: false
-heroImage: /wp-content/uploads/2025/07/stampede-to-a-single-endpoin-t-scaled.jpeg
+heroImage: /media/2025/stampede-to-a-single-endpoin-t-scaled-2d591aef78.jpeg
 categories:
   - Architecture
   - Salesforce Commerce Cloud
@@ -74,7 +74,7 @@ Given that naive real-time calls are a performance catastrophe, caching isn't an
 
 The problem with inventory is its volatility. If you have inventory data with a 60-second stale time on a page with product details, that can have an 8-hour caching lifetime.
 
-This is where the architect's true weapon comes into play: [the SFCC caching armoury](https://www.rhino-inquisitor.com/third-party-api-caching-in-commerce-cloud/).
+This is where the architect's true weapon comes into play: [the SFCC caching armoury](/third-party-api-caching-in-commerce-cloud/).
 
 This knowledge unlocks more intelligent strategies. You're not just caching data; you're caching a _decision_ (e.g., `isOrderable = true`), which is far more powerful and efficient.
 
@@ -92,7 +92,7 @@ The model is governed by a "low stock threshold"—a simple number (e.g., 5 unit
 
 - **Path 1: Above the Threshold (The Fast Lane)** When SFCC's internal inventory record shows stock is comfortably above the threshold, the risk of overselling is low. The system**does not** make a real-time call. It serves a generic, cached "In Stock" message. This response is lightweight and can be cached for a reasonable duration (e.g., 15-120 minutes). This path handles the vast majority of traffic, ensuring lightning-fast PDP loads.
 
-- **Path 2: At or Below the Threshold (The Accuracy Zone)** When stock drops to or below the threshold, the game changes. The cached status is invalidated. Now, every request for this product's availability triggers a live, synchronous API call to the external master to get the _exact_ count. To prevent hammering the backend for a popular low-stock item, this live response is itself [cached](https://www.rhino-inquisitor.com/third-party-api-caching-in-commerce-cloud/), but with a very aggressive TTL (e.g., 10-30 seconds).
+- **Path 2: At or Below the Threshold (The Accuracy Zone)** When stock drops to or below the threshold, the game changes. The cached status is invalidated. Now, every request for this product's availability triggers a live, synchronous API call to the external master to get the _exact_ count. To prevent hammering the backend for a popular low-stock item, this live response is itself [cached](/third-party-api-caching-in-commerce-cloud/), but with a very aggressive TTL (e.g., 10-30 seconds).
 
 ### The Trade-Offs
 
@@ -148,7 +148,7 @@ But wait... an external system pushing inventory near real-time to SFCC inventor
 
 Salesforce is acutely aware of this architectural nightmare. Their answer is Omnichannel Inventory (OCI), a headless, API-first, and highly scalable inventory service designed to be the single source of truth.
 
-I wrote [an extensive article](https://www.rhino-inquisitor.com/what-is-oci-omnichannel-inventory/) on this topic a while ago, so I recommend reading it.
+I wrote [an extensive article](/what-is-oci-omnichannel-inventory/) on this topic a while ago, so I recommend reading it.
 
 ### The Build vs. Buy Decision
 

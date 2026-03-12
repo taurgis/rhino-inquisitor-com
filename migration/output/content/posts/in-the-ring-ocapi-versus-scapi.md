@@ -7,7 +7,7 @@ date: '2024-03-18T08:49:51.000Z'
 lastmod: '2024-03-19T15:11:36.000Z'
 url: /in-the-ring-ocapi-versus-scapi/
 draft: false
-heroImage: /wp-content/uploads/2024/03/rest-apis-fighting-in-a-boxing-ring.jpg
+heroImage: /media/2024/rest-apis-fighting-in-a-boxing-ring-60c6242717.jpg
 categories:
   - Architecture
   - Salesforce Commerce Cloud
@@ -38,7 +38,7 @@ Let's keep score, shall we?
 
 ## New APIs
 
-In recent years, the SCAPI has introduced several [new APIs](https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/release-notes/) that the OCAPI does not have. These new APIs have been implemented to address OCAPI gaps or expose new functionality, such as those related to SEO and CDN, allowing for more robust and comprehensive functionality.
+In recent years, the SCAPI has introduced several [new APIs](/category/release-notes/) that the OCAPI does not have. These new APIs have been implemented to address OCAPI gaps or expose new functionality, such as those related to SEO and CDN, allowing for more robust and comprehensive functionality.
 
 SCAPI now offers a wide range of APIs for developers to use, allowing them to build customised solutions for their clients. As these new APIs have been developed explicitly for SCAPI, it is unlikely that the OCAPI will ever have access to them.
 
@@ -49,7 +49,7 @@ In the future, it is clear that any significant new APIs will only be added to t
 
 ## SLAS
 
-[SLAS](https://www.rhino-inquisitor.com/how-to-set-up-slas-for-the-composable-storefront/), or Shopper Login and API Access Service, is a Salesforce Commerce Cloud (SFCC) feature allowing third-party systems or headless front-ends to authenticate shoppers and make API calls.
+[SLAS](/how-to-set-up-slas-for-the-composable-storefront/), or Shopper Login and API Access Service, is a Salesforce Commerce Cloud (SFCC) feature allowing third-party systems or headless front-ends to authenticate shoppers and make API calls.
 
 It's an authentication orchestration service that can handle various scenarios without requiring the creation of custom code for each one separately. (Some tweaking of parameters and configuration is still required, but that's not the focus of this article.):
 
@@ -65,9 +65,9 @@ Although it is possible to use this service in conjunction with OCAPI, it is mor
 
 ## PWA Kit
 
-Have you heard about the PWA Kit or [Composable Storefront](https://www.rhino-inquisitor.com/the-move-from-sitegenesis-and-sfra-to-the-composable-storefront-as-a-developer/)? You may have, as it's the latest addition to the front-end options besides SiteGenesis and SFRA.
+Have you heard about the PWA Kit or [Composable Storefront](/the-move-from-sitegenesis-and-sfra-to-the-composable-storefront-as-a-developer/)? You may have, as it's the latest addition to the front-end options besides SiteGenesis and SFRA.
 
-The Composable Storefront is a Headless storefront that connects to the back-end SFCC systems through the SCAPI. Although it used to be connected to the OCAPI due to some limitations with the [hooks](https://www.rhino-inquisitor.com/how-to-use-ocapi-scapi-hooks/) system, the latest version is now fully connected to the SCAPI.
+The Composable Storefront is a Headless storefront that connects to the back-end SFCC systems through the SCAPI. Although it used to be connected to the OCAPI due to some limitations with the [hooks](/how-to-use-ocapi-scapi-hooks/) system, the latest version is now fully connected to the SCAPI.
 
 It's no secret that the Composable Storefront is the primary driver for these innovations.
 
@@ -80,11 +80,11 @@ Oh my ... things aren't looking proper for the OCAPI.
 
 ## Infrastructure
 
-[![The Composable Storefront architecture](/media/2023/composable-storefront-architecture-54fe68c81a.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/06/composable-storefront-architecture-scaled.jpg)
+[![The Composable Storefront architecture](/media/2023/composable-storefront-architecture-54fe68c81a.jpg)](/media/2023/composable-storefront-architecture-54fe68c81a.jpg)
 
 The architectural setups of the OCAPI and SCAPI options are entirely different.
 
-The OCAPI runs on the back end, the exact location as the Business Manager, [SFRA/SG](https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/) storefront, and your custom code.
+The OCAPI runs on the back end, the exact location as the Business Manager, [SFRA/SG](/sitegenesis-vs-sfra-vs-pwa/) storefront, and your custom code.
 
 ~~On the other hand, the SCAPI is a MuleSoft instance managed by Salesforce (no, you can't access this - but I know you want to).
 ~~_In the current architecture, CloudFlare workers have taken over the role that was previously played by MuleSoft._

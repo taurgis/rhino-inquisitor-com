@@ -7,18 +7,18 @@ date: '2023-08-28T07:35:34.000Z'
 lastmod: '2023-08-28T07:35:45.000Z'
 url: /a-look-at-the-23-9-commerce-cloud-release/
 draft: false
-heroImage: /wp-content/uploads/2023/08/japan-shopping-street-23.9.jpeg
+heroImage: /media/2023/japan-shopping-street-23-9-bd4ea7a693.jpeg
 categories:
   - Release Notes
   - Salesforce Commerce Cloud
 tags: []
 author: Thomas Theunen
 ---
-We are getting closer to the holiday period, and also one of the last releases of the year! This time we look at the [September 2023 (23.9) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_23_9_release.htm&type=5)! Are you interested in last month’s release notes? [Read the 23.8 release notes](https://www.rhino-inquisitor.com/what-is-new-in-the-23-8-commerce-cloud-release/)!
+We are getting closer to the holiday period, and also one of the last releases of the year! This time we look at the [September 2023 (23.9) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_23_9_release.htm&type=5)! Are you interested in last month’s release notes? [Read the 23.8 release notes](/what-is-new-in-the-23-8-commerce-cloud-release/)!
 
 ## Custom SCAPI endpoints in 23.9
 
-This update is truly a game-changer for Commerce Cloud customers! With the introduction of custom endpoints, we can fully customise Headless use cases, allowing for even more flexibility and control. AND without [using a workaround](https://www.rhino-inquisitor.com/creating-custom-ocapi-endpoints/)! Previously, [hooks](https://www.rhino-inquisitor.com/how-to-use-ocapi-scapi-hooks/) were the only way (through tweaking existing endpoints). But now, the possibilities are endless! And the best part? An open beta is available before the update freeze, so we can start exploring and testing this new feature immediately.
+This update is truly a game-changer for Commerce Cloud customers! With the introduction of custom endpoints, we can fully customise Headless use cases, allowing for even more flexibility and control. AND without [using a workaround](/creating-custom-ocapi-endpoints/)! Previously, [hooks](/how-to-use-ocapi-scapi-hooks/) were the only way (through tweaking existing endpoints). But now, the possibilities are endless! And the best part? An open beta is available before the update freeze, so we can start exploring and testing this new feature immediately.
 
 ### Development
 

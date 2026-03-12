@@ -7,7 +7,7 @@ date: '2022-06-27T17:49:25.000Z'
 lastmod: '2022-07-23T19:16:34.000Z'
 url: /how-to-setup-oauth-jwt-for-the-ocapi/
 draft: false
-heroImage: /wp-content/uploads/2022/06/jwt.png
+heroImage: /media/2022/jwt-517bf34cae.png
 categories:
   - Salesforce Commerce Cloud
   - Technical

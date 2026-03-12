@@ -7,7 +7,7 @@ date: '2023-06-19T05:13:10.000Z'
 lastmod: '2023-06-19T05:15:47.000Z'
 url: /how-to-extend-active-data-in-salesforce-b2c-commerce-cloud/
 draft: false
-heroImage: /wp-content/uploads/2023/01/b2c_active_merchandising_slide_1.gif
+heroImage: /media/2023/b2c-active-merchandising-slide-1-9a027d6449.gif
 categories:
   - Salesforce Commerce Cloud
   - Technical

@@ -7,7 +7,7 @@ date: '2023-05-29T07:12:19.000Z'
 lastmod: '2023-05-29T11:16:52.000Z'
 url: /sfcc-url-cracking-the-code/
 draft: false
-heroImage: /wp-content/uploads/2023/06/a-hand-delicately-slicing-into-a-screen.jpeg
+heroImage: /media/2023/a-hand-delicately-slicing-into-a-screen-f3543bdd31.jpeg
 categories:
   - Salesforce Commerce Cloud
   - Technical
@@ -17,7 +17,7 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-It should be no secret that a URL is a vital part of any website In this article, we will dissect and explain the different parts of a Salesforce B2C Commerce Cloud URL and provide code examples on how to access this information [in an SFCC controller and React using the useLocation() hook](https://www.rhino-inquisitor.com/what-does-the-composable-storefront-mean-for-sfcc-developers/).
+It should be no secret that a URL is a vital part of any website In this article, we will dissect and explain the different parts of a Salesforce B2C Commerce Cloud URL and provide code examples on how to access this information [in an SFCC controller and React using the useLocation() hook](/what-does-the-composable-storefront-mean-for-sfcc-developers/).
 
 ## The URL Structure
 
@@ -44,7 +44,7 @@ https://www.example.com/my-site/en_US/route?param1=value1¶m2=value2
 
 The protocol is the foundation of how data is transmitted across the internet. In a Salesforce B2C Commerce Cloud URL, the protocol is [HTTP](https://en.wikipedia.org/wiki/HTTP) (Hypertext Transfer Protocol) or [HTTPS](https://en.wikipedia.org/wiki/HTTPS) (Hypertext Transfer Protocol Secure). HTTP is the standard protocol for transmitting data between a web server and a browser, while HTTPS is a more secure version that uses encryption to protect the data being sent.
 
-[Salesforce B2C Commerce Cloud](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/) only allows HTTPS and has blocked the use of HTTP for quite a few years now. When working locally with the PWA Kit, HTTP is used, however.
+[Salesforce B2C Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/) only allows HTTPS and has blocked the use of HTTP for quite a few years now. When working locally with the PWA Kit, HTTP is used, however.
 
 ```text
 // SFRA - SiteGenesis

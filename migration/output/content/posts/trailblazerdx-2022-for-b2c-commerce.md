@@ -7,7 +7,7 @@ date: '2022-04-21T06:49:37.000Z'
 lastmod: '2022-07-23T22:03:54.000Z'
 url: /trailblazerdx-2022-for-b2c-commerce/
 draft: false
-heroImage: /wp-content/uploads/2022/04/weezer.png
+heroImage: /media/2022/weezer-66533fada7.png
 categories:
   - Community
 tags:

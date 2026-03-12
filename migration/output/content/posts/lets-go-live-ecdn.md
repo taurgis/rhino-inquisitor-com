@@ -7,7 +7,7 @@ date: '2022-08-04T06:53:47.000Z'
 lastmod: '2022-08-05T07:52:02.000Z'
 url: /lets-go-live-ecdn/
 draft: false
-heroImage: /wp-content/uploads/2022/07/ecdn.png
+heroImage: /media/2022/ecdn-5035a37164.png
 categories:
   - GO-LIVE
   - Salesforce Commerce Cloud

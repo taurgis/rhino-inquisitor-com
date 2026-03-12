@@ -7,7 +7,7 @@ date: '2026-01-12T14:05:43.000Z'
 lastmod: '2026-01-09T12:49:20.000Z'
 url: /kickstart-guide-for-new-sfcc-developers/
 draft: false
-heroImage: /wp-content/uploads/2025/07/the-new-salesforce-developer-scaled.jpeg
+heroImage: /media/2025/the-new-salesforce-developer-scaled-1f8ff6fbac.jpeg
 categories:
   - Salesforce Commerce Cloud
 tags:
@@ -18,9 +18,9 @@ tags:
   - sitegenesis
 author: Thomas Theunen
 ---
-So, you’ve decided to tame the beast that is Salesforce B2C Commerce Cloud (SFCC). Congratulations, and welcome to the jungle. If you're feeling a bit overwhelmed by the sheer [scale](https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/) of the platform, with its myriad features, acronyms, and unique architectural quirks, don't worry – we've all been there. SFCC isn't just an e-commerce platform you can master over a weekend; it's an enterprise-grade ecosystem, forged over decades, designed for the world's biggest brands. Its complexity is a direct reflection of its power.
+So, you’ve decided to tame the beast that is Salesforce B2C Commerce Cloud (SFCC). Congratulations, and welcome to the jungle. If you're feeling a bit overwhelmed by the sheer [scale](/sitegenesis-vs-sfra-vs-pwa/) of the platform, with its myriad features, acronyms, and unique architectural quirks, don't worry – we've all been there. SFCC isn't just an e-commerce platform you can master over a weekend; it's an enterprise-grade ecosystem, forged over decades, designed for the world's biggest brands. Its complexity is a direct reflection of its power.
 
-I've been in the commerce world for more than a decade, and I've dedicated a significant part of my career to mastering this platform. On this blog, I share my knowledge to help others succeed in the Ohana. [I’ve written before about where to start your journey](https://www.rhino-inquisitor.com/where-to-start-when-you-are-new-to-salesforce-b2c-commerce-cloud-development/), but this post is different. This is the deep dive. This is the comprehensive guide I wish I had when I was starting out. We're going to cut through the noise and build a foundational understanding from the ground up. We'll cover the lay of the land, the tools of the trade, the core mechanics of [development](https://www.rhino-inquisitor.com/getting-to-know-sfra-as-a-developer/), and the hard-won lessons from the trenches.
+I've been in the commerce world for more than a decade, and I've dedicated a significant part of my career to mastering this platform. On this blog, I share my knowledge to help others succeed in the Ohana. [I’ve written before about where to start your journey](/where-to-start-when-you-are-new-to-salesforce-b2c-commerce-cloud-development/), but this post is different. This is the deep dive. This is the comprehensive guide I wish I had when I was starting out. We're going to cut through the noise and build a foundational understanding from the ground up. We'll cover the lay of the land, the tools of the trade, the core mechanics of [development](/getting-to-know-sfra-as-a-developer/), and the hard-won lessons from the trenches.
 
 So, roll up your sleeves, fire up your IDE, and let's get started. This is your kickstart guide to becoming a formidable SFCC developer.
 
@@ -30,7 +30,7 @@ Before you write a single line of code, you need to understand the map of the wo
 
 ### Understanding the Realm & Instance Structure
 
-At the highest level, your [SFCC environments](https://www.rhino-inquisitor.com/understanding-sfcc-instances/) are organised into a **Realm**, which is a collection of instance groups allocated to your organisation. Within a realm, you have two primary types of instance groups:
+At the highest level, your [SFCC environments](/understanding-sfcc-instances/) are organised into a **Realm**, which is a collection of instance groups allocated to your organisation. Within a realm, you have two primary types of instance groups:
 
 - **Primary Instance Group (PIG):** This is where the magic happens for your live site. It contains the three core environments that form the backbone of any project's lifecycle:
 
@@ -40,11 +40,11 @@ At the highest level, your [SFCC environments](https://www.rhino-inquisitor.com/
 
     1. **Production:** The live storefront that serves your customers.
 
-- **Secondary Instance Group (SIG):** This group houses your**Sandboxes**. A [sandbox](https://www.rhino-inquisitor.com/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/) is your personal development playground. It's, when provisioned, an empty environment where you can test new ideas, develop features, and break things without any real-world consequences.
+- **Secondary Instance Group (SIG):** This group houses your**Sandboxes**. A [sandbox](/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/) is your personal development playground. It's, when provisioned, an empty environment where you can test new ideas, develop features, and break things without any real-world consequences.
 
-The flow is critical: [developers](https://www.rhino-inquisitor.com/understanding-sfcc-instances/) work on features in their individual sandboxes. Once complete, the code is pushed and integrated into the shared Development instance. From there, it moves to Staging for final validation, and finally, it's deployed to Production.
+The flow is critical: [developers](/understanding-sfcc-instances/) work on features in their individual sandboxes. Once complete, the code is pushed and integrated into the shared Development instance. From there, it moves to Staging for final validation, and finally, it's deployed to Production.
 
-_**A word of warning**_: getting your hands on a sandbox is essential for learning. Watching webinars and reading documents can get tedious; you need to apply what you learn immediately. However, if you are not working for an official Salesforce partner or a customer, acquiring a sandbox can be extremely difficult (but not impossible). I explain the process in my article on [getting a sandbox as a developer](https://www.rhino-inquisitor.com/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/), but be prepared for this potential roadblock.
+_**A word of warning**_: getting your hands on a sandbox is essential for learning. Watching webinars and reading documents can get tedious; you need to apply what you learn immediately. However, if you are not working for an official Salesforce partner or a customer, acquiring a sandbox can be extremely difficult (but not impossible). I explain the process in my article on [getting a sandbox as a developer](/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/), but be prepared for this potential roadblock.
 
 ### The Business Manager: Your Command Center
 
@@ -58,21 +58,21 @@ As a developer, you'll find yourself wearing two hats within the Business Manage
 
 1. **The Administrator/Developer Hat:** This is your primary domain. Under the `Administration` tab, you'll perform critical development tasks like managing code versions, [configuring](https://help.salesforce.com/s/articleView?id=cc.b2c_getting_started.htm&type=5) site cartridge paths, setting up data import/export jobs, managing API clients, and controlling the site cache.
 
-You'll also work with powerful merchandising tools like **Page Designer** and**Content Slots**. While merchandisers use these [tools](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-content-erd/) to build pages visually, developers create the underlying custom components that power them. Understanding the Business Manager isn't optional; it's a core competency for any SFCC developer.
+You'll also work with powerful merchandising tools like **Page Designer** and**Content Slots**. While merchandisers use these [tools](/salesforce-b2c-commerce-cloud-content-erd/) to build pages visually, developers create the underlying custom components that power them. Understanding the Business Manager isn't optional; it's a core competency for any SFCC developer.
 
 ### The Great Architectural Divide: SFRA, Composable, and the Ghost of SiteGenesis
 
-This is one of the most critical and often confusing topics for newcomers. The architecture you build dictates everything about your development process. There are [three](https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/) names you'll hear constantly: SiteGenesis, SFRA, and Composable Storefront (or PWA Kit). Let's clear this up once and for all.
+This is one of the most critical and often confusing topics for newcomers. The architecture you build dictates everything about your development process. There are [three](/sitegenesis-vs-sfra-vs-pwa/) names you'll hear constantly: SiteGenesis, SFRA, and Composable Storefront (or PWA Kit). Let's clear this up once and for all.
 
 - **SiteGenesis (SG):** This is the legacy architecture. Let me be blunt: if anyone suggests you start a new project on SiteGenesis in this day and age, you should question their motives. It was built on an outdated technology called**pipelines**—a visual workflow tool for server-side logic that is no longer supported by modern development tools, and for which it is challenging to find experienced developers. Since 2020, third-party cartridge providers are no longer required to support SiteGenesis, signalling that Salesforce has firmly moved on. It is not mobile-first, and customising it often involves duplicating large amounts of code, leading to maintenance nightmares.
 
-- **Storefront Reference Architecture (SFRA):** The modern industry-standard architecture for most new SFCC projects. Introduced around 2016, SFRA was a complete paradigm shift away from SiteGenesis. It is built on a**mobile-first** philosophy and uses a familiar Model-View-Controller (MVC) pattern. Instead of proprietary Pipelines, it uses modern**JavaScript controllers** that will be comfortable to anyone with experience with Node.js or Express.js. Its key advantage is an extensible cartridge-based model that lets you layer customisations on top of a base template without modifying the core code, dramatically improving maintainability and making upgrades easier. For a deeper dive, I've written a detailed comparison in my article [**SiteGenesis vs SFRA vs PWA**](https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/).
+- **Storefront Reference Architecture (SFRA):** The modern industry-standard architecture for most new SFCC projects. Introduced around 2016, SFRA was a complete paradigm shift away from SiteGenesis. It is built on a**mobile-first** philosophy and uses a familiar Model-View-Controller (MVC) pattern. Instead of proprietary Pipelines, it uses modern**JavaScript controllers** that will be comfortable to anyone with experience with Node.js or Express.js. Its key advantage is an extensible cartridge-based model that lets you layer customisations on top of a base template without modifying the core code, dramatically improving maintainability and making upgrades easier. For a deeper dive, I've written a detailed comparison in my article [**SiteGenesis vs SFRA vs PWA**](/sitegenesis-vs-sfra-vs-pwa/).
 
-- **Composable Storefront (PWA Kit & Managed Runtime):** This is the future-facing,**headless** architecture. Where SFRA is a "monolithic" application (the front-end and back-end are tightly coupled), the Composable Storefront decouples them completely. The front-end is typically a Progressive Web App (PWA) built with**React** and runs on a separate server environment called the**Managed Runtime**. This front-end communicates with the SFCC back-end (which still handles all the commerce logic) via REST APIs, specifically the Salesforce Commerce API (SCAPI) and the Open Commerce API (OCAPI). This approach provides maximum flexibility for the user experience but requires a more significant investment and a different skillset, including strong React expertise. It represents a major shift in the ecosystem, and I discuss the implications for developers in my article about [**the move from SiteGenesis and SFRA to the Composable Storefront**.](https://www.rhino-inquisitor.com/the-move-from-sitegenesis-and-sfra-to-the-composable-storefront-as-a-developer/)
+- **Composable Storefront (PWA Kit & Managed Runtime):** This is the future-facing,**headless** architecture. Where SFRA is a "monolithic" application (the front-end and back-end are tightly coupled), the Composable Storefront decouples them completely. The front-end is typically a Progressive Web App (PWA) built with**React** and runs on a separate server environment called the**Managed Runtime**. This front-end communicates with the SFCC back-end (which still handles all the commerce logic) via REST APIs, specifically the Salesforce Commerce API (SCAPI) and the Open Commerce API (OCAPI). This approach provides maximum flexibility for the user experience but requires a more significant investment and a different skillset, including strong React expertise. It represents a major shift in the ecosystem, and I discuss the implications for developers in my article about [**the move from SiteGenesis and SFRA to the Composable Storefront**.](/the-move-from-sitegenesis-and-sfra-to-the-composable-storefront-as-a-developer/)
 
 The evolution from SiteGenesis to SFRA and now to Composable isn't just a series of technical upgrades; it's a mirror of the entire e-commerce industry's journey from tightly-coupled platforms to API-first, headless solutions. This progression has profound implications for you as a developer. In the SiteGenesis era, you needed a highly specialised, platform-specific skill set centred on Pipelines. SFRA opened the doors to a broader pool of web developers by adopting more standard technologies, such as JavaScript controllers.
 
-Today, the rise of the Composable Storefront means that a top-tier SFCC developer can't just be an expert in the platform's back-end; they must also be a competent modern front-end developer, proficient in frameworks like React and Node.js. To stay relevant and valuable, you must understand that your learning path doesn't end with SFRA. This reality connects directly to the themes I explore in my articles about how [**AI won't steal your job, but a developer using AI will**](https://www.rhino-inquisitor.com/ai-wont-steal-your-sfcc-job-but-a-developer-using-ai-will/)—it's about adapting and expanding your skill set.
+Today, the rise of the Composable Storefront means that a top-tier SFCC developer can't just be an expert in the platform's back-end; they must also be a competent modern front-end developer, proficient in frameworks like React and Node.js. To stay relevant and valuable, you must understand that your learning path doesn't end with SFRA. This reality connects directly to the themes I explore in my articles about how [**AI won't steal your job, but a developer using AI will**](/ai-wont-steal-your-sfcc-job-but-a-developer-using-ai-will/)—it's about adapting and expanding your skill set.
 
 ## Gearing Up: Your Essential Developer Toolkit
 
@@ -118,7 +118,7 @@ The more disciplined, correct approach is to use `prepend` or `append` whenever 
 
 For managing large volumes of files—like product images, data import/export feeds, and system logs—you'll use a protocol called **WebDAV (Web Distributed Authoring and Versioning)**. Think of it as a network drive for your SFCC instance. You can connect to it using client applications like Cyberduck or FileZilla.
 
-As I cover in my [**Beginner's Guide to WebDAV**](https://www.rhino-inquisitor.com/a-beginners-guide-to-webdav-in-sfcc/), its primary uses for a developer are :
+As I cover in my [**Beginner's Guide to WebDAV**](/a-beginners-guide-to-webdav-in-sfcc/), its primary uses for a developer are :
 
 - **Import/Export:** The `/impex` folder is the main hub for data transfer. You'll upload your XML or CSV import files here for the Jobs Framework to process.
 
@@ -126,7 +126,7 @@ As I cover in my [**Beginner's Guide to WebDAV**](https://www.rhino-inquisitor.c
 
 - **Log Files:** The `/logs` directory contains all the system logs, including error logs and custom debug logs, which are indispensable for troubleshooting.
 
-Authentication can be handled via your Business Manager user account (using Basic Auth) or through dedicated [API clients](https://www.rhino-inquisitor.com/your-definitive-mobile-app-checklist/) for automated processes. It's vital to configure permissions correctly in the Business Manager to ensure that users and systems only have access to the directories they need.
+Authentication can be handled via your Business Manager user account (using Basic Auth) or through dedicated [API clients](/your-definitive-mobile-app-checklist/) for automated processes. It's vital to configure permissions correctly in the Business Manager to ensure that users and systems only have access to the directories they need.
 
 ### Data, Data, Everywhere: Custom Objects & Jobs
 
@@ -138,7 +138,7 @@ SFCC provides a rich set of standard business objects (like Product, Order, Cust
 
 For handling large-scale data operations—like importing a catalog with millions of products or exporting all orders from the last quarter—you'll use the **Jobs Framework**. Jobs are processes that run asynchronously in the background, either on a schedule or on demand. They are essential for any task that would be too slow or memory-intensive to run in a storefront request.
 
-A common and powerful type of job step is the **chunk-oriented job step**. This is designed to process a large list of items by breaking it into manageable chunks, preventing you from hitting platform memory limits. To learn how to build these correctly, I highly recommend my deep-dive article, [**Mastering Chunk-Oriented Job Steps in Salesforce B2C Commerce Cloud**](https://www.rhino-inquisitor.com/mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/). For specialised cases involving large sets of static key-value data, you can also look into   **[Leveraging Generic Mappings for Efficient Data Integration](https://www.rhino-inquisitor.com/leveraging-generic-mappings-in-sfcc/).**
+A common and powerful type of job step is the **chunk-oriented job step**. This is designed to process a large list of items by breaking it into manageable chunks, preventing you from hitting platform memory limits. To learn how to build these correctly, I highly recommend my deep-dive article, [**Mastering Chunk-Oriented Job Steps in Salesforce B2C Commerce Cloud**](/mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/). For specialised cases involving large sets of static key-value data, you can also look into   **[Leveraging Generic Mappings for Efficient Data Integration](/leveraging-generic-mappings-in-sfcc/).**
 
 ## Pro-Level Tips & Tricks from the Trenches
 
@@ -160,11 +160,11 @@ In the multi-tenant SaaS world of SFCC, performance is non-negotiable. Your inef
 
     1. Database
 
-    **I cover caching strategies for APIs in [Leveraging Server-Side Caching to Improve SFCC REST API Speed](https://www.rhino-inquisitor.com/caching-rest-apis-in-sfcc/)** and for the modern stack in [**Caching in the Salesforce Composable Storefront**](https://www.rhino-inquisitor.com/caching-in-the-sfcc-composable-storefront/).
+    **I cover caching strategies for APIs in [Leveraging Server-Side Caching to Improve SFCC REST API Speed](/caching-rest-apis-in-sfcc/)** and for the modern stack in [**Caching in the Salesforce Composable Storefront**](/caching-in-the-sfcc-composable-storefront/).
 
-- **Image Optimization with DIS:** Huge, unoptimized images are a primary culprit for slow page loads. SFCC's**Dynamic Image Service (DIS)** is your best friend here. It allows you to upload one high-resolution source image and then transform it on-the-fly via URL parameters—resizing, cropping, and changing quality—without ever touching the original. My guide, [**Image-ine: Salesforce B2C Commerce Cloud DIS for Developers**](https://www.rhino-inquisitor.com/image-ine-sfcc-dis-for-developers/), is a must-read on this topic.
+- **Image Optimization with DIS:** Huge, unoptimized images are a primary culprit for slow page loads. SFCC's**Dynamic Image Service (DIS)** is your best friend here. It allows you to upload one high-resolution source image and then transform it on-the-fly via URL parameters—resizing, cropping, and changing quality—without ever touching the original. My guide, [**Image-ine: Salesforce B2C Commerce Cloud DIS for Developers**](/image-ine-sfcc-dis-for-developers/), is a must-read on this topic.
 
-- **Frontend Optimization:** Don't forget the basics. Minify your JavaScript and CSS, reduce the number of HTTP requests, and place your CSS in the `<head>` and your JavaScript just before the closing `</body>` tag for better perceived performance. For a detailed look at how to manage this in SFRA, see my post on [**how to load client-side JavaScript and CSS**](https://www.rhino-inquisitor.com/how-to-load-client-side-javascript-and-css-in-sfra/). And for the Composable world, the principles in [**From Lag to Riches: A PWA Kit Developer's Guide to Storefront Speed**](https://www.rhino-inquisitor.com/lag-to-riches-a-pwa-kit-developers-guide/) are essential.
+- **Frontend Optimization:** Don't forget the basics. Minify your JavaScript and CSS, reduce the number of HTTP requests, and place your CSS in the `<head>` and your JavaScript just before the closing `</body>` tag for better perceived performance. For a detailed look at how to manage this in SFRA, see my post on [**how to load client-side JavaScript and CSS**](/how-to-load-client-side-javascript-and-css-in-sfra/). And for the Composable world, the principles in [**From Lag to Riches: A PWA Kit Developer's Guide to Storefront Speed**](/lag-to-riches-a-pwa-kit-developers-guide/) are essential.
 
 A fundamental challenge in SFCC development is the inherent tension between personalisation and performance. Every piece of dynamic, user-specific content (like "Welcome, Thomas!" or a personalised product recommendation) is a potential cache miss. A cache miss means the request has to travel all the way down to the application server, which is orders of magnitude slower and less scalable than serving from the page cache.
 
@@ -176,7 +176,7 @@ A senior developer, on the other hand, learns to "[think in cache layers](https:
 
 Salesforce provides an incredibly secure platform, but this guarantee ends where your custom code begins. A single insecure line of code can create a vulnerability. You, the developer, are on the front lines of protecting your customers' data and your clients' businesses.
 
-I strongly urge you to read and implement the advice in my article, [**Three things you can do today to secure your SFCC environment**](https://www.rhino-inquisitor.com/three-things-to-secure-sfcc/). The key takeaways are:
+I strongly urge you to read and implement the advice in my article, [**Three things you can do today to secure your SFCC environment**](/three-things-to-secure-sfcc/). The key takeaways are:
 
 1. **Audit User Access:** Regularly review who has access to your Business Manager environments in Account Manager. Enforce the principle of least privilege. Does that old contractor still need production admin rights? Absolutely not.
 
@@ -192,7 +192,7 @@ This section is about the landmines. These are the common, painful, and sometime
 
 SFCC imposes various **quotas**—limits on things like API calls per minute, the number of custom objects, and the size of arrays in memory. These are not arbitrary restrictions designed to make your life difficult. They are essential guardrails in a multi-tenant environment, designed to ensure that one tenant's poorly written, resource-hungry code doesn't degrade performance for everyone else on the same server.
 
-I once wrote an article, [**Why Circumventing Salesforce B2C Commerce Cloud Quota Limits Is a Bad Idea**](https://www.rhino-inquisitor.com/why-circumventing-sfcc-quota-limits-is-a-bad-idea/), as a cautionary tale.
+I once wrote an article, [**Why Circumventing Salesforce B2C Commerce Cloud Quota Limits Is a Bad Idea**](/why-circumventing-sfcc-quota-limits-is-a-bad-idea/), as a cautionary tale.
 
 In it, I built a custom "UnlimitedArray" to get around the platform's array size limit. While technically possible, the resulting code was a performance and maintenance disaster. The lesson is critical: work _with_ the platform's constraints, not against them. If you're hitting a quota, it's almost always a sign that your approach is flawed and you need to rethink your design to be more efficient, not to find a clever way to cheat the system.
 
@@ -212,7 +212,7 @@ Here are the cardinal sins of [cache](https://developer.salesforce.com/docs/comm
 
 Finally, here are a few specific "gotchas" that bite new developers:
 
-- **The Remote Include Asset Trap:** You'll find that including client-side assets using the standard `assets.js` helper doesn't work inside a remote include (`<isinclude url="...">`). This is because the asset list is scoped to a single request, and a remote include is technically a separate, internal request. I explain this specific problem and how to work around it in my guide to**[loading client-side JavaScript and CSS in SFRA](https://www.rhino-inquisitor.com/how-to-load-client-side-javascript-and-css-in-sfra/).**
+- **The Remote Include Asset Trap:** You'll find that including client-side assets using the standard `assets.js` helper doesn't work inside a remote include (`<isinclude url="...">`). This is because the asset list is scoped to a single request, and a remote include is technically a separate, internal request. I explain this specific problem and how to work around it in my guide to**[loading client-side JavaScript and CSS in SFRA](/how-to-load-client-side-javascript-and-css-in-sfra/).**
 
 - **Massive Image Folders:** While WebDAV is great, dumping a million product images into a single folder is a recipe for terrible performance, both for file system listing and for your import/export jobs. Salesforce recommends a maximum of 100,000 files per folder. You must have a strategy for organizing images into a logical sub-folder structure.
 
@@ -226,6 +226,6 @@ We've covered a tremendous amount of ground, from the high-level architecture of
 
 But this is just the beginning. Mastering this platform is a marathon, not a sprint. The key is continuous learning and community engagement. The Salesforce ecosystem's greatest strength is its people—the Ohana. For our specific niche, we have the **#CommerceCrew**, a global group of developers, architects, and merchants who are passionate about sharing knowledge. I highly encourage you to join the conversation in the unofficial SFCC Slack community; it is an invaluable resource for getting questions answered and learning from your peers.
 
-Remember that the path of a developer is one of constant growth. Today you're learning the basics of SFRA; tomorrow you might be building a headless PWA Kit application, and the day after that, you could be on [**the journey from developer to architect**](https://www.rhino-inquisitor.com/the-journey-from-developer-to-architect/). It's a challenging but incredibly rewarding path. As I wrote when **[reflecting on my own journey with this blog](https://www.rhino-inquisitor.com/reflecting-on-2-years-of-blogging/)**, the key is to stay curious, stay engaged, and never stop learning.
+Remember that the path of a developer is one of constant growth. Today you're learning the basics of SFRA; tomorrow you might be building a headless PWA Kit application, and the day after that, you could be on [**the journey from developer to architect**](/the-journey-from-developer-to-architect/). It's a challenging but incredibly rewarding path. As I wrote when **[reflecting on my own journey with this blog](/reflecting-on-2-years-of-blogging/)**, the key is to stay curious, stay engaged, and never stop learning.
 
 Welcome to the community. Now go build something amazing.

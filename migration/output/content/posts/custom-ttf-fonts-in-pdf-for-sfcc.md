@@ -7,7 +7,7 @@ date: '2023-06-12T08:12:49.000Z'
 lastmod: '2023-06-12T08:13:03.000Z'
 url: /custom-ttf-fonts-in-pdf-for-sfcc/
 draft: false
-heroImage: /wp-content/uploads/2023/01/fonts.jpg
+heroImage: /media/2023/fonts-c94beaf8e0.jpg
 categories:
   - Salesforce Commerce Cloud
   - Technical
@@ -19,8 +19,8 @@ author: Thomas Theunen
 ---
 A while ago, I wrote two articles on how to get PDF magic to work within SFCC:
 
-- [PDF Generation](https://www.rhino-inquisitor.com/pdf-and-salesforce-commerce-cloud-b2c/)
-- [How to send PDF files as attachments in e-mails](https://www.rhino-inquisitor.com/mail-attachments-in-b2c-commerce-cloud/)
+- [PDF Generation](/pdf-and-salesforce-commerce-cloud-b2c/)
+- [How to send PDF files as attachments in e-mails](/mail-attachments-in-b2c-commerce-cloud/)
 
 As this is a common topic that many projects may encounter, I have chosen to write a third article to conclude the series. Companies need to have a consistent and recognisable identity that is reflected in all their communication channels, even in attachments such as PDFs. A personalised font that complements the brand's aesthetic can help achieve this goal. But how do you add them to a PDF? Let us find out!
 

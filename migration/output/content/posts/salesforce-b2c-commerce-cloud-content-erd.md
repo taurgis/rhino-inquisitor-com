@@ -7,7 +7,7 @@ date: '2023-02-20T05:40:33.000Z'
 lastmod: '2023-02-26T17:52:51.000Z'
 url: /salesforce-b2c-commerce-cloud-content-erd/
 draft: false
-heroImage: /wp-content/uploads/2023/02/digital-documents-connected-with-wires.jpg
+heroImage: /media/2023/digital-documents-connected-with-wires-a9bf53e13a.jpg
 categories:
   - Salesforce Commerce Cloud
   - Technical
@@ -17,11 +17,11 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-You have probably come out empty-handed when scouring the documentation for the Content ERD ([Entity–relationship model](https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model)) of [Salesforce B2C Commerce Cloud](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/).
+You have probably come out empty-handed when scouring the documentation for the Content ERD ([Entity–relationship model](https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model)) of [Salesforce B2C Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/).
 
 Sure, you find many diagrams on the entity model of [force.com](https://salesforce.stackexchange.com/questions/22720/standard-objects-in-salesforce) with a quick Google! But not so for SFCC. That is why I started to create my own, and share them with you!
 
-The third on the [list](https://www.rhino-inquisitor.com/tag/erd/): Content! Probably one of the smallest diagrams in the set!
+The third on the list: Content! Probably one of the smallest diagrams in the set!
 
 [![Content entity relationship diagram for Salesforce B2C Commerce Cloud.](/media/2023/salesforce-b2c-commerce-cloud-diagram-content-erd-1-9255609590.png)](/media/2023/salesforce-b2c-commerce-cloud-diagram-content-erd-1-9255609590.png)
 
@@ -46,7 +46,7 @@ Even though "Attribute" is [not a separate entity](https://documentation.b2c.com
 
 There are still quite a few entities within Salesforce B2C Commerce Cloud, each in charge of an essential role within the entire flow.
 
-Next up are promotions and campaigns, [so keep an eye out](https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/erd/) for this blog!
+Next up are promotions and campaigns, [so keep an eye out](/category/erd/) for this blog!
 
 ### Mistakes
 

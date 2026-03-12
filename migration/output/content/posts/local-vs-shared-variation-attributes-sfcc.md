@@ -7,7 +7,7 @@ date: '2025-04-14T07:17:18.000Z'
 lastmod: '2025-04-23T07:24:17.000Z'
 url: /local-vs-shared-variation-attributes-sfcc/
 draft: false
-heroImage: /wp-content/uploads/2025/04/variation-attributes-e1743754688196.jpg
+heroImage: /media/2025/variation-attributes-e1743754688196-8eda8ce6ea.jpg
 categories:
   - Salesforce Commerce Cloud
   - Technical
@@ -16,9 +16,9 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-In the dynamic world of eCommerce, the concept of [product variation](https://www.rhino-inquisitor.com/slicing-versus-variation-groups-in-sfcc/) holds significant importance. It empowers merchants to effectively present a range of product options, a crucial aspect for platforms like Salesforce B2C Commerce Cloud. These platforms often deal with extensive catalogs, each with a variety of attributes to cater to diverse customer preferences.
+In the dynamic world of eCommerce, the concept of [product variation](/slicing-versus-variation-groups-in-sfcc/) holds significant importance. It empowers merchants to effectively present a range of product options, a crucial aspect for platforms like Salesforce B2C Commerce Cloud. These platforms often deal with extensive catalogs, each with a variety of attributes to cater to diverse customer preferences.
 
-Among the ways to handle [product variations](https://www.rhino-inquisitor.com/the-attribute-fallback-system-in-sfcc/) are local and shared variation attributes. In this article, we will delve into the technical differences between these two types of attributes, exploring their definitions, implementations in catalog import XML, and their respective advantages and disadvantages.
+Among the ways to handle [product variations](/the-attribute-fallback-system-in-sfcc/) are local and shared variation attributes. In this article, we will delve into the technical differences between these two types of attributes, exploring their definitions, implementations in catalog import XML, and their respective advantages and disadvantages.
 
 ## What Are Variation Attributes
 

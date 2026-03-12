@@ -19,7 +19,7 @@ Rome wasn't built in one day, and neither will this list!
 
 ![Video thumbnail for The path to being an Architect.](/media/external/maxresdefault-7015ae5c52.jpg)
 
-### The path to being an Architect
+### [The path to being an Architect](/the-path-to-being-an-architect/)
 
 51:12
 
@@ -37,13 +37,13 @@ Rome wasn't built in one day, and neither will this list!
 
 ![Video thumbnail for Me, Myself and Headless: A composable Commerce Cloud Story.](/media/external/maxresdefault-d89d97bb12.jpg)
 
-### Me, Myself and Headless: A composable Commerce Cloud Story
+### [Me, Myself and Headless: A composable Commerce Cloud Story](/me-myself-and-headless-a-composable-commerce-cloud-story/)
 
 49:25
 
 ![Video thumbnail for Connecting The Clouds: Wedding or funeral.](/media/external/maxresdefault-cca267c1bb.jpg)
 
-### Connecting The Clouds: Wedding or funeral
+### [Connecting The Clouds: Wedding or funeral](/connecting-the-clouds-wedding-or-funeral/)
 
 49:55
 

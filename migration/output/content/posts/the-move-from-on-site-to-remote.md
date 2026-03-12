@@ -7,7 +7,7 @@ date: '2022-12-12T08:15:25.000Z'
 lastmod: '2023-01-15T08:46:26.000Z'
 url: /the-move-from-on-site-to-remote/
 draft: false
-heroImage: /wp-content/uploads/2022/07/remote-work.png
+heroImage: /media/2022/remote-work-5d0888fb2c.png
 categories:
   - Corporate
 tags:
@@ -104,4 +104,4 @@ But it is a consultancy firm; if a customer asks to work at the office, there is
 
 It's hard to say where this will go, but remote work is here to stay. And that is a good thing! We have all the proof now that working from home does not negatively impact productivity; for many people, it has increased productivity a lot!
 
-_**Side note:** [Events are back!](https://www.rhino-inquisitor.com/community-salesforce-events-and-commerce-cloud/) Wooohooo!_
+_**Side note:** [Events are back!](/community-salesforce-events-and-commerce-cloud/) Wooohooo!_

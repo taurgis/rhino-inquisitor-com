@@ -7,7 +7,7 @@ date: '2022-07-17T13:42:22.000Z'
 lastmod: '2023-03-30T07:02:37.000Z'
 url: /sitegenesis-vs-sfra-vs-pwa/
 draft: false
-heroImage: /wp-content/uploads/2022/07/sfra-vs-sitegenesis.jpg
+heroImage: /media/2022/sfra-vs-sitegenesis-965c09b9a6.jpg
 categories:
   - Salesforce Commerce Cloud
 tags:

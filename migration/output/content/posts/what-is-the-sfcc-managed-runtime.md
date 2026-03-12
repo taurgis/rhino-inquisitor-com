@@ -7,7 +7,7 @@ date: '2023-05-08T13:04:24.000Z'
 lastmod: '2023-05-08T13:15:51.000Z'
 url: /what-is-the-sfcc-managed-runtime/
 draft: false
-heroImage: /wp-content/uploads/2023/05/people-maintaining-server-room-scaled.jpg
+heroImage: /media/2023/people-maintaining-server-room-scaled-d510b8a413.jpg
 categories:
   - Salesforce Commerce Cloud
   - Technical
@@ -18,7 +18,7 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-In the last two years, more vocabulary has been added to the [Salesforce B2C Commerce Cloud](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/) ecosystem because of the [Composable Storefront](https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/).
+In the last two years, more vocabulary has been added to the [Salesforce B2C Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/) ecosystem because of the [Composable Storefront](/sitegenesis-vs-sfra-vs-pwa/).
 
 And one of the terms you might have heard is "[Managed Runtime](https://runtime.commercecloud.com/login)", which provides the infrastructure to deploy, host, and monitor your Progressive Web App (PWA) Kit storefront. In this article, we will explore the inner workings of Managed Runtime, its benefits, and how it empowers developers to build storefronts without having to think (much) about the underlying infrastructure.
 
@@ -50,7 +50,7 @@ When a platform offers features, there are a lot of questions that will go throu
 
 1. **Included in the license:** It is not a phrase you often see in the Salesforce Eco-system, but the managed runtime is ready to be taken advantage of if you have a license for B2C Commerce Cloud!
 1. **Simplified deployment:** Managed Runtime streamlines deploying and hosting your PWA Kit storefront, meaning that developers only need to develop - and not worry about the infrastructure. And that saves time and, ultimately, money.
-1. **Scalability:** Nothing new to B2C Commerce Cloud, but the infrastructure provided by Managed Runtime allows your storefront to scale seamlessly as your business grows, ensuring optimal performance and customer experience just like the "[monolithic solution](https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/)".
+1. **Scalability:** Nothing new to B2C Commerce Cloud, but the infrastructure provided by Managed Runtime allows your storefront to scale seamlessly as your business grows, ensuring optimal performance and customer experience just like the "[monolithic solution](/sitegenesis-vs-sfra-vs-pwa/)".
 1. **Security:** Managed Runtime offers robust security features that protect your storefront from potential threats and vulnerabilities like the back end.
 1. **Improved troubleshooting:** The immutable nature of bundles allows for a complete and accurate history of deployments, making it easier to identify and resolve issues or even do a quick rollback to a previous version!
 

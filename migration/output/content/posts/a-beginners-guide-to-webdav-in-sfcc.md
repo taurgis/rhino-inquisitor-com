@@ -7,7 +7,7 @@ date: '2024-01-01T17:06:50.000Z'
 lastmod: '2023-12-31T19:52:11.000Z'
 url: /a-beginners-guide-to-webdav-in-sfcc/
 draft: false
-heroImage: /wp-content/uploads/2023/04/webdav-storing-files-scaled.jpg
+heroImage: /media/2023/webdav-storing-files-scaled-8c216a580f.jpg
 categories:
   - Salesforce Commerce Cloud
   - Technical
@@ -17,7 +17,7 @@ tags:
   - webdav
 author: Thomas Theunen
 ---
-File Management is critical and necessary in any project. How else can we work with mass data transfers or logging mechanisms? This blog post will explore WebDAV and its use in [Salesforce B2C Commerce Cloud](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/). We'll also discuss connecting to WebDAV using Basic Authentication and API Key.
+File Management is critical and necessary in any project. How else can we work with mass data transfers or logging mechanisms? This blog post will explore WebDAV and its use in [Salesforce B2C Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/). We'll also discuss connecting to WebDAV using Basic Authentication and API Key.
 
 ## What is WebDAV
 

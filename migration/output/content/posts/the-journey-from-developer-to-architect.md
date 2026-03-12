@@ -7,7 +7,7 @@ date: '2024-02-26T06:36:00.000Z'
 lastmod: '2024-02-26T10:26:22.000Z'
 url: /the-journey-from-developer-to-architect/
 draft: false
-heroImage: /wp-content/uploads/2022/05/developer-to-architect.png
+heroImage: /media/2022/developer-to-architect-0af54756df.png
 categories:
   - Corporate
 tags:
@@ -17,7 +17,7 @@ tags:
   - sfcc
 author: Thomas Theunen
 ---
-So you want to be an [architect](https://www.rhino-inquisitor.com/what-skills-do-i-need-as-a-sfcc-architect/), do you? At least, that is why I am guessing you came to this page! Well, you came to the right place! I have gone through this transition myself, and here are some topics I wanted to write about the role.
+So you want to be an [architect](/what-skills-do-i-need-as-a-sfcc-architect/), do you? At least, that is why I am guessing you came to this page! Well, you came to the right place! I have gone through this transition myself, and here are some topics I wanted to write about the role.
 
 ## What is an architect
 

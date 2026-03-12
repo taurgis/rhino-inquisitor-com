@@ -11,7 +11,7 @@ author: Thomas Theunen
 ---
 ## Who we are
 
-Our website address is [https://www.rhino-inquisitor.com/](https://www.rhino-inquisitor.com/).
+Our website address is [https://www.rhino-inquisitor.com/](/).
 
 ## Comments
 

@@ -7,7 +7,7 @@ date: '2022-07-04T17:24:31.000Z'
 lastmod: '2022-07-23T19:15:14.000Z'
 url: /community-salesforce-events-and-commerce-cloud/
 draft: false
-heroImage: /wp-content/uploads/2022/06/yeurdreamin.jpg
+heroImage: /media/2022/yeurdreamin-d42e49541c.jpg
 categories:
   - Community
 tags:
@@ -26,7 +26,7 @@ Salesforce is known for hosting spectacular events all over the world. But did y
 
 <https://www.youtube.com/watch?v=cV6N\_uuNku4>
 
-If you have been following me, you will have noticed that I recently visited this one and also had the [privilege of presenting two sessions](https://www.rhino-inquisitor.com/events-and-the-golden-hoodie/)!
+If you have been following me, you will have noticed that I recently visited this one and also had the [privilege of presenting two sessions](/events-and-the-golden-hoodie/)!
 
 A relatively "new" event, as the first one was in 2019, and 2020, didn't happen for obvious reasons. The year is now 2022, and the second edition occurred in person, and I can testify that it was a blast!
 

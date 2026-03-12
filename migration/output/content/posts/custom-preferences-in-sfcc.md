@@ -7,7 +7,7 @@ date: '2023-10-16T12:01:58.000Z'
 lastmod: '2023-10-16T18:11:19.000Z'
 url: /custom-preferences-in-sfcc/
 draft: false
-heroImage: /wp-content/uploads/2023/04/it-configuring-server-scaled.jpeg
+heroImage: /media/2023/it-configuring-server-scaled-d8087e9ab9.jpeg
 categories:
   - Salesforce Commerce Cloud
   - Technical
@@ -16,7 +16,7 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-[Salesforce B2C Commerce Cloud](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/) uses custom preferences to store configurable settings for a storefront. These settings can be anything from feature settings to loyalty calculations.
+[Salesforce B2C Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/) uses custom preferences to store configurable settings for a storefront. These settings can be anything from feature settings to loyalty calculations.
 
 Custom preferences can be created at two levels:
 
@@ -83,7 +83,7 @@ Cartridge Overrides Like script files, using “\*” in the path to allow overr
 
 ### Custom Attributes
 
-If you have reviewed the sample code, you may have noticed that these preferences are similar to how you use custom attributes. That's because they are custom attributes on System Objects, just like any other extensible object within the [data model](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-erd/).
+If you have reviewed the sample code, you may have noticed that these preferences are similar to how you use custom attributes. That's because they are custom attributes on System Objects, just like any other extensible object within the [data model](/salesforce-b2c-commerce-cloud-erd/).
 
 ### Default Values
 

@@ -7,7 +7,7 @@ date: '2022-08-29T07:37:05.000Z'
 lastmod: '2023-03-03T12:25:16.000Z'
 url: /the-deprecation-of-the-uuid-token-for-api-clients/
 draft: false
-heroImage: /wp-content/uploads/2022/11/stop-using-uuid-account-manager.jpg
+heroImage: /media/2022/stop-using-uuid-account-manager-d05c5bc597.jpg
 categories:
   - Salesforce Commerce Cloud
   - Technical

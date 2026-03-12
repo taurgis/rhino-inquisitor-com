@@ -7,7 +7,7 @@ date: '2023-10-23T12:06:05.000Z'
 lastmod: '2023-10-21T18:06:29.000Z'
 url: /an-overview-of-sfcc-global-functions/
 draft: false
-heroImage: /wp-content/uploads/2023/04/flowcharts-diagrams-on-a-wall-scaled.jpeg
+heroImage: /media/2023/flowcharts-diagrams-on-a-wall-scaled-2fd3a78550.jpeg
 categories:
   - Salesforce Commerce Cloud
   - Technical
@@ -16,7 +16,7 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-In development, it's essential to have access to useful functions that can make your work more efficient. [Salesforce B2C Commerce Cloud](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/) offers several global functions which are helpful when working on the server side. These functions have a range of capabilities, from encoding and decoding characters in a URI to executing JavaScript code from a string. This article will explore these functions in detail and discuss how developers can use them to streamline their development process.
+In development, it's essential to have access to useful functions that can make your work more efficient. [Salesforce B2C Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/) offers several global functions which are helpful when working on the server side. These functions have a range of capabilities, from encoding and decoding characters in a URI to executing JavaScript code from a string. This article will explore these functions in detail and discuss how developers can use them to streamline their development process.
 
 ## encodeURI and encodeURIComponent
 

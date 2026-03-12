@@ -7,7 +7,7 @@ date: '2022-08-17T18:45:35.000Z'
 lastmod: '2022-08-18T08:09:00.000Z'
 url: /salesforce-b2c-commerce-cloud-22-9-release/
 draft: false
-heroImage: /wp-content/uploads/2022/08/copy-paste-page-designer-full.jpg
+heroImage: /media/2022/copy-paste-page-designer-full-d97d9a9ee9.jpg
 categories:
   - Release Notes
   - Salesforce Commerce Cloud
@@ -18,7 +18,7 @@ author: Thomas Theunen
 ---
 We have been getting some lovely new goodies in the past few releases, but this trend is not ending! This time we look at the [September 2022 (22.9) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_9_release.htm&type=5)!
 
-Are you interested in last month’s release notes? [Read the 22.8 release notes](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-22-8/)!
+Are you interested in last month’s release notes? [Read the 22.8 release notes](/salesforce-b2c-commerce-cloud-22-8/)!
 
 ## Platform
 

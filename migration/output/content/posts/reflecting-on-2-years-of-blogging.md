@@ -7,7 +7,7 @@ date: '2024-03-11T20:17:04.000Z'
 lastmod: '2024-03-11T20:19:14.000Z'
 url: /reflecting-on-2-years-of-blogging/
 draft: false
-heroImage: /wp-content/uploads/2024/03/on-a-road-in-the-clouds.jpg
+heroImage: /media/2024/on-a-road-in-the-clouds-a111208978.jpg
 categories:
   - Community
 tags:
@@ -23,7 +23,7 @@ Hmm... that sounds like I'm quitting. Not to worry; it's quite the opposite! I w
 
 ## How it all started
 
-When I [started](https://www.rhino-inquisitor.com/pdf-and-salesforce-commerce-cloud-b2c/) the blog, I primarily focused on providing technical articles about development, architectural diagrams, and community-related topics. I wanted to help developers and architects better understand Salesforce B2C Commerce Cloud and its capabilities. Over the past two years, I have written many articles, released every week, covering a wide range of topics. I have seen my readership grow as more people discover the value (at least, that's what I hope) of the information provided on the blog.
+When I [started](/pdf-and-salesforce-commerce-cloud-b2c/) the blog, I primarily focused on providing technical articles about development, architectural diagrams, and community-related topics. I wanted to help developers and architects better understand Salesforce B2C Commerce Cloud and its capabilities. Over the past two years, I have written many articles, released every week, covering a wide range of topics. I have seen my readership grow as more people discover the value (at least, that's what I hope) of the information provided on the blog.
 
 I have received numerous comments and feedback from readers who have found my articles helpful in their work.
 

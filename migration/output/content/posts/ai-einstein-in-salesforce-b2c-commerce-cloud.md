@@ -7,7 +7,7 @@ date: '2022-09-26T13:42:24.000Z'
 lastmod: '2025-03-12T11:00:54.000Z'
 url: /ai-einstein-in-salesforce-b2c-commerce-cloud/
 draft: false
-heroImage: /wp-content/uploads/2022/08/artificial-intelligence.jpg
+heroImage: /media/2022/artificial-intelligence-fc68314ce7.jpg
 categories:
   - Salesforce Commerce Cloud
 tags:
@@ -80,7 +80,7 @@ And for this to work, the consumer needs to be tracked. Some visitors will want 
 
 - [Trailhead Module](https://trailhead.salesforce.com/content/learn/modules/cc-einstein-product-recommendations)
 
-[![Einstein product recommendations rendered in a storefront experience.](/media/2022/sfcc-einstein-product-recommendations-75e024ae7c.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/sfcc-einstein-product-recommendations-scaled.jpg)
+[![Einstein product recommendations rendered in a storefront experience.](/media/2022/sfcc-einstein-product-recommendations-75e024ae7c.jpg)](/media/2022/sfcc-einstein-product-recommendations-75e024ae7c.jpg)
 
 SFCC: Einstein Product Recommendations in the PWA Kit
 

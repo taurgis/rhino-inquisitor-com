@@ -7,7 +7,7 @@ date: '2024-04-29T07:43:13.000Z'
 lastmod: '2024-04-29T07:46:01.000Z'
 url: /the-sunsetting-of-arc300-architect-b2c-commerce-solutions/
 draft: false
-heroImage: /wp-content/uploads/2024/04/sunsetting-arc300-course.jpg
+heroImage: /media/2024/sunsetting-arc300-course-65cd719d15.jpg
 categories:
   - Salesforce Commerce Cloud
 tags:
@@ -55,6 +55,6 @@ Although nothing has been confirmed yet, it is exciting to speculate on the futu
 
 ## How can I prepare for the Architect exam now
 
-Since no alternative course is available yet, you will have to resort to all resources available on [Trailhead](https://trailhead.salesforce.com/trails?products=commercecloud&sort=RELEVANCE), the [Partner Learning Camp](http://partnerlearningcamp.salesforce.com) (if you have access), and, of course, my [own blog](https://www.rhino-inquisitor.com/the-b2c-commerce-architect-certification/), which has multiple resources available to get you started!
+Since no alternative course is available yet, you will have to resort to all resources available on [Trailhead](https://trailhead.salesforce.com/trails?products=commercecloud&sort=RELEVANCE), the [Partner Learning Camp](http://partnerlearningcamp.salesforce.com) (if you have access), and, of course, my [own blog](/the-b2c-commerce-architect-certification/), which has multiple resources available to get you started!
 
 If you are planning on taking the exam shortly, good luck!

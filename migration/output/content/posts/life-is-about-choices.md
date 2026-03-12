@@ -7,7 +7,7 @@ date: '2023-11-06T17:31:55.000Z'
 lastmod: '2023-11-06T17:32:02.000Z'
 url: /life-is-about-choices/
 draft: false
-heroImage: /wp-content/uploads/2023/05/choice.jpeg
+heroImage: /media/2023/choice-7e620aaf1c.jpeg
 categories:
   - Community
 tags:
@@ -35,7 +35,7 @@ Doing all this also means less time for sports and fitness. I used to be very ac
 
 ## Events
 
-Being a part of the Salesforce Ohana has allowed me to attend many exciting events, such as [Dreamforce](https://www.rhino-inquisitor.com/chasing-clouds-catching-up-with-the-commercecrew-at-dreamforce-2023/). These events are an excellent opportunity for me to connect with other Salesforce enthusiasts, learn from industry leaders and experts, and stay updated with the latest Salesforce ecosystem developments. However, attending these events also means being away from my family and putting additional responsibility on my wife to take care of the kids by herself (with the help of our parents). This is why I must carefully decide which [events](https://www.rhino-inquisitor.com/community-salesforce-events-and-commerce-cloud/) to attend, considering the cost and the impact on my family. As my children get older, I plan to find a way to combine these events and holiday trips. But for now, that is not always really a possibility.
+Being a part of the Salesforce Ohana has allowed me to attend many exciting events, such as [Dreamforce](/chasing-clouds-catching-up-with-the-commercecrew-at-dreamforce-2023/). These events are an excellent opportunity for me to connect with other Salesforce enthusiasts, learn from industry leaders and experts, and stay updated with the latest Salesforce ecosystem developments. However, attending these events also means being away from my family and putting additional responsibility on my wife to take care of the kids by herself (with the help of our parents). This is why I must carefully decide which [events](/community-salesforce-events-and-commerce-cloud/) to attend, considering the cost and the impact on my family. As my children get older, I plan to find a way to combine these events and holiday trips. But for now, that is not always really a possibility.
 
 ## Beneath the glamour
 

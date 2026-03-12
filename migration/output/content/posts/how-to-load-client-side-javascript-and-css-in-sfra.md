@@ -7,7 +7,7 @@ date: '2024-02-19T08:28:48.000Z'
 lastmod: '2024-02-19T08:31:26.000Z'
 url: /how-to-load-client-side-javascript-and-css-in-sfra/
 draft: false
-heroImage: /wp-content/uploads/2023/01/client-side-js.jpg
+heroImage: /media/2023/client-side-js-e2475a2ea2.jpg
 categories:
   - Salesforce Commerce Cloud
   - Technical
@@ -17,7 +17,7 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-Since you are here, I bet you've been banging your head against your keyboard trying to figure out how to load some sweet client-side javascript in Salesforce Commerce Cloud's [SFRA](https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/) (Storefront Reference Architecture). Well, fear not, because I'm here to help (hopefully)!
+Since you are here, I bet you've been banging your head against your keyboard trying to figure out how to load some sweet client-side javascript in Salesforce Commerce Cloud's [SFRA](/sitegenesis-vs-sfra-vs-pwa/) (Storefront Reference Architecture). Well, fear not, because I'm here to help (hopefully)!
 
 First, let's ensure we're on the same page. SFRA uses ISML ([Internet Store Markup Language](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-working-with-templates.html)) for its templates and layouts, which means that to load in some javascript, we'll need to use certain ISML tags and SFRA "features" to include it in our templates.
 

@@ -7,7 +7,7 @@ date: '2023-12-11T08:21:33.000Z'
 lastmod: '2023-12-11T08:29:25.000Z'
 url: /why-circumventing-sfcc-quota-limits-is-a-bad-idea/
 draft: false
-heroImage: /wp-content/uploads/2023/11/a-certain-ceo-is-coming-to-get-you.jpg
+heroImage: /media/2023/a-certain-ceo-is-coming-to-get-you-9206639ea9.jpg
 categories:
   - Salesforce Commerce Cloud
   - Technical
@@ -141,7 +141,7 @@ UnlimitedArray.prototype.get = function (position) {
 
 This construct "cleverly" uses nested arrays to exceed the Salesforce-imposed limit. However, it can result in inefficiencies when using methods such as push, get, includes, and indexOf, especially as the combined size of the nested arrays grows.
 
-[![Business Manager warning showing that the array-size quota limit has been reached.](/media/2023/quota-limit-warning-7f7a47522c.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/12/quota-limit-warning-scaled.jpg)
+[![Business Manager warning showing that the array-size quota limit has been reached.](/media/2023/quota-limit-warning-7f7a47522c.jpg)](/media/2023/quota-limit-warning-7f7a47522c.jpg)
 
 We are at the edge, but never crossing the limit!
 

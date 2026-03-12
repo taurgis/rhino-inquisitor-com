@@ -7,7 +7,7 @@ date: '2023-07-31T08:40:09.000Z'
 lastmod: '2023-07-31T08:43:08.000Z'
 url: /fetching-data-in-a-locale-with-sfcc/
 draft: false
-heroImage: /wp-content/uploads/2023/01/country-flags.jpg
+heroImage: /media/2023/country-flags-427934b006.jpg
 categories:
   - Salesforce Commerce Cloud
   - Technical
@@ -16,7 +16,7 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-SFCC provides a [built-in system to manage different aspects of the data](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/) in multiple languages. But sometimes, you want to show something in a specific locale outside the current session context. How can this be done?
+SFCC provides a [built-in system to manage different aspects of the data](/the-salesforce-b2c-commerce-cloud-environment/) in multiple languages. But sometimes, you want to show something in a specific locale outside the current session context. How can this be done?
 
 ## tl;dr solution
 
@@ -44,7 +44,7 @@ The system will look at the current request's language preference (or setting) w
 - Storefront request
 - Business Manager request
 - Job Step
-- [OCAPI / SCAPI Hook](https://www.rhino-inquisitor.com/how-to-use-ocapi-scapi-hooks/)
+- [OCAPI / SCAPI Hook](/how-to-use-ocapi-scapi-hooks/)
 
 ### Changing the language before fetching data
 
@@ -78,10 +78,10 @@ Some might ask, why would you need to do such a thing? Well, there are a few rea
 
 ## What about the Composable Storefront
 
-The system of working with locales within the [PWA Kit](https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/) is entirely different, which should be no surprise as this is a Headless Storefront in React. The composable storefront uses the '[commerce-sdk-isomorphic](https://github.com/SalesforceCommerceCloud/commerce-sdk-isomorphic)' package, which accepts a locale parameter passed on to the endpoint as a URL parameter:
+The system of working with locales within the [PWA Kit](/sitegenesis-vs-sfra-vs-pwa/) is entirely different, which should be no surprise as this is a Headless Storefront in React. The composable storefront uses the '[commerce-sdk-isomorphic](https://github.com/SalesforceCommerceCloud/commerce-sdk-isomorphic)' package, which accepts a locale parameter passed on to the endpoint as a URL parameter:
 
 ```text
 https://{shortCode}.api.commercecloud.salesforce.com/product/shopper-products/v1/organizations/{organizationId}/products/{id}?siteId=SiteGenesis&locale=en-US"
 ```
 
-This means you can easily fetch something in a specific language by doing a REST API call, with the downside of having the fetch the entire record (unless it supports property selection). You could resort to [custom hooks](https://www.rhino-inquisitor.com/how-to-use-ocapi-scapi-hooks/) or even [a custom endpoint](https://www.rhino-inquisitor.com/creating-custom-ocapi-endpoints/) in certain use cases.
+This means you can easily fetch something in a specific language by doing a REST API call, with the downside of having the fetch the entire record (unless it supports property selection). You could resort to [custom hooks](/how-to-use-ocapi-scapi-hooks/) or even [a custom endpoint](/creating-custom-ocapi-endpoints/) in certain use cases.

@@ -7,7 +7,7 @@ date: '2022-12-05T16:08:12.000Z'
 lastmod: '2022-12-08T12:44:02.000Z'
 url: /podcasts-for-salesforce-b2c-commerce-cloud/
 draft: false
-heroImage: /wp-content/uploads/2022/12/headphones-in-the-clouds.jpg
+heroImage: /media/2022/headphones-in-the-clouds-b2df8fafce.jpg
 categories:
   - Community
 tags:
@@ -18,7 +18,7 @@ author: Thomas Theunen
 ---
 Over the years, a lot of podcasts have popped up around Salesforce. And amongst these, they organise quite a few themselves.
 
-The [ecosystem has grown significantly over the years](https://www.rhino-inquisitor.com/the-state-of-ohana-for-salesforce-commerce-cloud/), and some podcasts have chosen to target a specific portion of the community. But which ones are interesting to listen to as a Salesforce B2C Commerce Cloud enthusiast?
+The [ecosystem has grown significantly over the years](/the-state-of-ohana-for-salesforce-commerce-cloud/), and some podcasts have chosen to target a specific portion of the community. But which ones are interesting to listen to as a Salesforce B2C Commerce Cloud enthusiast?
 
 ## Unofficial SFCC
 

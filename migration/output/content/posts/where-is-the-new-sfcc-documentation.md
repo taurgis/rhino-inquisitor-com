@@ -7,7 +7,7 @@ date: '2023-07-03T06:32:44.000Z'
 lastmod: '2023-11-29T06:47:22.000Z'
 url: /where-is-the-new-sfcc-documentation/
 draft: false
-heroImage: /wp-content/uploads/2023/06/documentation-on-the-move-scaled.jpg
+heroImage: /media/2023/documentation-on-the-move-scaled-59762baa75.jpg
 categories:
   - Documentation
   - Salesforce Commerce Cloud
@@ -18,7 +18,7 @@ author: Thomas Theunen
 ---
 In early 2023, we were notified that the Infocenter would be replaced with a supposedly more "modern" solution. While some may have looked forward to this update, others were disappointed by the news.
 
-Were these reactions anticipated? What changes are occurring? And where can we find the relevant [documentation](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-documentation/) now? Time to have a look!
+Were these reactions anticipated? What changes are occurring? And where can we find the relevant [documentation](/salesforce-b2c-commerce-cloud-documentation/) now? Time to have a look!
 
 ## The official announcement
 

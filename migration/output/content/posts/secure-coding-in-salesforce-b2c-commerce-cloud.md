@@ -7,7 +7,7 @@ date: '2022-04-26T12:09:00.000Z'
 lastmod: '2022-07-23T21:36:32.000Z'
 url: /secure-coding-in-salesforce-b2c-commerce-cloud/
 draft: false
-heroImage: /wp-content/uploads/2022/04/code-security.jpeg
+heroImage: /media/2022/code-security-147ad97b77.jpeg
 categories:
   - Salesforce Commerce Cloud
   - Technical

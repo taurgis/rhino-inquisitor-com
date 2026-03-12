@@ -7,7 +7,7 @@ date: '2022-09-10T17:03:23.000Z'
 lastmod: '2022-09-11T07:34:06.000Z'
 url: /me-myself-and-headless-a-composable-commerce-cloud-story/
 draft: false
-heroImage: /wp-content/uploads/2022/09/image.jpg
+heroImage: /media/2022/image-596c8a1379.jpg
 categories:
   - Sessions
   - Video

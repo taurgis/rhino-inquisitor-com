@@ -7,7 +7,7 @@ date: '2022-08-22T17:37:46.000Z'
 lastmod: '2022-08-23T07:19:42.000Z'
 url: /the-salesforce-b2c-commerce-cloud-environment/
 draft: false
-heroImage: /wp-content/uploads/2022/08/connected-systems.jpg
+heroImage: /media/2022/connected-systems-d281b9e674.jpg
 categories:
   - Architecture
   - GO-LIVE
@@ -19,9 +19,9 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-Welcome to the [GO-LIVE series](https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/go-live/), a set of articles about preparing for the launch of one or more channels on Salesforce B2C Commerce Cloud.
+Welcome to the [GO-LIVE series](/category/go-live/), a set of articles about preparing for the launch of one or more channels on Salesforce B2C Commerce Cloud.
 
-This is only the second article so far, but after releasing the first one about the [eCDN](https://www.rhino-inquisitor.com/lets-go-live-ecdn/), I felt I might have skipped some vital information.
+This is only the second article so far, but after releasing the first one about the [eCDN](/lets-go-live-ecdn/), I felt I might have skipped some vital information.
 
 Sure, there was an explanation of the eCDN and its use. But not how it fits in the "bigger picture." So let us look at the architecture of the different environments in Salesforce B2C Commerce Cloud!
 
@@ -37,8 +37,8 @@ Before we move into the details where the [Embedded CDN](https://documentation.b
 
 It all starts with the big chunk of functionality at the center, "Commerce Cloud," which consists of:
 
-- The monolithic storefront using [SFRA or SiteGenesis](https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/)
-- The [Open Commerce API](https://www.rhino-inquisitor.com/?s=ocapi) for Headless applications
+- The monolithic storefront using [SFRA or SiteGenesis](/sitegenesis-vs-sfra-vs-pwa/)
+- The Open Commerce API for Headless applications
 - The WebDAV filesystem
 
 ### Einstein
@@ -79,7 +79,7 @@ The place to be if you want to manage all of your environments (Sandboxes, PIG I
 
 ### Composable Storefront
 
-The latest addition to the diagram, the answer to all your [Headless Storefront needs](https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/)!
+The latest addition to the diagram, the answer to all your [Headless Storefront needs](/sitegenesis-vs-sfra-vs-pwa/)!
 
 ### Account Manager
 

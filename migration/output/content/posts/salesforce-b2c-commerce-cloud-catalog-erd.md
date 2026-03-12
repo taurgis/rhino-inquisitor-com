@@ -7,7 +7,7 @@ date: '2023-02-13T06:16:52.000Z'
 lastmod: '2023-02-26T17:51:47.000Z'
 url: /salesforce-b2c-commerce-cloud-catalog-erd/
 draft: false
-heroImage: /wp-content/uploads/2023/02/cardboard-boxes-connected-with-wires.jpg
+heroImage: /media/2023/cardboard-boxes-connected-with-wires-d5a7ad5c03.jpg
 categories:
   - Salesforce Commerce Cloud
   - Technical
@@ -17,11 +17,11 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-When scouring the documentation for the Product and Catalog ERD ([Entity–relationship model](https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model)) of [Salesforce B2C Commerce Cloud](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/), you have probably come out empty-handed.
+When scouring the documentation for the Product and Catalog ERD ([Entity–relationship model](https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model)) of [Salesforce B2C Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/), you have probably come out empty-handed.
 
 Sure, you find many diagrams on the entity model of [force.com](https://salesforce.stackexchange.com/questions/22720/standard-objects-in-salesforce) with a quick Google! But not so for SFCC. That is why I started to create my own, and share them with you!
 
-This is the second one on the [list](https://www.rhino-inquisitor.com/tag/erd/): Product and Catalog!
+This is the second one on the list: Product and Catalog!
 
 [![Product and catalog entity relationship diagram for Salesforce B2C Commerce Cloud.](/media/2023/salesforce-b2c-commerce-cloud-diagram-product-catalog-erd-1-786d548825.png)](/media/2023/salesforce-b2c-commerce-cloud-diagram-product-catalog-erd-1-786d548825.png)
 
@@ -49,7 +49,7 @@ It is no secret that Salesforce B2C Commerce Cloud offers a [very flexible produ
 - Product Bundles
 - Product Links
 - Product Options
-- Recommendations ([Explicit / Manual](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/recommendations/b2c_explicit_recommendations.html), this is not related to [Einstein](https://www.rhino-inquisitor.com/ai-einstein-in-salesforce-b2c-commerce-cloud/))
+- Recommendations ([Explicit / Manual](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/recommendations/b2c_explicit_recommendations.html), this is not related to [Einstein](/ai-einstein-in-salesforce-b2c-commerce-cloud/))
 
 But having all these options available to configure ... means that there are also a lot of APIs available for developers.
 
@@ -86,7 +86,7 @@ You will find references to them in other ERDs on the blog.
 
 There are still quite a few entities within Salesforce B2C Commerce Cloud, each in charge of an essential role within the entire flow.
 
-Next up is content, [so keep an eye out](https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/erd/) for this blog!
+Next up is content, [so keep an eye out](/category/erd/) for this blog!
 
 ### Mistakes
 

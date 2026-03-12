@@ -7,7 +7,7 @@ date: '2023-09-11T17:19:00.000Z'
 lastmod: '2023-09-18T12:33:59.000Z'
 url: /helpful-salesforce-b2c-commerce-cloud-cli-tools/
 draft: false
-heroImage: /wp-content/uploads/2022/05/5517C6D9-6282-4468-A840-0AF54AC19068.png
+heroImage: /media/2022/5517c6d9-6282-4468-a840-0af54ac19068-9222fff64d.png
 categories:
   - Salesforce Commerce Cloud
   - Technical
@@ -17,7 +17,7 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-Although Salesforce B2C Commerce Cloud is a ‘niche’ developer space, there is no shortage of [open-source solutions](https://www.rhino-inquisitor.com/community-repositories/) available to make our lives a little bit easier.
+Although Salesforce B2C Commerce Cloud is a ‘niche’ developer space, there is no shortage of [open-source solutions](/community-repositories/) available to make our lives a little bit easier.
 
 In this article, we will list a few of these and provide information on their uses.
 

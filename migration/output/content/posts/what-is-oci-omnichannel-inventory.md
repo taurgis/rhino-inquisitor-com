@@ -7,7 +7,7 @@ date: '2022-08-08T14:35:58.000Z'
 lastmod: '2022-11-19T10:09:21.000Z'
 url: /what-is-oci-omnichannel-inventory/
 draft: false
-heroImage: /wp-content/uploads/2022/05/omnichannel-inventory.jpg
+heroImage: /media/2022/omnichannel-inventory-865b640973.jpg
 categories:
   - Salesforce Commerce Cloud
 tags:

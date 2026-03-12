@@ -7,7 +7,7 @@ date: '2022-09-05T08:35:42.000Z'
 lastmod: '2022-11-19T10:02:48.000Z'
 url: /lets-go-live-seo/
 draft: false
-heroImage: /wp-content/uploads/2022/06/sitemap.png
+heroImage: /media/2022/sitemap-c717c2a8e7.png
 categories:
   - GO-LIVE
   - Salesforce Commerce Cloud
@@ -18,7 +18,7 @@ author: Thomas Theunen
 ---
 When going live with a website, SEO is an integral part that should not be overlooked. It is a long-term strategy that should be started before your website goes live.
 
-This article is part of a [GO-LIVE series](https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/go-live/) that should give you all the tools necessary to have a comfortable release!
+This article is part of a [GO-LIVE series](/category/go-live/) that should give you all the tools necessary to have a comfortable release!
 
 ## What is SEO
 

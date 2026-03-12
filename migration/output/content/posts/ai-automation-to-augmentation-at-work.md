@@ -7,7 +7,7 @@ date: '2023-03-13T07:15:33.000Z'
 lastmod: '2023-03-15T07:28:13.000Z'
 url: /ai-automation-to-augmentation-at-work/
 draft: false
-heroImage: /wp-content/uploads/2023/02/ai-in-the-workplace.jpg
+heroImage: /media/2023/ai-in-the-workplace-2aeaebf266.jpg
 categories:
   - Corporate
 tags:
@@ -15,7 +15,7 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-As I walked into my office, I couldn't help but notice [a particular AI chatbot dominating the workspace](https://www.rhino-inquisitor.com/what-can-i-use-chatgpt-for-when-working-with-salesforce/). The tomorrow of work had arrived, and it was clear that this new era would require us to adapt. Artificial Intelligence (AI) has come a long way, especially in the last year (at least in a readily usable way). It has gained quite some ground in many places, including the workplace.
+As I walked into my office, I couldn't help but notice [a particular AI chatbot dominating the workspace](/what-can-i-use-chatgpt-for-when-working-with-salesforce/). The tomorrow of work had arrived, and it was clear that this new era would require us to adapt. Artificial Intelligence (AI) has come a long way, especially in the last year (at least in a readily usable way). It has gained quite some ground in many places, including the workplace.
 
 And the benefits are undeniable: increased efficiency, improved accuracy, and cost savings, to name a few. But with these benefits come [challenges](https://openai.com/blog/new-ai-classifier-for-indicating-ai-written-text/), such as potential job displacement, algorithm bias, and privacy concerns. As we look to tomorrow, it's clear that the use of AI in the workplace will only continue to grow. So we need to start adapting now to realise its full potential.
 

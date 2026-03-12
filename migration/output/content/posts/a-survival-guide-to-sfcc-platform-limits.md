@@ -7,7 +7,7 @@ date: '2025-11-24T12:41:24.000Z'
 lastmod: '2025-12-01T08:10:09.000Z'
 url: /a-survival-guide-to-sfcc-platform-limits/
 draft: false
-heroImage: /wp-content/uploads/2025/07/b2c-commerce-cloud-quota-warnings-scaled.jpeg
+heroImage: /media/2025/b2c-commerce-cloud-quota-warnings-scaled-adc4dec7e9.jpeg
 categories:
   - Salesforce Commerce Cloud
   - Technical

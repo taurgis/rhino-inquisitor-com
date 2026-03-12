@@ -7,7 +7,7 @@ date: '2023-04-03T06:57:02.000Z'
 lastmod: '2023-04-03T06:57:14.000Z'
 url: /the-request-body-in-an-sfcc-controller/
 draft: false
-heroImage: /wp-content/uploads/2023/03/json.jpeg
+heroImage: /media/2023/json-e912c3b91a.jpeg
 categories:
   - Salesforce Commerce Cloud
   - Technical
@@ -17,7 +17,7 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-[Custom endpoints](https://www.rhino-inquisitor.com/creating-custom-ocapi-endpoints/) are a way to create personalised solutions that meet the needs of a particular business. If we are working with POST or PUT requests, developers need to be able to access and handle the submitted data within an SFCC controller. But where can we find this [request body](https://en.wikipedia.org/wiki/HTTP_message_body)?
+[Custom endpoints](/creating-custom-ocapi-endpoints/) are a way to create personalised solutions that meet the needs of a particular business. If we are working with POST or PUT requests, developers need to be able to access and handle the submitted data within an SFCC controller. But where can we find this [request body](https://en.wikipedia.org/wiki/HTTP_message_body)?
 
 ## TLDR
 

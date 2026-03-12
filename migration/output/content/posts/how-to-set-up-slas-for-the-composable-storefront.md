@@ -7,7 +7,7 @@ date: '2023-01-16T08:12:41.000Z'
 lastmod: '2023-01-16T08:12:55.000Z'
 url: /how-to-set-up-slas-for-the-composable-storefront/
 draft: false
-heroImage: /wp-content/uploads/2023/01/slas-public-client-registered-user-b2c.jpg
+heroImage: /media/2023/slas-public-client-registered-user-b2c-a930192dd5.jpg
 categories:
   - Salesforce Commerce Cloud
   - Technical
@@ -26,7 +26,7 @@ Salesforce has a guide for this installation publicly available. Some steps are 
 
 ## Step 1: Get a sandbox
 
-If you want to connect the Composable Storefront to your own APIs (including SLAS), you need your own Sandbox. We will not be digging into this topic here, but the information to get one [is described in a previous article](https://www.rhino-inquisitor.com/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/) and [the official documentation](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/creating-an-on-demand-sandbox.html).
+If you want to connect the Composable Storefront to your own APIs (including SLAS), you need your own Sandbox. We will not be digging into this topic here, but the information to get one [is described in a previous article](/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/) and [the official documentation](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/creating-an-on-demand-sandbox.html).
 
 ## Step 2: Go to the Salesforce Commerce API Settings
 

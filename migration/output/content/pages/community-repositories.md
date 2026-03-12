@@ -11,7 +11,7 @@ categories:
   - Community
 author: Thomas Theunen
 ---
-Below you will find a list of many different contributions the [community](https://www.rhino-inquisitor.com/the-state-of-ohana-for-salesforce-commerce-cloud/) has made to Salesforce B2C Commerce Cloud! This extends the platform and increases the developer experience overall!
+Below you will find a list of many different contributions the [community](/the-state-of-ohana-for-salesforce-commerce-cloud/) has made to Salesforce B2C Commerce Cloud! This extends the platform and increases the developer experience overall!
 
 Feel like something is missing? Let me know on [Twitter](https://twitter.com/theunenth) or the [Unofficial Slack](https://sfcc-unofficial.slack.com)!
 

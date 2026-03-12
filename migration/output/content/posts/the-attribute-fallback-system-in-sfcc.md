@@ -7,7 +7,7 @@ date: '2024-02-12T07:54:09.000Z'
 lastmod: '2024-02-12T07:54:18.000Z'
 url: /the-attribute-fallback-system-in-sfcc/
 draft: false
-heroImage: /wp-content/uploads/2024/02/a-pyramid-of-shoes.jpg
+heroImage: /media/2024/a-pyramid-of-shoes-ecf8500927.jpg
 categories:
   - Architecture
   - Salesforce Commerce Cloud
@@ -17,13 +17,13 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-One of the features of B2C Commerce Cloud is the ability to create and use [variation](https://www.rhino-inquisitor.com/slicing-versus-variation-groups-in-sfcc/) products, which share common attributes but differ in one or more aspects, such as colour, size, or style. Variation products can help merchants offer more choices to their customers and optimise their inventory management.
+One of the features of B2C Commerce Cloud is the ability to create and use [variation](/slicing-versus-variation-groups-in-sfcc/) products, which share common attributes but differ in one or more aspects, such as colour, size, or style. Variation products can help merchants offer more choices to their customers and optimise their inventory management.
 
 Managing variant products can be a challenging task, especially when it comes to defining and displaying the attributes of each variant. To simplify the process for merchants, integrations, and developers, a system has been implemented that prevents duplication of data at different levels (base, variation group, variant). In this article, we will explore this system and its advantages.
 
 ## What are variation groups, and how do they differ from slicing
 
-When it comes to varying on an attribute, there are two options within Salesforce B2C Commerce Cloud. [In a previous article](https://www.rhino-inquisitor.com/slicing-versus-variation-groups-in-sfcc/), this concept has been explained in detail.
+When it comes to varying on an attribute, there are two options within Salesforce B2C Commerce Cloud. [In a previous article](/slicing-versus-variation-groups-in-sfcc/), this concept has been explained in detail.
 
 ## How does the attribute fallback system work for variation products, groups, and base products
 
@@ -54,7 +54,7 @@ For example, if a variation group for all red handbags contains three variants w
 
 ## What does it mean for development
 
-Luckily for the developers this system works seamlessly for developers and fetching attributes will automatically set some processes in the works behind the scenes just as the [locale fallback](https://www.rhino-inquisitor.com/understanding-locale-fallback-in-sfcc/).
+Luckily for the developers this system works seamlessly for developers and fetching attributes will automatically set some processes in the works behind the scenes just as the [locale fallback](/understanding-locale-fallback-in-sfcc/).
 
 - `dw.catalog.Variant` class has attribute fallback behavior to first obtain attributes from (one or more) assigned variation groups and then from the base product.
 - `dw.catalog.VariationGroup` class has attribute fallback behavior to obtain attributes from the base product, when the attribute isn't specified by the variation group.

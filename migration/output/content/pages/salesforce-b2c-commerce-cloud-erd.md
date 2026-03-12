@@ -7,7 +7,7 @@ date: '2023-02-26T19:09:43.000Z'
 lastmod: '2023-12-04T13:38:39.000Z'
 url: /salesforce-b2c-commerce-cloud-erd/
 draft: false
-heroImage: /wp-content/uploads/2023/02/salesforce-b2c-commerce-cloud-erd.jpeg
+heroImage: /media/2023/salesforce-b2c-commerce-cloud-erd-0bdb8b007c.jpeg
 categories:
   - ERD
   - Salesforce Commerce Cloud
@@ -19,7 +19,7 @@ author: Thomas Theunen
 
 ## An unofficial overview of the SFCC data model
 
-Once upon a time, a budding developer wanted to work with [Salesforce B2C Commerce Cloud](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/). Excited to dive into the platform, they searched for ERDs to help them understand the system's underlying components. But alas, there were no official ERDs available!
+Once upon a time, a budding developer wanted to work with [Salesforce B2C Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/). Excited to dive into the platform, they searched for ERDs to help them understand the system's underlying components. But alas, there were no official ERDs available!
 
 After a few years, our intrepid developer set out on a mission to create their own ERDs for Salesforce B2C Commerce Cloud. They spent countless hours reviewing documentation, analysing the platform's architecture, and mapping out relationships between objects. And after much blood, sweat, and tears, they emerged victorious with not one, but multiple ERDs!
 

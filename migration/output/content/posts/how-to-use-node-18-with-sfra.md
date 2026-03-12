@@ -7,7 +7,7 @@ date: '2023-07-10T08:09:37.000Z'
 lastmod: '2023-07-10T08:13:58.000Z'
 url: /how-to-use-node-18-with-sfra/
 draft: false
-heroImage: /wp-content/uploads/2023/07/upgrading.jpg
+heroImage: /media/2023/upgrading-f08d3d8bdc.jpg
 categories:
   - Salesforce Commerce Cloud
   - Technical
@@ -16,7 +16,7 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-As [responsible developers](https://www.rhino-inquisitor.com/secure-coding-in-salesforce-b2c-commerce-cloud/), it's important to stay up-to-date with the latest versions of our tools. The README of SFRA, unfortunately, reminds us that it is not always possible by recommending v12.21.0, which was the latest version at the time of launch (2017).
+As [responsible developers](/secure-coding-in-salesforce-b2c-commerce-cloud/), it's important to stay up-to-date with the latest versions of our tools. The README of SFRA, unfortunately, reminds us that it is not always possible by recommending v12.21.0, which was the latest version at the time of launch (2017).
 
 However, Node and SFRA packages have undergone many updates since then, and utilising the latest versions is crucial for security reasons. Let's keep our priorities in check and stay current with the latest updates.
 
@@ -146,6 +146,6 @@ _Wishing you the best!_
 
 ## Shouldn't Salesforce make it compatible
 
-While the [Composable Storefront](https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/) is generating a lot of excitement, SFRA remains a dependable choice for launching websites around the world. To stay current with the latest technology, it would make sense for Salesforce to simplify upgrading to Node 18.
+While the [Composable Storefront](/sitegenesis-vs-sfra-vs-pwa/) is generating a lot of excitement, SFRA remains a dependable choice for launching websites around the world. To stay current with the latest technology, it would make sense for Salesforce to simplify upgrading to Node 18.
 
 One important question remains: what will happen to third-party cartridges? It will require some investment from numerous third-party suppliers. The real question is, are they willing to make such an investment?

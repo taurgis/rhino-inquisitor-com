@@ -7,7 +7,7 @@ date: '2022-09-11T07:39:31.000Z'
 lastmod: '2022-09-11T07:50:23.000Z'
 url: /the-path-to-being-an-architect/
 draft: false
-heroImage: /wp-content/uploads/2022/09/path-to-being-an-architect.jpg
+heroImage: /media/2022/path-to-being-an-architect-576cef411b.jpg
 categories:
   - Podcasts
   - Video

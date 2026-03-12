@@ -7,7 +7,7 @@ date: '2022-10-17T17:49:09.000Z'
 lastmod: '2022-10-17T17:53:18.000Z'
 url: /lets-go-live-customer-migration/
 draft: false
-heroImage: /wp-content/uploads/2022/08/data-migration.jpg
+heroImage: /media/2022/data-migration-2fc1d03d2f.jpg
 categories:
   - GO-LIVE
   - Salesforce Commerce Cloud
@@ -18,7 +18,7 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-We have already gotten [a few parts down](https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/go-live/) of our GO-LIVE story, but we are far from done. Going live with any Commerce project can be quite an endeavor. But hopefully, with this series, the most critical parts of the puzzle are covered! On to the next piece: Customer migration!
+We have already gotten [a few parts down](/category/go-live/) of our GO-LIVE story, but we are far from done. Going live with any Commerce project can be quite an endeavor. But hopefully, with this series, the most critical parts of the puzzle are covered! On to the next piece: Customer migration!
 
 ## [Start sooner rather than later](http://t)
 

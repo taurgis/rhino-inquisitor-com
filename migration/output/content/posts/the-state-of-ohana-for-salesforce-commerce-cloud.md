@@ -7,7 +7,7 @@ date: '2022-02-27T14:02:53.000Z'
 lastmod: '2022-07-23T22:08:05.000Z'
 url: /the-state-of-ohana-for-salesforce-commerce-cloud/
 draft: false
-heroImage: /wp-content/uploads/2022/02/connections-chicago-2019.jpg
+heroImage: /media/2022/connections-chicago-2019-b246c60ad0.jpg
 categories:
   - Community
 tags:

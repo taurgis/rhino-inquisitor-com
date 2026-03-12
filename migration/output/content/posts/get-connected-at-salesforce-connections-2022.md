@@ -7,7 +7,7 @@ date: '2022-05-30T12:21:30.000Z'
 lastmod: '2022-07-23T21:49:51.000Z'
 url: /get-connected-at-salesforce-connections-2022/
 draft: false
-heroImage: /wp-content/uploads/2022/05/connections-2022.png
+heroImage: /media/2022/connections-2022-705603e7cd.png
 categories:
   - Community
 tags:
@@ -16,7 +16,7 @@ tags:
   - trailhead
 author: Thomas Theunen
 ---
-It seems like only yesterday that [TrailblazerDX](https://www.rhino-inquisitor.com/trailblazerdx-2022-for-b2c-commerce/) happened, and here we are again. But this time in Chicago!
+It seems like only yesterday that [TrailblazerDX](/trailblazerdx-2022-for-b2c-commerce/) happened, and here we are again. But this time in Chicago!
 
 Unlike TrailblazerDX, Connections is focused on creating connections between customers, partners, and Salesforce. Although you will still find some developer-centered presentations, they will be far less common.
 The goal is to get inspired by commerce leaders and Trailblazers in Commerce to help brands grow!

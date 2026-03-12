@@ -8,7 +8,7 @@ lastmod: '2023-04-23T15:28:04.000Z'
 url: /a-look-at-the-sfcc-23-5-release/
 draft: false
 heroImage: >-
-  /wp-content/uploads/2023/04/a_shopping_mall_being_refurbished_with_workers-scaled.jpeg
+  /media/2023/a-shopping-mall-being-refurbished-with-workers-scaled-6d93cd6e04.jpeg
 categories:
   - Release Notes
   - Salesforce Commerce Cloud
@@ -20,7 +20,7 @@ author: Thomas Theunen
 ---
 Another month, another release! This time we look at the [May 2023 (23.5) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_7_release.htm&type=5)!
 
-Are you interested in last month’s release notes? [Read the 23.4 release notes](https://www.rhino-inquisitor.com/everything-new-in-sfcc-23-4/)!
+Are you interested in last month’s release notes? [Read the 23.4 release notes](/everything-new-in-sfcc-23-4/)!
 
 ## Platform
 
@@ -106,7 +106,7 @@ The following new channel types are supported by Baskets and Orders apps: TikTok
 
 ### SLAS Updates
 
-[SLAS](https://www.rhino-inquisitor.com/how-to-set-up-slas-for-the-composable-storefront/) received quite a bit of love in the past month:
+[SLAS](/how-to-set-up-slas-for-the-composable-storefront/) received quite a bit of love in the past month:
 
 - SLAS service supports SMS notifications for passwordless login.
 - BOT Mitigation improvements: Reduced the time window from 2 seconds to 1 second for the same user login that returns Error 409.
@@ -160,7 +160,7 @@ It is no secret that hybrid deployment projects will be happening more and more.
 - Release plugin\_groputax\_ ex
 - Release plugin\_groputax\_ ex\_sg
 
- I am assuming it is supposed to say "grouptax". A feature which has been added in a [recent update](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-23-2/).
+ I am assuming it is supposed to say "grouptax". A feature which has been added in a [recent update](/salesforce-b2c-commerce-cloud-23-2/).
 
 ### Salesforce B2C Commerce / Customer 360 Platform Integration (v3.0.0)
 
@@ -170,4 +170,4 @@ It is no secret that hybrid deployment projects will be happening more and more.
 
 Modify the Account Manager Auth Token token type from UUID to JWT by [@jbachelet](https://github.com/jbachelet) in [#199](https://github.com/SalesforceCommerceCloud/b2c-crm-sync/pull/199)
 
-This a significant update, as [UUID tokens are being deprecated and will stop working shortly](https://www.rhino-inquisitor.com/the-deprecation-of-the-uuid-token-for-api-clients/)!
+This a significant update, as [UUID tokens are being deprecated and will stop working shortly](/the-deprecation-of-the-uuid-token-for-api-clients/)!

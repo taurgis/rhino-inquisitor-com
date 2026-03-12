@@ -7,7 +7,7 @@ date: '2023-12-04T08:55:16.000Z'
 lastmod: '2025-06-25T11:58:01.000Z'
 url: /mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/
 draft: false
-heroImage: /wp-content/uploads/2023/11/boxes-grouped-in-warehouse.jpg
+heroImage: /media/2023/boxes-grouped-in-warehouse-0d6eb67465.jpg
 categories:
   - Salesforce Commerce Cloud
   - Technical

@@ -7,7 +7,7 @@ date: '2023-07-28T07:53:53.000Z'
 lastmod: '2023-07-28T13:57:31.000Z'
 url: /how-to-filter-jsdoc-in-storybook-autodocs/
 draft: false
-heroImage: /wp-content/uploads/2023/07/frustrated-developer-illustration.jpg
+heroImage: /media/2023/frustrated-developer-illustration-a7d8092bbb.jpg
 categories:
   - React
 tags:

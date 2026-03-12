@@ -7,7 +7,7 @@ date: '2024-05-16T09:28:06.000Z'
 lastmod: '2024-05-16T09:28:17.000Z'
 url: /salesforce-connections-2024-and-sfcc/
 draft: false
-heroImage: /wp-content/uploads/2024/05/salesforce-in-chicago-e1715782032168.jpg
+heroImage: /media/2024/salesforce-in-chicago-e1715782032168-b85c6a08d6.jpg
 categories:
   - Community
   - Salesforce Commerce Cloud
@@ -16,7 +16,7 @@ tags:
   - sfcc
 author: Thomas Theunen
 ---
-The wait is almost over. Next week, it is time for Salesforce Connections 2024. I can't believe it has already been two years since then—and that one was quite memorable, as I was last [awarded my Golden Hoodie](https://www.rhino-inquisitor.com/events-and-the-golden-hoodie/) during the keynote!
+The wait is almost over. Next week, it is time for Salesforce Connections 2024. I can't believe it has already been two years since then—and that one was quite memorable, as I was last [awarded my Golden Hoodie](/events-and-the-golden-hoodie/) during the keynote!
 
 So, what does this iteration of Connections have in store for us? Will there be enough content for B2C enthusiasts to keep us occupied for two full days?
 

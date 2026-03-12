@@ -7,7 +7,7 @@ date: '2023-10-09T09:54:18.000Z'
 lastmod: '2023-11-18T07:43:19.000Z'
 url: /the-createorders-api-in-sfcc/
 draft: false
-heroImage: /wp-content/uploads/2023/10/delivery-on-a-phone.jpg
+heroImage: /media/2023/delivery-on-a-phone-f8a4f5aeb3.jpg
 categories:
   - Salesforce Commerce Cloud
   - Technical
@@ -31,7 +31,7 @@ If you plan to use this API, know it relies on the origin system that creates th
 
 ### Getting a SLAS API key
 
-We can't have just anyone pushing orders in our system, do we? So the first step is to create an API key in  SLAS! In this case, we will be creating a private client. Using a visual UI to make things easier is possible, [which I explain in a different post](https://www.rhino-inquisitor.com/how-to-set-up-slas-for-the-composable-storefront/). There are a few key differences:
+We can't have just anyone pushing orders in our system, do we? So the first step is to create an API key in  SLAS! In this case, we will be creating a private client. Using a visual UI to make things easier is possible, [which I explain in a different post](/how-to-set-up-slas-for-the-composable-storefront/). There are a few key differences:
 
 - **Which App Type will be used?:** "BFF or Web App".Choosing this option will create a "private" client.
 - **Do you want the default shopper scopes?:** Unchecked

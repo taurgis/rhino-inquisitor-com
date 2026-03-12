@@ -7,8 +7,7 @@ date: '2023-04-17T14:18:06.000Z'
 lastmod: '2023-04-17T14:18:18.000Z'
 url: /understanding-sfcc-instances/
 draft: false
-heroImage: >-
-  /wp-content/uploads/2023/03/salesforce-b2c-commerce-cloud-instances-scaled.jpeg
+heroImage: /media/2023/salesforce-b2c-commerce-cloud-instances-scaled-59ed2cbb06.jpeg
 categories:
   - Architecture
   - Salesforce Commerce Cloud
@@ -19,7 +18,7 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-Salesforce B2C Commerce is a [robust platform](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/) that enables businesses to create highly customised and scalable digital storefronts. One of the key components (and advantages) of B2C Commerce is the available instances, which contain the tools and resources needed for customising your storefront.  This blog post will discuss the different types of B2C Commerce instances, their uses, and how different teams within your organisation can utilise them.
+Salesforce B2C Commerce is a [robust platform](/the-salesforce-b2c-commerce-cloud-environment/) that enables businesses to create highly customised and scalable digital storefronts. One of the key components (and advantages) of B2C Commerce is the available instances, which contain the tools and resources needed for customising your storefront.  This blog post will discuss the different types of B2C Commerce instances, their uses, and how different teams within your organisation can utilise them.
 
 [![Diagram of a pod, realm, and the related Salesforce B2C Commerce instances.](/media/2023/pod-realm-and-instances-transparent-65c6b4e389.png)](/media/2023/pod-realm-and-instances-transparent-65c6b4e389.png)
 
@@ -30,7 +29,7 @@ POD, Realm, Instances, and Domains
 In Salesforce B2C Commerce, a Point of Delivery (POD) is a comprehensive infrastructure hosting a multi-tenant Software as a Service (SaaS) application. This infrastructure comprises computing, networking, and storage services, which work together to support the operation of the B2C Commerce platform. The POD architecture ensures that resources are allocated effectively to handle various tenants' needs on the platform while maintaining high performance and availability. This approach allows businesses to focus on building and managing their digital storefronts without worrying about the underlying infrastructure. Salesforce takes care of maintaining the POD and ensuring its optimal performance.
 
 > [!WARNING]
-> **Deprecation:** This also means that [Salesforce makes crucial decisions on this infrastructure](https://www.rhino-inquisitor.com/a-look-back-at-origin-shielding/) that must be considered during development.
+> **Deprecation:** This also means that [Salesforce makes crucial decisions on this infrastructure](/a-look-back-at-origin-shielding/) that must be considered during development.
 
 ## Realms
 
@@ -61,7 +60,7 @@ Developers use sandbox instances to create and update storefront code. These ins
 
 ### Staging
 
-The staging instance is where merchandising work takes place. This instance simulates the production environment and is used as the final step in testing the intersection of content and code. Staging instances are located in the realm's primary instance group (PIG) and are ([since recently](https://www.rhino-inquisitor.com/how-to-set-up-the-ecdn-for-staging-in-salesforce-b2c-commerce-cloud/)) connected to the eCDN.
+The staging instance is where merchandising work takes place. This instance simulates the production environment and is used as the final step in testing the intersection of content and code. Staging instances are located in the realm's primary instance group (PIG) and are ([since recently](/how-to-set-up-the-ecdn-in-sfcc-staging/)) connected to the eCDN.
 
 ### Development
 
@@ -102,7 +101,7 @@ A Quality Assurance (QA) Engineer is responsible for ensuring the optimal perfor
 
 ![SEO Specialist looking at a screen with the Google Logo](/media/2023/seo-specialist-looking-at-google-1b930270d3.jpg)
 
-An [SEO Engineer](https://www.rhino-inquisitor.com/lets-go-live-seo/) is crucial in optimising a digital storefront for search engines, ensuring better visibility and higher organic traffic. Typically, an SEO Engineer will utilise the Staging instance to work on various aspects of search engine optimisation. SEOs can configure essential elements such as meta tags, sitemaps, and URL configurations in the Staging environment. These configurations are crucial for improving the website's search engine rankings and overall online visibility. Once the SEO optimisations have been implemented and tested in the Staging instance, they will be replicated in the Production instance. After replication, the SEO Engineer must verify that the changes work as intended on the Production instance. This ensures that the optimisations made in the Staging environment are correctly applied and functioning in the live storefront.
+An [SEO Engineer](/lets-go-live-seo/) is crucial in optimising a digital storefront for search engines, ensuring better visibility and higher organic traffic. Typically, an SEO Engineer will utilise the Staging instance to work on various aspects of search engine optimisation. SEOs can configure essential elements such as meta tags, sitemaps, and URL configurations in the Staging environment. These configurations are crucial for improving the website's search engine rankings and overall online visibility. Once the SEO optimisations have been implemented and tested in the Staging instance, they will be replicated in the Production instance. After replication, the SEO Engineer must verify that the changes work as intended on the Production instance. This ensures that the optimisations made in the Staging environment are correctly applied and functioning in the live storefront.
 
 ## Conclusion
 

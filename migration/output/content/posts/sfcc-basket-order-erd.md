@@ -7,7 +7,7 @@ date: '2023-03-06T06:41:17.000Z'
 lastmod: '2023-03-06T06:49:17.000Z'
 url: /sfcc-basket-order-erd/
 draft: false
-heroImage: /wp-content/uploads/2023/02/digital-shopping-carts-in-a-forest.jpg
+heroImage: /media/2023/digital-shopping-carts-in-a-forest-a68ea4285a.jpg
 categories:
   - ERD
   - Salesforce Commerce Cloud
@@ -18,11 +18,11 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-When scouring the documentation for diagrams on the entity model of [Salesforce B2C Commerce Cloud](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/), you have probably come out empty-handed.
+When scouring the documentation for diagrams on the entity model of [Salesforce B2C Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/), you have probably come out empty-handed.
 
 Sure, you find many diagrams on the entity model of [force.com](https://salesforce.stackexchange.com/questions/22720/standard-objects-in-salesforce) with a quick Google! But not so for SFCC, so I started to create my own and share them with you!
 
-The fifth and final on the [ERD overview page](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-erd/): The Basket & Order ERD! It is probably the most complex of the bunch because of the number of entities and how they interconnect.
+The fifth and final on the [ERD overview page](/salesforce-b2c-commerce-cloud-erd/): The Basket & Order ERD! It is probably the most complex of the bunch because of the number of entities and how they interconnect.
 
 [![Basket and order entity relationship diagram for Salesforce B2C Commerce Cloud.](/media/2023/salesforce-b2c-commerce-cloud-diagram-basket-order-erdv2-3a4ba08328.png)](/media/2023/salesforce-b2c-commerce-cloud-diagram-basket-order-erdv2-3a4ba08328.png)
 
@@ -48,11 +48,11 @@ For this reason, I have decided only to include the most "important" ones (but n
 
 To keep the complexity of this diagram down, I decided to forward you to the other ERD diagrams that I have made explicitly handling these entities.
 
-If an entity is in yellow, it means [the ERD overview page](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-erd/) contains all of the relationships with it in another blog post.
+If an entity is in yellow, it means [the ERD overview page](/salesforce-b2c-commerce-cloud-erd/) contains all of the relationships with it in another blog post.
 
 ## More to follow
 
-This is it, folks! All ERDs I have in my possession have now been released. I created an overview page right [there on the ERD overview page](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-erd/).
+This is it, folks! All ERDs I have in my possession have now been released. I created an overview page right [there on the ERD overview page](/salesforce-b2c-commerce-cloud-erd/).
 
 ### Mistakes
 

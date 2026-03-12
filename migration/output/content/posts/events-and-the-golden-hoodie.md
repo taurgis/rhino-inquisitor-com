@@ -7,7 +7,7 @@ date: '2022-06-21T04:14:28.000Z'
 lastmod: '2022-07-23T21:41:31.000Z'
 url: /events-and-the-golden-hoodie/
 draft: false
-heroImage: /wp-content/uploads/2022/06/golden-hoodies.jpg
+heroImage: /media/2022/golden-hoodies-baefc3d7e9.jpg
 categories:
   - Community
 tags:
@@ -36,7 +36,7 @@ But boy, did Connections have more in store for me than I could have anticipated
 
 The short answer is no. You will mainly be able to see roadmap and customer cases presented here. But if you look around carefully, you will find sessions that have some technical learnings in there!
 
-If you want a Salesforce conference with more technical workshops and presentations, [TrailblazerDX](https://www.rhino-inquisitor.com/trailblazerdx-2022-for-b2c-commerce/) is the event to go to!
+If you want a Salesforce conference with more technical workshops and presentations, [TrailblazerDX](/trailblazerdx-2022-for-b2c-commerce/) is the event to go to!
 
 ### Receiving a "Golden Hoodie"
 

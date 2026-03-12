@@ -7,7 +7,7 @@ date: '2024-03-27T08:47:32.000Z'
 lastmod: '2024-03-28T15:01:14.000Z'
 url: /migrate-magento-passwords-using-argon2/
 draft: false
-heroImage: /wp-content/uploads/2024/03/cryptography.jpg
+heroImage: /media/2024/cryptography-668cd24089.jpg
 categories:
   - Salesforce Commerce Cloud
   - Technical

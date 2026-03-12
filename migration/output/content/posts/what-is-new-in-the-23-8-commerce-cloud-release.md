@@ -7,7 +7,7 @@ date: '2023-07-27T13:28:13.000Z'
 lastmod: '2023-07-29T20:05:35.000Z'
 url: /what-is-new-in-the-23-8-commerce-cloud-release/
 draft: false
-heroImage: /wp-content/uploads/2023/07/christmas-at-the-beach-scaled.jpg
+heroImage: /media/2023/christmas-at-the-beach-scaled-75bd57b575.jpg
 categories:
   - Release Notes
   - Salesforce Commerce Cloud
@@ -19,7 +19,7 @@ author: Thomas Theunen
 ---
 Everyone knows that getting ready for the holiday season starts in the summer in the Commerce Cloud world! And looking at the [23.8 release notes,](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_23_8_release.htm&type=5) this is apparent.
 
-Are you interested in last month’s release notes? [Read the 22.6 release notes](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-the-22-6-release/)!
+Are you interested in last month’s release notes? [Read the 22.6 release notes](/salesforce-b2c-commerce-the-22-6-release/)!
 
 ## Infrastructure and Scaling
 
@@ -76,7 +76,7 @@ A bit of familiar maintenance has happened on the Account Manager. But not to wo
 
 ### UUID API Access Tokens Deprecated
 
-I have written [extensively on this topic](https://www.rhino-inquisitor.com/the-deprecation-of-the-uuid-token-for-api-clients/) before, so it's not something new. The due date has already passed and your only recourse now is to use JWT.
+I have written [extensively on this topic](/the-deprecation-of-the-uuid-token-for-api-clients/) before, so it's not something new. The due date has already passed and your only recourse now is to use JWT.
 
 ### Specify Enhanced Domain Names In Account Manager
 

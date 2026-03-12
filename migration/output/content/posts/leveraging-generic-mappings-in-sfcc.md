@@ -7,7 +7,7 @@ date: '2023-11-27T09:29:26.000Z'
 lastmod: '2023-11-27T09:29:35.000Z'
 url: /leveraging-generic-mappings-in-sfcc/
 draft: false
-heroImage: /wp-content/uploads/2023/11/a-robot-connecting-data-files.jpg
+heroImage: /media/2023/a-robot-connecting-data-files-3fa4ea9dce.jpg
 categories:
   - Salesforce Commerce Cloud
   - Technical
@@ -16,7 +16,7 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-[Salesforce B2C Commerce Cloud](https://www.rhino-inquisitor.com/getting-to-know-sfra-as-a-developer/) offers many features that empower developers to build custom features on its platform. Generic Mapping are one feature that few use or have heard of. This enables developers to map keys to values stored in a high-performance data store—ideal for handling large datasets with speedy lookup times.
+[Salesforce B2C Commerce Cloud](/getting-to-know-sfra-as-a-developer/) offers many features that empower developers to build custom features on its platform. Generic Mapping are one feature that few use or have heard of. This enables developers to map keys to values stored in a high-performance data store—ideal for handling large datasets with speedy lookup times.
 
 In this article, we’ll dissect the inner workings of Generic Mapping, complemented by code examples and job configurations, to serve as a practical guide.
 

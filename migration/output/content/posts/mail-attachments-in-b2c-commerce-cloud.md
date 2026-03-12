@@ -7,7 +7,7 @@ date: '2022-03-15T06:04:04.000Z'
 lastmod: '2025-07-16T14:10:47.000Z'
 url: /mail-attachments-in-b2c-commerce-cloud/
 draft: false
-heroImage: /wp-content/uploads/2022/03/mail.jpg
+heroImage: /media/2022/mail-a7e287274f.jpg
 categories:
   - Salesforce Commerce Cloud
   - Technical
@@ -251,7 +251,7 @@ As you can see, base64 poses no real challenge for Salesforce Commerce Cloud, an
 
 Within the controller, we have multiple options to work with:
 
-- [On-the-fly generation of a file](https://www.rhino-inquisitor.com/pdf-and-salesforce-commerce-cloud-b2c/)
+- [On-the-fly generation of a file](/pdf-and-salesforce-commerce-cloud-b2c/)
 - Reading a file from the WebDAV
 
 In this example, we will be using the second option.

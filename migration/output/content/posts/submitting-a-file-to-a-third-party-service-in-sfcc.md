@@ -7,7 +7,7 @@ date: '2023-01-02T08:00:00.000Z'
 lastmod: '2022-12-29T18:02:41.000Z'
 url: /submitting-a-file-to-a-third-party-service-in-sfcc/
 draft: false
-heroImage: /wp-content/uploads/2022/07/file-upload.jpg
+heroImage: /media/2022/file-upload-86681d338b.jpg
 categories:
   - Salesforce Commerce Cloud
   - Technical
@@ -24,7 +24,7 @@ Salesforce B2C Commerce Cloud provides developers and architects with a [framewo
 
 ### Multipart/Form-Data
 
-A [separate article is available](https://www.rhino-inquisitor.com/submit-multipart-form-data-to-a-third-party-service-in-sfcc/) if your service uses the Multipart format.
+A [separate article is available](/submit-multipart-form-data-to-a-third-party-service-in-sfcc/) if your service uses the Multipart format.
 
 ### Single File
 

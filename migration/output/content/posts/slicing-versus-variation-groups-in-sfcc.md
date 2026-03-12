@@ -7,7 +7,7 @@ date: '2023-11-20T11:08:09.000Z'
 lastmod: '2023-11-20T11:59:10.000Z'
 url: /slicing-versus-variation-groups-in-sfcc/
 draft: false
-heroImage: /wp-content/uploads/2023/11/a-tshirt-sliced-into-multiple-colors-scaled.jpg
+heroImage: /media/2023/a-tshirt-sliced-into-multiple-colors-scaled-4ed0b9ab1a.jpg
 categories:
   - Documentation
   - Salesforce Commerce Cloud
@@ -15,7 +15,7 @@ tags:
   - sfcc
 author: Thomas Theunen
 ---
-Clarity and efficiency are key in the strategic display and management of products in your online store. In an age where various product options and variations dominate e-commerce, [we must grasp the organisational tools at our disposal](https://www.rhino-inquisitor.com/getting-to-know-sfra-as-a-developer/).
+Clarity and efficiency are key in the strategic display and management of products in your online store. In an age where various product options and variations dominate e-commerce, [we must grasp the organisational tools at our disposal](/getting-to-know-sfra-as-a-developer/).
 
 Today, we're thoroughly examining two tools provided by Salesforce B2C Commerce Cloud: 'Slicing' and 'Variation Groups'. Both are an option in product management, but which is your best bet?
 

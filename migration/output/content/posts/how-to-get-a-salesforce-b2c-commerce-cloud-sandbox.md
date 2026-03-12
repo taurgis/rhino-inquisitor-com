@@ -7,7 +7,7 @@ date: '2022-04-05T05:36:43.000Z'
 lastmod: '2022-12-20T16:23:36.000Z'
 url: /how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/
 draft: false
-heroImage: /wp-content/uploads/2022/03/sandbox.png
+heroImage: /media/2022/sandbox-84618f4042.png
 categories:
   - Salesforce Commerce Cloud
 tags:
@@ -33,7 +33,7 @@ It is an entirely different "stack" and has no relation to the Salesforce Core P
 
 Because of this, getting access to this system is [an entirely different process](https://trailhead.salesforce.com/en/content/learn/trails/build-your-b2c-commerce-consulting-practice).
 
-_I also wrote a post recently explaining the [difference in the community](https://www.rhino-inquisitor.com/the-state-of-ohana-for-salesforce-commerce-cloud/)._
+_I also wrote a post recently explaining the [difference in the community](/the-state-of-ohana-for-salesforce-commerce-cloud/)._
 
 ### So then ... how do I get access
 

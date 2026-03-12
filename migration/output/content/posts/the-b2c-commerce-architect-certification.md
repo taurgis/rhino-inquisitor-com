@@ -7,7 +7,7 @@ date: '2023-05-22T07:18:54.000Z'
 lastmod: '2023-05-22T07:19:06.000Z'
 url: /the-b2c-commerce-architect-certification/
 draft: false
-heroImage: /wp-content/uploads/2023/04/b2c-commerce-cloud-architect.jpeg
+heroImage: /media/2023/b2c-commerce-cloud-architect-fbcc847dcd.jpeg
 categories:
   - Architecture
   - Salesforce Commerce Cloud
@@ -28,7 +28,7 @@ The Official List
 - Given systems integration requirements & technical details, evaluate LINK cartridges applicable versions, 3rd-Parties’ technical specifications, and API documentation for integrations.
 - Given the systems that are interacting with the platform, evaluate the integration points, data type and volume, data migration approach, and diagram the system architecture.
 
-Capturing business requirements and providing the best solution for the business (or providing multiple - with pros and cons) is a crucial skill you need as an architect. Using the [knowledge of the platform](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/) and what it can and cannot do, is imperative to make the right decisions. And if the platform cannot do a particular feature, what tools to use (third-party or custom-built) in that situation.
+Capturing business requirements and providing the best solution for the business (or providing multiple - with pros and cons) is a crucial skill you need as an architect. Using the [knowledge of the platform](/the-salesforce-b2c-commerce-cloud-environment/) and what it can and cannot do, is imperative to make the right decisions. And if the platform cannot do a particular feature, what tools to use (third-party or custom-built) in that situation.
 
 - [Trailhead: Salesforce Commerce Cloud Architect Roles: Quick Look](https://trailhead.salesforce.com/content/learn/modules/commerce-cloud-architect-roles-quick-look?trailmix_creator_id=mking23&trailmix_slug=b-2-c-commerce-architect-certification-prep)
 - [Trailhead: Commerce Cloud Features](https://trailhead.salesforce.com/content/learn/modules/cc_cccapability?trailmix_creator_id=mking23&trailmix_slug=b-2-c-commerce-architect-certification-prep)
@@ -48,11 +48,11 @@ Capturing business requirements and providing the best solution for the business
 - [Trailhead: Salesforce B2C Commerce Campaigns and Promotions](https://trailhead.salesforce.com/content/learn/modules/b2c-campaigns-and-promotions?trailmix_creator_id=mking23&trailmix_slug=b-2-c-commerce-architect-certification-prep)
 - [PLC: B2C Commerce: Frontend Architectural Options](https://partnerlearningcamp.salesforce.com/s/browse-catalog?plc__recordId=3jgpi8TpMhWnKj6DIFXuJtx1QeFdL3j7lMgxipymXIyYFWYx29Pu5%2FVKHk1GSGs1)
 - [Webinar: Storefront Reference Architecture (SFRA) overview](https://salesforce.vidyard.com/watch/rgvLUk97rk1Kg58nYVcuy9?)
-- [Let’s GO-LIVE: The Salesforce B2C Commerce Cloud Environment](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/)
-- [Salesforce (Commerce) Payments: Payment Integration Simplified](https://www.rhino-inquisitor.com/salesforce-payments-experience-explained/)
-- [The Salesforce B2C Commerce Cloud Entity-Relationship model explained](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-erd/)
-- [AI (Einstein) in Salesforce B2C Commerce Cloud](https://www.rhino-inquisitor.com/ai-einstein-in-salesforce-b2c-commerce-cloud/)
-- [What is OCI (Omnichannel Inventory)](https://www.rhino-inquisitor.com/what-is-oci-omnichannel-inventory/)
+- [Let’s GO-LIVE: The Salesforce B2C Commerce Cloud Environment](/the-salesforce-b2c-commerce-cloud-environment/)
+- [Salesforce (Commerce) Payments: Payment Integration Simplified](/salesforce-payments-experience-explained/)
+- [The Salesforce B2C Commerce Cloud Entity-Relationship model explained](/salesforce-b2c-commerce-cloud-erd/)
+- [AI (Einstein) in Salesforce B2C Commerce Cloud](/ai-einstein-in-salesforce-b2c-commerce-cloud/)
+- [What is OCI (Omnichannel Inventory)](/what-is-oci-omnichannel-inventory/)
 - [B2C Commerce: LINK Certification Guide](https://help.salesforce.com/s/articleView?id=000388942&language=en_US&type=1)
 - [B2C Commerce: Einstein](https://help.salesforce.com/s/articleView?id=cc.b2c_commerce_cloud_einstein.htm&type=5&language=en_US)
 - [B2C Commerce: Release Notes](https://help.salesforce.com/s/articleView?id=sf.b2c_rn_release_notes.htm&type=5&language=en_US)
@@ -84,7 +84,7 @@ Once all the requirements have been captured and we have worked out a design for
 - [Trailhead: Salesforce B2C Commerce Cartridges](https://trailhead.salesforce.com/content/learn/modules/b2c-cartridges?trailmix_creator_id=mking23&trailmix_slug=b-2-c-commerce-architect-certification-prep)
 - [Trailhead: Salesforce B2C Commerce Storefront Implementation](https://trailhead.salesforce.com/content/learn/modules/b2c-implement-functional-solution?trailmix_creator_id=mking23&trailmix_slug=b-2-c-commerce-architect-certification-prep)
 - [Trailhead: Salesforce B2C Commerce Storefront Localization](https://trailhead.salesforce.com/content/learn/modules/b2c-localization)
-- [Secure Coding in Salesforce B2C Commerce Cloud](https://www.rhino-inquisitor.com/secure-coding-in-salesforce-b2c-commerce-cloud/)
+- [Secure Coding in Salesforce B2C Commerce Cloud](/secure-coding-in-salesforce-b2c-commerce-cloud/)
 - [B2C Commerce: Security Guide](https://help.salesforce.com/s/articleView?id=cc.b2c_commerce_security_guide.htm&type=5&language=en_US)
 - [Data Protection & Privacy](https://help.salesforce.com/s/articleView?id=cc.b2c_data_protection_and_privacy.htm&type=5&language=en_US)
 
@@ -104,8 +104,8 @@ Keeping an eye out on what you build is not just important, it is crucial to hav
 - [Trailhead: Salesforce B2C Commerce Reports & Dashboards](https://trailhead.salesforce.com/content/learn/modules/b2c-reports-and-dashboards?trailmix_creator_id=mking23&trailmix_slug=b-2-c-commerce-architect-certification-prep)
 - [Trailhead: Salesforce B2C Commerce Promotions Dashboards](https://trailhead.salesforce.com/content/learn/modules/salesforce-b2c-commerce-promotions-dashboards?trailmix_creator_id=mking23&trailmix_slug=b-2-c-commerce-architect-certification-prep)
 - [Trailhead: Salesforce B2C Commerce Sales and Products Dashboards](https://trailhead.salesforce.com/content/learn/modules/b2c-sales-and-products-dashboards?trailmix_creator_id=mking23&trailmix_slug=b-2-c-commerce-architect-certification-prep)
-- [Leveraging Server-Side Caching to Improve SFCC REST API Speed](https://www.rhino-inquisitor.com/caching-rest-apis-in-sfcc/)
-- [How to change the code Compatibility Mode in Salesforce B2C Commerce Cloud](https://www.rhino-inquisitor.com/how-to-change-the-code-compatibility-mode-in-salesforce-b2c-commerce-cloud/)
+- [Leveraging Server-Side Caching to Improve SFCC REST API Speed](/caching-rest-apis-in-sfcc/)
+- [How to change the code Compatibility Mode in Salesforce B2C Commerce Cloud](/how-to-change-the-code-compatibility-mode-in-salesforce-b2c-commerce-cloud/)
 - [Reports & Dashboards - How to Set Up Access](https://salesforce.vidyard.com/watch/qf6QPehudWEP4RJQvz7kRB?)
 
 ## Integrations and Customizations (22%)
@@ -125,10 +125,10 @@ Salesforce B2C Commerce Cloud has many features out of the box, but it can't do 
 - [Trailhead: Salesforce B2C Commerce SDK](https://trailhead.salesforce.com/content/learn/modules/b2c-commerce-sdk?trailmix_creator_id=mking23&trailmix_slug=b-2-c-commerce-architect-certification-prep)
 - [Trailhead: Headless Implementation Strategies for Salesforce B2C Commerce](https://trailhead.salesforce.com/content/learn/modules/b2c-headless-implementation-strategies?trailmix_creator_id=mking23&trailmix_slug=b-2-c-commerce-architect-certification-prep)
 - [Trailhead: PWA Kit & Managed Runtime: Quick Look](https://trailhead.salesforce.com/content/learn/modules/commerce-pwa-kit-and-managed-runtime?trailmix_creator_id=mking23&trailmix_slug=b-2-c-commerce-architect-certification-prep)
-- [Submitting a file to a third party service in SFCC](https://www.rhino-inquisitor.com/submitting-a-file-to-a-third-party-service-in-sfcc/)
-- [How to use OCAPI/SCAPI hooks](https://www.rhino-inquisitor.com/how-to-use-ocapi-scapi-hooks/)
-- [What is the OCAPI session bridge?](https://www.rhino-inquisitor.com/what-is-the-ocapi-session-bridge/)
-- [Delta exports in Salesforce B2C Commerce Cloud](https://www.rhino-inquisitor.com/delta-exports-in-salesforce-b2c-commerce-cloud/)
+- [Submitting a file to a third party service in SFCC](/submitting-a-file-to-a-third-party-service-in-sfcc/)
+- [How to use OCAPI/SCAPI hooks](/how-to-use-ocapi-scapi-hooks/)
+- [What is the OCAPI session bridge?](/what-is-the-ocapi-session-bridge/)
+- [Delta exports in Salesforce B2C Commerce Cloud](/delta-exports-in-salesforce-b2c-commerce-cloud/)
 - [Get started with the OCAPI](https://developer.salesforce.com/docs/commerce/commerce-cloud/references/b2c-commerce-ocapi/get-started-with-ocapi.html)
 
 ## Launch (16%)
@@ -154,10 +154,10 @@ Once we have analysed, built, and tested our solution - it is time to put it liv
 - [Trailhead: Salesforce B2C Commerce Launch Readiness](https://trailhead.salesforce.com/content/learn/modules/b2c-solution-functional-launch-readiness?trailmix_creator_id=mking23&trailmix_slug=b-2-c-commerce-architect-certification-prep)
 - [Trailhead: eCDN for Salesforce B2C Commerce](https://trailhead.salesforce.com/content/learn/modules/ecdn-b2c-commerce)
 - [Trailhead: Holiday Season Readiness with Salesforce B2C Commerce](https://trailhead.salesforce.com/content/learn/modules/b2c-holiday-season-ready)
-- [Let’s GO-LIVE: SEO](https://www.rhino-inquisitor.com/lets-go-live-seo/)
-- [Let’s GO-LIVE: Customer Migration](https://www.rhino-inquisitor.com/lets-go-live-customer-migration/)
-- [Let’s GO-LIVE: eCDN](https://www.rhino-inquisitor.com/lets-go-live-ecdn/)
-- [How to set up the eCDN for Staging in Salesforce B2C Commerce Cloud](https://www.rhino-inquisitor.com/how-to-set-up-the-ecdn-for-staging-in-salesforce-b2c-commerce-cloud/)
+- [Let’s GO-LIVE: SEO](/lets-go-live-seo/)
+- [Let’s GO-LIVE: Customer Migration](/lets-go-live-customer-migration/)
+- [Let’s GO-LIVE: eCDN](/lets-go-live-ecdn/)
+- [How to set up the eCDN for Staging in Salesforce B2C Commerce Cloud](/how-to-set-up-the-ecdn-in-sfcc-staging/)
 - [AB Testing and Testing Methodologies](https://salesforce.vidyard.com/watch/dZ9vxBEeFuBRFh9snKfBjU)
 
 ## What if I fail the exam

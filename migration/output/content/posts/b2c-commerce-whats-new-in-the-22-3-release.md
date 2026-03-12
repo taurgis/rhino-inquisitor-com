@@ -7,7 +7,7 @@ date: '2022-03-08T07:42:23.000Z'
 lastmod: '2022-07-23T21:43:46.000Z'
 url: /b2c-commerce-whats-new-in-the-22-3-release/
 draft: false
-heroImage: /wp-content/uploads/2022/03/lightning-man-e1646654739934.jpg
+heroImage: /media/2022/lightning-man-e1646654739934-c9812efc2b.jpg
 categories:
   - Release Notes
   - Salesforce Commerce Cloud

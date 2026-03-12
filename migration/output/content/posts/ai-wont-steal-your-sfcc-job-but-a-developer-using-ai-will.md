@@ -7,7 +7,7 @@ date: '2025-06-30T17:46:53.000Z'
 lastmod: '2025-07-02T21:37:51.000Z'
 url: /ai-wont-steal-your-sfcc-job-but-a-developer-using-ai-will/
 draft: false
-heroImage: /wp-content/uploads/2025/06/rhino-with-ai-agents-scaled.jpeg
+heroImage: /media/2025/rhino-with-ai-agents-scaled-9d1423b5ab.jpeg
 categories:
   - Community
 tags:
@@ -65,7 +65,7 @@ The "threat" was one of deskilling. With features like syntax highlighting, inte
 
 The reality was a massive leap in productivity. Studies have shown that IDEs can boost developer productivity by up to 30% and significantly reduce debugging time. By abstracting the _workflow_, the IDE allowed developers to navigate and manage enormous, complex codebases with unprecedented ease. This efficiency gain was essential for building the large-scale, distributed web applications that came to define the internet age. The developer was no longer just a code typist; they were a supercharged problem-solver, wielding a powerful, integrated toolset to build more, faster.
 
-[![A timeline showing the evolution of the software developer role in four stages. It starts in the 1950s with a developer and a mainframe, progresses to the 1990s with an IDE on a desktop, then to the 2000s with Agile team collaboration, and ends today with a rhino developer augmented by AI robot assistants.](/media/2025/img-0132-7f6e8b78a7.jpeg)](https://www.rhino-inquisitor.com/wp-content/uploads/2025/06/IMG_0132-scaled.jpeg)
+[![A timeline showing the evolution of the software developer role in four stages. It starts in the 1950s with a developer and a mainframe, progresses to the 1990s with an IDE on a desktop, then to the 2000s with Agile team collaboration, and ends today with a rhino developer augmented by AI robot assistants.](/media/2025/img-0132-7f6e8b78a7.jpeg)](/media/2025/img-0132-7f6e8b78a7.jpeg)
 
 And it's not just developers who experience this - every industry has its own story.
 
@@ -95,7 +95,7 @@ The most immediate and tangible application of AI in our profession as developer
 
 These tools are not just fancy autocompletes… They are context-aware partners that can drastically reduce the time spent on repetitive, boilerplate tasks.
 
-[![A cartoon rhino developer at a desk looks thoughtfully at a screen with code. Next to the keyboard, an AI assistant designed like a yellow rubber duck projects a holographic code snippet, illustrating the concept of AI pair programming.](/media/2025/ai-rubber-duck-43fdcc864a.jpeg)](https://www.rhino-inquisitor.com/wp-content/uploads/2025/06/ai-rubber-duck-scaled.jpeg)
+[![A cartoon rhino developer at a desk looks thoughtfully at a screen with code. Next to the keyboard, an AI assistant designed like a yellow rubber duck projects a holographic code snippet, illustrating the concept of AI pair programming.](/media/2025/ai-rubber-duck-43fdcc864a.jpeg)](/media/2025/ai-rubber-duck-43fdcc864a.jpeg)
 
 The classic 'rubber duck debugging' method gets a serious upgrade. Explain your problem to an AI that can actually talk back with a solution. (Well, not always - always verify and don’t trust blindly)
 
@@ -147,7 +147,7 @@ This isn't about replacing QA. It's about augmenting it, freeing up human tester
 
 The rise of AI marks a fundamental shift in the value proposition of a software developer. When the act of writing code—the "how"—is increasingly automated, the most valuable professionals will be those who have mastered the "why." Your worth will be measured not by your typing speed, but by the quality of your thinking.
 
-[![A friendly cartoon rhino developer acts as a strategic leader, presenting an architecture plan on a large screen to a diverse group of business stakeholders. In the background, AI robot assistants implement the plan by coding at their desks.](/media/2025/the-architect-mindset-as-a-developer-with-ai-c8033b7990.jpeg)](https://www.rhino-inquisitor.com/wp-content/uploads/2025/06/the-architect-mindset-as-a-developer-with-ai-scaled.jpeg)
+[![A friendly cartoon rhino developer acts as a strategic leader, presenting an architecture plan on a large screen to a diverse group of business stakeholders. In the background, AI robot assistants implement the plan by coding at their desks.](/media/2025/the-architect-mindset-as-a-developer-with-ai-c8033b7990.jpeg)](/media/2025/the-architect-mindset-as-a-developer-with-ai-c8033b7990.jpeg)
 
 The AI-augmented developer: Spending less time on the keyboard and more time translating business strategy into a technical vision that AI can execute.
 
@@ -201,6 +201,6 @@ Please don't wait. The time for passive observation is over.
 
 The future isn't something that happens _to_ you; it's something that you create. It's something you build. Stop worrying about being replaced. Pick up the tools, sharpen your horn, and become the AI-augmented rhino that leads the charge.
 
-[![A cartoon rhino developer, dressed as a conductor, leads an orchestra of small robots. The robots sit in sections and use laptops and data interfaces instead of musical instruments, symbolizing a developer orchestrating various AI tools.](/media/2025/the-ai-composer-48f0e91bb0.jpeg)](https://www.rhino-inquisitor.com/wp-content/uploads/2025/06/the-ai-composer-scaled.jpeg)
+[![A cartoon rhino developer, dressed as a conductor, leads an orchestra of small robots. The robots sit in sections and use laptops and data interfaces instead of musical instruments, symbolizing a developer orchestrating various AI tools.](/media/2025/the-ai-composer-48f0e91bb0.jpeg)](/media/2025/the-ai-composer-48f0e91bb0.jpeg)
 
 our new podium awaits. The AI-augmented developer orchestrates a powerful ensemble of tools, where strategy is the sheet music and business impact is the masterpiece.

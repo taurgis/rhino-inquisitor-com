@@ -7,7 +7,7 @@ date: '2022-10-09T14:17:31.000Z'
 lastmod: '2023-02-08T18:02:55.000Z'
 url: /what-is-commerce-on-core/
 draft: false
-heroImage: /wp-content/uploads/2022/10/shopping-cart-in-front-of-salesforce-tower.jpg
+heroImage: /media/2022/shopping-cart-in-front-of-salesforce-tower-bb3e93dbf7.jpg
 categories:
   - Salesforce Commerce Cloud
 tags:
@@ -16,7 +16,7 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-People who have been around "[Demandware](https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/)" for a while and continued after the acquisition by Salesforce know that this announcement was bound to happen at one point.
+People who have been around "[Demandware](/sitegenesis-vs-sfra-vs-pwa/)" for a while and continued after the acquisition by Salesforce know that this announcement was bound to happen at one point.
 
 It is a question that many have asked over the years looking at the core platform of Salesforce: "When will they migrate everything and move Salesforce B2C Commerce Cloud to the Salesforce core platform ( [force.com](https://www.salesforce.com/products/platform/products/force/?sfdc-redirect=300) )?"
 
@@ -68,7 +68,7 @@ An essential part of understanding how the SCAPI works is that [Mulesoft](https:
 
 ### OCI
 
-The [Omnichannel Inventory](https://www.rhino-inquisitor.com/what-is-oci-omnichannel-inventory/) (part of the B2C Commerce Cloud license) was another sign that Salesforce pointed products more to a "composable architecture." It is a separate product that can be used for B2C, B2B, B2B2C, or other applications.
+The [Omnichannel Inventory](/what-is-oci-omnichannel-inventory/) (part of the B2C Commerce Cloud license) was another sign that Salesforce pointed products more to a "composable architecture." It is a separate product that can be used for B2C, B2B, B2B2C, or other applications.
 
 Many other products that followed, like Order Management and Commerce Marketplaces, were separated from the B2C Offering, and most noteworthy are on the [force.com](https://www.salesforce.com/products/platform/products/force/) (core) platform.
 
@@ -76,7 +76,7 @@ Many other products that followed, like Order Management and Commerce Marketplac
 
 ![Composable Storefront architecture sitting on top of SCAPI services.](/media/2022/composable-storefront-6b029b5901.png)
 
-Another separate product on its own "stack" is the [PWA Kit](https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/) (or now rebranded to the Composable Storefront).
+Another separate product on its own "stack" is the [PWA Kit](/sitegenesis-vs-sfra-vs-pwa/) (or now rebranded to the Composable Storefront).
 
 A headless storefront talking to the SCAPI, rather than the monolithic setup of SiteGenesis and SFRA, will allow back-end systems to be swapped more easily.
 
@@ -178,13 +178,13 @@ This is a long time to prepare for this change as a customer and developer. And 
 
 ### What about SFRA
 
-Did you choose an [SFRA](https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/) setup? Then again: there is nothing to worry about. This change will take many years to come to fruition. You have a solution for your needs now (and in the near to medium future), and SFRA will do that perfectly. In many cases, a need to renew your stack arises every few years.
+Did you choose an [SFRA](/sitegenesis-vs-sfra-vs-pwa/) setup? Then again: there is nothing to worry about. This change will take many years to come to fruition. You have a solution for your needs now (and in the near to medium future), and SFRA will do that perfectly. In many cases, a need to renew your stack arises every few years.
 
 Technology evolves rapidly, and who knows what options will be available in 5 years!
 
 ### I am on SiteGenesis - What do I do
 
-At any rate, moving away from [SiteGenesis](https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/) should be somewhere at the top of your priority list. But as to what the best option for your situation is: Talk to [your implementation team](https://www.forward.eu) and Salesforce.
+At any rate, moving away from [SiteGenesis](/sitegenesis-vs-sfra-vs-pwa/) should be somewhere at the top of your priority list. But as to what the best option for your situation is: Talk to [your implementation team](https://www.forward.eu) and Salesforce.
 
 Everyone has their requirements and needs for now and the future, and all options on the table have pros and cons.
 

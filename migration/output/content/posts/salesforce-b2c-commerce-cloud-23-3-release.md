@@ -7,7 +7,7 @@ date: '2023-02-15T14:19:00.000Z'
 lastmod: '2023-02-15T14:19:11.000Z'
 url: /salesforce-b2c-commerce-cloud-23-3-release/
 draft: false
-heroImage: /wp-content/uploads/2023/02/shopping-cart-in-sand.jpg
+heroImage: /media/2023/shopping-cart-in-sand-7c8677e7ff.jpg
 categories:
   - Release Notes
   - Salesforce Commerce Cloud

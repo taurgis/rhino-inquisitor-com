@@ -7,7 +7,7 @@ date: '2022-08-01T14:18:24.000Z'
 lastmod: '2022-09-10T04:43:39.000Z'
 url: /delta-exports-in-salesforce-b2c-commerce-cloud/
 draft: false
-heroImage: /wp-content/uploads/2022/07/sharinglargefiles.png
+heroImage: /media/2022/sharinglargefiles-c0cb3315f4.png
 categories:
   - Salesforce Commerce Cloud
   - Technical

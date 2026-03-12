@@ -7,7 +7,7 @@ date: '2024-03-04T09:04:46.000Z'
 lastmod: '2024-03-04T09:07:27.000Z'
 url: /digging-into-the-b2c-commerce-cloud-24-3-release/
 draft: false
-heroImage: /wp-content/uploads/2024/03/a-shopping-cart-overfilled-with-products.jpg
+heroImage: /media/2024/a-shopping-cart-overfilled-with-products-2342f0919f.jpg
 categories:
   - Release Notes
   - Salesforce Commerce Cloud
@@ -19,7 +19,7 @@ author: Thomas Theunen
 ---
 As snowy days slowly turn into sunny ones, the 24.3 release of SFCC has arrived! Let us have a look at the [March release of 2024](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_24_3_release.htm&type=5).
 
-Are you interested in last month’s release notes? [Read the 24.2 release notes](https://www.rhino-inquisitor.com/a-look-at-the-salesforce-b2c-commerce-cloud-24-2-release/)!
+Are you interested in last month’s release notes? [Read the 24.2 release notes](/a-look-at-the-salesforce-b2c-commerce-cloud-24-2-release/)!
 
 ## Platform
 

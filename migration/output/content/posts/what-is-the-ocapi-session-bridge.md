@@ -7,7 +7,7 @@ date: '2022-08-15T19:08:02.000Z'
 lastmod: '2023-12-07T10:36:32.000Z'
 url: /what-is-the-ocapi-session-bridge/
 draft: false
-heroImage: /wp-content/uploads/2023/02/Session-Bridge.png
+heroImage: /media/2023/session-bridge-bbf2a7ba92.png
 categories:
   - Salesforce Commerce Cloud
   - Technical
@@ -17,7 +17,7 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-With the added attention to [Headless architecture](https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/) in Salesforce B2C Commerce Cloud and the option for "[hybrid deployments](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/phased-headless-rollouts.html)," the [Session Bridge](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/SessionBridge.html) has also gotten some more airtime.
+With the added attention to [Headless architecture](/sitegenesis-vs-sfra-vs-pwa/) in Salesforce B2C Commerce Cloud and the option for "[hybrid deployments](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/phased-headless-rollouts.html)," the [Session Bridge](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/SessionBridge.html) has also gotten some more airtime.
 
 But what is it? What do I use it for? What do I watch out for? Let us dig deeper into these questions and try to give them a clear answer!
 
@@ -201,7 +201,7 @@ Matching customer\_id To verify that the flow worked, the "customer\_ id" from s
 
 ## SCAPI & SLAS
 
-Suppose you are making use of SLAS to get a JWT token, no worries. This JWT token is also compatible with the session bridge and is used actively by the PWA Kit (Composable Storefront) and the [SFRA SLAS Plugin](https://www.rhino-inquisitor.com/slas-in-sfra-or-sitegenesis/).
+Suppose you are making use of SLAS to get a JWT token, no worries. This JWT token is also compatible with the session bridge and is used actively by the PWA Kit (Composable Storefront) and the [SFRA SLAS Plugin](/slas-in-sfra-or-sitegenesis/).
 
 ## Guest basket and sensitive data
 

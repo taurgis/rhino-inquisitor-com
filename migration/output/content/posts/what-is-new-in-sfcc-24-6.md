@@ -7,7 +7,7 @@ date: '2024-06-03T12:04:25.000Z'
 lastmod: '2024-06-03T12:04:39.000Z'
 url: /what-is-new-in-sfcc-24-6/
 draft: false
-heroImage: /wp-content/uploads/2024/06/searching-on-a-highway.jpg
+heroImage: /media/2024/searching-on-a-highway-89effbcf76.jpg
 categories:
   - Release Notes
   - Salesforce Commerce Cloud
@@ -19,9 +19,9 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-"[Connections](https://www.rhino-inquisitor.com/salesforce-connections-2024-and-sfcc/)" is in our rear-view mirror, but some new updates to the platform are ahead! This time, we look at the [June 2024 (24.6) release](https://help.salesforce.com/s/articleView?id=sf.b2c_rn_24_6_release.htm&type=5)!
+"[Connections](/salesforce-connections-2024-and-sfcc/)" is in our rear-view mirror, but some new updates to the platform are ahead! This time, we look at the [June 2024 (24.6) release](https://help.salesforce.com/s/articleView?id=sf.b2c_rn_24_6_release.htm&type=5)!
 
-Are you interested in last month’s release notes? [Read the 24.5 release notes](https://www.rhino-inquisitor.com/getting-secured-with-the-24-5-salesforce-b2c-commerce-cloud-release/)!
+Are you interested in last month’s release notes? [Read the 24.5 release notes](/getting-secured-with-the-24-5-salesforce-b2c-commerce-cloud-release/)!
 
 ## Commerce Concierge has arrived
 

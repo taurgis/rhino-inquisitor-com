@@ -7,7 +7,7 @@ date: '2025-06-16T07:30:19.000Z'
 lastmod: '2025-06-24T18:22:38.000Z'
 url: /mastering-sitemaps-in-sfcc/
 draft: false
-heroImage: /wp-content/uploads/2025/06/sitemaps-in-sfcc.jpg
+heroImage: /media/2025/sitemaps-in-sfcc-53a1b08bb8.jpg
 categories:
   - Salesforce Commerce Cloud
   - Technical
@@ -69,7 +69,7 @@ What happens when you have content that doesn't live in SFCC? Maybe you have a W
 
 The traditional method involves building a custom job step within a cartridge. This is ideal for batch-oriented processes, such as pulling a sitemap file from an SFTP server on a nightly basis.
 
-Your script would use the [dw.sitemap.SitemapMgr](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_sitemap_SitemapMgr.html) script API. The key method is SitemapMgr.addCustomSitemapFile(hostName, file), which takes a file your script has fetched and places it in the correct directory to be picked up by the main sitemap generation job. This requires some classic SFCC development: writing the script and defining the job step in a [steptypes.json](https://www.rhino-inquisitor.com/mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/) or steptypes.xml file.
+Your script would use the [dw.sitemap.SitemapMgr](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_sitemap_SitemapMgr.html) script API. The key method is SitemapMgr.addCustomSitemapFile(hostName, file), which takes a file your script has fetched and places it in the correct directory to be picked up by the main sitemap generation job. This requires some classic SFCC development: writing the script and defining the job step in a [steptypes.json](/mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/) or steptypes.xml file.
 
 ### Path 2: The Modern SCAPI Endpoint (The Real-Time Approach)
 

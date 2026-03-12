@@ -7,7 +7,7 @@ date: '2024-01-08T09:10:13.000Z'
 lastmod: '2024-01-10T08:49:57.000Z'
 url: /sfcc-24-1-release-a-new-year-update/
 draft: false
-heroImage: /wp-content/uploads/2024/01/shopping-carts-to-the-shredder.jpg
+heroImage: /media/2024/shopping-carts-to-the-shredder-735353fe04.jpg
 categories:
   - Release Notes
   - Salesforce Commerce Cloud
@@ -18,7 +18,7 @@ author: Thomas Theunen
 ---
 A new year means release notes for the back end have started again! This time, we look at the [January 2024 (24.1) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_24_1_release.htm&type=5)!
 
-Are you interested in last year's release notes? [Read the 23.10 release notes](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-23-10-release-a-comprehensive-overview/)!
+Are you interested in last year's release notes? [Read the 23.10 release notes](/salesforce-b2c-commerce-cloud-23-10-release-a-comprehensive-overview/)!
 
 ## Platform
 

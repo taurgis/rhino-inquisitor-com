@@ -7,7 +7,7 @@ date: '2023-05-25T06:26:10.000Z'
 lastmod: '2023-05-24T08:16:17.000Z'
 url: /a-look-at-the-salesforce-b2c-commerce-cloud-23-6-release/
 draft: false
-heroImage: /wp-content/uploads/2023/05/a-neon-shopping-cart-scaled.jpg
+heroImage: /media/2023/a-neon-shopping-cart-scaled-863c5d17ed.jpg
 categories:
   - Release Notes
   - Salesforce Commerce Cloud
@@ -17,7 +17,7 @@ author: Thomas Theunen
 ---
 The weather (at least here) is giving us more sunshine, so let us shine a light on the next Salesforce B2C Commerce Cloud release! This time we look at the [June 2023 (23.6) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_23_6_release.htm&type=5)!
 
-Are you interested in last month’s release notes? [Read the 23.5 release notes](https://www.rhino-inquisitor.com/a-look-at-the-sfcc-23-5-release/)!
+Are you interested in last month’s release notes? [Read the 23.5 release notes](/a-look-at-the-sfcc-23-5-release/)!
 
 ## Enhance Storefront Search Scale and Performance
 

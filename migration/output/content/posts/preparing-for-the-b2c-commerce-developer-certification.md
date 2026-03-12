@@ -7,7 +7,7 @@ date: '2022-06-06T11:45:43.000Z'
 lastmod: '2022-11-19T10:18:39.000Z'
 url: /preparing-for-the-b2c-commerce-developer-certification/
 draft: false
-heroImage: /wp-content/uploads/2022/03/B2C-Commerce-Developer.png
+heroImage: /media/2022/b2c-commerce-developer-72d9df9035.png
 categories:
   - Certification
 tags:
@@ -56,7 +56,7 @@ Why is this one in the second position? Good question; it is my opinion you need
 
 Knowing what built-in features exist is essential for answering the questions on the exam correctly (built-in always wins within certification exams) and for yourself and your implementations. There is no point in re-inventing the wheel, right?
 
-I'm going to put this site separately since it covers so many topics, and I have already mentioned this one in [a previous blog post](https://www.rhino-inquisitor.com/getting-to-know-sfra-as-a-developer):
+I'm going to put this site separately since it covers so many topics, and I have already mentioned this one in [a previous blog post](/getting-to-know-sfra-as-a-developer/):
 
 - [https://b2c.learncommercecloud.com/](https://b2c.learncommercecloud.com/)
 

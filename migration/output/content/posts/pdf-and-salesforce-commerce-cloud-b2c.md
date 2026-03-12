@@ -7,7 +7,7 @@ date: '2022-02-24T13:18:00.000Z'
 lastmod: '2025-07-14T18:19:59.000Z'
 url: /pdf-and-salesforce-commerce-cloud-b2c/
 draft: false
-heroImage: /wp-content/uploads/2022/02/pdf-and-sfcc.jpg
+heroImage: /media/2022/pdf-and-sfcc-f66c1d7bc5.jpg
 categories:
   - Salesforce Commerce Cloud
   - Technical
@@ -86,7 +86,7 @@ The privacy policy should clearly state your data retention policies, explaining
 
 ## What about the Composable Storefront
 
-The [Composable Storefront](https://www.rhino-inquisitor.com/the-move-from-sitegenesis-and-sfra-to-the-composable-storefront-as-a-developer/) is a whole new game. It's less like a pre-built castle and more like an infinite set of high-tech Lego bricks. Your frontend is a slick, fast Progressive Web App (PWA), completely separate from the backend commerce engine. They talk to each other exclusively through APIs, like the Salesforce Commerce API (SCAPI) and OCAPI.
+The [Composable Storefront](/the-move-from-sitegenesis-and-sfra-to-the-composable-storefront-as-a-developer/) is a whole new game. It's less like a pre-built castle and more like an infinite set of high-tech Lego bricks. Your frontend is a slick, fast Progressive Web App (PWA), completely separate from the backend commerce engine. They talk to each other exclusively through APIs, like the Salesforce Commerce API (SCAPI) and OCAPI.
 
 This is a massive shift. Salesforce is betting big on this API-first, composable future. Trying to use an old-school, on-platform PDF hack in this new Lego world is like trying to glue your bricks together—it completely misses the point!
 

@@ -7,7 +7,7 @@ date: '2022-05-16T13:52:22.000Z'
 lastmod: '2022-07-23T21:54:27.000Z'
 url: /salesforce-b2c-commerce-the-22-6-release/
 draft: false
-heroImage: /wp-content/uploads/2022/05/22.6-release-einstein-dashboards.png
+heroImage: /media/2022/22-6-release-einstein-dashboards-722f4cbace.png
 categories:
   - Release Notes
   - Salesforce Commerce Cloud
@@ -16,7 +16,7 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-Again, here we are with the latest [release notes](https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/release-notes/) of Salesforce B2C Commerce Cloud; time flies by fast, doesn't it? Let us go over the [June 2022 (22.6) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_6_release.htm&type=5)!
+Again, here we are with the latest [release notes](/category/release-notes/) of Salesforce B2C Commerce Cloud; time flies by fast, doesn't it? Let us go over the [June 2022 (22.6) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_6_release.htm&type=5)!
 
 ## Einstein Dashboards
 
