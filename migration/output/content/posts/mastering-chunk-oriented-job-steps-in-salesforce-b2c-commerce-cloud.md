@@ -49,7 +49,7 @@ Salesforce provides a visualisation example in their documentation: [https://dev
 
 ## Creating a Chunk-Oriented Script Module
 
-We will start with the script. If you need an example for steptypes.json, see the steptypes example!
+We will start with the script. If you need an example for steptypes.json, click here!
 
 ### Importing what you need
 
@@ -236,7 +236,7 @@ Finally, don't forget to define the custom job step in your [steptypes.json](htt
 
 Remember that the process function wraps the update code within a transaction using `Transaction.wrap()`. This ensures the integrity of your data update operation.
 
-Do you need to do my updates one by one? Of course not. The size of your commit is all up to you! Keep reading to get some insights into why the way you handle transactions is essential! Maybe that optional "after-chunk-function" can help us there 😊.
+Do you need to do my updates one by one? Of course not. The size of your commit is all up to you! Keep reading to get some insights into why the way you handle transactions is essential! Maybe that optional "after-chunk-function" can help us there  😊.
 
 Now you have a chunk-oriented job step to update the custom attribute `myBoolean` for a list of customers. This job step can be configured and run via the Business Manager in Salesforce B2C Commerce Cloud.
 

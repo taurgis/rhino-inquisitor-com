@@ -18,7 +18,8 @@ author: Thomas Theunen
 ---
 It seems like only yesterday that [TrailblazerDX](/trailblazerdx-2022-for-b2c-commerce/) happened, and here we are again. But this time in Chicago!
 
-Unlike TrailblazerDX, Connections is focused on creating connections between customers, partners, and Salesforce. Although you will still find some developer-centered presentations, they will be far less common. The goal is to get inspired by commerce leaders and Trailblazers in Commerce to help brands grow!
+Unlike TrailblazerDX, Connections is focused on creating connections between customers, partners, and Salesforce. Although you will still find some developer-centered presentations, they will be far less common.
+The goal is to get inspired by commerce leaders and Trailblazers in Commerce to help brands grow!
 
 What does it have in store for Salesforce B2C Commerce Cloud? Let’s have a look!
 

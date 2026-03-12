@@ -29,7 +29,7 @@ Let's be brutally honest: if you're selling on more than one channel, your SFCC 
 
 Modern retail is no longer a set of isolated storefronts. It's a fluid ecosystem where a single stock pool serves your SFCC site, your brick-and-mortar stores with BOPIS, third-party marketplaces, and every other channel you can imagine. This isn't a trend; it's the new standard operating procedure. The business demands a single source of truth for inventory, because without it, you're not an omnichannel brand—you're just multiple businesses fumbling under the same logo.
 
-This is where the problem begins. SFCC's native inventory system is perfectly capable for a business that _only _ sells through SFCC. It tracks stock, manages pre-orders, and calculates Available-to-Sell (ATS) quantities based on the data it has. But that data typically arrives via periodic batch imports—often an XML feed dropped into Business Manager. This introduces latency. It's a picture of what inventory_ was _, not what it _ is_.
+This is where the problem begins. SFCC's native inventory system is perfectly capable for a business that _only _ sells through SFCC. It tracks stock, manages pre-orders, and calculates Available-to-Sell (ATS) quantities based on the data it has. But that data typically arrives via periodic batch imports—often an XML feed dropped into Business Manager. This introduces latency. It's a picture of what inventory_was _, not what it_ is_.
 
 When a product sells out in a physical store, your SFCC site remains blissfully unaware for the next 15, 30, or 60 minutes, leaving a gaping window for overselling. This forces a critical architectural shift: the source of truth for inventory can no longer be SFCC. It must be a centralised master system, like an ERP or OMS. SFCC is demoted from master to consumer, and the need for real-time checks is born not from a flaw in the platform, but from the fundamental reality of a distributed commerce landscape.
 
@@ -132,7 +132,7 @@ This is also a perfect use case for client-side rendering in the PWA Kit.
 
 ### Event-Driven Architecture (EDA): The Paradigm Shift
 
-This is the enterprise-grade solution. Instead of SFCC _pulling _ data on demand, the master inventory system _ pushes_ updates whenever a change occurs.
+This is the enterprise-grade solution. Instead of SFCC _pulling _ data on demand, the master inventory system_pushes_ updates whenever a change occurs.
 
 1. An **event broker** (like Kafka or RabbitMQ) sits at the heart of the architecture.
 
@@ -174,20 +174,20 @@ The right inventory strategy is a direct reflection of your business's omnichann
 
 - **Tier 1: The SFCC-Only Purist**
 
-- **Profile:** You sell only through your SFCC site from a dedicated stock pool.
+  - **Profile:** You sell only through your SFCC site from a dedicated stock pool.
 
-- **Mandate:**Stick with**native SFCC inventory** and reliable batch updates. Anything else is over-engineering. Focus on making your import jobs fast and frequent.
+  - **Mandate:**Stick with**native SFCC inventory** and reliable batch updates. Anything else is over-engineering. Focus on making your import jobs fast and frequent.
 
 - **Tier 2: The Pragmatic Omnichannel Player**
 
-- **Profile:** You sell across SFCC and physical stores from a shared inventory. You need to stop the bleeding from oversells and fix site performance _now_.
+  - **Profile:** You sell across SFCC and physical stores from a shared inventory. You need to stop the bleeding from oversells and fix site performance _now_.
 
-- **Mandate:**Implement the**Hybrid Threshold Model with Asynchronous AJAX checks**. This is your sweet spot. It delivers the best balance of performance, accuracy, and implementation effort without requiring a complete overhaul of your architecture.
+  - **Mandate:**Implement the**Hybrid Threshold Model with Asynchronous AJAX checks**. This is your sweet spot. It delivers the best balance of performance, accuracy, and implementation effort without requiring a complete overhaul of your architecture.
 
 - **Tier 3: The Salesforce-Centric Enterprise**
 
-- **Profile:** You're a large, complex enterprise running multiple brands and channels, deeply invested in the Salesforce ecosystem. Unified commerce is a core strategic goal.
+  - **Profile:** You're a large, complex enterprise running multiple brands and channels, deeply invested in the Salesforce ecosystem. Unified commerce is a core strategic goal.
 
-- **Mandate:**Adopt**Salesforce Omnichannel Inventory (OCI)**. Don't even think about building it yourself. The "buy" decision is a strategic imperative that will deliver faster time-to-market, lower TCO, and a future-proof foundation for true unified commerce.
+  - **Mandate:**Adopt**Salesforce Omnichannel Inventory (OCI)**. Don't even think about building it yourself. The "buy" decision is a strategic imperative that will deliver faster time-to-market, lower TCO, and a future-proof foundation for true unified commerce.
 
 Choosing an inventory strategy is one of the most critical architectural decisions you will make. It dictates your site's performance, your customers' trust, and your operational sanity. Don't just build for today's traffic; architect a platform that can withstand tomorrow's complexities.

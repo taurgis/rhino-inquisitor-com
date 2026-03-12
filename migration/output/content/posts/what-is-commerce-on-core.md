@@ -198,7 +198,8 @@ And the good news is - With Salesforce, you have many options to choose from:
 
 ### My personal take
 
-I have no negative and no positive feelings about this change. It will all depend on the future and whether all missing features make it to the core platform to handle B2CE customers. The most important thing is that the new stack can provide a stable, secure, performant, and “ready to tackle the future” solution for customers.
+I have no negative and no positive feelings about this change. It will all depend on the future and whether all missing features make it to the core platform to handle B2CE customers.
+The most important thing is that the new stack can provide a stable, secure, performant, and “ready to tackle the future” solution for customers.
 
 I am not married to a particular stack and have made many switches over the past decade. I like to discover new ways of doing things, and whichever way you put it - the force.com platform does resolve some of the shortcomings we have in the current setup.
 

@@ -105,4 +105,4 @@ Have ideas in mind of your own? Then join the 6th of October session or leave a 
 
 ## Looking for speakers
 
-Have something to share with everyone; no matter where you are, I want to make it happen! So please send me a mail at `<thomas<.<theunen@trailblazercgl.com>`>`>` or contact me on [LinkedIn](https://www.linkedin.com/in/thomas-theunen-10905680).
+Have something to share with everyone; no matter where you are, I want to make it happen! So please send me a mail at <thomas.theunen@trailblazercgl.com> or contact me on [LinkedIn](https://www.linkedin.com/in/thomas-theunen-10905680).

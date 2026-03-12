@@ -188,7 +188,8 @@ While it might seem clever to make your cache key highly specific and unique, th
 
 **Striking the right balance is key.** (pun intended)
 
-I've also seen situations where the effort spent retrieving extensive data from the database to craft the key ends up cancelling out the performance benefits of custom caching. After all, if generating the key takes longer than the cache saves, it's time to rethink the approach.
+I've also seen situations where the effort spent retrieving extensive data from the database to craft the key ends up cancelling out the performance benefits of custom caching.
+After all, if generating the key takes longer than the cache saves, it's time to rethink the approach.
 
 ## The Serialization Conundrum: Caching API Objects vs. POJOs
 
@@ -245,7 +246,7 @@ With the theory and mechanics established, let's apply them to the most common s
 
 This is the poster child for custom caches. Your site needs to display real-time shipping estimates, user-generated reviews, or social media feeds from a third-party service. Making a live HTTP call on every page load is a recipe for a slow, unreliable site. By wrapping the service call in the "get-or-load" pattern, you can cache the response for a few minutes, drastically reducing latency and insulating your site from temporary blips in the third-party service's availability.
 
-Remember, there's _[another option](/third-party-api-caching-in-commerce-cloud/)_ I mentioned in a previous article: using the ServiceRegistry for caching.
+Remember, there's_[another option](/third-party-api-caching-in-commerce-cloud/)_I mentioned in a previous article: using the ServiceRegistry for caching.
 
 ### Use Case 2: Caching Expensive Computations
 
@@ -269,7 +270,7 @@ Now for the most crucial section of this guide. Understanding these pitfalls is 
 
 Let this be stated as clearly as possible: **There is no reliable, built-in mechanism to invalidate a single custom cache key across all application servers in a production environment.**
 
-The `cache.invalidate(key)` method is a _trap _. It is functionally useless for ensuring data consistency on a multi-server POD. It only clears the key on the _ single application server that happens to execute the code_. The other 2, 5, or 10 servers in the instance will continue to happily serve the stale data until their TTL expires or a global event occurs.
+The `cache.invalidate(key)` method is a _trap _. It is functionally useless for ensuring data consistency on a multi-server POD. It only clears the key on the_ single application server that happens to execute the code_. The other 2, 5, or 10 servers in the instance will continue to happily serve the stale data until their TTL expires or a global event occurs.
 
 The only ways to reliably clear a custom cache across an entire instance are these "sledgehammer" approaches :
 

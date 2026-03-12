@@ -47,7 +47,7 @@ But unfortunately, there is no track available for anyone wanting to get some Sa
 
 Looking at the ecosystem's growth within Salesforce B2C Commerce Cloud, I feel there could be room to add a Bootcamp for Salesforce B2C Commerce Cloud to this list.
 
-**Note:** Such a Bootcamp generally costs around $3000. But for a 4-day on-site training and two certification attempts, it is well worth it.
+**Note**: Such a Bootcamp generally costs around $3000. But for a 4-day on-site training and two certification attempts, it is well worth it.
 
 ## Wednesday, April 27
 
@@ -78,7 +78,7 @@ Studies show fast storefronts convert better than slow ones. Headless storefront
 
 We will focus on integration from a beginner's mind. If you want to learn about integration from the beginning to a point where you start understanding the big picture, this session is for you.
 
-**Note:** This session is not aimed at Salesforce B2C Commerce Cloud.
+**Note:**__This session is not aimed at Salesforce B2C Commerce Cloud.
 
 ### [Ship a React Storefront on B2C Commerce APIs in 5 Minutes](https://reg.salesforce.com/flow/plus/trailblazerdx22/sessioncatalog/page/sessioncatalog/session/1643413378171001GApD)
 
@@ -99,7 +99,7 @@ Developing with B2C Commerce can be a daunting experience for new users. We'll u
 
 Join this Ask Me Anything session to connect with Salesforce developer advocates and engineers and get your questions about continuous integration answered.
 
-**Note:** This session is not aimed at Salesforce B2C Commerce Cloud.
+**Note:**__This session is not aimed at Salesforce B2C Commerce Cloud.
 
 ## Thursday, April 28
 

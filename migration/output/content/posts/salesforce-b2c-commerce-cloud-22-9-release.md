@@ -38,7 +38,7 @@ Some will still wish the limit was higher, but this is still a considerable impr
 
 A big update to Page Designer as it will now be possible to copy and paste components (up to 10). Not only will this be possible in the same page, but to other pages - even across browser tabs!
 
-Idea This [feature](https://ideas.salesforce.com/s/idea/a0B8W00000GdYHjUAN/page-designer-add-ability-to-copypaste-components) was initially submitted by [Ryan Rubis](https://www.linkedin.com/in/ryanrubis/). `<https://youtu.be/jYaOZQcWHLI>`
+Idea This [feature](https://ideas.salesforce.com/s/idea/a0B8W00000GdYHjUAN/page-designer-add-ability-to-copypaste-components) was initially submitted by [Ryan Rubis](https://www.linkedin.com/in/ryanrubis/). <https://youtu.be/jYaOZQcWHLI>
 
 ### Target components to a specific locale in Page Designer
 
@@ -100,7 +100,7 @@ In August, someone at Salesforce has been cleaning house at the "[Known Issues](
 - Fixes an out of order issue with features
 - delete cartridges prior to unzip to replace all files by [@sandragolden](https://github.com/sandragolden) in [#78](https://github.com/SalesforceCommerceCloud/b2c-tools/pull/78)
 - adds runAsScript method to execution migration scripts directly by [@clavery](https://github.com/clavery) in [#80](https://github.com/SalesforceCommerceCloud/b2c-tools/pull/80)
-- see `examples/run-current-file.js`
+  - see `examples/run-current-file.js`
 
 ### link\_beecloud\_ recaptcha (v2022.1.0)
 

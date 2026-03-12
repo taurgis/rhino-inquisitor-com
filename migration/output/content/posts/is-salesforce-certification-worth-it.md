@@ -15,7 +15,7 @@ tags:
   - trailhead
 author: Thomas Theunen
 ---
-A common question within Salesforce (and other ecosystems) is the value of being a [certified professional](/certifications-for-salesforce-b2c-commerce-cloud/). To get certified, you need to spend a substantial amount of time to prepare in some cases (I'm looking at you, the [Certified Technical Architects](https://www.salesforceben.com/become-a-salesforce-certified-technical-architect/) 😁.) And it isn't exactly free. Each attempt will set you back a few hundred dollars. In some cases, even a few thousand. I'm looking at you again, the CTA's. So it is understandable that new people to the ecosystem want to understand why they should make the investment (or the employer).
+A common question within Salesforce (and other ecosystems) is the value of being a [certified professional](/certifications-for-salesforce-b2c-commerce-cloud/).  To get certified, you need to spend a substantial amount of time to prepare in some cases (I'm looking at you, the [Certified Technical Architects](https://www.salesforceben.com/become-a-salesforce-certified-technical-architect/) 😁.) And it isn't exactly free. Each attempt will set you back a few hundred dollars. In some cases, even a few thousand. I'm looking at you again, the CTA's. So it is understandable that new people to the ecosystem want to understand why they should make the investment (or the employer).
 
 ## Is it worth it
 
@@ -83,7 +83,7 @@ Unfortunately, we live in a world where not everyone makes an effort to get cert
 
 ### Some certifications are just too easy
 
-I have accumulated five certifications and ten accreditations in the past five years. Some of these are relatively easy to pass. One (I won't say which) took me about 4 hours of preparation to part with a score of 100%. But I was in a summer competition hosted by Salesforce, and whoever got the most certifications would win a prize. This caused me to look for easy wins (I never cheated!) to get up in the rankings. Does that mean I am a subject matter expert in that area? Most definitely not! What does this prove? That I can study well. But I did learn a lot from this competition. I learned about specific features in more detail and about platforms I had never touched before within the Salesforce ecosystem (Yup, I'm talking about you, [Net Zero Cloud](https://www.salesforce.com/products/net-zero-cloud/overview/)).
+I have accumulated five certifications and ten accreditations in the past five years. Some of these are relatively easy to pass. One (I won't say which) took me about 4 hours of preparation to part with a score of 100%. But I was in a summer competition hosted by Salesforce, and whoever got the most certifications would win a prize. This caused me to look for easy wins (I never cheated!) to get up in the rankings. Does that mean I am a subject matter expert in that area? Most definitely not! What does this prove? That I can study well.  But I did learn a lot from this competition. I learned about specific features in more detail and about platforms I had never touched before within the Salesforce ecosystem (Yup, I'm talking about you, [Net Zero Cloud](https://www.salesforce.com/products/net-zero-cloud/overview/)).
 
 ## Conclusion
 

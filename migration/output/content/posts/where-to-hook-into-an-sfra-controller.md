@@ -53,7 +53,8 @@ The "home.js" controller file of SFRA
 
 Before we get started, we need to ensure we are on the same page on what a "[route](https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/blob/1cb2b329fa281333403bb2681b939e727aee809a/cartridges/modules/server/route.js)" is.
 
-In the context of SFRA (Storefront Reference Architecture) of SFCC (Salesforce Commerce Cloud), a controller route is a mapping between a URL and a specific controller function. When a user navigates to a specific URL within the SFRA storefront, the controller function, a key element of the SFRA architecture, handles the request and generates the appropriate response (usually ISML or JSON).
+In the context of SFRA (Storefront Reference Architecture) of SFCC (Salesforce Commerce Cloud), a controller route is a mapping between a URL and a specific controller function.
+When a user navigates to a specific URL within the SFRA storefront, the controller function, a key element of the SFRA architecture, handles the request and generates the appropriate response (usually ISML or JSON).
 
 The standard available options, and the most common ones, are:
 

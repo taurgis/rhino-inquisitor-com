@@ -39,7 +39,7 @@ Before diving headfirst into the Salesforce B2C Commerce Cloud development world
 
 A Sandbox is essentially a mini version of your production environment, where you can try out different features, configurations, and customisations without affecting the live site. It's a safe space for developers where you can test and iterate on your ideas (or development of project tickets) without any risk of disrupting the customer experience. So, before you start coding away, set up your Sandbox and experiment with confidence.
 
-**A word of warning:** If you are not part of a partner or customer company, getting one can be challenging.
+**A word of warning**: If you are not part of a partner or customer company, getting one can be challenging.
 
 [Find out here how to get your hands on one!](/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/)
 

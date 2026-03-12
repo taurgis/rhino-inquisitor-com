@@ -67,7 +67,7 @@ var requestBodyJson = JSON.parse(requestBody);
 
 ![Border API security check result shown before the request-body error-handling example.](/media/2023/security-check-border-api-security-5695d3d810.jpg)
 
-When working with data being submitted to the server, handling any errors that might occur, such as malformed JSON or an invalid request, is essential. You can use a try-catch block to catch any exception thrown during the processing of the request body. Here's a basic example of how to handle errors:
+When working with data being submitted to the server, handling any errors that might occur, such as malformed JSON or an invalid request, is essential. You can use a try-catch block to catch any exception thrown during the processing of the request body.  Here's a basic example of how to handle errors:
 
 ```js
 var requestBody = request.httpParameterMap.requestBodyAsString;

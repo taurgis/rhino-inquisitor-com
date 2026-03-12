@@ -22,7 +22,7 @@ So, you want to set a website live on Salesforce B2C Commerce Cloud. It is all r
 
 Not to worry! The ECDN is not rocket science, far from it. Once you have set up your first vanity domain, the second one will be peanuts.
 
-**Update August 5, 2022:** Added some warnings to this post with things to keep in mind. Thank you, [Sachin Upmany,](https://www.linkedin.com/in/sachin-upmanyu-82428828/) for the reminder that this information is also essential in these guides!
+**Update August 5, 2022:**__Added some warnings to this post with things to keep in mind. Thank you, [Sachin Upmany,](https://www.linkedin.com/in/sachin-upmanyu-82428828/) for the reminder that this information is also essential in these guides!
 
 ## What is the eCDN
 
@@ -34,7 +34,8 @@ Ok, ok. The sentence above might not explain what the eCDN is and does.
 
 To put it in simple terms: it's [Cloudflare](https://www.cloudflare.com/)! If you have been active in web development for a while, you probably are already familiar with the service.
 
-For the most part, Salesforce has put itself in between and taken complete control of the Cloudflare configuration. But luckily, they have left us with a few buttons and switches to fiddle with in the Business Manager.
+For the most part, Salesforce has put itself in between and taken complete control of the Cloudflare configuration.
+But luckily, they have left us with a few buttons and switches to fiddle with in the Business Manager.
 
 [![Embedded CDN settings for the my-domain.com storefront.](/media/2022/ecdn-overview-fea46a41af.png)](/media/2022/ecdn-overview-fea46a41af.png)
 
@@ -60,11 +61,12 @@ To point the domain to Salesforce B2C Commerce Cloud, you need access to the dom
 
 [![DNS record editor for the vanity domain.](/media/2022/add-dns-record-domain-com-245d883c43.jpg)](/media/2022/add-dns-record-domain-com-245d883c43.jpg)
 
-APEX Domain Pointing / Naked Domain It is essential to know that the APEX Domain or Naked Domain does not support CNAME records.
+> [!NOTE]
+> **APEX Domain Pointing / Naked Domain:** It is essential to know that the APEX Domain or Naked Domain does not support CNAME records.
 
 Usually, a DNS provider has solutions for this, but this needs to be considered. In a worst-case scenario, you need to set up a "mini-server" to do the redirection of the naked domain to the www subdomain. You can find some [information on Salesforce Help](https://help.salesforce.com/s/articleView?id=000361629&type=1) on this topic.
 
-With a naked domain we mean **`<https://mybrand.com**>` (without the www). × Dismiss alert
+With a naked domain we mean **<https://mybrand.com>** (without the www).
 
 ### Get your SSL certificates
 
@@ -75,7 +77,8 @@ To do the configuration later, you need the following:
 - The certificate
 - The private key
 
-Note: If you are unfamiliar with how certificates can be obtained, [a lot of helpful information](https://letmegooglethat.com/?q=how+to+get+a+ssl+certificate) is floating around on the net.
+_
+Note: If you are unfamiliar with how certificates can be obtained, [a lot of helpful information](https://letmegooglethat.com/?q=how+to+get+a+ssl+certificate) is floating around on the net._
 
 ## Alias Configuration
 
@@ -95,11 +98,15 @@ An example config you can use to get you up and running quickly:
 
 Once an Alias is configured on at least one site in your production environment, we can continue to the next step!
 
-Alias Configuration Setting up this configuration can be a pain in the \*\*\*, so be prepared to fiddle around with it for a few hours if you are unfamiliar with it, especially if you are handling multiple sites with multiple domains.
+> [!WARNING]
+> **Alias Configuration:** Setting up this configuration can be a pain in the \*\*\*, so be prepared to fiddle around with it for a few hours if you are unfamiliar with it, especially if you are handling multiple sites with multiple domains.
 
 ## Add the domain to the eCDN
 
-Use the correct environment Setting up the eCDN is done on the production instance! Zone Creation with care Once a zone is created, this can not be undone, and you will have to go through support to be able to undo this.
+> [!WARNING]
+> **Use the correct environment:** Setting up the eCDN is done on the production instance!
+> [!WARNING]
+> **Zone Creation with care:** Once a zone is created, this can not be undone, and you will have to go through support to be able to undo this.
 
 To get to the eCDN configuration, go to
 

@@ -33,7 +33,8 @@ However, there is one drawback to the SCAPI: not all APIs that exist in the OCAP
 
 Let's keep score, shall we?
 
-**OCAPI:**1**SCAPI:** 0
+**OCAPI:** 1
+**SCAPI:** 0
 
 ## New APIs
 
@@ -43,7 +44,8 @@ SCAPI now offers a wide range of APIs for developers to use, allowing them to bu
 
 In the future, it is clear that any significant new APIs will only be added to the SCAPI, which aligns with the platform's strategy.
 
-**OCAPI:**1**SCAPI:** 1
+**OCAPI:** 1
+**SCAPI:** 1
 
 ## SLAS
 
@@ -53,12 +55,13 @@ It's an authentication orchestration service that can handle various scenarios w
 
 - **B2C Authentication:** Normal login with Salesforce B2C Commerce Cloud
 - **Social Login** (Third-party login): Login with platforms such as Google and Facebook
-- **Passwordless Login:** Login via e-mail or SMS
+- **Passwordless** **Login:** Login via e-mail or SMS
 - **Trusted Agent:** Have a third-party person or system login on behalf of a customer
 
 Although it is possible to use this service in conjunction with OCAPI, it is more part of the SCAPI offering, so let us give a point to SCAPI in this case.
 
-**OCAPI:**1**SCAPI:** 2
+**OCAPI:** 1
+**SCAPI:** 2
 
 ## PWA Kit
 
@@ -70,7 +73,8 @@ It's no secret that the Composable Storefront is the primary driver for these in
 
 Another point to SCAPI!
 
-**OCAPI:**1**SCAPI:** 3
+**OCAPI:** 1
+**SCAPI:** 3
 
 Oh my ... things aren't looking proper for the OCAPI.
 
@@ -82,15 +86,18 @@ The architectural setups of the OCAPI and SCAPI options are entirely different.
 
 The OCAPI runs on the back end, the exact location as the Business Manager, [SFRA/SG](/sitegenesis-vs-sfra-vs-pwa/) storefront, and your custom code.
 
-~~On the other hand, the SCAPI is a MuleSoft instance managed by Salesforce (no, you can't access this - but I know you want to). ~~_In the current architecture, CloudFlare workers have taken over the role that was previously played by MuleSoft._
+~~On the other hand, the SCAPI is a MuleSoft instance managed by Salesforce (no, you can't access this - but I know you want to).
+~~_In the current architecture, CloudFlare workers have taken over the role that was previously played by MuleSoft._
 
-Although the SCAPI has an extra layer in between, it gives Salesforce the flexibility to make their architecture more flexible (and composable) by allowing them to have one point of entry while being able to upgrade, fix, or replace parts without anyone noticing. ~~However, this setup has some downsides, such as more network hops between the systems, resulting in [network](https://medium.com/salesforce-architects/a-day-in-the-life-of-a-composable-storefront-request-f2b39b957a39) delays that need to be considered.~~ _By replacing MuleSoft with CloudFlare, the amount of network delays introduced should be minimal!_
+Although the SCAPI has an extra layer in between, it gives Salesforce the flexibility to make their architecture more flexible (and composable) by allowing them to have one point of entry while being able to upgrade, fix, or replace parts without anyone noticing.
+~~However, this setup has some downsides, such as more network hops between the systems, resulting in [network](https://medium.com/salesforce-architects/a-day-in-the-life-of-a-composable-storefront-request-f2b39b957a39) delays that need to be considered.~~ _By replacing MuleSoft with CloudFlare, the amount of network delays introduced should be minimal!_
 
 The OCAPI wins for its simplicity, but the SCAPI wins for its future-proof architecture. Nevertheless, this future-proof architecture can only work if it has been set up correctly, and we don't have any view into that black box.
 
 So, for me, both of them get a point here!
 
-**OCAPI:**2**SCAPI:** 4
+**OCAPI:** 2
+**SCAPI:** 4
 
 ## Rate Limits
 
@@ -102,9 +109,11 @@ Contract Info: On a side note, all OCAPI calls are counted as "Storefront Reques
 
 The SCAPI has implemented a new "Load Shedding" system to replace rate limits. This system provides a comprehensive view of what is happening behind the scenes.
 
-Not all APIs are the same Not all SCAPI endpoints work with this new system, but some are still protected with set rate limits.
+> [!NOTE]
+> **Not all APIs are the same:** Not all SCAPI endpoints work with this new system, but some are still protected with set rate limits.
 
-**OCAPI:**2**SCAPI:** 5
+**OCAPI:** 2
+**SCAPI:** 5
 
 ## Conclusion
 

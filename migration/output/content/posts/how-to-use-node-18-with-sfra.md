@@ -71,7 +71,7 @@ $env:NODE_OPTIONS = "--openssl-legacy-provider"
 It is possible to update your package.json, depending on your (and the teams) setup:
 
 ```text
-"scripts": {
+                    "scripts": {
   "test": "export NODE_OPTIONS=--openssl-legacy-provider && sgmf-scripts --test test/unit/**/*.js",
   "cover": "export NODE_OPTIONS=--openssl-legacy-provider && sgmf-scripts --cover 'test/unit'",
   "test:integration": "export NODE_OPTIONS=--openssl-legacy-provider && sgmf-scripts --integration 'test/integration/**/*.js'",

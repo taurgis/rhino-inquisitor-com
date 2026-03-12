@@ -46,7 +46,7 @@ Hard vs Soft Navigation It is crucial for you to understand the distinction betw
 
 A hard navigation refers to the traditional, full loading of a webpage, which occurs when a user first lands on a site. In contrast, a soft navigation happens within an SPA when new content is loaded dynamically without a full page refresh, a process managed by JavaScript.
 
-**The critical point to recognize is that CrUX data, which is vital for assessing real-user web performance and Core Web Vitals, is primarily based on hard navigations. Consequently, for an SPA, only the initial page load is typically recorded by CrUX, while all subsequent, faster soft navigations are not taken into account, potentially leading to a skewed and incomplete understanding of the application's overall user experience**.
+**The critical point to recognize is that CrUX data, which is vital for assessing real-user web performance and Core Web Vitals, is primarily based on hard navigations. Consequently, for an SPA,** **only the initial page load is typically recorded by CrUX, while all subsequent, faster soft navigations are not taken into account, potentially leading to a skewed and incomplete understanding of the application's overall user experience**.
 
 Here is an [official article on the matter](https://developer.chrome.com/docs/web-platform/soft-navigations-experiment)!
 
@@ -109,7 +109,8 @@ When a user first lands on your site, the PWA Kit uses Server-Side Rendering (SS
 
 The huge win here is for your **Largest Contentful Paint (LCP)**. The browser gets a meaningful page instantly, instead of a blank screen and a giant JavaScript file it has to figure out.
 
-The **Managed Runtime** then takes this to the next level. It has a built-in Content Delivery Network (CDN) that can cache these server-rendered pages. If another user requests the same page, the CDN can serve the cached version instantly, completely bypassing the server. A cached SSR response is the fastest you can get, leading to stellar LCP and Time to First Byte (TTFB) scores.
+The **Managed Runtime** then takes this to the next level. It has a built-in Content Delivery Network (CDN) that can cache these server-rendered pages.
+If another user requests the same page, the CDN can serve the cached version instantly, completely bypassing the server. A cached SSR response is the fastest you can get, leading to stellar LCP and Time to First Byte (TTFB) scores.
 
 ### The Main Event: Hydration and Client-Side Interactivity
 
@@ -151,8 +152,8 @@ How you fetch data is critical for a fast LCP and a snappy experience.
 - **Optimise getProps for Legacy Projects:** Stuck on an older project? No problem. Optimise your getProps calls:
 
 - **Be a Minimalist:** Return only the exact data your component needs for its initial render. Don't send the whole API response object. This keeps your HTML payload small.
-- **Go Parallel:** If a page needs data from multiple APIs, use Promise.all to fire off those requests at the same time. This is way faster than waiting for them one by one.
-- **Handle Errors with Finesse:** For critical errors (such as a product not found), throw an HTTPError to display a proper error page. For non-critical stuff, pass an error flag in props so the component can handle it without crashing.
+  - **Go Parallel:** If a page needs data from multiple APIs, use Promise.all to fire off those requests at the same time. This is way faster than waiting for them one by one.
+  - **Handle Errors with Finesse:** For critical errors (such as a product not found), throw an HTTPError to display a proper error page. For non-critical stuff, pass an error flag in props so the component can handle it without crashing.
 - **Fetch Non-Essential Data on the Client:** Anything that's not needed for the initial, above-the-fold view (such as reviews or related products) should be fetched on the client side within an useEffect hook. This enables your initial page to load faster, improving TTFB and LCP.
 
 ### Whip Your JavaScript and Components into Shape
@@ -164,8 +165,8 @@ Your client-side React code is the most significant factor for INP. Time to opti
 - **Stop Wasting Renders:** Unnecessary re-renders are a top cause of poor INP. Use React's memoisation hooks like a pro:
 
 - **React.memo:** Wrap components in React.memo to stop them from re-rendering if their props haven't changed. Perfect for simple, presentational components.
-- **useCallback:** When you pass functions as props to memoised children, wrap them in useCallback. This maintains the function's reference stability, preventing the child from re-rendering unnecessarily.
-- **useMemo:** Use useMemo for expensive calculations. This caches the result so it's not recalculated on every single render.
+  - **useCallback:** When you pass functions as props to memoised children, wrap them in useCallback. This maintains the function's reference stability, preventing the child from re-rendering unnecessarily.
+  - **useMemo:** Use useMemo for expensive calculations. This caches the result so it's not recalculated on every single render.
 - **Be Smart with State:** The Context API is great, but be careful. Any update to a context re-renders _all_ components that use it. For complex states, break your contexts into smaller, logical pieces (like a UserContext and a CartContext) to keep re-renders contained.
 
 ### Become a Caching Ninja with Managed Runtime
@@ -175,13 +176,13 @@ Getting your CDN cache hit ratio as high as possible is the single most effectiv
 - **Set Granular Cache-Control Headers:**
 
 - **Per-Page:** Inside a page's getProps function, you can set a custom cache time. A static "About Us" page can be cached for days (res.set('Cache-Control', 'public, max-age=86400')), while a product page might be cached for 15-30 minutes.
-- **Use stale-while-revalidate:** This header is pure magic. Cache-Control: s-maxage=600, stale-while-revalidate=3600 tells the CDN to serve a cached version for 10 minutes. If a request comes in after that, it serves the _stale_ content instantly (so the user gets a fast response) and then fetches a fresh version in the background. It's the perfect balance of speed and freshness.
+  - **Use stale-while-revalidate:** This header is pure magic. Cache-Control: s-maxage=600, stale-while-revalidate=3600 tells the CDN to serve a cached version for 10 minutes. If a request comes in after that, it serves the _stale_ content instantly (so the user gets a fast response) and then fetches a fresh version in the background. It's the perfect balance of speed and freshness.
 
 - **Build Cache-Friendly Components:** To be [cached](/caching-in-the-sfcc-composable-storefront/), your server-rendered HTML needs to be generic for all users. Any personalised content (like the user's name or cart count) must _only_ be rendered on the client. A simple trick is to wrap it in a check:
 
-{typeof window!== 'undefined' && `<MyPersonalizedComponent />`}.
+    {typeof window!== 'undefined' && `<MyPersonalizedComponent />`}.
 
-This ensures it only renders in the browser.
+    This ensures it only renders in the browser.
 
 - **Filter Useless Query Parameters:** Marketing URLs often contain "unnecessary" parameters, such as gclid and utm\_tags, which make every URL unique and prevent your cache from being effective. Edit the [processRequest](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/maximizing-your-cache-hit-ratio.html#filter-query-strings) function in app/request-processor.js to strip these parameters _before_ checking the cache. This allows thousands of different URLs to access the same cached page.
 - **Cache Your APIs:** By default, proxied requests aren't cached by the CDN. This setting lets you use proxy requests in your code without worrying about accidentally caching responses. If you want a proxied request to be cached by the CDN, simply change the path prefix from proxy to caching.
@@ -225,8 +226,8 @@ You have a powerful set of free tools to become a performance detective.
 - **Chrome DevTools:**
 
 - **Performance Panel:** This is your primary tool for identifying INP issues. Record a page load or interaction to get a "flame chart" of everything the main thread is doing. Look for long tasks (marked with a red triangle) to find the exact JavaScript functions that are causing lag.
-- **Network Panel:** Use this to inspect all network requests. Check your Cache-Control headers, analyse asset sizes, and use "Request blocking" to temporarily disable third-party scripts to see how much damage they're doing.
-- **Application Panel:** This is your PWA command centre. Inspect your manifest, check your service worker's status, clear caches, and simulate being offline to test your app's reliability.
+  - **Network Panel:** Use this to inspect all network requests. Check your Cache-Control headers, analyse asset sizes, and use "Request blocking" to temporarily disable third-party scripts to see how much damage they're doing.
+  - **Application Panel:** This is your PWA command centre. Inspect your manifest, check your service worker's status, clear caches, and simulate being offline to test your app's reliability.
 
 | Symptom / Poor Metric | Likely PWA Kit Cause(s) | Recommended Diagnostic Tool(s) | Actionable Solution(s) |
 | --- | --- | --- | --- |

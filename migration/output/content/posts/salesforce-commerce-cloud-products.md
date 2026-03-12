@@ -66,7 +66,8 @@ The main idea of this product is to create a customer-facing website with just c
 
 But let me get back to that "confusion" part. Do you see what name it has in the screenshot? It is also called Salesforce **B2C Commerce** Cloud. Both products target B2C customers but have a different angle on how to do this.
 
-D2C (B2C Commerce) aims to give already Salesforce B2B Commerce clients an easy way to connect directly to their consumers as a secondary channel. At the same time, Salesforce B2C Commerce Cloud is meant as a "primary" selling channel for Businesses that see B2B as a secondary channel.
+D2C (B2C Commerce) aims to give already Salesforce B2B Commerce clients an easy way to connect directly to their consumers as a secondary channel.
+At the same time, Salesforce B2C Commerce Cloud is meant as a "primary" selling channel for Businesses that see B2B as a secondary channel.
 
 I hope that clarifies the "confusion" regarding B2C Commerce in the Salesforce space. Or are you even more confused now? Let me know on the known social channels!
 

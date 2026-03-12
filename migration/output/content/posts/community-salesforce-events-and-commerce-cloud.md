@@ -124,7 +124,7 @@ To get Commerce Cloud content in these events, people must submit topics when th
 
 So what are you waiting for? Do you want to share your expertise about Salesforce B2C Commerce Cloud? Submit your topics to these events once the gates for the speakers are opened!
 
-**Hint:** Subscribe to the newsletters and follow the official Twitter channels to get notified when the "Call to speakers" is announced.
+**Hint:**  Subscribe to the newsletters and follow the official Twitter channels to get notified when the "Call to speakers" is announced.
 
 ### Open your mind
 

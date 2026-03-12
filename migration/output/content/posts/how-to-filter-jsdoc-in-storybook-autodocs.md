@@ -155,7 +155,7 @@ Here, we use Storybook's built-in Markdown to display the content by removing ev
 Next, we replace the `<Description/>` in the Docs.page of Storybook with our custom `<ModifiedDescription/>` component.
 
 ```html
-const preview = {
+                 const preview = {
 parameters: {
     docs: {
         page: () => (

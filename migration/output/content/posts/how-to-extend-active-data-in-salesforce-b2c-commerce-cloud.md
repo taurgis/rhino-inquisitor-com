@@ -57,7 +57,7 @@ There are two System Objects that we can extend:
 - [CustomerActiveData](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_customer_CustomerActiveData.html)
 - [ProductActiveData](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_catalog_ProductActiveData.html)
 
-In this case, we want to extend the Customer Active Data, so we head to: _Administration > Site Development > System Object Types > Customer Active Data _ On the "_ Attribute Definitions_" tab, we click "New" to start creating our new attributes.
+In this case, we want to extend the Customer Active Data, so we head to: _Administration > Site Development > System Object Types > Customer Active Data_ On the "_Attribute Definitions_" tab, we click "New" to start creating our new attributes.
 
 [![Customer Active Data system object with the physicalVisits attribute.](/media/2023/system-object-active-data-physicalvisits-84071d27a1.jpg)](/media/2023/system-object-active-data-physicalvisits-84071d27a1.jpg)
 
@@ -89,7 +89,7 @@ New Customer Active Data
 
 ### Step 3: Create the file to import
 
-SFCC understands what we want to send to the system by defining the feed. Now on to creating the file for import! A simple CSV file, with the data that our external system is generating.
+SFCC understands what we want to send to the system by defining the feed.  Now on to creating the file for import! A simple CSV file, with the data that our external system is generating.
 
 ```text
 ‎

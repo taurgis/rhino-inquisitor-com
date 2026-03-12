@@ -71,7 +71,7 @@ const Home = () => {
 ```
 
 > [!NOTE]
-> **Cdn:** Know that the CDN part of the Managed Runtime takes care of this caching mechanism. At the time of writing, this is CloudFront. The plan is to migrate to the eCDN for a generic architecture (Forward-Looking Statement).
+> **CDN:** Know that the CDN part of the Managed Runtime takes care of this caching mechanism. At the time of writing, this is CloudFront. The plan is to migrate to the eCDN for a generic architecture (Forward-Looking Statement).
 > [!NOTE]
 > **Default Cache Times:** Be aware that the default cache time is only 15 minutes, which is low. Consider changing this to a few hours!
 

@@ -55,7 +55,7 @@ The Account Manager got some love again at the end of October (after my [last re
 
 - **[Updated API Client List Page](https://help.salesforce.com/s/articleView?id=sf.b2c_rn_am_api_client_list_page_je.htm&type=5&language=en_US)**
 
-With the addition of two new columns and filters, the Account Manager API Client List page is now easier to use.
+    With the addition of two new columns and filters, the Account Manager API Client List page is now easier to use.
 
 ## New Ideas
 

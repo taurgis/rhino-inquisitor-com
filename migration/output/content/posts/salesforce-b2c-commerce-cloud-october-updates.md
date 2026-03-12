@@ -16,7 +16,7 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-We have just received the final release ([22.10](/salesforce-b2c-commerce-cloud-22-10/)) of the year. But that does not mean there are no updates to some APIs and cartridges. Let us have a look what has changed in the past month.
+We have just received the final release ([22.10](/salesforce-b2c-commerce-cloud-22-10/)) of the year. But that does not mean there are no updates to some APIs and cartridges.  Let us have a look what has changed in the past month.
 
 ## OCAPI & SCAPI
 

@@ -54,7 +54,7 @@ This update was moved from the [23.2](/salesforce-b2c-commerce-cloud-23-2/) rele
 
 > The Shopper Context feature toggle is now exposed in Business Manager. Use the toggle for each B2C Commerce instance you want to use the API.
 
-Before this 23.3 release, customer support had to be contacted to enable the Shopper Context API. The Shopper Context API ([part of SCAPI](https://developer.salesforce.com/docs/commerce/commerce-api/references/shopper-context?meta=Summary)) allows you to set context information in your headless implementations. It can be linked to customer groups (segmentation) to activate experiences associated with them, such as promotions.
+Before this 23.3 release, customer support had to be contacted to enable the Shopper Context API.  The Shopper Context API ([part of SCAPI](https://developer.salesforce.com/docs/commerce/commerce-api/references/shopper-context?meta=Summary)) allows you to set context information in your headless implementations. It can be linked to customer groups (segmentation) to activate experiences associated with them, such as promotions.
 
 ### SLAS Admin UI Update
 
@@ -171,5 +171,5 @@ The month of February keeps giving new (public) repositories. And this time, one
 
 - improve debug logging by [@clavery](https://github.com/clavery) in [#8](https://github.com/SalesforceCommerceCloud/plugin_passwordlesslogin/pull/8)
 - replace jsonBasket with SCAPI merge basket by [@sandragolden](https://github.com/sandragolden) in [#7](https://github.com/SalesforceCommerceCloud/plugin_passwordlesslogin/pull/7)
-- replaced the use of the JSON basket in a profile custom attribute with SCAPI [mergeBasket](https://developer.salesforce.com/docs/commerce/commerce-api/references/shopper-baskets?meta=mergeBasket)
-- updated README to list out all the API calls required, indicating differences if you are using `plugin _slas` with a **_ public _**SLAS client or using `plugin_ passwordless` on its own without plugin\_slas, using a**_ private_** SLAS client
+  - replaced the use of the JSON basket in a profile custom attribute with SCAPI [mergeBasket](https://developer.salesforce.com/docs/commerce/commerce-api/references/shopper-baskets?meta=mergeBasket)
+  - updated README to list out all the API calls required, indicating differences if you are using `plugin _slas` with a **_ public _**SLAS client or using `plugin_ passwordless` on its own without plugin\_slas, using a**_ private_** SLAS client

@@ -289,7 +289,7 @@ Find unused resource keys in properties files in a Salesforce Commerce Cloud pro
 
 ### WebDAV Bulk Transfer
 
-This tool is designed to bulk download and upload files through WebDAV. This tool can also transfer files from a WebDAV server to another (mixing download and upload methods) in one command. By the way, the tool is designed to \*handle files recursively (recursive option) \*upload only files that does not exists on the target server (onlynewfiles option) **Author:** Jordane Bachelet
+This tool is designed to bulk download and upload files through WebDAV. This tool can also transfer files from a WebDAV server to another (mixing download and upload methods) in one command. By the way, the tool is designed to \* handle files recursively (recursive option) \*upload only files that does not exists on the target server (onlynewfiles option) **Author:** Jordane Bachelet
 
 [Go to repository](https://bitbucket.org/jordanebachelet/webdav-bulk-transfer/src/master/)
 

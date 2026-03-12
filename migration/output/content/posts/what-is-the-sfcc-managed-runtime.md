@@ -70,7 +70,7 @@ Developers working with Salesforce B2C Commerce Cloud can leverage this runtime 
 Salesforce offers [a range of APIs](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/using-the-managed-runtime-api.html) that developers can use to interact with the platform, including:
 
 1. **Managed Runtime APIs:** This API allows developers to manage bundles, environments, and deployments within their projects.
-1. **Admin APIs:** This API provides access to administrative functions, such as managing users, organisations, and projects.
+1. **Admin** **APIs:** This API provides access to administrative functions, such as managing users, organisations, and projects.
 
 These APIs make setting up CI/CD pipelines and automating specific processes much easier!
 

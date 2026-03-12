@@ -80,7 +80,7 @@ A Range2Filter allows you to restrict search results to hits where the first ran
 - `contained`: `R1` is contained in `R2`
 
 ```text
-"query" : {
+                  "query" : {
      "filtered_query": {
         "filter": {
              "range2_filter": {

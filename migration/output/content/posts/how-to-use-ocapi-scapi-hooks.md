@@ -64,7 +64,7 @@ Custom APIs, on the other hand, allow you to create and expose entirely new, net
 
 The introduction of Custom APIs, especially with the 23.9 release, was a game-changer, moving us beyond the old workarounds of trying to tweak existing endpoints to serve entirely new purposes.
 
-Choosing the wrong tool leads to technical debt.
+_Choosing the wrong tool leads to technical debt._
 
 Trying to shoehorn new functionality into an existing hook results in convoluted, hard-to-maintain code that compromises the original intent of the endpoint. Make the right architectural choice _before_ you write a single line of code.
 
@@ -74,11 +74,11 @@ Trying to shoehorn new functionality into an existing hook results in convoluted
 
 SCAPI and OCAPI hooks come in three main flavours, each with a distinct role in the request lifecycle. Understanding their specific purpose and limitations is crucial to using them correctly.
 
-- **`before&lt; HTTP Method&gt;`:** This hook executes _before_ the server performs its main processing. Its primary role is to validate input and preprocess the incoming request document. This is your first line of defence, where you can perform status checks, apply additional filtering logic, or validate data before it ever touches the core system objects.
+- **`before&lt;HTTP Method&gt;`:** This hook executes _before_ the server performs its main processing. Its primary role is to validate input and preprocess the incoming request document. This is your first line of defence, where you can perform status checks, apply additional filtering logic, or validate data before it ever touches the core system objects.
 
-- **`after&lt; HTTP Method&gt;`:** This hook executes _after _ the server's main logic has completed but_before_ the final response document is created. It operates on the modified Script API object (e.g., the `Basket` or `Order` object). This is the place for side effects and integrations, such as sending a newly created order to an external ERP, triggering a basket recalculation (`dw.order.calculate`), or performing change tracking.
+- **`after&lt;HTTP Method&gt;`:** This hook executes _after_the server's main logic has completed but _before_ the final response document is created. It operates on the modified Script API object (e.g., the `Basket` or `Order` object). This is the place for side effects and integrations, such as sending a newly created order to an external ERP, triggering a basket recalculation (`dw.order.calculate`), or performing change tracking.
 
-- **`modify&lt; HTTP Method&gt; Response`:**This is the final step in the chain. It executes _after _ the platform has already created the response document from the Script API object. Its sole purpose is to make final modifications to the response document, such as adding or removing custom attributes (c\_ fields) or cleaning up data before it's sent to the client. A critical point: this hook is**not** transactional. Attempting to modify a persistent Script API object here will result in an `ORMTransactionException` and an [HTTP 500 fault](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/customization.html)
+- **`modify&lt;HTTP Method&gt;Response`:**This is the final step in the chain. It executes _ after_the platform has already created the response document from the Script API object. Its sole purpose is to make final modifications to the response document, such as adding or removing custom attributes (c\_ fields) or cleaning up data before it's sent to the client. A critical point: this hook is** not** transactional. Attempting to modify a persistent Script API object here will result in an `ORMTransactionException` and an [HTTP 500 fault](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/customization.html)
 
 ## Not all APIs are made equal
 
@@ -103,7 +103,7 @@ The first step in writing hooks for our APIs is registering them with the server
 
 ### Create a “hooks.json” file
 
-We need to create a JSON file that describes which endpoints we want to customise called “hooks.json.” This file can be put anywhere in a cartridge. But in this case, we will put it in the root ( e.g. "my\_project/cartridges/my\_ cartridge/hooks.json ) as an example.
+We need to create a JSON file that describes which endpoints we want to customise called “hooks.json.” This file can be put anywhere in a cartridge. But in this case, we will put it in the root  ( e.g. "my\_project/cartridges/my\_ cartridge/hooks.json ) as an example.
 
 ```json
 {
@@ -210,7 +210,7 @@ Let's be crystal clear on the security context. Salesforce is responsible for se
 
 When a SCAPI request arrives, it's first authenticated and authorised by the gateway based on the client's Shopper Login and API Access Service (SLAS) token, along with its associated scopes. Only then is the request passed on for processing, which is where your hook executes. The hook script runs with powerful server-side permissions, and this is where the danger lies. A developer, focused on a simple task like adding a custom field, might implicitly trust that the initial gateway authorisation is sufficient. This is a critical mistake.
 
-Your hook script has direct access to sensitive Script API objects, such as `Order`, `Customer`, and `Basket`. Without its own internal checks, it can be manipulated. For example, a `PATCH` request `/orders/{order _id}` might be authorised by the gateway for the `orders` scope, but the gateway doesn't know if the authenticated user actually _owns_that specific `order_ id`. It's the hook's job to verify ownership. A hook that blindly trusts the data it receives creates a massive security hole. It can function as a "confused deputy," where an unprivileged user can make privileged calls through your code. The mantra must be: **re-authenticate and re-authorise within the hook.**
+Your hook script has direct access to sensitive Script API objects, such as `Order`, `Customer`, and `Basket`. Without its own internal checks, it can be manipulated. For example, a `PATCH` request  `/orders/{order _id}` might be authorised by the gateway for the `orders` scope, but the gateway doesn't know if the authenticated user actually _owns_that specific `order_ id`. It's the hook's job to verify ownership. A hook that blindly trusts the data it receives creates a massive security hole. It can function as a "confused deputy," where an unprivileged user can make privileged calls through your code. The mantra must be: **re-authenticate and re-authorise within the hook.**
 
 ### Never Trust, Always Verify: Authentication & Authorization in Hooks
 

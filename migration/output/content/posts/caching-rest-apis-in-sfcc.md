@@ -37,7 +37,7 @@ Before we start, we must understand that not all API endpoints support caching. 
 - [Site](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/shop/Resources/Site.html?cp=0_16_3_17)
 - [Stores](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/shop/Resources/Stores.html?cp=0_16_3_18)
 
-This is quite an extensive list and contains all the objects we would expect to support caching! Something to keep in mind Only GET calls can be cached. Something to keep in mind The Data API does not support caching at all.
+ This is quite an extensive list and contains all the objects we would expect to support caching! Something to keep in mind Only GET calls can be cached. Something to keep in mind The Data API does not support caching at all.
 
 ## Page Cache
 

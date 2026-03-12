@@ -25,7 +25,7 @@ So you want to be an [architect](/what-skills-do-i-need-as-a-sfcc-architect/), d
 
 But first things first, let us define what an architect is before we go any further.
 
-We will not be designing buildings. If that is why you are here, you came to the wrong blog!
+_We will not be designing buildings. If that is why you are here, you came to the wrong blog!_
 
 Let us first dig into the different types of architects. Do you look surprised? Yes, there are multiple types, each of which has a different role in this world.
 

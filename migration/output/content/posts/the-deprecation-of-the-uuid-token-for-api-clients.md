@@ -116,13 +116,15 @@ That is a lot more information to work with, which is why this change is happeni
 
 Before we get started, I do not work for Salesforce! So I will be making some assumptions here based on the small amount of information that has been shared.
 
-The change itself makes sense. Because the UUID does not contain much information, the Account Manager needs to "fill in the blanks" when doing an authentication call. This causes extra "strain" on the servers (probably additional database calls and processing) to fetch certain information and do validation.
+The change itself makes sense. Because the UUID does not contain much information, the Account Manager needs to "fill in the blanks" when doing an authentication call.
+This causes extra "strain" on the servers (probably additional database calls and processing) to fetch certain information and do validation.
 
 This change will cause the Account Manager load to drop, leaving more room for other, more important things. And in the end, make the solution more scalable for the future!
 
 ## When should we migrate
 
-Just be sure to contact your third-party integration teams about this change. Why? Because it needs to be verified if they can handle this longer token. We are going from 27 characters to more than a thousand, which could mean database changes need to be made to facilitate this change.
+Just be sure to contact your third-party integration teams about this change.
+Why? Because it needs to be verified if they can handle this longer token. We are going from 27 characters to more than a thousand, which could mean database changes need to be made to facilitate this change.
 
 Update ( 09/15/2022 ) Currently, not all Use Cases support JWT - and Salesforce is required to make changes on their end. This is (probably) why they have not yet communicated a timeline/deadline.
 

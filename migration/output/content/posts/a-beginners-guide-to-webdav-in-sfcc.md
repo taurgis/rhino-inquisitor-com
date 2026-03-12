@@ -59,14 +59,14 @@ A screenshot of the eCom Manager Role Permissions
 
 API clients engage in machine-to-machine communication and authenticate through an authorisation token [generated in the Account Manager](https://help.salesforce.com/s/articleView?id=cc.b2c_generate_api_client_id.htm&type=5). To get this authorisation token, an API client must present its unique `client-id` and `client-secret`. After successful authorisation, WebDAV permissions for the API client can be configured in Business Manager in the `WebDAV Client Permissions` module.
 
-Administration > Organization > WebDAV Client Permissions
+Administration >  Organization >  WebDAV Client Permissions
 
 This configuration involves creating a JSON document that accurately represents each API client's permissions over specific directories.
 
 For instance, an API client may have `read _write` permissions to the "`/impex/src/foo"` directory and `read` permission to the "`/impex/src/logs` and `/catalogs"` directories. The client\_ id and permissions (each having path and operation) must be clearly defined in this JSON document.
 
 ```text
-{
+                 {
 "clients":[
    {
       "client_id":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",

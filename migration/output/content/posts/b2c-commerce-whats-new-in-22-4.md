@@ -81,15 +81,15 @@ With this update, the following changes have happened:
 
 - **Search and sort by creation and last modified date:** Now, more data APIs allow you to utilize the create and last-modified dates.
 
-This change will make it a lot easier to acquire **delta** information!
+    This change will make it a lot easier to acquire **delta** information!
 
-The following [DATA APIs](https://documentation.b2c.commercecloud.salesforce.com/DOC3/topic/com.demandware.dochelp/OCAPI/current/usage/DataAPIResources.html?cp=0_16_4) have been extended:
+    The following [DATA APIs](https://documentation.b2c.commercecloud.salesforce.com/DOC3/topic/com.demandware.dochelp/OCAPI/current/usage/DataAPIResources.html?cp=0_16_4) have been extended:
 
-- Order Search
-- Product Search
-- Customer Search
-- Custom Object Search
-- Catalog Search
+  - Order Search
+  - Product Search
+  - Customer Search
+  - Custom Object Search
+  - Catalog Search
 - **[Guest Flag](https://documentation.b2c.commercecloud.salesforce.com/DOC3/index.jsp?topic=%2Fcom.demandware.dochelp%2FOCAPI%2Fcurrent%2Fshop%2FDocuments%2FOrder.html&anchor=id1520261250):** It is now easier to detect an order made by a guest checkout or a registered customer.
 
 ## Business Manager
@@ -122,7 +122,8 @@ But why use this option? Could you assign the master product to the category to 
 
 ~~The answer is no. When you assign the master, you include all of your Variation Groups (this shows all the swatches without custom development). With this option enabled, you can control which swatches show by assigning only the applicable Variation Groups.~~
 
-The above is not valid. I got lucky with the products I assigned during my test to match the swatches exactly, and it acts the same as you would assign the master. Does that mean that there are no differences? Probably not. I feel there will be slight changes in how the [SearchModel](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_catalog_ProductSearchHit.htm) represents products, and a good place to start looking is the "[Represented Products](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_catalog_ProductSearchHit.html#dw_catalog_ProductSearchHit_getRepresentedProducts_DetailAnchor)."
+The above is not valid. I got lucky with the products I assigned during my test to match the swatches exactly, and it acts the same as you would assign the master.
+Does that mean that there are no differences? Probably not. I feel there will be slight changes in how the [SearchModel](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_catalog_ProductSearchHit.htm) represents products, and a good place to start looking is the "[Represented Products](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_catalog_ProductSearchHit.html#dw_catalog_ProductSearchHit_getRepresentedProducts_DetailAnchor)."
 
 Have you experimented with this feature already and found differences? Share your findings in the comments!
 

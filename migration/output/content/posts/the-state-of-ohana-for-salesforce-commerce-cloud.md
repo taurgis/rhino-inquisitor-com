@@ -20,7 +20,8 @@ author: Thomas Theunen
 ---
 Within Salesforce, the Ohana (Hawaiian for Family) has a pretty significant meaning. Over the past decade, people passionate about Salesforce have built up an enormous community around the platform.
 
-The number of people helping each other every day on [Trailblazer Communities](https://trailhead.salesforce.com/trailblazer-community/groups?tab=myGroups), [Twitter](https://twitter.com/hashtag/Ohana), [Stackexchange](https://salesforce.stackexchange.com/), [OhanaSlack](https://meighanrockssf.com/2019/04/02/salesforce-ohana-slack/), and more is just amazing. But then again, how does this reflect on the Salesforce Commerce Cloud B2C community?
+The number of people helping each other every day on [Trailblazer Communities](https://trailhead.salesforce.com/trailblazer-community/groups?tab=myGroups), [Twitter](https://twitter.com/hashtag/Ohana), [Stackexchange](https://salesforce.stackexchange.com/), [OhanaSlack](https://meighanrockssf.com/2019/04/02/salesforce-ohana-slack/), and more is just amazing.
+But then again, how does this reflect on the Salesforce Commerce Cloud B2C community?
 
 ## Demandware
 

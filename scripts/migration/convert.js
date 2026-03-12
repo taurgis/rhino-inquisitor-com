@@ -24,13 +24,18 @@ const shortcodeNoteByTag = new Map([
   ['cmplz-document', 'Legacy Complianz document shortcode removed during migration. Recreate the required consent or cookie statement in Hugo before publishing.']
 ]);
 const looseAlertTypeByLabel = new Map([
+  ['alias configuration', 'warning'],
+  ['apex domain pointing / naked domain', 'note'],
   ['asynchronous', 'warning'],
   ['caution', 'warning'],
+  ['contract info', 'note'],
   ['deprecated', 'warning'],
   ['deprecation', 'warning'],
   ['important', 'warning'],
   ['limitations', 'warning'],
+  ['not all apis are the same', 'note'],
   ['removed', 'warning'],
+  ['server to server', 'warning'],
   ['warning', 'warning'],
   ['warnings', 'warning'],
   ['context', 'note'],
@@ -44,6 +49,7 @@ const looseAlertLabels = [...looseAlertTypeByLabel.keys()]
   .sort((left, right) => right.length - left.length)
   .map(escapeRegExp);
 const looseAlertLinePattern = new RegExp(`^(${looseAlertLabels.join('|')})(?:\\s+(.+))?$`, 'iu');
+const linkedImageTokenPattern = /\[\s*!\[[^\]]*\]\([^)]*\)\s*\]\([^)]*\)|!\[[^\]]*\]\([^)]*\)/gu;
 
 async function main() {
   const options = await resolveOptions(process.argv.slice(2));
@@ -241,6 +247,7 @@ function preprocessHtml({ bodyHtml, record, warnings, fallbackRows }) {
 function stripWordPressArtifacts(html) {
   return String(html ?? '')
     .replace(/\uFEFF/gu, '')
+    .replace(/\s*[×x]\s*Dismiss\s+alert\b/giu, '')
     .replace(/<!--\s*\/?wp:[\s\S]*?-->/giu, '')
     .replace(/<!--\s*more\s*-->/giu, '')
     .replace(/\[caption[^\]]*\]([\s\S]*?)\[\/caption\]/giu, '$1')
@@ -437,7 +444,7 @@ function chooseFence(textContent) {
 }
 
 function postProcessMarkdown({ bodyMarkdown, record, fallbackRows, warnings }) {
-  const lines = String(bodyMarkdown ?? '').replace(/\r\n?/gu, '\n').split('\n');
+  const lines = splitMixedImageMarkdownLines(String(bodyMarkdown ?? '').replace(/\r\n?/gu, '\n').split('\n'));
   const processedLines = [];
   let insideFence = false;
   let lastOriginalHeadingLevel = 1;
@@ -517,6 +524,7 @@ function postProcessMarkdown({ bodyMarkdown, record, fallbackRows, warnings }) {
         .replace(/<br\s*\/?>/giu, '  \n')
         .replace(/\[(?:Read more|\.\.\.|…|\u2026)\]/giu, '')
         .replace(/\u00A0/gu, ' ')
+        .replace(/\s*[×x]\s*Dismiss alert\b/giu, '')
       )
     );
   }
@@ -644,6 +652,77 @@ function formatLooseAlertLabel(value) {
   }
 
   return normalizedValue.charAt(0).toUpperCase() + normalizedValue.slice(1);
+}
+
+function splitMixedImageMarkdownLines(lines) {
+  const normalizedLines = [];
+
+  for (const line of lines) {
+    const splitLines = splitMixedImageLine(line);
+    if (splitLines.length <= 1) {
+      normalizedLines.push(line);
+      continue;
+    }
+
+    splitLines.forEach((block, index) => {
+      if (index > 0) {
+        normalizedLines.push('');
+      }
+      normalizedLines.push(block);
+    });
+  }
+
+  return normalizedLines;
+}
+
+function splitMixedImageLine(line) {
+  if (!line.includes('![')) {
+    return [line];
+  }
+
+  const blocks = [];
+  let lastIndex = 0;
+
+  for (const match of line.matchAll(linkedImageTokenPattern)) {
+    const start = match.index ?? 0;
+    if (start > lastIndex) {
+      blocks.push({
+        type: 'text',
+        value: line.slice(lastIndex, start).trim()
+      });
+    }
+
+    blocks.push({
+      type: 'image',
+      value: match[0].trim()
+    });
+
+    lastIndex = start + match[0].length;
+  }
+
+  if (lastIndex < line.length) {
+    blocks.push({
+      type: 'text',
+      value: line.slice(lastIndex).trim()
+    });
+  }
+
+  const nonEmptyBlocks = blocks.filter((block) => block.value.length > 0);
+  const hasImage = nonEmptyBlocks.some((block) => block.type === 'image');
+  const hasMeaningfulText = nonEmptyBlocks.some((block) => block.type === 'text' && blockHasMeaningfulText(block.value));
+  if (!hasImage || !hasMeaningfulText) {
+    return [line];
+  }
+
+  return nonEmptyBlocks.map((block) => block.value);
+}
+
+function blockHasMeaningfulText(value) {
+  return value
+    .replace(/\[([^\]]*)\]\([^)]*\)/gu, '$1')
+    .replace(/[_*`>#-]/gu, ' ')
+    .replace(/\s+/gu, ' ')
+    .trim().length > 0;
 }
 
 function startsMarkdownBlock(value) {

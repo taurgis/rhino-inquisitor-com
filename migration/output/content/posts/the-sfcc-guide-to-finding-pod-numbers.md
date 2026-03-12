@@ -29,7 +29,7 @@ This SaaS model is a significant advantage, enabling your team to focus on build
 
 Salesforce also frequently performs "POD moves," migrating entire customer realms to new hardware to ensure performance and reliability. By treating the POD as a transient, infrastructure-level detail rather than a permanent, customer-facing setting, Salesforce maintains the flexibility to manage the grid without requiring constant configuration changes on your end.
 
-Hyperforce With the transition to the public cloud, the entire concept of "POD" will undergo substantial changes.
+   Hyperforce With the transition to the public cloud, the entire concept of "POD" will undergo substantial changes.
 
 This means that for developers, finding the POD number is an act of reconnaissance. We must learn how to query the system's current state. Here’s why this knowledge is indispensable:
 
@@ -69,7 +69,7 @@ This is a clever, indirect method that leverages the way Business Manager genera
 
 1. Look at your browser's status bar (usually in the bottom-left corner). It will display the destination URL, and within that URL, you will find the POD number.
 
-For example, the URL might look something like `<https://pod>` **185**.production.demandware.net/...`, clearly indicating you are on POD 185.
+        For example, the URL might look something like `<https://pod> **185**.production.demandware.net/...`, clearly indicating you are on POD 185.
 
 ### Method 2: The (lightning) PIG instance footer
 
@@ -85,7 +85,7 @@ While you cannot find the POD number directly in Account Manager, it is the sour
 
 To find your Realm and Organization IDs:
 
-1. Log in to Account Manager at `<https://account.demandware.com>``.
+1. Log in to Account Manager at `<https://account.demandware.com`>.
 
 1. Navigate to the **Organization** tab.
 
@@ -101,7 +101,7 @@ This method is now largely historical ([migrated in 2023](https://help.salesforc
 
 Before the 2023 migration to a centralised logging platform, each POD had a dedicated Log Center application. The URL format explicitly included the POD number :
 
-`<https://logcenter->`&lt;POD-No.&gt;`&lt;Cylinder&gt;`-hippo.demandware.net/logcenter`
+`<https://logcenter->&lt;POD-No.&gt;`&lt;Cylinder&gt;`-hippo.demandware.net/logcenter`
 
 The `&lt;Cylinder&gt;` value was also significant: `00` for a SIG (your sandboxes) and `01` for a PIG (Dev, Staging, Prod).
 

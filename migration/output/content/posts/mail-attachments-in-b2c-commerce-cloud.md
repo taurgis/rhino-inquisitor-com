@@ -286,7 +286,10 @@ While this solution relies on `[ISO-8859-1](https://en.wikipedia.org/wiki/ISO/IE
 
 The principle of consistency, however, remains paramount. Whichever encoding you choose—and we strongly recommend it **`UTF-8`**—it must be applied uniformly at every single step of the process. This means specifying `UTF-8` when reading the file's bytes into a string, when declaring the charset in your `<iscontent>` tag, and in every `Content-Type` header within the MIME structure. This discipline is not optional; it is the key to ensuring that the receiving email client can correctly reconstruct the file, preventing data corruption and guaranteeing a valid attachment for the end-user.
 
-ISO-8859-1 This encoding was chosen because the jsPDF library I used during testing relies on the 'addImage' plugin, which has ISO-8859-1 hard-coded for adding JPEG images to PDFS. When this encoding isn't used consistently across the examples, the PDF renders correctly but the images do not display. Encoding Might Differ In my experience, ISO-8859-1 encoding works best for handling files. However, if you encounter unreadable files, experimenting with the encoding settings in the reader, template, or other levels could help resolve the problem.
+> [!NOTE]
+> **ISO-8859-1:** This encoding was chosen because the jsPDF library I used during testing relies on the 'addImage' plugin, which has ISO-8859-1 hard-coded for adding JPEG images to PDFS. When this encoding isn't used consistently across the examples, the PDF renders correctly but the images do not display.
+> [!NOTE]
+> **Encoding Might Differ:** In my experience, ISO-8859-1 encoding works best for handling files. However, if you encounter unreadable files, experimenting with the encoding settings in the reader, template, or other levels could help resolve the problem.
 
 ### The template
 
@@ -360,7 +363,7 @@ There are multiple ways to work around this limit, but we will not be digging in
 
 Now for the gotchas, because in the world of Commerce Cloud, there are always gotchas. Two critical and distinct size limits are waiting to trip you up, and confusing them can lead you straight into a debugging nightmare. The first is a 10 MB ceiling on the rendered template response. Think of this as a server-side guardrail within the application server itself. As the `ISMLRenderer` processes your template, it combines your email's text and, more importantly, the Base64-encoded string of your attachments. This Base64 encoding is a key detail, as it inflates the file size by roughly 33%. If this combined, in-memory result surpasses 10 MB, the platform protects itself by throwing a server error and halting the process.
 
-You'll see the failure in your logs; it's a noisy, obvious problem.
+_You'll see the failure in your logs; it's a noisy, obvious problem._
 
 However, the more immediate and ruthless limit—the one that truly matters for delivery—is the **3 MB quota for the final, sent email**. This is not a template-rendering limit; it's a [hard quota](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-dev-best-practices.html#email-support) imposed by the Salesforce mail gateway that physically transmits the message. This is where things get insidious. Your code can successfully render a 5 MB template (well under the 10 MB limit), and the `dw.net.Mail` script will execute without any errors, leading you to believe the email is on its way. However, when the 5 MB package reaches the mail server, it is silently dropped because it exceeds the 3 MB quota. There's no error thrown back to your script, no explicit failure in the logs—the email simply vanishes into the void.
 

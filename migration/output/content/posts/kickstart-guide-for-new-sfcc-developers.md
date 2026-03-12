@@ -34,7 +34,7 @@ At the highest level, your [SFCC environments](/understanding-sfcc-instances/) a
 
 - **Primary Instance Group (PIG):** This is where the magic happens for your live site. It contains the three core environments that form the backbone of any project's lifecycle:
 
-1. **Development:** A shared environment for developers to integrate their work and for QA to test features.
+  1. **Development:** A shared environment for developers to integrate their work and for QA to test features.
 
 1. **Staging:** A pre-production environment used for final testing, data replication, and client UAT. It's meant to be a mirror of Production.
 
@@ -108,7 +108,7 @@ When a request comes in for a specific [controller](https://beeit.io/blog/gettin
 
 This is how you customize the storefront. You never modify `app _storefront _ base` directly. Instead, you create a new controller or template with the same name in your custom cartridge (`app_custom_ mybrand`), and it will automatically override the base version.
 
-But what if you don't want to completely replace a controller, but just add some logic before or after it runs? For this, [SFRA provides](https://developer.salesforce.com/docs/commerce/sfra/guide/b2c-sfra-modules.html) the `superModule`. By requiring `superModule` in your custom controller, you can use `server.prepend()` to execute code _before _ the base controller's route, `server.append()` to execute code _ after_, or `server.replace()` to override it completely.
+But what if you don't want to completely replace a controller, but just add some logic before or after it runs? For this, [SFRA provides](https://developer.salesforce.com/docs/commerce/sfra/guide/b2c-sfra-modules.html) the `superModule`. By requiring `superModule` in your custom controller, you can use `server.prepend()` to execute code _before _ the base controller's route, `server.append()` to execute code_after_, or `server.replace()` to override it completely.
 
 This extensibility model is powerful, but it comes with a responsibility. A developer's architectural choices here have massive long-term consequences for the site's maintainability. The easy path is often to copy an entire base controller into your custom cartridge and make a small change. This is a `replace` by default. However, a year later, when Salesforce releases a critical security patch for that base controller, your site won't receive it because you've completely overridden the original file. Your code is now brittle and carries significant technical debt.
 
@@ -150,7 +150,7 @@ In the multi-tenant SaaS world of SFCC, performance is non-negotiable. Your inef
 
 - **Caching is King:** This is the single most important performance concept in SFCC. There are multiple layers of caching, and your goal is always to serve a request from the highest (fastest) layer possible. The layers are:
 
-1. Shopper's Browser
+  1. Shopper's Browser
 
 1. eCDN (Content Delivery Network)
 
@@ -160,7 +160,7 @@ In the multi-tenant SaaS world of SFCC, performance is non-negotiable. Your inef
 
 1. Database
 
-**I cover caching strategies for APIs in [Leveraging Server-Side Caching to Improve SFCC REST API Speed](/caching-rest-apis-in-sfcc/)** and for the modern stack in [**Caching in the Salesforce Composable Storefront**](/caching-in-the-sfcc-composable-storefront/).
+    **I cover caching strategies for APIs in [Leveraging Server-Side Caching to Improve SFCC REST API Speed](/caching-rest-apis-in-sfcc/)** and for the modern stack in [**Caching in the Salesforce Composable Storefront**](/caching-in-the-sfcc-composable-storefront/).
 
 - **Image Optimization with DIS:**Huge, unoptimized images are a primary culprit for slow page loads. SFCC's**Dynamic Image Service (DIS)** is your best friend here. It allows you to upload one high-resolution source image and then transform it on-the-fly via URL parameters—resizing, cropping, and changing quality—without ever touching the original. My guide, [**Image-ine: Salesforce B2C Commerce Cloud DIS for Developers**](/image-ine-sfcc-dis-for-developers/), is a must-read on this topic.
 

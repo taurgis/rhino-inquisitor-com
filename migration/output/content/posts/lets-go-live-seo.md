@@ -73,7 +73,8 @@ SEO takes time SEO improvements (in most cases) do not pay off visibly in days o
 
 I talk about a team, but this could also be a single person (internal or hired gun). In any case, it is essential to involve them every step of the way. And that includes the validation of the implementation.
 
-Even if a requirement was clear, some things might not be implemented correctly. Or maybe the required data wasn't provided by the PIM? Then the development work was done, but the data quality needs improvement.
+Even if a requirement was clear, some things might not be implemented correctly.
+Or maybe the required data wasn't provided by the PIM? Then the development work was done, but the data quality needs improvement.
 
 Detecting these issues/challenges as early as possible is critical to your strategy. But that doesn't only apply to SEO, now does it?
 

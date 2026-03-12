@@ -67,7 +67,8 @@ If you feel like an in-person or virtual training is more suited for you, the [A
 
 Last year a new type of certification made its way into the Salesforce ecosystem: "Accreditations."
 
-Before you read more about this, be warned that this is a certification only available for Salesforce Partners (and Salesforce employees looking at LinkedIn)
+**Before you read more about this, be warned that this is a certification only available for Salesforce Partners (and Salesforce employees looking at LinkedIn)
+**
 
 You can look at these Accreditations as a "specialization" certification. While the other certifications will look at a broad spectrum of platform features, accreditations will test your knowledge of a specific feature or part.
 
@@ -96,7 +97,7 @@ This accreditation tests all your knowledge of Einstein:
 - Configuring the recommender
 - Debugging Einstein
 
-As with the other Accreditation, [a course is available on the Partner Learning Camp](https://partnerlearningcamp.salesforce.com/s/browse-catalog?plc__recordId=AJ%2F%2F26%2FbM4WJjnIak4uXHwpstt68nZPqvIdhKT%2FnZEw9I%2FDpO60A4d8W08lxq8xT)!
+As with the other Accreditation,  [a course is available on the Partner Learning Camp](https://partnerlearningcamp.salesforce.com/s/browse-catalog?plc__recordId=AJ%2F%2F26%2FbM4WJjnIak4uXHwpstt68nZPqvIdhKT%2FnZEw9I%2FDpO60A4d8W08lxq8xT)!
 
 ## What if i'm not a developer
 

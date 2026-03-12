@@ -15,7 +15,7 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-A use case you will not run into often is submitting a file to a third-party service. And it is not easy to find documentation or examples on how to do it. For that reason, I decided to write a quick guide on implementing it!
+A use case you will not run into often is submitting a file to a third-party service. And it is not easy to find documentation or examples on how to do it.  For that reason, I decided to write a quick guide on implementing it!
 
 It turns out it is not hard to do once you have all the puzzle pieces! But isn't that the case with many things?
 
@@ -54,7 +54,7 @@ module.exports = server.exports();
 
 ### Files
 
-In this example, we use a file on the Webdav located in the TEMP directory: "/on/demandware.servlet/webdav/Sites/Temp".
+In this example, we use a file on the Webdav located in the TEMP directory:  "/on/demandware.servlet/webdav/Sites/Temp".
 
 There are multiple ways to submit files, like a base64 encoded file string stored in different ways within Salesforce B2C Commerce Cloud. But we will not be covering these alternatives. The example should be enough to get you started.
 

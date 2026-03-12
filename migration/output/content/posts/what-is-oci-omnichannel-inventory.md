@@ -25,7 +25,7 @@ But why should you use it? And if you decide to use this product, what are the t
 
 Let us first get this topic out of the way; I am sure this information will increase the interest in this product!
 
-If you are a B2C Commerce Cloud customer, OCI is included!
+_If you are a B2C Commerce Cloud customer, OCI is included!_
 
 I only learned about this because I took the OMS Administrator and Developer certification exam (and passed 😊).
 
@@ -99,7 +99,7 @@ These features are available in the OCI Application on force.com:
 - Remove locations from location groups.
 - Commit location and location group updates.
 
-As you can see, there is only an interface to look up inventory. But not to update or delete it!
+ As you can see, there is only an interface to look up inventory. But not to update or delete it!
 
 ### Not as "easy" to set-up as Inventory Lists
 
@@ -125,7 +125,7 @@ You can ignore this topic if you just want the standard Inventory List functiona
 - Implement BOPIS
 - Want a management interface for the inventory
 
-Integration You also need to do the integration with OCI through the REST APIs that are available.
+   Integration You also need to do the integration with OCI through the REST APIs that are available.
 
 ### It can't do everything
 

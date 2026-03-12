@@ -18,7 +18,7 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-Salesforce B2C Commerce is a [robust platform](/the-salesforce-b2c-commerce-cloud-environment/) that enables businesses to create highly customised and scalable digital storefronts. One of the key components (and advantages) of B2C Commerce is the available instances, which contain the tools and resources needed for customising your storefront. This blog post will discuss the different types of B2C Commerce instances, their uses, and how different teams within your organisation can utilise them.
+Salesforce B2C Commerce is a [robust platform](/the-salesforce-b2c-commerce-cloud-environment/) that enables businesses to create highly customised and scalable digital storefronts. One of the key components (and advantages) of B2C Commerce is the available instances, which contain the tools and resources needed for customising your storefront.  This blog post will discuss the different types of B2C Commerce instances, their uses, and how different teams within your organisation can utilise them.
 
 [![Diagram of a pod, realm, and the related Salesforce B2C Commerce instances.](/media/2023/pod-realm-and-instances-transparent-65c6b4e389.png)](/media/2023/pod-realm-and-instances-transparent-65c6b4e389.png)
 
@@ -33,17 +33,17 @@ In Salesforce B2C Commerce, a Point of Delivery (POD) is a comprehensive infrast
 
 ## Realms
 
-A realm is an essential organisational component that houses instances required for developing, testing, and deploying your online storefront. Typically, a single realm is adequate for managing multiple sites with different branding or locales. This setup allows for flexible management, as individuals overseeing the storefront sites can be located in various places. However, consider using multiple realms if you have distinct lines of business, global teams with unique processes, or separate organisations with different backend integrations. While sites within the same realm can share product catalogs, sites in other realms cannot share data through the catalog structure. You can, however, set up a CI/CD system to automate the synchronisation of the data when working with multiple realms.
+A realm is an essential organisational component that houses instances required for developing, testing, and deploying your online storefront. Typically, a single realm is adequate for managing multiple sites with different branding or locales. This setup allows for flexible management, as individuals overseeing the storefront sites can be located in various places. However, consider using multiple realms if you have distinct lines of business, global teams with unique processes, or separate organisations with different backend integrations.  While sites within the same realm can share product catalogs, sites in other realms cannot share data through the catalog structure. You can, however, set up a CI/CD system to automate the synchronisation of the data when working with multiple realms.
 
 ## PIG vs SIG
 
-Within a [realm](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/getting_started/b2c_platform_overview.html), instances are organised into Primary Instance Group (PIG) and Secondary Instance Group (SIG). The PIG comprises three instances:
+Within a [realm](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/getting_started/b2c_platform_overview.html), instances are organised into Primary Instance Group (PIG) and Secondary Instance Group (SIG).  The PIG comprises three instances:
 
 - Development
 - Staging
 - Production
 
-These are used for site configuration, testing, and hosting the live site. In the SIG, you will find the Developer Sandboxes. _**Note:** _ _ Each realm can have only one PIG and SIG._
+These are used for site configuration, testing, and hosting the live site. In the SIG, you will find the Developer Sandboxes. **Note:** Each realm can have only one PIG and SIG.
 
 ## Instance Types
 

@@ -16,7 +16,7 @@ tags:
   - sfcc
 author: Thomas Theunen
 ---
-Congratulations on your decision to become a [certified Salesforce B2C Commerce Architect](https://trailhead.salesforce.com/en/credentials/b2ccommercearchitect)! Obtaining certification is an excellent way to validate your knowledge and ensure that it meets Salesforce's high standards. While practical experience and training can provide a strong foundation, preparing specifically for the exam never hurts. In this article, we will review the exam guide and highlight the areas you may want to focus on to increase your chances of passing the exam on your first attempt.
+Congratulations on your decision to become a [certified Salesforce B2C Commerce Architect](https://trailhead.salesforce.com/en/credentials/b2ccommercearchitect)! Obtaining certification is an excellent way to validate your knowledge and ensure that it meets Salesforce's high standards.  While practical experience and training can provide a strong foundation, preparing specifically for the exam never hurts. In this article, we will review the exam guide and highlight the areas you may want to focus on to increase your chances of passing the exam on your first attempt.
 
 ## Design/Discovery (29%)
 
@@ -117,7 +117,7 @@ The Official List
 - Given a list of third-party LINK cartridge integrations, identify “legacy” LINK cartridges that are still using Pipelines and define an integration approach with Controllers.
 - Given a set of real-time integration requirements, leverage the productized Service Framework for real-time integration.
 
-Salesforce B2C Commerce Cloud has many features out of the box, but it can't do everything. Any project (or at least the majority) must deal with third-party integrations. Knowing where to look and how to monitor these integrations is crucial as a B2C Commerce Architect.
+Salesforce B2C Commerce Cloud has many features out of the box, but it can't do everything. Any project (or at least the majority) must deal with third-party integrations.  Knowing where to look and how to monitor these integrations is crucial as a B2C Commerce Architect.
 
 - [Trailhead: Salesforce B2C Commerce Third-Party Integration Strategies](https://trailhead.salesforce.com/content/learn/modules/b2c-integration-approaches?trailmix_creator_id=mking23&trailmix_slug=b-2-c-commerce-architect-certification-prep)
 - [Trailhead: Salesforce B2C Commerce Scheduled Jobs](https://trailhead.salesforce.com/content/learn/modules/b2c-admin-create-and-manage-jobs?trailmix_creator_id=mking23&trailmix_slug=b-2-c-commerce-architect-certification-prep)
@@ -143,7 +143,7 @@ The Official List
 - Given dependencies between sources of site data, define jobs and data replication schedules.
 - Given data migration scenarios, plan and support the data migration process.
 
-Once we have analysed, built, and tested our solution - it is time to put it live! But what do we need to watch out for, and how do we get our production environment to spin? As a Salesforce B2C Commerce Architect, you need to know where all the buttons and knobs are to get your environments up and running!
+Once we have analysed, built, and tested our solution - it is time to put it live! But what do we need to watch out for, and how do we get our production environment to spin?  As a Salesforce B2C Commerce Architect, you need to know where all the buttons and knobs are to get your environments up and running!
 
 - [Trailhead: Salesforce B2C Commerce Replication](https://trailhead.salesforce.com/content/learn/modules/b2c-admin-replication?trailmix_creator_id=mking23&trailmix_slug=b-2-c-commerce-architect-certification-prep)
 - [Trailhead: Salesforce B2C Commerce SEO Meta Tags](https://trailhead.salesforce.com/content/learn/modules/b2c-seo-meta-tags?trailmix_creator_id=mking23&trailmix_slug=b-2-c-commerce-architect-certification-prep)

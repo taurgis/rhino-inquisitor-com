@@ -60,9 +60,13 @@ For the `en _US` example, the fallback chain by default is `en _ US > en > defau
 
 Fallback to different language You are only allowed to fall back within the same language:
 
-**Allowed:**fr\_FR > FR > Default**Allowed:**fr\_ FR > Default**Allowed:** fr\_FR > Disabled
+**Allowed:** fr\_FR > FR > Default
+**Allowed:** fr\_FR > Default
+**Allowed:** fr\_FR > Disabled
 
-**Not allowed:**fr\_FR > DE > Default**Not allowed:**fr\_ FR > fr\_BE > Default**Not allowed:** fr\_ FR > de\_ DE > Default
+**Not allowed:** fr\_FR > DE > Default
+**Not allowed:** fr\_FR > fr\_ BE > Default
+**Not allowed:** fr\_FR > de\_ DE > Default
 
 [![Example locale fallback configuration for en-GB.](/media/2024/locale-fallback-en-uk-bd32fc597d.png)](/media/2024/locale-fallback-en-uk-bd32fc597d.png)
 

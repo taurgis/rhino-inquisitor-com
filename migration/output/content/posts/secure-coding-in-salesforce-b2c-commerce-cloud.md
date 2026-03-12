@@ -54,7 +54,8 @@ There are different options possible with Account Manager:
 - [TOTP](https://en.wikipedia.org/wiki/Time-based_one-time_password) (Time-based one-time password) application
 - [Salesforce Identity](https://help.salesforce.com/s/articleView?id=sf.who_is_salesforce_identity_for.htm&type=5) ([Documentation](https://documentation.b2c.commercecloud.salesforce.com/DOC2/topic/com.demandware.dochelp/content/b2c_commerce/topics/account_manager/b2c_account_manager_link_account_to_salesforce_identity_sso.html))
 
-I decided to make it a tad more manageable to log in by creating "[Automaton](https://chrome.google.com/webstore/detail/automaton-account-manager/clbadmmkinhmiblhkkiiabbbcpljohob)." A browser (chromium) plugin that acts as a TOTP mobile application. As a bonus, it also automatically fills in all fields. It is, of course, secured by a "Vault Password," so not everyone that has access to your laptop can log in.
+I decided to make it a tad more manageable to log in by creating "[Automaton](https://chrome.google.com/webstore/detail/automaton-account-manager/clbadmmkinhmiblhkkiiabbbcpljohob)." A browser (chromium) plugin that acts as a TOTP mobile application. As a bonus, it also automatically fills in all fields.
+It is, of course, secured by a "Vault Password," so not everyone that has access to your laptop can log in.
 
 It may seem like an inconvenience that costs you time over the day. But think of what could happen if someone takes over your account and can access all of the Salesforce B2C Commerce Cloud environments linked to your account.
 
@@ -187,7 +188,7 @@ The X-Content-Type-Options response HTTP header is a marker used by the server t
 
 TThe X-Frame-Options HTTP response header can be used to indicate whether or not a browser should be allowed to render a page in a , `<iframe>`, `<embed />` or `<object>`. Sites can use this to avoid click-jacking attacks, by ensuring that their content is not embedded into other sites.
 
-**Note:** The Commerce Cloud platform can override this header for tools like the Storefront Toolkit.
+**Note:**  The Commerce Cloud platform can override this header for tools like the Storefront Toolkit.
 
 **Note:** The values of this header are restricted to: "ALLOW-FROM", "DENY", "SAMEORIGIN".
 

@@ -52,18 +52,18 @@ This migration wasn't a simple one-to-one mapping. Some outdated documentation, 
 
 ## In the Trenches: The Unofficial SFCC Community (CommerceCrew)
 
-Official documentation can tell you how a feature is _supposed _ to work. The community tells you how it _ actually_ works in the wild. In a complex and rapidly evolving ecosystem like B2C Commerce, active participation in community channels is no longer a "nice to have"—it is a required competency for any top-tier professional.
+Official documentation can tell you how a feature is _supposed _ to work. The community tells you how it_actually_ works in the wild. In a complex and rapidly evolving ecosystem like B2C Commerce, active participation in community channels is no longer a "nice to have"—it is a required competency for any top-tier professional.
 
 For real-time problem-solving, debugging complex issues, and getting feedback on architectural patterns, the **Unofficial SFCC Slack community (CommerceCrew)** is an indispensable, primary resource. It is often faster and more practical than logging an official support ticket.
 
 - **How to Join:**The correct and direct way to join is via the community's official website:** [https://unofficialsfcc.com/](https://unofficialsfcc.com/)**.
 
 - **What's Inside:** This hub provides access to several key resources :
-- The **Slack workspace**, with over 12,000 members, includes developers, architects, and even Salesforce employees who actively help answer questions.
+  - The **Slack workspace**, with over 12,000 members, includes developers, architects, and even Salesforce employees who actively help answer questions.
 
-- **Open Source Projects** on GitHub, offering shared tools and resources.
+  - **Open Source Projects** on GitHub, offering shared tools and resources.
 
-- The **Podcasts** provide news and deep dives into relevant topics.
+  - The **Podcasts** provide news and deep dives into relevant topics.
 
 The existence and vibrancy of communities like CommerceCrew and the official Trailblazer Community Groups underscore a critical shift in professional practice. The platform's complexity and the pace of change mean that relying solely on static documentation is an inefficient strategy. The modern SFCC expert's toolkit includes not only their code and official docs but also their network and their active engagement with peers. This collaborative ecosystem is where the toughest problems are solved and where true mastery is forged.
 

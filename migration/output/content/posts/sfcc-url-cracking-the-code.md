@@ -25,7 +25,10 @@ It should be no secret that a URL is a vital part of any website In this article
 
 A typical Salesforce B2C Commerce Cloud URL consists of the following components:
 
-1\. Protocol (https only) 2\. Domain & Subdomain (your site's domain) 3\. Path (Including the Pipeline Name in non-SEO URLs) 5\. Query Parameters (optional, used to pass additional data to a server-side controller or React component)
+1\. Protocol (https only)
+2\. Domain & Subdomain (your site's domain)
+3\. Path (Including the Pipeline Name in non-SEO URLs)
+5\. Query Parameters (optional, used to pass additional data to a server-side controller or React component)
 
 Example URLs:
 
@@ -83,7 +86,7 @@ The "[path](https://en.wikipedia.org/wiki/URL)" of a URL refers to the hierarchi
 
 A URL path is typically organised into multiple segments, separated by forward slashes. Each segment represents a level in the site's hierarchical structure. The leftmost segment is the highest level, and the following segments represent subdirectories or resources within the higher-level directories.
 
-For example, in the URL "`<https://www.example.com/blog/2021/post-title">`, the path is "/blog/2021/post-title". This path indicates that the specific web page is located within the "2021" subdirectory of the "blog" directory on the server.
+For example, in the URL "<https://www.example.com/blog/2021/post-title">, the path is "/blog/2021/post-title". This path indicates that the specific web page is located within the "2021" subdirectory of the "blog" directory on the server.
 
 A well-structured and descriptive URL path can improve a website's search engine optimization (SEO) and user experience (UX) by making it easier for users and search engines to understand the relationship between different pages and resources on the site.
 

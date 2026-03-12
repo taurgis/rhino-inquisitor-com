@@ -33,7 +33,7 @@ Great news for users of Composable Storefront! You can now use the much-awaited 
 
 > The Google Inventory cartridge is a B2C Commerce direct integration cartridge. You can use the cartridge to list your local store products on Google’s free product listings. Shoppers can discover products in stores near them. This increases local store foot traffic
 
-In today's world, it's essential to connect with customers at multiple touchpoints. Among these touchpoints, Google stands out as one of the most significant. By showcasing your products in proximity to Google searches, you can attract both new and loyal customers to your physical stores or online shop. It's a proven strategy that can help your business stand out from the competition. You can download the cartridge to add to your codebase [from the Social Channel Integrations repository](https://github.com/SalesforceCommerceCloud/social_channel_integrations) to get started.
+In today's world, it's essential to connect with customers at multiple touchpoints. Among these touchpoints, Google stands out as one of the most significant. By showcasing your products in proximity to Google searches, you can attract both new and loyal customers to your physical stores or online shop.  It's a proven strategy that can help your business stand out from the competition. You can download the cartridge to add to your codebase [from the Social Channel Integrations repository](https://github.com/SalesforceCommerceCloud/social_channel_integrations) to get started.
 
 ## Business Manager
 
@@ -116,5 +116,5 @@ Compiling a list of updates has become more challenging since cartridges are no 
 
 - All requests now use a (Version identified) b2c-tools user-agent
 - JSDoc refactoring and resulting bug cleanup by [@clavery](https://github.com/clavery) in #112
-- `checkJs` is on now
+  - `checkJs` is on now
 - set code version to active code version if not found in env vars by [@sandragolden](https://github.com/sandragolden) in #113

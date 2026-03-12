@@ -24,7 +24,7 @@ But besides these third-party integrations, there are a lot of other cartridges 
 
 Let us have a look at a few of these!
 
-**Note:** If you do not have access to the Salesforce B2C Commerce Cloud GitHub repositories, follow the [documentation](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/site_development/b2c_github_repo_access.html).
+**Note**: If you do not have access to the Salesforce B2C Commerce Cloud GitHub repositories, follow the [documentation](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/site_development/b2c_github_repo_access.html).
 
 ## Custom Feeds
 
@@ -40,9 +40,9 @@ A convenient cartridge! But there are some things to keep in mind:
 
 - **It is old:** Looking at the last commit date being five years ago, it goes without saying that a lot has changed in that period.
 
-I have a version kept up to date with all deprecated code removed.
+    I have a version kept up to date with all deprecated code removed.
 
-So for anyone new to the cartridge, it is no longer plug-and-play. You will need to update a bit of code!
+    So for anyone new to the cartridge, it is no longer plug-and-play. You will need to update a bit of code!
 
 - **Complex Use Cases:** Some use-cases that are a bit more complex will require modification to the code. e.g., in the screenshot, you see {{locale}}, this is not available by default and has to be customized to allow the generation of files per locale.
 

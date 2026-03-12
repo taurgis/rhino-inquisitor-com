@@ -47,7 +47,7 @@ For an AI (Artificial Intelligence) to work, it needs to be fed with **quality**
 
 For this sharing of data, consent needs to be given in the Business Manager at:
 
-Administration _>_ Global Preferences _>_ Einstein Search Dictionaries Opt-In
+Administration_> _Global Preferences_ >_Einstein Search Dictionaries Opt-In
 
 [![Einstein Search Dictionaries Opt-In setting used to enable shared-data consent.](/media/2022/einstein-cquotient-shared-database-6ab8c2ae5e.jpg)](/media/2022/einstein-cquotient-shared-database-6ab8c2ae5e.jpg)
 

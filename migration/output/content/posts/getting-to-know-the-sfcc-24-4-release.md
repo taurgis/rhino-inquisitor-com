@@ -48,14 +48,14 @@ To reduce the risk of generating large queries, users are advised to make their 
 What batch APIs can be used to still retrieve large datasets?
 
 - For orders
-- **[processOrders](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_order_OrderMgr.html#dw_order_OrderMgr_processOrders_Function_String_Object_DetailAnchor)**
-- **[Class OrderMgr](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_order_OrderMgr.html)**
+  - **[processOrders](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_order_OrderMgr.html#dw_order_OrderMgr_processOrders_Function_String_Object_DetailAnchor)**
+  - **[Class OrderMgr](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_order_OrderMgr.html)**
 - For customers
-- **[processProfiles](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_customer_CustomerMgr.html#dw_customer_CustomerMgr_processProfiles_Function_String_Object_DetailAnchor)**
-- **[Class CustomerMgr](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_customer_CustomerMgr.html)**
+  - **[processProfiles](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_customer_CustomerMgr.html#dw_customer_CustomerMgr_processProfiles_Function_String_Object_DetailAnchor)**
+  - **[Class CustomerMgr](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_customer_CustomerMgr.html)**
 
 ```text
-application failed to invoke [search_protocol.search()] on server, responding with
+        application failed to invoke [search_protocol.search()] on server, responding with
 fault. exception was [com.demandware.core.rpc.server.InvocationException: exception
 while invoking operation], cause [org.elasticsearch.ElasticsearchIllegalArgumentException:
 Search request offset  is greater than offset limit 200000 for tenant '_, type 'order']
@@ -129,7 +129,7 @@ This is a great addition that will allow us to get more information on the clien
 > To enhance security and align with the SLAS JWT session handling, we updated how the OCAPI JWT handles password changes. Now, if your customer changes their password, all previously issued active OCAPI JWTs are invalidated. The OCAPI client receives an HTTP 401 response, accompanied by a body message that indicates an invalid access token. Previously, the JWT remained valid until its normal timeout.
 
 ```text
-“fault”: {
+            “fault”: {
 “arguments”: {
 “accessToken”: “Customer credentials changed after token was issued. Please Login again.”
 },

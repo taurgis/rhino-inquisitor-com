@@ -42,7 +42,7 @@ If you already opened the links in the introduction you probably noticed a warni
 
 This is because it is a hidden [feature switch](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/admin/b2c_feature_switches.html) and is only available for Salesforce support. So keep in mind you might have to wait a few hours to a few days, depending on how quickly support can activate this switch.
 
-**Important:** This switch has to be turned on separately in each environment (DEV, STG & PRD). So be sure to mention in the ticket which ones you want this switch turned over.
+**Important:**__This switch has to be turned on separately in each environment (DEV, STG & PRD). So be sure to mention in the ticket which ones you want this switch turned over.
 
 ## Business Manager Module
 

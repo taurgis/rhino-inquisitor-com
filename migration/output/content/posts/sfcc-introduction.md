@@ -17,7 +17,7 @@ tags:
   - sfra
 author: Thomas Theunen
 ---
-`<https://www.youtube.com/watch?v=qeyqm19m820>` AI Summary Here’s a summary of the presentation created by AI. (With a little course correction help from me)
+<https://www.youtube.com/watch?v=qeyqm19m820> AI Summary Here’s a summary of the presentation created by AI. (With a little course correction help from me)
 
 Join me as we delve into the world of B2C Commerce cloud, its history, tech stacks, and the shift towards headless architecture. In this insightful session, learn about the evolution, development languages, APIs, and setting up a composable storefront.
 

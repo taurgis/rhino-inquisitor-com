@@ -29,11 +29,12 @@ As commerce and web developers, we are constantly reminded that technology never
 
 Salesforce has introduced a solution to meet this demand: the [Composable Storefront](/sitegenesis-vs-sfra-vs-pwa/). This is an entirely different type of implementation built on React, a more modern library than we are used to in SiteGenesis and SFRA. It's an exciting new development that will support businesses' requirements now and ones they will have in the future.
 
-I understand that there may be some concerns in the community about SFRA being phased out in favour of the "Core" with this move to Headless. However, [I don't see that happening within the next five years](/what-is-commerce-on-core/). But we need to adapt. Is it really so bad that the platform is evolving to a more modern "composable" architecture? We don't want to be left behind, and we don't want the words of our competitors to come true - that Salesforce B2C Commerce Cloud is a dinosaur. We are so much more than that, and it's up to us to prove it.
+I understand that there may be some concerns in the community about SFRA being phased out in favour of the "Core" with this move to Headless. However, [I don't see that happening within the next five years](/what-is-commerce-on-core/). But we need to adapt.
+Is it really so bad that the platform is evolving to a more modern "composable" architecture? We don't want to be left behind, and we don't want the words of our competitors to come true - that Salesforce B2C Commerce Cloud is a dinosaur. We are so much more than that, and it's up to us to prove it.
 
 Let's embrace this change, take on the challenge, and make sure that Salesforce B2C Commerce Cloud is at the forefront of eCommerce technology. We are the ones shaping the future of commerce. Let's make it a bright one.
 
-That felt like an inspirational speech, didn't it?
+**That felt like an inspirational speech, didn't it?**
 
 ## Advantages of a monolith
 
@@ -47,7 +48,7 @@ With a monolithic approach, you can quickly scale up the entire application by a
 
 A monolithic architecture may not be as trendy as microservices, but it has its perks!
 
-And sometimes, simplicity is the key to success.
+_And sometimes, simplicity is the key to success._
 
 ## The Composable Storefront uses "boring" technology
 
@@ -79,7 +80,8 @@ As developers and architects working in eCommerce, we must stay ahead of the con
 
 Luckily, we can provide input to make some corrections here and there. But Salesforce is the captain of this boat! And that captain is giving developers and architects some really nice new options.
 
-And now is the time to start learning how these new options work. Customers will be looking into them to migrate to now or in the next few years. Salesforce has provided us with a lot of options to learn how to work with React and the PWA Kit, offering courses on the [Partner Learning Camp](http://partnerlearningcamp.salesforce.com) and allowing us to ask questions to the team on the [Unofficial Slack](https://github.com/sfcc-unofficial/docs). Not all platforms (and the teams building them) provide this service.
+And now is the time to start learning how these new options work. Customers will be looking into them to migrate to now or in the next few years.
+Salesforce has provided us with a lot of options to learn how to work with React and the PWA Kit, offering courses on the [Partner Learning Camp](http://partnerlearningcamp.salesforce.com) and allowing us to ask questions to the team on the [Unofficial Slack](https://github.com/sfcc-unofficial/docs). Not all platforms (and the teams building them) provide this service.
 
 However, it's important to note that while the platform is evolving, it doesn't mean that SFRA projects will disappear in the near future. There will still be a need for developers and architects who can maintain and support them.
 

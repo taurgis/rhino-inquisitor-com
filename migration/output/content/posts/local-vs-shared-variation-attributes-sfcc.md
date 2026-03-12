@@ -86,7 +86,7 @@ Merchant Tools > Products and Catalogs > Shared Variation Attributes
 Shared variation attributes in the catalog import XML are referenced as part of the catalog, rather than an individual product. The following XML example showcases how shared variation attributes are represented:
 
 ```text
-Kleur
+    Kleur
 
             Black
 

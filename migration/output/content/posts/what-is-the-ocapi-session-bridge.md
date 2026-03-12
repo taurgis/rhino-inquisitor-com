@@ -43,7 +43,8 @@ First things first, let us dig into what the Session Bridge is. And luckily for 
 
 It is a set of services that allow the exchange of a [session cookie](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DataProtectionAndPrivacy/LocalDataStorage.html) (Site) for a [JWT](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/JWT.html) (OCAPI/SCAPI) and visa-versa.
 
-Using this service, you can keep a session alive across different touchpoints. A good example is a mobile application with a button redirecting to the site. In this scenario, it would be a shame if someone logged into the application would have to log in again on the site.
+Using this service, you can keep a session alive across different touchpoints. A good example is a mobile application with a button redirecting to the site.
+In this scenario, it would be a shame if someone logged into the application would have to log in again on the site.
 
 Come into play the "Session Bridge!" The mobile application, before being redirected, exchanges its JWT token for a valid cookie and sets it before pushing the customer to the site. Result: Happy customer (hopefully 😊)!
 

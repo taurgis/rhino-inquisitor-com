@@ -29,7 +29,7 @@ This guide will dissect this powerful feature from a developer's perspective. We
 
 The first mental hurdle to clear is that Meta Tag Rules are not an imperative script. They are a declarative system. You are not writing code that executes line by line. Instead, you are defining a set of instructions—a recipe—that the platform's engine interprets to generate a string of text. This distinction is fundamental because it dictates how these rules are built, tested, and debugged.
 
-It's a specialised, declarative [Domain-Specific Language](https://en.wikipedia.org/wiki/Domain-specific_language) (DSL), not a general-purpose scripting environment like Demandware Script. This explains why you can't just call arbitrary script APIs from within a rule and why the error feedback is limited. It's about defining _what _ you want the output to be and letting the platform's engine figure out _ how_ to generate it.
+It's a specialised, declarative [Domain-Specific Language](https://en.wikipedia.org/wiki/Domain-specific_language) (DSL), not a general-purpose scripting environment like Demandware Script. This explains why you can't just call arbitrary script APIs from within a rule and why the error feedback is limited. It's about defining _what _ you want the output to be and letting the platform's engine figure out_how_ to generate it.
 
 ### The Three Pillars of Rule Creation
 
@@ -111,17 +111,21 @@ Once you've mastered the fundamentals of syntax and inheritance, you can begin t
 
 #### The Perfect PDP Title (Hybrid)
 
-Combines the product's manual title, or falls back to its name, brand, and the site name. `${Product.pageTitle ELSE Product.name AND Constant(' - ') AND Product.brand AND Constant(' | ') AND Site.displayName}`
+Combines the product's manual title, or falls back to its name, brand, and the site name.
+`${Product.pageTitle ELSE Product.name AND Constant(' - ') AND Product.brand AND Constant(' | ') AND Site.displayName}`
 
 ### Scenario 1 (Manual `pageTitle` exists)
 
-Data: `Product.pageTitle` = "Best Trail Running Shoe for Rocky Terrain" Generated Output: `Best Trail Running Shoe for Rocky Terrain`
+    Data: `Product.pageTitle` = "Best Trail Running Shoe for Rocky Terrain"
+    Generated Output: `Best Trail Running Shoe for Rocky Terrain`
 
 Scenario 2 (No manual `pageTitle`, falls back to dynamic pattern):
 
-**Data:** `Product.name` = "SummitPro Runner" `Product.brand` = "Peak Performance" `Site.displayName` = "GoOutdoors"
+    **Data:**    `Product.name` = "SummitPro Runner"
+    `Product.brand` = "Peak Performance"
+    `Site.displayName` = "GoOutdoors"
 
-Generated Output: `SummitPro Runner - Peak Performance | GoOutdoors`
+    Generated Output: `SummitPro Runner - Peak Performance | GoOutdoors`
 
 #### The Engaging PLP Description (Hybrid)
 
@@ -131,15 +135,16 @@ Checks for a manual category description, otherwise generates a compelling, dyna
 
 ### Scenario 1 (Manual `pageDescription` exists)
 
-Data: `Category.pageDescription` = "Explore our premium, all-weather tents. Designed for durability and easy setup, perfect for solo hikers or family camping trips."
+    Data: `Category.pageDescription` = "Explore our premium, all-weather tents. Designed for durability and easy setup, perfect for solo hikers or family camping trips."
 
-Generated Output: `Explore our premium, all-weather tents. Designed for durability and easy setup, perfect for solo hikers or family camping trips.`
+    Generated Output: `Explore our premium, all-weather tents. Designed for durability and easy setup, perfect for solo hikers or family camping trips.`
 
 Scenario 2 (No manual `pageDescription`, falls back to dynamic pattern):
 
-**Data:** `Category.displayName` = "Camping Tents" `Site.displayName` = "GoOutdoors"
+    **Data:**    `Category.displayName` = "Camping Tents"
+    `Site.displayName` = "GoOutdoors"
 
-Generated Output: `Shop our wide selection of Camping Tents at GoOutdoors. Free shipping on orders over $50!`
+    Generated Output: `Shop our wide selection of Camping Tents at GoOutdoors. Free shipping on orders over $50!`
 
 #### Dynamic OpenGraph Tags
 
@@ -147,9 +152,9 @@ Create separate rules for `og:title` and `og:description` using the same hybrid 
 
 `${ProductImageURL.viewType}` (Note: The specific `viewtype` is needed, e.g. `large`)
 
-- **Scenario:** A user shares a product page on a social platform.
-- **Data:** The system has an image assigned to the product in the "large" slot.
-- **Generated Output:** `<https://www.gooutdoors.com/images/products/large/PROD12345_1.jpg>`
+    **Scenario:** A user shares a product page on a social platform.
+    **Data:** The system has an image assigned to the product in the 'large' slot.
+    **Generated Output:** `<https://www.gooutdoors.com/images/products/large/PROD12345_1.jpg`>
 
 #### Dynamic OpenGraph Tags (Crafting Killer Rules: Practical Examples)
 
@@ -157,29 +162,26 @@ This is a truly advanced use case that demonstrates how rules can implement soph
 
 `${IF SearchRefinement.refinementColor OR SearchPhrase THEN Constant('noindex,nofollow') ELSE Constant('index,follow')}`
 
-Scenario 1 (User refines a category by color):
+_Scenario 1 (User refines a category by color):_
 
 A user is on the "Backpacks" category page and clicks the "Blue" color swatch to filter the results.
 
-- **Data:** `SearchRefinement.refinementColor` has a value ("Blue").
-- **Generated Output:** `noindex, nofollow`
-- **Result:** This filtered page won't be indexed by Google, saving crawl budget.
+    **Data:** `SearchRefinement.refinementColor` has a value ("Blue").
+    **Generated Output:**`noindex, nofollow`**Result:** This filtered page won't be indexed by Google, saving crawl budget.
 
-Scenario 2 (User performs a site search):
+_Scenario 2 (User performs a site search):_
 
 A user types "waterproof socks" into the search bar.
 
-- **Data:** `SearchPhrase` has a value ("waterproof socks").
-- **Generated Output:** `noindex, nofollow`
-- **Result:** The search results page won't be indexed.
+    **Data:** `SearchPhrase` has a value ("waterproof socks").
+    **Generated Output:**`noindex, nofollow`**Result:** The search results page won't be indexed.
 
-Scenario 3 (User lands on a standard category page):
+_Scenario 3 (User lands on a standard category page):_
 
 A user navigates directly to the "Backpacks" category page without any filters.
 
-- **Data:** `SearchRefinement.refinementColor` is empty AND `SearchPhrase` is empty.
-- **Generated Output:** `index, follow`
-- **Result:** The main category page will be indexed by Google as intended.
+    **Data:** `SearchRefinement.refinementColor` is empty AND `SearchPhrase` is empty.
+    **Generated Output:**`index, follow`**Result:** The main category page will be indexed by Google as intended.
 
 ## The Page Designer Conundrum: The Unofficial Unofficial Workaround
 
@@ -223,9 +225,9 @@ When deciding how to manage SEO metadata in SFCC, developers face three philosop
 
 - Manually populating the `pageTitle`, `pageDescription`, etc., for every item in Business Manager.
 
-- **Pros:** Absolute, granular control. Perfect for a small catalog or a handful of critical landing pages.
+  - **Pros:** Absolute, granular control. Perfect for a small catalog or a handful of critical landing pages.
 
-- **Cons:** Completely unscalable. Highly prone to human error and data gaps. A maintenance and governance nightmare for any site of significant size.
+  - **Cons:** Completely unscalable. Highly prone to human error and data gaps. A maintenance and governance nightmare for any site of significant size.
 
 ### Custom ISML/Controller Logic (The Re-inventor)
 

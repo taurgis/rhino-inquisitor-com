@@ -20,17 +20,36 @@ const weakLinkTexts = new Set(['click here', 'read more', 'here']);
 const tableDividerPattern = /^\s*\|?(?:\s*:?-{3,}:?\s*\|)+\s*:?-{3,}:?\s*\|?\s*$/u;
 const markdownLinkPattern = /(?<!!)\[([^\]]+)\]\(([^)]+)\)/gu;
 const inlineLabelTypeByLabel = new Map([
+  ['alias configuration', 'warning'],
+  ['apex domain pointing / naked domain', 'note'],
   ['caching', 'note'],
   ['cdn', 'note'],
   ['clearing the cache', 'note'],
+  ['contract info', 'note'],
   ['default cache times', 'note'],
   ['deleted', 'warning'],
   ['deletion', 'warning'],
   ['deprecated', 'warning'],
   ['deprecation', 'warning'],
+  ['encoding might differ', 'note'],
   ['info', 'note'],
+  ['iso-8859-1', 'note'],
+  ['not all apis are the same', 'note'],
   ['not found', 'note'],
-  ['replication', 'note']
+  ['replication', 'note'],
+  ['server to server', 'warning'],
+  ['use the correct environment', 'warning'],
+  ['zone creation with care', 'warning']
+]);
+const inlineLabelDisplayByLabel = new Map([
+  ['apex domain pointing / naked domain', 'APEX Domain Pointing / Naked Domain'],
+  ['cdn', 'CDN'],
+  ['contract info', 'Contract Info'],
+  ['iso-8859-1', 'ISO-8859-1'],
+  ['not all apis are the same', 'Not all APIs are the same'],
+  ['server to server', 'Server to Server'],
+  ['use the correct environment', 'Use the correct environment'],
+  ['zone creation with care', 'Zone Creation with care']
 ]);
 const inlineLabelCandidates = [...inlineLabelTypeByLabel.keys()].sort((left, right) => right.length - left.length);
 const linkedImageTokenPattern = /\[\s*!\[[^\]]*\]\([^)]*\)\s*\]\([^)]*\)|!\[[^\]]*\]\([^)]*\)/gu;
@@ -145,7 +164,8 @@ async function main() {
       auditRows: linkAuditRows
     });
 
-    const rewritten = matter.stringify(linkResult.content.trimEnd() ? `${linkResult.content.trimEnd()}\n` : '', parsed.data, {
+    const finalContent = linkResult.content.replace(/\*\*guest\*\*customer/giu, '**guest** customer');
+    const rewritten = matter.stringify(finalContent.trimEnd() ? `${finalContent.trimEnd()}\n` : '', parsed.data, {
       lineWidth: 0
     });
 
@@ -1100,6 +1120,10 @@ function rewriteEmphasisSpacingLine(value) {
       .replace(/^(\s*)_(\s+)(.+?)(\s+)_$/u, '$1_$3_')
       .replace(/^(\s*)_(\s+)(.+?)_$/u, '$1_$3_')
       .replace(/^(\s*)_(.+?)(\s+)_$/u, '$1_$2_')
+      .replace(/_\*\*\s*Note\s*:\s*\*\*\s*_\s*_\s*([^_\n]+?)\s*_/giu, '**Note:** $1')
+      .replace(/\*\*OCAPI:\*\*\s*([0-9]+)\s*\*\*SCAPI:\*\*\s*([0-9]+)/gu, '**OCAPI:** $1 **SCAPI:** $2')
+      .replace(/\*\*guest\*\*(?=customer\b)/giu, '**guest** ')
+      .replace(/\s*[×x]\s*Dismiss alert\b/giu, '')
       .replace(/\*\*(\s+)([^*\n]+?)\*\*/gu, '**$2**')
       .replace(/\*\*([^*\n]+?)(\s+)\*\*/gu, '**$1**')
       .replace(/\*\*([^*\n]+?)\s+\*\*(?=\S)/gu, '**$1** ')
@@ -1186,6 +1210,10 @@ function normalizeCodeSpanSpacing(content) {
     }
 
     const normalizedLine = line
+      .replace(/\*\*`<\s*(https?:\/\/[^\s`>*]+)\s*\*\*>`/gu, (_match, url) => {
+        normalizedCodeSpans += 1;
+        return `\`<${url}>\``;
+      })
       .replace(/`([^`\n<]+)`<([^>\n]+)>``/gu, (_match, prefix, suffix) => {
         normalizedCodeSpans += 1;
         return `\`${prefix}<${suffix}>\``;
@@ -1350,6 +1378,14 @@ function wrapBareUrls(content) {
     }
 
     let normalizedLine = line;
+    normalizedLine = normalizedLine.replace(/\*\*(https?:\/\/[^\s<>()*]+)\*\*/gu, (_match, url) => {
+      wrappedUrls += 1;
+      return `**<${url}>**`;
+    });
+    normalizedLine = normalizedLine.replace(/__(https?:\/\/[^\s<>()_]+)__/gu, (_match, url) => {
+      wrappedUrls += 1;
+      return `__<${url}>__`;
+    });
     normalizedLine = normalizedLine.replace(/(?<!\]\()(?<![\[<])\bhttps?:\/\/[^\s<>()]+[^\s<>().,!?;:]/gu, (match) => {
       wrappedUrls += 1;
       return `<${match}>`;
@@ -1487,6 +1523,9 @@ function normalizeInlineHtmlTokens(content) {
       if (before.endsWith('`') && after.startsWith('`')) {
         return match;
       }
+      if (isMarkdownAutolink(match)) {
+        return match;
+      }
       escapedTokens += 1;
       return `\`${match}\``;
     });
@@ -1497,6 +1536,15 @@ function normalizeInlineHtmlTokens(content) {
     content: normalizedLines.join('\n'),
     escapedTokens
   };
+}
+
+function isMarkdownAutolink(value) {
+  const token = String(value ?? '');
+  return (
+    /^<https?:\/\/[^>\s]+>$/iu.test(token) ||
+    /^<www\.[^>\s]+>$/iu.test(token) ||
+    /^<[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}>$/iu.test(token)
+  );
 }
 
 function normalizeImageParagraphs(content) {
@@ -1788,13 +1836,19 @@ function normalizeInlineLabelCallouts(content) {
       return;
     }
 
-    const paragraphText = paragraphLines.join(' ').replace(/\s+/gu, ' ').trim();
+    const sourceLines = [...paragraphLines];
+    const paragraphText = sourceLines.map((segment) => segment.trim()).join(' ').replace(/\s+/gu, ' ').trim();
     paragraphLines = [];
     if (!paragraphText) {
       return;
     }
 
     const rewritten = rewriteParagraphWithInlineLabels(paragraphText);
+    if (rewritten.normalizedCallouts === 0) {
+      normalizedLines.push(...sourceLines);
+      return;
+    }
+
     normalizedLines.push(...rewritten.lines);
     normalizedCallouts += rewritten.normalizedCallouts;
   };
@@ -1827,7 +1881,7 @@ function normalizeInlineLabelCallouts(content) {
       continue;
     }
 
-    paragraphLines.push(trimmedLine);
+    paragraphLines.push(line);
   }
 
   flushParagraph();
@@ -1874,7 +1928,8 @@ function rewriteParagraphWithInlineLabels(paragraphText) {
 
   const lines = [];
   renderedBlocks.forEach((block, index) => {
-    if (index > 0) {
+    const previousBlock = index > 0 ? renderedBlocks[index - 1] : null;
+    if (index > 0 && !(Array.isArray(previousBlock) && Array.isArray(block))) {
       lines.push('');
     }
 
@@ -1955,7 +2010,13 @@ function buildInlineLabelCallout(label, type, body) {
 }
 
 function formatInlineLabel(label) {
-  return String(label ?? '')
+  const normalizedLabel = String(label ?? '').replace(/\s+/gu, ' ').trim();
+  const curatedLabel = inlineLabelDisplayByLabel.get(normalizedLabel.toLowerCase());
+  if (curatedLabel) {
+    return curatedLabel;
+  }
+
+  return normalizedLabel
     .split(/\s+/u)
     .filter(Boolean)
     .map((segment) => segment.charAt(0).toUpperCase() + segment.slice(1).toLowerCase())
@@ -1986,7 +2047,7 @@ function normalizePseudoTagMarkup(content) {
     /`\[`<iscache>`\]\((https:\/\/developer\.salesforce\.com\/docs\/commerce\/b2c-commerce\/guide\/b2c-content-cache\.html)\)`/gu,
     (_match, target) => {
       normalizedPatterns += 1;
-      return `[ <iscache> ](${target})`;
+      return '[`<iscache>`](' + target + ')';
     }
   );
 
@@ -1998,7 +2059,6 @@ function normalizePseudoTagMarkup(content) {
     }
   );
 
-  normalizedContent = normalizedContent.replace(/\u0000/gu, '`');
 
   return {
     content: normalizedContent,

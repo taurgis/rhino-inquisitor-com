@@ -41,7 +41,7 @@ This is achieved using Host Disk Encryption offered by the OS and [Volume Encryp
 
 Another great move to ensure all sensitive data stored on Salesforce servers are protected from "prying eyes." 2022 is undoubtedly a year with a significant focus on improving the platform's (already solid) base.
 
-Note **: Salesforce is actively looking for customers in the AMER region who deal with highly sensitive data (health information). If you are already an active customer,** a realm move will be required.
+**Note**: Salesforce is actively looking for customers in the AMER region who deal with highly sensitive data (health information). If you are already an active customer, **a realm move will be required.**
 
 ### Control Center
 
@@ -57,7 +57,7 @@ We already had [the option to schedule our Sandboxes uptime through a REST API](
 
 A beta program is available to test an integration between B2C Commerce Cloud and Tiktok. This Beta aims to create storefronts and advertise products on Tiktok using products and shopper activity data.
 
-Currently, recruiting for this feature is paused until further notice!
+**Currently, recruiting for this feature is paused until further notice!**
 
 Even though recruiting is currently on hold, it is good to see the Salesforce team is actively investigating integrating with social channels.
 
@@ -97,7 +97,7 @@ This change gives us more flexibility in providing login options to customers.
 
 **Note:** This API is only available for private clients~~, and the email login templates only support plain text. For now, styling the e-mail for the password-less login option is out of the question.~~
 
-**Update:**It turns out that HTML is supported; the API determines if it is plain text or not.**Be sure to validate your HTML on different email clients,** as the service does not do any validation of the template!
+**Update:** It turns out that HTML is supported; the API determines if it is plain text or not. **Be sure to validate your HTML on different email clients,** as the service does not do any validation of the template!
 
 ## Business Manager
 

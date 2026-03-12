@@ -59,11 +59,14 @@ Verify integrations With any update such as this, verify all third-party integra
 
 Verify integrations With any update such as this, verify all third-party integrations before this release hits your production instance!
 
-**Step 1: Effective Date** When: The new security measure will be effective from October 7, 2024.
+**Step 1: Effective Date**
+When: The new security measure will be effective from October 7, 2024.
 
-**Step 2: Impact Assessment** This change will impact customers who directly call POD IPs in their Commerce Cloud implementations.
+**Step 2: Impact Assessment**
+This change will impact customers who directly call POD IPs in their Commerce Cloud implementations.
 
-**Step 3: Preparing for the Change** How to prepare:
+**Step 3: Preparing for the Change**
+How to prepare:
 
 1. _Evaluate_: Check your current implementations for any calls made to OCAPI or Storefront that use direct POD IPs, dot-form hostnames, or hyphenated hostnames like staging.xxx.demandware.net or staging-xxx.demandware.net.
 
@@ -71,7 +74,8 @@ Verify integrations With any update such as this, verify all third-party integra
 
 1. _Create a Proxy Zone_: Use the Business Manager to set up a proxy zone in the Staging instances. Then, configure a custom hostname with an eCDN-managed certificate that renews automatically for extra security.
 
-**Step 4: Seeking Assistance** If you need more information or help with this transition, please contact your Customer Service Manager (CSM).
+**Step 4: Seeking Assistance**
+If you need more information or help with this transition, please contact your Customer Service Manager (CSM).
 
 ## OCAPI & SCAPI
 
@@ -133,7 +137,7 @@ This update can back up these rules and allow external control. This will be ext
 
 > You can now update the status of a coupon redeemed outside of B2C Commerce using the new Coupon Redemption API (/organizations/{organizationId}/coupons/actions/redeem). To identify the source of redemption for an external coupon, use a custom reference ID or any custom string. You can also add an optional email address to the redemption for further tracking and communication. To update multiple coupon redemptions at one time, use the new ImportCouponCodeRedemptionsStep job step. This bulk import, which works only in merge mode, streamlines the process of managing multiple redemptions at scale.
 
-This is a big update for any business working in multiple online and offline channels. With this update, we can [batch import](https://help.salesforce.com/s/articleView?id=cc.b2c_coupons_and_coupon_code_object_import_export.htm&type=5) or have a third-party system call the brand new "[Coupon Redemption API](https://developer.salesforce.com/docs/commerce/commerce-api/references/coupons?meta=redeemCoupon&q=redemption)".
+This is a big update for any business working in multiple online and offline channels. With this update, we can  [batch import](https://help.salesforce.com/s/articleView?id=cc.b2c_coupons_and_coupon_code_object_import_export.htm&type=5) or have a third-party system call the brand new "[Coupon Redemption API](https://developer.salesforce.com/docs/commerce/commerce-api/references/coupons?meta=redeemCoupon&q=redemption)".
 
 ## PWA Kit v3.6.0
 

@@ -32,19 +32,19 @@ Let's tackle the first and most common point of confusion for teams moving from 
 
 The definitive answer is: **Yes, SCAPI and SLAS operate on a completely separate hostname infrastructure from your SFRA site's vanity domain.**
 
-Your mobile app will not make API calls to `<www.your-brand.com>``. Instead, all SCAPI and SLAS interactions are routed through the dedicated, globally scaled Salesforce Commerce API gateway. The endpoint URL follows a standard format:`<https://{{short-code}}.api.commercecloud.salesforce.com/...`>`. This is your single, secure, and performant entry point for all API traffic. This move is intentional and reinforced by Salesforce's [deprecation](/the-importance-of-origin-shielding/) of older, hyphenated hostnames (e.g.,`production-realm-customer.demandware.net`) for API access, pushing all traffic to this unified gateway.
+Your mobile app will not make API calls to `<www.your-brand.com`>. Instead, all SCAPI and SLAS interactions are routed through the dedicated, globally scaled Salesforce Commerce API gateway. The endpoint URL follows a standard format: `<https://{{short-code}}.api.commercecloud.salesforce.com/...`>. This is your single, secure, and performant entry point for all API traffic. This move is intentional and reinforced by Salesforce's [deprecation](/the-importance-of-origin-shielding/) of older, hyphenated hostnames (e.g., `production-realm-customer.demandware.net`) for API access, pushing all traffic to this unified gateway.
 
 CORS Don't forget to [secure your API layer](https://developer.salesforce.com/docs/commerce/commerce-api/guide/cors.html)!
 
 This separation of hostnames is not an arbitrary technical detail; it reflects the fundamental architectural decoupling that is the core promise of headless commerce.
 
-- Your **vanity domain**(e.g., `<www.your-brand.com>``) is for the**presentation layer**. It's what customers see. The DNS manages routing and hostname alias configuration within B2C Commerce, which directs traffic through the eCDN.
+- Your **vanity domain**(e.g., `<www.your-brand.com`>) is for the**presentation layer**. It's what customers see. The DNS manages routing and hostname alias configuration within B2C Commerce, which directs traffic through the eCDN.
 
 - The **API gateway domain**(`{{short-code}}.api.commercecloud.salesforce.com`) is for the**data and service layer**. It is a purpose-built infrastructure designed for high-scale, secure API transactions.
 
 This separation allows for independent scaling, security policies, and evolution. You can completely redesign your mobile app (the "head") without ever touching the API endpoint, and vice versa. SLAS, as the gatekeeper for Shopper APIs, runs on this same infrastructure, which is why its admin UI and authentication endpoints share the same base URL structure. The flow is simple: your mobile app calls SLAS to get a JSON Web Token (JWT), and then it includes that JWT in the `Authorization` header for all subsequent SCAPI calls.
 
-So, where does your SFRA site's configuration fit in? While the vanity domain isn't the API endpoint, the underlying site configuration is still critical. Every SCAPI request includes a `siteId` query parameter. This `siteId` tells B2C Commerce which site's context to use for the request—which catalog, which price books, which promotions to apply. That site is, in turn, configured in Business Manager and linked to your hostnames via the alias file. The hostname alias configuration remains essential for defining the _context _ of your API calls, even though it's not the _ endpoint_ you call directly.
+So, where does your SFRA site's configuration fit in? While the vanity domain isn't the API endpoint, the underlying site configuration is still critical. Every SCAPI request includes a `siteId` query parameter. This `siteId` tells B2C Commerce which site's context to use for the request—which catalog, which price books, which promotions to apply. That site is, in turn, configured in Business Manager and linked to your hostnames via the alias file. The hostname alias configuration remains essential for defining the _context _ of your API calls, even though it's not the_endpoint_ you call directly.
 
 ## The Headless Go-Live Checklist: From Backend to App Store
 
@@ -140,7 +140,7 @@ This section details another significant process change from an SFRA go-live. Th
 
 #### The Paradigm Shift: From Pages to Endpoints
 
-Traditional SFRA performance testing relies on tools like WebPageTest or GTmetrix to measure the rendering time of a full page. In a headless world, this is largely irrelevant. The new discipline focuses on API performance testing tools (e.g., JMeter, Gatling, k6) that simulate concurrent users making direct API calls. The goal is no longer to measure "page load time" but to measure API-specific metrics: **response time (latency), error rate, and throughput (requests per second)** under various load conditions.
+Traditional SFRA performance testing relies on tools like WebPageTest or GTmetrix to measure the rendering time of a full page. In a headless world, this is largely irrelevant. The new discipline focuses on API performance testing tools (e.g., JMeter, Gatling, k6) that simulate concurrent users making direct API calls. The goal is no longer to measure "page load time" but to measure API-specific metrics:  **response time (latency), error rate, and throughput (requests per second)** under various load conditions.
 
 #### API Load & Stress Testing
 
@@ -150,11 +150,11 @@ Traditional SFRA performance testing relies on tools like WebPageTest or GTmetri
 
 - **Test Types:**
 
-- **Load Test:** Can the backend sustain the expected peak traffic (e.g., 500 concurrent API users for 2 hours) without performance degradation?.
+  - **Load Test:** Can the backend sustain the expected peak traffic (e.g., 500 concurrent API users for 2 hours) without performance degradation?.
 
-- **Stress Test:** At what point does the system break? Methodically ramp up the number of virtual users until response times become unacceptable or the error rate spikes. This identifies the system's absolute ceiling.
+  - **Stress Test:** At what point does the system break? Methodically ramp up the number of virtual users until response times become unacceptable or the error rate spikes. This identifies the system's absolute ceiling.
 
-- **Spike Test:** Can the system handle a sudden, massive influx of traffic, such as the one generated by a major push notification campaign?.
+  - **Spike Test:** Can the system handle a sudden, massive influx of traffic, such as the one generated by a major push notification campaign?.
 
 - **Environment:** All load tests must be conducted against a production-sized environment (a "loaner realm" or the production instance). The IP addresses of the load-generating machines must be communicated to Salesforce Support well in advance to ensure they are not blocked.
 

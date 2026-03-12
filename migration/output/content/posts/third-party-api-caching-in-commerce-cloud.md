@@ -30,12 +30,13 @@ Now, let’s delve into the process, its benefits, and some things to remember t
 
 Salesforce Commerce Cloud Web Service Framework
 
-The [Web Service Framework](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-webservices.html) is key to managing external service interactions. It enables developers (and other profiles) to manage third-party integrations with [ease](https://trailhead.salesforce.com/content/learn/modules/b2c-integration-approaches/b2c-learn-web-services-framework) from the comfort of the Business Manager. One of those built-in features is caching responses from third-party APIs, which reduces the need for repeated network requests and, in many cases, reduces costs related to those services (usage-based licenses).
+The [Web Service Framework](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-webservices.html) is key to managing external service interactions. It enables developers (and other profiles) to manage third-party integrations with [ease](https://trailhead.salesforce.com/content/learn/modules/b2c-integration-approaches/b2c-learn-web-services-framework) from the comfort of the Business Manager.
+One of those built-in features is caching responses from third-party APIs, which reduces the need for repeated network requests and, in many cases, reduces costs related to those services (usage-based licenses).
 
 Creating a service in the [LocalServiceRegistry](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/index.html?target=class_dw_svc_LocalServiceRegistry.html) comes with a simple configuration for managing request handling. Here's a basic example of how to create a service with a caching feature:
 
 ```js
-var callTestGet = LocalServiceRegistry.createService("test.http.get", {
+                var callTestGet = LocalServiceRegistry.createService("test.http.get", {
     createRequest: function(svc: HTTPService, args) {
           svc.client.enableCaching(1000);
             svc.setRequestMethod("GET");

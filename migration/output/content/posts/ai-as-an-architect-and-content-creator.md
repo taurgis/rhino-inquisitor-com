@@ -20,7 +20,7 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-As a content creator and Salesforce Commerce Cloud architect, I am fascinated by the seamless integration of technology and creativity. AI has revolutionised my workflow, from creating stunning visuals for my blog to refining my writing. Its ability to streamline processes and improve efficiency has made my work more productive and fulfilling. I continuously seek new ways to leverage AI to drive innovation and creativity! But over the past months, the fact that I use this technology has not gone unnoticed. And there is a question that pops up quite often lately. **_What tools do I use?_** I have been asked a few times how I utilise AI for blogging work. Let's use this article as an example of how I build it and move on to my other work (architectural and development) uses.
+As a content creator and Salesforce Commerce Cloud architect, I am fascinated by the seamless integration of technology and creativity. AI has revolutionised my workflow, from creating stunning visuals for my blog to refining my writing.  Its ability to streamline processes and improve efficiency has made my work more productive and fulfilling. I continuously seek new ways to leverage AI to drive innovation and creativity! But over the past months, the fact that I use this technology has not gone unnoticed. And there is a question that pops up quite often lately. **_What tools do I use?_**  I have been asked a few times how I utilise AI for blogging work. Let's use this article as an example of how I build it and move on to my other work (architectural and development) uses.
 
 ## Blogging
 
@@ -65,13 +65,13 @@ Honestly, I tried using AI to generate content. But for Salesforce B2C Commerce 
 - Repetitive
 - Uninspiring
 
-After careful consideration, I decided to utilise [Grammarly](https://www.grammarly.com/) as a tool for fine-tuning the tone and detecting any spelling errors in my writing. As English is not my primary language, this AI tool helps correct mistakes and adjust my writing for tone or technicality.
+After careful consideration, I decided to utilise [Grammarly](https://www.grammarly.com/) as a tool for fine-tuning the tone and detecting any spelling errors in my writing.  As English is not my primary language, this AI tool helps correct mistakes and adjust my writing for tone or technicality.
 
 [![Grammarly suggestions refining tone and grammar in the draft article.](/media/2023/grammarly-and-content-cf057efe86.jpg)](/media/2023/grammarly-and-content-cf057efe86.jpg)
 
 Grammarly has made my life much easier as a non-native English speaker!
 
-And when all of the content is written and adjusted with [Grammarly](https://www.grammarly.com/), we have an article! That wasn't so hard now, was it 😅 Alright, it's not writing the articles by itself, but using these tools has significantly reduced the time necessary to go from an idea to an entirely written article! And isn't that the intended goal? Not to replace, but to enhance our creativity and speed up the process!
+And when all of the content is written and adjusted with [Grammarly](https://www.grammarly.com/), we have an article! That wasn't so hard now, was it 😅  Alright, it's not writing the articles by itself, but using these tools has significantly reduced the time necessary to go from an idea to an entirely written article! And isn't that the intended goal? Not to replace, but to enhance our creativity and speed up the process!
 
 ## Other uses for AI
 
@@ -107,7 +107,7 @@ It could be better, but it gives you a great starting point!
 - **Generation Type:** Text
 - **Generation Engine:** OpenAI GPT 4
 
-I find myself frequently immersed in technical documentation as an architect. It can become overwhelming at times for non-technical persons. But fortunately, AI technology has proven to be a valuable tool in simplifying complex documentation and transforming it into a more understandable format.
+I find myself frequently immersed in technical documentation as an architect. It can become overwhelming at times for non-technical persons.  But fortunately, AI technology has proven to be a valuable tool in simplifying complex documentation and transforming it into a more understandable format.
 
 ### Communication
 

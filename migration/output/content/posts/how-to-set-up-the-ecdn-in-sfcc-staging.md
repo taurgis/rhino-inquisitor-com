@@ -108,10 +108,11 @@ Now that it is confirmed that API calls can be made, the first step in creating 
 
 To achieve this, the following API call must be made to the "[Create storefront zone](https://developer.salesforce.com/docs/commerce/commerce-api/references/cdn-api-process-apis?meta=createStorefrontZone)" endpoint:
 
-Top-level domain In this step, the top-level domain is used even if you plan to use a subdomain for Staging. e.g. To use "stg.cc-merchant.com", "cc-merchant.com" is submitted in the request of this step.
+Top-level domain In this step, the top-level domain is used even if you plan to use a subdomain for Staging.
+e.g. To use "stg.cc-merchant.com", "cc-merchant.com" is submitted in the request of this step.
 
 ```bash
-curl "https://{shortCode}.api.commercecloud.salesforce.com/cdn/zones/v1/organizations/{organizationId}/storefront-zones"
+                  curl "https://{shortCode}.api.commercecloud.salesforce.com/cdn/zones/v1/organizations/{organizationId}/storefront-zones"
 -X POST
 -d "{n  "domainName": "cc-merchant.com"n}"
 ```

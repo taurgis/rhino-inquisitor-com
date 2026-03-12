@@ -181,7 +181,7 @@ Another simple step as the script does not contain anything complicated. It does
 
 1. Use the custom object ID we defined to call the correct script. This is, however, treated to become a camel-case filename.
 
-For example: "get-customer" becomes "getCustomer."
+    For example: "get-customer" becomes "getCustomer."
 
 1. The dynamic require is executed, and the result object is stored in a variable.
 

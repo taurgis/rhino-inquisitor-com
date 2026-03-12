@@ -59,7 +59,7 @@ Luckily for the developers this system works seamlessly for developers and fetch
 - `dw.catalog.Variant` class has attribute fallback behavior to first obtain attributes from (one or more) assigned variation groups and then from the base product.
 - `dw.catalog.VariationGroup` class has attribute fallback behavior to obtain attributes from the base product, when the attribute isn't specified by the variation group.
 
-[![Script API documentation excerpt showing attribute fallback behavior in code.](/media/2024/variation-model-fallback-in-code-docs-1-ba4d97c55f.jpg)](`<https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/index.html?target=class>` _dw_ catalog_Product.html)
+[![Script API documentation excerpt showing attribute fallback behavior in code.](/media/2024/variation-model-fallback-in-code-docs-1-ba4d97c55f.jpg)](<https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/index.html?target=class> _dw_ catalog_Product.html)
 
 ## Advantages for data import
 

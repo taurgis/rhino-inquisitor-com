@@ -50,7 +50,8 @@ The Cloudflare error page.
 
 ## SCAPI
 
-The SCAPI has not changed much. It still operates on Cloudflare Edge Functions and manages all the complexities behind the scenes. However, this setup means we have less control and are entirely dependent on Salesforce to ensure everything works smoothly.
+The SCAPI has not changed much. It still operates on Cloudflare Edge Functions and manages all the complexities behind the scenes.
+However, this setup means we have less control and are entirely dependent on Salesforce to ensure everything works smoothly.
 
 ## Managed Runtime and Origin Locking
 
@@ -80,7 +81,7 @@ The first thing to do to prevent access interruptions is to configure a vanity d
 
 A vanity domain serves as a friendly URL that is easier to remember and manage while also being recognised by Origin Shielding ([and configured in the eCDN itself](/lets-go-live-ecdn/) ).
 
-Rather than having '_`<https://production-eu01-mybrand.demandware.net>`_', we can use a nicer domain such as '_ `<https://brand.com_'>`
+Rather than having '_<https://production-eu01-mybrand.demandware.net> _', we can use a nicer domain such as '_ <https://brand.com_'>
 
 ### 2\. Use the domains
 

@@ -63,7 +63,7 @@ It also touches on all different aspects of commerce in general:
 
 That is a lot of ground this single site covers! And be sure that it will keep you busy for a couple of days, and you won't be writing a single line of code...sorry, not sorry. 😋
 
-**Note:** Be sure to have your sandbox ready so you can try out some of the concepts in your environment. Not everything can be done on a Sandbox (like Einstein), but most of it is.
+**Note:**__Be sure to have your sandbox ready so you can try out some of the concepts in your environment. Not everything can be done on a Sandbox (like Einstein), but most of it is.
 
 ### Storefront Reference Architecture (SFRA) Overview
 

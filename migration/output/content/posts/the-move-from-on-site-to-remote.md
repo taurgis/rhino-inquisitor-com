@@ -67,7 +67,8 @@ But as a company, Forward [grew](https://www.forward.eu/career/) even during COV
 
 And that is when something interesting happened. I went from just doing a daily standup to days full of meetings.
 
-My wife, who is in a more functional role, also had meetings all day long. Which wasn't a problem when I didn't have any, but now we were constantly having meetings simultaneously. To the point that people started to think that there was an extra person in the meeting.
+My wife, who is in a more functional role, also had meetings all day long. Which wasn't a problem when I didn't have any, but now we were constantly having meetings simultaneously.
+To the point that people started to think that there was an extra person in the meeting.
 
 So that you know, [my wife is an SAP Consultant](https://www.linkedin.com/in/elsvanhoof/). I guess people in my sessions were learning SAP, and people in her meetings were learning about Salesforce.
 

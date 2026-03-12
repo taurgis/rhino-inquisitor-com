@@ -36,7 +36,7 @@ If we look at any of the new features added over the past years, it should come 
 - Storefront Toolkit
 - ...
 
-These features already used the [SLDS](https://www.lightningdesignsystem.com/) (Salesforce Lightning Design System). Now slowly, the global items are getting a restyling as well. As this is a cosmetic change, Salesforce added no actual new functionality. From a multi-cloud perspective, having a generic style system across all platforms makes sense to give a "familiar" feel. But I can understand not everyone is a fan of this change. What is your thought about the redesign? Leave a comment!
+ These features already used the [SLDS](https://www.lightningdesignsystem.com/) (Salesforce Lightning Design System). Now slowly, the global items are getting a restyling as well. As this is a cosmetic change, Salesforce added no actual new functionality. From a multi-cloud perspective, having a generic style system across all platforms makes sense to give a "familiar" feel. But I can understand not everyone is a fan of this change. What is your thought about the redesign? Leave a comment!
 
 ## Page Shield
 

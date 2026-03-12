@@ -31,7 +31,7 @@ A [separate article is available](/submit-multipart-form-data-to-a-third-party-s
 For those who want a code snippet to copy and paste, here you go!
 
 ```js
-LocalServiceRegistry.createService('test.http.post', {
+                LocalServiceRegistry.createService('test.http.post', {
     createRequest: function (svc, args) {
         var File = require('dw/io/File');
         // In case you have a variable endpoint
@@ -91,7 +91,7 @@ Now everything is configured in the Business Manager, and we can move on to writ
 ## Returning the file in createRequest
 
 ```js
-LocalServiceRegistry.createService('test.http.post', {
+                LocalServiceRegistry.createService('test.http.post', {
     createRequest: function (svc, args) {
         ...
         return new File(args.filePath);

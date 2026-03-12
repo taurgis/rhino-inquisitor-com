@@ -64,7 +64,7 @@ But what does this mean?
 
 - **Storing it on the WebDAV:** In the context of Commerce Cloud, this isn't the ideal choice, as such information should be stored closer to your invoicing system.
 
-Retaining all generated invoices on B2C Commerce for ten years is excessive. The platform is made for commerce, not finance.
+    Retaining all generated invoices on B2C Commerce for ten years is excessive. The platform is made for commerce, not finance.
 
 Looking at the above statements, let something else take care of these invoices! But this will, again, depend on where you operate and what the rules of engagement are.
 
@@ -90,7 +90,7 @@ The [Composable Storefront](/the-move-from-sitegenesis-and-sfra-to-the-composabl
 
 This is a massive shift. Salesforce is betting big on this API-first, composable future. Trying to use an old-school, on-platform PDF hack in this new Lego world is like trying to glue your bricks together—it completely misses the point!
 
-For a Composable architecture, the PDF logic belongs _outside_ the core SFCC platform, living in your BFF or as its own microservice. It's the modern, flexible, and correct way to build. And... now you have the complete power of Node.js at your fingertips in this headless environment!
+For a Composable architecture, the PDF logic belongs _outside_ the core SFCC platform, living in your BFF or as its own microservice. It's the modern, flexible, and correct way to build.  And... now you have the complete power of Node.js at your fingertips in this headless environment!
 
 Third Party Service In a composable architecture, you don't need to build the service yourself; opting for the best third-party solution is also a valid choice!
 

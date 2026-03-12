@@ -24,7 +24,7 @@ Are you interested in last month’s release notes? [Read the 22.7 release notes
 
 A few changes are happening in "terms" used in Salesforce B2C Commerce Cloud:
 
-- **master product/variation**master:** base product
+- **master product/variation** **master:** base product
 - **master catalog/master product catalog:** product catalog
 - **master and child items:** main items and secondary items
 - **master document:** main document
@@ -175,7 +175,9 @@ This release can be found [in the PWA Kit v2.1.0 release notes](https://github.c
 - Add support for a custom build directory to `pwa-kit-dev build`. [#628](https://github.com/SalesforceCommerceCloud/pwa-kit/pull/628)
 - Introduce client-side hot module replacement. [#630](https://github.com/SalesforceCommerceCloud/pwa-kit/pull/630)
 
-## pwa-kit-react-sdk
+##
+
+pwa-kit-react-sdk
 
 - Remove console logs from route component. [#651](https://github.com/SalesforceCommerceCloud/pwa-kit/pull/651)
 

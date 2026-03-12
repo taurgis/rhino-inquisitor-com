@@ -160,7 +160,7 @@ It is no secret that hybrid deployment projects will be happening more and more.
 - Release plugin\_groputax\_ ex
 - Release plugin\_groputax\_ ex\_sg
 
-I am assuming it is supposed to say "grouptax". A feature which has been added in a [recent update](/salesforce-b2c-commerce-cloud-23-2/).
+ I am assuming it is supposed to say "grouptax". A feature which has been added in a [recent update](/salesforce-b2c-commerce-cloud-23-2/).
 
 ### Salesforce B2C Commerce / Customer 360 Platform Integration (v3.0.0)
 

@@ -77,7 +77,7 @@ And since this is a CLI, you can combine this with sfcc-ci or b2c-tools to creat
 
 I'm starting to see a common thread here!
 
-**Note:** This particular library does not handle huge files well. It loads the entire source XML into memory, which will cause Out-Of-Memory exceptions rather quickly.
+**Note:**__This particular library does not handle huge files well. It loads the entire source XML into memory, which will cause Out-Of-Memory exceptions rather quickly.
 
 ## SFCC Catalog Pricebook
 

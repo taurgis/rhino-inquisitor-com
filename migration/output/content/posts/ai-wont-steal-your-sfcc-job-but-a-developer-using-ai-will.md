@@ -24,21 +24,22 @@ The Rhino Inquisitor I went all "Rhino" up in this place, be prepared for some a
 
 Let’s cut to the chase. The whispers in every virtual stand-up, the subtext of every tech keynote, the existential dread creeping into your late-night coding sessions—it all boils down to one question: Is Artificial Intelligence coming for your job? As a Salesforce Commerce Cloud developer, you’re standing at the intersection of a specialised, high-stakes platform and the most disruptive technological wave of our generation.
 
-The anxiety is palpable, and it’s not unfounded.
+_The anxiety is palpable, and it’s not unfounded._
 
 But the job of the Rhino Inquisitor is to charge head-first through the fog of fear and hype to uncover the hard, practical truth. So here it is: No, AI is not going to make you obsolete. However, it will, unequivocally, and without mercy, render developers who refuse to adapt obsolete. The threat isn't the algorithm. It's atrophy.
 
 This isn't some far-off future. The shift is already here. The 2024 [DORA](https://dora.dev/research/2024/) Report reveals that 76% of developers are already using AI-powered tools in their daily work. A GitHub survey from the same year found that a staggering 97% of developers have used generative AI platforms.
 
-This is no longer an experimental niche... It's a rapidly adopted standard.
+_This is no longer an experimental niche... It's a rapidly adopted standard._
 
 Businesses are (or will go) all-in, with 78% of organisations reporting AI usage in 2024, a massive jump from 55% the previous year. The data is clear: AI is being integrated into the software development lifecycle at a breathtaking pace, promising boosts in productivity, code quality, and even developer focus.
 
-However, the most dangerous misconception is that simply using AI to write code faster automatically translates to greater value. This brings us to a critical, non-obvious threat that developers must understand: the "Vacuum Hypothesis." Introduced in the [DORA](https://dora.dev/research/2024/) Report, this concept tells us that the time developers save by using AI is often immediately absorbed by lower-value activities, such as endless meetings, bureaucratic red tape, and context-switching between trivial tasks.
+However, the most dangerous misconception is that simply using AI to write code faster automatically translates to greater value. This brings us to a critical, non-obvious threat that developers must understand: the "Vacuum Hypothesis."
+Introduced in the [DORA](https://dora.dev/research/2024/) Report, this concept tells us that the time developers save by using AI is often immediately absorbed by lower-value activities, such as endless meetings, bureaucratic red tape, and context-switching between trivial tasks.
 
 Consider this scenario: you use GitHub Copilot to generate a controller with helpers and its test class in 30 minutes, a task that previously took you 90. You've just saved an hour. But what happens to that hour? In many organisations, it evaporates into a vacuum of inefficiency. It's consumed by an extra status update meeting, a flurry of low-priority Slack messages, or simply waiting for a manual, bottlenecked deployment process to inch forward. The micro-level productivity gain is completely nullified by macro-level organisational drag.
 
-This reveals a more profound truth. The most successful developers in this new era won't just be the ones who master AI tools. They will be the ones who leverage the productivity gains from those tools to focus on high-value work that AI _cannot _ do: architecting complex, scalable systems, mentoring junior developers, collaborating with business stakeholders to solve the _ right_ problems, and championing the process improvements needed to ensure that saved time is reinvested, not wasted.
+This reveals a more profound truth. The most successful developers in this new era won't just be the ones who master AI tools. They will be the ones who leverage the productivity gains from those tools to focus on high-value work that AI _cannot _ do: architecting complex, scalable systems, mentoring junior developers, collaborating with business stakeholders to solve the_right_ problems, and championing the process improvements needed to ensure that saved time is reinvested, not wasted.
 
 The challenge is as much about changing your organisation's culture as it is about changing your own code editor.
 
@@ -134,7 +135,7 @@ Armed with these techniques, you can use LLMs for high-level tasks that go far b
 
 Debugging and testing are two of the most time-consuming aspects of development, especially within the complex, interconnected systems of SFCC.
 
-AI is poised to revolutionise this space, acting as a tireless QA engineer that can catch issues before they ever reach a human reviewer. Tools like [Qodo AI](https://www.qodo.ai/) (formerly CodiumAI) can analyse your code and automatically generate meaningful unit tests, covering edge cases you might have missed. For debugging, [Workik](https://workik.com/) offers context-aware analysis, allowing you to provide error messages and relevant code snippets to receive intelligent, plain-English explanations of the root cause. More advanced tools even allow you to have a conversation with your debugger, asking questions like, "Why is this orderTotal variable null at this point in the execution?"
+AI is poised to revolutionise this space, acting as a tireless QA engineer that can catch issues before they ever reach a human reviewer.  Tools like [Qodo AI](https://www.qodo.ai/) (formerly CodiumAI) can analyse your code and automatically generate meaningful unit tests, covering edge cases you might have missed. For debugging, [Workik](https://workik.com/) offers context-aware analysis, allowing you to provide error messages and relevant code snippets to receive intelligent, plain-English explanations of the root cause. More advanced tools even allow you to have a conversation with your debugger, asking questions like, "Why is this orderTotal variable null at this point in the execution?"
 
 For an SFCC developer, this means a future where the soul-crushing task of writing boilerplate test data setup is automated.
 
@@ -186,7 +187,7 @@ It's possible that AI might encounter a roadblock within the next two years - a 
 
 The history of software development is a history of abstraction. Each new layer, from the compiler to the IDE to the cloud, has eliminated a class of manual labour and, in doing so, has empowered developers to build things that were previously unimaginable. Generative AI is the most profound abstraction layer we have ever witnessed. It is abstracting the very act of writing code itself.
 
-This is not a cause for fear! It is a cause for action.
+_This is not a cause for fear! It is a cause for action._
 
 It does not make you obsolete; it gives you unprecedented leverage. The developers who face extinction are those who cling to the past, defining their value by the tasks that AI can now do better and faster. They are the dodos of this new era, unable to adapt to a changing environment.
 
