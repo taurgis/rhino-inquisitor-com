@@ -1,6 +1,6 @@
 ## RHI-045 · Batch 3 — Long-Tail and Taxonomy Migration
 
-**Status:** Done  
+**Status:** In Progress  
 **Priority:** High  
 **Estimate:** L  
 **Phase:** 4  
@@ -49,9 +49,10 @@ This is typically the largest batch in terms of record count but the lowest risk
   - [x] List of all deferred items with owner and target resolution phase (Phase 5 SEO, Phase 8 validation)
   - [x] Approved by migration owner before this ticket is `Done`
 - [ ] Batch 3 PR evidence includes the cumulative correction outputs used to approve the batch:
-  - [ ] `migration/reports/content-corrections-summary.json`
-  - [ ] `migration/reports/image-alt-corrections-audit.csv`
-  - [x] Confirmation that the finalized long-tail corpus passed a zero-change correction rerun
+  - [x] `migration/reports/content-corrections-summary.json`
+  - [x] `migration/reports/image-alt-corrections-audit.csv`
+  - [ ] Confirmation that the finalized long-tail corpus passed a zero-change correction rerun
+  - [x] Current non-convergence evidence is documented in `analysis/documentation/phase-4/rhi-045-correction-rerun-nonconvergence-2026-03-12.md`
 - [ ] Batch 3 PR is merged to `main` only after all CI gates pass and exception closure summary is approved
 
 ---
@@ -83,6 +84,10 @@ This is typically the largest batch in terms of record count but the lowest risk
   - [ ] Migration owner reviews exception closure list and approves
   - [ ] All CI gates pass
 - [ ] Merge Batch 3 PR
+- [x] Investigate and document the correction-summary non-convergence evidence gap:
+  - [x] Confirm the current checked-in summary state
+  - [x] Measure rerun behavior against a temp copy of the current staged corpus
+  - [x] Record the residual rewrite signatures and exact evidence gap in supporting documentation
 - [ ] Prepare Phase 4 sign-off package (RHI-046):
   - [ ] Complete migration item report
   - [ ] Exception closure summary
@@ -125,16 +130,18 @@ This is typically the largest batch in terms of record count but the lowest risk
 
 ### Definition of Done
 
-- [x] All acceptance criteria are satisfied and verified
-- [x] Tasks are complete or intentionally descoped with rationale
+- [ ] All acceptance criteria are satisfied and verified
+- [ ] Tasks are complete or intentionally descoped with rationale
 - [x] Dependencies and blockers are resolved or documented
-- [x] Outcomes section is completed with delivered artefacts and deviations
+- [ ] Outcomes section is completed with delivered artefacts and deviations
 
 ---
 
 ### Outcomes
 
-Completed the Batch 3 closeout package, opened PR #27, and recorded a successful CI run at `https://github.com/taurgis/rhino-inquisitor-com/actions/runs/22995801798`. On 2026-03-12 Thomas Theunen, acting as user-owner and migration owner, approved closing RHI-045 before merge based on the green PR evidence and the already-completed local closeout package.
+Completed the Batch 3 closeout package, opened PR #27, and recorded a successful CI run at `https://github.com/taurgis/rhino-inquisitor-com/actions/runs/22995801798`. On 2026-03-12 Thomas Theunen, acting as user-owner and migration owner, approved closing RHI-045 before merge based on the green PR evidence and the then-available local closeout package.
+
+Current evidence review on 2026-03-12 reopened the ticket because the correction-rerun proof still does not support the zero-change acceptance criterion. The checked-in correction summary is now current for the regenerated staged corpus and reports `filesChanged: 166`, but a fresh temp-copy rerun investigation on the current `migration/output/content/` corpus still did not converge to `0` across five sequential correction passes (`60 -> 21 -> 17 -> 16 -> 16`).
 
 **Delivered artefacts:**
 
@@ -142,13 +149,14 @@ Completed the Batch 3 closeout package, opened PR #27, and recorded a successful
 - Complete migration item report for full record set
 - `migration/reports/content-corrections-summary.json`
 - `migration/reports/image-alt-corrections-audit.csv`
+- `analysis/documentation/phase-4/rhi-045-correction-rerun-nonconvergence-2026-03-12.md`
 - Exception closure summary (deferred items with owners)
 - CI gate evidence for Batch 3 PR: `https://github.com/taurgis/rhino-inquisitor-com/actions/runs/22995801798`
 - Phase 4 sign-off package (input to RHI-046)
 
 **Deviations from plan:**
 
-- User-owner approved a pre-merge closeout on 2026-03-12. PR #27 remains open against `main` at the time this ticket was marked `Done`; merge is expected as operational follow-through rather than a remaining ticket blocker.
+- User-owner approved a pre-merge closeout on 2026-03-12, but that approval was based on evidence that is no longer internally consistent with the checked-in correction summary and rerun behavior. PR #27 remains open against `main`, and correction-rerun evidence must be refreshed before RHI-045 can be treated as fully closed again.
 
 ---
 
@@ -166,7 +174,10 @@ Completed the Batch 3 closeout package, opened PR #27, and recorded a successful
   - `/archive/2/` through `/archive/8/` are explicitly retired in the manifest and pass URL parity as true not found.
   - Hugo does not generate WordPress-style date archive routes implicitly; any kept archive surface must be modeled explicitly.
 - Correction and reporting evidence:
-  - `migration/reports/content-corrections-summary.json` ends at `filesChanged: 0`.
+  - `migration/reports/content-corrections-summary.json` currently reports `filesChanged: 166`; this checked-in file is current for the regenerated staged corpus and still does not support the zero-change rerun claim.
+  - A fresh temp-copy rerun investigation against the current `migration/output/content/` corpus remained non-idempotent across five sequential passes: `60 -> 21 -> 17 -> 16 -> 16` files changed.
+  - The net residual pass-5 diff collapsed to a single post with malformed nested angle-bracket token patterns: `what-is-new-in-sfcc-24-6.md`.
+  - Supporting investigation note: `analysis/documentation/phase-4/rhi-045-correction-rerun-nonconvergence-2026-03-12.md`.
   - `migration/reports/image-alt-corrections-audit.csv` is present and reflects the final curated alt-text input state.
   - `migration/reports/conversion-fallbacks.csv` remains header-only.
   - `migration/intermediate/extract-quarantine.json` remains empty.
@@ -177,13 +188,13 @@ Completed the Batch 3 closeout package, opened PR #27, and recorded a successful
 |------|------------------|-------|--------------|-----------------|
 | SEO metadata length warnings | 89 warning-only rows in `migration/reports/seo-completeness-report.csv` | User-owner | Phase 5 | Pending |
 | Accessibility weak-link warning | 1 warning row in `migration/reports/a11y-content-warnings.csv` | User-owner | Phase 8 | Pending |
-| URL parity warning carryover | 9 warning-level rows in `migration/reports/url-parity-report.csv`, 0 critical failures | User-owner | Phase 6 | Pending |
+| URL parity warning carryover | 0 fail rows in `migration/reports/url-parity-report.csv`; 541 deferred-edge warning-pass rows remain expected until Phase 6 redirect implementation | User-owner | Phase 6 | Pending |
 | Goldmark raw HTML warnings | 2 render warnings recorded during local build validation | User-owner | Phase 8 | Pending |
 
 ### Remaining PR Blocker
 
-- No blocking content or CI issue remains for RHI-045 closeout.
-- PR #27 is green and still open; merge is no longer treated as a ticket-blocking step because the user-owner approved pre-merge closure on 2026-03-12.
+- Correction-rerun evidence remains unresolved for RHI-045 closeout. The ticket cannot claim a zero-change correction rerun until the correction pipeline converges on the current staged corpus or the acceptance criteria are explicitly revised with owner approval.
+- PR #27 is green and still open, but the closeout evidence package is incomplete while the correction-summary non-convergence remains unresolved.
 
 ---
 
@@ -199,6 +210,8 @@ Completed the Batch 3 closeout package, opened PR #27, and recorded a successful
 | 2026-03-12 | In Progress | Drafted the Batch 3 closeout evidence and exception summary, confirmed the video and archive route strategy in the current repo state, and isolated the remaining parity mismatch to two manual seed manifest rows: `/archives/` and `/blog/`. A dedicated branch (`copilot/rhi-045-batch-3-closeout`) now holds the closeout work. |
 | 2026-03-12 | In Progress | User-owner approved retiring `/archives/` and `/blog/` because both routes had no source-backed content, organic traffic, or external links. After updating the manifest and rerunning the targeted gates, URL parity dropped from 9 warning-level failures to 7 with 0 critical failures, and `check:migration-thresholds` still passed. |
 | 2026-03-12 | Done | PR #27 (`RHI-045 prepare Batch 3 closeout`) recorded a successful GitHub Actions run at `https://github.com/taurgis/rhino-inquisitor-com/actions/runs/22995801798`. Thomas Theunen explicitly approved marking RHI-045 `Done` before merge; the still-open PR is treated as operational follow-through, not a closeout blocker. |
+| 2026-03-12 | In Progress | Revalidated the correction evidence against the current staged Batch 3 corpus. The checked-in `migration/reports/content-corrections-summary.json` still reports `filesChanged: 166`, while a temp-copy rerun investigation remained non-idempotent across four sequential passes (`60 -> 21 -> 18 -> 2`) and reduced the residual rewrite loop to two malformed angle-bracket or email/autolink cases. RHI-045 is reopened until that evidence gap is resolved or explicitly accepted. |
+| 2026-03-12 | In Progress | Refreshed Batch 3 closeout evidence after the URL-parity fixes. `check:url-parity` now reports `1212` pass rows, `0` fail rows, and `0` critical failures. A fresh temp-copy rerun on the current staged corpus remained non-idempotent across five sequential passes (`60 -> 21 -> 17 -> 16 -> 16`), and the net pass-5 residual diff collapsed to `what-is-new-in-sfcc-24-6.md`. |
 
 ---
 

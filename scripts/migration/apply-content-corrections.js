@@ -1277,6 +1277,32 @@ function transformPreservingMarkdownLinks(line, transform) {
   return transformedLine.replace(/§§RHILINK(\d+)§§/gu, (_match, index) => tokens[Number.parseInt(index, 10)] ?? '');
 }
 
+function transformPreservingMarkdownLinksAndAutolinks(line, transform) {
+  const markdownLinks = [];
+  const autolinks = [];
+
+  const protectedMarkdownLinks = String(line ?? '').replace(markdownLinkPattern, (match) => {
+    const token = `§§RHILINK${markdownLinks.length}§§`;
+    markdownLinks.push(match);
+    return token;
+  });
+
+  const protectedAutolinks = protectedMarkdownLinks.replace(/<[^>\n]+>/gu, (match) => {
+    if (!isMarkdownAutolink(match)) {
+      return match;
+    }
+
+    const token = `§§RHIAUTOLINK${autolinks.length}§§`;
+    autolinks.push(match);
+    return token;
+  });
+
+  const transformedLine = transform(protectedAutolinks);
+  return transformedLine
+    .replace(/§§RHIAUTOLINK(\d+)§§/gu, (_match, index) => autolinks[Number.parseInt(index, 10)] ?? '')
+    .replace(/§§RHILINK(\d+)§§/gu, (_match, index) => markdownLinks[Number.parseInt(index, 10)] ?? '');
+}
+
 function normalizeDuplicateHeadings(content) {
   const lines = String(content ?? '').replace(/\r\n?/gu, '\n').split('\n');
   const normalizedLines = [];
@@ -1377,27 +1403,31 @@ function wrapBareUrls(content) {
       continue;
     }
 
-    let normalizedLine = line;
-    normalizedLine = normalizedLine.replace(/\*\*(https?:\/\/[^\s<>()*]+)\*\*/gu, (_match, url) => {
-      wrappedUrls += 1;
-      return `**<${url}>**`;
+    const normalizedLine = transformPreservingMarkdownLinksAndAutolinks(line, (protectedLine) => {
+      let rewrittenLine = protectedLine;
+      rewrittenLine = rewrittenLine.replace(/\*\*(https?:\/\/[^\s<>()*]+)\*\*/gu, (_match, url) => {
+        wrappedUrls += 1;
+        return `**<${url}>**`;
+      });
+      rewrittenLine = rewrittenLine.replace(/__(https?:\/\/[^\s<>()_]+)__/gu, (_match, url) => {
+        wrappedUrls += 1;
+        return `__<${url}>__`;
+      });
+      rewrittenLine = rewrittenLine.replace(/(?<!\]\()(?<![\[<])\bhttps?:\/\/[^\s<>()]+[^\s<>().,!?;:]/gu, (match) => {
+        wrappedUrls += 1;
+        return `<${match}>`;
+      });
+      rewrittenLine = rewrittenLine.replace(/(?<!\]\()(?<![\w/<])\bwww\.[^\s<>()]+[^\s<>().,!?;:]/gu, (match) => {
+        wrappedUrls += 1;
+        return `<${match}>`;
+      });
+      rewrittenLine = rewrittenLine.replace(/(?<!\]\()(?<![\[<`])(?<![A-Z0-9._%+-])\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/giu, (match) => {
+        wrappedUrls += 1;
+        return `<${match}>`;
+      });
+      return rewrittenLine;
     });
-    normalizedLine = normalizedLine.replace(/__(https?:\/\/[^\s<>()_]+)__/gu, (_match, url) => {
-      wrappedUrls += 1;
-      return `__<${url}>__`;
-    });
-    normalizedLine = normalizedLine.replace(/(?<!\]\()(?<![\[<])\bhttps?:\/\/[^\s<>()]+[^\s<>().,!?;:]/gu, (match) => {
-      wrappedUrls += 1;
-      return `<${match}>`;
-    });
-    normalizedLine = normalizedLine.replace(/(?<!\]\()(?<![\w/<])\bwww\.[^\s<>()]+[^\s<>().,!?;:]/gu, (match) => {
-      wrappedUrls += 1;
-      return `<${match}>`;
-    });
-    normalizedLine = normalizedLine.replace(/(?<!\]\()(?<![\[<`])\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/giu, (match) => {
-      wrappedUrls += 1;
-      return `<${match}>`;
-    });
+
     normalizedLines.push(normalizedLine);
   }
 

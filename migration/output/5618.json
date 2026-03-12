@@ -45,7 +45,9 @@
   "legacyUrl": "/how-to-set-up-the-ecdn-in-sfcc-staging/",
   "targetUrl": "/how-to-set-up-the-ecdn-in-sfcc-staging/",
   "disposition": "keep",
-  "aliasUrls": [],
+  "aliasUrls": [
+    "/how-to-set-up-the-ecdn-for-staging-in-salesforce-b2c-commerce-cloud/"
+  ],
   "mediaRefs": [
     "https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/ssl_certificate_tw.jpg",
     "https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/commerce-cloud-api-client-roles-300x75.jpg",
@@ -102,7 +104,9 @@
       "urlClass": "post"
     },
     "normalization": {
-      "aliasUrlsDerivedFromSameTarget": [],
+      "aliasUrlsDerivedFromSameTarget": [
+        "/how-to-set-up-the-ecdn-for-staging-in-salesforce-b2c-commerce-cloud/"
+      ],
       "usedPublishedAtFallback": false,
       "usedModifiedAtFallback": false,
       "statusNormalizedFrom": "publish"

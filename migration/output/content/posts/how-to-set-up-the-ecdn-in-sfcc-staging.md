@@ -16,6 +16,8 @@ tags:
   - scapi
   - sfcc
   - technical
+aliases:
+  - /how-to-set-up-the-ecdn-for-staging-in-salesforce-b2c-commerce-cloud/
 author: Thomas Theunen
 ---
 > [!WARNING]
