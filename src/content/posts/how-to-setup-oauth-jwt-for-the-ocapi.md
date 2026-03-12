@@ -42,7 +42,7 @@ openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -node
 
 This command will create two files:
 
-- **key.pem**: Your private key that will be used to sign requests to the OCAPI authorization endpoint
+- **key.pem:** Your private key that will be used to sign requests to the OCAPI authorization endpoint
 
 - **cert.pem:** The certificate containing the public key will be needed later when setting up the API key in AM (Account Manager).
 
@@ -74,10 +74,10 @@ The **header,** which describes what type the JWT is and what algorithm it is us
 
 The **payload,** which is the data we are trying to send to the server. To get a token back, Salesforce B2C Commerce Cloud requires the following information to be in the JWT:
 
-- **iss (issuer)**: The client ID (API Key)
-- **sub (subject)**: The client ID (API key)
-- **exp (expiration time)**: Current time + x seconds (1 second should do it)
-- **aud (audience)**: The Account Manager auth endpoint
+- **iss (issuer):** The client ID (API Key)
+- **sub (subject):** The client ID (API key)
+- **exp (expiration time):** Current time + x seconds (1 second should do it)
+- **aud (audience):** The Account Manager auth endpoint
 
 The **signature**, which is the header and payload signed with the private key to verify that you are allowed to send it to the server.
 
@@ -89,9 +89,9 @@ As an example, I have created a postman library to get you started!
 
 In this example, you need to set two collection variables:
 
-- **pkey **: The entire contents of the _** key.pem**_ file we generated earlier
+- **pkey:**The entire contents of the _** key.pem**_ file we generated earlier
 
-- **api\_key**: The API key you generated in the Account Manager
+- **api\_key:** The API key you generated in the Account Manager
 
 There is also a variable called [**pmlib**](https://joolfe.github.io/postman-util-lib/dist/bundle.js): a third-party library meant to extend the capabilities of the scripting framework within [Postman](https://www.postman.com/). In the collection, a request called "1. Download JS for Postman" downloads it in case the initial value is not working.
 

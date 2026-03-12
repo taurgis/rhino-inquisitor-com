@@ -90,7 +90,7 @@ The Hybrid Threshold Model is a battle-tested, pragmatic pattern that allocates 
 
 The model is governed by a "low stock threshold"—a simple number (e.g., 5 units) that dictates the system's behaviour. This concept is a common feature in e-commerce platforms, triggering urgency messaging.
 
-- **Path 1: Above the Threshold (The Fast Lane) ** When SFCC's internal inventory record shows stock is comfortably above the threshold, the risk of overselling is low. The system** does not** make a real-time call. It serves a generic, cached "In Stock" message. This response is lightweight and can be cached for a reasonable duration (e.g., 15-120 minutes). This path handles the vast majority of traffic, ensuring lightning-fast PDP loads.
+- **Path 1: Above the Threshold (The Fast Lane)**When SFCC's internal inventory record shows stock is comfortably above the threshold, the risk of overselling is low. The system**does not** make a real-time call. It serves a generic, cached "In Stock" message. This response is lightweight and can be cached for a reasonable duration (e.g., 15-120 minutes). This path handles the vast majority of traffic, ensuring lightning-fast PDP loads.
 
 - **Path 2: At or Below the Threshold (The Accuracy Zone)** When stock drops to or below the threshold, the game changes. The cached status is invalidated. Now, every request for this product's availability triggers a live, synchronous API call to the external master to get the _exact_ count. To prevent hammering the backend for a popular low-stock item, this live response is itself [cached](/third-party-api-caching-in-commerce-cloud/), but with a very aggressive TTL (e.g., 10-30 seconds).
 
@@ -110,7 +110,7 @@ This is a powerful compromise, but it's not a silver bullet.
 
 - **Custom Development Required:** This isn't a checkbox in Business Manager. It requires custom logic to manage the dual paths, the custom cache, and the invalidation process.
 
-- **Minor Race Condition: ** A small window of risk remains. If the threshold is 5 and SFCC shows 6, two customers could check out before the next batch feed runs. This is why a final, definitive real-time check during the final order submission is**non-negotiable**. The PDP check is for browsing performance; the checkout check is for transactional integrity.
+- **Minor Race Condition:**A small window of risk remains. If the threshold is 5 and SFCC shows 6, two customers could check out before the next batch feed runs. This is why a final, definitive real-time check during the final order submission is**non-negotiable**. The PDP check is for browsing performance; the checkout check is for transactional integrity.
 
 ## Leveling Up: Advanced Tactics for the Bold
 
@@ -176,18 +176,18 @@ The right inventory strategy is a direct reflection of your business's omnichann
 
 - **Profile:** You sell only through your SFCC site from a dedicated stock pool.
 
-- **Mandate: ** Stick with**native SFCC inventory** and reliable batch updates. Anything else is over-engineering. Focus on making your import jobs fast and frequent.
+- **Mandate:**Stick with**native SFCC inventory** and reliable batch updates. Anything else is over-engineering. Focus on making your import jobs fast and frequent.
 
 - **Tier 2: The Pragmatic Omnichannel Player**
 
 - **Profile:** You sell across SFCC and physical stores from a shared inventory. You need to stop the bleeding from oversells and fix site performance _now_.
 
-- **Mandate: ** Implement the**Hybrid Threshold Model with Asynchronous AJAX checks**. This is your sweet spot. It delivers the best balance of performance, accuracy, and implementation effort without requiring a complete overhaul of your architecture.
+- **Mandate:**Implement the**Hybrid Threshold Model with Asynchronous AJAX checks**. This is your sweet spot. It delivers the best balance of performance, accuracy, and implementation effort without requiring a complete overhaul of your architecture.
 
 - **Tier 3: The Salesforce-Centric Enterprise**
 
 - **Profile:** You're a large, complex enterprise running multiple brands and channels, deeply invested in the Salesforce ecosystem. Unified commerce is a core strategic goal.
 
-- **Mandate: ** Adopt**Salesforce Omnichannel Inventory (OCI)**. Don't even think about building it yourself. The "buy" decision is a strategic imperative that will deliver faster time-to-market, lower TCO, and a future-proof foundation for true unified commerce.
+- **Mandate:**Adopt**Salesforce Omnichannel Inventory (OCI)**. Don't even think about building it yourself. The "buy" decision is a strategic imperative that will deliver faster time-to-market, lower TCO, and a future-proof foundation for true unified commerce.
 
 Choosing an inventory strategy is one of the most critical architectural decisions you will make. It dictates your site's performance, your customers' trust, and your operational sanity. Don't just build for today's traffic; architect a platform that can withstand tomorrow's complexities.

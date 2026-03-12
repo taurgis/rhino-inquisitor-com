@@ -143,11 +143,11 @@ A big release focusing on many different areas important to any project: Support
 
 ### Improvements
 
-- **Product Tile Revamp**: Displays different pricing for various products on product tiles and PDP, and shows pricing on cart, checkout, and wishlist pages.
-- **Promotional Callouts**: Promotional messages are now visible on product list and detail pages.
-- **Selectable Swatch Groups**: Attributes like color can now be selected via swatch groups.
-- **Badges and Lazy Basket Creation**: New badges are displayed, and baskets are created lazily to improve performance.
-- **Cache Control**: Implements the `stale-while-revalidate` directive for better caching.
+- **Product Tile Revamp:** Displays different pricing for various products on product tiles and PDP, and shows pricing on cart, checkout, and wishlist pages.
+- **Promotional Callouts:** Promotional messages are now visible on product list and detail pages.
+- **Selectable Swatch Groups:** Attributes like color can now be selected via swatch groups.
+- **Badges and Lazy Basket Creation:** New badges are displayed, and baskets are created lazily to improve performance.
+- **Cache Control:** Implements the `stale-while-revalidate` directive for better caching.
 
 ### Accessibility Enhancements
 

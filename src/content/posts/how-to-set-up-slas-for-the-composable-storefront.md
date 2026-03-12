@@ -63,7 +63,7 @@ And with that, we are almost there! Fill in the following information:
 - **What tenant will be used?:** Fill in the Tenant ID, part of the Organization ID, from step two. (format: xxxx\_sxx)
 - **What site will be used?:** Here, we fill in the site IDs used - separated by a space.
 - **Which App Type will be used?:** Well... the article is for the Composable Storefront - So let us select "_PWA Kit or SFRA or Mobile_".Selecting this option will make a "[Public Client](https://developer.salesforce.com/docs/commerce/commerce-api/guide/slas-public-client.html)".
-- **Client Id: ** The Client ID to use during the installation of the PWA Kit. This can be left as-is. _** Note:**__ This Client Id does not need to exist as an API Client in the Account Manager - They are not related!!!_
+- **Client Id:**The Client ID to use during the installation of the PWA Kit. This can be left as-is. _**Note:** __This Client Id does not need to exist as an API Client in the Account Manager - They are not related!!!_
 - **Secret:** Public Clients do not need a secret
 - **Do you want the default shopper scopes?:** Since we will be using the PWA Kit, leave this checked.
 - **Enter custom shopper scopes:** This step can be left empty.

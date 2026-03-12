@@ -1038,7 +1038,9 @@ function normalizeSpacedEmphasis(content) {
       continue;
     }
 
-    const normalizedLine = transformPreservingMarkdownLinks(line, rewriteEmphasisSpacingLine);
+    const normalizedLine = transformPreservingMarkdownLinks(line, (protectedLine) =>
+      repairMalformedEmphasisSyntaxLine(rewriteEmphasisSpacingLine(protectedLine))
+    );
 
     if (normalizedLine !== line) {
       normalizedEmphasis += 1;
@@ -1117,6 +1119,50 @@ function rewriteEmphasisSpacingLine(value) {
     }
     current = next;
   }
+  return current;
+}
+
+function repairMalformedEmphasisSyntaxLine(value) {
+  let current = String(value ?? '');
+  for (let iteration = 0; iteration < 4; iteration += 1) {
+    const next = current
+      .replace(/_\*\*\s*([^*\n]+?)\s*:\s*\*\*__(?=\s|$)/gu, '**$1:**')
+      .replace(/\*\*\s*([^*\n]+?)\s*:\s*\*\*__(?=\s|$)/gu, '**$1:**')
+      .replace(/\*\*\s*([^*\n]+?)\s*\*\*:/gu, '**$1:**')
+      .replace(/\*\*\s*([^*\n]+?)\s*:\s*\*\*(?=\S)/gu, '**$1:** ')
+      .replace(/([A-Za-z0-9`>)}\]])(\*\*[^*\n]+?:\*\*)/gu, '$1 $2')
+      .replace(/(\*\*[^*\n]+?:\*\*)(?=\S)/gu, '$1 ')
+      .replace(/(\*\*[^*\n]*[,:;!?])([A-Za-z]{3,}\b[^*\n]*\*\*)/gu, '$1 $2')
+      .replace(/\*\*\s*([^*\n]+?)\s+\*\*(?=[:;,.!?])/gu, '**$1**')
+      .replace(/\*\*\s*([^*\n]+?)\s*:\s*\*\*/gu, '**$1:**')
+      .replace(/\*\*\s*([^*\n]+?)\s*\*\*(?=__(?:\s|$))/gu, '**$1**')
+      .replace(/\*\*\*\*([^*\n]+?)\s*:\s*\*\*/gu, '**$1:**')
+      .replace(/\*\*([^*\n]+?)\*\*\*\*([^*\n]+?)\*\*/gu, (_match, left, right) => {
+        const leftText = left.trim();
+        const rightText = right.trim();
+        if (!leftText || !rightText) {
+          return `**${leftText}${rightText}**`;
+        }
+
+        const leftFragment = leftText.match(/([A-Za-z0-9]+)[^A-Za-z0-9]*$/u)?.[1] ?? '';
+        const rightFragment = rightText.match(/^[A-Za-z0-9]+/u)?.[0] ?? '';
+        const joiner = /[,:;!?)]$/u.test(leftText)
+          ? ' '
+          : leftFragment.length <= 2 || rightFragment.length <= 2
+            ? ''
+            : ' ';
+        return `**${leftText}${joiner}${rightText}**`;
+      })
+      .replace(/\*\*\s+([^*\n]+?)\*\*/gu, '**$1**')
+      .replace(/\*\*([^*\n]+?)\s+\*\*/gu, '**$1**');
+
+    if (next === current) {
+      return next;
+    }
+
+    current = next;
+  }
+
   return current;
 }
 

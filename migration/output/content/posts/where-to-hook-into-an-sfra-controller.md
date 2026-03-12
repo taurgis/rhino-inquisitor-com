@@ -140,11 +140,11 @@ Visualising what "replacing" does in a single route (Home-Show)
 
 The options explained above already give you quite a bit of flexibility. But what if I told you there is even more to come? The route itself also exposes a few "events" in which we can hook into:
 
-- **route:Start:** Executes at the start of the route, before any middleware defined using "server.\*"
-- **route:BeforeComplete:** Executes after all route middleware is finished but before the "route:Complete" event.
-- **route:Complete:** The final event, after everything else.
-- **route:Step:** Executed between each route middleware.
-- **route:Redirect:** Executed when a "res.redirect()" is executed.
+- **route: Start:** Executes at the start of the route, before any middleware defined using "server.\*"
+- **route: BeforeComplete:** Executes after all route middleware is finished but before the "route:Complete" event.
+- **route: Complete:** The final event, after everything else.
+- **route: Step:** Executed between each route middleware.
+- **route: Redirect:** Executed when a "res.redirect()" is executed.
 
 ```js
 server.replace('Show', function (req, res, next) {

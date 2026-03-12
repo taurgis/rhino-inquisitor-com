@@ -74,11 +74,11 @@ Trying to shoehorn new functionality into an existing hook results in convoluted
 
 SCAPI and OCAPI hooks come in three main flavours, each with a distinct role in the request lifecycle. Understanding their specific purpose and limitations is crucial to using them correctly.
 
-- **`before&lt;HTTP Method&gt;`**: This hook executes _before_ the server performs its main processing. Its primary role is to validate input and preprocess the incoming request document. This is your first line of defence, where you can perform status checks, apply additional filtering logic, or validate data before it ever touches the core system objects.
+- **`before&lt; HTTP Method&gt;`:** This hook executes _before_ the server performs its main processing. Its primary role is to validate input and preprocess the incoming request document. This is your first line of defence, where you can perform status checks, apply additional filtering logic, or validate data before it ever touches the core system objects.
 
-- **`after&lt;HTTP Method&gt;`**: This hook executes _after _ the server's main logic has completed but_before_ the final response document is created. It operates on the modified Script API object (e.g., the `Basket` or `Order` object). This is the place for side effects and integrations, such as sending a newly created order to an external ERP, triggering a basket recalculation (`dw.order.calculate`), or performing change tracking.
+- **`after&lt; HTTP Method&gt;`:** This hook executes _after _ the server's main logic has completed but_before_ the final response document is created. It operates on the modified Script API object (e.g., the `Basket` or `Order` object). This is the place for side effects and integrations, such as sending a newly created order to an external ERP, triggering a basket recalculation (`dw.order.calculate`), or performing change tracking.
 
-- **`modify&lt;HTTP Method&gt;Response`**: This is the final step in the chain. It executes _after_ the platform has already created the response document from the Script API object. Its sole purpose is to make final modifications to the response document, such as adding or removing custom attributes (c\_ fields) or cleaning up data before it's sent to the client. A critical point: this hook is **not** transactional. Attempting to modify a persistent Script API object here will result in an `ORMTransactionException` and an [HTTP 500 fault](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/customization.html)
+- **`modify&lt; HTTP Method&gt; Response`:**This is the final step in the chain. It executes _after _ the platform has already created the response document from the Script API object. Its sole purpose is to make final modifications to the response document, such as adding or removing custom attributes (c\_ fields) or cleaning up data before it's sent to the client. A critical point: this hook is**not** transactional. Attempting to modify a persistent Script API object here will result in an `ORMTransactionException` and an [HTTP 500 fault](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/customization.html)
 
 ## Not all APIs are made equal
 
@@ -333,7 +333,7 @@ The profiler has several modes, each with a different level of detail and perfor
 
 - **Development Mode:** Measures all requests with more detail. This is the default for sandboxes and has some runtime overhead.
 
-- **Extended Script Development Mode: ** Provides deep insight into script execution, down to the line level. It has a**severe** performance impact and should be used with extreme caution, especially on production instances.
+- **Extended Script Development Mode:**Provides deep insight into script execution, down to the line level. It has a**severe** performance impact and should be used with extreme caution, especially on production instances.
 
 To zero in on your hook's performance, open the Code Profiler (`Administration > Operations > Code Profiler).` Select the appropriate mode, and look in the results for the `SCRIPT_HOOK` result type. This displays the execution times for your hooks, allowing you to quickly identify bottlenecks.
 

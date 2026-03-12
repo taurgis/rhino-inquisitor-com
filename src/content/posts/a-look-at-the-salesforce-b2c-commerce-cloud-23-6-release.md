@@ -22,7 +22,7 @@ Are you interested in last month’s release notes? [Read the 23.5 release notes
 ## Enhance Storefront Search Scale and Performance
 
 > Enhance the scale and performance of storefront search for keyword search and product browsing with the new B2C Commerce search settings option. Improve page load times for large product catalogs when processing search results that exceed a configurable threshold. Shoppers get quicker results when performing a keyword search, refinement calculation, product grouping, sorting, and category browsing. For example, if your storefront doesn’t use search refinement counts in the refinement bar, a setting is available to improve refinement calculation and search and category page load times.
-> **How**: To activate the new search settings, contact Salesforce Customer Support or work with your Technical Account Manager and Customer Success Group representatives. Salesforce recommends that you test the new functionality on a development or dedicated test instance before enabling them on a staging or production environment.
+> **How:** To activate the new search settings, contact Salesforce Customer Support or work with your Technical Account Manager and Customer Success Group representatives. Salesforce recommends that you test the new functionality on a development or dedicated test instance before enabling them on a staging or production environment.
 
 If you have been in the eco-system for a while, you may have noticed that the built-in search engine did not get much love (visibly) in the past few years. Looking at the past two months, that appears to have changed!
 
@@ -96,15 +96,15 @@ A ["smaller" release](https://github.com/SalesforceCommerceCloud/pwa-kit/release
 
 Several changes and improvements have been made in the latest release notes. Here's a summary of the most significant updates:
 
-1. **Phased launch with optional session bridge call**: An optional session bridge call has been added to the login process, allowing for a smoother phased launch of new features.
-1. **Product-list refinements**: Enhancements have been made to product-list handling, including support for multiple types, improved isChecked functionality, and better management of query parameters.
-1. **Fixes for multi-value query parameters and basket issues**: This release addresses issues with multi-value query parameters being lost and makes the mergeBasket conditional more robust, resolving basket problems when a new account is created.
-1. **Security package updates and bug fixes**: Several security package updates have been implemented, along with various bug fixes to improve overall system stability.
-1. **Mobile-friendly phone number input**: The phone number field type has been changed to bring up a numeric keyboard on mobile devices, making it more user-friendly.
-1. **Address listing improvements**: Preferred addresses are now listed first, streamlining the user experience when selecting shipping or billing addresses.
-1. **Modal handling and cart functionality**: The update prevents modals from opening when adding an item to the cart fails, ensuring a smoother shopping experience.
-1. **Performance improvements and fixes**: Various performance enhancements have been made, including webpack build improvements, fixing Page Designer ImageWithText Link component issues, and addressing a local dev memory leak issue in the retail react app.
-1. **File handling and static file serving**: Fixes have been implemented for file collisions between client-side and server-side JavaScript files and improvements to static file serving.
+1. **Phased launch with optional session bridge call:** An optional session bridge call has been added to the login process, allowing for a smoother phased launch of new features.
+1. **Product-list refinements:** Enhancements have been made to product-list handling, including support for multiple types, improved isChecked functionality, and better management of query parameters.
+1. **Fixes for multi-value query parameters and basket issues:** This release addresses issues with multi-value query parameters being lost and makes the mergeBasket conditional more robust, resolving basket problems when a new account is created.
+1. **Security package updates and bug fixes:** Several security package updates have been implemented, along with various bug fixes to improve overall system stability.
+1. **Mobile-friendly phone number input:** The phone number field type has been changed to bring up a numeric keyboard on mobile devices, making it more user-friendly.
+1. **Address listing improvements:** Preferred addresses are now listed first, streamlining the user experience when selecting shipping or billing addresses.
+1. **Modal handling and cart functionality:** The update prevents modals from opening when adding an item to the cart fails, ensuring a smoother shopping experience.
+1. **Performance improvements and fixes:** Various performance enhancements have been made, including webpack build improvements, fixing Page Designer ImageWithText Link component issues, and addressing a local dev memory leak issue in the retail react app.
+1. **File handling and static file serving:** Fixes have been implemented for file collisions between client-side and server-side JavaScript files and improvements to static file serving.
 
 ## Updated Cartridges & Tools
 

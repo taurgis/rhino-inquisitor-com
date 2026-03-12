@@ -97,9 +97,9 @@ The solution is the **Hybrid Pattern**, which should be the default for almost e
 
 Let's break down how the engine processes this:
 
-1. **`Product.pageTitle`**: The platform first checks the product object for a value in the `pageTitle` attribute. This is the field merchandisers use for manual entry in Business Manager (or hopefully imported from a third-party system).
+1. **`Product.pageTitle`:** The platform first checks the product object for a value in the `pageTitle` attribute. This is the field merchandisers use for manual entry in Business Manager (or hopefully imported from a third-party system).
 
-1. **`ELSE`**: If, and only if, the `pageTitle` attribute is empty or null, the engine proceeds to the expression after the `ELSE` operator. If `pageTitle` has a value, the rule evaluation stops, and that value is used.
+1. **`ELSE`:** If, and only if, the `pageTitle` attribute is empty or null, the engine proceeds to the expression after the `ELSE` operator. If `pageTitle` has a value, the rule evaluation stops, and that value is used.
 
 This pattern provides the best of both worlds: automation and scalability for the thousands of products that don't need special attention, and precise manual control for the high-priority pages that do. Adopting this pattern as a standard practice is the key to a harmonious relationship between development and business teams.
 
@@ -147,7 +147,9 @@ Create separate rules for `og:title` and `og:description` using the same hybrid 
 
 `${ProductImageURL.viewType}` (Note: The specific `viewtype` is needed, e.g. `large`)
 
-**Scenario:** A user shares a product page on a social platform.**Data:** The system has an image assigned to the product in the 'large' slot.**Generated Output:** `<https://www.gooutdoors.com/images/products/large/PROD12345_1.jpg>``
+- **Scenario:** A user shares a product page on a social platform.
+- **Data:** The system has an image assigned to the product in the "large" slot.
+- **Generated Output:** `<https://www.gooutdoors.com/images/products/large/PROD12345_1.jpg>`
 
 #### Dynamic OpenGraph Tags (Crafting Killer Rules: Practical Examples)
 
@@ -159,19 +161,25 @@ Scenario 1 (User refines a category by color):
 
 A user is on the "Backpacks" category page and clicks the "Blue" color swatch to filter the results.
 
-**Data:** `SearchRefinement.refinementColor` has a value ("Blue").**Generated Output:** `noindex,nofollow`**Result:** This filtered page won't be indexed by Google, saving crawl budget.
+- **Data:** `SearchRefinement.refinementColor` has a value ("Blue").
+- **Generated Output:** `noindex, nofollow`
+- **Result:** This filtered page won't be indexed by Google, saving crawl budget.
 
 Scenario 2 (User performs a site search):
 
 A user types "waterproof socks" into the search bar.
 
-**Data:** `SearchPhrase` has a value ("waterproof socks").**Generated Output:** `noindex,nofollow`**Result:** The search results page won't be indexed.
+- **Data:** `SearchPhrase` has a value ("waterproof socks").
+- **Generated Output:** `noindex, nofollow`
+- **Result:** The search results page won't be indexed.
 
 Scenario 3 (User lands on a standard category page):
 
 A user navigates directly to the "Backpacks" category page without any filters.
 
-**Data:** `SearchRefinement.refinementColor` is empty AND `SearchPhrase` is empty.**Generated Output:** `index,follow`**Result:** The main category page will be indexed by Google as intended.
+- **Data:** `SearchRefinement.refinementColor` is empty AND `SearchPhrase` is empty.
+- **Generated Output:** `index, follow`
+- **Result:** The main category page will be indexed by Google as intended.
 
 ## The Page Designer Conundrum: The Unofficial Unofficial Workaround
 
@@ -185,9 +193,9 @@ While powerful, the Meta Tag Rules engine is a minefield of potential "gotchas" 
 
 - **Warning - The "Accidental Override":** This cannot be overstated. A simple, non-hybrid rule (`${Product.name}`) deployed to production can instantly nullify months of careful, manual SEO work by the merchandising team. The Hybrid Pattern (`${Product.pageTitle ELSE...}`) is your shield. Always use it. This is fundamentally a process failure, not just a technical one, highlighting the need for a clear "contract" between development and business teams about who owns which data.
 
-- **Pitfall - The "30-Minute Wait of Despair": ** When you save or assign a rule in Business Manager, it can take up to [30 minutes](https://help.salesforce.com/s/articleView?id=cc.b2c_creating_page_meta_tag_rules.htm&type=5) for the change to appear on the storefront. This is due to platform-level caching. This delay is a classic initiation rite for new SFCC developers who are convinced their rule is broken. The solution is patience: save your rule, then go get a coffee before you start frantically debugging. (_** Note:** I personally have never had to wait this long)_
+- **Pitfall - The "30-Minute Wait of Despair":**When you save or assign a rule in Business Manager, it can take up to [30 minutes](https://help.salesforce.com/s/articleView?id=cc.b2c_creating_page_meta_tag_rules.htm&type=5) for the change to appear on the storefront. This is due to platform-level caching. This delay is a classic initiation rite for new SFCC developers who are convinced their rule is broken. The solution is patience: save your rule, then go get a coffee before you start frantically debugging. (_**Note:** I personally have never had to wait this long)_
 
-- **Pitfall - The Empty Attribute Trap: ** If your rule references an attribute (`Product.custom.seoKeywords`) that is empty for a particular product, the engine treats it as a null/false value. This can cause your conditional logic to fall through to an `ELSE` condition you didn't expect. This underscores that the effectiveness of your rules is**directly dependent on the quality and completeness of your catalog** and content data.
+- **Pitfall - The Empty Attribute Trap:**If your rule references an attribute (`Product.custom.seoKeywords`) that is empty for a particular product, the engine treats it as a null/false value. This can cause your conditional logic to fall through to an `ELSE` condition you didn't expect. This underscores that the effectiveness of your rules is**directly dependent on the quality and completeness of your catalog** and content data.
 
 ## Troubleshooting the "Black Box"
 
@@ -237,7 +245,7 @@ Using the native feature as intended.
 
 ## What about the PWA Kit
 
-Yes, you can absolutely continue to leverage the power of **Page Meta Tag Rules ** from the Business Manager in a** headless setup**. The key is understanding that your headless front end (like a PWA) communicates with the SFCC backend via APIs.
+Yes, you can absolutely continue to leverage the power of **Page Meta Tag Rules**from the Business Manager in a**headless setup**. The key is understanding that your headless front end (like a PWA) communicates with the SFCC backend via APIs.
 
 While historically this might have required a development task to extend a standard API or create a new endpoint to expose the dynamically generated meta tag values, this is becoming increasingly unnecessary. Salesforce is actively expanding the **Shopper Commerce API ([SCAPI](/in-the-ring-ocapi-versus-scapi/))**, continuously adding new endpoints and enriching existing ones to expose more data directly.
 

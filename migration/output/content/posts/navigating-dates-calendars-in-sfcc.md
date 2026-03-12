@@ -77,9 +77,9 @@ But in this use case, "odd things" happen. Watch for the "pitfalls" section at t
 
 In the previous section, we discussed how to work with time zones in the Calendar class. But there are multiple functions available to manipulate the zones, such as:
 
-1. **Setting the timezone**: You can set the timezone for a Calendar instance using the [setTimeZone()](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_util_Calendar.html#dw_util_Calendar_setTimeZone_String_DetailAnchor) method, which accepts a TimeZone object as its argument.
-1. **Getting the timezone**: To retrieve the timezone of a Calendar instance, use the [getTimeZone()](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_util_Calendar.html#dw_util_Calendar_getTimeZone_DetailAnchor) method, which returns a TimeZone object.
-1. **Converting between timezones**: To convert a date and time between different timezones, you can create a new Calendar instance with the desired timezone and set its time using the [setTime()](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_util_Calendar.html#dw_util_Calendar_setTime_Date_DetailAnchor) method.
+1. **Setting the timezone:** You can set the timezone for a Calendar instance using the [setTimeZone()](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_util_Calendar.html#dw_util_Calendar_setTimeZone_String_DetailAnchor) method, which accepts a TimeZone object as its argument.
+1. **Getting the timezone:** To retrieve the timezone of a Calendar instance, use the [getTimeZone()](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_util_Calendar.html#dw_util_Calendar_getTimeZone_DetailAnchor) method, which returns a TimeZone object.
+1. **Converting between timezones:** To convert a date and time between different timezones, you can create a new Calendar instance with the desired timezone and set its time using the [setTime()](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_util_Calendar.html#dw_util_Calendar_setTime_Date_DetailAnchor) method.
 
 ### Configuring timezones
 

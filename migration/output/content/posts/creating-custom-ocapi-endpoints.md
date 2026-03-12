@@ -49,7 +49,7 @@ This is because we will add a hook to the [GET call of Custom Objects](https://d
 
 And a limitation of a hook added to a GET call is that opening transactions is forbidden (no creates or updates in the database).
 
-> _**Note**: Do not modify a Script API object in an HTTP GET request or a modifyResponse hook, because they are never executed in a transactional context. It can cause an ORMTransactionException and an HTTP 500 fault response._
+> _**Note:** Do not modify a Script API object in an HTTP GET request or a modifyResponse hook, because they are never executed in a transactional context. It can cause an ORMTransactionException and an HTTP 500 fault response._
 > Infocenter
 
 ## Custom Objects
@@ -66,7 +66,7 @@ Go to "_Administration _" > "_ Site Development _" > "_ Custom Object Types_."
 
 The Custom Object Definition is quite simple:
 
-- **ID**: CustomApi
+- **ID:** CustomApi
 - **Key Attribute:**  ID of the type _String_
 - **Name:** Custom API (though this doesn't matter)
 - **Description:** Whatever you like ;-)
@@ -85,7 +85,7 @@ To do this go to "_Merchant Tools _" > "_ Custom Objects _" > "_ Manage Custom O
 
 The Custom Object is, again, easy to set up:
 
-- **ID**: get-customer (this is important as we need this ID to call the service and the script we will put behind it)
+- **ID:** get-customer (this is important as we need this ID to call the service and the script we will put behind it)
 
 There is also an [import file available on the GitHub repository](https://github.com/taurgis/ocapi-custom-endpoints/blob/main/metadata/CustomApi.xml).
 
@@ -235,7 +235,7 @@ This collection requires you to configure the following variables:
 
 [![Postman variables required to call the custom OCAPI endpoint.](/media/2022/postman-variables-custom-api-ec0a89ffce.png)](/media/2022/postman-variables-custom-api-ec0a89ffce.png)
 
-- **base\_url**: The domain of your environment.
+- **base\_url:** The domain of your environment.
 - **client\_id:** Your client ID, you can use the default one.
 - **client\_pw:** Your client password, you can use the default one.
 

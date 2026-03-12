@@ -48,11 +48,11 @@ Curious about Lambda? [Here you go](https://aws.amazon.com/lambda/)!
 
 When a platform offers features, there are a lot of questions that will go through your mind. And one of them will probably be, "What benefits does it bring?":
 
-1. **Included in the license**: It is not a phrase you often see in the Salesforce Eco-system, but the managed runtime is ready to be taken advantage of if you have a license for B2C Commerce Cloud!
-1. **Simplified deployment**: Managed Runtime streamlines deploying and hosting your PWA Kit storefront, meaning that developers only need to develop - and not worry about the infrastructure. And that saves time and, ultimately, money.
-1. **Scalability**: Nothing new to B2C Commerce Cloud, but the infrastructure provided by Managed Runtime allows your storefront to scale seamlessly as your business grows, ensuring optimal performance and customer experience just like the "[monolithic solution](/sitegenesis-vs-sfra-vs-pwa/)".
-1. **Security**: Managed Runtime offers robust security features that protect your storefront from potential threats and vulnerabilities like the back end.
-1. **Improved troubleshooting**: The immutable nature of bundles allows for a complete and accurate history of deployments, making it easier to identify and resolve issues or even do a quick rollback to a previous version!
+1. **Included in the license:** It is not a phrase you often see in the Salesforce Eco-system, but the managed runtime is ready to be taken advantage of if you have a license for B2C Commerce Cloud!
+1. **Simplified deployment:** Managed Runtime streamlines deploying and hosting your PWA Kit storefront, meaning that developers only need to develop - and not worry about the infrastructure. And that saves time and, ultimately, money.
+1. **Scalability:** Nothing new to B2C Commerce Cloud, but the infrastructure provided by Managed Runtime allows your storefront to scale seamlessly as your business grows, ensuring optimal performance and customer experience just like the "[monolithic solution](/sitegenesis-vs-sfra-vs-pwa/)".
+1. **Security:** Managed Runtime offers robust security features that protect your storefront from potential threats and vulnerabilities like the back end.
+1. **Improved troubleshooting:** The immutable nature of bundles allows for a complete and accurate history of deployments, making it easier to identify and resolve issues or even do a quick rollback to a previous version!
 
 ## Benefits of the Managed Runtime for developers
 
@@ -60,17 +60,17 @@ When a platform offers features, there are a lot of questions that will go throu
 
 Developers working with Salesforce B2C Commerce Cloud can leverage this runtime to:
 
-1. **Accelerate development**: This was already mentioned, but the fact that, as a developer, you do not have to worry about the infrastructure is a significant benefit!
-1. **Streamline collaboration**: The organisation and project structure within Managed Runtime enables you to work together more efficiently, sharing knowledge and resources across multiple environments.
-1. **Enhance productivity**: With the ability to designate specific bundles as deployed, developers can easily switch between different versions of their storefront, making testing and iterating on new features more accessible.
+1. **Accelerate development:** This was already mentioned, but the fact that, as a developer, you do not have to worry about the infrastructure is a significant benefit!
+1. **Streamline collaboration:** The organisation and project structure within Managed Runtime enables you to work together more efficiently, sharing knowledge and resources across multiple environments.
+1. **Enhance productivity:** With the ability to designate specific bundles as deployed, developers can easily switch between different versions of their storefront, making testing and iterating on new features more accessible.
 1. **No credits:** The environments on the managed runtime do not work on the same system as the sandboxes (credits for uptime). That means no extra processes have to be set up!
 
 ## APIs
 
 Salesforce offers [a range of APIs](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/using-the-managed-runtime-api.html) that developers can use to interact with the platform, including:
 
-1. **Managed Runtime APIs**: This API allows developers to manage bundles, environments, and deployments within their projects.
-1. **Admin****APIs**: This API provides access to administrative functions, such as managing users, organisations, and projects.
+1. **Managed Runtime APIs:** This API allows developers to manage bundles, environments, and deployments within their projects.
+1. **Admin APIs:** This API provides access to administrative functions, such as managing users, organisations, and projects.
 
 These APIs make setting up CI/CD pipelines and automating specific processes much easier!
 

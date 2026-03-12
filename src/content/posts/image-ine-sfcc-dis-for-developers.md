@@ -32,11 +32,11 @@ Imagine a world where you upload one glorious, high-resolution image, and then, 
 
 Instead of a digital assembly line of pre-processed images, DIS acts like a master chef. You provide it with the finest ingredients (your single, high-res source image), and when a customer's browser requests a specific dish—say, a tiny thumbnail for a search result or a sprawling, detailed shot for a product page—DIS delivers it instantly. No waiting, no fuss - just the right-sized image, served hot and fresh.
 
-And you, the developer, are the culinary artist! DIS hands you a robust toolkit of transformation parameters, giving you pixel-level control. Want to resize? `**scaleWidth **` or `**scaleHeight **` are your pals. Need to snip out a specific detail? `**cropX **`, `**cropY **`, `**cropWidth **`, and `**cropHeight **` are your precision scissors (remember, you need all four for the magic to happen!). Fancy a different file type? `**format**` lets you switch between `gif`, `jp2`, `jpg`, `jpeg`, `jxr`, and `png` from a smorgasbord of source formats, including `tif` and `tiff`.
+And you, the developer, are the culinary artist! DIS hands you a robust toolkit of transformation parameters, giving you pixel-level control. Want to resize? `**scaleWidth**` or `**scaleHeight**` are your pals. Need to snip out a specific detail? `**cropX**`, `**cropY**`, `**cropWidth**`, and `**cropHeight**` are your precision scissors (remember, you need all four for the magic to happen!). Fancy a different file type? `**format**` lets you switch between `gif`, `jp2`, `jpg`, `jpeg`, `jxr`, and `png` from a smorgasbord of source formats, including `tif` and `tiff`.
 
-Ever wanted to add a "SALE!" image badge to an image without using Photoshop? `**imageX **`, `**imageY **`, and `**imageURI**` are your go-to options for the overlay. _Though honestly, why not just use CSS for this, right?_
+Ever wanted to add a "SALE!" image badge to an image without using Photoshop? `**imageX**`, `**imageY**`, and `**imageURI**` are your go-to options for the overlay. _Though honestly, why not just use CSS for this, right?_
 
-And for that perfect balance between crispness and speed, `**quality **` lets you fine-tune compression for JPG(1-100, default 80) and PNGs. Even pesky transparent backgrounds can be tamed with `**bgcolor **`, and metadata stripped with `**strip**`.
+And for that perfect balance between crispness and speed, `**quality**` lets you fine-tune compression for JPG(1-100, default 80) and PNGs. Even pesky transparent backgrounds can be tamed with `**bgcolor**`, and metadata stripped with `**strip**`.
 
 Pro Tip DIS has a very specific "recipe" for applying these transformations. It's not a free-for-all! The order is always: Image Format, then Image Crop, then Image Scale, then Image Overlay, and finally Image Quality. Understanding this sequence is key to avoiding "oops, that's not what I wanted" moments.
 
@@ -105,7 +105,7 @@ Even superheroes have weaknesses. DIS has a few, and knowing them is half the ba
 
 - **Size Matters (A Lot):** This is a big one. Images over 6MB in file size or larger than 3000x3000 pixels? DIS will politely decline to transform them and serve them up in their original, unoptimized glory. The first time you request an oversized image, you may encounter an error; however, subsequent requests typically proceed without issue. The takeaway? Keep your source images just under these limits (think 5.9MB or 2999x2999 pixels) to ensure DIS always works its magic.
 
-**Note**: [One source](https://help.salesforce.com/s/articleView?id=000391251&type=1) states a 10MB limit in the documentation, but to be cautious, always follow the 6MB limit.
+**Note:** [One source](https://help.salesforce.com/s/articleView?id=000391251&type=1) states a 10MB limit in the documentation, but to be cautious, always follow the 6MB limit.
 
 - **Transformation Timeout:** DIS has a 29-second deadline. If a transformation is super complex (especially on animated GIFs, where every frame needs processing), it might time out, giving you a dreaded 408 error. If you hit this, simplify your transformations or pre-process those extra-fancy assets.
 
@@ -113,7 +113,7 @@ Even superheroes have weaknesses. DIS has a few, and knowing them is half the ba
 
 ### Transform DIS PNG to JPG
 
-When it comes to image formats, transforming **PNG ** files to** JPEG ** using the SFCC Dynamic Image Service can be a**game-changer **, especially when you don't need those transparent backgrounds. This simple trick alone can significantly** reduce file sizes**, leading to faster page loads and a smoother user experience.
+When it comes to image formats, transforming **PNG**files to**JPEG**using the SFCC Dynamic Image Service can be a**game-changer**, especially when you don't need those transparent backgrounds. This simple trick alone can significantly**reduce file sizes**, leading to faster page loads and a smoother user experience.
 
 Here's how you might implement this in a **controller:**
 
@@ -220,7 +220,7 @@ PWA Kit even has a dedicated [DynamicImage](https://github.com/SalesforceCommerc
 
 ## Official Documentation Links
 
-- **Salesforce B2C Commerce Dynamic Imaging Service Overview**: [https://help.salesforce.com/s/articleView?id=cc.b2c\_image\_transformation\_service.htm&language=en\_US&type=5](https://help.salesforce.com/s/articleView?id=cc.b2c_image_transformation_service.htm&language=en_US&type=5)
-- **PWA Kit Page Designer Integration**: [https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/page-designer.html](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/page-designer.html)
-- **MediaFile Script API**: [https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class\_dw\_content\_MediaFile.html](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_content_MediaFile.html)
-- **URLUtils Script API**: [https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class\_dw\_web\_URLUtils.html](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_web_URLUtils.html)
+- **Salesforce B2C Commerce Dynamic Imaging Service Overview:** [https://help.salesforce.com/s/articleView?id=cc.b2c\_image\_transformation\_service.htm&language=en\_US&type=5](https://help.salesforce.com/s/articleView?id=cc.b2c_image_transformation_service.htm&language=en_US&type=5)
+- **PWA Kit Page Designer Integration:** [https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/page-designer.html](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/page-designer.html)
+- **MediaFile Script API:** [https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class\_dw\_content\_MediaFile.html](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_content_MediaFile.html)
+- **URLUtils Script API:** [https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class\_dw\_web\_URLUtils.html](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_web_URLUtils.html)

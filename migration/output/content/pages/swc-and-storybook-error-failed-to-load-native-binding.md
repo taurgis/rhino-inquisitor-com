@@ -29,4 +29,4 @@ at Object. (/node_modules/@swc/core/index.js:49:17)
 
 ## Solution
 
-Deleting my **package-lock.json ** file and** node\_modules**,and then running 'npm install' again magically fixed the problem!
+Deleting my **package-lock.json**file and**node\_modules**,and then running 'npm install' again magically fixed the problem!

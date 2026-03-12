@@ -263,6 +263,7 @@ This runbook tracks the operational steps needed to move the repository from pla
 - Current validated 2026-03-12 behavior:
   - `npm run migrate:apply-corrections` now combines the deterministic correction script with `markdownlint-cli2 --fix` over the staged migration corpus
   - the deterministic pass repaired Batch 3 generator defects including malformed repository-entry links, blockquote/list spacing issues, duplicate heading disambiguation, inline-fragment cleanup, and markdownlint-sensitive emphasis/code-span formatting
+  - the emphasis repair logic now preserves recoverable callout semantics by reconstructing malformed label-style emphasis such as `**Note:**`, `**Important:**`, and dated `**Update ...:**` lines instead of flattening those cues to plain text when the generated Markdown still exposes the label intent
   - rerunning `npm run migrate:apply-corrections` remains rerun-safe on the staged corpus; after convergence, the changed-markdown lint scope for generated content reached 0 markdownlint errors
 - The seeded alt-text corrections file contract is:
   - path: `migration/input/image-alt-corrections.csv`

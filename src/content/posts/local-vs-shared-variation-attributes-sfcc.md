@@ -117,31 +117,31 @@ In this case, both products utilise the same shared attributes for "Color," demo
 
 ### Pros
 
-1. **Specificity**: Local variation attributes allow for highly tailored product offerings, accommodating unique features that don't apply to other products.
-1. **Flexibility**: Merchants have the flexibility to quickly change or update the attributes for individual products without affecting others.
-1. **Simplicity**: For products that have very distinctive attributes, local variation attributes can simplify the overview for customers by streamlining options.
+1. **Specificity:** Local variation attributes allow for highly tailored product offerings, accommodating unique features that don't apply to other products.
+1. **Flexibility:** Merchants have the flexibility to quickly change or update the attributes for individual products without affecting others.
+1. **Simplicity:** For products that have very distinctive attributes, local variation attributes can simplify the overview for customers by streamlining options.
 
 ### Cons
 
-1. **Management Complexity**: Having numerous local attributes can lead to a complex catalog management system, making it harder to maintain and update individual products.
-1. **Redundancy**: Local variation attributes, when overused, can lead to redundancy, especially if multiple products share similar attributes.
-1. **Limited Scalability**: As the catalog grows, managing local attributes can become increasingly cumbersome, limiting long-term scalability.
+1. **Management Complexity:** Having numerous local attributes can lead to a complex catalog management system, making it harder to maintain and update individual products.
+1. **Redundancy:** Local variation attributes, when overused, can lead to redundancy, especially if multiple products share similar attributes.
+1. **Limited Scalability:** As the catalog grows, managing local attributes can become increasingly cumbersome, limiting long-term scalability.
 1. **Import XML Size:** The import file exponentially grows over time, slowing down the overall import process.
 
 ## Pros and Cons of Shared Variation Attributes
 
 ### Pros (Pros and Cons of Shared Variation Attributes)
 
-1. **Consistency**: Shared attributes ensure consistency across products, creating a more streamlined shopping experience for customers.
-1. **Ease of Management**: Managing shared attributes can be less complex since changes made to these attributes automatically apply to all associated products.
-1. **Scalability**: Shared attributes offer a scalable approach; as new products are added, they can easily adopt existing attributes without requiring extensive modifications.
+1. **Consistency:** Shared attributes ensure consistency across products, creating a more streamlined shopping experience for customers.
+1. **Ease of Management:** Managing shared attributes can be less complex since changes made to these attributes automatically apply to all associated products.
+1. **Scalability:** Shared attributes offer a scalable approach; as new products are added, they can easily adopt existing attributes without requiring extensive modifications.
 1. **Import performance:** A smaller XML to import, with less duplication, means faster import speeds.
 
 ### Cons (Pros and Cons of Shared Variation Attributes)
 
-1. **Lack of Flexibility**: The main drawback of shared variation attributes is the potential lack of flexibility when unique attributes are necessary for specific products.
-1. **Limiting Options**: Merchants may find it challenging to personalise products since shared attributes can constrain variation options.
-1. **Over-generalisation**: There is a risk of over-generalising product attributes, which may lead to a lackluster shopping experience for customers seeking specificity.
+1. **Lack of Flexibility:** The main drawback of shared variation attributes is the potential lack of flexibility when unique attributes are necessary for specific products.
+1. **Limiting Options:** Merchants may find it challenging to personalise products since shared attributes can constrain variation options.
+1. **Over-generalisation:** There is a risk of over-generalising product attributes, which may lead to a lackluster shopping experience for customers seeking specificity.
 
 ## Combination
 

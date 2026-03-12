@@ -98,7 +98,7 @@ Routed Pages Since the getProps function is an extension on a "route", you can o
 
 The getProps method receives a JavaScript object with properties based on the rendering context. These include:
 
-- **params**:  contains [object properties](https://expressjs.com/en/4x/api.html#req.params) corresponding to named route parameters
+- **params:**  contains [object properties](https://expressjs.com/en/4x/api.html#req.params) corresponding to named route parameters
 - **req:** an enhanced version of Node's [request object](https://expressjs.com/en/4x/api.html#req) for HTTP requests
 - **res:** representing the [HTTP response](https://expressjs.com/en/4x/api.html#res).
 - **location:** the URL of the request and is available on both client and server sides, but is not part of the Express API.

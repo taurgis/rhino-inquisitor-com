@@ -183,13 +183,13 @@ Similarly, operations like `push` may necessitate iterating through multiple arr
 
 While the "UnlimitedArray" and solutions like it is a testament to the creativity and skill of Salesforce Commerce Cloud developers, it exemplifies the pitfalls of attempting to bypass platform governance. The issues range from:
 
-1. **Performance**: As the size of the combined data structure grows, performance can degrade, affecting user experience and increasing server resource consumption.
+1. **Performance:** As the size of the combined data structure grows, performance can degrade, affecting user experience and increasing server resource consumption.
 
-1. **Maintainability**: Maintaining a custom and complex data structure is inherently more challenging and can become burdensome over time as code bases evolve and scale.
+1. **Maintainability:** Maintaining a custom and complex data structure is inherently more challenging and can become burdensome over time as code bases evolve and scale.
 
-1. **Scalability**: As e-commerce platforms typically handle a significant volume of transactions, any potential latency or performance issues can be magnified.
+1. **Scalability:** As e-commerce platforms typically handle a significant volume of transactions, any potential latency or performance issues can be magnified.
 
-1. **Adherence to Best Practices**: Salesforce imposes quotas to steer developers toward building optimised, stable, scalable applications. Ignoring these guidelines may result in short-term gains but can endanger long-term success and platform health.
+1. **Adherence to Best Practices:** Salesforce imposes quotas to steer developers toward building optimised, stable, scalable applications. Ignoring these guidelines may result in short-term gains but can endanger long-term success and platform health.
 
 ## Conclusion
 

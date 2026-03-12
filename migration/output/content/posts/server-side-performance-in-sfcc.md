@@ -140,6 +140,6 @@ Server-side performance is a crucial factor in ensuring the success of any websi
 
 A performance debugging flow could look like this:
 
-1. **Production**: Look at Reports and Dashboards (Technical Dashboard).
+1. **Production:** Look at Reports and Dashboards (Technical Dashboard).
 1. **Development:** Run the Pipeline Profiler to see if you have similar results as on the dashboard.
 1. **Development:** Run the Code Profiler to look for the lines of code that cause the performance issue.

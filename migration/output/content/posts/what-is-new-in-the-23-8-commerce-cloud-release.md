@@ -94,7 +94,7 @@ Only new passwords These new requirements will only be enforced when a password 
 
 > For stronger passwords and better security, new password requirements are now enforced for Account Manager API Clients.
 
-To ensure better security, there are new password requirements in place. Passwords must be **at least 12 characters long ** and have a minimum complexity that includes** three out of four - numbers, symbols, lower case, and upper case**.
+To ensure better security, there are new password requirements in place. Passwords must be **at least 12 characters long**and have a minimum complexity that includes**three out of four - numbers, symbols, lower case, and upper case**.
 
 Passwords **cannot include any part of your name, username, or UUID**.
 

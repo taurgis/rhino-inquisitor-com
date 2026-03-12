@@ -43,7 +43,7 @@ If you work for an ISV (Independent Software Vendor) or SI (System Integrator), 
 
 It shouldn't surprise you that Salesforce themselves benefit from providing certifications! They benefit most from this system, but let me tell you why.
 
-1. **It is an excellent way to see and grow partner expertise**: The eco-system becomes more prominent every year, and more and more companies join the fray. Salesforce needs measurement tools to pick the best partner for each client to pitch. Certifications are an excellent way to be pointed in the right direction (but it is only some of it)!
+1. **It is an excellent way to see and grow partner expertise:** The eco-system becomes more prominent every year, and more and more companies join the fray. Salesforce needs measurement tools to pick the best partner for each client to pitch. Certifications are an excellent way to be pointed in the right direction (but it is only some of it)!
 1. **It benefits Salesforce customers:** Having Certified Professionals ensures they have the knowledge to help customers with their challenges and needs. You can't just let anyone do an implementation, which might end in disaster if they do not have the required knowledge in-house!
 1. **It is a steady income:** Salesforce invests in creating these certifications, but there is an ROI because so many people take them (and the trainings to prepare).
 

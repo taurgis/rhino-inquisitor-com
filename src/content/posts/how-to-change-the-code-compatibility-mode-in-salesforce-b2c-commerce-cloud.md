@@ -52,7 +52,7 @@ As it turns out... no. There is server-side validation in place. So we need to f
 
 ### To the WebDAV
 
-Let us next see if we can do anything in the WebDAV to manipulate the Compatibility Mode. (**Spoiler**: We can)
+Let us next see if we can do anything in the WebDAV to manipulate the Compatibility Mode. (**Spoiler:** We can)
 
 To retrieve the URL for the WebDAV go to:
 

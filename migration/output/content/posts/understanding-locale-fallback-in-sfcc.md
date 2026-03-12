@@ -60,9 +60,9 @@ For the `en _US` example, the fallback chain by default is `en _ US > en > defau
 
 Fallback to different language You are only allowed to fall back within the same language:
 
-**Allowed **: fr\_FR > FR > Default** Allowed **: fr\_ FR > Default** Allowed**: fr\_FR > Disabled
+**Allowed:**fr\_FR > FR > Default**Allowed:**fr\_ FR > Default**Allowed:** fr\_FR > Disabled
 
-**Not allowed **: fr\_FR > DE > Default** Not allowed **: fr\_ FR > fr\_BE > Default** Not allowed**: fr\_ FR > de\_ DE > Default
+**Not allowed:**fr\_FR > DE > Default**Not allowed:**fr\_ FR > fr\_BE > Default**Not allowed:** fr\_ FR > de\_ DE > Default
 
 [![Example locale fallback configuration for en-GB.](/media/2024/locale-fallback-en-uk-bd32fc597d.png)](/media/2024/locale-fallback-en-uk-bd32fc597d.png)
 
@@ -70,19 +70,19 @@ The possible fallback options for en\_GB
 
 ## Things to Consider
 
-- **Disabling Locale Fallback**: You can disable fallback for individual locales. For instance, if the `en` locale's fallback is disabled, and there's no description for a product in the `en` dataset, then no description will be presented, unlike the usual fallback behavior where default text might be used.
+- **Disabling Locale Fallback:** You can disable fallback for individual locales. For instance, if the `en` locale's fallback is disabled, and there's no description for a product in the `en` dataset, then no description will be presented, unlike the usual fallback behavior where default text might be used.
 
-- **Content Types Affected**: The locale fallback mechanism applies primarily to subclasses of `PersistentObject`. This includes objects such as products but does not extend to ISML templates, web forms, resource files in cartridges, or static content such as images.
+- **Content Types Affected:** The locale fallback mechanism applies primarily to subclasses of `PersistentObject`. This includes objects such as products but does not extend to ISML templates, web forms, resource files in cartridges, or static content such as images.
 
-- **Restrictions**: Configuring a locale as a fallback for another locale creates a dependency. Therefore, a locale that serves as a fallback cannot be deleted as long as another locale relies on it. This restriction ensures stability and consistency within your localizable content structure.
+- **Restrictions:** Configuring a locale as a fallback for another locale creates a dependency. Therefore, a locale that serves as a fallback cannot be deleted as long as another locale relies on it. This restriction ensures stability and consistency within your localizable content structure.
 
 ## Developer Implications
 
 Developers must carefully consider the implications of the fallback system when creating custom modules and localisable attributes. Aspects to keep in mind include:
 
-- **Implementation of Fallback Logic**: Developers need to incorporate logic that respects the fallback configurations when developing customisations involving localisable content. Generally, nothing needs to be done, but [workarounds](/fetching-data-in-a-locale-with-sfcc/) are required for some use cases.
+- **Implementation of Fallback Logic:** Developers need to incorporate logic that respects the fallback configurations when developing customisations involving localisable content. Generally, nothing needs to be done, but [workarounds](/fetching-data-in-a-locale-with-sfcc/) are required for some use cases.
 
-- **Testing**: Custom fallback configurations require thorough testing across different locales to ensure the expected behaviour and prevent content gaps.
+- **Testing:** Custom fallback configurations require thorough testing across different locales to ensure the expected behaviour and prevent content gaps.
 
 ## Conclusion
 

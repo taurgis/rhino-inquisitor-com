@@ -32,7 +32,7 @@ Each [chunk-oriented job](https://developer.salesforce.com/docs/commerce/b2c-com
 When developing a chunk-oriented job step, you need to implement several functions:
 
 1. **`read-function`:** Retrieves one item or null if no more items are left to process.
-1. **Process function**: Applies business logic to each item, transforming it as necessary.
+1. **Process function:** Applies business logic to each item, transforming it as necessary.
 1. `**write-function**`: Writes the processed items, typically to a file or database.
 
 There are optional functions you can implement for further control:
@@ -247,7 +247,7 @@ The "Chunk Size" option refers to the number of data items processed in each chu
 The ideal chunk size for a script module depends on various factors, such as:
 
 - **The processing logic's complexity:** Depending on the operations that must be done and other database objects that need to be fetched, we need to remember memory management. For example, choosing a smaller chunk size will allow the system to clean up more efficiently after processing each chunk.
-- **The data set's size & t****he risk of optimistic locking:** When working with a "high risk" object such as profiles that can be modified at any time, setting a smaller chunk size and committing these immediately to the database will reduce the risk of running into [Optimistic Concurrency](https://help.salesforce.com/s/articleView?id=000393690&language=en_US&type=1) Exceptions!
+- **The data set's size & t**he risk of optimistic locking:** When working with a "high risk" object such as profiles that can be modified at any time, setting a smaller chunk size and committing these immediately to the database will reduce the risk of running into [Optimistic Concurrency](https://help.salesforce.com/s/articleView?id=000393690&language=en_US&type=1) Exceptions!
 
 ### Transactional
 
@@ -279,7 +279,7 @@ Using the "total-count-function," we can determine the amount of processed recor
 
 When working with chunk-oriented job steps, keep the following best practices in mind for optimal performance:
 
-- **Focus on memory management**: Only keep necessary items in memory and promptly discard references to processed items.
-- **Stream data when appropriate**: Avoid accumulating large amounts of data in memory.
-- **Utilise transactions strategically**: Wrap operations in transactions only when necessary to avoid locking resources for extended periods.
-- **Monitor and handle errors**: Ensure your job can gracefully handle and recover from errors.
+- **Focus on memory management:** Only keep necessary items in memory and promptly discard references to processed items.
+- **Stream data when appropriate:** Avoid accumulating large amounts of data in memory.
+- **Utilise transactions strategically:** Wrap operations in transactions only when necessary to avoid locking resources for extended periods.
+- **Monitor and handle errors:** Ensure your job can gracefully handle and recover from errors.

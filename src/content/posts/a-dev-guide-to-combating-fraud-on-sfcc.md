@@ -110,7 +110,7 @@ Leveraging SFCC's built-in defenses: The eCDN as the first line against maliciou
 
 SFCC is designed to be payment-agnostic, allowing seamless integration with major processors, such as Adyen, Braintree, Stripe, and Cybersource, through configuration in the Business Manager.
 
-When configuring these processors, enable and enforce payment processor features, such as **Address Verification System (AVS) ** and** Card Verification Value (CVV)** checks.
+When configuring these processors, enable and enforce payment processor features, such as **Address Verification System (AVS)**and**Card Verification Value (CVV)** checks.
 
 AVS compares the numeric parts of the billing address provided by the customer to the address on file with the card issuer, while the CVV check validates the 3- or 4-digit code on the card.
 
@@ -139,7 +139,7 @@ According to the shared responsibility model, developers are responsible for the
 
 - **Data Validation:** Proper validation of all user-provided input is the bedrock of application security. This is your primary defence against a host of vulnerabilities, including Cross-Site Scripting (XSS) and server-side script injection.
 
-- **Bot Management: ** Salesforce's official stance is that it provides the tools for bot management (like eCDN rules and rate limiting), but**_the strategy and ongoing tuning are the customer's responsibility_**.  Salesforce does not classify bots as "good" or "bad," as a bot that is desirable for one merchant (e.g., a search engine crawler) may be malicious for another (e.g., an inventory scraper).
+- **Bot Management:**Salesforce's official stance is that it provides the tools for bot management (like eCDN rules and rate limiting), but**_the strategy and ongoing tuning are the customer's responsibility_**.  Salesforce does not classify bots as "good" or "bad," as a bot that is desirable for one merchant (e.g., a search engine crawler) may be malicious for another (e.g., an inventory scraper).
 
 ## Getting Your Hands Dirty: The Custom Scoring Engine
 

@@ -21,7 +21,7 @@ It's a yearly tradition not to release major updates during the holiday season t
 
 ## Temporary Baskets
 
-> You can now create temporary baskets for immediate order requests in B2C Commerce. For example, a shopper uses a Buy Now option to purchase an item. The temporary basket, which has a limited lifetime of 15 minutes, is populated with all the data required to ready the basket for checkout without affecting the regular shopper basket. **How**: Use the basket script API to enable temporary baskets. The supported basket functions include pricing, promotions, coupons, inventory, shipping methods, order creation, and reopening an order.
+> You can now create temporary baskets for immediate order requests in B2C Commerce. For example, a shopper uses a Buy Now option to purchase an item. The temporary basket, which has a limited lifetime of 15 minutes, is populated with all the data required to ready the basket for checkout without affecting the regular shopper basket. **How:** Use the basket script API to enable temporary baskets. The supported basket functions include pricing, promotions, coupons, inventory, shipping methods, order creation, and reopening an order.
 
 The new feature that allows for multiple baskets is a game-changer. I recall the hassle of having to manipulate transactions frequently to perform real-time calculations without interfering with the current basket, or having to work with custom objects. But now, those days are behind us! Here are the new APIs:
 
@@ -42,7 +42,7 @@ But I hope this will be changed with standard APIs in the future, or once we hav
 
 ![Einstein is standing in the middle of a warehouse lane, looking at the camera.](/media/2023/einstein-standing-in-a-warehouse-1c76aa5ec5.jpg)
 
-> Commerce Cloud Einstein now generates recommendations for product catalogs that exceed 3 million product SKUs. Einstein Product Recommendations enable you to create and manage recommenders and assign strategies that predict the most relevant products to promote to individual shoppers. **How**: If you have a product catalog that exceeds 3 million product SKUs, Commerce Cloud Einstein compiles a reduced list of 3 million product SKUs by default–no action required. To compile the list, Einstein uses sorting and filtering logic based on pre-defined criteria. Einstein recommendations are generated from this list. If your catalog exceeds 3 million product SKUs, and you want to ensure that products matching specific criteria appear in the reduced product list, contact Commerce Cloud Support.
+> Commerce Cloud Einstein now generates recommendations for product catalogs that exceed 3 million product SKUs. Einstein Product Recommendations enable you to create and manage recommenders and assign strategies that predict the most relevant products to promote to individual shoppers. **How:** If you have a product catalog that exceeds 3 million product SKUs, Commerce Cloud Einstein compiles a reduced list of 3 million product SKUs by default–no action required. To compile the list, Einstein uses sorting and filtering logic based on pre-defined criteria. Einstein recommendations are generated from this list. If your catalog exceeds 3 million product SKUs, and you want to ensure that products matching specific criteria appear in the reduced product list, contact Commerce Cloud Support.
 
 Having a large catalog and providing the right recommendations can be challenging. This change supports an even larger catalog, making it an excellent improvement.
 

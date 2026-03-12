@@ -90,7 +90,7 @@ If you are using any of these APIs, take this into account. However, no document
 ### Enhance Order Access Security with the Allow List
 
 > Enable the Allow-List feature on the Limit Storefront Order Access setting if you aren’t yet limiting Storefront Order Access at all. This feature enhances security and control over who can access orders and which controllers can access order functions.
-> **How**: In Business Manager | Orders | Order Preferences. Set the Limit Storefront Order Access dropdown to Allow List. Enter allowed storefront controllers as a comma-separated list. Only the controllers on the allow list can access customer orders.
+> **How:** In Business Manager | Orders | Order Preferences. Set the Limit Storefront Order Access dropdown to Allow List. Enter allowed storefront controllers as a comma-separated list. Only the controllers on the allow list can access customer orders.
 
 For projects on SiteGenesis or SFRA, we now have more fine-grained control over Order Access security now.
 

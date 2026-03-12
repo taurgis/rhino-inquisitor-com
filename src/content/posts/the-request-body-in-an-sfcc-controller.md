@@ -81,9 +81,9 @@ try {
 
 Validation It is always a good idea to have some validation of the made request, such as:
 
-- **Structure of the request (contract)**: Does it contain all required fields, and are they the correct type?
-- **Values**: Validate the minimum and maximum length of the field and if they follow a certain structure (e.g. email, phone, address, ...)
-- **Rate Limiting**: The SCAPI may come with rate limiting, but you don't want the eCDN to be fully in charge of your controller limits, right?
+- **Structure of the request (contract):** Does it contain all required fields, and are they the correct type?
+- **Values:** Validate the minimum and maximum length of the field and if they follow a certain structure (e.g. email, phone, address, ...)
+- **Rate Limiting:** The SCAPI may come with rate limiting, but you don't want the eCDN to be fully in charge of your controller limits, right?
 
 ## Conclusion
 

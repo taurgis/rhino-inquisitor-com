@@ -15,7 +15,7 @@ tags:
   - sfcc
 author: Thomas Theunen
 ---
-**Note**: I gave the text "20 years of Salesforce Dreamforce" to an AI to render an image. The image you see above is what it created!
+**Note:** I gave the text "20 years of Salesforce Dreamforce" to an AI to render an image. The image you see above is what it created!
 
 Salesforce is celebrating 20 years of Dreamforce, which is quite a track record! As with all Salesforce events, it is the opportune moment to meet people, learn and have fun!
 

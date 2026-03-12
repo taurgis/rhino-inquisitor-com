@@ -34,7 +34,7 @@ PIG Only This option does not seem to be available on sandboxes.
 
 > The error handling for Einstein Search Dictionaries and Einstein Predictive Sort log files no longer creates log errors when an updated dataset isn’t available.
 
-**How: ** If you use Einstein Search Dictionaries or Einstein Predictive Sort, verify the Region setting in your staging instance. In**Business Manager **|** Administration **|** Operations **|** Einstein Status Dashboard **|** site**, set the Region to one of the following:
+**How:**If you use Einstein Search Dictionaries or Einstein Predictive Sort, verify the Region setting in your staging instance. In**Business Manager**|**Administration**|**Operations**|**Einstein Status Dashboard**|**site**, set the Region to one of the following:
 
 - Americas
 - APAC

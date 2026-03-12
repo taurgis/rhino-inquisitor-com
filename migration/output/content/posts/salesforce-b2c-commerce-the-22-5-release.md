@@ -97,7 +97,7 @@ This change gives us more flexibility in providing login options to customers.
 
 **Note:** This API is only available for private clients~~, and the email login templates only support plain text. For now, styling the e-mail for the password-less login option is out of the question.~~
 
-**Update:** It turns out that HTML is supported; the API determines if it is plain text or not.**Be sure to validate your HTML on different email clients,** as the service does not do any validation of the template!
+**Update:**It turns out that HTML is supported; the API determines if it is plain text or not.**Be sure to validate your HTML on different email clients,** as the service does not do any validation of the template!
 
 ## Business Manager
 

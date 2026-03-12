@@ -33,9 +33,9 @@ In SFCC, you have several options for storing temporary data, and choosing the c
 
 Developers new to the platform frequently conflate Custom Caches and the Page Cache. They are fundamentally different beasts operating at different layers of the architecture. Mistaking one for the other is like using a hammer to turn a screw.
 
-- **Page Cache ** is for caching** rendered output **. It operates at the** web server tier** and stores full HTTP responses—typically HTML fragments generated from ISML templates. You control it with the [`<iscache>`](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-content-cache.html) tag or the [`response.setExpires()`](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_system_Response.html#dw_system_Response_setExpires_Number_DetailAnchor) script API method. When a request hits a URL whose response is in the Page Cache, the [web server](/the-salesforce-b2c-commerce-cloud-environment/) serves it directly, never even bothering the application server. It is incredibly fast and is the primary defence against high traffic for storefront pages.
+- **Page Cache**is for caching**rendered output**. It operates at the**web server tier** and stores full HTTP responses—typically HTML fragments generated from ISML templates. You control it with the [`<iscache>`](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-content-cache.html) tag or the [`response.setExpires()`](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_system_Response.html#dw_system_Response_setExpires_Number_DetailAnchor) script API method. When a request hits a URL whose response is in the Page Cache, the [web server](/the-salesforce-b2c-commerce-cloud-environment/) serves it directly, never even bothering the application server. It is incredibly fast and is the primary defence against high traffic for storefront pages.
 
-- **Custom Cache ** is for caching** application data **. It operates at the** application server tier** and stores JavaScript objects and primitives inside a script or controller's execution context. You control it exclusively through the `dw.system.CacheMgr` script API. It's designed to avoid recalculating expensive data or re-fetching it from an external source during the execution of a controller that will ultimately produce a response.
+- **Custom Cache**is for caching**application data**. It operates at the**application server tier** and stores JavaScript objects and primitives inside a script or controller's execution context. You control it exclusively through the `dw.system.CacheMgr` script API. It's designed to avoid recalculating expensive data or re-fetching it from an external source during the execution of a controller that will ultimately produce a response.
 
 The distinction is critical: **Cache the final, cooked meal with Page Cache, cache the raw ingredients with Custom Cache.** To avoid re-rendering a product tile's HTML, use Page Cache with a remote include. If you need to avoid re-fetching the product's third-party ratings data _before_ you render the tile, use a Custom Cache.
 
@@ -89,7 +89,7 @@ The `id` must be **globally unique** across every single cartridge in your site'
 }
 ```
 
-1. **Enable in Business Manager: ** Finally, you must globally enable the custom cache feature. Navigate to**Administration > Operations > Custom Caches** and check the "Enable Caching" box.  Disabling this will clear all custom caches on the instance. This page will also become your primary tool for monitoring cache health.
+1. **Enable in Business Manager:**Finally, you must globally enable the custom cache feature. Navigate to**Administration > Operations > Custom Caches** and check the "Enable Caching" box.  Disabling this will clear all custom caches on the instance. This page will also become your primary tool for monitoring cache health.
 
 [![Custom Caches screen in Business Manager.](/media/2025/ods-custom-caches-business-manager-c30167212b.png)](/media/2025/ods-custom-caches-business-manager-c30167212b.png)
 
@@ -277,7 +277,7 @@ The only ways to reliably clear a custom cache across an entire instance are the
 
 - **Code Activation:** Activating a new code version clears all custom caches.
 
-- **Manual Invalidation: ** A Business Manager user navigating to**Administration > Operations > Custom Caches** and clicking the "Clear" button for a specific cache (for each app server).
+- **Manual Invalidation:**A Business Manager user navigating to**Administration > Operations > Custom Caches** and clicking the "Clear" button for a specific cache (for each app server).
 
 This limitation has profound architectural implications. It means you **must design your caching strategy around time-based expiration (`expireAfterSeconds`)**. You have to accept and plan for a window of potential data staleness. Do not attempt to build a complex, event-driven invalidation system (e.g., trying to have a job invalidate a key). It is doomed to fail in a multi-server environment.
 
@@ -305,7 +305,7 @@ Your primary dashboard is located at **Administration > Operations > Custom Cach
 
 - **Hits / Total:** This is your hit ratio. For a frequently accessed cache, this number should be very high (ideally 95%+). A low hit ratio means your cache is ineffective. This could be due to poorly designed keys, a TTL that is too short, or constant cache clearing.
 
-- **Write Failures: ** This number must be**zero**. A non-zero value is a critical alert. It almost certainly means you are violating the 128KB per-entry size limit, likely by trying to cache a full API object instead of a POJO.
+- **Write Failures:**This number must be**zero**. A non-zero value is a critical alert. It almost certainly means you are violating the 128KB per-entry size limit, likely by trying to cache a full API object instead of a POJO.
 
 - **Clear Button:** The manual override. Use it when you need to force a refresh of a specific cache's data across all application servers.
 
@@ -313,11 +313,11 @@ Your primary dashboard is located at **Administration > Operations > Custom Cach
 
 When you identify a performance problem, follow this systematic process to diagnose cache-related issues :
 
-1. **Observe (Production): ** Start in**Reports & Dashboards > Technical**. Sort by "Percentage of Processing Time" or "Average Response Time" to find your slowest controllers and remote includes. These are your top suspects. Note their cache hit ratios in the report. A low hit ratio on a slow controller is a huge red flag.
+1. **Observe (Production):**Start in**Reports & Dashboards > Technical**. Sort by "Percentage of Processing Time" or "Average Response Time" to find your slowest controllers and remote includes. These are your top suspects. Note their cache hit ratios in the report. A low hit ratio on a slow controller is a huge red flag.
 
-1. **Hypothesize (Business Manager): ** Go to the**Custom Caches** page. Does the slow controller use a custom cache? Is that cache showing a low hit rate or, worse, write failures? This helps correlate the storefront performance issue with a specific cache's health.
+1. **Hypothesize (Business Manager):**Go to the**Custom Caches** page. Does the slow controller use a custom cache? Is that cache showing a low hit rate or, worse, write failures? This helps correlate the storefront performance issue with a specific cache's health.
 
-1. **Reproduce & Pinpoint (Development): ** Switch to a development instance. Use the**Pipeline Profiler** to get a high-level timing breakdown of the suspect controller. This tool confirms which parts of the request are slow, but it does not show cached requests. To dig deeper into the code itself, use the
+1. **Reproduce & Pinpoint (Development):**Switch to a development instance. Use the**Pipeline Profiler** to get a high-level timing breakdown of the suspect controller. This tool confirms which parts of the request are slow, but it does not show cached requests. To dig deeper into the code itself, use the
 
 1. **Code Profiler**. Run the uncached controller and look for the specific script lines or API calls that consume the most execution time. This will tell you exactly what expensive operation needs to be wrapped in a cache call.
 

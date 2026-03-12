@@ -79,7 +79,7 @@ Attribute Group For many screens, attributes that are not assigned to a group wi
 
 Now that our attribute model has been extended, we need to create a way of importing that data. The first step to allowing CSV import is to create a "feed". To do this we need to head over to the "Feed Definitions": _Merchant Tools > Online Marketing > Active Data > Feed Definitions_ In the overview, we see our two types of active data again. Here we will be creating a feed for Customer Active Data. Click the "new" button and create our feed! On the next screen decide on the following fields:
 
-- **ID**: The ID of the feed. We will need this in our CSV file later (I have chosen "customer-physicial-store-information-feed")
+- **ID:** The ID of the feed. We will need this in our CSV file later (I have chosen "customer-physicial-store-information-feed")
 - **Description:** Free text to describe the purpose of the feed
 - **Fresh Period:** The value is the number of days after which the data becomes stale if it's not updated. 0 means the data is never considered stale.
 

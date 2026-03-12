@@ -39,7 +39,7 @@ The benefits of Artificial Intelligence in the workplace are particularly releva
 
 A good example is [the recent plugin I wrote](https://www.forward.eu/blog/the-power-of-openai-and-commerce-cloud/) for Salesforce Commerce cloud with the following features:
 
-- **Generate HTML in Content ([Page Designer](https://documentation.b2c.commercecloud.salesforce.com/DOC3/topic/com.demandware.dochelp/content/b2c_commerce/topics/page_designer/b2c_what_is_page_designer.html) / [Assets](https://documentation.b2c.commercecloud.salesforce.com/DOC3/topic/com.demandware.dochelp/content/b2c_commerce/topics/content/b2c_content_assets.html))**: This feature allows people with minimal HTML / React.js knowledge to generate HTML by describing what they want!
+- **Generate HTML in Content ([Page Designer](https://documentation.b2c.commercecloud.salesforce.com/DOC3/topic/com.demandware.dochelp/content/b2c_commerce/topics/page_designer/b2c_what_is_page_designer.html) / [Assets](https://documentation.b2c.commercecloud.salesforce.com/DOC3/topic/com.demandware.dochelp/content/b2c_commerce/topics/content/b2c_content_assets.html)):** This feature allows people with minimal HTML / React.js knowledge to generate HTML by describing what they want!
 
 - **Generate Texts (Page Designer / Assets):** Need inspiration for an article or FAQ? Let AI help you out!
 

@@ -45,7 +45,7 @@ The Omnichannel Inventory provides a set of Headless APIs so any system can comm
 
 Using OCI brings the following benefits:
 
-- **Granular location visibility**: Manage location-level inventory availability.
+- **Granular location visibility:** Manage location-level inventory availability.
 
 - **Powerful grouping:**  Segment inventory by combining multiple locations. For example, merge your EU-located warehouses to one location group for a Salesforce B2C Commerce Cloud channel.
 

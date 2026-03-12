@@ -24,7 +24,7 @@ Are you interested in last month’s release notes? [Read the 22.7 release notes
 
 A few changes are happening in "terms" used in Salesforce B2C Commerce Cloud:
 
-- **master product/variation****master:** base product
+- **master product/variation**master:** base product
 - **master catalog/master product catalog:** product catalog
 - **master and child items:** main items and secondary items
 - **master document:** main document

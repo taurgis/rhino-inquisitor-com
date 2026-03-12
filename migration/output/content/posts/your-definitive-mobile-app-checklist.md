@@ -38,9 +38,9 @@ CORS Don't forget to [secure your API layer](https://developer.salesforce.com/do
 
 This separation of hostnames is not an arbitrary technical detail; it reflects the fundamental architectural decoupling that is the core promise of headless commerce.
 
-- Your **vanity domain ** (e.g., `<www.your-brand.com>``) is for the** presentation layer**. It's what customers see. The DNS manages routing and hostname alias configuration within B2C Commerce, which directs traffic through the eCDN.
+- Your **vanity domain**(e.g., `<www.your-brand.com>``) is for the**presentation layer**. It's what customers see. The DNS manages routing and hostname alias configuration within B2C Commerce, which directs traffic through the eCDN.
 
-- The **API gateway domain ** (`{{short-code}}.api.commercecloud.salesforce.com`) is for the** data and service layer**. It is a purpose-built infrastructure designed for high-scale, secure API transactions.
+- The **API gateway domain**(`{{short-code}}.api.commercecloud.salesforce.com`) is for the**data and service layer**. It is a purpose-built infrastructure designed for high-scale, secure API transactions.
 
 This separation allows for independent scaling, security policies, and evolution. You can completely redesign your mobile app (the "head") without ever touching the API endpoint, and vice versa. SLAS, as the gatekeeper for Shopper APIs, runs on this same infrastructure, which is why its admin UI and authentication endpoints share the same base URL structure. The flow is simple: your mobile app calls SLAS to get a JSON Web Token (JWT), and then it includes that JWT in the `Authorization` header for all subsequent SCAPI calls.
 
@@ -66,11 +66,11 @@ This section adapts the SRA's architectural principles to a headless context. Th
 
 - **Localisation & Multi-Site:** The underlying site architecture (single vs. multi-site, locales, currencies) must be finalised. The mobile app will depend on this configuration to request the correct context for each user.
 
-- **API Quotas: ** This is a**LAUNCH BLOCKER**. The development team must formally acknowledge and document all relevant API quotas. The mobile app's design _must_ operate within these limits to prevent service disruptions.
+- **API Quotas:**This is a**LAUNCH BLOCKER**. The development team must formally acknowledge and document all relevant API quotas. The mobile app's design _must_ operate within these limits to prevent service disruptions.
 
 #### Authentication & Security Configuration (Locking the Gates)
 
-- **SLAS Client Configuration: ** A final SLAS client for the production environment must be created and configured. If a customer facing system (in this case an app) is not able to securely store (and hide) a secret token, this must be a**Public Client**. The exact `redirectUri` used for the OAuth flow within the app must be defined and allow-listed in the client configuration. If using third-party social logins (e.g., Google, Facebook), the Identity Providers (IDPs) must be fully configured in SLAS for the production tenant. In most cases a native application [is able to store](https://developer.salesforce.com/docs/commerce/commerce-api/guide/slas-private-client.html) this information securely, but an audit is mandatory.
+- **SLAS Client Configuration:**A final SLAS client for the production environment must be created and configured. If a customer facing system (in this case an app) is not able to securely store (and hide) a secret token, this must be a**Public Client**. The exact `redirectUri` used for the OAuth flow within the app must be defined and allow-listed in the client configuration. If using third-party social logins (e.g., Google, Facebook), the Identity Providers (IDPs) must be fully configured in SLAS for the production tenant. In most cases a native application [is able to store](https://developer.salesforce.com/docs/commerce/commerce-api/guide/slas-private-client.html) this information securely, but an audit is mandatory.
 
 - **OAuth Scopes (Least Privilege Principle):** Granting overly permissive scopes is a common and dangerous oversight. A final audit of all scopes assigned to the production SLAS client is critical. This review should map every API endpoint the app uses to a specific, required scope and ensure no unnecessary permissions are granted. For example, if the app only reads basket data, it should not have the sfcc.shopper-baskets-orders.`rw` scope. This adherence to the principle of least privilege reduces the "blast radius" if a token is ever compromised.
 
@@ -90,7 +90,7 @@ SLAS Private Key If a secret was ever embedded in the mobile app, immediately ro
 
 #### Integrations & Jobs (The Engine Room)
 
-- **Third-Party Services: ** All third-party integrations must be pointing to their respective**production** endpoints and must have been tested end-to-end.
+- **Third-Party Services:**All third-party integrations must be pointing to their respective**production** endpoints and must have been tested end-to-end.
 
 - **Fault Tolerance:** Critical integrations must use the B2C Commerce Service Framework with aggressive timeouts and circuit-breaker patterns. The mobile app or headless site must be designed to handle a failure of a third-party service gracefully, without crashing or locking up.
 
@@ -130,7 +130,7 @@ Effective client-side [caching](/caching-rest-apis-in-sfcc/) is the single most 
 
 - **Audience & Segmentation:** In the backend system (e.g., Marketing Cloud), ensure that the necessary lists, data extensions, or audiences are created and populated to allow for targeted push campaigns immediately at launch.
 
-- **T****est Plan:** A plan to send test notifications to specific test devices must be in place to verify the entire pipeline is working before go-live.
+- **T**est Plan:** A plan to send test notifications to specific test devices must be in place to verify the entire pipeline is working before go-live.
 
 ### Part III: Performance & Load Testing (The New Discipline)
 
@@ -186,9 +186,9 @@ For an SFRA site, go-live is often a DNS change. For a mobile app, it is a submi
 
 The "submit and wait" era is over. In 2025, a successful submission requires proactive compliance with Apple's supply chain and privacy mandates. Use this protocol to ensure your binary passes static analysis and manual review.
 
-- ****Supply Chain Security (SDK Signatures): ** As of February 2025, Apple strictly enforces manifest requirements for "Commonly Used Third-Party SDKs" (e.g., Firebase, Facebook, various ad networks). You must audit your `Podfile` or Swift Package Manager dependencies to ensure every SDK is updated to a version that includes a digital signature and its own Privacy Manifest.**
+- **Supply Chain Security (SDK Signatures):**As of February 2025, Apple strictly enforces manifest requirements for "Commonly Used Third-Party SDKs" (e.g., Firebase, Facebook, various ad networks). You must audit your `Podfile` or Swift Package Manager dependencies to ensure every SDK is updated to a version that includes a digital signature and its own Privacy Manifest.**
 
-- **Packaging: ** The final, production-signed app binary must be built and tested. Ensure your CI/CD pipeline is using**Xcode 16** (targeting the iOS 18 SDK). This became the mandatory baseline for all App Store submissions starting April 2025.
+- **Packaging:**The final, production-signed app binary must be built and tested. Ensure your CI/CD pipeline is using**Xcode 16** (targeting the iOS 18 SDK). This became the mandatory baseline for all App Store submissions starting April 2025.
 
 - **Store Listings:** All required metadata must be prepared: app name, description, production-quality screenshots for all required device sizes, keywords, and a publicly accessible Privacy Policy URL.
 

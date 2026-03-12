@@ -46,7 +46,7 @@ Hard vs Soft Navigation It is crucial for you to understand the distinction betw
 
 A hard navigation refers to the traditional, full loading of a webpage, which occurs when a user first lands on a site. In contrast, a soft navigation happens within an SPA when new content is loaded dynamically without a full page refresh, a process managed by JavaScript.
 
-**The critical point to recognize is that CrUX data, which is vital for assessing real-user web performance and Core Web Vitals, is primarily based on hard navigations. Consequently, for an SPA,****only the initial page load is typically recorded by CrUX, while all subsequent, faster soft navigations are not taken into account, potentially leading to a skewed and incomplete understanding of the application's overall user experience**.
+**The critical point to recognize is that CrUX data, which is vital for assessing real-user web performance and Core Web Vitals, is primarily based on hard navigations. Consequently, for an SPA, only the initial page load is typically recorded by CrUX, while all subsequent, faster soft navigations are not taken into account, potentially leading to a skewed and incomplete understanding of the application's overall user experience**.
 
 Here is an [official article on the matter](https://developer.chrome.com/docs/web-platform/soft-navigations-experiment)!
 
@@ -163,9 +163,9 @@ Your client-side React code is the most significant factor for INP. Time to opti
 - **Lazy Load Below-the-Fold:** For heavy components that are "below the fold" or in modals, use lazy loading.
 - **Stop Wasting Renders:** Unnecessary re-renders are a top cause of poor INP. Use React's memoisation hooks like a pro:
 
-- **React.memo**: Wrap components in React.memo to stop them from re-rendering if their props haven't changed. Perfect for simple, presentational components.
-- **useCallback**: When you pass functions as props to memoised children, wrap them in useCallback. This maintains the function's reference stability, preventing the child from re-rendering unnecessarily.
-- **useMemo**: Use useMemo for expensive calculations. This caches the result so it's not recalculated on every single render.
+- **React.memo:** Wrap components in React.memo to stop them from re-rendering if their props haven't changed. Perfect for simple, presentational components.
+- **useCallback:** When you pass functions as props to memoised children, wrap them in useCallback. This maintains the function's reference stability, preventing the child from re-rendering unnecessarily.
+- **useMemo:** Use useMemo for expensive calculations. This caches the result so it's not recalculated on every single render.
 - **Be Smart with State:** The Context API is great, but be careful. Any update to a context re-renders _all_ components that use it. For complex states, break your contexts into smaller, logical pieces (like a UserContext and a CartContext) to keep re-renders contained.
 
 ### Become a Caching Ninja with Managed Runtime

@@ -231,10 +231,10 @@ function encodeBase64ForEmail(str, characterEncoding) {
 
 And once we have that base64 encoded string, we can use it in our mail template. And inside that template, we are adding some metadata to give information about the file we are trying to send:
 
-- **Content-Type**: Here, we will mark which file type and what name the file has.
+- **Content-Type:** Here, we will mark which file type and what name the file has.
 - **Content-Description:** The description of the file
 - **Content-Disposition:** Here, we provide more information about the file like its filename, the size of the PDF, ...
-- **Content-Transfer-Encoding**: Here, we tell the mail client that the attachment is encoded using base64
+- **Content-Transfer-Encoding:** Here, we tell the mail client that the attachment is encoded using base64
 
 ```text
 --001a113414f6401b8604f1451630

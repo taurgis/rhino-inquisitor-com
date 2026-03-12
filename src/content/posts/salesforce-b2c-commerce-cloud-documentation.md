@@ -29,11 +29,11 @@ The single source of truth, `documentation.b2c.commercecloud.salesforce.com`, is
 
 The three new homes for B2C Commerce documentation are:
 
-1. **Salesforce Help**: This is the new hub for content aimed at administrators and merchandisers. It covers topics like site administration, merchandising, and using Business Manager tools. It aligns B2C Commerce with the standard support and documentation model used across the broader Salesforce ecosystem.
+1. **Salesforce Help:** This is the new hub for content aimed at administrators and merchandisers. It covers topics like site administration, merchandising, and using Business Manager tools. It aligns B2C Commerce with the standard support and documentation model used across the broader Salesforce ecosystem.
 
-1. **Commerce Cloud Developer Center**: This is the primary destination for most developer-focused content, especially materials related to modern, headless development. This is where you will find documentation for SCAPI, PWA Kit, and composable storefronts.
+1. **Commerce Cloud Developer Center:** This is the primary destination for most developer-focused content, especially materials related to modern, headless development. This is where you will find documentation for SCAPI, PWA Kit, and composable storefronts.
 
-1. **Salesforce B2C Developer Documentation Resources**: Hosted on GitHub Pages, this site is a repository for deep technical references. It houses the B2C Commerce Script API documentation (`dw.*` packages), import/export schemas, and legacy developer documents that were preserved in [PDF](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/LegacyDeveloperDocumentation.pdf) format.
+1. **Salesforce B2C Developer Documentation Resources:** Hosted on GitHub Pages, this site is a repository for deep technical references. It houses the B2C Commerce Script API documentation (`dw.*` packages), import/export schemas, and legacy developer documents that were preserved in [PDF](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/LegacyDeveloperDocumentation.pdf) format.
 
 This migration wasn't a simple one-to-one mapping. Some outdated documentation, particularly for deprecated features, was archived into a single PDF to preserve the information without cluttering the new platforms. For developers with years of muscle memory tied to the Infocenter's structure, the following map is an essential tool for reorienting to the new landscape.
 
@@ -56,7 +56,7 @@ Official documentation can tell you how a feature is _supposed _ to work. The co
 
 For real-time problem-solving, debugging complex issues, and getting feedback on architectural patterns, the **Unofficial SFCC Slack community (CommerceCrew)** is an indispensable, primary resource. It is often faster and more practical than logging an official support ticket.
 
-- **How to Join: ** The correct and direct way to join is via the community's official website:**[https://unofficialsfcc.com/](https://unofficialsfcc.com/)**.
+- **How to Join:**The correct and direct way to join is via the community's official website:** [https://unofficialsfcc.com/](https://unofficialsfcc.com/)**.
 
 - **What's Inside:** This hub provides access to several key resources :
 - The **Slack workspace**, with over 12,000 members, includes developers, architects, and even Salesforce employees who actively help answer questions.

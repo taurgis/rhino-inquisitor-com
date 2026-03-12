@@ -216,7 +216,7 @@ A secure way of working with sensitive data
 
 SFCC Makes sure no sensitive data is shared in a possibly insecure scenario
 
-_**A basket is created/modified **_ _** after the session handover**_ in the second scenario.
+_**A basket is created/modified**_ _**after the session handover**_ in the second scenario.
 
 As a security precaution, Salesforce ensures that SiteGenesis/SFRA can not access this data.
 

@@ -60,9 +60,9 @@ Just so you know, while this is a specific requirement for France, other countri
 
 But what does this mean?
 
-- **On-The-Fly**: This is no longer an option since you are not persisting the generated invoice yourself. Therefore, it must be stored somewhere before being given to the consumer to comply with local legislation.
+- **On-The-Fly:** This is no longer an option since you are not persisting the generated invoice yourself. Therefore, it must be stored somewhere before being given to the consumer to comply with local legislation.
 
-- **Storing it on the WebDAV**: In the context of Commerce Cloud, this isn't the ideal choice, as such information should be stored closer to your invoicing system.
+- **Storing it on the WebDAV:** In the context of Commerce Cloud, this isn't the ideal choice, as such information should be stored closer to your invoicing system.
 
 Retaining all generated invoices on B2C Commerce for ten years is excessive. The platform is made for commerce, not finance.
 
@@ -74,7 +74,7 @@ The General Data Protection Regulation (GDPR) has fundamentally changed how busi
 
 The legal requirement to retain invoices for 10 years, as mentioned in the previous section, presents a direct conflict with the right to be forgotten. In this scenario, the legal obligation to retain the invoice takes precedence over the individual's request for data deletion. However, this does not mean that the personal data on the invoice can be kept indefinitely or used for other purposes.
 
-To navigate this, businesses should adopt the principle of **data minimisation ** and consider** pseudonymization**. Here's how this can be applied:
+To navigate this, businesses should adopt the principle of **data minimisation**and consider**pseudonymization**. Here's how this can be applied:
 
 - **Data Minimisation:** Only collect and retain the personal data that is strictly necessary for the transaction and for legal compliance.
 

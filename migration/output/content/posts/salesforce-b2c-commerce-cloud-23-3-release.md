@@ -172,4 +172,4 @@ The month of February keeps giving new (public) repositories. And this time, one
 - improve debug logging by [@clavery](https://github.com/clavery) in [#8](https://github.com/SalesforceCommerceCloud/plugin_passwordlesslogin/pull/8)
 - replace jsonBasket with SCAPI merge basket by [@sandragolden](https://github.com/sandragolden) in [#7](https://github.com/SalesforceCommerceCloud/plugin_passwordlesslogin/pull/7)
 - replaced the use of the JSON basket in a profile custom attribute with SCAPI [mergeBasket](https://developer.salesforce.com/docs/commerce/commerce-api/references/shopper-baskets?meta=mergeBasket)
-- updated README to list out all the API calls required, indicating differences if you are using `plugin _slas` with a **_ public _** SLAS client or using `plugin_ passwordless` on its own without plugin\_slas, using a **_ private_** SLAS client
+- updated README to list out all the API calls required, indicating differences if you are using `plugin _slas` with a **_ public _**SLAS client or using `plugin_ passwordless` on its own without plugin\_slas, using a**_ private_** SLAS client

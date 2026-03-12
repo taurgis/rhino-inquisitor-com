@@ -37,7 +37,7 @@ I also wrote a post recently explaining the [difference in the community](/the-s
 
 ### So then ... how do I get access
 
-~~There is no automated system yet to spin up a sandbox easily. The only way I am aware of is to send an e-mail to [sfcc<-`<b2c<-<trial@salesforce.com>`>`>`>](mailto:``<sfcc<-<b2c<-<trial@salesforce.com>`>`>`>`>`).~~
+~~There is no automated system yet to spin up a sandbox easily. The only way I am aware of is to send an e-mail to [sfcc<-`<b2c<-<trial@salesforce.com>`>`>`>](mailto:`<sfcc<-<b2c<-<trial@salesforce.com>`>`>`>`>`).~~
 
 ~~Unfortunately, that is all I have.~~
 

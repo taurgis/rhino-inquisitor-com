@@ -126,7 +126,7 @@ However, I'm happy to report that this issue has finally been fixed, dramaticall
 > - Security Fixes
 > - Bug Fixes
 > - Infrastructure Updates
-> - **UUID Tokens Switched to JWT Access Tokens**: As previously announced in June 2023, Account Manager no longer supports the use of UUID token formats. All new API Clients only support the JWT access token format.
+> - **UUID Tokens Switched to JWT Access Tokens:** As previously announced in June 2023, Account Manager no longer supports the use of UUID token formats. All new API Clients only support the JWT access token format.
 
 After quite a long warning beforehand, the [UUID](/the-deprecation-of-the-uuid-token-for-api-clients/) option is now wholly gone for new API clients!
 

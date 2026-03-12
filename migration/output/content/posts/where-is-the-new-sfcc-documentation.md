@@ -41,7 +41,7 @@ The word "locations" in the title of this section may be a concern for many peop
 
 Nevertheless, this will have some advantages:
 
-- **Separation of concerns**: when looking for technical documentation, you will not be distracted or sent to the wrong place as easily as that happens now. And visa-versa.
+- **Separation of concerns:** when looking for technical documentation, you will not be distracted or sent to the wrong place as easily as that happens now. And visa-versa.
 
 - **Included in the general help:** How well this works out will depend on the quality of the search engine of Salesforce Help. However, having one location and a similar style of documentation as the rest of Salesforce is (for me) a welcome change. The fact the URLs don't contain the search query anymore is also helpful...
 

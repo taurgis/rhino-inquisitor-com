@@ -83,13 +83,13 @@ Now, it’s time to create an automation job using the [`ImportKeyValueMapping`]
 
 Job Step Parameters:
 
-- **AfterImportFileHandling**: Determines what happens to the file post-import. Options include Keep, Delete, Archive, Archive Zipped (`AfterImportFileHandling: 'Archive'`).
-- **WorkingFolder**: The source folder of your files relative to IMPEX/src. (WorkingFolder: 'customization').
-- **FileNamePattern**: Regex to select import files (`FileNamePattern: '.*.csv'`).
-- **ImportFailedHandling**: How to handle failed imports—WARN skips, ERROR aborts (`ImportFailedHandling: 'WARN'`).
+- **AfterImportFileHandling:** Determines what happens to the file post-import. Options include Keep, Delete, Archive, Archive Zipped (`AfterImportFileHandling: 'Archive'`).
+- **WorkingFolder:** The source folder of your files relative to IMPEX/src. (WorkingFolder: 'customization').
+- **FileNamePattern:** Regex to select import files (`FileNamePattern: '.*.csv'`).
+- **ImportFailedHandling:** How to handle failed imports—WARN skips, ERROR aborts (`ImportFailedHandling: 'WARN'`).
 - **KeyCount:** Leave this at one unless you use a Compound Key. (KeyCount: '1')
-- **ImportMode**: Specifies how the import should proceed—Replace, Merge, Delete (`ImportMode: 'Replace'`).
-- **MappingName**: The name used to access the mapping (`MappingName: 'backend-to-web-skus'`). We will need this later in the code!
+- **ImportMode:** Specifies how the import should proceed—Replace, Merge, Delete (`ImportMode: 'Replace'`).
+- **MappingName:** The name used to access the mapping (`MappingName: 'backend-to-web-skus'`). We will need this later in the code!
 
 ### Accessing Values in Code
 

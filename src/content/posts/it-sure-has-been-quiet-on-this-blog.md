@@ -19,7 +19,7 @@ It sure has been quite a while since I made my [last blog post](/the-latest-in-s
 
 Adaptability is a defining trait of mine. I thrive on learning and embracing change. As my wife can attest, my interests are ever-evolving—some change monthly, while others take years to shift.
 
-Looking at my habits, she asked why I had yet to switch wives. (**_Note_**: I am not planning a switch )
+Looking at my habits, she asked why I had yet to switch wives. (**_Note_:** I am not planning a switch )
 
 ## Smart Home
 

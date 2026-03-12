@@ -52,7 +52,7 @@ Old Moving Component
 New Moving Component
 
 > Dragging components in Page Designer is now more intuitive. Know exactly where you can place a component. And after you drop a component and refresh the page, the component remains in focus and highlighted until another selection is made in the canvas.
-> **How**: Improvements to the drag functionality improve the Page Designer workflow.
+> **How:** Improvements to the drag functionality improve the Page Designer workflow.
 >
 > - Minimal changes in page structure during the drag function. When You initiate the drag process, you don’t lose the orientation to your starting location and desired drop location.
 > - Clearly identifiable drop zones identify where you can drop a component. After you drop a component and refresh the page, the component remains in focus and highlighted.
@@ -98,7 +98,7 @@ As I am not familiar with Japanese tax law, so it is not something I can go into
 ### Fine-Tune Your Site’s Regional Settings
 
 > You now have full control in Business Manager over all parameters used for converting numbers and dates into strings. Use the new Format Symbols tab and regional parameters to add Locale details.
-> **Where**: In Business Manager, select Administration | Locales | local ID
+> **Where:** In Business Manager, select Administration | Locales | local ID
 >
 > - The Format Symbols tab is added for Locale details.
 > - The Numeral System settings are removed on the Locale details General Tab.

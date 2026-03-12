@@ -39,8 +39,8 @@ Over the years, several acquisitions and integrations have significantly enhance
 
 One of the first points of clarification when discussing Commerce Cloud is the differentiation between its various offerings:
 
-- **B2C Commerce Cloud**: Tailored for business-to-consumer interactions.
-- **B2B Commerce Cloud**: Designed for business-to-business operations, also known as Commerce on Core, emphasising its deep integration with the core Salesforce platform.
+- **B2C Commerce Cloud:** Tailored for business-to-consumer interactions.
+- **B2B Commerce Cloud:** Designed for business-to-business operations, also known as Commerce on Core, emphasising its deep integration with the core Salesforce platform.
 - **D2C Commerce Cloud:** Designed for business-to-consumer interactions, focusing on B2B companies directly selling to consumers.
 
 ### Managed Packages vs. Cartridges
@@ -73,9 +73,9 @@ The most significant evolution in the platform's architecture was the introducti
 
 In 2021, B2C Commerce Cloud underwent another substantial transformation, embracing the headless commerce model with the acquisition and integration of Mobify. This led to the creation of the PWA Kit and Managed Runtime, now known collectively as the Composable Storefront. This shift aimed to separate frontend and backend development, providing:
 
-- **Flexibility**: Different teams can work on the frontend and backend simultaneously without conflicting changes.
-- **Scalability**: Easier to scale different parts of the application independently.
-- **Adaptability**: Enables use of the latest frontend technologies like React, ensuring developers leverage modern, well-supported tools and frameworks.
+- **Flexibility:** Different teams can work on the frontend and backend simultaneously without conflicting changes.
+- **Scalability:** Easier to scale different parts of the application independently.
+- **Adaptability:** Enables use of the latest frontend technologies like React, ensuring developers leverage modern, well-supported tools and frameworks.
 
 ## Delving into the Technical Architecture
 
@@ -83,15 +83,15 @@ In 2021, B2C Commerce Cloud underwent another substantial transformation, embrac
 
 The composable storefront represents the latest and most flexible approach to building e-commerce apps on B2C Commerce Cloud. Here’s how it plays out:
 
-- **Managed Runtime**: Hosts the frontend application, handling deployment and environment management.
-- **PWA Kit**: A React-based frontend framework that communicates with the backend using robust APIs.
+- **Managed Runtime:** Hosts the frontend application, handling deployment and environment management.
+- **PWA Kit:** A React-based frontend framework that communicates with the backend using robust APIs.
 
 ### API Connectivity: Open Commerce API and Salesforce Commerce API
 
 B2C Commerce Cloud offers two primary API sets:
 
-1. **Open Commerce API (OCAPI)**: The original set of APIs dating back to Demandware's early days.
-1. **Salesforce Commerce API (SCAPI)**: A newer set designed to provide a more seamless and integrated experience with Salesforce environments, capable of connecting to the environment's underlying services, like the product database.
+1. **Open Commerce API (OCAPI):** The original set of APIs dating back to Demandware's early days.
+1. **Salesforce Commerce API (SCAPI):** A newer set designed to provide a more seamless and integrated experience with Salesforce environments, capable of connecting to the environment's underlying services, like the product database.
 
 Both APIs enable different degrees of interaction between the frontend and backend systems, with SCAPI being pushed as the preferred future standard.
 

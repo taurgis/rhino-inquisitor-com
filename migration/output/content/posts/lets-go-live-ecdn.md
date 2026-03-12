@@ -22,7 +22,7 @@ So, you want to set a website live on Salesforce B2C Commerce Cloud. It is all r
 
 Not to worry! The ECDN is not rocket science, far from it. Once you have set up your first vanity domain, the second one will be peanuts.
 
-**Update August 5, 2022:**__ Added some warnings to this post with things to keep in mind. Thank you, [Sachin Upmany,](https://www.linkedin.com/in/sachin-upmanyu-82428828/) for the reminder that this information is also essential in these guides!
+**Update August 5, 2022:** Added some warnings to this post with things to keep in mind. Thank you, [Sachin Upmany,](https://www.linkedin.com/in/sachin-upmanyu-82428828/) for the reminder that this information is also essential in these guides!
 
 ## What is the eCDN
 
@@ -103,7 +103,7 @@ Use the correct environment Setting up the eCDN is done on the production instan
 
 To get to the eCDN configuration, go to
 
-"**Administration **" > "** Sites **" >"** Embedded CDN Settings**"
+"**Administration**" > "**Sites**" >"**Embedded CDN Settings**"
 
 Once the page has loaded (be patient), you will see the following at the top right of the page.
 

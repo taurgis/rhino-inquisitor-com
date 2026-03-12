@@ -114,7 +114,7 @@ Also, please review [this page](https://help.salesforce.com/s/articleView?id=000
 | **Site Preferences & Metadata** | Manual syncs at pre-defined moments | Many settings are included in site export, but some (e.g., sequence numbers) must be manually configured and verified. | Dev Team |
 | **Customer Profiles** | Complete migration 1-2 weeks before the go-live, delta during and after | **CRITICAL PII RISK:** Ensure the Customer Sequence Number in the new realm is set higher than the highest customer number being imported to prevent duplicate IDs and data exposure. | Dev Team |
 | **Customer Passwords** | Part of the Customer Profiles. | Passwords are encrypted, but can be exported and imported into different realms without any intervention from Salesforce. | Dev Team |
-| **Order History** | Complete migration 1-2 weeks before the go-live, delta during and after | You can export and import orders yourself as long as the site is not marked "live".**WARNING: **Ensure that you complete importing customers before importing orders, as the linking of orders to the correct customer will not occur in the background otherwise.** MANDATORY:** For a live site, order data migration _must_ be performed by Salesforce Support. This is a hard dependency requiring at least 10 working days' notice. | Dev Team / Salesforce Support |
+| **Order History** | Complete migration 1-2 weeks before the go-live, delta during and after | You can export and import orders yourself as long as the site is not marked "live".**WARNING:**Ensure that you complete importing customers before importing orders, as the linking of orders to the correct customer will not occur in the background otherwise.**MANDATORY:** For a live site, order data migration _must_ be performed by Salesforce Support. This is a hard dependency requiring at least 10 working days' notice. | Dev Team / Salesforce Support |
 | **System-Generated Coupons** | **Salesforce Support Ticket** | **MANDATORY:** To ensure existing coupons remain valid, the underlying "seeds" must be migrated by Salesforce Support. Requires a separate, specific support ticket. | Salesforce Support |
 | **Active Data & Einstein** | **Salesforce Support Ticket, During Go-Live** | For different realms, this requires a support ticket. | Dev Team / SF Support |
 
@@ -177,7 +177,7 @@ The difference between a smooth migration and a career-limiting disaster often c
 
 ### Red Alerts (Warnings)
 
-- **Irreversible Analytics Loss: ** This cannot be overstated. Historical analytics data from Reports & Dashboards**does not transfer** to the new realm. The new realm begins with a zeroed-out dashboard. While you can still access the old data by selecting the old realm ID in the Reports & Dashboards interface, the data from the two realms is never combined into a single view
+- **Irreversible Analytics Loss:**This cannot be overstated. Historical analytics data from Reports & Dashboards**does not transfer** to the new realm. The new realm begins with a zeroed-out dashboard. While you can still access the old data by selecting the old realm ID in the Reports & Dashboards interface, the data from the two realms is never combined into a single view
 
 **Actionable Advice:** Before the split, work with the business and analytics teams to identify and export all critical historical reports. This data must be preserved externally, as it will be inaccessible from the new realm's reporting interface.
 

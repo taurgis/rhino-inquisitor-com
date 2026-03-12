@@ -28,7 +28,7 @@ Are you interested in last month’s release notes? [Read the 22.9 release notes
 
 A big update for those working with hybrid deployments using the PWA Kit (Composable Storefront). Many issues popped up in the staging environment that had to do with custom certificates and SLAS. With this update, these will hopefully be out of the picture!
 
-There will be **n****o Business Manager interface for this one**, only APIs that you have to call using the SCAPI:
+There will be **no Business Manager interface for this one**, only APIs that you have to call using the SCAPI:
 
 - [Create an eCDN zone](https://developer.salesforce.com/docs/commerce/commerce-api/references/cdn-api-process-apis?meta=createStorefrontZone)
 - [Upload a certificate](https://developer.salesforce.com/docs/commerce/commerce-api/references/cdn-api-process-apis?meta=addCertificateForZone)
@@ -111,7 +111,7 @@ This will increase the response time and allow the Mulesoft layer to scale bette
 > [!NOTE]
 > **Documentation:** ~~The documentation for this change is not available yet, so questions like "Can we manipulate the time?" or "Can we clear this cache?" is not something that we can answer yet.~~
 
-**Update**: It is not possible to manipulate the cache time, or clear it. (For now, at least. This might change in the future)
+**Update:** It is not possible to manipulate the cache time, or clear it. (For now, at least. This might change in the future)
 
 ## Development
 
@@ -121,11 +121,11 @@ Currently, all ODS (On-Demand Sandboxes) operates under a unique URL based on th
 
 A singular URL will be introduced for both the sandbox and the management APIs to make it easier to manage.
 
-**Current ODS URL**:
+### Current ODS URL
 
 zzzz-001.sandbox.us01.dx.commercecloud.salesforce.com/on/demandware.store/Sites-Site `<https://admin.us01.dx.commercecloud.salesforce.com/>`
 
-**New Unified ODS URL**:
+### New Unified ODS URL
 
 zzzz-001.dx.commercecloud.salesforce.com/on/demandware.store/Sites-Site `<https://admin.dx.commercecloud.salesforce.com/>`
 
