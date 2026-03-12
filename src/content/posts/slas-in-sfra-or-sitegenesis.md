@@ -31,7 +31,7 @@ But what is SLAS, anywho? It is a set of APIs that allows secure access to Comme
 
 Some use-cases:
 
-- **Single Sign-On**: Allow your customers to use a single set of log-ins across multiple environments (Commerce Cloud vs. a Community Portal)
+- **Single Sign-On:** Allow your customers to use a single set of log-ins across multiple environments (Commerce Cloud vs. a Community Portal)
 
 - **Third-Party Identity Providers:** Use third-party services that support [OpenID](https://openid.net/) like Facebook or Google.
 
@@ -123,11 +123,11 @@ The power to configure this timeout lies within your SLAS client's token policy.
 
 Since the `plugin_slas` cartridge was first introduced, Salesforce has [rolled out several security enhancements](https://developer.salesforce.com/docs/commerce/commerce-api/references/about-commerce-api/about.html) that are now effectively mandatory. Failing to address them during your migration will result in a broken or insecure implementation.
 
-- **Enforcing Refresh Token Rotation:** This is a major change, aligning with the OAuth 2.1 security specification. For public clients, which include most PWA Kit storefronts, SLAS now **prohibits the reuse of a refresh token**. When an application uses a refresh token to get a new access token, the response will contain a _new_ refresh token. The application must store and use this new refresh token for subsequent refreshes. Attempting to reuse an old refresh token will result in a `400 'Invalid Refresh Token'` error. The `plugin_slas` cartridge had to be updated to version 7.4.1 to support this, and any custom headless frontend must be updated to handle this rotation logic.
+- **Enforcing Refresh Token Rotation:**This is a major change, aligning with the OAuth 2.1 security specification. For public clients, which include most PWA Kit storefronts, SLAS now**prohibits the reuse of a refresh token**. When an application uses a refresh token to get a new access token, the response will contain a _new_ refresh token. The application must store and use this new refresh token for subsequent refreshes. Attempting to reuse an old refresh token will result in a `400 'Invalid Refresh Token'` error. The `plugin_ slas` cartridge had to be updated to version 7.4.1 to support this, and any custom headless frontend must be updated to handle this rotation logic.
 
 - **Stricter Realm Validation:** To enhance security and prevent misconfiguration, SCAPI requests now undergo stricter validation to ensure the realm ID in the request matches the assigned short code for that realm. A mismatch will result in a `404 Not Found` error.
 
-- **Choosing the Right Client: Public vs. Private:** The fundamental rule of OAuth 2.0 remains paramount. If your application cannot guarantee the confidentiality of a client secret (e.g., a client-side single-page application or a native mobile app), you **must** use a public client. If the secret can be securely stored on a server (e.g., in a traditional web app or a Backend-for-Frontend architecture), you should use a private client.
+- **Choosing the Right Client: Public vs. Private:**The fundamental rule of OAuth 2.0 remains paramount. If your application cannot guarantee the confidentiality of a client secret (e.g., a client-side single-page application or a native mobile app), you**must** use a public client. If the secret can be securely stored on a server (e.g., in a traditional web app or a Backend-for-Frontend architecture), you should use a private client.
 
 Because the migration to Hybrid Auth requires touching authentication code on both the SFCC backend and the headless frontend, it is the ideal and necessary time to conduct a full security audit. The migration project's scope must include updating your implementation to meet these new, stricter standards.
 

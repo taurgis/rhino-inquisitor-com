@@ -48,6 +48,7 @@ async function main() {
   const errors = [];
   const coverage = createCoverageReport(options, curation.__meta.exists);
   const mappedRecords = [];
+  const categoryTargetRecords = new Map();
   const urlToFiles = new Map();
   const validatedRecords = [];
 
@@ -75,7 +76,18 @@ async function main() {
   const attachmentUrlBySourceId = buildAttachmentUrlLookup(Array.isArray(extractRecords) ? extractRecords : []);
 
   for (const { relativeFile, record } of validatedRecords) {
-    if (!['keep', 'merge'].includes(record.disposition) || record.postType === 'category') {
+    if (!['keep', 'merge'].includes(record.disposition)) {
+      continue;
+    }
+
+    if (record.postType === 'category') {
+      const categoryTargetKey = typeof record.targetUrl === 'string' && record.targetUrl.trim().length > 0
+        ? record.targetUrl.trim()
+        : `category:${record.sourceId}`;
+      const existingRecord = categoryTargetRecords.get(categoryTargetKey);
+      if (!existingRecord || shouldPreferCategoryTargetRecord(record, existingRecord)) {
+        categoryTargetRecords.set(categoryTargetKey, record);
+      }
       continue;
     }
 
@@ -106,6 +118,23 @@ async function main() {
       currentFiles.push(outputRelativePath);
       urlToFiles.set(frontMatter.url, currentFiles);
     }
+
+    const currentSourceIds = outputPathToSourceIds.get(outputRelativePath) ?? [];
+    currentSourceIds.push(record.sourceId);
+    outputPathToSourceIds.set(outputRelativePath, currentSourceIds);
+  }
+
+  for (const record of [...categoryTargetRecords.values()].sort((left, right) => left.targetUrl.localeCompare(right.targetUrl))) {
+    const frontMatter = buildCategoryFrontMatter(record, errors);
+    const outputRelativePath = buildOutputRelativePath(record);
+    const outputPath = path.join(options.contentDir, outputRelativePath);
+
+    mappedRecords.push({
+      record,
+      frontMatter,
+      outputRelativePath,
+      outputPath
+    });
 
     const currentSourceIds = outputPathToSourceIds.get(outputRelativePath) ?? [];
     currentSourceIds.push(record.sourceId);
@@ -379,6 +408,24 @@ function resolveAttachmentSourceUrl(record) {
   return null;
 }
 
+function shouldPreferCategoryTargetRecord(candidateRecord, existingRecord) {
+  if (existingRecord.disposition !== 'keep' && candidateRecord.disposition === 'keep') {
+    return true;
+  }
+
+  if (existingRecord.disposition === 'keep' && candidateRecord.disposition !== 'keep') {
+    return false;
+  }
+
+  return scoreCategoryTargetRecord(candidateRecord) > scoreCategoryTargetRecord(existingRecord);
+}
+
+function scoreCategoryTargetRecord(record) {
+  const excerptLength = typeof record.excerptRaw === 'string' ? record.excerptRaw.trim().length : 0;
+  const bodyLength = typeof record.bodyMarkdown === 'string' ? record.bodyMarkdown.trim().length : 0;
+  return excerptLength + bodyLength;
+}
+
 function buildFrontMatter(record, discoveryParams, frontMatterOverride, attachmentUrlBySourceId, errors, mappingStats) {
   const title = typeof frontMatterOverride?.title === 'string'
     ? frontMatterOverride.title.trim()
@@ -476,6 +523,78 @@ function buildFrontMatter(record, discoveryParams, frontMatterOverride, attachme
   }
 
   return frontMatter;
+}
+
+function buildCategoryFrontMatter(record, errors) {
+  const title = String(record.titleRaw ?? '').trim();
+  if (title.length === 0) {
+    errors.push(createErrorRow({
+      sourceId: record.sourceId,
+      file: `${record.sourceId}.json`,
+      field: 'title',
+      errorType: 'missing_required',
+      errorMessage: 'category title resolved to an empty value.'
+    }));
+  }
+
+  const description = resolveCategoryDescription(record);
+  if (description.length === 0) {
+    errors.push(createErrorRow({
+      sourceId: record.sourceId,
+      file: `${record.sourceId}.json`,
+      field: 'description',
+      errorType: 'missing_required',
+      errorMessage: 'category description resolved to an empty value.'
+    }));
+  }
+
+  return {
+    title,
+    description,
+    draft: record.status !== 'publish'
+  };
+}
+
+function resolveCategoryDescription(record) {
+  const excerpt = normalizeDescriptionText(record.excerptRaw ?? '');
+  if (excerpt.length > 0) {
+    return buildCategoryDescription(excerpt, record);
+  }
+
+  const bodyText = normalizeDescriptionText(record.bodyMarkdown ?? '');
+  if (bodyText.length > 0) {
+    return buildCategoryDescription(bodyText, record);
+  }
+
+  const title = normalizeDescriptionText(record.titleRaw ?? '');
+  if (title.length > 0) {
+    return buildCategoryDescription('', record);
+  }
+
+  return '';
+}
+
+function buildCategoryDescription(sourceText, record) {
+  const resolved = buildDescription(sourceText);
+  if (resolved.length >= minDescriptionLength) {
+    return resolved;
+  }
+
+  const title = normalizeDescriptionText(record.titleRaw ?? '');
+  if (title.length === 0) {
+    return resolved;
+  }
+
+  const fallbackSentence = buildDescription(
+    `Explore Rhino Inquisitor's ${title} archive for Salesforce Commerce Cloud articles, release notes, and migration-safe reference material.`
+  );
+
+  if (resolved.length === 0) {
+    return fallbackSentence;
+  }
+
+  const resolvedEndsSentence = /[.!?]$/u.test(resolved);
+  return buildDescription(`${resolved}${resolvedEndsSentence ? '' : '.'} ${fallbackSentence}`);
 }
 
 function resolveDescription(record, frontMatterOverride) {
@@ -600,9 +719,27 @@ function trimToWordBoundary(value, maxLength) {
   return value.slice(0, maxLength).trimEnd();
 }
 function buildOutputRelativePath(record) {
+  if (record.postType === 'category') {
+    return path.posix.join('categories', ...buildCategoryOutputSegments(record), '_index.md');
+  }
+
   const directory = resolveOutputDirectory(record.postType);
   const fileName = `${sanitizeFileSegment(record.slug || record.sourceId)}.md`;
   return path.posix.join(directory, fileName);
+}
+
+function buildCategoryOutputSegments(record) {
+  const normalizedTargetUrl = typeof record.targetUrl === 'string' ? record.targetUrl.trim() : '';
+  const targetSegments = normalizedTargetUrl.split('/').filter(Boolean);
+
+  if (targetSegments[0] === 'category' && targetSegments.length > 1) {
+    const categorySegments = targetSegments.slice(1).map((segment) => sanitizeFileSegment(segment)).filter(Boolean);
+    if (categorySegments.length > 0) {
+      return categorySegments;
+    }
+  }
+
+  return [sanitizeFileSegment(record.slug || record.sourceId)];
 }
 
 function resolveOutputDirectory(postType) {

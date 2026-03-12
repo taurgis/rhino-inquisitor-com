@@ -1,0 +1,58 @@
+{
+  "sourceId": "category:1",
+  "sourceType": "wxr",
+  "sourceChannels": [
+    "wxr"
+  ],
+  "postType": "category",
+  "status": "publish",
+  "titleRaw": "Uncategorized",
+  "excerptRaw": "",
+  "bodyHtml": "",
+  "slug": "uncategorized",
+  "publishedAt": "2026-03-10T10:03:55.501Z",
+  "modifiedAt": "2026-03-10T10:03:55.501Z",
+  "author": "system",
+  "categories": [],
+  "tags": [],
+  "legacyUrl": "/category/uncategorized/",
+  "targetUrl": "/category/uncategorized/",
+  "disposition": "keep",
+  "aliasUrls": [],
+  "mediaRefs": [],
+  "_raw": {
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "status": "publish",
+    "titleRaw": "Uncategorized",
+    "excerptRaw": "",
+    "publishedAt": null,
+    "modifiedAt": null,
+    "author": null,
+    "categories": [],
+    "tags": [],
+    "mediaRefs": [],
+    "manifest": {
+      "legacyUrl": "/category/uncategorized/",
+      "targetUrl": "/category/uncategorized/",
+      "disposition": "keep",
+      "redirectCode": null,
+      "implementationLayer": "none",
+      "urlClass": "category"
+    },
+    "normalization": {
+      "aliasUrlsDerivedFromSameTarget": [],
+      "usedPublishedAtFallback": true,
+      "usedModifiedAtFallback": true,
+      "statusNormalizedFrom": "publish"
+    },
+    "extracted": {
+      "parentSlug": null,
+      "featuredImageUrl": null
+    }
+  },
+  "bodyMarkdown": "",
+  "conversionStatus": "skipped",
+  "manualReviewRequired": false,
+  "fallbackTypes": [],
+  "conversionWarnings": []
+}

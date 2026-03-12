@@ -33,7 +33,7 @@ You might think it strange that the first topic is securing your account. But if
 
 The main advantage (from my perspective) is that you now have one account to log in to many different environments (and across realms).
 
-**But this comes at a price.**
+But this comes at a price.
 
 If an account becomes compromised, especially Account Managers, someone can get access to many different environments in one swing.
 
@@ -49,10 +49,10 @@ For many people having to put [Salesforce Authenticator](https://play.google.com
 
 There are different options possible with Account Manager:
 
--   Salesforce Authenticator (Application)
--   [Security Key](https://www.yubico.com/) (Physical Device)
--   [TOTP](https://en.wikipedia.org/wiki/Time-based_one-time_password) (Time-based one-time password) application
--   [Salesforce Identity](https://help.salesforce.com/s/articleView?id=sf.who_is_salesforce_identity_for.htm&type=5) ([Documentation](https://documentation.b2c.commercecloud.salesforce.com/DOC2/topic/com.demandware.dochelp/content/b2c_commerce/topics/account_manager/b2c_account_manager_link_account_to_salesforce_identity_sso.html))
+- Salesforce Authenticator (Application)
+- [Security Key](https://www.yubico.com/) (Physical Device)
+- [TOTP](https://en.wikipedia.org/wiki/Time-based_one-time_password) (Time-based one-time password) application
+- [Salesforce Identity](https://help.salesforce.com/s/articleView?id=sf.who_is_salesforce_identity_for.htm&type=5) ([Documentation](https://documentation.b2c.commercecloud.salesforce.com/DOC2/topic/com.demandware.dochelp/content/b2c_commerce/topics/account_manager/b2c_account_manager_link_account_to_salesforce_identity_sso.html))
 
 I decided to make it a tad more manageable to log in by creating "[Automaton](https://chrome.google.com/webstore/detail/automaton-account-manager/clbadmmkinhmiblhkkiiabbbcpljohob)." A browser (chromium) plugin that acts as a TOTP mobile application. As a bonus, it also automatically fills in all fields. It is, of course, secured by a "Vault Password," so not everyone that has access to your laptop can log in.
 
@@ -64,8 +64,8 @@ Sharing accounts is something that Salesforce does not advise (for a good reason
 
 Some use-cases where this might be necessary:
 
--   An integration user
--   ... no, that is about it for SFCC
+- An integration user
+- ... no, that is about it for SFCC
 
 You do not have to log in to the business manager as an integration user in most cases. But if it happens, usually more than one person needs to be able to do this (leave, sickness, ... )
 
@@ -83,20 +83,20 @@ Lucky for me (and you), Salesforce has already written quite a few guidelines on
 
 On the [Salesforce Commerce Cloud Infocenter](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_security_best_practices_for_developers.html), there is a lot of information already documented about different types of attacks and how to mitigate them:
 
--   [Encryption and Cryptography](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_encryption_and_cryptography.html)
--   [Cross-Site Scripting](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_cross_site_scripting.html)
--   [Declarative Security via HTTP Headers](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_declarative_security_via_http_headers.html)
--   [Commerce Script Injection](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_commerce_script_injection.html)
--   [Cross-Site Request Forgery](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_cross_site_request_forgery.html)
--   [Secret Storage](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_secret_storage.html)
--   [Using Hooks Securely](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_using_hooks_securely.html)
--   [Data Validation](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_data_validation.html)
--   [Open Redirect Attacks](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_open_redirect_attacks.html)
--   [Authentication and Authorization](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_developer_authentication_and_authorization.html)
--   [Supply Chain Security](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_supply_chain_security.html)
--   [Secure Logging](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_secure_logging.html)
--   [General Secure Coding Practices](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_general_secure_coding_practices.html)
--   [AppExchange Security Reviews](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_app_exchange_security_reviews.html)
+- [Encryption and Cryptography](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_encryption_and_cryptography.html)
+- [Cross-Site Scripting](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_cross_site_scripting.html)
+- [Declarative Security via HTTP Headers](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_declarative_security_via_http_headers.html)
+- [Commerce Script Injection](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_commerce_script_injection.html)
+- [Cross-Site Request Forgery](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_cross_site_request_forgery.html)
+- [Secret Storage](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_secret_storage.html)
+- [Using Hooks Securely](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_using_hooks_securely.html)
+- [Data Validation](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_data_validation.html)
+- [Open Redirect Attacks](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_open_redirect_attacks.html)
+- [Authentication and Authorization](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_developer_authentication_and_authorization.html)
+- [Supply Chain Security](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_supply_chain_security.html)
+- [Secure Logging](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_secure_logging.html)
+- [General Secure Coding Practices](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_general_secure_coding_practices.html)
+- [AppExchange Security Reviews](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_app_exchange_security_reviews.html)
 
 Quite the list, isn't it! Even though Salesforce takes care of quite a few things, you still need to keep yourself in check. Follow the provided guidelines not to compromise the channels you implement on Salesforce B2C Commerce Cloud.
 
@@ -106,7 +106,7 @@ To increase the channel's security, Salesforce allows developers to set specific
 
 A [config file](https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/blob/master/cartridges/app_storefront_base/cartridge/config/httpHeadersConf.json) was introduced into the SFRA to easily set headers for all responses, rather than having to do it for each endpoint separately.
 
-```
+```json
 [
     {
         "id": "Content-Security-Policy",
@@ -151,13 +151,13 @@ The Access-Control-Expose-Headers response header allows a server to indicate wh
 
 The HTTP Content-Security-Policy response header allows web site administrators to control resources the user agent is allowed to load for a given page. With a few exceptions, policies mostly involve specifying server origins and script endpoints. This helps guard against cross-site scripting attacks (Cross-site\_scripting).
 
-_**Note:** The Commerce Cloud platform can override this header for tools like the Storefront Toolkit._
+**Note:** The Commerce Cloud platform can override this header for tools like the Storefront Toolkit.
 
 ### [Content-Security-Policy-Report-Only](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy-Report-Only)
 
 The HTTP Content-Security-Policy-Report-Only response header allows web developers to experiment with policies by monitoring (but not enforcing) their effects. These violation reports consist of JSON documents sent via an HTTP POST request to the specified URI.
 
-_**Note:** You can set this response header only for storefront requests. Report recipient can't be a B2C Commerce system._
+**Note:** You can set this response header only for storefront requests. Report recipient can't be a B2C Commerce system.
 
 ### [Cross-Origin-Embedder-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Embedder-Policy)
 
@@ -187,9 +187,9 @@ The X-Content-Type-Options response HTTP header is a marker used by the server t
 
 TThe X-Frame-Options HTTP response header can be used to indicate whether or not a browser should be allowed to render a page in a , `<iframe>`, `<embed />` or `<object>`. Sites can use this to avoid click-jacking attacks, by ensuring that their content is not embedded into other sites.
 
-_**Note:** The Commerce Cloud platform can override this header for tools like the Storefront Toolkit._
+**Note:** The Commerce Cloud platform can override this header for tools like the Storefront Toolkit.
 
-_**Note:** The values of this header are restricted to: "ALLOW-FROM", "DENY", "SAMEORIGIN"._
+**Note:** The values of this header are restricted to: "ALLOW-FROM", "DENY", "SAMEORIGIN".
 
 ## PWA Kit
 
@@ -217,4 +217,4 @@ As SFRA and PWA Kit use npm for their third-party libraries, it makes sense to u
 
 The audit command submits a description of the dependencies configured in your project to your default registry and asks for a report of known vulnerabilities.
 
-_**Note:** Always test thoroughly after updating your packages (with or without using the npm audit function) to ensure all functionalities work as expected!_
+**Note:** Always test thoroughly after updating your packages (with or without using the npm audit function) to ensure all functionalities work as expected!

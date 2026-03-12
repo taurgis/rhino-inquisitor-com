@@ -47,7 +47,7 @@ For an AI (Artificial Intelligence) to work, it needs to be fed with **quality**
 
 For this sharing of data, consent needs to be given in the Business Manager at:
 
-_Administration_ > _Global Preferences_ > _Einstein Search Dictionaries Opt-In_
+Administration_> _Global Preferences_ >_Einstein Search Dictionaries Opt-In
 
 [![Einstein Search Dictionaries Opt-In setting used to enable shared-data consent.](/media/2022/einstein-cquotient-shared-database-6ab8c2ae5e.jpg)](/media/2022/einstein-cquotient-shared-database-6ab8c2ae5e.jpg)
 
@@ -149,7 +149,6 @@ Do you ever feel like search suggestions didn't understand the message you were 
 It will analyze your entered search term, look at information like current location and device type, and try to auto-complete the search term for you.
 
 > For example, if the shopper types “swe” and they haven’t already searched for sweater or sweat pants, Einstein looks for phrases that start with swe for the device and location. If there’s enough data at that level, Einstein returns a phrase. If there isn’t enough data, Einstein searches across a larger data pool and devices until it finds a result.
->
 > Trailhead
 
 ## Other features

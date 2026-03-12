@@ -1,0 +1,137 @@
+{
+  "sourceId": "7774",
+  "sourceType": "wxr",
+  "sourceChannels": [
+    "filesystem",
+    "wxr"
+  ],
+  "postType": "post",
+  "status": "publish",
+  "titleRaw": "A New Day for Commerce: Recap",
+  "excerptRaw": "",
+  "bodyHtml": "<p>When we look at the Salesforce <a href=\"https://www.rhino-inquisitor.com/the-state-of-ohana-for-salesforce-commerce-cloud/\" target=\"_blank\" rel=\"noopener\">eco-system</a>, Commerce seems like a speck on the entire Salesforce landscape (CRM). Luckily, when going to Salesforce events such as Connections, much attention is given to Commerce. But all that attention takes place in the <a href=\"https://www.rhino-inquisitor.com/20-years-of-dreamforce/\" target=\"_blank\" rel=\"noopener\">United States</a>. For many customers and partners, this is quite a ways out, meaning that a large part of the community is not being represented and allowed to network and learn at these large-scale events.</p><p>Come into play 'A New Day for Commerce', a dedicated Salesforce event for Commerce Cloud in Europe! And big things start small, so let's recap the first edition! But first, a history lesson.</p>\t\t\n\t\t\t<h2>History & Salesforce Events</h2>\t\t\n\t\t\t<h3>Demandware XChange</h3>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img width=\"800\" height=\"413\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/demandware-xchange-2015-1024x529.png\" alt=\"Screenshot of the Demandware Xchange Website of 2015.\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/demandware-xchange-2015-1024x529.png 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/demandware-xchange-2015-300x155.png 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/demandware-xchange-2015-768x397.png 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/demandware-xchange-2015-1536x793.png 1536w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/demandware-xchange-2015-2048x1058.png 2048w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t<p>Before the acquisition of Salesforce, there were events in the United States and Europe dedicated to just Demandware, which was interesting for any customer, partner and developer! The agenda had something for everyone:</p><ul><li>Existing and potential Demandware customers</li><li>Architects</li><li>Developers <br /><br /></li></ul><p>That resulted in various parts of the community attending the event: Going from business to deeply technical.</p><p>But after the acquisition, this event disappeared and became (I assume) '<a href=\"https://www.salesforce.com/connections/\" target=\"_blank\" rel=\"noopener\">Connections</a>', a US-only event not dedicated solely to Salesforce B2C Commerce Cloud. And since there is a vast community of customers and partners in Europe, they were suddenly cut off from this local event.</p><p>But now, after six years - there is a speck of light at the end of the tunnel!</p>\t\t\n\t\t\t<h3>Connections</h3>\t\t\n\t\t<p>Don't get me wrong, even if it is not a dedicated event to Salesforce B2C Commerce Cloud - there is a lot to do and a fantastic place to connect with peers and to learn.</p><p>But as a developer, you might return disappointed if you went to learn more about <a href=\"https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/\" target=\"_blank\" rel=\"noopener\">B2C Commerce Cloud development and architecture</a>. If you look at last year's agenda, there were only a few technical presentations. But Connections is not advertised as a developer conference; TrailblazerDX is - but I'll get to that in a second.</p><p>Go with the right expectations (for me, mainly networking and high-level feature/roadmap knowledge). It can be a fantastic event and well worth the travel and expenses that come with it. </p><p>And it will always have a special place in my heart, having been allowed to tell my story on the main stage and getting that <a href=\"https://www.rhino-inquisitor.com/events-and-the-golden-hoodie/\" target=\"_blank\" rel=\"noopener\">Golden Hoodie</a>!</p>\t\t\n\t\t\t<h3>TrailblazerDX</h3>\t\t\n\t\t<p>Talking about a developer conference, bring in <a href=\"https://www.salesforce.com/trailblazerdx/\" target=\"_blank\" rel=\"noopener\">TrailblazerDX</a>! But unfortunately, as I mentioned before, Commerce is not the most considerable speck on the map that is Salesforce. This year there were only three sessions and no Commerce keynote.</p><p>It's challenging to convince your boss to allow you to attend this event as a Salesforce Commerce Cloud developer in Europe.</p>\t\t\n\t\t\t<h2>A New Day for Commerce</h2>\t\t\n\t\t\t<h3>Short Notice and 'small'</h3>\t\t\n\t\t<p>Any new event, Salesforce or Community, must feel the waters before going full-blown. \"Go big or go home\" doesn't apply as such events don't come cheap to organise and require much preparational work. So at the end of January, the registration page went live for March! Just over a month in advance, which leaves little time for people to clear their schedules, book a hotel and make travel arrangements.</p><p>Nevertheless, the event quickly sold out with a limit of only 500 people (the venue capacity). I even heard people from around Europe had to be turned down, which is \"technically\" a good sign.</p>\t\t\n\t\t\t<h3>The products</h3>\t\t\n\t\t<p>As it is a dedicated event to Salesforce Commerce Cloud, you need to distinguish it from B2C Commerce Cloud. The event itself was tailored to all of the different products that make out the portfolio of Salesforce:</p><ul><li>B2C Commerce Cloud</li><li>B2B Commerce Cloud</li><li>D2C Commerce Cloud</li><li>Order Management</li><li>Marketplaces</li><li>Payments<br /><br /></li></ul><p>This is a good thing as many of these products have been becoming increasingly interconnected over the years - and for people who have read my articles before, I like to broaden my horizons.</p>\t\t\n\t\t\t<h3>Sales, technical, community?\n</h3>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img width=\"800\" height=\"600\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/fireside-chat-a-new-day-for-commerce-1024x768.jpeg\" alt=\"A picture of Thomas Theunen, Igor Faletski, and Sander Felius sitting on a coach for a panel discussion.\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/fireside-chat-a-new-day-for-commerce-1024x768.jpeg 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/fireside-chat-a-new-day-for-commerce-300x225.jpeg 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/fireside-chat-a-new-day-for-commerce-768x576.jpeg 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/fireside-chat-a-new-day-for-commerce-1536x1152.jpeg 1536w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/fireside-chat-a-new-day-for-commerce.jpeg 2048w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t<p>In the first place, the event was designed to be your standard Salesforce event to pitch the product to potential customers and show off the array of products available to existing customers looking to expand their horizons.</p><p>But there were already some pieces to support the architect and developer community. We had a dedicated developer (community) lounge for people to mingle and talk tech. There was also a Fireside chat with <a href=\"https://www.linkedin.com/in/igorfaletski/\" target=\"_blank\" rel=\"noopener\">Igor Faletski</a> planned to ask any questions about the Composable Storefront and the different buzzwords that go with it.</p><p>Did all of the community and technical stuff go as planned? No, definitely not. The goal of the developer lounge needed to be made more transparent, the technical fireside chat was not mentioned in any of the planning screens and flyers, and the lounge was hidden away.</p><p>Nevertheless, people showed up for the Fireside Chat (some probably by accident), and I had a great time. I could talk to many people and network.</p>\t\t\n\t\t\t<h3>Sessions</h3>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img width=\"800\" height=\"594\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/vidaxl-forward-a-new-day-for-commerce-1024x760.jpeg\" alt=\"A panel of four people sitting in front of a presentation about VidaXL at &#039;A New Day for Commerce&#039;.\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/vidaxl-forward-a-new-day-for-commerce-1024x760.jpeg 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/vidaxl-forward-a-new-day-for-commerce-300x223.jpeg 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/vidaxl-forward-a-new-day-for-commerce-768x570.jpeg 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/vidaxl-forward-a-new-day-for-commerce-1536x1139.jpeg 1536w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/vidaxl-forward-a-new-day-for-commerce.jpeg 1599w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t<p>I mentioned before that, for the most part, it is a Sales event and only for the afternoon (2PM - 5PM). This meant there was not enough time for many different sessions. But each product had at least one dedicated session about the latest features and one technical Composable Firechat.</p>\n<p>And as it is with every Salesforce event, an opening keynote showing off the roadmap(s) of the different products and some customer case presentations.</p>\t\t\n\t\t\t<h3>Salesforce</h3>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img width=\"800\" height=\"332\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/a-new-day-for-commerce-community-1024x425.jpg\" alt=\"\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/a-new-day-for-commerce-community-1024x425.jpg 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/a-new-day-for-commerce-community-300x124.jpg 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/a-new-day-for-commerce-community-768x318.jpg 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/a-new-day-for-commerce-community.jpg 1276w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t<p>One of the biggest things that should be mentioned is that a large part of Commerce Cloud leadership had crossed the pond to be present in Amsterdam:</p><ul><li><a href=\"https://www.linkedin.com/in/michaelaffronti/\" target=\"_blank\" rel=\"noopener\">Michael Affronti</a> (SVP &amp; General Manager)</li><li><a href=\"https://www.linkedin.com/in/lukeball/\" target=\"_blank\" rel=\"noopener\">Luke Ball</a> (SVP Product Management)</li><li><a href=\"https://www.linkedin.com/in/igorfaletski/\" target=\"_blank\" rel=\"noopener\">Igor Faletski</a> (VP of Product Management &amp; Mobify Founder)</li><li><a href=\"https://www.linkedin.com/in/kellyhautjames/\" target=\"_blank\" rel=\"noopener\">Kelly Thacker</a> (SVP, Product Marketing &amp; CMO, Retail &amp; Consumer Goods)</li></ul><p><br />And some closer to home:</p><ul><li><a href=\"https://www.linkedin.com/in/gkaur2/\" target=\"_blank\" rel=\"noopener\">Gurpreet Kaur</a> (Director PMM EMEA)</li><li><a href=\"https://www.linkedin.com/in/mikekolman/\" target=\"_blank\" rel=\"noopener\">Mike Kolman </a>(Senior Product Marketing Manager EMEA)</li><li><a href=\"https://www.linkedin.com/in/christiansylvestre/\" target=\"_blank\" rel=\"noopener\">Christian Sylvestre</a> (RVP Commerce Practice Leader Northern Europe)</li><li><a href=\"https://www.linkedin.com/in/sanderfelius/\" target=\"_blank\" rel=\"noopener\">Sander Felius</a> ( Senior Technical Architect ) <br /><br /></li></ul><p>This meant there was a large gathering of people you could network and talk shop with! <em>It was also a big reminder of how bad I am at remembering faces and names, sorry</em> <em>everyone!</em></p>\t\t\n\t\t\t<h2>Next year!?</h2>\t\t\n\t\t<p>I would like to see this event happen annually. It's widely agreed that Europe needs a specialised <a href=\"https://www.rhino-inquisitor.com/the-state-of-ohana-for-salesforce-commerce-cloud/\" target=\"_blank\" rel=\"noopener\">Salesforce Commerce Cloud</a> event, and there's significant interest within the community to participate! This will likely happen if all of the boxes that Salesforce expected from this event have been checked.&nbsp;</p>\n<p>But some improvements can happen:</p>\n<ul>\n<li>Announced more in advance</li>\n<li>A bigger venue</li>\n<li>The agenda/folders should include the developer session(s)</li>\n<li>More developer sessions! 💯</li>\n<li>The developer (community) lounge needs to be manned and more inviting 🙈</li>\n</ul>",
+  "slug": "a-new-day-for-commerce-recap",
+  "publishedAt": "2023-03-20T07:55:32.000Z",
+  "modifiedAt": "2023-03-21T09:44:52.000Z",
+  "author": "Thomas Theunen",
+  "categories": [
+    {
+      "name": "Community",
+      "slug": "community"
+    }
+  ],
+  "tags": [
+    {
+      "name": "ohana",
+      "slug": "ohana"
+    },
+    {
+      "name": "sfcc",
+      "slug": "sfcc"
+    },
+    {
+      "name": "trailhead",
+      "slug": "trailhead"
+    }
+  ],
+  "legacyUrl": "/a-new-day-for-commerce-recap/",
+  "targetUrl": "/a-new-day-for-commerce-recap/",
+  "disposition": "keep",
+  "aliasUrls": [
+    "/?p=7774"
+  ],
+  "mediaRefs": [
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/a-new-day-for-commerce-community-1024x425.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/a-new-day-for-commerce-community-300x124.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/a-new-day-for-commerce-community-768x318.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/a-new-day-for-commerce-community.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/community-meetup-square.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/demandware-xchange-2015-1024x529.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/demandware-xchange-2015-1536x793.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/demandware-xchange-2015-2048x1058.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/demandware-xchange-2015-300x155.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/demandware-xchange-2015-768x397.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/fireside-chat-a-new-day-for-commerce-1024x768.jpeg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/fireside-chat-a-new-day-for-commerce-1536x1152.jpeg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/fireside-chat-a-new-day-for-commerce-300x225.jpeg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/fireside-chat-a-new-day-for-commerce-768x576.jpeg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/fireside-chat-a-new-day-for-commerce.jpeg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/vidaxl-forward-a-new-day-for-commerce-1024x760.jpeg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/vidaxl-forward-a-new-day-for-commerce-1536x1139.jpeg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/vidaxl-forward-a-new-day-for-commerce-300x223.jpeg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/vidaxl-forward-a-new-day-for-commerce-768x570.jpeg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/vidaxl-forward-a-new-day-for-commerce.jpeg"
+  ],
+  "_raw": {
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "status": "publish",
+    "titleRaw": "A New Day for Commerce: Recap",
+    "excerptRaw": "",
+    "publishedAt": "2023-03-20T07:55:32.000Z",
+    "modifiedAt": "2023-03-21T09:44:52.000Z",
+    "author": "Thomas Theunen",
+    "categories": [
+      {
+        "name": "Community",
+        "slug": "community"
+      }
+    ],
+    "tags": [
+      {
+        "name": "ohana",
+        "slug": "ohana"
+      },
+      {
+        "name": "sfcc",
+        "slug": "sfcc"
+      },
+      {
+        "name": "trailhead",
+        "slug": "trailhead"
+      }
+    ],
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/a-new-day-for-commerce-community-1024x425.jpg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/demandware-xchange-2015-1024x529.png",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/fireside-chat-a-new-day-for-commerce-1024x768.jpeg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/vidaxl-forward-a-new-day-for-commerce-1024x760.jpeg"
+    ],
+    "manifest": {
+      "legacyUrl": "/a-new-day-for-commerce-recap/",
+      "targetUrl": "/a-new-day-for-commerce-recap/",
+      "disposition": "keep",
+      "redirectCode": null,
+      "implementationLayer": "none",
+      "urlClass": "post"
+    },
+    "normalization": {
+      "aliasUrlsDerivedFromSameTarget": [
+        "/?p=7774"
+      ],
+      "usedPublishedAtFallback": false,
+      "usedModifiedAtFallback": false,
+      "statusNormalizedFrom": "publish"
+    },
+    "extracted": {
+      "sourcePostType": "post",
+      "link": "/a-new-day-for-commerce-recap/",
+      "guid": "/?p=7774",
+      "attachmentUrl": null,
+      "thumbnailId": "7775",
+      "metaDescription": null,
+      "postParent": "0",
+      "postMetaCount": 16,
+      "featuredImageUrl": "/wp-content/uploads/2023/03/community-meetup-square.png"
+    }
+  },
+  "bodyMarkdown": "When we look at the Salesforce [eco-system](https://www.rhino-inquisitor.com/the-state-of-ohana-for-salesforce-commerce-cloud/), Commerce seems like a speck on the entire Salesforce landscape (CRM). Luckily, when going to Salesforce events such as Connections, much attention is given to Commerce. But all that attention takes place in the [United States](https://www.rhino-inquisitor.com/20-years-of-dreamforce/). For many customers and partners, this is quite a ways out, meaning that a large part of the community is not being represented and allowed to network and learn at these large-scale events.\n\nCome into play 'A New Day for Commerce', a dedicated Salesforce event for Commerce Cloud in Europe! And big things start small, so let's recap the first edition! But first, a history lesson.\n\n## History & Salesforce Events\n\n### Demandware XChange\n\n![Screenshot of the Demandware Xchange Website of 2015.](/media/2023/demandware-xchange-2015-6b0d29c1ff.png)\n\nBefore the acquisition of Salesforce, there were events in the United States and Europe dedicated to just Demandware, which was interesting for any customer, partner and developer! The agenda had something for everyone:\n\n-   Existing and potential Demandware customers\n-   Architects\n-   Developers\n\n\n\nThat resulted in various parts of the community attending the event: Going from business to deeply technical.\n\nBut after the acquisition, this event disappeared and became (I assume) '[Connections](https://www.salesforce.com/connections/)', a US-only event not dedicated solely to Salesforce B2C Commerce Cloud. And since there is a vast community of customers and partners in Europe, they were suddenly cut off from this local event.\n\nBut now, after six years - there is a speck of light at the end of the tunnel!\n\n### Connections\n\nDon't get me wrong, even if it is not a dedicated event to Salesforce B2C Commerce Cloud - there is a lot to do and a fantastic place to connect with peers and to learn.\n\nBut as a developer, you might return disappointed if you went to learn more about [B2C Commerce Cloud development and architecture](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/). If you look at last year's agenda, there were only a few technical presentations. But Connections is not advertised as a developer conference; TrailblazerDX is - but I'll get to that in a second.\n\nGo with the right expectations (for me, mainly networking and high-level feature/roadmap knowledge). It can be a fantastic event and well worth the travel and expenses that come with it.\n\nAnd it will always have a special place in my heart, having been allowed to tell my story on the main stage and getting that [Golden Hoodie](https://www.rhino-inquisitor.com/events-and-the-golden-hoodie/)!\n\n### TrailblazerDX\n\nTalking about a developer conference, bring in [TrailblazerDX](https://www.salesforce.com/trailblazerdx/)! But unfortunately, as I mentioned before, Commerce is not the most considerable speck on the map that is Salesforce. This year there were only three sessions and no Commerce keynote.\n\nIt's challenging to convince your boss to allow you to attend this event as a Salesforce Commerce Cloud developer in Europe.\n\n## A New Day for Commerce\n\n### Short Notice and 'small'\n\nAny new event, Salesforce or Community, must feel the waters before going full-blown. \"Go big or go home\" doesn't apply as such events don't come cheap to organise and require much preparational work. So at the end of January, the registration page went live for March! Just over a month in advance, which leaves little time for people to clear their schedules, book a hotel and make travel arrangements.\n\nNevertheless, the event quickly sold out with a limit of only 500 people (the venue capacity). I even heard people from around Europe had to be turned down, which is \"technically\" a good sign.\n\n### The products\n\nAs it is a dedicated event to Salesforce Commerce Cloud, you need to distinguish it from B2C Commerce Cloud. The event itself was tailored to all of the different products that make out the portfolio of Salesforce:\n\n-   B2C Commerce Cloud\n-   B2B Commerce Cloud\n-   D2C Commerce Cloud\n-   Order Management\n-   Marketplaces\n-   Payments\n\n\n\nThis is a good thing as many of these products have been becoming increasingly interconnected over the years - and for people who have read my articles before, I like to broaden my horizons.\n\n### Sales, technical, community?\n\n![A picture of Thomas Theunen, Igor Faletski, and Sander Felius sitting on a coach for a panel discussion.](/media/2023/fireside-chat-a-new-day-for-commerce-cd97b9b2c7.jpeg)\n\nIn the first place, the event was designed to be your standard Salesforce event to pitch the product to potential customers and show off the array of products available to existing customers looking to expand their horizons.\n\nBut there were already some pieces to support the architect and developer community. We had a dedicated developer (community) lounge for people to mingle and talk tech. There was also a Fireside chat with [Igor Faletski](https://www.linkedin.com/in/igorfaletski/) planned to ask any questions about the Composable Storefront and the different buzzwords that go with it.\n\nDid all of the community and technical stuff go as planned? No, definitely not. The goal of the developer lounge needed to be made more transparent, the technical fireside chat was not mentioned in any of the planning screens and flyers, and the lounge was hidden away.\n\nNevertheless, people showed up for the Fireside Chat (some probably by accident), and I had a great time. I could talk to many people and network.\n\n### Sessions\n\n![A panel of four people sitting in front of a presentation about VidaXL at 'A New Day for Commerce'.](/media/2023/vidaxl-forward-a-new-day-for-commerce-e15a8ef783.jpeg)\n\nI mentioned before that, for the most part, it is a Sales event and only for the afternoon (2PM - 5PM). This meant there was not enough time for many different sessions. But each product had at least one dedicated session about the latest features and one technical Composable Firechat.\n\nAnd as it is with every Salesforce event, an opening keynote showing off the roadmap(s) of the different products and some customer case presentations.\n\n### Salesforce\n\n![](/media/2023/a-new-day-for-commerce-community-2cc42304c9.jpg)\n\nOne of the biggest things that should be mentioned is that a large part of Commerce Cloud leadership had crossed the pond to be present in Amsterdam:\n\n-   [Michael Affronti](https://www.linkedin.com/in/michaelaffronti/) (SVP & General Manager)\n-   [Luke Ball](https://www.linkedin.com/in/lukeball/) (SVP Product Management)\n-   [Igor Faletski](https://www.linkedin.com/in/igorfaletski/) (VP of Product Management & Mobify Founder)\n-   [Kelly Thacker](https://www.linkedin.com/in/kellyhautjames/) (SVP, Product Marketing & CMO, Retail & Consumer Goods)\n\n\nAnd some closer to home:\n\n-   [Gurpreet Kaur](https://www.linkedin.com/in/gkaur2/) (Director PMM EMEA)\n-   [Mike Kolman](https://www.linkedin.com/in/mikekolman/) (Senior Product Marketing Manager EMEA)\n-   [Christian Sylvestre](https://www.linkedin.com/in/christiansylvestre/) (RVP Commerce Practice Leader Northern Europe)\n-   [Sander Felius](https://www.linkedin.com/in/sanderfelius/) ( Senior Technical Architect )\n\n\n\nThis meant there was a large gathering of people you could network and talk shop with! _It was also a big reminder of how bad I am at remembering faces and names, sorry_ _everyone!_\n\n## Next year!?\n\nI would like to see this event happen annually. It's widely agreed that Europe needs a specialised [Salesforce Commerce Cloud](https://www.rhino-inquisitor.com/the-state-of-ohana-for-salesforce-commerce-cloud/) event, and there's significant interest within the community to participate! This will likely happen if all of the boxes that Salesforce expected from this event have been checked.\n\nBut some improvements can happen:\n\n-   Announced more in advance\n-   A bigger venue\n-   The agenda/folders should include the developer session(s)\n-   More developer sessions! 💯\n-   The developer (community) lounge needs to be manned and more inviting 🙈",
+  "conversionStatus": "converted",
+  "manualReviewRequired": false,
+  "fallbackTypes": [],
+  "conversionWarnings": [
+    {
+      "code": "missing-image-alt",
+      "message": "Image missing alt text in /a-new-day-for-commerce-recap/."
+    }
+  ]
+}

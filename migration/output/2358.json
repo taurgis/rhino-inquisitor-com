@@ -1,0 +1,121 @@
+{
+  "sourceId": "2358",
+  "sourceType": "wxr",
+  "sourceChannels": [
+    "filesystem",
+    "wxr"
+  ],
+  "postType": "post",
+  "status": "publish",
+  "titleRaw": "Salesforce B2C Commerce Cloud: The 22.7 Release",
+  "excerptRaw": "",
+  "bodyHtml": "<p>Summer has arrived, and so has the next Salesforce B2C Commerce Cloud release! This time we look at the <a href=\"https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_7_release.htm&amp;type=5\">July 2022 (22.7) release</a>!</p><p>Are you interested in last month’s release notes? <a style=\"background-color: #f2f7fb;\" href=\"https://www.rhino-inquisitor.com/salesforce-b2c-commerce-the-22-6-release/\" target=\"_blank\" rel=\"noopener\">Click here</a>!</p>\t\t\n\t\t\t<h2>Social Commerce</h2>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t<figure>\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/social-commerce-salesforce-scaled.jpg\" data-elementor-open-lightbox=\"yes\" data-elementor-lightbox-title=\"Salesforce B2C Commerce Cloud Social Commerce\" e-action-hash=\"#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MjM3NiwidXJsIjoiaHR0cHM6XC9cL3d3dy5yaGluby1pbnF1aXNpdG9yLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyMlwvMDZcL3NvY2lhbC1jb21tZXJjZS1zYWxlc2ZvcmNlLXNjYWxlZC5qcGcifQ%3D%3D\">\n\t\t\t\t\t\t\t<img width=\"800\" height=\"600\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/social-commerce-salesforce-1024x768.jpg\" alt=\"\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/social-commerce-salesforce-1024x768.jpg 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/social-commerce-salesforce-300x225.jpg 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/social-commerce-salesforce-768x576.jpg 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/social-commerce-salesforce-1536x1152.jpg 1536w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/social-commerce-salesforce-2048x1536.jpg 2048w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t\t\t<figcaption>Forward-looking statements apply!</figcaption>\n\t\t\t\t\t\t\t\t\t\t</figure>\n\t\t<p>During the <a href=\"https://www.rhino-inquisitor.com/get-connected-at-salesforce-connections-2022/\" target=\"_blank\" rel=\"noopener\">Connections '22</a> event, it became apparent a more significant focus has been put on Social Commerce! </p><p>I already mentioned this in the <a href=\"https://www.rhino-inquisitor.com/salesforce-b2c-commerce-the-22-5-release/\" target=\"_blank\" rel=\"noopener\">22.5 release</a>, but a Tiktok and <a href=\"https://forbusiness.snapchat.com/\" target=\"_blank\" rel=\"noopener\">Snapchat</a> integration is happening now.</p><p>To access these BETA features, contact your CSM (Customer Success Manager)!</p>\t\t\n\t\t\t<h2>Development</h2>\t\t\n\t\t\t<h3>Rhino Engine</h3>\t\t\n\t\t<p>Whenever an update happens to the Rhino Engine, many developers (including me) have a smirk. It means we get to use more modern JavaScript in the back-end!</p><p>Some of the highlights:</p><ul><li><a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer\" target=\"_blank\" rel=\"noopener\">Shorthand property names</a></li><li>New JavaScript primitive type <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt\" target=\"_blank\" rel=\"noopener\"><code>bigint</code></a>, replaces <code>dw.util.BigInterger</code></li><li><a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals?retiredLocale=nl\" target=\"_blank\" rel=\"noopener\">Template literal</a> support</li><li><code><a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values\" target=\"_blank\" rel=\"noopener\">Ojbect.values</a></code> / <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries\" target=\"_blank\" rel=\"noopener\"><code>Object.entries</code></a> / ...</li></ul><p><br />For a complete list, you can have a look at <a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC3/index.jsp?topic=%2Fcom.demandware.dochelp%2Fcontent%2Fb2c_commerce%2Ftopics%2Fsite_development%2Fb2c_compatibility_mode_considerations.html\" target=\"_blank\" rel=\"noopener\">the documentation</a>.</p><p>If we look at this list, it is also clear this is an update to the 1.7.14 version of the engine. To get a complete list of what is possible, you can look at the <a href=\"https://mozilla.github.io/rhino/compat/engines.html\" target=\"_blank\" rel=\"noopener\">support list on the official website</a>.</p>\t\t\n\t\t\t<h3>API Encryption Parameter Has Been Changed</h3>\t\t\n\t\t<p>Some significant encryption changes have been made to the <a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC3/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_order_Order.html#dw_order_Order_getOrderExportXML_DetailAnchor\" target=\"_blank\" rel=\"noopener\">Order.getOrderExportXML</a> API, mainly around the encryption of payment instrument data.</p><p>A complete list of changes is available <a href=\"https://help.salesforce.com/s/articleView?id=sf.rn_b2c_OCAPI_order_export_mc.htm&amp;type=5\" target=\"_blank\" rel=\"noopener\">here</a>.</p>\t\t\n\t\t\t<h2>PWA Kit v2.0.0</h2>\t\t\n\t\t<p>A big release a lot of people have been waiting for. Focussing mainly on developer experience, this is an important release to set a solid base to support development for the future to come.</p><ul><li>🥳 TypeScript support. The build tools now support TypeScript by default—without having to update the configuration files for Babel or Webpack.<br /><br /></li><li>🧰 An updated development server that supports hot reloading on the server-side and makes it possible to support hot reloading on the client-side in a future release.<br /><br /></li><li>🤓 An all-new command-line tool called pwa-kit-dev that bundles our recommended development tools like Webpack, Babel, and Jest to support zero-config project templates.<br /><br /></li><li>🖌️ Experimental support for non-React apps for those users interested in using Managed Runtime to host other Express-based apps (not just the Retail React App).<br /><br /></li></ul><p>For a full changelog, have a look at the <a href=\"https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v2.0.0\" target=\"_blank\" rel=\"noopener\">GitHub Repository</a>.</p>\t\t\n\t\t\t<h2>Bugfixes</h2>\t\t\n\t\t<p>I had a look at the \"<a href=\"https://trailblazer.salesforce.com/issues_index?page=2&amp;tag=Commerce+Cloud+Platform\" target=\"_blank\" rel=\"noopener\">Known Issues</a>,\" but I could not find any new \"resolved\" items for this 22.7 release.</p>\t\t\n\t\t\t<h2>Updated Cartridges & Tools</h2>\t\t\n\t\t<p>A new section to this monthly blogpost that I found could be handy for some people. The cartridges that have received updates in the past 30 days!</p><p>Not all of them will be listed here, and I will mainly focus on <a href=\"https://www.rhino-inquisitor.com/community-repositories/\" target=\"_blank\" rel=\"noopener\">Salesforce and Community cartridges</a>.</p>\t\t\n\t\t\t<h3><a href=\"https://github.com/SalesforceCommerceCloud/b2c-tools/releases/tag/v0.7.1\" target=\"_blank\" rel=\"noopener\">b2c-tools (v0.7.1)</a></h3>\t\t\n\t\t\t\t\t<blockquote>\n\t\t\t<p>\n\t\t\t\tb2c-tools is a CLI tool and library for data migrations, import/export, scripting and other tasks with SFCC B2C instances. It is intended to be complimentary to other tools such as sfcc-ci for development and CI/CD scenarios.\t\t\t</p>\n\t\t\t\t\t</blockquote>\n\t\t<p>What's new:</p><ul><li>temporary workaround for origin shielding on development (use <code>--hack-origin-shielding-workaround</code> hidden option). A cleaner solution to come later</li><li>typo \"no serve or clientID found\" by <a href=\"https://github.com/jlbruno\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/jlbruno/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\">@jlbruno</a> in <a href=\"https://github.com/SalesforceCommerceCloud/b2c-tools/pull/42\" data-error-text=\"Failed to load title\" data-id=\"1227153971\" data-permission-text=\"Title is private\" data-url=\"https://github.com/SalesforceCommerceCloud/b2c-tools/issues/42\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/SalesforceCommerceCloud/b2c-tools/pull/42/hovercard\">#42</a><br /><br /><br /></li></ul>\t\t\n\t\t\t<h3><a href=\"https://github.com/SalesforceCommerceCloud/plugin_einstein_api/releases/tag/0.0.4\" target=\"_blank\" rel=\"noopener\">plugin_einstein_api (v0.0.4)</a></h3>\t\t\n\t\t\t\t\t<blockquote>\n\t\t\t<p>\n\t\t\t\tEinstein API is the API-led interface from Salesforce B2C Commerce Einstein, and can be leverage to include Einstein product recommendations in places that are not displayed through a content slot on the storefront, or even outside of the storefront.\t\t\t</p>\n\t\t\t\t\t</blockquote>\n\t\t<p>What's new:</p><ul><li>Bugfix/cart productlineitems by <a href=\"https://github.com/adrien-monte\" data-hovercard-type=\"user\" data-hovercard-url=\"/users/adrien-monte/hovercard\" data-octo-click=\"hovercard-link-click\" data-octo-dimensions=\"link_type:self\">@adrien-monte</a> in <a href=\"https://github.com/SalesforceCommerceCloud/plugin_einstein_api/pull/8\" data-error-text=\"Failed to load title\" data-id=\"1246099486\" data-permission-text=\"Title is private\" data-url=\"https://github.com/SalesforceCommerceCloud/plugin_einstein_api/issues/8\" data-hovercard-type=\"pull_request\" data-hovercard-url=\"/SalesforceCommerceCloud/plugin_einstein_api/pull/8/hovercard\">#8</a><br /><br /><br /></li></ul>\t\t\n\t\t\t<h3><a href=\"https://github.com/SalesforceCommerceCloud/social_channel_integrations\" target=\"_blank\" rel=\"noopener\">social_channel_integrations (<b style=\"color:red;\">New</b>)</a></h3>\t\t\n\t\t\t\t\t<blockquote>\n\t\t\t<p>\n\t\t\t\tThis repository contains Social Channel integrations with B2C Commerce. (Cartridge for Tiktok)\t\t\t</p>\n\t\t\t\t\t</blockquote>\n\t\t<p>An interesting new cartridge which you can track to see how Social selling will be implemented on Salesforce B2C Commerce Cloud.</p>\t\t\n\t\t\t<h3><a href=\"https://github.com/SalesforceCommerceCloud/plugin_commercepayments/releases/tag/v4.2.0\" target=\"_blank\" rel=\"noopener\">plugin_commercepayments (v4.2.0)</a></h3>\t\t\n\t\t\t\t\t<blockquote>\n\t\t\t<p>\n\t\t\t\tThis is the repository for the plugin_commercepayments plugin. This plugin enhances the app_storefront_base cartridge by providing payment functionality via Stripe.\t\t\t</p>\n\t\t\t\t\t</blockquote>\n\t\t<p>What's new:</p><ul><li>Add missing key and value, reorder entries </li><li>Bug: Fix not to show tax in order total summary on checkout and cart pages.</li><li>Bug: Fix email confirmation not translated for order placed with PM involving redirect</li><li>Change to use new saved payment</li><li>Add EPS payment method</li><li>Add keys for eps and ideal banks and update logic to use keys<br /><br /><br /></li></ul>\t\t\n\t\t\t<h3><a href=\"https://github.com/SalesforceCommerceCloud/resource-manager/releases/tag/v.1.1.0\" target=\"_blank\" rel=\"noopener\">resource-manager (v1.1.0)</a></h3>\t\t\n\t\t\t\t\t<blockquote>\n\t\t\t<p>\n\t\t\t\tThis cartridge contains a Business Manager module that allows editing and publishing of resource bundles.\t\t\t</p>\n\t\t\t\t\t</blockquote>\n\t\t<p>What's new:</p><ul><li>This release introduces some new ES6 language elements and requires Compatibility Mode 21.1 or higher</li><li>New 'global search' feature allows searching for keys across bundles.</li><li>UI updates and fixes for the new Lightning Business Manager layout.</li><li>Bundle last updated date now shown correctly.</li><li>Bundle JSON keys get sorted alphabetically on save.</li></ul>",
+  "slug": "salesforce-b2c-commerce-cloud-the-22-7-release",
+  "publishedAt": "2022-06-13T15:06:49.000Z",
+  "modifiedAt": "2022-07-23T21:59:53.000Z",
+  "author": "Thomas Theunen",
+  "categories": [
+    {
+      "name": "Release Notes",
+      "slug": "release-notes"
+    },
+    {
+      "name": "Salesforce Commerce Cloud",
+      "slug": "salesforce-commerce-cloud"
+    }
+  ],
+  "tags": [
+    {
+      "name": "sfcc",
+      "slug": "sfcc"
+    },
+    {
+      "name": "technical",
+      "slug": "technical"
+    }
+  ],
+  "legacyUrl": "/salesforce-b2c-commerce-cloud-the-22-7-release/",
+  "targetUrl": "/salesforce-b2c-commerce-cloud-the-22-7-release/",
+  "disposition": "keep",
+  "aliasUrls": [
+    "/?p=2358"
+  ],
+  "mediaRefs": [
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/apache-rhino-engine.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/social-commerce-salesforce-1024x768.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/social-commerce-salesforce-1536x1152.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/social-commerce-salesforce-2048x1536.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/social-commerce-salesforce-300x225.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/social-commerce-salesforce-768x576.jpg"
+  ],
+  "_raw": {
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "status": "publish",
+    "titleRaw": "Salesforce B2C Commerce Cloud: The 22.7 Release",
+    "excerptRaw": "",
+    "publishedAt": "2022-06-13T15:06:49.000Z",
+    "modifiedAt": "2022-07-23T21:59:53.000Z",
+    "author": "Thomas Theunen",
+    "categories": [
+      {
+        "name": "Release Notes",
+        "slug": "release-notes"
+      },
+      {
+        "name": "Salesforce Commerce Cloud",
+        "slug": "salesforce-commerce-cloud"
+      }
+    ],
+    "tags": [
+      {
+        "name": "sfcc",
+        "slug": "sfcc"
+      },
+      {
+        "name": "technical",
+        "slug": "technical"
+      }
+    ],
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/social-commerce-salesforce-1024x768.jpg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/social-commerce-salesforce-scaled.jpg"
+    ],
+    "manifest": {
+      "legacyUrl": "/salesforce-b2c-commerce-cloud-the-22-7-release/",
+      "targetUrl": "/salesforce-b2c-commerce-cloud-the-22-7-release/",
+      "disposition": "keep",
+      "redirectCode": null,
+      "implementationLayer": "none",
+      "urlClass": "post"
+    },
+    "normalization": {
+      "aliasUrlsDerivedFromSameTarget": [
+        "/?p=2358"
+      ],
+      "usedPublishedAtFallback": false,
+      "usedModifiedAtFallback": false,
+      "statusNormalizedFrom": "publish"
+    },
+    "extracted": {
+      "sourcePostType": "post",
+      "link": "/salesforce-b2c-commerce-cloud-the-22-7-release/",
+      "guid": "/?p=2358",
+      "attachmentUrl": null,
+      "thumbnailId": "2359",
+      "metaDescription": "Are you interested in what is new in each Salesforce B2C Commerce Cloud release? Then this is the article for you! Let us look at 22.7 (July)",
+      "postParent": "0",
+      "postMetaCount": 26,
+      "featuredImageUrl": "/wp-content/uploads/2022/06/apache-rhino-engine.png"
+    }
+  },
+  "bodyMarkdown": "Summer has arrived, and so has the next Salesforce B2C Commerce Cloud release! This time we look at the [July 2022 (22.7) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_7_release.htm&type=5)!\n\nAre you interested in last month’s release notes? [Click here](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-the-22-6-release/)!\n\n## Social Commerce\n\n[![](/media/2022/social-commerce-salesforce-a88048dff4.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/06/social-commerce-salesforce-scaled.jpg)\n\nForward-looking statements apply!\n\nDuring the [Connections '22](https://www.rhino-inquisitor.com/get-connected-at-salesforce-connections-2022/) event, it became apparent a more significant focus has been put on Social Commerce!\n\nI already mentioned this in the [22.5 release](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-the-22-5-release/), but a Tiktok and [Snapchat](https://forbusiness.snapchat.com/) integration is happening now.\n\nTo access these BETA features, contact your CSM (Customer Success Manager)!\n\n## Development\n\n### Rhino Engine\n\nWhenever an update happens to the Rhino Engine, many developers (including me) have a smirk. It means we get to use more modern JavaScript in the back-end!\n\nSome of the highlights:\n\n-   [Shorthand property names](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer)\n-   New JavaScript primitive type [`bigint`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt), replaces `dw.util.BigInterger`\n-   [Template literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals?retiredLocale=nl) support\n-   `[Ojbect.values](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values)` / [`Object.entries`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries) / ...\n\n\nFor a complete list, you can have a look at [the documentation](https://documentation.b2c.commercecloud.salesforce.com/DOC3/index.jsp?topic=%2Fcom.demandware.dochelp%2Fcontent%2Fb2c_commerce%2Ftopics%2Fsite_development%2Fb2c_compatibility_mode_considerations.html).\n\nIf we look at this list, it is also clear this is an update to the 1.7.14 version of the engine. To get a complete list of what is possible, you can look at the [support list on the official website](https://mozilla.github.io/rhino/compat/engines.html).\n\n### API Encryption Parameter Has Been Changed\n\nSome significant encryption changes have been made to the [Order.getOrderExportXML](https://documentation.b2c.commercecloud.salesforce.com/DOC3/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_order_Order.html#dw_order_Order_getOrderExportXML_DetailAnchor) API, mainly around the encryption of payment instrument data.\n\nA complete list of changes is available [here](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_OCAPI_order_export_mc.htm&type=5).\n\n## PWA Kit v2.0.0\n\nA big release a lot of people have been waiting for. Focussing mainly on developer experience, this is an important release to set a solid base to support development for the future to come.\n\n-   🥳 TypeScript support. The build tools now support TypeScript by default—without having to update the configuration files for Babel or Webpack.\n\n\n-   🧰 An updated development server that supports hot reloading on the server-side and makes it possible to support hot reloading on the client-side in a future release.\n\n\n-   🤓 An all-new command-line tool called pwa-kit-dev that bundles our recommended development tools like Webpack, Babel, and Jest to support zero-config project templates.\n\n\n-   🖌️ Experimental support for non-React apps for those users interested in using Managed Runtime to host other Express-based apps (not just the Retail React App).\n\n\n\nFor a full changelog, have a look at the [GitHub Repository](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v2.0.0).\n\n## Bugfixes\n\nI had a look at the \"[Known Issues](https://trailblazer.salesforce.com/issues_index?page=2&tag=Commerce+Cloud+Platform),\" but I could not find any new \"resolved\" items for this 22.7 release.\n\n## Updated Cartridges & Tools\n\nA new section to this monthly blogpost that I found could be handy for some people. The cartridges that have received updates in the past 30 days!\n\nNot all of them will be listed here, and I will mainly focus on [Salesforce and Community cartridges](https://www.rhino-inquisitor.com/community-repositories/).\n\n### [b2c-tools (v0.7.1)](https://github.com/SalesforceCommerceCloud/b2c-tools/releases/tag/v0.7.1)\n\n> b2c-tools is a CLI tool and library for data migrations, import/export, scripting and other tasks with SFCC B2C instances. It is intended to be complimentary to other tools such as sfcc-ci for development and CI/CD scenarios.\n\nWhat's new:\n\n-   temporary workaround for origin shielding on development (use `--hack-origin-shielding-workaround` hidden option). A cleaner solution to come later\n-   typo \"no serve or clientID found\" by [@jlbruno](https://github.com/jlbruno) in [#42](https://github.com/SalesforceCommerceCloud/b2c-tools/pull/42)\n\n\n\n\n### [plugin\\_einstein\\_api (v0.0.4)](https://github.com/SalesforceCommerceCloud/plugin_einstein_api/releases/tag/0.0.4)\n\n> Einstein API is the API-led interface from Salesforce B2C Commerce Einstein, and can be leverage to include Einstein product recommendations in places that are not displayed through a content slot on the storefront, or even outside of the storefront.\n\nWhat's new:\n\n-   Bugfix/cart productlineitems by [@adrien-monte](https://github.com/adrien-monte) in [#8](https://github.com/SalesforceCommerceCloud/plugin_einstein_api/pull/8)\n\n\n\n\n### [social\\_channel\\_integrations (**New**)](https://github.com/SalesforceCommerceCloud/social_channel_integrations)\n\n> This repository contains Social Channel integrations with B2C Commerce. (Cartridge for Tiktok)\n\nAn interesting new cartridge which you can track to see how Social selling will be implemented on Salesforce B2C Commerce Cloud.\n\n### [plugin\\_commercepayments (v4.2.0)](https://github.com/SalesforceCommerceCloud/plugin_commercepayments/releases/tag/v4.2.0)\n\n> This is the repository for the plugin\\_commercepayments plugin. This plugin enhances the app\\_storefront\\_base cartridge by providing payment functionality via Stripe.\n\nWhat's new:\n\n-   Add missing key and value, reorder entries\n-   Bug: Fix not to show tax in order total summary on checkout and cart pages.\n-   Bug: Fix email confirmation not translated for order placed with PM involving redirect\n-   Change to use new saved payment\n-   Add EPS payment method\n-   Add keys for eps and ideal banks and update logic to use keys\n\n\n\n\n### [resource-manager (v1.1.0)](https://github.com/SalesforceCommerceCloud/resource-manager/releases/tag/v.1.1.0)\n\n> This cartridge contains a Business Manager module that allows editing and publishing of resource bundles.\n\nWhat's new:\n\n-   This release introduces some new ES6 language elements and requires Compatibility Mode 21.1 or higher\n-   New 'global search' feature allows searching for keys across bundles.\n-   UI updates and fixes for the new Lightning Business Manager layout.\n-   Bundle last updated date now shown correctly.\n-   Bundle JSON keys get sorted alphabetically on save.",
+  "conversionStatus": "converted",
+  "manualReviewRequired": false,
+  "fallbackTypes": [],
+  "conversionWarnings": [
+    {
+      "code": "missing-image-alt",
+      "message": "Image missing alt text in /salesforce-b2c-commerce-cloud-the-22-7-release/."
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "sourceId": "4854",
+  "sourceType": "wxr",
+  "sourceChannels": [
+    "wxr"
+  ],
+  "postType": "page",
+  "status": "publish",
+  "titleRaw": "Life With Goldie",
+  "excerptRaw": "",
+  "bodyHtml": "https://www.youtube.com/watch?v=u0mlLP_M6HU<p>A fun interview about my journey within the Salesforce Ohana and how I received my Golden Hoodie in 2022 at Salesforce Connections!</p><p>There are only about a hundred Golden Hoodies worldwide, so getting one presented to you by Salesforce is pretty rare. <a href=\"https://www.rhino-inquisitor.com/events-and-the-golden-hoodie/\" target=\"_blank\" rel=\"noopener\">Being the first in Belgium</a> to receive one and the first Commerce Cloud community member is quite an honor! Hopefully, more Commerce Cloud community members will be presented with a Golden Hoodie in the future, but only one person can be the \"first\"!</p><p>So how do you get one? This is a question I have gotten quite often in the past few months since receiving one, but there isn't really \"one thing\" that you should do. Salesforce decides who gets one, which is an entirely different system than the MVP one.</p><p>Putting it as simply as possible: \"<a href=\"https://www.rhino-inquisitor.com/community-salesforce-events-and-commerce-cloud/\" target=\"_blank\" rel=\"noopener\">Get noticed</a> by the community, and more importantly by Salesforce with your efforts towards Salesforce customers and the community.\"</p>",
+  "slug": "life-with-goldie",
+  "publishedAt": "2022-09-11T08:28:07.000Z",
+  "modifiedAt": "2022-09-11T16:31:42.000Z",
+  "author": "Thomas Theunen",
+  "categories": [
+    {
+      "name": "Podcasts",
+      "slug": "podcasts"
+    },
+    {
+      "name": "Video",
+      "slug": "video"
+    }
+  ],
+  "tags": [
+    {
+      "name": "ohana",
+      "slug": "ohana"
+    },
+    {
+      "name": "podcast",
+      "slug": "podcast"
+    },
+    {
+      "name": "sfcc",
+      "slug": "sfcc"
+    }
+  ],
+  "legacyUrl": "/life-with-goldie/",
+  "targetUrl": "/life-with-goldie/",
+  "disposition": "keep",
+  "aliasUrls": [
+    "/?p=4854"
+  ],
+  "mediaRefs": [
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/yte-hd-image.jpg"
+  ],
+  "_raw": {
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "status": "publish",
+    "titleRaw": "Life With Goldie",
+    "excerptRaw": "",
+    "publishedAt": "2022-09-11T08:28:07.000Z",
+    "modifiedAt": "2022-09-11T16:31:42.000Z",
+    "author": "Thomas Theunen",
+    "categories": [
+      {
+        "name": "Podcasts",
+        "slug": "podcasts"
+      },
+      {
+        "name": "Video",
+        "slug": "video"
+      }
+    ],
+    "tags": [
+      {
+        "name": "ohana",
+        "slug": "ohana"
+      },
+      {
+        "name": "podcast",
+        "slug": "podcast"
+      },
+      {
+        "name": "sfcc",
+        "slug": "sfcc"
+      }
+    ],
+    "mediaRefs": [],
+    "manifest": {
+      "legacyUrl": "/life-with-goldie/",
+      "targetUrl": "/life-with-goldie/",
+      "disposition": "keep",
+      "redirectCode": null,
+      "implementationLayer": "none",
+      "urlClass": "page"
+    },
+    "normalization": {
+      "aliasUrlsDerivedFromSameTarget": [
+        "/?p=4854"
+      ],
+      "usedPublishedAtFallback": false,
+      "usedModifiedAtFallback": false,
+      "statusNormalizedFrom": "publish"
+    },
+    "extracted": {
+      "sourcePostType": "page",
+      "link": "/life-with-goldie/",
+      "guid": "/?page_id=4854",
+      "attachmentUrl": null,
+      "thumbnailId": "4855",
+      "metaDescription": null,
+      "postParent": "0",
+      "postMetaCount": 23,
+      "featuredImageUrl": "/wp-content/uploads/2022/09/YTE-HD-Image.jpg"
+    }
+  },
+  "bodyMarkdown": "https://www.youtube.com/watch?v=u0mlLP\\_M6HU\n\nA fun interview about my journey within the Salesforce Ohana and how I received my Golden Hoodie in 2022 at Salesforce Connections!\n\nThere are only about a hundred Golden Hoodies worldwide, so getting one presented to you by Salesforce is pretty rare. [Being the first in Belgium](https://www.rhino-inquisitor.com/events-and-the-golden-hoodie/) to receive one and the first Commerce Cloud community member is quite an honor! Hopefully, more Commerce Cloud community members will be presented with a Golden Hoodie in the future, but only one person can be the \"first\"!\n\nSo how do you get one? This is a question I have gotten quite often in the past few months since receiving one, but there isn't really \"one thing\" that you should do. Salesforce decides who gets one, which is an entirely different system than the MVP one.\n\nPutting it as simply as possible: \"[Get noticed](https://www.rhino-inquisitor.com/community-salesforce-events-and-commerce-cloud/) by the community, and more importantly by Salesforce with your efforts towards Salesforce customers and the community.\"",
+  "conversionStatus": "converted",
+  "manualReviewRequired": false,
+  "fallbackTypes": [],
+  "conversionWarnings": []
+}

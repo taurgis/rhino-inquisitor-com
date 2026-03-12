@@ -43,7 +43,7 @@ This means that for developers, finding the POD number is an act of reconnaissan
 
 ### The Shift to Hyperforce: What It Means for PODs
 
-Salesforce is fundamentally changing its infrastructure by migrating B2C Commerce Cloud to **Hyperforce**, its next-generation platform built on [public cloud technology](https://www.salesforce.com/platform/public-cloud-infrastructure/). This strategic move away from traditional Salesforce-managed data centres allows for greater scalability, enhanced security, and improved performance by leveraging the global reach of public cloud providers. For anyone working with SFCC, understanding this transition is crucial, as it marks a significant evolution in how the platform is architected and managed. The core takeaway is that the classic concept of a static, identifiable **POD** is becoming a thing of the past for realms on Hyperforce.
+Salesforce is fundamentally changing its infrastructure by migrating B2C Commerce Cloud to **Hyperforce**, its next-generation platform built on [public cloud technology](https://www.salesforce.com/platform/public-cloud-infrastructure/). This strategic move away from traditional Salesforce-managed data centres allows for greater scalability, enhanced security, and improved performance by leveraging the global reach of public cloud providers. For anyone working with SFCC, understanding this transition is crucial, as it marks a significant evolution in how the platform is architected and managed. The core takeaway is that the classic concept of a static, identifiable**POD** is becoming a thing of the past for realms on Hyperforce.
 
 With the adoption of Hyperforce, the architecture is far more dynamic. Your SFCC instance is no longer tied to a single, fixed data centre or a specific POD number that can be easily identified through a URL or IP address lookup. This means that many of the clever methods currently used to pinpoint your POD will no longer be reliable once your realm is migrated.
 
@@ -69,7 +69,7 @@ This is a clever, indirect method that leverages the way Business Manager genera
 
 1. Look at your browser's status bar (usually in the bottom-left corner). It will display the destination URL, and within that URL, you will find the POD number.
 
-For example, the URL might look something like `<https://pod**185**.production.demandware.net/...`>, clearly indicating you are on POD 185.
+For example, the URL might look something like `<https://pod>` **185**.production.demandware.net/...`, clearly indicating you are on POD 185.
 
 ### Method 2: The (lightning) PIG instance footer
 
@@ -85,7 +85,7 @@ While you cannot find the POD number directly in Account Manager, it is the sour
 
 To find your Realm and Organization IDs:
 
-1. Log in to Account Manager at `<https://account.demandware.com`>.
+1. Log in to Account Manager at `<https://account.demandware.com>``.
 
 1. Navigate to the **Organization** tab.
 
@@ -101,9 +101,9 @@ This method is now largely historical ([migrated in 2023](https://help.salesforc
 
 Before the 2023 migration to a centralised logging platform, each POD had a dedicated Log Center application. The URL format explicitly included the POD number :
 
-`<https://logcenter-><POD-No.><Cylinder>-hippo.demandware.net/logcenter`
+`<https://logcenter->`&lt;POD-No.&gt;`&lt;Cylinder&gt;`-hippo.demandware.net/logcenter`
 
-The `<Cylinder>` value was also significant: `00` for a SIG (your sandboxes) and `01` for a PIG (Dev, Staging, Prod).
+The `&lt;Cylinder&gt;` value was also significant: `00` for a SIG (your sandboxes) and `01` for a PIG (Dev, Staging, Prod).
 
 The platform's evolution toward a more abstracted, public cloud infrastructure is evident in this instance. The old Log Center URL was tied directly to a specific hardware group (`hippo.demandware.net`), reflecting a more rigid infrastructure.
 
@@ -129,7 +129,7 @@ Support will also be the primary source of information during a planned POD move
 
 A common misconception is that the Salesforce Trust site can be used to find your POD (Point of Delivery) number.
 
-**This is incorrect.**
+This is incorrect.
 
 The Trust site is where you go to check the status of a POD you _already know_. Once you've identified your POD number using one of the methods above, you can visit [https://status.salesforce.com/products/B2C\_Commerce\_Cloud](https://status.salesforce.com/products/B2C_Commerce_Cloud), find your POD in the list, and subscribe to notifications for maintenance and incidents.
 

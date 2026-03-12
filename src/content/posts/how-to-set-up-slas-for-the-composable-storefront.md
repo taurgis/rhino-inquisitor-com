@@ -36,7 +36,7 @@ After you have logged into the Business Manager of your environment, go to the f
 
 The link is only visible if you have DWithEase (Browser Extension) installed.
 
-The link is not there If you do not see the link (The link is inserted by [DWithEase](https://dwithease.com/)), manually go to the URL: https://**{{Short\_Code}}**.api.commercecloud.salesforce.com/shopper/auth-admin/v1/sso/login On this screen, some necessary information to install the PWA Kit can be found. But besides the Short Code and the Organization ID, there is an interesting link present. "SLAS Admin UI" Let's click that now, shall we?
+The link is not there If you do not see the link (The link is inserted by [DWithEase](https://dwithease.com/)), manually go to the URL: `<https://**{{Short\_Code}}**.api.commercecloud.salesforce.com/shopper/auth-admin/v1/sso/login>` On this screen, some necessary information to install the PWA Kit can be found. But besides the Short Code and the Organization ID, there is an interesting link present. "SLAS Admin UI" Let's click that now, shall we?
 
 [![Sign-in page that links to the SLAS Admin UI.](/media/2023/slas-admin-ui-login-ff882d0848.jpg)](/media/2023/slas-admin-ui-login-ff882d0848.jpg)
 
@@ -60,13 +60,13 @@ Click the "Add Client" button on this page to go to the next step.
 
 And with that, we are almost there! Fill in the following information:
 
--   **What tenant will be used?:** Fill in the Tenant ID, part of the Organization ID, from step two. (format: xxxx\_sxx)
--   **What site will be used?:** Here, we fill in the site IDs used - separated by a space.
--   **Which App Type will be used?:** Well... the article is for the Composable Storefront - So let us select "_PWA Kit or SFRA or Mobile_".Selecting this option will make a "[Public Client](https://developer.salesforce.com/docs/commerce/commerce-api/guide/slas-public-client.html)".
--   **Client Id:** The Client ID to use during the installation of the PWA Kit. This can be left as-is. _**Note:**_ _This Client Id does not need to exist as an API Client in the Account Manager - They are not related!!!_
--   **Secret:** Public Clients do not need a secret
--   **Do you want the default shopper scopes?:** Since we will be using the PWA Kit, leave this checked.
--   **Enter custom shopper scopes:** This step can be left empty.
+- **What tenant will be used?:** Fill in the Tenant ID, part of the Organization ID, from step two. (format: xxxx\_sxx)
+- **What site will be used?:** Here, we fill in the site IDs used - separated by a space.
+- **Which App Type will be used?:** Well... the article is for the Composable Storefront - So let us select "_PWA Kit or SFRA or Mobile_".Selecting this option will make a "[Public Client](https://developer.salesforce.com/docs/commerce/commerce-api/guide/slas-public-client.html)".
+- **Client Id:**The Client ID to use during the installation of the PWA Kit. This can be left as-is. _**Note:** __This Client Id does not need to exist as an API Client in the Account Manager - They are not related!!!_
+- **Secret:** Public Clients do not need a secret
+- **Do you want the default shopper scopes?:** Since we will be using the PWA Kit, leave this checked.
+- **Enter custom shopper scopes:** This step can be left empty.
 
 As the final step: "Click Submit". Otherwise, not a lot is going to be happening.
 
@@ -84,37 +84,37 @@ Follow step "Update Open Commerce API Settings" on the following page using the 
 
 Now that we have our SLAS Client, Short Code, and Organization ID, we can start installing the PWA Kit! Open up your favorite terminal and enter:
 
-```
+```text
 npx pwa-kit-create-app
 ```
 
 During the execution you will be prompted to enter certain information.
 
-### What is the name of your Project?
+### What is the name of your Project
 
 You can choose whatever name makes the most sense for you. Keep in mind that this is also the name of the folder it will create.
 
-### What is the URL for your Commerce Cloud instance?
+### What is the URL for your Commerce Cloud instance
 
 Fill in the URL of your sandbox, and this looks something like:
 
-```
+```text
 https://xxxx-0xx.dx.commercecloud.salesforce.com/
 ```
 
-### What is your SLAS Client ID?
+### What is your SLAS Client ID
 
 Enter the Client Id generated in step 3.
 
-### What is your Site ID in Business Manager?
+### What is your Site ID in Business Manager
 
 Enter the Site ID of the site you will use (e.g. RefArch).
 
-### What is your Commerce API organization ID in Business Manager?
+### What is your Commerce API organization ID in Business Manager
 
 This information can be found in the "Salesforce Commerce API Settings" in the Business Manager of your environment. This was covered in step 2.
 
-### What is your Commerce API short code in Business Manager?
+### What is your Commerce API short code in Business Manager
 
 This information can be found in the "Salesforce Commerce API Settings" in the Business Manager of your environment. This was covered in step 2.
 
@@ -122,7 +122,7 @@ This information can be found in the "Salesforce Commerce API Settings" in the B
 
 Now that we have SLAS up and running and our PWA Kit installed locally, all that is left is to run our application by going into the new folder the command has created, and doing:
 
-```
+```bash
 npm start
 ```
 

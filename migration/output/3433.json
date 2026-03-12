@@ -1,0 +1,133 @@
+{
+  "sourceId": "3433",
+  "sourceType": "wxr",
+  "sourceChannels": [
+    "filesystem",
+    "wxr"
+  ],
+  "postType": "post",
+  "status": "publish",
+  "titleRaw": "Leveraging Server-Side Caching to Improve SFCC REST API Speed",
+  "excerptRaw": "",
+  "bodyHtml": "The <a style=\"font-size: 1.25rem;\" href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/OpenCommerceAPI.html?cp=0_16\" target=\"_blank\" rel=\"noopener\">OCAPI</a> has been around for a long time (2016) and allows you to cache responses to increase performance. <b style=\"background-color: var( --e-global-color-2cf076e ); font-size: 1.25rem;\">By default, GET responses that support caching are cached for 60 seconds</b>, but can this be improved?&nbsp;\n<h2>What can be cached in the OCAPI?</h2>\nBefore we start, we must understand that not all API endpoints support caching. But which ones do?\n<ul>\n \t<li><a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/Metadata.html\" target=\"_blank\" rel=\"noopener\">Meta API&nbsp;</a></li>\n \t<li><a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/shop/Resources/Categories.html?cp=0_16_3_1\" target=\"_blank\" rel=\"noopener\">Categories</a></li>\n \t<li><a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/shop/Resources/Content.html?cp=0_16_3_2\" target=\"_blank\" rel=\"noopener\">Content</a></li>\n \t<li><a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/shop/Resources/ContentSearch.html?cp=0_16_3_3\" target=\"_blank\" rel=\"noopener\">ContentSearch</a></li>\n \t<li><a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/shop/Resources/CustomObjects.html?cp=0_16_3_5\" target=\"_blank\" rel=\"noopener\">CustomObjects</a></li>\n \t<li><a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/shop/Resources/Folders.html?cp=0_16_3_6\" target=\"_blank\" rel=\"noopener\">Folders</a></li>\n \t<li><a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/shop/Resources/Products.html?cp=0_16_3_12\" target=\"_blank\" rel=\"noopener\">Products</a></li>\n \t<li><a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/shop/Resources/ProductSearch.html?cp=0_16_3_13\" target=\"_blank\" rel=\"noopener\">ProductSearch</a></li>\n \t<li><a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/shop/Resources/Promotions.html?cp=0_16_3_14\" target=\"_blank\" rel=\"noopener\">Promotions</a></li>\n \t<li><a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/shop/Resources/SearchSuggestion.html?cp=0_16_3_15\" target=\"_blank\" rel=\"noopener\">SearchSuggestion</a></li>\n \t<li><a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/shop/Resources/Site.html?cp=0_16_3_17\" target=\"_blank\" rel=\"noopener\">Site</a></li>\n \t<li><a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/shop/Resources/Stores.html?cp=0_16_3_18\" target=\"_blank\" rel=\"noopener\">Stores</a></li>\n</ul>\n&nbsp;This is quite an extensive list and contains all the objects we would expect to support caching!\nSomething to keep in mind\nOnly GET calls can be cached.\nSomething to keep in mind\nThe Data API does not support caching at all.\n<h2>Page Cache</h2>\nAn important thing to remember before starting to tinker with the <a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/ShopAPIResources.html\" target=\"_blank\" rel=\"noopener\">Shop API</a> (part of the OCAPI) caching is to enable the \"<a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/site_development/b2c_configure_page_cache.html\" target=\"_blank\" rel=\"noopener\">Page Cache</a>\" for the site you will be working with.\n\nIf the Page Cache is disabled, you will see this header value on every response:\n<pre data-line=\"\">\t\t\t\t<code readonly=\"true\">\n\t\t\t\t\t<xmp>cache-control: no-cache, no-store, must-revalidate</xmp>\n\t\t\t\t</code>\n</pre>\nThis is easy to fix. But without enabling it, you cannot test your settings on a sandbox where this is usually disabled.\n\nSomething to keep in mind\n\nIt is not possible to clear the Page Cache for the OCAPI only, it will take your storefront (SiteGenesis/SFRA) with it.\n\nClearing the page cache can create a heavy load on the application servers. Only clear the page cache manually when necessary, and avoid clearing it during times of high traffic.\n<h2>Overriding the OCAPI Cache Time</h2>\nIt is possible to override the default 60 seconds of caching of an resource by adding it to the <a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/OCAPISettings.html?cp=0_16_2_24\" target=\"_blank\" rel=\"noopener\">OCAPI Settings</a> in the Business Manager.\n\n<em>\"Administration\" &gt; \"Site Development\" &gt; \"Open Commerce API Settings\"</em>\n\n<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/ocapi-settings-with-cache.png\" data-elementor-open-lightbox=\"yes\" data-elementor-lightbox-title=\"OCAPI caching settings\" data-e-action-hash=\"#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MzQ2NiwidXJsIjoiaHR0cHM6XC9cL3d3dy5yaGluby1pbnF1aXNpdG9yLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMDFcL29jYXBpLXNldHRpbmdzLXdpdGgtY2FjaGUucG5nIn0%3D\">\n<img width=\"800\" height=\"588\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/ocapi-settings-with-cache.png\" alt=\"OCAPI caching settings\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/ocapi-settings-with-cache.png 866w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/ocapi-settings-with-cache-300x221.png 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/ocapi-settings-with-cache-768x565.png 768w\" sizes=\"(max-width: 800px) 100vw, 800px\">\t\t\t\t\t\t\t\t</a>\n<pre data-line=\"14,31\">\t\t\t\t<code readonly=\"true\">\n\t\t\t\t\t<xmp>{\n\t\"_v\": \"22.6\",\n\t\"clients\": [\n\t\t{\n\t\t\t\"client_id\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\n\t\t\t\"allowed_origins\": [],\n\t\t\t\"resources\": [\n\t\t\t\t{\n\t\t\t\t\t\"resource_id\": \"/categories/*\",\n\t\t\t\t\t\"methods\": [\n\t\t\t\t\t\t\"get\"\n\t\t\t\t\t],\n\t\t\t\t\t\"read_attributes\": \"(**)\",\n\t\t\t\t\t\"cache_time\": 900\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"resource_id\": \"/customers/auth\",\n\t\t\t\t\t\"methods\": [\n\t\t\t\t\t\t\"post\"\n\t\t\t\t\t],\n\t\t\t\t\t\"read_attributes\": \"(**)\",\n\t\t\t\t\t\"write_attributes\": \"(**)\"\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"resource_id\": \"/product_search\",\n\t\t\t\t\t\"methods\": [\n\t\t\t\t\t\t\"get\"\n\t\t\t\t\t],\n\t\t\t\t\t\"read_attributes\": \"(**)\",\n\t\t\t\t\t\"write_attributes\": \"(**)\",\n                    \"cache_time\": 86400\n\t\t\t\t}\n\t\t\t]\n\t\t}\n\t]\n}</xmp>\n\t\t\t\t</code>\n</pre>\nAdding \"cache_time\" to the resource configuration lets you easily control the time responses are cached.\n\nYou can set a <b>maximum value of 86.400 seconds</b> (1 day).\n<h3>\"Expand\" parameter</h3>\nLowest Cache Time\nWhen using the expand parameter to make a single request with the Open Commerce API, the Cache-Control header is automatically populated with the lowest caching time of the requested resources.\n<figure>\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/ocapi-expand-parameter-caching.jpg\" data-elementor-open-lightbox=\"yes\" data-elementor-lightbox-title=\"OCAPI: Expand Parameter Caching\" data-e-action-hash=\"#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6ODMwMCwidXJsIjoiaHR0cHM6XC9cL3d3dy5yaGluby1pbnF1aXNpdG9yLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyM1wvMDRcL29jYXBpLWV4cGFuZC1wYXJhbWV0ZXItY2FjaGluZy5qcGcifQ%3D%3D\">\n<img width=\"800\" height=\"293\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/ocapi-expand-parameter-caching.jpg\" alt=\"OCAPI: Expand Parameter Caching\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/ocapi-expand-parameter-caching.jpg 1011w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/ocapi-expand-parameter-caching-300x110.jpg 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/ocapi-expand-parameter-caching-768x281.jpg 768w\" sizes=\"(max-width: 800px) 100vw, 800px\">\t\t\t\t\t\t\t\t</a><figcaption>Screenshot of the Infocenter about the \"expand\" parameter</figcaption></figure>\n<h2>Personalized Caching</h2>\nPersonalized caching is enabled by default based on the customer context (JWT). It is possible to disable this for a resource to improve performance.\n<pre data-line=\"16\">\t\t\t\t<code readonly=\"true\">\n\t\t\t\t\t<xmp>{\n\t\"_v\": \"22.6\",\n\t\"clients\": [\n\t\t{\n\t\t\t\"client_id\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\n\t\t\t\"allowed_origins\": [],\n\t\t\t\"resources\": [\n\t\t\t\t{\n\t\t\t\t\t\"resource_id\": \"/product_search\",\n\t\t\t\t\t\"methods\": [\n\t\t\t\t\t\t\"get\"\n\t\t\t\t\t],\n\t\t\t\t\t\"read_attributes\": \"(**)\",\n\t\t\t\t\t\"write_attributes\": \"(**)\",\n\t\t\t\t\t\"cache_time\": 86400,\n\t\t\t\t\t\"personalized_caching_enabled\": false\n\t\t\t\t}\n\t\t\t]\n\t\t}\n\t]\n}</xmp>\n\t\t\t\t</code>\n</pre>\nBy setting the \"personalized_caching_enabled\" option to false, personalization will be disabled for that resource.\n\nSomething to keep in mind\nYou can find information about other options (not related to caching) for resources in the <a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/OCAPISettings.html\" target=\"_blank\" rel=\"noopener\">Infocenter</a>.\n<h2>SCAPI (Salesforce Commerce API)</h2>\nCurrently, you can't control the server-side cache times of SCAPI. All known approaches from the OCAPI Shop API (for example, setting cache times in the OCAPI settings) don’t apply to the <a href=\"https://developer.salesforce.com/docs/commerce/commerce-api/guide\" target=\"_blank\" rel=\"noopener\">Salesforce Commerce API</a>.\n<h3>Custom Caches to the rescue (for hooks)!</h3>\n<a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/caches/b2c_custom_caches.html\" target=\"_blank\" rel=\"noopener\">Custom caches</a>&nbsp;are user-defined in Salesforce B2C Commerce Cloud, allowing developers to store and retrieve data efficiently. They can be used to cache frequently accessed data, reducing the load on the server and speeding up response times for SCAPI REST APIs where <a href=\"https://www.rhino-inquisitor.com/how-to-use-ocapi-scapi-hooks/\" target=\"_blank\" rel=\"noopener\">hooks</a> have been implemented.\n\nHere are some ways custom caches can be used to speed up responses in the SCAPI REST APIs that have customisations:\n<ol>\n \t<li><strong>Reducing database queries</strong>: If an API call requires fetching data from the database, custom caches can help store the data in memory. This way, when subsequent API calls are made, the data can be quickly retrieved from the cache instead of querying the database again.</li>\n \t<li><strong>Complex Calculations:</strong> Sometimes, processing API requests may involve complex calculations or transformations. Custom caches can store the results of these calculations, allowing subsequent requests to retrieve the cached data instead of re-computing the results.</li>\n \t<li><strong>Third-party API responses:</strong> If your SCAPI REST APIs depend on third-party APIs, custom caches can help store the responses from these external APIs, reducing latency and improving performance.</li>\n</ol>\n<h2>OCAPI Caching Best Practices</h2>\nThere is a lot of information and best practices available on the <a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/BestPractices.html?cp=0_16_2_2\" target=\"_blank\" rel=\"noopener\">Infocenter</a>.",
+  "slug": "caching-rest-apis-in-sfcc",
+  "publishedAt": "2023-04-10T06:46:06.000Z",
+  "modifiedAt": "2023-04-11T08:01:28.000Z",
+  "author": "Thomas Theunen",
+  "categories": [
+    {
+      "name": "Salesforce Commerce Cloud",
+      "slug": "salesforce-commerce-cloud"
+    },
+    {
+      "name": "Technical",
+      "slug": "technical"
+    }
+  ],
+  "tags": [
+    {
+      "name": "cache",
+      "slug": "cache"
+    },
+    {
+      "name": "ocapi",
+      "slug": "ocapi"
+    },
+    {
+      "name": "sfcc",
+      "slug": "sfcc"
+    },
+    {
+      "name": "technical",
+      "slug": "technical"
+    }
+  ],
+  "legacyUrl": "/caching-rest-apis-in-sfcc/",
+  "targetUrl": "/caching-rest-apis-in-sfcc/",
+  "disposition": "keep",
+  "aliasUrls": [
+    "/?p=3433"
+  ],
+  "mediaRefs": [
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/caching.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/ocapi-settings-with-cache-300x221.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/ocapi-settings-with-cache-768x565.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/ocapi-settings-with-cache.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/ocapi-expand-parameter-caching-300x110.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/ocapi-expand-parameter-caching-768x281.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/ocapi-expand-parameter-caching.jpg"
+  ],
+  "_raw": {
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "status": "publish",
+    "titleRaw": "Leveraging Server-Side Caching to Improve SFCC REST API Speed",
+    "excerptRaw": "",
+    "publishedAt": "2023-04-10T06:46:06.000Z",
+    "modifiedAt": "2023-04-11T08:01:28.000Z",
+    "author": "Thomas Theunen",
+    "categories": [
+      {
+        "name": "Salesforce Commerce Cloud",
+        "slug": "salesforce-commerce-cloud"
+      },
+      {
+        "name": "Technical",
+        "slug": "technical"
+      }
+    ],
+    "tags": [
+      {
+        "name": "cache",
+        "slug": "cache"
+      },
+      {
+        "name": "ocapi",
+        "slug": "ocapi"
+      },
+      {
+        "name": "sfcc",
+        "slug": "sfcc"
+      },
+      {
+        "name": "technical",
+        "slug": "technical"
+      }
+    ],
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/ocapi-settings-with-cache.png",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/ocapi-expand-parameter-caching.jpg"
+    ],
+    "manifest": {
+      "legacyUrl": "/caching-rest-apis-in-sfcc/",
+      "targetUrl": "/caching-rest-apis-in-sfcc/",
+      "disposition": "keep",
+      "redirectCode": null,
+      "implementationLayer": "none",
+      "urlClass": "post"
+    },
+    "normalization": {
+      "aliasUrlsDerivedFromSameTarget": [
+        "/?p=3433"
+      ],
+      "usedPublishedAtFallback": false,
+      "usedModifiedAtFallback": false,
+      "statusNormalizedFrom": "publish"
+    },
+    "extracted": {
+      "sourcePostType": "post",
+      "link": "/caching-rest-apis-in-sfcc/",
+      "guid": "/?p=3433",
+      "attachmentUrl": null,
+      "thumbnailId": "3435",
+      "metaDescription": "Caching GET endpoints for the OCAPI in Salesforce B2C Commerce Cloud is possible, but where do you start? Let us dig into this together!",
+      "postParent": "0",
+      "postMetaCount": 27,
+      "featuredImageUrl": "/wp-content/uploads/2023/01/caching.jpg"
+    }
+  },
+  "bodyMarkdown": "The [OCAPI](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/OpenCommerceAPI.html?cp=0_16) has been around for a long time (2016) and allows you to cache responses to increase performance. **By default, GET responses that support caching are cached for 60 seconds**, but can this be improved?\n\n## What can be cached in the OCAPI?\n\nBefore we start, we must understand that not all API endpoints support caching. But which ones do?\n\n-   [Meta API](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/Metadata.html)\n-   [Categories](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/shop/Resources/Categories.html?cp=0_16_3_1)\n-   [Content](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/shop/Resources/Content.html?cp=0_16_3_2)\n-   [ContentSearch](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/shop/Resources/ContentSearch.html?cp=0_16_3_3)\n-   [CustomObjects](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/shop/Resources/CustomObjects.html?cp=0_16_3_5)\n-   [Folders](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/shop/Resources/Folders.html?cp=0_16_3_6)\n-   [Products](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/shop/Resources/Products.html?cp=0_16_3_12)\n-   [ProductSearch](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/shop/Resources/ProductSearch.html?cp=0_16_3_13)\n-   [Promotions](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/shop/Resources/Promotions.html?cp=0_16_3_14)\n-   [SearchSuggestion](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/shop/Resources/SearchSuggestion.html?cp=0_16_3_15)\n-   [Site](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/shop/Resources/Site.html?cp=0_16_3_17)\n-   [Stores](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/shop/Resources/Stores.html?cp=0_16_3_18)\n\n This is quite an extensive list and contains all the objects we would expect to support caching! Something to keep in mind Only GET calls can be cached. Something to keep in mind The Data API does not support caching at all.\n\n## Page Cache\n\nAn important thing to remember before starting to tinker with the [Shop API](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/ShopAPIResources.html) (part of the OCAPI) caching is to enable the \"[Page Cache](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/site_development/b2c_configure_page_cache.html)\" for the site you will be working with. If the Page Cache is disabled, you will see this header value on every response:\n\n```\n\n\t\t\t\t\tcache-control: no-cache, no-store, must-revalidate\n\n```\n\nThis is easy to fix. But without enabling it, you cannot test your settings on a sandbox where this is usually disabled. Something to keep in mind It is not possible to clear the Page Cache for the OCAPI only, it will take your storefront (SiteGenesis/SFRA) with it. Clearing the page cache can create a heavy load on the application servers. Only clear the page cache manually when necessary, and avoid clearing it during times of high traffic.\n\n## Overriding the OCAPI Cache Time\n\nIt is possible to override the default 60 seconds of caching of an resource by adding it to the [OCAPI Settings](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/OCAPISettings.html?cp=0_16_2_24) in the Business Manager. _\"Administration\" > \"Site Development\" > \"Open Commerce API Settings\"_\n\n[![OCAPI caching settings](/media/2023/ocapi-settings-with-cache-f7e7acfcf8.png)](/media/2023/ocapi-settings-with-cache-f7e7acfcf8.png)\n\n```\n\n\t\t\t\t\t{\n\t\"_v\": \"22.6\",\n\t\"clients\": [\n\t\t{\n\t\t\t\"client_id\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\n\t\t\t\"allowed_origins\": [],\n\t\t\t\"resources\": [\n\t\t\t\t{\n\t\t\t\t\t\"resource_id\": \"/categories/*\",\n\t\t\t\t\t\"methods\": [\n\t\t\t\t\t\t\"get\"\n\t\t\t\t\t],\n\t\t\t\t\t\"read_attributes\": \"(**)\",\n\t\t\t\t\t\"cache_time\": 900\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"resource_id\": \"/customers/auth\",\n\t\t\t\t\t\"methods\": [\n\t\t\t\t\t\t\"post\"\n\t\t\t\t\t],\n\t\t\t\t\t\"read_attributes\": \"(**)\",\n\t\t\t\t\t\"write_attributes\": \"(**)\"\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"resource_id\": \"/product_search\",\n\t\t\t\t\t\"methods\": [\n\t\t\t\t\t\t\"get\"\n\t\t\t\t\t],\n\t\t\t\t\t\"read_attributes\": \"(**)\",\n\t\t\t\t\t\"write_attributes\": \"(**)\",\n                    \"cache_time\": 86400\n\t\t\t\t}\n\t\t\t]\n\t\t}\n\t]\n}\n\n```\n\nAdding \"cache\\_time\" to the resource configuration lets you easily control the time responses are cached. You can set a **maximum value of 86.400 seconds** (1 day).\n\n### \"Expand\" parameter\n\nLowest Cache Time When using the expand parameter to make a single request with the Open Commerce API, the Cache-Control header is automatically populated with the lowest caching time of the requested resources.\n\n[![OCAPI: Expand Parameter Caching](/media/2023/ocapi-expand-parameter-caching-c91c7001dd.jpg)](/media/2023/ocapi-expand-parameter-caching-c91c7001dd.jpg)\n\nScreenshot of the Infocenter about the \"expand\" parameter\n\n## Personalized Caching\n\nPersonalized caching is enabled by default based on the customer context (JWT). It is possible to disable this for a resource to improve performance.\n\n```\n\n\t\t\t\t\t{\n\t\"_v\": \"22.6\",\n\t\"clients\": [\n\t\t{\n\t\t\t\"client_id\": \"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\",\n\t\t\t\"allowed_origins\": [],\n\t\t\t\"resources\": [\n\t\t\t\t{\n\t\t\t\t\t\"resource_id\": \"/product_search\",\n\t\t\t\t\t\"methods\": [\n\t\t\t\t\t\t\"get\"\n\t\t\t\t\t],\n\t\t\t\t\t\"read_attributes\": \"(**)\",\n\t\t\t\t\t\"write_attributes\": \"(**)\",\n\t\t\t\t\t\"cache_time\": 86400,\n\t\t\t\t\t\"personalized_caching_enabled\": false\n\t\t\t\t}\n\t\t\t]\n\t\t}\n\t]\n}\n\n```\n\nBy setting the \"personalized\\_caching\\_enabled\" option to false, personalization will be disabled for that resource. Something to keep in mind You can find information about other options (not related to caching) for resources in the [Infocenter](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/OCAPISettings.html).\n\n## SCAPI (Salesforce Commerce API)\n\nCurrently, you can't control the server-side cache times of SCAPI. All known approaches from the OCAPI Shop API (for example, setting cache times in the OCAPI settings) don’t apply to the [Salesforce Commerce API](https://developer.salesforce.com/docs/commerce/commerce-api/guide).\n\n### Custom Caches to the rescue (for hooks)!\n\n[Custom caches](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/caches/b2c_custom_caches.html) are user-defined in Salesforce B2C Commerce Cloud, allowing developers to store and retrieve data efficiently. They can be used to cache frequently accessed data, reducing the load on the server and speeding up response times for SCAPI REST APIs where [hooks](https://www.rhino-inquisitor.com/how-to-use-ocapi-scapi-hooks/) have been implemented. Here are some ways custom caches can be used to speed up responses in the SCAPI REST APIs that have customisations:\n\n1.  **Reducing database queries**: If an API call requires fetching data from the database, custom caches can help store the data in memory. This way, when subsequent API calls are made, the data can be quickly retrieved from the cache instead of querying the database again.\n2.  **Complex Calculations:** Sometimes, processing API requests may involve complex calculations or transformations. Custom caches can store the results of these calculations, allowing subsequent requests to retrieve the cached data instead of re-computing the results.\n3.  **Third-party API responses:** If your SCAPI REST APIs depend on third-party APIs, custom caches can help store the responses from these external APIs, reducing latency and improving performance.\n\n## OCAPI Caching Best Practices\n\nThere is a lot of information and best practices available on the [Infocenter](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/BestPractices.html?cp=0_16_2_2).",
+  "conversionStatus": "converted",
+  "manualReviewRequired": false,
+  "fallbackTypes": [],
+  "conversionWarnings": []
+}

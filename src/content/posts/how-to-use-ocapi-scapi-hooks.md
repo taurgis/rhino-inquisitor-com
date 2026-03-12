@@ -40,7 +40,7 @@ Let's get started.
 
 Before we can master SCAPI and OCAPI hooks, we need to understand them from the ground up. This means not only knowing what they are but also what they are not, and how they fit into the broader SFCC extensibility landscape.
 
-### What Are Hooks, Really?
+### What Are Hooks, Really
 
 At their core, hooks are a mechanism for altering and extending the behaviour of _existing_ API resources using server-side B2C Commerce Script API logic. They are not standalone endpoints; rather, they are extension points that allow you to inject your custom code into the platform's standard API request lifecycle.
 
@@ -48,23 +48,23 @@ This brings us to a critical architectural crossroads. The platform provides two
 
 Hooks are fundamentally tethered to an existing Salesforce endpoint, like `/baskets` or `/orders`. They can only react to calls made to that endpoint. Their purpose is to _augment_ an existing process. For example:
 
--   Adding a custom attribute to the basket response.
+- Adding a custom attribute to the basket response.
 
--   Validating a shipping address against a third-party service.
+- Validating a shipping address against a third-party service.
 
--   Calculating a complex, custom surcharge on an order.
+- Calculating a complex, custom surcharge on an order.
 
 Custom APIs, on the other hand, allow you to create and expose entirely new, net-new REST endpoints under the SCAPI framework. If your goal is to introduce a new capability that doesn't logically fit within an existing API's model, a Custom API is the correct strategic choice:
 
--   A `/loyalty-info` endpoint to fetch a customer's points balance.
+- A `/loyalty-info` endpoint to fetch a customer's points balance.
 
--   A `/pickup-point-locator` endpoint to find nearby physical stores.
+- A `/pickup-point-locator` endpoint to find nearby physical stores.
 
--   An endpoint to handle a custom newsletter signup form.
+- An endpoint to handle a custom newsletter signup form.
 
 The introduction of Custom APIs, especially with the 23.9 release, was a game-changer, moving us beyond the old workarounds of trying to tweak existing endpoints to serve entirely new purposes.
 
-**_Choosing the wrong tool leads to technical debt._**
+Choosing the wrong tool leads to technical debt.
 
 Trying to shoehorn new functionality into an existing hook results in convoluted, hard-to-maintain code that compromises the original intent of the endpoint. Make the right architectural choice _before_ you write a single line of code.
 
@@ -74,18 +74,18 @@ Trying to shoehorn new functionality into an existing hook results in convoluted
 
 SCAPI and OCAPI hooks come in three main flavours, each with a distinct role in the request lifecycle. Understanding their specific purpose and limitations is crucial to using them correctly.
 
--   **`before`<HTTP_Method>``**: This hook executes _before_ the server performs its main processing. Its primary role is to validate input and preprocess the incoming request document. This is your first line of defence, where you can perform status checks, apply additional filtering logic, or validate data before it ever touches the core system objects.
+- **`before&lt; HTTP Method&gt;`:** This hook executes _before_ the server performs its main processing. Its primary role is to validate input and preprocess the incoming request document. This is your first line of defence, where you can perform status checks, apply additional filtering logic, or validate data before it ever touches the core system objects.
 
--   **`after`<HTTP_Method>``**: This hook executes _after_ the server's main logic has completed but _before_ the final response document is created. It operates on the modified Script API object (e.g., the `Basket` or `Order` object). This is the place for side effects and integrations, such as sending a newly created order to an external ERP, triggering a basket recalculation (`dw.order.calculate`), or performing change tracking.
+- **`after&lt; HTTP Method&gt;`:** This hook executes _after _ the server's main logic has completed but_before_ the final response document is created. It operates on the modified Script API object (e.g., the `Basket` or `Order` object). This is the place for side effects and integrations, such as sending a newly created order to an external ERP, triggering a basket recalculation (`dw.order.calculate`), or performing change tracking.
 
--   **`modify`<HTTP_Method>`Response`**: This is the final step in the chain. It executes _after_ the platform has already created the response document from the Script API object. Its sole purpose is to make final modifications to the response document, such as adding or removing custom attributes (c\_fields) or cleaning up data before it's sent to the client. A critical point: this hook is **not** transactional. Attempting to modify a persistent Script API object here will result in an `ORMTransactionException` and an [HTTP 500 fault](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/customization.html)
+- **`modify&lt; HTTP Method&gt; Response`:**This is the final step in the chain. It executes _after _ the platform has already created the response document from the Script API object. Its sole purpose is to make final modifications to the response document, such as adding or removing custom attributes (c\_ fields) or cleaning up data before it's sent to the client. A critical point: this hook is** not** transactional. Attempting to modify a persistent Script API object here will result in an `ORMTransactionException` and an [HTTP 500 fault](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/customization.html)
 
 ## Not all APIs are made equal
 
 Before starting this journey together, the most important thing to understand is that not all endpoints support hooks. An overview for both types is available:
 
--   [OCAPI](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/hooks-shop.html)
--   [SCAPI](https://developer.salesforce.com/docs/commerce/commerce-api/guide/hook_list.html)
+- [OCAPI](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/hooks-shop.html)
+- [SCAPI](https://developer.salesforce.com/docs/commerce/commerce-api/guide/hook_list.html)
 
 ### Feature switch for SCAPI
 
@@ -103,9 +103,9 @@ The first step in writing hooks for our APIs is registering them with the server
 
 ### Create a “hooks.json” file
 
-We need to create a JSON file that describes which endpoints we want to customise called “hooks.json.” This file can be put anywhere in a cartridge. But in this case, we will put it in the root ( e.g. "my\_project/cartridges/my\_cartridge/hooks.json ) as an example.
+We need to create a JSON file that describes which endpoints we want to customise called “hooks.json.” This file can be put anywhere in a cartridge. But in this case, we will put it in the root ( e.g. "my\_project/cartridges/my\_ cartridge/hooks.json ) as an example.
 
-```
+```json
 {
     "hooks": [
         {
@@ -128,9 +128,9 @@ We can define as many as we want within the file! But make sure every “name”
 
 The next step is to create or edit your cartridge's "package.json" file.
 
-The file should be in the root folder of your cartridge. (e.g. "my\_project/cartridges/my\_cartridge/package.json")
+The file should be in the root folder of your cartridge. (e.g. "my\_project/cartridges/my\_ cartridge/package.json")
 
-```
+```text
 {
   "hooks": "./hooks.json",
   ...
@@ -159,7 +159,7 @@ Case sensitivity The function name is case-sensitive, so match it to the documen
 
 Now that we know what function to use, we can start writing some code.
 
-```
+```js
 /**
  * This can be used to update the basket server side, if for instance we need to call a tax service or sync the basket.
  * The client app can retrieve this updated basket by doing a PATCH request.
@@ -177,20 +177,20 @@ exports.beforePATCH = function (basket, basketInput) {
 
 We may have a scenario where the OCAPI and the SCAPI use the same endpoint and have their unique customisations. To detect SCAPI calls, the request object/class has recently received [a helper function:](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_system_Request.html?resultof=%22%69%73%73%63%61%70%69%22%20#dw_system_Request_isSCAPI_DetailAnchor)
 
-```
+```text
 request.isSCAPI()
 ```
 
-## Step 3: Test if it works!
+## Step 3: Test if it works
 
 That wasn’t so much work now, was it? All that is left is to test that our custom code is executed correctly! I recommend [Postman](https://gist.github.com/jorgehernandezSF/0fe8866996b5968f0daceb0c408be824) to do so.
 
 Maybe a list of things to keep in mind:
 
--   Don’t forget to upload your cartridge!
--   Don’t forget to add the cartridge to the correct cartridge path!
--   Call the correct endpoint!
--   Call the correct environment!
+- Don’t forget to upload your cartridge!
+- Don’t forget to add the cartridge to the correct cartridge path!
+- Call the correct endpoint!
+- Call the correct environment!
 
 Some of these might seem obvious, but it is easy to get mixed up when working with tools such as Postman.
 
@@ -210,7 +210,7 @@ Let's be crystal clear on the security context. Salesforce is responsible for se
 
 When a SCAPI request arrives, it's first authenticated and authorised by the gateway based on the client's Shopper Login and API Access Service (SLAS) token, along with its associated scopes. Only then is the request passed on for processing, which is where your hook executes. The hook script runs with powerful server-side permissions, and this is where the danger lies. A developer, focused on a simple task like adding a custom field, might implicitly trust that the initial gateway authorisation is sufficient. This is a critical mistake.
 
-Your hook script has direct access to sensitive Script API objects, such as `Order`, `Customer`, and `Basket`. Without its own internal checks, it can be manipulated. For example, a `PATCH` request `/orders/{order_id}` might be authorised by the gateway for the `orders` scope, but the gateway doesn't know if the authenticated user actually _owns_ that specific `order_id`. It's the hook's job to verify ownership. A hook that blindly trusts the data it receives creates a massive security hole. It can function as a "confused deputy," where an unprivileged user can make privileged calls through your code. The mantra must be: **re-authenticate and re-authorise within the hook.**
+Your hook script has direct access to sensitive Script API objects, such as `Order`, `Customer`, and `Basket`. Without its own internal checks, it can be manipulated. For example, a `PATCH` request `/orders/{order _id}` might be authorised by the gateway for the `orders` scope, but the gateway doesn't know if the authenticated user actually _owns_that specific `order_ id`. It's the hook's job to verify ownership. A hook that blindly trusts the data it receives creates a massive security hole. It can function as a "confused deputy," where an unprivileged user can make privileged calls through your code. The mantra must be: **re-authenticate and re-authorise within the hook.**
 
 ### Never Trust, Always Verify: Authentication & Authorization in Hooks
 
@@ -218,7 +218,7 @@ This principle must be applied rigorously. When your hook code deals with sensit
 
 For instance, the `dw.order.OrderMgr` class provides two ways to retrieve an order. One is dangerously insecure in this context; the other is the correct choice.
 
-```
+```js
 var OrderMgr = require('dw/order/OrderMgr');
 // INSECURE: AVOID in hooks where ownership is not yet verified.
 // An attacker could pass any valid order number.
@@ -241,7 +241,7 @@ The best practice here is to adopt a **whitelisting** (or allowlisting) approach
 
 Your validation logic should check for type, length, format, and range on every single field you process.
 
-```
+```js
 // Example validation in a beforePUT hook for a customer address
 exports.beforePUT = function (customer, addressId, addressDoc) {
     var Status = require('dw/system/Status');
@@ -280,7 +280,6 @@ exports.beforePUT = function (customer, addressId, addressDoc) {
 ### Implement the same hook in multiple cartridges
 
 > In a single hooks.json file, you can register multiple modules to call for an extension point. However, you can't control the order in which the modules are called. If you call multiple modules, only the last hook returns a value. **_All modules are called, regardless of whether any of them return a value_**.
->
 > At run time, B2C Commerce runs all hooks registered for an extension point in all cartridges in your cartridge path. Hooks are executed in the order their cartridges appear on the path. Each cartridge can register a module for the same hook. Modules are called in cartridge-path order for all cartridges in which they are registered.
 
 The text above has been taken from the [Salesforce B2C Commerce Cloud Infocenter](https://developer.salesforce.com/docs/commerce/sfra/guide/b2c-sfra-hooks.html) and turns out not to be correct (at least for SCAPI/OCAPI hooks.
@@ -295,7 +294,7 @@ Read the documentation carefully for each hook!
 
 So basically: never return the following code in your hooks when your custom code completes successfully (if the endpoint supports it):
 
-```
+```text
 return new Status(Status.OK);
 ```
 
@@ -303,7 +302,7 @@ Sometimes, your linter will complain about not returning a value in all branches
 
 An example where a linter will complain:
 
-```
+```js
 exports.beforePOST = function beforePOST(registration) {
     var Status = require('dw/system/Status');
     var verificationResult = validate(registration.customer);
@@ -330,11 +329,11 @@ You can't optimise what you can't measure. The B2C Commerce [Code Profiler](/ser
 
 The profiler has several modes, each with a different level of detail and performance impact :
 
--   **Production Mode:** Measures a subset of requests with minimal performance impact. Good for getting an aggregated view on a live system.
+- **Production Mode:** Measures a subset of requests with minimal performance impact. Good for getting an aggregated view on a live system.
 
--   **Development Mode:** Measures all requests with more detail. This is the default for sandboxes and has some runtime overhead.
+- **Development Mode:** Measures all requests with more detail. This is the default for sandboxes and has some runtime overhead.
 
--   **Extended Script Development Mode:** Provides deep insight into script execution, down to the line level. It has a **severe** performance impact and should be used with extreme caution, especially on production instances.
+- **Extended Script Development Mode:**Provides deep insight into script execution, down to the line level. It has a**severe** performance impact and should be used with extreme caution, especially on production instances.
 
 To zero in on your hook's performance, open the Code Profiler (`Administration > Operations > Code Profiler).` Select the appropriate mode, and look in the results for the `SCRIPT_HOOK` result type. This displays the execution times for your hooks, allowing you to quickly identify bottlenecks.
 
@@ -384,14 +383,14 @@ Gracefully catching external failures and returning a non-error status (if the f
 
 To wrap up, let's tour the gallery of common mistakes and anti-patterns. Avoid these, and you'll be well on your way to writing clean, maintainable, and robust hooks.
 
--   **The "God" Hook:** A single, monolithic script file (`hooks.js`) that contains the logic for dozens of different extension points. This violates the Single-Responsibility Principle, resulting in a tangled mess that is difficult to read, debug, or maintain.
+- **The "God" Hook:** A single, monolithic script file (`hooks.js`) that contains the logic for dozens of different extension points. This violates the Single-Responsibility Principle, resulting in a tangled mess that is difficult to read, debug, or maintain.
 
--   **The "Chain Breaker":** A hook that incorrectly returns `new Status(Status.OK)` when it should simply allow processing to continue to other hooks later in the cartridge path. Unless you explicitly intend to short-circuit the execution chain, a successful pass-through hook should often have no return statement at all. Returning a status can prematurely stop the chain and silently disable functionality from base cartridges or other customisations.
+- **The "Chain Breaker":** A hook that incorrectly returns `new Status(Status.OK)` when it should simply allow processing to continue to other hooks later in the cartridge path. Unless you explicitly intend to short-circuit the execution chain, a successful pass-through hook should often have no return statement at all. Returning a status can prematurely stop the chain and silently disable functionality from base cartridges or other customisations.
 
--   **The "Silent Failure":** A hook that swallows exceptions in an empty `catch {}` block or logs a useless message like "error occurred." This makes troubleshooting a nightmare and can conceal critical system failures until they result in major data corruption.
+- **The "Silent Failure":** A hook that swallows exceptions in an empty `catch {}` block or logs a useless message like "error occurred." This makes troubleshooting a nightmare and can conceal critical system failures until they result in major data corruption.
 
--   **The "Leaky" Hook:** A `modifyResponse` hook that adds internal-only data, debugging information, or sensitive PII to an API response, which is then exposed directly to the client browser.
+- **The "Leaky" Hook:** A `modifyResponse` hook that adds internal-only data, debugging information, or sensitive PII to an API response, which is then exposed directly to the client browser.
 
--   **The "Chatty" Hook:** A hook that makes multiple, inefficient, synchronous calls to external systems within a single execution instead of designing a more efficient bulk or batch data-fetching strategy.
+- **The "Chatty" Hook:** A hook that makes multiple, inefficient, synchronous calls to external systems within a single execution instead of designing a more efficient bulk or batch data-fetching strategy.
 
--   **The "Trusting Fool":** The most dangerous of all. A hook that blindly accepts and uses input from the request document without performing its own rigorous validation and authorisation checks, as detailed in our security section.
+- **The "Trusting Fool":** The most dangerous of all. A hook that blindly accepts and uses input from the request document without performing its own rigorous validation and authorisation checks, as detailed in our security section.

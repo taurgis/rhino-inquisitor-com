@@ -32,10 +32,10 @@ This will give merchants a better understanding of performance trends.
 
 These metrics include:
 
--   Click-through Rate (CTR)
--   Add to Cart
--   Cart Conversion Rate
--   Attributed Revenue.
+- Click-through Rate (CTR)
+- Add to Cart
+- Cart Conversion Rate
+- Attributed Revenue.
 
 ### View top purchased and top viewed products
 
@@ -49,9 +49,9 @@ Reports now show how specific products perform, by being recommended in a partic
 
 [A minor release](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v1.5.2) has been made for the PWA Kit, containing a few bugfixes:
 
--   Fix invalid refresh token by [@kevinxh](https://github.com/kevinxh) in [#527](https://github.com/SalesforceCommerceCloud/pwa-kit/pull/527)
--   Webpack config: no longer assumes that `config` dir exists by [@vmarta](https://github.com/vmarta) in [#522](https://github.com/SalesforceCommerceCloud/pwa-kit/pull/522)
--   Fix minor typos in readme and jsdoc by [@alexvuong](https://github.com/alexvuong) in [#531](https://github.com/SalesforceCommerceCloud/pwa-kit/pull/531)
+- Fix invalid refresh token by [@kevinxh](https://github.com/kevinxh) in [#527](https://github.com/SalesforceCommerceCloud/pwa-kit/pull/527)
+- Webpack config: no longer assumes that `config` dir exists by [@vmarta](https://github.com/vmarta) in [#522](https://github.com/SalesforceCommerceCloud/pwa-kit/pull/522)
+- Fix minor typos in readme and jsdoc by [@alexvuong](https://github.com/alexvuong) in [#531](https://github.com/SalesforceCommerceCloud/pwa-kit/pull/531)
 
 ## OCAPI
 
@@ -97,7 +97,7 @@ When creating/editing a ruleset, a dropdown is now provided (similar to the Loca
 
 #### Dynamic Categorization - Value selection for String attributes with the "is one of" selector isn't working
 
--   [Issue](https://trailblazer.salesforce.com/issues_view?id=a1p4V0000012YmiQAE&title=dynamic-categorization-value-selection-for-string-attributes-with-the-is-one-of-selector-isn-t-working)
+- [Issue](https://trailblazer.salesforce.com/issues_view?id=a1p4V0000012YmiQAE&title=dynamic-categorization-value-selection-for-string-attributes-with-the-is-one-of-selector-isn-t-working)
 
 > Value selection for String attributes with the "is one of" selector isn't working. When the "is one of" selector is chosen, the user should be able to select multiple values. For String attributes, this isn't possible because you only get a normal input field for entering the value, with no possibility of adding various values. Expected Products should be shown in the preview tab based on the categorization rule. Actual Products are not categorized when multiple comma-separated values are used.
 

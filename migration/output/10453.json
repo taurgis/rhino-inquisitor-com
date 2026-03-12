@@ -1,0 +1,115 @@
+{
+  "sourceId": "10453",
+  "sourceType": "wxr",
+  "sourceChannels": [
+    "filesystem",
+    "wxr"
+  ],
+  "postType": "post",
+  "status": "publish",
+  "titleRaw": "New APIs and Features for a Headless B2C Commerce Cloud",
+  "excerptRaw": "",
+  "bodyHtml": "<p>The holiday period was quiet for a long time regarding <a href=\"https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/release-notes/\" target=\"_blank\" rel=\"noopener\">Salesforce B2C Commerce Cloud releases</a>. This was because the monolithic system required the deployment of all components, which carried the risk of bugs. </p><p>However, more options are now available with multiple \"layers\" in the Headless architecture. Each layer can have its release schedule, and some layers are more modular than others, allowing for finer-grained releases that will not impact the rest (at least in theory).</p><p>Major new releases are happening for the first time during the holiday season. And it's pretty exciting!</p>\t\t\n\t\t\t<h2>Managed Runtime</h2>\t\t\n\t\t\t<h3>Storefront Preview</h3>\t\t\n\t\thttps://www.rhino-inquisitor.com/wp-content/uploads/2023/11/storefront-preview-demo.mp4<p>The \"Shop the Future\" feature seems to have been on the Wishlist since the release of the PWA Kit. This feature was highly sought-after by merchandisers as it allowed them to set up promotions and content in advance and see how they would appear on the site.</p>\n<p>However, it can be challenging to implement this feature without the right APIs in a Headless or Composable Commerce setup. Fortunately, this challenge can be overcome with the \"<a href=\"https://developer.salesforce.com/docs/commerce/commerce-api/guide/shopper-context-api-future.html\" target=\"_blank\" rel=\"noopener\">Shop the Future</a>\" and \"<a href=\"https://developer.salesforce.com/docs/commerce/commerce-api/guide/shopper-context-api-personalized.html\" target=\"_blank\" rel=\"noopener\">Shopper Context</a>\" options provided by the SCAPI.</p>\n<p>This is a big win for any project already on or going to the Composable Storefront!</p><p><a href=\"https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/storefront-preview.html\" target=\"_blank\" rel=\"noopener\">Here is a guide to get you started on setting it up</a>.</p>\t\t\n\t\t\t<h3>Changes for the future</h3>\t\t\n\t\thttps://www.rhino-inquisitor.com/wp-content/uploads/2023/11/runtime-admin-changes.mov<p>Headless and Composable architectures bring great flexibility for the future but pose particular challenges in monitoring and analytics. One of the significant challenges is consolidating data from multiple entities.</p><p>Salesforce has now made it mandatory to specify the back-end you connect from your storefront. This will eliminate guesswork and ensure correct logging is sent to the <a href=\"https://help.salesforce.com/s/articleView?id=cc.b2c_log_center.htm&amp;language=en_US&amp;type=5\" target=\"_blank\" rel=\"noopener\">Log Center</a> linked to the respective environment.</p><p>Automatically forwarding logs to the Log Center offers multiple benefits to Salesforce support and users of the Composable Storefront. With this feature, logs for HTTP requests made on production-marked environments are automatically sent, enabling them to anticipate better and troubleshoot any issues that may arise.</p>\t\t\n\t\t\t<h2>PWA Kit v3.2.1</h2>\t\t\n\t\t<p>With the changes happening in the managed runtime, two new releases have happened in the past month of the PWA Kit:</p>\n<ul>\n<li><a href=\"https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v3.2.0\" target=\"_blank\" rel=\"noopener\">3.2.0</a></li>\n<li><a href=\"https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v3.2.1\" target=\"_blank\" rel=\"noopener\">3.2.1</a></li>\n</ul>\nBesides the Storefront Preview feature, there are changes to how \"<a href=\"https://www.rhino-inquisitor.com/secure-coding-in-salesforce-b2c-commerce-cloud/\" target=\"_blank\" rel=\"noopener\">Content-Security-Policy</a>\" is managed in this release. Be sure to review the changes as they are significant.\t\t\n\t\t\t<h2>OCAPI &amp; SCAPI</h2>\t\t\n\t\t\t<h3>Shopper SEO - Headless URL Resolution</h3>\t\t\n\t\t<p>There is a new API in town. SiteGenesis and SFRA have had the ability forever to resolve any type of URL that you configured in the Business manager, and automatically redirect the user to the right place! </p><p>But for the PWA Kit or Headless projects, that piece of magic was always missing - until now! </p><p>Meet the new <a href=\"https://developer.salesforce.com/docs/commerce/commerce-api/guide/url-resolution.html\" target=\"_blank\" rel=\"noopener\">URL Resolution API</a>!</p>\t\t\n\t\t\tPerformance\n\t\t\t\t\t\t\tI suggest following the best practices mentioned in the documentation and using your routing system as the primary option. This API should only be used as a backup. Keep in mind that making an API call involves network hops that can potentially slow down your application.\n\t\t<p><i>I believe that in the future, we will witness endpoints to address some of the gaps that exist compared to SFRA. I have also learned that an upcoming feature will enable direct resolution to the SCAPI payload rather than just the relative ObjectID.</i></p>\t\t\n\t\t\t<h3>Stores</h3>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img width=\"800\" height=\"298\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/11/connected-stores-1024x382.jpg\" alt=\"A drawing of retail stores connected by lines; in this case, the lines are Ethernet cables referencing the REST APIs to fetch the store data in Headless applications.\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/11/connected-stores-1024x382.jpg 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/11/connected-stores-300x112.jpg 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/11/connected-stores-768x286.jpg 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/11/connected-stores-1536x572.jpg 1536w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/11/connected-stores.jpg 1693w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t<p>If you remember, the SCAPI release included a \"Shopper Stores\" group that allowed developers to build their own Store Locator in Headless scenarios. </p><p>Unfortunately, this feature was short-lived and disappeared soon after. However, with the Stores API now back in action, developers can again use the \"Shopper Stores\" group to create custom store locators that meet their specific needs. </p><p>This significant development will be welcomed by those eagerly waiting for <a href=\"https://developer.salesforce.com/docs/commerce/commerce-api/references/shopper-stores?meta=Summary\" target=\"_blank\" rel=\"noopener\">this functionality</a> to return. I only question how quickly this will make it into the PWA Kit priority-wise. Maybe this could become one of the more extensive community contributions. Who knows?</p>\t\t\n\t\t\t<h3>More on the horizon?</h3>\t\t\n\t\t<p>I received some exciting news about new APIs that Salesforce is currently developing. A custom object API and site preferences API are in active development and are expected to be released in the next cycle. </p><p>What APIs would you like to see? Maybe it is ... (<i>slowly walks over to the next section</i>)</p>\t\t\n\t\t\t<h2>Time for Feedback</h2>\t\t\n\t\t<p>Have you ever felt helpless when you couldn't provide feedback on a product? Worry no more! </p><p>Salesforce is looking for your valuable feedback on their Composable Storefront. They want to hear your honest opinion - the good, the bad, and everything in between. Your feedback will help them improve their product and make it even better. </p><p>What are you waiting for? <a style=\"font-size: 1.25rem;\" href=\"https://docs.google.com/forms/d/e/1FAIpQLSdLgfMBo9UnjF84h9sj5UxWm9em1nL0ApTRpRgiDXWWBJKpDQ/viewform\" target=\"_blank\" rel=\"noopener\">Share your thoughts and help Salesforce build a product that meets your needs!</a></p>",
+  "slug": "new-apis-and-features-for-a-headless-sfcc",
+  "publishedAt": "2023-11-13T09:54:35.000Z",
+  "modifiedAt": "2023-11-15T12:18:11.000Z",
+  "author": "Thomas Theunen",
+  "categories": [
+    {
+      "name": "Release Notes",
+      "slug": "release-notes"
+    },
+    {
+      "name": "Salesforce Commerce Cloud",
+      "slug": "salesforce-commerce-cloud"
+    }
+  ],
+  "tags": [
+    {
+      "name": "headless",
+      "slug": "headless"
+    },
+    {
+      "name": "sfcc",
+      "slug": "sfcc"
+    }
+  ],
+  "legacyUrl": "/new-apis-and-features-for-a-headless-sfcc/",
+  "targetUrl": "/new-apis-and-features-for-a-headless-sfcc/",
+  "disposition": "keep",
+  "aliasUrls": [
+    "/?p=10453"
+  ],
+  "mediaRefs": [
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/11/connected-stores-1024x382.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/11/connected-stores-1536x572.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/11/connected-stores-300x112.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/11/connected-stores-768x286.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/11/connected-stores.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/11/robot-operating-on-its-own-head.jpg"
+  ],
+  "_raw": {
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "status": "publish",
+    "titleRaw": "New APIs and Features for a Headless B2C Commerce Cloud",
+    "excerptRaw": "",
+    "publishedAt": "2023-11-13T09:54:35.000Z",
+    "modifiedAt": "2023-11-15T12:18:11.000Z",
+    "author": "Thomas Theunen",
+    "categories": [
+      {
+        "name": "Release Notes",
+        "slug": "release-notes"
+      },
+      {
+        "name": "Salesforce Commerce Cloud",
+        "slug": "salesforce-commerce-cloud"
+      }
+    ],
+    "tags": [
+      {
+        "name": "headless",
+        "slug": "headless"
+      },
+      {
+        "name": "sfcc",
+        "slug": "sfcc"
+      }
+    ],
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/11/connected-stores-1024x382.jpg"
+    ],
+    "manifest": {
+      "legacyUrl": "/new-apis-and-features-for-a-headless-sfcc/",
+      "targetUrl": "/new-apis-and-features-for-a-headless-sfcc/",
+      "disposition": "keep",
+      "redirectCode": null,
+      "implementationLayer": "none",
+      "urlClass": "video"
+    },
+    "normalization": {
+      "aliasUrlsDerivedFromSameTarget": [
+        "/?p=10453"
+      ],
+      "usedPublishedAtFallback": false,
+      "usedModifiedAtFallback": false,
+      "statusNormalizedFrom": "publish"
+    },
+    "extracted": {
+      "sourcePostType": "post",
+      "link": "/new-apis-and-features-for-a-headless-sfcc/",
+      "guid": "/?p=10453",
+      "attachmentUrl": null,
+      "thumbnailId": "10454",
+      "metaDescription": null,
+      "postParent": "0",
+      "postMetaCount": 23,
+      "featuredImageUrl": "/wp-content/uploads/2023/11/robot-operating-on-its-own-head.jpg"
+    }
+  },
+  "bodyMarkdown": "The holiday period was quiet for a long time regarding [Salesforce B2C Commerce Cloud releases](https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/release-notes/). This was because the monolithic system required the deployment of all components, which carried the risk of bugs.\n\nHowever, more options are now available with multiple \"layers\" in the Headless architecture. Each layer can have its release schedule, and some layers are more modular than others, allowing for finer-grained releases that will not impact the rest (at least in theory).\n\nMajor new releases are happening for the first time during the holiday season. And it's pretty exciting!\n\n## Managed Runtime\n\n### Storefront Preview\n\nhttps://www.rhino-inquisitor.com/wp-content/uploads/2023/11/storefront-preview-demo.mp4\n\nThe \"Shop the Future\" feature seems to have been on the Wishlist since the release of the PWA Kit. This feature was highly sought-after by merchandisers as it allowed them to set up promotions and content in advance and see how they would appear on the site.\n\nHowever, it can be challenging to implement this feature without the right APIs in a Headless or Composable Commerce setup. Fortunately, this challenge can be overcome with the \"[Shop the Future](https://developer.salesforce.com/docs/commerce/commerce-api/guide/shopper-context-api-future.html)\" and \"[Shopper Context](https://developer.salesforce.com/docs/commerce/commerce-api/guide/shopper-context-api-personalized.html)\" options provided by the SCAPI.\n\nThis is a big win for any project already on or going to the Composable Storefront!\n\n[Here is a guide to get you started on setting it up](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/storefront-preview.html).\n\n### Changes for the future\n\nhttps://www.rhino-inquisitor.com/wp-content/uploads/2023/11/runtime-admin-changes.mov\n\nHeadless and Composable architectures bring great flexibility for the future but pose particular challenges in monitoring and analytics. One of the significant challenges is consolidating data from multiple entities.\n\nSalesforce has now made it mandatory to specify the back-end you connect from your storefront. This will eliminate guesswork and ensure correct logging is sent to the [Log Center](https://help.salesforce.com/s/articleView?id=cc.b2c_log_center.htm&language=en_US&type=5) linked to the respective environment.\n\nAutomatically forwarding logs to the Log Center offers multiple benefits to Salesforce support and users of the Composable Storefront. With this feature, logs for HTTP requests made on production-marked environments are automatically sent, enabling them to anticipate better and troubleshoot any issues that may arise.\n\n## PWA Kit v3.2.1\n\nWith the changes happening in the managed runtime, two new releases have happened in the past month of the PWA Kit:\n\n-   [3.2.0](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v3.2.0)\n-   [3.2.1](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v3.2.1)\n\nBesides the Storefront Preview feature, there are changes to how \"[Content-Security-Policy](https://www.rhino-inquisitor.com/secure-coding-in-salesforce-b2c-commerce-cloud/)\" is managed in this release. Be sure to review the changes as they are significant.\n\n## OCAPI & SCAPI\n\n### Shopper SEO - Headless URL Resolution\n\nThere is a new API in town. SiteGenesis and SFRA have had the ability forever to resolve any type of URL that you configured in the Business manager, and automatically redirect the user to the right place!\n\nBut for the PWA Kit or Headless projects, that piece of magic was always missing - until now!\n\nMeet the new [URL Resolution API](https://developer.salesforce.com/docs/commerce/commerce-api/guide/url-resolution.html)!\n\nPerformance I suggest following the best practices mentioned in the documentation and using your routing system as the primary option. This API should only be used as a backup. Keep in mind that making an API call involves network hops that can potentially slow down your application.\n\n_I believe that in the future, we will witness endpoints to address some of the gaps that exist compared to SFRA. I have also learned that an upcoming feature will enable direct resolution to the SCAPI payload rather than just the relative ObjectID._\n\n### Stores\n\n![A drawing of retail stores connected by lines; in this case, the lines are Ethernet cables referencing the REST APIs to fetch the store data in Headless applications.](/media/2023/connected-stores-22cea94a19.jpg)\n\nIf you remember, the SCAPI release included a \"Shopper Stores\" group that allowed developers to build their own Store Locator in Headless scenarios.\n\nUnfortunately, this feature was short-lived and disappeared soon after. However, with the Stores API now back in action, developers can again use the \"Shopper Stores\" group to create custom store locators that meet their specific needs.\n\nThis significant development will be welcomed by those eagerly waiting for [this functionality](https://developer.salesforce.com/docs/commerce/commerce-api/references/shopper-stores?meta=Summary) to return. I only question how quickly this will make it into the PWA Kit priority-wise. Maybe this could become one of the more extensive community contributions. Who knows?\n\n### More on the horizon?\n\nI received some exciting news about new APIs that Salesforce is currently developing. A custom object API and site preferences API are in active development and are expected to be released in the next cycle.\n\nWhat APIs would you like to see? Maybe it is ... (_slowly walks over to the next section_)\n\n## Time for Feedback\n\nHave you ever felt helpless when you couldn't provide feedback on a product? Worry no more!\n\nSalesforce is looking for your valuable feedback on their Composable Storefront. They want to hear your honest opinion - the good, the bad, and everything in between. Your feedback will help them improve their product and make it even better.\n\nWhat are you waiting for? [Share your thoughts and help Salesforce build a product that meets your needs!](https://docs.google.com/forms/d/e/1FAIpQLSdLgfMBo9UnjF84h9sj5UxWm9em1nL0ApTRpRgiDXWWBJKpDQ/viewform)",
+  "conversionStatus": "converted",
+  "manualReviewRequired": false,
+  "fallbackTypes": [],
+  "conversionWarnings": []
+}

@@ -79,7 +79,7 @@ Attribute Group For many screens, attributes that are not assigned to a group wi
 
 Now that our attribute model has been extended, we need to create a way of importing that data. The first step to allowing CSV import is to create a "feed". To do this we need to head over to the "Feed Definitions": _Merchant Tools > Online Marketing > Active Data > Feed Definitions_ In the overview, we see our two types of active data again. Here we will be creating a feed for Customer Active Data. Click the "new" button and create our feed! On the next screen decide on the following fields:
 
-- **ID**: The ID of the feed. We will need this in our CSV file later (I have chosen "customer-physicial-store-information-feed")
+- **ID:** The ID of the feed. We will need this in our CSV file later (I have chosen "customer-physicial-store-information-feed")
 - **Description:** Free text to describe the purpose of the feed
 - **Fresh Period:** The value is the number of days after which the data becomes stale if it's not updated. 0 means the data is never considered stale.
 
@@ -89,7 +89,7 @@ New Customer Active Data
 
 ### Step 3: Create the file to import
 
-SFCC understands what we want to send to the system by defining the feed. Now on to creating the file for import! A simple CSV file, with the data that our external system is generating.
+SFCC understands what we want to send to the system by defining the feed.  Now on to creating the file for import! A simple CSV file, with the data that our external system is generating.
 
 ```text
 ‎
@@ -110,7 +110,7 @@ Some things to keep in mind with this file:
 
 There are two ways to import this file:
 
-- Through the business manager_Merchant Tools > Online Marketing > Active Data > Import & Export_
+- Through the business manager _Merchant Tools > Online Marketing > Active Data > Import & Export_
 - Through an automated job using the Job Step "[ImportActiveData](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/jobstepapi/html/api/jobstep.ImportActiveData.html)"
 
 ### Step 5: Check that it worked

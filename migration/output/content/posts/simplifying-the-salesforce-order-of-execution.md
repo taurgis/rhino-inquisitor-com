@@ -50,7 +50,7 @@ When looking at all the different [automation tools](https://help.salesforce.com
 - [Restriction Rules](https://help.salesforce.com/s/articleView?id=sf.security_restriction_rule.htm&release=240.17.0&language=en_us&type=5)
 - [Validation Rules](https://help.salesforce.com/s/articleView?id=sf.fields_defining_field_validation_rules.htm&type=5)
 
-All in all, quite a list, correct? But behind a few of them, we notice that they are retiring or only apply to one or two object types. So what happens if we take those out of the equation? Does that make our "Order of Execution" easier?
+ All in all, quite a list, correct? But behind a few of them, we notice that they are retiring or only apply to one or two object types. So what happens if we take those out of the equation? Does that make our "Order of Execution" easier?
 
 ### Retiring features
 
@@ -104,4 +104,4 @@ We can lower the complexity of our automation "chain" when only modern features 
 
 > Getting rid of a "chaotic" / fragmented automation landscape is key to predictability & stability of your automations. [Daniel Stange](https://www.linkedin.com/posts/danielstange_simplifying-the-salesforce-order-of-execution-activity-7018472428523642880-Ef-S?utm_source=share&utm_medium=member_desktop)
 
-Of course, cloud-specific automation will not disappear. But give it some time, and Workflow Rules and Process Builder will take their leave from the official diagram. And that will bring the above diagram closer to being obsolete! But until then, feel free to use the visual and make a copy to keep it up to date for yourself! Keeping the diagram up to date As it stands, I have yet to decide if I will spend the time to update this diagram with each new release. So always check the "last updated" date and API version at the top of the visual! For that reason, I have shared the link to the original Lucid file (look at the image) - so others can take charge and make updates where necessary. To err is human Did you spot a typo or mistake? Let me know! You can find links to my socials in the footer.
+Of course, cloud-specific automation will not disappear.  But give it some time, and Workflow Rules and Process Builder will take their leave from the official diagram. And that will bring the above diagram closer to being obsolete! But until then, feel free to use the visual and make a copy to keep it up to date for yourself! Keeping the diagram up to date As it stands, I have yet to decide if I will spend the time to update this diagram with each new release. So always check the "last updated" date and API version at the top of the visual! For that reason, I have shared the link to the original Lucid file (look at the image) - so others can take charge and make updates where necessary. To err is human Did you spot a typo or mistake? Let me know! You can find links to my socials in the footer.

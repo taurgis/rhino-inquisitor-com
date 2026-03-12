@@ -1,0 +1,141 @@
+{
+  "sourceId": "12372",
+  "sourceType": "wxr",
+  "sourceChannels": [
+    "filesystem",
+    "wxr"
+  ],
+  "postType": "post",
+  "status": "publish",
+  "titleRaw": "The importance of Origin Shielding and your Commerce Cloud instance",
+  "excerptRaw": "Today, we're exploring the crucial role of Origin Shielding in Salesforce B2C Commerce Cloud. As online security becomes increasingly important (and always has been), we'll look at what Origin Shielding (and Origin Locking) is. We will also share the steps involved in your projects.",
+  "bodyHtml": "<p>Today, we're exploring the crucial role of <a href=\"https://www.cloudflare.com/learning/cdn/glossary/origin-server/\" target=\"_blank\" rel=\"noopener\">Origin</a> Shielding in Salesforce B2C Commerce Cloud. As online security becomes increasingly important (and always has been), we'll look at what Origin Shielding (and Origin Locking) is. We will also share the steps involved in your projects. </p><p>Let's dive into the details!</p>\t\t\n\t\t\t<h2>What is \"Origin Shielding\"?</h2>\t\t\n\t\t<p>Origin shielding protects the origin server - in our case the Application Servers - by funneling all incoming traffic through an intermediate layer, or shield.</p><p>When someone tries to access content hosted on Salesforce, Mobify, or Demandware, the Embedded Content Delivery Network (eCDN) steps in. It intercepts the request, verifies its legitimacy, and only sends valid requests to the origin servers.</p><p>This process helps reduce the risk of direct attacks on the origin infrastructure and adds an extra layer of protection against unauthorised access. After all, Cloudflare does have a few things in it's arsenal.</p><p>Long story short, origin shielding is a security measure for safeguarding cloud-hosted infrastructure, ensuring both the integrity and availability of Salesforce’s services.</p>\t\t\n\t\t\t\t\t\t\t\t\t\t<figure>\n\t\t\t\t\t\t\t\t\t\t<img loading=\"lazy\" width=\"800\" height=\"452\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/origin-shielding-v2-1024x579.jpg\" alt=\"A dramatic image of a superhero in front of a server, protecting it from a &quot;bad&quot; actor in the shadows.\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/origin-shielding-v2-1024x579.jpg 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/origin-shielding-v2-300x170.jpg 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/origin-shielding-v2-768x434.jpg 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/origin-shielding-v2.jpg 1472w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t\t\t\t<figcaption>Cloudflare is our \"hero\" protecting and routing traffic on our behalf!</figcaption>\n\t\t\t\t\t\t\t\t\t\t</figure>\n\t\t\t<h2>The back-end and OCAPI</h2>\t\t\n\t\t<p>Origin shielding was implemented to manage access to the Demandware URLs of our storefronts and the OCAPI on the \"Primary Instance Groups.\" </p><p>Although this change was communicated multiple times in advance, <a href=\"https://www.rhino-inquisitor.com/a-look-back-at-origin-shielding/\">many projects still encountered unexpected disconnections from third-party services</a>. </p><p>With the introduction of Origin Shielding, any third-party system attempting to access controllers or OCAPI APIs through the Demandware URL received an error page.</p>\t\t\n\t\t\t\t\t\t\t\t\t\t<figure>\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/cloudflare-origin-shielding-error.png\" data-elementor-open-lightbox=\"yes\" data-elementor-lightbox-title=\"Cloudflare Origin Shielding Error\" data-e-action-hash=\"#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MTI1NzIsInVybCI6Imh0dHBzOlwvXC93d3cucmhpbm8taW5xdWlzaXRvci5jb21cL3dwLWNvbnRlbnRcL3VwbG9hZHNcLzIwMjRcLzExXC9jbG91ZGZsYXJlLW9yaWdpbi1zaGllbGRpbmctZXJyb3IucG5nIn0%3D\">\n\t\t\t\t\t\t\t<img loading=\"lazy\" width=\"800\" height=\"670\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/cloudflare-origin-shielding-error-1024x857.png\" alt=\"A screenshot of the Cloudflare Origin Shielding error shows that the user has been blocked.\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/cloudflare-origin-shielding-error-1024x857.png 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/cloudflare-origin-shielding-error-300x251.png 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/cloudflare-origin-shielding-error-768x642.png 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/cloudflare-origin-shielding-error.png 1064w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t\t\t<figcaption>The Cloudflare error page.</figcaption>\n\t\t\t\t\t\t\t\t\t\t</figure>\n\t\t\t<h2>SCAPI</h2>\t\t\n\t\t<p>The SCAPI has not changed much. It still operates on Cloudflare Edge Functions and manages all the complexities behind the scenes. <br />However, this setup means we have less control and are entirely dependent on Salesforce to ensure everything works smoothly.</p>\t\t\n\t\t\t<h2>Managed Runtime and Origin Locking</h2>\t\t\n\t\t<p>In the Composable Storefront, we gain more control because we handle all the operations ourselves. Fortunately, this process is <a href=\"https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/managed-runtime-administration#access-control-headers\" target=\"_blank\" rel=\"noopener\">fully documented on the help site</a>!</p>\t\t\n\t\t\t\t\t\tWhat if I don't?\n\t\t\t\t\t\tIt's important to protect your \"origin,\" which is the Mobify domain. If you don't, you risk allowing Google and other bots to index this domain, which can negatively impact your SEO. <br /><br/>This could lead to users accidentally accessing the Mobify domain, rather than your vanity one.\n\t\t\t<h2>An overprotective \"hero\"</h2>\t\t\n\t\t<p>The image I used before may seem a bit dramatic, but it highlights that we need to be vigilant with ourselves. The system doesn’t distinguish between good and bad actors, which can lead to inconveniences. </p><p>We need the \"know-how\" to ensure our third-party systems can access everything we require.</p>\t\t\n\t\t\t<h2>What do I do?</h2>\t\t\n\t\t<p>To ensure that both you and any third-party systems do not encounter access issues due to Origin Shielding, just do a few simple things.</p><p>The steps below might seem simple and even like common sense. However, during the stress of going live and approaching deadlines, they can easily be overlooked.</p>\t\t\n\t\t\t\t\t\tAll PIG instances are behind it\n\t\t\t\t\t\tIn recent years, the \"Origin Shielding\" transformation has caused unexpected access errors for some users in their environments. However, this should no longer be an issue for new projects, as this is now the standard practice.\n\t\t\t<h3>1. Configure Vanity Domains</h3>\t\t\n\t\t<p>The first thing to do to prevent access interruptions is to configure a vanity domain for all your environments, including staging, development, and production.</p><p>A vanity domain serves as a friendly URL that is easier to remember and manage while also being recognised by Origin Shielding (<a href=\"https://www.rhino-inquisitor.com/lets-go-live-ecdn/\">and configured in the eCDN itself</a> ).</p><p>Rather than having '<em>https://production-eu01-mybrand.demandware.net</em>', we can use a nicer domain such as '<em>https://brand.com</em>'</p>\t\t\n\t\t\t<h3>2. Use the domains</h3>\t\t\n\t\t<p>The next step is pretty simple: <i><b>Good communication</b></i>. Make sure to inform all relevant parties to update their configurations to point to the vanity domains rather than the direct Demandware URLs.</p><p>Communicating this information to the right people will significantly reduce the likelihood of encountering error pages due to unauthorised access errors.</p>\t\t\n\t\t\t<h3>3. Test</h3>\t\t\n\t\t<p>Before launching, make sure to test everything thoroughly. Check that all third-party systems can access your storefront and API features through the vanity domain. This step will help you find and fix any issues before they affect your operations.</p>\t\t\n\t\t\t\t\t\t\t\t\t\t<figure>\n\t\t\t\t\t\t\t\t\t\t<img loading=\"lazy\" width=\"800\" height=\"452\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/good-communication-1024x579.jpg\" alt=\"A cartoon depicting two people conversing with a chat bubble containing various colored emoticons.\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/good-communication-1024x579.jpg 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/good-communication-300x170.jpg 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/good-communication-768x434.jpg 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/good-communication.jpg 1472w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t\t\t\t<figcaption>Good communication is key in any project.</figcaption>\n\t\t\t\t\t\t\t\t\t\t</figure>\n\t\t\t<h3>4. Monitor</h3>\t\t\n\t\t\t\t\t\tNot everything is in our power\n\t\t\t\t\t\tSome logs are easier to access than others. However, Salesforce has made significant improvements over the past two years to enhance our access to tools like the eCDN and Managed Runtime logs.\n\t\t<p>Monitor your eCDN logs for any unusual activity or blocked requests. This will help you spot if any third-party systems are trying to access your resources, allowing you to take action quickly.</p>",
+  "slug": "the-importance-of-origin-shielding",
+  "publishedAt": "2024-11-04T08:40:19.000Z",
+  "modifiedAt": "2024-11-04T08:41:59.000Z",
+  "author": "Thomas Theunen",
+  "categories": [
+    {
+      "name": "Architecture",
+      "slug": "architecture"
+    },
+    {
+      "name": "Salesforce Commerce Cloud",
+      "slug": "salesforce-commerce-cloud"
+    },
+    {
+      "name": "Technical",
+      "slug": "technical"
+    }
+  ],
+  "tags": [
+    {
+      "name": "composable storefront",
+      "slug": "composable-storefront"
+    },
+    {
+      "name": "sfcc",
+      "slug": "sfcc"
+    },
+    {
+      "name": "technical",
+      "slug": "technical"
+    }
+  ],
+  "legacyUrl": "/the-importance-of-origin-shielding/",
+  "targetUrl": "/the-importance-of-origin-shielding/",
+  "disposition": "keep",
+  "aliasUrls": [
+    "/?p=12372"
+  ],
+  "mediaRefs": [
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2024/10/protecting-your-server.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/cloudflare-origin-shielding-error-1024x857.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/cloudflare-origin-shielding-error-300x251.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/cloudflare-origin-shielding-error-768x642.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/cloudflare-origin-shielding-error.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/good-communication-1024x579.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/good-communication-300x170.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/good-communication-768x434.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/good-communication.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/origin-shielding-v2-1024x579.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/origin-shielding-v2-300x170.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/origin-shielding-v2-768x434.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/origin-shielding-v2.jpg"
+  ],
+  "_raw": {
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "status": "publish",
+    "titleRaw": "The importance of Origin Shielding and your Commerce Cloud instance",
+    "excerptRaw": "Today, we're exploring the crucial role of Origin Shielding in Salesforce B2C Commerce Cloud. As online security becomes increasingly important (and always has been), we'll look at what Origin Shielding (and Origin Locking) is. We will also share the steps involved in your projects. ",
+    "publishedAt": "2024-11-04T08:40:19.000Z",
+    "modifiedAt": "2024-11-04T08:41:59.000Z",
+    "author": "Thomas Theunen",
+    "categories": [
+      {
+        "name": "Architecture",
+        "slug": "architecture"
+      },
+      {
+        "name": "Salesforce Commerce Cloud",
+        "slug": "salesforce-commerce-cloud"
+      },
+      {
+        "name": "Technical",
+        "slug": "technical"
+      }
+    ],
+    "tags": [
+      {
+        "name": "composable storefront",
+        "slug": "composable-storefront"
+      },
+      {
+        "name": "sfcc",
+        "slug": "sfcc"
+      },
+      {
+        "name": "technical",
+        "slug": "technical"
+      }
+    ],
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/cloudflare-origin-shielding-error-1024x857.png",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/cloudflare-origin-shielding-error.png",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/good-communication-1024x579.jpg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2024/11/origin-shielding-v2-1024x579.jpg"
+    ],
+    "manifest": {
+      "legacyUrl": "/the-importance-of-origin-shielding/",
+      "targetUrl": "/the-importance-of-origin-shielding/",
+      "disposition": "keep",
+      "redirectCode": null,
+      "implementationLayer": "none",
+      "urlClass": "post"
+    },
+    "normalization": {
+      "aliasUrlsDerivedFromSameTarget": [
+        "/?p=12372"
+      ],
+      "usedPublishedAtFallback": false,
+      "usedModifiedAtFallback": false,
+      "statusNormalizedFrom": "publish"
+    },
+    "extracted": {
+      "sourcePostType": "post",
+      "link": "/the-importance-of-origin-shielding/",
+      "guid": "/?p=12372",
+      "attachmentUrl": null,
+      "thumbnailId": "12373",
+      "metaDescription": null,
+      "postParent": "0",
+      "postMetaCount": 16,
+      "featuredImageUrl": "/wp-content/uploads/2024/10/protecting-your-server.jpg"
+    }
+  },
+  "bodyMarkdown": "Today, we're exploring the crucial role of [Origin](https://www.cloudflare.com/learning/cdn/glossary/origin-server/) Shielding in Salesforce B2C Commerce Cloud. As online security becomes increasingly important (and always has been), we'll look at what Origin Shielding (and Origin Locking) is. We will also share the steps involved in your projects.\n\nLet's dive into the details!\n\n## What is \"Origin Shielding\"?\n\nOrigin shielding protects the origin server - in our case the Application Servers - by funneling all incoming traffic through an intermediate layer, or shield.\n\nWhen someone tries to access content hosted on Salesforce, Mobify, or Demandware, the Embedded Content Delivery Network (eCDN) steps in. It intercepts the request, verifies its legitimacy, and only sends valid requests to the origin servers.\n\nThis process helps reduce the risk of direct attacks on the origin infrastructure and adds an extra layer of protection against unauthorised access. After all, Cloudflare does have a few things in it's arsenal.\n\nLong story short, origin shielding is a security measure for safeguarding cloud-hosted infrastructure, ensuring both the integrity and availability of Salesforce’s services.\n\n![A dramatic image of a superhero in front of a server, protecting it from a \"bad\" actor in the shadows.](/media/2024/origin-shielding-v2-280aa345d3.jpg)\n\nCloudflare is our \"hero\" protecting and routing traffic on our behalf!\n\n## The back-end and OCAPI\n\nOrigin shielding was implemented to manage access to the Demandware URLs of our storefronts and the OCAPI on the \"Primary Instance Groups.\"\n\nAlthough this change was communicated multiple times in advance, [many projects still encountered unexpected disconnections from third-party services](https://www.rhino-inquisitor.com/a-look-back-at-origin-shielding/).\n\nWith the introduction of Origin Shielding, any third-party system attempting to access controllers or OCAPI APIs through the Demandware URL received an error page.\n\n[![A screenshot of the Cloudflare Origin Shielding error shows that the user has been blocked.](/media/2024/cloudflare-origin-shielding-error-b81358c14c.png)](/media/2024/cloudflare-origin-shielding-error-b81358c14c.png)\n\nThe Cloudflare error page.\n\n## SCAPI\n\nThe SCAPI has not changed much. It still operates on Cloudflare Edge Functions and manages all the complexities behind the scenes.\nHowever, this setup means we have less control and are entirely dependent on Salesforce to ensure everything works smoothly.\n\n## Managed Runtime and Origin Locking\n\nIn the Composable Storefront, we gain more control because we handle all the operations ourselves. Fortunately, this process is [fully documented on the help site](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/managed-runtime-administration#access-control-headers)!\n\nWhat if I don't? It's important to protect your \"origin,\" which is the Mobify domain. If you don't, you risk allowing Google and other bots to index this domain, which can negatively impact your SEO.\n\nThis could lead to users accidentally accessing the Mobify domain, rather than your vanity one.\n\n## An overprotective \"hero\"\n\nThe image I used before may seem a bit dramatic, but it highlights that we need to be vigilant with ourselves. The system doesn’t distinguish between good and bad actors, which can lead to inconveniences.\n\nWe need the \"know-how\" to ensure our third-party systems can access everything we require.\n\n## What do I do?\n\nTo ensure that both you and any third-party systems do not encounter access issues due to Origin Shielding, just do a few simple things.\n\nThe steps below might seem simple and even like common sense. However, during the stress of going live and approaching deadlines, they can easily be overlooked.\n\nAll PIG instances are behind it In recent years, the \"Origin Shielding\" transformation has caused unexpected access errors for some users in their environments. However, this should no longer be an issue for new projects, as this is now the standard practice.\n\n### 1\\. Configure Vanity Domains\n\nThe first thing to do to prevent access interruptions is to configure a vanity domain for all your environments, including staging, development, and production.\n\nA vanity domain serves as a friendly URL that is easier to remember and manage while also being recognised by Origin Shielding ([and configured in the eCDN itself](https://www.rhino-inquisitor.com/lets-go-live-ecdn/) ).\n\nRather than having '_https://production-eu01-mybrand.demandware.net_', we can use a nicer domain such as '_https://brand.com_'\n\n### 2\\. Use the domains\n\nThe next step is pretty simple: _**Good communication**_. Make sure to inform all relevant parties to update their configurations to point to the vanity domains rather than the direct Demandware URLs.\n\nCommunicating this information to the right people will significantly reduce the likelihood of encountering error pages due to unauthorised access errors.\n\n### 3\\. Test\n\nBefore launching, make sure to test everything thoroughly. Check that all third-party systems can access your storefront and API features through the vanity domain. This step will help you find and fix any issues before they affect your operations.\n\n![A cartoon depicting two people conversing with a chat bubble containing various colored emoticons.](/media/2024/good-communication-8688aa2fb2.jpg)\n\nGood communication is key in any project.\n\n### 4\\. Monitor\n\nNot everything is in our power Some logs are easier to access than others. However, Salesforce has made significant improvements over the past two years to enhance our access to tools like the eCDN and Managed Runtime logs.\n\nMonitor your eCDN logs for any unusual activity or blocked requests. This will help you spot if any third-party systems are trying to access your resources, allowing you to take action quickly.",
+  "conversionStatus": "converted",
+  "manualReviewRequired": false,
+  "fallbackTypes": [],
+  "conversionWarnings": []
+}

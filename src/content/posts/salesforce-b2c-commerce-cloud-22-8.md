@@ -24,10 +24,10 @@ Are you interested in last month’s release notes? [Read the 22.7 release notes
 
 A few changes are happening in "terms" used in Salesforce B2C Commerce Cloud:
 
--   **master product/variation** **master:** base product
--   **master catalog/master product catalog:** product catalog
--   **master and child items:** main items and secondary items
--   **master document:** main document
+- **master product/variation**master:** base product
+- **master catalog/master product catalog:** product catalog
+- **master and child items:** main items and secondary items
+- **master document:** main document
 
 This update is in line with the [inclusive language within the Salesforce ecosystem](https://www.salesforce.com/news/stories/how-were-bringing-inclusive-language-to-our-products/). Expect these changes to take effect in all communication slowly and inside the documentation!
 
@@ -46,19 +46,12 @@ With the steady growth of on-demand sandbox usage, Salesforce will add new clust
 This change will affect partner sandboxes as they will be moved to US03. Currently, this is US01.
 
 > The usage of the on-demand sandbox has been steadily growing. To meet the demand and while maintaining the availability and performance of the on-demand sandbox, new ODS clusters have been added to provide more resources overall to all ODS.
->
 > A change coming to this community is that the ODS you currently use will be moved to a new and dedicated cluster: US03. Salesforce engineers will make the move itself in batches. No actions are required from you, and your sandboxes should still work as they are after the move. The expected move is in batches and will be done in August on Friday evenings and Saturdays. More details will be posted here in the following days.
->
 > All new realms provisioned after this announcement (including realm zyfo and zyft that are being provisioned) will be on the new cluster US03. If your realms fall into this category, please note the following:
 >
-> -   The documentation and instructions you have received may still have the URLs that contain "us01" (e.g., [https://admin.us01.dx.commercecloud.salesforce.com/](https://admin.us01.dx.commercecloud.salesforce.com)). If that is the case, replace "us01" with "us03" in those URLs
->
->
-> -   Please use the API, not the Control Center, to manage your sandbox for the time being as the integration of cluster US03 with Control Center is still in its final test stage
->
->
-> -   If any issues create or access your sandbox, [please post in this forum and tag John Zhao directly.](https://partners.salesforce.com/_ui/core/chatter/groups/GroupProfilePage?g=0F93A000000DQ6f&fId=0D54V00006G4PZ2&s1oid=00D300000000iTz&OpenCommentForEdit=1&s1nid=0DB3000000007Uh&emkind=chatterPostNotification&s1uid=0053A00000EITbU&emtm=1658419675624&fromEmail=1&s1ext=0)
->
+> - The documentation and instructions you have received may still have the URLs that contain "us01" (e.g., [https://admin.us01.dx.commercecloud.salesforce.com/](https://admin.us01.dx.commercecloud.salesforce.com)). If that is the case, replace "us01" with "us03" in those URLs
+> - Please use the API, not the Control Center, to manage your sandbox for the time being as the integration of cluster US03 with Control Center is still in its final test stage
+> - If any issues create or access your sandbox, [please post in this forum and tag John Zhao directly.](https://partners.salesforce.com/_ui/core/chatter/groups/GroupProfilePage?g=0F93A000000DQ6f&fId=0D54V00006G4PZ2&s1oid=00D300000000iTz&OpenCommentForEdit=1&s1nid=0DB3000000007Uh&emkind=chatterPostNotification&s1uid=0053A00000EITbU&emtm=1658419675624&fromEmail=1&s1ext=0)
 > John Zhao (21/07/2022)
 
 ### New Sandbox maintenance times
@@ -79,19 +72,19 @@ But with great power comes great responsibility. Even though you can do more API
 
 As always, when implementing third-party integrations, keep in mind performance. Ask the question: “Does this really have to happen in real-time? Or can I do this async in a job?”
 
-**Any delay the third-party introduces will impact the storefront performance and user experience!**
+Any delay the third-party introduces will impact the storefront performance and user experience!
 
 ### Salesforce Payment Information in Customer Import
 
 The customer import ([customer.xsd](https://documentation.b2c.commercecloud.salesforce.com/DOC3/topic/com.demandware.dochelp/DWAPI/xsd/customer.xsd)) has added additional site-specific data about payments.
 
-_**Note:** This information points to where the data is, not the actual data._
+**Note:** This information points to where the data is, not the actual data.
 
-```
+```text
 This element is for use with Salesforce Payments to track references of customer profiles between systems.
 ```
 
-```
+```text
 The ID of the payment account used to create the customer payment profile.
 
 The type of the payment account used to create the customer payment profile.
@@ -113,13 +106,13 @@ The value is shown in the Business Manager after uploading the certificate.
 
 The workflow for creating zones gets an update:
 
--   Updated storefront zone creation UX workflow in Business Manager.
+- Updated storefront zone creation UX workflow in Business Manager.
 
--   Zone is created using [SSL for SaaS](https://www.cloudflare.com/ssl-for-saas-providers/) V2 (No [USSL](https://developers.cloudflare.com/ssl/edge-certificates/universal-ssl/)\*) and configured and activated using CDN-API.
+- Zone is created using [SSL for SaaS](https://www.cloudflare.com/ssl-for-saas-providers/) V2 (No [USSL](https://developers.cloudflare.com/ssl/edge-certificates/universal-ssl/)\*) and configured and activated using CDN-API.
 
--   No need to refresh the entire page after zone creation.
+- No need to refresh the entire page after zone creation.
 
--   Users can use the "Refresh" and "Verify Configuration" buttons to confirm that the zone has been verified/configured.
+- Users can use the "Refresh" and "Verify Configuration" buttons to confirm that the zone has been verified/configured.
 
 This is nothing "too exciting," except if you have to configure about 50 zones. This minor update will speed up the process a lot!
 
@@ -137,9 +130,9 @@ Rather than having to manage/relax a quota at a "realm" level, quotas can now be
 
 The [Change History](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/change_history/b2c_change_history.html) feature is getting some more options! With this release, you can keep track (if you want to) of all modifications of:
 
--   Campaigns
--   Promotions
--   Coupons
+- Campaigns
+- Promotions
+- Coupons
 
 ## OCAPI & SCAPI
 
@@ -151,7 +144,7 @@ In this release, you get a new function/attribute on the [Request](https://docum
 
 [request.isSCAPI()](https://documentation.b2c.commercecloud.salesforce.com/DOC3/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_system_Request.html?resultof=%22%53%63%61%70%69%22%20%22%73%63%61%70%69%22%20%22%72%65%71%75%65%73%74%22%20#dw_system_Request_isSCAPI_DetailAnchor)
 
-> When writing your hook logic, it’s important to keep in mind the context of the API that is calling the hook. Both OCAPI and SCAPI share the same hooks, so it’s possible to write a hook that is used for both. Use request.isSCAPI() to determine SCAPI or OCAPI usage, especially if you’re already using the calculate hook in the context of controllers and use transactions in that hook, as that breaks SCAPI. Direct access to the \_sfdc\_mercury HTTP header is deprecated.
+> When writing your hook logic, it’s important to keep in mind the context of the API that is calling the hook. Both OCAPI and SCAPI share the same hooks, so it’s possible to write a hook that is used for both. Use request.isSCAPI() to determine SCAPI or OCAPI usage, especially if you’re already using the calculate hook in the context of controllers and use transactions in that hook, as that breaks SCAPI. Direct access to the \_sfdc\_ mercury HTTP header is deprecated.
 
 ### New SLAS Identity Providers supported
 
@@ -159,10 +152,10 @@ SLAS does not allow you to hook in any external IDP at the moment. You need to a
 
 Newly supported IDPs are:
 
--   [SAP Gigya](https://www.sap.com/acquired-brands/what-is-gigya.html)
--   [AWS Cognito](https://aws.amazon.com/cognito/)
--   [Apple](https://developer.apple.com/sign-in-with-apple/)
--   [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/)
+- [SAP Gigya](https://www.sap.com/acquired-brands/what-is-gigya.html)
+- [AWS Cognito](https://aws.amazon.com/cognito/)
+- [Apple](https://developer.apple.com/sign-in-with-apple/)
+- [Azure Active Directory](https://azure.microsoft.com/en-us/services/active-directory/)
 
 ## PWA Kit v2.1.0
 
@@ -172,31 +165,31 @@ This release can be found [in the PWA Kit v2.1.0 release notes](https://github.c
 
 ### What’s New
 
--   🔥 Client side hot module replacement.
+- 🔥 Client side hot module replacement.
 
 ### Changes
 
 #### pwa-kit-dev
 
--   Replace `Mobify` references/links with proper PWA Kit values. [#619](https://github.com/SalesforceCommerceCloud/pwa-kit/pull/619)
--   Add support for a custom build directory to `pwa-kit-dev build`. [#628](https://github.com/SalesforceCommerceCloud/pwa-kit/pull/628)
--   Introduce client-side hot module replacement. [#630](https://github.com/SalesforceCommerceCloud/pwa-kit/pull/630)
+- Replace `Mobify` references/links with proper PWA Kit values. [#619](https://github.com/SalesforceCommerceCloud/pwa-kit/pull/619)
+- Add support for a custom build directory to `pwa-kit-dev build`. [#628](https://github.com/SalesforceCommerceCloud/pwa-kit/pull/628)
+- Introduce client-side hot module replacement. [#630](https://github.com/SalesforceCommerceCloud/pwa-kit/pull/630)
 
 ## pwa-kit-react-sdk
 
--   Remove console logs from route component. [#651](https://github.com/SalesforceCommerceCloud/pwa-kit/pull/651)
+- Remove console logs from route component. [#651](https://github.com/SalesforceCommerceCloud/pwa-kit/pull/651)
 
 ## Bugfixes
 
 For the 22.8 release, I have not found any newly accepted bug fixes, but that might change a few weeks after this article is released. I found that an issue was fixed in 22.7, which I didn't mention in last month's release note article.
 
--   [Navigation failing when orders are more than 1000](https://trailblazer.salesforce.com/issues_view?id=a1p4V0000029kTjQAI&title=navigation-failing-when-orders-are-more-than-1000)
+- [Navigation failing when orders are more than 1000](https://trailblazer.salesforce.com/issues_view?id=a1p4V0000029kTjQAI&title=navigation-failing-when-orders-are-more-than-1000)
 
 ## Updated Cartridges & Tools
 
 ### sfcc-cartridge-overrides-vscode-extension (v1.0.1)
 
--   [https://github.com/sfccdevops/sfcc-cartridge-overrides-vscode-extension](https://github.com/sfccdevops/sfcc-cartridge-overrides-vscode-extension)
+- [https://github.com/sfccdevops/sfcc-cartridge-overrides-vscode-extension](https://github.com/sfccdevops/sfcc-cartridge-overrides-vscode-extension)
 
 > VS Code Extension to Display SFCC Cartridge Overrides
 
@@ -206,15 +199,15 @@ Fixes [#1](https://github.com/sfccdevops/sfcc-cartridge-overrides-vscode-extensi
 
 ### commerce-sdk-isomorphic (v1.6.0)
 
--   [https://github.com/SalesforceCommerceCloud/commerce-sdk-isomorphic](https://github.com/SalesforceCommerceCloud/commerce-sdk-isomorphic)
+- [https://github.com/SalesforceCommerceCloud/commerce-sdk-isomorphic](https://github.com/SalesforceCommerceCloud/commerce-sdk-isomorphic)
 
 > The Salesforce Commerce SDK Isomorphic allows easy interaction with the Salesforce B2C Commerce platform Shopper APIs through a lightweight SDK that works both on browsers and NodeJS applications.
 
 API Changes
 
-_Shopper Login New Endpoints_
+### Shopper Login New Endpoints
 
-| **Endpoint Name** | **Description** |
+| **Endpoint Name**|**Description** |
 | --- | --- |
 | getPasswordResetToken | Request a reset password token |
 | resetPassword | Creates a new password |
@@ -233,7 +226,7 @@ Documentation
 
 ### plugin\_redirect
 
--   [https://github.com/SalesforceCommerceCloud/plugin\_redirect](https://github.com/SalesforceCommerceCloud/plugin_redirect)
+- [https://github.com/SalesforceCommerceCloud/plugin\_redirect](https://github.com/SalesforceCommerceCloud/plugin_redirect)
 
 > The Hybrid Storefront plug-in cartridge (name tentative) provides Storefront Reference Architecture (SFRA) and SiteGenesis sites with a mechanism for redirecting pages to PWA Kit as part of a hybrid storefront strategy.
 
@@ -241,18 +234,18 @@ Not so much an update as this cartridge does not have an official release yet, b
 
 ### sgmf-scripts (v2.4.2)
 
--   [https://github.com/SalesforceCommerceCloud/sgmf-scripts](https://github.com/SalesforceCommerceCloud/sgmf-scripts)
+- [https://github.com/SalesforceCommerceCloud/sgmf-scripts](https://github.com/SalesforceCommerceCloud/sgmf-scripts)
 
 > This repository contains a collection of scrips that are useful for creating Storefront Reference Architecture overlay cartridges. All of the scripts are executable through CLI.
 
 Changes
 
--   Added `--fix` option when linting js and scss files ([#33](https://github.com/SalesforceCommerceCloud/sgmf-scripts/pull/33))
--   Removed unused `webdriverio` ([#60](https://github.com/SalesforceCommerceCloud/sgmf-scripts/pull/60))
+- Added `--fix` option when linting js and scss files ([#33](https://github.com/SalesforceCommerceCloud/sgmf-scripts/pull/33))
+- Removed unused `webdriverio` ([#60](https://github.com/SalesforceCommerceCloud/sgmf-scripts/pull/60))
 
 ### sfra-webpack-builder (v3.3.2)
 
--   [https://github.com/SalesforceCommerceCloud/sfra-webpack-builder](https://github.com/SalesforceCommerceCloud/sfra-webpack-builder)
+- [https://github.com/SalesforceCommerceCloud/sfra-webpack-builder](https://github.com/SalesforceCommerceCloud/sfra-webpack-builder)
 
 > Webpack can be cumbersome to setup, especially in multicartridge projects for SFRA. This plugin let you bundle all your js, scss and jsx files out of the box.
 
@@ -260,7 +253,7 @@ I don't think anything has changed in this release besides updating the package 
 
 ### b2c-commerce-toolkit-for-grocery (v1.3.0)
 
--   [https://github.com/SalesforceCommerceCloud/b2c-commerce-toolkit-for-grocery](https://github.com/SalesforceCommerceCloud/b2c-commerce-toolkit-for-grocery)
+- [https://github.com/SalesforceCommerceCloud/b2c-commerce-toolkit-for-grocery](https://github.com/SalesforceCommerceCloud/b2c-commerce-toolkit-for-grocery)
 
 > This demo version of a grocery storefront includes store and time slot selection, grocery-specific shopping experiences for all key store pages, and edit order capabilities. A sample grocery data set and a few typical configurations are also included.
 
@@ -269,12 +262,11 @@ Changes
 > [!WARNING]
 > **Removed:** some redundant code which is now part of SFRA
 
-### plugin\_einstein\_api (v0.0.4)
+### plugin\_einstein\_ api (v0.0.4)
 
--   [https://github.com/SalesforceCommerceCloud/plugin\_einstein\_api](https://github.com/SalesforceCommerceCloud/plugin_einstein_api)
+- [https://github.com/SalesforceCommerceCloud/plugin\_einstein\_api](https://github.com/SalesforceCommerceCloud/plugin_einstein_api)
 
-> This is the repository for the plugin\_einstein\_api plugin. This plugin enhances the app\_storefront\_base cartridge by adding the Einstein API capabilities.
->
+> This is the repository for the plugin\_einstein\_ api plugin. This plugin enhances the app\_storefront\_ base cartridge by adding the Einstein API capabilities.
 > Einstein API is the API-led interface from Salesforce B2C Commerce Einstein, and can be leverage to include Einstein product recommendations in places that are not displayed through a content slot on the storefront, or even outside of the storefront.
 
 What's Changed

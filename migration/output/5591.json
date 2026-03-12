@@ -1,0 +1,65 @@
+{
+  "sourceId": "5591",
+  "sourceType": "wxr",
+  "sourceChannels": [
+    "wxr"
+  ],
+  "postType": "page",
+  "status": "publish",
+  "titleRaw": "Offline",
+  "excerptRaw": "",
+  "bodyHtml": "<h1>Offline</h1>\t\t\n\t\t<p>You are currently offline, and this page was not saved to your device. Please try again once you reconnect to the internet.</p>",
+  "slug": "offline",
+  "publishedAt": "2022-11-01T16:38:41.000Z",
+  "modifiedAt": "2022-11-01T16:56:37.000Z",
+  "author": "Thomas Theunen",
+  "categories": [],
+  "tags": [],
+  "legacyUrl": "/offline/",
+  "targetUrl": "/offline/",
+  "disposition": "keep",
+  "aliasUrls": [],
+  "mediaRefs": [],
+  "_raw": {
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "status": "publish",
+    "titleRaw": "Offline",
+    "excerptRaw": "",
+    "publishedAt": "2022-11-01T16:38:41.000Z",
+    "modifiedAt": "2022-11-01T16:56:37.000Z",
+    "author": "Thomas Theunen",
+    "categories": [],
+    "tags": [],
+    "mediaRefs": [],
+    "manifest": {
+      "legacyUrl": "/offline/",
+      "targetUrl": "/offline/",
+      "disposition": "keep",
+      "redirectCode": null,
+      "implementationLayer": "none",
+      "urlClass": "page"
+    },
+    "normalization": {
+      "aliasUrlsDerivedFromSameTarget": [],
+      "usedPublishedAtFallback": false,
+      "usedModifiedAtFallback": false,
+      "statusNormalizedFrom": "publish"
+    },
+    "extracted": {
+      "sourcePostType": "page",
+      "link": "/offline/",
+      "guid": "/?page_id=5591",
+      "attachmentUrl": null,
+      "thumbnailId": null,
+      "metaDescription": null,
+      "postParent": "0",
+      "postMetaCount": 18,
+      "featuredImageUrl": null
+    }
+  },
+  "bodyMarkdown": "## Offline\n\nYou are currently offline, and this page was not saved to your device. Please try again once you reconnect to the internet.",
+  "conversionStatus": "converted",
+  "manualReviewRequired": false,
+  "fallbackTypes": [],
+  "conversionWarnings": []
+}

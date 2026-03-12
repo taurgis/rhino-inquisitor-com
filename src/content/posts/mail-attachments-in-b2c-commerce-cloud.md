@@ -187,7 +187,7 @@ You can easily copy-paste the code from above and get it to work with your proje
 
 Within the controller, we have multiple functions to help us get all the data to send that e-mail with an attachment.
 
-_Note: It would be best to move these to a helper file for re-use!_
+Note: It would be best to move these to a helper file for re-use!
 
 #### base64
 
@@ -231,10 +231,10 @@ function encodeBase64ForEmail(str, characterEncoding) {
 
 And once we have that base64 encoded string, we can use it in our mail template. And inside that template, we are adding some metadata to give information about the file we are trying to send:
 
-- **Content-Type**: Here, we will mark which file type and what name the file has.
+- **Content-Type:** Here, we will mark which file type and what name the file has.
 - **Content-Description:** The description of the file
 - **Content-Disposition:** Here, we provide more information about the file like its filename, the size of the PDF, ...
-- **Content-Transfer-Encoding**: Here, we tell the mail client that the attachment is encoded using base64
+- **Content-Transfer-Encoding:** Here, we tell the mail client that the attachment is encoded using base64
 
 ```text
 --001a113414f6401b8604f1451630
@@ -311,7 +311,7 @@ Content-Type: multipart/mixed; boundary=001a113414f6401b8604f1451630
 
 Once the key has been set, it can "split up" the mail into different parts. A good example is a separate part for the plain-text and HTML emails.
 
-_Note: Do not forget the '--' in front of the key as you see them in the examples._
+Note: Do not forget the '--' in front of the key as you see them in the examples.
 
 ```text
 --001a113414f6401b8604f1451630
@@ -360,7 +360,7 @@ There are multiple ways to work around this limit, but we will not be digging in
 
 Now for the gotchas, because in the world of Commerce Cloud, there are always gotchas. Two critical and distinct size limits are waiting to trip you up, and confusing them can lead you straight into a debugging nightmare. The first is a 10 MB ceiling on the rendered template response. Think of this as a server-side guardrail within the application server itself. As the `ISMLRenderer` processes your template, it combines your email's text and, more importantly, the Base64-encoded string of your attachments. This Base64 encoding is a key detail, as it inflates the file size by roughly 33%. If this combined, in-memory result surpasses 10 MB, the platform protects itself by throwing a server error and halting the process.
 
-**_You'll see the failure in your logs; it's a noisy, obvious problem._**
+You'll see the failure in your logs; it's a noisy, obvious problem.
 
 However, the more immediate and ruthless limit—the one that truly matters for delivery—is the **3 MB quota for the final, sent email**. This is not a template-rendering limit; it's a [hard quota](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-dev-best-practices.html#email-support) imposed by the Salesforce mail gateway that physically transmits the message. This is where things get insidious. Your code can successfully render a 5 MB template (well under the 10 MB limit), and the `dw.net.Mail` script will execute without any errors, leading you to believe the email is on its way. However, when the 5 MB package reaches the mail server, it is silently dropped because it exceeds the 3 MB quota. There's no error thrown back to your script, no explicit failure in the logs—the email simply vanishes into the void.
 

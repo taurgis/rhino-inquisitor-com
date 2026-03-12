@@ -1,0 +1,141 @@
+{
+  "sourceId": "1488",
+  "sourceType": "wxr",
+  "sourceChannels": [
+    "filesystem",
+    "wxr"
+  ],
+  "postType": "post",
+  "status": "publish",
+  "titleRaw": "TrailblazerDX 2022 for B2C Commerce",
+  "excerptRaw": "",
+  "bodyHtml": "<p>The pandemic is continuing its rounds worldwide, but luckily things are starting to return to normal.&nbsp;</p>\n<p>And with things returning to normal, in-person events are also back!</p>\n<p>First in line is <a href=\"https://www.salesforce.com/trailblazerdx\" target=\"_blank\" rel=\"noopener\">TrailblazerDX</a>, a developer-centered event in San Francisco. What does it have in store for the Salesforce B2C Commerce Cloud developers? Let's have a look!</p>\n<p>As a side note, there are \"holes\" in the given schedule below.<strong> So be sure to use <a href=\"https://reg.salesforce.com/flow/plus/trailblazerdx22/tdx22agendabuilder/page/calendar\" target=\"_blank\" rel=\"noopener\">the provided tools</a> to plan your multi-cloud agenda!</strong></p>\t\t\n\t\t\t<h2>Get Connected</h2>\t\t\n\t\t<p>It won't be a Salesforce event if you don't meet up with other people you have been \"slacking\" with for the past years!</p><p>I have created a channel on the Salesforce B2C Commerce Cloud Unofficial Slack to get connected!</p><p><a href=\"https://join.slack.com/t/sfcc-unofficial/shared_invite/zt-165gkps41-KZW~gT5xB15REMSOXJ~CRQ\" target=\"_blank\" rel=\"noopener\">Click here to join!</a></p><p>This year I will not be able to attend in person 🙁, but don't let that stop you from connecting with your fellow B2C Trailblazers!</p>\t\t\n\t\t\t<h2>Can't attend?</h2>\t\t\n\t\t<p>The main shows can be viewed through <a href=\"https://www.salesforce.com/trailblazerdx/register/\" target=\"_blank\" rel=\"noopener\">Salesforce+</a> for free!</p>\t\t\n\t\t\t<h2>(No) Bootcamp</h2>\t\t\n\t\t<p>It is customary that a \"<a href=\"https://www.salesforce.com/trailblazerdx/bootcamp\" target=\"_blank\" rel=\"noopener\">Bootcamp</a>\" precedes some events. This is a four days expert-led learning track with two opportunities to get certified (for a price).</p><p>But unfortunately, there is no track available for anyone wanting to get some Salesforce B2C Commerce Cloud certifications.</p><p>Looking at the ecosystem's growth within Salesforce B2C Commerce Cloud, I feel there could be room to add a Bootcamp for Salesforce B2C Commerce Cloud to this list.</p><p><em><strong>Note</strong>: Such a Bootcamp generally costs around $3000. But for a 4-day on-site training and two certification attempts, it is well worth it.</em></p>\t\t\n\t\t\t<h2>Wednesday, April 27</h2>\t\t\n\t\t\t<h3><a href=\"https://reg.salesforce.com/flow/plus/trailblazerdx22/sessioncatalog/page/sessioncatalog/session/1645560544572001nj5g\" target=\"_blank\" rel=\"noopener\">TrailblazerDX Keynote: Trailblazers Build the Future, Together</a></h3>\t\t\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.linkedin.com/in/parker-harris-451040211/\" target=\"_blank\" rel=\"noopener\">\n\t\t\t\t\t\t\t\t\t\tParker Harris\n\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\tKris Lande\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t10:00 AM - 11:00 AM\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t60 Minutes\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t<p>Join Parker Harris and guests to learn how Trailblazers can come together to use the latest innovations across the Customer 360 Platform, MuleSoft, Slack, and Tableau to build the future of work.</p><p><em><strong>Note:</strong> This session is not aimed at Salesforce B2C Commerce cloud but is an excellent opportunity to get to know other products in the ecosystem. And it's the keynote, so be there or be square!</em></p>\t\t\n\t\t\t<h3><a href=\"https://reg.salesforce.com/flow/plus/trailblazerdx22/sessioncatalog/page/sessioncatalog/session/1644620463459001sLXn\" target=\"_blank\" rel=\"noopener\">Build Fast Shopping Websites for Fun and Profit </a></h3>\t\t\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.linkedin.com/in/jboxall/\" target=\"_blank\" rel=\"noopener\">\n\t\t\t\t\t\t\t\t\t\tJohn Boxall\n\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t12:00 PM - 12:20 PM\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t20 Minutes\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t<p>Studies show fast storefronts convert better than slow ones. Headless storefronts pose unique performance challenges. Learn how to make storefronts built with Salesforce B2C Commerce's PWA Kit fly.</p>\t\t\n\t\t\t<h3><a href=\"https://reg.salesforce.com/flow/plus/trailblazerdx22/sessioncatalog/page/sessioncatalog/session/1648498256499001A1ou\" target=\"_blank\" rel=\"noopener\">Get Started with Integration for New Architects</a></h3>\t\t\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.linkedin.com/in/amitmalikus/\" target=\"_blank\" rel=\"noopener\">\n\t\t\t\t\t\t\t\t\t\tAmit Malik\n\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t01:00 PM - 02:00 PM\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t60 Minutes\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t<p>We will focus on integration from a beginner's mind. If you want to learn about integration from the beginning to a point where you start understanding the big picture, this session is for you.</p><p><em><strong>Note: </strong></em><em>This session is not aimed at Salesforce B2C Commerce Cloud.</em></p>\t\t\n\t\t\t<h3><a href=\"https://reg.salesforce.com/flow/plus/trailblazerdx22/sessioncatalog/page/sessioncatalog/session/1643413378171001GApD\" target=\"_blank\" rel=\"noopener\">Ship a React Storefront on B2C Commerce APIs in 5 Minutes</a></h3>\t\t\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.linkedin.com/in/drewz/\" target=\"_blank\" rel=\"noopener\">\n\t\t\t\t\t\t\t\t\t\tDrew Lau\n\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t03:00 PM - 03:20 PM\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t20 Minutes\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t<p>Developing with B2C Commerce can be a daunting experience for new users. We'll unveil our new quick-start flow that will make our React-based storefront accessible to any developer within minutes.</p>\t\t\n\t\t\t<h3><a href=\"https://reg.salesforce.com/flow/plus/trailblazerdx22/sessioncatalog/page/sessioncatalog/session/1646224425886001VCUN\" target=\"_blank\" rel=\"noopener\">Ask Me Anything: Continuous Integration</a></h3>\t\t\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.linkedin.com/in/alba-rivas/\" target=\"_blank\" rel=\"noopener\">\n\t\t\t\t\t\t\t\t\t\tAlba Rivas\n\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.linkedin.com/in/christiefidura/\" target=\"_blank\" rel=\"noopener\">\n\t\t\t\t\t\t\t\t\t\tChristie Fidura\n\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.linkedin.com/in/mclaughlinshane/\" target=\"_blank\" rel=\"noopener\">\n\t\t\t\t\t\t\t\t\t\tShane McLaughlin\n\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.linkedin.com/in/philippeozil/\" target=\"_blank\" rel=\"noopener\">\n\t\t\t\t\t\t\t\t\t\tPhilippe Ozil\n\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t04:30 PM - 05:10 PM\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t40 Minutes\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t<p>Join this Ask Me Anything session to connect with Salesforce developer advocates and engineers and get your questions about continuous integration answered.</p><p><em><strong>Note: </strong></em><em>This session is not aimed at Salesforce B2C Commerce Cloud.</em></p>\t\t\n\t\t\t<h2>Thursday, April 28</h2>\t\t\n\t\t\t<h3><a href=\"https://reg.salesforce.com/flow/plus/trailblazerdx22/sessioncatalog/page/sessioncatalog/session/1645743781742001tYjh\" target=\"_blank\" rel=\"noopener\">True to the Core</a></h3>\t\t\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.linkedin.com/in/parker-harris-451040211/\" target=\"_blank\" rel=\"noopener\">\n\t\t\t\t\t\t\t\t\t\tParker Harris\n\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\tKris Lande\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t09:00 AM - 10:00 AM\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t60 Minutes\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t<p>Join Parker Harris, the chief product officers from Salesforce, MuleSoft, Slack, and Tableau, and product managers for a one-of-a-kind question-and-answer forum about our product roadmap.</p><p><strong>Have a question or topic you’d like to see the executives address during True to the Core? Send them <a href=\"https://trailhead.salesforce.com/trailblazer-community/feed/0D54S00000FUYl1SAH\" target=\"_blank\" rel=\"noopener ugc nofollow\">here</a>.</strong></p><p><em><strong>Note:</strong> This session is not aimed at Salesforce B2C Commerce cloud but is an excellent opportunity to get to know other products in the ecosystem. And it's the second day keynote, so be there or be square!</em></p>\t\t\n\t\t\t<h3><a href=\"https://reg.salesforce.com/flow/plus/trailblazerdx22/sessioncatalog/page/sessioncatalog/session/1643929899349001wODh\" target=\"_blank\" rel=\"noopener\">Apply DevOps Best Practices for B2C Commerce</a></h3>\t\t\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.linkedin.com/in/charleslavery/\" target=\"_blank\" rel=\"noopener\">\n\t\t\t\t\t\t\t\t\t\tCharles Lavery\n\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t10:30 AM - 10:50 AM\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t20 Minutes\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t<p>Unlock agility and efficiency by applying DevOps best practices for B2C commerce. Find out what tools are available to the community and see a walkthrough of a CI/CD pipeline.</p>\t\t\n\t\t\t<h3><a href=\"https://reg.salesforce.com/flow/plus/trailblazerdx22/sessioncatalog/page/sessioncatalog/session/1644269552284001P3WJ\" target=\"_blank\" rel=\"noopener\">Customize Commerce APIs with Hooks</a></h3>\t\t\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.linkedin.com/in/andrew9990/\" target=\"_blank\" rel=\"noopener\">\n\t\t\t\t\t\t\t\t\t\tAndrew Lawrence\n\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.linkedin.com/in/dirk-bergemann-4430981/\" target=\"_blank\" rel=\"noopener\">\n\t\t\t\t\t\t\t\t\t\tDirk Bergemann\n\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t12:00 PM - 12:20 PM\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t20 Minutes\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t<p>Customization hooks for B2C commerce headless APIs is a new feature this year that gives developers enormous flexibility. Learn new headless use cases and a quick path to getting started.</p>\t\t\n\t\t\t<h3><a href=\"https://reg.salesforce.com/flow/plus/trailblazerdx22/sessioncatalog/page/sessioncatalog/session/1645744349183001gU27\" target=\"_blank\" rel=\"noopener\">Build Connected Commerce and Marketing with Flexibility and Ease</a></h3>\t\t\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.linkedin.com/in/igorfaletski/\" target=\"_blank\" rel=\"noopener\">\n\t\t\t\t\t\t\t\t\t\tIgor Faletski\n\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t02:00 PM - 03:00 PM\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t60 Minutes\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t<p>Develop connected digital experiences that attract and convert customers – and keep them coming back. Discover new tools purpose-built for developers, designed to make your work fun and easy.</p>\t\t\n\t\t\t<h2><a href=\"https://reg.salesforce.com/flow/plus/trailblazerdx22/sessioncatalog/page/sessioncatalog/session/164980295926300167e9\" target=\"_blank\" rel=\"noopener\">Party with Weezer!</a></h2>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img width=\"800\" height=\"759\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/weezer.png\" alt=\"\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/weezer.png 839w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/weezer-300x285.png 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/weezer-768x729.png 768w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t<p>It also wouldn't be a Salesforce event if it didn't have a celebration at the end of day one!</p><p>Need a refresher? Here is a playlist!</p>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t<h2>Weezer</h2>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h4 title=\"Weezer - Say It Ain&#039;t So (Official Video)\">\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tWeezer - Say It Ain't So (Official Video)\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t\t</h4>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h4 title=\"Weezer - Island In The Sun (Spike Jonze Version)\">\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tWeezer - Island In The Sun (Spike Jonze Version)\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t\t</h4>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h4 title=\"Weezer - Buddy Holly (Official Music Video)\">\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tWeezer - Buddy Holly (Official Music Video)\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t\t</h4>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h4 title=\"Weezer - Beverly Hills\">\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tWeezer - Beverly Hills\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t\t</h4>\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<h4 title=\"Weezer - Pork And Beans (Closed Captioned)\">\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"\">\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tWeezer - Pork And Beans (Closed Captioned)\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t\t</h4>",
+  "slug": "trailblazerdx-2022-for-b2c-commerce",
+  "publishedAt": "2022-04-21T06:49:37.000Z",
+  "modifiedAt": "2022-07-23T22:03:54.000Z",
+  "author": "Thomas Theunen",
+  "categories": [
+    {
+      "name": "Community",
+      "slug": "community"
+    }
+  ],
+  "tags": [
+    {
+      "name": "event",
+      "slug": "event"
+    },
+    {
+      "name": "ohana",
+      "slug": "ohana"
+    },
+    {
+      "name": "sfcc",
+      "slug": "sfcc"
+    },
+    {
+      "name": "trailblazerdx",
+      "slug": "trailblazerdx"
+    }
+  ],
+  "legacyUrl": "/trailblazerdx-2022-for-b2c-commerce/",
+  "targetUrl": "/trailblazerdx-2022-for-b2c-commerce/",
+  "disposition": "keep",
+  "aliasUrls": [],
+  "mediaRefs": [
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/weezer-300x285.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/weezer-768x729.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/weezer.png"
+  ],
+  "_raw": {
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "status": "publish",
+    "titleRaw": "TrailblazerDX 2022 for B2C Commerce",
+    "excerptRaw": "",
+    "publishedAt": "2022-04-21T06:49:37.000Z",
+    "modifiedAt": "2022-07-23T22:03:54.000Z",
+    "author": "Thomas Theunen",
+    "categories": [
+      {
+        "name": "Community",
+        "slug": "community"
+      }
+    ],
+    "tags": [
+      {
+        "name": "event",
+        "slug": "event"
+      },
+      {
+        "name": "ohana",
+        "slug": "ohana"
+      },
+      {
+        "name": "sfcc",
+        "slug": "sfcc"
+      },
+      {
+        "name": "trailblazerdx",
+        "slug": "trailblazerdx"
+      }
+    ],
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/04/weezer.png"
+    ],
+    "manifest": {
+      "legacyUrl": "/trailblazerdx-2022-for-b2c-commerce/",
+      "targetUrl": "/trailblazerdx-2022-for-b2c-commerce/",
+      "disposition": "keep",
+      "redirectCode": null,
+      "implementationLayer": "none",
+      "urlClass": "post"
+    },
+    "normalization": {
+      "aliasUrlsDerivedFromSameTarget": [],
+      "usedPublishedAtFallback": false,
+      "usedModifiedAtFallback": false,
+      "statusNormalizedFrom": "publish"
+    },
+    "extracted": {
+      "sourcePostType": "post",
+      "link": "/trailblazerdx-2022-for-b2c-commerce/",
+      "guid": "/?p=1488",
+      "attachmentUrl": null,
+      "thumbnailId": "1489",
+      "metaDescription": "Ready for TrailblazerDX, but not sure what sessions to put on your schedule? Find an overview here of all sessions related to B2C Commerce!",
+      "postParent": "0",
+      "postMetaCount": 27,
+      "featuredImageUrl": "/wp-content/uploads/2022/04/weezer.png"
+    }
+  },
+  "bodyMarkdown": "The pandemic is continuing its rounds worldwide, but luckily things are starting to return to normal.\n\nAnd with things returning to normal, in-person events are also back!\n\nFirst in line is [TrailblazerDX](https://www.salesforce.com/trailblazerdx), a developer-centered event in San Francisco. What does it have in store for the Salesforce B2C Commerce Cloud developers? Let's have a look!\n\nAs a side note, there are \"holes\" in the given schedule below. **So be sure to use [the provided tools](https://reg.salesforce.com/flow/plus/trailblazerdx22/tdx22agendabuilder/page/calendar) to plan your multi-cloud agenda!**\n\n## Get Connected\n\nIt won't be a Salesforce event if you don't meet up with other people you have been \"slacking\" with for the past years!\n\nI have created a channel on the Salesforce B2C Commerce Cloud Unofficial Slack to get connected!\n\n[Click here to join!](https://join.slack.com/t/sfcc-unofficial/shared_invite/zt-165gkps41-KZW~gT5xB15REMSOXJ~CRQ)\n\nThis year I will not be able to attend in person 🙁, but don't let that stop you from connecting with your fellow B2C Trailblazers!\n\n## Can't attend?\n\nThe main shows can be viewed through [Salesforce+](https://www.salesforce.com/trailblazerdx/register/) for free!\n\n## (No) Bootcamp\n\nIt is customary that a \"[Bootcamp](https://www.salesforce.com/trailblazerdx/bootcamp)\" precedes some events. This is a four days expert-led learning track with two opportunities to get certified (for a price).\n\nBut unfortunately, there is no track available for anyone wanting to get some Salesforce B2C Commerce Cloud certifications.\n\nLooking at the ecosystem's growth within Salesforce B2C Commerce Cloud, I feel there could be room to add a Bootcamp for Salesforce B2C Commerce Cloud to this list.\n\n_**Note**: Such a Bootcamp generally costs around $3000. But for a 4-day on-site training and two certification attempts, it is well worth it._\n\n## Wednesday, April 27\n\n### [TrailblazerDX Keynote: Trailblazers Build the Future, Together](https://reg.salesforce.com/flow/plus/trailblazerdx22/sessioncatalog/page/sessioncatalog/session/1645560544572001nj5g)\n\n-   [Parker Harris](https://www.linkedin.com/in/parker-harris-451040211/)\n-   Kris Lande\n-   10:00 AM - 11:00 AM\n-   60 Minutes\n\nJoin Parker Harris and guests to learn how Trailblazers can come together to use the latest innovations across the Customer 360 Platform, MuleSoft, Slack, and Tableau to build the future of work.\n\n_**Note:** This session is not aimed at Salesforce B2C Commerce cloud but is an excellent opportunity to get to know other products in the ecosystem. And it's the keynote, so be there or be square!_\n\n### [Build Fast Shopping Websites for Fun and Profit](https://reg.salesforce.com/flow/plus/trailblazerdx22/sessioncatalog/page/sessioncatalog/session/1644620463459001sLXn)\n\n-   [John Boxall](https://www.linkedin.com/in/jboxall/)\n-   12:00 PM - 12:20 PM\n-   20 Minutes\n\nStudies show fast storefronts convert better than slow ones. Headless storefronts pose unique performance challenges. Learn how to make storefronts built with Salesforce B2C Commerce's PWA Kit fly.\n\n### [Get Started with Integration for New Architects](https://reg.salesforce.com/flow/plus/trailblazerdx22/sessioncatalog/page/sessioncatalog/session/1648498256499001A1ou)\n\n-   [Amit Malik](https://www.linkedin.com/in/amitmalikus/)\n-   01:00 PM - 02:00 PM\n-   60 Minutes\n\nWe will focus on integration from a beginner's mind. If you want to learn about integration from the beginning to a point where you start understanding the big picture, this session is for you.\n\n_**Note:**_ _This session is not aimed at Salesforce B2C Commerce Cloud._\n\n### [Ship a React Storefront on B2C Commerce APIs in 5 Minutes](https://reg.salesforce.com/flow/plus/trailblazerdx22/sessioncatalog/page/sessioncatalog/session/1643413378171001GApD)\n\n-   [Drew Lau](https://www.linkedin.com/in/drewz/)\n-   03:00 PM - 03:20 PM\n-   20 Minutes\n\nDeveloping with B2C Commerce can be a daunting experience for new users. We'll unveil our new quick-start flow that will make our React-based storefront accessible to any developer within minutes.\n\n### [Ask Me Anything: Continuous Integration](https://reg.salesforce.com/flow/plus/trailblazerdx22/sessioncatalog/page/sessioncatalog/session/1646224425886001VCUN)\n\n-   [Alba Rivas](https://www.linkedin.com/in/alba-rivas/)\n-   [Christie Fidura](https://www.linkedin.com/in/christiefidura/)\n-   [Shane McLaughlin](https://www.linkedin.com/in/mclaughlinshane/)\n-   [Philippe Ozil](https://www.linkedin.com/in/philippeozil/)\n-   04:30 PM - 05:10 PM\n-   40 Minutes\n\nJoin this Ask Me Anything session to connect with Salesforce developer advocates and engineers and get your questions about continuous integration answered.\n\n_**Note:**_ _This session is not aimed at Salesforce B2C Commerce Cloud._\n\n## Thursday, April 28\n\n### [True to the Core](https://reg.salesforce.com/flow/plus/trailblazerdx22/sessioncatalog/page/sessioncatalog/session/1645743781742001tYjh)\n\n-   [Parker Harris](https://www.linkedin.com/in/parker-harris-451040211/)\n-   Kris Lande\n-   09:00 AM - 10:00 AM\n-   60 Minutes\n\nJoin Parker Harris, the chief product officers from Salesforce, MuleSoft, Slack, and Tableau, and product managers for a one-of-a-kind question-and-answer forum about our product roadmap.\n\n**Have a question or topic you’d like to see the executives address during True to the Core? Send them [here](https://trailhead.salesforce.com/trailblazer-community/feed/0D54S00000FUYl1SAH).**\n\n_**Note:** This session is not aimed at Salesforce B2C Commerce cloud but is an excellent opportunity to get to know other products in the ecosystem. And it's the second day keynote, so be there or be square!_\n\n### [Apply DevOps Best Practices for B2C Commerce](https://reg.salesforce.com/flow/plus/trailblazerdx22/sessioncatalog/page/sessioncatalog/session/1643929899349001wODh)\n\n-   [Charles Lavery](https://www.linkedin.com/in/charleslavery/)\n-   10:30 AM - 10:50 AM\n-   20 Minutes\n\nUnlock agility and efficiency by applying DevOps best practices for B2C commerce. Find out what tools are available to the community and see a walkthrough of a CI/CD pipeline.\n\n### [Customize Commerce APIs with Hooks](https://reg.salesforce.com/flow/plus/trailblazerdx22/sessioncatalog/page/sessioncatalog/session/1644269552284001P3WJ)\n\n-   [Andrew Lawrence](https://www.linkedin.com/in/andrew9990/)\n-   [Dirk Bergemann](https://www.linkedin.com/in/dirk-bergemann-4430981/)\n-   12:00 PM - 12:20 PM\n-   20 Minutes\n\nCustomization hooks for B2C commerce headless APIs is a new feature this year that gives developers enormous flexibility. Learn new headless use cases and a quick path to getting started.\n\n### [Build Connected Commerce and Marketing with Flexibility and Ease](https://reg.salesforce.com/flow/plus/trailblazerdx22/sessioncatalog/page/sessioncatalog/session/1645744349183001gU27)\n\n-   [Igor Faletski](https://www.linkedin.com/in/igorfaletski/)\n-   02:00 PM - 03:00 PM\n-   60 Minutes\n\nDevelop connected digital experiences that attract and convert customers – and keep them coming back. Discover new tools purpose-built for developers, designed to make your work fun and easy.\n\n## [Party with Weezer!](https://reg.salesforce.com/flow/plus/trailblazerdx22/sessioncatalog/page/sessioncatalog/session/164980295926300167e9)\n\n![](/media/2022/weezer-66533fada7.png)\n\nIt also wouldn't be a Salesforce event if it didn't have a celebration at the end of day one!\n\nNeed a refresher? Here is a playlist!\n\n## Weezer\n\n### Weezer - Say It Ain't So (Official Video)\n\n### Weezer - Island In The Sun (Spike Jonze Version)\n\n### Weezer - Buddy Holly (Official Music Video)\n\n### Weezer - Beverly Hills\n\n### Weezer - Pork And Beans (Closed Captioned)",
+  "conversionStatus": "converted",
+  "manualReviewRequired": false,
+  "fallbackTypes": [],
+  "conversionWarnings": [
+    {
+      "code": "heading-level-normalized",
+      "message": "Heading level normalized from h4 to h3 in /trailblazerdx-2022-for-b2c-commerce/."
+    },
+    {
+      "code": "heading-level-normalized",
+      "message": "Heading level normalized from h4 to h3 in /trailblazerdx-2022-for-b2c-commerce/."
+    },
+    {
+      "code": "heading-level-normalized",
+      "message": "Heading level normalized from h4 to h3 in /trailblazerdx-2022-for-b2c-commerce/."
+    },
+    {
+      "code": "heading-level-normalized",
+      "message": "Heading level normalized from h4 to h3 in /trailblazerdx-2022-for-b2c-commerce/."
+    },
+    {
+      "code": "heading-level-normalized",
+      "message": "Heading level normalized from h4 to h3 in /trailblazerdx-2022-for-b2c-commerce/."
+    },
+    {
+      "code": "missing-image-alt",
+      "message": "Image missing alt text in /trailblazerdx-2022-for-b2c-commerce/."
+    }
+  ]
+}

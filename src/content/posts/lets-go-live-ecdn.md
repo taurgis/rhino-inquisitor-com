@@ -22,9 +22,9 @@ So, you want to set a website live on Salesforce B2C Commerce Cloud. It is all r
 
 Not to worry! The ECDN is not rocket science, far from it. Once you have set up your first vanity domain, the second one will be peanuts.
 
-_**Update August 5, 2022:**_ _Added some warnings to this post with things to keep in mind. Thank you, [Sachin Upmany,](https://www.linkedin.com/in/sachin-upmanyu-82428828/) for the reminder that this information is also essential in these guides!_
+**Update August 5, 2022:** Added some warnings to this post with things to keep in mind. Thank you, [Sachin Upmany,](https://www.linkedin.com/in/sachin-upmanyu-82428828/) for the reminder that this information is also essential in these guides!
 
-## What is the eCDN?
+## What is the eCDN
 
 But first things first. It is as essential to know what the eCDN is to configure it! What does [Salesforce have to say](https://www.salesforce.com/products/commerce-cloud/resources/ecdn-for-commerce-cloud-digital-datasheet/) about this feature:
 
@@ -40,11 +40,11 @@ For the most part, Salesforce has put itself in between and taken complete contr
 
 Within this interface, you can configure:
 
--   Your supported [vanity domains](https://en.wikipedia.org/wiki/Vanity_domain)
--   Managing SSL certificates
--   Firewall & [WAF](https://www.cloudflare.com/waf/) (Web Application Firewall)
--   Performance Optimization
--   Custom Error/Under Attack Pages
+- Your supported [vanity domains](https://en.wikipedia.org/wiki/Vanity_domain)
+- Managing SSL certificates
+- Firewall & [WAF](https://www.cloudflare.com/waf/) (Web Application Firewall)
+- Performance Optimization
+- Custom Error/Under Attack Pages
 
 ## Getting Prepared
 
@@ -64,7 +64,7 @@ APEX Domain Pointing / Naked Domain It is essential to know that the APEX Domain
 
 Usually, a DNS provider has solutions for this, but this needs to be considered. In a worst-case scenario, you need to set up a "mini-server" to do the redirection of the naked domain to the www subdomain. You can find some [information on Salesforce Help](https://help.salesforce.com/s/articleView?id=000361629&type=1) on this topic.
 
-With a naked domain we mean **https://mybrand.com** (without the www). × Dismiss alert
+With a naked domain we mean **`<https://mybrand.com**>` (without the www). × Dismiss alert
 
 ### Get your SSL certificates
 
@@ -72,10 +72,10 @@ We have come to a time where no website should operate without a secure connecti
 
 To do the configuration later, you need the following:
 
--   The certificate
--   The private key
+- The certificate
+- The private key
 
-_ Note: If you are unfamiliar with how certificates can be obtained, [a lot of helpful information](https://letmegooglethat.com/?q=how+to+get+a+ssl+certificate) is floating around on the net._
+Note: If you are unfamiliar with how certificates can be obtained, [a lot of helpful information](https://letmegooglethat.com/?q=how+to+get+a+ssl+certificate) is floating around on the net.
 
 ## Alias Configuration
 
@@ -83,7 +83,7 @@ A prerequisite for a domain to be available in the eCDN is that it is configured
 
 An example config you can use to get you up and running quickly:
 
-```
+```json
 {
   "__version": "1",
   "settings": {
@@ -131,7 +131,7 @@ Before continuing, we need to verify that we own the domain. Click the text "Ver
 
 This builds on the pre-work steps where you need access to the domain's DNS. Before we can continue with the following steps, a TXT record with the provided value needs to be added to the DNS settings of your domain.
 
-**DO NOT DO THIS ON THE DAY OF THE GO-LIVE.**
+DO NOT DO THIS ON THE DAY OF THE GO-LIVE.
 
 As the warning says, it can take up to 6 hours for these changes to take effect. And on the go-live day, you don't want to spend your time "stressing out" on something you have no control over.
 
@@ -207,7 +207,7 @@ HTML Minification Those who have enabled this in the past might have wondered if
 
 If you have comments on an environment that have value for an external system, be sure not to activate this type of minification.
 
-_**Note:** This also breaks the deprecated toolkit on Development as it relies on comments._
+**Note:** This also breaks the deprecated toolkit on Development as it relies on comments.
 
 [![eCDN Speed panel showing Auto Minify and Polish options for the storefront.](/media/2022/ecdn-speed-settings-cccba25f5e.png)](/media/2022/ecdn-speed-settings-cccba25f5e.png)
 
@@ -237,7 +237,7 @@ There is a REST service available however:
 
 Using these APIs, you can enable:
 
--   [Brotli Compression](https://blog.cloudflare.com/brotli-compression-using-a-reduced-dictionary/)
--   [HTTP2 Prioritization](https://blog.cloudflare.com/better-http-2-prioritization-for-a-faster-web/)
+- [Brotli Compression](https://blog.cloudflare.com/brotli-compression-using-a-reduced-dictionary/)
+- [HTTP2 Prioritization](https://blog.cloudflare.com/better-http-2-prioritization-for-a-faster-web/)
 
 Make sure you do not forget about these! As they can also increase performance on certain pages. HTTP2 Prioritization will help a lot on lister pages with many images processed by the [DIS](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/image_management/b2c_image_transformation_service.html) (Dynamic Image Service).

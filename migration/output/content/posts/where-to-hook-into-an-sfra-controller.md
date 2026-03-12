@@ -53,7 +53,8 @@ The "home.js" controller file of SFRA
 
 Before we get started, we need to ensure we are on the same page on what a "[route](https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/blob/1cb2b329fa281333403bb2681b939e727aee809a/cartridges/modules/server/route.js)" is.
 
-In the context of SFRA (Storefront Reference Architecture) of SFCC (Salesforce Commerce Cloud), a controller route is a mapping between a URL and a specific controller function. When a user navigates to a specific URL within the SFRA storefront, the controller function, a key element of the SFRA architecture, handles the request and generates the appropriate response (usually ISML or JSON).
+In the context of SFRA (Storefront Reference Architecture) of SFCC (Salesforce Commerce Cloud), a controller route is a mapping between a URL and a specific controller function.
+When a user navigates to a specific URL within the SFRA storefront, the controller function, a key element of the SFRA architecture, handles the request and generates the appropriate response (usually ISML or JSON).
 
 The standard available options, and the most common ones, are:
 
@@ -76,7 +77,7 @@ Cartridge path: plugin_custom:app_storefront_base
 
 ### server.prepend()
 
-The \`server.prepend\` function adds a middleware function to the beginning of the route stack. This allows you to execute code before the base (app\_storefront\_base) processing begins.
+The \`server.prepend\` function adds a middleware function to the beginning of the route stack. This allows you to execute code before the base (app\_storefront\_ base) processing begins.
 
 Here's a simple example of how you can use \`server.prepend\` with the homepage function:
 
@@ -95,7 +96,7 @@ Fun Fact Prepending was one of the first [pull requests](https://github.com/Sale
 
 ### server.append()
 
-The \`server.append\` function adds a middleware function to the end of the route stack. This allows you to execute code after the base (app\_storefront\_base) processing finishes.
+The \`server.append\` function adds a middleware function to the end of the route stack. This allows you to execute code after the base (app\_storefront\_ base) processing finishes.
 
 Here's a simple example of how you can use \`server.append\` with the homepage function:
 
@@ -112,7 +113,7 @@ Visualising what "appending" does in a single route (Home-Show)
 
 ### server.replace()
 
-The \`server.replace\` function replaces the entire route stack up until that point. This allows you to replace code in the base (app\_storefront\_base) fully.
+The \`server.replace\` function replaces the entire route stack up until that point. This allows you to replace code in the base (app\_storefront\_ base) fully.
 
 Here's a simple example of how you can use \`server.replace\` with the homepage function:
 
@@ -140,11 +141,11 @@ Visualising what "replacing" does in a single route (Home-Show)
 
 The options explained above already give you quite a bit of flexibility. But what if I told you there is even more to come? The route itself also exposes a few "events" in which we can hook into:
 
-- **route:Start:** Executes at the start of the route, before any middleware defined using "server.\*"
-- **route:BeforeComplete:** Executes after all route middleware is finished but before the "route:Complete" event.
-- **route:Complete:** The final event, after everything else.
-- **route:Step:** Executed between each route middleware.
-- **route:Redirect:** Executed when a "res.redirect()" is executed.
+- **route: Start:** Executes at the start of the route, before any middleware defined using "server.\*"
+- **route: BeforeComplete:** Executes after all route middleware is finished but before the "route:Complete" event.
+- **route: Complete:** The final event, after everything else.
+- **route: Step:** Executed between each route middleware.
+- **route: Redirect:** Executed when a "res.redirect()" is executed.
 
 ```js
 server.replace('Show', function (req, res, next) {

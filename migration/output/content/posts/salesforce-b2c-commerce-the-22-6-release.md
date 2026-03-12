@@ -89,11 +89,16 @@ Filter and find storefront implementation errors, such as broken includes, signi
 
 #### Unnecessary Product Update Index Task is performed after the Full Index Rebuild
 
-An unnecessary Product Update Index Task was performed after the Full Index Rebuild, which publishes a new index even if 0 documents have changed. This happened only if Incremental Index was enabled, even if NO product change had been performed after the Full Index Rebuild. Now, after a full search index update in done and no documents have changed, the platform is not doing an Incremental Index afterward.
+An unnecessary Product Update Index Task was performed after the Full Index Rebuild, which publishes a new
+index even if 0 documents have changed. This happened only if Incremental Index was enabled,
+even if NO product change had been performed after the Full Index Rebuild. Now, after a full search index update in
+done and no documents have changed, the platform is not doing an Incremental Index afterward.
 
 #### Rule Based Product Categorization - UI Changes to Include SiteContext when Saving/Fetching Rules
 
-When creating/editing a ruleset, a dropdown is now provided (similar to the Locale dropdown). The dropdown will be auto-selected to "default" and include all valid active Sites for that instance. When the merchandiser saves the ruleset, the API to PUT/POST rules will consist of a new field to persist the SiteContext selected.
+When creating/editing a ruleset, a dropdown is now provided (similar to the Locale dropdown). The dropdown
+will be auto-selected to "default" and include all valid active Sites for that instance. When the merchandiser saves
+the ruleset, the API to PUT/POST rules will consist of a new field to persist the SiteContext selected.
 
 #### Dynamic Categorization - Value selection for String attributes with the "is one of" selector isn't working
 

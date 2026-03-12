@@ -21,9 +21,9 @@ It's summertime, which means we get to check out the fresh release of the Salesf
 
 > Environment variables allow you to add variables into the application process running in an environment, without having to make code changes. Environment variables are stored securely, making them ideal for use cases such as:
 >
-> -   API keys for third-party integrations
-> -   Feature flags for application logic
-> -   Configuration that differs between environments
+> - API keys for third-party integrations
+> - Feature flags for application logic
+> - Configuration that differs between environments
 
 Great news for users of Composable Storefront! You can now use the much-awaited feature of securely managing "secrets" and variables per environment! Currently, the API is the sole choice that is minimally (for now) documented [in the Managed Runtime environment variables guide](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/managed-runtime-administration.html#environment-variables).
 
@@ -59,9 +59,9 @@ This latest update gives us greater control and precision over the products [aut
 
 The description may be brief, but there's good news - a support-only feature switch previously available for SG/SFRA has been enabled for headless implementations, enabling filtering based on promotions. Here are the steps to get started with this:
 
-1.  [Enable and configure it](https://help.salesforce.com/s/articleView?id=cc.b2c_configuring_catalog_level_search_refinement_definitions.htm&language=en_us&release=2.0.1&type=5)
-2.  [SiteGenesis/SFRA Code Changes](https://help.salesforce.com/s/articleView?id=cc.b2c_promotion_refinement_code_changes.htm&type=5)
-3.  [New "pmid" refinement for SCAPI](https://developer.salesforce.com/docs/commerce/commerce-api/references/shopper-search?meta=productSearch)
+1. [Enable and configure it](https://help.salesforce.com/s/articleView?id=cc.b2c_configuring_catalog_level_search_refinement_definitions.htm&language=en_us&release=2.0.1&type=5)
+1. [SiteGenesis/SFRA Code Changes](https://help.salesforce.com/s/articleView?id=cc.b2c_promotion_refinement_code_changes.htm&type=5)
+1. [New "pmid" refinement for SCAPI](https://developer.salesforce.com/docs/commerce/commerce-api/references/shopper-search?meta=productSearch)
 
 ## Development
 
@@ -83,8 +83,8 @@ Just a gentle reminder to [vote](https://ideas.salesforce.com/s/search#t=All&sor
 
 ## PWA Kit v2.7.3
 
-> -   Add support for ES module import statements in ssr.js #1284
-> -   Support Node 18 and NPM 9. #1265
+> - Add support for ES module import statements in ssr.js #1284
+> - Support Node 18 and NPM 9. #1265
 
 This a minor release to ensure this version is compatible with the latest Node version (18), as the older versions will be deprecated soon!
 
@@ -94,9 +94,9 @@ This a minor release to ensure this version is compatible with the latest Node v
 
 > We’ve added lots of new features to PWA Kit v3, including:
 >
-> -   🔨 Template extensibility: Greatly reduce your project's code footprint and reduce development toil, cost of ownership, and future upgrade headaches. For more details, see the Template Extensibility guide!
-> -   🪝 @salesforce/commerce-sdk-react "hooks" integration: Decouples API calls from a project's implementation, allows API calls to be upgraded as an npm library dependency, and brings along many of the great features (including state management, and others) via TanStack Query. See the the Commerce SDK React docs to get started!
-> -   ⚛️ Major vendor library updates, including support for React 18, Node 16 / 18, Chakra 2, and more.
+> - 🔨 Template extensibility: Greatly reduce your project's code footprint and reduce development toil, cost of ownership, and future upgrade headaches. For more details, see the Template Extensibility guide!
+> - 🪝 @salesforce/commerce-sdk-react "hooks" integration: Decouples API calls from a project's implementation, allows API calls to be upgraded as an npm library dependency, and brings along many of the great features (including state management, and others) via TanStack Query. See the the Commerce SDK React docs to get started!
+> - ⚛️ Major vendor library updates, including support for React 18, Node 16 / 18, Chakra 2, and more.
 
 This a long-awaited [update](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v3.0.0), bringing many new treats to development. With the new template extensibility options, we can now start overriding just like in SFRA... or at least something that looks like it. Next to that, many updates to libraries and support for the latest stable Node version. One of the libraries is a favourite of mine: [TanStack Query](https://tanstack.com/query/v3/) (or React Query), which makes state management a breeze with APIs.
 
@@ -110,11 +110,11 @@ Compiling a list of updates has become more challenging since cartridges are no 
 
 ### b2c-tools (v0.18.0)
 
--   [https://github.com/SalesforceCommerceCloud/b2c-tools](https://github.com/SalesforceCommerceCloud/b2c-tools)
+- [https://github.com/SalesforceCommerceCloud/b2c-tools](https://github.com/SalesforceCommerceCloud/b2c-tools)
 
 > b2c-tools is a CLI tool and library for data migrations, import/export, scripting and other tasks with SFCC B2C instances and administrative APIs (SCAPI, ODS, etc). It is intended to be complimentary to other tools such as sfcc-ci for development and CI/CD scenarios.
 
--   All requests now use a (Version identified) b2c-tools user-agent
--   JSDoc refactoring and resulting bug cleanup by [@clavery](https://github.com/clavery) in #112
-    -   `checkJs` is on now
--   set code version to active code version if not found in env vars by [@sandragolden](https://github.com/sandragolden) in #113
+- All requests now use a (Version identified) b2c-tools user-agent
+- JSDoc refactoring and resulting bug cleanup by [@clavery](https://github.com/clavery) in #112
+- `checkJs` is on now
+- set code version to active code version if not found in env vars by [@sandragolden](https://github.com/sandragolden) in #113

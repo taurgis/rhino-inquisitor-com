@@ -33,9 +33,9 @@ In SFCC, you have several options for storing temporary data, and choosing the c
 
 Developers new to the platform frequently conflate Custom Caches and the Page Cache. They are fundamentally different beasts operating at different layers of the architecture. Mistaking one for the other is like using a hammer to turn a screw.
 
-- **Page Cache** is for caching **rendered output**. It operates at the **web server tier** and stores full HTTP responses—typically HTML fragments generated from ISML templates. You control it with the [`<iscache>`](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-content-cache.html) tag or the [`response.setExpires()`](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_system_Response.html#dw_system_Response_setExpires_Number_DetailAnchor) script API method. When a request hits a URL whose response is in the Page Cache, the [web server](/the-salesforce-b2c-commerce-cloud-environment/) serves it directly, never even bothering the application server. It is incredibly fast and is the primary defence against high traffic for storefront pages.
+- **Page Cache**is for caching**rendered output**. It operates at the**web server tier** and stores full HTTP responses—typically HTML fragments generated from ISML templates. You control it with the [`<iscache>`](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-content-cache.html) tag or the [`response.setExpires()`](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_system_Response.html#dw_system_Response_setExpires_Number_DetailAnchor) script API method. When a request hits a URL whose response is in the Page Cache, the [web server](/the-salesforce-b2c-commerce-cloud-environment/) serves it directly, never even bothering the application server. It is incredibly fast and is the primary defence against high traffic for storefront pages.
 
-- **Custom Cache** is for caching **application data**. It operates at the **application server tier** and stores JavaScript objects and primitives inside a script or controller's execution context. You control it exclusively through the `dw.system.CacheMgr` script API. It's designed to avoid recalculating expensive data or re-fetching it from an external source during the execution of a controller that will ultimately produce a response.
+- **Custom Cache**is for caching**application data**. It operates at the**application server tier** and stores JavaScript objects and primitives inside a script or controller's execution context. You control it exclusively through the `dw.system.CacheMgr` script API. It's designed to avoid recalculating expensive data or re-fetching it from an external source during the execution of a controller that will ultimately produce a response.
 
 The distinction is critical: **Cache the final, cooked meal with Page Cache, cache the raw ingredients with Custom Cache.** To avoid re-rendering a product tile's HTML, use Page Cache with a remote include. If you need to avoid re-fetching the product's third-party ratings data _before_ you render the tile, use a Custom Cache.
 
@@ -81,7 +81,7 @@ Your cache's life begins with a simple declaration. This is done in a JSON file,
 
 The `id` must be **globally unique** across every single cartridge in your site's cartridge path. A duplicate ID will cause the cache to silently fail to initialize, with the only evidence being an error in the logs. The `expireAfterSeconds` sets a TTL for entries in that cache. If omitted, entries have no time-based expiration and persist until the next global cache clear event.
 
-3**. Register in `package.json`:** The platform needs to know where to find your definition file. Reference it in your cartridge's `package.json` using the `caches` key. The path is relative to the `package.json` file itself.
+3 **. Register in `package.json`:** The platform needs to know where to find your definition file. Reference it in your cartridge's `package.json` using the `caches` key. The path is relative to the `package.json` file itself.
 
 ```json
 {
@@ -89,7 +89,7 @@ The `id` must be **globally unique** across every single cartridge in your site'
 }
 ```
 
-1. **Enable in Business Manager:** Finally, you must globally enable the custom cache feature. Navigate to **Administration > Operations > Custom Caches** and check the "Enable Caching" box.  Disabling this will clear all custom caches on the instance. This page will also become your primary tool for monitoring cache health.
+1. **Enable in Business Manager:**Finally, you must globally enable the custom cache feature. Navigate to**Administration > Operations > Custom Caches** and check the "Enable Caching" box.  Disabling this will clear all custom caches on the instance. This page will also become your primary tool for monitoring cache health.
 
 [![Custom Caches screen in Business Manager.](/media/2025/ods-custom-caches-business-manager-c30167212b.png)](/media/2025/ods-custom-caches-business-manager-c30167212b.png)
 
@@ -178,7 +178,7 @@ A highly effective pattern is to build keys from concatenated, delimited parts: 
 
 - **Bad Key:** `'12345'` (What is it? A product? A category? For which site?)
 
-- **Good Key:** `'product_tile_data::RefArch_US::12345_blue::en_US'`
+- **Good Key:** `'product _tile _ data::RefArch_US::12345 _ blue::en_US'`
 
 This structure prevents a product cache from colliding with a content cache, ensures data for the US site doesn't leak into the EU site, and makes debugging from logs infinitely easier because the key itself tells you exactly what it's for. Always include `Site.current.ID` and the current locale for any site- or language-specific data.
 
@@ -186,9 +186,10 @@ This structure prevents a product cache from colliding with a content cache, ens
 
 While it might seem clever to make your cache key highly specific and unique, this can backfire by reducing the chances of cache hits.
 
-_**Striking the right balance is key.** (pun intended)_
+**Striking the right balance is key.** (pun intended)
 
-I've also seen situations where the effort spent retrieving extensive data from the database to craft the key ends up cancelling out the performance benefits of custom caching. After all, if generating the key takes longer than the cache saves, it's time to rethink the approach.
+I've also seen situations where the effort spent retrieving extensive data from the database to craft the key ends up cancelling out the performance benefits of custom caching.
+After all, if generating the key takes longer than the cache saves, it's time to rethink the approach.
 
 ## The Serialization Conundrum: Caching API Objects vs. POJOs
 
@@ -245,13 +246,13 @@ With the theory and mechanics established, let's apply them to the most common s
 
 This is the poster child for custom caches. Your site needs to display real-time shipping estimates, user-generated reviews, or social media feeds from a third-party service. Making a live HTTP call on every page load is a recipe for a slow, unreliable site. By wrapping the service call in the "get-or-load" pattern, you can cache the response for a few minutes, drastically reducing latency and insulating your site from temporary blips in the third-party service's availability.
 
-_Remember, there's_ [another option](/third-party-api-caching-in-commerce-cloud/) _I mentioned in a previous article: using the ServiceRegistry for caching._
+Remember, there's_[another option](/third-party-api-caching-in-commerce-cloud/)_I mentioned in a previous article: using the ServiceRegistry for caching.
 
 ### Use Case 2: Caching Expensive Computations
 
 Some business logic is just plain expensive. The classic example is determining if a main product should display an "On Sale" banner by iterating through all of its variation products to check their promotion status. On a product grid page with 24 products, each with 10 variants, this could mean hundreds of object inspections just to render the page. This is a perfect candidate for a custom cache.
 
-Calculate the result once, store the simple boolean result in a cache with a key like`'main_promo_status::' + mainPid`, and set a reasonable TTL (e.g., 15 minutes) to align with promotion update frequencies.
+Calculate the result once, store the simple boolean result in a cache with a key like`'main _promo_ status::' + mainPid`, and set a reasonable TTL (e.g., 15 minutes) to align with promotion update frequencies.
 
 Key! Depending on your configuration, consider including the site ID or locale in your key!
 
@@ -269,7 +270,7 @@ Now for the most crucial section of this guide. Understanding these pitfalls is 
 
 Let this be stated as clearly as possible: **There is no reliable, built-in mechanism to invalidate a single custom cache key across all application servers in a production environment.**
 
-The `cache.invalidate(key)` method is a _trap_. It is functionally useless for ensuring data consistency on a multi-server POD. It only clears the key on the _single application server that happens to execute the code_. The other 2, 5, or 10 servers in the instance will continue to happily serve the stale data until their TTL expires or a global event occurs.
+The `cache.invalidate(key)` method is a _trap _. It is functionally useless for ensuring data consistency on a multi-server POD. It only clears the key on the_ single application server that happens to execute the code_. The other 2, 5, or 10 servers in the instance will continue to happily serve the stale data until their TTL expires or a global event occurs.
 
 The only ways to reliably clear a custom cache across an entire instance are these "sledgehammer" approaches :
 
@@ -277,7 +278,7 @@ The only ways to reliably clear a custom cache across an entire instance are the
 
 - **Code Activation:** Activating a new code version clears all custom caches.
 
-- **Manual Invalidation:** A Business Manager user navigating to **Administration > Operations > Custom Caches** and clicking the "Clear" button for a specific cache (for each app server).
+- **Manual Invalidation:**A Business Manager user navigating to**Administration > Operations > Custom Caches** and clicking the "Clear" button for a specific cache (for each app server).
 
 This limitation has profound architectural implications. It means you **must design your caching strategy around time-based expiration (`expireAfterSeconds`)**. You have to accept and plan for a window of potential data staleness. Do not attempt to build a complex, event-driven invalidation system (e.g., trying to have a job invalidate a key). It is doomed to fail in a multi-server environment.
 
@@ -305,7 +306,7 @@ Your primary dashboard is located at **Administration > Operations > Custom Cach
 
 - **Hits / Total:** This is your hit ratio. For a frequently accessed cache, this number should be very high (ideally 95%+). A low hit ratio means your cache is ineffective. This could be due to poorly designed keys, a TTL that is too short, or constant cache clearing.
 
-- **Write Failures:** This number must be **zero**. A non-zero value is a critical alert. It almost certainly means you are violating the 128KB per-entry size limit, likely by trying to cache a full API object instead of a POJO.
+- **Write Failures:**This number must be**zero**. A non-zero value is a critical alert. It almost certainly means you are violating the 128KB per-entry size limit, likely by trying to cache a full API object instead of a POJO.
 
 - **Clear Button:** The manual override. Use it when you need to force a refresh of a specific cache's data across all application servers.
 
@@ -313,11 +314,11 @@ Your primary dashboard is located at **Administration > Operations > Custom Cach
 
 When you identify a performance problem, follow this systematic process to diagnose cache-related issues :
 
-1. **Observe (Production):** Start in **Reports & Dashboards > Technical**. Sort by "Percentage of Processing Time" or "Average Response Time" to find your slowest controllers and remote includes. These are your top suspects. Note their cache hit ratios in the report. A low hit ratio on a slow controller is a huge red flag.
+1. **Observe (Production):**Start in**Reports & Dashboards > Technical**. Sort by "Percentage of Processing Time" or "Average Response Time" to find your slowest controllers and remote includes. These are your top suspects. Note their cache hit ratios in the report. A low hit ratio on a slow controller is a huge red flag.
 
-1. **Hypothesize (Business Manager):** Go to the **Custom Caches** page. Does the slow controller use a custom cache? Is that cache showing a low hit rate or, worse, write failures? This helps correlate the storefront performance issue with a specific cache's health.
+1. **Hypothesize (Business Manager):**Go to the**Custom Caches** page. Does the slow controller use a custom cache? Is that cache showing a low hit rate or, worse, write failures? This helps correlate the storefront performance issue with a specific cache's health.
 
-1. **Reproduce & Pinpoint (Development):** Switch to a development instance. Use the **Pipeline Profiler** to get a high-level timing breakdown of the suspect controller. This tool confirms which parts of the request are slow, but it does not show cached requests. To dig deeper into the code itself, use the
+1. **Reproduce & Pinpoint (Development):**Switch to a development instance. Use the**Pipeline Profiler** to get a high-level timing breakdown of the suspect controller. This tool confirms which parts of the request are slow, but it does not show cached requests. To dig deeper into the code itself, use the
 
 1. **Code Profiler**. Run the uncached controller and look for the specific script lines or API calls that consume the most execution time. This will tell you exactly what expensive operation needs to be wrapped in a cache call.
 

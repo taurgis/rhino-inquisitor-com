@@ -1,12 +1,12 @@
 {
-  "mode": "subset",
+  "mode": "full",
   "selection": {
-    "sourceIdFileUsed": true,
-    "sourceIdFile": "migration/input/batch2-source-ids.txt",
-    "sourceIdCount": 35,
+    "sourceIdFileUsed": false,
+    "sourceIdFile": null,
+    "sourceIdCount": 0,
     "postTypes": [],
-    "recordCount": 65,
-    "supportRecordCount": 30
+    "recordCount": 947,
+    "supportRecordCount": 0
   },
   "sourceCoverageScope": "source-backed-content-only",
   "inputFiles": {
@@ -21,36 +21,104 @@
     "errors": "migration/intermediate/normalize-errors.json"
   },
   "totals": {
-    "extracted": 65,
-    "normalized": 36,
+    "extracted": 947,
+    "normalized": 331,
     "errors": 0,
     "blockingErrors": 0,
     "nonBlockingErrors": 0,
-    "skippedWithoutManifest": 29,
-    "manifestEntries": 1201,
+    "skippedWithoutManifest": 616,
+    "manifestEntries": 1212,
     "inventoryEntries": 1199
   },
   "byPostType": {
-    "attachment": 1,
-    "category": 5,
-    "page": 4,
-    "post": 26
+    "attachment": 136,
+    "category": 22,
+    "landing": 1,
+    "page": 22,
+    "post": 150
   },
   "byStatus": {
-    "publish": 36
+    "publish": 331
   },
   "byDisposition": {
-    "keep": 31,
-    "merge": 4,
-    "retire": 1
+    "keep": 180,
+    "merge": 13,
+    "retire": 138
   },
   "coverage": {
     "requiredScope": "source-backed-content-only",
-    "requiredManifestCount": 35,
-    "normalizedRequiredCount": 35,
-    "missingRequiredUrls": [],
+    "requiredManifestCount": 203,
+    "normalizedRequiredCount": 192,
+    "missingRequiredUrls": [
+      {
+        "legacyUrl": "/category/ai/",
+        "disposition": "keep",
+        "targetUrl": "/category/ai/",
+        "urlClass": "category"
+      },
+      {
+        "legacyUrl": "/category/architecture/",
+        "disposition": "keep",
+        "targetUrl": "/category/architecture/",
+        "urlClass": "category"
+      },
+      {
+        "legacyUrl": "/category/erd/",
+        "disposition": "keep",
+        "targetUrl": "/category/erd/",
+        "urlClass": "category"
+      },
+      {
+        "legacyUrl": "/category/go-live/",
+        "disposition": "keep",
+        "targetUrl": "/category/go-live/",
+        "urlClass": "category"
+      },
+      {
+        "legacyUrl": "/category/linkedin/",
+        "disposition": "keep",
+        "targetUrl": "/category/linkedin/",
+        "urlClass": "category"
+      },
+      {
+        "legacyUrl": "/category/podcasts/",
+        "disposition": "keep",
+        "targetUrl": "/category/podcasts/",
+        "urlClass": "category"
+      },
+      {
+        "legacyUrl": "/category/release-notes/",
+        "disposition": "keep",
+        "targetUrl": "/category/release-notes/",
+        "urlClass": "category"
+      },
+      {
+        "legacyUrl": "/category/salesforce-architects-blog/",
+        "disposition": "keep",
+        "targetUrl": "/category/salesforce-architects-blog/",
+        "urlClass": "category"
+      },
+      {
+        "legacyUrl": "/category/salesforce-ben/",
+        "disposition": "keep",
+        "targetUrl": "/category/salesforce-ben/",
+        "urlClass": "category"
+      },
+      {
+        "legacyUrl": "/category/sessions/",
+        "disposition": "keep",
+        "targetUrl": "/category/sessions/",
+        "urlClass": "category"
+      },
+      {
+        "legacyUrl": "/category/technical/",
+        "disposition": "keep",
+        "targetUrl": "/category/technical/",
+        "urlClass": "category"
+      }
+    ],
     "keepMergeMissingTargetUrlCount": 0,
-    "retireWithExplicitNullTargetUrlCount": 1,
+    "retireWithExplicitNullTargetUrlCount": 138,
     "blockingErrorCount": 0,
     "nonBlockingErrorCount": 0
   },
@@ -58,147 +126,149 @@
     "aliasContract": "Derived aliasUrls from manifest rows that share the same target_url, excluding the canonical target URL itself.",
     "mediaScope": "Collected mediaRefs from src attributes plus srcset candidate URLs, with attachment upload URLs preserved when available.",
     "timestampFallbacks": {
-      "publishedAt": 5,
-      "modifiedAt": 5,
+      "publishedAt": 22,
+      "modifiedAt": 22,
       "policy": "When source timestamps are missing, publishedAt falls back to modifiedAt then sourceTimestamp; modifiedAt falls back to publishedAt then sourceTimestamp."
     },
     "statusTransforms": {
-      "inherit->publish": 1
+      "inherit->publish": 136
     },
     "taxonomyTransforms": {
       "total": 0,
       "samples": []
     },
     "skippedWithoutManifest": {
-      "count": 29,
+      "count": 616,
       "byPostType": {
-        "attachment": 29
+        "post": 14,
+        "category": 1,
+        "attachment": 601
       },
       "samples": [
         {
-          "sourceId": "690",
-          "postType": "attachment",
-          "legacyUrl": "/wp-content/uploads/2022/03/mail.jpg"
+          "sourceId": "10599",
+          "postType": "post",
+          "legacyUrl": "/?p=10599"
         },
         {
-          "sourceId": "619",
-          "postType": "attachment",
-          "legacyUrl": "/wp-content/uploads/2022/03/slas.jpg"
+          "sourceId": "13839",
+          "postType": "post",
+          "legacyUrl": "/?p=13839"
         },
         {
-          "sourceId": "1553",
-          "postType": "attachment",
-          "legacyUrl": "/wp-content/uploads/2022/04/code-security.jpeg"
+          "sourceId": "523",
+          "postType": "post",
+          "legacyUrl": "/?p=523"
         },
         {
-          "sourceId": "807",
-          "postType": "attachment",
-          "legacyUrl": "/wp-content/uploads/2022/05/documentation.jpg"
+          "sourceId": "6635",
+          "postType": "post",
+          "legacyUrl": "/?p=6635"
         },
         {
-          "sourceId": "2537",
-          "postType": "attachment",
-          "legacyUrl": "/wp-content/uploads/2022/06/jwt.png"
+          "sourceId": "5702",
+          "postType": "post",
+          "legacyUrl": "/blog/automaton/"
         },
         {
-          "sourceId": "1209",
-          "postType": "attachment",
-          "legacyUrl": "/wp-content/uploads/2022/07/ecdn.png"
+          "sourceId": "5695",
+          "postType": "post",
+          "legacyUrl": "/blog/dreamforce-22-commerce-cloud-announcements/"
         },
         {
-          "sourceId": "2979",
-          "postType": "attachment",
-          "legacyUrl": "/wp-content/uploads/2022/07/trailhead-academy.jpeg"
+          "sourceId": "5699",
+          "postType": "post",
+          "legacyUrl": "/blog/salesforce-commerce-cloud-22/"
         },
         {
-          "sourceId": "4100",
-          "postType": "attachment",
-          "legacyUrl": "/wp-content/uploads/2022/08/artificial-intelligence.jpg"
+          "sourceId": "category:78",
+          "postType": "category",
+          "legacyUrl": "/category/external/salesforce-developers-blog/"
         },
         {
-          "sourceId": "4837",
-          "postType": "attachment",
-          "legacyUrl": "/wp-content/uploads/2022/09/headless.jpg"
+          "sourceId": "11178",
+          "postType": "post",
+          "legacyUrl": "/pulse/cautionary-tale-importance-reliable-customer-service-during-theunen-mu3ue%3ftrackingid=i%252bs3keqctlkbc82em5n4na%253d%253d/?trackingid=i%2bs3keqctlkbc82em5n4na%3d%3d"
         },
         {
-          "sourceId": "4820",
-          "postType": "attachment",
-          "legacyUrl": "/wp-content/uploads/2022/09/image-2.jpg"
+          "sourceId": "12944",
+          "postType": "post",
+          "legacyUrl": "/pulse/london-calling-ai-community-secret-house-titan-thomas-theunen-haeae/"
         },
         {
-          "sourceId": "4864",
-          "postType": "attachment",
-          "legacyUrl": "/wp-content/uploads/2022/09/inside-the-ohana.jpg"
+          "sourceId": "14152",
+          "postType": "post",
+          "legacyUrl": "/pulse/taming-ai-beast-custom-toolkit-supercharge-copilot-commerce-theunen-0i7se/"
         },
         {
-          "sourceId": "5407",
-          "postType": "attachment",
-          "legacyUrl": "/wp-content/uploads/2022/10/quota-limits.jpg"
+          "sourceId": "6264",
+          "postType": "post",
+          "legacyUrl": "/pulse/year-review-thomas-theunen/"
         },
         {
-          "sourceId": "5620",
-          "postType": "attachment",
-          "legacyUrl": "/wp-content/uploads/2022/11/ssl_certificate_tw.jpg"
+          "sourceId": "9198",
+          "postType": "post",
+          "legacyUrl": "/salesforce-architects/a-day-in-the-life-of-a-composable-storefront-request-f2b39b957a39/"
         },
         {
-          "sourceId": "4417",
-          "postType": "attachment",
-          "legacyUrl": "/wp-content/uploads/2023/01/b2c_active_merchandising_slide_1.gif"
+          "sourceId": "7133",
+          "postType": "post",
+          "legacyUrl": "/salesforce-b2c-commerce-cloud-architecture-explained/"
         },
         {
-          "sourceId": "6586",
-          "postType": "attachment",
-          "legacyUrl": "/wp-content/uploads/2023/01/client-side-js.jpg"
+          "sourceId": "9210",
+          "postType": "post",
+          "legacyUrl": "/tips-to-get-the-most-out-of-salesforce-b2c-commerce-cloud/"
         },
         {
-          "sourceId": "6326",
+          "sourceId": "84",
           "postType": "attachment",
-          "legacyUrl": "/wp-content/uploads/2023/01/dominoes-in-middle-of-the-road.jpg"
+          "legacyUrl": "/wp-content/uploads/2022/02/1e8a7695.jpg"
         },
         {
-          "sourceId": "3044",
+          "sourceId": "69",
           "postType": "attachment",
-          "legacyUrl": "/wp-content/uploads/2023/01/fonts.jpg"
+          "legacyUrl": "/wp-content/uploads/2022/02/about-page-pic1.jpg"
         },
         {
-          "sourceId": "6431",
+          "sourceId": "70",
           "postType": "attachment",
-          "legacyUrl": "/wp-content/uploads/2023/01/slas-public-client-registered-user-b2c.jpg"
+          "legacyUrl": "/wp-content/uploads/2022/02/about-page-pic2.jpg"
         },
         {
-          "sourceId": "7502",
+          "sourceId": "198",
           "postType": "attachment",
-          "legacyUrl": "/wp-content/uploads/2023/02/salesforce-b2c-commerce-cloud-erd.jpeg"
+          "legacyUrl": "/wp-content/uploads/2022/02/community-groups.jpg"
         },
         {
-          "sourceId": "3645",
+          "sourceId": "171",
           "postType": "attachment",
-          "legacyUrl": "/wp-content/uploads/2023/02/session-bridge.png"
+          "legacyUrl": "/wp-content/uploads/2022/02/connections-chicago-2019.jpg"
         },
         {
-          "sourceId": "8466",
+          "sourceId": "21",
           "postType": "attachment",
-          "legacyUrl": "/wp-content/uploads/2023/04/b2c-commerce-cloud-architect.jpeg"
+          "legacyUrl": "/wp-content/uploads/2022/02/divider.svg"
         },
         {
-          "sourceId": "12130",
+          "sourceId": "386",
           "postType": "attachment",
-          "legacyUrl": "/wp-content/uploads/2024/10/a-road-taking-odd-paths.jpeg"
+          "legacyUrl": "/wp-content/uploads/2022/02/experience-cloud.png"
         },
         {
-          "sourceId": "12536",
+          "sourceId": "74",
           "postType": "attachment",
-          "legacyUrl": "/wp-content/uploads/2024/11/third-party-service-caching.jpg"
+          "legacyUrl": "/wp-content/uploads/2022/02/homepage-hero-pic.jpg"
         },
         {
-          "sourceId": "12776",
+          "sourceId": "155",
           "postType": "attachment",
-          "legacyUrl": "/wp-content/uploads/2024/12/delivering-mail-in-sfcc.jpg"
+          "legacyUrl": "/wp-content/uploads/2022/02/jspdf-example.png"
         },
         {
-          "sourceId": "12991",
+          "sourceId": "183",
           "postType": "attachment",
-          "legacyUrl": "/wp-content/uploads/2025/06/developer-manipulating-performance-scaled.jpeg"
+          "legacyUrl": "/wp-content/uploads/2022/02/ohana-core.png"
         }
       ]
     }

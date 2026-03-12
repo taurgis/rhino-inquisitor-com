@@ -21,7 +21,8 @@ Headless APIs have been available in Salesforce B2C Commerce Cloud for some time
 
 Within that new set of APIs, a subset was focused on giving developers complete control of the login process of customers, called [SLAS](https://developer.salesforce.com/docs/commerce/commerce-api/references/shopper-login?meta=Summary) (Shopper Login And API Access Service). In February 2022, Salesforce also released a [cartridge](https://github.com/SalesforceCommerceCloud/plugin_slas) for SFRA, enabling easy incorporation of SLAS within your current setup.
 
-But let's cut to the chase. The `plugin_slas` cartridge (which we will discuss later in the article) was a necessary bridge for its time, but it also introduced performance bottlenecks, API quota concerns, and maintenance headaches. With the release of native [Hybrid Authentication](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/hybrid-auth.html), Salesforce has fundamentally changed the game for hybrid SFRA/Composable storefronts. This guide is your in-depth exploration of the "why" and "how"—we'll dissect the architectural shift and equip you with the strategic insights you need.
+But let's cut to the chase. The `plugin_slas` cartridge (which we will discuss later in the article) was a necessary bridge for its time, but it also introduced performance bottlenecks, API quota concerns, and maintenance headaches.
+With the release of native [Hybrid Authentication](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/hybrid-auth.html), Salesforce has fundamentally changed the game for hybrid SFRA/Composable storefronts. This guide is your in-depth exploration of the "why" and "how"—we'll dissect the architectural shift and equip you with the strategic insights you need.
 
 ## What is SLAS
 
@@ -31,7 +32,7 @@ But what is SLAS, anywho? It is a set of APIs that allows secure access to Comme
 
 Some use-cases:
 
-- **Single Sign-On**: Allow your customers to use a single set of log-ins across multiple environments (Commerce Cloud vs. a Community Portal)
+- **Single Sign-On:** Allow your customers to use a single set of log-ins across multiple environments (Commerce Cloud vs. a Community Portal)
 
 - **Third-Party Identity Providers:** Use third-party services that support [OpenID](https://openid.net/) like Facebook or Google.
 
@@ -71,11 +72,11 @@ While the `plugin_slas` cartridge solved an immediate and pressing problem, it c
 
 - **The API Quota Black Hole:** This was perhaps the most challenging issue for development teams, especially when the quota limit was still 8 - this is now 16, luckily. B2C Commerce enforces strict API quotas that cap the number of API calls per storefront request. The plugin\_slas cartridge could consume four, and in some registration cases, even five API calls just to log in a user.
 
-Using nearly half of the API limit for authentication alone was a risky strategy. This heavily restricted other vital operations, such as retrieving product information, checking inventory, or applying promotions, all within the same request. It led to constant stress and compelled developers to create complex, fragile workarounds.
+    Using nearly half of the API limit for authentication alone was a risky strategy. This heavily restricted other vital operations, such as retrieving product information, checking inventory, or applying promotions, all within the same request. It led to constant stress and compelled developers to create complex, fragile workarounds.
 
 -
 
-**The Maintenance Quagmire:** As a cartridge, `plugin_slas` was yet another piece of critical code that teams had to install, configure, update, and regression test. When Salesforce released bug fixes or security patches for the cartridge, it required a full deployment cycle to get them into production. This added operational overhead and introduced another potential point of failure in the authentication path, a path that demands maximum stability and security. The cartridge was a tactical patch on a strategic problem, and its very architecture—an external add-on making remote calls back to the platform—was the root cause of its limitations.
+    **The Maintenance Quagmire:** As a cartridge, `plugin_slas` was yet another piece of critical code that teams had to install, configure, update, and regression test. When Salesforce released bug fixes or security patches for the cartridge, it required a full deployment cycle to get them into production. This added operational overhead and introduced another potential point of failure in the authentication path, a path that demands maximum stability and security. The cartridge was a tactical patch on a strategic problem, and its very architecture—an external add-on making remote calls back to the platform—was the root cause of its limitations.
 
 ## The New Sheriff in Town: Platform-Native Hybrid Authentication
 
@@ -123,11 +124,11 @@ The power to configure this timeout lies within your SLAS client's token policy.
 
 Since the `plugin_slas` cartridge was first introduced, Salesforce has [rolled out several security enhancements](https://developer.salesforce.com/docs/commerce/commerce-api/references/about-commerce-api/about.html) that are now effectively mandatory. Failing to address them during your migration will result in a broken or insecure implementation.
 
-- **Enforcing Refresh Token Rotation:** This is a major change, aligning with the OAuth 2.1 security specification. For public clients, which include most PWA Kit storefronts, SLAS now **prohibits the reuse of a refresh token**. When an application uses a refresh token to get a new access token, the response will contain a _new_ refresh token. The application must store and use this new refresh token for subsequent refreshes. Attempting to reuse an old refresh token will result in a `400 'Invalid Refresh Token'` error. The `plugin_slas` cartridge had to be updated to version 7.4.1 to support this, and any custom headless frontend must be updated to handle this rotation logic.
+- **Enforcing Refresh Token Rotation:**This is a major change, aligning with the OAuth 2.1 security specification. For public clients, which include most PWA Kit storefronts, SLAS now**prohibits the reuse of a refresh token**. When an application uses a refresh token to get a new access token, the response will contain a _new_ refresh token. The application must store and use this new refresh token for subsequent refreshes. Attempting to reuse an old refresh token will result in a `400 'Invalid Refresh Token'` error. The `plugin_slas` cartridge had to be updated to version 7.4.1 to support this, and any custom headless frontend must be updated to handle this rotation logic.
 
 - **Stricter Realm Validation:** To enhance security and prevent misconfiguration, SCAPI requests now undergo stricter validation to ensure the realm ID in the request matches the assigned short code for that realm. A mismatch will result in a `404 Not Found` error.
 
-- **Choosing the Right Client: Public vs. Private:** The fundamental rule of OAuth 2.0 remains paramount. If your application cannot guarantee the confidentiality of a client secret (e.g., a client-side single-page application or a native mobile app), you **must** use a public client. If the secret can be securely stored on a server (e.g., in a traditional web app or a Backend-for-Frontend architecture), you should use a private client.
+- **Choosing the Right Client: Public vs. Private:**The fundamental rule of OAuth 2.0 remains paramount. If your application cannot guarantee the confidentiality of a client secret (e.g., a client-side single-page application or a native mobile app), you**must** use a public client. If the secret can be securely stored on a server (e.g., in a traditional web app or a Backend-for-Frontend architecture), you should use a private client.
 
 Because the migration to Hybrid Auth requires touching authentication code on both the SFCC backend and the headless frontend, it is the ideal and necessary time to conduct a full security audit. The migration project's scope must include updating your implementation to meet these new, stricter standards.
 

@@ -18,7 +18,7 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-**Let's be honest, as developers, "SEO" can sometimes feel like a four-letter word handed down from the marketing team. But what if I told you that one of the most critical SEO tools, the sitemap, is actually a fascinating piece of platform architecture you can control, automate, and even extend with code?**
+Let's be honest, as developers, "SEO" can sometimes feel like a four-letter word handed down from the marketing team. But what if I told you that one of the most critical SEO tools, the sitemap, is actually a fascinating piece of platform architecture you can control, automate, and even extend with code?
 
 In Salesforce B2C Commerce Cloud (SFCC), the sitemap serves a purpose beyond simply listing links. It is a robust and scalable system that communicates to search engines precisely what content exists on your site and its level of importance. Properly configuring your sitemap results in faster indexing, improved visibility, and greater satisfaction for your marketing team. If done incorrectly, however, it could render your newly launched products invisible to search engines like Google, as well as tools such as ChatGPT and Google Gemini.
 
@@ -28,7 +28,7 @@ This guide will walk you through everything you need to know, from leveraging th
 
 Think of the standard SFCC sitemap [generator](https://help.salesforce.com/s/articleView?id=cc.b2c_sitemap_topology.htm&language=de&type=5) as the "easy button" that handles 80% of the work for you. For massive e-commerce sites with millions of URLs, this is a lifesaver.
 
-At its core, the platform cleverly sidesteps search engine limitations, like the 50,000 URL or 10MB file size cap, by creating a two-tiered system. It generates a main sitemap\_index.xml file, which is the only URL you need to give to Google. This index file then points to a series of child sitemaps (sitemap\_0.xml, sitemap\_1.xml, etc.) that contain the actual URLs.
+At its core, the platform cleverly sidesteps search engine limitations, like the 50,000 URL or 10MB file size cap, by creating a two-tiered system. It generates a main sitemap\_index.xml file, which is the only URL you need to give to Google. This index file then points to a series of child sitemaps (sitemap\_ 0.xml, sitemap\_1.xml, etc.) that contain the actual URLs.
 
 You control all of this from the Business Manager: Merchant Tools > SEO > Sitemaps.
 
@@ -53,7 +53,7 @@ The Job tab
 
 You can run the sitemap generation manually or, more practically, schedule it as a recurring job from the Job tab. Here is the single most important operational detail:
 
-_**Always schedule the sitemap job to run** **after** **your daily data replication from the staging instance.**_
+**Always schedule the sitemap job to run** **after** **your daily data replication from the staging instance.**
 
 If you run it before, all the new products and content from that day's replication will be missing from the sitemap, rendering it stale the moment it's created.
 

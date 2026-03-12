@@ -33,7 +33,7 @@ You might think it strange that the first topic is securing your account. But if
 
 The main advantage (from my perspective) is that you now have one account to log in to many different environments (and across realms).
 
-**But this comes at a price.**
+But this comes at a price.
 
 If an account becomes compromised, especially Account Managers, someone can get access to many different environments in one swing.
 
@@ -54,7 +54,8 @@ There are different options possible with Account Manager:
 - [TOTP](https://en.wikipedia.org/wiki/Time-based_one-time_password) (Time-based one-time password) application
 - [Salesforce Identity](https://help.salesforce.com/s/articleView?id=sf.who_is_salesforce_identity_for.htm&type=5) ([Documentation](https://documentation.b2c.commercecloud.salesforce.com/DOC2/topic/com.demandware.dochelp/content/b2c_commerce/topics/account_manager/b2c_account_manager_link_account_to_salesforce_identity_sso.html))
 
-I decided to make it a tad more manageable to log in by creating "[Automaton](https://chrome.google.com/webstore/detail/automaton-account-manager/clbadmmkinhmiblhkkiiabbbcpljohob)." A browser (chromium) plugin that acts as a TOTP mobile application. As a bonus, it also automatically fills in all fields. It is, of course, secured by a "Vault Password," so not everyone that has access to your laptop can log in.
+I decided to make it a tad more manageable to log in by creating "[Automaton](https://chrome.google.com/webstore/detail/automaton-account-manager/clbadmmkinhmiblhkkiiabbbcpljohob)." A browser (chromium) plugin that acts as a TOTP mobile application. As a bonus, it also automatically fills in all fields.
+It is, of course, secured by a "Vault Password," so not everyone that has access to your laptop can log in.
 
 It may seem like an inconvenience that costs you time over the day. But think of what could happen if someone takes over your account and can access all of the Salesforce B2C Commerce Cloud environments linked to your account.
 
@@ -151,13 +152,13 @@ The Access-Control-Expose-Headers response header allows a server to indicate wh
 
 The HTTP Content-Security-Policy response header allows web site administrators to control resources the user agent is allowed to load for a given page. With a few exceptions, policies mostly involve specifying server origins and script endpoints. This helps guard against cross-site scripting attacks (Cross-site\_scripting).
 
-_**Note:** The Commerce Cloud platform can override this header for tools like the Storefront Toolkit._
+**Note:** The Commerce Cloud platform can override this header for tools like the Storefront Toolkit.
 
 ### [Content-Security-Policy-Report-Only](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy-Report-Only)
 
 The HTTP Content-Security-Policy-Report-Only response header allows web developers to experiment with policies by monitoring (but not enforcing) their effects. These violation reports consist of JSON documents sent via an HTTP POST request to the specified URI.
 
-_**Note:** You can set this response header only for storefront requests. Report recipient can't be a B2C Commerce system._
+**Note:** You can set this response header only for storefront requests. Report recipient can't be a B2C Commerce system.
 
 ### [Cross-Origin-Embedder-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Embedder-Policy)
 
@@ -187,9 +188,9 @@ The X-Content-Type-Options response HTTP header is a marker used by the server t
 
 TThe X-Frame-Options HTTP response header can be used to indicate whether or not a browser should be allowed to render a page in a , `<iframe>`, `<embed />` or `<object>`. Sites can use this to avoid click-jacking attacks, by ensuring that their content is not embedded into other sites.
 
-_**Note:** The Commerce Cloud platform can override this header for tools like the Storefront Toolkit._
+**Note:**  The Commerce Cloud platform can override this header for tools like the Storefront Toolkit.
 
-_**Note:** The values of this header are restricted to: "ALLOW-FROM", "DENY", "SAMEORIGIN"._
+**Note:** The values of this header are restricted to: "ALLOW-FROM", "DENY", "SAMEORIGIN".
 
 ## PWA Kit
 
@@ -217,4 +218,4 @@ As SFRA and PWA Kit use npm for their third-party libraries, it makes sense to u
 
 The audit command submits a description of the dependencies configured in your project to your default registry and asks for a report of known vulnerabilities.
 
-_**Note:** Always test thoroughly after updating your packages (with or without using the npm audit function) to ensure all functionalities work as expected!_
+**Note:** Always test thoroughly after updating your packages (with or without using the npm audit function) to ensure all functionalities work as expected!

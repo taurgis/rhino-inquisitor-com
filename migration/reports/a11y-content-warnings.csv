@@ -1,1 +1,2 @@
 file,line,issueType,status,severity,value,message,suggestion
+migration/output/content/posts/salesforce-b2c-commerce-cloud-23-3-release.md,76,weak_link_text,warn,medium,here,Link text is too generic to stand alone reliably.,Replace the link text with a destination-specific label.

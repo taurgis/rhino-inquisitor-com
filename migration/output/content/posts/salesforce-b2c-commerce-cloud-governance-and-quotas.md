@@ -54,7 +54,7 @@ Quota Status in Business Manager
 
 Enforced quotas will throw an unrecoverable exception if you hit them.
 
-_Translation: **Someone sees an error page**!_
+Translation: **Someone sees an error page**!
 
 So if you hit an enforced quota on production, this needs to be resolved as soon as possible!
 
@@ -106,7 +106,7 @@ Even though this will not solve all performance issues, some imposed quotas prev
 
 - **api.jsArraySize:** We can only store 20.000 items in a single array. This will keep us from filling up the memory and wasting resources filling up this array and reading from it in large volumes.
 
-- **api.dw.catalog.PriceBookMgr.assignPriceBookToSite(PriceBook,String):** This API is used only for management purposes and has no business in the storefront. This will force developers to find an alternative ([and better)](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_catalog_PriceBookMgr.html?resultof=%22%70%72%69%63%65%62%6f%6f%6b%6d%67%72%22%20#dw_catalog_PriceBookMgr_setApplicablePriceBooks_PriceBook_DetailAnchor) way to build the appropriate behaviour.
+- **api.dw.catalog.PriceBookMgr.assignPriceBookToSite(PriceBook, String):** This API is used only for management purposes and has no business in the storefront. This will force developers to find an alternative ([and better)](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_catalog_PriceBookMgr.html?resultof=%22%70%72%69%63%65%62%6f%6f%6b%6d%67%72%22%20#dw_catalog_PriceBookMgr_setApplicablePriceBooks_PriceBook_DetailAnchor) way to build the appropriate behaviour.
 
 Let me be clear: You can still easily write insecure and inadequate performant code without hitting any of the quotas. **_Always keep security and performance in mind when writing custom features!_**
 
@@ -160,9 +160,9 @@ If you have written an infinite loop in the storefront, no worries! Salesforce w
 
 ODS disk space is also a [documented](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-developer-sandboxes.html) quota. But an important one to keep in mind!
 
-- **M**: 10 GB
-- **L**: 20 GB
-- **XL**: 50 GB
+- **M:** 10 GB
+- **L:** 20 GB
+- **XL:** 50 GB
 
 In a lot of cases, this is enough. But you could get in trouble if you work with many images on your Sandboxes.
 

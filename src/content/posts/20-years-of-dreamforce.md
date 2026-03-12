@@ -15,13 +15,13 @@ tags:
   - sfcc
 author: Thomas Theunen
 ---
-_**Note**: I gave the text "20 years of Salesforce Dreamforce" to an AI to render an image. The image you see above is what it created!_
+**Note:** I gave the text "20 years of Salesforce Dreamforce" to an AI to render an image. The image you see above is what it created!
 
 Salesforce is celebrating 20 years of Dreamforce, which is quite a track record! As with all Salesforce events, it is the opportune moment to meet people, learn and have fun!
 
 But how does Salesforce B2C Commerce Cloud fare in this large event, and what content is available? Let's have a look!
 
-## Let us meet up!
+## Let us meet up
 
 ![Dreamforce attendee checking a phone in a lounge area.](/media/2022/dreamforce-cosy-c3b16ff3d4.jpg)
 
@@ -35,7 +35,7 @@ There is already a channel on the Salesforce B2C Commerce Cloud Unofficial Slack
 
 I will be there this year! It will be my first Dreamforce, and coincidently, it is my birthday on the 21st of September! Even though there is no "official" meetup on the schedule, it doesn't mean we can't get together!
 
-**Be sure to also leave a message in the [Commerce Trailblazers](https://trailhead.salesforce.com/trailblazer-community/feed/0D54S00000HFCBv) group to make it ✨extra special✨!**
+Be sure to also leave a message in the [Commerce Trailblazers](https://trailhead.salesforce.com/trailblazer-community/feed/0D54S00000HFCBv) group to make it ✨extra special✨!
 
 ### Commerce Lodge
 
@@ -51,7 +51,7 @@ Want to learn more about Dreamforce and how to connect with your peers? And even
 
 Do the "[Road to Dreamforce 2022](https://trailhead.salesforce.com/users/teamtrailhead/trailmixes/quest-road-to-dreamforce-2022)" quest!
 
-## Can't attend?
+## Can't attend
 
 The keynotes can be viewed through [Salesforce+](https://www.salesforce.com/plus/experience/Dreamforce_2022) for free!
 
@@ -77,13 +77,13 @@ Community Speakers Did I miss someone? Please don't be shy and send me a message
 
 ### Next-Gen Commerce: Maximize Profit Your Way
 
--   [Kimberley Zatlyn](https://www.linkedin.com/in/kimberleyzatlyn/)
--   [Michael Affronti](https://www.linkedin.com/in/michaelaffronti/)
--   [Erin Dorshorst](https://www.linkedin.com/in/erindorshorst/)
--   [Amanda Hatker](https://www.linkedin.com/in/amandahatker/)
--   Katherine Ferguson
--   Sharon John
--   Keynote
+- [Kimberley Zatlyn](https://www.linkedin.com/in/kimberleyzatlyn/)
+- [Michael Affronti](https://www.linkedin.com/in/michaelaffronti/)
+- [Erin Dorshorst](https://www.linkedin.com/in/erindorshorst/)
+- [Amanda Hatker](https://www.linkedin.com/in/amandahatker/)
+- Katherine Ferguson
+- Sharon John
+- Keynote
 
 > Join the main event for commerce pros and learn how to maximize profit, cut costs, and build a Customer 360 your way with flexible tools, automation, and the Customer Data Platform.
 
@@ -91,9 +91,9 @@ The main keynote of Salesforce Commerce Cloud! No reason not to miss the main ev
 
 ### 5 Best Practices for a Frictionless Checkout
 
--   Cassandra Funk
--   Aesh Verma
--   Theatre Session
+- Cassandra Funk
+- Aesh Verma
+- Theatre Session
 
 > Get insider insights from a team of payments experts as we share the best practices for creating payment experiences that are seamless and frictionless.
 
@@ -101,10 +101,10 @@ Getting UX advice and learning how to improve your checkout experience is always
 
 ### 6 Steps to a Successful Headless Commerce Implementation
 
--   [Pei En Thong](https://www.linkedin.com/in/thongpeien/)
--   [James Semple](https://www.linkedin.com/in/james-semple-8884093b/)
--   Karly Cyr
--   Theatre Session
+- [Pei En Thong](https://www.linkedin.com/in/thongpeien/)
+- [James Semple](https://www.linkedin.com/in/james-semple-8884093b/)
+- Karly Cyr
+- Theatre Session
 
 > Implementing a headless architecture is no small feat. This session for business leaders outlines 6 key steps to headless transformation success — bringing people, technology, and processes together.
 
@@ -114,8 +114,8 @@ Given the more prominent focus on allowing customers to go Headless on the Sales
 
 ![Community speaker spotlight graphic used for featured sessions.](/media/2022/community-speaker-9f72758dd2.jpg)
 
--   [Mike King](https://www.linkedin.com/in/mikeeking/)
--   Theatre Session
+- [Mike King](https://www.linkedin.com/in/mikeeking/)
+- Theatre Session
 
 > Breaking into a cross-cloud solution architect role can be a big challenge. Learn three steps to build valuable cross-cloud skills and increase your value as an architect.
 
@@ -125,23 +125,23 @@ And it is being presented by Mike King!
 
 ### B2C Commerce Product Roadmap
 
--   [Igor Faletski](https://www.linkedin.com/in/igorfaletski/)
--   [Alex Bucher](https://www.linkedin.com/in/alexbucher1/)
--   Theatre Session
+- [Igor Faletski](https://www.linkedin.com/in/igorfaletski/)
+- [Alex Bucher](https://www.linkedin.com/in/alexbucher1/)
+- Theatre Session
 
 > Learn first-hand how upcoming B2C commerce features deliver on exceptional holiday performance, composable storefronts for headless, TikTok and SnapChat integrations, and more.
 
 Getting insights into the roadmap for the upcoming holiday season and social commerce is something to keep your eye on!
 
-_Who knows, I might be wearing a new fitting shirt design._
+Who knows, I might be wearing a new fitting shirt design.
 
 ### Architect’s Review of Cross-Cloud Customer Data Modeling
 
 ![Community speaker spotlight graphic used for featured sessions.](/media/2022/community-speaker-9f72758dd2.jpg)
 
--   [Mike King](https://www.linkedin.com/in/mikeeking/)
--   [Melissa Murphy](https://www.linkedin.com/in/melissa-murphy-312681b8/)
--   Theatre Session
+- [Mike King](https://www.linkedin.com/in/mikeeking/)
+- [Melissa Murphy](https://www.linkedin.com/in/melissa-murphy-312681b8/)
+- Theatre Session
 
 > A well-designed cross-cloud customer data model is the foundation of successful architecture. Learn to model data across the Salesforce ecosystem and design best practice solutions.
 
@@ -151,8 +151,8 @@ Especially when working with customer data, a well-architected foundation is a r
 
 ### Headless Unpacked: How Retailers Build API-Led Experiences
 
--   [Jameson Wildwood](https://www.linkedin.com/in/jtwildwood/)
--   Theatre Session
+- [Jameson Wildwood](https://www.linkedin.com/in/jtwildwood/)
+- Theatre Session
 
 > The future of commerce is headless. Delve into the story of how VF Corp used MuleSoft APIs and Salesforce Commerce Cloud to achieve headless commerce.
 
@@ -164,9 +164,9 @@ Headless, API-first, composable, etc., have many approaches. And hearing other p
 
 ![Community speaker spotlight graphic used for featured sessions.](/media/2022/community-speaker-9f72758dd2.jpg)
 
--   [Francesca Liu](https://www.linkedin.com/in/francesca-liu-b5757797/)
--   [Bhagath Ganga](https://www.linkedin.com/in/bhagathganga/)
--   Theatre Session
+- [Francesca Liu](https://www.linkedin.com/in/francesca-liu-b5757797/)
+- [Bhagath Ganga](https://www.linkedin.com/in/bhagathganga/)
+- Theatre Session
 
 > Shopping at the edge is expected to grow exponentially over the next five years. Learn how to improve product discoverability and boost sales on today’s leading social channels using Commerce Cloud.
 
@@ -174,8 +174,8 @@ Next to headless, social commerce has gotten a lot more attention. If you are al
 
 ### Increase Conversions and Agility with Headless Commerce
 
--   [Pei En Thong](https://www.linkedin.com/in/thongpeien/)
--   Theatre Session
+- [Pei En Thong](https://www.linkedin.com/in/thongpeien/)
+- Theatre Session
 
 > Learn how you can build fast, flexible, digital experiences with headless commerce. Hear how brands can accelerate ROI and unlock organizational agility with a trusted Composable Storefront.
 
@@ -183,9 +183,9 @@ Another session on headless. My gut feeling is that this presentation is about r
 
 ### Serving Friction-Free Food Shopping Experiences
 
--   [Kimberly Barach](https://www.linkedin.com/in/kimberly-barach-28baa12/)
--   [Bruno Mourão](https://www.linkedin.com/in/bmourao/)
--   Theatre Session
+- [Kimberly Barach](https://www.linkedin.com/in/kimberly-barach-28baa12/)
+- [Bruno Mourão](https://www.linkedin.com/in/bmourao/)
+- Theatre Session
 
 > The shopping paradigm has changed. Learn how food retailers are removing friction from the purchasing process and delivering meaningful connected experiences for shoppers like never before.
 
@@ -193,11 +193,11 @@ Learning about the particular use cases, you can run into as a food retailer is 
 
 ### Winter '23 Release Readiness Live: Commerce Cloud
 
--   [Akshatha Rao](https://www.linkedin.com/in/akshatharaog/)
--   [Eric Lerner](https://www.linkedin.com/in/ericdlerner/)
--   [Sid Gupta](https://www.linkedin.com/in/sid-gupta-a777756/)
--   [Priyasha Mehta](https://www.linkedin.com/in/priyashamehta/)
--   Theatre Session
+- [Akshatha Rao](https://www.linkedin.com/in/akshatharaog/)
+- [Eric Lerner](https://www.linkedin.com/in/ericdlerner/)
+- [Sid Gupta](https://www.linkedin.com/in/sid-gupta-a777756/)
+- [Priyasha Mehta](https://www.linkedin.com/in/priyashamehta/)
+- Theatre Session
 
 > Release Readiness Live is here at Dreamforce! Join our product managers to learn about exciting new developments across B2C Commerce, B2B Commerce, Order Management, and Salesforce Payments.
 
@@ -207,14 +207,14 @@ Another session about the roadmap, but always good to have a peak to learn what 
 
 ![Community speaker spotlight graphic used for featured sessions.](/media/2022/community-speaker-9f72758dd2.jpg)
 
--   [Andrew Lawrence](https://www.linkedin.com/in/andrew9990/)
--   Theatre Session
+- [Andrew Lawrence](https://www.linkedin.com/in/andrew9990/)
+- Theatre Session
 
 > Learn about the latest tools, SDKs, and features for building amazing user experiences powered by Commerce Cloud.
 
 A look at developer experience! Probably the only session I have come across dedicated to developers, so a must-attend if you are one!
 
-### And many more...
+### And many more
 
 And the list goes on. Before this article becomes too large, I will end the list here!
 
