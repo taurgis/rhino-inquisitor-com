@@ -1,13 +1,13 @@
 ---
-title: 'Custom Preferences in Salesforce B2C Commerce Cloud: A Developer Guide'
+title: Using Custom Preferences in SFCC
 description: >-
-  Salesforce B2C Commerce Cloud uses custom preferences to store configurable
-  settings for a storefront.
+  Learn how SFCC custom preferences support configurable storefront behavior,
+  governance, and safer environment-specific settings.
 date: '2023-10-16T12:01:58.000Z'
 lastmod: '2023-10-16T18:11:19.000Z'
 url: /custom-preferences-in-sfcc/
 draft: false
-heroImage: /media/2023/it-configuring-server-scaled-d8087e9ab9.jpeg
+heroImage: /wp-content/uploads/2023/04/it-configuring-server-scaled.jpeg
 categories:
   - Salesforce Commerce Cloud
   - Technical
@@ -16,12 +16,12 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-[Salesforce B2C Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/) uses custom preferences to store configurable settings for a storefront. These settings can be anything from feature settings to loyalty calculations.
+[Salesforce B2C Commerce Cloud](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/) uses custom preferences to store configurable settings for a storefront. These settings can be anything from feature settings to loyalty calculations.
 
 Custom preferences can be created at two levels:
 
-- global (organisation)
-- site
+-   global (organisation)
+-   site
 
 As a Salesforce B2C Commerce Cloud developer, you must understand the differences between Global Preferences and Site Preferences and use each appropriately.
 
@@ -33,10 +33,13 @@ For example, if all sites in an organisation use the same preference value, usin
 
 Global Preferences can be accessed using the System Preferences API:
 
-```js
-var System = require('dw/system');
+```
+
+					var System = require('dw/system');
 var orgPrefs = System.getPreferences();
 var myCustomPreference = orgPrefs.getCustom().myCustomPreference;
+
+
 ```
 
 To add your preferences on this global level, head here in the Business Manager:
@@ -51,10 +54,13 @@ For example, if a site has a particular loyalty program calculation not used by 
 
 Site Preferences can be accessed using the Site API:
 
-```js
-var Site = require('dw/system/Site');
+```
+
+					var Site = require('dw/system/Site');
 var sitePrefs = Site.getCurrent().getCustom();
 var loyaltyEnabled = sitePrefs.loyaltyEnabled;
+
+
 ```
 
 To add your preferences on this site level, head here in the Business Manager:
@@ -65,8 +71,9 @@ To add your preferences on this site level, head here in the Business Manager:
 
 Using a config file can be a better alternative to Custom Preferences. A config file is a file that stores application-specific settings that should not be modifiable in the Business Manager. This can be useful for settings that are not expected to change frequently, such as project-specific settings.
 
-```js
-// config.json
+```
+
+					// config.json
 {
   "loyaltyCalculation": "simple"
 }
@@ -75,6 +82,8 @@ var config = require('path/to/config.json');
 if(config.loyaltyCalculation === 'simple') {
  // Do some things
 }
+
+
 ```
 
 Cartridge Overrides Like script files, using “\*” in the path to allow overrides according to the set cartridge path is possible.
@@ -83,7 +92,7 @@ Cartridge Overrides Like script files, using “\*” in the path to allow overr
 
 ### Custom Attributes
 
-If you have reviewed the sample code, you may have noticed that these preferences are similar to how you use custom attributes. That's because they are custom attributes on System Objects, just like any other extensible object within the [data model](/salesforce-b2c-commerce-cloud-erd/).
+If you have reviewed the sample code, you may have noticed that these preferences are similar to how you use custom attributes. That's because they are custom attributes on System Objects, just like any other extensible object within the [data model](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-erd/).
 
 ### Default Values
 

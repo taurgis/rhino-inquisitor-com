@@ -1,8 +1,8 @@
 ---
 title: What is new in the 23.8 Commerce Cloud release?
 description: >-
-  Everyone knows that getting ready for the holiday season starts in the summer
-  in the Commerce Cloud world!
+  Review the 23.8 Commerce Cloud release and the platform changes teams should
+  understand before holiday readiness work ramps up.
 date: '2023-07-27T13:28:13.000Z'
 lastmod: '2023-07-29T20:05:35.000Z'
 url: /what-is-new-in-the-23-8-commerce-cloud-release/

@@ -1,8 +1,8 @@
 ---
-title: 'Salesforce (Commerce) Payments: Payment Integration Simplified'
+title: Salesforce Payments Explained
 description: >-
-  As a Commerce Cloud connoisseur, you know how important it is to have a
-  seamless customer payment process.
+  Understand what Salesforce Payments changes for SFCC integrations, checkout
+  design, and the overall payment implementation path.
 date: '2023-03-27T14:54:22.000Z'
 lastmod: '2023-03-31T07:19:52.000Z'
 url: /salesforce-payments-experience-explained/

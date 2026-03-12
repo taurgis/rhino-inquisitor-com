@@ -7,7 +7,7 @@ date: '2022-04-13T07:07:52.000Z'
 lastmod: '2022-07-23T21:58:17.000Z'
 url: /certifications-for-salesforce-b2c-commerce-cloud/
 draft: false
-heroImage: /media/2022/certification-ce072f4076.jpg
+heroImage: /wp-content/uploads/2022/04/certification.jpg
 categories:
   - Certification
 tags:
@@ -49,13 +49,13 @@ If you still think you need some preparation, look at the [exam guide](https://t
 
 ### B2C Commerce Architect
 
-![Salesforce Certified B2C Commerce Architect badge.](/media/2022/b2c-commerce-architect-3d1b1f2f1e.png)
+![](/media/2022/b2c-commerce-architect-3d1b1f2f1e.png)
 
 > The Salesforce B2C Commerce Architect has experience designing global sites that support multiple brands and channels using standard design patterns.
 
 The next step in the journey of the Certified B2C Commerce Developer! Focussing more on the project lifecycle compared to development.
 
-Important to note that you can only achieve this certification if you are a Certified B2C Developer.
+**Important to note that you can only achieve this certification if you are a Certified B2C Developer.**
 
 It should not surprise that this certificate is on "another" level than the Developer certification. Do not expect questions like "how do you log a message to the error log" but more like "You have three domains that have to be linked to these two sites. Which of the following four answers is the correct [Hostname Alias](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/search_engine_optimization/b2c_hostname_aliases.html) configuration?".
 
@@ -84,7 +84,7 @@ But not to worry, there is [a course](https://partnerlearningcamp.salesforce.com
 
 ### Commerce Cloud Einstein
 
-![Einstein Commerce Cloud Accredited Professional badge.](/media/2022/einstein-d7123b2738.png)
+![](/media/2022/einstein-d7123b2738.png)
 
 > The Einstein Commerce Cloud Accredited Professional exam is intended for individuals who have the knowledge, skills, and experience with data ingestion processes, security, and access implementations.
 
@@ -92,14 +92,14 @@ One of the selling points of Salesforce B2C Commerce Cloud (and other Salesforce
 
 This accreditation tests all your knowledge of Einstein:
 
-- Development (Slots & Active Data)
-- Setting up the data feeds in the Business Manager
-- Configuring the recommender
-- Debugging Einstein
+-   Development (Slots & Active Data)
+-   Setting up the data feeds in the Business Manager
+-   Configuring the recommender
+-   Debugging Einstein
 
 As with the other Accreditation,  [a course is available on the Partner Learning Camp](https://partnerlearningcamp.salesforce.com/s/browse-catalog?plc__recordId=AJ%2F%2F26%2FbM4WJjnIak4uXHwpstt68nZPqvIdhKT%2FnZEw9I%2FDpO60A4d8W08lxq8xT)!
 
-## What if i'm not a developer
+## What if i'm not a developer?
 
 A common question asked. Currently, only developers seem to get the "Certification love," but not so much Business Analysts or merchandizers.
 
@@ -109,4 +109,4 @@ I feel that this is a gap within the ecosystem that should be filled; developing
 
 This non-technical certification would allow people to publicly show that they know how to get your company up and running on Salesforce B2C Commerce Cloud (using standard features or knowing when custom development is needed).
 
-If anyone at the Salesforce Credentials team is reading this, give me a shout to discuss this 😇.
+_If anyone at the Salesforce Credentials team is reading this, give me a shout to discuss this 😇._

@@ -7,7 +7,7 @@ date: '2024-04-29T07:43:13.000Z'
 lastmod: '2024-04-29T07:46:01.000Z'
 url: /the-sunsetting-of-arc300-architect-b2c-commerce-solutions/
 draft: false
-heroImage: /media/2024/sunsetting-arc300-course-65cd719d15.jpg
+heroImage: /wp-content/uploads/2024/04/sunsetting-arc300-course.jpg
 categories:
   - Salesforce Commerce Cloud
 tags:
@@ -21,7 +21,7 @@ Among these, the ARC300, also known as the 'Salesforce Architect B2C Commerce So
 
 So, what now? Let me go back a few years in time first, as I was one of the few instructors of this course.
 
-## Could I do it
+## Could I do it?
 
 Has it been three years already? It seems like only yesterday that I was asked whether I would be interested in teaching a course about architecture within Salesforce B2C Commerce Cloud. Honestly, it took little persuasion to get me to do this, although I was wondering whether or not I would have the skills to convey the required knowledge to others.
 
@@ -43,7 +43,7 @@ While it is always sad to see something you love come to an end, it's important 
 
 It was a great learning experience to convey knowledge to others and explain concepts.
 
-## Will there be a new course
+## Will there be a new course?
 
 ![A group of people stands atop a mountain, overlooking a city where a Trailhead Academy cap hovers in the sky.](/media/2024/looking-to-the-future-of-trailhead-academy-86a27ca5fe.jpg)
 
@@ -53,8 +53,8 @@ It is plausible that Salesforce is already working on a new course to fill the g
 
 Although nothing has been confirmed yet, it is exciting to speculate on the future of Trailhead Academy and the Commerce Crew.
 
-## How can I prepare for the Architect exam now
+## How can I prepare for the Architect exam now?
 
-Since no alternative course is available yet, you will have to resort to all resources available on [Trailhead](https://trailhead.salesforce.com/trails?products=commercecloud&sort=RELEVANCE), the [Partner Learning Camp](http://partnerlearningcamp.salesforce.com) (if you have access), and, of course, my [own blog](/the-b2c-commerce-architect-certification/), which has multiple resources available to get you started!
+Since no alternative course is available yet, you will have to resort to all resources available on [Trailhead](https://trailhead.salesforce.com/trails?products=commercecloud&sort=RELEVANCE), the [Partner Learning Camp](http://partnerlearningcamp.salesforce.com) (if you have access), and, of course, my [own blog](https://www.rhino-inquisitor.com/the-b2c-commerce-architect-certification/), which has multiple resources available to get you started!
 
 If you are planning on taking the exam shortly, good luck!

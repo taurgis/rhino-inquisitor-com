@@ -1,5 +1,5 @@
 ---
-title: Transforming the Future with the 23.9 Release and Custom SCAPI Endpoints
+title: SFCC 23.9 Release Highlights and SCAPI Updates
 description: >-
   We are getting closer to the holiday period, and also one of the last releases
   of the year! This time we look at the September 2023 (23.9) release!

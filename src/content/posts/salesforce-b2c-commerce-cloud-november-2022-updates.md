@@ -1,8 +1,8 @@
 ---
 title: Salesforce B2C Commerce Cloud November 2022 Updates
 description: >-
-  A closer look at updates in November 2022 to Salesforce B2C Commerce Cloud,
-  such as cartridges and SCAPI services.
+  A closer look at the November 2022 B2C Commerce Cloud updates, including
+  cartridge releases, tooling changes, and SCAPI work.
 date: '2022-11-28T18:36:33.000Z'
 lastmod: '2022-11-29T10:33:29.000Z'
 url: /salesforce-b2c-commerce-cloud-november-2022-updates/

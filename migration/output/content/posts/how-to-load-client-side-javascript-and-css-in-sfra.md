@@ -7,7 +7,7 @@ date: '2024-02-19T08:28:48.000Z'
 lastmod: '2024-02-19T08:31:26.000Z'
 url: /how-to-load-client-side-javascript-and-css-in-sfra/
 draft: false
-heroImage: /media/2023/client-side-js-e2475a2ea2.jpg
+heroImage: /wp-content/uploads/2023/01/client-side-js.jpg
 categories:
   - Salesforce Commerce Cloud
   - Technical
@@ -17,7 +17,7 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-Since you are here, I bet you've been banging your head against your keyboard trying to figure out how to load some sweet client-side javascript in Salesforce Commerce Cloud's [SFRA](/sitegenesis-vs-sfra-vs-pwa/) (Storefront Reference Architecture). Well, fear not, because I'm here to help (hopefully)!
+Since you are here, I bet you've been banging your head against your keyboard trying to figure out how to load some sweet client-side javascript in Salesforce Commerce Cloud's [SFRA](https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/) (Storefront Reference Architecture). Well, fear not, because I'm here to help (hopefully)!
 
 First, let's ensure we're on the same page. SFRA uses ISML ([Internet Store Markup Language](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-working-with-templates.html)) for its templates and layouts, which means that to load in some javascript, we'll need to use certain ISML tags and SFRA "features" to include it in our templates.
 
@@ -25,17 +25,22 @@ First, let's ensure we're on the same page. SFRA uses ISML ([Internet Store Mark
 
 The Storefront Reference Architecture provides many features and "helpers" to make developers' lives easier. One of those features is the "[assets.js](https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/blob/master/cartridges/app_storefront_base/cartridge/scripts/assets.js)" file to load client-side JavaScript and CSS in a structured way.
 
-```js
-var assets = require('*/cartridge/scripts/assets.js');
-assets.addCss('/css/account/my-file.css');
-assets.addJs('/js/my-file.js');
 ```
 
-### What is it
+
+    var assets = require('*/cartridge/scripts/assets.js');
+    assets.addCss('/css/account/my-file.css');
+    assets.addJs('/js/my-file.js');
+
+
+
+```
+
+### What is it?
 
 In short: It is a "singleton" type class with two arrays that stores all CSS and JavaScript files that need to be loaded for the current page.
 
-### When does it load the files
+### When does it load the files?
 
 #### CSS
 
@@ -43,15 +48,20 @@ The "[htmlHead.isml](https://github.com/SalesforceCommerceCloud/storefront-refer
 
 This code is responsible for loading all the fancy styles that are present in that array we talked about earlier.
 
-```text
-integrity="${style.integrity}" crossorigin="anonymous" />
+```
+
+
+    integrity="${style.integrity}" crossorigin="anonymous" />
+
+
+
 ```
 
 #### JavaScript
 
 Like styles, you can also load JavaScript files into your SFRA project using ISML. The main difference is that you'll be using the [scripts.isml](https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/blob/master/cartridges/app_storefront_base/cartridge/templates/default/common/scripts.isml) template instead of htmlHead.isml. And if you want to see the big picture, you can check out the "[page.isml](https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/blob/master/cartridges/app_storefront_base/cartridge/templates/default/common/layout/page.isml#L32)" file, which is the highest-level ISML file used in SFRA.
 
-## It doesn't work! Why
+## It doesn't work! Why????
 
 ### Remote Includes
 

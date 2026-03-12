@@ -1,8 +1,8 @@
 ---
 title: Caching in the Salesforce Composable Storefront
 description: >-
-  Caching, Performance, Lighthouse Speed, CrUX,... Read the full article on
-  Rhino Inquisitor for implementation details.
+  Learn how caching works in the Salesforce Composable Storefront, which layers
+  matter most, and where it improves real-world speed.
 date: '2024-10-14T09:42:12.000Z'
 lastmod: '2024-10-14T12:49:23.000Z'
 url: /caching-in-the-sfcc-composable-storefront/

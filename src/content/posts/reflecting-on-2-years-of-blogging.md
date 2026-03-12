@@ -1,8 +1,8 @@
 ---
-title: 'Reflecting on Two Years of Blogging: My Journey in the SFCC Ecosystem'
+title: Two Years of Blogging in the SFCC Ecosystem
 description: >-
-  I am delighted to announce that I have completed two years of my journey with
-  the Rhino Inquisitor blog.
+  A look back at two years of Rhino Inquisitor, the lessons behind the posts,
+  and how the blog's focus has evolved over time.
 date: '2024-03-11T20:17:04.000Z'
 lastmod: '2024-03-11T20:19:14.000Z'
 url: /reflecting-on-2-years-of-blogging/
@@ -23,7 +23,7 @@ Hmm... that sounds like I'm quitting. Not to worry; it's quite the opposite! I w
 
 ## How it all started
 
-When I [started](/pdf-and-salesforce-commerce-cloud-b2c/) the blog, I primarily focused on providing technical articles about development, architectural diagrams, and community-related topics. I wanted to help developers and architects better understand Salesforce B2C Commerce Cloud and its capabilities. Over the past two years, I have written many articles, released every week, covering a wide range of topics. I have seen my readership grow as more people discover the value (at least, that's what I hope) of the information provided on the blog.
+When I [started](https://www.rhino-inquisitor.com/pdf-and-salesforce-commerce-cloud-b2c/) the blog, I primarily focused on providing technical articles about development, architectural diagrams, and community-related topics. I wanted to help developers and architects better understand Salesforce B2C Commerce Cloud and its capabilities. Over the past two years, I have written many articles, released every week, covering a wide range of topics. I have seen my readership grow as more people discover the value (at least, that's what I hope) of the information provided on the blog.
 
 I have received numerous comments and feedback from readers who have found my articles helpful in their work.
 
@@ -61,4 +61,4 @@ Before the pandemic hit in 2020, I used to spend my evenings attending cooking a
 
 There's something genuinely satisfying about taking a hands-on approach to learning and creating, and I'm looking forward to seeing where this rediscovered hobby takes me.
 
-![Hands-on electronics setup reflecting the return to tinkering as a hobby.](/media/2024/1601710443407-d2c723ac02.jpeg)
+![](/media/2024/1601710443407-d2c723ac02.jpeg)

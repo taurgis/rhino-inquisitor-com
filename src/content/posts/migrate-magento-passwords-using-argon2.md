@@ -1,19 +1,19 @@
 ---
 title: How to migrate passwords from Magento using Argon2
 description: >-
-  As a developer, you might encounter situations where you need to migrate data
-  from one platform to another securely.
+    Learn how to migrate Magento passwords with Argon2, preserve account access,
+    and plan a safer authentication transition.
 date: '2024-03-27T08:47:32.000Z'
 lastmod: '2024-03-28T15:01:14.000Z'
 url: /migrate-magento-passwords-using-argon2/
 draft: false
 heroImage: /media/2024/cryptography-668cd24089.jpg
 categories:
-  - Salesforce Commerce Cloud
-  - Technical
+    - Salesforce Commerce Cloud
+    - Technical
 tags:
-  - sfcc
-  - technical
+    - sfcc
+    - technical
 author: Thomas Theunen
 ---
 As a developer, you might encounter situations where you need to [migrate](https://osapishchuk.medium.com/legacy-customers-password-migration-3fa1596303cc) data from one platform to another securely. This requires handling sensitive data like passwords with utmost care. In the case of Magento, password hashing is done using the Argon2 algorithm (depending on the Magento version, your mileage may vary), which is known for its security and resistance against brute force attacks.

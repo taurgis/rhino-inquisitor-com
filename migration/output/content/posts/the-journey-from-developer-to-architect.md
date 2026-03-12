@@ -1,13 +1,13 @@
 ---
 title: The journey from developer to architect
 description: >-
-  Are you currently a developer thinking about continuing your journey as an
-  architect? Let me share my story!
+  A personal look at the move from developer to architect, including the mindset
+  shifts, trade-offs, and lessons that mattered most.
 date: '2024-02-26T06:36:00.000Z'
 lastmod: '2024-02-26T10:26:22.000Z'
 url: /the-journey-from-developer-to-architect/
 draft: false
-heroImage: /media/2022/developer-to-architect-0af54756df.png
+heroImage: /wp-content/uploads/2022/05/developer-to-architect.png
 categories:
   - Corporate
 tags:
@@ -17,21 +17,21 @@ tags:
   - sfcc
 author: Thomas Theunen
 ---
-So you want to be an [architect](/what-skills-do-i-need-as-a-sfcc-architect/), do you? At least, that is why I am guessing you came to this page! Well, you came to the right place! I have gone through this transition myself, and here are some topics I wanted to write about the role.
+So you want to be an [architect](https://www.rhino-inquisitor.com/what-skills-do-i-need-as-a-sfcc-architect/), do you? At least, that is why I am guessing you came to this page! Well, you came to the right place! I have gone through this transition myself, and here are some topics I wanted to write about the role.
 
-## What is an architect
+## What is an architect?
 
 ![The Salesforce Architect Shirtforce shirt](/media/2024/salesforce-architect-65b8ca1808.jpg)
 
 But first things first, let us define what an architect is before we go any further.
 
-_We will not be designing buildings. If that is why you are here, you came to the wrong blog!_
+**_We will not be designing buildings. If that is why you are here, you came to the wrong blog!_**
 
 Let us first dig into the different types of architects. Do you look surprised? Yes, there are multiple types, each of which has a different role in this world.
 
 ### Solution Architect
 
-![Illustration introducing the Solution Architect role.](/media/2024/solution-architect-4a4b8fdff7.jpg)
+![](/media/2024/solution-architect-4a4b8fdff7.jpg)
 
 If we have to define a Solution Architect in a few sentences, it would be to evaluate all business requirements and develop the best solutions by proposing products and services. Solution Architects are given a business challenge/problem and are tasked with coming up with the answers to these questions.
 
@@ -51,7 +51,7 @@ I could write an elaborate article on this, but I will forward you [an excellent
 
 ### Technical Architect
 
-![Illustration introducing the Technical Architect role in Salesforce.](/media/2024/salesforce-technical-architect-01186ac1bd.jpg)
+![](/media/2024/salesforce-technical-architect-01186ac1bd.jpg)
 
 The final one in this list is the Technical Architect, the most specialised one. This type of architect will take a single part or implementation of the big puzzle and focus on that. They will focus on this domain and gain in-depth knowledge that the Enterprise and Solution Architect lacks.
 

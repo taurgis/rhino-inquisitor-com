@@ -1,8 +1,8 @@
 ---
 title: Salesforce B2C Commerce Cloud 23.2
 description: >-
-  The year's second update contains many improvements for Page Designer and the
-  SCAPI. Something for everyone!
+  Review the Salesforce B2C Commerce Cloud 23.2 release, including Page Designer
+  and SCAPI changes developers should notice.
 date: '2023-01-18T19:00:06.000Z'
 lastmod: '2023-01-20T15:36:31.000Z'
 url: /salesforce-b2c-commerce-cloud-23-2/

@@ -1,8 +1,8 @@
 ---
-title: Effortlessly Create External Orders in Salesforce Commerce Cloud
+title: Create External Orders in SFCC with createOrders
 description: >-
-  In this article, we will discuss the createOrders API used to create orders in
-  the Commerce Cloud platform.
+  Learn how to use the createOrders API in SFCC to create external orders
+  safely and fit it into existing order workflows.
 date: '2023-10-09T09:54:18.000Z'
 lastmod: '2023-11-18T07:43:19.000Z'
 url: /the-createorders-api-in-sfcc/

@@ -1,5 +1,5 @@
 ---
-title: 'Taming the Beast: A Developer''s Deep Dive into SFCC Meta Tag Rules'
+title: Deep Dive into SFCC Meta Tag Rules
 description: >-
   Most of us have glanced at the "Page Meta Tag Rules" section in Business
   Manager, shrugged, and moved on to what we consider 'real' code.

@@ -7,7 +7,7 @@ date: '2022-05-16T13:52:22.000Z'
 lastmod: '2022-07-23T21:54:27.000Z'
 url: /salesforce-b2c-commerce-the-22-6-release/
 draft: false
-heroImage: /media/2022/22-6-release-einstein-dashboards-722f4cbace.png
+heroImage: /wp-content/uploads/2022/05/22.6-release-einstein-dashboards.png
 categories:
   - Release Notes
   - Salesforce Commerce Cloud
@@ -16,7 +16,7 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-Again, here we are with the latest [release notes](/category/release-notes/) of Salesforce B2C Commerce Cloud; time flies by fast, doesn't it? Let us go over the [June 2022 (22.6) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_6_release.htm&type=5)!
+Again, here we are with the latest [release notes](https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/release-notes/) of Salesforce B2C Commerce Cloud; time flies by fast, doesn't it? Let us go over the [June 2022 (22.6) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_6_release.htm&type=5)!
 
 ## Einstein Dashboards
 
@@ -24,7 +24,7 @@ In this release, Einstein is getting a bit of love with better insights into the
 
 ### Drill down to a single recommender
 
-[![Einstein dashboard view for drilling into a single recommender.](/media/2022/22-6-release-einstein-dashboards-722f4cbace.png)](/media/2022/22-6-release-einstein-dashboards-722f4cbace.png)
+[![](/media/2022/22-6-release-einstein-dashboards-722f4cbace.png)](/media/2022/22-6-release-einstein-dashboards-722f4cbace.png)
 
 It will now be possible to drill down to a single recommender in the dashboards to see how they perform over a selected period of time.
 
@@ -32,14 +32,17 @@ This will give merchants a better understanding of performance trends.
 
 These metrics include:
 
-- Click-through Rate (CTR)
-- Add to Cart
-- Cart Conversion Rate
-- Attributed Revenue.
+-   Click-through Rate (CTR)
+-   Add to Cart
+-   Cart Conversion Rate
+-   Attributed Revenue.
+
+
+
 
 ### View top purchased and top viewed products
 
-[![Einstein dashboard showing product-level recommendation statistics.](/media/2022/einstein-dashoards-addtocarts-sfcc-9c9a2f3595.png)](/media/2022/einstein-dashoards-addtocarts-sfcc-9c9a2f3595.png)
+[![A screenshot of the Einstein Dashboards depicting the information of a specific product and its statistics.](/media/2022/einstein-dashoards-addtocarts-sfcc-9c9a2f3595.png)](/media/2022/einstein-dashoards-addtocarts-sfcc-9c9a2f3595.png)
 
 With this addition to these dashboards, you will be able to see more information about the performance of a recommender.
 
@@ -49,15 +52,18 @@ Reports now show how specific products perform, by being recommended in a partic
 
 [A minor release](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v1.5.2) has been made for the PWA Kit, containing a few bugfixes:
 
-- Fix invalid refresh token by [@kevinxh](https://github.com/kevinxh) in [#527](https://github.com/SalesforceCommerceCloud/pwa-kit/pull/527)
-- Webpack config: no longer assumes that `config` dir exists by [@vmarta](https://github.com/vmarta) in [#522](https://github.com/SalesforceCommerceCloud/pwa-kit/pull/522)
-- Fix minor typos in readme and jsdoc by [@alexvuong](https://github.com/alexvuong) in [#531](https://github.com/SalesforceCommerceCloud/pwa-kit/pull/531)
+-   Fix invalid refresh token by [@kevinxh](https://github.com/kevinxh) in [#527](https://github.com/SalesforceCommerceCloud/pwa-kit/pull/527)
+-   Webpack config: no longer assumes that `config` dir exists by [@vmarta](https://github.com/vmarta) in [#522](https://github.com/SalesforceCommerceCloud/pwa-kit/pull/522)
+-   Fix minor typos in readme and jsdoc by [@alexvuong](https://github.com/alexvuong) in [#531](https://github.com/SalesforceCommerceCloud/pwa-kit/pull/531)
+
+
+
 
 ## OCAPI
 
 ### Access Key Management
 
-[![User Data OCAPI endpoints for access key management.](/media/2022/access-key-management-ocapi-726096138d.png)](/media/2022/access-key-management-ocapi-726096138d.png)
+[![A screenshot depicting the new APIs under the user DATA OCAPI endpoints.](/media/2022/access-key-management-ocapi-726096138d.png)](/media/2022/access-key-management-ocapi-726096138d.png)
 
 New endpoints have been made available to manage access keys from an external application. Although this addition is mainly for in-store agents, according to the documentation, the addition will sound like music to the ears of people in charge of DevOps and CI solutions.
 
@@ -67,7 +73,7 @@ To access these APIs, ensure the user has the "[Manage\_Users\_Access\_Key](http
 
 ### EPS added to Salesforce Payments
 
-[![EPS payment method logo for Austrian bank transfers.](/media/2022/eps-logo-austria-8764a70156.png)](/media/2022/eps-logo-austria-8764a70156.png)
+[![](/media/2022/eps-logo-austria-8764a70156.png)](/media/2022/eps-logo-austria-8764a70156.png)
 
 EPS is an Austria-based payment method supported by all Austrian banks. You can add the EPS option to your storefront in Business Manager Payment Settings.
 
@@ -79,7 +85,7 @@ Use a site-specific descriptor to help shoppers identify the source of an accoun
 
 ### Log Center
 
-[![Log Center filter for storefront implementation errors.](/media/2022/troubleshoot-storefront-errors-logcenter-66dfbbe9b6.png)](/media/2022/troubleshoot-storefront-errors-logcenter-66dfbbe9b6.png)
+[![](/media/2022/troubleshoot-storefront-errors-logcenter-66dfbbe9b6.png)](/media/2022/troubleshoot-storefront-errors-logcenter-66dfbbe9b6.png)
 
 Filter and find storefront implementation errors, such as broken includes, significant header errors, and large request errors with a new filter option below the "Service Type."
 
@@ -102,7 +108,7 @@ the ruleset, the API to PUT/POST rules will consist of a new field to persist th
 
 #### Dynamic Categorization - Value selection for String attributes with the "is one of" selector isn't working
 
-- [Issue](https://trailblazer.salesforce.com/issues_view?id=a1p4V0000012YmiQAE&title=dynamic-categorization-value-selection-for-string-attributes-with-the-is-one-of-selector-isn-t-working)
+-   [Issue](https://trailblazer.salesforce.com/issues_view?id=a1p4V0000012YmiQAE&title=dynamic-categorization-value-selection-for-string-attributes-with-the-is-one-of-selector-isn-t-working)
 
 > Value selection for String attributes with the "is one of" selector isn't working. When the "is one of" selector is chosen, the user should be able to select multiple values. For String attributes, this isn't possible because you only get a normal input field for entering the value, with no possibility of adding various values. Expected Products should be shown in the preview tab based on the categorization rule. Actual Products are not categorized when multiple comma-separated values are used.
 

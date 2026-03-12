@@ -7,13 +7,13 @@ date: '2022-09-11T07:39:31.000Z'
 lastmod: '2022-09-11T07:50:23.000Z'
 url: /the-path-to-being-an-architect/
 draft: false
-heroImage: /media/2022/path-to-being-an-architect-576cef411b.jpg
+heroImage: /wp-content/uploads/2022/09/path-to-being-an-architect.jpg
 categories:
   - Podcasts
   - Video
 author: Thomas Theunen
 ---
-<https://www.youtube.com/watch?v=caVpOV3TdzY>
+https://www.youtube.com/watch?v=caVpOV3TdzY
 
 The journey to being an architect has assumed many forms over the years, and does it all start at development? I started as a Java developer more than a decade ago and slowly moved towards being a "Salesforce Solution Architect
 

@@ -1,13 +1,13 @@
 ---
-title: The importance of Origin Shielding and your Commerce Cloud instance
+title: Origin Shielding in Commerce Cloud
 description: >-
-  Today, we're exploring the crucial role of Origin Shielding in Salesforce B2C
-  Commerce Cloud.
+  Learn why origin shielding matters in Commerce Cloud, how it protects origin
+  infrastructure, and when to include it in your traffic strategy.
 date: '2024-11-04T08:40:19.000Z'
 lastmod: '2024-11-04T08:41:59.000Z'
 url: /the-importance-of-origin-shielding/
 draft: false
-heroImage: /media/2024/protecting-your-server-26dacc7cc4.jpg
+heroImage: /wp-content/uploads/2024/10/protecting-your-server.jpg
 categories:
   - Architecture
   - Salesforce Commerce Cloud
@@ -22,7 +22,7 @@ Today, we're exploring the crucial role of [Origin](https://www.cloudflare.com/l
 
 Let's dive into the details!
 
-## What is "Origin Shielding"
+## What is "Origin Shielding"?
 
 Origin shielding protects the origin server - in our case the Application Servers - by funneling all incoming traffic through an intermediate layer, or shield.
 
@@ -32,7 +32,7 @@ This process helps reduce the risk of direct attacks on the origin infrastructur
 
 Long story short, origin shielding is a security measure for safeguarding cloud-hosted infrastructure, ensuring both the integrity and availability of Salesforce’s services.
 
-![Illustration of origin shielding protecting an application server from hostile traffic.](/media/2024/origin-shielding-v2-280aa345d3.jpg)
+![A dramatic image of a superhero in front of a server, protecting it from a "bad" actor in the shadows.](/media/2024/origin-shielding-v2-280aa345d3.jpg)
 
 Cloudflare is our "hero" protecting and routing traffic on our behalf!
 
@@ -40,11 +40,11 @@ Cloudflare is our "hero" protecting and routing traffic on our behalf!
 
 Origin shielding was implemented to manage access to the Demandware URLs of our storefronts and the OCAPI on the "Primary Instance Groups."
 
-Although this change was communicated multiple times in advance, [many projects still encountered unexpected disconnections from third-party services](/a-look-back-at-origin-shielding/).
+Although this change was communicated multiple times in advance, [many projects still encountered unexpected disconnections from third-party services](https://www.rhino-inquisitor.com/a-look-back-at-origin-shielding/).
 
 With the introduction of Origin Shielding, any third-party system attempting to access controllers or OCAPI APIs through the Demandware URL received an error page.
 
-[![Cloudflare block page shown when origin shielding denies direct access.](/media/2024/cloudflare-origin-shielding-error-b81358c14c.png)](/media/2024/cloudflare-origin-shielding-error-b81358c14c.png)
+[![A screenshot of the Cloudflare Origin Shielding error shows that the user has been blocked.](/media/2024/cloudflare-origin-shielding-error-b81358c14c.png)](/media/2024/cloudflare-origin-shielding-error-b81358c14c.png)
 
 The Cloudflare error page.
 
@@ -67,7 +67,7 @@ The image I used before may seem a bit dramatic, but it highlights that we need 
 
 We need the "know-how" to ensure our third-party systems can access everything we require.
 
-## What do I do
+## What do I do?
 
 To ensure that both you and any third-party systems do not encounter access issues due to Origin Shielding, just do a few simple things.
 
@@ -79,9 +79,9 @@ All PIG instances are behind it In recent years, the "Origin Shielding" transfor
 
 The first thing to do to prevent access interruptions is to configure a vanity domain for all your environments, including staging, development, and production.
 
-A vanity domain serves as a friendly URL that is easier to remember and manage while also being recognised by Origin Shielding ([and configured in the eCDN itself](/lets-go-live-ecdn/) ).
+A vanity domain serves as a friendly URL that is easier to remember and manage while also being recognised by Origin Shielding ([and configured in the eCDN itself](https://www.rhino-inquisitor.com/lets-go-live-ecdn/) ).
 
-Rather than having '_<https://production-eu01-mybrand.demandware.net> _', we can use a nicer domain such as '_ <https://brand.com_'>
+Rather than having '_https://production-eu01-mybrand.demandware.net_', we can use a nicer domain such as '_https://brand.com_'
 
 ### 2\. Use the domains
 

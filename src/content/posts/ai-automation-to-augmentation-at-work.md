@@ -1,8 +1,8 @@
 ---
 title: 'AI Automation to Augmentation: Its new role in the workplace'
 description: >-
-  As I walked into my office, I couldn't help but notice a particular AI chatbot
-  dominating the workspace.
+  A practical look at how AI is shifting from pure automation to workplace
+  augmentation, and what that change means for teams and delivery.
 date: '2023-03-13T07:15:33.000Z'
 lastmod: '2023-03-15T07:28:13.000Z'
 url: /ai-automation-to-augmentation-at-work/

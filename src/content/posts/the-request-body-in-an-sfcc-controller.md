@@ -1,8 +1,8 @@
 ---
-title: How to retrieve the Request Body in an SFCC Controller easily
+title: Get the Request Body in an SFCC Controller
 description: >-
-  Custom endpoints are a way to create personalised solutions that meet the
-  needs of a particular business.
+  Learn how to retrieve the request body in an SFCC controller and when that
+  pattern helps with custom endpoints and integrations.
 date: '2023-04-03T06:57:02.000Z'
 lastmod: '2023-04-03T06:57:14.000Z'
 url: /the-request-body-in-an-sfcc-controller/

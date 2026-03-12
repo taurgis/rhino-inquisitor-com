@@ -7,7 +7,7 @@ date: '2022-12-05T16:08:12.000Z'
 lastmod: '2022-12-08T12:44:02.000Z'
 url: /podcasts-for-salesforce-b2c-commerce-cloud/
 draft: false
-heroImage: /media/2022/headphones-in-the-clouds-b2df8fafce.jpg
+heroImage: /wp-content/uploads/2022/12/headphones-in-the-clouds.jpg
 categories:
   - Community
 tags:
@@ -18,13 +18,13 @@ author: Thomas Theunen
 ---
 Over the years, a lot of podcasts have popped up around Salesforce. And amongst these, they organise quite a few themselves.
 
-The [ecosystem has grown significantly over the years](/the-state-of-ohana-for-salesforce-commerce-cloud/), and some podcasts have chosen to target a specific portion of the community. But which ones are interesting to listen to as a Salesforce B2C Commerce Cloud enthusiast?
+The [ecosystem has grown significantly over the years](https://www.rhino-inquisitor.com/the-state-of-ohana-for-salesforce-commerce-cloud/), and some podcasts have chosen to target a specific portion of the community. But which ones are interesting to listen to as a Salesforce B2C Commerce Cloud enthusiast?
 
 ## Unofficial SFCC
 
-- [https://unofficialsfccpodcast.com/](https://unofficialsfccpodcast.com/)
-- [Oleg Sapishchuk](https://osapishchuk.medium.com/)
-- [Peter Schmalfeldt](https://peterschmalfeldt.com/)
+-   [https://unofficialsfccpodcast.com/](https://unofficialsfccpodcast.com/)
+-   [Oleg Sapishchuk](https://osapishchuk.medium.com/)
+-   [Peter Schmalfeldt](https://peterschmalfeldt.com/)
 
 > Welcome to the Unofficial Salesforce Commerce Cloud Podcast. We created this Podcast to give everyone access to each other to share ideas and help one another. It also offers members a place to discuss, listen and watch Salesforce B2C Commerce Cloud in a free and open environment.
 
@@ -32,12 +32,12 @@ We can only start the list of podcasts by putting the Unofficial SFCC podcast at
 
 Various topics are discussed, going from development to recruitment within the ecosystem.
 
-**Note:** It has been a while since a new episode was released. Hopefully, new episodes are in the making!
+_**Note:** It has been a while since a new episode was released. Hopefully, new episodes are in the making!_
 
 ## Salesforce Commerce Cloud Innovations
 
-- [https://podcasts.apple.com/ca/podcast/salesforce-commerce-cloud-innovations/id1654981816](https://podcasts.apple.com/ca/podcast/salesforce-commerce-cloud-innovations/id1654981816)
-- [Natalija Pavic](https://www.linkedin.com/in/natpavic/)
+-   [https://podcasts.apple.com/ca/podcast/salesforce-commerce-cloud-innovations/id1654981816](https://podcasts.apple.com/ca/podcast/salesforce-commerce-cloud-innovations/id1654981816)
+-   [Natalija Pavic](https://www.linkedin.com/in/natpavic/)
 
 > What if you could hang out with eCommerce experts at Salesforce, as well as our customers and partners, ask them about their experiences and be inspired by innovative ideas and live use cases; then take an insight or two to guide your own Commerce Cloud journey? Hosted by Natalija Pavic ––Innovation Leader on the Business Strategy & Growth team at Salesforce Commerce Cloud. –– every episode is a deep dive into topics that will impact your digital business from new trends like metaverse and NFTs to the evolution of the online customer experience and its impact. We hope to expand your mind with solutions available today and explore their impact on the future. Our goal is to give inspire you with ideas, solutions, and visions of the future in eCommerce.
 
@@ -45,22 +45,23 @@ A new podcast on the block about innovations in and around Commerce!
 
 ## Developers Podcast
 
-- [https://developer.salesforce.com/podcast](https://developer.salesforce.com/podcast)
-- [Josh Birk](https://twitter.com/joshbirk)
+-   [https://developer.salesforce.com/podcast](https://developer.salesforce.com/podcast)
+-   [Josh Birk](https://twitter.com/joshbirk)
 
 > Tune in to the Salesforce Developer Podcast to hear short and insightful stories for developers, from developers. Join Joshua Birk, Developer Evangelist and Godfather of Trailhead, as he hosts developer trailblazers from around the world as they share their stories of learning, building and integrating with Salesforce.
 
 This is the biggest podcast that targets all Salesforce Developers within the ecosystem (but still mainly the Salesforce CRM, as most of the products run on it). But every once and a while, a Salesforce B2C Commerce Cloud-related episode comes around:
 
-- [105: B2C Digital Trends with Natalija Pavic](https://podcasts.google.com/feed/aHR0cHM6Ly9zYWxlc2ZvcmNlZGV2cG9kY2FzdC5saWJzeW4uY29tL3Jzcw/episode/ZDE0NGE5ZGQtZjYzNi00MzM2LWJjMWQtNWRkMThhMjJkNzVl?sa=X&ved=0CAUQkfYCahcKEwjgu4SO-Mz3AhUAAAAAHQAAAAAQAQ)
-- [069: B2C Commerce Development with Andrew Lawrence](https://podcasts.google.com/feed/aHR0cHM6Ly9zYWxlc2ZvcmNlZGV2cG9kY2FzdC5saWJzeW4uY29tL3Jzcw/episode/MGI5OWUwYTQtMDkwOS00NjdhLWI3ZGEtMGMwZTU4NzVkYTVj?sa=X&ved=0CAUQkfYCahcKEwjgu4SO-Mz3AhUAAAAAHQAAAAAQAQ)
+-   [105: B2C Digital Trends with Natalija Pavic](https://podcasts.google.com/feed/aHR0cHM6Ly9zYWxlc2ZvcmNlZGV2cG9kY2FzdC5saWJzeW4uY29tL3Jzcw/episode/ZDE0NGE5ZGQtZjYzNi00MzM2LWJjMWQtNWRkMThhMjJkNzVl?sa=X&ved=0CAUQkfYCahcKEwjgu4SO-Mz3AhUAAAAAHQAAAAAQAQ)
+-   [069: B2C Commerce Development with Andrew Lawrence](https://podcasts.google.com/feed/aHR0cHM6Ly9zYWxlc2ZvcmNlZGV2cG9kY2FzdC5saWJzeW4uY29tL3Jzcw/episode/MGI5OWUwYTQtMDkwOS00NjdhLWI3ZGEtMGMwZTU4NzVkYTVj?sa=X&ved=0CAUQkfYCahcKEwjgu4SO-Mz3AhUAAAAAHQAAAAAQAQ)
+
 
 In the future, we hope to see more than two episodes a year pop up here as well about B2C Commerce Cloud and its related products, such as [OCI](https://help.salesforce.com/s/articleView?id=release-notes.rn_inv_omnichannel_inventory.htm&language=en_US&r=https%3A%2F%2Fwww.google.com%2F&release=230&type=5) (Omnichannel Inventory) and Salesforce [OMS](https://help.salesforce.com/s/articleView?id=sf.om_order_management.htm&language=en_US&r=https%3A%2F%2Fwww.google.com%2F&type=5) (Order Management).
 
 ## Up Next In Commerce
 
-- [https://mission.org/up-next-in-commerce/](https://mission.org/up-next-in-commerce/)
-- [Stephanie Postles](https://www.linkedin.com/in/stephaniepostles/)
+-   [https://mission.org/up-next-in-commerce/](https://mission.org/up-next-in-commerce/)
+-   [Stephanie Postles](https://www.linkedin.com/in/stephaniepostles/)
 
 > Join host Stephanie Postles as she sits down with eCommerce leaders on the front lines of digital innovation. With guests from established enterprise companies to D2C start-ups barely out of infancy to everyone in between - you’ll get the inside scoop on what’s Up Next in Commerce. New episodes release every Tuesday and Thursday.
 
@@ -68,9 +69,9 @@ Don't want to go too technical and get inspired by entrepreneurs in the Commerce
 
 ## Syntax
 
-- [https://syntax.fm/](https://syntax.fm/)
-- [Wes Bos](https://twitter.com/wesbos)
-- [Scott Tolinski](https://twitter.com/stolinski)
+-   [https://syntax.fm/](https://syntax.fm/)
+-   [Wes Bos](https://twitter.com/wesbos)
+-   [Scott Tolinski](https://twitter.com/stolinski)
 
 > Full Stack Developers Wes Bos and Scott Tolinski dive deep into web development topics, explaining how they work and talking about their own experiences. They cover from JavaScript frameworks like React, to the latest advancements in CSS to simplifying web tooling.
 
@@ -88,8 +89,8 @@ Some podcasts are also available in the ecosystem that are more "general." These
 
 ### Life With Goldie
 
-- [https://lifewithgoldiepodcast.buzzsprout.com/](https://lifewithgoldiepodcast.buzzsprout.com/)
-- [Mia Pacey](https://twitter.com/PaceyMia)
+-   [https://lifewithgoldiepodcast.buzzsprout.com/](https://lifewithgoldiepodcast.buzzsprout.com/)
+-   [Mia Pacey](https://twitter.com/PaceyMia)
 
 > Mia Pacey interviews the Trailblazer Golden Hoodie recipients to uncover their unique journey in the Salesforce ecosystem. How did they enter the ecosystem? What is it like to own the most sought after item of swag (the golden hoodie)? Let's spotlight these amazing Trailblazers and see what nuggets of wisdom we get shining back.
 
@@ -99,8 +100,8 @@ This podcast will tell you the unique stories of these Trailblazers, which can s
 
 ### Mums on Cloud Nine
 
-- [https://supermums.org/mums-on-cloud-nine-podcast/](https://supermums.org/mums-on-cloud-nine-podcast/)
-- [Heather Black](https://www.linkedin.com/in/heather-black-salesforce-women-in-tech-speaker/)
+-   [https://supermums.org/mums-on-cloud-nine-podcast/](https://supermums.org/mums-on-cloud-nine-podcast/)
+-   [Heather Black](https://www.linkedin.com/in/heather-black-salesforce-women-in-tech-speaker/)
 
 > Mums on Cloud Nine aims to inspire mums to progress their careers in tech from starting to climbing the career ladder. We provide tips and insight on how to succeed in your career and overcome adversity many women can face in the workplace.
 
@@ -108,8 +109,8 @@ Mums on Cloud Nine hopes to inspire mothers in the workplace by interviewing mom
 
 ### Inside the Ohana
 
-- [https://www.qualified.com/plus-series/inside-the-ohana](https://www.qualified.com/plus-series/inside-the-ohana)
-- [Dan Darcy](https://www.linkedin.com/in/dandarcy/)
+-   [https://www.qualified.com/plus-series/inside-the-ohana](https://www.qualified.com/plus-series/inside-the-ohana)
+-   [Dan Darcy](https://www.linkedin.com/in/dandarcy/)
 
 > Salesforce legend and veteran, Dan Darcy, takes us to the tops of Salesforce Towers across the globe, chatting with Trailblazers, Salesforce execs, employees, partners, and more. The Trailblazer economy is booming, hear the best lessons learned from the greatest in the industry.
 

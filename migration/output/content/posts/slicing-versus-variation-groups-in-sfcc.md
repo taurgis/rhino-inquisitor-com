@@ -1,13 +1,13 @@
 ---
 title: Slicing versus Variation Groups in Commerce Cloud
 description: >-
-  Clarity and efficiency are key in the strategic display and management of
-  products in your online store.
+  Learn the difference between slicing and variation groups in Commerce Cloud,
+  and when each model fits your product setup best.
 date: '2023-11-20T11:08:09.000Z'
 lastmod: '2023-11-20T11:59:10.000Z'
 url: /slicing-versus-variation-groups-in-sfcc/
 draft: false
-heroImage: /media/2023/a-tshirt-sliced-into-multiple-colors-scaled-4ed0b9ab1a.jpg
+heroImage: /wp-content/uploads/2023/11/a-tshirt-sliced-into-multiple-colors-scaled.jpg
 categories:
   - Documentation
   - Salesforce Commerce Cloud
@@ -15,13 +15,13 @@ tags:
   - sfcc
 author: Thomas Theunen
 ---
-Clarity and efficiency are key in the strategic display and management of products in your online store. In an age where various product options and variations dominate e-commerce, [we must grasp the organisational tools at our disposal](/getting-to-know-sfra-as-a-developer/).
+Clarity and efficiency are key in the strategic display and management of products in your online store. In an age where various product options and variations dominate e-commerce, [we must grasp the organisational tools at our disposal](https://www.rhino-inquisitor.com/getting-to-know-sfra-as-a-developer/).
 
 Today, we're thoroughly examining two tools provided by Salesforce B2C Commerce Cloud: 'Slicing' and 'Variation Groups'. Both are an option in product management, but which is your best bet?
 
 In this article (and I am giving away already which option blows the other out of the window), I hope to help you prepare to understand these concepts in depth and learn why, more often than not, Variation Groups may be your best bet for an exceptional online catalog management system.
 
-## What is slicing
+## What is slicing?
 
 ![A robot slicing a cake shaped like a t-shirt](/media/2023/a-robot-slicing-a-tshirt-27ef2248fc.jpg)
 
@@ -31,7 +31,7 @@ But simplicity comes at a price. When a variant sells out, it vanishes from the 
 
 From an operational standpoint, slicing demands that you replicate this process for each category your product fits into, escalating manual work and the likelihood of human error in maintaining a cohesive store experience.
 
-## What are variation groups
+## What are variation groups?
 
 [![A representation of the base product, variation group and variant system. A base product, with variation groups as colour and variants that represent the size.](/media/2023/base-variation-group-variant-explained-ed19da17b7.png)](/media/2023/base-variation-group-variant-explained-ed19da17b7.png)
 
@@ -47,21 +47,21 @@ Variation Groups also make it possible to tag products to promotions, which give
 
 [The leap from slicing to Variation Groups](https://www.rhino-inquisitor.com/wp-content/uploads/2023/11/B2C-Commerce-Variation-Group-Guide.pdf) feels natural when considering the modern expectations of both merchants and customers online:
 
-- **Enhanced Control Over Display:** Variation Groups give you exacting authority over how products are presented in the store. Attributes maintained at the Group level contribute to a refined attribute value fallback system for variants, ensuring that variations adhere to predefined display rules without constant manual adjustments.
-- **Merchandising with Precision:** By assigning specific colours or sizes to content slots on grid or landing pages or curating sets by attributes within Variation Groups, you can create an aesthetically pleasing and user-friendly browsing experience.
-- **SEO and Inventory Consistency:** Since Variation Groups are indexed as a single entity, they avoid the SEO pitfalls of slicing, where individual out-of-stock variants negatively impact search visibility. Variation Groups stand sturdily in search engine results, maintaining a stable presence.
-- **Promotional Dexterity:** Variation Groups offer nuanced promotional capabilities, syncing effectively with seasonal or flash sales without needing individual product-level discounts, streamlining the promotional mechanics and adding value to the customer journey.
-- **Simple Category Management:** Variation Groups allow for reordering product displays in the view, which is invaluable for visual merchandising and alleviating the daily grind of category management. Conversely, slicing necessitates individual attention for [each product within categories](https://help.salesforce.com/s/articleView?id=cc.b2c_variation_slicing_by_category.htm&type=5).
-- **Composable Storefront:** Although SFRA and SiteGenesis supported slicing, the PWA Kit has never been tested with slicing and solely supports Variation Groups out of the box.
-- **Slicing is kind of deprecated:** Although the [Trailhead Module](https://trailhead.salesforce.com/content/learn/modules/b2c-catalog-category-product/b2c-configure-variation-groups-slicing) and documentation no longer show a deprecation message (I somehow remember it visible in more places), it is a deprecated feature (proved by the previous point).
+-   **Enhanced Control Over Display**: Variation Groups give you exacting authority over how products are presented in the store. Attributes maintained at the Group level contribute to a refined attribute value fallback system for variants, ensuring that variations adhere to predefined display rules without constant manual adjustments.
+-   **Merchandising with Precision**: By assigning specific colours or sizes to content slots on grid or landing pages or curating sets by attributes within Variation Groups, you can create an aesthetically pleasing and user-friendly browsing experience.
+-   **SEO and Inventory Consistency**: Since Variation Groups are indexed as a single entity, they avoid the SEO pitfalls of slicing, where individual out-of-stock variants negatively impact search visibility. Variation Groups stand sturdily in search engine results, maintaining a stable presence.
+-   **Promotional Dexterity**: Variation Groups offer nuanced promotional capabilities, syncing effectively with seasonal or flash sales without needing individual product-level discounts, streamlining the promotional mechanics and adding value to the customer journey.
+-   **Simple Category Management**: Variation Groups allow for reordering product displays in the view, which is invaluable for visual merchandising and alleviating the daily grind of category management. Conversely, slicing necessitates individual attention for [each product within categories](https://help.salesforce.com/s/articleView?id=cc.b2c_variation_slicing_by_category.htm&type=5).
+-   **Composable Storefront**: Although SFRA and SiteGenesis supported slicing, the PWA Kit has never been tested with slicing and solely supports Variation Groups out of the box.
+-   **Slicing is kind of deprecated**: Although the [Trailhead Module](https://trailhead.salesforce.com/content/learn/modules/b2c-catalog-category-product/b2c-configure-variation-groups-slicing) and documentation no longer show a deprecation message (I somehow remember it visible in more places), it is a deprecated feature (proved by the previous point).
 
-![ProductSearchHit documentation warning that slicing is deprecated in favor of variation groups.](/media/2023/sfcc-slicing-deprecated-42f8438771.png)
+![A screenshot of the ProductSearchHit script documentation with the following message below slicing: "Deprecated: Please use HIT_TYPE_VARIATION_GROUP instead."](/media/2023/sfcc-slicing-deprecated-42f8438771.png)
 
 One location still has the deprecation message.
 
 ## Quota Limits
 
-[![Quota documentation showing the maximum number of variations per base product.](/media/2023/variations-quota-limit-sfcc-00862ef947.png)](/media/2023/variations-quota-limit-sfcc-00862ef947.png)
+[![A screenshot of the quota limit for variations in SFCC: The Variations per Base Product object relation quota consists of: Log file ID: object.ProductPO.relation.variationProductAssignmentPOs Description: The maximum number of variations for a base product. Limit: 1,000 (warning at 600)](/media/2023/variations-quota-limit-sfcc-00862ef947.png)](/media/2023/variations-quota-limit-sfcc-00862ef947.png)
 
 When dealing with variations, it is crucial to be mindful of a single quota limit - the maximum number of variations per base product, similar to slicing.
 

@@ -1,13 +1,13 @@
 ---
-title: A Developer's Guide to Using the getProps Method in the PWA Kit
+title: Using getProps in PWA Kit
 description: >-
-  As a developer, you're always looking for ways to improve the performance and
-  functionality of your projects.
+  Learn how the getProps method works in PWA Kit, what data it exposes, and when
+  it helps with faster, cleaner storefront code.
 date: '2023-05-15T09:58:07.000Z'
 lastmod: '2023-05-15T12:09:08.000Z'
 url: /guide-to-the-getprops-method-in-sfcc/
 draft: false
-heroImage: /media/2023/traffic-warden-directing-traffic-ae24078be0.jpg
+heroImage: /wp-content/uploads/2023/11/traffic-warden-directing-traffic.jpg
 categories:
   - Salesforce Commerce Cloud
   - Technical
@@ -18,7 +18,7 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-As a developer, you're always looking for ways to improve the performance and functionality of your projects. The PWA Kit includes several features and functions that make creating high-performance, mobile- and [SEO](/lets-go-live-seo/)\-friendly web applications accessible.
+As a developer, you're always looking for ways to improve the performance and functionality of your projects. The PWA Kit includes several features and functions that make creating high-performance, mobile- and [SEO](https://www.rhino-inquisitor.com/lets-go-live-seo/)\-friendly web applications accessible.
 
 In this article, we'll explore one of the critical features of the PWA Kit: the getProps method.
 
@@ -26,11 +26,11 @@ In this article, we'll explore one of the critical features of the PWA Kit: the 
 
 This article assumes you have experience with React and the libraries the PWA Kit uses behind the scenes. Is this not the case? Not to worry, there is plenty of public information available to get you started:
 
-- [Official PWA Kit Documentation: Skills for success](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/skills-for-success.html)
-- [Your first React Component](https://react.dev/learn/your-first-component)
-- [React Router v5](https://www.sitepoint.com/react-router-complete-guide/)
-- [Isomorphic React](https://yudhajitadhikary.medium.com/isomorphic-implementation-of-react-fa6e129c246f)
-- [Understanding Higher Order Components](https://blog.logrocket.com/understanding-react-higher-order-components/)
+-   [Official PWA Kit Documentation: Skills for success](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/skills-for-success.html)
+-   [Your first React Component](https://react.dev/learn/your-first-component)
+-   [React Router v5](https://www.sitepoint.com/react-router-complete-guide/)
+-   [Isomorphic React](https://yudhajitadhikary.medium.com/isomorphic-implementation-of-react-fa6e129c246f)
+-   [Understanding Higher Order Components](https://blog.logrocket.com/understanding-react-higher-order-components/)
 
 ### React Router
 
@@ -48,7 +48,7 @@ In the PWA Kit, Express handles the server-side rendering of React components, i
 
 Version The PWA Kit utilizes the latest stable release of Express, which is version 4. Version 5 is currently in BETA.
 
-## What is the getProps method
+## What is the getProps method?
 
 TL;DR You can access this function by adding a "page" to the [routes](https://github.com/SalesforceCommerceCloud/pwa-kit/blob/develop/packages/template-retail-react-app/app/routes.jsx) file in the PWA Kit.
 
@@ -60,8 +60,9 @@ The getProps method is used to supply data fetched from API requests to the rout
 
 Here is a snippet from the PWA Kit where the "wrapping" happens on the client side.
 
-```js
-const props = {
+```
+
+					const props = {
     error: window.__ERROR__,
     locals: locals,
     routes: getRoutes(locals),
@@ -73,14 +74,26 @@ export const OuterApp = ({routes, error, WrappedApp, locals}) => {
     const isInitialPageRef = useRef(true)
     return (
 
+
+
+
+
+
+
+
+
     )
 }
+
+
+
 ```
 
 ### getProps Example
 
-```js
-const ProductDetails = ({name}) => (
+```
+
+					const ProductDetails = ({name}) => (
   {name}
 )
 ProductDetails.getProps = async () => {
@@ -88,6 +101,9 @@ ProductDetails.getProps = async () => {
   const data = await response.json()
   return data // {name: "product_name}
 }
+
+
+
 ```
 
 In this example, we define a ProductDetails component that takes one prop: name. We also define a getProps function for the component that fetches data from an API and returns it as props.
@@ -98,15 +114,19 @@ Routed Pages Since the getProps function is an extension on a "route", you can o
 
 The getProps method receives a JavaScript object with properties based on the rendering context. These include:
 
-- **params:**  contains [object properties](https://expressjs.com/en/4x/api.html#req.params) corresponding to named route parameters
-- **req:** an enhanced version of Node's [request object](https://expressjs.com/en/4x/api.html#req) for HTTP requests
-- **res:** representing the [HTTP response](https://expressjs.com/en/4x/api.html#res).
-- **location:** the URL of the request and is available on both client and server sides, but is not part of the Express API.
+-   **params**:  contains [object properties](https://expressjs.com/en/4x/api.html#req.params) corresponding to named route parameters
+-   **req:** an enhanced version of Node's [request object](https://expressjs.com/en/4x/api.html#req) for HTTP requests
+-   **res:** representing the [HTTP response](https://expressjs.com/en/4x/api.html#res).
+-   **location:** the URL of the request and is available on both client and server sides, but is not part of the Express API.
 
-```text
-ProductDetails.getProps = async ({params, req, res, location}) => {
+```
+
+					ProductDetails.getProps = async ({params, req, res, location}) => {
   ...
 }
+
+
+
 ```
 
 ### Add your own properties
@@ -119,8 +139,9 @@ This is achieved by defining the extraGetPropsArgs function to return an object 
 
 Here is an example of how it is defined in [AppConfig](https://github.com/SalesforceCommerceCloud/pwa-kit/blob/develop/packages/template-retail-react-app/app/components/_app-config/index.jsx#L82):
 
-```text
-AppConfig.restore = (locals = {}) => {
+```
+
+					AppConfig.restore = (locals = {}) => {
   locals.api = new CommerceAPI(apiConfig)
 }
 AppConfig.freeze = () => undefined
@@ -129,12 +150,15 @@ AppConfig.extraGetPropsArgs = (locals = {}) => {
     api: locals.api
   }
 }
+
+
 ```
 
 And now we can use that new property in our ProductDetail component:
 
-```js
-ProductDetail.getProps = async ({res, params, location, api}) => {
+```
+
+					ProductDetail.getProps = async ({res, params, location, api}) => {
     const {productId} = params
     let category, product
     const urlParams = new URLSearchParams(location.search)
@@ -146,11 +170,13 @@ ProductDetail.getProps = async ({res, params, location, api}) => {
     })
     ...
 }
+
+
 ```
 
 ## Handling errors
 
-To handle [errors](/secure-coding-in-salesforce-b2c-commerce-cloud/) in a getProps function, you have two options.
+To handle [errors](https://www.rhino-inquisitor.com/secure-coding-in-salesforce-b2c-commerce-cloud/) in a getProps function, you have two options.
 
 The first option is to throw an HTTPError object, which can be imported from "pwa-kit-react-sdk/ssr/universal/errors". When you throw an HTTPError, a dedicated Error component is rendered.
 
@@ -158,8 +184,9 @@ The second option is to use props to inform the rendered component of the error 
 
 Here's an example of how to handle errors in a getProps function:
 
-```js
-ProductDetails.getProps = async ({res}) => {
+```
+
+					ProductDetails.getProps = async ({res}) => {
   const response = await fetch(`https://httpbin.org/status/404`)
   if (!response.ok) {
     if (response.status !== 404) {
@@ -171,6 +198,9 @@ ProductDetails.getProps = async ({res}) => {
   const data = await response.json()
   return data
 }
+
+
+
 ```
 
 ## Things to keep in mind
@@ -179,8 +209,9 @@ When writing getProps functions, it's important to be selective in what data to 
 
 You should also write conditional code in your components to handle undefined props, and render a placeholder component while props are undefined.
 
-```js
-const ProductDetails = ({name}) => (
+```
+
+					const ProductDetails = ({name}) => (
   {name ?? 'My fallback'}
 )
 ProductDetails.getProps = async ({params}) => {
@@ -188,14 +219,17 @@ ProductDetails.getProps = async ({params}) => {
   const data = await response.json()
   return data || {}
 }
+
+
 ```
 
 ### Caching
 
 Just like in SiteGenesis or SFRA it is possible to cache the server-side response! By setting the '[Cache-Control](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/maximizing-your-cache-hit-ratio.html)' header, the CDN knows that it should cache the response.
 
-```js
-const ProductDetails = ({name}) => (
+```
+
+					const ProductDetails = ({name}) => (
   {name ?? 'My fallback'}
 )
 ProductDetails.getProps = async ({params, res}) => {
@@ -207,6 +241,8 @@ ProductDetails.getProps = async ({params, res}) => {
     }
   return data || {}
 }
+
+
 ```
 
 ### Personalisation

@@ -92,7 +92,7 @@ async function main() {
     }
 
     const discoveryResult = resolveDiscoveryParams(record, curation, errors);
-    const frontMatterOverride = frontMatterOverrides[String(record.sourceId)];
+    const frontMatterOverride = resolveFrontMatterOverride(record, frontMatterOverrides);
     const frontMatter = buildFrontMatter(
       record,
       discoveryResult.params,
@@ -125,7 +125,9 @@ async function main() {
   }
 
   for (const record of [...categoryTargetRecords.values()].sort((left, right) => left.targetUrl.localeCompare(right.targetUrl))) {
-    const frontMatter = buildCategoryFrontMatter(record, errors);
+    const frontMatterOverride = resolveFrontMatterOverride(record, frontMatterOverrides);
+    const frontMatter = buildCategoryFrontMatter(record, errors, frontMatterOverride);
+    if (frontMatterOverride) mappingStats.frontMatterOverrideCount += 1;
     const outputRelativePath = buildOutputRelativePath(record);
     const outputPath = path.join(options.contentDir, outputRelativePath);
 
@@ -525,7 +527,7 @@ function buildFrontMatter(record, discoveryParams, frontMatterOverride, attachme
   return frontMatter;
 }
 
-function buildCategoryFrontMatter(record, errors) {
+function buildCategoryFrontMatter(record, errors, frontMatterOverride) {
   const title = String(record.titleRaw ?? '').trim();
   if (title.length === 0) {
     errors.push(createErrorRow({
@@ -537,7 +539,7 @@ function buildCategoryFrontMatter(record, errors) {
     }));
   }
 
-  const description = resolveCategoryDescription(record);
+  const description = typeof frontMatterOverride?.description === 'string' ? frontMatterOverride.description.trim() : resolveCategoryDescription(record);
   if (description.length === 0) {
     errors.push(createErrorRow({
       sourceId: record.sourceId,
@@ -553,6 +555,14 @@ function buildCategoryFrontMatter(record, errors) {
     description,
     draft: record.status !== 'publish'
   };
+}
+
+function resolveFrontMatterOverride(record, frontMatterOverrides) {
+  if (record.postType === 'category') {
+    return frontMatterOverrides[`category:${record.sourceId}`] ?? frontMatterOverrides[String(record.sourceId)];
+  }
+
+  return frontMatterOverrides[String(record.sourceId)];
 }
 
 function resolveCategoryDescription(record) {

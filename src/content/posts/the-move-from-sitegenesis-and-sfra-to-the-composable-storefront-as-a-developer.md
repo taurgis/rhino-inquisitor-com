@@ -1,5 +1,5 @@
 ---
-title: The move from SiteGenesis and SFRA to the Composable Storefront as a developer
+title: Moving from SiteGenesis and SFRA to Composable Storefront
 description: >-
   As a Salesforce B2C Commerce Cloud developer (starter or experienced),
   expanding your skill set and exploring new technologies is part of the job -

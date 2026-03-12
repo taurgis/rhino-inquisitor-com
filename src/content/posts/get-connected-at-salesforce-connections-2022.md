@@ -1,8 +1,8 @@
 ---
 title: Get connected at Salesforce Connections 2022
 description: >-
-  Salesforce Connections 2022 is right around the corner! What does it have in
-  store for Salesforce B2C Commerce Cloud?
+  Preview Salesforce Connections 2022 with a commerce-focused view of the event,
+  key themes, and what attendees should watch for.
 date: '2022-05-30T12:21:30.000Z'
 lastmod: '2022-07-23T21:49:51.000Z'
 url: /get-connected-at-salesforce-connections-2022/

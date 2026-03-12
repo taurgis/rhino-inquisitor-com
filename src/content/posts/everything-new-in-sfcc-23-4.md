@@ -1,8 +1,8 @@
 ---
 title: Everything new in Salesforce B2C Commerce Cloud 23.4
 description: >-
-  As the clock ticks on a new month has arrived, and with that the next
-  Salesforce B2C Commerce Cloud release!
+  Catch up on the Salesforce B2C Commerce Cloud 23.4 release and the platform
+  changes that matter most for developers this month.
 date: '2023-03-15T19:32:56.000Z'
 lastmod: '2023-03-15T19:51:03.000Z'
 url: /everything-new-in-sfcc-23-4/

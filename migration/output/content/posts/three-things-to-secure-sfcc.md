@@ -1,5 +1,5 @@
 ---
-title: Three things you can do today to secure your SFCC environment
+title: Three Ways to Secure Your SFCC Environment
 description: >-
   Securing your Salesforce B2C Commerce Cloud environment is important, but
   sometimes neglected. These are 3 actions you can take immediately!
@@ -7,7 +7,7 @@ date: '2024-01-15T17:47:00.000Z'
 lastmod: '2024-01-08T20:35:25.000Z'
 url: /three-things-to-secure-sfcc/
 draft: false
-heroImage: /media/2022/robot-locking-a-gate-9a4abf2129.png
+heroImage: /wp-content/uploads/2022/11/robot-locking-a-gate.png
 categories:
   - Salesforce Commerce Cloud
   - Technical
@@ -17,7 +17,7 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-The importance of security in any digital environment can not be stressed enough. Even though [Salesforce Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/) is a SaaS solution, you are still in charge of your system and how some aspects are secured.
+The importance of security in any digital environment can not be stressed enough. Even though [Salesforce Commerce Cloud](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/) is a SaaS solution, you are still in charge of your system and how some aspects are secured.
 
 A good example is user management; you securely handle access to different environments. Salesforce provides the tools to secure it, but you must use them correctly for optimal protection.
 
@@ -35,10 +35,10 @@ You should always have a [system of least privilege](https://en.wikipedia.org/wi
 
 But why do this, you might ask? Well, there are quite a few reasons for this:
 
-- People do administrative tasks in the wrong environment by accident, even though they have not been working on that project for weeks/months/years (it happens)
-- An account was hacked that had access to multiple projects they no longer worked on
-- Someone left the company on bad terms and decided to abuse their access
-- … and many more
+-   People do administrative tasks in the wrong environment by accident, even though they have not been working on that project for weeks/months/years (it happens)
+-   An account was hacked that had access to multiple projects they no longer worked on
+-   Someone left the company on bad terms and decided to abuse their access
+-   … and many more
 
 I am not saying that with a system of least privilege, all damage could have been prevented, but they could have done much less damage if the correct procedures had been adhered to.
 
@@ -46,13 +46,13 @@ I am not saying that with a system of least privilege, all damage could have bee
 
 Just as user access is something you and your team are in charge of, so is the security quality of the code deployed to the environments.
 
-It might be a good idea to go and check out the repository and review the most sensitive areas, looking for security holes. Don’t know where to start? I wrote [an extensive article about security best practices](/secure-coding-in-salesforce-b2c-commerce-cloud/) to remember during development.
+It might be a good idea to go and check out the repository and review the most sensitive areas, looking for security holes. Don’t know where to start? I wrote [an extensive article about security best practices](https://www.rhino-inquisitor.com/secure-coding-in-salesforce-b2c-commerce-cloud/) to remember during development.
 
 ## Third-party access
 
 ![People grabbing keys from a treasure chest](/media/2024/people-grabbing-keys-from-a-chest-728c293140.jpg)
 
-Next to user access to the business manager of the environments, there are also API Keys that allow administrative access to the system through REST endpoints and the [WebDAV](/a-beginners-guide-to-webdav-in-sfcc/).
+Next to user access to the business manager of the environments, there are also API Keys that allow administrative access to the system through REST endpoints and the [WebDAV](https://www.rhino-inquisitor.com/a-beginners-guide-to-webdav-in-sfcc/).
 
 If you have systems that integrate with Salesforce B2C Commerce Cloud, document those systems and how they integrate. And again, make sure they work with a [Principle of Least Privilege](https://www.cisa.gov/uscert/bsi/articles/knowledge/principles/least-privilege).
 

@@ -1,13 +1,13 @@
 ---
 title: How to migrate passwords from Magento using Argon2
 description: >-
-  As a developer, you might encounter situations where you need to migrate data
-  from one platform to another securely.
+  Learn how to migrate Magento passwords with Argon2, preserve account access,
+  and plan a safer authentication transition.
 date: '2024-03-27T08:47:32.000Z'
 lastmod: '2024-03-28T15:01:14.000Z'
 url: /migrate-magento-passwords-using-argon2/
 draft: false
-heroImage: /media/2024/cryptography-668cd24089.jpg
+heroImage: /wp-content/uploads/2024/03/cryptography.jpg
 categories:
   - Salesforce Commerce Cloud
   - Technical
@@ -28,23 +28,31 @@ I have created a [script](https://osapishchuk.medium.com/legacy-customers-passwo
 
 ### hashes.txt
 
-```text
-ab5ebf8d273b085b6a60336198e0a5a2090fdc3e0606a678315c7274ab06e046:5PiKJRn28bBKoFMopMaaKuV47aJ6GzVg:3_32_2_67108864
+```
+
+					ab5ebf8d273b085b6a60336198e0a5a2090fdc3e0606a678315c7274ab06e046:5PiKJRn28bBKoFMopMaaKuV47aJ6GzVg:3_32_2_67108864
+
+
+
 ```
 
 ### wordlist.txt
 
-```text
-Password1
+```
+
+					Password1
 Password2
 Password@
 Password3
+
+
 ```
 
 ### Script
 
-```js
-const argon2 = require('argon2');
+```
+
+					const argon2 = require('argon2');
 const fs = require('fs');
 const readline = require('readline');
 const path = require('path');
@@ -121,6 +129,9 @@ processFile(hashFilePath, async (hashString) => {
 }).then(() => {
     console.log("Done");
 });
+
+
+
 ```
 
 ## Breaking It Down
@@ -139,19 +150,19 @@ This function takes a stored hash (`hashString`) and a candidate password (`pass
 
 It performs the following steps:
 
-- Parses the hash string into its components (hash, salt, and version).
-  - Adjusts the version if needed.
-  - Extracts the salt.
-  - Retrieves information about hash length, time cost, and memory cost.
-  - Computes a new hash using Argon2 with the same parameters.
-  - Compares the computed hash with the stored hash.
-  - If they match, it logs the hash and the original password.
+-   -   Parses the hash string into its components (hash, salt, and version).
+    -   Adjusts the version if needed.
+    -   Extracts the salt.
+    -   Retrieves information about hash length, time cost, and memory cost.
+    -   Computes a new hash using Argon2 with the same parameters.
+    -   Compares the computed hash with the stored hash.
+    -   If they match, it logs the hash and the original password.
 
 #### Version Information
 
 Luckily, Magento stores the required parameters for Argon2 in its version number, which can be extracted for our purposes:
 
-_hash _:_ salt_: **3\_ 32\_2\_ 67108864**
+_hash_:_salt_:**3\_32\_2\_67108864**
 
 ## Conclusion
 

@@ -1,8 +1,8 @@
 ---
 title: Versioning of Content Assets
 description: >-
-  Allow for versioning of content assets as they are edited, including the
-  ability to roll back to prior versions.
+  Version content assets in SFCC so teams can review edits, compare revisions,
+  and roll back safely when a publish change introduces risk.
 date: '2022-03-27T06:29:47.000Z'
 lastmod: '2022-03-27T06:52:42.000Z'
 url: /versioning-of-content-assets/
@@ -11,7 +11,7 @@ author: Thomas Theunen
 ---
 Everyone makes mistakes, big and small. There is no easy way to return within the Content Management system built into Salesforce B2C Commerce Cloud once you save a Content Asset. It is easy as pie to roll back changes to even months ago within many plugins and editors (including [Elementor](http://elementor.com), which I use for this blog.) This is most certainly a missing feature in Page Designer and Content Assets!
 
-![Elementor revision history screen used to illustrate missing content-asset versioning.](/media/2022/revision-blog-12e6fdce00.jpg)
+![](/media/2022/revision-blog-12e6fdce00.jpg)
 
 Revisions in Elementor
 

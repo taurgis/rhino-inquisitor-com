@@ -1,21 +1,21 @@
 ---
 title: Submitting a file to a third party service in SFCC
 description: >-
-  How do you submit a file to a third party with the Service Framework in
-  Salesforce B2C Commerce Cloud? Find out here!
+    Learn how to submit files to a third-party service from SFCC with the Service
+    Framework, including setup concerns and pitfalls.
 date: '2023-01-02T08:00:00.000Z'
 lastmod: '2022-12-29T18:02:41.000Z'
 url: /submitting-a-file-to-a-third-party-service-in-sfcc/
 draft: false
 heroImage: /media/2022/file-upload-86681d338b.jpg
 categories:
-  - Salesforce Commerce Cloud
-  - Technical
+    - Salesforce Commerce Cloud
+    - Technical
 tags:
-  - file
-  - services
-  - sfcc
-  - technical
+    - file
+    - services
+    - sfcc
+    - technical
 author: Thomas Theunen
 ---
 Salesforce B2C Commerce Cloud provides developers and architects with a [framework to integrate third-party services](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/web_services/b2c_webservices.html), making it much more streamlined to get up and running. With the [LocalServiceRegistry,](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/web_services/b2c_coding_your_web_service.html) you get some neat features like configuration management from the business manager, logging, and service monitoring! There are examples available on how to use this system, but how do you send a file to a service using it? There isn't an example available for this (except for an FTP service that, by definition, works with files).

@@ -1,8 +1,8 @@
 ---
-title: 'Custom Preferences in Salesforce B2C Commerce Cloud: A Developer Guide'
+title: Using Custom Preferences in SFCC
 description: >-
-  Salesforce B2C Commerce Cloud uses custom preferences to store configurable
-  settings for a storefront.
+  Learn how SFCC custom preferences support configurable storefront behavior,
+  governance, and safer environment-specific settings.
 date: '2023-10-16T12:01:58.000Z'
 lastmod: '2023-10-16T18:11:19.000Z'
 url: /custom-preferences-in-sfcc/

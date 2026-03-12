@@ -1,15 +1,15 @@
 ---
 title: Home
 description: >-
-  My name is Thomas Theunen, and I write about all things related to Salesforce
-  Commerce Cloud and its community.
+  Thomas Theunen writes about Salesforce Commerce Cloud, its developer
+  ecosystem, release notes, and the lessons drawn from real project delivery.
 date: '2022-02-25T21:45:56.000Z'
 lastmod: '2025-09-21T06:26:21.000Z'
 url: /
 draft: false
 author: Thomas Theunen
 ---
-## Welcome
+## Welcome!
 
 My name is Thomas, and I am the Head of Commerce at [Forward](https://www.forward.eu). I am a proud father of two wonderful children: Thalia & Thano.
 
@@ -21,14 +21,14 @@ I am here to share my knowledge and experience to help others succeed in the Oha
 
 ## My Active Projects
 
-[MCP Aegis](https://aegis.rhino-inquisitor.com/) [SFCC DEV MCP](https://sfcc-mcp-dev.rhino-inquisitor.com/)
+[MCP Aegis](https://aegis.rhino-inquisitor.com/) [SFCC DEV MCP ](https://sfcc-mcp-dev.rhino-inquisitor.com/)
 
-[![Thomas Theunen at the office beside a desk and plants.](/media/2022/1e8a7695-9e6f1ee7bd.jpg)](https://trailblazercommunitygroups.com/salesforce-developer-group-hasselt-belgium/)
+[![A picture of Thomas Theunen leaning on a desk at the office with plants on the background.](/media/2022/1e8a7695-9e6f1ee7bd.jpg) ](https://trailblazercommunitygroups.com/salesforce-developer-group-hasselt-belgium/)
 
-![Thomas Theunen holding a tablet in the office.](/media/2022/thomas-theunen-tablet2-7f501926d7.jpg)
+![A picture of Thomas Theunen leaning on a desk at the office with plants on the background.](/media/2022/thomas-theunen-tablet2-7f501926d7.jpg)
 
 ## Explore Articles About Salesforce B2C Commerce Cloud (SFCC)
 
 I have been in the commerce world for more than a decade now implementing multiple platforms. I want to share that knowledge about [SFCC](https://www.salesforce.com/products/commerce-cloud/overview/) and how to integrate with the other products that [Salesforce](https://www.salesforce.com/eu/?ir=1) has to offer!
 
-For more articles, be sure to check out my [blog](/archive/)!
+For more articles, be sure to check out my [blog](https://www.rhino-inquisitor.com/archive/)!

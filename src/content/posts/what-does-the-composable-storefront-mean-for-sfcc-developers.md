@@ -1,5 +1,5 @@
 ---
-title: What does the Composable Storefront mean for SFCC Developers?
+title: What Composable Storefront Means for SFCC Developers
 description: >-
   Many SFCC developers look at the Composable Storefront as the next step of
   Salesforce moving SFCC to the CRM core. But is it so?

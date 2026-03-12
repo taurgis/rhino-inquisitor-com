@@ -7,7 +7,7 @@ date: '2023-05-25T06:26:10.000Z'
 lastmod: '2023-05-24T08:16:17.000Z'
 url: /a-look-at-the-salesforce-b2c-commerce-cloud-23-6-release/
 draft: false
-heroImage: /media/2023/a-neon-shopping-cart-scaled-863c5d17ed.jpg
+heroImage: /wp-content/uploads/2023/05/a-neon-shopping-cart-scaled.jpg
 categories:
   - Release Notes
   - Salesforce Commerce Cloud
@@ -17,12 +17,13 @@ author: Thomas Theunen
 ---
 The weather (at least here) is giving us more sunshine, so let us shine a light on the next Salesforce B2C Commerce Cloud release! This time we look at the [June 2023 (23.6) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_23_6_release.htm&type=5)!
 
-Are you interested in last month’s release notes? [Read the 23.5 release notes](/a-look-at-the-sfcc-23-5-release/)!
+Are you interested in last month’s release notes? [Click here](https://www.rhino-inquisitor.com/a-look-at-the-sfcc-23-5-release/)!
 
 ## Enhance Storefront Search Scale and Performance
 
 > Enhance the scale and performance of storefront search for keyword search and product browsing with the new B2C Commerce search settings option. Improve page load times for large product catalogs when processing search results that exceed a configurable threshold. Shoppers get quicker results when performing a keyword search, refinement calculation, product grouping, sorting, and category browsing. For example, if your storefront doesn’t use search refinement counts in the refinement bar, a setting is available to improve refinement calculation and search and category page load times.
-> **How:** To activate the new search settings, contact Salesforce Customer Support or work with your Technical Account Manager and Customer Success Group representatives. Salesforce recommends that you test the new functionality on a development or dedicated test instance before enabling them on a staging or production environment.
+>
+> **How**: To activate the new search settings, contact Salesforce Customer Support or work with your Technical Account Manager and Customer Success Group representatives. Salesforce recommends that you test the new functionality on a development or dedicated test instance before enabling them on a staging or production environment.
 
 If you have been in the eco-system for a while, you may have noticed that the built-in search engine did not get much love (visibly) in the past few years. Looking at the past two months, that appears to have changed!
 
@@ -30,9 +31,9 @@ Your site's performance is a very important aspect, and seeing that more options
 
 But what does Salesforce mean by "large product catalogs"? Well, that means more than 1 million products in your catalog. But there are still a few questions that I have that are open on this topic:
 
-- Does this impact OCAPI/SCAPI performance as well?
-- If you have less products, is it still a feature you would want to activate? Are there benefits?
-- What options are there?
+-   Does this impact OCAPI/SCAPI performance as well?
+-   If you have less products, is it still a feature you would want to activate? Are there benefits?
+-   What options are there?
 
 I hope more information will pop up in the documentation soon, as this is a welcome improvement!
 
@@ -48,19 +49,19 @@ I hope more information will pop up in the documentation soon, as this is a welc
 
 ### Shopper Login (SLAS)
 
-> - Updated the getTrustedAgentAccessToken endpoint to make the agent\_id parameter optional.
-> - Updated the SLAS Admin UI with specific error messaging for issues with logging into Account Manager.
-> - Private clients now support grant\_type=authorization\_ code in addition to grant\_type=authorization\_ code\_pkce.
-> - Removals of customer records in B2C Commerce are now synchronized with SLAS. If a customer record is deleted in B2C Commerce, this change is recognized by SLAS.
-> - Infrastructure and scale improvements to handle higher transaction volume for the upcoming holiday season.
-> - NEW SLAS-Marketing Cloud SMS for Passwordless login is ready! See Passwordless Login with SMS to get started.
-> - Improved exception handling for invalid passwords. Returns 400 with clear messaging.
-> - The /userinfo endpoint now handles extended UT\_08 character set.
-> - The /userinfo endpoint now allows trusted system on behalf (TSOB) access tokens.
-> - Security library updates.
-> - Deprecated the CredQuality API.
-> - Improved Guest Shopper validation to allow B2C Commerce IDP origin for session bridge.
-> - Session Bridge: fixed 500 server error on incorrect hint. SLAS Admin UI: Fixed issues related to Tenant ID format check at browser level.
+> -   Updated the getTrustedAgentAccessToken endpoint to make the agent\_id parameter optional.
+> -   Updated the SLAS Admin UI with specific error messaging for issues with logging into Account Manager.
+> -   Private clients now support grant\_type=authorization\_code in addition to grant\_type=authorization\_code\_pkce.
+> -   Removals of customer records in B2C Commerce are now synchronized with SLAS. If a customer record is deleted in B2C Commerce, this change is recognized by SLAS.
+> -   Infrastructure and scale improvements to handle higher transaction volume for the upcoming holiday season.
+> -   NEW SLAS-Marketing Cloud SMS for Passwordless login is ready! See Passwordless Login with SMS to get started.
+> -   Improved exception handling for invalid passwords. Returns 400 with clear messaging.
+> -   The /userinfo endpoint now handles extended UT\_08 character set.
+> -   The /userinfo endpoint now allows trusted system on behalf (TSOB) access tokens.
+> -   Security library updates.
+> -   Deprecated the CredQuality API.
+> -   Improved Guest Shopper validation to allow B2C Commerce IDP origin for session bridge.
+> -   Session Bridge: fixed 500 server error on incorrect hint. SLAS Admin UI: Fixed issues related to Tenant ID format check at browser level.
 
 No month goes by without new additions to the SLAS service. As the Composable Storefront (and hybrid deployments) get more traction, this service needs to get some "love" and provide the flexibility brands need.
 
@@ -96,21 +97,21 @@ A ["smaller" release](https://github.com/SalesforceCommerceCloud/pwa-kit/release
 
 Several changes and improvements have been made in the latest release notes. Here's a summary of the most significant updates:
 
-1. **Phased launch with optional session bridge call:** An optional session bridge call has been added to the login process, allowing for a smoother phased launch of new features.
-1. **Product-list refinements:** Enhancements have been made to product-list handling, including support for multiple types, improved isChecked functionality, and better management of query parameters.
-1. **Fixes for multi-value query parameters and basket issues:** This release addresses issues with multi-value query parameters being lost and makes the mergeBasket conditional more robust, resolving basket problems when a new account is created.
-1. **Security package updates and bug fixes:** Several security package updates have been implemented, along with various bug fixes to improve overall system stability.
-1. **Mobile-friendly phone number input:** The phone number field type has been changed to bring up a numeric keyboard on mobile devices, making it more user-friendly.
-1. **Address listing improvements:** Preferred addresses are now listed first, streamlining the user experience when selecting shipping or billing addresses.
-1. **Modal handling and cart functionality:** The update prevents modals from opening when adding an item to the cart fails, ensuring a smoother shopping experience.
-1. **Performance improvements and fixes:** Various performance enhancements have been made, including webpack build improvements, fixing Page Designer ImageWithText Link component issues, and addressing a local dev memory leak issue in the retail react app.
-1. **File handling and static file serving:** Fixes have been implemented for file collisions between client-side and server-side JavaScript files and improvements to static file serving.
+1.  **Phased launch with optional session bridge call**: An optional session bridge call has been added to the login process, allowing for a smoother phased launch of new features.
+2.  **Product-list refinements**: Enhancements have been made to product-list handling, including support for multiple types, improved isChecked functionality, and better management of query parameters.
+3.  **Fixes for multi-value query parameters and basket issues**: This release addresses issues with multi-value query parameters being lost and makes the mergeBasket conditional more robust, resolving basket problems when a new account is created.
+4.  **Security package updates and bug fixes**: Several security package updates have been implemented, along with various bug fixes to improve overall system stability.
+5.  **Mobile-friendly phone number input**: The phone number field type has been changed to bring up a numeric keyboard on mobile devices, making it more user-friendly.
+6.  **Address listing improvements**: Preferred addresses are now listed first, streamlining the user experience when selecting shipping or billing addresses.
+7.  **Modal handling and cart functionality**: The update prevents modals from opening when adding an item to the cart fails, ensuring a smoother shopping experience.
+8.  **Performance improvements and fixes**: Various performance enhancements have been made, including webpack build improvements, fixing Page Designer ImageWithText Link component issues, and addressing a local dev memory leak issue in the retail react app.
+9.  **File handling and static file serving**: Fixes have been implemented for file collisions between client-side and server-side JavaScript files and improvements to static file serving.
 
 ## Updated Cartridges & Tools
 
 ### Sandbox Launchd (v1.0.0)
 
-- [https://github.com/sfccdevops/sandbox-launchd](https://github.com/sfccdevops/sandbox-launchd)
+-   [https://github.com/sfccdevops/sandbox-launchd](https://github.com/sfccdevops/sandbox-launchd)
 
 > Automatically Start & Stop your Sandbox when your macOS device Boots, Shuts Down, Wakes & Sleeps.
 
@@ -118,16 +119,18 @@ Another new project by Peter Schmalfeldt to make us even more lazy by booting an
 
 ### b2c-tools (v0.17.0)
 
-- [https://github.com/SalesforceCommerceCloud/b2c-tools](https://github.com/SalesforceCommerceCloud/b2c-tools)
+-   [https://github.com/SalesforceCommerceCloud/b2c-tools](https://github.com/SalesforceCommerceCloud/b2c-tools)
 
 > b2c-tools is a CLI tool and library for data migrations, import/export, scripting and other tasks with SFCC B2C instances and administrative APIs (SCAPI, ODS, etc). It is intended to be complimentary to other tools such as sfcc-ci for development and CI/CD scenarios.
 
-- support local/offline page designer page export in cli
-- migration script standard input support / logging levels
+-   support local/offline page designer page export in cli
+-   migration script standard input support / logging levels
+
+
 
 ### plugin\_slas (v7.0.0)
 
-- [https://github.com/SalesforceCommerceCloud/plugin\_slas](https://github.com/SalesforceCommerceCloud/plugin_slas)
+-   [https://github.com/SalesforceCommerceCloud/plugin\_slas](https://github.com/SalesforceCommerceCloud/plugin_slas)
 
 > This cartridge extends authentication for guest users and registered shoppers using the Shopper Login and API Access Service (SLAS).
 
@@ -135,7 +138,7 @@ A significant update has happened to SLAS, with too many changes to note down! I
 
 ### SFRA Webpack builder (v3.4.1)
 
-- [https://github.com/SalesforceCommerceCloud/sfra-webpack-builder](https://github.com/SalesforceCommerceCloud/sfra-webpack-builder)
+-   [https://github.com/SalesforceCommerceCloud/sfra-webpack-builder](https://github.com/SalesforceCommerceCloud/sfra-webpack-builder)
 
 > Webpack can be cumbersome to setup, especially in multicartridge projects for SFRA. This plugin let you bundle all your js, scss and jsx files out of the box.
 

@@ -1,5 +1,5 @@
 ---
-title: 'The Latest in B2C Commerce: Version 24.7 Focuses on Speed and Security'
+title: SFCC 24.7 Release Focused on Speed and Security
 description: >-
   In some places there is too much rain, in other places it is too hot.The
   weather might not bee consistent, but the release schedule of SFCC sure is!
@@ -19,7 +19,7 @@ author: Thomas Theunen
 ---
 In some places there is too much rain, in other places it is too hot.The weather might not bee consistent, but the release schedule of SFCC sure is! This time we look at the [July 2024 (24.7) release](https://help.salesforce.com/s/articleView?id=sf.b2c_rn_24_7_release.htm&type=5)!
 
-Are you interested in last month’s release notes? [Read the 24.6 release notes](/what-is-new-in-sfcc-24-6/)!
+Are you interested in last month’s release notes? [Click here](https://www.rhino-inquisitor.com/what-is-new-in-sfcc-24-6/)!
 
 ## Migrate to eCDN WAFv2
 
@@ -27,9 +27,11 @@ Are you interested in last month’s release notes? [Read the 24.6 release notes
 
 I may be a recording on repeat, but security for any online platform is a must. With the new WAFV2, we get:
 
-- Automated OWASP ruleset updates (based on the official code repository)
-- eCDN-managed rules managed by the Salesforce Security Team
-- Automated exposed credential checks
+-   Automated OWASP ruleset updates (based on the official code repository)
+-   eCDN-managed rules managed by the Salesforce Security Team
+-   Automated exposed credential checks
+
+
 
 How do you migrate? Click the "**Start WAFv2 Migration**" button in the Business Manager eCDN configuration screen, and get going!
 
@@ -54,24 +56,34 @@ Verify integrations With any update such as this, verify all third-party integra
 ### Implement Enhanced Security Controls in Commerce Cloud
 
 > Commerce Cloud is implementing a new security measure that blocks traffic to staging instances that doesn’t originate from Commerce Cloud eCDN from accessing the hyphenated demandware.net hostname. This change rejects all calls using ‌hyphenated hostnames, such as staging-, to access the Open Commerce API (OCAPI) or Storefront.
+>
 > The introduction of Origin Shielding for staging impacts Commerce Cloud customers who currently have implementations that involve direct calls to POD IPs.
+>
 > You can create a proxy zone on Staging instances through the Business Manager and configure a custom hostname with an automatically renewing eCDN Managed certificate for added protection.
 
 Verify integrations With any update such as this, verify all third-party integrations before this release hits your production instance!
 
-**Step 1: Effective Date** When: The new security measure will be effective from October 7, 2024.
+**Step 1: Effective Date**
+When: The new security measure will be effective from October 7, 2024.
 
-**Step 2: Impact Assessment** This change will impact customers who directly call POD IPs in their Commerce Cloud implementations.
+**Step 2: Impact Assessment**
+This change will impact customers who directly call POD IPs in their Commerce Cloud implementations.
 
-**Step 3: Preparing for the Change** How to prepare:
+**Step 3: Preparing for the Change**
+How to prepare:
 
-1. _Evaluate_: Check your current implementations for any calls made to OCAPI or Storefront that use direct POD IPs, dot-form hostnames, or hyphenated hostnames like staging.xxx.demandware.net or staging-xxx.demandware.net.
+1.  _Evaluate_: Check your current implementations for any calls made to OCAPI or Storefront that use direct POD IPs, dot-form hostnames, or hyphenated hostnames like staging.xxx.demandware.net or staging-xxx.demandware.net.
 
-1. _Update_: Modify any services or applications to use the vanity hostname instead, ensuring that traffic routes through eCDN.
 
-1. _Create a Proxy Zone_: Use the Business Manager to set up a proxy zone in the Staging instances. Then, configure a custom hostname with an eCDN-managed certificate that renews automatically for extra security.
+2.  _Update_: Modify any services or applications to use the vanity hostname instead, ensuring that traffic routes through eCDN.
 
-**Step 4: Seeking Assistance** If you need more information or help with this transition, please contact your Customer Service Manager (CSM).
+
+3.  _Create a Proxy Zone_: Use the Business Manager to set up a proxy zone in the Staging instances. Then, configure a custom hostname with an eCDN-managed certificate that renews automatically for extra security.
+
+
+
+**Step 4: Seeking Assistance**
+If you need more information or help with this transition, please contact your Customer Service Manager (CSM).
 
 ## OCAPI & SCAPI
 
@@ -97,11 +109,13 @@ Another excellent debugging tool has been added to the list, allowing you to inv
 
 Within these details, there are some interesting metrics:
 
-- Hook execution time
-- Authentication information
-- Scopes used
-- Request runtime in MS
-- ...
+-   Hook execution time
+-   Authentication information
+-   Scopes used
+-   Request runtime in MS
+-   ...
+
+
 
 Want to find out more? [Go here](https://developer.salesforce.com/docs/commerce/commerce-api/guide/collect-request-details.html).
 
@@ -133,49 +147,49 @@ This update can back up these rules and allow external control. This will be ext
 
 > You can now update the status of a coupon redeemed outside of B2C Commerce using the new Coupon Redemption API (/organizations/{organizationId}/coupons/actions/redeem). To identify the source of redemption for an external coupon, use a custom reference ID or any custom string. You can also add an optional email address to the redemption for further tracking and communication. To update multiple coupon redemptions at one time, use the new ImportCouponCodeRedemptionsStep job step. This bulk import, which works only in merge mode, streamlines the process of managing multiple redemptions at scale.
 
-This is a big update for any business working in multiple online and offline channels. With this update, we can [batch import](https://help.salesforce.com/s/articleView?id=cc.b2c_coupons_and_coupon_code_object_import_export.htm&type=5) or have a third-party system call the brand new "[Coupon Redemption API](https://developer.salesforce.com/docs/commerce/commerce-api/references/coupons?meta=redeemCoupon&q=redemption)".
+This is a big update for any business working in multiple online and offline channels. With this update, we can  [batch import](https://help.salesforce.com/s/articleView?id=cc.b2c_coupons_and_coupon_code_object_import_export.htm&type=5) or have a third-party system call the brand new "[Coupon Redemption API](https://developer.salesforce.com/docs/commerce/commerce-api/references/coupons?meta=redeemCoupon&q=redemption)".
 
 ## PWA Kit v3.6.0
 
-- [https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v3.6.0](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v3.6.0)
+-   [https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v3.6.0](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v3.6.0)
 
 A big release focusing on many different areas important to any project: Support for new APIs, performance, and accessibility!
 
 ### Improvements
 
-- **Product Tile Revamp:** Displays different pricing for various products on product tiles and PDP, and shows pricing on cart, checkout, and wishlist pages.
-- **Promotional Callouts:** Promotional messages are now visible on product list and detail pages.
-- **Selectable Swatch Groups:** Attributes like color can now be selected via swatch groups.
-- **Badges and Lazy Basket Creation:** New badges are displayed, and baskets are created lazily to improve performance.
-- **Cache Control:** Implements the `stale-while-revalidate` directive for better caching.
+-   **Product Tile Revamp**: Displays different pricing for various products on product tiles and PDP, and shows pricing on cart, checkout, and wishlist pages.
+-   **Promotional Callouts**: Promotional messages are now visible on product list and detail pages.
+-   **Selectable Swatch Groups**: Attributes like color can now be selected via swatch groups.
+-   **Badges and Lazy Basket Creation**: New badges are displayed, and baskets are created lazily to improve performance.
+-   **Cache Control**: Implements the `stale-while-revalidate` directive for better caching.
 
 ### Accessibility Enhancements
 
-- Added live region support to components.
-- Replaced `<p>` tags with heading tags on the cart page.
-- Improved alt text for product tile images.
-- Added `aria-hidden` to the search icon and explicit headers to the cart modal.
-- Autocomplete is now available for text input fields, and error messages include an error icon.
+-   Added live region support to components.
+-   Replaced `<p>` tags with heading tags on the cart page.
+-   Improved alt text for product tile images.
+-   Added `aria-hidden` to the search icon and explicit headers to the cart modal.
+-   Autocomplete is now available for text input fields, and error messages include an error icon.
 
 ### Performance Improvements
 
-- Navigation components now load their categories lazy, enhancing performance.
+-   Navigation components now load their categories lazy, enhancing performance.
 
 ### Bug Fixes
 
-- Fixed SEO component to correctly set the keywords meta tag.
-- Resolved issues with the RecommendedProducts component toggling the favourite icon.
+-   Fixed SEO component to correctly set the keywords meta tag.
+-   Resolved issues with the RecommendedProducts component toggling the favourite icon.
 
 ## Bugfixes
 
-[Many tickets](https://issues.salesforce.com/#sortCriteria=%40sflast_modified_date_external__c%20descending&f[sfcategoryfull]=Commerce%7CB2C%20Commerce) were moved to "Solution in development" or "Solution Scheduled".
+[Many ticket](https://issues.salesforce.com/#sortCriteria=%40sflast_modified_date_external__c%20descending&f[sfcategoryfull]=Commerce%7CB2C%20Commerce)s were moved to "Solution in development" or "Solution Scheduled".
 
 ## Updated Cartridges & Tools
 
 ### composable-hybrid-sitegenesis-poc (v2.2.0)
 
-- [https://github.com/SalesforceCommerceCloud/composable-hybrid-sitegenesis-poc](https://github.com/SalesforceCommerceCloud/composable-hybrid-sitegenesis-poc)
+-   [https://github.com/SalesforceCommerceCloud/composable-hybrid-sitegenesis-poc](https://github.com/SalesforceCommerceCloud/composable-hybrid-sitegenesis-poc)
 
 > This repository demonstrates a proof of concept (POC) for implementing SLAS and phased rollouts on SiteGenesis. The examples given use the latest version of SiteGenesis, using JavaScript controllers, but the same approach could be used on pipeline versions of SiteGenesis.
 
-- upgrade to plugin\_slas 7.3.0 by [@sandragolden](https://github.com/sandragolden) in [#16](https://github.com/SalesforceCommerceCloud/composable-hybrid-sitegenesis-poc/pull/16)
+-   upgrade to plugin\_slas 7.3.0 by [@sandragolden](https://github.com/sandragolden) in [#16](https://github.com/SalesforceCommerceCloud/composable-hybrid-sitegenesis-poc/pull/16)

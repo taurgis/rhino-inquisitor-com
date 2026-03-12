@@ -1,8 +1,8 @@
 ---
 title: The journey from developer to architect
 description: >-
-  Are you currently a developer thinking about continuing your journey as an
-  architect? Let me share my story!
+  A personal look at the move from developer to architect, including the mindset
+  shifts, trade-offs, and lessons that mattered most.
 date: '2024-02-26T06:36:00.000Z'
 lastmod: '2024-02-26T10:26:22.000Z'
 url: /the-journey-from-developer-to-architect/

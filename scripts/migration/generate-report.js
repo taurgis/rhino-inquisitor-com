@@ -593,7 +593,7 @@ function resolveQaStatus({
     || seoStatus === 'warn'
     || a11yStatus === 'warn'
     || securityStatus === 'warn'
-    || contentCorrectionsStatus !== 'clean';
+    || contentCorrectionsStatus === 'review-required';
 
   return needsReview ? 'review-required' : 'ready';
 }

@@ -7,7 +7,7 @@ date: '2024-08-19T06:57:25.000Z'
 lastmod: '2024-08-19T06:57:31.000Z'
 url: /it-sure-has-been-quiet-on-this-blog/
 draft: false
-heroImage: /media/2024/04280668-2613-4195-b97c-c866acc6da3b-f0464ab845.jpeg
+heroImage: /wp-content/uploads/2024/08/04280668-2613-4195-B97C-C866ACC6DA3B.jpeg
 categories:
   - Community
 tags:
@@ -15,15 +15,15 @@ tags:
   - sfcc
 author: Thomas Theunen
 ---
-It sure has been quite a while since I made my [last blog post](/the-latest-in-sfcc-version-24-7/); I even missed a release log - sorry about that. But why is that? And what have I been up to for the past two to three months? Is it the end of this blog?
+It sure has been quite a while since I made my [last blog post](https://www.rhino-inquisitor.com/the-latest-in-sfcc-version-24-7/); I even missed a release log - sorry about that. But why is that? And what have I been up to for the past two to three months? Is it the end of this blog?
 
 Adaptability is a defining trait of mine. I thrive on learning and embracing change. As my wife can attest, my interests are ever-evolving—some change monthly, while others take years to shift.
 
-Looking at my habits, she asked why I had yet to switch wives. (**_Note_:** I am not planning a switch )
+Looking at my habits, she asked why I had yet to switch wives. (**_Note_**: I am not planning a switch )
 
 ## Smart Home
 
-![Nanoleaf wall panels configured to display the day's weather for the kids.](/media/2024/img-7215-47b9f2d828.jpeg)
+![Nanoleaf Shapes that I can show the weather on](/media/2024/img-7215-47b9f2d828.jpeg)
 
 I can now display the day's weather to the kids in an entertaining way!
 
@@ -43,14 +43,14 @@ When hearing about the new redesign of the Business Manager, this project seemed
 
 Maybe this is a reminder for some people:
 
-- A storybook-powered React component library
-- A storybook-powered React hooks library to talk to the Rest of the APIs of SFCC with little effort
-- A starter template, just like SiteGenesis, SFRA, and the PWA-Kit, to speed up getting started
-- ...
+-   A storybook-powered React component library
+-   A storybook-powered React hooks library to talk to the Rest of the APIs of SFCC with little effort
+-   A starter template, just like SiteGenesis, SFRA, and the PWA-Kit, to speed up getting started
+-   ...
 
-<https://www.rhino-inquisitor.com/wp-content/uploads/2024/08/fastforward-business-manager-accelerator.mov>
+https://www.rhino-inquisitor.com/wp-content/uploads/2024/08/fastforward-business-manager-accelerator.mov
 
-![FastForward Business Manager Accelerator Storybook interface.](/media/2024/fastforward-storybook-7ad70ee20d.jpg)
+![](/media/2024/fastforward-storybook-7ad70ee20d.jpg)
 
 The storybook documentation.
 
@@ -70,6 +70,6 @@ Quite a few brands have disappeared from the market, even those that have been a
 
 This is something we notice around the world, which also means that I need to focus on the bullseye to ensure that we keep our place in this world—a battle that I am not fighting alone.
 
-## So what about the blog
+## So what about the blog?
 
 Rest assured, the blog remains a significant part of my life, albeit currently on a lower priority. I've decided to adjust the posting frequency to monthly, but the blog is here to stay, a testament to my unwavering commitment to sharing with you all!

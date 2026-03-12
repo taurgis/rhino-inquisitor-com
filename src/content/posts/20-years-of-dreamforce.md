@@ -1,8 +1,8 @@
 ---
 title: 20 years of Dreamforce
 description: >-
-  Salesforce Dreamforce 2022 is right around the corner! Celebrating its 20th
-  year, it is bound to be a blast!
+  Get ready for Dreamforce 2022 with a quick look at the event's 20th
+  anniversary, standout commerce sessions, and what to watch on site.
 date: '2022-08-24T19:21:06.000Z'
 lastmod: '2022-11-19T10:06:22.000Z'
 url: /20-years-of-dreamforce/

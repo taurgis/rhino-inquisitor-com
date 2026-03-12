@@ -1,21 +1,21 @@
 ---
-title: Leveraging Server-Side Caching to Improve SFCC REST API Speed
+title: Server-Side Caching for Faster SFCC REST APIs
 description: >-
-  Caching GET endpoints for the OCAPI in Salesforce B2C Commerce Cloud is
-  possible, but where do you start? Let us dig into this together!
+    Caching GET endpoints for the OCAPI in Salesforce B2C Commerce Cloud is
+    possible, but where do you start? Let us dig into this together!
 date: '2023-04-10T06:46:06.000Z'
 lastmod: '2023-04-11T08:01:28.000Z'
 url: /caching-rest-apis-in-sfcc/
 draft: false
 heroImage: /media/2023/caching-87696b30b8.jpg
 categories:
-  - Salesforce Commerce Cloud
-  - Technical
+    - Salesforce Commerce Cloud
+    - Technical
 tags:
-  - cache
-  - ocapi
-  - sfcc
-  - technical
+    - cache
+    - ocapi
+    - sfcc
+    - technical
 author: Thomas Theunen
 ---
 The [OCAPI](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/OpenCommerceAPI.html?cp=0_16) has been around for a long time (2016) and allows you to cache responses to increase performance. **By default, GET responses that support caching are cached for 60 seconds**, but can this be improved?

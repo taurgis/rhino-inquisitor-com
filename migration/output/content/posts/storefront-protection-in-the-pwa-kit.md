@@ -1,13 +1,13 @@
 ---
 title: Storefront Protection For Your Composable Storefront
 description: >-
-  Protecting online stores using Storefront Protection in SiteGenesis and SFRA
-  is simple.
+  Learn how storefront protection applies to Composable Storefront projects,
+  where SFRA patterns still help, and what extra checks to add.
 date: '2024-11-18T07:26:53.000Z'
 lastmod: '2024-11-20T12:36:26.000Z'
 url: /storefront-protection-in-the-pwa-kit/
 draft: false
-heroImage: /media/2024/storefront-protection-663257419b.jpeg
+heroImage: /wp-content/uploads/2024/11/storefront-protection.jpeg
 categories:
   - Salesforce Commerce Cloud
   - Technical
@@ -17,7 +17,7 @@ tags:
   - sfra
 author: Thomas Theunen
 ---
-Protecting online stores using [Storefront Protection](https://help.salesforce.com/s/articleView?id=cc.b2c_storefront_password_protection.htm&type=5) in [SiteGenesis and SFRA](/the-move-from-sitegenesis-and-sfra-to-the-composable-storefront-as-a-developer/) is simple. But now that we have the [Composable Storefront](/sitegenesis-vs-sfra-vs-pwa/), we need to think about whether those protections still work. This blog post will talk about how to keep your Composable Storefront safe and what this new technology means for security.
+Protecting online stores using [Storefront Protection](https://help.salesforce.com/s/articleView?id=cc.b2c_storefront_password_protection.htm&type=5) in [SiteGenesis and SFRA](https://www.rhino-inquisitor.com/the-move-from-sitegenesis-and-sfra-to-the-composable-storefront-as-a-developer/) is simple. But now that we have the [Composable Storefront](https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/), we need to think about whether those protections still work. This blog post will talk about how to keep your Composable Storefront safe and what this new technology means for security.
 
 ## The Shift from Business Manager to Managed Runtime
 
@@ -25,17 +25,20 @@ When utilising SFCC with SiteGenesis or SFRA (Salesforce Reference Architecture)
 
 You can easily navigate through the Business Manager by following this path:
 
-```text
-Administration > Sites > Manage Sites
+```
+
+					Administration > Sites > Manage Sites
+
+
 ```
 
 We proceed on our journey by selecting the site you want to enable this for, then navigating to the site status tab after the page has finished loading.
 
-[![Site Status screen in Business Manager with Online Protected selected.](/media/2024/online-protected-sfcc-b0634b710d.jpg)](/media/2024/online-protected-sfcc-b0634b710d.jpg)
+[![A screenshot of the business manager on the "Site Status" page, with a user clicking the](/media/2024/online-protected-sfcc-b0634b710d.jpg)](/media/2024/online-protected-sfcc-b0634b710d.jpg)
 
 This page allows us to switch to "Online (Protected)," which unveils a new field.
 
-[![Protected storefront password field shown after enabling Online Protected.](/media/2024/storefront-protection-password-sfcc-c017798dc4.png)](/media/2024/storefront-protection-password-sfcc-c017798dc4.png)
+[![A screenshot displaying the new field along with a description of the information that appears after selecting the protected option.](/media/2024/storefront-protection-password-sfcc-c017798dc4.png)](/media/2024/storefront-protection-password-sfcc-c017798dc4.png)
 
 Here, you choose a password that allows users to access the storefront.
 
@@ -59,11 +62,11 @@ First, find your \`ssr.js\` file in your SFCC PWA project folder. This file is i
 
 I’m not particularly eager to do things all over again if someone has already done a fantastic job. Here are some examples of how to add your own authentication middleware:
 
-- [A deprecated method (just for reference)](https://github.com/SalesforceCommerceCloud/pwa-kit/pull/732/files)
-- [The latest example made by John Boxall](https://gist.github.com/taurgis/e6a60e14672df31a0e1d7ea311671f3c)
-- [An example Hamza Javed made recently on LinkedIn](https://www.digitscommerce.com/sfcc-pwa-ssr.js)
+-   [A deprecated method (just for reference)](https://github.com/SalesforceCommerceCloud/pwa-kit/pull/732/files)
+-   [The latest example made by John Boxall](https://gist.github.com/taurgis/e6a60e14672df31a0e1d7ea311671f3c)
+-   [An example Hamza Javed made recently on LinkedIn](https://www.digitscommerce.com/sfcc-pwa-ssr.js)
 
-## Why would you do this
+## Why would you do this?
 
 Making sure your SFCC PWA store has a password is really important. This is especially true when you’re still working on it or it’s not ready for everyone to see. Because it’s in the cloud, anything you put online can be accessed unless you put up some protection. If you don’t secure it, people who shouldn’t see your work might get access to important information and unfinished parts of the site.
 
@@ -71,7 +74,7 @@ Also, if the site isn’t protected, search engines might find it too soon and s
 
 By using a simple password protection, you can keep your work safe and ensure only the right people can check it out. This helps keep your project intact and protects your brand’s reputation.
 
-## Is there an interface planned
+## Is there an interface planned?
 
 Right now, the main suggestion (to my knowledge) is to stick with the coding solution. I haven’t seen any plans for an interface for "Storefront Protection".
 

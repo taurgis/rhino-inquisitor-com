@@ -1,8 +1,8 @@
 ---
 title: A deep-dive into the 23.7 Commerce Cloud release
 description: >-
-  It's summertime, which means we get to check out the fresh release of the
-  Salesforce B2C Commerce Cloud.
+  Review the key changes in Salesforce B2C Commerce Cloud 23.7, from platform
+  updates to headless improvements worth testing this month.
 date: '2023-06-28T07:47:03.000Z'
 lastmod: '2023-06-28T07:47:14.000Z'
 url: /a-deep-dive-into-the-23-7-sfcc-release/

@@ -1,5 +1,5 @@
 ---
-title: What skills do I need as a Salesforce Commerce Cloud Architect?
+title: Skills You Need as an SFCC Architect
 description: >-
   Learn how to successfully transition from developer to architect in Salesforce
   B2C Commerce Cloud with these tips and strategies.

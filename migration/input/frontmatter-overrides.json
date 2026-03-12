@@ -1,44 +1,279 @@
 {
+  "431": {
+    "description": "Learn how to send emails with attachments from Salesforce B2C Commerce Cloud using ISML, including setup details and implementation pitfalls."
+  },
+  "617": {
+    "title": "SLAS Session Sync in SFRA and SiteGenesis"
+  },
+  "73": {
+    "description": "Thomas Theunen writes about Salesforce Commerce Cloud, its developer ecosystem, release notes, and the lessons drawn from real project delivery."
+  },
+  "1011": {
+    "description": "Prepare for the B2C Commerce Developer Certification with a practical starting point, study focus areas, and next steps."
+  },
+  "1087": {
+    "description": "Version content assets in SFCC so teams can review edits, compare revisions, and roll back safely when a publish change introduces risk."
+  },
+  "1124": {
+    "title": "Server-Side Performance Troubleshooting in SFCC"
+  },
+  "1307": {
+    "description": "Review the Salesforce B2C Commerce Cloud 22.5 release notes and the platform updates developers should test or plan for."
+  },
+  "1789": {
+    "title": "Submit multipart/form-data in SFCC"
+  },
+  "1845": {
+    "description": "Preview Salesforce Connections 2022 with a commerce-focused view of the event, key themes, and what attendees should watch for."
+  },
+  "2104": {
+    "description": "A personal look at the move from developer to architect, including the mindset shifts, trade-offs, and lessons that mattered most."
+  },
+  "2183": {
+    "title": "What Composable Storefront Means for SFCC Developers"
+  },
+  "2253": {
+    "title": "Three Ways to Secure Your SFCC Environment"
+  },
+  "2265": {
+    "title": "Using OCAPI and SCAPI Hooks in SFCC"
+  },
+  "2688": {
+    "title": "Non-Technical Salesforce B2C Commerce Certifications"
+  },
+  "2898": {
+    "description": "Learn how to submit files to a third-party service from SFCC with the Service Framework, including setup concerns and pitfalls."
+  },
   "3042": {
     "description": "Learn how to use custom TTF fonts in Salesforce B2C Commerce Cloud PDF generation so branded documents render correctly in production."
   },
-  "13328": {
-    "description": "Learn when Custom Caches help in SFCC, where they create risk, and how to use them safely without hurting performance or maintainability."
+  "352": {
+    "description": "Browse the Rhino Inquisitor archive to find release notes, technical guides, and long-form Salesforce Commerce Cloud articles by date."
+  },
+  "3433": {
+    "title": "Server-Side Caching for Faster SFCC REST APIs"
   },
   "4411": {
     "description": "Learn what Active Data can track in Salesforce B2C Commerce Cloud, where the platform stops, and how far you can extend it safely."
   },
+  "4455": {
+    "description": "Get ready for Dreamforce 2022 with a quick look at the event's 20th anniversary, standout commerce sessions, and what to watch on site."
+  },
+  "4950": {
+    "description": "Review the Salesforce B2C Commerce Cloud 22.10 release and the final platform updates worth noting before the year wraps up."
+  },
   "5618": {
     "title": "Set Up the eCDN for SFCC Staging"
   },
-  "13621": {
-    "title": "Kickstart Guide for New SFCC Developers",
-    "description": "An interactive guide for new SFCC developers covering storefront patterns, platform concepts, and practical next steps for hands-on learning."
+  "5742": {
+    "title": "Change Code Compatibility Mode in SFCC",
+    "description": "Understand how to change code compatibility mode in SFCC, when a rollback matters, and what to check before switching versions."
   },
-  "12990": {
-    "title": "PWA Kit Developer's Guide to Storefront Speed"
+  "5919": {
+    "description": "A closer look at the November 2022 B2C Commerce Cloud updates, including cartridge releases, tooling changes, and SCAPI work."
   },
-  "431": {
-    "description": "Learn how to send emails with attachments from Salesforce B2C Commerce Cloud using ISML, including setup details and implementation pitfalls."
+  "6217": {
+    "title": "Skills You Need as an SFCC Architect"
   },
-  "12947": {
-    "title": "Mastering Sitemaps in SFCC",
-    "description": "Learn how sitemaps work in Salesforce B2C Commerce Cloud, how to configure them correctly, and what developers should monitor for SEO."
+  "6248": {
+    "description": "A practical look at where ChatGPT can help in Salesforce work, from drafting and debugging to research and day-to-day delivery."
   },
-  "12775": {
-    "title": "Sending Emails from SFCC"
+  "6559": {
+    "title": "Fetch Data in Another Locale with SFCC"
   },
-  "617": {
-    "title": "SLAS Session Sync in SFRA and SiteGenesis"
+  "6686": {
+    "title": "Moving from SiteGenesis and SFRA to Composable Storefront"
+  },
+  "6708": {
+    "title": "Where to Start with SFCC Development"
+  },
+  "6792": {
+    "description": "Review the Salesforce B2C Commerce Cloud 23.2 release, including Page Designer and SCAPI changes developers should notice."
+  },
+  "7399": {
+    "description": "A practical look at how AI is shifting from pure automation to workplace augmentation, and what that change means for teams and delivery."
+  },
+  "7569": {
+    "title": "Salesforce Payments Explained",
+    "description": "Understand what Salesforce Payments changes for SFCC integrations, checkout design, and the overall payment implementation path."
+  },
+  "7774": {
+    "description": "A recap of A New Day for Commerce and what the event says about Salesforce's broader commerce direction, ecosystem momentum, and priorities."
+  },
+  "7832": {
+    "description": "Catch up on the Salesforce B2C Commerce Cloud 23.4 release and the platform changes that matter most for developers this month."
+  },
+  "8116": {
+    "title": "Get the Request Body in an SFCC Controller",
+    "description": "Learn how to retrieve the request body in an SFCC controller and when that pattern helps with custom endpoints and integrations."
+  },
+  "7979": {
+    "title": "Understanding SFCC Instances"
+  },
+  "8311": {
+    "title": "Create External Orders in SFCC with createOrders",
+    "description": "Learn how to use the createOrders API in SFCC to create external orders safely and fit it into existing order workflows."
+  },
+  "8389": {
+    "title": "Using Custom Preferences in SFCC",
+    "description": "Learn how SFCC custom preferences support configurable storefront behavior, governance, and safer environment-specific settings."
+  },
+  "8424": {
+    "title": "SFCC Global Functions Overview",
+    "description": "Explore the server-side global functions available in SFCC, when to use them, and how they can simplify day-to-day development work."
   },
   "8465": {
     "title": "B2C Commerce Architect Certification Guide",
     "description": "Prepare for the Salesforce B2C Commerce Architect certification with a guide to exam domains, study priorities, and practical preparation."
   },
-  "13311": {
-    "description": "Learn how to find your SFCC POD number, why it matters for troubleshooting, and where to verify it across tools and environments."
+  "8853": {
+    "title": "Using getProps in PWA Kit",
+    "description": "Learn how the getProps method works in PWA Kit, what data it exposes, and when it helps with faster, cleaner storefront code."
+  },
+  "8698": {
+    "title": "Beginner's Guide to WebDAV in SFCC"
+  },
+  "9027": {
+    "title": "Dates, Calendars, and Time Zones in SFCC",
+    "description": "Learn how SFCC handles dates, calendars, and time zones so you can avoid subtle scheduling bugs and localization issues in production."
+  },
+  "9316": {
+    "description": "Review the key changes in Salesforce B2C Commerce Cloud 23.7, from platform updates to headless improvements worth testing this month."
+  },
+  "9476": {
+    "description": "Understand where the new SFCC documentation lives, what changed from Infocenter, and how to navigate the updated resources."
+  },
+  "9537": {
+    "title": "Using Node 18 with SFRA",
+    "description": "Learn how to run Node 18 with SFRA, which compatibility checks matter, and where to watch for tooling or build issues during the upgrade."
+  },
+  "10453": {
+    "description": "Review the new SCAPI and headless platform features in Salesforce B2C Commerce Cloud, and see which updates matter most for composable storefront teams."
+  },
+  "9611": {
+    "title": "AI as an Architect and Content Creator"
+  },
+  "9700": {
+    "description": "Review the 23.8 Commerce Cloud release and the platform changes teams should understand before holiday readiness work ramps up."
+  },
+  "9935": {
+    "title": "SFCC 23.9 Release Highlights and SCAPI Updates"
+  },
+  "10100": {
+    "title": "Dreamforce 2023 Recap with the CommerceCrew"
+  },
+  "10175": {
+    "title": "SFCC 23.10 Release Overview"
+  },
+  "10508": {
+    "description": "Learn the difference between slicing and variation groups in Commerce Cloud, and when each model fits your product setup best."
+  },
+  "10587": {
+    "description": "See how generic mappings can simplify SFCC data integrations, reduce custom transformation code, and improve maintainability."
+  },
+  "10642": {
+    "title": "Mastering Chunk-Oriented Job Steps in SFCC"
+  },
+  "10683": {
+    "title": "Why Bypassing SFCC Quota Limits Backfires",
+    "description": "Learn why bypassing SFCC quota limits creates technical and operational risk, and what safer alternatives teams should choose."
+  },
+  "11255": {
+    "description": "Review the Salesforce B2C Commerce Cloud 24.2 release and the platform updates worth testing across storefront, API, and operational workflows."
+  },
+  "11362": {
+    "title": "Attribute Fallback in SFCC Variation Groups"
+  },
+  "11181": {
+    "title": "Understanding Locale Fallback in SFCC"
+  },
+  "11627": {
+    "title": "Two Years of Blogging in the SFCC Ecosystem",
+    "description": "A look back at two years of Rhino Inquisitor, the lessons behind the posts, and how the blog's focus has evolved over time."
+  },
+  "11710": {
+    "description": "Learn how to migrate Magento passwords with Argon2, preserve account access, and plan a safer authentication transition."
+  },
+  "11813": {
+    "title": "What's New in the SFCC 24.5 Security Release"
+  },
+  "12020": {
+    "title": "SFCC 24.7 Release Focused on Speed and Security"
+  },
+  "12231": {
+    "description": "Learn how caching works in the Salesforce Composable Storefront, which layers matter most, and where it improves real-world speed."
+  },
+  "12372": {
+    "title": "Origin Shielding in Commerce Cloud",
+    "description": "Learn why origin shielding matters in Commerce Cloud, how it protects origin infrastructure, and when to include it in your traffic strategy."
+  },
+  "12325": {
+    "title": "Use SFRA REST Endpoints in a Composable Storefront?"
+  },
+  "12459": {
+    "title": "B2C Commerce Cloud: Features and Tech Stacks",
+    "description": "An introduction to Salesforce B2C Commerce Cloud, covering core platform features, typical tech stacks, and where new teams should start learning."
   },
   "12535": {
     "description": "Learn how to cache third-party API responses in Commerce Cloud to improve performance, control latency, and avoid stale-data pitfalls."
+  },
+  "12891": {
+    "description": "Understand when to use local or shared variation attributes in Commerce Cloud and how each model affects merchandising and product data."
+  },
+  "12739": {
+    "description": "Learn how storefront protection applies to Composable Storefront projects, where SFRA patterns still help, and what extra checks to add."
+  },
+  "12775": {
+    "title": "Sending Emails from SFCC"
+  },
+  "12947": {
+    "title": "Mastering Sitemaps in SFCC",
+    "description": "Learn how sitemaps work in Salesforce B2C Commerce Cloud, how to configure them correctly, and what developers should monitor for SEO."
+  },
+  "12990": {
+    "title": "PWA Kit Developer's Guide to Storefront Speed"
+  },
+  "13098": {
+    "title": "AI Won't Replace Your SFCC Job, but AI Users Might",
+    "description": "A practical look at how AI changes Salesforce Commerce Cloud work, where it improves delivery, and why developer judgment still matters most."
+  },
+  "13311": {
+    "description": "Learn how to find your SFCC POD number, why it matters for troubleshooting, and where to verify it across tools and environments."
+  },
+  "13328": {
+    "description": "Learn when Custom Caches help in SFCC, where they create risk, and how to use them safely without hurting performance or maintainability."
+  },
+  "13525": {
+    "title": "Deep Dive into SFCC Meta Tag Rules"
+  },
+  "13621": {
+    "title": "Kickstart Guide for New SFCC Developers",
+    "description": "An interactive guide for new SFCC developers covering storefront patterns, platform concepts, and practical next steps for hands-on learning."
+  },
+  "13802": {
+    "title": "Developer's Guide to Combating Fraud in SFCC"
+  },
+  "14004": {
+    "title": "Survival Guide to SFCC Platform Limits"
+  },
+  "14050": {
+    "title": "Real-Time Inventory Checks in SFCC",
+    "description": "Learn when real-time inventory checks improve the customer experience, where they add risk, and how to balance speed with accuracy."
+  },
+  "14142": {
+    "title": "Mobile App Launch Checklist for Commerce Teams",
+    "description": "Use this mobile app launch checklist to review architecture, integrations, QA, and go-live readiness before an SFCC-backed app ships."
+  },
+  "14159": {
+    "title": "Realm Split Guide for Migrating an SFCC Site"
+  },
+  "category:11": {
+    "description": "Posts and articles about the Salesforce Ohana community, including conferences, networking, and ecosystem thought leadership."
+  },
+  "category:12": {
+    "description": "Comprehensive collection of articles about Salesforce B2C Commerce Cloud platform updates, features, and implementation guidance."
+  },
+  "category:13": {
+    "description": "Detailed technical coverage of Salesforce Commerce Cloud development patterns, architecture, and best practices for developers."
   }
 }

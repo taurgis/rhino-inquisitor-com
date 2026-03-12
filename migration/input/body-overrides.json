@@ -3,5 +3,13 @@
     "page_url": "/about/",
     "body_file": "about.md",
     "description": "Rhino Inquisitor is Thomas Theunen's working notebook for Salesforce B2C Commerce Cloud architecture, delivery lessons, and practical field guidance."
+  },
+  {
+    "page_url": "/mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/",
+    "body_file": "mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud.md"
+  },
+  {
+    "page_url": "/salesforce-b2c-commerce-cloud-23-3-release/",
+    "body_file": "salesforce-b2c-commerce-cloud-23-3-release.md"
   }
 ]

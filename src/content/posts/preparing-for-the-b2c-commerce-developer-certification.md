@@ -1,8 +1,8 @@
 ---
 title: Preparing for the B2C Commerce Developer Certification
 description: >-
-  So you want to get certified in Salesforce B2C Commerce Cloud. But where do
-  you begin? Let's get you started!
+  Prepare for the B2C Commerce Developer Certification with a practical starting
+  point, study focus areas, and next steps.
 date: '2022-06-06T11:45:43.000Z'
 lastmod: '2022-11-19T10:18:39.000Z'
 url: /preparing-for-the-b2c-commerce-developer-certification/

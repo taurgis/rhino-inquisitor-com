@@ -1,8 +1,8 @@
 ---
-title: Why Circumventing Salesforce B2C Commerce Cloud Quota Limits Is a Bad Idea
+title: Why Bypassing SFCC Quota Limits Backfires
 description: >-
-  Salesforce B2C Commerce Cloud empowers developers to create robust and
-  scalable e-commerce solutions.
+  Learn why bypassing SFCC quota limits creates technical and operational risk,
+  and what safer alternatives teams should choose.
 date: '2023-12-11T08:21:33.000Z'
 lastmod: '2023-12-11T08:29:25.000Z'
 url: /why-circumventing-sfcc-quota-limits-is-a-bad-idea/
@@ -27,7 +27,9 @@ Let's explore this "UnlimitedArray" I have created and discuss why I should be a
 
 Below is the code for the "UnlimitedArray," a data structure designed to bypass Salesforce's restriction on the number of elements in an array:
 
-```js
+```
+
+
 /**
  * A custom implementation of an array that can hold an unlimited number of elements.
  *
@@ -137,11 +139,14 @@ UnlimitedArray.prototype.get = function (position) {
     }
     return null;
 };
+
+
+
 ```
 
 This construct "cleverly" uses nested arrays to exceed the Salesforce-imposed limit. However, it can result in inefficiencies when using methods such as push, get, includes, and indexOf, especially as the combined size of the nested arrays grows.
 
-[![Business Manager warning showing that the array-size quota limit has been reached.](/media/2023/quota-limit-warning-7f7a47522c.jpg)](/media/2023/quota-limit-warning-7f7a47522c.jpg)
+[![A screenshot of the Business Manager. The system is warning that the quota limit for the array size has been reached.](/media/2023/quota-limit-warning-7f7a47522c.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2023/12/quota-limit-warning-scaled.jpg)
 
 We are at the edge, but never crossing the limit!
 
@@ -183,13 +188,14 @@ Similarly, operations like `push` may necessitate iterating through multiple arr
 
 While the "UnlimitedArray" and solutions like it is a testament to the creativity and skill of Salesforce Commerce Cloud developers, it exemplifies the pitfalls of attempting to bypass platform governance. The issues range from:
 
-1. **Performance:** As the size of the combined data structure grows, performance can degrade, affecting user experience and increasing server resource consumption.
+1.  **Performance**: As the size of the combined data structure grows, performance can degrade, affecting user experience and increasing server resource consumption.
 
-1. **Maintainability:** Maintaining a custom and complex data structure is inherently more challenging and can become burdensome over time as code bases evolve and scale.
+2.  **Maintainability**: Maintaining a custom and complex data structure is inherently more challenging and can become burdensome over time as code bases evolve and scale.
 
-1. **Scalability:** As e-commerce platforms typically handle a significant volume of transactions, any potential latency or performance issues can be magnified.
+3.  **Scalability**: As e-commerce platforms typically handle a significant volume of transactions, any potential latency or performance issues can be magnified.
 
-1. **Adherence to Best Practices:** Salesforce imposes quotas to steer developers toward building optimised, stable, scalable applications. Ignoring these guidelines may result in short-term gains but can endanger long-term success and platform health.
+4.  **Adherence to Best Practices**: Salesforce imposes quotas to steer developers toward building optimised, stable, scalable applications. Ignoring these guidelines may result in short-term gains but can endanger long-term success and platform health.
+
 
 ## Conclusion
 

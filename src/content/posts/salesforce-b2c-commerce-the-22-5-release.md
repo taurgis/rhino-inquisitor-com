@@ -1,8 +1,8 @@
 ---
 title: 'Salesforce B2C Commerce: The 22.5 Release'
 description: >-
-  In this article, we look at the release notes of Salesforce B2C Commerce Cloud
-  for May 2022 and dig deeper into them.
+  Review the Salesforce B2C Commerce Cloud 22.5 release notes and the platform
+  updates developers should test or plan for.
 date: '2022-04-18T07:31:52.000Z'
 lastmod: '2022-07-23T21:51:46.000Z'
 url: /salesforce-b2c-commerce-the-22-5-release/

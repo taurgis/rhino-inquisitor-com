@@ -1,5 +1,5 @@
 ---
-title: Getting secured with the 24.5 Salesforce B2C Commerce Cloud release
+title: What's New in the SFCC 24.5 Security Release
 description: >-
   Again, it is time for the monthly Salesforce B2C Commerce Cloud release! This
   time, we look at the May 2024 (24.5) release!

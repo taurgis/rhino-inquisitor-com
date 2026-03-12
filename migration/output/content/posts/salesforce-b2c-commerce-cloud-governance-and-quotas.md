@@ -7,7 +7,7 @@ date: '2023-08-21T06:58:00.000Z'
 lastmod: '2024-01-08T18:17:38.000Z'
 url: /salesforce-b2c-commerce-cloud-governance-and-quotas/
 draft: false
-heroImage: /media/2022/quota-limits-27eb2c93aa.jpg
+heroImage: /wp-content/uploads/2022/10/quota-limits.jpg
 categories:
   - Salesforce Commerce Cloud
   - Technical
@@ -31,30 +31,30 @@ Those who have joined from the force.com platform can compare these so-called "Q
 
 You will run into this system with many SaaS solutions, but each one will have a different term or name for them.
 
-## What are they
+## What are they?
 
-You can view them as restrictions on data volume and API usage set by the platform. They come in many forms and are placed on [different levels within the Salesforce B2C Commerce Cloud's stack](/the-salesforce-b2c-commerce-cloud-environment/).
+You can view them as restrictions on data volume and API usage set by the platform. They come in many forms and are placed on [different levels within the Salesforce B2C Commerce Cloud's stack](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/).
 
 A basic example of a limit would be the maximum time a single request is allowed to take or how many elements you can put in an [Array](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/index.html?target=class_TopLevel_Array.html).
 
-## Where are they documented
+## Where are they documented?
 
 Luckily a large percentage of these limits are documented and categorised per type:
 
-- [Object Quotas](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/quota/html/Object_Quotas.html) (Data Volume)
-- [API Quotas](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/quota/html/API_Quotas.html) (Code)
+-   [Object Quotas](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/quota/html/Object_Quotas.html) (Data Volume)
+-   [API Quotas](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/quota/html/API_Quotas.html) (Code)
 
 More platform governance is in place, but some are not documented. Over the years, I have encountered several of these undocumented quotas. But don't fret - I'm sharing them later in this article!
 
-## What does "enforced" mean
+## What does "enforced" mean?
 
-![Quota Status screen showing an enforced quota in Business Manager.](/media/2022/sfcc-enforced-quota-a495bb4270.jpg)
+![](/media/2022/sfcc-enforced-quota-a495bb4270.jpg)
 
 Quota Status in Business Manager
 
 Enforced quotas will throw an unrecoverable exception if you hit them.
 
-Translation: **Someone sees an error page**!
+_Translation: **Someone sees an error page**!_
 
 So if you hit an enforced quota on production, this needs to be resolved as soon as possible!
 
@@ -64,15 +64,18 @@ But even if the quota is not enforced, you must investigate the code causing you
 
 Besides this screen, you will also find [logs](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-log-files-overview.html?q=log) on the WebDAV. And these can contain messages along these lines:
 
-```text
-Quota api.queryObjects@JOB (internal, limit 0): limit exceeded 5 time(s)
+```
+
+					Quota api.queryObjects@JOB (internal, limit 0): limit exceeded 5 time(s)
+
+
 ```
 
 Notice the word "**internal".** These are unenforced quotas that Salesforce uses for statistical purposes (maybe it will become a quota in the future). So you can ignore them!
 
-## But why
+## But why?
 
-![Illustration reacting to the frustration of hitting a platform quota.](/media/2022/but-why-91f791a77c.jpg)
+![](/media/2022/but-why-91f791a77c.jpg)
 
 Those who have run into these "limits" have probably already asked themselves this question. Why is this quota here? Why wasn't it just one higher? Why do I have to work three days longer on this ticket because I ran into it?
 
@@ -82,9 +85,9 @@ Well, there are a few good reasons for these to exist.
 
 The imposed "quotas" keep us, the user, from overloading the platform. These limitations concern:
 
-- Memory Usage (Don't fill up the memory with too much data that the system needs to clean later)
-- Resource Consumption (Keep the CPU free to make sure people can buy without delay)
-- Business Object limits (Only store within SFCC what needs to be stored)
+-   Memory Usage (Don't fill up the memory with too much data that the system needs to clean later)
+-   Resource Consumption (Keep the CPU free to make sure people can buy without delay)
+-   Business Object limits (Only store within SFCC what needs to be stored)
 
 If you dig deeper into these Quotas, you will find that they are pretty forgiving, and some will require a large enterprise customer to reach. And even then, there are solutions available!
 
@@ -102,11 +105,12 @@ If you need to do this many requests in the front end, consider revisiting the a
 
 Even though this will not solve all performance issues, some imposed quotas prevent you from doing insecure operations or writing code that will negatively impact performance. Examples of these are:
 
-- **api.dw.catalog.ProductInventoryRecord.update():** No front-end request can manipulate the inventory records, meaning that someone with bad intentions will never have a route to abuse.
+-   **api.dw.catalog.ProductInventoryRecord.update():** No front-end request can manipulate the inventory records, meaning that someone with bad intentions will never have a route to abuse.
 
-- **api.jsArraySize:** We can only store 20.000 items in a single array. This will keep us from filling up the memory and wasting resources filling up this array and reading from it in large volumes.
+-   **api.jsArraySize:** We can only store 20.000 items in a single array. This will keep us from filling up the memory and wasting resources filling up this array and reading from it in large volumes.
 
-- **api.dw.catalog.PriceBookMgr.assignPriceBookToSite(PriceBook, String):** This API is used only for management purposes and has no business in the storefront. This will force developers to find an alternative ([and better)](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_catalog_PriceBookMgr.html?resultof=%22%70%72%69%63%65%62%6f%6f%6b%6d%67%72%22%20#dw_catalog_PriceBookMgr_setApplicablePriceBooks_PriceBook_DetailAnchor) way to build the appropriate behaviour.
+-   **api.dw.catalog.PriceBookMgr.assignPriceBookToSite(PriceBook,String):** This API is used only for management purposes and has no business in the storefront. This will force developers to find an alternative ([and better)](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_catalog_PriceBookMgr.html?resultof=%22%70%72%69%63%65%62%6f%6f%6b%6d%67%72%22%20#dw_catalog_PriceBookMgr_setApplicablePriceBooks_PriceBook_DetailAnchor) way to build the appropriate behaviour.
+
 
 Let me be clear: You can still easily write insecure and inadequate performant code without hitting any of the quotas. **_Always keep security and performance in mind when writing custom features!_**
 
@@ -118,7 +122,7 @@ The Business Manager has a monitoring page, which will give you the total overvi
 
 "Administration > Operations > Quota Status"
 
-[![Quota alert subscription settings in Business Manager.](/media/2022/sfcc-quota-alerts-7f9e795d58.jpg)](/media/2022/sfcc-quota-alerts-7f9e795d58.jpg)
+[![](/media/2022/sfcc-quota-alerts-7f9e795d58.jpg)](/media/2022/sfcc-quota-alerts-7f9e795d58.jpg)
 
 Subscribe It is highly recommended to subscribe with multiple people to these alerts. Remember to do this in various environments, not just Production!
 
@@ -138,11 +142,11 @@ If you look well in the documentation, you will find the information on [this pa
 
 This page has some other platform limitations documented too:
 
-- Emails are limited to 3MB
-- Video files are limited to 20MB
-- The default Script Timeout is 30 seconds
+-   Emails are limited to 3MB
+-   Video files are limited to 20MB
+-   The default Script Timeout is 30 seconds
 
-But again, you need to look around to find this information as it is [scattered](/where-is-the-new-sfcc-documentation/) all over.
+But again, you need to look around to find this information as it is [scattered](https://www.rhino-inquisitor.com/where-is-the-new-sfcc-documentation/) all over.
 
 ### Rate limit on Storefront Requests
 
@@ -160,15 +164,15 @@ If you have written an infinite loop in the storefront, no worries! Salesforce w
 
 ODS disk space is also a [documented](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-developer-sandboxes.html) quota. But an important one to keep in mind!
 
-- **M:** 10 GB
-- **L:** 20 GB
-- **XL:** 50 GB
+-   **M**: 10 GB
+-   **L**: 20 GB
+-   **XL**: 50 GB
 
 In a lot of cases, this is enough. But you could get in trouble if you work with many images on your Sandboxes.
 
 ### Garbage Collection
 
-![Duke mascot illustration used to introduce garbage collection.](/media/2022/duke-cleaning-up-garbage-7e114dc018.jpg)
+![](/media/2022/duke-cleaning-up-garbage-7e114dc018.jpg)
 
 An important thing to keep in mind is that Salesforce B2C Commerce Cloud runs on Java. And an essential part of Java is its [garbage collection](https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/gc01/index.html) process.
 
@@ -180,8 +184,9 @@ To keep the "garbage" as empty as possible, there are a few things you can do a 
 
 Accessing or fetching objects and not doing anything will cause extra cleanup! Below is an example of things to keep in mind.
 
-```js
-/**
+```
+
+					/**
  * An example of a function that does many things you should not do...
  */
 function doUnnecessaryCalls() {
@@ -202,6 +207,8 @@ function doUnnecessaryCalls() {
     }
     allMyProducts.close();
 }
+
+
 ```
 
 #### Good Cache Hit Ratio
@@ -216,8 +223,9 @@ When a file is parsed/accessed, it will execute all of the global requires, whic
 
 The shorter the chain, the better the performance and the less garbage collection.
 
-```js
-/**
+```
+
+					/**
  * Logs forbidden access requests to Sentry. If a user is logged in, the customer number is logged.
  */
 server.prepend('Forbidden', function (req, res, next) {
@@ -229,6 +237,8 @@ server.prepend('Forbidden', function (req, res, next) {
     }
     next();
 });
+
+
 ```
 
 ### Maximum Images Per Folder
@@ -247,6 +257,6 @@ This is [documented](https://help.salesforce.com/s/articleView?language=en_US&id
 
 ### Parallel OCAPI Requests
 
-![Slack note documenting the per-session OCAPI parallel-request limit.](/media/2023/img-0054-72b5b079a0.jpeg)
+![A screenshot of Slack with the following text “ @GPThomas 6 (Theunen) Not sure it's documented anywhere, but mentioned here https://sfcc-unofficial.slack.com/archives/CBB7YAAHW/p1675440396900169?thread_ts=1675380576.825429&cid=CBB7YAAHW. From experience we for sure were facing the same but for same session id BHV_REQUEST_TOO_MANY_REQUESTS_WITH_SAME_SESSION_ID (10 concurrent requests by default)”](/media/2023/img-0054-72b5b079a0.jpeg)
 
 Although there is no rate limit in place on the OCAPI, there is a limit on how many parallel requests one can make.

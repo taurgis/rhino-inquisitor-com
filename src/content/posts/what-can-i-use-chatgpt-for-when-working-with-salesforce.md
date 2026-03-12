@@ -1,8 +1,8 @@
 ---
 title: What can I use ChatGPT for when working with Salesforce?
 description: >-
-  ChatGPT is the new hype going around. But can I use this new tool
-  professionally? Can it make my work easier?
+  A practical look at where ChatGPT can help in Salesforce work, from drafting
+  and debugging to research and day-to-day delivery.
 date: '2022-12-26T06:44:32.000Z'
 lastmod: '2022-12-25T15:23:41.000Z'
 url: /what-can-i-use-chatgpt-for-when-working-with-salesforce/

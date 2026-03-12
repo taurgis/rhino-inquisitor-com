@@ -7,7 +7,7 @@ date: '2023-07-28T07:53:53.000Z'
 lastmod: '2023-07-28T13:57:31.000Z'
 url: /how-to-filter-jsdoc-in-storybook-autodocs/
 draft: false
-heroImage: /media/2023/frustrated-developer-illustration-a7d8092bbb.jpg
+heroImage: /wp-content/uploads/2023/07/frustrated-developer-illustration.jpg
 categories:
   - React
 tags:
@@ -21,11 +21,11 @@ One of its features, called "[Autodocs](https://storybook.js.org/docs/7.0/react/
 
 Recently, I ran into an issue related to using JSDoc with Storybook. JSDoc was being printed out as Markdown but was erroneously formatted. Further, it was trying to execute the @example code, which led to console errors. I want to share how I resolved the issue through this blog post.
 
-![Storybook Autodocs before filtering, showing excessive JSDoc output.](/media/2023/storybook-jsdocs-before-90d7cc5222.png)
+![Storybook JSDocs before screenshot. We see way to much information.](/media/2023/storybook-jsdocs-before-90d7cc5222.png)
 
 Before
 
-![Storybook Autodocs after filtering, showing only the cleaned description.](/media/2023/storybook-jsdocs-after-8063d0ff66.png)
+![Storybook JSDocs after screenshot. We no longer see anything except the description.](/media/2023/storybook-jsdocs-after-8063d0ff66.png)
 
 After
 
@@ -41,8 +41,9 @@ The problem primarily lay in how `<Description/>` was utilised in preview.js. As
 
 Luckily storybook allows us to customise the page templates by setting the "page" rendering function in preview.js(x).
 
-```html
-// .storybook/preview.jsx
+```
+
+					// .storybook/preview.jsx
 import { Title, Subtitle, Description, Primary, Controls, Stories } from '@storybook/blocks';
 export default {
   parameters: {
@@ -67,23 +68,26 @@ export default {
     },
   },
 };
+
+
 ```
 
-And the component of interest in this override is the `<Description />`!`
+And the component of interest in this override is the ``<Description />`!`
 
 ### Create a custom description component
 
 To create our component, I decided to dig into the Storybook source code to see what is necessary:
 
-1. The description
-1. Our own component
+1.  The description
+2.  Our own component
 
 #### Getting the description
 
 After digging into the code I found this function:
 
-```js
-const getDescriptionFromResolvedOf = (resolvedOf) => {
+```
+
+					const getDescriptionFromResolvedOf = (resolvedOf) => {
     switch (resolvedOf.type) {
         case 'story': {
             return resolvedOf.story.parameters.docs?.description?.story || null;
@@ -120,6 +124,8 @@ const getDescriptionFromResolvedOf = (resolvedOf) => {
         }
     }
 };
+
+
 ```
 
 This function will extract the description based on what page we are looking at!
@@ -128,8 +134,9 @@ This function will extract the description based on what page we are looking at!
 
 Now we need our own component to utilise this function:
 
-```js
-const ModifiedDescription = (props) => {
+```
+
+					const ModifiedDescription = (props) => {
     const { of } = props;
     if ('of' in props && of === undefined) {
         throw new Error('Unexpected `of={undefined}`, did you mistype a CSF file reference?');
@@ -146,6 +153,8 @@ const ModifiedDescription = (props) => {
 
     )
 }
+
+
 ```
 
 Here, we use Storybook's built-in Markdown to display the content by removing everything after '@param'. This results in displaying only the description we wanted.
@@ -154,28 +163,32 @@ Here, we use Storybook's built-in Markdown to display the content by removing ev
 
 Next, we replace the `<Description/>` in the Docs.page of Storybook with our custom `<ModifiedDescription/>` component.
 
-```html
-                 const preview = {
-parameters: {
-    docs: {
-        page: () => (
-                <>
+```
 
-                    <Subtitle />
-                    <ModifiedDescription />
-                    <Primary />
-                    <Controls />
-                    <Stories />
-                </>
-            )
-    },
-};
+					 const preview = {
+    parameters: {
+        docs: {
+            page: () => (
+                    <>
+
+                        <Subtitle />
+                        <ModifiedDescription />
+                        <Primary />
+                        <Controls />
+                        <Stories />
+                    </>
+                )
+        },
+    };
+
+
 ```
 
 ## Putting it all together
 
-```html
-import {
+```
+
+					import {
     Title,
     Subtitle,
     Primary,
@@ -256,4 +269,7 @@ const preview = {
   },
 };
 export default preview;
+
+
+
 ```

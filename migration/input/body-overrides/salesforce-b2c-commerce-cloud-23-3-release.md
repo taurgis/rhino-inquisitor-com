@@ -1,22 +1,4 @@
----
-title: The Salesforce B2C Commerce Cloud 23.3 release explained
-description: >-
-  Another month, another release from Salesforce B2C Commerce Cloud! Read the
-  full article on Rhino Inquisitor for implementation details.
-date: '2023-02-15T14:19:00.000Z'
-lastmod: '2023-02-15T14:19:11.000Z'
-url: /salesforce-b2c-commerce-cloud-23-3-release/
-draft: false
-heroImage: /media/2023/shopping-cart-in-sand-7c8677e7ff.jpg
-categories:
-  - Release Notes
-  - Salesforce Commerce Cloud
-tags:
-  - sfcc
-  - technical
-author: Thomas Theunen
----
-Another month, another release from Salesforce B2C Commerce Cloud! In this blog post, we'll dive into all the changes and improvements coming to the platform in the [23.3 release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_23_3_release.htm&type=5). In recent months, we've seen a strong focus on updates to the headless APIs and Page Designer, and we'll examine if this trend continues in this latest release. Are there new and exciting developments on the horizon for the platform? Let's find out! Are you interested in last month’s release notes? [Read the 23.2 release notes](/salesforce-b2c-commerce-cloud-23-2/)!
+Another month, another release from Salesforce B2C Commerce Cloud! In this blog post, we'll dive into all the changes and improvements coming to the platform in the [23.3 release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_23_3_release.htm&type=5). In recent months, we've seen a strong focus on updates to the headless APIs and Page Designer, and we'll examine if this trend continues in this latest release. Are there new and exciting developments on the horizon for the platform? Let's find out! Are you interested in last month's release notes? [Read the 23.2 release notes](/salesforce-b2c-commerce-cloud-23-2/)!
 
 ## Trial sandboxes
 
@@ -36,15 +18,15 @@ There is a [limit](https://documentation.b2c.commercecloud.salesforce.com/DOC1/t
 
 ### Buy Now Items Get Their Own Cart
 
-> Shoppers can now use Buy Now express checkout without losing the contents of an existing shopping cart. Buy Now express checkout puts items for purchase in a separate cart. To use this feature, upgrade the Payments plug-in (plugin\_commercepayments) to the latest version.
+> Shoppers can now use Buy Now express checkout without losing the contents of an existing shopping cart. Buy Now express checkout puts items for purchase in a separate cart. To use this feature, upgrade the Payments plug-in (plugin_commercepayments) to the latest version.
 
-Losing your basket halfway through your shopping experience is never a fun thing. For any projects making use of [Commerce Payments](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/salesforce_payments/b2c_salesforce_payments.html), this update is a welcome improvement. The plugin\_commercepayments repository can be found [on GitHub](https://github.com/SalesforceCommerceCloud/plugin_commercepayments). Access to the repository If you don’t have a GitHub account, see [Salesforce Commerce Cloud GitHub Repositories and Access](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/site_development/b2c_github_repo_access.html#github_repo).
+Losing your basket halfway through your shopping experience is never a fun thing. For any projects making use of [Commerce Payments](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/salesforce_payments/b2c_salesforce_payments.html), this update is a welcome improvement. The plugin_commercepayments repository can be found [on GitHub](https://github.com/SalesforceCommerceCloud/plugin_commercepayments). Access to the repository If you don't have a GitHub account, see [Salesforce Commerce Cloud GitHub Repositories and Access](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/site_development/b2c_github_repo_access.html#github_repo).
 
 ## Business Manager
 
 ### Guest Basket Lifetime Limit Is Increased
 
-> The lifetime limit for a guest customer basket is now the lesser of 30 days and the registered customer basket lifetime. Previously, it was the lesser of 7 days and the registered customer basket lifetime. This limit applies to input validation in the BM Basket Preferences UI and Basket Preferences Import. It also affects resolving the guest basket lifetime if it isn’t set, for example, for the basket cleanup job.
+> The lifetime limit for a guest customer basket is now the lesser of 30 days and the registered customer basket lifetime. Previously, it was the lesser of 7 days and the registered customer basket lifetime. This limit applies to input validation in the BM Basket Preferences UI and Basket Preferences Import. It also affects resolving the guest basket lifetime if it isn't set, for example, for the basket cleanup job.
 
 This update was moved from the [23.2](/salesforce-b2c-commerce-cloud-23-2/) release to this one, as I covered it in last month's release post.
 
@@ -112,11 +94,11 @@ In this and previous releases, the following bugs have been marked as fixed:
 
 Some [known faces](https://github.com/SalesforceCommerceCloud/eu-price-indication/graphs/contributors) provided a new cartridge to assist with the new EU directive.
 
-### plugin\_slas (v6.4.0 - v6.4.1)
+### plugin_slas (v6.4.0 - v6.4.1)
 
-- [https://github.com/SalesforceCommerceCloud/plugin\_slas](https://github.com/SalesforceCommerceCloud/plugin_slas)
+- [https://github.com/SalesforceCommerceCloud/plugin_slas](https://github.com/SalesforceCommerceCloud/plugin_slas)
 
-> The plugin\_slas cartridge extends authentication for guest users and registered shoppers using the Shopper Login and API Access Service (SLAS).
+> The plugin_slas cartridge extends authentication for guest users and registered shoppers using the Shopper Login and API Access Service (SLAS).
 
 - Fix a bug where geolocation information is incorrect for newly logged in users [#82](https://github.com/SalesforceCommerceCloud/plugin_slas/pull/82)
 - Add feature toggle for SLAS session-bridge/token endpoint [#80](https://github.com/SalesforceCommerceCloud/plugin_slas/pull/80)
@@ -127,9 +109,9 @@ Some [known faces](https://github.com/SalesforceCommerceCloud/eu-price-indicatio
 - Setup this repository for Github actions [#74](https://github.com/SalesforceCommerceCloud/plugin_slas/pull/74)
 - Set feature toggle for SLAS session-bridge/token endpoint to be enabled by default
 
-### plugin\_datalayer (v1.0.0)
+### plugin_datalayer (v1.0.0)
 
-- [https://github.com/SalesforceCommerceCloud/plugin\_datalayer](https://github.com/SalesforceCommerceCloud/plugin_datalayer)
+- [https://github.com/SalesforceCommerceCloud/plugin_datalayer](https://github.com/SalesforceCommerceCloud/plugin_datalayer)
 
 > Concept to add data tracking into SFRA. This plugin provides an implementation blueprint on website data tracking (server side data and client events) and creates a sfra datalayer which could be used when connecting to other tracking providers like GTM and Tealium.
 
@@ -165,11 +147,11 @@ The month of February keeps giving new (public) repositories. And this time, one
 
 ### Passwordless Login (v1.1.0)
 
-- [https://github.com/SalesforceCommerceCloud/plugin\_passwordlesslogin](https://github.com/SalesforceCommerceCloud/plugin_passwordlesslogin)
+- [https://github.com/SalesforceCommerceCloud/plugin_passwordlesslogin](https://github.com/SalesforceCommerceCloud/plugin_passwordlesslogin)
 
-> Passwordless login is a way to verify a user’s identity without using a password. It offers protection against the most prevalent cyberattacks, such as phishing and brute-force password cracking. Passwordless login systems use authentication methods that are more secure than regular passwords, including magic links, one-time codes, registered devices or tokens, and biometrics.
+> Passwordless login is a way to verify a user's identity without using a password. It offers protection against the most prevalent cyberattacks, such as phishing and brute-force password cracking. Passwordless login systems use authentication methods that are more secure than regular passwords, including magic links, one-time codes, registered devices or tokens, and biometrics.
 
 - improve debug logging by [@clavery](https://github.com/clavery) in [#8](https://github.com/SalesforceCommerceCloud/plugin_passwordlesslogin/pull/8)
-- replace jsonBasket with SCAPI merge basket by [@sandragolden](https://github.com/sandragolden) in [#7](https://github.com/SalesforceCommerceCloud/plugin_passwordlesslogin/pull/7)
+- replace jsonBasket with SCAPI merge basket by [@sandragolden](https://github.com/SalesforceCommerceCloud/plugin_passwordlesslogin/pull/7)
 - replaced the use of the JSON basket in a profile custom attribute with SCAPI [mergeBasket](https://developer.salesforce.com/docs/commerce/commerce-api/references/shopper-baskets?meta=mergeBasket)
-- updated README to list out all the API calls required, indicating differences if you are using `plugin _slas` with a **_ public _**SLAS client or using `plugin_ passwordless` on its own without plugin\_slas, using a**_ private_** SLAS client
+- updated README to list out all the API calls required, indicating differences if you are using `plugin _slas` with a **_ public _** SLAS client or using `plugin_passwordless` on its own without plugin_slas, using a **_private_** SLAS client

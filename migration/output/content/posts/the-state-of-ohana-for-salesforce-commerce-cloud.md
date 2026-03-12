@@ -7,7 +7,7 @@ date: '2022-02-27T14:02:53.000Z'
 lastmod: '2022-07-23T22:08:05.000Z'
 url: /the-state-of-ohana-for-salesforce-commerce-cloud/
 draft: false
-heroImage: /media/2022/connections-chicago-2019-b246c60ad0.jpg
+heroImage: /wp-content/uploads/2022/02/connections-chicago-2019.jpg
 categories:
   - Community
 tags:
@@ -18,7 +18,7 @@ tags:
   - twitter
 author: Thomas Theunen
 ---
-Within Salesforce, the Ohana (Hawaiian for Family) has a pretty significant meaning. Over the past decade, people passionate about Salesforce have built up an enormous community around the platform.
+**Within Salesforce, the Ohana (Hawaiian for Family) has a pretty significant meaning. Over the past decade, people passionate about Salesforce have built up an enormous community around the platform.**
 
 The number of people helping each other every day on [Trailblazer Communities](https://trailhead.salesforce.com/trailblazer-community/groups?tab=myGroups), [Twitter](https://twitter.com/hashtag/Ohana), [Stackexchange](https://salesforce.stackexchange.com/), [OhanaSlack](https://meighanrockssf.com/2019/04/02/salesforce-ohana-slack/), and more is just amazing.
 But then again, how does this reflect on the Salesforce Commerce Cloud B2C community?
@@ -35,7 +35,7 @@ It is no secret that Salesforce is known for buying companies to take under its 
 
 I listed a few places where the community was active within the #ohana of Salesforce, so how do the different platforms compare? Based on my personal experience, the used communication channels show a big difference.
 
-Note: This is a "personal feeling" pie chart as I did not use any scientific methodology by comparing numbers etc. So take it with a grain of salt! I also left out LinkedIn as it is more business than questions/answers than socializing on Twitter.
+_Note: This is a "personal feeling" pie chart as I did not use any scientific methodology by comparing numbers etc. So take it with a grain of salt! I also left out LinkedIn as it is more business than questions/answers than socializing on Twitter._
 
 ### Core Platform
 
@@ -53,10 +53,11 @@ I became active on [Twitter](https://twitter.com/theunenth) a little less than a
 
 And boy, a lot is going on there:
 
-- [**Ohana Pears**](https://twitter.com/Secret_Ohana): Helping to grow & nurture friendships within Ohana
-- [**shirtforce**](https://twitter.com/shirtforceOrg): Giving through tees
-- [**SnailMailStickerSwap**](https://twitter.com/SMStickerSwap): Exchanging Salesforce related stickers through Snail Mail
-- And the list goes on and on...
+-   [**Ohana Pears**](https://twitter.com/Secret_Ohana): Helping to grow & nurture friendships within Ohana
+-   [**shirtforce**](https://twitter.com/shirtforceOrg): Giving through tees
+-   [**SnailMailStickerSwap**](https://twitter.com/SMStickerSwap): Exchanging Salesforce related stickers through Snail Mail
+-   And the list goes on and on...
+
 
 Of course, the main drivers of these are Salesforce CRM Administrators. But does it end at the Salesforce platform? No! All of the groups mentioned above have a target group containing all clouds! So don't be afraid to mingle 😁.
 
@@ -72,7 +73,7 @@ But is it also so surprising? The B2C community is also more isolated and not by
 
 The first community within Demandware / SFCC is undoubtedly the Xchange, discontinued and all of its histories erased! It has left many people annoyed as it contained a vast amount of knowledge that people were willing to share with their peers.
 
-![Account Manager roles and permissions page still listing the old Xchange integration.](/media/2022/xchange-c2290f06af.png)
+![A screenshot of Account Manager roles & permissions showing the old Xchange.](/media/2022/xchange-c2290f06af.png)
 
 I found this community (even though it was not as active as the Trailblazer Community is) a beneficial tool to find my way in the world of Salesforce Commerce Cloud. I still find myself assigning the role to every account in Account Manager in nostalgia, even though it does not do anything anymore.
 

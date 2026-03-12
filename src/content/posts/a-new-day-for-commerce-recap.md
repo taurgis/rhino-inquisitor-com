@@ -1,8 +1,8 @@
 ---
 title: 'A New Day for Commerce: Recap'
 description: >-
-  When we look at the Salesforce eco-system, Commerce seems like a speck on the
-  entire Salesforce landscape (CRM).
+  A recap of A New Day for Commerce and what the event says about Salesforce's
+  broader commerce direction, ecosystem momentum, and priorities.
 date: '2023-03-20T07:55:32.000Z'
 lastmod: '2023-03-21T09:44:52.000Z'
 url: /a-new-day-for-commerce-recap/

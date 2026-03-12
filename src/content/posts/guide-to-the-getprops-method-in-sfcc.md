@@ -1,8 +1,8 @@
 ---
-title: A Developer's Guide to Using the getProps Method in the PWA Kit
+title: Using getProps in PWA Kit
 description: >-
-  As a developer, you're always looking for ways to improve the performance and
-  functionality of your projects.
+  Learn how the getProps method works in PWA Kit, what data it exposes, and when
+  it helps with faster, cleaner storefront code.
 date: '2023-05-15T09:58:07.000Z'
 lastmod: '2023-05-15T12:09:08.000Z'
 url: /guide-to-the-getprops-method-in-sfcc/

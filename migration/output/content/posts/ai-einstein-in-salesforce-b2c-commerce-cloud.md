@@ -7,7 +7,7 @@ date: '2022-09-26T13:42:24.000Z'
 lastmod: '2025-03-12T11:00:54.000Z'
 url: /ai-einstein-in-salesforce-b2c-commerce-cloud/
 draft: false
-heroImage: /media/2022/artificial-intelligence-fc68314ce7.jpg
+heroImage: /wp-content/uploads/2022/08/artificial-intelligence.jpg
 categories:
   - Salesforce Commerce Cloud
 tags:
@@ -27,7 +27,7 @@ Even though the product is called Einstein right now, it wasn't always the case.
 
 You will still notice the reference in the URL when accessing the [Administrative Portal](https://configurator.cquotient.com).
 
-![Legacy CQuotient administration screen before the Einstein rebrand.](/media/2022/cquotient-demandware-history-v2-942e794c7b.png)
+![](/media/2022/cquotient-demandware-history-v2-942e794c7b.png)
 
 This history lesson also clarifies that this "Einstein" is unrelated to all of the other "Einstein" products [in the Salesforce lineup](https://www.salesforce.com/products/einstein/overview/). Though probably some connections are made behind the scenes, this is - like with different features - a black box.
 
@@ -37,9 +37,9 @@ As CQuotient was an acquired AI product, it has a separate management console wh
 
 There are some screens inside the Business Manager, but they mainly push or pull data out of CQuotient:
 
-- [Slot Configuration](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/recommendations/b2c_configuring_slots_for_predictive_recommendations.html)
-- Page Designer components
-- [Einstein Status Dashboard](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/recommendations/b2c_configure_einstein_deployment.html) (Configuration & Monitoring)
+-   [Slot Configuration](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/recommendations/b2c_configuring_slots_for_predictive_recommendations.html)
+-   Page Designer components
+-   [Einstein Status Dashboard](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/recommendations/b2c_configure_einstein_deployment.html) (Configuration & Monitoring)
 
 ## Shared Data Model
 
@@ -47,9 +47,9 @@ For an AI (Artificial Intelligence) to work, it needs to be fed with **quality**
 
 For this sharing of data, consent needs to be given in the Business Manager at:
 
-Administration_> _Global Preferences_ >_Einstein Search Dictionaries Opt-In
+_Administration_ > _Global Preferences_ > _Einstein Search Dictionaries Opt-In_
 
-[![Einstein Search Dictionaries Opt-In setting used to enable shared-data consent.](/media/2022/einstein-cquotient-shared-database-6ab8c2ae5e.jpg)](/media/2022/einstein-cquotient-shared-database-6ab8c2ae5e.jpg)
+[![](/media/2022/einstein-cquotient-shared-database-6ab8c2ae5e.jpg)](/media/2022/einstein-cquotient-shared-database-6ab8c2ae5e.jpg)
 
 ## Black Box
 
@@ -63,11 +63,14 @@ And we do not get any insights into how it does it unless you work at Salesforce
 
 For the AI (Einstein) to learn, I already mention it needs to collect quality data. And that data is extracted from the visitors of the SFCC sites:
 
-- Categories navigated too
-- Products viewed
-- Products added to the basket
-- Products ordered
-- ...
+-   Categories navigated too
+-   Products viewed
+-   Products added to the basket
+-   Products ordered
+-   ...
+
+
+
 
 And for this to work, the consumer needs to be tracked. Some visitors will want to block these behaviors by looking at GDPR, CCPA, and [Do Not Track](https://allaboutdnt.com/) options.
 
@@ -78,9 +81,9 @@ And for this to work, the consumer needs to be tracked. Some visitors will want 
 
 ### Product Recommendations
 
-- [Trailhead Module](https://trailhead.salesforce.com/content/learn/modules/cc-einstein-product-recommendations)
+-   [Trailhead Module](https://trailhead.salesforce.com/content/learn/modules/cc-einstein-product-recommendations)
 
-[![Einstein product recommendations rendered in a storefront experience.](/media/2022/sfcc-einstein-product-recommendations-75e024ae7c.jpg)](/media/2022/sfcc-einstein-product-recommendations-75e024ae7c.jpg)
+[![](/media/2022/sfcc-einstein-product-recommendations-75e024ae7c.jpg)](https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/sfcc-einstein-product-recommendations-scaled.jpg)
 
 SFCC: Einstein Product Recommendations in the PWA Kit
 
@@ -92,9 +95,9 @@ One possible product recommendation type is "Complete the Set," which recommends
 
 ### Commerce Insights
 
-- [Trailhead Module](https://trailhead.salesforce.com/content/learn/modules/cc-einstein-plan-and-implement/cc-ai-work-better)
+-   [Trailhead Module](https://trailhead.salesforce.com/content/learn/modules/cc-einstein-plan-and-implement/cc-ai-work-better)
 
-[![Commerce Insights report showing shopper and basket trend data.](/media/2022/commerce-insights-report-c598e1214b.jpg)](/media/2022/commerce-insights-report-c598e1214b.jpg)
+[![](/media/2022/commerce-insights-report-c598e1214b.jpg)](/media/2022/commerce-insights-report-c598e1214b.jpg)
 
 Einstein: Commerce Insights Report
 
@@ -104,9 +107,9 @@ So, in short: "An analytics tool to view shopper behavior on a product-by-produc
 
 ### Search Dictionaries
 
-- [Trailhead Module](https://trailhead.salesforce.com/content/learn/modules/cc-einstein-smarter-search/cc-einstein-search-recommendations)
+-   [Trailhead Module](https://trailhead.salesforce.com/content/learn/modules/cc-einstein-smarter-search/cc-einstein-search-recommendations)
 
-[![Einstein search dictionaries suggesting phrases and synonym refinements.](/media/2022/einstein-search-dictionaries-suggestion-phrases-467a548c85.jpg)](/media/2022/einstein-search-dictionaries-suggestion-phrases-467a548c85.jpg)
+[![](/media/2022/einstein-search-dictionaries-suggestion-phrases-467a548c85.jpg)](/media/2022/einstein-search-dictionaries-suggestion-phrases-467a548c85.jpg)
 
 Einstein Search Dictionaries
 
@@ -116,9 +119,9 @@ The important thing about this feature is that it only makes suggestions. You st
 
 ### Predictive Sort
 
-- [Trailhead Module](https://trailhead.salesforce.com/content/learn/modules/cc-einstein-smarter-search/cc-einstein-predictive-sort)
+-   [Trailhead Module](https://trailhead.salesforce.com/content/learn/modules/cc-einstein-smarter-search/cc-einstein-predictive-sort)
 
-[![Category page showing products reordered by predictive sort.](/media/2022/sfcc-category-page-3297251518.jpg)](/media/2022/sfcc-category-page-3297251518.jpg)
+[![](/media/2022/sfcc-category-page-3297251518.jpg)](/media/2022/sfcc-category-page-3297251518.jpg)
 
 Salesforce B2C Commerce Cloud Category Page
 
@@ -128,9 +131,10 @@ By looking at shopper behavior, it will continuously re-order the products in th
 
 There are some things to keep in mind when using this feature:
 
-1. Do not rely entirely on Einstein's Predictive Sort. Add other attributes into the mix. An example on the Trailhead module is like this: 25% revenue, 40% text relevance, and 35% "Predictive Sort"
+1.  Do not rely entirely on Einstein's Predictive Sort. Add other attributes into the mix. An example on the Trailhead module is like this: 25% revenue, 40% text relevance, and 35% "Predictive Sort"
 
-1. Caching must be disabled on the Categories and Search Results pages (Search-Show for the developers amongst the readers, the tiles can still be cached). So expect a performance hit on these pages.
+
+2.  Caching must be disabled on the Categories and Search Results pages (Search-Show for the developers amongst the readers, the tiles can still be cached). So expect a performance hit on these pages.
 
 A/B Testing When working with a feature that allows fine-grained configuration like this, it is a good idea to experiment with the sorting weight percentages.
 
@@ -138,9 +142,9 @@ And do not forget to A/B test the comparison of Predictive Sort against your reg
 
 ### Search Recommendations
 
-- [Trailhead Module](https://trailhead.salesforce.com/content/learn/modules/cc-einstein-smarter-search/cc-einstein-search-recommendations)
+-   [Trailhead Module](https://trailhead.salesforce.com/content/learn/modules/cc-einstein-smarter-search/cc-einstein-search-recommendations)
 
-[![Search box suggestions generated by Einstein as the shopper types.](/media/2022/sfcc-search-suggestions-d172038c0b.jpg)](/media/2022/sfcc-search-suggestions-d172038c0b.jpg)
+[![](/media/2022/sfcc-search-suggestions-d172038c0b.jpg)](/media/2022/sfcc-search-suggestions-d172038c0b.jpg)
 
 Einstein: Search Suggestions
 
@@ -149,6 +153,7 @@ Do you ever feel like search suggestions didn't understand the message you were 
 It will analyze your entered search term, look at information like current location and device type, and try to auto-complete the search term for you.
 
 > For example, if the shopper types “swe” and they haven’t already searched for sweater or sweat pants, Einstein looks for phrases that start with swe for the device and location. If there’s enough data at that level, Einstein returns a phrase. If there isn’t enough data, Einstein searches across a larger data pool and devices until it finds a result.
+>
 > Trailhead
 
 ## Other features
@@ -161,9 +166,11 @@ If you have other channels besides Salesforce B2C Commerce Cloud that can be use
 
 [Using a Headless API](https://developer.salesforce.com/docs/commerce/einstein-api/guide/einstein-profile-connector-overview.html), it is possible to feed additional information about customers to Einstein, such as:
 
-- Gender
-- Favorite colors
-- Favorite brands
+-   Gender
+-   Favorite colors
+-   Favorite brands
+
+
 
 And use this information to give more fine-grained recommendations to the shoppers.
 
@@ -173,9 +180,9 @@ And use this information to give more fine-grained recommendations to the shoppe
 
 Other use-cases for these APIs could be:
 
-- Recommendations in newsletters or other types of mailings (transactional)
-- Mobile Application
-- Customer Service
+-   Recommendations in newsletters or other types of mailings (transactional)
+-   Mobile Application
+-   Customer Service
 
 ## Learn more
 

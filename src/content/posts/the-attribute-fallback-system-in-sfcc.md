@@ -1,5 +1,5 @@
 ---
-title: 'Variation Groups 101: The attribute fallback system in Commerce Cloud'
+title: Attribute Fallback in SFCC Variation Groups
 description: >-
   One of the features of B2C Commerce Cloud is the ability to create and use
   variation products, which share common attributes but differ in one or more
@@ -17,15 +17,15 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-One of the features of B2C Commerce Cloud is the ability to create and use [variation](/slicing-versus-variation-groups-in-sfcc/) products, which share common attributes but differ in one or more aspects, such as colour, size, or style. Variation products can help merchants offer more choices to their customers and optimise their inventory management.
+One of the features of B2C Commerce Cloud is the ability to create and use [variation](https://www.rhino-inquisitor.com/slicing-versus-variation-groups-in-sfcc/) products, which share common attributes but differ in one or more aspects, such as colour, size, or style. Variation products can help merchants offer more choices to their customers and optimise their inventory management.
 
 Managing variant products can be a challenging task, especially when it comes to defining and displaying the attributes of each variant. To simplify the process for merchants, integrations, and developers, a system has been implemented that prevents duplication of data at different levels (base, variation group, variant). In this article, we will explore this system and its advantages.
 
-## What are variation groups, and how do they differ from slicing
+## What are variation groups, and how do they differ from slicing?
 
-When it comes to varying on an attribute, there are two options within Salesforce B2C Commerce Cloud. [In a previous article](/slicing-versus-variation-groups-in-sfcc/), this concept has been explained in detail.
+When it comes to varying on an attribute, there are two options within Salesforce B2C Commerce Cloud. [In a previous article](https://www.rhino-inquisitor.com/slicing-versus-variation-groups-in-sfcc/), this concept has been explained in detail.
 
-## How does the attribute fallback system work for variation products, groups, and base products
+## How does the attribute fallback system work for variation products, groups, and base products?
 
 ![A visual representation of the Variation Group model by using a t-shirt. There colours of shirts, each with their own set of sizes with one base product at the top.](/media/2024/variation-model-attribute-fallback-af1b94cc0e.jpg)
 
@@ -35,10 +35,10 @@ The attribute fallback system is a mechanism that allows B2C Commerce Cloud to a
 
 The attribute fallback system works as follows:
 
-- When a customer views a variation product on the storefront, B2C Commerce Cloud first checks if the attribute value is defined for the variation product itself. For example, if the customer views a red shirt in size L, B2C Commerce Cloud first checks if the variant's name and description are defined.
-- If the attribute value is not defined for the variation product, B2C Commerce Cloud then checks if the attribute value is defined for the variation group to which the variation product belongs. For example, if the red "large" shirt is part of a variation group "red shirt", B2C Commerce Cloud checks if the name and description of the shirt are defined for the variation group.
-- If the attribute value is not defined for any of the variation groups, B2C Commerce Cloud then checks if the attribute value is defined for the base product that the variation product is derived from. For example, if the red large shirt is a variation of a generic "shirt", B2C Commerce Cloud checks if the name and description are defined for the base product.
-- If the attribute value is not defined for the base product, B2C Commerce Cloud returns a default or empty value. For example, if none of the sources define the name of the red large shirt, B2C Commerce Cloud returns null for the variant.
+-   When a customer views a variation product on the storefront, B2C Commerce Cloud first checks if the attribute value is defined for the variation product itself. For example, if the customer views a red shirt in size L, B2C Commerce Cloud first checks if the variant's name and description are defined.
+-   If the attribute value is not defined for the variation product, B2C Commerce Cloud then checks if the attribute value is defined for the variation group to which the variation product belongs. For example, if the red "large" shirt is part of a variation group "red shirt", B2C Commerce Cloud checks if the name and description of the shirt are defined for the variation group.
+-   If the attribute value is not defined for any of the variation groups, B2C Commerce Cloud then checks if the attribute value is defined for the base product that the variation product is derived from. For example, if the red large shirt is a variation of a generic "shirt", B2C Commerce Cloud checks if the name and description are defined for the base product.
+-   If the attribute value is not defined for the base product, B2C Commerce Cloud returns a default or empty value. For example, if none of the sources define the name of the red large shirt, B2C Commerce Cloud returns null for the variant.
 
 ### Price
 
@@ -52,14 +52,14 @@ Instead, the price of a variation group is calculated as the range of the prices
 
 For example, if a variation group for all red handbags contains three variants with prices of $130, $132, and $135, the price of the variation group is displayed as $130-$135 on the storefront.
 
-## What does it mean for development
+## What does it mean for development?
 
-Luckily for the developers this system works seamlessly for developers and fetching attributes will automatically set some processes in the works behind the scenes just as the [locale fallback](/understanding-locale-fallback-in-sfcc/).
+Luckily for the developers this system works seamlessly for developers and fetching attributes will automatically set some processes in the works behind the scenes just as the [locale fallback](https://www.rhino-inquisitor.com/understanding-locale-fallback-in-sfcc/).
 
-- `dw.catalog.Variant` class has attribute fallback behavior to first obtain attributes from (one or more) assigned variation groups and then from the base product.
-- `dw.catalog.VariationGroup` class has attribute fallback behavior to obtain attributes from the base product, when the attribute isn't specified by the variation group.
+-   `dw.catalog.Variant` class has attribute fallback behavior to first obtain attributes from (one or more) assigned variation groups and then from the base product.
+-   `dw.catalog.VariationGroup` class has attribute fallback behavior to obtain attributes from the base product, when the attribute isn't specified by the variation group.
 
-[![Script API documentation excerpt showing attribute fallback behavior in code.](/media/2024/variation-model-fallback-in-code-docs-1-ba4d97c55f.jpg)](`<https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/index.html?target=class>` _dw_ catalog_Product.html)
+[![](/media/2024/variation-model-fallback-in-code-docs-1-ba4d97c55f.jpg)](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/index.html?target=class_dw_catalog_Product.html)
 
 ## Advantages for data import
 

@@ -1,8 +1,8 @@
 ---
-title: 'SFRA and Node 18: A Match Made in eCommerce Paradise or Hell?'
+title: Using Node 18 with SFRA
 description: >-
-  As responsible developers, it's important to stay up-to-date with the latest
-  versions of our tools.
+  Learn how to run Node 18 with SFRA, which compatibility checks matter, and
+  where to watch for tooling or build issues during the upgrade.
 date: '2023-07-10T08:09:37.000Z'
 lastmod: '2023-07-10T08:13:58.000Z'
 url: /how-to-use-node-18-with-sfra/

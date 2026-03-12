@@ -1,5 +1,5 @@
 ---
-title: What does the Composable Storefront mean for SFCC Developers?
+title: What Composable Storefront Means for SFCC Developers
 description: >-
   Many SFCC developers look at the Composable Storefront as the next step of
   Salesforce moving SFCC to the CRM core. But is it so?
@@ -7,7 +7,7 @@ date: '2023-01-30T07:59:37.000Z'
 lastmod: '2023-01-30T18:11:48.000Z'
 url: /what-does-the-composable-storefront-mean-for-sfcc-developers/
 draft: false
-heroImage: /media/2022/e0468610-0e86-403f-b486-743a38d4b763-d68cf607f8.png
+heroImage: /wp-content/uploads/2022/05/E0468610-0E86-403F-B486-743A38D4B763.png
 categories:
   - Salesforce Commerce Cloud
   - Technical
@@ -17,28 +17,28 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-Over the past year, I have seen increasing gossip (which I am partly to blame for) and discussions about what the Composable Storefront release means for development in Salesforce B2C Commerce Cloud. A comparison can be made to what has happened to [pipelines](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/LegacyDevDoc/WorkingwithPipelines.html) and [SiteGenesis](https://production-sitegenesis-dw.demandware.net/on/demandware.store/Sites-SiteGenesis-Site), and we found out [in September last year that many things are afoot](/what-is-commerce-on-core/)!
+Over the past year, I have seen increasing gossip (which I am partly to blame for) and discussions about what the Composable Storefront release means for development in Salesforce B2C Commerce Cloud. A comparison can be made to what has happened to [pipelines](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/LegacyDevDoc/WorkingwithPipelines.html) and [SiteGenesis](https://production-sitegenesis-dw.demandware.net/on/demandware.store/Sites-SiteGenesis-Site), and we found out [in September last year that many things are afoot](https://www.rhino-inquisitor.com/what-is-commerce-on-core/)!
 
 ## Technology changes
 
-[![Graphic illustrating the long-term acceleration of computing progress.](/media/2022/e094f768-3336-403f-8c75-9013cb07df2f-b7c7a5e8f2.png)](/media/2022/e094f768-3336-403f-8c75-9013cb07df2f-b7c7a5e8f2.png)
+[![Image depicting 120 years of Moore’s Law](/media/2022/e094f768-3336-403f-8c75-9013cb07df2f-b7c7a5e8f2.png)](/media/2022/e094f768-3336-403f-8c75-9013cb07df2f-b7c7a5e8f2.png)
 
-Let us get one thing out of the way first. This article is my opinion and my opinion alone.
+**Let us get one thing out of the way first. This article is my opinion and my opinion alone.**
 
 As commerce and web developers, we are constantly reminded that technology never stands still. The world is rapidly evolving, and it's up to us to adapt and evolve with it. The rise of "Headless, API First, Composable Commerce, MACH Alliance, etc." has brought new opportunities to the eCommerce world.
 
-Salesforce has introduced a solution to meet this demand: the [Composable Storefront](/sitegenesis-vs-sfra-vs-pwa/). This is an entirely different type of implementation built on React, a more modern library than we are used to in SiteGenesis and SFRA. It's an exciting new development that will support businesses' requirements now and ones they will have in the future.
+Salesforce has introduced a solution to meet this demand: the [Composable Storefront](https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/). This is an entirely different type of implementation built on React, a more modern library than we are used to in SiteGenesis and SFRA. It's an exciting new development that will support businesses' requirements now and ones they will have in the future.
 
-I understand that there may be some concerns in the community about SFRA being phased out in favour of the "Core" with this move to Headless. However, [I don't see that happening within the next five years](/what-is-commerce-on-core/). But we need to adapt.
+I understand that there may be some concerns in the community about SFRA being phased out in favour of the "Core" with this move to Headless. However, [I don't see that happening within the next five years](https://www.rhino-inquisitor.com/what-is-commerce-on-core/). But we need to adapt.
 Is it really so bad that the platform is evolving to a more modern "composable" architecture? We don't want to be left behind, and we don't want the words of our competitors to come true - that Salesforce B2C Commerce Cloud is a dinosaur. We are so much more than that, and it's up to us to prove it.
 
 Let's embrace this change, take on the challenge, and make sure that Salesforce B2C Commerce Cloud is at the forefront of eCommerce technology. We are the ones shaping the future of commerce. Let's make it a bright one.
 
-**That felt like an inspirational speech, didn't it?**
+_**That felt like an inspirational speech, didn't it?**_
 
 ## Advantages of a monolith
 
-![Illustration representing the strengths of a monolithic commerce architecture.](/media/2023/salesforce-commerce-cloud-monolith-e3f50eb05b.jpg)
+![](/media/2023/salesforce-commerce-cloud-monolith-e3f50eb05b.jpg)
 
 I'll make sure to make one thing clear. Monolithic architecture has its advantages!
 
@@ -48,7 +48,7 @@ With a monolithic approach, you can quickly scale up the entire application by a
 
 A monolithic architecture may not be as trendy as microservices, but it has its perks!
 
-_And sometimes, simplicity is the key to success._
+**_And sometimes, simplicity is the key to success._**
 
 ## The Composable Storefront uses "boring" technology
 
@@ -87,7 +87,7 @@ However, it's important to note that while the platform is evolving, it doesn't 
 
 There will still be a fair share of projects starting today on SFRA!
 
-## What about back-end development
+## What about back-end development?
 
 That knowledge is transferrable! The Rhino Engine and ISML are still crucial for creating custom Business Manager modules and API hooks, and we will need a lot of this type of development in the coming years. And who knows, we might even be able to build custom SCAPI endpoints using the same system as controllers soon!
 
@@ -99,15 +99,17 @@ To make things easier, do we need a BFRA (Back-End Reference Architecture) to as
 
 A potential path for existing Salesforce B2C Commerce Cloud customers is [the "hybrid" or "phased rollouts" solution](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/phased-headless-rollouts.html?q=phased). With this approach, you gradually migrate away from SiteGenesis or SFRA one page type at a time. For example, you can start with content pages, move on to lister and product detail pages, and finish with the checkout. This has several benefits:
 
-- No big-bang release
-- Risk is spread over time
-- More current-budget-friendly
-- One big development team, separate development teams, or something in between -> flexibility!
+-   No big-bang release
+-   Risk is spread over time
+-   More current-budget-friendly
+-   One big development team, separate development teams, or something in between -> flexibility!
+
+
 
 Additionally, this also provides an opportunity for experienced SFCC developers:
 
-- The perfect chance to transition into the Composable Storefront, one page-type at a time
-- Keeps the know-how of both setups fresh
+-   The perfect chance to transition into the Composable Storefront, one page-type at a time
+-   Keeps the know-how of both setups fresh
 
 ## Career Aspirations
 
@@ -119,4 +121,4 @@ The future is uncertain, and it's hard to predict when certain technologies or s
 
 So, let's ask ourselves, are we content with being a mere spectator of the eCommerce landscape or do we want to be a driving force shaping its future?
 
-### _The choice is ours._
+**_The choice is ours._**

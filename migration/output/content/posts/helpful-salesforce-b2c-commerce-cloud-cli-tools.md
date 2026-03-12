@@ -7,7 +7,7 @@ date: '2023-09-11T17:19:00.000Z'
 lastmod: '2023-09-18T12:33:59.000Z'
 url: /helpful-salesforce-b2c-commerce-cloud-cli-tools/
 draft: false
-heroImage: /media/2022/5517c6d9-6282-4468-a840-0af54ac19068-9222fff64d.png
+heroImage: /wp-content/uploads/2022/05/5517C6D9-6282-4468-A840-0AF54AC19068.png
 categories:
   - Salesforce Commerce Cloud
   - Technical
@@ -17,13 +17,13 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-Although Salesforce B2C Commerce Cloud is a ‘niche’ developer space, there is no shortage of [open-source solutions](/community-repositories/) available to make our lives a little bit easier.
+Although Salesforce B2C Commerce Cloud is a ‘niche’ developer space, there is no shortage of [open-source solutions](https://www.rhino-inquisitor.com/community-repositories/) available to make our lives a little bit easier.
 
 In this article, we will list a few of these and provide information on their uses.
 
 ## sfcc-ci
 
-- [GitHub Repository Link](https://github.com/SalesforceCommerceCloud/sfcc-ci)
+-   [GitHub Repository Link](https://github.com/SalesforceCommerceCloud/sfcc-ci)
 
 People who have been working with Salesforce B2C Commerce Cloud as a developer or in a similar technical role will have come into contact with this project.
 
@@ -53,9 +53,9 @@ There are still more commands available, but I will not review them all.
 
 ## b2c-tools
 
-![B2C Tools CLI graphic illustrating migration support between environments.](/media/2022/b2c-tools-ff2c3df29f.svg)
+![A screenshot of B2C Tools depicting a migration](/media/2022/b2c-tools-ff2c3df29f.svg)
 
-- [GitHub Repository Link](https://github.com/SalesforceCommerceCloud/b2c-tools)
+-   [GitHub Repository Link](https://github.com/SalesforceCommerceCloud/b2c-tools)
 
 A relatively new repository (January 2022) made its way into GitHub. It is a CLI & Library project meant to be complementary to SFCC-CI.
 
@@ -63,7 +63,7 @@ B2C Tools mainly focus on allowing you to script import/export tasks and migrati
 
 ## Catalog Reducer
 
-- [GitHub Repository Link](https://github.com/SalesforceCommerceCloud/catalog-reducer)
+-   [GitHub Repository Link](https://github.com/SalesforceCommerceCloud/catalog-reducer)
 
 A super-fast sandbox and an extensive product catalog are usually not two things you hear together in a single sentence.
 
@@ -77,11 +77,11 @@ And since this is a CLI, you can combine this with sfcc-ci or b2c-tools to creat
 
 I'm starting to see a common thread here!
 
-**Note:**__This particular library does not handle huge files well. It loads the entire source XML into memory, which will cause Out-Of-Memory exceptions rather quickly.
+_**Note:**_ _This particular library does not handle huge files well. It loads the entire source XML into memory, which will cause Out-Of-Memory exceptions rather quickly._
 
 ## SFCC Catalog Pricebook
 
-- [GitHub Repository Link](https://github.com/redvanworkshop/sfcc-catalog-pricebook)
+-   [GitHub Repository Link](https://github.com/redvanworkshop/sfcc-catalog-pricebook)
 
 If you have already looked around GitHub for Salesforce B2C Commerce Cloud cartridges and tools, you will probably have run into [Red Van Workshop](https://redvanworkshop.com/). They have released quite a few handy cartridges and tools, so be sure to check out [their organization](https://github.com/redvanworkshop/) on GitHub.
 

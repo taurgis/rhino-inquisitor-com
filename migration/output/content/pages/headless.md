@@ -7,13 +7,13 @@ date: '2022-09-11T08:06:14.000Z'
 lastmod: '2022-09-11T08:23:01.000Z'
 url: /headless/
 draft: false
-heroImage: /media/2022/headless-b54918a1ae.jpg
+heroImage: /wp-content/uploads/2022/09/Headless.jpg
 categories:
   - Podcasts
   - Video
 author: Thomas Theunen
 ---
-<https://www.youtube.com/watch?v=BTS6OqwMiK4>
+https://www.youtube.com/watch?v=BTS6OqwMiK4
 
 If your organization is looking for a way to improve its online presence and connect with more customers, Headless may be a good fit. Headless can help you create a more modern and responsive website and enhance customer engagement and conversions.
 

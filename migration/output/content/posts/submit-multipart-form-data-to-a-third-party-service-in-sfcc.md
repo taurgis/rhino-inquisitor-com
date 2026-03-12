@@ -1,5 +1,5 @@
 ---
-title: Submit "multipart/form-data" to a third-party service in SFCC
+title: Submit multipart/form-data in SFCC
 description: >-
   A use case you will not run into often is submitting a file to a third-party
   service. And it is not easy to find documentation or examples on how to do it.
@@ -7,7 +7,7 @@ date: '2022-05-23T16:17:58.000Z'
 lastmod: '2022-07-23T22:01:29.000Z'
 url: /submit-multipart-form-data-to-a-third-party-service-in-sfcc/
 draft: false
-heroImage: /media/2022/files-cb310f59d5.jpeg
+heroImage: /wp-content/uploads/2022/05/files.jpeg
 categories:
   - Technical
 tags:
@@ -25,8 +25,9 @@ For the people who want a quick solution to their file upload problem without mu
 
 And before you start commenting that I put everything in a controller, it is just an example. Please use helper classes and the works, and don't put everything in a controller.
 
-```js
-'use strict';
+```
+
+					'use strict';
 var server = require('server');
 server.get('SubmitFile', function (req, res, next) {
     var LocalServiceRegistry = require('dw/svc/LocalServiceRegistry');
@@ -48,6 +49,9 @@ server.get('SubmitFile', function (req, res, next) {
     next();
 });
 module.exports = server.exports();
+
+
+
 ```
 
 ## Pieces of the puzzle
@@ -64,7 +68,7 @@ As with any third-party integration, please use the built-in [LocalServiceRegist
 
 But how do you configure it in the Business Manager? Let's have a look!
 
-[![Third-party form service screen used in the multipart submission example.](/media/2022/form-service-1-e901798db6.png)](/media/2022/form-service-1-e901798db6.png)
+[![](/media/2022/form-service-1-e901798db6.png)](/media/2022/form-service-1-e901798db6.png)
 
 Select the type "HTTP"; otherwise, the LocalServiceRegistry code might not behave as expected.
 
@@ -72,40 +76,53 @@ As for the profile and credentials linked to your service, they will depend on y
 
 ### Building the request
 
-```js
-var zipFile = new File(new File(File.TEMP), 'myFile.zip.gz');
+```
+
+					var zipFile = new File(new File(File.TEMP), 'myFile.zip.gz');
 return [
     new HTTPRequestPart('zipFile', zipFile, 'application/gzip', 'UTF-8'),
     new HTTPRequestPart('zipFile-two', zipFile, 'application/gzip', 'UTF-8'),
 ];
+
+
 ```
 
 To build up the multipart request, we need to ensure that we return an Array of [HTTPRequestParts](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_net_HTTPRequestPart.html). We submit the same file twice; they can, of course, be different.
 
 In this example, we pass multiple [files](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_io_File.html). But it can also be other types:
 
-- [File](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_io_File.html)
-- [String](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_TopLevel_String.html)
-- [Bytes](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_util_Bytes.html)
+-   [File](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_io_File.html)
+-   [String](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_TopLevel_String.html)
+-   [Bytes](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_util_Bytes.html)
 
 ### Encoding
 
-```text
-new HTTPRequestPart('zipFile', zipFile, 'application/gzip', 'UTF-8');
+```
+
+					new HTTPRequestPart('zipFile', zipFile, 'application/gzip', 'UTF-8');
+
+
 ```
 
 When working with files, you must [send extra information](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_net_HTTPRequestPart.html#dw_net_HTTPRequestPart_HTTPRequestPart_String_Bytes_String_String_String_DetailAnchor) along the way:
 
-- **Content-Type:** The type of file, in this case, a zipped file (application/gzip)
+-   **Content-Type:** The type of file, in this case, a zipped file (application/gzip)
 
-- **Encoding:**  The type of encoding of the file; if it is incorrect, it will be unreadable at the other end. Or it might open but show unreadable content.
 
-- **File Name:** You can also send the file name along if needed.
+-   **Encoding:**  The type of encoding of the file; if it is incorrect, it will be unreadable at the other end. Or it might open but show unreadable content.
+
+
+-   **File Name:** You can also send the file name along if needed.
 
 ## The Response
 
-```text
+```
+
+
 res.print(myFormSubmissionService.call().object.text)
+
+
+
 ```
 
 Nothing special to mention here. You will be able to handle the response like any service call and check whether or not the call was successful.

@@ -1,13 +1,13 @@
 ---
 title: New APIs and Features for a Headless B2C Commerce Cloud
 description: >-
-  The holiday period was quiet for a long time regarding Salesforce B2C Commerce
-  Cloud releases.
+  Review the new SCAPI and headless platform features in Salesforce B2C Commerce
+  Cloud, and see which updates matter most for composable storefront teams.
 date: '2023-11-13T09:54:35.000Z'
 lastmod: '2023-11-15T12:18:11.000Z'
 url: /new-apis-and-features-for-a-headless-sfcc/
 draft: false
-heroImage: /media/2023/robot-operating-on-its-own-head-797d8fde74.jpg
+heroImage: /wp-content/uploads/2023/11/robot-operating-on-its-own-head.jpg
 categories:
   - Release Notes
   - Salesforce Commerce Cloud
@@ -16,7 +16,7 @@ tags:
   - sfcc
 author: Thomas Theunen
 ---
-The holiday period was quiet for a long time regarding [Salesforce B2C Commerce Cloud releases](/category/release-notes/). This was because the monolithic system required the deployment of all components, which carried the risk of bugs.
+The holiday period was quiet for a long time regarding [Salesforce B2C Commerce Cloud releases](https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/release-notes/). This was because the monolithic system required the deployment of all components, which carried the risk of bugs.
 
 However, more options are now available with multiple "layers" in the Headless architecture. Each layer can have its release schedule, and some layers are more modular than others, allowing for finer-grained releases that will not impact the rest (at least in theory).
 
@@ -26,7 +26,7 @@ Major new releases are happening for the first time during the holiday season. A
 
 ### Storefront Preview
 
-<https://www.rhino-inquisitor.com/wp-content/uploads/2023/11/storefront-preview-demo.mp4>
+https://www.rhino-inquisitor.com/wp-content/uploads/2023/11/storefront-preview-demo.mp4
 
 The "Shop the Future" feature seems to have been on the Wishlist since the release of the PWA Kit. This feature was highly sought-after by merchandisers as it allowed them to set up promotions and content in advance and see how they would appear on the site.
 
@@ -38,7 +38,7 @@ This is a big win for any project already on or going to the Composable Storefro
 
 ### Changes for the future
 
-<https://www.rhino-inquisitor.com/wp-content/uploads/2023/11/runtime-admin-changes.mov>
+https://www.rhino-inquisitor.com/wp-content/uploads/2023/11/runtime-admin-changes.mov
 
 Headless and Composable architectures bring great flexibility for the future but pose particular challenges in monitoring and analytics. One of the significant challenges is consolidating data from multiple entities.
 
@@ -50,10 +50,10 @@ Automatically forwarding logs to the Log Center offers multiple benefits to Sale
 
 With the changes happening in the managed runtime, two new releases have happened in the past month of the PWA Kit:
 
-- [3.2.0](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v3.2.0)
-- [3.2.1](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v3.2.1)
+-   [3.2.0](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v3.2.0)
+-   [3.2.1](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v3.2.1)
 
-Besides the Storefront Preview feature, there are changes to how "[Content-Security-Policy](/secure-coding-in-salesforce-b2c-commerce-cloud/)" is managed in this release. Be sure to review the changes as they are significant.
+Besides the Storefront Preview feature, there are changes to how "[Content-Security-Policy](https://www.rhino-inquisitor.com/secure-coding-in-salesforce-b2c-commerce-cloud/)" is managed in this release. Be sure to review the changes as they are significant.
 
 ## OCAPI & SCAPI
 
@@ -67,7 +67,7 @@ Meet the new [URL Resolution API](https://developer.salesforce.com/docs/commerce
 
 Performance I suggest following the best practices mentioned in the documentation and using your routing system as the primary option. This API should only be used as a backup. Keep in mind that making an API call involves network hops that can potentially slow down your application.
 
-I believe that in the future, we will witness endpoints to address some of the gaps that exist compared to SFRA. I have also learned that an upcoming feature will enable direct resolution to the SCAPI payload rather than just the relative ObjectID.
+_I believe that in the future, we will witness endpoints to address some of the gaps that exist compared to SFRA. I have also learned that an upcoming feature will enable direct resolution to the SCAPI payload rather than just the relative ObjectID._
 
 ### Stores
 
@@ -79,7 +79,7 @@ Unfortunately, this feature was short-lived and disappeared soon after. However,
 
 This significant development will be welcomed by those eagerly waiting for [this functionality](https://developer.salesforce.com/docs/commerce/commerce-api/references/shopper-stores?meta=Summary) to return. I only question how quickly this will make it into the PWA Kit priority-wise. Maybe this could become one of the more extensive community contributions. Who knows?
 
-### More on the horizon
+### More on the horizon?
 
 I received some exciting news about new APIs that Salesforce is currently developing. A custom object API and site preferences API are in active development and are expected to be released in the next cycle.
 

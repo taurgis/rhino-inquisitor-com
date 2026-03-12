@@ -1,25 +1,6 @@
----
-title: Mastering Chunk-Oriented Job Steps in SFCC
-description: >-
-  Salesforce B2C Commerce Cloud offers a robust, flexible Jobs framework vital
-  for performing scheduled or on-demand tasks for e-commerce operations.
-date: '2023-12-04T08:55:16.000Z'
-lastmod: '2025-06-25T11:58:01.000Z'
-url: /mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/
-draft: false
-heroImage: /media/2023/boxes-grouped-in-warehouse-0d6eb67465.jpg
-categories:
-  - Salesforce Commerce Cloud
-  - Technical
-tags:
-  - jobs
-  - sfcc
-  - technical
-author: Thomas Theunen
----
 Salesforce B2C Commerce Cloud offers a robust, flexible Jobs framework vital for performing scheduled or on-demand tasks for e-commerce operations. One of the critical capabilities of this framework is the ability to define [custom job steps](https://trailhead.salesforce.com/content/learn/modules/b2c-admin-create-and-manage-jobs/b2c-admin-create-custom-job-steps), which can be either task-oriented or chunk-oriented.
 
-In this article, I’ll focus specifically on chunk-oriented job steps and how you can master them to enhance your platform's performance.
+In this article, I'll focus specifically on chunk-oriented job steps and how you can master them to enhance your platform's performance.
 
 ## Understanding Chunk-Oriented Job Steps
 
@@ -247,7 +228,7 @@ The "Chunk Size" option refers to the number of data items processed in each chu
 The ideal chunk size for a script module depends on various factors, such as:
 
 - **The processing logic's complexity:** Depending on the operations that must be done and other database objects that need to be fetched, we need to remember memory management. For example, choosing a smaller chunk size will allow the system to clean up more efficiently after processing each chunk.
-- **The data set's size & t**he risk of optimistic locking:** When working with a "high risk" object such as profiles that can be modified at any time, setting a smaller chunk size and committing these immediately to the database will reduce the risk of running into [Optimistic Concurrency](https://help.salesforce.com/s/articleView?id=000393690&language=en_US&type=1) Exceptions!
+- **The data set's size & the risk of optimistic locking:** When working with a "high risk" object such as profiles that can be modified at any time, setting a smaller chunk size and committing these immediately to the database will reduce the risk of running into [Optimistic Concurrency](https://help.salesforce.com/s/articleView?id=000393690&language=en_US&type=1) Exceptions!
 
 ### Transactional
 

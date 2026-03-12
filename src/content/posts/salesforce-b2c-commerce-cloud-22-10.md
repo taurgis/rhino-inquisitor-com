@@ -1,8 +1,8 @@
 ---
 title: Salesforce B2C Commerce Cloud 22.10
 description: >-
-  What a year it has been, and now it is time for the final release of this
-  year: the October 2022 (22.10) release!
+  Review the Salesforce B2C Commerce Cloud 22.10 release and the final platform
+  updates worth noting before the year wraps up.
 date: '2022-09-28T13:33:05.000Z'
 lastmod: '2022-10-03T11:59:36.000Z'
 url: /salesforce-b2c-commerce-cloud-22-10/

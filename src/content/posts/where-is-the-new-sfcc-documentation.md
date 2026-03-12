@@ -1,8 +1,8 @@
 ---
 title: Where can I find the new SFCC Documentation?
 description: >-
-  In early 2023, we were notified that the Infocenter would be replaced with a
-  supposedly more "modern" solution.
+  Understand where the new SFCC documentation lives, what changed from
+  Infocenter, and how to navigate the updated resources.
 date: '2023-07-03T06:32:44.000Z'
 lastmod: '2023-11-29T06:47:22.000Z'
 url: /where-is-the-new-sfcc-documentation/

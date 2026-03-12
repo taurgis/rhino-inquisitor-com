@@ -7,7 +7,7 @@ date: '2024-06-03T12:04:25.000Z'
 lastmod: '2024-06-03T12:04:39.000Z'
 url: /what-is-new-in-sfcc-24-6/
 draft: false
-heroImage: /media/2024/searching-on-a-highway-89effbcf76.jpg
+heroImage: /wp-content/uploads/2024/06/searching-on-a-highway.jpg
 categories:
   - Release Notes
   - Salesforce Commerce Cloud
@@ -19,9 +19,9 @@ tags:
   - technical
 author: Thomas Theunen
 ---
-"[Connections](/salesforce-connections-2024-and-sfcc/)" is in our rear-view mirror, but some new updates to the platform are ahead! This time, we look at the [June 2024 (24.6) release](https://help.salesforce.com/s/articleView?id=sf.b2c_rn_24_6_release.htm&type=5)!
+"[Connections](https://www.rhino-inquisitor.com/salesforce-connections-2024-and-sfcc/)" is in our rear-view mirror, but some new updates to the platform are ahead! This time, we look at the [June 2024 (24.6) release](https://help.salesforce.com/s/articleView?id=sf.b2c_rn_24_6_release.htm&type=5)!
 
-Are you interested in last month’s release notes? [Read the 24.5 release notes](/getting-secured-with-the-24-5-salesforce-b2c-commerce-cloud-release/)!
+Are you interested in last month’s release notes? [Click here](https://www.rhino-inquisitor.com/getting-secured-with-the-24-5-salesforce-b2c-commerce-cloud-release/)!
 
 ## Commerce Concierge has arrived
 
@@ -63,10 +63,11 @@ PWA Kit By default, the PWA Kit does not use this feature - meaning that this up
 
 ### Create Active Data Sorting Rules
 
-![Search Index Query Testing tool showing active-data sorting support.](/media/2024/search-query-testing-tool-sfcc-8fb16cf218.jpg)
+![](/media/2024/search-query-testing-tool-sfcc-8fb16cf218.jpg)
 
 > The Search Index Query Testing (SIQT) tool now supports sorting rules with active data sorting attributes. Get consistent sorting results in a storefront and when testing an active data sorting rule. Previously, if a sorting rule with active data was used in SIQT, the sorting used text relevance and didn’t consider active data.
-> **How:**To access the SIQT tool, in Business Manager, select** Merchant Tools | Search | Search Index Query Testing**.
+>
+> **How**: To access the SIQT tool, in Business Manager, select **Merchant Tools | Search | Search Index Query Testing**.
 
 With this new update, we are finally able to correctly test our sorting rules, which makes our lives just a little bit easier when debugging what is going on in the storefront.
 
@@ -89,6 +90,7 @@ A "quota limit" has been added to the [Custom Objects API](https://developer.sal
 ### Error message clarification
 
 > SLAS IDP integration has enhanced error handling to return more meaningful error messages to the caller. No change in error code information.
+>
 > The refined error message: “The Account is disabled” is returned for any user account disabled in B2C Commerce. No change in the error code.
 
 A small update to make debugging life just a little better.
@@ -103,8 +105,8 @@ This might not be the most common use-case, but does open the door for more comp
 
 > With B2C Commerce version 24.5, the Shopper Baskets API supports patching variations within product bundles in a single call. This enhancement provides:
 >
-> - More efficient and streamlined product bundle management, making it easier to update multiple variations within a bundle without the need for multiple API calls.
-> - Increased productivity for developers managing complex product bundles.
+> -   More efficient and streamlined product bundle management, making it easier to update multiple variations within a bundle without the need for multiple API calls.
+> -   Increased productivity for developers managing complex product bundles.
 
 Bundle support in the PWA Kit (and headless in general) was not known to provide the best experience. Over the past two years, updates have been made in multiple locations to improve this experience.
 
@@ -123,13 +125,15 @@ We'll take any increase in speed for the APIs, especially one that contains esse
 ### Service Framework Is Upgraded
 
 > B2C Commerce is upgrading the supported SFTP algorithms in the service framework.
+>
+>
 > The algorithms now include:
 >
-> - Host Key—ssh-ed25519, ecdsa-sha2-nistp256, ecdsa-sha2-nistp384, ecdsa-sha2-nistp521, rsa-sha2-512, rsa-sha2-256, ssh-rsa, ssh-dss
-> - Key Exchange (KEX)—curve25519-sha256, <curve25519-sha256@libssh.org>, ecdh-sha2-nistp256, ecdh-sha2-nistp384, ecdh-sha2-nistp521, diffie-hellman-group-exchange-sha256, diffie-hellman-group16-sha512, diffie-hellman-group18-sha512, diffie-hellman-group14-sha256, diffie-hellman-group14-sha1, diffie-hellman-group-exchange-sha1, diffie-hellman-group1-sha1
-> - Cipher—aes128-ctr, aes192-ctr, aes256-ctr, <aes128-gcm@openssh.com>, <aes256-gcm@openssh.com>, aes128-cbc, 3des-ctr, 3des-cbc, blowfish-cbc, aes192-cbc, aes256-cbc
-> - Message Authentication Code (MAC)—<hmac-sha2-256-etm@openssh.com>, <hmac-sha2-512-etm@openssh.com>, <hmac-sha1-etm@openssh.com>, hmac-sha2-256, hmac-sha2-512, hmac-sha1, hmac-md5, hmac-sha1-96, hmac-md5-96
-> - Public Key Authentication—rsa-sha2-512, rsa-sha2-256, ssh-rsa
+> -   Host Key—ssh-ed25519, ecdsa-sha2-nistp256, ecdsa-sha2-nistp384, ecdsa-sha2-nistp521, rsa-sha2-512, rsa-sha2-256, ssh-rsa, ssh-dss
+> -   Key Exchange (KEX)—curve25519-sha256, curve25519-sha256@libssh.org, ecdh-sha2-nistp256, ecdh-sha2-nistp384, ecdh-sha2-nistp521, diffie-hellman-group-exchange-sha256, diffie-hellman-group16-sha512, diffie-hellman-group18-sha512, diffie-hellman-group14-sha256, diffie-hellman-group14-sha1, diffie-hellman-group-exchange-sha1, diffie-hellman-group1-sha1
+> -   Cipher—aes128-ctr, aes192-ctr, aes256-ctr, aes128-gcm@openssh.com, aes256-gcm@openssh.com, aes128-cbc, 3des-ctr, 3des-cbc, blowfish-cbc, aes192-cbc, aes256-cbc
+> -   Message Authentication Code (MAC)—hmac-sha2-256-etm@openssh.com, hmac-sha2-512-etm@openssh.com, hmac-sha1-etm@openssh.com, hmac-sha2-256, hmac-sha2-512, hmac-sha1, hmac-md5, hmac-sha1-96, hmac-md5-96
+> -   Public Key Authentication—rsa-sha2-512, rsa-sha2-256, ssh-rsa
 
 It has been a while since any changes were made to the Service Framework. With this update, we now have better support for SFTP algorithms and security options, which is always great to see!
 
@@ -137,18 +141,18 @@ It has been a while since any changes were made to the Service Framework. With t
 
 ### b2c-tools (v0.25.1)
 
-- [https://github.com/SalesforceCommerceCloud/b2c-tools](https://github.com/SalesforceCommerceCloud/b2c-tools)
+-   [https://github.com/SalesforceCommerceCloud/b2c-tools](https://github.com/SalesforceCommerceCloud/b2c-tools)
 
 > b2c-tools is a CLI tool and library for data migrations, import/export, scripting and other tasks with SFCC B2C instances and administrative APIs (SCAPI, ODS, etc). It is intended to be complimentary to other tools such as sfcc-ci for development and CI/CD scenarios.
 
-- support specifying features dir for API use by [@clavery](https://github.com/clavery) in [#135](https://github.com/SalesforceCommerceCloud/b2c-tools/pull/135)
+-   support specifying features dir for API use by [@clavery](https://github.com/clavery) in [#135](https://github.com/SalesforceCommerceCloud/b2c-tools/pull/135)
 
 ### plugin\_passwordlesslogin (v2.0.0)
 
-- [https://github.com/SalesforceCommerceCloud/plugin\_passwordlesslogin](https://github.com/SalesforceCommerceCloud/plugin_passwordlesslogin)
+-   [https://github.com/SalesforceCommerceCloud/plugin\_passwordlesslogin](https://github.com/SalesforceCommerceCloud/plugin_passwordlesslogin)
 
 > Passwordless login is a way to verify a user's identity without using a password. It offers protection against the most prevalent cyberattacks, such as phishing and brute-force password cracking. Passwordless login systems use authentication methods that are more secure than regular passwords, including magic links, one-time codes, registered devices or tokens, and biometrics.
 
-- brought cartridge up to date so that it works alongside the latest plugin\_slas, v7.3.0
-- updated login forms and email to include the new 8 digit pin code instead of a direct link for login
-- added SCAPI custom API endpoint that handles the auth and email send for composable
+-   brought cartridge up to date so that it works alongside the latest plugin\_slas, v7.3.0
+-   updated login forms and email to include the new 8 digit pin code instead of a direct link for login
+-   added SCAPI custom API endpoint that handles the auth and email send for composable

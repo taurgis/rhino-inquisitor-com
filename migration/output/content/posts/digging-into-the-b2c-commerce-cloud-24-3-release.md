@@ -7,7 +7,7 @@ date: '2024-03-04T09:04:46.000Z'
 lastmod: '2024-03-04T09:07:27.000Z'
 url: /digging-into-the-b2c-commerce-cloud-24-3-release/
 draft: false
-heroImage: /media/2024/a-shopping-cart-overfilled-with-products-2342f0919f.jpg
+heroImage: /wp-content/uploads/2024/03/a-shopping-cart-overfilled-with-products.jpg
 categories:
   - Release Notes
   - Salesforce Commerce Cloud
@@ -19,13 +19,13 @@ author: Thomas Theunen
 ---
 As snowy days slowly turn into sunny ones, the 24.3 release of SFCC has arrived! Let us have a look at the [March release of 2024](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_24_3_release.htm&type=5).
 
-Are you interested in last month’s release notes? [Read the 24.2 release notes](/a-look-at-the-salesforce-b2c-commerce-cloud-24-2-release/)!
+Are you interested in last month’s release notes? [Click here](https://www.rhino-inquisitor.com/a-look-at-the-salesforce-b2c-commerce-cloud-24-2-release/)!
 
 ## Platform
 
 ## Add More Product Line Items per Basket
 
-![Basket preferences showing the new default limit of 200 product line items.](/media/2024/basket-product-line-items-in-sfcc-d24a6fcde8.png)
+![A screenshot of the Business Manager basket preferences is displayed, featuring a new 200 default option for product line items.](/media/2024/basket-product-line-items-in-sfcc-d24a6fcde8.png)
 
 > If your site was limited to 50 line items per basket, the maximum number is increased to 200. This new limit doesn’t affect users who have been granted a lower or higher limit.
 
@@ -51,7 +51,7 @@ However, if you use this feature in other environments, you can use a system job
 
 ### Display Alert Messages in Business Manager
 
-![Notification settings showing banner, header, and homepage alert placements.](/media/2024/sfcc-alerts-business-manager-5ad8b6e1f2.png)
+![A screenshot of the Business Manager showing all different options on where to show certain notifications: Banner, Header, or Homepage](/media/2024/sfcc-alerts-business-manager-5ad8b6e1f2.png)
 
 > Display alerts as a persistent banner on the top of every Business Manager page. Alerts can relate to Business Manager modules and are only visible to users with permissions to access the module. Salesforce might also use the enhanced alerting framework to display critical system messages to Business Manager users.
 
@@ -69,19 +69,20 @@ The new standard after March 12th Be sure to test all your channels with the fea
 
 ## SCAPI - Shopper SEO
 
-> - Updated getUrlMapping's response to include the optional property resourceSubType, which indicates whether the resolved object is a Page Designer content asset or a Content Slot asset. For more information, see the UrlMapping type reference.
-> - Updated getUrlMapping to support URL redirects. For more information, see the URL Resolution guide.
-> - Updated getUrlMapping to support these hooks: dw.shop.seo.url\_mapping.beforeGET and dw.shop.seo.url\_ mapping.modifyGETResponse.
+> -   Updated getUrlMapping's response to include the optional property resourceSubType, which indicates whether the resolved object is a Page Designer content asset or a Content Slot asset. For more information, see the UrlMapping type reference.
+> -   Updated getUrlMapping to support URL redirects. For more information, see the URL Resolution guide.
+> -   Updated getUrlMapping to support these hooks: dw.shop.seo.url\_mapping.beforeGET and dw.shop.seo.url\_mapping.modifyGETResponse.
 
 Some updates to the [URL mapping endpoint](https://developer.salesforce.com/docs/commerce/commerce-api/references/shopper-seo?meta=getUrlMapping), which include support for [URL Redirection from the Business Manager](https://help.salesforce.com/s/articleView?id=cc.b2c_url_redirects.htm&type=5)!
 
 ## Shopper Baskets v2
 
-> - Provides support for temporary baskets. Temporary baskets can perform calculations to generate totals, line items, promotions, and item availability without affecting the shopper’s storefront cart. You can use these calculations for temporary basket checkout.
-> - New Shopper Basket v2 response fields:
->     1. groupedTaxItems
->     1. taxRoundedAtGroup
->     1. temporaryBasket
+> -   Provides support for temporary baskets. Temporary baskets can perform calculations to generate totals, line items, promotions, and item availability without affecting the shopper’s storefront cart. You can use these calculations for temporary basket checkout.
+> -   New Shopper Basket v2 response fields:
+>     1.  groupedTaxItems
+>     2.  taxRoundedAtGroup
+>     3.  temporaryBasket
+
 > [!WARNING]
 > **Deprecation:** The dw.ocapi.shop.basket.beforePOST hook is no longer supported in Shopper Baskets V2 and is replaced by the dw.ocapi.shop.basket.beforePOST\_v2 hook.
 
@@ -89,9 +90,9 @@ The new version for Shopper Baskets looks a bit different from v1, so adjust you
 
 ## SCAPI Load Shedding
 
-> - If the system reaches a load threshold, an HTTP 503 response is returned for a subset of API families.
-> - Covers APIs not covered by rate limits that are considered non-critical, for example: endpoints related to search, products, and authentication. Load shedding is not used for checkout-related endpoints, such as Shopper Baskets and Shopper Orders, to ensure that shoppers can complete an in-progress checkout.
-> - Includes additional HTTP response headers that allow you to understand the current system load: sfdc\_load, which represents a load percentage with higher percentages indicating higher loads, and sfdc\_ load\_status, which is a enum WARN|THROTTLE that helps you understand the relative health of the system.
+> -   If the system reaches a load threshold, an HTTP 503 response is returned for a subset of API families.
+> -   Covers APIs not covered by rate limits that are considered non-critical, for example: endpoints related to search, products, and authentication. Load shedding is not used for checkout-related endpoints, such as Shopper Baskets and Shopper Orders, to ensure that shoppers can complete an in-progress checkout.
+> -   Includes additional HTTP response headers that allow you to understand the current system load: sfdc\_load, which represents a load percentage with higher percentages indicating higher loads, and sfdc\_load\_status, which is a enum WARN|THROTTLE that helps you understand the relative health of the system.
 
 We received a notification regarding removing rate limits for SCAPI endpoints some time ago.
 
@@ -119,18 +120,18 @@ A minor update for security compliance.
 
 Quite the list of bug fixes this time!
 
-- [SLAS generates Access token successfully for disabled customer](https://issues.salesforce.com/issue/a028c00000yy3tiAAA/slas-generates-access-token-successfully-for-disabled-customer)
-- [SCAPI Merge basket functionality does not carry over the bonus line item to registered shopper basket](https://issues.salesforce.com/issue/a028c00000x9LCOAA2/scapi-merge-basket-functionality-does-not-carry-over-the-bonus-line-item-to-registered-shopper-basket)
-- [Warn messages logged for SCAPI shopper-products](https://issues.salesforce.com/issue/a028c00000yD1VUAA0/warn-messages-logged-for-scapi-shopper-products)
-- [Storefront on behalf of a customer is failing to access from chrome due to google enforcing to block 3rd party cookies](https://issues.salesforce.com/issue/a028c00000yEhQAAA0/storefront-on-behalf-of-a-customer-is-failing-to-access-from-chrome-due-to-google-enforcing-to-block-3rd-party-cookies)
-- [Localization: FirstDayOfWeek - DatePicker uses Language Locale instead of Country Locale](https://issues.salesforce.com/issue/a028c00000xB1ZuAAK/localization-firstdayofweek--datepicker-uses-language-locale-instead-of-country-locale)
-- [SCAPI Error Response is not Correctly JSON Encoded](https://issues.salesforce.com/issue/a028c00000xB0sgAAC/scapi-error-response-is-not-correctly-json-encoded)
+-   [SLAS generates Access token successfully for disabled customer](https://issues.salesforce.com/issue/a028c00000yy3tiAAA/slas-generates-access-token-successfully-for-disabled-customer)
+-   [SCAPI Merge basket functionality does not carry over the bonus line item to registered shopper basket](https://issues.salesforce.com/issue/a028c00000x9LCOAA2/scapi-merge-basket-functionality-does-not-carry-over-the-bonus-line-item-to-registered-shopper-basket)
+-   [Warn messages logged for SCAPI shopper-products](https://issues.salesforce.com/issue/a028c00000yD1VUAA0/warn-messages-logged-for-scapi-shopper-products)
+-   [Storefront on behalf of a customer is failing to access from chrome due to google enforcing to block 3rd party cookies](https://issues.salesforce.com/issue/a028c00000yEhQAAA0/storefront-on-behalf-of-a-customer-is-failing-to-access-from-chrome-due-to-google-enforcing-to-block-3rd-party-cookies)
+-   [Localization: FirstDayOfWeek - DatePicker uses Language Locale instead of Country Locale](https://issues.salesforce.com/issue/a028c00000xB1ZuAAK/localization-firstdayofweek--datepicker-uses-language-locale-instead-of-country-locale)
+-   [SCAPI Error Response is not Correctly JSON Encoded](https://issues.salesforce.com/issue/a028c00000xB0sgAAC/scapi-error-response-is-not-correctly-json-encoded)
 
 ## Updated Cartridges & Tools
 
 ### plugin\_passwordlesslogin (v1.2.1)
 
-- [https://github.com/SalesforceCommerceCloud/plugin\_passwordlesslogin](https://github.com/SalesforceCommerceCloud/plugin_passwordlesslogin)
+-   [https://github.com/SalesforceCommerceCloud/plugin\_passwordlesslogin](https://github.com/SalesforceCommerceCloud/plugin_passwordlesslogin)
 
 > Passwordless login is a way to verify a user’s identity without using a password. It offers protection against the most prevalent cyberattacks, such as phishing and brute-force password cracking. Passwordless login systems use authentication methods that are more secure than regular passwords, including magic links, one-time codes, registered devices or tokens, and biometrics.
 
@@ -138,7 +139,7 @@ Update feature so that callbacks, redirects, and scopes are not overwritten.
 
 ### composable-hybrid-sitegenesis-poc (v2.1.1)
 
-- [https://github.com/SalesforceCommerceCloud/composable-hybrid-sitegenesis-poc](https://github.com/SalesforceCommerceCloud/composable-hybrid-sitegenesis-poc)
+-   [https://github.com/SalesforceCommerceCloud/composable-hybrid-sitegenesis-poc](https://github.com/SalesforceCommerceCloud/composable-hybrid-sitegenesis-poc)
 
 > This repository demonstrates a proof of concept (POC) for implementing SLAS and phased rollouts on SiteGenesis. The examples given use the latest version of SiteGenesis, using JavaScript controllers, but the same approach could be used on pipeline versions of SiteGenesis.
 
@@ -146,10 +147,10 @@ Although we are already at v2.1.1, this repository is new and its first release.
 
 ### b2c-tools (v0.20.0)
 
-- [https://github.com/SalesforceCommerceCloud/b2c-tools](https://github.com/SalesforceCommerceCloud/b2c-tools)
+-   [https://github.com/SalesforceCommerceCloud/b2c-tools](https://github.com/SalesforceCommerceCloud/b2c-tools)
 
 > b2c-tools is a CLI tool and library for data migrations, import/export, scripting and other tasks with SFCC B2C instances and administrative APIs (SCAPI, ODS, etc). It is intended to be complimentary to other tools such as sfcc-ci for development and CI/CD scenarios.
 
-- bdw.js rename and updates by [@jlbruno](https://github.com/jlbruno) in [#119](https://github.com/SalesforceCommerceCloud/b2c-tools/pull/119)
-- Updating readme instructions for local project install by [@jlbruno](https://github.com/jlbruno) in [#120](https://github.com/SalesforceCommerceCloud/b2c-tools/pull/120)
-- added intellij support for groups by [@sandragolden](https://github.com/sandragolden) in [#121](https://github.com/SalesforceCommerceCloud/b2c-tools/pull/121)
+-   bdw.js rename and updates by [@jlbruno](https://github.com/jlbruno) in [#119](https://github.com/SalesforceCommerceCloud/b2c-tools/pull/119)
+-   Updating readme instructions for local project install by [@jlbruno](https://github.com/jlbruno) in [#120](https://github.com/SalesforceCommerceCloud/b2c-tools/pull/120)
+-   added intellij support for groups by [@sandragolden](https://github.com/sandragolden) in [#121](https://github.com/SalesforceCommerceCloud/b2c-tools/pull/121)

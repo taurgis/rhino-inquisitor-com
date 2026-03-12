@@ -1,8 +1,8 @@
 ---
 title: Leveraging Generic Mapping for Efficient Data Integration
 description: >-
-  Salesforce B2C Commerce Cloud offers many features that empower developers to
-  build custom features on its platform.
+  See how generic mappings can simplify SFCC data integrations, reduce custom
+  transformation code, and improve maintainability.
 date: '2023-11-27T09:29:26.000Z'
 lastmod: '2023-11-27T09:29:35.000Z'
 url: /leveraging-generic-mappings-in-sfcc/

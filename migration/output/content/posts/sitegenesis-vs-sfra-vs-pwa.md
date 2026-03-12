@@ -7,7 +7,7 @@ date: '2022-07-17T13:42:22.000Z'
 lastmod: '2023-03-30T07:02:37.000Z'
 url: /sitegenesis-vs-sfra-vs-pwa/
 draft: false
-heroImage: /media/2022/sfra-vs-sitegenesis-965c09b9a6.jpg
+heroImage: /wp-content/uploads/2022/07/sfra-vs-sitegenesis.jpg
 categories:
   - Salesforce Commerce Cloud
 tags:
@@ -29,7 +29,7 @@ Before we get started, here is a timeline showing the history of the "developmen
 
 ## SiteGenesis
 
-[![SiteGenesis storefront example representing the legacy architecture.](/media/2022/sitegenesis-9a921c285a.jpg)](/media/2022/sitegenesis-9a921c285a.jpg)
+[![](/media/2022/sitegenesis-9a921c285a.jpg)](/media/2022/sitegenesis-9a921c285a.jpg)
 
 Let us start with the oldest (and least exciting option): [SiteGenesis](https://production-sitegenesis-dw.demandware.net/on/demandware.store/Sites-SiteGenesis-Site). If anyone still suggests that you start your journey with SiteGenesis, you should ask the question, "why do we need to do that?".
 
@@ -47,17 +47,17 @@ Responsive Design still has a place, especially if most of your visitors are not
 
 Salesforce B2C Commerce Cloud comes with a lot of features out-of-the-box. But it can't do everything, so it depends on third parties to create "cartridges" that extend that base (payment providers, shipping providers, OMS, ERP, ...).
 
-**NOTE:** The above statement is also true for other platforms besides SFCC.
+_**NOTE:** The above statement is also true for other platforms besides SFCC._
 
 But since 2020, it is no longer required to build for SiteGenesis; SFRA compatibility is enough. This shows that Salesforce wants to push new (and existing) clients away from using SiteGenesis.
 
 ### Pipelines VS Controllers
 
-[![Pipeline editor used in legacy SiteGenesis development.](/media/2022/pipelines-eed67b4c67.png)](/media/2022/pipelines-eed67b4c67.png)
+[![](/media/2022/pipelines-eed67b4c67.png)](/media/2022/pipelines-eed67b4c67.png)
 
 Pipelines in SiteGenesis
 
-[![Controller-based storefront code replacing pipelines in newer architectures.](/media/2022/controllers-130298bfb4.png)](/media/2022/controllers-130298bfb4.png)
+[![](/media/2022/controllers-130298bfb4.png)](/media/2022/controllers-130298bfb4.png)
 
 Controllers in SiteGenesis
 
@@ -65,11 +65,11 @@ Looking at the timeline, you will see that pipelines have disappeared in MFRA (2
 
 It is time to migrate if you are still using SiteGenesis with pipelines in your project/site since new features will not be available in this framework.
 
-**Note:** It is also substantially harder to find developers who know how to work with Pipelines. And working with pipelines is not supported by the latest and greatest development tools.
+_**Note:** It is also substantially harder to find developers who know how to work with Pipelines. And working with pipelines is not supported by the latest and greatest development tools._
 
 ## M(S)FRA
 
-[![Comparison between SiteGenesis and SFRA storefront stacks.](/media/2022/sfra-vs-sitegenesis-965c09b9a6.jpg)](/media/2022/sfra-vs-sitegenesis-965c09b9a6.jpg)
+[![](/media/2022/sfra-vs-sitegenesis-965c09b9a6.jpg)](/media/2022/sfra-vs-sitegenesis-965c09b9a6.jpg)
 
 This part of the article will cover both MFRA and [SFRA](https://production-sitegenesis-dw.demandware.net/s/RefArch/home?lang=en_US) as they are the same. You can see MFRA as the ALPHA/BETA version of SFRA or simply as a rebranding.
 
@@ -91,7 +91,7 @@ This gives customers and partners the flexibility to only include the features t
 
 Salesforce is also actively pushing customers towards SFRA, even though a new headless architecture has become available (PWA Kit). The reason for this will become more apparent as you continue reading.
 
-### Third-party integrations (M(S)FRA)
+### Third-party integrations
 
 I will keep this short. Third parties are actively integrating with SFRA and updating their cartridges!
 
@@ -99,7 +99,7 @@ So choosing to go with SFRA now will be a good base for years to come. But be su
 
 ## PWA Kit & Managed Runtime
 
-[![PWA Kit storefront running in the managed runtime.](/media/2022/pwa-kit-03394b0f92.png)](/media/2022/pwa-kit-03394b0f92.png)
+[![](/media/2022/pwa-kit-03394b0f92.png)](/media/2022/pwa-kit-03394b0f92.png)
 
 The [PWA Kit](https://pwa-kit.mobify-storefront.com/) is the most recent addition to the SFCC family. And it is important to note that this solution is not marketed at the moment to replace SFRA. You might be wondering why, and there is a good reason for that.
 
@@ -111,11 +111,11 @@ It is an entirely different type of architecture than the "[monolithic](https://
 
 But what does this mean, going Headless? You can find more information about it in this [blog post](https://forward.eu/blog/headless/) or look at the following YouTube video where I explain what it means to go Headless with Salesforce B2C Commerce Cloud.
 
-<https://www.youtube.com/watch?v=BTS6OqwMiK4&feature=emb\_title>
+https://www.youtube.com/watch?v=BTS6OqwMiK4&feature=emb\_title
 
 A great podcast is also available on the "Unofficial Salesforce Commerce Cloud Podcast" about Headless and the PWA Kit.
 
-<https://www.youtube.com/watch?v=hIghXeYIsEs&list=PLAQgCOXBCvL360AJzTZKTQe1wqvq4TLkD&index=6>
+https://www.youtube.com/watch?v=hIghXeYIsEs&list=PLAQgCOXBCvL360AJzTZKTQe1wqvq4TLkD&index=6
 
 ### Managed Runtime
 
@@ -134,7 +134,7 @@ It will be easier to find and educate developers in this setup.
 > [!WARNING]
 > **Important:** to note that developers will still need to learn about the SCAPI and OCAPI endpoints, which have a steady learning curve.
 
-**Note:** The PWA Kit is only responsible for the front end. The back-end integrations such as importing products, prices, and inventory will still need to be done the "old-fashioned" way.
+_**Note:** The PWA Kit is only responsible for the front end. The back-end integrations such as importing products, prices, and inventory will still need to be done the "old-fashioned" way._
 
 ### Progressive Web Apps
 
@@ -142,9 +142,9 @@ I will not go into much detail on what Progressive Web Apps are. There is a lot 
 
 And again, there is a podcast episode available dedicated to this topic!
 
-<https://www.youtube.com/watch?v=eOFC5rLHZZ4&list=PLAQgCOXBCvL360AJzTZKTQe1wqvq4TLkD&index=3>
+https://www.youtube.com/watch?v=eOFC5rLHZZ4&list=PLAQgCOXBCvL360AJzTZKTQe1wqvq4TLkD&index=3
 
-### Third-party integrations (PWA Kit & Managed Runtime)
+### Third-party integrations
 
 As this solution is pretty new, few third-party solutions are plug-and-play like SFRA. A more considerable investment in budget/time is required for now.
 
@@ -154,12 +154,13 @@ Looking at the past few weeks/months, there is a [good amount of interest](https
 
 I may sound like a broken record, but a few features built into SFRA are not in the PWA Kit since the solution is new. A few examples are:
 
-- [A/B Testing](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/ab_testing/b2c_ab_testing.html)
-- ~~Personalization~~ (Added in 2023)
-- [~~Page Designer~~](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/page_designer/b2c_dev_for_page_designer.html) ( Added in 2023)
-- [Sitemap](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/search_engine_optimization/b2c_sitemap_overview.html)
-- [SEO URL Configuration](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/search_engine_optimization/b2c_configuring_seo_urls.html)
-- [Page Meta Tag Rules](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/categories/b2c_page_meta_tag_rules.htm)
+-   [A/B Testing](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/ab_testing/b2c_ab_testing.html)
+-   ~~Personalization~~ (Added in 2023)
+-   [~~Page Designer~~](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/page_designer/b2c_dev_for_page_designer.html) ( Added in 2023)
+-   [Sitemap](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/search_engine_optimization/b2c_sitemap_overview.html)
+-   [SEO URL Configuration](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/search_engine_optimization/b2c_configuring_seo_urls.html)
+-   [Page Meta Tag Rules](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/categories/b2c_page_meta_tag_rules.htm)
+
 
 All of these "missing items" can be resolved with custom development. So be prepared to spend more time and budget to build these features if needed. And many of these are on the roadmap of Salesforce, so if you wait a bit longer (or adapt your implementation timeline/order of implementation), the above list will be much smaller.
 
@@ -167,4 +168,4 @@ All of these "missing items" can be resolved with custom development. So be prep
 
 The following overview compresses the information above.
 
-[![Comparison table contrasting SiteGenesis, SFRA, and PWA Kit characteristics.](/media/2022/comparison-sitegenesis-sfra-pwa-5593ba325c.png)](/media/2022/comparison-sitegenesis-sfra-pwa-5593ba325c.png)
+[![](/media/2022/comparison-sitegenesis-sfra-pwa-5593ba325c.png)](/media/2022/comparison-sitegenesis-sfra-pwa-5593ba325c.png)

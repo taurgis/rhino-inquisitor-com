@@ -1,7 +1,5 @@
 ---
-title: >-
-  The OCAPI/SCAPI Hooks Playbook: A Deep Dive into Salesforce B2C Commerce Best
-  Practices
+title: Using OCAPI and SCAPI Hooks in SFCC
 description: >-
   Hooks are becoming more and more prominent because of the PWA Kit and the API
   first methodology. But how do you implement them?

@@ -1,5 +1,5 @@
 ---
-title: Three things you can do today to secure your SFCC environment
+title: Three Ways to Secure Your SFCC Environment
 description: >-
   Securing your Salesforce B2C Commerce Cloud environment is important, but
   sometimes neglected. These are 3 actions you can take immediately!

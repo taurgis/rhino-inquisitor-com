@@ -1,5 +1,5 @@
 ---
-title: Submit "multipart/form-data" to a third-party service in SFCC
+title: Submit multipart/form-data in SFCC
 description: >-
   A use case you will not run into often is submitting a file to a third-party
   service. And it is not easy to find documentation or examples on how to do it.
