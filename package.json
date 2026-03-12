@@ -31,6 +31,7 @@
     "check:url-parity": "node scripts/migration/validate-url-parity.js",
     "check:url-parity:baseline": "node scripts/check-url-parity.js",
     "check:redirects": "node scripts/migration/check-redirects.js",
+    "check:metadata": "node scripts/seo/check-metadata.js",
     "check:media": "node scripts/migration/check-media.js",
     "check:seo": "npm run build:prod && node scripts/check-seo.js",
     "check:seo:artifact": "node scripts/check-seo.js",

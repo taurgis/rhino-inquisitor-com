@@ -23,7 +23,7 @@ Any unresolved Phase 5 blocking defect identified at sign-off must be fixed or e
 
 - [ ] All Phase 5 workstream tickets are `Done`:
   - [ ] RHI-047 Done — Phase 5 Bootstrap complete
-  - [ ] RHI-048 Done — Metadata and canonical signal architecture complete
+  - [x] RHI-048 Done — Metadata and canonical signal architecture complete
   - [ ] RHI-049 Done — Redirect and URL consolidation signals complete
   - [ ] RHI-050 Done — Crawlability and indexing controls complete
   - [ ] RHI-051 Done — Sitemap, feed, and discovery surface continuity complete

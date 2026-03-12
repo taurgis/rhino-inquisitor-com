@@ -1,16 +1,45 @@
 {{ $seoParams := .Params.seo | default dict }}
 
+{{ $paginator := .Scratch.Get "listPaginator" }}
+{{ $titleOverride := .Scratch.Get "seoTitleOverride" }}
+{{ $descriptionOverride := .Scratch.Get "seoDescriptionOverride" }}
+{{ $pageNumber := 1 }}
+{{ if $paginator }}
+  {{ $pageNumber = $paginator.PageNumber }}
+{{ end }}
+
+{{ $titleSource := .Title }}
+{{ if $titleOverride }}
+  {{ $titleSource = $titleOverride }}
+{{ end }}
+
 {{ $title := .Site.Title }}
-{{ if not .IsHome }}
-  {{ $title = printf "%s | %s" .Title .Site.Title }}
+{{ if eq .Kind "404" }}
+  {{ $title = printf "Page not found | %s" .Site.Title }}
+{{ else if gt $pageNumber 1 }}
+  {{ $title = printf "%s | Page %d | %s" $titleSource $pageNumber .Site.Title }}
+{{ else if not .IsHome }}
+  {{ $title = printf "%s | %s" $titleSource .Site.Title }}
 {{ end }}
 
 {{ $description := .Params.description | default .Site.Params.description | default (printf "%s knowledge base, articles, and notes." .Site.Title) }}
+{{ if $descriptionOverride }}
+  {{ $description = $descriptionOverride }}
+{{ end }}
+{{ if eq .Kind "404" }}
+  {{ $description = "The requested page could not be found on Rhino Inquisitor." }}
+{{ else if gt $pageNumber 1 }}
+  {{ $description = printf "%s Page %d." (strings.TrimRight "." $description) $pageNumber }}
+{{ end }}
 
 {{ $canonical := .Permalink }}
-{{ with .Params.canonical }}
-  {{ if hasPrefix . $.Site.BaseURL }}
-    {{ $canonical = . }}
+{{ if and $paginator (gt $paginator.PageNumber 1) }}
+  {{ $canonical = $paginator.URL | absLangURL }}
+{{ else }}
+  {{ with .Params.canonical }}
+    {{ if hasPrefix . $.Site.BaseURL }}
+      {{ $canonical = . }}
+    {{ end }}
   {{ end }}
 {{ end }}
 

@@ -1,0 +1,14 @@
+{{ define "main" }}
+  <section class="surface-panel page-article" aria-labelledby="not-found-title">
+    <header class="page-article__header">
+      <p class="eyebrow">404</p>
+      <h1 id="not-found-title">Page not found</h1>
+      <p class="page-article__description">The page you requested does not exist or has moved. Start from the homepage or browse the archive for the current canonical route.</p>
+    </header>
+
+    <div class="page-article__body">
+      <p><a class="site-cta" href="{{ site.Home.Permalink }}">Return to the homepage</a></p>
+      <p><a href="{{ with site.GetPage "/posts" }}{{ .Permalink }}{{ else }}{{ site.Home.Permalink }}{{ end }}">Browse the archive</a></p>
+    </div>
+  </section>
+{{ end }}

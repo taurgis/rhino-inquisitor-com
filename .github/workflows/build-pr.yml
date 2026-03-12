@@ -273,6 +273,10 @@ jobs:
         if: needs.prepare.outputs.full_site_route_validation_required == 'true'
         run: npm run check:seo:artifact
 
+      - name: Run metadata validation check
+        if: needs.prepare.outputs.full_site_route_validation_required == 'true'
+        run: npm run check:metadata
+
       - name: Run internal link check
         if: needs.prepare.outputs.full_site_route_validation_required == 'true'
         run: npm run check:links
@@ -294,6 +298,7 @@ jobs:
           path: |
             public
             tmp/pr-ci-prod-public
+            migration/reports/phase-5-metadata-report.csv
             migration/url-parity-report.json
           if-no-files-found: error
           retention-days: 7

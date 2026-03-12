@@ -1,6 +1,40 @@
-{{ define "main" }}
+{{ define "head" }}
   {{ $pages := .RegularPages.ByDate.Reverse }}
   {{ $paginator := .Paginate $pages }}
+  {{ $seoTitle := .Title }}
+  {{ if eq .RelPermalink "/category/" }}
+    {{ $seoTitle = "Categories" }}
+  {{ else if hasPrefix .RelPermalink "/category/" }}
+    {{ $seoTitle = printf "%s Category" .Title }}
+  {{ end }}
+  {{ $seoDescription := .Params.description | default "" }}
+  {{ if eq $seoDescription "" }}
+    {{ if eq .RelPermalink "/posts/" }}
+      {{ $seoDescription = "Find deep dives, guides, and best practices from the Rhino Inquisitor archive." }}
+    {{ else if eq .RelPermalink "/pages/" }}
+      {{ $seoDescription = "Reference pages, evergreen explainers, and supporting utilities from Rhino Inquisitor." }}
+    {{ else if eq .RelPermalink "/category/" }}
+      {{ $seoDescription = "Browse every Rhino Inquisitor category archive to jump into a specific Salesforce Commerce Cloud topic." }}
+    {{ else if hasPrefix .RelPermalink "/category/" }}
+      {{ $seoDescription = printf "Browse Rhino Inquisitor articles filed under %s." .Title }}
+    {{ else }}
+      {{ $seoDescription = printf "Browse the %s archive on Rhino Inquisitor." .Title }}
+    {{ end }}
+  {{ end }}
+  {{ .Scratch.Set "listPaginator" $paginator }}
+  {{ .Scratch.Set "seoTitleOverride" $seoTitle }}
+  {{ .Scratch.Set "seoDescriptionOverride" $seoDescription }}
+  {{ partial "seo/head-meta.html" . }}
+  <link rel="stylesheet" href="{{ "styles/site.css" | relURL }}">
+{{ end }}
+
+{{ define "main" }}
+  {{ $pages := .RegularPages.ByDate.Reverse }}
+  {{ $paginator := .Scratch.Get "listPaginator" }}
+  {{ if not $paginator }}
+    {{ $paginator = .Paginate $pages }}
+    {{ .Scratch.Set "listPaginator" $paginator }}
+  {{ end }}
   {{ $groups := $paginator.Pages.GroupByDate "2006" }}
   {{ $yearLinks := slice }}
   {{ range $groups }}

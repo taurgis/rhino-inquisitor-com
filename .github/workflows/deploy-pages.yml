@@ -74,6 +74,9 @@ jobs:
       - name: Run URL parity check
         run: npm run check:url-parity
 
+      - name: Run metadata validation check
+        run: npm run check:metadata
+
       - name: Run SEO smoke check
         run: npm run check:seo:artifact
 
@@ -137,6 +140,7 @@ jobs:
           path: |
             public
             tmp/ci-prod-public
+            migration/reports/phase-5-metadata-report.csv
             migration/url-parity-report.json
           if-no-files-found: error
           retention-days: 7
