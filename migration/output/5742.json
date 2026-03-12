@@ -1,0 +1,163 @@
+{
+  "sourceId": "5742",
+  "sourceType": "wxr",
+  "sourceChannels": [
+    "filesystem",
+    "wxr"
+  ],
+  "postType": "post",
+  "status": "publish",
+  "titleRaw": "How to change the code Compatibility Mode in Salesforce B2C Commerce Cloud",
+  "excerptRaw": "",
+  "bodyHtml": "<p>\"How do I update my Compatibility mode to vxx.xx?\" This is a question that many have asked over the years, especially with the On-Demand Sandboxes taking the last compatibility mode by default - not providing a way to go back.</p><p>So what now? How do you keep your sandboxes all on the same version if some are on an older one?</p>\t\t\n\t\t\t<h2>What is this \"Compatibility Mode\"?</h2>\t\t\n\t\t<p>The easiest way to explain this is by linking the Compatibility Mode to the engine that runs between us (the developers) and the Java engine that runs Salesforce B2C Commerce Cloud.</p><p>Commerce Cloud uses an engine based on <a href=\"https://en.wikipedia.org/wiki/Rhino_(JavaScript_engine)\" target=\"_blank\" rel=\"noopener\">Apache Rhino</a>, which translates JavaScript to Java. And this engine has versioned releases, each providing new features to keep up with the JavaScript standards (or at least as much as possible).</p>\t\t\n\t\t\t<h3>Forced upgrades are dangerous</h3>\t\t\n\t\t<p>Updating the engine can cause some functions that worked in the previous release to break down. The engineering team can only force this new version on us if they give us the time to update the custom code to be compatible with the latest version.</p><p>And that is where the choice of \"Compatibility Mode\" comes in. We can decide for ourselves when to make a move to this new engine (<a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/site_development/b2c_compatibility_mode_considerations.html\" target=\"_blank\" rel=\"noopener\">and make use of the new toys that come with it</a>)</p>\t\t\n\t\t\t<h2>The only way is up?</h2>\t\t\n\t\t<p>As with all features baked into the Business Manager, Salesforce decides which modes you can use in the interface. And in most cases, the only way is up.</p>\t\t\n\t\t\t<h2>Can we \"downgrade\"?</h2>\t\t\n\t\t<p>If the interface only allows us to upgrade, it is time to find ways to work around that \"security\"!</p>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img width=\"800\" height=\"450\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/hackerman-hr-1024x576.jpg\" alt=\"\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/hackerman-hr-1024x576.jpg 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/hackerman-hr-300x169.jpg 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/hackerman-hr-768x432.jpg 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/hackerman-hr-1536x864.jpg 1536w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/hackerman-hr.jpg 1920w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t<h3>Manipulate the form?</h3>\t\t\n\t\t<p>The first weapon we have is our browser console! Can we manipulate the HTML form and add the version we want?</p>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/manipulate-form-code-compatibility.jpg\" data-elementor-open-lightbox=\"yes\" data-elementor-lightbox-title=\"manipulate-form-code-compatibility\" e-action-hash=\"#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NTc1MSwidXJsIjoiaHR0cHM6XC9cL3d3dy5yaGluby1pbnF1aXNpdG9yLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyMlwvMTFcL21hbmlwdWxhdGUtZm9ybS1jb2RlLWNvbXBhdGliaWxpdHkuanBnIn0%3D\">\n\t\t\t\t\t\t\t<img width=\"800\" height=\"184\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/manipulate-form-code-compatibility-1024x236.jpg\" alt=\"\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/manipulate-form-code-compatibility-1024x236.jpg 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/manipulate-form-code-compatibility-300x69.jpg 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/manipulate-form-code-compatibility-768x177.jpg 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/manipulate-form-code-compatibility-1536x355.jpg 1536w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/manipulate-form-code-compatibility.jpg 1620w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t</a>\n\t\t<p>As it turns out... no. There is server-side validation in place. So we need to find another way to hack the system!</p>\t\t\n\t\t\t<h3>To the WebDAV</h3>\t\t\n\t\t<p>Let us next see if we can do anything in the WebDAV to manipulate the Compatibility Mode. (<strong>Spoiler</strong>: We can)</p><p>To retrieve the URL for the WebDAV go to:</p><p><i>\"Administration &gt; Site Development &gt; Development Setup\"</i></p>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/cartridges-webdav.jpg\" data-elementor-open-lightbox=\"yes\" data-elementor-lightbox-title=\"cartridges-webdav\" e-action-hash=\"#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NTc1NSwidXJsIjoiaHR0cHM6XC9cL3d3dy5yaGluby1pbnF1aXNpdG9yLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyMlwvMTFcL2NhcnRyaWRnZXMtd2ViZGF2LmpwZyJ9\">\n\t\t\t\t\t\t\t<img width=\"800\" height=\"159\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/cartridges-webdav-1024x203.jpg\" alt=\"\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/cartridges-webdav-1024x203.jpg 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/cartridges-webdav-300x60.jpg 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/cartridges-webdav-768x153.jpg 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/cartridges-webdav.jpg 1128w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t</a>\n\t\t\tDWithEase\n\t\t\t\t\t\t\tI use the browser plugin <a href=\"https://dwithease.com/\" target=\"_blank\" rel=\"noopener\">DWithEase</a> to make WebDAV browsing much more pleasant.\n\t\t<p>If you open the URL (and have the browser plugin installed), you will get a view such as this:</p>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/webdav-overview.jpg\" data-elementor-open-lightbox=\"yes\" data-elementor-lightbox-title=\"webdav-overview\" e-action-hash=\"#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NTc1NiwidXJsIjoiaHR0cHM6XC9cL3d3dy5yaGluby1pbnF1aXNpdG9yLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyMlwvMTFcL3dlYmRhdi1vdmVydmlldy5qcGcifQ%3D%3D\">\n\t\t\t\t\t\t\t<img width=\"800\" height=\"327\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/webdav-overview.jpg\" alt=\"\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/webdav-overview.jpg 964w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/webdav-overview-300x123.jpg 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/webdav-overview-768x314.jpg 768w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t</a>\n\t\t<p>Click on the <b>active </b>Code Version (this is important)!</p>\n<p>Go into the folder, and a file called \".apiversion\" will be there.</p>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/code-version.jpg\" data-elementor-open-lightbox=\"yes\" data-elementor-lightbox-title=\"code-version\" e-action-hash=\"#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NTc1NywidXJsIjoiaHR0cHM6XC9cL3d3dy5yaGluby1pbnF1aXNpdG9yLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyMlwvMTFcL2NvZGUtdmVyc2lvbi5qcGcifQ%3D%3D\">\n\t\t\t\t\t\t\t<img width=\"800\" height=\"248\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/code-version-1024x318.jpg\" alt=\"\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/code-version-1024x318.jpg 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/code-version-300x93.jpg 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/code-version-768x239.jpg 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/code-version.jpg 1068w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t</a>\n\t\t\tMissing FIle\n\t\t\t\t\t\t\tIf you do not see the file, don't worry! You can upload it yourself to the folder.\n\t\t<p>Inside that file is where the \"magic\" happens, and it looks something like this:</p>\t\t\n\t\t\t<pre data-line=\"3\">\n\t\t\t\t<code readonly=\"true\">\n\t\t\t\t\t<xmp>#DO NOT EDIT! This is the api version with which *this* code version is compatible. It is managed by the system.\n#Tue Aug 01 09:55:45 GMT 2017\napi.version=21.7</xmp>\n\t\t\t\t</code>\n\t\t\t</pre>\n\t\t<p>This file has an interesting key, specifically \"api.version\"! You can change that to the version you want to use for your sandbox by downloading it, editing it, and re-uploading it to the same folder.</p><p>In this case, we will update it to \"18.10\"</p>\t\t\n\t\t\t<pre data-line=\"3\">\n\t\t\t\t<code readonly=\"true\">\n\t\t\t\t\t<xmp>#DO NOT EDIT! This is the api version with which *this* code version is compatible. It is managed by the system.\n#Tue Aug 01 09:55:45 GMT 2017\napi.version=18.10</xmp>\n\t\t\t\t</code>\n\t\t\t</pre>\n\t\t<p>Let us head back to the business manager and go to the \"Manage Code Versions\" screen:</p><p><i>\"Administration &gt; Site Development &gt; Code Deployment\"</i></p><p>If all has gone well, the code versions have changed to the one in the file!</p>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/new-code-version.jpg\" data-elementor-open-lightbox=\"yes\" data-elementor-lightbox-title=\"new-code-version\" e-action-hash=\"#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NTc2MSwidXJsIjoiaHR0cHM6XC9cL3d3dy5yaGluby1pbnF1aXNpdG9yLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyMlwvMTFcL25ldy1jb2RlLXZlcnNpb24uanBnIn0%3D\">\n\t\t\t\t\t\t\t<img width=\"800\" height=\"140\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/new-code-version.jpg\" alt=\"\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/new-code-version.jpg 992w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/new-code-version-300x53.jpg 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/new-code-version-768x135.jpg 768w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t</a>\n\t\t\tNot visible\n\t\t\t\t\t\t\tIf no changes are visible, try switching active code versions to trigger the system to re-read the WebDAV files.\n\t\t\t<h2>Dangerous?</h2>\t\t\n\t\t<p>It depends. Only do this if you have to. In most cases, this is done on older projects already tested on that older Compatibility Mode, and you need to match it.</p>\n<p>Please do not go back too far; it is in everyone's best interest to be on the latest and greatest version of the&nbsp;<a href=\"https://github.com/mozilla/rhino\" target=\"_blank\" rel=\"noopener\">Rhino Engine</a>!</p>\n<p>But developers worldwide have done this many times without any drawbacks! <strong>Just make sure you configure a Compatibility Mode that exists</strong>!</p>",
+  "slug": "how-to-change-the-code-compatibility-mode-in-salesforce-b2c-commerce-cloud",
+  "publishedAt": "2022-11-14T08:04:44.000Z",
+  "modifiedAt": "2022-11-19T09:06:30.000Z",
+  "author": "Thomas Theunen",
+  "categories": [
+    {
+      "name": "Salesforce Commerce Cloud",
+      "slug": "salesforce-commerce-cloud"
+    },
+    {
+      "name": "Technical",
+      "slug": "technical"
+    }
+  ],
+  "tags": [
+    {
+      "name": "sfcc",
+      "slug": "sfcc"
+    },
+    {
+      "name": "technical",
+      "slug": "technical"
+    }
+  ],
+  "legacyUrl": "/how-to-change-the-code-compatibility-mode-in-salesforce-b2c-commerce-cloud/",
+  "targetUrl": "/how-to-change-the-code-compatibility-mode-in-salesforce-b2c-commerce-cloud/",
+  "disposition": "keep",
+  "aliasUrls": [],
+  "mediaRefs": [
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/cartridges-webdav-1024x203.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/cartridges-webdav-300x60.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/cartridges-webdav-768x153.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/cartridges-webdav.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/code-version-1024x318.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/code-version-300x93.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/code-version-768x239.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/code-version.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/hackerman-hr-1024x576.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/hackerman-hr-1536x864.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/hackerman-hr-300x169.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/hackerman-hr-768x432.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/hackerman-hr.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/manipulate-form-code-compatibility-1024x236.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/manipulate-form-code-compatibility-1536x355.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/manipulate-form-code-compatibility-300x69.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/manipulate-form-code-compatibility-768x177.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/manipulate-form-code-compatibility.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/new-code-version-300x53.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/new-code-version-768x135.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/new-code-version.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/sfcc-compatibility-mode.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/webdav-overview-300x123.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/webdav-overview-768x314.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/webdav-overview.jpg"
+  ],
+  "_raw": {
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "status": "publish",
+    "titleRaw": "How to change the code Compatibility Mode in Salesforce B2C Commerce Cloud",
+    "excerptRaw": "",
+    "publishedAt": "2022-11-14T08:04:44.000Z",
+    "modifiedAt": "2022-11-19T09:06:30.000Z",
+    "author": "Thomas Theunen",
+    "categories": [
+      {
+        "name": "Salesforce Commerce Cloud",
+        "slug": "salesforce-commerce-cloud"
+      },
+      {
+        "name": "Technical",
+        "slug": "technical"
+      }
+    ],
+    "tags": [
+      {
+        "name": "sfcc",
+        "slug": "sfcc"
+      },
+      {
+        "name": "technical",
+        "slug": "technical"
+      }
+    ],
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/cartridges-webdav-1024x203.jpg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/cartridges-webdav.jpg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/code-version-1024x318.jpg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/code-version.jpg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/hackerman-hr-1024x576.jpg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/manipulate-form-code-compatibility-1024x236.jpg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/manipulate-form-code-compatibility.jpg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/new-code-version.jpg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/11/webdav-overview.jpg"
+    ],
+    "manifest": {
+      "legacyUrl": "/how-to-change-the-code-compatibility-mode-in-salesforce-b2c-commerce-cloud/",
+      "targetUrl": "/how-to-change-the-code-compatibility-mode-in-salesforce-b2c-commerce-cloud/",
+      "disposition": "keep",
+      "redirectCode": null,
+      "implementationLayer": "none",
+      "urlClass": "post"
+    },
+    "normalization": {
+      "aliasUrlsDerivedFromSameTarget": [],
+      "usedPublishedAtFallback": false,
+      "usedModifiedAtFallback": false,
+      "statusNormalizedFrom": "publish"
+    },
+    "extracted": {
+      "sourcePostType": "post",
+      "link": "/how-to-change-the-code-compatibility-mode-in-salesforce-b2c-commerce-cloud/",
+      "guid": "/?p=5742",
+      "attachmentUrl": null,
+      "thumbnailId": "5743",
+      "metaDescription": "Changing compatibility modes is easy using the business manager. But what if you have to go back to an older version?",
+      "postParent": "0",
+      "postMetaCount": 27,
+      "featuredImageUrl": "/wp-content/uploads/2022/11/sfcc-compatibility-mode.jpg"
+    }
+  },
+  "bodyMarkdown": "\"How do I update my Compatibility mode to vxx.xx?\" This is a question that many have asked over the years, especially with the On-Demand Sandboxes taking the last compatibility mode by default - not providing a way to go back.\n\nSo what now? How do you keep your sandboxes all on the same version if some are on an older one?\n\n## What is this \"Compatibility Mode\"?\n\nThe easiest way to explain this is by linking the Compatibility Mode to the engine that runs between us (the developers) and the Java engine that runs Salesforce B2C Commerce Cloud.\n\nCommerce Cloud uses an engine based on [Apache Rhino](https://en.wikipedia.org/wiki/Rhino_\\(JavaScript_engine\\)), which translates JavaScript to Java. And this engine has versioned releases, each providing new features to keep up with the JavaScript standards (or at least as much as possible).\n\n### Forced upgrades are dangerous\n\nUpdating the engine can cause some functions that worked in the previous release to break down. The engineering team can only force this new version on us if they give us the time to update the custom code to be compatible with the latest version.\n\nAnd that is where the choice of \"Compatibility Mode\" comes in. We can decide for ourselves when to make a move to this new engine ([and make use of the new toys that come with it](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/site_development/b2c_compatibility_mode_considerations.html))\n\n## The only way is up?\n\nAs with all features baked into the Business Manager, Salesforce decides which modes you can use in the interface. And in most cases, the only way is up.\n\n## Can we \"downgrade\"?\n\nIf the interface only allows us to upgrade, it is time to find ways to work around that \"security\"!\n\n![](/media/2022/hackerman-hr-6b82b63667.jpg)\n\n### Manipulate the form?\n\nThe first weapon we have is our browser console! Can we manipulate the HTML form and add the version we want?\n\n[![](/media/2022/manipulate-form-code-compatibility-1d501b0279.jpg)](/media/2022/manipulate-form-code-compatibility-1d501b0279.jpg)\n\nAs it turns out... no. There is server-side validation in place. So we need to find another way to hack the system!\n\n### To the WebDAV\n\nLet us next see if we can do anything in the WebDAV to manipulate the Compatibility Mode. (**Spoiler**: We can)\n\nTo retrieve the URL for the WebDAV go to:\n\n_\"Administration > Site Development > Development Setup\"_\n\n [![](/media/2022/cartridges-webdav-88a388e63c.jpg)](/media/2022/cartridges-webdav-88a388e63c.jpg)DWithEase I use the browser plugin [DWithEase](https://dwithease.com/) to make WebDAV browsing much more pleasant.\n\nIf you open the URL (and have the browser plugin installed), you will get a view such as this:\n\n[![](/media/2022/webdav-overview-38949e23ef.jpg)](/media/2022/webdav-overview-38949e23ef.jpg)\n\nClick on the **active** Code Version (this is important)!\n\nGo into the folder, and a file called \".apiversion\" will be there.\n\n [![](/media/2022/code-version-26171e5278.jpg)](/media/2022/code-version-26171e5278.jpg)Missing FIle If you do not see the file, don't worry! You can upload it yourself to the folder.\n\nInside that file is where the \"magic\" happens, and it looks something like this:\n\n```\n\n\t\t\t\t\t#DO NOT EDIT! This is the api version with which *this* code version is compatible. It is managed by the system.\n#Tue Aug 01 09:55:45 GMT 2017\napi.version=21.7\n\n\n```\n\nThis file has an interesting key, specifically \"api.version\"! You can change that to the version you want to use for your sandbox by downloading it, editing it, and re-uploading it to the same folder.\n\nIn this case, we will update it to \"18.10\"\n\n```\n\n\t\t\t\t\t#DO NOT EDIT! This is the api version with which *this* code version is compatible. It is managed by the system.\n#Tue Aug 01 09:55:45 GMT 2017\napi.version=18.10\n\n\n```\n\nLet us head back to the business manager and go to the \"Manage Code Versions\" screen:\n\n_\"Administration > Site Development > Code Deployment\"_\n\nIf all has gone well, the code versions have changed to the one in the file!\n\n [![](/media/2022/new-code-version-d4f4f68888.jpg)](/media/2022/new-code-version-d4f4f68888.jpg)Not visible If no changes are visible, try switching active code versions to trigger the system to re-read the WebDAV files.\n\n## Dangerous?\n\nIt depends. Only do this if you have to. In most cases, this is done on older projects already tested on that older Compatibility Mode, and you need to match it.\n\nPlease do not go back too far; it is in everyone's best interest to be on the latest and greatest version of the [Rhino Engine](https://github.com/mozilla/rhino)!\n\nBut developers worldwide have done this many times without any drawbacks! **Just make sure you configure a Compatibility Mode that exists**!",
+  "conversionStatus": "converted",
+  "manualReviewRequired": false,
+  "fallbackTypes": [],
+  "conversionWarnings": [
+    {
+      "code": "missing-image-alt",
+      "message": "Image missing alt text in /how-to-change-the-code-compatibility-mode-in-salesforce-b2c-commerce-cloud/."
+    },
+    {
+      "code": "missing-image-alt",
+      "message": "Image missing alt text in /how-to-change-the-code-compatibility-mode-in-salesforce-b2c-commerce-cloud/."
+    },
+    {
+      "code": "missing-image-alt",
+      "message": "Image missing alt text in /how-to-change-the-code-compatibility-mode-in-salesforce-b2c-commerce-cloud/."
+    },
+    {
+      "code": "missing-image-alt",
+      "message": "Image missing alt text in /how-to-change-the-code-compatibility-mode-in-salesforce-b2c-commerce-cloud/."
+    },
+    {
+      "code": "missing-image-alt",
+      "message": "Image missing alt text in /how-to-change-the-code-compatibility-mode-in-salesforce-b2c-commerce-cloud/."
+    },
+    {
+      "code": "missing-image-alt",
+      "message": "Image missing alt text in /how-to-change-the-code-compatibility-mode-in-salesforce-b2c-commerce-cloud/."
+    }
+  ]
+}

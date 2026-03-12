@@ -1,0 +1,82 @@
+{
+  "sourceId": "376",
+  "sourceType": "wxr",
+  "sourceChannels": [
+    "filesystem",
+    "wxr"
+  ],
+  "postType": "page",
+  "status": "publish",
+  "titleRaw": "Page Designer: Add ability to copy/paste components",
+  "excerptRaw": "",
+  "bodyHtml": "<style>/*! elementor - v3.7.8 - 02-10-2022 */\n.elementor-alert{padding:15px;border-left:5px solid transparent;position:relative;text-align:left}.elementor-alert .elementor-alert-title{display:block;font-weight:700}.elementor-alert .elementor-alert-description{font-size:13px}.elementor-alert button.elementor-alert-dismiss{position:absolute;right:var(--dismiss-icon-horizontal-position,10px);top:var(--dismiss-icon-vertical-position,10px);padding:3px;font-size:var(--dismiss-icon-size,20px);line-height:1;background:transparent;color:var(--dismiss-icon-normal-color,inherit);border:none;cursor:pointer;-webkit-transition-duration:var(--dismiss-icon-hover-transition-duration,.3s);-o-transition-duration:var(--dismiss-icon-hover-transition-duration,.3s);transition-duration:var(--dismiss-icon-hover-transition-duration,.3s)}.elementor-alert button.elementor-alert-dismiss:hover{color:var(--dismiss-icon-hover-color,inherit)}.elementor-alert button.elementor-alert-dismiss svg{width:var(--dismiss-icon-size,20px);height:var(--dismiss-icon-size,20px);fill:var(--dismiss-icon-normal-color,currentColor);-webkit-transition-duration:var(--dismiss-icon-hover-transition-duration,.3s);-o-transition-duration:var(--dismiss-icon-hover-transition-duration,.3s);transition-duration:var(--dismiss-icon-hover-transition-duration,.3s)}.elementor-alert button.elementor-alert-dismiss svg:hover{fill:var(--dismiss-icon-hover-color,currentColor)}.elementor-alert.elementor-alert-info{color:#31708f;background-color:#d9edf7;border-color:#bcdff1}.elementor-alert.elementor-alert-success{color:#3c763d;background-color:#dff0d8;border-color:#cae6be}.elementor-alert.elementor-alert-warning{color:#8a6d3b;background-color:#fcf8e3;border-color:#f9f0c3}.elementor-alert.elementor-alert-danger{color:#a94442;background-color:#f2dede;border-color:#e8c4c4}@media (max-width:767px){.elementor-alert{padding:10px}.elementor-alert button.elementor-alert-dismiss{right:7px;top:7px}}</style>\t\t\n\t\t\t<center>This feature was implemented!!!!</center>\n\t\t<p>Many years ago, the only way to manage content within Salesforce Commerce Cloud was <a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/content/b2c_content_assets.html\" target=\"_blank\" rel=\"noopener\">content assets</a> and <a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/content/b2c_content_slots.html\" target=\"_blank\" rel=\"noopener\">slots</a>. They do their job, but it requires your content team to know HTML and CSS. Not only that, you had to save the content and publish it in the Business Manager before verifying how it looked in the storefront.</p><p>Commerce Cloud needed a better way to manage content. Looking at the Core Platform, and specifically Experience Cloud (Community Cloud at the time), was the solution.<br /><br /></p>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t<figure>\n\t\t\t\t\t\t\t\t\t\t<img width=\"800\" height=\"524\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/experience-cloud.png\" alt=\"A screenshot of the Experience Cloud page editor\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/experience-cloud.png 800w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/experience-cloud-300x197.png 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/experience-cloud-768x503.png 768w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t\t\t\t<figcaption>Experience Cloud Page Editor</figcaption>\n\t\t\t\t\t\t\t\t\t\t</figure>\n\t\t<p>The screenshot above looks quite similar to Page Designer within Salesforce Commerce Cloud, though the system is fundamentally different and specific to the Commerce platform.</p><p>Since Salesforce could not copy the feature, it had to be rebuilt from the ground up. <a href=\"https://www.salesforce.com/nl/products/experience-cloud/overview/\" target=\"_blank\" rel=\"noopener\">Experience Cloud</a> was used as a \"cheat sheet,\" and some features were/are still missing because of this.</p><p>One of those features is copy-pasting components. Now you have to create each component (even though it might be almost the same) from scratch.</p>\t\t\n\t\t\t<a href=\"https://ideas.salesforce.com/s/idea/a0B8W00000GdYHjUAN/page-designer-add-ability-to-copypaste-components\" role=\"button\">\n\t\t\t\t\t\tVote for my idea here\n\t\t\t\t\t</a>",
+  "slug": "page-designer-add-ability-to-copy-paste-components",
+  "publishedAt": "2022-02-28T17:37:46.000Z",
+  "modifiedAt": "2022-10-15T07:02:04.000Z",
+  "author": "Thomas Theunen",
+  "categories": [],
+  "tags": [
+    {
+      "name": "idea",
+      "slug": "idea"
+    }
+  ],
+  "legacyUrl": "/ideas/page-designer-add-ability-to-copy-paste-components/",
+  "targetUrl": "/ideas/page-designer-add-ability-to-copy-paste-components/",
+  "disposition": "keep",
+  "aliasUrls": [],
+  "mediaRefs": [
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/experience-cloud-300x197.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/experience-cloud-768x503.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/experience-cloud.png"
+  ],
+  "_raw": {
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "status": "publish",
+    "titleRaw": "Page Designer: Add ability to copy/paste components",
+    "excerptRaw": "",
+    "publishedAt": "2022-02-28T17:37:46.000Z",
+    "modifiedAt": "2022-10-15T07:02:04.000Z",
+    "author": "Thomas Theunen",
+    "categories": [],
+    "tags": [
+      {
+        "name": "idea",
+        "slug": "idea"
+      }
+    ],
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/02/experience-cloud.png"
+    ],
+    "manifest": {
+      "legacyUrl": "/ideas/page-designer-add-ability-to-copy-paste-components/",
+      "targetUrl": "/ideas/page-designer-add-ability-to-copy-paste-components/",
+      "disposition": "keep",
+      "redirectCode": null,
+      "implementationLayer": "none",
+      "urlClass": "page"
+    },
+    "normalization": {
+      "aliasUrlsDerivedFromSameTarget": [],
+      "usedPublishedAtFallback": false,
+      "usedModifiedAtFallback": false,
+      "statusNormalizedFrom": "publish"
+    },
+    "extracted": {
+      "sourcePostType": "page",
+      "link": "/ideas/page-designer-add-ability-to-copy-paste-components/",
+      "guid": "/?page_id=376",
+      "attachmentUrl": null,
+      "thumbnailId": null,
+      "metaDescription": "Many years ago, the only way to manage content within Salesforce Commerce Cloud was content assets and slots. But now there is a better way!",
+      "postParent": "365",
+      "postMetaCount": 23,
+      "featuredImageUrl": null
+    }
+  },
+  "bodyMarkdown": "This feature was implemented!!!!\n\nMany years ago, the only way to manage content within Salesforce Commerce Cloud was [content assets](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/content/b2c_content_assets.html) and [slots](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/content/b2c_content_slots.html). They do their job, but it requires your content team to know HTML and CSS. Not only that, you had to save the content and publish it in the Business Manager before verifying how it looked in the storefront.\n\nCommerce Cloud needed a better way to manage content. Looking at the Core Platform, and specifically Experience Cloud (Community Cloud at the time), was the solution.\n\n\n![A screenshot of the Experience Cloud page editor](/media/2022/experience-cloud-9470ae566b.png)\n\nExperience Cloud Page Editor\n\nThe screenshot above looks quite similar to Page Designer within Salesforce Commerce Cloud, though the system is fundamentally different and specific to the Commerce platform.\n\nSince Salesforce could not copy the feature, it had to be rebuilt from the ground up. [Experience Cloud](https://www.salesforce.com/nl/products/experience-cloud/overview/) was used as a \"cheat sheet,\" and some features were/are still missing because of this.\n\nOne of those features is copy-pasting components. Now you have to create each component (even though it might be almost the same) from scratch.\n\n[Vote for my idea here](https://ideas.salesforce.com/s/idea/a0B8W00000GdYHjUAN/page-designer-add-ability-to-copypaste-components)",
+  "conversionStatus": "converted",
+  "manualReviewRequired": false,
+  "fallbackTypes": [],
+  "conversionWarnings": []
+}

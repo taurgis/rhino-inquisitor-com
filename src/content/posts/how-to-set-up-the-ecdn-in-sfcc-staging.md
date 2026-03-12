@@ -112,8 +112,8 @@ Top-level domain In this step, the top-level domain is used even if you plan to 
 
 ```bash
 curl "https://{shortCode}.api.commercecloud.salesforce.com/cdn/zones/v1/organizations/{organizationId}/storefront-zones"
-  -X POST
-  -d "{n  "domainName": "cc-merchant.com"n}"
+-X POST
+-d "{n  "domainName": "cc-merchant.com"n}"
 ```
 
 If the zone did not exist already and is created successfully, the following response is given:

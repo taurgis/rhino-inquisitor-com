@@ -1,0 +1,139 @@
+{
+  "sourceId": "2898",
+  "sourceType": "wxr",
+  "sourceChannels": [
+    "filesystem",
+    "wxr"
+  ],
+  "postType": "post",
+  "status": "publish",
+  "titleRaw": "Submitting a file to a third party service in SFCC",
+  "excerptRaw": "",
+  "bodyHtml": "Salesforce B2C Commerce Cloud provides developers and architects with a <a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/web_services/b2c_webservices.html\" target=\"_blank\" rel=\"noopener\">framework to integrate third-party services</a>, making it much more streamlined to get up and running.\n\nWith the <a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/web_services/b2c_coding_your_web_service.html\" target=\"_blank\" rel=\"noopener\">LocalServiceRegistry,</a> you get some neat features like configuration management from the business manager, logging, and service monitoring!\n\nThere are examples available on how to use this system, but how do you send a file to a service using it? There isn't an example available for this (except for an FTP service that, by definition, works with files).\n\n<style>/*! elementor - v3.9.2 - 21-12-2022 */<br />\n.elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title[class*=elementor-size-]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}</style>\n<h2>TLDR; solution</h2>\n<h3>Multipart/Form-Data</h3>\nA <a href=\"https://www.rhino-inquisitor.com/submit-multipart-form-data-to-a-third-party-service-in-sfcc/\" target=\"_blank\" rel=\"noopener\">separate article is available</a> if your service uses the Multipart format.\n<h3>Single File</h3>\nFor those who want a code snippet to copy and paste, here you go!\n<pre data-line=\"\">\t\t\t\t<code readonly=\"true\">\n\t\t\t\t\t<xmp>LocalServiceRegistry.createService('test.http.post', {\n        createRequest: function (svc, args) {\n            var File = require('dw/io/File');\n            // In case you have a variable endpoint\n            svc.setURL(args.uploadUrl);\n            return new File(args.filePath);\n        },\n        parseResponse: function(svc, client) {\n            return client.text;\n        }\n    })</xmp>\n\t\t\t\t</code>\n</pre>\nOr if you want more control over your request:\n<pre data-line=\"\">\t\t\t\t<code readonly=\"true\">\n\t\t\t\t\t<xmp>LocalServiceRegistry.createService('test.http.post', {\n\t \tcreateRequest: function (svc, args) {\n\t \t    // In case you have a variable endpoint\n\t\t\tsvc.setURL(args.uploadUrl);\n\t\t\treturn args;\n    \t},\n    \texecuteOverride: true,\n        execute: function(svc, args) {\n            var File = require('dw/io/File');\n            var client = svc.client;\n            client.send(new File(args.filePath));\n        },\n        parseResponse: function(svc, client) {\n            return client.text;\n        }\n});</xmp>\n\t\t\t\t</code>\n</pre>\n<h2>Configuration in the Business Manager</h2>\nIn the Business Manager go to:\n\n\"Administration &gt; Operations &gt; Services\"\n\n<style>/*! elementor - v3.9.2 - 21-12-2022 */<br />\n.elementor-widget-image{text-align:center}.elementor-widget-image a{display:inline-block}.elementor-widget-image a img[src$=\".svg\"]{width:48px}.elementor-widget-image img{vertical-align:middle;display:inline-block}</style>\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/12/administration-operations-services.jpg\" data-elementor-open-lightbox=\"yes\" data-elementor-lightbox-title=\"administration-operations-services\" e-action-hash=\"#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NjE4NywidXJsIjoiaHR0cHM6XC9cL3d3dy5yaGluby1pbnF1aXNpdG9yLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyMlwvMTJcL2FkbWluaXN0cmF0aW9uLW9wZXJhdGlvbnMtc2VydmljZXMuanBnIn0%3D\">\n<img width=\"800\" height=\"133\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/12/administration-operations-services-1024x170.jpg\" alt=\"\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/12/administration-operations-services-1024x170.jpg 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/12/administration-operations-services-300x50.jpg 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/12/administration-operations-services-768x127.jpg 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/12/administration-operations-services.jpg 1351w\" sizes=\"(max-width: 800px) 100vw, 800px\">\t\t\t\t\t\t\t\t</a>\n\nAnd click the \"New\" button on the bottom right. Here we can configure our service:\n\n<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/12/test-http-post-service.jpeg\" data-elementor-open-lightbox=\"yes\" data-elementor-lightbox-title=\"test-http-post-service\" e-action-hash=\"#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NjE5MiwidXJsIjoiaHR0cHM6XC9cL3d3dy5yaGluby1pbnF1aXNpdG9yLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyMlwvMTJcL3Rlc3QtaHR0cC1wb3N0LXNlcnZpY2UuanBlZyJ9\">\n<img width=\"706\" height=\"410\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/12/test-http-post-service.jpeg\" alt=\"\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/12/test-http-post-service.jpeg 706w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/12/test-http-post-service-300x174.jpeg 300w\" sizes=\"(max-width: 706px) 100vw, 706px\">\t\t\t\t\t\t\t\t</a>\n\nThis example service is configured with the following values:\n<ul>\n \t<li><strong>Name: </strong>It can be any name as long as it matches the name (ID) used in the code.</li>\n \t<li><strong>Type:</strong> In this case, HTTP service is selected. This ensures the Service Framework behind the scenes uses the correct client (HTTP).</li>\n \t<li><strong>Service Mode:&nbsp;</strong>To call the service endpoint, the value needs to be \"Live.\"</li>\n \t<li><strong>Log Name Prefix:&nbsp;</strong>If you want to debug and have all request and response data in a dedicated file for this service, fill this in.</li>\n \t<li><strong>Communication Log Enabled:&nbsp;</strong>This must be enabled to debug the requests and responses through logging.</li>\n \t<li><strong>Force PRD Behavior in Non-PRD Environments:&nbsp;</strong>If you filter the logs and want to test as if it is a production environment, enable this.</li>\n \t<li><strong>Profile:&nbsp;</strong>Select the profile to be used (timeouts, rate limiting, circuit breaker.)</li>\n \t<li><strong>Credentials:&nbsp;</strong>Depending on the service, this needs to be configured.</li>\n</ul>\nNow everything is configured in the Business Manager, and we can move on to writing some code.\n<h2>Returning the file in createRequest</h2>\n<pre data-line=\"5\">\t\t\t\t<code readonly=\"true\">\n\t\t\t\t\t<xmp>LocalServiceRegistry.createService('test.http.post', {\n        createRequest: function (svc, args) {\n            ...\n            return new File(args.filePath);\n        }\n    })</xmp>\n\t\t\t\t</code>\n</pre>\nNo rocket science is happening here. The Service Framework automatically detects it is a file being returned and executes the appropriate logic on the <a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_net_HTTPClient.html\" target=\"_blank\" rel=\"noopener\">HTTPClient</a> \"beneath the surface\".&nbsp;\n<h2>In case we override the execute logic</h2>\n<pre data-line=\"5,6\">\t\t\t\t<code readonly=\"true\">\n\t\t\t\t\t<xmp>LocalServiceRegistry.createService('test.http.post', {\n\t \tcreateRequest: function (svc, args) {\n\t \t    ...\n    \t},\n    \texecuteOverride: true,\n        execute: function(svc, args) {\n            var File = require('dw/io/File');\n            var client = svc.client;\n            client.send(new File(args.filePath));\n        },\n        parseResponse: function(svc, client) {\n            ...\n        }\n});</xmp>\n\t\t\t\t</code>\n</pre>\nOverriding the \"execute\" logic is quite simple. As explained in the <a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_svc_ServiceCallback.html\" target=\"_blank\" rel=\"noopener\">ServiceCallback</a> documentation, we can use the \"<em>executeOverride</em>\" flag to write some custom code on how the external service is called.\n\nIn this case, we get the original&nbsp;<a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_net_HTTPClient.html\" target=\"_blank\" rel=\"noopener\">HTTPClient&nbsp;</a>from the <a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_svc_HTTPService.html\" target=\"_blank\" rel=\"noopener\">Service</a> using \"<em>svc.client.</em>\"\n\nThis client has a function for us to send a file over to an external endpoint:&nbsp;<a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_net_HTTPClient.html#dw_net_HTTPClient_send_File_DetailAnchor\" target=\"_blank\" rel=\"noopener\">send(File)</a>.&nbsp;\n<h2>Effects on logging</h2>\nWhen working with files, the function \"<a href=\"https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_svc_ServiceCallback.html#dw_svc_ServiceCallback_filterLogMessage_String_DetailAnchor\" target=\"_blank\" rel=\"noopener\"><em>filterLogMessage</em></a>\" receives what you return in the \"<em>createRequest</em>\" call rather than the request's body.\n\nThis might be a good thing if you are sending large files.\n<pre data-line=\"\">\t\t\t\t<code readonly=\"true\">\n\t\t\t\t\t<xmp>INFO PipelineCallServlet|1954691750|Sites-RefArch-Site|Login-Post|PipelineCall|kxZB-_nwKL custom.service.test.http.post.COMM []  Request:\n[File path=/TEMP/my-file.zip]</xmp>\n\t\t\t\t</code>\n</pre>",
+  "slug": "submitting-a-file-to-a-third-party-service-in-sfcc",
+  "publishedAt": "2023-01-02T08:00:00.000Z",
+  "modifiedAt": "2022-12-29T18:02:41.000Z",
+  "author": "Thomas Theunen",
+  "categories": [
+    {
+      "name": "Salesforce Commerce Cloud",
+      "slug": "salesforce-commerce-cloud"
+    },
+    {
+      "name": "Technical",
+      "slug": "technical"
+    }
+  ],
+  "tags": [
+    {
+      "name": "file",
+      "slug": "file"
+    },
+    {
+      "name": "services",
+      "slug": "services"
+    },
+    {
+      "name": "sfcc",
+      "slug": "sfcc"
+    },
+    {
+      "name": "technical",
+      "slug": "technical"
+    }
+  ],
+  "legacyUrl": "/submitting-a-file-to-a-third-party-service-in-sfcc/",
+  "targetUrl": "/submitting-a-file-to-a-third-party-service-in-sfcc/",
+  "disposition": "keep",
+  "aliasUrls": [],
+  "mediaRefs": [
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/07/file-upload.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/12/administration-operations-services-1024x170.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/12/administration-operations-services-300x50.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/12/administration-operations-services-768x127.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/12/administration-operations-services.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/12/test-http-post-service-300x174.jpeg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/12/test-http-post-service.jpeg"
+  ],
+  "_raw": {
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "status": "publish",
+    "titleRaw": "Submitting a file to a third party service in SFCC",
+    "excerptRaw": "",
+    "publishedAt": "2023-01-02T08:00:00.000Z",
+    "modifiedAt": "2022-12-29T18:02:41.000Z",
+    "author": "Thomas Theunen",
+    "categories": [
+      {
+        "name": "Salesforce Commerce Cloud",
+        "slug": "salesforce-commerce-cloud"
+      },
+      {
+        "name": "Technical",
+        "slug": "technical"
+      }
+    ],
+    "tags": [
+      {
+        "name": "file",
+        "slug": "file"
+      },
+      {
+        "name": "services",
+        "slug": "services"
+      },
+      {
+        "name": "sfcc",
+        "slug": "sfcc"
+      },
+      {
+        "name": "technical",
+        "slug": "technical"
+      }
+    ],
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/12/administration-operations-services-1024x170.jpg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/12/administration-operations-services.jpg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/12/test-http-post-service.jpeg"
+    ],
+    "manifest": {
+      "legacyUrl": "/submitting-a-file-to-a-third-party-service-in-sfcc/",
+      "targetUrl": "/submitting-a-file-to-a-third-party-service-in-sfcc/",
+      "disposition": "keep",
+      "redirectCode": null,
+      "implementationLayer": "none",
+      "urlClass": "post"
+    },
+    "normalization": {
+      "aliasUrlsDerivedFromSameTarget": [],
+      "usedPublishedAtFallback": false,
+      "usedModifiedAtFallback": false,
+      "statusNormalizedFrom": "publish"
+    },
+    "extracted": {
+      "sourcePostType": "post",
+      "link": "/submitting-a-file-to-a-third-party-service-in-sfcc/",
+      "guid": "/?p=2898",
+      "attachmentUrl": null,
+      "thumbnailId": "2899",
+      "metaDescription": "How do you submit a file to a third party with the Service Framework in Salesforce B2C Commerce Cloud? Find out here!",
+      "postParent": "0",
+      "postMetaCount": 27,
+      "featuredImageUrl": "/wp-content/uploads/2022/07/file-upload.jpg"
+    }
+  },
+  "bodyMarkdown": "Salesforce B2C Commerce Cloud provides developers and architects with a [framework to integrate third-party services](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/web_services/b2c_webservices.html), making it much more streamlined to get up and running. With the [LocalServiceRegistry,](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/web_services/b2c_coding_your_web_service.html) you get some neat features like configuration management from the business manager, logging, and service monitoring! There are examples available on how to use this system, but how do you send a file to a service using it? There isn't an example available for this (except for an FTP service that, by definition, works with files).\n\n## TLDR; solution\n\n### Multipart/Form-Data\n\nA [separate article is available](https://www.rhino-inquisitor.com/submit-multipart-form-data-to-a-third-party-service-in-sfcc/) if your service uses the Multipart format.\n\n### Single File\n\nFor those who want a code snippet to copy and paste, here you go!\n\n```\n\n\t\t\t\t\tLocalServiceRegistry.createService('test.http.post', {\n        createRequest: function (svc, args) {\n            var File = require('dw/io/File');\n            // In case you have a variable endpoint\n            svc.setURL(args.uploadUrl);\n            return new File(args.filePath);\n        },\n        parseResponse: function(svc, client) {\n            return client.text;\n        }\n    })\n\n```\n\nOr if you want more control over your request:\n\n```\n\n\t\t\t\t\tLocalServiceRegistry.createService('test.http.post', {\n\t \tcreateRequest: function (svc, args) {\n\t \t    // In case you have a variable endpoint\n\t\t\tsvc.setURL(args.uploadUrl);\n\t\t\treturn args;\n    \t},\n    \texecuteOverride: true,\n        execute: function(svc, args) {\n            var File = require('dw/io/File');\n            var client = svc.client;\n            client.send(new File(args.filePath));\n        },\n        parseResponse: function(svc, client) {\n            return client.text;\n        }\n});\n\n```\n\n## Configuration in the Business Manager\n\nIn the Business Manager go to: \"Administration > Operations > Services\" [![](/media/2022/administration-operations-services-ecba1de963.jpg) ](/media/2022/administration-operations-services-ecba1de963.jpg)And click the \"New\" button on the bottom right. Here we can configure our service: [![](/media/2022/test-http-post-service-be40e7ba49.jpeg) ](/media/2022/test-http-post-service-be40e7ba49.jpeg)This example service is configured with the following values:\n\n-   **Name:** It can be any name as long as it matches the name (ID) used in the code.\n-   **Type:** In this case, HTTP service is selected. This ensures the Service Framework behind the scenes uses the correct client (HTTP).\n-   **Service Mode:** To call the service endpoint, the value needs to be \"Live.\"\n-   **Log Name Prefix:** If you want to debug and have all request and response data in a dedicated file for this service, fill this in.\n-   **Communication Log Enabled:** This must be enabled to debug the requests and responses through logging.\n-   **Force PRD Behavior in Non-PRD Environments:** If you filter the logs and want to test as if it is a production environment, enable this.\n-   **Profile:** Select the profile to be used (timeouts, rate limiting, circuit breaker.)\n-   **Credentials:** Depending on the service, this needs to be configured.\n\nNow everything is configured in the Business Manager, and we can move on to writing some code.\n\n## Returning the file in createRequest\n\n```\n\n\t\t\t\t\tLocalServiceRegistry.createService('test.http.post', {\n        createRequest: function (svc, args) {\n            ...\n            return new File(args.filePath);\n        }\n    })\n\n```\n\nNo rocket science is happening here. The Service Framework automatically detects it is a file being returned and executes the appropriate logic on the [HTTPClient](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_net_HTTPClient.html) \"beneath the surface\".\n\n## In case we override the execute logic\n\n```\n\n\t\t\t\t\tLocalServiceRegistry.createService('test.http.post', {\n\t \tcreateRequest: function (svc, args) {\n\t \t    ...\n    \t},\n    \texecuteOverride: true,\n        execute: function(svc, args) {\n            var File = require('dw/io/File');\n            var client = svc.client;\n            client.send(new File(args.filePath));\n        },\n        parseResponse: function(svc, client) {\n            ...\n        }\n});\n\n```\n\nOverriding the \"execute\" logic is quite simple. As explained in the [ServiceCallback](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_svc_ServiceCallback.html) documentation, we can use the \"_executeOverride_\" flag to write some custom code on how the external service is called. In this case, we get the original [HTTPClient](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_net_HTTPClient.html) from the [Service](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_svc_HTTPService.html) using \"_svc.client._\" This client has a function for us to send a file over to an external endpoint: [send(File)](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_net_HTTPClient.html#dw_net_HTTPClient_send_File_DetailAnchor).\n\n## Effects on logging\n\nWhen working with files, the function \"[_filterLogMessage_](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_svc_ServiceCallback.html#dw_svc_ServiceCallback_filterLogMessage_String_DetailAnchor)\" receives what you return in the \"_createRequest_\" call rather than the request's body. This might be a good thing if you are sending large files.\n\n```\n\n\t\t\t\t\tINFO PipelineCallServlet|1954691750|Sites-RefArch-Site|Login-Post|PipelineCall|kxZB-_nwKL custom.service.test.http.post.COMM []  Request:\n[File path=/TEMP/my-file.zip]\n\n```",
+  "conversionStatus": "converted",
+  "manualReviewRequired": false,
+  "fallbackTypes": [],
+  "conversionWarnings": [
+    {
+      "code": "missing-image-alt",
+      "message": "Image missing alt text in /submitting-a-file-to-a-third-party-service-in-sfcc/."
+    },
+    {
+      "code": "missing-image-alt",
+      "message": "Image missing alt text in /submitting-a-file-to-a-third-party-service-in-sfcc/."
+    }
+  ]
+}

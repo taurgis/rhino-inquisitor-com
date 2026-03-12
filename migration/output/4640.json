@@ -1,0 +1,135 @@
+{
+  "sourceId": "4640",
+  "sourceType": "wxr",
+  "sourceChannels": [
+    "filesystem",
+    "wxr"
+  ],
+  "postType": "post",
+  "status": "publish",
+  "titleRaw": "A look back at Origin Shielding",
+  "excerptRaw": "",
+  "bodyHtml": "September has shown its face, and the sunny weather (at least here) is ending. And with that also the complete activation of <a href=\"https://help.salesforce.com/s/articleView?id=000364472&amp;type=1\" target=\"_blank\" rel=\"noopener\">Origin Shielding</a>, or it simply: \"Putting everything behind the eCDN.\"\n\nFor most, this change had little effect as it meant switching all third-party integrations from the demandware.net domain to the brand vanity domain. But for some, this was not a fairytale story.\n\nWhy is that?\n\n<em><strong>Note:&nbsp;</strong></em><em>This article is pure speculation on my part, and I did not look at which percentage of Salesforce B2C Commerce Cloud customers did not have the \"fairytale story.\" Even though this percentage is probably on the low side, I do feel the need to look at the possible cause.</em>\n\n<style>/*! elementor - v3.7.4 - 31-08-2022 */<br />\n.elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title[class*=elementor-size-]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}</style>\n<h2>Communication</h2>\nThe first thing to make people aware of a change is communicating it to them as soon as possible. And from personal experience, I did get this notification quite a while in advance. I looked back in my documents and e-mails and found the first reference to this change in July 2021!\n\nA year in advance!\n\n<style>/*! elementor - v3.7.4 - 31-08-2022 */<br />\n.elementor-widget-image{text-align:center}.elementor-widget-image a{display:inline-block}.elementor-widget-image a img[src$=\".svg\"]{width:48px}.elementor-widget-image img{vertical-align:middle;display:inline-block}</style>\t\t\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/origin-shielding-first-mention.jpg\" data-elementor-open-lightbox=\"yes\" data-elementor-lightbox-title=\"Origin Shielding on the B2C Roadmap\" e-action-hash=\"#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NDY0MywidXJsIjoiaHR0cHM6XC9cL3d3dy5yaGluby1pbnF1aXNpdG9yLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyMlwvMDlcL29yaWdpbi1zaGllbGRpbmctZmlyc3QtbWVudGlvbi5qcGcifQ%3D%3D\">\n<img width=\"800\" height=\"410\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/origin-shielding-first-mention-1024x525.jpg\" alt=\"\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/origin-shielding-first-mention-1024x525.jpg 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/origin-shielding-first-mention-300x154.jpg 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/origin-shielding-first-mention-768x394.jpg 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/origin-shielding-first-mention-1536x787.jpg 1536w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/origin-shielding-first-mention-2048x1050.jpg 2048w\" sizes=\"(max-width: 800px) 100vw, 800px\">\t\t\t\t\t\t\t\t</a>\n\nBut, of course, the information given back then was pretty vague. And the impact on projects could not be estimated by this alone.\n<h3>What about 2022?</h3>\nMonths go by without any mention of this change, but I did know that this \"Origin Shielding\" for “dotted” URLs (i.e., http://production.xxx.demandware.net/)&nbsp;was <a style=\"font-size: 1rem; -webkit-text-size-adjust: 100%;\" href=\"https://help.salesforce.com/s/articleView?id=sf.rn_b2c_selective_origin_shielding_w9343605_je.htm&amp;type=5\" target=\"_blank\" rel=\"noopener\">already active for new customers since June 21'</a>.\n\nIn March, I joined the B2C Roadmap Session again (or a different webinar, I can't remember), and here we got the announcement for \"phase 2\": Origin Shielding activation for ‘hyphenated’ URLs (i.e., production-xxx.demandware.net).\n\n<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/march-2022-origin-shielding.jpg\" data-elementor-open-lightbox=\"yes\" data-elementor-lightbox-title=\"march-2022-origin-shielding\" e-action-hash=\"#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6NDY0NCwidXJsIjoiaHR0cHM6XC9cL3d3dy5yaGluby1pbnF1aXNpdG9yLmNvbVwvd3AtY29udGVudFwvdXBsb2Fkc1wvMjAyMlwvMDlcL21hcmNoLTIwMjItb3JpZ2luLXNoaWVsZGluZy5qcGcifQ%3D%3D\">\n<img width=\"800\" height=\"706\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/march-2022-origin-shielding-1024x904.jpg\" alt=\"\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/march-2022-origin-shielding-1024x904.jpg 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/march-2022-origin-shielding-300x265.jpg 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/march-2022-origin-shielding-768x678.jpg 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/march-2022-origin-shielding.jpg 1178w\" sizes=\"(max-width: 800px) 100vw, 800px\">\t\t\t\t\t\t\t\t</a>\n\nSo again, quite a bit in advance: about six months to change demandware.net to your vanity domain.\n\nOver the months, this was shared across multiple channels: Trailblazer Communities, Webinars, <a href=\"https://help.salesforce.com/articleView?id=b2c_rn_release_notes.htm&amp;type=5\" target=\"_blank\" rel=\"noopener\">and slides shared with the release notes</a>. I probably missed other media that might have been customer-facing. But as a partner, I do not get these.\n\nAll in all, quite a lot of warnings ahead of time.\n<h2>Monitoring of these channels</h2>\nBut for communication to work, you need a second crucial thing to happen: \"People need to read or view your communication.\"\n\nAnd honestly, I believe this is where the issue lies. Over the past few years, I have been monitoring multiple channels to stay up to date with everything:\n<ul>\n \t<li>Trailblazer communities</li>\n \t<li>Partner communities</li>\n \t<li>Webinars</li>\n \t<li>Round tables</li>\n \t<li>Slacking with people and monitoring different Slack channels</li>\n</ul>\nWithout making all this effort, I would have missed quite a lot of vital information (which I probably did before I started monitoring.)\n\nMost of all, when I talk about all of these channels - especially the Partner Community - it appears that most people do not know these existed in the first place! And that is a problem because a lot of communication only happens there.\n\nIf we look at all information about On-Demand-Sandboxes, I think about 95% of the communication happens in <a href=\"https://partners.salesforce.com/_ui/core/chatter/groups/GroupProfilePage?g=0F93A000000DQ6f\" target=\"_blank\" rel=\"noopener\">a dedicated Partner Community</a>.\n<h3>Single point of failure?</h3>\nBut what if someone is monitoring this communication (or has received an email) but is not sharing it with everyone? Or maybe the person receiving the communication is no longer working at the company, causing vital communication to be missed.\n\nI think it is essential that multiple people receive these notifications, so maybe it makes sense to set up a mailing list rather than having a single person receive this communication.\n<h2>Who is to blame?</h2>\nThis question probably drove you to this article. But sorry to disappoint, I don't feel anyone is to blame here.\n\nPartners and customers should be aware of these communities and subscribe to appropriate channels.\nBut Salesforce needs to make people aware that these channels exist, and maybe they do - but do not express the value that monitoring these channels brings.\n\nI have brought all these sites into our onboarding process to ensure everyone can access this valuable information. But in the end, it is up to the individual to do the necessary actions of subscribing.\n\nSo, in conclusion, work needs to be done on all sides! And hopefully, this article has made people aware of these channels and the value they bring. Feel free to share in the comments how you get your intel!",
+  "slug": "a-look-back-at-origin-shielding",
+  "publishedAt": "2022-09-07T19:53:27.000Z",
+  "modifiedAt": "2022-09-07T19:53:35.000Z",
+  "author": "Thomas Theunen",
+  "categories": [
+    {
+      "name": "Community",
+      "slug": "community"
+    }
+  ],
+  "tags": [
+    {
+      "name": "ohana",
+      "slug": "ohana"
+    },
+    {
+      "name": "security",
+      "slug": "security"
+    },
+    {
+      "name": "sfcc",
+      "slug": "sfcc"
+    },
+    {
+      "name": "technical",
+      "slug": "technical"
+    }
+  ],
+  "legacyUrl": "/a-look-back-at-origin-shielding/",
+  "targetUrl": "/a-look-back-at-origin-shielding/",
+  "disposition": "keep",
+  "aliasUrls": [],
+  "mediaRefs": [
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/08/look-back-scaled.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/march-2022-origin-shielding-1024x904.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/march-2022-origin-shielding-300x265.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/march-2022-origin-shielding-768x678.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/march-2022-origin-shielding.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/origin-shielding-first-mention-1024x525.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/origin-shielding-first-mention-1536x787.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/origin-shielding-first-mention-2048x1050.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/origin-shielding-first-mention-300x154.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/origin-shielding-first-mention-768x394.jpg"
+  ],
+  "_raw": {
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "status": "publish",
+    "titleRaw": "A look back at Origin Shielding",
+    "excerptRaw": "",
+    "publishedAt": "2022-09-07T19:53:27.000Z",
+    "modifiedAt": "2022-09-07T19:53:35.000Z",
+    "author": "Thomas Theunen",
+    "categories": [
+      {
+        "name": "Community",
+        "slug": "community"
+      }
+    ],
+    "tags": [
+      {
+        "name": "ohana",
+        "slug": "ohana"
+      },
+      {
+        "name": "security",
+        "slug": "security"
+      },
+      {
+        "name": "sfcc",
+        "slug": "sfcc"
+      },
+      {
+        "name": "technical",
+        "slug": "technical"
+      }
+    ],
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/march-2022-origin-shielding-1024x904.jpg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/march-2022-origin-shielding.jpg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/origin-shielding-first-mention-1024x525.jpg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/origin-shielding-first-mention.jpg"
+    ],
+    "manifest": {
+      "legacyUrl": "/a-look-back-at-origin-shielding/",
+      "targetUrl": "/a-look-back-at-origin-shielding/",
+      "disposition": "keep",
+      "redirectCode": null,
+      "implementationLayer": "none",
+      "urlClass": "post"
+    },
+    "normalization": {
+      "aliasUrlsDerivedFromSameTarget": [],
+      "usedPublishedAtFallback": false,
+      "usedModifiedAtFallback": false,
+      "statusNormalizedFrom": "publish"
+    },
+    "extracted": {
+      "sourcePostType": "post",
+      "link": "/a-look-back-at-origin-shielding/",
+      "guid": "/?p=4640",
+      "attachmentUrl": null,
+      "thumbnailId": "4641",
+      "metaDescription": "Salesforce B2C Commerce Cloud activated Origin Shielding on production in August 2022. But for some, it did not go as planned. Why?",
+      "postParent": "0",
+      "postMetaCount": 27,
+      "featuredImageUrl": "/wp-content/uploads/2022/08/look-back-scaled.jpg"
+    }
+  },
+  "bodyMarkdown": "September has shown its face, and the sunny weather (at least here) is ending. And with that also the complete activation of [Origin Shielding](https://help.salesforce.com/s/articleView?id=000364472&type=1), or it simply: \"Putting everything behind the eCDN.\" For most, this change had little effect as it meant switching all third-party integrations from the demandware.net domain to the brand vanity domain. But for some, this was not a fairytale story. Why is that? _**Note:**_ _This article is pure speculation on my part, and I did not look at which percentage of Salesforce B2C Commerce Cloud customers did not have the \"fairytale story.\" Even though this percentage is probably on the low side, I do feel the need to look at the possible cause._\n\n## Communication\n\nThe first thing to make people aware of a change is communicating it to them as soon as possible. And from personal experience, I did get this notification quite a while in advance. I looked back in my documents and e-mails and found the first reference to this change in July 2021! A year in advance! [![](/media/2022/origin-shielding-first-mention-9d41cb51f2.jpg) ](/media/2022/origin-shielding-first-mention-9d41cb51f2.jpg)But, of course, the information given back then was pretty vague. And the impact on projects could not be estimated by this alone.\n\n### What about 2022?\n\nMonths go by without any mention of this change, but I did know that this \"Origin Shielding\" for “dotted” URLs (i.e., http://production.xxx.demandware.net/) was [already active for new customers since June 21'](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_selective_origin_shielding_w9343605_je.htm&type=5). In March, I joined the B2C Roadmap Session again (or a different webinar, I can't remember), and here we got the announcement for \"phase 2\": Origin Shielding activation for ‘hyphenated’ URLs (i.e., production-xxx.demandware.net). [![](/media/2022/march-2022-origin-shielding-815c30777b.jpg) ](/media/2022/march-2022-origin-shielding-815c30777b.jpg)So again, quite a bit in advance: about six months to change demandware.net to your vanity domain. Over the months, this was shared across multiple channels: Trailblazer Communities, Webinars, [and slides shared with the release notes](https://help.salesforce.com/articleView?id=b2c_rn_release_notes.htm&type=5). I probably missed other media that might have been customer-facing. But as a partner, I do not get these. All in all, quite a lot of warnings ahead of time.\n\n## Monitoring of these channels\n\nBut for communication to work, you need a second crucial thing to happen: \"People need to read or view your communication.\" And honestly, I believe this is where the issue lies. Over the past few years, I have been monitoring multiple channels to stay up to date with everything:\n\n-   Trailblazer communities\n-   Partner communities\n-   Webinars\n-   Round tables\n-   Slacking with people and monitoring different Slack channels\n\nWithout making all this effort, I would have missed quite a lot of vital information (which I probably did before I started monitoring.) Most of all, when I talk about all of these channels - especially the Partner Community - it appears that most people do not know these existed in the first place! And that is a problem because a lot of communication only happens there. If we look at all information about On-Demand-Sandboxes, I think about 95% of the communication happens in [a dedicated Partner Community](https://partners.salesforce.com/_ui/core/chatter/groups/GroupProfilePage?g=0F93A000000DQ6f).\n\n### Single point of failure?\n\nBut what if someone is monitoring this communication (or has received an email) but is not sharing it with everyone? Or maybe the person receiving the communication is no longer working at the company, causing vital communication to be missed. I think it is essential that multiple people receive these notifications, so maybe it makes sense to set up a mailing list rather than having a single person receive this communication.\n\n## Who is to blame?\n\nThis question probably drove you to this article. But sorry to disappoint, I don't feel anyone is to blame here. Partners and customers should be aware of these communities and subscribe to appropriate channels. But Salesforce needs to make people aware that these channels exist, and maybe they do - but do not express the value that monitoring these channels brings. I have brought all these sites into our onboarding process to ensure everyone can access this valuable information. But in the end, it is up to the individual to do the necessary actions of subscribing. So, in conclusion, work needs to be done on all sides! And hopefully, this article has made people aware of these channels and the value they bring. Feel free to share in the comments how you get your intel!",
+  "conversionStatus": "converted",
+  "manualReviewRequired": false,
+  "fallbackTypes": [],
+  "conversionWarnings": [
+    {
+      "code": "missing-image-alt",
+      "message": "Image missing alt text in /a-look-back-at-origin-shielding/."
+    },
+    {
+      "code": "missing-image-alt",
+      "message": "Image missing alt text in /a-look-back-at-origin-shielding/."
+    }
+  ]
+}

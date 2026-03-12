@@ -1,0 +1,135 @@
+{
+  "sourceId": "972",
+  "sourceType": "wxr",
+  "sourceChannels": [
+    "filesystem",
+    "wxr"
+  ],
+  "postType": "post",
+  "status": "publish",
+  "titleRaw": "Getting to know SFRA as a developer",
+  "excerptRaw": "",
+  "bodyHtml": "<p>So, you are new to Salesforce Commerce Cloud and have begun your journey with SFRA! Congratulations, and welcome to the <a href=\"https://unofficialsfcc.com/\" target=\"_blank\" rel=\"noopener\">community</a> of SFCC developers!</p><p>But where to start? Quite a bit of information is available, but where you should start is unclear.</p><p>Not to worry. Let's get that information organised for you!</p>\t\t\n\t\t\t<h2>Get to know B2C Commerce Cloud</h2>\t\t\n\t\t<p>You can't just start developing immediately on Salesforce B2C Commerce Cloud. The platform is just too big for that. I wish it were that easy, but SFCC is an enterprise platform with many out-of-the-box features and options you must learn about first.</p>\t\t\n\t\t\t<h3>Get your own playground</h3>\t\t\n\t\t<p>Watching webinars and reading online texts can get tedious. Being able to apply what you learn immediately on a Sandbox is a lot more engaging and fun to do.</p><p>I wrote a separate post before explaining how to get your sandbox <a href=\"https://www.rhino-inquisitor.com/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox\" target=\"_blank\" rel=\"noopener\">here</a>. Just a word of warning: if you are not working for a partner or customer - you might end up disappointed at the end of the article.</p>\t\t\n\t\t\t<h3>Learn Commerce Cloud</h3>\t\t\n\t\t\tRemoved\n\t\t\t\t\t\t\tUnfortunately, this website no longer exists.\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img width=\"800\" height=\"266\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/learn-commerce-cloud-1024x340.jpg\" alt=\"\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/learn-commerce-cloud-1024x340.jpg 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/learn-commerce-cloud-300x100.jpg 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/learn-commerce-cloud-768x255.jpg 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/learn-commerce-cloud-1536x510.jpg 1536w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/learn-commerce-cloud.jpg 1968w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://help.salesforce.com/s/articleView?language=en_US&#038;id=cc.b2c_getting_started.htm&#038;type=5\" target=\"_blank\" rel=\"noopener\">\n\t\t\t\t\t\t\t<svg aria-hidden=\"true\" viewBox=\"0 0 512 512\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z\"></path></svg>\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\thttps://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_getting_started.htm&type=5\n\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/10/2d9abc21-7f77-4b94-81a5-07f15a0c28d3.pdf\" target=\"_blank\" rel=\"noopener\">\n\t\t\t\t\t\t\t<svg aria-hidden=\"true\" viewBox=\"0 0 384 512\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M181.9 256.1c-5-16-4.9-46.9-2-46.9 8.4 0 7.6 36.9 2 46.9zm-1.7 47.2c-7.7 20.2-17.3 43.3-28.4 62.7 18.3-7 39-17.2 62.9-21.9-12.7-9.6-24.9-23.4-34.5-40.8zM86.1 428.1c0 .8 13.2-5.4 34.9-40.2-6.7 6.3-29.1 24.5-34.9 40.2zM248 160h136v328c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V24C0 10.7 10.7 0 24 0h200v136c0 13.2 10.8 24 24 24zm-8 171.8c-20-12.2-33.3-29-42.7-53.8 4.5-18.5 11.6-46.6 6.2-64.2-4.7-29.4-42.4-26.5-47.8-6.8-5 18.3-.4 44.1 8.1 77-11.6 27.6-28.7 64.6-40.8 85.8-.1 0-.1.1-.2.1-27.1 13.9-73.6 44.5-54.5 68 5.6 6.9 16 10 21.5 10 17.9 0 35.7-18 61.1-61.8 25.8-8.5 54.1-19.1 79-23.2 21.7 11.8 47.1 19.5 64 19.5 29.2 0 31.2-32 19.7-43.4-13.9-13.6-54.3-9.7-73.6-7.2zM377 105L279 7c-4.5-4.5-10.6-7-17-7h-6v128h128v-6.1c0-6.3-2.5-12.4-7-16.9zm-74.1 255.3c4.1-2.7-2.5-11.9-42.8-9 37.1 15.8 42.8 9 42.8 9z\"></path></svg>\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\tPDF Version of the old Learn Commerce Cloud Site\n\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t<p>Your first starting point in your journey into Salesforce B2C Commerce Cloud as a platform. This site is not built with developers in mind but for everyone new.</p><p>It serves as a guide into the ecosystem using:</p><ul><li>Trailheads</li><li>Webinars</li><li>Documentation</li></ul><p>It also touches on all different aspects of commerce in general:</p><ul><li>Getting to know Commerce Cloud</li><li>UX/UI Best Practices</li><li>Personalization</li><li>Product Management</li><li>Search Management (Search, Sorting, and Refining)</li><li>Promotions &amp; Campaigns</li><li>Einstein and AI</li></ul><p>That is a lot of ground this single site covers! And be sure that it will keep you busy for a couple of days, and you won't be writing a single line of code...sorry, not sorry. 😋</p><p><em><strong>Note:</strong></em> <em>Be sure to have your sandbox ready so you can try out some of the concepts in your environment. Not everything can be done on a Sandbox (like Einstein), but most of it is.</em></p>\t\t\n\t\t\t<h3>Storefront Reference Architecture (SFRA) Overview</h3>\t\t\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://salesforce.vidyard.com/watch/rgvLUk97rk1Kg58nYVcuy9?\" target=\"_blank\" rel=\"noopener\">\n\t\t\t\t\t\t\t<svg aria-hidden=\"true\" viewBox=\"0 0 512 512\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z\"></path></svg>\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\tWebinar\n\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://org62.my.salesforce.com/sfc/p/#000000000062/a/3y000001RUL7/WABOD.HWfTOAp9saRlAVkrc7QesnH26Xj6mb_IkPk0M\" target=\"_blank\" rel=\"noopener\">\n\t\t\t\t\t\t\t<svg aria-hidden=\"true\" viewBox=\"0 0 512 512\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M187.7 153.7c-34 0-61.7 25.7-61.7 57.7 0 31.7 27.7 57.7 61.7 57.7s61.7-26 61.7-57.7c0-32-27.7-57.7-61.7-57.7zm143.4 0c-34 0-61.7 25.7-61.7 57.7 0 31.7 27.7 57.7 61.7 57.7 34.3 0 61.7-26 61.7-57.7.1-32-27.4-57.7-61.7-57.7zm156.6 90l-6 4.3V49.7c0-27.4-20.6-49.7-46-49.7H76.6c-25.4 0-46 22.3-46 49.7V248c-2-1.4-4.3-2.9-6.3-4.3-15.1-10.6-25.1 4-16 17.7 18.3 22.6 53.1 50.3 106.3 72C58.3 525.1 252 555.7 248.9 457.5c0-.7.3-56.6.3-96.6 5.1 1.1 9.4 2.3 13.7 3.1 0 39.7.3 92.8.3 93.5-3.1 98.3 190.6 67.7 134.3-124 53.1-21.7 88-49.4 106.3-72 9.1-13.8-.9-28.3-16.1-17.8zm-30.5 19.2c-68.9 37.4-128.3 31.1-160.6 29.7-23.7-.9-32.6 9.1-33.7 24.9-10.3-7.7-18.6-15.5-20.3-17.1-5.1-5.4-13.7-8-27.1-7.7-31.7 1.1-89.7 7.4-157.4-28V72.3c0-34.9 8.9-45.7 40.6-45.7h317.7c30.3 0 40.9 12.9 40.9 45.7v190.6z\"></path></svg>\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\tSlide Deck\n\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t<p>This webinar provides an overview of the positioning of SFRA and its features.</p><p>Since this is what you will be developing in, it is a must-watch!</p>\t\t\n\t\t\t<h2>On to development</h2>\t\t\n\t\t<p>This is the part you have been waiting for right? Getting your hands \"dirty\" in the SFRA code, figuring out how to customize that storefront, and integrating some third-party systems!</p>\t\t\n\t\t\t<h3>SFRA Developer Guide</h3>\t\t\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://developer.salesforce.com/docs/commerce/sfra/guide/sfra-overview.html\" target=\"_blank\" rel=\"noopener\">\n\t\t\t\t\t\t\t<svg aria-hidden=\"true\" viewBox=\"0 0 512 512\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z\"></path></svg>\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\thttps://developer.salesforce.com/docs/commerce/sfra/guide/sfra-overview.html\n\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t<p>The developer website of Commerce Cloud is targeted at you (yes, you. It says developer in the URL, right?)</p><p>This website will tell you how to get started with your SFRA implementation with:</p><ul><li>Information about SFRA in general</li><li>UX Deep Dive</li><li>Technical Deep Dive</li><li>SFRA Fast Path webinars (development webinars)</li><li>A list of tools and how to get access to GitHub repositories of SFRA</li><li>Much more!</li></ul>\t\t\n\t\t\t<h3>Partner Learning Camp</h3>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img width=\"800\" height=\"374\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/B2C-foundations-1024x479.jpg\" alt=\"A screenshot of the Partner Learning Camp (PLC) that shows the &quot;Get Started on the B2C Commerce Fast Path to Certifications: Foundations&quot; course.\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/B2C-foundations-1024x479.jpg 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/B2C-foundations-300x140.jpg 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/B2C-foundations-768x359.jpg 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/B2C-foundations-1536x718.jpg 1536w, https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/B2C-foundations.jpg 1660w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t<ul>\n\t\t\t\t\t\t\t<li>\n\t\t\t\t\t\t\t\t\t\t\t<a href=\"https://partnerlearningcamp.salesforce.com/s/browse-catalog?plc__recordId=5iuux101vYk2UQtOkwn9%2BpFhmsL%2F5jynd8uOnEFtSg4JjoBEe8yyDv9MajFikOJe\" target=\"_blank\" rel=\"noopener\">\n\t\t\t\t\t\t\t<svg aria-hidden=\"true\" viewBox=\"0 0 512 512\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M326.612 185.391c59.747 59.809 58.927 155.698.36 214.59-.11.12-.24.25-.36.37l-67.2 67.2c-59.27 59.27-155.699 59.262-214.96 0-59.27-59.26-59.27-155.7 0-214.96l37.106-37.106c9.84-9.84 26.786-3.3 27.294 10.606.648 17.722 3.826 35.527 9.69 52.721 1.986 5.822.567 12.262-3.783 16.612l-13.087 13.087c-28.026 28.026-28.905 73.66-1.155 101.96 28.024 28.579 74.086 28.749 102.325.51l67.2-67.19c28.191-28.191 28.073-73.757 0-101.83-3.701-3.694-7.429-6.564-10.341-8.569a16.037 16.037 0 0 1-6.947-12.606c-.396-10.567 3.348-21.456 11.698-29.806l21.054-21.055c5.521-5.521 14.182-6.199 20.584-1.731a152.482 152.482 0 0 1 20.522 17.197zM467.547 44.449c-59.261-59.262-155.69-59.27-214.96 0l-67.2 67.2c-.12.12-.25.25-.36.37-58.566 58.892-59.387 154.781.36 214.59a152.454 152.454 0 0 0 20.521 17.196c6.402 4.468 15.064 3.789 20.584-1.731l21.054-21.055c8.35-8.35 12.094-19.239 11.698-29.806a16.037 16.037 0 0 0-6.947-12.606c-2.912-2.005-6.64-4.875-10.341-8.569-28.073-28.073-28.191-73.639 0-101.83l67.2-67.19c28.239-28.239 74.3-28.069 102.325.51 27.75 28.3 26.872 73.934-1.155 101.96l-13.087 13.087c-4.35 4.35-5.769 10.79-3.783 16.612 5.864 17.194 9.042 34.999 9.69 52.721.509 13.906 17.454 20.446 27.294 10.606l37.106-37.106c59.271-59.259 59.271-155.699.001-214.959z\"></path></svg>\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\thttps://partnerlearningcamp.salesforce.com\n\t\t\t\t\t\t\t\t\t\t\t</a>\n\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t</ul>\n\t\t<p><strong>This website is only available if you are a partner of Salesforce; if you are a customer, you will not be able to access this content (sorry).</strong></p><p>Here you will find a complete self-study-guided course into Salesforce B2C Commerce Cloud SFRA development. It starts at setting up your environment (sandbox) and slowly moves you through all of the different concepts of SFRA development:</p><ul><li>Cartridges</li><li>Controllers</li><li>Models</li><li>ISML</li><li>Client-Side Javascript in SFRA</li><li>Forms</li><li>Transaction Management (Database)</li><li>Jobs Framework</li><li>OCAPI</li></ul>\t\t\n\t\t\t<h2>Certification</h2>\t\t\n\t\t<p>If you're considering pursuing certification, congratulations! It's a great way to demonstrate your expertise and stand out. To help you prepare, I've compiled <a href=\"https://www.rhino-inquisitor.com/preparing-for-the-b2c-commerce-developer-certification/\" target=\"_blank\" rel=\"noopener\">a comprehensive list of valuable topics to study</a>. By taking the time to delve deep into these subjects, you'll expand your knowledge and better position yourself for success. </p>\t\t\n\t\t\t<h2>That's not all folks</h2>\t\t\n\t\t<p>The contents above will keep you busy for days and weeks (depending on whether you sleep.) But much more content is available to be seen, read, and heard!</p><p>In <a href=\"https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-documentation\" target=\"_blank\" rel=\"noopener\">a previous post</a>, I listed more sites you can use in your journey!</p>",
+  "slug": "getting-to-know-sfra-as-a-developer",
+  "publishedAt": "2023-10-30T09:57:46.000Z",
+  "modifiedAt": "2023-10-31T09:11:09.000Z",
+  "author": "Thomas Theunen",
+  "categories": [
+    {
+      "name": "Salesforce Commerce Cloud",
+      "slug": "salesforce-commerce-cloud"
+    },
+    {
+      "name": "Technical",
+      "slug": "technical"
+    }
+  ],
+  "tags": [
+    {
+      "name": "sfcc",
+      "slug": "sfcc"
+    },
+    {
+      "name": "sfra",
+      "slug": "sfra"
+    },
+    {
+      "name": "technical",
+      "slug": "technical"
+    }
+  ],
+  "legacyUrl": "/getting-to-know-sfra-as-a-developer/",
+  "targetUrl": "/getting-to-know-sfra-as-a-developer/",
+  "disposition": "keep",
+  "aliasUrls": [
+    "/?p=972"
+  ],
+  "mediaRefs": [
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/b2c-foundations-1024x479.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/b2c-foundations-1536x718.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/b2c-foundations-300x140.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/b2c-foundations-768x359.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/b2c-foundations.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/learn-commerce-cloud-1024x340.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/learn-commerce-cloud-1536x510.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/learn-commerce-cloud-300x100.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/learn-commerce-cloud-768x255.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/learn-commerce-cloud.jpg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/sfra.png"
+  ],
+  "_raw": {
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "status": "publish",
+    "titleRaw": "Getting to know SFRA as a developer",
+    "excerptRaw": "",
+    "publishedAt": "2023-10-30T09:57:46.000Z",
+    "modifiedAt": "2023-10-31T09:11:09.000Z",
+    "author": "Thomas Theunen",
+    "categories": [
+      {
+        "name": "Salesforce Commerce Cloud",
+        "slug": "salesforce-commerce-cloud"
+      },
+      {
+        "name": "Technical",
+        "slug": "technical"
+      }
+    ],
+    "tags": [
+      {
+        "name": "sfcc",
+        "slug": "sfcc"
+      },
+      {
+        "name": "sfra",
+        "slug": "sfra"
+      },
+      {
+        "name": "technical",
+        "slug": "technical"
+      }
+    ],
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/b2c-foundations-1024x479.jpg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2022/05/learn-commerce-cloud-1024x340.jpg",
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/10/2d9abc21-7f77-4b94-81a5-07f15a0c28d3.pdf"
+    ],
+    "manifest": {
+      "legacyUrl": "/getting-to-know-sfra-as-a-developer/",
+      "targetUrl": "/getting-to-know-sfra-as-a-developer/",
+      "disposition": "keep",
+      "redirectCode": null,
+      "implementationLayer": "none",
+      "urlClass": "post"
+    },
+    "normalization": {
+      "aliasUrlsDerivedFromSameTarget": [
+        "/?p=972"
+      ],
+      "usedPublishedAtFallback": false,
+      "usedModifiedAtFallback": false,
+      "statusNormalizedFrom": "publish"
+    },
+    "extracted": {
+      "sourcePostType": "post",
+      "link": "/getting-to-know-sfra-as-a-developer/",
+      "guid": "/?p=972",
+      "attachmentUrl": null,
+      "thumbnailId": "974",
+      "metaDescription": "SFRA in Salesforce B2C Commerce can be quite daunting. This blog post will guide you through all of the content of Commerce Cloud SFRA!",
+      "postParent": "0",
+      "postMetaCount": 32,
+      "featuredImageUrl": "/wp-content/uploads/2022/05/sfra.png"
+    }
+  },
+  "bodyMarkdown": "So, you are new to Salesforce Commerce Cloud and have begun your journey with SFRA! Congratulations, and welcome to the [community](https://unofficialsfcc.com/) of SFCC developers!\n\nBut where to start? Quite a bit of information is available, but where you should start is unclear.\n\nNot to worry. Let's get that information organised for you!\n\n## Get to know B2C Commerce Cloud\n\nYou can't just start developing immediately on Salesforce B2C Commerce Cloud. The platform is just too big for that. I wish it were that easy, but SFCC is an enterprise platform with many out-of-the-box features and options you must learn about first.\n\n### Get your own playground\n\nWatching webinars and reading online texts can get tedious. Being able to apply what you learn immediately on a Sandbox is a lot more engaging and fun to do.\n\nI wrote a separate post before explaining how to get your sandbox [here](https://www.rhino-inquisitor.com/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox). Just a word of warning: if you are not working for a partner or customer - you might end up disappointed at the end of the article.\n\n### Learn Commerce Cloud\n\n> [!WARNING]\n> **Removed:** Unfortunately, this website no longer exists. ![](/media/2022/learn-commerce-cloud-67eab48d9b.jpg)\n\n-   [https://help.salesforce.com/s/articleView?language=en\\_US&id=cc.b2c\\_getting\\_started.htm&type=5](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_getting_started.htm&type=5)\n-   [PDF Version of the old Learn Commerce Cloud Site](https://www.rhino-inquisitor.com/wp-content/uploads/2023/10/2d9abc21-7f77-4b94-81a5-07f15a0c28d3.pdf)\n\nYour first starting point in your journey into Salesforce B2C Commerce Cloud as a platform. This site is not built with developers in mind but for everyone new.\n\nIt serves as a guide into the ecosystem using:\n\n-   Trailheads\n-   Webinars\n-   Documentation\n\nIt also touches on all different aspects of commerce in general:\n\n-   Getting to know Commerce Cloud\n-   UX/UI Best Practices\n-   Personalization\n-   Product Management\n-   Search Management (Search, Sorting, and Refining)\n-   Promotions & Campaigns\n-   Einstein and AI\n\nThat is a lot of ground this single site covers! And be sure that it will keep you busy for a couple of days, and you won't be writing a single line of code...sorry, not sorry. 😋\n\n_**Note:**_ _Be sure to have your sandbox ready so you can try out some of the concepts in your environment. Not everything can be done on a Sandbox (like Einstein), but most of it is._\n\n### Storefront Reference Architecture (SFRA) Overview\n\n-   [Webinar](https://salesforce.vidyard.com/watch/rgvLUk97rk1Kg58nYVcuy9?)\n-   [Slide Deck](https://org62.my.salesforce.com/sfc/p/#000000000062/a/3y000001RUL7/WABOD.HWfTOAp9saRlAVkrc7QesnH26Xj6mb_IkPk0M)\n\nThis webinar provides an overview of the positioning of SFRA and its features.\n\nSince this is what you will be developing in, it is a must-watch!\n\n## On to development\n\nThis is the part you have been waiting for right? Getting your hands \"dirty\" in the SFRA code, figuring out how to customize that storefront, and integrating some third-party systems!\n\n### SFRA Developer Guide\n\n-   [https://developer.salesforce.com/docs/commerce/sfra/guide/sfra-overview.html](https://developer.salesforce.com/docs/commerce/sfra/guide/sfra-overview.html)\n\nThe developer website of Commerce Cloud is targeted at you (yes, you. It says developer in the URL, right?)\n\nThis website will tell you how to get started with your SFRA implementation with:\n\n-   Information about SFRA in general\n-   UX Deep Dive\n-   Technical Deep Dive\n-   SFRA Fast Path webinars (development webinars)\n-   A list of tools and how to get access to GitHub repositories of SFRA\n-   Much more!\n\n### Partner Learning Camp\n\n![A screenshot of the Partner Learning Camp (PLC) that shows the \"Get Started on the B2C Commerce Fast Path to Certifications: Foundations\" course.](/media/2022/b2c-foundations-2daffad6c6.jpg)\n\n-   [https://partnerlearningcamp.salesforce.com](https://partnerlearningcamp.salesforce.com/s/browse-catalog?plc__recordId=5iuux101vYk2UQtOkwn9%2BpFhmsL%2F5jynd8uOnEFtSg4JjoBEe8yyDv9MajFikOJe)\n\n**This website is only available if you are a partner of Salesforce; if you are a customer, you will not be able to access this content (sorry).**\n\nHere you will find a complete self-study-guided course into Salesforce B2C Commerce Cloud SFRA development. It starts at setting up your environment (sandbox) and slowly moves you through all of the different concepts of SFRA development:\n\n-   Cartridges\n-   Controllers\n-   Models\n-   ISML\n-   Client-Side Javascript in SFRA\n-   Forms\n-   Transaction Management (Database)\n-   Jobs Framework\n-   OCAPI\n\n## Certification\n\nIf you're considering pursuing certification, congratulations! It's a great way to demonstrate your expertise and stand out. To help you prepare, I've compiled [a comprehensive list of valuable topics to study](https://www.rhino-inquisitor.com/preparing-for-the-b2c-commerce-developer-certification/). By taking the time to delve deep into these subjects, you'll expand your knowledge and better position yourself for success.\n\n## That's not all folks\n\nThe contents above will keep you busy for days and weeks (depending on whether you sleep.) But much more content is available to be seen, read, and heard!\n\nIn [a previous post](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-documentation), I listed more sites you can use in your journey!",
+  "conversionStatus": "converted",
+  "manualReviewRequired": false,
+  "fallbackTypes": [],
+  "conversionWarnings": [
+    {
+      "code": "missing-image-alt",
+      "message": "Image missing alt text in /getting-to-know-sfra-as-a-developer/."
+    }
+  ]
+}

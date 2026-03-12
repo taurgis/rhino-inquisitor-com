@@ -417,6 +417,7 @@ This runbook tracks the operational steps needed to move the repository from pla
 - Current validated contract for this workstream:
   - all staged launch-intended Markdown files must have non-empty `title`, `description`, `url`, `date`, and `lastmod`
   - post entries must carry at least one category in front matter
+  - category term bundles under `categories/**/_index.md` are validated as taxonomy metadata surfaces: they require `title`, `description`, `draft: false`, and no `noindex` signal, while `url`, `date`, and `lastmod` remain non-required for file-backed category term metadata
   - indexable staged content must not set `noindex` in either top-level or `seo.noindex` front matter
   - the validator performs sampled built-output checks for homepage, top-traffic pages from the Phase 1 baseline, category routes, video routes, backlink-backed routes, and merge-target routes when those routes are present in the built output
   - sampled HTML checks enforce canonical-to-target parity, sitemap inclusion, and that internal links do not point at legacy merge routes or missing built routes
@@ -474,13 +475,17 @@ This runbook tracks the operational steps needed to move the repository from pla
 - The mapper reads converted Phase 4 JSON artifacts from `migration/output/` and writes final staged Markdown files to:
   - `migration/output/content/posts/*.md`
   - `migration/output/content/pages/*.md`
+  - `migration/output/content/categories/**/_index.md`
 - Current validated 2026-03-10 behavior:
   - 171 keep/merge non-category records map successfully to staged Markdown
+  - category records now emit durable taxonomy term bundles under `migration/output/content/categories/**/_index.md`, keyed by canonical category target URLs rather than by legacy nested source paths
+  - when multiple category legacy routes collapse into the same canonical target, the mapper deduplicates the term bundle and prefers the `keep` record when one exists
   - `migration/reports/frontmatter-errors.csv` contains header-only output with zero data rows on the validated full run
   - `migration/reports/discovery-metadata-coverage.json` remains deterministic across reruns and reports 0 discovery-enriched records in the current corpus
   - 123 query-style `/?p=` aliases are intentionally excluded from front matter because the approved Phase 2 alias contract is path-only and the generated-content validator rejects non-path Hugo aliases
   - true featured-image linkage now survives extraction and normalization, so the mapper emits `heroImage` when `_raw.extracted.featuredImageUrl` is available; the current validated run produces `heroImage` for all 150 staged posts and 8 staged pages with true featured-image metadata
   - description generation now normalizes Markdown artifacts, avoids forced ... truncation, and prefers sentence-complete metadata text with a concise fallback suffix when source copy is too short
+  - category term descriptions now use the WordPress category description when present, and otherwise expand to a deterministic archive-description fallback sized for the SEO completeness target range
   - when `_raw.extracted.metaDescription` is present, the mapper now prefers that source metadata before falling back to excerpt/body-derived text, and Markdown link text is preserved during description normalization
   - optional durable metadata overrides now load from `migration/input/frontmatter-overrides.json`; entries are keyed by `sourceId` and may provide curated top-level `title` and `description` values before staged Markdown is generated
   - the current validated 2026-03-11 Batch 2 rerun applied 13 curated front matter override entries and restored the staged Batch 2 SEO completeness report to 0 warning rows and 0 failure rows after regeneration
@@ -521,13 +526,13 @@ This runbook tracks the operational steps needed to move the repository from pla
   - `migration/reports/url-parity-report.csv` is generated with the required columns `legacy_url`, `disposition`, `expected_target`, `actual_outcome`, `status`, `severity`
   - query-style legacy URLs that static Hugo output cannot represent are reported as `deferred-edge-redirect`
   - the first staged run produced 1201 parity rows with 38 failures, including 27 critical failures
-  - after the staged taxonomy-route fixes and the owner-approved delta-exports disposition correction, the latest staged run now reports 9 warning-level failures, 0 critical failures, and 528 deferred edge-layer rows
+  - after the staged taxonomy-route fixes, the owner-approved RHI-044 and RHI-045 category flattening decisions, and the delta-exports disposition correction, the latest staged run now reports 9 warning-level failures, 0 critical failures, and 541 deferred edge-layer rows
   - the remaining warning rows are unresolved keep URLs without source-backed staged content and should be treated as manifest/content cleanup rather than validator defects
   - the redirect integrity checker now reports 126 merge URLs with 0 critical failures; all 126 are currently deferred to the edge layer because 123 merge records are `/?p=` routes and 3 merge records now require edge handling
 - Static-hosting contract locked for this workstream:
   - 123 merge URLs and 402 retire URLs in `migration/url-manifest.json` are query-style legacy routes that Hugo cannot emit as distinct `public/` files
   - these rows remain valid Phase 4 reporting inputs, but full runtime redirect validation stays with the required edge redirect layer
-- The staged Hugo build now completes, but it still emits three `warning-goldmark-raw-html` warnings for generated posts; keep those warnings visible until the underlying conversion/rendering issue is resolved upstream.
+- The staged Hugo build now completes, but it still emits two `warning-goldmark-raw-html` warnings for generated posts; keep those warnings visible until the underlying conversion/rendering issue is resolved upstream.
 
 ### RHI-037 - Media Migration and Asset Hygiene
 

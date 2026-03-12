@@ -1,0 +1,62 @@
+{
+  "sourceId": "category:75",
+  "sourceType": "wxr",
+  "sourceChannels": [
+    "wxr"
+  ],
+  "postType": "category",
+  "status": "publish",
+  "titleRaw": "Podcasts",
+  "excerptRaw": "",
+  "bodyHtml": "",
+  "slug": "podcasts",
+  "publishedAt": "2026-03-10T10:03:55.501Z",
+  "modifiedAt": "2026-03-10T10:03:55.501Z",
+  "author": "system",
+  "categories": [],
+  "tags": [],
+  "legacyUrl": "/category/video/podcasts/",
+  "targetUrl": "/category/podcasts/",
+  "disposition": "merge",
+  "aliasUrls": [
+    "/category/video/podcasts/"
+  ],
+  "mediaRefs": [],
+  "_raw": {
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "status": "publish",
+    "titleRaw": "Podcasts",
+    "excerptRaw": "",
+    "publishedAt": null,
+    "modifiedAt": null,
+    "author": null,
+    "categories": [],
+    "tags": [],
+    "mediaRefs": [],
+    "manifest": {
+      "legacyUrl": "/category/video/podcasts/",
+      "targetUrl": "/category/podcasts/",
+      "disposition": "merge",
+      "redirectCode": 301,
+      "implementationLayer": "edge-cdn",
+      "urlClass": "category"
+    },
+    "normalization": {
+      "aliasUrlsDerivedFromSameTarget": [
+        "/category/video/podcasts/"
+      ],
+      "usedPublishedAtFallback": true,
+      "usedModifiedAtFallback": true,
+      "statusNormalizedFrom": "publish"
+    },
+    "extracted": {
+      "parentSlug": "video",
+      "featuredImageUrl": null
+    }
+  },
+  "bodyMarkdown": "",
+  "conversionStatus": "skipped",
+  "manualReviewRequired": false,
+  "fallbackTypes": [],
+  "conversionWarnings": []
+}

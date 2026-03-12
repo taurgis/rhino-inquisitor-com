@@ -36,24 +36,24 @@ Creating a service in the [LocalServiceRegistry](https://salesforcecommercecloud
 
 ```js
 var callTestGet = LocalServiceRegistry.createService("test.http.get", {
-        createRequest: function(svc: HTTPService, args) {
-              svc.client.enableCaching(1000);
-                svc.setRequestMethod("GET");
-        },
-        parseResponse: function(svc: HTTPService, client: HTTPClient) {
-            return client.text;
-        },
-        mockCall: function(svc: HTTPService, client: HTTPClient) {
-            return {
-                statusCode: 200,
-                statusMessage: "Success",
-                text: "MOCK RESPONSE (" + svc.URL + ")"
-            };
-        },
-        filterLogMessage: function(msg: String) {
-            return msg.replace("headers", "OFFWITHTHEHEADERS");
-        }
-    });
+    createRequest: function(svc: HTTPService, args) {
+          svc.client.enableCaching(1000);
+            svc.setRequestMethod("GET");
+    },
+    parseResponse: function(svc: HTTPService, client: HTTPClient) {
+        return client.text;
+    },
+    mockCall: function(svc: HTTPService, client: HTTPClient) {
+        return {
+            statusCode: 200,
+            statusMessage: "Success",
+            text: "MOCK RESPONSE (" + svc.URL + ")"
+        };
+    },
+    filterLogMessage: function(msg: String) {
+        return msg.replace("headers", "OFFWITHTHEHEADERS");
+    }
+});
 ```
 
 [In this snippet](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-webservices.html#configure-underlying-clients), the \`**enableCaching**\` method is invoked, enabling caching for the HTTP requests serviced by this configuration. The argument (in this case, \`1000\`) represents a timeout setting, which dictates how long a cached response will be valid before the subsequent request is made.

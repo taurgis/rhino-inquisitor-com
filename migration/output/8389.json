@@ -1,0 +1,111 @@
+{
+  "sourceId": "8389",
+  "sourceType": "wxr",
+  "sourceChannels": [
+    "filesystem",
+    "wxr"
+  ],
+  "postType": "post",
+  "status": "publish",
+  "titleRaw": "Custom Preferences in Salesforce B2C Commerce Cloud: A Developer Guide",
+  "excerptRaw": "",
+  "bodyHtml": "<p><a href=\"https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/\" target=\"_blank\" rel=\"noopener\">Salesforce B2C Commerce Cloud</a> uses custom preferences to store configurable settings for a storefront. These settings can be anything from feature settings to loyalty calculations.</p><p>Custom preferences can be created at two levels:</p><ul><li>global (organisation)</li><li>site</li></ul><p>As a Salesforce B2C Commerce Cloud developer, you must understand the differences between Global Preferences and Site Preferences and use each appropriately.</p>\t\t\n\t\t\t<h2>Global Custom Preferences</h2>\t\t\n\t\t<p><a style=\"font-size: 1.25rem;\" href=\"https://help.salesforce.com/s/articleView?language=en_US&amp;id=cc.b2c_global_preferences.htm\" target=\"_blank\" rel=\"noopener\">Global Preferences</a>&nbsp;are organisation-level preferences that any site within the environment can access. These preferences are ideal for settings that are common across all sites.&nbsp;</p>\n<p>For example, if all sites in an organisation use the same preference value, using a global value is your best bet. This can help reduce code duplication and make maintaining and updating settings across multiple sites more accessible.</p>\n<p>Global Preferences can be accessed using the System Preferences API:</p>\t\t\n\t\t\t<pre data-line=\"\">\n\t\t\t\t<code readonly=\"true\">\n\t\t\t\t\t<xmp>var System = require('dw/system');\nvar orgPrefs = System.getPreferences();\nvar myCustomPreference = orgPrefs.getCustom().myCustomPreference;</xmp>\n\t\t\t\t</code>\n\t\t\t</pre>\n\t\t<p>To add your preferences on this global level, head here in the Business Manager:</p><p><code>Administration &gt; Site Development &gt; System Object Types &gt; OrganizationPreferences</code></p>\t\t\n\t\t\t<h2>Site Specific Custom Preferences</h2>\t\t\n\t\t<p><a style=\"font-size: 1.25rem;\" href=\"https://help.salesforce.com/s/articleView?language=en_US&amp;id=cc.b2c_site_preferences.htm\" target=\"_blank\" rel=\"noopener\">Site Preferences</a> are site-level preferences that can only be accessed by the site to which they belong. These preferences are ideal for settings that are specific to a site. </p><p>For example, if a site has a particular loyalty program calculation not used by any other site, use Site Preferences. This can help ensure that settings are only applied to the site they belong to and do not affect other sites in the organisation.</p><p>Site Preferences can be accessed using the Site API:</p>\t\t\n\t\t\t<pre data-line=\"\">\n\t\t\t\t<code readonly=\"true\">\n\t\t\t\t\t<xmp>var Site = require('dw/system/Site');\nvar sitePrefs = Site.getCurrent().getCustom();\nvar loyaltyEnabled = sitePrefs.loyaltyEnabled;</xmp>\n\t\t\t\t</code>\n\t\t\t</pre>\n\t\t<p>To add your preferences on this site level, head here in the Business Manager:</p><p><code>Administration &gt;  Site Development &gt;  System Object Types &gt; Site Preferences</code></p>\t\t\n\t\t\t<h2>Code Config Files</h2>\t\t\n\t\t<p>Using a config file can be a better alternative to Custom Preferences. A config file is a file that stores application-specific settings that should not be modifiable in the Business Manager. This can be useful for settings that are not expected to change frequently, such as project-specific settings.</p>\t\t\n\t\t\t<pre data-line=\"\">\n\t\t\t\t<code readonly=\"true\">\n\t\t\t\t\t<xmp>// config.json\n{\n  \"loyaltyCalculation\": \"simple\"\n}\n// Using the config\nvar config = require('path/to/config.json');\nif(config.loyaltyCalculation === 'simple') {\n // Do some things\n}</xmp>\n\t\t\t\t</code>\n\t\t\t</pre>\n\t\t\tCartridge Overrides\n\t\t\t\t\t\t\tLike script files, using “*” in the path to allow overrides according to the set cartridge path is possible.\n\t\t\t<h2>Tips & Tricks</h2>\t\t\n\t\t\t<h3>Custom Attributes</h3>\t\t\n\t\t<p>If you have reviewed the sample code, you may have noticed that these preferences are similar to how you use custom attributes. That's because they are custom attributes on System Objects, just like any other extensible object within the <a href=\"https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-erd/\" target=\"_blank\" rel=\"noopener\">data model</a>.</p>\t\t\n\t\t\t<h3>Default Values</h3>\t\t\n\t\t<p>Luckily, we have the option to set default values for our preferences. This will make it easier if you have a large set of sites, but only one uses a different value than the one you have in mind as the default.</p><p>Another advantage of setting this default is that your preference will have a preset value right after deployment!</p>\t\t\n\t\t\tBooleans\n\t\t\t\t\t\t\tBooleans are an “odd beast” within Salesforce B2C Commerce Cloud. You would expect the default value of a Boolean always to exist and be “false”, but this is not the case. The default value of a Boolean is: “null”!\n\t\t\t<h3>Add Descriptions</h3>\t\t\n\t\t<p>When creating preferences in the business manager, add proper names and descriptions. This will make it easier for users and other developers to understand the purpose of this preference. Without it, it is like having a complication function in the code with no documentation to explain what it is up to!</p>\t\t\n\t\t\t<h3>Getting to the truth</h3>\t\t\n\t\t<p>Have you ever encountered a feature in Production that suddenly stopped working due to a preference update, leaving you scratching your head? Fear not! The \"<a href=\"https://help.salesforce.com/s/articleView?language=en_US&amp;id=cc.b2c_change_history.htm&amp;type=5\" target=\"_blank\" rel=\"noopener\">Change History</a>\" feature is here to save the day! It can help you track down the exact moment and preference that caused the chaos.</p>\t\t\n\t\t\t7 Days\n\t\t\t\t\t\t\tThe Change History only shows changes from the past seven days.\n\t\t\t<h2>SCAPI</h2>\t\t\n\t\t<p>Right now, there is no SCAPI endpoint available to fetch site preferences. Only OCAPI endpoints are available to fetch this information.</p>\t\t\n\t\t\t<h2>Conclusion</h2>\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<img width=\"800\" height=\"727\" src=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/10/global-preferenves-vs-site-specific-1024x930.png\" alt=\"A decision diagram of when to use which type of storage, visualising the article.\" loading=\"lazy\" srcset=\"https://www.rhino-inquisitor.com/wp-content/uploads/2023/10/global-preferenves-vs-site-specific-1024x930.png 1024w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/10/global-preferenves-vs-site-specific-300x272.png 300w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/10/global-preferenves-vs-site-specific-768x697.png 768w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/10/global-preferenves-vs-site-specific-1536x1395.png 1536w, https://www.rhino-inquisitor.com/wp-content/uploads/2023/10/global-preferenves-vs-site-specific-2048x1860.png 2048w\" sizes=\"(max-width: 800px) 100vw, 800px\" />\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t<p>Using the appropriate type of preference can help ensure that settings are applied correctly and efficiently. Each option has pros and cons, and make sure to weigh in roles and users in making these decisions!</p>",
+  "slug": "custom-preferences-in-sfcc",
+  "publishedAt": "2023-10-16T12:01:58.000Z",
+  "modifiedAt": "2023-10-16T18:11:19.000Z",
+  "author": "Thomas Theunen",
+  "categories": [
+    {
+      "name": "Salesforce Commerce Cloud",
+      "slug": "salesforce-commerce-cloud"
+    },
+    {
+      "name": "Technical",
+      "slug": "technical"
+    }
+  ],
+  "tags": [
+    {
+      "name": "sfcc",
+      "slug": "sfcc"
+    },
+    {
+      "name": "technical",
+      "slug": "technical"
+    }
+  ],
+  "legacyUrl": "/custom-preferences-in-sfcc/",
+  "targetUrl": "/custom-preferences-in-sfcc/",
+  "disposition": "keep",
+  "aliasUrls": [],
+  "mediaRefs": [
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/04/it-configuring-server-scaled.jpeg",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/10/global-preferenves-vs-site-specific-1024x930.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/10/global-preferenves-vs-site-specific-1536x1395.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/10/global-preferenves-vs-site-specific-2048x1860.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/10/global-preferenves-vs-site-specific-300x272.png",
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2023/10/global-preferenves-vs-site-specific-768x697.png"
+  ],
+  "_raw": {
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "status": "publish",
+    "titleRaw": "Custom Preferences in Salesforce B2C Commerce Cloud: A Developer Guide",
+    "excerptRaw": "",
+    "publishedAt": "2023-10-16T12:01:58.000Z",
+    "modifiedAt": "2023-10-16T18:11:19.000Z",
+    "author": "Thomas Theunen",
+    "categories": [
+      {
+        "name": "Salesforce Commerce Cloud",
+        "slug": "salesforce-commerce-cloud"
+      },
+      {
+        "name": "Technical",
+        "slug": "technical"
+      }
+    ],
+    "tags": [
+      {
+        "name": "sfcc",
+        "slug": "sfcc"
+      },
+      {
+        "name": "technical",
+        "slug": "technical"
+      }
+    ],
+    "mediaRefs": [
+      "https://www.rhino-inquisitor.com/wp-content/uploads/2023/10/global-preferenves-vs-site-specific-1024x930.png"
+    ],
+    "manifest": {
+      "legacyUrl": "/custom-preferences-in-sfcc/",
+      "targetUrl": "/custom-preferences-in-sfcc/",
+      "disposition": "keep",
+      "redirectCode": null,
+      "implementationLayer": "none",
+      "urlClass": "post"
+    },
+    "normalization": {
+      "aliasUrlsDerivedFromSameTarget": [],
+      "usedPublishedAtFallback": false,
+      "usedModifiedAtFallback": false,
+      "statusNormalizedFrom": "publish"
+    },
+    "extracted": {
+      "sourcePostType": "post",
+      "link": "/custom-preferences-in-sfcc/",
+      "guid": "/?p=8389",
+      "attachmentUrl": null,
+      "thumbnailId": "8390",
+      "metaDescription": null,
+      "postParent": "0",
+      "postMetaCount": 16,
+      "featuredImageUrl": "/wp-content/uploads/2023/04/it-configuring-server-scaled.jpeg"
+    }
+  },
+  "bodyMarkdown": "[Salesforce B2C Commerce Cloud](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/) uses custom preferences to store configurable settings for a storefront. These settings can be anything from feature settings to loyalty calculations.\n\nCustom preferences can be created at two levels:\n\n-   global (organisation)\n-   site\n\nAs a Salesforce B2C Commerce Cloud developer, you must understand the differences between Global Preferences and Site Preferences and use each appropriately.\n\n## Global Custom Preferences\n\n[Global Preferences](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_global_preferences.htm) are organisation-level preferences that any site within the environment can access. These preferences are ideal for settings that are common across all sites.\n\nFor example, if all sites in an organisation use the same preference value, using a global value is your best bet. This can help reduce code duplication and make maintaining and updating settings across multiple sites more accessible.\n\nGlobal Preferences can be accessed using the System Preferences API:\n\n```\n\n\t\t\t\t\tvar System = require('dw/system');\nvar orgPrefs = System.getPreferences();\nvar myCustomPreference = orgPrefs.getCustom().myCustomPreference;\n\n\n```\n\nTo add your preferences on this global level, head here in the Business Manager:\n\n`Administration > Site Development > System Object Types > OrganizationPreferences`\n\n## Site Specific Custom Preferences\n\n[Site Preferences](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_site_preferences.htm) are site-level preferences that can only be accessed by the site to which they belong. These preferences are ideal for settings that are specific to a site.\n\nFor example, if a site has a particular loyalty program calculation not used by any other site, use Site Preferences. This can help ensure that settings are only applied to the site they belong to and do not affect other sites in the organisation.\n\nSite Preferences can be accessed using the Site API:\n\n```\n\n\t\t\t\t\tvar Site = require('dw/system/Site');\nvar sitePrefs = Site.getCurrent().getCustom();\nvar loyaltyEnabled = sitePrefs.loyaltyEnabled;\n\n\n```\n\nTo add your preferences on this site level, head here in the Business Manager:\n\n`Administration > Site Development > System Object Types > Site Preferences`\n\n## Code Config Files\n\nUsing a config file can be a better alternative to Custom Preferences. A config file is a file that stores application-specific settings that should not be modifiable in the Business Manager. This can be useful for settings that are not expected to change frequently, such as project-specific settings.\n\n```\n\n\t\t\t\t\t// config.json\n{\n  \"loyaltyCalculation\": \"simple\"\n}\n// Using the config\nvar config = require('path/to/config.json');\nif(config.loyaltyCalculation === 'simple') {\n // Do some things\n}\n\n\n```\n\nCartridge Overrides Like script files, using “\\*” in the path to allow overrides according to the set cartridge path is possible.\n\n## Tips & Tricks\n\n### Custom Attributes\n\nIf you have reviewed the sample code, you may have noticed that these preferences are similar to how you use custom attributes. That's because they are custom attributes on System Objects, just like any other extensible object within the [data model](https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-erd/).\n\n### Default Values\n\nLuckily, we have the option to set default values for our preferences. This will make it easier if you have a large set of sites, but only one uses a different value than the one you have in mind as the default.\n\nAnother advantage of setting this default is that your preference will have a preset value right after deployment!\n\nBooleans Booleans are an “odd beast” within Salesforce B2C Commerce Cloud. You would expect the default value of a Boolean always to exist and be “false”, but this is not the case. The default value of a Boolean is: “null”!\n\n### Add Descriptions\n\nWhen creating preferences in the business manager, add proper names and descriptions. This will make it easier for users and other developers to understand the purpose of this preference. Without it, it is like having a complication function in the code with no documentation to explain what it is up to!\n\n### Getting to the truth\n\nHave you ever encountered a feature in Production that suddenly stopped working due to a preference update, leaving you scratching your head? Fear not! The \"[Change History](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_change_history.htm&type=5)\" feature is here to save the day! It can help you track down the exact moment and preference that caused the chaos.\n\n7 Days The Change History only shows changes from the past seven days.\n\n## SCAPI\n\nRight now, there is no SCAPI endpoint available to fetch site preferences. Only OCAPI endpoints are available to fetch this information.\n\n## Conclusion\n\n![A decision diagram of when to use which type of storage, visualising the article.](/media/2023/global-preferenves-vs-site-specific-3a997fcbab.png)\n\nUsing the appropriate type of preference can help ensure that settings are applied correctly and efficiently. Each option has pros and cons, and make sure to weigh in roles and users in making these decisions!",
+  "conversionStatus": "converted",
+  "manualReviewRequired": false,
+  "fallbackTypes": [],
+  "conversionWarnings": []
+}

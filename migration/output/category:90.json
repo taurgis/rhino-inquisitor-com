@@ -1,0 +1,62 @@
+{
+  "sourceId": "category:90",
+  "sourceType": "wxr",
+  "sourceChannels": [
+    "wxr"
+  ],
+  "postType": "category",
+  "status": "publish",
+  "titleRaw": "ERD",
+  "excerptRaw": "",
+  "bodyHtml": "",
+  "slug": "erd",
+  "publishedAt": "2026-03-10T10:03:55.501Z",
+  "modifiedAt": "2026-03-10T10:03:55.501Z",
+  "author": "system",
+  "categories": [],
+  "tags": [],
+  "legacyUrl": "/category/salesforce-commerce-cloud/erd/",
+  "targetUrl": "/category/erd/",
+  "disposition": "merge",
+  "aliasUrls": [
+    "/category/salesforce-commerce-cloud/erd/"
+  ],
+  "mediaRefs": [],
+  "_raw": {
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "status": "publish",
+    "titleRaw": "ERD",
+    "excerptRaw": "",
+    "publishedAt": null,
+    "modifiedAt": null,
+    "author": null,
+    "categories": [],
+    "tags": [],
+    "mediaRefs": [],
+    "manifest": {
+      "legacyUrl": "/category/salesforce-commerce-cloud/erd/",
+      "targetUrl": "/category/erd/",
+      "disposition": "merge",
+      "redirectCode": 301,
+      "implementationLayer": "edge-cdn",
+      "urlClass": "category"
+    },
+    "normalization": {
+      "aliasUrlsDerivedFromSameTarget": [
+        "/category/salesforce-commerce-cloud/erd/"
+      ],
+      "usedPublishedAtFallback": true,
+      "usedModifiedAtFallback": true,
+      "statusNormalizedFrom": "publish"
+    },
+    "extracted": {
+      "parentSlug": "salesforce-commerce-cloud",
+      "featuredImageUrl": null
+    }
+  },
+  "bodyMarkdown": "",
+  "conversionStatus": "skipped",
+  "manualReviewRequired": false,
+  "fallbackTypes": [],
+  "conversionWarnings": []
+}

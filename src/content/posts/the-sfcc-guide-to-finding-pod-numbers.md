@@ -101,7 +101,7 @@ This method is now largely historical ([migrated in 2023](https://help.salesforc
 
 Before the 2023 migration to a centralised logging platform, each POD had a dedicated Log Center application. The URL format explicitly included the POD number :
 
-`<https://logcenter-><POD-No.><Cylinder>-hippo.demandware.net/logcenter`
+`<https://logcenter-`><POD-No.>``<Cylinder>`-hippo.demandware.net/logcenter`
 
 The `<Cylinder>` value was also significant: `00` for a SIG (your sandboxes) and `01` for a PIG (Dev, Staging, Prod).
 

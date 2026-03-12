@@ -1,0 +1,131 @@
+{
+  "sourceId": "4801",
+  "sourceType": "wxr",
+  "sourceChannels": [
+    "wxr"
+  ],
+  "postType": "page",
+  "status": "publish",
+  "titleRaw": "Me, Myself, and Headless: A Composable Commerce Cloud story",
+  "excerptRaw": "",
+  "bodyHtml": "https://www.youtube.com/watch?v=DIk88MbB-Hc&#038;t=2355s<p>Salesforce Commerce Cloud has shifted its focus to investing in Headless development for the past two years. Mobify was acquired and rebranded to PWA Kit And Managed Runtime, providing the next headless storefront offering.</p><p><br />But the PWA Kit requires an entirely new way of development in React.js. Does that mean the knowledge you have built up of the Salesforce Commerce Cloud products will be thrown into the trash can in a few years? What if you don’t like React.js?</p><p><br />And what does “Composable Commerce” mean? Many terms are thrown around, confusing the Commerce space. At the end of this presentation, we hope to have eliminated some of this confusion.</p>",
+  "slug": "me-myself-and-headless-a-composable-commerce-cloud-story",
+  "publishedAt": "2022-09-10T17:03:23.000Z",
+  "modifiedAt": "2022-09-11T07:34:06.000Z",
+  "author": "Thomas Theunen",
+  "categories": [
+    {
+      "name": "Sessions",
+      "slug": "sessions"
+    },
+    {
+      "name": "Video",
+      "slug": "video"
+    }
+  ],
+  "tags": [
+    {
+      "name": "community-sessions",
+      "slug": "community-sessions"
+    },
+    {
+      "name": "session",
+      "slug": "session"
+    },
+    {
+      "name": "sfcc",
+      "slug": "sfcc"
+    },
+    {
+      "name": "technical",
+      "slug": "technical"
+    },
+    {
+      "name": "yeurdreamin'",
+      "slug": "yeurdreamin"
+    }
+  ],
+  "legacyUrl": "/me-myself-and-headless-a-composable-commerce-cloud-story/",
+  "targetUrl": "/me-myself-and-headless-a-composable-commerce-cloud-story/",
+  "disposition": "keep",
+  "aliasUrls": [
+    "/?p=4801"
+  ],
+  "mediaRefs": [
+    "https://www.rhino-inquisitor.com/wp-content/uploads/2022/09/image.jpg"
+  ],
+  "_raw": {
+    "sourceTimestamp": "2026-03-10T10:03:55.501Z",
+    "status": "publish",
+    "titleRaw": "Me, Myself, and Headless: A Composable Commerce Cloud story",
+    "excerptRaw": "",
+    "publishedAt": "2022-09-10T17:03:23.000Z",
+    "modifiedAt": "2022-09-11T07:34:06.000Z",
+    "author": "Thomas Theunen",
+    "categories": [
+      {
+        "name": "Sessions",
+        "slug": "sessions"
+      },
+      {
+        "name": "Video",
+        "slug": "video"
+      }
+    ],
+    "tags": [
+      {
+        "name": "community-sessions",
+        "slug": "community-sessions"
+      },
+      {
+        "name": "session",
+        "slug": "session"
+      },
+      {
+        "name": "sfcc",
+        "slug": "sfcc"
+      },
+      {
+        "name": "technical",
+        "slug": "technical"
+      },
+      {
+        "name": "yeurdreamin&#039;",
+        "slug": "yeurdreamin"
+      }
+    ],
+    "mediaRefs": [],
+    "manifest": {
+      "legacyUrl": "/me-myself-and-headless-a-composable-commerce-cloud-story/",
+      "targetUrl": "/me-myself-and-headless-a-composable-commerce-cloud-story/",
+      "disposition": "keep",
+      "redirectCode": null,
+      "implementationLayer": "none",
+      "urlClass": "page"
+    },
+    "normalization": {
+      "aliasUrlsDerivedFromSameTarget": [
+        "/?p=4801"
+      ],
+      "usedPublishedAtFallback": false,
+      "usedModifiedAtFallback": false,
+      "statusNormalizedFrom": "publish"
+    },
+    "extracted": {
+      "sourcePostType": "page",
+      "link": "/me-myself-and-headless-a-composable-commerce-cloud-story/",
+      "guid": "/?page_id=4801",
+      "attachmentUrl": null,
+      "thumbnailId": "4819",
+      "metaDescription": "Salesforce Commerce Cloud has shifted its focus to investing in Headless development for the past two years. Mobify was acquired!",
+      "postParent": "0",
+      "postMetaCount": 28,
+      "featuredImageUrl": "/wp-content/uploads/2022/09/image.jpg"
+    }
+  },
+  "bodyMarkdown": "https://www.youtube.com/watch?v=DIk88MbB-Hc&t=2355s\n\nSalesforce Commerce Cloud has shifted its focus to investing in Headless development for the past two years. Mobify was acquired and rebranded to PWA Kit And Managed Runtime, providing the next headless storefront offering.\n\n\nBut the PWA Kit requires an entirely new way of development in React.js. Does that mean the knowledge you have built up of the Salesforce Commerce Cloud products will be thrown into the trash can in a few years? What if you don’t like React.js?\n\n\nAnd what does “Composable Commerce” mean? Many terms are thrown around, confusing the Commerce space. At the end of this presentation, we hope to have eliminated some of this confusion.",
+  "conversionStatus": "converted",
+  "manualReviewRequired": false,
+  "fallbackTypes": [],
+  "conversionWarnings": []
+}

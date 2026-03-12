@@ -211,7 +211,9 @@ async function loadContentEntries(contentDir) {
       ? 'post'
       : relativePath.startsWith('pages/')
         ? 'page'
-        : 'other';
+        : relativePath.startsWith('categories/')
+          ? 'category'
+          : 'other';
     const route = typeof parsed.data.url === 'string' && parsed.data.url.trim()
       ? normalizeUrlLike(parsed.data.url).comparablePathOnly
       : null;
@@ -299,15 +301,15 @@ function validateFrontMatterEntry(entry, rows, failures, warnings) {
     }
   }
 
-  if (!isNonEmptyString(data.url) || !isValidUrlValue(String(data.url).trim())) {
+  if (entry.contentType !== 'category' && (!isNonEmptyString(data.url) || !isValidUrlValue(String(data.url).trim()))) {
     issues.push(issue('url_format', 'fail', 'critical', 'url must be lowercase, start with "/", and end with "/".', 'lowercase site-relative path', String(data.url ?? '')));
   }
 
-  if (!isIsoDateTime(data.date)) {
+  if (entry.contentType !== 'category' && !isIsoDateTime(data.date)) {
     issues.push(issue('date_iso8601', 'fail', 'high', 'date must be present and parseable as ISO 8601.', 'valid ISO 8601 datetime', String(data.date ?? '')));
   }
 
-  if (!isIsoDateTime(data.lastmod)) {
+  if (entry.contentType !== 'category' && !isIsoDateTime(data.lastmod)) {
     issues.push(issue('lastmod_iso8601', 'fail', 'high', 'lastmod must be present and parseable as ISO 8601.', 'valid ISO 8601 datetime', String(data.lastmod ?? '')));
   }
 
