@@ -14,6 +14,12 @@ const requiredEndpoints = {
   '/rss/': { disposition: 'merge', targetUrl: '/feed/' },
   '/privacy-policy/': null,
   '/sitemap.xml': { disposition: 'keep', targetUrl: '/sitemap.xml' },
+  '/sitemap_index.xml': { disposition: 'retire', targetUrl: null },
+  '/post-sitemap.xml': { disposition: 'retire', targetUrl: null },
+  '/page-sitemap.xml': { disposition: 'retire', targetUrl: null },
+  '/category-sitemap.xml': { disposition: 'retire', targetUrl: null },
+  '/video-sitemap.xml': { disposition: 'retire', targetUrl: null },
+  '/e-landing-page-sitemap.xml': { disposition: 'retire', targetUrl: null },
   '/robots.txt': { disposition: 'keep', targetUrl: '/robots.txt' },
   '/wp-admin/': { disposition: 'retire', targetUrl: null },
   '/wp-login.php': { disposition: 'retire', targetUrl: null }
