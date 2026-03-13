@@ -24,8 +24,6 @@ const defaults = {
 
 const feedCompatibilityRoutes = new Set(['/feed/', '/feed/rss/', '/feed/atom/']);
 const approvedPdfRedirectTargets = new Map([
-  ['/wp-content/uploads/2023/10/2d9abc21-7f77-4b94-81a5-07f15a0c28d3.pdf', '/getting-to-know-sfra-as-a-developer/'],
-  ['/wp-content/uploads/2023/11/b2c-commerce-variation-group-guide.pdf', '/slicing-versus-variation-groups-in-sfcc/'],
   ['/wp-content/uploads/2025/03/send_ext_order_feeds_to_einstein.pdf', '/ai-einstein-in-salesforce-b2c-commerce-cloud/']
 ]);
 const mediaExtensions = new Set([
@@ -169,6 +167,15 @@ async function ensureReadable(filePath) {
     await access(filePath);
   } catch (error) {
     throw new Error(`Required file is missing: ${toRepoRelative(filePath)}`);
+  }
+}
+
+async function fileExists(filePath) {
+  try {
+    await access(filePath);
+    return true;
+  } catch {
+    return false;
   }
 }
 
@@ -382,7 +389,9 @@ async function main() {
       continue;
     }
 
-    legacyAttachmentRoutes.push(entry.legacy_url);
+    if (entry.disposition !== 'keep') {
+      legacyAttachmentRoutes.push(entry.legacy_url);
+    }
 
     const directMediaTarget = mediaRedirectMap.get(toComparableUrlKey(entry.legacy_url));
     if (typeof directMediaTarget === 'string' && directMediaTarget.startsWith('/')) {
@@ -397,7 +406,7 @@ async function main() {
       continue;
     }
 
-    if (resourceType === 'pdf') {
+    if (resourceType === 'pdf' && entry.disposition !== 'keep') {
       const owningContentUrl = findOwningContentUrl(entry.legacy_url, contentEntries);
 
       if (!owningContentUrl) {
@@ -422,6 +431,13 @@ async function main() {
         owner: 'engineering-owner'
       }));
       continue;
+    }
+
+    if (resourceType === 'pdf' && entry.disposition === 'keep') {
+      const expectedPublicFile = path.join(options.publicRoot, entry.legacy_url.replace(/^\//u, ''));
+      if (!(await fileExists(expectedPublicFile))) {
+        issues.push(`Kept PDF is missing from built output: ${entry.legacy_url}`);
+      }
     }
 
     const normalizedDisposition = normalizeDisposition(entry.disposition);

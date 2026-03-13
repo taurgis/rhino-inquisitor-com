@@ -1,4 +1,7 @@
 url_class,priority,disposition,record_count,with_organic_traffic,with_external_links,with_both_signals
-attachment,high,retire,38,38,38,38
-pagination,high,retire,53,53,53,53
-system,high,retire,41,41,41,41
+attachment,high,retire,36,36,0,0
+category,critical,merge,1,1,1,1
+category,high,merge,11,11,0,0
+page,high,merge,1,1,0,0
+pagination,high,retire,53,53,0,0
+system,high,retire,40,40,0,0

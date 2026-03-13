@@ -181,9 +181,9 @@ legacy_url,resource_type,disposition,target_url,index_control_needed,implementat
 /wp-content/uploads/2023/07/generating-a-post-title.jpg,media,redirect,/media/2023/generating-a-post-title-36528f6a0f.jpg,no,edge-cdn,yes,engineering-owner
 /wp-content/uploads/2023/07/github-copilot-react.jpg,media,redirect,/media/2023/github-copilot-react-e4aab607d7.jpg,no,edge-cdn,yes,engineering-owner
 /wp-content/uploads/2023/07/grammarly-and-content.jpg,media,redirect,/media/2023/grammarly-and-content-cf057efe86.jpg,no,edge-cdn,yes,engineering-owner
-/wp-content/uploads/2023/10/2d9abc21-7f77-4b94-81a5-07f15a0c28d3.pdf,pdf,redirect,/getting-to-know-sfra-as-a-developer/,no,edge-cdn,yes,engineering-owner
+/wp-content/uploads/2023/10/2d9abc21-7f77-4b94-81a5-07f15a0c28d3.pdf,pdf,keep,null,no,pages-static,no,seo-owner
 /wp-content/uploads/2023/10/ecdn-renewable-certificates.png,media,redirect,/media/2023/ecdn-renewable-certificates-ae09665c51.png,no,edge-cdn,yes,engineering-owner
-/wp-content/uploads/2023/11/b2c-commerce-variation-group-guide.pdf,pdf,redirect,/slicing-versus-variation-groups-in-sfcc/,no,edge-cdn,yes,engineering-owner
+/wp-content/uploads/2023/11/B2C-Commerce-Variation-Group-Guide.pdf,pdf,keep,null,no,pages-static,no,seo-owner
 /wp-content/uploads/2023/11/base-variation-group-variant-explained.png,media,redirect,/media/2023/base-variation-group-variant-explained-ed19da17b7.png,no,edge-cdn,yes,engineering-owner
 /wp-content/uploads/2023/11/job-import-generic-mapping.jpg,media,redirect,/media/2023/job-import-generic-mapping-2cce4b36aa.jpg,no,edge-cdn,yes,engineering-owner
 /wp-content/uploads/2023/11/variations-quota-limit-sfcc.png,media,redirect,/media/2023/variations-quota-limit-sfcc-00862ef947.png,no,edge-cdn,yes,engineering-owner
