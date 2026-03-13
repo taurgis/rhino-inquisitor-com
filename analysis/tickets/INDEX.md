@@ -93,7 +93,7 @@ This is the top-level ticket index for the full migration project. Use the phase
 | [RHI-062](phase-6/RHI-062-redirect-architecture-decision.md) | Redirect Architecture Decision Record | 6 | Critical | Done | S | 2026-05-06 |
 | [RHI-063](phase-6/RHI-063-legacy-url-inventory-finalization.md) | Workstream A — Legacy URL Inventory Finalization | 6 | Critical | Done | M | 2026-05-07 |
 | [RHI-064](phase-6/RHI-064-redirect-mapping-intent-review.md) | Workstream B — Redirect Mapping Specification and Intent Review | 6 | Critical | Done | M | 2026-05-08 |
-| [RHI-065](phase-6/RHI-065-hugo-route-preservation-alias-integration.md) | Workstream C — Hugo Route Preservation and Alias Integration | 6 | Critical | Open | L | 2026-05-09 |
+| [RHI-065](phase-6/RHI-065-hugo-route-preservation-alias-integration.md) | Workstream C — Hugo Route Preservation and Alias Integration | 6 | Critical | Done | L | 2026-05-09 |
 | [RHI-066](phase-6/RHI-066-host-protocol-canonical-consolidation.md) | Workstream D — Host and Protocol Canonical Consolidation | 6 | High | Open | M | 2026-05-12 |
 | [RHI-067](phase-6/RHI-067-retirement-error-path-governance.md) | Workstream E — Retirement and Error Path Governance | 6 | High | Open | M | 2026-05-12 |
 | [RHI-068](phase-6/RHI-068-security-privacy-redirect-controls.md) | Workstream F — Security and Privacy Controls for Redirect Logic | 6 | High | Open | S | 2026-05-13 |
