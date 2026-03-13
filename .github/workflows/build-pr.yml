@@ -461,7 +461,6 @@ jobs:
 
       - name: Run performance baseline
         id: performance_check
-        continue-on-error: true
         run: npm run check:perf
 
       - name: Summarize performance result
@@ -469,7 +468,18 @@ jobs:
         shell: bash
         run: |
           if [[ "${{ steps.performance_check.outcome }}" == "success" ]]; then
-            echo "Performance baseline passed." >> "$GITHUB_STEP_SUMMARY"
+            echo "Performance gate passed." >> "$GITHUB_STEP_SUMMARY"
           else
-            echo "Performance baseline failed. Fix it or record a Phase 3 risk acceptance before RHI-030 closes." >> "$GITHUB_STEP_SUMMARY"
+            echo "Performance gate failed. RHI-054 now treats this as a blocking Phase 5 regression." >> "$GITHUB_STEP_SUMMARY"
           fi
+
+      - name: Upload Lighthouse artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr-lhci-artifacts-${{ github.run_id }}
+          path: |
+            tmp/lhci
+            public
+          if-no-files-found: error
+          retention-days: 7

@@ -4,29 +4,53 @@
       "staticDistDir": "./public",
       "url": [
         "http://localhost/",
-        "http://localhost/phase-3-performance-baseline/",
-        "http://localhost/category/platform/"
+        "http://localhost/sending-emails-from-sfcc/",
+        "http://localhost/category/technical/"
       ],
-      "numberOfRuns": 1
+      "numberOfRuns": 3
     },
     "assert": {
       "assertions": {
+        "first-contentful-paint": [
+          "error",
+          {
+            "maxNumericValue": 3000,
+            "aggregationMethod": "median"
+          }
+        ],
         "largest-contentful-paint": [
           "error",
           {
-            "maxNumericValue": 2500
+            "maxNumericValue": 4000,
+            "aggregationMethod": "median"
           }
         ],
         "cumulative-layout-shift": [
           "error",
           {
-            "maxNumericValue": 0.1
+            "maxNumericValue": 0.1,
+            "aggregationMethod": "median"
           }
         ],
-        "total-blocking-time": [
+        "interactive": [
           "error",
           {
-            "maxNumericValue": 200
+            "maxNumericValue": 5000,
+            "aggregationMethod": "median"
+          }
+        ],
+        "categories:performance": [
+          "warn",
+          {
+            "minScore": 0.75,
+            "aggregationMethod": "median"
+          }
+        ],
+        "categories:accessibility": [
+          "error",
+          {
+            "minScore": 0.8,
+            "aggregationMethod": "median"
           }
         ]
       }

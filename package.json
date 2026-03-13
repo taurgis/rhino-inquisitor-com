@@ -50,7 +50,8 @@
     "check:a11y-content": "node scripts/migration/check-a11y-content.js",
     "check:a11y": "npm run build:prod && node scripts/check-a11y.js",
     "check:perf:budget": "node scripts/check-perf-budget.js",
-    "check:perf": "npm run build:prod && npm run check:perf:budget && lhci autorun --config=./lighthouserc.json"
+    "check:perf:gate": "rm -rf tmp/lhci && npm run check:perf:budget && lhci autorun --config=./lighthouserc.json && node scripts/check-perf-report.js",
+    "check:perf": "npm run build:prod && npm run check:perf:gate"
   },
   "dependencies": {
     "@joplin/turndown-plugin-gfm": "^1.0.64",

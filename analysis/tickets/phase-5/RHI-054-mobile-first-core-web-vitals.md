@@ -1,6 +1,6 @@
 ## RHI-054 · Workstream G — Mobile-First and Core Web Vitals Controls
 
-**Status:** Open  
+**Status:** Done  
 **Priority:** High  
 **Estimate:** M  
 **Phase:** 5  
@@ -114,11 +114,11 @@ Google uses mobile-first indexing: the mobile version of a page determines its i
 
 ### Outcomes
 
-{Leave blank until work is complete.}
+Implemented a blocking Phase 5 mobile-first performance gate across the representative homepage, article, and category routes. The gate now combines static HTML/mobile-parity validation, hero-image loading rules, JS budget enforcement, responsive-image markup, and Lighthouse CI thresholds aligned to the ticket policy.
 
 **Delivered artefacts:**
 
-- `lighthouserc.js` with assertions for representative templates
+- `lighthouserc.json` with assertions for representative templates
 - `package.json` updated with `check:perf` script
 - CI workflow updated with `check:perf` blocking gate
 - Mobile parity validation notes recorded in Progress Log
@@ -135,6 +135,7 @@ Google uses mobile-first indexing: the mobile version of a page determines its i
 | Date | Status | Note |
 |------|--------|------|
 | 2026-03-07 | Open | Ticket created |
+| 2026-03-13 | Done | Added ticket-aligned Lighthouse CI thresholds for `/`, `/sending-emails-from-sfcc/`, and `/category/technical/`; promoted PR and deploy performance checks to blocking gates; added static mobile-parity and hero-image validation; emitted responsive `srcset`/`sizes` from shared Hugo image partials; archived Lighthouse artifacts in CI. |
 
 ---
 

@@ -18,6 +18,9 @@
             "alt" ($.Params.heroImageAlt | default $.LinkTitle | default $.Title)
             "loading" "eager"
             "decoding" "sync"
+            "fetchpriority" "high"
+            "responsive" true
+            "sizes" "(min-width: 80rem) 72rem, 100vw"
           ) }}
         </div>
       {{ end }}

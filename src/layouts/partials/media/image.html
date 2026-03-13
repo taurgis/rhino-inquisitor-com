@@ -25,7 +25,10 @@
 {{- $class := delimit $classNames " " -}}
 {{- $loading := .loading | default "lazy" -}}
 {{- $decoding := .decoding | default "async" -}}
+{{- $fetchpriority := .fetchpriority | default "" -}}
 {{- $style := .style | default "" -}}
+{{- $sizes := .sizes | default "" -}}
+{{- $responsive := .responsive | default false -}}
 {{- $resource := false -}}
 {{- $globalResourcePath := strings.TrimPrefix "/" $requestedSrc -}}
 
@@ -43,12 +46,30 @@
 {{- $resolvedSrc := $requestedSrc -}}
 {{- $width := .width | default 0 -}}
 {{- $height := .height | default 0 -}}
+{{- $srcset := "" -}}
 
 {{- if and $resource (reflect.IsImageResourceProcessable $resource) -}}
   {{- $processed := $resource.Process "webp q80" -}}
   {{- $resolvedSrc = $processed.RelPermalink -}}
   {{- $width = $processed.Width -}}
   {{- $height = $processed.Height -}}
+  {{- if $responsive -}}
+    {{- $srcsetEntries := slice -}}
+    {{- range slice 768 1280 -}}
+      {{- if lt . $processed.Width -}}
+        {{- with $resource.Resize (printf "%dx webp q80" .) -}}
+          {{- $srcsetEntries = $srcsetEntries | append (printf "%s %dw" .RelPermalink .Width) -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+    {{- $srcsetEntries = $srcsetEntries | append (printf "%s %dw" $processed.RelPermalink $processed.Width) -}}
+    {{- if gt (len $srcsetEntries) 1 -}}
+      {{- $srcset = delimit $srcsetEntries ", " -}}
+      {{- if eq $sizes "" -}}
+        {{- $sizes = "100vw" -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
 {{- else if and $resource (reflect.IsImageResourceWithMeta $resource) -}}
   {{- $resolvedSrc = $resource.RelPermalink -}}
   {{- $width = $resource.Width -}}
@@ -64,7 +85,10 @@
   height="{{ $height }}"
   loading="{{ $loading }}"
   decoding="{{ $decoding }}"
+  {{ with $fetchpriority }}fetchpriority="{{ . }}"{{ end }}
   class="{{ $class }}"
+  {{ with $srcset }}srcset="{{ . }}"{{ end }}
+  {{ with $sizes }}sizes="{{ . }}"{{ end }}
   {{ if $decorative }}role="presentation" aria-hidden="true"{{ end }}
   {{ with $style }}style="{{ . }}"{{ end }}
 >

@@ -23,6 +23,9 @@
         "src" $page.Params.heroImage
         "alt" ($page.Params.heroImageAlt | default $page.LinkTitle | default $page.Title)
         "loading" (cond (eq $variant "featured") "eager" "lazy")
+        "fetchpriority" (cond (eq $variant "featured") "high" "")
+        "responsive" true
+        "sizes" (cond (eq $variant "featured") "(min-width: 64rem) 36rem, 100vw" "(min-width: 64rem) 20rem, 100vw")
       ) }}
     </div>
   {{ end }}
