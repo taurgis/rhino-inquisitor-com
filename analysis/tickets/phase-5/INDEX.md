@@ -16,9 +16,9 @@
 | [RHI-047](RHI-047-phase-5-bootstrap.md) | Phase 5 Bootstrap: Kickoff and SEO Governance Environment Setup | Setup | Critical | Done | S | 2026-04-09 | RHI-030 |
 | [RHI-048](RHI-048-metadata-canonical-architecture.md) | Workstream A — Metadata and Canonical Signal Architecture | WS-A | Critical | Done | M | 2026-04-11 | RHI-047 |
 | [RHI-049](RHI-049-redirect-url-consolidation-signals.md) | Workstream B — Redirect and URL Consolidation Signals | WS-B | Critical | Done | M | 2026-04-14 | RHI-047 |
-| [RHI-050](RHI-050-crawlability-indexing-controls.md) | Workstream C — Crawlability and Indexing Controls | WS-C | Critical | Open | M | 2026-04-14 | RHI-047 |
+| [RHI-050](RHI-050-crawlability-indexing-controls.md) | Workstream C — Crawlability and Indexing Controls | WS-C | Critical | Done | M | 2026-04-14 | RHI-047 |
 | [RHI-051](RHI-051-sitemap-feed-discovery-continuity.md) | Workstream D — Sitemap, Feed, and Discovery Surface Continuity | WS-D | High | Done | M | 2026-04-16 | RHI-047, RHI-048 |
-| [RHI-052](RHI-052-structured-data-rich-result-readiness.md) | Workstream E — Structured Data and Rich-Result Readiness | WS-E | High | Open | M | 2026-04-18 | RHI-047 |
+| [RHI-052](RHI-052-structured-data-rich-result-readiness.md) | Workstream E — Structured Data and Rich-Result Readiness | WS-E | High | Done | M | 2026-04-18 | RHI-047 |
 | [RHI-053](RHI-053-internal-linking-ia-signals.md) | Workstream F — Internal Linking and Information Architecture Signals | WS-F | High | Done | M | 2026-04-18 | RHI-047, RHI-048 |
 | [RHI-054](RHI-054-mobile-first-core-web-vitals.md) | Workstream G — Mobile-First and Core Web Vitals Controls | WS-G | High | Done | M | 2026-04-22 | RHI-047 |
 | [RHI-055](RHI-055-image-video-seo-integrity.md) | Workstream H — Image and Video SEO Integrity | WS-H | Medium | Done | M | 2026-04-22 | RHI-047, RHI-052 |
@@ -26,7 +26,7 @@
 | [RHI-057](RHI-057-search-console-monitoring-program.md) | Workstream J — Search Console and Analytics Monitoring Program | WS-J | High | Done | M | 2026-04-24 | RHI-047, RHI-051 |
 | [RHI-058](RHI-058-non-html-resource-seo-controls.md) | Workstream K — Non-HTML Resource SEO Controls | WS-K | Medium | Done | S | 2026-04-25 | RHI-047 |
 | [RHI-059](RHI-059-github-pages-limits-artifact-integrity.md) | Workstream L — GitHub Pages Limits and Artifact Integrity | WS-L | High | Done | S | 2026-04-25 | RHI-047, RHI-049 |
-| [RHI-060](RHI-060-phase-5-signoff.md) | Phase 5 Sign-off and Handover to Phase 6/8 | Sign-off | Critical | Open | S | 2026-05-02 | RHI-047 through RHI-059 |
+| [RHI-060](RHI-060-phase-5-signoff.md) | Phase 5 Sign-off and Handover to Phase 6/8 | Sign-off | Critical | Done | S | 2026-05-02 | RHI-047 through RHI-059 |
 
 ---
 
@@ -135,9 +135,9 @@ All items below must be complete before Phase 6 and Phase 8 downstream work can 
 - [x] RHI-047 Done — Phase 5 Bootstrap; Phase 3 contracts and tooling environment confirmed
 - [x] RHI-048 Done — Metadata completeness 100%; canonical policy documented and CI gate passing
 - [x] RHI-049 Done — Zero redirect chains/loops; redirect mechanism documented per URL class; 5% escalation decision made
-- [ ] RHI-050 Done — Zero unintended noindex on indexable pages; zero robots/noindex contradiction; staging suppression verified
+- [x] RHI-050 Done — Zero unintended noindex on indexable pages; zero robots/noindex contradiction; staging suppression verified
 - [x] RHI-051 Done — Sitemap valid and canonical-consistent; feed endpoint operational; `/feed/` must-resolve behavior implemented
-- [ ] RHI-052 Done — Zero critical schema property errors on representative templates; VideoObject scope confirmed
+- [x] RHI-052 Done — Zero critical schema property errors on representative templates; VideoObject scope confirmed
 - [x] RHI-053 Done — Zero broken internal links on critical templates; zero orphan pages in representative set
 - [x] RHI-054 Done — Lighthouse assertions passing on representative templates; mobile parity confirmed
 - [x] RHI-055 Done — Zero broken images; zero missing alt text on non-decorative images; video watch-page indexability confirmed
@@ -145,7 +145,7 @@ All items below must be complete before Phase 6 and Phase 8 downstream work can 
 - [x] RHI-057 Done — Monitoring runbook committed; Search Console access confirmed; pre-launch baselines captured
 - [x] RHI-058 Done — Non-HTML policy implemented per URL class; no unresolved index-control blockers; edge-layer escalations documented
 - [x] RHI-059 Done — Artifact within size limit; no symbolic links; `.nojekyll` present; current DNS state recorded; GitHub Pages settings and HTTPS verification deferred to Phase 9 by owner approval
-- [ ] RHI-060 Done — All Phase 5 gates green; SEO contract and sign-off committed; Phase 6/8 notified and acknowledged
+- [x] RHI-060 Done — All Phase 5 gates green; SEO contract and sign-off committed; Phase 6/8 notified and acknowledged
 
 ---
 

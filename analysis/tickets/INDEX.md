@@ -17,7 +17,7 @@ This is the top-level ticket index for the full migration project. Use the phase
 | 2 | Stack and Architecture Decision | RHI-010 – RHI-018 | Open | [phase-2/INDEX.md](phase-2/INDEX.md) |
 | 3 | Repository Scaffolding and Quality Baseline | RHI-019 – RHI-030, RHI-104 – RHI-105 | Open | [phase-3/INDEX.md](phase-3/INDEX.md) |
 | 4 | Content Migration Pipeline | RHI-031 – RHI-046, RHI-106 | Done | [phase-4/INDEX.md](phase-4/INDEX.md) |
-| 5 | SEO and Discoverability | RHI-047 – RHI-060 | Open | [phase-5/INDEX.md](phase-5/INDEX.md) |
+| 5 | SEO and Discoverability | RHI-047 – RHI-060 | Done | [phase-5/INDEX.md](phase-5/INDEX.md) |
 | 6 | URL Preservation and Redirect Strategy | RHI-061 – RHI-072 | Open | [phase-6/INDEX.md](phase-6/INDEX.md) |
 | 7 | GitHub Pages Preview Deployment and Domain Cutover Readiness | RHI-073 – RHI-082 | Open | [phase-7/INDEX.md](phase-7/INDEX.md) |
 | 8 | Validation and Launch Readiness | RHI-083 – RHI-092 | Open | [phase-8/INDEX.md](phase-8/INDEX.md) |
@@ -78,17 +78,17 @@ This is the top-level ticket index for the full migration project. Use the phase
 | [RHI-047](phase-5/RHI-047-phase-5-bootstrap.md) | Phase 5 Bootstrap: Kickoff and SEO Governance Environment Setup | 5 | Critical | Done | S | 2026-04-09 |
 | [RHI-048](phase-5/RHI-048-metadata-canonical-architecture.md) | Workstream A — Metadata and Canonical Signal Architecture | 5 | Critical | Done | M | 2026-04-11 |
 | [RHI-049](phase-5/RHI-049-redirect-url-consolidation-signals.md) | Workstream B — Redirect and URL Consolidation Signals | 5 | Critical | Done | M | 2026-04-14 |
-| [RHI-050](phase-5/RHI-050-crawlability-indexing-controls.md) | Workstream C — Crawlability and Indexing Controls | 5 | Critical | Open | M | 2026-04-14 |
+| [RHI-050](phase-5/RHI-050-crawlability-indexing-controls.md) | Workstream C — Crawlability and Indexing Controls | 5 | Critical | Done | M | 2026-04-14 |
 | [RHI-051](phase-5/RHI-051-sitemap-feed-discovery-continuity.md) | Workstream D — Sitemap, Feed, and Discovery Surface Continuity | 5 | High | Done | M | 2026-04-16 |
-| [RHI-052](phase-5/RHI-052-structured-data-rich-result-readiness.md) | Workstream E — Structured Data and Rich-Result Readiness | 5 | High | Open | M | 2026-04-18 |
+| [RHI-052](phase-5/RHI-052-structured-data-rich-result-readiness.md) | Workstream E — Structured Data and Rich-Result Readiness | 5 | High | Done | M | 2026-04-18 |
 | [RHI-053](phase-5/RHI-053-internal-linking-ia-signals.md) | Workstream F — Internal Linking and Information Architecture Signals | 5 | High | Done | M | 2026-04-18 |
 | [RHI-054](phase-5/RHI-054-mobile-first-core-web-vitals.md) | Workstream G — Mobile-First and Core Web Vitals Controls | 5 | High | Done | M | 2026-04-22 |
 | [RHI-055](phase-5/RHI-055-image-video-seo-integrity.md) | Workstream H — Image and Video SEO Integrity | 5 | Medium | Done | M | 2026-04-22 |
 | [RHI-056](phase-5/RHI-056-accessibility-discoverability-support.md) | Workstream I — Accessibility as Discoverability Support | 5 | Medium | Done | M | 2026-04-23 |
-| [RHI-057](phase-5/RHI-057-search-console-monitoring-program.md) | Workstream J — Search Console and Analytics Monitoring Program | 5 | High | Open | M | 2026-04-24 |
-| [RHI-058](phase-5/RHI-058-non-html-resource-seo-controls.md) | Workstream K — Non-HTML Resource SEO Controls | 5 | Medium | Open | S | 2026-04-25 |
-| [RHI-059](phase-5/RHI-059-github-pages-limits-artifact-integrity.md) | Workstream L — GitHub Pages Limits and Artifact Integrity | 5 | High | Open | S | 2026-04-25 |
-| [RHI-060](phase-5/RHI-060-phase-5-signoff.md) | Phase 5 Sign-off and Handover to Phase 6/8 | 5 | Critical | Open | S | 2026-05-02 |
+| [RHI-057](phase-5/RHI-057-search-console-monitoring-program.md) | Workstream J — Search Console and Analytics Monitoring Program | 5 | High | Done | M | 2026-04-24 |
+| [RHI-058](phase-5/RHI-058-non-html-resource-seo-controls.md) | Workstream K — Non-HTML Resource SEO Controls | 5 | Medium | Done | S | 2026-04-25 |
+| [RHI-059](phase-5/RHI-059-github-pages-limits-artifact-integrity.md) | Workstream L — GitHub Pages Limits and Artifact Integrity | 5 | High | Done | S | 2026-04-25 |
+| [RHI-060](phase-5/RHI-060-phase-5-signoff.md) | Phase 5 Sign-off and Handover to Phase 6/8 | 5 | Critical | Done | S | 2026-05-02 |
 | [RHI-061](phase-6/RHI-061-phase-6-bootstrap.md) | Phase 6 Bootstrap: Kickoff and Redirect Governance Environment Setup | 6 | Critical | Open | S | 2026-05-05 |
 | [RHI-062](phase-6/RHI-062-redirect-architecture-decision.md) | Redirect Architecture Decision Record | 6 | Critical | Open | S | 2026-05-06 |
 | [RHI-063](phase-6/RHI-063-legacy-url-inventory-finalization.md) | Workstream A — Legacy URL Inventory Finalization | 6 | Critical | Open | M | 2026-05-07 |
