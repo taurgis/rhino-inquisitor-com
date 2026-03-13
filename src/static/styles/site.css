@@ -1335,6 +1335,205 @@ summary {
 .article-body td > :last-child {
   margin-bottom: 0;
 }
+
+/* ── Realm split checklist matrix ── */
+.realm-split-checklist {
+  display: grid;
+  gap: 1rem;
+  margin: 1.75rem 0;
+  padding: clamp(1rem, 2vw, 1.4rem);
+  border: 1px solid rgba(10, 95, 200, 0.14);
+  border-radius: calc(var(--radius-xl) - 0.25rem);
+  background:
+    radial-gradient(circle at top right, rgba(11, 198, 211, 0.14), transparent 34%),
+    linear-gradient(180deg, rgba(10, 95, 200, 0.06) 0%, rgba(255, 255, 255, 0.98) 42%);
+  box-shadow: var(--shadow-edge);
+}
+
+.realm-split-checklist__intro {
+  display: grid;
+  gap: 0.35rem;
+  max-width: 42rem;
+}
+
+.realm-split-checklist__eyebrow {
+  margin: 0;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-strong);
+}
+
+.realm-split-checklist__summary {
+  margin: 0;
+  color: var(--ink-default);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.realm-split-checklist__hint {
+  display: none;
+  margin: 0;
+  color: var(--ink-muted);
+  font-size: 0.9rem;
+}
+
+.realm-split-checklist__scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid rgba(16, 33, 58, 0.12);
+  border-radius: calc(var(--radius-xl) - 0.5rem);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.92);
+}
+
+.realm-split-checklist__scroll:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 4px;
+}
+
+.realm-split-checklist__table {
+  display: table;
+  width: max(100%, 43rem);
+  min-width: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+  background: transparent;
+  box-shadow: none;
+}
+
+.realm-split-checklist__col--object {
+  width: 19%;
+}
+
+.realm-split-checklist__col--timing {
+  width: 20%;
+}
+
+.realm-split-checklist__col--risk {
+  width: 39%;
+}
+
+.realm-split-checklist__col--owner {
+  width: 22%;
+}
+
+.realm-split-checklist__table th,
+.realm-split-checklist__table td {
+  min-width: 0;
+  padding: 1rem 1.05rem;
+  text-align: left;
+  vertical-align: top;
+  border-right: 1px solid rgba(16, 33, 58, 0.08);
+  border-bottom: 1px solid rgba(16, 33, 58, 0.08);
+}
+
+.realm-split-checklist__table th {
+  padding-top: 0.9rem;
+  padding-bottom: 0.9rem;
+  color: var(--ink-muted);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, #e8f2ff 0%, #dfeafb 100%);
+}
+
+.realm-split-checklist__table td {
+  color: var(--ink-default);
+  line-height: 1.65;
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.realm-split-checklist__table tbody tr:nth-child(even) td {
+  background: rgba(248, 251, 255, 0.95);
+}
+
+.realm-split-checklist__table tbody tr:hover td {
+  background: rgba(10, 95, 200, 0.045);
+}
+
+.realm-split-checklist__table th:last-child,
+.realm-split-checklist__table td:last-child {
+  border-right: 0;
+}
+
+.realm-split-checklist__table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.realm-split-checklist__table td:first-child {
+  color: var(--ink-strong);
+  font-size: 1.02rem;
+}
+
+.realm-split-checklist__table td:first-child strong {
+  display: block;
+}
+
+.realm-split-checklist__table td:last-child {
+  color: var(--ink-muted);
+  font-weight: 700;
+}
+
+.realm-split-checklist__stack {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.realm-split-checklist__stack p {
+  margin: 0;
+}
+
+.realm-split-checklist__flag {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 0.45rem 0.2rem 0;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.realm-split-checklist__flag--support {
+  color: #075985;
+  background: rgba(14, 165, 233, 0.12);
+}
+
+.realm-split-checklist__flag--neutral {
+  color: var(--ink-muted);
+  background: rgba(76, 97, 119, 0.12);
+}
+
+.realm-split-checklist__flag--warning {
+  color: #9a3412;
+  background: rgba(245, 158, 11, 0.16);
+}
+
+.realm-split-checklist__flag--mandatory {
+  color: var(--accent-strong);
+  background: rgba(10, 95, 200, 0.12);
+}
+
+.realm-split-checklist__flag--critical {
+  color: #991b1b;
+  background: rgba(220, 38, 38, 0.12);
+}
+
+@media (max-width: 63.99rem) {
+  .realm-split-checklist__hint {
+    display: block;
+  }
+}
+
 @media (max-width: 47.99rem) {
   .article-body th,
   .article-body td {
@@ -1345,6 +1544,26 @@ summary {
   .article-body th:nth-child(3),
   .article-body td:nth-child(3) {
     min-width: 16rem;
+  }
+
+  .realm-split-checklist {
+    gap: 0.85rem;
+    padding: 0.95rem;
+    border-radius: var(--radius-lg);
+  }
+
+  .realm-split-checklist__table {
+    width: max(100%, 43rem);
+  }
+
+  .realm-split-checklist__table th,
+  .realm-split-checklist__table td {
+    padding: 0.9rem;
+    font-size: 0.95rem;
+  }
+
+  .realm-split-checklist__table td:first-child {
+    font-size: 0.98rem;
   }
 }
 

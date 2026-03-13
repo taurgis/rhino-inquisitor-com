@@ -1,0 +1,115 @@
+<div class="realm-split-checklist" role="region" aria-labelledby="realm-split-checklist-title" aria-describedby="realm-split-checklist-hint">
+  <div class="realm-split-checklist__intro">
+    <p class="realm-split-checklist__eyebrow">Migration planning matrix</p>
+    <p class="realm-split-checklist__summary" id="realm-split-checklist-title">Cross-check sync timing, operational risk, and ownership before the cutover runbook is locked.</p>
+  </div>
+  <p class="realm-split-checklist__hint" id="realm-split-checklist-hint">Scroll horizontally on smaller screens to compare every field without truncation.</p>
+
+  <div class="realm-split-checklist__scroll" tabindex="0">
+    <table class="realm-split-checklist__table">
+      <colgroup>
+        <col class="realm-split-checklist__col realm-split-checklist__col--object">
+        <col class="realm-split-checklist__col realm-split-checklist__col--timing">
+        <col class="realm-split-checklist__col realm-split-checklist__col--risk">
+        <col class="realm-split-checklist__col realm-split-checklist__col--owner">
+      </colgroup>
+      <thead>
+        <tr>
+          <th scope="col">Data object</th>
+          <th scope="col">When</th>
+          <th scope="col">Key considerations and risks</th>
+          <th scope="col">Primary owner</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Data object"><strong>Product Catalog</strong></td>
+          <td data-label="When">Continuous in the old and new realms</td>
+          <td data-label="Key considerations and risks">Includes products, categories, assignments, and sorting rules. Relatively low risk.</td>
+          <td data-label="Primary owner">Dev Team / Merchandising</td>
+        </tr>
+        <tr>
+          <td data-label="Data object"><strong>Price Books</strong></td>
+          <td data-label="When">Continuous in the old and new realms</td>
+          <td data-label="Key considerations and risks">Ensure all relevant price books are included. Test pricing thoroughly post-import.</td>
+          <td data-label="Primary owner">Dev Team / Merchandising</td>
+        </tr>
+        <tr>
+          <td data-label="Data object"><strong>Content Assets and Libraries</strong></td>
+          <td data-label="When">Manual syncs at pre-defined moments</td>
+          <td data-label="Key considerations and risks">Includes content assets, folders, and library assignments.</td>
+          <td data-label="Primary owner">Dev Team / Content Team</td>
+        </tr>
+        <tr>
+          <td data-label="Data object"><strong>Slot Configurations</strong></td>
+          <td data-label="When">Manual syncs at pre-defined moments</td>
+          <td data-label="Key considerations and risks">Verify slot configurations on all page types post-import.</td>
+          <td data-label="Primary owner">Dev Team / Merchandising</td>
+        </tr>
+        <tr>
+          <td data-label="Data object"><strong>Promotions and Campaigns</strong></td>
+          <td data-label="When">Manual syncs at pre-defined moments</td>
+          <td data-label="Key considerations and risks">Includes promotion definitions, campaigns, and customer groups.</td>
+          <td data-label="Primary owner">Dev Team / Marketing</td>
+        </tr>
+        <tr>
+          <td data-label="Data object"><strong>Custom Objects</strong></td>
+          <td data-label="When">Manual syncs at pre-defined moments</td>
+          <td data-label="Key considerations and risks">Export definitions via Site Export. Migrate data using custom jobs with dw.io classes.</td>
+          <td data-label="Primary owner">Dev Team</td>
+        </tr>
+        <tr>
+          <td data-label="Data object"><strong>Site Preferences and Metadata</strong></td>
+          <td data-label="When">Manual syncs at pre-defined moments</td>
+          <td data-label="Key considerations and risks">Many settings are included in site export, but some (for example, sequence numbers) must be manually configured and verified.</td>
+          <td data-label="Primary owner">Dev Team</td>
+        </tr>
+        <tr>
+          <td data-label="Data object"><strong>Customer Profiles</strong></td>
+          <td data-label="When">Complete migration 1-2 weeks before the go-live, delta during and after</td>
+          <td data-label="Key considerations and risks">
+            <div class="realm-split-checklist__stack">
+              <p><span class="realm-split-checklist__flag realm-split-checklist__flag--critical">Critical PII risk</span>Ensure the Customer Sequence Number in the new realm is set higher than the highest customer number being imported to prevent duplicate IDs and data exposure.</p>
+            </div>
+          </td>
+          <td data-label="Primary owner">Dev Team</td>
+        </tr>
+        <tr>
+          <td data-label="Data object"><strong>Customer Passwords</strong></td>
+          <td data-label="When">Part of the Customer Profiles</td>
+          <td data-label="Key considerations and risks">Passwords are encrypted, but can be exported and imported into different realms without any intervention from Salesforce.</td>
+          <td data-label="Primary owner">Dev Team</td>
+        </tr>
+        <tr>
+          <td data-label="Data object"><strong>Order History</strong></td>
+          <td data-label="When">Complete migration 1-2 weeks before the go-live, delta during and after</td>
+          <td data-label="Key considerations and risks">
+            <div class="realm-split-checklist__stack">
+              <p>You can export and import orders yourself as long as the site is not marked "live".</p>
+              <p><span class="realm-split-checklist__flag realm-split-checklist__flag--warning">Warning</span>Complete customer imports before order imports, otherwise order-to-customer linking will not occur in the background.</p>
+              <p><span class="realm-split-checklist__flag realm-split-checklist__flag--mandatory">Mandatory</span>For a live site, order migration <em>must</em> be performed by Salesforce Support with at least 10 working days' notice.</p>
+            </div>
+          </td>
+          <td data-label="Primary owner">Dev Team / Salesforce Support</td>
+        </tr>
+        <tr>
+          <td data-label="Data object"><strong>System-Generated Coupons</strong></td>
+          <td data-label="When"><span class="realm-split-checklist__flag realm-split-checklist__flag--support">Salesforce Support Ticket</span></td>
+          <td data-label="Key considerations and risks">
+            <div class="realm-split-checklist__stack">
+              <p><span class="realm-split-checklist__flag realm-split-checklist__flag--mandatory">Mandatory</span>To ensure existing coupons remain valid, the underlying "seeds" must be migrated by Salesforce Support.</p>
+              <p>Requires a separate, specific support ticket.</p>
+            </div>
+          </td>
+          <td data-label="Primary owner">Salesforce Support</td>
+        </tr>
+        <tr>
+          <td data-label="Data object"><strong>Active Data and Einstein</strong></td>
+          <td data-label="When"><span class="realm-split-checklist__flag realm-split-checklist__flag--support">Salesforce Support Ticket</span> <span class="realm-split-checklist__flag realm-split-checklist__flag--neutral">During go-live</span></td>
+          <td data-label="Key considerations and risks">For different realms, this requires a support ticket.</td>
+          <td data-label="Primary owner">Dev Team / SF Support</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
