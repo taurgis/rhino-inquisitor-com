@@ -111,3 +111,13 @@ Phase 8 can rely on the following immediately:
 - [x] Draft and finalize `migration/phase-5-signoff.md`
 - [x] Record owner approvals and downstream handover receipt
 - [x] Mark `RHI-060` `Done` and reconcile the ticket indexes
+
+## Post-signoff exception addendum - 2026-03-13
+
+This Phase 5 sign-off summary remains historically correct for the approved 2026-03-13 Phase 5 baseline. Later on the same date, RHI-062 recorded an owner-approved exception that supersedes the earlier launch assumption that edge redirects remain mandatory before launch.
+
+Exception summary:
+
+- Final redirect posture is now Model A by owner exception, with Hugo retained as the main system and Hugo aliases used as the committed redirect mechanism for alias-eligible moved routes.
+- The prior Phase 5 baseline and its evidence are preserved unchanged as the historical decision context.
+- The accepted trade-off and risk transfer are documented in `migration/phase-6-redirect-architecture-decision.md`, including the accepted limitation for `525` query-string edge-owned rows and `402` query-string retire rows that cannot be reproduced faithfully by Hugo aliases alone.

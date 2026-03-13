@@ -90,7 +90,7 @@ This is the top-level ticket index for the full migration project. Use the phase
 | [RHI-059](phase-5/RHI-059-github-pages-limits-artifact-integrity.md) | Workstream L — GitHub Pages Limits and Artifact Integrity | 5 | High | Done | S | 2026-04-25 |
 | [RHI-060](phase-5/RHI-060-phase-5-signoff.md) | Phase 5 Sign-off and Handover to Phase 6/8 | 5 | Critical | Done | S | 2026-05-02 |
 | [RHI-061](phase-6/RHI-061-phase-6-bootstrap.md) | Phase 6 Bootstrap: Kickoff and Redirect Governance Environment Setup | 6 | Critical | Done | S | 2026-05-05 |
-| [RHI-062](phase-6/RHI-062-redirect-architecture-decision.md) | Redirect Architecture Decision Record | 6 | Critical | Open | S | 2026-05-06 |
+| [RHI-062](phase-6/RHI-062-redirect-architecture-decision.md) | Redirect Architecture Decision Record | 6 | Critical | Done | S | 2026-05-06 |
 | [RHI-063](phase-6/RHI-063-legacy-url-inventory-finalization.md) | Workstream A — Legacy URL Inventory Finalization | 6 | Critical | Open | M | 2026-05-07 |
 | [RHI-064](phase-6/RHI-064-redirect-mapping-intent-review.md) | Workstream B — Redirect Mapping Specification and Intent Review | 6 | Critical | Open | M | 2026-05-08 |
 | [RHI-065](phase-6/RHI-065-hugo-route-preservation-alias-integration.md) | Workstream C — Hugo Route Preservation and Alias Integration | 6 | Critical | Open | L | 2026-05-09 |

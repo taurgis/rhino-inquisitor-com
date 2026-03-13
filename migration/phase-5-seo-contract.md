@@ -107,3 +107,23 @@ The contract baseline is the `main` branch production state captured at commit `
 ## Contract use statement
 
 Phase 6 and Phase 8 may rely on this document as the Phase 5 policy baseline for redirect implementation, launch readiness validation, and incident escalation. Any change that would alter the canonical policy, sitemap inclusion rules, feed compatibility behavior, structured-data scope, or attachment exceptions requires explicit owner approval and a corresponding update to this contract.
+
+## Post-signoff exception addendum - 2026-03-13
+
+RHI-062 introduced an explicit owner-approved exception to the previously frozen Phase 5 launch-window assumption that edge redirects were mandatory before launch.
+
+Historical baseline retained:
+
+- The measured trigger baseline remains unchanged: `41.96%` (`141 / 336`) changed indexed URLs by the ticket formula, and the Phase 5 redirect signal matrix still records `541 edge-cdn`, `1 pages-static`, and `670 none` as the effective implementation split under GitHub Pages constraints.
+- The original Phase 5 analysis that favored Model B remains historically accurate and is preserved in this contract.
+
+Superseding exception now in force:
+
+- Final redirect posture is Model A by explicit owner exception: Hugo remains the main system, GitHub Pages host and HTTPS controls remain in place, and Hugo aliases are the committed redirect mechanism for alias-eligible moved routes.
+- This exception accepts the loss of true per-path HTTP `301`, `308`, and `410` semantics that an edge layer would have provided.
+- This exception also accepts that query-string and other request-aware routes identified as edge-owned in Phase 5 cannot be fully reproduced by Hugo aliases alone.
+
+Risk-transfer summary:
+
+- `525` query-string edge-owned rows and `402` query-string retire rows remain explicit launch risks under the exception and must be tracked by Phase 6 validation, cutover, and rollback work.
+- The authoritative exception record is `migration/phase-6-redirect-architecture-decision.md`.
