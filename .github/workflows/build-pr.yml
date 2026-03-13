@@ -64,11 +64,19 @@ jobs:
           fi
           echo "migration_batch_changed=$migration_batch_changed" >> "$GITHUB_OUTPUT"
 
+          full_site_route_trigger=false
+          if grep -Eq '^(src/content/|src/layouts/|src/static/|src/archetypes/|hugo\.toml$|migration/url-manifest\.json$|package\.json$|package-lock\.json$|\.github/workflows/build-pr\.yml$|\.github/workflows/deploy-pages\.yml$)' changed-files.txt; then
+            full_site_route_trigger=true
+          fi
+          if grep -Eq '^scripts/' changed-files.txt && grep -E '^scripts/' changed-files.txt | grep -Ev '^scripts/migration/' >/dev/null; then
+            full_site_route_trigger=true
+          fi
+
           full_site_route_validation_required=false
           validation_mode=baseline
 
           if [[ "$route_sensitive" == "true" ]]; then
-            if [[ "$migration_batch_changed" == "true" ]]; then
+            if [[ "$migration_batch_changed" == "true" && "$full_site_route_trigger" != "true" ]]; then
               validation_mode=migration-batch-only
             else
               full_site_route_validation_required=true
@@ -281,6 +289,10 @@ jobs:
         if: needs.prepare.outputs.full_site_route_validation_required == 'true'
         run: npm run check:metadata
 
+      - name: Run crawl-control validation check
+        if: needs.prepare.outputs.full_site_route_validation_required == 'true'
+        run: npm run check:crawl-controls
+
       - name: Run internal link check
         if: needs.prepare.outputs.full_site_route_validation_required == 'true'
         run: npm run check:links
@@ -294,6 +306,14 @@ jobs:
           mkdir -p tmp/pr-ci-prod-public
           cp -R public/. tmp/pr-ci-prod-public/
 
+      - name: Build preview rehearsal site
+        if: needs.prepare.outputs.full_site_route_validation_required == 'true'
+        run: hugo --gc --minify --environment preview --baseURL "https://taurgis.github.io/rhino-inquisitor-com/"
+
+      - name: Run preview crawl-control validation check
+        if: needs.prepare.outputs.full_site_route_validation_required == 'true'
+        run: node scripts/seo/check-crawl-controls.js --mode preview --base-url "https://taurgis.github.io/rhino-inquisitor-com/" --report tmp/pr-preview-crawl-control-audit.csv
+
       - name: Upload production validation artifact
         if: ${{ !cancelled() && needs.prepare.outputs.full_site_route_validation_required == 'true' }}
         uses: actions/upload-artifact@v4
@@ -302,6 +322,8 @@ jobs:
           path: |
             public
             tmp/pr-ci-prod-public
+            tmp/pr-preview-crawl-control-audit.csv
+            migration/reports/phase-5-crawl-control-audit.csv
             migration/phase-5-redirect-signal-matrix.csv
             migration/reports/phase-5-redirect-validation.csv
             migration/reports/phase-5-metadata-report.csv

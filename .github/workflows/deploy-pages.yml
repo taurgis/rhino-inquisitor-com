@@ -80,6 +80,9 @@ jobs:
       - name: Run metadata validation check
         run: npm run check:metadata
 
+      - name: Run crawl-control validation check
+        run: npm run check:crawl-controls
+
       - name: Run SEO smoke check
         run: npm run check:seo:artifact
 
@@ -97,6 +100,9 @@ jobs:
 
       - name: Build preview rehearsal site
         run: hugo --gc --minify --environment preview --baseURL "${{ steps.pages.outputs.base_url }}/"
+
+      - name: Run preview crawl-control validation check
+        run: node scripts/seo/check-crawl-controls.js --mode preview --base-url "${{ steps.pages.outputs.base_url }}/" --report tmp/ci-preview-crawl-control-audit.csv
 
       - name: Verify preview-host path prefix and noindex
         env:
@@ -143,6 +149,8 @@ jobs:
           path: |
             public
             tmp/ci-prod-public
+            tmp/ci-preview-crawl-control-audit.csv
+            migration/reports/phase-5-crawl-control-audit.csv
             migration/phase-5-redirect-signal-matrix.csv
             migration/reports/phase-5-redirect-validation.csv
             migration/reports/phase-5-metadata-report.csv
