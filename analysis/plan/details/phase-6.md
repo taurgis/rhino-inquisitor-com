@@ -86,6 +86,13 @@ Route outcome policy:
 2. `redirect`: route permanently consolidates to one final equivalent destination.
 3. `retire`: route returns not-found behavior with helpful navigation, unless mapped replacement is justified.
 
+Downloadable asset transition policy:
+1. Canonical editorial download links use `/media/...` paths.
+2. Legacy `wp-content/uploads/...` download routes are temporary compatibility surfaces by default, not preferred public URLs.
+3. Every live compatibility route must map to one canonical `/media/...` target, one owner, and one intended end state: `keep-exception` or `redirect`.
+4. Static compatibility copies are removed only after Model B edge redirects are live, one-hop verified at runtime, and covered by rollback steps.
+5. Permanent legacy download availability requires explicit owner approval and must remain documented as a `keep` exception in the URL policy artifacts.
+
 Host/protocol consolidation policy:
 1. `http://` entry points must resolve to `https://`.
 2. Apex/non-canonical host must resolve to canonical host.
@@ -138,6 +145,7 @@ Tasks:
 2. Normalize URL forms (protocol/host/case/trailing slash) to route keys.
 3. Mark each route with final disposition and target path (if redirect).
 4. Add explicit exception notes for legal/privacy/system endpoints.
+5. Build a compatibility inventory for live legacy downloadable routes, including canonical `/media/...` target, owner, signal strength, and planned Phase 6 outcome.
 
 Validation:
 1. No duplicate legacy keys after normalization.
@@ -156,6 +164,7 @@ Tasks:
 2. Review `merge` mappings for topic-equivalence and user expectation.
 3. Reject convenience redirects that collapse diverse content to generic destinations.
 4. Flag ambiguous redirects for editorial or SEO review.
+5. Separate downloadable-file `keep` exceptions from routes that should move from static compatibility copies to edge redirects.
 
 Intent classes:
 1. Exact-equivalent content moved.
@@ -258,6 +267,7 @@ Mandatory CI gates:
 3. Redirect chain/loop gate.
 4. Canonical/redirect/sitemap alignment gate.
 5. Retired-route policy gate (no irrelevant fallback redirects).
+6. Downloadable-asset compatibility gate: no new editorial links to `wp-content/uploads/...`, and every removable compatibility route has a canonical `/media/...` destination before static copies are deleted.
 6. Host/protocol invariant gate.
 7. Redirect verification method gate (bulk HTTP checks via scripts; browser checks for sampled routes only).
 

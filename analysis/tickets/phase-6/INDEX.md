@@ -7,6 +7,10 @@
 **Timeline:** 6–9 working days  
 **Phase detail:** [`analysis/plan/details/phase-6.md`](../../analysis/plan/details/phase-6.md)
 
+Downloadable-file convention input:
+1. Phase 5 now treats `/media/...` as the canonical editorial namespace for downloadable assets.
+2. Any legacy `wp-content/uploads/...` download route entering Phase 6 is a compatibility exception or redirect candidate and must not remain undocumented.
+
 ---
 
 ## Ticket Summary
@@ -82,6 +86,7 @@ RHI-060 (Phase 5 Sign-off)
 | Redirect architecture decision record | RHI-062 | `migration/phase-6-redirect-architecture-decision.md` |
 | Finalized URL manifest | RHI-063 | `migration/url-manifest.json` |
 | URL mapping table | RHI-063 | `migration/url-map.csv` |
+| Downloadable asset compatibility inventory | RHI-063, RHI-064 | `migration/reports/phase-6-downloadable-asset-compatibility.csv` |
 | URL inventory validation script | RHI-063 | `scripts/phase-6/validate-url-inventory.js` |
 | Intent review report | RHI-064 | `migration/reports/phase-6-redirect-intent-review.csv` |
 | Alias page validation script | RHI-065 | `scripts/phase-6/validate-alias-pages.js` |
@@ -171,6 +176,7 @@ These constraints are hard requirements from `analysis/plan/details/phase-6.md` 
 | Content files with `url:` and `aliases:` front matter | RHI-035, RHI-036 (Phase 4) | RHI-063, RHI-065 |
 | Internal link rewrites | RHI-038 (Phase 4) | RHI-071 |
 | Canonical policy and redirect signal matrix | RHI-048, RHI-049 (Phase 5) | RHI-061, RHI-062 |
+| Non-HTML downloadable asset policy and compatibility exceptions | RHI-058 (Phase 5) | RHI-062, RHI-063, RHI-064, RHI-070, RHI-071 |
 | Phase 5 SEO contract | RHI-060 (Phase 5 sign-off) | RHI-061 |
 
 ---
