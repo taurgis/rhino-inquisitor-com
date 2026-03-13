@@ -22,16 +22,16 @@ Any unresolved Phase 5 blocking defect identified at sign-off must be fixed or e
 ### Acceptance Criteria
 
 - [ ] All Phase 5 workstream tickets are `Done`:
-  - [ ] RHI-047 Done — Phase 5 Bootstrap complete
+  - [x] RHI-047 Done — Phase 5 Bootstrap complete
   - [x] RHI-048 Done — Metadata and canonical signal architecture complete
-  - [ ] RHI-049 Done — Redirect and URL consolidation signals complete
+  - [x] RHI-049 Done — Redirect and URL consolidation signals complete
   - [ ] RHI-050 Done — Crawlability and indexing controls complete
   - [x] RHI-051 Done — Sitemap, feed, and discovery surface continuity complete
   - [ ] RHI-052 Done — Structured data and rich-result readiness complete
   - [x] RHI-053 Done — Internal linking and information architecture signals complete
-  - [ ] RHI-054 Done — Mobile-first and Core Web Vitals controls complete
-  - [ ] RHI-055 Done — Image and video SEO integrity complete
-  - [ ] RHI-056 Done — Accessibility as discoverability support complete
+  - [x] RHI-054 Done — Mobile-first and Core Web Vitals controls complete
+  - [x] RHI-055 Done — Image and video SEO integrity complete
+  - [x] RHI-056 Done — Accessibility as discoverability support complete
   - [ ] RHI-057 Done — Search Console and analytics monitoring program complete
   - [ ] RHI-058 Done — Non-HTML resource SEO controls complete
   - [ ] RHI-059 Done — GitHub Pages limits and artifact integrity complete

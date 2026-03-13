@@ -21,7 +21,7 @@
 | [RHI-052](RHI-052-structured-data-rich-result-readiness.md) | Workstream E — Structured Data and Rich-Result Readiness | WS-E | High | Open | M | 2026-04-18 | RHI-047 |
 | [RHI-053](RHI-053-internal-linking-ia-signals.md) | Workstream F — Internal Linking and Information Architecture Signals | WS-F | High | Done | M | 2026-04-18 | RHI-047, RHI-048 |
 | [RHI-054](RHI-054-mobile-first-core-web-vitals.md) | Workstream G — Mobile-First and Core Web Vitals Controls | WS-G | High | Done | M | 2026-04-22 | RHI-047 |
-| [RHI-055](RHI-055-image-video-seo-integrity.md) | Workstream H — Image and Video SEO Integrity | WS-H | Medium | Open | M | 2026-04-22 | RHI-047, RHI-052 |
+| [RHI-055](RHI-055-image-video-seo-integrity.md) | Workstream H — Image and Video SEO Integrity | WS-H | Medium | Done | M | 2026-04-22 | RHI-047, RHI-052 |
 | [RHI-056](RHI-056-accessibility-discoverability-support.md) | Workstream I — Accessibility as Discoverability Support | WS-I | Medium | Done | M | 2026-04-23 | RHI-047 |
 | [RHI-057](RHI-057-search-console-monitoring-program.md) | Workstream J — Search Console and Analytics Monitoring Program | WS-J | High | Open | M | 2026-04-24 | RHI-047, RHI-051 |
 | [RHI-058](RHI-058-non-html-resource-seo-controls.md) | Workstream K — Non-HTML Resource SEO Controls | WS-K | Medium | Open | S | 2026-04-25 | RHI-047 |
@@ -132,7 +132,7 @@ Every batch PR and every deploy from `main` must pass all applicable gates. Fail
 
 All items below must be complete before Phase 6 and Phase 8 downstream work can finalize their release assessments:
 
-- [ ] RHI-047 Done — Phase 5 Bootstrap; Phase 3 contracts and tooling environment confirmed
+- [x] RHI-047 Done — Phase 5 Bootstrap; Phase 3 contracts and tooling environment confirmed
 - [x] RHI-048 Done — Metadata completeness 100%; canonical policy documented and CI gate passing
 - [x] RHI-049 Done — Zero redirect chains/loops; redirect mechanism documented per URL class; 5% escalation decision made
 - [ ] RHI-050 Done — Zero unintended noindex on indexable pages; zero robots/noindex contradiction; staging suppression verified
@@ -140,7 +140,7 @@ All items below must be complete before Phase 6 and Phase 8 downstream work can 
 - [ ] RHI-052 Done — Zero critical schema property errors on representative templates; VideoObject scope confirmed
 - [x] RHI-053 Done — Zero broken internal links on critical templates; zero orphan pages in representative set
 - [x] RHI-054 Done — Lighthouse assertions passing on representative templates; mobile parity confirmed
-- [ ] RHI-055 Done — Zero broken images; zero missing alt text on non-decorative images; video watch-page indexability confirmed
+- [x] RHI-055 Done — Zero broken images; zero missing alt text on non-decorative images; video watch-page indexability confirmed
 - [x] RHI-056 Done — Zero WCAG 2.2 Level A violations on representative pages; Level AA issues triaged
 - [ ] RHI-057 Done — Monitoring runbook committed; Search Console access confirmed; pre-launch baselines captured
 - [ ] RHI-058 Done — Non-HTML policy implemented per URL class; no unresolved index-control blockers; edge-layer escalations documented
