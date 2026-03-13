@@ -15,7 +15,7 @@
 |-----------|-------|------------|----------|--------|----------|-------------|------------|
 | [RHI-047](RHI-047-phase-5-bootstrap.md) | Phase 5 Bootstrap: Kickoff and SEO Governance Environment Setup | Setup | Critical | Done | S | 2026-04-09 | RHI-030 |
 | [RHI-048](RHI-048-metadata-canonical-architecture.md) | Workstream A — Metadata and Canonical Signal Architecture | WS-A | Critical | Done | M | 2026-04-11 | RHI-047 |
-| [RHI-049](RHI-049-redirect-url-consolidation-signals.md) | Workstream B — Redirect and URL Consolidation Signals | WS-B | Critical | Open | M | 2026-04-14 | RHI-047 |
+| [RHI-049](RHI-049-redirect-url-consolidation-signals.md) | Workstream B — Redirect and URL Consolidation Signals | WS-B | Critical | Done | M | 2026-04-14 | RHI-047 |
 | [RHI-050](RHI-050-crawlability-indexing-controls.md) | Workstream C — Crawlability and Indexing Controls | WS-C | Critical | Open | M | 2026-04-14 | RHI-047 |
 | [RHI-051](RHI-051-sitemap-feed-discovery-continuity.md) | Workstream D — Sitemap, Feed, and Discovery Surface Continuity | WS-D | High | Open | M | 2026-04-16 | RHI-047, RHI-048 |
 | [RHI-052](RHI-052-structured-data-rich-result-readiness.md) | Workstream E — Structured Data and Rich-Result Readiness | WS-E | High | Open | M | 2026-04-18 | RHI-047 |
@@ -134,7 +134,7 @@ All items below must be complete before Phase 6 and Phase 8 downstream work can 
 
 - [ ] RHI-047 Done — Phase 5 Bootstrap; Phase 3 contracts and tooling environment confirmed
 - [x] RHI-048 Done — Metadata completeness 100%; canonical policy documented and CI gate passing
-- [ ] RHI-049 Done — Zero redirect chains/loops; redirect mechanism documented per URL class; 5% escalation decision made
+- [x] RHI-049 Done — Zero redirect chains/loops; redirect mechanism documented per URL class; 5% escalation decision made
 - [ ] RHI-050 Done — Zero unintended noindex on indexable pages; zero robots/noindex contradiction; staging suppression verified
 - [ ] RHI-051 Done — Sitemap valid and canonical-consistent; feed endpoint operational; `/feed/` must-resolve behavior implemented
 - [ ] RHI-052 Done — Zero critical schema property errors on representative templates; VideoObject scope confirmed

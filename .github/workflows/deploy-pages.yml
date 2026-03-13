@@ -74,6 +74,9 @@ jobs:
       - name: Run URL parity check
         run: npm run check:url-parity
 
+      - name: Run redirect signal validation check
+        run: npm run check:redirects:seo
+
       - name: Run metadata validation check
         run: npm run check:metadata
 
@@ -140,6 +143,8 @@ jobs:
           path: |
             public
             tmp/ci-prod-public
+            migration/phase-5-redirect-signal-matrix.csv
+            migration/reports/phase-5-redirect-validation.csv
             migration/reports/phase-5-metadata-report.csv
             migration/url-parity-report.json
           if-no-files-found: error
