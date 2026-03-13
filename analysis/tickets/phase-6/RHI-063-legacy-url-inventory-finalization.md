@@ -1,13 +1,13 @@
 ## RHI-063 · Workstream A — Legacy URL Inventory Finalization
 
-**Status:** Open  
+**Status:** In Progress
 **Priority:** Critical  
 **Estimate:** M  
 **Phase:** 6  
 **Assigned to:** Migration Owner  
 **Target date:** 2026-05-07  
 **Created:** 2026-03-07  
-**Updated:** 2026-03-07
+**Updated:** 2026-03-13
 
 ---
 
@@ -155,6 +155,9 @@ An incomplete inventory at this stage is the most common cause of post-launch 40
 | Date | Status | Note |
 |------|--------|------|
 | 2026-03-07 | Open | Ticket created |
+| 2026-03-13 | In Progress | Started WS-A after RHI-062. Initial manifest audit confirms strong field completeness (`1212` rows, `0` missing `disposition`, `0` missing `target_url` for merge rows, `0` missing `implementation_layer`) but surfaced two blocking inventory follow-ups before freeze: required explicit records are still missing for `/rss/`, `/sitemap.xml`, `/robots.txt`, `/wp-admin/`, and `/wp-login.php`, and the current Model A launch posture needs an owner-confirmed rule for legacy implementation-layer rows that still carry non-final launch semantics (`16` `edge-cdn` rows and `123` query-string `pages-static` merge rows). |
+| 2026-03-13 | In Progress | Completed the first coverage audit pass. `migration/url-inventory.sitemaps.raw.json` is fully covered by the manifest (`0` sitemap misses), the backlink export has `0` missing manifest targets, and the only apparent Search Console top-200 misses were already-covered PDF compatibility assets that remain exact file paths rather than trailing-slash routes. Owner approved the Phase 6 inventory rule changes for Model A: the `16` path-based legacy `edge-cdn` rows are reclassified to `pages-static`, the `123` query-string merge rows are reclassified to `none`, and explicit system-route records are added for `/rss/`, `/sitemap.xml`, `/robots.txt`, `/wp-admin/`, and `/wp-login.php`. |
+| 2026-03-13 | In Progress | Implemented `npm run validate:url-inventory` and `npm run phase6:generate-url-map`, regenerated `migration/url-map.csv`, and validated the updated manifest successfully. Current inventory totals are `1217` rows with `197` `keep`, `141` `merge`, and `879` `retire`; implementation-layer totals are `1196` `none` and `21` `pages-static`. Remaining WS-A closeout work is limited to any additional endpoint-policy decisions not yet encoded in the manifest and final completion review against the ticket acceptance checklist. |
 
 ---
 
