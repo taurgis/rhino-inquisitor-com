@@ -32,7 +32,7 @@ Any unresolved Phase 5 blocking defect identified at sign-off must be fixed or e
   - [x] RHI-054 Done — Mobile-first and Core Web Vitals controls complete
   - [x] RHI-055 Done — Image and video SEO integrity complete
   - [x] RHI-056 Done — Accessibility as discoverability support complete
-  - [ ] RHI-057 Done — Search Console and analytics monitoring program complete
+  - [x] RHI-057 Done — Search Console and analytics monitoring program complete
   - [ ] RHI-058 Done — Non-HTML resource SEO controls complete
   - [ ] RHI-059 Done — GitHub Pages limits and artifact integrity complete
 - [ ] All Phase 5 CI gates pass on the latest `main` branch build:

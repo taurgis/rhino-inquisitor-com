@@ -44,7 +44,7 @@ Out of scope:
 | Staging `noindex` | `implemented` | `github-pages` | Engineering Owner | `src/layouts/partials/seo/resolve.html` emits `noindex, nofollow` outside production, preserving the RHI-024 staging guardrail. | Run `npm run check:seo` and inspect the staging build behavior documented in RHI-024. |
 | Draft content exclusion | `implemented` | `github-pages` | Engineering Owner | `hugo.toml` keeps `buildDrafts = false`, and production validation confirms draft routes do not render or enter the sitemap. | Run `npm run check:security`; for spot checks, rebuild with a temporary `draft: true` fixture and confirm it is absent from `public/` and `public/sitemap.xml`. |
 | Migration artifact isolation | `implemented` | `github-pages` | Engineering Owner | The Pages artifact contains only generated site output; migration data, repo metadata, scripts, and Markdown sources are excluded. | Run `npm run check:security`. |
-| Analytics and consent model | `deferred` | `none` | Migration Owner | No analytics runtime is shipped in the Phase 3 scaffold. Any future addition must document the tool, staging suppression, consent model, and no-PII first-request behavior. | Revisit in [RHI-057](../../analysis/tickets/phase-5/RHI-057-search-console-monitoring-program.md). |
+| Analytics and consent model | `implemented` | `none` | Migration Owner | Owner decision for this migration is to ship no analytics runtime on production, preview, or staging builds. Search Console is the accepted launch monitoring source of truth, so no consent model is required in repository output. | Verify no GA4 or equivalent runtime exists in Hugo source or built HTML. Revisit only if a future ticket changes this policy. |
 
 ## Current script inventory
 
