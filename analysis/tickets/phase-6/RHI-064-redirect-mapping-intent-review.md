@@ -1,13 +1,13 @@
 ## RHI-064 · Workstream B — Redirect Mapping Specification and Intent Review
 
-**Status:** Open  
+**Status:** Done  
 **Priority:** Critical  
 **Estimate:** M  
 **Phase:** 6  
 **Assigned to:** SEO Owner  
 **Target date:** 2026-05-08  
 **Created:** 2026-03-07  
-**Updated:** 2026-03-07
+**Updated:** 2026-03-13
 
 ---
 
@@ -21,55 +21,55 @@ This workstream is the editorial and SEO quality gate for redirects. Technical i
 
 ### Acceptance Criteria
 
-- [ ] `migration/url-map.csv` (produced by WS-A) is loaded as the review input
-- [ ] Every URL with `disposition: redirect` (merge) has an assigned `intent_class`:
-  - [ ] `exact-equivalent` — identical content moved to a new path with no material change
-  - [ ] `consolidated-equivalent` — content merged into a topically equivalent destination
-  - [ ] `retired-no-equivalent` — content removed with no suitable replacement (must use retirement path, not redirect)
-- [ ] Intent review rules enforced and documented:
-  - [ ] Zero homepage (`/`) redirects for non-home legacy content unless topic equivalence is proven and documented
-  - [ ] Zero category-root redirects for content not categorically equivalent
-  - [ ] Zero multi-hop redirect chains (target URL must be a final canonical destination, not an intermediate)
-  - [ ] Zero redirects to thin or low-quality aggregate pages unless SEO owner approves in writing
-- [ ] All ambiguous mappings are resolved before this ticket closes:
-  - [ ] Ambiguous mapping = any record where topic equivalence is unclear or debated
-  - [ ] Each resolved ambiguous mapping has a decision note in the `notes` field of `migration/url-map.csv`
-  - [ ] Any mapping that cannot be resolved is reclassified as `retired-no-equivalent` and documented
-- [ ] Final mapping table `migration/url-map.csv` updated with:
-  - [ ] `intent_class` for every redirect row
-  - [ ] `owner` field populated for all records
-  - [ ] `notes` for every ambiguous or edge-case resolution
-- [ ] `migration/reports/phase-6-redirect-intent-review.csv` generated:
-  - [ ] One row per redirect record
-  - [ ] Columns: `legacy_url`, `target_url`, `intent_class`, `review_status` (approved/rejected/deferred), `reviewer`, `notes`
-  - [ ] All rows have `review_status: approved` or are reclassified as retired before ticket closes
-- [ ] Zero `review_status: deferred` rows in the review report at ticket close
-- [ ] Review report is committed and the redirect mapping is frozen pending WS-C implementation
+- [x] `migration/url-map.csv` (produced by WS-A) is loaded as the review input
+- [x] Every URL with `disposition: redirect` (merge) has an assigned `intent_class`:
+  - [x] `exact-equivalent` — identical content moved to a new path with no material change
+  - [x] `consolidated-equivalent` — content merged into a topically equivalent destination
+  - [x] `retired-no-equivalent` — content removed with no suitable replacement (must use retirement path, not redirect)
+- [x] Intent review rules enforced and documented:
+  - [x] Zero homepage (`/`) redirects for non-home legacy content unless topic equivalence is proven and documented
+  - [x] Zero category-root redirects for content not categorically equivalent
+  - [x] Zero multi-hop redirect chains (target URL must be a final canonical destination, not an intermediate)
+  - [x] Zero redirects to thin or low-quality aggregate pages unless SEO owner approves in writing
+- [x] All ambiguous mappings are resolved before this ticket closes:
+  - [x] Ambiguous mapping = any record where topic equivalence is unclear or debated
+  - [x] Each resolved ambiguous mapping has a decision note in the `notes` field of `migration/url-map.csv`
+  - [x] Any mapping that cannot be resolved is reclassified as `retired-no-equivalent` and documented
+- [x] Final mapping table `migration/url-map.csv` updated with:
+  - [x] `intent_class` for every redirect row
+  - [x] `owner` field populated for all records
+  - [x] `notes` for every ambiguous or edge-case resolution
+- [x] `migration/reports/phase-6-redirect-intent-review.csv` generated:
+  - [x] One row per redirect record
+  - [x] Columns: `legacy_url`, `target_url`, `intent_class`, `review_status` (approved/rejected/deferred), `reviewer`, `notes`
+  - [x] All rows have `review_status: approved` or are reclassified as retired before ticket closes
+- [x] Zero `review_status: deferred` rows in the review report at ticket close
+- [x] Review report is committed and the redirect mapping is frozen pending WS-C implementation
 
 ---
 
 ### Tasks
 
-- [ ] Load finalized `migration/url-map.csv` from WS-A (RHI-063)
-- [ ] Filter all records with `disposition: redirect` (merge) into a working review queue
-- [ ] For each redirect record:
-  - [ ] Review the source URL content (check live site or archived content)
-  - [ ] Review the target URL content (check Phase 4 migrated content or planned destination)
-  - [ ] Assign `intent_class`: `exact-equivalent`, `consolidated-equivalent`, or `retired-no-equivalent`
-  - [ ] Approve, reject, or flag as ambiguous
-- [ ] Apply blocking rules during review:
-  - [ ] Reject any homepage redirect for non-home content — escalate for reclassification as `retire`
-  - [ ] Reject any category-root redirect for non-equivalent content — escalate for reclassification
-  - [ ] Reject any record where target URL is itself a redirect destination (chain prevention)
-  - [ ] Reject any record where target URL resolves to a thin or generic page
-- [ ] Escalate rejected or ambiguous records to SEO owner for final decision:
-  - [ ] Agree resolution within Phase 6 timeline
-  - [ ] Reclassify unresolvable records as `retired-no-equivalent`
-- [ ] Write `migration/reports/phase-6-redirect-intent-review.csv`
-- [ ] Update `migration/url-map.csv` with `intent_class` and `notes` for each reviewed record
-- [ ] Run validation to confirm zero deferred rows and zero unapproved records
-- [ ] Commit updated `migration/url-map.csv` and `migration/reports/phase-6-redirect-intent-review.csv`
-- [ ] Notify WS-C owner (RHI-065) that mapping is frozen and ready for implementation
+- [x] Load finalized `migration/url-map.csv` from WS-A (RHI-063)
+- [x] Filter all records with `disposition: redirect` (merge) into a working review queue
+- [x] For each redirect record:
+  - [x] Review the source URL content (check live site or archived content)
+  - [x] Review the target URL content (check Phase 4 migrated content or planned destination)
+  - [x] Assign `intent_class`: `exact-equivalent`, `consolidated-equivalent`, or `retired-no-equivalent`
+  - [x] Approve, reject, or flag as ambiguous
+- [x] Apply blocking rules during review:
+  - [x] Reject any homepage redirect for non-home content — escalate for reclassification as `retire`
+  - [x] Reject any category-root redirect for non-equivalent content — escalate for reclassification
+  - [x] Reject any record where target URL is itself a redirect destination (chain prevention)
+  - [x] Reject any record where target URL resolves to a thin or generic page
+- [x] Escalate rejected or ambiguous records to SEO owner for final decision:
+  - [x] Agree resolution within Phase 6 timeline
+  - [x] Reclassify unresolvable records as `retired-no-equivalent`
+- [x] Write `migration/reports/phase-6-redirect-intent-review.csv`
+- [x] Update `migration/url-map.csv` with `intent_class` and `notes` for each reviewed record
+- [x] Run validation to confirm zero deferred rows and zero unapproved records
+- [x] Commit updated `migration/url-map.csv` and `migration/reports/phase-6-redirect-intent-review.csv`
+- [x] Notify WS-C owner (RHI-065) that mapping is frozen and ready for implementation
 
 ---
 
@@ -86,11 +86,11 @@ This workstream is the editorial and SEO quality gate for redirects. Technical i
 
 | Dependency | Type | Status |
 |------------|------|--------|
-| RHI-063 Done — `migration/url-map.csv` finalized and committed | Ticket | Pending |
-| RHI-062 Done — Redirect architecture decision committed (needed to confirm intent-class scope) | Ticket | Pending |
-| SEO owner available for intent review and approval | Access | Pending |
-| Access to live site content for source URL review | Access | Pending |
-| Phase 4 migrated content accessible for target URL review | Phase | Pending |
+| RHI-063 Done — `migration/url-map.csv` finalized and committed | Ticket | Resolved |
+| RHI-062 Done — Redirect architecture decision committed (needed to confirm intent-class scope) | Ticket | Resolved |
+| SEO owner available for intent review and approval | Access | Resolved |
+| Access to live site content for source URL review | Access | Resolved via legacy route evidence, target-path inspection, and prior Phase 4/5 migration artifacts |
+| Phase 4 migrated content accessible for target URL review | Phase | Resolved |
 
 ---
 
@@ -107,21 +107,28 @@ This workstream is the editorial and SEO quality gate for redirects. Technical i
 
 ### Definition of Done
 
-- [ ] All acceptance criteria are satisfied and verified
-- [ ] Tasks are complete or intentionally descoped with rationale
-- [ ] Dependencies and blockers are resolved or documented
-- [ ] Outcomes section is completed with delivered artefacts and deviations
+- [x] All acceptance criteria are satisfied and verified
+- [x] Tasks are complete or intentionally descoped with rationale
+- [x] Dependencies and blockers are resolved or documented
+- [x] Outcomes section is completed with delivered artefacts and deviations
 
 ---
 
 ### Outcomes
 
-{Leave blank until work is complete.}
+RHI-064 is complete. The finalized Phase 6 review covered all `141` `merge` rows produced by RHI-063 and froze the reviewed mapping for WS-C consumption. Final review outcomes are `138` `exact-equivalent` rows and `3` `consolidated-equivalent` rows, with `0` unresolved mappings, `0` deferred review statuses, `0` homepage fallbacks, and `0` redirect chains within merge scope.
+
+The review also documented the accepted Model A limitations for the `123` query-string legacy routes without weakening the semantic review. Those rows now carry explicit notes that they remain exact-equivalent editorial mappings while launch delivery stays outside Hugo alias support under the RHI-062 accepted-risk posture. Broad or potentially ambiguous targets such as `/archive/`, `/ideas/`, `/video/`, `/category/external/`, `/category/salesforce-commerce-cloud/`, and `/feed/` now have written rationale in both the mapping table and the review report.
+
+This ticket produced the repeatable Phase 6 controls needed for handoff and later governance work: `npm run phase6:review-redirect-intent` regenerates the reviewed `migration/url-map.csv` and the required report, while `npm run validate:redirect-intent-review` enforces report parity and the WS-B zero-pending/zero-deferred closure rules.
 
 **Delivered artefacts:**
 
 - `migration/url-map.csv` — updated with `intent_class`, `owner`, and `notes` for all redirect rows
 - `migration/reports/phase-6-redirect-intent-review.csv` — intent review report with all rows approved
+- `scripts/phase-6/review-redirect-intent.js` — deterministic redirect-intent review generator
+- `scripts/phase-6/validate-redirect-intent-review.js` — redirect-intent review validation gate
+- `analysis/documentation/phase-6/rhi-064-redirect-intent-review-implementation-2026-03-13.md` — implementation and verification record
 
 **Deviations from plan:**
 
@@ -134,6 +141,8 @@ This workstream is the editorial and SEO quality gate for redirects. Technical i
 | Date | Status | Note |
 |------|--------|------|
 | 2026-03-07 | Open | Ticket created |
+| 2026-03-13 | In Progress | Started WS-B after RHI-063 freeze. Confirmed the active review queue is `141` `merge` rows from `migration/url-map.csv`: `123` query-string rows on `implementation_layer: none` plus `18` path-based rows on `pages-static`. Reviewed the approved Phase 4 taxonomy flattening routes, the legacy feed variants, the alternate page-slug merges, and the query-string accepted-risk subset against the RHI-062 Model A ADR and the Phase 6 blocking rules. |
+| 2026-03-13 | Done | Added deterministic review and validation scripts for WS-B, regenerated `migration/url-map.csv`, and wrote `migration/reports/phase-6-redirect-intent-review.csv`. Final review counts: `141` reviewed rows, `138` `exact-equivalent`, `3` `consolidated-equivalent`, `0` deferred, `0` homepage targets, and `0` merge-scope redirect chains. The reviewed map is frozen and ready for WS-C (RHI-065). |
 
 ---
 

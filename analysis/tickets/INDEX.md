@@ -91,8 +91,8 @@ This is the top-level ticket index for the full migration project. Use the phase
 | [RHI-060](phase-5/RHI-060-phase-5-signoff.md) | Phase 5 Sign-off and Handover to Phase 6/8 | 5 | Critical | Done | S | 2026-05-02 |
 | [RHI-061](phase-6/RHI-061-phase-6-bootstrap.md) | Phase 6 Bootstrap: Kickoff and Redirect Governance Environment Setup | 6 | Critical | Done | S | 2026-05-05 |
 | [RHI-062](phase-6/RHI-062-redirect-architecture-decision.md) | Redirect Architecture Decision Record | 6 | Critical | Done | S | 2026-05-06 |
-| [RHI-063](phase-6/RHI-063-legacy-url-inventory-finalization.md) | Workstream A — Legacy URL Inventory Finalization | 6 | Critical | Open | M | 2026-05-07 |
-| [RHI-064](phase-6/RHI-064-redirect-mapping-intent-review.md) | Workstream B — Redirect Mapping Specification and Intent Review | 6 | Critical | Open | M | 2026-05-08 |
+| [RHI-063](phase-6/RHI-063-legacy-url-inventory-finalization.md) | Workstream A — Legacy URL Inventory Finalization | 6 | Critical | Done | M | 2026-05-07 |
+| [RHI-064](phase-6/RHI-064-redirect-mapping-intent-review.md) | Workstream B — Redirect Mapping Specification and Intent Review | 6 | Critical | Done | M | 2026-05-08 |
 | [RHI-065](phase-6/RHI-065-hugo-route-preservation-alias-integration.md) | Workstream C — Hugo Route Preservation and Alias Integration | 6 | Critical | Open | L | 2026-05-09 |
 | [RHI-066](phase-6/RHI-066-host-protocol-canonical-consolidation.md) | Workstream D — Host and Protocol Canonical Consolidation | 6 | High | Open | M | 2026-05-12 |
 | [RHI-067](phase-6/RHI-067-retirement-error-path-governance.md) | Workstream E — Retirement and Error Path Governance | 6 | High | Open | M | 2026-05-12 |
