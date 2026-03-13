@@ -5,7 +5,7 @@ Ticket: `analysis/tickets/phase-5/RHI-056-accessibility-discoverability-support.
 
 ## Change summary
 
-Implemented the Phase 5 accessibility discoverability gate for representative built Hugo output. The repository now includes a dedicated `pa11y-ci.config.js` profile, a `scripts/seo/check-a11y.js` wrapper that serves the local `public/` build and writes `migration/reports/phase-5-accessibility-audit.md`, a new `npm run check:a11y:seo` command, and blocking CI integration in both the PR accessibility job and the deploy workflow.
+Implemented the Phase 5 accessibility discoverability gate for representative built Hugo output. The repository now includes a dedicated `pa11y-ci.config.js` profile, a `scripts/seo/check-a11y.js` wrapper that serves the local `public/` build and writes `migration/reports/phase-5-accessibility-audit.md`, a new `npm run check:a11y:seo` command, blocking CI integration in both the PR accessibility job and the deploy workflow, and a Linux CI-only Chromium launch override so the gate can run on GitHub-hosted Ubuntu runners.
 
 ## Why this changed
 
@@ -20,11 +20,13 @@ RHI-056 required accessibility to move from an informational Phase 3 baseline to
 - The PR accessibility job was non-blocking through `continue-on-error: true`.
 - The deploy workflow had no dedicated accessibility gate and did not archive a Phase 5 accessibility report.
 - The archive filter shell on taxonomy pages rendered `h3` headings before the first `h2`, which created a heading-level skip on representative category pages.
+- The shared Phase 5 pa11y profile did not provide CI-specific Chromium launch flags, so `npm run check:a11y:seo` could fail on GitHub-hosted Linux runners with Chromium's `No usable sandbox!` launch error before any audit results were written.
 
 ### New behavior
 
 - `pa11y-ci.config.js` defines the RHI-056 representative route set: homepage, one article, one category term page, and privacy policy.
 - `scripts/seo/check-a11y.js` serves the built `public/` output locally, runs `pa11y-ci` with a JSON reporter, performs semantic template checks for heading hierarchy, landmarks, skip-link presence, and rendered image alt semantics, and writes `migration/reports/phase-5-accessibility-audit.md`.
+- `pa11y-ci.config.js` now injects `defaults.chromeLaunchConfig.args = ['--no-sandbox']` only when the gate runs in Linux CI (`CI=true`), matching Pa11y CI's documented headless Linux workaround while leaving local developer runs unchanged.
 - `npm run check:a11y:seo` now provides the Phase 5 accessibility gate contract used by CI.
 - Level A findings are always blocking. Level AA findings are blocking by default and become non-blocking only if they are explicitly listed in `approvedNonCriticalAaExceptions` with owner and target-phase metadata inside `pa11y-ci.config.js`.
 - The PR accessibility job now builds the production site, runs the blocking Phase 5 gate, and uploads the generated markdown audit artifact.
@@ -35,12 +37,14 @@ RHI-056 required accessibility to move from an informational Phase 3 baseline to
 
 - Maintainers now have a dedicated Phase 5 accessibility gate exposed as `npm run check:a11y:seo`.
 - Route-sensitive PR validation and deploy validation both block on representative accessibility regressions.
+- GitHub-hosted Linux workflow runs can launch Chromium for the representative accessibility audit without requiring workflow-specific shell flags or a separate CI-only config file.
 - The repository has a durable markdown audit artifact for RHI-056 sign-off evidence.
 - The shared archive filter shell now maintains a valid heading sequence on category pages without changing the visible interface.
 
 ## Verification
 
 - Automated validation:
+  - `CI=true node --input-type=module -e "import config from './pa11y-ci.config.js'; console.log(JSON.stringify(config.defaults.chromeLaunchConfig))"`
   - `npm run build:prod`
   - `npm run check:a11y:seo`
 - Audit result:

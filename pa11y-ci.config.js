@@ -12,13 +12,20 @@ const manualKeyboardRoutes = [
 
 const approvedNonCriticalAaExceptions = [];
 
+const chromeLaunchConfig = process.platform === 'linux' && process.env.CI === 'true'
+  ? {
+      args: ['--no-sandbox']
+    }
+  : undefined;
+
 const config = {
   defaults: {
     standard: 'WCAG2AA',
     runners: ['htmlcs'],
     threshold: 0,
     timeout: 30000,
-    wait: 500
+    wait: 500,
+    ...(chromeLaunchConfig ? { chromeLaunchConfig } : {})
   },
   urls: representativeRoutes
 };
