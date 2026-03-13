@@ -69,7 +69,16 @@ jobs:
         run: npm run validate:frontmatter
 
       - name: Build production validation site
-        run: hugo --minify --environment production
+        shell: bash
+        run: |
+          set -euo pipefail
+          build_started_at=$(node -e 'console.log(Date.now())')
+          hugo --minify --environment production
+          build_finished_at=$(node -e 'console.log(Date.now())')
+          echo "PAGES_CONSTRAINTS_BUILD_DURATION_MS=$((build_finished_at - build_started_at))" >> "$GITHUB_ENV"
+
+      - name: Run Pages artifact constraints check
+        run: npm run check:pages-constraints
 
       - name: Run URL parity check
         run: npm run check:url-parity
@@ -150,12 +159,6 @@ jobs:
           }
           EOF
 
-      - name: Add .nojekyll marker
-        shell: bash
-        run: |
-          set -euo pipefail
-          touch public/.nojekyll
-
       - name: Upload audit artifacts
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v4
@@ -171,6 +174,7 @@ jobs:
             migration/reports/phase-5-metadata-report.csv
             migration/reports/phase-5-schema-audit.csv
             migration/reports/phase-5-sitemap-audit.csv
+            migration/reports/phase-5-pages-constraints-report.md
             migration/reports/phase-5-internal-links-audit.csv
             migration/reports/phase-5-accessibility-audit.md
             migration/url-parity-report.json

@@ -322,12 +322,12 @@ legacy_url,disposition,expected_target,actual_outcome,status,severity
 /wp-content/uploads/2023/05/b2c-commerce-cloud-roll-your-own.jpg,retire,,true-not-found,pass,critical
 /wp-content/uploads/2023/05/managed-runtime-projects-environments.png,retire,,true-not-found,pass,critical
 /wp-content/uploads/2023/05/ocapi-and-scapi-performance-reports.jpg,retire,,true-not-found,pass,critical
-/wp-content/uploads/2023/10/2d9abc21-7f77-4b94-81a5-07f15a0c28d3.pdf,keep,/wp-content/uploads/2023/10/2d9abc21-7f77-4b94-81a5-07f15a0c28d3.pdf,missing-source-content,fail,critical
-/wp-content/uploads/2023/11/B2C-Commerce-Variation-Group-Guide.pdf,keep,/wp-content/uploads/2023/11/B2C-Commerce-Variation-Group-Guide.pdf,missing-source-content,fail,critical
+/wp-content/uploads/2023/10/2d9abc21-7f77-4b94-81a5-07f15a0c28d3.pdf,keep,/wp-content/uploads/2023/10/2d9abc21-7f77-4b94-81a5-07f15a0c28d3.pdf,live-static-asset,pass,critical
+/wp-content/uploads/2023/11/B2C-Commerce-Variation-Group-Guide.pdf,keep,/wp-content/uploads/2023/11/B2C-Commerce-Variation-Group-Guide.pdf,live-static-asset,pass,critical
 /wp-content/uploads/2024/04/images-in-sfcc-page-designer-1024x512.png,retire,,true-not-found,pass,critical
 /wp-content/uploads/2024/10/multi-layered-caching.jpg,retire,,true-not-found,pass,critical
 /wp-content/uploads/2024/10/sfra-prepend-home-show.jpg,retire,,true-not-found,pass,critical
-/wp-content/uploads/2025/03/send_ext_order_feeds_to_einstein.pdf,keep,/wp-content/uploads/2025/03/send_ext_order_feeds_to_einstein.pdf,missing-source-content,fail,critical
+/wp-content/uploads/2025/03/send_ext_order_feeds_to_einstein.pdf,keep,/wp-content/uploads/2025/03/send_ext_order_feeds_to_einstein.pdf,live-static-asset,pass,critical
 /wp-content/uploads/2025/06/rhino-with-ai-agents-scaled.jpeg,retire,,true-not-found,pass,critical
 /wp-content/uploads/elementor/thumbs/page-designer-structure-new-q0uu07mbk2b779dng608ohzvqnewndt9ajezjc0u0w.png,retire,,true-not-found,pass,critical
 /your-definitive-mobile-app-checklist/,keep,/your-definitive-mobile-app-checklist/,live-page,pass,critical

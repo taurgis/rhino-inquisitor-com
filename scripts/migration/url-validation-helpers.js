@@ -228,6 +228,41 @@ export async function collectContentState(contentRoot) {
   };
 }
 
+async function collectFileState(root, { ignore = [] } = {}) {
+  const files = (await fg('**/*', {
+    cwd: root,
+    onlyFiles: true,
+    dot: true,
+    ignore,
+    suppressErrors: true
+  })).sort();
+  const fileRoutes = new Map();
+
+  for (const relativePath of files) {
+    const normalizedPath = toPosixPath(relativePath);
+    const routeInfo = normalizeUrlLike(`/${normalizedPath}`);
+
+    fileRoutes.set(routeInfo.pathname, {
+      relativePath: normalizedPath,
+      absolutePath: path.join(root, relativePath)
+    });
+  }
+
+  return {
+    fileCount: files.length,
+    fileRoutes
+  };
+}
+
+export async function collectStaticFileState(staticRoot) {
+  const state = await collectFileState(staticRoot);
+
+  return {
+    staticFileCount: state.fileCount,
+    staticRoutes: state.fileRoutes
+  };
+}
+
 export async function collectPublicHtmlState(publicRoot) {
   const htmlFiles = (await fg('**/*.html', {
     cwd: publicRoot,
@@ -258,6 +293,15 @@ export async function collectPublicHtmlState(publicRoot) {
   };
 }
 
+export async function collectPublicAssetState(publicRoot) {
+  const state = await collectFileState(publicRoot, { ignore: ['**/*.html'] });
+
+  return {
+    publicAssetCount: state.fileCount,
+    assetRoutes: state.fileRoutes
+  };
+}
+
 export async function readRedirectHtml(descriptor) {
   if (!descriptor) {
     return null;
@@ -276,6 +320,7 @@ export function parseCommonArgs(argv, defaults) {
   const options = {
     manifestPath: defaults.manifestPath,
     contentRoot: defaults.contentRoot,
+    staticRoot: defaults.staticRoot ?? null,
     publicRoot: defaults.publicRoot,
     reportPath: defaults.reportPath,
     baseUrl: defaults.baseUrl ?? null,
@@ -291,6 +336,9 @@ export function parseCommonArgs(argv, defaults) {
         break;
       case '--content-dir':
         options.contentRoot = path.resolve(argv[++index]);
+        break;
+      case '--static-dir':
+        options.staticRoot = path.resolve(argv[++index]);
         break;
       case '--public-dir':
         options.publicRoot = path.resolve(argv[++index]);
@@ -329,6 +377,10 @@ export function ensureExpectedTarget(entry) {
   }
 
   return normalizeUrlLike(entry.target_url);
+}
+
+export function isStaticAssetRoute(routeInfo) {
+  return routeInfo.pathname !== '/' && path.extname(routeInfo.pathname).length > 0;
 }
 
 export function resolveManifestChains(manifestEntries) {

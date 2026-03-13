@@ -272,7 +272,16 @@ jobs:
         run: npm run validate:frontmatter
 
       - name: Build production site
-        run: hugo --minify --environment production
+        shell: bash
+        run: |
+          set -euo pipefail
+          build_started_at=$(node -e 'console.log(Date.now())')
+          hugo --minify --environment production
+          build_finished_at=$(node -e 'console.log(Date.now())')
+          echo "PAGES_CONSTRAINTS_BUILD_DURATION_MS=$((build_finished_at - build_started_at))" >> "$GITHUB_ENV"
+
+      - name: Run Pages artifact constraints check
+        run: npm run check:pages-constraints
 
       - name: Run URL parity check
         if: needs.prepare.outputs.full_site_route_validation_required == 'true'

@@ -25,7 +25,7 @@
 | [RHI-056](RHI-056-accessibility-discoverability-support.md) | Workstream I — Accessibility as Discoverability Support | WS-I | Medium | Done | M | 2026-04-23 | RHI-047 |
 | [RHI-057](RHI-057-search-console-monitoring-program.md) | Workstream J — Search Console and Analytics Monitoring Program | WS-J | High | Done | M | 2026-04-24 | RHI-047, RHI-051 |
 | [RHI-058](RHI-058-non-html-resource-seo-controls.md) | Workstream K — Non-HTML Resource SEO Controls | WS-K | Medium | Done | S | 2026-04-25 | RHI-047 |
-| [RHI-059](RHI-059-github-pages-limits-artifact-integrity.md) | Workstream L — GitHub Pages Limits and Artifact Integrity | WS-L | High | Open | S | 2026-04-25 | RHI-047, RHI-049 |
+| [RHI-059](RHI-059-github-pages-limits-artifact-integrity.md) | Workstream L — GitHub Pages Limits and Artifact Integrity | WS-L | High | Done | S | 2026-04-25 | RHI-047, RHI-049 |
 | [RHI-060](RHI-060-phase-5-signoff.md) | Phase 5 Sign-off and Handover to Phase 6/8 | Sign-off | Critical | Open | S | 2026-05-02 | RHI-047 through RHI-059 |
 
 ---
@@ -144,7 +144,7 @@ All items below must be complete before Phase 6 and Phase 8 downstream work can 
 - [x] RHI-056 Done — Zero WCAG 2.2 Level A violations on representative pages; Level AA issues triaged
 - [x] RHI-057 Done — Monitoring runbook committed; Search Console access confirmed; pre-launch baselines captured
 - [x] RHI-058 Done — Non-HTML policy implemented per URL class; no unresolved index-control blockers; edge-layer escalations documented
-- [ ] RHI-059 Done — Artifact within size limit; no symbolic links; `.nojekyll` present; HTTPS and DNS readiness confirmed
+- [x] RHI-059 Done — Artifact within size limit; no symbolic links; `.nojekyll` present; current DNS state recorded; GitHub Pages settings and HTTPS verification deferred to Phase 9 by owner approval
 - [ ] RHI-060 Done — All Phase 5 gates green; SEO contract and sign-off committed; Phase 6/8 notified and acknowledged
 
 ---

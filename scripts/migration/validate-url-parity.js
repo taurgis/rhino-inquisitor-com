@@ -5,9 +5,12 @@ import { stringify as stringifyCsv } from 'csv-stringify/sync';
 
 import {
   collectContentState,
+  collectPublicAssetState,
   collectPublicHtmlState,
+  collectStaticFileState,
   ensureExpectedTarget,
   isGeneratedKeepRoute,
+  isStaticAssetRoute,
   loadManifest,
   normalizeUrlLike,
   parseCommonArgs,
@@ -22,6 +25,7 @@ import {
 const defaults = {
   manifestPath: path.join(repoRoot, 'migration/url-manifest.json'),
   contentRoot: path.join(repoRoot, 'src/content'),
+  staticRoot: path.join(repoRoot, 'src/static'),
   publicRoot: path.join(repoRoot, 'public'),
   reportPath: path.join(repoRoot, 'migration/reports/url-parity-report.csv'),
   recordsPath: path.join(repoRoot, 'migration/intermediate/records.normalized.json'),
@@ -34,6 +38,7 @@ function printHelp() {
 Options:
   --manifest <path>      Override manifest path.
   --content-dir <path>   Override content directory (defaults to src/content).
+  --static-dir <path>    Override static directory (defaults to src/static).
   --public-dir <path>    Override built public directory (defaults to public).
   --records-file <path>  Override normalized records path used by selected-records scope.
   --scope <mode>         Validation scope: full-manifest or selected-records.
@@ -81,7 +86,9 @@ async function main() {
 
   const manifestEntries = await loadManifest(options.manifestPath);
   const contentState = await collectContentState(options.contentRoot);
+  const staticState = await collectStaticFileState(options.staticRoot);
   const publicState = await collectPublicHtmlState(options.publicRoot);
+  const publicAssetState = await collectPublicAssetState(options.publicRoot);
   const selectedRecords = options.scope === 'selected-records'
     ? await loadSelectedRecords(options.recordsPath)
     : [];
@@ -108,6 +115,27 @@ async function main() {
     if (entry.disposition === 'keep') {
       if (!targetInfo) {
         rows.push(createRow(entry, 'missing-target-url', 'fail', severity));
+        continue;
+      }
+
+      const isStaticKeepAsset = entry.url_class === 'attachment'
+        && entry.implementation_layer === 'pages-static'
+        && isStaticAssetRoute(targetInfo);
+
+      if (isStaticKeepAsset) {
+        const sourceAsset = staticState.staticRoutes.get(targetInfo.pathname);
+        if (!sourceAsset) {
+          rows.push(createRow(entry, 'missing-source-asset', 'fail', severity));
+          continue;
+        }
+
+        const publishedAsset = publicAssetState.assetRoutes.get(targetInfo.pathname);
+        if (!publishedAsset) {
+          rows.push(createRow(entry, 'missing-public-asset', 'fail', severity));
+          continue;
+        }
+
+        rows.push(createRow(entry, 'live-static-asset', 'pass', severity));
         continue;
       }
 

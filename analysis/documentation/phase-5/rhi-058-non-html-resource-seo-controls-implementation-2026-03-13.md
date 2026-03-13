@@ -5,11 +5,11 @@ Ticket: `analysis/tickets/phase-5/RHI-058-non-html-resource-seo-controls.md`
 
 ## Change summary
 
-Added a repo-backed non-HTML policy generator at `scripts/seo/build-non-html-policy.js`, committed `migration/reports/phase-5-non-html-policy.csv`, added `npm run check:non-html-policy`, aligned the report with the approved feed compatibility policy from RHI-051, and preserved all three owner-required article PDFs as canonical `/media/...pdf` downloads while keeping their legacy `wp-content/uploads` paths as compatibility assets.
+Added a repo-backed non-HTML policy generator at `scripts/seo/build-non-html-policy.js`, committed `migration/reports/phase-5-non-html-policy.csv`, added `npm run check:non-html-policy`, aligned the report with the approved feed compatibility policy from RHI-051, preserved all three owner-required article PDFs as canonical `/media/...pdf` downloads while keeping their legacy `wp-content/uploads` paths as compatibility assets, and updated `npm run check:url-parity` so those kept static attachments validate as published binary assets instead of false missing-content failures.
 
 ## Why this changed
 
-Before this change, RHI-058 had no committed policy artifact even though the manifest already contained many attachment and feed decisions. The repository also had a mismatch between the RHI-051 feed continuity decision and the manifest default retire state for `/feed/`, and a small set of migrated posts still linked to manifest-tracked legacy upload URLs instead of their current `/media/...` equivalents or preserved download targets. This change turns the owner-approved RHI-058 policy into a reproducible artifact and Phase 6 handoff source.
+Before this change, RHI-058 had no committed policy artifact even though the manifest already contained many attachment and feed decisions. The repository also had a mismatch between the RHI-051 feed continuity decision and the manifest default retire state for `/feed/`, a small set of migrated posts still linked to manifest-tracked legacy upload URLs instead of their current `/media/...` equivalents or preserved download targets, and the URL parity validator treated preserved `wp-content/uploads` PDF assets as missing source content because it only recognized Markdown-backed routes and generated HTML pages. This change turns the owner-approved RHI-058 policy into a reproducible artifact and Phase 6 handoff source while aligning the parity gate with the repo's static-asset compatibility model.
 
 ## Behavior details
 
@@ -20,6 +20,7 @@ Before this change, RHI-058 had no committed policy artifact even though the man
 - The manifest still defaulted `/feed/` to `retire` even though RHI-051 had already implemented `/feed/`, `/feed/rss/`, and `/feed/atom/` as Pages-compatible compatibility helpers to `/index.xml`.
 - Manifest-tracked legacy upload URLs still appeared in a small set of source posts as image click targets or PDF links.
 - The first implementation iteration preserved two PDFs directly at legacy paths and redirected the third Einstein PDF to its article because the standalone binary was not yet recoverable.
+- `npm run check:url-parity` failed the three owner-approved kept article PDFs as `missing-source-content` because the validator only accepted Markdown-owned keep routes or generated HTML helpers.
 
 ### New behavior
 
@@ -28,25 +29,31 @@ Before this change, RHI-058 had no committed policy artifact even though the man
 - The three owner-required legacy article PDFs now resolve in the policy report as `keep` rows with `implementation_layer: pages-static`, and each binary is published both as a canonical `/media/...pdf` article download and as a legacy `wp-content/uploads/...` compatibility asset.
 - `/feed/`, `/feed/rss/`, and `/feed/atom/` are recorded as compatibility redirects to `/index.xml`; all other legacy feed variants remain retired.
 - The affected source posts no longer depend on manifest-tracked legacy image and PDF upload URLs.
+- `npm run check:url-parity` now validates `keep` attachment rows with exact file targets against both `src/static/` and the built `public/` artifact, reporting `live-static-asset` when the preserved binary is present and failing only when the source or published asset is actually missing.
 
 ## Impact
 
 - Maintainers now have a reproducible RHI-058 artifact and command instead of a one-off spreadsheet process.
 - Phase 6 has an explicit handoff list: every `edge-cdn` row in `migration/reports/phase-5-non-html-policy.csv` requires infrastructure-owned redirect implementation.
 - The built site now preserves all three owner-required PDF attachments as canonical `/media/...pdf` downloads while keeping the legacy upload paths available for backward compatibility.
+- The URL parity gate now reflects the approved non-HTML compatibility policy instead of producing three false critical failures for preserved PDF assets.
 
 ## Verification
 
 - `npm run build:prod`
 - `npm run check:non-html-policy`
+- `npm run check:url-parity`
 - `npm run check:redirects:seo`
 - The generator validates all committed `src/static/` files are present in `public/`, verifies that kept PDF attachments exist in built output, and fails if any non-kept manifest-tracked legacy attachment URL still appears in built HTML.
 
 ## Related files
 
 - `scripts/seo/build-non-html-policy.js`
+- `scripts/migration/validate-url-parity.js`
+- `scripts/migration/url-validation-helpers.js`
 - `package.json`
 - `migration/reports/phase-5-non-html-policy.csv`
+- `migration/reports/url-parity-report.csv`
 - `analysis/tickets/phase-5/RHI-058-non-html-resource-seo-controls.md`
 - `analysis/tickets/phase-5/INDEX.md`
 - `analysis/tickets/phase-5/RHI-060-phase-5-signoff.md`
