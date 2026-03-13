@@ -80,6 +80,9 @@ jobs:
       - name: Run metadata validation check
         run: npm run check:metadata
 
+      - name: Run schema validation check
+        run: npm run check:schema
+
       - name: Run sitemap and feed validation check
         run: npm run check:sitemap
 
@@ -157,6 +160,7 @@ jobs:
             migration/phase-5-redirect-signal-matrix.csv
             migration/reports/phase-5-redirect-validation.csv
             migration/reports/phase-5-metadata-report.csv
+            migration/reports/phase-5-schema-audit.csv
             migration/reports/phase-5-sitemap-audit.csv
             migration/url-parity-report.json
           if-no-files-found: error

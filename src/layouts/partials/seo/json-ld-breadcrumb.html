@@ -1,5 +1,5 @@
 {{ $items := partial "breadcrumbs-data.html" . }}
-{{ if gt (len $items) 1 }}
+{{ if and (ne .Kind "404") (gt (len $items) 1) }}
   {{ $crumbs := slice }}
   {{ range $index, $item := $items }}
     {{ $crumbs = $crumbs | append (dict
