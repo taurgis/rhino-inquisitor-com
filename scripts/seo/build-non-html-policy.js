@@ -22,7 +22,7 @@ const defaults = {
   reportPath: path.join(repoRoot, 'migration', 'reports', 'phase-5-non-html-policy.csv')
 };
 
-const feedCompatibilityRoutes = new Set(['/feed/', '/feed/rss/', '/feed/atom/']);
+const feedCompatibilityRoutes = new Set(['/feed/', '/feed/rss/', '/feed/atom/', '/rss/']);
 const approvedPdfRedirectTargets = new Map();
 const mediaExtensions = new Set([
   'apng',
@@ -108,7 +108,7 @@ function normalizeExtension(route) {
 }
 
 function determineResourceType(route) {
-  if (route === '/feed/' || route.startsWith('/feed/') || route.endsWith('/feed/')) {
+  if (route === '/rss/' || route === '/feed/' || route.startsWith('/feed/') || route.endsWith('/feed/')) {
     return 'feed';
   }
 
@@ -308,13 +308,14 @@ async function collectLegacyAttachmentRefs(publicRoot, legacyAttachmentRoutes) {
 }
 
 function isFeedRow(entry) {
-  return entry.legacy_url === '/feed/'
+  return entry.legacy_url === '/rss/'
+    || entry.legacy_url === '/feed/'
     || entry.legacy_url.startsWith('/feed/')
     || entry.legacy_url.endsWith('/feed/');
 }
 
 async function ensureFeedHelpersExist(staticRoot, publicRoot) {
-  const requiredRoutes = ['/feed/', '/feed/rss/', '/feed/atom/'];
+  const requiredRoutes = ['/feed/', '/feed/rss/', '/feed/atom/', '/rss/'];
 
   for (const route of requiredRoutes) {
     const relativeFile = route === '/feed/'
@@ -451,7 +452,7 @@ async function main() {
     }));
   }
 
-  for (const syntheticRoute of ['/feed/rss/', '/feed/atom/']) {
+  for (const syntheticRoute of ['/feed/rss/', '/feed/atom/', '/rss/']) {
     if (reportRows.some((row) => row.legacy_url === syntheticRoute)) {
       continue;
     }

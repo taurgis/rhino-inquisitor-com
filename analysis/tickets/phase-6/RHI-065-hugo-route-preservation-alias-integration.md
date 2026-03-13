@@ -7,7 +7,7 @@
 **Assigned to:** Engineering Owner  
 **Target date:** 2026-05-09  
 **Created:** 2026-03-07  
-**Updated:** 2026-03-07
+**Updated:** 2026-03-13
 
 ---
 
@@ -71,6 +71,24 @@ This workstream is the engineering implementation counterpart to WS-A (inventory
 - [ ] Write `scripts/phase-6/check-redirect-chains.js` script
 - [ ] Run full production build and all Phase 6 validation scripts
 - [ ] Commit all content file front matter updates, alias additions, and new scripts
+
+### Current Remediation Slice
+
+The 2026-03-13 implementation slice narrows WS-C to the clean-build parity blockers already validated against the finalized manifest. This slice is intentionally smaller than full WS-C closeout and does not change manifest policy.
+
+In scope for this slice:
+
+1. Add missing term-bundle aliases for the approved category merge routes currently failing as `missing-alias-page`.
+2. Add explicit `/rss/` Pages-compatible feed helper output and keep the feed compatibility helpers aligned to Hugo's canonical `/index.xml` feed artifact.
+3. Update `npm run check:url-parity` so feed helper redirects to `/index.xml` are accepted for manifest feed targets of `/feed/`, and so non-HTML keep routes such as `/robots.txt` and `/sitemap.xml` validate against built public assets.
+4. Update downstream feed and non-HTML policy checks so `/rss/` is treated as a first-class compatibility route.
+5. Document the remediation in `analysis/documentation/phase-6/` and preserve the stale-artifact versus clean-build parity distinction in the ticket evidence.
+
+Out of scope for this slice:
+
+1. Manifest disposition changes in `migration/url-manifest.json`.
+2. Unrelated parity residuals outside the clean-build category/feed/system-file set.
+3. Full redirect-chain, host/protocol, or retirement closeout work assigned to other Phase 6 tickets.
 
 ---
 
@@ -138,12 +156,14 @@ This workstream is the engineering implementation counterpart to WS-A (inventory
 | Date | Status | Note |
 |------|--------|------|
 | 2026-03-07 | Open | Ticket created |
+| 2026-03-13 | In Progress | Investigated `npm run check:url-parity` against both the current `public/` tree and a clean production artifact. Confirmed the clean-build blockers are limited to approved category merge aliases, missing `/rss/` compatibility output, and parity handling for non-HTML system keep routes. Implemented the first WS-C remediation slice by adding the missing category term aliases, adding `/rss/` feed helper output, updating parity/feed-related validators for feed compatibility and non-HTML keep files, and documenting the old-vs-new behavior in `analysis/documentation/phase-6/rhi-065-url-parity-remediation-2026-03-13.md`. Verification after a clean `npm run build:prod`: `npm run test:url-parity` passed 6 of 6 tests, `npm run check:url-parity` reported `1223` pass rows and `0` failures, `npm run check:feed-compatibility` reported `0` failures, and both `npm run check:sitemap` and `npm run check:crawl-controls` passed. |
 
 ---
 
 ### Notes
 
 - The `aliases` front matter in Hugo is a list of legacy paths that the content file should also respond to. Hugo generates a standalone redirect HTML page at each alias path containing a meta-refresh to the canonical destination. These pages are **not** 301/308 redirects at the HTTP level; they are static HTML pages served by GitHub Pages.
+- The 2026-03-13 parity investigation also established an artifact-discipline requirement for this workstream: validate `npm run check:url-parity` against a clean production build output, because preview-host or stale `public/` artifacts can create false failures unrelated to current source behavior.
 - This workstream must not begin until WS-B (RHI-064) is Done. Adding aliases from an unreviewed mapping carries significant SEO risk — a bulk alias assignment from an unchecked mapping can create thousands of low-quality redirect signals in one commit.
 - The chain detection script should build a directed graph from the alias→url relationships and check for cycles and paths longer than one hop. Any path longer than one hop is a redirect chain and must be collapsed to a direct source→final-destination mapping.
 - If Model B is chosen (RHI-062), the edge redirect configuration must be committed alongside or before alias pages, so both layers are consistent. Misaligned layers (where edge redirects to A but Hugo alias redirects to B) create canonical confusion.

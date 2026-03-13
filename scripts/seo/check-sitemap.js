@@ -577,7 +577,7 @@ async function validateFeed(options, rows, failures, robotsData) {
     details: `items=${itemCount}`
   }));
 
-  const helperEndpoints = ['/feed/', '/feed/rss/', '/feed/atom/'];
+  const helperEndpoints = ['/feed/', '/feed/rss/', '/feed/atom/', '/rss/'];
   for (const endpoint of helperEndpoints) {
     const helperPath = path.join(options.publicRoot, endpoint.replace(/^\//u, ''), 'index.html');
     const helperFailures = [];
@@ -608,7 +608,7 @@ async function validateFeed(options, rows, failures, robotsData) {
     }));
   }
 
-  const feedRoutes = ['/feed/', '/feed/rss/', '/feed/atom/', '/index.xml'];
+  const feedRoutes = ['/feed/', '/feed/rss/', '/feed/atom/', '/rss/', '/index.xml'];
   const blockedRoutes = feedRoutes.filter((route) => resolveRobotsRule(route, robotsData.wildcardRules).blocked);
 
   pushRow(rows, failures, createRow({

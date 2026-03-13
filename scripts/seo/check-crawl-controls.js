@@ -114,7 +114,7 @@ function is404Route(route) {
 }
 
 function isFeedRoute(route) {
-  return route === '/index.xml' || route.startsWith('/feed/');
+  return route === '/index.xml' || route === '/rss/' || route.startsWith('/feed/');
 }
 
 function readMetaContent($, attributeName, attributeValue) {

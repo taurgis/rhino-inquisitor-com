@@ -197,3 +197,57 @@ test('keeps HTML route validation on the live-page path for non-attachment keep 
   assert.equal(outcome.rows[0].actual_outcome, 'live-page');
   assert.equal(outcome.rows[0].status, 'pass');
 });
+
+test('reports generated-system-file for non-HTML keep routes published as assets', async () => {
+  const outcome = await runValidatorFixture({
+    manifestEntries: [createManifestEntry({
+      legacy_url: '/robots.txt',
+      target_url: '/robots.txt',
+      implementation_layer: 'none',
+      url_class: 'system',
+      priority: 'high'
+    })],
+    contentFiles: {
+      'posts/fixture-page.md': createContentFile('/fixture-page/')
+    },
+    publicFiles: {
+      'robots.txt': 'User-agent: *\nAllow: /\n'
+    }
+  });
+
+  assert.equal(outcome.code, 0, outcome.stderr || outcome.stdout);
+  assert.equal(outcome.rows.length, 1);
+  assert.deepEqual(outcome.rows[0], {
+    legacy_url: '/robots.txt',
+    disposition: 'keep',
+    expected_target: '/robots.txt',
+    actual_outcome: 'generated-system-file',
+    status: 'pass',
+    severity: 'warning'
+  });
+});
+
+test('accepts feed compatibility helpers that point directly to /index.xml for /feed/ manifest targets', async () => {
+  const outcome = await runValidatorFixture({
+    manifestEntries: [createManifestEntry({
+      legacy_url: '/rss/',
+      disposition: 'merge',
+      target_url: '/feed/',
+      redirect_code: 308,
+      implementation_layer: 'pages-static',
+      url_class: 'system',
+      priority: 'high'
+    })],
+    contentFiles: {
+      'posts/fixture-page.md': createContentFile('/fixture-page/')
+    },
+    publicFiles: {
+      'rss/index.html': '<!doctype html><html><head><link rel="canonical" href="/index.xml"><meta http-equiv="refresh" content="0; url=/index.xml"></head></html>'
+    }
+  });
+
+  assert.equal(outcome.code, 0, outcome.stderr || outcome.stdout);
+  assert.equal(outcome.rows.length, 1);
+  assert.equal(outcome.rows[0].actual_outcome, 'meta-refresh');
+  assert.equal(outcome.rows[0].status, 'pass');
+});

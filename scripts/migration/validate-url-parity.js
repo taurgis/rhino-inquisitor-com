@@ -77,6 +77,17 @@ function summarizeRows(rows) {
   );
 }
 
+function isFeedCompatibilityTarget(entry, actualTarget, expectedTarget) {
+  return entry.url_class === 'system'
+    && expectedTarget.pathname === '/feed/'
+    && (actualTarget.pathname === '/feed/' || actualTarget.pathname === '/index.xml');
+}
+
+function matchesExpectedMergeTarget(entry, actualTarget, expectedTarget) {
+  return actualTarget.comparable === expectedTarget.comparable
+    || isFeedCompatibilityTarget(entry, actualTarget, expectedTarget);
+}
+
 async function main() {
   const options = parseCommonArgs(process.argv.slice(2), defaults);
   if (options.help) {
@@ -136,6 +147,18 @@ async function main() {
         }
 
         rows.push(createRow(entry, 'live-static-asset', 'pass', severity));
+        continue;
+      }
+
+      const isGeneratedSystemFile = entry.url_class === 'system' && isStaticAssetRoute(targetInfo);
+      if (isGeneratedSystemFile) {
+        const publishedAsset = publicAssetState.assetRoutes.get(targetInfo.pathname);
+        if (!publishedAsset) {
+          rows.push(createRow(entry, 'missing-public-file', 'fail', severity));
+          continue;
+        }
+
+        rows.push(createRow(entry, 'generated-system-file', 'pass', severity));
         continue;
       }
 
@@ -201,7 +224,7 @@ async function main() {
       }
 
       const refreshTarget = normalizeUrlLike(parsedAlias.metaRefreshTarget);
-      if (refreshTarget.comparable !== targetInfo.comparable) {
+      if (!matchesExpectedMergeTarget(entry, refreshTarget, targetInfo)) {
         rows.push(createRow(entry, 'wrong-refresh-target', 'fail', severity));
         continue;
       }
@@ -209,7 +232,7 @@ async function main() {
       const canonicalTarget = parsedAlias.canonicalTarget
         ? normalizeUrlLike(parsedAlias.canonicalTarget)
         : null;
-      if (!canonicalTarget || canonicalTarget.comparable !== targetInfo.comparable) {
+      if (!canonicalTarget || !matchesExpectedMergeTarget(entry, canonicalTarget, targetInfo)) {
         rows.push(createRow(entry, 'wrong-canonical-target', 'fail', severity));
         continue;
       }

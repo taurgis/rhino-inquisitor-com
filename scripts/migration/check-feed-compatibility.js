@@ -50,7 +50,7 @@ async function main() {
     });
   }
 
-  const helperEndpoints = ['/feed/', '/feed/rss/', '/feed/atom/'];
+  const helperEndpoints = ['/feed/', '/feed/rss/', '/feed/atom/', '/rss/'];
   for (const endpoint of helperEndpoints) {
     const helperPath = path.join(options.publicDir, endpoint.replace(/^\//u, ''), 'index.html');
     if (!(await fileExists(helperPath))) {

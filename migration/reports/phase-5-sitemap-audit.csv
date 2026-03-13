@@ -220,6 +220,7 @@ feed,/index.xml,public/index.xml,pass,none,,,,Canonical feed is parseable with c
 feed,/feed/,public/feed/index.html,pass,none,,,,Feed compatibility helper resolves through the approved Pages-compatible redirect pattern.,
 feed,/feed/rss/,public/feed/rss/index.html,pass,none,,,,Feed compatibility helper resolves through the approved Pages-compatible redirect pattern.,
 feed,/feed/atom/,public/feed/atom/index.html,pass,none,,,,Feed compatibility helper resolves through the approved Pages-compatible redirect pattern.,
+feed,/rss/,public/rss/index.html,pass,none,,,,Feed compatibility helper resolves through the approved Pages-compatible redirect pattern.,
 feed,/robots.txt,public/robots.txt,pass,none,,,,robots.txt does not block the canonical feed or compatibility routes.,
 discovery-surfaces,/archive/,public/archive/index.html,pass,critical,,,,Archive discovery surface is present in the build output.,
 discovery-surfaces,/video/,public/video/index.html,pass,critical,,,,Video discovery surface is present in the build output.,
