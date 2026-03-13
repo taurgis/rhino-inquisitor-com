@@ -94,11 +94,11 @@ Machine-readable discovery pathways are how search engines find and index conten
 
 | Dependency | Type | Status |
 |------------|------|--------|
-| RHI-047 Done — Phase 5 Bootstrap complete | Ticket | Pending |
-| RHI-021 Done — Phase 3 Hugo config hardening (sitemap and feed config) | Ticket | Pending |
-| RHI-048 Done — Canonical policy established (sitemap URLs must match canonical URLs) | Ticket | Pending |
-| RHI-005 Done — Phase 1 SEO baseline (category/archive organic traffic data) | Ticket | Pending |
-| `fast-xml-parser` available in `package.json` | Tool | Pending |
+| RHI-047 Done — Phase 5 Bootstrap complete | Ticket | Done |
+| RHI-021 Done — Phase 3 Hugo config hardening (sitemap and feed config) | Ticket | Done |
+| RHI-048 Done — Canonical policy established (sitemap URLs must match canonical URLs) | Ticket | Done |
+| RHI-005 Done — Phase 1 SEO baseline (category/archive organic traffic data) | Ticket | Done |
+| `fast-xml-parser` available in `package.json` | Tool | Available |
 
 ---
 
