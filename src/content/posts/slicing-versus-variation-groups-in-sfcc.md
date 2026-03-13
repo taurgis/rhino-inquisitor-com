@@ -45,7 +45,7 @@ Variation Groups also make it possible to tag products to promotions, which give
 
 ## Why use Variation Groups over Slicing
 
-[The leap from slicing to Variation Groups](https://www.rhino-inquisitor.com/wp-content/uploads/2023/11/B2C-Commerce-Variation-Group-Guide.pdf) feels natural when considering the modern expectations of both merchants and customers online:
+The leap from slicing to Variation Groups feels natural when considering the modern expectations of both merchants and customers online:
 
 - **Enhanced Control Over Display:** Variation Groups give you exacting authority over how products are presented in the store. Attributes maintained at the Group level contribute to a refined attribute value fallback system for variants, ensuring that variations adhere to predefined display rules without constant manual adjustments.
 - **Merchandising with Precision:** By assigning specific colours or sizes to content slots on grid or landing pages or curating sets by attributes within Variation Groups, you can create an aesthetically pleasing and user-friendly browsing experience.

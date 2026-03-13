@@ -155,7 +155,7 @@ It will analyze your entered search term, look at information like current locat
 
 ### Feed Einstein data from other channels
 
-If you have other channels besides Salesforce B2C Commerce Cloud that can be used to place orders, this data can be fed into Einstein in the form of a [gzipped TSV](https://www.rhino-inquisitor.com/wp-content/uploads/2025/03/Send_Ext_Order_Feeds_To_Einstein.pdf).
+If you have other channels besides Salesforce B2C Commerce Cloud that can be used to place orders, this data can be fed into Einstein in the form of a gzipped TSV file.
 
 ### Einstein Profile Connector
 
