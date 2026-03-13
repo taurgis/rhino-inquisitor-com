@@ -17,7 +17,7 @@ Downloadable-file convention input:
 
 | Ticket ID | Title | Workstream | Priority | Status | Estimate | Target Date | Depends On |
 |-----------|-------|------------|----------|--------|----------|-------------|------------|
-| [RHI-061](RHI-061-phase-6-bootstrap.md) | Phase 6 Bootstrap: Kickoff and Redirect Governance Environment Setup | Setup | Critical | Open | S | 2026-05-05 | RHI-060 |
+| [RHI-061](RHI-061-phase-6-bootstrap.md) | Phase 6 Bootstrap: Kickoff and Redirect Governance Environment Setup | Setup | Critical | Done | S | 2026-05-05 | RHI-060 |
 | [RHI-062](RHI-062-redirect-architecture-decision.md) | Redirect Architecture Decision Record | ADR | Critical | Open | S | 2026-05-06 | RHI-061 |
 | [RHI-063](RHI-063-legacy-url-inventory-finalization.md) | Workstream A — Legacy URL Inventory Finalization | WS-A | Critical | Open | M | 2026-05-07 | RHI-061 |
 | [RHI-064](RHI-064-redirect-mapping-intent-review.md) | Workstream B — Redirect Mapping Specification and Intent Review | WS-B | Critical | Open | M | 2026-05-08 | RHI-062, RHI-063 |
@@ -132,7 +132,7 @@ All gates are blocking pre-deploy steps. Failure of any gate prevents artifact u
 
 All items below must be complete before Phase 7 DNS cutover and Phase 8 launch readiness can finalize their release assessments:
 
-- [ ] RHI-061 Done — Phase 6 Bootstrap; Phase 5 contracts and tooling environment confirmed
+- [x] RHI-061 Done — Phase 6 Bootstrap; Phase 5 contracts and tooling environment confirmed
 - [ ] RHI-062 Done — Redirect architecture decision committed and signed off by SEO and Engineering owners
 - [ ] RHI-063 Done — 100% URL inventory coverage; finalized manifest committed; validation script passing
 - [ ] RHI-064 Done — 100% of redirect rows have approved intent class; zero deferred or unresolved mappings

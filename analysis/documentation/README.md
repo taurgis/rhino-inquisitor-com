@@ -14,6 +14,7 @@ This directory holds structured analysis documentation for the migration project
 | `analysis/documentation/phase-3/` | Phase 3 kickoff, bootstrap, implementation, and sign-off docs |
 | `analysis/documentation/phase-4/` | Phase 4 migration-planning, source-policy, and sign-off docs |
 | `analysis/documentation/phase-5/` | Phase 5 kickoff, bootstrap, SEO governance, and discoverability readiness docs |
+| `analysis/documentation/phase-6/` | Phase 6 bootstrap, redirect governance, and URL-preservation readiness docs |
 | `analysis/documentation/phase-7/` | Phase 7 deployment workflow, cutover-readiness, and validation docs |
 
 ## Placement Rules
@@ -35,6 +36,7 @@ This directory holds structured analysis documentation for the migration project
 - [Phase 3 docs](phase-3/)
 - [Phase 4 docs](phase-4/)
 - [Phase 5 docs](phase-5/)
+- [Phase 6 docs](phase-6/)
 - [Phase 7 docs](phase-7/)
 
 ## Naming Conventions
