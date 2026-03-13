@@ -1,5 +1,5 @@
 legacy_url,disposition,target_url,redirect_code,implementation_layer,chain_count,loop_detected,broad_redirect_risk,actual_outcome,status,severity,notes
-/category/salesforce-commerce-cloud/release-notes/,merge,/category/release-notes/,301,edge-cdn,0,false,false,documented-edge-redirect,pass,critical,Manifest assigns this moved path to an edge redirect layer rather than Hugo alias output.
+/category/salesforce-commerce-cloud/release-notes/,merge,/category/release-notes/,meta-refresh,pages-static,0,false,false,meta-refresh,pass,critical,Alias helper verified at category/salesforce-commerce-cloud/release-notes/index.html.
 /archive/2/,retire,null,none,none,0,false,false,true-not-found,pass,critical,No generated HTML artifact exists at the retired legacy path.
 /archive/3/,retire,null,none,none,0,false,false,true-not-found,pass,critical,No generated HTML artifact exists at the retired legacy path.
 /archive/4/,retire,null,none,none,0,false,false,true-not-found,pass,critical,No generated HTML artifact exists at the retired legacy path.
@@ -8,14 +8,14 @@ legacy_url,disposition,target_url,redirect_code,implementation_layer,chain_count
 /archive/7/,retire,null,none,none,0,false,false,true-not-found,pass,critical,No generated HTML artifact exists at the retired legacy path.
 /archive/8/,retire,null,none,none,0,false,false,true-not-found,pass,critical,No generated HTML artifact exists at the retired legacy path.
 /author/thomas-theunen/feed/,retire,null,none,none,0,false,false,true-not-found,pass,critical,No generated HTML artifact exists at the retired legacy path.
-/category/external/linkedin/,merge,/category/linkedin/,301,edge-cdn,0,false,false,documented-edge-redirect,pass,critical,Manifest assigns this moved path to an edge redirect layer rather than Hugo alias output.
-/category/external/salesforce-architects-blog/,merge,/category/salesforce-architects-blog/,301,edge-cdn,0,false,false,documented-edge-redirect,pass,critical,Manifest assigns this moved path to an edge redirect layer rather than Hugo alias output.
-/category/external/salesforce-ben/,merge,/category/salesforce-ben/,301,edge-cdn,0,false,false,documented-edge-redirect,pass,critical,Manifest assigns this moved path to an edge redirect layer rather than Hugo alias output.
-/category/salesforce-commerce-cloud/ai/,merge,/category/ai/,301,edge-cdn,0,false,false,documented-edge-redirect,pass,critical,Manifest assigns this moved path to an edge redirect layer rather than Hugo alias output.
-/category/salesforce-commerce-cloud/architecture/,merge,/category/architecture/,301,edge-cdn,0,false,false,documented-edge-redirect,pass,critical,Manifest assigns this moved path to an edge redirect layer rather than Hugo alias output.
-/category/salesforce-commerce-cloud/documentation/,merge,/category/salesforce-commerce-cloud/,301,edge-cdn,0,false,false,documented-edge-redirect,pass,critical,Manifest assigns this moved path to an edge redirect layer rather than Hugo alias output.
-/category/salesforce-commerce-cloud/erd/,merge,/category/erd/,301,edge-cdn,0,false,false,documented-edge-redirect,pass,critical,Manifest assigns this moved path to an edge redirect layer rather than Hugo alias output.
-/category/salesforce-commerce-cloud/go-live/,merge,/category/go-live/,301,edge-cdn,0,false,false,documented-edge-redirect,pass,critical,Manifest assigns this moved path to an edge redirect layer rather than Hugo alias output.
+/category/external/linkedin/,merge,/category/linkedin/,meta-refresh,pages-static,0,false,false,meta-refresh,pass,critical,Alias helper verified at category/external/linkedin/index.html.
+/category/external/salesforce-architects-blog/,merge,/category/salesforce-architects-blog/,meta-refresh,pages-static,0,false,false,meta-refresh,pass,critical,Alias helper verified at category/external/salesforce-architects-blog/index.html.
+/category/external/salesforce-ben/,merge,/category/salesforce-ben/,meta-refresh,pages-static,0,false,false,meta-refresh,pass,critical,Alias helper verified at category/external/salesforce-ben/index.html.
+/category/salesforce-commerce-cloud/ai/,merge,/category/ai/,meta-refresh,pages-static,0,false,false,meta-refresh,pass,critical,Alias helper verified at category/salesforce-commerce-cloud/ai/index.html.
+/category/salesforce-commerce-cloud/architecture/,merge,/category/architecture/,meta-refresh,pages-static,0,false,false,meta-refresh,pass,critical,Alias helper verified at category/salesforce-commerce-cloud/architecture/index.html.
+/category/salesforce-commerce-cloud/documentation/,merge,/category/salesforce-commerce-cloud/,meta-refresh,pages-static,0,false,false,meta-refresh,pass,critical,Alias helper verified at category/salesforce-commerce-cloud/documentation/index.html.
+/category/salesforce-commerce-cloud/erd/,merge,/category/erd/,meta-refresh,pages-static,0,false,false,meta-refresh,pass,critical,Alias helper verified at category/salesforce-commerce-cloud/erd/index.html.
+/category/salesforce-commerce-cloud/go-live/,merge,/category/go-live/,meta-refresh,pages-static,0,false,false,meta-refresh,pass,critical,Alias helper verified at category/salesforce-commerce-cloud/go-live/index.html.
 /category/salesforce-commerce-cloud/page/10/,retire,null,none,none,0,false,false,true-not-found,pass,critical,No generated HTML artifact exists at the retired legacy path.
 /category/salesforce-commerce-cloud/page/11/,retire,null,none,none,0,false,false,true-not-found,pass,critical,No generated HTML artifact exists at the retired legacy path.
 /category/salesforce-commerce-cloud/page/12/,retire,null,none,none,0,false,false,true-not-found,pass,critical,No generated HTML artifact exists at the retired legacy path.
@@ -29,19 +29,21 @@ legacy_url,disposition,target_url,redirect_code,implementation_layer,chain_count
 /category/salesforce-commerce-cloud/page/9/,retire,null,none,none,0,false,false,true-not-found,pass,critical,No generated HTML artifact exists at the retired legacy path.
 /category/salesforce-commerce-cloud/release-notes/page/2/,retire,null,none,none,0,false,false,true-not-found,pass,critical,No generated HTML artifact exists at the retired legacy path.
 /category/salesforce-commerce-cloud/release-notes/page/3/,retire,null,none,none,0,false,false,true-not-found,pass,critical,No generated HTML artifact exists at the retired legacy path.
-/category/salesforce-commerce-cloud/technical/,merge,/category/technical/,301,edge-cdn,0,false,false,documented-edge-redirect,pass,critical,Manifest assigns this moved path to an edge redirect layer rather than Hugo alias output.
+/category/salesforce-commerce-cloud/technical/,merge,/category/technical/,meta-refresh,pages-static,0,false,false,meta-refresh,pass,critical,Alias helper verified at category/salesforce-commerce-cloud/technical/index.html.
 /category/salesforce-commerce-cloud/technical/page/2/,retire,null,none,none,0,false,false,true-not-found,pass,critical,No generated HTML artifact exists at the retired legacy path.
 /category/salesforce-commerce-cloud/technical/page/3/,retire,null,none,none,0,false,false,true-not-found,pass,critical,No generated HTML artifact exists at the retired legacy path.
 /category/salesforce-commerce-cloud/technical/page/4/,retire,null,none,none,0,false,false,true-not-found,pass,critical,No generated HTML artifact exists at the retired legacy path.
 /category/salesforce-commerce-cloud/technical/page/5/,retire,null,none,none,0,false,false,true-not-found,pass,critical,No generated HTML artifact exists at the retired legacy path.
 /category/salesforce-commerce-cloud/technical/page/6/,retire,null,none,none,0,false,false,true-not-found,pass,critical,No generated HTML artifact exists at the retired legacy path.
 /category/salesforce-commerce-cloud/technical/page/7/,retire,null,none,none,0,false,false,true-not-found,pass,critical,No generated HTML artifact exists at the retired legacy path.
-/category/video/podcasts/,merge,/category/podcasts/,301,edge-cdn,0,false,false,documented-edge-redirect,pass,critical,Manifest assigns this moved path to an edge redirect layer rather than Hugo alias output.
-/category/video/sessions/,merge,/category/sessions/,301,edge-cdn,0,false,false,documented-edge-redirect,pass,critical,Manifest assigns this moved path to an edge redirect layer rather than Hugo alias output.
-/delta-exports-in-salesforce-b2c-commerce/,merge,/delta-exports-in-salesforce-b2c-commerce-cloud/,301,edge-cdn,0,false,false,documented-edge-redirect,pass,critical,Manifest assigns this moved path to an edge redirect layer rather than Hugo alias output.
-/feed/rss/,merge,/feed/,301,edge-cdn,0,false,false,documented-edge-redirect,pass,warning,Manifest assigns this moved path to an edge redirect layer rather than Hugo alias output.
+/category/video/podcasts/,merge,/category/podcasts/,meta-refresh,pages-static,0,false,false,meta-refresh,pass,critical,Alias helper verified at category/video/podcasts/index.html.
+/category/video/sessions/,merge,/category/sessions/,meta-refresh,pages-static,0,false,false,meta-refresh,pass,critical,Alias helper verified at category/video/sessions/index.html.
+/delta-exports-in-salesforce-b2c-commerce/,merge,/delta-exports-in-salesforce-b2c-commerce-cloud/,meta-refresh,pages-static,0,false,false,meta-refresh,pass,critical,Alias helper verified at delta-exports-in-salesforce-b2c-commerce/index.html.
+/feed/rss/,merge,/feed/,meta-refresh,pages-static,0,false,false,meta-refresh,pass,warning,Alias helper verified at feed/rss/index.html.
 /page/2/,retire,null,none,none,0,false,false,true-not-found,pass,critical,No generated HTML artifact exists at the retired legacy path.
 /page/4/,retire,null,none,none,0,false,false,true-not-found,pass,critical,No generated HTML artifact exists at the retired legacy path.
+/rss/,merge,/feed/,meta-refresh,pages-static,0,false,false,meta-refresh,pass,warning,Alias helper verified at rss/index.html.
+/sitemap_index.xml,retire,null,none,none,0,false,false,true-not-found,pass,warning,No generated HTML artifact exists at the retired legacy path.
 /tag/ai/,retire,null,none,none,0,false,false,true-not-found,pass,critical,No generated HTML artifact exists at the retired legacy path.
 /tag/apex/,retire,null,none,none,0,false,false,true-not-found,pass,critical,No generated HTML artifact exists at the retired legacy path.
 /tag/architect/,retire,null,none,none,0,false,false,true-not-found,pass,critical,No generated HTML artifact exists at the retired legacy path.
@@ -143,17 +145,24 @@ legacy_url,disposition,target_url,redirect_code,implementation_layer,chain_count
 /wp-content/uploads/elementor/thumbs/page-designer-structure-new-q0uu07mbk2b779dng608ohzvqnewndt9ajezjc0u0w.png,retire,null,none,none,0,false,false,true-not-found,pass,critical,No generated HTML artifact exists at the retired legacy path.
 /archives/,retire,null,none,none,0,false,false,true-not-found,pass,warning,No generated HTML artifact exists at the retired legacy path.
 /blog/,retire,null,none,none,0,false,false,true-not-found,pass,warning,No generated HTML artifact exists at the retired legacy path.
-/category/external/forward/,merge,/category/external/,301,edge-cdn,0,false,false,documented-edge-redirect,pass,warning,Manifest assigns this moved path to an edge redirect layer rather than Hugo alias output.
+/category-sitemap.xml,retire,null,none,none,0,false,false,true-not-found,pass,warning,No generated HTML artifact exists at the retired legacy path.
+/category/external/forward/,merge,/category/external/,meta-refresh,pages-static,0,false,false,meta-refresh,pass,warning,Alias helper verified at category/external/forward/index.html.
 /contact/,retire,null,none,none,0,false,false,true-not-found,pass,warning,No generated HTML artifact exists at the retired legacy path.
 /disclaimer/,retire,null,none,none,0,false,false,true-not-found,pass,warning,No generated HTML artifact exists at the retired legacy path.
+/e-landing-page-sitemap.xml,retire,null,none,none,0,false,false,true-not-found,pass,warning,No generated HTML artifact exists at the retired legacy path.
 /elementor-landing-page-1179/,retire,null,none,none,0,false,false,true-not-found,pass,warning,No generated HTML artifact exists at the retired legacy path.
-/feed/atom/,merge,/feed/,301,edge-cdn,0,false,false,documented-edge-redirect,pass,warning,Manifest assigns this moved path to an edge redirect layer rather than Hugo alias output.
+/feed/atom/,merge,/feed/,meta-refresh,pages-static,0,false,false,meta-refresh,pass,warning,Alias helper verified at feed/atom/index.html.
 /how-to-load-client-side-javascript-and-css-in-sfra/$%7bstyle.src%7d/,retire,null,none,none,0,false,false,true-not-found,pass,warning,No generated HTML artifact exists at the retired legacy path.
 /how-to-set-up-the-ecdn-for-staging-in-salesforce-b2c-commerce-cloud/,merge,/how-to-set-up-the-ecdn-in-sfcc-staging/,meta-refresh,pages-static,0,false,false,meta-refresh,pass,warning,Alias helper verified at how-to-set-up-the-ecdn-for-staging-in-salesforce-b2c-commerce-cloud/index.html.
+/page-sitemap.xml,retire,null,none,none,0,false,false,true-not-found,pass,warning,No generated HTML artifact exists at the retired legacy path.
+/post-sitemap.xml,retire,null,none,none,0,false,false,true-not-found,pass,warning,No generated HTML artifact exists at the retired legacy path.
 /salesforce-b2c-commerce-cloud-content-erd/_wp_link_placeholder/,retire,null,none,none,0,false,false,true-not-found,pass,warning,No generated HTML artifact exists at the retired legacy path.
 /sample-page/,retire,null,none,none,0,false,false,true-not-found,pass,warning,No generated HTML artifact exists at the retired legacy path.
 /terms-and-conditions/,retire,null,none,none,0,false,false,true-not-found,pass,warning,No generated HTML artifact exists at the retired legacy path.
 /terms-of-service/,retire,null,none,none,0,false,false,true-not-found,pass,warning,No generated HTML artifact exists at the retired legacy path.
+/video-sitemap.xml,retire,null,none,none,0,false,false,true-not-found,pass,warning,No generated HTML artifact exists at the retired legacy path.
+/wp-admin/,retire,null,none,none,0,false,false,true-not-found,pass,warning,No generated HTML artifact exists at the retired legacy path.
+/wp-login.php,retire,null,none,none,0,false,false,true-not-found,pass,warning,No generated HTML artifact exists at the retired legacy path.
 /?p=10100,merge,/chasing-clouds-catching-up-with-the-commercecrew-at-dreamforce-2023/,301,edge-cdn,0,false,false,documented-edge-query-redirect,pass,warning,Query-string legacy URLs cannot be represented as Hugo alias files; request-aware edge redirects are required.
 /?p=1011,merge,/preparing-for-the-b2c-commerce-developer-certification/,301,edge-cdn,0,false,false,documented-edge-query-redirect,pass,warning,Query-string legacy URLs cannot be represented as Hugo alias files; request-aware edge redirects are required.
 /?p=10175,merge,/salesforce-b2c-commerce-cloud-23-10-release-a-comprehensive-overview/,301,edge-cdn,0,false,false,documented-edge-query-redirect,pass,warning,Query-string legacy URLs cannot be represented as Hugo alias files; request-aware edge redirects are required.

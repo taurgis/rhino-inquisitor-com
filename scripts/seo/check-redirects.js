@@ -6,6 +6,7 @@ import { stringify as stringifyCsv } from 'csv-stringify/sync';
 import {
   collectPublicHtmlState,
   loadManifest,
+  matchesExpectedMergeTarget,
   normalizeUrlLike,
   parseCommonArgs,
   readRedirectHtml,
@@ -333,7 +334,7 @@ async function main() {
         }
 
         const refreshTarget = normalizeUrlLike(parsedAlias.metaRefreshTarget);
-        if (refreshTarget.comparable !== targetInfo.comparable) {
+        if (!matchesExpectedMergeTarget(entry, refreshTarget, targetInfo)) {
           validation.status = 'fail';
           validation.actualOutcome = 'wrong-refresh-target';
           validation.notes = `Alias helper redirects to ${parsedAlias.metaRefreshTarget} instead of ${entry.target_url}.`;
@@ -344,7 +345,7 @@ async function main() {
         const canonicalTarget = parsedAlias.canonicalTarget
           ? normalizeUrlLike(parsedAlias.canonicalTarget)
           : null;
-        if (!canonicalTarget || canonicalTarget.comparable !== targetInfo.comparable) {
+        if (!canonicalTarget || !matchesExpectedMergeTarget(entry, canonicalTarget, targetInfo)) {
           validation.status = 'fail';
           validation.actualOutcome = 'wrong-canonical-target';
           validation.notes = 'Alias helper canonical target does not match the approved final destination.';

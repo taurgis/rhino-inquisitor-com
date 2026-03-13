@@ -25,7 +25,8 @@ New behavior:
 2. `/rss/` now ships as a Pages-compatible feed helper alongside `/feed/`, `/feed/rss/`, and `/feed/atom/`.
 3. Feed compatibility helpers continue to point directly to Hugo's canonical feed artifact `/index.xml`, but parity validation now treats `/index.xml` as an approved implementation of manifest target `/feed/` for system feed compatibility routes. This preserves one-hop helper behavior instead of introducing helper-to-helper chains.
 4. `validate-url-parity` now validates non-HTML system keep routes such as `/robots.txt` and `/sitemap.xml` against the published public asset map instead of the HTML page map.
-5. Feed-related validation and policy scripts now include `/rss/` so feed compatibility behavior is checked consistently across parity, sitemap, crawl-control, and non-HTML policy tooling.
+5. Feed-related validation and policy scripts now include `/rss/` so feed compatibility behavior is checked consistently across parity, sitemap, crawl-control, non-HTML policy, and redirect validation tooling.
+6. `check:redirects:seo` now uses the same approved feed-target equivalence rule as `check:url-parity`, so Pages-compatible feed helpers that resolve directly to `/index.xml` no longer produce false `wrong-refresh-target` or `wrong-canonical-target` failures for manifest targets of `/feed/`.
 
 ## Impact
 
@@ -41,7 +42,8 @@ New behavior:
 3. Run `npm run check:url-parity` and confirm the clean-build category, feed, and system-file failures are cleared.
 4. Run `npm run check:feed-compatibility` to verify `/feed/`, `/feed/rss/`, `/feed/atom/`, and `/rss/` all resolve through the approved compatibility pattern.
 5. Run `npm run check:sitemap` and `npm run check:crawl-controls` to confirm the additional `/rss/` compatibility route is treated consistently by downstream SEO checks.
-6. Verified on 2026-03-13: `npm run test:url-parity` passed 6 of 6 tests, `npm run check:url-parity` reported `1223` pass rows and `0` failures, `npm run check:feed-compatibility` reported `0` failures, and both `npm run check:sitemap` and `npm run check:crawl-controls` passed on the clean production build.
+6. Run `npm run check:redirects:seo` to confirm feed helper redirects are accepted under the same `/feed/` to `/index.xml` compatibility rule used by the parity gate.
+7. Verified on 2026-03-13: `npm run test:url-parity` passed 6 of 6 tests before this follow-up, `npm run check:url-parity` reported `1223` pass rows and `0` failures, `npm run check:feed-compatibility` reported `0` failures, and both `npm run check:sitemap` and `npm run check:crawl-controls` passed on the clean production build. The follow-up redirect validator alignment was then verified with a fresh `npm run test:url-parity` pass and a clean `npm run check:redirects:seo` run.
 
 ## Related files
 
@@ -64,8 +66,10 @@ New behavior:
 17. `src/static/rss/index.html`
 18. `scripts/migration/validate-url-parity.js`
 19. `scripts/migration/validate-url-parity.test.js`
-20. `scripts/migration/check-feed-compatibility.js`
-21. `scripts/seo/check-sitemap.js`
-22. `scripts/seo/check-crawl-controls.js`
-23. `scripts/seo/build-non-html-policy.js`
-24. `analysis/tickets/phase-6/RHI-065-hugo-route-preservation-alias-integration.md`
+20. `scripts/migration/url-validation-helpers.js`
+21. `scripts/migration/check-feed-compatibility.js`
+22. `scripts/seo/check-redirects.js`
+23. `scripts/seo/check-sitemap.js`
+24. `scripts/seo/check-crawl-controls.js`
+25. `scripts/seo/build-non-html-policy.js`
+26. `analysis/tickets/phase-6/RHI-065-hugo-route-preservation-alias-integration.md`

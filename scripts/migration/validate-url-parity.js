@@ -12,6 +12,7 @@ import {
   isGeneratedKeepRoute,
   isStaticAssetRoute,
   loadManifest,
+  matchesExpectedMergeTarget,
   normalizeUrlLike,
   parseCommonArgs,
   readRedirectHtml,
@@ -75,17 +76,6 @@ function summarizeRows(rows) {
     },
     { pass: 0, fail: 0, deferred: 0, scaffoldSkipped: 0, criticalFailures: 0 }
   );
-}
-
-function isFeedCompatibilityTarget(entry, actualTarget, expectedTarget) {
-  return entry.url_class === 'system'
-    && expectedTarget.pathname === '/feed/'
-    && (actualTarget.pathname === '/feed/' || actualTarget.pathname === '/index.xml');
-}
-
-function matchesExpectedMergeTarget(entry, actualTarget, expectedTarget) {
-  return actualTarget.comparable === expectedTarget.comparable
-    || isFeedCompatibilityTarget(entry, actualTarget, expectedTarget);
 }
 
 async function main() {

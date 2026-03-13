@@ -379,6 +379,17 @@ export function ensureExpectedTarget(entry) {
   return normalizeUrlLike(entry.target_url);
 }
 
+export function isApprovedFeedCompatibilityTarget(entry, actualTarget, expectedTarget) {
+  return entry.url_class === 'system'
+    && expectedTarget.pathname === '/feed/'
+    && (actualTarget.pathname === '/feed/' || actualTarget.pathname === '/index.xml');
+}
+
+export function matchesExpectedMergeTarget(entry, actualTarget, expectedTarget) {
+  return actualTarget.comparable === expectedTarget.comparable
+    || isApprovedFeedCompatibilityTarget(entry, actualTarget, expectedTarget);
+}
+
 export function isStaticAssetRoute(routeInfo) {
   return routeInfo.pathname !== '/' && path.extname(routeInfo.pathname).length > 0;
 }

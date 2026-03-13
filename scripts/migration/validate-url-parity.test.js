@@ -8,6 +8,11 @@ import { fileURLToPath } from 'node:url';
 
 import { parse as parseCsv } from 'csv-parse/sync';
 
+import {
+  matchesExpectedMergeTarget,
+  normalizeUrlLike
+} from './url-validation-helpers.js';
+
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const validatorPath = path.join(repoRoot, 'scripts/migration/validate-url-parity.js');
 
@@ -114,6 +119,31 @@ async function runValidatorFixture({
     await rm(fixtureRoot, { recursive: true, force: true });
   }
 }
+
+test('treats /index.xml as an approved feed helper target for system routes targeting /feed/', () => {
+  const entry = createManifestEntry({
+    legacy_url: '/rss/',
+    disposition: 'merge',
+    target_url: '/feed/',
+    redirect_code: 301,
+    implementation_layer: 'pages-static',
+    url_class: 'system',
+    priority: 'high'
+  });
+
+  assert.equal(
+    matchesExpectedMergeTarget(entry, normalizeUrlLike('/index.xml'), normalizeUrlLike('/feed/')),
+    true
+  );
+  assert.equal(
+    matchesExpectedMergeTarget(entry, normalizeUrlLike('/feed/'), normalizeUrlLike('/feed/')),
+    true
+  );
+  assert.equal(
+    matchesExpectedMergeTarget(entry, normalizeUrlLike('/some-other-target/'), normalizeUrlLike('/feed/')),
+    false
+  );
+});
 
 test('reports live-static-asset for kept attachments with source and public assets', async () => {
   const outcome = await runValidatorFixture({
