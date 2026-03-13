@@ -1269,6 +1269,85 @@ summary {
   height: auto;
 }
 
+/* ── Article tables ── */
+.article-body table {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1.5rem 0;
+  border: 1px solid rgba(16, 33, 58, 0.14);
+  border-radius: var(--radius-md);
+  border-collapse: separate;
+  border-spacing: 0;
+  background: linear-gradient(180deg, #f4f9ff 0%, #ffffff 100%);
+  box-shadow: var(--shadow-edge);
+}
+
+.article-body th,
+.article-body td {
+  min-width: 8.25rem;
+  padding: 0.78rem 0.9rem;
+  text-align: left;
+  vertical-align: top;
+  border-right: 1px solid rgba(16, 33, 58, 0.08);
+  border-bottom: 1px solid rgba(16, 33, 58, 0.08);
+}
+
+.article-body th {
+  font-size: 0.79rem;
+  font-family: var(--font-body);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-strong);
+  background: #d9e9fb;
+}
+
+.article-body td {
+  line-height: 1.62;
+  background: #ffffff;
+}
+
+.article-body th:nth-child(3),
+.article-body td:nth-child(3) {
+  min-width: 14rem;
+}
+
+.article-body tr:nth-child(even) td {
+  background: #f8fbff;
+}
+
+.article-body th:last-child,
+.article-body td:last-child {
+  border-right: 0;
+}
+
+.article-body tr:last-child td {
+  border-bottom: 0;
+}
+
+.article-body td > :first-child {
+  margin-top: 0;
+}
+
+.article-body td > :last-child {
+  margin-bottom: 0;
+}
+@media (max-width: 47.99rem) {
+  .article-body th,
+  .article-body td {
+    min-width: 10rem;
+    font-size: 0.95rem;
+  }
+
+  .article-body th:nth-child(3),
+  .article-body td:nth-child(3) {
+    min-width: 16rem;
+  }
+}
+
 /* ── Summary box ── */
 .article-summary {
   display: grid;
