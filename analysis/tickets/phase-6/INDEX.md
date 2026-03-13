@@ -60,6 +60,18 @@ RHI-060 (Phase 5 Sign-off)
 
 > **Reading the graph:** RHI-061 is the hard entry gate. RHI-062 (architecture decision) must be resolved by Day 2 — it is the highest-risk scheduling dependency in Phase 6. WS-A (inventory) and RHI-062 (ADR) run in parallel starting Day 1. WS-B and WS-C are sequentially gated on WS-A + ADR. WS-D (host/protocol) is independent and can run in parallel from Day 1. WS-E (retirement) requires WS-A + WS-B + ADR. WS-F (security) requires WS-C. WS-G (reporting) requires WS-A through WS-D plus WS-C. WS-H (CI gates) is the integration layer, requiring all workstreams except WS-I. WS-I (cutover readiness) requires WS-H, WS-D, WS-F, and WS-G. Sign-off requires all workstreams.
 
+## Post-RHI-062 Sequencing Update
+
+RHI-062 is complete and the committed ADR keeps Hugo as the main redirect system with Hugo aliases as the launch redirect mechanism. That decision changes downstream Phase 6 scope but does not eliminate any Phase 6 ticket.
+
+1. RHI-063 remains the next critical-path ticket and should be picked up next.
+2. RHI-066 remains parallel-safe from Day 1 because host and protocol consolidation still must be validated independently of the alias decision.
+3. No Phase 6 ticket is skipped by the Model A decision. RHI-067, RHI-069, and RHI-071 stay in scope but execute under Model A constraints.
+4. Model A scope refinements to carry forward:
+    - RHI-067: treat explicit `410` handling as unavailable at launch; retire flows resolve through the custom `404` path unless a redirect exception is approved.
+    - RHI-069: validate alias-page behavior and canonical alignment instead of expecting edge-layer per-path status telemetry.
+    - RHI-071: remove edge-override rollback assumptions from the launch runbook; rollback planning is limited to previous-site recovery or Hugo/content patch paths.
+
 ---
 
 ## Phase 6 Workstream Map
