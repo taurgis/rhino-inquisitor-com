@@ -143,6 +143,21 @@ test('treats /index.xml as an approved feed helper target for system routes targ
     matchesExpectedMergeTarget(entry, normalizeUrlLike('/some-other-target/'), normalizeUrlLike('/feed/')),
     false
   );
+
+  assert.equal(
+    matchesExpectedMergeTarget(
+      {
+        legacy_url: '/rss/',
+        disposition: 'merge',
+        target_url: '/feed/',
+        implementation_layer: 'pages-static',
+        route_class: 'system'
+      },
+      normalizeUrlLike('/index.xml'),
+      normalizeUrlLike('/feed/')
+    ),
+    true
+  );
 });
 
 test('reports live-static-asset for kept attachments with source and public assets', async () => {

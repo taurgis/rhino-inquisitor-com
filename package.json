@@ -29,6 +29,8 @@
     "build:prod": "hugo --minify --environment production",
     "phase6:generate-url-map": "node scripts/phase-6/generate-url-map.js",
     "phase6:review-redirect-intent": "node scripts/phase-6/review-redirect-intent.js",
+    "phase6:validate-alias-pages": "node scripts/phase-6/validate-alias-pages.js",
+    "phase6:check-redirect-chains": "node scripts/phase-6/check-redirect-chains.js",
     "test:url-parity": "node --test scripts/migration/validate-url-parity.test.js",
     "validate:url-inventory": "node scripts/phase-6/validate-url-inventory.js",
     "validate:redirect-intent-review": "node scripts/phase-6/validate-redirect-intent-review.js",

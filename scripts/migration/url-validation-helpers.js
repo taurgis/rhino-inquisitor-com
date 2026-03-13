@@ -380,7 +380,9 @@ export function ensureExpectedTarget(entry) {
 }
 
 export function isApprovedFeedCompatibilityTarget(entry, actualTarget, expectedTarget) {
-  return entry.url_class === 'system'
+  const routeClass = entry.url_class ?? entry.route_class;
+
+  return routeClass === 'system'
     && expectedTarget.pathname === '/feed/'
     && (actualTarget.pathname === '/feed/' || actualTarget.pathname === '/index.xml');
 }

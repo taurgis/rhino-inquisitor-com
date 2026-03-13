@@ -21,7 +21,7 @@ Downloadable-file convention input:
 | [RHI-062](RHI-062-redirect-architecture-decision.md) | Redirect Architecture Decision Record | ADR | Critical | Done | S | 2026-05-06 | RHI-061 |
 | [RHI-063](RHI-063-legacy-url-inventory-finalization.md) | Workstream A — Legacy URL Inventory Finalization | WS-A | Critical | Done | M | 2026-05-07 | RHI-061 |
 | [RHI-064](RHI-064-redirect-mapping-intent-review.md) | Workstream B — Redirect Mapping Specification and Intent Review | WS-B | Critical | Done | M | 2026-05-08 | RHI-062, RHI-063 |
-| [RHI-065](RHI-065-hugo-route-preservation-alias-integration.md) | Workstream C — Hugo Route Preservation and Alias Integration | WS-C | Critical | Open | L | 2026-05-09 | RHI-062, RHI-064 |
+| [RHI-065](RHI-065-hugo-route-preservation-alias-integration.md) | Workstream C — Hugo Route Preservation and Alias Integration | WS-C | Critical | In Progress | L | 2026-05-09 | RHI-062, RHI-064 |
 | [RHI-066](RHI-066-host-protocol-canonical-consolidation.md) | Workstream D — Host and Protocol Canonical Consolidation | WS-D | High | Open | M | 2026-05-12 | RHI-061 |
 | [RHI-067](RHI-067-retirement-error-path-governance.md) | Workstream E — Retirement and Error Path Governance | WS-E | High | Open | M | 2026-05-12 | RHI-063, RHI-064, RHI-062 |
 | [RHI-068](RHI-068-security-privacy-redirect-controls.md) | Workstream F — Security and Privacy Controls for Redirect Logic | WS-F | High | Open | S | 2026-05-13 | RHI-065, RHI-062 |

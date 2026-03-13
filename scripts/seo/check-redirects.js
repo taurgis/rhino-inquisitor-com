@@ -448,7 +448,9 @@ async function main() {
   console.log(`Broad redirect defects: ${summary.broadRedirects}`);
   console.log(`Indexed URL change rate: ${changeRate}% (${changedIndexedUrls}/${indexedUrls || 0})`);
   if (changeRate > 5) {
-    console.log('Edge redirect layer remains mandatory before launch because the URL change rate exceeds 5%.');
+    console.log(
+      'Phase 5 baseline would require an edge redirect layer because the URL change rate exceeds 5%, but RHI-062 records an owner-approved Model A exception for launch.'
+    );
   }
 
   if (summary.fail > 0) {
