@@ -1,13 +1,13 @@
 ## RHI-051 · Workstream D — Sitemap, Feed, and Discovery Surface Continuity
 
-**Status:** Open  
+**Status:** Done  
 **Priority:** High  
 **Estimate:** M  
 **Phase:** 5  
 **Assigned to:** SEO Owner  
 **Target date:** 2026-04-16  
 **Created:** 2026-03-07  
-**Updated:** 2026-03-07
+**Updated:** 2026-03-13
 
 ---
 
@@ -21,63 +21,63 @@ Machine-readable discovery pathways are how search engines find and index conten
 
 ### Acceptance Criteria
 
-- [ ] `migration/phase-5-sitemap-feed-policy.md` is committed and contains:
-  - [ ] Sitemap generation strategy (Hugo built-in vs custom template)
-  - [ ] Sitemap inclusion/exclusion rules for drafts, redirects, and retired URLs
-  - [ ] Sitemap split strategy if record count approaches sitemap protocol limits (50,000 URLs or 50 MB uncompressed per sitemap)
-  - [ ] Feed URL strategy (`/index.xml` or custom path) and `/feed/` must-resolve decision
-  - [ ] Archive and category surface preservation decisions with rationale
-- [ ] Sitemap validation script `scripts/seo/check-sitemap.js` exists and:
-  - [ ] Parses `public/sitemap.xml` (or sitemap index if split)
-  - [ ] Validates all URLs are absolute HTTPS and use `www.rhino-inquisitor.com` as the host
-  - [ ] Validates no draft or retire-disposition URLs are included
-  - [ ] Validates no redirect-helper alias pages are included
-  - [ ] Validates `<lastmod>` values are present and parseable as ISO 8601
-  - [ ] Validates sitemap URL count is consistent with indexable URL inventory (within a documented tolerance)
-  - [ ] Cross-references sitemap URLs against canonical tag output from `check:metadata` (host and path must match)
-  - [ ] Produces `migration/reports/phase-5-sitemap-audit.csv` with per-URL results
-  - [ ] Exits with non-zero code on any absolute-URL, host-mismatch, or excluded-URL defect
-  - [ ] Is referenced in `package.json` as `npm run check:sitemap`
-- [ ] RSS feed endpoint is operational and verified:
-  - [ ] Hugo RSS feed URL (e.g., `/index.xml`) returns valid Atom/RSS content in local build
-  - [ ] Feed includes `<link>` elements with absolute canonical URLs
-  - [ ] Feed items include valid publication dates (`<pubDate>` for RSS or `<published>` for Atom) using the format required by the feed type
-  - [ ] WordPress `/feed/` route must resolve: either direct feed output or Hugo alias/edge redirect maps to the new feed URL
-  - [ ] Feed route decision is recorded in `migration/phase-5-sitemap-feed-policy.md`
-- [ ] Archive and category surfaces are confirmed:
-  - [ ] All category pages from Phase 1 URL inventory with organic traffic are present in `public/`
-  - [ ] Category pages return non-empty listing content (not orphan empty-list pages)
-  - [ ] Archive page (`/archive/` if it exists) is confirmed present or explicitly retired with documented rationale
-  - [ ] Pagination on high-volume categories is crawlable (not blocked by `robots.txt`)
-- [ ] `npm run check:sitemap` integrated as a blocking CI gate in the deploy workflow
+- [x] `migration/phase-5-sitemap-feed-policy.md` is committed and contains:
+  - [x] Sitemap generation strategy (Hugo built-in vs custom template)
+  - [x] Sitemap inclusion/exclusion rules for drafts, redirects, and retired URLs
+  - [x] Sitemap split strategy if record count approaches sitemap protocol limits (50,000 URLs or 50 MB uncompressed per sitemap)
+  - [x] Feed URL strategy (`/index.xml` or custom path) and `/feed/` must-resolve decision
+  - [x] Archive and category surface preservation decisions with rationale
+- [x] Sitemap validation script `scripts/seo/check-sitemap.js` exists and:
+  - [x] Parses `public/sitemap.xml` (or sitemap index if split)
+  - [x] Validates all URLs are absolute HTTPS and use `www.rhino-inquisitor.com` as the host
+  - [x] Validates no draft or retire-disposition URLs are included
+  - [x] Validates no redirect-helper alias pages are included
+  - [x] Validates `<lastmod>` values are present and parseable as ISO 8601
+  - [x] Validates sitemap URL count is consistent with indexable URL inventory (within a documented tolerance)
+  - [x] Cross-references sitemap URLs against canonical tag output from `check:metadata` (host and path must match)
+  - [x] Produces `migration/reports/phase-5-sitemap-audit.csv` with per-URL results
+  - [x] Exits with non-zero code on any absolute-URL, host-mismatch, or excluded-URL defect
+  - [x] Is referenced in `package.json` as `npm run check:sitemap`
+- [x] RSS feed endpoint is operational and verified:
+  - [x] Hugo RSS feed URL (e.g., `/index.xml`) returns valid Atom/RSS content in local build
+  - [x] Feed includes `<link>` elements with absolute canonical URLs
+  - [x] Feed items include valid publication dates (`<pubDate>` for RSS or `<published>` for Atom) using the format required by the feed type
+  - [x] WordPress `/feed/` route must resolve: either direct feed output or Hugo alias/edge redirect maps to the new feed URL
+  - [x] Feed route decision is recorded in `migration/phase-5-sitemap-feed-policy.md`
+- [x] Archive and category surfaces are confirmed:
+  - [x] All category pages from Phase 1 URL inventory with organic traffic are present in `public/`
+  - [x] Category pages return non-empty listing content (not orphan empty-list pages)
+  - [x] Archive page (`/archive/` if it exists) is confirmed present or explicitly retired with documented rationale
+  - [x] Pagination on high-volume categories is crawlable (not blocked by `robots.txt`)
+- [x] `npm run check:sitemap` integrated as a blocking CI gate in the deploy workflow
 
 ---
 
 ### Tasks
 
-- [ ] Review Phase 1 URL inventory for all `category`, `video`, and archive/pagination routes:
-  - [ ] Identify which category pages have organic traffic (from Phase 1 SEO baseline RHI-005)
-  - [ ] Identify the live WordPress feed URL and subscriber behavior
-  - [ ] Confirm which archive routes exist and their traffic status
-- [ ] Review Hugo `hugo.toml` sitemap configuration (from RHI-021):
-  - [ ] Confirm `[sitemap]` block is configured correctly
-  - [ ] Confirm `changefreq` and `priority` are either omitted or set intentionally for internal consistency (do not treat them as ranking signals)
-  - [ ] Confirm `lastmod` is tied to meaningful content updates (Hugo `.GitInfo.AuthorDate` or front matter `lastmod`)
-- [ ] Create `scripts/seo/check-sitemap.js`:
-  - [ ] Use `fast-xml-parser` to parse sitemap output
-  - [ ] Implement absolute-URL and canonical-host checks
-  - [ ] Implement draft/retire exclusion check (cross-reference with `url-manifest.json`)
-  - [ ] Implement `lastmod` format check
-  - [ ] Implement URL count consistency check against known indexable inventory
-  - [ ] Write per-URL results to `migration/reports/phase-5-sitemap-audit.csv`
-- [ ] Confirm Hugo RSS template output (from RHI-021):
-  - [ ] Verify feed at `/index.xml` is generated with correct absolute URLs
-  - [ ] Decide on `/feed/` must-resolve implementation: direct output, Hugo alias, or edge redirect
-  - [ ] Implement `/feed/` must-resolve behavior (direct route or redirect documented in redirect matrix)
-- [ ] Confirm category and archive listing page output in local build
-- [ ] Draft `migration/phase-5-sitemap-feed-policy.md`
-- [ ] Add `"check:sitemap": "node scripts/seo/check-sitemap.js"` to `package.json`
-- [ ] Integrate `check:sitemap` as a blocking step in the deploy CI workflow
+- [x] Review Phase 1 URL inventory for all `category`, `video`, and archive/pagination routes:
+  - [x] Identify which category pages have organic traffic (from Phase 1 SEO baseline RHI-005)
+  - [x] Identify the live WordPress feed URL and subscriber behavior
+  - [x] Confirm which archive routes exist and their traffic status
+- [x] Review Hugo `hugo.toml` sitemap configuration (from RHI-021):
+  - [x] Confirm `[sitemap]` block is configured correctly
+  - [x] Confirm `changefreq` and `priority` are either omitted or set intentionally for internal consistency (do not treat them as ranking signals)
+  - [x] Confirm `lastmod` is tied to meaningful content updates (Hugo `.GitInfo.AuthorDate` or front matter `lastmod`)
+- [x] Create `scripts/seo/check-sitemap.js`:
+  - [x] Use `fast-xml-parser` to parse sitemap output
+  - [x] Implement absolute-URL and canonical-host checks
+  - [x] Implement draft/retire exclusion check (cross-reference with `url-manifest.json`)
+  - [x] Implement `lastmod` format check
+  - [x] Implement URL count consistency check against known indexable inventory
+  - [x] Write per-URL results to `migration/reports/phase-5-sitemap-audit.csv`
+- [x] Confirm Hugo RSS template output (from RHI-021):
+  - [x] Verify feed at `/index.xml` is generated with correct absolute URLs
+  - [x] Decide on `/feed/` must-resolve implementation: direct output, Hugo alias, or edge redirect
+  - [x] Implement `/feed/` must-resolve behavior (direct route or redirect documented in redirect matrix)
+- [x] Confirm category and archive listing page output in local build
+- [x] Draft `migration/phase-5-sitemap-feed-policy.md`
+- [x] Add `"check:sitemap": "node scripts/seo/check-sitemap.js"` to `package.json`
+- [x] Integrate `check:sitemap` as a blocking step in the deploy CI workflow
 
 ---
 
@@ -115,29 +115,33 @@ Machine-readable discovery pathways are how search engines find and index conten
 
 ### Definition of Done
 
-- [ ] All acceptance criteria are satisfied and verified
-- [ ] Tasks are complete or intentionally descoped with rationale
-- [ ] Dependencies and blockers are resolved or documented
-- [ ] Outcomes section is completed with delivered artefacts and deviations
+- [x] All acceptance criteria are satisfied and verified
+- [x] Tasks are complete or intentionally descoped with rationale
+- [x] Dependencies and blockers are resolved or documented
+- [x] Outcomes section is completed with delivered artefacts and deviations
 
 ---
 
 ### Outcomes
 
-{Leave blank until work is complete.}
+Implemented a dedicated sitemap/feed validation gate, committed the Phase 5 sitemap/feed policy, and hardened preserved discovery surfaces so organic category routes no longer ship as orphan empty pages. The `/feed/` continuity route is now explicitly governed as a GitHub Pages-compatible compatibility helper to Hugo's canonical `/index.xml` feed, and both the route-sensitive PR workflow and deploy workflow block on the new audit.
 
 **Delivered artefacts:**
 
 - `migration/phase-5-sitemap-feed-policy.md`
 - `scripts/seo/check-sitemap.js`
 - `migration/reports/phase-5-sitemap-audit.csv`
-- `/feed/` must-resolve behavior implemented (direct route or redirect)
+- `/feed/` must-resolve behavior validated as a Pages-compatible helper redirect to `/index.xml`
+- `src/layouts/sitemap.xml`
+- `src/layouts/_default/taxonomy.html`
 - `package.json` updated with `check:sitemap` script
-- CI workflow updated with `check:sitemap` blocking gate
+- CI workflows updated with `check:sitemap` blocking gates
+- `analysis/documentation/phase-5/rhi-051-sitemap-feed-discovery-continuity-implementation-2026-03-13.md`
 
 **Deviations from plan:**
 
-- None
+- The route-sensitive PR workflow now blocks on `check:sitemap` in addition to the deploy workflow for Phase 5 parity.
+- Preserved category routes with no direct migrated posts now fall back to recent posts instead of rendering an empty-state shell.
 
 ---
 
@@ -146,11 +150,12 @@ Machine-readable discovery pathways are how search engines find and index conten
 | Date | Status | Note |
 |------|--------|------|
 | 2026-03-07 | Open | Ticket created |
+| 2026-03-13 | Done | Added `check:sitemap`, committed the sitemap/feed policy, validated `/feed/` continuity, and kept empty preserved category routes non-empty through a recent-post discovery fallback. |
 
 ---
 
 ### Notes
 
-- Hugo's default sitemap template includes all rendered pages. Custom exclusion logic is typically handled via front matter `_build` options or the Hugo `[outputs]` config. Verify that alias redirect pages are excluded from sitemap output in the Phase 3 template — if not, fix it before running sitemap validation.
-- The WordPress `/feed/` path is frequently bookmarked by RSS readers and podcast aggregators. Any subscriber using this path will silently stop receiving updates if the feed is removed without a redirect. Treat this as a high-value redirect, not a low-priority edge case.
+- Hugo's default sitemap template includes all rendered pages. This ticket keeps the repository-owned custom sitemap template and blocks release if metadata inventory, sitemap URLs, or excluded routes drift apart.
+- The WordPress `/feed/` path is frequently bookmarked by RSS readers and podcast aggregators. The current GitHub Pages-safe implementation keeps `/feed/` as the must-resolve compatibility route while the canonical XML feed remains `/index.xml`.
 - Reference: `analysis/plan/details/phase-5.md` §Workstream D: Sitemap, Feed, and Discovery Surface Continuity

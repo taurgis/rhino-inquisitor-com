@@ -26,7 +26,7 @@ Any unresolved Phase 5 blocking defect identified at sign-off must be fixed or e
   - [x] RHI-048 Done — Metadata and canonical signal architecture complete
   - [ ] RHI-049 Done — Redirect and URL consolidation signals complete
   - [ ] RHI-050 Done — Crawlability and indexing controls complete
-  - [ ] RHI-051 Done — Sitemap, feed, and discovery surface continuity complete
+  - [x] RHI-051 Done — Sitemap, feed, and discovery surface continuity complete
   - [ ] RHI-052 Done — Structured data and rich-result readiness complete
   - [ ] RHI-053 Done — Internal linking and information architecture signals complete
   - [ ] RHI-054 Done — Mobile-first and Core Web Vitals controls complete

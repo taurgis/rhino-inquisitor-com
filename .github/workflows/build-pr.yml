@@ -289,6 +289,10 @@ jobs:
         if: needs.prepare.outputs.full_site_route_validation_required == 'true'
         run: npm run check:metadata
 
+      - name: Run sitemap and feed validation check
+        if: needs.prepare.outputs.full_site_route_validation_required == 'true'
+        run: npm run check:sitemap
+
       - name: Run crawl-control validation check
         if: needs.prepare.outputs.full_site_route_validation_required == 'true'
         run: npm run check:crawl-controls
@@ -327,6 +331,7 @@ jobs:
             migration/phase-5-redirect-signal-matrix.csv
             migration/reports/phase-5-redirect-validation.csv
             migration/reports/phase-5-metadata-report.csv
+            migration/reports/phase-5-sitemap-audit.csv
             migration/url-parity-report.json
           if-no-files-found: error
           retention-days: 7

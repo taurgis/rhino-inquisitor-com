@@ -34,6 +34,7 @@
     "check:redirects:seo": "node scripts/seo/check-redirects.js",
     "check:crawl-controls": "node scripts/seo/check-crawl-controls.js",
     "check:metadata": "node scripts/seo/check-metadata.js",
+    "check:sitemap": "node scripts/seo/check-sitemap.js",
     "check:media": "node scripts/migration/check-media.js",
     "check:seo": "npm run build:prod && node scripts/check-seo.js",
     "check:seo:artifact": "node scripts/check-seo.js",

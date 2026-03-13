@@ -2,11 +2,18 @@
   {{ $allTopicsHref := "category/" | relURL }}
   {{ $blogArchiveHref := "posts/" | relURL }}
   {{ with site.GetPage "/posts" }}{{ $blogArchiveHref = .RelPermalink }}{{ end }}
+  {{ $latestPosts := first 12 ((where site.RegularPages "Type" "posts").ByDate.Reverse) }}
   {{ partial "breadcrumbs.html" . }}
 
   {{ if eq .Kind "term" }}
     {{ $pages := .Pages.ByDate.Reverse }}
-    {{ $groups := $pages.GroupByDate "2006" }}
+    {{ $displayPages := $pages }}
+    {{ $fallbackMode := false }}
+    {{ if eq (len $pages) 0 }}
+      {{ $displayPages = $latestPosts }}
+      {{ $fallbackMode = true }}
+    {{ end }}
+    {{ $groups := $displayPages.GroupByDate "2006" }}
     {{ $yearLinks := slice }}
     {{ range $groups }}
       {{ $yearLinks = $yearLinks | append (dict "label" .Key "url" (printf "#year-%s" .Key)) }}
@@ -27,10 +34,13 @@
           "placeholder" (printf "Search the blog archive from within %s." .Title)
         ) }}
         {{ partial "archive/year-jump.html" (dict "links" $yearLinks) }}
+        {{ if $fallbackMode }}
+          <p class="surface-note">No direct migrated articles currently map to this preserved archive route, so it falls back to recent posts to remain useful and crawlable until term-specific entries are backfilled.</p>
+        {{ end }}
         {{ partial "content-list.html" (dict
           "groups" $groups
-          "resultCount" (len $pages)
-          "heading" (printf "%s archive entries" .Title)
+          "resultCount" (len $displayPages)
+          "heading" (cond $fallbackMode (printf "Recent archive entries while %s backfills" .Title) (printf "%s archive entries" .Title))
           "emptyTitle" (printf "%s is ready for its first migrated article" .Title)
           "emptyCopy" "This term page keeps the archive shell intact until matching content arrives."
           "emptyActionHref" $allTopicsHref

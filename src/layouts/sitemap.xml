@@ -3,10 +3,16 @@
   {{ range .Pages }}
     {{ $seo := .Params.seo | default dict }}
     {{ if and (not .Sitemap.Disable) (not (index $seo "noindex")) }}
+      {{ $lastmod := .Lastmod }}
+      {{ if and $lastmod.IsZero (eq .Kind "term") }}
+        {{ with first 1 ((where site.RegularPages "Type" "posts").ByLastmod.Reverse) }}
+          {{ $lastmod = (index . 0).Lastmod }}
+        {{ end }}
+      {{ end }}
       <url>
         <loc>{{ .Permalink }}</loc>
-        {{ if not .Lastmod.IsZero }}
-          <lastmod>{{ .Lastmod.Format "2006-01-02T15:04:05-07:00" }}</lastmod>
+        {{ if not $lastmod.IsZero }}
+          <lastmod>{{ $lastmod.Format "2006-01-02T15:04:05-07:00" }}</lastmod>
         {{ end }}
         {{ with .Sitemap.ChangeFreq }}
           <changefreq>{{ . }}</changefreq>

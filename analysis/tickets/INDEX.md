@@ -79,7 +79,7 @@ This is the top-level ticket index for the full migration project. Use the phase
 | [RHI-048](phase-5/RHI-048-metadata-canonical-architecture.md) | Workstream A — Metadata and Canonical Signal Architecture | 5 | Critical | Done | M | 2026-04-11 |
 | [RHI-049](phase-5/RHI-049-redirect-url-consolidation-signals.md) | Workstream B — Redirect and URL Consolidation Signals | 5 | Critical | Done | M | 2026-04-14 |
 | [RHI-050](phase-5/RHI-050-crawlability-indexing-controls.md) | Workstream C — Crawlability and Indexing Controls | 5 | Critical | Open | M | 2026-04-14 |
-| [RHI-051](phase-5/RHI-051-sitemap-feed-discovery-continuity.md) | Workstream D — Sitemap, Feed, and Discovery Surface Continuity | 5 | High | Open | M | 2026-04-16 |
+| [RHI-051](phase-5/RHI-051-sitemap-feed-discovery-continuity.md) | Workstream D — Sitemap, Feed, and Discovery Surface Continuity | 5 | High | Done | M | 2026-04-16 |
 | [RHI-052](phase-5/RHI-052-structured-data-rich-result-readiness.md) | Workstream E — Structured Data and Rich-Result Readiness | 5 | High | Open | M | 2026-04-18 |
 | [RHI-053](phase-5/RHI-053-internal-linking-ia-signals.md) | Workstream F — Internal Linking and Information Architecture Signals | 5 | High | Open | M | 2026-04-18 |
 | [RHI-054](phase-5/RHI-054-mobile-first-core-web-vitals.md) | Workstream G — Mobile-First and Core Web Vitals Controls | 5 | High | Open | M | 2026-04-22 |
