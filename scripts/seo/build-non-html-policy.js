@@ -23,9 +23,7 @@ const defaults = {
 };
 
 const feedCompatibilityRoutes = new Set(['/feed/', '/feed/rss/', '/feed/atom/']);
-const approvedPdfRedirectTargets = new Map([
-  ['/wp-content/uploads/2025/03/send_ext_order_feeds_to_einstein.pdf', '/ai-einstein-in-salesforce-b2c-commerce-cloud/']
-]);
+const approvedPdfRedirectTargets = new Map();
 const mediaExtensions = new Set([
   'apng',
   'avif',

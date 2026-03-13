@@ -105,7 +105,7 @@ This workstream prevents migration blind spots for non-HTML content that could r
 
 ### Outcomes
 
-RHI-058 is complete. The repository now has a reproducible non-HTML policy artifact for manifest-tracked attachment and feed URLs, the feed compatibility helper routes are aligned with the already-approved RHI-051 policy, and the owner-approved split policy for high-signal attachments is recorded as exact media redirects where a migrated asset exists, preserved direct static downloads for the two article PDFs that had to remain attached, and an article-level redirect only where the legacy standalone PDF binary still does not exist.
+RHI-058 is complete. The repository now has a reproducible non-HTML policy artifact for manifest-tracked attachment and feed URLs, the feed compatibility helper routes are aligned with the already-approved RHI-051 policy, and the owner-approved split policy for high-signal attachments is recorded as exact media redirects where a migrated asset exists plus preserved direct static compatibility downloads for all three article PDFs that had to remain attached.
 
 **Delivered artefacts:**
 
@@ -119,7 +119,8 @@ RHI-058 is complete. The repository now has a reproducible non-HTML policy artif
 **Deviations from plan:**
 
 - Feed helper compatibility rows `/feed/rss/` and `/feed/atom/` are included in the Phase 5 policy artifact even though they were not present in the legacy manifest, because RHI-051 already approved them as required compatibility routes.
-- Two legacy PDFs originally redirected to article pages were corrected to preserved `keep` outcomes after owner clarification required them to stay attached as direct downloads in the articles.
+- The three article PDFs are now published at canonical `/media/...pdf` paths for editorial links while the legacy `wp-content/uploads` URLs remain available as compatibility assets.
+- The missing Einstein PDF binary was recovered from the Internet Archive and reintroduced into the static artifact set so it no longer falls back to an article redirect.
 
 ---
 
@@ -128,7 +129,7 @@ RHI-058 is complete. The repository now has a reproducible non-HTML policy artif
 | Date | Status | Note |
 |------|--------|------|
 | 2026-03-07 | Open | Ticket created |
-| 2026-03-13 | Done | Added `check:non-html-policy`, committed `migration/reports/phase-5-non-html-policy.csv`, confirmed `src/static/` parity in the production build, and recorded the owner-approved policy: exact migrated media assets redirect at the edge to `/media/...`, legacy feed compatibility routes redirect to `/index.xml`, the Learn Commerce Cloud and Variation Groups PDFs are preserved as direct static downloads at their legacy paths, and the remaining retired standalone PDF redirects to its owning article page. |
+| 2026-03-13 | Done | Added `check:non-html-policy`, committed `migration/reports/phase-5-non-html-policy.csv`, confirmed `src/static/` parity in the production build, and recorded the owner-approved policy: exact migrated media assets redirect at the edge to `/media/...`, legacy feed compatibility routes redirect to `/index.xml`, and the Learn Commerce Cloud, Variation Groups, and Einstein PDFs are published as canonical `/media/...pdf` article downloads with legacy `wp-content/uploads` compatibility copies. |
 
 ---
 

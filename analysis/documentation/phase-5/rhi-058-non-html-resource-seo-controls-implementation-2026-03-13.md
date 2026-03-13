@@ -5,7 +5,7 @@ Ticket: `analysis/tickets/phase-5/RHI-058-non-html-resource-seo-controls.md`
 
 ## Change summary
 
-Added a repo-backed non-HTML policy generator at `scripts/seo/build-non-html-policy.js`, committed `migration/reports/phase-5-non-html-policy.csv`, added `npm run check:non-html-policy`, aligned the report with the approved feed compatibility policy from RHI-051, and preserved the two owner-required article PDFs at their legacy static paths while removing the remaining manifest-tracked legacy attachment dependencies from the affected source posts.
+Added a repo-backed non-HTML policy generator at `scripts/seo/build-non-html-policy.js`, committed `migration/reports/phase-5-non-html-policy.csv`, added `npm run check:non-html-policy`, aligned the report with the approved feed compatibility policy from RHI-051, and preserved all three owner-required article PDFs as canonical `/media/...pdf` downloads while keeping their legacy `wp-content/uploads` paths as compatibility assets.
 
 ## Why this changed
 
@@ -19,14 +19,13 @@ Before this change, RHI-058 had no committed policy artifact even though the man
 - The repo had no dedicated command for generating or validating the non-HTML policy artifact.
 - The manifest still defaulted `/feed/` to `retire` even though RHI-051 had already implemented `/feed/`, `/feed/rss/`, and `/feed/atom/` as Pages-compatible compatibility helpers to `/index.xml`.
 - Manifest-tracked legacy upload URLs still appeared in a small set of source posts as image click targets or PDF links.
-- The first implementation iteration redirected three high-signal legacy PDFs to article pages because the binaries were not yet present in the repository.
+- The first implementation iteration preserved two PDFs directly at legacy paths and redirected the third Einstein PDF to its article because the standalone binary was not yet recoverable.
 
 ### New behavior
 
 - `npm run check:non-html-policy` generates `migration/reports/phase-5-non-html-policy.csv` from the committed manifest, media manifest, source content URLs, and built `public/` artifact.
 - Attachment URLs with exact migrated media replacements now resolve in the policy report as `redirect` rows targeting the current `/media/...` asset path, with `implementation_layer: edge-cdn` to record the required Phase 6 redirect handoff.
-- The two owner-required legacy article PDFs now resolve in the policy report as `keep` rows with `implementation_layer: pages-static`, and the binaries are preserved in `src/static/wp-content/uploads/...` so the articles keep direct download links.
-- The remaining high-signal legacy PDF without a committed binary still resolves in the policy report as a Phase 6 `redirect` row to its owning article page.
+- The three owner-required legacy article PDFs now resolve in the policy report as `keep` rows with `implementation_layer: pages-static`, and each binary is published both as a canonical `/media/...pdf` article download and as a legacy `wp-content/uploads/...` compatibility asset.
 - `/feed/`, `/feed/rss/`, and `/feed/atom/` are recorded as compatibility redirects to `/index.xml`; all other legacy feed variants remain retired.
 - The affected source posts no longer depend on manifest-tracked legacy image and PDF upload URLs.
 
@@ -34,7 +33,7 @@ Before this change, RHI-058 had no committed policy artifact even though the man
 
 - Maintainers now have a reproducible RHI-058 artifact and command instead of a one-off spreadsheet process.
 - Phase 6 has an explicit handoff list: every `edge-cdn` row in `migration/reports/phase-5-non-html-policy.csv` requires infrastructure-owned redirect implementation.
-- The built site now preserves the two owner-required PDF attachments at their original static paths while still removing the remaining in-scope manifest-tracked legacy attachment dependencies.
+- The built site now preserves all three owner-required PDF attachments as canonical `/media/...pdf` downloads while keeping the legacy upload paths available for backward compatibility.
 
 ## Verification
 
@@ -59,6 +58,6 @@ Before this change, RHI-058 had no committed policy artifact even though the man
 
 ## Assumptions and open questions
 
-- Two legacy PDFs are intentionally preserved as direct static downloads because the owner required them to remain attached in the articles and the binaries were recoverable from production.
-- The remaining legacy PDF URL is intentionally handled as a redirect-to-article outcome because no standalone PDF file is present in the repository.
+- All three legacy PDFs are intentionally preserved as direct static compatibility downloads because the owner required them to remain attached in the articles.
+- The Einstein PDF binary was recovered from the Internet Archive because the production `wp-content/uploads` URL had already fallen to `404`.
 - Legacy `.mov` and `.mp4` upload URLs still present in source content were not part of the manifest-backed RHI-058 attachment inventory and were not changed in this ticket.

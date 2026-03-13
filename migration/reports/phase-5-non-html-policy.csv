@@ -208,7 +208,7 @@ legacy_url,resource_type,disposition,target_url,index_control_needed,implementat
 /wp-content/uploads/2024/11/storefront-protection-password-sfcc.png,media,redirect,/media/2024/storefront-protection-password-sfcc-c017798dc4.png,no,edge-cdn,yes,engineering-owner
 /wp-content/uploads/2024/11/third-party-service-caching-results-e1731261763486.jpg,media,redirect,/media/2024/third-party-service-caching-results-e1731261763486-2847fa50c4.jpg,no,edge-cdn,yes,engineering-owner
 /wp-content/uploads/2024/12/sfcc-email-settings.png,media,redirect,/media/2024/sfcc-email-settings-21507245df.png,no,edge-cdn,yes,engineering-owner
-/wp-content/uploads/2025/03/send_ext_order_feeds_to_einstein.pdf,pdf,redirect,/ai-einstein-in-salesforce-b2c-commerce-cloud/,no,edge-cdn,yes,engineering-owner
+/wp-content/uploads/2025/03/send_ext_order_feeds_to_einstein.pdf,pdf,keep,null,no,pages-static,no,seo-owner
 /wp-content/uploads/2025/04/defining-shared-variation-attributes.png,media,redirect,/media/2025/defining-shared-variation-attributes-92b82313b9.png,no,edge-cdn,yes,engineering-owner
 /wp-content/uploads/2025/04/shared-variation-attributes.png,media,redirect,/media/2025/shared-variation-attributes-0d55796d17.png,no,edge-cdn,yes,engineering-owner
 /wp-content/uploads/2025/06/ai-rubber-duck-scaled.jpeg,media,retire,null,no,none,no,migration-engineer
