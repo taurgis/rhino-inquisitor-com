@@ -290,6 +290,10 @@ jobs:
         if: needs.prepare.outputs.full_site_route_validation_required == 'true'
         run: npm run check:metadata
 
+      - name: Run image and video SEO validation check
+        if: needs.prepare.outputs.full_site_route_validation_required == 'true'
+        run: npm run check:images
+
       - name: Run schema validation check
         if: needs.prepare.outputs.full_site_route_validation_required == 'true'
         run: npm run check:schema

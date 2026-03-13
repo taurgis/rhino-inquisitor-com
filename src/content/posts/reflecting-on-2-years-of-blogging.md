@@ -61,4 +61,4 @@ Before the pandemic hit in 2020, I used to spend my evenings attending cooking a
 
 There's something genuinely satisfying about taking a hands-on approach to learning and creating, and I'm looking forward to seeing where this rediscovered hobby takes me.
 
-![](/media/2024/1601710443407-d2c723ac02.jpeg)
+![Electronics tinkering workspace with components laid out for a hobby project.](/media/2024/1601710443407-d2c723ac02.jpeg)

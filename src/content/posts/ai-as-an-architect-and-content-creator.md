@@ -119,7 +119,7 @@ As mentioned, I rely heavily on [Grammarly](https://www.grammarly.com/) for all 
 
 I have long been held back by my limitations in drawing, which prevented me from bringing my creative visions to life. But with the help of generative AI, I can now quickly turn my ideas into [reality](https://shirtforce.org/tee/hybrid-deployment-theory-salesforce-commerce-cloud-tshirt/).
 
-![](/media/2023/hybrid-deployment-theory-02-poc-a7602136f7.jpg)
+![Hybrid Deployment Theory T-shirt design mockup generated with AI.](/media/2023/hybrid-deployment-theory-02-poc-a7602136f7.jpg)
 
 The generated image usually gets me 50-80% there, and then I fine-tune the details in Photoshop! Even though that still takes a lot of time, it is much less than it would have taken me from scratch!
 

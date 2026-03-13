@@ -403,6 +403,15 @@ function validateVideoSchema(nodes, videoEligible, failures) {
 
   if (videoNodes.length === 0) {
     failures.push('missing VideoObject schema on a page with a qualifying on-page video surface');
+    return;
+  }
+
+  for (const videoNode of videoNodes) {
+    for (const field of ['name', 'description', 'thumbnailUrl', 'uploadDate']) {
+      if (typeof videoNode?.[field] !== 'string' || videoNode[field].trim().length === 0) {
+        failures.push(`VideoObject schema is missing ${field}`);
+      }
+    }
   }
 }
 

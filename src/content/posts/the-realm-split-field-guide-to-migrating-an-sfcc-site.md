@@ -69,7 +69,7 @@ If performance is the problem, a rigorous cycle of code optimisation and profili
 
 Executing a realm split is a major re-platforming project disguised as a migration. Success depends on a meticulously detailed, phased [plan](https://help.salesforce.com/s/articleView?id=000391622&language=en_US&type=1) that accounts for every dependency, from stakeholder alignment to data integrity and third-party coordination. The following blueprint breaks the process down into six critical phases.
 
-![](/media/2025/the-grand-blueprint-v2-9c2bcca94a.jpg)
+![Team collaborating around a holographic blueprint for a phased realm split migration.](/media/2025/the-grand-blueprint-v2-9c2bcca94a.jpg)
 
 Success in a complex project like a realm split hinges on a meticulously detailed, phased plan. This image visualizes a team of experts collaborating on a holographic blueprint, representing the strategic and coordinated effort required to navigate the six critical phases of the migration.
 
@@ -159,7 +159,7 @@ The sequence, based on Salesforce's official guidance, is as follows:
 
 ## The SEO Minefield: Preserving Your Digital Ghost
 
-![](/media/2025/seo-minefield-03b727d6da.jpg)
+![Illustration of a team navigating an SEO minefield during a high-stakes site migration.](/media/2025/seo-minefield-03b727d6da.jpg)
 
 Underestimating the SEO impact of a realm split is a catastrophic error that can wipe out years of search equity. This image visualizes the high-stakes process of navigating this "SEO minefield," where a single misstep can have explosive consequences. The illuminated path represents the meticulous, non-negotiable strategy—like a comprehensive 301 redirect map—required to safely migrate a site and preserve its valuable "digital ghost."
 

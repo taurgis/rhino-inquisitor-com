@@ -80,6 +80,9 @@ jobs:
       - name: Run metadata validation check
         run: npm run check:metadata
 
+      - name: Run image and video SEO validation check
+        run: npm run check:images
+
       - name: Run schema validation check
         run: npm run check:schema
 
