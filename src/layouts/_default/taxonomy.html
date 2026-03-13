@@ -49,19 +49,40 @@
       </div>
     </section>
   {{ else }}
-    {{ $topicItems := slice }}
+    {{ $topicItemsByUrl := dict }}
     {{ range .Data.Terms.Alphabetical }}
       {{ $freshness := "" }}
       {{ with first 1 (.Page.Pages.ByLastmod.Reverse) }}
         {{ $freshness = printf "Updated %s" ((index . 0).Lastmod.Format "Jan 2") }}
       {{ end }}
-      {{ $topicItems = $topicItems | append (dict
+      {{ $topicItemsByUrl = merge $topicItemsByUrl (dict .Page.Permalink (dict
         "name" .Page.LinkTitle
         "url" .Page.Permalink
         "count" .Count
         "freshness" $freshness
-      ) }}
+      )) }}
     {{ end }}
+    {{ with site.GetPage "/categories" }}
+      {{ range .Pages }}
+        {{ if not (isset $topicItemsByUrl .Permalink) }}
+          {{ $freshness := "" }}
+          {{ with first 1 (.Pages.ByLastmod.Reverse) }}
+            {{ $freshness = printf "Updated %s" ((index . 0).Lastmod.Format "Jan 2") }}
+          {{ end }}
+          {{ $topicItemsByUrl = merge $topicItemsByUrl (dict .Permalink (dict
+            "name" .LinkTitle
+            "url" .Permalink
+            "count" (len .Pages)
+            "freshness" $freshness
+          )) }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    {{ $topicItems := slice }}
+    {{ range $url, $item := $topicItemsByUrl }}
+      {{ $topicItems = $topicItems | append $item }}
+    {{ end }}
+    {{ $topicItems = sort $topicItems "name" }}
     {{ $postGroups := (where site.RegularPages "Type" "posts").ByDate.Reverse.GroupByDate "2006" }}
     {{ $yearLinks := slice }}
     {{ range $postGroups }}

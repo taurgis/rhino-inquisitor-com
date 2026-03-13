@@ -16,7 +16,7 @@ tags:
   - sfcc
 author: Thomas Theunen
 ---
-The holiday period was quiet for a long time regarding [Salesforce B2C Commerce Cloud releases](https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/release-notes/). This was because the monolithic system required the deployment of all components, which carried the risk of bugs.
+The holiday period was quiet for a long time regarding [Salesforce B2C Commerce Cloud releases](https://www.rhino-inquisitor.com/category/release-notes/). This was because the monolithic system required the deployment of all components, which carried the risk of bugs.
 
 However, more options are now available with multiple "layers" in the Headless architecture. Each layer can have its release schedule, and some layers are more modular than others, allowing for finer-grained releases that will not impact the rest (at least in theory).
 

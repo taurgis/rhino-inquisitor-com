@@ -40,7 +40,7 @@ Both operate in different ways and have a significant differences in features. S
 
 ### Attribute
 
-Even though "Attribute" is [not a separate entity](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_experience_Component.html#dw_experience_Component_getAttribute_String_DetailAnchor) within [Page Designer](_wp_link_placeholder) entities, I decided to add it as a separate one to show which entities supported "custom attributes."
+Even though "Attribute" is [not a separate entity](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_experience_Component.html#dw_experience_Component_getAttribute_String_DetailAnchor) within [Page Designer](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/page_designer/b2c_dev_for_page_designer.html) entities, I decided to add it as a separate one to show which entities supported "custom attributes."
 
 ## More to follow
 

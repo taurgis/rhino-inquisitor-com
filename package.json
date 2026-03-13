@@ -42,6 +42,7 @@
     "check:noindex": "node scripts/check-noindex.js",
     "check:seo-completeness": "node scripts/migration/check-seo-completeness.js",
     "check:feed-compatibility": "node scripts/migration/check-feed-compatibility.js",
+    "check:internal-links": "node scripts/seo/check-internal-links.js",
     "check:links": "node scripts/check-links.js",
     "check:security-content": "hugo --cleanDestinationDir --minify --environment production --contentDir migration/output/content --destination tmp/rhi041-public && node scripts/migration/check-security-content.js --public-dir tmp/rhi041-public",
     "check:migration-thresholds": "node scripts/migration/check-migration-thresholds.js",

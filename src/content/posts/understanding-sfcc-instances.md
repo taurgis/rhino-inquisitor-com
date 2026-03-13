@@ -54,7 +54,7 @@ Developers use sandbox instances to create and update storefront code. These ins
 
 ### Staging
 
-The staging instance is where merchandising work takes place. This instance simulates the production environment and is used as the final step in testing the intersection of content and code. Staging instances are located in the realm's primary instance group (PIG) and are ([since recently](https://www.rhino-inquisitor.com/how-to-set-up-the-ecdn-for-staging-in-salesforce-b2c-commerce-cloud/)) connected to the eCDN.
+The staging instance is where merchandising work takes place. This instance simulates the production environment and is used as the final step in testing the intersection of content and code. Staging instances are located in the realm's primary instance group (PIG) and are ([since recently](https://www.rhino-inquisitor.com/how-to-set-up-the-ecdn-in-sfcc-staging/)) connected to the eCDN.
 
 ### Development
 

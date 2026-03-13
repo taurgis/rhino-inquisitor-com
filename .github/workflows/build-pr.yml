@@ -172,7 +172,7 @@ jobs:
         run: npm run check:seo-completeness -- --content-dir migration/output/content --public-dir tmp/migration-pr-public
 
       - name: Run staged internal link check
-        run: CHECK_LINKS_PUBLIC_DIR=tmp/migration-pr-public CHECK_LINKS_ALLOW_MANIFEST_TARGETS=1 npm run check:links
+        run: CHECK_LINKS_PUBLIC_DIR=tmp/migration-pr-public CHECK_LINKS_ALLOW_MANIFEST_TARGETS=1 CHECK_INTERNAL_LINKS_MODE=subset npm run check:internal-links
 
       - name: Verify expected migration report artifacts exist
         shell: bash
@@ -192,6 +192,7 @@ jobs:
             migration/reports/link-rewrite-log.csv
             migration/reports/content-corrections-summary.json
             migration/reports/image-alt-corrections-audit.csv
+            migration/reports/phase-5-internal-links-audit.csv
           )
 
           for report in "${required_reports[@]}"; do
@@ -303,7 +304,7 @@ jobs:
 
       - name: Run internal link check
         if: needs.prepare.outputs.full_site_route_validation_required == 'true'
-        run: npm run check:links
+        run: npm run check:internal-links
 
       - name: Archive production validation output
         if: ${{ !cancelled() && needs.prepare.outputs.full_site_route_validation_required == 'true' }}
@@ -337,6 +338,7 @@ jobs:
             migration/reports/phase-5-metadata-report.csv
             migration/reports/phase-5-schema-audit.csv
             migration/reports/phase-5-sitemap-audit.csv
+            migration/reports/phase-5-internal-links-audit.csv
             migration/url-parity-report.json
           if-no-files-found: error
           retention-days: 7

@@ -93,7 +93,7 @@ jobs:
         run: npm run check:seo:artifact
 
       - name: Run internal link check
-        run: npm run check:links
+        run: npm run check:internal-links
 
       - name: Archive production validation output
         if: ${{ !cancelled() }}
@@ -162,6 +162,7 @@ jobs:
             migration/reports/phase-5-metadata-report.csv
             migration/reports/phase-5-schema-audit.csv
             migration/reports/phase-5-sitemap-audit.csv
+            migration/reports/phase-5-internal-links-audit.csv
             migration/url-parity-report.json
           if-no-files-found: error
           retention-days: 7
