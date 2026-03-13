@@ -2,7 +2,7 @@
 
 ## Scope
 
-- Generated: 2026-03-13T10:16:24.994Z
+- Generated: 2026-03-13T16:52:55.664Z
 - Command: node scripts/seo/check-a11y.js --config pa11y-ci.config.js --report migration/reports/phase-5-accessibility-audit.md
 - Config: pa11y-ci.config.js
 - Public build: public
