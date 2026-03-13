@@ -84,7 +84,7 @@ This is the top-level ticket index for the full migration project. Use the phase
 | [RHI-053](phase-5/RHI-053-internal-linking-ia-signals.md) | Workstream F — Internal Linking and Information Architecture Signals | 5 | High | Done | M | 2026-04-18 |
 | [RHI-054](phase-5/RHI-054-mobile-first-core-web-vitals.md) | Workstream G — Mobile-First and Core Web Vitals Controls | 5 | High | Open | M | 2026-04-22 |
 | [RHI-055](phase-5/RHI-055-image-video-seo-integrity.md) | Workstream H — Image and Video SEO Integrity | 5 | Medium | Open | M | 2026-04-22 |
-| [RHI-056](phase-5/RHI-056-accessibility-discoverability-support.md) | Workstream I — Accessibility as Discoverability Support | 5 | Medium | Open | M | 2026-04-23 |
+| [RHI-056](phase-5/RHI-056-accessibility-discoverability-support.md) | Workstream I — Accessibility as Discoverability Support | 5 | Medium | Done | M | 2026-04-23 |
 | [RHI-057](phase-5/RHI-057-search-console-monitoring-program.md) | Workstream J — Search Console and Analytics Monitoring Program | 5 | High | Open | M | 2026-04-24 |
 | [RHI-058](phase-5/RHI-058-non-html-resource-seo-controls.md) | Workstream K — Non-HTML Resource SEO Controls | 5 | Medium | Open | S | 2026-04-25 |
 | [RHI-059](phase-5/RHI-059-github-pages-limits-artifact-integrity.md) | Workstream L — GitHub Pages Limits and Artifact Integrity | 5 | High | Open | S | 2026-04-25 |

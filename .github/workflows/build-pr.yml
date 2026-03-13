@@ -398,19 +398,32 @@ jobs:
       - name: Install Node dependencies
         run: npm ci
 
-      - name: Run accessibility baseline
+      - name: Build production site
+        run: npm run build:prod
+
+      - name: Run Phase 5 accessibility gate
         id: accessibility_check
-        continue-on-error: true
-        run: npm run check:a11y
+        run: npm run check:a11y:seo
+
+      - name: Upload accessibility audit artifact
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr-a11y-artifacts-${{ github.run_id }}
+          path: |
+            public
+            migration/reports/phase-5-accessibility-audit.md
+          if-no-files-found: error
+          retention-days: 7
 
       - name: Summarize accessibility result
         if: always()
         shell: bash
         run: |
           if [[ "${{ steps.accessibility_check.outcome }}" == "success" ]]; then
-            echo "Accessibility baseline passed." >> "$GITHUB_STEP_SUMMARY"
+            echo "Phase 5 accessibility gate passed." >> "$GITHUB_STEP_SUMMARY"
           else
-            echo "Accessibility baseline failed. Fix it or record a Phase 3 risk acceptance before RHI-030 closes." >> "$GITHUB_STEP_SUMMARY"
+            echo "Phase 5 accessibility gate failed. Resolve blocking findings in migration/reports/phase-5-accessibility-audit.md before merge." >> "$GITHUB_STEP_SUMMARY"
           fi
 
   performance:

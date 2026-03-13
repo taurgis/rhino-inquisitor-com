@@ -22,7 +22,7 @@
 | [RHI-053](RHI-053-internal-linking-ia-signals.md) | Workstream F — Internal Linking and Information Architecture Signals | WS-F | High | Done | M | 2026-04-18 | RHI-047, RHI-048 |
 | [RHI-054](RHI-054-mobile-first-core-web-vitals.md) | Workstream G — Mobile-First and Core Web Vitals Controls | WS-G | High | Done | M | 2026-04-22 | RHI-047 |
 | [RHI-055](RHI-055-image-video-seo-integrity.md) | Workstream H — Image and Video SEO Integrity | WS-H | Medium | Open | M | 2026-04-22 | RHI-047, RHI-052 |
-| [RHI-056](RHI-056-accessibility-discoverability-support.md) | Workstream I — Accessibility as Discoverability Support | WS-I | Medium | Open | M | 2026-04-23 | RHI-047 |
+| [RHI-056](RHI-056-accessibility-discoverability-support.md) | Workstream I — Accessibility as Discoverability Support | WS-I | Medium | Done | M | 2026-04-23 | RHI-047 |
 | [RHI-057](RHI-057-search-console-monitoring-program.md) | Workstream J — Search Console and Analytics Monitoring Program | WS-J | High | Open | M | 2026-04-24 | RHI-047, RHI-051 |
 | [RHI-058](RHI-058-non-html-resource-seo-controls.md) | Workstream K — Non-HTML Resource SEO Controls | WS-K | Medium | Open | S | 2026-04-25 | RHI-047 |
 | [RHI-059](RHI-059-github-pages-limits-artifact-integrity.md) | Workstream L — GitHub Pages Limits and Artifact Integrity | WS-L | High | Open | S | 2026-04-25 | RHI-047, RHI-049 |
@@ -141,7 +141,7 @@ All items below must be complete before Phase 6 and Phase 8 downstream work can 
 - [x] RHI-053 Done — Zero broken internal links on critical templates; zero orphan pages in representative set
 - [x] RHI-054 Done — Lighthouse assertions passing on representative templates; mobile parity confirmed
 - [ ] RHI-055 Done — Zero broken images; zero missing alt text on non-decorative images; video watch-page indexability confirmed
-- [ ] RHI-056 Done — Zero WCAG 2.2 Level A violations on representative pages; Level AA issues triaged
+- [x] RHI-056 Done — Zero WCAG 2.2 Level A violations on representative pages; Level AA issues triaged
 - [ ] RHI-057 Done — Monitoring runbook committed; Search Console access confirmed; pre-launch baselines captured
 - [ ] RHI-058 Done — Non-HTML policy implemented per URL class; no unresolved index-control blockers; edge-layer escalations documented
 - [ ] RHI-059 Done — Artifact within size limit; no symbolic links; `.nojekyll` present; HTTPS and DNS readiness confirmed

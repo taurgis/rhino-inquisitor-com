@@ -98,6 +98,9 @@ jobs:
       - name: Run internal link check
         run: npm run check:internal-links
 
+      - name: Run accessibility gate
+        run: npm run check:a11y:seo
+
       - name: Run performance gate
         run: npm run check:perf:gate
 
@@ -169,6 +172,7 @@ jobs:
             migration/reports/phase-5-schema-audit.csv
             migration/reports/phase-5-sitemap-audit.csv
             migration/reports/phase-5-internal-links-audit.csv
+            migration/reports/phase-5-accessibility-audit.md
             migration/url-parity-report.json
             tmp/lhci
           if-no-files-found: error
