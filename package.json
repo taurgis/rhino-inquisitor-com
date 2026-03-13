@@ -27,6 +27,7 @@
     "migrate:export-alt-corrections": "node scripts/migration/export-alt-text-corrections.js",
     "migrate:export-link-text-corrections": "node scripts/migration/export-link-text-corrections.js",
     "build:prod": "hugo --minify --environment production",
+    "test:url-parity": "node --test scripts/migration/validate-url-parity.test.js",
     "validate:frontmatter": "node scripts/validate-frontmatter.js",
     "check:url-parity": "node scripts/migration/validate-url-parity.js",
     "check:url-parity:baseline": "node scripts/check-url-parity.js",

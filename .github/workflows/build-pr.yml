@@ -257,6 +257,9 @@ jobs:
       - name: Install Node dependencies
         run: npm ci
 
+      - name: Run URL parity regression suite
+        run: npm run test:url-parity
+
       - name: Lint changed Markdown files
         if: needs.prepare.outputs.markdown_changed == 'true'
         shell: bash

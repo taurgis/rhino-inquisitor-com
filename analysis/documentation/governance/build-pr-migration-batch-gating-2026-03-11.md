@@ -50,3 +50,48 @@ The existing `.github/workflows/build-pr.yml` logic treated any `route_sensitive
 - `analysis/plan/details/phase-2.md`
 - `analysis/plan/details/phase-7.md`
 - `analysis/tickets/phase-4/RHI-043-pilot-batch-migration.md`
+
+
+---
+
+## 2026-03-13 follow-up: URL parity regression suite gate
+
+### Change summary
+
+Added an unconditional npm run test:url-parity step to the build job in .github/workflows/build-pr.yml so URL parity regression tests run on every PR validation run, not only route-sensitive changes.
+
+### Why this changed
+
+npm run test:url-parity was available as a local regression suite but was not wired into PR automation. That left a gap where validator regressions could merge undetected if a PR did not trigger the route-sensitive full-site gate path.
+
+### Behavior details
+
+#### Old behavior
+
+- PR workflow executed npm run check:url-parity only when full_site_route_validation_required=true.
+- The URL parity Node test suite npm run test:url-parity was not executed in CI.
+- Non-route-sensitive PRs had no automated regression test coverage for URL parity validator logic.
+
+#### New behavior
+
+- The build job now runs npm run test:url-parity after npm ci on every PR and manual workflow run.
+- Route-sensitive parity checks with npm run check:url-parity remain unchanged and still run conditionally when full-site route validation is required.
+- CI now enforces both: a fast unit-style regression suite on every change and full-manifest parity validation when route-sensitive triggers are present.
+
+### Impact
+
+- Affected workflow: .github/workflows/build-pr.yml.
+- Affected gate behavior: URL parity regression test failures now block PR validation regardless of changed-file classification.
+- Migration-batch and non-route-sensitive PRs gain baseline protection against validator regressions without changing existing route-sensitive gating rules.
+
+### Verification
+
+1. Run npm run test:url-parity locally and confirm exit code 0 on current branch.
+2. Confirm .github/workflows/build-pr.yml contains Run URL parity regression suite in the build job with no if condition.
+3. Confirm existing Run URL parity check step still retains if: needs.prepare.outputs.full_site_route_validation_required == true.
+
+### Related files
+
+- .github/workflows/build-pr.yml
+- package.json
+- scripts/migration/validate-url-parity.test.js
