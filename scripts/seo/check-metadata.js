@@ -8,17 +8,65 @@ import fg from "fast-glob";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, "..", "..");
-const publicDir = path.join(repoRoot, "public");
-const reportPath = path.join(repoRoot, "migration", "reports", "phase-5-metadata-report.csv");
-const manifestPath = path.join(repoRoot, "migration", "url-manifest.json");
-const sitemapPath = path.join(publicDir, "sitemap.xml");
 const canonicalHost = "https://www.rhino-inquisitor.com";
+
+const defaults = {
+  publicDir: path.join(repoRoot, "public"),
+  reportPath: path.join(repoRoot, "migration", "reports", "phase-5-metadata-report.csv"),
+  manifestPath: path.join(repoRoot, "migration", "url-manifest.json")
+};
+
+function printHelp() {
+  console.log(`Usage: node scripts/seo/check-metadata.js [options]
+
+Options:
+  --public-dir <path>  Override the built public directory.
+  --report <path>      Override the report CSV path.
+  --manifest <path>    Override the manifest JSON path.
+  --help               Show this help message.
+`);
+}
+
+function parseArgs(argv) {
+  const options = { ...defaults, help: false };
+
+  for (let index = 0; index < argv.length; index += 1) {
+    const arg = argv[index];
+
+    if (arg === "--public-dir") {
+      options.publicDir = path.resolve(argv[index + 1]);
+      index += 1;
+      continue;
+    }
+
+    if (arg === "--report") {
+      options.reportPath = path.resolve(argv[index + 1]);
+      index += 1;
+      continue;
+    }
+
+    if (arg === "--manifest") {
+      options.manifestPath = path.resolve(argv[index + 1]);
+      index += 1;
+      continue;
+    }
+
+    if (arg === "--help") {
+      options.help = true;
+      continue;
+    }
+
+    throw new Error(`Unknown argument: ${arg}`);
+  }
+
+  return options;
+}
 
 function toPosixPath(filePath) {
   return filePath.split(path.sep).join("/");
 }
 
-function routeFromHtmlPath(filePath) {
+function routeFromHtmlPath(filePath, publicDir) {
   const relativePath = toPosixPath(path.relative(publicDir, filePath));
 
   if (relativePath === "index.html") {
@@ -123,12 +171,19 @@ function formatMessages(messages) {
 }
 
 async function main() {
-  const htmlFiles = await fg(["**/*.html"], { cwd: publicDir, absolute: true, dot: true });
-  if (htmlFiles.length === 0) {
-    throw new Error("No built HTML files found under public/. Run a production build first.");
+  const options = parseArgs(process.argv.slice(2));
+  if (options.help) {
+    printHelp();
+    return;
   }
 
-  const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
+  const sitemapPath = path.join(options.publicDir, "sitemap.xml");
+  const htmlFiles = await fg(["**/*.html"], { cwd: options.publicDir, absolute: true, dot: true });
+  if (htmlFiles.length === 0) {
+    throw new Error(`No built HTML files found under ${path.relative(repoRoot, options.publicDir) || "."}. Run a production build first.`);
+  }
+
+  const manifest = JSON.parse(await readFile(options.manifestPath, "utf8"));
   const canonicalDisallowedPaths = new Set(
     (Array.isArray(manifest) ? manifest : [])
       .filter((entry) => ["merge", "retire"].includes(String(entry?.disposition ?? "")))
@@ -145,7 +200,7 @@ async function main() {
   for (const htmlFile of htmlFiles) {
     const htmlSource = await readFile(htmlFile, "utf8");
     const $ = loadHtml(htmlSource);
-    const route = normalizeRoute(routeFromHtmlPath(htmlFile));
+    const route = normalizeRoute(routeFromHtmlPath(htmlFile, options.publicDir));
     const family = classifyTemplateFamily(route, $);
     const title = $("title").first().text().trim();
     const description = ($('meta[name="description"]').attr("content") ?? "").trim();
@@ -315,9 +370,9 @@ async function main() {
     }
   }
 
-  await mkdir(path.dirname(reportPath), { recursive: true });
+  await mkdir(path.dirname(options.reportPath), { recursive: true });
   await writeFile(
-    reportPath,
+    options.reportPath,
     `${stringifyCsv(rows, {
       header: true,
       columns: [
@@ -349,7 +404,7 @@ async function main() {
     for (const message of blockingMessages) {
       console.error(`- ${message}`);
     }
-    console.error(`\nReport written to ${path.relative(repoRoot, reportPath)}.`);
+    console.error(`\nReport written to ${path.relative(repoRoot, options.reportPath)}.`);
     process.exitCode = 1;
     return;
   }
@@ -357,7 +412,7 @@ async function main() {
   const indexableCount = rows.filter((row) => row.indexable === "yes").length;
   const warningCount = rows.reduce((count, row) => count + (row.warnings ? row.warnings.split(" | ").length : 0), 0);
   console.log(`Metadata validation passed for ${indexableCount} indexable page(s).`);
-  console.log(`Report written to ${path.relative(repoRoot, reportPath)}.`);
+  console.log(`Report written to ${path.relative(repoRoot, options.reportPath)}.`);
   if (warningCount > 0) {
     console.warn(`Warnings: ${warningCount}`);
   }

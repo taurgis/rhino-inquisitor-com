@@ -1,13 +1,13 @@
 ## RHI-066 · Workstream D — Host and Protocol Canonical Consolidation
 
-**Status:** Open  
+**Status:** In Progress  
 **Priority:** High  
 **Estimate:** M  
 **Phase:** 6  
 **Assigned to:** Engineering Owner  
 **Target date:** 2026-05-12  
 **Created:** 2026-03-07  
-**Updated:** 2026-03-07
+**Updated:** 2026-03-14
 
 ---
 
@@ -21,66 +21,68 @@ Host/protocol fragmentation is a persistent post-migration index problem. If cra
 
 ### Acceptance Criteria
 
-- [ ] Hugo template canonical tags always output `https://www.rhino-inquisitor.com/` as the canonical host:
-  - [ ] `src/layouts/partials/seo/head-meta.html` (or equivalent) uses `.Permalink` which is derived from `baseURL = "https://www.rhino-inquisitor.com/"`
-  - [ ] No hardcoded apex, HTTP, or non-www canonical URL exists in any template
-  - [ ] `hugo.toml` `baseURL` is `"https://www.rhino-inquisitor.com/"` (www, HTTPS, trailing slash)
-- [ ] Sitemap output uses canonical host exclusively:
-  - [ ] All `<loc>` values in `public/sitemap.xml` begin with `https://www.rhino-inquisitor.com/`
-  - [ ] Zero apex (`https://rhino-inquisitor.com/`) or HTTP URLs in sitemap
+- [x] Hugo template canonical tags always output `https://www.rhino-inquisitor.com/` as the canonical host:
+  - [x] `src/layouts/partials/seo/head-meta.html` (or equivalent) uses `.Permalink` which is derived from `baseURL = "https://www.rhino-inquisitor.com/"`
+  - [x] No hardcoded apex, HTTP, or non-www canonical URL exists in any template
+  - [x] `hugo.toml` `baseURL` is `"https://www.rhino-inquisitor.com/"` (www, HTTPS, trailing slash)
+- [x] Sitemap output uses canonical host exclusively:
+  - [x] All `<loc>` values in `public/sitemap.xml` begin with `https://www.rhino-inquisitor.com/`
+  - [x] Zero apex (`https://rhino-inquisitor.com/`) or HTTP URLs in sitemap
 - [ ] GitHub Pages custom-domain configuration confirmed:
   - [ ] Custom domain set to `www.rhino-inquisitor.com` in GitHub Pages repository settings
   - [ ] `Enforce HTTPS` is enabled in GitHub Pages settings
   - [ ] Expected behavior documented: Pages enforces HTTPS; apex/www consolidation depends on DNS configuration
 - [ ] DNS consolidation plan confirmed for cutover:
-  - [ ] Apex-to-www redirect mechanism identified (DNS provider URL forwarding/redirect feature, CDN/edge redirect, or equivalent HTTP redirect layer)
+  - [x] Apex-to-www redirect mechanism identified (DNS provider URL forwarding/redirect feature, CDN/edge redirect, or equivalent HTTP redirect layer)
   - [ ] `http://` to `https://` redirect is platform-enforced (GitHub Pages HTTPS enforcement)
-  - [ ] DNS plan documented in `migration/phase-6-url-policy.md`
-- [ ] Non-production host canonical leakage check:
-  - [ ] Staging and preview deployment URLs confirmed as `noindex` (meta tag, not solely robots.txt)
-  - [ ] No staging canonical tag referencing a non-production host appears in the release build
+  - [x] DNS plan documented in `migration/phase-6-url-policy.md`
+- [x] Non-production host canonical leakage check:
+  - [x] Staging and preview deployment URLs confirmed as `noindex` (meta tag, not solely robots.txt)
+  - [x] No staging canonical tag referencing a non-production host appears in the release build
 - [ ] Search Console property coverage confirmed:
-  - [ ] `https://www.rhino-inquisitor.com/` (primary preferred property) — ownership verified
-  - [ ] `https://rhino-inquisitor.com/` (apex variant) — ownership verified
+  - [x] Domain ownership confirmed by user on 2026-03-14
+  - [ ] `https://www.rhino-inquisitor.com/` (primary preferred property) — ownership verified in recorded evidence
+  - [ ] `https://rhino-inquisitor.com/` (apex variant) — ownership verified or covered by documented domain-property scope
   - [ ] `http://www.rhino-inquisitor.com/` and `http://rhino-inquisitor.com/` — verified or noted as unavailable
-- [ ] Entry-path validation test confirms single canonical endpoint:
-  - [ ] `scripts/phase-6/check-host-protocol.js` exits with code 0:
-    - [ ] Checks all canonical tags in built HTML use canonical host
-    - [ ] Checks sitemap has zero non-canonical host entries
-    - [ ] Checks `robots.txt` `Sitemap:` directive uses canonical host URL
+- [x] Entry-path validation test confirms single canonical endpoint:
+  - [x] `scripts/phase-6/check-host-protocol.js` exits with code 0:
+    - [x] Checks all canonical tags in built HTML use canonical host
+    - [x] Checks sitemap has zero non-canonical host entries
+    - [x] Checks `robots.txt` `Sitemap:` directive uses canonical host URL
 
 ---
 
 ### Tasks
 
-- [ ] Audit `hugo.toml` `baseURL`:
-  - [ ] Confirm it is `"https://www.rhino-inquisitor.com/"` — exactly: HTTPS, www, trailing slash
-  - [ ] Fix if incorrect; run production build and verify `.Permalink` output
-- [ ] Audit canonical tag template:
-  - [ ] Locate canonical tag generation in `src/layouts/partials/seo/`
-  - [ ] Confirm it uses `.Permalink` (not `.URL` or `.RelPermalink`)
-  - [ ] Spot-check 5 sample canonical tags in the built `public/` directory with `cheerio`
-- [ ] Audit sitemap output:
-  - [ ] Build production site; parse `public/sitemap.xml`
-  - [ ] Extract all `<loc>` values; verify all start with `https://www.rhino-inquisitor.com/`
-  - [ ] Fix any non-canonical host appearing in sitemap
+- [x] Audit `hugo.toml` `baseURL`:
+  - [x] Confirm it is `"https://www.rhino-inquisitor.com/"` — exactly: HTTPS, www, trailing slash
+  - [x] Fix if incorrect; run production build and verify `.Permalink` output
+- [x] Audit canonical tag template:
+  - [x] Locate canonical tag generation in `src/layouts/partials/seo/`
+  - [x] Confirm it uses `.Permalink` (not `.URL` or `.RelPermalink`)
+  - [x] Spot-check 5 sample canonical tags in the built `public/` directory with `cheerio`
+- [x] Audit sitemap output:
+  - [x] Build production site; parse `public/sitemap.xml`
+  - [x] Extract all `<loc>` values; verify all start with `https://www.rhino-inquisitor.com/`
+  - [x] Fix any non-canonical host appearing in sitemap
 - [ ] Confirm GitHub Pages configuration:
   - [ ] Verify custom domain setting in repository Settings → Pages
   - [ ] Verify `Enforce HTTPS` is enabled
   - [ ] Document current state in Progress Log
 - [ ] Define and document DNS consolidation plan:
-  - [ ] Identify apex-to-www redirect mechanism available with DNS provider
-  - [ ] Document in `migration/phase-6-url-policy.md` under host/protocol policy section
+  - [x] Identify apex-to-www redirect mechanism available with DNS provider
+  - [x] Document in `migration/phase-6-url-policy.md` under host/protocol policy section
   - [ ] Note that DNS execution is Phase 7 scope; this workstream only confirms the plan
-- [ ] Check for non-production canonical leakage:
-  - [ ] Inspect CI/CD workflow for staging deployments
-  - [ ] Confirm staging uses `noindex` meta tag (not solely robots.txt Disallow)
-  - [ ] Confirm release build does not inherit staging noindex settings
+- [x] Check for non-production canonical leakage:
+  - [x] Inspect CI/CD workflow for staging deployments
+  - [x] Confirm staging uses `noindex` meta tag (not solely robots.txt Disallow)
+  - [x] Confirm release build does not inherit staging noindex settings
 - [ ] Confirm Search Console property coverage:
-  - [ ] Log in to Search Console and verify properties listed above
-  - [ ] Note ownership status in Progress Log
-- [ ] Write `scripts/phase-6/check-host-protocol.js`
-- [ ] Run script and fix all failures
+  - [x] User confirmed domain ownership in Search Console
+  - [ ] Record whether ownership is via domain property or URL-prefix properties in Progress Log
+  - [ ] Note variant coverage status in Progress Log
+- [x] Write `scripts/phase-6/check-host-protocol.js`
+- [x] Run script and fix all failures
 - [ ] Commit script and any template/config fixes
 
 ---
@@ -148,6 +150,7 @@ Host/protocol fragmentation is a persistent post-migration index problem. If cra
 | Date | Status | Note |
 |------|--------|------|
 | 2026-03-07 | Open | Ticket created |
+| 2026-03-14 | In Progress | Added `scripts/phase-6/check-host-protocol.js`, wired `npm run check:host-protocol`, documented the host/protocol policy in `migration/phase-6-url-policy.md`, and verified temp artifacts: production metadata `215` indexable pages, production sitemap `215` URLs, production crawl-controls `237` HTML routes, preview crawl-controls `237` HTML routes. Live checks found the current preview deployment emitting `http://taurgis.github.io/...` absolute URLs, so `.github/workflows/deploy-pages.yml` now normalizes the preview base URL to HTTPS for future deploys. User confirmed Search Console ownership for the domain. Live production checks also showed `https://rhino-inquisitor.com/` still resolving directly instead of consolidating to `https://www.rhino-inquisitor.com/`, so apex-to-www runtime consolidation remains an external Phase 7 item. |
 
 ---
 

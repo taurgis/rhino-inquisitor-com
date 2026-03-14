@@ -41,6 +41,7 @@
     "check:url-parity:baseline": "node scripts/check-url-parity.js",
     "check:redirects": "node scripts/migration/check-redirects.js",
     "check:redirects:seo": "node scripts/seo/check-redirects.js",
+    "check:host-protocol": "node scripts/phase-6/check-host-protocol.js",
     "check:crawl-controls": "node scripts/seo/check-crawl-controls.js",
     "check:metadata": "node scripts/seo/check-metadata.js",
     "check:images": "node scripts/seo/check-images.js",

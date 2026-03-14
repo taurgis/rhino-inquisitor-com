@@ -122,15 +122,37 @@ jobs:
           mkdir -p tmp/ci-prod-public
           cp -R public/. tmp/ci-prod-public/
 
+      - name: Normalize preview base URL
+        id: preview_base
+        env:
+          RAW_PAGES_BASE_URL: ${{ steps.pages.outputs.base_url }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          node <<'EOF'
+          const rawBaseUrl = process.env.RAW_PAGES_BASE_URL;
+
+          if (!rawBaseUrl) {
+            throw new Error('Missing RAW_PAGES_BASE_URL from actions/configure-pages.');
+          }
+
+          const normalized = new URL(rawBaseUrl);
+          normalized.protocol = 'https:';
+          normalized.pathname = normalized.pathname.replace(/\/$/, '');
+
+          const output = process.env.GITHUB_OUTPUT;
+          require('node:fs').appendFileSync(output, `base_url=${normalized.toString()}\n`, 'utf8');
+          EOF
+
       - name: Build preview rehearsal site
-        run: hugo --gc --minify --environment preview --baseURL "${{ steps.pages.outputs.base_url }}/"
+        run: hugo --gc --minify --environment preview --baseURL "${{ steps.preview_base.outputs.base_url }}/"
 
       - name: Run preview crawl-control validation check
-        run: node scripts/seo/check-crawl-controls.js --mode preview --base-url "${{ steps.pages.outputs.base_url }}/" --report tmp/ci-preview-crawl-control-audit.csv
+        run: node scripts/seo/check-crawl-controls.js --mode preview --base-url "${{ steps.preview_base.outputs.base_url }}/" --report tmp/ci-preview-crawl-control-audit.csv
 
       - name: Verify preview-host path prefix and noindex
         env:
-          PAGES_BASE_URL: ${{ steps.pages.outputs.base_url }}
+          PAGES_BASE_URL: ${{ steps.preview_base.outputs.base_url }}
         shell: bash
         run: |
           set -euo pipefail
@@ -142,6 +164,10 @@ jobs:
 
           if (!baseUrl) {
             throw new Error('Missing PAGES_BASE_URL from actions/configure-pages.');
+          }
+
+          if (!baseUrl.startsWith('https://')) {
+            throw new Error(`Expected HTTPS preview base URL, received: ${baseUrl}`);
           }
 
           const { pathname } = new URL(baseUrl);
