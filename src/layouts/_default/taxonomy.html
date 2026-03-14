@@ -31,6 +31,9 @@
       <div class="archive-layout__content">
         {{ partial "search/search-bar.html" (dict
           "page" .
+          "scopeKind" "category"
+          "scopeValue" (.Data.Term | urlize)
+          "scopeLabel" (printf "%s archive" .Title)
           "placeholder" (printf "Search the blog archive from within %s." .Title)
         ) }}
         {{ partial "archive/year-jump.html" (dict "links" $yearLinks) }}
@@ -101,6 +104,9 @@
       <div class="archive-layout__content">
         {{ partial "search/search-bar.html" (dict
           "page" .
+          "scopeKind" "type"
+          "scopeValue" "posts"
+          "scopeLabel" "blog archive"
           "placeholder" "Search the blog archive before drilling into a topic hub."
         ) }}
         {{ partial "archive/year-jump.html" (dict "links" $yearLinks) }}

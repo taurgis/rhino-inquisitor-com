@@ -1,0 +1,78 @@
+{{- $searchPages := slice -}}
+{{- range site.RegularPages.ByDate.Reverse -}}
+  {{- $seo := .Params.seo | default dict -}}
+  {{- if not (index $seo "noindex") -}}
+    {{- $excerpt := .Params.description | default "" -}}
+    {{- if eq $excerpt "" -}}
+      {{- $excerpt = .Summary | plainify | strings.TrimSpace -}}
+    {{- end -}}
+    {{- $categories := .Params.categories | default (slice) -}}
+    {{- $categorySlugs := slice -}}
+    {{- range $categories -}}
+      {{- $categorySlugs = $categorySlugs | append (. | urlize) -}}
+    {{- end -}}
+    {{- $primaryTopic := "" -}}
+    {{- with .Params.primaryTopic -}}
+      {{- $primaryTopic = . -}}
+    {{- end -}}
+    {{- if and (eq $primaryTopic "") (gt (len $categories) 0) -}}
+      {{- $primaryTopic = index $categories 0 -}}
+    {{- end -}}
+    {{- $primaryTopicSlug := "" -}}
+    {{- $primaryTopicUrl := "" -}}
+    {{- if ne $primaryTopic "" -}}
+      {{- $primaryTopicSlug = $primaryTopic | urlize -}}
+      {{- with site.GetPage (printf "/categories/%s" $primaryTopicSlug) -}}
+        {{- $primaryTopicUrl = .Permalink -}}
+      {{- end -}}
+    {{- end -}}
+    {{- $heroImageRequest := .Params.heroImage | default "" -}}
+    {{- $heroImage := "" -}}
+    {{- $heroImageAlt := .Params.heroImageAlt | default (.LinkTitle | default .Title) -}}
+    {{- if ne $heroImageRequest "" -}}
+      {{- if or (hasPrefix $heroImageRequest "http://") (hasPrefix $heroImageRequest "https://") -}}
+        {{- $heroImage = $heroImageRequest -}}
+      {{- else -}}
+        {{- $heroResource := false -}}
+        {{- $globalHeroPath := strings.TrimPrefix "/" $heroImageRequest -}}
+        {{- if not (hasPrefix $heroImageRequest "/") -}}
+          {{- with .Resources.GetMatch $heroImageRequest -}}
+            {{- $heroResource = . -}}
+          {{- end -}}
+        {{- end -}}
+        {{- if and (not $heroResource) (ne $globalHeroPath "") -}}
+          {{- with resources.Get $globalHeroPath -}}
+            {{- $heroResource = . -}}
+          {{- end -}}
+        {{- end -}}
+        {{- with $heroResource -}}
+          {{- if reflect.IsImageResourceProcessable . -}}
+            {{- $heroImage = (.Process "webp q80").RelPermalink -}}
+          {{- else if reflect.IsImageResourceWithMeta . -}}
+            {{- $heroImage = .RelPermalink -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+    {{- $searchPages = $searchPages | append (dict
+      "title" (.LinkTitle | default .Title)
+      "permalink" .Permalink
+      "relPermalink" .RelPermalink
+      "type" .Type
+      "typeLabel" (cond (eq .Type "posts") "Article" (cond (eq .Type "pages") "Page" .Type))
+      "summary" $excerpt
+      "categories" $categories
+      "categorySlugs" $categorySlugs
+      "primaryTopic" $primaryTopic
+      "primaryTopicSlug" $primaryTopicSlug
+      "primaryTopicUrl" $primaryTopicUrl
+      "readingTime" .ReadingTime
+      "date" (cond .Date (.Date.Format "2006-01-02T15:04:05Z07:00") "")
+      "dateLabel" (cond .Date (.Date.Format "Jan 2, 2006") "")
+      "year" (cond .Date (.Date.Format "2006") "Undated")
+      "heroImage" $heroImage
+      "heroImageAlt" $heroImageAlt
+    ) -}}
+  {{- end -}}
+{{- end -}}
+{{- $searchPages | jsonify -}}

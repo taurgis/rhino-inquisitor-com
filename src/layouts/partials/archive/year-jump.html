@@ -1,6 +1,6 @@
 {{ $links := .links | default (slice) }}
 {{ if gt (len $links) 0 }}
-  <nav class="jump-year" aria-label="Jump to year">
+  <nav class="jump-year" aria-label="Jump to year" data-search-year-jump>
     <div>
       <p class="eyebrow">Jump to year</p>
       <p class="surface-note">Skip directly to a dated archive cluster on this surface.</p>

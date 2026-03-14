@@ -18,7 +18,7 @@ enableRobotsTXT = true
 # Phase 3 remains monolingual, so Hugo emits a single root sitemap.xml.
 
 [outputs]
-home = ["html", "rss"]
+home = ["html", "rss", "json"]
 page = ["html"]
 section = ["html", "rss"]
 taxonomy = ["html"]

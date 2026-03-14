@@ -51,6 +51,8 @@
   {{ end }}
   {{ $emptyActionHref := .Site.Home.Permalink }}
   {{ with $blogPage }}{{ $emptyActionHref = .Permalink }}{{ end }}
+  {{ $searchScopeValue := .Section | default "posts" }}
+  {{ $searchScopeLabel := cond (eq $searchScopeValue "pages") "reference pages" "blog archive" }}
 
   {{ partial "breadcrumbs.html" . }}
 
@@ -66,6 +68,9 @@
     <div class="archive-layout__content">
       {{ partial "search/search-bar.html" (dict
         "page" .
+        "scopeKind" "type"
+        "scopeValue" $searchScopeValue
+        "scopeLabel" $searchScopeLabel
         "placeholder" "Search the blog archive by title, topic, or migration trail."
       ) }}
       {{ partial "archive/year-jump.html" (dict "links" $yearLinks) }}

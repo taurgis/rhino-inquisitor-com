@@ -2,8 +2,26 @@
 {{ $idBase := .idBase | default (printf "%s-search" ($page.Kind | default "archive")) }}
 {{ $inputId := printf "%s-input" $idBase }}
 {{ $helperId := printf "%s-helper" $idBase }}
+{{ $searchIndex := site.Home.OutputFormats.Get "json" }}
+{{ $searchIndexUrl := "index.json" | relURL }}
+{{ with $searchIndex }}{{ $searchIndexUrl = .RelPermalink }}{{ end }}
+{{ $scopeKind := .scopeKind | default "type" }}
+{{ $scopeValue := .scopeValue | default "posts" }}
+{{ $scopeLabel := .scopeLabel | default "blog archive" }}
 
-<form class="search-bar" id="archive-search" role="search" action="{{ printf "%s#archive-results" $page.RelPermalink }}" method="get">
+<form
+  class="search-bar"
+  id="archive-search"
+  role="search"
+  action="{{ printf "%s#archive-results" $page.RelPermalink }}"
+  method="get"
+  data-search-index-url="{{ $searchIndexUrl }}"
+  data-search-results-id="archive-results"
+  data-search-scope-kind="{{ $scopeKind }}"
+  data-search-scope-value="{{ $scopeValue }}"
+  data-search-scope-label="{{ $scopeLabel }}"
+  data-search-year-jump-selector="[data-search-year-jump]"
+>
   <div class="search-bar__field">
     <label for="{{ $inputId }}">Search the blog archive</label>
     <div class="search-bar__row">
@@ -11,11 +29,13 @@
         id="{{ $inputId }}"
         name="q"
         type="search"
+        autocomplete="off"
         placeholder="{{ .placeholder | default "Search the blog archive by topic, title, or trailhead." }}"
         aria-describedby="{{ $helperId }}"
       >
       <button type="submit">Search</button>
     </div>
   </div>
-  <p class="surface-note" id="{{ $helperId }}">Browse by topic, type, year, or pagination. Full search is coming soon.</p>
+  <p class="surface-note search-bar__status" id="{{ $helperId }}" data-search-status>Search across titles, summaries, and topics. Leave the field empty to restore the default archive view.</p>
 </form>
+<script src="{{ "scripts/archive-search.js" | relURL }}" defer></script>
