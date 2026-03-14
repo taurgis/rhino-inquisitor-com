@@ -77,11 +77,32 @@ jobs:
           build_finished_at=$(node -e 'console.log(Date.now())')
           echo "PAGES_CONSTRAINTS_BUILD_DURATION_MS=$((build_finished_at - build_started_at))" >> "$GITHUB_ENV"
 
+      - name: Validate URL inventory
+        run: npm run validate:url-inventory
+
       - name: Run Pages artifact constraints check
         run: npm run check:pages-constraints
 
       - name: Run URL parity check
         run: npm run check:url-parity
+
+      - name: Run redirect target existence check
+        run: npm run check:redirect-targets
+
+      - name: Run redirect chain check
+        run: npm run check:redirect-chains
+
+      - name: Run canonical alignment check
+        run: npm run check:canonical-alignment
+
+      - name: Run retirement policy check
+        run: npm run check:retirement-policy
+
+      - name: Run host and protocol check
+        run: npm run check:host-protocol
+
+      - name: Run redirect security check
+        run: npm run check:redirect-security
 
       - name: Run redirect signal validation check
         run: npm run check:redirects:seo
@@ -203,7 +224,13 @@ jobs:
             migration/reports/phase-5-pages-constraints-report.md
             migration/reports/phase-5-internal-links-audit.csv
             migration/reports/phase-5-accessibility-audit.md
+            migration/reports/phase-6-redirect-targets.csv
+            migration/reports/phase-6-chains-loops.csv
+            migration/reports/phase-6-canonical-alignment.csv
+            migration/reports/phase-6-retired-url-audit.csv
+            migration/reports/phase-6-redirect-security.csv
             migration/url-parity-report.json
+            tmp/phase-6-host-protocol
             tmp/lhci
           if-no-files-found: error
           retention-days: 7

@@ -222,15 +222,21 @@ Expected behavior:
 
 ## Phase 6 CI Gate Reference
 
-| Gate | Command | Scope | Status |
-|---|---|---|---|
-| Canonical host/protocol invariant | `npm run check:host-protocol` | Production build required; preview check optional when a preview artifact is available | Active in RHI-066 |
-| Retirement and error-path governance | `npm run check:retirement-policy` | Production build required; generates the retired URL audit and fails on retire leakage or unresolved request-aware Model A limitations | Active in RHI-067 |
-| Redirect security and privacy controls | `npm run check:redirect-security` | Production build required; validates source aliases, `url-map` targets, built alias pages, and approved feed compatibility helpers for same-site HTTPS-only behavior | Active in RHI-068 |
-| Additional Phase 6 CI gate matrix | Added by RHI-070 | Release-gate expansion and workflow integration | Pending |
+Phase 6 release gates run against the production artifact after `hugo --minify --environment production` and before any Pages artifact upload. Any non-zero exit code is release-blocking and prevents artifact upload and deploy.
+
+| Gate | Command | Scope | Blocking threshold | Zero tolerance | Status |
+|---|---|---|---|---|---|
+| URL inventory completeness and schema contract | `npm run validate:url-inventory` | Validates `migration/url-manifest.json` required records, normalization, and Model A implementation-layer constraints before deploy | Any validation issue | Yes | Active in RHI-070 |
+| Legacy URL parity against production output | `npm run check:url-parity` | Validates all `keep`, `merge`, and `retire` outcomes against the production build and writes `migration/url-parity-report.csv` | Any critical parity failure | Yes for critical parity defects | Active in RHI-070 |
+| Redirect target publication | `npm run check:redirect-targets` | Validates every `merge` row target in `migration/url-map.csv` against the production artifact and writes `migration/reports/phase-6-redirect-targets.csv` | Any missing published target | Yes | Active in RHI-070 |
+| Redirect chains and loops | `npm run check:redirect-chains` | Validates alias-backed `pages-static` redirects for one-hop final delivery and writes `migration/reports/phase-6-chains-loops.csv` | Any chain, loop, missing target, HTTP target, or cross-host anomaly | Yes | Active in RHI-070 |
+| Canonical alignment | `npm run check:canonical-alignment` | Validates canonical tags against sitemap `<loc>` values and writes `migration/reports/phase-6-canonical-alignment.csv` | Any mismatch or missing sitemap alignment | Yes | Active in RHI-070 |
+| Retirement and error-path governance | `npm run check:retirement-policy` | Validates retire leakage, request-aware residual handling, and `404.html`, and writes `migration/reports/phase-6-retired-url-audit.csv` | Any retired route leakage or unresolved Model A limitation | Yes | Active in RHI-070 |
+| Canonical host/protocol invariant | `npm run check:host-protocol` | Validates production canonical host/protocol output and writes reports under `tmp/phase-6-host-protocol` | Any canonical, sitemap, robots, or crawl-control host/protocol defect | Yes | Active in RHI-070 |
+| Redirect security and privacy controls | `npm run check:redirect-security` | Validates source aliases, `url-map` targets, built alias pages, and approved feed compatibility helpers for same-site HTTPS-only behavior | Any off-site, HTTP, malformed, or sensitive-data violation | Yes | Active in RHI-070 |
 
 ## Future Sections
 
 The sections below are intentionally reserved for later Phase 6 tickets that extend this shared document:
 
-1. Full Phase 6 CI gate matrix and handoff references (RHI-070)
+1. Cutover and rollback handoff references (RHI-071 and RHI-072)

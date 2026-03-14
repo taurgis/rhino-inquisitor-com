@@ -26,7 +26,7 @@ Downloadable-file convention input:
 | [RHI-067](RHI-067-retirement-error-path-governance.md) | Workstream E — Retirement and Error Path Governance | WS-E | High | Done | M | 2026-05-12 | RHI-063, RHI-064, RHI-062 |
 | [RHI-068](RHI-068-security-privacy-redirect-controls.md) | Workstream F — Security and Privacy Controls for Redirect Logic | WS-F | High | Done | S | 2026-05-13 | RHI-065, RHI-062 |
 | [RHI-069](RHI-069-redirect-observability-reporting.md) | Workstream G — Redirect Observability and Reporting | WS-G | High | Done | M | 2026-05-14 | RHI-063, RHI-064, RHI-065, RHI-066 |
-| [RHI-070](RHI-070-ci-release-gates.md) | Workstream H — CI and Release Gates for URL Preservation | WS-H | Critical | Open | M | 2026-05-15 | RHI-063 through RHI-069 |
+| [RHI-070](RHI-070-ci-release-gates.md) | Workstream H — CI and Release Gates for URL Preservation | WS-H | Critical | Done | M | 2026-05-15 | RHI-063 through RHI-069 |
 | [RHI-071](RHI-071-cutover-readiness-rollback-design.md) | Workstream I — Cutover Readiness and Rollback Design | WS-I | Critical | Open | M | 2026-05-16 | RHI-062, RHI-066, RHI-068, RHI-069, RHI-070 |
 | [RHI-072](RHI-072-phase-6-signoff.md) | Phase 6 Sign-off and Handover to Phase 7/8 | Sign-off | Critical | Open | S | 2026-05-19 | RHI-061 through RHI-071 |
 
@@ -158,7 +158,7 @@ All items below must be complete before Phase 7 DNS cutover and Phase 8 launch r
 - [x] RHI-067 Done — All retired URLs have explicit outcome; custom 404 page deployed; zero soft-404 redirects
 - [x] RHI-068 Done — Zero off-site alias destinations; zero HTTP destinations; security sign-off recorded
 - [x] RHI-069 Done — Coverage report 100%; chains/loops report zero; canonical alignment report zero mismatches; post-launch monitoring thresholds documented
-- [ ] RHI-070 Done — All Phase 6 CI gates integrated and passing on latest `main` build
+- [x] RHI-070 Done — All Phase 6 CI gates integrated and passing on latest `main` build
 - [ ] RHI-071 Done — Redirect map frozen with git tag; rollback drill complete; cutover and rollback runbooks committed
 - [ ] RHI-072 Done — Stakeholder sign-off recorded; Phase 7/8 notified and handover acknowledged
 
