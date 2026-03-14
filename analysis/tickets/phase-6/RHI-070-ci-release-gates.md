@@ -96,7 +96,7 @@ Phase 6 CI gates are the long-term enforcement mechanism. Without them, every fu
 | RHI-065 Done — `check-redirect-chains.js` script committed | Ticket | Pending |
 | RHI-066 Done — `check-host-protocol.js` script committed | Ticket | Done |
 | RHI-067 Done — `check-retirement-policy.js` script committed | Ticket | Pending |
-| RHI-068 Done — `check-redirect-security.js` script committed | Ticket | Pending |
+| RHI-068 Done — `check-redirect-security.js` script committed | Ticket | Done |
 | RHI-069 Done — `generate-canonical-alignment-report.js` committed | Ticket | Pending |
 | `.github/workflows/deploy-pages.yml` from Phase 3 (RHI-029) | Phase | Pending |
 | Production Hugo build available for gate integration test | Phase | Pending |

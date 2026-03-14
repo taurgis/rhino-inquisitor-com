@@ -96,7 +96,7 @@ This is the top-level ticket index for the full migration project. Use the phase
 | [RHI-065](phase-6/RHI-065-hugo-route-preservation-alias-integration.md) | Workstream C — Hugo Route Preservation and Alias Integration | 6 | Critical | Done | L | 2026-05-09 |
 | [RHI-066](phase-6/RHI-066-host-protocol-canonical-consolidation.md) | Workstream D — Host and Protocol Canonical Consolidation | 6 | High | Open | M | 2026-05-12 |
 | [RHI-067](phase-6/RHI-067-retirement-error-path-governance.md) | Workstream E — Retirement and Error Path Governance | 6 | High | Open | M | 2026-05-12 |
-| [RHI-068](phase-6/RHI-068-security-privacy-redirect-controls.md) | Workstream F — Security and Privacy Controls for Redirect Logic | 6 | High | Open | S | 2026-05-13 |
+| [RHI-068](phase-6/RHI-068-security-privacy-redirect-controls.md) | Workstream F — Security and Privacy Controls for Redirect Logic | 6 | High | Done | S | 2026-05-13 |
 | [RHI-069](phase-6/RHI-069-redirect-observability-reporting.md) | Workstream G — Redirect Observability and Reporting | 6 | High | Open | M | 2026-05-14 |
 | [RHI-070](phase-6/RHI-070-ci-release-gates.md) | Workstream H — CI and Release Gates for URL Preservation | 6 | Critical | Open | M | 2026-05-15 |
 | [RHI-071](phase-6/RHI-071-cutover-readiness-rollback-design.md) | Workstream I — Cutover Readiness and Rollback Design | 6 | Critical | Open | M | 2026-05-16 |

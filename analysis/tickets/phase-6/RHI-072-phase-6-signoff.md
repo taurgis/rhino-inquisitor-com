@@ -29,7 +29,7 @@ Phase 7 DNS cutover and Phase 8 launch readiness assessments must not finalize u
   - [ ] RHI-065 Done — Hugo route preservation and alias integration complete
   - [x] RHI-066 Done — Host and protocol canonical consolidation complete
   - [ ] RHI-067 Done — Retirement and error path governance complete
-  - [ ] RHI-068 Done — Security and privacy controls for redirect logic complete
+  - [x] RHI-068 Done — Security and privacy controls for redirect logic complete
   - [ ] RHI-069 Done — Redirect observability and reporting complete
   - [ ] RHI-070 Done — CI and release gates for URL preservation complete
   - [ ] RHI-071 Done — Cutover readiness and rollback design complete
@@ -57,7 +57,7 @@ Phase 7 DNS cutover and Phase 8 launch readiness assessments must not finalize u
   - [ ] Redirect map is frozen with git tag `phase-6-redirect-map-v1`
   - [ ] Rollback drill has been executed and documented
   - [ ] Critical route manual verification complete (top 50 traffic + top 50 backlink)
-  - [ ] Security sign-off recorded in `migration/phase-6-url-policy.md`
+  - [x] Security sign-off recorded in `migration/phase-6-url-policy.md`
   - [ ] All Phase 6 mandatory CI gates green on latest release candidate
 - [ ] `migration/phase-6-signoff.md` is committed with:
   - [ ] Summary of all Phase 6 workstream outcomes (RHI-062 through RHI-071) with ticket IDs and deliverable file paths

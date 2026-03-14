@@ -118,7 +118,7 @@ Cutover is the highest-risk moment of the migration. A well-designed redirect st
 | RHI-070 Done — all Phase 6 CI gates integrated and passing | Ticket | Pending |
 | RHI-062 Done — architecture decision (determines rollback options available) | Ticket | Pending |
 | RHI-066 Done — repository host/protocol controls complete; Search Console domain ownership confirmed; runtime variant verification deferred to cutover | Ticket | Done |
-| RHI-068 Done — security sign-off recorded | Ticket | Pending |
+| RHI-068 Done — security sign-off recorded | Ticket | Done |
 | RHI-069 Done — pre-launch reports (coverage, chains, canonical alignment) all clean | Ticket | Pending |
 | Migration owner, SEO owner, and engineering owner available for drill and sign-off | Access | Pending |
 | Phase 7 and Phase 8 teams available to receive handover notification | Access | Pending |
