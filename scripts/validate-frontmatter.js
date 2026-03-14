@@ -16,6 +16,7 @@ const defaultContentRoot = path.join(repoRoot, 'src/content');
 const canonicalOrigin = 'https://www.rhino-inquisitor.com';
 const canonicalHost = 'www.rhino-inquisitor.com';
 const urlPattern = /^\/(?:|[a-z0-9/-]*[a-z0-9-]\/?)$/;
+const systemUrlAllowlist = new Set(['/404.html']);
 const aliasPattern = /^\/(?:|[a-z0-9/-]*[a-z0-9-]\/?)$/;
 const isoDateTimePattern =
   /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})$/;
@@ -152,6 +153,7 @@ function isValidIsoDateTime(value) {
 }
 
 function validateUrlValue(value) {
+  if (systemUrlAllowlist.has(value)) return true;
   return urlPattern.test(value) && !value.includes('//');
 }
 
