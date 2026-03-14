@@ -22,7 +22,7 @@ Downloadable-file convention input:
 | [RHI-063](RHI-063-legacy-url-inventory-finalization.md) | Workstream A — Legacy URL Inventory Finalization | WS-A | Critical | Done | M | 2026-05-07 | RHI-061 |
 | [RHI-064](RHI-064-redirect-mapping-intent-review.md) | Workstream B — Redirect Mapping Specification and Intent Review | WS-B | Critical | Done | M | 2026-05-08 | RHI-062, RHI-063 |
 | [RHI-065](RHI-065-hugo-route-preservation-alias-integration.md) | Workstream C — Hugo Route Preservation and Alias Integration | WS-C | Critical | Done | L | 2026-05-09 | RHI-062, RHI-064 |
-| [RHI-066](RHI-066-host-protocol-canonical-consolidation.md) | Workstream D — Host and Protocol Canonical Consolidation | WS-D | High | Open | M | 2026-05-12 | RHI-061 |
+| [RHI-066](RHI-066-host-protocol-canonical-consolidation.md) | Workstream D — Host and Protocol Canonical Consolidation | WS-D | High | Done | M | 2026-05-12 | RHI-061 |
 | [RHI-067](RHI-067-retirement-error-path-governance.md) | Workstream E — Retirement and Error Path Governance | WS-E | High | Open | M | 2026-05-12 | RHI-063, RHI-064, RHI-062 |
 | [RHI-068](RHI-068-security-privacy-redirect-controls.md) | Workstream F — Security and Privacy Controls for Redirect Logic | WS-F | High | Open | S | 2026-05-13 | RHI-065, RHI-062 |
 | [RHI-069](RHI-069-redirect-observability-reporting.md) | Workstream G — Redirect Observability and Reporting | WS-G | High | Open | M | 2026-05-14 | RHI-063, RHI-064, RHI-065, RHI-066 |
@@ -64,8 +64,8 @@ RHI-060 (Phase 5 Sign-off)
 
 RHI-062 is complete and the committed ADR keeps Hugo as the main redirect system with Hugo aliases as the launch redirect mechanism. That decision changes downstream Phase 6 scope but does not eliminate any Phase 6 ticket.
 
-1. RHI-063, RHI-064, and RHI-065 are complete; RHI-066 and RHI-067 now carry the next parallel critical-path work.
-2. RHI-066 remains parallel-safe from Day 1 because host and protocol consolidation still must be validated independently of the alias decision.
+1. RHI-063, RHI-064, RHI-065, and RHI-066 are complete; RHI-067 now carries the next remaining parallel critical-path work.
+2. RHI-066 closed with repository-controlled host/protocol validation complete and owner-approved deferral of live apex-to-`www` runtime verification until cutover because the legacy production site is still live.
 3. No Phase 6 ticket is skipped by the Model A decision. RHI-067, RHI-069, and RHI-071 stay in scope but execute under Model A constraints.
 4. Model A scope refinements to carry forward:
     - RHI-067: treat explicit `410` handling as unavailable at launch; retire flows resolve through the custom `404` path unless a redirect exception is approved.
@@ -153,7 +153,7 @@ All items below must be complete before Phase 7 DNS cutover and Phase 8 launch r
 - [x] RHI-063 Done — 100% URL inventory coverage; finalized manifest committed; validation script passing
 - [x] RHI-064 Done — 100% of redirect rows have approved intent class; zero deferred or unresolved mappings
 - [x] RHI-065 Done — Keep routes verified across content, taxonomy, system, and static classes; approved redirects implemented within Model A scope; zero chains; sitemap clean
-- [ ] RHI-066 Done — Canonical tags and sitemap use `https://www.rhino-inquisitor.com/` exclusively; DNS consolidation plan documented
+- [x] RHI-066 Done — Canonical tags and sitemap use `https://www.rhino-inquisitor.com/` exclusively; DNS consolidation plan documented
 - [ ] RHI-067 Done — All retired URLs have explicit outcome; custom 404 page deployed; zero soft-404 redirects
 - [ ] RHI-068 Done — Zero off-site alias destinations; zero HTTP destinations; security sign-off recorded
 - [ ] RHI-069 Done — Coverage report 100%; chains/loops report zero; canonical alignment report zero mismatches; post-launch monitoring thresholds documented

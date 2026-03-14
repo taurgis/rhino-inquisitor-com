@@ -44,7 +44,8 @@ New behavior:
 1. Maintainers now have a single Phase 6 entry point for canonical-host validation instead of manually stitching together the underlying SEO validators.
 2. The canonical-host contract is documented in a shared Phase 6 policy file that later URL-governance tickets can extend without redefining host behavior.
 3. External platform checks are still required for final ticket closure, but they are no longer conflated with the repository-only implementation scope.
-4. The next GitHub Pages deployment should replace the live preview host's current `http://` absolute URLs with `https://` preview-host URLs while preserving preview `noindex, nofollow` behavior.
+4. The GitHub Pages deployment now emits `https://` preview-host absolute URLs while preserving preview `noindex, nofollow` behavior.
+5. Owner clarification on 2026-03-14 closed the Phase 6 ticket despite the current live apex and `www` mismatch, because the legacy production stack is still serving that public traffic and runtime host consolidation remains a cutover-phase responsibility.
 
 ## Verification
 
@@ -86,8 +87,10 @@ Verified on 2026-03-14:
 2. Production sitemap validation passed for `215` sitemap URLs.
 3. Production crawl-control validation passed for `237` HTML routes.
 4. Preview crawl-control validation passed for `237` HTML routes.
-5. Live preview-host check before the workflow fix showed `https://taurgis.github.io/rhino-inquisitor-com/` serving `noindex, nofollow` correctly, but the deployed preview HTML and `robots.txt` still emitted `http://taurgis.github.io/rhino-inquisitor-com/...` absolute URLs. The workflow now normalizes that base URL to HTTPS for future deployments.
-6. Live production-host checks showed `http://www.rhino-inquisitor.com/` and `http://rhino-inquisitor.com/` redirecting to HTTPS, while `https://rhino-inquisitor.com/` still resolved directly instead of consolidating to `https://www.rhino-inquisitor.com/`. That runtime DNS/edge item remains outside repository control.
+5. Live preview-host check before the workflow fix showed `https://taurgis.github.io/rhino-inquisitor-com/` serving `noindex, nofollow` correctly, but the deployed preview HTML and `robots.txt` still emitted `http://taurgis.github.io/rhino-inquisitor-com/...` absolute URLs.
+6. After deploy workflow run `23083344816` completed successfully on 2026-03-14, the live preview host emitted HTTPS `canonical`, `og:url`, `og:image`, JSON-LD `url`, and `robots.txt` `Sitemap:` values at `https://taurgis.github.io/rhino-inquisitor-com/`.
+7. Live production-host checks showed `http://www.rhino-inquisitor.com/` and `http://rhino-inquisitor.com/` redirecting to HTTPS, while `https://rhino-inquisitor.com/` still resolved directly instead of consolidating to `https://www.rhino-inquisitor.com/`. That runtime DNS/edge item remains outside repository control.
+8. Owner clarification accepted item 7 as non-blocking for RHI-066 closeout because the current live host behavior still reflects the legacy site rather than the planned cutover state.
 
 ## Related files
 

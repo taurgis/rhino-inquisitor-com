@@ -98,7 +98,7 @@ Good redirect implementation without observability is still a risk: teams often 
 | RHI-063 Done — finalized `migration/url-map.csv` | Ticket | Pending |
 | RHI-064 Done — intent review report committed | Ticket | Pending |
 | RHI-065 Done — Hugo aliases and chain-detection script available | Ticket | Pending |
-| RHI-066 Done — canonical alignment expected (host/protocol check passed) | Ticket | Pending |
+| RHI-066 Done — canonical alignment expected (host/protocol check passed) | Ticket | Done |
 | Production build of full Hugo site available | Phase | Pending |
 
 ---

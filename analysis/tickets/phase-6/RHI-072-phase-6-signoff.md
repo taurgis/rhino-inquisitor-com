@@ -27,7 +27,7 @@ Phase 7 DNS cutover and Phase 8 launch readiness assessments must not finalize u
   - [ ] RHI-063 Done — Legacy URL inventory finalized
   - [ ] RHI-064 Done — Redirect mapping intent review complete
   - [ ] RHI-065 Done — Hugo route preservation and alias integration complete
-  - [ ] RHI-066 Done — Host and protocol canonical consolidation complete
+  - [x] RHI-066 Done — Host and protocol canonical consolidation complete
   - [ ] RHI-067 Done — Retirement and error path governance complete
   - [ ] RHI-068 Done — Security and privacy controls for redirect logic complete
   - [ ] RHI-069 Done — Redirect observability and reporting complete

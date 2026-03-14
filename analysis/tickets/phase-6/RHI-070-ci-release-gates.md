@@ -94,7 +94,7 @@ Phase 6 CI gates are the long-term enforcement mechanism. Without them, every fu
 |------------|------|--------|
 | RHI-063 Done — `validate-url-inventory.js` script committed | Ticket | Pending |
 | RHI-065 Done — `check-redirect-chains.js` script committed | Ticket | Pending |
-| RHI-066 Done — `check-host-protocol.js` script committed | Ticket | Pending |
+| RHI-066 Done — `check-host-protocol.js` script committed | Ticket | Done |
 | RHI-067 Done — `check-retirement-policy.js` script committed | Ticket | Pending |
 | RHI-068 Done — `check-redirect-security.js` script committed | Ticket | Pending |
 | RHI-069 Done — `generate-canonical-alignment-report.js` committed | Ticket | Pending |
