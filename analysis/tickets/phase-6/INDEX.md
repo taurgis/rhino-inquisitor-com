@@ -23,7 +23,7 @@ Downloadable-file convention input:
 | [RHI-064](RHI-064-redirect-mapping-intent-review.md) | Workstream B — Redirect Mapping Specification and Intent Review | WS-B | Critical | Done | M | 2026-05-08 | RHI-062, RHI-063 |
 | [RHI-065](RHI-065-hugo-route-preservation-alias-integration.md) | Workstream C — Hugo Route Preservation and Alias Integration | WS-C | Critical | Done | L | 2026-05-09 | RHI-062, RHI-064 |
 | [RHI-066](RHI-066-host-protocol-canonical-consolidation.md) | Workstream D — Host and Protocol Canonical Consolidation | WS-D | High | Done | M | 2026-05-12 | RHI-061 |
-| [RHI-067](RHI-067-retirement-error-path-governance.md) | Workstream E — Retirement and Error Path Governance | WS-E | High | Open | M | 2026-05-12 | RHI-063, RHI-064, RHI-062 |
+| [RHI-067](RHI-067-retirement-error-path-governance.md) | Workstream E — Retirement and Error Path Governance | WS-E | High | Done | M | 2026-05-12 | RHI-063, RHI-064, RHI-062 |
 | [RHI-068](RHI-068-security-privacy-redirect-controls.md) | Workstream F — Security and Privacy Controls for Redirect Logic | WS-F | High | Open | S | 2026-05-13 | RHI-065, RHI-062 |
 | [RHI-069](RHI-069-redirect-observability-reporting.md) | Workstream G — Redirect Observability and Reporting | WS-G | High | Open | M | 2026-05-14 | RHI-063, RHI-064, RHI-065, RHI-066 |
 | [RHI-070](RHI-070-ci-release-gates.md) | Workstream H — CI and Release Gates for URL Preservation | WS-H | Critical | Open | M | 2026-05-15 | RHI-063 through RHI-069 |
@@ -71,6 +71,7 @@ RHI-062 is complete and the committed ADR keeps Hugo as the main redirect system
     - RHI-067: treat explicit `410` handling as unavailable at launch; retire flows resolve through the custom `404` path unless a redirect exception is approved.
     - RHI-069: validate alias-page behavior and canonical alignment instead of expecting edge-layer per-path status telemetry.
     - RHI-071: remove edge-override rollback assumptions from the launch runbook; rollback planning is limited to previous-site recovery or Hugo/content patch paths.
+5. RHI-067 is complete as of 2026-03-14. The retirement-policy gate, retired URL audit, custom 404 route, and shared retirement rubric are implemented, and the user accepted `/?s=ocapi` as the sole owner-approved Model A residual limitation because that request-aware legacy search route shares the published `/` path on GitHub Pages.
 
 ---
 
@@ -154,7 +155,7 @@ All items below must be complete before Phase 7 DNS cutover and Phase 8 launch r
 - [x] RHI-064 Done — 100% of redirect rows have approved intent class; zero deferred or unresolved mappings
 - [x] RHI-065 Done — Keep routes verified across content, taxonomy, system, and static classes; approved redirects implemented within Model A scope; zero chains; sitemap clean
 - [x] RHI-066 Done — Canonical tags and sitemap use `https://www.rhino-inquisitor.com/` exclusively; DNS consolidation plan documented
-- [ ] RHI-067 Done — All retired URLs have explicit outcome; custom 404 page deployed; zero soft-404 redirects
+- [x] RHI-067 Done — All retired URLs have explicit outcome; custom 404 page deployed; zero soft-404 redirects
 - [ ] RHI-068 Done — Zero off-site alias destinations; zero HTTP destinations; security sign-off recorded
 - [ ] RHI-069 Done — Coverage report 100%; chains/loops report zero; canonical alignment report zero mismatches; post-launch monitoring thresholds documented
 - [ ] RHI-070 Done — All Phase 6 CI gates integrated and passing on latest `main` build

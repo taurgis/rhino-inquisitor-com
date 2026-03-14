@@ -88,6 +88,57 @@ Verification notes:
 2. Record whether that ownership is a domain property or URL-prefix properties when Phase 7 cutover evidence is assembled.
 3. If an HTTP property is unavailable because of property-type limitations or account scope, record that explicitly rather than assuming verification.
 
+## Retirement And Error Path Governance
+
+### Retirement Decision Rubric
+
+1. `404` is the default retire outcome for Phase 6 because the committed RHI-062 Model A launch path uses Hugo plus GitHub Pages without request-aware edge status overrides.
+2. Use `301` only when WS-B already approved a topic-equivalent replacement and the legacy route is classified as `merge`, not `retire`.
+3. Use `410` only when all are true:
+  - an edge layer is active for the affected route,
+  - permanent removal is explicitly confirmed by editorial or legal intent,
+  - the implementation evidence is captured in the retirement audit.
+4. Never redirect retired content to the homepage, a category root, or another convenience destination without a documented topic-equivalent replacement.
+5. High-volume route classes such as pagination, attachments, and system helpers can inherit a class-level `404` policy when no equivalent content exists, but the class-level rationale must still be reflected in the retirement audit.
+
+### Model A Boundary
+
+1. Under the committed Model A launch posture, explicit `410` handling is unavailable in repository-controlled Hugo output.
+2. Path-based retired routes should resolve through normal GitHub Pages not-found handling because no HTML or asset artifact is published at the legacy path.
+3. Request-aware query-string retire routes must still be audited because GitHub Pages ignores query semantics at the static artifact layer.
+4. If a request-aware retire route shares a published path component, treat it as a release-blocking residual until the owner accepts the limitation or an edge layer is introduced.
+
+### Retired URL Audit Contract
+
+`migration/reports/phase-6-retired-url-audit.csv` is the required Phase 6 audit record for retire outcomes. Each row must include:
+
+1. `legacy_url`
+2. `route_class`
+3. `reason_code`
+4. `has_organic_traffic`
+5. `has_external_links`
+6. `outcome`
+7. `reviewer`
+8. `notes`
+
+Reason-code guidance for the current inventory:
+
+1. `attachment-no-equivalent` for retired WordPress upload and derivative media routes with no source-backed keep path.
+2. `pagination-no-equivalent` for paginated archives, category pages, and tag pages that should not survive migration.
+3. `system-route-no-equivalent` for system, feed, and crawl-discovered utility routes with no public replacement.
+4. `legacy-sitemap-replaced` for legacy WordPress sitemap shards replaced by the canonical Hugo `sitemap.xml` output.
+5. `page-no-source`, `landing-no-source`, `wordpress-default-removed`, `wordpress-system-removed`, `invalid-placeholder-route`, and `redirect-target-unresolvable` for the explicit manual-review exceptions already recorded in the URL map notes.
+
+Traffic and backlink review rule:
+
+1. Any retired URL with organic traffic or external links must include a notes entry confirming why no topic-equivalent replacement was approved and why the explicit not-found outcome remains intentional.
+
+Runtime verification requirements:
+
+1. `public/404.html` must exist in the production artifact.
+2. The built 404 output must remain `noindex, nofollow` and absent from the sitemap.
+3. Manual staging or preview validation must confirm that an unknown path returns the custom 404 page on GitHub Pages.
+
 ## Repository Validation Commands
 
 Production host/protocol validation:
@@ -111,17 +162,30 @@ Expected behavior:
 2. Optional preview validation fails when preview HTML routes are missing `noindex, nofollow` or when preview robots output uses the wrong preview-host sitemap URL.
 3. Validation reports are written under the supplied `--report-dir` and are safe to keep in `tmp/` for local evidence capture.
 
+Retirement policy validation:
+
+```bash
+npm run check:retirement-policy -- --public-dir public --report migration/reports/phase-6-retired-url-audit.csv
+```
+
+Expected behavior:
+
+1. The command generates one audit row per `retire` URL in `migration/url-map.csv`.
+2. The command fails on any retired route that still appears in source aliases, built HTML or asset output, or `sitemap.xml`.
+3. The command fails when a request-aware retire route still shares a published path component under Model A, because the repository cannot prove deterministic `404` behavior for that route without an edge layer.
+4. The command fails when `public/404.html` is missing from the production artifact.
+
 ## Phase 6 CI Gate Reference
 
 | Gate | Command | Scope | Status |
 |---|---|---|---|
 | Canonical host/protocol invariant | `npm run check:host-protocol` | Production build required; preview check optional when a preview artifact is available | Active in RHI-066 |
-| Additional Phase 6 URL-policy gates | Added by RHI-067, RHI-068, and RHI-070 | Retirement, security, and release-gate expansion | Pending |
+| Retirement and error-path governance | `npm run check:retirement-policy` | Production build required; generates the retired URL audit and fails on retire leakage or unresolved request-aware Model A limitations | Active in RHI-067 |
+| Additional Phase 6 URL-policy gates | Added by RHI-068 and RHI-070 | Redirect security and release-gate expansion | Pending |
 
 ## Future Sections
 
 The sections below are intentionally reserved for later Phase 6 tickets that extend this shared document:
 
-1. Retirement decision rubric and error-path governance (RHI-067)
-2. Redirect security and privacy controls (RHI-068)
-3. Full Phase 6 CI gate matrix and handoff references (RHI-070)
+1. Redirect security and privacy controls (RHI-068)
+2. Full Phase 6 CI gate matrix and handoff references (RHI-070)
