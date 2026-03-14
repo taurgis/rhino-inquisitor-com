@@ -5,7 +5,9 @@ import { parse as parseCsv } from 'csv-parse/sync';
 import { stringify as stringifyCsv } from 'csv-stringify/sync';
 
 import {
+  canonicalOrigin,
   collectContentState,
+  collectPublicAssetState,
   collectPublicHtmlState,
   matchesExpectedMergeTarget,
   normalizeUrlLike,
@@ -141,6 +143,7 @@ async function main() {
   const rows = loadRedirectRows(await fs.readFile(options.inputPath, 'utf8'));
   const contentState = await collectContentState(options.contentRoot);
   const publicState = await collectPublicHtmlState(options.publicRoot);
+  const publicAssetState = await collectPublicAssetState(options.publicRoot);
   const aliasCache = new Map();
   const redirectEdges = new Map();
   const recordsBySource = new Map();
@@ -174,6 +177,23 @@ async function main() {
       reportRow.status = 'fail';
       reportRow.actual_outcome = 'missing-meta-refresh';
       reportRow.notes = 'Alias helper page exists but does not expose a meta refresh target.';
+      reportRows.push(reportRow);
+      continue;
+    }
+
+    const refreshUrl = new URL(parsedAlias.metaRefreshTarget, `${canonicalOrigin}/`);
+    if (refreshUrl.protocol !== 'https:') {
+      reportRow.status = 'fail';
+      reportRow.actual_outcome = 'http-target';
+      reportRow.notes = `Alias helper refresh target is not HTTPS (${refreshUrl.toString()}).`;
+      reportRows.push(reportRow);
+      continue;
+    }
+
+    if (`${refreshUrl.protocol}//${refreshUrl.host}` !== canonicalOrigin) {
+      reportRow.status = 'fail';
+      reportRow.actual_outcome = 'cross-host-anomaly';
+      reportRow.notes = `Alias helper refresh target is off-site (${refreshUrl.toString()}).`;
       reportRows.push(reportRow);
       continue;
     }
@@ -247,7 +267,15 @@ async function main() {
     }
 
     const terminalDescriptor = publicState.htmlRoutes.get(record.actualTarget.comparablePathOnly);
+    const terminalAssetDescriptor = publicAssetState.assetRoutes.get(record.actualTarget.pathname);
     const terminalPage = await readHtmlDescriptor(terminalDescriptor, aliasCache);
+    if (!terminalDescriptor && !terminalAssetDescriptor) {
+      record.reportRow.status = 'fail';
+      record.reportRow.actual_outcome = 'missing-target';
+      record.reportRow.notes = `Alias helper points to a target that is not published in the production artifact (${record.actualTarget.serverRelative}).`;
+      continue;
+    }
+
     if (terminalPage?.isRedirectPage) {
       record.reportRow.status = 'fail';
       record.reportRow.actual_outcome = 'target-is-redirect-page';
@@ -255,7 +283,9 @@ async function main() {
       continue;
     }
 
-    record.reportRow.notes = `One-hop final destination verified at ${record.actualTarget.serverRelative}.`;
+    record.reportRow.notes = terminalAssetDescriptor
+      ? `One-hop final destination verified at ${record.actualTarget.serverRelative} (static asset ${terminalAssetDescriptor.relativePath}).`
+      : `One-hop final destination verified at ${record.actualTarget.serverRelative}.`;
   }
 
   await writeReport(options.reportPath, reportRows);
