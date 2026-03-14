@@ -33,7 +33,7 @@ link,pass,info,ok,homepage,/,/posts/,https://www.rhino-inquisitor.com/posts/#arc
 link,pass,info,ok,homepage,/,/privacy-policy/,https://www.rhino-inquisitor.com/privacy-policy/,Privacy,navigation,yes,yes,,,Internal link resolves to an existing target.
 link,pass,info,ok,homepage,/,/real-time-inventory-checks-in-sfcc/,https://www.rhino-inquisitor.com/real-time-inventory-checks-in-sfcc/,"Real-Time Inventory Checks in SFCC Learn when real-time inventory checks improve the customer experience, where they add risk, and how to balance speed with accuracy. Feb 9, 2026 · 11 min read · Architecture",content,yes,yes,,,Internal link resolves to an existing target.
 link,pass,info,ok,homepage,/,/your-definitive-mobile-app-checklist/,https://www.rhino-inquisitor.com/your-definitive-mobile-app-checklist/,"Mobile App Launch Checklist for Commerce Teams Use this mobile app launch checklist to review architecture, integrations, QA, and go-live readiness before an SFCC-backed app ships. Dec 15, 2025 · 14 min read · Salesforce Commerce Cloud",content,yes,yes,,,Internal link resolves to an existing target.
-page,pass,info,page-ok,homepage,/,,,,,yes,yes,215,0,Page passed internal-link and IA validation.
+page,pass,info,page-ok,homepage,/,,,,,yes,yes,216,0,Page passed internal-link and IA validation.
 link,pass,info,ok,article,/20-years-of-dreamforce/,/about/,/about/,About,navigation,yes,no,,,Internal link resolves to an existing target.
 link,pass,info,ok,article,/20-years-of-dreamforce/,/about/,/about/,About,navigation,yes,no,,,Internal link resolves to an existing target.
 link,pass,info,ok,article,/20-years-of-dreamforce/,/get-connected-at-salesforce-connections-2022/,/get-connected-at-salesforce-connections-2022/,Connections,content,yes,no,,,Internal link resolves to an existing target.
@@ -79,10 +79,27 @@ link,pass,info,ok,404,/404.html,/posts/,https://www.rhino-inquisitor.com/posts/,
 link,pass,info,ok,404,/404.html,/posts/,https://www.rhino-inquisitor.com/posts/,Blog,navigation,no,no,,,Internal link resolves to an existing target.
 link,pass,info,ok,404,/404.html,/posts/,https://www.rhino-inquisitor.com/posts/,Start Reading,content,no,no,,,Internal link resolves to an existing target.
 link,pass,info,ok,404,/404.html,/posts/,https://www.rhino-inquisitor.com/posts/,Browse the archive,content,no,no,,,Internal link resolves to an existing target.
-link,pass,info,ok,404,/404.html,/posts/,https://www.rhino-inquisitor.com/posts/#archive-search,Search,content,no,no,,,Internal link resolves to an existing target.
-link,pass,info,ok,404,/404.html,/posts/,https://www.rhino-inquisitor.com/posts/#archive-search,Search archive,content,no,no,,,Internal link resolves to an existing target.
 link,pass,info,ok,404,/404.html,/privacy-policy/,https://www.rhino-inquisitor.com/privacy-policy/,Privacy,navigation,no,no,,,Internal link resolves to an existing target.
 page,pass,info,page-ok,404,/404.html,,,,,no,no,0,,Page passed internal-link and IA validation.
+link,pass,info,ok,page,/404/,/about/,/about/,About,navigation,no,no,,,Internal link resolves to an existing target.
+link,pass,info,ok,page,/404/,/about/,/about/,About,navigation,no,no,,,Internal link resolves to an existing target.
+link,pass,info,ok,page,/404/,/,https://www.rhino-inquisitor.com/,Rhino Inquisitor,content,no,no,,,Internal link resolves to an existing target.
+link,pass,info,ok,page,/404/,/,https://www.rhino-inquisitor.com/,Rhino Inquisitor,content,no,no,,,Internal link resolves to an existing target.
+link,pass,info,ok,page,/404/,/,https://www.rhino-inquisitor.com/,Rhino Inquisitor,breadcrumb,no,no,,,Internal link resolves to an existing target.
+link,pass,info,ok,page,/404/,/,https://www.rhino-inquisitor.com/,Rhino Inquisitor,content,no,no,,,Internal link resolves to an existing target.
+link,pass,info,ok,page,/404/,/about/,https://www.rhino-inquisitor.com/about/,About,navigation,no,no,,,Internal link resolves to an existing target.
+link,pass,info,ok,page,/404/,/about/,https://www.rhino-inquisitor.com/about/,Contact,navigation,no,no,,,Internal link resolves to an existing target.
+link,pass,info,ok,page,/404/,/category/,https://www.rhino-inquisitor.com/category/,Topics,navigation,no,no,,,Internal link resolves to an existing target.
+link,pass,info,ok,page,/404/,/category/,https://www.rhino-inquisitor.com/category/,Topics,navigation,no,no,,,Internal link resolves to an existing target.
+link,pass,info,ok,page,/404/,/index.xml,https://www.rhino-inquisitor.com/index.xml,RSS,navigation,no,no,,,Internal link resolves to an existing target.
+link,pass,info,ok,page,/404/,/posts/,https://www.rhino-inquisitor.com/posts/,Blog,navigation,no,no,,,Internal link resolves to an existing target.
+link,pass,info,ok,page,/404/,/posts/,https://www.rhino-inquisitor.com/posts/,Start Reading,content,no,no,,,Internal link resolves to an existing target.
+link,pass,info,ok,page,/404/,/posts/,https://www.rhino-inquisitor.com/posts/,Blog,navigation,no,no,,,Internal link resolves to an existing target.
+link,pass,info,ok,page,/404/,/posts/,https://www.rhino-inquisitor.com/posts/,Start Reading,content,no,no,,,Internal link resolves to an existing target.
+link,pass,info,ok,page,/404/,/posts/,https://www.rhino-inquisitor.com/posts/#archive-search,Search,content,no,no,,,Internal link resolves to an existing target.
+link,pass,info,ok,page,/404/,/posts/,https://www.rhino-inquisitor.com/posts/#archive-search,Search archive,content,no,no,,,Internal link resolves to an existing target.
+link,pass,info,ok,page,/404/,/privacy-policy/,https://www.rhino-inquisitor.com/privacy-policy/,Privacy,navigation,no,no,,,Internal link resolves to an existing target.
+page,pass,info,page-ok,page,/404/,,,,,no,no,0,,Page passed internal-link and IA validation.
 link,pass,info,ok,article,/a-beginners-guide-to-webdav-in-sfcc/,/about/,/about/,About,navigation,yes,yes,,,Internal link resolves to an existing target.
 link,pass,info,ok,article,/a-beginners-guide-to-webdav-in-sfcc/,/about/,/about/,About,navigation,yes,yes,,,Internal link resolves to an existing target.
 link,pass,info,ok,article,/a-beginners-guide-to-webdav-in-sfcc/,/media/2024/webdav-client-application-permissions-8757d150cc.png,/media/2024/webdav-client-application-permissions-8757d150cc.png,,content,yes,yes,,,Internal link resolves to an existing target.
@@ -429,7 +446,7 @@ link,pass,info,ok,page,/about/,/posts/,https://www.rhino-inquisitor.com/posts/,S
 link,pass,info,ok,page,/about/,/posts/,https://www.rhino-inquisitor.com/posts/#archive-search,Search,content,yes,no,,,Internal link resolves to an existing target.
 link,pass,info,ok,page,/about/,/posts/,https://www.rhino-inquisitor.com/posts/#archive-search,Search archive,content,yes,no,,,Internal link resolves to an existing target.
 link,pass,info,ok,page,/about/,/privacy-policy/,https://www.rhino-inquisitor.com/privacy-policy/,Privacy,navigation,yes,no,,,Internal link resolves to an existing target.
-page,pass,info,page-ok,page,/about/,,,,,yes,no,215,1,Page passed internal-link and IA validation.
+page,pass,info,page-ok,page,/about/,,,,,yes,no,216,1,Page passed internal-link and IA validation.
 link,pass,info,ok,article,/ai-as-an-architect-and-content-creator/,/about/,/about/,About,navigation,yes,no,,,Internal link resolves to an existing target.
 link,pass,info,ok,article,/ai-as-an-architect-and-content-creator/,/about/,/about/,About,navigation,yes,no,,,Internal link resolves to an existing target.
 link,pass,info,ok,article,/ai-as-an-architect-and-content-creator/,/media/2023/generating-a-post-image-51933457be.jpg,/media/2023/generating-a-post-image-51933457be.jpg,,content,yes,no,,,Internal link resolves to an existing target.
@@ -867,7 +884,7 @@ link,pass,info,ok,category,/category/,/posts/,https://www.rhino-inquisitor.com/p
 link,pass,info,ok,category,/category/,/posts/,https://www.rhino-inquisitor.com/posts/#archive-search,Search,content,yes,yes,,,Internal link resolves to an existing target.
 link,pass,info,ok,category,/category/,/posts/,https://www.rhino-inquisitor.com/posts/#archive-search,Search archive,content,yes,yes,,,Internal link resolves to an existing target.
 link,pass,info,ok,category,/category/,/privacy-policy/,https://www.rhino-inquisitor.com/privacy-policy/,Privacy,navigation,yes,yes,,,Internal link resolves to an existing target.
-page,pass,info,page-ok,category,/category/,,,,,yes,yes,215,1,Page passed internal-link and IA validation.
+page,pass,info,page-ok,category,/category/,,,,,yes,yes,216,1,Page passed internal-link and IA validation.
 link,pass,info,ok,category,/category/ai/,/about/,/about/,About,navigation,yes,yes,,,Internal link resolves to an existing target.
 link,pass,info,ok,category,/category/ai/,/about/,/about/,About,navigation,yes,yes,,,Internal link resolves to an existing target.
 link,pass,info,ok,category,/category/ai/,/,https://www.rhino-inquisitor.com/,Rhino Inquisitor,content,yes,yes,,,Internal link resolves to an existing target.
@@ -1538,6 +1555,10 @@ link,pass,info,ok,category,/category/external/,/the-sfcc-guide-to-finding-pod-nu
 link,pass,info,ok,category,/category/external/,/your-definitive-mobile-app-checklist/,https://www.rhino-inquisitor.com/your-definitive-mobile-app-checklist/,Mobile App Launch Checklist for Commerce Teams,content,yes,yes,,,Internal link resolves to an existing target.
 link,pass,info,ok,category,/category/external/,/your-definitive-mobile-app-checklist/,https://www.rhino-inquisitor.com/your-definitive-mobile-app-checklist/,Open article,content,yes,yes,,,Internal link resolves to an existing target.
 page,pass,info,page-ok,category,/category/external/,,,,,yes,yes,1,2,Page passed internal-link and IA validation.
+page,pass,info,page-ok,redirect-helper,/category/external/forward/,,,,,no,yes,0,,Page passed internal-link and IA validation.
+page,pass,info,page-ok,redirect-helper,/category/external/linkedin/,,,,,no,yes,0,,Page passed internal-link and IA validation.
+page,pass,info,page-ok,redirect-helper,/category/external/salesforce-architects-blog/,,,,,no,yes,0,,Page passed internal-link and IA validation.
+page,pass,info,page-ok,redirect-helper,/category/external/salesforce-ben/,,,,,no,yes,0,,Page passed internal-link and IA validation.
 link,pass,info,ok,category,/category/go-live/,/about/,/about/,About,navigation,yes,yes,,,Internal link resolves to an existing target.
 link,pass,info,ok,category,/category/go-live/,/about/,/about/,About,navigation,yes,yes,,,Internal link resolves to an existing target.
 link,pass,info,ok,category,/category/go-live/,/,https://www.rhino-inquisitor.com/,Rhino Inquisitor,content,yes,yes,,,Internal link resolves to an existing target.
@@ -2681,6 +2702,13 @@ link,pass,info,ok,category,/category/salesforce-commerce-cloud/,/why-circumventi
 link,pass,info,ok,category,/category/salesforce-commerce-cloud/,/your-definitive-mobile-app-checklist/,https://www.rhino-inquisitor.com/your-definitive-mobile-app-checklist/,Mobile App Launch Checklist for Commerce Teams,content,yes,yes,,,Internal link resolves to an existing target.
 link,pass,info,ok,category,/category/salesforce-commerce-cloud/,/your-definitive-mobile-app-checklist/,https://www.rhino-inquisitor.com/your-definitive-mobile-app-checklist/,Open article,content,yes,yes,,,Internal link resolves to an existing target.
 page,pass,info,page-ok,category,/category/salesforce-commerce-cloud/,,,,,yes,yes,115,1,Page passed internal-link and IA validation.
+page,pass,info,page-ok,redirect-helper,/category/salesforce-commerce-cloud/ai/,,,,,no,yes,0,,Page passed internal-link and IA validation.
+page,pass,info,page-ok,redirect-helper,/category/salesforce-commerce-cloud/architecture/,,,,,no,yes,0,,Page passed internal-link and IA validation.
+page,pass,info,page-ok,redirect-helper,/category/salesforce-commerce-cloud/documentation/,,,,,no,yes,0,,Page passed internal-link and IA validation.
+page,pass,info,page-ok,redirect-helper,/category/salesforce-commerce-cloud/erd/,,,,,no,yes,0,,Page passed internal-link and IA validation.
+page,pass,info,page-ok,redirect-helper,/category/salesforce-commerce-cloud/go-live/,,,,,no,yes,0,,Page passed internal-link and IA validation.
+page,pass,info,page-ok,redirect-helper,/category/salesforce-commerce-cloud/release-notes/,,,,,no,yes,0,,Page passed internal-link and IA validation.
+page,pass,info,page-ok,redirect-helper,/category/salesforce-commerce-cloud/technical/,,,,,no,yes,0,,Page passed internal-link and IA validation.
 link,pass,info,ok,category,/category/salesforce-platform/,/about/,/about/,About,navigation,yes,yes,,,Internal link resolves to an existing target.
 link,pass,info,ok,category,/category/salesforce-platform/,/about/,/about/,About,navigation,yes,yes,,,Internal link resolves to an existing target.
 link,pass,info,ok,category,/category/salesforce-platform/,/,https://www.rhino-inquisitor.com/,Rhino Inquisitor,content,yes,yes,,,Internal link resolves to an existing target.
@@ -3225,6 +3253,8 @@ link,pass,info,ok,category,/category/video/,/privacy-policy/,https://www.rhino-i
 link,pass,info,ok,category,/category/video/,/the-path-to-being-an-architect/,https://www.rhino-inquisitor.com/the-path-to-being-an-architect/,The path to being an Architect,content,yes,yes,,,Internal link resolves to an existing target.
 link,pass,info,ok,category,/category/video/,/the-path-to-being-an-architect/,https://www.rhino-inquisitor.com/the-path-to-being-an-architect/,Open article,content,yes,yes,,,Internal link resolves to an existing target.
 page,pass,info,page-ok,category,/category/video/,,,,,yes,yes,41,2,Page passed internal-link and IA validation.
+page,pass,info,page-ok,redirect-helper,/category/video/podcasts/,,,,,no,yes,0,,Page passed internal-link and IA validation.
+page,pass,info,page-ok,redirect-helper,/category/video/sessions/,,,,,no,yes,0,,Page passed internal-link and IA validation.
 link,pass,info,ok,article,/certifications-for-salesforce-b2c-commerce-cloud/,/about/,/about/,About,navigation,yes,no,,,Internal link resolves to an existing target.
 link,pass,info,ok,article,/certifications-for-salesforce-b2c-commerce-cloud/,/about/,/about/,About,navigation,yes,no,,,Internal link resolves to an existing target.
 link,pass,info,ok,article,/certifications-for-salesforce-b2c-commerce-cloud/,/,https://www.rhino-inquisitor.com/,Rhino Inquisitor,content,yes,no,,,Internal link resolves to an existing target.
@@ -5466,7 +5496,7 @@ link,pass,info,ok,page,/posts/,/the-realm-split-field-guide-to-migrating-an-sfcc
 link,pass,info,ok,page,/posts/,/the-realm-split-field-guide-to-migrating-an-sfcc-site/,https://www.rhino-inquisitor.com/the-realm-split-field-guide-to-migrating-an-sfcc-site/,Open article,content,yes,no,,,Internal link resolves to an existing target.
 link,pass,info,ok,page,/posts/,/your-definitive-mobile-app-checklist/,https://www.rhino-inquisitor.com/your-definitive-mobile-app-checklist/,Mobile App Launch Checklist for Commerce Teams,content,yes,no,,,Internal link resolves to an existing target.
 link,pass,info,ok,page,/posts/,/your-definitive-mobile-app-checklist/,https://www.rhino-inquisitor.com/your-definitive-mobile-app-checklist/,Open article,content,yes,no,,,Internal link resolves to an existing target.
-page,pass,info,page-ok,page,/posts/,,,,,yes,no,215,1,Page passed internal-link and IA validation.
+page,pass,info,page-ok,page,/posts/,,,,,yes,no,216,1,Page passed internal-link and IA validation.
 page,pass,info,page-ok,redirect-helper,/posts/page/1/,,,,,no,no,0,,Page passed internal-link and IA validation.
 link,pass,info,ok,pagination,/posts/page/10/,/about/,/about/,About,navigation,yes,no,,,Internal link resolves to an existing target.
 link,pass,info,ok,pagination,/posts/page/10/,/about/,/about/,About,navigation,yes,no,,,Internal link resolves to an existing target.
@@ -7107,7 +7137,7 @@ link,pass,info,ok,page,/privacy-policy/,/posts/,https://www.rhino-inquisitor.com
 link,pass,info,ok,page,/privacy-policy/,/posts/,https://www.rhino-inquisitor.com/posts/#archive-search,Search,content,yes,yes,,,Internal link resolves to an existing target.
 link,pass,info,ok,page,/privacy-policy/,/posts/,https://www.rhino-inquisitor.com/posts/#archive-search,Search archive,content,yes,yes,,,Internal link resolves to an existing target.
 link,pass,info,ok,page,/privacy-policy/,/privacy-policy/,https://www.rhino-inquisitor.com/privacy-policy/,Privacy,navigation,yes,yes,,,Internal link resolves to an existing target.
-page,pass,info,page-ok,page,/privacy-policy/,,,,,yes,yes,215,1,Page passed internal-link and IA validation.
+page,pass,info,page-ok,page,/privacy-policy/,,,,,yes,yes,216,1,Page passed internal-link and IA validation.
 link,pass,info,ok,article,/real-time-inventory-checks-in-sfcc/,/about/,/about/,About,navigation,yes,no,,,Internal link resolves to an existing target.
 link,pass,info,ok,article,/real-time-inventory-checks-in-sfcc/,/about/,/about/,About,navigation,yes,no,,,Internal link resolves to an existing target.
 link,pass,info,ok,article,/real-time-inventory-checks-in-sfcc/,/third-party-api-caching-in-commerce-cloud/,/third-party-api-caching-in-commerce-cloud/,the SFCC caching armoury,content,yes,no,,,Internal link resolves to an existing target.
@@ -7164,6 +7194,8 @@ link,pass,info,ok,article,/reflecting-on-2-years-of-blogging/,/salesforce-connec
 link,pass,info,ok,article,/reflecting-on-2-years-of-blogging/,/the-state-of-ohana-for-salesforce-commerce-cloud/,https://www.rhino-inquisitor.com/the-state-of-ohana-for-salesforce-commerce-cloud/,"Foundation The state of Ohana for Salesforce Commerce Cloud The Ohana culture within Salesforce is pretty well known, but how does this culture fair within the Salesforce Commerce Cloud community?",related,yes,no,,,Internal link resolves to an existing target.
 link,pass,info,ok,article,/reflecting-on-2-years-of-blogging/,/trailblazerdx-2022-for-b2c-commerce/,https://www.rhino-inquisitor.com/trailblazerdx-2022-for-b2c-commerce/,"Foundation TrailblazerDX 2022 for B2C Commerce Ready for TrailblazerDX, but not sure what sessions to put on your schedule? Find an overview here of all sessions related to B2C Commerce!",related,yes,no,,,Internal link resolves to an existing target.
 page,pass,info,page-ok,article,/reflecting-on-2-years-of-blogging/,,,,,yes,no,5,2,Page passed internal-link and IA validation.
+link,pass,info,ok,redirect-helper,/rss/,/index.xml,/index.xml,Continue to the RSS feed.,content,no,no,,,Internal link resolves to an existing target.
+page,pass,info,page-ok,redirect-helper,/rss/,,,,,no,no,0,,Page passed internal-link and IA validation.
 link,pass,info,ok,article,/salesforce-b2c-commerce-cloud-22-10/,/about/,/about/,About,navigation,yes,no,,,Internal link resolves to an existing target.
 link,pass,info,ok,article,/salesforce-b2c-commerce-cloud-22-10/,/about/,/about/,About,navigation,yes,no,,,Internal link resolves to an existing target.
 link,pass,info,ok,article,/salesforce-b2c-commerce-cloud-22-10/,/media/2022/ecdn-staging-464848555e.jpg,/media/2022/ecdn-staging-464848555e.jpg,,content,yes,no,,,Internal link resolves to an existing target.

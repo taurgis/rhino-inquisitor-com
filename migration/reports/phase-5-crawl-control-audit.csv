@@ -2,6 +2,7 @@ route,file_path,mode,expected_indexable,manifest_indexable,redirect_page,robots_
 /robots.txt,public/robots.txt,production,n/a,n/a,n/a,,,n/a,no,/,pass,
 /20-years-of-dreamforce/,public/20-years-of-dreamforce/index.html,production,yes,yes,no,"index, follow",,no,no,/,pass,
 /404.html,public/404.html,production,no,no,no,"noindex, nofollow",,yes,no,/,pass,
+/404/,public/404/index.html,production,no,no,no,"noindex, nofollow",,yes,no,/,pass,
 /a-beginners-guide-to-webdav-in-sfcc/,public/a-beginners-guide-to-webdav-in-sfcc/index.html,production,yes,yes,no,"index, follow",,no,no,/,pass,
 /a-deep-dive-into-the-23-7-sfcc-release/,public/a-deep-dive-into-the-23-7-sfcc-release/index.html,production,yes,yes,no,"index, follow",,no,no,/,pass,
 /a-dev-guide-to-combating-fraud-on-sfcc/,public/a-dev-guide-to-combating-fraud-on-sfcc/index.html,production,yes,yes,no,"index, follow",,no,no,/,pass,

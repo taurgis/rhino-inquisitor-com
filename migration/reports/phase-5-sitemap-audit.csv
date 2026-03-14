@@ -216,7 +216,7 @@ sitemap-url,/posts/page/14/,public/sitemap.xml,pass,none,https://www.rhino-inqui
 sitemap-url,/posts/page/15/,public/sitemap.xml,pass,none,https://www.rhino-inquisitor.com/posts/page/15/,https://www.rhino-inquisitor.com/posts/page/15/,2026-03-09T10:00:00+00:00,"Sitemap URL is canonical, allowed, and metadata-consistent.",
 sitemap-url,/posts/page/16/,public/sitemap.xml,pass,none,https://www.rhino-inquisitor.com/posts/page/16/,https://www.rhino-inquisitor.com/posts/page/16/,2026-03-09T10:00:00+00:00,"Sitemap URL is canonical, allowed, and metadata-consistent.",
 sitemap-inventory,__sitemap_inventory__,public/sitemap.xml | migration/reports/phase-5-metadata-report.csv,pass,none,,,,Sitemap URL count matches the indexable metadata inventory within the documented tolerance.,sitemap=215; metadata=215; tolerance=0
-feed,/index.xml,public/index.xml,pass,none,,,,Canonical feed is parseable with canonical links and valid publication dates.,items=172
+feed,/index.xml,public/index.xml,pass,none,,,,Canonical feed is parseable with canonical links and valid publication dates.,items=173
 feed,/feed/,public/feed/index.html,pass,none,,,,Feed compatibility helper resolves through the approved Pages-compatible redirect pattern.,
 feed,/feed/rss/,public/feed/rss/index.html,pass,none,,,,Feed compatibility helper resolves through the approved Pages-compatible redirect pattern.,
 feed,/feed/atom/,public/feed/atom/index.html,pass,none,,,,Feed compatibility helper resolves through the approved Pages-compatible redirect pattern.,
