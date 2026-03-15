@@ -4,6 +4,8 @@ Date: 2026-03-15
 Ticket: `analysis/tickets/phase-6/RHI-071-cutover-readiness-rollback-design.md`
 Status: In Progress
 
+Closeout type: Owner-accepted deviation closeout for RHI-071
+
 ## Purpose
 
 This runbook turns the completed Phase 6 validators into a launch-window execution script for the approved Model A stack: Hugo content and alias helpers published through the GitHub Pages Actions workflow.
@@ -20,7 +22,22 @@ It is written for a non-author operator under time pressure. Every step below na
 | Search Console continuity plan | DNS TXT continuity, domain-property ownership, sitemap submission procedure, and old-sitemap retention guidance are documented, and the owner confirmed on 2026-03-15 that Search Console is ready and validated for cutover. | `migration/phase-1-seo-baseline.md`, `migration/phase-5-monitoring-runbook.md`, owner confirmation 2026-03-15 | Ready |
 | Rollback drill | A local emergency alias repair drill succeeded on 2026-03-15 and exposed the clean-build requirement documented below. | `migration/phase-6-rollback-runbook.md` | Ready |
 | Internal-link readiness | Link audits report `0` blocking findings and `20` warnings. The remaining warnings are legacy asset links and IA depth warnings, not redirect-source page links. | `npm run check:links`, `npm run check:internal-links`, `migration/reports/phase-5-internal-links-audit.csv` | Partial |
-| Phase 7 and Phase 8 handoff | Owner-approved advisory handoff is now recorded for downstream use, while formal confirmed-readiness handoff remains blocked by live runtime evidence. | This runbook, RHI-071 Progress Log | Partial |
+| Phase 7 and Phase 8 handoff | Owner-approved advisory handoff is recorded for downstream use. Formal confirmed-readiness handoff is deferred by owner decision to the live cutover verification window. | This runbook, RHI-071 Progress Log | Owner-accepted deviation |
+
+## RHI-071 owner-accepted closeout record
+
+RHI-071 closes on 2026-03-15 as an owner-accepted deviation closeout.
+
+Deferred evidence for this ticket:
+
+1. The final production four-variant host/protocol matrix was not executed within RHI-071.
+2. The formal confirmed-readiness handoff to Phase 7 and Phase 8 was not executed within RHI-071.
+
+Controls that remain in place:
+
+1. The exact production 17-check verification pass below remains mandatory for the live cutover checkpoint.
+2. Any failed production row keeps runtime readiness unconfirmed and triggers incident handling or rollback evaluation.
+3. Advisory handoff is recorded, but it must not be interpreted as formal confirmed readiness.
 
 ## Owner model
 
@@ -75,7 +92,7 @@ Current conclusion:
 
 1. The live public host is not yet in the final Phase 6 cutover state.
 2. Repository-controlled readiness is complete, but the remaining live verification criteria must stay open until the public runtime reflects the Hugo deployment.
-3. Do not send a formal "Phase 6 cutover readiness confirmed" handoff to Phase 7 or Phase 8 until the runtime matrix above is re-run against the cutover candidate and passes.
+3. RHI-071 closes by owner-accepted deviation despite that remaining runtime evidence gap; the formal confirmed-readiness handoff still must not be sent until the runtime matrix above is re-run against the cutover candidate and passes.
 
 ## Staging manual verification section
 
@@ -190,6 +207,100 @@ Use these route classes against all four entry variants during T0 validation:
 | `http://www.rhino-inquisitor.com` | `/` | `/how-to-use-ocapi-scapi-hooks/` | `/category/release-notes/` | Ends at `https://www.rhino-inquisitor.com/...` with canonical `https://www.rhino-inquisitor.com/...` |
 | `https://www.rhino-inquisitor.com` | `/` | `/how-to-use-ocapi-scapi-hooks/` | `/category/release-notes/` | Serves canonical production route directly |
 
+## Production verification command pack
+
+Run this exact pack against the live cutover candidate after the deploy completes and after a short propagation buffer. Use UTC timestamps in the log.
+
+### Preconditions
+
+1. Wait 10 minutes after the successful Pages deploy before the first production verification pass.
+2. If any host/protocol row fails on the first pass, wait 5 minutes and retry once.
+3. If any row still fails after the retry, keep RHI-071 open and treat the result as release-blocking until the incident path or rollback decision is recorded.
+
+### Production matrix command
+
+Use this command bundle to verify the 12 host/protocol and route-class combinations:
+
+```bash
+variants=(
+	"http://rhino-inquisitor.com"
+	"https://rhino-inquisitor.com"
+	"http://www.rhino-inquisitor.com"
+	"https://www.rhino-inquisitor.com"
+)
+paths=(
+	"/"
+	"/how-to-use-ocapi-scapi-hooks/"
+	"/category/release-notes/"
+)
+
+for variant in "${variants[@]}"; do
+	for path in "${paths[@]}"; do
+		url="${variant}${path}"
+		printf 'CHECK %s\n' "$url"
+		curl -sS -L -o /dev/null -w 'final=%{url_effective} code=%{http_code}\n' "$url"
+	done
+done
+```
+
+Expected outcome for all 12 rows:
+
+1. Final URL is `https://www.rhino-inquisitor.com` plus the tested path.
+2. Final status is `200` on the destination page.
+3. Homepage, article, and category HTML each emit canonical `https://www.rhino-inquisitor.com` plus the same path.
+
+### Canonical and robots command
+
+Use this command bundle on the canonical production host for the representative template paths:
+
+```bash
+for path in "/" "/how-to-use-ocapi-scapi-hooks/" "/category/release-notes/"; do
+	printf 'META %s\n' "https://www.rhino-inquisitor.com${path}"
+	curl -sS "https://www.rhino-inquisitor.com${path}" | rg -n 'rel="canonical"|name="robots"'
+done
+```
+
+Expected outcome:
+
+1. `rel="canonical"` matches the canonical production URL for the route.
+2. Production indexable pages do not emit `noindex`.
+
+### Critical routes command
+
+Use this command bundle for the 5 critical route checks:
+
+```bash
+curl -sS -L -o /dev/null -w 'privacy final=%{url_effective} code=%{http_code}\n' "https://www.rhino-inquisitor.com/privacy-policy/"
+curl -sS -L -o /dev/null -w 'feed final=%{url_effective} code=%{http_code}\n' "https://www.rhino-inquisitor.com/feed/"
+curl -sS "https://www.rhino-inquisitor.com/robots.txt"
+curl -sS -L -o /dev/null -w 'sitemap final=%{url_effective} code=%{http_code}\n' "https://www.rhino-inquisitor.com/sitemap.xml"
+curl -sS -L -o /dev/null -w '404 final=%{url_effective} code=%{http_code}\n' "https://www.rhino-inquisitor.com/404/"
+```
+
+Expected outcome:
+
+1. `/privacy-policy/`, `/feed/`, and `/404/` resolve on the canonical production host.
+2. `/robots.txt` includes exactly `Sitemap: https://www.rhino-inquisitor.com/sitemap.xml`.
+3. `/sitemap.xml` remains the final URL and serves production canonical URLs only.
+
+### Optional artifact re-check after hotfix
+
+If any hotfix is applied during T0, re-run these artifact-level checks against the rebuilt production artifact before re-running the live matrix:
+
+```bash
+npm run check:host-protocol
+npm run check:canonical-alignment
+npm run check:redirect-chains
+```
+
+### Exit criterion
+
+RHI-071 production verification passes only when all 17 checks succeed:
+
+1. 12 host/protocol and route-class rows pass.
+2. 5 critical route rows pass.
+3. Any failed row keeps the ticket open and blocks formal confirmed-readiness handoff to Phase 7 and Phase 8.
+
 ## T-7 to T-3 checklist
 
 | Step | Owner | Action | Expected result | Evidence |
@@ -217,8 +328,8 @@ Use these route classes against all four entry variants during T0 validation:
 2. Engineering Owner: confirm there is no active overlapping Pages deploy. The workflow uses `cancel-in-progress: false`, so do not stack hotfix deploys.
 3. Engineering Owner: deploy the approved candidate on `main` using the standard GitHub Pages workflow.
 4. Engineering Owner: wait for the build and deploy jobs to complete, then capture the deployed URL and completion time.
-5. Engineering Owner: verify live host and protocol behavior using the matrix above. Stop and open an incident if apex or HTTP variants do not consolidate as expected.
-6. Engineering Owner and SEO Owner: execute the seeded priority sample and complete the verification log below.
+5. Engineering Owner: run the production verification command pack above. Stop and open an incident if any host/protocol, canonical, robots, or sitemap row fails after the allowed retry.
+6. Engineering Owner and SEO Owner: execute the seeded priority sample and complete the production verification log below.
 7. SEO Owner: submit `https://www.rhino-inquisitor.com/sitemap.xml` in Search Console after confirming the live canonical host and HTTPS are correct.
 8. SEO Owner: retain the old WordPress sitemap in Search Console during the transition period. Redirect warnings on that retained sitemap are expected and are not blockers by themselves.
 9. Migration Owner: declare launch stable only after the host/protocol checks, priority sample, and sitemap submission are all recorded.
@@ -261,18 +372,25 @@ Current conclusion:
 
 Complete this table during T0 and the first 24 hours after cutover.
 
-| URL or variant | Expected outcome | Actual result | Status | Checked by | Time |
-|---|---|---|---|---|---|
-| `http://rhino-inquisitor.com/` | Consolidates to `https://www.rhino-inquisitor.com/` | Pending | Pending |  |  |
-| `https://rhino-inquisitor.com/` | Consolidates to `https://www.rhino-inquisitor.com/` | Pending | Pending |  |  |
-| `http://www.rhino-inquisitor.com/` | Consolidates to `https://www.rhino-inquisitor.com/` | Pending | Pending |  |  |
-| `https://www.rhino-inquisitor.com/` | Serves canonical homepage directly | Pending | Pending |  |  |
-| `/how-to-use-ocapi-scapi-hooks/` | Direct `200` on canonical route | Pending | Pending |  |  |
-| `/category/release-notes/` | Direct `200` on canonical route | Pending | Pending |  |  |
-| `/feed/` | Canonical feed endpoint responds | Pending | Pending |  |  |
-| `/robots.txt` | Points to `https://www.rhino-inquisitor.com/sitemap.xml` only | Pending | Pending |  |  |
-| `/sitemap.xml` | Lists only final canonical URLs | Pending | Pending |  |  |
-| `/404/` | Human-friendly not-found route renders | Pending | Pending |  |  |
+| Scope | URL or variant | Expected final URL | Expected canonical | Actual final URL | Actual canonical | Result summary | Status | Checked by | UTC time | Evidence ref |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Host/protocol | `http://rhino-inquisitor.com/` | `https://www.rhino-inquisitor.com/` | `https://www.rhino-inquisitor.com/` | Pending | Pending | Pending | Pending |  |  |  |
+| Host/protocol | `https://rhino-inquisitor.com/` | `https://www.rhino-inquisitor.com/` | `https://www.rhino-inquisitor.com/` | Pending | Pending | Pending | Pending |  |  |  |
+| Host/protocol | `http://www.rhino-inquisitor.com/` | `https://www.rhino-inquisitor.com/` | `https://www.rhino-inquisitor.com/` | Pending | Pending | Pending | Pending |  |  |  |
+| Host/protocol | `https://www.rhino-inquisitor.com/` | `https://www.rhino-inquisitor.com/` | `https://www.rhino-inquisitor.com/` | Pending | Pending | Pending | Pending |  |  |  |
+| Host/protocol | `http://rhino-inquisitor.com/how-to-use-ocapi-scapi-hooks/` | `https://www.rhino-inquisitor.com/how-to-use-ocapi-scapi-hooks/` | `https://www.rhino-inquisitor.com/how-to-use-ocapi-scapi-hooks/` | Pending | Pending | Pending | Pending |  |  |  |
+| Host/protocol | `https://rhino-inquisitor.com/how-to-use-ocapi-scapi-hooks/` | `https://www.rhino-inquisitor.com/how-to-use-ocapi-scapi-hooks/` | `https://www.rhino-inquisitor.com/how-to-use-ocapi-scapi-hooks/` | Pending | Pending | Pending | Pending |  |  |  |
+| Host/protocol | `http://www.rhino-inquisitor.com/how-to-use-ocapi-scapi-hooks/` | `https://www.rhino-inquisitor.com/how-to-use-ocapi-scapi-hooks/` | `https://www.rhino-inquisitor.com/how-to-use-ocapi-scapi-hooks/` | Pending | Pending | Pending | Pending |  |  |  |
+| Host/protocol | `https://www.rhino-inquisitor.com/how-to-use-ocapi-scapi-hooks/` | `https://www.rhino-inquisitor.com/how-to-use-ocapi-scapi-hooks/` | `https://www.rhino-inquisitor.com/how-to-use-ocapi-scapi-hooks/` | Pending | Pending | Pending | Pending |  |  |  |
+| Host/protocol | `http://rhino-inquisitor.com/category/release-notes/` | `https://www.rhino-inquisitor.com/category/release-notes/` | `https://www.rhino-inquisitor.com/category/release-notes/` | Pending | Pending | Pending | Pending |  |  |  |
+| Host/protocol | `https://rhino-inquisitor.com/category/release-notes/` | `https://www.rhino-inquisitor.com/category/release-notes/` | `https://www.rhino-inquisitor.com/category/release-notes/` | Pending | Pending | Pending | Pending |  |  |  |
+| Host/protocol | `http://www.rhino-inquisitor.com/category/release-notes/` | `https://www.rhino-inquisitor.com/category/release-notes/` | `https://www.rhino-inquisitor.com/category/release-notes/` | Pending | Pending | Pending | Pending |  |  |  |
+| Host/protocol | `https://www.rhino-inquisitor.com/category/release-notes/` | `https://www.rhino-inquisitor.com/category/release-notes/` | `https://www.rhino-inquisitor.com/category/release-notes/` | Pending | Pending | Pending | Pending |  |  |  |
+| Critical route | `/privacy-policy/` | `https://www.rhino-inquisitor.com/privacy-policy/` | `https://www.rhino-inquisitor.com/privacy-policy/` | Pending | Pending | Pending | Pending |  |  |  |
+| Critical route | `/feed/` | `https://www.rhino-inquisitor.com/feed/` | `/index.xml` helper or canonical feed target per live output | Pending | Pending | Pending | Pending |  |  |  |
+| Critical route | `/robots.txt` | `https://www.rhino-inquisitor.com/robots.txt` | Not applicable | Pending | Not applicable | Pending | Pending |  |  |  |
+| Critical route | `/sitemap.xml` | `https://www.rhino-inquisitor.com/sitemap.xml` | Not applicable | Pending | Not applicable | Pending | Pending |  |  |  |
+| Critical route | `/404/` | `https://www.rhino-inquisitor.com/404/` | `https://www.rhino-inquisitor.com/404/` | Pending | Pending | Pending | Pending |  |  |  |
 
 ## T+1 to T+14 review cadence
 

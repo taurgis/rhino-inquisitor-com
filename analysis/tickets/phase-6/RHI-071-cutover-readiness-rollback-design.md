@@ -1,6 +1,6 @@
 ## RHI-071 · Workstream I — Cutover Readiness and Rollback Design
 
-**Status:** In Progress  
+**Status:** Done  
 **Priority:** Critical  
 **Estimate:** M  
 **Phase:** 6  
@@ -8,6 +8,8 @@
 **Target date:** 2026-05-16  
 **Created:** 2026-03-07  
 **Updated:** 2026-03-15
+
+**Closeout type:** Owner-accepted deviation closeout
 
 ---
 
@@ -35,13 +37,13 @@ Cutover is the highest-risk moment of the migration. A well-designed redirect st
   - [x] `migration/url-map.csv` is in its final form
   - [x] A git tag is applied to the final redirect-map commit (e.g., `phase-6-redirect-map-v1`)
   - [x] Version tag is recorded in `migration/phase-6-cutover-runbook.md`
-- [ ] Critical route manual verification complete:
-  - [x] Staging rehearsal completed on `https://staging.rhino-inquisitor.com`, but final production confirmation remains pending
+- [x] Critical route manual verification complete via owner-accepted deviation closeout:
+  - [x] Staging rehearsal completed on `https://staging.rhino-inquisitor.com`; final production confirmation deferred to Phase 7/8 live cutover verification by owner decision
   - [x] Top 50 traffic legacy URLs manually checked on staging (from Phase 1 SEO baseline; `50/50` pass on `https://staging.rhino-inquisitor.com`)
   - [x] Owner-approved top linked legacy URL sample manually checked on staging (current accepted exception: committed top-20 Search Console links baseline replaces the literal top-50 backlink list unless a larger export is later supplied; effective `20/20` pass on `https://staging.rhino-inquisitor.com`)
   - [x] Critical legal/system routes verified on staging rehearsal: `/privacy-policy/`, `/feed/`, `/robots.txt`, `/sitemap.xml`, `/404`
-  - [ ] Host/protocol variants checked for core templates: HTTP apex, HTTPS apex, HTTP www, HTTPS www (staging checked HTTP/HTTPS apex behavior, but `www.staging.rhino-inquisitor.com` is not provisioned; final production matrix remains pending)
-  - [x] Manual staging check results documented in `migration/phase-6-cutover-runbook.md`; production verification log entries remain pending
+  - [x] Host/protocol variants closed by owner-accepted deviation: staging checked HTTP/HTTPS apex behavior, but `www.staging.rhino-inquisitor.com` is not provisioned and the final production four-variant matrix is deferred to Phase 7/8 live cutover verification
+  - [x] Manual staging check results documented in `migration/phase-6-cutover-runbook.md`; production verification log entries are deferred to the live cutover window by owner decision
 - [x] Search Console continuity confirmed:
   - [x] Ownership verified for all registered host/protocol property variants (confirmed in WS-D: RHI-066)
   - [x] Old-URL sitemap can be retained alongside new sitemap during transition period (plan documented)
@@ -70,26 +72,26 @@ Cutover is the highest-risk moment of the migration. A well-designed redirect st
 - [x] Internal link update plan documented:
   - [x] Confirm all internal links in Hugo content files point to final destination URLs (not legacy redirect sources)
   - [x] Any internal link still pointing to a redirect source identified as a known deviation with a plan
-- [ ] Phase 7 and Phase 8 have been notified that Phase 6 cutover readiness is confirmed
+- [x] Phase 7 and Phase 8 handoff closed by owner-accepted deviation: advisory notifications are recorded; formal confirmed-readiness handoff is deferred to Phase 7/8 live cutover verification
 
 ---
 
 ### Tasks
 
 - [x] Confirm all Phase 6 CI gates pass on latest `main` build (run full gate suite; record Actions run URL)
-- [ ] Freeze redirect map:
+- [x] Freeze redirect map:
   - [x] Verify `migration/url-manifest.json` and `migration/url-map.csv` are in final state
   - [x] Apply git tag `phase-6-redirect-map-v1` to the commit
   - [x] Record tag SHA in Progress Log and cutover runbook
-- [ ] Execute critical route manual verification:
+- [x] Execute critical route manual verification:
   - [x] Run staging rehearsal against `https://staging.rhino-inquisitor.com`
   - [x] Pull top 50 traffic URLs and the owner-approved top linked legacy URL sample from the available Search Console exports
   - [x] Verify the staging top 50 traffic sample via HTTP tool (`50/50` pass)
   - [x] Verify the staging owner-approved top linked sample via HTTP tool (`19` direct pass plus `1` alias-backed nested category path resolving to the flattened category target)
   - [x] Verify staging critical routes and unknown-route 404 control: `/privacy-policy/`, `/feed/`, `/robots.txt`, `/sitemap.xml`, `/404/`, and `/this-route-should-not-exist-rhi-071/`
   - [x] Capture representative staging browser evidence for homepage, privacy policy, article, flattened category, and alias-backed legacy article route
-  - [ ] Run `scripts/phase-6/check-redirect-targets.js` on the final manual-verification subset if a subset-specific rerun is still required beyond the full gate pass already recorded
-  - [ ] Re-run the manual verification set against the final production cutover candidate
+  - [x] Closed as not required for RHI-071 after the full gate pass already recorded: no additional subset-specific `check-redirect-targets.js` rerun is required for this ticket closeout
+  - [x] Owner-waived for RHI-071 closeout: the final production cutover candidate rerun is deferred to the Phase 7/8 live cutover checkpoint using the 17-check production verification pass in `migration/phase-6-cutover-runbook.md`
   - [x] Document staging rehearsal results in `migration/phase-6-cutover-runbook.md`
 - [x] Confirm Search Console property ownership and note any gaps
 - [x] Draft and commit `migration/phase-6-cutover-runbook.md` (full structure per Acceptance Criteria)
@@ -126,8 +128,8 @@ Cutover is the highest-risk moment of the migration. A well-designed redirect st
 | RHI-066 Done — repository host/protocol controls complete; Search Console domain ownership confirmed; runtime variant verification deferred to cutover | Ticket | Done |
 | RHI-068 Done — security sign-off recorded | Ticket | Done |
 | RHI-069 Done — pre-launch reports (coverage, chains, canonical alignment) all clean | Ticket | Done |
-| Migration owner, SEO owner, and engineering owner available for drill and sign-off | Access | Pending |
-| Phase 7 and Phase 8 teams available to receive handover notification | Access | Pending |
+| Migration owner, SEO owner, and engineering owner available for drill and sign-off | Access | Done |
+| Phase 7 and Phase 8 teams available to receive handover notification | Access | Owner-accepted deviation |
 
 ---
 
@@ -144,16 +146,16 @@ Cutover is the highest-risk moment of the migration. A well-designed redirect st
 
 ### Definition of Done
 
-- [ ] All acceptance criteria are satisfied and verified
-- [ ] Tasks are complete or intentionally descoped with rationale
-- [ ] Dependencies and blockers are resolved or documented
-- [ ] Outcomes section is completed with delivered artefacts and deviations
+- [x] All acceptance criteria are satisfied or closed by explicit owner-accepted deviation
+- [x] Tasks are complete or intentionally descoped with rationale
+- [x] Dependencies and blockers are resolved or documented
+- [x] Outcomes section is completed with delivered artefacts and deviations
 
 ---
 
 ### Outcomes
 
-{Leave blank until work is complete.}
+RHI-071 is closed by owner-accepted deviation.
 
 **Delivered artefacts:**
 
@@ -161,11 +163,13 @@ Cutover is the highest-risk moment of the migration. A well-designed redirect st
 - `migration/phase-6-rollback-runbook.md` — complete with trigger criteria, options, and execution steps
 - Git tag `phase-6-redirect-map-v1` applied to final redirect map commit
 - Rollback drill outcome documented in Progress Log
-- Phase 7 and Phase 8 notification recorded in Progress Log
+- Advisory Phase 7 and Phase 8 notification recorded in Progress Log
+- Exact production 17-check verification pass recorded in `migration/phase-6-cutover-runbook.md`
 
 **Deviations from plan:**
 
-- None
+- Owner accepted closure without executing the final production four-variant host/protocol matrix inside RHI-071; that evidence is deferred to the Phase 7/8 live cutover checkpoint.
+- Owner accepted closure without recording formal confirmed-readiness handoff inside RHI-071; advisory handoff is recorded and formal confirmation is deferred to the live cutover window.
 
 ---
 
@@ -182,6 +186,8 @@ Cutover is the highest-risk moment of the migration. A well-designed redirect st
 | 2026-03-15 | In Progress | Executed a staging rehearsal of the critical-route manual verification set against `https://staging.rhino-inquisitor.com`. The top 50 traffic sample passed `50/50`, the owner-approved top linked sample passed effectively `20/20` (`19` direct passes plus one legacy nested category route resolving to the flattened category target), `/privacy-policy/`, `/feed/`, `/robots.txt`, `/sitemap.xml`, and `/404/` were reachable, and an unknown path returned HTTP `404`. Representative staging pages were self-canonical on the staging host with `noindex, nofollow`, `http://staging.rhino-inquisitor.com/` upgraded to HTTPS, and `www.staging.rhino-inquisitor.com` did not resolve. This rehearsal validates the staging candidate but does not close the production-only host/protocol and final confirmed-readiness acceptance criteria. |
 | 2026-03-15 | In Progress | Closed the staging-specific top-50 traffic sub-check for RHI-071 based on the staging rehearsal evidence: the Phase 1 traffic sample passed `50/50` on `https://staging.rhino-inquisitor.com`. The broader manual-verification acceptance criterion remains open because the linked-sample, production host/protocol, and final production confirmation items are still pending. |
 | 2026-03-15 | In Progress | Closed the remaining staging-backed manual-verification sub-checks for the owner-approved linked sample, critical legal/system routes, and runbook documentation. The linked sample passed effectively `20/20` on staging, the critical route set was reachable on staging, and the cutover runbook now serves as the staging manual verification section. The only remaining open manual-verification sub-check is the full four-variant production host/protocol matrix, because `www.staging.rhino-inquisitor.com` is not provisioned and staging cannot satisfy that final acceptance item. |
+| 2026-03-15 | In Progress | Prepared the exact production verification pass needed to close the remaining runtime boundary in RHI-071. `migration/phase-6-cutover-runbook.md` now defines the operator-ready command pack, retry policy, and binary `17/17` exit criterion (`12` host/protocol matrix rows plus `5` critical route rows), along with an auditable production verification log template that captures expected vs actual outcomes and evidence references. |
+| 2026-03-15 | Done | Owner-approved deviation closeout applied. Completed evidence includes all repository-controlled Phase 6 gates, redirect-map freeze tag, cutover and rollback runbooks, rollback drill, and staging rehearsal/manual samples. The owner accepted that the full production host/protocol matrix and formal confirmed-readiness handoff were not executed inside RHI-071 and deferred both items to the Phase 7/8 live cutover verification window. Residual runtime risk acceptance is recorded by owner decision, and the ticket is now closed as Done. |
 
 ---
 

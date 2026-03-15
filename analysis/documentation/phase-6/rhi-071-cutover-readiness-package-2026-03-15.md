@@ -2,7 +2,7 @@
 
 ## Change summary
 
-RHI-071 now has the repository-controlled operational package that was still missing after RHI-069 and RHI-070: the seeded cutover runbook has been expanded into a full launch-window procedure, a dedicated rollback runbook now exists, the ticket has been updated to reflect the approved Model A rollback boundary, and the repository now contains documented rollback-drill evidence instead of a hypothetical drill requirement.
+RHI-071 now has the repository-controlled operational package that was still missing after RHI-069 and RHI-070: the seeded cutover runbook has been expanded into a full launch-window procedure, a dedicated rollback runbook now exists, the ticket has been updated to reflect the approved Model A rollback boundary, the repository now contains documented rollback-drill evidence instead of a hypothetical drill requirement, and the ticket is now closed as an owner-accepted deviation closeout rather than as a full production-evidence closeout.
 
 ## Why this changed
 
@@ -21,6 +21,8 @@ New behavior:
 2. `migration/phase-6-rollback-runbook.md` now defines rollback triggers, authority, decision tree, realistic Model A rollback options, execution steps, and incident-evidence expectations.
 3. RHI-071 now records that edge override rollback is unavailable under the current Model A posture unless the architecture changes first.
 4. The ticket and rollback runbook now include a 2026-03-15 emergency alias drill that proved the repair path and documented the clean-build requirement needed to avoid stale alias helpers in `public/`.
+5. The cutover runbook now contains an exact production verification command pack, retry policy, `17/17` exit criterion, and an auditable production verification log template for closing the final runtime boundary.
+6. RHI-071 can now be closed administratively through an owner-accepted deviation record that explicitly defers unexecuted production runtime evidence to the Phase 7/8 live cutover checkpoint.
 
 ## Impact
 
@@ -28,6 +30,8 @@ New behavior:
 2. The repository now distinguishes clearly between repo-verifiable readiness and live cutover evidence that still depends on the custom domain, GitHub Pages settings, DNS, and Search Console.
 3. The rollback plan now matches the approved architecture instead of implying an unavailable edge-layer capability.
 4. Downstream Phase 7 and Phase 8 work can consume a real handoff package even though final RHI-071 closure still depends on live-window evidence.
+5. Operators now have a deterministic production verification pass for the final cutover gate instead of relying on an informal checklist interpretation at T0.
+6. Reviewers now have an auditable distinction between completed repository/staging evidence and the deferred live-runtime checks that were accepted by owner decision at ticket closeout.
 
 ## Verification
 
@@ -45,13 +49,13 @@ Observed results:
 3. Link audits reported `0` blocking findings and `20` warnings, which are now classified in the cutover runbook.
 4. The rollback drill succeeded for the simulated broken alias on `/how-to-set-up-the-ecdn-for-staging-in-salesforce-b2c-commerce-cloud/` and documented a clean-build requirement for alias validation.
 
-## Remaining open items
+## Remaining deferred items
 
-This change does not close RHI-071 by itself. The following still require live evidence:
+RHI-071 is closed by owner-accepted deviation, but the following live-runtime items remain deferred to the Phase 7/8 cutover checkpoint:
 
 1. Live host/protocol verification on the production custom domain.
-2. Manual critical-route verification against the real cutover candidate, including the owner-approved top linked legacy URL exception set.
-3. Final confirmed-readiness handoff after the live runtime blockers clear.
+2. Manual production verification against the real cutover candidate, using the recorded 17-check pass.
+3. Formal confirmed-readiness handoff after the live runtime blockers clear.
 
 Redirect-map freeze update recorded on 2026-03-15:
 
@@ -74,6 +78,19 @@ Staging rehearsal evidence recorded on 2026-03-15:
 4. Staging verified the cutover candidate quality, but it still does not satisfy the production-only host/protocol acceptance criteria because `www.staging.rhino-inquisitor.com` is not provisioned and staging cannot prove the final production canonical host behavior.
 5. The specific RHI-071 sub-check for the top 50 traffic legacy URLs can therefore be treated as complete for staging rehearsal evidence, while the parent manual-verification acceptance criterion remains open for production confirmation.
 6. The owner-approved top linked sample, the critical legal/system route set, and the runbook documentation sub-checks can also be treated as complete for staging rehearsal evidence, while the four-variant host/protocol matrix remains production-only final evidence.
+
+Production verification-pack update recorded on 2026-03-15:
+
+1. `migration/phase-6-cutover-runbook.md` now defines the exact production command pack for host/protocol, canonical, robots, and sitemap checks.
+2. The runbook now requires a binary `17/17` pass (`12` host/protocol matrix rows plus `5` critical route rows) before the final runtime boundary can be closed.
+3. The production verification log template now captures expected final URL, expected canonical, actual final URL, actual canonical, result summary, UTC time, and evidence reference for each row.
+4. RHI-071 now points the remaining production rerun task at that exact `17/17` pass instead of a looser manual rerun description.
+
+Owner-accepted closeout recorded on 2026-03-15:
+
+1. The owner approved administrative closeout of RHI-071 without executing the final production four-variant host/protocol matrix inside this ticket.
+2. The owner also approved closing the ticket without recording formal confirmed-readiness handoff inside this ticket.
+3. Both deferred items remain mandatory live-cutover controls in Phase 7/8 and are not represented as completed production evidence.
 
 Owner decisions recorded on 2026-03-15:
 
