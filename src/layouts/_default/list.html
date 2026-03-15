@@ -35,11 +35,9 @@
     {{ $paginator = .Paginate $pages }}
     {{ .Scratch.Set "listPaginator" $paginator }}
   {{ end }}
-  {{ $groups := $paginator.Pages.GroupByDate "2006" }}
-  {{ $yearLinks := slice }}
-  {{ range $groups }}
-    {{ $yearLinks = $yearLinks | append (dict "label" .Key "url" (printf "#year-%s" .Key)) }}
-  {{ end }}
+  {{ $yearData := partial "archive/year-links.html" (dict "paginator" $paginator) }}
+  {{ $groups := $yearData.groups }}
+  {{ $yearLinks := $yearData.links }}
   {{ $blogPage := site.GetPage "/posts" }}
   {{ $archiveDescription := .Params.description | default "" }}
   {{ if eq $archiveDescription "" }}
@@ -63,7 +61,7 @@
       <p>{{ $archiveDescription }}</p>
     </div>
 
-    {{ partial "archive/filter-bar.html" (dict "yearLinks" $yearLinks) }}
+    {{ partial "archive/filter-bar.html" (dict "page" . "yearLinks" $yearLinks) }}
 
     <div class="archive-layout__content">
       {{ partial "search/search-bar.html" (dict

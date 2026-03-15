@@ -1,0 +1,38 @@
+{
+  "heroTagline": "Field-tested Salesforce B2C Commerce guidance, release analysis, and migration playbooks.",
+  "profile": {
+    "eyebrow": "About Thomas",
+    "title": "The person behind Rhino Inquisitor",
+    "intro": [
+      "My name is Thomas, and I am the Head of Commerce at Forward. I am a proud father of two wonderful children: Thalia and Thano.",
+      "I have a deep passion for everything Salesforce, and especially for Salesforce B2C Commerce Cloud.",
+      "I am here to share my knowledge and experience to help others succeed in the Ohana."
+    ],
+    "actions": [
+      {
+        "label": "About Me",
+        "url": "https://www.linkedin.com/in/thomas-theunen-10905680/"
+      },
+      {
+        "label": "Join my team!",
+        "url": "https://www.forward.eu/career/",
+        "variant": "outline"
+      }
+    ]
+  },
+  "projects": {
+    "eyebrow": "Active Projects",
+    "title": "My Active Projects",
+    "description": "Alongside the blog, I am actively building a small set of tools and experiments around the Rhino Inquisitor ecosystem.",
+    "items": [
+      {
+        "name": "MCP Aegis",
+        "url": "https://aegis.rhino-inquisitor.com/"
+      },
+      {
+        "name": "SFCC DEV MCP",
+        "url": "https://sfcc-mcp-dev.rhino-inquisitor.com/"
+      }
+    ]
+  }
+}

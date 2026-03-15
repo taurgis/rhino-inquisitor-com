@@ -7,7 +7,7 @@
     </div>
     <div class="jump-year__links">
       {{ range $links }}
-        <a href="{{ .url }}">{{ .label }}</a>
+        <a href="{{ .url }}" aria-label="Jump to year {{ .label }}">{{ .label }}</a>
       {{ end }}
     </div>
   </nav>

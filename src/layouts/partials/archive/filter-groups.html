@@ -2,6 +2,7 @@
 {{ $postsPage := site.GetPage "/posts" }}
 {{ $pagesSection := site.GetPage "/pages" }}
 {{ $yearLinks := .yearLinks | default (slice) }}
+{{ $currentPage := .page }}
 {{ $prefix := .idPrefix | default "archive" }}
 {{ $topicsId := printf "%s-filter-topics" $prefix }}
 {{ $typesId := printf "%s-filter-types" $prefix }}
@@ -9,35 +10,39 @@
 {{ $sortHeadingId := printf "%s-filter-sort" $prefix }}
 {{ $sortId := printf "%s-sort" $prefix }}
 {{ $sortNoteId := printf "%s-sort-note" $prefix }}
+{{ $currentRelPermalink := "" }}
+{{ with $currentPage }}{{ $currentRelPermalink = .RelPermalink }}{{ end }}
 
 <div class="archive-filter-groups">
-  <section class="archive-filter-group" aria-labelledby="{{ $topicsId }}">
+  <section class="archive-filter-group archive-filter-group--topics" aria-labelledby="{{ $topicsId }}">
     <h3 id="{{ $topicsId }}">Topics</h3>
-    <div class="archive-filter-links">
-      {{ with $topicsPage }}<a href="{{ .Permalink }}">All topics</a>{{ end }}
+    <div class="archive-filter-links archive-filter-links--topics">
+      {{ with $topicsPage }}
+        <a href="{{ .Permalink }}"{{ if eq $currentRelPermalink .RelPermalink }} aria-current="page"{{ end }}>All topics</a>
+      {{ end }}
       {{ range $name, $_ := site.Taxonomies.categories }}
         {{ with site.GetPage (printf "/categories/%s" ($name | urlize)) }}
-          <a href="{{ .Permalink }}">{{ $name }}</a>
+          <a href="{{ .Permalink }}"{{ if eq $currentRelPermalink .RelPermalink }} aria-current="page"{{ end }}>{{ $name }}</a>
         {{ end }}
       {{ end }}
     </div>
   </section>
 
-  <section class="archive-filter-group" aria-labelledby="{{ $typesId }}">
+  <section class="archive-filter-group archive-filter-group--types" aria-labelledby="{{ $typesId }}">
     <h3 id="{{ $typesId }}">Type</h3>
-    <div class="archive-filter-links">
+    <div class="archive-filter-links archive-filter-links--types">
       {{ with $postsPage }}<a href="{{ .Permalink }}">Articles</a>{{ end }}
       {{ with $pagesSection }}<a href="{{ .Permalink }}">Pages</a>{{ end }}
     </div>
     <p class="surface-note">Categories remain the primary public archive surface in Phase 3.</p>
   </section>
 
-  <section class="archive-filter-group" aria-labelledby="{{ $yearsId }}">
+  <section class="archive-filter-group archive-filter-group--years" aria-labelledby="{{ $yearsId }}">
     <h3 id="{{ $yearsId }}">Year</h3>
     {{ if gt (len $yearLinks) 0 }}
-      <div class="archive-filter-links">
+      <div class="archive-filter-links archive-filter-links--years">
         {{ range $yearLinks }}
-          <a href="{{ .url }}">{{ .label }}</a>
+          <a href="{{ .url }}" aria-label="Jump to year {{ .label }}">{{ .label }}</a>
         {{ end }}
       </div>
     {{ else }}
@@ -45,7 +50,7 @@
     {{ end }}
   </section>
 
-  <section class="archive-filter-group" aria-labelledby="{{ $sortHeadingId }}">
+  <section class="archive-filter-group archive-filter-group--sort" aria-labelledby="{{ $sortHeadingId }}">
     <h3 id="{{ $sortHeadingId }}">Sort</h3>
     <label for="{{ $sortId }}">Sort order</label>
     <select id="{{ $sortId }}" name="sort" aria-describedby="{{ $sortNoteId }}">

@@ -3,6 +3,7 @@
   {{ $blogArchiveHref := "posts/" | relURL }}
   {{ with site.GetPage "/posts" }}{{ $blogArchiveHref = .RelPermalink }}{{ end }}
   {{ $latestPosts := first 12 ((where site.RegularPages "Type" "posts").ByDate.Reverse) }}
+  {{ $blogPage := site.GetPage "/posts" }}
   {{ partial "breadcrumbs.html" . }}
 
   {{ if eq .Kind "term" }}
@@ -26,7 +27,7 @@
         <p>{{ .Params.description | default (printf "Articles and guides filed under %s." .Title) }}</p>
       </div>
 
-      {{ partial "archive/filter-bar.html" (dict "yearLinks" $yearLinks) }}
+      {{ partial "archive/filter-bar.html" (dict "page" . "yearLinks" $yearLinks) }}
 
       <div class="archive-layout__content">
         {{ partial "search/search-bar.html" (dict
@@ -86,20 +87,18 @@
       {{ $topicItems = $topicItems | append $item }}
     {{ end }}
     {{ $topicItems = sort $topicItems "name" }}
-    {{ $postGroups := (where site.RegularPages "Type" "posts").ByDate.Reverse.GroupByDate "2006" }}
-    {{ $yearLinks := slice }}
-    {{ range $postGroups }}
-      {{ $yearLinks = $yearLinks | append (dict "label" .Key "url" (printf "%s#year-%s" $blogArchiveHref .Key)) }}
-    {{ end }}
+    {{ $blogPages := (where site.RegularPages "Type" "posts").ByDate.Reverse }}
+    {{ $blogYearData := partial "archive/year-links.html" (dict "page" $blogPage "pages" $blogPages) }}
+    {{ $yearLinks := $blogYearData.links }}
 
     <section class="archive-layout surface-panel">
-      <div class="archive-header">
+      <div class="archive-header archive-header--topics-index">
         <p class="eyebrow">Topics</p>
         <h1>{{ .Title }}</h1>
         <p>{{ .Params.description | default "Browse all topics and find focused deep dives by subject area." }}</p>
       </div>
 
-      {{ partial "archive/filter-bar.html" (dict "yearLinks" $yearLinks) }}
+      {{ partial "archive/filter-bar.html" (dict "page" . "yearLinks" $yearLinks) }}
 
       <div class="archive-layout__content">
         {{ partial "search/search-bar.html" (dict

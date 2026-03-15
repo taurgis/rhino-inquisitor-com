@@ -1,4 +1,5 @@
 {{ define "main" }}
+  {{ $homeProfile := site.Data.homepage }}
   {{ $blogPage := site.GetPage "/posts" }}
   {{ $topicsPage := site.GetPage "/categories" }}
   {{ $posts := where .Site.RegularPages "Type" "posts" }}
@@ -46,7 +47,7 @@
 
   <section class="page-hero" aria-labelledby="home-hero-title">
     <div class="page-hero__body">
-      <p class="page-hero__tagline">{{ .Site.Params.description | default (printf "Deep technical deep dives and strategies. Confident advice for architects, developers, and business leaders.") }}</p>
+      <p class="page-hero__tagline">{{ with $homeProfile.heroTagline }}{{ . }}{{ else }}{{ .Site.Params.description | default (printf "Deep technical deep dives and strategies. Confident advice for architects, developers, and business leaders.") }}{{ end }}</p>
       <h1 id="home-hero-title" class="visually-hidden">{{ .Site.Title }}</h1>
     </div>
     <div class="page-hero__illustration" aria-hidden="true">
@@ -58,6 +59,49 @@
     <a class="site-cta" href="{{ $startReadingHref }}">Start Reading</a>
     <a class="site-cta site-cta--outline" href="{{ $browseTopicsHref }}">Browse Topics</a>
   </div>
+
+  {{ with $homeProfile }}
+    {{ $profile := index . "profile" }}
+    {{ $projects := index . "projects" }}
+    <section class="home-profile" aria-labelledby="home-profile-heading">
+      <article class="home-profile__panel home-profile__panel--intro">
+        {{ with index $profile "eyebrow" }}<p class="home-profile__eyebrow">{{ . }}</p>{{ end }}
+        <h2 id="home-profile-heading" class="home-profile__title">{{ index $profile "title" }}</h2>
+        {{ with index $profile "intro" }}
+          <div class="home-profile__copy">
+            {{ range . }}
+              <p>{{ . }}</p>
+            {{ end }}
+          </div>
+        {{ end }}
+        {{ with index $profile "actions" }}
+          <div class="home-profile__actions">
+            {{ range . }}
+              <a class="site-cta{{ if eq (index . "variant") "outline" }} site-cta--outline{{ end }}" href="{{ index . "url" }}">{{ index . "label" }}</a>
+            {{ end }}
+          </div>
+        {{ end }}
+      </article>
+
+      <aside class="home-profile__panel home-profile__panel--projects" aria-labelledby="home-projects-heading">
+        {{ with index $projects "eyebrow" }}<p class="home-profile__eyebrow">{{ . }}</p>{{ end }}
+        <h2 id="home-projects-heading" class="home-profile__title home-profile__title--compact">{{ index $projects "title" }}</h2>
+        {{ with index $projects "description" }}<p class="home-profile__support">{{ . }}</p>{{ end }}
+        {{ with index $projects "items" }}
+          <ul class="home-project-list" role="list">
+            {{ range . }}
+              <li>
+                <a class="home-project-link" href="{{ index . "url" }}">
+                  <span class="home-project-link__name">{{ index . "name" }}</span>
+                  <span class="home-project-link__meta">Visit project &rarr;</span>
+                </a>
+              </li>
+            {{ end }}
+          </ul>
+        {{ end }}
+      </aside>
+    </section>
+  {{ end }}
 
   <div class="home-content-grid">
     <section class="home-section home-section--featured" aria-labelledby="featured-heading">

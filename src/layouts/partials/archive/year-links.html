@@ -1,0 +1,33 @@
+{{ $paginator := .paginator }}
+{{ if not $paginator }}
+  {{ $page := .page }}
+  {{ $pages := .pages | default (slice) }}
+  {{ if and $page (gt (len $pages) 0) }}
+    {{ $paginator = $page.Paginate $pages }}
+  {{ end }}
+{{ end }}
+
+{{ $groups := .groups | default (slice) }}
+{{ if and $paginator (eq (len $groups) 0) }}
+  {{ $groups = $paginator.Pages.GroupByDate "2006" }}
+{{ end }}
+
+{{ $yearLinks := slice }}
+{{ $seenYears := dict }}
+{{ with $paginator }}
+  {{ range .Pagers }}
+    {{ $pagerUrl := .URL }}
+    {{ range (.Pages.GroupByDate "2006") }}
+      {{ if not (isset $seenYears .Key) }}
+        {{ $yearLinks = $yearLinks | append (dict "label" .Key "url" (printf "%s#year-%s" $pagerUrl .Key)) }}
+        {{ $seenYears = merge $seenYears (dict .Key true) }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ else }}
+  {{ range $groups }}
+    {{ $yearLinks = $yearLinks | append (dict "label" .Key "url" (printf "#year-%s" .Key)) }}
+  {{ end }}
+{{ end }}
+
+{{ return (dict "groups" $groups "links" $yearLinks "paginator" $paginator) }}
