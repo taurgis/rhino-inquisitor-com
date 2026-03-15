@@ -2651,11 +2651,30 @@ summary {
     text-align: center;
   }
 
-  .archive-layout__content,
   .archive-header,
-  .archive-results,
   .page-article__body {
     padding: 1.1rem;
+  }
+
+  .archive-layout {
+    gap: 0;
+  }
+
+  .archive-header {
+    gap: 0.35rem;
+    padding: 1rem 1rem 0.95rem;
+    text-align: left;
+    justify-items: start;
+  }
+
+  .archive-header p,
+  .archive-header h1 {
+    max-width: none;
+  }
+
+  .archive-layout__content {
+    gap: 0.95rem;
+    padding: 0.95rem 1rem 1rem;
   }
 
   .page-article__header {
@@ -2674,8 +2693,203 @@ summary {
     display: none;
   }
 
+  .archive-controls {
+    gap: 0.85rem;
+  }
+
+  .archive-controls__mobile,
+  .search-bar,
+  .jump-year,
+  .archive-results,
+  .topic-hubs {
+    border-radius: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .archive-controls__mobile {
+    border-radius: var(--radius-lg);
+    background: rgba(17, 141, 255, 0.05);
+  }
+
+  .archive-controls__mobile summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.82rem 0.95rem;
+  }
+
+  .archive-controls__mobile summary::after {
+    content: "+";
+    flex-shrink: 0;
+    font-size: 1.2rem;
+    line-height: 1;
+    color: var(--accent-strong);
+  }
+
+  .archive-controls__mobile details[open] summary::after {
+    content: "-";
+  }
+
+  .archive-controls__mobile details[open] summary {
+    border-bottom: 1px solid rgba(16, 33, 58, 0.08);
+  }
+
+  .archive-filter-groups {
+    gap: 0.9rem;
+    padding: 0 0.95rem 0.95rem;
+  }
+
+  .archive-filter-group {
+    gap: 0.55rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid rgba(16, 33, 58, 0.08);
+  }
+
+  .archive-filter-group:first-child {
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  .archive-filter-links,
+  .jump-year__links {
+    gap: 0.5rem;
+  }
+
+  .archive-filter-links a,
+  .jump-year__links a {
+    min-height: 2.75rem;
+    padding: 0.45rem 0.78rem;
+    background: #ffffff;
+  }
+
+  .search-bar {
+    gap: 0.55rem;
+    padding: 0;
+  }
+
+  .search-bar__field {
+    gap: 0.45rem;
+  }
+
+  .search-bar button {
+    justify-self: start;
+    min-height: 2.75rem;
+    padding-inline: 1rem;
+  }
+
+  .search-bar__status {
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+
+  .jump-year,
+  .archive-results,
+  .topic-hubs {
+    gap: 0.85rem;
+    padding-top: 0.9rem;
+    border-top: 1px solid rgba(16, 33, 58, 0.08);
+  }
+
+  .archive-results__head,
+  .archive-year-group__header,
+  .topic-hubs .lane-header {
+    gap: 0.35rem 0.75rem;
+    align-items: start;
+  }
+
+  .archive-year-groups {
+    gap: 0.85rem;
+  }
+
+  .archive-year-group {
+    gap: 0.75rem;
+    padding-top: 0.85rem;
+    border-top: 1px solid rgba(16, 33, 58, 0.08);
+  }
+
+  .archive-year-groups > .archive-year-group:first-child {
+    padding-top: 0;
+    border-top: 0;
+  }
+
   .article-card-grid,
   .topic-hub-grid {
     grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .archive-results .article-card {
+    grid-template-columns: minmax(5.75rem, 6.5rem) minmax(0, 1fr);
+    grid-template-rows: none;
+    align-items: start;
+    gap: 0.75rem;
+    padding: 0.85rem;
+    border-radius: 1rem;
+    background: #ffffff;
+    box-shadow: none;
+  }
+
+  .archive-results .article-card--no-media {
+    grid-template-columns: 1fr;
+  }
+
+  .archive-results .article-card__media {
+    height: 100%;
+    min-height: 6.5rem;
+    aspect-ratio: auto;
+    border-radius: 0.95rem;
+  }
+
+  .archive-results .article-card__body,
+  .topic-hubs .topic-card__body {
+    gap: 0.45rem;
+  }
+
+  .archive-results .metadata-row {
+    gap: 0.25rem 0.55rem;
+    font-size: 0.85rem;
+  }
+
+  .archive-results .article-card h3,
+  .topic-hubs .topic-card h3 {
+    font-size: 1.02rem;
+    line-height: 1.18;
+  }
+
+  .archive-results .article-card__excerpt {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 0.93rem;
+    line-height: 1.55;
+  }
+
+  .archive-results .archive-control-row {
+    margin-top: 0.1rem;
+  }
+
+  .archive-results .lane-header__action {
+    min-height: auto;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    color: var(--accent-strong);
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .topic-hubs {
+    padding-top: 0.9rem;
+  }
+
+  .topic-hubs .topic-card {
+    gap: 0.75rem;
+    padding: 0.9rem 0.95rem;
+    background: #ffffff;
+    box-shadow: none;
   }
 }
