@@ -225,14 +225,14 @@ Examples:
 
 - Reviewed: `151 / 151` posts
 - Remaining: `0 / 151` posts
-- Pass: `84`
-- Needs review: `67`
+- Pass: `86`
+- Needs review: `65`
 - Fail: `0`
 
 ### Severity summary
 
 - High: `0`
-- Medium: `67`
+- Medium: `65`
 - Low: `0`
 
 ### Key conclusions
@@ -479,11 +479,11 @@ Added a thirteenth append-only audit batch covering the next AI, certification, 
 
 - Reviewed: 131 / 151
 - Remaining: 20 / 151
-- Pass: 71
-- Needs review: 60
+- Pass: 73
+- Needs review: 58
 - Fail: 0
 - High severity: 0
-- Medium severity: 60
+- Medium severity: 58
 - Low severity: 0
 
 ### Senior QA recommendations
@@ -532,11 +532,11 @@ Added a fourteenth append-only audit batch covering the next technical-reference
 
 - Reviewed: 141 / 151
 - Remaining: 10 / 151
-- Pass: 77
-- Needs review: 64
+- Pass: 79
+- Needs review: 62
 - Fail: 0
 - High severity: 0
-- Medium severity: 64
+- Medium severity: 62
 - Low severity: 0
 
 ### Senior QA recommendations
@@ -586,11 +586,11 @@ Added a fifteenth and final append-only audit batch covering the remaining refle
 
 - Reviewed: 151 / 151
 - Remaining: 0 / 151
-- Pass: 84
-- Needs review: 67
+- Pass: 86
+- Needs review: 65
 - Fail: 0
 - High severity: 0
-- Medium severity: 67
+- Medium severity: 65
 - Low severity: 0
 
 ### Senior QA recommendations
@@ -1028,3 +1028,41 @@ With the fail/high backlog closed, the next safest continuation step was to re-v
 - migration/reports/phase-8-article-fidelity-audit-summary.csv
 - analysis/documentation/phase-8/article-fidelity-audit-2026-03-15.md
 - src/content/posts/mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/index.md
+
+
+## 2026-03-15 Medium Review Addendum: Second Bounded Slice
+
+### Change summary
+
+Processed the next bounded medium-review slice at RHI-AUD-012, RHI-AUD-014, RHI-AUD-016, RHI-AUD-017, and RHI-AUD-019. The custom-caches article moved to pass after repairing a literal markdown-link rendering defect, and the custom-OCAPI article moved to pass after current live/local verification showed the deprecation warning and caution text are already present on both versions. The Node 18 row was narrowed to title-only review because the previously flagged compatibility note is also present live.
+
+### Why this changed
+
+With the first medium slice reconciled, the next safest continuation step was to process the next five rows in queue order and clear any stale medium findings that were no longer reproducible as migration-only drift.
+
+### Behavior details
+
+- Old behavior: RHI-AUD-012 still exposed literal markdown-link syntax for `dw.system.CacheMgr`; RHI-AUD-019 still treated the deprecation warning as a Hugo-only insertion; RHI-AUD-017 still treated the SFRA 6.2.0 compatibility note as local-only inserted framing.
+- New behavior: RHI-AUD-012 now renders the `dw.system.CacheMgr` reference as a normal link and is pass; RHI-AUD-019 is pass because the deprecation warning and caution text exist on both live and local pages; RHI-AUD-017 remains needs-review for H1 drift only because the compatibility note exists live too.
+
+### Impact
+
+- Cumulative totals changed to: Pass 86, Needs review 65, Fail 0, High 0, Medium 65, Low 0.
+- Batch 1 now has 9 pass and 4 needs-review rows.
+- Batch 2 now has 15 pass and 8 needs-review rows.
+- The next queued medium row remains RHI-AUD-021.
+
+### Verification
+
+1. Re-fetched live and local `field-guide-to-custom-caches-in-sfcc`, fixed the raw markdown-link rendering in source, and confirmed the `dw.system.CacheMgr` reference now renders as a normal link on the Hugo page.
+2. Re-fetched live and local `creating-custom-ocapi-endpoints` and confirmed the same top-of-article `Deprecated` warning and `Warning!` caution text are present on both pages, so the prior content-insertion finding was stale.
+3. Re-fetched live and local `how-to-use-node-18-with-sfra` and confirmed the `SFRA versions prior to 6.2.0` guidance exists on both pages; only the shorter H1 remains as review scope.
+4. Re-verified `navigating-dates-calendars-in-sfcc` and `an-overview-of-sfcc-global-functions` remain title-only review items with no new migration-only defects reproduced.
+5. Reconciled the detail tracker and summary counts after moving only RHI-AUD-012 and RHI-AUD-019 to pass.
+
+### Related files
+
+- migration/reports/phase-8-article-fidelity-audit.csv
+- migration/reports/phase-8-article-fidelity-audit-summary.csv
+- analysis/documentation/phase-8/article-fidelity-audit-2026-03-15.md
+- src/content/posts/field-guide-to-custom-caches-in-sfcc/index.md
