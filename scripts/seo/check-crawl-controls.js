@@ -24,6 +24,13 @@ const defaults = {
 
 const validModes = new Set(['production', 'preview']);
 
+function normalizeBaseUrl(rawBaseUrl) {
+  const normalized = new URL(rawBaseUrl);
+  const trimmedPath = normalized.pathname.replace(/\/+$/u, '');
+  normalized.pathname = trimmedPath ? `${trimmedPath}/` : '/';
+  return normalized.toString();
+}
+
 function printHelp() {
   console.log(`Usage: node scripts/seo/check-crawl-controls.js [options]
 
@@ -79,6 +86,8 @@ function parseArgs(argv) {
   if (!options.baseUrl) {
     throw new Error('Expected a non-empty --base-url value.');
   }
+
+  options.baseUrl = normalizeBaseUrl(options.baseUrl);
 
   return options;
 }
