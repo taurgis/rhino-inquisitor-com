@@ -50,7 +50,7 @@ Here's an example to illustrate the concept:
 
 This hierarchy ensures that the user receives readable and relevant content despite gaps in localised information.
 
-Inconsistent languages on a single page. If you configure the fallback system differently, let's say you have the German language option (de\_DE) and the "default" locale is set as English. In this case, there is a possibility that a customer may see some parts of a webpage in German while others will appear in English.
+Inconsistent languages on a single page. If you configure the fallback system differently, let's say you have the German language option (de_DE) and the "default" locale is set as English. In this case, there is a possibility that a customer may see some parts of a webpage in German while others will appear in English.
 
 ## Configuring Locale Fallback
 
@@ -60,17 +60,25 @@ Locales and fallback can be configured at "Administration > Global Preferences >
 
 Salesforce B2C Commerce Cloud allows for customized fallback configurations. You can skip levels in the fallback chain or even eliminate fallback entirely for particular locales, depending on your specific requirements.
 
-For the `en _US` example, the fallback chain by default is `en _ US > en > default`. However, you could configure `en_US` to bypass the `en` step and go straight to `default`, or you might decide that `en_ US` should not fallback at all.
+For the `en_US` example, the fallback chain by default is `en_US > en > default`. However, you could configure `en_US` to bypass the `en` step and go straight to `default`, or you might decide that `en_US` should not fallback at all.
 
 Fallback to different language You are only allowed to fall back within the same language:
 
-**Allowed:**fr\_FR > FR > Default**Allowed:**fr\_ FR > Default**Allowed:** fr\_FR > Disabled
+**Allowed:** fr_FR > FR > Default
 
-**Not allowed:**fr\_FR > DE > Default**Not allowed:**fr\_ FR > fr\_BE > Default**Not allowed:** fr\_ FR > de\_ DE > Default
+**Allowed:** fr_FR > Default
+
+**Allowed:** fr_FR > Disabled
+
+**Not allowed:** fr_FR > DE > Default
+
+**Not allowed:** fr_FR > fr_BE > Default
+
+**Not allowed:** fr_FR > de_DE > Default
 
 [![Example locale fallback configuration for en-GB.](locale-fallback-en-uk-bd32fc597d.png)](locale-fallback-en-uk-bd32fc597d.png)
 
-The possible fallback options for en\_GB
+The possible fallback options for en_GB
 
 ## Things to Consider
 

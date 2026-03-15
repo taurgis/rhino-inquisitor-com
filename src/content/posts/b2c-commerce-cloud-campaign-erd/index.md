@@ -72,6 +72,19 @@ If anyone has gotten this feature to work, please let me know on the social chan
 
 It is possible to import this data, as described in the [store.xsd](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/xsd/store.xsd) file:
 
+```xml
+<xsd:complexType name="complexType.StoreGroup" mixed="false">
+  <xsd:sequence>
+    <xsd:element name="name" type="simpleType.Generic.String.256" minOccurs="0" maxOccurs="1" />
+    <xsd:element name="stores" type="complexType.StoreList" minOccurs="0" maxOccurs="1" />
+    <xsd:element name="price-books" type="complexType.PriceBookList" minOccurs="0" maxOccurs="1" />
+    <xsd:element name="custom-attributes" type="sharedType.CustomAttributes" minOccurs="0" maxOccurs="1" />
+  </xsd:sequence>
+  <xsd:attribute name="store-group-id" type="simpleType.Generic.NonEmptyString.256" use="required" />
+  <xsd:attribute name="mode" type="simpleType.ImportMode" />
+</xsd:complexType>
+```
+
 ### Slots & Sorting Rules
 
 It is possible to assign these to a campaign in the Business Manager, but they are not accessible through code.

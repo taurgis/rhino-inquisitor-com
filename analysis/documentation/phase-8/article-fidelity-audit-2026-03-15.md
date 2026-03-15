@@ -225,13 +225,13 @@ Examples:
 
 - Reviewed: `151 / 151` posts
 - Remaining: `0 / 151` posts
-- Pass: `75`
+- Pass: `80`
 - Needs review: `68`
-- Fail: `8`
+- Fail: `3`
 
 ### Severity summary
 
-- High: `8`
+- High: `3`
 - Medium: `68`
 - Low: `0`
 
@@ -479,10 +479,10 @@ Added a thirteenth append-only audit batch covering the next AI, certification, 
 
 - Reviewed: 131 / 151
 - Remaining: 20 / 151
-- Pass: 62
+- Pass: 67
 - Needs review: 61
-- Fail: 8
-- High severity: 8
+- Fail: 3
+- High severity: 3
 - Medium severity: 61
 - Low severity: 0
 
@@ -532,10 +532,10 @@ Added a fourteenth append-only audit batch covering the next technical-reference
 
 - Reviewed: 141 / 151
 - Remaining: 10 / 151
-- Pass: 68
+- Pass: 73
 - Needs review: 65
-- Fail: 8
-- High severity: 8
+- Fail: 3
+- High severity: 3
 - Medium severity: 65
 - Low severity: 0
 
@@ -586,10 +586,10 @@ Added a fifteenth and final append-only audit batch covering the remaining refle
 
 - Reviewed: 151 / 151
 - Remaining: 0 / 151
-- Pass: 75
+- Pass: 80
 - Needs review: 68
-- Fail: 8
-- High severity: 8
+- Fail: 3
+- High severity: 3
 - Medium severity: 68
 - Low severity: 0
 
@@ -909,3 +909,46 @@ These three rows shared the same underlying failure mode: escaped underscores an
 - src/content/posts/kickstart-guide-for-new-sfcc-developers/index.md
 - src/content/posts/what-is-new-in-the-23-8-commerce-cloud-release/index.md
 - src/content/posts/mastering-sitemaps-in-sfcc/index.md
+
+
+## 2026-03-15 Remediation Addendum: Seventh Resolved Fail Batch
+
+### Change summary
+
+Resolved the next five fail/high rows in queue order by restoring the missing Campaign ERD import snippet, the broken sandbox and community contact emails, the malformed POD placeholder URLs, and the locale fallback identifier examples.
+
+### Why this changed
+
+These rows were the next unresolved hard failures after the batch-6 token-repair checkpoint. They were all reader-facing fidelity defects with trustworthy live or raw-live-html baselines and no owner-policy ambiguity.
+
+### Behavior details
+
+- Old behavior: `RHI-AUD-062`, `RHI-AUD-066`, `RHI-AUD-067`, `RHI-AUD-074`, and `RHI-AUD-094` were tracked as `fail` and `high` because the migrated content either lost technical examples entirely or rendered reader-facing identifiers, URLs, and email examples in broken forms.
+- New behavior: all five rows are now `pass` and `none` because the local source and rendered pages restore the live technical snippet families or the decoded live email/URL values needed for readers to copy and understand the examples safely.
+
+### Impact
+
+- Cumulative totals changed to: Pass 80, Needs review 68, Fail 3, High 3, Medium 68, Low 0.
+- Batch 7 and batch 8 now have no remaining high-severity failures.
+- The remaining fail/high queue now starts at `RHI-AUD-101` and is limited to three late non-code-heavy identifier-corruption rows.
+
+### Verification
+
+1. Re-fetched the live and local `b2c-commerce-cloud-campaign-erd` page and confirmed the restored XSD block beginning with `complexType.StoreGroup` plus the `stores`, `price-books`, `custom-attributes`, and `store-group-id` definitions.
+2. Re-fetched the local `how-to-get-a-salesforce-b2c-commerce-cloud-sandbox` page and confirmed the historical struck-through address now renders as `sfcc-b2c-trial@salesforce.com`; live provenance was recovered from the page's Cloudflare-protected email payload.
+3. Re-fetched the live and local `the-sfcc-guide-to-finding-pod-numbers` page and confirmed `https://pod185.production.demandware.net/...`, `https://account.demandware.com`, and `https://logcenter-<POD-No><Cylinder>-hippo.demandware.net/logcenter` render without broken placeholders.
+4. Re-fetched the local `a-new-commerce-cloud-community-in-town` page and confirmed the speaker-contact address now renders as `thomas.theunen@trailblazercgl.com`; live provenance was recovered from the page's Cloudflare-protected email payload.
+5. Re-fetched the live and local `understanding-locale-fallback-in-sfcc` page and confirmed locale tokens such as `en_US`, `fr_FR > FR > Default`, `fr_FR > fr_BE > Default`, `de_DE`, and `en_GB` no longer render in their broken spaced or escaped forms.
+6. Reconciled the article tracker and summary rollups after marking the five rows resolved.
+7. Stopped at the planned checkpoint boundary before `RHI-AUD-101`.
+
+### Related files
+
+- migration/reports/phase-8-article-fidelity-audit.csv
+- migration/reports/phase-8-article-fidelity-audit-summary.csv
+- analysis/documentation/phase-8/article-fidelity-audit-2026-03-15.md
+- src/content/posts/b2c-commerce-cloud-campaign-erd/index.md
+- src/content/posts/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/index.md
+- src/content/posts/the-sfcc-guide-to-finding-pod-numbers/index.md
+- src/content/posts/a-new-commerce-cloud-community-in-town/index.md
+- src/content/posts/understanding-locale-fallback-in-sfcc/index.md
