@@ -125,6 +125,44 @@ Old vs new behavior for the support copy card:
 1. Open `/video/` and confirm the two support paragraphs sit inside a padded card with consistent spacing.
 2. Confirm the gap between the two paragraphs is driven by the card layout instead of loose inherited paragraph margins.
 
+## Keep-route parity repair (2026-03-15)
+
+### Change summary
+
+The deleted `/life-with-goldie/` and `/inside-the-ohana/` source files were restored as lightweight unavailable-notice pages so the deploy parity gate remains aligned with the migration manifest.
+
+### Why this changed
+
+Old behavior:
+
+1. The two offline podcast pages were deleted from `src/content`, which caused `npm run check:url-parity` to fail with two critical `missing-source-content` rows.
+2. Migration still classifies both URLs as high-priority `keep` routes with exact preserved targets.
+
+New behavior:
+
+1. Both routes remain published, but they now render simple notice pages stating that the original recording is unavailable.
+2. The curated `/video/` hub stays free of the offline entries while the direct keep routes remain deploy-safe.
+
+### Behavior details
+
+Old vs new behavior for the two offline podcast routes:
+
+1. Old: `src/content/pages/life-with-goldie/index.md` and `src/content/pages/inside-the-ohana/index.md` were missing entirely.
+2. New: both content files are restored with keep-route front matter and explanatory body copy.
+3. Old: the parity validator treated both routes as critical failures because the manifest expected live source content for preserved exact routes.
+4. New: the validator can resolve both routes back to source content without changing migration intent.
+
+### Impact
+
+1. GitHub Actions deploy is unblocked for the two affected URLs.
+2. The site still avoids advertising the offline recordings in the curated `/video/` hub, while direct legacy keep routes remain intact.
+
+### Verification
+
+1. Run `npm run build:prod` and confirm a successful build.
+2. Run `npm run check:url-parity` and confirm the critical failures return to `0`.
+3. Open `/life-with-goldie/` and `/inside-the-ohana/` and confirm both render unavailable-notice body copy without inline video embeds.
+
 ## Related files
 
 1. `src/assets/styles/site.css`
