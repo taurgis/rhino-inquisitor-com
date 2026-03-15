@@ -62,7 +62,7 @@ What batch APIs can be used to still retrieve large datasets?
 application failed to invoke [search_protocol.search()] on server, responding with
 fault. exception was [com.demandware.core.rpc.server.InvocationException: exception
 while invoking operation], cause [org.elasticsearch.ElasticsearchIllegalArgumentException:
-Search request offset  is greater than offset limit 200000 for tenant '_, type 'order']
+Search request offset <value> is greater than offset limit 200000 for tenant '<GroupID>_<Instance>', type 'order']
 ```
 
 ## Manage More Images in Page Designer
@@ -124,7 +124,7 @@ Another use case where the [OCAPI](/in-the-ring-ocapi-versus-scapi/) is no longe
 Two new headers have made their way into the SCAPI:
 
 1. **`sfdc_customization`**–indicates whether customization has been applied during the request execution. Currently, the only possible value for the header is “HOOK”, which indicates that a hook execution was registered.
-1. **`sfdc _customization_ error`**–if the value is “1", an error occurred within a hook execution.
+1. **`sfdc_customization_error`**–if the value is “1", an error occurred within a hook execution.
 
 This is a great addition that will allow us to get more information on the client side of what is going on and take some of the guesswork out of it.
 

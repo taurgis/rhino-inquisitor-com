@@ -34,11 +34,11 @@ A typical Salesforce B2C Commerce Cloud URL consists of the following components
 Example URLs:
 
 ```text
-https://www.example.com/on/demandware.store/Sites-MySite-Site/en_US/MyPipeline-MyAction?param1=value1¶m2=value2
+https://www.example.com/on/demandware.store/Sites-MySite-Site/en_US/MyPipeline-MyAction?param1=value1&param2=value2
 ```
 
 ```text
-https://www.example.com/my-site/en_US/route?param1=value1¶m2=value2
+https://www.example.com/my-site/en_US/route?param1=value1&param2=value2
 ```
 
 ## Protocol

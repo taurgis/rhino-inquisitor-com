@@ -44,27 +44,63 @@ Local variation attributes are specific to a single product or a small group of 
 
 In the [catalog import XML](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/xsd/catalog.xsd), local variation attributes are defined under the specific product they are associated with, which distinguishes them from shared attributes. The XML snippet below illustrates how local variation attributes are structured:
 
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog
+  xmlns="http://www.demandware.com/xml/impex/catalog/2006-10-31" catalog-id="apparel-m-catalog">
+  <product product-id="25113204M">
+    ...
+
+    <variations>
+      <attributes>
+        <variation-attribute attribute-id="color" variation-attribute-id="color">
+          <display-name xml:lang="x-default">Color</display-name>
+          <variation-attribute-values>
+            <variation-attribute-value value="JJ2KCXX">
+              <display-value xml:lang="x-default">Gulf</display-value>
+            </variation-attribute-value>
+            <variation-attribute-value value="JJG28XX">
+              <display-value xml:lang="x-default">Pink</display-value>
+            </variation-attribute-value>
+            <variation-attribute-value value="JJI15XX">
+              <display-value xml:lang="x-default">White</display-value>
+            </variation-attribute-value>
+          </variation-attribute-values>
+        </variation-attribute>
+        <variation-attribute attribute-id="size" variation-attribute-id="size">
+          <display-name xml:lang="x-default">Size</display-name>
+          <variation-attribute-values>
+            <variation-attribute-value value="004">
+              <display-value xml:lang="x-default">4</display-value>
+            </variation-attribute-value>
+            <variation-attribute-value value="006">
+              <display-value xml:lang="x-default">6</display-value>
+            </variation-attribute-value>
+            <variation-attribute-value value="008">
+              <display-value xml:lang="x-default">8</display-value>
+            </variation-attribute-value>
+          </variation-attribute-values>
+        </variation-attribute>
+      </attributes>
+      <variants>
+        <variant product-id="008885004885M"/>
+    ...
+
+      </variants>
+    </variations>
+  ...
+
+  </product>
+  <product product-id="008885004885M">
+    <custom-attributes>
+      <custom-attribute attribute-id="color">JJI15XX</custom-attribute>
+      <custom-attribute attribute-id="refinementColor">white</custom-attribute>
+      <custom-attribute attribute-id="size">006</custom-attribute>
+      <custom-attribute attribute-id="width">Z</custom-attribute>
+    </custom-attributes>
+  </product>
+</catalog>
 ```
-```
-...
-
-Color
-  Gulf
-  Pink
-  White
-
-Size
-  4
-  6
-  8
-
-...
-...
-
-JJI15XX
-white
-006
-Z
 
 In this example, the main product defines a color and size variation attribute that only applies to this particular main product and its variants.
 
@@ -82,24 +118,79 @@ Merchant Tools > Products and Catalogs > Shared Variation Attributes
 
 Shared variation attributes in the catalog import XML are referenced as part of the catalog, rather than an individual product. The following XML example showcases how shared variation attributes are represented:
 
-```
-Kleur
-  Black
+```xml
+<catalog
+  xmlns="http://www.demandware.com/xml/impex/catalog/2006-10-31" catalog-id="apparel-m-catalog">
+  <variation-attribute attribute-id="color" variation-attribute-id="color">
+    <display-name xml:lang="x-default">Kleur</display-name>
+    <variation-attribute-values>
+      <variation-attribute-value value="black">
+        <display-value xml:lang="x-default">Black</display-value>
+      </variation-attribute-value>
+    </variation-attribute-values>
+  </variation-attribute>
+  <variation-attribute attribute-id="size" variation-attribute-id="size">
+    <display-name xml:lang="x-default">Size</display-name>
+    <variation-attribute-values>
+      <variation-attribute-value value="16">
+        <display-value xml:lang="x-default">16</display-value>
+        <description xml:lang="x-default">16</description>
+      </variation-attribute-value>
+      <variation-attribute-value value="17">
+        <display-value xml:lang="x-default">17</display-value>
+        <description xml:lang="x-default">17</description>
+      </variation-attribute-value>
+      <variation-attribute-value value="18">
+        <display-value xml:lang="x-default">18</display-value>
+        <description xml:lang="x-default">18</description>
+      </variation-attribute-value>
+    </variation-attribute-values>
+  </variation-attribute>
+  ...
 
-Size
-  16
-  16
-  17
-  17
-  18
-  18
+  <product product-id="main">
+  ....
 
-...
-....
-....
+    <variations>
+      <attributes>
+        <shared-variation-attribute attribute-id="color" variation-attribute-id="color"/>
+        <shared-variation-attribute attribute-id="size" variation-attribute-id="size"/>
+      </attributes>
+      <variants>
+        <variant product-id="123456"/>
+        <variant product-id="7891011"/>
+      </variants>
+      <variation-groups>
+        <variation-group product-id="123"/>
+        <variation-group product-id="456"/>
+      </variation-groups>
+    </variations>
+  </product>
+  <product product-id="main-2">
+  ....
 
-black
-18
+    <variations>
+      <attributes>
+        <shared-variation-attribute attribute-id="color" variation-attribute-id="color"/>
+        <shared-variation-attribute attribute-id="size" variation-attribute-id="size"/>
+      </attributes>
+      <variants>
+        <variant product-id="223456"/>
+        <variant product-id="8891011"/>
+      </variants>
+      <variation-groups>
+        <variation-group product-id="223"/>
+        <variation-group product-id="556"/>
+      </variation-groups>
+    </variations>
+  </product>
+  <product product-id="123456">
+    <custom-attributes>
+      <custom-attribute attribute-id="color">black</custom-attribute>
+      <custom-attribute attribute-id="size">18</custom-attribute>
+    </custom-attributes>
+  </product>
+</catalog>
 ```
 
 In this case, both products utilise the same shared attributes for "Color," demonstrating the shared nature of these attributes.

@@ -134,6 +134,7 @@ module.exports = server.exports();
 ### Template
 
 ```text
+<iscontent type="multipart/mixed; boundary=001a113414f6401b8604f1451630" compact="false" charset="ISO-8859-1">
 --001a113414f6401b8604f1451630
 Content-Type: multipart/mixed; boundary=001a113414f6401b8604f1451630
 --001a113414f6401b8604f1451630

@@ -1,5 +1,5 @@
 ---
-title: Set Up the eCDN for SFCC Staging
+title: How to set up the eCDN for Staging in Salesforce B2C Commerce Cloud
 description: >-
   New APIs have been made available to manage certificates on the staging eCDN
   ourselves. But how does it work? What do I need to keep in mind?
@@ -71,9 +71,9 @@ To communicate with the [Zones API](https://developer.salesforce.com/docs/commer
 tenantID The tenantID combines the Realm ID and the Instance ID with an underscore. (e.g. **zzxx\_001**)
 
 ```bash
-curl -i -k
---data 'grant_type=client_credentials&scope=SALESFORCE_COMMERCE_API: sfcc.cdn-zones sfcc.cdn-zones.rw'
---user ':'
+curl -i -k \
+--data 'grant_type=client_credentials&scope=SALESFORCE_COMMERCE_API:<tenantID> sfcc.cdn-zones sfcc.cdn-zones.rw' \
+--user '<client-id>:<client-secret>' \
 -X POST 'https://account.demandware.com/dwsso/oauth2/access_token'
 ```
 
@@ -118,9 +118,9 @@ Top-level domain In this step, the top-level domain is used even if you plan to 
 e.g. To use "stg.cc-merchant.com", "cc-merchant.com" is submitted in the request of this step.
 
 ```bash
-curl "https://{shortCode}.api.commercecloud.salesforce.com/cdn/zones/v1/organizations/{organizationId}/storefront-zones"
--X POST
--d "{n  "domainName": "cc-merchant.com"n}"
+curl "https://{shortCode}.api.commercecloud.salesforce.com/cdn/zones/v1/organizations/{organizationId}/storefront-zones" \
+-X POST \
+-d "{\n  \"domainName\": \"cc-merchant.com\"\n}"
 ```
 
 If the zone did not exist already and is created successfully, the following response is given:

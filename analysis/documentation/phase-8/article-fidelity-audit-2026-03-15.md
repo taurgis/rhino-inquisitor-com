@@ -225,14 +225,14 @@ Examples:
 
 - Reviewed: `151 / 151` posts
 - Remaining: `0 / 151` posts
-- Pass: `65`
-- Needs review: `62`
-- Fail: `24`
+- Pass: `72`
+- Needs review: `68`
+- Fail: `11`
 
 ### Severity summary
 
-- High: `24`
-- Medium: `62`
+- High: `11`
+- Medium: `68`
 - Low: `0`
 
 ### Key conclusions
@@ -240,12 +240,13 @@ Examples:
 - Body-content preservation is mostly strong when the article does not depend on HTML-like code samples or placeholder-heavy command snippets.
 - The most serious current risk is technical-code corruption in migrated markdown, not general prose fidelity.
 - Title rewrites and inserted warning or update callouts are common enough that they should be treated as an explicit editorial policy decision instead of incidental drift.
-- The second batch suggests the corruption pattern also affects technical identifiers and field names, not just HTML-like or JSX-like examples.
+- The second batch includes at least one baseline-sensitive identifier-spacing row where executable examples remained intact; those cases should stay `needs-review` unless source evidence proves copy-paste breakage.
 - The third batch confirms the problem extends to missing illustrative examples and malformed placeholder URLs, so the remaining queue should keep favoring posts that teach through snippets rather than prose alone.
 - The fourth and fifth batches show that many remaining code-heavy posts are structurally sound, so the tracker now needs stronger rules for separating harmless code-node exposure from true source corruption before marking a row as `fail`.
 - The sixth batch confirms that `fail` status should require both local corruption and a trustworthy baseline. When the live page already mangles a token, the row should stay `needs-review` until the original export or upstream source confirms the intended text.
 - The seventh batch confirms that prose-embedded operational examples such as mailto links, placeholder URLs, and promised import snippets need the same scrutiny as fenced code blocks because they can still become reader-visible defects.
 - The eighth batch closes the remaining code-heavy tranche and suggests the residual backlog is likely to produce fewer hard technical defects and more editorial or media-presentation review items.
+- Independent browser verification also showed that some nominally clean rows still expose literal markdown links or raw media URLs in the local article body, so visible link or media presentation drift should not remain `pass` without checking the rendered page.
 - The ninth batch confirms that the non-code-heavy backlog is presently dominated by title rewrites, explicit recap-link wording, and other medium-severity editorial drift rather than new technical corruption.
 - The tenth batch shows that prose-heavy pages can still hide hard failures when inline locale or plugin identifiers are corrupted, so non-code-heavy status alone is not a safe proxy for pass likelihood.
 - The eleventh batch confirms that escaped underscores in inline permission names, grant types, and cartridge identifiers remain an active defect pattern inside release-note prose, not just in code-heavy articles.
@@ -478,11 +479,11 @@ Added a thirteenth append-only audit batch covering the next AI, certification, 
 
 - Reviewed: 131 / 151
 - Remaining: 20 / 151
-- Pass: 52
-- Needs review: 55
-- Fail: 24
-- High severity: 24
-- Medium severity: 55
+- Pass: 59
+- Needs review: 61
+- Fail: 11
+- High severity: 11
+- Medium severity: 61
 - Low severity: 0
 
 ### Senior QA recommendations
@@ -531,11 +532,11 @@ Added a fourteenth append-only audit batch covering the next technical-reference
 
 - Reviewed: 141 / 151
 - Remaining: 10 / 151
-- Pass: 58
-- Needs review: 59
-- Fail: 24
-- High severity: 24
-- Medium severity: 59
+- Pass: 65
+- Needs review: 65
+- Fail: 11
+- High severity: 11
+- Medium severity: 65
 - Low severity: 0
 
 ### Senior QA recommendations
@@ -585,11 +586,11 @@ Added a fifteenth and final append-only audit batch covering the remaining refle
 
 - Reviewed: 151 / 151
 - Remaining: 0 / 151
-- Pass: 65
-- Needs review: 62
-- Fail: 24
-- High severity: 24
-- Medium severity: 62
+- Pass: 72
+- Needs review: 68
+- Fail: 11
+- High severity: 11
+- Medium severity: 68
 - Low severity: 0
 
 ### Senior QA recommendations
@@ -613,3 +614,260 @@ Added a fifteenth and final append-only audit batch covering the remaining refle
 - src/content/posts/trailblazerdx-2022-for-b2c-commerce/index.md
 - src/content/posts/what-can-i-use-chatgpt-for-when-working-with-salesforce/index.md
 - src/content/posts/what-skills-do-i-need-as-a-sfcc-architect/index.md
+
+
+## 2026-03-15 Correction Addendum: Classification Reconciliation
+
+### Change summary
+
+Reclassified one previously marked fail/high row to needs-review/medium after targeted evidence checks showed mixed signals and no confirmed executable-example breakage.
+
+### Why this changed
+
+The row-level evidence standard requires fail only when reader-facing technical tokens are reproducibly broken against a trustworthy baseline. Follow-up verification found one OCAPI row where canonical identifiers remained present in code examples, while spaced variants appeared in prose context.
+
+### Behavior details
+
+- Old behavior: RHI-AUD-021 was classified as fail/high with code_fidelity: fail.
+- New behavior: RHI-AUD-021 is now needs-review/medium with code_fidelity: pass and text_presentation: needs-review pending raw-export confirmation.
+
+### Impact
+
+- Cumulative totals changed to: Pass 60, Needs review 68, Fail 23, High 23, Medium 68, Low 0.
+- Severity boundary is unchanged: fail/high remains reserved for reproducible reader-facing token corruption.
+- Remediation sequencing impact: this row now routes through owner/source verification instead of immediate defect repair.
+
+### Verification
+
+1. Re-ran live-vs-local token checks for the candidate misclassification set.
+2. Verified mixed evidence in src/content/posts/unravelling-the-mystery-of-dates-in-the-ocapi/index.md:
+   - prose lines contain spaced variants (creation _date, valid _ from, valid _ to),
+   - code examples still preserve canonical fields (creation_date, valid_from, valid_to, to_value).
+3. Reconciled summary math from Batch 2 onward after reclassification.
+
+### Related files
+
+- migration/reports/phase-8-article-fidelity-audit.csv
+- migration/reports/phase-8-article-fidelity-audit-summary.csv
+- analysis/documentation/phase-8/article-fidelity-audit-2026-03-15.md
+- src/content/posts/unravelling-the-mystery-of-dates-in-the-ocapi/index.md
+
+
+## 2026-03-15 Correction Addendum: Presentation-Drift Reconciliation
+
+### Change summary
+
+Reclassified five previously marked `pass` rows to `needs-review` and `medium` after independent browser verification showed reader-visible presentation drift in the local article body.
+
+### Why this changed
+
+The earlier audit correctly prioritized token corruption, but a follow-up rendered-page check showed that several longform and editorial rows still surface literal markdown-link syntax or raw media URLs locally where the live article presents linked or embedded media more cleanly.
+
+### Behavior details
+
+- Old behavior: `RHI-AUD-012`, `RHI-AUD-056`, `RHI-AUD-059`, `RHI-AUD-072`, and `RHI-AUD-076` were classified as `pass` and `none`.
+- New behavior: those rows are now `needs-review` and `medium` because the article body remains semantically close to live, but the rendered local page introduces visible link or media presentation drift that a reader can see.
+
+### Impact
+
+- Cumulative totals changed to: Pass 60, Needs review 68, Fail 23, High 23, Medium 68, Low 0.
+- The severity boundary is unchanged: these rows do not show reproducible copy-paste-breaking token corruption, so they stay below `fail` and `high`.
+- Closeout scope is broader than previously stated because residual review now includes raw media-link exposure and literal markdown rendering, not only title shortening and scaffold-fixture handling.
+
+### Verification
+
+1. Re-ran live-vs-local DOM extraction across the full audit set to flag `pass` rows with visible markdown-link syntax, YouTube URLs, or raw media-file URLs in `section.article-body`.
+2. Confirmed in browser that the local render for `field-guide-to-custom-caches-in-sfcc` shows `[dw.system.CacheMgr](https://salesforcecommercecloud.github.io/...)` inline while the live page shows linked `dw.system.CacheMgr` text.
+3. Confirmed in browser or DOM extraction that `sitegenesis-vs-sfra-vs-pwa`, `everything-new-in-sfcc-23-4`, `events-and-the-golden-hoodie`, and `it-sure-has-been-quiet-on-this-blog` expose raw YouTube or media URLs in visible body flow that are not surfaced the same way on the live site.
+4. Reconciled the summary math after the five row reclassifications.
+
+### Related files
+
+- migration/reports/phase-8-article-fidelity-audit.csv
+- migration/reports/phase-8-article-fidelity-audit-summary.csv
+- analysis/documentation/phase-8/article-fidelity-audit-2026-03-15.md
+- src/content/posts/field-guide-to-custom-caches-in-sfcc/index.md
+- src/content/posts/sitegenesis-vs-sfra-vs-pwa/index.md
+- src/content/posts/everything-new-in-sfcc-23-4/index.md
+- src/content/posts/events-and-the-golden-hoodie/index.md
+- src/content/posts/it-sure-has-been-quiet-on-this-blog/index.md
+
+
+## 2026-03-15 Remediation Addendum: First Resolved Fail Batch
+
+### Change summary
+
+Resolved the first three high-severity article defects in source content and verified the repaired local pages directly against the current live site.
+
+### Why this changed
+
+These rows were the highest-confidence fail cases in the opening tranche: they involved broken code placeholders, a missing ISML declaration, and JSX examples that no longer matched the live instructional content.
+
+### Behavior details
+
+- Old behavior: `RHI-AUD-002`, `RHI-AUD-004`, and `RHI-AUD-005` were tracked as `fail` and `high` because the local articles dropped critical code tokens or changed example semantics.
+- New behavior: all three rows are now `pass` and `none` because the local source and rendered pages were repaired to match the live title and code examples on the currently published site.
+
+### Impact
+
+- Cumulative totals changed to: Pass 65, Needs review 68, Fail 18, High 18, Medium 68, Low 0.
+- The remaining hard-fail backlog is smaller and more concentrated in unresolved technical-token corruption rather than the first-wave tutorial examples.
+
+### Verification
+
+1. Re-fetched the live and local `how-to-set-up-the-ecdn-in-sfcc-staging` page and confirmed matching H1 plus restored `<tenantID>`, `<client-id>:<client-secret>`, and escaped `domainName` JSON placeholders.
+2. Re-fetched the live and local `mail-attachments-in-b2c-commerce-cloud` page and confirmed the first template block now includes the leading `<iscontent type="multipart/mixed; boundary=001a113414f6401b8604f1451630" compact="false" charset="ISO-8859-1">` line.
+3. Re-fetched the live and local `guide-to-the-getprops-method-in-sfcc` page and confirmed the restored live title plus the JSX examples `<h1>{name}</h1>` and `<h1>{name ?? 'My fallback'}</h1>`.
+4. Reconciled the article tracker and summary rollups after marking the three rows resolved.
+
+### Related files
+
+- migration/reports/phase-8-article-fidelity-audit.csv
+- migration/reports/phase-8-article-fidelity-audit-summary.csv
+- analysis/documentation/phase-8/article-fidelity-audit-2026-03-15.md
+- src/content/posts/how-to-set-up-the-ecdn-in-sfcc-staging/index.md
+- src/content/posts/mail-attachments-in-b2c-commerce-cloud/index.md
+- src/content/posts/guide-to-the-getprops-method-in-sfcc/index.md
+
+
+## 2026-03-15 Remediation Addendum: Second Resolved Fail Batch
+
+### Change summary
+
+Resolved two more high-severity article defects in the original first batch and verified the repaired local pages directly against the current live site.
+
+### Why this changed
+
+These rows were straightforward copy-level corruption cases: one malformed naked-domain example and one pair of broken query-string samples. Both could be repaired directly from the live article without ambiguity.
+
+### Behavior details
+
+- Old behavior: `RHI-AUD-011` and `RHI-AUD-013` were tracked as `fail` and `high` because the local articles rendered broken URL examples.
+- New behavior: both rows are now `pass` and `none` because the local source and rendered pages now match the live title and technical examples on the published site.
+
+### Impact
+
+- Cumulative totals changed to: Pass 65, Needs review 68, Fail 18, High 18, Medium 68, Low 0.
+- Batch 1 now contains no remaining high-severity failures; the unresolved hard-fail queue begins later in the code-heavy backlog.
+
+### Verification
+
+1. Re-fetched the live and local `lets-go-live-ecdn` page and confirmed the restored sentence `With a naked domain we mean https://mybrand.com (without the www).` plus matching `Let’s GO-LIVE: eCDN` H1 punctuation.
+2. Re-fetched the live and local `sfcc-url-cracking-the-code` page and confirmed both example URLs now contain `param1=value1&param2=value2`, with the broken `¶m2` form absent locally.
+3. Reconciled the article tracker and summary rollups after marking the two rows resolved.
+
+### Related files
+
+- migration/reports/phase-8-article-fidelity-audit.csv
+- migration/reports/phase-8-article-fidelity-audit-summary.csv
+- analysis/documentation/phase-8/article-fidelity-audit-2026-03-15.md
+- src/content/posts/lets-go-live-ecdn/index.md
+- src/content/posts/sfcc-url-cracking-the-code/index.md
+
+
+## 2026-03-15 Remediation Addendum: Third Resolved Fail Batch
+
+### Change summary
+
+Resolved two additional release-note token-corruption rows and verified the repaired local pages against the current live site.
+
+### Why this changed
+
+These rows were both token-level repairs with trustworthy live baselines: one SCAPI error/response-header example and one cartridge heading identifier.
+
+### Behavior details
+
+- Old behavior: `RHI-AUD-051` and `RHI-AUD-055` were tracked as `fail` and `high` because the local articles corrupted reader-visible identifiers in release-note examples.
+- New behavior: both rows are now `pass` and `none` because the local source and rendered pages restore the live tokens without introducing further drift.
+
+### Impact
+
+- Cumulative totals changed to: Pass 67, Needs review 68, Fail 16, High 16, Medium 68, Low 0.
+- The remaining fail queue is now smaller and more concentrated in content-loss rows and multi-token corruption rather than isolated single-token release-note defects.
+
+### Verification
+
+1. Re-fetched the live and local `getting-to-know-the-sfcc-24-4-release` page and confirmed the restored rogue-query example with `<value>` and `<GroupID>_<Instance>` plus the corrected `sfdc_customization_error` header token.
+2. Re-fetched the live and local `salesforce-b2c-commerce-cloud-22-9-release` page and confirmed `link_beecloud_recaptcha (v2022.1.0)` with the broken spaced variant removed locally.
+3. Reconciled the article tracker and summary rollups after marking the two rows resolved.
+
+### Related files
+
+- migration/reports/phase-8-article-fidelity-audit.csv
+- migration/reports/phase-8-article-fidelity-audit-summary.csv
+- analysis/documentation/phase-8/article-fidelity-audit-2026-03-15.md
+- src/content/posts/getting-to-know-the-sfcc-24-4-release/index.md
+- src/content/posts/salesforce-b2c-commerce-cloud-22-9-release/index.md
+
+
+## 2026-03-15 Remediation Addendum: Fourth Resolved Fail Batch
+
+### Change summary
+
+Resolved the next three fail/high rows in queue order by restoring one missing storefront script example, one malformed placeholder URL, and one pair of flattened XML/XSD snippets.
+
+### Why this changed
+
+These rows were the next high-confidence fail cases in the code-heavy backlog and all had trustworthy live baselines that allowed direct restoration without owner-policy decisions.
+
+### Behavior details
+
+- Old behavior: `RHI-AUD-027`, `RHI-AUD-029`, and `RHI-AUD-035` were tracked as `fail` and `high` because the local articles either dropped technical examples entirely or rendered placeholder content that was no longer copy-safe.
+- New behavior: all three rows are now `pass` and `none` because the local source and rendered pages restore the same technical examples shown on the live site.
+
+### Impact
+
+- Cumulative totals changed to: Pass 70, Needs review 68, Fail 13, High 13, Medium 68, Low 0.
+- Batch 3 now has no remaining high-severity failures; the unresolved fail queue resumes later in batch 4 with the remaining XML and ISML content-loss rows.
+
+### Verification
+
+1. Re-fetched the live and local `how-to-extend-active-data-in-salesforce-b2c-commerce-cloud` page and confirmed the restored storefront script example containing `<script type="text/javascript">` and `dw.ac._capture({id: "5024501", type: "detail"});`.
+2. Re-fetched the live and local `how-to-set-up-slas-for-the-composable-storefront` page and confirmed the Step 2 sentence now shows `https://{{Short_Code}}.api.commercecloud.salesforce.com/shopper/auth-admin/v1/sso/login`.
+3. Re-fetched the live and local `salesforce-b2c-commerce-cloud-22-8` page and confirmed the restored `<xsd:element name="customer-payment-profiles" ...>` block plus the `complexType.CustomerPaymentProfile` block with `account-id`, `account-type`, and `account-customer-id` attributes.
+4. Reconciled the article tracker and summary rollups after marking the three rows resolved.
+
+### Related files
+
+- migration/reports/phase-8-article-fidelity-audit.csv
+- migration/reports/phase-8-article-fidelity-audit-summary.csv
+- analysis/documentation/phase-8/article-fidelity-audit-2026-03-15.md
+- src/content/posts/how-to-extend-active-data-in-salesforce-b2c-commerce-cloud/index.md
+- src/content/posts/how-to-set-up-slas-for-the-composable-storefront/index.md
+- src/content/posts/salesforce-b2c-commerce-cloud-22-8/index.md
+
+
+## 2026-03-15 Remediation Addendum: Fifth Resolved Fail Batch
+
+### Change summary
+
+Resolved the next two fail/high rows in queue order by restoring the lost local/shared variation-attribute XML examples and the truncated SFRA asset-loading ISML examples.
+
+### Why this changed
+
+These were the remaining batch-4 hard-fail rows after the prior 22.8 XML repair. Both had trustworthy live baselines and were blocked by content loss rather than editorial ambiguity.
+
+### Behavior details
+
+- Old behavior: `RHI-AUD-037` and `RHI-AUD-039` were tracked as `fail` and `high` because the local articles either lost their XML examples almost entirely or kept only an isolated ISML fragment instead of the full instructional snippets.
+- New behavior: both rows are now `pass` and `none` because the local source and rendered pages restore the same XML and ISML example families shown on the live site.
+
+### Impact
+
+- Cumulative totals changed to: Pass 72, Needs review 68, Fail 11, High 11, Medium 68, Low 0.
+- Batch 4 now has no remaining high-severity failures; the unresolved fail queue begins later in the code-heavy backlog.
+
+### Verification
+
+1. Re-fetched the live and local `local-vs-shared-variation-attributes-sfcc` page and confirmed the restored local XML example beginning with `<?xml version="1.0" encoding="UTF-8"?>` plus the shared example containing `shared-variation-attribute` references and the final `custom-attribute attribute-id="size">18</custom-attribute>` mapping.
+2. Re-fetched the live and local `how-to-load-client-side-javascript-and-css-in-sfra` page and confirmed the restored styles loop, `//common/scripts.isml` block, and final `<isdecorate template="common/layout/page">` example.
+3. Reconciled the article tracker and summary rollups after marking the two rows resolved.
+4. Stopped at the planned checkpoint boundary after `RHI-AUD-039`.
+
+### Related files
+
+- migration/reports/phase-8-article-fidelity-audit.csv
+- migration/reports/phase-8-article-fidelity-audit-summary.csv
+- analysis/documentation/phase-8/article-fidelity-audit-2026-03-15.md
+- src/content/posts/local-vs-shared-variation-attributes-sfcc/index.md
+- src/content/posts/how-to-load-client-side-javascript-and-css-in-sfra/index.md

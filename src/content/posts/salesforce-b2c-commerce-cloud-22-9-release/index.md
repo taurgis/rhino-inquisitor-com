@@ -106,7 +106,7 @@ In August, someone at Salesforce has been cleaning house at the "[Known Issues](
 - adds runAsScript method to execution migration scripts directly by [@clavery](https://github.com/clavery) in [#80](https://github.com/SalesforceCommerceCloud/b2c-tools/pull/80)
 - see `examples/run-current-file.js`
 
-### link\_beecloud\_ recaptcha (v2022.1.0)
+### link\_beecloud\_recaptcha (v2022.1.0)
 
 - [https://github.com/SalesforceCommerceCloud/link\_beecloud\_recaptcha](https://github.com/SalesforceCommerceCloud/link_beecloud_recaptcha)
 

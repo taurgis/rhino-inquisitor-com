@@ -47,13 +47,28 @@ The "[htmlHead.isml](https://github.com/SalesforceCommerceCloud/storefront-refer
 
 This code is responsible for loading all the fancy styles that are present in that array we talked about earlier.
 
-```text
-integrity="${style.integrity}" crossorigin="anonymous" />
+```html
+<isloop items="${ require('*/cartridge/scripts/assets.js').styles }" var="style">
+  <link rel="stylesheet" href="${style.src}" <isif condition="${style.integrity != null}">integrity="${style.integrity}" crossorigin="anonymous"</isif> />
+</isloop>
 ```
 
 #### JavaScript
 
 Like styles, you can also load JavaScript files into your SFRA project using ISML. The main difference is that you'll be using the [scripts.isml](https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/blob/master/cartridges/app_storefront_base/cartridge/templates/default/common/scripts.isml) template instead of htmlHead.isml. And if you want to see the big picture, you can check out the "[page.isml](https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/blob/master/cartridges/app_storefront_base/cartridge/templates/default/common/layout/page.isml#L32)" file, which is the highest-level ISML file used in SFRA.
+
+```html
+<script>//common/scripts.isml</script>
+<script defer type="text/javascript" src="${URLUtils.staticURL('/js/main.js')}">
+</script>
+<isloop items="${ require('*/cartridge/scripts/assets.js').scripts }" var="script">
+  <isif condition="${script.integrity != null}">
+    <script defer type="text/javascript" integrity="${script.integrity}" crossorigin="anonymous" src="${script.src}"></script>
+  <iselse>
+    <script defer type="text/javascript" src="${script.src}"></script>
+  </isif>
+</isloop>
+```
 
 ## It doesn't work! Why
 
@@ -82,6 +97,12 @@ If you need to render a small component or a unique page type that isn't like th
 Without the ISML templates we mentioned earlier, there's no way for the CSS and JS files to be rendered in HTML. Keep that in mind.
 
 As a reference, here is how a controller template in SFRA is usually "decorated", which includes our "assets.js" templates:
+
+```html
+<isdecorate template="common/layout/page">
+  <!-- The template between the header and footer --->
+</isdecorate>
+```
 
 ## Conclusion
 

@@ -35,8 +35,14 @@ When looking at "out-of-the-box" data gathering, we mean all data gathered by an
 
 The data collection happens either by client-side tracking (JavaScript - e.g. [`<isobject>`](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/active_merchandising/b2c_add_isobject_tags.html)) for information such as product views or server-side events such as placing orders.
 
-```text
+```html
 // Example of the client-side generated scripts
+<script type="text/javascript"><!--
+/* <![CDATA[ (viewProduct-active_data.js) */
+dw.ac._capture({id: "5024501", type: "detail"});
+/* ]]> */
+// -->
+</script>
 ```
 
 PWA Kit / Headless SiteGenesis and SFRA make use of `<isactivedatahead>`, `<isactivedataconext>`, and `<isobject>` tags to insert JavaScript client side to take care of the tracking of information. This is not the case for the PWA Kit or custom headless implementations! A custom implementation will be needed to add support for some of these "standard" Active Data fields again.

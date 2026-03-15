@@ -1,5 +1,5 @@
 ---
-title: Using getProps in PWA Kit
+title: A Developer’s Guide to Using the getProps Method in the PWA Kit
 description: >-
   Learn how the getProps method works in PWA Kit, what data it exposes, and when
   it helps with faster, cleaner storefront code.
@@ -85,7 +85,7 @@ export const OuterApp = ({routes, error, WrappedApp, locals}) => {
 
 ```js
 const ProductDetails = ({name}) => (
-  {name}
+  <h1>{name}</h1>
 )
 ProductDetails.getProps = async () => {
   const response = await fetch(`https://httpbin.org/status/404`)
@@ -185,7 +185,7 @@ You should also write conditional code in your components to handle undefined pr
 
 ```js
 const ProductDetails = ({name}) => (
-  {name ?? 'My fallback'}
+  <h1>{name ?? 'My fallback'}</h1>
 )
 ProductDetails.getProps = async ({params}) => {
   const response = await fetch(`https://api.example.com/products/${params.productId}`)
@@ -200,7 +200,7 @@ Just like in SiteGenesis or SFRA it is possible to cache the server-side respons
 
 ```js
 const ProductDetails = ({name}) => (
-  {name ?? 'My fallback'}
+  <h1>{name ?? 'My fallback'}</h1>
 )
 ProductDetails.getProps = async ({params, res}) => {
     const response = await fetch(`https://api.example.com/products/${params.productId}`)

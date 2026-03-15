@@ -84,16 +84,47 @@ The customer import ([customer.xsd](https://documentation.b2c.commercecloud.sale
 
 **Note:** This information points to where the data is, not the actual data.
 
-```text
-This element is for use with Salesforce Payments to track references of customer profiles between systems.
+```xml
+<xsd:element name="customer-payment-profiles" type="complexType.CustomerPaymentProfiles" minOccurs="0" maxOccurs="1">
+  <xsd:annotation>
+    <xsd:documentation>This element is for use with Salesforce Payments to track references of customer profiles between systems.</xsd:documentation>
+  </xsd:annotation>
+</xsd:element>
 ```
 
-```text
-The ID of the payment account used to create the customer payment profile.
+```xml
+<xsd:complexType name="complexType.CustomerPaymentProfiles" mixed="false">
+  <xsd:sequence>
+    <xsd:element name="customer-payment-profile" type="complexType.CustomerPaymentProfile" minOccurs="0" maxOccurs="unbounded" />
+  </xsd:sequence>
+</xsd:complexType>
 
-The type of the payment account used to create the customer payment profile.
-
-The ID of the customer payment profile in the payment account.
+<xsd:complexType name="complexType.CustomerPaymentProfile" mixed="false">
+  <xsd:sequence>
+    <xsd:element name="creation-date" type="xsd:dateTime" minOccurs="0" maxOccurs="1" />
+  </xsd:sequence>
+  <xsd:attribute name="account-id" type="simpleType.Generic.NonEmptyString.256" use="required">
+    <xsd:annotation>
+      <xsd:documentation>
+        The ID of the payment account used to create the customer payment profile.
+      </xsd:documentation>
+    </xsd:annotation>
+  </xsd:attribute>
+  <xsd:attribute name="account-type" type="simpleType.PaymentAccountType" use="required">
+    <xsd:annotation>
+      <xsd:documentation>
+        The type of the payment account used to create the customer payment profile.
+      </xsd:documentation>
+    </xsd:annotation>
+  </xsd:attribute>
+  <xsd:attribute name="account-customer-id" type="simpleType.Generic.String.256" use="required">
+    <xsd:annotation>
+      <xsd:documentation>
+        The ID of the customer payment profile in the payment account.
+      </xsd:documentation>
+    </xsd:annotation>
+  </xsd:attribute>
+</xsd:complexType>
 ```
 
 ### Verify Hostname Ownership
