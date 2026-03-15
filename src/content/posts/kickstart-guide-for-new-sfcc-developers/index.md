@@ -1,5 +1,5 @@
 ---
-title: Kickstart Guide for New SFCC Developers
+title: The Kickstart Guide for New Salesforce B2C Commerce Developers
 description: >-
   An interactive guide for new SFCC developers covering storefront patterns,
   platform concepts, and practical next steps for hands-on learning.
@@ -100,17 +100,17 @@ The **cartridge path** is arguably the most important and unique concept in SFCC
 
 In Business Manager, under `Administration > Sites > Manage Sites > Settings`, you define a colon-separated list of cartridge names. A typical path looks like this:
 
-`app _custom _ mybrand:plugin_payment:app _ storefront_base`
+`app_custom_mybrand:plugin_payment:app_storefront_base`
 
 When a request comes in for a specific [controller](https://beeit.io/blog/getting-started-with-controllers-models-and-decorators-sfcc) or template (e.g., `Cart-Show`), the system searches for that resource from **left to right** in the cartridge path.
 
-1. It first looks in `app _custom_ mybrand`. If it finds a `Cart.js` controller, it uses that one and stops searching.
+1. It first looks in `app_custom_mybrand`. If it finds a `Cart.js` controller, it uses that one and stops searching.
 
 1. If not found, it looks in `plugin_payment`.
 
-1. If it's still not found, it finally looks in the base cartridge, `app _storefront_ base`.
+1. If it's still not found, it finally looks in the base cartridge, `app_storefront_base`.
 
-This is how you customize the storefront. You never modify `app _storefront _ base` directly. Instead, you create a new controller or template with the same name in your custom cartridge (`app_custom_ mybrand`), and it will automatically override the base version.
+This is how you customize the storefront. You never modify `app_storefront_base` directly. Instead, you create a new controller or template with the same name in your custom cartridge (`app_custom_mybrand`), and it will automatically override the base version.
 
 But what if you don't want to completely replace a controller, but just add some logic before or after it runs? For this, [SFRA provides](https://developer.salesforce.com/docs/commerce/sfra/guide/b2c-sfra-modules.html) the `superModule`. By requiring `superModule` in your custom controller, you can use `server.prepend()` to execute code _before _ the base controller's route, `server.append()` to execute code _ after_, or `server.replace()` to override it completely.
 

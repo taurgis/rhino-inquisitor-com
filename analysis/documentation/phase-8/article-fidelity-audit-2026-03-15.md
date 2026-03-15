@@ -225,13 +225,13 @@ Examples:
 
 - Reviewed: `151 / 151` posts
 - Remaining: `0 / 151` posts
-- Pass: `72`
+- Pass: `75`
 - Needs review: `68`
-- Fail: `11`
+- Fail: `8`
 
 ### Severity summary
 
-- High: `11`
+- High: `8`
 - Medium: `68`
 - Low: `0`
 
@@ -479,10 +479,10 @@ Added a thirteenth append-only audit batch covering the next AI, certification, 
 
 - Reviewed: 131 / 151
 - Remaining: 20 / 151
-- Pass: 59
+- Pass: 62
 - Needs review: 61
-- Fail: 11
-- High severity: 11
+- Fail: 8
+- High severity: 8
 - Medium severity: 61
 - Low severity: 0
 
@@ -532,10 +532,10 @@ Added a fourteenth append-only audit batch covering the next technical-reference
 
 - Reviewed: 141 / 151
 - Remaining: 10 / 151
-- Pass: 65
+- Pass: 68
 - Needs review: 65
-- Fail: 11
-- High severity: 11
+- Fail: 8
+- High severity: 8
 - Medium severity: 65
 - Low severity: 0
 
@@ -586,10 +586,10 @@ Added a fifteenth and final append-only audit batch covering the remaining refle
 
 - Reviewed: 151 / 151
 - Remaining: 0 / 151
-- Pass: 72
+- Pass: 75
 - Needs review: 68
-- Fail: 11
-- High severity: 11
+- Fail: 8
+- High severity: 8
 - Medium severity: 68
 - Low severity: 0
 
@@ -871,3 +871,41 @@ These were the remaining batch-4 hard-fail rows after the prior 22.8 XML repair.
 - analysis/documentation/phase-8/article-fidelity-audit-2026-03-15.md
 - src/content/posts/local-vs-shared-variation-attributes-sfcc/index.md
 - src/content/posts/how-to-load-client-side-javascript-and-css-in-sfra/index.md
+
+
+## 2026-03-15 Remediation Addendum: Sixth Resolved Fail Batch
+
+### Change summary
+
+Resolved the first batch-6 fail/high cluster by restoring the cartridge-path examples in the SFCC developer kickstart guide, the 23.8 release-note API identifiers, and the sitemap filename examples in the sitemap guide.
+
+### Why this changed
+
+These three rows shared the same underlying failure mode: escaped underscores and stray spaces made reader-facing technical identifiers unsafe to copy. Two of the three rows also carried a shortened H1 that could be restored directly from the live baseline.
+
+### Behavior details
+
+- Old behavior: `RHI-AUD-052`, `RHI-AUD-058`, and `RHI-AUD-060` were tracked as `fail` and `high` because technical identifiers such as cartridge paths, API attributes, endpoint tokens, and sitemap filenames were corrupted, and the two mixed rows also shortened the live H1.
+- New behavior: all three rows are now `pass` and `none` because the local source and rendered pages restore the live technical identifiers, and the mixed rows once again use the live H1 text.
+
+### Impact
+
+- Cumulative totals changed to: Pass 75, Needs review 68, Fail 8, High 8, Medium 68, Low 0.
+- Batch 6 now has no remaining high-severity failures; the unresolved fail queue resumes in batch 7 with content-loss and mailto/URL placeholder defects.
+
+### Verification
+
+1. Re-fetched the live and local `kickstart-guide-for-new-sfcc-developers` page and confirmed `app_custom_mybrand:plugin_payment:app_storefront_base`, `app_custom_mybrand`, `app_storefront_base`, and the live H1 `The Kickstart Guide for New Salesforce B2C Commerce Developers`.
+2. Re-fetched the live and local `what-is-new-in-the-23-8-commerce-cloud-release` page and confirmed `allow_cookies`, `projects_target_partial_update`, and `/product_inventory_records/{product_id}` in the affected release-note excerpts.
+3. Re-fetched the live and local `mastering-sitemaps-in-sfcc` page and confirmed `sitemap_index.xml`, `sitemap_0.xml`, `pwa-custom.xml`, `/sitemap_index.xml`, and the live H1 `Mastering Sitemaps in Salesforce B2C Commerce: A Developer’s Guide`.
+4. Fixed and revalidated a Hugo front matter regression caused by the colon in the restored sitemap title before closing the slice.
+5. Reconciled the article tracker and summary rollups after marking the three rows resolved.
+
+### Related files
+
+- migration/reports/phase-8-article-fidelity-audit.csv
+- migration/reports/phase-8-article-fidelity-audit-summary.csv
+- analysis/documentation/phase-8/article-fidelity-audit-2026-03-15.md
+- src/content/posts/kickstart-guide-for-new-sfcc-developers/index.md
+- src/content/posts/what-is-new-in-the-23-8-commerce-cloud-release/index.md
+- src/content/posts/mastering-sitemaps-in-sfcc/index.md

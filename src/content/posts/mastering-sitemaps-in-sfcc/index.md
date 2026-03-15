@@ -1,5 +1,5 @@
 ---
-title: Mastering Sitemaps in SFCC
+title: 'Mastering Sitemaps in Salesforce B2C Commerce: A Developer’s Guide'
 description: >-
   Learn how sitemaps work in Salesforce B2C Commerce Cloud, how to configure
   them correctly, and what developers should monitor for SEO.
@@ -32,7 +32,7 @@ This guide will walk you through everything you need to know, from leveraging th
 
 Think of the standard SFCC sitemap [generator](https://help.salesforce.com/s/articleView?id=cc.b2c_sitemap_topology.htm&language=de&type=5) as the "easy button" that handles 80% of the work for you. For massive e-commerce sites with millions of URLs, this is a lifesaver.
 
-At its core, the platform cleverly sidesteps search engine limitations, like the 50,000 URL or 10MB file size cap, by creating a two-tiered system. It generates a main sitemap\_index.xml file, which is the only URL you need to give to Google. This index file then points to a series of child sitemaps (sitemap\_ 0.xml, sitemap\_1.xml, etc.) that contain the actual URLs.
+At its core, the platform cleverly sidesteps search engine limitations, like the 50,000 URL or 10MB file size cap, by creating a two-tiered system. It generates a main sitemap_index.xml file, which is the only URL you need to give to Google. This index file then points to a series of child sitemaps (sitemap_0.xml, sitemap_1.xml, etc.) that contain the actual URLs.
 
 You control all of this from the Business Manager: Merchant Tools > SEO > Sitemaps.
 
@@ -103,8 +103,8 @@ Instead, you use the backend's power and bridge the gap.
 
 1. **Configure the Hostname Alias:** This is the most critical step. In Business Manager (Merchant Tools > SEO > Aliases), you must create an alias that exactly matches your PWA Kit's live domain (e.g., `<www.your-pwa.com>`). This ensures the backend generates URLs with the correct domain.
 1. **Generate in Business Manager:** Use the standard job you've already configured.
-1. **Update robots.txt:** In your PWA Kit project's code, add the Sitemap directive to your robots.txt file, pointing to the full URL of the sitemap index (e.g., Sitemap: `<https://www.your-pwa.com/sitemap\_index.xml>`).
-1. **Proxy the Request:** Your PWA Kit app needs to handle requests for the sitemap. You can add a rule to your server-side rendering logic (often in app/ssr.js) to proxy requests for /sitemap\_index.xml and its children to the SFCC backend where the files actually live. Or use the [eCDN for this job!](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/ecdn-rules-for-phased-headless-rollout.html)
+1. **Update robots.txt:** In your PWA Kit project's code, add the Sitemap directive to your robots.txt file, pointing to the full URL of the sitemap index (e.g., Sitemap: `<https://www.your-pwa.com/sitemap_index.xml>`).
+1. **Proxy the Request:** Your PWA Kit app needs to handle requests for the sitemap. You can add a rule to your server-side rendering logic (often in app/ssr.js) to proxy requests for /sitemap_index.xml and its children to the SFCC backend where the files actually live. Or use the [eCDN for this job!](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/ecdn-rules-for-phased-headless-rollout.html)
 
 ### The Hybrid Approach for PWA-Only Routes
 

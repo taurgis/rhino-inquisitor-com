@@ -35,7 +35,7 @@ Let's take a look!
 
 > The latest release of the PWA Kit now allows for the conditional enabling of cookies within Managed Runtime. Previously, cookies were not allowed on SSR requests, optimising performance but limited use cases where cookie data was required.
 > With this new functionality, you can enable cookies per environment and modify their application logic and response via ssr.js. This means that after a customer logs in, the experience can be altered by setting the cache control header to private and leveraging the cookie on the response.
-> To enable cookies, set the allow\_cookies attribute on an environment with the projects\_ target\_partial\_ update endpoint and use PWA Kit version 3.1.0 or greater.
+> To enable cookies, set the allow_cookies attribute on an environment with the projects_target_partial_update endpoint and use PWA Kit version 3.1.0 or greater.
 
 With this new update, we get more flexibility to support use cases! It is crucial, however, to think about performance, as this can potentially **lower your cache-hit ratio**!
 
@@ -45,7 +45,7 @@ With this new update, we get more flexibility to support use cases! It is crucia
 
 ### Get Accurate Allocation Amounts with a Null Allocation Payload
 
-> PATCH and PUT /product\_inventory\_ records/{product\_id} now supports a null allocation payload while keeping accurate account of product allocation amounts and allocation reset date. Previously, sending a Patch or Put call to set a custom inventory record attribute using a null allocation payload resulted in an invalid reset date.
+> PATCH and PUT /product_inventory_records/{product_id} now supports a null allocation payload while keeping accurate account of product allocation amounts and allocation reset date. Previously, sending a Patch or Put call to set a custom inventory record attribute using a null allocation payload resulted in an invalid reset date.
 
 Salesforce has implemented a bugfix in the [Inventory API](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-data-api?meta=Update%2BProduct%2BInventory%2BRecord) to ensure that the allocation reset date remains in a valid state and does not become invalid. There is not much else to report about this update.
 
