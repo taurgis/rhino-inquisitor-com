@@ -16,12 +16,18 @@ tags:
   - sfcc
   - sfra
 author: Thomas Theunen
+video:
+  provider: youtube
+  id: qeyqm19m820
+  title: 'B2C Commerce Cloud Introduction'
 takeaways:
   - "Introduces B2C Commerce Cloud through its history, core capabilities, and distinct place inside the wider Salesforce ecosystem"
   - "Explains the platform's major tech-stack transitions from pipelines to controllers to composable storefront development"
   - "Gives newcomers a practical overview of APIs, local setup, and the main architectural choices they will encounter"
 ---
-[B2C Commerce Cloud introduction session recording](https://www.youtube.com/watch?v=qeyqm19m820) AI Summary Here’s a summary of the presentation created by AI. (With a little course correction help from me)
+{{< video-embed id="qeyqm19m820" title="B2C Commerce Cloud Introduction" >}}
+
+AI Summary: Here’s a summary of the presentation created by AI. (With a little course correction help from me)
 
 Join me as we delve into the world of B2C Commerce cloud, its history, tech stacks, and the shift towards headless architecture. In this insightful session, learn about the evolution, development languages, APIs, and setting up a composable storefront.
 

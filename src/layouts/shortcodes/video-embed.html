@@ -1,0 +1,26 @@
+{{- $provider := .Get "provider" | default "youtube" -}}
+{{- $id := .Get "id" -}}
+{{- $title := .Get "title" | default (.Page.Title | plainify) -}}
+{{- if not $id -}}
+  {{- errorf "video-embed shortcode requires an id: %s" .Position -}}
+{{- end -}}
+{{- if ne $provider "youtube" -}}
+  {{- errorf "video-embed shortcode only supports the youtube provider: %s" .Position -}}
+{{- end -}}
+{{- $embedURL := printf "https://www.youtube-nocookie.com/embed/%s?rel=0" $id -}}
+{{- $watchURL := printf "https://www.youtube.com/watch?v=%s" $id -}}
+<figure class="video-embed">
+  <div class="video-embed__frame">
+    <iframe
+      src="{{ $embedURL }}"
+      title="{{ $title }}"
+      loading="lazy"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
+  </div>
+  <figcaption>
+    <a href="{{ $watchURL }}">Watch on YouTube</a>
+  </figcaption>
+</figure>

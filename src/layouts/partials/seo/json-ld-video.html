@@ -1,0 +1,26 @@
+{{ $video := .Params.video | default dict }}
+{{ $videoID := index $video "id" }}
+{{ if $videoID }}
+  {{ $seo := partial "seo/resolve.html" . }}
+  {{ $title := index $video "title" | default .Title }}
+  {{ $description := index $video "description" | default $seo.description }}
+  {{ $thumbnail := index $video "thumbnailUrl" | default $seo.image }}
+  {{ $uploadDate := .Date.Format "2006-01-02T15:04:05Z07:00" }}
+  {{ with index $video "uploadDate" }}
+    {{ $uploadDate = . }}
+  {{ end }}
+  {{ $watchURL := printf "https://www.youtube.com/watch?v=%s" $videoID }}
+  {{ $embedURL := printf "https://www.youtube-nocookie.com/embed/%s?rel=0" $videoID }}
+  {{ $schema := dict
+    "@context" "https://schema.org"
+    "@type" "VideoObject"
+    "name" $title
+    "description" $description
+    "thumbnailUrl" $thumbnail
+    "uploadDate" $uploadDate
+    "embedUrl" $embedURL
+    "contentUrl" $watchURL
+    "url" $seo.canonical
+  }}
+  <script type="application/ld+json">{{ $schema | jsonify | safeJS }}</script>
+{{ end }}

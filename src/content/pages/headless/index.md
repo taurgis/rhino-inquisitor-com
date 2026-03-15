@@ -1,8 +1,8 @@
 ---
 title: Headless
 description: >-
-  https://www.youtube.com/watch?v=BTS6OqwMiK4 If your organization is looking
-  for a way to improve its online presence and connect with more customers,
+  If your organization is looking for a way to improve its online presence and
+  connect with more customers, Headless may be a good fit.
 date: '2022-09-11T08:06:14.000Z'
 lastmod: '2022-09-11T08:23:01.000Z'
 url: /headless/
@@ -12,8 +12,12 @@ categories:
   - Podcasts
   - Video
 author: Thomas Theunen
+video:
+  provider: youtube
+  id: BTS6OqwMiK4
+  title: 'FORWARD TV - EP3: Headless'
 ---
-<https://www.youtube.com/watch?v=BTS6OqwMiK4>
+{{< video-embed id="BTS6OqwMiK4" title="FORWARD TV - EP3: Headless" >}}
 
 If your organization is looking for a way to improve its online presence and connect with more customers, Headless may be a good fit. Headless can help you create a more modern and responsive website and enhance customer engagement and conversions.
 

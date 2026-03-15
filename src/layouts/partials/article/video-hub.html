@@ -1,0 +1,112 @@
+{{- $page := . -}}
+{{- $playlist := $page.Params.playlist | default (slice) -}}
+{{- if gt (len $playlist) 0 -}}
+  {{- $active := index $playlist 0 -}}
+  {{- $activeSlug := index $active "slug" | default (index $active "videoId") -}}
+  {{- $activeTitle := index $active "title" | default $page.Title -}}
+  {{- $activePlayerTitle := index $active "playerTitle" | default $activeTitle -}}
+  {{- $activeDescription := index $active "description" | default "" -}}
+  {{- $activeDuration := index $active "duration" | default "" -}}
+  {{- $activeVideoId := index $active "videoId" -}}
+  {{- $activeWatchUrl := printf "https://www.youtube.com/watch?v=%s" $activeVideoId -}}
+  {{- $activeEmbedUrl := printf "https://www.youtube-nocookie.com/embed/%s?rel=0" $activeVideoId -}}
+  {{- $activePageUrl := index $active "pageUrl" | default "" -}}
+  <section class="video-hub" data-rhino-video-hub data-video-default="{{ $activeSlug }}">
+    <div class="video-hub__header">
+      <div>
+        <p class="eyebrow">Playlist</p>
+        <h2>Watch on this page</h2>
+        <p class="video-hub__intro">Choose a session or podcast and the player below updates in place.</p>
+      </div>
+      <p class="surface-note">{{ len $playlist }} videos</p>
+    </div>
+
+    <section class="video-hub__current" aria-labelledby="video-hub-now-watching" data-video-player-card tabindex="-1">
+      <div class="video-hub__current-copy">
+        <p class="eyebrow">Now watching</p>
+        <h3 id="video-hub-now-watching" data-video-heading>{{ $activeTitle }}</h3>
+        <p class="video-hub__player-meta" data-video-duration>{{ $activeDuration }}</p>
+        <p class="video-hub__player-description" data-video-description>{{ $activeDescription }}</p>
+      </div>
+      <div class="video-hub__current-actions archive-control-row">
+        {{ if $activePageUrl }}
+          <a class="site-cta" href="{{ $activePageUrl }}" data-video-page-link>Open page</a>
+        {{ else }}
+          <a class="site-cta" href="{{ $activeWatchUrl }}" data-video-page-link hidden>Open page</a>
+        {{ end }}
+        <a class="site-cta site-cta--outline" href="{{ $activeWatchUrl }}" data-video-secondary-link>Watch on YouTube</a>
+      </div>
+      <p class="visually-hidden" data-video-status aria-live="polite">Now watching {{ $activeTitle }}</p>
+    </section>
+
+    <div class="video-hub__surface">
+      <section class="video-hub__player-card" aria-label="Selected video player">
+        <figure class="video-embed video-embed--hub">
+          <div class="video-embed__frame">
+            <iframe
+              src="{{ $activeEmbedUrl }}"
+              title="{{ $activePlayerTitle }}"
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+              data-video-iframe
+            ></iframe>
+          </div>
+        </figure>
+      </section>
+
+      <ol class="video-hub__playlist" aria-label="Video playlist">
+        {{- range $index, $item := $playlist -}}
+          {{- $title := index $item "title" -}}
+          {{- $playerTitle := index $item "playerTitle" | default $title -}}
+          {{- $videoId := index $item "videoId" -}}
+          {{- $duration := index $item "duration" | default "" -}}
+          {{- $description := index $item "description" | default "" -}}
+          {{- $pageUrl := index $item "pageUrl" | default "" -}}
+          {{- $slug := index $item "slug" | default $videoId -}}
+          {{- $watchUrl := printf "https://www.youtube.com/watch?v=%s" $videoId -}}
+          {{- $embedUrl := printf "https://www.youtube-nocookie.com/embed/%s?rel=0" $videoId -}}
+          {{- $isActive := eq $slug $activeSlug -}}
+          <li class="video-hub__item{{ if $isActive }} is-active{{ end }}" data-video-item>
+            <button
+              class="video-hub__trigger"
+              type="button"
+              aria-pressed="{{ if $isActive }}true{{ else }}false{{ end }}"
+              data-video-select
+              data-video-slug="{{ $slug }}"
+              data-video-embed-base="{{ $embedUrl }}"
+              data-video-watch-url="{{ $watchUrl }}"
+              data-video-page-url="{{ $pageUrl }}"
+              data-video-title="{{ $title }}"
+              data-video-player-title="{{ $playerTitle }}"
+              data-video-duration="{{ $duration }}"
+              data-video-description="{{ $description }}"
+            >
+              <span class="video-hub__thumbnail">
+                {{ partial "media/image.html" (dict
+                  "page" $page
+                  "src" (index $item "thumbnail")
+                  "alt" (index $item "thumbnailAlt" | default (printf "Video thumbnail for %s." $title))
+                  "class" "video-hub__thumbnail-image"
+                  "sizes" "(min-width: 64rem) 13rem, 36vw"
+                ) }}
+              </span>
+              <span class="video-hub__trigger-copy">
+                <span class="video-hub__trigger-title">{{ $title }}</span>
+                <span class="video-hub__trigger-duration">{{ $duration }}</span>
+              </span>
+              <span class="video-hub__trigger-state" aria-hidden="true">{{ if $isActive }}Now watching{{ else }}Watch here{{ end }}</span>
+            </button>
+            <div class="video-hub__item-actions">
+              {{ with $pageUrl }}
+                <a href="{{ . }}">Open page</a>
+              {{ end }}
+              <a href="{{ $watchUrl }}">YouTube</a>
+            </div>
+          </li>
+        {{- end -}}
+      </ol>
+    </div>
+  </section>
+{{- end -}}

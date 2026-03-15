@@ -12,8 +12,12 @@ categories:
   - Sessions
   - Video
 author: Thomas Theunen
+video:
+  provider: youtube
+  id: DIk88MbB-Hc
+  title: 'Thomas Theunen - Me, Myself and Headless: A composable Commerce Cloud Story'
 ---
-<https://www.youtube.com/watch?v=DIk88MbB-Hc&t=2355s>
+{{< video-embed id="DIk88MbB-Hc" title="Thomas Theunen - Me, Myself and Headless: A composable Commerce Cloud Story" >}}
 
 Salesforce Commerce Cloud has shifted its focus to investing in Headless development for the past two years. Mobify was acquired and rebranded to PWA Kit And Managed Runtime, providing the next headless storefront offering.
 

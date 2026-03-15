@@ -2,11 +2,11 @@
 
 ## Scope
 
-- Generated: 2026-03-15T08:54:34.467Z
+- Generated: 2026-03-15T18:12:30.234Z
 - Command: node scripts/seo/check-a11y.js --config pa11y-ci.config.js --report migration/reports/phase-5-accessibility-audit.md
 - Config: pa11y-ci.config.js
 - Public build: public
-- Representative routes: `/`, `/reflecting-on-2-years-of-blogging/`, `/category/platform/`, `/privacy-policy/`
+- Representative routes: `/video/`
 - Manual keyboard routes (separate evidence): `/`, `/reflecting-on-2-years-of-blogging/`
 - Critical Level AA policy: all Level AA findings on representative templates are blocking unless explicitly listed in `approvedNonCriticalAaExceptions` within `pa11y-ci.config.js`.
 - Image alternative-text coverage is additionally enforced at full-site scope by `npm run check:images`; this audit confirms rendered semantics on the representative RHI-056 route set.
@@ -15,7 +15,7 @@
 
 | Metric | Count |
 |---|---:|
-| Representative routes | 4 |
+| Representative routes | 1 |
 | Blocking Level A findings | 0 |
 | Blocking Level AA findings | 0 |
 | Triaged non-critical Level AA findings | 0 |
@@ -25,37 +25,7 @@
 
 ## Representative Route Results
 
-### /
-
-- Result: PASS
-- Blocking Level A findings: 0
-- Blocking Level AA findings: 0
-- Triaged Level AA findings: 0
-- Semantic template findings: 0
-- Technical failures: 0
-- Representative route is clean for the RHI-056 automated gate.
-
-### /reflecting-on-2-years-of-blogging/
-
-- Result: PASS
-- Blocking Level A findings: 0
-- Blocking Level AA findings: 0
-- Triaged Level AA findings: 0
-- Semantic template findings: 0
-- Technical failures: 0
-- Representative route is clean for the RHI-056 automated gate.
-
-### /category/platform/
-
-- Result: PASS
-- Blocking Level A findings: 0
-- Blocking Level AA findings: 0
-- Triaged Level AA findings: 0
-- Semantic template findings: 0
-- Technical failures: 0
-- Representative route is clean for the RHI-056 automated gate.
-
-### /privacy-policy/
+### /video/
 
 - Result: PASS
 - Blocking Level A findings: 0

@@ -20,4 +20,8 @@
   {{ partial "seo/json-ld-article.html" . }}
 {{ end }}
 
+{{ if and .IsPage (index (.Params.video | default dict) "id") }}
+  {{ partial "seo/json-ld-video.html" . }}
+{{ end }}
+
 {{ partial "seo/json-ld-breadcrumb.html" . }}

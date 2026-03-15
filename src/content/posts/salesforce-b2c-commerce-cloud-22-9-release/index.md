@@ -15,6 +15,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+video:
+  provider: youtube
+  id: jYaOZQcWHLI
+  title: 'SFCC Page Designer: Copy & Paste'
 takeaways:
   - "Highlights the main 22.9 changes across WebDAV limits, Page Designer usability, and Salesforce Payments"
   - "Explains the Shopper Context API enhancements that matter for personalization and hybrid headless deployments"
@@ -42,13 +46,13 @@ Some will still wish the limit was higher, but this is still a considerable impr
 
 A big update to Page Designer as it will now be possible to copy and paste components (up to 10). Not only will this be possible in the same page, but to other pages - even across browser tabs!
 
-Idea This [feature](https://ideas.salesforce.com/s/idea/a0B8W00000GdYHjUAN/page-designer-add-ability-to-copypaste-components) was initially submitted by [Ryan Rubis](https://www.linkedin.com/in/ryanrubis/). `<https://youtu.be/jYaOZQcWHLI>`
+Idea: This [feature](https://ideas.salesforce.com/s/idea/a0B8W00000GdYHjUAN/page-designer-add-ability-to-copypaste-components) was initially submitted by [Ryan Rubis](https://www.linkedin.com/in/ryanrubis/).
+
+{{< video-embed id="jYaOZQcWHLI" title="SFCC Page Designer: Copy & Paste" >}}
 
 ### Target components to a specific locale in Page Designer
 
 You could only target components to specific customer groups or campaigns until now. Starting from this release, locales have been added to that list!
-
-<https://youtu.be/uK\_TioOU2rQ>
 
 ### Performance increase to Page Designer
 

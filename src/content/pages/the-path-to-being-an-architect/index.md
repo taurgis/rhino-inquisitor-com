@@ -1,8 +1,8 @@
 ---
 title: The path to being an Architect
 description: >-
-  https://www.youtube.com/watch?v=caVpOV3TdzY The journey to being an architect
-  has assumed many forms over the years, and does it all start at development?
+  The journey to being an architect has assumed many forms over the years, and
+  does it all start at development?
 date: '2022-09-11T07:39:31.000Z'
 lastmod: '2022-09-11T07:50:23.000Z'
 url: /the-path-to-being-an-architect/
@@ -12,8 +12,12 @@ categories:
   - Podcasts
   - Video
 author: Thomas Theunen
+video:
+  provider: youtube
+  id: caVpOV3TdzY
+  title: 'Episode #3 - Thomas Theunen and the path to being an Architect'
 ---
-<https://www.youtube.com/watch?v=caVpOV3TdzY>
+{{< video-embed id="caVpOV3TdzY" title="Episode #3 - Thomas Theunen and the path to being an Architect" >}}
 
 The journey to being an architect has assumed many forms over the years, and does it all start at development? I started as a Java developer more than a decade ago and slowly moved towards being a "Salesforce Solution Architect
 

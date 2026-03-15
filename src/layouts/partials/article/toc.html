@@ -1,7 +1,7 @@
 {{/* Article table of contents — heading-derived, sticky desktop rail, collapsible mobile */}}
 {{ $page := .page }}
 {{ $toc := $page.TableOfContents }}
-{{ if $toc }}
+{{ if strings.Contains $toc "<li" }}
   {{/* Desktop: visible sticky sidebar TOC */}}
   <aside class="article-toc article-toc--desktop" aria-label="Table of contents">
     <p class="eyebrow" id="toc-heading-desktop">Contents</p>
