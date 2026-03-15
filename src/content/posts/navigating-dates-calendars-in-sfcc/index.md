@@ -795,9 +795,6 @@ A warning when creating a Calendar from a Date
 
 A warning when converting from a Calendar to Date
 
-> [!NOTE]
-> **Documentation:** Many Calendar functions have helpful examples to understand the intricacies of working with timezones.
-
 ### Caching
 
 It is crucial to remember that the Page Cache does not maintain individual caches for each Time Zone when presenting data.

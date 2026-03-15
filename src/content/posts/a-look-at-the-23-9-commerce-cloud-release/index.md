@@ -18,7 +18,7 @@ takeaways:
   - "Highlights platform changes affecting search, profiling, and shopper identity"
   - "Calls out temporary SLAS token behavior and roadmap timing to plan around"
 ---
-We are getting closer to the holiday period, and also one of the last releases of the year! This time we look at the [September 2023 (23.9) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_23_9_release.htm&type=5)! Are you interested in last month’s release notes? [Read the 23.8 release notes](/what-is-new-in-the-23-8-commerce-cloud-release/)!
+We are getting closer to the holiday period, and also one of the last releases of the year! This time we look at the [September 2023 (23.9) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_23_9_release.htm&type=5)! Are you interested in last month’s release notes? [Click here](/what-is-new-in-the-23-8-commerce-cloud-release/)!
 
 ## Custom SCAPI endpoints in 23.9
 

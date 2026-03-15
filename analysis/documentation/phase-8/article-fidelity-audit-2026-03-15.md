@@ -225,14 +225,14 @@ Examples:
 
 - Reviewed: `151 / 151` posts
 - Remaining: `0 / 151` posts
-- Pass: `108`
-- Needs review: `43`
+- Pass: `138`
+- Needs review: `13`
 - Fail: `0`
 
 ### Severity summary
 
 - High: `0`
-- Medium: `43`
+- Medium: `13`
 - Low: `0`
 
 ### Key conclusions
@@ -240,7 +240,7 @@ Examples:
 - Body-content preservation is mostly strong when the article does not depend on HTML-like code samples or placeholder-heavy command snippets.
 - The most serious current risk is technical-code corruption in migrated markdown, not general prose fidelity.
 - Title rewrites and inserted warning or update callouts are common enough that they should be treated as an explicit editorial policy decision instead of incidental drift.
-- The second batch includes at least one baseline-sensitive identifier-spacing row where executable examples remained intact; those cases should stay `needs-review` unless source evidence proves copy-paste breakage.
+- The remaining queue is now smaller and cleaner after resolving the baseline-sensitive OCAPI identifier-spacing row against the raw WordPress export instead of leaving it in indefinite owner review.
 - The third batch confirms the problem extends to missing illustrative examples and malformed placeholder URLs, so the remaining queue should keep favoring posts that teach through snippets rather than prose alone.
 - The fourth and fifth batches show that many remaining code-heavy posts are structurally sound, so the tracker now needs stronger rules for separating harmless code-node exposure from true source corruption before marking a row as `fail`.
 - The sixth batch confirms that `fail` status should require both local corruption and a trustworthy baseline. When the live page already mangles a token, the row should stay `needs-review` until the original export or upstream source confirms the intended text.
@@ -749,7 +749,145 @@ The remaining queue had enough repeated title-only and small presentation defect
 - Batch 7 now has 58 pass and 13 needs-review rows.
 - Batch 8 now has 63 pass and 14 needs-review rows.
 - The next unresolved row in the current post-056 continuation tranche is RHI-AUD-076.
-- The global unresolved medium queue still includes earlier rows, currently starting at RHI-AUD-003.
+- The global unresolved medium queue at the end of this first continuation batch still started earlier, at RHI-AUD-003.
+
+## 2026-03-15 Medium Review Addendum: Second 10-Row Global Queue Batch
+
+### Change summary
+
+Processed the next 10-row slice from the global unresolved medium queue: RHI-AUD-003, RHI-AUD-006, RHI-AUD-007, RHI-AUD-008, RHI-AUD-014, RHI-AUD-016, RHI-AUD-017, RHI-AUD-021, RHI-AUD-025, and RHI-AUD-026. All ten rows moved to pass.
+
+### Why this changed
+
+After the first continuation batch, the remaining global queue still contained earlier title-only rows plus two technically resolvable holds. This batch cleared that carryover by combining H1-policy closures with source-backed remediation for the two non-title rows.
+
+### Behavior details
+
+- Old behavior: eight early technical articles remained blocked only by shorter Hugo H1 values, the dates/time-zones article exposed a local-only documentation note absent from the live baseline, and the OCAPI dates article still showed spaced prose identifiers such as `creation _date` and `to _ value` despite clean code blocks.
+- New behavior: the eight title-only rows close under the existing global H1 policy, the local-only documentation note in the dates/time-zones article has been removed, and the OCAPI dates prose now matches the raw WordPress source identifiers `creation_date`, `valid_from`, `valid_to`, and `to_value`.
+
+### Impact
+
+- Cumulative totals changed to: Pass 118, Needs review 33, Fail 0, High 0, Medium 33, Low 0.
+- Batch 1 is now fully cleared at 13 pass and 0 needs-review.
+- Batch 2 is now fully cleared at 23 pass and 0 needs-review.
+- Batch 3 now sits at 30 pass and 1 needs-review.
+- The global unresolved medium queue now starts at RHI-AUD-028.
+
+## 2026-03-15 Medium Review Addendum: Third 10-Row Global Queue Batch
+
+### Change summary
+
+Processed the next 10-row slice from the global unresolved medium queue: RHI-AUD-028, RHI-AUD-032, RHI-AUD-038, RHI-AUD-076, RHI-AUD-078, RHI-AUD-080, RHI-AUD-083, RHI-AUD-084, RHI-AUD-085, and RHI-AUD-086. All ten rows moved to pass.
+
+### Why this changed
+
+This slice looked partially blocked at first because it mixed title-only rows, one media-link exposure row, and several release-note recap rows previously tagged as content insertions. Follow-up evidence checks showed the remaining non-title drift was narrower than the tracker suggested, so the batch could be closed with direct parity fixes instead of owner escalation.
+
+### Behavior details
+
+- Old behavior: four early rows remained open solely because of shorter Hugo H1 values, the reflective August 2024 blog post exposed a raw `.mov` URL inline, and four release-note recaps rewrote the original WordPress `Click here!` CTA into more explicit linked copy. The 24.1 row was also carrying a suspected `PIG Only` insertion.
+- New behavior: the title-only rows close under the existing global H1 policy, the reflective post now uses a labeled media link instead of a bare `.mov` URL, the four release-note intros have been normalized back to the live `Click here!` CTA pattern, and browser checks confirmed the `PIG Only` note is also present on the live 24.1 article rather than being a Hugo-only insertion.
+
+### Impact
+
+- Cumulative totals changed to: Pass 128, Needs review 23, Fail 0, High 0, Medium 23, Low 0.
+- Batch 3 is now fully cleared at 31 pass and 0 needs-review.
+- Batch 4 is now fully cleared at 41 pass and 0 needs-review.
+- Batch 8 is now fully cleared at 77 pass and 0 needs-review.
+- Batch 9 is now fully cleared at 89 pass and 0 needs-review.
+- The global unresolved medium queue now starts at RHI-AUD-090.
+
+### Verification
+
+1. Recomputed the global unresolved medium queue and locked the next 10-row boundary before RHI-AUD-090.
+2. Verified that RHI-AUD-028, RHI-AUD-032, RHI-AUD-038, RHI-AUD-078, and RHI-AUD-080 were title-only closures once browser checks confirmed the `POD, Realm, Instances, and Domains` label is visible on both live and local for RHI-AUD-080.
+3. Compared live and local render for `it-sure-has-been-quiet-on-this-blog` and confirmed the live page does not expose `fastforward-business-manager-accelerator.mov` as visible body text while the local page did.
+4. Replaced the bare `.mov` URL with a labeled markdown link and verified the raw URL no longer appears in the local render.
+5. Compared live and local render for the 23.7, 23.9, 24.5, and 24.1 release recap intros using a browser user agent.
+6. Confirmed the live WordPress pages use the generic `Click here!` CTA pattern for the previous-release links in all four cases.
+7. Confirmed the 23.9 live page already includes the same `Custom SCAPI endpoints in 23.9` and `game-changer` opening framing as the local page, so that row reduced to CTA normalization plus accepted H1 drift.
+8. Confirmed the 24.1 live page also surfaces the `PIG Only` note near the DKIM discussion, so that note is not a Hugo-only insertion defect.
+9. Normalized the four local release-note intros back to the live `Click here!` CTA pattern and verified the descriptive CTA text no longer appears in the local render.
+10. Reconciled the detail tracker to 128 pass / 23 needs-review / 0 fail and confirmed RHI-AUD-090 as the next global queue head.
+
+### Related files
+
+- migration/reports/phase-8-article-fidelity-audit.csv
+- migration/reports/phase-8-article-fidelity-audit-summary.csv
+- analysis/documentation/phase-8/article-fidelity-audit-2026-03-15.md
+- src/content/posts/it-sure-has-been-quiet-on-this-blog/index.md
+- src/content/posts/a-deep-dive-into-the-23-7-sfcc-release/index.md
+- src/content/posts/a-look-at-the-23-9-commerce-cloud-release/index.md
+- src/content/posts/getting-secured-with-the-24-5-salesforce-b2c-commerce-cloud-release/index.md
+- src/content/posts/sfcc-24-1-release-a-new-year-update/index.md
+
+## 2026-03-15 Medium Review Addendum: Fourth 10-Row Global Queue Batch
+
+### Change summary
+
+Processed the next 10-row slice from the global unresolved medium queue: RHI-AUD-090, RHI-AUD-091, RHI-AUD-098, RHI-AUD-099, RHI-AUD-100, RHI-AUD-102, RHI-AUD-104, RHI-AUD-105, RHI-AUD-106, and RHI-AUD-109. All ten rows moved to pass.
+
+### Why this changed
+
+This slice initially looked like a mix of title-drift, recap-link drift, and possible intro insertions. Follow-up browser checks and raw WordPress-export checks showed that most of the disputed framing was already present on the live pages, leaving only four recap CTA rewrites and one real media-presentation issue to normalize in source.
+
+### Behavior details
+
+- Old behavior: two architecture rows and one 23.10 release-note row remained blocked on shorter H1 values plus suspected intro framing drift, four release-note recaps used explicit `Read the X release notes!` CTAs instead of the live `Click here!` pattern, the headless recap exposed raw video asset URLs inline, and one SFRA onboarding row still carried a false-positive content-insertions flag.
+- New behavior: the title-only rows close under the existing global H1 policy after browser checks confirmed the disputed framing is already present on the live pages, the four release-note intros have been normalized back to the live `Click here!` CTA pattern, the headless recap now renders both hosted videos as labeled links instead of bare URLs, and the SFRA onboarding row closes after confirming the prerequisite framing is on the live page too.
+
+### Impact
+
+- Cumulative totals changed to: Pass 138, Needs review 13, Fail 0, High 0, Medium 13, Low 0.
+- Batch 10 is now fully cleared at 101 pass and 0 needs-review.
+- Batch 11 is now reduced to 105 pass and 6 needs-review.
+- The global unresolved medium queue now starts at RHI-AUD-110.
+
+### Verification
+
+1. Recomputed the global unresolved medium queue and locked the next 10-row boundary beginning at RHI-AUD-090.
+2. Compared live and local render for RHI-AUD-090, RHI-AUD-091, RHI-AUD-100, and RHI-AUD-109 using a browser user agent.
+3. Confirmed the disputed framing on RHI-AUD-090 and RHI-AUD-091 already appears on the live pages, reducing both rows to accepted title-only closures.
+4. Confirmed RHI-AUD-100 already matches the live recap framing and `Click here!` CTA pattern, leaving only the shorter H1 as accepted title drift.
+5. Confirmed RHI-AUD-109 already shares the same top-of-article framing line `An attempt at visualising the fallback system` as the live page, reducing it to accepted title-only drift.
+6. Compared live, local, and raw WordPress-export evidence for RHI-AUD-098, RHI-AUD-102, RHI-AUD-104, and RHI-AUD-105.
+7. Verified all four rows use the live `Click here!` CTA pattern in WordPress and that the supposedly extra explanatory sentences were already present in both live WordPress and the raw export.
+8. Normalized those four local release-note intros back to the live CTA pattern and verified the explicit `Read the X release notes!` text no longer appears in the local render.
+9. Compared live and local render for RHI-AUD-099 and confirmed the migrated page surfaced raw `storefront-preview-demo.mp4` and `runtime-admin-changes.mov` URLs inline while the live page did not expose them equivalently in body flow.
+10. Verified in the raw WordPress export that `runtime-admin-changes.mov` was stored as a hosted video widget, then replaced both bare URLs with labeled links and confirmed the raw asset URLs no longer appear in the local render.
+11. Re-checked RHI-AUD-106 with targeted browser snippets and confirmed the disputed prerequisite framing is visible on both live and local pages, collapsing that row to pass.
+12. Reconciled the detail tracker to 138 pass / 13 needs-review / 0 fail and confirmed RHI-AUD-110 as the next global queue head.
+
+### Related files
+
+- migration/reports/phase-8-article-fidelity-audit.csv
+- migration/reports/phase-8-article-fidelity-audit-summary.csv
+- analysis/documentation/phase-8/article-fidelity-audit-2026-03-15.md
+- src/content/posts/digging-into-the-b2c-commerce-cloud-24-3-release/index.md
+- src/content/posts/new-apis-and-features-for-a-headless-sfcc/index.md
+- src/content/posts/salesforce-b2c-commerce-cloud-the-22-7-release/index.md
+- src/content/posts/a-look-at-the-sfcc-23-5-release/index.md
+- src/content/posts/salesforce-b2c-commerce-the-22-5-release/index.md
+
+### Verification
+
+1. Recomputed the global unresolved medium queue and locked the next 10-row boundary before RHI-AUD-028.
+2. Verified that eight rows in the slice were title-only medium items with `content_fidelity = pass` and `code_fidelity = pass`, making them eligible for closure under the 2026-03-15 global H1 policy.
+3. Compared live and local render for `navigating-dates-calendars-in-sfcc` and confirmed the `Documentation:` note block was local-only.
+4. Removed that local-only note block from the migrated markdown and verified the Hugo reading flow no longer surfaces it.
+5. Compared live, local, and raw WordPress-export evidence for `unravelling-the-mystery-of-dates-in-the-ocapi`.
+6. Verified in `tmp/wordpress-database.sql` that the original WordPress source uses `creation_date`, `valid_from`, `valid_to`, and `to_value`, confirming the spaced local prose variants were a migration defect.
+7. Normalized the prose identifiers in the local markdown and verified the broken spaced variants no longer appear in the local render.
+8. Reconciled the detail tracker to 118 pass / 33 needs-review / 0 fail and confirmed RHI-AUD-028 as the next global queue head.
+
+### Related files
+
+- migration/reports/phase-8-article-fidelity-audit.csv
+- migration/reports/phase-8-article-fidelity-audit-summary.csv
+- analysis/documentation/phase-8/article-fidelity-audit-2026-03-15.md
+- src/content/posts/navigating-dates-calendars-in-sfcc/index.md
+- src/content/posts/unravelling-the-mystery-of-dates-in-the-ocapi/index.md
 
 ### Verification
 
