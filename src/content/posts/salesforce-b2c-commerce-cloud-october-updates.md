@@ -15,6 +15,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Summarizes the platform-adjacent October updates that landed after the final yearly 22.10 release"
+  - "Highlights the SLAS trusted-agent capability and the operational implications for customer-service login flows"
+  - "Calls out smaller Account Manager, idea-exchange, and cartridge/tool updates worth monitoring between major releases"
 ---
 We have just received the final release ([22.10](/salesforce-b2c-commerce-cloud-22-10/)) of the year. But that does not mean there are no updates to some APIs and cartridges. Let us have a look what has changed in the past month.
 

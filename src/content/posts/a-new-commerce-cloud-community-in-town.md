@@ -14,6 +14,10 @@ tags:
   - ohana
   - sfcc
 author: Thomas Theunen
+takeaways:
+  - "Introduces the Benelux Salesforce Commerce Cloud community and its purpose"
+  - "Explains who is leading the group and which audiences and products it targets"
+  - "Invites readers to the first session and encourages topic and speaker submissions"
 ---
 Starting a community was a plan I have had in my head for a while now but never acted on - with what was going on in the world: a pandemic, a war, and an economic crisis. The list never ends with reasons to delay, so I stopped waiting and plowed ahead!
 

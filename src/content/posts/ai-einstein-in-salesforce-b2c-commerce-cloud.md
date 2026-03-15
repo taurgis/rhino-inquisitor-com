@@ -16,6 +16,10 @@ tags:
   - headless
   - sfcc
 author: Thomas Theunen
+takeaways:
+  - "Explains what Einstein is in SFCC and how it differs from other Salesforce AI products"
+  - "Covers core Einstein capabilities like recommendations, search, insights, and predictive sort"
+  - "Highlights privacy, shared-data, and headless API considerations before adoption"
 ---
 When you are first introduced to Salesforce B2C Commerce Cloud, one of the selling features that will increase conversion and customer satisfaction is [Einstein](https://www.salesforce.com/products/commerce-cloud/commerce-cloud-einstein/).
 

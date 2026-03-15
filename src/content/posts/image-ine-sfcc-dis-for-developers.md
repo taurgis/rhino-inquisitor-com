@@ -17,6 +17,10 @@ tags:
   - sfra
   - technical
 author: Thomas Theunen
+takeaways:
+    - "Explains what SFCC Dynamic Image Service does and how its transformation model works"
+    - "Shows why DIS improves image flexibility, caching, and storefront performance across SFRA and PWA projects"
+    - "Highlights platform limits and situations where external image tooling may still be a better fit"
 ---
 In the wild, wild west of e-commerce, images aren't just pretty pictures. They're your silent "sales force" (☺️), your conversion catalysts, and your SEO superheroes. Shoddy, slow-loading visuals? That's a one-way ticket to "bounce rate hell" and a brand image that screams, "We tried."
 

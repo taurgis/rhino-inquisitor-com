@@ -14,6 +14,10 @@ categories:
 tags:
   - sfcc
 author: Thomas Theunen
+takeaways:
+  - "Summarizes the notable November 2022 updates outside the normal holiday release cycle"
+  - "Highlights the PWA Kit, Account Manager, and plugin_slas changes most relevant to active storefront teams"
+  - "Calls out bug fixes, new ideas, and cartridge releases worth tracking during the slower release period"
 ---
 It is a slow period in B2C Commerce Cloud update land as no significant [releases](/category/release-notes/) happen during the holiday period. But updates still occur in other places!
 

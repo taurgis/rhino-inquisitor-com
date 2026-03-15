@@ -14,6 +14,10 @@ categories:
 tags:
   - sfcc
 author: Thomas Theunen
+takeaways:
+  - "Highlights the most relevant 23.1 updates around legacy-job migration, sandbox URLs, retention policy, and HSTS controls"
+  - "Explains smaller but useful OCAPI improvements to property selection and basket flash behavior"
+  - "Calls out the accompanying PWA Kit, b2c-tools, and sfcc-ci releases that matter for day-to-day development"
 ---
 Summer has arrived, and so has the next Salesforce B2C Commerce Cloud release! This time we look at the [January 2023 (23.1) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_7_release.htm&type=5)!
 

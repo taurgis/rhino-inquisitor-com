@@ -17,6 +17,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Highlights 23.5 improvements across eCDN certificates, search, and order management"
+  - "Calls out new basket and trusted-agent API capabilities in SCAPI"
+  - "Notes security and operational changes that deserve follow-up testing"
 ---
 Another month, another release! This time we look at the [May 2023 (23.5) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_7_release.htm&type=5)!
 

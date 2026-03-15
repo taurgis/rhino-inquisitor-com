@@ -16,6 +16,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Explains how locale fallback works in SFCC when localized content is missing for a requested market or language"
+  - "Shows the configurable fallback hierarchy and the restrictions that apply when setting locale relationships"
+  - "Highlights the user-experience and development implications teams should understand when building international storefronts"
 ---
 In today's digitally connected world, personalization and [localization](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-localization.html) play a crucial role in delivering a tailored shopping experience. Salesforce B2C Commerce Cloud understands this and includes a powerful locale fallback mechanism to help businesses cater to various markets while managing content efficiently. In this deep-dive article, we will explore the locale fallback feature, its importance, configuration, and potential considerations for developers working on international storefronts.
 

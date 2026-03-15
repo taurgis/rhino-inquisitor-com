@@ -13,6 +13,10 @@ categories:
 tags:
   - sfcc
 author: Thomas Theunen
+takeaways:
+  - "Surveys the broader Salesforce Commerce product family and clarifies how each offering relates to classic SFCC"
+  - "Explains the frequent confusion between B2C, B2B, D2C, OMS, OCI, marketplaces, composable storefront, and payments"
+  - "Acts as a practical orientation guide for understanding where SFCC sits inside the larger Commerce Cloud portfolio"
 ---
 You are probably here, reading this blog to learn more about [Salesforce B2C Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/). But over the past years, more products have been put under Salesforce Commerce Cloud "wings."
 

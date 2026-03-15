@@ -15,6 +15,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Highlights the main 22.6 changes around Einstein dashboards, OCAPI access-key management, and Log Center filtering"
+  - "Explains the smaller but useful Salesforce Payments and Business Manager updates that affect local payment support and operations"
+  - "Calls out the related PWA Kit release and resolved platform issues that were worth testing in this cycle"
 ---
 Again, here we are with the latest [release notes](/category/release-notes/) of Salesforce B2C Commerce Cloud; time flies by fast, doesn't it? Let us go over the [June 2022 (22.6) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_6_release.htm&type=5)!
 

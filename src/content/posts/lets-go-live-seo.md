@@ -15,6 +15,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Frames SEO as a launch-critical workstream that must start well before go-live"
+  - "Explains why SEO delivery depends on coordination across content, product, commercial, development, and specialist teams"
+  - "Emphasizes clear requirements and continuous SEO validation instead of assumption-driven implementation"
 ---
 When going live with a website, SEO is an integral part that should not be overlooked. It is a long-term strategy that should be started before your website goes live.
 

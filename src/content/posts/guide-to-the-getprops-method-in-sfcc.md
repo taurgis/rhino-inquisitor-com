@@ -17,6 +17,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Explains what PWA Kit getProps does and where it fits in route-based data loading"
+  - "Shows how getProps receives context, can be extended, and should handle errors and caching"
+  - "Highlights the client-server trade-offs around personalization, payload size, and execution timing"
 ---
 As a developer, you're always looking for ways to improve the performance and functionality of your projects. The PWA Kit includes several features and functions that make creating high-performance, mobile- and [SEO](/lets-go-live-seo/)\-friendly web applications accessible.
 

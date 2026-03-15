@@ -14,6 +14,10 @@ categories:
 tags:
   - sfcc
 author: Thomas Theunen
+takeaways:
+  - "Highlights 23.6 changes that affect search performance, SLAS, and eCDN controls"
+  - "Warns teams to review outbound integrations after hostname verification changes"
+  - "Points to new CDN firewall and logpush capabilities worth enabling and testing"
 ---
 The weather (at least here) is giving us more sunshine, so let us shine a light on the next Salesforce B2C Commerce Cloud release! This time we look at the [June 2023 (23.6) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_23_6_release.htm&type=5)!
 

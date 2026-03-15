@@ -16,6 +16,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Explains the secure-coding responsibilities that remain even though SFCC provides strong platform-level protections"
+  - "Covers practical security topics like Account Manager hardening, shared-account risks, secure headers, and npm supply-chain concerns"
+  - "Points developers toward Salesforce's built-in security guidance and the specific areas that require ongoing discipline"
 ---
 Salesforce B2C Commerce Cloud provides many security features out of the box. And because it is a [SaaS](https://en.wikipedia.org/wiki/Software_as_a_service) solution, the security of the servers is handled by the technical teams at Salesforce.
 

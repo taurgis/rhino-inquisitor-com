@@ -15,6 +15,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Explains the practical path for running newer Node versions with modern SFRA projects"
+  - "Calls out the OpenSSL legacy-provider workaround required by older SFRA build tooling"
+  - "Warns that deeper dependency upgrades can be messy even when the core compile and upload scripts work"
 ---
 As [responsible developers](/secure-coding-in-salesforce-b2c-commerce-cloud/), it's important to stay up-to-date with the latest versions of our tools. The README of SFRA, unfortunately, reminds us that it is not always possible by recommending v12.21.0, which was the latest version at the time of launch (2017).
 

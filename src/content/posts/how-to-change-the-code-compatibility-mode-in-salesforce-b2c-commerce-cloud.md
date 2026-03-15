@@ -15,6 +15,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Explains what SFCC code compatibility mode controls and why upgrades can break custom code"
+  - "Shows the WebDAV .apiversion workaround for aligning sandbox compatibility versions"
+  - "Warns that rolling compatibility backward should be rare and limited to valid supported modes"
 ---
 "How do I update my Compatibility mode to vxx.xx?" This is a question that many have asked over the years, especially with the On-Demand Sandboxes taking the last compatibility mode by default - not providing a way to go back.
 
@@ -77,12 +81,9 @@ Missing FIle If you do not see the file, don't worry! You can upload it yourself
 Inside that file is where the "magic" happens, and it looks something like this:
 
 ```
-
-					#DO NOT EDIT! This is the api version with which *this* code version is compatible. It is managed by the system.
+#DO NOT EDIT! This is the api version with which *this* code version is compatible. It is managed by the system.
 #Tue Aug 01 09:55:45 GMT 2017
 api.version=21.7
-
-
 ```
 
 This file has an interesting key, specifically "api.version"! You can change that to the version you want to use for your sandbox by downloading it, editing it, and re-uploading it to the same folder.
@@ -90,12 +91,9 @@ This file has an interesting key, specifically "api.version"! You can change tha
 In this case, we will update it to "18.10"
 
 ```
-
-					#DO NOT EDIT! This is the api version with which *this* code version is compatible. It is managed by the system.
+#DO NOT EDIT! This is the api version with which *this* code version is compatible. It is managed by the system.
 #Tue Aug 01 09:55:45 GMT 2017
 api.version=18.10
-
-
 ```
 
 Let us head back to the business manager and go to the "Manage Code Versions" screen:

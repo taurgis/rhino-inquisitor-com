@@ -16,6 +16,10 @@ tags:
   - sfra
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Explains the main extension points available around SFRA requests and routes, from global request hooks to route middleware and route events"
+  - "Shows how prepend, append, and replace affect controller execution order and customization behavior"
+  - "Highlights the importance of cartridge-path order and careful complexity management when layering multiple route customizations"
 ---
 Have you ever wondered how Salesforce Commerce Cloud, especially [SFRA](/sitegenesis-vs-sfra-vs-pwa/) (Storefront Reference Architecture), handles the rendering of pages based on controllers and routes?
 

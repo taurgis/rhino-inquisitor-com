@@ -15,6 +15,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Highlights the main 22.9 changes across WebDAV limits, Page Designer usability, and Salesforce Payments"
+  - "Explains the Shopper Context API enhancements that matter for personalization and hybrid headless deployments"
+  - "Calls out supporting tool and cartridge updates that affect migration, security, and storefront integration work"
 ---
 We have been getting some lovely new goodies in the past few releases, but this trend is not ending! This time we look at the [September 2022 (22.9) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_9_release.htm&type=5)!
 

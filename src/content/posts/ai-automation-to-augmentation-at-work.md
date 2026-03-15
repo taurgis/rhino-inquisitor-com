@@ -14,6 +14,10 @@ tags:
   - ai
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Argues AI is shifting from pure automation toward augmenting workplace decision-making"
+  - "Balances productivity gains against privacy, bias, and accuracy concerns"
+  - "Uses Salesforce Commerce Cloud examples to show where AI can remove repetitive work"
 ---
 As I walked into my office, I couldn't help but notice [a particular AI chatbot dominating the workspace](/what-can-i-use-chatgpt-for-when-working-with-salesforce/). The tomorrow of work had arrived, and it was clear that this new era would require us to adapt. Artificial Intelligence (AI) has come a long way, especially in the last year (at least in a readily usable way). It has gained quite some ground in many places, including the workplace.
 

@@ -16,6 +16,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Provides a visual ERD for the SFCC customer, account, profile, and session domain"
+  - "Explains how customer groups, sessions, CDP data, and related commerce entities fit into the customer model"
+  - "Acts as a practical cheat sheet for developers who need a faster way to understand the customer object landscape"
 ---
 Have you gone on [a wild goose chase searching for entity model diagrams of Salesforce B2C Commerce Cloud](https://architect.salesforce.com/diagrams#template-gallery) and come up with nothing? Fear not, as your luck has just changed. While finding diagrams for the entity model of [force.com](https://salesforce.stackexchange.com/questions/22720/standard-objects-in-salesforce) is as easy as pie, finding the same for [SFCC](/the-salesforce-b2c-commerce-cloud-environment/) is a different story.
 

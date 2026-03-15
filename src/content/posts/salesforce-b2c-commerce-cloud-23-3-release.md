@@ -15,6 +15,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Highlights the main 23.3 changes around trial sandboxes, job logging, Shopper Context enablement, and account security"
+  - "Explains why the release matters for ISV onboarding, SLAS administration, and headless storefront setup"
+  - "Calls out the new public cartridges and tooling updates that extend compliance, tracking, and authentication options"
 ---
 Another month, another release from Salesforce B2C Commerce Cloud! In this blog post, we'll dive into all the changes and improvements coming to the platform in the [23.3 release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_23_3_release.htm&type=5). In recent months, we've seen a strong focus on updates to the headless APIs and Page Designer, and we'll examine if this trend continues in this latest release. Are there new and exciting developments on the horizon for the platform? Let's find out! Are you interested in last month’s release notes? [Read the 23.2 release notes](/salesforce-b2c-commerce-cloud-23-2/)!
 

@@ -15,6 +15,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Explains how to extend Active Data with custom customer or product attributes in SFCC"
+  - "Walks through the feed, CSV, import, and verification steps needed to load external behavior data"
+  - "Shows how custom Active Data can support richer segmentation and dynamic customer groups"
 ---
 When working on personalization and segmentation within Salesforce B2C Commerce Cloud, [Active Merchandizing](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/active_merchandising/b2c_active_merchandising.html) is one of the tools to help you along the way. By utilizing data collected automatically by Salesforce B2C Commerce Cloud, you can gain a deeper understanding of your customers' behavior and tailor campaigns accordingly. For instance, we display a distinctive banner to frequent visitors compared to those who only visit sporadically.
 

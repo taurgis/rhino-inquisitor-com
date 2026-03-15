@@ -16,6 +16,10 @@ tags:
   - pdf
   - sfcc
 author: Thomas Theunen
+takeaways:
+    - "Explains the low-level MIME and Base64 workaround required to send email attachments from native SFCC mail APIs"
+    - "Provides a practical controller and ISML-template approach for building attachment-capable emails"
+    - "Frames the feature as possible but intentionally outside the platform's simple transactional email comfort zone"
 ---
 Sooner or later, a client will ask: "Can we attach the PDF invoice to the order confirmation email?" In the world of Salesforce B2C Commerce Cloud, a seemingly simple request sends a developer down a rabbit hole of undocumented features and hidden platform quirks. The standard dw.net.Mail API offers no 'addAttachment' method. The official documentation is silent. The developer is on their own.
 

@@ -17,6 +17,10 @@ tags:
   - trailhead
   - yeurdreamin'
 author: Thomas Theunen
+takeaways:
+  - "Recaps the author's 2022 event journey across Connections, Salesforce Live Belgium, and YeurDreamin'"
+  - "Explains the Golden Hoodie as community recognition rather than a checklist achievement"
+  - "Argues that in-person community events matter again for learning and connection"
 ---
 June 2022, I think this month will stick in my memory for a long time to come. It has been a fun and 'event'ful one! The pandemic has not ended, but life, before it started, has slowly begun to come alive again.
 

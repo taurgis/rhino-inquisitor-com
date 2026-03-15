@@ -16,6 +16,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Explains when custom caches are the right tool compared with page, request, or session storage"
+  - "Shows safe patterns for cache keys, get-or-load usage, and lightweight cached objects"
+  - "Warns that custom caches can hurt performance and correctness when used without discipline"
 ---
 You think you know caching. You've enabled page caching, fiddled with content slot TTLs, and called it a day. And your Salesforce B2C Commerce Cloud site is still slower than a snail in molasses. Why? Because you're ignoring the most potent weapon in your performance arsenal: the **Custom Cache**.
 

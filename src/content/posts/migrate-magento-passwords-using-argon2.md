@@ -15,6 +15,10 @@ tags:
     - sfcc
     - technical
 author: Thomas Theunen
+takeaways:
+    - "Explains the gap between Magento Argon2 password hashes and SFCC's native import capabilities"
+    - "Provides a Node.js verification script that can validate Magento-style Argon2 hashes during migration"
+    - "Recommends a secure transition pattern where migrated accounts are upgraded after successful legacy-password verification"
 ---
 As a developer, you might encounter situations where you need to [migrate](https://osapishchuk.medium.com/legacy-customers-password-migration-3fa1596303cc) data from one platform to another securely. This requires handling sensitive data like passwords with utmost care. In the case of Magento, password hashing is done using the Argon2 algorithm (depending on the Magento version, your mileage may vary), which is known for its security and resistance against brute force attacks.
 

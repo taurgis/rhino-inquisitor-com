@@ -14,6 +14,10 @@ tags:
   - sfcc
   - trailhead academy
 author: Thomas Theunen
+takeaways:
+  - "Explains the significance of the sunset of ARC300 for Commerce Cloud architects and learners preparing for the architect credential"
+  - "Adds a personal instructor perspective on what the course meant, who it served, and why its retirement matters"
+  - "Points readers toward alternative preparation paths while speculating on what a future replacement course may emphasize"
 ---
 [Trailhead Academy](http://trailheadacademy.salesforce.com/my-learning), Salesforce's official learning platform, offers a wide range of courses that help individuals acquire the new skills and knowledge needed to succeed in the ever-evolving world of technology.
 

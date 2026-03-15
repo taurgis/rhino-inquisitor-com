@@ -16,6 +16,10 @@ tags:
   - sfra
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Organizes a practical learning path for developers who are new to SFRA and SFCC"
+  - "Points readers to sandbox setup, platform fundamentals, and official SFRA learning resources"
+  - "Connects self-study, partner training, and certification prep into one onboarding path"
 ---
 So, you are new to Salesforce Commerce Cloud and have begun your journey with SFRA! Congratulations, and welcome to the [community](https://unofficialsfcc.com/) of SFCC developers!
 

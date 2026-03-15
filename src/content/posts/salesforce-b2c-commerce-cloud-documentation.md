@@ -14,6 +14,10 @@ tags:
   - documentation
   - sfcc
 author: Thomas Theunen
+takeaways:
+  - "Maps the post-Infocenter Salesforce B2C Commerce documentation landscape across Help, Developer Center, and GitHub-hosted references"
+  - "Explains how official docs, Trailhead, Partner Learning Camp, and community channels each serve different technical needs"
+  - "Acts as a field guide for navigating fragmented SFCC documentation more efficiently"
 ---
 Let's be direct. Navigating the Salesforce B2C Commerce Cloud documentation landscape has become a tactical challenge. For those of us who cut our teeth on platforms like Intershop, the sheer volume of official documentation Salesforce provides initially felt like a godsend. We had a central repository, the Infocenter, and while it had its quirks, it was our north star. That star has gone supernova.
 

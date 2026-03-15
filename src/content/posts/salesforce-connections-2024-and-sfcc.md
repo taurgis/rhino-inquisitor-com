@@ -15,6 +15,10 @@ tags:
   - event
   - sfcc
 author: Thomas Theunen
+takeaways:
+  - "Previews Salesforce Connections 2024 from an SFCC-focused attendee perspective"
+  - "Curates the most relevant B2C Commerce and composable-storefront sessions across both event days"
+  - "Helps community members prioritize overlapping sessions, roadmap content, and meetup opportunities"
 ---
 The wait is almost over. Next week, it is time for Salesforce Connections 2024. I can't believe it has already been two years since then—and that one was quite memorable, as I was last [awarded my Golden Hoodie](/events-and-the-golden-hoodie/) during the keynote!
 

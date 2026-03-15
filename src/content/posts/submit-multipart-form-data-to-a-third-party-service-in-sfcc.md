@@ -14,6 +14,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Provides a practical example of sending multipart form-data from SFCC using the Service Framework and HTTPRequestPart"
+  - "Explains the required Business Manager service setup and the request-building details for file-based payloads"
+  - "Acts as a quick implementation guide for the uncommon case where an external service expects multipart uploads"
 ---
 A use case you will not run into often is submitting a file to a third-party service. And it is not easy to find documentation or examples on how to do it. For that reason, I decided to write a quick guide on implementing it!
 

@@ -14,6 +14,10 @@ tags:
   - ohana
   - sfcc
 author: Thomas Theunen
+takeaways:
+  - "Maps the main Salesforce B2C Commerce Cloud certifications and partner accreditations"
+  - "Explains how the developer and architect paths differ in depth and expected experience"
+  - "Calls out the current certification gap for non-technical Commerce Cloud roles"
 ---
 Certifications are a part of the Salesforce journey, and anyone who has looked into this knows that there are [many of them available](https://trailhead.salesforce.com/credentials/administratoroverview) to give a stab at.
 

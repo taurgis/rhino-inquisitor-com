@@ -17,6 +17,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Explains what the SFCC embedded CDN is and which storefront controls it exposes in Business Manager"
+  - "Walks through the production vanity-domain flow from alias setup to DNS verification and certificate upload"
+  - "Highlights go-live risks like apex-domain handling, production-only setup, and timing DNS changes before launch day"
 ---
 So, you want to set a website live on Salesforce B2C Commerce Cloud. It is all relatively new to you, but your task is to set up the Staging and Production instance to prepare your "GO-LIVE."
 

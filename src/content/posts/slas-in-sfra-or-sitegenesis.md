@@ -16,6 +16,10 @@ tags:
   - headless
   - sfcc
 author: Thomas Theunen
+takeaways:
+  - "Explains what SLAS is and why hybrid storefronts originally relied on plugin_slas to bridge monolithic sessions with headless authentication"
+  - "Details the operational costs of the old cartridge approach, including performance overhead, API quota consumption, and maintenance burden"
+  - "Argues that native Hybrid Authentication is the strategic replacement for session sync in modern SFRA or SiteGenesis plus composable setups"
 ---
 Headless APIs have been available in Salesforce B2C Commerce Cloud for some time, under the "[OCAPI (Open Commerce API](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/get-started-with-ocapi.html).)." In 2020, a new set of APIs, known as the SCAPI (Salesforce Commerce API), was introduced.
 

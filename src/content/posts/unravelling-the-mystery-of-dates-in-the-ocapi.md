@@ -16,6 +16,10 @@ tags:
   - ocapi
   - sfcc
 author: Thomas Theunen
+takeaways:
+  - "Explains how to filter OCAPI and related API searches using date-based query constructs such as range, range2, bool, and term filters"
+  - "Highlights the date-format requirements and endpoint-specific field support developers need to check before building queries"
+  - "Acts as a practical guide for integrations that need incremental syncs or time-based record retrieval"
 ---
 When we integrate third-party systems with [Salesforce B2C Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/) using OCAPI or SCAPI, we often have the requirement to filter data based on date ranges or only retrieve data that has been modified after a certain time.
 

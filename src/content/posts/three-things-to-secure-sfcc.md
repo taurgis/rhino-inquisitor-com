@@ -16,6 +16,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Focuses on three immediate security actions teams can take in SFCC around user access, code quality, and third-party credentials"
+  - "Reinforces the principle of least privilege for both Account Manager users and API-based integrations"
+  - "Frames SFCC security as a shared customer responsibility rather than something the SaaS platform handles entirely on its own"
 ---
 The importance of security in any digital environment can not be stressed enough. Even though [Salesforce Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/) is a SaaS solution, you are still in charge of your system and how some aspects are secured.
 

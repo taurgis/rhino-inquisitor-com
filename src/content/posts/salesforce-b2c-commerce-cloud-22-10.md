@@ -15,6 +15,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Highlights the major 22.10 updates around staging eCDN APIs, edge caching, and sandbox URL changes"
+  - "Explains new platform and API behaviors such as basket hook changes and negative inventory allocation limits"
+  - "Calls out related cartridge and storefront tooling releases that matter for hybrid, SFRA, and SLAS projects"
 ---
 What a year it has been, and now it is time for the final release of this year: the [October 2022 (22.10) release](https://documentation.b2c.commercecloud.salesforce.com/DOC3/index.jsp?topic=%2Fcom.demandware.dochelp%2FReleaseNotes%2F22_8%2Frn_b2c_rn_22_9_release.html&cp=0_1_2)!
 

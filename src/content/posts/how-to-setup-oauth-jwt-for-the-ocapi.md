@@ -17,6 +17,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Explains how to configure private_key_jwt authentication for OCAPI server-to-server access"
+  - "Walks through key generation, Account Manager setup, and JWT payload requirements"
+  - "Provides a practical Postman-based example for generating and exchanging the signed token"
 ---
 _IMPORTANT_: This article is about server-to-server communication
 

@@ -16,6 +16,10 @@ tags:
   - pagedesigner
   - sfcc
 author: Thomas Theunen
+takeaways:
+  - "Highlights March 2022 updates like Lightning UX, Page Shield, and SKU-specific dynamic pages"
+  - "Explains how Page Shield helps defend storefronts against compromised third-party scripts"
+  - "Calls out new platform constraints such as the promotion bonus product limit"
 ---
 In this post, we will be looking at the release notes of Salesforce B2C Commerce Cloud for March 2022. Let us dig deeper into any new and exciting features added to the platform.
 

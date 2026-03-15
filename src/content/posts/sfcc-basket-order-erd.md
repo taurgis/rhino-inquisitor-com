@@ -17,6 +17,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Provides a visual ERD for the SFCC basket and order domain, including its many related line-item and processing entities"
+  - "Explains why this area of the object model is especially complex and where certain legacy OMS-era objects still appear"
+  - "Acts as a practical reference for developers who need a faster mental model of basket and order relationships"
 ---
 When scouring the documentation for diagrams on the entity model of [Salesforce B2C Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/), you have probably come out empty-handed.
 

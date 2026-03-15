@@ -16,6 +16,10 @@ tags:
   - sfcc
   - trailblazerdx
 author: Thomas Theunen
+takeaways:
+  - "Curates the B2C Commerce-relevant sessions from the TrailblazerDX 2022 agenda for developers planning their event schedule"
+  - "Highlights where headless, CI/CD, hooks, and connected-commerce content appears within the broader conference lineup"
+  - "Encourages community networking by pairing the session guide with Slack-based meetup coordination"
 ---
 The pandemic is continuing its rounds worldwide, but luckily things are starting to return to normal.
 

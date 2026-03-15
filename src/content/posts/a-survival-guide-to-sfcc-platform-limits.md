@@ -16,6 +16,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Explains the most important SFCC quotas and why they exist as platform guardrails"
+  - "Shows common failure patterns across custom objects, timeouts, API calls, and sessions"
+  - "Provides architectural strategies to stay within limits in monolith and headless builds"
 ---
 It is a scenario that haunts every e-commerce developer: the 3 AM pager alert. The production site is down, shoppers are seeing the dreaded "general error page," and sales have come to a standstill. After a frantic dive into the logs, the culprit is revealed: a cryptic message about an "enforced quota violation". This is the moment every developer working on Salesforce B2C Commerce Cloud learns that, despite its power, the platform is a governed territory with strict rules.
 

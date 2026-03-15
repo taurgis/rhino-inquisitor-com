@@ -15,6 +15,10 @@ tags:
   - certification
   - sfcc
 author: Thomas Theunen
+takeaways:
+  - "Breaks down the B2C Commerce Architect exam by domain and highlights what each section is really testing"
+  - "Curates study resources across Trailhead, official documentation, and related Rhino Inquisitor articles"
+  - "Frames the certification as achievable with targeted preparation, especially for architects who need broader Business Manager and launch knowledge"
 ---
 Congratulations on your decision to become a [certified Salesforce B2C Commerce Architect](https://trailhead.salesforce.com/en/credentials/b2ccommercearchitect)! Obtaining certification is an excellent way to validate your knowledge and ensure that it meets Salesforce's high standards. While practical experience and training can provide a strong foundation, preparing specifically for the exam never hurts. In this article, we will review the exam guide and highlight the areas you may want to focus on to increase your chances of passing the exam on your first attempt.
 

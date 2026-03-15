@@ -14,6 +14,10 @@ tags:
   - ohana
   - personal
 author: Thomas Theunen
+takeaways:
+  - "Shares a personal account of the transition from office and client-site work to remote consulting"
+  - "Covers the practical trade-offs around commute time, home setup, meetings, and family life during and after the COVID shift"
+  - "Argues that remote work has become a durable model for productivity rather than a temporary exception"
 ---
 Ah, yes, working remotely. The bane of many employers before 2020 and the new normal now. If anything can be said about the health crisis that has been taking the world hostage for the past years, it has drastically changed how we do things (at least in our branch of work).
 

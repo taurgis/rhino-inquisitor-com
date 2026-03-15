@@ -16,6 +16,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Explains how chunk-oriented job steps process large datasets in manageable read-process-write segments"
+  - "Shows the script-module and steptypes configuration needed to build a custom chunk-oriented job step"
+  - "Highlights why chunk size and transaction strategy are central to performance and concurrency safety"
 ---
 Salesforce B2C Commerce Cloud offers a robust, flexible Jobs framework vital for performing scheduled or on-demand tasks for e-commerce operations. One of the critical capabilities of this framework is the ability to define [custom job steps](https://trailhead.salesforce.com/content/learn/modules/b2c-admin-create-and-manage-jobs/b2c-admin-create-custom-job-steps), which can be either task-oriented or chunk-oriented.
 

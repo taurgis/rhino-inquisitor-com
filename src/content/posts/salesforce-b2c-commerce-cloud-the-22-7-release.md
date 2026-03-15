@@ -15,6 +15,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Highlights the major 22.7 changes around Rhino engine upgrades, social-commerce direction, and PWA Kit 2.0"
+  - "Explains why the compatibility-mode improvements matter for developers using newer JavaScript features in SFCC"
+  - "Calls out the related cartridge and tooling releases that support commerce payments, Einstein, and hybrid storefront work"
 ---
 Summer has arrived, and so has the next Salesforce B2C Commerce Cloud release! This time we look at the [July 2022 (22.7) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_7_release.htm&type=5)!
 

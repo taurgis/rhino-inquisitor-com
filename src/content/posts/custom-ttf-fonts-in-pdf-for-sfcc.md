@@ -16,6 +16,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Explains how to package and register custom TTF fonts for PDF generation in SFCC"
+  - "Shows the jsPDF conversion, loading, and runtime usage steps needed to render branded fonts"
+  - "Warns to keep font payloads lean so generated PDFs and email attachments stay manageable"
 ---
 A while ago, I wrote two articles on how to get PDF magic to work within SFCC:
 

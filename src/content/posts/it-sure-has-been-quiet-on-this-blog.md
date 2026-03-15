@@ -14,6 +14,10 @@ tags:
   - ohana
   - sfcc
 author: Thomas Theunen
+takeaways:
+  - "Explains the personal and professional reasons behind the recent slowdown in blog posting"
+  - "Highlights side projects in smart home automation and Business Manager React tooling"
+  - "Confirms the blog is continuing with a lower publishing cadence rather than shutting down"
 ---
 It sure has been quite a while since I made my [last blog post](/the-latest-in-sfcc-version-24-7/); I even missed a release log - sorry about that. But why is that? And what have I been up to for the past two to three months? Is it the end of this blog?
 

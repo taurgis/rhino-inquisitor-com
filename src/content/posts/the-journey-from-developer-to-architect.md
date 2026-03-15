@@ -16,6 +16,10 @@ tags:
   - ohana
   - sfcc
 author: Thomas Theunen
+takeaways:
+  - "Explains the different architect roles and how they relate to Salesforce and Commerce Cloud work"
+  - "Describes the practical shift from hands-on development toward meetings, responsibility, documentation, and solution ownership"
+  - "Offers a personal perspective on deciding whether the move from developer to architect is the right next step"
 ---
 So you want to be an [architect](/what-skills-do-i-need-as-a-sfcc-architect/), do you? At least, that is why I am guessing you came to this page! Well, you came to the right place! I have gone through this transition myself, and here are some topics I wanted to write about the role.
 

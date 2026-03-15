@@ -17,6 +17,10 @@ tags:
   - sfra
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Argues that SFRA controllers should not be used as custom REST endpoints in modern composable storefront projects"
+  - "Explains why custom SCAPI endpoints are the better native option for authentication, caching, request-method support, and architecture clarity"
+  - "Highlights the operational downsides of controller-based APIs, including session creation, session bridging, and added system load"
 ---
 When working with Salesforce B2C Commerce Cloud in a hybrid approach (using SFRA with a Composable Storefront project), you naturally end up with some pages as SFRA Controllers and other parts of the project built on the Composable Storefront.
 

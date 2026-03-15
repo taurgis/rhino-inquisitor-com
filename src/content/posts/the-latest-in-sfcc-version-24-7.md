@@ -16,6 +16,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Highlights the most relevant 24.7 changes across WAFv2 migration, search performance, staging origin shielding, and SCAPI enhancements"
+  - "Explains the release themes of speed, security, and better operational tooling for both storefront and headless teams"
+  - "Calls out related PWA Kit and tooling updates that teams should verify as part of their upgrade cycle"
 ---
 In some places there is too much rain, in other places it is too hot.The weather might not bee consistent, but the release schedule of SFCC sure is! This time we look at the [July 2024 (24.7) release](https://help.salesforce.com/s/articleView?id=sf.b2c_rn_24_7_release.htm&type=5)!
 

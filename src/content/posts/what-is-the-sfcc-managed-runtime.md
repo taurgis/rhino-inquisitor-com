@@ -17,6 +17,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Explains the Managed Runtime as Salesforce-hosted infrastructure for deploying, running, and monitoring PWA Kit storefront bundles"
+  - "Covers the core concepts of organizations, projects, environments, and bundles that structure a composable storefront deployment"
+  - "Highlights the main business and developer benefits, including simplified infrastructure management, scaling, rollback clarity, and API-driven automation"
 ---
 In the last two years, more vocabulary has been added to the [Salesforce B2C Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/) ecosystem because of the [Composable Storefront](/sitegenesis-vs-sfra-vs-pwa/).
 

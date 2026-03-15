@@ -15,6 +15,10 @@ tags:
   - podcast
   - sfcc
 author: Thomas Theunen
+takeaways:
+  - "Curates podcasts that are useful for staying connected to the SFCC and broader Salesforce ecosystem"
+  - "Highlights which shows are directly commerce-focused versus generally useful for developers, community members, or leaders"
+  - "Gives newcomers a practical listening list for both technical insight and ecosystem awareness"
 ---
 Over the years, a lot of podcasts have popped up around Salesforce. And amongst these, they organise quite a few themselves.
 

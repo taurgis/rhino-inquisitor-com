@@ -17,6 +17,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Shows how AI tools support blog titles, images, documentation, and developer workflows"
+  - "Explains why human expertise still drives the article content and technical substance"
+  - "Shares a practical creator workflow that uses AI for speed rather than full replacement"
 ---
 As a content creator and Salesforce Commerce Cloud architect, I am fascinated by the seamless integration of technology and creativity. AI has revolutionised my workflow, from creating stunning visuals for my blog to refining my writing.  Its ability to streamline processes and improve efficiency has made my work more productive and fulfilling. I continuously seek new ways to leverage AI to drive innovation and creativity! But over the past months, the fact that I use this technology has not gone unnoticed. And there is a question that pops up quite often lately. **_What tools do I use?_**  I have been asked a few times how I utilise AI for blogging work. Let's use this article as an example of how I build it and move on to my other work (architectural and development) uses.
 

@@ -17,6 +17,10 @@ tags:
   - sfra
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Explains how SFCC sitemap generation works, including index files, settings, scheduling, and hreflang support"
+  - "Covers both classic job-based and modern SCAPI-based approaches for adding custom sitemap files"
+  - "Shows how headless storefronts can combine backend-generated catalog sitemaps with frontend-only route coverage"
 ---
 Let's be honest, as developers, "SEO" can sometimes feel like a four-letter word handed down from the marketing team. But what if I told you that one of the most critical SEO tools, the sitemap, is actually a fascinating piece of platform architecture you can control, automate, and even extend with code?
 

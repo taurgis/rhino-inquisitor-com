@@ -16,6 +16,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Highlights the most relevant 22.5 changes around documentation migration, on-demand sandbox controls, and social-commerce pilots"
+  - "Explains the new Shopper Context and passwordless SLAS APIs that expand personalization and login options for headless storefronts"
+  - "Calls out business-manager and payments improvements that matter for category automation and stored-payment experiences"
 ---
 A new month, a new release of Salesforce B2C Commerce Cloud. Let us dig a little deeper in the [release notes](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_5_release.htm&type=5) to see what is new!
 

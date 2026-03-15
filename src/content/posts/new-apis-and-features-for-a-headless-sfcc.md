@@ -15,6 +15,10 @@ tags:
   - headless
   - sfcc
 author: Thomas Theunen
+takeaways:
+  - "Highlights headless-focused platform updates across Managed Runtime, PWA Kit, and SCAPI"
+  - "Explains why Storefront Preview and URL Resolution are important gaps being closed for composable storefront teams"
+  - "Calls out new logging, CSP, and Store APIs that affect real-world headless implementation work"
 ---
 The holiday period was quiet for a long time regarding [Salesforce B2C Commerce Cloud releases](https://www.rhino-inquisitor.com/category/release-notes/). This was because the monolithic system required the deployment of all components, which carried the risk of bugs.
 

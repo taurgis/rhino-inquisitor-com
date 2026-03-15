@@ -17,6 +17,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Explains what origin shielding is in the SFCC and eCDN context and why it protects storefront and API origins from direct access"
+  - "Highlights the practical impact on PIG access, third-party integrations, and Managed Runtime origin locking"
+  - "Provides a short operational checklist for reducing disruption through vanity domains, communication, testing, and monitoring"
 ---
 Today, we're exploring the crucial role of [Origin](https://www.cloudflare.com/learning/cdn/glossary/origin-server/) Shielding in Salesforce B2C Commerce Cloud. As online security becomes increasingly important (and always has been), we'll look at what Origin Shielding (and Origin Locking) is. We will also share the steps involved in your projects.
 

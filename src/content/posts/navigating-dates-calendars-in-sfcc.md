@@ -15,6 +15,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Explains the roles of JavaScript Date and dw.util.Calendar when handling time in SFCC"
+  - "Shows how to work with instance and site time zones and retrieve those settings in code"
+  - "Helps developers avoid subtle localization and scheduling bugs caused by timezone and API differences"
 ---
 In today's world, managing dates, calendars, and time zones is expected for any e-commerce platform. [Salesforce B2C Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/) is no exception, and this article will explore the intricacies of working with dates and calendars in SFCC, focusing on the JavaScript Date object, the Java Calendar class.
 

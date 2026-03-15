@@ -17,6 +17,10 @@ tags:
     - sfcc
     - technical
 author: Thomas Theunen
+takeaways:
+    - "Shows how to send a file to a third-party service from SFCC using the LocalServiceRegistry and HTTP service framework"
+    - "Explains both the simple file-return pattern and the execute-override pattern for more control over the request"
+    - "Covers the related Business Manager service configuration and logging behavior developers should understand"
 ---
 Salesforce B2C Commerce Cloud provides developers and architects with a [framework to integrate third-party services](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/web_services/b2c_webservices.html), making it much more streamlined to get up and running. With the [LocalServiceRegistry,](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/web_services/b2c_coding_your_web_service.html) you get some neat features like configuration management from the business manager, logging, and service monitoring! There are examples available on how to use this system, but how do you send a file to a service using it? There isn't an example available for this (except for an FTP service that, by definition, works with files).
 

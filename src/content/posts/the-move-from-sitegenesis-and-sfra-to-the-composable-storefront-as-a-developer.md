@@ -19,6 +19,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Frames the move from SiteGenesis or SFRA to the composable storefront as a skills expansion rather than a full reset for SFCC developers"
+  - "Highlights which existing JavaScript, commerce, and Commerce Cloud knowledge transfers well into React and PWA Kit work"
+  - "Curates practical starting points for developers who want to begin learning the composable storefront stack"
 ---
 As a Salesforce B2C Commerce Cloud developer (starter or experienced), expanding your skill set and exploring new technologies is part of the job - it all moves quickly. [One option](/sitegenesis-vs-sfra-vs-pwa/) that has become available in Salesforce B2C Commerce Cloud is React.JS, a JavaScript library for building user interfaces (maybe a Headless Storefront? 🙂).
 

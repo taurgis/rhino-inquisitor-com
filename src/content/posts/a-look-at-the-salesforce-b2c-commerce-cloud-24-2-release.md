@@ -16,6 +16,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Warns that partitioned cookies are on by default and need hybrid-flow testing"
+  - "Highlights GA custom SCAPI endpoints and other API changes worth revalidating"
+  - "Flags platform and framework upgrades like SFRA 7 and PWA Kit 3.4"
 ---
 It's time to gear up for the February 2024 ([24.2](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_24_2_release.htm&type=5)) release of Salesforce B2C Commerce Cloud! With the arrival of this latest release, let's look at what's new and exciting!
 
@@ -56,20 +60,16 @@ Previously, we were unable to differentiate at the millisecond level, but that i
 #### XML Import example
 
 ```
-
-					// example import with seconds
+// example import with seconds
 2023-11-22T06:56:01Z
 // example import with milliseconds
 2023-11-22T06:56:01.567Z
-
-
 ```
 
 #### OCAPI
 
 ```
-
-					// Request body example with millis
+// Request body example with millis
 { 'allocation': { 'amount': 17, 'reset_date': '2023-11-23T08:39:23.456Z' } }
 // Response always with millis
 .... 'reset_date': '2023-11-23T08:39:23.456Z'
@@ -77,8 +77,6 @@ Previously, we were unable to differentiate at the millisecond level, but that i
 { 'allocation': { 'amount': 17, 'reset_date': '2023-11-23T08:41:23Z' } }
 // Response always with millis
 .... 'reset_date': '2023-11-23T08:41:23.000Z'
-
-
 ```
 
 ## Business Manager

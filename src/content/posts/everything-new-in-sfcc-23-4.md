@@ -16,6 +16,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Highlights the main 23.4 updates across payments, taxation, Page Designer, and hybrid deployment"
+  - "Explains why new CDN origin APIs matter for phased SFRA to PWA rollouts"
+  - "Flags Node and PWA Kit upgrade pressure tied to Managed Runtime support windows"
 ---
 As the clock ticks on a new month has arrived, and with that the next [Salesforce B2C Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/) release! This time we look at the [April 2023 (23.4) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_23_4_release.htm&language=en_US&type=5)!
 

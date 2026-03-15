@@ -15,6 +15,10 @@ tags:
   - payment
   - sfcc
 author: Thomas Theunen
+takeaways:
+  - "Explains what Salesforce Payments is, how it wraps Stripe, and where it reduces custom integration effort in SFCC"
+  - "Highlights the trade-offs around control, payment-method coverage, composable storefront support, and future multi-cloud value"
+  - "Gives teams a practical starting point for evaluating Salesforce Payments against third-party PSP cartridges"
 ---
 As a [Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/) connoisseur, you know how important it is to have a seamless customer payment process. After all, a clunky checkout experience can result in abandoned carts and lost sales. But what exactly is [Salesforce Payments](https://trailhead.salesforce.com/content/learn/modules/cc-commerce-payments) - or [Commerce Payments](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/salesforce_payments/b2c_salesforce_payments.html), and how can it benefit you with the payment provider implementation? In this article, we'll explore the ins and outs of Salesforce Payments, from its features and benefits to the integration.
 

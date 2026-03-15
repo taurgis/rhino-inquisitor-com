@@ -18,6 +18,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Highlights the major 23.2 improvements to Page Designer usability, locale controls, and guest basket behavior"
+  - "Explains why the new Shopper Experience API is a significant shift for headless access to Page Designer content"
+  - "Calls out the broader release impact across SCAPI, SLAS, tax handling, reporting, and PWA Kit updates"
 ---
 February is almost here, and so is the [February 2023](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_23_2_release.htm&type=5) (23.2) release! If you are an avid user of Page Designer, this is the update you have been waiting for - and Salesforce, keep 'em comin'!
 

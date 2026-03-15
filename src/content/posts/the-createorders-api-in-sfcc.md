@@ -16,6 +16,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Explains what the createOrders API is for and where it fits best in external-order and social-commerce scenarios"
+  - "Highlights the validation, pricing, payment, and inventory responsibilities that stay with the origin system using the API"
+  - "Walks through the SLAS trusted-system authentication flow required before creating orders on behalf of shoppers"
 ---
 In this article, we will discuss the [createOrders API](https://developer.salesforce.com/docs/commerce/commerce-api/references/orders?meta=createOrders) used to create orders in the Commerce Cloud platform. The createOrders API is designed to create a fully calculated, paid, or authorised order on the fly in the Commerce Cloud platform. But how does it work?
 

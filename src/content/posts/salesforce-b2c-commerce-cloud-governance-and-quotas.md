@@ -16,6 +16,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Explains what SFCC quotas are, why they exist, and how they compare to broader SaaS platform governor limits"
+  - "Shows where documented quotas live, how enforced limits surface, and why monitoring them matters in production"
+  - "Highlights practical quota-related pitfalls such as request limits, response size, disk space, and garbage-collection pressure"
 ---
 One of the things that developers (not all) love about a SaaS platform is that all of the server management and setup is taken out of their hands by the vendor - in our case, this is Salesforce.
 

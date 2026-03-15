@@ -15,6 +15,10 @@ tags:
   - release notes
   - sfcc
 author: Thomas Theunen
+takeaways:
+  - "Highlights 24.4 changes around custom APIs, rogue query limits, and Page Designer image management"
+  - "Explains new SCAPI and OCAPI behavior that can replace older customization workarounds"
+  - "Flags security and operations changes like OCAPI token invalidation and staging eCDN management"
 ---
 It's that time of the year again! The [April 2024 (24.4)](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_24_4_release.htm&type=5) release of Salesforce B2C Commerce Cloud is finally here, just in time for the spring season. Let's take a closer look at all the exciting new features and improvements this release offers.
 

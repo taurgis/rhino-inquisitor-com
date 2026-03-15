@@ -16,6 +16,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Provides a visual ERD for the SFCC product, catalog, pricebook, and inventory model"
+  - "Explains the complexity of product relationships and the helper APIs that simplify working with them in code"
+  - "Acts as a practical cheat sheet for developers and architects who need a faster mental model of the catalog domain"
 ---
 When scouring the documentation for the Product and Catalog ERD ([Entity–relationship model](https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model)) of [Salesforce B2C Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/), you have probably come out empty-handed.
 

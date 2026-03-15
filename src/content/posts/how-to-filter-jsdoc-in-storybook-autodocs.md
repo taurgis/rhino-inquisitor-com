@@ -14,6 +14,10 @@ tags:
   - storybook
   - technical
 author: Thomas Theunen
+takeaways:
+    - "Explains why default Storybook Autodocs output can render JSDoc poorly for component docs"
+    - "Shows how to override the docs page and replace Description with a filtered custom component"
+    - "Demonstrates a targeted fix that keeps only the descriptive JSDoc text before parameter blocks"
 ---
 Over the past few months, I have grown to love [Storybook](https://storybook.js.org/) as it gives me all the tools necessary to expose my components for testing and documentation.
 

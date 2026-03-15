@@ -16,6 +16,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Highlights 24.3 changes affecting baskets, translations, SCAPI caching, and load shedding"
+  - "Calls out new custom headers and Shopper Baskets v2 migration considerations"
+  - "Flags operational changes like disabled scheduled backups and new Business Manager alerts"
 ---
 As snowy days slowly turn into sunny ones, the 24.3 release of SFCC has arrived! Let us have a look at the [March release of 2024](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_24_3_release.htm&type=5).
 

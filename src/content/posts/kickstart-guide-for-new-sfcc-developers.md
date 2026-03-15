@@ -17,6 +17,10 @@ tags:
   - sfra
   - sitegenesis
 author: Thomas Theunen
+takeaways:
+  - "Provides a broad onboarding map for new SFCC developers from architecture to tooling and platform concepts"
+  - "Explains the practical differences between SiteGenesis, SFRA, and composable storefront development"
+  - "Connects performance, security, caching, and environment discipline into a realistic learning path"
 ---
 So, you’ve decided to tame the beast that is Salesforce B2C Commerce Cloud (SFCC). Congratulations, and welcome to the jungle. If you're feeling a bit overwhelmed by the sheer [scale](/sitegenesis-vs-sfra-vs-pwa/) of the platform, with its myriad features, acronyms, and unique architectural quirks, don't worry – we've all been there. SFCC isn't just an e-commerce platform you can master over a weekend; it's an enterprise-grade ecosystem, forged over decades, designed for the world's biggest brands. Its complexity is a direct reflection of its power.
 

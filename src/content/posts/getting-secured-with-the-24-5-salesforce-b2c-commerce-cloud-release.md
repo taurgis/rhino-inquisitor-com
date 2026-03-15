@@ -16,6 +16,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Highlights the major 24.5 security and extensibility changes across eCDN, baskets, and headers"
+  - "Explains why WAFv2 and storefront order allow lists matter for stronger platform security"
+  - "Calls out new headless capabilities and deprecations teams should review before upgrading"
 ---
 Again, it is time for the monthly Salesforce B2C Commerce Cloud release! This time, we look at the [May 2024 (24.5) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_24_5_release.htm&type=5)!
 

@@ -15,6 +15,10 @@ tags:
   - ohana
   - sfcc
 author: Thomas Theunen
+takeaways:
+  - "Argues AI will reward developers who adapt rather than replace platform expertise outright"
+  - "Shows how AI shifts developer value toward architecture, judgment, and collaboration"
+  - "Recommends hands-on adoption of AI coding tools instead of waiting for the market to settle"
 ---
 The Rhino Inquisitor I went all "Rhino" up in this place, be prepared for some analogies 😇.
 

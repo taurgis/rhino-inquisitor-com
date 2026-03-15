@@ -17,6 +17,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Highlights April 2022 changes across PWA Kit, SLAS, OCAPI caching, and Business Manager"
+  - "Explains why the deprecated login flow should move to SLAS for storefront resilience"
+  - "Calls out new caching and variation-group behavior worth testing before rollout"
 ---
 In this post, we will be looking at the release notes of Salesforce B2C Commerce Cloud for April 2022. Since the release cycles for B2C Commerce are [a lot quicker than the other Salesforce platforms](https://medium.com/inside-the-salesforce-ecosystem/a-partners-guide-to-navigating-the-salesforce-release-cycle-efa36ed3c64), not every month will be as extensive a list as the other.
 

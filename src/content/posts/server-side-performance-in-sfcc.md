@@ -16,6 +16,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Explains the main server-side performance tools available in SFCC, including reports, the pipeline profiler, and the code profiler"
+  - "Highlights practical performance levers such as better code hygiene, custom caches, and page caching"
+  - "Provides a troubleshooting flow teams can follow when storefront controllers or API customizations slow down"
 ---
 All web developers understand the crucial role [performance](https://www.rhino-inquisitor.com/caching-rest-apis-in-sfcc/) plays for a website, both in terms of the visitor experience and as a quality benchmark. Not to forget, conserving CPU cycles contributes to environmental sustainability, albeit in small increments.
 

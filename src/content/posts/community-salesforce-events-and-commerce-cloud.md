@@ -15,6 +15,10 @@ tags:
   - sfcc
   - yeurdreamin'
 author: Thomas Theunen
+takeaways:
+  - "Surveys community-led Salesforce events and where Commerce Cloud currently fits in"
+  - "Explains why SFCC content is still sparse on broader community event agendas"
+  - "Encourages Commerce professionals to submit talks and broaden cross-cloud participation"
 ---
 Salesforce is known for hosting spectacular events all over the world. But did you know the community organizes some amazing ones as well? Maybe you don't if you are a Salesforce B2C Commerce Cloud enthusiast, but why is that? Let us dig deeper into some of the events that caught my eye!
 

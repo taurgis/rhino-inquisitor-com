@@ -16,6 +16,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Explains what an SFCC POD is and why knowing it matters for integrations, troubleshooting, maintenance awareness, and performance planning"
+  - "Covers practical ways to identify the current POD through UI clues, official references, and support channels"
+  - "Places POD discovery in the broader context of Salesforce infrastructure evolution and the shift toward Hyperforce"
 ---
 As a Salesforce B2C Commerce Cloud developer, you operate within a sophisticated, multi-tenant cloud architecture. While Salesforce masterfully handles the underlying infrastructure, there are times when you need to peek behind the curtain. One of the most common—and often surprisingly elusive—pieces of information you'll need is your instance's **POD number**.
 

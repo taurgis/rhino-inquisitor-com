@@ -16,6 +16,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Argues origin shielding issues were often caused by missed communication, not the feature itself"
+  - "Shows how critical updates were spread across many channels over more than a year"
+  - "Recommends broader internal distribution so platform notices do not rely on one person"
 ---
 September has shown its face, and the sunny weather (at least here) is ending. And with that also the complete activation of [Origin Shielding](https://help.salesforce.com/s/articleView?id=000364472&type=1), or it simply: "Putting everything behind the eCDN." For most, this change had little effect as it meant switching all third-party integrations from the demandware.net domain to the brand vanity domain. But for some, this was not a fairytale story. Why is that? _**Note:** _ _ This article is pure speculation on my part, and I did not look at which percentage of Salesforce B2C Commerce Cloud customers did not have the "fairytale story." Even though this percentage is probably on the low side, I do feel the need to look at the possible cause._
 

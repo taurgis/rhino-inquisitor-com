@@ -16,6 +16,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Explains why server-side PDF generation is hard in SFCC because of the Rhino sandbox and restricted platform APIs"
+  - "Shows jsPDF as a practical on-platform workaround for traditional SFRA-style implementations"
+  - "Argues that composable storefronts should usually push PDF generation into external services or Node-based architecture"
 ---
 So, you need to whip up some documents in Salesforce B2C Commerce (SFCC). Invoices, return labels, maybe a digital gift card that looks suspiciously like a treasure map. Sounds simple, right?
 

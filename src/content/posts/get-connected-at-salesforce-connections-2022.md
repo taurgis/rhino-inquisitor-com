@@ -15,6 +15,10 @@ tags:
   - sfcc
   - trailhead
 author: Thomas Theunen
+takeaways:
+  - "Previews Connections 2022 through a commerce-focused agenda and networking lens"
+  - "Highlights key sessions on headless, multi-cloud, social commerce, and unified commerce"
+  - "Emphasizes that the event is as much about meeting people as attending sessions"
 ---
 It seems like only yesterday that [TrailblazerDX](/trailblazerdx-2022-for-b2c-commerce/) happened, and here we are again. But this time in Chicago!
 

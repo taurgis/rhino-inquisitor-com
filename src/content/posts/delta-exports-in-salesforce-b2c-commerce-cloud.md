@@ -20,6 +20,10 @@ tags:
 aliases:
   - /delta-exports-in-salesforce-b2c-commerce/
 author: Thomas Theunen
+takeaways:
+  - "Explains how delta exports work in SFCC and which data types they can cover"
+  - "Highlights enablement constraints like support activation, change-log retention, and PIG-only support"
+  - "Warns about runtime, performance, and synchronization trade-offs before relying on the feature"
 ---
 You probably already knew that it is possible to do full exports of your customer lists and catalogs from Salesforce B2C Commerce Cloud. This can be done through the [business manager](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/import_export/b2c_catalog_object_import_export.html) or a [job](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/jobstepapi/html/api/jobstep.ExportCatalog.html).
 

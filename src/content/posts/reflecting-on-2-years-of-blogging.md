@@ -14,6 +14,10 @@ tags:
   - community
   - ohana
 author: Thomas Theunen
+takeaways:
+  - "Reflects on two years of Rhino Inquisitor and the impact the blog has had on the SFCC community"
+  - "Explains the shift toward revising older articles as the platform evolves rather than only publishing new ones"
+  - "Combines the anniversary update with future plans, a renewed MVP recognition, and personal creative interests"
 ---
 I am delighted to announce that I have completed two years of my journey with the Rhino Inquisitor blog. This journey has been a blend of difficulties and achievements.
 

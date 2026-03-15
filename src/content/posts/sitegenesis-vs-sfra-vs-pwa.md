@@ -16,6 +16,10 @@ tags:
   - sfra
   - sitegenesis
 author: Thomas Theunen
+takeaways:
+  - "Compares SiteGenesis, SFRA, and PWA Kit as the main storefront architecture options in the SFCC ecosystem"
+  - "Explains the trade-offs around legacy constraints, third-party support, headless flexibility, and out-of-the-box feature coverage"
+  - "Helps teams choose a storefront direction based on modernization goals, budget, and required integrations"
 ---
 [Salesforce B2C Commerce Cloud](https://www.salesforce.com/products/commerce-cloud/ecommerce/) is a modern Commerce platform that empowers retailers of all sizes and industries to harness the power of the cloud to deliver world-class omnichannel experiences. With Salesforce B2C Commerce Cloud, you can effortlessly offer your customers a seamless and personalized shopping journey across the mobile, social, and in-store channels while gaining valuable insights into who they are and what they want.
 

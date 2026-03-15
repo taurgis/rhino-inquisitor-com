@@ -16,6 +16,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Explains the OCAPI session bridge as a way to exchange storefront session cookies and JWT tokens between monolithic and headless touchpoints"
+  - "Walks through the practical request flow for converting a guest OCAPI token into storefront cookies and back again"
+  - "Highlights the hybrid-deployment and mobile-app scenarios where session bridging is useful, along with the sensitive-data caveats to keep in mind"
 ---
 With the added attention to [Headless architecture](/sitegenesis-vs-sfra-vs-pwa/) in Salesforce B2C Commerce Cloud and the option for "[hybrid deployments](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/phased-headless-rollouts.html)," the [Session Bridge](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/SessionBridge.html) has also gotten some more airtime.
 

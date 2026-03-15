@@ -14,6 +14,10 @@ tags:
   - oci
   - sfcc
 author: Thomas Theunen
+takeaways:
+  - "Explains what Omnichannel Inventory is, what capabilities it brings, and why it matters for near real-time multi-location inventory use cases"
+  - "Highlights that OCI is included in the B2C Commerce license and natively integrates with SFCC inventory lists"
+  - "Balances the product's omnichannel benefits against the added architectural complexity, API-first setup effort, and development work it can introduce"
 ---
 OCI ([Omnichannel Inventory](https://trailhead.salesforce.com/content/learn/modules/omnichannel-inventory)) has been a part of the Salesforce B2C Commerce Cloud offering for a while. Originally it was part of the OMS ([Order Management](https://www.salesforce.com/products/commerce-cloud/ecommerce/order-management/), but it was decided to split it off as a separate product to provide a flexible offering.
 

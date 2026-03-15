@@ -15,6 +15,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Compares local and shared variation attributes in SFCC at both the data-model and XML-import levels"
+  - "Explains the flexibility, maintenance, and scalability trade-offs between both approaches"
+  - "Helps teams choose when to centralize variation models and when product-specific attributes are justified"
 ---
 In the dynamic world of eCommerce, the concept of [product variation](https://www.rhino-inquisitor.com/slicing-versus-variation-groups-in-sfcc/) holds significant importance. It empowers merchants to effectively present a range of product options, a crucial aspect for platforms like Salesforce B2C Commerce Cloud. These platforms often deal with extensive catalogs, each with a variety of attributes to cater to diverse customer preferences.
 
@@ -41,61 +45,26 @@ Local variation attributes are specific to a single product or a small group of 
 In the [catalog import XML](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/xsd/catalog.xsd), local variation attributes are defined under the specific product they are associated with, which distinguishes them from shared attributes. The XML snippet below illustrates how local variation attributes are structured:
 
 ```
-
-
-
-
-  	...
-
-
-
-					Color
-
-
-							Gulf
-
-
-							Pink
-
-
-							White
-
-
-
-
-					Size
-
-
-							4
-
-
-							6
-
-
-							8
-
-
-
-
-
-
-                ...
-
-
-        ...
-
-
-
-			JJI15XX
-			white
-			006
-			Z
-
-
-
-
-
 ```
+...
+
+Color
+  Gulf
+  Pink
+  White
+
+Size
+  4
+  6
+  8
+
+...
+...
+
+JJI15XX
+white
+006
+Z
 
 In this example, the main product defines a color and size variation attribute that only applies to this particular main product and its variants.
 
@@ -114,77 +83,23 @@ Merchant Tools > Products and Catalogs > Shared Variation Attributes
 Shared variation attributes in the catalog import XML are referenced as part of the catalog, rather than an individual product. The following XML example showcases how shared variation attributes are represented:
 
 ```
+Kleur
+  Black
 
+Size
+  16
+  16
+  17
+  17
+  18
+  18
 
+...
+....
+....
 
-		Kleur
-
-
-				Black
-
-
-
-
-		Size
-
-
-				16
-				16
-
-
-				17
-				17
-
-
-				18
-				18
-
-
-
-	...
-
-        ....
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        ....
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-			black
-			18
-
-
-
-
-
+black
+18
 ```
 
 In this case, both products utilise the same shared attributes for "Color," demonstrating the shared nature of these attributes.

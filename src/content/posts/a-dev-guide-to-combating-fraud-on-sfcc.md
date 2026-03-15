@@ -13,6 +13,10 @@ categories:
 tags:
   - sfcc
 author: Thomas Theunen
+takeaways:
+  - "Breaks down major eCommerce fraud patterns SFCC developers need to recognize"
+  - "Shows how native SFCC controls, custom rules, and scoring can work together"
+  - "Compares third-party fraud tools by bot defense, analyst control, and guarantees"
 ---
 Your checkout flow isn't just a conversion funnel; it's a battleground. Every order placed is a potential skirmish with bad actors looking to exploit your system for financial gain. For developers on the Salesforce B2C Commerce Cloud (SFCC) platform, preventing fraud is not merely a business concern—it's a technical mandate. It falls squarely within our domain to architect defences that are both robust and intelligent. Under the Salesforce Shared Responsibility Model, Salesforce secures the core platform and infrastructure; however, the security of custom code, configurations, and data handling is the customer's (or partner's) responsibility. This is where we, the developers, step up.
 

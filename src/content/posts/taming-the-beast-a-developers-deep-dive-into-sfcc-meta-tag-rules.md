@@ -18,6 +18,10 @@ tags:
   - sfra
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Explains SFCC page meta tag rules as a declarative SEO engine rather than a minor Business Manager configuration screen"
+  - "Covers the syntax, inheritance model, hybrid fallback pattern, and practical troubleshooting approach developers need to use the feature safely"
+  - "Highlights advanced use cases, common pitfalls, and how the same strategy can still support headless storefront architectures"
 ---
 At some point in your Salesforce B2C Commerce Cloud career, you've been handed _The Spreadsheet_. It's a glorious, terrifying document, often with 10,000+ rows, meticulously crafted by an SEO team. Each row represents a product, and each column contains the perfect, unique meta title and description destined to win the favour of the [Google](https://developers.google.com/search/case-studies) gods. Your heart sinks. You see visions of tedious data imports, endless validation, and the inevitable late-night fire drill when someone screams, "The staging data doesn't match production!".
 

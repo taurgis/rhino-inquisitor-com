@@ -15,6 +15,10 @@ tags:
   - sfcc
   - trailhead
 author: Thomas Theunen
+takeaways:
+  - "Argues that JavaScript Developer I can be a worthwhile complement for SFCC developers who want stronger vanilla JavaScript fundamentals"
+  - "Explains the trade-off that the certification path also requires exposure to the broader Salesforce core platform"
+  - "Provides practical preparation resources for developers deciding whether to pursue the credential"
 ---
 JavaScript is integral to Salesforce B2C Commerce Cloud development in both the back and front ends. And with the addition of the [Composable Storefront](/what-does-the-composable-storefront-mean-for-sfcc-developers/), your knowledge of the basics will help you continue your path within the B2C ecosystem as a developer. But no actual certification for SFCC that tests your knowledge of JavaScript. Or is there? Maybe the title was a bit of a giveaway 😅.
 

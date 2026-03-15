@@ -15,6 +15,10 @@ tags:
   - release notes
   - sfcc
 author: Thomas Theunen
+takeaways:
+  - "Highlights the most relevant 24.1 changes around DKIM support, temporary baskets in OCAPI, and Einstein log handling"
+  - "Explains why temporary baskets matter for headless and mobile order flows without disturbing the main shopper basket"
+  - "Calls out the related PWA Kit and tooling updates that teams should track early in the 2024 release cycle"
 ---
 A new year means release notes for the back end have started again! This time, we look at the [January 2024 (24.1) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_24_1_release.htm&type=5)!
 

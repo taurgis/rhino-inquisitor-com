@@ -18,6 +18,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Highlights the most relevant 24.6 updates across Commerce Concierge, search and SEO improvements, new APIs, and service-framework changes"
+  - "Explains what the release means for both headless teams and Business Manager users, especially around preferences, sorting, and SCAPI support"
+  - "Calls out the related cartridge and tooling updates that teams may want to track alongside the platform release"
 ---
 "[Connections](/salesforce-connections-2024-and-sfcc/)" is in our rear-view mirror, but some new updates to the platform are ahead! This time, we look at the [June 2024 (24.6) release](https://help.salesforce.com/s/articleView?id=sf.b2c_rn_24_6_release.htm&type=5)!
 

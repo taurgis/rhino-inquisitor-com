@@ -15,6 +15,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Shows how request locale controls localized data retrieval in SFCC server-side code"
+  - "Explains the simple locale-switch pattern and why restoring the original locale matters"
+  - "Contrasts the server-side approach with locale handling in headless storefront APIs"
 ---
 SFCC provides a [built-in system to manage different aspects of the data](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/) in multiple languages. But sometimes, you want to show something in a specific locale outside the current session context. How can this be done?
 
@@ -23,8 +27,7 @@ SFCC provides a [built-in system to manage different aspects of the data](https:
 For those in a hurry:
 
 ```
-
-					// Store the current situation to re-set it later
+// Store the current situation to re-set it later
 var currentLocale = request.getLocale();
 request.setLocale('xx_XX');
 /*
@@ -32,7 +35,6 @@ request.setLocale('xx_XX');
 */
 // Reset the request language to the original
 request.setLocale(currentLocale);
-
 ```
 
 ## How does it work?
@@ -53,14 +55,12 @@ The system will look at the current request's language preference (or setting) w
 To fetch data in a specific language, we must modify the current request before doing the "get". If we want to fetch an attribute in a specific language, we can do something like this:
 
 ```
-
-					var ProductMgr = require('dw/catalog/ProductMgr');
+var ProductMgr = require('dw/catalog/ProductMgr');
 var product = ProductMgr.getProduct('my_sku');
 request.setLocale('zh_CN');
 var cnName = product.name;
 request.setLocale('en_US');
 var enName = product.name;
-
 ```
 
 No re-fetching of the entire record is required! Always think about performance, and do not needlessly fetch the same object when it is not necessary.
@@ -85,10 +85,7 @@ Some might ask, why would you need to do such a thing? Well, there are a few rea
 The system of working with locales within the [PWA Kit](https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/) is entirely different, which should be no surprise as this is a Headless Storefront in React. The composable storefront uses the '[commerce-sdk-isomorphic](https://github.com/SalesforceCommerceCloud/commerce-sdk-isomorphic)' package, which accepts a locale parameter passed on to the endpoint as a URL parameter:
 
 ```
-
-					https://{shortCode}.api.commercecloud.salesforce.com/product/shopper-products/v1/organizations/{organizationId}/products/{id}?siteId=SiteGenesis&locale=en-US"
-
-
+https://{shortCode}.api.commercecloud.salesforce.com/product/shopper-products/v1/organizations/{organizationId}/products/{id}?siteId=SiteGenesis&locale=en-US"
 ```
 
 This means you can easily fetch something in a specific language by doing a REST API call, with the downside of having the fetch the entire record (unless it supports property selection). You could resort to [custom hooks](https://www.rhino-inquisitor.com/how-to-use-ocapi-scapi-hooks/) or even [a custom endpoint](https://www.rhino-inquisitor.com/creating-custom-ocapi-endpoints/) in certain use cases.

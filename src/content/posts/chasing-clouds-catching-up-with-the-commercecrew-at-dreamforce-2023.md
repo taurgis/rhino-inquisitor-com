@@ -14,6 +14,10 @@ tags:
   - dreamforce
   - sfcc
 author: Thomas Theunen
+takeaways:
+  - "Recaps the key community moments, meetups, and interviews from Dreamforce 2023"
+  - "Highlights how AI dominated the event narrative across sessions and conversations"
+  - "Notes the trade-off between strong community energy and limited standalone B2C innovation"
 ---
 For those of you who have been wondering about my whereabouts some time ago, I enjoyed this massive gathering in San Francisco. It is always invigorating to be part of the Dreamforce experience! This time around, I am recounting my journey of attending in 2023.
 

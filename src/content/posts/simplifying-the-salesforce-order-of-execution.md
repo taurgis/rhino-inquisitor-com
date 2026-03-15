@@ -16,6 +16,10 @@ tags:
   - salesforce
   - triggers
 author: Thomas Theunen
+takeaways:
+  - "Presents a simplified view of Salesforce's order of execution for teams favoring modern automation patterns"
+  - "Explains how retiring Workflow Rules and Process Builder reduces complexity, recursion, and debugging overhead"
+  - "Frames the simplified model as a practical planning aid rather than a universal replacement for the official diagram"
 ---
 When it comes to understanding how Salesforce operates, there are many factors to consider. One key aspect is the "Order of Execution", or the sequence in which Salesforce automation runs. Knowing the order of execution can help you better understand how your code, triggers, flows, and other automation tools operate within the platform. Whether you're a seasoned Salesforce developer or new to the platform, understanding the [Order of Execution](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_triggers_order_of_execution.htm) is essential to maximising the system's potential. But there are so many different automation types available, and do I need to consider all of them in all use cases? This article might spark some heated debate, I am well aware! It delves into the topic of automation and how to choose the right tools for your organization while filtering out unnecessary automation and simplifying processes to reduce complexity. But don't worry, and we're not trying to stir the pot too much... just a little 😜. As software developers and architects, it's essential to consider ways to streamline and improve our workflows constantly. Let's dive in and start the conversation.
 

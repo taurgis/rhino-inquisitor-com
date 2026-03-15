@@ -17,6 +17,10 @@ tags:
     - sfcc
     - technical
 author: Thomas Theunen
+takeaways:
+    - "Explains which OCAPI Shop API resources support server-side caching and which do not"
+    - "Shows how page cache and OCAPI settings control cache duration and personalization"
+    - "Clarifies why SCAPI cache control is more limited and where custom caches help instead"
 ---
 The [OCAPI](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/OpenCommerceAPI.html?cp=0_16) has been around for a long time (2016) and allows you to cache responses to increase performance. **By default, GET responses that support caching are cached for 60 seconds**, but can this be improved?
 

@@ -16,6 +16,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Provides a visual ERD for the smaller but important SFCC content domain"
+  - "Clarifies how classic content assets and slots differ from Page Designer structures"
+  - "Acts as a quick reference for developers who need a simpler map of content entities and custom attributes"
 ---
 You have probably come out empty-handed when scouring the documentation for the Content ERD ([Entity–relationship model](https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model)) of [Salesforce B2C Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/).
 

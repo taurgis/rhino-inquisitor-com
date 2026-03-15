@@ -18,6 +18,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Explains the deprecation of UUID bearer tokens for SFCC API clients and the move toward JWT access tokens"
+  - "Shows how to switch an Account Manager API client from UUID to JWT and what changes downstream integrations should expect"
+  - "Highlights the practical migration concern that longer JWT tokens may require validation with third-party systems and storage layers"
 ---
 Last week (end of August 2022), many received an email warning us of a change to integrations in 2023: "Deprecation Announcement for UUID Token for API Clients in Account Manager."
 

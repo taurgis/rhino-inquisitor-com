@@ -15,6 +15,10 @@ tags:
   - technical
   - trailhead
 author: Thomas Theunen
+takeaways:
+  - "Breaks down the B2C Commerce Developer certification into its main knowledge domains and study priorities"
+  - "Links each exam area to concrete Trailhead, partner learning, webinar, and documentation resources"
+  - "Sets realistic expectations about preparation depth, business manager knowledge, and what failure should mean for further study"
 ---
 So, you decided to become a Certified B2C Commerce Developer. That is great! Getting certified is a great way to confirm the knowledge you have gained from projects or training is sufficient and up to par with the "Salesforce Standards."
 

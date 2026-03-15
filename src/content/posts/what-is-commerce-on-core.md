@@ -15,6 +15,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Explores the idea of Salesforce B2C Commerce moving onto the Salesforce core platform and explains why that direction seemed increasingly plausible"
+  - "Connects that speculation to platform changes like SCAPI, OCI, and the composable storefront that point toward a more swappable architecture"
+  - "Balances the potential advantages of commerce on core with the major blockers around features, performance, and the long migration horizon for existing customers"
 ---
 People who have been around "[Demandware](/sitegenesis-vs-sfra-vs-pwa/)" for a while and continued after the acquisition by Salesforce know that this announcement was bound to happen at one point.
 

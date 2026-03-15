@@ -18,6 +18,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Explains the major components that make up the Salesforce B2C Commerce environment, from storefront runtime to support tools and APIs"
+  - "Shows how a shopper request moves through the environment layers, including the eCDN and the application stack"
+  - "Acts as a practical architecture primer for developers preparing to launch or operate SFCC channels"
 ---
 Welcome to the [GO-LIVE series](/category/go-live/), a set of articles about preparing for the launch of one or more channels on Salesforce B2C Commerce Cloud.
 

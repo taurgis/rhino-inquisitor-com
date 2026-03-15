@@ -16,6 +16,10 @@ tags:
   - technical
   - webdav
 author: Thomas Theunen
+takeaways:
+   - "Explains what WebDAV is and where it fits in Salesforce B2C Commerce Cloud"
+   - "Covers common WebDAV use cases including file transfer, media, and logging"
+   - "Compares Business Manager user authentication with API client permission setup"
 ---
 File Management is critical and necessary in any project. How else can we work with mass data transfers or logging mechanisms? This blog post will explore WebDAV and its use in [Salesforce B2C Commerce Clou](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/)d. We'll also discuss connecting to WebDAV using Basic Authentication and API Key.
 
@@ -64,8 +68,7 @@ This configuration involves creating a JSON document that accurately represents 
 For instance, an API client may have `read_write` permissions to the "`/impex/src/foo"` directory and `read` permission to the "`/impex/src/logs` and `/catalogs"` directories. The client\_id and permissions (each having path and operation) must be clearly defined in this JSON document.
 
 ```
-
-					{
+{
    "clients":[
       {
          "client_id":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
@@ -101,8 +104,6 @@ For instance, an API client may have `read_write` permissions to the "`/impex/sr
             }
          ]
       }
-
-
 ```
 
 [![A screenshot of the WebDAV Client Application Permissions screen showing one configuration giving an API key access to the /impex folder and /cartridges folder.](/media/2024/webdav-client-application-permissions-8757d150cc.png)](/media/2024/webdav-client-application-permissions-8757d150cc.png)

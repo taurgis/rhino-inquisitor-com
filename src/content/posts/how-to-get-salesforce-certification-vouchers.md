@@ -14,6 +14,10 @@ tags:
   - certification
   - sfcc
 author: Thomas Theunen
+takeaways:
+  - "Lists practical ways to reduce certification costs through partners, events, quests, and webinars"
+  - "Explains the difference between certifications and partner-only accreditations when looking for vouchers"
+  - "Helps readers target the channels most likely to offer discounts or free exam attempts"
 ---
 Earning a certification in Salesforce B2C Commerce Cloud [can be a valuable goal](/is-salesforce-certification-worth-it/) for those in the industry. However, it's worth noting that certifications do come with a cost. If you're interested in exploring options for discounts or free certifications, this article will provide an overview of what's available.
 

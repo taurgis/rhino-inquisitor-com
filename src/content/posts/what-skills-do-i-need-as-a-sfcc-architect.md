@@ -15,6 +15,10 @@ tags:
   - architect
   - sfcc
 author: Thomas Theunen
+takeaways:
+  - "Outlines the core skills developers need to build before moving into an SFCC architect role"
+  - "Emphasizes the need for broad platform understanding, cross-system awareness, project leadership, and business alignment"
+  - "Frames architecture growth as a mix of technical depth, communication, continuous learning, and network building"
 ---
 As a [Salesforce Commerce Cloud developer](/preparing-for-the-b2c-commerce-developer-certification/), you may have reached a point in your career where you feel ready to take on a more strategic role and transition into an architecture role. Making the jump from developer to [architect](/the-b2c-commerce-architect-certification/) can be challenging and exciting, but you can successfully make that transition with the right approach and mindset!
 

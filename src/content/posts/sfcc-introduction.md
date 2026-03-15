@@ -16,6 +16,10 @@ tags:
   - sfcc
   - sfra
 author: Thomas Theunen
+takeaways:
+  - "Introduces B2C Commerce Cloud through its history, core capabilities, and distinct place inside the wider Salesforce ecosystem"
+  - "Explains the platform's major tech-stack transitions from pipelines to controllers to composable storefront development"
+  - "Gives newcomers a practical overview of APIs, local setup, and the main architectural choices they will encounter"
 ---
 https://www.youtube.com/watch?v=qeyqm19m820 AI Summary Here’s a summary of the presentation created by AI. (With a little course correction help from me)
 
@@ -106,11 +110,8 @@ To set up a local development environment for the composable storefront:
 3.  Run the application locally to start your development.
 
 ```
-
-					npx @salesforce/pwa-kit-create-app
+npx @salesforce/pwa-kit-create-app
 npm start
-
-
 ```
 
 The above commands will set up your project, start the development server, and allow you to make changes to the code, with instant live reloading to see your updates.

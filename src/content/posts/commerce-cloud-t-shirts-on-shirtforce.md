@@ -15,6 +15,10 @@ tags:
   - sfcc
   - shirtforce
 author: Thomas Theunen
+takeaways:
+  - "Explains how Commerce Cloud shirt designs on Shirtforce support charitable giving"
+  - "Shares the backstory behind several Commerce-themed community t-shirt designs"
+  - "Encourages readers to contribute new ideas and help choose future causes"
 ---
 [shirtforce](https://shirtforce.org/) was created as a community project, supplying (hopefully) humorous t-Shirt designs to for folk in the tech industry, primarily focused at those in the Salesforce ecosystem, and at the same time providing a way to donate money to good causes.
 

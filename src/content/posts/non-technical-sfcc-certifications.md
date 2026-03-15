@@ -15,6 +15,10 @@ tags:
   - sfcc
   - trailhead
 author: Thomas Theunen
+takeaways:
+  - "Surveys Salesforce certifications and accreditations that fit non-developer roles around SFCC work"
+  - "Explains how UX, strategy, business analyst, sales, and Einstein credentials map to different career paths"
+  - "Clarifies that most current options are ecosystem-wide rather than SFCC-specific role certifications"
 ---
 People working as Business Analysts, UX designers, or other non-developer roles have felt a [gap](https://www.rhino-inquisitor.com/certifications-for-salesforce-b2c-commerce-cloud/) in the Salesforce B2C Commerce Cloud certifications for a while.
 

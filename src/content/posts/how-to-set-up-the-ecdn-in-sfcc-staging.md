@@ -19,6 +19,10 @@ tags:
 aliases:
   - /how-to-set-up-the-ecdn-for-staging-in-salesforce-b2c-commerce-cloud/
 author: Thomas Theunen
+takeaways:
+  - "Documents the legacy API-first path for configuring staging eCDN zones, certificates, and DNS in SFCC"
+  - "Explains the sequence from API client setup through zone creation, certificate upload, and hostname verification"
+  - "Flags that the approach is now deprecated because staging vanity domains can be managed in Business Manager"
 ---
 > [!WARNING]
 > **Deprecated:** Article Since the writing of this article, the eCDN business manager module has been updated to allow configuration of vanity domains on Staging. Therefore, there is no need to use API calls as described in this article (unless you really, really want to...).
@@ -114,7 +118,7 @@ Top-level domain In this step, the top-level domain is used even if you plan to 
 e.g. To use "stg.cc-merchant.com", "cc-merchant.com" is submitted in the request of this step.
 
 ```bash
-                  curl "https://{shortCode}.api.commercecloud.salesforce.com/cdn/zones/v1/organizations/{organizationId}/storefront-zones"
+curl "https://{shortCode}.api.commercecloud.salesforce.com/cdn/zones/v1/organizations/{organizationId}/storefront-zones"
 -X POST
 -d "{n  "domainName": "cc-merchant.com"n}"
 ```

@@ -17,6 +17,10 @@ tags:
   - trailhead
   - twitter
 author: Thomas Theunen
+takeaways:
+  - "Reflects on how the wider Salesforce Ohana culture differs from the smaller and historically more fragmented Commerce Cloud community"
+  - "Explains the role of legacy community platforms, Trailblazer channels, and the unofficial Slack community in SFCC knowledge sharing"
+  - "Argues that Slack became the practical center of gravity for B2C Commerce collaboration and mutual support"
 ---
 Within Salesforce, the Ohana (Hawaiian for Family) has a pretty significant meaning. Over the past decade, people passionate about Salesforce have built up an enormous community around the platform.
 

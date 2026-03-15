@@ -15,6 +15,10 @@ tags:
   - sfcc
   - trailhead
 author: Thomas Theunen
+takeaways:
+  - "Recaps the first European A New Day for Commerce event and its community value"
+  - "Compares the event with Connections and TrailblazerDX for commerce audiences"
+  - "Highlights where future editions should improve developer visibility and session depth"
 ---
 When we look at the Salesforce [eco-system](/the-state-of-ohana-for-salesforce-commerce-cloud/), Commerce seems like a speck on the entire Salesforce landscape (CRM). Luckily, when going to Salesforce events such as Connections, much attention is given to Commerce. But all that attention takes place in the [United States](/20-years-of-dreamforce/). For many customers and partners, this is quite a ways out, meaning that a large part of the community is not being represented and allowed to network and learn at these large-scale events.
 

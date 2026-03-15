@@ -18,6 +18,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+    - "Explains how OCAPI and SCAPI hooks extend existing API lifecycles and when not to use them"
+    - "Covers registration, implementation flow, and the practical differences between before, after, and modifyResponse hooks"
+    - "Emphasizes security, validation, and architectural discipline as essential for safe hook customization"
 ---
 > [!NOTE]
 > **Info:** This article was updated with the latest and most important feature information as of 26 July 2025.

@@ -16,6 +16,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Frames storefront speed as a conversion problem and explains the Core Web Vitals that matter most"
+  - "Connects PWA Kit architecture to its distinct LCP, INP, caching, and JavaScript performance trade-offs"
+  - "Provides a concrete optimization playbook for data fetching, images, caching, and third-party scripts"
 ---
 Truth be told: a slow e-commerce site is a silent killer of sales. In the world of B2C Commerce, every millisecond is money. As a PWA Kit developer, you're on the front lines of a battle where the prize is customer loyalty and the cost of defeat is a lost shopping cart. Today's shoppers have zero patience for lag. They expect buttery-smooth, app-like experiences, and they'll bounce if you don't deliver.
 

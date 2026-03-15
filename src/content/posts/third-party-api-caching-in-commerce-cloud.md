@@ -17,6 +17,10 @@ tags:
   - sfra
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Explains how to enable response caching for third-party services in SFCC through the LocalServiceRegistry and HTTP client"
+  - "Highlights the practical benefits of caching for performance, reliability, rate-limit pressure, and external service cost control"
+  - "Covers the important caveats around stale data, cache invalidation, service limits, and debugging complexity"
 ---
 Enhancing the performance of your different online channels is a given, including keeping an eye on any third-party integrations. All Salesforce Commerce Cloud sites rely on APIs in some capacity, such as for retrieving location data, weather updates, address verification, [submitting files](/submitting-a-file-to-a-third-party-service-in-sfcc/), and more, all with different levels of performance stability. 😅.
 

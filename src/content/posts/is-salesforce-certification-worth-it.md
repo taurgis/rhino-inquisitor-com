@@ -14,6 +14,10 @@ tags:
   - ohana
   - trailhead
 author: Thomas Theunen
+takeaways:
+  - "Argues Salesforce certifications are worthwhile when used as a guide for learning and validation"
+  - "Explains how certifications benefit individuals, partners, Salesforce, and customers differently"
+  - "Warns that certifications do not replace project experience and can be undermined by easy exams or cheating"
 ---
 A common question within Salesforce (and other ecosystems) is the value of being a [certified professional](/certifications-for-salesforce-b2c-commerce-cloud/). To get certified, you need to spend a substantial amount of time to prepare in some cases (I'm looking at you, the [Certified Technical Architects](https://www.salesforceben.com/become-a-salesforce-certified-technical-architect/) 😁.) And it isn't exactly free. Each attempt will set you back a few hundred dollars. In some cases, even a few thousand. I'm looking at you again, the CTA's. So it is understandable that new people to the ecosystem want to understand why they should make the investment (or the employer).
 

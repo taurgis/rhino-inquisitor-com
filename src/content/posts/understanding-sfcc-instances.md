@@ -17,6 +17,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Explains the SFCC instance model across PODs, realms, PIGs, SIGs, and the main instance types"
+  - "Shows how sandbox, development, staging, and production environments support different phases of storefront delivery"
+  - "Maps common team roles to the instances they typically use, making the platform structure easier to understand operationally"
 ---
 Salesforce B2C Commerce is a [robust platform](https://www.rhino-inquisitor.com/the-salesforce-b2c-commerce-cloud-environment/) that enables businesses to create highly customised and scalable digital storefronts. One of the key components (and advantages) of B2C Commerce is the available instances, which contain the tools and resources needed for customising your storefront.  This blog post will discuss the different types of B2C Commerce instances, their uses, and how different teams within your organisation can utilise them.
 

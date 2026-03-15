@@ -15,6 +15,10 @@ tags:
   - cartridge
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Surveys useful SFCC cartridges from Salesforce and the community beyond the marketplace listings"
+  - "Highlights practical strengths and limitations of tools like plugin_slas, Resource Manager, and custom feeds"
+  - "Encourages teams to treat open-source cartridges as accelerators that still need review and upkeep"
 ---
 Over the years, an extensive list of cartridges has grown in the [marketplace](https://www.salesforce.com/products/commerce-cloud/partner-marketplace/). These are certified integrations that have gone through a checklist and verified by Salesforce.
 

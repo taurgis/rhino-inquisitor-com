@@ -15,6 +15,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Explains when to use global preferences, site preferences, or code config files in SFCC"
+  - "Shows how preference scope affects governance, reuse, and environment-specific behavior"
+  - "Highlights practical tips like defaults, descriptions, and change-history troubleshooting"
 ---
 [Salesforce B2C Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/) uses custom preferences to store configurable settings for a storefront. These settings can be anything from feature settings to loyalty calculations.
 

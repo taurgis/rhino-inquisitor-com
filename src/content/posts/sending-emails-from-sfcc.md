@@ -17,6 +17,10 @@ tags:
   - sfra
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Explains when sending transactional emails directly from SFCC is practical and where dedicated marketing platforms still win"
+  - "Covers the implementation path for native email sending, template testing, SPF or SMTP setup, and platform constraints"
+  - "Clarifies how email sending differs between classic SFRA-style implementations and composable storefront architectures"
 ---
 Salesforce B2C Commerce Cloud is known as a [monolithic](https://www.atlassian.com/microservices/microservices-architecture/microservices-vs-monolith) system, providing a wide range of functionalities out of the box. One of the "_smaller_" features of the platform is its capability to send [emails directly](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-sending-email-via-scripts-or-hooks.html) without needing a third-party service.
 

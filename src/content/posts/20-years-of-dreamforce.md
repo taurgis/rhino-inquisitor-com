@@ -14,6 +14,10 @@ tags:
   - ohana
   - sfcc
 author: Thomas Theunen
+takeaways:
+  - "Highlights commerce-focused Dreamforce sessions worth adding to your agenda"
+  - "Explains where the Commerce Lodge and community meetups fit into the event"
+  - "Recommends balancing learning, networking, and flexibility during Dreamforce"
 ---
 **Note:** I gave the text "20 years of Salesforce Dreamforce" to an AI to render an image. The image you see above is what it created!
 

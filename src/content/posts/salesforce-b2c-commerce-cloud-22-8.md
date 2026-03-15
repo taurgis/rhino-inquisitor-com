@@ -15,6 +15,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Highlights the notable 22.8 changes across sandbox operations, eCDN ownership verification, quotas, and hooks"
+  - "Explains why the doubled HTTPClient quota and new SCAPI detection helper matter for implementation choices"
+  - "Calls out related PWA Kit, SDK, and cartridge updates that affect headless and hybrid storefront teams"
 ---
 A new month means new candy for us in Salesforce B2C Commerce Cloud. But what will we find in that jar this month? Let us find out!
 

@@ -17,6 +17,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Explains why customer migration planning must start early even though it executes near go-live"
+  - "Covers ownership, secure handling, password migration, and rollback considerations for customer data moves"
+  - "Emphasizes testing, delta planning, and post-launch monitoring to avoid data loss and login issues"
 ---
 We have already gotten [a few parts down](/category/go-live/) of our GO-LIVE story, but we are far from done. Going live with any Commerce project can be quite an endeavor. But hopefully, with this series, the most critical parts of the puzzle are covered! On to the next piece: Customer migration!
 

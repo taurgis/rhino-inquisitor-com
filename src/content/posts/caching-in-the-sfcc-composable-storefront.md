@@ -16,6 +16,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Explains where SSR, CDN, and API caching fit in the Composable Storefront stack"
+  - "Highlights cache-control, invalidation, and replication caveats teams need to plan for"
+  - "Covers personalized caching behavior for custom APIs and hook-based responses"
 ---
 Caching, Performance, Lighthouse Speed, CrUX, ... and probably many more terms have crossed your desk and mind ever since you got into web development and, more specifically, if you are here, Salesforce B2C Commerce Cloud.
 

@@ -16,6 +16,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+    - "Uses a deliberately over-engineered UnlimitedArray example to show why bypassing SFCC quota limits is technically possible but strategically unwise"
+    - "Explains the practical downsides of quota workarounds in terms of performance, maintainability, scalability, and platform stability"
+    - "Reinforces that SFCC quota limits are governance mechanisms meant to steer teams toward safer and more sustainable solution design"
 ---
 Salesforce B2C Commerce Cloud empowers developers to create robust and scalable e-commerce solutions. It is designed with certain [governance and quotas](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-governance-and-quotas.html) to maintain efficiency and stability across the platform.
 
@@ -28,8 +32,6 @@ Let's explore this "UnlimitedArray" I have created and discuss why I should be a
 Below is the code for the "UnlimitedArray," a data structure designed to bypass Salesforce's restriction on the number of elements in an array:
 
 ```
-
-
 /**
  * A custom implementation of an array that can hold an unlimited number of elements.
  *
@@ -139,9 +141,6 @@ UnlimitedArray.prototype.get = function (position) {
     }
     return null;
 };
-
-
-
 ```
 
 This construct "cleverly" uses nested arrays to exceed the Salesforce-imposed limit. However, it can result in inefficiencies when using methods such as push, get, includes, and indexOf, especially as the combined size of the nested arrays grows.

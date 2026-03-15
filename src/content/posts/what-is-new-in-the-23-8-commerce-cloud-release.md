@@ -16,6 +16,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Highlights the 23.8 release as a mostly infrastructure- and scalability-focused update ahead of holiday readiness"
+  - "Calls out the most relevant changes around PWA Kit cookie support, SLAS session behavior, and Account Manager security controls"
+  - "Explains why teams should still review quieter releases carefully when the main impact is operational rather than feature-heavy"
 ---
 Everyone knows that getting ready for the holiday season starts in the summer in the Commerce Cloud world! And looking at the [23.8 release notes,](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_23_8_release.htm&type=5) this is apparent.
 

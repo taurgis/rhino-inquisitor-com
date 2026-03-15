@@ -15,6 +15,10 @@ tags:
   - documentation
   - sfcc
 author: Thomas Theunen
+takeaways:
+  - "Explains where SFCC documentation moved after the Infocenter retirement and how the new content is split across Help, Developer Center, and GitHub-hosted resources"
+  - "Highlights the practical impact of that split for merchandisers, administrators, and developers trying to navigate the new structure"
+  - "Offers a grounded opinion on the migration, including its likely benefits and the friction it introduced for experienced users"
 ---
 In early 2023, we were notified that the Infocenter would be replaced with a supposedly more "modern" solution. While some may have looked forward to this update, others were disappointed by the news.
 

@@ -14,6 +14,10 @@ tags:
   - sandbox
   - sfcc
 author: Thomas Theunen
+takeaways:
+  - "Explains why getting an SFCC sandbox differs sharply from the core Salesforce platform flow"
+  - "Breaks down access paths for newcomers, partners, and existing B2C customers"
+  - "Highlights fallback options like PWA Kit public sandboxes and Trailhead Academy access"
 ---
 As a developer, you want to know what you are getting yourself into to make a conscious choice of what you will be doing for the years to come. And looking at the Salesforce core platform, [it is straightforward to spin up a sandbox](https://developer.salesforce.com/signup)!
 

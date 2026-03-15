@@ -16,6 +16,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Maps the main campaign-related entities and relationships in Salesforce B2C Commerce Cloud"
+  - "Explains helper relationships and the hidden Store Group feature behavior"
+  - "Calls out where Business Manager support and storefront support do not fully align"
 ---
 When scouring the documentation for the Campaign ERD ([Entity–relationship model](https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model)) of [Salesforce B2C Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/), you have probably come out empty-handed.
 

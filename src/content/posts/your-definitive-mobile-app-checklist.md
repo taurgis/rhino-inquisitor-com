@@ -15,6 +15,10 @@ tags:
   - headless
   - sfcc
 author: Thomas Theunen
+takeaways:
+  - "Provides a headless mobile-app go-live checklist tailored to SCAPI and SLAS rather than a traditional SFRA launch model"
+  - "Covers the main readiness areas across backend configuration, client-side caching and tracking, API performance, and final production operations"
+  - "Highlights the app-store submission layer as an additional launch gate that commerce teams must plan for alongside platform readiness"
 ---
 For years, the Salesforce B2C Commerce go-live process has been a well-trodden path. The Site Readiness Assessment (SRA) served as our trusted map, guiding us through the checkpoints of specification reviews, launch gates, and operational readiness. We knew the terrain of Storefront Reference Architecture (SFRA), its monolithic structure, and its performance quirks. We were comfortable.
 

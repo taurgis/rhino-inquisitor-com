@@ -17,6 +17,10 @@ tags:
   - slas
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Walks through a practical SLAS setup flow for connecting a Composable Storefront to an SFCC sandbox"
+  - "Explains where to find the short code, organization ID, and SLAS Admin UI configuration flow"
+  - "Covers client creation, OCAPI access updates, and the PWA Kit install inputs required to go live"
 ---
 Are you setting up your Composable Storefront and wondering what the SLAS Client ID is all about? You're not alone! The [Shopper Login and API Access Service](https://developer.salesforce.com/docs/commerce/commerce-api/guide/slas.html), or SLAS, has been gaining popularity, but it can be challenging to set up. But don't worry. We've got you covered. Instead of diving into a sea of Administrative APIs, we're here to break it down and show you a simple way to set up your SLAS. Keep reading to find out how!
 

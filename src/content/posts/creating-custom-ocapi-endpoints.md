@@ -17,6 +17,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+    - "Shows the legacy custom-object hook workaround for building custom OCAPI GET endpoints"
+    - "Explains the setup steps, limitations, and cartridge code behind the approach"
+    - "Warns that the pattern is deprecated and carries real security and transaction constraints"
 ---
 > [!WARNING]
 > **Deprecated:** Since writing this article, Salesforce has provided a new and better method for creating custom endpoints. You can find more information about it at [https://developer.salesforce.com/docs/commerce/commerce-api/guide/custom-apis.html](https://developer.salesforce.com/docs/commerce/commerce-api/guide/custom-apis.html).

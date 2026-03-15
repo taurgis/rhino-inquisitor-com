@@ -15,6 +15,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Explains what a realm split really is in SFCC and the business or technical pressures that justify it as a last-resort migration path"
+  - "Provides a phased field guide covering scoping, Salesforce coordination, data migration, integration rebuilds, testing, cutover, and rollback awareness"
+  - "Highlights the major operational risks around analytics loss, SEO preservation, sequence numbers, and post-split multi-realm complexity"
 ---
 Have you ever found yourself in a deployment-day standoff? Your team is ready to push a critical feature for the US site, but it's blocked because a seemingly unrelated change for the EU site, which shares your codebase, has failed QA. You're stuck. This kind of organisational friction, where independent business units become entangled in a shared technical fate, is a clear signal that your single Salesforce B2C Commerce Cloud realm is cracking under pressure. The technical dependencies that once streamlined operations now create bottlenecks, and the shared codebase that once promised efficiency has become a source of risk and frustration.
 

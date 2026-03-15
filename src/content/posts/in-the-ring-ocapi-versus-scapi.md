@@ -16,6 +16,10 @@ tags:
   - sfcc
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Compares OCAPI and SCAPI across platform strategy, authentication, architecture, and extensibility"
+  - "Argues that SCAPI is where major new investment and APIs are landing"
+  - "Explains why OCAPI still matters because SCAPI and existing integrations still depend on it"
 ---
 As we move into 2024, the SCAPI has received much attention and has been updated with new APIs, updates, and performance improvements. On the other hand, the OCAPI rarely gets any new features in its release notes, leading some to believe it is outdated or deprecated.
 

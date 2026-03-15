@@ -16,6 +16,10 @@ tags:
   - sfra
   - technical
 author: Thomas Theunen
+takeaways:
+  - "Explains how SFRA loads client-side CSS and JavaScript through assets.js and page templates"
+  - "Shows where htmlHead.isml and scripts.isml render the queued asset lists"
+  - "Warns why remote includes and missing page decorators can make asset loading appear broken"
 ---
 Since you are here, I bet you've been banging your head against your keyboard trying to figure out how to load some sweet client-side javascript in Salesforce Commerce Cloud's [SFRA](/sitegenesis-vs-sfra-vs-pwa/) (Storefront Reference Architecture). Well, fear not, because I'm here to help (hopefully)!
 
