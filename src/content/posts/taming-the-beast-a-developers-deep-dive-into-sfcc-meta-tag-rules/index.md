@@ -33,7 +33,7 @@ This guide will dissect this powerful feature from a developer's perspective. We
 
 The first mental hurdle to clear is that Meta Tag Rules are not an imperative script. They are a declarative system. You are not writing code that executes line by line. Instead, you are defining a set of instructions—a recipe—that the platform's engine interprets to generate a string of text. This distinction is fundamental because it dictates how these rules are built, tested, and debugged.
 
-It's a specialised, declarative [Domain-Specific Language](https://en.wikipedia.org/wiki/Domain-specific_language) (DSL), not a general-purpose scripting environment like Demandware Script. This explains why you can't just call arbitrary script APIs from within a rule and why the error feedback is limited. It's about defining _what _ you want the output to be and letting the platform's engine figure out _ how_ to generate it.
+It's a specialised, declarative [Domain-Specific Language](https://en.wikipedia.org/wiki/Domain-specific_language) (DSL), not a general-purpose scripting environment like Demandware Script. This explains why you can't just call arbitrary script APIs from within a rule and why the error feedback is limited. It's about defining _what_ you want the output to be and letting the platform's engine figure out _how_ to generate it.
 
 ### The Three Pillars of Rule Creation
 

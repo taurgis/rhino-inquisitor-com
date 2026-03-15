@@ -36,11 +36,11 @@ Imagine a world where you upload one glorious, high-resolution image, and then, 
 
 Instead of a digital assembly line of pre-processed images, DIS acts like a master chef. You provide it with the finest ingredients (your single, high-res source image), and when a customer's browser requests a specific dish—say, a tiny thumbnail for a search result or a sprawling, detailed shot for a product page—DIS delivers it instantly. No waiting, no fuss - just the right-sized image, served hot and fresh.
 
-And you, the developer, are the culinary artist! DIS hands you a robust toolkit of transformation parameters, giving you pixel-level control. Want to resize? `**scaleWidth**` or `**scaleHeight**` are your pals. Need to snip out a specific detail? `**cropX**`, `**cropY**`, `**cropWidth**`, and `**cropHeight**` are your precision scissors (remember, you need all four for the magic to happen!). Fancy a different file type? `**format**` lets you switch between `gif`, `jp2`, `jpg`, `jpeg`, `jxr`, and `png` from a smorgasbord of source formats, including `tif` and `tiff`.
+And you, the developer, are the culinary artist! DIS hands you a robust toolkit of transformation parameters, giving you pixel-level control. Want to resize? `scaleWidth` or `scaleHeight` are your pals. Need to snip out a specific detail? `cropX`, `cropY`, `cropWidth`, and `cropHeight` are your precision scissors (remember, you need all four for the magic to happen!). Fancy a different file type? `format` lets you switch between `gif`, `jp2`, `jpg`, `jpeg`, `jxr`, and `png` from a smorgasbord of source formats, including `tif` and `tiff`.
 
-Ever wanted to add a "SALE!" image badge to an image without using Photoshop? `**imageX**`, `**imageY**`, and `**imageURI**` are your go-to options for the overlay. _Though honestly, why not just use CSS for this, right?_
+Ever wanted to add a "SALE!" image badge to an image without using Photoshop? `imageX`, `imageY`, and `imageURI` are your go-to options for the overlay. _Though honestly, why not just use CSS for this, right?_
 
-And for that perfect balance between crispness and speed, `**quality**` lets you fine-tune compression for JPG(1-100, default 80) and PNGs. Even pesky transparent backgrounds can be tamed with `**bgcolor**`, and metadata stripped with `**strip**`.
+And for that perfect balance between crispness and speed, `quality` lets you fine-tune compression for JPG(1-100, default 80) and PNGs. Even pesky transparent backgrounds can be tamed with `bgcolor`, and metadata stripped with `strip`.
 
 Pro Tip DIS has a very specific "recipe" for applying these transformations. It's not a free-for-all! The order is always: Image Format, then Image Crop, then Image Scale, then Image Overlay, and finally Image Quality. Understanding this sequence is key to avoiding "oops, that's not what I wanted" moments.
 

@@ -113,13 +113,9 @@ Unlike SiteGenesis and SFRA, the PWA Kit runs on a separate server. It connects 
 
 It is an entirely different type of architecture than the "[monolithic](https://en.wikipedia.org/wiki/Monolithic_application#:~:text=In%20software%20engineering%2C%20a%20monolithic,independent%20from%20other%20computing%20applications.)" approach we are used to within SFCC.
 
-But what does this mean, going Headless? You can find more information about it in this [blog post](https://forward.eu/blog/headless/) or look at the following YouTube video where I explain what it means to go Headless with Salesforce B2C Commerce Cloud.
+But what does this mean, going Headless? You can find more information about it in this [blog post](https://forward.eu/blog/headless/) or [watch this YouTube video](https://www.youtube.com/watch?v=BTS6OqwMiK4&feature=emb\_title) where I explain what it means to go Headless with Salesforce B2C Commerce Cloud.
 
-<https://www.youtube.com/watch?v=BTS6OqwMiK4&feature=emb\_title>
-
-A great podcast is also available on the "Unofficial Salesforce Commerce Cloud Podcast" about Headless and the PWA Kit.
-
-<https://www.youtube.com/watch?v=hIghXeYIsEs&list=PLAQgCOXBCvL360AJzTZKTQe1wqvq4TLkD&index=6>
+A great [podcast episode](https://www.youtube.com/watch?v=hIghXeYIsEs&list=PLAQgCOXBCvL360AJzTZKTQe1wqvq4TLkD&index=6) is also available on the "Unofficial Salesforce Commerce Cloud Podcast" about Headless and the PWA Kit.
 
 ### Managed Runtime
 
@@ -144,9 +140,7 @@ It will be easier to find and educate developers in this setup.
 
 I will not go into much detail on what Progressive Web Apps are. There is a lot of great content available on the web which explains it and how it compares to native applications.
 
-And again, there is a podcast episode available dedicated to this topic!
-
-<https://www.youtube.com/watch?v=eOFC5rLHZZ4&list=PLAQgCOXBCvL360AJzTZKTQe1wqvq4TLkD&index=3>
+And again, there is a [podcast episode available dedicated to this topic](https://www.youtube.com/watch?v=eOFC5rLHZZ4&list=PLAQgCOXBCvL360AJzTZKTQe1wqvq4TLkD&index=3)!
 
 ### Third-party integrations (PWA Kit & Managed Runtime)
 

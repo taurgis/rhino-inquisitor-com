@@ -27,8 +27,7 @@ Salesforce is known for hosting spectacular events all over the world. But did y
 ### [YeurDreamin'](https://www.yeurdreamin.eu/)
 
 - [https://www.yeurdreamin.eu/](https://www.yeurdreamin.eu/)
-
-<https://www.youtube.com/watch?v=cV6N\_uuNku4>
+- [Session recording](https://www.youtube.com/watch?v=cV6N\_uuNku4)
 
 If you have been following me, you will have noticed that I recently visited this one and also had the [privilege of presenting two sessions](/events-and-the-golden-hoodie/)!
 
@@ -37,8 +36,7 @@ A relatively "new" event, as the first one was in 2019, and 2020, didn't happen 
 ### [London's Calling](https://www.londonscalling.net/)
 
 - [https://www.londonscalling.net/](https://www.londonscalling.net/)
-
-<https://youtu.be/wsv8nZkQkx8>
+- [Session recording](https://youtu.be/wsv8nZkQkx8)
 
 The biggest community-led event in Europe, and I'm not kidding. Going strong since 2016, it had its 7th edition in 2022!
 
@@ -57,8 +55,7 @@ CzechDreamin is, just like YeurDreamin, relatively new as it started in 2019. It
 ### [French Touch Dreamin'](https://frenchtouchdreamin.com/)
 
 - [https://frenchtouchdreamin.com/](https://frenchtouchdreamin.com/)
-
-<https://www.youtube.com/watch?v=zV8owFGyNEA>
+- [Session recording](https://www.youtube.com/watch?v=zV8owFGyNEA)
 
 I will keep those European events coming, cause you guessed it - I am from Europe! This time we are going to France.
 
@@ -67,8 +64,7 @@ I will keep those European events coming, cause you guessed it - I am from Europ
 ### [Cactusforce](https://www.cactusforce.com/)
 
 - [https://www.cactusforce.com/](https://www.cactusforce.com/)
-
-<https://www.youtube.com/watch?v=HvjC5ZUg6Kk>
+- [Session recording](https://www.youtube.com/watch?v=HvjC5ZUg6Kk)
 
 Let us finally switch continents, shall we? We are heading to Arizona for a community event focused on developers and architects who want "More code. Less fluff." So expect some technical deep dives at this conference!
 
@@ -77,8 +73,7 @@ Even if you cannot attend in person, it is a hybrid event that will allow people
 ### [North Africa Dreamin'](https://northafricadreamin.com/)
 
 - [https://northafricadreamin.com/](https://northafricadreamin.com/)
-
-<https://www.youtube.com/watch?v=MatNmbnz\_MA>
+- [Session recording](https://www.youtube.com/watch?v=MatNmbnz\_MA)
 
 Are they switching continents again? Really? Off course! The Salesforce Community is a global community; why are you acting so surprised I am switching continents again?
 
@@ -87,8 +82,7 @@ Having its first edition in 2019, it is now on again in 2022 for its second! Ano
 ### [dreamOlé](https://dreamole.es/)
 
 - [https://dreamole.es/](https://frenchtouchdreamin.com/)
-
-<https://www.youtube.com/watch?v=fQxqdvya48E>
+- [Session recording](https://www.youtube.com/watch?v=fQxqdvya48E)
 
 Olé, off to Spain we go and back to Europe 😛! So many countries with so many people willing to share their knowledge about Salesforce!
 
