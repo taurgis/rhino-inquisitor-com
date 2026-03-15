@@ -18,6 +18,7 @@ This runbook tracks the operational steps needed to move the repository from pla
   - generated category routes are config-owned at `/category/` and `/category/{slug}/`
   - tag archives remain retired by default; `tags` stay front matter metadata until a later approved exception
   - `enableRobotsTXT = true` is backed by a repo-owned `src/layouts/robots.txt` template
+  - `src/layouts/robots.txt` allows crawl only for production builds on the canonical production base URL; preview and staging builds must emit `Disallow: /`
   - home RSS remains Hugo's canonical `/index.xml` output in Phase 3
 - Legacy feed continuity is tracked but not fully implemented in RHI-021:
   - canonical Hugo feed output is `/index.xml`
@@ -45,6 +46,7 @@ This runbook tracks the operational steps needed to move the repository from pla
   - `npm run check:seo`
   - output checks for canonical `https://www.rhino-inquisitor.com/` URLs in `public/**/*.html`
   - output checks for `public/sitemap.xml`, `public/robots.txt`, `public/index.xml`, and `/feed/` compatibility helpers under `public/feed/`
+  - confirm non-production `public/robots.txt` contains `Disallow: /` and non-production HTML still emits `noindex, nofollow`
   - manual rich-results validation for at least one representative article HTML sample before ticket closeout
 - Validate RHI-025 URL parity baseline with:
   - `hugo --minify --environment production`
@@ -98,6 +100,7 @@ This runbook tracks the operational steps needed to move the repository from pla
   - a push to `main`, which runs `.github/workflows/deploy-pages.yml`
   - a manual `workflow_dispatch` run of `Deploy to GitHub Pages` for a known commit
 - Expect the deploy workflow to run the blocking Phase 3 gates in this order before the Pages artifact is published:
+  - GitHub Pages host check: fail closed unless `actions/configure-pages` reports `www.rhino-inquisitor.com`
   - `npm run validate:frontmatter`
   - `hugo --minify --environment production`
   - `npm run check:url-parity`
@@ -106,7 +109,7 @@ This runbook tracks the operational steps needed to move the repository from pla
 - After the production validation gates pass, the workflow rebuilds the deployable preview artifact with the Pages project-site base URL and preview environment:
   - `hugo --gc --minify --environment preview --baseURL "${{ steps.pages.outputs.base_url }}/"`
   - this keeps the rehearsal artifact path-prefix-correct on `https://taurgis.github.io/rhino-inquisitor-com/`
-  - preview-host artifacts must emit `noindex, nofollow` and are not the same host-state as the production validation build
+  - preview-host artifacts must emit `noindex, nofollow`, publish `Disallow: /` in `robots.txt`, and are not the same host-state as the production validation build
 - Use the PR workflow `.github/workflows/build-pr.yml` for pre-merge validation:
   - every PR to `main` runs front matter validation and a production Hugo build
   - route-sensitive PRs also run URL parity, SEO smoke, and internal link checks
@@ -116,6 +119,7 @@ This runbook tracks the operational steps needed to move the repository from pla
   - front matter: `npm run validate:frontmatter`
   - production build: `hugo --cleanDestinationDir --minify --environment production`
   - preview-host rehearsal build: `hugo --gc --minify --environment preview --baseURL "https://taurgis.github.io/rhino-inquisitor-com/"`
+  - preview crawl-control check: `node scripts/seo/check-crawl-controls.js --mode preview --base-url "https://taurgis.github.io/rhino-inquisitor-com/" --report tmp/phase-5-crawl-control-preview-audit.csv`
   - URL parity: `npm run check:url-parity`
   - SEO smoke: `npm run check:seo`
   - internal links: `npm run check:links`

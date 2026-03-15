@@ -1,5 +1,11 @@
+{{- $canonicalProductionBaseURL := "https://www.rhino-inquisitor.com/" -}}
+{{- $allowAllRobots := and hugo.IsProduction (eq site.BaseURL $canonicalProductionBaseURL) -}}
 User-agent: *
+{{- if $allowAllRobots }}
 Allow: /
+{{- else }}
+Disallow: /
+{{- end }}
 Disallow: /wp-json/
 Disallow: /xmlrpc.php
 Disallow: /author/

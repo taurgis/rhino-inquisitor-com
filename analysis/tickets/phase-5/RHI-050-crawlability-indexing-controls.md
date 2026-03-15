@@ -7,7 +7,7 @@
 **Assigned to:** SEO Owner  
 **Target date:** 2026-04-14  
 **Created:** 2026-03-07  
-**Updated:** 2026-03-13
+**Updated:** 2026-03-15
 
 ---
 
@@ -25,12 +25,12 @@ This workstream makes crawl and index control correctness a machine-verified rel
   - [x] Does not `Disallow` any paths serving indexable content (posts, pages, categories, video pages)
   - [x] Does not `Disallow` any paths required for canonical resolution or sitemap fetch
   - [x] Includes a valid sitemap directive for production (`https://www.rhino-inquisitor.com/sitemap.xml`)
-  - [x] Allows all user-agents by default (`User-agent: *` with only intentional Disallow rules)
-  - [x] Preview environments use page-level `noindex` directives — `robots.txt` is never the sole mechanism for preview de-indexing
+  - [x] Allows all user-agents by default (`User-agent: *` with only intentional Disallow rules) only on the canonical production Pages host
+  - [x] Preview and staging environments use page-level `noindex` directives and a `Disallow: /` backstop; `robots.txt` is never the sole mechanism for preview or staging de-indexing
 - [x] `noindex` audit passes on all indexable templates:
   - [x] No page with `draft: false` and final `keep`/`merge` target intent emits `<meta name="robots" content="noindex">`
   - [x] Pages intended for non-indexation (404, redirect helpers, preview artifacts) have explicit `noindex` meta tags
-  - [x] No `noindex` page is also blocked by `robots.txt` (contradiction rule: Googlebot cannot see `noindex` if crawl is blocked)
+  - [x] Production/indexable pages are never both blocked by `robots.txt` and marked `noindex`; preview and staging may layer `Disallow: /` with page-level `noindex, nofollow` as an owner-approved non-production guardrail
 - [x] Crawl control validation script `scripts/seo/check-crawl-controls.js` exists and:
   - [x] Parses the built `robots.txt` artifact from the Hugo template and flags any `Disallow` rule that blocks a URL class expected to be indexable
   - [x] Scans all generated HTML files for `<meta name="robots">` and `<meta name="googlebot">` tags
@@ -39,9 +39,9 @@ This workstream makes crawl and index control correctness a machine-verified rel
   - [x] Produces `migration/reports/phase-5-crawl-control-audit.csv` with per-URL results
   - [x] Exits with non-zero code on any unintended `noindex` or contradiction defect
   - [x] Is referenced in `package.json` as `npm run check:crawl-controls`
-- [x] Preview environment index suppression is implemented:
+- [x] Preview and staging environment index suppression is implemented:
   - [x] Preview build emits `<meta name="robots" content="noindex, nofollow">` on all generated HTML pages, including alias helper pages
-  - [x] Preview `robots.txt` remains crawlable and self-consistent with the preview host instead of using `Disallow: /`
+  - [x] Preview and staging `robots.txt` block the site root with `Disallow: /` and remain self-consistent with the non-production host
   - [x] Production release artifact CI gate verifies no preview `noindex` tags are present
 - [x] `migration/reports/phase-5-crawl-control-audit.csv` achieves zero defects on the representative template set
 
@@ -61,11 +61,11 @@ This workstream makes crawl and index control correctness a machine-verified rel
   - [x] Implement HTML meta robots tag scanner
   - [x] Implement contradiction detector (`Disallow` + `noindex` on same URL)
   - [x] Write per-URL results to `migration/reports/phase-5-crawl-control-audit.csv`
-- [x] Verify preview environment build correctly suppresses indexing with crawlable `noindex` output on every generated HTML page
+- [x] Verify preview environment build correctly suppresses indexing with blocked `robots.txt` plus `noindex` output on every generated HTML page
 - [x] Verify production environment CI gate rejects any artifact with a `noindex` tag on an indexable page
 - [x] Add `"check:crawl-controls": "node scripts/seo/check-crawl-controls.js"` to `package.json`
 - [x] Integrate `check:crawl-controls` as a blocking step in the deploy CI workflow and the full-site route-sensitive PR workflow
-- [x] Document intent for intentional `Disallow` and `noindex` rules in the implementation note and Progress Log with owner-approved preview policy
+- [x] Document intent for intentional `Disallow` and `noindex` rules in the implementation note and Progress Log with the owner-approved production-only allow policy
 
 ---
 
@@ -111,7 +111,7 @@ This workstream makes crawl and index control correctness a machine-verified rel
 
 ### Outcomes
 
-Implemented a dedicated crawl-control validator for production and preview artifacts, hardened alias helper pages so preview `noindex` applies to redirect outputs as well, and wired the new gate into the deploy workflow plus the full-site route-sensitive PR workflow. The ticket now follows the owner-approved contract that keeps preview crawlable `noindex` and keeps `src/layouts/robots.txt` as the Hugo source of truth for `robots.txt`.
+Implemented a dedicated crawl-control validator for production and preview artifacts, hardened alias helper pages so preview `noindex` applies to redirect outputs as well, and wired the new gate into the deploy workflow plus the full-site route-sensitive PR workflow. The ticket now follows the owner-approved production-only allow contract that keeps `src/layouts/robots.txt` as the Hugo source of truth for `robots.txt`, blocks non-production hosts with `Disallow: /`, and keeps page-level `noindex, nofollow` on non-production HTML.
 
 **Delivered artefacts:**
 
@@ -124,7 +124,7 @@ Implemented a dedicated crawl-control validator for production and preview artif
 
 **Deviations from plan:**
 
-- Ticket wording updated to reflect the owner-approved preview policy (`crawlable noindex`) and the existing Hugo template location for `robots.txt`.
+- Ticket wording updated to reflect the 2026-03-15 owner-approved production-only allow policy and the existing Hugo template location for `robots.txt`.
 
 ---
 
@@ -134,11 +134,12 @@ Implemented a dedicated crawl-control validator for production and preview artif
 |------|--------|------|
 | 2026-03-07 | Open | Ticket created |
 | 2026-03-13 | Done | Added `check:crawl-controls`, preview alias `noindex` coverage, production and preview crawl-control CI gates, and the owner-approved crawlable-preview policy with template-based `robots.txt`. |
+| 2026-03-15 | Done | Owner-directed policy updated to production-only allow robots; preview and staging now require `Disallow: /` plus page-level `noindex, nofollow`, and deploy now fails closed unless GitHub Pages reports the canonical production host. |
 
 ---
 
 ### Notes
 
-- Critical rule: do NOT pair `Disallow` in `robots.txt` with a de-indexing objective when search engines need to crawl the page to see `noindex`. If a page must be de-indexed, it must be crawlable AND carry a `noindex` meta tag. `robots.txt` alone cannot de-index; `noindex` alone without crawl access cannot de-index.
+- Production rule: do NOT pair `Disallow` in `robots.txt` with a de-indexing objective on indexable release URLs. The 2026-03-15 owner-approved exception is limited to non-production hosts, which now use `Disallow: /` together with page-level `noindex, nofollow` as a dual guardrail.
 - The production Hugo build must NEVER pass `--buildDrafts`, `--buildFuture`, or `--buildExpired`. If these flags are accidentally used, draft content with staging `noindex` could be included in the production artifact. Verify the CI build command.
 - Reference: `analysis/plan/details/phase-5.md` §Workstream C: Crawlability and Indexing Controls, §Critical Corrections §3

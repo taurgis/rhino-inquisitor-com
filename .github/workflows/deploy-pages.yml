@@ -12,6 +12,7 @@ permissions:
 env:
   HUGO_VERSION: 0.157.0
   NODE_VERSION: 20.18.1
+  EXPECTED_PAGES_HOST: www.rhino-inquisitor.com
 
 jobs:
   build:
@@ -61,6 +62,25 @@ jobs:
       - name: Configure GitHub Pages
         id: pages
         uses: actions/configure-pages@v5
+
+      - name: Verify canonical Pages host configuration
+        env:
+          EXPECTED_PAGES_HOST: ${{ env.EXPECTED_PAGES_HOST }}
+          PAGES_BASE_URL: ${{ steps.pages.outputs.base_url }}
+          PAGES_HOST: ${{ steps.pages.outputs.host }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [[ -z "$PAGES_BASE_URL" || -z "$PAGES_HOST" ]]; then
+            echo "Missing GitHub Pages site metadata from actions/configure-pages." >&2
+            exit 1
+          fi
+
+          if [[ "$PAGES_HOST" != "$EXPECTED_PAGES_HOST" ]]; then
+            echo "Refusing to publish open robots.txt: GitHub Pages host is '$PAGES_HOST', expected '$EXPECTED_PAGES_HOST'. Configure the canonical Pages custom domain before deployment." >&2
+            exit 1
+          fi
 
       - name: Install Node dependencies
         run: npm ci

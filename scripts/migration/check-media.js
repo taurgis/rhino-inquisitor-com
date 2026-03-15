@@ -50,6 +50,7 @@ async function main() {
       const heroRows = await inspectReference({
         scope: 'markdown',
         file: fileLabel,
+        sourcePath: markdownFile,
         reference: parsed.data.heroImage,
         kind: 'heroImage',
         options,
@@ -63,6 +64,7 @@ async function main() {
       const imageRows = await inspectReference({
         scope: 'markdown',
         file: fileLabel,
+        sourcePath: markdownFile,
         reference,
         kind: 'bodyImage',
         options,
@@ -260,7 +262,7 @@ function parseSrcSet(value) {
     .filter(Boolean);
 }
 
-async function inspectReference({ scope, file, reference, kind, options, publicFileTypeCache }) {
+async function inspectReference({ scope, file, sourcePath, reference, kind, options, publicFileTypeCache }) {
   const trimmedReference = String(reference ?? '').trim();
   if (!trimmedReference) {
     return [];
@@ -303,10 +305,7 @@ async function inspectReference({ scope, file, reference, kind, options, publicF
   }
 
   if (scope === 'markdown') {
-    const sourceFile = await resolveSourceMediaFile(localPath, {
-      assetsDir: options.assetsDir,
-      staticDir: options.staticDir
-    });
+    const sourceFile = await resolveMarkdownReferenceFile(trimmedReference, sourcePath, options, localPath);
     if (!sourceFile) {
       return [createRow({
         scope,
@@ -317,7 +316,7 @@ async function inspectReference({ scope, file, reference, kind, options, publicF
         status: 'fail',
         severity: 'critical',
         resolvedPath: '',
-        message: 'Local Markdown image reference does not resolve in src/assets or src/static.'
+        message: 'Local Markdown image reference does not resolve in the page bundle, src/assets, or src/static.'
       })];
     }
 
@@ -376,6 +375,29 @@ async function inspectReference({ scope, file, reference, kind, options, publicF
     resolvedPath: toRepoRelative(publicFile),
     metadata
   })];
+}
+
+async function resolveMarkdownReferenceFile(reference, markdownFile, options, localPath) {
+  const trimmedReference = String(reference ?? '').trim();
+  if (!trimmedReference) {
+    return null;
+  }
+
+  const isRelativeReference = !trimmedReference.startsWith('/')
+    && !trimmedReference.startsWith('http://')
+    && !trimmedReference.startsWith('https://');
+
+  if (isRelativeReference && markdownFile) {
+    const bundleRelativePath = path.resolve(path.dirname(markdownFile), trimmedReference.split('#', 1)[0].split('?', 1)[0]);
+    if (await fileExists(bundleRelativePath)) {
+      return bundleRelativePath;
+    }
+  }
+
+  return resolveSourceMediaFile(localPath, {
+    assetsDir: options.assetsDir,
+    staticDir: options.staticDir
+  });
 }
 
 async function inspectBinaryFile(filePath, localPath, cache) {

@@ -1,12 +1,17 @@
 {{/* Article summary box — renders 1-3 bullet summaries, with legacy takeaways fallback */}}
 {{ $page := .page }}
+{{ $variant := .variant | default "" }}
 {{ $items := $page.Params.summary | default ($page.Params.takeaways | default (slice)) }}
 {{ $count := len $items }}
 {{ if gt $count 3 }}
   {{ $items = first 3 $items }}
 {{ end }}
 {{ if gt (len $items) 0 }}
-  <section class="article-summary" aria-label="Key takeaways">
+  {{ $classes := slice "article-summary" }}
+  {{ with $variant }}
+    {{ $classes = $classes | append (printf "article-summary--%s" .) }}
+  {{ end }}
+  <section class="{{ delimit $classes " " }}" aria-label="Key takeaways">
     <p class="eyebrow">Key takeaways</p>
     <ul class="article-summary__list">
       {{ range $items }}

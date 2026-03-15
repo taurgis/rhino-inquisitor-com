@@ -399,8 +399,8 @@ async function main() {
   }
 
   const rootDecision = resolveRobotsRule('/', robotsData.wildcardRules);
-  if (options.mode === 'preview' && rootDecision.blocked) {
-    robotsFindings.push('preview robots.txt blocks the site root; preview must remain crawlable noindex');
+  if (options.mode === 'preview' && !rootDecision.blocked) {
+    robotsFindings.push('preview robots.txt must block the site root with Disallow: /');
   }
 
   const rows = [createRobotsRow({ options, robotsData, findings: robotsFindings })];
@@ -446,8 +446,8 @@ async function main() {
         findings.push('preview route is missing a nofollow directive');
       }
 
-      if (robotsDecision.blocked) {
-        findings.push(`preview route is blocked by robots.txt (${robotsDecision.matchedRule?.value ?? 'unknown rule'})`);
+      if (!robotsDecision.blocked) {
+        findings.push('preview route is not blocked by robots.txt');
       }
     }
 

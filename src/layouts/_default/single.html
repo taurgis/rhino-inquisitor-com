@@ -1,32 +1,65 @@
 {{ define "main" }}
   {{ partial "breadcrumbs.html" . }}
+  {{ $isPost := eq .Type "posts" }}
+  {{ $summaryItems := .Params.summary | default (.Params.takeaways | default (slice)) }}
+  {{ $hasSummary := gt (len $summaryItems) 0 }}
+  {{ $renderSummaryInLead := and $isPost $hasSummary }}
 
   <article class="page-article">
     <header class="page-article__header">
-      <h1>{{ .Title }}</h1>
-      {{ partial "article/meta-row.html" (dict "page" . "label" "Article details") }}
-      {{ if ne .Type "posts" }}
-        {{ with .Params.description }}
-          <p class="page-article__description">{{ . }}</p>
+      <div class="page-article__intro">
+        <h1>{{ .Title }}</h1>
+        {{ partial "article/meta-row.html" (dict "page" . "label" "Article details") }}
+        {{ if ne .Type "posts" }}
+          {{ with .Params.description }}
+            <p class="page-article__description">{{ . }}</p>
+          {{ end }}
         {{ end }}
-      {{ end }}
-      {{ with .Params.heroImage }}
-        <div class="page-article__hero">
-          {{ partial "media/image.html" (dict
-            "page" $
-            "src" .
-            "alt" ($.Params.heroImageAlt | default $.LinkTitle | default $.Title)
-            "loading" "eager"
-            "decoding" "sync"
-            "fetchpriority" "high"
-            "responsive" true
-            "sizes" "(min-width: 80rem) 72rem, 100vw"
-          ) }}
-        </div>
+      </div>
+
+      {{ if $isPost }}
+        {{ if or .Params.heroImage $hasSummary }}
+          <div class="page-article__lead{{ if and .Params.heroImage $hasSummary }} page-article__lead--split{{ end }}">
+            {{ if $hasSummary }}
+              {{ partial "article/summary-box.html" (dict "page" . "variant" "lead") }}
+            {{ end }}
+            {{ with .Params.heroImage }}
+              <div class="page-article__hero page-article__hero--lead">
+                {{ partial "media/image.html" (dict
+                  "page" $
+                  "src" .
+                  "alt" ($.Params.heroImageAlt | default $.LinkTitle | default $.Title)
+                  "loading" "eager"
+                  "decoding" "sync"
+                  "fetchpriority" "high"
+                  "responsive" true
+                  "sizes" "(min-width: 64rem) 42rem, 100vw"
+                ) }}
+              </div>
+            {{ end }}
+          </div>
+        {{ end }}
+      {{ else }}
+        {{ with .Params.heroImage }}
+          <div class="page-article__hero">
+            {{ partial "media/image.html" (dict
+              "page" $
+              "src" .
+              "alt" ($.Params.heroImageAlt | default $.LinkTitle | default $.Title)
+              "loading" "eager"
+              "decoding" "sync"
+              "fetchpriority" "high"
+              "responsive" true
+              "sizes" "(min-width: 80rem) 72rem, 100vw"
+            ) }}
+          </div>
+        {{ end }}
       {{ end }}
     </header>
 
-    {{ partial "article/summary-box.html" (dict "page" .) }}
+    {{ if not $renderSummaryInLead }}
+      {{ partial "article/summary-box.html" (dict "page" .) }}
+    {{ end }}
 
     <div class="page-article__body">
       <section class="article-body">
