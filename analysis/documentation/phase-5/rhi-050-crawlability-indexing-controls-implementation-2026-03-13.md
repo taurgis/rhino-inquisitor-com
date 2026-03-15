@@ -9,7 +9,7 @@ RHI-050 now enforces a production-only open-robots policy: only the canonical Gi
 
 ## Why this changed
 
-Phase 5 Workstream C requires crawlability and index-control errors to be release blockers, not manual checklist items. The repository already had partial coverage through `check:noindex`, `check:metadata`, the shared SEO resolver, and the deploy preview rehearsal step, but the implemented policy drifted away from the Phase 1 staging guardrail and allowed non-production hosts to publish crawlable `robots.txt`. The current owner directive restores production-only allow rules and requires the deploy workflow to fail closed until GitHub Pages reports the canonical production host.
+Phase 5 Workstream C requires crawlability and index-control errors to be release blockers, not manual checklist items. The repository already had partial coverage through `check:noindex`, `check:metadata`, the shared SEO resolver, and the deploy preview rehearsal step, but the implemented policy drifted away from the Phase 1 staging guardrail and allowed non-production hosts to publish crawlable `robots.txt`. The current owner directive restores production-only allow rules while keeping preview-host rehearsal deploys active until the canonical custom domain is enabled during the later cutover phase.
 
 ## Behavior details
 
@@ -26,7 +26,7 @@ Phase 5 Workstream C requires crawlability and index-control errors to be releas
 - `scripts/seo/check-crawl-controls.js` now treats preview mode as blocked-by-default: preview and staging artifacts must publish `Disallow: /` at the site root and still emit `noindex, nofollow` on HTML pages.
 - `package.json` now exposes the gate as `npm run check:crawl-controls`.
 - `.github/workflows/build-pr.yml` and `.github/workflows/deploy-pages.yml` run the crawl-control gate as a blocking production step, and both workflows also run preview-mode crawl-control validation after the preview build.
-- `.github/workflows/deploy-pages.yml` now fails before the production build if `actions/configure-pages` does not report the canonical GitHub Pages host `www.rhino-inquisitor.com`, preventing an allow-all `robots.txt` deploy on the wrong Pages host.
+- `.github/workflows/deploy-pages.yml` now records whether `actions/configure-pages` reports the canonical GitHub Pages host `www.rhino-inquisitor.com`; preview-host rehearsal deploys continue with preview-only `noindex` and `Disallow: /` safeguards until custom-domain cutover is active.
 - Preview validation checks every generated HTML page, not just the homepage, by running the validator in `preview` mode with the expected preview base URL.
 - `src/layouts/alias.html` overrides Hugo’s embedded alias template so redirect helper pages now emit `<meta name="robots" content="noindex, nofollow">` in both production and preview outputs.
 - The PR workflow classification logic now keeps migration-batch-only behavior for pure staged-content changes while still forcing the full-site route-sensitive lane for SEO/runtime changes such as `scripts/seo/**`, workflow gating, layout changes, or `package.json` gate updates.
@@ -35,8 +35,12 @@ Phase 5 Workstream C requires crawlability and index-control errors to be releas
 
 - Maintainers now have a dedicated Phase 5 crawl-control report in `migration/reports/phase-5-crawl-control-audit.csv` for audit and sign-off evidence.
 - Preview-host rehearsal now validates blocked-by-default `robots.txt` plus page-level `noindex, nofollow` across the full HTML output, including alias helper pages.
-- Production validation will now fail if an indexable page leaks `noindex`, if `robots.txt` blocks an indexable route, or if GitHub Pages is not configured for the canonical production host before deployment.
+- Production validation will now fail if an indexable page leaks `noindex` or if `robots.txt` blocks an indexable route, while GitHub Pages custom-domain readiness is recorded separately from preview-host deployment success.
 - The implementation now follows the owner-directed contract to keep `src/layouts/robots.txt` as the source of truth, block non-production hosts with `Disallow: /`, and allow crawling only on the canonical production Pages host.
+
+## Follow-up note
+
+- 2026-03-15: The deploy workflow host step was realigned with the Phase 7 preview-first model. It now writes a readiness notice when `actions/configure-pages` reports a non-canonical host instead of failing the workflow before the preview artifact is built and deployed.
 
 ## Verification
 

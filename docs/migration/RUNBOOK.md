@@ -100,7 +100,7 @@ This runbook tracks the operational steps needed to move the repository from pla
   - a push to `main`, which runs `.github/workflows/deploy-pages.yml`
   - a manual `workflow_dispatch` run of `Deploy to GitHub Pages` for a known commit
 - Expect the deploy workflow to run the blocking Phase 3 gates in this order before the Pages artifact is published:
-  - GitHub Pages host check: fail closed unless `actions/configure-pages` reports `www.rhino-inquisitor.com`
+  - GitHub Pages host summary: records whether `actions/configure-pages` reports `www.rhino-inquisitor.com`; non-canonical hosts continue in preview-host rehearsal mode and remain a cutover-readiness signal rather than a deploy blocker
   - `npm run validate:frontmatter`
   - `hugo --minify --environment production`
   - `npm run check:url-parity`

@@ -128,13 +128,15 @@ async function migratePostFile(postFile, options) {
   const bundleDir = path.join(path.dirname(postFile), path.basename(postFile, path.extname(postFile)));
   const bundleIndexPath = path.join(bundleDir, 'index.md');
   const bundleExists = await fileExists(bundleDir);
+  const bundleIndexExists = await fileExists(bundleIndexPath);
 
-  if (bundleExists) {
+  if (bundleIndexExists) {
     return {
       file: toRepoRelative(postFile),
       bundleDir: toRepoRelative(bundleDir),
       status: 'skipped',
-      reason: 'Target bundle directory already exists.',
+      reason: 'Target bundle index already exists.',
+      reusedExistingDir: false,
       rewrittenReferences: 0,
       assets: [],
       unresolved: []
@@ -204,6 +206,7 @@ async function migratePostFile(postFile, options) {
     bundleDir: toRepoRelative(bundleDir),
     status: 'migrated',
     reason: '',
+    reusedExistingDir: bundleExists,
     rewrittenReferences: replacementMap.size,
     assets,
     unresolved

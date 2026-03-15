@@ -63,7 +63,8 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
 
-      - name: Verify canonical Pages host configuration
+      - name: Summarize Pages host configuration
+        id: pages_host
         env:
           EXPECTED_PAGES_HOST: ${{ env.EXPECTED_PAGES_HOST }}
           PAGES_BASE_URL: ${{ steps.pages.outputs.base_url }}
@@ -78,8 +79,12 @@ jobs:
           fi
 
           if [[ "$PAGES_HOST" != "$EXPECTED_PAGES_HOST" ]]; then
-            echo "Refusing to publish open robots.txt: GitHub Pages host is '$PAGES_HOST', expected '$EXPECTED_PAGES_HOST'. Configure the canonical Pages custom domain before deployment." >&2
-            exit 1
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "GitHub Pages host is '$PAGES_HOST', expected '$EXPECTED_PAGES_HOST'. Continuing in preview-host rehearsal mode until the canonical custom domain is active." >> "$GITHUB_STEP_SUMMARY"
+            echo "::notice::GitHub Pages host is '$PAGES_HOST'; continuing with preview-host deployment and production-artifact validation."
+          else
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+            echo "GitHub Pages canonical host '$PAGES_HOST' is active." >> "$GITHUB_STEP_SUMMARY"
           fi
 
       - name: Install Node dependencies
