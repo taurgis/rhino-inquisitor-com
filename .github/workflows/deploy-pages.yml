@@ -159,17 +159,18 @@ jobs:
 
           const normalized = new URL(rawBaseUrl);
           normalized.protocol = 'https:';
-          normalized.pathname = normalized.pathname.replace(/\/$/, '');
+          const trimmedPath = normalized.pathname.replace(/\/+$/, '');
+          normalized.pathname = trimmedPath ? `${trimmedPath}/` : '/';
 
           const output = process.env.GITHUB_OUTPUT;
           require('node:fs').appendFileSync(output, `base_url=${normalized.toString()}\n`, 'utf8');
           EOF
 
       - name: Build preview rehearsal site
-        run: hugo --gc --minify --environment preview --baseURL "${{ steps.preview_base.outputs.base_url }}/"
+        run: hugo --gc --minify --environment preview --baseURL "${{ steps.preview_base.outputs.base_url }}"
 
       - name: Run preview crawl-control validation check
-        run: node scripts/seo/check-crawl-controls.js --mode preview --base-url "${{ steps.preview_base.outputs.base_url }}/" --report tmp/ci-preview-crawl-control-audit.csv
+        run: node scripts/seo/check-crawl-controls.js --mode preview --base-url "${{ steps.preview_base.outputs.base_url }}" --report tmp/ci-preview-crawl-control-audit.csv
 
       - name: Verify preview-host path prefix and noindex
         env:
