@@ -21,7 +21,7 @@ takeaways:
   - "Explains the platform's major tech-stack transitions from pipelines to controllers to composable storefront development"
   - "Gives newcomers a practical overview of APIs, local setup, and the main architectural choices they will encounter"
 ---
-https://www.youtube.com/watch?v=qeyqm19m820 AI Summary Here’s a summary of the presentation created by AI. (With a little course correction help from me)
+[B2C Commerce Cloud introduction session recording](https://www.youtube.com/watch?v=qeyqm19m820) AI Summary Here’s a summary of the presentation created by AI. (With a little course correction help from me)
 
 Join me as we delve into the world of B2C Commerce cloud, its history, tech stacks, and the shift towards headless architecture. In this insightful session, learn about the evolution, development languages, APIs, and setting up a composable storefront.
 

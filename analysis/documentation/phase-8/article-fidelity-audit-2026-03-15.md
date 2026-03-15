@@ -206,8 +206,8 @@ The fourteenth batch confirms that the remaining technical-reference backlog is 
 Examples:
 
 - `salesforce-b2c-commerce-cloud-catalog-erd`, `salesforce-b2c-commerce-cloud-content-erd`, `salesforce-b2c-commerce-cloud-customer-erd`, and `sfcc-basket-order-erd` all passed without new reader-facing token defects.
-- `sfcc-introduction` remains a medium review item because the Hugo page shortens the H1 and exposes a raw YouTube URL plus AI-summary framing at the top of the article.
-- `the-importance-of-origin-shielding`, `the-move-from-sitegenesis-and-sfra-to-the-composable-storefront-as-a-developer`, and `where-to-start-when-you-are-new-to-salesforce-b2c-commerce-cloud-development` remain medium review items because the Hugo page shortens the H1 while preserving the body guidance.
+- `sfcc-introduction` closed after the raw YouTube URL was normalized into a labeled link while preserving the original AI-summary framing.
+- `the-importance-of-origin-shielding`, `the-move-from-sitegenesis-and-sfra-to-the-composable-storefront-as-a-developer`, and `where-to-start-when-you-are-new-to-salesforce-b2c-commerce-cloud-development` ultimately closed under the owner-approved global title policy because the body guidance already matched live and raw-export evidence.
 
 #### Pattern 15: the final closeout wave mostly resolves to pass, title review, or scope exception
 
@@ -216,8 +216,8 @@ The fifteenth batch confirms that the last remaining backlog items are not intro
 Examples:
 
 - `office-hours-for-salesforce-b2c-commerce-cloud`, `the-journey-from-developer-to-architect`, `the-move-from-on-site-to-remote`, `the-state-of-ohana-for-salesforce-commerce-cloud`, `the-sunsetting-of-arc300-architect-b2c-commerce-solutions`, `trailblazerdx-2022-for-b2c-commerce`, and `what-can-i-use-chatgpt-for-when-working-with-salesforce` all passed without new reader-facing token defects.
-- `reflecting-on-2-years-of-blogging` and `what-skills-do-i-need-as-a-sfcc-architect` remain medium review items because the Hugo page shortens the H1 while preserving the body.
-- `phase-3-performance-baseline` is not a live migrated WordPress article at all; it remains a medium scope-review item because the local fixture route renders, but the live site returns a 404 baseline instead of a comparable article.
+- `reflecting-on-2-years-of-blogging` and `what-skills-do-i-need-as-a-sfcc-architect` ultimately closed under the owner-approved global title policy because live WordPress and raw-export evidence confirmed the body parity and showed the only remaining variance was the intentionally shorter Hugo H1.
+- `phase-3-performance-baseline` closed as an accepted non-migration scaffold-fixture exception because the source explicitly marks it with `scaffoldFixture: true` and the live WordPress route returns a 404 rather than a comparable article baseline.
 
 ## Findings summary
 
@@ -225,14 +225,14 @@ Examples:
 
 - Reviewed: `151 / 151` posts
 - Remaining: `0 / 151` posts
-- Pass: `138`
-- Needs review: `13`
+- Pass: `151`
+- Needs review: `0`
 - Fail: `0`
 
 ### Severity summary
 
 - High: `0`
-- Medium: `13`
+- Medium: `0`
 - Low: `0`
 
 ### Key conclusions
@@ -253,7 +253,7 @@ Examples:
 - The twelfth batch suggests the residual backlog is now much cleaner, with most remaining differences likely to be editorial or presentation drift rather than fresh hard technical defects.
 - The thirteenth batch reinforced that trend across late-stage AI, certification, and go-live content: new defects stayed out of the fail bucket and mostly collapsed into title-review cleanup.
 - The fourteenth batch reinforces it again for the technical-reference remainder: new defects are increasingly limited to title or presentation review rather than source corruption.
-- The fifteenth batch closes the audit with the same boundary intact: prose-heavy pages can pass cleanly, material H1 rewrites stay medium needs-review, missing live baselines stay scope-review, and fail remains reserved for reproducible reader-facing token corruption.
+- The fifteenth-batch closeout confirms the final exception rules: title-only drift can close under the owner-approved global H1 policy when live and raw-export body parity is intact, scaffold fixtures can close as accepted non-migration exceptions when `scaffoldFixture: true` and live 404 evidence are explicit, and official Salesforce docs remain reserved for platform-defined identifier disputes that WordPress evidence cannot resolve.
 
 ### Live-site baseline observation
 
@@ -274,7 +274,7 @@ This is not a Hugo regression, but it matters when judging visual parity because
 - Code-heavy posts should move to the front of the remaining audit queue.
 - Future migration QA should distinguish between source-conversion defects and Hugo-rendering defects.
 - Retitled or materially amended articles need explicit owner sign-off so parity audits are evaluating against the right editorial target.
-- Closeout remediation should preserve the existing severity boundary: fix confirmed fail rows first, route title and framing drift through owner review, and make an explicit scope decision for scaffold fixtures that have no live WordPress baseline.
+- Closeout remediation is now complete. Future audits should preserve the same boundary: fix confirmed fail rows first, close title-only drift under the established global H1 policy when body parity is intact, and treat scaffold fixtures with no live WordPress baseline as explicit non-migration scope exceptions.
 
 ## Senior QA recommendations for closeout
 
@@ -869,6 +869,92 @@ This slice initially looked like a mix of title-drift, recap-link drift, and pos
 - src/content/posts/salesforce-b2c-commerce-cloud-the-22-7-release/index.md
 - src/content/posts/a-look-at-the-sfcc-23-5-release/index.md
 - src/content/posts/salesforce-b2c-commerce-the-22-5-release/index.md
+
+## 2026-03-15 Medium Review Addendum: Fifth 10-Row Global Queue Batch
+
+### Change summary
+
+Processed the next 10-row slice from the global unresolved medium queue: RHI-AUD-110, RHI-AUD-113, RHI-AUD-121, RHI-AUD-122, RHI-AUD-125, RHI-AUD-131, RHI-AUD-137, RHI-AUD-139, RHI-AUD-140, and RHI-AUD-141. All ten rows moved to pass.
+
+### Why this changed
+
+This late-stage slice looked like a mix of intro-framing drift, label-presentation drift, and one remaining raw-URL issue. Follow-up browser and raw WordPress-export checks showed that nine rows had already preserved the disputed framing in the original article, leaving only one real source-side presentation fix: a raw YouTube URL exposed inline at the start of the SFCC introduction article.
+
+### Behavior details
+
+- Old behavior: nine rows remained open because shorter Hugo H1 values were coupled with suspected intro or presentation drift, and the SFCC introduction article surfaced a raw YouTube URL inline before the AI-summary block.
+- New behavior: the disputed intro and label text for nine rows was verified as already present in live WordPress or the raw export, so those rows reduce to accepted title-only drift under the owner-approved global policy. The SFCC introduction now renders a labeled session-recording link instead of a bare YouTube URL, which removes the remaining real presentation defect in this slice.
+
+### Impact
+
+- Cumulative totals changed to: Pass 148, Needs review 3, Fail 0, High 0, Medium 3, Low 0.
+- Batch 11 is now fully cleared at 111 pass and 0 needs-review.
+- Batch 12 is now fully cleared at 121 pass and 0 needs-review.
+- Batch 13 is now fully cleared at 131 pass and 0 needs-review.
+- Batch 14 is now fully cleared at 141 pass and 0 needs-review.
+- The global unresolved medium queue now starts at RHI-AUD-143.
+
+### Verification
+
+1. Recomputed the global unresolved medium queue and locked the next 10-row boundary beginning at RHI-AUD-110.
+2. Compared live and local render for RHI-AUD-110, RHI-AUD-113, RHI-AUD-121, RHI-AUD-122, RHI-AUD-125, RHI-AUD-131, RHI-AUD-139, RHI-AUD-140, and RHI-AUD-141 using a browser user agent.
+3. Confirmed the disputed intro or label framing for those rows already appears on the live pages, including `Salesforce has introduced a solution to meet this demand`, `The Rhino Inquisitor I went all \"Rhino\" up in this place`, `The Official List`, and the original onboarding intros.
+4. Confirmed in the raw WordPress export that the same disputed framing is preserved for those rows, including the Elementor alert widget for the AI-career intro and the certification label text.
+5. Compared live, local, and raw WordPress-export evidence for RHI-AUD-137.
+6. Verified that the original WordPress article already included the `AI Summary` alert and intro summary text, but the migrated markdown exposed a raw `https://www.youtube.com/watch?v=qeyqm19m820` URL inline before that block.
+7. Replaced the bare YouTube URL with a labeled markdown link and confirmed the raw URL no longer appears in the local render while `AI Summary` still does.
+8. Reconciled the detail tracker to 148 pass / 3 needs-review / 0 fail and confirmed the residual unresolved queue is now only RHI-AUD-143, RHI-AUD-144, and RHI-AUD-151.
+
+### Related files
+
+- migration/reports/phase-8-article-fidelity-audit.csv
+- migration/reports/phase-8-article-fidelity-audit-summary.csv
+- analysis/documentation/phase-8/article-fidelity-audit-2026-03-15.md
+- src/content/posts/sfcc-introduction/index.md
+
+## 2026-03-15 Final Closeout Addendum
+
+### Change summary
+
+Closed the final three unresolved phase-8 article-fidelity rows and moved the tracker from `148 pass / 3 needs-review / 0 fail` to `151 pass / 0 needs-review / 0 fail`.
+
+### Why this changed
+
+The remaining rows were no longer blocked by missing body evidence. They were blocked by classification only: one scaffold-fixture scope exception and two title-only editorial-shortening cases.
+
+### Behavior details
+
+- Old behavior: `RHI-AUD-143` remained open because the local scaffold route had no comparable live WordPress article baseline, and `RHI-AUD-144` plus `RHI-AUD-151` remained open because the Hugo H1 was shorter than the live title even though the body content already aligned.
+- New behavior: `RHI-AUD-143` is pass as an accepted non-migration scaffold fixture, while `RHI-AUD-144` and `RHI-AUD-151` are pass under the owner-approved global title policy because live WordPress and the raw WordPress export confirm intact body parity and original long titles.
+
+### Official-source guidance
+
+- Salesforce official docs were not needed for `RHI-AUD-143`, `RHI-AUD-144`, or `RHI-AUD-151` because these rows turn on editorial-baseline evidence, not platform behavior.
+- Live WordPress plus the raw WordPress export are sufficient when the unresolved difference is only H1/title wording or when the route is a repository-owned scaffold fixture with no production article baseline.
+- Official Salesforce docs are only needed for exception cases where the disputed content is a platform-defined identifier, release-note token, API name, or framework behavior that live WordPress and the raw export cannot disambiguate. The repository already used that exception path earlier when validating SFRA/platform behavior and baseline-sensitive technical identifiers against official SFCC documentation.
+
+### Impact
+
+- The append-only phase-8 tracker is now fully closed with no remaining unresolved rows.
+- The final exception pattern is explicit for future fidelity audits: title-only drift can close on WordPress evidence, scaffold fixtures can close on repository scope evidence, and official Salesforce docs are a fallback only for platform-defined technical ambiguity.
+
+### Verification
+
+1. Fetched the live WordPress pages for `/reflecting-on-2-years-of-blogging/`, `/what-skills-do-i-need-as-a-sfcc-architect/`, and `/phase-3-performance-baseline/` and confirmed two long live H1 values plus one live `404 Error` fixture route.
+2. Verified the migrated sources keep intact body content for the two editorial rows and explicitly mark `/phase-3-performance-baseline/` with `scaffoldFixture: true`.
+3. Verified the raw WordPress export preserves the original WordPress titles `Reflecting on Two Years of Blogging: My Journey in the SFCC Ecosystem` and `What skills do I need as a Salesforce Commerce Cloud Architect?` for the two title-only rows.
+4. Verified repository parity tooling already excludes scaffold fixtures from migration-owned content counts, which makes the final fixture closure consistent with existing scope rules.
+5. Reconciled the article tracker, summary CSV, and this phase-8 documentation update to the final closed state of `151 pass / 0 needs-review / 0 fail`.
+
+### Related files
+
+- migration/reports/phase-8-article-fidelity-audit.csv
+- migration/reports/phase-8-article-fidelity-audit-summary.csv
+- analysis/documentation/phase-8/article-fidelity-audit-2026-03-15.md
+- src/content/posts/phase-3-performance-baseline/index.md
+- src/content/posts/reflecting-on-2-years-of-blogging/index.md
+- src/content/posts/what-skills-do-i-need-as-a-sfcc-architect/index.md
+- scripts/check-url-parity.js
 
 ### Verification
 
