@@ -17,7 +17,7 @@ New behavior:
 1. `npm run check:bundle-media` scans `src/content/posts`, `src/content/pages`, and `public` for remaining `/media` and `assets/media` references.
 2. The same audit classifies `src/assets/media` files by content hash against bundle-local post and page assets, writes a JSON report to `tmp/bundled-media-audit.json`, and writes a duplicate-only deletion list to `tmp/assets-media-duplicate-list.txt`.
 3. Redundant shared copies were removed only for files proven to be exact duplicates of bundle-local assets.
-4. Two non-duplicate holdouts remain in `src/assets/media` because they still exist only as legacy manifest records, not as bundle duplicates.
+4. Two non-duplicate holdouts remain in `src/assets/media` because they still exist only as legacy manifest records, not as bundle duplicates: `src/assets/media/2022/session-bridge-mobile-app-v3-b7664fb07d.jpeg` and `src/assets/media/2022/system-overview-journey-of-a-request-scaled-fe217a8070.jpeg`.
 
 ## Behavior details
 
@@ -37,6 +37,7 @@ New behavior:
 1. The repository no longer carries duplicated shared raster assets for content that already owns bundle-local copies.
 2. Future article/page media cleanup can be rerun safely from the committed audit command.
 3. Migration-era manifest references remain visible for the two unique holdouts, which keeps later pipeline cleanup work traceable instead of silently deleting unmatched files.
+4. The cleanup proof is intentionally scoped to the promoted `src/content` tree and the built `public` output, not to the historical staged migration corpus under `migration/output/content`.
 
 ## Verification
 

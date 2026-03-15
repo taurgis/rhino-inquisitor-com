@@ -562,6 +562,7 @@ This runbook tracks the operational steps needed to move the repository from pla
   - `hugo --minify --environment production --contentDir migration/output/content --destination tmp/rhi037-public`
 - Run the integrity gate with:
   - `npm run check:media -- --content-dir migration/output/content --public-dir tmp/rhi037-public`
+- These Phase 4 staged-content commands are historical release-candidate evidence for the migration corpus. Current repository validation uses `npm run check:media`, which targets `src/content` and `public`.
 - Current 2026-03-10 implementation status:
   - normalization now adds verified featured-image source URLs into `mediaRefs`, which allows the media pipeline to download and rewrite hero-banner assets alongside body images
   - the latest full corpus run groups 1803 source references into 574 canonical media items
@@ -572,6 +573,7 @@ This runbook tracks the operational steps needed to move the repository from pla
   - the staged `video` page now uses a local WordPress-backed fallback image for the final unresolved YouTube thumbnail instead of leaving a dead mixed-content URL in the rendered output
   - the staged Hugo build now completes successfully against `migration/output/content`
   - `npm run check:media -- --content-dir migration/output/content --public-dir tmp/rhi037-public` now reports 0 failures on the staged release-candidate content set
+  - current package-level media validation is `npm run check:media` against the promoted `src/content` tree and current `public` build
   - Markdown body images now resolve through a Hugo render hook backed by global resources, but bulk `.Process` transforms were intentionally not applied in the render hook after the staged build hit Hugo memory/panic failures
 
 ### RHI-040 - Accessibility and Content Semantics

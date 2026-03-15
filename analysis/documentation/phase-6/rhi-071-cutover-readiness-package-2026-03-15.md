@@ -72,6 +72,8 @@ Staging rehearsal evidence recorded on 2026-03-15:
 2. `/privacy-policy/`, `/feed/`, `/robots.txt`, `/sitemap.xml`, and `/404/` were reachable on staging, and an unknown control route returned HTTP `404`.
 3. Representative staging pages were self-canonical on the staging host and emitted `noindex, nofollow`, which is the expected preview-host behavior.
 4. Staging verified the cutover candidate quality, but it still does not satisfy the production-only host/protocol acceptance criteria because `www.staging.rhino-inquisitor.com` is not provisioned and staging cannot prove the final production canonical host behavior.
+5. The specific RHI-071 sub-check for the top 50 traffic legacy URLs can therefore be treated as complete for staging rehearsal evidence, while the parent manual-verification acceptance criterion remains open for production confirmation.
+6. The owner-approved top linked sample, the critical legal/system route set, and the runbook documentation sub-checks can also be treated as complete for staging rehearsal evidence, while the four-variant host/protocol matrix remains production-only final evidence.
 
 Owner decisions recorded on 2026-03-15:
 

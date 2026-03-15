@@ -1,0 +1,6 @@
+{{ with resources.Get "styles/site.css" }}
+  {{ $stylesheet := . | fingerprint }}
+  <link rel="stylesheet" href="{{ $stylesheet.RelPermalink }}" integrity="{{ $stylesheet.Data.Integrity }}" crossorigin="anonymous">
+{{ else }}
+  {{ errorf "Missing stylesheet asset: styles/site.css" }}
+{{ end }}

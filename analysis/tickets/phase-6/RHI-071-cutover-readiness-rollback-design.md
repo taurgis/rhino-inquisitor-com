@@ -37,11 +37,11 @@ Cutover is the highest-risk moment of the migration. A well-designed redirect st
   - [x] Version tag is recorded in `migration/phase-6-cutover-runbook.md`
 - [ ] Critical route manual verification complete:
   - [x] Staging rehearsal completed on `https://staging.rhino-inquisitor.com`, but final production confirmation remains pending
-  - [ ] Top 50 traffic legacy URLs manually checked (from Phase 1 SEO baseline)
-  - [ ] Owner-approved top linked legacy URL sample manually checked (current accepted exception: committed top-20 Search Console links baseline replaces the literal top-50 backlink list unless a larger export is later supplied)
-  - [ ] All critical legal/system routes verified: `/privacy-policy/`, `/feed/`, `/robots.txt`, `/sitemap.xml`, `/404`
-  - [ ] Host/protocol variants checked for core templates: HTTP apex, HTTPS apex, HTTP www, HTTPS www
-  - [ ] Manual check results documented in `migration/phase-6-cutover-runbook.md` verification section
+  - [x] Top 50 traffic legacy URLs manually checked on staging (from Phase 1 SEO baseline; `50/50` pass on `https://staging.rhino-inquisitor.com`)
+  - [x] Owner-approved top linked legacy URL sample manually checked on staging (current accepted exception: committed top-20 Search Console links baseline replaces the literal top-50 backlink list unless a larger export is later supplied; effective `20/20` pass on `https://staging.rhino-inquisitor.com`)
+  - [x] Critical legal/system routes verified on staging rehearsal: `/privacy-policy/`, `/feed/`, `/robots.txt`, `/sitemap.xml`, `/404`
+  - [ ] Host/protocol variants checked for core templates: HTTP apex, HTTPS apex, HTTP www, HTTPS www (staging checked HTTP/HTTPS apex behavior, but `www.staging.rhino-inquisitor.com` is not provisioned; final production matrix remains pending)
+  - [x] Manual staging check results documented in `migration/phase-6-cutover-runbook.md`; production verification log entries remain pending
 - [x] Search Console continuity confirmed:
   - [x] Ownership verified for all registered host/protocol property variants (confirmed in WS-D: RHI-066)
   - [x] Old-URL sitemap can be retained alongside new sitemap during transition period (plan documented)
@@ -180,6 +180,8 @@ Cutover is the highest-risk moment of the migration. A well-designed redirect st
 | 2026-03-15 | In Progress | Owner decisions applied: Search Console continuity is accepted as ready and validated, the committed top-20 Search Console links baseline is accepted as the current backlink-sample exception in place of a literal top-50 list, and advisory Phase 7/8 handoff records are approved now while formal confirmed-readiness handoff remains deferred until the live runtime blockers clear. |
 | 2026-03-15 | In Progress | Re-ran the full mandatory Phase 6 gate bundle locally on `main` commit `3f29de0` and all commands passed: `build:prod`, `validate:url-inventory`, `check:url-parity`, `check:redirect-targets`, `check:redirect-chains`, `check:canonical-alignment`, `check:retirement-policy`, `check:host-protocol`, and `check:redirect-security`. Latest successful `Deploy to GitHub Pages` workflow run on `main` for the same commit is [actions run 23091859154](https://github.com/taurgis/rhino-inquisitor-com/actions/runs/23091859154). |
 | 2026-03-15 | In Progress | Executed a staging rehearsal of the critical-route manual verification set against `https://staging.rhino-inquisitor.com`. The top 50 traffic sample passed `50/50`, the owner-approved top linked sample passed effectively `20/20` (`19` direct passes plus one legacy nested category route resolving to the flattened category target), `/privacy-policy/`, `/feed/`, `/robots.txt`, `/sitemap.xml`, and `/404/` were reachable, and an unknown path returned HTTP `404`. Representative staging pages were self-canonical on the staging host with `noindex, nofollow`, `http://staging.rhino-inquisitor.com/` upgraded to HTTPS, and `www.staging.rhino-inquisitor.com` did not resolve. This rehearsal validates the staging candidate but does not close the production-only host/protocol and final confirmed-readiness acceptance criteria. |
+| 2026-03-15 | In Progress | Closed the staging-specific top-50 traffic sub-check for RHI-071 based on the staging rehearsal evidence: the Phase 1 traffic sample passed `50/50` on `https://staging.rhino-inquisitor.com`. The broader manual-verification acceptance criterion remains open because the linked-sample, production host/protocol, and final production confirmation items are still pending. |
+| 2026-03-15 | In Progress | Closed the remaining staging-backed manual-verification sub-checks for the owner-approved linked sample, critical legal/system routes, and runbook documentation. The linked sample passed effectively `20/20` on staging, the critical route set was reachable on staging, and the cutover runbook now serves as the staging manual verification section. The only remaining open manual-verification sub-check is the full four-variant production host/protocol matrix, because `www.staging.rhino-inquisitor.com` is not provisioned and staging cannot satisfy that final acceptance item. |
 
 ---
 

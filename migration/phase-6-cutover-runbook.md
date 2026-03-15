@@ -77,7 +77,7 @@ Current conclusion:
 2. Repository-controlled readiness is complete, but the remaining live verification criteria must stay open until the public runtime reflects the Hugo deployment.
 3. Do not send a formal "Phase 6 cutover readiness confirmed" handoff to Phase 7 or Phase 8 until the runtime matrix above is re-run against the cutover candidate and passes.
 
-## Staging rehearsal evidence
+## Staging manual verification section
 
 Observed on 2026-03-15 against `https://staging.rhino-inquisitor.com`:
 
@@ -107,6 +107,7 @@ Staging conclusion:
 1. The staging candidate passed a meaningful manual-verification rehearsal for priority routes, critical routes, alias-backed legacy paths, and preview metadata behavior.
 2. Staging evidence is valid as a pre-cutover rehearsal, not as final production acceptance for canonical production host or full four-variant host/protocol behavior.
 3. Re-run the same verification set on the final production cutover candidate before closing the remaining RHI-071 manual-verification acceptance criteria.
+4. This section is the documented staging manual-verification record for RHI-071. The separate production verification log template below remains reserved for T0 and post-cutover evidence.
 
 ## Advisory handoff record
 
@@ -256,7 +257,7 @@ Current conclusion:
 2. No known page-level internal links to legacy redirect-source URLs are currently blocking cutover.
 3. The residual warning load must remain visible in the launch log so post-launch 404 review can distinguish known asset issues from new cutover regressions.
 
-## Verification log template
+## Production verification log template
 
 Complete this table during T0 and the first 24 hours after cutover.
 

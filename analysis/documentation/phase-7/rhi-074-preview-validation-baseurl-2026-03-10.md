@@ -2,7 +2,7 @@
 
 ## Change summary
 
-The GitHub Pages deploy workflow now derives the expected preview stylesheet path from `actions/configure-pages` `base_url` output instead of assuming the preview artifact is always served from `/rhino-inquisitor-com/`.
+The GitHub Pages deploy workflow now derives the expected preview stylesheet path from `actions/configure-pages` `base_url` output and validates a fingerprinted stylesheet URL instead of assuming a fixed `styles/site.css` filename.
 
 ## Why this changed
 
@@ -20,7 +20,7 @@ Old behavior:
 New behavior:
 - The deploy workflow still builds the preview artifact with the Pages-provided `base_url`.
 - The preview base URL is now normalized to exactly one trailing slash before any preview build or crawl-control step consumes it.
-- The verification step now parses that `base_url`, computes the expected stylesheet path for the active Pages target, and asserts the generated homepage references that path.
+- The verification step now parses that `base_url`, computes the expected fingerprinted stylesheet path prefix for the active Pages target, and asserts the generated homepage references a hashed CSS filename under that prefix.
 - The crawl-control gate also normalizes `--base-url` before deriving the expected sitemap directive, so equivalent root-host and path-prefix preview URLs no longer fail on redundant trailing slashes.
 - The workflow still blocks deployment if preview HTML omits the expected `noindex, nofollow` robots directive.
 
@@ -32,8 +32,8 @@ New behavior:
 
 ## Verification
 
-1. Run `hugo --gc --minify --environment preview --baseURL "https://taurgis.github.io/rhino-inquisitor-com/"` and confirm the generated homepage contains `/rhino-inquisitor-com/styles/site.css` plus `noindex, nofollow`.
-2. Run `hugo --gc --minify --environment preview --baseURL "https://example.com/"` and confirm the generated homepage contains `/styles/site.css` plus `noindex, nofollow`.
+1. Run `hugo --gc --minify --environment preview --baseURL "https://taurgis.github.io/rhino-inquisitor-com/"` and confirm the generated homepage contains a stylesheet path matching `/rhino-inquisitor-com/styles/site.<hash>.css` plus `noindex, nofollow`.
+2. Run `hugo --gc --minify --environment preview --baseURL "https://example.com/"` and confirm the generated homepage contains a stylesheet path matching `/styles/site.<hash>.css` plus `noindex, nofollow`.
 3. Run `node scripts/seo/check-crawl-controls.js --mode preview --base-url "https://staging.rhino-inquisitor.com//" --report tmp/ci-preview-crawl-control-audit.csv` against a preview build and confirm `/robots.txt` passes with the normalized sitemap directive.
 4. Run the workflow validation step logic locally or in CI and confirm it passes for both root-host and path-prefix preview base URL shapes.
 

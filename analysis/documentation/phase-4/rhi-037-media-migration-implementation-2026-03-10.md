@@ -28,7 +28,7 @@ Phase 4 converted content still referenced legacy WordPress upload URLs and thir
 - `npm run migrate:download-media` now also caps any localized hero asset above the 2000px longest-edge budget during asset generation, which keeps hero-image quality enforcement in the media pipeline instead of weakening the gate.
 - `npm run migrate:rewrite-media` rewrites converted record bodies and staged Markdown files from legacy media URLs to local `/media/...` paths using the manifest, including featured-image-backed `heroImage` fields.
 - `scripts/migration/rewrite-media-refs.js` now handles Markdown image and link syntax separately before running its generic URL replacement pass, which fixes previously skipped hotlinks where a media URL appeared next to another URL inside Markdown markup.
-- `npm run check:media` now targets the active Hugo source tree under `src/content` together with the current `public` build, while the same checker can still validate staged migration content by passing `--content-dir migration/output/content --public-dir <artifact-dir>` explicitly. In both modes it verifies local file resolution, checks MIME/extension alignment, flags WordPress hotlinks and mixed content, enforces the hero-image size budget when hero images exist, and writes `migration/reports/media-integrity-report.csv` plus `migration/reports/media-hotlinks.csv`.
+- `npm run check:media` now targets the active Hugo source tree under `src/content` together with the current `public` build. The underlying checker still accepts explicit `--content-dir` and `--public-dir` overrides for historical or batch-specific investigations, but the maintained package-level validation contract is the promoted `src/content` tree. In its active-source mode it verifies local file resolution, checks MIME/extension alignment, flags WordPress hotlinks and mixed content, enforces the hero-image size budget when hero images exist, and writes `migration/reports/media-integrity-report.csv` plus `migration/reports/media-hotlinks.csv`.
 - `src/layouts/_default/_markup/render-image.html` now lets staged Markdown images resolve through Hugo global resources without forcing bulk image transforms during every staged build. `src/layouts/partials/media/image.html` and `src/layouts/partials/seo/resolve.html` now support global media resources in addition to page resources, which preserves Hugo `.Process` support for partial-driven image flows.
 
 ## Impact
@@ -45,7 +45,7 @@ Phase 4 converted content still referenced legacy WordPress upload URLs and thir
 
 - Run `npm run migrate:download-media`.
 - Run `npm run migrate:rewrite-media`.
-- Run `npm run check:media` for the active `src/content` tree, or pass the staged migration paths explicitly when validating `migration/output/content`.
+- Run `npm run check:media` for the active `src/content` tree.
 - Build staged content with `hugo --minify --environment production --contentDir migration/output/content --destination tmp/rhi037-public`.
 - Run `npm run check:media -- --content-dir migration/output/content --public-dir tmp/rhi037-public`.
 - Confirm `migration/reports/media-missing.csv` and `migration/reports/media-hotlinks.csv` are empty or contain only explicitly accepted exceptions.
@@ -56,6 +56,7 @@ Current 2026-03-10 validation snapshot:
 - `npm run migrate:rewrite-media` rewrites staged content successfully, including featured-image-backed `heroImage` fields for posts and pages with verified linkage.
 - `hugo --minify --environment production --contentDir migration/output/content --destination tmp/rhi037-public` completes successfully after the recovered hero-image assets are localized.
 - `npm run check:media -- --content-dir migration/output/content --public-dir tmp/rhi037-public` now reports 0 failures on the staged release-candidate content set.
+- The staged Phase 4 command above is historical release-candidate evidence for the pre-promotion migration corpus, not the current package-level validation target after bundle promotion and shared-media deduplication.
 - `migration/output/content/pages/video.md` now uses the local WordPress-featured-image fallback `/media/2022/yte-hd-image-96d2c1f499.jpg` for the final unrecoverable EP9 thumbnail, because the upstream `img.youtube.com` asset returns `404` across all tested thumbnail variants and has no filesystem counterpart.
 
 ## Related files

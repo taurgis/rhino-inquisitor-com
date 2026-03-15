@@ -3,7 +3,7 @@
   <head>
     {{ block "head" . }}
       {{ partial "seo/head-meta.html" . }}
-      <link rel="stylesheet" href="{{ "styles/site.css" | relURL }}">
+      {{ partial "site/stylesheet.html" . }}
     {{ end }}
   </head>
   <body>
