@@ -16,11 +16,12 @@
       <p>{{ .Params.description | default (printf "Articles and guides filed under %s." .Title) }}</p>
     </div>
 
-    {{ partial "archive/filter-bar.html" (dict "page" . "yearLinks" $yearLinks) }}
+    {{ partial "archive/filter-bar.html" (dict "page" . "yearLinks" $yearLinks "sortEnabled" true) }}
 
     <div class="archive-layout__content">
       {{ partial "search/search-bar.html" (dict
         "page" .
+        "stateBaseUrl" .RelPermalink
         "scopeKind" "category"
         "scopeValue" (.Data.Term | urlize)
         "scopeLabel" (printf "%s archive" .Title)

@@ -10,9 +10,11 @@
     {{ $pages := .Pages.ByDate.Reverse }}
     {{ $displayPages := $pages }}
     {{ $fallbackMode := false }}
+    {{ $sortEnabled := true }}
     {{ if eq (len $pages) 0 }}
       {{ $displayPages = $latestPosts }}
       {{ $fallbackMode = true }}
+      {{ $sortEnabled = false }}
     {{ end }}
     {{ $groups := $displayPages.GroupByDate "2006" }}
     {{ $yearLinks := slice }}
@@ -27,11 +29,12 @@
         <p>{{ .Params.description | default (printf "Articles and guides filed under %s." .Title) }}</p>
       </div>
 
-      {{ partial "archive/filter-bar.html" (dict "page" . "yearLinks" $yearLinks) }}
+      {{ partial "archive/filter-bar.html" (dict "page" . "yearLinks" $yearLinks "sortEnabled" $sortEnabled) }}
 
       <div class="archive-layout__content">
         {{ partial "search/search-bar.html" (dict
           "page" .
+          "stateBaseUrl" .RelPermalink
           "scopeKind" "category"
           "scopeValue" (.Data.Term | urlize)
           "scopeLabel" (printf "%s archive" .Title)
@@ -98,11 +101,12 @@
         <p>{{ .Params.description | default "Browse all topics and find focused deep dives by subject area." }}</p>
       </div>
 
-      {{ partial "archive/filter-bar.html" (dict "page" . "yearLinks" $yearLinks) }}
+      {{ partial "archive/filter-bar.html" (dict "page" . "yearLinks" $yearLinks "sortEnabled" false) }}
 
       <div class="archive-layout__content">
         {{ partial "search/search-bar.html" (dict
           "page" .
+          "stateBaseUrl" .RelPermalink
           "scopeKind" "type"
           "scopeValue" "posts"
           "scopeLabel" "blog archive"

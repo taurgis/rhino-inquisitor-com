@@ -6,6 +6,13 @@
 
   var SEARCH_LIMIT = 48;
   var SEARCH_PARAM = 'q';
+  var SORT_PARAM = 'sort';
+  var DEFAULT_SORT = 'newest';
+  var SORT_LABELS = {
+    newest: 'Newest first',
+    oldest: 'Oldest first',
+    'title-asc': 'Title A-Z'
+  };
 
   function normalize(value) {
     return String(value || '')
@@ -24,9 +31,20 @@
       .replace(/'/g, '&#39;');
   }
 
-  function getQueryFromLocation() {
+  function normalizeSort(value) {
+    var normalized = normalize(value);
+    if (normalized === 'oldest' || normalized === 'title-asc' || normalized === 'newest') {
+      return normalized;
+    }
+    return DEFAULT_SORT;
+  }
+
+  function getStateFromLocation() {
     var params = new URLSearchParams(window.location.search);
-    return params.get(SEARCH_PARAM) || '';
+    return {
+      query: params.get(SEARCH_PARAM) || '',
+      sort: normalizeSort(params.get(SORT_PARAM) || DEFAULT_SORT)
+    };
   }
 
   function tokenize(query) {
@@ -86,21 +104,40 @@
       '</article>';
   }
 
-  function groupByYear(entries) {
-    return entries.reduce(function (groups, entry) {
+  function groupEntriesByYear(entries) {
+    var groups = [];
+
+    for (var index = 0; index < entries.length; index += 1) {
+      var entry = entries[index];
       var year = entry.year || 'Undated';
-      if (!groups[year]) {
-        groups[year] = [];
+      var currentGroup = groups[groups.length - 1];
+
+      if (!currentGroup || currentGroup.year !== year) {
+        currentGroup = {
+          year: year,
+          entries: []
+        };
+        groups.push(currentGroup);
       }
-      groups[year].push(entry);
-      return groups;
-    }, {});
+
+      currentGroup.entries.push(entry);
+    }
+
+    return groups;
   }
 
-  function buildResultsMarkup(entries, totalMatches, query, scopeLabel) {
+  function buildResultsMarkup(entries, totalMatches, query, scopeLabel, sortValue) {
+    var activeSort = normalizeSort(sortValue);
+    var sortLabel = SORT_LABELS[activeSort] || SORT_LABELS[DEFAULT_SORT];
+
     if (!entries.length) {
       var clearUrl = new URL(window.location.href);
       clearUrl.searchParams.delete(SEARCH_PARAM);
+      if (activeSort === DEFAULT_SORT) {
+        clearUrl.searchParams.delete(SORT_PARAM);
+      } else {
+        clearUrl.searchParams.set(SORT_PARAM, activeSort);
+      }
       clearUrl.hash = 'archive-results';
 
       return '' +
@@ -111,42 +148,51 @@
         '<div class="empty-state">' +
           '<p class="eyebrow">Search</p>' +
           '<h3>No matches for “' + escapeHtml(query) + '”</h3>' +
-          '<p>Try another title, topic, or keyword, or clear the current query to restore the default ' + escapeHtml(scopeLabel) + ' view.</p>' +
+          '<p>Try another title, topic, or keyword, or clear the current query to restore the current ' + escapeHtml(scopeLabel) + ' view.</p>' +
           '<div class="archive-control-row"><a class="lane-header__action" href="' + escapeHtml(clearUrl.pathname + clearUrl.search + clearUrl.hash) + '">Clear search</a></div>' +
         '</div>';
     }
 
-    var groups = groupByYear(entries);
-    var years = Object.keys(groups).sort(function (left, right) {
-      if (left === 'Undated') {
-        return 1;
-      }
-      if (right === 'Undated') {
-        return -1;
-      }
-      return Number(right) - Number(left);
-    });
-
+    var hasQuery = Boolean(String(query || '').trim());
+    var heading = hasQuery ? 'Search results' : 'Archive results';
     var summary = 'Showing <strong>' + entries.length + '</strong> ' + (entries.length === 1 ? 'result' : 'results');
+
     if (totalMatches > entries.length) {
       summary += ' from <strong>' + totalMatches + '</strong> matches';
     }
 
+    summary += ' sorted by <strong>' + escapeHtml(sortLabel) + '</strong>';
+
+    if (activeSort === 'title-asc') {
+      return '' +
+        '<div class="archive-results__head">' +
+          '<h2 id="archive-results-heading">' + heading + '</h2>' +
+          '<p class="archive-results__summary">' + summary + '</p>' +
+        '</div>' +
+        '<ul class="article-card-grid" role="list">' +
+          entries.map(function (entry) {
+            return '<li>' + createCard(entry) + '</li>';
+          }).join('') +
+        '</ul>';
+    }
+
+    var groups = groupEntriesByYear(entries);
+
     return '' +
       '<div class="archive-results__head">' +
-        '<h2 id="archive-results-heading">Search results</h2>' +
+        '<h2 id="archive-results-heading">' + heading + '</h2>' +
         '<p class="archive-results__summary">' + summary + '</p>' +
       '</div>' +
       '<div class="archive-year-groups">' +
-        years.map(function (year) {
+        groups.map(function (group) {
           return '' +
-            '<section class="archive-year-group" id="year-' + escapeHtml(year) + '">' +
+            '<section class="archive-year-group" id="year-' + escapeHtml(group.year) + '">' +
               '<div class="archive-year-group__header">' +
-                '<h3>' + escapeHtml(year) + '</h3>' +
-                '<p class="surface-note">' + groups[year].length + ' ' + (groups[year].length === 1 ? 'entry' : 'entries') + '</p>' +
+                '<h3>' + escapeHtml(group.year) + '</h3>' +
+                '<p class="surface-note">' + group.entries.length + ' ' + (group.entries.length === 1 ? 'entry' : 'entries') + '</p>' +
               '</div>' +
               '<ul class="article-card-grid" role="list">' +
-                groups[year].map(function (entry) {
+                group.entries.map(function (entry) {
                   return '<li>' + createCard(entry) + '</li>';
                 }).join('') +
               '</ul>' +
@@ -190,18 +236,68 @@
     return score;
   }
 
-  function sortMatches(left, right) {
-    if (right.score !== left.score) {
-      return right.score - left.score;
-    }
+  function compareTitles(leftTitle, rightTitle) {
+    return String(leftTitle || '').localeCompare(String(rightTitle || ''), undefined, {
+      sensitivity: 'base'
+    });
+  }
 
-    var leftDate = Date.parse(left.entry.date || '') || 0;
-    var rightDate = Date.parse(right.entry.date || '') || 0;
-    if (rightDate !== leftDate) {
+  function compareByNewest(left, right) {
+    var leftDate = Date.parse(left.date || '');
+    var rightDate = Date.parse(right.date || '');
+    var leftHasDate = !Number.isNaN(leftDate);
+    var rightHasDate = !Number.isNaN(rightDate);
+
+    if (leftHasDate && rightHasDate && rightDate !== leftDate) {
       return rightDate - leftDate;
     }
 
-    return left.entry.title.localeCompare(right.entry.title);
+    if (leftHasDate !== rightHasDate) {
+      return leftHasDate ? -1 : 1;
+    }
+
+    return compareTitles(left.title, right.title);
+  }
+
+  function compareByOldest(left, right) {
+    var leftDate = Date.parse(left.date || '');
+    var rightDate = Date.parse(right.date || '');
+    var leftHasDate = !Number.isNaN(leftDate);
+    var rightHasDate = !Number.isNaN(rightDate);
+
+    if (leftHasDate && rightHasDate && leftDate !== rightDate) {
+      return leftDate - rightDate;
+    }
+
+    if (leftHasDate !== rightHasDate) {
+      return leftHasDate ? -1 : 1;
+    }
+
+    return compareTitles(left.title, right.title);
+  }
+
+  function compareByTitle(left, right) {
+    var titleComparison = compareTitles(left.title, right.title);
+    if (titleComparison !== 0) {
+      return titleComparison;
+    }
+
+    return compareByNewest(left, right);
+  }
+
+  function sortEntries(entries, sortValue) {
+    var activeSort = normalizeSort(sortValue);
+    return entries.slice().sort(function (left, right) {
+      if (activeSort === 'oldest') {
+        return compareByOldest(left, right);
+      }
+
+      if (activeSort === 'title-asc') {
+        return compareByTitle(left, right);
+      }
+
+      return compareByNewest(left, right);
+    });
   }
 
   function matchesScope(entry, scopeKind, scopeValue) {
@@ -225,14 +321,20 @@
     var status = form.querySelector('[data-search-status]');
     var resultsId = form.dataset.searchResultsId || 'archive-results';
     var resultsRoot = document.getElementById(resultsId);
-    var yearJump = document.querySelector(form.dataset.searchYearJumpSelector || '[data-search-year-jump]');
+    var yearControls = document.querySelectorAll(form.dataset.searchYearControlsSelector || '[data-archive-year-controls]');
+    var sortControls = document.querySelectorAll('[data-archive-sort]');
     var scopeKind = normalize(form.dataset.searchScopeKind || '');
     var scopeValue = normalize(form.dataset.searchScopeValue || '');
     var scopeLabel = form.dataset.searchScopeLabel || 'archive';
+    var stateBaseUrl = form.dataset.searchStateBaseUrl || form.getAttribute('action') || window.location.pathname;
     var indexUrl = form.dataset.searchIndexUrl;
     var initialMarkup = resultsRoot ? resultsRoot.innerHTML : '';
     var defaultStatus = status ? status.textContent : '';
     var indexPromise;
+
+    if (stateBaseUrl.indexOf('#') !== -1) {
+      stateBaseUrl = stateBaseUrl.split('#')[0];
+    }
 
     if (!input || !resultsRoot || !indexUrl) {
       return;
@@ -246,11 +348,30 @@
       }
     }
 
+    function setSortControls(sortValue) {
+      var activeSort = normalizeSort(sortValue);
+      Array.prototype.forEach.call(sortControls, function (control) {
+        control.value = activeSort;
+      });
+    }
+
+    function setYearControlsHidden(hidden) {
+      Array.prototype.forEach.call(yearControls, function (control) {
+        control.hidden = hidden;
+      });
+    }
+
+    function getActiveSort() {
+      if (!sortControls.length) {
+        return DEFAULT_SORT;
+      }
+
+      return normalizeSort(sortControls[0].value || DEFAULT_SORT);
+    }
+
     function restoreDefaultState() {
       resultsRoot.innerHTML = initialMarkup;
-      if (yearJump) {
-        yearJump.hidden = false;
-      }
+      setYearControlsHidden(false);
       setStatus(defaultStatus);
     }
 
@@ -271,13 +392,20 @@
       return indexPromise;
     }
 
-    function updateLocation(query, push) {
-      var url = new URL(window.location.href);
+    function updateLocation(query, sortValue, push) {
+      var url = new URL(stateBaseUrl, window.location.origin);
       if (query) {
         url.searchParams.set(SEARCH_PARAM, query);
       } else {
         url.searchParams.delete(SEARCH_PARAM);
       }
+
+      if (sortValue && sortValue !== DEFAULT_SORT) {
+        url.searchParams.set(SORT_PARAM, sortValue);
+      } else {
+        url.searchParams.delete(SORT_PARAM);
+      }
+
       url.hash = 'archive-results';
 
       var nextUrl = url.pathname + url.search + url.hash;
@@ -288,52 +416,47 @@
       }
     }
 
-    function runSearch(query, shouldScroll) {
+    function runSearch(query, sortValue, shouldScroll) {
       var trimmed = String(query || '').trim();
       var tokens = tokenize(trimmed);
+      var activeSort = normalizeSort(sortValue);
 
       input.value = trimmed;
+      setSortControls(activeSort);
 
-      if (!tokens.length) {
+      if (!tokens.length && activeSort === DEFAULT_SORT) {
         restoreDefaultState();
         return Promise.resolve();
       }
 
       resultsRoot.setAttribute('aria-busy', 'true');
-      setStatus('Searching the ' + scopeLabel + '...');
+      setStatus(tokens.length ? 'Updating the ' + scopeLabel + ' results...' : 'Sorting the ' + scopeLabel + '...');
 
       return getIndex().then(function (entries) {
         var matches = entries
           .filter(function (entry) {
             return matchesScope(entry, scopeKind, scopeValue);
           })
-          .map(function (entry) {
-            return {
-              entry: entry,
-              score: scoreEntry(entry, tokens)
-            };
-          })
-          .filter(function (match) {
-            return match.score >= 0;
-          })
-          .sort(sortMatches);
+          .filter(function (entry) {
+            return !tokens.length || scoreEntry(entry, tokens) >= 0;
+          });
 
-        var limitedMatches = matches.slice(0, SEARCH_LIMIT).map(function (match) {
-          return match.entry;
-        });
-        resultsRoot.innerHTML = buildResultsMarkup(limitedMatches, matches.length, trimmed, scopeLabel);
-        if (yearJump) {
-          yearJump.hidden = true;
-        }
+        var sortedMatches = sortEntries(matches, activeSort);
+        var visibleMatches = tokens.length ? sortedMatches.slice(0, SEARCH_LIMIT) : sortedMatches;
 
-        if (matches.length) {
-          var statusMessage = 'Showing ' + limitedMatches.length + ' of ' + matches.length + ' matching ' + (matches.length === 1 ? 'result' : 'results') + ' in the ' + scopeLabel + '.';
-          if (matches.length > SEARCH_LIMIT) {
+        resultsRoot.innerHTML = buildResultsMarkup(visibleMatches, sortedMatches.length, trimmed, scopeLabel, activeSort);
+        setYearControlsHidden(true);
+
+        if (sortedMatches.length) {
+          var statusMessage = 'Showing ' + visibleMatches.length + ' of ' + sortedMatches.length + ' ' + (sortedMatches.length === 1 ? 'result' : 'results') + ' in the ' + scopeLabel + ', sorted by ' + SORT_LABELS[activeSort] + '.';
+          if (tokens.length && sortedMatches.length > SEARCH_LIMIT) {
             statusMessage += ' Refine your query to narrow the list.';
           }
           setStatus(statusMessage);
-        } else {
+        } else if (tokens.length) {
           setStatus('No matching results found in the ' + scopeLabel + '.');
+        } else {
+          setStatus('No results are available for this sorted ' + scopeLabel + ' view.');
         }
 
         if (shouldScroll) {
@@ -351,24 +474,38 @@
     form.addEventListener('submit', function (event) {
       event.preventDefault();
       var query = input.value.trim();
-      updateLocation(query, true);
-      runSearch(query, true);
+      var activeSort = getActiveSort();
+      updateLocation(query, activeSort, true);
+      runSearch(query, activeSort, true);
     });
 
     input.addEventListener('search', function () {
       if (!input.value.trim()) {
-        updateLocation('', true);
-        restoreDefaultState();
+        var activeSort = getActiveSort();
+        updateLocation('', activeSort, true);
+        runSearch('', activeSort, false);
       }
     });
 
-    window.addEventListener('popstate', function () {
-      runSearch(getQueryFromLocation(), false);
+    Array.prototype.forEach.call(sortControls, function (control) {
+      control.addEventListener('change', function () {
+        var query = input.value.trim();
+        var activeSort = normalizeSort(control.value || DEFAULT_SORT);
+        setSortControls(activeSort);
+        updateLocation(query, activeSort, true);
+        runSearch(query, activeSort, true);
+      });
     });
 
-    var initialQuery = getQueryFromLocation().trim();
-    if (initialQuery) {
-      runSearch(initialQuery, false);
+    window.addEventListener('popstate', function () {
+      var state = getStateFromLocation();
+      runSearch(state.query, state.sort, false);
+    });
+
+    var initialState = getStateFromLocation();
+    setSortControls(initialState.sort);
+    if (initialState.query.trim() || initialState.sort !== DEFAULT_SORT) {
+      runSearch(initialState.query, initialState.sort, false);
     }
   }
 

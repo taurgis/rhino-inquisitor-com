@@ -10,6 +10,7 @@
 {{ $sortHeadingId := printf "%s-filter-sort" $prefix }}
 {{ $sortId := printf "%s-sort" $prefix }}
 {{ $sortNoteId := printf "%s-sort-note" $prefix }}
+{{ $sortEnabled := .sortEnabled | default true }}
 {{ $currentRelPermalink := "" }}
 {{ with $currentPage }}{{ $currentRelPermalink = .RelPermalink }}{{ end }}
 
@@ -37,7 +38,7 @@
     <p class="surface-note">Categories remain the primary public archive surface in Phase 3.</p>
   </section>
 
-  <section class="archive-filter-group archive-filter-group--years" aria-labelledby="{{ $yearsId }}">
+  <section class="archive-filter-group archive-filter-group--years" aria-labelledby="{{ $yearsId }}" data-archive-year-controls>
     <h3 id="{{ $yearsId }}">Year</h3>
     {{ if gt (len $yearLinks) 0 }}
       <div class="archive-filter-links archive-filter-links--years">
@@ -50,14 +51,16 @@
     {{ end }}
   </section>
 
-  <section class="archive-filter-group archive-filter-group--sort" aria-labelledby="{{ $sortHeadingId }}">
-    <h3 id="{{ $sortHeadingId }}">Sort</h3>
-    <label for="{{ $sortId }}">Sort order</label>
-    <select id="{{ $sortId }}" name="sort" aria-describedby="{{ $sortNoteId }}">
-      <option selected>Newest first (active)</option>
-      <option disabled>Oldest first (planned)</option>
-      <option disabled>Title A-Z (planned)</option>
-    </select>
-    <p class="surface-note" id="{{ $sortNoteId }}">Additional sort modes stay out of the Phase 3 scaffold until the data model and query contract are finalized.</p>
-  </section>
+  {{ if $sortEnabled }}
+    <section class="archive-filter-group archive-filter-group--sort" aria-labelledby="{{ $sortHeadingId }}">
+      <h3 id="{{ $sortHeadingId }}">Sort</h3>
+      <label for="{{ $sortId }}">Sort order</label>
+      <select id="{{ $sortId }}" name="sort" aria-describedby="{{ $sortNoteId }}" data-archive-sort>
+        <option value="newest" selected>Newest first</option>
+        <option value="oldest">Oldest first</option>
+        <option value="title-asc">Title A-Z</option>
+      </select>
+      <p class="surface-note" id="{{ $sortNoteId }}">Changing sort updates the current archive view and temporarily hides year jumps until the default view is restored.</p>
+    </section>
+  {{ end }}
 </div>

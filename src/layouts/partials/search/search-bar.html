@@ -8,19 +8,22 @@
 {{ $scopeKind := .scopeKind | default "type" }}
 {{ $scopeValue := .scopeValue | default "posts" }}
 {{ $scopeLabel := .scopeLabel | default "blog archive" }}
+{{ $stateBaseUrl := .stateBaseUrl | default $page.RelPermalink }}
 
 <form
   class="search-bar"
   id="archive-search"
   role="search"
-  action="{{ printf "%s#archive-results" $page.RelPermalink }}"
+  action="{{ printf "%s#archive-results" $stateBaseUrl }}"
   method="get"
   data-search-index-url="{{ $searchIndexUrl }}"
   data-search-results-id="archive-results"
   data-search-scope-kind="{{ $scopeKind }}"
   data-search-scope-value="{{ $scopeValue }}"
   data-search-scope-label="{{ $scopeLabel }}"
+  data-search-state-base-url="{{ $stateBaseUrl }}"
   data-search-year-jump-selector="[data-search-year-jump]"
+  data-search-year-controls-selector="[data-archive-year-controls]"
 >
   <div class="search-bar__field">
     <label for="{{ $inputId }}">Search the blog archive</label>

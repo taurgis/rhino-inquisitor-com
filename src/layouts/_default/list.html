@@ -51,6 +51,8 @@
   {{ with $blogPage }}{{ $emptyActionHref = .Permalink }}{{ end }}
   {{ $searchScopeValue := .Section | default "posts" }}
   {{ $searchScopeLabel := cond (eq $searchScopeValue "pages") "reference pages" "blog archive" }}
+  {{ $stateBaseUrl := .RelPermalink }}
+  {{ with $paginator.First }}{{ $stateBaseUrl = .URL }}{{ end }}
 
   {{ partial "breadcrumbs.html" . }}
 
@@ -61,11 +63,12 @@
       <p>{{ $archiveDescription }}</p>
     </div>
 
-    {{ partial "archive/filter-bar.html" (dict "page" . "yearLinks" $yearLinks) }}
+    {{ partial "archive/filter-bar.html" (dict "page" . "yearLinks" $yearLinks "sortEnabled" true) }}
 
     <div class="archive-layout__content">
       {{ partial "search/search-bar.html" (dict
         "page" .
+        "stateBaseUrl" $stateBaseUrl
         "scopeKind" "type"
         "scopeValue" $searchScopeValue
         "scopeLabel" $searchScopeLabel

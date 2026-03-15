@@ -2,7 +2,7 @@
 
 ## Change summary
 
-The archive filter rail now uses a wider desktop column, clearer group containers, and more resilient chip sizing so long labels stay inside their controls. The shared Year filter data also now reflects the full archive surface instead of only the currently paginated page, topic term pages now show the current topic with an active filter state, and the taxonomy root archive header keeps its title and description centered on desktop.
+The archive filter rail now uses a wider desktop column, clearer group containers, and more resilient chip sizing so long labels stay inside their controls. The shared Year filter data also now reflects the full archive surface instead of only the currently paginated page, topic term pages now show the current topic with an active filter state, the taxonomy root archive header keeps its title and description centered on desktop, and article archive surfaces now support live sorting.
 
 ## Why this changed
 
@@ -18,6 +18,7 @@ The Phase 3 archive scaffold shipped with a compact filter rail that worked func
 - List archive Year links were derived from the current paginated page only, so later years disappeared from the filter until the user paged deeper into the archive.
 - Topic term pages rendered the current topic link identically to every other topic, so the rail did not help users orient themselves within the active topic archive.
 - The taxonomy root archive header on `/category/` let its wider title and description read left-heavy on desktop, which weakened the centered hero treatment used on the other archive surfaces.
+- The shared Sort control was scaffold-only. Users could see sort options in the rail, but only `Newest first` existed visually and non-default modes were not implemented.
 
 ### New behavior
 
@@ -28,6 +29,9 @@ The Phase 3 archive scaffold shipped with a compact filter rail that worked func
 - Shared year-link generation for paginated archive lists now inspects every pager and maps each year to the first page where that year cluster appears, so the filter and jump navigation expose the full year set consistently.
 - Topic filter links now mark the current archive topic with an active state via `aria-current="page"` and a stronger visual treatment.
 - The taxonomy root archive header now uses a route-specific centered text measure so the Categories title and supporting copy stay visually centered on desktop.
+- Article archive surfaces now implement live sort modes for `Newest first`, `Oldest first`, and `Title A-Z` through the existing archive runtime and URL state.
+- Non-default sorts switch the current archive into a live results view, so year-jump controls are temporarily hidden until the default browse state is restored.
+- The taxonomy root topic-hub landing page keeps sort disabled because it does not render the article-results surface that the shared runtime requires.
 - Mobile filter disclosure behavior remains unchanged.
 
 ## Impact
@@ -38,6 +42,8 @@ The Phase 3 archive scaffold shipped with a compact filter rail that worked func
 - Shared archive surfaces that reuse the filter partial inherit the same desktop refinement, and the category index now points year links at valid paginated blog archive targets.
 - Topic term pages now communicate the active archive context directly inside the shared filter rail on both desktop and mobile renderings.
 - The `/category/` landing page now keeps its heading block visually centered without changing term-page header behavior.
+- Article archives now support shareable `?sort=` state without changing the canonical archive route structure.
+- Search and sort now share the same archive runtime, so filtered results respect the selected sort order instead of using a placeholder sort control.
 
 ## Verification
 
@@ -54,6 +60,8 @@ npm run build:prod
    - the Year filter shows the full set of archive years on page 1 and later paginated pages;
    - on a topic term page, the current topic is visibly marked as the active filter;
    - on `/category/`, the title and description remain visually centered on desktop;
+   - on article archive surfaces, the sort control supports `Newest first`, `Oldest first`, and `Title A-Z`;
+   - non-default sort states update the URL query and temporarily hide year-jump controls while the live results view is active;
    - mobile filter disclosure still behaves the same below the desktop breakpoint.
 
 3. Smoke-check another archive surface that shares the filter partial, such as `/category/`, to confirm the desktop refinement applies cleanly there and Year links resolve to valid blog archive pages.
@@ -66,5 +74,7 @@ npm run build:prod
 - `src/layouts/_default/list.html`
 - `src/layouts/_default/term.html`
 - `src/layouts/_default/taxonomy.html`
+- `src/layouts/partials/search/search-bar.html`
+- `src/static/scripts/archive-search.js`
 - `src/assets/styles/site.css`
 - `analysis/documentation/phase-3/rhi-104-discovery-surfaces-shared-ui-components-2026-03-09.md`
