@@ -37,7 +37,7 @@ When developing a chunk-oriented job step, you need to implement several functio
 
 1. **`read-function`:** Retrieves one item or null if no more items are left to process.
 1. **Process function:** Applies business logic to each item, transforming it as necessary.
-1. `**write-function**`: Writes the processed items, typically to a file or database.
+1. **`write-function`:** Writes the processed items, typically to a file or database.
 
 There are optional functions you can implement for further control:
 

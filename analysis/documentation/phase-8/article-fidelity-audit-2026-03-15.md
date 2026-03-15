@@ -225,14 +225,14 @@ Examples:
 
 - Reviewed: `151 / 151` posts
 - Remaining: `0 / 151` posts
-- Pass: `83`
-- Needs review: `68`
+- Pass: `84`
+- Needs review: `67`
 - Fail: `0`
 
 ### Severity summary
 
 - High: `0`
-- Medium: `68`
+- Medium: `67`
 - Low: `0`
 
 ### Key conclusions
@@ -479,11 +479,11 @@ Added a thirteenth append-only audit batch covering the next AI, certification, 
 
 - Reviewed: 131 / 151
 - Remaining: 20 / 151
-- Pass: 70
-- Needs review: 61
+- Pass: 71
+- Needs review: 60
 - Fail: 0
 - High severity: 0
-- Medium severity: 61
+- Medium severity: 60
 - Low severity: 0
 
 ### Senior QA recommendations
@@ -532,11 +532,11 @@ Added a fourteenth append-only audit batch covering the next technical-reference
 
 - Reviewed: 141 / 151
 - Remaining: 10 / 151
-- Pass: 76
-- Needs review: 65
+- Pass: 77
+- Needs review: 64
 - Fail: 0
 - High severity: 0
-- Medium severity: 65
+- Medium severity: 64
 - Low severity: 0
 
 ### Senior QA recommendations
@@ -586,11 +586,11 @@ Added a fifteenth and final append-only audit batch covering the remaining refle
 
 - Reviewed: 151 / 151
 - Remaining: 0 / 151
-- Pass: 83
-- Needs review: 68
+- Pass: 84
+- Needs review: 67
 - Fail: 0
 - High severity: 0
-- Medium severity: 68
+- Medium severity: 67
 - Low severity: 0
 
 ### Senior QA recommendations
@@ -991,3 +991,40 @@ These were the only remaining high-severity defects after the previous remediati
 - src/content/posts/salesforce-b2c-commerce-cloud-23-3-release/index.md
 - src/content/posts/a-look-at-the-salesforce-b2c-commerce-cloud-23-6-release/index.md
 - src/content/posts/salesforce-b2c-commerce-cloud-october-updates/index.md
+
+
+## 2026-03-15 Medium Review Addendum: First Bounded Slice
+
+### Change summary
+
+Processed the first bounded medium-review slice at RHI-AUD-003, RHI-AUD-006, RHI-AUD-007, RHI-AUD-008, and RHI-AUD-010. The 24.2 release row moved to pass after current live/local verification showed the previously flagged Partitioned Cookies callouts on both versions. The hooks, chunk-jobs, and PWA-speed rows were narrowed to title-only owner-review scope where stale medium findings were no longer reproducible.
+
+### Why this changed
+
+With the fail/high backlog closed, the next safest continuation step was to re-verify the earliest medium rows in queue order and separate reproducible migration drift from owner-intent editorial differences.
+
+### Behavior details
+
+- Old behavior: RHI-AUD-003 still carried a migration-only update-note finding, RHI-AUD-006 still carried a formatting-drift finding for `write-function`, RHI-AUD-008 still carried an inline-code-review finding, and RHI-AUD-010 remained needs-review because the release-note callouts were treated as Hugo-only insertions.
+- New behavior: RHI-AUD-003 now remains needs-review for H1 drift only because the update note exists live too; RHI-AUD-006 now renders the `write-function` item cleanly and remains needs-review for H1 drift only; RHI-AUD-008 now remains needs-review for H1 drift only because the earlier inline-code concern was not reproduced; RHI-AUD-010 is now pass because the callout text and H1 match live.
+
+### Impact
+
+- Cumulative totals changed to: Pass 84, Needs review 67, Fail 0, High 0, Medium 67, Low 0.
+- Batch 1 now has 8 pass and 5 needs-review rows.
+- The next queued medium row remains RHI-AUD-012.
+
+### Verification
+
+1. Re-fetched live and local `how-to-use-ocapi-scapi-hooks` and confirmed the July 2025 update note appears on both pages; only the H1 remains materially different.
+2. Re-fetched local `mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud`, normalized the malformed `write-function` list item in source, and confirmed the rendered list now reads cleanly.
+3. Re-fetched live and local `lag-to-riches-a-pwa-kit-developers-guide` and confirmed the earlier inline-code concern was not reproduced in the current rendered comparison; only the H1 remains shorter locally.
+4. Re-fetched live and local `a-look-at-the-salesforce-b2c-commerce-cloud-24-2-release` and confirmed the `On By Default` and `Affects Hybrid Deployments` callouts plus the H1 match the live article.
+5. Reconciled the detail tracker and summary counts after moving only RHI-AUD-010 to pass.
+
+### Related files
+
+- migration/reports/phase-8-article-fidelity-audit.csv
+- migration/reports/phase-8-article-fidelity-audit-summary.csv
+- analysis/documentation/phase-8/article-fidelity-audit-2026-03-15.md
+- src/content/posts/mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/index.md
