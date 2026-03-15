@@ -225,13 +225,13 @@ Examples:
 
 - Reviewed: `151 / 151` posts
 - Remaining: `0 / 151` posts
-- Pass: `80`
+- Pass: `83`
 - Needs review: `68`
-- Fail: `3`
+- Fail: `0`
 
 ### Severity summary
 
-- High: `3`
+- High: `0`
 - Medium: `68`
 - Low: `0`
 
@@ -479,10 +479,10 @@ Added a thirteenth append-only audit batch covering the next AI, certification, 
 
 - Reviewed: 131 / 151
 - Remaining: 20 / 151
-- Pass: 67
+- Pass: 70
 - Needs review: 61
-- Fail: 3
-- High severity: 3
+- Fail: 0
+- High severity: 0
 - Medium severity: 61
 - Low severity: 0
 
@@ -532,10 +532,10 @@ Added a fourteenth append-only audit batch covering the next technical-reference
 
 - Reviewed: 141 / 151
 - Remaining: 10 / 151
-- Pass: 73
+- Pass: 76
 - Needs review: 65
-- Fail: 3
-- High severity: 3
+- Fail: 0
+- High severity: 0
 - Medium severity: 65
 - Low severity: 0
 
@@ -586,10 +586,10 @@ Added a fifteenth and final append-only audit batch covering the remaining refle
 
 - Reviewed: 151 / 151
 - Remaining: 0 / 151
-- Pass: 80
+- Pass: 83
 - Needs review: 68
-- Fail: 3
-- High severity: 3
+- Fail: 0
+- High severity: 0
 - Medium severity: 68
 - Low severity: 0
 
@@ -952,3 +952,42 @@ These rows were the next unresolved hard failures after the batch-6 token-repair
 - src/content/posts/the-sfcc-guide-to-finding-pod-numbers/index.md
 - src/content/posts/a-new-commerce-cloud-community-in-town/index.md
 - src/content/posts/understanding-locale-fallback-in-sfcc/index.md
+
+
+## 2026-03-15 Remediation Addendum: Final Fail Queue Closure
+
+### Change summary
+
+Resolved the final three fail/high rows in queue order by restoring the broken plugin identifiers in the 23.3 release note, the SLAS grant-type parameters in the 23.6 release note, and the trusted-agent permission plus reorder-plugin identifiers in the October updates article.
+
+### Why this changed
+
+These were the only remaining high-severity defects after the previous remediation checkpoint. All three were reader-facing identifier-corruption issues with clear live baselines and no owner-policy ambiguity.
+
+### Behavior details
+
+- Old behavior: `RHI-AUD-101`, `RHI-AUD-103`, and `RHI-AUD-108` remained `fail` and `high` because release-note identifiers such as plugin names, SLAS grant types, trusted-agent permission names, and reorder-plugin tokens rendered in broken spaced forms that were unsafe to copy.
+- New behavior: all three rows are now `pass` and `none` because the local source and rendered pages now match the live identifier forms exactly.
+
+### Impact
+
+- Cumulative totals changed to: Pass 83, Needs review 68, Fail 0, High 0, Medium 68, Low 0.
+- The phase-8 fail/high backlog is now fully closed.
+- Any future continuation work starts in the medium-severity review backlog only.
+
+### Verification
+
+1. Re-fetched the live and local `salesforce-b2c-commerce-cloud-23-3-release` page and confirmed the README note now renders `plugin_slas` and `plugin_passwordless` without the broken spaced forms.
+2. Re-fetched the live and local `a-look-at-the-salesforce-b2c-commerce-cloud-23-6-release` page and confirmed the SLAS excerpt now renders `grant_type=authorization_code` and `grant_type=authorization_code_pkce` without the broken spaced variants.
+3. Re-fetched the live and local `salesforce-b2c-commerce-cloud-october-updates` page and confirmed the trusted-agent and cartridge section now renders `Login_On_Behalf`, `Create_Order_On_Behalf`, `plugin_reorder_demo`, and `plugin_commercepayments` without the broken spaced variants.
+4. Reconciled the article tracker and summary rollups after marking the three rows resolved.
+5. Stopped after `RHI-AUD-108`; no medium-severity rows were changed in this closeout pass.
+
+### Related files
+
+- migration/reports/phase-8-article-fidelity-audit.csv
+- migration/reports/phase-8-article-fidelity-audit-summary.csv
+- analysis/documentation/phase-8/article-fidelity-audit-2026-03-15.md
+- src/content/posts/salesforce-b2c-commerce-cloud-23-3-release/index.md
+- src/content/posts/a-look-at-the-salesforce-b2c-commerce-cloud-23-6-release/index.md
+- src/content/posts/salesforce-b2c-commerce-cloud-october-updates/index.md

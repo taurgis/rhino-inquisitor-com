@@ -54,7 +54,7 @@ I hope more information will pop up in the documentation soon, as this is a welc
 
 > - Updated the getTrustedAgentAccessToken endpoint to make the agent\_id parameter optional.
 > - Updated the SLAS Admin UI with specific error messaging for issues with logging into Account Manager.
-> - Private clients now support grant\_type=authorization\_ code in addition to grant\_type=authorization\_ code\_pkce.
+> - Private clients now support `grant_type=authorization_code` in addition to `grant_type=authorization_code_pkce`.
 > - Removals of customer records in B2C Commerce are now synchronized with SLAS. If a customer record is deleted in B2C Commerce, this change is recognized by SLAS.
 > - Infrastructure and scale improvements to handle higher transaction volume for the upcoming holiday season.
 > - NEW SLAS-Marketing Cloud SMS for Passwordless login is ready! See Passwordless Login with SMS to get started.
