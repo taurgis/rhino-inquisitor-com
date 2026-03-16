@@ -1467,6 +1467,16 @@ summary {
   color: var(--ink-muted);
 }
 
+.article-body .article-body-video {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin: 0.9rem 0;
+  border-radius: var(--radius-md);
+  background: #10213a;
+  box-shadow: var(--shadow-edge);
+}
+
 .page-article__body--video-hub {
   gap: 1.75rem;
 }

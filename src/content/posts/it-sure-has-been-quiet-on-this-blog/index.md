@@ -52,7 +52,7 @@ Maybe this is a reminder for some people:
 - A starter template, just like SiteGenesis, SFRA, and the PWA-Kit, to speed up getting started
 - ...
 
-[FastForward Business Manager Accelerator demo recording](https://www.rhino-inquisitor.com/wp-content/uploads/2024/08/fastforward-business-manager-accelerator.mov)
+{{< local-video src="fastforward-business-manager-accelerator.mov" title="FastForward Business Manager Accelerator demo recording" >}}
 
 ![FastForward Business Manager Accelerator Storybook interface.](fastforward-storybook-7ad70ee20d.jpg)
 

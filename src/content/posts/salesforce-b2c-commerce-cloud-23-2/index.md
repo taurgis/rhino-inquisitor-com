@@ -84,7 +84,7 @@ Overall, this update brings many benefits and will significantly enhance the use
 
 ### Reports and Dashboards for PWA Kit
 
-[Reports and Dashboards demo recording](https://www.rhino-inquisitor.com/wp-content/uploads/2023/01/RD-overview.mov)
+{{< local-video src="RD-overview.mov" title="Reports and Dashboards demo recording" >}}
 
 Starting now, Commerce Cloud Reports and Dashboards work for the Composable Storefront!
 

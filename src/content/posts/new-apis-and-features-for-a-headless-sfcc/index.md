@@ -30,7 +30,7 @@ Major new releases are happening for the first time during the holiday season. A
 
 ### Storefront Preview
 
-[Storefront Preview demo video](https://www.rhino-inquisitor.com/wp-content/uploads/2023/11/storefront-preview-demo.mp4)
+{{< local-video src="storefront-preview-demo.mp4" title="Storefront Preview demo video" >}}
 
 The "Shop the Future" feature seems to have been on the Wishlist since the release of the PWA Kit. This feature was highly sought-after by merchandisers as it allowed them to set up promotions and content in advance and see how they would appear on the site.
 
@@ -42,7 +42,7 @@ This is a big win for any project already on or going to the Composable Storefro
 
 ### Changes for the future
 
-[Runtime Admin changes demo video](https://www.rhino-inquisitor.com/wp-content/uploads/2023/11/runtime-admin-changes.mov)
+{{< local-video src="runtime-admin-changes.mov" title="Runtime Admin changes demo video" >}}
 
 Headless and Composable architectures bring great flexibility for the future but pose particular challenges in monitoring and analytics. One of the significant challenges is consolidating data from multiple entities.
 

@@ -93,6 +93,9 @@ jobs:
       - name: Validate front matter
         run: npm run validate:frontmatter
 
+      - name: Enforce local video shortcode policy
+        run: npm run check:local-video-shortcodes
+
       - name: Build production validation site
         shell: bash
         run: |

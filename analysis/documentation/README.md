@@ -32,6 +32,7 @@ This directory holds structured analysis documentation for the migration project
 - [Checklists](checklists/)
 - [Governance docs](governance/)
 - [Downloadable file URL convention](governance/downloadable-file-url-convention-2026-03-13.md)
+- [Local video shortcode CI gate](governance/local-video-shortcode-ci-gate-2026-03-16.md)
 - [Phase 1 docs](phase-1/)
 - [Phase 2 docs](phase-2/)
 - [Phase 3 docs](phase-3/)

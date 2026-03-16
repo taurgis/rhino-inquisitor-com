@@ -1,0 +1,42 @@
+{{- $src := .Get "src" -}}
+{{- if not $src -}}
+  {{- errorf "local-video shortcode requires src: %s" .Position -}}
+{{- end -}}
+{{- if or (hasPrefix $src "http://") (hasPrefix $src "https://") (hasPrefix $src "/") (hasPrefix $src "#") (hasPrefix $src "mailto:") (hasPrefix $src "tel:") -}}
+  {{- errorf "local-video shortcode requires a bundle-relative src value: %s" .Position -}}
+{{- end -}}
+{{- if not .Page -}}
+  {{- errorf "local-video shortcode requires a page context: %s" .Position -}}
+{{- end -}}
+
+{{- $resource := .Page.Resources.GetMatch $src -}}
+{{- if not $resource -}}
+  {{- errorf "local-video shortcode could not resolve page resource %q: %s" $src .Position -}}
+{{- end -}}
+{{- if ne $resource.MediaType.MainType "video" -}}
+  {{- errorf "local-video shortcode src must resolve to a video resource, got %q for %q: %s" $resource.MediaType.Type $src .Position -}}
+{{- end -}}
+
+{{- $title := .Get "title" | default (.Page.Title | plainify) -}}
+{{- $caption := .Get "caption" -}}
+{{- $fallback := .Get "fallback" | default $title -}}
+{{- $preload := .Get "preload" | default "metadata" -}}
+{{- $poster := .Get "poster" -}}
+{{- $posterURL := "" -}}
+{{- with $poster -}}
+  {{- with $.Page.Resources.GetMatch . -}}
+    {{- $posterURL = .RelPermalink -}}
+  {{- else -}}
+    {{- $posterURL = . -}}
+  {{- end -}}
+{{- end -}}
+
+<figure class="video-embed video-embed--local">
+  <video class="article-body-video" controls preload="{{ $preload }}" playsinline{{ with $title }} title="{{ . }}"{{ end }}{{ with $posterURL }} poster="{{ . | safeURL }}"{{ end }}>
+    <source src="{{ $resource.RelPermalink | safeURL }}" type="{{ $resource.MediaType.Type }}">
+    <a href="{{ $resource.RelPermalink | safeURL }}">{{ $fallback }}</a>
+  </video>
+  {{- with $caption }}
+    <figcaption>{{ . }}</figcaption>
+  {{- end -}}
+</figure>

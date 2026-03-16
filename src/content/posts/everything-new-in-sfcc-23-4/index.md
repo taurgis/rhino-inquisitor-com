@@ -102,8 +102,9 @@ The [latest updates](https://github.com/SalesforceCommerceCloud/pwa-kit/releases
 
 Here are some recordings by Salesforce made available explaining these new features:
 
-- [Page Designer demo](https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/pwa-kit-page-designer.mp4)
-- [Product Sets demo](https://www.rhino-inquisitor.com/wp-content/uploads/2023/03/product-sets-244-mid-release-demo.mp4)
+{{< local-video src="pwa-kit-page-designer.mp4" title="Page Designer demo" >}}
+
+{{< local-video src="product-sets-244-mid-release-demo.mp4" title="Product Sets demo" >}}
 
 But the most significant change that marks the start of the upgrade required in the future version 3.0 is the update from Node 14 to Node 16.
 
