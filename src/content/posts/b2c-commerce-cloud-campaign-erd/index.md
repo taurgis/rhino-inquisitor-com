@@ -51,7 +51,7 @@ It is also impossible to manage Store Groups from within the business manager. O
 
 After creating a support ticket, two new features appear in the business manager. First, we get a new administrative module!
 
-<https://www.rhino-inquisitor.com/wp-content/uploads/2023/02/campaign-store-groups-sfcc-2023-v2.mov>
+[Campaign Store Groups demo recording](https://www.rhino-inquisitor.com/wp-content/uploads/2023/02/campaign-store-groups-sfcc-2023-v2.mov)
 
 And suddenly, within campaign management, we get new options!
 

@@ -86,9 +86,9 @@ The architectural setups of the OCAPI and SCAPI options are entirely different.
 
 The OCAPI runs on the back end, the exact location as the Business Manager, [SFRA/SG](/sitegenesis-vs-sfra-vs-pwa/) storefront, and your custom code.
 
-~~On the other hand, the SCAPI is a MuleSoft instance managed by Salesforce (no, you can't access this - but I know you want to). ~~_In the current architecture, CloudFlare workers have taken over the role that was previously played by MuleSoft._
+On the other hand, the SCAPI used to run through a MuleSoft instance managed by Salesforce. In the current architecture, CloudFlare workers have taken over that role.
 
-Although the SCAPI has an extra layer in between, it gives Salesforce the flexibility to make their architecture more flexible (and composable) by allowing them to have one point of entry while being able to upgrade, fix, or replace parts without anyone noticing. ~~However, this setup has some downsides, such as more network hops between the systems, resulting in [network](https://medium.com/salesforce-architects/a-day-in-the-life-of-a-composable-storefront-request-f2b39b957a39) delays that need to be considered.~~ _By replacing MuleSoft with CloudFlare, the amount of network delays introduced should be minimal!_
+Although the SCAPI has an extra layer in between, it gives Salesforce the flexibility to make their architecture more flexible (and composable) by allowing them to have one point of entry while being able to upgrade, fix, or replace parts without anyone noticing. By replacing MuleSoft with CloudFlare, the amount of network delay introduced should be minimal.
 
 The OCAPI wins for its simplicity, but the SCAPI wins for its future-proof architecture. Nevertheless, this future-proof architecture can only work if it has been set up correctly, and we don't have any view into that black box.
 

@@ -807,7 +807,7 @@ We mentioned the function to get the Calendar automatically in the Site timezone
 
 To ensure your code incorporates the toolkit, it is necessary to utilise this function. To provide a more precise understanding, I have recorded a video demonstrating this behaviour:
 
-<https://www.rhino-inquisitor.com/wp-content/uploads/2023/08/storefront-tookit-and-calendars.mov>
+[Storefront Toolkit calendar demo recording](https://www.rhino-inquisitor.com/wp-content/uploads/2023/08/storefront-tookit-and-calendars.mov)
 
 ### Is there a third-party way
 

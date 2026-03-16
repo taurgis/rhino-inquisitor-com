@@ -45,7 +45,7 @@ This is achieved using Host Disk Encryption offered by the OS and [Volume Encryp
 
 Another great move to ensure all sensitive data stored on Salesforce servers are protected from "prying eyes." 2022 is undoubtedly a year with a significant focus on improving the platform's (already solid) base.
 
-Note **: Salesforce is actively looking for customers in the AMER region who deal with highly sensitive data (health information). If you are already an active customer,** a realm move will be required.
+**Note:** Salesforce is actively looking for customers in the AMER region who deal with highly sensitive data (health information). If you are already an active customer, a realm move will be required.
 
 ### Control Center
 
@@ -101,7 +101,7 @@ This change gives us more flexibility in providing login options to customers.
 
 **Note:** This API is only available for private clients, and the email login templates only support plain text. For now, styling the e-mail for the password-less login option is out of the question.
 
-**Update:**It turns out that HTML is supported; the API determines if it is plain text or not.**Be sure to validate your HTML on different email clients,** as the service does not do any validation of the template!
+**Update:** It turns out that HTML is supported; the API determines if it is plain text or not. **Be sure to validate your HTML on different email clients,** as the service does not do any validation of the template!
 
 ## Business Manager
 

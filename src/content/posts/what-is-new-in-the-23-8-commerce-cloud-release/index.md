@@ -39,7 +39,7 @@ Let's take a look!
 
 With this new update, we get more flexibility to support use cases! It is crucial, however, to think about performance, as this can potentially **lower your cache-hit ratio**!
 
-<https://www.rhino-inquisitor.com/wp-content/uploads/2023/07/Cookie-Support-Demo.mp4>
+[Cookie support demo recording](https://www.rhino-inquisitor.com/wp-content/uploads/2023/07/Cookie-Support-Demo.mp4)
 
 ## OCAPI & SCAPI
 

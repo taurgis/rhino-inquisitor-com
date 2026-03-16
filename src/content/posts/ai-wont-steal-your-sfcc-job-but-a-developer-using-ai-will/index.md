@@ -129,7 +129,7 @@ This is the art and science of crafting instructions that guide the AI to produc
 
 -   **Providing Context:** Give the AI all the relevant background. Paste in existing code, business requirements, or error messages.
 
--   **Using Delimiters:** Clearly separate your instructions from the data you provide using markers like triple backticks (\`\`\`) or XML tags.
+-   **Using Delimiters:** Clearly separate your instructions from the data you provide using markers like three backticks or XML tags.
 
 
 Armed with these techniques, you can use LLMs for high-level tasks that go far beyond simple code generation :

@@ -52,7 +52,7 @@ So for anyone new to the cartridge, it is no longer plug-and-play. You will need
 
 - **Demandware library:** Besides being "old," it is also dependent on a secondary cartridge called "Demandware library." This cartridge was "abandoned" more than five years ago.
 
-- **Heavy Job:**The cartridge uses a job to generate all configured feeds. Remember that the more data you have, the longer the job will run.**With an extensive catalog, it could run for hours!**
+- **Heavy Job:** The cartridge uses a job to generate all configured feeds. Remember that the more data you have, the longer the job will run. **With an extensive catalog, it could run for hours!**
 
 ## plugin\_slas
 
