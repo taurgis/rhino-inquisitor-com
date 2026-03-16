@@ -27,8 +27,8 @@ The rerun keeps title drift visible instead of auto-closing it, filters out obvi
 ### Current rerun outcome
 
 - Scope reviewed: `151` article routes
-- Pass: `74`
-- Needs review: `77`
+- Pass: `75`
+- Needs review: `76`
 - Fail: `0`
 - Confirmed high-severity regressions: `0`
 - Title/H1 drift rows: `46`
@@ -41,6 +41,8 @@ The rerun keeps title drift visible instead of auto-closing it, filters out obvi
    The missing final `DynamicImage` example was restored, and the local page now renders the same five code blocks as the live article.
 2. `mail-attachments-in-b2c-commerce-cloud`
    The later MIME examples were restored, and the visible raw ISO-8859-1 URL no longer appears in the local article body.
+3. `a-look-at-the-salesforce-b2c-commerce-cloud-24-2-release`
+   The XML import example now restores the `allocation-timestamp` tags, and the local rendered code block matches the live article again.
 
 ### Dominant non-blocking pattern
 
@@ -56,7 +58,7 @@ The largest bucket is still editorial drift rather than body corruption. Many lo
 
 1. Review `migration/reports/phase-8-article-fidelity-rerun-summary-2026-03-16.csv` for roll-up counts.
 2. Review `migration/reports/phase-8-article-fidelity-rerun-2026-03-16.csv` for article-level evidence and recommended action.
-3. Confirm the rerun detail rows for the two remediated articles now show `pass` with post-fix evidence.
+3. Confirm the rerun detail rows for the three remediated articles now show `pass` with post-fix evidence.
 4. Decide whether title-only drift should remain visible as an audit finding or be policy-closed again.
 
 ## Related files

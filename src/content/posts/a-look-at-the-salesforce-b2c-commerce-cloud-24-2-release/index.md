@@ -61,9 +61,10 @@ Previously, we were unable to differentiate at the millisecond level, but that i
 
 ```
 // example import with seconds
-2023-11-22T06:56:01Z
+<allocation-timestamp>2023-11-22T06:56:01Z</allocation-timestamp>
+
 // example import with milliseconds
-2023-11-22T06:56:01.567Z
+<allocation-timestamp>2023-11-22T06:56:01.567Z</allocation-timestamp>
 ```
 
 #### OCAPI
