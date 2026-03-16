@@ -18,7 +18,7 @@ This is the top-level ticket index for the full migration project. Use the phase
 | 3 | Repository Scaffolding and Quality Baseline | RHI-019 – RHI-030, RHI-104 – RHI-105 | Open | [phase-3/INDEX.md](phase-3/INDEX.md) |
 | 4 | Content Migration Pipeline | RHI-031 – RHI-046, RHI-106 | Done | [phase-4/INDEX.md](phase-4/INDEX.md) |
 | 5 | SEO and Discoverability | RHI-047 – RHI-060 | Done | [phase-5/INDEX.md](phase-5/INDEX.md) |
-| 6 | URL Preservation and Redirect Strategy | RHI-061 – RHI-072 | Open | [phase-6/INDEX.md](phase-6/INDEX.md) |
+| 6 | URL Preservation and Redirect Strategy | RHI-061 – RHI-072 | Done | [phase-6/INDEX.md](phase-6/INDEX.md) |
 | 7 | GitHub Pages Preview Deployment and Domain Cutover Readiness | RHI-073 – RHI-082 | Open | [phase-7/INDEX.md](phase-7/INDEX.md) |
 | 8 | Validation and Launch Readiness | RHI-083 – RHI-092 | Open | [phase-8/INDEX.md](phase-8/INDEX.md) |
 | 9 | Production Cutover and Post-Launch Monitoring | RHI-093 – RHI-103 | Open | [phase-9/INDEX.md](phase-9/INDEX.md) |
@@ -100,8 +100,8 @@ This is the top-level ticket index for the full migration project. Use the phase
 | [RHI-069](phase-6/RHI-069-redirect-observability-reporting.md) | Workstream G — Redirect Observability and Reporting | 6 | High | Done | M | 2026-05-14 |
 | [RHI-070](phase-6/RHI-070-ci-release-gates.md) | Workstream H — CI and Release Gates for URL Preservation | 6 | Critical | Open | M | 2026-05-15 |
 | [RHI-071](phase-6/RHI-071-cutover-readiness-rollback-design.md) | Workstream I — Cutover Readiness and Rollback Design | 6 | Critical | Open | M | 2026-05-16 |
-| [RHI-072](phase-6/RHI-072-phase-6-signoff.md) | Phase 6 Sign-off and Handover to Phase 7/8 | 6 | Critical | Open | S | 2026-05-19 |
-| [RHI-073](phase-7/RHI-073-phase-7-bootstrap.md) | Phase 7 Bootstrap: Kickoff and Deployment Environment Setup | 7 | Critical | Open | S | 2026-05-20 |
+| [RHI-072](phase-6/RHI-072-phase-6-signoff.md) | Phase 6 Sign-off and Handover to Phase 7/8 | 6 | Critical | Done | S | 2026-05-19 |
+| [RHI-073](phase-7/RHI-073-phase-7-bootstrap.md) | Phase 7 Bootstrap: Kickoff and Deployment Environment Setup | 7 | Critical | Done | S | 2026-05-20 |
 | [RHI-074](phase-7/RHI-074-deployment-workflow-architecture.md) | Workstream A — Deployment Workflow Architecture | 7 | Critical | Open | M | 2026-05-21 |
 | [RHI-075](phase-7/RHI-075-artifact-integrity-build-limits.md) | Workstream B — Artifact Integrity and Build Limits | 7 | High | Open | M | 2026-05-22 |
 | [RHI-076](phase-7/RHI-076-domain-dns-cutover-strategy.md) | Workstream C — Domain and DNS Cutover Strategy | 7 | Critical | Open | L | 2026-05-23 |

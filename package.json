@@ -98,6 +98,7 @@
   },
   "devDependencies": {
     "@lhci/cli": "0.15.1",
+    "html-validate": "^10.11.2",
     "lighthouse": "13.0.3",
     "markdownlint-cli2": "0.17.2",
     "pa11y-ci": "3.1.0",

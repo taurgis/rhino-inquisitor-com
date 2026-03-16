@@ -13,7 +13,7 @@
 
 | Ticket ID | Title | Workstream | Priority | Status | Estimate | Target Date | Depends On |
 |-----------|-------|------------|----------|--------|----------|-------------|------------|
-| [RHI-073](RHI-073-phase-7-bootstrap.md) | Phase 7 Bootstrap: Kickoff and Deployment Environment Setup | Setup | Critical | Open | S | 2026-05-20 | RHI-072 |
+| [RHI-073](RHI-073-phase-7-bootstrap.md) | Phase 7 Bootstrap: Kickoff and Deployment Environment Setup | Setup | Critical | Done | S | 2026-05-20 | RHI-072 |
 | [RHI-074](RHI-074-deployment-workflow-architecture.md) | Workstream A — Deployment Workflow Architecture | WS-A | Critical | Open | M | 2026-05-21 | RHI-073 |
 | [RHI-075](RHI-075-artifact-integrity-build-limits.md) | Workstream B — Artifact Integrity and Build Limits | WS-B | High | Open | M | 2026-05-22 | RHI-073 |
 | [RHI-076](RHI-076-domain-dns-cutover-strategy.md) | Workstream C — Domain and DNS Cutover Strategy | WS-C | Critical | Open | L | 2026-05-23 | RHI-074 |
