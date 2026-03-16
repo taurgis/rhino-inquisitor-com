@@ -650,7 +650,98 @@ Placeholder for redirect-layer readiness, parity evidence, and rollback-safe URL
 
 ## Phase 7 - Deployment Cutover
 
-Placeholder for release-day workflow, DNS validation, HTTPS checks, and rollback coordination.
+### RHI-074 — Deployment Workflow Architecture
+
+#### Triggering a Deployment
+
+Two methods exist to publish the site to GitHub Pages:
+
+1. **Push to `main`**: pushing any commit to the `main` branch automatically triggers `.github/workflows/deploy-pages.yml`.
+2. **Manual `workflow_dispatch`**: in GitHub Actions, select "Deploy to GitHub Pages", click "Run workflow", and choose `main` as the branch. Use this for known-good commits that must be re-deployed without a new push.
+
+Either method runs the full gate suite before the Pages artifact is uploaded or deployed. The deploy job will not execute unless the build job succeeds.
+
+#### Build and Gate Sequence
+
+The `build` job runs the following steps in order before uploading the Pages artifact:
+
+1. **Configure GitHub Pages** — `actions/configure-pages` records the Pages host and injects `base_url` for the rehearsal build. Non-canonical hosts continue in preview-rehearsal mode; this is not a deploy blocker.
+2. **Production validation build** — `hugo --minify --environment production` compiles the site against `https://www.rhino-inquisitor.com/`. This output is checked by all downstream gates but is never the deployed artifact.
+3. **Gate suite** — the following gates run in sequence and each blocks artifact upload on failure:
+  - `npm run validate:frontmatter`
+  - `npm run check:local-video-shortcodes`
+  - `npm run validate:url-inventory`
+  - `npm run check:pages-constraints`
+  - `npm run check:url-parity`
+  - `npm run check:redirect-targets`
+  - `npm run check:redirect-chains`
+  - `npm run check:canonical-alignment`
+  - `npm run check:retirement-policy`
+  - `npm run check:host-protocol`
+  - `npm run check:redirect-security`
+  - `npm run check:redirects:seo`
+  - `npm run check:metadata`
+  - `npm run check:images`
+  - `npm run check:schema`
+  - `npm run check:sitemap`
+  - `npm run check:crawl-controls`
+  - `npm run check:seo:artifact`
+  - `npm run check:internal-links`
+  - `npm run check:a11y:seo`
+  - `npm run check:perf:gate`
+4. **Preview rehearsal build** — `hugo --gc --minify --environment preview --baseURL "${{ steps.pages.outputs.base_url }}"` produces the path-prefix-correct artifact for the preview host. This is the artifact that gets deployed to Pages.
+5. **Preview noindex check** — verifies the preview HTML emits `noindex, nofollow` and the correct fingerprinted stylesheet path.
+6. **`actions/upload-pages-artifact`** — uploads `./public` as the Pages artifact.
+7. **Deploy job** — `actions/deploy-pages` publishes the artifact to the `github-pages` environment. The deployment URL is recorded in `steps.deployment.outputs.page_url` and visible in the Actions step summary and in the GitHub Deployments panel.
+
+#### Interpreting Quality Gate Failures
+
+Each gate maps to a local command you can run to reproduce and debug the failure:
+
+| Gate Failure | Local Reproduction Command | Fix Area |
+|---|---|---|
+| `validate:frontmatter` | `npm run validate:frontmatter` | Fix front matter fields in the failing content file |
+| `check:local-video-shortcodes` | `npm run check:local-video-shortcodes` | Replace bare `.mp4`/`.mov` links with `{{< local-video >}}` shortcode |
+| `validate:url-inventory` | `npm run validate:url-inventory` | Check `migration/url-inventory.normalized.json` for malformed entries |
+| `check:pages-constraints` | `npm run check:pages-constraints` | Check artifact for symlinks, missing top-level `index.html`, or size violations |
+| `check:url-parity` | `npm run check:url-parity` | Compare `migration/url-manifest.json` against built `public/` routes |
+| `check:redirect-targets` | `npm run check:redirect-targets` | Verify all redirect targets in the alias map resolve to real routes |
+| `check:redirect-chains` | `npm run check:redirect-chains` | Eliminate any chained or looped redirects in the alias map |
+| `check:canonical-alignment` | `npm run check:canonical-alignment` | Check canonical tag host and path match the route URL |
+| `check:retirement-policy` | `npm run check:retirement-policy` | Confirm retired URLs emit the correct 404 or explicit redirect |
+| `check:host-protocol` | `npm run check:host-protocol` | Look for mixed-protocol or wrong-host references in built HTML |
+| `check:redirect-security` | `npm run check:redirect-security` | Check for open-redirect patterns in the alias map |
+| `check:redirects:seo` | `npm run check:redirects:seo` | Review `migration/phase-5-redirect-signal-matrix.csv` for SEO-unsafe signals |
+| `check:metadata` | `npm run check:metadata` | Fix missing or malformed title/description in the failing route |
+| `check:images` | `npm run check:images` | Add or fix `alt` attributes on images in the failing content |
+| `check:schema` | `npm run check:schema` | Validate JSON-LD structured data for the failing route |
+| `check:sitemap` | `npm run check:sitemap` | Check `public/sitemap.xml` for missing or malformed entries |
+| `check:crawl-controls` | `npm run check:crawl-controls` | Check `public/robots.txt` and `<meta name="robots">` for unintended Disallow or noindex |
+| `check:seo:artifact` | `npm run check:seo:artifact` | Inspect SEO smoke check output for canonical or metadata regressions |
+| `check:internal-links` | `npm run check:internal-links` | Identify 404-returning internal links in the built output |
+| `check:a11y:seo` | `npm run check:a11y:seo` | Review accessibility findings in `migration/reports/phase-5-accessibility-audit.md` |
+| `check:perf:gate` | `npm run check:perf:gate` | Check Lighthouse performance scores against the gate threshold |
+| Preview noindex check | See workflow step source | Preview HTML must contain `noindex, nofollow` and a fingerprinted stylesheet reference |
+
+Production build failures (`hugo --minify --environment production`) typically indicate a template error, a missing content dependency, or a malformed front matter field. Run `hugo --minify --environment production 2>&1 | head -50` locally to surface the error message.
+
+#### Rolling Back a Deployment
+
+1. **First choice — re-run a prior Pages deploy**: in GitHub Actions → "Deploy to GitHub Pages" → pick the last successful workflow run → re-run the deploy job only. This re-deploys the previously uploaded artifact without rebuilding, making it the fastest path.
+2. **Fallback — `workflow_dispatch` on a known-good commit**: if the prior artifact has expired (default retention is 7 days), use `workflow_dispatch` on the last known-good commit SHA. This rebuilds from source and redeploys.
+3. **Never re-run only the build job**: the rollback action must run the Pages deploy path. Re-running the build job alone does not update what is live on Pages.
+
+#### Environment Protection
+
+The `github-pages` environment in repository Settings → Environments restricts deployments to the `main` branch only. The deploy job's `environment:` declaration binds the deploy step to these protection rules; they are enforced by GitHub, not by the workflow YAML itself.
+
+#### Preview Rehearsal vs. Production Validation
+
+The workflow maintains two separate build outputs:
+- **Production validation build** (`hugo --minify --environment production`): built against `https://www.rhino-inquisitor.com/`, used solely for gate checks. Its output is archived as `tmp/ci-prod-public` but is never deployed.
+- **Preview rehearsal build** (`hugo --gc --minify --environment preview --baseURL "..."`): built against the Pages project URL (`https://taurgis.github.io/rhino-inquisitor-com/` while the custom domain is not yet active). This is the deployed artifact. It emits `noindex, nofollow` by design so the rehearsal host is never indexed.
+
+When `www.rhino-inquisitor.com` is configured in Pages settings as the custom domain, `actions/configure-pages` will return `www.rhino-inquisitor.com` and the host-ready step will record `ready=true`. At that point the preview rehearsal build will use the production base URL and emit production crawl controls. See RHI-076 and RHI-078 for cutover sequencing.
 
 ## Phase 8 - Launch Readiness
 
