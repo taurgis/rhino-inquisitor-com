@@ -666,10 +666,11 @@ Either method runs the full gate suite before the Pages artifact is uploaded or 
 The `build` job runs the following steps in order before uploading the Pages artifact:
 
 1. **Configure GitHub Pages** — `actions/configure-pages` records the Pages host and injects `base_url` for the rehearsal build. Non-canonical hosts continue in preview-rehearsal mode; this is not a deploy blocker.
-2. **Production validation build** — `hugo --minify --environment production` compiles the site against `https://www.rhino-inquisitor.com/`. This output is checked by all downstream gates but is never the deployed artifact.
+2. **Production validation build** — `hugo --cleanDestinationDir --gc --minify --environment production` compiles the site against `https://www.rhino-inquisitor.com/`. This output is checked by all downstream gates but is never the deployed artifact.
 3. **Gate suite** — the following gates run in sequence and each blocks artifact upload on failure:
   - `npm run validate:frontmatter`
   - `npm run check:local-video-shortcodes`
+  - `npm run validate:artifact -- --label production-validation --report tmp/phase-7-artifact-validation-production.json`
   - `npm run validate:url-inventory`
   - `npm run check:pages-constraints`
   - `npm run check:url-parity`
@@ -689,10 +690,11 @@ The `build` job runs the following steps in order before uploading the Pages art
   - `npm run check:internal-links`
   - `npm run check:a11y:seo`
   - `npm run check:perf:gate`
-4. **Preview rehearsal build** — `hugo --gc --minify --environment preview --baseURL "${{ steps.pages.outputs.base_url }}"` produces the path-prefix-correct artifact for the preview host. This is the artifact that gets deployed to Pages.
+4. **Preview rehearsal build** — `hugo --cleanDestinationDir --gc --minify --environment preview --baseURL "${{ steps.pages.outputs.base_url }}"` produces the path-prefix-correct artifact for the preview host. This is the artifact that gets deployed to Pages.
 5. **Preview noindex check** — verifies the preview HTML emits `noindex, nofollow` and the correct fingerprinted stylesheet path.
-6. **`actions/upload-pages-artifact`** — uploads `./public` as the Pages artifact.
-7. **Deploy job** — `actions/deploy-pages` publishes the artifact to the `github-pages` environment. The deployment URL is recorded in `steps.deployment.outputs.page_url` and visible in the Actions step summary and in the GitHub Deployments panel.
+6. **Deploy artifact gate** — `npm run validate:artifact -- --label preview-deploy --report tmp/phase-7-artifact-validation-preview.json` validates the exact final `public/` tree that will be uploaded to Pages.
+7. **`actions/upload-pages-artifact`** — uploads `./public` as the Pages artifact.
+8. **Deploy job** — `actions/deploy-pages` publishes the artifact to the `github-pages` environment. The deployment URL is recorded in `steps.deployment.outputs.page_url` and visible in the Actions step summary and in the GitHub Deployments panel.
 
 #### Interpreting Quality Gate Failures
 
@@ -704,6 +706,7 @@ Each gate maps to a local command you can run to reproduce and debug the failure
 | `check:local-video-shortcodes` | `npm run check:local-video-shortcodes` | Replace bare `.mp4`/`.mov` links with `{{< local-video >}}` shortcode |
 | `validate:url-inventory` | `npm run validate:url-inventory` | Check `migration/url-inventory.normalized.json` for malformed entries |
 | `check:pages-constraints` | `npm run check:pages-constraints` | Check artifact for symlinks, missing top-level `index.html`, or size violations |
+| `validate:artifact` | `npm run validate:artifact` | Review `tmp/phase-7-artifact-validation-*.json` for structural violations, compressed-size warning state (700 MB), or projected-size hard-stop failures (900 MB) |
 | `check:url-parity` | `npm run check:url-parity` | Compare `migration/url-manifest.json` against built `public/` routes |
 | `check:redirect-targets` | `npm run check:redirect-targets` | Verify all redirect targets in the alias map resolve to real routes |
 | `check:redirect-chains` | `npm run check:redirect-chains` | Eliminate any chained or looped redirects in the alias map |
@@ -742,6 +745,32 @@ The workflow maintains two separate build outputs:
 - **Preview rehearsal build** (`hugo --gc --minify --environment preview --baseURL "..."`): built against the Pages project URL (`https://taurgis.github.io/rhino-inquisitor-com/` while the custom domain is not yet active). This is the deployed artifact. It emits `noindex, nofollow` by design so the rehearsal host is never indexed.
 
 When `www.rhino-inquisitor.com` is configured in Pages settings as the custom domain, `actions/configure-pages` will return `www.rhino-inquisitor.com` and the host-ready step will record `ready=true`. At that point the preview rehearsal build will use the production base URL and emit production crawl controls. See RHI-076 and RHI-078 for cutover sequencing.
+
+### RHI-075 — Artifact Integrity and Build Limits
+
+RHI-075 adds a dedicated artifact-integrity gate (`npm run validate:artifact`) that runs twice in `deploy-pages.yml`:
+
+1. After the production validation build (`tmp/phase-7-artifact-validation-production.json`)
+2. After the preview rehearsal build, immediately before `actions/upload-pages-artifact` (`tmp/phase-7-artifact-validation-preview.json`)
+
+Validation coverage:
+
+- `public/index.html` must exist
+- no symbolic links, hard links, or special files are allowed in `public/`
+- no `.map` files are allowed in `public/`
+- no accidental source artifacts such as `node_modules`, `.git`, or backup-file suffixes are allowed in `public/`
+- lowercase output-path policy is enforced; owner-approved uppercase legacy keep-routes from `migration/url-manifest.json` are treated as explicit exceptions
+- compressed artifact size is measured and logged
+- warning threshold: compressed artifact size at or above `700 MB`
+- hard-stop threshold: projected published site size above `900 MB`
+
+Interpretation guide:
+
+- `status=pass`: no structural violations and projected size below hard stop
+- `status=warn`: no structural violations, but compressed artifact is at or above the 700 MB guardrail
+- `status=fail`: one or more structural violations, or projected published size exceeds 900 MB
+
+The validator reports are uploaded as a dedicated CI artifact (`phase-7-artifact-validator-<sha>`) and are also included in the broader `phase-3-build-artifacts-<sha>` bundle.
 
 ## Phase 8 - Launch Readiness
 

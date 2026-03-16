@@ -15,7 +15,7 @@
 |-----------|-------|------------|----------|--------|----------|-------------|------------|
 | [RHI-073](RHI-073-phase-7-bootstrap.md) | Phase 7 Bootstrap: Kickoff and Deployment Environment Setup | Setup | Critical | Done | S | 2026-05-20 | RHI-072 |
 | [RHI-074](RHI-074-deployment-workflow-architecture.md) | Workstream A — Deployment Workflow Architecture | WS-A | Critical | Done | M | 2026-05-21 | RHI-073 |
-| [RHI-075](RHI-075-artifact-integrity-build-limits.md) | Workstream B — Artifact Integrity and Build Limits | WS-B | High | Open | M | 2026-05-22 | RHI-073 |
+| [RHI-075](RHI-075-artifact-integrity-build-limits.md) | Workstream B — Artifact Integrity and Build Limits | WS-B | High | In Progress | M | 2026-05-22 | RHI-073 |
 | [RHI-076](RHI-076-domain-dns-cutover-strategy.md) | Workstream C — Domain and DNS Cutover Strategy | WS-C | Critical | Open | L | 2026-05-23 | RHI-074 |
 | [RHI-077](RHI-077-https-issuance-security-controls.md) | Workstream D — HTTPS Issuance and Security Controls | WS-D | High | Open | M | 2026-05-26 | RHI-076 |
 | [RHI-078](RHI-078-seo-safe-deployment-host-consolidation.md) | Workstream E — SEO-Safe Deployment and Host Consolidation | WS-E | Critical | Open | M | 2026-05-27 | RHI-074 |

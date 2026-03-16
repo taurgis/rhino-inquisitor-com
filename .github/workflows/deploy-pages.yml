@@ -101,9 +101,12 @@ jobs:
         run: |
           set -euo pipefail
           build_started_at=$(node -e 'console.log(Date.now())')
-          hugo --minify --environment production
+          hugo --cleanDestinationDir --gc --minify --environment production
           build_finished_at=$(node -e 'console.log(Date.now())')
           echo "PAGES_CONSTRAINTS_BUILD_DURATION_MS=$((build_finished_at - build_started_at))" >> "$GITHUB_ENV"
+
+      - name: Validate production artifact integrity and size
+        run: npm run validate:artifact -- --label production-validation --report tmp/phase-7-artifact-validation-production.json
 
       - name: Validate URL inventory
         run: npm run validate:url-inventory
@@ -195,7 +198,7 @@ jobs:
           EOF
 
       - name: Build preview rehearsal site
-        run: hugo --gc --minify --environment preview --baseURL "${{ steps.preview_base.outputs.base_url }}"
+        run: hugo --cleanDestinationDir --gc --minify --environment preview --baseURL "${{ steps.preview_base.outputs.base_url }}"
 
       - name: Run preview crawl-control validation check
         run: node scripts/seo/check-crawl-controls.js --mode preview --base-url "${{ steps.preview_base.outputs.base_url }}" --report tmp/ci-preview-crawl-control-audit.csv
@@ -235,14 +238,30 @@ jobs:
           }
           EOF
 
+      - name: Validate deploy artifact integrity and size
+        run: npm run validate:artifact -- --label preview-deploy --report tmp/phase-7-artifact-validation-preview.json
+
+      - name: Upload artifact validator reports
+        if: ${{ always() && !cancelled() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: phase-7-artifact-validator-${{ github.sha }}
+          path: |
+            tmp/phase-7-artifact-validation-production.json
+            tmp/phase-7-artifact-validation-preview.json
+          if-no-files-found: error
+          retention-days: 7
+
       - name: Upload audit artifacts
-        if: ${{ !cancelled() }}
+        if: ${{ always() && !cancelled() }}
         uses: actions/upload-artifact@v4
         with:
           name: phase-3-build-artifacts-${{ github.sha }}
           path: |
             public
             tmp/ci-prod-public
+            tmp/phase-7-artifact-validation-production.json
+            tmp/phase-7-artifact-validation-preview.json
             tmp/ci-preview-crawl-control-audit.csv
             migration/reports/phase-5-crawl-control-audit.csv
             migration/phase-5-redirect-signal-matrix.csv
