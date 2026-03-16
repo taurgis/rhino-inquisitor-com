@@ -21,7 +21,7 @@ Phase 3 created a scaffold deployment workflow (RHI-029) as a structural baselin
 
 ### Acceptance Criteria
 
-- [ ] `.github/workflows/deploy-pages.yml` exists and satisfies all of the following:
+- [x] `.github/workflows/deploy-pages.yml` exists and satisfies all of the following:
   - [x] Triggers on push to the designated release branch **and** `workflow_dispatch` for manual deploy
   - [x] Top-level `permissions` block declares `contents: read` only; job-level `permissions` extend to `pages: write` and `id-token: write` on the deploy job only
   - [x] No `write-all` or unrestricted permissions at any level
@@ -38,7 +38,7 @@ Phase 3 created a scaffold deployment workflow (RHI-029) as a structural baselin
   - [x] Deploy job uses `actions/deploy-pages` as the final step
   - [x] Deploy job has `permissions: pages: write` and `id-token: write` scoped to that job only
   - [x] Deploy workflow includes a dedicated validation integration point (`validate` job or equivalent) for WS-F to wire full gate coverage without restructuring deploy semantics
-  - [ ] Workflow records successful preview deployment evidence for `https://taurgis.github.io/rhino-inquisitor-com/`
+  - [x] Workflow records successful preview deployment evidence for `https://taurgis.github.io/rhino-inquisitor-com/`
   - [x] Workflow or documented companion job supports a separate production validation build with `https://www.rhino-inquisitor.com/` as the expected host before cutover approval
 - [x] `.github/workflows/build-pr.yml` exists and:
   - [x] Triggers on `pull_request` targeting the release branch
@@ -168,6 +168,7 @@ Phase 3 created a scaffold deployment workflow (RHI-029) as a structural baselin
 | 2026-03-07 | Open | Ticket created |
 | 2026-03-16 | Done | Audit completed: single gap found — missing `url:` on deploy job `environment:` declaration. Fixed. `build-pr.yml` fully compliant, no changes. Phase 7 RUNBOOK section written. Documentation record committed. |
 | 2026-03-16 | Done | Checklist normalized to reflect implementation reality. Remaining open items are limited to CI-run evidence capture (`workflow_dispatch` execution, deploy URL evidence, and negative test proof) pending the next GitHub Actions run. |
+| 2026-03-16 | In Progress | Evidence captured from GitHub Actions runs: successful deploy run [#116](https://github.com/taurgis/rhino-inquisitor-com/actions/runs/23141377811) shows `build` and `deploy` completed successfully on `main` (triggered via push). Failure-path evidence run [#115](https://github.com/taurgis/rhino-inquisitor-com/actions/runs/23141122278) shows `build` failed and `deploy` was skipped, confirming `needs` dependency behavior. `workflow_dispatch`-specific acceptance remains open until a manual run URL is recorded. |
 
 ---
 
