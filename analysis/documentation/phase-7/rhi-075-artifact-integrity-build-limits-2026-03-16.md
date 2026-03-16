@@ -3,7 +3,7 @@
 **Date:** 2026-03-16
 **Phase:** 7
 **Ticket:** RHI-075
-**Status:** Implemented
+**Status:** Done
 **Author:** Engineering Owner
 
 ---
@@ -64,11 +64,16 @@ Local verification completed:
 3. Fixture-based negative test for `.map` leak produced expected `status=fail`.
 4. Fixture-based threshold test with tiny warning threshold produced expected `status=warn`.
 
-Expected CI verification path:
+CI verification completed:
 
-1. `deploy-pages.yml` run must show both validator steps succeeding before `Upload Pages artifact`.
-2. Artifact `phase-7-artifact-validator-<sha>` must include the production and preview validator JSON reports.
-3. Any validator failure must block `actions/upload-pages-artifact` and downstream `deploy` execution.
+1. Successful release-candidate run [#118](https://github.com/taurgis/rhino-inquisitor-com/actions/runs/23145892296) finished with overall `Success` in 6m 9s.
+2. The run graph showed `build` completed successfully in 5m 24s and `deploy` completed successfully in 36s.
+3. Artifacts attached to the run included:
+  - `github-pages` at 524 MB
+  - `phase-7-artifact-validator-f780d1c4a417cdef9ecc505b1cb5777bfced27cc` at 1.43 KB
+  - `phase-3-build-artifacts-f780d1c4a417cdef9ecc505b1cb5777bfced27cc` at 1.03 GB
+4. The run summary showed the Pages deployment URL as `http://staging.rhino-inquisitor.com/`.
+5. Because the workflow would fail before `actions/upload-pages-artifact` on any artifact-validator error, the successful run is positive evidence that both validator passes completed with zero blocking violations.
 
 ---
 

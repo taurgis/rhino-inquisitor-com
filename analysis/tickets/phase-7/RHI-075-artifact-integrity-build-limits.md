@@ -1,6 +1,6 @@
 ## RHI-075 · Workstream B — Artifact Integrity and Build Limits
 
-**Status:** In Progress  
+**Status:** Done  
 **Priority:** High  
 **Estimate:** M  
 **Phase:** 7  
@@ -42,7 +42,7 @@ This workstream establishes and validates the artifact integrity gate that runs 
   - [x] Exits with non-zero code on any structural violation
   - [x] Is referenced in `package.json` as `npm run validate:artifact`
 - [x] `npm run validate:artifact` is wired as a blocking step in `.github/workflows/deploy-pages.yml` before `actions/upload-pages-artifact`
-- [ ] Artifact validator report is attached as a CI artifact on every main branch build and must show zero structural violations on the release candidate
+- [x] Artifact validator report is attached as a CI artifact on every main branch build and must show zero structural violations on the release candidate
 
 ---
 
@@ -73,7 +73,7 @@ This workstream establishes and validates the artifact integrity gate that runs 
   - [x] Step runs the artifact validator
   - [x] Step fails the build on non-zero exit code
   - [x] Step uploads the validator output as a CI artifact (`actions/upload-artifact`)
-- [ ] Test in CI via `workflow_dispatch`; confirm gate runs and output is attached to the run
+- [x] Test in CI on the release-candidate deploy path; confirm gate runs and output is attached to the run
 - [x] Document artifact budget and interpretation guide in `docs/migration/RUNBOOK.md`
 
 ---
@@ -111,16 +111,16 @@ This workstream establishes and validates the artifact integrity gate that runs 
 
 ### Definition of Done
 
-- [ ] All acceptance criteria are satisfied and verified
+- [x] All acceptance criteria are satisfied and verified
 - [x] Tasks are complete or intentionally descoped with rationale
-- [ ] Dependencies and blockers are resolved or documented
-- [ ] Outcomes section is completed with delivered artefacts and deviations
+- [x] Dependencies and blockers are resolved or documented
+- [x] Outcomes section is completed with delivered artefacts and deviations
 
 ---
 
 ### Outcomes
 
-RHI-075 implementation is complete locally. CI run evidence capture remains open and is the last release-evidence blocker before final Done sign-off.
+RHI-075 is fully verified by the successful release-candidate deployment run [#118](https://github.com/taurgis/rhino-inquisitor-com/actions/runs/23145892296). The artifact gate ran before Pages upload, the dedicated validator artifact was attached, and deploy completed successfully.
 
 **Delivered artefacts:**
 
@@ -132,10 +132,18 @@ RHI-075 implementation is complete locally. CI run evidence capture remains open
 - Bundle media renamed to lowercase to remove non-manifest uppercase output drift:
   - `src/content/posts/salesforce-b2c-commerce-cloud-23-2/rd-overview.mov`
   - `src/content/posts/what-is-new-in-the-23-8-commerce-cloud-release/cookie-support-demo.mp4`
+- CI evidence from run [#118](https://github.com/taurgis/rhino-inquisitor-com/actions/runs/23145892296):
+  - overall status: success
+  - total duration: 6m 9s
+  - build duration: 5m 24s
+  - deploy duration: 36s
+  - deployed URL: `http://staging.rhino-inquisitor.com/`
+  - `github-pages` artifact: 524 MB
+  - `phase-7-artifact-validator-f780d1c4a417cdef9ecc505b1cb5777bfced27cc` artifact: 1.43 KB
 
 **Deviations from plan:**
 
-- CI `workflow_dispatch` proof is pending because this implementation has not yet been run in GitHub Actions after commit/push.
+- CI evidence was captured from the push-to-`main` release-candidate run rather than a separate `workflow_dispatch` rerun because the same `deploy-pages.yml` path executed end-to-end and satisfied the acceptance criteria.
 
 ---
 
@@ -145,6 +153,7 @@ RHI-075 implementation is complete locally. CI run evidence capture remains open
 |------|--------|------|
 | 2026-03-07 | Open | Ticket created |
 | 2026-03-16 | In Progress | Implemented `validate:artifact`, wired blocking workflow gate before Pages artifact upload, added validator report uploads, updated RUNBOOK + phase documentation, and completed local validation evidence (size/structure checks and negative-path `.map` failure test). CI `workflow_dispatch` evidence capture remains open. |
+| 2026-03-16 | Done | Release-candidate run [#118](https://github.com/taurgis/rhino-inquisitor-com/actions/runs/23145892296) passed end-to-end in 6m 9s. The build job completed in 5m 24s, deploy completed in 36s, the dedicated `phase-7-artifact-validator-f780d1c4a417cdef9ecc505b1cb5777bfced27cc` artifact was attached, and the `github-pages` artifact was uploaded at 524 MB with zero artifact-gate violations blocking release. |
 
 ---
 
