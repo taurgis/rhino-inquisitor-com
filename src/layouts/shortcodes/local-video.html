@@ -40,3 +40,18 @@
     <figcaption>{{ . }}</figcaption>
   {{- end -}}
 </figure>
+{{- $seo := partial "seo/resolve.html" .Page -}}
+{{- $absContentURL := $resource.RelPermalink | absURL -}}
+{{- $thumbnailURL := $seo.image -}}
+{{- if $posterURL -}}{{- $thumbnailURL = $posterURL | absURL -}}{{- end -}}
+{{- $videoDescription := $seo.description | default (.Page.Summary | plainify) -}}
+{{- $videoSchema := dict
+  "@context" "https://schema.org"
+  "@type" "VideoObject"
+  "name" $title
+  "description" $videoDescription
+  "thumbnailUrl" $thumbnailURL
+  "uploadDate" (.Page.Date.Format "2006-01-02T15:04:05Z07:00")
+  "contentUrl" $absContentURL
+-}}
+<script type="application/ld+json">{{ $videoSchema | jsonify | safeJS }}</script>
