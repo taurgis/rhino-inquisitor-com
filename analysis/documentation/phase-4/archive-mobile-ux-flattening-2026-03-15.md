@@ -4,7 +4,7 @@ Archive mobile UX flattening
 
 ## Change Summary
 
-Updated the shared archive mobile presentation to reduce repeated boxed surfaces, tighten spacing between archive sections, add breathing room above the mobile filter disclosure, and keep result card media stacked above the text on small screens.
+Updated the shared archive mobile presentation to reduce repeated boxed surfaces, tighten spacing between archive sections, add breathing room above the mobile filter disclosure, keep result card media stacked above the text on small screens, and reclaim unused horizontal space in the mobile archive layout.
 
 ## Why This Changed
 
@@ -25,6 +25,7 @@ Archive pages on mobile were carrying the same elevated panel treatment across t
 - The mobile filter disclosure keeps the existing details and summary pattern, but now uses tighter spacing, a clearer plus/minus affordance, and a small top margin so it does not crowd the archive header.
 - Search, jump-to-year, results, and topic hubs now separate with lighter rules instead of repeated elevated panels.
 - Archive result cards keep the lighter mobile surface treatment, but article media remains stacked above the text instead of sitting beside it.
+- Mobile archive cards now clip the media inside the card surface and use narrower outer gutters so the articles make fuller use of the available viewport width.
 - Desktop archive rail behavior and desktop card styling remain unchanged.
 
 ## Impact and Verification

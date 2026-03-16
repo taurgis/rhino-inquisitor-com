@@ -287,7 +287,7 @@ function readPDFFile(filePath) {
 }
 ```
 
-While this solution relies on `[ISO-8859-1](https://en.wikipedia.org/wiki/ISO/IEC_8859-1)`, the modern and recommended standard for all email development is **`UTF-8`**. For any new implementation in Salesforce B2C Commerce Cloud, you should attempt to use `UTF-8`. This encoding provides universal compatibility, correctly handling international characters, symbols (e.g., €, ©), and emojis that are common in today's digital landscape and would otherwise fail or cause issues with a more limited character set.
+While this solution relies on [ISO-8859-1](https://en.wikipedia.org/wiki/ISO/IEC_8859-1), the modern and recommended standard for all email development is **`UTF-8`**. For any new implementation in Salesforce B2C Commerce Cloud, you should attempt to use `UTF-8`. This encoding provides universal compatibility, correctly handling international characters, symbols (e.g., €, ©), and emojis that are common in today's digital landscape and would otherwise fail or cause issues with a more limited character set.
 
 The principle of consistency, however, remains paramount. Whichever encoding you choose—and we strongly recommend it **`UTF-8`**—it must be applied uniformly at every single step of the process. This means specifying `UTF-8` when reading the file's bytes into a string, when declaring the charset in your `<iscontent>` tag, and in every `Content-Type` header within the MIME structure. This discipline is not optional; it is the key to ensuring that the receiving email client can correctly reconstruct the file, preventing data corruption and guaranteeing a valid attachment for the end-user.
 
@@ -310,6 +310,7 @@ Boundary definition error On recent code compatibility modes, we have noticed an
 Removing the "Content-Type: multipart/mixed; boundary=001a113414f6401b8604f1451630" below the tag resolves this.
 
 ```text
+<iscontent type="multipart/mixed; boundary=001a113414f6401b8604f1451630" compact="false" charset="ISO-8859-1">
 --001a113414f6401b8604f1451630
 Content-Type: multipart/mixed; boundary=001a113414f6401b8604f1451630
 ```
@@ -323,9 +324,14 @@ Note: Do not forget the '--' in front of the key as you see them in the examples
 Content-Type: text/plain; charset=ISO-8859-1
 Content-Transfer-Encoding: quoted-printable
 
+<isif condition="${!empty(pdict.EmailMessage)}"><isprint value="${pdict.EmailMessage}" /></isif>
+
 --001a113414f6401b8604f1451630
 Content-Type: text/html; charset=ISO-8859-1
 Content-Transfer-Encoding: quoted-printable
+
+<isif condition="${!empty(pdict.EmailMessage)}"><isprint value="${pdict.EmailMessage}" /></isif>
+<isif condition="${!empty(pdict.EmailTemplate)}"><isinclude template="${pdict.EmailTemplate}" /></isif>
 
 --001a113414f6401b8604f1451630--
 ```
@@ -333,12 +339,17 @@ Content-Transfer-Encoding: quoted-printable
 The same methodology is used for the files. Each attachment gets its own "section" separated by that same key.
 
 ```text
+<isif condition="${ !empty(pdict.Base64FileMap) }">
+<isloop items="${ pdict.Base64FileMap.keySet() }" var="key">
+<isset name="fileContent" value="${ pdict.Base64FileMap.get(key) }" scope="page"/>
 --001a113414f6401b8604f1451630
 Content-Type: application/pdf; name="${key}";
 Content-Description: ${key}
 Content-Disposition: attachment; filename="${key}"; size=${fileContent.length}; creation-date="${(new Date()).toISOString()}"; modification-date="${(new Date()).toISOString()}"
 Content-Transfer-Encoding: base64
 ${fileContent}
+</isloop>
+</isif>
 ```
 
 #### Watch out for spaces and new lines

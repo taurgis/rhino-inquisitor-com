@@ -222,6 +222,14 @@ Where do your product images live? In Commerce Cloud, of course! Which means DIS
 
 PWA Kit even has a dedicated [DynamicImage](https://github.com/SalesforceCommerceCloud/pwa-kit/blob/32763402f434b6b931ddce986372c9f0a386ee89/packages/template-retail-react-app/app/components/dynamic-image/index.jsx#L23) component that makes integrating with DIS a breeze. This component is designed to handle image transformations by mapping an array of widths to the correct `sizes` and `srcset` attributes, simplifying responsive image strategies directly within your React components.
 
+```jsx
+<DynamicImage
+    src={`${heroImage.disBaseLink || heroImage.link}[?sw={width}&q=60]`}
+    widths={{ base: '100vw', lg: heroImageMaxWidth }}
+    imageProps={{ alt: heroImage.alt, loading: loadingStrategy }}
+/>
+```
+
 ## Official Documentation Links
 
 - **Salesforce B2C Commerce Dynamic Imaging Service Overview:** [https://help.salesforce.com/s/articleView?id=cc.b2c\_image\_transformation\_service.htm&language=en\_US&type=5](https://help.salesforce.com/s/articleView?id=cc.b2c_image_transformation_service.htm&language=en_US&type=5)

@@ -2662,7 +2662,7 @@ summary {
 
   .archive-header {
     gap: 0.35rem;
-    padding: 1rem 1rem 0.95rem;
+    padding: 0.95rem 0.75rem 0.9rem;
     text-align: left;
     justify-items: start;
   }
@@ -2674,7 +2674,7 @@ summary {
 
   .archive-layout__content {
     gap: 0.95rem;
-    padding: 0.95rem 1rem 1rem;
+    padding: 0.95rem 0.75rem 0.9rem;
   }
 
   .page-article__header {
@@ -2826,11 +2826,12 @@ summary {
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
     align-items: stretch;
-    gap: 0.8rem;
-    padding: 0.85rem;
+    gap: 0;
+    padding: 0;
     border-radius: 1rem;
     background: #ffffff;
     box-shadow: none;
+    overflow: hidden;
   }
 
   .archive-results .article-card--no-media {
@@ -2838,14 +2839,18 @@ summary {
   }
 
   .archive-results .article-card__media {
-    min-height: 11rem;
+    min-height: 10.5rem;
     aspect-ratio: 16 / 9;
-    border-radius: 0.95rem;
+    border-radius: 0;
   }
 
   .archive-results .article-card__body,
   .topic-hubs .topic-card__body {
     gap: 0.45rem;
+  }
+
+  .archive-results .article-card__body {
+    padding: 0.8rem 0.8rem 0.85rem;
   }
 
   .archive-results .metadata-row {
@@ -2889,7 +2894,7 @@ summary {
 
   .topic-hubs .topic-card {
     gap: 0.75rem;
-    padding: 0.9rem 0.95rem;
+    padding: 0.85rem 0.9rem;
     background: #ffffff;
     box-shadow: none;
   }
