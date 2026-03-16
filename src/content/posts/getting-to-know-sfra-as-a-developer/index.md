@@ -39,9 +39,6 @@ I wrote a separate post before explaining how to get your sandbox [in this guide
 
 ### Learn Commerce Cloud
 
-> [!WARNING]
-> **Removed:** Unfortunately, this website no longer exists.
-
 ![Archived Learn Commerce Cloud landing page.](learn-commerce-cloud-67eab48d9b.jpg)
 
 - [https://help.salesforce.com/s/articleView?language=en\_US&id=cc.b2c\_getting\_started.htm&type=5](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_getting_started.htm&type=5)

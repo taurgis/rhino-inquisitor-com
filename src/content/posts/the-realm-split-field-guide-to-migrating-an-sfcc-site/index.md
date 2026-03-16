@@ -141,7 +141,7 @@ The sequence, based on Salesforce's official guidance, is as follows:
 5.  **Migration Complete:** Once all data is moved, perform a final smoke test on the new Production instance using internal hostnames (bypassing public DNS).
 6.  Update the public DNS records (e.g., the www CNAME) to point the storefront domain to the new realm's Production instance endpoint.
 7.  Once DNS propagation is confirmed, set the new site's status to **Online** in Business Manager. Update the Salesforce Support ticket again with the exact timestamp.
-8.  **Post-Launch Hypercare****:** All hands on deck. Intensively monitor server logs, analytics dashboards, and order flow for any anomalies. The project team should be on standby to address any immediate issues.
+8.  **Post-Launch Hypercare:** All hands on deck. Intensively monitor server logs, analytics dashboards, and order flow for any anomalies. The project team should be on standby to address any immediate issues.
 
 ## The SEO Minefield: Preserving Your Digital Ghost
 
@@ -166,13 +166,13 @@ The difference between a smooth migration and a career-limiting disaster often c
 
 ### Red Alerts (Warnings)
 
--   **Irreversible Analytics Loss****:** This cannot be overstated. Historical analytics data from Reports & Dashboards **does not transfer** to the new realm. The new realm begins with a zeroed-out dashboard. While you can still access the old data by selecting the old realm ID in the Reports & Dashboards interface, the data from the two realms is never combined into a single view
+-   **Irreversible Analytics Loss:** This cannot be overstated. Historical analytics data from Reports & Dashboards **does not transfer** to the new realm. The new realm begins with a zeroed-out dashboard. While you can still access the old data by selecting the old realm ID in the Reports & Dashboards interface, the data from the two realms is never combined into a single view
 
-    **Actionable Advice****:** Before the split, work with the business and analytics teams to identify and export all critical historical reports. This data must be preserved externally, as it will be inaccessible from the new realm's reporting interface.
+    **Actionable Advice:** Before the split, work with the business and analytics teams to identify and export all critical historical reports. This data must be preserved externally, as it will be inaccessible from the new realm's reporting interface.
 -   **The Data Corruption Gauntlet:** Heed the warnings from Salesforce Support. The cutover runbook is not a suggestion; it is a strict protocol. Changing the old site back to "Online" after the migration process has started, or failing to follow the instructions, can result in irreversible data corruption. There is no room for error in the cutover sequence.
--   **PII and the Sequence Number Bomb****:** The warning about Customer Sequence Numbers is critical enough to repeat. Suppose you import customer profiles with customer numbers (e.g., cust\_no = 5000) into a new realm where the sequence number is still at its default (e.g., 1000). In that case, the system will eventually start creating new customers with numbers that conflict with your imported data. This can lead to a catastrophic PII breach where one customer logs in and sees another customer's profile, address, and order history. (e.g. a customer wasn't imported because of "whatever reason", and their number is "taken over".)
+-   **PII and the Sequence Number Bomb:** The warning about Customer Sequence Numbers is critical enough to repeat. Suppose you import customer profiles with customer numbers (e.g., cust\_no = 5000) into a new realm where the sequence number is still at its default (e.g., 1000). In that case, the system will eventually start creating new customers with numbers that conflict with your imported data. This can lead to a catastrophic PII breach where one customer logs in and sees another customer's profile, address, and order history. (e.g. a customer wasn't imported because of "whatever reason", and their number is "taken over".)
 
-    **Actionable Advice****:** Before importing any customer data, go to Administration > Global Preferences > Sequence Numbers in the new realm and manually set the Customer Number to a value safely above the highest customer number in your import file.
+    **Actionable Advice:** Before importing any customer data, go to Administration > Global Preferences > Sequence Numbers in the new realm and manually set the Customer Number to a value safely above the highest customer number in your import file.
 
 ### Common Traps (Pitfalls)
 
