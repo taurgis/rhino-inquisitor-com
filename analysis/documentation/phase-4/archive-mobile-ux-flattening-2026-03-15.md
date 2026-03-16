@@ -4,7 +4,7 @@ Archive mobile UX flattening
 
 ## Change Summary
 
-Updated the shared archive mobile presentation to reduce repeated boxed surfaces, tighten spacing between archive sections, and make result cards feel lighter on small screens.
+Updated the shared archive mobile presentation to reduce repeated boxed surfaces, tighten spacing between archive sections, add breathing room above the mobile filter disclosure, and keep result card media stacked above the text on small screens.
 
 ## Why This Changed
 
@@ -17,13 +17,14 @@ Archive pages on mobile were carrying the same elevated panel treatment across t
 - The mobile archive stack rendered multiple bordered and shadowed containers in sequence.
 - Archive headers stayed centered and roomy on narrow screens, which slowed scanning.
 - Result cards kept a fully stacked card treatment and strong button CTA styling even when already nested inside results and year-group surfaces.
+- A follow-up mobile pass briefly moved result card media beside the text, which made article cards feel too compressed on narrow screens and left the filter disclosure too close to the archive header.
 
 ### New Behavior
 
 - The outer archive shell remains the primary surface while inner mobile sections flatten into lighter content bands.
-- The mobile filter disclosure keeps the existing details and summary pattern, but now uses tighter spacing and a clearer plus/minus affordance.
+- The mobile filter disclosure keeps the existing details and summary pattern, but now uses tighter spacing, a clearer plus/minus affordance, and a small top margin so it does not crowd the archive header.
 - Search, jump-to-year, results, and topic hubs now separate with lighter rules instead of repeated elevated panels.
-- Archive result cards shift to a denser row-like layout with subtler CTA styling on mobile only.
+- Archive result cards keep the lighter mobile surface treatment, but article media remains stacked above the text instead of sitting beside it.
 - Desktop archive rail behavior and desktop card styling remain unchanged.
 
 ## Impact and Verification
