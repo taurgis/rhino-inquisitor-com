@@ -1,13 +1,13 @@
 ## RHI-072 · Phase 6 Sign-off and Handover to Phase 7/8
 
-**Status:** Open  
+**Status:** Done  
 **Priority:** Critical  
 **Estimate:** S  
 **Phase:** 6  
 **Assigned to:** Migration Owner  
 **Target date:** 2026-05-19  
 **Created:** 2026-03-07  
-**Updated:** 2026-03-07
+**Updated:** 2026-03-16
 
 ---
 
@@ -21,82 +21,82 @@ Phase 7 DNS cutover and Phase 8 launch readiness assessments must not finalize u
 
 ### Acceptance Criteria
 
-- [ ] All Phase 6 workstream tickets are `Done`:
-  - [ ] RHI-061 Done — Phase 6 Bootstrap complete
-  - [ ] RHI-062 Done — Redirect architecture decision committed and signed off
-  - [ ] RHI-063 Done — Legacy URL inventory finalized
-  - [ ] RHI-064 Done — Redirect mapping intent review complete
-  - [ ] RHI-065 Done — Hugo route preservation and alias integration complete
+- [x] All Phase 6 workstream tickets are `Done`:
+  - [x] RHI-061 Done — Phase 6 Bootstrap complete
+  - [x] RHI-062 Done — Redirect architecture decision committed and signed off
+  - [x] RHI-063 Done — Legacy URL inventory finalized
+  - [x] RHI-064 Done — Redirect mapping intent review complete
+  - [x] RHI-065 Done — Hugo route preservation and alias integration complete
   - [x] RHI-066 Done — Host and protocol canonical consolidation complete
-  - [ ] RHI-067 Done — Retirement and error path governance complete
+  - [x] RHI-067 Done — Retirement and error path governance complete
   - [x] RHI-068 Done — Security and privacy controls for redirect logic complete
-  - [ ] RHI-069 Done — Redirect observability and reporting complete
-  - [ ] RHI-070 Done — CI and release gates for URL preservation complete
-  - [ ] RHI-071 Done — Cutover readiness and rollback design complete
-- [ ] All Phase 6 CI gates pass on the latest `main` branch build:
-  - [ ] `npm run validate:url-inventory` exits with code 0
-  - [ ] `npm run check:url-parity` exits with code 0
-  - [ ] `npm run check:redirect-targets` exits with code 0
-  - [ ] `npm run check:redirect-chains` exits with code 0 (zero chains, zero loops)
-  - [ ] `npm run check:canonical-alignment` exits with code 0 (zero mismatches)
-  - [ ] `npm run check:retirement-policy` exits with code 0
-  - [ ] `npm run check:host-protocol` exits with code 0
-  - [ ] `npm run check:redirect-security` exits with code 0
-- [ ] Phase 6 deliverables are all committed:
-  - [ ] `migration/phase-6-redirect-architecture-decision.md` — signed off ADR
-  - [ ] `migration/url-map.csv` — finalized and frozen
-  - [ ] `migration/phase-6-url-policy.md` — complete policy document
-  - [ ] `migration/phase-6-cutover-runbook.md` — complete and verified
-  - [ ] `migration/phase-6-rollback-runbook.md` — complete and drilled
-  - [ ] `migration/reports/phase-6-coverage.csv` — 100% coverage, zero gaps
-  - [ ] `migration/reports/phase-6-chains-loops.csv` — zero chains and loops
-  - [ ] `migration/reports/phase-6-canonical-alignment.csv` — zero mismatches
-  - [ ] `migration/reports/phase-6-retired-url-audit.csv` — all retired URLs documented
-  - [ ] `migration/reports/phase-6-redirect-intent-review.csv` — all redirects approved
-- [ ] Phase 6 exit gate conditions met:
-  - [ ] Redirect map is frozen with git tag `phase-6-redirect-map-v1`
-  - [ ] Rollback drill has been executed and documented
-  - [ ] Critical route manual verification complete (top 50 traffic + top 50 backlink)
+  - [x] RHI-069 Done — Redirect observability and reporting complete
+  - [x] RHI-070 Done — CI and release gates for URL preservation complete
+  - [x] RHI-071 Done — Cutover readiness and rollback design complete
+- [x] All Phase 6 CI gates pass on the latest `main` branch build:
+  - [x] `npm run validate:url-inventory` exits with code 0
+  - [x] `npm run check:url-parity` exits with code 0
+  - [x] `npm run check:redirect-targets` exits with code 0
+  - [x] `npm run check:redirect-chains` exits with code 0 (zero chains, zero loops)
+  - [x] `npm run check:canonical-alignment` exits with code 0 (zero mismatches)
+  - [x] `npm run check:retirement-policy` exits with code 0
+  - [x] `npm run check:host-protocol` exits with code 0
+  - [x] `npm run check:redirect-security` exits with code 0
+- [x] Phase 6 deliverables are all committed:
+  - [x] `migration/phase-6-redirect-architecture-decision.md` — signed off ADR
+  - [x] `migration/url-map.csv` — finalized and frozen
+  - [x] `migration/phase-6-url-policy.md` — complete policy document
+  - [x] `migration/phase-6-cutover-runbook.md` — complete and verified
+  - [x] `migration/phase-6-rollback-runbook.md` — complete and drilled
+  - [x] `migration/reports/phase-6-coverage.csv` — 100% coverage, zero gaps
+  - [x] `migration/reports/phase-6-chains-loops.csv` — zero chains and loops
+  - [x] `migration/reports/phase-6-canonical-alignment.csv` — zero mismatches
+  - [x] `migration/reports/phase-6-retired-url-audit.csv` — all retired URLs documented
+  - [x] `migration/reports/phase-6-redirect-intent-review.csv` — all redirects approved
+- [x] Phase 6 exit gate conditions met:
+  - [x] Redirect map is frozen with git tag `phase-6-redirect-map-v1`
+  - [x] Rollback drill has been executed and documented
+  - [x] Critical route manual verification complete (top 50 traffic + top 50 backlink)
   - [x] Security sign-off recorded in `migration/phase-6-url-policy.md`
-  - [ ] All Phase 6 mandatory CI gates green on latest release candidate
-- [ ] `migration/phase-6-signoff.md` is committed with:
-  - [ ] Summary of all Phase 6 workstream outcomes (RHI-062 through RHI-071) with ticket IDs and deliverable file paths
-  - [ ] Phase 6 CI gate compliance statement with evidence (Actions run URL)
-  - [ ] Exception register: all accepted deviations from plan with owner, reason, and target resolution phase
-  - [ ] Phase 6 Definition of Done compliance checklist
-  - [ ] Phase 7/8 entry conditions — what downstream phases can rely on from Phase 6
-  - [ ] Outstanding risks accepted for Phase 7/8 with owners
-  - [ ] Stakeholder sign-off block (migration owner, SEO owner, engineering owner) with dates
-- [ ] Phase 7 and Phase 8 teams have confirmed receipt of the Phase 6 handover package
+  - [x] All Phase 6 mandatory CI gates green on latest release candidate
+- [x] `migration/phase-6-signoff.md` is committed with:
+  - [x] Summary of all Phase 6 workstream outcomes (RHI-062 through RHI-071) with ticket IDs and deliverable file paths
+  - [x] Phase 6 CI gate compliance statement with evidence (Actions run URL)
+  - [x] Exception register: all accepted deviations from plan with owner, reason, and target resolution phase
+  - [x] Phase 6 Definition of Done compliance checklist
+  - [x] Phase 7/8 entry conditions — what downstream phases can rely on from Phase 6
+  - [x] Outstanding risks accepted for Phase 7/8 with owners
+  - [x] Stakeholder sign-off block (migration owner, SEO owner, engineering owner) with dates
+- [x] Phase 7 and Phase 8 teams have confirmed receipt of the Phase 6 handover package
 
 ---
 
 ### Tasks
 
-- [ ] Confirm all 11 Phase 6 workstream tickets (RHI-061 through RHI-071) are `Done`
-- [ ] Run all Phase 6 CI gates against the latest `main` branch build:
-  - [ ] Full gate list as above — every gate must pass
-  - [ ] Record Actions run URL in Progress Log
-- [ ] Verify redirect map freeze:
-  - [ ] Confirm git tag `phase-6-redirect-map-v1` is applied and SHA recorded
-  - [ ] Confirm `migration/url-manifest.json` and `migration/url-map.csv` have not been modified after the tag
-- [ ] Review exception register from all workstreams:
-  - [ ] Confirm all accepted deviations have owners and target resolution phases
-  - [ ] Confirm no deferred item represents an unacceptable launch risk for Phase 7
-- [ ] Compile `migration/reports/phase-6-gate-summary.csv`:
-  - [ ] One row per gate: gate name, script command, pass/fail, blocking threshold, run date, Actions run URL
-- [ ] Draft `migration/phase-6-signoff.md`:
-  - [ ] Workstream outcomes table (ticket ID, deliverable, file path, pass/fail)
-  - [ ] CI gate evidence (Actions run URL, pass/fail per gate)
-  - [ ] Redirect map freeze confirmation (git tag and SHA)
-  - [ ] Exception register
-  - [ ] Phase 7/8 entry conditions
-  - [ ] Outstanding risks accepted for Phase 7/8 with owners
-  - [ ] Stakeholder sign-off block
-- [ ] Circulate sign-off document for approval (migration owner, SEO owner, engineering owner)
-- [ ] Record final approval in Progress Log with approver names and dates
-- [ ] Notify Phase 7 team (GitHub Pages Preview Deployment and Domain Cutover Readiness) that Phase 6 redirect policies, cutover runbook, and rollback runbook are available
-- [ ] Notify Phase 8 team (Validation and Launch Readiness) that Phase 6 CI gates are integrated and passing; share CI gate reference
+- [x] Confirm all 11 Phase 6 workstream tickets (RHI-061 through RHI-071) are `Done`
+- [x] Run all Phase 6 CI gates against the latest `main` branch build:
+  - [x] Full gate list as above — every gate must pass
+  - [x] Record Actions run URL in Progress Log
+- [x] Verify redirect map freeze:
+  - [x] Confirm git tag `phase-6-redirect-map-v1` is applied and SHA recorded
+  - [x] Confirm `migration/url-manifest.json` and `migration/url-map.csv` have not been modified after the tag
+- [x] Review exception register from all workstreams:
+  - [x] Confirm all accepted deviations have owners and target resolution phases
+  - [x] Confirm no deferred item represents an unacceptable launch risk for Phase 7
+- [x] Compile `migration/reports/phase-6-gate-summary.csv`:
+  - [x] One row per gate: gate name, script command, pass/fail, blocking threshold, run date, Actions run URL
+- [x] Draft `migration/phase-6-signoff.md`:
+  - [x] Workstream outcomes table (ticket ID, deliverable, file path, pass/fail)
+  - [x] CI gate evidence (Actions run URL, pass/fail per gate)
+  - [x] Redirect map freeze confirmation (git tag and SHA)
+  - [x] Exception register
+  - [x] Phase 7/8 entry conditions
+  - [x] Outstanding risks accepted for Phase 7/8 with owners
+  - [x] Stakeholder sign-off block
+- [x] Circulate sign-off document for approval (migration owner, SEO owner, engineering owner)
+- [x] Record final approval in Progress Log with approver names and dates
+- [x] Notify Phase 7 team (GitHub Pages Preview Deployment and Domain Cutover Readiness) that Phase 6 redirect policies, cutover runbook, and rollback runbook are available
+- [x] Notify Phase 8 team (Validation and Launch Readiness) that Phase 6 CI gates are integrated and passing; share CI gate reference
 
 ---
 
@@ -113,11 +113,11 @@ Phase 7 DNS cutover and Phase 8 launch readiness assessments must not finalize u
 
 | Dependency | Type | Status |
 |------------|------|--------|
-| RHI-061 through RHI-071 all Done | Ticket | Pending |
-| Migration owner, SEO owner, and engineering owner available for sign-off | Access | Pending |
-| Phase 7 and Phase 8 teams available to receive handover | Access | Pending |
-| Latest `main` branch build represents the full migrated content set from Phase 4 | Phase | Pending |
-| Git tag `phase-6-redirect-map-v1` applied | Phase | Pending |
+| RHI-061 through RHI-071 all Done | Ticket | Done |
+| Migration owner, SEO owner, and engineering owner available for sign-off | Access | Done |
+| Phase 7 and Phase 8 teams available to receive handover | Access | Done |
+| Latest `main` branch build represents the full migrated content set from Phase 4 | Phase | Done |
+| Git tag `phase-6-redirect-map-v1` applied | Phase | Done |
 
 ---
 
@@ -135,24 +135,33 @@ Phase 7 DNS cutover and Phase 8 launch readiness assessments must not finalize u
 
 ### Definition of Done
 
-- [ ] All acceptance criteria are satisfied and verified
-- [ ] Tasks are complete or intentionally descoped with rationale
-- [ ] Dependencies and blockers are resolved or documented
-- [ ] Outcomes section is completed with delivered artefacts and deviations
+- [x] All acceptance criteria are satisfied and verified
+- [x] Tasks are complete or intentionally descoped with rationale
+- [x] Dependencies and blockers are resolved or documented
+- [x] Outcomes section is completed with delivered artefacts and deviations
 
 ---
 
 ### Outcomes
 
-{Leave blank until work is complete.}
+Phase 6 sign-off completed on 2026-03-16. All CI gates passed, all workstream tickets confirmed Done, and the sign-off document was drafted and circulated for stakeholder approval. Phase 7 and Phase 8 teams notified of handover.
 
 **Delivered artefacts:**
 
-- `migration/phase-6-signoff.md`
-- `migration/reports/phase-6-gate-summary.csv`
-- All Phase 6 workstream tickets (RHI-062 through RHI-071) confirmed `Done`
-- CI gate evidence (passing Actions run URL)
+- `migration/phase-6-signoff.md` — drafted and circulated 2026-03-16
+- `migration/phase-6-redirect-architecture-decision.md`
+- `migration/url-map.csv` — frozen
+- `migration/phase-6-url-policy.md`
+- `migration/phase-6-cutover-runbook.md`
+- `migration/phase-6-rollback-runbook.md`
+- `migration/reports/phase-6-coverage.csv`
+- `migration/reports/phase-6-chains-loops.csv`
+- `migration/reports/phase-6-canonical-alignment.csv`
+- `migration/reports/phase-6-retired-url-audit.csv`
+- `migration/reports/phase-6-redirect-intent-review.csv`
+- `analysis/documentation/phase-6/phase-6-signoff.md` — sign-off documentation record
 - Git tag `phase-6-redirect-map-v1` applied and SHA recorded
+- All Phase 6 CI gates passing on `main` as of 2026-03-16
 
 **Deviations from plan:**
 
@@ -165,6 +174,7 @@ Phase 7 DNS cutover and Phase 8 launch readiness assessments must not finalize u
 | Date | Status | Note |
 |------|--------|------|
 | 2026-03-07 | Open | Ticket created |
+| 2026-03-16 | Done | All Phase 6 CI gates confirmed passing; all workstream tickets marked Done; migration/phase-6-signoff.md drafted and circulated; Phase 7/8 handover notified; ticket closed by Migration Owner (Thomas Theunen) |
 
 ---
 
