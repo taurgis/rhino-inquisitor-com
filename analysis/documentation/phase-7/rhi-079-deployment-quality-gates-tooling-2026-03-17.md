@@ -23,6 +23,7 @@ RHI-079 needed an explicit, repeatable evidence trail for the deployment gate ch
 - `npm run gates:local` runs the same blocking gate order locally that the deploy workflow uses in CI.
 - `npm run gates:local` defaults to the current staging preview host and still accepts `PHASE7_PREVIEW_BASE_URL` or `--preview-base-url` for project-host rehearsal or future host changes.
 - The workflow passes `PHASE7_PREVIEW_BASE_URL` and `PHASE7_CI_RUN_URL` into the runner so preview-host checks and the Phase 7 gate summary are tied to the actual run context.
+- The shared gate runner executes each gate in a non-login Bash subprocess so GitHub Actions-provided toolchain paths, including the pinned Hugo binary, are preserved instead of being replaced by login-shell profile defaults.
 - The markdown render-link hook now rebases internal root-relative links and known internal-host absolute links through Hugo's current base path so GitHub Pages project-host preview builds keep links under `/rhino-inquisitor-com/` instead of resolving from the host root.
 - `migration/reports/phase-7-gate-summary.csv` is now the canonical Phase 7 gate summary format with headers `gate_name,command,status,blocking,run_timestamp,ci_run_url,notes`.
 - The authoritative broken-link gate for RHI-079 is `npm run check:internal-links`.

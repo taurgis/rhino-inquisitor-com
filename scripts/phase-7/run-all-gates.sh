@@ -98,7 +98,7 @@ run_gate() {
 
   echo "==> $gate_name"
 
-  if bash -lc "$gate_command"; then
+  if bash -c "$gate_command"; then
     echo "PASS: $gate_name"
     append_summary_row "$gate_name" "$gate_command" "pass" "Blocking gate passed."
     return 0
