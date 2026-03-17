@@ -136,8 +136,9 @@ RHI-056 is complete. The repository now enforces a blocking Phase 5 accessibilit
 | Date | Status | Note |
 |------|--------|------|
 | 2026-03-07 | Open | Ticket created |
-| 2026-03-13 | In Progress | Added the dedicated `pa11y-ci.config.js` profile, implemented `scripts/seo/check-a11y.js`, wired `npm run check:a11y:seo` into PR and deploy validation, and generated the first `migration/reports/phase-5-accessibility-audit.md`. The initial semantic pass surfaced a real heading-level skip on `/category/platform/` caused by the shared archive filter shell rendering `h3` groups before any `h2`. |
-| 2026-03-13 | Done | Fixed the archive filter heading hierarchy at the shared partial level, reran `npm run build:prod && npm run check:a11y:seo` to a clean pass on `/`, `/reflecting-on-2-years-of-blogging/`, `/category/platform/`, and `/privacy-policy/`, and completed manual keyboard checks on the homepage and representative article route. |
+| 2026-03-13 | In Progress | Added the dedicated `pa11y-ci.config.js` profile, implemented `scripts/seo/check-a11y.js`, wired `npm run check:a11y:seo` into PR and deploy validation, and generated the first `migration/reports/phase-5-accessibility-audit.md`. The initial semantic pass surfaced a real heading-level skip on `/category/salesforce-platform/` caused by the shared archive filter shell rendering `h3` groups before any `h2`. |
+| 2026-03-13 | Done | Fixed the archive filter heading hierarchy at the shared partial level, reran `npm run build:prod && npm run check:a11y:seo` to a clean pass on `/`, `/reflecting-on-2-years-of-blogging/`, `/category/salesforce-platform/`, and `/privacy-policy/`, and completed manual keyboard checks on the homepage and representative article route. |
+| 2026-03-17 | Done | Corrected the stale representative category route in `pa11y-ci.config.js` and `.pa11yci.json` from `/category/platform/` to the built taxonomy slug `/category/salesforce-platform/`, then reran the accessibility gate so CI no longer fails on a missing representative file. |
 
 ---
 

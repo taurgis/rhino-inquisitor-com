@@ -1,7 +1,7 @@
 const representativeRoutes = [
   '/',
   '/reflecting-on-2-years-of-blogging/',
-  '/category/platform/',
+  '/category/salesforce-platform/',
   '/privacy-policy/'
 ];
 

@@ -24,7 +24,7 @@ RHI-056 required accessibility to move from an informational Phase 3 baseline to
 
 ### New behavior
 
-- `pa11y-ci.config.js` defines the RHI-056 representative route set: homepage, one article, one category term page, and privacy policy.
+- `pa11y-ci.config.js` defines the RHI-056 representative route set: homepage, one article, one category term page, and privacy policy. The representative taxonomy route now uses the current built slug `/category/salesforce-platform/`.
 - `scripts/seo/check-a11y.js` serves the built `public/` output locally, runs `pa11y-ci` with a JSON reporter, performs semantic template checks for heading hierarchy, landmarks, skip-link presence, and rendered image alt semantics, and writes `migration/reports/phase-5-accessibility-audit.md`.
 - `pa11y-ci.config.js` now injects `defaults.chromeLaunchConfig.args = ['--no-sandbox']` only when the gate runs in Linux CI (`CI=true`), matching Pa11y CI's documented headless Linux workaround while leaving local developer runs unchanged.
 - `npm run check:a11y:seo` now provides the Phase 5 accessibility gate contract used by CI.
@@ -48,7 +48,7 @@ RHI-056 required accessibility to move from an informational Phase 3 baseline to
   - `npm run build:prod`
   - `npm run check:a11y:seo`
 - Audit result:
-  - `migration/reports/phase-5-accessibility-audit.md` generated with zero blocking Level A findings, zero blocking Level AA findings, zero technical failures, and zero semantic template findings on `/`, `/reflecting-on-2-years-of-blogging/`, `/category/platform/`, and `/privacy-policy/`.
+  - `migration/reports/phase-5-accessibility-audit.md` generated with zero blocking Level A findings, zero blocking Level AA findings, zero technical failures, and zero semantic template findings on `/`, `/reflecting-on-2-years-of-blogging/`, `/category/salesforce-platform/`, and `/privacy-policy/`.
 - Manual keyboard verification:
   - Homepage `/`
   - Article `/reflecting-on-2-years-of-blogging/`
