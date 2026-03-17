@@ -3,7 +3,7 @@
 **Date:** 2026-03-17  
 **Phase:** 7  
 **Ticket:** RHI-078  
-**Status:** Local and live staging evidence complete; Actions run URL pending next push
+**Status:** Done
 
 ## Change summary
 
@@ -134,7 +134,8 @@ atom:link href="https://staging.rhino-inquisitor.com/index.xml
 
 ## Actions evidence
 
-- Release-candidate Actions run URL: `Pending next push`
+- Release-candidate Actions run URL: `https://github.com/taurgis/rhino-inquisitor-com/actions/runs/23204306809`
+- Result: `Deploy to GitHub Pages #125` succeeded on commit `ace8cc63e7b89d194f3ea029d34cc40aed1da02c`
 
 ## Related files
 

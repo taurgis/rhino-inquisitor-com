@@ -1,6 +1,6 @@
 ## RHI-078 · Workstream E — SEO-Safe Deployment and Host Consolidation
 
-**Status:** In Progress  
+**Status:** Done  
 **Priority:** Critical  
 **Estimate:** M  
 **Phase:** 7  
@@ -43,7 +43,7 @@ This workstream adds a dedicated Phase 7 host-safety checker and updates the dep
 - [x] `scripts/phase-7/check-seo-safe-deploy.js` is wired into delivery paths:
   - [x] `package.json` exposes `npm run check:seo-safe-deploy`.
   - [x] `.github/workflows/deploy-pages.yml` runs the new gate against the post-preview/post-staging build before artifact upload.
-- [ ] `migration/phase-7-seo-safety-staging-report.md` includes the release-candidate Actions run URL after the next push.
+- [x] `migration/phase-7-seo-safety-staging-report.md` includes the release-candidate Actions run URL after the next push.
 
 ---
 
@@ -64,7 +64,7 @@ This workstream adds a dedicated Phase 7 host-safety checker and updates the dep
   - [x] First alphabetical category slug: `/category/ai/`
   - [x] Archive page: `/archive/`
 - [x] Commit `migration/phase-7-seo-safety-staging-report.md` with local and live staging evidence.
-- [ ] Append the release-candidate Actions run URL to the staging report after the next push.
+- [x] Append the release-candidate Actions run URL to the staging report after the next push.
 
 ---
 
@@ -103,7 +103,7 @@ This workstream adds a dedicated Phase 7 host-safety checker and updates the dep
 
 ### Definition of Done
 
-- [ ] All acceptance criteria are satisfied and verified
+- [x] All acceptance criteria are satisfied and verified
 - [x] Tasks are complete or intentionally descoped with rationale
 - [x] Dependencies and blockers are resolved or documented
 - [x] Outcomes section is completed with delivered artefacts and deviations
@@ -124,7 +124,7 @@ Implemented the dedicated Phase 7 staging host-safety checker, wired it into the
 
 **Deviations from plan:**
 
-- The release-candidate Actions run URL is still pending because this session cannot push or trigger GitHub Actions. Add the run URL after the next push to close the final acceptance item.
+- None.
 
 ---
 
@@ -137,7 +137,8 @@ Implemented the dedicated Phase 7 staging host-safety checker, wired it into the
 | 2026-03-17 | In Progress | Normalized same-site absolute Markdown links in `src/layouts/_default/_markup/render-link.html`, then re-ran a staging-style blocked build at `https://staging.rhino-inquisitor.com/`; `check:seo-safe-deploy` passed with `235` HTML routes and `212` sitemap `<loc>` values checked. |
 | 2026-03-17 | In Progress | Re-ran `npm run check:url-parity` successfully on the staging-targeted artifact (`1223` pass rows, `0` fail rows) and confirmed `npm run build:prod && npm run check:canonical-alignment` still passes on the default production-validation artifact (`212` rows, `0` mismatches). |
 | 2026-03-17 | In Progress | Captured live staging evidence for homepage, the three most-recent posts by front matter date, `/category/ai/`, and `/archive/`: all returned `200`, self-canonicalized on the staging host, emitted matching `og:url`, served `noindex, nofollow`, and emitted no `X-Robots-Tag` header. |
-| 2026-03-17 | In Progress | Captured live host-level staging evidence showing `robots.txt` returns `User-agent: *`, `Disallow: /`, and `Sitemap: https://staging.rhino-inquisitor.com/sitemap.xml`, while sitemap and feed samples also use the staging host exclusively. Remaining blocker is appending the release-candidate Actions run URL after the next push. |
+| 2026-03-17 | In Progress | Captured live host-level staging evidence showing `robots.txt` returns `User-agent: *`, `Disallow: /`, and `Sitemap: https://staging.rhino-inquisitor.com/sitemap.xml`, while sitemap and feed samples also use the staging host exclusively. |
+| 2026-03-17 | Done | Pushed the implementation to `main`, fixed the unrelated stale accessibility representative route that blocked the first deploy run, and verified successful release-candidate evidence on `Deploy to GitHub Pages #125`: `https://github.com/taurgis/rhino-inquisitor-com/actions/runs/23204306809`. |
 
 ---
 

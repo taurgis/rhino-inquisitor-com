@@ -3,7 +3,7 @@
 **Date:** 2026-03-17  
 **Phase:** 7  
 **Ticket:** RHI-078  
-**Status:** In Progress  
+**Status:** Done  
 **Author:** SEO Owner
 
 ---
@@ -48,6 +48,7 @@ RHI-078 needed a staging-first anti-regression gate that checks more than canoni
    - `npm run check:url-parity`
    - `npm run build:prod && npm run check:canonical-alignment`
 3. Confirm live staging metadata on deterministic sample routes plus live `robots.txt`, `sitemap.xml`, and `index.xml` host signals.
+4. Confirm GitHub Actions run `Deploy to GitHub Pages #125` succeeded for commit `ace8cc63e7b89d194f3ea029d34cc40aed1da02c`: `https://github.com/taurgis/rhino-inquisitor-com/actions/runs/23204306809`
 
 ## Related files
 

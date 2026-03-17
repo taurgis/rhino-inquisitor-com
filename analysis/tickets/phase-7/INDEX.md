@@ -124,7 +124,7 @@ All items below must be complete before Phase 8 validation and Phase 9 monitorin
 - [ ] RHI-075 Done — Artifact integrity gate operational; size budget validated
 - [ ] RHI-076 Done — DNS cutover plan complete; preview-rehearsal preconditions defined; custom-domain and domain-verification steps ready for execution
 - [ ] RHI-077 Done — CAA records audited; mixed-content gate operational; HTTPS monitoring checklist committed
-- [ ] RHI-078 Done — Project-host rehearsal safeguards and blocked staging-host SEO safety checks passing; staging SEO safety report committed
+- [x] RHI-078 Done — Project-host rehearsal safeguards and blocked staging-host SEO safety checks passing; staging SEO safety report committed
 - [ ] RHI-079 Done — All quality gates integrated and passing on release candidate; gate reports archived
 - [ ] RHI-080 Done — Production cutover runbook committed; preview prerequisites and dry-run validated; smoke test checklist defined
 - [ ] RHI-081 Done — Rollback runbook committed and dry-run validated; WordPress stack confirmed rollback-ready; incident log template committed
