@@ -90,93 +90,6 @@ jobs:
       - name: Install Node dependencies
         run: npm ci
 
-      - name: Validate front matter
-        run: npm run validate:frontmatter
-
-      - name: Enforce local video shortcode policy
-        run: npm run check:local-video-shortcodes
-
-      - name: Build production validation site
-        shell: bash
-        run: |
-          set -euo pipefail
-          build_started_at=$(node -e 'console.log(Date.now())')
-          hugo --cleanDestinationDir --gc --minify --environment production
-          build_finished_at=$(node -e 'console.log(Date.now())')
-          echo "PAGES_CONSTRAINTS_BUILD_DURATION_MS=$((build_finished_at - build_started_at))" >> "$GITHUB_ENV"
-
-      - name: Validate production artifact integrity and size
-        run: npm run validate:artifact -- --label production-validation --report tmp/phase-7-artifact-validation-production.json
-
-      - name: Validate URL inventory
-        run: npm run validate:url-inventory
-
-      - name: Run Pages artifact constraints check
-        run: npm run check:pages-constraints
-
-      - name: Run URL parity check
-        run: npm run check:url-parity
-
-      - name: Run redirect target existence check
-        run: npm run check:redirect-targets
-
-      - name: Run redirect chain check
-        run: npm run check:redirect-chains
-
-      - name: Run canonical alignment check
-        run: npm run check:canonical-alignment
-
-      - name: Run mixed-content check
-        run: npm run check:mixed-content
-
-      - name: Run retirement policy check
-        run: npm run check:retirement-policy
-
-      - name: Run host and protocol check
-        run: npm run check:host-protocol
-
-      - name: Run redirect security check
-        run: npm run check:redirect-security
-
-      - name: Run redirect signal validation check
-        run: npm run check:redirects:seo
-
-      - name: Run metadata validation check
-        run: npm run check:metadata
-
-      - name: Run image and video SEO validation check
-        run: npm run check:images
-
-      - name: Run schema validation check
-        run: npm run check:schema
-
-      - name: Run sitemap and feed validation check
-        run: npm run check:sitemap
-
-      - name: Run crawl-control validation check
-        run: npm run check:crawl-controls
-
-      - name: Run SEO smoke check
-        run: npm run check:seo:artifact
-
-      - name: Run internal link check
-        run: npm run check:internal-links
-
-      - name: Run accessibility gate
-        run: npm run check:a11y:seo
-
-      - name: Run performance gate
-        run: npm run check:perf:gate
-
-      - name: Archive production validation output
-        if: ${{ !cancelled() }}
-        shell: bash
-        run: |
-          set -euo pipefail
-          rm -rf tmp/ci-prod-public
-          mkdir -p tmp/ci-prod-public
-          cp -R public/. tmp/ci-prod-public/
-
       - name: Normalize preview base URL
         id: preview_base
         env:
@@ -200,52 +113,11 @@ jobs:
           require('node:fs').appendFileSync(output, `base_url=${normalized.toString()}\n`, 'utf8');
           EOF
 
-      - name: Build preview rehearsal site
-        run: hugo --cleanDestinationDir --gc --minify --environment preview --baseURL "${{ steps.preview_base.outputs.base_url }}"
-
-      - name: Run preview crawl-control validation check
-        run: node scripts/seo/check-crawl-controls.js --mode preview --base-url "${{ steps.preview_base.outputs.base_url }}" --report tmp/ci-preview-crawl-control-audit.csv
-
-      - name: Verify preview-host path prefix and noindex
+      - name: Run blocking deployment quality gates
         env:
-          PAGES_BASE_URL: ${{ steps.preview_base.outputs.base_url }}
-        shell: bash
-        run: |
-          set -euo pipefail
-          node <<'EOF'
-          const fs = require('node:fs');
-
-          const html = fs.readFileSync('public/index.html', 'utf8');
-          const baseUrl = process.env.PAGES_BASE_URL;
-
-          if (!baseUrl) {
-            throw new Error('Missing PAGES_BASE_URL from actions/configure-pages.');
-          }
-
-          if (!baseUrl.startsWith('https://')) {
-            throw new Error(`Expected HTTPS preview base URL, received: ${baseUrl}`);
-          }
-
-          const { pathname } = new URL(baseUrl);
-          const basePath = pathname === '/' ? '' : pathname.replace(/\/$/, '');
-          const expectedStylesheetPrefix = `${basePath}/styles/site`;
-          const escapedStylesheetPrefix = expectedStylesheetPrefix.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-          const stylesheetPattern = new RegExp(`href=(?:"|')?${escapedStylesheetPrefix}\\.[a-f0-9]+\\.css(?:"|')?`);
-
-          if (!stylesheetPattern.test(html)) {
-            throw new Error(`Preview HTML is missing a fingerprinted stylesheet path with prefix: ${expectedStylesheetPrefix}`);
-          }
-
-          if (!html.includes('noindex, nofollow')) {
-            throw new Error('Preview HTML is missing the expected noindex, nofollow robots directive.');
-          }
-          EOF
-
-      - name: Run SEO-safe deployment host check
-        run: npm run check:seo-safe-deploy -- --expected-origin "${{ steps.preview_base.outputs.base_url }}" --crawl-mode blocked --report tmp/phase-7-seo-safe-deploy-report.json
-
-      - name: Validate deploy artifact integrity and size
-        run: npm run validate:artifact -- --label preview-deploy --report tmp/phase-7-artifact-validation-preview.json
+          PHASE7_PREVIEW_BASE_URL: ${{ steps.preview_base.outputs.base_url }}
+          PHASE7_CI_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: npm run gates:local
 
       - name: Upload artifact validator reports
         if: ${{ always() && !cancelled() }}
@@ -255,6 +127,7 @@ jobs:
           path: |
             tmp/phase-7-artifact-validation-production.json
             tmp/phase-7-artifact-validation-preview.json
+            migration/reports/phase-7-gate-summary.csv
           if-no-files-found: error
           retention-days: 7
 
@@ -270,6 +143,7 @@ jobs:
             tmp/phase-7-artifact-validation-preview.json
             tmp/phase-7-seo-safe-deploy-report.json
             tmp/ci-preview-crawl-control-audit.csv
+            migration/reports/phase-7-gate-summary.csv
             migration/reports/phase-5-crawl-control-audit.csv
             migration/phase-5-redirect-signal-matrix.csv
             migration/reports/phase-5-redirect-validation.csv

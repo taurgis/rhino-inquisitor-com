@@ -1,6 +1,6 @@
 ## RHI-079 · Workstream F — Deployment Quality Gates and Tooling
 
-**Status:** Open  
+**Status:** In Progress  
 **Priority:** Critical  
 **Estimate:** M  
 **Phase:** 7  
@@ -21,15 +21,15 @@ This workstream is the integration layer for outputs from WS-A through WS-E. Its
 
 ### Acceptance Criteria
 
-- [ ] All of the following gates are integrated as blocking steps in `.github/workflows/deploy-pages.yml` and run in this order before `actions/upload-pages-artifact`:
-  1. `hugo --gc --minify --environment production` — Hugo production build (must exit 0)
-  2. `npm run validate:frontmatter` — front matter schema compliance (from Phase 3)
+- [ ] All of the following gates are integrated as blocking checks in `.github/workflows/deploy-pages.yml` and execute before `actions/upload-pages-artifact`, while the repository may retain additional blocking gates around them:
+  1. `npm run validate:frontmatter` — front matter schema compliance (from Phase 3; source-level pre-build validation)
+  2. `hugo --gc --minify --environment production` — Hugo production build (must exit 0)
   3. `npm run check:url-parity` — URL preservation coverage (from Phase 6)
   4. `npm run check:redirect-chains` — zero redirect chains/loops (from Phase 6)
   5. `npm run check:canonical-alignment` — canonical/sitemap alignment (from Phase 6)
   6. `npm run check:mixed-content` — no HTTP resource references (from WS-D, RHI-077)
   7. `npm run check:seo-safe-deploy` — canonical host, sitemap, robots.txt, noindex check (from WS-E, RHI-078)
-  8. `npm run check:links` — broken internal link check (from Phase 3)
+  8. `npm run check:internal-links` — authoritative broken internal link check for this repository contract
   9. `npm run validate:artifact` — artifact integrity and size check (from WS-B, RHI-075)
 - [ ] Each gate job is wired with `needs:` so the deploy job cannot run unless all gates pass
 - [ ] Release-candidate pass criteria are explicit: all nine blocking gates exit with code 0; any single failure blocks deploy
@@ -39,7 +39,7 @@ This workstream is the integration layer for outputs from WS-A through WS-E. Its
   - [ ] Homepage
   - [ ] One representative post
   - [ ] One category page
-  - [ ] Lighthouse checks run as a non-blocking advisory step (failures are logged, not blocking — Lighthouse scores are not stable enough to block deployment without calibrated thresholds); blocking thresholds must be set in WS-G before they become blocking
+  - [ ] Lighthouse checks remain part of the repository’s existing blocking performance gate for representative routes; failures block deploy in the current Phase 7 repository contract
 - [ ] `scripts/phase-7/run-all-gates.sh` exists as a convenience script for running all gates locally in the same order as CI
 - [ ] `migration/reports/phase-7-gate-summary.csv` format is defined (one row per gate: gate name, command, pass/fail, run timestamp, CI run URL)
 
@@ -57,20 +57,20 @@ This workstream is the integration layer for outputs from WS-A through WS-E. Its
   - [ ] `npm run check:links` — from Phase 3 (RHI-029); confirm it exists and passes
   - [ ] `npm run validate:artifact` — from WS-B (RHI-075); confirm it exists and passes
 - [ ] Update `.github/workflows/deploy-pages.yml` to integrate all gates in the correct order:
-  - [ ] Create a `validate` job that runs after `checkout` and Hugo build
-  - [ ] Add each gate as a sequential step in the validate job with explicit failure messages
-  - [ ] Wire `deploy: needs: [validate]` (or include in `build` job before upload)
-  - [ ] Add `actions/upload-artifact` step to archive all gate report outputs
-- [ ] Install and configure `@lhci/cli`:
-  - [ ] `npm install --save-dev @lhci/cli`
-  - [ ] Create `lighthouserc.js` or `.lighthouserc.json` with URLs for homepage, post, and category page
-  - [ ] Configure Lighthouse to run in CI mode (no browser required; use local URLs from a served `public/` directory or Pages deployment URL)
-  - [ ] Add Lighthouse run as a separate non-blocking advisory job in the workflow
+  - [ ] Keep the blocking validation chain in the `build` job before `actions/upload-pages-artifact`
+  - [ ] Use `scripts/phase-7/run-all-gates.sh` as the shared CI and local gate orchestration entry point
+  - [ ] Wire `deploy: needs: [build]`
+  - [ ] Add `actions/upload-artifact` step to archive all gate report outputs, including `migration/reports/phase-7-gate-summary.csv`
+- [ ] Validate the existing Lighthouse tooling contract:
+  - [ ] Confirm the pinned `@lhci/cli` dependency remains available
+  - [ ] Confirm `lighthouserc.json` covers homepage, representative post, and representative category page
+  - [ ] Keep Lighthouse execution inside the existing blocking performance gate
   - [ ] Upload Lighthouse report as CI artifact
 - [ ] Create `scripts/phase-7/run-all-gates.sh`:
   - [ ] Sequential execution of all gate commands in CI order
   - [ ] Prints PASS/FAIL for each gate
   - [ ] Exits with non-zero code if any gate fails
+  - [ ] Writes `migration/reports/phase-7-gate-summary.csv` with pass, fail, and skipped statuses
   - [ ] Add `"gates:local": "bash scripts/phase-7/run-all-gates.sh"` to `package.json`
 - [ ] Define `migration/reports/phase-7-gate-summary.csv` schema:
   - [ ] Headers: `gate_name`, `command`, `status`, `blocking`, `run_timestamp`, `ci_run_url`, `notes`
@@ -88,7 +88,7 @@ This workstream is the integration layer for outputs from WS-A through WS-E. Its
 ### Out of Scope
 
 - Writing new gate scripts (scripts are produced by their respective workstreams; this ticket only wires them)
-- Setting blocking Lighthouse score thresholds (advisory only in Phase 7; thresholds for Phase 8 are set in Phase 8 scope)
+- Replacing or removing the repository’s existing blocking Lighthouse performance gate
 - Implementing CDN-layer or edge-level health checks
 - Post-deploy live-site smoke tests (WS-G: RHI-080 scope)
 
@@ -105,7 +105,7 @@ This workstream is the integration layer for outputs from WS-A through WS-E. Its
 | RHI-078 Done — WS-E SEO safety check script available (`npm run check:seo-safe-deploy`) | Ticket | Pending |
 | Phase 3 gate scripts available: `validate:frontmatter`, `check:links`, `check:url-parity`, `check:seo` | Phase | Pending |
 | Phase 6 gate scripts available: `check:redirect-chains`, `check:canonical-alignment`, `check:redirect-security` | Phase | Pending |
-| `@lhci/cli` version confirmed and checked for known vulnerabilities | Tool | Pending |
+| `@lhci/cli` version confirmed and checked for known vulnerabilities | Tool | In progress |
 
 ---
 
@@ -116,7 +116,7 @@ This workstream is the integration layer for outputs from WS-A through WS-E. Its
 | One or more gate scripts do not exist or exit with unexpected codes | Medium | High | Audit all gate scripts at the start of this workstream; if any are missing, escalate to the owning workstream before proceeding | Engineering Owner |
 | Gate ordering causes false pass (e.g., URL parity check runs before Hugo build completes, checking stale `public/`) | Medium | High | Ensure Hugo build runs and succeeds before all validation scripts; sequence is enforced by the job step ordering | Engineering Owner |
 | Lighthouse CI configuration requires a running server rather than static file inspection | Medium | Low | Use `lhci autorun` with `--collect.staticDistDir=./public` for static analysis mode, or spin up a temporary `npx serve public/` within the CI step | Engineering Owner |
-| `@lhci/cli` or other new tooling introduces a supply-chain vulnerability | Low | Medium | Run security advisory check on `@lhci/cli` before adding to `package.json`; pin to a specific version | Engineering Owner |
+| `@lhci/cli` or other new tooling introduces a supply-chain vulnerability | Low | Medium | Re-validate the pinned `@lhci/cli` version already present in `package.json` before changing the workflow contract | Engineering Owner |
 | CI artifact retention policy doesn't retain gate reports for long enough | Low | Medium | Set `retention-days: 30` on `actions/upload-artifact` for gate reports to support the Phase 8 launch readiness audit | Engineering Owner |
 
 ---
@@ -154,12 +154,15 @@ This workstream is the integration layer for outputs from WS-A through WS-E. Its
 | Date | Status | Note |
 |------|--------|------|
 | 2026-03-07 | Open | Ticket created |
+| 2026-03-17 | In Progress | Added `scripts/phase-7/run-all-gates.sh`, wired the deploy workflow to use it before `actions/upload-pages-artifact`, defined `migration/reports/phase-7-gate-summary.csv`, and locally verified `npm run gates:local` with the staging preview host. CI `workflow_dispatch` evidence is still pending. |
 
 ---
 
 ### Notes
 
 - Gate ordering matters: the Hugo build must complete before any script checks `public/`. Run the build first, then validate its output. Do not validate front matter or URL parity before the build runs (front matter validation is the one exception — it can run on source files before the build, but URL parity must run after `public/` exists).
-- Lighthouse is non-blocking in Phase 7 because score thresholds need to be calibrated against real production URLs after cutover. Phase 8 will set explicit blocking thresholds and fail CI on regressions.
+- This repository currently keeps representative Lighthouse checks inside a blocking performance gate in Phase 7. Any future move to advisory-only or threshold changes is a separate owner decision and ticket update.
+- The authoritative broken-link gate for this ticket is `npm run check:internal-links`, not `npm run check:links`.
+- The Phase 7 gate summary CSV uses the schema `gate_name,command,status,blocking,run_timestamp,ci_run_url,notes`.
 - The `migration/reports/phase-7-gate-summary.csv` is the machine-readable evidence trail for the Phase 7 sign-off (RHI-082) and the Phase 8 launch readiness check. Every gate must appear in this CSV for each release candidate build.
 - Reference: `analysis/plan/details/phase-7.md` §Workstream F: Deployment Quality Gates and Tooling; `.github/instructions/ci-workflow-standards.instructions.md` §Required Quality Gates
