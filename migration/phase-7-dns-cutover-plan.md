@@ -3,7 +3,7 @@
 **Date:** 2026-03-17  
 **Prepared by:** Engineering Owner  
 **Ticket:** RHI-076  
-**Status:** In Progress (Pages staging configuration and ownership prerequisite confirmed; provider-zone confirmation and final validation pending)
+**Status:** Done (staging validation complete; owner-confirmed provider-zone state and final sign-off recorded)
 
 ## Change Summary
 
@@ -161,9 +161,7 @@ If DNS proxy/flattening is enabled at the provider, direct CNAME output may be e
 
 ## Open Blockers
 
-1. Provider-zone confirmation is required when CNAME output is flattened and direct public resolver CNAME answers are empty.
-2. DNS challenge TXT remains conditional only if GitHub Pages later presents a staging-specific verification demand; current owner confirmation treats existing account-level domain verification as sufficient.
-3. Final staging validation and sign-off remain open.
+None. Provider-zone confirmation and final engineering sign-off were recorded during RHI-076 closeout on 2026-03-17.
 
 ## Related Files
 

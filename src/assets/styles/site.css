@@ -2644,6 +2644,10 @@ summary {
 }
 
 @media (min-width: 64rem) {
+  .site-header__search {
+    min-width: 11.5rem;
+  }
+
   .home-content-grid {
     align-items: stretch;
   }
