@@ -117,7 +117,7 @@ PREVIEW_BASE_URL="$(normalize_url "$PREVIEW_BASE_URL")"
 
 register_gate "Validate front matter" "cd \"$REPO_ROOT\" && npm run validate:frontmatter"
 register_gate "Enforce local video shortcode policy" "cd \"$REPO_ROOT\" && npm run check:local-video-shortcodes"
-register_gate "Build production validation site" "cd \"$REPO_ROOT\" && build_started_at=\$(node -e 'console.log(Date.now())') && hugo --cleanDestinationDir --gc --minify --environment production && build_finished_at=\$(node -e 'console.log(Date.now())') && printf '%s' \"\$((build_finished_at - build_started_at))\" > \"$BUILD_DURATION_PATH\""
+register_gate "Build production validation site" "cd \"$REPO_ROOT\" && build_started_at=\$(node -e 'console.log(Date.now())') && hugo --cleanDestinationDir --gc --minify --environment production && build_finished_at=\$(node -e 'console.log(Date.now())') && mkdir -p \"\$(dirname \"$BUILD_DURATION_PATH\")\" && printf '%s' \"\$((build_finished_at - build_started_at))\" > \"$BUILD_DURATION_PATH\""
 register_gate "Validate production artifact integrity and size" "cd \"$REPO_ROOT\" && npm run validate:artifact -- --label production-validation --report tmp/phase-7-artifact-validation-production.json"
 register_gate "Validate URL inventory" "cd \"$REPO_ROOT\" && npm run validate:url-inventory"
 register_gate "Run Pages artifact constraints check" "cd \"$REPO_ROOT\" && build_duration_ms=\$(cat \"$BUILD_DURATION_PATH\" 2>/dev/null || printf '') && if [[ -n \"\$build_duration_ms\" ]]; then npm run check:pages-constraints -- --build-duration-ms \"\$build_duration_ms\"; else npm run check:pages-constraints; fi"
