@@ -159,6 +159,7 @@ This workstream is the integration layer for outputs from WS-A through WS-E. Its
 | 2026-03-17 | In Progress | Push-triggered deploy run `#128` still failed inside the shared gate step, so the runner was updated to execute gates with `bash -c` instead of `bash -lc` to preserve the GitHub Actions-provided toolchain PATH, including the pinned Hugo binary. Local project-host validation still passes after the shell change; remote confirmation is pending. |
 | 2026-03-17 | In Progress | Push-triggered deploy run `#130` exposed the exact failing gate via the new public annotation: `Build production validation site`. Updated the build gate to create the parent directory for `tmp/phase-7-build-duration-ms.txt` before writing the measured Hugo duration, because a fresh CI checkout does not guarantee a tracked `tmp/` directory exists. |
 | 2026-03-17 | In Progress | Updated the deploy workflow to opt GitHub JavaScript actions into Node 24 and upgraded the repo-controlled helper actions (`checkout`, `setup-node`, `cache`, `upload-artifact`) to their current Node 24-capable majors while preserving the existing Pages action trio and explicit npm cache contract. |
+| 2026-03-17 | In Progress | Applied the same Node 24 helper-action cleanup to `.github/workflows/build-pr.yml`, adding the workflow-level runtime override and upgrading checkout/setup-node/cache/upload-artifact majors while preserving existing PR gate behavior and explicit cache control. |
 
 ---
 
