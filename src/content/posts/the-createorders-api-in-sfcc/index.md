@@ -47,7 +47,7 @@ After you are done, click "Submit" and save the generated Secret that will appea
 
 Before we can start pushing in orders for anonymous or registered users, we need to get a [Trusted System Access Token](https://developer.salesforce.com/docs/commerce/commerce-api/references/shopper-login?meta=getTrustedSystemAccessToken). With this token, we will allow our third-party system to act on behalf of a guest or registered user without knowing their credentials. Short Code & Organization ID You can get this information via "Administration > Site Development > Salesforce Commerce API Settings"
 
-- **URL:** `<https://{shortCode}.api.commercecloud.salesforce.com/shopper/auth/v1/organizations/{organizationId}/oauth2/trusted-system/token>`
+- **URL:** [Trusted-system token endpoint](https://{shortCode}.api.commercecloud.salesforce.com/shopper/auth/v1/organizations/{organizationId}/oauth2/trusted-system/token)
 - **Authorisation:** Basic Authentication
 - **Authorisation Format:** `{SLAS Client}:{SLAS Secret}`
 - **Body:** `application/x-www-form-urlencoded`
@@ -89,7 +89,7 @@ And with our **access\_token** we can continue our journey and push an order int
 
 Almost there! Now we have everything to start creating our order (except the order itself). We need to do a second API call using the bearer token we generated in the previous step, linking us to that specific customer.
 
-- **URL:** `<https://{shortCode}.api.commercecloud.salesforce.com/checkout/orders/v1/organizations/{organizationId}/orders>`
+- **URL:** [createOrders endpoint](https://{shortCode}.api.commercecloud.salesforce.com/checkout/orders/v1/organizations/{organizationId}/orders)
 - **Authorisation:** Bearer token
 - **Body:**
 

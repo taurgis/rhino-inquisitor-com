@@ -101,9 +101,9 @@ Instead, you use the backend's power and bridge the gap.
 
 ### The Standard Headless Playbook
 
-1. **Configure the Hostname Alias:** This is the most critical step. In Business Manager (Merchant Tools > SEO > Aliases), you must create an alias that exactly matches your PWA Kit's live domain (e.g., `<www.your-pwa.com>`). This ensures the backend generates URLs with the correct domain.
+1. **Configure the Hostname Alias:** This is the most critical step. In Business Manager (Merchant Tools > SEO > Aliases), you must create an alias that exactly matches your PWA Kit's live domain, for example `www.your-pwa.com`. This ensures the backend generates URLs with the correct domain.
 1. **Generate in Business Manager:** Use the standard job you've already configured.
-1. **Update robots.txt:** In your PWA Kit project's code, add the Sitemap directive to your robots.txt file, pointing to the full URL of the sitemap index (e.g., Sitemap: `<https://www.your-pwa.com/sitemap_index.xml>`).
+1. **Update robots.txt:** In your PWA Kit project's code, add the Sitemap directive to your robots.txt file, pointing to [your sitemap index URL](https://www.your-pwa.com/sitemap_index.xml).
 1. **Proxy the Request:** Your PWA Kit app needs to handle requests for the sitemap. You can add a rule to your server-side rendering logic (often in app/ssr.js) to proxy requests for /sitemap_index.xml and its children to the SFCC backend where the files actually live. Or use the [eCDN for this job!](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/ecdn-rules-for-phased-headless-rollout.html)
 
 ### The Hybrid Approach for PWA-Only Routes
