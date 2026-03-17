@@ -124,7 +124,7 @@ The runbook must be reviewed and validated against a dry-run deploy before the s
 | RHI-073 Done — Phase 7 Bootstrap complete | Ticket | Pending |
 | RHI-074 Done — WS-A deployment workflow operational | Ticket | Pending |
 | RHI-076 Done — WS-C DNS cutover plan committed (`migration/phase-7-dns-cutover-plan.md`) | Ticket | Pending |
-| RHI-077 Done — WS-D HTTPS checklist committed (`migration/phase-7-https-checklist.md`) | Ticket | Pending |
+| RHI-077 Done — WS-D HTTPS checklist committed (`migration/phase-7-https-staging-checklist.md`) | Ticket | Done |
 | RHI-079 Done — WS-F all quality gates integrated and passing | Ticket | Pending |
 | Migration owner, SEO owner, and engineering owner available for runbook review | Access | Pending |
 | Launch window date agreed and communicated (from bootstrap) | Access | Pending |

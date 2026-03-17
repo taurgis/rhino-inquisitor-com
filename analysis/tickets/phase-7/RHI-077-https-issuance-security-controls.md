@@ -1,13 +1,13 @@
 ## RHI-077 · Workstream D — HTTPS Issuance and Security Controls
 
-**Status:** Open  
+**Status:** Done  
 **Priority:** High  
 **Estimate:** M  
 **Phase:** 7  
 **Assigned to:** Engineering Owner  
 **Target date:** 2026-05-26  
 **Created:** 2026-03-07  
-**Updated:** 2026-03-07
+**Updated:** 2026-03-17
 
 ---
 
@@ -21,64 +21,64 @@ GitHub Pages automatically provisions a Let's Encrypt TLS certificate after a cu
 
 ### Acceptance Criteria
 
-- [ ] GitHub Pages "Enforce HTTPS" is enabled in repository Settings → Pages after staging DNS cutover and certificate provisioning:
-  - [ ] Toggle is enabled (not grayed out — it becomes available only after certificate issuance)
-  - [ ] Visiting `http://staging.rhino-inquisitor.com/` redirects to `https://staging.rhino-inquisitor.com/`
-  - [ ] Verified via `curl -sI http://staging.rhino-inquisitor.com/ | grep -i location`
-- [ ] HTTPS works for staging homepage and representative deep URLs:
-  - [ ] `https://staging.rhino-inquisitor.com/` returns HTTP 200
-  - [ ] At least two representative post URLs return HTTP 200 over HTTPS
-  - [ ] At least one category page URL returns HTTP 200 over HTTPS
-- [ ] No mixed-content errors on the homepage and representative templates:
-  - [ ] No HTTP image, script, or stylesheet references in generated HTML
-  - [ ] Browser console shows no mixed-content warnings on homepage load
-- [ ] CAA DNS record audit is complete:
-  - [ ] Either no CAA records exist (permitting all CAs — acceptable default) or a CAA record explicitly permits `letsencrypt.org`
-  - [ ] If restrictive CAA records exist, `letsencrypt.org` is in the permitted issuers list or Pages cannot provision the certificate
-- [ ] `migration/phase-7-https-staging-checklist.md` is committed documenting:
-  - [ ] CAA record audit result (shared with production ticket)
-  - [ ] Certificate issuance monitoring log for staging (Pages settings check timestamps)
-  - [ ] Enforce HTTPS enablement confirmation with timestamp for staging
-  - [ ] HTTPS verification check results for staging homepage and representative routes
-  - [ ] Mixed-content audit results
-- [ ] Staging HTTPS decision SLO is documented: if Enforce HTTPS is not available within 60 minutes after staging DNS propagation confirmation, trigger an incident hold; staging sign-off is gated on HTTPS readiness
+- [x] GitHub Pages "Enforce HTTPS" is enabled in repository Settings → Pages after staging DNS cutover and certificate provisioning:
+  - [x] Toggle is enabled (not grayed out — it becomes available only after certificate issuance)
+  - [x] Visiting `http://staging.rhino-inquisitor.com/` redirects to `https://staging.rhino-inquisitor.com/`
+  - [x] Verified via `curl -sI http://staging.rhino-inquisitor.com/ | grep -i location`
+- [x] HTTPS works for staging homepage and representative deep URLs:
+  - [x] `https://staging.rhino-inquisitor.com/` returns HTTP 200
+  - [x] At least two representative post URLs return HTTP 200 over HTTPS
+  - [x] At least one category page URL returns HTTP 200 over HTTPS
+- [x] No mixed-content errors on the homepage and representative templates:
+  - [x] No HTTP image, script, or stylesheet references in generated HTML
+  - [x] Browser console shows no mixed-content warnings on homepage load
+- [x] CAA DNS record audit is complete:
+  - [x] Either no CAA records exist (permitting all CAs — acceptable default) or a CAA record explicitly permits `letsencrypt.org`
+  - [x] If restrictive CAA records exist, `letsencrypt.org` is in the permitted issuers list or Pages cannot provision the certificate
+- [x] `migration/phase-7-https-staging-checklist.md` is committed documenting:
+  - [x] CAA record audit result (shared with production ticket)
+  - [x] Certificate issuance monitoring log for staging (Pages settings check timestamps)
+  - [x] Enforce HTTPS enablement confirmation with timestamp for staging
+  - [x] HTTPS verification check results for staging homepage and representative routes
+  - [x] Mixed-content audit results
+- [x] Staging HTTPS decision SLO is documented: if Enforce HTTPS is not available within 60 minutes after staging DNS propagation confirmation, trigger an incident hold; staging sign-off is gated on HTTPS readiness
 
 ---
 
 ### Tasks
 
-- [ ] Audit CAA DNS records:
-  - [ ] Run `dig rhino-inquisitor.com CAA +short`
-  - [ ] If CAA records exist: check whether `letsencrypt.org` is an authorized issuer
-  - [ ] If CAA records restrict issuers and `letsencrypt.org` is missing: add `0 issue "letsencrypt.org"` to CAA records before DNS cutover
-  - [ ] Record audit result in Progress Log
-- [ ] Mixed-content audit — scan generated HTML for HTTP references:
-  - [ ] Run Hugo production build: `hugo --gc --minify --environment production`
-  - [ ] Search `public/` for HTTP (non-HTTPS) resource references:
-    - [ ] `grep -r 'src="http://' public/`
-    - [ ] `grep -r 'href="http://' public/`
-    - [ ] `grep -r "src='http://" public/`
-    - [ ] `grep -r "url(http://" public/`
-  - [ ] Fix any found HTTP references in templates, partials, or front matter
-  - [ ] Confirm zero HTTP resource references after fixes
-  - [ ] Document fix summary in Progress Log
-- [ ] Write `scripts/phase-7/check-mixed-content.js`:
-  - [ ] Use `fast-glob` to find all HTML files in `public/`
-  - [ ] Parse each file for HTTP-protocol resource URLs (src, href attributes and CSS url() references)
-  - [ ] Report file path and matching line for each violation
-  - [ ] Exit non-zero on any HTTP reference found
-  - [ ] Add `"check:mixed-content": "node scripts/phase-7/check-mixed-content.js"` to `package.json`
-- [ ] Wire `npm run check:mixed-content` into `.github/workflows/deploy-pages.yml` as a blocking pre-deploy step
-- [ ] Document HTTPS monitoring procedure in `migration/phase-7-https-staging-checklist.md`:
-  - [ ] Step 1: Check DNS propagation for staging (`dig staging.rhino-inquisitor.com CNAME +short`)
-  - [ ] Step 2: Watch Pages settings for certificate issuance (can take up to 24 hours after DNS change)
-  - [ ] Step 3: When certificate is issued, check Enforce HTTPS toggle is available
-  - [ ] Step 4: Enable Enforce HTTPS and verify HTTP-to-HTTPS redirect for staging
-  - [ ] Step 5: Test HTTPS on staging homepage and representative routes
-  - [ ] Step 6: Confirm no mixed-content errors in browser console
-  - [ ] Step 7: Record staging HTTPS sign-off with timestamp
-- [ ] Document escalation trigger: if Enforce HTTPS is not available within 60 minutes of staging DNS propagation confirmation, trigger incident response and hold staging sign-off until resolved
-- [ ] Commit `migration/phase-7-https-staging-checklist.md`, updated scripts, and `package.json`
+- [x] Audit CAA DNS records:
+  - [x] Run `dig rhino-inquisitor.com CAA +short`
+  - [x] If CAA records exist: check whether `letsencrypt.org` is an authorized issuer
+  - [x] If CAA records restrict issuers and `letsencrypt.org` is missing: add `0 issue "letsencrypt.org"` to CAA records before DNS cutover (not required; record already present)
+  - [x] Record audit result in Progress Log
+- [x] Mixed-content audit — scan generated HTML for HTTP references:
+  - [x] Run Hugo production build: `hugo --cleanDestinationDir --gc --minify --environment production`
+  - [x] Search `public/` for HTTP (non-HTTPS) resource references:
+    - [x] `grep -r 'src="http://' public/`
+    - [x] `grep -r 'href="http://' public/`
+    - [x] `grep -r "src='http://" public/`
+    - [x] `grep -r "url(http://" public/`
+  - [x] Fix any found HTTP references in templates, partials, or front matter
+  - [x] Confirm zero HTTP resource references after fixes
+  - [x] Document fix summary in Progress Log
+- [x] Write `scripts/phase-7/check-mixed-content.js`:
+  - [x] Use `fast-glob` to find all HTML files in `public/`
+  - [x] Parse each file for HTTP-protocol resource URLs (src, href attributes and CSS url() references)
+  - [x] Report file path and matching line for each violation
+  - [x] Exit non-zero on any HTTP reference found
+  - [x] Add `"check:mixed-content": "node scripts/phase-7/check-mixed-content.js"` to `package.json`
+- [x] Wire `npm run check:mixed-content` into `.github/workflows/deploy-pages.yml` as a blocking pre-deploy step
+- [x] Document HTTPS monitoring procedure in `migration/phase-7-https-staging-checklist.md`:
+  - [x] Step 1: Check DNS propagation for staging (`dig staging.rhino-inquisitor.com CNAME +short`)
+  - [x] Step 2: Watch Pages settings for certificate issuance (can take up to 24 hours after DNS change)
+  - [x] Step 3: When certificate is issued, check Enforce HTTPS toggle is available
+  - [x] Step 4: Enable Enforce HTTPS and verify HTTP-to-HTTPS redirect for staging
+  - [x] Step 5: Test HTTPS on staging homepage and representative routes
+  - [x] Step 6: Confirm no mixed-content errors in browser console
+  - [x] Step 7: Record staging HTTPS sign-off with timestamp
+- [x] Document escalation trigger: if Enforce HTTPS is not available within 60 minutes of staging DNS propagation confirmation, trigger incident response and hold staging sign-off until resolved
+- [x] Commit `migration/phase-7-https-staging-checklist.md`, updated scripts, and `package.json`
 
 ---
 
@@ -96,11 +96,11 @@ GitHub Pages automatically provisions a Let's Encrypt TLS certificate after a cu
 
 | Dependency | Type | Status |
 |------------|------|--------|
-| RHI-073 Done — Phase 7 Bootstrap complete | Ticket | Pending |
-| RHI-076 Done — WS-C DNS cutover plan complete; CAA record audit findings available | Ticket | Pending |
-| RHI-074 Done — WS-A deployment workflow working; can perform Pages deploys to verify HTTPS | Ticket | Pending |
-| GitHub Pages settings access (Enforce HTTPS toggle, certificate status) | Access | Pending |
-| Phase 3 SEO partials using HTTPS canonical URLs (RHI-024 outputs) | Phase | Pending |
+| RHI-073 Done — Phase 7 Bootstrap complete | Ticket | Done |
+| RHI-076 Done — WS-C DNS cutover plan complete; CAA record audit findings available | Ticket | Done |
+| RHI-074 Done — WS-A deployment workflow working; can perform Pages deploys to verify HTTPS | Ticket | Done |
+| GitHub Pages settings access (Enforce HTTPS toggle, certificate status) | Access | Resolved via owner confirmation |
+| Phase 3 SEO partials using HTTPS canonical URLs (RHI-024 outputs) | Phase | Done |
 
 ---
 
@@ -118,23 +118,23 @@ GitHub Pages automatically provisions a Let's Encrypt TLS certificate after a cu
 
 ### Definition of Done
 
-- [ ] All acceptance criteria are satisfied and verified
-- [ ] Tasks are complete or intentionally descoped with rationale
-- [ ] Dependencies and blockers are resolved or documented
-- [ ] Outcomes section is completed with delivered artefacts and deviations
+- [x] All acceptance criteria are satisfied and verified
+- [x] Tasks are complete or intentionally descoped with rationale
+- [x] Dependencies and blockers are resolved or documented
+- [x] Outcomes section is completed with delivered artefacts and deviations
 
 ---
 
 ### Outcomes
 
-{Leave blank until work is complete.}
+Completed the dedicated mixed-content gate for Phase 7, wired it into the GitHub Pages deploy workflow, committed the staging HTTPS checklist artifact, captured live staging redirect/CAA/mixed-content evidence, and recorded owner confirmation that GitHub Pages certificate and HTTPS configuration are correct because the staging site is available over HTTPS.
 
 **Delivered artefacts:**
 
 - `scripts/phase-7/check-mixed-content.js` — mixed-content HTTP reference detector
 - `package.json` updated with `check:mixed-content` script
 - `.github/workflows/deploy-pages.yml` updated to wire mixed-content gate
-- `migration/phase-7-https-checklist.md` — HTTPS monitoring and enforcement checklist
+- `migration/phase-7-https-staging-checklist.md` — HTTPS monitoring and enforcement checklist
 
 **Deviations from plan:**
 
@@ -147,6 +147,9 @@ GitHub Pages automatically provisions a Let's Encrypt TLS certificate after a cu
 | Date | Status | Note |
 |------|--------|------|
 | 2026-03-07 | Open | Ticket created |
+| 2026-03-17 | In Progress | Added the dedicated `check:mixed-content` gate script, wired it into `.github/workflows/deploy-pages.yml`, created `migration/phase-7-https-staging-checklist.md`, confirmed staging HTTP-to-HTTPS behavior (`301` to `https://staging.rhino-inquisitor.com/`), confirmed HTTPS `200` responses for homepage, two representative articles, and one category route, captured CAA output showing `letsencrypt.org` authorization, and verified zero browser mixed-content warnings or insecure requests on representative staging pages. Remaining closeout item is direct GitHub Pages settings/API confirmation for certificate state and Enforce HTTPS toggle availability/enabled status. |
+| 2026-03-17 | In Progress | Re-ran the mixed-content gate against the workflow-equivalent clean production build (`hugo --cleanDestinationDir --gc --minify --environment production && npm run check:mixed-content`) after stale local `public/` development output initially surfaced `http://localhost:1313` references. Clean release-candidate output passed with zero mixed-content findings; the remaining blocker is still direct GitHub Pages settings/API confirmation for certificate issuance and Enforce HTTPS control-plane state. |
+| 2026-03-17 | Done | Owner confirmed GitHub Pages certificate and HTTPS are configured correctly, with accepted evidence that `https://staging.rhino-inquisitor.com/` is live over HTTPS. That confirmation closes the final HTTPS-control blocker and completes RHI-077. |
 
 ---
 

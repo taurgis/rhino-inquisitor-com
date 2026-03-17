@@ -126,6 +126,9 @@ jobs:
       - name: Run canonical alignment check
         run: npm run check:canonical-alignment
 
+      - name: Run mixed-content check
+        run: npm run check:mixed-content
+
       - name: Run retirement policy check
         run: npm run check:retirement-policy
 

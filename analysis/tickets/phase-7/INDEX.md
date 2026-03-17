@@ -16,8 +16,8 @@
 | [RHI-073](RHI-073-phase-7-bootstrap.md) | Phase 7 Bootstrap: Kickoff and Deployment Environment Setup | Setup | Critical | Done | S | 2026-05-20 | RHI-072 |
 | [RHI-074](RHI-074-deployment-workflow-architecture.md) | Workstream A — Deployment Workflow Architecture | WS-A | Critical | Done | M | 2026-05-21 | RHI-073 |
 | [RHI-075](RHI-075-artifact-integrity-build-limits.md) | Workstream B — Artifact Integrity and Build Limits | WS-B | High | Done | M | 2026-05-22 | RHI-073 |
-| [RHI-076](RHI-076-domain-dns-cutover-strategy.md) | Workstream C — Domain and DNS Cutover Strategy | WS-C | Critical | In Progress | L | 2026-05-23 | RHI-074 |
-| [RHI-077](RHI-077-https-issuance-security-controls.md) | Workstream D — HTTPS Issuance and Security Controls | WS-D | High | Open | M | 2026-05-26 | RHI-076 |
+| [RHI-076](RHI-076-domain-dns-cutover-strategy.md) | Workstream C — Domain and DNS Cutover Strategy | WS-C | Critical | Done | L | 2026-05-23 | RHI-074 |
+| [RHI-077](RHI-077-https-issuance-security-controls.md) | Workstream D — HTTPS Issuance and Security Controls | WS-D | High | Done | M | 2026-05-26 | RHI-076 |
 | [RHI-078](RHI-078-seo-safe-deployment-host-consolidation.md) | Workstream E — SEO-Safe Deployment and Host Consolidation | WS-E | Critical | Open | M | 2026-05-27 | RHI-074 |
 | [RHI-079](RHI-079-deployment-quality-gates-tooling.md) | Workstream F — Deployment Quality Gates and Tooling | WS-F | Critical | Open | M | 2026-05-28 | RHI-074, RHI-075, RHI-078 |
 | [RHI-080](RHI-080-launch-window-execution-runbook.md) | Workstream G — Production Cutover Execution Runbook | WS-G | Critical | Open | M | 2026-05-29 | RHI-076, RHI-077, RHI-079 |
@@ -82,7 +82,7 @@ RHI-072 (Phase 6 Sign-off)
 | DNS cutover plan and rollback record set | RHI-076 | `migration/phase-7-dns-cutover-plan.md` |
 | DNS zone snapshot | RHI-073 | `migration/phase-7-dns-snapshot.md` |
 | Mixed-content checker script | RHI-077 | `scripts/phase-7/check-mixed-content.js` |
-| HTTPS monitoring checklist | RHI-077 | `migration/phase-7-https-checklist.md` |
+| HTTPS monitoring checklist | RHI-077 | `migration/phase-7-https-staging-checklist.md` |
 | SEO safety checker script | RHI-078 | `scripts/phase-7/check-seo-safe-deploy.js` |
 | SEO safety sign-off report | RHI-078 | `migration/phase-7-seo-safety-report.md` |
 | Local gate runner convenience script | RHI-079 | `scripts/phase-7/run-all-gates.sh` |
