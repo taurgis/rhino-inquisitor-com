@@ -1,8 +1,17 @@
 {{- $destination := .Destination | default "" -}}
 {{- $resolvedHref := $destination -}}
 {{- $linkPage := .PageInner | default .Page -}}
-{{- if and $linkPage (ne $destination "") (not (or (hasPrefix $destination "http://") (hasPrefix $destination "https://") (hasPrefix $destination "/") (hasPrefix $destination "#") (hasPrefix $destination "mailto:") (hasPrefix $destination "tel:"))) -}}
-  {{- with $linkPage.Resources.GetMatch $destination -}}
+{{- $siteBaseURL := urls.Parse site.BaseURL -}}
+{{- if and (ne $destination "") (or (hasPrefix $destination "http://") (hasPrefix $destination "https://")) (not (or (in $destination "{") (in $destination "}"))) -}}
+  {{- $destinationURL := urls.Parse $destination -}}
+  {{- if and $destinationURL (or (eq $destinationURL.Host $siteBaseURL.Host) (eq $destinationURL.Host "rhino-inquisitor.com") (eq $destinationURL.Host "www.rhino-inquisitor.com") (eq $destinationURL.Host "staging.rhino-inquisitor.com")) -}}
+    {{- $resolvedHref = $destinationURL.Path | default "/" -}}
+    {{- with $destinationURL.RawQuery }}{{- $resolvedHref = printf "%s?%s" $resolvedHref . -}}{{- end -}}
+    {{- with $destinationURL.Fragment }}{{- $resolvedHref = printf "%s#%s" $resolvedHref . -}}{{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- if and $linkPage (ne $resolvedHref "") (not (or (hasPrefix $resolvedHref "http://") (hasPrefix $resolvedHref "https://") (hasPrefix $resolvedHref "/") (hasPrefix $resolvedHref "#") (hasPrefix $resolvedHref "mailto:") (hasPrefix $resolvedHref "tel:"))) -}}
+  {{- with $linkPage.Resources.GetMatch $resolvedHref -}}
     {{- $resolvedHref = .RelPermalink -}}
   {{- end -}}
 {{- end -}}

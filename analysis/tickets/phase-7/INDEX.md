@@ -84,7 +84,7 @@ RHI-072 (Phase 6 Sign-off)
 | Mixed-content checker script | RHI-077 | `scripts/phase-7/check-mixed-content.js` |
 | HTTPS monitoring checklist | RHI-077 | `migration/phase-7-https-staging-checklist.md` |
 | SEO safety checker script | RHI-078 | `scripts/phase-7/check-seo-safe-deploy.js` |
-| SEO safety sign-off report | RHI-078 | `migration/phase-7-seo-safety-report.md` |
+| SEO safety sign-off report | RHI-078 | `migration/phase-7-seo-safety-staging-report.md` |
 | Local gate runner convenience script | RHI-079 | `scripts/phase-7/run-all-gates.sh` |
 | Gate summary CSV schema | RHI-079 | `migration/reports/phase-7-gate-summary.csv` |
 | Lighthouse CI configuration | RHI-079 | `lighthouserc.js` |
@@ -108,7 +108,7 @@ All gates run as blocking pre-deploy steps. Failure of any gate prevents artifac
 | Redirect chain detection | `npm run check:redirect-chains` | Yes | Yes (any chain or loop) |
 | Canonical alignment check | `npm run check:canonical-alignment` | Yes | Yes (any mismatch) |
 | Mixed-content check | `npm run check:mixed-content` | Yes | Yes (any HTTP reference) |
-| SEO-safe deploy check | `npm run check:seo-safe-deploy` | Yes | Yes (github.io or noindex leak) |
+| SEO-safe deploy check | `npm run check:seo-safe-deploy` | Yes | Yes (wrong host, protocol, or crawl-state violation) |
 | Broken link check | `npm run check:links` | Yes | Yes |
 | Artifact integrity and size | `npm run validate:artifact` | Yes | Yes (symlinks, structure violations) |
 | Lighthouse (advisory) | `npm run lhci:run` | No (advisory) | No (no thresholds set until Phase 8) |
@@ -124,7 +124,7 @@ All items below must be complete before Phase 8 validation and Phase 9 monitorin
 - [ ] RHI-075 Done — Artifact integrity gate operational; size budget validated
 - [ ] RHI-076 Done — DNS cutover plan complete; preview-rehearsal preconditions defined; custom-domain and domain-verification steps ready for execution
 - [ ] RHI-077 Done — CAA records audited; mixed-content gate operational; HTTPS monitoring checklist committed
-- [ ] RHI-078 Done — Preview-host `noindex` and path-prefix checks plus production-host leakage checks passing; SEO safety report committed
+- [ ] RHI-078 Done — Project-host rehearsal safeguards and blocked staging-host SEO safety checks passing; staging SEO safety report committed
 - [ ] RHI-079 Done — All quality gates integrated and passing on release candidate; gate reports archived
 - [ ] RHI-080 Done — Production cutover runbook committed; preview prerequisites and dry-run validated; smoke test checklist defined
 - [ ] RHI-081 Done — Rollback runbook committed and dry-run validated; WordPress stack confirmed rollback-ready; incident log template committed

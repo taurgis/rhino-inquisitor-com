@@ -1,118 +1,70 @@
 ## RHI-078 · Workstream E — SEO-Safe Deployment and Host Consolidation
 
-**Status:** Open  
+**Status:** In Progress  
 **Priority:** Critical  
 **Estimate:** M  
 **Phase:** 7  
 **Assigned to:** SEO Owner  
 **Target date:** 2026-05-27  
 **Created:** 2026-03-07  
-**Updated:** 2026-03-09
+**Updated:** 2026-03-17
 
 ---
 
 ### Goal
 
-Verify that SEO deployment behavior is safe on the staging domain `staging.rhino-inquisitor.com`. This workstream validates that canonical tags, sitemap, robots, and internal links all point to the correct staging host and use HTTPS exclusively. Production host consolidation (`https://www.rhino-inquisitor.com`) will be validated in a final ticket after staging sign-off.
+Verify that SEO deployment behavior is safe on the staging domain `staging.rhino-inquisitor.com` while keeping staging intentionally blocked from indexing. This workstream validates that canonical tags, Open Graph URLs, JSON-LD URLs, sitemap entries, feed links, and internal absolute links all resolve to the staging host over HTTPS, while the staging crawl-state remains `noindex, nofollow` plus `Disallow: /`.
 
-This workstream produces no new features or configuration — it is a validation and anti-regression gate that must be satisfied on every release candidate before launch. Its outputs are automated checks and a sign-off document confirming the preview host is safe for rehearsal and the production artifact is SEO-safe for cutover.
+This workstream adds a dedicated Phase 7 host-safety checker and updates the deploy workflow so the blocked staging artifact is validated before deployment. Production host consolidation (`https://www.rhino-inquisitor.com`) remains deferred to the final production cutover ticket after staging sign-off.
 
 ---
 
 ### Acceptance Criteria
 
-- [ ] Preview-host rehearsal checks pass:
-  - [ ] Pages served from `https://taurgis.github.io/rhino-inquisitor-com/` emit crawlable `noindex`
-  - [ ] Preview-host canonical, Open Graph, JSON-LD, sitemap, feed, and internal absolute URLs remain self-consistent on the preview host
-  - [ ] The `/rhino-inquisitor-com/` path prefix is preserved in preview-host URLs and assets
-- [ ] All canonical tags in the staging-validated `public/` HTML use the staging host exclusively:
-  - [ ] No canonical tag contains `github.io` as the host
-  - [ ] No canonical tag uses `http://` (all must be `https://`)
-  - [ ] All canonical tags point to `https://staging.rhino-inquisitor.com`
-  - [ ] Verified on: homepage, three most-recent published posts by front matter date, one category page selected from the first alphabetical category slug, and one archive page
-  - [ ] Sampling method and selected URLs are recorded in `migration/phase-7-seo-safety-staging-report.md` for reproducibility
-- [ ] Sitemap output (`public/sitemap.xml` or `public/sitemap_index.xml`, depending on configured generator) uses staging host exclusively:
-  - [ ] All `<loc>` elements start with `https://staging.rhino-inquisitor.com/`
-  - [ ] No `github.io` URLs in sitemap
-  - [ ] No HTTP URLs in sitemap
-  - [ ] No redirected source paths (legacy URLs from Phase 6 redirect map) appear in sitemap
-- [ ] `public/robots.txt` references the canonical sitemap URL:
-  - [ ] `Sitemap:` directive points to the configured canonical sitemap endpoint (`/sitemap.xml` or `/sitemap_index.xml`)
-  - [ ] No staging-blocking `Disallow: /` directive present
-  - [ ] `User-agent: *` with correct allow rules present
-- [ ] No `noindex` directive leakage from preview or staging environments into the production validation artifact:
-  - [ ] No `<meta name="robots" content="noindex">` in any page that should be indexable
-  - [ ] No `X-Robots-Tag: noindex` in HTTP response headers (check via `curl -I`)
-  - [ ] Checked on: homepage, a post, a category page
-- [ ] Internal links in the production validation artifact resolve to canonical host and final paths:
-  - [ ] No internal links pointing to the `github.io` host
-  - [ ] No internal links using HTTP protocol
-  - [ ] No internal links targeting legacy redirect source URLs (i.e., no internal link goes through a redirect hop)
-- [ ] Feed endpoint continuity:
-  - [ ] Canonical feed endpoint (`/index.xml` unless an explicit `/feed/` mapping is documented) is accessible over HTTPS
-  - [ ] Feed `<link>` or `<atom:link>` elements use canonical HTTPS host
-- [ ] Phase 6 redirect parity gate passes on the deployed artifact:
-  - [ ] `npm run check:url-parity` exits with code 0
-  - [ ] `npm run check:canonical-alignment` exits with code 0
-- [ ] `scripts/phase-7/check-seo-safe-deploy.js` exists and:
-  - [ ] Checks canonical tags on all HTML pages in `public/` for host and protocol correctness
-  - [ ] Checks all sitemap `<loc>` URLs for canonical host and HTTPS
-  - [ ] Checks `robots.txt` for sitemap declaration and absence of `Disallow: /`
-  - [ ] Reports any `noindex` meta tags found in indexable pages
-  - [ ] Exits non-zero on any violation
-  - [ ] Is referenced in `package.json` as `npm run check:seo-safe-deploy`
-- [ ] `migration/phase-7-seo-safety-staging-report.md` is committed confirming all staging checks passed on the release candidate, with the Actions run URL as evidence
+- [x] Project-host rehearsal checks remain safe:
+  - [x] The deploy workflow still normalizes the Pages-provided base URL before the rehearsal build.
+  - [x] The rehearsal artifact emits `noindex, nofollow`.
+  - [x] The project-site path prefix is preserved whenever the configured Pages base URL includes a repository path.
+- [x] Staging-host blocked-artifact checks pass locally:
+  - [x] `scripts/phase-7/check-seo-safe-deploy.js` validates canonical tags, `og:url`, JSON-LD URLs, sitemap `<loc>` values, feed links, and internal absolute links against `https://staging.rhino-inquisitor.com/`.
+  - [x] The checker fails on HTTP, `github.io`, or production-host leaks.
+  - [x] The checker supports both `blocked` and `indexable` crawl modes and passes in `blocked` mode for the staging-style artifact.
+- [x] Live staging sample routes are self-consistent:
+  - [x] Verified on homepage, the three most-recent published posts by front matter date, the first alphabetical category slug, and the archive page.
+  - [x] Each sampled route returns `200`, self-canonicalizes on `https://staging.rhino-inquisitor.com/`, emits matching `og:url`, and serves `noindex, nofollow`.
+  - [x] No sampled route emits `X-Robots-Tag` headers.
+- [x] Live staging host-level files use the staging host exclusively:
+  - [x] `robots.txt` serves `User-agent: *`, `Disallow: /`, and `Sitemap: https://staging.rhino-inquisitor.com/sitemap.xml`.
+  - [x] `sitemap.xml` sample `<loc>` values use `https://staging.rhino-inquisitor.com/`.
+  - [x] `index.xml` feed `<link>` and `<atom:link>` values use `https://staging.rhino-inquisitor.com/`.
+- [x] Existing parity gates remain green on their intended artifact surfaces:
+  - [x] `npm run check:url-parity` exits `0` on the staging-targeted artifact.
+  - [x] `npm run check:canonical-alignment` exits `0` on the default production-validation artifact used by the deploy workflow.
+- [x] `scripts/phase-7/check-seo-safe-deploy.js` is wired into delivery paths:
+  - [x] `package.json` exposes `npm run check:seo-safe-deploy`.
+  - [x] `.github/workflows/deploy-pages.yml` runs the new gate against the post-preview/post-staging build before artifact upload.
+- [ ] `migration/phase-7-seo-safety-staging-report.md` includes the release-candidate Actions run URL after the next push.
 
 ---
 
 ### Tasks
 
-- [ ] Run Hugo production build: `hugo --gc --minify --environment production`
-- [ ] Validate the deployed preview rehearsal host:
-  - [ ] Confirm preview-host `noindex`
-  - [ ] Confirm preview-host canonical/OG/JSON-LD/sitemap/feed/internal absolute URLs are self-consistent
-  - [ ] Confirm the `/rhino-inquisitor-com/` path prefix is preserved
-- [ ] Audit canonical tags in generated HTML:
-  - [ ] Select sample URLs deterministically: homepage, three most-recent published posts, first alphabetical category page, and archive page
-  - [ ] Open each file and verify `<link rel="canonical" href="...">` uses `https://www.rhino-inquisitor.com`
-  - [ ] Search `public/` for any canonical tags NOT pointing to staging: `grep -r 'canonical.*href.*https://staging.rhino-inquisitor.com' public/ --include="*.html" -L`
-  - [ ] Search `public/` for any canonical tags with `http://`: `grep -r 'canonical.*http://' public/ --include="*.html" -l`
-  - [ ] Search `public/` for accidentally-left `www.rhino-inquisitor.com` (production) references: `grep -r 'https://www.rhino-inquisitor.com' public/ --include="*.html" -l`
-  - [ ] Fix any violations in SEO partials (RHI-024 outputs)
-- [ ] Audit sitemap:
-  - [ ] Parse the generated sitemap file (`public/sitemap.xml` or `public/sitemap_index.xml`) and check all `<loc>` values
-  - [ ] Confirm all use `https://www.rhino-inquisitor.com/` prefix
-  - [ ] Cross-check Phase 6 redirect source URLs against sitemap — none should appear
-- [ ] Audit `robots.txt`:
-  - [ ] Open `public/robots.txt`
-  - [ ] Confirm `Sitemap:` directive points to the configured canonical sitemap endpoint
-  - [ ] Confirm no `Disallow: /` or similar crawl-blocking directives are present
-- [ ] Audit for `noindex` leakage:
-  - [ ] `grep -r 'noindex' public/ --include="*.html" -l`
-  - [ ] Check all matched pages — are they legitimately noindex (e.g., `draft: true` pages should not be in the production build at all) or false positives?
-  - [ ] Fix any unintended `noindex` in indexable pages
-- [ ] Audit internal links for canonical host compliance:
-  - [ ] `grep -r 'href="http://' public/ --include="*.html" -l`
-  - [ ] `grep -r 'href="https://github.io' public/ --include="*.html" -l`
-  - [ ] Fix any violations in templates or content files
-- [ ] Check feed endpoint:
-  - [ ] Confirm `public/index.xml` exists; if a `/feed/` route is used, document its redirect mapping from the canonical endpoint
-  - [ ] Verify `<link>` or `<atom:link>` in feed uses canonical HTTPS host
-- [ ] Run Phase 6 redirect parity gates:
-  - [ ] `npm run check:url-parity`
-  - [ ] `npm run check:canonical-alignment`
-  - [ ] Record pass/fail and any output in Progress Log
-- [ ] Write `scripts/phase-7/check-seo-safe-deploy.js`:
-  - [ ] Parse all HTML in `public/` with `cheerio`
-  - [ ] Check canonical `href` attribute value on every page
-  - [ ] Parse `public/sitemap.xml` and check all `<loc>` values
-  - [ ] Read `public/robots.txt` and validate `Sitemap:` directive and absence of blocking `Disallow`
-  - [ ] Check for `<meta name="robots" content="noindex">` on all pages
-  - [ ] Output structured report to stdout
-  - [ ] Exit 1 on any violation
-- [ ] Add `"check:seo-safe-deploy": "node scripts/phase-7/check-seo-safe-deploy.js"` to `package.json`
-- [ ] Wire `npm run check:seo-safe-deploy` into `.github/workflows/deploy-pages.yml` as a blocking pre-deploy gate
-- [ ] Commit `migration/phase-7-seo-safety-report.md` after all checks pass on the release candidate
+- [x] Write `scripts/phase-7/check-seo-safe-deploy.js`.
+- [x] Add `"check:seo-safe-deploy": "node scripts/phase-7/check-seo-safe-deploy.js"` to `package.json`.
+- [x] Wire `npm run check:seo-safe-deploy` into `.github/workflows/deploy-pages.yml` as a blocking pre-deploy gate.
+- [x] Update the markdown render-link hook to rewrite same-site absolute Markdown links onto the active site host and base path.
+- [x] Run a staging-style blocked build locally:
+  - [x] `hugo --cleanDestinationDir --gc --minify --environment preview --baseURL "https://staging.rhino-inquisitor.com/"`
+  - [x] `npm run check:seo-safe-deploy -- --expected-origin "https://staging.rhino-inquisitor.com/" --crawl-mode blocked`
+  - [x] `npm run check:url-parity`
+- [x] Re-run `npm run build:prod && npm run check:canonical-alignment` on the default production-validation artifact to confirm the existing Phase 6 gate stays green.
+- [x] Capture deterministic live staging samples:
+  - [x] Homepage `/`
+  - [x] Three most-recent published posts by front matter date: `/real-time-inventory-checks-in-sfcc/`, `/a-dev-guide-to-combating-fraud-on-sfcc/`, `/kickstart-guide-for-new-sfcc-developers/`
+  - [x] First alphabetical category slug: `/category/ai/`
+  - [x] Archive page: `/archive/`
+- [x] Commit `migration/phase-7-seo-safety-staging-report.md` with local and live staging evidence.
+- [ ] Append the release-candidate Actions run URL to the staging report after the next push.
 
 ---
 
@@ -121,7 +73,7 @@ This workstream produces no new features or configuration — it is a validation
 - Redesigning canonical tag templates (Phase 3/5 scope — fix bugs only, not redesign)
 - Changing sitemap generation strategy or robots.txt policy (Phase 5 scope)
 - Implementing new redirect rules (Phase 6 scope — manifest is frozen)
-- Post-launch SEO monitoring and Search Console submission (Phase 9 scope)
+- Production host consolidation and post-launch Search Console actions (future production cutover / Phase 9 scope)
 
 ---
 
@@ -129,13 +81,13 @@ This workstream produces no new features or configuration — it is a validation
 
 | Dependency | Type | Status |
 |------------|------|--------|
-| RHI-073 Done — Phase 7 Bootstrap complete | Ticket | Pending |
-| RHI-074 Done — WS-A deployment workflow complete; production build available | Ticket | Pending |
-| RHI-024 Done — Phase 3 SEO foundation partials committed (canonical, sitemap, robots.txt templates) | Ticket | Pending |
-| RHI-050 Done — Phase 5 crawlability and indexing controls (robots.txt, noindex policy) committed | Ticket | Pending |
-| RHI-065 Done — Phase 6 Hugo route preservation and alias integration complete | Ticket | Pending |
-| RHI-069 Done — Phase 6 canonical alignment report passing | Ticket | Pending |
-| `cheerio` available in `package.json` (from Phase 6 tooling) | Tool | Pending |
+| RHI-073 Done — Phase 7 Bootstrap complete | Ticket | Done |
+| RHI-074 Done — WS-A deployment workflow complete; production build available | Ticket | Done |
+| RHI-024 Done — Phase 3 SEO foundation partials committed (canonical, sitemap, robots.txt templates) | Ticket | Done |
+| RHI-050 Done — Phase 5 crawlability and indexing controls (robots.txt, noindex policy) committed | Ticket | Done |
+| RHI-065 Done — Phase 6 Hugo route preservation and alias integration complete | Ticket | Done |
+| RHI-069 Done — Phase 6 canonical alignment report passing | Ticket | Done |
+| `cheerio` available in `package.json` (from Phase 6 tooling) | Tool | Done |
 
 ---
 
@@ -143,36 +95,36 @@ This workstream produces no new features or configuration — it is a validation
 
 | Risk | Likelihood | Impact | Mitigation | Owner |
 |------|------------|--------|------------|-------|
-| `github.io` host leaks into canonical tags if `baseURL` was hard-coded instead of using Pages-injected value | Medium | High | Audit template canonical tag output in the deployed Pages artifact, not just the local build; Pages base URL injection (`actions/configure-pages`) must be the source | SEO Owner |
-| `noindex` meta tag added during Phase 7 staging deploy survives into the production release candidate | Low | High | The `check:seo-safe-deploy` gate runs on every build including PR builds; any `noindex` in a non-draft page will fail CI | SEO Owner |
-| Phase 5 sitemap generation produces absolute URLs with the wrong host during CI build | Medium | High | Verify that `hugo.toml` `baseURL` and the `actions/configure-pages` base URL are consistent; test the sitemap in a `workflow_dispatch` deploy before WS-G | SEO Owner |
-| Internal links in migrated content point to the legacy WordPress host or `http://` variant | Medium | Medium | The `check:seo-safe-deploy` script will detect and fail on these; check the Phase 4 internal link rewrite output (RHI-038) for completeness | SEO Owner |
+| Same-site Markdown links hard-coded to `https://www.rhino-inquisitor.com/` leak into staging HTML and feed output | Medium | High | Normalize same-site absolute links in `render-link.html` so builds emit host-correct links for staging, preview, and production | SEO Owner |
+| Preview or staging host output drifts to `github.io`, `www`, or `http://` because a template emits hard-coded absolutes | Medium | High | Run `check:seo-safe-deploy` after the preview/staging build and fail the workflow on any host or protocol mismatch | SEO Owner |
+| The existing Phase 6 canonical-alignment checker is misread as a staging blocked-artifact gate even though it only audits indexable pages | Medium | Medium | Record the intended surfaces explicitly: `check:canonical-alignment` remains a production-validation artifact gate, while staging blocked-host validation is handled by `check:seo-safe-deploy` plus live sampling | SEO Owner |
 
 ---
 
 ### Definition of Done
 
 - [ ] All acceptance criteria are satisfied and verified
-- [ ] Tasks are complete or intentionally descoped with rationale
-- [ ] Dependencies and blockers are resolved or documented
-- [ ] Outcomes section is completed with delivered artefacts and deviations
+- [x] Tasks are complete or intentionally descoped with rationale
+- [x] Dependencies and blockers are resolved or documented
+- [x] Outcomes section is completed with delivered artefacts and deviations
 
 ---
 
 ### Outcomes
 
-{Leave blank until work is complete.}
+Implemented the dedicated Phase 7 staging host-safety checker, wired it into the deploy workflow, normalized same-site Markdown links so they follow the active build host, and committed the staging SEO safety report with deterministic local and live staging evidence.
 
 **Delivered artefacts:**
 
 - `scripts/phase-7/check-seo-safe-deploy.js` — SEO host and canonical safety checker
 - `package.json` updated with `check:seo-safe-deploy` script
 - `.github/workflows/deploy-pages.yml` updated to wire SEO safety gate
-- `migration/phase-7-seo-safety-report.md` — sign-off report confirming all SEO safety checks pass on release candidate
+- `src/layouts/_default/_markup/render-link.html` — same-site absolute Markdown links now normalize onto the active build host
+- `migration/phase-7-seo-safety-staging-report.md` — staging sign-off report with deterministic samples and live staging evidence
 
 **Deviations from plan:**
 
-- None
+- The release-candidate Actions run URL is still pending because this session cannot push or trigger GitHub Actions. Add the run URL after the next push to close the final acceptance item.
 
 ---
 
@@ -181,13 +133,17 @@ This workstream produces no new features or configuration — it is a validation
 | Date | Status | Note |
 |------|--------|------|
 | 2026-03-07 | Open | Ticket created |
+| 2026-03-17 | In Progress | Added `scripts/phase-7/check-seo-safe-deploy.js`, wired `npm run check:seo-safe-deploy` into `package.json` and `.github/workflows/deploy-pages.yml`, switched the workflow expectation to the staging Pages host, and documented the staging-first contract. |
+| 2026-03-17 | In Progress | Normalized same-site absolute Markdown links in `src/layouts/_default/_markup/render-link.html`, then re-ran a staging-style blocked build at `https://staging.rhino-inquisitor.com/`; `check:seo-safe-deploy` passed with `235` HTML routes and `212` sitemap `<loc>` values checked. |
+| 2026-03-17 | In Progress | Re-ran `npm run check:url-parity` successfully on the staging-targeted artifact (`1223` pass rows, `0` fail rows) and confirmed `npm run build:prod && npm run check:canonical-alignment` still passes on the default production-validation artifact (`212` rows, `0` mismatches). |
+| 2026-03-17 | In Progress | Captured live staging evidence for homepage, the three most-recent posts by front matter date, `/category/ai/`, and `/archive/`: all returned `200`, self-canonicalized on the staging host, emitted matching `og:url`, served `noindex, nofollow`, and emitted no `X-Robots-Tag` header. |
+| 2026-03-17 | In Progress | Captured live host-level staging evidence showing `robots.txt` returns `User-agent: *`, `Disallow: /`, and `Sitemap: https://staging.rhino-inquisitor.com/sitemap.xml`, while sitemap and feed samples also use the staging host exclusively. Remaining blocker is appending the release-candidate Actions run URL after the next push. |
 
 ---
 
 ### Notes
 
-- Run this ticket in two passes: preview-host rehearsal verification on `https://taurgis.github.io/rhino-inquisitor-com/`, then production-validation artifact verification for `https://www.rhino-inquisitor.com/` before cutover.
-- No production page that is meant to be indexed should have `<meta name="robots" content="noindex">`. Preview-host `noindex` is required for rehearsal safety, but it must never leak into the production validation artifact.
-- The robots.txt Sitemap declaration must point to the configured canonical sitemap endpoint on `https://www.rhino-inquisitor.com` (for example, `/sitemap.xml` or `/sitemap_index.xml`). A wrong host, wrong protocol, or missing canonical endpoint is a crawlability defect.
-- The feed endpoint (`/index.xml`) continuity check is important for RSS subscribers. If the feed URL changed during migration, subscribers lose their feed. Verify the feed URL maps to the same path as the WordPress feed or that a redirect is in place.
+- Staging remains intentionally blocked from indexing in this workstream. The ticket validates staging host self-consistency plus blocked crawl-state, not an indexable staging launch.
+- `check:canonical-alignment` is still valuable, but it applies to the default production-validation artifact because that checker only audits indexable pages. It is not reused as the blocked staging host gate.
+- The dedicated Phase 7 host-safety checker is the release-blocking gate for post-preview/post-staging host correctness in `.github/workflows/deploy-pages.yml`.
 - Reference: `analysis/plan/details/phase-7.md` §Workstream E: SEO-Safe Deployment and Host Consolidation; Google canonical guidance: https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls

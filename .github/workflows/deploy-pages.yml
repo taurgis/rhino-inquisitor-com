@@ -12,7 +12,7 @@ permissions:
 env:
   HUGO_VERSION: 0.157.0
   NODE_VERSION: 20.18.1
-  EXPECTED_PAGES_HOST: www.rhino-inquisitor.com
+  EXPECTED_PAGES_HOST: staging.rhino-inquisitor.com
 
 jobs:
   build:
@@ -80,11 +80,11 @@ jobs:
 
           if [[ "$PAGES_HOST" != "$EXPECTED_PAGES_HOST" ]]; then
             echo "ready=false" >> "$GITHUB_OUTPUT"
-            echo "GitHub Pages host is '$PAGES_HOST', expected '$EXPECTED_PAGES_HOST'. Continuing in preview-host rehearsal mode until the canonical custom domain is active." >> "$GITHUB_STEP_SUMMARY"
-            echo "::notice::GitHub Pages host is '$PAGES_HOST'; continuing with preview-host deployment and production-artifact validation."
+            echo "GitHub Pages host is '$PAGES_HOST', expected '$EXPECTED_PAGES_HOST'. Continuing in project-host rehearsal mode until the staging custom domain is active." >> "$GITHUB_STEP_SUMMARY"
+            echo "::notice::GitHub Pages host is '$PAGES_HOST'; continuing with project-host rehearsal and staging-artifact validation."
           else
             echo "ready=true" >> "$GITHUB_OUTPUT"
-            echo "GitHub Pages canonical host '$PAGES_HOST' is active." >> "$GITHUB_STEP_SUMMARY"
+            echo "GitHub Pages staging host '$PAGES_HOST' is active." >> "$GITHUB_STEP_SUMMARY"
           fi
 
       - name: Install Node dependencies
@@ -241,6 +241,9 @@ jobs:
           }
           EOF
 
+      - name: Run SEO-safe deployment host check
+        run: npm run check:seo-safe-deploy -- --expected-origin "${{ steps.preview_base.outputs.base_url }}" --crawl-mode blocked --report tmp/phase-7-seo-safe-deploy-report.json
+
       - name: Validate deploy artifact integrity and size
         run: npm run validate:artifact -- --label preview-deploy --report tmp/phase-7-artifact-validation-preview.json
 
@@ -265,6 +268,7 @@ jobs:
             tmp/ci-prod-public
             tmp/phase-7-artifact-validation-production.json
             tmp/phase-7-artifact-validation-preview.json
+            tmp/phase-7-seo-safe-deploy-report.json
             tmp/ci-preview-crawl-control-audit.csv
             migration/reports/phase-5-crawl-control-audit.csv
             migration/phase-5-redirect-signal-matrix.csv
