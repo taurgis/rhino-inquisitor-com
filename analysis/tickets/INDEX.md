@@ -104,7 +104,7 @@ This is the top-level ticket index for the full migration project. Use the phase
 | [RHI-073](phase-7/RHI-073-phase-7-bootstrap.md) | Phase 7 Bootstrap: Kickoff and Deployment Environment Setup | 7 | Critical | Done | S | 2026-05-20 |
 | [RHI-074](phase-7/RHI-074-deployment-workflow-architecture.md) | Workstream A — Deployment Workflow Architecture | 7 | Critical | Open | M | 2026-05-21 |
 | [RHI-075](phase-7/RHI-075-artifact-integrity-build-limits.md) | Workstream B — Artifact Integrity and Build Limits | 7 | High | Done | M | 2026-05-22 |
-| [RHI-076](phase-7/RHI-076-domain-dns-cutover-strategy.md) | Workstream C — Domain and DNS Cutover Strategy | 7 | Critical | Open | L | 2026-05-23 |
+| [RHI-076](phase-7/RHI-076-domain-dns-cutover-strategy.md) | Workstream C — Domain and DNS Cutover Strategy | 7 | Critical | In Progress | L | 2026-05-23 |
 | [RHI-077](phase-7/RHI-077-https-issuance-security-controls.md) | Workstream D — HTTPS Issuance and Security Controls | 7 | High | Open | M | 2026-05-26 |
 | [RHI-078](phase-7/RHI-078-seo-safe-deployment-host-consolidation.md) | Workstream E — SEO-Safe Deployment and Host Consolidation | 7 | Critical | Open | M | 2026-05-27 |
 | [RHI-079](phase-7/RHI-079-deployment-quality-gates-tooling.md) | Workstream F — Deployment Quality Gates and Tooling | 7 | Critical | Open | M | 2026-05-28 |
