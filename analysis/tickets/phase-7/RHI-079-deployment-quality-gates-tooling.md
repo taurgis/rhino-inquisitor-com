@@ -155,6 +155,7 @@ This workstream is the integration layer for outputs from WS-A through WS-E. Its
 |------|--------|------|
 | 2026-03-07 | Open | Ticket created |
 | 2026-03-17 | In Progress | Added `scripts/phase-7/run-all-gates.sh`, wired the deploy workflow to use it before `actions/upload-pages-artifact`, defined `migration/reports/phase-7-gate-summary.csv`, and locally verified `npm run gates:local` with the staging preview host. CI `workflow_dispatch` evidence is still pending. |
+| 2026-03-17 | In Progress | Push-triggered deploy run `#127` failed in project-host rehearsal mode because root-relative markdown links resolved from the GitHub Pages host root instead of the repository base path. Updated `src/layouts/_default/_markup/render-link.html` to rebase internal root-relative and known-host absolute links through Hugo's active base path, and locally re-verified `PHASE7_PREVIEW_BASE_URL=https://taurgis.github.io/rhino-inquisitor-com/ npm run gates:local`. |
 
 ---
 

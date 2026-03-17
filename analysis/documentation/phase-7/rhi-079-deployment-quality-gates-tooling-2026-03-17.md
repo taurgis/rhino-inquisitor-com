@@ -23,6 +23,7 @@ RHI-079 needed an explicit, repeatable evidence trail for the deployment gate ch
 - `npm run gates:local` runs the same blocking gate order locally that the deploy workflow uses in CI.
 - `npm run gates:local` defaults to the current staging preview host and still accepts `PHASE7_PREVIEW_BASE_URL` or `--preview-base-url` for project-host rehearsal or future host changes.
 - The workflow passes `PHASE7_PREVIEW_BASE_URL` and `PHASE7_CI_RUN_URL` into the runner so preview-host checks and the Phase 7 gate summary are tied to the actual run context.
+- The markdown render-link hook now rebases internal root-relative links and known internal-host absolute links through Hugo's current base path so GitHub Pages project-host preview builds keep links under `/rhino-inquisitor-com/` instead of resolving from the host root.
 - `migration/reports/phase-7-gate-summary.csv` is now the canonical Phase 7 gate summary format with headers `gate_name,command,status,blocking,run_timestamp,ci_run_url,notes`.
 - The authoritative broken-link gate for RHI-079 is `npm run check:internal-links`.
 - The repository-specific blocking Lighthouse performance gate remains in Phase 7; representative Lighthouse checks are not advisory-only in this repository contract.
@@ -37,6 +38,7 @@ RHI-079 needed an explicit, repeatable evidence trail for the deployment gate ch
 ## Verification
 
 - Run `npm run gates:local`.
+- Run `PHASE7_PREVIEW_BASE_URL=https://taurgis.github.io/rhino-inquisitor-com/ npm run gates:local` to verify the project-host preview path used by GitHub Pages before the staging custom domain is active.
 - Run `npm run build:prod && npm run check:seo` as a baseline production validation check.
 - In CI, confirm `.github/workflows/deploy-pages.yml` uploads `migration/reports/phase-7-gate-summary.csv` with the other audit artifacts.
 - Confirm a forced failing gate exits the runner non-zero and records later gates as `skipped` in the summary CSV.
@@ -46,6 +48,7 @@ RHI-079 needed an explicit, repeatable evidence trail for the deployment gate ch
 - `.github/workflows/deploy-pages.yml`
 - `scripts/phase-7/run-all-gates.sh`
 - `scripts/phase-7/check-preview-prefix-noindex.js`
+- `src/layouts/_default/_markup/render-link.html`
 - `package.json`
 - `migration/reports/phase-7-gate-summary.csv`
 - `analysis/tickets/phase-7/RHI-079-deployment-quality-gates-tooling.md`

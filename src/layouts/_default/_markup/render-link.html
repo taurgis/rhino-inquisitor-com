@@ -2,9 +2,12 @@
 {{- $resolvedHref := $destination -}}
 {{- $linkPage := .PageInner | default .Page -}}
 {{- $siteBaseURL := urls.Parse site.BaseURL -}}
+{{- $siteBasePath := $siteBaseURL.Path | default "/" -}}
+{{- if eq $siteBasePath "" }}{{- $siteBasePath = "/" -}}{{- end -}}
+{{- $trimmedSiteBasePath := strings.TrimSuffix "/" $siteBasePath -}}
 {{- if and (ne $destination "") (or (hasPrefix $destination "http://") (hasPrefix $destination "https://")) (not (or (in $destination "{") (in $destination "}"))) -}}
   {{- $destinationURL := urls.Parse $destination -}}
-  {{- if and $destinationURL (or (eq $destinationURL.Host $siteBaseURL.Host) (eq $destinationURL.Host "rhino-inquisitor.com") (eq $destinationURL.Host "www.rhino-inquisitor.com") (eq $destinationURL.Host "staging.rhino-inquisitor.com")) -}}
+  {{- if and $destinationURL (or (eq $destinationURL.Host $siteBaseURL.Host) (eq $destinationURL.Host "rhino-inquisitor.com") (eq $destinationURL.Host "www.rhino-inquisitor.com") (eq $destinationURL.Host "staging.rhino-inquisitor.com") (eq $destinationURL.Host "taurgis.github.io")) -}}
     {{- $resolvedHref = $destinationURL.Path | default "/" -}}
     {{- with $destinationURL.RawQuery }}{{- $resolvedHref = printf "%s?%s" $resolvedHref . -}}{{- end -}}
     {{- with $destinationURL.Fragment }}{{- $resolvedHref = printf "%s#%s" $resolvedHref . -}}{{- end -}}
@@ -13,6 +16,28 @@
 {{- if and $linkPage (ne $resolvedHref "") (not (or (hasPrefix $resolvedHref "http://") (hasPrefix $resolvedHref "https://") (hasPrefix $resolvedHref "/") (hasPrefix $resolvedHref "#") (hasPrefix $resolvedHref "mailto:") (hasPrefix $resolvedHref "tel:"))) -}}
   {{- with $linkPage.Resources.GetMatch $resolvedHref -}}
     {{- $resolvedHref = .RelPermalink -}}
+  {{- end -}}
+{{- end -}}
+{{- if and (hasPrefix $resolvedHref "/") (not (hasPrefix $resolvedHref "//")) -}}
+  {{- $resolvedURL := urls.Parse (printf "https://internal.invalid%s" $resolvedHref) -}}
+  {{- if $resolvedURL -}}
+    {{- $resolvedPath := $resolvedURL.Path | default "/" -}}
+    {{- if and (ne $trimmedSiteBasePath "") (ne $trimmedSiteBasePath "/") -}}
+      {{- if eq $resolvedPath $trimmedSiteBasePath -}}
+        {{- $resolvedPath = "/" -}}
+      {{- else if hasPrefix $resolvedPath (printf "%s/" $trimmedSiteBasePath) -}}
+        {{- $resolvedPath = strings.TrimPrefix $trimmedSiteBasePath $resolvedPath -}}
+      {{- end -}}
+    {{- end -}}
+
+    {{- if eq $resolvedPath "/" -}}
+      {{- $resolvedHref = site.Home.RelPermalink -}}
+    {{- else -}}
+      {{- $resolvedHref = (strings.TrimPrefix "/" $resolvedPath) | relURL -}}
+    {{- end -}}
+
+    {{- with $resolvedURL.RawQuery }}{{- $resolvedHref = printf "%s?%s" $resolvedHref . -}}{{- end -}}
+    {{- with $resolvedURL.Fragment }}{{- $resolvedHref = printf "%s#%s" $resolvedHref . -}}{{- end -}}
   {{- end -}}
 {{- end -}}
 
