@@ -13,9 +13,9 @@
 
 ### Goal
 
-Formally close Phase 7 by verifying that all workstream deliverables for preview-host rehearsal and production cutover readiness are complete, that the GitHub Pages project-site deployment at `https://taurgis.github.io/rhino-inquisitor-com/` is available for rehearsal, and that the Phase 8 and Phase 9 teams have received and acknowledged the handover package needed before live production cutover.
+Formally close Phase 7 staging validation by verifying that all workstream deliverables for staging cutover are complete and validated. This is the authoritative record of staging readiness before the production cutover ticket is created.
 
-This sign-off is the authoritative record of readiness before launch, not proof that DNS cutover is already complete. Phase 8 launch-readiness assessments and Phase 9 production cutover execution cannot proceed until this sign-off is recorded. Any unresolved Phase 7 blocking defect must be fixed or explicitly accepted with a documented owner before sign-off proceeds.
+This staging sign-off gates the creation of a final production cutover ticket covering `www.rhino-inquisitor.com` and the apex domain. Any unresolved Phase 7 staging defect must be fixed or explicitly accepted with a documented owner before sign-off proceeds.
 
 ---
 
@@ -31,10 +31,10 @@ This sign-off is the authoritative record of readiness before launch, not proof 
   - [ ] RHI-079 Done — All quality gates integrated and passing
   - [ ] RHI-080 Done — Launch runbook committed and dry-run validated
   - [ ] RHI-081 Done — Rollback runbook committed and dry-run validated
-- [ ] Preview-host rehearsal foundation is complete:
-  - [ ] `https://taurgis.github.io/rhino-inquisitor-com/` is reachable and recorded as the rehearsal host
-  - [ ] Preview-host deployment run URL and smoke evidence are included in the handover package
-  - [ ] Production validation build path and expected evidence are documented for Phase 8 and Phase 9
+- [ ] Staging cutover foundation is complete:
+  - [ ] `https://staging.rhino-inquisitor.com/` is deployed and accessible
+  - [ ] Staging deployment run URL and smoke evidence are recorded
+  - [ ] All Phase 7 staging validation gates have been executed and passed
 - [ ] All Phase 7 CI gates pass on the designated release candidate and rehearsal artifact set:
   - [ ] `npm run validate:frontmatter` exits with code 0
   - [ ] `npm run check:url-parity` exits with code 0
@@ -45,9 +45,10 @@ This sign-off is the authoritative record of readiness before launch, not proof 
   - [ ] `npm run check:links` exits with code 0
   - [ ] `npm run validate:artifact` exits with code 0
   - [ ] Hugo production build exits with code 0
-- [ ] `migration/phase-7-signoff.md` is committed with:
-  - [ ] Summary of all Phase 7 workstream outcomes (RHI-074 through RHI-081) with ticket IDs and deliverable file paths
-  - [ ] Preview-host rehearsal evidence and recorded deployment URL
+- [ ] `migration/phase-7-staging-signoff.md` is committed with:
+  - [ ] Summary of all Phase 7 workstream outcomes (RHI-074 through RHI-081) for staging with ticket IDs and deliverable file paths
+  - [ ] Staging deployment evidence (URLs, smoke test results, canonical verification)
+  - [ ] Explicit note: Production cutover to `www.rhino-inquisitor.com` and apex is a separate final ticket, to be created after this staging sign-off
   - [ ] DNS/custom-domain/HTTPS readiness state for the upcoming production cutover
   - [ ] CI gate compliance statement with evidence (Actions run URL)
   - [ ] Preview-host smoke evidence and Phase 8/9 entry conditions

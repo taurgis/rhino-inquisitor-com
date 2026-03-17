@@ -64,10 +64,10 @@ This runbook tracks the operational steps needed to move the repository from pla
   - `npm run check:perf:budget`
   - `npm run check:perf`
   - review `docs/migration/ASSET-POLICY.md` for the current image strategy, budget limits, and JavaScript policy
-  - confirm representative scaffold routes exist in the built output:
+  - confirm representative baseline routes exist in the built output:
     - `public/index.html`
-    - `public/phase-3-performance-baseline/index.html`
-    - `public/category/platform/index.html`
+    - `public/sending-emails-from-sfcc/index.html`
+    - `public/category/technical/index.html`
   - review `tmp/lhci/` for the local Lighthouse CI reports written by the baseline run
 - Validate RHI-028 security and privacy hardening with:
   - `hugo --cleanDestinationDir --minify --environment production`

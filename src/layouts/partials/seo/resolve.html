@@ -3,6 +3,7 @@
 {{ $paginator := .Scratch.Get "listPaginator" }}
 {{ $titleOverride := .Scratch.Get "seoTitleOverride" }}
 {{ $descriptionOverride := .Scratch.Get "seoDescriptionOverride" }}
+{{ $imageOverride := .Scratch.Get "seoImageOverride" }}
 {{ $pageNumber := 1 }}
 {{ if $paginator }}
   {{ $pageNumber = $paginator.PageNumber }}
@@ -14,6 +15,9 @@
 {{ end }}
 
 {{ $title := .Site.Title }}
+{{ if and .IsHome $titleOverride }}
+  {{ $title = $titleOverride }}
+{{ end }}
 {{ if eq .Kind "404" }}
   {{ $title = printf "Page not found | %s" .Site.Title }}
 {{ else if gt $pageNumber 1 }}
@@ -44,6 +48,13 @@
 {{ end }}
 
 {{ $image := "" }}
+{{ with $imageOverride }}
+  {{ if or (hasPrefix . "http://") (hasPrefix . "https://") }}
+    {{ $image = . }}
+  {{ else }}
+    {{ $image = (strings.TrimPrefix "/" .) | absURL }}
+  {{ end }}
+{{ else }}
 {{ with index $seoParams "ogImage" }}
   {{ if or (hasPrefix . "http://") (hasPrefix . "https://") }}
     {{ $image = . }}
@@ -86,6 +97,7 @@
       {{ end }}
     {{ end }}
   {{ end }}
+{{ end }}
 {{ end }}
 
 {{ $robots := "index, follow" }}

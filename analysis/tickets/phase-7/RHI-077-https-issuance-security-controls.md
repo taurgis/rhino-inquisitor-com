@@ -13,7 +13,7 @@
 
 ### Goal
 
-Ensure the site is served exclusively over HTTPS from first production traffic, with certificate issuance monitored and enforced before declaring launch complete, mixed-content issues identified and fixed before cutover, and CAA DNS records correctly configured to avoid Let's Encrypt certificate issuance failures.
+Ensure the staging site at `staging.rhino-inquisitor.com` is served exclusively over HTTPS with certificate issuance monitored and enforced before staging sign-off. This workstream validates the HTTPS procedures and team readiness on the staging subdomain. Production HTTPS enforcement will be handled in a separate final ticket after staging validation completes.
 
 GitHub Pages automatically provisions a Let's Encrypt TLS certificate after a custom domain is configured. However, certificate provisioning can lag DNS changes by up to 24 hours, and the Enforce HTTPS toggle may not be available immediately after a domain change. Without explicit monitoring and a certificate readiness gate in the launch runbook, a site could go live accessible only over HTTP — exposing visitors and damaging the canonical host signal.
 
@@ -21,12 +21,12 @@ GitHub Pages automatically provisions a Let's Encrypt TLS certificate after a cu
 
 ### Acceptance Criteria
 
-- [ ] GitHub Pages "Enforce HTTPS" is enabled in repository Settings → Pages after DNS cutover and certificate provisioning:
+- [ ] GitHub Pages "Enforce HTTPS" is enabled in repository Settings → Pages after staging DNS cutover and certificate provisioning:
   - [ ] Toggle is enabled (not grayed out — it becomes available only after certificate issuance)
-  - [ ] Visiting `http://www.rhino-inquisitor.com/` redirects to `https://www.rhino-inquisitor.com/`
-  - [ ] Verified via `curl -sI http://www.rhino-inquisitor.com/ | grep -i location`
-- [ ] HTTPS works for homepage and representative deep URLs:
-  - [ ] `https://www.rhino-inquisitor.com/` returns HTTP 200
+  - [ ] Visiting `http://staging.rhino-inquisitor.com/` redirects to `https://staging.rhino-inquisitor.com/`
+  - [ ] Verified via `curl -sI http://staging.rhino-inquisitor.com/ | grep -i location`
+- [ ] HTTPS works for staging homepage and representative deep URLs:
+  - [ ] `https://staging.rhino-inquisitor.com/` returns HTTP 200
   - [ ] At least two representative post URLs return HTTP 200 over HTTPS
   - [ ] At least one category page URL returns HTTP 200 over HTTPS
 - [ ] No mixed-content errors on the homepage and representative templates:
@@ -35,13 +35,13 @@ GitHub Pages automatically provisions a Let's Encrypt TLS certificate after a cu
 - [ ] CAA DNS record audit is complete:
   - [ ] Either no CAA records exist (permitting all CAs — acceptable default) or a CAA record explicitly permits `letsencrypt.org`
   - [ ] If restrictive CAA records exist, `letsencrypt.org` is in the permitted issuers list or Pages cannot provision the certificate
-- [ ] `migration/phase-7-https-checklist.md` is committed documenting:
-  - [ ] CAA record audit result
-  - [ ] Certificate issuance monitoring log (Pages settings check timestamps)
-  - [ ] Enforce HTTPS enablement confirmation with timestamp
-  - [ ] HTTPS verification check results for homepage and representative routes
+- [ ] `migration/phase-7-https-staging-checklist.md` is committed documenting:
+  - [ ] CAA record audit result (shared with production ticket)
+  - [ ] Certificate issuance monitoring log for staging (Pages settings check timestamps)
+  - [ ] Enforce HTTPS enablement confirmation with timestamp for staging
+  - [ ] HTTPS verification check results for staging homepage and representative routes
   - [ ] Mixed-content audit results
-- [ ] Launch HTTPS decision SLO is documented: if Enforce HTTPS is not available within 60 minutes after DNS propagation confirmation, trigger an incident hold and WS-H escalation; rollback decision is made per WS-H severity criteria while acknowledging GitHub certificate provisioning may take up to 24 hours
+- [ ] Staging HTTPS decision SLO is documented: if Enforce HTTPS is not available within 60 minutes after staging DNS propagation confirmation, trigger an incident hold; staging sign-off is gated on HTTPS readiness
 
 ---
 
@@ -69,24 +69,26 @@ GitHub Pages automatically provisions a Let's Encrypt TLS certificate after a cu
   - [ ] Exit non-zero on any HTTP reference found
   - [ ] Add `"check:mixed-content": "node scripts/phase-7/check-mixed-content.js"` to `package.json`
 - [ ] Wire `npm run check:mixed-content` into `.github/workflows/deploy-pages.yml` as a blocking pre-deploy step
-- [ ] Document HTTPS monitoring procedure in `migration/phase-7-https-checklist.md`:
-  - [ ] Step 1: Check DNS propagation (`dig www.rhino-inquisitor.com CNAME +short`)
+- [ ] Document HTTPS monitoring procedure in `migration/phase-7-https-staging-checklist.md`:
+  - [ ] Step 1: Check DNS propagation for staging (`dig staging.rhino-inquisitor.com CNAME +short`)
   - [ ] Step 2: Watch Pages settings for certificate issuance (can take up to 24 hours after DNS change)
   - [ ] Step 3: When certificate is issued, check Enforce HTTPS toggle is available
-  - [ ] Step 4: Enable Enforce HTTPS and verify HTTP-to-HTTPS redirect
-  - [ ] Step 5: Test HTTPS on homepage and representative routes
+  - [ ] Step 4: Enable Enforce HTTPS and verify HTTP-to-HTTPS redirect for staging
+  - [ ] Step 5: Test HTTPS on staging homepage and representative routes
   - [ ] Step 6: Confirm no mixed-content errors in browser console
-- [ ] Document escalation trigger: if Enforce HTTPS is not available within 60 minutes of DNS propagation confirmation, open WS-H incident response (RHI-081), record GitHub status, and choose hold vs rollback per impact
-- [ ] Commit `migration/phase-7-https-checklist.md`, updated scripts, and `package.json`
+  - [ ] Step 7: Record staging HTTPS sign-off with timestamp
+- [ ] Document escalation trigger: if Enforce HTTPS is not available within 60 minutes of staging DNS propagation confirmation, trigger incident response and hold staging sign-off until resolved
+- [ ] Commit `migration/phase-7-https-staging-checklist.md`, updated scripts, and `package.json`
 
 ---
 
 ### Out of Scope
 
+- Production `www.rhino-inquisitor.com` and apex HTTPS enforcement (handled in final production cutover ticket after staging sign-off)
 - Provisioning or renewing the TLS certificate manually (GitHub Pages manages Let's Encrypt provisioning automatically)
 - Configuring a custom CDN or WAF TLS termination
 - HSTS header configuration (GitHub Pages controls this; not configurable at the static site level)
-- DNS record changes (WS-C: RHI-076 — CAA record changes, if needed, are coordinated with WS-C)
+- DNS record changes (WS-C: RHI-076 — CAA record changes already completed; staging uses CAA findings)
 
 ---
 

@@ -1,5 +1,16 @@
+{{ define "head" }}
+  {{ $homeProfile := hugo.Data.homepage }}
+  {{ with index $homeProfile "seo" }}
+    {{ with index . "title" }}{{ $.Scratch.Set "seoTitleOverride" . }}{{ end }}
+    {{ with index . "description" }}{{ $.Scratch.Set "seoDescriptionOverride" . }}{{ end }}
+    {{ with index . "ogImage" }}{{ $.Scratch.Set "seoImageOverride" . }}{{ end }}
+  {{ end }}
+  {{ partial "seo/head-meta.html" . }}
+  {{ partial "site/stylesheet.html" . }}
+{{ end }}
+
 {{ define "main" }}
-  {{ $homeProfile := site.Data.homepage }}
+  {{ $homeProfile := hugo.Data.homepage }}
   {{ $blogPage := site.GetPage "/posts" }}
   {{ $topicsPage := site.GetPage "/categories" }}
   {{ $posts := where .Site.RegularPages "Type" "posts" }}
@@ -18,76 +29,62 @@
     {{ end }}
   {{ end }}
   {{ $recent = first 4 $recent }}
-  {{ $topicItems := slice }}
-  {{ range $name, $_ := .Site.Taxonomies.categories }}
-    {{ with site.GetPage (printf "/categories/%s" ($name | urlize)) }}
-      {{ $freshness := "" }}
-      {{ with first 1 (.Pages.ByLastmod.Reverse) }}
-        {{ $freshness = printf "Updated %s" ((index . 0).Lastmod.Format "Jan 2") }}
-      {{ end }}
-      {{ $topicItems = $topicItems | append (dict
-        "name" .LinkTitle
-        "url" .Permalink
-        "count" (len .Pages)
-        "freshness" $freshness
-      ) }}
-    {{ end }}
-  {{ end }}
-  {{ if gt (len $topicItems) 0 }}
-    {{ $topicItems = first 6 (sort $topicItems "count" "desc") }}
-  {{ end }}
   {{ $startReadingHref := .Site.Home.Permalink }}
   {{ if $blogPage }}{{ $startReadingHref = $blogPage.Permalink }}{{ end }}
   {{ if $featured }}{{ $startReadingHref = $featured.Permalink }}{{ end }}
   {{ $browseTopicsHref := "category/" | relURL }}
-  {{ $brandMarkHref := "images/brand-mark.svg" | relURL }}
+  {{ $homePortraitSrc := "images/home/thomas-theunen-hero.jpg" }}
+  {{ $homePortraitAlt := "A picture of Thomas Theunen leaning on a desk at the office with plants in the background." }}
   {{ with $topicsPage }}{{ $browseTopicsHref = .Permalink }}{{ end }}
   {{ $rssHref := printf "%sindex.xml" .Site.Home.Permalink }}
   {{ with .Site.Home.OutputFormats.Get "rss" }}{{ $rssHref = .Permalink }}{{ end }}
-
-  <section class="page-hero" aria-labelledby="home-hero-title">
-    <div class="page-hero__body">
-      <p class="page-hero__tagline">{{ with $homeProfile.heroTagline }}{{ . }}{{ else }}{{ .Site.Params.description | default (printf "Deep technical deep dives and strategies. Confident advice for architects, developers, and business leaders.") }}{{ end }}</p>
-      <h1 id="home-hero-title" class="visually-hidden">{{ .Site.Title }}</h1>
-    </div>
-    <div class="page-hero__illustration" aria-hidden="true">
-      <img src="{{ $brandMarkHref }}" width="180" height="237" alt="" aria-hidden="true">
-    </div>
-  </section>
-
-  <div class="hero-cta-bar">
-    <a class="site-cta" href="{{ $startReadingHref }}">Start Reading</a>
-    <a class="site-cta site-cta--outline" href="{{ $browseTopicsHref }}">Browse Topics</a>
-  </div>
-
+  {{ $profile := dict }}
+  {{ $projects := dict }}
   {{ with $homeProfile }}
-    {{ $profile := index . "profile" }}
-    {{ $projects := index . "projects" }}
-    <section class="home-profile" aria-labelledby="home-profile-heading">
-      <article class="home-profile__panel home-profile__panel--intro">
-        {{ with index $profile "eyebrow" }}<p class="home-profile__eyebrow">{{ . }}</p>{{ end }}
-        <h2 id="home-profile-heading" class="home-profile__title">{{ index $profile "title" }}</h2>
-        {{ with index $profile "intro" }}
-          <div class="home-profile__copy">
-            {{ range . }}
-              <p>{{ . }}</p>
-            {{ end }}
-          </div>
-        {{ end }}
-        {{ with index $profile "actions" }}
-          <div class="home-profile__actions">
-            {{ range . }}
-              <a class="site-cta{{ if eq (index . "variant") "outline" }} site-cta--outline{{ end }}" href="{{ index . "url" }}">{{ index . "label" }}</a>
-            {{ end }}
-          </div>
-        {{ end }}
-      </article>
+    {{ $profile = index . "profile" }}
+    {{ $projects = index . "projects" }}
+  {{ end }}
 
-      <aside class="home-profile__panel home-profile__panel--projects" aria-labelledby="home-projects-heading">
-        {{ with index $projects "eyebrow" }}<p class="home-profile__eyebrow">{{ . }}</p>{{ end }}
-        <h2 id="home-projects-heading" class="home-profile__title home-profile__title--compact">{{ index $projects "title" }}</h2>
-        {{ with index $projects "description" }}<p class="home-profile__support">{{ . }}</p>{{ end }}
-        {{ with index $projects "items" }}
+  <section class="page-hero page-hero--home" aria-labelledby="home-hero-title">
+    <div class="page-hero__body page-hero__body--home">
+      <p class="eyebrow">{{ with index $profile "eyebrow" }}{{ . }}{{ else }}About Thomas{{ end }}</p>
+      <h1 id="home-hero-title">{{ .Site.Title }}</h1>
+      <p class="page-hero__tagline">{{ with $homeProfile.heroTagline }}{{ . }}{{ else }}{{ .Site.Params.description | default (printf "Deep technical deep dives and strategies. Confident advice for architects, developers, and business leaders.") }}{{ end }}</p>
+      {{ with index $profile "intro" }}
+        <div class="page-hero__summary-group">
+          {{ range . }}
+            <p class="page-hero__summary">{{ . }}</p>
+          {{ end }}
+        </div>
+      {{ end }}
+      <div class="hero-cta-bar">
+        <a class="site-cta" href="{{ $startReadingHref }}">Start Reading</a>
+        <a class="site-cta site-cta--outline" href="{{ $browseTopicsHref }}">Browse Topics</a>
+      </div>
+      {{ with index $profile "actions" }}
+        <div class="page-hero__support-links" aria-label="About Thomas links">
+          {{ range . }}
+            <a class="page-hero__support-link" href="{{ index . "url" }}">{{ index . "label" }}</a>
+          {{ end }}
+        </div>
+      {{ end }}
+    </div>
+    <div class="page-hero__media-column">
+      <div class="page-hero__illustration page-hero__illustration--home">
+        {{ partial "media/image.html" (dict
+          "src" $homePortraitSrc
+          "alt" $homePortraitAlt
+          "loading" "eager"
+          "fetchpriority" "high"
+          "responsive" true
+          "sizes" "(min-width: 64rem) 40rem, 100vw"
+          "class" "page-hero__portrait"
+        ) }}
+      </div>
+      {{ with index $projects "items" }}
+        <aside class="page-hero__projects" aria-labelledby="home-projects-heading">
+          <h2 id="home-projects-heading">{{ with index $projects "title" }}{{ . }}{{ else }}Active Projects{{ end }}</h2>
+          {{ with index $projects "description" }}<p class="page-hero__projects-intro">{{ . }}</p>{{ end }}
           <ul class="home-project-list" role="list">
             {{ range . }}
               <li>
@@ -98,10 +95,10 @@
               </li>
             {{ end }}
           </ul>
-        {{ end }}
-      </aside>
-    </section>
-  {{ end }}
+        </aside>
+      {{ end }}
+    </div>
+  </section>
 
   <div class="home-content-grid">
     <section class="home-section home-section--featured" aria-labelledby="featured-heading">
@@ -154,18 +151,6 @@
       {{ end }}
     </section>
 
-    <section class="home-section home-section--topics" aria-labelledby="topics-heading">
-      <h2 class="home-section__title" id="topics-heading">Top Topics</h2>
-      {{ if gt (len $topicItems) 0 }}
-        <div class="topic-pill-cloud">
-          {{ range $topicItems }}
-            <a class="topic-pill" href="{{ .url }}">{{ upper .name }} ({{ .count }})</a>
-          {{ end }}
-        </div>
-      {{ else }}
-        <p class="home-section__empty">Publish content with categories to activate topic discovery.</p>
-      {{ end }}
-    </section>
   </div>
 
   <section class="home-newsletter" aria-labelledby="home-newsletter-heading">

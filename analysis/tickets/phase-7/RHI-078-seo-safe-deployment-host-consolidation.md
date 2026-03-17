@@ -13,7 +13,7 @@
 
 ### Goal
 
-Verify that SEO deployment behavior is safe in both artifact modes: the preview deployment on `https://taurgis.github.io/rhino-inquisitor-com/` must stay crawlable `noindex` and path-prefix-correct, while the production validation artifact must emit the canonical host (`https://www.rhino-inquisitor.com`) exclusively in canonical tags, sitemap URLs, `robots.txt` references, structured data, and internal absolute links.
+Verify that SEO deployment behavior is safe on the staging domain `staging.rhino-inquisitor.com`. This workstream validates that canonical tags, sitemap, robots, and internal links all point to the correct staging host and use HTTPS exclusively. Production host consolidation (`https://www.rhino-inquisitor.com`) will be validated in a final ticket after staging sign-off.
 
 This workstream produces no new features or configuration — it is a validation and anti-regression gate that must be satisfied on every release candidate before launch. Its outputs are automated checks and a sign-off document confirming the preview host is safe for rehearsal and the production artifact is SEO-safe for cutover.
 
@@ -25,14 +25,14 @@ This workstream produces no new features or configuration — it is a validation
   - [ ] Pages served from `https://taurgis.github.io/rhino-inquisitor-com/` emit crawlable `noindex`
   - [ ] Preview-host canonical, Open Graph, JSON-LD, sitemap, feed, and internal absolute URLs remain self-consistent on the preview host
   - [ ] The `/rhino-inquisitor-com/` path prefix is preserved in preview-host URLs and assets
-- [ ] All canonical tags in the generated production-validation `public/` HTML use the canonical host exclusively:
+- [ ] All canonical tags in the staging-validated `public/` HTML use the staging host exclusively:
   - [ ] No canonical tag contains `github.io` as the host
   - [ ] No canonical tag uses `http://` (all must be `https://`)
-  - [ ] No canonical tag uses the apex host without `www` (`https://rhino-inquisitor.com/...`)
+  - [ ] All canonical tags point to `https://staging.rhino-inquisitor.com`
   - [ ] Verified on: homepage, three most-recent published posts by front matter date, one category page selected from the first alphabetical category slug, and one archive page
-  - [ ] Sampling method and selected URLs are recorded in `migration/phase-7-seo-safety-report.md` for reproducibility
-- [ ] Sitemap output (`public/sitemap.xml` or `public/sitemap_index.xml`, depending on configured generator) uses canonical host exclusively:
-  - [ ] All `<loc>` elements start with `https://www.rhino-inquisitor.com/`
+  - [ ] Sampling method and selected URLs are recorded in `migration/phase-7-seo-safety-staging-report.md` for reproducibility
+- [ ] Sitemap output (`public/sitemap.xml` or `public/sitemap_index.xml`, depending on configured generator) uses staging host exclusively:
+  - [ ] All `<loc>` elements start with `https://staging.rhino-inquisitor.com/`
   - [ ] No `github.io` URLs in sitemap
   - [ ] No HTTP URLs in sitemap
   - [ ] No redirected source paths (legacy URLs from Phase 6 redirect map) appear in sitemap
@@ -61,7 +61,7 @@ This workstream produces no new features or configuration — it is a validation
   - [ ] Reports any `noindex` meta tags found in indexable pages
   - [ ] Exits non-zero on any violation
   - [ ] Is referenced in `package.json` as `npm run check:seo-safe-deploy`
-- [ ] `migration/phase-7-seo-safety-report.md` is committed confirming all checks passed on the release candidate, with the Actions run URL as evidence
+- [ ] `migration/phase-7-seo-safety-staging-report.md` is committed confirming all staging checks passed on the release candidate, with the Actions run URL as evidence
 
 ---
 
@@ -75,8 +75,9 @@ This workstream produces no new features or configuration — it is a validation
 - [ ] Audit canonical tags in generated HTML:
   - [ ] Select sample URLs deterministically: homepage, three most-recent published posts, first alphabetical category page, and archive page
   - [ ] Open each file and verify `<link rel="canonical" href="...">` uses `https://www.rhino-inquisitor.com`
-  - [ ] Search `public/` for any canonical tags with `github.io`: `grep -r 'github.io' public/ --include="*.html" -l`
+  - [ ] Search `public/` for any canonical tags NOT pointing to staging: `grep -r 'canonical.*href.*https://staging.rhino-inquisitor.com' public/ --include="*.html" -L`
   - [ ] Search `public/` for any canonical tags with `http://`: `grep -r 'canonical.*http://' public/ --include="*.html" -l`
+  - [ ] Search `public/` for accidentally-left `www.rhino-inquisitor.com` (production) references: `grep -r 'https://www.rhino-inquisitor.com' public/ --include="*.html" -l`
   - [ ] Fix any violations in SEO partials (RHI-024 outputs)
 - [ ] Audit sitemap:
   - [ ] Parse the generated sitemap file (`public/sitemap.xml` or `public/sitemap_index.xml`) and check all `<loc>` values

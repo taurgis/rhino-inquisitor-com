@@ -13,7 +13,7 @@
 
 ### Goal
 
-Define, document, and validate the incident response and rollback procedures for the DNS cutover, ensuring the team can respond decisively to launch-blocking failures within a bounded time window. Rollback triggers must be unambiguous, rollback steps must be tested before the live cutover, and the previous WordPress production stack must remain rollback-ready through the full stabilization window.
+Define, document, and validate the incident response and rollback procedures for staging DNS cutover, ensuring the team can respond decisively to staging-blocking failures within a bounded time window. Rollback triggers must be unambiguous, rollback steps must be tested before staging cutover, and a clean rollback procedure must be validated by RHI-081.
 
 Rollback capability is not a contingency to think about on launch day — it is a commitment made before the launch window opens. This workstream produces that commitment in the form of a tested rollback procedure and defined incident thresholds.
 
@@ -21,7 +21,7 @@ Rollback capability is not a contingency to think about on launch day — it is 
 
 ### Acceptance Criteria
 
-- [ ] `migration/phase-7-rollback-runbook.md` is committed and contains:
+- [ ] `migration/phase-7-staging-rollback-runbook.md` is committed and contains:
   - [ ] **Rollback trigger definitions** — specific, unambiguous criteria that mandate rollback (not subjective judgment calls):
     - [ ] 5 or more priority routes returning 404 or 5xx after the DNS propagation window closes
     - [ ] Enforce HTTPS unavailable 60 minutes after DNS propagation confirmation with incident impact requiring hold/rollback decision

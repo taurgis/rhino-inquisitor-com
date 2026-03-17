@@ -1,4 +1,9 @@
 {
+  "seo": {
+    "title": "Rhino Inquisitor | Salesforce B2C Commerce Guidance",
+    "description": "Field-tested Salesforce B2C Commerce guidance, release analysis, and migration playbooks for developers, architects, and commerce leaders.",
+    "ogImage": "/images/home/home-social.jpg"
+  },
   "heroTagline": "Field-tested Salesforce B2C Commerce guidance, release analysis, and migration playbooks.",
   "profile": {
     "eyebrow": "About Thomas",

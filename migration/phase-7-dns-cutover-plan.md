@@ -3,192 +3,167 @@
 **Date:** 2026-03-17  
 **Prepared by:** Engineering Owner  
 **Ticket:** RHI-076  
-**Status:** In Progress (plan and command validation complete; external control-plane steps pending)
+**Status:** In Progress (Pages staging configuration and ownership prerequisite confirmed; provider-zone confirmation and final validation pending)
 
 ## Change Summary
 
-This plan defines the production DNS cutover strategy for moving `www.rhino-inquisitor.com` and `rhino-inquisitor.com` to GitHub Pages while preserving the canonical `www` host. It includes target records, T-24 preparation, validation commands, rollback records, and go/no-go controls.
+This plan defines the staging-first DNS cutover strategy for validating `staging.rhino-inquisitor.com` on GitHub Pages before production cutover work. It includes staging target records, execution sequencing, validation commands, rollback, and go/no-go controls.
 
 ## Why This Changed
 
-RHI-076 requires an execution-ready DNS cutover runbook before launch-window execution (RHI-080). Without a committed plan, DNS changes could be performed in the wrong order and increase domain takeover, propagation, and rollback risk.
+RHI-076 is a staging validation gate. Completing these steps on staging reduces production risk and creates a tested procedure for the final production cutover ticket.
 
 ## Behavior Details
 
 ### Previous Behavior
 
 - Phase 7 had a DNS snapshot baseline in `migration/phase-7-dns-snapshot.md`.
-- No dedicated DNS cutover plan existed for GitHub Pages custom-domain execution.
+- There was no staging-focused DNS cutover plan artifact with explicit execution controls.
 
 ### New Behavior
 
-- Phase 7 now has a dedicated DNS cutover plan with target record definitions, preconditions, validation command pack, and rollback procedure.
-- The plan blocks cutover execution until preview-host rehearsal validation and Phase 8 sign-off conditions are met.
+- This artifact now defines staging-only DNS sequencing, validation, rollback, and blocker handling.
+- Production `www`/apex execution remains out of scope for RHI-076 and is deferred to a final production cutover ticket.
 
 ## Scope
 
 In scope:
 
-1. DNS target record strategy for `www` and apex.
-2. GitHub Pages custom-domain and TXT verification preconditions.
-3. T-24 preparation checklist and validation commands.
-4. Rollback record set and rollback procedure.
+1. DNS target record strategy for `staging.rhino-inquisitor.com`.
+2. GitHub Pages custom-domain and TXT verification preconditions for staging.
+3. T-24 checklist and validation commands for staging cutover execution.
+4. Staging rollback procedure.
 
 Out of scope:
 
-1. Live DNS execution during the launch window (RHI-080).
-2. HTTPS issuance and enforcement execution (RHI-077).
+1. Production `www.rhino-inquisitor.com` and apex DNS execution.
+2. Production HTTPS enforcement execution (covered in follow-up tickets after staging sign-off).
 3. CDN/edge configuration changes outside DNS/provider controls.
 
-## Hard Preconditions Before Any DNS Change
+## Hard Preconditions Before Any Staging DNS Change
 
-1. Preview-host rehearsal evidence is complete and approved for `https://taurgis.github.io/rhino-inquisitor-com/`.
-2. Phase 8 sign-off evidence is recorded as go/no-go input for launch execution.
-3. GitHub Pages Settings -> Pages contains custom domain `www.rhino-inquisitor.com`.
-4. Pages settings shows no blocking custom-domain validation errors.
-5. Domain verification TXT `_github-pages-challenge-<owner>` is present in DNS and retained.
-6. Release-candidate CI gate suite is green on the final content snapshot.
+1. Preview-host rehearsal evidence is complete and approved.
+2. Release-candidate CI gate suite is green on the final content snapshot.
+3. GitHub Pages settings are prepared for staging custom-domain setup before DNS mutation.
+4. Domain verification TXT prerequisite assessed: existing account-level domain verification for rhino-inquisitor.com satisfies ownership prerequisite; staging-specific `_github-pages-challenge-<owner>.staging.rhino-inquisitor.com` TXT is required only if GitHub Pages UI explicitly demands it when staging custom domain is entered in Pages settings.
+5. Incident commander, deployment operator, and DNS operator are assigned for the staging window.
 
-## Current DNS State Baseline (Pre-Cutover)
+## Current DNS State Baseline (Staging)
 
-Source: `migration/phase-7-dns-snapshot.md` (2026-03-16), with command revalidation on 2026-03-17.
+Validated on 2026-03-17 UTC.
 
 ### Observed Current Answers
 
-- `www.rhino-inquisitor.com` returns no public CNAME answer and is currently flattened to Cloudflare A/AAAA answers.
-- `rhino-inquisitor.com` currently resolves to Cloudflare A/AAAA answers.
-- `_github-pages-challenge-taurgis.rhino-inquisitor.com` currently returns no TXT answer.
+- `dig @1.1.1.1 staging.rhino-inquisitor.com CNAME +short` -> no direct CNAME answer
+- `dig @8.8.8.8 staging.rhino-inquisitor.com CNAME +short` -> no direct CNAME answer
+- `dig @1.1.1.1 staging.rhino-inquisitor.com A +short` -> `172.67.161.237`, `104.21.15.73`
+- `dig @8.8.8.8 staging.rhino-inquisitor.com A +short` -> `172.67.161.237`, `104.21.15.73`
+- `dig @1.1.1.1 staging.rhino-inquisitor.com AAAA +short` -> `2606:4700:3033::ac43:a1ed`, `2606:4700:3031::6815:f49`
+- `dig @8.8.8.8 staging.rhino-inquisitor.com AAAA +short` -> `2606:4700:3031::6815:f49`, `2606:4700:3033::ac43:a1ed`
+- `dig _github-pages-challenge-taurgis.staging.rhino-inquisitor.com TXT +short` -> no answer
+- `curl -s -o /dev/null -w "%{http_code} %{redirect_url}" https://staging.rhino-inquisitor.com/` -> `200`
 
-## Target DNS Record Set for Cutover
+## Target DNS Record Set for Staging Cutover
 
-Reference source (official): GitHub Pages custom-domain docs (verify again at execution time).
+Reference source (official): GitHub Pages custom-domain documentation.
 
 | Host | Type | Target Value | Notes |
 |------|------|--------------|-------|
-| `www.rhino-inquisitor.com` | `CNAME` | `taurgis.github.io` | Must point to `<owner>.github.io` (no repository suffix). |
-| `rhino-inquisitor.com` | `A` | `185.199.108.153` | GitHub Pages apex IPv4 target set. |
-| `rhino-inquisitor.com` | `A` | `185.199.109.153` | GitHub Pages apex IPv4 target set. |
-| `rhino-inquisitor.com` | `A` | `185.199.110.153` | GitHub Pages apex IPv4 target set. |
-| `rhino-inquisitor.com` | `A` | `185.199.111.153` | GitHub Pages apex IPv4 target set. |
-| `rhino-inquisitor.com` | `AAAA` | `2606:50c0:8000::153` | GitHub Pages apex IPv6 target set. |
-| `rhino-inquisitor.com` | `AAAA` | `2606:50c0:8001::153` | GitHub Pages apex IPv6 target set. |
-| `rhino-inquisitor.com` | `AAAA` | `2606:50c0:8002::153` | GitHub Pages apex IPv6 target set. |
-| `rhino-inquisitor.com` | `AAAA` | `2606:50c0:8003::153` | GitHub Pages apex IPv6 target set. |
-| `_github-pages-challenge-taurgis.rhino-inquisitor.com` | `TXT` | `<value from GitHub domain verification UI>` | Must be present before cutover and kept after verification. |
+| `staging.rhino-inquisitor.com` | `CNAME` | `taurgis.github.io` | Must point to `<owner>.github.io` (no repository suffix). |
+| `_github-pages-challenge-taurgis.staging.rhino-inquisitor.com` | `TXT` | `<value from GitHub domain verification UI>` | Conditional: add only if GitHub Pages UI explicitly demands it when staging custom domain is entered; account-level domain verification for rhino-inquisitor.com satisfies ownership prerequisite. |
 
 ### Conflict Controls
 
-1. No wildcard `*` DNS records that shadow `www` or apex.
-2. No stale `www` A/AAAA records once the `www` CNAME is active.
-3. No duplicate or conflicting apex records that override the target set.
-4. Never point `www` CNAME at apex; always point directly at `taurgis.github.io`.
+1. No wildcard DNS record may shadow `staging.rhino-inquisitor.com`.
+2. No stale `staging` A/AAAA records should remain if staging is configured as CNAME.
+3. Do not point staging CNAME to apex; point directly to `<owner>.github.io`.
 
-## TTL Reduction Plan
+## TTL Management Plan
 
-Operational policy for cutover:
+1. Set staging record TTL to `300` seconds (or provider minimum) at least 24 hours before execution.
+2. Record previous TTL values and timestamp in the Progress Log.
+3. If provider minimum TTL is above `300`, extend preparation lead time.
 
-1. Set TTL to `300` seconds (or lowest supported value) for all affected `www` and apex records at least 24 hours before cutover.
-2. Capture previous TTL values and change timestamp in execution log.
-3. If provider minimum TTL is greater than `300`, extend lead time to 48 hours.
+## T-24 Checklist (Staging)
 
-## T-24 Checklist (Pre-Cutover)
-
-- [ ] Lower DNS TTL on affected records and record before/after values with timestamp.
-- [ ] Confirm preview-host rehearsal evidence is approved.
+- [ ] Confirm staging custom domain is configured in GitHub Pages settings.
+- [ ] If GitHub Pages UI shows a new TXT challenge when staging custom domain is entered, confirm token and add `_github-pages-challenge-taurgis.staging.rhino-inquisitor.com`; otherwise this step is satisfied by existing account-level domain verification.
+- [ ] Set/confirm staging DNS TTL target.
 - [ ] Re-run release-candidate CI and confirm all required gates pass.
-- [ ] Confirm custom domain is set in Pages settings with no blocking errors.
-- [ ] Confirm `_github-pages-challenge-<owner>` TXT record is present.
-- [ ] Confirm deploy workflow readiness from RHI-074 and RHI-075 evidence.
-- [ ] Confirm incident commander, deployment operator, and DNS operator availability.
+- [ ] Confirm operator availability and rollback authority.
 
-## Cutover Steps (Execution in RHI-080)
+## Cutover Steps (Staging Validation)
 
-1. Verify custom domain is already configured in GitHub Pages settings.
-2. Verify TXT ownership record exists in DNS.
-3. Apply `www` CNAME to `taurgis.github.io`.
-4. Apply apex A and AAAA record set to GitHub Pages values.
-5. Remove conflicting wildcard or stale `www` A/AAAA records.
-6. Validate records from Cloudflare and Google public resolvers.
-7. Validate production host response behavior and canonical host consolidation.
-8. Keep monitoring until both resolvers are stable at target values.
+1. Configure staging custom domain in GitHub Pages settings first.
+2. If GitHub Pages UI demanded a staging-specific TXT challenge after Step 1, create `_github-pages-challenge-<owner>.staging.rhino-inquisitor.com` TXT record (conditional: account-level domain verification for rhino-inquisitor.com may satisfy this without a new record).
+3. Apply `staging.rhino-inquisitor.com` CNAME to `<owner>.github.io`.
+4. Validate record convergence from Cloudflare and Google resolvers.
+5. Validate staging host response behavior and canonical signals.
+6. Record evidence and sign-off before production ticket proceeds.
 
 ## Validation Commands
 
-### Required Resolver Checks
+### Required Checks
 
-1. `dig @1.1.1.1 www.rhino-inquisitor.com CNAME +short`
-2. `dig @8.8.8.8 www.rhino-inquisitor.com CNAME +short`
-3. `dig @1.1.1.1 rhino-inquisitor.com A +short`
-4. `dig @8.8.8.8 rhino-inquisitor.com A +short`
-5. `dig @1.1.1.1 rhino-inquisitor.com AAAA +short`
-6. `dig @8.8.8.8 rhino-inquisitor.com AAAA +short`
-7. `dig _github-pages-challenge-<owner>.rhino-inquisitor.com TXT +short`
-8. `curl -s -o /dev/null -w "%{http_code} %{redirect_url}" https://www.rhino-inquisitor.com/`
+1. `dig @1.1.1.1 staging.rhino-inquisitor.com CNAME +short`
+2. `dig @8.8.8.8 staging.rhino-inquisitor.com CNAME +short`
+3. `dig @1.1.1.1 staging.rhino-inquisitor.com A +short`
+4. `dig @8.8.8.8 staging.rhino-inquisitor.com A +short`
+5. `dig @1.1.1.1 staging.rhino-inquisitor.com AAAA +short`
+6. `dig @8.8.8.8 staging.rhino-inquisitor.com AAAA +short`
+7. `dig _github-pages-challenge-taurgis.staging.rhino-inquisitor.com TXT +short`
+8. `curl -s -o /dev/null -w "%{http_code} %{redirect_url}" https://staging.rhino-inquisitor.com/`
 
-### Command Pre-Test Evidence (Current State)
+### Notes on CNAME Visibility
 
-Captured on 2026-03-17 UTC:
-
-- `dig @1.1.1.1 www.rhino-inquisitor.com CNAME +short` -> no response (flattened at provider edge)
-- `dig @8.8.8.8 www.rhino-inquisitor.com CNAME +short` -> no response (flattened at provider edge)
-- `dig @1.1.1.1 rhino-inquisitor.com A +short` -> `104.21.15.73`, `172.67.161.237`
-- `dig @8.8.8.8 rhino-inquisitor.com A +short` -> `172.67.161.237`, `104.21.15.73`
-- `dig @1.1.1.1 rhino-inquisitor.com AAAA +short` -> `2606:4700:3033::ac43:a1ed`, `2606:4700:3031::6815:f49`
-- `dig @8.8.8.8 rhino-inquisitor.com AAAA +short` -> `2606:4700:3033::ac43:a1ed`, `2606:4700:3031::6815:f49`
-- `dig _github-pages-challenge-taurgis.rhino-inquisitor.com TXT +short` -> no response
-- `curl -s -o /dev/null -w "%{http_code} %{redirect_url}" https://www.rhino-inquisitor.com/` -> `200`
+If DNS proxy/flattening is enabled at the provider, direct CNAME output may be empty even when staging resolves correctly. In that case, convergence must be judged by resolver A/AAAA behavior plus host-response checks and provider-zone confirmation.
 
 ## Propagation Monitoring and Decision Window
 
 1. Use both `@1.1.1.1` and `@8.8.8.8` as independent resolver checks.
-2. Treat DNS as converged only when both resolvers return expected targets for `www` and apex.
-3. Expected stabilization under lowered TTL is usually short, but official guidance allows up to 24 hours.
-4. If resolver mismatch persists beyond expected TTL windows, hold launch completion and evaluate rollback thresholds.
+2. Treat staging as converged when resolver behavior and host checks are stable and consistent with target configuration.
+3. Expect variability based on provider proxy/flattening behavior.
+4. If mismatch persists beyond expected windows, hold sign-off and evaluate rollback.
 
-## DNS Rollback Record Set (Restore Baseline)
+## DNS Rollback Record Set (Staging)
 
-Rollback source of truth: `migration/phase-7-dns-snapshot.md`.
-
-| Host | Type | Restore Values |
+| Host | Type | Restore Action |
 |------|------|----------------|
-| `www.rhino-inquisitor.com` | `A` | `172.67.161.237`, `104.21.15.73` |
-| `www.rhino-inquisitor.com` | `AAAA` | `2606:4700:3031::6815:f49`, `2606:4700:3033::ac43:a1ed` |
-| `rhino-inquisitor.com` | `A` | `104.21.15.73`, `172.67.161.237` |
-| `rhino-inquisitor.com` | `AAAA` | `2606:4700:3033::ac43:a1ed`, `2606:4700:3031::6815:f49` |
+| `staging.rhino-inquisitor.com` | `CNAME` | Remove or restore previous value |
+| `_github-pages-challenge-taurgis.staging.rhino-inquisitor.com` | `TXT` | Keep in place to preserve GitHub domain verification protection |
 
-## Rollback Procedure
+## Rollback Procedure (Staging)
 
-1. Trigger rollback if required resolver checks do not converge or if production host behavior is unsafe.
-2. Restore baseline A/AAAA record values from rollback table.
-3. Re-run resolver checks from Cloudflare and Google.
-4. Confirm expected host behavior is restored.
-5. Log rollback time, reason, and operator.
+1. Trigger rollback on unresolved convergence or unsafe staging behavior.
+2. Remove/revert staging CNAME to pre-cutover state.
+3. Re-run resolver checks.
+4. Confirm staging host behavior matches rollback expectation.
+5. Record rollback timestamp, reason, and owner.
 
-## Go/No-Go Criteria
+## Go/No-Go Criteria (Staging)
 
 ### Go
 
 - All hard preconditions are satisfied.
-- Both resolvers return target DNS values.
-- Production host behavior checks pass.
+- Resolver and host checks are consistent.
+- Staging canonical/metadata checks pass.
 
 ### No-Go / Hold
 
-- Custom-domain or TXT ownership checks are unresolved.
-- Resolver values are inconsistent across public resolvers.
-- Release-candidate gates are not green.
+- Custom-domain DNS checks are unresolved or Pages custom-domain entry shows a blocking error.
+- Resolver behavior is inconsistent or unstable.
+- Required gate suite is not green.
 
 ### Rollback Evaluate
 
 - Persistent resolver mismatch after wait threshold.
-- Host behavior indicates unsafe serving state.
-- HTTPS or host-consolidation checks fail at launch threshold.
+- Staging host behavior is unsafe or inconsistent with expected artifact.
 
 ## Open Blockers
 
-1. GitHub Pages custom-domain settings validation requires repository settings access.
-2. Domain verification TXT creation/confirmation requires DNS provider write access.
-3. Wildcard and stale-record conflict audit requires DNS zone-level access.
+1. Provider-zone confirmation is required when CNAME output is flattened and direct public resolver CNAME answers are empty.
+2. DNS challenge TXT remains conditional only if GitHub Pages later presents a staging-specific verification demand; current owner confirmation treats existing account-level domain verification as sufficient.
+3. Final staging validation and sign-off remain open.
 
 ## Related Files
 

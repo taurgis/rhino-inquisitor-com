@@ -1,4 +1,4 @@
-## RHI-080 · Workstream G — Production Cutover Execution Runbook
+## RHI-080 · Workstream G — Staging Cutover Execution Runbook
 
 **Status:** Open  
 **Priority:** Critical  
@@ -13,16 +13,18 @@
 
 ### Goal
 
-Produce a complete, step-by-step production cutover execution runbook that can be followed by the migration team on cutover day without improvisation. The runbook must begin from the assumption that preview-host rehearsal and Phase 8 validation have already passed on `https://taurgis.github.io/rhino-inquisitor-com/`, then define every production action from T-7 days to T+24 hours.
+Produce a complete, step-by-step staging cutover execution runbook that can be followed by the migration team on staging cutover day without improvisation. The runbook must begin from the assumption that preview-host rehearsal and Phase 7 workstream validation have already passed, then define every staging action from T-7 days to T+24 hours.
 
-The runbook must be reviewed and validated against a dry-run deploy before the launch window is scheduled. A runbook that has not been tested is not a runbook — it is a wish list.
+This staging runbook is a precursor to the final production cutover. After staging cutover is complete and sign-off is recorded, a separate final ticket will execute the same procedures against production `www.rhino-inquisitor.com` and the apex domain.
+
+The runbook must be reviewed and validated against a dry-run deploy before the staging cutover window is scheduled. A runbook that has not been tested is not a runbook — it is a wish list.
 
 ---
 
 ### Acceptance Criteria
 
-- [ ] `migration/phase-7-launch-runbook.md` is committed and contains all of the following sections:
-  - [ ] **Preview rehearsal prerequisites**: required preview-host validation evidence and Phase 8 sign-off inputs before T-7 planning begins
+- [ ] `migration/phase-7-staging-launch-runbook.md` is committed and contains all of the following sections:
+  - [ ] **Phase 7 staging validation prerequisites**: required Phase 7 workstream completion and sign-off evidence before T-7 planning begins
   - [ ] **T-7 to T-2 days**: pre-launch preparation checklist
   - [ ] **T-24 hours**: final preparation actions (exact commands and steps)
   - [ ] **T-0 cutover**: ordered step-by-step cutover sequence with owner per step
@@ -32,27 +34,27 @@ The runbook must be reviewed and validated against a dry-run deploy before the l
   - [ ] **Smoke test checklist**: exact URLs to verify with expected HTTP status codes and canonical values
   - [ ] **Escalation path**: who to contact if a gate fails or a rollback trigger is met
 - [ ] T-0 cutover sequence is fully specified with exact steps and owners:
-  - [ ] Confirm preview-host rehearsal evidence and Phase 8 go/no-go approval are complete
-  - [ ] Deploy the production release candidate artifact to Pages (`workflow_dispatch` or push to release branch)
+  - [ ] Confirm all Phase 7 workstream tickets are Done
+  - [ ] Deploy the staging release candidate artifact to Pages (`workflow_dispatch` or push to release branch)
   - [ ] Verify all quality gates pass in CI
-  - [ ] Apply DNS changes (exact records from `migration/phase-7-dns-cutover-plan.md`)
+  - [ ] Apply DNS changes for staging (CNAME: `staging.rhino-inquisitor.com` → `taurgis.github.io`, TXT: `_github-pages-challenge-staging`)
   - [ ] Monitor DNS propagation using Cloudflare (`@1.1.1.1`) and Google (`@8.8.8.8`) resolvers
-  - [ ] Verify Pages serves the correct artifact at `www.rhino-inquisitor.com`
-  - [ ] Monitor HTTPS certificate issuance status in Pages settings
+  - [ ] Verify Pages serves the correct artifact at `staging.rhino-inquisitor.com`
+  - [ ] Monitor HTTPS certificate issuance status in Pages settings for staging domain
   - [ ] Enable Enforce HTTPS once certificate is issued
-  - [ ] Run smoke tests against the live domain
-  - [ ] Confirm canonical, sitemap, and robots.txt on live domain
-  - [ ] Record launch completion in Progress Log with timestamp
+  - [ ] Run smoke tests against the staging domain
+  - [ ] Confirm canonical, sitemap, and robots.txt on staging domain
+  - [ ] Record staging launch completion in Progress Log with timestamp
 - [ ] Smoke test checklist specifies the following with expected HTTP status and canonical URL:
-  - [ ] `https://www.rhino-inquisitor.com/` — homepage (HTTP 200, canonical `https://www.rhino-inquisitor.com/`)
-  - [ ] Three recent post URLs (defined as the three most-recent published posts by front matter date) — (HTTP 200, expected canonical)
+  - [ ] `https://staging.rhino-inquisitor.com/` — homepage (HTTP 200, canonical `https://staging.rhino-inquisitor.com/`)
+  - [ ] Three recent post URLs (defined as the three most-recent published posts by front matter date) — (HTTP 200, expected canonical `https://staging.rhino-inquisitor.com/...`)
   - [ ] `/archive/` or equivalent archive page — (HTTP 200 or redirect to existing equivalent)
-  - [ ] Three category page URLs (defined as the first three alphabetical category slugs with live pages) — (HTTP 200, expected canonical)
+  - [ ] Three category page URLs (defined as the first three alphabetical category slugs with live pages) — (HTTP 200, expected canonical `https://staging.rhino-inquisitor.com/...`)
   - [ ] `/privacy-policy/` or equivalent — (HTTP 200)
-  - [ ] At least one top legacy inbound URL from Phase 6 redirect map (highest-priority legacy URL marked `high` or `critical`) — correct redirect behavior
+  - [ ] At least one top legacy inbound URL resolved through redirect map logic — correct redirect behavior to canonical staging path
   - [ ] Canonical sitemap endpoint (`/sitemap.xml` or `/sitemap_index.xml`, per configuration) — (HTTP 200, XML content)
-  - [ ] `https://www.rhino-inquisitor.com/robots.txt` — (HTTP 200, correct Sitemap directive)
-  - [ ] HTTP-to-HTTPS redirect: `http://www.rhino-inquisitor.com/` → `https://www.rhino-inquisitor.com/` (HTTP 301)
+  - [ ] `https://staging.rhino-inquisitor.com/robots.txt` — (HTTP 200, correct Sitemap directive)
+  - [ ] HTTP-to-HTTPS redirect: `http://staging.rhino-inquisitor.com/` → `https://staging.rhino-inquisitor.com/` (HTTP 301)
 - [ ] Dry-run validation is complete:
   - [ ] Dry-run deploy was performed using `workflow_dispatch` to the `github-pages` environment
   - [ ] All quality gates passed in the dry-run CI run
@@ -95,9 +97,10 @@ The runbook must be reviewed and validated against a dry-run deploy before the l
   - [ ] Escalation trigger: if 404 rate exceeds 5% of requests in first 2 hours, trigger incident response
 - [ ] Define go/no-go criteria at each phase transition
 - [ ] Build owner table (incident commander, deployment operator, DNS operator, SEO monitor)
-- [ ] Perform dry-run deploy via `workflow_dispatch`:
+- [ ] Perform dry-run deploy for staging via `workflow_dispatch`:
   - [ ] Confirm all gates pass
   - [ ] Confirm Pages deployment URL is accessible
+  - [ ] Note: Production cutover runbook will be created as a final ticket after staging sign-off, using this staging runbook as a validated template
   - [ ] Walk through smoke test steps against the dry-run Pages URL
   - [ ] Record run URL in Progress Log
 - [ ] Review runbook with SEO owner and engineering owner

@@ -85,10 +85,10 @@ TBT is used as the lab proxy for INP because Lighthouse does not measure real IN
 The baseline performance gate runs on:
 
 - `/`
-- `/phase-3-performance-baseline/`
-- `/category/platform/`
+- `/sending-emails-from-sfcc/`
+- `/category/technical/`
 
-These routes are generated from scaffold-owned fixture content so the gate stays deterministic.
+These routes cover the homepage, a production article route, and a taxonomy route so the gate stays representative without depending on scaffold-only fixture content.
 
 ## Validation commands
 
