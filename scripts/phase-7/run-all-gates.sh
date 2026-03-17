@@ -105,6 +105,9 @@ run_gate() {
   fi
 
   echo "FAIL: $gate_name" >&2
+  if [[ -n "${GITHUB_ACTIONS:-}" ]]; then
+    printf '::error title=Phase 7 gate failed::%s\n' "$gate_name"
+  fi
   append_summary_row "$gate_name" "$gate_command" "fail" "Blocking gate failed. Review workflow or local command output for the failing file or URL."
   return 1
 }
