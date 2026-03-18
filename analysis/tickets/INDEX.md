@@ -102,13 +102,13 @@ This is the top-level ticket index for the full migration project. Use the phase
 | [RHI-071](phase-6/RHI-071-cutover-readiness-rollback-design.md) | Workstream I — Cutover Readiness and Rollback Design | 6 | Critical | Open | M | 2026-05-16 |
 | [RHI-072](phase-6/RHI-072-phase-6-signoff.md) | Phase 6 Sign-off and Handover to Phase 7/8 | 6 | Critical | Done | S | 2026-05-19 |
 | [RHI-073](phase-7/RHI-073-phase-7-bootstrap.md) | Phase 7 Bootstrap: Kickoff and Deployment Environment Setup | 7 | Critical | Done | S | 2026-05-20 |
-| [RHI-074](phase-7/RHI-074-deployment-workflow-architecture.md) | Workstream A — Deployment Workflow Architecture | 7 | Critical | Open | M | 2026-05-21 |
+| [RHI-074](phase-7/RHI-074-deployment-workflow-architecture.md) | Workstream A — Deployment Workflow Architecture | 7 | Critical | Done | M | 2026-05-21 |
 | [RHI-075](phase-7/RHI-075-artifact-integrity-build-limits.md) | Workstream B — Artifact Integrity and Build Limits | 7 | High | Done | M | 2026-05-22 |
 | [RHI-076](phase-7/RHI-076-domain-dns-cutover-strategy.md) | Workstream C — Domain and DNS Cutover Strategy | 7 | Critical | Done | L | 2026-05-23 |
 | [RHI-077](phase-7/RHI-077-https-issuance-security-controls.md) | Workstream D — HTTPS Issuance and Security Controls | 7 | High | Done | M | 2026-05-26 |
-| [RHI-078](phase-7/RHI-078-seo-safe-deployment-host-consolidation.md) | Workstream E — SEO-Safe Deployment and Host Consolidation | 7 | Critical | Open | M | 2026-05-27 |
-| [RHI-079](phase-7/RHI-079-deployment-quality-gates-tooling.md) | Workstream F — Deployment Quality Gates and Tooling | 7 | Critical | Open | M | 2026-05-28 |
-| [RHI-080](phase-7/RHI-080-launch-window-execution-runbook.md) | Workstream G — Production Cutover Execution Runbook | 7 | Critical | Open | M | 2026-05-29 |
+| [RHI-078](phase-7/RHI-078-seo-safe-deployment-host-consolidation.md) | Workstream E — SEO-Safe Deployment and Host Consolidation | 7 | Critical | Done | M | 2026-05-27 |
+| [RHI-079](phase-7/RHI-079-deployment-quality-gates-tooling.md) | Workstream F — Deployment Quality Gates and Tooling | 7 | Critical | Done | M | 2026-05-28 |
+| [RHI-080](phase-7/RHI-080-launch-window-execution-runbook.md) | Workstream G — Staging Cutover Execution Runbook | 7 | Critical | Done | M | 2026-05-29 |
 | [RHI-081](phase-7/RHI-081-incident-response-rollback.md) | Workstream H — Incident Response and Rollback | 7 | Critical | Open | M | 2026-05-30 |
 | [RHI-082](phase-7/RHI-082-phase-7-signoff.md) | Phase 7 Sign-off and Handover to Phase 8/9 | 7 | Critical | Open | S | 2026-06-02 |
 | [RHI-083](phase-8/RHI-083-phase-8-bootstrap.md) | Phase 8 Bootstrap: Kickoff and Validation Environment Setup | 8 | Critical | Open | S | 2026-06-03 |

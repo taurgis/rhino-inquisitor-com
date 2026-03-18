@@ -36,7 +36,7 @@ Success means the canonical host responds correctly, HTTPS is enforced, priority
 
 **T-0 execution:**
 - [ ] Release artifact deployed from `phase-8-rc-v1` tag via GitHub Actions
-- [ ] DNS A/CNAME records updated per Phase 7 runbook (`migration/phase-7-launch-runbook.md`)
+- [ ] DNS A/CNAME records updated per the validated Phase 7 staging runbook template (`migration/phase-7-staging-launch-runbook.md`) and the production adaptation agreed for the launch window
 - [ ] DNS propagation verified using explicit public resolvers:
   - [ ] `dig @1.1.1.1 www.rhino-inquisitor.com CNAME +short`
   - [ ] `dig @8.8.8.8 www.rhino-inquisitor.com CNAME +short`
@@ -88,7 +88,7 @@ Success means the canonical host responds correctly, HTTPS is enforced, priority
 **T-0 execution:**
 - [ ] Deploy release artifact by triggering GitHub Actions `deploy-pages.yml` workflow from `phase-8-rc-v1`
 - [ ] Confirm deployment workflow completes successfully; record Actions run URL in cutover log
-- [ ] Update DNS A/CNAME records at provider per `migration/phase-7-launch-runbook.md`
+- [ ] Update DNS A/CNAME records at provider per the production adaptation of `migration/phase-7-staging-launch-runbook.md`
 - [ ] Record DNS change timestamps and operator name in `monitoring/launch-cutover-log.md`
 - [ ] Wait for DNS propagation (check TTL; verify using `@1.1.1.1` and `@8.8.8.8` checks listed in acceptance criteria)
 
@@ -133,7 +133,7 @@ Success means the canonical host responds correctly, HTTPS is enforced, priority
 | Dependency | Type | Status |
 |------------|------|--------|
 | RHI-093 Done — Phase 9 Bootstrap complete; all roles assigned and tooling confirmed | Ticket | Pending |
-| `migration/phase-7-launch-runbook.md` committed (DNS steps) | Phase | Pending |
+| `migration/phase-7-staging-launch-runbook.md` committed and accepted as the production-cutover template | Phase | Pending |
 | `migration/phase-7-rollback-runbook.md` committed and drilled | Phase | Pending |
 | `CUTOVER-VERIFICATION-CHECKLIST.md` committed and ready | Phase | Pending |
 | `phase-8-rc-v1` git tag set on validated RC commit | Phase | Pending |

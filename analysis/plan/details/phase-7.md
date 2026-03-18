@@ -1,9 +1,9 @@
-# Phase 7 Detailed Plan: GitHub Pages Preview Deployment and Domain Cutover
+# Phase 7 Detailed Plan: GitHub Pages Preview Deployment and Staging Cutover Readiness
 
 ## Purpose
-Deploy the migrated Hugo site first to the GitHub Pages project URL `https://taurgis.github.io/rhino-inquisitor-com/` for public rehearsal, then execute a controlled custom-domain cutover to https://www.rhino-inquisitor.com with minimal SEO risk, minimal downtime, and explicit rollback safety.
+Deploy the migrated Hugo site first to the GitHub Pages project URL `https://taurgis.github.io/rhino-inquisitor-com/` for public rehearsal, then execute a controlled staging custom-domain cutover to `https://staging.rhino-inquisitor.com/` with minimal SEO risk, minimal downtime, and explicit rollback safety before final production DNS cutover.
 
-Phase 7 converts the migration build output into production traffic serving. This is the highest blast-radius phase because deployment, DNS, HTTPS, canonical host behavior, and redirect behavior all converge here.
+Phase 7 validates the deployment, DNS, HTTPS, canonical host behavior, and rollback choreography needed before Phase 9 executes live production traffic cutover on `https://www.rhino-inquisitor.com/`.
 
 ## Why Phase 7 Is High Risk
 1. A technically successful build can still fail at launch if DNS, domain settings, or artifact shape is wrong.
@@ -23,8 +23,8 @@ Phase 7 consumes:
 4. [phase-6.md](phase-6.md): URL preservation map, redirect architecture decision, parity gate policy.
 
 Phase 7 enables:
-1. Phase 8 launch-readiness validation on live infrastructure.
-2. Phase 9 post-launch monitoring and stabilization.
+1. Phase 8 launch-readiness validation on staging-backed infrastructure and the production artifact.
+2. Phase 9 live production cutover and post-launch monitoring.
 
 ## Scope
 In scope:
@@ -32,10 +32,10 @@ In scope:
 2. Workflow permissions, environment protections, and deployment guardrails.
 3. Artifact integrity constraints for Pages compatibility.
 4. Preview-host rehearsal deployment and validation before custom-domain changes.
-5. Custom domain configuration and DNS cutover execution.
+5. Custom domain configuration and staging DNS cutover execution.
 6. HTTPS issuance and enforcement readiness.
-7. SEO-safe host canonicalization during cutover.
-8. Launch-day runbook, smoke tests, rollback strategy, and incident thresholds.
+7. SEO-safe host canonicalization during staging cutover and production artifact validation.
+8. Staging launch runbook, smoke tests, rollback strategy, and production handoff criteria.
 
 Out of scope:
 1. Bulk migration transformation internals (Phase 4).
@@ -246,7 +246,7 @@ Acceptance criteria:
 2. Gate outputs are archived as deployment artifacts for auditability.
 
 ## Workstream G: Launch Window Execution Runbook
-Goal: perform cutover in a predictable sequence with clear owner accountability.
+Goal: perform staging custom-domain cutover in a predictable sequence with clear owner accountability, then hand off validated production choreography to the later live cutover ticket.
 
 T-7 to T-2 days:
 1. Freeze workflow design and permissions.
@@ -262,8 +262,8 @@ T-24 hours:
 4. Re-run release candidate CI with final content snapshot.
 
 T-0 cutover:
-1. Deploy the signed production release candidate artifact.
-2. Apply DNS changes.
+1. Deploy the signed staging rehearsal artifact.
+2. Apply staging DNS changes.
 3. Monitor propagation and Pages health indicators.
 4. Run smoke tests using deterministic selection rules:
 4.1. homepage
@@ -271,13 +271,13 @@ T-0 cutover:
 4.3. archive
 4.4. first three alphabetical category pages
 4.5. privacy-policy
-5. Confirm canonical and sitemap on live host.
+5. Confirm canonical, robots, sitemap, and blocked crawl-state on the staging host.
 
 T+1 to T+24 hours:
-1. Track 404 spikes and crawl anomalies.
+1. Track 404 spikes and crawl anomalies on the staging host.
 2. Validate HTTPS enforcement and mixed-content absence.
-3. Re-run parity checks against live domain.
-4. Escalate if incident thresholds are crossed.
+3. Re-run parity and SEO-safety checks against the staging host and production artifact set.
+4. Record production handoff notes and escalate if incident thresholds are crossed.
 
 ## Workstream H: Incident Response and Rollback
 Goal: bound migration risk with predefined, executable fallback options.
@@ -309,15 +309,15 @@ Acceptance criteria:
 2. `.github/workflows/deploy-pages.yml` production workflow with protected environment.
 3. Preview-host rehearsal validation record for `https://taurgis.github.io/rhino-inquisitor-com/`.
 4. DNS change record and rollback snapshot.
-5. Launch checklist and signed runbook.
-6. Deployment validation report bundle (preview gates + production artifact checks + smoke tests + DNS/HTTPS checks).
+5. Staging launch checklist and signed runbook.
+6. Deployment validation report bundle (preview gates + production artifact checks + staging smoke tests + DNS/HTTPS checks + production handoff notes).
 
 ## Definition of Done
-1. Deployment pipeline publishes the preview rehearsal artifact successfully to GitHub Pages from the protected workflow and validates the production artifact separately before launch.
-2. Custom domain `www.rhino-inquisitor.com` is active, verified, and serving over HTTPS.
-3. Canonical host and sitemap consistency checks pass on live domain.
+1. Deployment pipeline publishes the preview rehearsal artifact successfully to GitHub Pages from the protected workflow and validates the production artifact separately before future production launch.
+2. Custom domain `staging.rhino-inquisitor.com` is active, verified, and serving over HTTPS.
+3. Staging canonical, robots, and sitemap consistency checks pass on the live staging domain while the production artifact remains free of preview/staging leakage.
 4. URL parity and redirect gates pass with zero release-blocking defects.
-5. Launch smoke tests pass for all critical routes.
+5. Staging smoke tests pass for all critical routes.
 6. Rollback path is tested and documented.
 
 ## Official References Incorporated

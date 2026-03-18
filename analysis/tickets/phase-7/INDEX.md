@@ -18,9 +18,9 @@
 | [RHI-075](RHI-075-artifact-integrity-build-limits.md) | Workstream B — Artifact Integrity and Build Limits | WS-B | High | Done | M | 2026-05-22 | RHI-073 |
 | [RHI-076](RHI-076-domain-dns-cutover-strategy.md) | Workstream C — Domain and DNS Cutover Strategy | WS-C | Critical | Done | L | 2026-05-23 | RHI-074 |
 | [RHI-077](RHI-077-https-issuance-security-controls.md) | Workstream D — HTTPS Issuance and Security Controls | WS-D | High | Done | M | 2026-05-26 | RHI-076 |
-| [RHI-078](RHI-078-seo-safe-deployment-host-consolidation.md) | Workstream E — SEO-Safe Deployment and Host Consolidation | WS-E | Critical | Open | M | 2026-05-27 | RHI-074 |
-| [RHI-079](RHI-079-deployment-quality-gates-tooling.md) | Workstream F — Deployment Quality Gates and Tooling | WS-F | Critical | Open | M | 2026-05-28 | RHI-074, RHI-075, RHI-078 |
-| [RHI-080](RHI-080-launch-window-execution-runbook.md) | Workstream G — Production Cutover Execution Runbook | WS-G | Critical | Open | M | 2026-05-29 | RHI-076, RHI-077, RHI-079 |
+| [RHI-078](RHI-078-seo-safe-deployment-host-consolidation.md) | Workstream E — SEO-Safe Deployment and Host Consolidation | WS-E | Critical | Done | M | 2026-05-27 | RHI-074 |
+| [RHI-079](RHI-079-deployment-quality-gates-tooling.md) | Workstream F — Deployment Quality Gates and Tooling | WS-F | Critical | Done | M | 2026-05-28 | RHI-074, RHI-075, RHI-078 |
+| [RHI-080](RHI-080-launch-window-execution-runbook.md) | Workstream G — Staging Cutover Execution Runbook | WS-G | Critical | Done | M | 2026-05-29 | RHI-076, RHI-077, RHI-079 |
 | [RHI-081](RHI-081-incident-response-rollback.md) | Workstream H — Incident Response and Rollback | WS-H | Critical | Open | M | 2026-05-30 | RHI-080 |
 | [RHI-082](RHI-082-phase-7-signoff.md) | Phase 7 Sign-off and Handover to Phase 8/9 | Sign-off | Critical | Open | S | 2026-06-02 | RHI-073 through RHI-081 |
 
@@ -66,7 +66,7 @@ RHI-072 (Phase 6 Sign-off)
 | WS-E | RHI-078 | SEO-safe deployment and host consolidation | Day 3–4 |
 | WS-D | RHI-077 | HTTPS issuance and security controls | Day 4–5 |
 | WS-F | RHI-079 | Deployment quality gates and tooling | Day 5–6 |
-| WS-G | RHI-080 | Production cutover execution runbook | Day 6–7 |
+| WS-G | RHI-080 | Staging cutover execution runbook | Day 6–7 |
 | WS-H | RHI-081 | Incident response and rollback | Day 7–8 |
 | Sign-off | RHI-082 | Phase 7 sign-off and Phase 8/9 handover | Day 9–10 |
 
@@ -88,7 +88,7 @@ RHI-072 (Phase 6 Sign-off)
 | Local gate runner convenience script | RHI-079 | `scripts/phase-7/run-all-gates.sh` |
 | Gate summary CSV schema | RHI-079 | `migration/reports/phase-7-gate-summary.csv` |
 | Lighthouse CI configuration | RHI-079 | `lighthouserc.js` |
-| Production cutover execution runbook | RHI-080 | `migration/phase-7-launch-runbook.md` |
+| Staging cutover execution runbook | RHI-080 | `migration/phase-7-staging-launch-runbook.md` |
 | Rollback runbook | RHI-081 | `migration/phase-7-rollback-runbook.md` |
 | Incident log template | RHI-081 | `migration/phase-7-incident-log.md` |
 | Phase 7 sign-off document | RHI-082 | `migration/phase-7-signoff.md` |
@@ -125,8 +125,8 @@ All items below must be complete before Phase 8 validation and Phase 9 monitorin
 - [ ] RHI-076 Done — DNS cutover plan complete; preview-rehearsal preconditions defined; custom-domain and domain-verification steps ready for execution
 - [ ] RHI-077 Done — CAA records audited; mixed-content gate operational; HTTPS monitoring checklist committed
 - [x] RHI-078 Done — Project-host rehearsal safeguards and blocked staging-host SEO safety checks passing; staging SEO safety report committed
-- [ ] RHI-079 Done — All quality gates integrated and passing on release candidate; gate reports archived
-- [ ] RHI-080 Done — Production cutover runbook committed; preview prerequisites and dry-run validated; smoke test checklist defined
+- [x] RHI-079 Done — All quality gates integrated and passing on release candidate; gate reports archived
+- [x] RHI-080 Done — Staging cutover runbook committed; preview prerequisites and dry-run validated; smoke test checklist defined
 - [ ] RHI-081 Done — Rollback runbook committed and dry-run validated; WordPress stack confirmed rollback-ready; incident log template committed
 - [ ] RHI-082 Done — Preview-host rehearsal evidence archived; production cutover strategy accepted; stakeholder sign-off recorded; Phase 8/9 handover acknowledged
 
