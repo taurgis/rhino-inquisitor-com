@@ -134,7 +134,7 @@ Success means the canonical host responds correctly, HTTPS is enforced, priority
 |------------|------|--------|
 | RHI-093 Done — Phase 9 Bootstrap complete; all roles assigned and tooling confirmed | Ticket | Pending |
 | `migration/phase-7-staging-launch-runbook.md` committed and accepted as the production-cutover template | Phase | Pending |
-| `migration/phase-7-rollback-runbook.md` committed and drilled | Phase | Pending |
+| `migration/phase-7-staging-rollback-runbook.md` committed and drilled | Phase | Pending |
 | `CUTOVER-VERIFICATION-CHECKLIST.md` committed and ready | Phase | Pending |
 | `phase-8-rc-v1` git tag set on validated RC commit | Phase | Pending |
 | GitHub Pages custom domain and HTTPS healthy | Infra | Pending |

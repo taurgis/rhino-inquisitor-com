@@ -7,7 +7,7 @@
 **Assigned to:** Migration Owner  
 **Target date:** 2026-06-02  
 **Created:** 2026-03-07  
-**Updated:** 2026-03-09
+**Updated:** 2026-03-19
 
 ---
 
@@ -21,16 +21,16 @@ This staging sign-off gates the creation of a final production cutover ticket co
 
 ### Acceptance Criteria
 
-- [ ] All Phase 7 workstream tickets are `Done`:
-  - [ ] RHI-073 Done — Phase 7 Bootstrap complete
-  - [ ] RHI-074 Done — Deployment workflow architecture complete and tested
-  - [ ] RHI-075 Done — Artifact integrity and build limits gate operational
-  - [ ] RHI-076 Done — DNS cutover plan complete and prepared
-  - [ ] RHI-077 Done — HTTPS issuance controls confirmed and mixed-content gate operational
-  - [ ] RHI-078 Done — SEO-safe deployment checks passing
-  - [ ] RHI-079 Done — All quality gates integrated and passing
-  - [ ] RHI-080 Done — Launch runbook committed and dry-run validated
-  - [ ] RHI-081 Done — Rollback runbook committed and dry-run validated
+- [x] All Phase 7 workstream tickets are `Done`:
+  - [x] RHI-073 Done — Phase 7 Bootstrap complete
+  - [x] RHI-074 Done — Deployment workflow architecture complete and tested
+  - [x] RHI-075 Done — Artifact integrity and build limits gate operational
+  - [x] RHI-076 Done — DNS cutover plan complete and prepared
+  - [x] RHI-077 Done — HTTPS issuance controls confirmed and mixed-content gate operational
+  - [x] RHI-078 Done — SEO-safe deployment checks passing
+  - [x] RHI-079 Done — All quality gates integrated and passing
+  - [x] RHI-080 Done — Launch runbook committed and dry-run validated
+  - [x] RHI-081 Done — Rollback runbook committed and dry-run validated
 - [ ] Staging cutover foundation is complete:
   - [ ] `https://staging.rhino-inquisitor.com/` is deployed and accessible
   - [ ] Staging deployment run URL and smoke evidence are recorded
@@ -63,7 +63,7 @@ This staging sign-off gates the creation of a final production cutover ticket co
 
 ### Tasks
 
-- [ ] Confirm all Phase 7 workstream tickets (RHI-073 through RHI-081) are `Done`
+- [x] Confirm all Phase 7 workstream tickets (RHI-073 through RHI-081) are `Done`
 - [ ] Confirm preview-host rehearsal deployment is reachable and that its evidence is archived for downstream phases
 - [ ] Run all Phase 7 CI gates against the designated release candidate:
   - [ ] Full gate list as above — every gate must pass
@@ -109,7 +109,7 @@ This staging sign-off gates the creation of a final production cutover ticket co
 
 | Dependency | Type | Status |
 |------------|------|--------|
-| RHI-073 through RHI-081 all Done | Ticket | Pending |
+| RHI-073 through RHI-081 all Done | Ticket | Done |
 | Migration owner, SEO owner, and engineering owner available for sign-off | Access | Pending |
 | Phase 8 and Phase 9 teams available to receive handover | Access | Pending |
 | DNS cutover completed and propagated | Phase | Pending |
@@ -163,6 +163,7 @@ This staging sign-off gates the creation of a final production cutover ticket co
 | Date | Status | Note |
 |------|--------|------|
 | 2026-03-07 | Open | Ticket created |
+| 2026-03-19 | In Progress | RHI-081 closed on 2026-03-19. The Phase 7 rollback preparedness dependency is now satisfied and no longer blocks RHI-082. RHI-082 remains open pending the rest of the Phase 7 sign-off evidence, approval package, and downstream handover. |
 
 ---
 

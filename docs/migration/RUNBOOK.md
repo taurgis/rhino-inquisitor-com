@@ -730,9 +730,11 @@ Production build failures (`hugo --minify --environment production`) typically i
 
 #### Rolling Back a Deployment
 
-1. **First choice — re-run a prior Pages deploy**: in GitHub Actions → "Deploy to GitHub Pages" → pick the last successful workflow run → re-run the deploy job only. This re-deploys the previously uploaded artifact without rebuilding, making it the fastest path.
-2. **Fallback — `workflow_dispatch` on a known-good commit**: if the prior artifact has expired (default retention is 7 days), use `workflow_dispatch` on the last known-good commit SHA. This rebuilds from source and redeploys.
+1. **First choice — re-run a prior Pages deploy**: in GitHub Actions → "Deploy to GitHub Pages" → pick the last successful workflow run → re-run the deploy job only. This re-deploys the previously uploaded Pages artifact without rebuilding, making it the fastest path when that artifact is still available.
+2. **Fallback — rerun all jobs or `workflow_dispatch` on a known-good commit**: if the prior Pages artifact is unavailable, rerun all jobs from the known-good run or use `workflow_dispatch` on the last known-good commit SHA. This rebuilds from source and redeploys.
 3. **Never re-run only the build job**: the rollback action must run the Pages deploy path. Re-running the build job alone does not update what is live on Pages.
+
+The deployable Pages artifact availability window is not the same as the repository's separate 7-day audit-artifact retention. `actions/upload-pages-artifact` keeps the Pages artifact on GitHub's default schedule unless the workflow is changed; do not assume the deploy-only rollback path remains available for a full week.
 
 #### Environment Protection
 

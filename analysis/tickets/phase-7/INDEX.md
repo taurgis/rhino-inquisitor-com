@@ -21,7 +21,7 @@
 | [RHI-078](RHI-078-seo-safe-deployment-host-consolidation.md) | Workstream E — SEO-Safe Deployment and Host Consolidation | WS-E | Critical | Done | M | 2026-05-27 | RHI-074 |
 | [RHI-079](RHI-079-deployment-quality-gates-tooling.md) | Workstream F — Deployment Quality Gates and Tooling | WS-F | Critical | Done | M | 2026-05-28 | RHI-074, RHI-075, RHI-078 |
 | [RHI-080](RHI-080-launch-window-execution-runbook.md) | Workstream G — Staging Cutover Execution Runbook | WS-G | Critical | Done | M | 2026-05-29 | RHI-076, RHI-077, RHI-079 |
-| [RHI-081](RHI-081-incident-response-rollback.md) | Workstream H — Incident Response and Rollback | WS-H | Critical | Open | M | 2026-05-30 | RHI-080 |
+| [RHI-081](RHI-081-incident-response-rollback.md) | Workstream H — Incident Response and Rollback | WS-H | Critical | Done | M | 2026-05-30 | RHI-080 |
 | [RHI-082](RHI-082-phase-7-signoff.md) | Phase 7 Sign-off and Handover to Phase 8/9 | Sign-off | Critical | Open | S | 2026-06-02 | RHI-073 through RHI-081 |
 
 ---
@@ -89,7 +89,7 @@ RHI-072 (Phase 6 Sign-off)
 | Gate summary CSV schema | RHI-079 | `migration/reports/phase-7-gate-summary.csv` |
 | Lighthouse CI configuration | RHI-079 | `lighthouserc.js` |
 | Staging cutover execution runbook | RHI-080 | `migration/phase-7-staging-launch-runbook.md` |
-| Rollback runbook | RHI-081 | `migration/phase-7-rollback-runbook.md` |
+| Rollback runbook | RHI-081 | `migration/phase-7-staging-rollback-runbook.md` |
 | Incident log template | RHI-081 | `migration/phase-7-incident-log.md` |
 | Phase 7 sign-off document | RHI-082 | `migration/phase-7-signoff.md` |
 | Deployment runbook (updated) | RHI-074 | `docs/migration/RUNBOOK.md` |
@@ -127,7 +127,7 @@ All items below must be complete before Phase 8 validation and Phase 9 monitorin
 - [x] RHI-078 Done — Project-host rehearsal safeguards and blocked staging-host SEO safety checks passing; staging SEO safety report committed
 - [x] RHI-079 Done — All quality gates integrated and passing on release candidate; gate reports archived
 - [x] RHI-080 Done — Staging cutover runbook committed; preview prerequisites and dry-run validated; smoke test checklist defined
-- [ ] RHI-081 Done — Rollback runbook committed and dry-run validated; WordPress stack confirmed rollback-ready; incident log template committed
+- [x] RHI-081 Done — Rollback runbook committed and dry-run validated; WordPress stack confirmed rollback-ready; incident log template committed
 - [ ] RHI-082 Done — Preview-host rehearsal evidence archived; production cutover strategy accepted; stakeholder sign-off recorded; Phase 8/9 handover acknowledged
 
 ---

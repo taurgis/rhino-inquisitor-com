@@ -109,7 +109,7 @@ Operate a formal incident detection, triage, and recovery model for the full sta
 | RHI-093 Done — Phase 9 Bootstrap; incident bridge, severity model, and role assignments confirmed | Ticket | Pending |
 | RHI-094 Done — Cutover executed; launch window incident log started | Ticket | Pending |
 | Monitoring workstreams active: WS-B (RHI-095), WS-E (RHI-098), WS-F (RHI-099), WS-G (RHI-100) | Ticket | Pending |
-| `migration/phase-7-rollback-runbook.md` committed and drilled (Phase 7) | Phase | Pending |
+| `migration/phase-7-staging-rollback-runbook.md` committed and drilled (Phase 7) | Phase | Pending |
 
 ---
 

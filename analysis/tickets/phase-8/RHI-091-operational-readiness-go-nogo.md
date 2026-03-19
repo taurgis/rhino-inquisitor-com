@@ -67,7 +67,7 @@ Execute the full pre-launch rehearsal — running every gate suite against the R
   - [ ] `robots.txt`: HTTP 200, correct `Sitemap:` directive
   - [ ] Feed endpoint documented in `validation/robots-sitemap-report.json` (for example `/index.xml` or `/feed/`) is reachable and parseable XML when feed output is enabled
 - [ ] Rollback drill is executed and timed:
-  - [ ] Rollback initiated from the Phase 7 rollback runbook (`migration/phase-7-rollback-runbook.md`)
+  - [ ] Rollback initiated from the Phase 7 rollback runbook (`migration/phase-7-staging-rollback-runbook.md`)
   - [ ] WordPress site is confirmed accessible (or equivalent rollback state)
   - [ ] Mean time to rollback is recorded (target: rollback initiated within 60 minutes of a trigger event)
   - [ ] Rollback drill result is committed to `migration/phase-8-rollback-drill-result.md`
@@ -171,7 +171,7 @@ Execute the full pre-launch rehearsal — running every gate suite against the R
 | RHI-089 Done — Accessibility and HTML conformance gates passing | Ticket | Pending |
 | RHI-090 Done — Security and HTTPS readiness gates passing | Ticket | Pending |
 | Migration owner, SEO owner, engineering owner, DNS/ops owner available for go/no-go meeting | Access | Pending |
-| `migration/phase-7-rollback-runbook.md` drilled and confirmed ready | Phase | Pending |
+| `migration/phase-7-staging-rollback-runbook.md` drilled and confirmed ready | Phase | Pending |
 
 ---
 

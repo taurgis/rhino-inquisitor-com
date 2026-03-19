@@ -98,7 +98,7 @@ Any unresolved blocking gate failure or outstanding exception must be fixed or e
   - [ ] Link to `migration/phase-8-signoff.md`
   - [ ] Link to `LAUNCH-GATE-PASS-SUMMARY.md`
   - [ ] Link to `migration/phase-8-exception-register.md`
-  - [ ] Link to rollback runbook (`migration/phase-7-rollback-runbook.md`)
+  - [ ] Link to rollback runbook (`migration/phase-7-staging-rollback-runbook.md`)
   - [ ] RC commit SHA and `phase-8-rc-v1` tag reference
   - [ ] Confirmed live site URL and DNS state
   - [ ] Search Console action items for Phase 9
