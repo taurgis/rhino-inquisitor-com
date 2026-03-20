@@ -53,6 +53,12 @@ Options:
 `);
 }
 
+function definedOptions(options) {
+  return Object.fromEntries(
+    Object.entries(options).filter(([, value]) => value !== undefined)
+  );
+}
+
 async function main() {
   const options = parseArgs(process.argv.slice(2));
   if (options.help) {
@@ -61,13 +67,13 @@ async function main() {
   }
 
   const lhciExitCode = await runLhciProfiles(undefined, { outputRoot: options.outputRoot });
-  const budgetExitCode = await runPerformanceBudgetReport({
+  const budgetExitCode = await runPerformanceBudgetReport(definedOptions({
     publicRoot: options.publicRoot,
     sampleMatrixPath: options.sampleMatrixPath,
     baselinePath: options.baselinePath,
     lhciRoot: options.outputRoot,
     reportPath: options.reportPath
-  });
+  }));
 
   if (lhciExitCode !== 0 || budgetExitCode !== 0) {
     process.exitCode = 1;
