@@ -13,7 +13,7 @@
 
 | Ticket ID | Title | Workstream | Priority | Status | Estimate | Target Date | Depends On |
 |-----------|-------|------------|----------|--------|----------|-------------|------------|
-| [RHI-083](RHI-083-phase-8-bootstrap.md) | Phase 8 Bootstrap: Kickoff and Validation Environment Setup | Setup | Critical | Open | S | 2026-06-03 | RHI-082 |
+| [RHI-083](RHI-083-phase-8-bootstrap.md) | Phase 8 Bootstrap: Kickoff and Validation Environment Setup | Setup | Critical | Done | S | 2026-06-03 | RHI-082 |
 | [RHI-084](RHI-084-rc-freeze-validation-dataset.md) | Workstream A — Release Candidate Freeze and Validation Dataset | WS-A | Critical | Open | M | 2026-06-04 | RHI-083 |
 | [RHI-085](RHI-085-url-parity-redirect-integrity-gates.md) | Workstream B — URL Parity and Redirect Integrity Gates | WS-B | Critical | Open | L | 2026-06-06 | RHI-084 |
 | [RHI-086](RHI-086-seo-indexing-readiness-gates.md) | Workstream C — SEO and Indexing Readiness Gates | WS-C | Critical | Open | M | 2026-06-06 | RHI-084 |
@@ -76,6 +76,7 @@ RHI-082 (Phase 7 Sign-off)
 |-------------|--------|-----------|
 | RC record and freeze metadata | RHI-084 | `migration/phase-8-rc-record.md` |
 | Approver roster | RHI-083 | `migration/phase-8-approver-roster.md` |
+| Validation report scaffold | RHI-083 | `validation/README.md` plus placeholder report files in `validation/` |
 | Expected URL outcomes dataset | RHI-084 | `validation/expected-url-outcomes.json` |
 | Sample page matrix | RHI-084 | `validation/sample-matrix.json` |
 | Priority route set | RHI-084 | `validation/priority-routes.json` |
@@ -93,7 +94,7 @@ RHI-082 (Phase 7 Sign-off)
 | Structured data report | RHI-087 | `validation/structured-data-report.json` |
 | Social preview report | RHI-087 | `validation/social-preview-report.json` |
 | Rich Results Test evidence | RHI-087 | `validation/rich-results-test-evidence/` |
-| Updated Lighthouse CI config | RHI-088 | `lighthouserc.js` |
+| Updated Lighthouse CI config | RHI-088 | `lighthouserc.json` |
 | Performance budget script | RHI-088 | `scripts/phase-8/check-performance-budget.js` |
 | Lighthouse CI reports | RHI-088 | `validation/lhci-report/` |
 | Performance budget report | RHI-088 | `validation/performance-budget-report.json` |

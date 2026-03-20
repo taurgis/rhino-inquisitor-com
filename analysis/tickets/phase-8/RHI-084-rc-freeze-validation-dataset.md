@@ -49,7 +49,7 @@ Lock the release candidate inputs so that all Phase 8 validation results are mea
   - [ ] `@lhci/cli` version recorded
   - [ ] `@axe-core/playwright` version recorded
   - [ ] `html-validate` version recorded
-  - [ ] `lighthouserc.js` checksum or commit reference recorded
+  - [ ] `lighthouserc.json` checksum or commit reference recorded
 - [ ] Hugo production build of the RC commit succeeds with zero errors:
   - [ ] `hugo --gc --minify --environment production` exits 0 on the RC commit
   - [ ] Build output is confirmed at `./public` with a top-level `index.html`
@@ -72,7 +72,7 @@ Lock the release candidate inputs so that all Phase 8 validation results are mea
   - [ ] Name of person who froze it
   - [ ] Hugo version used for the RC build
   - [ ] Lighthouse, axe-core, and html-validate versions used for RC validation
-  - [ ] `lighthouserc.js` checksum or commit reference
+  - [ ] `lighthouserc.json` checksum or commit reference
   - [ ] Link to the Actions run that validated the Phase 7 gates
 - [ ] Derive expected URL outcomes dataset from `migration/url-manifest.json`:
   - [ ] Iterate all manifest entries
