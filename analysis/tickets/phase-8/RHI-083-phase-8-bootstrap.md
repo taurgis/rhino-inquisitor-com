@@ -35,7 +35,7 @@ Phase 8 is the final technical control point before DNS cutover and public index
 - [ ] Phase 7 deliverables are accessible and verified:
   - [ ] `.github/workflows/deploy-pages.yml` is committed and operational
   - [ ] `.github/workflows/build-pr.yml` is committed and operational
-  - [ ] `migration/phase-7-gate-summary.csv` is committed (Phase 7 evidence trail)
+  - [ ] `migration/reports/phase-7-gate-summary.csv` is committed (Phase 7 evidence trail)
   - [ ] `migration/phase-7-staging-launch-runbook.md` is committed and available as the validated staging cutover template
   - [ ] `migration/phase-7-staging-rollback-runbook.md` is committed and drill is recorded
   - [ ] `lighthouserc.js` (or `.lighthouserc.json`) is committed
@@ -121,7 +121,7 @@ Phase 8 is the final technical control point before DNS cutover and public index
 |------------|------|--------|
 | RHI-082 Done — Phase 7 sign-off recorded | Ticket | Pending |
 | `migration/phase-7-signoff.md` committed | Phase | Pending |
-| `migration/phase-7-gate-summary.csv` committed (Phase 7 evidence) | Phase | Pending |
+| `migration/reports/phase-7-gate-summary.csv` committed (Phase 7 evidence) | Phase | Pending |
 | Phase 7 CI gate suite passing on RC | Phase | Pending |
 | `.github/workflows/deploy-pages.yml` operational | Phase | Pending |
 | `migration/phase-7-staging-rollback-runbook.md` drilled and committed | Phase | Pending |

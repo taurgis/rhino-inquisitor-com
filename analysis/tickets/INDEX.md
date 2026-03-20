@@ -19,7 +19,7 @@ This is the top-level ticket index for the full migration project. Use the phase
 | 4 | Content Migration Pipeline | RHI-031 – RHI-046, RHI-106 | Done | [phase-4/INDEX.md](phase-4/INDEX.md) |
 | 5 | SEO and Discoverability | RHI-047 – RHI-060 | Done | [phase-5/INDEX.md](phase-5/INDEX.md) |
 | 6 | URL Preservation and Redirect Strategy | RHI-061 – RHI-072 | Done | [phase-6/INDEX.md](phase-6/INDEX.md) |
-| 7 | GitHub Pages Preview Deployment and Domain Cutover Readiness | RHI-073 – RHI-082 | Open | [phase-7/INDEX.md](phase-7/INDEX.md) |
+| 7 | GitHub Pages Preview Deployment and Domain Cutover Readiness | RHI-073 – RHI-082 | Done | [phase-7/INDEX.md](phase-7/INDEX.md) |
 | 8 | Validation and Launch Readiness | RHI-083 – RHI-092 | Open | [phase-8/INDEX.md](phase-8/INDEX.md) |
 | 9 | Production Cutover and Post-Launch Monitoring | RHI-093 – RHI-103 | Open | [phase-9/INDEX.md](phase-9/INDEX.md) |
 
@@ -110,7 +110,7 @@ This is the top-level ticket index for the full migration project. Use the phase
 | [RHI-079](phase-7/RHI-079-deployment-quality-gates-tooling.md) | Workstream F — Deployment Quality Gates and Tooling | 7 | Critical | Done | M | 2026-05-28 |
 | [RHI-080](phase-7/RHI-080-launch-window-execution-runbook.md) | Workstream G — Staging Cutover Execution Runbook | 7 | Critical | Done | M | 2026-05-29 |
 | [RHI-081](phase-7/RHI-081-incident-response-rollback.md) | Workstream H — Incident Response and Rollback | 7 | Critical | Done | M | 2026-05-30 |
-| [RHI-082](phase-7/RHI-082-phase-7-signoff.md) | Phase 7 Sign-off and Handover to Phase 8/9 | 7 | Critical | Open | S | 2026-06-02 |
+| [RHI-082](phase-7/RHI-082-phase-7-signoff.md) | Phase 7 Sign-off and Handover to Phase 8/9 | 7 | Critical | Done | S | 2026-06-02 |
 | [RHI-083](phase-8/RHI-083-phase-8-bootstrap.md) | Phase 8 Bootstrap: Kickoff and Validation Environment Setup | 8 | Critical | Open | S | 2026-06-03 |
 | [RHI-084](phase-8/RHI-084-rc-freeze-validation-dataset.md) | Workstream A — Release Candidate Freeze and Validation Dataset | 8 | Critical | Open | M | 2026-06-04 |
 | [RHI-085](phase-8/RHI-085-url-parity-redirect-integrity-gates.md) | Workstream B — URL Parity and Redirect Integrity Gates | 8 | Critical | Open | L | 2026-06-06 |

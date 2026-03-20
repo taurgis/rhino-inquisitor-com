@@ -22,7 +22,7 @@
 | [RHI-079](RHI-079-deployment-quality-gates-tooling.md) | Workstream F — Deployment Quality Gates and Tooling | WS-F | Critical | Done | M | 2026-05-28 | RHI-074, RHI-075, RHI-078 |
 | [RHI-080](RHI-080-launch-window-execution-runbook.md) | Workstream G — Staging Cutover Execution Runbook | WS-G | Critical | Done | M | 2026-05-29 | RHI-076, RHI-077, RHI-079 |
 | [RHI-081](RHI-081-incident-response-rollback.md) | Workstream H — Incident Response and Rollback | WS-H | Critical | Done | M | 2026-05-30 | RHI-080 |
-| [RHI-082](RHI-082-phase-7-signoff.md) | Phase 7 Sign-off and Handover to Phase 8/9 | Sign-off | Critical | Open | S | 2026-06-02 | RHI-073 through RHI-081 |
+| [RHI-082](RHI-082-phase-7-signoff.md) | Phase 7 Sign-off and Handover to Phase 8/9 | Sign-off | Critical | Done | S | 2026-06-02 | RHI-073 through RHI-081 |
 
 ---
 
@@ -119,16 +119,16 @@ All gates run as blocking pre-deploy steps. Failure of any gate prevents artifac
 
 All items below must be complete before Phase 8 validation and Phase 9 monitoring can finalize their assessments:
 
-- [ ] RHI-073 Done — Phase 7 Bootstrap; Phase 6 contracts confirmed; team and cutover window established
-- [ ] RHI-074 Done — Deployment workflow hardened; preview-host deploy and production-artifact validation path tested; Pages environment protected
-- [ ] RHI-075 Done — Artifact integrity gate operational; size budget validated
-- [ ] RHI-076 Done — DNS cutover plan complete; preview-rehearsal preconditions defined; custom-domain and domain-verification steps ready for execution
-- [ ] RHI-077 Done — CAA records audited; mixed-content gate operational; HTTPS monitoring checklist committed
+- [x] RHI-073 Done — Phase 7 Bootstrap; Phase 6 contracts confirmed; team and cutover window established
+- [x] RHI-074 Done — Deployment workflow hardened; preview-host deploy and production-artifact validation path tested; Pages environment protected
+- [x] RHI-075 Done — Artifact integrity gate operational; size budget validated
+- [x] RHI-076 Done — DNS cutover plan complete; preview-rehearsal preconditions defined; custom-domain and domain-verification steps ready for execution
+- [x] RHI-077 Done — CAA records audited; mixed-content gate operational; HTTPS monitoring checklist committed
 - [x] RHI-078 Done — Project-host rehearsal safeguards and blocked staging-host SEO safety checks passing; staging SEO safety report committed
 - [x] RHI-079 Done — All quality gates integrated and passing on release candidate; gate reports archived
 - [x] RHI-080 Done — Staging cutover runbook committed; preview prerequisites and dry-run validated; smoke test checklist defined
 - [x] RHI-081 Done — Rollback runbook committed and dry-run validated; WordPress stack confirmed rollback-ready; incident log template committed
-- [ ] RHI-082 Done — Preview-host rehearsal evidence archived; production cutover strategy accepted; stakeholder sign-off recorded; Phase 8/9 handover acknowledged
+- [x] RHI-082 Done — Preview-host rehearsal evidence archived; production cutover strategy accepted; stakeholder sign-off recorded; Phase 8/9 handover acknowledged
 
 ---
 
