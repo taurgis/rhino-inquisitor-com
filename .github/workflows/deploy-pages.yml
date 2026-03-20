@@ -144,6 +144,17 @@ jobs:
           if-no-files-found: error
           retention-days: 30
 
+      - name: Upload Phase 8 SEO validation reports
+        if: ${{ always() && !cancelled() }}
+        uses: actions/upload-artifact@v6
+        with:
+          name: phase-8-seo-validation-${{ github.sha }}
+          path: |
+            validation/seo-consistency-report.json
+            validation/robots-sitemap-report.json
+          if-no-files-found: error
+          retention-days: 30
+
       - name: Upload audit artifacts
         if: ${{ always() && !cancelled() }}
         uses: actions/upload-artifact@v6

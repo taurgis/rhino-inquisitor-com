@@ -85,7 +85,9 @@
     "gates:local": "bash scripts/phase-7/run-all-gates.sh",
     "phase8:generate-validation-datasets": "node scripts/phase-8/generate-validation-datasets.js",
     "check:url-parity:p8": "node scripts/phase-8/check-url-parity.js",
-    "check:redirect-quality": "node scripts/phase-8/check-redirect-quality.js"
+    "check:redirect-quality": "node scripts/phase-8/check-redirect-quality.js",
+    "check:seo-consistency": "node scripts/phase-8/check-seo-consistency.js",
+    "check:robots-sitemap": "node scripts/phase-8/check-robots-sitemap.js"
   },
   "dependencies": {
     "@joplin/turndown-plugin-gfm": "^1.0.64",

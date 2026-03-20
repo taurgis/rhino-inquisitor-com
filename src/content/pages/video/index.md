@@ -1,5 +1,5 @@
 ---
-title: Video
+title: Video Appearances
 description: >-
   Besides my blog I also take part in Podcasts, webinars and other fun stuff.
   This page provides on overview of where you can see me on video!

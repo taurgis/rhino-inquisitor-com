@@ -133,6 +133,21 @@ RHI-085 replaces the placeholder WS-B outputs with committed machine-readable ev
 - `validation/redirect-quality-report.json` records redirect integrity for all `merge` rows, priority-route spot-check evidence from `validation/priority-routes.json`, non-HTML coverage, and redirect-retention policy confirmation.
 - Both reports must retain the frozen RC tag and commit from the expected-outcomes dataset so downstream reviewers can distinguish RC-scoped evidence from later branch-state builds.
 
+## WS-C Report Contract
+
+RHI-086 replaces the placeholder WS-C outputs with committed machine-readable SEO and crawl-control evidence:
+
+- `validation/seo-consistency-report.json` records sampled indexable-route checks from `validation/sample-matrix.json` plus HTML-backed priority-route coverage from `validation/priority-routes.json`, including canonical count, canonical URL, sitemap agreement, robots directives, title and description presence, advisory metadata-length warnings, and duplicate-title results across the full build.
+- `validation/robots-sitemap-report.json` records sitemap protocol validation, alias-helper exclusion evidence, robots.txt directive analysis, sitemap-blocking `Disallow` findings, and the full set of built HTML routes carrying `noindex`.
+- Both WS-C reports include `artifactProvenance` so reviewers can distinguish frozen-RC evidence from later branch-state reruns that still consume the frozen datasets.
+- `validation/seo-consistency-report.json` treats missing title or description, unexpected `noindex`, canonical drift, and duplicate non-pagination titles as blocking failures. Metadata-length guidance remains warning-only by owner decision.
+- `validation/robots-sitemap-report.json` treats invalid sitemap URLs, sitemap protocol-limit violations, alias-helper inclusion, missing or incorrect `Sitemap:` directives, and `robots.txt` blocks on sitemap URLs as blocking failures.
+- Both WS-C reports must retain the frozen RC tag and commit from `validation/sample-matrix.json` so downstream reviewers can tie SEO evidence back to the exact release-candidate snapshot.
+
+Important provenance rule:
+
+- If content, metadata, or configuration changes occur after the RC freeze, WS-C may still produce branch-state reports against the frozen datasets for debugging or closeout preparation, but those reports must not be treated as refreshed RC evidence until a new RC tag is cut and the datasets are regenerated.
+
 ## RC metadata convention
 
 - Record per-run metadata under `validation/runs/`.
