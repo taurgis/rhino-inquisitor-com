@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-03-20T19:04:18Z",
+  "rc": {
+    "tag": "phase-8-rc-v2",
+    "commit": "efdcefce5a51f1a3cf70d6b437b7b2868df39cb8",
+    "manifest_tag": "phase-6-redirect-map-v1",
+    "manifest_commit": "3f29de0ccfb587956ea405813dd27426edf98f61"
+  },
+  "freeze": {
+    "frozen_by": "Thomas Theunen",
+    "frozen_at": "2026-03-20T19:04:18Z",
+    "ticket": "RHI-088"
+  },
+  "build": {
+    "command": "hugo --gc --minify --environment production --destination /tmp/rhi088-rc-v2.ifMjZ4/public",
+    "status": "pass",
+    "duration_ms": 612,
+    "duration_seconds_rounded": 1,
+    "summary": {
+      "pages": 204,
+      "paginator_pages": 16,
+      "non_page_files": 591,
+      "static_files": 17,
+      "processed_images": 372,
+      "aliases": 17
+    }
+  },
+  "artifact_validation": {
+    "report_path": "validation/runs/phase-8-rc-v2-artifact-validation.json",
+    "status": "pass",
+    "projected_published_size_mb": 581.38,
+    "compressed_artifact_size_mb": 523.94,
+    "has_top_level_index": true
+  },
+  "toolchain": {
+    "hugo": "hugo v0.157.0+extended+withdeploy darwin/arm64 BuildDate=2026-02-25T16:38:33Z VendorInfo=Homebrew",
+    "node": "v20.18.1",
+    "@lhci/cli": "0.15.1",
+    "@axe-core/playwright": "4.11.1",
+    "html-validate": "10.11.2",
+    "lighthouserc_sha256": "5868bbbee20ac03bf56188d00ba1f543a4b348d57dc948b8daf5af59475fe6f3"
+  },
+  "datasets": {
+    "expected_url_outcomes": {
+      "path": "validation/expected-url-outcomes.json",
+      "sha256": "25875e3fdd85a2ed51c3e36dcb09fbb3e3d6fb8600657fac1b02163206163517"
+    },
+    "sample_matrix": {
+      "path": "validation/sample-matrix.json",
+      "sha256": "b39cd740ef1643030f97e5900600b1405a519e256e9ae0029c44c2567ad36eaf"
+    },
+    "priority_routes": {
+      "path": "validation/priority-routes.json",
+      "sha256": "0bea211b2fca2f6fa1c3ed49c1b64fec9dcd195a2c81b66e5faff24d309d7a56"
+    }
+  },
+  "publish_baseline": {
+    "actions_run_url": "https://github.com/taurgis/rhino-inquisitor-com/actions/runs/23282905074",
+    "workflow_total_duration": "5m 59s",
+    "build_job_duration": "5m 27s",
+    "deploy_job_duration": "25s",
+    "note": "Inherited Phase 7 deployment timing baseline used for the RC re-cut record."
+  }
+}

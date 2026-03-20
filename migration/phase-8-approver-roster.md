@@ -12,7 +12,7 @@ The repository currently operates under the single-owner model used in the Phase
 
 - Phase 8 bootstrap ticket: `analysis/tickets/phase-8/RHI-083-phase-8-bootstrap.md`
 - Bootstrap status: Done
-- Canonical RC ref: `phase-8-rc-v1` -> `a510ead8`
+- Canonical RC ref: `phase-8-rc-v2` -> `efdcefce`
 - Phase 7 gate evidence URL: `https://github.com/taurgis/rhino-inquisitor-com/actions/runs/23282905074`
 - Go/no-go decision window: Pending owner confirmation
 - Backup contacts: Thomas Theunen under the current single-owner fallback response
@@ -32,7 +32,7 @@ The repository currently operates under the single-owner model used in the Phase
 |------|----------------|--------|----------|
 | Read `analysis/plan/details/phase-8.md` | Migration, SEO, Engineering, DNS/Operations | Confirmed 2026-03-20 | Thomas Theunen acknowledged the plan for all four roles under the single-owner model |
 | Reviewed the non-negotiable Phase 8 release gates | Migration, SEO, Engineering, DNS/Operations | Confirmed 2026-03-20 | Thomas Theunen acknowledged the hard-blocker gate list for all four roles under the single-owner model |
-| Agreed the canonical RC ref for validation | Migration, Engineering | Confirmed 2026-03-20 | `phase-8-rc-v1` -> `a510ead8` |
+| Agreed the canonical RC ref for validation | Migration, Engineering | Confirmed 2026-03-20 | `phase-8-rc-v2` -> `efdcefce` |
 | Agreed the go/no-go decision window | Migration, SEO, Engineering, DNS/Operations | Pending | Record date, required present, and format here |
 
 ## Workstream ownership baseline
@@ -66,3 +66,4 @@ The repository currently operates under the single-owner model used in the Phase
 | 2026-03-20 | Created during RHI-083 bootstrap to record the single-owner primary-role baseline and the remaining owner-confirmation fields. |
 | 2026-03-20 | Recorded the owner-approved RC tag `phase-8-rc-v1`, Phase 8 role acknowledgments, and the single-owner workstream assignment baseline. |
 | 2026-03-20 | Recorded the Phase 8 go/no-go decision window as a same-day single-owner approval meeting with all required roles represented by Thomas Theunen. |
+| 2026-03-20 | Updated the canonical RC reference to `phase-8-rc-v2` after the RHI-088 performance remediation re-cut. |

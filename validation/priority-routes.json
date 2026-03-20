@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-03-20T13:56:36.009Z",
+  "generated_at": "2026-03-20T19:04:18Z",
   "rc": {
-    "tag": "phase-8-rc-v1",
-    "commit": "a510ead82a28f85718866e1f6af3f7dda03034b7",
+    "tag": "phase-8-rc-v2",
+    "commit": "efdcefce5a51f1a3cf70d6b437b7b2868df39cb8",
     "manifest_tag": "phase-6-redirect-map-v1",
     "manifest_commit": "3f29de0ccfb587956ea405813dd27426edf98f61",
     "seo_baseline_path": "migration/phase-1-seo-baseline.md"

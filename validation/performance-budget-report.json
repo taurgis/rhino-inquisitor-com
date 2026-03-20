@@ -1,10 +1,596 @@
 {
   "phase": 8,
-  "ticket": "RHI-083",
+  "ticket": "RHI-088",
   "artifact": "performance-budget-report",
-  "status": "placeholder",
-  "rcTag": null,
-  "rcSha": null,
-  "generatedAt": null,
-  "notes": "Bootstrap placeholder created by RHI-083. Replace this file in RHI-088."
+  "status": "pass",
+  "rcTag": "phase-8-rc-v2",
+  "rcSha": "efdcefce5a51f1a3cf70d6b437b7b2868df39cb8",
+  "generatedAt": "2026-03-20T19:08:32.764Z",
+  "publicDir": "public",
+  "sampleMatrix": {
+    "path": "validation/sample-matrix.json",
+    "generatedAt": "2026-03-20T19:04:18Z"
+  },
+  "baseline": {
+    "path": "migration/phase-1-performance-baseline.md"
+  },
+  "lhciRoot": "validation/lhci-report",
+  "artifactProvenance": {
+    "gitHead": "efdcefce5a51f1a3cf70d6b437b7b2868df39cb8",
+    "gitHeadShort": "efdcefce",
+    "workspaceDirty": false,
+    "datasetRcTag": "phase-8-rc-v2",
+    "datasetRcSha": "efdcefce5a51f1a3cf70d6b437b7b2868df39cb8",
+    "matchesDatasetRc": true,
+    "provenanceStatus": "frozen-rc",
+    "note": "Artifact provenance matches the frozen dataset RC commit and the workspace is clean."
+  },
+  "policy": {
+    "lighthouse": {
+      "profiles": [
+        "mobile",
+        "desktop"
+      ],
+      "numberOfRuns": 3,
+      "aggregationMethod": "median",
+      "thresholds": {
+        "performance": 90,
+        "accessibility": 90,
+        "seo": 95,
+        "bestPractices": 90
+      },
+      "collectionMode": "staticDistDir"
+    },
+    "cwvTargets": {
+      "lcpMs": 2500,
+      "inpMs": 200,
+      "cls": 0.1,
+      "ttiMs": "informational",
+      "fieldDataPolicy": "Use p75 field data when available as readiness evidence only; do not override blocking lab gates at launch when field data is sparse."
+    },
+    "performanceBudget": {
+      "criticalPathTransferGzipBytes": 174080,
+      "criticalPathTransferGzipKb": 170,
+      "blockingTemplates": [
+        "homepage",
+        "article"
+      ],
+      "informationalTemplates": [
+        "category"
+      ],
+      "assetSelection": "HTML document, linked stylesheets, preload/modulepreload assets, linked scripts, and non-lazy or high-priority images resolved from the built public artifact."
+    }
+  },
+  "missingArtifacts": [],
+  "summary": {
+    "totalTemplates": 3,
+    "passCount": 3,
+    "failCount": 0,
+    "blockingFailures": 0,
+    "warningCount": 0,
+    "budgetFailures": 0,
+    "scoreFailures": 0,
+    "missingArtifacts": 0
+  },
+  "entries": [
+    {
+      "template": "homepage",
+      "route": "/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/",
+      "builtArtifactPath": "public/index.html",
+      "selectionReason": "Fixed homepage route required by the RHI-084 sample matrix contract.",
+      "budget": {
+        "blocking": true,
+        "thresholdBytes": 174080,
+        "totalGzipBytes": 109034,
+        "totalGzipKb": 106.48,
+        "criticalAssets": [
+          {
+            "type": "image",
+            "assetPath": "images/home/thomas-theunen-hero_hu_d2ab49621fe0ffe.webp",
+            "rawBytes": 73728,
+            "gzipBytes": 73771,
+            "as": null
+          },
+          {
+            "type": "image",
+            "assetPath": "images/brand-mark.svg",
+            "rawBytes": 51956,
+            "gzipBytes": 20401,
+            "as": null
+          },
+          {
+            "type": "stylesheet",
+            "assetPath": "styles/site.fb75bffba509474d3d0f6966caad7f54f9871776b4d0e28e992640788e0d1efb.css",
+            "rawBytes": 56546,
+            "gzipBytes": 9753,
+            "as": null
+          },
+          {
+            "type": "document",
+            "assetPath": "index.html",
+            "rawBytes": 16256,
+            "gzipBytes": 5109
+          }
+        ]
+      },
+      "profiles": {
+        "mobile": {
+          "profile": "mobile",
+          "url": "http://localhost:50887/",
+          "htmlReportPath": "validation/lhci-report/mobile/localhost--2026_03_20_19_04_49.report.html",
+          "jsonReportPath": "validation/lhci-report/mobile/localhost--2026_03_20_19_04_49.report.json",
+          "scores": {
+            "performance": 100,
+            "accessibility": 96,
+            "seo": 100,
+            "bestPractices": 96
+          },
+          "metrics": {
+            "lcpMs": 1503.1156,
+            "inpMs": null,
+            "cls": 0,
+            "ttiMs": 1518.1156
+          }
+        },
+        "desktop": {
+          "profile": "desktop",
+          "url": "http://localhost:51206/",
+          "htmlReportPath": "validation/lhci-report/desktop/localhost--2026_03_20_19_06_19.report.html",
+          "jsonReportPath": "validation/lhci-report/desktop/localhost--2026_03_20_19_06_19.report.json",
+          "scores": {
+            "performance": 100,
+            "accessibility": 100,
+            "seo": 100,
+            "bestPractices": 96
+          },
+          "metrics": {
+            "lcpMs": 363.3751,
+            "inpMs": null,
+            "cls": 0,
+            "ttiMs": 367.3751
+          }
+        }
+      },
+      "baselineComparison": {
+        "mobile": {
+          "baselineRepresentativeUrl": "https://www.rhino-inquisitor.com/",
+          "currentUrl": "https://www.rhino-inquisitor.com/",
+          "note": "Route-aligned comparison.",
+          "scores": {
+            "performance": {
+              "baseline": 86,
+              "current": 100,
+              "delta": 14
+            },
+            "accessibility": {
+              "baseline": 95,
+              "current": 96,
+              "delta": 1
+            },
+            "bestPractices": {
+              "baseline": 100,
+              "current": 96,
+              "delta": -4
+            },
+            "seo": {
+              "baseline": 100,
+              "current": 100,
+              "delta": 0
+            }
+          },
+          "metrics": {
+            "lcpMs": {
+              "baseline": 3797,
+              "current": 1503.1156,
+              "delta": -2293.88
+            },
+            "inpMs": {
+              "baseline": null,
+              "current": null,
+              "delta": null
+            },
+            "cls": {
+              "baseline": 0,
+              "current": 0,
+              "delta": 0
+            }
+          }
+        },
+        "desktop": {
+          "baselineRepresentativeUrl": "https://www.rhino-inquisitor.com/",
+          "currentUrl": "https://www.rhino-inquisitor.com/",
+          "note": "Route-aligned comparison.",
+          "scores": {
+            "performance": {
+              "baseline": 99,
+              "current": 100,
+              "delta": 1
+            },
+            "accessibility": {
+              "baseline": 91,
+              "current": 100,
+              "delta": 9
+            },
+            "bestPractices": {
+              "baseline": 100,
+              "current": 96,
+              "delta": -4
+            },
+            "seo": {
+              "baseline": 100,
+              "current": 100,
+              "delta": 0
+            }
+          },
+          "metrics": {
+            "lcpMs": {
+              "baseline": 889,
+              "current": 363.3751,
+              "delta": -525.62
+            },
+            "inpMs": {
+              "baseline": null,
+              "current": null,
+              "delta": null
+            },
+            "cls": {
+              "baseline": 0,
+              "current": 0,
+              "delta": 0
+            }
+          }
+        }
+      },
+      "warnings": [],
+      "blockingFindings": [],
+      "result": "pass"
+    },
+    {
+      "template": "article",
+      "route": "/real-time-inventory-checks-in-sfcc/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/real-time-inventory-checks-in-sfcc/",
+      "builtArtifactPath": "public/real-time-inventory-checks-in-sfcc/index.html",
+      "selectionReason": "Recent post rank 1 by front matter date descending.",
+      "budget": {
+        "blocking": true,
+        "thresholdBytes": 174080,
+        "totalGzipBytes": 131235,
+        "totalGzipKb": 128.16,
+        "criticalAssets": [
+          {
+            "type": "image",
+            "assetPath": "real-time-inventory-checks-in-sfcc/stampede-to-a-single-endpoin-t-scaled-2d591aef78_hu_e538f373e836430f.webp",
+            "rawBytes": 88944,
+            "gzipBytes": 88992,
+            "as": null
+          },
+          {
+            "type": "image",
+            "assetPath": "images/brand-mark.svg",
+            "rawBytes": 51956,
+            "gzipBytes": 20401,
+            "as": null
+          },
+          {
+            "type": "document",
+            "assetPath": "real-time-inventory-checks-in-sfcc/index.html",
+            "rawBytes": 36739,
+            "gzipBytes": 12089
+          },
+          {
+            "type": "stylesheet",
+            "assetPath": "styles/site.fb75bffba509474d3d0f6966caad7f54f9871776b4d0e28e992640788e0d1efb.css",
+            "rawBytes": 56546,
+            "gzipBytes": 9753,
+            "as": null
+          }
+        ]
+      },
+      "profiles": {
+        "mobile": {
+          "profile": "mobile",
+          "url": "http://localhost:50887/real-time-inventory-checks-in-sfcc/",
+          "htmlReportPath": "validation/lhci-report/mobile/localhost-real_time_inventory_checks_in_sfcc_-2026_03_20_19_05_30.report.html",
+          "jsonReportPath": "validation/lhci-report/mobile/localhost-real_time_inventory_checks_in_sfcc_-2026_03_20_19_05_30.report.json",
+          "scores": {
+            "performance": 100,
+            "accessibility": 100,
+            "seo": 100,
+            "bestPractices": 96
+          },
+          "metrics": {
+            "lcpMs": 1277.8633,
+            "inpMs": null,
+            "cls": 0,
+            "ttiMs": 1285.3633
+          }
+        },
+        "desktop": {
+          "profile": "desktop",
+          "url": "http://localhost:51206/real-time-inventory-checks-in-sfcc/",
+          "htmlReportPath": "validation/lhci-report/desktop/localhost-real_time_inventory_checks_in_sfcc_-2026_03_20_19_06_50.report.html",
+          "jsonReportPath": "validation/lhci-report/desktop/localhost-real_time_inventory_checks_in_sfcc_-2026_03_20_19_06_50.report.json",
+          "scores": {
+            "performance": 100,
+            "accessibility": 100,
+            "seo": 100,
+            "bestPractices": 96
+          },
+          "metrics": {
+            "lcpMs": 342.4006,
+            "inpMs": null,
+            "cls": 0,
+            "ttiMs": 344.40060000000005
+          }
+        }
+      },
+      "baselineComparison": {
+        "mobile": {
+          "baselineRepresentativeUrl": "https://www.rhino-inquisitor.com/lag-to-riches-a-pwa-kit-developers-guide/",
+          "currentUrl": "https://www.rhino-inquisitor.com/real-time-inventory-checks-in-sfcc/",
+          "note": "Template-family comparison against the Phase 1 representative WordPress baseline URL.",
+          "scores": {
+            "performance": {
+              "baseline": 69,
+              "current": 100,
+              "delta": 31
+            },
+            "accessibility": {
+              "baseline": 92,
+              "current": 100,
+              "delta": 8
+            },
+            "bestPractices": {
+              "baseline": 100,
+              "current": 96,
+              "delta": -4
+            },
+            "seo": {
+              "baseline": 100,
+              "current": 100,
+              "delta": 0
+            }
+          },
+          "metrics": {
+            "lcpMs": {
+              "baseline": 5786,
+              "current": 1277.8633,
+              "delta": -4508.14
+            },
+            "inpMs": {
+              "baseline": null,
+              "current": null,
+              "delta": null
+            },
+            "cls": {
+              "baseline": 0,
+              "current": 0,
+              "delta": 0
+            }
+          }
+        },
+        "desktop": {
+          "baselineRepresentativeUrl": "https://www.rhino-inquisitor.com/lag-to-riches-a-pwa-kit-developers-guide/",
+          "currentUrl": "https://www.rhino-inquisitor.com/real-time-inventory-checks-in-sfcc/",
+          "note": "Template-family comparison against the Phase 1 representative WordPress baseline URL.",
+          "scores": {
+            "performance": {
+              "baseline": 96,
+              "current": 100,
+              "delta": 4
+            },
+            "accessibility": {
+              "baseline": 87,
+              "current": 100,
+              "delta": 13
+            },
+            "bestPractices": {
+              "baseline": 100,
+              "current": 96,
+              "delta": -4
+            },
+            "seo": {
+              "baseline": 100,
+              "current": 100,
+              "delta": 0
+            }
+          },
+          "metrics": {
+            "lcpMs": {
+              "baseline": 1231,
+              "current": 342.4006,
+              "delta": -888.6
+            },
+            "inpMs": {
+              "baseline": null,
+              "current": null,
+              "delta": null
+            },
+            "cls": {
+              "baseline": 0.002,
+              "current": 0,
+              "delta": 0
+            }
+          }
+        }
+      },
+      "warnings": [],
+      "blockingFindings": [],
+      "result": "pass"
+    },
+    {
+      "template": "category",
+      "route": "/category/ai/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/category/ai/",
+      "builtArtifactPath": "public/category/ai/index.html",
+      "selectionReason": "Alphabetical category sample rank 1.",
+      "budget": {
+        "blocking": false,
+        "thresholdBytes": 174080,
+        "totalGzipBytes": 39499,
+        "totalGzipKb": 38.57,
+        "criticalAssets": [
+          {
+            "type": "image",
+            "assetPath": "images/brand-mark.svg",
+            "rawBytes": 51956,
+            "gzipBytes": 20401,
+            "as": null
+          },
+          {
+            "type": "stylesheet",
+            "assetPath": "styles/site.fb75bffba509474d3d0f6966caad7f54f9871776b4d0e28e992640788e0d1efb.css",
+            "rawBytes": 56546,
+            "gzipBytes": 9753,
+            "as": null
+          },
+          {
+            "type": "document",
+            "assetPath": "category/ai/index.html",
+            "rawBytes": 19966,
+            "gzipBytes": 5077
+          },
+          {
+            "type": "script",
+            "assetPath": "scripts/archive-search.js",
+            "rawBytes": 17001,
+            "gzipBytes": 4268,
+            "as": null
+          }
+        ]
+      },
+      "profiles": {
+        "mobile": {
+          "profile": "mobile",
+          "url": "http://localhost:50887/category/ai/",
+          "htmlReportPath": "validation/lhci-report/mobile/localhost-category_ai_-2026_03_20_19_05_41.report.html",
+          "jsonReportPath": "validation/lhci-report/mobile/localhost-category_ai_-2026_03_20_19_05_41.report.json",
+          "scores": {
+            "performance": 100,
+            "accessibility": 100,
+            "seo": 100,
+            "bestPractices": 96
+          },
+          "metrics": {
+            "lcpMs": 902.3643999999999,
+            "inpMs": null,
+            "cls": 0,
+            "ttiMs": 902.3643999999999
+          }
+        },
+        "desktop": {
+          "profile": "desktop",
+          "url": "http://localhost:51206/category/ai/",
+          "htmlReportPath": "validation/lhci-report/desktop/localhost-category_ai_-2026_03_20_19_07_41.report.html",
+          "jsonReportPath": "validation/lhci-report/desktop/localhost-category_ai_-2026_03_20_19_07_41.report.json",
+          "scores": {
+            "performance": 100,
+            "accessibility": 100,
+            "seo": 100,
+            "bestPractices": 96
+          },
+          "metrics": {
+            "lcpMs": 242.0559,
+            "inpMs": null,
+            "cls": 0,
+            "ttiMs": 242.0559
+          }
+        }
+      },
+      "baselineComparison": {
+        "mobile": {
+          "baselineRepresentativeUrl": "https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/",
+          "currentUrl": "https://www.rhino-inquisitor.com/category/ai/",
+          "note": "Template-family comparison against the Phase 1 representative WordPress baseline URL.",
+          "scores": {
+            "performance": {
+              "baseline": 78,
+              "current": 100,
+              "delta": 22
+            },
+            "accessibility": {
+              "baseline": 94,
+              "current": 100,
+              "delta": 6
+            },
+            "bestPractices": {
+              "baseline": 100,
+              "current": 96,
+              "delta": -4
+            },
+            "seo": {
+              "baseline": 92,
+              "current": 100,
+              "delta": 8
+            }
+          },
+          "metrics": {
+            "lcpMs": {
+              "baseline": 4450,
+              "current": 902.3643999999999,
+              "delta": -3547.64
+            },
+            "inpMs": {
+              "baseline": null,
+              "current": null,
+              "delta": null
+            },
+            "cls": {
+              "baseline": 0,
+              "current": 0,
+              "delta": 0
+            }
+          }
+        },
+        "desktop": {
+          "baselineRepresentativeUrl": "https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/",
+          "currentUrl": "https://www.rhino-inquisitor.com/category/ai/",
+          "note": "Template-family comparison against the Phase 1 representative WordPress baseline URL.",
+          "scores": {
+            "performance": {
+              "baseline": 97,
+              "current": 100,
+              "delta": 3
+            },
+            "accessibility": {
+              "baseline": 89,
+              "current": 100,
+              "delta": 11
+            },
+            "bestPractices": {
+              "baseline": 100,
+              "current": 96,
+              "delta": -4
+            },
+            "seo": {
+              "baseline": 92,
+              "current": 100,
+              "delta": 8
+            }
+          },
+          "metrics": {
+            "lcpMs": {
+              "baseline": 1192,
+              "current": 242.0559,
+              "delta": -949.94
+            },
+            "inpMs": {
+              "baseline": null,
+              "current": null,
+              "delta": null
+            },
+            "cls": {
+              "baseline": 0.029,
+              "current": 0,
+              "delta": -0.03
+            }
+          }
+        }
+      },
+      "warnings": [],
+      "blockingFindings": [],
+      "result": "pass"
+    }
+  ]
 }

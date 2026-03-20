@@ -55,8 +55,8 @@ RHI-084 introduces four authoritative artefacts for the first frozen Phase 8 RC:
 
 | Artifact | Purpose | Primary consumers |
 | --- | --- | --- |
-| `migration/phase-8-rc-record.md` | Human-readable RC freeze record, toolchain versions, build evidence, and inherited deploy timing | WS-B through WS-H |
-| `validation/runs/phase-8-rc-v1.json` | Machine-readable RC snapshot with build metrics and dataset checksums | WS-B through WS-H |
+| `migration/phase-8-rc-v2-record.md` | Human-readable current RC re-cut record, toolchain versions, build evidence, and inherited deploy timing | WS-B through WS-H |
+| `validation/runs/phase-8-rc-v2.json` | Machine-readable current RC snapshot with build metrics and dataset checksums | WS-B through WS-H |
 | `validation/expected-url-outcomes.json` | Legacy-URL contract derived from the frozen manifest | WS-B |
 | `validation/sample-matrix.json` | Representative page and auxiliary route matrix for template-family coverage | WS-C through WS-F |
 | `validation/priority-routes.json` | Priority route set from organic and backlink baselines, with class coverage supplements | WS-B through WS-H |
@@ -129,7 +129,7 @@ Important behavior detail:
 2. WS-B must still report `accepted-risk` query-string rows for coverage, but it must not treat them as missing build artifacts when the dataset marks them as `request-aware-exception`.
 3. WS-B must use `validation/priority-routes.json` for route-level spot checks after loading the expected outcomes dataset.
 4. WS-C through WS-F should start from `validation/sample-matrix.json` page samples, then include auxiliary routes when their gate touches redirect helpers, taxonomy roots, 404 behavior, feeds, JSON, `robots.txt`, or `sitemap.xml`.
-5. WS-H should use `migration/phase-8-rc-record.md` plus `validation/runs/phase-8-rc-v1.json` as the RC provenance layer for go/no-go evidence.
+5. WS-H should use `migration/phase-8-rc-v2-record.md` plus `validation/runs/phase-8-rc-v2.json` as the current RC provenance layer for go/no-go evidence.
 
 ## WS-B Report Contract
 
@@ -176,7 +176,8 @@ Important manual-evidence rule:
 
 - Record per-run metadata under `validation/runs/`.
 - Use one metadata file per RC ref once the canonical RC is confirmed.
-- RHI-084 establishes `validation/runs/phase-8-rc-v1.json` as the first machine-readable RC snapshot and `migration/phase-8-rc-record.md` as the authoritative human-readable freeze record.
+- RHI-084 established `validation/runs/phase-8-rc-v1.json` as the first machine-readable RC snapshot and `migration/phase-8-rc-record.md` as the first human-readable freeze record.
+- RHI-088 adds `validation/runs/phase-8-rc-v2.json` and `migration/phase-8-rc-v2-record.md` for the performance-driven RC re-cut.
 - Include the RC tag or SHA, environment mode, build timestamp, dataset checksums, and any workflow or gate run URLs.
 
 ## Placeholder policy

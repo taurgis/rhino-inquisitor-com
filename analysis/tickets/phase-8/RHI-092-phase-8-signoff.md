@@ -82,7 +82,7 @@ Any unresolved blocking gate failure or outstanding exception must be fixed or e
   - [ ] Rollback drill result and timing
   - [ ] Go/No-Go decision reference
   - [ ] Phase 9 entry conditions:
-    - [ ] All Phase 8 hard-blocker gates pass on RC commit `phase-8-rc-v1`
+    - [ ] All Phase 8 hard-blocker gates pass on RC commit `phase-8-rc-v2`
     - [ ] Rollback drill completed within target time
     - [ ] Smoke tests pass on deployed RC
     - [ ] Exception register reviewed with no unacceptable risks carried forward
@@ -99,7 +99,7 @@ Any unresolved blocking gate failure or outstanding exception must be fixed or e
   - [ ] Link to `LAUNCH-GATE-PASS-SUMMARY.md`
   - [ ] Link to `migration/phase-8-exception-register.md`
   - [ ] Link to rollback runbook (`migration/phase-7-staging-rollback-runbook.md`)
-  - [ ] RC commit SHA and `phase-8-rc-v1` tag reference
+  - [ ] RC commit SHA and `phase-8-rc-v2` tag reference
   - [ ] Confirmed live site URL and DNS state
   - [ ] Search Console action items for Phase 9
 - [ ] Tag repository with `phase-8-signoff` on the RC commit after sign-off is recorded

@@ -106,7 +106,7 @@ Ensure all legacy URL dispositions defined in Phase 6 (`migration/url-manifest.j
 | RHI-094 Done — Cutover executed; live host responds | Ticket | Pending |
 | Phase 6 frozen URL manifest (`migration/url-manifest.json`) | Phase | Pending |
 | Phase 6 redirect architecture decision (`migration/phase-6-redirect-adr.md` or equivalent) | Phase | Pending |
-| Hugo aliases and redirect pages deployed in RC (`phase-8-rc-v1`) | Phase | Pending |
+| Hugo aliases and redirect pages deployed in RC (`phase-8-rc-v2`) | Phase | Pending |
 | `npm run check:url-parity` script operational against live host | Phase | Pending |
 
 ---

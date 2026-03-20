@@ -1,0 +1,110 @@
+[
+  {
+    "url": "http://localhost:50887/",
+    "isRepresentativeRun": false,
+    "htmlPath": "/tmp/rhi088-rc-v2.ifMjZ4/lhci-report/mobile/localhost--2026_03_20_19_04_38.report.html",
+    "jsonPath": "/tmp/rhi088-rc-v2.ifMjZ4/lhci-report/mobile/localhost--2026_03_20_19_04_38.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 0.96,
+      "best-practices": 0.96,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:50887/",
+    "isRepresentativeRun": false,
+    "htmlPath": "/tmp/rhi088-rc-v2.ifMjZ4/lhci-report/mobile/localhost--2026_03_20_19_04_59.report.html",
+    "jsonPath": "/tmp/rhi088-rc-v2.ifMjZ4/lhci-report/mobile/localhost--2026_03_20_19_04_59.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 0.96,
+      "best-practices": 0.96,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:50887/real-time-inventory-checks-in-sfcc/",
+    "isRepresentativeRun": false,
+    "htmlPath": "/tmp/rhi088-rc-v2.ifMjZ4/lhci-report/mobile/localhost-real_time_inventory_checks_in_sfcc_-2026_03_20_19_05_09.report.html",
+    "jsonPath": "/tmp/rhi088-rc-v2.ifMjZ4/lhci-report/mobile/localhost-real_time_inventory_checks_in_sfcc_-2026_03_20_19_05_09.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 0.96,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:50887/real-time-inventory-checks-in-sfcc/",
+    "isRepresentativeRun": false,
+    "htmlPath": "/tmp/rhi088-rc-v2.ifMjZ4/lhci-report/mobile/localhost-real_time_inventory_checks_in_sfcc_-2026_03_20_19_05_20.report.html",
+    "jsonPath": "/tmp/rhi088-rc-v2.ifMjZ4/lhci-report/mobile/localhost-real_time_inventory_checks_in_sfcc_-2026_03_20_19_05_20.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 0.96,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:50887/category/ai/",
+    "isRepresentativeRun": false,
+    "htmlPath": "/tmp/rhi088-rc-v2.ifMjZ4/lhci-report/mobile/localhost-category_ai_-2026_03_20_19_05_51.report.html",
+    "jsonPath": "/tmp/rhi088-rc-v2.ifMjZ4/lhci-report/mobile/localhost-category_ai_-2026_03_20_19_05_51.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 0.96,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:50887/category/ai/",
+    "isRepresentativeRun": false,
+    "htmlPath": "/tmp/rhi088-rc-v2.ifMjZ4/lhci-report/mobile/localhost-category_ai_-2026_03_20_19_06_01.report.html",
+    "jsonPath": "/tmp/rhi088-rc-v2.ifMjZ4/lhci-report/mobile/localhost-category_ai_-2026_03_20_19_06_01.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 0.96,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:50887/",
+    "isRepresentativeRun": true,
+    "htmlPath": "/tmp/rhi088-rc-v2.ifMjZ4/lhci-report/mobile/localhost--2026_03_20_19_04_49.report.html",
+    "jsonPath": "/tmp/rhi088-rc-v2.ifMjZ4/lhci-report/mobile/localhost--2026_03_20_19_04_49.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 0.96,
+      "best-practices": 0.96,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:50887/real-time-inventory-checks-in-sfcc/",
+    "isRepresentativeRun": true,
+    "htmlPath": "/tmp/rhi088-rc-v2.ifMjZ4/lhci-report/mobile/localhost-real_time_inventory_checks_in_sfcc_-2026_03_20_19_05_30.report.html",
+    "jsonPath": "/tmp/rhi088-rc-v2.ifMjZ4/lhci-report/mobile/localhost-real_time_inventory_checks_in_sfcc_-2026_03_20_19_05_30.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 0.96,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:50887/category/ai/",
+    "isRepresentativeRun": true,
+    "htmlPath": "/tmp/rhi088-rc-v2.ifMjZ4/lhci-report/mobile/localhost-category_ai_-2026_03_20_19_05_41.report.html",
+    "jsonPath": "/tmp/rhi088-rc-v2.ifMjZ4/lhci-report/mobile/localhost-category_ai_-2026_03_20_19_05_41.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 0.96,
+      "seo": 1
+    }
+  }
+]

@@ -192,7 +192,7 @@ These constraints are hard requirements from `analysis/plan/details/phase-9.md` 
 | Phase 8 sign-off and Go/No-Go decision | RHI-092 (Phase 8) | RHI-093 |
 | Launch runbook and rollback runbook | RHI-080, RHI-081 (Phase 7) | RHI-093, RHI-094 |
 | Phase 8 gate pass summary and validation artifacts | RHI-091 (Phase 8) | RHI-093, RHI-094 |
-| `phase-8-rc-v1` validated artifact tag | RHI-092 (Phase 8) | RHI-094 |
+| `phase-8-rc-v2` validated artifact tag | RHI-092 (Phase 8) | RHI-094 |
 | GitHub Pages deployment workflow | RHI-074 (Phase 7) | RHI-094 |
 | DNS configuration and custom domain | RHI-076 (Phase 7) | RHI-094 |
 | Frozen URL manifest | RHI-063 (Phase 6) | RHI-094, RHI-096 |

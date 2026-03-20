@@ -25,7 +25,7 @@ Success means the canonical host responds correctly, HTTPS is enforced, priority
 **T-24h checks:**
 - [ ] Phase 8 preview-host rehearsal sign-off is complete and approved for production cutover
 - [ ] Production validation build evidence confirms zero preview-host leakage and zero accidental `noindex`
-- [ ] Final RC commit SHA confirmed and matches `phase-8-rc-v1` tag; no post-tagging changes committed
+- [ ] Final RC commit SHA confirmed and matches `phase-8-rc-v2` tag; no post-tagging changes committed
 - [ ] GitHub Pages custom domain (`www.rhino-inquisitor.com`) status is healthy and HTTPS certificate is valid or confirmed in final issuance
 - [ ] Domain verification TXT record is present and GitHub Pages domain verification is active
 - [ ] DNS rollback snapshot recorded: current A/AAAA/CNAME/TXT record values and TTLs documented
@@ -35,7 +35,7 @@ Success means the canonical host responds correctly, HTTPS is enforced, priority
 - [ ] Non-migration changes frozen on `main` for the duration of the launch window
 
 **T-0 execution:**
-- [ ] Release artifact deployed from `phase-8-rc-v1` tag via GitHub Actions
+- [ ] Release artifact deployed from `phase-8-rc-v2` tag via GitHub Actions
 - [ ] DNS A/CNAME records updated per the validated Phase 7 staging runbook template (`migration/phase-7-staging-launch-runbook.md`) and the production adaptation agreed for the launch window
 - [ ] DNS propagation verified using explicit public resolvers:
   - [ ] `dig @1.1.1.1 www.rhino-inquisitor.com CNAME +short`
@@ -75,7 +75,7 @@ Success means the canonical host responds correctly, HTTPS is enforced, priority
 
 **T-24h preparation:**
 - [ ] Confirm Phase 8 preview-host rehearsal sign-off and production validation build evidence are complete
-- [ ] Confirm `phase-8-rc-v1` tag exists and no post-RC commits are on `main` that haven't been validated
+- [ ] Confirm `phase-8-rc-v2` tag exists and no post-RC commits are on `main` that haven't been validated
 - [ ] Log into GitHub Pages settings and confirm custom domain is set to `www.rhino-inquisitor.com`; verify Enforce HTTPS status and record a 60-minute post-propagation decision checkpoint if it is not yet available
 - [ ] Confirm TLS certificate status; if in issuance, confirm expected completion time before T-0
 - [ ] Record DNS rollback snapshot: copy current DNS record values and TTLs to `monitoring/launch-cutover-log.md`
@@ -86,7 +86,7 @@ Success means the canonical host responds correctly, HTTPS is enforced, priority
 - [ ] Freeze non-migration changes: communicate freeze to any contributors
 
 **T-0 execution:**
-- [ ] Deploy release artifact by triggering GitHub Actions `deploy-pages.yml` workflow from `phase-8-rc-v1`
+- [ ] Deploy release artifact by triggering GitHub Actions `deploy-pages.yml` workflow from `phase-8-rc-v2`
 - [ ] Confirm deployment workflow completes successfully; record Actions run URL in cutover log
 - [ ] Update DNS A/CNAME records at provider per the production adaptation of `migration/phase-7-staging-launch-runbook.md`
 - [ ] Record DNS change timestamps and operator name in `monitoring/launch-cutover-log.md`
@@ -136,7 +136,7 @@ Success means the canonical host responds correctly, HTTPS is enforced, priority
 | `migration/phase-7-staging-launch-runbook.md` committed and accepted as the production-cutover template | Phase | Pending |
 | `migration/phase-7-staging-rollback-runbook.md` committed and drilled | Phase | Pending |
 | `CUTOVER-VERIFICATION-CHECKLIST.md` committed and ready | Phase | Pending |
-| `phase-8-rc-v1` git tag set on validated RC commit | Phase | Pending |
+| `phase-8-rc-v2` git tag set on validated RC commit | Phase | Pending |
 | GitHub Pages custom domain and HTTPS healthy | Infra | Pending |
 | DNS provider access confirmed for DNS operator | Access | Pending |
 | Search Console access confirmed for SEO operator | Access | Pending |
