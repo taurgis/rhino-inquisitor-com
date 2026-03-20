@@ -1,6 +1,6 @@
 # Phase 5 Pages Constraints Report
 
-Generated: 2026-03-13T12:32:30.084Z
+Generated: 2026-03-20T12:08:37.002Z
 
 ## Artifact summary
 
@@ -9,20 +9,20 @@ Generated: 2026-03-13T12:32:30.084Z
 | Public output path | public | Production build artifact inspected by the gate |
 | Source static path | src/static | Source of truth for static passthrough assets |
 | URL manifest path | migration/url-manifest.json | Alias-growth baseline source |
-| Public output size | 85.59 MB | 8.36% of the 1 GB GitHub Pages published-site limit |
-| Gate threshold | 800.00 MB | 10.70% of the configured gate budget currently used |
-| Headroom to gate | 714.41 MB | Remaining space before the CI gate fails |
-| Headroom to 1 GB Pages limit | 938.41 MB | Remaining space before the GitHub Pages hard limit |
-| Artifact file count | 1870 | Regular files in public/ |
-| Artifact directory count | 239 | Directories in public/ excluding root |
-| Production build duration | 5.91 s | Reported when supplied by the caller or CI workflow |
+| Public output size | 581.39 MB | 56.78% of the 1 GB GitHub Pages published-site limit |
+| Gate threshold | 800.00 MB | 72.67% of the configured gate budget currently used |
+| Headroom to gate | 218.61 MB | Remaining space before the CI gate fails |
+| Headroom to 1 GB Pages limit | 442.61 MB | Remaining space before the GitHub Pages hard limit |
+| Artifact file count | 1218 | Regular files in public/ |
+| Artifact directory count | 250 | Directories in public/ excluding root |
+| Production build duration | 1.80 s | Reported when supplied by the caller or CI workflow |
 
 ## Artifact structure conformance
 
 | Check | Status | Details |
 | --- | --- | --- |
 | Top-level index.html present | Pass | public/index.html is present. |
-| Published size below threshold | Pass | 85.59 MB used vs 800.00 MB configured gate. |
+| Published size below threshold | Pass | 581.39 MB used vs 800.00 MB configured gate. |
 | No symbolic links in public/ | Pass | No symbolic links detected. |
 | No hard links in public/ | Pass | No hard links detected. |
 | Only files and directories in public/ | Pass | No unsupported special file types detected. |
@@ -31,13 +31,13 @@ Generated: 2026-03-13T12:32:30.084Z
 
 | Metric | Value | Notes |
 | --- | --- | --- |
-| Manifest merge records | 140 | All legacy routes currently classified as merge in migration/url-manifest.json |
-| Pages-static merge records | 124 | Routes expected to publish as static redirect helpers |
-| Edge redirect merge records | 16 | Routes already designated for edge handling |
-| Redirect helper pages detected in public/ | 7 | HTML files in public/ with Hugo redirect-helper behavior |
-| Redirect helper total size | 0.00 MB | Aggregate footprint of generated redirect helpers |
-| Average redirect helper size | 355 bytes | Observed average HTML redirect-helper size |
-| Estimated size per 100 aliases | 0.03 MB | Based on observed redirect helper pages in public/ |
+| Manifest merge records | 141 | All legacy routes currently classified as merge in migration/url-manifest.json |
+| Pages-static merge records | 18 | Routes expected to publish as static redirect helpers |
+| Edge redirect merge records | 0 | Routes already designated for edge handling |
+| Redirect helper pages detected in public/ | 21 | HTML files in public/ with Hugo redirect-helper behavior |
+| Redirect helper total size | 0.01 MB | Aggregate footprint of generated redirect helpers |
+| Average redirect helper size | 368 bytes | Observed average HTML redirect-helper size |
+| Estimated size per 100 aliases | 0.04 MB | Based on observed redirect helper pages in public/ |
 | Alias warning threshold | 500 pages-static merge records | Threshold not exceeded. |
 
 ## Domain and Pages readiness snapshot
@@ -45,11 +45,11 @@ Generated: 2026-03-13T12:32:30.084Z
 | Check | Status |
 | --- | --- |
 | src/static/.nojekyll present | Yes |
-| Public DNS www.rhino-inquisitor.com CNAME | Current DNS still points at the legacy production stack; GitHub Pages cutover deferred to Phase 9 |
-| Observed www target detail | GitHub Pages CNAME not yet published for www.rhino-inquisitor.com by owner-approved timing |
-| GitHub Pages custom-domain setting | Deferred to Phase 9 by owner approval; repository settings remain the source of truth |
-| GitHub Pages HTTPS status | Deferred to Phase 9 by owner approval; current production host serves HTTPS on the legacy stack |
-| GitHub domain verification status | Deferred to Phase 9 by owner approval |
+| Public DNS www.rhino-inquisitor.com CNAME | Pending manual verification |
+| Observed www target detail | Pending manual verification |
+| GitHub Pages custom-domain setting | Pending repository settings verification |
+| GitHub Pages HTTPS status | Pending repository settings verification |
+| GitHub domain verification status | Pending repository settings verification |
 
 ## Notes
 

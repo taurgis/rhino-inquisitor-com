@@ -42,7 +42,6 @@ route,file_path,mode,expected_indexable,manifest_indexable,redirect_page,robots_
 /category/go-live/,public/category/go-live/index.html,production,yes,yes,no,"index, follow",,no,no,/,pass,
 /category/,public/category/index.html,production,yes,no,no,"index, follow",,no,no,/,pass,
 /category/linkedin/,public/category/linkedin/index.html,production,yes,yes,no,"index, follow",,no,no,/,pass,
-/category/platform/,public/category/platform/index.html,production,yes,no,no,"noindex, nofollow",,yes,no,/,fail,unexpected noindex on indexable route
 /category/podcasts/,public/category/podcasts/index.html,production,yes,yes,no,"index, follow",,no,no,/,pass,
 /category/react/,public/category/react/index.html,production,yes,yes,no,"index, follow",,no,no,/,pass,
 /category/release-notes/,public/category/release-notes/index.html,production,yes,yes,no,"index, follow",,no,no,/,pass,
