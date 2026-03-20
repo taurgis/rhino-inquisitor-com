@@ -125,6 +125,14 @@ Important behavior detail:
 4. WS-C through WS-F should start from `validation/sample-matrix.json` page samples, then include auxiliary routes when their gate touches redirect helpers, taxonomy roots, 404 behavior, feeds, JSON, `robots.txt`, or `sitemap.xml`.
 5. WS-H should use `migration/phase-8-rc-record.md` plus `validation/runs/phase-8-rc-v1.json` as the RC provenance layer for go/no-go evidence.
 
+## WS-B Report Contract
+
+RHI-085 replaces the placeholder WS-B outputs with committed machine-readable evidence:
+
+- `validation/url-parity-report.json` records one result row per entry in `validation/expected-url-outcomes.json`, preserving the canonical migration intent (`200`, `301`, `404`) while passing or failing against the Pages-specific `build_validation` contract.
+- `validation/redirect-quality-report.json` records redirect integrity for all `merge` rows, priority-route spot-check evidence from `validation/priority-routes.json`, non-HTML coverage, and redirect-retention policy confirmation.
+- Both reports must retain the frozen RC tag and commit from the expected-outcomes dataset so downstream reviewers can distinguish RC-scoped evidence from later branch-state builds.
+
 ## RC metadata convention
 
 - Record per-run metadata under `validation/runs/`.

@@ -113,7 +113,7 @@ This is the top-level ticket index for the full migration project. Use the phase
 | [RHI-082](phase-7/RHI-082-phase-7-signoff.md) | Phase 7 Sign-off and Handover to Phase 8/9 | 7 | Critical | Done | S | 2026-06-02 |
 | [RHI-083](phase-8/RHI-083-phase-8-bootstrap.md) | Phase 8 Bootstrap: Kickoff and Validation Environment Setup | 8 | Critical | Done | S | 2026-06-03 |
 | [RHI-084](phase-8/RHI-084-rc-freeze-validation-dataset.md) | Workstream A — Release Candidate Freeze and Validation Dataset | 8 | Critical | Done | M | 2026-06-04 |
-| [RHI-085](phase-8/RHI-085-url-parity-redirect-integrity-gates.md) | Workstream B — URL Parity and Redirect Integrity Gates | 8 | Critical | Open | L | 2026-06-06 |
+| [RHI-085](phase-8/RHI-085-url-parity-redirect-integrity-gates.md) | Workstream B — URL Parity and Redirect Integrity Gates | 8 | Critical | Done | L | 2026-06-06 |
 | [RHI-086](phase-8/RHI-086-seo-indexing-readiness-gates.md) | Workstream C — SEO and Indexing Readiness Gates | 8 | Critical | Open | M | 2026-06-06 |
 | [RHI-087](phase-8/RHI-087-structured-data-social-preview-gates.md) | Workstream D — Structured Data and Social Preview Gates | 8 | High | Open | M | 2026-06-09 |
 | [RHI-088](phase-8/RHI-088-performance-core-web-vitals-gates.md) | Workstream E — Performance and Core Web Vitals Gates | 8 | High | Open | M | 2026-06-09 |

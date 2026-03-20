@@ -24,7 +24,7 @@ Any unresolved blocking gate failure or outstanding exception must be fixed or e
 - [ ] All Phase 8 workstream tickets are `Done`:
   - [ ] RHI-083 Done — Phase 8 Bootstrap complete
   - [ ] RHI-084 Done — RC frozen and validation dataset committed
-  - [ ] RHI-085 Done — URL parity and redirect integrity gates passing
+  - [x] RHI-085 Done — URL parity and redirect integrity gates passing
   - [ ] RHI-086 Done — SEO and indexing readiness gates passing
   - [ ] RHI-087 Done — Structured data and social preview gates passing
   - [ ] RHI-088 Done — Performance and Core Web Vitals gates passing

@@ -133,6 +133,17 @@ jobs:
           if-no-files-found: error
           retention-days: 7
 
+      - name: Upload Phase 8 URL validation reports
+        if: ${{ always() && !cancelled() }}
+        uses: actions/upload-artifact@v6
+        with:
+          name: phase-8-url-validation-${{ github.sha }}
+          path: |
+            validation/url-parity-report.json
+            validation/redirect-quality-report.json
+          if-no-files-found: error
+          retention-days: 30
+
       - name: Upload audit artifacts
         if: ${{ always() && !cancelled() }}
         uses: actions/upload-artifact@v6

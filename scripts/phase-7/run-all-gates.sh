@@ -124,6 +124,8 @@ register_gate "Run Pages artifact constraints check" "cd \"$REPO_ROOT\" && build
 register_gate "Run URL parity check" "cd \"$REPO_ROOT\" && npm run check:url-parity"
 register_gate "Run redirect target existence check" "cd \"$REPO_ROOT\" && npm run check:redirect-targets"
 register_gate "Run redirect chain check" "cd \"$REPO_ROOT\" && npm run check:redirect-chains"
+register_gate "Run Phase 8 URL parity gate" "cd \"$REPO_ROOT\" && npm run check:url-parity:p8"
+register_gate "Run Phase 8 redirect quality gate" "cd \"$REPO_ROOT\" && npm run check:redirect-quality"
 register_gate "Run canonical alignment check" "cd \"$REPO_ROOT\" && npm run check:canonical-alignment"
 register_gate "Run mixed-content check" "cd \"$REPO_ROOT\" && npm run check:mixed-content"
 register_gate "Run retirement policy check" "cd \"$REPO_ROOT\" && npm run check:retirement-policy"
