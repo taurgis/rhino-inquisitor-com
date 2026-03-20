@@ -1,0 +1,41 @@
+{
+  "label": "phase-8-rc-v1",
+  "timestamp": "2026-03-20T13:55:41.084Z",
+  "publicDir": "/Users/thomastheunen/Documents/Projects/rhino-inquisitor-com/tmp/phase-8-rc-v1-worktree/tmp/phase-8-rc-v1-public",
+  "reportPath": "/Users/thomastheunen/Documents/Projects/rhino-inquisitor-com/tmp/phase-8-rc-v1-artifact-validation.json",
+  "manifestPath": "/Users/thomastheunen/Documents/Projects/rhino-inquisitor-com/migration/url-manifest.json",
+  "thresholds": {
+    "compressedWarnBytes": 734003200,
+    "compressedWarnMb": 700,
+    "projectedFailBytes": 943718400,
+    "projectedFailMb": 900
+  },
+  "totals": {
+    "fileCount": 1218,
+    "directoryCount": 250,
+    "projectedPublishedSizeBytes": 609631176,
+    "projectedPublishedSizeMb": 581.39,
+    "compressedArtifactSizeBytes": 549389752,
+    "compressedArtifactSizeMb": 523.94
+  },
+  "checks": {
+    "hasTopLevelIndex": true,
+    "symlinkPaths": [],
+    "hardLinkPaths": [],
+    "specialEntryPaths": [],
+    "uppercasePaths": [],
+    "uppercaseExceptionPaths": [
+      "wp-content/uploads/2023/11/B2C-Commerce-Variation-Group-Guide.pdf"
+    ],
+    "sourceMapPaths": [],
+    "unexpectedSourcePaths": []
+  },
+  "summary": {
+    "status": "pass",
+    "errorCount": 0,
+    "warningCount": 0,
+    "structuralViolations": [],
+    "sizeWarnings": [],
+    "sizeViolations": []
+  }
+}

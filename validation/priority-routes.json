@@ -1,0 +1,922 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-03-20T13:56:36.009Z",
+  "rc": {
+    "tag": "phase-8-rc-v1",
+    "commit": "a510ead82a28f85718866e1f6af3f7dda03034b7",
+    "manifest_tag": "phase-6-redirect-map-v1",
+    "manifest_commit": "3f29de0ccfb587956ea405813dd27426edf98f61",
+    "seo_baseline_path": "migration/phase-1-seo-baseline.md"
+  },
+  "selection_method": {
+    "organic": "Take the first 20 rows from the 90-day top-pages-by-clicks table in migration/phase-1-seo-baseline.md. Preserve source rank order exactly as captured.",
+    "backlink": "Take the first 20 rows from the link-equity baseline table in migration/phase-1-seo-baseline.md. Preserve source rank order exactly as captured.",
+    "deduplication": "Merge duplicate routes across source sets into one route entry and retain per-source rank metadata.",
+    "class_coverage_supplements": "For any missing required URL class, add one deterministic supplement preferring non-query keep routes, then merge, then retire, then organic/external signal, then priority, then route sort order.",
+    "tie_breaker": "Where selection order is otherwise equal, use route ascending."
+  },
+  "coverage": {
+    "required_url_classes": [
+      "post",
+      "page",
+      "category",
+      "video",
+      "landing",
+      "system"
+    ],
+    "represented_url_classes": [
+      "category",
+      "landing",
+      "page",
+      "post",
+      "system",
+      "video"
+    ],
+    "supplemented_url_classes": [
+      "landing",
+      "system"
+    ]
+  },
+  "ranked_sets": {
+    "organic": [
+      "/swc-and-storybook-error-failed-to-load-native-binding/",
+      "/how-to-use-ocapi-scapi-hooks/",
+      "/in-the-ring-ocapi-versus-scapi/",
+      "/mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/",
+      "/a-beginners-guide-to-webdav-in-sfcc/",
+      "/",
+      "/sitegenesis-vs-sfra-vs-pwa/",
+      "/creating-custom-ocapi-endpoints/",
+      "/understanding-sfcc-instances/",
+      "/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/",
+      "/caching-in-the-sfcc-composable-storefront/",
+      "/how-to-set-up-slas-for-the-composable-storefront/",
+      "/custom-ttf-fonts-in-pdf-for-sfcc/",
+      "/the-b2c-commerce-architect-certification/",
+      "/salesforce-b2c-commerce-cloud-governance-and-quotas/",
+      "/secure-coding-in-salesforce-b2c-commerce-cloud/",
+      "/what-is-the-ocapi-session-bridge/",
+      "/where-to-hook-into-an-sfra-controller/",
+      "/sending-emails-from-sfcc/",
+      "/how-to-load-client-side-javascript-and-css-in-sfra/"
+    ],
+    "backlink": [
+      "/",
+      "/how-to-set-up-the-ecdn-in-sfcc-staging/",
+      "/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/",
+      "/ai-einstein-in-salesforce-b2c-commerce-cloud/",
+      "/lets-go-live-ecdn/",
+      "/mail-attachments-in-b2c-commerce-cloud/",
+      "/how-to-get-salesforce-certification-vouchers/",
+      "/how-to-use-ocapi-scapi-hooks/",
+      "/mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/",
+      "/salesforce-b2c-commerce-the-22-6-release/",
+      "/simplifying-the-salesforce-order-of-execution/",
+      "/sitegenesis-vs-sfra-vs-pwa/",
+      "/third-party-api-caching-in-commerce-cloud/",
+      "/a-look-at-the-23-9-commerce-cloud-release/",
+      "/category/salesforce-commerce-cloud/release-notes/",
+      "/community-repositories/",
+      "/custom-preferences-in-sfcc/",
+      "/getting-to-know-sfra-as-a-developer/",
+      "/how-to-filter-jsdoc-in-storybook-autodocs/",
+      "/how-to-set-up-slas-for-the-composable-storefront/"
+    ],
+    "coverage_supplements": [
+      "/elementor-landing-page-1179/",
+      "/feed/"
+    ]
+  },
+  "routes": [
+    {
+      "route": "/",
+      "final_target_url": "/",
+      "disposition": "keep",
+      "expected_outcome": "keep",
+      "url_class": "page",
+      "priority": "critical",
+      "source": [
+        {
+          "source_set": "organic",
+          "source_rank": 6,
+          "metric": {
+            "clicks": 451,
+            "impressions": 4536,
+            "ctr_percent": 9.94,
+            "average_position": 21.73
+          },
+          "source_url": "https://www.rhino-inquisitor.com/"
+        },
+        {
+          "source_set": "backlink",
+          "source_rank": 1,
+          "metric": {
+            "incoming_links": 50,
+            "linking_sites": 17
+          },
+          "source_url": "https://www.rhino-inquisitor.com/"
+        }
+      ],
+      "coverage_supplement_for_url_class": null,
+      "selection_reason": "organic rank 6 from migration/phase-1-seo-baseline.md. Also present in backlink rank 1."
+    },
+    {
+      "route": "/swc-and-storybook-error-failed-to-load-native-binding/",
+      "final_target_url": "/swc-and-storybook-error-failed-to-load-native-binding/",
+      "disposition": "keep",
+      "expected_outcome": "keep",
+      "url_class": "page",
+      "priority": "high",
+      "source": [
+        {
+          "source_set": "organic",
+          "source_rank": 1,
+          "metric": {
+            "clicks": 1489,
+            "impressions": 37053,
+            "ctr_percent": 4.02,
+            "average_position": 5.74
+          },
+          "source_url": "https://www.rhino-inquisitor.com/swc-and-storybook-error-failed-to-load-native-binding/"
+        }
+      ],
+      "coverage_supplement_for_url_class": null,
+      "selection_reason": "organic rank 1 from migration/phase-1-seo-baseline.md."
+    },
+    {
+      "route": "/how-to-set-up-the-ecdn-in-sfcc-staging/",
+      "final_target_url": "/how-to-set-up-the-ecdn-in-sfcc-staging/",
+      "disposition": "keep",
+      "expected_outcome": "keep",
+      "url_class": "post",
+      "priority": "critical",
+      "source": [
+        {
+          "source_set": "backlink",
+          "source_rank": 2,
+          "metric": {
+            "incoming_links": 17,
+            "linking_sites": 2
+          },
+          "source_url": "https://www.rhino-inquisitor.com/how-to-set-up-the-ecdn-in-sfcc-staging/"
+        }
+      ],
+      "coverage_supplement_for_url_class": null,
+      "selection_reason": "backlink rank 2 from migration/phase-1-seo-baseline.md."
+    },
+    {
+      "route": "/how-to-use-ocapi-scapi-hooks/",
+      "final_target_url": "/how-to-use-ocapi-scapi-hooks/",
+      "disposition": "keep",
+      "expected_outcome": "keep",
+      "url_class": "post",
+      "priority": "critical",
+      "source": [
+        {
+          "source_set": "organic",
+          "source_rank": 2,
+          "metric": {
+            "clicks": 809,
+            "impressions": 49921,
+            "ctr_percent": 1.62,
+            "average_position": 7.57
+          },
+          "source_url": "https://www.rhino-inquisitor.com/how-to-use-ocapi-scapi-hooks/"
+        },
+        {
+          "source_set": "backlink",
+          "source_rank": 8,
+          "metric": {
+            "incoming_links": 2,
+            "linking_sites": 2
+          },
+          "source_url": "https://www.rhino-inquisitor.com/how-to-use-ocapi-scapi-hooks/"
+        }
+      ],
+      "coverage_supplement_for_url_class": null,
+      "selection_reason": "organic rank 2 from migration/phase-1-seo-baseline.md. Also present in backlink rank 8."
+    },
+    {
+      "route": "/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/",
+      "final_target_url": "/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/",
+      "disposition": "keep",
+      "expected_outcome": "keep",
+      "url_class": "post",
+      "priority": "critical",
+      "source": [
+        {
+          "source_set": "organic",
+          "source_rank": 10,
+          "metric": {
+            "clicks": 402,
+            "impressions": 46936,
+            "ctr_percent": 0.86,
+            "average_position": 43.87
+          },
+          "source_url": "https://www.rhino-inquisitor.com/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/"
+        },
+        {
+          "source_set": "backlink",
+          "source_rank": 3,
+          "metric": {
+            "incoming_links": 12,
+            "linking_sites": 2
+          },
+          "source_url": "https://www.rhino-inquisitor.com/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/"
+        }
+      ],
+      "coverage_supplement_for_url_class": null,
+      "selection_reason": "organic rank 10 from migration/phase-1-seo-baseline.md. Also present in backlink rank 3."
+    },
+    {
+      "route": "/in-the-ring-ocapi-versus-scapi/",
+      "final_target_url": "/in-the-ring-ocapi-versus-scapi/",
+      "disposition": "keep",
+      "expected_outcome": "keep",
+      "url_class": "post",
+      "priority": "high",
+      "source": [
+        {
+          "source_set": "organic",
+          "source_rank": 3,
+          "metric": {
+            "clicks": 715,
+            "impressions": 80694,
+            "ctr_percent": 0.89,
+            "average_position": 8.1
+          },
+          "source_url": "https://www.rhino-inquisitor.com/in-the-ring-ocapi-versus-scapi/"
+        }
+      ],
+      "coverage_supplement_for_url_class": null,
+      "selection_reason": "organic rank 3 from migration/phase-1-seo-baseline.md."
+    },
+    {
+      "route": "/ai-einstein-in-salesforce-b2c-commerce-cloud/",
+      "final_target_url": "/ai-einstein-in-salesforce-b2c-commerce-cloud/",
+      "disposition": "keep",
+      "expected_outcome": "keep",
+      "url_class": "post",
+      "priority": "critical",
+      "source": [
+        {
+          "source_set": "backlink",
+          "source_rank": 4,
+          "metric": {
+            "incoming_links": 5,
+            "linking_sites": 4
+          },
+          "source_url": "https://www.rhino-inquisitor.com/ai-einstein-in-salesforce-b2c-commerce-cloud/"
+        }
+      ],
+      "coverage_supplement_for_url_class": null,
+      "selection_reason": "backlink rank 4 from migration/phase-1-seo-baseline.md."
+    },
+    {
+      "route": "/mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/",
+      "final_target_url": "/mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/",
+      "disposition": "keep",
+      "expected_outcome": "keep",
+      "url_class": "post",
+      "priority": "critical",
+      "source": [
+        {
+          "source_set": "organic",
+          "source_rank": 4,
+          "metric": {
+            "clicks": 671,
+            "impressions": 19207,
+            "ctr_percent": 3.49,
+            "average_position": 13.19
+          },
+          "source_url": "https://www.rhino-inquisitor.com/mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/"
+        },
+        {
+          "source_set": "backlink",
+          "source_rank": 9,
+          "metric": {
+            "incoming_links": 2,
+            "linking_sites": 2
+          },
+          "source_url": "https://www.rhino-inquisitor.com/mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/"
+        }
+      ],
+      "coverage_supplement_for_url_class": null,
+      "selection_reason": "organic rank 4 from migration/phase-1-seo-baseline.md. Also present in backlink rank 9."
+    },
+    {
+      "route": "/a-beginners-guide-to-webdav-in-sfcc/",
+      "final_target_url": "/a-beginners-guide-to-webdav-in-sfcc/",
+      "disposition": "keep",
+      "expected_outcome": "keep",
+      "url_class": "post",
+      "priority": "high",
+      "source": [
+        {
+          "source_set": "organic",
+          "source_rank": 5,
+          "metric": {
+            "clicks": 527,
+            "impressions": 14443,
+            "ctr_percent": 3.65,
+            "average_position": 16.19
+          },
+          "source_url": "https://www.rhino-inquisitor.com/a-beginners-guide-to-webdav-in-sfcc/"
+        }
+      ],
+      "coverage_supplement_for_url_class": null,
+      "selection_reason": "organic rank 5 from migration/phase-1-seo-baseline.md."
+    },
+    {
+      "route": "/lets-go-live-ecdn/",
+      "final_target_url": "/lets-go-live-ecdn/",
+      "disposition": "keep",
+      "expected_outcome": "keep",
+      "url_class": "post",
+      "priority": "critical",
+      "source": [
+        {
+          "source_set": "backlink",
+          "source_rank": 5,
+          "metric": {
+            "incoming_links": 5,
+            "linking_sites": 2
+          },
+          "source_url": "https://www.rhino-inquisitor.com/lets-go-live-ecdn/"
+        }
+      ],
+      "coverage_supplement_for_url_class": null,
+      "selection_reason": "backlink rank 5 from migration/phase-1-seo-baseline.md."
+    },
+    {
+      "route": "/mail-attachments-in-b2c-commerce-cloud/",
+      "final_target_url": "/mail-attachments-in-b2c-commerce-cloud/",
+      "disposition": "keep",
+      "expected_outcome": "keep",
+      "url_class": "post",
+      "priority": "critical",
+      "source": [
+        {
+          "source_set": "backlink",
+          "source_rank": 6,
+          "metric": {
+            "incoming_links": 3,
+            "linking_sites": 1
+          },
+          "source_url": "https://www.rhino-inquisitor.com/mail-attachments-in-b2c-commerce-cloud/"
+        }
+      ],
+      "coverage_supplement_for_url_class": null,
+      "selection_reason": "backlink rank 6 from migration/phase-1-seo-baseline.md."
+    },
+    {
+      "route": "/how-to-get-salesforce-certification-vouchers/",
+      "final_target_url": "/how-to-get-salesforce-certification-vouchers/",
+      "disposition": "keep",
+      "expected_outcome": "keep",
+      "url_class": "post",
+      "priority": "critical",
+      "source": [
+        {
+          "source_set": "backlink",
+          "source_rank": 7,
+          "metric": {
+            "incoming_links": 2,
+            "linking_sites": 2
+          },
+          "source_url": "https://www.rhino-inquisitor.com/how-to-get-salesforce-certification-vouchers/"
+        }
+      ],
+      "coverage_supplement_for_url_class": null,
+      "selection_reason": "backlink rank 7 from migration/phase-1-seo-baseline.md."
+    },
+    {
+      "route": "/sitegenesis-vs-sfra-vs-pwa/",
+      "final_target_url": "/sitegenesis-vs-sfra-vs-pwa/",
+      "disposition": "keep",
+      "expected_outcome": "keep",
+      "url_class": "video",
+      "priority": "critical",
+      "source": [
+        {
+          "source_set": "organic",
+          "source_rank": 7,
+          "metric": {
+            "clicks": 441,
+            "impressions": 30102,
+            "ctr_percent": 1.47,
+            "average_position": 16.82
+          },
+          "source_url": "https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/"
+        },
+        {
+          "source_set": "backlink",
+          "source_rank": 12,
+          "metric": {
+            "incoming_links": 2,
+            "linking_sites": 2
+          },
+          "source_url": "https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/"
+        }
+      ],
+      "coverage_supplement_for_url_class": null,
+      "selection_reason": "organic rank 7 from migration/phase-1-seo-baseline.md. Also present in backlink rank 12."
+    },
+    {
+      "route": "/creating-custom-ocapi-endpoints/",
+      "final_target_url": "/creating-custom-ocapi-endpoints/",
+      "disposition": "keep",
+      "expected_outcome": "keep",
+      "url_class": "post",
+      "priority": "high",
+      "source": [
+        {
+          "source_set": "organic",
+          "source_rank": 8,
+          "metric": {
+            "clicks": 434,
+            "impressions": 32923,
+            "ctr_percent": 1.32,
+            "average_position": 10.36
+          },
+          "source_url": "https://www.rhino-inquisitor.com/creating-custom-ocapi-endpoints/"
+        }
+      ],
+      "coverage_supplement_for_url_class": null,
+      "selection_reason": "organic rank 8 from migration/phase-1-seo-baseline.md."
+    },
+    {
+      "route": "/understanding-sfcc-instances/",
+      "final_target_url": "/understanding-sfcc-instances/",
+      "disposition": "keep",
+      "expected_outcome": "keep",
+      "url_class": "post",
+      "priority": "high",
+      "source": [
+        {
+          "source_set": "organic",
+          "source_rank": 9,
+          "metric": {
+            "clicks": 417,
+            "impressions": 26735,
+            "ctr_percent": 1.56,
+            "average_position": 25.38
+          },
+          "source_url": "https://www.rhino-inquisitor.com/understanding-sfcc-instances/"
+        }
+      ],
+      "coverage_supplement_for_url_class": null,
+      "selection_reason": "organic rank 9 from migration/phase-1-seo-baseline.md."
+    },
+    {
+      "route": "/salesforce-b2c-commerce-the-22-6-release/",
+      "final_target_url": "/salesforce-b2c-commerce-the-22-6-release/",
+      "disposition": "keep",
+      "expected_outcome": "keep",
+      "url_class": "post",
+      "priority": "critical",
+      "source": [
+        {
+          "source_set": "backlink",
+          "source_rank": 10,
+          "metric": {
+            "incoming_links": 2,
+            "linking_sites": 2
+          },
+          "source_url": "https://www.rhino-inquisitor.com/salesforce-b2c-commerce-the-22-6-release/"
+        }
+      ],
+      "coverage_supplement_for_url_class": null,
+      "selection_reason": "backlink rank 10 from migration/phase-1-seo-baseline.md."
+    },
+    {
+      "route": "/caching-in-the-sfcc-composable-storefront/",
+      "final_target_url": "/caching-in-the-sfcc-composable-storefront/",
+      "disposition": "keep",
+      "expected_outcome": "keep",
+      "url_class": "post",
+      "priority": "high",
+      "source": [
+        {
+          "source_set": "organic",
+          "source_rank": 11,
+          "metric": {
+            "clicks": 400,
+            "impressions": 70353,
+            "ctr_percent": 0.57,
+            "average_position": 7.71
+          },
+          "source_url": "https://www.rhino-inquisitor.com/caching-in-the-sfcc-composable-storefront/"
+        }
+      ],
+      "coverage_supplement_for_url_class": null,
+      "selection_reason": "organic rank 11 from migration/phase-1-seo-baseline.md."
+    },
+    {
+      "route": "/simplifying-the-salesforce-order-of-execution/",
+      "final_target_url": "/simplifying-the-salesforce-order-of-execution/",
+      "disposition": "keep",
+      "expected_outcome": "keep",
+      "url_class": "post",
+      "priority": "critical",
+      "source": [
+        {
+          "source_set": "backlink",
+          "source_rank": 11,
+          "metric": {
+            "incoming_links": 2,
+            "linking_sites": 2
+          },
+          "source_url": "https://www.rhino-inquisitor.com/simplifying-the-salesforce-order-of-execution/"
+        }
+      ],
+      "coverage_supplement_for_url_class": null,
+      "selection_reason": "backlink rank 11 from migration/phase-1-seo-baseline.md."
+    },
+    {
+      "route": "/how-to-set-up-slas-for-the-composable-storefront/",
+      "final_target_url": "/how-to-set-up-slas-for-the-composable-storefront/",
+      "disposition": "keep",
+      "expected_outcome": "keep",
+      "url_class": "post",
+      "priority": "critical",
+      "source": [
+        {
+          "source_set": "organic",
+          "source_rank": 12,
+          "metric": {
+            "clicks": 397,
+            "impressions": 11717,
+            "ctr_percent": 3.39,
+            "average_position": 9.49
+          },
+          "source_url": "https://www.rhino-inquisitor.com/how-to-set-up-slas-for-the-composable-storefront/"
+        },
+        {
+          "source_set": "backlink",
+          "source_rank": 20,
+          "metric": {
+            "incoming_links": 1,
+            "linking_sites": 1
+          },
+          "source_url": "https://www.rhino-inquisitor.com/how-to-set-up-slas-for-the-composable-storefront/"
+        }
+      ],
+      "coverage_supplement_for_url_class": null,
+      "selection_reason": "organic rank 12 from migration/phase-1-seo-baseline.md. Also present in backlink rank 20."
+    },
+    {
+      "route": "/custom-ttf-fonts-in-pdf-for-sfcc/",
+      "final_target_url": "/custom-ttf-fonts-in-pdf-for-sfcc/",
+      "disposition": "keep",
+      "expected_outcome": "keep",
+      "url_class": "post",
+      "priority": "high",
+      "source": [
+        {
+          "source_set": "organic",
+          "source_rank": 13,
+          "metric": {
+            "clicks": 365,
+            "impressions": 44745,
+            "ctr_percent": 0.82,
+            "average_position": 8.3
+          },
+          "source_url": "https://www.rhino-inquisitor.com/custom-ttf-fonts-in-pdf-for-sfcc/"
+        }
+      ],
+      "coverage_supplement_for_url_class": null,
+      "selection_reason": "organic rank 13 from migration/phase-1-seo-baseline.md."
+    },
+    {
+      "route": "/third-party-api-caching-in-commerce-cloud/",
+      "final_target_url": "/third-party-api-caching-in-commerce-cloud/",
+      "disposition": "keep",
+      "expected_outcome": "keep",
+      "url_class": "post",
+      "priority": "critical",
+      "source": [
+        {
+          "source_set": "backlink",
+          "source_rank": 13,
+          "metric": {
+            "incoming_links": 2,
+            "linking_sites": 2
+          },
+          "source_url": "https://www.rhino-inquisitor.com/third-party-api-caching-in-commerce-cloud/"
+        }
+      ],
+      "coverage_supplement_for_url_class": null,
+      "selection_reason": "backlink rank 13 from migration/phase-1-seo-baseline.md."
+    },
+    {
+      "route": "/a-look-at-the-23-9-commerce-cloud-release/",
+      "final_target_url": "/a-look-at-the-23-9-commerce-cloud-release/",
+      "disposition": "keep",
+      "expected_outcome": "keep",
+      "url_class": "post",
+      "priority": "critical",
+      "source": [
+        {
+          "source_set": "backlink",
+          "source_rank": 14,
+          "metric": {
+            "incoming_links": 1,
+            "linking_sites": 1
+          },
+          "source_url": "https://www.rhino-inquisitor.com/a-look-at-the-23-9-commerce-cloud-release/"
+        }
+      ],
+      "coverage_supplement_for_url_class": null,
+      "selection_reason": "backlink rank 14 from migration/phase-1-seo-baseline.md."
+    },
+    {
+      "route": "/the-b2c-commerce-architect-certification/",
+      "final_target_url": "/the-b2c-commerce-architect-certification/",
+      "disposition": "keep",
+      "expected_outcome": "keep",
+      "url_class": "post",
+      "priority": "critical",
+      "source": [
+        {
+          "source_set": "organic",
+          "source_rank": 14,
+          "metric": {
+            "clicks": 353,
+            "impressions": 17959,
+            "ctr_percent": 1.97,
+            "average_position": 33.15
+          },
+          "source_url": "https://www.rhino-inquisitor.com/the-b2c-commerce-architect-certification/"
+        }
+      ],
+      "coverage_supplement_for_url_class": null,
+      "selection_reason": "organic rank 14 from migration/phase-1-seo-baseline.md."
+    },
+    {
+      "route": "/category/salesforce-commerce-cloud/release-notes/",
+      "final_target_url": "/category/release-notes/",
+      "disposition": "merge",
+      "expected_outcome": "redirect",
+      "url_class": "category",
+      "priority": "critical",
+      "source": [
+        {
+          "source_set": "backlink",
+          "source_rank": 15,
+          "metric": {
+            "incoming_links": 1,
+            "linking_sites": 1
+          },
+          "source_url": "https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/release-notes/"
+        }
+      ],
+      "coverage_supplement_for_url_class": null,
+      "selection_reason": "backlink rank 15 from migration/phase-1-seo-baseline.md."
+    },
+    {
+      "route": "/salesforce-b2c-commerce-cloud-governance-and-quotas/",
+      "final_target_url": "/salesforce-b2c-commerce-cloud-governance-and-quotas/",
+      "disposition": "keep",
+      "expected_outcome": "keep",
+      "url_class": "post",
+      "priority": "high",
+      "source": [
+        {
+          "source_set": "organic",
+          "source_rank": 15,
+          "metric": {
+            "clicks": 340,
+            "impressions": 16951,
+            "ctr_percent": 2.01,
+            "average_position": 14.09
+          },
+          "source_url": "https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-governance-and-quotas/"
+        }
+      ],
+      "coverage_supplement_for_url_class": null,
+      "selection_reason": "organic rank 15 from migration/phase-1-seo-baseline.md."
+    },
+    {
+      "route": "/community-repositories/",
+      "final_target_url": "/community-repositories/",
+      "disposition": "keep",
+      "expected_outcome": "keep",
+      "url_class": "page",
+      "priority": "critical",
+      "source": [
+        {
+          "source_set": "backlink",
+          "source_rank": 16,
+          "metric": {
+            "incoming_links": 1,
+            "linking_sites": 1
+          },
+          "source_url": "https://www.rhino-inquisitor.com/community-repositories/"
+        }
+      ],
+      "coverage_supplement_for_url_class": null,
+      "selection_reason": "backlink rank 16 from migration/phase-1-seo-baseline.md."
+    },
+    {
+      "route": "/secure-coding-in-salesforce-b2c-commerce-cloud/",
+      "final_target_url": "/secure-coding-in-salesforce-b2c-commerce-cloud/",
+      "disposition": "keep",
+      "expected_outcome": "keep",
+      "url_class": "post",
+      "priority": "high",
+      "source": [
+        {
+          "source_set": "organic",
+          "source_rank": 16,
+          "metric": {
+            "clicks": 335,
+            "impressions": 11833,
+            "ctr_percent": 2.83,
+            "average_position": 14.39
+          },
+          "source_url": "https://www.rhino-inquisitor.com/secure-coding-in-salesforce-b2c-commerce-cloud/"
+        }
+      ],
+      "coverage_supplement_for_url_class": null,
+      "selection_reason": "organic rank 16 from migration/phase-1-seo-baseline.md."
+    },
+    {
+      "route": "/custom-preferences-in-sfcc/",
+      "final_target_url": "/custom-preferences-in-sfcc/",
+      "disposition": "keep",
+      "expected_outcome": "keep",
+      "url_class": "post",
+      "priority": "critical",
+      "source": [
+        {
+          "source_set": "backlink",
+          "source_rank": 17,
+          "metric": {
+            "incoming_links": 1,
+            "linking_sites": 1
+          },
+          "source_url": "https://www.rhino-inquisitor.com/custom-preferences-in-sfcc/"
+        }
+      ],
+      "coverage_supplement_for_url_class": null,
+      "selection_reason": "backlink rank 17 from migration/phase-1-seo-baseline.md."
+    },
+    {
+      "route": "/what-is-the-ocapi-session-bridge/",
+      "final_target_url": "/what-is-the-ocapi-session-bridge/",
+      "disposition": "keep",
+      "expected_outcome": "keep",
+      "url_class": "post",
+      "priority": "high",
+      "source": [
+        {
+          "source_set": "organic",
+          "source_rank": 17,
+          "metric": {
+            "clicks": 301,
+            "impressions": 22664,
+            "ctr_percent": 1.33,
+            "average_position": 9.52
+          },
+          "source_url": "https://www.rhino-inquisitor.com/what-is-the-ocapi-session-bridge/"
+        }
+      ],
+      "coverage_supplement_for_url_class": null,
+      "selection_reason": "organic rank 17 from migration/phase-1-seo-baseline.md."
+    },
+    {
+      "route": "/getting-to-know-sfra-as-a-developer/",
+      "final_target_url": "/getting-to-know-sfra-as-a-developer/",
+      "disposition": "keep",
+      "expected_outcome": "keep",
+      "url_class": "post",
+      "priority": "critical",
+      "source": [
+        {
+          "source_set": "backlink",
+          "source_rank": 18,
+          "metric": {
+            "incoming_links": 1,
+            "linking_sites": 1
+          },
+          "source_url": "https://www.rhino-inquisitor.com/getting-to-know-sfra-as-a-developer/"
+        }
+      ],
+      "coverage_supplement_for_url_class": null,
+      "selection_reason": "backlink rank 18 from migration/phase-1-seo-baseline.md."
+    },
+    {
+      "route": "/where-to-hook-into-an-sfra-controller/",
+      "final_target_url": "/where-to-hook-into-an-sfra-controller/",
+      "disposition": "keep",
+      "expected_outcome": "keep",
+      "url_class": "post",
+      "priority": "critical",
+      "source": [
+        {
+          "source_set": "organic",
+          "source_rank": 18,
+          "metric": {
+            "clicks": 295,
+            "impressions": 28774,
+            "ctr_percent": 1.03,
+            "average_position": 7.78
+          },
+          "source_url": "https://www.rhino-inquisitor.com/where-to-hook-into-an-sfra-controller/"
+        }
+      ],
+      "coverage_supplement_for_url_class": null,
+      "selection_reason": "organic rank 18 from migration/phase-1-seo-baseline.md."
+    },
+    {
+      "route": "/how-to-filter-jsdoc-in-storybook-autodocs/",
+      "final_target_url": "/how-to-filter-jsdoc-in-storybook-autodocs/",
+      "disposition": "keep",
+      "expected_outcome": "keep",
+      "url_class": "post",
+      "priority": "critical",
+      "source": [
+        {
+          "source_set": "backlink",
+          "source_rank": 19,
+          "metric": {
+            "incoming_links": 1,
+            "linking_sites": 1
+          },
+          "source_url": "https://www.rhino-inquisitor.com/how-to-filter-jsdoc-in-storybook-autodocs/"
+        }
+      ],
+      "coverage_supplement_for_url_class": null,
+      "selection_reason": "backlink rank 19 from migration/phase-1-seo-baseline.md."
+    },
+    {
+      "route": "/sending-emails-from-sfcc/",
+      "final_target_url": "/sending-emails-from-sfcc/",
+      "disposition": "keep",
+      "expected_outcome": "keep",
+      "url_class": "post",
+      "priority": "high",
+      "source": [
+        {
+          "source_set": "organic",
+          "source_rank": 19,
+          "metric": {
+            "clicks": 295,
+            "impressions": 8441,
+            "ctr_percent": 3.49,
+            "average_position": 19.52
+          },
+          "source_url": "https://www.rhino-inquisitor.com/sending-emails-from-sfcc/"
+        }
+      ],
+      "coverage_supplement_for_url_class": null,
+      "selection_reason": "organic rank 19 from migration/phase-1-seo-baseline.md."
+    },
+    {
+      "route": "/how-to-load-client-side-javascript-and-css-in-sfra/",
+      "final_target_url": "/how-to-load-client-side-javascript-and-css-in-sfra/",
+      "disposition": "keep",
+      "expected_outcome": "keep",
+      "url_class": "post",
+      "priority": "high",
+      "source": [
+        {
+          "source_set": "organic",
+          "source_rank": 20,
+          "metric": {
+            "clicks": 294,
+            "impressions": 10674,
+            "ctr_percent": 2.75,
+            "average_position": 14.41
+          },
+          "source_url": "https://www.rhino-inquisitor.com/how-to-load-client-side-javascript-and-css-in-sfra/"
+        }
+      ],
+      "coverage_supplement_for_url_class": null,
+      "selection_reason": "organic rank 20 from migration/phase-1-seo-baseline.md."
+    },
+    {
+      "route": "/elementor-landing-page-1179/",
+      "final_target_url": null,
+      "disposition": "retire",
+      "expected_outcome": "retire",
+      "url_class": "landing",
+      "priority": "medium",
+      "source": [],
+      "coverage_supplement_for_url_class": "landing",
+      "selection_reason": "Coverage supplement added to guarantee url_class landing."
+    },
+    {
+      "route": "/feed/",
+      "final_target_url": "/feed/",
+      "disposition": "keep",
+      "expected_outcome": "keep",
+      "url_class": "system",
+      "priority": "high",
+      "source": [],
+      "coverage_supplement_for_url_class": "system",
+      "selection_reason": "Coverage supplement added to guarantee url_class system."
+    }
+  ]
+}
