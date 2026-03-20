@@ -1,13 +1,13 @@
 ## RHI-088 · Workstream E — Performance and Core Web Vitals Gates
 
-**Status:** Open  
+**Status:** In Progress  
 **Priority:** High  
 **Estimate:** M  
 **Phase:** 8  
 **Assigned to:** Engineering Owner  
 **Target date:** 2026-06-09  
 **Created:** 2026-03-08  
-**Updated:** 2026-03-08
+**Updated:** 2026-03-20
 
 ---
 
@@ -48,32 +48,32 @@ Establish and enforce measurable performance thresholds so the Hugo site does no
 
 ### Tasks
 
-- [ ] Update `lighthouserc.js` to enforce Phase 8 blocking thresholds:
-  - [ ] Add `assert` configuration for: `categories:performance >= 0.90`, `categories:accessibility >= 0.90`, `categories:seo >= 0.95`, `categories:best-practices >= 0.90`
-  - [ ] Set `collect.numberOfRuns: 3`
-  - [ ] Add all three target URLs (homepage, post, category)
-  - [ ] Set `upload.target: filesystem` with output to `validation/lhci-report/`
-- [ ] Run Lighthouse CI against the RC build in three modes and record results:
-  - [ ] Static mode using `lhci autorun --collect.staticDistDir=./public` or equivalent
+- [x] Update `lighthouserc.js` to enforce Phase 8 blocking thresholds:
+  - [x] Add `assert` configuration for: `categories:performance >= 0.90`, `categories:accessibility >= 0.90`, `categories:seo >= 0.95`, `categories:best-practices >= 0.90`
+  - [x] Set `collect.numberOfRuns: 3`
+  - [x] Add all three target URLs (homepage, post, category)
+  - [x] Set `upload.target: filesystem` with output to `validation/lhci-report/`
+- [x] Run Lighthouse CI against the RC build and record results:
+  - [x] Static mode using `lhci autorun --collect.staticDistDir=./public` or equivalent
   - [ ] If static mode is unreliable, spin up a local server (`npx serve public/`) and use URL mode
-  - [ ] Record median scores per URL and per category
-- [ ] Create `scripts/phase-8/check-performance-budget.js`:
-  - [ ] Use `fast-glob` to enumerate HTML, JS, CSS, and image assets for homepage and article pages in `public/`
-  - [ ] Calculate compressed critical-path transfer size using estimated gzip ratios or actual sizes
-  - [ ] Extract LCP and CLS lab values from Lighthouse JSON results in `validation/lhci-report/`
-  - [ ] Output `validation/performance-budget-report.json` with per-template breakdown
-  - [ ] Exit with non-zero code if any template exceeds the 170 KB critical-path budget
-- [ ] Baseline WordPress performance comparison:
-  - [ ] Retrieve Phase 1 performance baseline from `migration/phase-1-performance-baseline.md`
-  - [ ] Compare Hugo RC Lighthouse scores against WordPress baseline
-  - [ ] Document improvement or regression in the performance budget report
-- [ ] Update `.github/workflows/deploy-pages.yml`:
-  - [ ] Upgrade Lighthouse job from advisory (Phase 7) to blocking status with the Phase 8 threshold configuration
-  - [ ] Wire performance budget check as a blocking step
-  - [ ] Upload Lighthouse CI reports and budget report as CI artifacts with 30-day retention
-- [ ] Add `package.json` scripts:
-  - [ ] `"check:perf-budget": "node scripts/phase-8/check-performance-budget.js"`
-  - [ ] `"lhci:run:p8": "lhci autorun"` (uses updated `lighthouserc.js`)
+  - [x] Record median scores per URL and per category
+- [x] Create `scripts/phase-8/check-performance-budget.js`:
+  - [x] Use `fast-glob` to enumerate HTML, JS, CSS, and image assets for homepage and article pages in `public/`
+  - [x] Calculate compressed critical-path transfer size using estimated gzip ratios or actual sizes
+  - [x] Extract LCP and CLS lab values from Lighthouse JSON results in `validation/lhci-report/`
+  - [x] Output `validation/performance-budget-report.json` with per-template breakdown
+  - [x] Exit with non-zero code if any template exceeds the 170 KB critical-path budget
+- [x] Baseline WordPress performance comparison:
+  - [x] Retrieve Phase 1 performance baseline from `migration/phase-1-performance-baseline.md`
+  - [x] Compare Hugo RC Lighthouse scores against WordPress baseline
+  - [x] Document improvement or regression in the performance budget report
+- [x] Update `.github/workflows/deploy-pages.yml`:
+  - [x] Upgrade Lighthouse job from advisory (Phase 7) to blocking status with the Phase 8 threshold configuration
+  - [x] Wire performance budget check as a blocking step
+  - [x] Upload Lighthouse CI reports and budget report as CI artifacts with 30-day retention
+- [x] Add `package.json` scripts:
+  - [x] `"check:perf-budget": "node scripts/phase-8/check-performance-budget.js"`
+  - [x] `"lhci:run:p8"` runs the Phase 8 dual-profile LHCI wrapper so both blocking profiles archive filesystem reports.
 
 ---
 
@@ -133,7 +133,7 @@ Establish and enforce measurable performance thresholds so the Hugo site does no
 
 **Deviations from plan:**
 
-- None
+- `lhci:run:p8` is implemented as a Phase 8 wrapper script instead of a single bare `lhci autorun` command so both required blocking profiles (mobile and desktop) run and archive their filesystem reports deterministically.
 
 ---
 
@@ -142,6 +142,7 @@ Establish and enforce measurable performance thresholds so the Hugo site does no
 | Date | Status | Note |
 |------|--------|------|
 | 2026-03-08 | Open | Ticket created |
+| 2026-03-20 | In Progress | Implemented the Phase 8 dual-profile LHCI gate, performance-budget report, workflow artifact uploads, and documentation update. Static-dist build validation passed all Lighthouse category thresholds for homepage, first sampled post, and first sampled category on both mobile and desktop, but the committed budget report recorded blocking 170 KB compressed budget overruns on the homepage (`271221` bytes) and first sampled post (`204429` bytes). Ticket remains open pending RC-safe remediation through the out-of-scope optimization / RC re-cut path. |
 
 ---
 

@@ -166,6 +166,17 @@ jobs:
           if-no-files-found: error
           retention-days: 30
 
+      - name: Upload Phase 8 performance reports
+        if: ${{ always() && !cancelled() }}
+        uses: actions/upload-artifact@v6
+        with:
+          name: phase-8-performance-validation-${{ github.sha }}
+          path: |
+            validation/lhci-report
+            validation/performance-budget-report.json
+          if-no-files-found: error
+          retention-days: 30
+
       - name: Upload audit artifacts
         if: ${{ always() && !cancelled() }}
         uses: actions/upload-artifact@v6
@@ -196,8 +207,9 @@ jobs:
             migration/url-parity-report.json
             validation/structured-data-report.json
             validation/social-preview-report.json
+            validation/lhci-report
+            validation/performance-budget-report.json
             tmp/phase-6-host-protocol
-            tmp/lhci
           if-no-files-found: error
           retention-days: 7
 

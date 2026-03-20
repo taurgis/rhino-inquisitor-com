@@ -38,6 +38,12 @@ RHI-083 commits the output locations that downstream Phase 8 tickets expect:
 | `social-preview-report.json` | RHI-087 |
 | `lhci-report/` | RHI-088 |
 | `performance-budget-report.json` | RHI-088 |
+
+## RHI-088 report layout
+
+- `lhci-report/mobile/` stores the blocking mobile-profile Lighthouse CI manifest, JSON, and HTML reports.
+- `lhci-report/desktop/` stores the blocking desktop-profile Lighthouse CI manifest, JSON, and HTML reports.
+- `performance-budget-report.json` stores the Phase 8 performance budget contract, dual-profile score summary, CWV lab values, and WordPress baseline comparison.
 | `accessibility-axe-report.json` | RHI-089 |
 | `accessibility-manual-checklist.md` | RHI-089 |
 | `html-conformance-report.json` | RHI-089 |

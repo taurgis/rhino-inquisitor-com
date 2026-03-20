@@ -29,6 +29,9 @@
 {{- $style := .style | default "" -}}
 {{- $sizes := .sizes | default "" -}}
 {{- $responsive := .responsive | default false -}}
+{{- $quality := .quality | default 80 -}}
+{{- $maxWidth := .maxWidth | default 0 -}}
+{{- $responsiveWidths := .responsiveWidths | default (slice 768 1280) -}}
 {{- $resource := false -}}
 {{- $globalResourcePath := strings.TrimPrefix "/" $requestedSrc -}}
 
@@ -49,15 +52,19 @@
 {{- $srcset := "" -}}
 
 {{- if and $resource (reflect.IsImageResourceProcessable $resource) -}}
-  {{- $processed := $resource.Process "webp q80" -}}
+  {{- $processSpec := printf "webp q%d" $quality -}}
+  {{- $processed := $resource.Process $processSpec -}}
+  {{- if and (gt $maxWidth 0) (gt $processed.Width $maxWidth) -}}
+    {{- $processed = $resource.Resize (printf "%dx %s" $maxWidth $processSpec) -}}
+  {{- end -}}
   {{- $resolvedSrc = $processed.RelPermalink -}}
   {{- $width = $processed.Width -}}
   {{- $height = $processed.Height -}}
   {{- if $responsive -}}
     {{- $srcsetEntries := slice -}}
-    {{- range slice 768 1280 -}}
+    {{- range $responsiveWidths -}}
       {{- if lt . $processed.Width -}}
-        {{- with $resource.Resize (printf "%dx webp q80" .) -}}
+        {{- with $resource.Resize (printf "%dx %s" . $processSpec) -}}
           {{- $srcsetEntries = $srcsetEntries | append (printf "%s %dw" .RelPermalink .Width) -}}
         {{- end -}}
       {{- end -}}
