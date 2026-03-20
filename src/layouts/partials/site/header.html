@@ -25,8 +25,8 @@
       <svg class="site-menu__icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
 
-    <div class="site-drawer__backdrop" aria-hidden="true"></div>
-    <aside class="site-drawer" id="mobile-drawer" aria-label="Mobile navigation">
+    <div class="site-drawer__backdrop" aria-hidden="true" hidden></div>
+    <aside class="site-drawer" id="mobile-drawer" aria-label="Mobile navigation" aria-hidden="true" hidden inert>
       <div class="site-drawer__header">
         <a class="site-drawer__brand" href="{{ .Site.Home.Permalink }}">
           <img src="{{ $brandMarkHref }}" width="28" height="37" alt="" aria-hidden="true">
@@ -68,28 +68,93 @@
   var close = document.querySelector('.site-drawer__close');
   var backdrop = document.querySelector('.site-drawer__backdrop');
   var drawer = document.getElementById('mobile-drawer');
-  if (!toggle || !drawer) return;
+  var desktopQuery = window.matchMedia('(min-width: 48rem)');
+  var closeTimer = null;
+  if (!toggle || !close || !backdrop || !drawer) return;
+
+  function setExpanded(expanded) {
+    toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    toggle.setAttribute('aria-label', expanded ? 'Close menu' : 'Open menu');
+  }
+
+  function finalizeClosedState() {
+    drawer.hidden = true;
+    backdrop.hidden = true;
+  }
 
   function open() {
-    header.classList.add('site-drawer--open');
-    document.body.classList.add('drawer-open');
-    toggle.setAttribute('aria-expanded', 'true');
-    close.focus();
+    if (desktopQuery.matches || header.classList.contains('site-drawer--open')) return;
+
+    if (closeTimer) {
+      window.clearTimeout(closeTimer);
+      closeTimer = null;
+    }
+
+    drawer.hidden = false;
+    backdrop.hidden = false;
+    drawer.inert = false;
+    drawer.setAttribute('aria-hidden', 'false');
+
+    window.requestAnimationFrame(function () {
+      header.classList.add('site-drawer--open');
+      document.body.classList.add('drawer-open');
+      setExpanded(true);
+      close.focus();
+    });
   }
 
-  function shut() {
+  function shut(options) {
+    var config = options || {};
+
+    if (closeTimer) {
+      window.clearTimeout(closeTimer);
+      closeTimer = null;
+    }
+
     header.classList.remove('site-drawer--open');
     document.body.classList.remove('drawer-open');
-    toggle.setAttribute('aria-expanded', 'false');
-    toggle.focus();
+    setExpanded(false);
+    drawer.inert = true;
+    drawer.setAttribute('aria-hidden', 'true');
+
+    if (config.immediate) {
+      finalizeClosedState();
+    } else {
+      closeTimer = window.setTimeout(finalizeClosedState, 300);
+    }
+
+    if (config.restoreFocus !== false && window.getComputedStyle(toggle).display !== 'none') {
+      toggle.focus();
+    }
   }
 
-  toggle.addEventListener('click', open);
+  toggle.addEventListener('click', function () {
+    if (header.classList.contains('site-drawer--open')) {
+      shut();
+      return;
+    }
+
+    open();
+  });
   close.addEventListener('click', shut);
   backdrop.addEventListener('click', shut);
 
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && header.classList.contains('site-drawer--open')) shut();
   });
+
+  if (typeof desktopQuery.addEventListener === 'function') {
+    desktopQuery.addEventListener('change', function (event) {
+      if (event.matches) shut({ immediate: true, restoreFocus: false });
+    });
+  } else if (typeof desktopQuery.addListener === 'function') {
+    desktopQuery.addListener(function (event) {
+      if (event.matches) shut({ immediate: true, restoreFocus: false });
+    });
+  }
+
+  setExpanded(false);
+  finalizeClosedState();
+  drawer.inert = true;
 })();
 </script>

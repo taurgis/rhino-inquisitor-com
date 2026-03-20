@@ -172,6 +172,21 @@ Important manual-evidence rule:
 
 - The automated WS-D reports do not replace the manual Google-side Rich Results requirement from RHI-087. If the current rehearsal host is not Google-fetchable, record that blocker in `validation/rich-results-test-evidence/` and keep the ticket open until the owner resolves the final evidence path.
 
+## WS-F Report Contract
+
+RHI-089 replaces the placeholder WS-F outputs with committed machine-readable and human-reviewed accessibility evidence:
+
+- `validation/accessibility-axe-report.json` records page-sample Playwright plus axe results from `validation/sample-matrix.json`, including per-route severity counts, rule metadata, node targets, primary-template classification, and blocking versus non-blocking disposition.
+- `validation/html-conformance-report.json` records page-sample `html-validate` results from the same frozen sample matrix, including per-route error counts, warning counts, and message details.
+- `validation/accessibility-manual-checklist.md` records the required WAI Easy Checks manual verification for the representative template set and any follow-up items with owner and target resolution date.
+- Both machine-readable WS-F reports include `artifactProvenance` so reviewers can distinguish frozen-RC evidence from later branch-state reruns that still consume the frozen dataset.
+- `validation/accessibility-axe-report.json` treats any `critical` violation on sampled routes and any `serious` violation on primary templates as blocking failures. Moderate findings require documented owner and target resolution date before they can be treated as non-blocking.
+- `validation/html-conformance-report.json` treats `html-validate` errors as blocking failures. Warnings remain non-blocking but must be reviewed and dispositioned by the recorded owner.
+
+Important manual-evidence rule:
+
+- The automated WS-F reports do not replace the human reviewer requirement from RHI-089. Do not treat the ticket as complete until `validation/accessibility-manual-checklist.md` is filled in and reviewed.
+
 ## RC metadata convention
 
 - Record per-run metadata under `validation/runs/`.

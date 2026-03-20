@@ -1,13 +1,13 @@
 ## RHI-089 · Workstream F — Accessibility and Markup Conformance Gates
 
-**Status:** Open  
+**Status:** Done  
 **Priority:** High  
 **Estimate:** M  
 **Phase:** 8  
 **Assigned to:** Engineering Owner  
 **Target date:** 2026-06-09  
 **Created:** 2026-03-08  
-**Updated:** 2026-03-08
+**Updated:** 2026-03-20
 
 ---
 
@@ -19,70 +19,70 @@ Launch with a measurable, documented accessibility baseline rather than aspirati
 
 ### Acceptance Criteria
 
-- [ ] Automated axe accessibility checks pass on all pages in the sample matrix:
-  - [ ] Zero `critical` severity axe violations on any sampled page
-  - [ ] Zero `serious` severity axe violations on primary templates (homepage, article, category)
-  - [ ] Any `moderate` violations are documented with owner and target resolution date
-  - [ ] axe checks cover deterministic URLs from `validation/sample-matrix.json`: homepage, first 5 posts by front matter `date` descending (or all posts if fewer than 5), first 3 category slugs alphabetically (or all categories if fewer than 3), and privacy page
-- [ ] Manual WAI Easy Checks are completed and documented for all representative template types:
-  - [ ] Page titles are descriptive and unique (confirmed, not just automated)
-  - [ ] All images have meaningful, non-empty `alt` text (no `alt=""` on informational images)
-  - [ ] Heading structure is logical: `<h1>` is singular per page, headings do not skip levels
-  - [ ] Keyboard-only navigation: tab order is logical; all interactive elements are reachable without a mouse
-  - [ ] Visible focus indicator is present on all focusable elements
-  - [ ] Contrast ratio for normal text is ≥ 4.5:1; large text ≥ 3:1 (spot-check with browser devtools or a contrast tool)
-  - [ ] Manual check results are committed to `validation/accessibility-manual-checklist.md`
-- [ ] HTML conformance checks pass on all pages in the sample matrix:
-  - [ ] `html-validate` reports zero errors on all sampled pages
-  - [ ] Any warnings are reviewed and either accepted (documented) or fixed
-  - [ ] Checks cover: well-formed HTML5, no duplicate `id` attributes, valid `<head>` structure, no deprecated elements or attributes
-- [ ] No keyboard trap on any representative page (users can navigate away from all interactive components without a mouse)
-- [ ] No critical focus loss (focus does not disappear or reset to `<body>` on interactive actions)
-- [ ] Gate outputs are machine-readable, archived as CI artifacts, and committed:
-  - [ ] `validation/accessibility-axe-report.json` — per-URL axe violation list with severity, rule ID, element path, and pass/fail
-  - [ ] `validation/accessibility-manual-checklist.md` — template-level manual check results
-  - [ ] `validation/html-conformance-report.json` — per-URL html-validate results with error/warning counts
-- [ ] CI integration:
-  - [ ] Automated axe checks run as a blocking CI step on representative URLs
-  - [ ] HTML conformance check runs as a blocking CI step on the full sample matrix HTML output
-  - [ ] Reports are uploaded as CI artifacts with 30-day retention
+- [x] Automated axe accessibility checks pass on all pages in the sample matrix:
+  - [x] Zero `critical` severity axe violations on any sampled page
+  - [x] Zero `serious` severity axe violations on primary templates (homepage, article, category)
+  - [x] Any `moderate` violations are documented with owner and target resolution date
+  - [x] axe checks cover deterministic URLs from `validation/sample-matrix.json`: homepage, first 5 posts by front matter `date` descending (or all posts if fewer than 5), first 3 category slugs alphabetically (or all categories if fewer than 3), and privacy page
+- [x] Manual WAI Easy Checks are completed and documented for all representative template types:
+  - [x] Page titles are descriptive and unique (confirmed, not just automated)
+  - [x] All images have meaningful, non-empty `alt` text (no `alt=""` on informational images)
+  - [x] Heading structure is logical: `<h1>` is singular per page, headings do not skip levels
+  - [x] Keyboard-only navigation: tab order is logical; all interactive elements are reachable without a mouse
+  - [x] Visible focus indicator is present on all focusable elements
+  - [x] Contrast ratio for normal text is ≥ 4.5:1; large text ≥ 3:1 (spot-check with browser devtools or a contrast tool)
+  - [x] Manual check results are committed to `validation/accessibility-manual-checklist.md`
+- [x] HTML conformance checks pass on all pages in the sample matrix:
+  - [x] `html-validate` reports zero errors on all sampled pages
+  - [x] Any warnings are reviewed and either accepted (documented) or fixed
+  - [x] Checks cover: well-formed HTML5, no duplicate `id` attributes, valid `<head>` structure, no deprecated elements or attributes
+- [x] No keyboard trap on any representative page (users can navigate away from all interactive components without a mouse)
+- [x] No critical focus loss (focus does not disappear or reset to `<body>` on interactive actions)
+- [x] Gate outputs are machine-readable, archived as CI artifacts, and committed:
+  - [x] `validation/accessibility-axe-report.json` — per-URL axe violation list with severity, rule ID, element path, and pass/fail
+  - [x] `validation/accessibility-manual-checklist.md` — template-level manual check results
+  - [x] `validation/html-conformance-report.json` — per-URL html-validate results with error/warning counts
+- [x] CI integration:
+  - [x] Automated axe checks run as a blocking CI step on representative URLs
+  - [x] HTML conformance check runs as a blocking CI step on the full sample matrix HTML output
+  - [x] Reports are uploaded as CI artifacts with 30-day retention
 
 ---
 
 ### Tasks
 
-- [ ] Set up Playwright and `@axe-core/playwright`:
-  - [ ] Confirm `playwright` and `@axe-core/playwright` are installed (from bootstrap RHI-083)
-  - [ ] Install Playwright browser binaries: `npx playwright install chromium`
-- [ ] Create `scripts/phase-8/check-accessibility-axe.js`:
-  - [ ] Spin up a local server serving `public/` (or use a deployed staging URL)
-  - [ ] For each URL in the sample matrix: load the page in Playwright, run `axe.analyze()`, extract violations by severity
-  - [ ] Fail on any `critical` violation; fail on `serious` violations on primary templates
-  - [ ] Output `validation/accessibility-axe-report.json` with per-URL violation details
-  - [ ] Exit with non-zero code on blocking failures
-- [ ] Create `scripts/phase-8/check-html-conformance.js`:
-  - [ ] Use `html-validate` to check all HTML files in `public/` matching sample matrix paths
-  - [ ] Capture all errors and warnings
-  - [ ] Fail on any errors; document warnings
-  - [ ] Output `validation/html-conformance-report.json`
-  - [ ] Exit with non-zero code on any errors
-- [ ] Complete manual WAI Easy Checks:
-  - [ ] Assign a reviewer for manual checks (SEO owner, engineering owner, or migration owner)
-  - [ ] Walk through each check item for each representative template type:
-    - [ ] Post template (check all items)
-    - [ ] Homepage (check all items)
-    - [ ] Category list page (check all items)
-    - [ ] Privacy/legal page (check page title, headings, and keyboard navigation at minimum)
-  - [ ] Check for keyboard trap on any modals, dropdowns, or interactive components
-  - [ ] Document results in `validation/accessibility-manual-checklist.md` with template, pass/fail, notes
-- [ ] Run both automated gates against the RC build; archive reports as CI artifacts with 30-day retention
-- [ ] Update `.github/workflows/deploy-pages.yml`:
-  - [ ] Add `check:accessibility` as blocking step (axe checks on primary templates)
-  - [ ] Add `check:html-conformance` as blocking step
-  - [ ] Upload both reports as CI artifacts
-- [ ] Add `package.json` scripts:
-  - [ ] `"check:accessibility": "node scripts/phase-8/check-accessibility-axe.js"`
-  - [ ] `"check:html-conformance": "node scripts/phase-8/check-html-conformance.js"`
+- [x] Set up Playwright and `@axe-core/playwright`:
+  - [x] Confirm `playwright` and `@axe-core/playwright` are installed (from bootstrap RHI-083)
+  - [x] Install Playwright browser binaries: `npx playwright install chromium`
+- [x] Create `scripts/phase-8/check-accessibility-axe.js`:
+  - [x] Spin up a local server serving `public/` (or use a deployed staging URL)
+  - [x] For each URL in the sample matrix: load the page in Playwright, run `axe.analyze()`, extract violations by severity
+  - [x] Fail on any `critical` violation; fail on `serious` violations on primary templates
+  - [x] Output `validation/accessibility-axe-report.json` with per-URL violation details
+  - [x] Exit with non-zero code on blocking failures
+- [x] Create `scripts/phase-8/check-html-conformance.js`:
+  - [x] Use `html-validate` to check all HTML files in `public/` matching sample matrix paths
+  - [x] Capture all errors and warnings
+  - [x] Fail on any errors; document warnings
+  - [x] Output `validation/html-conformance-report.json`
+  - [x] Exit with non-zero code on any errors
+- [x] Complete manual WAI Easy Checks:
+  - [x] Assign a reviewer for manual checks (SEO owner, engineering owner, or migration owner)
+  - [x] Walk through each check item for each representative template type:
+    - [x] Post template (check all items)
+    - [x] Homepage (check all items)
+    - [x] Category list page (check all items)
+    - [x] Privacy/legal page (check page title, headings, and keyboard navigation at minimum)
+  - [x] Check for keyboard trap on any modals, dropdowns, or interactive components
+  - [x] Document results in `validation/accessibility-manual-checklist.md` with template, pass/fail, notes
+- [x] Run both automated gates against the RC build; archive reports as CI artifacts with 30-day retention
+- [x] Update `.github/workflows/deploy-pages.yml`:
+  - [x] Add `check:accessibility` as blocking step (axe checks on primary templates)
+  - [x] Add `check:html-conformance` as blocking step
+  - [x] Upload both reports as CI artifacts
+- [x] Add `package.json` scripts:
+  - [x] `"check:accessibility": "node scripts/phase-8/check-accessibility-axe.js"`
+  - [x] `"check:html-conformance": "node scripts/phase-8/check-html-conformance.js"`
 
 ---
 
@@ -99,11 +99,11 @@ Launch with a measurable, documented accessibility baseline rather than aspirati
 
 | Dependency | Type | Status |
 |------------|------|--------|
-| RHI-083 Done — Phase 8 Bootstrap complete; `playwright` and `@axe-core/playwright` installed | Ticket | Pending |
-| RHI-084 Done — RC frozen, sample matrix committed | Ticket | Pending |
-| `html-validate` installed and available | Tool | Pending |
-| Hugo production build of RC exits 0 | Build | Pending |
-| Phase 4 RHI-040 Done — Accessibility and content semantics applied to migrated content | Phase | Pending |
+| RHI-083 Done — Phase 8 Bootstrap complete; `playwright` and `@axe-core/playwright` installed | Ticket | Done |
+| RHI-084 Done — RC frozen, sample matrix committed | Ticket | Done |
+| `html-validate` installed and available | Tool | Done |
+| Hugo production build of RC exits 0 | Build | Done |
+| Phase 4 RHI-040 Done — Accessibility and content semantics applied to migrated content | Phase | Done |
 
 ---
 
@@ -122,16 +122,16 @@ Launch with a measurable, documented accessibility baseline rather than aspirati
 
 ### Definition of Done
 
-- [ ] All acceptance criteria are satisfied and verified
-- [ ] Tasks are complete or intentionally descoped with rationale
-- [ ] Dependencies and blockers are resolved or documented
-- [ ] Outcomes section is completed with delivered artefacts and deviations
+- [x] All acceptance criteria are satisfied and verified
+- [x] Tasks are complete or intentionally descoped with rationale
+- [x] Dependencies and blockers are resolved or documented
+- [x] Outcomes section is completed with delivered artefacts and deviations
 
 ---
 
 ### Outcomes
 
-{Leave blank until work is complete.}
+RHI-089 is complete. The repository now has committed WS-F automation for axe and HTML conformance, deploy workflow artifact upload for both reports, a completed manual accessibility checklist, and a follow-up shared-header remediation that closed the only remaining manual keyboard/focus gap. Ticket owner acknowledgment was recorded at closeout based on the completed evidence set and final passing reruns.
 
 **Delivered artefacts:**
 
@@ -145,7 +145,7 @@ Launch with a measurable, documented accessibility baseline rather than aspirati
 
 **Deviations from plan:**
 
-- None
+- Final evidence is branch-state against the frozen `phase-8-rc-v2` sample-matrix dataset rather than a fresh RC tag cut after the last shared-header remediation. The ticket owner accepted that closeout basis at final ticket completion.
 
 ---
 
@@ -154,6 +154,7 @@ Launch with a measurable, documented accessibility baseline rather than aspirati
 | Date | Status | Note |
 |------|--------|------|
 | 2026-03-08 | Open | Ticket created |
+| 2026-03-20 | Done | Automated axe and HTML gates pass, manual checklist passes after shared-header remediation, CI artifact wiring is in place, and owner closeout acknowledgment is recorded. |
 
 ---
 

@@ -92,6 +92,9 @@ jobs:
       - name: Install Node dependencies
         run: npm ci
 
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
       - name: Normalize preview base URL
         id: preview_base
         env:
@@ -166,6 +169,18 @@ jobs:
           if-no-files-found: error
           retention-days: 30
 
+      - name: Upload Phase 8 accessibility and HTML conformance reports
+        if: ${{ always() && !cancelled() }}
+        uses: actions/upload-artifact@v6
+        with:
+          name: phase-8-accessibility-validation-${{ github.sha }}
+          path: |
+            validation/accessibility-axe-report.json
+            validation/html-conformance-report.json
+            validation/accessibility-manual-checklist.md
+          if-no-files-found: error
+          retention-days: 30
+
       - name: Upload Phase 8 performance reports
         if: ${{ always() && !cancelled() }}
         uses: actions/upload-artifact@v6
@@ -207,6 +222,9 @@ jobs:
             migration/url-parity-report.json
             validation/structured-data-report.json
             validation/social-preview-report.json
+            validation/accessibility-axe-report.json
+            validation/html-conformance-report.json
+            validation/accessibility-manual-checklist.md
             validation/lhci-report
             validation/performance-budget-report.json
             tmp/phase-6-host-protocol

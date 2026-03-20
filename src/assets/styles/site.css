@@ -76,21 +76,24 @@ main {
 }
 
 .skip-link {
-  position: absolute;
-  top: 0.75rem;
+  position: fixed;
+  top: 1rem;
   left: 1rem;
-  z-index: 1000;
+  z-index: 120;
   padding: 0.75rem 1rem;
   border-radius: 999px;
   background: var(--ink-strong);
   color: #ffffff;
   text-decoration: none;
-  transform: translateY(-220%);
-  transition: transform 0.15s ease;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(calc(-100% - 1rem));
 }
 
 .skip-link:focus,
 .skip-link:focus-visible {
+  opacity: 1;
+  pointer-events: auto;
   transform: translateY(0);
 }
 
@@ -1489,6 +1492,10 @@ summary {
   background: var(--surface-inverse);
 }
 
+.article-body .highlight [style*="color:#75715e"] {
+  color: #9b9a8f !important;
+}
+
 .article-body img {
   border-radius: var(--radius-md);
 }
@@ -1988,22 +1995,27 @@ summary {
   border-spacing: 0;
   table-layout: fixed;
   background: transparent;
+  overflow: visible;
   box-shadow: none;
 }
 
-.realm-split-checklist__col--object {
+.realm-split-checklist__table th:nth-child(1),
+.realm-split-checklist__table td:nth-child(1) {
   width: 19%;
 }
 
-.realm-split-checklist__col--timing {
+.realm-split-checklist__table th:nth-child(2),
+.realm-split-checklist__table td:nth-child(2) {
   width: 20%;
 }
 
-.realm-split-checklist__col--risk {
+.realm-split-checklist__table th:nth-child(3),
+.realm-split-checklist__table td:nth-child(3) {
   width: 39%;
 }
 
-.realm-split-checklist__col--owner {
+.realm-split-checklist__table th:nth-child(4),
+.realm-split-checklist__table td:nth-child(4) {
   width: 22%;
 }
 
