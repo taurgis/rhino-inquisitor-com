@@ -1,0 +1,13 @@
+{
+  "confirmedAt": "2026-03-20T20:50:00Z",
+  "confirmedBy": "owner",
+  "pagesSettings": {
+    "enforceHttpsEnabled": true,
+    "verifiedDomain": true,
+    "note": "Owner confirmed that the GitHub Pages settings are done, including Enforce HTTPS and verified custom-domain state."
+  },
+  "apexHostDisposition": {
+    "acceptedWarning": true,
+    "note": "Owner accepted the live apex-host behavior as a documented launch warning for RHI-090 closeout."
+  }
+}

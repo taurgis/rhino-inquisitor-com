@@ -87,6 +87,7 @@
     "check:perf": "npm run build:prod && npm run check:perf:gate",
     "check:accessibility": "node scripts/phase-8/check-accessibility-axe.js",
     "check:html-conformance": "node scripts/phase-8/check-html-conformance.js",
+    "check:https-security": "node scripts/phase-8/check-https-security.js",
     "check:local-video-shortcodes": "node scripts/migration/check-local-video-shortcodes.js",
     "gates:local": "bash scripts/phase-7/run-all-gates.sh",
     "phase8:generate-validation-datasets": "node scripts/phase-8/generate-validation-datasets.js",

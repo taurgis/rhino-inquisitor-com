@@ -1,10 +1,316 @@
 {
+  "schemaVersion": 1,
   "phase": 8,
-  "ticket": "RHI-083",
-  "artifact": "https-security-report",
-  "status": "placeholder",
-  "rcTag": null,
-  "rcSha": null,
-  "generatedAt": null,
-  "notes": "Bootstrap placeholder created by RHI-083. Replace this file in RHI-090."
+  "ticket": "RHI-090",
+  "generatedAt": "2026-03-20T21:27:53.528Z",
+  "canonicalOrigin": "https://www.rhino-inquisitor.com",
+  "mode": {
+    "skipLiveChecks": false,
+    "requireLiveChecks": false,
+    "requestTimeoutMs": 10000
+  },
+  "manualEvidence": {
+    "path": "validation/https-security-manual-evidence.json",
+    "confirmedAt": "2026-03-20T20:50:00Z",
+    "confirmedBy": "owner",
+    "note": "Owner confirmed that the GitHub Pages settings are done, including Enforce HTTPS and verified custom-domain state."
+  },
+  "artifactProvenance": {
+    "gitHead": "c5d20c372154df28f563defc165105be8af7d212",
+    "gitHeadShort": "c5d20c37",
+    "workspaceDirty": true,
+    "datasetRcTag": "phase-8-rc-v2",
+    "datasetRcSha": "efdcefce5a51f1a3cf70d6b437b7b2868df39cb8",
+    "matchesDatasetRc": false,
+    "provenanceStatus": "branch-state",
+    "note": "Artifact provenance differs from the frozen dataset RC or the workspace is dirty; treat this as branch-state evidence until a new RC is cut."
+  },
+  "summary": {
+    "status": "warning",
+    "artifactStatus": "pass",
+    "liveStatus": "warning",
+    "artifactCounts": {
+      "pass": 4,
+      "fail": 0,
+      "warning": 0,
+      "manualRequired": 0
+    },
+    "liveCounts": {
+      "pass": 7,
+      "fail": 0,
+      "warning": 3,
+      "manualRequired": 0
+    },
+    "blockingFailureCount": 0,
+    "warningCount": 5,
+    "manualRequiredCount": 0
+  },
+  "artifactChecks": {
+    "mixedContent": {
+      "status": "pass",
+      "blocking": true,
+      "summary": "Scanned 235 HTML files and 4 CSS files with zero mixed-content references.",
+      "evidenceSource": "automation",
+      "findings": [],
+      "warnings": [],
+      "details": {
+        "htmlFilesScanned": 235,
+        "cssFilesScanned": 4
+      }
+    },
+    "canonicalHttps": {
+      "status": "pass",
+      "blocking": true,
+      "summary": "Validated HTTPS canonical URLs on 213 built HTML pages.",
+      "evidenceSource": "automation",
+      "findings": [],
+      "warnings": [],
+      "details": {
+        "checkedPages": 213,
+        "canonicalOrigin": "https://www.rhino-inquisitor.com"
+      }
+    },
+    "sitemapHttps": {
+      "status": "pass",
+      "blocking": true,
+      "summary": "Validated HTTPS sitemap URLs across 212 entries.",
+      "evidenceSource": "automation",
+      "findings": [],
+      "warnings": [],
+      "details": {
+        "rootPath": "public/sitemap.xml",
+        "checkedEntries": 212,
+        "unresolvedChildren": []
+      }
+    },
+    "structuredDataHttps": {
+      "status": "pass",
+      "blocking": true,
+      "summary": "Validated structured-data HTTPS URLs across 380 JSON-LD blocks on 213 pages.",
+      "evidenceSource": "automation",
+      "findings": [],
+      "warnings": [],
+      "details": {
+        "checkedPages": 213,
+        "checkedBlocks": 380
+      }
+    }
+  },
+  "liveChecks": {
+    "httpsResponse": {
+      "status": "pass",
+      "blocking": true,
+      "summary": "https://www.rhino-inquisitor.com returned HTTP 200.",
+      "evidenceSource": "live-host",
+      "findings": [],
+      "warnings": [],
+      "details": {
+        "url": "https://www.rhino-inquisitor.com",
+        "statusCode": 200
+      }
+    },
+    "wwwHttpRedirect": {
+      "status": "pass",
+      "blocking": true,
+      "summary": "http://www.rhino-inquisitor.com/ redirects to https://www.rhino-inquisitor.com/.",
+      "evidenceSource": "live-host",
+      "findings": [],
+      "warnings": [],
+      "details": {
+        "fromUrl": "http://www.rhino-inquisitor.com/",
+        "expectedPrefix": "https://www.rhino-inquisitor.com",
+        "statusCode": 301,
+        "location": "https://www.rhino-inquisitor.com/"
+      }
+    },
+    "apexHttpRedirect": {
+      "status": "warning",
+      "blocking": false,
+      "summary": "http://rhino-inquisitor.com/ redirects to https://rhino-inquisitor.com/ instead of the canonical https://www.rhino-inquisitor.com/ host.",
+      "evidenceSource": "live-host",
+      "findings": [],
+      "warnings": [
+        {
+          "message": "Apex HTTP currently consolidates to HTTPS apex. Document whether provider or edge controls will enforce the final apex-to-www redirect."
+        }
+      ],
+      "details": {
+        "fromUrl": "http://rhino-inquisitor.com/",
+        "statusCode": 301,
+        "location": "https://rhino-inquisitor.com/"
+      }
+    },
+    "apexHttpsResponse": {
+      "status": "warning",
+      "blocking": false,
+      "summary": "https://rhino-inquisitor.com/ returned HTTP 200 instead of redirecting to the canonical https://www.rhino-inquisitor.com/ host.",
+      "evidenceSource": "live-host",
+      "findings": [],
+      "warnings": [
+        {
+          "message": "The HTTPS apex host is live and indexable as a non-canonical host entry point. Accept this as a launch warning or remediate it at the provider or edge layer."
+        }
+      ],
+      "details": {
+        "url": "https://rhino-inquisitor.com/",
+        "statusCode": 200,
+        "location": ""
+      }
+    },
+    "tlsCertificate": {
+      "status": "pass",
+      "blocking": true,
+      "summary": "TLS certificate for www.rhino-inquisitor.com is trusted and currently valid.",
+      "evidenceSource": "live-host",
+      "findings": [],
+      "warnings": [],
+      "details": {
+        "hostname": "www.rhino-inquisitor.com",
+        "authorized": true,
+        "authorizationError": null,
+        "validFrom": "Feb  5 20:32:43 2026 GMT",
+        "validTo": "May  6 21:31:19 2026 GMT",
+        "subject": {
+          "CN": "rhino-inquisitor.com"
+        },
+        "issuer": {
+          "C": "US",
+          "O": "Google Trust Services",
+          "CN": "WE1"
+        },
+        "fingerprint256": "D6:D5:8D:D7:CE:5E:0A:BE:B7:F1:74:B9:DA:45:73:82:A4:AE:F2:CB:CE:9F:88:AE:85:9F:D8:94:9D:95:BB:F5"
+      }
+    },
+    "caa": {
+      "status": "pass",
+      "blocking": true,
+      "summary": "CAA records for rhino-inquisitor.com allow Let's Encrypt issuance.",
+      "evidenceSource": "dns",
+      "findings": [],
+      "warnings": [],
+      "details": {
+        "domain": "rhino-inquisitor.com",
+        "records": [
+          {
+            "tag": "issuewild",
+            "value": "pki.goog; cansignhttpexchanges=yes"
+          },
+          {
+            "tag": "issuewild",
+            "value": "digicert.com; cansignhttpexchanges=yes"
+          },
+          {
+            "tag": "issue",
+            "value": "letsencrypt.org"
+          },
+          {
+            "tag": "issuewild",
+            "value": "ssl.com"
+          },
+          {
+            "tag": "issue",
+            "value": "pki.goog; cansignhttpexchanges=yes"
+          },
+          {
+            "tag": "issue",
+            "value": "comodoca.com"
+          },
+          {
+            "tag": "issue",
+            "value": "ssl.com"
+          },
+          {
+            "tag": "issuewild",
+            "value": "letsencrypt.org"
+          },
+          {
+            "tag": "issue",
+            "value": "digicert.com; cansignhttpexchanges=yes"
+          },
+          {
+            "tag": "issuewild",
+            "value": "comodoca.com"
+          }
+        ]
+      }
+    },
+    "customDomainVerification": {
+      "status": "pass",
+      "blocking": false,
+      "summary": "The GitHub Pages custom domain is manually confirmed as verified in Pages settings.",
+      "evidenceSource": "manual-owner-confirmation",
+      "findings": [],
+      "warnings": [],
+      "details": {
+        "confirmedAt": "2026-03-20T20:50:00Z",
+        "confirmedBy": "owner",
+        "note": "Owner confirmed that the GitHub Pages settings are done, including Enforce HTTPS and verified custom-domain state.",
+        "settingsState": "verified"
+      }
+    },
+    "wildcardDns": {
+      "status": "pass",
+      "blocking": true,
+      "summary": "No wildcard-style DNS answers were returned for rhi-phase8-1774042073420.rhino-inquisitor.com.",
+      "evidenceSource": "dns",
+      "findings": [],
+      "warnings": [],
+      "details": {
+        "hostname": "rhi-phase8-1774042073420.rhino-inquisitor.com",
+        "records": []
+      }
+    },
+    "securityHeaders": {
+      "status": "warning",
+      "blocking": false,
+      "summary": "Observed 3 missing origin security headers on https://www.rhino-inquisitor.com.",
+      "evidenceSource": "live-host",
+      "findings": [],
+      "warnings": [
+        {
+          "header": "content-security-policy",
+          "message": "content-security-policy is not present on the live response."
+        },
+        {
+          "header": "referrer-policy",
+          "message": "referrer-policy is not present on the live response."
+        },
+        {
+          "header": "x-frame-options",
+          "message": "x-frame-options is not present on the live response."
+        }
+      ],
+      "details": {
+        "url": "https://www.rhino-inquisitor.com",
+        "statusCode": 200,
+        "observedHeaders": {
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy": null,
+          "referrer-policy": null,
+          "x-content-type-options": "nosniff",
+          "x-frame-options": null
+        },
+        "missingHeaders": [
+          "content-security-policy",
+          "referrer-policy",
+          "x-frame-options"
+        ]
+      }
+    },
+    "pagesSettings": {
+      "status": "pass",
+      "blocking": false,
+      "summary": "The repository Pages settings are manually confirmed, including Enforce HTTPS.",
+      "evidenceSource": "manual-owner-confirmation",
+      "findings": [],
+      "warnings": [],
+      "details": {
+        "confirmedAt": "2026-03-20T20:50:00Z",
+        "confirmedBy": "owner",
+        "note": "Owner confirmed that the GitHub Pages settings are done, including Enforce HTTPS and verified custom-domain state.",
+        "enforceHttpsEnabled": true,
+        "verifiedDomain": true
+      }
+    }
+  }
 }

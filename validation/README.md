@@ -187,6 +187,22 @@ Important manual-evidence rule:
 
 - The automated WS-F reports do not replace the human reviewer requirement from RHI-089. Do not treat the ticket as complete until `validation/accessibility-manual-checklist.md` is filled in and reviewed.
 
+## WS-G Report Contract
+
+RHI-090 replaces the placeholder WS-G output with committed machine-readable HTTPS and security evidence:
+
+- `validation/https-security-report.json` records the deterministic RC-artifact checks for mixed-content, HTTPS-only canonical URLs, HTTPS-only sitemap URLs, and HTTPS-only structured-data URL fields.
+- The same report also records live-host evidence for the canonical production host, including HTTPS reachability, HTTP-to-HTTPS redirect behavior, TLS certificate validity, CAA compatibility, custom-domain verification TXT status, wildcard DNS detection, and the observed origin security-header posture.
+- `validation/https-security-manual-evidence.json` can optionally record owner-confirmed GitHub Pages settings evidence when verified-domain or Enforce HTTPS confirmation must be carried into the generated report from outside repository runtime checks.
+- WS-G must keep artifact checks and live/manual checks separate in the report so CI reviewers can distinguish deterministic build evidence from runtime or control-plane evidence.
+- Mixed-content findings in `validation/https-security-report.json` must come from the same scanner used by `npm run check:mixed-content`; RHI-090 must not introduce a second conflicting mixed-content implementation.
+- Missing GitHub Pages origin security headers are recorded as warning-level posture findings unless a later launch decision upgrades them to a hard blocker through an edge-layer requirement.
+
+Important WS-G evidence rule:
+
+- Repository automation may infer GitHub Pages HTTPS enforcement from live redirect behavior and DNS evidence, but formal sign-off still requires the engineering owner to confirm the repository Pages settings state when the ticket or launch checklist demands that control-plane confirmation.
+- If `validation/https-security-manual-evidence.json` is present, the generated WS-G report must preserve that owner-confirmed Pages settings evidence instead of downgrading it back to `manual-required` on rerun.
+
 ## RC metadata convention
 
 - Record per-run metadata under `validation/runs/`.

@@ -132,6 +132,7 @@ register_gate "Run Phase 8 structured-data gate" "cd \"$REPO_ROOT\" && npm run c
 register_gate "Run Phase 8 social-preview gate" "cd \"$REPO_ROOT\" && npm run check:social-preview"
 register_gate "Run Phase 8 HTML conformance gate" "cd \"$REPO_ROOT\" && npm run check:html-conformance"
 register_gate "Run Phase 8 accessibility axe gate" "cd \"$REPO_ROOT\" && npm run check:accessibility"
+register_gate "Run Phase 8 HTTPS and security gate" "cd \"$REPO_ROOT\" && npm run check:https-security"
 register_gate "Run canonical alignment check" "cd \"$REPO_ROOT\" && npm run check:canonical-alignment"
 register_gate "Run mixed-content check" "cd \"$REPO_ROOT\" && npm run check:mixed-content"
 register_gate "Run retirement policy check" "cd \"$REPO_ROOT\" && npm run check:retirement-policy"

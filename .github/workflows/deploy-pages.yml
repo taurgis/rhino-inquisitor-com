@@ -181,6 +181,16 @@ jobs:
           if-no-files-found: error
           retention-days: 30
 
+      - name: Upload Phase 8 HTTPS and security reports
+        if: ${{ always() && !cancelled() }}
+        uses: actions/upload-artifact@v6
+        with:
+          name: phase-8-https-security-validation-${{ github.sha }}
+          path: |
+            validation/https-security-report.json
+          if-no-files-found: error
+          retention-days: 30
+
       - name: Upload Phase 8 performance reports
         if: ${{ always() && !cancelled() }}
         uses: actions/upload-artifact@v6
@@ -225,6 +235,7 @@ jobs:
             validation/accessibility-axe-report.json
             validation/html-conformance-report.json
             validation/accessibility-manual-checklist.md
+            validation/https-security-report.json
             validation/lhci-report
             validation/performance-budget-report.json
             tmp/phase-6-host-protocol
