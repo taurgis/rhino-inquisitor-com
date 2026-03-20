@@ -148,6 +148,24 @@ Important provenance rule:
 
 - If content, metadata, or configuration changes occur after the RC freeze, WS-C may still produce branch-state reports against the frozen datasets for debugging or closeout preparation, but those reports must not be treated as refreshed RC evidence until a new RC tag is cut and the datasets are regenerated.
 
+## WS-D Report Contract
+
+RHI-087 replaces the placeholder WS-D outputs with committed machine-readable structured-data and social-preview evidence:
+
+- `validation/structured-data-report.json` records sample-matrix structured-data checks, including required schema families by template type, JSON-LD block parsing, required-property validation, ISO 8601 date validation, same-host URL validation, breadcrumb correctness, raw HTML fragment detection, and same-host image resolution.
+- `validation/social-preview-report.json` records sample-matrix plus HTML-backed priority-route social-preview checks, including `og:*` and `twitter:*` tag presence, title and description parity, canonical-host `og:url`, `og:type` validation, image resolution status, and advisory image-dimension warnings.
+- Both WS-D reports include `artifactProvenance` so reviewers can distinguish frozen-RC evidence from later branch-state reruns that still consume the frozen datasets.
+- `validation/structured-data-report.json` treats invalid JSON-LD, missing required homepage/article schema, wrong-family schema leakage, raw HTML fragments inside JSON-LD values, and unresolved same-host schema images as blocking failures.
+- `validation/social-preview-report.json` treats missing required social tags, wrong `og:type`, unresolved same-host social images, and missing `twitter:image` when `og:image` is present as blocking failures. Image-dimension guidance remains warning-only.
+
+Manual evidence location:
+
+- `validation/rich-results-test-evidence/` stores the required Google Rich Results manual evidence and any blocker screenshots or notes when live-URL validation cannot yet be completed.
+
+Important manual-evidence rule:
+
+- The automated WS-D reports do not replace the manual Google-side Rich Results requirement from RHI-087. If the current rehearsal host is not Google-fetchable, record that blocker in `validation/rich-results-test-evidence/` and keep the ticket open until the owner resolves the final evidence path.
+
 ## RC metadata convention
 
 - Record per-run metadata under `validation/runs/`.

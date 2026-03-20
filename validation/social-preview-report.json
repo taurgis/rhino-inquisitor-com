@@ -1,10 +1,3718 @@
 {
   "phase": 8,
-  "ticket": "RHI-083",
+  "ticket": "RHI-087",
   "artifact": "social-preview-report",
-  "status": "placeholder",
-  "rcTag": null,
-  "rcSha": null,
-  "generatedAt": null,
-  "notes": "Bootstrap placeholder created by RHI-083. Replace this file in RHI-087."
+  "status": "pass",
+  "rcTag": "phase-8-rc-v1",
+  "rcSha": "a510ead82a28f85718866e1f6af3f7dda03034b7",
+  "generatedAt": "2026-03-20T17:13:20.309Z",
+  "publicDir": "public",
+  "sampleMatrix": {
+    "path": "validation/sample-matrix.json",
+    "generatedAt": "2026-03-20T13:56:36.009Z"
+  },
+  "priorityRoutes": {
+    "path": "validation/priority-routes.json",
+    "generatedAt": "2026-03-20T13:56:36.009Z"
+  },
+  "artifactProvenance": {
+    "gitHead": "9d6e808edd72b1fc2b4bf1bdfa46c3831e74fdd6",
+    "gitHeadShort": "9d6e808e",
+    "workspaceDirty": true,
+    "datasetRcTag": "phase-8-rc-v1",
+    "datasetRcSha": "a510ead82a28f85718866e1f6af3f7dda03034b7",
+    "matchesDatasetRc": false,
+    "provenanceStatus": "branch-state",
+    "note": "Artifact provenance differs from the frozen dataset RC or the workspace is dirty; treat this as branch-state evidence until a new RC is cut."
+  },
+  "policy": {
+    "canonicalHost": "https://www.rhino-inquisitor.com",
+    "ogTypeArticle": "article",
+    "ogTypeDefault": "website",
+    "imageVerificationMode": "artifact-path",
+    "imageDimensionSeverity": "warning-only",
+    "missingSocialImageSeverity": "blocking"
+  },
+  "summary": {
+    "totalRoutes": 61,
+    "checkedRoutes": 60,
+    "skippedRoutes": 1,
+    "passCount": 60,
+    "failCount": 0,
+    "blockingFailures": 0,
+    "warningCount": 21,
+    "routesWithOgImage": 60,
+    "routesWithTwitterImage": 60,
+    "uniqueImageCount": 49,
+    "unresolvedImageCount": 0,
+    "lowDimensionWarnings": 20
+  },
+  "imageAudit": [
+    {
+      "url": "https://www.rhino-inquisitor.com/a-beginners-guide-to-webdav-in-sfcc/webdav-storing-files-scaled-8c216a580f_hu_9d42dc01c351d0d3.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/a-beginners-guide-to-webdav-in-sfcc/webdav-storing-files-scaled-8c216a580f_hu_9d42dc01c351d0d3.webp",
+      "width": 2000,
+      "height": 996,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/a-dev-guide-to-combating-fraud-on-sfcc/fraud-orders-sfcc-scaled-beae2495ff_hu_25981c66d32e934c.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/a-dev-guide-to-combating-fraud-on-sfcc/fraud-orders-sfcc-scaled-beae2495ff_hu_25981c66d32e934c.webp",
+      "width": 2000,
+      "height": 1091,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/a-look-at-the-23-9-commerce-cloud-release/japan-shopping-street-23-9-bd4ea7a693_hu_f3213972d55cac97.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/a-look-at-the-23-9-commerce-cloud-release/japan-shopping-street-23-9-bd4ea7a693_hu_f3213972d55cac97.webp",
+      "width": 609,
+      "height": 329,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": [
+        "Social image dimensions 609x329 are below the recommended 1200x630 minimum."
+      ]
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/a-survival-guide-to-sfcc-platform-limits/b2c-commerce-cloud-quota-warnings-scaled-adc4dec7e9_hu_b09a7e00889b1f2b.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/a-survival-guide-to-sfcc-platform-limits/b2c-commerce-cloud-quota-warnings-scaled-adc4dec7e9_hu_b09a7e00889b1f2b.webp",
+      "width": 2000,
+      "height": 1091,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/ai-einstein-in-salesforce-b2c-commerce-cloud/artificial-intelligence-fc68314ce7_hu_f4ced2c67afa3341.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/ai-einstein-in-salesforce-b2c-commerce-cloud/artificial-intelligence-fc68314ce7_hu_f4ced2c67afa3341.webp",
+      "width": 1024,
+      "height": 819,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": [
+        "Social image dimensions 1024x819 are below the recommended 1200x630 minimum."
+      ]
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/caching-in-the-sfcc-composable-storefront/multi-layered-caching-b85c120088_hu_c376b6d51fef650.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/caching-in-the-sfcc-composable-storefront/multi-layered-caching-b85c120088_hu_c376b6d51fef650.webp",
+      "width": 1472,
+      "height": 832,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/connecting-the-clouds-wedding-or-funeral/image-2-d99b4ba03b_hu_414112bc82f2c42d.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/connecting-the-clouds-wedding-or-funeral/image-2-d99b4ba03b_hu_414112bc82f2c42d.webp",
+      "width": 1280,
+      "height": 720,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/creating-custom-ocapi-endpoints/ocapi-bb5766fd49_hu_b1f859d5b35f960f.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/creating-custom-ocapi-endpoints/ocapi-bb5766fd49_hu_b1f859d5b35f960f.webp",
+      "width": 1200,
+      "height": 570,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": [
+        "Social image dimensions 1200x570 are below the recommended 1200x630 minimum."
+      ]
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/custom-preferences-in-sfcc/it-configuring-server-scaled-d8087e9ab9_hu_106b8ef3583f86ba.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/custom-preferences-in-sfcc/it-configuring-server-scaled-d8087e9ab9_hu_106b8ef3583f86ba.webp",
+      "width": 2000,
+      "height": 1494,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/custom-ttf-fonts-in-pdf-for-sfcc/fonts-c94beaf8e0_hu_1163602d86cd144b.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/custom-ttf-fonts-in-pdf-for-sfcc/fonts-c94beaf8e0_hu_1163602d86cd144b.webp",
+      "width": 1024,
+      "height": 576,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": [
+        "Social image dimensions 1024x576 are below the recommended 1200x630 minimum."
+      ]
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/field-guide-to-custom-caches-in-sfcc/custom-caches-in-sfcc-scaled-c245e83c7a_hu_5edfebe0ecd27964.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/field-guide-to-custom-caches-in-sfcc/custom-caches-in-sfcc-scaled-c245e83c7a_hu_5edfebe0ecd27964.webp",
+      "width": 2000,
+      "height": 1091,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/getting-to-know-sfra-as-a-developer/sfra-670d466bd1_hu_b6ddc62f4678e354.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/getting-to-know-sfra-as-a-developer/sfra-670d466bd1_hu_b6ddc62f4678e354.webp",
+      "width": 1408,
+      "height": 1373,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/headless/headless-b54918a1ae_hu_5566e544fd276d2a.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/headless/headless-b54918a1ae_hu_5566e544fd276d2a.webp",
+      "width": 1280,
+      "height": 720,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/how-to-filter-jsdoc-in-storybook-autodocs/frustrated-developer-illustration-a7d8092bbb_hu_c0f94f32a62c861c.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/how-to-filter-jsdoc-in-storybook-autodocs/frustrated-developer-illustration-a7d8092bbb_hu_c0f94f32a62c861c.webp",
+      "width": 1536,
+      "height": 768,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/sandbox-84618f4042_hu_a6bc2d5005cb0482.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/sandbox-84618f4042_hu_a6bc2d5005cb0482.webp",
+      "width": 850,
+      "height": 480,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": [
+        "Social image dimensions 850x480 are below the recommended 1200x630 minimum."
+      ]
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/how-to-get-salesforce-certification-vouchers/trailhead-academy-765c17a690_hu_6e56c90470642944.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/how-to-get-salesforce-certification-vouchers/trailhead-academy-765c17a690_hu_6e56c90470642944.webp",
+      "width": 1200,
+      "height": 514,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": [
+        "Social image dimensions 1200x514 are below the recommended 1200x630 minimum."
+      ]
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/how-to-load-client-side-javascript-and-css-in-sfra/client-side-js-e2475a2ea2_hu_c59e62f137b52180.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/how-to-load-client-side-javascript-and-css-in-sfra/client-side-js-e2475a2ea2_hu_c59e62f137b52180.webp",
+      "width": 494,
+      "height": 160,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": [
+        "Social image dimensions 494x160 are below the recommended 1200x630 minimum."
+      ]
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/how-to-set-up-slas-for-the-composable-storefront/slas-public-client-registered-user-b2c-a930192dd5_hu_e59944e262a499e8.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/how-to-set-up-slas-for-the-composable-storefront/slas-public-client-registered-user-b2c-a930192dd5_hu_e59944e262a499e8.webp",
+      "width": 1279,
+      "height": 719,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/how-to-set-up-the-ecdn-in-sfcc-staging/ssl-certificate-tw-8422f4751c_hu_62330dc760bd3c4e.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/how-to-set-up-the-ecdn-in-sfcc-staging/ssl-certificate-tw-8422f4751c_hu_62330dc760bd3c4e.webp",
+      "width": 750,
+      "height": 375,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": [
+        "Social image dimensions 750x375 are below the recommended 1200x630 minimum."
+      ]
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/how-to-use-ocapi-scapi-hooks/26df11a8-62ec-44cd-bf3b-6ff9ab46bee8-5598d60cbd_hu_cc9605b80220d245.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/how-to-use-ocapi-scapi-hooks/26df11a8-62ec-44cd-bf3b-6ff9ab46bee8-5598d60cbd_hu_cc9605b80220d245.webp",
+      "width": 300,
+      "height": 169,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": [
+        "Social image dimensions 300x169 are below the recommended 1200x630 minimum."
+      ]
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/images/home/home-social.jpg",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/images/home/home-social.jpg",
+      "width": 1200,
+      "height": 630,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/images/social-default.svg",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/images/social-default.svg",
+      "width": 1200,
+      "height": 630,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/in-the-ring-ocapi-versus-scapi/rest-apis-fighting-in-a-boxing-ring-60c6242717_hu_23fac86a89fda035.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/in-the-ring-ocapi-versus-scapi/rest-apis-fighting-in-a-boxing-ring-60c6242717_hu_23fac86a89fda035.webp",
+      "width": 1020,
+      "height": 600,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": [
+        "Social image dimensions 1020x600 are below the recommended 1200x630 minimum."
+      ]
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/kickstart-guide-for-new-sfcc-developers/the-new-salesforce-developer-scaled-1f8ff6fbac_hu_fa51b5a852f6f4eb.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/kickstart-guide-for-new-sfcc-developers/the-new-salesforce-developer-scaled-1f8ff6fbac_hu_fa51b5a852f6f4eb.webp",
+      "width": 2000,
+      "height": 1091,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/lets-go-live-ecdn/ecdn-5035a37164_hu_eb25d941890d3752.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/lets-go-live-ecdn/ecdn-5035a37164_hu_eb25d941890d3752.webp",
+      "width": 800,
+      "height": 439,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": [
+        "Social image dimensions 800x439 are below the recommended 1200x630 minimum."
+      ]
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/mail-attachments-in-b2c-commerce-cloud/mail-a7e287274f_hu_4fb332e4019cc241.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/mail-attachments-in-b2c-commerce-cloud/mail-a7e287274f_hu_4fb332e4019cc241.webp",
+      "width": 1500,
+      "height": 692,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/boxes-grouped-in-warehouse-0d6eb67465_hu_ee9c2e093a2fdf79.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/boxes-grouped-in-warehouse-0d6eb67465_hu_ee9c2e093a2fdf79.webp",
+      "width": 1920,
+      "height": 1024,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/me-myself-and-headless-a-composable-commerce-cloud-story/image-596c8a1379_hu_fe30b669a6827785.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/me-myself-and-headless-a-composable-commerce-cloud-story/image-596c8a1379_hu_fe30b669a6827785.webp",
+      "width": 1280,
+      "height": 720,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/real-time-inventory-checks-in-sfcc/stampede-to-a-single-endpoin-t-scaled-2d591aef78_hu_da6c14e421bc341b.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/real-time-inventory-checks-in-sfcc/stampede-to-a-single-endpoin-t-scaled-2d591aef78_hu_da6c14e421bc341b.webp",
+      "width": 2000,
+      "height": 1091,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-22-9-release/copy-paste-page-designer-full-d97d9a9ee9_hu_eff7d47bdd25d99e.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/salesforce-b2c-commerce-cloud-22-9-release/copy-paste-page-designer-full-d97d9a9ee9_hu_eff7d47bdd25d99e.webp",
+      "width": 1024,
+      "height": 683,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": [
+        "Social image dimensions 1024x683 are below the recommended 1200x630 minimum."
+      ]
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-governance-and-quotas/quota-limits-27eb2c93aa_hu_1f89d4ef56811b84.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/salesforce-b2c-commerce-cloud-governance-and-quotas/quota-limits-27eb2c93aa_hu_1f89d4ef56811b84.webp",
+      "width": 1984,
+      "height": 1024,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/salesforce-b2c-commerce-the-22-6-release/22-6-release-einstein-dashboards-722f4cbace_hu_ca077a203170e111.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/salesforce-b2c-commerce-the-22-6-release/22-6-release-einstein-dashboards-722f4cbace_hu_ca077a203170e111.webp",
+      "width": 300,
+      "height": 169,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": [
+        "Social image dimensions 300x169 are below the recommended 1200x630 minimum."
+      ]
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/secure-coding-in-salesforce-b2c-commerce-cloud/code-security-147ad97b77_hu_82eeb07f320ef587.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/secure-coding-in-salesforce-b2c-commerce-cloud/code-security-147ad97b77_hu_82eeb07f320ef587.webp",
+      "width": 620,
+      "height": 350,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": [
+        "Social image dimensions 620x350 are below the recommended 1200x630 minimum."
+      ]
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/sending-emails-from-sfcc/delivering-mail-in-sfcc-c46d2358ed_hu_ce0ad3957115312.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/sending-emails-from-sfcc/delivering-mail-in-sfcc-c46d2358ed_hu_ce0ad3957115312.webp",
+      "width": 1184,
+      "height": 672,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": [
+        "Social image dimensions 1184x672 are below the recommended 1200x630 minimum."
+      ]
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/sfcc-introduction/b2c-commerce-cloud-introduction-323fe8bb6c_hu_db0cfc4501e81354.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/sfcc-introduction/b2c-commerce-cloud-introduction-323fe8bb6c_hu_db0cfc4501e81354.webp",
+      "width": 1280,
+      "height": 720,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/simplifying-the-salesforce-order-of-execution/dominoes-in-middle-of-the-road-f4103f1e65_hu_bd59459ecfb0bcaa.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/simplifying-the-salesforce-order-of-execution/dominoes-in-middle-of-the-road-f4103f1e65_hu_bd59459ecfb0bcaa.webp",
+      "width": 720,
+      "height": 720,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": [
+        "Social image dimensions 720x720 are below the recommended 1200x630 minimum."
+      ]
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/sfra-vs-sitegenesis-965c09b9a6_hu_c86b9aaed8b7f598.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/sitegenesis-vs-sfra-vs-pwa/sfra-vs-sitegenesis-965c09b9a6_hu_c86b9aaed8b7f598.webp",
+      "width": 1024,
+      "height": 615,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": [
+        "Social image dimensions 1024x615 are below the recommended 1200x630 minimum."
+      ]
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/slas-in-sfra-or-sitegenesis/slas-84866c9e46_hu_f015beeebdc333d1.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/slas-in-sfra-or-sitegenesis/slas-84866c9e46_hu_f015beeebdc333d1.webp",
+      "width": 1500,
+      "height": 706,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/taming-the-beast-a-developers-deep-dive-into-sfcc-meta-tag-rules/sfcc-meta-tag-rules-scaled-149974a893_hu_b7d221ebb5dddda8.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/taming-the-beast-a-developers-deep-dive-into-sfcc-meta-tag-rules/sfcc-meta-tag-rules-scaled-149974a893_hu_b7d221ebb5dddda8.webp",
+      "width": 2000,
+      "height": 1091,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/the-b2c-commerce-architect-certification/b2c-commerce-cloud-architect-fbcc847dcd_hu_a8e825a1c9812403.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/the-b2c-commerce-architect-certification/b2c-commerce-cloud-architect-fbcc847dcd_hu_a8e825a1c9812403.webp",
+      "width": 1280,
+      "height": 640,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/the-path-to-being-an-architect/path-to-being-an-architect-576cef411b_hu_e771a69029418bae.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/the-path-to-being-an-architect/path-to-being-an-architect-576cef411b_hu_e771a69029418bae.webp",
+      "width": 1280,
+      "height": 720,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/the-realm-split-field-guide-to-migrating-an-sfcc-site/realm-split-in-sfcc-c392b8965d_hu_ae62165e9e8bff6c.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/the-realm-split-field-guide-to-migrating-an-sfcc-site/realm-split-in-sfcc-c392b8965d_hu_ae62165e9e8bff6c.webp",
+      "width": 1021,
+      "height": 731,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": [
+        "Social image dimensions 1021x731 are below the recommended 1200x630 minimum."
+      ]
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/the-sfcc-guide-to-finding-pod-numbers/sfcc-finding-your-pod-number-scaled-6830449d2b_hu_4ad57f4627b6f922.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/the-sfcc-guide-to-finding-pod-numbers/sfcc-finding-your-pod-number-scaled-6830449d2b_hu_4ad57f4627b6f922.webp",
+      "width": 2000,
+      "height": 1091,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/third-party-api-caching-in-commerce-cloud/third-party-service-caching-6154196735_hu_f50b1be7a5a9a7d2.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/third-party-api-caching-in-commerce-cloud/third-party-service-caching-6154196735_hu_f50b1be7a5a9a7d2.webp",
+      "width": 1472,
+      "height": 832,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/understanding-sfcc-instances/salesforce-b2c-commerce-cloud-instances-scaled-59ed2cbb06_hu_574d6389c932afd2.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/understanding-sfcc-instances/salesforce-b2c-commerce-cloud-instances-scaled-59ed2cbb06_hu_574d6389c932afd2.webp",
+      "width": 2000,
+      "height": 2000,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/video/maxresdefault-7015ae5c52_hu_776489661e91bf27.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/video/maxresdefault-7015ae5c52_hu_776489661e91bf27.webp",
+      "width": 1280,
+      "height": 720,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": []
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/what-is-the-ocapi-session-bridge/session-bridge-bbf2a7ba92_hu_ccc793cab8aca3d7.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/what-is-the-ocapi-session-bridge/session-bridge-bbf2a7ba92_hu_ccc793cab8aca3d7.webp",
+      "width": 1100,
+      "height": 630,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": [
+        "Social image dimensions 1100x630 are below the recommended 1200x630 minimum."
+      ]
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/where-to-hook-into-an-sfra-controller/a-road-taking-odd-paths-a9419c4f36_hu_258ee98812702c87.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/where-to-hook-into-an-sfra-controller/a-road-taking-odd-paths-a9419c4f36_hu_258ee98812702c87.webp",
+      "width": 1024,
+      "height": 1024,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": [
+        "Social image dimensions 1024x1024 are below the recommended 1200x630 minimum."
+      ]
+    },
+    {
+      "url": "https://www.rhino-inquisitor.com/your-definitive-mobile-app-checklist/headless-app-go-live-scaled-89b046ecca_hu_fe14a4150c5c3fee.webp",
+      "host": "www.rhino-inquisitor.com",
+      "resolved": true,
+      "assetPath": "public/your-definitive-mobile-app-checklist/headless-app-go-live-scaled-89b046ecca_hu_fe14a4150c5c3fee.webp",
+      "width": 2000,
+      "height": 1090,
+      "httpStatus": 200,
+      "findings": [],
+      "warnings": []
+    }
+  ],
+  "entries": [
+    {
+      "route": "/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/",
+      "sources": [
+        {
+          "type": "sample-matrix",
+          "group": "homepage",
+          "family": "home",
+          "title": null,
+          "contentPath": null,
+          "selectionReason": "Fixed homepage route required by the RHI-084 sample matrix contract."
+        },
+        {
+          "type": "priority-routes",
+          "family": "page",
+          "priority": "critical",
+          "urlClass": "page",
+          "sourceRoute": "/",
+          "expectedOutcome": "keep",
+          "selectionReason": "organic rank 6 from migration/phase-1-seo-baseline.md. Also present in backlink rank 1."
+        }
+      ],
+      "builtArtifactPath": "public/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [],
+      "meta": {
+        "title": "Rhino Inquisitor | Salesforce B2C Commerce Guidance",
+        "metaDescription": "Field-tested Salesforce B2C Commerce guidance, release analysis, and migration playbooks for developers, architects, and commerce leaders.",
+        "expectedOgType": "website",
+        "ogTitle": "Rhino Inquisitor | Salesforce B2C Commerce Guidance",
+        "ogDescription": "Field-tested Salesforce B2C Commerce guidance, release analysis, and migration playbooks for developers, architects, and commerce leaders.",
+        "ogUrl": "https://www.rhino-inquisitor.com/",
+        "ogType": "website",
+        "ogImage": "https://www.rhino-inquisitor.com/images/home/home-social.jpg",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Rhino Inquisitor | Salesforce B2C Commerce Guidance",
+        "twitterDescription": "Field-tested Salesforce B2C Commerce guidance, release analysis, and migration playbooks for developers, architects, and commerce leaders.",
+        "twitterImage": "https://www.rhino-inquisitor.com/images/home/home-social.jpg"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/images/home/home-social.jpg",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/images/home/home-social.jpg",
+          "width": 1200,
+          "height": 630,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "route": "/a-beginners-guide-to-webdav-in-sfcc/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/a-beginners-guide-to-webdav-in-sfcc/",
+      "sources": [
+        {
+          "type": "priority-routes",
+          "family": "article",
+          "priority": "high",
+          "urlClass": "post",
+          "sourceRoute": "/a-beginners-guide-to-webdav-in-sfcc/",
+          "expectedOutcome": "keep",
+          "selectionReason": "organic rank 5 from migration/phase-1-seo-baseline.md."
+        }
+      ],
+      "builtArtifactPath": "public/a-beginners-guide-to-webdav-in-sfcc/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [],
+      "meta": {
+        "title": "Beginner's Guide to WebDAV in SFCC | Rhino Inquisitor",
+        "metaDescription": "File Management is critical and necessary in any project. How else can we work with mass data transfers or logging mechanisms?",
+        "expectedOgType": "article",
+        "ogTitle": "Beginner's Guide to WebDAV in SFCC | Rhino Inquisitor",
+        "ogDescription": "File Management is critical and necessary in any project. How else can we work with mass data transfers or logging mechanisms?",
+        "ogUrl": "https://www.rhino-inquisitor.com/a-beginners-guide-to-webdav-in-sfcc/",
+        "ogType": "article",
+        "ogImage": "https://www.rhino-inquisitor.com/a-beginners-guide-to-webdav-in-sfcc/webdav-storing-files-scaled-8c216a580f_hu_9d42dc01c351d0d3.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Beginner's Guide to WebDAV in SFCC | Rhino Inquisitor",
+        "twitterDescription": "File Management is critical and necessary in any project. How else can we work with mass data transfers or logging mechanisms?",
+        "twitterImage": "https://www.rhino-inquisitor.com/a-beginners-guide-to-webdav-in-sfcc/webdav-storing-files-scaled-8c216a580f_hu_9d42dc01c351d0d3.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/a-beginners-guide-to-webdav-in-sfcc/webdav-storing-files-scaled-8c216a580f_hu_9d42dc01c351d0d3.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/a-beginners-guide-to-webdav-in-sfcc/webdav-storing-files-scaled-8c216a580f_hu_9d42dc01c351d0d3.webp",
+          "width": 2000,
+          "height": 996,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "route": "/a-dev-guide-to-combating-fraud-on-sfcc/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/a-dev-guide-to-combating-fraud-on-sfcc/",
+      "sources": [
+        {
+          "type": "sample-matrix",
+          "group": "recent_posts",
+          "family": "article",
+          "title": "Developer's Guide to Combating Fraud in SFCC",
+          "contentPath": "src/content/posts/a-dev-guide-to-combating-fraud-on-sfcc/index.md",
+          "selectionReason": "Recent post rank 2 by front matter date descending."
+        }
+      ],
+      "builtArtifactPath": "public/a-dev-guide-to-combating-fraud-on-sfcc/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [],
+      "meta": {
+        "title": "Developer's Guide to Combating Fraud in SFCC | Rhino Inquisitor",
+        "metaDescription": "Enhance your security beyond the basics on Salesforce B2C Commerce Cloud with this comprehensive guide tailored for developers.",
+        "expectedOgType": "article",
+        "ogTitle": "Developer's Guide to Combating Fraud in SFCC | Rhino Inquisitor",
+        "ogDescription": "Enhance your security beyond the basics on Salesforce B2C Commerce Cloud with this comprehensive guide tailored for developers.",
+        "ogUrl": "https://www.rhino-inquisitor.com/a-dev-guide-to-combating-fraud-on-sfcc/",
+        "ogType": "article",
+        "ogImage": "https://www.rhino-inquisitor.com/a-dev-guide-to-combating-fraud-on-sfcc/fraud-orders-sfcc-scaled-beae2495ff_hu_25981c66d32e934c.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Developer's Guide to Combating Fraud in SFCC | Rhino Inquisitor",
+        "twitterDescription": "Enhance your security beyond the basics on Salesforce B2C Commerce Cloud with this comprehensive guide tailored for developers.",
+        "twitterImage": "https://www.rhino-inquisitor.com/a-dev-guide-to-combating-fraud-on-sfcc/fraud-orders-sfcc-scaled-beae2495ff_hu_25981c66d32e934c.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/a-dev-guide-to-combating-fraud-on-sfcc/fraud-orders-sfcc-scaled-beae2495ff_hu_25981c66d32e934c.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/a-dev-guide-to-combating-fraud-on-sfcc/fraud-orders-sfcc-scaled-beae2495ff_hu_25981c66d32e934c.webp",
+          "width": 2000,
+          "height": 1091,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "route": "/a-look-at-the-23-9-commerce-cloud-release/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/a-look-at-the-23-9-commerce-cloud-release/",
+      "sources": [
+        {
+          "type": "priority-routes",
+          "family": "article",
+          "priority": "critical",
+          "urlClass": "post",
+          "sourceRoute": "/a-look-at-the-23-9-commerce-cloud-release/",
+          "expectedOutcome": "keep",
+          "selectionReason": "backlink rank 14 from migration/phase-1-seo-baseline.md."
+        }
+      ],
+      "builtArtifactPath": "public/a-look-at-the-23-9-commerce-cloud-release/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [
+        "Social image dimensions 609x329 are below the recommended 1200x630 minimum."
+      ],
+      "meta": {
+        "title": "SFCC 23.9 Release Highlights and SCAPI Updates | Rhino Inquisitor",
+        "metaDescription": "We are getting closer to the holiday period, and also one of the last releases of the year! This time we look at the September 2023 (23.9) release!",
+        "expectedOgType": "article",
+        "ogTitle": "SFCC 23.9 Release Highlights and SCAPI Updates | Rhino Inquisitor",
+        "ogDescription": "We are getting closer to the holiday period, and also one of the last releases of the year! This time we look at the September 2023 (23.9) release!",
+        "ogUrl": "https://www.rhino-inquisitor.com/a-look-at-the-23-9-commerce-cloud-release/",
+        "ogType": "article",
+        "ogImage": "https://www.rhino-inquisitor.com/a-look-at-the-23-9-commerce-cloud-release/japan-shopping-street-23-9-bd4ea7a693_hu_f3213972d55cac97.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "SFCC 23.9 Release Highlights and SCAPI Updates | Rhino Inquisitor",
+        "twitterDescription": "We are getting closer to the holiday period, and also one of the last releases of the year! This time we look at the September 2023 (23.9) release!",
+        "twitterImage": "https://www.rhino-inquisitor.com/a-look-at-the-23-9-commerce-cloud-release/japan-shopping-street-23-9-bd4ea7a693_hu_f3213972d55cac97.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/a-look-at-the-23-9-commerce-cloud-release/japan-shopping-street-23-9-bd4ea7a693_hu_f3213972d55cac97.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/a-look-at-the-23-9-commerce-cloud-release/japan-shopping-street-23-9-bd4ea7a693_hu_f3213972d55cac97.webp",
+          "width": 609,
+          "height": 329,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": [
+            "Social image dimensions 609x329 are below the recommended 1200x630 minimum."
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/a-survival-guide-to-sfcc-platform-limits/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/a-survival-guide-to-sfcc-platform-limits/",
+      "sources": [
+        {
+          "type": "sample-matrix",
+          "group": "recent_posts",
+          "family": "article",
+          "title": "Survival Guide to SFCC Platform Limits",
+          "contentPath": "src/content/posts/a-survival-guide-to-sfcc-platform-limits/index.md",
+          "selectionReason": "Recent post rank 5 by front matter date descending."
+        }
+      ],
+      "builtArtifactPath": "public/a-survival-guide-to-sfcc-platform-limits/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [],
+      "meta": {
+        "title": "Survival Guide to SFCC Platform Limits | Rhino Inquisitor",
+        "metaDescription": "It is a scenario that haunts every e-commerce developer: the 3 AM pager alert. Read the full article on Rhino Inquisitor for implementation details.",
+        "expectedOgType": "article",
+        "ogTitle": "Survival Guide to SFCC Platform Limits | Rhino Inquisitor",
+        "ogDescription": "It is a scenario that haunts every e-commerce developer: the 3 AM pager alert. Read the full article on Rhino Inquisitor for implementation details.",
+        "ogUrl": "https://www.rhino-inquisitor.com/a-survival-guide-to-sfcc-platform-limits/",
+        "ogType": "article",
+        "ogImage": "https://www.rhino-inquisitor.com/a-survival-guide-to-sfcc-platform-limits/b2c-commerce-cloud-quota-warnings-scaled-adc4dec7e9_hu_b09a7e00889b1f2b.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Survival Guide to SFCC Platform Limits | Rhino Inquisitor",
+        "twitterDescription": "It is a scenario that haunts every e-commerce developer: the 3 AM pager alert. Read the full article on Rhino Inquisitor for implementation details.",
+        "twitterImage": "https://www.rhino-inquisitor.com/a-survival-guide-to-sfcc-platform-limits/b2c-commerce-cloud-quota-warnings-scaled-adc4dec7e9_hu_b09a7e00889b1f2b.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/a-survival-guide-to-sfcc-platform-limits/b2c-commerce-cloud-quota-warnings-scaled-adc4dec7e9_hu_b09a7e00889b1f2b.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/a-survival-guide-to-sfcc-platform-limits/b2c-commerce-cloud-quota-warnings-scaled-adc4dec7e9_hu_b09a7e00889b1f2b.webp",
+          "width": 2000,
+          "height": 1091,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "route": "/ai-einstein-in-salesforce-b2c-commerce-cloud/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/ai-einstein-in-salesforce-b2c-commerce-cloud/",
+      "sources": [
+        {
+          "type": "priority-routes",
+          "family": "article",
+          "priority": "critical",
+          "urlClass": "post",
+          "sourceRoute": "/ai-einstein-in-salesforce-b2c-commerce-cloud/",
+          "expectedOutcome": "keep",
+          "selectionReason": "backlink rank 4 from migration/phase-1-seo-baseline.md."
+        }
+      ],
+      "builtArtifactPath": "public/ai-einstein-in-salesforce-b2c-commerce-cloud/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [
+        "Social image dimensions 1024x819 are below the recommended 1200x630 minimum."
+      ],
+      "meta": {
+        "title": "AI (Einstein) in Salesforce B2C Commerce Cloud | Rhino Inquisitor",
+        "metaDescription": "Salesforce B2C Commerce Cloud has an AI that can power different areas of the site. But what is it, why use it, and what can it do for me?",
+        "expectedOgType": "article",
+        "ogTitle": "AI (Einstein) in Salesforce B2C Commerce Cloud | Rhino Inquisitor",
+        "ogDescription": "Salesforce B2C Commerce Cloud has an AI that can power different areas of the site. But what is it, why use it, and what can it do for me?",
+        "ogUrl": "https://www.rhino-inquisitor.com/ai-einstein-in-salesforce-b2c-commerce-cloud/",
+        "ogType": "article",
+        "ogImage": "https://www.rhino-inquisitor.com/ai-einstein-in-salesforce-b2c-commerce-cloud/artificial-intelligence-fc68314ce7_hu_f4ced2c67afa3341.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "AI (Einstein) in Salesforce B2C Commerce Cloud | Rhino Inquisitor",
+        "twitterDescription": "Salesforce B2C Commerce Cloud has an AI that can power different areas of the site. But what is it, why use it, and what can it do for me?",
+        "twitterImage": "https://www.rhino-inquisitor.com/ai-einstein-in-salesforce-b2c-commerce-cloud/artificial-intelligence-fc68314ce7_hu_f4ced2c67afa3341.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/ai-einstein-in-salesforce-b2c-commerce-cloud/artificial-intelligence-fc68314ce7_hu_f4ced2c67afa3341.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/ai-einstein-in-salesforce-b2c-commerce-cloud/artificial-intelligence-fc68314ce7_hu_f4ced2c67afa3341.webp",
+          "width": 1024,
+          "height": 819,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": [
+            "Social image dimensions 1024x819 are below the recommended 1200x630 minimum."
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/archive/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/archive/",
+      "sources": [
+        {
+          "type": "sample-matrix",
+          "group": "archive_pages",
+          "family": "archive",
+          "title": null,
+          "contentPath": null,
+          "selectionReason": "Fixed archive discovery route retained for Phase 8 coverage."
+        }
+      ],
+      "builtArtifactPath": "public/archive/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [],
+      "meta": {
+        "title": "Archive | Rhino Inquisitor",
+        "metaDescription": "Browse the Rhino Inquisitor archive to find release notes, technical guides, and long-form Salesforce Commerce Cloud articles by date.",
+        "expectedOgType": "website",
+        "ogTitle": "Archive | Rhino Inquisitor",
+        "ogDescription": "Browse the Rhino Inquisitor archive to find release notes, technical guides, and long-form Salesforce Commerce Cloud articles by date.",
+        "ogUrl": "https://www.rhino-inquisitor.com/archive/",
+        "ogType": "website",
+        "ogImage": "https://www.rhino-inquisitor.com/images/social-default.svg",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Archive | Rhino Inquisitor",
+        "twitterDescription": "Browse the Rhino Inquisitor archive to find release notes, technical guides, and long-form Salesforce Commerce Cloud articles by date.",
+        "twitterImage": "https://www.rhino-inquisitor.com/images/social-default.svg"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/images/social-default.svg",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/images/social-default.svg",
+          "width": 1200,
+          "height": 630,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "route": "/caching-in-the-sfcc-composable-storefront/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/caching-in-the-sfcc-composable-storefront/",
+      "sources": [
+        {
+          "type": "priority-routes",
+          "family": "article",
+          "priority": "high",
+          "urlClass": "post",
+          "sourceRoute": "/caching-in-the-sfcc-composable-storefront/",
+          "expectedOutcome": "keep",
+          "selectionReason": "organic rank 11 from migration/phase-1-seo-baseline.md."
+        }
+      ],
+      "builtArtifactPath": "public/caching-in-the-sfcc-composable-storefront/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [],
+      "meta": {
+        "title": "Caching in the Salesforce Composable Storefront | Rhino Inquisitor",
+        "metaDescription": "Learn how caching works in the Salesforce Composable Storefront, which layers matter most, and where it improves real-world speed.",
+        "expectedOgType": "article",
+        "ogTitle": "Caching in the Salesforce Composable Storefront | Rhino Inquisitor",
+        "ogDescription": "Learn how caching works in the Salesforce Composable Storefront, which layers matter most, and where it improves real-world speed.",
+        "ogUrl": "https://www.rhino-inquisitor.com/caching-in-the-sfcc-composable-storefront/",
+        "ogType": "article",
+        "ogImage": "https://www.rhino-inquisitor.com/caching-in-the-sfcc-composable-storefront/multi-layered-caching-b85c120088_hu_c376b6d51fef650.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Caching in the Salesforce Composable Storefront | Rhino Inquisitor",
+        "twitterDescription": "Learn how caching works in the Salesforce Composable Storefront, which layers matter most, and where it improves real-world speed.",
+        "twitterImage": "https://www.rhino-inquisitor.com/caching-in-the-sfcc-composable-storefront/multi-layered-caching-b85c120088_hu_c376b6d51fef650.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/caching-in-the-sfcc-composable-storefront/multi-layered-caching-b85c120088_hu_c376b6d51fef650.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/caching-in-the-sfcc-composable-storefront/multi-layered-caching-b85c120088_hu_c376b6d51fef650.webp",
+          "width": 1472,
+          "height": 832,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "route": "/category/ai/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/category/ai/",
+      "sources": [
+        {
+          "type": "sample-matrix",
+          "group": "category_pages",
+          "family": "category",
+          "title": "AI",
+          "contentPath": "src/content/categories/ai/_index.md",
+          "selectionReason": "Alphabetical category sample rank 1."
+        }
+      ],
+      "builtArtifactPath": "public/category/ai/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [],
+      "meta": {
+        "title": "AI | Rhino Inquisitor",
+        "metaDescription": "Explore Rhino Inquisitor's AI archive for Salesforce Commerce Cloud articles, release notes, and migration-safe reference material.",
+        "expectedOgType": "website",
+        "ogTitle": "AI | Rhino Inquisitor",
+        "ogDescription": "Explore Rhino Inquisitor's AI archive for Salesforce Commerce Cloud articles, release notes, and migration-safe reference material.",
+        "ogUrl": "https://www.rhino-inquisitor.com/category/ai/",
+        "ogType": "website",
+        "ogImage": "https://www.rhino-inquisitor.com/images/social-default.svg",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "AI | Rhino Inquisitor",
+        "twitterDescription": "Explore Rhino Inquisitor's AI archive for Salesforce Commerce Cloud articles, release notes, and migration-safe reference material.",
+        "twitterImage": "https://www.rhino-inquisitor.com/images/social-default.svg"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/images/social-default.svg",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/images/social-default.svg",
+          "width": 1200,
+          "height": 630,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "route": "/category/architecture/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/category/architecture/",
+      "sources": [
+        {
+          "type": "sample-matrix",
+          "group": "category_pages",
+          "family": "category",
+          "title": "Architecture",
+          "contentPath": "src/content/categories/architecture/_index.md",
+          "selectionReason": "Alphabetical category sample rank 2."
+        }
+      ],
+      "builtArtifactPath": "public/category/architecture/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [],
+      "meta": {
+        "title": "Architecture | Rhino Inquisitor",
+        "metaDescription": "Explore Rhino Inquisitor's Architecture archive for Salesforce Commerce Cloud articles, release notes, and migration-safe reference material.",
+        "expectedOgType": "website",
+        "ogTitle": "Architecture | Rhino Inquisitor",
+        "ogDescription": "Explore Rhino Inquisitor's Architecture archive for Salesforce Commerce Cloud articles, release notes, and migration-safe reference material.",
+        "ogUrl": "https://www.rhino-inquisitor.com/category/architecture/",
+        "ogType": "website",
+        "ogImage": "https://www.rhino-inquisitor.com/images/social-default.svg",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Architecture | Rhino Inquisitor",
+        "twitterDescription": "Explore Rhino Inquisitor's Architecture archive for Salesforce Commerce Cloud articles, release notes, and migration-safe reference material.",
+        "twitterImage": "https://www.rhino-inquisitor.com/images/social-default.svg"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/images/social-default.svg",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/images/social-default.svg",
+          "width": 1200,
+          "height": 630,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "route": "/category/certification/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/category/certification/",
+      "sources": [
+        {
+          "type": "sample-matrix",
+          "group": "category_pages",
+          "family": "category",
+          "title": "Certification",
+          "contentPath": "src/content/categories/certification/_index.md",
+          "selectionReason": "Alphabetical category sample rank 3."
+        }
+      ],
+      "builtArtifactPath": "public/category/certification/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [],
+      "meta": {
+        "title": "Certification | Rhino Inquisitor",
+        "metaDescription": "Explore Rhino Inquisitor's Certification archive for Salesforce Commerce Cloud articles, release notes, and migration-safe reference material.",
+        "expectedOgType": "website",
+        "ogTitle": "Certification | Rhino Inquisitor",
+        "ogDescription": "Explore Rhino Inquisitor's Certification archive for Salesforce Commerce Cloud articles, release notes, and migration-safe reference material.",
+        "ogUrl": "https://www.rhino-inquisitor.com/category/certification/",
+        "ogType": "website",
+        "ogImage": "https://www.rhino-inquisitor.com/images/social-default.svg",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Certification | Rhino Inquisitor",
+        "twitterDescription": "Explore Rhino Inquisitor's Certification archive for Salesforce Commerce Cloud articles, release notes, and migration-safe reference material.",
+        "twitterImage": "https://www.rhino-inquisitor.com/images/social-default.svg"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/images/social-default.svg",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/images/social-default.svg",
+          "width": 1200,
+          "height": 630,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "route": "/category/community/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/category/community/",
+      "sources": [
+        {
+          "type": "sample-matrix",
+          "group": "category_pages",
+          "family": "category",
+          "title": "Community",
+          "contentPath": "src/content/categories/community/_index.md",
+          "selectionReason": "Alphabetical category sample rank 4."
+        }
+      ],
+      "builtArtifactPath": "public/category/community/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [],
+      "meta": {
+        "title": "Community | Rhino Inquisitor",
+        "metaDescription": "Posts and articles about the Salesforce Ohana community, including conferences, networking, and ecosystem thought leadership.",
+        "expectedOgType": "website",
+        "ogTitle": "Community | Rhino Inquisitor",
+        "ogDescription": "Posts and articles about the Salesforce Ohana community, including conferences, networking, and ecosystem thought leadership.",
+        "ogUrl": "https://www.rhino-inquisitor.com/category/community/",
+        "ogType": "website",
+        "ogImage": "https://www.rhino-inquisitor.com/images/social-default.svg",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Community | Rhino Inquisitor",
+        "twitterDescription": "Posts and articles about the Salesforce Ohana community, including conferences, networking, and ecosystem thought leadership.",
+        "twitterImage": "https://www.rhino-inquisitor.com/images/social-default.svg"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/images/social-default.svg",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/images/social-default.svg",
+          "width": 1200,
+          "height": 630,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "route": "/category/corporate/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/category/corporate/",
+      "sources": [
+        {
+          "type": "sample-matrix",
+          "group": "category_pages",
+          "family": "category",
+          "title": "Corporate",
+          "contentPath": "src/content/categories/corporate/_index.md",
+          "selectionReason": "Alphabetical category sample rank 5."
+        }
+      ],
+      "builtArtifactPath": "public/category/corporate/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [],
+      "meta": {
+        "title": "Corporate | Rhino Inquisitor",
+        "metaDescription": "Explore Rhino Inquisitor's Corporate archive for Salesforce Commerce Cloud articles, release notes, and migration-safe reference material.",
+        "expectedOgType": "website",
+        "ogTitle": "Corporate | Rhino Inquisitor",
+        "ogDescription": "Explore Rhino Inquisitor's Corporate archive for Salesforce Commerce Cloud articles, release notes, and migration-safe reference material.",
+        "ogUrl": "https://www.rhino-inquisitor.com/category/corporate/",
+        "ogType": "website",
+        "ogImage": "https://www.rhino-inquisitor.com/images/social-default.svg",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Corporate | Rhino Inquisitor",
+        "twitterDescription": "Explore Rhino Inquisitor's Corporate archive for Salesforce Commerce Cloud articles, release notes, and migration-safe reference material.",
+        "twitterImage": "https://www.rhino-inquisitor.com/images/social-default.svg"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/images/social-default.svg",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/images/social-default.svg",
+          "width": 1200,
+          "height": 630,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "route": "/category/release-notes/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/category/release-notes/",
+      "sources": [
+        {
+          "type": "priority-routes",
+          "family": "category",
+          "priority": "critical",
+          "urlClass": "category",
+          "sourceRoute": "/category/salesforce-commerce-cloud/release-notes/",
+          "expectedOutcome": "redirect",
+          "selectionReason": "backlink rank 15 from migration/phase-1-seo-baseline.md."
+        }
+      ],
+      "builtArtifactPath": "public/category/release-notes/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [],
+      "meta": {
+        "title": "Release Notes | Rhino Inquisitor",
+        "metaDescription": "Explore Rhino Inquisitor's Release Notes archive for Salesforce Commerce Cloud articles, release notes, and migration-safe reference material.",
+        "expectedOgType": "website",
+        "ogTitle": "Release Notes | Rhino Inquisitor",
+        "ogDescription": "Explore Rhino Inquisitor's Release Notes archive for Salesforce Commerce Cloud articles, release notes, and migration-safe reference material.",
+        "ogUrl": "https://www.rhino-inquisitor.com/category/release-notes/",
+        "ogType": "website",
+        "ogImage": "https://www.rhino-inquisitor.com/images/social-default.svg",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Release Notes | Rhino Inquisitor",
+        "twitterDescription": "Explore Rhino Inquisitor's Release Notes archive for Salesforce Commerce Cloud articles, release notes, and migration-safe reference material.",
+        "twitterImage": "https://www.rhino-inquisitor.com/images/social-default.svg"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/images/social-default.svg",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/images/social-default.svg",
+          "width": 1200,
+          "height": 630,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "route": "/community-repositories/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/community-repositories/",
+      "sources": [
+        {
+          "type": "priority-routes",
+          "family": "page",
+          "priority": "critical",
+          "urlClass": "page",
+          "sourceRoute": "/community-repositories/",
+          "expectedOutcome": "keep",
+          "selectionReason": "backlink rank 16 from migration/phase-1-seo-baseline.md."
+        }
+      ],
+      "builtArtifactPath": "public/community-repositories/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [],
+      "meta": {
+        "title": "Community Repositories | Rhino Inquisitor",
+        "metaDescription": "Besides the official repositories, many community contributions to Salesforce B2C Commerce Cloud exist! Here is the list!",
+        "expectedOgType": "website",
+        "ogTitle": "Community Repositories | Rhino Inquisitor",
+        "ogDescription": "Besides the official repositories, many community contributions to Salesforce B2C Commerce Cloud exist! Here is the list!",
+        "ogUrl": "https://www.rhino-inquisitor.com/community-repositories/",
+        "ogType": "website",
+        "ogImage": "https://www.rhino-inquisitor.com/images/social-default.svg",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Community Repositories | Rhino Inquisitor",
+        "twitterDescription": "Besides the official repositories, many community contributions to Salesforce B2C Commerce Cloud exist! Here is the list!",
+        "twitterImage": "https://www.rhino-inquisitor.com/images/social-default.svg"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/images/social-default.svg",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/images/social-default.svg",
+          "width": 1200,
+          "height": 630,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "route": "/connecting-the-clouds-wedding-or-funeral/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/connecting-the-clouds-wedding-or-funeral/",
+      "sources": [
+        {
+          "type": "sample-matrix",
+          "group": "video_pages",
+          "family": "video",
+          "title": "Connecting the Clouds: Wedding or funeral",
+          "contentPath": "src/content/pages/connecting-the-clouds-wedding-or-funeral/index.md",
+          "selectionReason": "Video-capable page with front matter video.id present."
+        }
+      ],
+      "builtArtifactPath": "public/connecting-the-clouds-wedding-or-funeral/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [],
+      "meta": {
+        "title": "Connecting the Clouds: Wedding or funeral | Rhino Inquisitor",
+        "metaDescription": "Connecting different clouds, in this case: B2C Commerce Cloud, CRM, and Marketing Cloud, to work together in harmony can be a challenge.",
+        "expectedOgType": "website",
+        "ogTitle": "Connecting the Clouds: Wedding or funeral | Rhino Inquisitor",
+        "ogDescription": "Connecting different clouds, in this case: B2C Commerce Cloud, CRM, and Marketing Cloud, to work together in harmony can be a challenge.",
+        "ogUrl": "https://www.rhino-inquisitor.com/connecting-the-clouds-wedding-or-funeral/",
+        "ogType": "website",
+        "ogImage": "https://www.rhino-inquisitor.com/connecting-the-clouds-wedding-or-funeral/image-2-d99b4ba03b_hu_414112bc82f2c42d.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Connecting the Clouds: Wedding or funeral | Rhino Inquisitor",
+        "twitterDescription": "Connecting different clouds, in this case: B2C Commerce Cloud, CRM, and Marketing Cloud, to work together in harmony can be a challenge.",
+        "twitterImage": "https://www.rhino-inquisitor.com/connecting-the-clouds-wedding-or-funeral/image-2-d99b4ba03b_hu_414112bc82f2c42d.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/connecting-the-clouds-wedding-or-funeral/image-2-d99b4ba03b_hu_414112bc82f2c42d.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/connecting-the-clouds-wedding-or-funeral/image-2-d99b4ba03b_hu_414112bc82f2c42d.webp",
+          "width": 1280,
+          "height": 720,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "route": "/cookie-policy-eu/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/cookie-policy-eu/",
+      "sources": [
+        {
+          "type": "sample-matrix",
+          "group": "privacy_legal_pages",
+          "family": "legal",
+          "title": "Cookie Policy (EU)",
+          "contentPath": "src/content/pages/cookie-policy-eu/index.md",
+          "selectionReason": "Legal/privacy route matched the deterministic keyword allowlist."
+        }
+      ],
+      "builtArtifactPath": "public/cookie-policy-eu/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [],
+      "meta": {
+        "title": "Cookie Policy (EU) | Rhino Inquisitor",
+        "metaDescription": "Legacy Complianz document shortcode removed during migration. Recreate the required consent or cookie statement in Hugo before publishing.",
+        "expectedOgType": "website",
+        "ogTitle": "Cookie Policy (EU) | Rhino Inquisitor",
+        "ogDescription": "Legacy Complianz document shortcode removed during migration. Recreate the required consent or cookie statement in Hugo before publishing.",
+        "ogUrl": "https://www.rhino-inquisitor.com/cookie-policy-eu/",
+        "ogType": "website",
+        "ogImage": "https://www.rhino-inquisitor.com/images/social-default.svg",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Cookie Policy (EU) | Rhino Inquisitor",
+        "twitterDescription": "Legacy Complianz document shortcode removed during migration. Recreate the required consent or cookie statement in Hugo before publishing.",
+        "twitterImage": "https://www.rhino-inquisitor.com/images/social-default.svg"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/images/social-default.svg",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/images/social-default.svg",
+          "width": 1200,
+          "height": 630,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "route": "/creating-custom-ocapi-endpoints/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/creating-custom-ocapi-endpoints/",
+      "sources": [
+        {
+          "type": "priority-routes",
+          "family": "article",
+          "priority": "high",
+          "urlClass": "post",
+          "sourceRoute": "/creating-custom-ocapi-endpoints/",
+          "expectedOutcome": "keep",
+          "selectionReason": "organic rank 8 from migration/phase-1-seo-baseline.md."
+        }
+      ],
+      "builtArtifactPath": "public/creating-custom-ocapi-endpoints/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [
+        "Social image dimensions 1200x570 are below the recommended 1200x630 minimum."
+      ],
+      "meta": {
+        "title": "Creating custom OCAPI endpoints | Rhino Inquisitor",
+        "metaDescription": "Officially there is no possibility to define custom OCAPI endpoints. But is there a clever way to create them anyway? Find out here!",
+        "expectedOgType": "article",
+        "ogTitle": "Creating custom OCAPI endpoints | Rhino Inquisitor",
+        "ogDescription": "Officially there is no possibility to define custom OCAPI endpoints. But is there a clever way to create them anyway? Find out here!",
+        "ogUrl": "https://www.rhino-inquisitor.com/creating-custom-ocapi-endpoints/",
+        "ogType": "article",
+        "ogImage": "https://www.rhino-inquisitor.com/creating-custom-ocapi-endpoints/ocapi-bb5766fd49_hu_b1f859d5b35f960f.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Creating custom OCAPI endpoints | Rhino Inquisitor",
+        "twitterDescription": "Officially there is no possibility to define custom OCAPI endpoints. But is there a clever way to create them anyway? Find out here!",
+        "twitterImage": "https://www.rhino-inquisitor.com/creating-custom-ocapi-endpoints/ocapi-bb5766fd49_hu_b1f859d5b35f960f.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/creating-custom-ocapi-endpoints/ocapi-bb5766fd49_hu_b1f859d5b35f960f.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/creating-custom-ocapi-endpoints/ocapi-bb5766fd49_hu_b1f859d5b35f960f.webp",
+          "width": 1200,
+          "height": 570,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": [
+            "Social image dimensions 1200x570 are below the recommended 1200x630 minimum."
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/custom-preferences-in-sfcc/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/custom-preferences-in-sfcc/",
+      "sources": [
+        {
+          "type": "priority-routes",
+          "family": "article",
+          "priority": "critical",
+          "urlClass": "post",
+          "sourceRoute": "/custom-preferences-in-sfcc/",
+          "expectedOutcome": "keep",
+          "selectionReason": "backlink rank 17 from migration/phase-1-seo-baseline.md."
+        }
+      ],
+      "builtArtifactPath": "public/custom-preferences-in-sfcc/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [],
+      "meta": {
+        "title": "Using Custom Preferences in SFCC | Rhino Inquisitor",
+        "metaDescription": "Learn how SFCC custom preferences support configurable storefront behavior, governance, and safer environment-specific settings.",
+        "expectedOgType": "article",
+        "ogTitle": "Using Custom Preferences in SFCC | Rhino Inquisitor",
+        "ogDescription": "Learn how SFCC custom preferences support configurable storefront behavior, governance, and safer environment-specific settings.",
+        "ogUrl": "https://www.rhino-inquisitor.com/custom-preferences-in-sfcc/",
+        "ogType": "article",
+        "ogImage": "https://www.rhino-inquisitor.com/custom-preferences-in-sfcc/it-configuring-server-scaled-d8087e9ab9_hu_106b8ef3583f86ba.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Using Custom Preferences in SFCC | Rhino Inquisitor",
+        "twitterDescription": "Learn how SFCC custom preferences support configurable storefront behavior, governance, and safer environment-specific settings.",
+        "twitterImage": "https://www.rhino-inquisitor.com/custom-preferences-in-sfcc/it-configuring-server-scaled-d8087e9ab9_hu_106b8ef3583f86ba.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/custom-preferences-in-sfcc/it-configuring-server-scaled-d8087e9ab9_hu_106b8ef3583f86ba.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/custom-preferences-in-sfcc/it-configuring-server-scaled-d8087e9ab9_hu_106b8ef3583f86ba.webp",
+          "width": 2000,
+          "height": 1494,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "route": "/custom-ttf-fonts-in-pdf-for-sfcc/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/custom-ttf-fonts-in-pdf-for-sfcc/",
+      "sources": [
+        {
+          "type": "priority-routes",
+          "family": "article",
+          "priority": "high",
+          "urlClass": "post",
+          "sourceRoute": "/custom-ttf-fonts-in-pdf-for-sfcc/",
+          "expectedOutcome": "keep",
+          "selectionReason": "organic rank 13 from migration/phase-1-seo-baseline.md."
+        }
+      ],
+      "builtArtifactPath": "public/custom-ttf-fonts-in-pdf-for-sfcc/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [
+        "Social image dimensions 1024x576 are below the recommended 1200x630 minimum."
+      ],
+      "meta": {
+        "title": "Custom TTF fonts in PDF for Salesforce B2C Commerce Cloud | Rhino Inquisitor",
+        "metaDescription": "Learn how to use custom TTF fonts in Salesforce B2C Commerce Cloud PDF generation so branded documents render correctly in production.",
+        "expectedOgType": "article",
+        "ogTitle": "Custom TTF fonts in PDF for Salesforce B2C Commerce Cloud | Rhino Inquisitor",
+        "ogDescription": "Learn how to use custom TTF fonts in Salesforce B2C Commerce Cloud PDF generation so branded documents render correctly in production.",
+        "ogUrl": "https://www.rhino-inquisitor.com/custom-ttf-fonts-in-pdf-for-sfcc/",
+        "ogType": "article",
+        "ogImage": "https://www.rhino-inquisitor.com/custom-ttf-fonts-in-pdf-for-sfcc/fonts-c94beaf8e0_hu_1163602d86cd144b.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Custom TTF fonts in PDF for Salesforce B2C Commerce Cloud | Rhino Inquisitor",
+        "twitterDescription": "Learn how to use custom TTF fonts in Salesforce B2C Commerce Cloud PDF generation so branded documents render correctly in production.",
+        "twitterImage": "https://www.rhino-inquisitor.com/custom-ttf-fonts-in-pdf-for-sfcc/fonts-c94beaf8e0_hu_1163602d86cd144b.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/custom-ttf-fonts-in-pdf-for-sfcc/fonts-c94beaf8e0_hu_1163602d86cd144b.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/custom-ttf-fonts-in-pdf-for-sfcc/fonts-c94beaf8e0_hu_1163602d86cd144b.webp",
+          "width": 1024,
+          "height": 576,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": [
+            "Social image dimensions 1024x576 are below the recommended 1200x630 minimum."
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/feed/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/feed/",
+      "sources": [
+        {
+          "type": "priority-routes",
+          "family": "system",
+          "priority": "high",
+          "urlClass": "system",
+          "sourceRoute": "/feed/",
+          "expectedOutcome": "keep",
+          "selectionReason": "Coverage supplement added to guarantee url_class system."
+        }
+      ],
+      "builtArtifactPath": "public/feed/index.html",
+      "result": "skipped",
+      "blockingFindings": [],
+      "warnings": [
+        "System-only priority route is excluded from social-preview page metadata validation."
+      ],
+      "meta": null,
+      "images": []
+    },
+    {
+      "route": "/field-guide-to-custom-caches-in-sfcc/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/field-guide-to-custom-caches-in-sfcc/",
+      "sources": [
+        {
+          "type": "sample-matrix",
+          "group": "recent_posts",
+          "family": "article",
+          "title": "Field Guide to Custom Caches: Wielding a Double-Edged Sword",
+          "contentPath": "src/content/posts/field-guide-to-custom-caches-in-sfcc/index.md",
+          "selectionReason": "Recent post rank 8 by front matter date descending."
+        }
+      ],
+      "builtArtifactPath": "public/field-guide-to-custom-caches-in-sfcc/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [],
+      "meta": {
+        "title": "Field Guide to Custom Caches: Wielding a Double-Edged Sword | Rhino Inquisitor",
+        "metaDescription": "Learn when Custom Caches help in SFCC, where they create risk, and how to use them safely without hurting performance or maintainability.",
+        "expectedOgType": "article",
+        "ogTitle": "Field Guide to Custom Caches: Wielding a Double-Edged Sword | Rhino Inquisitor",
+        "ogDescription": "Learn when Custom Caches help in SFCC, where they create risk, and how to use them safely without hurting performance or maintainability.",
+        "ogUrl": "https://www.rhino-inquisitor.com/field-guide-to-custom-caches-in-sfcc/",
+        "ogType": "article",
+        "ogImage": "https://www.rhino-inquisitor.com/field-guide-to-custom-caches-in-sfcc/custom-caches-in-sfcc-scaled-c245e83c7a_hu_5edfebe0ecd27964.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Field Guide to Custom Caches: Wielding a Double-Edged Sword | Rhino Inquisitor",
+        "twitterDescription": "Learn when Custom Caches help in SFCC, where they create risk, and how to use them safely without hurting performance or maintainability.",
+        "twitterImage": "https://www.rhino-inquisitor.com/field-guide-to-custom-caches-in-sfcc/custom-caches-in-sfcc-scaled-c245e83c7a_hu_5edfebe0ecd27964.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/field-guide-to-custom-caches-in-sfcc/custom-caches-in-sfcc-scaled-c245e83c7a_hu_5edfebe0ecd27964.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/field-guide-to-custom-caches-in-sfcc/custom-caches-in-sfcc-scaled-c245e83c7a_hu_5edfebe0ecd27964.webp",
+          "width": 2000,
+          "height": 1091,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "route": "/getting-to-know-sfra-as-a-developer/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/getting-to-know-sfra-as-a-developer/",
+      "sources": [
+        {
+          "type": "priority-routes",
+          "family": "article",
+          "priority": "critical",
+          "urlClass": "post",
+          "sourceRoute": "/getting-to-know-sfra-as-a-developer/",
+          "expectedOutcome": "keep",
+          "selectionReason": "backlink rank 18 from migration/phase-1-seo-baseline.md."
+        }
+      ],
+      "builtArtifactPath": "public/getting-to-know-sfra-as-a-developer/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [],
+      "meta": {
+        "title": "Getting to know SFRA as a developer | Rhino Inquisitor",
+        "metaDescription": "SFRA in Salesforce B2C Commerce can be quite daunting. This blog post will guide you through all of the content of Commerce Cloud SFRA!",
+        "expectedOgType": "article",
+        "ogTitle": "Getting to know SFRA as a developer | Rhino Inquisitor",
+        "ogDescription": "SFRA in Salesforce B2C Commerce can be quite daunting. This blog post will guide you through all of the content of Commerce Cloud SFRA!",
+        "ogUrl": "https://www.rhino-inquisitor.com/getting-to-know-sfra-as-a-developer/",
+        "ogType": "article",
+        "ogImage": "https://www.rhino-inquisitor.com/getting-to-know-sfra-as-a-developer/sfra-670d466bd1_hu_b6ddc62f4678e354.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Getting to know SFRA as a developer | Rhino Inquisitor",
+        "twitterDescription": "SFRA in Salesforce B2C Commerce can be quite daunting. This blog post will guide you through all of the content of Commerce Cloud SFRA!",
+        "twitterImage": "https://www.rhino-inquisitor.com/getting-to-know-sfra-as-a-developer/sfra-670d466bd1_hu_b6ddc62f4678e354.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/getting-to-know-sfra-as-a-developer/sfra-670d466bd1_hu_b6ddc62f4678e354.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/getting-to-know-sfra-as-a-developer/sfra-670d466bd1_hu_b6ddc62f4678e354.webp",
+          "width": 1408,
+          "height": 1373,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "route": "/headless/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/headless/",
+      "sources": [
+        {
+          "type": "sample-matrix",
+          "group": "video_pages",
+          "family": "video",
+          "title": "Headless",
+          "contentPath": "src/content/pages/headless/index.md",
+          "selectionReason": "Video-capable page with front matter video.id present."
+        }
+      ],
+      "builtArtifactPath": "public/headless/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [],
+      "meta": {
+        "title": "Headless | Rhino Inquisitor",
+        "metaDescription": "If your organization is looking for a way to improve its online presence and connect with more customers, Headless may be a good fit.",
+        "expectedOgType": "website",
+        "ogTitle": "Headless | Rhino Inquisitor",
+        "ogDescription": "If your organization is looking for a way to improve its online presence and connect with more customers, Headless may be a good fit.",
+        "ogUrl": "https://www.rhino-inquisitor.com/headless/",
+        "ogType": "website",
+        "ogImage": "https://www.rhino-inquisitor.com/headless/headless-b54918a1ae_hu_5566e544fd276d2a.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Headless | Rhino Inquisitor",
+        "twitterDescription": "If your organization is looking for a way to improve its online presence and connect with more customers, Headless may be a good fit.",
+        "twitterImage": "https://www.rhino-inquisitor.com/headless/headless-b54918a1ae_hu_5566e544fd276d2a.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/headless/headless-b54918a1ae_hu_5566e544fd276d2a.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/headless/headless-b54918a1ae_hu_5566e544fd276d2a.webp",
+          "width": 1280,
+          "height": 720,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "route": "/how-to-filter-jsdoc-in-storybook-autodocs/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/how-to-filter-jsdoc-in-storybook-autodocs/",
+      "sources": [
+        {
+          "type": "priority-routes",
+          "family": "article",
+          "priority": "critical",
+          "urlClass": "post",
+          "sourceRoute": "/how-to-filter-jsdoc-in-storybook-autodocs/",
+          "expectedOutcome": "keep",
+          "selectionReason": "backlink rank 19 from migration/phase-1-seo-baseline.md."
+        }
+      ],
+      "builtArtifactPath": "public/how-to-filter-jsdoc-in-storybook-autodocs/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [],
+      "meta": {
+        "title": "How to filter JSDoc in Storybook Autodocs | Rhino Inquisitor",
+        "metaDescription": "Over the past few months, I have grown to love Storybook as it gives me all the tools necessary to expose my components for testing and documentation.",
+        "expectedOgType": "article",
+        "ogTitle": "How to filter JSDoc in Storybook Autodocs | Rhino Inquisitor",
+        "ogDescription": "Over the past few months, I have grown to love Storybook as it gives me all the tools necessary to expose my components for testing and documentation.",
+        "ogUrl": "https://www.rhino-inquisitor.com/how-to-filter-jsdoc-in-storybook-autodocs/",
+        "ogType": "article",
+        "ogImage": "https://www.rhino-inquisitor.com/how-to-filter-jsdoc-in-storybook-autodocs/frustrated-developer-illustration-a7d8092bbb_hu_c0f94f32a62c861c.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "How to filter JSDoc in Storybook Autodocs | Rhino Inquisitor",
+        "twitterDescription": "Over the past few months, I have grown to love Storybook as it gives me all the tools necessary to expose my components for testing and documentation.",
+        "twitterImage": "https://www.rhino-inquisitor.com/how-to-filter-jsdoc-in-storybook-autodocs/frustrated-developer-illustration-a7d8092bbb_hu_c0f94f32a62c861c.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/how-to-filter-jsdoc-in-storybook-autodocs/frustrated-developer-illustration-a7d8092bbb_hu_c0f94f32a62c861c.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/how-to-filter-jsdoc-in-storybook-autodocs/frustrated-developer-illustration-a7d8092bbb_hu_c0f94f32a62c861c.webp",
+          "width": 1536,
+          "height": 768,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "route": "/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/",
+      "sources": [
+        {
+          "type": "priority-routes",
+          "family": "article",
+          "priority": "critical",
+          "urlClass": "post",
+          "sourceRoute": "/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/",
+          "expectedOutcome": "keep",
+          "selectionReason": "organic rank 10 from migration/phase-1-seo-baseline.md. Also present in backlink rank 3."
+        }
+      ],
+      "builtArtifactPath": "public/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [
+        "Social image dimensions 850x480 are below the recommended 1200x630 minimum."
+      ],
+      "meta": {
+        "title": "How to get a Salesforce B2C Commerce Cloud Sandbox | Rhino Inquisitor",
+        "metaDescription": "Getting access to a sandbox in Salesforce B2C Commerce Cloud is not as easy as it is for the core platform. Find out here how to get it done!",
+        "expectedOgType": "article",
+        "ogTitle": "How to get a Salesforce B2C Commerce Cloud Sandbox | Rhino Inquisitor",
+        "ogDescription": "Getting access to a sandbox in Salesforce B2C Commerce Cloud is not as easy as it is for the core platform. Find out here how to get it done!",
+        "ogUrl": "https://www.rhino-inquisitor.com/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/",
+        "ogType": "article",
+        "ogImage": "https://www.rhino-inquisitor.com/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/sandbox-84618f4042_hu_a6bc2d5005cb0482.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "How to get a Salesforce B2C Commerce Cloud Sandbox | Rhino Inquisitor",
+        "twitterDescription": "Getting access to a sandbox in Salesforce B2C Commerce Cloud is not as easy as it is for the core platform. Find out here how to get it done!",
+        "twitterImage": "https://www.rhino-inquisitor.com/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/sandbox-84618f4042_hu_a6bc2d5005cb0482.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/sandbox-84618f4042_hu_a6bc2d5005cb0482.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/sandbox-84618f4042_hu_a6bc2d5005cb0482.webp",
+          "width": 850,
+          "height": 480,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": [
+            "Social image dimensions 850x480 are below the recommended 1200x630 minimum."
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/how-to-get-salesforce-certification-vouchers/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/how-to-get-salesforce-certification-vouchers/",
+      "sources": [
+        {
+          "type": "priority-routes",
+          "family": "article",
+          "priority": "critical",
+          "urlClass": "post",
+          "sourceRoute": "/how-to-get-salesforce-certification-vouchers/",
+          "expectedOutcome": "keep",
+          "selectionReason": "backlink rank 7 from migration/phase-1-seo-baseline.md."
+        }
+      ],
+      "builtArtifactPath": "public/how-to-get-salesforce-certification-vouchers/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [
+        "Social image dimensions 1200x514 are below the recommended 1200x630 minimum."
+      ],
+      "meta": {
+        "title": "How to get Salesforce certification vouchers | Rhino Inquisitor",
+        "metaDescription": "Getting certified with Salesforce is one of the people's many goals within the ecosystem. But they come at a price! Where can I score a deal?",
+        "expectedOgType": "article",
+        "ogTitle": "How to get Salesforce certification vouchers | Rhino Inquisitor",
+        "ogDescription": "Getting certified with Salesforce is one of the people's many goals within the ecosystem. But they come at a price! Where can I score a deal?",
+        "ogUrl": "https://www.rhino-inquisitor.com/how-to-get-salesforce-certification-vouchers/",
+        "ogType": "article",
+        "ogImage": "https://www.rhino-inquisitor.com/how-to-get-salesforce-certification-vouchers/trailhead-academy-765c17a690_hu_6e56c90470642944.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "How to get Salesforce certification vouchers | Rhino Inquisitor",
+        "twitterDescription": "Getting certified with Salesforce is one of the people's many goals within the ecosystem. But they come at a price! Where can I score a deal?",
+        "twitterImage": "https://www.rhino-inquisitor.com/how-to-get-salesforce-certification-vouchers/trailhead-academy-765c17a690_hu_6e56c90470642944.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/how-to-get-salesforce-certification-vouchers/trailhead-academy-765c17a690_hu_6e56c90470642944.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/how-to-get-salesforce-certification-vouchers/trailhead-academy-765c17a690_hu_6e56c90470642944.webp",
+          "width": 1200,
+          "height": 514,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": [
+            "Social image dimensions 1200x514 are below the recommended 1200x630 minimum."
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/how-to-load-client-side-javascript-and-css-in-sfra/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/how-to-load-client-side-javascript-and-css-in-sfra/",
+      "sources": [
+        {
+          "type": "priority-routes",
+          "family": "article",
+          "priority": "high",
+          "urlClass": "post",
+          "sourceRoute": "/how-to-load-client-side-javascript-and-css-in-sfra/",
+          "expectedOutcome": "keep",
+          "selectionReason": "organic rank 20 from migration/phase-1-seo-baseline.md."
+        }
+      ],
+      "builtArtifactPath": "public/how-to-load-client-side-javascript-and-css-in-sfra/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [
+        "Social image dimensions 494x160 are below the recommended 1200x630 minimum."
+      ],
+      "meta": {
+        "title": "How to load client-side JavaScript and CSS in SFRA | Rhino Inquisitor",
+        "metaDescription": "Client-side JavaScript is quite necessary these days to create functionalities and have a good user experience. But how do you load it in SFRA?",
+        "expectedOgType": "article",
+        "ogTitle": "How to load client-side JavaScript and CSS in SFRA | Rhino Inquisitor",
+        "ogDescription": "Client-side JavaScript is quite necessary these days to create functionalities and have a good user experience. But how do you load it in SFRA?",
+        "ogUrl": "https://www.rhino-inquisitor.com/how-to-load-client-side-javascript-and-css-in-sfra/",
+        "ogType": "article",
+        "ogImage": "https://www.rhino-inquisitor.com/how-to-load-client-side-javascript-and-css-in-sfra/client-side-js-e2475a2ea2_hu_c59e62f137b52180.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "How to load client-side JavaScript and CSS in SFRA | Rhino Inquisitor",
+        "twitterDescription": "Client-side JavaScript is quite necessary these days to create functionalities and have a good user experience. But how do you load it in SFRA?",
+        "twitterImage": "https://www.rhino-inquisitor.com/how-to-load-client-side-javascript-and-css-in-sfra/client-side-js-e2475a2ea2_hu_c59e62f137b52180.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/how-to-load-client-side-javascript-and-css-in-sfra/client-side-js-e2475a2ea2_hu_c59e62f137b52180.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/how-to-load-client-side-javascript-and-css-in-sfra/client-side-js-e2475a2ea2_hu_c59e62f137b52180.webp",
+          "width": 494,
+          "height": 160,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": [
+            "Social image dimensions 494x160 are below the recommended 1200x630 minimum."
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/how-to-set-up-slas-for-the-composable-storefront/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/how-to-set-up-slas-for-the-composable-storefront/",
+      "sources": [
+        {
+          "type": "priority-routes",
+          "family": "article",
+          "priority": "critical",
+          "urlClass": "post",
+          "sourceRoute": "/how-to-set-up-slas-for-the-composable-storefront/",
+          "expectedOutcome": "keep",
+          "selectionReason": "organic rank 12 from migration/phase-1-seo-baseline.md. Also present in backlink rank 20."
+        }
+      ],
+      "builtArtifactPath": "public/how-to-set-up-slas-for-the-composable-storefront/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [],
+      "meta": {
+        "title": "How to set up SLAS for the Composable Storefront | Rhino Inquisitor",
+        "metaDescription": "Setting up SLAS for the first time can be quite a headache. Or maybe not? Is there an easy way to set up SLAS for the PWA Kit?",
+        "expectedOgType": "article",
+        "ogTitle": "How to set up SLAS for the Composable Storefront | Rhino Inquisitor",
+        "ogDescription": "Setting up SLAS for the first time can be quite a headache. Or maybe not? Is there an easy way to set up SLAS for the PWA Kit?",
+        "ogUrl": "https://www.rhino-inquisitor.com/how-to-set-up-slas-for-the-composable-storefront/",
+        "ogType": "article",
+        "ogImage": "https://www.rhino-inquisitor.com/how-to-set-up-slas-for-the-composable-storefront/slas-public-client-registered-user-b2c-a930192dd5_hu_e59944e262a499e8.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "How to set up SLAS for the Composable Storefront | Rhino Inquisitor",
+        "twitterDescription": "Setting up SLAS for the first time can be quite a headache. Or maybe not? Is there an easy way to set up SLAS for the PWA Kit?",
+        "twitterImage": "https://www.rhino-inquisitor.com/how-to-set-up-slas-for-the-composable-storefront/slas-public-client-registered-user-b2c-a930192dd5_hu_e59944e262a499e8.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/how-to-set-up-slas-for-the-composable-storefront/slas-public-client-registered-user-b2c-a930192dd5_hu_e59944e262a499e8.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/how-to-set-up-slas-for-the-composable-storefront/slas-public-client-registered-user-b2c-a930192dd5_hu_e59944e262a499e8.webp",
+          "width": 1279,
+          "height": 719,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "route": "/how-to-set-up-the-ecdn-in-sfcc-staging/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/how-to-set-up-the-ecdn-in-sfcc-staging/",
+      "sources": [
+        {
+          "type": "priority-routes",
+          "family": "article",
+          "priority": "critical",
+          "urlClass": "post",
+          "sourceRoute": "/how-to-set-up-the-ecdn-in-sfcc-staging/",
+          "expectedOutcome": "keep",
+          "selectionReason": "backlink rank 2 from migration/phase-1-seo-baseline.md."
+        }
+      ],
+      "builtArtifactPath": "public/how-to-set-up-the-ecdn-in-sfcc-staging/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [
+        "Social image dimensions 750x375 are below the recommended 1200x630 minimum."
+      ],
+      "meta": {
+        "title": "How to set up the eCDN for Staging in Salesforce B2C Commerce Cloud | Rhino Inquisitor",
+        "metaDescription": "New APIs have been made available to manage certificates on the staging eCDN ourselves. But how does it work? What do I need to keep in mind?",
+        "expectedOgType": "article",
+        "ogTitle": "How to set up the eCDN for Staging in Salesforce B2C Commerce Cloud | Rhino Inquisitor",
+        "ogDescription": "New APIs have been made available to manage certificates on the staging eCDN ourselves. But how does it work? What do I need to keep in mind?",
+        "ogUrl": "https://www.rhino-inquisitor.com/how-to-set-up-the-ecdn-in-sfcc-staging/",
+        "ogType": "article",
+        "ogImage": "https://www.rhino-inquisitor.com/how-to-set-up-the-ecdn-in-sfcc-staging/ssl-certificate-tw-8422f4751c_hu_62330dc760bd3c4e.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "How to set up the eCDN for Staging in Salesforce B2C Commerce Cloud | Rhino Inquisitor",
+        "twitterDescription": "New APIs have been made available to manage certificates on the staging eCDN ourselves. But how does it work? What do I need to keep in mind?",
+        "twitterImage": "https://www.rhino-inquisitor.com/how-to-set-up-the-ecdn-in-sfcc-staging/ssl-certificate-tw-8422f4751c_hu_62330dc760bd3c4e.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/how-to-set-up-the-ecdn-in-sfcc-staging/ssl-certificate-tw-8422f4751c_hu_62330dc760bd3c4e.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/how-to-set-up-the-ecdn-in-sfcc-staging/ssl-certificate-tw-8422f4751c_hu_62330dc760bd3c4e.webp",
+          "width": 750,
+          "height": 375,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": [
+            "Social image dimensions 750x375 are below the recommended 1200x630 minimum."
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/how-to-use-ocapi-scapi-hooks/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/how-to-use-ocapi-scapi-hooks/",
+      "sources": [
+        {
+          "type": "priority-routes",
+          "family": "article",
+          "priority": "critical",
+          "urlClass": "post",
+          "sourceRoute": "/how-to-use-ocapi-scapi-hooks/",
+          "expectedOutcome": "keep",
+          "selectionReason": "organic rank 2 from migration/phase-1-seo-baseline.md. Also present in backlink rank 8."
+        }
+      ],
+      "builtArtifactPath": "public/how-to-use-ocapi-scapi-hooks/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [
+        "Social image dimensions 300x169 are below the recommended 1200x630 minimum."
+      ],
+      "meta": {
+        "title": "Using OCAPI and SCAPI Hooks in SFCC | Rhino Inquisitor",
+        "metaDescription": "Hooks are becoming more and more prominent because of the PWA Kit and the API first methodology. But how do you implement them?",
+        "expectedOgType": "article",
+        "ogTitle": "Using OCAPI and SCAPI Hooks in SFCC | Rhino Inquisitor",
+        "ogDescription": "Hooks are becoming more and more prominent because of the PWA Kit and the API first methodology. But how do you implement them?",
+        "ogUrl": "https://www.rhino-inquisitor.com/how-to-use-ocapi-scapi-hooks/",
+        "ogType": "article",
+        "ogImage": "https://www.rhino-inquisitor.com/how-to-use-ocapi-scapi-hooks/26df11a8-62ec-44cd-bf3b-6ff9ab46bee8-5598d60cbd_hu_cc9605b80220d245.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Using OCAPI and SCAPI Hooks in SFCC | Rhino Inquisitor",
+        "twitterDescription": "Hooks are becoming more and more prominent because of the PWA Kit and the API first methodology. But how do you implement them?",
+        "twitterImage": "https://www.rhino-inquisitor.com/how-to-use-ocapi-scapi-hooks/26df11a8-62ec-44cd-bf3b-6ff9ab46bee8-5598d60cbd_hu_cc9605b80220d245.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/how-to-use-ocapi-scapi-hooks/26df11a8-62ec-44cd-bf3b-6ff9ab46bee8-5598d60cbd_hu_cc9605b80220d245.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/how-to-use-ocapi-scapi-hooks/26df11a8-62ec-44cd-bf3b-6ff9ab46bee8-5598d60cbd_hu_cc9605b80220d245.webp",
+          "width": 300,
+          "height": 169,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": [
+            "Social image dimensions 300x169 are below the recommended 1200x630 minimum."
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/in-the-ring-ocapi-versus-scapi/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/in-the-ring-ocapi-versus-scapi/",
+      "sources": [
+        {
+          "type": "priority-routes",
+          "family": "article",
+          "priority": "high",
+          "urlClass": "post",
+          "sourceRoute": "/in-the-ring-ocapi-versus-scapi/",
+          "expectedOutcome": "keep",
+          "selectionReason": "organic rank 3 from migration/phase-1-seo-baseline.md."
+        }
+      ],
+      "builtArtifactPath": "public/in-the-ring-ocapi-versus-scapi/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [
+        "Social image dimensions 1020x600 are below the recommended 1200x630 minimum."
+      ],
+      "meta": {
+        "title": "In the ring: OCAPI versus SCAPI | Rhino Inquisitor",
+        "metaDescription": "As we move into 2024, the SCAPI has received much attention and has been updated with new APIs, updates, and performance improvements.",
+        "expectedOgType": "article",
+        "ogTitle": "In the ring: OCAPI versus SCAPI | Rhino Inquisitor",
+        "ogDescription": "As we move into 2024, the SCAPI has received much attention and has been updated with new APIs, updates, and performance improvements.",
+        "ogUrl": "https://www.rhino-inquisitor.com/in-the-ring-ocapi-versus-scapi/",
+        "ogType": "article",
+        "ogImage": "https://www.rhino-inquisitor.com/in-the-ring-ocapi-versus-scapi/rest-apis-fighting-in-a-boxing-ring-60c6242717_hu_23fac86a89fda035.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "In the ring: OCAPI versus SCAPI | Rhino Inquisitor",
+        "twitterDescription": "As we move into 2024, the SCAPI has received much attention and has been updated with new APIs, updates, and performance improvements.",
+        "twitterImage": "https://www.rhino-inquisitor.com/in-the-ring-ocapi-versus-scapi/rest-apis-fighting-in-a-boxing-ring-60c6242717_hu_23fac86a89fda035.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/in-the-ring-ocapi-versus-scapi/rest-apis-fighting-in-a-boxing-ring-60c6242717_hu_23fac86a89fda035.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/in-the-ring-ocapi-versus-scapi/rest-apis-fighting-in-a-boxing-ring-60c6242717_hu_23fac86a89fda035.webp",
+          "width": 1020,
+          "height": 600,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": [
+            "Social image dimensions 1020x600 are below the recommended 1200x630 minimum."
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/kickstart-guide-for-new-sfcc-developers/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/kickstart-guide-for-new-sfcc-developers/",
+      "sources": [
+        {
+          "type": "sample-matrix",
+          "group": "recent_posts",
+          "family": "article",
+          "title": "The Kickstart Guide for New Salesforce B2C Commerce Developers",
+          "contentPath": "src/content/posts/kickstart-guide-for-new-sfcc-developers/index.md",
+          "selectionReason": "Recent post rank 3 by front matter date descending."
+        }
+      ],
+      "builtArtifactPath": "public/kickstart-guide-for-new-sfcc-developers/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [],
+      "meta": {
+        "title": "The Kickstart Guide for New Salesforce B2C Commerce Developers | Rhino Inquisitor",
+        "metaDescription": "An interactive guide for new SFCC developers covering storefront patterns, platform concepts, and practical next steps for hands-on learning.",
+        "expectedOgType": "article",
+        "ogTitle": "The Kickstart Guide for New Salesforce B2C Commerce Developers | Rhino Inquisitor",
+        "ogDescription": "An interactive guide for new SFCC developers covering storefront patterns, platform concepts, and practical next steps for hands-on learning.",
+        "ogUrl": "https://www.rhino-inquisitor.com/kickstart-guide-for-new-sfcc-developers/",
+        "ogType": "article",
+        "ogImage": "https://www.rhino-inquisitor.com/kickstart-guide-for-new-sfcc-developers/the-new-salesforce-developer-scaled-1f8ff6fbac_hu_fa51b5a852f6f4eb.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "The Kickstart Guide for New Salesforce B2C Commerce Developers | Rhino Inquisitor",
+        "twitterDescription": "An interactive guide for new SFCC developers covering storefront patterns, platform concepts, and practical next steps for hands-on learning.",
+        "twitterImage": "https://www.rhino-inquisitor.com/kickstart-guide-for-new-sfcc-developers/the-new-salesforce-developer-scaled-1f8ff6fbac_hu_fa51b5a852f6f4eb.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/kickstart-guide-for-new-sfcc-developers/the-new-salesforce-developer-scaled-1f8ff6fbac_hu_fa51b5a852f6f4eb.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/kickstart-guide-for-new-sfcc-developers/the-new-salesforce-developer-scaled-1f8ff6fbac_hu_fa51b5a852f6f4eb.webp",
+          "width": 2000,
+          "height": 1091,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "route": "/lets-go-live-ecdn/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/lets-go-live-ecdn/",
+      "sources": [
+        {
+          "type": "priority-routes",
+          "family": "article",
+          "priority": "critical",
+          "urlClass": "post",
+          "sourceRoute": "/lets-go-live-ecdn/",
+          "expectedOutcome": "keep",
+          "selectionReason": "backlink rank 5 from migration/phase-1-seo-baseline.md."
+        }
+      ],
+      "builtArtifactPath": "public/lets-go-live-ecdn/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [
+        "Social image dimensions 800x439 are below the recommended 1200x630 minimum."
+      ],
+      "meta": {
+        "title": "Let’s GO-LIVE: eCDN | Rhino Inquisitor",
+        "metaDescription": "Bringing your first site live on SFCC can be challenging. In this series, we will be looking at different parts. Part I: eCDN",
+        "expectedOgType": "article",
+        "ogTitle": "Let’s GO-LIVE: eCDN | Rhino Inquisitor",
+        "ogDescription": "Bringing your first site live on SFCC can be challenging. In this series, we will be looking at different parts. Part I: eCDN",
+        "ogUrl": "https://www.rhino-inquisitor.com/lets-go-live-ecdn/",
+        "ogType": "article",
+        "ogImage": "https://www.rhino-inquisitor.com/lets-go-live-ecdn/ecdn-5035a37164_hu_eb25d941890d3752.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Let’s GO-LIVE: eCDN | Rhino Inquisitor",
+        "twitterDescription": "Bringing your first site live on SFCC can be challenging. In this series, we will be looking at different parts. Part I: eCDN",
+        "twitterImage": "https://www.rhino-inquisitor.com/lets-go-live-ecdn/ecdn-5035a37164_hu_eb25d941890d3752.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/lets-go-live-ecdn/ecdn-5035a37164_hu_eb25d941890d3752.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/lets-go-live-ecdn/ecdn-5035a37164_hu_eb25d941890d3752.webp",
+          "width": 800,
+          "height": 439,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": [
+            "Social image dimensions 800x439 are below the recommended 1200x630 minimum."
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/mail-attachments-in-b2c-commerce-cloud/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/mail-attachments-in-b2c-commerce-cloud/",
+      "sources": [
+        {
+          "type": "priority-routes",
+          "family": "article",
+          "priority": "critical",
+          "urlClass": "post",
+          "sourceRoute": "/mail-attachments-in-b2c-commerce-cloud/",
+          "expectedOutcome": "keep",
+          "selectionReason": "backlink rank 6 from migration/phase-1-seo-baseline.md."
+        }
+      ],
+      "builtArtifactPath": "public/mail-attachments-in-b2c-commerce-cloud/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [],
+      "meta": {
+        "title": "Mail Attachments in B2C Commerce Cloud | Rhino Inquisitor",
+        "metaDescription": "Learn how to send emails with attachments from Salesforce B2C Commerce Cloud using ISML, including setup details and implementation pitfalls.",
+        "expectedOgType": "article",
+        "ogTitle": "Mail Attachments in B2C Commerce Cloud | Rhino Inquisitor",
+        "ogDescription": "Learn how to send emails with attachments from Salesforce B2C Commerce Cloud using ISML, including setup details and implementation pitfalls.",
+        "ogUrl": "https://www.rhino-inquisitor.com/mail-attachments-in-b2c-commerce-cloud/",
+        "ogType": "article",
+        "ogImage": "https://www.rhino-inquisitor.com/mail-attachments-in-b2c-commerce-cloud/mail-a7e287274f_hu_4fb332e4019cc241.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Mail Attachments in B2C Commerce Cloud | Rhino Inquisitor",
+        "twitterDescription": "Learn how to send emails with attachments from Salesforce B2C Commerce Cloud using ISML, including setup details and implementation pitfalls.",
+        "twitterImage": "https://www.rhino-inquisitor.com/mail-attachments-in-b2c-commerce-cloud/mail-a7e287274f_hu_4fb332e4019cc241.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/mail-attachments-in-b2c-commerce-cloud/mail-a7e287274f_hu_4fb332e4019cc241.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/mail-attachments-in-b2c-commerce-cloud/mail-a7e287274f_hu_4fb332e4019cc241.webp",
+          "width": 1500,
+          "height": 692,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "route": "/mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/",
+      "sources": [
+        {
+          "type": "priority-routes",
+          "family": "article",
+          "priority": "critical",
+          "urlClass": "post",
+          "sourceRoute": "/mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/",
+          "expectedOutcome": "keep",
+          "selectionReason": "organic rank 4 from migration/phase-1-seo-baseline.md. Also present in backlink rank 9."
+        }
+      ],
+      "builtArtifactPath": "public/mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [],
+      "meta": {
+        "title": "Mastering Chunk-Oriented Job Steps in SFCC | Rhino Inquisitor",
+        "metaDescription": "Salesforce B2C Commerce Cloud offers a robust, flexible Jobs framework vital for performing scheduled or on-demand tasks for e-commerce operations.",
+        "expectedOgType": "article",
+        "ogTitle": "Mastering Chunk-Oriented Job Steps in SFCC | Rhino Inquisitor",
+        "ogDescription": "Salesforce B2C Commerce Cloud offers a robust, flexible Jobs framework vital for performing scheduled or on-demand tasks for e-commerce operations.",
+        "ogUrl": "https://www.rhino-inquisitor.com/mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/",
+        "ogType": "article",
+        "ogImage": "https://www.rhino-inquisitor.com/mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/boxes-grouped-in-warehouse-0d6eb67465_hu_ee9c2e093a2fdf79.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Mastering Chunk-Oriented Job Steps in SFCC | Rhino Inquisitor",
+        "twitterDescription": "Salesforce B2C Commerce Cloud offers a robust, flexible Jobs framework vital for performing scheduled or on-demand tasks for e-commerce operations.",
+        "twitterImage": "https://www.rhino-inquisitor.com/mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/boxes-grouped-in-warehouse-0d6eb67465_hu_ee9c2e093a2fdf79.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/boxes-grouped-in-warehouse-0d6eb67465_hu_ee9c2e093a2fdf79.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/boxes-grouped-in-warehouse-0d6eb67465_hu_ee9c2e093a2fdf79.webp",
+          "width": 1920,
+          "height": 1024,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "route": "/me-myself-and-headless-a-composable-commerce-cloud-story/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/me-myself-and-headless-a-composable-commerce-cloud-story/",
+      "sources": [
+        {
+          "type": "sample-matrix",
+          "group": "video_pages",
+          "family": "video",
+          "title": "Me, Myself, and Headless: A Composable Commerce Cloud story",
+          "contentPath": "src/content/pages/me-myself-and-headless-a-composable-commerce-cloud-story/index.md",
+          "selectionReason": "Video-capable page with front matter video.id present."
+        }
+      ],
+      "builtArtifactPath": "public/me-myself-and-headless-a-composable-commerce-cloud-story/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [],
+      "meta": {
+        "title": "Me, Myself, and Headless: A Composable Commerce Cloud story | Rhino Inquisitor",
+        "metaDescription": "Salesforce Commerce Cloud has shifted its focus to investing in Headless development for the past two years. Mobify was acquired!",
+        "expectedOgType": "website",
+        "ogTitle": "Me, Myself, and Headless: A Composable Commerce Cloud story | Rhino Inquisitor",
+        "ogDescription": "Salesforce Commerce Cloud has shifted its focus to investing in Headless development for the past two years. Mobify was acquired!",
+        "ogUrl": "https://www.rhino-inquisitor.com/me-myself-and-headless-a-composable-commerce-cloud-story/",
+        "ogType": "website",
+        "ogImage": "https://www.rhino-inquisitor.com/me-myself-and-headless-a-composable-commerce-cloud-story/image-596c8a1379_hu_fe30b669a6827785.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Me, Myself, and Headless: A Composable Commerce Cloud story | Rhino Inquisitor",
+        "twitterDescription": "Salesforce Commerce Cloud has shifted its focus to investing in Headless development for the past two years. Mobify was acquired!",
+        "twitterImage": "https://www.rhino-inquisitor.com/me-myself-and-headless-a-composable-commerce-cloud-story/image-596c8a1379_hu_fe30b669a6827785.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/me-myself-and-headless-a-composable-commerce-cloud-story/image-596c8a1379_hu_fe30b669a6827785.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/me-myself-and-headless-a-composable-commerce-cloud-story/image-596c8a1379_hu_fe30b669a6827785.webp",
+          "width": 1280,
+          "height": 720,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "route": "/posts/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/posts/",
+      "sources": [
+        {
+          "type": "sample-matrix",
+          "group": "archive_pages",
+          "family": "archive",
+          "title": null,
+          "contentPath": null,
+          "selectionReason": "Section list route emitted by Hugo outputs and retained to cover list rendering behavior."
+        }
+      ],
+      "builtArtifactPath": "public/posts/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [],
+      "meta": {
+        "title": "Posts | Rhino Inquisitor",
+        "metaDescription": "Find deep dives, guides, and best practices from the Rhino Inquisitor archive.",
+        "expectedOgType": "website",
+        "ogTitle": "Posts | Rhino Inquisitor",
+        "ogDescription": "Find deep dives, guides, and best practices from the Rhino Inquisitor archive.",
+        "ogUrl": "https://www.rhino-inquisitor.com/posts/",
+        "ogType": "website",
+        "ogImage": "https://www.rhino-inquisitor.com/images/social-default.svg",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Posts | Rhino Inquisitor",
+        "twitterDescription": "Find deep dives, guides, and best practices from the Rhino Inquisitor archive.",
+        "twitterImage": "https://www.rhino-inquisitor.com/images/social-default.svg"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/images/social-default.svg",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/images/social-default.svg",
+          "width": 1200,
+          "height": 630,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "route": "/privacy-policy/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/privacy-policy/",
+      "sources": [
+        {
+          "type": "sample-matrix",
+          "group": "privacy_legal_pages",
+          "family": "legal",
+          "title": "Privacy Policy",
+          "contentPath": "src/content/pages/privacy-policy/index.md",
+          "selectionReason": "Legal/privacy route matched the deterministic keyword allowlist."
+        }
+      ],
+      "builtArtifactPath": "public/privacy-policy/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [],
+      "meta": {
+        "title": "Privacy Policy | Rhino Inquisitor",
+        "metaDescription": "Who we are Our website address is https://www.rhino-inquisitor.com/. Explore the full page on Rhino Inquisitor for additional context.",
+        "expectedOgType": "website",
+        "ogTitle": "Privacy Policy | Rhino Inquisitor",
+        "ogDescription": "Who we are Our website address is https://www.rhino-inquisitor.com/. Explore the full page on Rhino Inquisitor for additional context.",
+        "ogUrl": "https://www.rhino-inquisitor.com/privacy-policy/",
+        "ogType": "website",
+        "ogImage": "https://www.rhino-inquisitor.com/images/social-default.svg",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Privacy Policy | Rhino Inquisitor",
+        "twitterDescription": "Who we are Our website address is https://www.rhino-inquisitor.com/. Explore the full page on Rhino Inquisitor for additional context.",
+        "twitterImage": "https://www.rhino-inquisitor.com/images/social-default.svg"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/images/social-default.svg",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/images/social-default.svg",
+          "width": 1200,
+          "height": 630,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "route": "/real-time-inventory-checks-in-sfcc/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/real-time-inventory-checks-in-sfcc/",
+      "sources": [
+        {
+          "type": "sample-matrix",
+          "group": "recent_posts",
+          "family": "article",
+          "title": "Real-Time Inventory Checks in SFCC",
+          "contentPath": "src/content/posts/real-time-inventory-checks-in-sfcc/index.md",
+          "selectionReason": "Recent post rank 1 by front matter date descending."
+        }
+      ],
+      "builtArtifactPath": "public/real-time-inventory-checks-in-sfcc/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [],
+      "meta": {
+        "title": "Real-Time Inventory Checks in SFCC | Rhino Inquisitor",
+        "metaDescription": "Learn when real-time inventory checks improve the customer experience, where they add risk, and how to balance speed with accuracy.",
+        "expectedOgType": "article",
+        "ogTitle": "Real-Time Inventory Checks in SFCC | Rhino Inquisitor",
+        "ogDescription": "Learn when real-time inventory checks improve the customer experience, where they add risk, and how to balance speed with accuracy.",
+        "ogUrl": "https://www.rhino-inquisitor.com/real-time-inventory-checks-in-sfcc/",
+        "ogType": "article",
+        "ogImage": "https://www.rhino-inquisitor.com/real-time-inventory-checks-in-sfcc/stampede-to-a-single-endpoin-t-scaled-2d591aef78_hu_da6c14e421bc341b.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Real-Time Inventory Checks in SFCC | Rhino Inquisitor",
+        "twitterDescription": "Learn when real-time inventory checks improve the customer experience, where they add risk, and how to balance speed with accuracy.",
+        "twitterImage": "https://www.rhino-inquisitor.com/real-time-inventory-checks-in-sfcc/stampede-to-a-single-endpoin-t-scaled-2d591aef78_hu_da6c14e421bc341b.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/real-time-inventory-checks-in-sfcc/stampede-to-a-single-endpoin-t-scaled-2d591aef78_hu_da6c14e421bc341b.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/real-time-inventory-checks-in-sfcc/stampede-to-a-single-endpoin-t-scaled-2d591aef78_hu_da6c14e421bc341b.webp",
+          "width": 2000,
+          "height": 1091,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "route": "/salesforce-b2c-commerce-cloud-22-9-release/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-22-9-release/",
+      "sources": [
+        {
+          "type": "sample-matrix",
+          "group": "video_posts",
+          "family": "article",
+          "title": "Salesforce B2C Commerce Cloud 22.9 release",
+          "contentPath": "src/content/posts/salesforce-b2c-commerce-cloud-22-9-release/index.md",
+          "selectionReason": "Video-capable post with front matter video.id present."
+        }
+      ],
+      "builtArtifactPath": "public/salesforce-b2c-commerce-cloud-22-9-release/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [
+        "Social image dimensions 1024x683 are below the recommended 1200x630 minimum."
+      ],
+      "meta": {
+        "title": "Salesforce B2C Commerce Cloud 22.9 release | Rhino Inquisitor",
+        "metaDescription": "With Salesforce B2C Commerce Cloud, you get new candy to play with every month. What does this month's jar have in store for us?",
+        "expectedOgType": "article",
+        "ogTitle": "Salesforce B2C Commerce Cloud 22.9 release | Rhino Inquisitor",
+        "ogDescription": "With Salesforce B2C Commerce Cloud, you get new candy to play with every month. What does this month's jar have in store for us?",
+        "ogUrl": "https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-22-9-release/",
+        "ogType": "article",
+        "ogImage": "https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-22-9-release/copy-paste-page-designer-full-d97d9a9ee9_hu_eff7d47bdd25d99e.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Salesforce B2C Commerce Cloud 22.9 release | Rhino Inquisitor",
+        "twitterDescription": "With Salesforce B2C Commerce Cloud, you get new candy to play with every month. What does this month's jar have in store for us?",
+        "twitterImage": "https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-22-9-release/copy-paste-page-designer-full-d97d9a9ee9_hu_eff7d47bdd25d99e.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-22-9-release/copy-paste-page-designer-full-d97d9a9ee9_hu_eff7d47bdd25d99e.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/salesforce-b2c-commerce-cloud-22-9-release/copy-paste-page-designer-full-d97d9a9ee9_hu_eff7d47bdd25d99e.webp",
+          "width": 1024,
+          "height": 683,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": [
+            "Social image dimensions 1024x683 are below the recommended 1200x630 minimum."
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/salesforce-b2c-commerce-cloud-governance-and-quotas/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-governance-and-quotas/",
+      "sources": [
+        {
+          "type": "priority-routes",
+          "family": "article",
+          "priority": "high",
+          "urlClass": "post",
+          "sourceRoute": "/salesforce-b2c-commerce-cloud-governance-and-quotas/",
+          "expectedOutcome": "keep",
+          "selectionReason": "organic rank 15 from migration/phase-1-seo-baseline.md."
+        }
+      ],
+      "builtArtifactPath": "public/salesforce-b2c-commerce-cloud-governance-and-quotas/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [],
+      "meta": {
+        "title": "Salesforce B2C Commerce Cloud Governance and Quotas | Rhino Inquisitor",
+        "metaDescription": "Salesforce Platform Limits and Quotas are not new and exist for a reason. But why? And are there limits that are not documented?",
+        "expectedOgType": "article",
+        "ogTitle": "Salesforce B2C Commerce Cloud Governance and Quotas | Rhino Inquisitor",
+        "ogDescription": "Salesforce Platform Limits and Quotas are not new and exist for a reason. But why? And are there limits that are not documented?",
+        "ogUrl": "https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-governance-and-quotas/",
+        "ogType": "article",
+        "ogImage": "https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-governance-and-quotas/quota-limits-27eb2c93aa_hu_1f89d4ef56811b84.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Salesforce B2C Commerce Cloud Governance and Quotas | Rhino Inquisitor",
+        "twitterDescription": "Salesforce Platform Limits and Quotas are not new and exist for a reason. But why? And are there limits that are not documented?",
+        "twitterImage": "https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-governance-and-quotas/quota-limits-27eb2c93aa_hu_1f89d4ef56811b84.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-governance-and-quotas/quota-limits-27eb2c93aa_hu_1f89d4ef56811b84.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/salesforce-b2c-commerce-cloud-governance-and-quotas/quota-limits-27eb2c93aa_hu_1f89d4ef56811b84.webp",
+          "width": 1984,
+          "height": 1024,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "route": "/salesforce-b2c-commerce-the-22-6-release/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/salesforce-b2c-commerce-the-22-6-release/",
+      "sources": [
+        {
+          "type": "priority-routes",
+          "family": "article",
+          "priority": "critical",
+          "urlClass": "post",
+          "sourceRoute": "/salesforce-b2c-commerce-the-22-6-release/",
+          "expectedOutcome": "keep",
+          "selectionReason": "backlink rank 10 from migration/phase-1-seo-baseline.md."
+        }
+      ],
+      "builtArtifactPath": "public/salesforce-b2c-commerce-the-22-6-release/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [
+        "Social image dimensions 300x169 are below the recommended 1200x630 minimum."
+      ],
+      "meta": {
+        "title": "Salesforce B2C Commerce: The 22.6 Release | Rhino Inquisitor",
+        "metaDescription": "Are you interested in what is new in each Salesforce B2C Commerce Cloud release? Then this is the article for you! Let us look at 22.6",
+        "expectedOgType": "article",
+        "ogTitle": "Salesforce B2C Commerce: The 22.6 Release | Rhino Inquisitor",
+        "ogDescription": "Are you interested in what is new in each Salesforce B2C Commerce Cloud release? Then this is the article for you! Let us look at 22.6",
+        "ogUrl": "https://www.rhino-inquisitor.com/salesforce-b2c-commerce-the-22-6-release/",
+        "ogType": "article",
+        "ogImage": "https://www.rhino-inquisitor.com/salesforce-b2c-commerce-the-22-6-release/22-6-release-einstein-dashboards-722f4cbace_hu_ca077a203170e111.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Salesforce B2C Commerce: The 22.6 Release | Rhino Inquisitor",
+        "twitterDescription": "Are you interested in what is new in each Salesforce B2C Commerce Cloud release? Then this is the article for you! Let us look at 22.6",
+        "twitterImage": "https://www.rhino-inquisitor.com/salesforce-b2c-commerce-the-22-6-release/22-6-release-einstein-dashboards-722f4cbace_hu_ca077a203170e111.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/salesforce-b2c-commerce-the-22-6-release/22-6-release-einstein-dashboards-722f4cbace_hu_ca077a203170e111.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/salesforce-b2c-commerce-the-22-6-release/22-6-release-einstein-dashboards-722f4cbace_hu_ca077a203170e111.webp",
+          "width": 300,
+          "height": 169,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": [
+            "Social image dimensions 300x169 are below the recommended 1200x630 minimum."
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/secure-coding-in-salesforce-b2c-commerce-cloud/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/secure-coding-in-salesforce-b2c-commerce-cloud/",
+      "sources": [
+        {
+          "type": "priority-routes",
+          "family": "article",
+          "priority": "high",
+          "urlClass": "post",
+          "sourceRoute": "/secure-coding-in-salesforce-b2c-commerce-cloud/",
+          "expectedOutcome": "keep",
+          "selectionReason": "organic rank 16 from migration/phase-1-seo-baseline.md."
+        }
+      ],
+      "builtArtifactPath": "public/secure-coding-in-salesforce-b2c-commerce-cloud/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [
+        "Social image dimensions 620x350 are below the recommended 1200x630 minimum."
+      ],
+      "meta": {
+        "title": "Secure Coding in Salesforce B2C Commerce Cloud | Rhino Inquisitor",
+        "metaDescription": "Security within Salesforce B2C Commerce might not be a concern because of out-of-the-box features. There are a few things to keep in mind!",
+        "expectedOgType": "article",
+        "ogTitle": "Secure Coding in Salesforce B2C Commerce Cloud | Rhino Inquisitor",
+        "ogDescription": "Security within Salesforce B2C Commerce might not be a concern because of out-of-the-box features. There are a few things to keep in mind!",
+        "ogUrl": "https://www.rhino-inquisitor.com/secure-coding-in-salesforce-b2c-commerce-cloud/",
+        "ogType": "article",
+        "ogImage": "https://www.rhino-inquisitor.com/secure-coding-in-salesforce-b2c-commerce-cloud/code-security-147ad97b77_hu_82eeb07f320ef587.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Secure Coding in Salesforce B2C Commerce Cloud | Rhino Inquisitor",
+        "twitterDescription": "Security within Salesforce B2C Commerce might not be a concern because of out-of-the-box features. There are a few things to keep in mind!",
+        "twitterImage": "https://www.rhino-inquisitor.com/secure-coding-in-salesforce-b2c-commerce-cloud/code-security-147ad97b77_hu_82eeb07f320ef587.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/secure-coding-in-salesforce-b2c-commerce-cloud/code-security-147ad97b77_hu_82eeb07f320ef587.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/secure-coding-in-salesforce-b2c-commerce-cloud/code-security-147ad97b77_hu_82eeb07f320ef587.webp",
+          "width": 620,
+          "height": 350,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": [
+            "Social image dimensions 620x350 are below the recommended 1200x630 minimum."
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/sending-emails-from-sfcc/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/sending-emails-from-sfcc/",
+      "sources": [
+        {
+          "type": "priority-routes",
+          "family": "article",
+          "priority": "high",
+          "urlClass": "post",
+          "sourceRoute": "/sending-emails-from-sfcc/",
+          "expectedOutcome": "keep",
+          "selectionReason": "organic rank 19 from migration/phase-1-seo-baseline.md."
+        }
+      ],
+      "builtArtifactPath": "public/sending-emails-from-sfcc/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [
+        "Social image dimensions 1184x672 are below the recommended 1200x630 minimum."
+      ],
+      "meta": {
+        "title": "Sending Emails from SFCC | Rhino Inquisitor",
+        "metaDescription": "This article covers the reasons for opting to send emails via Salesforce Commerce Cloud, the platform's limitations, the steps for programmatically",
+        "expectedOgType": "article",
+        "ogTitle": "Sending Emails from SFCC | Rhino Inquisitor",
+        "ogDescription": "This article covers the reasons for opting to send emails via Salesforce Commerce Cloud, the platform's limitations, the steps for programmatically",
+        "ogUrl": "https://www.rhino-inquisitor.com/sending-emails-from-sfcc/",
+        "ogType": "article",
+        "ogImage": "https://www.rhino-inquisitor.com/sending-emails-from-sfcc/delivering-mail-in-sfcc-c46d2358ed_hu_ce0ad3957115312.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Sending Emails from SFCC | Rhino Inquisitor",
+        "twitterDescription": "This article covers the reasons for opting to send emails via Salesforce Commerce Cloud, the platform's limitations, the steps for programmatically",
+        "twitterImage": "https://www.rhino-inquisitor.com/sending-emails-from-sfcc/delivering-mail-in-sfcc-c46d2358ed_hu_ce0ad3957115312.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/sending-emails-from-sfcc/delivering-mail-in-sfcc-c46d2358ed_hu_ce0ad3957115312.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/sending-emails-from-sfcc/delivering-mail-in-sfcc-c46d2358ed_hu_ce0ad3957115312.webp",
+          "width": 1184,
+          "height": 672,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": [
+            "Social image dimensions 1184x672 are below the recommended 1200x630 minimum."
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/sfcc-introduction/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/sfcc-introduction/",
+      "sources": [
+        {
+          "type": "sample-matrix",
+          "group": "video_posts",
+          "family": "article",
+          "title": "B2C Commerce Cloud: Features and Tech Stacks",
+          "contentPath": "src/content/posts/sfcc-introduction/index.md",
+          "selectionReason": "Video-capable post with front matter video.id present."
+        }
+      ],
+      "builtArtifactPath": "public/sfcc-introduction/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [],
+      "meta": {
+        "title": "B2C Commerce Cloud: Features and Tech Stacks | Rhino Inquisitor",
+        "metaDescription": "An introduction to Salesforce B2C Commerce Cloud, covering core platform features, typical tech stacks, and where new teams should start learning.",
+        "expectedOgType": "article",
+        "ogTitle": "B2C Commerce Cloud: Features and Tech Stacks | Rhino Inquisitor",
+        "ogDescription": "An introduction to Salesforce B2C Commerce Cloud, covering core platform features, typical tech stacks, and where new teams should start learning.",
+        "ogUrl": "https://www.rhino-inquisitor.com/sfcc-introduction/",
+        "ogType": "article",
+        "ogImage": "https://www.rhino-inquisitor.com/sfcc-introduction/b2c-commerce-cloud-introduction-323fe8bb6c_hu_db0cfc4501e81354.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "B2C Commerce Cloud: Features and Tech Stacks | Rhino Inquisitor",
+        "twitterDescription": "An introduction to Salesforce B2C Commerce Cloud, covering core platform features, typical tech stacks, and where new teams should start learning.",
+        "twitterImage": "https://www.rhino-inquisitor.com/sfcc-introduction/b2c-commerce-cloud-introduction-323fe8bb6c_hu_db0cfc4501e81354.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/sfcc-introduction/b2c-commerce-cloud-introduction-323fe8bb6c_hu_db0cfc4501e81354.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/sfcc-introduction/b2c-commerce-cloud-introduction-323fe8bb6c_hu_db0cfc4501e81354.webp",
+          "width": 1280,
+          "height": 720,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "route": "/simplifying-the-salesforce-order-of-execution/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/simplifying-the-salesforce-order-of-execution/",
+      "sources": [
+        {
+          "type": "priority-routes",
+          "family": "article",
+          "priority": "critical",
+          "urlClass": "post",
+          "sourceRoute": "/simplifying-the-salesforce-order-of-execution/",
+          "expectedOutcome": "keep",
+          "selectionReason": "backlink rank 11 from migration/phase-1-seo-baseline.md."
+        }
+      ],
+      "builtArtifactPath": "public/simplifying-the-salesforce-order-of-execution/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [
+        "Social image dimensions 720x720 are below the recommended 1200x630 minimum."
+      ],
+      "meta": {
+        "title": "Simplifying the Salesforce Order of Execution | Rhino Inquisitor",
+        "metaDescription": "How can we simplify the Order of Execution in Salesforce? Find out in this article where we only use modern and KISS solutions!",
+        "expectedOgType": "article",
+        "ogTitle": "Simplifying the Salesforce Order of Execution | Rhino Inquisitor",
+        "ogDescription": "How can we simplify the Order of Execution in Salesforce? Find out in this article where we only use modern and KISS solutions!",
+        "ogUrl": "https://www.rhino-inquisitor.com/simplifying-the-salesforce-order-of-execution/",
+        "ogType": "article",
+        "ogImage": "https://www.rhino-inquisitor.com/simplifying-the-salesforce-order-of-execution/dominoes-in-middle-of-the-road-f4103f1e65_hu_bd59459ecfb0bcaa.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Simplifying the Salesforce Order of Execution | Rhino Inquisitor",
+        "twitterDescription": "How can we simplify the Order of Execution in Salesforce? Find out in this article where we only use modern and KISS solutions!",
+        "twitterImage": "https://www.rhino-inquisitor.com/simplifying-the-salesforce-order-of-execution/dominoes-in-middle-of-the-road-f4103f1e65_hu_bd59459ecfb0bcaa.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/simplifying-the-salesforce-order-of-execution/dominoes-in-middle-of-the-road-f4103f1e65_hu_bd59459ecfb0bcaa.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/simplifying-the-salesforce-order-of-execution/dominoes-in-middle-of-the-road-f4103f1e65_hu_bd59459ecfb0bcaa.webp",
+          "width": 720,
+          "height": 720,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": [
+            "Social image dimensions 720x720 are below the recommended 1200x630 minimum."
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/sitegenesis-vs-sfra-vs-pwa/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/",
+      "sources": [
+        {
+          "type": "priority-routes",
+          "family": "video",
+          "priority": "critical",
+          "urlClass": "video",
+          "sourceRoute": "/sitegenesis-vs-sfra-vs-pwa/",
+          "expectedOutcome": "keep",
+          "selectionReason": "organic rank 7 from migration/phase-1-seo-baseline.md. Also present in backlink rank 12."
+        }
+      ],
+      "builtArtifactPath": "public/sitegenesis-vs-sfra-vs-pwa/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [
+        "Social image dimensions 1024x615 are below the recommended 1200x630 minimum."
+      ],
+      "meta": {
+        "title": "SiteGenesis vs SFRA vs PWA | Rhino Inquisitor",
+        "metaDescription": "Those interested in Salesforce B2C Commerce Cloud will hear the term SiteGenesis and SFRA (and PWA). But what is the difference?",
+        "expectedOgType": "article",
+        "ogTitle": "SiteGenesis vs SFRA vs PWA | Rhino Inquisitor",
+        "ogDescription": "Those interested in Salesforce B2C Commerce Cloud will hear the term SiteGenesis and SFRA (and PWA). But what is the difference?",
+        "ogUrl": "https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/",
+        "ogType": "article",
+        "ogImage": "https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/sfra-vs-sitegenesis-965c09b9a6_hu_c86b9aaed8b7f598.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "SiteGenesis vs SFRA vs PWA | Rhino Inquisitor",
+        "twitterDescription": "Those interested in Salesforce B2C Commerce Cloud will hear the term SiteGenesis and SFRA (and PWA). But what is the difference?",
+        "twitterImage": "https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/sfra-vs-sitegenesis-965c09b9a6_hu_c86b9aaed8b7f598.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/sfra-vs-sitegenesis-965c09b9a6_hu_c86b9aaed8b7f598.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/sitegenesis-vs-sfra-vs-pwa/sfra-vs-sitegenesis-965c09b9a6_hu_c86b9aaed8b7f598.webp",
+          "width": 1024,
+          "height": 615,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": [
+            "Social image dimensions 1024x615 are below the recommended 1200x630 minimum."
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/slas-in-sfra-or-sitegenesis/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/slas-in-sfra-or-sitegenesis/",
+      "sources": [
+        {
+          "type": "sample-matrix",
+          "group": "recent_posts",
+          "family": "article",
+          "title": "SLAS Session Sync in SFRA and SiteGenesis",
+          "contentPath": "src/content/posts/slas-in-sfra-or-sitegenesis/index.md",
+          "selectionReason": "Recent post rank 9 by front matter date descending."
+        }
+      ],
+      "builtArtifactPath": "public/slas-in-sfra-or-sitegenesis/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [],
+      "meta": {
+        "title": "SLAS Session Sync in SFRA and SiteGenesis | Rhino Inquisitor",
+        "metaDescription": "SLAS (Shopper Login And API Access Service) is one of the headless APIs made available by Salesforce. But how can we use it in SFRA?",
+        "expectedOgType": "article",
+        "ogTitle": "SLAS Session Sync in SFRA and SiteGenesis | Rhino Inquisitor",
+        "ogDescription": "SLAS (Shopper Login And API Access Service) is one of the headless APIs made available by Salesforce. But how can we use it in SFRA?",
+        "ogUrl": "https://www.rhino-inquisitor.com/slas-in-sfra-or-sitegenesis/",
+        "ogType": "article",
+        "ogImage": "https://www.rhino-inquisitor.com/slas-in-sfra-or-sitegenesis/slas-84866c9e46_hu_f015beeebdc333d1.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "SLAS Session Sync in SFRA and SiteGenesis | Rhino Inquisitor",
+        "twitterDescription": "SLAS (Shopper Login And API Access Service) is one of the headless APIs made available by Salesforce. But how can we use it in SFRA?",
+        "twitterImage": "https://www.rhino-inquisitor.com/slas-in-sfra-or-sitegenesis/slas-84866c9e46_hu_f015beeebdc333d1.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/slas-in-sfra-or-sitegenesis/slas-84866c9e46_hu_f015beeebdc333d1.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/slas-in-sfra-or-sitegenesis/slas-84866c9e46_hu_f015beeebdc333d1.webp",
+          "width": 1500,
+          "height": 706,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "route": "/swc-and-storybook-error-failed-to-load-native-binding/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/swc-and-storybook-error-failed-to-load-native-binding/",
+      "sources": [
+        {
+          "type": "priority-routes",
+          "family": "page",
+          "priority": "high",
+          "urlClass": "page",
+          "sourceRoute": "/swc-and-storybook-error-failed-to-load-native-binding/",
+          "expectedOutcome": "keep",
+          "selectionReason": "organic rank 1 from migration/phase-1-seo-baseline.md."
+        }
+      ],
+      "builtArtifactPath": "public/swc-and-storybook-error-failed-to-load-native-binding/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [],
+      "meta": {
+        "title": "SWC And Storybook: Error: Failed to load native binding | Rhino Inquisitor",
+        "metaDescription": "When switching between my M1 MacBook and Intel X64 MacBook today, I ran into an odd error: Solution Deleting my package-lock.json file and node\\",
+        "expectedOgType": "website",
+        "ogTitle": "SWC And Storybook: Error: Failed to load native binding | Rhino Inquisitor",
+        "ogDescription": "When switching between my M1 MacBook and Intel X64 MacBook today, I ran into an odd error: Solution Deleting my package-lock.json file and node\\",
+        "ogUrl": "https://www.rhino-inquisitor.com/swc-and-storybook-error-failed-to-load-native-binding/",
+        "ogType": "website",
+        "ogImage": "https://www.rhino-inquisitor.com/images/social-default.svg",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "SWC And Storybook: Error: Failed to load native binding | Rhino Inquisitor",
+        "twitterDescription": "When switching between my M1 MacBook and Intel X64 MacBook today, I ran into an odd error: Solution Deleting my package-lock.json file and node\\",
+        "twitterImage": "https://www.rhino-inquisitor.com/images/social-default.svg"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/images/social-default.svg",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/images/social-default.svg",
+          "width": 1200,
+          "height": 630,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "route": "/taming-the-beast-a-developers-deep-dive-into-sfcc-meta-tag-rules/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/taming-the-beast-a-developers-deep-dive-into-sfcc-meta-tag-rules/",
+      "sources": [
+        {
+          "type": "sample-matrix",
+          "group": "recent_posts",
+          "family": "article",
+          "title": "Deep Dive into SFCC Meta Tag Rules",
+          "contentPath": "src/content/posts/taming-the-beast-a-developers-deep-dive-into-sfcc-meta-tag-rules/index.md",
+          "selectionReason": "Recent post rank 7 by front matter date descending."
+        }
+      ],
+      "builtArtifactPath": "public/taming-the-beast-a-developers-deep-dive-into-sfcc-meta-tag-rules/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [],
+      "meta": {
+        "title": "Deep Dive into SFCC Meta Tag Rules | Rhino Inquisitor",
+        "metaDescription": "Most of us have glanced at the \"Page Meta Tag Rules\" section in Business Manager, shrugged, and moved on to what we consider 'real' code.",
+        "expectedOgType": "article",
+        "ogTitle": "Deep Dive into SFCC Meta Tag Rules | Rhino Inquisitor",
+        "ogDescription": "Most of us have glanced at the \"Page Meta Tag Rules\" section in Business Manager, shrugged, and moved on to what we consider 'real' code.",
+        "ogUrl": "https://www.rhino-inquisitor.com/taming-the-beast-a-developers-deep-dive-into-sfcc-meta-tag-rules/",
+        "ogType": "article",
+        "ogImage": "https://www.rhino-inquisitor.com/taming-the-beast-a-developers-deep-dive-into-sfcc-meta-tag-rules/sfcc-meta-tag-rules-scaled-149974a893_hu_b7d221ebb5dddda8.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Deep Dive into SFCC Meta Tag Rules | Rhino Inquisitor",
+        "twitterDescription": "Most of us have glanced at the \"Page Meta Tag Rules\" section in Business Manager, shrugged, and moved on to what we consider 'real' code.",
+        "twitterImage": "https://www.rhino-inquisitor.com/taming-the-beast-a-developers-deep-dive-into-sfcc-meta-tag-rules/sfcc-meta-tag-rules-scaled-149974a893_hu_b7d221ebb5dddda8.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/taming-the-beast-a-developers-deep-dive-into-sfcc-meta-tag-rules/sfcc-meta-tag-rules-scaled-149974a893_hu_b7d221ebb5dddda8.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/taming-the-beast-a-developers-deep-dive-into-sfcc-meta-tag-rules/sfcc-meta-tag-rules-scaled-149974a893_hu_b7d221ebb5dddda8.webp",
+          "width": 2000,
+          "height": 1091,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "route": "/the-b2c-commerce-architect-certification/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/the-b2c-commerce-architect-certification/",
+      "sources": [
+        {
+          "type": "priority-routes",
+          "family": "article",
+          "priority": "critical",
+          "urlClass": "post",
+          "sourceRoute": "/the-b2c-commerce-architect-certification/",
+          "expectedOutcome": "keep",
+          "selectionReason": "organic rank 14 from migration/phase-1-seo-baseline.md."
+        }
+      ],
+      "builtArtifactPath": "public/the-b2c-commerce-architect-certification/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [],
+      "meta": {
+        "title": "B2C Commerce Architect Certification Guide | Rhino Inquisitor",
+        "metaDescription": "Prepare for the Salesforce B2C Commerce Architect certification with a guide to exam domains, study priorities, and practical preparation.",
+        "expectedOgType": "article",
+        "ogTitle": "B2C Commerce Architect Certification Guide | Rhino Inquisitor",
+        "ogDescription": "Prepare for the Salesforce B2C Commerce Architect certification with a guide to exam domains, study priorities, and practical preparation.",
+        "ogUrl": "https://www.rhino-inquisitor.com/the-b2c-commerce-architect-certification/",
+        "ogType": "article",
+        "ogImage": "https://www.rhino-inquisitor.com/the-b2c-commerce-architect-certification/b2c-commerce-cloud-architect-fbcc847dcd_hu_a8e825a1c9812403.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "B2C Commerce Architect Certification Guide | Rhino Inquisitor",
+        "twitterDescription": "Prepare for the Salesforce B2C Commerce Architect certification with a guide to exam domains, study priorities, and practical preparation.",
+        "twitterImage": "https://www.rhino-inquisitor.com/the-b2c-commerce-architect-certification/b2c-commerce-cloud-architect-fbcc847dcd_hu_a8e825a1c9812403.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/the-b2c-commerce-architect-certification/b2c-commerce-cloud-architect-fbcc847dcd_hu_a8e825a1c9812403.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/the-b2c-commerce-architect-certification/b2c-commerce-cloud-architect-fbcc847dcd_hu_a8e825a1c9812403.webp",
+          "width": 1280,
+          "height": 640,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "route": "/the-path-to-being-an-architect/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/the-path-to-being-an-architect/",
+      "sources": [
+        {
+          "type": "sample-matrix",
+          "group": "video_pages",
+          "family": "video",
+          "title": "The path to being an Architect",
+          "contentPath": "src/content/pages/the-path-to-being-an-architect/index.md",
+          "selectionReason": "Video-capable page with front matter video.id present."
+        }
+      ],
+      "builtArtifactPath": "public/the-path-to-being-an-architect/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [],
+      "meta": {
+        "title": "The path to being an Architect | Rhino Inquisitor",
+        "metaDescription": "The journey to being an architect has assumed many forms over the years, and does it all start at development?",
+        "expectedOgType": "website",
+        "ogTitle": "The path to being an Architect | Rhino Inquisitor",
+        "ogDescription": "The journey to being an architect has assumed many forms over the years, and does it all start at development?",
+        "ogUrl": "https://www.rhino-inquisitor.com/the-path-to-being-an-architect/",
+        "ogType": "website",
+        "ogImage": "https://www.rhino-inquisitor.com/the-path-to-being-an-architect/path-to-being-an-architect-576cef411b_hu_e771a69029418bae.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "The path to being an Architect | Rhino Inquisitor",
+        "twitterDescription": "The journey to being an architect has assumed many forms over the years, and does it all start at development?",
+        "twitterImage": "https://www.rhino-inquisitor.com/the-path-to-being-an-architect/path-to-being-an-architect-576cef411b_hu_e771a69029418bae.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/the-path-to-being-an-architect/path-to-being-an-architect-576cef411b_hu_e771a69029418bae.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/the-path-to-being-an-architect/path-to-being-an-architect-576cef411b_hu_e771a69029418bae.webp",
+          "width": 1280,
+          "height": 720,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "route": "/the-realm-split-field-guide-to-migrating-an-sfcc-site/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/the-realm-split-field-guide-to-migrating-an-sfcc-site/",
+      "sources": [
+        {
+          "type": "sample-matrix",
+          "group": "recent_posts",
+          "family": "article",
+          "title": "Realm Split Guide for Migrating an SFCC Site",
+          "contentPath": "src/content/posts/the-realm-split-field-guide-to-migrating-an-sfcc-site/index.md",
+          "selectionReason": "Recent post rank 6 by front matter date descending."
+        }
+      ],
+      "builtArtifactPath": "public/the-realm-split-field-guide-to-migrating-an-sfcc-site/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [
+        "Social image dimensions 1021x731 are below the recommended 1200x630 minimum."
+      ],
+      "meta": {
+        "title": "Realm Split Guide for Migrating an SFCC Site | Rhino Inquisitor",
+        "metaDescription": "Have you ever found yourself in a deployment-day standoff? Read the full article on Rhino Inquisitor for implementation details.",
+        "expectedOgType": "article",
+        "ogTitle": "Realm Split Guide for Migrating an SFCC Site | Rhino Inquisitor",
+        "ogDescription": "Have you ever found yourself in a deployment-day standoff? Read the full article on Rhino Inquisitor for implementation details.",
+        "ogUrl": "https://www.rhino-inquisitor.com/the-realm-split-field-guide-to-migrating-an-sfcc-site/",
+        "ogType": "article",
+        "ogImage": "https://www.rhino-inquisitor.com/the-realm-split-field-guide-to-migrating-an-sfcc-site/realm-split-in-sfcc-c392b8965d_hu_ae62165e9e8bff6c.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Realm Split Guide for Migrating an SFCC Site | Rhino Inquisitor",
+        "twitterDescription": "Have you ever found yourself in a deployment-day standoff? Read the full article on Rhino Inquisitor for implementation details.",
+        "twitterImage": "https://www.rhino-inquisitor.com/the-realm-split-field-guide-to-migrating-an-sfcc-site/realm-split-in-sfcc-c392b8965d_hu_ae62165e9e8bff6c.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/the-realm-split-field-guide-to-migrating-an-sfcc-site/realm-split-in-sfcc-c392b8965d_hu_ae62165e9e8bff6c.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/the-realm-split-field-guide-to-migrating-an-sfcc-site/realm-split-in-sfcc-c392b8965d_hu_ae62165e9e8bff6c.webp",
+          "width": 1021,
+          "height": 731,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": [
+            "Social image dimensions 1021x731 are below the recommended 1200x630 minimum."
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/the-sfcc-guide-to-finding-pod-numbers/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/the-sfcc-guide-to-finding-pod-numbers/",
+      "sources": [
+        {
+          "type": "sample-matrix",
+          "group": "recent_posts",
+          "family": "article",
+          "title": "The Ultimate SFCC Guide to Finding Your POD Number",
+          "contentPath": "src/content/posts/the-sfcc-guide-to-finding-pod-numbers/index.md",
+          "selectionReason": "Recent post rank 10 by front matter date descending."
+        }
+      ],
+      "builtArtifactPath": "public/the-sfcc-guide-to-finding-pod-numbers/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [],
+      "meta": {
+        "title": "The Ultimate SFCC Guide to Finding Your POD Number | Rhino Inquisitor",
+        "metaDescription": "Learn how to find your SFCC POD number, why it matters for troubleshooting, and where to verify it across tools and environments.",
+        "expectedOgType": "article",
+        "ogTitle": "The Ultimate SFCC Guide to Finding Your POD Number | Rhino Inquisitor",
+        "ogDescription": "Learn how to find your SFCC POD number, why it matters for troubleshooting, and where to verify it across tools and environments.",
+        "ogUrl": "https://www.rhino-inquisitor.com/the-sfcc-guide-to-finding-pod-numbers/",
+        "ogType": "article",
+        "ogImage": "https://www.rhino-inquisitor.com/the-sfcc-guide-to-finding-pod-numbers/sfcc-finding-your-pod-number-scaled-6830449d2b_hu_4ad57f4627b6f922.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "The Ultimate SFCC Guide to Finding Your POD Number | Rhino Inquisitor",
+        "twitterDescription": "Learn how to find your SFCC POD number, why it matters for troubleshooting, and where to verify it across tools and environments.",
+        "twitterImage": "https://www.rhino-inquisitor.com/the-sfcc-guide-to-finding-pod-numbers/sfcc-finding-your-pod-number-scaled-6830449d2b_hu_4ad57f4627b6f922.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/the-sfcc-guide-to-finding-pod-numbers/sfcc-finding-your-pod-number-scaled-6830449d2b_hu_4ad57f4627b6f922.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/the-sfcc-guide-to-finding-pod-numbers/sfcc-finding-your-pod-number-scaled-6830449d2b_hu_4ad57f4627b6f922.webp",
+          "width": 2000,
+          "height": 1091,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "route": "/third-party-api-caching-in-commerce-cloud/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/third-party-api-caching-in-commerce-cloud/",
+      "sources": [
+        {
+          "type": "priority-routes",
+          "family": "article",
+          "priority": "critical",
+          "urlClass": "post",
+          "sourceRoute": "/third-party-api-caching-in-commerce-cloud/",
+          "expectedOutcome": "keep",
+          "selectionReason": "backlink rank 13 from migration/phase-1-seo-baseline.md."
+        }
+      ],
+      "builtArtifactPath": "public/third-party-api-caching-in-commerce-cloud/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [],
+      "meta": {
+        "title": "Third-Party API Caching in Commerce Cloud | Rhino Inquisitor",
+        "metaDescription": "Learn how to cache third-party API responses in Commerce Cloud to improve performance, control latency, and avoid stale-data pitfalls.",
+        "expectedOgType": "article",
+        "ogTitle": "Third-Party API Caching in Commerce Cloud | Rhino Inquisitor",
+        "ogDescription": "Learn how to cache third-party API responses in Commerce Cloud to improve performance, control latency, and avoid stale-data pitfalls.",
+        "ogUrl": "https://www.rhino-inquisitor.com/third-party-api-caching-in-commerce-cloud/",
+        "ogType": "article",
+        "ogImage": "https://www.rhino-inquisitor.com/third-party-api-caching-in-commerce-cloud/third-party-service-caching-6154196735_hu_f50b1be7a5a9a7d2.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Third-Party API Caching in Commerce Cloud | Rhino Inquisitor",
+        "twitterDescription": "Learn how to cache third-party API responses in Commerce Cloud to improve performance, control latency, and avoid stale-data pitfalls.",
+        "twitterImage": "https://www.rhino-inquisitor.com/third-party-api-caching-in-commerce-cloud/third-party-service-caching-6154196735_hu_f50b1be7a5a9a7d2.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/third-party-api-caching-in-commerce-cloud/third-party-service-caching-6154196735_hu_f50b1be7a5a9a7d2.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/third-party-api-caching-in-commerce-cloud/third-party-service-caching-6154196735_hu_f50b1be7a5a9a7d2.webp",
+          "width": 1472,
+          "height": 832,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "route": "/understanding-sfcc-instances/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/understanding-sfcc-instances/",
+      "sources": [
+        {
+          "type": "priority-routes",
+          "family": "article",
+          "priority": "high",
+          "urlClass": "post",
+          "sourceRoute": "/understanding-sfcc-instances/",
+          "expectedOutcome": "keep",
+          "selectionReason": "organic rank 9 from migration/phase-1-seo-baseline.md."
+        }
+      ],
+      "builtArtifactPath": "public/understanding-sfcc-instances/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [],
+      "meta": {
+        "title": "Understanding SFCC Instances | Rhino Inquisitor",
+        "metaDescription": "Salesforce B2C Commerce is a robust platform that enables businesses to create highly customised and scalable digital storefronts.",
+        "expectedOgType": "article",
+        "ogTitle": "Understanding SFCC Instances | Rhino Inquisitor",
+        "ogDescription": "Salesforce B2C Commerce is a robust platform that enables businesses to create highly customised and scalable digital storefronts.",
+        "ogUrl": "https://www.rhino-inquisitor.com/understanding-sfcc-instances/",
+        "ogType": "article",
+        "ogImage": "https://www.rhino-inquisitor.com/understanding-sfcc-instances/salesforce-b2c-commerce-cloud-instances-scaled-59ed2cbb06_hu_574d6389c932afd2.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Understanding SFCC Instances | Rhino Inquisitor",
+        "twitterDescription": "Salesforce B2C Commerce is a robust platform that enables businesses to create highly customised and scalable digital storefronts.",
+        "twitterImage": "https://www.rhino-inquisitor.com/understanding-sfcc-instances/salesforce-b2c-commerce-cloud-instances-scaled-59ed2cbb06_hu_574d6389c932afd2.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/understanding-sfcc-instances/salesforce-b2c-commerce-cloud-instances-scaled-59ed2cbb06_hu_574d6389c932afd2.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/understanding-sfcc-instances/salesforce-b2c-commerce-cloud-instances-scaled-59ed2cbb06_hu_574d6389c932afd2.webp",
+          "width": 2000,
+          "height": 2000,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "route": "/video/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/video/",
+      "sources": [
+        {
+          "type": "sample-matrix",
+          "group": "video_pages",
+          "family": "video",
+          "title": "Video",
+          "contentPath": "src/content/pages/video/index.md",
+          "selectionReason": "Video-capable page with front matter video.id present."
+        }
+      ],
+      "builtArtifactPath": "public/video/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [],
+      "meta": {
+        "title": "Video Appearances | Rhino Inquisitor",
+        "metaDescription": "Besides my blog I also take part in Podcasts, webinars and other fun stuff. This page provides on overview of where you can see me on video!",
+        "expectedOgType": "website",
+        "ogTitle": "Video Appearances | Rhino Inquisitor",
+        "ogDescription": "Besides my blog I also take part in Podcasts, webinars and other fun stuff. This page provides on overview of where you can see me on video!",
+        "ogUrl": "https://www.rhino-inquisitor.com/video/",
+        "ogType": "website",
+        "ogImage": "https://www.rhino-inquisitor.com/video/maxresdefault-7015ae5c52_hu_776489661e91bf27.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Video Appearances | Rhino Inquisitor",
+        "twitterDescription": "Besides my blog I also take part in Podcasts, webinars and other fun stuff. This page provides on overview of where you can see me on video!",
+        "twitterImage": "https://www.rhino-inquisitor.com/video/maxresdefault-7015ae5c52_hu_776489661e91bf27.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/video/maxresdefault-7015ae5c52_hu_776489661e91bf27.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/video/maxresdefault-7015ae5c52_hu_776489661e91bf27.webp",
+          "width": 1280,
+          "height": 720,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "route": "/what-is-the-ocapi-session-bridge/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/what-is-the-ocapi-session-bridge/",
+      "sources": [
+        {
+          "type": "priority-routes",
+          "family": "article",
+          "priority": "high",
+          "urlClass": "post",
+          "sourceRoute": "/what-is-the-ocapi-session-bridge/",
+          "expectedOutcome": "keep",
+          "selectionReason": "organic rank 17 from migration/phase-1-seo-baseline.md."
+        }
+      ],
+      "builtArtifactPath": "public/what-is-the-ocapi-session-bridge/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [
+        "Social image dimensions 1100x630 are below the recommended 1200x630 minimum."
+      ],
+      "meta": {
+        "title": "What is the OCAPI session bridge? | Rhino Inquisitor",
+        "metaDescription": "It is possible to link a SiteGenesis/SFRA session with an OCAPI \"session.\" But how can we do it, and what is it suitable for?",
+        "expectedOgType": "article",
+        "ogTitle": "What is the OCAPI session bridge? | Rhino Inquisitor",
+        "ogDescription": "It is possible to link a SiteGenesis/SFRA session with an OCAPI \"session.\" But how can we do it, and what is it suitable for?",
+        "ogUrl": "https://www.rhino-inquisitor.com/what-is-the-ocapi-session-bridge/",
+        "ogType": "article",
+        "ogImage": "https://www.rhino-inquisitor.com/what-is-the-ocapi-session-bridge/session-bridge-bbf2a7ba92_hu_ccc793cab8aca3d7.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "What is the OCAPI session bridge? | Rhino Inquisitor",
+        "twitterDescription": "It is possible to link a SiteGenesis/SFRA session with an OCAPI \"session.\" But how can we do it, and what is it suitable for?",
+        "twitterImage": "https://www.rhino-inquisitor.com/what-is-the-ocapi-session-bridge/session-bridge-bbf2a7ba92_hu_ccc793cab8aca3d7.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/what-is-the-ocapi-session-bridge/session-bridge-bbf2a7ba92_hu_ccc793cab8aca3d7.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/what-is-the-ocapi-session-bridge/session-bridge-bbf2a7ba92_hu_ccc793cab8aca3d7.webp",
+          "width": 1100,
+          "height": 630,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": [
+            "Social image dimensions 1100x630 are below the recommended 1200x630 minimum."
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/where-to-hook-into-an-sfra-controller/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/where-to-hook-into-an-sfra-controller/",
+      "sources": [
+        {
+          "type": "priority-routes",
+          "family": "article",
+          "priority": "critical",
+          "urlClass": "post",
+          "sourceRoute": "/where-to-hook-into-an-sfra-controller/",
+          "expectedOutcome": "keep",
+          "selectionReason": "organic rank 18 from migration/phase-1-seo-baseline.md."
+        }
+      ],
+      "builtArtifactPath": "public/where-to-hook-into-an-sfra-controller/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [
+        "Social image dimensions 1024x1024 are below the recommended 1200x630 minimum."
+      ],
+      "meta": {
+        "title": "Where can you \"hook\" into an SFRA request or controller? | Rhino Inquisitor",
+        "metaDescription": "Have you ever wondered how Salesforce Commerce Cloud, especially SFRA (Storefront Reference Architecture), handles the rendering of pages based on",
+        "expectedOgType": "article",
+        "ogTitle": "Where can you \"hook\" into an SFRA request or controller? | Rhino Inquisitor",
+        "ogDescription": "Have you ever wondered how Salesforce Commerce Cloud, especially SFRA (Storefront Reference Architecture), handles the rendering of pages based on",
+        "ogUrl": "https://www.rhino-inquisitor.com/where-to-hook-into-an-sfra-controller/",
+        "ogType": "article",
+        "ogImage": "https://www.rhino-inquisitor.com/where-to-hook-into-an-sfra-controller/a-road-taking-odd-paths-a9419c4f36_hu_258ee98812702c87.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Where can you \"hook\" into an SFRA request or controller? | Rhino Inquisitor",
+        "twitterDescription": "Have you ever wondered how Salesforce Commerce Cloud, especially SFRA (Storefront Reference Architecture), handles the rendering of pages based on",
+        "twitterImage": "https://www.rhino-inquisitor.com/where-to-hook-into-an-sfra-controller/a-road-taking-odd-paths-a9419c4f36_hu_258ee98812702c87.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/where-to-hook-into-an-sfra-controller/a-road-taking-odd-paths-a9419c4f36_hu_258ee98812702c87.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/where-to-hook-into-an-sfra-controller/a-road-taking-odd-paths-a9419c4f36_hu_258ee98812702c87.webp",
+          "width": 1024,
+          "height": 1024,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": [
+            "Social image dimensions 1024x1024 are below the recommended 1200x630 minimum."
+          ]
+        }
+      ]
+    },
+    {
+      "route": "/your-definitive-mobile-app-checklist/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/your-definitive-mobile-app-checklist/",
+      "sources": [
+        {
+          "type": "sample-matrix",
+          "group": "recent_posts",
+          "family": "article",
+          "title": "Mobile App Launch Checklist for Commerce Teams",
+          "contentPath": "src/content/posts/your-definitive-mobile-app-checklist/index.md",
+          "selectionReason": "Recent post rank 4 by front matter date descending."
+        }
+      ],
+      "builtArtifactPath": "public/your-definitive-mobile-app-checklist/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [],
+      "meta": {
+        "title": "Mobile App Launch Checklist for Commerce Teams | Rhino Inquisitor",
+        "metaDescription": "Use this mobile app launch checklist to review architecture, integrations, QA, and go-live readiness before an SFCC-backed app ships.",
+        "expectedOgType": "article",
+        "ogTitle": "Mobile App Launch Checklist for Commerce Teams | Rhino Inquisitor",
+        "ogDescription": "Use this mobile app launch checklist to review architecture, integrations, QA, and go-live readiness before an SFCC-backed app ships.",
+        "ogUrl": "https://www.rhino-inquisitor.com/your-definitive-mobile-app-checklist/",
+        "ogType": "article",
+        "ogImage": "https://www.rhino-inquisitor.com/your-definitive-mobile-app-checklist/headless-app-go-live-scaled-89b046ecca_hu_fe14a4150c5c3fee.webp",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Mobile App Launch Checklist for Commerce Teams | Rhino Inquisitor",
+        "twitterDescription": "Use this mobile app launch checklist to review architecture, integrations, QA, and go-live readiness before an SFCC-backed app ships.",
+        "twitterImage": "https://www.rhino-inquisitor.com/your-definitive-mobile-app-checklist/headless-app-go-live-scaled-89b046ecca_hu_fe14a4150c5c3fee.webp"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/your-definitive-mobile-app-checklist/headless-app-go-live-scaled-89b046ecca_hu_fe14a4150c5c3fee.webp",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/your-definitive-mobile-app-checklist/headless-app-go-live-scaled-89b046ecca_hu_fe14a4150c5c3fee.webp",
+          "width": 2000,
+          "height": 1090,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": []
+        }
+      ]
+    }
+  ]
 }

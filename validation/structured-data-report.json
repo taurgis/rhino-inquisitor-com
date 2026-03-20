@@ -1,10 +1,1655 @@
 {
   "phase": 8,
-  "ticket": "RHI-083",
+  "ticket": "RHI-087",
   "artifact": "structured-data-report",
-  "status": "placeholder",
-  "rcTag": null,
-  "rcSha": null,
-  "generatedAt": null,
-  "notes": "Bootstrap placeholder created by RHI-083. Replace this file in RHI-087."
+  "status": "pass",
+  "rcTag": "phase-8-rc-v1",
+  "rcSha": "a510ead82a28f85718866e1f6af3f7dda03034b7",
+  "generatedAt": "2026-03-20T17:13:19.546Z",
+  "publicDir": "public",
+  "sampleMatrix": {
+    "path": "validation/sample-matrix.json",
+    "generatedAt": "2026-03-20T13:56:36.009Z"
+  },
+  "artifactProvenance": {
+    "gitHead": "9d6e808edd72b1fc2b4bf1bdfa46c3831e74fdd6",
+    "gitHeadShort": "9d6e808e",
+    "workspaceDirty": true,
+    "datasetRcTag": "phase-8-rc-v1",
+    "datasetRcSha": "a510ead82a28f85718866e1f6af3f7dda03034b7",
+    "matchesDatasetRc": false,
+    "provenanceStatus": "branch-state",
+    "note": "Artifact provenance differs from the frozen dataset RC or the workspace is dirty; treat this as branch-state evidence until a new RC is cut."
+  },
+  "richResultsTargets": {
+    "homepage": "https://www.rhino-inquisitor.com/",
+    "recentPosts": [
+      "https://www.rhino-inquisitor.com/real-time-inventory-checks-in-sfcc/",
+      "https://www.rhino-inquisitor.com/a-dev-guide-to-combating-fraud-on-sfcc/"
+    ],
+    "category": "https://www.rhino-inquisitor.com/category/ai/",
+    "video": "https://www.rhino-inquisitor.com/connecting-the-clouds-wedding-or-funeral/",
+    "evidencePath": "validation/rich-results-test-evidence"
+  },
+  "policy": {
+    "canonicalHost": "https://www.rhino-inquisitor.com",
+    "articleSchema": "BlogPosting-or-Article",
+    "breadcrumbSeverity": "blocking-on-post-and-category-routes",
+    "htmlFragmentSeverity": "blocking",
+    "imageVerificationMode": "artifact-path"
+  },
+  "summary": {
+    "totalRoutes": 27,
+    "passCount": 27,
+    "failCount": 0,
+    "blockingFailures": 0,
+    "warningCount": 0,
+    "jsonLdBlockCount": 46,
+    "invalidJsonBlocks": 0,
+    "routesWithBreadcrumb": 26,
+    "routesWithVideoObject": 7
+  },
+  "entries": [
+    {
+      "route": "/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/",
+      "sources": [
+        {
+          "group": "homepage",
+          "family": "home",
+          "title": null,
+          "contentPath": null,
+          "selectionReason": "Fixed homepage route required by the RHI-084 sample matrix contract."
+        }
+      ],
+      "builtArtifactPath": "public/index.html",
+      "h1": "Rhino Inquisitor",
+      "schemaBlockCount": 1,
+      "schemaBlocks": [
+        {
+          "index": 0,
+          "result": "pass",
+          "types": [
+            "WebSite"
+          ],
+          "findings": []
+        }
+      ],
+      "schemaNodes": [
+        {
+          "index": 0,
+          "types": [
+            "WebSite"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": []
+        }
+      ],
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": []
+    },
+    {
+      "route": "/a-dev-guide-to-combating-fraud-on-sfcc/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/a-dev-guide-to-combating-fraud-on-sfcc/",
+      "sources": [
+        {
+          "group": "recent_posts",
+          "family": "post",
+          "title": "Developer's Guide to Combating Fraud in SFCC",
+          "contentPath": "src/content/posts/a-dev-guide-to-combating-fraud-on-sfcc/index.md",
+          "selectionReason": "Recent post rank 2 by front matter date descending."
+        }
+      ],
+      "builtArtifactPath": "public/a-dev-guide-to-combating-fraud-on-sfcc/index.html",
+      "h1": "Developer's Guide to Combating Fraud in SFCC",
+      "schemaBlockCount": 2,
+      "schemaBlocks": [
+        {
+          "index": 0,
+          "result": "pass",
+          "types": [
+            "BlogPosting"
+          ],
+          "findings": []
+        },
+        {
+          "index": 1,
+          "result": "pass",
+          "types": [
+            "BreadcrumbList"
+          ],
+          "findings": []
+        }
+      ],
+      "schemaNodes": [
+        {
+          "index": 0,
+          "types": [
+            "BlogPosting"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": [
+            {
+              "url": "https://www.rhino-inquisitor.com/a-dev-guide-to-combating-fraud-on-sfcc/fraud-orders-sfcc-scaled-beae2495ff_hu_25981c66d32e934c.webp",
+              "resolved": true,
+              "assetPath": "public/a-dev-guide-to-combating-fraud-on-sfcc/fraud-orders-sfcc-scaled-beae2495ff_hu_25981c66d32e934c.webp",
+              "findings": [],
+              "warnings": []
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "types": [
+            "BreadcrumbList"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": []
+        }
+      ],
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": []
+    },
+    {
+      "route": "/a-survival-guide-to-sfcc-platform-limits/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/a-survival-guide-to-sfcc-platform-limits/",
+      "sources": [
+        {
+          "group": "recent_posts",
+          "family": "post",
+          "title": "Survival Guide to SFCC Platform Limits",
+          "contentPath": "src/content/posts/a-survival-guide-to-sfcc-platform-limits/index.md",
+          "selectionReason": "Recent post rank 5 by front matter date descending."
+        }
+      ],
+      "builtArtifactPath": "public/a-survival-guide-to-sfcc-platform-limits/index.html",
+      "h1": "Survival Guide to SFCC Platform Limits",
+      "schemaBlockCount": 2,
+      "schemaBlocks": [
+        {
+          "index": 0,
+          "result": "pass",
+          "types": [
+            "BlogPosting"
+          ],
+          "findings": []
+        },
+        {
+          "index": 1,
+          "result": "pass",
+          "types": [
+            "BreadcrumbList"
+          ],
+          "findings": []
+        }
+      ],
+      "schemaNodes": [
+        {
+          "index": 0,
+          "types": [
+            "BlogPosting"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": [
+            {
+              "url": "https://www.rhino-inquisitor.com/a-survival-guide-to-sfcc-platform-limits/b2c-commerce-cloud-quota-warnings-scaled-adc4dec7e9_hu_b09a7e00889b1f2b.webp",
+              "resolved": true,
+              "assetPath": "public/a-survival-guide-to-sfcc-platform-limits/b2c-commerce-cloud-quota-warnings-scaled-adc4dec7e9_hu_b09a7e00889b1f2b.webp",
+              "findings": [],
+              "warnings": []
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "types": [
+            "BreadcrumbList"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": []
+        }
+      ],
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": []
+    },
+    {
+      "route": "/archive/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/archive/",
+      "sources": [
+        {
+          "group": "archive_pages",
+          "family": "archive",
+          "title": null,
+          "contentPath": null,
+          "selectionReason": "Fixed archive discovery route retained for Phase 8 coverage."
+        }
+      ],
+      "builtArtifactPath": "public/archive/index.html",
+      "h1": "Archive",
+      "schemaBlockCount": 1,
+      "schemaBlocks": [
+        {
+          "index": 0,
+          "result": "pass",
+          "types": [
+            "BreadcrumbList"
+          ],
+          "findings": []
+        }
+      ],
+      "schemaNodes": [
+        {
+          "index": 0,
+          "types": [
+            "BreadcrumbList"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": []
+        }
+      ],
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": []
+    },
+    {
+      "route": "/category/ai/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/category/ai/",
+      "sources": [
+        {
+          "group": "category_pages",
+          "family": "category",
+          "title": "AI",
+          "contentPath": "src/content/categories/ai/_index.md",
+          "selectionReason": "Alphabetical category sample rank 1."
+        }
+      ],
+      "builtArtifactPath": "public/category/ai/index.html",
+      "h1": "AI",
+      "schemaBlockCount": 1,
+      "schemaBlocks": [
+        {
+          "index": 0,
+          "result": "pass",
+          "types": [
+            "BreadcrumbList"
+          ],
+          "findings": []
+        }
+      ],
+      "schemaNodes": [
+        {
+          "index": 0,
+          "types": [
+            "BreadcrumbList"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": []
+        }
+      ],
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": []
+    },
+    {
+      "route": "/category/architecture/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/category/architecture/",
+      "sources": [
+        {
+          "group": "category_pages",
+          "family": "category",
+          "title": "Architecture",
+          "contentPath": "src/content/categories/architecture/_index.md",
+          "selectionReason": "Alphabetical category sample rank 2."
+        }
+      ],
+      "builtArtifactPath": "public/category/architecture/index.html",
+      "h1": "Architecture",
+      "schemaBlockCount": 1,
+      "schemaBlocks": [
+        {
+          "index": 0,
+          "result": "pass",
+          "types": [
+            "BreadcrumbList"
+          ],
+          "findings": []
+        }
+      ],
+      "schemaNodes": [
+        {
+          "index": 0,
+          "types": [
+            "BreadcrumbList"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": []
+        }
+      ],
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": []
+    },
+    {
+      "route": "/category/certification/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/category/certification/",
+      "sources": [
+        {
+          "group": "category_pages",
+          "family": "category",
+          "title": "Certification",
+          "contentPath": "src/content/categories/certification/_index.md",
+          "selectionReason": "Alphabetical category sample rank 3."
+        }
+      ],
+      "builtArtifactPath": "public/category/certification/index.html",
+      "h1": "Certification",
+      "schemaBlockCount": 1,
+      "schemaBlocks": [
+        {
+          "index": 0,
+          "result": "pass",
+          "types": [
+            "BreadcrumbList"
+          ],
+          "findings": []
+        }
+      ],
+      "schemaNodes": [
+        {
+          "index": 0,
+          "types": [
+            "BreadcrumbList"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": []
+        }
+      ],
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": []
+    },
+    {
+      "route": "/category/community/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/category/community/",
+      "sources": [
+        {
+          "group": "category_pages",
+          "family": "category",
+          "title": "Community",
+          "contentPath": "src/content/categories/community/_index.md",
+          "selectionReason": "Alphabetical category sample rank 4."
+        }
+      ],
+      "builtArtifactPath": "public/category/community/index.html",
+      "h1": "Community",
+      "schemaBlockCount": 1,
+      "schemaBlocks": [
+        {
+          "index": 0,
+          "result": "pass",
+          "types": [
+            "BreadcrumbList"
+          ],
+          "findings": []
+        }
+      ],
+      "schemaNodes": [
+        {
+          "index": 0,
+          "types": [
+            "BreadcrumbList"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": []
+        }
+      ],
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": []
+    },
+    {
+      "route": "/category/corporate/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/category/corporate/",
+      "sources": [
+        {
+          "group": "category_pages",
+          "family": "category",
+          "title": "Corporate",
+          "contentPath": "src/content/categories/corporate/_index.md",
+          "selectionReason": "Alphabetical category sample rank 5."
+        }
+      ],
+      "builtArtifactPath": "public/category/corporate/index.html",
+      "h1": "Corporate",
+      "schemaBlockCount": 1,
+      "schemaBlocks": [
+        {
+          "index": 0,
+          "result": "pass",
+          "types": [
+            "BreadcrumbList"
+          ],
+          "findings": []
+        }
+      ],
+      "schemaNodes": [
+        {
+          "index": 0,
+          "types": [
+            "BreadcrumbList"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": []
+        }
+      ],
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": []
+    },
+    {
+      "route": "/connecting-the-clouds-wedding-or-funeral/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/connecting-the-clouds-wedding-or-funeral/",
+      "sources": [
+        {
+          "group": "video_pages",
+          "family": "video-page",
+          "title": "Connecting the Clouds: Wedding or funeral",
+          "contentPath": "src/content/pages/connecting-the-clouds-wedding-or-funeral/index.md",
+          "selectionReason": "Video-capable page with front matter video.id present."
+        }
+      ],
+      "builtArtifactPath": "public/connecting-the-clouds-wedding-or-funeral/index.html",
+      "h1": "Connecting the Clouds: Wedding or funeral",
+      "schemaBlockCount": 2,
+      "schemaBlocks": [
+        {
+          "index": 0,
+          "result": "pass",
+          "types": [
+            "VideoObject"
+          ],
+          "findings": []
+        },
+        {
+          "index": 1,
+          "result": "pass",
+          "types": [
+            "BreadcrumbList"
+          ],
+          "findings": []
+        }
+      ],
+      "schemaNodes": [
+        {
+          "index": 0,
+          "types": [
+            "VideoObject"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": [
+            {
+              "url": "https://www.rhino-inquisitor.com/connecting-the-clouds-wedding-or-funeral/image-2-d99b4ba03b_hu_414112bc82f2c42d.webp",
+              "resolved": true,
+              "assetPath": "public/connecting-the-clouds-wedding-or-funeral/image-2-d99b4ba03b_hu_414112bc82f2c42d.webp",
+              "findings": [],
+              "warnings": []
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "types": [
+            "BreadcrumbList"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": []
+        }
+      ],
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": []
+    },
+    {
+      "route": "/cookie-policy-eu/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/cookie-policy-eu/",
+      "sources": [
+        {
+          "group": "privacy_legal_pages",
+          "family": "legal",
+          "title": "Cookie Policy (EU)",
+          "contentPath": "src/content/pages/cookie-policy-eu/index.md",
+          "selectionReason": "Legal/privacy route matched the deterministic keyword allowlist."
+        }
+      ],
+      "builtArtifactPath": "public/cookie-policy-eu/index.html",
+      "h1": "Cookie Policy (EU)",
+      "schemaBlockCount": 1,
+      "schemaBlocks": [
+        {
+          "index": 0,
+          "result": "pass",
+          "types": [
+            "BreadcrumbList"
+          ],
+          "findings": []
+        }
+      ],
+      "schemaNodes": [
+        {
+          "index": 0,
+          "types": [
+            "BreadcrumbList"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": []
+        }
+      ],
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": []
+    },
+    {
+      "route": "/field-guide-to-custom-caches-in-sfcc/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/field-guide-to-custom-caches-in-sfcc/",
+      "sources": [
+        {
+          "group": "recent_posts",
+          "family": "post",
+          "title": "Field Guide to Custom Caches: Wielding a Double-Edged Sword",
+          "contentPath": "src/content/posts/field-guide-to-custom-caches-in-sfcc/index.md",
+          "selectionReason": "Recent post rank 8 by front matter date descending."
+        }
+      ],
+      "builtArtifactPath": "public/field-guide-to-custom-caches-in-sfcc/index.html",
+      "h1": "Field Guide to Custom Caches: Wielding a Double-Edged Sword",
+      "schemaBlockCount": 2,
+      "schemaBlocks": [
+        {
+          "index": 0,
+          "result": "pass",
+          "types": [
+            "BlogPosting"
+          ],
+          "findings": []
+        },
+        {
+          "index": 1,
+          "result": "pass",
+          "types": [
+            "BreadcrumbList"
+          ],
+          "findings": []
+        }
+      ],
+      "schemaNodes": [
+        {
+          "index": 0,
+          "types": [
+            "BlogPosting"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": [
+            {
+              "url": "https://www.rhino-inquisitor.com/field-guide-to-custom-caches-in-sfcc/custom-caches-in-sfcc-scaled-c245e83c7a_hu_5edfebe0ecd27964.webp",
+              "resolved": true,
+              "assetPath": "public/field-guide-to-custom-caches-in-sfcc/custom-caches-in-sfcc-scaled-c245e83c7a_hu_5edfebe0ecd27964.webp",
+              "findings": [],
+              "warnings": []
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "types": [
+            "BreadcrumbList"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": []
+        }
+      ],
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": []
+    },
+    {
+      "route": "/headless/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/headless/",
+      "sources": [
+        {
+          "group": "video_pages",
+          "family": "video-page",
+          "title": "Headless",
+          "contentPath": "src/content/pages/headless/index.md",
+          "selectionReason": "Video-capable page with front matter video.id present."
+        }
+      ],
+      "builtArtifactPath": "public/headless/index.html",
+      "h1": "Headless",
+      "schemaBlockCount": 2,
+      "schemaBlocks": [
+        {
+          "index": 0,
+          "result": "pass",
+          "types": [
+            "VideoObject"
+          ],
+          "findings": []
+        },
+        {
+          "index": 1,
+          "result": "pass",
+          "types": [
+            "BreadcrumbList"
+          ],
+          "findings": []
+        }
+      ],
+      "schemaNodes": [
+        {
+          "index": 0,
+          "types": [
+            "VideoObject"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": [
+            {
+              "url": "https://www.rhino-inquisitor.com/headless/headless-b54918a1ae_hu_5566e544fd276d2a.webp",
+              "resolved": true,
+              "assetPath": "public/headless/headless-b54918a1ae_hu_5566e544fd276d2a.webp",
+              "findings": [],
+              "warnings": []
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "types": [
+            "BreadcrumbList"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": []
+        }
+      ],
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": []
+    },
+    {
+      "route": "/kickstart-guide-for-new-sfcc-developers/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/kickstart-guide-for-new-sfcc-developers/",
+      "sources": [
+        {
+          "group": "recent_posts",
+          "family": "post",
+          "title": "The Kickstart Guide for New Salesforce B2C Commerce Developers",
+          "contentPath": "src/content/posts/kickstart-guide-for-new-sfcc-developers/index.md",
+          "selectionReason": "Recent post rank 3 by front matter date descending."
+        }
+      ],
+      "builtArtifactPath": "public/kickstart-guide-for-new-sfcc-developers/index.html",
+      "h1": "The Kickstart Guide for New Salesforce B2C Commerce Developers",
+      "schemaBlockCount": 2,
+      "schemaBlocks": [
+        {
+          "index": 0,
+          "result": "pass",
+          "types": [
+            "BlogPosting"
+          ],
+          "findings": []
+        },
+        {
+          "index": 1,
+          "result": "pass",
+          "types": [
+            "BreadcrumbList"
+          ],
+          "findings": []
+        }
+      ],
+      "schemaNodes": [
+        {
+          "index": 0,
+          "types": [
+            "BlogPosting"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": [
+            {
+              "url": "https://www.rhino-inquisitor.com/kickstart-guide-for-new-sfcc-developers/the-new-salesforce-developer-scaled-1f8ff6fbac_hu_fa51b5a852f6f4eb.webp",
+              "resolved": true,
+              "assetPath": "public/kickstart-guide-for-new-sfcc-developers/the-new-salesforce-developer-scaled-1f8ff6fbac_hu_fa51b5a852f6f4eb.webp",
+              "findings": [],
+              "warnings": []
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "types": [
+            "BreadcrumbList"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": []
+        }
+      ],
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": []
+    },
+    {
+      "route": "/me-myself-and-headless-a-composable-commerce-cloud-story/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/me-myself-and-headless-a-composable-commerce-cloud-story/",
+      "sources": [
+        {
+          "group": "video_pages",
+          "family": "video-page",
+          "title": "Me, Myself, and Headless: A Composable Commerce Cloud story",
+          "contentPath": "src/content/pages/me-myself-and-headless-a-composable-commerce-cloud-story/index.md",
+          "selectionReason": "Video-capable page with front matter video.id present."
+        }
+      ],
+      "builtArtifactPath": "public/me-myself-and-headless-a-composable-commerce-cloud-story/index.html",
+      "h1": "Me, Myself, and Headless: A Composable Commerce Cloud story",
+      "schemaBlockCount": 2,
+      "schemaBlocks": [
+        {
+          "index": 0,
+          "result": "pass",
+          "types": [
+            "VideoObject"
+          ],
+          "findings": []
+        },
+        {
+          "index": 1,
+          "result": "pass",
+          "types": [
+            "BreadcrumbList"
+          ],
+          "findings": []
+        }
+      ],
+      "schemaNodes": [
+        {
+          "index": 0,
+          "types": [
+            "VideoObject"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": [
+            {
+              "url": "https://www.rhino-inquisitor.com/me-myself-and-headless-a-composable-commerce-cloud-story/image-596c8a1379_hu_fe30b669a6827785.webp",
+              "resolved": true,
+              "assetPath": "public/me-myself-and-headless-a-composable-commerce-cloud-story/image-596c8a1379_hu_fe30b669a6827785.webp",
+              "findings": [],
+              "warnings": []
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "types": [
+            "BreadcrumbList"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": []
+        }
+      ],
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": []
+    },
+    {
+      "route": "/posts/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/posts/",
+      "sources": [
+        {
+          "group": "archive_pages",
+          "family": "archive",
+          "title": null,
+          "contentPath": null,
+          "selectionReason": "Section list route emitted by Hugo outputs and retained to cover list rendering behavior."
+        }
+      ],
+      "builtArtifactPath": "public/posts/index.html",
+      "h1": "Posts",
+      "schemaBlockCount": 1,
+      "schemaBlocks": [
+        {
+          "index": 0,
+          "result": "pass",
+          "types": [
+            "BreadcrumbList"
+          ],
+          "findings": []
+        }
+      ],
+      "schemaNodes": [
+        {
+          "index": 0,
+          "types": [
+            "BreadcrumbList"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": []
+        }
+      ],
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": []
+    },
+    {
+      "route": "/privacy-policy/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/privacy-policy/",
+      "sources": [
+        {
+          "group": "privacy_legal_pages",
+          "family": "legal",
+          "title": "Privacy Policy",
+          "contentPath": "src/content/pages/privacy-policy/index.md",
+          "selectionReason": "Legal/privacy route matched the deterministic keyword allowlist."
+        }
+      ],
+      "builtArtifactPath": "public/privacy-policy/index.html",
+      "h1": "Privacy Policy",
+      "schemaBlockCount": 1,
+      "schemaBlocks": [
+        {
+          "index": 0,
+          "result": "pass",
+          "types": [
+            "BreadcrumbList"
+          ],
+          "findings": []
+        }
+      ],
+      "schemaNodes": [
+        {
+          "index": 0,
+          "types": [
+            "BreadcrumbList"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": []
+        }
+      ],
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": []
+    },
+    {
+      "route": "/real-time-inventory-checks-in-sfcc/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/real-time-inventory-checks-in-sfcc/",
+      "sources": [
+        {
+          "group": "recent_posts",
+          "family": "post",
+          "title": "Real-Time Inventory Checks in SFCC",
+          "contentPath": "src/content/posts/real-time-inventory-checks-in-sfcc/index.md",
+          "selectionReason": "Recent post rank 1 by front matter date descending."
+        }
+      ],
+      "builtArtifactPath": "public/real-time-inventory-checks-in-sfcc/index.html",
+      "h1": "Real-Time Inventory Checks in SFCC",
+      "schemaBlockCount": 2,
+      "schemaBlocks": [
+        {
+          "index": 0,
+          "result": "pass",
+          "types": [
+            "BlogPosting"
+          ],
+          "findings": []
+        },
+        {
+          "index": 1,
+          "result": "pass",
+          "types": [
+            "BreadcrumbList"
+          ],
+          "findings": []
+        }
+      ],
+      "schemaNodes": [
+        {
+          "index": 0,
+          "types": [
+            "BlogPosting"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": [
+            {
+              "url": "https://www.rhino-inquisitor.com/real-time-inventory-checks-in-sfcc/stampede-to-a-single-endpoin-t-scaled-2d591aef78_hu_da6c14e421bc341b.webp",
+              "resolved": true,
+              "assetPath": "public/real-time-inventory-checks-in-sfcc/stampede-to-a-single-endpoin-t-scaled-2d591aef78_hu_da6c14e421bc341b.webp",
+              "findings": [],
+              "warnings": []
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "types": [
+            "BreadcrumbList"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": []
+        }
+      ],
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": []
+    },
+    {
+      "route": "/salesforce-b2c-commerce-cloud-22-9-release/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-22-9-release/",
+      "sources": [
+        {
+          "group": "video_posts",
+          "family": "video-post",
+          "title": "Salesforce B2C Commerce Cloud 22.9 release",
+          "contentPath": "src/content/posts/salesforce-b2c-commerce-cloud-22-9-release/index.md",
+          "selectionReason": "Video-capable post with front matter video.id present."
+        }
+      ],
+      "builtArtifactPath": "public/salesforce-b2c-commerce-cloud-22-9-release/index.html",
+      "h1": "Salesforce B2C Commerce Cloud 22.9 release",
+      "schemaBlockCount": 3,
+      "schemaBlocks": [
+        {
+          "index": 0,
+          "result": "pass",
+          "types": [
+            "BlogPosting"
+          ],
+          "findings": []
+        },
+        {
+          "index": 1,
+          "result": "pass",
+          "types": [
+            "VideoObject"
+          ],
+          "findings": []
+        },
+        {
+          "index": 2,
+          "result": "pass",
+          "types": [
+            "BreadcrumbList"
+          ],
+          "findings": []
+        }
+      ],
+      "schemaNodes": [
+        {
+          "index": 0,
+          "types": [
+            "BlogPosting"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": [
+            {
+              "url": "https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-22-9-release/copy-paste-page-designer-full-d97d9a9ee9_hu_eff7d47bdd25d99e.webp",
+              "resolved": true,
+              "assetPath": "public/salesforce-b2c-commerce-cloud-22-9-release/copy-paste-page-designer-full-d97d9a9ee9_hu_eff7d47bdd25d99e.webp",
+              "findings": [],
+              "warnings": []
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "types": [
+            "VideoObject"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": [
+            {
+              "url": "https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-22-9-release/copy-paste-page-designer-full-d97d9a9ee9_hu_eff7d47bdd25d99e.webp",
+              "resolved": true,
+              "assetPath": "public/salesforce-b2c-commerce-cloud-22-9-release/copy-paste-page-designer-full-d97d9a9ee9_hu_eff7d47bdd25d99e.webp",
+              "findings": [],
+              "warnings": []
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "types": [
+            "BreadcrumbList"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": []
+        }
+      ],
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": []
+    },
+    {
+      "route": "/sfcc-introduction/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/sfcc-introduction/",
+      "sources": [
+        {
+          "group": "video_posts",
+          "family": "video-post",
+          "title": "B2C Commerce Cloud: Features and Tech Stacks",
+          "contentPath": "src/content/posts/sfcc-introduction/index.md",
+          "selectionReason": "Video-capable post with front matter video.id present."
+        }
+      ],
+      "builtArtifactPath": "public/sfcc-introduction/index.html",
+      "h1": "B2C Commerce Cloud: Features and Tech Stacks",
+      "schemaBlockCount": 3,
+      "schemaBlocks": [
+        {
+          "index": 0,
+          "result": "pass",
+          "types": [
+            "BlogPosting"
+          ],
+          "findings": []
+        },
+        {
+          "index": 1,
+          "result": "pass",
+          "types": [
+            "VideoObject"
+          ],
+          "findings": []
+        },
+        {
+          "index": 2,
+          "result": "pass",
+          "types": [
+            "BreadcrumbList"
+          ],
+          "findings": []
+        }
+      ],
+      "schemaNodes": [
+        {
+          "index": 0,
+          "types": [
+            "BlogPosting"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": [
+            {
+              "url": "https://www.rhino-inquisitor.com/sfcc-introduction/b2c-commerce-cloud-introduction-323fe8bb6c_hu_db0cfc4501e81354.webp",
+              "resolved": true,
+              "assetPath": "public/sfcc-introduction/b2c-commerce-cloud-introduction-323fe8bb6c_hu_db0cfc4501e81354.webp",
+              "findings": [],
+              "warnings": []
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "types": [
+            "VideoObject"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": [
+            {
+              "url": "https://www.rhino-inquisitor.com/sfcc-introduction/b2c-commerce-cloud-introduction-323fe8bb6c_hu_db0cfc4501e81354.webp",
+              "resolved": true,
+              "assetPath": "public/sfcc-introduction/b2c-commerce-cloud-introduction-323fe8bb6c_hu_db0cfc4501e81354.webp",
+              "findings": [],
+              "warnings": []
+            }
+          ]
+        },
+        {
+          "index": 2,
+          "types": [
+            "BreadcrumbList"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": []
+        }
+      ],
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": []
+    },
+    {
+      "route": "/slas-in-sfra-or-sitegenesis/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/slas-in-sfra-or-sitegenesis/",
+      "sources": [
+        {
+          "group": "recent_posts",
+          "family": "post",
+          "title": "SLAS Session Sync in SFRA and SiteGenesis",
+          "contentPath": "src/content/posts/slas-in-sfra-or-sitegenesis/index.md",
+          "selectionReason": "Recent post rank 9 by front matter date descending."
+        }
+      ],
+      "builtArtifactPath": "public/slas-in-sfra-or-sitegenesis/index.html",
+      "h1": "SLAS Session Sync in SFRA and SiteGenesis",
+      "schemaBlockCount": 2,
+      "schemaBlocks": [
+        {
+          "index": 0,
+          "result": "pass",
+          "types": [
+            "BlogPosting"
+          ],
+          "findings": []
+        },
+        {
+          "index": 1,
+          "result": "pass",
+          "types": [
+            "BreadcrumbList"
+          ],
+          "findings": []
+        }
+      ],
+      "schemaNodes": [
+        {
+          "index": 0,
+          "types": [
+            "BlogPosting"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": [
+            {
+              "url": "https://www.rhino-inquisitor.com/slas-in-sfra-or-sitegenesis/slas-84866c9e46_hu_f015beeebdc333d1.webp",
+              "resolved": true,
+              "assetPath": "public/slas-in-sfra-or-sitegenesis/slas-84866c9e46_hu_f015beeebdc333d1.webp",
+              "findings": [],
+              "warnings": []
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "types": [
+            "BreadcrumbList"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": []
+        }
+      ],
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": []
+    },
+    {
+      "route": "/taming-the-beast-a-developers-deep-dive-into-sfcc-meta-tag-rules/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/taming-the-beast-a-developers-deep-dive-into-sfcc-meta-tag-rules/",
+      "sources": [
+        {
+          "group": "recent_posts",
+          "family": "post",
+          "title": "Deep Dive into SFCC Meta Tag Rules",
+          "contentPath": "src/content/posts/taming-the-beast-a-developers-deep-dive-into-sfcc-meta-tag-rules/index.md",
+          "selectionReason": "Recent post rank 7 by front matter date descending."
+        }
+      ],
+      "builtArtifactPath": "public/taming-the-beast-a-developers-deep-dive-into-sfcc-meta-tag-rules/index.html",
+      "h1": "Deep Dive into SFCC Meta Tag Rules",
+      "schemaBlockCount": 2,
+      "schemaBlocks": [
+        {
+          "index": 0,
+          "result": "pass",
+          "types": [
+            "BlogPosting"
+          ],
+          "findings": []
+        },
+        {
+          "index": 1,
+          "result": "pass",
+          "types": [
+            "BreadcrumbList"
+          ],
+          "findings": []
+        }
+      ],
+      "schemaNodes": [
+        {
+          "index": 0,
+          "types": [
+            "BlogPosting"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": [
+            {
+              "url": "https://www.rhino-inquisitor.com/taming-the-beast-a-developers-deep-dive-into-sfcc-meta-tag-rules/sfcc-meta-tag-rules-scaled-149974a893_hu_b7d221ebb5dddda8.webp",
+              "resolved": true,
+              "assetPath": "public/taming-the-beast-a-developers-deep-dive-into-sfcc-meta-tag-rules/sfcc-meta-tag-rules-scaled-149974a893_hu_b7d221ebb5dddda8.webp",
+              "findings": [],
+              "warnings": []
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "types": [
+            "BreadcrumbList"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": []
+        }
+      ],
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": []
+    },
+    {
+      "route": "/the-path-to-being-an-architect/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/the-path-to-being-an-architect/",
+      "sources": [
+        {
+          "group": "video_pages",
+          "family": "video-page",
+          "title": "The path to being an Architect",
+          "contentPath": "src/content/pages/the-path-to-being-an-architect/index.md",
+          "selectionReason": "Video-capable page with front matter video.id present."
+        }
+      ],
+      "builtArtifactPath": "public/the-path-to-being-an-architect/index.html",
+      "h1": "The path to being an Architect",
+      "schemaBlockCount": 2,
+      "schemaBlocks": [
+        {
+          "index": 0,
+          "result": "pass",
+          "types": [
+            "VideoObject"
+          ],
+          "findings": []
+        },
+        {
+          "index": 1,
+          "result": "pass",
+          "types": [
+            "BreadcrumbList"
+          ],
+          "findings": []
+        }
+      ],
+      "schemaNodes": [
+        {
+          "index": 0,
+          "types": [
+            "VideoObject"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": [
+            {
+              "url": "https://www.rhino-inquisitor.com/the-path-to-being-an-architect/path-to-being-an-architect-576cef411b_hu_e771a69029418bae.webp",
+              "resolved": true,
+              "assetPath": "public/the-path-to-being-an-architect/path-to-being-an-architect-576cef411b_hu_e771a69029418bae.webp",
+              "findings": [],
+              "warnings": []
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "types": [
+            "BreadcrumbList"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": []
+        }
+      ],
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": []
+    },
+    {
+      "route": "/the-realm-split-field-guide-to-migrating-an-sfcc-site/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/the-realm-split-field-guide-to-migrating-an-sfcc-site/",
+      "sources": [
+        {
+          "group": "recent_posts",
+          "family": "post",
+          "title": "Realm Split Guide for Migrating an SFCC Site",
+          "contentPath": "src/content/posts/the-realm-split-field-guide-to-migrating-an-sfcc-site/index.md",
+          "selectionReason": "Recent post rank 6 by front matter date descending."
+        }
+      ],
+      "builtArtifactPath": "public/the-realm-split-field-guide-to-migrating-an-sfcc-site/index.html",
+      "h1": "Realm Split Guide for Migrating an SFCC Site",
+      "schemaBlockCount": 2,
+      "schemaBlocks": [
+        {
+          "index": 0,
+          "result": "pass",
+          "types": [
+            "BlogPosting"
+          ],
+          "findings": []
+        },
+        {
+          "index": 1,
+          "result": "pass",
+          "types": [
+            "BreadcrumbList"
+          ],
+          "findings": []
+        }
+      ],
+      "schemaNodes": [
+        {
+          "index": 0,
+          "types": [
+            "BlogPosting"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": [
+            {
+              "url": "https://www.rhino-inquisitor.com/the-realm-split-field-guide-to-migrating-an-sfcc-site/realm-split-in-sfcc-c392b8965d_hu_ae62165e9e8bff6c.webp",
+              "resolved": true,
+              "assetPath": "public/the-realm-split-field-guide-to-migrating-an-sfcc-site/realm-split-in-sfcc-c392b8965d_hu_ae62165e9e8bff6c.webp",
+              "findings": [],
+              "warnings": []
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "types": [
+            "BreadcrumbList"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": []
+        }
+      ],
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": []
+    },
+    {
+      "route": "/the-sfcc-guide-to-finding-pod-numbers/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/the-sfcc-guide-to-finding-pod-numbers/",
+      "sources": [
+        {
+          "group": "recent_posts",
+          "family": "post",
+          "title": "The Ultimate SFCC Guide to Finding Your POD Number",
+          "contentPath": "src/content/posts/the-sfcc-guide-to-finding-pod-numbers/index.md",
+          "selectionReason": "Recent post rank 10 by front matter date descending."
+        }
+      ],
+      "builtArtifactPath": "public/the-sfcc-guide-to-finding-pod-numbers/index.html",
+      "h1": "The Ultimate SFCC Guide to Finding Your POD Number",
+      "schemaBlockCount": 2,
+      "schemaBlocks": [
+        {
+          "index": 0,
+          "result": "pass",
+          "types": [
+            "BlogPosting"
+          ],
+          "findings": []
+        },
+        {
+          "index": 1,
+          "result": "pass",
+          "types": [
+            "BreadcrumbList"
+          ],
+          "findings": []
+        }
+      ],
+      "schemaNodes": [
+        {
+          "index": 0,
+          "types": [
+            "BlogPosting"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": [
+            {
+              "url": "https://www.rhino-inquisitor.com/the-sfcc-guide-to-finding-pod-numbers/sfcc-finding-your-pod-number-scaled-6830449d2b_hu_4ad57f4627b6f922.webp",
+              "resolved": true,
+              "assetPath": "public/the-sfcc-guide-to-finding-pod-numbers/sfcc-finding-your-pod-number-scaled-6830449d2b_hu_4ad57f4627b6f922.webp",
+              "findings": [],
+              "warnings": []
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "types": [
+            "BreadcrumbList"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": []
+        }
+      ],
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": []
+    },
+    {
+      "route": "/video/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/video/",
+      "sources": [
+        {
+          "group": "video_pages",
+          "family": "video-page",
+          "title": "Video",
+          "contentPath": "src/content/pages/video/index.md",
+          "selectionReason": "Video-capable page with front matter video.id present."
+        }
+      ],
+      "builtArtifactPath": "public/video/index.html",
+      "h1": "Video Appearances",
+      "schemaBlockCount": 2,
+      "schemaBlocks": [
+        {
+          "index": 0,
+          "result": "pass",
+          "types": [
+            "VideoObject"
+          ],
+          "findings": []
+        },
+        {
+          "index": 1,
+          "result": "pass",
+          "types": [
+            "BreadcrumbList"
+          ],
+          "findings": []
+        }
+      ],
+      "schemaNodes": [
+        {
+          "index": 0,
+          "types": [
+            "VideoObject"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": [
+            {
+              "url": "https://www.rhino-inquisitor.com/video/maxresdefault-7015ae5c52_hu_776489661e91bf27.webp",
+              "resolved": true,
+              "assetPath": "public/video/maxresdefault-7015ae5c52_hu_776489661e91bf27.webp",
+              "findings": [],
+              "warnings": []
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "types": [
+            "BreadcrumbList"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": []
+        }
+      ],
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": []
+    },
+    {
+      "route": "/your-definitive-mobile-app-checklist/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/your-definitive-mobile-app-checklist/",
+      "sources": [
+        {
+          "group": "recent_posts",
+          "family": "post",
+          "title": "Mobile App Launch Checklist for Commerce Teams",
+          "contentPath": "src/content/posts/your-definitive-mobile-app-checklist/index.md",
+          "selectionReason": "Recent post rank 4 by front matter date descending."
+        }
+      ],
+      "builtArtifactPath": "public/your-definitive-mobile-app-checklist/index.html",
+      "h1": "Mobile App Launch Checklist for Commerce Teams",
+      "schemaBlockCount": 2,
+      "schemaBlocks": [
+        {
+          "index": 0,
+          "result": "pass",
+          "types": [
+            "BlogPosting"
+          ],
+          "findings": []
+        },
+        {
+          "index": 1,
+          "result": "pass",
+          "types": [
+            "BreadcrumbList"
+          ],
+          "findings": []
+        }
+      ],
+      "schemaNodes": [
+        {
+          "index": 0,
+          "types": [
+            "BlogPosting"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": [
+            {
+              "url": "https://www.rhino-inquisitor.com/your-definitive-mobile-app-checklist/headless-app-go-live-scaled-89b046ecca_hu_fe14a4150c5c3fee.webp",
+              "resolved": true,
+              "assetPath": "public/your-definitive-mobile-app-checklist/headless-app-go-live-scaled-89b046ecca_hu_fe14a4150c5c3fee.webp",
+              "findings": [],
+              "warnings": []
+            }
+          ]
+        },
+        {
+          "index": 1,
+          "types": [
+            "BreadcrumbList"
+          ],
+          "result": "pass",
+          "findings": [],
+          "warnings": [],
+          "imageChecks": []
+        }
+      ],
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": []
+    }
+  ]
 }

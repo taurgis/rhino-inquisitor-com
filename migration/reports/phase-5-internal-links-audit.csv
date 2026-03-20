@@ -5150,7 +5150,7 @@ link,pass,info,ok,pagination,/pages/page/2/,/posts/,https://www.rhino-inquisitor
 link,pass,info,ok,pagination,/pages/page/2/,/privacy-policy/,https://www.rhino-inquisitor.com/privacy-policy/,Privacy,navigation,yes,no,,,Internal link resolves to an existing target.
 link,pass,info,ok,pagination,/pages/page/2/,/versioning-of-content-assets/,https://www.rhino-inquisitor.com/versioning-of-content-assets/,Versioning of Content Assets,content,yes,no,,,Internal link resolves to an existing target.
 link,pass,info,ok,pagination,/pages/page/2/,/versioning-of-content-assets/,https://www.rhino-inquisitor.com/versioning-of-content-assets/,Open article,content,yes,no,,,Internal link resolves to an existing target.
-link,pass,info,ok,pagination,/pages/page/2/,/video/,https://www.rhino-inquisitor.com/video/,Video,content,yes,no,,,Internal link resolves to an existing target.
+link,pass,info,ok,pagination,/pages/page/2/,/video/,https://www.rhino-inquisitor.com/video/,Video Appearances,content,yes,no,,,Internal link resolves to an existing target.
 link,pass,info,ok,pagination,/pages/page/2/,/video/,https://www.rhino-inquisitor.com/video/,Open article,content,yes,no,,,Internal link resolves to an existing target.
 page,pass,info,page-ok,pagination,/pages/page/2/,,,,,yes,no,2,3,Page passed internal-link and IA validation.
 link,pass,info,ok,pagination,/pages/page/3/,/about/,/about/,About,navigation,yes,no,,,Internal link resolves to an existing target.

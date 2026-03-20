@@ -87,7 +87,9 @@
     "check:url-parity:p8": "node scripts/phase-8/check-url-parity.js",
     "check:redirect-quality": "node scripts/phase-8/check-redirect-quality.js",
     "check:seo-consistency": "node scripts/phase-8/check-seo-consistency.js",
-    "check:robots-sitemap": "node scripts/phase-8/check-robots-sitemap.js"
+    "check:robots-sitemap": "node scripts/phase-8/check-robots-sitemap.js",
+    "check:structured-data": "node scripts/phase-8/check-structured-data.js",
+    "check:social-preview": "node scripts/phase-8/check-social-preview.js"
   },
   "dependencies": {
     "@joplin/turndown-plugin-gfm": "^1.0.64",

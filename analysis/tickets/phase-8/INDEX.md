@@ -16,8 +16,8 @@
 | [RHI-083](RHI-083-phase-8-bootstrap.md) | Phase 8 Bootstrap: Kickoff and Validation Environment Setup | Setup | Critical | Done | S | 2026-06-03 | RHI-082 |
 | [RHI-084](RHI-084-rc-freeze-validation-dataset.md) | Workstream A — Release Candidate Freeze and Validation Dataset | WS-A | Critical | Done | M | 2026-06-04 | RHI-083 |
 | [RHI-085](RHI-085-url-parity-redirect-integrity-gates.md) | Workstream B — URL Parity and Redirect Integrity Gates | WS-B | Critical | Done | L | 2026-06-06 | RHI-084 |
-| [RHI-086](RHI-086-seo-indexing-readiness-gates.md) | Workstream C — SEO and Indexing Readiness Gates | WS-C | Critical | Open | M | 2026-06-06 | RHI-084 |
-| [RHI-087](RHI-087-structured-data-social-preview-gates.md) | Workstream D — Structured Data and Social Preview Gates | WS-D | High | Open | M | 2026-06-09 | RHI-084 |
+| [RHI-086](RHI-086-seo-indexing-readiness-gates.md) | Workstream C — SEO and Indexing Readiness Gates | WS-C | Critical | Done | M | 2026-06-06 | RHI-084 |
+| [RHI-087](RHI-087-structured-data-social-preview-gates.md) | Workstream D — Structured Data and Social Preview Gates | WS-D | High | Done | M | 2026-06-09 | RHI-084 |
 | [RHI-088](RHI-088-performance-core-web-vitals-gates.md) | Workstream E — Performance and Core Web Vitals Gates | WS-E | High | Open | M | 2026-06-09 | RHI-084 |
 | [RHI-089](RHI-089-accessibility-markup-conformance-gates.md) | Workstream F — Accessibility and Markup Conformance Gates | WS-F | High | Open | M | 2026-06-09 | RHI-084 |
 | [RHI-090](RHI-090-security-https-readiness-gates.md) | Workstream G — Security and HTTPS Readiness Gates | WS-G | High | Open | S | 2026-06-10 | RHI-084 |
@@ -147,8 +147,8 @@ All items below must be complete before Phase 9 monitoring and cutover activitie
 - [ ] RHI-083 Done — Phase 8 Bootstrap; Phase 7 contracts confirmed; RC identified; team and tools established
 - [x] RHI-084 Done — RC frozen with `phase-8-rc-v1` tag; expected-outcomes, sample matrix, and priority routes committed
 - [x] RHI-085 Done — URL parity and redirect integrity gates passing; reports committed and signed off
-- [ ] RHI-086 Done — SEO consistency, sitemap, and robots.txt gates passing; reports committed and signed off
-- [ ] RHI-087 Done — Structured data and social preview gates passing; Rich Results Test evidence committed
+- [x] RHI-086 Done — SEO consistency, sitemap, and robots.txt gates passing; reports committed and signed off
+- [x] RHI-087 Done — Structured data and social preview gates passing; Rich Results Test evidence committed
 - [ ] RHI-088 Done — Lighthouse CI blocking thresholds passing; performance budget report committed
 - [ ] RHI-089 Done — Axe accessibility gate passing; manual checklist completed; HTML conformance gate passing
 - [ ] RHI-090 Done — HTTPS enforcement confirmed; no mixed content; CAA and domain verification checked

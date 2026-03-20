@@ -166,7 +166,7 @@ Execute the full pre-launch rehearsal — running every gate suite against the R
 | RHI-084 Done — RC frozen, validation dataset committed | Ticket | Pending |
 | RHI-085 Done — URL parity and redirect integrity gates passing | Ticket | Done |
 | RHI-086 Done — SEO and indexing readiness gates passing | Ticket | Pending |
-| RHI-087 Done — Structured data and social preview gates passing | Ticket | Pending |
+| RHI-087 Done — Structured data and social preview gates passing | Ticket | Done |
 | RHI-088 Done — Performance and CWV gates passing | Ticket | Pending |
 | RHI-089 Done — Accessibility and HTML conformance gates passing | Ticket | Pending |
 | RHI-090 Done — Security and HTTPS readiness gates passing | Ticket | Pending |
