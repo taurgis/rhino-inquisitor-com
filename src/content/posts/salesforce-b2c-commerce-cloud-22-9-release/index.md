@@ -48,7 +48,7 @@ A big update to Page Designer as it will now be possible to copy and paste compo
 
 Idea: This [feature](https://ideas.salesforce.com/s/idea/a0B8W00000GdYHjUAN/page-designer-add-ability-to-copypaste-components) was initially submitted by [Ryan Rubis](https://www.linkedin.com/in/ryanrubis/).
 
-{{< video-embed id="jYaOZQcWHLI" title="SFCC Page Designer: Copy & Paste" >}}
+Watch the feature walkthrough on [YouTube](https://www.youtube.com/watch?v=jYaOZQcWHLI). The release notes and analysis continue below.
 
 ### Target components to a specific locale in Page Designer
 

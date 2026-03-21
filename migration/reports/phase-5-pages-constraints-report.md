@@ -1,6 +1,6 @@
 # Phase 5 Pages Constraints Report
 
-Generated: 2026-03-21T06:37:44.794Z
+Generated: 2026-03-21T07:07:50.752Z
 
 ## Artifact summary
 
@@ -15,7 +15,7 @@ Generated: 2026-03-21T06:37:44.794Z
 | Headroom to 1 GB Pages limit | 442.43 MB | Remaining space before the GitHub Pages hard limit |
 | Artifact file count | 1218 | Regular files in public/ |
 | Artifact directory count | 250 | Directories in public/ excluding root |
-| Production build duration | 1.22 s | Reported when supplied by the caller or CI workflow |
+| Production build duration | 1.17 s | Reported when supplied by the caller or CI workflow |
 
 ## Artifact structure conformance
 

@@ -5,7 +5,7 @@
   "status": "pass",
   "rcTag": "phase-8-rc-v2",
   "rcSha": "efdcefce5a51f1a3cf70d6b437b7b2868df39cb8",
-  "generatedAt": "2026-03-21T06:37:51.913Z",
+  "generatedAt": "2026-03-21T07:07:57.897Z",
   "publicDir": "public",
   "sampleMatrix": {
     "path": "validation/sample-matrix.json",
@@ -16,8 +16,8 @@
     "generatedAt": "2026-03-20T19:04:18Z"
   },
   "artifactProvenance": {
-    "gitHead": "65754e0cda445b5741204108d9a558125522ad28",
-    "gitHeadShort": "65754e0c",
+    "gitHead": "a3d5fa45478524c698c6e847405da8bdcbe65e51",
+    "gitHeadShort": "a3d5fa45",
     "workspaceDirty": true,
     "datasetRcTag": "phase-8-rc-v2",
     "datasetRcSha": "efdcefce5a51f1a3cf70d6b437b7b2868df39cb8",
