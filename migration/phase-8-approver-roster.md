@@ -14,7 +14,7 @@ The repository currently operates under the single-owner model used in the Phase
 - Bootstrap status: Done
 - Canonical RC ref: `phase-8-rc-v2` -> `efdcefce`
 - Phase 7 gate evidence URL: `https://github.com/taurgis/rhino-inquisitor-com/actions/runs/23282905074`
-- Go/no-go decision window: Pending owner confirmation
+- Go/no-go decision window: New RHI-091 decision record required; do not reuse the 2026-03-20 bootstrap note as the final WS-H approval
 - Backup contacts: Thomas Theunen under the current single-owner fallback response
 
 ## Approver roster
@@ -33,7 +33,7 @@ The repository currently operates under the single-owner model used in the Phase
 | Read `analysis/plan/details/phase-8.md` | Migration, SEO, Engineering, DNS/Operations | Confirmed 2026-03-20 | Thomas Theunen acknowledged the plan for all four roles under the single-owner model |
 | Reviewed the non-negotiable Phase 8 release gates | Migration, SEO, Engineering, DNS/Operations | Confirmed 2026-03-20 | Thomas Theunen acknowledged the hard-blocker gate list for all four roles under the single-owner model |
 | Agreed the canonical RC ref for validation | Migration, Engineering | Confirmed 2026-03-20 | `phase-8-rc-v2` -> `efdcefce` |
-| Agreed the go/no-go decision window | Migration, SEO, Engineering, DNS/Operations | Pending | Record date, required present, and format here |
+| Agreed the go/no-go decision window | Migration, SEO, Engineering, DNS/Operations | Pending new RHI-091 record | The 2026-03-20 bootstrap note remains historical availability evidence only and is not the final WS-H go/no-go approval |
 
 ## Workstream ownership baseline
 
@@ -54,10 +54,10 @@ The repository currently operates under the single-owner model used in the Phase
 
 | Field | Value |
 |-------|-------|
-| Target date | 2026-03-20 |
-| Required approvers present | Thomas Theunen acting under the single-owner model for migration, SEO, engineering, and DNS/operations |
-| Meeting format | Same-day single-owner approval meeting |
-| Notes | Owner response: "Meeting with myself, today, everything approved." |
+| Target date | Pending new RHI-091 decision record |
+| Required approvers present | To be recorded in `migration/phase-8-go-nogo-decision.md` under the single-owner model |
+| Meeting format | New single-owner RHI-091 decision record required |
+| Notes | Historical note retained for traceability: on 2026-03-20 the owner recorded, "Meeting with myself, today, everything approved." On 2026-03-21 the owner clarified that this bootstrap note must not be reused as the final RHI-091 go/no-go record. |
 
 ## Change log
 
@@ -67,3 +67,4 @@ The repository currently operates under the single-owner model used in the Phase
 | 2026-03-20 | Recorded the owner-approved RC tag `phase-8-rc-v1`, Phase 8 role acknowledgments, and the single-owner workstream assignment baseline. |
 | 2026-03-20 | Recorded the Phase 8 go/no-go decision window as a same-day single-owner approval meeting with all required roles represented by Thomas Theunen. |
 | 2026-03-20 | Updated the canonical RC reference to `phase-8-rc-v2` after the RHI-088 performance remediation re-cut. |
+| 2026-03-21 | Owner clarified that the 2026-03-20 bootstrap note is not the final RHI-091 go/no-go approval and that a new WS-H decision record is required. |

@@ -18,10 +18,10 @@
 | [RHI-085](RHI-085-url-parity-redirect-integrity-gates.md) | Workstream B — URL Parity and Redirect Integrity Gates | WS-B | Critical | Done | L | 2026-06-06 | RHI-084 |
 | [RHI-086](RHI-086-seo-indexing-readiness-gates.md) | Workstream C — SEO and Indexing Readiness Gates | WS-C | Critical | Done | M | 2026-06-06 | RHI-084 |
 | [RHI-087](RHI-087-structured-data-social-preview-gates.md) | Workstream D — Structured Data and Social Preview Gates | WS-D | High | Done | M | 2026-06-09 | RHI-084 |
-| [RHI-088](RHI-088-performance-core-web-vitals-gates.md) | Workstream E — Performance and Core Web Vitals Gates | WS-E | High | Open | M | 2026-06-09 | RHI-084 |
-| [RHI-089](RHI-089-accessibility-markup-conformance-gates.md) | Workstream F — Accessibility and Markup Conformance Gates | WS-F | High | Open | M | 2026-06-09 | RHI-084 |
-| [RHI-090](RHI-090-security-https-readiness-gates.md) | Workstream G — Security and HTTPS Readiness Gates | WS-G | High | Open | S | 2026-06-10 | RHI-084 |
-| [RHI-091](RHI-091-operational-readiness-go-nogo.md) | Workstream H — Operational Readiness, Rehearsal, and Go/No-Go | WS-H | Critical | Open | M | 2026-06-11 | RHI-085 through RHI-090 |
+| [RHI-088](RHI-088-performance-core-web-vitals-gates.md) | Workstream E — Performance and Core Web Vitals Gates | WS-E | High | Done | M | 2026-06-09 | RHI-084 |
+| [RHI-089](RHI-089-accessibility-markup-conformance-gates.md) | Workstream F — Accessibility and Markup Conformance Gates | WS-F | High | Done | M | 2026-06-09 | RHI-084 |
+| [RHI-090](RHI-090-security-https-readiness-gates.md) | Workstream G — Security and HTTPS Readiness Gates | WS-G | High | Done | S | 2026-06-10 | RHI-084 |
+| [RHI-091](RHI-091-operational-readiness-go-nogo.md) | Workstream H — Operational Readiness, Rehearsal, and Go/No-Go | WS-H | Critical | In Progress | M | 2026-06-11 | RHI-085 through RHI-090 |
 | [RHI-092](RHI-092-phase-8-signoff.md) | Phase 8 Sign-off and Handover to Phase 9 | Sign-off | Critical | Open | S | 2026-06-13 | RHI-083 through RHI-091 |
 
 ---
@@ -106,6 +106,8 @@ RHI-082 (Phase 7 Sign-off)
 | HTTPS security gate script | RHI-090 | `scripts/phase-8/check-https-security.js` |
 | HTTPS security report | RHI-090 | `validation/https-security-report.json` |
 | Security header decision doc | RHI-090 | `migration/phase-8-security-header-decision.md` |
+| Preview launch readiness report | RHI-091 | `validation/preview-launch-readiness-report.json` |
+| Production validation build report | RHI-091 | `validation/production-host-smoke-report.json` |
 | Smoke test results | RHI-091 | `migration/phase-8-smoke-test-results.md` |
 | Rollback drill result | RHI-091 | `migration/phase-8-rollback-drill-result.md` |
 | Exception register | RHI-091 | `migration/phase-8-exception-register.md` |
@@ -149,9 +151,9 @@ All items below must be complete before Phase 9 monitoring and cutover activitie
 - [x] RHI-085 Done — URL parity and redirect integrity gates passing; reports committed and signed off
 - [x] RHI-086 Done — SEO consistency, sitemap, and robots.txt gates passing; reports committed and signed off
 - [x] RHI-087 Done — Structured data and social preview gates passing; Rich Results Test evidence committed
-- [ ] RHI-088 Done — Lighthouse CI blocking thresholds passing; performance budget report committed
-- [ ] RHI-089 Done — Axe accessibility gate passing; manual checklist completed; HTML conformance gate passing
-- [ ] RHI-090 Done — HTTPS enforcement confirmed; no mixed content; CAA and domain verification checked
+- [x] RHI-088 Done — Lighthouse CI blocking thresholds passing; performance budget report committed
+- [x] RHI-089 Done — Axe accessibility gate passing; manual checklist completed; HTML conformance gate passing
+- [x] RHI-090 Done — HTTPS enforcement confirmed; no mixed content; CAA and domain verification checked
 - [ ] RHI-091 Done — All gates pass on final RC; preview-host rehearsal executed and verified; production validation build is clean; rollback drilled; Go/No-Go decision recorded as Go
 - [ ] RHI-092 Done — Phase 8 sign-off document committed; Phase 9 team acknowledges handover; `phase-8-signoff` git tag set
 

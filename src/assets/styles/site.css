@@ -36,6 +36,7 @@
 
 html {
   color-scheme: light;
+  font-size: 100%;
   scroll-behavior: smooth;
   scroll-padding-top: 7rem;
 }
@@ -43,6 +44,7 @@ html {
 body {
   margin: 0;
   font-family: var(--font-body);
+  font-size: 1rem;
   color: var(--ink-default);
   background: var(--page-bg);
 }
@@ -573,7 +575,7 @@ body.drawer-open {
 
 .page-hero__projects-intro {
   margin: 0;
-  font-size: 0.82rem;
+  font-size: 1rem;
   line-height: 1.45;
   color: var(--ink-muted);
 }
@@ -807,14 +809,14 @@ summary {
 .home-section__empty {
   margin: 0;
   color: var(--ink-muted);
-  font-size: 0.9rem;
+  font-size: 1rem;
   line-height: 1.6;
 }
 
 .home-section__support {
   margin: 0;
   color: var(--ink-muted);
-  font-size: 0.9rem;
+  font-size: 1rem;
   line-height: 1.6;
 }
 
@@ -855,7 +857,7 @@ summary {
 
 .featured-article__excerpt {
   margin: 0;
-  font-size: 0.96rem;
+  font-size: 1rem;
   line-height: 1.68;
   color: var(--ink-muted);
 }
@@ -903,7 +905,7 @@ summary {
 }
 
 .latest-list__excerpt {
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: var(--ink-muted);
   line-height: 1.5;
   display: -webkit-box;
@@ -945,7 +947,7 @@ summary {
 
 .home-newsletter__body p {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--ink-muted);
   max-width: 48ch;
 }

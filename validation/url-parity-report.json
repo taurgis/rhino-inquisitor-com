@@ -3,13 +3,13 @@
   "ticket": "RHI-085",
   "artifact": "url-parity-report",
   "status": "pass",
-  "rcTag": "phase-8-rc-v1",
-  "rcSha": "a510ead82a28f85718866e1f6af3f7dda03034b7",
-  "generatedAt": "2026-03-20T17:13:16.460Z",
+  "rcTag": "phase-8-rc-v2",
+  "rcSha": "efdcefce5a51f1a3cf70d6b437b7b2868df39cb8",
+  "generatedAt": "2026-03-21T06:37:46.754Z",
   "publicDir": "public",
   "dataset": {
     "path": "validation/expected-url-outcomes.json",
-    "generatedAt": "2026-03-20T13:56:36.009Z",
+    "generatedAt": "2026-03-20T19:04:18Z",
     "summary": {
       "total_entries": 1223,
       "dispositions": {

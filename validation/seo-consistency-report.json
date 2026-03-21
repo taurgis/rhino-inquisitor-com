@@ -3,27 +3,27 @@
   "ticket": "RHI-086",
   "artifact": "seo-consistency-report",
   "status": "pass",
-  "rcTag": "phase-8-rc-v1",
-  "rcSha": "a510ead82a28f85718866e1f6af3f7dda03034b7",
-  "generatedAt": "2026-03-20T17:13:17.889Z",
+  "rcTag": "phase-8-rc-v2",
+  "rcSha": "efdcefce5a51f1a3cf70d6b437b7b2868df39cb8",
+  "generatedAt": "2026-03-21T06:37:49.125Z",
   "publicDir": "public",
   "sampleMatrix": {
     "path": "validation/sample-matrix.json",
-    "generatedAt": "2026-03-20T13:56:36.009Z"
+    "generatedAt": "2026-03-20T19:04:18Z"
   },
   "artifactProvenance": {
-    "gitHead": "9d6e808edd72b1fc2b4bf1bdfa46c3831e74fdd6",
-    "gitHeadShort": "9d6e808e",
+    "gitHead": "65754e0cda445b5741204108d9a558125522ad28",
+    "gitHeadShort": "65754e0c",
     "workspaceDirty": true,
-    "datasetRcTag": "phase-8-rc-v1",
-    "datasetRcSha": "a510ead82a28f85718866e1f6af3f7dda03034b7",
+    "datasetRcTag": "phase-8-rc-v2",
+    "datasetRcSha": "efdcefce5a51f1a3cf70d6b437b7b2868df39cb8",
     "matchesDatasetRc": false,
     "provenanceStatus": "branch-state",
     "note": "Artifact provenance differs from the frozen dataset RC or the workspace is dirty; treat this as branch-state evidence until a new RC is cut."
   },
   "priorityRoutes": {
     "path": "validation/priority-routes.json",
-    "generatedAt": "2026-03-20T13:56:36.009Z"
+    "generatedAt": "2026-03-20T19:04:18Z"
   },
   "sitemap": {
     "path": "public/sitemap.xml",
@@ -1803,7 +1803,7 @@
         {
           "type": "sample-matrix",
           "group": "video_pages",
-          "title": "Video",
+          "title": "Video Appearances",
           "contentPath": "src/content/pages/video/index.md",
           "selectionReason": "Video-capable page with front matter video.id present."
         }

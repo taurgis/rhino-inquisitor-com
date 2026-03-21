@@ -1,0 +1,379 @@
+{
+  "phase": 8,
+  "ticket": "RHI-091",
+  "artifact": "preview-launch-readiness-report",
+  "status": "pass",
+  "generatedAt": "2026-03-21T05:51:04.074Z",
+  "entrypoint": {
+    "requestedUrl": "https://taurgis.github.io/rhino-inquisitor-com/",
+    "finalUrl": "https://staging.rhino-inquisitor.com/",
+    "redirectHopCount": 2,
+    "redirectChain": [
+      {
+        "url": "https://taurgis.github.io/rhino-inquisitor-com/",
+        "statusCode": 301,
+        "location": "http://staging.rhino-inquisitor.com/"
+      },
+      {
+        "url": "http://staging.rhino-inquisitor.com/",
+        "statusCode": 301,
+        "location": "https://staging.rhino-inquisitor.com/"
+      },
+      {
+        "url": "https://staging.rhino-inquisitor.com/",
+        "statusCode": 200,
+        "location": null
+      }
+    ]
+  },
+  "sampleMatrix": {
+    "path": "validation/sample-matrix.json",
+    "generatedAt": "2026-03-20T19:04:18Z",
+    "rcTag": "phase-8-rc-v2",
+    "rcSha": "efdcefce5a51f1a3cf70d6b437b7b2868df39cb8"
+  },
+  "priorityRoutes": {
+    "path": "validation/priority-routes.json",
+    "generatedAt": "2026-03-20T19:04:18Z",
+    "redirectSampleCount": 1
+  },
+  "artifactProvenance": {
+    "gitHead": "65754e0cda445b5741204108d9a558125522ad28",
+    "gitHeadShort": "65754e0c",
+    "workspaceDirty": true,
+    "datasetRcTag": "phase-8-rc-v2",
+    "datasetRcSha": "efdcefce5a51f1a3cf70d6b437b7b2868df39cb8",
+    "matchesDatasetRc": false,
+    "provenanceStatus": "branch-state",
+    "note": "Artifact provenance differs from the frozen dataset RC or the workspace is dirty; treat this as branch-state evidence until a new RC is cut."
+  },
+  "policy": {
+    "requestTimeoutMs": 10000,
+    "maxRedirects": 10,
+    "expectedPreviewNoindex": true,
+    "feedPath": "/index.xml",
+    "sitemapPath": "/sitemap.xml",
+    "robotsPath": "/robots.txt"
+  },
+  "summary": {
+    "totalChecks": 13,
+    "passCount": 13,
+    "failCount": 0,
+    "warningCount": 0,
+    "blockingFailures": 0
+  },
+  "checks": [
+    {
+      "key": "homepage",
+      "label": "Homepage",
+      "bucket": "homepage",
+      "route": "/",
+      "requestedUrl": "https://staging.rhino-inquisitor.com/",
+      "finalUrl": "https://staging.rhino-inquisitor.com/",
+      "statusCode": 200,
+      "redirectChain": [
+        {
+          "url": "https://staging.rhino-inquisitor.com/",
+          "statusCode": 200,
+          "location": null
+        }
+      ],
+      "result": "pass",
+      "title": "Rhino Inquisitor | Salesforce B2C Commerce Guidance",
+      "canonical": "https://staging.rhino-inquisitor.com/",
+      "robots": [
+        "noindex",
+        "nofollow"
+      ],
+      "notes": "Pass",
+      "findings": []
+    },
+    {
+      "key": "recent-post-1",
+      "label": "Recent post 1",
+      "bucket": "recent-post",
+      "route": "/real-time-inventory-checks-in-sfcc/",
+      "requestedUrl": "https://staging.rhino-inquisitor.com/real-time-inventory-checks-in-sfcc/",
+      "finalUrl": "https://staging.rhino-inquisitor.com/real-time-inventory-checks-in-sfcc/",
+      "statusCode": 200,
+      "redirectChain": [
+        {
+          "url": "https://staging.rhino-inquisitor.com/real-time-inventory-checks-in-sfcc/",
+          "statusCode": 200,
+          "location": null
+        }
+      ],
+      "result": "pass",
+      "title": "Real-Time Inventory Checks in SFCC | Rhino Inquisitor",
+      "canonical": "https://staging.rhino-inquisitor.com/real-time-inventory-checks-in-sfcc/",
+      "robots": [
+        "noindex",
+        "nofollow"
+      ],
+      "notes": "Pass",
+      "findings": []
+    },
+    {
+      "key": "recent-post-2",
+      "label": "Recent post 2",
+      "bucket": "recent-post",
+      "route": "/a-dev-guide-to-combating-fraud-on-sfcc/",
+      "requestedUrl": "https://staging.rhino-inquisitor.com/a-dev-guide-to-combating-fraud-on-sfcc/",
+      "finalUrl": "https://staging.rhino-inquisitor.com/a-dev-guide-to-combating-fraud-on-sfcc/",
+      "statusCode": 200,
+      "redirectChain": [
+        {
+          "url": "https://staging.rhino-inquisitor.com/a-dev-guide-to-combating-fraud-on-sfcc/",
+          "statusCode": 200,
+          "location": null
+        }
+      ],
+      "result": "pass",
+      "title": "Developer's Guide to Combating Fraud in SFCC | Rhino Inquisitor",
+      "canonical": "https://staging.rhino-inquisitor.com/a-dev-guide-to-combating-fraud-on-sfcc/",
+      "robots": [
+        "noindex",
+        "nofollow"
+      ],
+      "notes": "Pass",
+      "findings": []
+    },
+    {
+      "key": "recent-post-3",
+      "label": "Recent post 3",
+      "bucket": "recent-post",
+      "route": "/kickstart-guide-for-new-sfcc-developers/",
+      "requestedUrl": "https://staging.rhino-inquisitor.com/kickstart-guide-for-new-sfcc-developers/",
+      "finalUrl": "https://staging.rhino-inquisitor.com/kickstart-guide-for-new-sfcc-developers/",
+      "statusCode": 200,
+      "redirectChain": [
+        {
+          "url": "https://staging.rhino-inquisitor.com/kickstart-guide-for-new-sfcc-developers/",
+          "statusCode": 200,
+          "location": null
+        }
+      ],
+      "result": "pass",
+      "title": "The Kickstart Guide for New Salesforce B2C Commerce Developers | Rhino Inquisitor",
+      "canonical": "https://staging.rhino-inquisitor.com/kickstart-guide-for-new-sfcc-developers/",
+      "robots": [
+        "noindex",
+        "nofollow"
+      ],
+      "notes": "Pass",
+      "findings": []
+    },
+    {
+      "key": "category-1",
+      "label": "Category 1",
+      "bucket": "category",
+      "route": "/category/ai/",
+      "requestedUrl": "https://staging.rhino-inquisitor.com/category/ai/",
+      "finalUrl": "https://staging.rhino-inquisitor.com/category/ai/",
+      "statusCode": 200,
+      "redirectChain": [
+        {
+          "url": "https://staging.rhino-inquisitor.com/category/ai/",
+          "statusCode": 200,
+          "location": null
+        }
+      ],
+      "result": "pass",
+      "title": "AI | Rhino Inquisitor",
+      "canonical": "https://staging.rhino-inquisitor.com/category/ai/",
+      "robots": [
+        "noindex",
+        "nofollow"
+      ],
+      "notes": "Pass",
+      "findings": []
+    },
+    {
+      "key": "category-2",
+      "label": "Category 2",
+      "bucket": "category",
+      "route": "/category/architecture/",
+      "requestedUrl": "https://staging.rhino-inquisitor.com/category/architecture/",
+      "finalUrl": "https://staging.rhino-inquisitor.com/category/architecture/",
+      "statusCode": 200,
+      "redirectChain": [
+        {
+          "url": "https://staging.rhino-inquisitor.com/category/architecture/",
+          "statusCode": 200,
+          "location": null
+        }
+      ],
+      "result": "pass",
+      "title": "Architecture | Rhino Inquisitor",
+      "canonical": "https://staging.rhino-inquisitor.com/category/architecture/",
+      "robots": [
+        "noindex",
+        "nofollow"
+      ],
+      "notes": "Pass",
+      "findings": []
+    },
+    {
+      "key": "category-3",
+      "label": "Category 3",
+      "bucket": "category",
+      "route": "/category/certification/",
+      "requestedUrl": "https://staging.rhino-inquisitor.com/category/certification/",
+      "finalUrl": "https://staging.rhino-inquisitor.com/category/certification/",
+      "statusCode": 200,
+      "redirectChain": [
+        {
+          "url": "https://staging.rhino-inquisitor.com/category/certification/",
+          "statusCode": 200,
+          "location": null
+        }
+      ],
+      "result": "pass",
+      "title": "Certification | Rhino Inquisitor",
+      "canonical": "https://staging.rhino-inquisitor.com/category/certification/",
+      "robots": [
+        "noindex",
+        "nofollow"
+      ],
+      "notes": "Pass",
+      "findings": []
+    },
+    {
+      "key": "archive",
+      "label": "Archive",
+      "bucket": "archive",
+      "route": "/archive/",
+      "requestedUrl": "https://staging.rhino-inquisitor.com/archive/",
+      "finalUrl": "https://staging.rhino-inquisitor.com/archive/",
+      "statusCode": 200,
+      "redirectChain": [
+        {
+          "url": "https://staging.rhino-inquisitor.com/archive/",
+          "statusCode": 200,
+          "location": null
+        }
+      ],
+      "result": "pass",
+      "title": "Archive | Rhino Inquisitor",
+      "canonical": "https://staging.rhino-inquisitor.com/archive/",
+      "robots": [
+        "noindex",
+        "nofollow"
+      ],
+      "notes": "Pass",
+      "findings": []
+    },
+    {
+      "key": "privacy-policy",
+      "label": "Privacy policy",
+      "bucket": "privacy",
+      "route": "/privacy-policy/",
+      "requestedUrl": "https://staging.rhino-inquisitor.com/privacy-policy/",
+      "finalUrl": "https://staging.rhino-inquisitor.com/privacy-policy/",
+      "statusCode": 200,
+      "redirectChain": [
+        {
+          "url": "https://staging.rhino-inquisitor.com/privacy-policy/",
+          "statusCode": 200,
+          "location": null
+        }
+      ],
+      "result": "pass",
+      "title": "Privacy Policy | Rhino Inquisitor",
+      "canonical": "https://staging.rhino-inquisitor.com/privacy-policy/",
+      "robots": [
+        "noindex",
+        "nofollow"
+      ],
+      "notes": "Pass",
+      "findings": []
+    },
+    {
+      "key": "priority-/category/salesforce-commerce-cloud/release-notes/",
+      "label": "Priority redirect /category/salesforce-commerce-cloud/release-notes/",
+      "bucket": "priority-redirect",
+      "route": "/category/salesforce-commerce-cloud/release-notes/",
+      "requestedUrl": "https://staging.rhino-inquisitor.com/category/salesforce-commerce-cloud/release-notes/",
+      "finalUrl": "https://staging.rhino-inquisitor.com/category/salesforce-commerce-cloud/release-notes/",
+      "statusCode": 200,
+      "redirectChain": [
+        {
+          "url": "https://staging.rhino-inquisitor.com/category/salesforce-commerce-cloud/release-notes/",
+          "statusCode": 200,
+          "location": null
+        }
+      ],
+      "result": "pass",
+      "title": "https://staging.rhino-inquisitor.com/category/release-notes/",
+      "canonical": "https://staging.rhino-inquisitor.com/category/release-notes/",
+      "expectedTarget": "/category/release-notes/",
+      "actualTarget": "/category/release-notes/",
+      "notes": "Pass",
+      "findings": []
+    },
+    {
+      "key": "sitemap",
+      "label": "Sitemap",
+      "bucket": "system",
+      "route": "/sitemap.xml",
+      "requestedUrl": "https://staging.rhino-inquisitor.com/sitemap.xml",
+      "finalUrl": "https://staging.rhino-inquisitor.com/sitemap.xml",
+      "statusCode": 200,
+      "redirectChain": [
+        {
+          "url": "https://staging.rhino-inquisitor.com/sitemap.xml",
+          "statusCode": 200,
+          "location": null
+        }
+      ],
+      "result": "pass",
+      "title": null,
+      "canonical": null,
+      "locCount": 212,
+      "notes": "Pass",
+      "findings": []
+    },
+    {
+      "key": "robots",
+      "label": "Robots",
+      "bucket": "system",
+      "route": "/robots.txt",
+      "requestedUrl": "https://staging.rhino-inquisitor.com/robots.txt",
+      "finalUrl": "https://staging.rhino-inquisitor.com/robots.txt",
+      "statusCode": 200,
+      "redirectChain": [
+        {
+          "url": "https://staging.rhino-inquisitor.com/robots.txt",
+          "statusCode": 200,
+          "location": null
+        }
+      ],
+      "result": "pass",
+      "title": null,
+      "canonical": null,
+      "notes": "Pass",
+      "findings": []
+    },
+    {
+      "key": "feed",
+      "label": "Feed",
+      "bucket": "system",
+      "route": "/index.xml",
+      "requestedUrl": "https://staging.rhino-inquisitor.com/index.xml",
+      "finalUrl": "https://staging.rhino-inquisitor.com/index.xml",
+      "statusCode": 200,
+      "redirectChain": [
+        {
+          "url": "https://staging.rhino-inquisitor.com/index.xml",
+          "statusCode": 200,
+          "location": null
+        }
+      ],
+      "result": "pass",
+      "title": null,
+      "canonical": null,
+      "notes": "Pass",
+      "findings": []
+    }
+  ]
+}

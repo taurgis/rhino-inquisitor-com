@@ -19,6 +19,8 @@ RHI-083 commits the output locations that downstream Phase 8 tickets expect:
 - `accessibility-manual-checklist.md`
 - `html-conformance-report.json`
 - `https-security-report.json`
+- `preview-launch-readiness-report.json`
+- `production-host-smoke-report.json`
 - `lhci-report/`
 - `report-schema/`
 - `runs/`
@@ -38,16 +40,18 @@ RHI-083 commits the output locations that downstream Phase 8 tickets expect:
 | `social-preview-report.json` | RHI-087 |
 | `lhci-report/` | RHI-088 |
 | `performance-budget-report.json` | RHI-088 |
+| `accessibility-axe-report.json` | RHI-089 |
+| `accessibility-manual-checklist.md` | RHI-089 |
+| `html-conformance-report.json` | RHI-089 |
+| `https-security-report.json` | RHI-090 |
+| `preview-launch-readiness-report.json` | RHI-091 |
+| `production-host-smoke-report.json` | RHI-091 |
 
 ## RHI-088 report layout
 
 - `lhci-report/mobile/` stores the blocking mobile-profile Lighthouse CI manifest, JSON, and HTML reports.
 - `lhci-report/desktop/` stores the blocking desktop-profile Lighthouse CI manifest, JSON, and HTML reports.
 - `performance-budget-report.json` stores the Phase 8 performance budget contract, dual-profile score summary, CWV lab values, and WordPress baseline comparison.
-| `accessibility-axe-report.json` | RHI-089 |
-| `accessibility-manual-checklist.md` | RHI-089 |
-| `html-conformance-report.json` | RHI-089 |
-| `https-security-report.json` | RHI-090 |
 
 ## RHI-084 Dataset Contract
 
@@ -202,6 +206,20 @@ Important WS-G evidence rule:
 
 - Repository automation may infer GitHub Pages HTTPS enforcement from live redirect behavior and DNS evidence, but formal sign-off still requires the engineering owner to confirm the repository Pages settings state when the ticket or launch checklist demands that control-plane confirmation.
 - If `validation/https-security-manual-evidence.json` is present, the generated WS-G report must preserve that owner-confirmed Pages settings evidence instead of downgrading it back to `manual-required` on rerun.
+
+## WS-H Report Contract
+
+RHI-091 adds the operational-readiness evidence that bridges the committed WS-B through WS-G reports to the launch decision:
+
+- `validation/preview-launch-readiness-report.json` records live smoke-test evidence from the preview-host entrypoint, including the resolved rehearsal host, redirect chain, deterministic route selection from `validation/sample-matrix.json` and `validation/priority-routes.json`, page-title and canonical checks, preview `noindex` checks, and reachability checks for `robots.txt`, `sitemap.xml`, and the feed endpoint.
+- `migration/phase-8-smoke-test-results.md` is the human-readable summary derived from the same live smoke-test run and is the authoring surface for owner review.
+- `validation/production-host-smoke-report.json` records production-build cleanliness checks against the built artifact, including preview-host leakage detection, allowed-versus-unexpected `noindex` classification, and representative-route spot checks for the launch-critical sample set.
+- Both WS-H reports include `artifactProvenance` from the frozen sample-matrix RC so reviewers can distinguish final RC evidence from later branch-state reruns.
+
+Important WS-H evidence rule:
+
+- Preview-host smoke tests must preserve the requested preview entrypoint and the resolved effective host because GitHub Pages project URLs may redirect into the staging custom domain. Do not collapse that redirect chain out of the evidence record.
+- Production-build cleanliness checks must treat preview-host leakage and unexpected `noindex` on indexable routes as blocking failures. Alias helper pages, pagination helpers, feed helper pages, and 404 outputs remain allowed `noindex` surfaces and must be classified separately instead of being counted as false failures.
 
 ## RC metadata convention
 
