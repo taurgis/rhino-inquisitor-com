@@ -85,6 +85,24 @@ The repository currently uses the single-owner model recorded in `migration/phas
 ## Phase 9 handoff notes
 
 - Validation artifacts location: `validation/`
+- Validation artifacts inventory for Phase 9 handoff:
+	- `validation/url-parity-report.json`
+	- `validation/redirect-quality-report.json`
+	- `validation/seo-consistency-report.json`
+	- `validation/robots-sitemap-report.json`
+	- `validation/structured-data-report.json`
+	- `validation/social-preview-report.json`
+	- `validation/performance-budget-report.json`
+	- `validation/accessibility-axe-report.json`
+	- `validation/accessibility-manual-checklist.md`
+	- `validation/html-conformance-report.json`
+	- `validation/https-security-report.json`
+	- `validation/preview-launch-readiness-report.json`
+	- `validation/production-host-smoke-report.json`
+	- `validation/lhci-report/`
+	- `validation/report-schema/`
+	- `validation/runs/`
 - Rollback runbook of record: `migration/phase-7-staging-rollback-runbook.md`
-- Search Console and submission tasks: `PENDING_PHASE_9_HANDOFF_NOTES`
-- First monitoring checkpoint: `PENDING_PHASE_9_CHECKPOINT`
+- Rollback target and timing note: the rollback target remains the previous WordPress stack during the stabilization window, and the rollback window starts from Phase 8 sign-off rather than DNS cutover. The operational target remains to initiate rollback within 60 minutes of a trigger event, with the timed drill result to be recorded separately in `migration/phase-8-rollback-drill-result.md`.
+- Search Console and submission tasks: use the owner-managed Domain property for `rhino-inquisitor.com`, keep DNS TXT verification continuity intact, submit the production sitemap `https://www.rhino-inquisitor.com/sitemap.xml` after cutover verification, never submit preview-host URLs or preview-host sitemap/feed outputs, inspect the homepage plus the highest-priority URLs from the Phase 5 launch inspection set, request indexing only for the small critical set when needed, and record execution outcomes in `monitoring/sitemap-processing-report.json`, `monitoring/url-inspection-sample-report.json`, and `monitoring/search-console-indexing-report.md` during Phase 9.
+- First monitoring checkpoint: complete the first post-launch checkpoint in the week-4 review window by reviewing Search Console Core Web Vitals p75 trend status for `LCP`, `INP`, and `CLS`, plus crawl and indexing anomaly trends for `404`, `soft 404`, redirect errors, crawled/discovered-not-indexed, and sitemap fetch/parse health. Record the checkpoint summary and any remediation owners in `monitoring/cwv-field-trend.md` and `monitoring/search-console-indexing-report.md`; this note defines the checkpoint only and does not imply that the review has already been executed.

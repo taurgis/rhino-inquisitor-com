@@ -76,8 +76,11 @@ Do not mark this checklist complete until the final clean evidence run exists an
 ## Rollback Readiness
 
 - [ ] Confirm `migration/phase-8-rollback-drill-result.md` exists and records the final rollback drill.
+- [ ] Confirm the rollback drill record cites the same final workflow run URL and RC ref used by `LAUNCH-GATE-PASS-SUMMARY.md`.
 - [ ] Confirm the rollback target is the previous WordPress stack.
-- [ ] Confirm the measured rollback time is recorded and within the ticket threshold, or that any overage is explicitly dispositioned.
+- [ ] Confirm WordPress accessibility proof is recorded with URL, HTTP status, confirmation method, and title or equivalent confirmation.
+- [ ] Confirm the trigger timestamp, confirmation timestamp, rollback start timestamp, and MTTR are recorded in `migration/phase-8-rollback-drill-result.md`.
+- [ ] Confirm MTTR is within 60 minutes, or any over-target result is explicitly dispositioned in both `migration/phase-8-rollback-drill-result.md` and `migration/phase-8-exception-register.md`.
 - [ ] Confirm `migration/phase-7-staging-rollback-runbook.md` remains the active rollback runbook of record.
 - [ ] Confirm the final exception register shows zero open `blocking` entries.
 

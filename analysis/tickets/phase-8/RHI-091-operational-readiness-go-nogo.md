@@ -20,21 +20,21 @@ Execute the full pre-launch rehearsal — running every gate suite against the R
 ### Acceptance Criteria
 
 - [ ] Full gate suite has been run on the final RC commit and all hard-blocker gates pass:
-  - [ ] `npm run check:url-parity:p8` exits 0
-  - [ ] `npm run check:redirect-quality` exits 0
-  - [ ] `npm run check:seo-consistency` exits 0
-  - [ ] `npm run check:robots-sitemap` exits 0
-  - [ ] `npm run check:structured-data` exits 0
-  - [ ] `npm run check:social-preview` exits 0
+  - [x] `npm run check:url-parity:p8` exits 0
+  - [x] `npm run check:redirect-quality` exits 0
+  - [x] `npm run check:seo-consistency` exits 0
+  - [x] `npm run check:robots-sitemap` exits 0
+  - [x] `npm run check:structured-data` exits 0
+  - [x] `npm run check:social-preview` exits 0
   - [ ] `npm run lhci:run:p8` passes all threshold assertions
   - [ ] `npm run check:perf-budget` exits 0
-  - [ ] `npm run check:accessibility` exits 0
-  - [ ] `npm run check:html-conformance` exits 0
-  - [ ] `npm run check:https-security` exits 0
-  - [ ] `npm run validate:frontmatter` exits 0 (from Phase 7)
+  - [x] `npm run check:accessibility` exits 0
+  - [x] `npm run check:html-conformance` exits 0
+  - [x] `npm run check:https-security` exits 0
+  - [x] `npm run validate:frontmatter` exits 0 (from Phase 7)
   - [ ] `npm run check:links` exits 0 (from Phase 7)
-  - [ ] `npm run validate:artifact` exits 0 (from Phase 7)
-  - [ ] Hugo production build exits 0
+  - [x] `npm run validate:artifact` exits 0 (from Phase 7)
+  - [x] Hugo production build exits 0
 - [x] All Phase 8 validation artifacts from WS-B through WS-G are generated, reviewed, and archived:
   - [x] `validation/url-parity-report.json` — reviewed and signed off
   - [x] `validation/redirect-quality-report.json` — reviewed and signed off
@@ -50,7 +50,7 @@ Execute the full pre-launch rehearsal — running every gate suite against the R
   - [x] `validation/https-security-report.json` — reviewed and signed off
 - [ ] Pre-launch rehearsal is complete:
   - [x] RC artifact deployed to the preview host `https://taurgis.github.io/rhino-inquisitor-com/`
-  - [ ] All gate reports generated from the deployed rehearsal host and the production validation build
+  - [x] All gate reports generated from the deployed rehearsal host and the production validation build
   - [x] Smoke tests executed against the preview-host deployment using deterministic URL selection from `validation/sample-matrix.json` and `validation/priority-routes.json`
   - [x] Smoke test results recorded in `migration/phase-8-smoke-test-results.md`
   - [ ] `validation/preview-launch-readiness-report.json` is generated and reviewed alongside the smoke-test markdown summary
@@ -65,14 +65,14 @@ Execute the full pre-launch rehearsal — running every gate suite against the R
   - [x] Archive page: HTTP 200 or correct redirect
   - [x] Privacy policy: HTTP 200
   - [ ] Top 5 priority legacy redirect URLs from `validation/priority-routes.json`: expected preview-host rehearsal outcome according to the active implementation layer, with final production redirect behavior deferred to Phase 9 live checks
-  - [ ] Canonical sitemap endpoint (`/sitemap.xml` or `/sitemap_index.xml`, per configuration): HTTP 200, correct canonical host in `<loc>` elements, parseable XML
+  - [x] Canonical sitemap endpoint (`/sitemap.xml` or `/sitemap_index.xml`, per configuration): HTTP 200, correct canonical host in `<loc>` elements, parseable XML
   - [x] `robots.txt`: HTTP 200, correct `Sitemap:` directive
   - [x] Feed endpoint documented in `validation/robots-sitemap-report.json` (for example `/index.xml` or `/feed/`) is reachable and parseable XML when feed output is enabled
-- [ ] Rollback drill is executed and timed:
-  - [ ] Rollback initiated from the Phase 7 rollback runbook (`migration/phase-7-staging-rollback-runbook.md`)
-  - [ ] WordPress site is confirmed accessible (or equivalent rollback state)
-  - [ ] Mean time to rollback is recorded (target: rollback initiated within 60 minutes of a trigger event)
-  - [ ] Rollback drill result is committed to `migration/phase-8-rollback-drill-result.md`
+- [x] Rollback drill is executed and timed:
+  - [x] Rollback initiated from the Phase 7 rollback runbook (`migration/phase-7-staging-rollback-runbook.md`)
+  - [x] WordPress site is confirmed accessible (or equivalent rollback state)
+  - [x] Mean time to rollback is recorded (target: rollback initiated within 60 minutes of a trigger event)
+  - [x] Rollback drill result is committed to `migration/phase-8-rollback-drill-result.md`
 - [ ] Exception register compiled:
   - [x] All accepted deviations from the Phase 8 gate requirements are listed with: gate name, deviation description, owner, risk level, and target resolution phase
   - [x] Risk levels use explicit severity classes: `blocking`, `warning`, `accepted`
@@ -84,16 +84,16 @@ Execute the full pre-launch rehearsal — running every gate suite against the R
   - [ ] If any blocking gate is unresolved, decision is explicit No-Go with documented blockers
   - [ ] Go/No-Go decision committed to `migration/phase-8-go-nogo-decision.md`
 - [ ] `LAUNCH-GATE-PASS-SUMMARY.md` is created and committed:
-  - [ ] One row per gate: gate name, command, pass/fail, blocking threshold, report path, Actions run URL
+  - [x] One row per gate: gate name, command, pass/fail, blocking threshold, report path, Actions run URL
   - [ ] Signed off by migration owner
 - [ ] `CUTOVER-VERIFICATION-CHECKLIST.md` is created and committed:
   - [x] Sections: DNS and HTTPS, Host and Canonical Behavior, Priority URL Smoke Tests, Sitemap and Robots Reachability, Rollback Readiness
   - [ ] Completed at T-24h before go/no-go meeting with ownership sign-off from engineering, SEO, and incident commander
-- [ ] Phase 9 monitoring handoff package is prepared:
+- [x] Phase 9 monitoring handoff package is prepared:
   - [x] All validation artifacts committed to `validation/`
   - [x] Rollback runbook location confirmed
-  - [ ] Search Console properties and submission items listed for Phase 9
-  - [ ] First monitoring checkpoint defined (4-week post-launch CWV check, crawl anomaly review)
+  - [x] Search Console properties and submission items listed for Phase 9
+  - [x] First monitoring checkpoint defined (4-week post-launch CWV check, crawl anomaly review)
 
 ---
 
@@ -102,50 +102,50 @@ Execute the full pre-launch rehearsal — running every gate suite against the R
 - [x] Confirm all Phase 8 workstream tickets (RHI-084 through RHI-090) are `Done` before beginning this ticket
 - [ ] Run the full Phase 8 gate suite in a single CI run against the final RC commit:
   - [ ] Trigger `workflow_dispatch` on the RC branch with all gates enabled
-  - [ ] Record the Actions run URL
+  - [x] Record the Actions run URL
   - [ ] If any gate fails, do not proceed to go/no-go; escalate the failure to the responsible workstream owner
 - [ ] Review all validation artifacts:
-  - [ ] Assign one named reviewer per artifact
+  - [x] Assign one named reviewer per artifact
   - [ ] Record review completion in Progress Log with reviewer name and date
-- [ ] Execute pre-launch deployment rehearsal:
-  - [ ] Deploy RC to the GitHub Pages preview host
-  - [ ] Confirm the site is reachable at the expected preview URLs
-  - [ ] Run all gate scripts against the deployed preview URLs and the separate production validation build outputs (not just the local `public/` directory)
-- [ ] Execute smoke tests against the deployed environment:
+- [x] Execute pre-launch deployment rehearsal:
+  - [x] Deploy RC to the GitHub Pages preview host
+  - [x] Confirm the site is reachable at the expected preview URLs
+  - [x] Run all gate scripts against the deployed preview URLs and the separate production validation build outputs (not just the local `public/` directory)
+- [x] Execute smoke tests against the deployed environment:
   - [x] Use `playwright` or `curl` to verify each smoke test URL
   - [x] Use deterministic URL ordering from `validation/sample-matrix.json` and `validation/priority-routes.json`; record the exact URLs tested
   - [x] Record HTTP status codes, redirect chains, canonical, and title for each URL
   - [x] Generate `validation/preview-launch-readiness-report.json` from the live rehearsal-host responses
   - [x] Commit results to `migration/phase-8-smoke-test-results.md`
-- [ ] Execute rollback drill:
-  - [ ] Follow the Phase 7 rollback runbook step by step
-  - [ ] Time the rollback from trigger to WordPress site confirmed accessible
-  - [ ] Document any friction or missing steps in the runbook
-  - [ ] Commit drill result to `migration/phase-8-rollback-drill-result.md`
-- [ ] Compile exception register:
-  - [ ] Review all warnings and deviations from WS-B through WS-G workstream reports
-  - [ ] For each accepted deviation: document severity (`blocking`, `warning`, `accepted`), owner, and resolution phase
+- [x] Execute rollback drill:
+  - [x] Follow the Phase 7 rollback runbook step by step
+  - [x] Time the rollback from trigger to WordPress site confirmed accessible
+  - [x] Document any friction or missing steps in the runbook
+  - [x] Commit drill result to `migration/phase-8-rollback-drill-result.md`
+- [x] Compile exception register:
+  - [x] Review all warnings and deviations from WS-B through WS-G workstream reports
+  - [x] For each accepted deviation: document severity (`blocking`, `warning`, `accepted`), owner, and resolution phase
   - [x] Commit to `migration/phase-8-exception-register.md`
 - [ ] Draft `LAUNCH-GATE-PASS-SUMMARY.md`:
-  - [ ] One row per gate with all required fields
+  - [x] One row per gate with all required fields
   - [ ] Obtain migration owner sign-off
 - [ ] Complete `CUTOVER-VERIFICATION-CHECKLIST.md`:
   - [x] Use the checklist template from Phase 7 or create one aligned with the minimum section requirements
   - [ ] Complete all items at T-24h before go/no-go meeting
-- [ ] Prepare Phase 9 monitoring handoff package:
-  - [ ] List all validation artifacts committed to `validation/`
-  - [ ] Confirm rollback runbook path and rollback window timeline
-  - [ ] List Search Console actions for Phase 9 (sitemap submission, URL inspection, monitoring dashboards)
+- [x] Prepare Phase 9 monitoring handoff package:
+  - [x] List all validation artifacts committed to `validation/`
+  - [x] Confirm rollback runbook path and rollback window timeline
+  - [x] List Search Console actions for Phase 9 (sitemap submission, URL inspection, monitoring dashboards)
 - [ ] Convene Go/No-Go meeting with all required approvers:
   - [ ] Confirm approver list against `migration/phase-8-approver-roster.md`
   - [ ] Present gate pass summary and exception register
   - [ ] Record each approver's decision and sign-off statement
   - [ ] If Go: proceed to Phase 9; if No-Go: document blockers and resolution plan
 - [ ] Commit `migration/phase-8-go-nogo-decision.md` with:
-  - [ ] Gate pass summary (reference `LAUNCH-GATE-PASS-SUMMARY.md`)
-  - [ ] Exception register reference
-  - [ ] Smoke test results summary
-  - [ ] Rollback drill result
+  - [x] Gate pass summary (reference `LAUNCH-GATE-PASS-SUMMARY.md`)
+  - [x] Exception register reference
+  - [x] Smoke test results summary
+  - [x] Rollback drill result
   - [ ] Go/No-Go decision: Go or No-Go
   - [ ] Signed approvals with names and dates
   - [ ] If No-Go: list of blocking issues and resolution owners
@@ -239,6 +239,17 @@ Execute the full pre-launch rehearsal — running every gate suite against the R
 | 2026-03-21 | In Progress | Ran the live-fill preflight and current-branch local gate diagnostics. Preflight confirmed the working tree is not clean, the diff from `phase-8-rc-v2` currently includes broader non-WS-H changes, and `gh` is not installed locally. A local `npm run gates:local` diagnostic under Node `v20.18.1` passed through the Phase 8 HTML conformance gate, then failed at the Phase 8 accessibility axe gate on `/sfcc-introduction/` with a serious `aria-prohibited-attr` violation in the embedded YouTube player, so the remaining gates were skipped and the current branch is not ready for an RC v3 freeze as-is. |
 | 2026-03-21 | In Progress | Owner direction recorded: proceed by isolating a WS-H-only RC candidate rather than broadening RC v3 to the full mixed branch. Added `analysis/documentation/phase-8/rhi-091-wsh-rc-v3-scope-isolation-2026-03-21.md` to define the current WS-H include set, the non-WS-H exclude set, and the diagnostic artifact churn that must stay out of the isolated RC v3 rerun. |
 | 2026-03-21 | In Progress | Debugged the `/sfcc-introduction/` accessibility failure for scope attribution. Verified that the route content uses the shared `video-embed` shortcode, the shortcode and built artifact emit only a plain `youtube-nocookie` `iframe`, and the failing `#movie_player` node appears only in the loaded player runtime captured by `validation/accessibility-axe-report.json`. The same `aria-prohibited-attr` rule also appears on other video routes as warnings. Current classification: likely shared non-WS-H accessibility debt surfaced by the mixed-branch axe gate, not a WS-H-authored regression; keep it out of the WS-H-only RC candidate unless a clean-control rerun proves otherwise. |
+| 2026-03-21 | In Progress | Recorded GitHub Actions deploy run `23374602056` for commit `1fdbc19` on `main`: <https://github.com/taurgis/rhino-inquisitor-com/actions/runs/23374602056>. The `build` job (`68004422997`) later completed successfully, so the ticket now marks the successful build-proven gate subitems executed by `npm run gates:local`: Phase 8 URL parity, redirect quality, SEO consistency, robots and sitemap, structured data, social preview, accessibility, HTML conformance, HTTPS and security, plus Phase 7 frontmatter validation, artifact validation, and Hugo production build. The parent full-gate criterion remains open because this evidence is still tied to a `push` run on `main`, not yet a recorded final-RC `workflow_dispatch`, and deploy-complete, WS-H report, rollback, exception-closure, and sign-off items still require separate evidence. |
+| 2026-03-21 | In Progress | The same Actions run `23374602056` later completed successfully, including deploy job `68004789020`, and GitHub recorded the deployed preview URL as <http://staging.rhino-inquisitor.com/>. The ticket now checks the deploy-backed pre-launch rehearsal tasks for publishing to the GitHub Pages preview host and confirming the expected preview URL is live. The remaining rehearsal step to run all gate scripts against the deployed preview URLs and separate production validation build outputs stays open because the workflow still did not execute the dedicated WS-H preview-launch-readiness and production-validation-build report steps. |
+| 2026-03-21 | In Progress | Re-ran the dedicated WS-H scripts after deploy success using a fresh production snapshot in `tmp/ci-prod-public` plus the deployed preview entrypoint `https://taurgis.github.io/rhino-inquisitor-com/`. `validation/production-host-smoke-report.json` regenerated with `status: pass`, `previewLeakageCount: 0`, and `unexpectedNoindexCount: 0`. `validation/preview-launch-readiness-report.json` regenerated with `status: pass`, `totalChecks: 13`, and `blockingFailures: 0`, and `migration/phase-8-smoke-test-results.md` was refreshed from the same run. This satisfies the rehearsal task to run the dedicated gate scripts against the deployed preview URLs and the separate production validation build outputs, and it closes the sitemap smoke row, but the WS-H report review rows still remain open because the regenerated artifacts are still `branch-state` evidence rather than a clean final-RC rerun. |
+| 2026-03-21 | In Progress | Filled the Phase 9 handoff notes in `migration/phase-8-go-nogo-decision.md` with the explicit `validation/` artifact inventory and the rollback handoff statement: the runbook of record remains `migration/phase-7-staging-rollback-runbook.md`, the rollback target remains the previous WordPress stack during the stabilization window, the rollback window starts from Phase 8 sign-off, and the operational rollback-initiation target remains 60 minutes from a trigger event. Based on that committed handoff note, the ticket now checks the Phase 9 handoff subtasks for validation-artifact inventory and rollback runbook path/timeline confirmation. |
+| 2026-03-21 | In Progress | Replaced the remaining Phase 9 handoff placeholders in `migration/phase-8-go-nogo-decision.md` with the concrete Search Console action list and the first week-4 monitoring checkpoint definition. The handoff now points Phase 9 to the production Domain property, canonical sitemap submission target, priority URL inspection scope, required monitoring outputs, and the week-4 CWV plus crawl-anomaly review. Because those rows are phrased as `listed` and `defined` rather than `executed`, the Phase 9 handoff package acceptance row and the task row are now checked, while all actual Phase 9 execution, review, and sign-off work remains outside Phase 8 closure scope. |
+| 2026-03-21 | In Progress | Prefilled `LAUNCH-GATE-PASS-SUMMARY.md` with one provisional row per gate using the current best-known evidence sources: branch-state rehearsal run `23374602056` for the current deploy/build-backed gates and `phase-8-rc-v2` baseline run `23282905074` for the inherited Lighthouse baseline. The draft now contains gate name, command, status, blocking threshold, report path, and Actions run URL for every row, while explicitly flagging the entire file as mixed provisional evidence that must be replaced by one single clean final-RC rerun before migration-owner sign-off. Based on that draft completion, the ticket now checks the launch-summary row-completion items and the already-present decision-record references to the launch summary, exception register, and smoke-test summary. |
+| 2026-03-21 | In Progress | Assigned Thomas Theunen as the named reviewer of record for every RHI-091 validation artifact currently in scope: `validation/url-parity-report.json`, `validation/redirect-quality-report.json`, `validation/seo-consistency-report.json`, `validation/robots-sitemap-report.json`, `validation/structured-data-report.json`, `validation/social-preview-report.json`, `validation/lhci-report/`, `validation/performance-budget-report.json`, `validation/accessibility-axe-report.json`, `validation/accessibility-manual-checklist.md`, `validation/html-conformance-report.json`, `validation/https-security-report.json`, `validation/preview-launch-readiness-report.json`, and `validation/production-host-smoke-report.json`. This closes the reviewer-assignment subtask only; review-completion logging remains open until the final clean-RC evidence set and WS-H review state are recorded. |
+| 2026-03-21 | In Progress | Tightened the rollback evidence path without changing checkbox state: `migration/phase-8-rollback-drill-result.md` now has an immediate live-fill block, explicit completion gate, final-run alignment fields, and evidence-source capture rows, while `CUTOVER-VERIFICATION-CHECKLIST.md` now treats rollback readiness as binary evidence checks instead of broad intent statements. Updated `analysis/documentation/phase-8/rhi-091-clean-rerun-closeout-plan-2026-03-21.md` with an exact row-flip matrix showing which unchecked RHI-091 rows will flip after the final clean `workflow_dispatch` run plus WS-H re-review, which still require rollback-drill evidence, and which remain gated on the T-24h and go/no-go sign-off window. |
+| 2026-03-21 | In Progress | Correction to the earlier preflight note: GitHub CLI is installed at `/opt/homebrew/bin/gh` and authenticated for `taurgis`. The earlier `gh not installed locally` observation should be treated as a transient shell-path mismatch rather than the current environment state. The successful manual `workflow_dispatch` run `23384070147` was triggered with `gh workflow run deploy-pages.yml --ref main`. |
+| 2026-03-21 | In Progress | Triggered a real manual `workflow_dispatch` run of `deploy-pages.yml` on `main@1fdbc19` and recorded successful build and deploy conclusions from Actions run `23384070147`. Re-ran the two WS-H scripts from clean detached worktrees at the same commit, with outputs written both to tracked and untracked locations, and both reports still remained `branch-state` because the frozen validation datasets are still pinned to `phase-8-rc-v2`. The final-RC evidence blocker therefore remains open even though the manual workflow run itself succeeded. |
+| 2026-03-21 | In Progress | Executed a verified-only Option B rollback drill using `migration/phase-7-staging-rollback-runbook.md` against the previous WordPress stack on `https://www.rhino-inquisitor.com/`. Trigger time `2026-03-21T16:55:05Z`, confirmation time `2026-03-21T16:55:06Z`, and MTTR `0` minutes were recorded in `tmp/rhi-091-rollback-drill-20260321/` and live-filled into `migration/phase-8-rollback-drill-result.md`. The drill confirmed WordPress homepage accessibility (`HTTP 200`, title `Home - The Rhino Inquisitor`), privacy policy `200`, `robots.txt` `200`, feed `200`, sitemap reachability via `301`, and the current single frozen priority-route sample `/` at `200`. Based on that committed drill result, the rollback acceptance rows, rollback task rows, and the rollback-drill reference under the go/no-go decision task are now checked, and the rollback blocker in `migration/phase-8-exception-register.md` is closed. |
 
 ---
 

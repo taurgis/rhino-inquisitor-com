@@ -3,7 +3,7 @@
   "ticket": "RHI-091",
   "artifact": "preview-launch-readiness-report",
   "status": "pass",
-  "generatedAt": "2026-03-21T05:51:04.074Z",
+  "generatedAt": "2026-03-21T07:43:09.192Z",
   "entrypoint": {
     "requestedUrl": "https://taurgis.github.io/rhino-inquisitor-com/",
     "finalUrl": "https://staging.rhino-inquisitor.com/",
@@ -38,8 +38,8 @@
     "redirectSampleCount": 1
   },
   "artifactProvenance": {
-    "gitHead": "65754e0cda445b5741204108d9a558125522ad28",
-    "gitHeadShort": "65754e0c",
+    "gitHead": "1fdbc19a714b74464d89ce71d27f28f12b13edd0",
+    "gitHeadShort": "1fdbc19a",
     "workspaceDirty": true,
     "datasetRcTag": "phase-8-rc-v2",
     "datasetRcSha": "efdcefce5a51f1a3cf70d6b437b7b2868df39cb8",

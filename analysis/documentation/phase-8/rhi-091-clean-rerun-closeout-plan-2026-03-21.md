@@ -39,6 +39,8 @@ The recommended closeout path is:
    - `migration/phase-8-rollback-drill-result.md`
    - `migration/phase-8-rc-v3-record.md`
 
+The closeout plan now also includes an explicit row-flip matrix so reviewers can tell which remaining RHI-091 items become eligible to close after the final clean `workflow_dispatch` run and WS-H re-review, and which still remain blocked on rollback or sign-off work.
+
 ### Exact rerun sequence
 
 #### A. Freeze the final WS-H snapshot
@@ -92,6 +94,52 @@ node scripts/phase-8/check-preview-launch-readiness.js --base-url https://taurgi
 3. Complete `CUTOVER-VERIFICATION-CHECKLIST.md` at T-24h before the go/no-go record is signed.
 4. Record the formal decision in `migration/phase-8-go-nogo-decision.md`.
 
+## Unchecked Row Flip Matrix
+
+This matrix defines which currently unchecked rows in `analysis/tickets/phase-8/RHI-091-operational-readiness-go-nogo.md` should flip after specific evidence events.
+
+### Rows that flip after the final `workflow_dispatch` run plus WS-H re-review
+
+These rows may close only when all are true:
+
+1. The final Phase 8 evidence run is a clean `workflow_dispatch` run on the final RC basis.
+2. `validation/preview-launch-readiness-report.json` and `validation/production-host-smoke-report.json` are regenerated from that basis and are no longer `branch-state`.
+3. Review completion for the WS-H reports is logged in the ticket progress log.
+
+Rows expected to flip from that event set:
+
+- Full gate suite parent row and the still-open gate subrows for `lhci:run:p8`, `check:perf-budget`, and `check:links`
+- `validation/preview-launch-readiness-report.json` generated and reviewed alongside the smoke-test markdown summary
+- `validation/production-host-smoke-report.json` generated and reviewed alongside the final launch summary
+- Priority legacy redirect smoke row, if the final rehearsal uses the same frozen `validation/priority-routes.json` contract and records the available route sample outcome explicitly
+- Task row to trigger `workflow_dispatch` on the RC branch with all gates enabled
+- Task row to record review completion in the progress log with reviewer name and date
+- The parent task row `Run the full Phase 8 gate suite in a single CI run against the final RC commit` when its remaining children are closed
+
+### Rows that still require rollback-drill evidence after the final run succeeds
+
+These rows do not flip from the final run alone:
+
+- All acceptance and task rows under `Rollback drill is executed and timed`
+- `No unresolved blocking gate failure is carried to the go/no-go decision`
+- Any row in downstream decision artifacts that references `migration/phase-8-rollback-drill-result.md`
+
+These rows may close only when the rollback drill file contains real timestamps, MTTR, WordPress accessibility proof, and a final disposition with no remaining unresolved `blocking` rollback entry in `migration/phase-8-exception-register.md`.
+
+### Rows that still require T-24h or formal sign-off action after final run and rollback evidence exist
+
+These rows remain open until the decision window itself occurs:
+
+- `LAUNCH-GATE-PASS-SUMMARY.md` signed off by migration owner
+- `CUTOVER-VERIFICATION-CHECKLIST.md` completed at T-24h before go/no-go meeting with ownership sign-off from engineering, SEO, and incident commander
+- All `Go/No-Go decision is made and recorded` acceptance rows
+- All `Convene Go/No-Go meeting with all required approvers` task rows
+- All remaining rows under `Commit migration/phase-8-go-nogo-decision.md`
+
+### Guardrail
+
+Do not flip parent rows early. Update child rows first, then close the parent row only when every dependent child row is backed by one committed artifact, one run URL, and one date-aligned review or sign-off record.
+
 ### Support record scaffolds
 
 Two additional support files exist so the final decision window does not need to invent evidence structure under time pressure:
@@ -120,6 +168,12 @@ Use this sequence after the WS-H automation is merged:
 5. Complete and record the rollback drill.
 6. Populate the three pending closeout templates from the clean evidence set.
 7. Replace all `PENDING_*` values in the rollback-drill and RC-v3 support records.
+
+Row-flip verification:
+
+1. After the final run and WS-H re-review, verify only the row set named in `Rows that flip after the final workflow_dispatch run plus WS-H re-review` is closed.
+2. After the rollback drill, verify only the rollback-dependent row set is newly closed.
+3. After T-24h and final decision sign-off, verify the remaining decision and checklist rows are closed.
 
 ## Related files
 
