@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "phase": 8,
   "ticket": "RHI-090",
-  "generatedAt": "2026-03-20T21:27:53.528Z",
+  "generatedAt": "2026-03-21T07:13:50.714Z",
   "canonicalOrigin": "https://www.rhino-inquisitor.com",
   "mode": {
     "skipLiveChecks": false,
@@ -16,8 +16,8 @@
     "note": "Owner confirmed that the GitHub Pages settings are done, including Enforce HTTPS and verified custom-domain state."
   },
   "artifactProvenance": {
-    "gitHead": "c5d20c372154df28f563defc165105be8af7d212",
-    "gitHeadShort": "c5d20c37",
+    "gitHead": "ad674f0c0bee87d66c715c99539e0e47e55f1f79",
+    "gitHeadShort": "ad674f0c",
     "workspaceDirty": true,
     "datasetRcTag": "phase-8-rc-v2",
     "datasetRcSha": "efdcefce5a51f1a3cf70d6b437b7b2868df39cb8",
@@ -49,13 +49,13 @@
     "mixedContent": {
       "status": "pass",
       "blocking": true,
-      "summary": "Scanned 235 HTML files and 4 CSS files with zero mixed-content references.",
+      "summary": "Scanned 235 HTML files and 1 CSS files with zero mixed-content references.",
       "evidenceSource": "automation",
       "findings": [],
       "warnings": [],
       "details": {
         "htmlFilesScanned": 235,
-        "cssFilesScanned": 4
+        "cssFilesScanned": 1
       }
     },
     "canonicalHttps": {
@@ -192,32 +192,8 @@
         "domain": "rhino-inquisitor.com",
         "records": [
           {
-            "tag": "issuewild",
-            "value": "pki.goog; cansignhttpexchanges=yes"
-          },
-          {
-            "tag": "issuewild",
-            "value": "digicert.com; cansignhttpexchanges=yes"
-          },
-          {
-            "tag": "issue",
-            "value": "letsencrypt.org"
-          },
-          {
-            "tag": "issuewild",
-            "value": "ssl.com"
-          },
-          {
             "tag": "issue",
             "value": "pki.goog; cansignhttpexchanges=yes"
-          },
-          {
-            "tag": "issue",
-            "value": "comodoca.com"
-          },
-          {
-            "tag": "issue",
-            "value": "ssl.com"
           },
           {
             "tag": "issuewild",
@@ -225,11 +201,35 @@
           },
           {
             "tag": "issue",
+            "value": "letsencrypt.org"
+          },
+          {
+            "tag": "issuewild",
             "value": "digicert.com; cansignhttpexchanges=yes"
           },
           {
             "tag": "issuewild",
             "value": "comodoca.com"
+          },
+          {
+            "tag": "issuewild",
+            "value": "ssl.com"
+          },
+          {
+            "tag": "issue",
+            "value": "comodoca.com"
+          },
+          {
+            "tag": "issuewild",
+            "value": "pki.goog; cansignhttpexchanges=yes"
+          },
+          {
+            "tag": "issue",
+            "value": "ssl.com"
+          },
+          {
+            "tag": "issue",
+            "value": "digicert.com; cansignhttpexchanges=yes"
           }
         ]
       }
@@ -251,12 +251,12 @@
     "wildcardDns": {
       "status": "pass",
       "blocking": true,
-      "summary": "No wildcard-style DNS answers were returned for rhi-phase8-1774042073420.rhino-inquisitor.com.",
+      "summary": "No wildcard-style DNS answers were returned for rhi-phase8-1774077230624.rhino-inquisitor.com.",
       "evidenceSource": "dns",
       "findings": [],
       "warnings": [],
       "details": {
-        "hostname": "rhi-phase8-1774042073420.rhino-inquisitor.com",
+        "hostname": "rhi-phase8-1774077230624.rhino-inquisitor.com",
         "records": []
       }
     },

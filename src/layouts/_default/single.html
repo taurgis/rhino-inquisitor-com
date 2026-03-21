@@ -99,4 +99,7 @@
   {{ if eq .RelPermalink "/video/" }}
     <script src="{{ "scripts/video-playlist.js" | relURL }}" defer></script>
   {{ end }}
+  {{ if .Scratch.Get "hasLiteYoutube" }}
+    <script src="{{ "scripts/lite-youtube.js" | relURL }}" defer></script>
+  {{ end }}
 {{ end }}

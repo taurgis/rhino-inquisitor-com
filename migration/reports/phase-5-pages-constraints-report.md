@@ -1,6 +1,6 @@
 # Phase 5 Pages Constraints Report
 
-Generated: 2026-03-21T07:07:50.752Z
+Generated: 2026-03-21T07:13:13.826Z
 
 ## Artifact summary
 
@@ -9,20 +9,20 @@ Generated: 2026-03-21T07:07:50.752Z
 | Public output path | public | Production build artifact inspected by the gate |
 | Source static path | src/static | Source of truth for static passthrough assets |
 | URL manifest path | migration/url-manifest.json | Alias-growth baseline source |
-| Public output size | 581.57 MB | 56.79% of the 1 GB GitHub Pages published-site limit |
+| Public output size | 581.58 MB | 56.79% of the 1 GB GitHub Pages published-site limit |
 | Gate threshold | 800.00 MB | 72.70% of the configured gate budget currently used |
-| Headroom to gate | 218.43 MB | Remaining space before the CI gate fails |
-| Headroom to 1 GB Pages limit | 442.43 MB | Remaining space before the GitHub Pages hard limit |
-| Artifact file count | 1218 | Regular files in public/ |
+| Headroom to gate | 218.42 MB | Remaining space before the CI gate fails |
+| Headroom to 1 GB Pages limit | 442.42 MB | Remaining space before the GitHub Pages hard limit |
+| Artifact file count | 1219 | Regular files in public/ |
 | Artifact directory count | 250 | Directories in public/ excluding root |
-| Production build duration | 1.17 s | Reported when supplied by the caller or CI workflow |
+| Production build duration | 940 ms | Reported when supplied by the caller or CI workflow |
 
 ## Artifact structure conformance
 
 | Check | Status | Details |
 | --- | --- | --- |
 | Top-level index.html present | Pass | public/index.html is present. |
-| Published size below threshold | Pass | 581.57 MB used vs 800.00 MB configured gate. |
+| Published size below threshold | Pass | 581.58 MB used vs 800.00 MB configured gate. |
 | No symbolic links in public/ | Pass | No symbolic links detected. |
 | No hard links in public/ | Pass | No hard links detected. |
 | Only files and directories in public/ | Pass | No unsupported special file types detected. |

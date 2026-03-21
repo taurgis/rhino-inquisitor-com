@@ -1526,6 +1526,66 @@ summary {
   border: 0;
 }
 
+.article-body .video-embed__frame lite-youtube {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: #10213a;
+  background-image: linear-gradient(rgba(8, 20, 35, 0.18), rgba(8, 20, 35, 0.6)), var(--video-poster);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.article-body .video-embed__frame lite-youtube.is-activated {
+  background-image: none;
+}
+
+.article-body .video-embed__play {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.85rem 1.15rem;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: rgba(8, 20, 35, 0.82);
+  color: var(--ink-inverse);
+  box-shadow: var(--shadow-edge);
+  cursor: pointer;
+  font: inherit;
+}
+
+.article-body .video-embed__play:hover,
+.article-body .video-embed__play:focus-visible {
+  background: rgba(0, 63, 138, 0.92);
+}
+
+.article-body .video-embed__play-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+}
+
+.article-body .video-embed__play-icon::before {
+  content: "";
+  position: absolute;
+  margin-top: 0.72rem;
+  margin-left: 0.96rem;
+  border-top: 0.55rem solid transparent;
+  border-bottom: 0.55rem solid transparent;
+  border-left: 0.9rem solid var(--ink-inverse);
+}
+
+.article-body .video-embed__play-label {
+  font-weight: 600;
+}
+
 .article-body .video-embed figcaption {
   margin: 0;
   font-size: 0.95rem;

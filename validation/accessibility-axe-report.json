@@ -5,15 +5,15 @@
   "status": "pass",
   "rcTag": "phase-8-rc-v2",
   "rcSha": "efdcefce5a51f1a3cf70d6b437b7b2868df39cb8",
-  "generatedAt": "2026-03-21T07:07:25.084Z",
+  "generatedAt": "2026-03-21T07:13:48.562Z",
   "publicDir": "public",
   "sampleMatrix": {
     "path": "validation/sample-matrix.json",
     "generatedAt": "2026-03-20T19:04:18Z"
   },
   "artifactProvenance": {
-    "gitHead": "a3d5fa45478524c698c6e847405da8bdcbe65e51",
-    "gitHeadShort": "a3d5fa45",
+    "gitHead": "ad674f0c0bee87d66c715c99539e0e47e55f1f79",
+    "gitHeadShort": "ad674f0c",
     "workspaceDirty": true,
     "datasetRcTag": "phase-8-rc-v2",
     "datasetRcSha": "efdcefce5a51f1a3cf70d6b437b7b2868df39cb8",
@@ -23,7 +23,7 @@
   },
   "execution": {
     "mode": "local-static-server",
-    "baseUrl": "http://127.0.0.1:62924",
+    "baseUrl": "http://127.0.0.1:63816",
     "wcagTags": [
       "wcag2a",
       "wcag2aa",
@@ -52,14 +52,14 @@
     "passCount": 27,
     "failCount": 0,
     "blockingFailures": 0,
-    "warningCount": 3,
+    "warningCount": 0,
     "criticalViolations": 0,
-    "seriousViolations": 3,
+    "seriousViolations": 0,
     "moderateViolations": 0,
     "minorViolations": 0,
     "unknownViolations": 0,
     "routesWithBlockingViolations": 0,
-    "routesWithWarnings": 3
+    "routesWithWarnings": 0
   },
   "entries": [
     {
@@ -79,7 +79,7 @@
       ],
       "primaryTemplate": true,
       "builtArtifactPath": "public/index.html",
-      "checkedUrl": "http://127.0.0.1:62924/",
+      "checkedUrl": "http://127.0.0.1:63816/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -111,7 +111,7 @@
       ],
       "primaryTemplate": true,
       "builtArtifactPath": "public/a-dev-guide-to-combating-fraud-on-sfcc/index.html",
-      "checkedUrl": "http://127.0.0.1:62924/a-dev-guide-to-combating-fraud-on-sfcc/",
+      "checkedUrl": "http://127.0.0.1:63816/a-dev-guide-to-combating-fraud-on-sfcc/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -143,7 +143,7 @@
       ],
       "primaryTemplate": true,
       "builtArtifactPath": "public/a-survival-guide-to-sfcc-platform-limits/index.html",
-      "checkedUrl": "http://127.0.0.1:62924/a-survival-guide-to-sfcc-platform-limits/",
+      "checkedUrl": "http://127.0.0.1:63816/a-survival-guide-to-sfcc-platform-limits/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -175,7 +175,7 @@
       ],
       "primaryTemplate": false,
       "builtArtifactPath": "public/archive/index.html",
-      "checkedUrl": "http://127.0.0.1:62924/archive/",
+      "checkedUrl": "http://127.0.0.1:63816/archive/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -207,7 +207,7 @@
       ],
       "primaryTemplate": true,
       "builtArtifactPath": "public/category/ai/index.html",
-      "checkedUrl": "http://127.0.0.1:62924/category/ai/",
+      "checkedUrl": "http://127.0.0.1:63816/category/ai/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -239,7 +239,7 @@
       ],
       "primaryTemplate": true,
       "builtArtifactPath": "public/category/architecture/index.html",
-      "checkedUrl": "http://127.0.0.1:62924/category/architecture/",
+      "checkedUrl": "http://127.0.0.1:63816/category/architecture/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -271,7 +271,7 @@
       ],
       "primaryTemplate": true,
       "builtArtifactPath": "public/category/certification/index.html",
-      "checkedUrl": "http://127.0.0.1:62924/category/certification/",
+      "checkedUrl": "http://127.0.0.1:63816/category/certification/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -303,7 +303,7 @@
       ],
       "primaryTemplate": true,
       "builtArtifactPath": "public/category/community/index.html",
-      "checkedUrl": "http://127.0.0.1:62924/category/community/",
+      "checkedUrl": "http://127.0.0.1:63816/category/community/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -335,7 +335,7 @@
       ],
       "primaryTemplate": true,
       "builtArtifactPath": "public/category/corporate/index.html",
-      "checkedUrl": "http://127.0.0.1:62924/category/corporate/",
+      "checkedUrl": "http://127.0.0.1:63816/category/corporate/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -367,7 +367,7 @@
       ],
       "primaryTemplate": false,
       "builtArtifactPath": "public/connecting-the-clouds-wedding-or-funeral/index.html",
-      "checkedUrl": "http://127.0.0.1:62924/connecting-the-clouds-wedding-or-funeral/",
+      "checkedUrl": "http://127.0.0.1:63816/connecting-the-clouds-wedding-or-funeral/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -399,7 +399,7 @@
       ],
       "primaryTemplate": false,
       "builtArtifactPath": "public/cookie-policy-eu/index.html",
-      "checkedUrl": "http://127.0.0.1:62924/cookie-policy-eu/",
+      "checkedUrl": "http://127.0.0.1:63816/cookie-policy-eu/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -431,7 +431,7 @@
       ],
       "primaryTemplate": true,
       "builtArtifactPath": "public/field-guide-to-custom-caches-in-sfcc/index.html",
-      "checkedUrl": "http://127.0.0.1:62924/field-guide-to-custom-caches-in-sfcc/",
+      "checkedUrl": "http://127.0.0.1:63816/field-guide-to-custom-caches-in-sfcc/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -463,45 +463,19 @@
       ],
       "primaryTemplate": false,
       "builtArtifactPath": "public/headless/index.html",
-      "checkedUrl": "http://127.0.0.1:62924/headless/",
+      "checkedUrl": "http://127.0.0.1:63816/headless/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
         "critical": 0,
-        "serious": 1,
+        "serious": 0,
         "moderate": 0,
         "minor": 0,
         "unknown": 0
       },
       "blockingFindings": [],
       "blockingViolations": [],
-      "nonBlockingViolations": [
-        {
-          "id": "aria-prohibited-attr",
-          "impact": "serious",
-          "description": "Ensure ARIA attributes are not prohibited for an element's role",
-          "help": "Elements must only use permitted ARIA attributes",
-          "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-prohibited-attr?application=playwright",
-          "tags": [
-            "cat.aria",
-            "wcag2a",
-            "wcag412",
-            "EN-301-549",
-            "EN-9.4.1.2",
-            "RGAAv4",
-            "RGAA-7.1.1"
-          ],
-          "blocking": false,
-          "blockingReason": null,
-          "nodes": [
-            {
-              "target": "iframe #movie_player",
-              "html": "<div class=\"html5-video-player ytp-hide-controls ytp-exp-bottom-control-flexbox ytp-modern-caption ytp-livebadge-color unstarted-mode ytp-large-width-mode\" tabindex=\"\" id=\"movie_player\" data-version=\"/s/player/1ebf2aa6/player_embed.vflset/nl_NL/base.js\" aria-label=\"YouTube-videospeler\">",
-              "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a div with no valid role attribute."
-            }
-          ]
-        }
-      ],
+      "nonBlockingViolations": [],
       "moderateDisposition": null
     },
     {
@@ -521,7 +495,7 @@
       ],
       "primaryTemplate": true,
       "builtArtifactPath": "public/kickstart-guide-for-new-sfcc-developers/index.html",
-      "checkedUrl": "http://127.0.0.1:62924/kickstart-guide-for-new-sfcc-developers/",
+      "checkedUrl": "http://127.0.0.1:63816/kickstart-guide-for-new-sfcc-developers/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -553,45 +527,19 @@
       ],
       "primaryTemplate": false,
       "builtArtifactPath": "public/me-myself-and-headless-a-composable-commerce-cloud-story/index.html",
-      "checkedUrl": "http://127.0.0.1:62924/me-myself-and-headless-a-composable-commerce-cloud-story/",
+      "checkedUrl": "http://127.0.0.1:63816/me-myself-and-headless-a-composable-commerce-cloud-story/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
         "critical": 0,
-        "serious": 1,
+        "serious": 0,
         "moderate": 0,
         "minor": 0,
         "unknown": 0
       },
       "blockingFindings": [],
       "blockingViolations": [],
-      "nonBlockingViolations": [
-        {
-          "id": "aria-prohibited-attr",
-          "impact": "serious",
-          "description": "Ensure ARIA attributes are not prohibited for an element's role",
-          "help": "Elements must only use permitted ARIA attributes",
-          "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-prohibited-attr?application=playwright",
-          "tags": [
-            "cat.aria",
-            "wcag2a",
-            "wcag412",
-            "EN-301-549",
-            "EN-9.4.1.2",
-            "RGAAv4",
-            "RGAA-7.1.1"
-          ],
-          "blocking": false,
-          "blockingReason": null,
-          "nodes": [
-            {
-              "target": "iframe #movie_player",
-              "html": "<div class=\"html5-video-player ytp-hide-controls ytp-exp-bottom-control-flexbox ytp-modern-caption ytp-livebadge-color unstarted-mode ytp-large-width-mode\" tabindex=\"\" id=\"movie_player\" data-version=\"/s/player/1ebf2aa6/player_embed.vflset/nl_NL/base.js\" aria-label=\"YouTube-videospeler\">",
-              "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a div with no valid role attribute."
-            }
-          ]
-        }
-      ],
+      "nonBlockingViolations": [],
       "moderateDisposition": null
     },
     {
@@ -611,7 +559,7 @@
       ],
       "primaryTemplate": false,
       "builtArtifactPath": "public/posts/index.html",
-      "checkedUrl": "http://127.0.0.1:62924/posts/",
+      "checkedUrl": "http://127.0.0.1:63816/posts/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -643,7 +591,7 @@
       ],
       "primaryTemplate": false,
       "builtArtifactPath": "public/privacy-policy/index.html",
-      "checkedUrl": "http://127.0.0.1:62924/privacy-policy/",
+      "checkedUrl": "http://127.0.0.1:63816/privacy-policy/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -675,7 +623,7 @@
       ],
       "primaryTemplate": true,
       "builtArtifactPath": "public/real-time-inventory-checks-in-sfcc/index.html",
-      "checkedUrl": "http://127.0.0.1:62924/real-time-inventory-checks-in-sfcc/",
+      "checkedUrl": "http://127.0.0.1:63816/real-time-inventory-checks-in-sfcc/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -707,7 +655,7 @@
       ],
       "primaryTemplate": true,
       "builtArtifactPath": "public/salesforce-b2c-commerce-cloud-22-9-release/index.html",
-      "checkedUrl": "http://127.0.0.1:62924/salesforce-b2c-commerce-cloud-22-9-release/",
+      "checkedUrl": "http://127.0.0.1:63816/salesforce-b2c-commerce-cloud-22-9-release/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -739,7 +687,7 @@
       ],
       "primaryTemplate": true,
       "builtArtifactPath": "public/sfcc-introduction/index.html",
-      "checkedUrl": "http://127.0.0.1:62924/sfcc-introduction/",
+      "checkedUrl": "http://127.0.0.1:63816/sfcc-introduction/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -771,7 +719,7 @@
       ],
       "primaryTemplate": true,
       "builtArtifactPath": "public/slas-in-sfra-or-sitegenesis/index.html",
-      "checkedUrl": "http://127.0.0.1:62924/slas-in-sfra-or-sitegenesis/",
+      "checkedUrl": "http://127.0.0.1:63816/slas-in-sfra-or-sitegenesis/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -803,7 +751,7 @@
       ],
       "primaryTemplate": true,
       "builtArtifactPath": "public/taming-the-beast-a-developers-deep-dive-into-sfcc-meta-tag-rules/index.html",
-      "checkedUrl": "http://127.0.0.1:62924/taming-the-beast-a-developers-deep-dive-into-sfcc-meta-tag-rules/",
+      "checkedUrl": "http://127.0.0.1:63816/taming-the-beast-a-developers-deep-dive-into-sfcc-meta-tag-rules/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -835,45 +783,19 @@
       ],
       "primaryTemplate": false,
       "builtArtifactPath": "public/the-path-to-being-an-architect/index.html",
-      "checkedUrl": "http://127.0.0.1:62924/the-path-to-being-an-architect/",
+      "checkedUrl": "http://127.0.0.1:63816/the-path-to-being-an-architect/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
         "critical": 0,
-        "serious": 1,
+        "serious": 0,
         "moderate": 0,
         "minor": 0,
         "unknown": 0
       },
       "blockingFindings": [],
       "blockingViolations": [],
-      "nonBlockingViolations": [
-        {
-          "id": "aria-prohibited-attr",
-          "impact": "serious",
-          "description": "Ensure ARIA attributes are not prohibited for an element's role",
-          "help": "Elements must only use permitted ARIA attributes",
-          "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/aria-prohibited-attr?application=playwright",
-          "tags": [
-            "cat.aria",
-            "wcag2a",
-            "wcag412",
-            "EN-301-549",
-            "EN-9.4.1.2",
-            "RGAAv4",
-            "RGAA-7.1.1"
-          ],
-          "blocking": false,
-          "blockingReason": null,
-          "nodes": [
-            {
-              "target": "iframe #movie_player",
-              "html": "<div class=\"html5-video-player ytp-hide-controls ytp-exp-bottom-control-flexbox ytp-modern-caption ytp-livebadge-color unstarted-mode ytp-large-width-mode\" tabindex=\"\" id=\"movie_player\" data-version=\"/s/player/1ebf2aa6/player_embed.vflset/nl_NL/base.js\" aria-label=\"YouTube-videospeler\">",
-              "failureSummary": "Fix all of the following:\n  aria-label attribute cannot be used on a div with no valid role attribute."
-            }
-          ]
-        }
-      ],
+      "nonBlockingViolations": [],
       "moderateDisposition": null
     },
     {
@@ -893,7 +815,7 @@
       ],
       "primaryTemplate": true,
       "builtArtifactPath": "public/the-realm-split-field-guide-to-migrating-an-sfcc-site/index.html",
-      "checkedUrl": "http://127.0.0.1:62924/the-realm-split-field-guide-to-migrating-an-sfcc-site/",
+      "checkedUrl": "http://127.0.0.1:63816/the-realm-split-field-guide-to-migrating-an-sfcc-site/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -925,7 +847,7 @@
       ],
       "primaryTemplate": true,
       "builtArtifactPath": "public/the-sfcc-guide-to-finding-pod-numbers/index.html",
-      "checkedUrl": "http://127.0.0.1:62924/the-sfcc-guide-to-finding-pod-numbers/",
+      "checkedUrl": "http://127.0.0.1:63816/the-sfcc-guide-to-finding-pod-numbers/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -957,7 +879,7 @@
       ],
       "primaryTemplate": false,
       "builtArtifactPath": "public/video/index.html",
-      "checkedUrl": "http://127.0.0.1:62924/video/",
+      "checkedUrl": "http://127.0.0.1:63816/video/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -989,7 +911,7 @@
       ],
       "primaryTemplate": true,
       "builtArtifactPath": "public/your-definitive-mobile-app-checklist/index.html",
-      "checkedUrl": "http://127.0.0.1:62924/your-definitive-mobile-app-checklist/",
+      "checkedUrl": "http://127.0.0.1:63816/your-definitive-mobile-app-checklist/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {

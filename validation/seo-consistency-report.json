@@ -5,15 +5,15 @@
   "status": "pass",
   "rcTag": "phase-8-rc-v2",
   "rcSha": "efdcefce5a51f1a3cf70d6b437b7b2868df39cb8",
-  "generatedAt": "2026-03-21T07:07:54.634Z",
+  "generatedAt": "2026-03-21T07:13:17.354Z",
   "publicDir": "public",
   "sampleMatrix": {
     "path": "validation/sample-matrix.json",
     "generatedAt": "2026-03-20T19:04:18Z"
   },
   "artifactProvenance": {
-    "gitHead": "a3d5fa45478524c698c6e847405da8bdcbe65e51",
-    "gitHeadShort": "a3d5fa45",
+    "gitHead": "ad674f0c0bee87d66c715c99539e0e47e55f1f79",
+    "gitHeadShort": "ad674f0c",
     "workspaceDirty": true,
     "datasetRcTag": "phase-8-rc-v2",
     "datasetRcSha": "efdcefce5a51f1a3cf70d6b437b7b2868df39cb8",

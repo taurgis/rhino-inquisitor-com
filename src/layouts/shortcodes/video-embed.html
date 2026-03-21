@@ -1,24 +1,23 @@
 {{- $provider := .Get "provider" | default "youtube" -}}
 {{- $id := .Get "id" -}}
 {{- $title := .Get "title" | default (.Page.Title | plainify) -}}
+{{- .Page.Scratch.Set "hasLiteYoutube" true -}}
 {{- if not $id -}}
   {{- errorf "video-embed shortcode requires an id: %s" .Position -}}
 {{- end -}}
 {{- if ne $provider "youtube" -}}
   {{- errorf "video-embed shortcode only supports the youtube provider: %s" .Position -}}
 {{- end -}}
-{{- $embedURL := printf "https://www.youtube-nocookie.com/embed/%s?rel=0" $id -}}
 {{- $watchURL := printf "https://www.youtube.com/watch?v=%s" $id -}}
+{{- $posterURL := printf "https://i.ytimg.com/vi/%s/hqdefault.jpg" $id -}}
 <figure class="video-embed">
   <div class="video-embed__frame">
-    <iframe
-      src="{{ $embedURL }}"
-      title="{{ $title }}"
-      loading="lazy"
-      referrerpolicy="strict-origin-when-cross-origin"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen
-    ></iframe>
+    <lite-youtube data-video-id="{{ $id }}" data-video-title="{{ $title }}" style="--video-poster: url('{{ $posterURL }}');">
+      <button type="button" class="video-embed__play" aria-label="Play video: {{ $title }}">
+        <span class="video-embed__play-icon" aria-hidden="true"></span>
+        <span class="video-embed__play-label">Play video</span>
+      </button>
+    </lite-youtube>
   </div>
   <figcaption>
     <a href="{{ $watchURL }}">Watch on YouTube</a>
