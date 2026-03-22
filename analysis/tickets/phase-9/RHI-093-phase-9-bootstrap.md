@@ -7,7 +7,7 @@
 **Assigned to:** Migration Owner  
 **Target date:** 2026-06-16  
 **Created:** 2026-03-08  
-**Updated:** 2026-03-08
+**Updated:** 2026-03-22
 
 ---
 
@@ -23,12 +23,12 @@ No Phase 9 workstream ticket (RHI-094 through RHI-102) should begin until this t
 
 ### Acceptance Criteria
 
-- [ ] Phase 8 sign-off (RHI-092) is `Done` and `migration/phase-8-signoff.md` is committed
-- [ ] Go/No-Go decision in `migration/phase-8-go-nogo-decision.md` is recorded as **Go** with all named approvals
-- [ ] `LAUNCH-GATE-PASS-SUMMARY.md` is accessible and all Phase 8 hard-blocker gates are confirmed passing
-- [ ] `CUTOVER-VERIFICATION-CHECKLIST.md` is committed and ready for use at T-0
-- [ ] `phase-8-rc-v2` git tag is set on the validated release candidate commit SHA
-- [ ] All Phase 8 validation artifacts are accessible in `validation/`
+- [x] Phase 8 sign-off (RHI-092) is `Done` and `migration/phase-8-signoff.md` is committed
+- [x] Go/No-Go decision in `migration/phase-8-go-nogo-decision.md` is recorded as **Go** with all named approvals
+- [x] `LAUNCH-GATE-PASS-SUMMARY.md` is accessible and all Phase 8 hard-blocker gates are confirmed passing
+- [x] `CUTOVER-VERIFICATION-CHECKLIST.md` is committed and ready for use at T-0
+- [x] `phase-8-rc-v3` git tag is set on the validated release candidate commit SHA
+- [x] All Phase 8 validation artifacts are accessible in `validation/`
 - [ ] `monitoring/` directory structure is created and ready to receive Phase 9 outputs:
   - [ ] `monitoring/launch-cutover-log.md`
   - [ ] `monitoring/search-console-indexing-report.md`
@@ -72,10 +72,10 @@ No Phase 9 workstream ticket (RHI-094 through RHI-102) should begin until this t
 
 ### Tasks
 
-- [ ] Verify RHI-092 is `Done`; if not, document the blocker and pause Phase 9
-- [ ] Confirm Go/No-Go decision is recorded as Go in `migration/phase-8-go-nogo-decision.md`
-- [ ] Verify `phase-8-rc-v2` tag exists on the validated RC commit; record the SHA
-- [ ] Confirm all Phase 8 validation artifacts are accessible in `validation/` and CI artifact storage
+- [x] Verify RHI-092 is `Done`; if not, document the blocker and pause Phase 9
+- [x] Confirm Go/No-Go decision is recorded as Go in `migration/phase-8-go-nogo-decision.md`
+- [x] Verify `phase-8-rc-v3` tag exists on the validated RC commit; record the SHA
+- [x] Confirm all Phase 8 validation artifacts are accessible in `validation/` and CI artifact storage
 - [ ] Create `monitoring/` directory with stub files (README or empty placeholders for each expected artifact)
 - [ ] Assign all Phase 9 launch command roles by name and record assignments in Progress Log
 - [ ] Agree and announce the T-0 launch window date/time (must be a low-traffic period)
@@ -117,13 +117,13 @@ No Phase 9 workstream ticket (RHI-094 through RHI-102) should begin until this t
 
 | Dependency | Type | Status |
 |------------|------|--------|
-| RHI-092 Done — Phase 8 sign-off recorded | Ticket | Pending |
-| `migration/phase-8-signoff.md` committed | Phase | Pending |
-| `migration/phase-8-go-nogo-decision.md` committed with Go decision and all approvals | Phase | Pending |
-| `LAUNCH-GATE-PASS-SUMMARY.md` committed with all Phase 8 gates passing | Phase | Pending |
-| `CUTOVER-VERIFICATION-CHECKLIST.md` committed | Phase | Pending |
-| `phase-8-rc-v2` git tag set on validated RC | Phase | Pending |
-| All Phase 8 validation artifacts committed to `validation/` | Phase | Pending |
+| RHI-092 Done — Phase 8 sign-off recorded | Ticket | Done |
+| `migration/phase-8-signoff.md` committed | Phase | Done |
+| `migration/phase-8-go-nogo-decision.md` committed with Go decision and all approvals | Phase | Done |
+| `LAUNCH-GATE-PASS-SUMMARY.md` committed with all Phase 8 gates passing | Phase | Done |
+| `CUTOVER-VERIFICATION-CHECKLIST.md` committed | Phase | Done |
+| `phase-8-rc-v3` git tag set on validated RC | Phase | Done |
+| All Phase 8 validation artifacts committed to `validation/` | Phase | Done |
 | Migration owner, SEO owner, engineering owner, DNS/ops owner available for Phase 9 | Access | Pending |
 | Search Console access confirmed for canonical property | Access | Pending |
 | DNS provider access confirmed | Access | Pending |
@@ -176,12 +176,13 @@ No Phase 9 workstream ticket (RHI-094 through RHI-102) should begin until this t
 | Date | Status | Note |
 |------|--------|------|
 | 2026-03-08 | Open | Ticket created |
+| 2026-03-22 | Open | Phase 8 handover prerequisites verified: RHI-092 is closed, sign-off package committed, and RC v3 sign-off tag confirmed. |
 
 ---
 
 ### Notes
 
 - Phase 9 is operationally irreversible once DNS cutover begins. A weak bootstrap — unconfirmed roles, missing DNS access, untested monitoring, or unresolved Phase 8 blockers — converts to a live incident within hours of T-0.
-- The `phase-8-rc-v2` tag is the authoritative artifact reference throughout Phase 9 unless a later Phase 8 re-cut is explicitly recorded. Any re-deployment must be traced back to a validated artifact SHA.
+- The `phase-8-rc-v3` tag is the authoritative artifact reference throughout Phase 9 unless a later Phase 8 re-cut is explicitly recorded. Any re-deployment must be traced back to a validated artifact SHA.
 - Search Console verification continuity is a non-negotiable pre-condition. A broken verification blocks sitemap submission and Page Indexing report access at exactly the moment both are most needed.
 - Reference: `analysis/plan/details/phase-9.md` §Phase Position and Dependencies, §Operating Model and Ownership, §Non-Negotiable Stabilization Constraints

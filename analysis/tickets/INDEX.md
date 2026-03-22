@@ -20,7 +20,7 @@ This is the top-level ticket index for the full migration project. Use the phase
 | 5 | SEO and Discoverability | RHI-047 – RHI-060 | Done | [phase-5/INDEX.md](phase-5/INDEX.md) |
 | 6 | URL Preservation and Redirect Strategy | RHI-061 – RHI-072 | Done | [phase-6/INDEX.md](phase-6/INDEX.md) |
 | 7 | GitHub Pages Preview Deployment and Domain Cutover Readiness | RHI-073 – RHI-082 | Done | [phase-7/INDEX.md](phase-7/INDEX.md) |
-| 8 | Validation and Launch Readiness | RHI-083 – RHI-092 | In Progress | [phase-8/INDEX.md](phase-8/INDEX.md) |
+| 8 | Validation and Launch Readiness | RHI-083 – RHI-092 | Done | [phase-8/INDEX.md](phase-8/INDEX.md) |
 | 9 | Production Cutover and Post-Launch Monitoring | RHI-093 – RHI-103 | Open | [phase-9/INDEX.md](phase-9/INDEX.md) |
 
 ---
@@ -116,11 +116,11 @@ This is the top-level ticket index for the full migration project. Use the phase
 | [RHI-085](phase-8/RHI-085-url-parity-redirect-integrity-gates.md) | Workstream B — URL Parity and Redirect Integrity Gates | 8 | Critical | Done | L | 2026-06-06 |
 | [RHI-086](phase-8/RHI-086-seo-indexing-readiness-gates.md) | Workstream C — SEO and Indexing Readiness Gates | 8 | Critical | Done | M | 2026-06-06 |
 | [RHI-087](phase-8/RHI-087-structured-data-social-preview-gates.md) | Workstream D — Structured Data and Social Preview Gates | 8 | High | Done | M | 2026-06-09 |
-| [RHI-088](phase-8/RHI-088-performance-core-web-vitals-gates.md) | Workstream E — Performance and Core Web Vitals Gates | 8 | High | Open | M | 2026-06-09 |
-| [RHI-089](phase-8/RHI-089-accessibility-markup-conformance-gates.md) | Workstream F — Accessibility and Markup Conformance Gates | 8 | High | Open | M | 2026-06-09 |
-| [RHI-090](phase-8/RHI-090-security-https-readiness-gates.md) | Workstream G — Security and HTTPS Readiness Gates | 8 | High | Open | S | 2026-06-10 |
-| [RHI-091](phase-8/RHI-091-operational-readiness-go-nogo.md) | Workstream H — Operational Readiness, Rehearsal, and Go/No-Go | 8 | Critical | Open | M | 2026-06-11 |
-| [RHI-092](phase-8/RHI-092-phase-8-signoff.md) | Phase 8 Sign-off and Handover to Phase 9 | 8 | Critical | Open | S | 2026-06-13 |
+| [RHI-088](phase-8/RHI-088-performance-core-web-vitals-gates.md) | Workstream E — Performance and Core Web Vitals Gates | 8 | High | Done | M | 2026-06-09 |
+| [RHI-089](phase-8/RHI-089-accessibility-markup-conformance-gates.md) | Workstream F — Accessibility and Markup Conformance Gates | 8 | High | Done | M | 2026-06-09 |
+| [RHI-090](phase-8/RHI-090-security-https-readiness-gates.md) | Workstream G — Security and HTTPS Readiness Gates | 8 | High | Done | S | 2026-06-10 |
+| [RHI-091](phase-8/RHI-091-operational-readiness-go-nogo.md) | Workstream H — Operational Readiness, Rehearsal, and Go/No-Go | 8 | Critical | Done | M | 2026-06-11 |
+| [RHI-092](phase-8/RHI-092-phase-8-signoff.md) | Phase 8 Sign-off and Handover to Phase 9 | 8 | Critical | Done | S | 2026-06-13 |
 | [RHI-093](phase-9/RHI-093-phase-9-bootstrap.md) | Phase 9 Bootstrap: Pre-Cutover Readiness and Team Alignment | 9 | Critical | Open | S | 2026-06-16 |
 | [RHI-094](phase-9/RHI-094-cutover-execution-immediate-verification.md) | Workstream A — Production Cutover Execution and Immediate Verification | 9 | Critical | Open | L | 2026-06-17 |
 | [RHI-095](phase-9/RHI-095-search-console-indexing-transition.md) | Workstream B — Search Console Activation and Indexing Transition | 9 | Critical | Open | M | 2026-07-29 |
