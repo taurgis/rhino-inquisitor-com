@@ -6,17 +6,16 @@
 {{ $prefix := .idPrefix | default "archive" }}
 {{ $topicsId := printf "%s-filter-topics" $prefix }}
 {{ $typesId := printf "%s-filter-types" $prefix }}
-{{ $yearsId := printf "%s-filter-years" $prefix }}
-{{ $sortHeadingId := printf "%s-filter-sort" $prefix }}
-{{ $sortId := printf "%s-sort" $prefix }}
-{{ $sortNoteId := printf "%s-sort-note" $prefix }}
-{{ $sortEnabled := .sortEnabled | default true }}
+{{ $topicCount := len site.Taxonomies.categories }}
 {{ $currentRelPermalink := "" }}
 {{ with $currentPage }}{{ $currentRelPermalink = .RelPermalink }}{{ end }}
 
 <div class="archive-filter-groups">
   <section class="archive-filter-group archive-filter-group--topics" aria-labelledby="{{ $topicsId }}">
-    <h3 id="{{ $topicsId }}">Topics</h3>
+    <h3 id="{{ $topicsId }}">
+      <span>Topics</span>
+      <span class="filter-badge" aria-label="Topics available">{{ add $topicCount 1 }}</span>
+    </h3>
     <div class="archive-filter-links archive-filter-links--topics">
       {{ with $topicsPage }}
         <a href="{{ .Permalink }}"{{ if eq $currentRelPermalink .RelPermalink }} aria-current="page"{{ end }}>All topics</a>
@@ -30,37 +29,14 @@
   </section>
 
   <section class="archive-filter-group archive-filter-group--types" aria-labelledby="{{ $typesId }}">
-    <h3 id="{{ $typesId }}">Type</h3>
+    <h3 id="{{ $typesId }}">
+      <span>Type</span>
+      <span class="filter-badge" aria-label="Content types available">2</span>
+    </h3>
     <div class="archive-filter-links archive-filter-links--types">
-      {{ with $postsPage }}<a href="{{ .Permalink }}">Articles</a>{{ end }}
-      {{ with $pagesSection }}<a href="{{ .Permalink }}">Pages</a>{{ end }}
+      {{ with $postsPage }}<a href="{{ .Permalink }}"{{ if eq $currentRelPermalink .RelPermalink }} aria-current="page"{{ end }}>Articles</a>{{ end }}
+      {{ with $pagesSection }}<a href="{{ .Permalink }}"{{ if eq $currentRelPermalink .RelPermalink }} aria-current="page"{{ end }}>Pages</a>{{ end }}
     </div>
     <p class="surface-note">Categories remain the primary public archive surface in Phase 3.</p>
   </section>
-
-  <section class="archive-filter-group archive-filter-group--years" aria-labelledby="{{ $yearsId }}" data-archive-year-controls>
-    <h3 id="{{ $yearsId }}">Year</h3>
-    {{ if gt (len $yearLinks) 0 }}
-      <div class="archive-filter-links archive-filter-links--years">
-        {{ range $yearLinks }}
-          <a href="{{ .url }}" aria-label="Jump to year {{ .label }}">{{ .label }}</a>
-        {{ end }}
-      </div>
-    {{ else }}
-      <p class="surface-note">Year jumps appear when the current archive surface contains dated content.</p>
-    {{ end }}
-  </section>
-
-  {{ if $sortEnabled }}
-    <section class="archive-filter-group archive-filter-group--sort" aria-labelledby="{{ $sortHeadingId }}">
-      <h3 id="{{ $sortHeadingId }}">Sort</h3>
-      <label for="{{ $sortId }}">Sort order</label>
-      <select id="{{ $sortId }}" name="sort" aria-describedby="{{ $sortNoteId }}" data-archive-sort>
-        <option value="newest" selected>Newest first</option>
-        <option value="oldest">Oldest first</option>
-        <option value="title-asc">Title A-Z</option>
-      </select>
-      <p class="surface-note" id="{{ $sortNoteId }}">Changing sort updates the current archive view and temporarily hides year jumps until the default view is restored.</p>
-    </section>
-  {{ end }}
 </div>

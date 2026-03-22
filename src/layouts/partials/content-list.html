@@ -4,8 +4,19 @@
 
 <section class="archive-results" id="archive-results" aria-labelledby="archive-results-heading">
   <div class="archive-results__head">
-    <h2 id="archive-results-heading">{{ .heading | default "Browse the archive" }}</h2>
-    <p class="archive-results__summary">Showing <strong>{{ $resultCount }}</strong> {{ cond (eq $resultCount 1) "result" "results" }}</p>
+    <div class="archive-results__title-row">
+      <h2 id="archive-results-heading">{{ .heading | default "Browse the archive" }}</h2>
+    </div>
+    <p class="archive-results__summary" role="status" aria-live="polite">
+      Showing <strong class="result-count-badge">{{ $resultCount }}</strong> 
+      {{ if eq $resultCount 0 }}
+        no results
+      {{ else if eq $resultCount 1 }}
+        result
+      {{ else }}
+        results
+      {{ end }}
+    </p>
   </div>
 
   {{ if gt $resultCount 0 }}

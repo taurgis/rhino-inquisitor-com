@@ -97,9 +97,6 @@
           createMetadata(entry) +
           '<h3><a href="' + escapeHtml(entry.permalink) + '">' + escapeHtml(entry.title) + '</a></h3>' +
           '<p class="article-card__excerpt">' + escapeHtml(entry.summary || 'Open the article for the full entry.') + '</p>' +
-          '<div class="archive-control-row">' +
-            '<a class="lane-header__action" href="' + escapeHtml(entry.permalink) + '">Open article</a>' +
-          '</div>' +
         '</div>' +
       '</article>';
   }
@@ -143,7 +140,7 @@
       return '' +
         '<div class="archive-results__head">' +
           '<h2 id="archive-results-heading">Search results</h2>' +
-          '<p class="archive-results__summary">Showing <strong>0</strong> results</p>' +
+          '<p class="archive-results__summary" role="status" aria-live="polite">Showing <strong class="result-count-badge">0</strong> results</p>' +
         '</div>' +
         '<div class="empty-state">' +
           '<p class="eyebrow">Search</p>' +
@@ -155,10 +152,10 @@
 
     var hasQuery = Boolean(String(query || '').trim());
     var heading = hasQuery ? 'Search results' : 'Archive results';
-    var summary = 'Showing <strong>' + entries.length + '</strong> ' + (entries.length === 1 ? 'result' : 'results');
+    var summary = 'Showing <strong class="result-count-badge">' + entries.length + '</strong> ' + (entries.length === 1 ? 'result' : 'results');
 
     if (totalMatches > entries.length) {
-      summary += ' from <strong>' + totalMatches + '</strong> matches';
+      summary += ' from <strong class="result-count-badge">' + totalMatches + '</strong> matches';
     }
 
     summary += ' sorted by <strong>' + escapeHtml(sortLabel) + '</strong>';
@@ -167,7 +164,7 @@
       return '' +
         '<div class="archive-results__head">' +
           '<h2 id="archive-results-heading">' + heading + '</h2>' +
-          '<p class="archive-results__summary">' + summary + '</p>' +
+          '<p class="archive-results__summary" role="status" aria-live="polite">' + summary + '</p>' +
         '</div>' +
         '<ul class="article-card-grid" role="list">' +
           entries.map(function (entry) {
@@ -181,7 +178,7 @@
     return '' +
       '<div class="archive-results__head">' +
         '<h2 id="archive-results-heading">' + heading + '</h2>' +
-        '<p class="archive-results__summary">' + summary + '</p>' +
+        '<p class="archive-results__summary" role="status" aria-live="polite">' + summary + '</p>' +
       '</div>' +
       '<div class="archive-year-groups">' +
         groups.map(function (group) {
@@ -445,7 +442,7 @@
         var visibleMatches = tokens.length ? sortedMatches.slice(0, SEARCH_LIMIT) : sortedMatches;
 
         resultsRoot.innerHTML = buildResultsMarkup(visibleMatches, sortedMatches.length, trimmed, scopeLabel, activeSort);
-        setYearControlsHidden(true);
+        setYearControlsHidden(false);
 
         if (sortedMatches.length) {
           var statusMessage = 'Showing ' + visibleMatches.length + ' of ' + sortedMatches.length + ' ' + (sortedMatches.length === 1 ? 'result' : 'results') + ' in the ' + scopeLabel + ', sorted by ' + SORT_LABELS[activeSort] + '.';

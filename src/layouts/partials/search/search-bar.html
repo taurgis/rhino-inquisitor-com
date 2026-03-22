@@ -2,6 +2,9 @@
 {{ $idBase := .idBase | default (printf "%s-search" ($page.Kind | default "archive")) }}
 {{ $inputId := printf "%s-input" $idBase }}
 {{ $helperId := printf "%s-helper" $idBase }}
+{{ $statusId := printf "%s-status" $idBase }}
+{{ $sortId := printf "%s-sort" $idBase }}
+{{ $sortNoteId := printf "%s-sort-note" $idBase }}
 {{ $searchIndex := site.Home.OutputFormats.Get "json" }}
 {{ $searchIndexUrl := "index.json" | relURL }}
 {{ with $searchIndex }}{{ $searchIndexUrl = .RelPermalink }}{{ end }}
@@ -39,6 +42,18 @@
       <button type="submit">Search</button>
     </div>
   </div>
-  <p class="surface-note search-bar__status" id="{{ $helperId }}" data-search-status>Search across titles, summaries, and topics. Leave the field empty to restore the default archive view.</p>
+  <p class="surface-note" id="{{ $helperId }}">Search across titles, summaries, and topics. Leave the field empty to restore the default archive view.</p>
+  <div class="search-bar__controls">
+    <div class="search-bar__sort">
+      <label for="{{ $sortId }}">Sort</label>
+      <select id="{{ $sortId }}" name="sort" aria-describedby="{{ $sortNoteId }}" data-archive-sort>
+        <option value="newest" selected>Newest first</option>
+        <option value="oldest">Oldest first</option>
+        <option value="title-asc">Title A-Z</option>
+      </select>
+      <p class="surface-note sort-note" id="{{ $sortNoteId }}">Sort updates the archive immediately.</p>
+    </div>
+    <p class="surface-note visually-hidden search-bar__status" id="{{ $statusId }}" role="status" aria-live="polite" aria-atomic="true" data-search-status>Showing default archive results.</p>
+  </div>
 </form>
 <script src="{{ "scripts/archive-search.js" | relURL }}" defer></script>
