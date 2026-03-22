@@ -1,0 +1,2 @@
+review_run_id,review_date,scope_total,pass_count,needs_review_count,fail_count,high_severity_count,medium_severity_count,low_severity_count,confirmed_pass_count,accepted_low_drift_count,accepted_exception_count,confirmed_regression_count,notes
+phase-8-manual-review-2026-03-22,2026-03-22,12,11,1,0,0,0,5,7,4,1,0,"Manual route-by-route review found no critical regressions. The only open non-pass row remains the known scaffold baseline exception at /phase-3-performance-baseline/."
