@@ -30,7 +30,7 @@ Any unresolved blocking gate failure or outstanding exception must be fixed or e
   - [ ] RHI-088 Done — Performance and Core Web Vitals gates passing
   - [ ] RHI-089 Done — Accessibility and markup conformance gates passing
   - [ ] RHI-090 Done — Security and HTTPS readiness gates passing
-  - [ ] RHI-091 Done — Operational readiness, rehearsal, and Go/No-Go complete
+  - [x] RHI-091 Done — Operational readiness, rehearsal, and Go/No-Go complete
 - [ ] Go/No-Go decision is recorded as Go:
   - [ ] `migration/phase-8-go-nogo-decision.md` is committed
   - [ ] All required approvers from `migration/phase-8-approver-roster.md` (migration owner, SEO owner, engineering owner, DNS/operations owner) have signed with names and dates
