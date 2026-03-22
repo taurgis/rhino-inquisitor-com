@@ -19,6 +19,8 @@ RHI-083 commits the output locations that downstream Phase 8 tickets expect:
 - `accessibility-manual-checklist.md`
 - `html-conformance-report.json`
 - `https-security-report.json`
+- `preview-launch-readiness-report.json`
+- `production-host-smoke-report.json`
 - `lhci-report/`
 - `report-schema/`
 - `runs/`
@@ -38,16 +40,18 @@ RHI-083 commits the output locations that downstream Phase 8 tickets expect:
 | `social-preview-report.json` | RHI-087 |
 | `lhci-report/` | RHI-088 |
 | `performance-budget-report.json` | RHI-088 |
+| `accessibility-axe-report.json` | RHI-089 |
+| `accessibility-manual-checklist.md` | RHI-089 |
+| `html-conformance-report.json` | RHI-089 |
+| `https-security-report.json` | RHI-090 |
+| `preview-launch-readiness-report.json` | RHI-091 |
+| `production-host-smoke-report.json` | RHI-091 |
 
 ## RHI-088 report layout
 
 - `lhci-report/mobile/` stores the blocking mobile-profile Lighthouse CI manifest, JSON, and HTML reports.
 - `lhci-report/desktop/` stores the blocking desktop-profile Lighthouse CI manifest, JSON, and HTML reports.
 - `performance-budget-report.json` stores the Phase 8 performance budget contract, dual-profile score summary, CWV lab values, and WordPress baseline comparison.
-| `accessibility-axe-report.json` | RHI-089 |
-| `accessibility-manual-checklist.md` | RHI-089 |
-| `html-conformance-report.json` | RHI-089 |
-| `https-security-report.json` | RHI-090 |
 
 ## RHI-084 Dataset Contract
 
@@ -55,8 +59,8 @@ RHI-084 introduces four authoritative artefacts for the first frozen Phase 8 RC:
 
 | Artifact | Purpose | Primary consumers |
 | --- | --- | --- |
-| `migration/phase-8-rc-record.md` | Human-readable RC freeze record, toolchain versions, build evidence, and inherited deploy timing | WS-B through WS-H |
-| `validation/runs/phase-8-rc-v1.json` | Machine-readable RC snapshot with build metrics and dataset checksums | WS-B through WS-H |
+| `migration/phase-8-rc-v2-record.md` | Human-readable current RC re-cut record, toolchain versions, build evidence, and inherited deploy timing | WS-B through WS-H |
+| `validation/runs/phase-8-rc-v2.json` | Machine-readable current RC snapshot with build metrics and dataset checksums | WS-B through WS-H |
 | `validation/expected-url-outcomes.json` | Legacy-URL contract derived from the frozen manifest | WS-B |
 | `validation/sample-matrix.json` | Representative page and auxiliary route matrix for template-family coverage | WS-C through WS-F |
 | `validation/priority-routes.json` | Priority route set from organic and backlink baselines, with class coverage supplements | WS-B through WS-H |
@@ -129,7 +133,7 @@ Important behavior detail:
 2. WS-B must still report `accepted-risk` query-string rows for coverage, but it must not treat them as missing build artifacts when the dataset marks them as `request-aware-exception`.
 3. WS-B must use `validation/priority-routes.json` for route-level spot checks after loading the expected outcomes dataset.
 4. WS-C through WS-F should start from `validation/sample-matrix.json` page samples, then include auxiliary routes when their gate touches redirect helpers, taxonomy roots, 404 behavior, feeds, JSON, `robots.txt`, or `sitemap.xml`.
-5. WS-H should use `migration/phase-8-rc-record.md` plus `validation/runs/phase-8-rc-v1.json` as the RC provenance layer for go/no-go evidence.
+5. WS-H should use `migration/phase-8-rc-v2-record.md` plus `validation/runs/phase-8-rc-v2.json` as the current RC provenance layer for go/no-go evidence.
 
 ## WS-B Report Contract
 
@@ -172,11 +176,57 @@ Important manual-evidence rule:
 
 - The automated WS-D reports do not replace the manual Google-side Rich Results requirement from RHI-087. If the current rehearsal host is not Google-fetchable, record that blocker in `validation/rich-results-test-evidence/` and keep the ticket open until the owner resolves the final evidence path.
 
+## WS-F Report Contract
+
+RHI-089 replaces the placeholder WS-F outputs with committed machine-readable and human-reviewed accessibility evidence:
+
+- `validation/accessibility-axe-report.json` records page-sample Playwright plus axe results from `validation/sample-matrix.json`, including per-route severity counts, rule metadata, node targets, primary-template classification, and blocking versus non-blocking disposition.
+- `validation/html-conformance-report.json` records page-sample `html-validate` results from the same frozen sample matrix, including per-route error counts, warning counts, and message details.
+- `validation/accessibility-manual-checklist.md` records the required WAI Easy Checks manual verification for the representative template set and any follow-up items with owner and target resolution date.
+- Both machine-readable WS-F reports include `artifactProvenance` so reviewers can distinguish frozen-RC evidence from later branch-state reruns that still consume the frozen dataset.
+- `validation/accessibility-axe-report.json` treats any `critical` violation on sampled routes and any `serious` violation on primary templates as blocking failures. Moderate findings require documented owner and target resolution date before they can be treated as non-blocking.
+- `validation/html-conformance-report.json` treats `html-validate` errors as blocking failures. Warnings remain non-blocking but must be reviewed and dispositioned by the recorded owner.
+
+Important manual-evidence rule:
+
+- The automated WS-F reports do not replace the human reviewer requirement from RHI-089. Do not treat the ticket as complete until `validation/accessibility-manual-checklist.md` is filled in and reviewed.
+
+## WS-G Report Contract
+
+RHI-090 replaces the placeholder WS-G output with committed machine-readable HTTPS and security evidence:
+
+- `validation/https-security-report.json` records the deterministic RC-artifact checks for mixed-content, HTTPS-only canonical URLs, HTTPS-only sitemap URLs, and HTTPS-only structured-data URL fields.
+- The same report also records live-host evidence for the canonical production host, including HTTPS reachability, HTTP-to-HTTPS redirect behavior, TLS certificate validity, CAA compatibility, custom-domain verification TXT status, wildcard DNS detection, and the observed origin security-header posture.
+- `validation/https-security-manual-evidence.json` can optionally record owner-confirmed GitHub Pages settings evidence when verified-domain or Enforce HTTPS confirmation must be carried into the generated report from outside repository runtime checks.
+- WS-G must keep artifact checks and live/manual checks separate in the report so CI reviewers can distinguish deterministic build evidence from runtime or control-plane evidence.
+- Mixed-content findings in `validation/https-security-report.json` must come from the same scanner used by `npm run check:mixed-content`; RHI-090 must not introduce a second conflicting mixed-content implementation.
+- Missing GitHub Pages origin security headers are recorded as warning-level posture findings unless a later launch decision upgrades them to a hard blocker through an edge-layer requirement.
+
+Important WS-G evidence rule:
+
+- Repository automation may infer GitHub Pages HTTPS enforcement from live redirect behavior and DNS evidence, but formal sign-off still requires the engineering owner to confirm the repository Pages settings state when the ticket or launch checklist demands that control-plane confirmation.
+- If `validation/https-security-manual-evidence.json` is present, the generated WS-G report must preserve that owner-confirmed Pages settings evidence instead of downgrading it back to `manual-required` on rerun.
+
+## WS-H Report Contract
+
+RHI-091 adds the operational-readiness evidence that bridges the committed WS-B through WS-G reports to the launch decision:
+
+- `validation/preview-launch-readiness-report.json` records live smoke-test evidence from the preview-host entrypoint, including the resolved rehearsal host, redirect chain, deterministic route selection from `validation/sample-matrix.json` and `validation/priority-routes.json`, page-title and canonical checks, preview `noindex` checks, and reachability checks for `robots.txt`, `sitemap.xml`, and the feed endpoint.
+- `migration/phase-8-smoke-test-results.md` is the human-readable summary derived from the same live smoke-test run and is the authoring surface for owner review.
+- `validation/production-host-smoke-report.json` records production-build cleanliness checks against the built artifact, including preview-host leakage detection, allowed-versus-unexpected `noindex` classification, and representative-route spot checks for the launch-critical sample set.
+- Both WS-H reports include `artifactProvenance` from the frozen sample-matrix RC so reviewers can distinguish final RC evidence from later branch-state reruns.
+
+Important WS-H evidence rule:
+
+- Preview-host smoke tests must preserve the requested preview entrypoint and the resolved effective host because GitHub Pages project URLs may redirect into the staging custom domain. Do not collapse that redirect chain out of the evidence record.
+- Production-build cleanliness checks must treat preview-host leakage and unexpected `noindex` on indexable routes as blocking failures. Alias helper pages, pagination helpers, feed helper pages, and 404 outputs remain allowed `noindex` surfaces and must be classified separately instead of being counted as false failures.
+
 ## RC metadata convention
 
 - Record per-run metadata under `validation/runs/`.
 - Use one metadata file per RC ref once the canonical RC is confirmed.
-- RHI-084 establishes `validation/runs/phase-8-rc-v1.json` as the first machine-readable RC snapshot and `migration/phase-8-rc-record.md` as the authoritative human-readable freeze record.
+- RHI-084 established `validation/runs/phase-8-rc-v1.json` as the first machine-readable RC snapshot and `migration/phase-8-rc-record.md` as the first human-readable freeze record.
+- RHI-088 adds `validation/runs/phase-8-rc-v2.json` and `migration/phase-8-rc-v2-record.md` for the performance-driven RC re-cut.
 - Include the RC tag or SHA, environment mode, build timestamp, dataset checksums, and any workflow or gate run URLs.
 
 ## Placeholder policy
