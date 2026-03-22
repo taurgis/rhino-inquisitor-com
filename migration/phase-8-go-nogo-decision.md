@@ -1,19 +1,19 @@
 # Phase 8 Go/No-Go Decision
 
-**Status:** Draft template for final RHI-091 decision  
+**Status:** Final signed Go decision  
 **Ticket:** RHI-091  
-**Decision:** `PENDING_GO_OR_NO_GO`  
-**Decision date:** `PENDING_FINAL_DECISION_DATE`  
-**RC tag:** `PENDING_FINAL_RC_TAG`  
-**RC commit:** `PENDING_FINAL_RC_SHA`  
-**Workflow run type:** `PENDING_FINAL_RUN_TYPE`  
-**Workflow run URL:** `PENDING_FINAL_WORKFLOW_RUN_URL`
+**Decision:** `Go`  
+**Decision date:** `2026-03-22T07:32:54Z`  
+**RC tag:** `phase-8-rc-v3`  
+**RC commit:** `576709fd6217653446e8c8e031ebad705668c36e`  
+**Workflow run type:** `workflow_dispatch`  
+**Workflow run URL:** `https://github.com/taurgis/rhino-inquisitor-com/actions/runs/23398112474`
 
 This file is the final RHI-091 decision record and must not be replaced by, or treated as equivalent to, the 2026-03-20 bootstrap note recorded in `migration/phase-8-approver-roster.md`.
 
 ## Decision summary
 
-- Final gate evidence basis: `PENDING_FINAL_RC_TAG` / `PENDING_FINAL_RC_SHA`
+- Final gate evidence basis: `phase-8-rc-v3` / `576709fd6217653446e8c8e031ebad705668c36e`
 - Launch gate summary reference: `LAUNCH-GATE-PASS-SUMMARY.md`
 - Cutover verification checklist reference: `CUTOVER-VERIFICATION-CHECKLIST.md`
 - Smoke test reference: `migration/phase-8-smoke-test-results.md`
@@ -23,21 +23,21 @@ This file is the final RHI-091 decision record and must not be replaced by, or t
 
 ## Preconditions
 
-- [ ] `LAUNCH-GATE-PASS-SUMMARY.md` is fully populated from one final clean evidence run.
-- [ ] `CUTOVER-VERIFICATION-CHECKLIST.md` is completed at T-24h.
-- [ ] `migration/phase-8-rollback-drill-result.md` exists and records the previous WordPress stack as the rollback target.
-- [ ] `migration/phase-8-exception-register.md` shows zero open `blocking` entries.
-- [ ] The WS-H reports no longer carry `provenanceStatus: "branch-state"`.
+- [x] `LAUNCH-GATE-PASS-SUMMARY.md` is fully populated from one final clean evidence run.
+- [x] `CUTOVER-VERIFICATION-CHECKLIST.md` is completed at T-24h.
+- [x] `migration/phase-8-rollback-drill-result.md` exists and records the previous WordPress stack as the rollback target.
+- [x] `migration/phase-8-exception-register.md` shows zero open `blocking` entries.
+- [x] The WS-H reports no longer carry `provenanceStatus: "branch-state"`.
 
 ## Gate outcome
 
 | Area | Outcome | Evidence |
 |---|---|---|
-| WS-B through WS-G hard-blocker gates | `PENDING_FINAL_RESULT` | `LAUNCH-GATE-PASS-SUMMARY.md` |
-| Preview-host rehearsal smoke tests | `PENDING_FINAL_RESULT` | `validation/preview-launch-readiness-report.json`; `migration/phase-8-smoke-test-results.md` |
-| Production-build cleanliness | `PENDING_FINAL_RESULT` | `validation/production-host-smoke-report.json` |
-| Rollback drill | `PENDING_FINAL_RESULT` | `migration/phase-8-rollback-drill-result.md` |
-| Exception register closure | `PENDING_FINAL_RESULT` | `migration/phase-8-exception-register.md` |
+| WS-B through WS-G hard-blocker gates | `pass` | `LAUNCH-GATE-PASS-SUMMARY.md` |
+| Preview-host rehearsal smoke tests | `pass` | `validation/preview-launch-readiness-report.json`; `migration/phase-8-smoke-test-results.md` |
+| Production-build cleanliness | `pass` | `validation/production-host-smoke-report.json` |
+| Rollback drill | `pass` | `migration/phase-8-rollback-drill-result.md` |
+| Exception register closure | `pass` | `migration/phase-8-exception-register.md` |
 
 ## Open warning and accepted items carried into decision review
 
@@ -45,10 +45,10 @@ Record every non-blocking item that remains open at decision time.
 
 | Area | Risk level | Disposition | Owner acceptance note |
 |---|---|---|---|
-| Apex HTTP consolidation | `warning` | `PENDING_FINAL_DISPOSITION` | `PENDING_OWNER_ACCEPTANCE` |
-| Apex HTTPS consolidation | `warning` | `PENDING_FINAL_DISPOSITION` | `PENDING_OWNER_ACCEPTANCE` |
-| Origin security-header posture | `accepted` | `PENDING_FINAL_DISPOSITION` | `PENDING_OWNER_ACCEPTANCE` |
-| Redirect sample coverage limited to one merge route in the frozen dataset | `accepted` | `PENDING_FINAL_DISPOSITION` | `PENDING_OWNER_ACCEPTANCE` |
+| Apex HTTP consolidation | `warning` | `Accepted into launch` | `Accepted by Thomas Theunen under the Phase 8 single-owner model; monitor in Phase 9.` |
+| Apex HTTPS consolidation | `warning` | `Accepted into launch` | `Accepted by Thomas Theunen under the Phase 8 single-owner model; monitor in Phase 9.` |
+| Origin security-header posture | `accepted` | `Accepted into launch` | `Accepted by Thomas Theunen under the Phase 8 single-owner model; edge hardening remains deferred to Phase 9.` |
+| Redirect sample coverage limited to one merge route in the frozen dataset | `accepted` | `Accepted into launch` | `Accepted by Thomas Theunen; the frozen dataset currently exposes one redirect sample and all available redirect routes were tested.` |
 
 ## Decision rationale
 
@@ -56,20 +56,19 @@ Record every non-blocking item that remains open at decision time.
 
 Use when all blocking prerequisites are closed and only documented `warning` or `accepted` items remain.
 
-`PENDING_GO_RATIONALE`
+Final RC `phase-8-rc-v3@576709fd6217653446e8c8e031ebad705668c36e` passed the full gate suite in workflow run `23398112474`, the GitHub Pages deploy succeeded after adding a matching tag policy to the `github-pages` environment, the WS-H production and preview reports now carry `provenanceStatus: "frozen-rc"`, the final smoke-test summary is committed, and the rollback drill remains within target. The remaining warning and accepted items are explicitly documented and owner-accepted for launch, so the repository is approved to proceed to Phase 9 monitoring handoff.
 
 ### If No-Go
 
 Use when any blocking prerequisite remains unresolved.
 
-`PENDING_NO_GO_RATIONALE`
+Not used for the final decision. The earlier deploy blocker was resolved before sign-off.
 
 ## Blocking issue list if No-Go
 
 | Blocker | Owner | Target resolution date |
 |---|---|---|
-| `PENDING_BLOCKER_1` | Thomas Theunen | `PENDING_DATE` |
-| `PENDING_BLOCKER_2` | Thomas Theunen | `PENDING_DATE` |
+| None | n/a | n/a |
 
 ## Approver record
 
@@ -77,10 +76,10 @@ The repository currently uses the single-owner model recorded in `migration/phas
 
 | Role | Name | Decision | Signed date |
 |---|---|---|---|
-| Migration Owner | Thomas Theunen | `PENDING_FINAL_DECISION` | `PENDING_FINAL_DECISION_DATE` |
-| SEO Owner | Thomas Theunen | `PENDING_FINAL_DECISION` | `PENDING_FINAL_DECISION_DATE` |
-| Engineering Owner | Thomas Theunen | `PENDING_FINAL_DECISION` | `PENDING_FINAL_DECISION_DATE` |
-| DNS/Operations Owner | Thomas Theunen | `PENDING_FINAL_DECISION` | `PENDING_FINAL_DECISION_DATE` |
+| Migration Owner | Thomas Theunen | `Go` | `2026-03-22T07:32:54Z` |
+| SEO Owner | Thomas Theunen | `Go` | `2026-03-22T07:32:54Z` |
+| Engineering Owner | Thomas Theunen | `Go` | `2026-03-22T07:32:54Z` |
+| DNS/Operations Owner | Thomas Theunen | `Go` | `2026-03-22T07:32:54Z` |
 
 ## Phase 9 handoff notes
 

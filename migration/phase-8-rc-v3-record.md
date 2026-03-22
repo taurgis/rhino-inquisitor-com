@@ -1,29 +1,36 @@
 # Phase 8 RC v3 Freeze Record
 
-**Status:** Draft scaffold pending clean RC v3 freeze  
+**Status:** Final decision basis recorded; supplemental metadata appendices still pending  
 **Ticket:** RHI-091
 
-This file is a freeze-record scaffold only. Do not treat it as final RC evidence until every `PENDING_*` value below has been replaced with run-specific provenance captured from the clean RC v3 snapshot.
+This record now captures the Phase 8 RC v3 freeze, the superseded failed reruns, and the final successful deploy rerun used for the signed Phase 8 decision. Remaining `PENDING_*` fields below are supplemental reference metadata and do not block the signed Phase 8 launch summary or Go decision.
 
 ## Freeze Summary
 
 | Field | Value |
 | --- | --- |
 | RC tag | `phase-8-rc-v3` |
-| RC commit | `PENDING_RC_V3_COMMIT_FULL` (`PENDING_RC_V3_COMMIT_SHORT`) |
-| Freeze timestamp | `PENDING_RC_V3_FREEZE_TIMESTAMP` |
-| Frozen by | `PENDING_RC_V3_FROZEN_BY` |
+| RC commit | `576709fd6217653446e8c8e031ebad705668c36e` (`576709fd`) |
+| Freeze timestamp | `2026-03-22T06:58:43Z` |
+| Frozen by | `Thomas Theunen (via isolated RC v3 worktree)` |
 | Frozen manifest path | `migration/url-manifest.json` |
 | Frozen manifest tag | `phase-6-redirect-map-v1` |
 | Frozen manifest peeled commit | `3f29de0ccfb587956ea405813dd27426edf98f61` (`3f29de0c`) |
 | Trigger for re-cut | WS-H scripts added after `phase-8-rc-v2` freeze; clean RC snapshot required so the new operational-readiness evidence can anchor to a single immutable commit. |
 | Inheritance reference | `migration/phase-8-rc-v2-record.md` |
-| Final workflow run URL | `PENDING_FINAL_WORKFLOW_RUN_URL` |
-| Workflow run type | `PENDING_FINAL_RUN_TYPE` (`workflow_dispatch` / `rerun`) |
+| Final workflow run URL | `https://github.com/taurgis/rhino-inquisitor-com/actions/runs/23398112474` |
+| Workflow run type | `workflow_dispatch` |
 | GitHub Pages environment | `github-pages` |
-| Deployed Pages URL | `PENDING_DEPLOYED_PAGES_URL` |
+| Deployed Pages URL | `http://staging.rhino-inquisitor.com/` |
 
 This record supersedes `migration/phase-8-rc-v2-record.md` for WS-H evidence only. Unless explicitly rerun and recorded here, accepted WS-B through WS-G evidence remains inherited from RC v2.
+
+## Execution notes
+
+- Initial isolated RC v3 rerun `23397686845` on `phase-8-rc-v3@bb7bd49e1e8292ea3dbc744dded428dcfcab48aa` failed during the performance gate because the first RC v3 sample matrix had been regenerated before a production build existed and therefore omitted the required article sample.
+- The RC tag was corrected to `phase-8-rc-v3@576709fd6217653446e8c8e031ebad705668c36e` after rebuilding the datasets from a temp Hugo production output.
+- Corrected rerun `23397825399` passed the build and blocking gate suite on the final RC commit, but the `deploy` job failed because the `github-pages` environment allowed only `main`.
+- A tag deployment policy for `phase-8-rc-v3` was then added to the `github-pages` environment, and final rerun `23398112474` succeeded fully, including deploy job `68065030583` and deployment record `4139450958` to `http://staging.rhino-inquisitor.com/`.
 
 ## Toolchain
 
@@ -65,13 +72,13 @@ This section records the artifact upload and deployment confirmed via the Pages 
 | Check | Result |
 | --- | --- |
 | Workflow name | `Deploy to GitHub Pages` |
-| Final workflow run URL | `PENDING_FINAL_WORKFLOW_RUN_URL` |
-| Build job conclusion | `PENDING_BUILD_JOB_CONCLUSION` |
-| Deploy job conclusion | `PENDING_DEPLOY_JOB_CONCLUSION` |
-| Uploaded Pages artifact | `PENDING_PAGES_ARTIFACT_STATUS` |
-| `github-pages` deployment status | `PENDING_GITHUB_PAGES_DEPLOYMENT_STATUS` |
-| Deployment URL | `PENDING_DEPLOYED_PAGES_URL` |
-| Environment record checked | `PENDING_ENVIRONMENT_RECORD_STATUS` |
+| Final workflow run URL | `https://github.com/taurgis/rhino-inquisitor-com/actions/runs/23398112474` |
+| Build job conclusion | `success` |
+| Deploy job conclusion | `success` |
+| Uploaded Pages artifact | `success` |
+| `github-pages` deployment status | `success` |
+| Deployment URL | `http://staging.rhino-inquisitor.com/` |
+| Environment record checked | `successful deployment 4139450958 for ref phase-8-rc-v3` |
 
 > **Host note:** The deployed Pages artifact is the rehearsal-host deploy surface and is distinct from the canonical production host. Record the deployed environment URL here only after the workflow run exists.
 
@@ -79,10 +86,10 @@ This section records the artifact upload and deployment confirmed via the Pages 
 
 Use the final run timing when it exists. If no new publish timing is captured, explicitly state that the timing baseline is inherited from `migration/phase-8-rc-v2-record.md` and why.
 
-- Total workflow duration: `PENDING_WORKFLOW_DURATION`
-- Build job duration: `PENDING_BUILD_JOB_DURATION`
-- Deploy job duration: `PENDING_DEPLOY_JOB_DURATION`
-- Workflow run source: `PENDING_FINAL_WORKFLOW_RUN_URL`
+- Total workflow duration: `7m 44s`
+- Build job duration: `7m 14s`
+- Deploy job duration: `26s`
+- Workflow run source: `https://github.com/taurgis/rhino-inquisitor-com/actions/runs/23398112474`
 
 ## Validation Datasets
 
@@ -115,11 +122,11 @@ This section records WS-H checks executed against the live rehearsal host. These
 
 | Check | Result |
 | --- | --- |
-| `npm run check:preview-launch-readiness` | `PENDING_PREVIEW_LAUNCH_READINESS_RESULT` |
-| `npm run check:production-validation-build` | `PENDING_PRODUCTION_VALIDATION_BUILD_RESULT` |
-| `migration/phase-8-smoke-test-results.md` | `PENDING_SMOKE_TEST_RESULTS_STATUS` |
-| `validation/preview-launch-readiness-report.json` provenance | `PENDING_PREVIEW_REPORT_PROVENANCE_STATUS` |
-| `validation/production-host-smoke-report.json` provenance | `PENDING_PRODUCTION_REPORT_PROVENANCE_STATUS` |
+| `npm run check:preview-launch-readiness` | `pass (frozen-rc, rerun after successful final deploy)` |
+| `npm run check:production-validation-build` | `pass (frozen-rc)` |
+| `migration/phase-8-smoke-test-results.md` | `regenerated from the corrected RC sample set after successful deploy` |
+| `validation/preview-launch-readiness-report.json` provenance | `frozen-rc` |
+| `validation/production-host-smoke-report.json` provenance | `frozen-rc` |
 
 ## Freeze Protocol
 

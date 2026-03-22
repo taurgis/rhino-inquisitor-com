@@ -1,12 +1,12 @@
 # Phase 8 Smoke Test Results
 
 - Status: pass
-- Generated at: 2026-03-21T07:43:09.192Z
-- RC dataset: phase-8-rc-v2 (efdcefce)
+- Generated at: 2026-03-22T07:32:00.130Z
+- RC dataset: phase-8-rc-v3 (576709fd)
 - Requested preview entrypoint: https://taurgis.github.io/rhino-inquisitor-com/
 - Effective rehearsal host: https://staging.rhino-inquisitor.com/
 - Redirect hops from preview entrypoint: 2
-- Deterministic datasets: validation/sample-matrix.json and validation/priority-routes.json
+- Deterministic datasets: ../../../tmp/rhi-091-rc-v3-out2/sample-matrix-rc-v3.json and validation/priority-routes.json
 - Priority redirect coverage: 1 redirect route available in the frozen priority-route dataset; all available redirect routes were tested.
 
 ## Summary

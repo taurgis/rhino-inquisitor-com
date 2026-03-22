@@ -3,21 +3,21 @@
   "ticket": "RHI-091",
   "artifact": "production-host-smoke-report",
   "status": "pass",
-  "generatedAt": "2026-03-21T07:43:06.929Z",
-  "publicDir": "tmp/ci-prod-public",
+  "generatedAt": "2026-03-22T07:31:57.987Z",
+  "publicDir": "../../../tmp/rhi-091-rc-v3-out-final3/public",
   "sampleMatrix": {
-    "path": "validation/sample-matrix.json",
-    "generatedAt": "2026-03-20T19:04:18Z"
+    "path": "../../../tmp/rhi-091-rc-v3-out2/sample-matrix-rc-v3.json",
+    "generatedAt": "2026-03-22T06:58:43Z"
   },
   "artifactProvenance": {
-    "gitHead": "1fdbc19a714b74464d89ce71d27f28f12b13edd0",
-    "gitHeadShort": "1fdbc19a",
-    "workspaceDirty": true,
-    "datasetRcTag": "phase-8-rc-v2",
-    "datasetRcSha": "efdcefce5a51f1a3cf70d6b437b7b2868df39cb8",
-    "matchesDatasetRc": false,
-    "provenanceStatus": "branch-state",
-    "note": "Artifact provenance differs from the frozen dataset RC or the workspace is dirty; treat this as branch-state evidence until a new RC is cut."
+    "gitHead": "576709fd6217653446e8c8e031ebad705668c36e",
+    "gitHeadShort": "576709fd",
+    "workspaceDirty": false,
+    "datasetRcTag": "phase-8-rc-v3",
+    "datasetRcSha": "576709fd6217653446e8c8e031ebad705668c36e",
+    "matchesDatasetRc": true,
+    "provenanceStatus": "frozen-rc",
+    "note": "Artifact provenance matches the frozen dataset RC commit and the workspace is clean."
   },
   "policy": {
     "forbiddenOrigins": [
@@ -56,7 +56,7 @@
     {
       "label": "Recent post 2",
       "route": "/a-dev-guide-to-combating-fraud-on-sfcc/",
-      "filePath": "tmp/ci-prod-public/a-dev-guide-to-combating-fraud-on-sfcc/index.html",
+      "filePath": "../../../tmp/rhi-091-rc-v3-out-final3/public/a-dev-guide-to-combating-fraud-on-sfcc/index.html",
       "title": "Developer's Guide to Combating Fraud in SFCC | Rhino Inquisitor",
       "hasNoindex": false,
       "aliasHelper": false
@@ -64,7 +64,7 @@
     {
       "label": "Archive",
       "route": "/archive/",
-      "filePath": "tmp/ci-prod-public/archive/index.html",
+      "filePath": "../../../tmp/rhi-091-rc-v3-out-final3/public/archive/index.html",
       "title": "Archive | Rhino Inquisitor",
       "hasNoindex": false,
       "aliasHelper": false
@@ -72,7 +72,7 @@
     {
       "label": "Category 1",
       "route": "/category/ai/",
-      "filePath": "tmp/ci-prod-public/category/ai/index.html",
+      "filePath": "../../../tmp/rhi-091-rc-v3-out-final3/public/category/ai/index.html",
       "title": "AI | Rhino Inquisitor",
       "hasNoindex": false,
       "aliasHelper": false
@@ -80,7 +80,7 @@
     {
       "label": "Category 2",
       "route": "/category/architecture/",
-      "filePath": "tmp/ci-prod-public/category/architecture/index.html",
+      "filePath": "../../../tmp/rhi-091-rc-v3-out-final3/public/category/architecture/index.html",
       "title": "Architecture | Rhino Inquisitor",
       "hasNoindex": false,
       "aliasHelper": false
@@ -88,7 +88,7 @@
     {
       "label": "Category 3",
       "route": "/category/certification/",
-      "filePath": "tmp/ci-prod-public/category/certification/index.html",
+      "filePath": "../../../tmp/rhi-091-rc-v3-out-final3/public/category/certification/index.html",
       "title": "Certification | Rhino Inquisitor",
       "hasNoindex": false,
       "aliasHelper": false
@@ -96,7 +96,7 @@
     {
       "label": "Homepage",
       "route": "/",
-      "filePath": "tmp/ci-prod-public/index.html",
+      "filePath": "../../../tmp/rhi-091-rc-v3-out-final3/public/index.html",
       "title": "Rhino Inquisitor | Salesforce B2C Commerce Guidance",
       "hasNoindex": false,
       "aliasHelper": false
@@ -104,7 +104,7 @@
     {
       "label": "Recent post 3",
       "route": "/kickstart-guide-for-new-sfcc-developers/",
-      "filePath": "tmp/ci-prod-public/kickstart-guide-for-new-sfcc-developers/index.html",
+      "filePath": "../../../tmp/rhi-091-rc-v3-out-final3/public/kickstart-guide-for-new-sfcc-developers/index.html",
       "title": "The Kickstart Guide for New Salesforce B2C Commerce Developers | Rhino Inquisitor",
       "hasNoindex": false,
       "aliasHelper": false
@@ -112,7 +112,7 @@
     {
       "label": "Privacy policy",
       "route": "/privacy-policy/",
-      "filePath": "tmp/ci-prod-public/privacy-policy/index.html",
+      "filePath": "../../../tmp/rhi-091-rc-v3-out-final3/public/privacy-policy/index.html",
       "title": "Privacy Policy | Rhino Inquisitor",
       "hasNoindex": false,
       "aliasHelper": false
@@ -120,7 +120,7 @@
     {
       "label": "Recent post 1",
       "route": "/real-time-inventory-checks-in-sfcc/",
-      "filePath": "tmp/ci-prod-public/real-time-inventory-checks-in-sfcc/index.html",
+      "filePath": "../../../tmp/rhi-091-rc-v3-out-final3/public/real-time-inventory-checks-in-sfcc/index.html",
       "title": "Real-Time Inventory Checks in SFCC | Rhino Inquisitor",
       "hasNoindex": false,
       "aliasHelper": false
@@ -131,117 +131,117 @@
   "allowedNoindex": [
     {
       "route": "/404.html",
-      "filePath": "tmp/ci-prod-public/404.html",
+      "filePath": "../../../tmp/rhi-091-rc-v3-out-final3/public/404.html",
       "reason": "system-route"
     },
     {
       "route": "/404/",
-      "filePath": "tmp/ci-prod-public/404/index.html",
+      "filePath": "../../../tmp/rhi-091-rc-v3-out-final3/public/404/index.html",
       "reason": "system-route"
     },
     {
       "route": "/category/external/forward/",
-      "filePath": "tmp/ci-prod-public/category/external/forward/index.html",
+      "filePath": "../../../tmp/rhi-091-rc-v3-out-final3/public/category/external/forward/index.html",
       "reason": "alias-helper"
     },
     {
       "route": "/category/external/linkedin/",
-      "filePath": "tmp/ci-prod-public/category/external/linkedin/index.html",
+      "filePath": "../../../tmp/rhi-091-rc-v3-out-final3/public/category/external/linkedin/index.html",
       "reason": "alias-helper"
     },
     {
       "route": "/category/external/salesforce-architects-blog/",
-      "filePath": "tmp/ci-prod-public/category/external/salesforce-architects-blog/index.html",
+      "filePath": "../../../tmp/rhi-091-rc-v3-out-final3/public/category/external/salesforce-architects-blog/index.html",
       "reason": "alias-helper"
     },
     {
       "route": "/category/external/salesforce-ben/",
-      "filePath": "tmp/ci-prod-public/category/external/salesforce-ben/index.html",
+      "filePath": "../../../tmp/rhi-091-rc-v3-out-final3/public/category/external/salesforce-ben/index.html",
       "reason": "alias-helper"
     },
     {
       "route": "/category/salesforce-commerce-cloud/ai/",
-      "filePath": "tmp/ci-prod-public/category/salesforce-commerce-cloud/ai/index.html",
+      "filePath": "../../../tmp/rhi-091-rc-v3-out-final3/public/category/salesforce-commerce-cloud/ai/index.html",
       "reason": "alias-helper"
     },
     {
       "route": "/category/salesforce-commerce-cloud/architecture/",
-      "filePath": "tmp/ci-prod-public/category/salesforce-commerce-cloud/architecture/index.html",
+      "filePath": "../../../tmp/rhi-091-rc-v3-out-final3/public/category/salesforce-commerce-cloud/architecture/index.html",
       "reason": "alias-helper"
     },
     {
       "route": "/category/salesforce-commerce-cloud/documentation/",
-      "filePath": "tmp/ci-prod-public/category/salesforce-commerce-cloud/documentation/index.html",
+      "filePath": "../../../tmp/rhi-091-rc-v3-out-final3/public/category/salesforce-commerce-cloud/documentation/index.html",
       "reason": "alias-helper"
     },
     {
       "route": "/category/salesforce-commerce-cloud/erd/",
-      "filePath": "tmp/ci-prod-public/category/salesforce-commerce-cloud/erd/index.html",
+      "filePath": "../../../tmp/rhi-091-rc-v3-out-final3/public/category/salesforce-commerce-cloud/erd/index.html",
       "reason": "alias-helper"
     },
     {
       "route": "/category/salesforce-commerce-cloud/go-live/",
-      "filePath": "tmp/ci-prod-public/category/salesforce-commerce-cloud/go-live/index.html",
+      "filePath": "../../../tmp/rhi-091-rc-v3-out-final3/public/category/salesforce-commerce-cloud/go-live/index.html",
       "reason": "alias-helper"
     },
     {
       "route": "/category/salesforce-commerce-cloud/release-notes/",
-      "filePath": "tmp/ci-prod-public/category/salesforce-commerce-cloud/release-notes/index.html",
+      "filePath": "../../../tmp/rhi-091-rc-v3-out-final3/public/category/salesforce-commerce-cloud/release-notes/index.html",
       "reason": "alias-helper"
     },
     {
       "route": "/category/salesforce-commerce-cloud/technical/",
-      "filePath": "tmp/ci-prod-public/category/salesforce-commerce-cloud/technical/index.html",
+      "filePath": "../../../tmp/rhi-091-rc-v3-out-final3/public/category/salesforce-commerce-cloud/technical/index.html",
       "reason": "alias-helper"
     },
     {
       "route": "/category/video/podcasts/",
-      "filePath": "tmp/ci-prod-public/category/video/podcasts/index.html",
+      "filePath": "../../../tmp/rhi-091-rc-v3-out-final3/public/category/video/podcasts/index.html",
       "reason": "alias-helper"
     },
     {
       "route": "/category/video/sessions/",
-      "filePath": "tmp/ci-prod-public/category/video/sessions/index.html",
+      "filePath": "../../../tmp/rhi-091-rc-v3-out-final3/public/category/video/sessions/index.html",
       "reason": "alias-helper"
     },
     {
       "route": "/delta-exports-in-salesforce-b2c-commerce/",
-      "filePath": "tmp/ci-prod-public/delta-exports-in-salesforce-b2c-commerce/index.html",
+      "filePath": "../../../tmp/rhi-091-rc-v3-out-final3/public/delta-exports-in-salesforce-b2c-commerce/index.html",
       "reason": "alias-helper"
     },
     {
       "route": "/feed/atom/",
-      "filePath": "tmp/ci-prod-public/feed/atom/index.html",
+      "filePath": "../../../tmp/rhi-091-rc-v3-out-final3/public/feed/atom/index.html",
       "reason": "alias-helper"
     },
     {
       "route": "/feed/",
-      "filePath": "tmp/ci-prod-public/feed/index.html",
+      "filePath": "../../../tmp/rhi-091-rc-v3-out-final3/public/feed/index.html",
       "reason": "alias-helper"
     },
     {
       "route": "/feed/rss/",
-      "filePath": "tmp/ci-prod-public/feed/rss/index.html",
+      "filePath": "../../../tmp/rhi-091-rc-v3-out-final3/public/feed/rss/index.html",
       "reason": "alias-helper"
     },
     {
       "route": "/how-to-set-up-the-ecdn-for-staging-in-salesforce-b2c-commerce-cloud/",
-      "filePath": "tmp/ci-prod-public/how-to-set-up-the-ecdn-for-staging-in-salesforce-b2c-commerce-cloud/index.html",
+      "filePath": "../../../tmp/rhi-091-rc-v3-out-final3/public/how-to-set-up-the-ecdn-for-staging-in-salesforce-b2c-commerce-cloud/index.html",
       "reason": "alias-helper"
     },
     {
       "route": "/pages/page/1/",
-      "filePath": "tmp/ci-prod-public/pages/page/1/index.html",
+      "filePath": "../../../tmp/rhi-091-rc-v3-out-final3/public/pages/page/1/index.html",
       "reason": "alias-helper"
     },
     {
       "route": "/posts/page/1/",
-      "filePath": "tmp/ci-prod-public/posts/page/1/index.html",
+      "filePath": "../../../tmp/rhi-091-rc-v3-out-final3/public/posts/page/1/index.html",
       "reason": "alias-helper"
     },
     {
       "route": "/rss/",
-      "filePath": "tmp/ci-prod-public/rss/index.html",
+      "filePath": "../../../tmp/rhi-091-rc-v3-out-final3/public/rss/index.html",
       "reason": "alias-helper"
     }
   ]

@@ -3,7 +3,7 @@
   "ticket": "RHI-091",
   "artifact": "preview-launch-readiness-report",
   "status": "pass",
-  "generatedAt": "2026-03-21T07:43:09.192Z",
+  "generatedAt": "2026-03-22T07:32:00.130Z",
   "entrypoint": {
     "requestedUrl": "https://taurgis.github.io/rhino-inquisitor-com/",
     "finalUrl": "https://staging.rhino-inquisitor.com/",
@@ -27,25 +27,25 @@
     ]
   },
   "sampleMatrix": {
-    "path": "validation/sample-matrix.json",
-    "generatedAt": "2026-03-20T19:04:18Z",
-    "rcTag": "phase-8-rc-v2",
-    "rcSha": "efdcefce5a51f1a3cf70d6b437b7b2868df39cb8"
+    "path": "../../../tmp/rhi-091-rc-v3-out2/sample-matrix-rc-v3.json",
+    "generatedAt": "2026-03-22T06:58:43Z",
+    "rcTag": "phase-8-rc-v3",
+    "rcSha": "576709fd6217653446e8c8e031ebad705668c36e"
   },
   "priorityRoutes": {
     "path": "validation/priority-routes.json",
-    "generatedAt": "2026-03-20T19:04:18Z",
+    "generatedAt": "2026-03-22T06:58:43Z",
     "redirectSampleCount": 1
   },
   "artifactProvenance": {
-    "gitHead": "1fdbc19a714b74464d89ce71d27f28f12b13edd0",
-    "gitHeadShort": "1fdbc19a",
-    "workspaceDirty": true,
-    "datasetRcTag": "phase-8-rc-v2",
-    "datasetRcSha": "efdcefce5a51f1a3cf70d6b437b7b2868df39cb8",
-    "matchesDatasetRc": false,
-    "provenanceStatus": "branch-state",
-    "note": "Artifact provenance differs from the frozen dataset RC or the workspace is dirty; treat this as branch-state evidence until a new RC is cut."
+    "gitHead": "576709fd6217653446e8c8e031ebad705668c36e",
+    "gitHeadShort": "576709fd",
+    "workspaceDirty": false,
+    "datasetRcTag": "phase-8-rc-v3",
+    "datasetRcSha": "576709fd6217653446e8c8e031ebad705668c36e",
+    "matchesDatasetRc": true,
+    "provenanceStatus": "frozen-rc",
+    "note": "Artifact provenance matches the frozen dataset RC commit and the workspace is clean."
   },
   "policy": {
     "requestTimeoutMs": 10000,

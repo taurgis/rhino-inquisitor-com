@@ -21,7 +21,7 @@
 | [RHI-088](RHI-088-performance-core-web-vitals-gates.md) | Workstream E — Performance and Core Web Vitals Gates | WS-E | High | Done | M | 2026-06-09 | RHI-084 |
 | [RHI-089](RHI-089-accessibility-markup-conformance-gates.md) | Workstream F — Accessibility and Markup Conformance Gates | WS-F | High | Done | M | 2026-06-09 | RHI-084 |
 | [RHI-090](RHI-090-security-https-readiness-gates.md) | Workstream G — Security and HTTPS Readiness Gates | WS-G | High | Done | S | 2026-06-10 | RHI-084 |
-| [RHI-091](RHI-091-operational-readiness-go-nogo.md) | Workstream H — Operational Readiness, Rehearsal, and Go/No-Go | WS-H | Critical | In Progress | M | 2026-06-11 | RHI-085 through RHI-090 |
+| [RHI-091](RHI-091-operational-readiness-go-nogo.md) | Workstream H — Operational Readiness, Rehearsal, and Go/No-Go | WS-H | Critical | Done | M | 2026-06-11 | RHI-085 through RHI-090 |
 | [RHI-092](RHI-092-phase-8-signoff.md) | Phase 8 Sign-off and Handover to Phase 9 | Sign-off | Critical | Open | S | 2026-06-13 | RHI-083 through RHI-091 |
 
 ---
@@ -154,7 +154,7 @@ All items below must be complete before Phase 9 monitoring and cutover activitie
 - [x] RHI-088 Done — Lighthouse CI blocking thresholds passing; performance budget report committed
 - [x] RHI-089 Done — Axe accessibility gate passing; manual checklist completed; HTML conformance gate passing
 - [x] RHI-090 Done — HTTPS enforcement confirmed; no mixed content; CAA and domain verification checked
-- [ ] RHI-091 Done — All gates pass on final RC; preview-host rehearsal executed and verified; production validation build is clean; rollback drilled; Go/No-Go decision recorded as Go
+- [x] RHI-091 Done — All gates pass on final RC; preview-host rehearsal executed and verified; production validation build is clean; rollback drilled; Go/No-Go decision recorded as Go
 - [ ] RHI-092 Done — Phase 8 sign-off document committed; Phase 9 team acknowledges handover; `phase-8-signoff` git tag set
 
 ---

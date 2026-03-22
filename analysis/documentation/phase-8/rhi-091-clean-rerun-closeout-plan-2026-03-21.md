@@ -193,3 +193,52 @@ Row-flip verification:
 - `CUTOVER-VERIFICATION-CHECKLIST.md`
 - `migration/phase-8-go-nogo-decision.md`
 - `analysis/tickets/phase-8/RHI-091-operational-readiness-go-nogo.md`
+
+## 2026-03-22 Execution Update
+
+### Change summary
+
+The clean rerun path was executed against an isolated `phase-8-rc-v3` tag, but two follow-up corrections were required during the live evidence run.
+
+### Why this changed
+
+The first isolated RC v3 rerun was invalidated because the refreshed validation datasets had been generated before a Hugo production build existed for the isolated candidate. That produced a homepage-only `sample-matrix.json`, which in turn failed the performance gate. After rebuilding the isolated candidate against a temp production output, the corrected RC v3 rerun passed the build and blocking gate suite.
+
+### Behavior details
+
+Previous behavior:
+
+- The closeout plan assumed dataset regeneration could happen immediately after the isolated RC files were staged.
+- It also assumed the committed sample-matrix file could be used directly for final frozen-RC WS-H report regeneration.
+
+New behavior:
+
+- RC dataset regeneration must be run against an actual Hugo production output, even for an isolated RC candidate, or the deterministic sample matrix can collapse to homepage-only selections.
+- The committed RC dataset files remain one commit behind the final tag by construction because the dataset refresh itself produces the next commit. To generate final WS-H `frozen-rc` reports, use a tag-aligned external sample-matrix snapshot whose `rc.commit` matches the final RC tag commit during report execution.
+
+### Impact
+
+- The corrected RC v3 build and gate suite were first proven by `workflow_dispatch` run `23397825399` on `phase-8-rc-v3@576709fd6217653446e8c8e031ebad705668c36e`.
+- The WS-H production and preview reports can now be generated with `provenanceStatus: frozen-rc`.
+- The failed deploy was traced to a `github-pages` environment protection rule that allowed only `main`. Adding a matching `phase-8-rc-v3` tag policy and rerunning as `23398112474` produced the final successful build-plus-deploy evidence basis used for sign-off.
+
+### Verification
+
+1. Confirm the superseded rerun `23397686845` failed at `check-performance-budget` with `sample-matrix is missing the required article selection`.
+2. Confirm corrected tag `phase-8-rc-v3` points to `576709fd6217653446e8c8e031ebad705668c36e`.
+3. Confirm corrected rerun `23397825399` shows build success and deploy failure caused by the `github-pages` environment tag restriction.
+4. Confirm final rerun `23398112474` shows both build and deploy success.
+5. Confirm `validation/production-host-smoke-report.json` and `validation/preview-launch-readiness-report.json` both show `provenanceStatus: "frozen-rc"` and `matchesDatasetRc: true`.
+
+### Related files
+
+- `migration/phase-8-rc-v3-record.md`
+- `migration/phase-8-exception-register.md`
+- `validation/sample-matrix.json`
+- `validation/runs/phase-8-rc-v3-sample-matrix.json`
+- `validation/priority-routes.json`
+- `validation/expected-url-outcomes.json`
+- `validation/preview-launch-readiness-report.json`
+- `validation/production-host-smoke-report.json`
+- `migration/phase-8-smoke-test-results.md`
+- `LAUNCH-GATE-PASS-SUMMARY.md`
