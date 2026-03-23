@@ -27,6 +27,10 @@ But why should you use it? And if you decide to use this product, what are the t
 
 {{< img-caption src="oci-included-in-license-b4aca05118.png" alt="Quip note highlighting that OCI is included for B2C Commerce customers." >}}
 
+Let us first get this topic out of the way; I am sure this information will increase the interest in this product!
+
+If you are a B2C Commerce Cloud customer, OCI is included!
+
 I only learned about this because I took the OMS Administrator and Developer certification exam (and passed 😊).
 
 ## What is OCI

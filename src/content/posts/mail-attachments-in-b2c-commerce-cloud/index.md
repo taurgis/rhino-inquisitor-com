@@ -17,9 +17,9 @@ tags:
   - sfcc
 author: Thomas Theunen
 takeaways:
-    - "Explains the low-level MIME and Base64 workaround required to send email attachments from native SFCC mail APIs"
-    - "Provides a practical controller and ISML-template approach for building attachment-capable emails"
-    - "Frames the feature as possible but intentionally outside the platform's simple transactional email comfort zone"
+  - "Explains the low-level MIME and Base64 workaround required to send email attachments from native SFCC mail APIs"
+  - "Provides a practical controller and ISML-template approach for building attachment-capable emails"
+  - "Frames the feature as possible but intentionally outside the platform's simple transactional email comfort zone"
 ---
 Sooner or later, a client will ask: "Can we attach the PDF invoice to the order confirmation email?" In the world of Salesforce B2C Commerce Cloud, a seemingly simple request sends a developer down a rabbit hole of undocumented features and hidden platform quirks. The standard dw.net.Mail API offers no 'addAttachment' method. The official documentation is silent. The developer is on their own.
 
@@ -56,7 +56,7 @@ function encodeBase64ForEmail(str, characterEncoding) {
         var maxOffset = offset + length;
         if (strBase64.length >= maxOffset) {
             stringWriter.write(strBase64, offset, length);
-            stringWriter.write('n');
+            stringWriter.write('\n');
         } else {
             stringWriter.write(strBase64, offset, length - (maxOffset - strBase64.length));
         }
@@ -133,27 +133,36 @@ module.exports = server.exports();
 
 ### Template
 
-```text
+{{< highlight text >}}
 <iscontent type="multipart/mixed; boundary=001a113414f6401b8604f1451630" compact="false" charset="ISO-8859-1">
 --001a113414f6401b8604f1451630
 Content-Type: multipart/mixed; boundary=001a113414f6401b8604f1451630
+
 --001a113414f6401b8604f1451630
 Content-Type: text/plain; charset=ISO-8859-1
 Content-Transfer-Encoding: quoted-printable
+
+<isif condition="${!empty(pdict.EmailMessage)}"><isprint value="${pdict.EmailMessage}" /></isif>
 
 --001a113414f6401b8604f1451630
 Content-Type: text/html; charset=ISO-8859-1
 Content-Transfer-Encoding: quoted-printable
 
+<isif condition="${!empty(pdict.EmailMessage)}"><isprint value="${pdict.EmailMessage}" /></isif>
+<isif condition="${!empty(pdict.EmailTemplate)}"><isinclude template="${pdict.EmailTemplate}" /></isif>
+
+<isif condition="${ !empty(pdict.Base64FileMap) }"><isloop items="${ pdict.Base64FileMap.keySet() }" var="key"><isset name="fileContent" value="${ pdict.Base64FileMap.get(key) }" scope="page"/>
 --001a113414f6401b8604f1451630
 Content-Type: application/pdf; name="${key}";
 Content-Description: ${key}
 Content-Disposition: attachment; filename="${key}"; size=${fileContent.length}; creation-date="${(new Date()).toISOString()}"; modification-date="${(new Date()).toISOString()}"
 Content-Transfer-Encoding: base64
-${fileContent}
---001a113414f6401b8604f1451630--
-```
 
+${fileContent}
+</isloop>
+</isif>
+--001a113414f6401b8604f1451630--
+{{< /highlight >}}
 ## Deconstructing the Challenge: Why dw.net.Mail Plays Hard to Get
 
 ### The Root of the Problem: A Deliberate Abstraction
@@ -161,7 +170,6 @@ ${fileContent}
 The lack of a simple attachment feature in the `dw.net.Mail` class is not an oversight but a design choice. A review of the API documentation reveals methods for setting recipients, subjects, and content, but no methods are provided for files. The API is a high-level wrapper, engineered for a specific purpose: sending simple, transactional text or HTML emails with minimal fuss. It deliberately abstracts away the complexities of the underlying email protocols.
 
 This design philosophy reflects a broader platform strategy. Salesforce offers a comprehensive ecosystem of interconnected products, including the powerful Marketing Cloud for sophisticated email campaigns, and recommends third-party ESPs for bulk email sending.
-
 The fact that sending an attachment requires a developer to manually construct the email at a low level—a task akin to building a raw HTTP request by hand—while the rest of the platform offers high-level abstractions, is a strong signal.
 
 The platform is implicitly [guiding](https://help.salesforce.com/s/articleView?id=000391416&type=1) developers toward more robust, specialised, and often separately licensed solutions for complex requirements. The built-in mailer is for basic transactions. For anything more, the intended path is to integrate with a service _designed_ for that purpose.
@@ -221,7 +229,7 @@ function encodeBase64ForEmail(str, characterEncoding) {
         var maxOffset = offset + length;
         if (strBase64.length >= maxOffset) {
             stringWriter.write(strBase64, offset, length);
-            stringWriter.write('n');
+                stringWriter.write('\n');
         } else {
             stringWriter.write(strBase64, offset, length - (maxOffset - strBase64.length));
         }

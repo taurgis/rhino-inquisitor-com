@@ -567,7 +567,7 @@ Batch 2 remains fully `PASS` for the tracked 10 rows, with one accepted low-seve
 
 ## Batch 15 Critical Deep Dive (2026-03-22, Manual Browser-Only Full-Section Comparisons)
 
-### Batch 15 Results (9/9)
+### Batch 15 Results (10/10)
 
 | Audit ID | Article URL | Live H1 vs Local H1 | Content Integrity | Critical Details | Status |
 |---|---|---|---|---|---|
@@ -580,10 +580,11 @@ Batch 2 remains fully `PASS` for the tracked 10 rows, with one accepted low-seve
 | BATCH-15-007 | `/where-to-start-when-you-are-new-to-salesforce-b2c-commerce-cloud-development/` | CHANGED (condensed) | All 4 sections + internal link conversions | Images (investigator, diver, Slack logo) + Table of Contents + Post Navigation (where applicable) intact | PASS |
 | BATCH-15-008 | `/why-circumventing-sfcc-quota-limits-is-a-bad-idea/` | CHANGED (rewording) | **30+ line UnlimitedArray JavaScript code block** | Constructor, length getter, push, includes, indexOf, get methods all 100% preserved; quota screenshot; prison meme | PASS |
 | BATCH-15-009 | `/your-definitive-mobile-app-checklist/` | CHANGED (significant condensation) | Hostname question + Backend/Architectural sections + Auth/Security parts | 4-part process illustration; code samples (shortUri, redirectUri); SLAS/SCAPI links all present | PASS |
+| BATCH-15-010 | `/the-move-from-sitegenesis-and-sfra-to-the-composable-storefront-as-a-developer/` | CHANGED (condensed) | Intro + A history lesson + Transferrable Skills + Where to get started | Local key takeaways, TOC, and figure captions are additive template features; body meaning preserved | PASS |
 
 ### Batch 15 Methodology & Findings
 
-- **Scope**: 9 article pairs, each pair loaded and section-by-section compared at 100+ line depth (not spot-check)
+- **Scope**: 10 article pairs, each pair loaded and section-by-section compared at 100+ line depth (not spot-check)
 - **Critical comparisons performed**:
   - H1 exact match or expected condensation
   - Body section count and heading hierarchy
@@ -596,6 +597,7 @@ Batch 2 remains fully `PASS` for the tracked 10 rows, with one accepted low-seve
 - **No critical, high, or medium regressions detected.**
 - Content integrity: **100%** across all checked dimensions
 - Key takeaways callouts on local articles = expected Hugo template feature (not a regression)
+- Final Batch 15 ledger gap closed on 2026-03-23 with `/the-move-from-sitegenesis-and-sfra-to-the-composable-storefront-as-a-developer/`; live and local browser review confirmed only expected H1 condensation plus additive template elements.
 
 ### Low-Issue Deep-Dive Investigation (2026-03-22)
 
@@ -624,3 +626,4 @@ All 3 flagged low-issue items were critically examined at 200+ line depth with l
 - High issues: `0`
 - Medium issues: `0`
 - Low issues: `1` (BATCH-2-007 only — cosmetic emoji rendering)
+- Coverage status: `150/150` local article routes represented in the audit CSV.
