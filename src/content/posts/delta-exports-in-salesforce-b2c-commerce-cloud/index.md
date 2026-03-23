@@ -57,7 +57,6 @@ You can consider this to work the same as configuring the Sitemap or replication
 {{< img-caption 
   src="delta-jobs-overview-dccafc63a7.png"
   alt="Business Manager screenshot showing Delta Exports module under Administration > Site Development"
-  caption="Figure 1: Delta Exports Module Overview"
 >}}
 
 Let us open that "Test" configuration!
@@ -67,7 +66,6 @@ Let us open that "Test" configuration!
 {{< img-caption 
   src="delta-job-selection-718f8a1686.png"
   alt="Delta export job configuration form showing Name field, Consumers field, and Data Type dropdown"
-  caption="Figure 2: Delta Job Configuration—General Tab"
 >}}
 
 When we create a new job or open an existing one, we configure multiple items:
@@ -85,7 +83,6 @@ A list of supported types can be found [in the Delta Exports documentation](http
 {{< img-caption 
   src="delta-job-schedule-1c300976ae.png"
   alt="Delta job Schedule tab showing fixed interval configuration options"
-  caption="Figure 3: Delta Job Schedule Configuration"
 >}}
 
 Just like regular jobs, you can schedule this to be executed at your chosen interval.
@@ -95,7 +92,6 @@ Just like regular jobs, you can schedule this to be executed at your chosen inte
 {{< img-caption 
   src="history-70bccb6f6f.png"
   alt="Delta export history table showing previously generated export files"
-  caption="Figure 4: Delta Export History Tab"
 >}}
 
 This historical overview is unlike your usual "job" history, even though the description might seem similar.
@@ -107,7 +103,6 @@ This overview will show a history of all exported files rather than the job exec
 {{< img-caption 
   src="delta-job-consumer-867e8bc380.png"
   alt="Consumer tab showing WebDAV export folder path for each configured consumer"
-  caption="Figure 5: Delta Job Consumer Configuration Tab"
 >}}
 
 For each "consumer" you have configured in the general tab, a new tab appears in which you get the path where the files are exported.
@@ -121,7 +116,6 @@ This gives each external system (consumer) its dedicated folder on the WebDAV to
 {{< img-caption 
   src="delta-job-status-9552cad99f.png"
   alt="Status tab displaying the scheduled delta export job execution log"
-  caption="Figure 6: Delta Job Status Log"
 >}}
 
 You can view the log of the scheduled job on this page.

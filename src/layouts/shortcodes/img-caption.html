@@ -22,10 +22,19 @@
 {{- $alt := .Get "alt" -}}
 {{- $caption := .Get "caption" -}}
 {{- $captionText := "" -}}
+{{- $hasVisibleCaption := false -}}
 {{- with $caption -}}
-  {{- $captionText = transform.HTMLUnescape . -}}
+  {{- $captionText = strings.TrimSpace (transform.HTMLUnescape .) -}}
+  {{- $captionValue := strings.TrimSpace (replace (replace (replace . "&#8203;" "") "&ZeroWidthSpace;" "") "&zwsp;" "") -}}
+  {{- if $captionValue -}}
+    {{- $hasVisibleCaption = true -}}
+  {{- end -}}
 {{- end -}}
 {{- $loading := .Get "loading" | default "lazy" -}}
+{{- $figureClass := "article-figure article-figure--plain" -}}
+{{- if $hasVisibleCaption -}}
+  {{- $figureClass = "article-figure article-figure--captioned" -}}
+{{- end -}}
 
 {{- if not $src -}}
   {{- errorf "img-caption shortcode requires 'src' parameter" -}}
@@ -36,7 +45,7 @@
 {{- end -}}
 
 {{- /* Reuse media/image.html partial without image processing to keep large migrations build-stable. */ -}}
-<figure class="article-figure">
+<figure class="{{ $figureClass }}">
   {{ partial "media/image.html" (dict
     "page" .Page
     "src" $src
@@ -45,7 +54,7 @@
     "process" false
     "class" "article-figure__img"
   ) }}
-  {{- if $caption -}}
+  {{- if $hasVisibleCaption -}}
     <figcaption class="article-figure__caption">{{ $captionText }}</figcaption>
   {{- end -}}
 </figure>

@@ -35,10 +35,10 @@ The corrected recheck logic deliberately errs on the side of flagging short post
 | `delta-exports-in-salesforce-b2c-commerce-cloud` | 1 | `Let us open that "Test" configuration!` | `next-step-instruction` | Directs the reader to the next UI action after the overview figure. |
 | `how-to-change-the-code-compatibility-mode-in-salesforce-b2c-commerce-cloud` | 2 | `As it turns out... no. There is server-side validation in place. So we need to find another way to hack the system!` | `result-explanation` | Explains the failed experiment and motivates the next workaround. |
 | `how-to-change-the-code-compatibility-mode-in-salesforce-b2c-commerce-cloud` | 4 | `Click on the **active** Code Version (this is important)!` | `step-instruction` | Provides a required procedural instruction rather than an image label. |
+| `how-to-extend-active-data-in-salesforce-b2c-commerce-cloud` | 5 | `And with this new addition, we can start creating new [Dynamic Customer Groups](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/active_merchandising/b2c_creating_a_dynamic_customer_group.html), for example!` | `next-step-transition` | Moves from import verification into the next implementation step instead of labeling the image. |
 | `how-to-use-ocapi-scapi-hooks` | 4 | `This does have a slight nuance: It is not the case for all endpoints. Luckily this is documented for every hook!` | `nuance-explanation` | Adds endpoint-specific nuance not present in the figure caption. |
 | `how-to-use-ocapi-scapi-hooks` | 5 | `Read the documentation carefully for each hook!` | `review-instruction` | Acts as imperative guidance tied to the upcoming discussion, not as a caption. |
 | `ai-wont-steal-your-sfcc-job-but-a-developer-using-ai-will` | 1 | `And it's not just developers who experience this - every industry has its own story.` | `scope-broadening` | Broadens the argument beyond developers, which the figure caption does not do. |
-| `third-party-api-caching-in-commerce-cloud` | 4 | `The number of requests handled by the API decreased considerably, leading to a lower monthly bill.` | `measured-outcome` | Adds a concrete business outcome beyond the image caption's summary. |
 
 ## Verification
 
@@ -55,6 +55,6 @@ The corrected recheck logic deliberately errs on the side of flagging short post
 - `src/content/posts/b2c-commerce-whats-new-in-22-4/index.md`
 - `src/content/posts/delta-exports-in-salesforce-b2c-commerce-cloud/index.md`
 - `src/content/posts/how-to-change-the-code-compatibility-mode-in-salesforce-b2c-commerce-cloud/index.md`
+- `src/content/posts/how-to-extend-active-data-in-salesforce-b2c-commerce-cloud/index.md`
 - `src/content/posts/how-to-use-ocapi-scapi-hooks/index.md`
 - `src/content/posts/ai-wont-steal-your-sfcc-job-but-a-developer-using-ai-will/index.md`
-- `src/content/posts/third-party-api-caching-in-commerce-cloud/index.md`

@@ -28,7 +28,7 @@ Are you interested in last year's release notes? [Click here](/salesforce-b2c-co
 
 ### DKIM Support for Emails
 
-{{< img-caption src="dkim-in-commerce-cloud-0dbe52d4a2.png" alt="Email Settings screen in Business Manager with the new DKIM option." caption="Email Settings screen in Business Manager with the new DKIM option." >}}
+{{< img-caption src="dkim-in-commerce-cloud-0dbe52d4a2.png" alt="Email Settings screen in Business Manager with the new DKIM option." >}}
 
 Are you tired of missing out on important emails because they end up in your SPAM folder? We have great news for you! Commerce Cloud now comes with [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) support, designed to significantly reduce the chances of your emails being marked as SPAM.
 
@@ -48,7 +48,7 @@ PIG Only This option does not seem to be available on sandboxes.
 
 ### Enable Temporary Baskets for Immediate Order Requests in OCAPI
 
-{{< img-caption src="carts-on-a-mobile-phone-022785d77e.jpg" alt="A person's hand touches a mobile phone, depicting multiple carts on top of it, representing the new Headless options for &quot;temporary baskets.&quot;" caption="A person's hand touches a mobile phone, depicting multiple carts on top of it, representing the new Headless options for &quot;temporary baskets.&quot;" >}}
+{{< img-caption src="carts-on-a-mobile-phone-022785d77e.jpg" alt="A person's hand touches a mobile phone, depicting multiple carts on top of it, representing the new Headless options for &quot;temporary baskets.&quot;" >}}
 
 > OCAPI 23.4 includes support for temporary baskets. Temporary baskets allow for immediate order requests in B2C Commerce. For example, a shopper uses a Buy Now option to purchase an item. The temporary basket, which has a limited lifetime of 15 minutes, is populated with all the data required to ready the basket for checkout without affecting the regular shopper basket.
 > **How:** Pass a query parameter temporaryBasket into POST baskets to create a temporary basket. With OCAPI 23.4 the basket document attribute isTemporary indicates a basket is temporary.

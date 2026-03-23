@@ -69,7 +69,7 @@ A downside of calling a "controller API" is that it behaves like an SFRA request
 
 If we poorly implement a custom endpoint that is called on every page load to retrieve "mundane information," we will create thousands of sessions for no reason. These unnecessary sessions also need to be cleaned from the database, creating additional system load that could be better utilised.
 
-{{< img-caption src="calculator-and-excel-e1728648264417-2b10df8062.jpeg" alt="A person using a calculator for Excel has built-in functions to do calculations for you. It represents inefficient work and creates a significant workload for no reason." caption="A person using a calculator for Excel has built-in functions to do calculations for you. It represents inefficient work and creates a significant workload for no reason." >}}
+{{< img-caption src="calculator-and-excel-e1728648264417-2b10df8062.jpeg" alt="A person using a calculator for Excel has built-in functions to do calculations for you. It represents inefficient work and creates a significant workload for no reason." >}}
 
 ## Conclusion?
 

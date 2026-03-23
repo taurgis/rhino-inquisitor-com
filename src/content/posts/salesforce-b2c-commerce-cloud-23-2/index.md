@@ -33,7 +33,7 @@ Are you interested in last month’s release notes? [Read the 23.1 release notes
 
 {{< img-caption src="page-designer-structure-oldv2-56ca8ab276.jpeg" alt="Old Page Designer structure before the 23.2 redesign." caption="Old Page Designer Structure" >}}
 
-{{< img-caption src="page-designer-structure-new-q0uu07mbk2b779dng608ohzvqnewndt9ajezjc0u0w-f987195ba3.png" alt="New Page Designer Structure" caption="New Page Designer Structure" >}}
+{{< img-caption src="page-designer-structure-new-q0uu07mbk2b779dng608ohzvqnewndt9ajezjc0u0w-f987195ba3.png" alt="New Page Designer Structure" >}}
 
 > The Page Designer page structure in the canvas editor has been redesigned. The asset hierarchy outlines all the assets on your page. The visual connection between what is selected in the canvas and its location in the page structure is also improved.
 
@@ -45,7 +45,7 @@ Overall, this will be a great step forward in enhancing the user experience.
 
 {{< img-caption src="page-designer-move-e9d6ec4100.gif" alt="Old drag-and-drop component movement in Page Designer." caption="Old Moving Component" >}}
 
-{{< img-caption src="page-designer-move-new-q0uu0xxsvfb2aqadmf5zcgd32825ysuaruhlziuh34-537198b2f6.png" alt="New Moving Component" caption="New Moving Component" >}}
+{{< img-caption src="page-designer-move-new-q0uu0xxsvfb2aqadmf5zcgd32825ysuaruhlziuh34-537198b2f6.png" alt="New Moving Component" >}}
 
 > Dragging components in Page Designer is now more intuitive. Know exactly where you can place a component. And after you drop a component and refresh the page, the component remains in focus and highlighted until another selection is made in the canvas.
 > **How:** Improvements to the drag functionality improve the Page Designer workflow.

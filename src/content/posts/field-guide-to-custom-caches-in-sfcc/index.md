@@ -61,7 +61,7 @@ Once you've determined that a Custom Cache is the right tool, implementation req
 
 ### The Blueprint: Defining Caches in caches.json
 
-{{< img-caption src="salesforce-commerce-cloud-blueprinting-caches-c155ca3f8c.jpeg" alt="Cartoon blueprint scene illustrating how a custom cache is assembled." caption="Cartoon blueprint scene illustrating how a custom cache is assembled." >}}
+{{< img-caption src="salesforce-commerce-cloud-blueprinting-caches-c155ca3f8c.jpeg" alt="Cartoon blueprint scene illustrating how a custom cache is assembled." >}}
 
 Your cache's life begins with a simple declaration. This is done in a JSON file, conventionally named `caches.json`, which must reside within your cartridge.
 
@@ -95,7 +95,7 @@ The `id` must be **globally unique** across every single cartridge in your site'
 
 1. **Enable in Business Manager:**Finally, you must globally enable the custom cache feature. Navigate to**Administration > Operations > Custom Caches** and check the "Enable Caching" box.  Disabling this will clear all custom caches on the instance. This page will also become your primary tool for monitoring cache health.
 
-[{{< img-caption src="ods-custom-caches-business-manager-c30167212b.png" alt="Custom Caches screen in Business Manager." caption="Custom Caches screen in Business Manager." >}}](ods-custom-caches-business-manager-c30167212b.png)
+[{{< img-caption src="ods-custom-caches-business-manager-c30167212b.png" alt="Custom Caches screen in Business Manager." >}}](ods-custom-caches-business-manager-c30167212b.png)
 
 A screenshot of the "Administration > Operations > Custom Caches" screen in the business manager.
 

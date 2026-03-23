@@ -1578,8 +1578,14 @@ summary {
   line-height: 1.14;
 }
 
+.article-body h4 {
+  margin-top: 1.5rem;
+  line-height: 1.14;
+}
+
 .article-body h2 + *,
-.article-body h3 + * {
+.article-body h3 + *,
+.article-body h4 + * {
   margin-top: 0.75rem;
 }
 
@@ -1706,6 +1712,9 @@ summary {
 .article-figure {
   display: block;
   margin: 1.5rem 0;
+}
+
+.article-figure--captioned {
   padding: 1.25rem;
   border: 1px solid var(--surface-border-strong);
   border-radius: var(--radius-md);
@@ -1718,6 +1727,10 @@ summary {
   width: 100%;
   height: auto;
   margin: 0;
+  border-radius: var(--radius-md);
+}
+
+.article-figure--captioned .article-figure__img {
   border-radius: calc(var(--radius-md) - 2px);
 }
 
@@ -1742,7 +1755,7 @@ summary {
 
 /* Dark mode support */
 @media (prefers-color-scheme: dark) {
-  .article-figure {
+  .article-figure--captioned {
     background: var(--surface-inverse-soft);
     border-color: rgba(255, 255, 255, 0.12);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
@@ -1756,14 +1769,14 @@ summary {
 
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
-  .article-figure {
+  .article-figure--captioned {
     transition: none;
   }
 }
 
 /* Mobile responsivity */
 @media (max-width: 47.999rem) {
-  .article-figure {
+  .article-figure--captioned {
     margin-left: calc(-1.25rem);
     margin-right: calc(-1.25rem);
     border-left: 0;

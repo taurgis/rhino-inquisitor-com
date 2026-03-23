@@ -27,7 +27,7 @@ In this article, we will explore the benefits and challenges of AI in the workpl
 
 ## What is AI
 
-{{< img-caption src="salesforce-einstein-c26c4593ed.jpeg" alt="Salesforce Einstein branding used to introduce workplace AI." caption="Salesforce Einstein branding used to introduce workplace AI." >}}
+{{< img-caption src="salesforce-einstein-c26c4593ed.jpeg" alt="Salesforce Einstein branding used to introduce workplace AI." >}}
 
 AI, or [Artificial Intelligence](https://en.wikipedia.org/wiki/Artificial_intelligence), is a technology that enables machines to perform tasks that would typically require human intelligence. Some examples are speech recognition, decision-making, and language translation.
 
@@ -49,7 +49,7 @@ A good example is [the recent plugin I wrote](https://www.forward.eu/blog/the-po
 
 - **Summarise product information for SEO:** Are you still manually summarising texts for a page title and description for thousands of products? Why not let AI do the hard work?
 
-[{{< img-caption src="sfcc-content-assets-with-ai-8805d0d3cd.jpg" alt="Content asset editor using AI-assisted generation in Salesforce Commerce Cloud." caption="Content asset editor using AI-assisted generation in Salesforce Commerce Cloud." >}}](sfcc-content-assets-with-ai-8805d0d3cd.jpg)
+[{{< img-caption src="sfcc-content-assets-with-ai-8805d0d3cd.jpg" alt="Content asset editor using AI-assisted generation in Salesforce Commerce Cloud." >}}](sfcc-content-assets-with-ai-8805d0d3cd.jpg)
 
 The ideas I have to make repetitive tasks in the business manager easier do not seem to stop!
 

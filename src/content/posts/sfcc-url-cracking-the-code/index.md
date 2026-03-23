@@ -25,7 +25,7 @@ It should be no secret that a URL is a vital part of any website In this article
 
 ## The URL Structure
 
-{{< img-caption src="anatomy-of-a-url-33092362d8.png" alt="Anatomy of a B2C Commerce Cloud URL" caption="Anatomy of a B2C Commerce Cloud URL" >}}
+{{< img-caption src="anatomy-of-a-url-33092362d8.png" alt="Anatomy of a B2C Commerce Cloud URL" >}}
 
 A typical Salesforce B2C Commerce Cloud URL consists of the following components:
 

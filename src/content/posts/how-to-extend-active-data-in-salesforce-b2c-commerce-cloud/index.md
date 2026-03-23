@@ -77,8 +77,6 @@ As with any attribute, if we want to be able to view them in the Business Manage
 
 {{< img-caption src="system-object-active-data-attributegroup-96d35b50eb.jpg" alt="Attribute group configuration for the Physical Store Traffic fields." caption="Grouping the new fields makes them usable in Business Manager screens and workflows." >}}
 
-Attribute Group Assignments
-
 Attribute Group For many screens, attributes that are not assigned to a group will not be visible or not function properly.
 
 ### Step 2: Create the feed definition (CSV)
@@ -123,13 +121,9 @@ Once the import has been completed we can go and check on a profile if that impo
 
 {{< img-caption src="customer-active-data-sfcc-c14383fa6a.jpg" alt="Customer profile showing imported Active Data values in Business Manager." caption="After the import runs, the customer profile confirms whether the new data arrived." >}}
 
-SFCC Customer Active Data
-
 And with this new addition, we can start creating new [Dynamic Customer Groups](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/active_merchandising/b2c_creating_a_dynamic_customer_group.html), for example!
 
 {{< img-caption src="dynamic-customer-group-a8cdefb897.jpg" alt="Dynamic customer group rule based on recent in-store visits." caption="Once imported, the new signal can drive customer groups and targeting rules." >}}
-
-Dynamic Customer Group: Visited today
 
 Active Data Custom feed imports do not show in the Business Manager if the "standard" Active Data fields are empty for a customer or product. You might have to do a manual import on your sandbox to force the visibility. For that reason, I have provided an example file below!
 

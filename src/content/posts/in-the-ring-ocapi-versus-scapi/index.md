@@ -83,7 +83,6 @@ Oh my ... things aren't looking proper for the OCAPI.
 {{< img-caption 
   src="composable-storefront-architecture-54fe68c81a.jpg"
   alt="The Composable Storefront architecture"
-  caption="Figure 1: The Composable Storefront architecture"
 >}}
 
 The architectural setups of the OCAPI and SCAPI options are entirely different.

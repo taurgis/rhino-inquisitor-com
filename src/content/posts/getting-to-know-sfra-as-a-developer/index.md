@@ -39,7 +39,7 @@ I wrote a separate post before explaining how to get your sandbox [in this guide
 
 ### Learn Commerce Cloud
 
-{{< img-caption src="learn-commerce-cloud-67eab48d9b.jpg" alt="Archived Learn Commerce Cloud landing page." caption="Archived Learn Commerce Cloud landing page." >}}
+{{< img-caption src="learn-commerce-cloud-67eab48d9b.jpg" alt="Archived Learn Commerce Cloud landing page." >}}
 
 - [https://help.salesforce.com/s/articleView?language=en\_US&id=cc.b2c\_getting\_started.htm&type=5](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_getting_started.htm&type=5)
 - [PDF Version of the old Learn Commerce Cloud Site](learn-commerce-cloud-site.pdf)
@@ -96,7 +96,7 @@ This website will tell you how to get started with your SFRA implementation with
 
 ### Partner Learning Camp
 
-{{< img-caption src="b2c-foundations-2daffad6c6.jpg" alt="Partner Learning Camp catalog showing the B2C Commerce Foundations course." caption="Partner Learning Camp catalog showing the B2C Commerce Foundations course." >}}
+{{< img-caption src="b2c-foundations-2daffad6c6.jpg" alt="Partner Learning Camp catalog showing the B2C Commerce Foundations course." >}}
 
 - [https://partnerlearningcamp.salesforce.com](https://partnerlearningcamp.salesforce.com/s/browse-catalog?plc__recordId=5iuux101vYk2UQtOkwn9%2BpFhmsL%2F5jynd8uOnEFtSg4JjoBEe8yyDv9MajFikOJe)
 

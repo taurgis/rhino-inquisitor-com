@@ -32,7 +32,7 @@ No need to worry! If you're using an older version, there's a node-sass version 
 
 ## Activate Node 18 for your SFRA project
 
-{{< img-caption src="node18-ac76311848.jpg" alt="Install Node 18 for SFRA" caption="Install Node 18 for SFRA" >}}
+{{< img-caption src="node18-ac76311848.jpg" alt="Install Node 18 for SFRA" >}}
 
 To use this version, it is necessary to install it first. Although I recommend using "[nvm](https://github.com/nvm-sh/nvm)", it may not be the best option for every setup. It is crucial to explore and find the most efficient method for your specific setup to ensure the successful installation of this version.
 
@@ -132,7 +132,7 @@ npm ERR! Could not resolve dependency:
 npm ERR! peer stylelint@"^8.0.0" from stylelint-config-standard@17.0.0
 ```
 
-{{< img-caption src="upgrading-libraries-developer-d40cf53b81.jpg" alt="Developer reviewing dependency updates after a failed npm resolution." caption="Developer reviewing dependency updates after a failed npm resolution." >}}
+{{< img-caption src="upgrading-libraries-developer-d40cf53b81.jpg" alt="Developer reviewing dependency updates after a failed npm resolution." >}}
 
 Ok. Probably never 😅
 

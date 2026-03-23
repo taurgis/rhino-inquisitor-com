@@ -106,6 +106,7 @@ Domain skills are located in [.github/skills/](.github/skills/):
 - [content-migration](.github/skills/content-migration/SKILL.md)
 - [documentation](.github/skills/documentation/SKILL.md)
 - [hugo-development](.github/skills/hugo-development/SKILL.md)
+- [image-caption-writing](.github/skills/image-caption-writing/SKILL.md)
 - [implementation-ticket](.github/skills/implementation-ticket/SKILL.md)
 - [javascript-development](.github/skills/javascript-development/SKILL.md)
 - [seo-migration](.github/skills/seo-migration/SKILL.md)

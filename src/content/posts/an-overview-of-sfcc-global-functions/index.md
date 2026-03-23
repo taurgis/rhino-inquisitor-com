@@ -65,7 +65,7 @@ The [empty](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/co
 
 ## escape and unescape
 
-{{< img-caption src="global-function-escape-drawing-a5cb04538d.jpeg" alt="A drawing of a jail cell with a man in orange." caption="A drawing of a jail cell with a man in orange." >}}
+{{< img-caption src="global-function-escape-drawing-a5cb04538d.jpeg" alt="A drawing of a jail cell with a man in orange." >}}
 
 ```
 escape("äöü");
@@ -89,7 +89,7 @@ The [eval](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com
 
 ## isFinite and isNaN
 
-{{< img-caption src="the-infinity-of-space-5e44ec8ec6.jpg" alt="Infinity-themed illustration introducing the isFinite and isNaN global functions." caption="Infinity-themed illustration introducing the isFinite and isNaN global functions." >}}
+{{< img-caption src="the-infinity-of-space-5e44ec8ec6.jpg" alt="Infinity-themed illustration introducing the isFinite and isNaN global functions." >}}
 
 ```
 isFinite(1000 / 0);

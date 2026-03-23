@@ -66,7 +66,7 @@ Capturing business requirements and providing the best solution for the business
 
 ## Build (19%)
 
-{{< img-caption src="b2c-commerce-architect-build-1e15c905c7.jpg" alt="A group of people sitting at a table with laptops." caption="A group of people sitting at a table with laptops." >}}
+{{< img-caption src="b2c-commerce-architect-build-1e15c905c7.jpg" alt="A group of people sitting at a table with laptops." >}}
 
 The Official List
 
@@ -137,7 +137,7 @@ Salesforce B2C Commerce Cloud has many features out of the box, but it can't do 
 
 ## Launch (16%)
 
-{{< img-caption src="b2c-commerce-architect-launch-959e1a842f.jpg" alt="A group of people standing around a table drinking sparkling wine." caption="A group of people standing around a table drinking sparkling wine." >}}
+{{< img-caption src="b2c-commerce-architect-launch-959e1a842f.jpg" alt="A group of people standing around a table drinking sparkling wine." >}}
 
 The Official List
 

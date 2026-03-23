@@ -29,7 +29,7 @@ Are you interested in last month’s release notes? [Click here](/a-look-at-the-
 
 ## Add More Product Line Items per Basket
 
-{{< img-caption src="basket-product-line-items-in-sfcc-d24a6fcde8.png" alt="Basket preferences showing the new default limit of 200 product line items." caption="Basket preferences showing the new default limit of 200 product line items." >}}
+{{< img-caption src="basket-product-line-items-in-sfcc-d24a6fcde8.png" alt="Basket preferences showing the new default limit of 200 product line items." >}}
 
 > If your site was limited to 50 line items per basket, the maximum number is increased to 200. This new limit doesn’t affect users who have been granted a lower or higher limit.
 
@@ -55,7 +55,7 @@ However, if you use this feature in other environments, you can use a system job
 
 ### Display Alert Messages in Business Manager
 
-{{< img-caption src="sfcc-alerts-business-manager-5ad8b6e1f2.png" alt="Notification settings showing banner, header, and homepage alert placements." caption="Notification settings showing banner, header, and homepage alert placements." >}}
+{{< img-caption src="sfcc-alerts-business-manager-5ad8b6e1f2.png" alt="Notification settings showing banner, header, and homepage alert placements." >}}
 
 > Display alerts as a persistent banner on the top of every Business Manager page. Alerts can relate to Business Manager modules and are only visible to users with permissions to access the module. Salesforce might also use the enhanced alerting framework to display critical system messages to Business Manager users.
 

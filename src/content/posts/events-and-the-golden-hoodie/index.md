@@ -70,7 +70,7 @@ People who could not join the event in person have to use [Salesforce+](https://
 
 ## Salesforce Live Belgium
 
-{{< img-caption src="salesforce-live-belgium-bba64ad521.jpg" alt="Salesforce Live Belgium event slide featuring the author's Golden Hoodie recognition." caption="Salesforce Live Belgium event slide featuring the author's Golden Hoodie recognition." >}}
+{{< img-caption src="salesforce-live-belgium-bba64ad521.jpg" alt="Salesforce Live Belgium event slide featuring the author's Golden Hoodie recognition." >}}
 
 Being the first-ever Belgian Golden Hoodie recipient sure puts your picture as one giant slide at local Salesforce events!
 
@@ -86,7 +86,7 @@ Summing it up: I had a great time, but wearing the Golden Hoodie during summer a
 
 ## [YeurDreamin'](https://www.yeurdreamin.eu/)
 
-{{< img-caption src="yeurdreamin-headless-dc38d91630.jpg" alt="YeurDreamin' - Headless" caption="YeurDreamin' - Headless" >}}
+{{< img-caption src="yeurdreamin-headless-dc38d91630.jpg" alt="YeurDreamin' - Headless" >}}
 
 The year 2022 is also when I decided to become more involved in the local (and European) community events. The first (and the closest) that caught my attention was [YeurDreamin'](https://www.yeurdreamin.eu/), a Community Conference focusing on the Benelux.
 

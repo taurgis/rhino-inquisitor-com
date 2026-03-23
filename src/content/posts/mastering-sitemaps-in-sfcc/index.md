@@ -56,7 +56,6 @@ The Settings tab is your main control panel. Here’s what you, as a developer, 
 {{< img-caption 
   src="sitemap-business-manager-job-13ba1762a2.jpg"
   alt="Job tab for scheduling sitemap generation in Business Manager"
-  caption="The Job tab"
 >}}
 
 You can run the sitemap generation manually or, more practically, schedule it as a recurring job from the Job tab. Here is the single most important operational detail:

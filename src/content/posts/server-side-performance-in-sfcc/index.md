@@ -86,8 +86,6 @@ Looking at the list of data above, it makes sense to have a look at it!
 
 {{< img-caption src="performance-dashboard-8a847df133.png" alt="A screenshot of the &quot;Reports & Dashboards&quot; with the &quot;Average Response Time&quot; graph depicting a significant performance degradation (doubling in milliseconds)." caption="The Technical Dashboard is the first place to confirm whether response times are trending the wrong way." >}}
 
-Reports & Dashboards
-
 This dashboard lets you obtain the essential information regarding your cache performance for all endpoints, including Remote Includes. Clicking on a controller will reveal insights into the various sub-requests caused by the [Remote Include](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/ops_troubleshooting/b2c_understanding_remote_includes.html) mechanism.
 
 This dashboard is an excellent starting point for identifying caching issues and controllers with extended runtimes. _The screenshot shows performance has decreased for the Product-Show controller over the past few days or weeks._
