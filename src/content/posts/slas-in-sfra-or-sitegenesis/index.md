@@ -29,7 +29,11 @@ But let's cut to the chase. The `plugin_slas` cartridge (which we will discuss l
 
 ## What is SLAS
 
-![A diagram showing the different steps of the SLAS process.](slas-diagram-9890f180b6.png)
+{{< img-caption 
+  src="slas-diagram-9890f180b6.png"
+  alt="Diagram showing the different steps of the SLAS authentication process"
+  caption="Figure 1: SLAS process flow"
+>}}
 
 But what is SLAS, anywho? It is a set of APIs that allows secure access to Commerce Cloud shopper APIs for headless applications.
 
@@ -83,7 +87,11 @@ Using nearly half of the API limit for authentication alone was a risky strategy
 
 ## The New Sheriff in Town: Platform-Native Hybrid Authentication
 
-![A classic-style robot labeled "plugin_slas cartridge" hands a glowing purple key to a sleek, modern robot labeled "Hybrid Authentication." They are standing on a path leading from a quaint town labeled "SFRA" to a futuristic city skyline, under a bright, sunny sky.](plugin-slas-to-hybrid-authentication-359f0381b0.jpg)
+{{< img-caption 
+  src="plugin-slas-to-hybrid-authentication-359f0381b0.jpg"
+  alt="Classic robot labeled plugin_slas cartridge handing a key to modern robot labeled Hybrid Authentication on a path from SFRA town to futuristic city"
+  caption="Figure 2: Transition from plugin_slas cartridge to platform-native Hybrid Authentication"
+>}}
 
 The transition to the future of authentication, as the classic "plugin\_slas cartridge" passes the key to newest "Hybrid Authentication."
 

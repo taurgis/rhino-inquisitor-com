@@ -73,7 +73,7 @@ The existence and vibrancy of communities like CommerceCrew and the official Tra
 
 ## Your Trailhead Compass: Strategic Learning for Technical Experts
 
-![Astro cheering](trailhead-commerce-29dc66c342.png)
+{{< img-caption src="trailhead-commerce-29dc66c342.png" alt="Astro cheering" >}}
 
 - [https://trailhead.salesforce.com/](https://trailhead.salesforce.com/trails?products=commercecloud&sort=NEWEST)
 
@@ -91,7 +91,7 @@ Trailhead is Salesforce's free, online learning platform, and it's an ocean of c
 
 ## Partner Learning Camp: The Insider's Track
 
-![Partner Learning Camp dashboard used to introduce the partner-only training track.](5b7a39ea-b9bc-486b-9ca3-c77ab5a306b1-e1653998526739-e73418c862.jpeg)
+{{< img-caption src="5b7a39ea-b9bc-486b-9ca3-c77ab5a306b1-e1653998526739-e73418c862.jpeg" alt="Partner Learning Camp dashboard used to introduce the partner-only training track." >}}
 
 - [https://partnerlearningcamp.salesforce.com/s/learner-dashboard](https://partnerlearningcamp.salesforce.com/s/learner-dashboard)
 
@@ -101,7 +101,7 @@ The PLC offers curricula on topics like SFRA, Headless development, PWA Kit, and
 
 ## Salesforce Architects: The Multi-Cloud Command Center
 
-![The Solution Architect certification diagram.](solution-architect-33ece62704.png)
+{{< img-caption src="solution-architect-33ece62704.png" alt="The Solution Architect certification diagram." >}}
 
 - [https://architect.salesforce.com/](https://architect.salesforce.com/)
 

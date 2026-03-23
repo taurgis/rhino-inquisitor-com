@@ -33,7 +33,7 @@ Great news for users of Composable Storefront! You can now use the much-awaited 
 
 ## Improve Product Discoverability with the Google Inventory Listings Cartridge
 
-![Google Local Inventory listing showing nearby shoe availability.](local-inventory-7952c2d4a2.jpeg)
+{{< img-caption src="local-inventory-7952c2d4a2.jpeg" alt="Google Local Inventory listing showing nearby shoe availability." caption="Google Inventory Listings surfaces nearby store stock directly in search results." >}}
 
 > The Google Inventory cartridge is a B2C Commerce direct integration cartridge. You can use the cartridge to list your local store products on Google’s free product listings. Shoppers can discover products in stores near them. This increases local store foot traffic
 
@@ -49,7 +49,7 @@ A much-needed update in the platform to be warned that one of the orders was not
 
 ### Configure Up to 10 Categorization Conditions
 
-![Categorization rule editor with support for up to ten conditions.](categorization-rules-in-23-7-affa83b506.jpg)
+{{< img-caption src="categorization-rules-in-23-7-affa83b506.jpg" alt="Categorization rule editor with support for up to ten conditions." caption="The rule editor now matches the API limit of ten conditions instead of five." >}}
 
 > When configuring a categorization rule in Business Manager, you can now set up to ten categorization conditions per categorization rule set. Previously, Business Manager supported five conditions per rule set while the API supported ten conditions per rule set.
 
@@ -92,7 +92,7 @@ Just a gentle reminder to [vote](https://ideas.salesforce.com/s/search#t=All&sor
 
 This a minor release to ensure this version is compatible with the latest Node version (18), as the older versions will be deprecated soon!
 
-[![The deprecation notice of node 16 with the text: Changing the End-of-Life Date for Node.js 16 to September 11th, 2023 Summary We are moving the End-of-Life date of Node.js 16 by seven months to coincide with the end of support of OpenSSL 1.1.1 on September 11th, 2023.](node-js-16-deprecation-b8d6f02bec.png)](node-js-16-deprecation-b8d6f02bec.png)
+[{{< img-caption src="node-js-16-deprecation-b8d6f02bec.png" alt="Node.js 16 end-of-life notice moving the deadline to September 11, 2023." caption="PWA Kit added Node 18 support so teams could move off Node 16 before end-of-life." >}}](node-js-16-deprecation-b8d6f02bec.png)
 
 ## PWA Kit v3.0.0
 

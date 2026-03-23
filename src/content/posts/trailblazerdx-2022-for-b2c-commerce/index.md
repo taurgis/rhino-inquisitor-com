@@ -147,7 +147,7 @@ Develop connected digital experiences that attract and convert customers – and
 
 ## [Party with Weezer!](https://reg.salesforce.com/flow/plus/trailblazerdx22/sessioncatalog/page/sessioncatalog/session/164980295926300167e9)
 
-![TrailblazerDX party announcement featuring Weezer.](weezer-66533fada7.png)
+{{< img-caption src="weezer-66533fada7.png" alt="TrailblazerDX party announcement featuring Weezer." >}}
 
 It also wouldn't be a Salesforce event if it didn't have a celebration at the end of day one!
 

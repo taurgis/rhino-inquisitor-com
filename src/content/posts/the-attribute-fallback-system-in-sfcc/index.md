@@ -31,9 +31,7 @@ When it comes to varying on an attribute, there are two options within Salesforc
 
 ## How does the attribute fallback system work for variation products, groups, and base products?
 
-![A visual representation of the Variation Group model by using a t-shirt. There colours of shirts, each with their own set of sizes with one base product at the top.](variation-model-attribute-fallback-af1b94cc0e.jpg)
-
-An attempt at visualising the fallback system.
+{{< img-caption src="variation-model-attribute-fallback-af1b94cc0e.jpg" alt="A visual representation of the Variation Group model by using a t-shirt. There colours of shirts, each with their own set of sizes with one base product at the top." caption="Attribute values cascade from variant up to variation group and then to the base product when not explicitly set at a lower level." >}}
 
 The attribute fallback system is a mechanism that allows B2C Commerce Cloud to automatically retrieve the attribute values of variation products from other sources, such as variation groups or base products when they are not explicitly defined for the variant. This way, merchants can save time and effort in maintaining the attributes of various products and ensure that the customers see the correct and relevant information on the storefront.
 
@@ -46,9 +44,7 @@ The attribute fallback system works as follows:
 
 ### Price
 
-![A variation group product detail page of a shirt where the variants have different prices, ending up with a "range".](modern-striped-shirt-price-range-f088973939.jpg)
-
-A variation group with different prices for the variants
+{{< img-caption src="modern-striped-shirt-price-range-f088973939.jpg" alt="A variation group product detail page of a shirt where the variants have different prices, ending up with a &quot;range&quot;." caption="When variant prices differ, the storefront displays a price range on the variation group PDP rather than a single price." >}}
 
 The attribute fallback system applies to all attributes of variation products except for the price attribute. The price attribute does not have a fallback from variation products to variation groups, as variation groups do not have prices.
 
@@ -63,7 +59,7 @@ Luckily for the developers this system works seamlessly for developers and fetch
 -   `dw.catalog.Variant` class has attribute fallback behavior to first obtain attributes from (one or more) assigned variation groups and then from the base product.
 -   `dw.catalog.VariationGroup` class has attribute fallback behavior to obtain attributes from the base product, when the attribute isn't specified by the variation group.
 
-[![Salesforce B2C Commerce API documentation highlighting variation model fallback behavior.](variation-model-fallback-in-code-docs-1-ba4d97c55f.jpg)](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/index.html?target=class_dw_catalog_Product.html)
+[{{< img-caption src="variation-model-fallback-in-code-docs-1-ba4d97c55f.jpg" alt="Salesforce B2C Commerce API documentation highlighting variation model fallback behavior." caption="The dw.catalog.VariationGroup API explicitly documents fallback to base product attributes when the variation group doesn't define them." >}}](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/index.html?target=class_dw_catalog_Product.html)
 
 ## Advantages for data import
 

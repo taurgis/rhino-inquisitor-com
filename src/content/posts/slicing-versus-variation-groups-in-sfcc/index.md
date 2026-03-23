@@ -27,7 +27,11 @@ In this article (and I am giving away already which option blows the other out o
 
 ## What is slicing
 
-![A robot slicing a cake shaped like a t-shirt](a-robot-slicing-a-tshirt-27ef2248fc.jpg)
+{{< img-caption 
+  src="a-robot-slicing-a-tshirt-27ef2248fc.jpg"
+  alt="Cartoon robot slicing a cake decorated as a t-shirt on a cutting board"
+  caption="Figure 1: Slicing—A legacy method of separating product variants by a single attribute"
+>}}
 
 Slicing is a method of catalog management that hinges on separating product variants according to one attribute. It simplifies the distinct appearance of products by isolating them based on a characteristic like colour or size. For a while, this approach was quite popular as it provided a clear-cut way to handle product variations, particularly in systems with large counts of SKUs. The idea was that each variant stands alone, making it easy to list and manage inventory.
 
@@ -37,7 +41,11 @@ From an operational standpoint, slicing demands that you replicate this process 
 
 ## What are variation groups
 
-[![A representation of the base product, variation group and variant system. A base product, with variation groups as colour and variants that represent the size.](base-variation-group-variant-explained-ed19da17b7.png)](base-variation-group-variant-explained-ed19da17b7.png)
+{{< img-caption 
+  src="base-variation-group-variant-explained-ed19da17b7.png"
+  alt="Diagram showing hierarchy of Base Product containing Variation Groups (color) which contain Variants (size)"
+  caption="Figure 2: Modern Architecture—Base Product, Variation Group, and Variant hierarchy system"
+>}}
 
 The "Master Product" has been renamed to "Base Product" to be more inclusive.
 
@@ -59,13 +67,21 @@ Variation Groups also make it possible to tag products to promotions, which give
 - **Composable Storefront:** Although SFRA and SiteGenesis supported slicing, the PWA Kit has never been tested with slicing and solely supports Variation Groups out of the box.
 - **Slicing is kind of deprecated:** Although the [Trailhead Module](https://trailhead.salesforce.com/content/learn/modules/b2c-catalog-category-product/b2c-configure-variation-groups-slicing) and documentation no longer show a deprecation message (I somehow remember it visible in more places), it is a deprecated feature (proved by the previous point).
 
-![ProductSearchHit documentation warning that slicing is deprecated in favor of variation groups.](sfcc-slicing-deprecated-42f8438771.png)
+{{< img-caption 
+  src="sfcc-slicing-deprecated-42f8438771.png"
+  alt="ProductSearchHit API documentation showing deprecation warning for slicing in favor of variation groups"
+  caption="Figure 3: Slicing Deprecation Notice—Official warning in SFCC ProductSearchHit class documentation"
+>}}
 
 One location still has the deprecation message.
 
 ## Quota Limits
 
-[![Quota documentation showing the maximum number of variations per base product.](variations-quota-limit-sfcc-00862ef947.png)](variations-quota-limit-sfcc-00862ef947.png)
+{{< img-caption 
+  src="variations-quota-limit-sfcc-00862ef947.png"
+  alt="Salesforce documentation showing quota limits for maximum number of variations per base product"
+  caption="Figure 4: Variation Quota Limits—Critical maximum variations constraint for large catalogs"
+>}}
 
 When dealing with variations, it is crucial to be mindful of a single quota limit - the maximum number of variations per base product, similar to slicing.
 

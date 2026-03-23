@@ -34,13 +34,13 @@ Developers will use the PWA Kit tools to generate a bundle, a snapshot of the st
 
 Each project can have multiple bundles, but each environment has only one "deployed" bundle. Similar to the fact that you can only have one active "[Code Version](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/site_development/b2c_code_versions.html)" on the server side.
 
-[![Managed Runtime project list showing one organization with two storefront projects.](salesforce-commerce-cloud-managed-runtime-e2b922960d.jpg)](salesforce-commerce-cloud-managed-runtime-e2b922960d.jpg)
+{{< img-caption src="salesforce-commerce-cloud-managed-runtime-e2b922960d.jpg" alt="Managed Runtime project list showing one organization with two storefront projects." >}}
 
 The Managed Runtime operates within a hierarchy of organisations and projects. Organisations can contain multiple projects for various storefronts, and each project can contain multiple environments.
 
 This structure allows for efficiently managing multiple environments and separating different work streams.
 
-[![A mindmap displays the managed runtime with three organisations. One organisation is split up into two projects, each with three environments. One of those environments is marked as "production", while the rest is marked as "development".](managed-runtime-projects-environments-ba31af2d92.png)](managed-runtime-projects-environments-ba31af2d92.png)
+{{< img-caption src="managed-runtime-projects-environments-ba31af2d92.png" alt="Mind map showing Managed Runtime organisations, projects, and environments with production and development types." >}}
 
 ### AWS Lambda
 
@@ -60,7 +60,7 @@ When a platform offers features, there are a lot of questions that will go throu
 
 ## Benefits of the Managed Runtime for developers
 
-![a woman wearing headphones sitting in front of two computer monitors.](developer-working-on-multiple-monitors-27024b5da3.jpg)
+{{< img-caption src="developer-working-on-multiple-monitors-27024b5da3.jpg" alt="A developer wearing headphones working across two monitors." >}}
 
 Developers working with Salesforce B2C Commerce Cloud can leverage this runtime to:
 
@@ -84,6 +84,4 @@ Some developers might hesitate to give up control when deciding whether to let S
 
 It's important to know that you don't have to use the Managed Runtime option and can create your own Headless Storefront for Salesforce B2C Commerce Cloud if you want to. But if you choose this route (build your own), the managed runtime might not be an option!
 
-[![A diagram depicting how you would roll your own Headless Storefront based on a custom Node.js server running APIs through Apollo.](b2c-commerce-cloud-roll-your-own-b16dfb6a8d.jpg)](b2c-commerce-cloud-roll-your-own-b16dfb6a8d.jpg)
-
-An example of a "roll your own" architecture
+{{< img-caption src="b2c-commerce-cloud-roll-your-own-b16dfb6a8d.jpg" alt="A diagram depicting how you would roll your own Headless Storefront based on a custom Node.js server running APIs through Apollo." caption="An example of a &quot;roll your own&quot; architecture" >}}

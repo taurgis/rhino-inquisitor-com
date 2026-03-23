@@ -75,7 +75,11 @@ _I believe that in the future, we will witness endpoints to address some of the 
 
 ### Stores
 
-![A drawing of retail stores connected by lines; in this case, the lines are Ethernet cables referencing the REST APIs to fetch the store data in Headless applications.](connected-stores-22cea94a19.jpg)
+{{< img-caption 
+  src="connected-stores-22cea94a19.jpg"
+  alt="A drawing of retail stores connected by lines; in this case, the lines are Ethernet cables referencing the REST APIs to fetch the store data in Headless applications."
+  caption="Figure 1: A drawing of retail stores connected by lines; in this case, the lines are Ethernet cables referencing the REST APIs to fetch the store data in Headless applications"
+>}}
 
 If you remember, the SCAPI release included a "Shopper Stores" group that allowed developers to build their own Store Locator in Headless scenarios.
 

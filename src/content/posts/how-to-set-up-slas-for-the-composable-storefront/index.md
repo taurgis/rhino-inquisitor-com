@@ -36,31 +36,29 @@ If you want to connect the Composable Storefront to your own APIs (including SLA
 
 After you have logged into the Business Manager of your environment, go to the following: "Administration > Site Development > Salesforce Commerce API Settings"
 
-[![Salesforce Commerce API Settings page with the SLAS Admin UI link.](slas-admin-ui-button-business-manager-7bdbd7a798.jpg)](slas-admin-ui-button-business-manager-7bdbd7a798.jpg)
-
-The link is only visible if you have DWithEase (Browser Extension) installed.
+{{< img-caption src="slas-admin-ui-button-business-manager-7bdbd7a798.jpg" alt="Salesforce Commerce API Settings page with the SLAS Admin UI link." caption="This is the Business Manager starting point for finding your SLAS setup details." >}}
 
 The link is not there If you do not see the link (The link is inserted by [DWithEase](https://dwithease.com/)), manually go to the URL: `https://{{Short_Code}}.api.commercecloud.salesforce.com/shopper/auth-admin/v1/sso/login` On this screen, some necessary information to install the PWA Kit can be found. But besides the Short Code and the Organization ID, there is an interesting link present. "SLAS Admin UI" Let's click that now, shall we?
 
-[![Sign-in page that links to the SLAS Admin UI.](slas-admin-ui-login-ff882d0848.jpg)](slas-admin-ui-login-ff882d0848.jpg)
+{{< img-caption src="slas-admin-ui-login-ff882d0848.jpg" alt="Sign-in page that links to the SLAS Admin UI." caption="If the shortcut is missing, this login page still gets you into SLAS Admin." >}}
 
 When we click this link, the above screen should become visible. It shows a blue button with the text "SLAS Admin UI Login". We are logged in with our Account Manager user when this link is clicked. To manage SLAS, we need the necessary permission (given to us by an Account Manager "Account Manager": Scopes Do not forget to assign the correct scopes to this role!
 
-[![Account Manager role scopes required for SLAS administration.](slas-rights-account-manager-dfaa6aa6b8.jpg)](slas-rights-account-manager-dfaa6aa6b8.jpg)
+{{< img-caption src="slas-rights-account-manager-dfaa6aa6b8.jpg" alt="Account Manager role scopes required for SLAS administration." caption="These Account Manager scopes are the real prerequisite for managing SLAS clients." >}}
 
 ## Step 3: Add a new SLAS Client
 
 If the used account has the correct permissions, we should be greeted by a friendly "Welcome screen".
 
-[![SLAS Admin UI welcome page after a successful sign-in.](slas-admin-welcome-ui-bbc3ad8da9.jpg)](slas-admin-welcome-ui-bbc3ad8da9.jpg)
+{{< img-caption src="slas-admin-welcome-ui-bbc3ad8da9.jpg" alt="SLAS Admin UI welcome page after a successful sign-in." caption="A successful sign-in lands you on the SLAS Admin UI home screen." >}}
 
 On this page, click the "Clients" tab to go to the list of active clients we are permitted to manage (see scopes in the previous step).
 
-[![Client list in the SLAS Admin UI.](slas-admin-add-client-c488a4b6e3.jpg)](slas-admin-add-client-c488a4b6e3.jpg)
+{{< img-caption src="slas-admin-add-client-c488a4b6e3.jpg" alt="Client list in the SLAS Admin UI." caption="The Clients tab is where you manage existing entries and create a new one." >}}
 
 Click the "Add Client" button on this page to go to the next step.
 
-[![New client form for a PWA Kit SLAS application.](slas-admin-ui-new-client-pwa-kit-c70f8d1fd1.jpg)](slas-admin-ui-new-client-pwa-kit-c70f8d1fd1.jpg)
+{{< img-caption src="slas-admin-ui-new-client-pwa-kit-c70f8d1fd1.jpg" alt="New client form for a PWA Kit SLAS application." caption="This form creates the public client the Composable Storefront will authenticate with." >}}
 
 And with that, we are almost there! Fill in the following information:
 
@@ -78,7 +76,7 @@ As the final step: "Click Submit". Otherwise, not a lot is going to be happening
 
 Currently (January 16th, 2023), there is an error in the default scopes that needs to be fixed manually. Specifically, there is a missing space between "sfcc.shopper-myaccount.orders" and "sfcc.shopper-myaccount.paymentinstruments".
 
-[![Scope list showing the missing space in the default shopper scopes.](typo-in-scopes-3b0626d7b7.png)](typo-in-scopes-3b0626d7b7.png)
+{{< img-caption src="typo-in-scopes-3b0626d7b7.png" alt="Scope list showing the missing space in the default shopper scopes." caption="Check these default scopes before saving because the bundled list contains a typo." >}}
 
 ## Step 4: Enable OCAPI endpoints
 
@@ -132,6 +130,6 @@ npm start
 
 A browser screen will automatically open. And if all goes well, a homepage will appear after a short wait!
 
-![Composable Storefront homepage after the starter app launches.](pwa-kit-03394b0f92.png)
+{{< img-caption src="pwa-kit-03394b0f92.png" alt="Composable Storefront homepage after the starter app launches." caption="If the setup worked, the starter storefront should boot with the new SLAS client." >}}
 
 In conclusion, setting up the SLAS Client ID for your Composable Storefront may seem like a daunting task, but with the help of this guide, you'll be a pro in no time. And if you're still feeling a bit overwhelmed, remember that we've all been there. But hey, at least now you have a fancy new configured SLAS to show off to your friends and family, who are sure to be impressed by your technical prowess. So go forth and conquer the world of online business, one SLAS at a time.

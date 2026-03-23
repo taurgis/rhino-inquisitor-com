@@ -40,7 +40,7 @@ To put it in simple terms: it's [Cloudflare](https://www.cloudflare.com/)! If yo
 
 For the most part, Salesforce has put itself in between and taken complete control of the Cloudflare configuration. But luckily, they have left us with a few buttons and switches to fiddle with in the Business Manager.
 
-[![Embedded CDN settings for the my-domain.com storefront.](ecdn-overview-fea46a41af.png)](ecdn-overview-fea46a41af.png)
+{{< img-caption src="ecdn-overview-fea46a41af.png" alt="Embedded CDN settings for the my-domain.com storefront." caption="Business Manager's eCDN workspace is where the storefront domain, certificates, and traffic rules come together." >}}
 
 Within this interface, you can configure:
 
@@ -62,7 +62,7 @@ This one should be pretty obvious, but I'll mention it anyway. Make sure the dom
 
 To point the domain to Salesforce B2C Commerce Cloud, you need access to the domain DNS configuration. In later steps, you (or someone else you are in contact with) must add [TXT](https://en.wikipedia.org/wiki/TXT_record) and [CNAME](https://en.wikipedia.org/wiki/CNAME_record) records to the DNS configuration.
 
-[![DNS record editor for the vanity domain.](add-dns-record-domain-com-245d883c43.jpg)](add-dns-record-domain-com-245d883c43.jpg)
+{{< img-caption src="add-dns-record-domain-com-245d883c43.jpg" alt="DNS record editor for the vanity domain." caption="This DNS panel is where the TXT and CNAME records for the new storefront domain are added." >}}
 
 APEX Domain Pointing / Naked Domain It is essential to know that the APEX Domain or Naked Domain does not support CNAME records.
 
@@ -111,13 +111,13 @@ To get to the eCDN configuration, go to
 
 Once the page has loaded (be patient), you will see the following at the top right of the page.
 
-[![Add Hostname action in Embedded CDN Settings.](ecdn-add-hostname-719cd44c57.png)](ecdn-add-hostname-719cd44c57.png)
+{{< img-caption src="ecdn-add-hostname-719cd44c57.png" alt="Add Hostname action in Embedded CDN Settings." caption="Start the eCDN setup by adding the storefront hostname from the Embedded CDN Settings screen." >}}
 
 You should see the message "x hostname(s) available" if everything goes well. If not, go back to the Alias configuration to verify everything was saved correctly.
 
 Click "Add Hostname." A screen should show your configured Alias domain and to which site it is assigned.
 
-[![Create Zone dialog for the selected hostname.](ecdn-add-hostname-second-step-1cfd425363.png)](ecdn-add-hostname-second-step-1cfd425363.png)
+{{< img-caption src="ecdn-add-hostname-second-step-1cfd425363.png" alt="Create Zone dialog for the selected hostname." caption="The zone-creation dialog links the selected alias domain to the correct storefront." >}}
 
 Click "Create Zone." Be patient; it can take a while before something happens.
 
@@ -125,13 +125,13 @@ Click "Create Zone." Be patient; it can take a while before something happens.
 
 Once the page responds in the previous step, you should see something like this.
 
-[![Hostname row marked as verification needed.](ecdn-verification-needed-4d10fff1bf.png)](ecdn-verification-needed-4d10fff1bf.png)
+{{< img-caption src="ecdn-verification-needed-4d10fff1bf.png" alt="Hostname row marked as verification needed." caption="A new hostname stays blocked here until Salesforce can verify that you own the domain." >}}
 
 If you see the above, you are well on your way! But there is a clear message: "Verification needed."
 
 Before continuing, we need to verify that we own the domain. Click the text "Verification needed," and you will see more information on the next steps.
 
-[![Verification details with the required TXT record value.](ecdn-verification-needed-step2-7bd0bfea95.png)](ecdn-verification-needed-step2-7bd0bfea95.png)
+{{< img-caption src="ecdn-verification-needed-step2-7bd0bfea95.png" alt="Verification details with the required TXT record value." caption="This panel gives the exact TXT record your DNS team must publish before setup can continue." >}}
 
 This builds on the pre-work steps where you need access to the domain's DNS. Before we can continue with the following steps, a TXT record with the provided value needs to be added to the DNS settings of your domain.
 
@@ -145,19 +145,19 @@ From personal experience, this usually takes a couple of minutes rather than hou
 
 Now that we are a "verified owner" of the domain within the eCDN, we can start configuring that domain.
 
-[![eCDN overview screen for a configured storefront domain.](ecdn-overview-fea46a41af.png)](ecdn-overview-fea46a41af.png)
+{{< img-caption src="ecdn-overview-fea46a41af.png" alt="eCDN overview screen for a configured storefront domain." caption="Once the domain is verified, this becomes the main screen for certificate and traffic settings." >}}
 
 To start, click the "settings" to the right of the top-level domain.
 
 ### Set up an SSL Certificate
 
-[![TLS and certificate controls for the embedded CDN.](ecdn-crypto-settings-b5ebdefdd6.png)](ecdn-crypto-settings-b5ebdefdd6.png)
+{{< img-caption src="ecdn-crypto-settings-b5ebdefdd6.png" alt="TLS and certificate controls for the embedded CDN." caption="TLS settings are where the storefront certificate is added and managed." >}}
 
 The first screen you will land on is the "crypto" settings. This is where you manage everything about SSL and TLS settings.
 
 To add a certificate, click the "Add Certificate" button!
 
-[![Certificate upload form for the embedded CDN.](ecdn-upload-certificate-2447fc3d76.png)](ecdn-upload-certificate-2447fc3d76.png)
+{{< img-caption src="ecdn-upload-certificate-2447fc3d76.png" alt="Certificate upload form for the embedded CDN." caption="Use this form to upload the certificate and private key for the storefront domain." >}}
 
 The screen itself is pretty self-explanatory. If you followed the "get prepared" section at the beginning of this article, these should already be in your possession.
 
@@ -181,7 +181,7 @@ Since this includes all subdomains, ensure that no system besides Commerce Cloud
 
 ### Firewall Settings
 
-[![Firewall settings for security level and trusted IPs.](ecdn-firewall-settings-ee94d7af54.png)](ecdn-firewall-settings-ee94d7af54.png)
+{{< img-caption src="ecdn-firewall-settings-ee94d7af54.png" alt="Firewall settings for security level and trusted IPs." caption="These firewall controls are where the baseline launch protection is tightened before traffic arrives." >}}
 
 You can manage the Security Level and Trusted IP Addresses in the firewall settings.
 
@@ -191,7 +191,7 @@ Using the IP Allowlisting feature, you can inform the firewall to ignore specifi
 
 ### WAF Settings
 
-[![Cloudflare Speed tab with Auto Minify for HTML, CSS, and JavaScript plus Polish enabled.](ecdn-waf-settings-3ec4c7f73e.png)](ecdn-waf-settings-3ec4c7f73e.png)
+{{< img-caption src="ecdn-waf-settings-3ec4c7f73e.png" alt="Cloudflare Speed tab with Auto Minify for HTML, CSS, and JavaScript plus Polish enabled." caption="Some of the Cloudflare-backed security and optimization options surface through these eCDN settings tabs." >}}
 
 The WAF ([Web Application Firewall](https://www.cloudflare.com/learning/ddos/glossary/web-application-firewall-waf/)) is a Cloudflare feature that is well documented.
 
@@ -213,7 +213,7 @@ If you have comments on an environment that have value for an external system, b
 
 **Note:** This also breaks the deprecated toolkit on Development as it relies on comments.
 
-[![eCDN Speed panel showing Auto Minify and Polish options for the storefront.](ecdn-speed-settings-cccba25f5e.png)](ecdn-speed-settings-cccba25f5e.png)
+{{< img-caption src="ecdn-speed-settings-cccba25f5e.png" alt="eCDN Speed panel showing Auto Minify and Polish options for the storefront." caption="Performance tuning starts here, with minification and image optimization for the storefront." >}}
 
 Not much to say about this section; here, you can control a few settings that improve speed, such as minification of Javascript, CSS, and HTML.
 
@@ -227,7 +227,7 @@ Since these features are Cloudflare behind the scenes, you can also look at [the
 
 ### Customize Settings
 
-[![Custom error page settings for the embedded CDN.](ecdn-customize-settings-87c4ccf54c.png)](ecdn-customize-settings-87c4ccf54c.png)
+{{< img-caption src="ecdn-customize-settings-87c4ccf54c.png" alt="Custom error page settings for the embedded CDN." caption="Custom error pages let the CDN fail more gracefully when traffic spikes or attacks hit." >}}
 
 A section you hope you will never need. When "\*\*\*\* hits the fan," Cloudflare provides standard error pages. In this section, you can choose to load your own rather than the default.
 

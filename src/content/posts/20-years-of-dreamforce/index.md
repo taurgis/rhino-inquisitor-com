@@ -27,9 +27,7 @@ But how does Salesforce B2C Commerce Cloud fare in this large event, and what co
 
 ## Let us meet up
 
-![Dreamforce attendee checking a phone in a lounge area.](dreamforce-cosy-c3b16ff3d4.jpg)
-
-Ok... don't be on your cellphone the entire time!
+{{< img-caption src="dreamforce-cosy-c3b16ff3d4.jpg" alt="Dreamforce attendee checking a phone in a lounge area." caption="Dreamforce works best when you put the phone away and meet people in person." >}}
 
 It won't be a Salesforce event if you don't meet with other people you have been "slacking" with for the past years.
 
@@ -61,7 +59,7 @@ The keynotes can be viewed through [Salesforce+](https://www.salesforce.com/plus
 
 ## Building your agenda​
 
-![Notebook and laptop laid out while planning a conference agenda.](writing-agenda-ba6ec896c4.jpg)
+{{< img-caption src="writing-agenda-ba6ec896c4.jpg" alt="Notebook and laptop laid out while planning a conference agenda." caption="A good Dreamforce schedule helps, but flexibility matters more once the event starts." >}}
 
 There are about 1200 sessions over three days at Dreamforce. Building a schedule will not be an easy task! And be sure your predefined schedule will be thrown in the trash when the day arrives.
 
@@ -116,7 +114,7 @@ Given the more prominent focus on allowing customers to go Headless on the Sales
 
 ### Architect’s Guide to Building a Cross-Cloud Career
 
-![Community speaker spotlight graphic used for featured sessions.](community-speaker-9f72758dd2.jpg)
+{{< img-caption src="community-speaker-9f72758dd2.jpg" alt="Community speaker spotlight graphic used for featured sessions." caption="A community-led session focused on building a stronger cross-cloud career path." >}}
 
 - [Mike King](https://www.linkedin.com/in/mikeeking/)
 - Theatre Session
@@ -141,7 +139,7 @@ Who knows, I might be wearing a new fitting shirt design.
 
 ### Architect’s Review of Cross-Cloud Customer Data Modeling
 
-![Community speaker spotlight graphic used for featured sessions.](community-speaker-9f72758dd2.jpg)
+{{< img-caption src="community-speaker-9f72758dd2.jpg" alt="Community speaker spotlight graphic used for featured sessions." caption="A community session on cross-cloud customer data modeling and architecture." >}}
 
 - [Mike King](https://www.linkedin.com/in/mikeeking/)
 - [Melissa Murphy](https://www.linkedin.com/in/melissa-murphy-312681b8/)
@@ -166,7 +164,7 @@ Headless, API-first, composable, etc., have many approaches. And hearing other p
 
 ### How to Boost Ecommerce Sales with Commerce for Social
 
-![Community speaker spotlight graphic used for featured sessions.](community-speaker-9f72758dd2.jpg)
+{{< img-caption src="community-speaker-9f72758dd2.jpg" alt="Community speaker spotlight graphic used for featured sessions." caption="A featured session on using social commerce to grow ecommerce performance." >}}
 
 - [Francesca Liu](https://www.linkedin.com/in/francesca-liu-b5757797/)
 - [Bhagath Ganga](https://www.linkedin.com/in/bhagathganga/)
@@ -209,7 +207,7 @@ Another session about the roadmap, but always good to have a peak to learn what 
 
 ### Commerce Cloud Developer Experience
 
-![Community speaker spotlight graphic used for featured sessions.](community-speaker-9f72758dd2.jpg)
+{{< img-caption src="community-speaker-9f72758dd2.jpg" alt="Community speaker spotlight graphic used for featured sessions." caption="A session worth catching if developer experience and tooling are your focus." >}}
 
 - [Andrew Lawrence](https://www.linkedin.com/in/andrew9990/)
 - Theatre Session
@@ -226,7 +224,7 @@ Like mentioned before, there are over a 1000 sessions, so choices will have to b
 
 ## Party Time
 
-![Red Hot Chili Peppers performing on stage at Dreamforce.](dreamforce-red-hot-chili-peppers-2e81650f2f.jpg)
+{{< img-caption src="dreamforce-red-hot-chili-peppers-2e81650f2f.jpg" alt="Red Hot Chili Peppers performing on stage at Dreamforce." caption="Dreamfest is part conference, part celebration, and the headline concert is part of the draw." >}}
 
 It wouldn't be a Salesforce event if there weren't a big party! Dreamforce is no different; a fantastic night of entertainment has been planned.
 

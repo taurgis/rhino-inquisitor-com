@@ -39,7 +39,7 @@ A little heads up already. You don't have many options if you are not a technica
 
 ### B2C Commerce Developer
 
-![The Certified B2C Commerce Developer badge.](b2c-commerce-developer-72d9df9035.png)
+{{< img-caption src="b2c-commerce-developer-72d9df9035.png" alt="The Certified B2C Commerce Developer badge." caption="The Developer exam still targets SFRA practitioners rather than legacy pipeline specialists." >}}
 
 > The Salesforce B2C Commerce Developer credential is designed for those who have experience as full-stack developers for Salesforce Commerce Cloud Digital.
 
@@ -53,7 +53,7 @@ If you still think you need some preparation, look at the [exam guide](https://t
 
 ### B2C Commerce Architect
 
-![Salesforce Certified B2C Commerce Architect badge.](b2c-commerce-architect-3d1b1f2f1e.png)
+{{< img-caption src="b2c-commerce-architect-3d1b1f2f1e.png" alt="Salesforce Certified B2C Commerce Architect badge." caption="The B2C Commerce Architect certification requires the Developer credential as a prerequisite and shifts focus from hands-on implementation to project-lifecycle and multi-site design pattern questions." >}}
 
 > The Salesforce B2C Commerce Architect has experience designing global sites that support multiple brands and channels using standard design patterns.
 
@@ -87,7 +87,7 @@ But not to worry, there is [a course](https://partnerlearningcamp.salesforce.com
 
 ### Commerce Cloud Einstein
 
-![Einstein Commerce Cloud Accredited Professional badge.](einstein-d7123b2738.png)
+{{< img-caption src="einstein-d7123b2738.png" alt="Einstein Commerce Cloud Accredited Professional badge." caption="This partner-only accreditation covers Einstein implementation from data feeds to debugging." >}}
 
 > The Einstein Commerce Cloud Accredited Professional exam is intended for individuals who have the knowledge, skills, and experience with data ingestion processes, security, and access implementations.
 

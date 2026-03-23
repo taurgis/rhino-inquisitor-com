@@ -36,7 +36,7 @@ In most Marketing platforms, you have the freedom to be highly flexible with the
 
 While you may not want to modify your transactional emails frequently, it's a lot easier to give them a nice 'holiday' or 'easter' styling for a few weeks in the year using dedicated marketing tools.
 
-![Illustration of seasonal variations in transactional email design.](a-mail-across-the-year-15b12cb7bc.jpg)
+{{< img-caption src="a-mail-across-the-year-15b12cb7bc.jpg" alt="Illustration of seasonal variations in transactional email design." caption="Illustration of seasonal variations in transactional email design." >}}
 
 #### Page Designer to the rescue
 

@@ -48,9 +48,11 @@ Want to know precisely how all of these things work? Have a look at the [officia
 
 ## Why You Should Be Best Friends with DIS
 
-![Developer and cloud mascot shaking hands to symbolize storefront code working with DIS transformations.](developer-and-dis-are-friends-scaled-e1752256621645-8ebda34ef5.jpeg)
-
-Best Friends with DIS: Seamless Image Optimization
+{{< img-caption 
+  src="developer-and-dis-are-friends-scaled-e1752256621645-8ebda34ef5.jpeg"
+  alt="Cartoon illustration of developer and cloud mascot shaking hands to symbolize seamless integration with DIS"
+  caption="Figure 1: Best Friends with DIS—Seamless Image Optimization"
+>}}
 
 For developers navigating the Salesforce B2C Commerce Cloud universe, DIS isn't just a nice-to-have; it's a game-changer that simplifies your life and turbocharges your storefront.
 
@@ -184,9 +186,11 @@ DIS is powerful, but don't forget the fundamentals of image optimisation:
 
 ## When Not to Use It (Or When to Be Extra Careful)
 
-[![A cartoon illustration depicting a massive traffic jam of oversized, unoptimized images attempting to enter a cloud icon, which appears overwhelmed and unable to process the volume. The images are backed up on a road leading to the cloud, symbolizing a system bottleneck or overload.](dis-traffic-jam-b798844f63.jpeg)](dis-traffic-jam-b798844f63.jpeg)
-
-Image Overload: When Your Service Gets Jammed
+{{< img-caption
+    src="dis-traffic-jam-b798844f63.jpeg"
+    alt="A cartoon illustration depicting a massive traffic jam of oversized, unoptimized images attempting to enter a cloud icon, which appears overwhelmed and unable to process the volume. The images are backed up on a road leading to the cloud, symbolizing a system bottleneck or overload."
+    caption="Image Overload: When Your Service Gets Jammed"
+>}}
 
 While DIS is a superhero, even superheroes have their kryptonite. There are a few scenarios where DIS might not be your go-to, or where you need to tread with extra caution:
 
@@ -202,9 +206,11 @@ While DIS is a superhero, even superheroes have their kryptonite. There are a fe
 
 **Note:** The WebP transformation is handled by the [eCDN](/lets-go-live-ecdn/), specifically through its configuration feature known as "the image Polish options," rather than by the DIS.
 
-[![Fork-in-the-road illustration comparing DIS with third-party CDN and DAM options.](sfcc-when-not-to-use-dis-8b8b9ec0b1.jpeg)](sfcc-when-not-to-use-dis-8b8b9ec0b1.jpeg)
-
-Deciding between Salesforce's native DIS and external CDN/DAM solutions often comes down to specific project needs and existing infrastructure.
+{{< img-caption
+    src="sfcc-when-not-to-use-dis-8b8b9ec0b1.jpeg"
+    alt="Fork-in-the-road illustration comparing DIS with third-party CDN and DAM options."
+    caption="Deciding between Salesforce's native DIS and external CDN/DAM solutions often comes down to specific project needs and existing infrastructure."
+>}}
 
 ## Is it still useful for PWA Kit projects? (Spoiler: YES, and here's why!)
 

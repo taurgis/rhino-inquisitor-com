@@ -265,17 +265,15 @@ Keeping the default setting false is recommended to avoid this negative impact a
 
 Once your script module and `steptypes.json` are ready, upload them as part of your custom cartridge. You can then create a job in Business Manager with your custom chunk-oriented step to start processing data in chunks.
 
-[![Chunk-oriented job step configuration screen in Business Manager.](configure-chunk-job-business-manager-ce41f2bdab.jpg)](configure-chunk-job-business-manager-ce41f2bdab.jpg)
+[{{< img-caption src="configure-chunk-job-business-manager-ce41f2bdab.jpg" alt="Chunk-oriented job step configuration screen in Business Manager." caption="After uploading your cartridge, configure the custom chunk-oriented step in Business Manager to start processing data in batches." >}}](configure-chunk-job-business-manager-ce41f2bdab.jpg)
 
 ### Advantages of "total-count"
 
 If you decide to implement the "`total-count-function`", you can conveniently keep track of your job's progress in the Business Manager. This feature is handy if you have a large dataset and need to estimate when the job will be completed or if you want to know how far along the job has progressed on the list.
 
-![Job status view showing processed items when total-count is enabled.](sfcc-job-status-total-count-chunks-299b79ade4.png)
+{{< img-caption src="sfcc-job-status-total-count-chunks-299b79ade4.png" alt="Job status view showing processed items when total-count is enabled." caption="Enabling total-count lets Business Manager show real-time job progress — essential for monitoring large dataset runs." >}}
 
-Without the "total-count-function," we only see the amount processed, not the total record count.
-
-![Job status view without total-count information for comparison.](sfcc-job-status-total-count-chunks-with-total-e82b2b178e.png)
+{{< img-caption src="sfcc-job-status-total-count-chunks-with-total-e82b2b178e.png" alt="Job status view without total-count information for comparison." caption="Without total-count, the job status gives no indication of how much work remains." >}}
 
 Using the "total-count-function," we can determine the amount of processed records as well as the total number of records.
 

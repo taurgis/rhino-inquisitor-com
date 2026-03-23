@@ -24,7 +24,7 @@ When working on personalization and segmentation within Salesforce B2C Commerce 
 
 ## How is Active Data gathered
 
-[![Slide introducing Active Merchandising data collection across commerce channels.](b2c-active-merchandising-slide-1-9a027d6449.gif)](b2c-active-merchandising-slide-1-9a027d6449.gif)
+![Slide introducing Active Merchandising data collection across commerce channels.](b2c-active-merchandising-slide-1-9a027d6449.gif)
 
 ### Storefront
 
@@ -69,17 +69,13 @@ There are two System Objects that we can extend:
 
 In this case, we want to extend the Customer Active Data, so we head to: _Administration > Site Development > System Object Types > Customer Active Data _ On the "_ Attribute Definitions_" tab, we click "New" to start creating our new attributes.
 
-[![Customer Active Data system object with the physicalVisits attribute.](system-object-active-data-physicalvisits-84071d27a1.jpg)](system-object-active-data-physicalvisits-84071d27a1.jpg)
+{{< img-caption src="system-object-active-data-physicalvisits-84071d27a1.jpg" alt="Customer Active Data system object with the physicalVisits attribute." caption="The first extension step is adding the new customer attribute to Active Data." >}}
 
-Create physicalVisits
-
-[![Customer Active Data system object with the physicalVisitsMonth attribute.](system-object-active-data-physicalvisitsmonth-e1e4a24148.jpg)](system-object-active-data-physicalvisitsmonth-e1e4a24148.jpg)
-
-Create physicalVisitsMonth
+{{< img-caption src="system-object-active-data-physicalvisitsmonth-e1e4a24148.jpg" alt="Customer Active Data system object with the physicalVisitsMonth attribute." caption="A second attribute lets the model capture visits over a monthly time window." >}}
 
 As with any attribute, if we want to be able to view them in the Business Manager screens, we should not forget to add them to a new or existing "Attribute Group". To do this, we go to: _Administration > Site Development > System Object Types > Customer Active Data - Attribute Groups_ Once here, let us create a new group called "Physical Store Traffic", and assign our two new attributes.
 
-[![Attribute group configuration for the Physical Store Traffic fields.](system-object-active-data-attributegroup-96d35b50eb.jpg)](system-object-active-data-attributegroup-96d35b50eb.jpg)
+{{< img-caption src="system-object-active-data-attributegroup-96d35b50eb.jpg" alt="Attribute group configuration for the Physical Store Traffic fields." caption="Grouping the new fields makes them usable in Business Manager screens and workflows." >}}
 
 Attribute Group Assignments
 
@@ -93,9 +89,7 @@ Now that our attribute model has been extended, we need to create a way of impor
 - **Description:** Free text to describe the purpose of the feed
 - **Fresh Period:** The value is the number of days after which the data becomes stale if it's not updated. 0 means the data is never considered stale.
 
-[![New Customer Active Data feed definition form.](new-customer-active-data-feed-ec272e512c.jpg)](new-customer-active-data-feed-ec272e512c.jpg)
-
-New Customer Active Data
+{{< img-caption src="new-customer-active-data-feed-ec272e512c.jpg" alt="New Customer Active Data feed definition form." caption="The feed definition is where the external visit data starts entering Active Data." >}}
 
 ### Step 3: Create the file to import
 
@@ -127,13 +121,13 @@ There are two ways to import this file:
 
 Once the import has been completed we can go and check on a profile if that import succeeded!
 
-[![Customer profile showing imported Active Data values in Business Manager.](customer-active-data-sfcc-c14383fa6a.jpg)](customer-active-data-sfcc-c14383fa6a.jpg)
+{{< img-caption src="customer-active-data-sfcc-c14383fa6a.jpg" alt="Customer profile showing imported Active Data values in Business Manager." caption="After the import runs, the customer profile confirms whether the new data arrived." >}}
 
 SFCC Customer Active Data
 
 And with this new addition, we can start creating new [Dynamic Customer Groups](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/active_merchandising/b2c_creating_a_dynamic_customer_group.html), for example!
 
-[![Dynamic customer group rule based on recent in-store visits.](dynamic-customer-group-a8cdefb897.jpg)](dynamic-customer-group-a8cdefb897.jpg)
+{{< img-caption src="dynamic-customer-group-a8cdefb897.jpg" alt="Dynamic customer group rule based on recent in-store visits." caption="Once imported, the new signal can drive customer groups and targeting rules." >}}
 
 Dynamic Customer Group: Visited today
 

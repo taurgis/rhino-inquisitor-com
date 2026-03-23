@@ -52,7 +52,11 @@ _**A word of warning**_: getting your hands on a sandbox is essential for learni
 
 ### The Business Manager: Your Command Center
 
-![A flat-style cartoon illustration of a high-tech command center featuring two operators monitoring multiple screens of analytics and storefront data, symbolizing the Salesforce B2C Commerce Cloud Business Manager interface for this kickstart guide.](business-manager-sfcc-command-center-79bc109bf3.jpg)
+{{< img-caption 
+  src="business-manager-sfcc-command-center-79bc109bf3.jpg"
+  alt="A flat-style cartoon illustration of a high-tech command center featuring two operators monitoring multiple screens of analytics and storefront data, symbolizing the Salesforce B2C Commerce Cloud Business Manager interface for this kickstart guide."
+  caption="Figure 1: A flat-style cartoon illustration of a high-tech command center featuring two operators monitoring multiple screens of analytics and storefront data, symbolizing the Salesforce B2C Commerce Cloud Business Manager interface for this kickstart guide"
+>}}
 
 If the instance structure is the map, the **Business Manager (BM)** is your command centre. It's a web-based tool that serves as the central nervous system for your entire storefront. It's not just a simple "admin panel"; it's a powerful interface where merchandising, administration, and development configurations converge.
 

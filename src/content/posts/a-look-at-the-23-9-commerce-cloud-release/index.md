@@ -26,7 +26,7 @@ This update is truly a game-changer for Commerce Cloud customers! With the intro
 
 ### Development
 
-![Custom endpoint file structure with mapping, script, and schema artifacts.](sfcc-custom-endpoints-138d76b101.png)
+{{< img-caption src="sfcc-custom-endpoints-138d76b101.png" alt="Custom endpoint file structure with mapping, script, and schema artifacts." caption="Custom SCAPI endpoints follow the same file-based convention as hooks—a mapping file, a script file, and a service schema—plus built-in versioning support for backwards compatibility." >}}
 
 The development of custom endpoints will look a lot similar to how we build hooks:
 
@@ -56,7 +56,7 @@ From a Headless perspective, Salesforce Commerce Cloud had much to catch up on c
 
 > You can now enable a new language analyzer for Japanese locales in B2C Commerce. The new analyzer supports advanced methods for search query tokenization. This enhancement provides more relevant search results for product searches in the Japanese language. It also reduces the merchandising effort to optimize storefront search for Japanese locales. For example, setting up additional synonyms and search dictionary entries. **How:** To enable the new analyzer, in Business Manager, select site | Merchant Tools | Search | Search Indexes | Language Options. Select Japanese-Improved as the language analyzer for Japanese locales. An index rebuild is NOT required after this update. To change the analyzer setting requires the permission to update a Business Manager Search Indexes module
 
-![Language Options menu showing the Japanese Improved analyzer.](sfcc-japanese-improved-search-fb4e7c018a.png)
+{{< img-caption src="sfcc-japanese-improved-search-fb4e7c018a.png" alt="Language Options menu showing the Japanese Improved analyzer." caption="The Japanese-Improved analyzer reduces tokenization problems without requiring an index rebuild." >}}
 
 A new and exciting addition for Japanese customers. It is important to find the right product to ensure good conversion rates and improve customer experience.
 
@@ -66,7 +66,7 @@ A new and exciting addition for Japanese customers. It is important to find the 
 
 > The Code Profiler Script API calls (shown as SCRIPT\_API) are no longer measured when using Production Mode. This change improves code profiler tracking without causing performance issues.
 
-![Code Profiler output from before the 23.9 Production Mode change.](sfcc-script-profile-productionmode-before-23-9-35fed622ef.png)
+{{< img-caption src="sfcc-script-profile-productionmode-before-23-9-35fed622ef.png" alt="Code Profiler output from before the 23.9 Production Mode change." caption="The 23.9 profiler fix removes Production Mode overhead from SCRIPT_API measurement." >}}
 
 Having "Production Mode" with less impact on performance will positively affect the TTFB (Time To First Byte), though it is not stated anywhere how much this will affect the storefront percentage-wise. You can still access this information in other modes within 23.9, which are more useful for performance debugging.
 

@@ -108,7 +108,11 @@ These rules have been documented [in the server-side web-tier caching guide](htt
 
 For most, this option will already be enabled or will not even be visible anymore in the business manager. But verify that Server-Side Web-Tier Caching has been enabled in your feature switches. (_Administration> Global Preferences > Feature Switches_)
 
-[![Business Manager feature toggle for enabling SCAPI server-side web-tier caching.](scapi-server-side-web-tier-caching-ead7ec1b79.jpg)](scapi-server-side-web-tier-caching-ead7ec1b79.jpg)
+{{< img-caption 
+  src="scapi-server-side-web-tier-caching-ead7ec1b79.jpg"
+  alt="Business Manager feature toggle for enabling SCAPI server-side web-tier caching."
+  caption="Figure 1: Business Manager feature toggle for enabling SCAPI server-side web-tier caching"
+>}}
 
 The feature toggle in the Business Manager
 

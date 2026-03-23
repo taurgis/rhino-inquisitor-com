@@ -25,9 +25,7 @@ Dreamforce never fails to impress - but truthfully, I believe 2023's edition wen
 
 ## Starting Dreamforce with a Flight Fiasco
 
-![A group of people enjoying a coffee at Brussels Airport, just before leaving to Dreamforce](09309824-40a7-4126-9473-fb00fb2fa185-1-105-c-56dbfbf8ca.jpeg)
-
-Blissfully unaware of the troubles ahead
+{{< img-caption src="09309824-40a7-4126-9473-fb00fb2fa185-1-105-c-56dbfbf8ca.jpeg" alt="A group of people enjoying a coffee at Brussels Airport, just before leaving to Dreamforce" caption="The trip started the same way many conference weeks do: coffee, travel, and catching up." >}}
 
 Our journey began Monday morning on a slightly chaotic note. We missed our initial flight due to our connecting one getting delayed - something that swiftly transformed all relaxed nerves into jittery ones. However, it proved to be a minor hiccup. Before we knew it, we were put on the next flight out and made our touchdown by 8 PM. Because of this, we missed a lot of welcome receptions, but it could have been worse.
 
@@ -35,23 +33,17 @@ The adventurous start did nothing to deter our enthusiasm – instead, it added 
 
 ## A Welcoming Tuesday
 
-![Three people smiling on a picture at a breakfast meeting in San Francisco including Thomas Theunen and Amalia Murray.](04cd6b21-12ba-4307-9ce5-3a60768e6ba0-1-105-c-c78a87bbb3.jpeg)
-
-All energised to start Dreamforce!
+{{< img-caption src="04cd6b21-12ba-4307-9ce5-3a60768e6ba0-1-105-c-c78a87bbb3.jpeg" alt="Three people smiling on a picture at a breakfast meeting in San Francisco including Thomas Theunen and Amalia Murray." caption="Tuesday began with an early #CommerceCrew breakfast before the Dreamforce rush fully started." >}}
 
 We kicked off day two (and the first day of Dreamforce) with gusto; the early bird catches the worm indeed! Tuesday commenced with breakfast with the #CommerceCrew (a big thank you being in order for Amalia!). The keynote right after gave an opportunity to reveal a new [Shirtforce](https://www.rhino-inquisitor.com/commerce-cloud-t-shirts-on-shirtforce/) t-shirt, specially designed for [Charlie](https://twitter.com/charlieisaacs) to celebrate his relentless efforts within Salesforce’s ever-evolving community ecosystem.
 
-![A group of people all wearing a "Charlie's Sailblazer" t-shirt at the Dreamforce 2023 keynote.](7a6c01d9-e903-4479-ad6e-fb8b41445d64-1-105-c-90a3bbafe3.jpeg)
-
-That is a lot of Sailblazers!
+{{< img-caption src="7a6c01d9-e903-4479-ad6e-fb8b41445d64-1-105-c-90a3bbafe3.jpeg" alt="A group of people all wearing a &quot;Charlie's Sailblazer&quot; t-shirt at the Dreamforce 2023 keynote." caption="The keynote also became the moment to unveil Charlie's special Shirtforce t-shirt." >}}
 
 No time for food comas here; post-lunch called for participation on my behalf in a session revolving around AI and its ethical impact. Explorer at heart, I reveled delving deep into generative AI - indeed quite an informative afternoon.
 
 ## Wednesday: Swags and Rock n Roll!
 
-![Thomas Theunen sitting in between studio lights with a camera pointed at him. Multiple screens show his face.](372a213b-a01b-47e2-9157-022c8d8baa65-1-105-c-89c973c920.jpeg)
-
-Lights, Camera, ACTION!
+{{< img-caption src="372a213b-a01b-47e2-9157-022c8d8baa65-1-105-c-89c973c920.jpeg" alt="Thomas Theunen sitting in between studio lights with a camera pointed at him. Multiple screens show his face." caption="Midweek included studio time, interviews, and the kind of event chaos that makes Dreamforce memorable." >}}
 
 The arrival of Wednesday brought with it a flurry of excitement and anticipation as I prepared for several interview opportunities. As the day progressed, I sat in front of numerous camera lenses. Despite the pressure, I felt invigorated as I answered intriguing questions about the fascinating world of AI, the effect of Salesforce events and community, and how they positively impact my businesses and day-to-day activities.
 
@@ -63,15 +55,11 @@ Just as we thought the day couldn’t get any better, Dreamfest kicked off with 
 
 We went on an epic quest to find the mystical entrance to the ground floor, but alas, it remained shrouded in mystery. After much fruitless searching and getting rejected at every turn, we realised that perhaps we were not the chosen (e.g. not a customer) ones destined to enter. Maybe we just needed better directions. Or did I just have to flaunt my [Golden Hoodie](https://www.rhino-inquisitor.com/events-and-the-golden-hoodie/)?
 
-![A picture of the concert of the Foo Fighters at Dreamfest 2023, taken high above the stage.](1832c203-32d4-4a5b-922a-218cf2ecf468-1-102-a-d53635718f.jpeg)
-
-In the clouds at Dreamfest 2023
+{{< img-caption src="1832c203-32d4-4a5b-922a-218cf2ecf468-1-102-a-d53635718f.jpeg" alt="A picture of the concert of the Foo Fighters at Dreamfest 2023, taken high above the stage." caption="Dreamfest capped the day with the Foo Fighters and the usual scramble for a good view." >}}
 
 ## Thursdays Meant for Mingling
 
-![The Unofficial SFCC slack admins below a tree at Dreamforce in dim blue lighting.](a8d30ee3-509b-4c90-8901-5689d3a08b38-1-102-o-949f4d4034.jpeg)
-
-The #CommerceCrew gathers!
+{{< img-caption src="a8d30ee3-509b-4c90-8901-5689d3a08b38-1-102-o-949f4d4034.jpeg" alt="The Unofficial SFCC slack admins below a tree at Dreamforce in dim blue lighting." caption="By Thursday, the best part was simply reconnecting with the people behind the community." >}}
 
 Thursday was comparatively calmer but every bit exciting in its unique way. It began with an [insightful meetup of CommerceCrew](https://youtu.be/qtqLrpH8Zm4) which followed the spirit of community building and offered people a rare chance to come together amidst the bustling event.
 

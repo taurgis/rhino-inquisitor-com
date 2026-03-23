@@ -1,6 +1,7 @@
 {{- $provider := .Get "provider" | default "youtube" -}}
 {{- $id := .Get "id" -}}
 {{- $title := .Get "title" | default (.Page.Title | plainify) -}}
+{{- $showWatchLink := .Get "showWatchLink" | default false -}}
 {{- .Page.Scratch.Set "hasLiteYoutube" true -}}
 {{- if not $id -}}
   {{- errorf "video-embed shortcode requires an id: %s" .Position -}}
@@ -19,7 +20,9 @@
       </button>
     </lite-youtube>
   </div>
-  <figcaption>
-    <a href="{{ $watchURL }}">Watch on YouTube</a>
-  </figcaption>
+  {{- if $showWatchLink -}}
+    <figcaption>
+      <a href="{{ $watchURL }}">Watch on YouTube</a>
+    </figcaption>
+  {{- end -}}
 </figure>

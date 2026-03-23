@@ -29,7 +29,7 @@ There is no time like the present, so let us look at three things you can do tod
 
 ## Verify account manager access
 
-![Someone on the stage of an opera house auditing the audience. This represents making account manager secure by doing regular audits.](someone-auditing-an-audience-bcf9568dda.jpg)
+{{< img-caption src="someone-auditing-an-audience-bcf9568dda.jpg" alt="Someone on the stage of an opera house auditing the audience. This represents making account manager secure by doing regular audits." >}}
 
 As mentioned, user management is under your (or someone within your team) supervision. A few automations exist, [such as auto disabling of accounts](https://help.salesforce.com/s/articleView?id=sf.account_manager_rn_auto_disable_inactive_users_release.htm&type=5), but that doesn't mean you shouldn't have a look!
 
@@ -54,7 +54,7 @@ It might be a good idea to go and check out the repository and review the most s
 
 ## Third-party access
 
-![People grabbing keys from a treasure chest](people-grabbing-keys-from-a-chest-728c293140.jpg)
+{{< img-caption src="people-grabbing-keys-from-a-chest-728c293140.jpg" alt="People grabbing keys from a treasure chest" >}}
 
 Next to user access to the business manager of the environments, there are also API Keys that allow administrative access to the system through REST endpoints and the [WebDAV](/a-beginners-guide-to-webdav-in-sfcc/).
 

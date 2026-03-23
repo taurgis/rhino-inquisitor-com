@@ -84,7 +84,7 @@ I have written [extensively on this topic](/the-deprecation-of-the-uuid-token-fo
 
 ### Specify Enhanced Domain Names In Account Manager
 
-![Salesforce Identity screen showing sign-in with external identity services.](salesforce-identity-b628afdc63.jpeg)
+{{< img-caption src="salesforce-identity-b628afdc63.jpeg" alt="Salesforce Identity screen showing sign-in with external identity services." >}}
 
 > You can now configure Identity Federation with Salesforce Identity in Account Manager using supported enhanced domain names. You can specify the organization MyDomain subdomain name in Salesforce Core. The default domain suffix is my.salesforce.com. If the identity federation is allowed or enforced, you can change the value. For example, if you use a Salesforce Core sandbox, you can use sandbox.my.salesforce.com as the domain suffix.
 

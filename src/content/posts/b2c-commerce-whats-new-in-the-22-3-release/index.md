@@ -27,7 +27,7 @@ Check out the original release notes [for March 2022](https://help.salesforce.co
 
 ## Lightning UX
 
-![SLDS showcase with example interface components.](slds-ba5571b0d8.png)
+{{< img-caption src="slds-ba5571b0d8.png" alt="SLDS showcase with example interface components." caption="The Lightning UX refresh makes Business Manager feel more consistent with the rest of Salesforce." >}}
 
 As the prophecies have foretold, it would only be a matter of time before [Lightning Man](https://uk.news.yahoo.com/salesforce-lesser-known-cofounder-got-235259945.html?guccounter=1&guce_referrer=aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS8&guce_referrer_sig=AQAAAEMzlHPYg71G3BXTV_zJ9VshBEckh_EEHlmqkdH1OxmCNHV9yKdhBatLjGJGpb1G3rjRqzyqZpwlaajHcyv1UhBB9Db0zi7jHduoV27cQlunovcuvalnh1sABTPyFDtMcKR1nMdtJO0kBa_TfOQJXAj1nt1N9sjXs5VJ-ar5A32I) made its way into the global interface of Salesforce B2C Commerce Cloud.
 
@@ -56,7 +56,7 @@ Between the 1st of march and the 14th of march, Page Shield will be enabled for 
 
 [Magecart](https://www.riskiq.com/what-is-magecart/) is a type of attack that compromises third-party JavaScript dependencies to gain control over the code served to the browser. Taking control of the code allows sensitive data to be stolen (like credit card info).
 
-![A diagram explaining the Magecart attack. It shows a hacker taking over a dependency of a third party script to skim credit card data.](magecart-style-attack-flow-diagram-3x-2d5a5ce4e8.png)
+{{< img-caption src="magecart-style-attack-flow-diagram-3x-2d5a5ce4e8.png" alt="A diagram explaining the Magecart attack. It shows a hacker taking over a dependency of a third party script to skim credit card data." caption="Page Shield watches JavaScript dependencies for suspicious changes through the eCDN layer." >}}
 
 ### What does Page Shield do
 
@@ -82,7 +82,7 @@ Until this update, you could set more than 50 bonus products in the business man
 
 This inconsistency caused quite a bit of confusion with content managers who configured a promotion, but it was not working the way they were expecting.
 
-![Documentation snippet showing the bonus product limit.](bonus-products-ed6b9e3074.png)
+{{< img-caption src="bonus-products-ed6b9e3074.png" alt="Documentation snippet showing the bonus product limit." caption="Business Manager now enforces the documented 50-item cap for bonus product choices." >}}
 
 ## Other updates
 

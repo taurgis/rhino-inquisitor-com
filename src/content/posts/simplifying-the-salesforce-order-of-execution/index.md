@@ -27,7 +27,11 @@ When it comes to understanding how Salesforce operates, there are many factors t
 
 For the impatient amongst us, here is the diagram showing the simplified representation of the "Order of Execution" based on [the original diagram posted on the Salesforce Architects blog](https://medium.com/salesforce-architects/salesforce-order-of-execution-visualized-76ac45721eba).
 
-[![Simplified Salesforce order-of-execution diagram.](order-of-execution-simplified-apex-api-v56-0-23130ad657.png)](order-of-execution-simplified-apex-api-v56-0-23130ad657.png)
+{{< img-caption 
+  src="order-of-execution-simplified-apex-api-v56-0-23130ad657.png"
+  alt="Simplified Salesforce order-of-execution diagram"
+  caption="Figure 1: Simplified Salesforce Order of Execution"
+>}}
 
 [View on Lucid](https://lucid.app/lucidchart/17edf202-1994-4772-8a0b-4d2835a9799e/edit?viewport_loc=3530%2C810%2C1844%2C838%2C0_0&invitationId=inv_f7af9e9a-9783-47ca-ab06-1142226cad87)
 
@@ -78,7 +82,11 @@ Another consideration to simplify the chain is to look at processes that only ru
 
 Now that we have taken out all the above from consideration, we end up with the following updated visual:
 
-[![Simplified Salesforce order-of-execution diagram.](order-of-execution-simplified-apex-api-v56-0-23130ad657.png)](order-of-execution-simplified-apex-api-v56-0-23130ad657.png)
+{{< img-caption 
+  src="order-of-execution-simplified-apex-api-v56-0-23130ad657.png"
+  alt="Simplified Salesforce order-of-execution diagram"
+  caption="Figure 2: Simplified Salesforce Order of Execution (updated visual)"
+>}}
 
 [View on Lucid](https://lucid.app/lucidchart/17edf202-1994-4772-8a0b-4d2835a9799e/edit?viewport_loc=3530%2C810%2C1844%2C838%2C0_0&invitationId=inv_f7af9e9a-9783-47ca-ab06-1142226cad87)
 

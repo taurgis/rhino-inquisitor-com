@@ -117,7 +117,11 @@ Although this legacy URL is no longer a reliable method for active discovery, un
 
 ## The Official Channels: Guaranteed but Less Immediate
 
-![A friendly rhino in a 2D flat cartoon style, similar to Salesforce illustrations, walks towards an official building with a cloud logo, representing going to official channels for trusted information.](going-to-salesforce-official-channels-b9f405d5e0.jpeg)
+{{< img-caption 
+  src="going-to-salesforce-official-channels-b9f405d5e0.jpeg"
+  alt="Friendly rhino in 2D flat cartoon style walks toward an official building with a cloud logo, representing trusted official channels"
+  caption="Figure 1: Use official Salesforce channels to find reliable POD information"
+>}}
 
 On the right path: Getting information from the official source.
 

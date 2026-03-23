@@ -30,9 +30,11 @@ Now, let’s delve into the process, its benefits, and some things to remember t
 
 ## Caching with LocalServiceRegistry
 
-[![Salesforce Commerce Cloud Web Service Framework](sfcc-service-framework-b996d130d4.jpg)](sfcc-service-framework-b996d130d4.jpg)
-
-Salesforce Commerce Cloud Web Service Framework
+{{< img-caption 
+  src="sfcc-service-framework-b996d130d4.jpg"
+  alt="Salesforce Commerce Cloud Web Service Framework overview image"
+  caption="Salesforce Commerce Cloud Web Service Framework"
+>}}
 
 The [Web Service Framework](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-webservices.html) is key to managing external service interactions. It enables developers (and other profiles) to manage third-party integrations with [ease](https://trailhead.salesforce.com/content/learn/modules/b2c-integration-approaches/b2c-learn-web-services-framework) from the comfort of the Business Manager. One of those built-in features is caching responses from third-party APIs, which reduces the need for repeated network requests and, in many cases, reduces costs related to those services (usage-based licenses).
 
@@ -62,9 +64,11 @@ var callTestGet = LocalServiceRegistry.createService("test.http.get", {
 
 [In this snippet](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-webservices.html#configure-underlying-clients), the \`**enableCaching**\` method is invoked, enabling caching for the HTTP requests serviced by this configuration. The argument (in this case, \`1000\`) represents a timeout setting, which dictates how long a cached response will be valid before the subsequent request is made.
 
-[![Official documentation snippet showing enableCaching on an HTTP service.](configuring-underlying-clients-95d307a0e7.png)](configuring-underlying-clients-95d307a0e7.png)
-
-A screenshot of the official documentation on how to add caching to a service.
+{{< img-caption 
+  src="configuring-underlying-clients-95d307a0e7.png"
+  alt="Official documentation snippet showing enableCaching on an HTTP service"
+  caption="A screenshot of the official documentation on how to add caching to a service."
+>}}
 
 ## Why Caching Matters
 
@@ -88,9 +92,11 @@ However, don't anticipate any "magic 🪄"—it's the accumulation of many small
 
 ## Clearing the cache
 
-[![Service Maintenance screen used to invalidate the HTTP client response cache.](clearing-httpclient-response-cache-c4b7ab1863.png)](clearing-httpclient-response-cache-c4b7ab1863.png)
-
-A screenshot of the "Service Maintenance" configuration page in the Business Manager.
+{{< img-caption 
+  src="clearing-httpclient-response-cache-c4b7ab1863.png"
+  alt="Service Maintenance screen used to invalidate HTTP client response cache"
+  caption="A screenshot of the &quot;Service Maintenance&quot; configuration page in the Business Manager."
+>}}
 
 You can clear the HTTPClient Response cache in the Business Manager by going to `Administration > Operations > Service Maintenance`. Here, you'll find options related to this cache.
 
@@ -139,8 +145,10 @@ In conclusion, adding a caching mechanism to the LocalServiceRegistry for third-
 
 Here's an example of a successful (anonymised) result from using this cache and rate limiting bot traffic:
 
-[![Graph showing lower third-party API traffic after bot filtering and caching.](third-party-service-caching-results-e1731261763486-2847fa50c4.jpg)](third-party-service-caching-results-e1731261763486-2847fa50c4.jpg)
-
-The number of requests handled by the API decreased considerably, leading to a lower monthly bill.
+{{< img-caption 
+  src="third-party-service-caching-results-e1731261763486-2847fa50c4.jpg"
+  alt="Graph showing lower third-party API traffic after bot filtering and caching"
+  caption="The number of requests handled by the API decreased considerably, leading to a lower monthly bill."
+>}}
 
 These improvements not only increased overall performance but also reduced costs on the third-party service, as each API call incurred a charge.

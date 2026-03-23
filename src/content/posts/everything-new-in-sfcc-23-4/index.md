@@ -49,7 +49,11 @@ Here is a list of all of the new APIs made available:
 
 ### Grouped Taxation Applied to Import and Export Orders
 
-![SFCC 23.4 Release: Taxation Groups](sfcc-taxation-groups-5ebd5c5015.png)
+{{< img-caption 
+  src="sfcc-taxation-groups-5ebd5c5015.png"
+  alt="SFCC 23.4 Release: Taxation Groups"
+  caption="Figure 1: SFCC 23.4 Release: Taxation Groups"
+>}}
 
 > B2C Commerce now recognizes imported and exported orders created with group taxation and uses the group taxation method to calculate tax for those orders.
 

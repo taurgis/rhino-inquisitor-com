@@ -33,7 +33,7 @@ On By Default This new feature is automatically enabled with the 24.2 release an
 
 Please turn it off until you have completed all necessary testing. Affects Hybrid Deployments An extra warning for those using hybrid deployments: it is important to test adequately as this change may disrupt standard customer flows.
 
-[![A screenshot showing the Feature switch called 'Partioned Cookies' with the default value of 'true'.](partioned-cookies-in-sfcc-cb426ac0c4.png)](partioned-cookies-in-sfcc-cb426ac0c4.png)
+[{{< img-caption src="partioned-cookies-in-sfcc-cb426ac0c4.png" alt="A screenshot showing the Feature switch called 'Partioned Cookies' with the default value of 'true'." caption="Partitioned Cookies quietly shipped as a feature flag before most teams noticed the change." >}}](partioned-cookies-in-sfcc-cb426ac0c4.png)
 
 Concerning browser vendors' ongoing deprecation of third-party cookies, a new feature in Salesforce B2C Commerce Cloud affects how cookies are handled: "[Partitioned Cookies](https://developer.mozilla.org/en-US/docs/Web/Privacy/Partitioned_cookies)"
 
@@ -86,13 +86,9 @@ Previously, we were unable to differentiate at the millisecond level, but that i
 
 > You can now modify the date settings format in Business Manager so that the script API method dw.util.Calendar.getFirstDayOfWeek() returns the first day of the week in the date format used by your site locale. Previously, you couldn’t modify the date format to match the local or regional context.
 
-![A screenshot of the date settings in a locale before the 24.2 release.](locale-date-settings-before-24-2-1107342948.png)
+{{< img-caption src="locale-date-settings-before-24-2-1107342948.png" alt="A screenshot of the date settings in a locale before the 24.2 release." caption="Before 24.2, locale settings had no way to control the first day of the week." >}}
 
-Before
-
-![A screenshot of the date settings in a locale after the 24.2 release, showing the new start day of the week option.](locale-date-settings-after-24-2-ed26c6c56a.png)
-
-After
+{{< img-caption src="locale-date-settings-after-24-2-ed26c6c56a.png" alt="A screenshot of the date settings in a locale after the 24.2 release, showing the new start day of the week option." caption="After 24.2, locale settings finally let teams set the week start explicitly." >}}
 
 ## Development
 
@@ -159,9 +155,7 @@ A long-awaited update to SFRA is finally here with the long-promised update to n
 > [!NOTE]
 > **Effort:** Do not underestimate upgrading your projects, as this update also means that libraries have been upgraded!
 
-[![package.json changes in SFRA 7.0.0](package-json-changes-7-0-0-cecd2c2e2d.png)](package-json-changes-7-0-0-cecd2c2e2d.png)
-
-Many libraries have been updated!
+[{{< img-caption src="package-json-changes-7-0-0-cecd2c2e2d.png" alt="package.json changes in SFRA 7.0.0" caption="The 7.0.0 package changes show how much supporting tooling moved under the hood." >}}](package-json-changes-7-0-0-cecd2c2e2d.png)
 
 ## PWA Kit v3.4.0
 

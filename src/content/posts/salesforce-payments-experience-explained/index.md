@@ -24,9 +24,7 @@ As a [Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/) connoisse
 
 ## A plugin
 
-![Salesforce Payments interface inside Business Manager.](salesforce-payments-business-manager-6773ef14af.webp)
-
-Salesforce Payments in the Business Manager
+{{< img-caption src="salesforce-payments-business-manager-6773ef14af.webp" alt="Salesforce Payments interface inside Business Manager." caption="Salesforce Payments interface inside Business Manager." >}}
 
 Salesforce Payments is an optional "plugin" consisting of a native Business Manager interface and cartridge that provides native integration with the payment provider "[Stripe](https://stripe.com/)". Since this payment provider may not apply to all projects, you are not forced to enable and use it. But if you are still in the process of selecting a Payment Service Provider, this is a strong contender to consider. But hold off on deciding until you have read this article.
 
@@ -72,7 +70,7 @@ Do you have multiple Salesforce products in your architecture, such as Order Man
 
 ## How to get started
 
-![Salesforce Payments promotional artwork introducing the getting-started resources.](salesforce-payments-7926558e4f.jpg)
+{{< img-caption src="salesforce-payments-7926558e4f.jpg" alt="Salesforce Payments promotional artwork introducing the getting-started resources." caption="Salesforce Payments promotional artwork introducing the getting-started resources." >}}
 
 For those familiar with my articles, I am not one to start reinventing (and writing) the wheel. And in this case, a rare one for B2C Commerce Cloud, Trailheads are available!
 

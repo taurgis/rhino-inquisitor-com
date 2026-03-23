@@ -71,7 +71,11 @@ Remember to restore the original language after the data has been fetched in the
 
 ## Use cases
 
-![A map of the world representing all locale in the world.](people-around-the-world-551b94bfa5.png)
+{{< img-caption 
+  src="people-around-the-world-551b94bfa5.png"
+  alt="A map of the world representing all locale in the world."
+  caption="Figure 1: A map of the world representing all locale in the world"
+>}}
 
 Some might ask, why would you need to do such a thing? Well, there are a few reasons which will cause you to resort to fiddling with the request:
 

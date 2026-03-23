@@ -28,7 +28,7 @@ But in 2021, 2022, and 2023, some options became available for those who do not 
 
 ## User Experience (UX) Designer
 
-![Usability and UX Certifications](usability-vs-ux-9753e7801d.png)
+{{< img-caption src="usability-vs-ux-9753e7801d.png" alt="Usability and UX Certifications" caption="UX certifications are the most natural bridge into commerce work for design-focused roles." >}}
 
 -   [Trailhead - Certification](https://trailhead.salesforce.com/en/credentials/userexperiencedesigner)
 
@@ -40,7 +40,7 @@ To get this certification, having only SFCC knowledge, you must come out of your
 
 ## Strategy Designer
 
-![A digital drawing of a group of people standing in front of a window, looking at the skyscrapers of a modern city illuminated in the night.](business-men-and-women-looking-at-a-skyline-76f36bbb13.jpg)
+{{< img-caption src="business-men-and-women-looking-at-a-skyline-76f36bbb13.jpg" alt="A digital drawing of a group of people standing in front of a window, looking at the skyscrapers of a modern city illuminated in the night." caption="Strategy Designer suits people who frame problems before anyone touches implementation." >}}
 
 -   [Trailhead - Certification](https://trailhead.salesforce.com/en/credentials/strategydesigner)
 
@@ -58,7 +58,7 @@ The preparation for this certification will take you across different products o
 
 ## Business Analyst
 
-![Illustration of a business analyst collaborating with stakeholders around a desk.](business-analyst-scaled-e1656834912690-1350424ea9.jpg)
+{{< img-caption src="business-analyst-scaled-e1656834912690-1350424ea9.jpg" alt="Illustration of a business analyst collaborating with stakeholders around a desk." caption="Business Analyst is the clearest path for people who translate needs into delivery." >}}
 
 -   [Trailhead - Certification](https://trailhead.salesforce.com/en/credentials/businessanalyst)
 
@@ -82,7 +82,7 @@ Salesforce Admin is no longer required As of May 2, 2023, the Salesforce Adminis
 
 ## Sales Representative
 
-![A group of men and women sitting around a table e, drawn in the style of the 50's](a-sales-meeting-0eb7bfc029.jpg)
+{{< img-caption src="a-sales-meeting-0eb7bfc029.jpg" alt="A group of men and women sitting around a table e, drawn in the style of the 50's" caption="Sales-focused accreditations matter most when your role is shaping the commercial conversation." >}}
 
 -   [Trailhead - Certification](https://trailhead.salesforce.com/en/credentials/salesrepresentative)
 
@@ -96,7 +96,7 @@ Trailmix Once the trailmix becomes available, I will update this section of the 
 
 -   [Partner Learning Camp - Accreditation](https://partnerlearningcamp.salesforce.com/s/credentials-catalog?plc__recordId=d%2Fx2y6m%2FknTcjnfe7C0GiHmOkms8uLPL82Zrct7hYQcVHqfIycgjEyVfwejd21xa)
 
-![A drawing of Einstein standing in a store, wearing a green vest with a red tie and shoes. The store walls are painted red and green, with the shopping racks filled with clothes and perfume.](einstein-shopping-c2fd371422.jpeg)
+{{< img-caption src="einstein-shopping-c2fd371422.jpeg" alt="A drawing of Einstein standing in a store, wearing a green vest with a red tie and shoes. The store walls are painted red and green, with the shopping racks filled with clothes and perfume." caption="Einstein accreditation fits people who need to position commerce AI to business stakeholders." >}}
 
 We ran out of Trailhead Certifications, so now we are turning to the [Partner Learning Camp](https://partnerlearningcamp.salesforce.com/s/learner-dashboard) (PLC). Here you will find certifications targeted toward Partners and Employees of Salesforce, so if you are neither, this Accreditation is not an option for you.
 
@@ -110,7 +110,7 @@ The official description is as follows:
 
 ## Indirect Sales Accredited Professional
 
-[![Sales-themed illustration for the Indirect Sales Accredited Professional section.](sales-25d69d411e.jpg)](sales-25d69d411e.jpg)
+{{< img-caption src="sales-25d69d411e.jpg" alt="Sales-themed illustration for the Indirect Sales Accredited Professional section." caption="Indirect Sales accreditation is aimed at the partner and channel side of the business." >}}
 
 -   [Partner Learning Camp - Accreditation](https://partnerlearningcamp.salesforce.com/s/credentials-catalog?plc__recordId=huaR3i8ewEj9BrjQeVKHB51JTVgrOzyjjUy8ORjUXXoU52nqrMytajtg4M1c44Ux)
 

@@ -58,7 +58,6 @@ There are still more commands available, but I will not review them all.
 ## b2c-tools
 
 ![B2C Tools CLI graphic illustrating migration support between environments.](b2c-tools-ff2c3df29f.svg)
-
 - [GitHub Repository Link](https://github.com/SalesforceCommerceCloud/b2c-tools)
 
 A relatively new repository (January 2022) made its way into GitHub. It is a CLI & Library project meant to be complementary to SFCC-CI.

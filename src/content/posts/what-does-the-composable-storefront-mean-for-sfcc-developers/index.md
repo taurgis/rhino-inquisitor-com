@@ -25,7 +25,7 @@ Over the past year, I have seen increasing gossip (which I am partly to blame fo
 
 ## Technology changes
 
-[![Graphic illustrating the long-term acceleration of computing progress.](e094f768-3336-403f-8c75-9013cb07df2f-b7c7a5e8f2.png)](e094f768-3336-403f-8c75-9013cb07df2f-b7c7a5e8f2.png)
+{{< img-caption src="e094f768-3336-403f-8c75-9013cb07df2f-b7c7a5e8f2.png" alt="Graphic illustrating the long-term acceleration of computing progress." >}}
 
 Let us get one thing out of the way first. This article is my opinion and my opinion alone.
 
@@ -41,9 +41,7 @@ That felt like an inspirational speech, didn't it?
 
 ## Advantages of a monolith
 
-![Illustration representing the strengths of a monolithic commerce architecture.](salesforce-commerce-cloud-monolith-e3f50eb05b.jpg)
-
-I'll make sure to make one thing clear. Monolithic architecture has its advantages!
+{{< img-caption src="salesforce-commerce-cloud-monolith-e3f50eb05b.jpg" alt="Illustration representing the strengths of a monolithic commerce architecture." >}}
 
 First and foremost, it's easier to develop, test and deploy. All the codebase is in one place, meaning there's less need for inter-service communication and less complexity. This makes it easier for developers (and businesses) to understand the flow of the application and more straightforward to debug and fix issues.
 
@@ -77,7 +75,7 @@ This competition serves as a reminder that complacency is not an option and driv
 
 ## Willingness to learn and evolve
 
-[![A women holding a laptop displaying the text “never stop learning”.](never-stop-learning-g3bc2c211b-1920-3142164f98.jpg)](never-stop-learning-g3bc2c211b-1920-3142164f98.jpg)
+{{< img-caption src="never-stop-learning-g3bc2c211b-1920-3142164f98.jpg" alt="A women holding a laptop displaying the text “never stop learning”." >}}
 
 As developers and architects working in eCommerce, we must stay ahead of the constantly evolving technology landscape. This is especially true when working in a SaaS environment, where platforms continually update and change to meet the market's demands (and these updates are out of our control).
 

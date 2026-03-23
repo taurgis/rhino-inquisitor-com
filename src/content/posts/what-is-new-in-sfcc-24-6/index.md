@@ -67,7 +67,7 @@ PWA Kit By default, the PWA Kit does not use this feature - meaning that this up
 
 ### Create Active Data Sorting Rules
 
-![Search Index Query Testing tool showing active-data sorting support.](search-query-testing-tool-sfcc-8fb16cf218.jpg)
+{{< img-caption src="search-query-testing-tool-sfcc-8fb16cf218.jpg" alt="Search Index Query Testing tool showing active-data sorting support." >}}
 
 > The Search Index Query Testing (SIQT) tool now supports sorting rules with active data sorting attributes. Get consistent sorting results in a storefront and when testing an active data sorting rule. Previously, if a sorting rule with active data was used in SIQT, the sorting used text relevance and didn’t consider active data.
 > **How:**To access the SIQT tool, in Business Manager, select** Merchant Tools | Search | Search Index Query Testing**.

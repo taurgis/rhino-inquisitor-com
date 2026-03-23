@@ -113,6 +113,10 @@ Right now, there is no SCAPI endpoint available to fetch site preferences. Only 
 
 ## Conclusion
 
-![A decision diagram of when to use which type of storage, visualising the article.](global-preferenves-vs-site-specific-3a997fcbab.png)
+{{< img-caption 
+  src="global-preferenves-vs-site-specific-3a997fcbab.png"
+  alt="A decision diagram of when to use which type of storage, visualising the article."
+  caption="Figure 1: A decision diagram of when to use which type of storage, visualising the article"
+>}}
 
 Using the appropriate type of preference can help ensure that settings are applied correctly and efficiently. Each option has pros and cons, and make sure to weigh in roles and users in making these decisions!

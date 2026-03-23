@@ -38,7 +38,7 @@ For AI to work, it needs to be fed large amounts of information. And luckily for
 
 We (hopefully) all know that the internet contains a lot of incorrect information. And that information has most likely also been fed to these AI. If you start asking questions to ChatGPT, heed the warnings it gives you!
 
-[![ChatGPT home page warning that answers may be inaccurate or harmful.](chatgpt-warnings-5212d4f2bc.jpeg)](chatgpt-warnings-5212d4f2bc.jpeg)
+{{< img-caption src="chatgpt-warnings-5212d4f2bc.jpeg" alt="ChatGPT home page warning that answers may be inaccurate or harmful." >}}
 
 Fact Check and Quality Check With each generated piece of text, do some validation and verify it to be correct and not harmful.
 
@@ -48,7 +48,7 @@ Fact Check and Quality Check With each generated piece of text, do some validati
 
 Going to keep this one short: "If something is free, you are the product." Think about that one when entering information into these services.
 
-[![ChatGPT FAQ entry that explains how conversation data may be used.](chatgpt-faq-2022-40f4e275e1.jpeg)](chatgpt-faq-2022-40f4e275e1.jpeg)
+{{< img-caption src="chatgpt-faq-2022-40f4e275e1.jpeg" alt="ChatGPT FAQ entry that explains how conversation data may be used." >}}
 
 ## What can we use it for
 
@@ -66,19 +66,19 @@ One of the great things about ChatGPT is that it writes very detailed explanatio
 
 I am getting into dangerous territory now, aren't I? Yes, [many articles have already been written about ChatGPT's ability to write code](https://www.apexhours.com/chatgpt-to-salesforce-developers/). But as these articles point out, this new "option" is dangerous for Junior developers (and also senior devs). There have been many occasions of ChatGPT providing good answers. But it has also pushed out insecure, bad performing, and bad practice code. I also tried to get it to generate Salesforce B2C Commerce Cloud code, but since most of the code is not public, it tends to create Salesforce B2B examples or give generic answers. We use "Controllers" as the name for our server-side code, which is probably not helping our case with this AI.
 
-[![ChatGPT attempt to prepend an SFRA controller.](sfra-prepend-controller-chatgpt-67cd953d79.jpeg)](sfra-prepend-controller-chatgpt-67cd953d79.jpeg)
+{{< img-caption src="sfra-prepend-controller-chatgpt-67cd953d79.jpeg" alt="ChatGPT attempt to prepend an SFRA controller." >}}
 
 Ok... let's try that again?
 
-[![Second ChatGPT attempt to prepend SFRA review logic.](sfra-prepend-reviews-chatgpt-attempt2-d8dd9d7540.jpeg)](sfra-prepend-reviews-chatgpt-attempt2-d8dd9d7540.jpeg)
+{{< img-caption src="sfra-prepend-reviews-chatgpt-attempt2-d8dd9d7540.jpeg" alt="Second ChatGPT attempt to prepend SFRA review logic." >}}
 
 Ok, that is not nearly close to what I meant. Let's see how many attempts I need for a Salesforce Apex trigger.
 
-[![ChatGPT Apex trigger attempt for downloading product reviews.](salesforce-apex-trigger-chatgpt-download-reviews-02315d688b.jpeg)](salesforce-apex-trigger-chatgpt-download-reviews-02315d688b.jpeg)
+{{< img-caption src="salesforce-apex-trigger-chatgpt-download-reviews-02315d688b.jpeg" alt="ChatGPT Apex trigger attempt for downloading product reviews." >}}
 
 That is more like it! There is much more public code available for the Salesforce platform than for B2C Commerce Cloud (Demandware). And that also explains why I need fewer attempts to get what I want. But some things could be improved in the code it generated - Notice the insert of the single review inside a loop? So again, _**USE WITH CARE**_! But you can ask the AI to correct itself:
 
-[![Revised Apex trigger attempt after asking ChatGPT to improve the code.](salesforce-apex-trigger-fixed-chatgpt-4f14ff15f9.jpeg)](salesforce-apex-trigger-fixed-chatgpt-4f14ff15f9.jpeg)
+{{< img-caption src="salesforce-apex-trigger-fixed-chatgpt-4f14ff15f9.jpeg" alt="Revised Apex trigger attempt after asking ChatGPT to improve the code." >}}
 
 Maybe formulating the questions in a specific manner will generate higher-quality responses. Perhaps something like this:
 

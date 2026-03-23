@@ -769,7 +769,7 @@ VST
 
 ## Pitfalls
 
-![A shadow in front of a gigantic clock, wondering about the intricacies of dates and times.](a-shadow-in-front-of-a-clock-e925bae223.jpg)
+{{< img-caption src="a-shadow-in-front-of-a-clock-e925bae223.jpg" alt="A shadow in front of a gigantic clock, wondering about the intricacies of dates and times." caption="Date and time handling in SFCC has subtle pitfalls that trip up even experienced developers." >}}
 
 As we all know, with development, we run into some unexpected results and requirements that require thorough investigation and thought.
 
@@ -787,13 +787,9 @@ I put a warning up earlier, didn't I, with the Calendar - Date conversion? Well,
 
 The first thing I would recommend to anyone is to read the documentation carefully because it contains a very clear warning!
 
-![Documentation warning about Calendar constructor dates being interpreted in GMT.](calendar-constructor-warning-83ef0dcd2b.png)
+{{< img-caption src="calendar-constructor-warning-83ef0dcd2b.png" alt="Documentation warning about Calendar constructor dates being interpreted in GMT." caption="The official docs warn explicitly: Calendar constructor dates are interpreted as GMT, not your configured timezone." >}}
 
-A warning when creating a Calendar from a Date
-
-![Documentation warning that Calendar.toDate loses the configured time zone and returns GMT.](calendar-to-date-warning-a652a2a931.png)
-
-A warning when converting from a Calendar to Date
+{{< img-caption src="calendar-to-date-warning-a652a2a931.png" alt="Documentation warning that Calendar.toDate loses the configured time zone and returns GMT." caption="Calendar.toDate() silently discards your timezone setting and returns a GMT Date — a common source of timezone bugs." >}}
 
 ### Caching
 

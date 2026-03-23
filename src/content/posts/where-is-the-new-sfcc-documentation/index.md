@@ -39,7 +39,7 @@ In case you didn't catch the official announcement, I've got you covered! Check 
 
 ## The new locations
 
-![Books with documentation scattered on multiple piles, falling over.](documents-on-multiple-locations-5bb9c96f2b.jpg)
+{{< img-caption src="documents-on-multiple-locations-5bb9c96f2b.jpg" alt="Books with documentation scattered on multiple piles, falling over." >}}
 
 The word "locations" in the title of this section may be a concern for many people. Everything once found in a single place is now distributed among several. And the fact that this makes some veterans of SFCC nervous should come as no surprise.
 
@@ -100,13 +100,11 @@ Understandably, it is a huge effort to move this over - and monthly releases nee
 
 Are you completely lost in the new system? Maybe this [unofficial solution](https://github.com/clavery/docset-sfcc-b2c) for [Dash](https://kapeli.com/dash), built by [Charles Lavery](https://github.com/clavery) will help you!
 
-![Dash app indexing the B2C Commerce API documentation for offline lookup.](charles-lavery-dash-2de6a904d6.jpg)
+{{< img-caption src="charles-lavery-dash-2de6a904d6.jpg" alt="Dash app indexing the B2C Commerce API documentation for offline lookup." >}}
 
 ## My opinion
 
-![Artwork of a person choosing between two flows.](go-with-the-flow-e1aeefde3e.jpg)
-
-I just go with the flow...but suggest improvements
+{{< img-caption src="go-with-the-flow-e1aeefde3e.jpg" alt="Artwork of a person choosing between two flows." caption="I just go with the flow...but suggest improvements" >}}
 
 As it stands for me, this change was to be expected. All new documentation was already moved over to these respective platforms (GitHub taken out of the equation), and the Infocenter was the "odd one out".
 

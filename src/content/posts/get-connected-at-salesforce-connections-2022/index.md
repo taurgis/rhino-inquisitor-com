@@ -36,7 +36,7 @@ There is already a channel on the Salesforce B2C Commerce Cloud Unofficial Slack
 
 And I will be there this year! I wasn't planning on it at first, but I got an offer I could not refuse! I will be taking part in the Main Keynote of the event.
 
-[![Invitation graphic for speaking in the Connections 2022 keynote.](offer-8124183637.jpg)](offer-8124183637.jpg)
+[{{< img-caption src="offer-8124183637.jpg" alt="Invitation graphic for speaking in the Connections 2022 keynote." caption="Invitation graphic for speaking in the Connections 2022 keynote." >}}](offer-8124183637.jpg)
 
 ## Can't attend
 
@@ -289,7 +289,7 @@ The ending Main Keynote to finish off 2 days of learning and meeting people!
 
 ## Party Time
 
-![Connections party announcement featuring OneRepublic.](cnx-hp-band-one-republic-23e3012477.png)
+{{< img-caption src="cnx-hp-band-one-republic-23e3012477.png" alt="Connections party announcement featuring OneRepublic." caption="Connections party announcement featuring OneRepublic." >}}
 
 It wouldn't be a Salesforce event if there weren't a big party at the end of day one! Connections is no different; a fantastic night of entertainment has been planned out.
 

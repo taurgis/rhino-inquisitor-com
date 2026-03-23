@@ -38,9 +38,11 @@ You control all of this from the Business Manager: Merchant Tools > SEO > Sitema
 
 ### Your Control Panel: The Settings Tab
 
-[![Sitemap settings panel in Business Manager.](sitemap-business-manager-sfcc-1e208116dd.jpg)](sitemap-business-manager-sfcc-1e208116dd.jpg)
-
-The Sitemap Settings in the Business Manager
+{{< img-caption 
+  src="sitemap-business-manager-sfcc-1e208116dd.jpg"
+  alt="Sitemap settings panel in Salesforce B2C Commerce Business Manager"
+  caption="The Sitemap Settings in the Business Manager"
+>}}
 
 The Settings tab is your main control panel. Here’s what you, as a developer, need to care about 4:
 
@@ -51,9 +53,11 @@ The Settings tab is your main control panel. Here’s what you, as a developer, 
 
 ### The Golden Rule of Scheduling
 
-[![Job tab for scheduling sitemap generation in Business Manager.](sitemap-business-manager-job-13ba1762a2.jpg)](sitemap-business-manager-job-13ba1762a2.jpg)
-
-The Job tab
+{{< img-caption 
+  src="sitemap-business-manager-job-13ba1762a2.jpg"
+  alt="Job tab for scheduling sitemap generation in Business Manager"
+  caption="The Job tab"
+>}}
 
 You can run the sitemap generation manually or, more practically, schedule it as a recurring job from the Job tab. Here is the single most important operational detail:
 
@@ -63,9 +67,11 @@ If you run it before, all the new products and content from that day's replicati
 
 ## Going Custom: When the Built-in Isn't Enough
 
-[![The Custom tab in the Sitemap settings in the Business Manager](sitemap-business-manager-custom-sitemaps-sfcc-2fdf912121.png)](sitemap-business-manager-custom-sitemaps-sfcc-2fdf912121.png)
-
-The "Custom Sitemaps" tab
+{{< img-caption 
+  src="sitemap-business-manager-custom-sitemaps-sfcc-2fdf912121.png"
+  alt="Custom tab in Sitemap settings within Business Manager"
+  caption="Custom Sitemaps lets teams add external or supplemental sitemap sources."
+>}}
 
 What happens when you have content that doesn't live in SFCC? Maybe you have a WordPress blog, an external reviews provider, or a separate forum. You need to get those URLs into your site's sitemap index. SFCC gives you two powerful paths to do this.
 

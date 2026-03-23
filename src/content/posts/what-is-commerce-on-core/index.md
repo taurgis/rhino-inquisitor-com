@@ -28,17 +28,13 @@ During Dreamforce, the first mention of this happening reared its face this year
 
 A big announcement for Marketing Cloud is "hidden" in this slide too 😉.
 
-[![Dreamforce keynote slide hinting at Commerce on Core.](commerce-on-core-fda7921efd.jpg)](commerce-on-core-fda7921efd.jpg)
-
-The Dreamforce '22 Main Keynote
+{{< img-caption src="commerce-on-core-fda7921efd.jpg" alt="Dreamforce keynote slide hinting at Commerce on Core." caption="The Dreamforce '22 Main Keynote" >}}
 
 There was another slide and a short presentation they gave during the Keynote, but it seems it never made it to [Salesforce Plus](https://www.salesforce.com/plus/experience/Dreamforce_2022/series/Best_of_Dreamforce/episode/episode-s1e4). Unfortunately, I was not able to snap a pic of that one.
 
 However, I found another slide in one of the more recent presentations for onboarding new partners.
 
-[![Partner presentation slide showing multiple Commerce on Core shapes.](commerce-on-core-subscriptions-6a0584ff6d.jpg)](commerce-on-core-subscriptions-6a0584ff6d.jpg)
-
-Commerce on Core can take many shapes and forms.
+{{< img-caption src="commerce-on-core-subscriptions-6a0584ff6d.jpg" alt="Partner presentation slide showing multiple Commerce on Core shapes." caption="Commerce on Core can take many shapes and forms." >}}
 
 Speculation Before you continue to read on, the article below is speculation and opinionated (my opinion only). So take everything with a grain of salt and contact Salesforce if you want to know more! **I do not work for Salesforce, and I do not know the internal roadmap!**
 
@@ -58,7 +54,7 @@ And more importantly, there is no reason to "**panic**." This change will take m
 
 ## What will it look like
 
-![Experience Cloud interface representing the likely foundation for Commerce on Core.](experience-cloud-c8e89ddba1.jpg)
+{{< img-caption src="experience-cloud-c8e89ddba1.jpg" alt="Experience Cloud interface representing the likely foundation for Commerce on Core." >}}
 
 Hard to say, looking from the outside in. But chances are incredibly high that it will be the [B2B2C](https://trailhead.salesforce.com/content/learn/modules/b2b2c-commerce-basics) offering that will be used as a basis for this product. And I am sure the Composable Storefront will play a significant role in this transition.
 
@@ -78,7 +74,7 @@ Many other products that followed, like Order Management and Commerce Marketplac
 
 ### Composable Storefront
 
-![Composable Storefront architecture sitting on top of SCAPI services.](composable-storefront-6b029b5901.png)
+{{< img-caption src="composable-storefront-6b029b5901.png" alt="Composable Storefront architecture sitting on top of SCAPI services." >}}
 
 Another separate product on its own "stack" is the [PWA Kit](/sitegenesis-vs-sfra-vs-pwa/) (or now rebranded to the Composable Storefront).
 
@@ -136,7 +132,7 @@ This could also open up the road for Trailhead to have hands-on exercises!
 
 ### Flows
 
-![Salesforce Flow builder as a no-code automation option on the core platform.](salesforceflow-8728e6c02c.jpg)
+{{< img-caption src="salesforceflow-8728e6c02c.jpg" alt="Salesforce Flow builder as a no-code automation option on the core platform." >}}
 
 Does anyone miss pipelines? The good news is that there is a low / no-code alternative to Apex (code) to do automation: [Lightning Flow](https://www.salesforce.com/blog/introducing-lightning-flow-blog/).
 
@@ -172,7 +168,7 @@ And I hope Salesforce will give us a heads-up a few years in advance on the Comm
 
 ## Should I worry
 
-![People reacting with uncertainty while considering a future platform migration.](confused-people-on-the-street-1713a479da.jpg)
+{{< img-caption src="confused-people-on-the-street-1713a479da.jpg" alt="People reacting with uncertainty while considering a future platform migration." >}}
 
 As mentioned in the previous section, it will take a while before existing customers are contacted about migrating to the new platform. I guess a minimum of 5-7 years before this will start occurring, but who knows - I have been wrong before.
 

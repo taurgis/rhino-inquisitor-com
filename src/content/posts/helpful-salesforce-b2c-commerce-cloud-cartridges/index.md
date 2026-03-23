@@ -32,7 +32,7 @@ Let us have a look at a few of these!
 
 ## Custom Feeds
 
-[![Custom Feeds configuration screen with a Google feed example.](custom-feed-9148030910.png)](custom-feed-9148030910.png)
+[{{< img-caption src="custom-feed-9148030910.png" alt="Custom Feeds configuration screen with a Google feed example." caption="Custom Feeds helps teams turn repetitive export work into manageable configuration." >}}](custom-feed-9148030910.png)
 
 - [GitHub Repository Link](https://github.com/SalesforceCommerceCloud/custom-feeds)
 
@@ -62,7 +62,7 @@ This cartridge integrates the SLAS (Shopper Login and API Access Service) within
 
 ## Resource Manager
 
-[![Resource Manager interface inside Business Manager.](resource-manager-4a86b3a33c.png)](resource-manager-4a86b3a33c.png)
+[{{< img-caption src="resource-manager-4a86b3a33c.png" alt="Resource Manager interface inside Business Manager." caption="Resource Manager is useful because it exposes content and configuration teams usually script around." >}}](resource-manager-4a86b3a33c.png)
 
 - [GitHub Repository Link](https://github.com/SalesforceCommerceCloud/resource-manager)
 
@@ -84,7 +84,7 @@ There are some things to keep in mind when switching to this method:
 
 ## Page Designer Plus
 
-[![Page Designer Plus example showing enhanced page-building components.](page-designer-plus-9eedd5b72f.jpg)](page-designer-plus-9eedd5b72f.jpg)
+[{{< img-caption src="page-designer-plus-9eedd5b72f.jpg" alt="Page Designer Plus example showing enhanced page-building components." caption="Page Designer Plus extends the native experience where standard Page Designer starts to feel cramped." >}}](page-designer-plus-9eedd5b72f.jpg)
 
 - [GitHub Repository Link](https://github.com/SalesforceCommerceCloud/link_royalcyberpd)
 

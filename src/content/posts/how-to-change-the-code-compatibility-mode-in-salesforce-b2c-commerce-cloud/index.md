@@ -44,13 +44,13 @@ As with all features baked into the Business Manager, Salesforce decides which m
 
 If the interface only allows us to upgrade, it is time to find ways to work around that "security"!
 
-![Hacker-style illustration introducing code compatibility mode workarounds.](hackerman-hr-6b82b63667.jpg)
+{{< img-caption src="hackerman-hr-6b82b63667.jpg" alt="Hacker-style illustration introducing code compatibility mode workarounds." caption="If the UI only supports upgrades, you need a workaround rather than the normal path." >}}
 
 ### Manipulate the form?
 
 The first weapon we have is our browser console! Can we manipulate the HTML form and add the version we want?
 
-[![Browser DevTools inspecting the compatibility mode form in Business Manager.](manipulate-form-code-compatibility-1d501b0279.jpg)](manipulate-form-code-compatibility-1d501b0279.jpg)
+{{< img-caption src="manipulate-form-code-compatibility-1d501b0279.jpg" alt="Browser DevTools inspecting the compatibility mode form in Business Manager." caption="The browser console is the quickest way to test whether the form can be bent." >}}
 
 As it turns out... no. There is server-side validation in place. So we need to find another way to hack the system!
 
@@ -62,19 +62,19 @@ To retrieve the URL for the WebDAV go to:
 
 _"Administration > Site Development > Development Setup"_
 
-[![Business Manager Development Setup screen showing the WebDAV URL.](cartridges-webdav-88a388e63c.jpg)](cartridges-webdav-88a388e63c.jpg)
+{{< img-caption src="cartridges-webdav-88a388e63c.jpg" alt="Business Manager Development Setup screen showing the WebDAV URL." caption="The WebDAV URL in Development Setup is the doorway to the manual workaround." >}}
 
 DWithEase I use the browser plugin [DWithEase](https://dwithease.com/) to make WebDAV browsing much more pleasant.
 
 If you open the URL (and have the browser plugin installed), you will get a view such as this:
 
-[![WebDAV directory listing for the cartridge folders in a code version.](webdav-overview-38949e23ef.jpg)](webdav-overview-38949e23ef.jpg)
+{{< img-caption src="webdav-overview-38949e23ef.jpg" alt="WebDAV directory listing for the cartridge folders in a code version." caption="Once inside WebDAV, you can inspect the code version directly instead of using the UI." >}}
 
 Click on the **active** Code Version (this is important)!
 
 Go into the folder, and a file called ".apiversion" will be there.
 
-[![WebDAV folder showing the .apiversion file in the active code version.](code-version-26171e5278.jpg)](code-version-26171e5278.jpg)
+{{< img-caption src="code-version-26171e5278.jpg" alt="WebDAV folder showing the .apiversion file in the active code version." caption="The hidden .apiversion file is the small detail that makes the workaround possible." >}}
 
 Missing FIle If you do not see the file, don't worry! You can upload it yourself to the folder.
 
@@ -102,7 +102,7 @@ _"Administration > Site Development > Code Deployment"_
 
 If all has gone well, the code versions have changed to the one in the file!
 
-[![Manage Code Versions screen reflecting the updated compatibility mode.](new-code-version-d4f4f68888.jpg)](new-code-version-d4f4f68888.jpg)
+{{< img-caption src="new-code-version-d4f4f68888.jpg" alt="Manage Code Versions screen reflecting the updated compatibility mode." caption="If the edit worked, the new compatibility mode shows up back in Code Versions." >}}
 
 Not visible If no changes are visible, try switching active code versions to trigger the system to re-read the WebDAV files.
 

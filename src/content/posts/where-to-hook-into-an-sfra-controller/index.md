@@ -51,9 +51,7 @@ Dangerous Like the onRequest hook, any delay or exception introduced here can be
 
 ## SFRA Routes
 
-[![Standard Home.js controller with Show and ErrorNotFound routes.](home-controller-routes-in-sfra-ca8b9d167a.jpg)](home-controller-routes-in-sfra-ca8b9d167a.jpg)
-
-The "home.js" controller file of SFRA
+{{< img-caption src="home-controller-routes-in-sfra-ca8b9d167a.jpg" alt="Standard Home.js controller with Show and ErrorNotFound routes." caption="The &quot;home.js&quot; controller file of SFRA" >}}
 
 Before we get started, we need to ensure we are on the same page on what a "[route](https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/blob/1cb2b329fa281333403bb2681b939e727aee809a/cartridges/modules/server/route.js)" is.
 
@@ -70,9 +68,7 @@ These will serve as the 'base route', the starting point of our project. But rem
 
 Cartridge Path In this example, we are assuming that there is only one extra cartridge in the cartridge path. This simplifies the explanation, as adding more than one cartridge to the path with an expanding function would make it more difficult to understand.
 
-[![Flow diagram of the standard Home-Show controller logic.](home-show-sfra-controller-be0043f3bf.jpg)](home-show-sfra-controller-be0043f3bf.jpg)
-
-The standard Home-Show controller logic visualised
+{{< img-caption src="home-show-sfra-controller-be0043f3bf.jpg" alt="Flow diagram of the standard Home-Show controller logic." caption="The standard Home-Show controller logic visualised" >}}
 
 ```text
 Cartridge path: plugin_custom:app_storefront_base
@@ -91,9 +87,7 @@ server.prepend('Show', function (req, res, next) {
 });
 ```
 
-[![SFRA prepending of Home-Show](sfra-prepend-home-show-de79cdab82.jpg)](sfra-prepend-home-show-de79cdab82.jpg)
-
-Visualising what "prepending" does in a single route (Home-Show)
+{{< img-caption src="sfra-prepend-home-show-de79cdab82.jpg" alt="SFRA prepending of Home-Show" caption="Visualising what &quot;prepending&quot; does in a single route (Home-Show)" >}}
 
 Fun Fact Prepending was one of the first [pull requests](https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/commit/3f471420e847ffeaf8fea9955a2f1481169a0e86) I had made to SFRA.
 
@@ -110,9 +104,7 @@ server.append('Show', function (req, res, next) {
 });
 ```
 
-[![SFRA appending of Home-Show](sfra-append-home-show-f8e98c7dcd.jpg)](sfra-append-home-show-f8e98c7dcd.jpg)
-
-Visualising what "appending" does in a single route (Home-Show)
+{{< img-caption src="sfra-append-home-show-f8e98c7dcd.jpg" alt="SFRA appending of Home-Show" caption="Visualising what &quot;appending&quot; does in a single route (Home-Show)" >}}
 
 ### server.replace()
 
@@ -136,9 +128,7 @@ server.replace('Show', function (req, res, next) {
 });
 ```
 
-[![SFRA replacing of Home-Show](sfra-replace-home-show-d90b35f072.jpg)](sfra-replace-home-show-d90b35f072.jpg)
-
-Visualising what "replacing" does in a single route (Home-Show)
+{{< img-caption src="sfra-replace-home-show-d90b35f072.jpg" alt="SFRA replacing of Home-Show" caption="Visualising what &quot;replacing&quot; does in a single route (Home-Show)" >}}
 
 ## SFRA Route Hooks
 
@@ -162,9 +152,7 @@ server.replace('Show', function (req, res, next) {
 
 ## Bringing it all together
 
-[![Combined diagram of SFRA route middleware and hook extension points.](sfra-home-route-with-all-extension-points-2-7e4462fe3e.jpg)](sfra-home-route-with-all-extension-points-2-7e4462fe3e.jpg)
-
-Bringing all of the options together!
+{{< img-caption src="sfra-home-route-with-all-extension-points-2-7e4462fe3e.jpg" alt="Combined diagram of SFRA route middleware and hook extension points." caption="Bringing all of the options together!" >}}
 
 ## Multiple Cartridges
 

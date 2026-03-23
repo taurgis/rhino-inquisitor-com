@@ -28,7 +28,7 @@ Are you interested in last month’s release notes? [Read the 22.9 release notes
 
 ## Staging eCDN configuration
 
-[![Staging eCDN configuration flow for a hybrid storefront.](ecdn-staging-464848555e.jpg)](ecdn-staging-464848555e.jpg)
+{{< img-caption src="ecdn-staging-464848555e.jpg" alt="Staging eCDN configuration flow for a hybrid storefront." caption="Hybrid storefront teams finally got a clearer path for staging the eCDN setup." >}}
 
 A big update for those working with hybrid deployments using the PWA Kit (Composable Storefront). Many issues popped up in the staging environment that had to do with custom certificates and SLAS. With this update, these will hopefully be out of the picture!
 
@@ -41,7 +41,7 @@ Business Manager The UI in the Business Manager will not reflect the changes mad
 
 ## TikTok for Ads
 
-[![Business Manager view for the TikTok integration cartridge.](tiktok-bm-9172b705bb.jpg)](tiktok-bm-9172b705bb.jpg)
+{{< img-caption src="tiktok-bm-9172b705bb.jpg" alt="Business Manager view for the TikTok integration cartridge." caption="The TikTok cartridge adds another marketing surface directly inside Business Manager." >}}
 
 Since the start of this year, there has been a lot of talk about "Social Commerce," which means the integration of Salesforce B2C Commerce Cloud into different social channels such as TikTok.
 
@@ -55,7 +55,7 @@ The cartridge can be downloaded [from the Social Channel Integrations repository
 
 ### Origin Shielding Phase 3
 
-[![Origin shielding rollout note for Demandware.net lockdown.](origin-shielding-phase3-d9fa09fa33.jpg)](origin-shielding-phase3-d9fa09fa33.jpg)
+{{< img-caption src="origin-shielding-phase3-d9fa09fa33.jpg" alt="Origin shielding rollout note for Demandware.net lockdown." caption="Phase 3 matters because it further locks traffic down to Salesforce-controlled entry points." >}}
 
 Phase three of Original Shielding will come into effect by locking down Demandware.net for Development and Production instances.
 
@@ -95,7 +95,7 @@ To fix some issues in the v1 hook:
 
 A new hook has been introduced.
 
-[![beforePOST v2 basket hook reference in the API documentation.](new-hook-basket-f116a5da90.jpg)](new-hook-basket-f116a5da90.jpg)
+{{< img-caption src="new-hook-basket-f116a5da90.jpg" alt="beforePOST v2 basket hook reference in the API documentation." caption="This new hook gives teams another extension point in basket creation flows." >}}
 
 > [!WARNING]
 > **Deprecated:** Hook The v1 hook will continue to exist but is discouraged from being used.
@@ -135,7 +135,7 @@ zzzz-001.dx.commercecloud.salesforce.com/on/demandware.store/Sites-Site `<https:
 
 ## SFRA v6.2.0
 
-![Comparison between SiteGenesis and SFRA storefront stacks.](sfra-vs-sitegenesis-965c09b9a6.jpg)
+{{< img-caption src="sfra-vs-sitegenesis-965c09b9a6.jpg" alt="Comparison between SiteGenesis and SFRA storefront stacks." caption="SFRA 6.2.0 continues the gradual shift away from the older SiteGenesis model." >}}
 
 - [https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/releases/tag/v6.2.0](https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/releases/tag/v6.2.0)
 
@@ -153,7 +153,7 @@ A new version of SFRA has popped up after months of silence, though nothing majo
 
 ## PWA Kit v2.2.0
 
-![PWA Kit release graphic for version 2.2.0.](e0468610-0e86-403f-b486-743a38d4b763-d68cf607f8.png)
+{{< img-caption src="e0468610-0e86-403f-b486-743a38d4b763-d68cf607f8.png" alt="PWA Kit release graphic for version 2.2.0." caption="PWA Kit 2.2.0 keeps the composable storefront track moving forward in parallel." >}}
 
 - [https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v2.2.0](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v2.2.0)
 

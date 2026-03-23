@@ -28,7 +28,7 @@ Finally, we'll survey the professional mercenaries on the AppExchange, calling i
 
 _Let's build our fortress._
 
-![A cartoon illustration depicting a stone fortress labeled 'Checkout Flow'. Developers equipped with tools are building defensive machines labeled 'Fraud Prevention Layers' and 'Risk Scoring' to protect the castle from cartoon burglars, with a Salesforce shield hanging above the gate.](the-sfcc-fortress-for-fraud-5d4d80990b.jpg)
+{{< img-caption src="the-sfcc-fortress-for-fraud-5d4d80990b.jpg" alt="A cartoon illustration depicting a stone fortress labeled 'Checkout Flow'. Developers equipped with tools are building defensive machines labeled 'Fraud Prevention Layers' and 'Risk Scoring' to protect the castle from cartoon burglars, with a Salesforce shield hanging above the gate." caption="Fraud prevention works best as layers around the checkout, not as one last-minute rule." >}}
 
 ## Know Your Enemy - A Developer's Taxonomy of eCommerce Fraud
 
@@ -65,7 +65,7 @@ Automated bots are the force multipliers of the fraud world, enabling criminals 
 
 #### Sophisticated Schemes
 
-![A cartoon illustration depicting complex fraud schemes. One section illustrates 'Triangulation Fraud' showing a circular flow between a fraudster, a legitimate merchant, and an unsuspecting customer. Another section depicts 'Synthetic Identity Fraud' as a figure assembling a fake persona using puzzle pieces labeled with different personal data points like 'SSN' and 'Name'.](advanced-fraud-schemes-81670fc67f.jpg)
+{{< img-caption src="advanced-fraud-schemes-81670fc67f.jpg" alt="A cartoon illustration depicting complex fraud schemes. One section illustrates 'Triangulation Fraud' showing a circular flow between a fraudster, a legitimate merchant, and an unsuspecting customer. Another section depicts 'Synthetic Identity Fraud' as a figure assembling a fake persona using puzzle pieces labeled with different personal data points like 'SSN' and 'Name'." caption="Modern fraud is not one pattern, which is why the defense strategy cannot be one-dimensional." >}}
 
 Beyond simple theft: A visual breakdown of how fraudsters manipulate supply chains through Triangulation and manufacture new personas via Synthetic Identity fraud.
 
@@ -110,7 +110,7 @@ Every request to your storefront first passes through Salesforce's embedded Cont
 
 Using the [eCDN API](https://developer.salesforce.com/docs/commerce/commerce-api/guide/cdn-zones-custom-rules.html), you can construct powerful expressions to filter traffic before it ever hits your application servers. For example, you can create a rule to block requests originating from known malicious IP ranges, countries where you don't ship, or specific user agents associated with malicious bots. The flexibility of these rules, which can key off of URI paths, user agents, IP addresses, and more, makes the eCDN a formidable first line of defence against automated threats.
 
-![A cartoon illustration showing SFCC's native defense toolkit. On the left, a developer uses eCDN Custom Rules and API to block malicious traffic and bots from entering a castle. In the middle, Payment Processing Fundamentals are depicted with AVS and CVV checks passing or failing a credit card. On the right, a Commerce Cloud Einstein robot states it's for merchandising and sales, not fraud prevention, debunking a myth.](native-sfcc-features-15503da1e4.jpg)
+{{< img-caption src="native-sfcc-features-15503da1e4.jpg" alt="A cartoon illustration showing SFCC's native defense toolkit. On the left, a developer uses eCDN Custom Rules and API to block malicious traffic and bots from entering a castle. In the middle, Payment Processing Fundamentals are depicted with AVS and CVV checks passing or failing a credit card. On the right, a Commerce Cloud Einstein robot states it's for merchandising and sales, not fraud prevention, debunking a myth." caption="SFCC has useful native controls, but they are only part of a serious fraud strategy." >}}
 
 Leveraging SFCC's built-in defenses: The eCDN as the first line against malicious traffic, fundamental payment processing checks (AVS/CVV), and clarifying the role of Commerce Cloud Einstein.
 
@@ -178,7 +178,7 @@ The most critical aspect of running your own custom solution is that its mainten
 
 ## Calling in the Cavalry - A Guide to Third-Party Fraud Solutions
 
-![A cartoon illustration depicting "The Cavalry" of third-party fraud solutions. Armored knights ride cybernetic horses toward a castle labeled "Salesforce Commerce Cloud." Signposts highlight specific vendors like "Riskified & Signifyd" (Peace of Mind), "Kount" (Control), and "DataDome" (Bot Defense), while knights carry banners representing "Global Data" and "Machine Learning."](calling-the-cavalry-fea1bcb812.jpg)
+{{< img-caption src="calling-the-cavalry-fea1bcb812.jpg" alt="A cartoon illustration depicting &quot;The Cavalry&quot; of third-party fraud solutions. Armored knights ride cybernetic horses toward a castle labeled &quot;Salesforce Commerce Cloud.&quot; Signposts highlight specific vendors like &quot;Riskified &amp; Signifyd&quot; (Peace of Mind), &quot;Kount&quot; (Control), and &quot;DataDome&quot; (Bot Defense), while knights carry banners representing &quot;Global Data&quot; and &quot;Machine Learning.&quot;" caption="Third-party tools earn their keep when scale or risk outgrows the native platform controls." >}}
 
 When custom rules aren't enough, it's time to call in the cavalry. Third-party solutions bring global data networks, advanced AI, and financial guarantees to reinforce your Salesforce Commerce Cloud defense.
 

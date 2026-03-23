@@ -35,7 +35,7 @@ Those "short" commutes did come at a price, sort of speak. I started my days at 
 
 ### Thalia was born
 
-![Thalia Theunen-Vanhoof](thalia-scaled-psv25226nd87xk5yw4jl2gxdwd1vdrhw7avqfqo45c-8d4884e1a0.jpg "Thalia Theunen-Vanhoof")
+{{< img-caption src="thalia-scaled-psv25226nd87xk5yw4jl2gxdwd1vdrhw7avqfqo45c-8d4884e1a0.jpg" alt="Thalia Theunen-Vanhoof" caption="The arrival of Thalia marked the start of a chapter that made remote work not just a preference but a necessity." >}}
 
 Your routine needs to change when you put a child into the world! I was mentally prepared for this, but oh boy. The first six months didn't change much since my wife was on maternity leave, but daycare came into the picture after that.
 
@@ -79,7 +79,7 @@ After a while, I moved my desk to a separate room to prevent us from disturbing 
 
 ## The new normal: remote
 
-![Remote-work illustration showing the shift from office life to long-term work from home.](remote-working-e716e903ff.png)
+{{< img-caption src="remote-working-e716e903ff.png" alt="Remote-work illustration showing the shift from office life to long-term work from home." caption="What began as a temporary pandemic response became a permanent shift in how developers organise their working life." >}}
 
 Two years later, here we are. Thoroughly accustomed to remote work. And productivity has not plummeted as some anti-remote doomsday-sayers were predicting.
 
@@ -95,7 +95,7 @@ Instead of cramming everything into an hour, I have two hours to prepare everyth
 
 Woohoo! I don't have to face rush-hour traffic!
 
-![Portrait of Thano used in the family chapter about adapting to remote work.](thano-psv24pu9kldk5x8zu262vki7uludwrj46gur4x75jm-99e877453d.jpg "Thano Theunen-Vanhoof")
+{{< img-caption src="thano-psv24pu9kldk5x8zu262vki7uludwrj46gur4x75jm-99e877453d.jpg" alt="Portrait of Thano used in the family chapter about adapting to remote work." caption="Skipping the commute freed up time and energy for family mornings — one of the unexpected wins of working remotely." >}}
 
 Obligatory proud-parent photo required
 

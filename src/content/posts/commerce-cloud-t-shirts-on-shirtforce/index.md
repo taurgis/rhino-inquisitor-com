@@ -32,7 +32,7 @@ Let's not waste time and get straight to the designs and their backstory.
 
 ## Keep Calm And Go Headless
 
-![A headless-themed red t-shirt.](keep-calm-and-go-headless-6e775cd9c3.jpg)
+{{< img-caption src="keep-calm-and-go-headless-6e775cd9c3.jpg" alt="A headless-themed red t-shirt." caption="The headless shirt turns one of the ecosystem's favorite architecture debates into merch." >}}
 
 - [Get it now](https://my-store-5a6a56.creator-spring.com/listing/salesforce-ohana-rocks)
 
@@ -44,7 +44,7 @@ And with the option for hybrid (or phased) deployments...another idea popped int
 
 ## Hybrid Deployment Theory
 
-![A horse-printed t-shirt.](hybrid-deployment-theory-491c6dcca5.jpg)
+{{< img-caption src="hybrid-deployment-theory-491c6dcca5.jpg" alt="A horse-printed t-shirt." caption="Hybrid Deployment Theory was the joke that deserved its own shirt." >}}
 
 - [Get it now](https://my-store-5a6a56.creator-spring.com/listing/hybrid-deployment-theory)
 
@@ -54,7 +54,7 @@ So, if you're a Linkin Park fan or appreciate great music, I highly recommend ad
 
 ## #DynamiteDev
 
-![A blue shirt with the text "#DynamiteDev"](dynamite-dev-3f8e65854b.jpg)
+{{< img-caption src="dynamite-dev-3f8e65854b.jpg" alt="A blue shirt with the text &quot;#DynamiteDev&quot;" caption="Dynamite Dev is for the people who enjoy shipping boldly and cleaning up later." >}}
 
 - [Get it now](https://teespring.com/dynamitedev?pid=389&cid=100020)
 
@@ -62,7 +62,7 @@ Without our developers, how would we ever build an eCommerce channel that matche
 
 ## #BadassBA
 
-![A blue t-shirt with the text "#BadassBA"](badass-ba-c2f0429cdd.jpg)
+{{< img-caption src="badass-ba-c2f0429cdd.jpg" alt="A blue t-shirt with the text &quot;#BadassBA&quot;" caption="Badass BA gives business analysts equal billing in a developer-heavy culture." >}}
 
 - [Get it now](https://my-store-5a6a56.creator-spring.com/listing/badassba)
 
@@ -72,7 +72,7 @@ This design is not specifically for Salesforce B2C Commerce Cloud, but it applie
 
 ## Breaking Prod
 
-![A green t-shirt with the text "Breaking Prod" in the style of "Breaking Bad"](breaking-prod-16547b5665.jpg)
+{{< img-caption src="breaking-prod-16547b5665.jpg" alt="A green t-shirt with the text &quot;Breaking Prod&quot; in the style of &quot;Breaking Bad&quot;" caption="Breaking Prod is the punchline every release team understands immediately." >}}
 
 - [Get it now](http://teespring.com/en-GB/breaking-prod)
 

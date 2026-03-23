@@ -25,11 +25,11 @@ One of its features, called "[Autodocs](https://storybook.js.org/docs/7.0/react/
 
 Recently, I ran into an issue related to using JSDoc with Storybook. JSDoc was being printed out as Markdown but was erroneously formatted. Further, it was trying to execute the @example code, which led to console errors. I want to share how I resolved the issue through this blog post.
 
-![Storybook Autodocs before filtering, showing excessive JSDoc output.](storybook-jsdocs-before-90d7cc5222.png)
+{{< img-caption src="storybook-jsdocs-before-90d7cc5222.png" alt="Storybook Autodocs before filtering, showing excessive JSDoc output." caption="Storybook Autodocs before filtering, showing excessive JSDoc output." >}}
 
 Before
 
-![Storybook Autodocs after filtering, showing only the cleaned description.](storybook-jsdocs-after-8063d0ff66.png)
+{{< img-caption src="storybook-jsdocs-after-8063d0ff66.png" alt="Storybook Autodocs after filtering, showing only the cleaned description." caption="Storybook Autodocs after filtering, showing only the cleaned description." >}}
 
 After
 

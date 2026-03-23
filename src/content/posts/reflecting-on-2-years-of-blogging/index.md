@@ -33,7 +33,7 @@ I have received numerous comments and feedback from readers who have found my ar
 
 ## Revising is necessary
 
-![A hand holding a red pen, marking words in red that need correction.](revising-text-4905c7d647.jpg)
+{{< img-caption src="revising-text-4905c7d647.jpg" alt="A hand holding a red pen, marking words in red that need correction." caption="A hand holding a red pen, marking words in red that need correction." >}}
 
 However, reflecting on the past two years, I realise it is about more than just the numbers. What matters most is my impact on the community and the knowledge I have provided to others. I have seen people take the knowledge and insights they have gained from my blog and apply them to create solutions and drive their projects forward.
 
@@ -65,4 +65,4 @@ Before the pandemic hit in 2020, I used to spend my evenings attending cooking a
 
 There's something genuinely satisfying about taking a hands-on approach to learning and creating, and I'm looking forward to seeing where this rediscovered hobby takes me.
 
-![Electronics tinkering workspace with components laid out for a hobby project.](1601710443407-d2c723ac02.jpeg)
+{{< img-caption src="1601710443407-d2c723ac02.jpeg" alt="Electronics tinkering workspace with components laid out for a hobby project." caption="Electronics tinkering workspace with components laid out for a hobby project." >}}

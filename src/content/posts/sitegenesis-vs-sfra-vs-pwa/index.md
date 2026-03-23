@@ -29,11 +29,11 @@ But after choosing SFCC to be the platform, a second big decision must be made. 
 
 Before we get started, here is a timeline showing the history of the "development architectures" used on Salesforce B2C Commerce Cloud throughout the years.
 
-[![SFCC History: 2009 - SiteGenesis 1.0, with version 2.0 being released in 2014. The next release was in 2017 with MFRA, being rebranded to SFRA in 2018. The latest release was the PWA Kit in 2021.](sfcc-history-86f56e594a.png)](sfcc-history-86f56e594a.png)
+{{< img-caption src="sfcc-history-86f56e594a.png" alt="SFCC History: 2009 - SiteGenesis 1.0, with version 2.0 being released in 2014. The next release was in 2017 with MFRA, being rebranded to SFRA in 2018. The latest release was the PWA Kit in 2021." caption="This timeline shows how Salesforce storefront architecture moved from SiteGenesis to SFRA and then PWA Kit." >}}
 
 ## SiteGenesis
 
-[![SiteGenesis storefront example representing the legacy architecture.](sitegenesis-9a921c285a.jpg)](sitegenesis-9a921c285a.jpg)
+{{< img-caption src="sitegenesis-9a921c285a.jpg" alt="SiteGenesis storefront example representing the legacy architecture." caption="SiteGenesis reflects the older monolithic storefront model many teams still inherit." >}}
 
 Let us start with the oldest (and least exciting option): [SiteGenesis](https://production-sitegenesis-dw.demandware.net/on/demandware.store/Sites-SiteGenesis-Site). If anyone still suggests that you start your journey with SiteGenesis, you should ask the question, "why do we need to do that?".
 
@@ -57,11 +57,11 @@ But since 2020, it is no longer required to build for SiteGenesis; SFRA compatib
 
 ### Pipelines VS Controllers
 
-[![Pipeline editor used in legacy SiteGenesis development.](pipelines-eed67b4c67.png)](pipelines-eed67b4c67.png)
+{{< img-caption src="pipelines-eed67b4c67.png" alt="Pipeline editor used in legacy SiteGenesis development." caption="Pipelines were central to SiteGenesis development before controllers became the norm." >}}
 
 Pipelines in SiteGenesis
 
-[![Controller-based storefront code replacing pipelines in newer architectures.](controllers-130298bfb4.png)](controllers-130298bfb4.png)
+{{< img-caption src="controllers-130298bfb4.png" alt="Controller-based storefront code replacing pipelines in newer architectures." caption="Controller-based development was one of the key shifts that came with newer storefront stacks." >}}
 
 Controllers in SiteGenesis
 
@@ -73,7 +73,7 @@ It is time to migrate if you are still using SiteGenesis with pipelines in your 
 
 ## M(S)FRA
 
-[![Comparison between SiteGenesis and SFRA storefront stacks.](sfra-vs-sitegenesis-965c09b9a6.jpg)](sfra-vs-sitegenesis-965c09b9a6.jpg)
+{{< img-caption src="sfra-vs-sitegenesis-965c09b9a6.jpg" alt="Comparison between SiteGenesis and SFRA storefront stacks." caption="SFRA modernized the storefront layer without fully abandoning the B2C runtime model." >}}
 
 This part of the article will cover both MFRA and [SFRA](https://production-sitegenesis-dw.demandware.net/s/RefArch/home?lang=en_US) as they are the same. You can see MFRA as the ALPHA/BETA version of SFRA or simply as a rebranding.
 
@@ -103,7 +103,7 @@ So choosing to go with SFRA now will be a good base for years to come. But be su
 
 ## PWA Kit & Managed Runtime
 
-[![PWA Kit storefront running in the managed runtime.](pwa-kit-03394b0f92.png)](pwa-kit-03394b0f92.png)
+{{< img-caption src="pwa-kit-03394b0f92.png" alt="PWA Kit storefront running in the managed runtime." caption="PWA Kit pushes the storefront into a composable architecture outside the traditional stack." >}}
 
 The [PWA Kit](https://pwa-kit.mobify-storefront.com/) is the most recent addition to the SFCC family. And it is important to note that this solution is not marketed at the moment to replace SFRA. You might be wondering why, and there is a good reason for that.
 
@@ -165,4 +165,4 @@ All of these "missing items" can be resolved with custom development. So be prep
 
 The following overview compresses the information above.
 
-[![Comparison table contrasting SiteGenesis, SFRA, and PWA Kit characteristics.](comparison-sitegenesis-sfra-pwa-5593ba325c.png)](comparison-sitegenesis-sfra-pwa-5593ba325c.png)
+{{< img-caption src="comparison-sitegenesis-sfra-pwa-5593ba325c.png" alt="Comparison table contrasting SiteGenesis, SFRA, and PWA Kit characteristics." caption="This final comparison makes the trade-offs between the three storefront approaches easier to judge." >}}

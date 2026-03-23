@@ -104,23 +104,15 @@ If you use Variation Groups, this feature will make the storefront search a litt
 
 Once enabled, merchandizers [will see extra options in the business manager](https://documentation.b2c.commercecloud.salesforce.com/DOC1/index.jsp?topic=%2Fcom.demandware.dochelp%2Fcontent%2Fb2c_commerce%2Ftopics%2Fproducts%2Fb2c_configure_variation_groups_display_mode.html).
 
-![Catalog setting that switches variation groups to merged or individual display.](category-option-plzwjt3ux7rivo7o7mgc8xhnroisdxv69lzyysd3pa-a3eb0312c7.png "Category Options – Variation Groups")
-
-Category Attributes on a Catalog
+{{< img-caption src="category-option-plzwjt3ux7rivo7o7mgc8xhnroisdxv69lzyysd3pa-a3eb0312c7.png" alt="Catalog setting that switches variation groups to merged or individual display." caption="This catalog setting is the switch that enables merged variation-group behavior." >}}
 
 But once you enable this option, how does it translate in the storefront? Let's have a look!
 
-![Three variation-group products shown as separate pants tiles.](variation-groups-before-14c54a10bd.jpg)
+{{< img-caption src="variation-groups-before-14c54a10bd.jpg" alt="Three variation-group products shown as separate pants tiles." caption="Before the change, each variation group surfaced as its own product tile." >}}
 
-Storefront - Before
+{{< img-caption src="variation-groups-after-513fc19983.png" alt="Merged variation-group storefront result with shared swatches." caption="After enabling the feature, shoppers see one tile with shared swatches instead." >}}
 
-![Merged variation-group storefront result with shared swatches.](variation-groups-after-513fc19983.png)
-
-Storefront - After
-
-![Category configuration panel for assigning variation-group display behavior.](configuration-variation-groups-32dec4386b.png)
-
-Configuration of a Category
+{{< img-caption src="configuration-variation-groups-32dec4386b.png" alt="Category configuration panel for assigning variation-group display behavior." caption="Category-level configuration decides where merged or individual variation-group display applies." >}}
 
 But why use this option? Could you assign the master product to the category to get the same result?
 
@@ -136,9 +128,7 @@ But this option gives us more flexibility, which is never a bad thing!
 
 **Note:** If you set the type to "merged" on the top level but "individual" on a sub-category, it will not work. The products do not display correctly anymore.
 
-![Broken product lister page rendering null values after an invalid variation-group setup.](broken-category-08697befce.png)
-
-Broken category page
+{{< img-caption src="broken-category-08697befce.png" alt="Broken product lister page rendering null values after an invalid variation-group setup." caption="A mismatched configuration breaks the product lister instead of degrading gracefully." >}}
 
 ### Prorated Discounts
 
@@ -146,7 +136,7 @@ From now on, when you configure a "percentage discount promotion" on multiple it
 
 Before, you had to select the "Prorate Discount" option on the promotion.
 
-![Promotion setting that enables discount proration across line items.](prorate-discount-0a85da771a.png)
+{{< img-caption src="prorate-discount-0a85da771a.png" alt="Promotion setting that enables discount proration across line items." caption="Discount proration only works once the promotion is configured explicitly." >}}
 
 ### Source Code Groups
 

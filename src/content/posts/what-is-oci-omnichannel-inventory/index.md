@@ -25,11 +25,7 @@ But why should you use it? And if you decide to use this product, what are the t
 
 ## Wait?!! It's included in the B2C license
 
-[![Quip note highlighting that OCI is included for B2C Commerce customers.](oci-included-in-license-b4aca05118.png)](oci-included-in-license-b4aca05118.png)
-
-Let us first get this topic out of the way; I am sure this information will increase the interest in this product!
-
-If you are a B2C Commerce Cloud customer, OCI is included!
+{{< img-caption src="oci-included-in-license-b4aca05118.png" alt="Quip note highlighting that OCI is included for B2C Commerce customers." >}}
 
 I only learned about this because I took the OMS Administrator and Developer certification exam (and passed 😊).
 
@@ -43,7 +39,7 @@ The OCI exists out of multiple components:
 
 - **Omnichannel Inventory App:** A Salesforce console app to manage your locations and inventory availability in the [visual interface you know and love](https://www.salesforce.com/campaign/lightning/).
 
-   [![Omnichannel Inventory app interface for managing locations and availability.](omnichannel-inventory-0b29da8f29.png)](omnichannel-inventory-0b29da8f29.png)
+   {{< img-caption src="omnichannel-inventory-0b29da8f29.png" alt="Omnichannel Inventory app interface for managing locations and availability." >}}
 
 The Omnichannel Inventory provides a set of Headless APIs so any system can communicate with it to get the latest inventory information, be it your website, app, or any other system connected to the web (which can include your physical stores).
 
@@ -61,9 +57,7 @@ Using OCI brings the following benefits:
 
 - **Omnichannel:** Easily support omnichannel experiences, such as ship from store and buy online, pick up in-store (BOPIS)
 
-[![An overview of grouping inventory locations together into delivery groups. It shows for example a Physicial store and warehouse being merged to an inventory group to use for online delivery as a single "list".](inventory-grouping-6f9edbe7b9.png)](inventory-grouping-6f9edbe7b9.png)
-
-Example of location grouping
+{{< img-caption src="inventory-grouping-6f9edbe7b9.png" alt="An overview of grouping inventory locations together into delivery groups. It shows for example a Physicial store and warehouse being merged to an inventory group to use for online delivery as a single &quot;list&quot;." caption="Example of location grouping" >}}
 
 ## Natively integrated
 

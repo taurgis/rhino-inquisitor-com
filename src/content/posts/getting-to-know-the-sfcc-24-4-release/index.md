@@ -67,7 +67,7 @@ Search request offset <value> is greater than offset limit 200000 for tenant '<G
 
 ## Manage More Images in Page Designer
 
-![Page Designer media picker showing support for browsing up to 1,000 images in one folder.](images-in-sfcc-page-designer-2ae797ab98.png)
+{{< img-caption src="images-in-sfcc-page-designer-2ae797ab98.png" alt="Page Designer media picker showing support for browsing up to 1,000 images in one folder." caption="The media picker now shows up to 1,000 images per folder instead of 200." >}}
 
 > The Page Designer image and media picker now supports up to 1,000 images per folder. Previously, only 200 images within a folder were accessible in the image picker, even if more existed. The increased image limit improves the user experience for merchandisers and content creators and avoids workarounds, such as creating subfolders for extra images.
 
@@ -79,7 +79,7 @@ The good news is that the limit has been increased to 1000. This should provide 
 
 ### Configure eCDN for Staging in Business Manager
 
-![Staging Business Manager with Embedded CDN Settings highlighted.](ecdn-config-in-business-manager-staging-a7d7b2d965.png)
+{{< img-caption src="ecdn-config-in-business-manager-staging-a7d7b2d965.png" alt="Staging Business Manager with Embedded CDN Settings highlighted." caption="Staging now exposes eCDN setup in Business Manager instead of through support tickets." >}}
 
 > Business Manager now supports configuring eCDN for staging environments. eCDN settings are specific to each instance (development, staging, and production), and you manage them individually. When you create a proxy zone in production, the zone doesn’t replicate a corresponding proxy zone in your development or staging instance. The new eCDN configuration feature simplifies onboarding new sites for staging instances, making it easier to mimic your production instance. Because the configuration uses the existing CDN-API, you can use either Business Manager or the API to manage your eCDN configurations.
 
@@ -87,7 +87,7 @@ It feels like only yesterday that I [published my blog post](/how-to-set-up-the-
 
 ### Auto-Correction is Disabled by Default
 
-![Searchable Attributes settings showing Autocorrection defaulting to No.](searchable-attributes-in-commerce-cloud-db3ab0524f.png)
+{{< img-caption src="searchable-attributes-in-commerce-cloud-db3ab0524f.png" alt="Searchable Attributes settings showing Autocorrection defaulting to No." caption="Autocorrection now defaults to No for new searchable attributes, which helps protect technical fields like SKU." >}}
 
 > The default setting for auto-correction for searchable attributes added after the B2C Commerce 24.4 release is now set to No. This change affects searchable attributes added through the Business Manager UI or via import. Existing configurations aren’t affected. Previously, when you added a searchable attribute, the default setting was Yes, which could cause issues in instances when search functions shouldn’t correct values, such as the product SKU, ID, or ISBN. Additionally, the auto-correction dictionary’s size can incrementally increase over time, leading to search noise.
 

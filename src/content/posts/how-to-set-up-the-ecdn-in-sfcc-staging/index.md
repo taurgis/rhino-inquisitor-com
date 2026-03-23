@@ -52,7 +52,7 @@ tenantID The tenantID mentioned in the guide is the Realm ID (zzxx) combined wit
 
 e.g. **zzxx\_001** Roles Remember to assign the "Salesforce Commerce API role to the API Client!
 
-[![Account Manager roles screen with the Salesforce Commerce API role enabled for staging.](commerce-cloud-api-client-roles-1a338d1f61.jpg)](commerce-cloud-api-client-roles-1a338d1f61.jpg)
+[{{< img-caption src="commerce-cloud-api-client-roles-1a338d1f61.jpg" alt="Account Manager roles screen with the Salesforce Commerce API role enabled for staging." caption="Account Manager roles screen with the Salesforce Commerce API role enabled for staging." >}}](commerce-cloud-api-client-roles-1a338d1f61.jpg)
 
 ## Step 2: Get the staging credentials
 
@@ -62,7 +62,7 @@ We get these settings here:
 
 "Administration > Site Development > Salesforce Commerce API Settings"
 
-[![Salesforce Commerce API Settings screen with the short code and organization ID for staging.](salesforce-commerce-api-settings-be8d59fe5b.jpg)](salesforce-commerce-api-settings-be8d59fe5b.jpg)
+[{{< img-caption src="salesforce-commerce-api-settings-be8d59fe5b.jpg" alt="Salesforce Commerce API Settings screen with the short code and organization ID for staging." caption="Salesforce Commerce API Settings screen with the short code and organization ID for staging." >}}](salesforce-commerce-api-settings-be8d59fe5b.jpg)
 
 ## Step 3: Get an access token
 

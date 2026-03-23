@@ -26,7 +26,7 @@ So, what does this iteration of Connections have in store for us? Will there be 
 
 ## No epic concert at Connections
 
-![Wide stadium view from the upper stands looking down at the concert stage.](img-4015-9ece77c62f.jpeg)
+{{< img-caption src="img-4015-9ece77c62f.jpeg" alt="Wide stadium view from the upper stands looking down at the concert stage." caption="Wide stadium view from the upper stands looking down at the concert stage." >}}
 
 Let's pull this cat out of the bag before discussing Commerce Cloud-related matters. For a long time, we got used to getting an epic concert one of the evenings of the event, but that does not seem to be the case this time.
 

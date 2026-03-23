@@ -50,7 +50,11 @@ A few hours later, I found 15 minutes to spare and created a working job step us
 
 And not to worry, these examples, together with the library, are available [here to download](https://github.com/taurgis/salesforce-commerce-cloud-libraries) and try out yourself.
 
-![An example of code using jsPDF and the resulting PDF preview on the right.](jspdf-example-c6dcb73e48.png)
+{{< img-caption 
+  src="jspdf-example-c6dcb73e48.png"
+  alt="An example of code using jsPDF and the resulting PDF preview on the right."
+  caption="Figure 1: An example of code using jsPDF and the resulting PDF preview on the right"
+>}}
 
 ## With great power, comes great responsibility
 

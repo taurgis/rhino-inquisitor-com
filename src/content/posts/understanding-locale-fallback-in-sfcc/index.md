@@ -37,9 +37,7 @@ Manage Translations Thoroughly Ensuring a positive user experience on your site 
 
 ## How Locale Fallback Works
 
-![Decision tree showing locale fallback from en_US to en and then default.](locale-fallback-explained-bfdfc55392.png)
-
-Is there a translation present?
+{{< img-caption src="locale-fallback-explained-bfdfc55392.png" alt="Decision tree showing locale fallback from en_US to en and then default." caption="Is there a translation present?" >}}
 
 Here's an example to illustrate the concept:
 
@@ -54,9 +52,7 @@ Inconsistent languages on a single page. If you configure the fallback system di
 
 ## Configuring Locale Fallback
 
-[![Locale configuration screen in Administration and Global Preferences.](sfcc-localisation-config-e5d2f27043.jpg)](sfcc-localisation-config-e5d2f27043.jpg)
-
-Locales and fallback can be configured at "Administration > Global Preferences > Locales"
+{{< img-caption src="sfcc-localisation-config-e5d2f27043.jpg" alt="Locale configuration screen in Administration and Global Preferences." caption="Locales and fallback can be configured at &quot;Administration > Global Preferences > Locales&quot;" >}}
 
 Salesforce B2C Commerce Cloud allows for customized fallback configurations. You can skip levels in the fallback chain or even eliminate fallback entirely for particular locales, depending on your specific requirements.
 
@@ -76,9 +72,7 @@ Fallback to different language You are only allowed to fall back within the same
 
 **Not allowed:** fr_FR > de_DE > Default
 
-[![Example locale fallback configuration for en-GB.](locale-fallback-en-uk-bd32fc597d.png)](locale-fallback-en-uk-bd32fc597d.png)
-
-The possible fallback options for en_GB
+{{< img-caption src="locale-fallback-en-uk-bd32fc597d.png" alt="Example locale fallback configuration for en-GB." caption="The possible fallback options for en_GB" >}}
 
 ## Things to Consider
 

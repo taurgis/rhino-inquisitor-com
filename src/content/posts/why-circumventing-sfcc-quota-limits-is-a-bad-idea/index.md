@@ -145,9 +145,7 @@ UnlimitedArray.prototype.get = function (position) {
 
 This construct "cleverly" uses nested arrays to exceed the Salesforce-imposed limit. However, it can result in inefficiencies when using methods such as push, get, includes, and indexOf, especially as the combined size of the nested arrays grows.
 
-[![A screenshot of the Business Manager. The system is warning that the quota limit for the array size has been reached.](quota-limit-warning-7f7a47522c.jpg)](quota-limit-warning-7f7a47522c.jpg)
-
-We are at the edge, but never crossing the limit!
+{{< img-caption src="quota-limit-warning-7f7a47522c.jpg" alt="A screenshot of the Business Manager. The system is warning that the quota limit for the array size has been reached." caption="We are at the edge, but never crossing the limit!" >}}
 
 ### A Closer Look at the "UnlimitedArray"
 
@@ -175,9 +173,7 @@ The `get`, `includes`, and `indexOf` functions iterate through each sub-array, k
 
 ## Why You Should Think Twice
 
-![A bear wearing an orange prison jumpsuit with a blue cloud logo on the back, walks into a prison with several guards waiting for it.](cloud-prison-66083f6bcd.jpg)
-
-No... you aren't going to get arrested 🤣
+{{< img-caption src="cloud-prison-66083f6bcd.jpg" alt="A bear wearing an orange prison jumpsuit with a blue cloud logo on the back, walks into a prison with several guards waiting for it." caption="No... you aren't going to get arrested 🤣" >}}
 
 The performance penalty for using such a structure is significant — every additional layer of complexity can lead to longer execution times. For example, to determine the `length` of the "UnlimitedArray," you must sum the lengths of all included sub-arrays.
 

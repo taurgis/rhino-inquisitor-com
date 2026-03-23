@@ -54,13 +54,21 @@ Once this feature has been enabled, you get a new toy to play with in the Busine
 
 You can consider this to work the same as configuring the Sitemap or replications. It is not under the regular list of jobs, but behind the scenes, they are one.
 
-[![Delta Exports module overview in Business Manager.](delta-jobs-overview-dccafc63a7.png)](delta-jobs-overview-dccafc63a7.png)
+{{< img-caption 
+  src="delta-jobs-overview-dccafc63a7.png"
+  alt="Business Manager screenshot showing Delta Exports module under Administration > Site Development"
+  caption="Figure 1: Delta Exports Module Overview"
+>}}
 
 Let us open that "Test" configuration!
 
 ### General
 
-[![Delta export configuration showing job name, consumers, and data type.](delta-job-selection-718f8a1686.png)](delta-job-selection-718f8a1686.png)
+{{< img-caption 
+  src="delta-job-selection-718f8a1686.png"
+  alt="Delta export job configuration form showing Name field, Consumers field, and Data Type dropdown"
+  caption="Figure 2: Delta Job Configuration—General Tab"
+>}}
 
 When we create a new job or open an existing one, we configure multiple items:
 
@@ -74,13 +82,21 @@ A list of supported types can be found [in the Delta Exports documentation](http
 
 ### Schedule
 
-[![Schedule tab for running a delta export at a fixed interval.](delta-job-schedule-1c300976ae.png)](delta-job-schedule-1c300976ae.png)
+{{< img-caption 
+  src="delta-job-schedule-1c300976ae.png"
+  alt="Delta job Schedule tab showing fixed interval configuration options"
+  caption="Figure 3: Delta Job Schedule Configuration"
+>}}
 
 Just like regular jobs, you can schedule this to be executed at your chosen interval.
 
 ### History
 
-[![Delta export history showing previously generated files.](history-70bccb6f6f.png)](history-70bccb6f6f.png)
+{{< img-caption 
+  src="history-70bccb6f6f.png"
+  alt="Delta export history table showing previously generated export files"
+  caption="Figure 4: Delta Export History Tab"
+>}}
 
 This historical overview is unlike your usual "job" history, even though the description might seem similar.
 
@@ -88,7 +104,11 @@ This overview will show a history of all exported files rather than the job exec
 
 ### Consumer
 
-[![Consumer tab with the dedicated WebDAV export folder.](delta-job-consumer-867e8bc380.png)](delta-job-consumer-867e8bc380.png)
+{{< img-caption 
+  src="delta-job-consumer-867e8bc380.png"
+  alt="Consumer tab showing WebDAV export folder path for each configured consumer"
+  caption="Figure 5: Delta Job Consumer Configuration Tab"
+>}}
 
 For each "consumer" you have configured in the general tab, a new tab appears in which you get the path where the files are exported.
 
@@ -98,7 +118,11 @@ This gives each external system (consumer) its dedicated folder on the WebDAV to
 
 ### Status
 
-[![Status tab showing the scheduled delta export job log.](delta-job-status-9552cad99f.png)](delta-job-status-9552cad99f.png)
+{{< img-caption 
+  src="delta-job-status-9552cad99f.png"
+  alt="Status tab displaying the scheduled delta export job execution log"
+  caption="Figure 6: Delta Job Status Log"
+>}}
 
 You can view the log of the scheduled job on this page.
 

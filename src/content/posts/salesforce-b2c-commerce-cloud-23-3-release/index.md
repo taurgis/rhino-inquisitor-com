@@ -24,7 +24,7 @@ Another month, another release from Salesforce B2C Commerce Cloud! In this blog 
 
 ## Trial sandboxes
 
-![AppExchange partner program artwork used for the trial sandbox announcement.](salesforce-appexchange-654f2875a8.png)
+{{< img-caption src="salesforce-appexchange-654f2875a8.png" alt="AppExchange partner program artwork used for the trial sandbox announcement." >}}
 
 > B2C Commerce independent software vendor (ISV) partners can now get a trial sandbox environment within minutes of joining the AppExchange Partner program. ISV partner prospects can opt in for a 90-day trial sandbox when they register on the Partner Recruitment page. After their information is submitted, a trial sandbox is automatically provisioned, and the ISV partner receives an email with their sandbox credentials.
 
@@ -62,7 +62,7 @@ Before this 23.3 release, customer support had to be contacted to enable the Sho
 
 ### SLAS Admin UI Update
 
-![SLAS Admin UI updated in the 23.3 release.](slas-admin-ui-1dc5370339.jpg)
+{{< img-caption src="slas-admin-ui-1dc5370339.jpg" alt="SLAS Admin UI updated in the 23.3 release." >}}
 
 The [SLAS admin UI](https://developer.salesforce.com/docs/commerce/commerce-api/guide/slas.html) has gotten a bit of love this month, and reported bugs have been worked on a resolved! _I cannot comment on which ones were addressed, but we reported a fair few ones that got resolved in this update!_
 

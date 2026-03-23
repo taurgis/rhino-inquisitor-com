@@ -64,7 +64,11 @@ That wait time directly murders your Time to First Byte (TTFB). Salesforce has p
 
 ### The Self-Inflicted Denial of Service
 
-![A cartoon infographic illustrating "The Self-Inflicted Denial of Service." On the left, users on an "SFCC Storefront" cloud generate "API Calls" and "Users" traffic towards a central server labeled "Legacy External Inventory System (ERP)." This server is being hammered by many hammers, is cracking, and emits smoke, with a "504 Gateway Timeout" error. Below it, a "Circuit Breaker Tripped" warning is shown. On the right, this leads to a "Cascading Failure" of a physical store building, which is crumbling with signs that read "Quota Exceeded," "Blocked Functionality," and a banner stating "Grinding Halt." A "0:10 Sec Timeout" timer is in the bottom left.](self-inflicted-dos-f3485c24ab.png)
+{{< img-caption 
+  src="self-inflicted-dos-f3485c24ab.png"
+  alt="Cartoon infographic showing SFCC storefront generating API calls that hammer a legacy ERP system, causing cascading failure with 504 Gateway Timeout"
+  caption="Naive real-time inventory checks can overload the very systems they depend on."
+>}}
 
 This cartoon illustrates how high traffic on an e-commerce storefront (SFCC) can overload a legacy backend system, creating a "self-inflicted denial of service." The resulting timeouts and failures cascade, ultimately bringing the entire online store to a grinding halt.
 
@@ -84,7 +88,11 @@ This knowledge unlocks more intelligent strategies. You're not just caching data
 
 ## The Pragmatist's Playbook: The Hybrid Threshold Model
 
-![An infographic illustrating the Hybrid Inventory Threshold Model. A bar graph shows that for 'High Stock' levels, efficient cached checks are used, while for 'Low Stock Threshold' levels, real-time API calls are made.](inventory-threshold-model-dfa3d5bd0f.jpeg)
+{{< img-caption 
+  src="inventory-threshold-model-dfa3d5bd0f.jpeg"
+  alt="Bar graph showing inventory threshold model with high stock using cached checks and low stock triggering real-time API calls"
+  caption="A threshold model balances fast answers with selective real-time verification."
+>}}
 
 The playbook is simple and pragmatic. Above the threshold, you serve a cached 'in-stock' status for maximum speed. Once an item drops below that critical line, you switch tactics to precise, real-time API calls. This balances performance with accuracy.
 
@@ -170,9 +178,11 @@ A custom solution only makes sense in the rarest of cases. For the vast majority
 
 ## Your Architectural Mandate
 
-![Infographic titled 'Your Architectural Mandate: Choosing the Right Inventory Strategy,' showing three tiers of inventory strategy with corresponding mandates for SFCC-only, pragmatic omnichannel, and Salesforce-centric enterprises.](the-inventory-architectural-decision-fc1b43abe0.png)
-
-This infographic details the architectural mandates for different stages of omnichannel maturity, from the SFCC-only purist to the Salesforce-centric enterp
+{{< img-caption 
+  src="the-inventory-architectural-decision-fc1b43abe0.png"
+  alt="Decision tree showing three inventory strategy tiers for SFCC-only, pragmatic omnichannel, and Salesforce-centric enterprises"
+  caption="Inventory strategy should match the retailer's omnichannel maturity, not wishful thinking."
+>}}
 
 The right inventory strategy is a direct reflection of your business's omnichannel maturity. There is no one-size-fits-all answer, only a series of strategic trade-offs. Here is your mandate, based on your profile.
 

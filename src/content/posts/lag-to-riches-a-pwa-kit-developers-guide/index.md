@@ -70,9 +70,11 @@ Lighthouse is the tool that helps you get there.
 
 ### The Big Three: LCP, INP, and CLS Explained
 
-[![Three-panel illustration of Slow LCP, High INP, and High CLS problems.](core-web-vitals-visualised-e1750704059141-9cbbc8c421.jpg)](core-web-vitals-visualised-e1750704059141-9cbbc8c421.jpg)
-
-A visual guide to Core Web Vital problems: How poor LCP, INP, and CLS create a frustrating user experience.
+{{< img-caption 
+  src="core-web-vitals-visualised-e1750704059141-9cbbc8c421.jpg"
+  alt="Three-panel illustration showing Slow LCP with blank screen, High INP with frozen controls, High CLS with jumping content"
+  caption="A visual guide to Core Web Vital problems: How poor LCP, INP, and CLS create a frustrating user experience."
+>}}
 
 Core Web Vitals are the metrics that matter most. They measure three key aspects of user experience: loading, interactivity, and visual stability.
 
@@ -100,9 +102,11 @@ The Salesforce PWA Kit is engineered for speed, but its modern architecture crea
 
 ### The First Impression: Server-Side Rendering (SSR) to the Rescue
 
-[![A vibrant, two-panel cartoon comparing web rendering methods. The top panel, 'Client-Side Rendering,' shows a stressed user buried in parts from a 'JavaScript Bundle' box. The bottom panel, 'Server-Side Rendering,' shows a happy user cheering as a heroic robot serves them a complete, glowing webpage on a platter.](server-side-rendering-client-side-e72f226d1b.jpg)](server-side-rendering-client-side-e72f226d1b.jpg)
-
-From frustrating assembly to instant delight: The power of Server-Side Rendering.
+{{< img-caption 
+  src="server-side-rendering-client-side-e72f226d1b.jpg"
+  alt="Two-panel cartoon: stressed user assembling JavaScript on left, happy user receiving complete webpage from heroic robot on right"
+  caption="SSR improves perceived speed by delivering useful HTML before the whole app hydrates."
+>}}
 
 When a user first lands on your site, the PWA Kit uses Server-Side Rendering (SSR) to make a great first impression. Here's the play-by-play:
 
@@ -139,9 +143,11 @@ Every PWA Kit developer will eventually face these common performance villains. 
 - **Poorly Built Custom Components:** A single custom React component that isn't optimised for performance can significantly impact your INP. This typically occurs through expensive calculations on every render or by triggering a chain reaction of unnecessary re-renders in its children.
 - **Messed-Up Caching:** The MRT's CDN is powerful, but it's not magic. If you don't set your Cache-Control headers correctly, fail to filter out unnecessary query parameters, or misconfigure your [API](https://developer.salesforce.com/docs/commerce/commerce-api/guide/server-side-web-tier-caching.html) proxies, you'll experience a poor cache-hit ratio, and all the benefits of Server-Side Rendering (SSR) will be lost.
 
-[![A colorful cartoon of a chaotic factory illustrating four web performance bottlenecks. The bottlenecks shown are: a giant truck labeled 'Large Bundle Size' blocking the entrance, many small pipes labeled 'Network Waterfalls' slowly filling a tank, a complex machine for a simple task labeled 'Re-render Storms', and workers slipping on puddles labeled 'Memory Leaks'.](spa-performance-bottlenecks-6d6a3a6a62.jpeg)](spa-performance-bottlenecks-6d6a3a6a62.jpeg)
-
-Inside a struggling SPA: A visual guide to common performance bottlenecks.
+{{< img-caption 
+  src="spa-performance-bottlenecks-6d6a3a6a62.jpeg"
+  alt="Cartoon factory scene showing four performance bottlenecks: large truck blocking entrance, pipes slowly filling tank, complex machine for simple task, workers slipping on puddles"
+  caption="Large bundles and client-side churn are the usual reasons a PWA feels slow."
+>}}
 
 ## Step 3: The Performance Playbook - Your Guide to a Faster Storefront
 
@@ -194,9 +200,11 @@ Proxy Caching Caching proxies aren’t suitable for use with the B2C Commerce AP
 
 ### Tame the Third-Party Script Beast
 
-[![A cartoon developer is taming a large 'beast' made of code and tangled wires. The developer is putting a collar labeled 'async' and holding a leash labeled 'defer' on the beast, while corralling other parts of it towards a pen labeled 'Lazy Load Zone'.](taming-the-third-party-script-beast-8cac515268.jpeg)](taming-the-third-party-script-beast-8cac515268.jpeg)
-
-Taming the Third-Party Script Beast: A visual guide to managing external scripts for better web performance.
+{{< img-caption
+  src="taming-the-third-party-script-beast-8cac515268.jpeg"
+  alt="A cartoon developer is taming a large 'beast' made of code and tangled wires. The developer is putting a collar labeled 'async' and holding a leash labeled 'defer' on the beast, while corralling other parts of it towards a pen labeled 'Lazy Load Zone'."
+  caption="Taming the Third-Party Script Beast: A visual guide to managing external scripts for better web performance."
+>}}
 
 Third-party scripts are performance killers. You need to control them.
 

@@ -29,7 +29,7 @@ The path may be challenging, but trust us, the end result will be worth it. Plus
 
 ## Get to know the platform
 
-![A private investigator looking through books, reading about Salesforce Commerce Cloud development](wading-through-the-sfcc-documentation-20db11f9d3.jpg)
+{{< img-caption src="wading-through-the-sfcc-documentation-20db11f9d3.jpg" alt="A private investigator looking through books, reading about Salesforce Commerce Cloud development" >}}
 
 Alright, before you dive into the fun stuff (coding, building, and creating), it's important to first get to know the Salesforce B2C Commerce Cloud platform like the back of your hand. Think of it like a blind date - you wouldn't want to show up unprepared, would you?
 
@@ -49,7 +49,7 @@ _**A word of warning**: If you are not part of a partner or customer company, ge
 
 ## Get started
 
-![A diver looking at code below the water. The code is illegible, but represents diving into SFCC development.](diving-into-sfcc-development-4a0ef8622e.jpg)
+{{< img-caption src="diving-into-sfcc-development-4a0ef8622e.jpg" alt="A diver looking at code below the water. The code is illegible, but represents diving into SFCC development." >}}
 
 Now that you've got your Sandbox set up, it's time to dive into the fun part: coding! Depending on your situation and experience, the journey to becoming a Salesforce B2C Commerce Cloud pro may vary. But don't worry; plenty of resources are available to help you along the way.
 

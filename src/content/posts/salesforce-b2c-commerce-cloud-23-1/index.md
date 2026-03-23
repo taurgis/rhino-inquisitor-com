@@ -73,13 +73,9 @@ To create an order from a previous order, use the _[SalesforcePaymentsMgr](https
 
 A new option for us to configure the max-age ourselves for the [HSTS](https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security) setting. We could already do this in the eCDN, but now we can also do this in instances without it.
 
-![HSTS max-age setting shown in the eCDN interface.](hsts-812238f9bc.jpg)
+{{< img-caption src="hsts-812238f9bc.jpg" alt="HSTS max-age setting shown in the eCDN interface." caption="HSTS in the eCDN" >}}
 
-HSTS in the eCDN
-
-![HSTS max-age setting shown in Business Manager.](hsts-business-manager-sfcc-95dbd0264e.jpg)
-
-HSTS in the Business Manager
+{{< img-caption src="hsts-business-manager-sfcc-95dbd0264e.jpg" alt="HSTS max-age setting shown in Business Manager." caption="HSTS in the Business Manager" >}}
 
 Use with care When enabling HSTS to include subdomains, ensure that all subdomains support HSTS (also internal-only applications)!
 

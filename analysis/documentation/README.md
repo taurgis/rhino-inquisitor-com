@@ -17,6 +17,7 @@ This directory holds structured analysis documentation for the migration project
 | `analysis/documentation/phase-6/` | Phase 6 bootstrap, redirect governance, and URL-preservation readiness docs |
 | `analysis/documentation/phase-7/` | Phase 7 deployment workflow, cutover-readiness, and validation docs |
 | `analysis/documentation/phase-8/` | Phase 8 validation, audit, and launch-readiness docs |
+| `analysis/documentation/phase-9/` | Phase 9 stabilization, post-cutover execution, and closeout docs |
 
 ## Placement Rules
 
@@ -42,6 +43,16 @@ This directory holds structured analysis documentation for the migration project
 - [Phase 6 docs](phase-6/)
 - [Phase 7 docs](phase-7/)
 - [Phase 8 docs](phase-8/)
+- [Phase 9 docs](phase-9/)
+- [Phase 9 caption quality rule update](phase-9/RHI-094-caption-quality-rule-update-2026-03-23.md)
+- [Phase 9 caption nearby-text QA](phase-9/RHI-094-caption-nearby-text-recheck-qa-2026-03-23.md)
+- [Phase 9 caption reviewed exception allowlist](phase-9/RHI-094-caption-reviewed-exception-allowlist-2026-03-23.md)
+- [Phase 9 caption recheck closeout summary](phase-9/RHI-094-img-caption-recheck-closeout-batches-5-8-2026-03-23.md)
+- [Phase 9 batch 5 caption recheck](phase-9/RHI-094-img-caption-batch-5-recheck-2026-03-23.md)
+- [Phase 9 batch 6 caption recheck](phase-9/RHI-094-img-caption-batch-6-recheck-2026-03-23.md)
+- [Phase 9 batch 7 caption recheck](phase-9/RHI-094-img-caption-batch-7-recheck-2026-03-23.md)
+- [Phase 9 batch 8 caption recheck](phase-9/RHI-094-img-caption-batch-8-recheck-2026-03-23.md)
+- [Phase 9 Hugo crash and HOLD drift remediation](phase-9/RHI-094-hugo-crash-and-hold-drift-remediation-2026-03-23.md)
 
 ## Naming Conventions
 

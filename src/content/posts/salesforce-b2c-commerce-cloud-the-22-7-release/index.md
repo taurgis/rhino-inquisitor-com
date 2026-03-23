@@ -26,9 +26,7 @@ Are you interested in last month’s release notes? [Click here](/salesforce-b2c
 
 ## Social Commerce
 
-[![Social commerce artwork introducing the 22.7 release theme.](social-commerce-salesforce-a88048dff4.jpg)](social-commerce-salesforce-a88048dff4.jpg)
-
-Forward-looking statements apply!
+{{< img-caption src="social-commerce-salesforce-a88048dff4.jpg" alt="Social commerce artwork introducing the 22.7 release theme." caption="Forward-looking statements apply!" >}}
 
 During the [Connections '22](/get-connected-at-salesforce-connections-2022/) event, it became apparent a more significant focus has been put on Social Commerce!
 

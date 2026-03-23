@@ -81,7 +81,11 @@ Just read all of the available documentation, and you should be good to go:
 
 ## Trailhead Academy
 
-![Trailhead Academy branding for the paid sandbox training option.](trailhead-academy-77b0322d57.jpeg)
+{{< img-caption 
+  src="trailhead-academy-77b0322d57.jpeg"
+  alt="Trailhead Academy branding for the paid sandbox training option."
+  caption="Figure 1: Trailhead Academy branding for the paid sandbox training option"
+>}}
 
 If all else above is unavailable to you and no sandbox is within your reach, a paid training course is the final option with [Trailhead Academy](https://trailheadacademy.salesforce.com/overview).
 

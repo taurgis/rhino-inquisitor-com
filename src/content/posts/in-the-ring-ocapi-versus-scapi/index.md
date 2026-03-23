@@ -80,7 +80,11 @@ Oh my ... things aren't looking proper for the OCAPI.
 
 ## Infrastructure
 
-[![The Composable Storefront architecture](composable-storefront-architecture-54fe68c81a.jpg)](composable-storefront-architecture-54fe68c81a.jpg)
+{{< img-caption 
+  src="composable-storefront-architecture-54fe68c81a.jpg"
+  alt="The Composable Storefront architecture"
+  caption="Figure 1: The Composable Storefront architecture"
+>}}
 
 The architectural setups of the OCAPI and SCAPI options are entirely different.
 

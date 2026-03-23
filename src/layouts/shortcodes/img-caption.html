@@ -1,0 +1,51 @@
+{{- /*
+  Shortcode: img-caption
+  Renders a semantic figure/figcaption block with stable, non-processed image output
+  
+  WCAG 2.1 Level AAA compliant accessible image captions
+  
+  Usage:
+    {{< img-caption 
+      src="diagram.jpg"
+      alt="System architecture diagram showing three layers"
+      caption="Figure 1: Three-tier inventory system with cache layer"
+    >}}
+    
+  Parameters:
+    - src:      Image path (relative or absolute URL) — REQUIRED
+    - alt:      Descriptive alt text for accessibility — REQUIRED
+    - caption:  Visible figcaption text — OPTIONAL
+    - loading:  "eager" or "lazy" (default: lazy)
+*/ -}}
+
+{{- $src := .Get "src" -}}
+{{- $alt := .Get "alt" -}}
+{{- $caption := .Get "caption" -}}
+{{- $captionText := "" -}}
+{{- with $caption -}}
+  {{- $captionText = transform.HTMLUnescape . -}}
+{{- end -}}
+{{- $loading := .Get "loading" | default "lazy" -}}
+
+{{- if not $src -}}
+  {{- errorf "img-caption shortcode requires 'src' parameter" -}}
+{{- end -}}
+
+{{- if not $alt -}}
+  {{- errorf "img-caption shortcode requires 'alt' parameter for accessibility" -}}
+{{- end -}}
+
+{{- /* Reuse media/image.html partial without image processing to keep large migrations build-stable. */ -}}
+<figure class="article-figure">
+  {{ partial "media/image.html" (dict
+    "page" .Page
+    "src" $src
+    "alt" $alt
+    "loading" $loading
+    "process" false
+    "class" "article-figure__img"
+  ) }}
+  {{- if $caption -}}
+    <figcaption class="article-figure__caption">{{ $captionText }}</figcaption>
+  {{- end -}}
+</figure>

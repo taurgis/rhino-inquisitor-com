@@ -27,9 +27,7 @@ Looking at my habits, she asked why I had yet to switch wives. (**_Note_:** I am
 
 ## Smart Home
 
-![Nanoleaf wall panels configured to display the day's weather for the kids.](img-7215-47b9f2d828.jpeg)
-
-I can now display the day's weather to the kids in an entertaining way!
+{{< img-caption src="img-7215-47b9f2d828.jpeg" alt="Nanoleaf wall panels configured to display the day's weather for the kids." caption="Nanoleaf wall panels configured to display the day's weather for the kids." >}}
 
 Four months ago, one of those switches happened. I dove back into Home Automation, which I looked into a few years back during Corona. Still, I did something different: Blogging about Salesforce Commerce Cloud. But the itch didn't go away and has risen again. If you were someone who looked at my GitHub, you might have noticed a new repository popping up a while ago: [https://github.com/taurgis/homebridge-iRobot-v2](https://github.com/taurgis/homebridge-iRobot-v2).
 
@@ -54,9 +52,7 @@ Maybe this is a reminder for some people:
 
 {{< local-video src="fastforward-business-manager-accelerator.mov" title="FastForward Business Manager Accelerator demo recording" >}}
 
-![FastForward Business Manager Accelerator Storybook interface.](fastforward-storybook-7ad70ee20d.jpg)
-
-The storybook documentation.
+{{< img-caption src="fastforward-storybook-7ad70ee20d.jpg" alt="FastForward Business Manager Accelerator Storybook interface." caption="FastForward Business Manager Accelerator Storybook interface." >}}
 
 ## Kids getting older
 

@@ -45,7 +45,7 @@ If an account becomes compromised, especially Account Managers, someone can get 
 
 ### 2FA (Two-Factor-Authentication)
 
-![Account Manager multi-factor authentication setup screen.](mfa-1-6649345f2c.jpg)
+{{< img-caption src="mfa-1-6649345f2c.jpg" alt="Account Manager multi-factor authentication setup screen." caption="Account Manager multi-factor authentication setup screen." >}}
 
 With Account Manager, it is possible to add 2FA to your account to secure it. Even if someone manages to figure out your account password, they still need to be able to provide the secondary authentication method.
 

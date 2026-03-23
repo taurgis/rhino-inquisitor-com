@@ -101,7 +101,7 @@ The [documentation](https://developer.salesforce.com/docs/commerce/b2c-commerce/
 
 ## The Party Line: API HTTPClient Calls Per Page (16 Limit)
 
-![A cartoon illustration of frustrated developers crowded around a single, old-fashioned telephone, with a sign above it that reads "16 API Calls Per Page," symbolizing a resource bottleneck.](the-api-party-line-53588b75f5.jpeg)
+{{< img-caption src="the-api-party-line-53588b75f5.jpeg" alt="Cartoon of frustrated developers crowded around a party-line telephone labeled '16 API Calls Per Page.'" caption="The HTTPClient limit pushes teams toward aggregation, caching, and feed-based integrations." >}}
 
 Remember old party lines? B2C Commerce's HTTPClient is similar. You only get 16 external API calls per request. If too many services try to "talk" at once, your page will throw an error. Plan your integrations wisely!
 
@@ -152,7 +152,7 @@ This limit of 16 calls is more than just a technical constraint; it is a powerfu
 
 ## The Unfurled Scroll: ISML Template Size (10MB Limit)
 
-![A flat cartoon illustration showing a worried developer looking at a massive, unfurling scroll that represents an ISML template, with a prominent "10MB" warning sign indicating the file size limit.](isml-10-mb-limit-00017e3dfb.jpeg)
+{{< img-caption src="isml-10-mb-limit-00017e3dfb.jpeg" alt="Cartoon of a worried developer beside a giant unfurling scroll representing a bloated ISML template with a 10 MB warning sign." caption="Crossing the 10 MB ISML limit breaks the page and forces better pagination and template discipline." >}}
 
 Like an ancient, endless scroll, an ISML template can grow beyond its bounds. Keep an eye on that 10MB file size limit, or your beautifully crafted template might just refuse to render, leaving you with nothing but a blank page.
 
@@ -220,7 +220,7 @@ Like an ancient, endless scroll, an ISML template can grow beyond its bounds. Ke
 
 Transitioning to a headless architecture with the PWA Kit and the Salesforce Commerce API (SCAPI) represents a fundamental paradigm shift. The performance battleground moves away from the server-side rendering of ISML templates and into the realm of API response times, network latency, and the efficiency of the client-side JavaScript application. In this world, the browser is no longer a thin client rendering HTML; it is a rich application responsible for its own state management, routing, and data fetching. The quotas and limits that matter most are less about single, monolithic server requests and more about the rate, size, and efficiency of the constant communication between the client and a constellation of API endpoints.
 
-![A cartoon astronaut developer floating in digital space and interacting with a detached user interface, representing the concept of headless commerce. The background features constellations of API icons.](the-headless-frontier-ae21ed3f28.jpeg)
+{{< img-caption src="the-headless-frontier-ae21ed3f28.jpeg" alt="Cartoon astronaut developer in digital space interacting with a headless UI, surrounded by API icons." caption="In headless builds, performance shifts from ISML rendering to API, network, and client-state costs." >}}
 
 Welcome to the headless frontier. Here, developers are like astronauts, decoupling the front-end "head" to explore new user experiences, all powered by a universe of back-end APIs and services.
 

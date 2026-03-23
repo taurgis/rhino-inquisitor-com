@@ -32,7 +32,7 @@ Let us start with a little bit of history. Salesforce Commerce Cloud B2C didn't 
 
 It is no secret that Salesforce is known for buying companies to take under its wing, and Demandware was no different. A bit of rebranding later, and "boom," it's Salesforce!
 
-![The older Demandware logo, from before the acquisition of Salesforce.](demandware-296437f0e6.jpg)
+{{< img-caption src="demandware-296437f0e6.jpg" alt="The older Demandware logo, from before the acquisition of Salesforce." caption="The old Demandware branding is a reminder that this community grew up under a different identity." >}}
 
 ## A big Difference in Ohana
 
@@ -42,11 +42,11 @@ Note: This is a "personal feeling" pie chart as I did not use any scientific met
 
 ### Core Platform
 
-[![A pie chart showing the different places people use to communicate within Ohana for the Core platform.](ohana-core-7b4cd9574d.png)](ohana-core-7b4cd9574d.png)
+[{{< img-caption src="ohana-core-7b4cd9574d.png" alt="A pie chart showing the different places people use to communicate within Ohana for the Core platform." caption="For the core platform, community conversations are spread across more official Salesforce channels." >}}](ohana-core-7b4cd9574d.png)
 
 ### SFCC
 
-[![A pie chart showing the different places people use to communicate within Ohana for the SFCC platform.](ohana-sfcc-1d03fd0cb0.png)](ohana-sfcc-1d03fd0cb0.png)
+[{{< img-caption src="ohana-sfcc-1d03fd0cb0.png" alt="A pie chart showing the different places people use to communicate within Ohana for the SFCC platform." caption="SFCC conversation still leans heavily on a smaller set of community-driven spaces." >}}](ohana-sfcc-1d03fd0cb0.png)
 
 Looking at the above charts, it is pretty clear that there is a significant difference in the way people ask questions and communicate within the #Ohana.
 
@@ -75,7 +75,7 @@ But is it also so surprising? The B2C community is also more isolated and not by
 
 The first community within Demandware / SFCC is undoubtedly the Xchange, discontinued and all of its histories erased! It has left many people annoyed as it contained a vast amount of knowledge that people were willing to share with their peers.
 
-![Account Manager roles and permissions page still listing the old Xchange integration.](xchange-c2290f06af.png)
+{{< img-caption src="xchange-c2290f06af.png" alt="Account Manager roles and permissions page still listing the old Xchange integration." caption="XChange lingering in the UI shows how much old community history is still baked into the platform." >}}
 
 I found this community (even though it was not as active as the Trailblazer Community is) a beneficial tool to find my way in the world of Salesforce Commerce Cloud. I still find myself assigning the role to every account in Account Manager in nostalgia, even though it does not do anything anymore.
 
@@ -91,7 +91,7 @@ Daily, people are asking questions, but not many people are answering (besides p
 
 ### Salesforce Developer Portal
 
-![The logo of the Trailblazer Community Groups](community-groups-de4eab826c.jpg)
+{{< img-caption src="community-groups-de4eab826c.jpg" alt="The logo of the Trailblazer Community Groups" caption="Trailblazer Community Groups were the obvious next place for SFCC people to meet in public." >}}
 
 And this year (2022), all of that information is [moving again](https://developer.commercecloud.com/s/salesforce-developer-center)! The Commerce Cloud Developer Site did not live a long life, but that might be for the best as it had its issues.
 
@@ -111,7 +111,7 @@ In the past year, many people of the mothership have joined in as well—a big s
 
 All I want to say to the Slack community is
 
-![A drawing of Salesforce mascots waving with a "Thank You" message.](thank-you-trailblazers-aae5cae7b7.jpg)
+{{< img-caption src="thank-you-trailblazers-aae5cae7b7.jpg" alt="A drawing of Salesforce mascots waving with a &quot;Thank You&quot; message." caption="The point is simple: this community works because people keep showing up for each other." >}}
 
 ## **Join the Slack Community**
 

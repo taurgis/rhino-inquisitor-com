@@ -52,9 +52,7 @@ More platform governance is in place, but some are not documented. Over the year
 
 ## What does "enforced" mean
 
-![Quota Status screen showing an enforced quota in Business Manager.](sfcc-enforced-quota-a495bb4270.jpg)
-
-Quota Status in Business Manager
+{{< img-caption src="sfcc-enforced-quota-a495bb4270.jpg" alt="Quota Status screen showing an enforced quota in Business Manager." caption="Quota Status in Business Manager" >}}
 
 Enforced quotas will throw an unrecoverable exception if you hit them.
 
@@ -76,7 +74,7 @@ Notice the word "**internal".** These are unenforced quotas that Salesforce uses
 
 ## But why
 
-![Illustration reacting to the frustration of hitting a platform quota.](but-why-91f791a77c.jpg)
+{{< img-caption src="but-why-91f791a77c.jpg" alt="Illustration reacting to the frustration of hitting a platform quota." >}}
 
 Those who have run into these "limits" have probably already asked themselves this question. Why is this quota here? Why wasn't it just one higher? Why do I have to work three days longer on this ticket because I ran into it?
 
@@ -122,7 +120,7 @@ The Business Manager has a monitoring page, which will give you the total overvi
 
 "Administration > Operations > Quota Status"
 
-[![Quota alert subscription settings in Business Manager.](sfcc-quota-alerts-7f9e795d58.jpg)](sfcc-quota-alerts-7f9e795d58.jpg)
+{{< img-caption src="sfcc-quota-alerts-7f9e795d58.jpg" alt="Quota alert subscription settings in Business Manager." >}}
 
 Subscribe It is highly recommended to subscribe with multiple people to these alerts. Remember to do this in various environments, not just Production!
 
@@ -172,7 +170,7 @@ In a lot of cases, this is enough. But you could get in trouble if you work with
 
 ### Garbage Collection
 
-![Duke mascot illustration used to introduce garbage collection.](duke-cleaning-up-garbage-7e114dc018.jpg)
+{{< img-caption src="duke-cleaning-up-garbage-7e114dc018.jpg" alt="Duke mascot illustration used to introduce garbage collection." >}}
 
 An important thing to keep in mind is that Salesforce B2C Commerce Cloud runs on Java. And an essential part of Java is its [garbage collection](https://www.oracle.com/webfolder/technetwork/tutorials/obe/java/gc01/index.html) process.
 
@@ -251,6 +249,6 @@ This is [documented](https://help.salesforce.com/s/articleView?language=en_US&id
 
 ### Parallel OCAPI Requests
 
-![Slack note documenting the per-session OCAPI parallel-request limit.](img-0054-72b5b079a0.jpeg)
+{{< img-caption src="img-0054-72b5b079a0.jpeg" alt="Slack note documenting the per-session OCAPI parallel-request limit." >}}
 
 Although there is no rate limit in place on the OCAPI, there is a limit on how many parallel requests one can make.

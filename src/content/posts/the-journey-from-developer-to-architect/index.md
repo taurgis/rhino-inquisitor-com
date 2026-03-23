@@ -25,7 +25,7 @@ So you want to be an [architect](/what-skills-do-i-need-as-a-sfcc-architect/), d
 
 ## What is an architect
 
-![The Salesforce Architect Shirtforce shirt](salesforce-architect-65b8ca1808.jpg)
+{{< img-caption src="salesforce-architect-65b8ca1808.jpg" alt="Salesforce Architect branded t-shirt from the Shirtforce community store." caption="The Salesforce Architect Shirtforce shirt is where career milestone meets community identity—a badge of the role you can wear quite literally." >}}
 
 But first things first, let us define what an architect is before we go any further.
 
@@ -35,7 +35,7 @@ Let us first dig into the different types of architects. Do you look surprised? 
 
 ### Solution Architect
 
-![Illustration introducing the Solution Architect role.](solution-architect-4a4b8fdff7.jpg)
+{{< img-caption src="solution-architect-4a4b8fdff7.jpg" alt="Illustration introducing the Solution Architect role." caption="Solution Architects translate business challenges into product and service recommendations, drawing on a broad view of Salesforce offerings and third-party options to answer each question." >}}
 
 If we have to define a Solution Architect in a few sentences, it would be to evaluate all business requirements and develop the best solutions by proposing products and services. Solution Architects are given a business challenge/problem and are tasked with coming up with the answers to these questions.
 
@@ -55,7 +55,7 @@ I could write an elaborate article on this, but I will forward you [an excellent
 
 ### Technical Architect
 
-![Illustration introducing the Technical Architect role in Salesforce.](salesforce-technical-architect-01186ac1bd.jpg)
+{{< img-caption src="salesforce-technical-architect-01186ac1bd.jpg" alt="Illustration introducing the Technical Architect role in Salesforce." caption="Technical Architects go deep in one platform domain and own its hard engineering decisions." >}}
 
 The final one in this list is the Technical Architect, the most specialised one. This type of architect will take a single part or implementation of the big puzzle and focus on that. They will focus on this domain and gain in-depth knowledge that the Enterprise and Solution Architect lacks.
 
@@ -83,7 +83,7 @@ And that is something you need to prepare yourself for. You will handle the theo
 
 ### Meetings
 
-![A group of people in a meeting room, conversing with a group of people online.](meetings-c1c58511a8.jpg)
+{{< img-caption src="meetings-c1c58511a8.jpg" alt="A group of people in a meeting room, conversing with a group of people online." caption="Architect roles trade coding time for requirements, alignment, and decision-making across teams." >}}
 
 One of the reasons you will be doing less development is because you will be in many more meetings than before. You will be gathering requirements from a client, internal discussions about architecture, follow-up meetings to answer questions you still have and many more reasons to have meetings.
 

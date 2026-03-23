@@ -38,7 +38,7 @@ Salesforce (well ... the [Mobify](https://www.digitalcommerce360.com/2020/09/09/
 
 ## Transferrable Skills
 
-![Illustration of a game controller and brain symbolizing transferable developer knowledge.](use-your-knowledge-98ac47c97d.jpg)
+{{< img-caption src="use-your-knowledge-98ac47c97d.jpg" alt="Illustration of a game controller and brain symbolizing transferable developer knowledge." caption="Skills built on SiteGenesis and SFRA — catalog, pricing, promotions, OCAPI — remain fully relevant in the Composable Storefront." >}}
 
 ### Development (Duh...)
 
@@ -62,7 +62,7 @@ For example, understanding the importance of accessibility, SEO, and performance
 
 ### Commerce Cloud
 
-![A person walking towards an office building with a Salesforce like logo and "Commerce Cloud" written above the entrance.](commerce-cloud-as-a-building-16b551ef15.jpg)
+{{< img-caption src="commerce-cloud-as-a-building-16b551ef15.jpg" alt="A person walking towards an office building with a Salesforce like logo and &quot;Commerce Cloud&quot; written above the entrance." caption="B2C Commerce Cloud is still the back-end engine: the Composable Storefront changes the front door, not the foundation." >}}
 
 A deep [understanding](/the-b2c-commerce-architect-certification/) of how Commerce Cloud functions in online and offline environments is vital. Furthermore, proficiency in utilising the platform is equally essential to succeed.
 
@@ -76,7 +76,7 @@ Here are some articles that might come in handy:
 
 ## Where to get started
 
-![Books with documentation scattered on multiple piles, falling over.](documents-on-multiple-locations-5bb9c96f2b.jpg)
+{{< img-caption src="documents-on-multiple-locations-5bb9c96f2b.jpg" alt="Books with documentation scattered on multiple piles, falling over." caption="Getting started with PWA Kit requires navigating docs spread across Salesforce Help, developer.salesforce.com, and GitHub." >}}
 
 If you're a regular reader of my articles, you probably know by now that I'm not a fan of reinventing the wheel or regurgitating something already done. I like to keep things fresh, like a smoothie made with the season's best fruits.
 

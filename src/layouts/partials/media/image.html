@@ -29,6 +29,7 @@
 {{- $style := .style | default "" -}}
 {{- $sizes := .sizes | default "" -}}
 {{- $responsive := .responsive | default false -}}
+{{- $shouldProcess := .process | default true -}}
 {{- $quality := .quality | default 80 -}}
 {{- $maxWidth := .maxWidth | default 0 -}}
 {{- $responsiveWidths := .responsiveWidths | default (slice 768 1280) -}}
@@ -51,7 +52,7 @@
 {{- $height := .height | default 0 -}}
 {{- $srcset := "" -}}
 
-{{- if and $resource (reflect.IsImageResourceProcessable $resource) -}}
+{{- if and $resource $shouldProcess (reflect.IsImageResourceProcessable $resource) -}}
   {{- $processSpec := printf "webp q%d" $quality -}}
   {{- $processed := $resource.Process $processSpec -}}
   {{- if and (gt $maxWidth 0) (gt $processed.Width $maxWidth) -}}

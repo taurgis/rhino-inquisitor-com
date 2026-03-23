@@ -69,7 +69,7 @@ var requestBodyJson = JSON.parse(requestBody);
 
 ## Handling Errors
 
-![Border API security check result shown before the request-body error-handling example.](security-check-border-api-security-5695d3d810.jpg)
+{{< img-caption src="security-check-border-api-security-5695d3d810.jpg" alt="Border API security check result shown before the request-body error-handling example." caption="Border API security check result shown before the request-body error-handling example." >}}
 
 When working with data being submitted to the server, handling any errors that might occur, such as malformed JSON or an invalid request, is essential. You can use a try-catch block to catch any exception thrown during the processing of the request body. Here's a basic example of how to handle errors:
 

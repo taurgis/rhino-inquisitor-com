@@ -28,7 +28,7 @@ Knowledge of vanilla JavaScript is essential. There are a lot of free courses fo
 
 ## Broaden your "JavaScript" horizons
 
-![Superbadge prerequisites shown for the JavaScript Developer I certification path.](superbadge-prerequisites-34c7470102.png)
+{{< img-caption src="superbadge-prerequisites-34c7470102.png" alt="Superbadge prerequisites shown for the JavaScript Developer I certification path." caption="Superbadge prerequisites shown for the JavaScript Developer I certification path." >}}
 
 You must be prepared to dig into the Salesforce platform when interested in this certification. It wasn't explicitly designed for Salesforce B2C Commerce developers, but for [Lightning Web Component](https://developer.salesforce.com/docs/component-library/documentation/lwc) developers on the force.com platform. And you can't get it by just doing the certification exam on [Webassessor](https://www.webassessor.com/). You also need to complete a [Superbadge](https://trailhead.salesforce.com/en/content/learn/superbadges/superbadge_lwc_specialist), which does not have a strict timeline.
 
@@ -36,7 +36,7 @@ You must be prepared to dig into the Salesforce platform when interested in this
 
 ## No Salesforce CRM experience
 
-![A group of Salesforce Mascots at a Salesforce event. Are they JavaScript Certified, I wonder?](mascots-statues-4150ee8fae.jpg)
+{{< img-caption src="mascots-statues-4150ee8fae.jpg" alt="A group of Salesforce Mascots at a Salesforce event. Are they JavaScript Certified, I wonder?" caption="A group of Salesforce Mascots at a Salesforce event. Are they JavaScript Certified, I wonder?" >}}
 
 No worries, It's not rocket science! You will spend some time getting this [Superbadge](https://trailhead.salesforce.com/en/content/learn/superbadges/superbadge_lwc_specialist), but see it as a way to discover other opportunities within the Salesforce ecosystem. Looking at what has happened for the past years, it is clear that some knowledge of other Salesforce products will get you a long way. More and more "tight" integrations are working their way into the Salesforce B2C Commerce Cloud world. Look at the Salesforce OMS (Order Management System), which has a productised connection. It is also why [OCI](https://developer.salesforce.com/docs/commerce/commerce-api/references?meta=inventory-availability:Summary) (Omnichannel Inventory) has made its way into SFCC, being part of the license. More and more projects are also integrating with Service and Sales Cloud (though not through a productised connection).
 

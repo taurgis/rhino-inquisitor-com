@@ -51,7 +51,7 @@ Using this service, you can keep a session alive across different touchpoints. A
 
 Come into play the "Session Bridge!" The mobile application, before being redirected, exchanges its JWT token for a valid cookie and sets it before pushing the customer to the site. Result: Happy customer (hopefully 😊)!
 
-[![Mobile app session bridging flow that transfers a shopper into the storefront.](session-bridge-mobile-app-v3-scaled-93e60b2f4b.jpeg)](session-bridge-mobile-app-v3-scaled-93e60b2f4b.jpeg)
+{{< img-caption src="session-bridge-mobile-app-v3-scaled-93e60b2f4b.jpeg" alt="Mobile app session bridging flow that transfers a shopper into the storefront." caption="&#8203;" >}}
 
 ## Scenario: OCAPI to Site
 
@@ -135,7 +135,7 @@ The result is a response containing the bearer token we need to continue talking
 
 But what you need is not visible in the response... huh? Not to worry, it is in the Authorization header!
 
-[![Authorization header containing the OCAPI bearer token in Postman.](bearer-token-authorization-header-e377c64b9c.png)](bearer-token-authorization-header-e377c64b9c.png)
+{{< img-caption src="bearer-token-authorization-header-e377c64b9c.png" alt="Authorization header containing the OCAPI bearer token in Postman." >}}
 
 ### Step 2: Exchange the bearer JWT token for cookies
 
@@ -212,13 +212,9 @@ Suppose you are making use of SLAS to get a JWT token, no worries. This JWT toke
 
 Something to keep in mind when using the Session Bridge is how it handles sensitive data; let us look at two scenarios.
 
-[![Secure guest-basket handover where sensitive basket data remains protected.](session-bridge-guest-basket-secure-order-df1146c25d.jpeg)](session-bridge-guest-basket-secure-order-df1146c25d.jpeg)
+{{< img-caption src="session-bridge-guest-basket-secure-order-df1146c25d.jpeg" alt="Secure guest-basket handover where sensitive basket data remains protected." caption="A secure way of working with sensitive data" >}}
 
-A secure way of working with sensitive data
-
-[![Insecure handover example where SFCC blocks sensitive basket details after transfer.](session-bridge-guest-basket-insecure-order-a252675925.jpeg)](session-bridge-guest-basket-insecure-order-a252675925.jpeg)
-
-SFCC Makes sure no sensitive data is shared in a possibly insecure scenario
+{{< img-caption src="session-bridge-guest-basket-insecure-order-a252675925.jpeg" alt="Insecure handover example where SFCC blocks sensitive basket details after transfer." caption="SFCC Makes sure no sensitive data is shared in a possibly insecure scenario" >}}
 
 _**A basket is created/modified**_ _**after the session handover**_ in the second scenario.
 

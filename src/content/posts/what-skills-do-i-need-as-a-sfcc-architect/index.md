@@ -44,9 +44,7 @@ Here are some specific areas where it can be helpful to develop a deep understan
 
 ## Expand your knowledge beyond (B2C) Commerce Cloud
 
-![An illustration of blurry systems connected in the clouds. It illustrates the path to the architect.](understanding-multiple-systems-c824b11ed0.jpg)
-
-Understanding the connections between systems and eliminating the "blur" may take some time.
+{{< img-caption src="understanding-multiple-systems-c824b11ed0.jpg" alt="An illustration of blurry systems connected in the clouds. It illustrates the path to the architect." caption="Understanding the connections between systems and eliminating the 'blur' may take some time." >}}
 
 As an architect, you must understand the various technologies and platforms used to run Commerce Channels.
 
@@ -64,9 +62,7 @@ As an architect, you'll manage projects and lead development teams. It's importa
 
 ## Understand the business needs and goals of your organization
 
-![An illustration of a woman architect in front of a planning board.](project-management-illustration-f4cbfcccf1.jpg)
-
-Having a clear understanding of a business's needs and wants is essential.
+{{< img-caption src="project-management-illustration-f4cbfcccf1.jpg" alt="An illustration of a woman architect in front of a planning board." caption="Having a clear understanding of a business's needs and wants is essential." >}}
 
 As an architect, you'll communicate complex technical concepts to non-technical stakeholders, such as business leaders and merchandisers. It's critical to be able to clearly and effectively communicate your ideas and solutions and to be able to work well with others to achieve shared goals.
 
@@ -98,9 +94,7 @@ By staying open to learning and continuous improvement, you can ensure that you'
 
 ## Build a network and seek out mentors
 
-![A group of architects is standing on a cloud, looking at more clouds with a blue sky.](people-meeting-in-the-clouds-fb0c92659f.jpg)
-
-It's impossible to have all the answers. It's okay to reach out and seek assistance from others!
+{{< img-caption src="people-meeting-in-the-clouds-fb0c92659f.jpg" alt="A group of architects is standing on a cloud, looking at more clouds with a blue sky." caption="It's impossible to have all the answers. It's okay to reach out and seek assistance from others!" >}}
 
 [Connecting](https://unofficialsfcc.com/) with other architects and industry experts can be a powerful tool to help you navigate the transition ahead. Whether it be through joining industry groups or communities, attending conferences, or seeking out mentors within your organisation, the support and guidance of others can help you achieve your goals.
 

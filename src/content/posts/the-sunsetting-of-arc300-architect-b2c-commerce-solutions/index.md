@@ -49,7 +49,7 @@ It was a great learning experience to convey knowledge to others and explain con
 
 ## Will there be a new course
 
-![A group of people stands atop a mountain, overlooking a city where a Trailhead Academy cap hovers in the sky.](looking-to-the-future-of-trailhead-academy-86a27ca5fe.jpg)
+{{< img-caption src="looking-to-the-future-of-trailhead-academy-86a27ca5fe.jpg" alt="A group of people stands atop a mountain, overlooking a city where a Trailhead Academy cap hovers in the sky." caption="A group of people stands atop a mountain, overlooking a city where a Trailhead Academy cap hovers in the sky." >}}
 
 While the 'Salesforce Architect B2C Commerce Solutions' course may have been sunsetted, a new course can always replace it. With the ever-evolving world of technology, keeping up to date with the latest industry trends and knowledge is essential. Salesforce is known for its commitment to continuous improvement, and the Trailhead Academy platform is a testament to this.
 

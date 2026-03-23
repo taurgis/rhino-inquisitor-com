@@ -368,7 +368,11 @@ When working with files (especially in the storefront), you have to keep watch o
 
 In my example, one is especially one to keep an eye on.
 
-![Quota documentation showing the JavaScript string-length limit in Salesforce Commerce Cloud.](api-jsstringlength-6ae1560d95.png)
+{{< img-caption 
+  src="api-jsstringlength-6ae1560d95.png"
+  alt="Quota documentation showing the JavaScript string-length limit in Salesforce Commerce Cloud."
+  caption="Figure 1: Quota documentation showing the JavaScript string-length limit in Salesforce Commerce Cloud"
+>}}
 
 There are multiple ways to work around this limit, but we will not be digging into that in this post.
 

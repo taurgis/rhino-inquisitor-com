@@ -36,9 +36,7 @@ This process helps reduce the risk of direct attacks on the origin infrastructur
 
 Long story short, origin shielding is a security measure for safeguarding cloud-hosted infrastructure, ensuring both the integrity and availability of Salesforce’s services.
 
-![A dramatic image of a superhero in front of a server, protecting it from a "bad" actor in the shadows.](origin-shielding-v2-280aa345d3.jpg)
-
-Cloudflare is our "hero" protecting and routing traffic on our behalf!
+{{< img-caption src="origin-shielding-v2-280aa345d3.jpg" alt="A dramatic image of a superhero in front of a server, protecting it from a &quot;bad&quot; actor in the shadows." caption="Origin shielding acts as a protective layer between the public internet and Salesforce's cloud infrastructure." >}}
 
 ## The back-end and OCAPI
 
@@ -48,9 +46,7 @@ Although this change was communicated multiple times in advance, [many projects 
 
 With the introduction of Origin Shielding, any third-party system attempting to access controllers or OCAPI APIs through the Demandware URL received an error page.
 
-[![A screenshot of the Cloudflare Origin Shielding error shows that the user has been blocked.](cloudflare-origin-shielding-error-b81358c14c.png)](cloudflare-origin-shielding-error-b81358c14c.png)
-
-The Cloudflare error page.
+[{{< img-caption src="cloudflare-origin-shielding-error-b81358c14c.png" alt="A screenshot of the Cloudflare Origin Shielding error shows that the user has been blocked." caption="Third-party integrations using the legacy Demandware hostname hit this Cloudflare block after Origin Shielding was enforced." >}}](cloudflare-origin-shielding-error-b81358c14c.png)
 
 ## SCAPI
 
@@ -97,9 +93,7 @@ Communicating this information to the right people will significantly reduce the
 
 Before launching, make sure to test everything thoroughly. Check that all third-party systems can access your storefront and API features through the vanity domain. This step will help you find and fix any issues before they affect your operations.
 
-![A cartoon depicting two people conversing with a chat bubble containing various colored emoticons.](good-communication-8688aa2fb2.jpg)
-
-Good communication is key in any project.
+{{< img-caption src="good-communication-8688aa2fb2.jpg" alt="A cartoon depicting two people conversing with a chat bubble containing various colored emoticons." caption="Good communication with integration teams is essential: confirm all third-party access works through the vanity domain before go-live." >}}
 
 ### 4\. Monitor
 

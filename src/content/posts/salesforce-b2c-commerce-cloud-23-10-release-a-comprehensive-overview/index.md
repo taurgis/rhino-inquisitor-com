@@ -44,7 +44,7 @@ But I hope this will be changed with standard APIs in the future, or once we hav
 
 ### Get Einstein Recommendations for Large Product Catalogs
 
-![Einstein is standing in the middle of a warehouse lane, looking at the camera.](einstein-standing-in-a-warehouse-1c76aa5ec5.jpg)
+{{< img-caption src="einstein-standing-in-a-warehouse-1c76aa5ec5.jpg" alt="Einstein is standing in the middle of a warehouse lane, looking at the camera." >}}
 
 > Commerce Cloud Einstein now generates recommendations for product catalogs that exceed 3 million product SKUs. Einstein Product Recommendations enable you to create and manage recommenders and assign strategies that predict the most relevant products to promote to individual shoppers. **How**: If you have a product catalog that exceeds 3 million product SKUs, Commerce Cloud Einstein compiles a reduced list of 3 million product SKUs by default–no action required. To compile the list, Einstein uses sorting and filtering logic based on pre-defined criteria. Einstein recommendations are generated from this list. If your catalog exceeds 3 million product SKUs, and you want to ensure that products matching specific criteria appear in the reduced product list, contact Commerce Cloud Support.
 
