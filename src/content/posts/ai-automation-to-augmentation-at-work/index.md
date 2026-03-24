@@ -49,7 +49,7 @@ A good example is [the recent plugin I wrote](https://www.forward.eu/blog/the-po
 
 - **Summarise product information for SEO:** Are you still manually summarising texts for a page title and description for thousands of products? Why not let AI do the hard work?
 
-[{{< img-caption src="sfcc-content-assets-with-ai-8805d0d3cd.jpg" alt="Content asset editor using AI-assisted generation in Salesforce Commerce Cloud." >}}](sfcc-content-assets-with-ai-8805d0d3cd.jpg)
+{{< img-caption src="sfcc-content-assets-with-ai-8805d0d3cd.jpg" alt="Content asset editor using AI-assisted generation in Salesforce Commerce Cloud." link="sfcc-content-assets-with-ai-8805d0d3cd.jpg" >}}
 
 The ideas I have to make repetitive tasks in the business manager easier do not seem to stop!
 

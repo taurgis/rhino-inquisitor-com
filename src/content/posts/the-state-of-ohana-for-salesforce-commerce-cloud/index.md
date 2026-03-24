@@ -42,11 +42,11 @@ Note: This is a "personal feeling" pie chart as I did not use any scientific met
 
 ### Core Platform
 
-[{{< img-caption src="ohana-core-7b4cd9574d.png" alt="A pie chart showing the different places people use to communicate within Ohana for the Core platform." caption="For the core platform, community conversations are spread across more official Salesforce channels." >}}](ohana-core-7b4cd9574d.png)
+{{< img-caption src="ohana-core-7b4cd9574d.png" alt="A pie chart showing the different places people use to communicate within Ohana for the Core platform." caption="For the core platform, community conversations are spread across more official Salesforce channels." link="ohana-core-7b4cd9574d.png" >}}
 
 ### SFCC
 
-[{{< img-caption src="ohana-sfcc-1d03fd0cb0.png" alt="A pie chart showing the different places people use to communicate within Ohana for the SFCC platform." caption="SFCC conversation still leans heavily on a smaller set of community-driven spaces." >}}](ohana-sfcc-1d03fd0cb0.png)
+{{< img-caption src="ohana-sfcc-1d03fd0cb0.png" alt="A pie chart showing the different places people use to communicate within Ohana for the SFCC platform." caption="SFCC conversation still leans heavily on a smaller set of community-driven spaces." link="ohana-sfcc-1d03fd0cb0.png" >}}
 
 Looking at the above charts, it is pretty clear that there is a significant difference in the way people ask questions and communicate within the #Ohana.
 

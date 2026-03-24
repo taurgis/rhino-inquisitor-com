@@ -36,7 +36,7 @@ There is already a channel on the Salesforce B2C Commerce Cloud Unofficial Slack
 
 And I will be there this year! I wasn't planning on it at first, but I got an offer I could not refuse! I will be taking part in the Main Keynote of the event.
 
-[{{< img-caption src="offer-8124183637.jpg" alt="Invitation graphic for speaking in the Connections 2022 keynote." >}}](offer-8124183637.jpg)
+{{< img-caption src="offer-8124183637.jpg" alt="Invitation graphic for speaking in the Connections 2022 keynote." link="offer-8124183637.jpg" >}}
 
 ## Can't attend
 

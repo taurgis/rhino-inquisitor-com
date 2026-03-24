@@ -49,7 +49,7 @@ Another great move to ensure all sensitive data stored on Salesforce servers are
 
 ### Control Center
 
-[{{< img-caption src="control-center-ods-scheduler-6e883d6157.png" alt="Control Center scheduler for planning on-demand sandbox uptime." caption="The new Control Center UI replaces the REST-API-only scheduler, making it straightforward to plan on-demand sandbox uptime windows without custom scripting." >}}](control-center-ods-scheduler-6e883d6157.png)
+{{< img-caption src="control-center-ods-scheduler-6e883d6157.png" alt="Control Center scheduler for planning on-demand sandbox uptime." caption="The new Control Center UI replaces the REST-API-only scheduler, making it straightforward to plan on-demand sandbox uptime windows without custom scripting." link="control-center-ods-scheduler-6e883d6157.png" >}}
 
 As On-Demand Sandboxes have become the new standard for Salesforce B2C Commerce, the UI of the [Control Center](https://controlcenter.commercecloud.salesforce.com/index.html) is being revamped as well.
 
@@ -57,7 +57,7 @@ We already had [the option to schedule our Sandboxes uptime through a REST API](
 
 ### Tiktok Integration
 
-[{{< img-caption src="tiktok-for-business-e34f4d0876.jpeg" alt="TikTok for Business branding used for the beta integration announcement." caption="The TikTok beta connected B2C Commerce catalog and shopper data to another discovery channel." >}}](tiktok-for-business-e34f4d0876.jpeg)
+{{< img-caption src="tiktok-for-business-e34f4d0876.jpeg" alt="TikTok for Business branding used for the beta integration announcement." caption="The TikTok beta connected B2C Commerce catalog and shopper data to another discovery channel." link="tiktok-for-business-e34f4d0876.jpeg" >}}
 
 A beta program is available to test an integration between B2C Commerce Cloud and Tiktok. This Beta aims to create storefronts and advertise products on Tiktok using products and shopper activity data.
 
@@ -107,7 +107,7 @@ This change gives us more flexibility in providing login options to customers.
 
 ### Rule-Based Categorization
 
-[{{< img-caption src="product-exclusion-list-rule-based-0acada8ea8.png" alt="Rule-based categorization screen showing product exclusion rules." caption="Rule-based categorization gains product exclusion lists and support for up to 20 conditions per rule, replacing the previous five-condition ceiling for dynamic category assignments." >}}](product-exclusion-list-rule-based-0acada8ea8.png)
+{{< img-caption src="product-exclusion-list-rule-based-0acada8ea8.png" alt="Rule-based categorization screen showing product exclusion rules." caption="Rule-based categorization gains product exclusion lists and support for up to 20 conditions per rule, replacing the previous five-condition ceiling for dynamic category assignments." link="product-exclusion-list-rule-based-0acada8ea8.png" >}}
 
 [Dynamic Categorization](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/categories/b2c_dynamic_categories.html) is a recent addition to the Salesforce B2C Commerce Cloud feature list, allowing the automatic (job-based) assignment of products to specific categories on configurable criteria.
 
@@ -130,7 +130,7 @@ It is good to see these features being added to the "native" payment option with
 
 ### Klarna for Salesforce Payments
 
-[{{< img-caption src="klarnastripe-6dabc3b122.jpg" alt="Klarna availability within the Salesforce Payments and Stripe flow." caption="Klarna joins Salesforce Payments through the Stripe integration, giving shoppers installments, pay-later, and financing options without requiring a separate Klarna merchant agreement." >}}](klarnastripe-6dabc3b122.jpg)
+{{< img-caption src="klarnastripe-6dabc3b122.jpg" alt="Klarna availability within the Salesforce Payments and Stripe flow." caption="Klarna joins Salesforce Payments through the Stripe integration, giving shoppers installments, pay-later, and financing options without requiring a separate Klarna merchant agreement." link="klarnastripe-6dabc3b122.jpg" >}}
 
 For most, [Klarna](https://www.klarna.com/international/) is a well-known payment method. This option has now been added to Salesforce Payments giving shoppers the ability to use the three different pay-later options that Klarna provides:
 

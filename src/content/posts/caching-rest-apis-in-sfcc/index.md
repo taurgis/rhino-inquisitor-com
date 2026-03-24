@@ -57,7 +57,7 @@ This is easy to fix. But without enabling it, you cannot test your settings on a
 
 It is possible to override the default 60 seconds of caching of an resource by adding it to the [OCAPI Settings](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/OCAPISettings.html?cp=0_16_2_24) in the Business Manager. _"Administration" > "Site Development" > "Open Commerce API Settings"_
 
-[{{< img-caption src="ocapi-settings-with-cache-f7e7acfcf8.png" alt="OCAPI caching settings" >}}](ocapi-settings-with-cache-f7e7acfcf8.png)
+{{< img-caption src="ocapi-settings-with-cache-f7e7acfcf8.png" alt="OCAPI caching settings" link="ocapi-settings-with-cache-f7e7acfcf8.png" >}}
 
 ```json
 {
@@ -104,7 +104,7 @@ Adding "cache\_time" to the resource configuration lets you easily control the t
 
 Lowest Cache Time When using the expand parameter to make a single request with the Open Commerce API, the Cache-Control header is automatically populated with the lowest caching time of the requested resources.
 
-[{{< img-caption src="ocapi-expand-parameter-caching-c91c7001dd.jpg" alt="OCAPI: Expand Parameter Caching" >}}](ocapi-expand-parameter-caching-c91c7001dd.jpg)
+{{< img-caption src="ocapi-expand-parameter-caching-c91c7001dd.jpg" alt="OCAPI: Expand Parameter Caching" link="ocapi-expand-parameter-caching-c91c7001dd.jpg" >}}
 
 Screenshot of the Infocenter about the "expand" parameter
 

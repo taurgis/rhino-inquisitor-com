@@ -265,7 +265,7 @@ Keeping the default setting false is recommended to avoid this negative impact a
 
 Once your script module and `steptypes.json` are ready, upload them as part of your custom cartridge. You can then create a job in Business Manager with your custom chunk-oriented step to start processing data in chunks.
 
-[{{< img-caption src="configure-chunk-job-business-manager-ce41f2bdab.jpg" alt="Chunk-oriented job step configuration screen in Business Manager." caption="After uploading your cartridge, configure the custom chunk-oriented step in Business Manager to start processing data in batches." >}}](configure-chunk-job-business-manager-ce41f2bdab.jpg)
+{{< img-caption src="configure-chunk-job-business-manager-ce41f2bdab.jpg" alt="Chunk-oriented job step configuration screen in Business Manager." caption="After uploading your cartridge, configure the custom chunk-oriented step in Business Manager to start processing data in batches." link="configure-chunk-job-business-manager-ce41f2bdab.jpg" >}}
 
 ### Advantages of "total-count"
 

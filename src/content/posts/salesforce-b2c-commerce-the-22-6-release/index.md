@@ -28,7 +28,7 @@ In this release, Einstein is getting a bit of love with better insights into the
 
 ### Drill down to a single recommender
 
-[{{< img-caption src="22-6-release-einstein-dashboards-722f4cbace.png" alt="Einstein dashboard view for drilling into a single recommender." caption="The new dashboard makes it easier to understand one recommender instead of the whole program." >}}](22-6-release-einstein-dashboards-722f4cbace.png)
+{{< img-caption src="22-6-release-einstein-dashboards-722f4cbace.png" alt="Einstein dashboard view for drilling into a single recommender." caption="The new dashboard makes it easier to understand one recommender instead of the whole program." link="22-6-release-einstein-dashboards-722f4cbace.png" >}}
 
 It will now be possible to drill down to a single recommender in the dashboards to see how they perform over a selected period of time.
 
@@ -43,7 +43,7 @@ These metrics include:
 
 ### View top purchased and top viewed products
 
-[{{< img-caption src="einstein-dashoards-addtocarts-sfcc-9c9a2f3595.png" alt="Einstein dashboard showing product-level recommendation statistics." caption="Product-level metrics are what make the Einstein dashboard useful to merchandisers." >}}](einstein-dashoards-addtocarts-sfcc-9c9a2f3595.png)
+{{< img-caption src="einstein-dashoards-addtocarts-sfcc-9c9a2f3595.png" alt="Einstein dashboard showing product-level recommendation statistics." caption="Product-level metrics are what make the Einstein dashboard useful to merchandisers." link="einstein-dashoards-addtocarts-sfcc-9c9a2f3595.png" >}}
 
 With this addition to these dashboards, you will be able to see more information about the performance of a recommender.
 
@@ -61,7 +61,7 @@ Reports now show how specific products perform, by being recommended in a partic
 
 ### Access Key Management
 
-[{{< img-caption src="access-key-management-ocapi-726096138d.png" alt="User Data OCAPI endpoints for access key management." caption="Access key management adds more control around who can call User Data endpoints." >}}](access-key-management-ocapi-726096138d.png)
+{{< img-caption src="access-key-management-ocapi-726096138d.png" alt="User Data OCAPI endpoints for access key management." caption="Access key management adds more control around who can call User Data endpoints." link="access-key-management-ocapi-726096138d.png" >}}
 
 New endpoints have been made available to manage access keys from an external application. Although this addition is mainly for in-store agents, according to the documentation, the addition will sound like music to the ears of people in charge of DevOps and CI solutions.
 
@@ -71,7 +71,7 @@ To access these APIs, ensure the user has the "[Manage\_Users\_Access\_Key](http
 
 ### EPS added to Salesforce Payments
 
-[{{< img-caption src="eps-logo-austria-8764a70156.png" alt="EPS payment method logo for Austrian bank transfers." caption="EPS matters because regional payment methods still drive adoption in specific markets." >}}](eps-logo-austria-8764a70156.png)
+{{< img-caption src="eps-logo-austria-8764a70156.png" alt="EPS payment method logo for Austrian bank transfers." caption="EPS matters because regional payment methods still drive adoption in specific markets." link="eps-logo-austria-8764a70156.png" >}}
 
 EPS is an Austria-based payment method supported by all Austrian banks. You can add the EPS option to your storefront in Business Manager Payment Settings.
 
@@ -83,7 +83,7 @@ Use a site-specific descriptor to help shoppers identify the source of an accoun
 
 ### Log Center
 
-[{{< img-caption src="troubleshoot-storefront-errors-logcenter-66dfbbe9b6.png" alt="Log Center filter for storefront implementation errors." caption="The new Log Center filters make storefront implementation failures easier to isolate." >}}](troubleshoot-storefront-errors-logcenter-66dfbbe9b6.png)
+{{< img-caption src="troubleshoot-storefront-errors-logcenter-66dfbbe9b6.png" alt="Log Center filter for storefront implementation errors." caption="The new Log Center filters make storefront implementation failures easier to isolate." link="troubleshoot-storefront-errors-logcenter-66dfbbe9b6.png" >}}
 
 Filter and find storefront implementation errors, such as broken includes, significant header errors, and large request errors with a new filter option below the "Service Type."
 

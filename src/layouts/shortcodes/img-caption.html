@@ -9,18 +9,21 @@
       src="diagram.jpg"
       alt="System architecture diagram showing three layers"
       caption="Figure 1: Three-tier inventory system with cache layer"
+      link="diagram.jpg"
     >}}
     
   Parameters:
     - src:      Image path (relative or absolute URL) — REQUIRED
     - alt:      Descriptive alt text for accessibility — REQUIRED
     - caption:  Visible figcaption text — OPTIONAL
+    - link:     Optional href applied to the image inside the figure
     - loading:  "eager" or "lazy" (default: lazy)
 */ -}}
 
 {{- $src := .Get "src" -}}
 {{- $alt := .Get "alt" -}}
 {{- $caption := .Get "caption" -}}
+{{- $link := strings.TrimSpace (.Get "link") -}}
 {{- $captionText := "" -}}
 {{- $hasVisibleCaption := false -}}
 {{- with $caption -}}
@@ -46,6 +49,9 @@
 
 {{- /* Reuse media/image.html partial without image processing to keep large migrations build-stable. */ -}}
 <figure class="{{ $figureClass }}">
+  {{- if $link -}}
+    <a href="{{ $link }}" class="article-figure__link">
+  {{- end -}}
   {{ partial "media/image.html" (dict
     "page" .Page
     "src" $src
@@ -54,6 +60,9 @@
     "process" false
     "class" "article-figure__img"
   ) }}
+  {{- if $link -}}
+    </a>
+  {{- end -}}
   {{- if $hasVisibleCaption -}}
     <figcaption class="article-figure__caption">{{ $captionText }}</figcaption>
   {{- end -}}

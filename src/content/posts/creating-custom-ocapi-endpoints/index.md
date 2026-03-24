@@ -66,7 +66,7 @@ So let's get cracking! The first step is to create a new custom object type in t
 
 Go to "_Administration _" > "_ Site Development _" > "_ Custom Object Types_."
 
-[{{< img-caption src="custom-api-custom-object-051e16e59a.png" alt="Custom Object Types screen with the CustomApi definition." caption="The custom object definition becomes the registry for every endpoint the hook will expose." >}}](custom-api-custom-object-051e16e59a.png)
+{{< img-caption src="custom-api-custom-object-051e16e59a.png" alt="Custom Object Types screen with the CustomApi definition." caption="The custom object definition becomes the registry for every endpoint the hook will expose." link="custom-api-custom-object-051e16e59a.png" >}}
 
 The Custom Object Definition is quite simple:
 
@@ -85,7 +85,7 @@ Each custom API endpoint needs its unique object of the "CustomApi" type. So in 
 
 To do this go to "_Merchant Tools _" > "_ Custom Objects _" > "_ Manage Custom Objects_."
 
-[{{< img-caption src="manage-get-customer-object-7b88237d34.png" alt="Manage Custom Objects screen with the get-customer object." caption="Each custom object instance maps a friendly endpoint name to real implementation data." >}}](manage-get-customer-object-7b88237d34.png)
+{{< img-caption src="manage-get-customer-object-7b88237d34.png" alt="Manage Custom Objects screen with the get-customer object." caption="Each custom object instance maps a friendly endpoint name to real implementation data." link="manage-get-customer-object-7b88237d34.png" >}}
 
 The Custom Object is, again, easy to set up:
 
@@ -123,7 +123,7 @@ Fill in the following value for the type "_Shop _" and context "_ Global (Organi
 }
 ```
 
-[{{< img-caption src="ocapi-settings-46b5f9c8b0.png" alt="Open Commerce API Settings showing access for custom objects." caption="OCAPI access still has to be granted explicitly before the endpoint becomes callable." >}}](ocapi-settings-46b5f9c8b0.png)
+{{< img-caption src="ocapi-settings-46b5f9c8b0.png" alt="Open Commerce API Settings showing access for custom objects." caption="OCAPI access still has to be granted explicitly before the endpoint becomes callable." link="ocapi-settings-46b5f9c8b0.png" >}}
 
 In the example, we make use of "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" ( 30 x a ), which is a Client Id that works on test environments without creating it in the Account Manager.
 
@@ -229,7 +229,7 @@ We add it to the sites because the API is part of the Shop API, which is meant f
 
 ## Step 6: Call the API
 
-[{{< img-caption src="get-customer-custom-api-response-a6c8902585.png" alt="Custom OCAPI response payload returned by the get-customer endpoint." caption="A successful response proves the custom endpoint can shape payloads beyond the standard API." >}}](get-customer-custom-api-response-a6c8902585.png)
+{{< img-caption src="get-customer-custom-api-response-a6c8902585.png" alt="Custom OCAPI response payload returned by the get-customer endpoint." caption="A successful response proves the custom endpoint can shape payloads beyond the standard API." link="get-customer-custom-api-response-a6c8902585.png" >}}
 
 The final step is calling your endpoint (with the correct parameters). In this case, we have the parameter "customer\_no," which we use in our custom code to fetch the right customer.
 
@@ -237,7 +237,7 @@ To make it easier to understand how to test the API, I added a [Postman collecti
 
 This collection requires you to configure the following variables:
 
-[{{< img-caption src="postman-variables-custom-api-ec0a89ffce.png" alt="Postman variables required to call the custom OCAPI endpoint." caption="These Postman variables remove the manual busywork from repeatedly testing the custom endpoint." >}}](postman-variables-custom-api-ec0a89ffce.png)
+{{< img-caption src="postman-variables-custom-api-ec0a89ffce.png" alt="Postman variables required to call the custom OCAPI endpoint." caption="These Postman variables remove the manual busywork from repeatedly testing the custom endpoint." link="postman-variables-custom-api-ec0a89ffce.png" >}}
 
 - **base\_url:** The domain of your environment.
 - **client\_id:** Your client ID, you can use the default one.

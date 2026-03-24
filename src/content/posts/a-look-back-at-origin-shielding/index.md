@@ -27,7 +27,7 @@ September has shown its face, and the sunny weather (at least here) is ending. A
 
 The first thing to make people aware of a change is communicating it to them as soon as possible. And from personal experience, I did get this notification quite a while in advance. I looked back in my documents and e-mails and found the first reference to this change in July 2021! A year in advance!
 
-[{{< img-caption src="origin-shielding-first-mention-9d41cb51f2.jpg" alt="First communication about origin shielding from July 2021." >}}](origin-shielding-first-mention-9d41cb51f2.jpg)
+{{< img-caption src="origin-shielding-first-mention-9d41cb51f2.jpg" alt="First communication about origin shielding from July 2021." link="origin-shielding-first-mention-9d41cb51f2.jpg" >}}
 
 But, of course, the information given back then was pretty vague. And the impact on projects could not be estimated by this alone.
 
@@ -35,7 +35,7 @@ But, of course, the information given back then was pretty vague. And the impact
 
 Months go by without any mention of this change, but I did know that this "Origin Shielding" for “dotted” URLs (i.e., http://production.xxx.demandware.net/) was [already active for new customers since June 21'](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_selective_origin_shielding_w9343605_je.htm&type=5). In March, I joined the B2C Roadmap Session again (or a different webinar, I can't remember), and here we got the announcement for "phase 2": Origin Shielding activation for ‘hyphenated’ URLs (i.e., production-xxx.demandware.net).
 
-[{{< img-caption src="march-2022-origin-shielding-815c30777b.jpg" alt="March 2022 roadmap slide announcing the next origin shielding phase." >}}](march-2022-origin-shielding-815c30777b.jpg)
+{{< img-caption src="march-2022-origin-shielding-815c30777b.jpg" alt="March 2022 roadmap slide announcing the next origin shielding phase." link="march-2022-origin-shielding-815c30777b.jpg" >}}
 
 So again, quite a bit in advance: about six months to change demandware.net to your vanity domain. Over the months, this was shared across multiple channels: Trailblazer Communities, Webinars, [and slides shared with the release notes](https://help.salesforce.com/articleView?id=b2c_rn_release_notes.htm&type=5). I probably missed other media that might have been customer-facing. But as a partner, I do not get these. All in all, quite a lot of warnings ahead of time.
 

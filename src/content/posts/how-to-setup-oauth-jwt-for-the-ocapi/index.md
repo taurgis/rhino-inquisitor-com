@@ -56,7 +56,7 @@ Like always, when we set up a server-to-server connection, we need to generate a
 
 Follow the i[nstructions on the Infocenter](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/account_manager/b2c_account_manager_add_api_client_id.html), with a few minor changes.
 
-[{{< img-caption src="account-manager-set-up-jwt-c2ed29ddca.jpg" alt="Account Manager client configuration for private_key_jwt authentication." caption="This Account Manager setup is the prerequisite for private_key_jwt authentication." >}}](account-manager-set-up-jwt-c2ed29ddca.jpg)
+{{< img-caption src="account-manager-set-up-jwt-c2ed29ddca.jpg" alt="Account Manager client configuration for private_key_jwt authentication." caption="This Account Manager setup is the prerequisite for private_key_jwt authentication." link="account-manager-set-up-jwt-c2ed29ddca.jpg" >}}
 
 1. In the JWT field, copy and paste the entire contents of the "**cert.pem**" file we generated earlier (no modifications needed)
 
@@ -72,7 +72,7 @@ Ok, I made that title seem like this is an easy step to do. Generating the JWT m
 
 But let us look at the basics. A JWT has three different parts.
 
-[{{< img-caption src="jwt-visualized-74d5a59116.jpg" alt="Diagram showing the header, payload, and signature parts of a JWT." caption="A JWT stays simple at heart: header, payload, and signature." >}}](jwt-visualized-74d5a59116.jpg)
+{{< img-caption src="jwt-visualized-74d5a59116.jpg" alt="Diagram showing the header, payload, and signature parts of a JWT." caption="A JWT stays simple at heart: header, payload, and signature." link="jwt-visualized-74d5a59116.jpg" >}}
 
 The **header,** which describes what type the JWT is and what algorithm it is using. In this case, [RS256](https://auth0.com/blog/rs256-vs-hs256-whats-the-difference/) is used.
 
@@ -133,7 +133,7 @@ Once the script is in place and all required variables are configured in the col
 - client\_assertion\_ type: urn:ietf:params:oauth:client-assertion-type:jwt-bearer
 - grant\_type: client\_ credentials
 
-[{{< img-caption src="postman-authentication-ocapi-d973adb2eb.jpg" alt="Postman request configured for OCAPI JWT authentication." caption="Postman is the fastest way to prove the OCAPI JWT flow works end to end." >}}](postman-authentication-ocapi-d973adb2eb.jpg)
+{{< img-caption src="postman-authentication-ocapi-d973adb2eb.jpg" alt="Postman request configured for OCAPI JWT authentication." caption="Postman is the fastest way to prove the OCAPI JWT flow works end to end." link="postman-authentication-ocapi-d973adb2eb.jpg" >}}
 
 [Download Postman Collection](https://gist.github.com/taurgis/df656968852275539d9f9d7a74bf62de)
 

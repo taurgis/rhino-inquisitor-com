@@ -46,7 +46,7 @@ Although this change was communicated multiple times in advance, [many projects 
 
 With the introduction of Origin Shielding, any third-party system attempting to access controllers or OCAPI APIs through the Demandware URL received an error page.
 
-[{{< img-caption src="cloudflare-origin-shielding-error-b81358c14c.png" alt="A screenshot of the Cloudflare Origin Shielding error shows that the user has been blocked." caption="Third-party integrations using the legacy Demandware hostname hit this Cloudflare block after Origin Shielding was enforced." >}}](cloudflare-origin-shielding-error-b81358c14c.png)
+{{< img-caption src="cloudflare-origin-shielding-error-b81358c14c.png" alt="A screenshot of the Cloudflare Origin Shielding error shows that the user has been blocked." caption="Third-party integrations using the legacy Demandware hostname hit this Cloudflare block after Origin Shielding was enforced." link="cloudflare-origin-shielding-error-b81358c14c.png" >}}
 
 ## SCAPI
 

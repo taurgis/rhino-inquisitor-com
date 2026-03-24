@@ -23,7 +23,7 @@ Earning a certification in Salesforce B2C Commerce Cloud [can be a valuable goal
 
 ## Certifications vs Accreditations
 
-[{{< img-caption src="accreditations-vs-certifications-7c6224e505.png" alt="Comparison graphic for accreditations versus certifications." caption="Accreditations and certifications open different doors, so the distinction matters before you chase vouchers." >}}](accreditations-vs-certifications-7c6224e505.png)
+{{< img-caption src="accreditations-vs-certifications-7c6224e505.png" alt="Comparison graphic for accreditations versus certifications." caption="Accreditations and certifications open different doors, so the distinction matters before you chase vouchers." link="accreditations-vs-certifications-7c6224e505.png" >}}
 
 Before we start, we need to [distinguish between the types of certifications](https://partners-salesforce.relayto.com/e/partner-guide-to-credentials-vfgkh7myki6y2/fUtftxtv3).
 
@@ -33,7 +33,7 @@ Most of the items discussed below are only for regular certifications, not accre
 
 ## Partner Vouchers
 
-[{{< img-caption src="partner-benefits-0de8d66c3b.png" alt="Partner benefits graphic used in the voucher overview." caption="Partner benefits are the main reason some Salesforce exam discounts are easier to unlock." >}}](partner-benefits-0de8d66c3b.png)
+{{< img-caption src="partner-benefits-0de8d66c3b.png" alt="Partner benefits graphic used in the voucher overview." caption="Partner benefits are the main reason some Salesforce exam discounts are easier to unlock." link="partner-benefits-0de8d66c3b.png" >}}
 
 Depending on what "level" you are as a partner with Salesforce, you get vouchers that cover the total cost of the certification exam.
 
@@ -103,7 +103,7 @@ Especially when a new accreditation or certificate is being introduced, this sli
 
 ## Bringing it all together
 
-[{{< img-caption src="salesforce-credentials-vouchers-personv2-bf4ee67f38.jpeg" alt="Looking to save some money while getting certified in Salesforce? No problem! Here's a helpful overview of where you can find discounts and even free exam attempts to make your certification journey a little more budget-friendly. Partner Vouchers Community Events Trailhead Certification Events Partner Community Events Certification Days Trailhead Quests Salesforce Webinars" caption="Discounts and free exam attempts usually come from partner perks, events, quests, and Salesforce programs." >}}](salesforce-credentials-vouchers-personv2-bf4ee67f38.jpeg)
+{{< img-caption src="salesforce-credentials-vouchers-personv2-bf4ee67f38.jpeg" alt="Looking to save some money while getting certified in Salesforce? No problem! Here's a helpful overview of where you can find discounts and even free exam attempts to make your certification journey a little more budget-friendly. Partner Vouchers Community Events Trailhead Certification Events Partner Community Events Certification Days Trailhead Quests Salesforce Webinars" caption="Discounts and free exam attempts usually come from partner perks, events, quests, and Salesforce programs." link="salesforce-credentials-vouchers-personv2-bf4ee67f38.jpeg" >}}
 
 ## Any more
 

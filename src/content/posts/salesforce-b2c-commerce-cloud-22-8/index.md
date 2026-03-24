@@ -137,7 +137,7 @@ The value is shown in the Business Manager after uploading the certificate.
 
 ### eCDN Interface Update
 
-[{{< img-caption src="ecdn-interface-update-8e83d9ac74.png" alt="Updated eCDN interface workflow for creating storefront zones." caption="The revamped zone creation workflow uses SSL for SaaS V2 and CDN-API without requiring a full-page refresh, making bulk eCDN zone configuration noticeably faster." >}}](ecdn-interface-update-8e83d9ac74.png)
+{{< img-caption src="ecdn-interface-update-8e83d9ac74.png" alt="Updated eCDN interface workflow for creating storefront zones." caption="The revamped zone creation workflow uses SSL for SaaS V2 and CDN-API without requiring a full-page refresh, making bulk eCDN zone configuration noticeably faster." link="ecdn-interface-update-8e83d9ac74.png" >}}
 
 The workflow for creating zones gets an update:
 
@@ -153,7 +153,7 @@ This is nothing "too exciting," except if you have to configure about 50 zones. 
 
 ### Quotas: Site Specific
 
-[{{< img-caption src="site-specific-quota-limit-information-c67623c0c3.png" alt="Quota settings showing site-specific limit handling." caption="Site-level quota management lets Salesforce tune performance per site instead of per realm." >}}](site-specific-quota-limit-information-c67623c0c3.png)
+{{< img-caption src="site-specific-quota-limit-information-c67623c0c3.png" alt="Quota settings showing site-specific limit handling." caption="Site-level quota management lets Salesforce tune performance per site instead of per realm." link="site-specific-quota-limit-information-c67623c0c3.png" >}}
 
 This improvement is more for the engineering and performance team at Salesforce to make sure POD performance can be ensured.
 
@@ -161,7 +161,7 @@ Rather than having to manage/relax a quota at a "realm" level, quotas can now be
 
 ### Change History for campaigns & promotions
 
-[{{< img-caption src="1da84b9d-7a51-4f6f-bcb0-b0217c4e5cb7-bf0735587c.jpeg" alt="Change History interface for campaigns, promotions, and coupons." caption="Change History now tracks every modification to campaigns, promotions, and coupons, giving merchandisers a complete audit trail for every incentive change." >}}](1da84b9d-7a51-4f6f-bcb0-b0217c4e5cb7-bf0735587c.jpeg)
+{{< img-caption src="1da84b9d-7a51-4f6f-bcb0-b0217c4e5cb7-bf0735587c.jpeg" alt="Change History interface for campaigns, promotions, and coupons." caption="Change History now tracks every modification to campaigns, promotions, and coupons, giving merchandisers a complete audit trail for every incentive change." link="1da84b9d-7a51-4f6f-bcb0-b0217c4e5cb7-bf0735587c.jpeg" >}}
 
 The [Change History](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/change_history/b2c_change_history.html) feature is getting some more options! With this release, you can keep track (if you want to) of all modifications of:
 

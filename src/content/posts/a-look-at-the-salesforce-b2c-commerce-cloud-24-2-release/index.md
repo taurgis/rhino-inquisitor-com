@@ -33,7 +33,7 @@ On By Default This new feature is automatically enabled with the 24.2 release an
 
 Please turn it off until you have completed all necessary testing. Affects Hybrid Deployments An extra warning for those using hybrid deployments: it is important to test adequately as this change may disrupt standard customer flows.
 
-[{{< img-caption src="partioned-cookies-in-sfcc-cb426ac0c4.png" alt="A screenshot showing the Feature switch called 'Partioned Cookies' with the default value of 'true'." caption="Partitioned Cookies quietly shipped as a feature flag before most teams noticed the change." >}}](partioned-cookies-in-sfcc-cb426ac0c4.png)
+{{< img-caption src="partioned-cookies-in-sfcc-cb426ac0c4.png" alt="A screenshot showing the Feature switch called 'Partioned Cookies' with the default value of 'true'." caption="Partitioned Cookies quietly shipped as a feature flag before most teams noticed the change." link="partioned-cookies-in-sfcc-cb426ac0c4.png" >}}
 
 Concerning browser vendors' ongoing deprecation of third-party cookies, a new feature in Salesforce B2C Commerce Cloud affects how cookies are handled: "[Partitioned Cookies](https://developer.mozilla.org/en-US/docs/Web/Privacy/Partitioned_cookies)"
 
@@ -155,7 +155,7 @@ A long-awaited update to SFRA is finally here with the long-promised update to n
 > [!NOTE]
 > **Effort:** Do not underestimate upgrading your projects, as this update also means that libraries have been upgraded!
 
-[{{< img-caption src="package-json-changes-7-0-0-cecd2c2e2d.png" alt="package.json changes in SFRA 7.0.0" caption="The 7.0.0 package changes show how much supporting tooling moved under the hood." >}}](package-json-changes-7-0-0-cecd2c2e2d.png)
+{{< img-caption src="package-json-changes-7-0-0-cecd2c2e2d.png" alt="package.json changes in SFRA 7.0.0" caption="The 7.0.0 package changes show how much supporting tooling moved under the hood." link="package-json-changes-7-0-0-cecd2c2e2d.png" >}}
 
 ## PWA Kit v3.4.0
 

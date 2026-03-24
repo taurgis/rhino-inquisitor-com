@@ -92,7 +92,7 @@ Just a gentle reminder to [vote](https://ideas.salesforce.com/s/search#t=All&sor
 
 This a minor release to ensure this version is compatible with the latest Node version (18), as the older versions will be deprecated soon!
 
-[{{< img-caption src="node-js-16-deprecation-b8d6f02bec.png" alt="Node.js 16 end-of-life notice moving the deadline to September 11, 2023." caption="PWA Kit added Node 18 support so teams could move off Node 16 before end-of-life." >}}](node-js-16-deprecation-b8d6f02bec.png)
+{{< img-caption src="node-js-16-deprecation-b8d6f02bec.png" alt="Node.js 16 end-of-life notice moving the deadline to September 11, 2023." caption="PWA Kit added Node 18 support so teams could move off Node 16 before end-of-life." link="node-js-16-deprecation-b8d6f02bec.png" >}}
 
 ## PWA Kit v3.0.0
 
