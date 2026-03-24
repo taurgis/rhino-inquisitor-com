@@ -38,6 +38,14 @@
 {{- if $hasVisibleCaption -}}
   {{- $figureClass = "article-figure article-figure--captioned" -}}
 {{- end -}}
+{{- $siteBaseURL := urls.Parse site.BaseURL -}}
+{{- $linkOpensNewTab := false -}}
+{{- if and $link (or (hasPrefix $link "http://") (hasPrefix $link "https://")) (not (or (in $link "{") (in $link "}"))) -}}
+  {{- $linkURL := urls.Parse $link -}}
+  {{- if and $linkURL (not (or (eq $linkURL.Host $siteBaseURL.Host) (eq $linkURL.Host "rhino-inquisitor.com") (eq $linkURL.Host "www.rhino-inquisitor.com") (eq $linkURL.Host "staging.rhino-inquisitor.com") (eq $linkURL.Host "taurgis.github.io"))) -}}
+    {{- $linkOpensNewTab = true -}}
+  {{- end -}}
+{{- end -}}
 
 {{- if not $src -}}
   {{- errorf "img-caption shortcode requires 'src' parameter" -}}
@@ -50,7 +58,7 @@
 {{- /* Reuse media/image.html partial without image processing to keep large migrations build-stable. */ -}}
 <figure class="{{ $figureClass }}">
   {{- if $link -}}
-    <a href="{{ $link }}" class="article-figure__link">
+    <a href="{{ $link | safeURL }}" class="article-figure__link"{{ if $linkOpensNewTab }} target="_blank" rel="noopener noreferrer"{{ end }}>
   {{- end -}}
   {{ partial "media/image.html" (dict
     "page" .Page
