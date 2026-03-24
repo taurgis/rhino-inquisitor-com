@@ -13,9 +13,9 @@ author: Thomas Theunen
 
 My name is Thomas, and I am the Head of Commerce at [Forward](https://www.forward.eu). I am a proud father of two wonderful children: Thalia & Thano.
 
-I have a deep passion for everything Salesforce, and especially for Salesforce B2C Commerce Cloud.
+My work sits at the intersection of commerce strategy, solution architecture, and delivery quality, with a strong focus on Salesforce B2C Commerce Cloud. Over the years, I have helped teams translate business goals into practical implementation choices, from platform architecture and integrations to release readiness, migration planning, and long-term maintainability.
 
-I am here to share my knowledge and experience to help others succeed in the Ohana!
+Outside day-to-day client work, I share what I learn through Rhino Inquisitor and public developer tooling. That includes open source work, documentation, and field-tested guidance for developers, architects, and commerce leaders who need more than generic platform advice. My goal is to make complex Commerce Cloud decisions clearer, safer, and easier to put into practice.
 
 [About Me](https://www.linkedin.com/in/thomas-theunen-10905680/) [Join my team!](https://www.forward.eu/career/)
 

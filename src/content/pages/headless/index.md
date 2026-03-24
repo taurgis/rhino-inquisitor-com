@@ -1,8 +1,8 @@
 ---
 title: Headless
 description: >-
-  If your organization is looking for a way to improve its online presence and
-  connect with more customers, Headless may be a good fit.
+  A short headless-commerce primer from Thomas Theunen on why decoupled
+  storefronts change customer experience and delivery flexibility.
 date: '2022-09-11T08:06:14.000Z'
 lastmod: '2022-09-11T08:23:01.000Z'
 url: /headless/

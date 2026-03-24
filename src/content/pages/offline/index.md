@@ -1,14 +1,12 @@
 ---
 title: Offline
 description: >-
-  Offline You are currently offline, and this page was not saved to your device.
-  Please try again once you reconnect to the internet.
+  Offline fallback page shown when Rhino Inquisitor content was not cached on
+  your device.
 date: '2022-11-01T16:38:41.000Z'
 lastmod: '2022-11-01T16:56:37.000Z'
 url: /offline/
 draft: false
 author: Thomas Theunen
 ---
-## Offline
-
-You are currently offline, and this page was not saved to your device. Please try again once you reconnect to the internet.
+This offline fallback appears when the requested page was not saved locally. Reconnect to the internet and try again to load the content.

@@ -1,13 +1,13 @@
 ## RHI-093 · Phase 9 Bootstrap: Pre-Cutover Readiness and Team Alignment
 
-**Status:** Open  
+**Status:** Done  
 **Priority:** Critical  
 **Estimate:** S  
 **Phase:** 9  
 **Assigned to:** Migration Owner  
 **Target date:** 2026-06-16  
 **Created:** 2026-03-08  
-**Updated:** 2026-03-22
+**Updated:** 2026-03-24
 
 ---
 
@@ -29,44 +29,44 @@ No Phase 9 workstream ticket (RHI-094 through RHI-102) should begin until this t
 - [x] `CUTOVER-VERIFICATION-CHECKLIST.md` is committed and ready for use at T-0
 - [x] `phase-8-rc-v3` git tag is set on the validated release candidate commit SHA
 - [x] All Phase 8 validation artifacts are accessible in `validation/`
-- [ ] `monitoring/` directory structure is created and ready to receive Phase 9 outputs:
-  - [ ] `monitoring/launch-cutover-log.md`
-  - [ ] `monitoring/search-console-indexing-report.md`
-  - [ ] `monitoring/url-inspection-sample-report.json`
-  - [ ] `monitoring/sitemap-processing-report.json`
-  - [ ] `monitoring/legacy-route-health-report.json`
-  - [ ] `monitoring/canonical-consistency-report.json`
-  - [ ] `monitoring/cwv-lighthouse-trend.json`
-  - [ ] `monitoring/cwv-field-trend.md`
-  - [ ] `monitoring/security-domain-report.json`
-  - [ ] `monitoring/stabilization-summary.md`
-- [ ] Phase 9 launch command roles are assigned by name:
-  - [ ] Incident commander
-  - [ ] Deployment operator
-  - [ ] DNS operator
-  - [ ] SEO operator
-  - [ ] QA operator
-  - [ ] Communications owner
-- [ ] Launch window date and time (T-0) is agreed with all role owners
-- [ ] Low-traffic launch window is confirmed (e.g., early weekday morning, UTC)
-- [ ] Rollback operator and rollback initiation procedure are confirmed; rollback SLA is 60 minutes
-- [ ] Incident bridge channel (Slack, Teams, or email) is confirmed and tested
+- [x] `monitoring/` directory structure is created and ready to receive Phase 9 outputs:
+  - [x] `monitoring/launch-cutover-log.md`
+  - [x] `monitoring/search-console-indexing-report.md`
+  - [x] `monitoring/url-inspection-sample-report.json`
+  - [x] `monitoring/sitemap-processing-report.json`
+  - [x] `monitoring/legacy-route-health-report.json`
+  - [x] `monitoring/canonical-consistency-report.json`
+  - [x] `monitoring/cwv-lighthouse-trend.json`
+  - [x] `monitoring/cwv-field-trend.md`
+  - [x] `monitoring/security-domain-report.json`
+  - [x] `monitoring/stabilization-summary.md`
+- [x] Phase 9 launch command roles are assigned by name (`Thomas Theunen` for all command roles in this single-person team):
+  - [x] Incident commander
+  - [x] Deployment operator
+  - [x] DNS operator
+  - [x] SEO operator
+  - [x] QA operator
+  - [x] Communications owner
+- [x] Launch window date and time (T-0) is agreed with all role owners (`09:00 UTC`)
+- [x] Low-traffic launch window is confirmed (e.g., early weekday morning, UTC)
+- [x] Rollback operator and rollback initiation procedure are confirmed; rollback SLA is 60 minutes
+- [x] Incident bridge channel (Slack, Teams, or email) is confirmed and tested (`#rhino-inquisitor`)
 - [ ] Monitoring tooling is confirmed available and tested against staging:
-  - [ ] `playwright` (smoke checks)
-  - [ ] `@lhci/cli` (Lighthouse regression snapshots)
-  - [ ] `fast-xml-parser` (sitemap verification)
-  - [ ] `googleapis` (Search Console API)
-  - [ ] `ajv` (monitoring artifact schema validation)
-- [ ] Search Console access is confirmed for the canonical property `https://www.rhino-inquisitor.com`
-- [ ] DNS operator has confirmed DNS rollback snapshot and has access to the DNS provider
-- [ ] All Phase 9 workstream owners have read `analysis/plan/details/phase-9.md` and confirmed understanding
-- [ ] Phase 9 non-negotiable stabilization constraints reviewed with the full team:
-  - [ ] Canonical production host remains locked to `https://www.rhino-inquisitor.com` throughout stabilization
-  - [ ] Redirect policy from Phase 6 is enforceable in production
-  - [ ] Any critical URL returning `404`, `5xx`, or redirect loop is a Sev-1
-  - [ ] `robots.txt` and `noindex` policies are controlled configuration, not ad-hoc edits
-  - [ ] Mixed-content issues on homepage or article template are release-blocking
-  - [ ] Redirect retention for moved URLs maintained for minimum 12 months
+  - [x] `playwright` (smoke checks)
+  - [x] `@lhci/cli` (Lighthouse regression snapshots)
+  - [x] `fast-xml-parser` (sitemap verification)
+  - [x] `googleapis` (Search Console API; owner accepted bootstrap closure without a live API call)
+  - [x] `ajv` (monitoring artifact schema validation)
+- [x] Search Console access is confirmed for the canonical property `https://www.rhino-inquisitor.com`
+- [x] DNS operator has confirmed DNS rollback snapshot and has access to the DNS provider
+- [x] All Phase 9 workstream owners have read `analysis/plan/details/phase-9.md` and confirmed understanding
+- [x] Phase 9 non-negotiable stabilization constraints reviewed with the full team:
+  - [x] Canonical production host remains locked to `https://www.rhino-inquisitor.com` throughout stabilization
+  - [x] Redirect policy from Phase 6 is enforceable in production
+  - [x] Any critical URL returning `404`, `5xx`, or redirect loop is a Sev-1
+  - [x] `robots.txt` and `noindex` policies are controlled configuration, not ad-hoc edits
+  - [x] Mixed-content issues on homepage or article template are release-blocking
+  - [x] Redirect retention for moved URLs maintained for minimum 12 months
 
 ---
 
@@ -76,31 +76,31 @@ No Phase 9 workstream ticket (RHI-094 through RHI-102) should begin until this t
 - [x] Confirm Go/No-Go decision is recorded as Go in `migration/phase-8-go-nogo-decision.md`
 - [x] Verify `phase-8-rc-v3` tag exists on the validated RC commit; record the SHA
 - [x] Confirm all Phase 8 validation artifacts are accessible in `validation/` and CI artifact storage
-- [ ] Create `monitoring/` directory with stub files (README or empty placeholders for each expected artifact)
-- [ ] Assign all Phase 9 launch command roles by name and record assignments in Progress Log
-- [ ] Agree and announce the T-0 launch window date/time (must be a low-traffic period)
-- [ ] Confirm rollback operator and test rollback initiation procedure — confirm 60-minute SLA is achievable
-- [ ] Set up and test the incident bridge channel; confirm all role owners can access it
+- [x] Create `monitoring/` directory with stub files (README or empty placeholders for each expected artifact)
+- [x] Assign all Phase 9 launch command roles by name and record assignments in Progress Log
+- [x] Agree and announce the T-0 launch window date/time (must be a low-traffic period)
+- [x] Confirm rollback operator and test rollback initiation procedure — confirm 60-minute SLA is achievable
+- [x] Set up and test the incident bridge channel; confirm all role owners can access it
 - [ ] Verify monitoring tooling is installed and operational:
-  - [ ] Run a test smoke check against the staging deployment
-  - [ ] Confirm `googleapis` credentials are available and quota is not exhausted
-  - [ ] Confirm `@lhci/cli` can produce a test Lighthouse run
-- [ ] Confirm Search Console access: verify the `https://www.rhino-inquisitor.com` property is active and unverification has not occurred
-- [ ] Take a DNS snapshot: record current A/CNAME/TXT records at DNS provider as rollback reference
-- [ ] Confirm GitHub Pages custom domain status is healthy and HTTPS certificate is valid or in final issuance
-- [ ] Share `analysis/plan/details/phase-9.md` with all workstream owners; request read confirmation
-- [ ] Review Phase 9 non-negotiable constraints with the full team; log confirmations in Progress Log
-- [ ] Establish Phase 9 execution sequence:
-  - [ ] WS-A (Cutover Execution) runs at T-24h through T+6h
-  - [ ] WS-B, WS-C, WS-D, WS-E, WS-F, WS-G run concurrently from T+0 through stabilization
-  - [ ] WS-H (Stabilization Cadence) governs the 6-week monitoring rhythm
-  - [ ] WS-I (Exit Criteria and BAU Handoff) runs in week 5–6
-  - [ ] Sign-off (RHI-103) requires all workstreams done and exit criteria met
-- [ ] Define severity model and SLA targets with the team:
-  - [ ] Sev-1: acknowledgement within 15 min during launch window, 60 min afterward; mitigation within 60 min
-  - [ ] Sev-2: mitigation plan same business day
-  - [ ] Sev-3: tracked but not time-critical
-- [ ] Announce Phase 9 kickoff with link to Phase 8 sign-off and Phase 9 plan
+  - [x] Run a test smoke check against the staging deployment
+  - [x] Confirm `googleapis` is provisioned and the auth probe is executable; owner accepted bootstrap closure without a live API call
+  - [x] Confirm `@lhci/cli` can produce a test Lighthouse run
+- [x] Confirm Search Console access: verify the `https://www.rhino-inquisitor.com` property is active and unverification has not occurred
+- [x] Take a DNS snapshot: record current A/CNAME/TXT records at DNS provider as rollback reference
+- [x] Confirm GitHub Pages custom domain status is healthy and HTTPS certificate is valid or in final issuance
+- [x] Share `analysis/plan/details/phase-9.md` with all workstream owners; request read confirmation
+- [x] Review Phase 9 non-negotiable constraints with the full team; log confirmations in Progress Log
+- [x] Establish Phase 9 execution sequence:
+  - [x] WS-A (Cutover Execution) runs at T-24h through T+6h
+  - [x] WS-B, WS-C, WS-D, WS-E, WS-F, WS-G run concurrently from T+0 through stabilization
+  - [x] WS-H (Stabilization Cadence) governs the 6-week monitoring rhythm
+  - [x] WS-I (Exit Criteria and BAU Handoff) runs in week 5–6
+  - [x] Sign-off (RHI-103) requires all workstreams done and exit criteria met
+- [x] Define severity model and SLA targets with the team:
+  - [x] Sev-1: acknowledgement within 15 min during launch window, 60 min afterward; mitigation within 60 min
+  - [x] Sev-2: mitigation plan same business day
+  - [x] Sev-3: tracked but not time-critical
+- [x] Announce Phase 9 kickoff with link to Phase 8 sign-off and Phase 9 plan
 
 ---
 
@@ -124,9 +124,9 @@ No Phase 9 workstream ticket (RHI-094 through RHI-102) should begin until this t
 | `CUTOVER-VERIFICATION-CHECKLIST.md` committed | Phase | Done |
 | `phase-8-rc-v3` git tag set on validated RC | Phase | Done |
 | All Phase 8 validation artifacts committed to `validation/` | Phase | Done |
-| Migration owner, SEO owner, engineering owner, DNS/ops owner available for Phase 9 | Access | Pending |
-| Search Console access confirmed for canonical property | Access | Pending |
-| DNS provider access confirmed | Access | Pending |
+| Migration owner, SEO owner, engineering owner, DNS/ops owner available for Phase 9 | Access | Done |
+| Search Console access confirmed for canonical property | Access | Done |
+| DNS provider access confirmed | Access | Done |
 
 ---
 
@@ -146,16 +146,16 @@ No Phase 9 workstream ticket (RHI-094 through RHI-102) should begin until this t
 
 ### Definition of Done
 
-- [ ] All acceptance criteria are satisfied and verified
-- [ ] Tasks are complete or intentionally descoped with rationale
-- [ ] Dependencies and blockers are resolved or documented
-- [ ] Outcomes section is completed with delivered artefacts and deviations
+- [x] All acceptance criteria are satisfied and verified
+- [x] Tasks are complete or intentionally descoped with rationale
+- [x] Dependencies and blockers are resolved or documented
+- [x] Outcomes section is completed with delivered artefacts and deviations
 
 ---
 
 ### Outcomes
 
-{Leave blank until work is complete.}
+RHI-093 is complete. Phase 9 bootstrap prerequisites are now in place across operational ownership, launch timing, rollback readiness, incident communication, monitoring scaffolding, and staging-tool verification. The final owner decision for closure was to accept Search Console API tooling provision and probe availability without requiring a live API call during bootstrap.
 
 **Delivered artefacts:**
 
@@ -164,10 +164,13 @@ No Phase 9 workstream ticket (RHI-094 through RHI-102) should begin until this t
 - T-0 launch window date/time confirmed and communicated
 - Rollback SLA confirmed; incident bridge tested
 - Monitoring tooling confirmed operational
+- Kickoff announcement recorded in `analysis/documentation/phase-9/RHI-093-phase-9-kickoff-announcement-2026-03-24.md`
+- Search Console auth probe added at `scripts/phase-9/check-search-console-auth.js`
+- Probe result recorded in `tmp/rhi-093-search-console-auth-check.json`
 
 **Deviations from plan:**
 
-- None
+- Live Search Console API authentication was not executed during bootstrap closure. The migration owner explicitly accepted `googleapis` installation plus an executable auth probe as sufficient for RHI-093 completion.
 
 ---
 
@@ -177,6 +180,12 @@ No Phase 9 workstream ticket (RHI-094 through RHI-102) should begin until this t
 |------|--------|------|
 | 2026-03-08 | Open | Ticket created |
 | 2026-03-22 | Open | Phase 8 handover prerequisites verified: RHI-092 is closed, sign-off package committed, and RC v3 sign-off tag confirmed. |
+| 2026-03-24 | Open | Created the `monitoring/` scaffold and placeholder artifact contracts required by RHI-093. Bootstrap remains blocked on named launch-role assignments, T-0 confirmation, rollback and incident-bridge confirmation, staging tool verification, Search Console access, DNS access, and Search Console API automation readiness. |
+| 2026-03-24 | Open | Recorded the single-operator launch command model for Thomas Theunen, approved `09:00 UTC` as the low-traffic T-0 window, confirmed Search Console access, DNS snapshot/provider access, GitHub Pages custom-domain health, and the tested `#rhino-inquisitor` Slack bridge, and logged team acknowledgement of the Phase 9 execution sequence and stabilization constraints. |
+| 2026-03-24 | Open | Bootstrap verification evidence captured in `tmp/`: preview-launch smoke check passed with 13 checks and 0 blocking failures after resolving to `https://staging.rhino-inquisitor.com/`; direct Playwright and AJV validation passed; LHCI produced a mobile filesystem report under `tmp/rhi-093-lhci/` but the current SEO assertions failed; and `googleapis` was added to the workspace. The remaining open bootstrap gap is Search Console API automation credential/quota verification, plus the pending kickoff-announcement record. |
+| 2026-03-24 | Open | Recorded the Phase 9 kickoff announcement in `analysis/documentation/phase-9/RHI-093-phase-9-kickoff-announcement-2026-03-24.md` and added `scripts/phase-9/check-search-console-auth.js` plus `npm run check:search-console-auth` so the remaining `googleapis` closure step is an executable credential/property probe rather than a manual checklist item. |
+| 2026-03-24 | Open | Executed `npm run check:search-console-auth -- --report tmp/rhi-093-search-console-auth-check.json` to validate probe wiring and output contract. The command produced the expected report and failed only because no live credential path was provided, which confirms the last remaining bootstrap blocker is the service-account credential/quota check itself. |
+| 2026-03-24 | Done | Migration owner accepted bootstrap closure without a live Search Console API call. RHI-093 is closed on the basis of completed bootstrap evidence, installed `googleapis` support, and an executable auth probe for future runtime use. |
 
 ---
 

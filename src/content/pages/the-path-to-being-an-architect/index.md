@@ -1,8 +1,8 @@
 ---
 title: The path to being an Architect
 description: >-
-  The journey to being an architect has assumed many forms over the years, and
-  does it all start at development?
+  A podcast conversation about moving from hands-on development into solution,
+  technical, and enterprise architecture roles in commerce delivery.
 date: '2022-09-11T07:39:31.000Z'
 lastmod: '2022-09-11T07:50:23.000Z'
 url: /the-path-to-being-an-architect/

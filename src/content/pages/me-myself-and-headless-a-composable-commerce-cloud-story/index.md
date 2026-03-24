@@ -1,8 +1,8 @@
 ---
 title: 'Me, Myself, and Headless: A Composable Commerce Cloud story'
 description: >-
-  Salesforce Commerce Cloud has shifted its focus to investing in Headless
-  development for the past two years. Mobify was acquired!
+  A session on Salesforce Commerce Cloud's headless direction, PWA Kit, and
+  what composable architecture means for existing implementation teams.
 date: '2022-09-10T17:03:23.000Z'
 lastmod: '2022-09-11T07:34:06.000Z'
 url: /me-myself-and-headless-a-composable-commerce-cloud-story/

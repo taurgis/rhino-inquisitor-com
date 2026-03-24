@@ -11,8 +11,10 @@ author: Thomas Theunen
 ---
 Everyone makes mistakes, big and small. There is no easy way to return within the Content Management system built into Salesforce B2C Commerce Cloud once you save a Content Asset. It is easy as pie to roll back changes to even months ago within many plugins and editors (including [Elementor](http://elementor.com), which I use for this blog.) This is most certainly a missing feature in Page Designer and Content Assets!
 
-![Revision history illustration for versioning content assets in SFCC.](revision-blog-12e6fdce00.jpg)
-
-Revisions in Elementor
+{{< img-caption
+  src="revision-blog-12e6fdce00.jpg"
+  alt="Revision history illustration for versioning content assets in SFCC."
+  caption="Revisions in Elementor"
+>}}
 
 [Vote for this idea here](https://ideas.salesforce.com/s/idea/a0B8W00000GdVsJUAV/versioning-of-content-assets)

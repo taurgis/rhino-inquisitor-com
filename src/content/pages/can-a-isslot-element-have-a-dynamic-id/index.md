@@ -1,8 +1,8 @@
 ---
 title: Can an isslot Element have a dynamic ID?
 description: >-
-  TL;DR It is not possible to set a dynamic ID in the <isslot tag. Explore the
-  full page on Rhino Inquisitor for additional context.
+  A quick answer on why the SFCC isslot tag requires a static ID and which
+  alternatives to consider instead.
 date: '2023-06-28T18:13:06.000Z'
 lastmod: '2023-06-28T18:56:00.000Z'
 url: /can-a-isslot-element-have-a-dynamic-id/

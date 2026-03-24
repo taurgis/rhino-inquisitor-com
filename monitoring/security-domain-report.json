@@ -1,0 +1,12 @@
+{
+  "runTimestamp": null,
+  "environment": "production",
+  "commitSha": null,
+  "status": "not-started",
+  "owner": null,
+  "domain": "https://www.rhino-inquisitor.com",
+  "findings": [],
+  "httpsHealthy": null,
+  "mixedContentIssues": [],
+  "verificationStatus": null
+}

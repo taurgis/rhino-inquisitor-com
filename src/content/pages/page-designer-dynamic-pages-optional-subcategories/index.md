@@ -18,10 +18,10 @@ Now, as with many things, no good deed comes unpunished. There is a "problem" wi
 Maybe a use-case to explain this. Your catalog structure is as follows:
 
 - Pants
-- Shorts
-- Jeans
-- Blue Jeans
-- Black Jeans
+  - Shorts
+  - Jeans
+    - Blue Jeans
+    - Black Jeans
 
 You decide to create a category landing page for Jeans to highlight all options.
 
@@ -33,9 +33,11 @@ The changes get replicated to production, and the next day you start getting cal
 
 This happened because your landing page also got assigned automatically to the Blue and Black Jeans subcategories, and there is no way to turn this off (besides custom development).
 
-![Page Designer category assignment screen showing how a page is linked to a category.](page-designer-subcategories-8ed50d99ab.png)
-
-Page Designer - Category Selection
+{{< img-caption
+  src="page-designer-subcategories-8ed50d99ab.png"
+  alt="Page Designer category assignment screen showing how a page is linked to a category."
+  caption="Page Designer - Category Selection"
+>}}
 
 Do you also want this automatic selection removed and get more control of your assignments?
 

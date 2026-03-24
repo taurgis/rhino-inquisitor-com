@@ -15,9 +15,11 @@ Many years ago, the only way to manage content within Salesforce Commerce Cloud 
 
 Commerce Cloud needed a better way to manage content. Looking at the Core Platform, and specifically Experience Cloud (Community Cloud at the time), was the solution.
 
-![Experience Cloud page editor shown as the conceptual reference for Page Designer.](experience-cloud-9470ae566b.png)
-
-Experience Cloud Page Editor
+{{< img-caption
+  src="experience-cloud-9470ae566b.png"
+  alt="Experience Cloud page editor shown as the conceptual reference for Page Designer."
+  caption="Experience Cloud Page Editor"
+>}}
 
 The screenshot above looks quite similar to Page Designer within Salesforce Commerce Cloud, though the system is fundamentally different and specific to the Commerce platform.
 

@@ -1,8 +1,8 @@
 ---
 title: Privacy Policy
 description: >-
-  Who we are Our website address is https://www.rhino-inquisitor.com/. Explore
-  the full page on Rhino Inquisitor for additional context.
+  Learn how Rhino Inquisitor handles comments, cookies, embedded content, data
+  retention, and visitor privacy rights.
 date: '2022-02-25T21:16:19.000Z'
 lastmod: '2023-03-06T13:57:39.000Z'
 url: /privacy-policy/
