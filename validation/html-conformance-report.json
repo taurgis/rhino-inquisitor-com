@@ -3,20 +3,20 @@
   "ticket": "RHI-089",
   "artifact": "html-conformance-report",
   "status": "pass",
-  "rcTag": "phase-8-rc-v2",
-  "rcSha": "efdcefce5a51f1a3cf70d6b437b7b2868df39cb8",
-  "generatedAt": "2026-03-21T07:13:21.075Z",
+  "rcTag": "phase-8-rc-v3",
+  "rcSha": "bb7bd49e1e8292ea3dbc744dded428dcfcab48aa",
+  "generatedAt": "2026-03-24T11:55:32.004Z",
   "publicDir": "public",
   "sampleMatrix": {
     "path": "validation/sample-matrix.json",
-    "generatedAt": "2026-03-20T19:04:18Z"
+    "generatedAt": "2026-03-22T06:58:43Z"
   },
   "artifactProvenance": {
-    "gitHead": "ad674f0c0bee87d66c715c99539e0e47e55f1f79",
-    "gitHeadShort": "ad674f0c",
+    "gitHead": "bbb8cad3157edf49983829f97068d7d6afeee34d",
+    "gitHeadShort": "bbb8cad3",
     "workspaceDirty": true,
-    "datasetRcTag": "phase-8-rc-v2",
-    "datasetRcSha": "efdcefce5a51f1a3cf70d6b437b7b2868df39cb8",
+    "datasetRcTag": "phase-8-rc-v3",
+    "datasetRcSha": "bb7bd49e1e8292ea3dbc744dded428dcfcab48aa",
     "matchesDatasetRc": false,
     "provenanceStatus": "branch-state",
     "note": "Artifact provenance differs from the frozen dataset RC or the workspace is dirty; treat this as branch-state evidence until a new RC is cut."

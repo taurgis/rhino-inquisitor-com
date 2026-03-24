@@ -95,9 +95,7 @@ The `id` must be **globally unique** across every single cartridge in your site'
 
 1. **Enable in Business Manager:**Finally, you must globally enable the custom cache feature. Navigate to**Administration > Operations > Custom Caches** and check the "Enable Caching" box.  Disabling this will clear all custom caches on the instance. This page will also become your primary tool for monitoring cache health.
 
-[{{< img-caption src="ods-custom-caches-business-manager-c30167212b.png" alt="Custom Caches screen in Business Manager." >}}](ods-custom-caches-business-manager-c30167212b.png)
-
-A screenshot of the "Administration > Operations > Custom Caches" screen in the business manager.
+{{< img-caption src="ods-custom-caches-business-manager-c30167212b.png" alt="Custom Caches screen in Business Manager." >}}
 
 ### The Core API Arsenal: CacheMgr and Cache
 
