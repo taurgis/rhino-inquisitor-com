@@ -59,6 +59,7 @@ This directory holds structured analysis documentation for the migration project
 - [Phase 9 kickoff announcement](phase-9/RHI-093-phase-9-kickoff-announcement-2026-03-24.md)
 - [Phase 9 external article link new-tab audit](phase-9/external-article-link-new-tab-audit-2026-03-24.md)
 - [Phase 9 footer external link new-tab follow-up](phase-9/footer-external-link-new-tab-follow-up-2026-03-24.md)
+- [Phase 9 video hub external link new-tab follow-up](phase-9/video-hub-external-link-new-tab-follow-up-2026-03-25.md)
 
 ## Naming Conventions
 

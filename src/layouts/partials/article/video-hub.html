@@ -34,7 +34,7 @@
         {{ else }}
           <a class="site-cta" href="{{ $activeWatchUrl }}" data-video-page-link hidden>Open page</a>
         {{ end }}
-        <a class="site-cta site-cta--outline" href="{{ $activeWatchUrl }}" data-video-secondary-link>Watch on YouTube</a>
+        <a class="site-cta site-cta--outline" href="{{ $activeWatchUrl }}" target="_blank" rel="noopener noreferrer" aria-label="Watch {{ $activeTitle }} on YouTube (opens in a new tab)" data-video-secondary-link>Watch on YouTube</a>
       </div>
       <p class="visually-hidden" data-video-status aria-live="polite">Now watching {{ $activeTitle }}</p>
     </section>
@@ -102,7 +102,7 @@
               {{ with $pageUrl }}
                 <a href="{{ . }}">Open page</a>
               {{ end }}
-              <a href="{{ $watchUrl }}">YouTube</a>
+              <a href="{{ $watchUrl }}" target="_blank" rel="noopener noreferrer" aria-label="Watch {{ $title }} on YouTube (opens in a new tab)">YouTube</a>
             </div>
           </li>
         {{- end -}}

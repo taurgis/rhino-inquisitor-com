@@ -81,6 +81,10 @@
       }
       if (secondaryLink) {
         secondaryLink.href = watchUrl;
+        secondaryLink.setAttribute(
+          'aria-label',
+          itemTitle ? 'Watch ' + itemTitle + ' on YouTube (opens in a new tab)' : 'Watch on YouTube (opens in a new tab)'
+        );
       }
       togglePageLink(pageLink, pageUrl);
 
