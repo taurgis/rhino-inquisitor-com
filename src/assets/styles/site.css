@@ -1528,6 +1528,16 @@ summary {
   gap: 0;
 }
 
+.page-article-route {
+  min-width: 0;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.page-article-route__breadcrumbs {
+  min-width: 0;
+}
+
 .page-article__header {
   min-width: 0;
   display: grid;
@@ -3028,6 +3038,20 @@ summary {
 }
 
 @media (max-width: 47.99rem) {
+  .page-article-route--single {
+    width: calc(100% + 2rem);
+    margin-inline: -1rem;
+  }
+
+  .page-article-route__breadcrumbs {
+    padding-inline: 1.1rem;
+  }
+
+  .page-article--single {
+    border-radius: 0;
+    box-shadow: none;
+  }
+
   .page-hero {
     flex-direction: column;
     text-align: center;

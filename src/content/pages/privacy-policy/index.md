@@ -1,58 +1,65 @@
 ---
 title: Privacy Policy
 description: >-
-  Learn how Rhino Inquisitor handles comments, cookies, embedded content, data
-  retention, and visitor privacy rights.
+  Learn how Rhino Inquisitor handles basic request data, embedded media, and
+  privacy questions on the current public Hugo site.
 date: '2022-02-25T21:16:19.000Z'
-lastmod: '2023-03-06T13:57:39.000Z'
+lastmod: '2026-03-29T00:00:00.000Z'
 url: /privacy-policy/
 draft: false
 author: Thomas Theunen
 ---
+Rhino Inquisitor is a public technical publishing site. The current Hugo site does not provide public user accounts, on-site comments, checkout flows, or newsletter sign-up forms.
+
 ## Who we are
 
 Our website address is [https://www.rhino-inquisitor.com/](/).
 
-## Comments
+## Technical request data
 
-When visitors leave comments on the site we collect the data shown in the comments form, and also the visitor’s IP address and browser user agent string to help spam detection.
+When you visit the site, the hosting platform and related infrastructure may process standard request data such as your IP address, browser or user-agent details, requested URL, referrer, and timestamp. This data is used to deliver the site, protect it, and troubleshoot operational issues.
 
-An anonymized string created from your email address (also called a hash) may be provided to the Gravatar service to see if you are using it. The Gravatar service privacy policy is available here: `<https://automattic.com/privacy/>`. After approval of your comment, your profile picture is visible to the public in the context of your comment.
+## Public features on this site
+
+The public site does not currently offer:
+
+- visitor accounts
+- comment submission
+- author logins for public visitors
+- checkout, payment, or other transactional flows
+
+If those features are added later, this policy will be updated before they are published.
 
 ## Media
 
-If you upload images to the website, you should avoid uploading images with embedded location data (EXIF GPS) included. Visitors to the website can download and extract any location data from images on the website.
+Images published on the site are readable by any visitor. As with most websites, technical request data may still be processed by the hosting stack when images, stylesheets, scripts, or other assets are requested.
 
 ## Cookies
 
-If you leave a comment on our site you may opt-in to saving your name, email address and website in cookies. These are for your convenience so that you do not have to fill in your details again when you leave another comment. These cookies will last for one year.
+The current public site does not intentionally set first-party login or comment cookies for visitors.
 
-If you visit our login page, we will set a temporary cookie to determine if your browser accepts cookies. This cookie contains no personal data and is discarded when you close your browser.
+Your browser, the hosting platform, or embedded third-party services may still use technical storage such as cookies or local storage when required to deliver content or when you interact with embedded media.
 
-When you log in, we will also set up several cookies to save your login information and your screen display choices. Login cookies last for two days, and screen options cookies last for a year. If you select "Remember Me", your login will persist for two weeks. If you log out of your account, the login cookies will be removed.
+For more detail about site-level cookie expectations, see the [Cookie Policy (EU)](/cookie-policy-eu/).
 
-If you edit or publish an article, an additional cookie will be saved in your browser. This cookie includes no personal data and simply indicates the post ID of the article you just edited. It expires after 1 day.
+## Embedded and third-party content
 
-## Embedded content from other websites
+Some articles include embedded or linked third-party content such as YouTube videos, GitHub references, LinkedIn links, and external documentation. When you interact with those services, they may receive information such as your IP address, browser details, referrer, and interaction metadata under their own privacy policies.
 
-Articles on this site may include embedded content (e.g. videos, images, articles, etc.). Embedded content from other websites behaves in the exact same way as if the visitor has visited the other website.
+Where practical, Rhino Inquisitor uses privacy-friendlier embed patterns such as YouTube's `youtube-nocookie.com` domain, but third-party providers may still process data once you start playback or leave this site.
 
-These websites may collect data about you, use cookies, embed additional third-party tracking, and monitor your interaction with that embedded content, including tracking your interaction with the embedded content if you have an account and are logged in to that website.
+## Analytics and consent tooling
 
-## How long we retain your data
+The current Hugo site does not publish the legacy Matomo opt-out widget that existed before migration, and it does not expose a public cookie-consent widget on the routes covered by this repository.
 
-If you leave a comment, the comment and its metadata are retained indefinitely. This is so we can recognize and approve any follow-up comments automatically instead of holding them in a moderation queue.
+If analytics, consent tooling, or additional visitor-facing tracking is added later, this policy and the cookie policy will be updated before rollout.
 
-For users that register on our website (if any), we also store the personal information they provide in their user profile. All users can see, edit, or delete their personal information at any time (except they cannot change their username). Website administrators can also see and edit that information.
+## Data retention and visitor rights
 
-## What rights you have over your data
+This site does not maintain public visitor accounts or comment profiles. If you contact the site owner directly through a channel linked from the [About page](/about/), any personal data you choose to share is handled in that communication channel rather than through an on-site form.
 
-If you have an account on this site, or have left comments, you can request to receive an exported file of the personal data we hold about you, including any data you have provided to us. You can also request that we erase any personal data we hold about you. This does not include any data we are obliged to keep for administrative, legal, or security purposes.
+If you have a privacy question about content published here or want to raise a concern about a public page, use the contact paths linked from the [About page](/about/).
 
-## Where we send your data
+## Changes to this policy
 
-Visitor comments may be checked through an automated spam detection service.
-
-## Opt-Out
-
-> Legacy Matomo opt-out widget removed during migration. Add a Hugo-safe replacement before publishing.
+This page will be updated when the public site adds or removes visitor-facing features that change how personal data or browser storage is handled.

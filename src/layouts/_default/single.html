@@ -1,98 +1,106 @@
 {{ define "main" }}
-  {{ partial "breadcrumbs.html" . }}
   {{ $isPost := eq .Type "posts" }}
   {{ $isVideoHub := eq .RelPermalink "/video/" }}
   {{ $summaryItems := .Params.summary | default (.Params.takeaways | default (slice)) }}
   {{ $hasSummary := gt (len $summaryItems) 0 }}
   {{ $renderSummaryInLead := and $isPost $hasSummary }}
+  {{ $breadcrumbs := partial "breadcrumbs.html" . }}
 
-  <article class="page-article">
-    <header class="page-article__header">
-      <div class="page-article__intro">
-        <h1>{{ .Title }}</h1>
-        {{ partial "article/meta-row.html" (dict "page" . "label" "Article details") }}
-        {{ if ne .Type "posts" }}
-          {{ with .Params.description }}
-            <p class="page-article__description">{{ . }}</p>
+  <div class="page-article-route page-article-route--single">
+    {{ if $breadcrumbs }}
+      <div class="page-article-route__breadcrumbs">
+        {{ $breadcrumbs }}
+      </div>
+    {{ end }}
+
+    <article class="page-article page-article--single">
+      <header class="page-article__header">
+        <div class="page-article__intro">
+          <h1>{{ .Title }}</h1>
+          {{ partial "article/meta-row.html" (dict "page" . "label" "Article details") }}
+          {{ if ne .Type "posts" }}
+            {{ with .Params.description }}
+              <p class="page-article__description">{{ . }}</p>
+            {{ end }}
+          {{ end }}
+        </div>
+
+        {{ if $isPost }}
+          {{ if or .Params.heroImage $hasSummary }}
+            <div class="page-article__lead{{ if and .Params.heroImage $hasSummary }} page-article__lead--split{{ end }}">
+              {{ if $hasSummary }}
+                {{ partial "article/summary-box.html" (dict "page" . "variant" "lead") }}
+              {{ end }}
+              {{ with .Params.heroImage }}
+                <div class="page-article__hero page-article__hero--lead">
+                  {{ partial "media/image.html" (dict
+                    "page" $
+                    "src" .
+                    "alt" ($.Params.heroImageAlt | default $.LinkTitle | default $.Title)
+                    "loading" "eager"
+                    "decoding" "sync"
+                    "fetchpriority" "high"
+                    "responsive" true
+                    "maxWidth" 1280
+                    "sizes" "(min-width: 64rem) 42rem, 100vw"
+                  ) }}
+                </div>
+              {{ end }}
+            </div>
+          {{ end }}
+        {{ else if not $isVideoHub }}
+          {{ if and .Params.heroImage (not .Params.video) }}
+            <div class="page-article__hero">
+              {{ partial "media/image.html" (dict
+                "page" .
+                "src" .Params.heroImage
+                "alt" (.Params.heroImageAlt | default .LinkTitle | default .Title)
+                "loading" "eager"
+                "decoding" "sync"
+                "fetchpriority" "high"
+                "responsive" true
+                "maxWidth" 1280
+                "sizes" "(min-width: 80rem) 72rem, 100vw"
+              ) }}
+            </div>
           {{ end }}
         {{ end }}
-      </div>
+      </header>
 
-      {{ if $isPost }}
-        {{ if or .Params.heroImage $hasSummary }}
-          <div class="page-article__lead{{ if and .Params.heroImage $hasSummary }} page-article__lead--split{{ end }}">
-            {{ if $hasSummary }}
-              {{ partial "article/summary-box.html" (dict "page" . "variant" "lead") }}
-            {{ end }}
-            {{ with .Params.heroImage }}
-              <div class="page-article__hero page-article__hero--lead">
-                {{ partial "media/image.html" (dict
-                  "page" $
-                  "src" .
-                  "alt" ($.Params.heroImageAlt | default $.LinkTitle | default $.Title)
-                  "loading" "eager"
-                  "decoding" "sync"
-                  "fetchpriority" "high"
-                  "responsive" true
-                  "maxWidth" 1280
-                  "sizes" "(min-width: 64rem) 42rem, 100vw"
-                ) }}
-              </div>
-            {{ end }}
-          </div>
-        {{ end }}
-      {{ else if not $isVideoHub }}
-        {{ if and .Params.heroImage (not .Params.video) }}
-          <div class="page-article__hero">
-            {{ partial "media/image.html" (dict
-              "page" .
-              "src" .Params.heroImage
-              "alt" (.Params.heroImageAlt | default .LinkTitle | default .Title)
-              "loading" "eager"
-              "decoding" "sync"
-              "fetchpriority" "high"
-              "responsive" true
-              "maxWidth" 1280
-              "sizes" "(min-width: 80rem) 72rem, 100vw"
-            ) }}
-          </div>
-        {{ end }}
+      {{ if not $renderSummaryInLead }}
+        {{ partial "article/summary-box.html" (dict "page" .) }}
       {{ end }}
-    </header>
 
-    {{ if not $renderSummaryInLead }}
-      {{ partial "article/summary-box.html" (dict "page" .) }}
-    {{ end }}
+      {{ if $isVideoHub }}
+        <div class="page-article__body page-article__body--video-hub">
+          {{ partial "article/video-hub.html" . }}
 
-    {{ if $isVideoHub }}
-      <div class="page-article__body page-article__body--video-hub">
-        {{ partial "article/video-hub.html" . }}
+          <section class="article-body article-body--video-hub-copy">
+            {{ if .Content }}
+              {{ .Content }}
+            {{ else }}
+              <p>No body content has been added yet.</p>
+            {{ end }}
+          </section>
+        </div>
+      {{ else }}
+        <div class="page-article__body">
+          <section class="article-body">
+            {{ if .Content }}
+              {{ .Content }}
+            {{ else }}
+              <p>No body content has been added yet.</p>
+            {{ end }}
+          </section>
 
-        <section class="article-body article-body--video-hub-copy">
-          {{ if .Content }}
-            {{ .Content }}
-          {{ else }}
-            <p>No body content has been added yet.</p>
-          {{ end }}
-        </section>
-      </div>
-    {{ else }}
-      <div class="page-article__body">
-        <section class="article-body">
-          {{ if .Content }}
-            {{ .Content }}
-          {{ else }}
-            <p>No body content has been added yet.</p>
-          {{ end }}
-        </section>
+          {{ partial "article/toc.html" (dict "page" .) }}
+        </div>
 
-        {{ partial "article/toc.html" (dict "page" .) }}
-      </div>
-
-      {{ partial "article/related-content.html" (dict "page" .) }}
-      {{ partial "article/footer-actions.html" (dict "page" .) }}
-    {{ end }}
-  </article>
+        {{ partial "article/related-content.html" (dict "page" .) }}
+        {{ partial "article/footer-actions.html" (dict "page" .) }}
+      {{ end }}
+    </article>
+  </div>
 {{ end }}
 
 {{ define "scripts" }}

@@ -210,6 +210,7 @@ jobs:
           path: |
             public
             tmp/ci-prod-public
+            tmp/ci-preview-public
             tmp/phase-7-artifact-validation-production.json
             tmp/phase-7-artifact-validation-preview.json
             tmp/phase-7-seo-safe-deploy-report.json
