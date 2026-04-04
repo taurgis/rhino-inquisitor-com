@@ -12,6 +12,9 @@ BUILD_DURATION_PATH="$REPO_ROOT/tmp/phase-7-build-duration-ms.txt"
 PRODUCTION_ARTIFACT_DIR="$REPO_ROOT/tmp/ci-prod-public"
 PREVIEW_ARTIFACT_DIR="$REPO_ROOT/tmp/ci-preview-public"
 PREVIEW_BUILD_MARKER_PATH="$REPO_ROOT/tmp/phase-7-preview-build.marker"
+CANONICAL_PRODUCTION_BASE_URL="https://www.rhino-inquisitor.com/"
+DEPLOY_ARTIFACT_SOURCE="${PHASE7_DEPLOY_ARTIFACT_SOURCE:-auto}"
+SELECTED_DEPLOY_ARTIFACT_SOURCE="production"
 
 GATE_NAMES=()
 GATE_COMMANDS=()
@@ -31,13 +34,17 @@ cleanup_preview_state() {
 }
 
 on_exit() {
+  local exit_code="$1"
+
   if [[ -f "$PREVIEW_BUILD_MARKER_PATH" ]]; then
-    restore_production_output
+    if [[ "$exit_code" -ne 0 || "$SELECTED_DEPLOY_ARTIFACT_SOURCE" == "production" ]]; then
+      restore_production_output
+    fi
     cleanup_preview_state
   fi
 }
 
-trap on_exit EXIT
+trap 'on_exit $?' EXIT
 
 print_help() {
   cat <<'EOF'
@@ -45,6 +52,8 @@ Usage: bash scripts/phase-7/run-all-gates.sh [options]
 
 Options:
   --preview-base-url <url>  Preview-host base URL for preview rehearsal validation.
+  --deploy-artifact-source <mode>
+                            Final artifact left in public/: auto, production, or preview.
   --summary-path <path>     CSV summary output path.
   --ci-run-url <url>        CI run URL to record in the gate summary.
   --help                    Show this help message.
@@ -55,6 +64,10 @@ while [[ $# -gt 0 ]]; do
   case "$1" in
     --preview-base-url)
       PREVIEW_BASE_URL="$2"
+      shift 2
+      ;;
+    --deploy-artifact-source)
+      DEPLOY_ARTIFACT_SOURCE="$2"
       shift 2
       ;;
     --summary-path)
@@ -140,6 +153,26 @@ run_gate() {
 
 write_summary_header
 PREVIEW_BASE_URL="$(normalize_url "$PREVIEW_BASE_URL")"
+CANONICAL_PRODUCTION_BASE_URL="$(normalize_url "$CANONICAL_PRODUCTION_BASE_URL")"
+
+case "$DEPLOY_ARTIFACT_SOURCE" in
+  auto)
+    if [[ "$PREVIEW_BASE_URL" == "$CANONICAL_PRODUCTION_BASE_URL" ]]; then
+      SELECTED_DEPLOY_ARTIFACT_SOURCE="production"
+    else
+      SELECTED_DEPLOY_ARTIFACT_SOURCE="preview"
+    fi
+    ;;
+  production|preview)
+    SELECTED_DEPLOY_ARTIFACT_SOURCE="$DEPLOY_ARTIFACT_SOURCE"
+    ;;
+  *)
+    echo "Unsupported deploy artifact source: $DEPLOY_ARTIFACT_SOURCE" >&2
+    exit 1
+    ;;
+esac
+
+echo "Deploy artifact source: $SELECTED_DEPLOY_ARTIFACT_SOURCE"
 cleanup_preview_state
 
 register_gate "Validate front matter" "cd \"$REPO_ROOT\" && npm run validate:frontmatter"

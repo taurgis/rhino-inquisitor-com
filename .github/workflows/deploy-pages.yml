@@ -13,6 +13,7 @@ env:
   HUGO_VERSION: 0.157.0
   NODE_VERSION: 20.18.1
   EXPECTED_PAGES_HOST: staging.rhino-inquisitor.com
+  CANONICAL_PRODUCTION_BASE_URL: https://www.rhino-inquisitor.com/
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
@@ -118,9 +119,32 @@ jobs:
           require('node:fs').appendFileSync(output, `base_url=${normalized.toString()}\n`, 'utf8');
           EOF
 
+      - name: Select deploy artifact source
+        id: deploy_artifact
+        env:
+          CANONICAL_PRODUCTION_BASE_URL: ${{ env.CANONICAL_PRODUCTION_BASE_URL }}
+          PREVIEW_BASE_URL: ${{ steps.preview_base.outputs.base_url }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [[ -z "$PREVIEW_BASE_URL" ]]; then
+            echo "Missing normalized preview base URL." >&2
+            exit 1
+          fi
+
+          if [[ "$PREVIEW_BASE_URL" == "$CANONICAL_PRODUCTION_BASE_URL" ]]; then
+            echo "source=production" >> "$GITHUB_OUTPUT"
+            echo "Deploy artifact source: production validation output." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "source=preview" >> "$GITHUB_OUTPUT"
+            echo "Deploy artifact source: environment-aware output for $PREVIEW_BASE_URL." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
       - name: Run blocking deployment quality gates
         env:
           PHASE7_PREVIEW_BASE_URL: ${{ steps.preview_base.outputs.base_url }}
+          PHASE7_DEPLOY_ARTIFACT_SOURCE: ${{ steps.deploy_artifact.outputs.source }}
           PHASE7_CI_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: npm run gates:local
 

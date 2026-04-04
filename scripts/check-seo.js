@@ -6,6 +6,21 @@ import fg from "fast-glob";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const publicDir = path.resolve(__dirname, "..", "public");
 const canonicalHost = "https://www.rhino-inquisitor.com";
+const expectedOpenSnippetTokens = [
+  "max-snippet:-1",
+  "max-image-preview:large",
+  "max-video-preview:-1"
+];
+
+function tokenizeRobotsContent(content) {
+  return new Set(
+    content
+      .toLowerCase()
+      .split(/[\s,]+/u)
+      .map((token) => token.trim())
+      .filter(Boolean)
+  );
+}
 
 function parseAttributes(tag) {
   const attributes = {};
@@ -256,6 +271,7 @@ function validateHtmlPage(route, html) {
   const description = getMetaContent(html, "name", "description");
   const canonical = getLinkHref(html, "canonical");
   const robots = getMetaContent(html, "name", "robots");
+  const robotsTokens = tokenizeRobotsContent(robots);
   const ogTitle = getMetaContent(html, "property", "og:title");
   const ogDescription = getMetaContent(html, "property", "og:description");
   const ogType = getMetaContent(html, "property", "og:type");
@@ -294,6 +310,14 @@ function validateHtmlPage(route, html) {
 
   if (twitterImage && !twitterImage.startsWith(canonicalHost)) {
     failures.push(`twitter:image host mismatch (${twitterImage})`);
+  }
+
+  if (robots && robotsTokens.has("nosnippet") === false) {
+    for (const token of expectedOpenSnippetTokens) {
+      if (robotsTokens.has(token) === false) {
+        failures.push(`missing snippet policy token (${token})`);
+      }
+    }
   }
 
   let jsonLdBlocks = [];

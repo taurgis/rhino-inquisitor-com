@@ -29,6 +29,7 @@ The repository already exposed canonical HTML, RSS, sitemap, and a JSON search i
 - Production `robots.txt` now blocks `Google-Extended`, `GPTBot`, and `ClaudeBot`, while explicitly allowing `PerplexityBot`, `Bingbot`, `OAI-SearchBot`, `Claude-SearchBot`, and `Claude-User` under the same system-route disallows used by the wildcard group. Preview and staging builds still block the whole site.
 - `npm run check:llm-artifacts` now writes `validation/llm-artifact-quality-report.json`, which records per-file quality findings plus deterministic complexity samples for the cleaned Markdown companions.
 - Indexable production HTML pages now emit an explicit discovery-friendly snippet policy through `meta[name="robots"]`: `index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1`. Restrictive controls such as `nosnippet`, `noarchive`, and `nocache` remain available as per-page overrides instead of global defaults.
+- The explicit snippet-policy contract is now enforced by both `npm run check:crawl-controls` and `npm run check:seo:artifact`, so built artifacts fail fast whether validation runs through the crawl-control audit or the general SEO artifact validator.
 - Taxonomy descriptions are now resolved more specifically for category archives and category term pages to reduce duplicate-description warning debt, and the previously duplicated release-note and idea-page descriptions were rewritten to be route-specific.
 
 ## Impact
@@ -46,7 +47,7 @@ The repository already exposed canonical HTML, RSS, sitemap, and a JSON search i
 - Run `npm run build:prod` and confirm the build completes successfully.
 - Confirm root outputs exist: `public/llms.txt` and `public/llms-full.txt`.
 - Confirm at least one regular page emits `index.md` beside its HTML output and that the file does not contain raw Hugo shortcode delimiters such as `{{<` or `{{%`.
-- Run `npm run check:sitemap`, `npm run check:crawl-controls`, `npm run check:llm-artifacts`, and `npm run check:seo:artifact` to confirm canonical crawl surfaces still pass existing checks, the named AI bot policy is present, and the Markdown quality report is generated.
+- Run `npm run check:sitemap`, `npm run check:crawl-controls`, `npm run check:llm-artifacts`, and `npm run check:seo:artifact` to confirm canonical crawl surfaces still pass existing checks, the named AI bot policy is present, the snippet-policy tokens are enforced in both validation paths, and the Markdown quality report is generated.
 - Spot check a rendered page head to confirm the Markdown `rel="alternate"` link is present.
 - Inspect `public/robots.txt` to confirm targeted disallow rules exist only for the intended AI training controls while `PerplexityBot`, `Bingbot`, and the existing search-oriented named groups remain crawlable in production.
 - Confirm `validation/llm-artifact-quality-report.json` is uploaded by both PR and deploy workflows.
