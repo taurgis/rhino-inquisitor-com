@@ -13,6 +13,7 @@
 {{ if $titleOverride }}
   {{ $titleSource = $titleOverride }}
 {{ end }}
+{{ $seoDefaults := .Site.Params.seoDefaults | default dict }}
 
 {{ $title := .Site.Title }}
 {{ if and .IsHome $titleOverride }}
@@ -32,6 +33,10 @@
 {{ end }}
 {{ if eq .Kind "404" }}
   {{ $description = "The requested page could not be found on Rhino Inquisitor." }}
+{{ else if and (eq .Kind "taxonomy") (eq .Type "categories") }}
+  {{ $description = "Browse Rhino Inquisitor topic archives for Salesforce Commerce Cloud guidance and implementation notes." }}
+{{ else if and (eq .Kind "term") (eq .Type "categories") }}
+  {{ $description = printf "Browse Rhino Inquisitor articles about %s and related Salesforce Commerce Cloud guidance." .Title }}
 {{ else if gt $pageNumber 1 }}
   {{ $description = printf "%s Page %d." (strings.TrimRight "." $description) $pageNumber }}
 {{ end }}
@@ -100,10 +105,35 @@
 {{ end }}
 {{ end }}
 
-{{ $robots := "index, follow" }}
+{{ $robotsTokens := slice }}
 {{ if or (ne hugo.Environment "production") (eq .Kind "404") (index $seoParams "noindex") }}
-  {{ $robots = "noindex, nofollow" }}
+  {{ $robotsTokens = $robotsTokens | append "noindex" "nofollow" }}
+{{ else }}
+  {{ $robotsTokens = $robotsTokens | append "index" "follow" }}
+  {{ if index $seoParams "nosnippet" }}
+    {{ $robotsTokens = $robotsTokens | append "nosnippet" }}
+  {{ else }}
+    {{ $maxSnippet := index $seoParams "maxSnippet" | default (index $seoDefaults "maxSnippet") }}
+    {{ $maxImagePreview := index $seoParams "maxImagePreview" | default (index $seoDefaults "maxImagePreview") }}
+    {{ $maxVideoPreview := index $seoParams "maxVideoPreview" | default (index $seoDefaults "maxVideoPreview") }}
+    {{ with $maxSnippet }}
+      {{ $robotsTokens = $robotsTokens | append (printf "max-snippet:%v" .) }}
+    {{ end }}
+    {{ with $maxImagePreview }}
+      {{ $robotsTokens = $robotsTokens | append (printf "max-image-preview:%v" .) }}
+    {{ end }}
+    {{ with $maxVideoPreview }}
+      {{ $robotsTokens = $robotsTokens | append (printf "max-video-preview:%v" .) }}
+    {{ end }}
+  {{ end }}
+  {{ if index $seoParams "noarchive" }}
+    {{ $robotsTokens = $robotsTokens | append "noarchive" }}
+  {{ end }}
+  {{ if index $seoParams "nocache" }}
+    {{ $robotsTokens = $robotsTokens | append "nocache" }}
+  {{ end }}
 {{ end }}
+{{ $robots := delimit $robotsTokens ", " }}
 
 {{ $twitterCard := index $seoParams "twitterCard" | default "" }}
 {{ if eq $twitterCard "" }}

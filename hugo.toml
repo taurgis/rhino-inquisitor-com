@@ -15,14 +15,34 @@ buildFuture = false
 buildExpired = false
 enableRobotsTXT = true
 
+[mediaTypes."text/markdown"]
+suffixes = ["md"]
+
 # Phase 3 remains monolingual, so Hugo emits a single root sitemap.xml.
 
 [outputs]
-home = ["html", "rss", "json"]
-page = ["html"]
+home = ["html", "rss", "json", "llms", "llmsfull"]
+page = ["html", "markdown"]
 section = ["html", "rss"]
 taxonomy = ["html"]
 term = ["html"]
+
+[outputFormats.llms]
+mediaType = "text/plain"
+baseName = "llms"
+isPlainText = true
+notAlternative = true
+
+[outputFormats.llmsfull]
+mediaType = "text/plain"
+baseName = "llms-full"
+isPlainText = true
+notAlternative = true
+
+[outputFormats.markdown]
+mediaType = "text/markdown"
+baseName = "index"
+isPlainText = true
 
 # IMPORTANT: Any change to generated route or taxonomy config below requires an
 # immediate RHI-025 URL parity re-run before merge.
@@ -44,3 +64,8 @@ disableXML = false
 [params]
 description = "Technical articles, migration notes, and platform guidance from Rhino Inquisitor."
 defaultSocialImage = "/images/social-default.svg"
+
+[params.seoDefaults]
+maxSnippet = -1
+maxImagePreview = "large"
+maxVideoPreview = -1

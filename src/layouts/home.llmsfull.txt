@@ -1,0 +1,52 @@
+{{- $indexablePages := slice -}}
+{{- range site.RegularPages.ByDate.Reverse -}}
+  {{- $seo := .Params.seo | default dict -}}
+  {{- if not (index $seo "noindex") -}}
+    {{- $indexablePages = $indexablePages | append . -}}
+  {{- end -}}
+{{- end -}}
+# Rhino Inquisitor Full Corpus
+
+> Combined Markdown export of all indexable regular pages for large language model ingestion and retrieval.
+
+Use the canonical HTML URL for attribution. Markdown companion URLs are provided as machine-friendly alternates.
+
+{{- range $indexablePages }}
+---
+
+## {{ .LinkTitle | default .Title }}
+
+Canonical URL: {{ .Permalink }}
+Markdown URL: {{ with .OutputFormats.Get "markdown" }}{{ .Permalink }}{{ else }}{{ .Permalink }}{{ end }}
+Content type: {{ if eq .Type "posts" }}article{{ else }}page{{ end }}
+{{- with .Date }}
+Published: {{ .Format "2006-01-02T15:04:05Z07:00" }}
+{{- end }}
+{{- with .Lastmod }}
+Updated: {{ .Format "2006-01-02T15:04:05Z07:00" }}
+{{- end }}
+{{- with .Params.description }}
+Summary: {{ . }}
+{{- else }}
+{{- with .Summary | plainify | strings.TrimSpace }}
+Summary: {{ . }}
+{{- end }}
+{{- end }}
+{{- with .Params.categories }}
+Categories: {{ delimit . ", " }}
+{{- end }}
+{{- with .Params.tags }}
+Tags: {{ delimit . ", " }}
+{{- end }}
+
+{{- with .Params.takeaways }}
+### Key Takeaways
+
+{{- range . }}
+- {{ . }}
+{{- end }}
+
+{{- end }}
+{{ partial "llms/clean-body.html" . | safeHTML }}
+
+{{- end }}

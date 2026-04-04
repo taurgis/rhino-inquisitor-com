@@ -3,16 +3,16 @@
   "ticket": "RHI-086",
   "artifact": "robots-sitemap-report",
   "status": "pass",
-  "rcTag": "phase-8-rc-v2",
-  "rcSha": "efdcefce5a51f1a3cf70d6b437b7b2868df39cb8",
-  "generatedAt": "2026-03-21T07:13:18.551Z",
+  "rcTag": "phase-8-rc-v3",
+  "rcSha": "bb7bd49e1e8292ea3dbc744dded428dcfcab48aa",
+  "generatedAt": "2026-04-04T13:54:10.110Z",
   "publicDir": "public",
   "artifactProvenance": {
-    "gitHead": "ad674f0c0bee87d66c715c99539e0e47e55f1f79",
-    "gitHeadShort": "ad674f0c",
+    "gitHead": "bb36b7031b021b42f21cedc56e9edd667577bd25",
+    "gitHeadShort": "bb36b703",
     "workspaceDirty": true,
-    "datasetRcTag": "phase-8-rc-v2",
-    "datasetRcSha": "efdcefce5a51f1a3cf70d6b437b7b2868df39cb8",
+    "datasetRcTag": "phase-8-rc-v3",
+    "datasetRcSha": "bb7bd49e1e8292ea3dbc744dded428dcfcab48aa",
     "matchesDatasetRc": false,
     "provenanceStatus": "branch-state",
     "note": "Artifact provenance differs from the frozen dataset RC or the workspace is dirty; treat this as branch-state evidence until a new RC is cut."
@@ -34,7 +34,7 @@
       {
         "loc": "https://www.rhino-inquisitor.com/",
         "route": "/",
-        "lastmod": "2026-03-14T09:40:00+00:00",
+        "lastmod": "2026-03-29T00:00:00+00:00",
         "sourceFile": "public/sitemap.xml",
         "result": "pass",
         "findings": []
@@ -42,7 +42,7 @@
       {
         "loc": "https://www.rhino-inquisitor.com/pages/",
         "route": "/pages/",
-        "lastmod": "2026-03-09T10:00:00+00:00",
+        "lastmod": "2026-03-29T00:00:00+00:00",
         "sourceFile": "public/sitemap.xml",
         "result": "pass",
         "findings": []
@@ -890,7 +890,7 @@
       {
         "loc": "https://www.rhino-inquisitor.com/cookie-policy-eu/",
         "route": "/cookie-policy-eu/",
-        "lastmod": "2023-03-06T13:35:03+00:00",
+        "lastmod": "2026-03-29T00:00:00+00:00",
         "sourceFile": "public/sitemap.xml",
         "result": "pass",
         "findings": []
@@ -1546,7 +1546,7 @@
       {
         "loc": "https://www.rhino-inquisitor.com/about/",
         "route": "/about/",
-        "lastmod": "2022-02-25T21:45:55+00:00",
+        "lastmod": "2026-03-24T07:27:00+00:00",
         "sourceFile": "public/sitemap.xml",
         "result": "pass",
         "findings": []
@@ -1554,7 +1554,7 @@
       {
         "loc": "https://www.rhino-inquisitor.com/privacy-policy/",
         "route": "/privacy-policy/",
-        "lastmod": "2023-03-06T13:57:39+00:00",
+        "lastmod": "2026-03-29T00:00:00+00:00",
         "sourceFile": "public/sitemap.xml",
         "result": "pass",
         "findings": []
@@ -1602,7 +1602,7 @@
       {
         "loc": "https://www.rhino-inquisitor.com/pages/page/2/",
         "route": "/pages/page/2/",
-        "lastmod": "2026-03-09T10:00:00+00:00",
+        "lastmod": "2026-03-29T00:00:00+00:00",
         "sourceFile": "public/sitemap.xml",
         "result": "pass",
         "findings": []
@@ -1610,7 +1610,7 @@
       {
         "loc": "https://www.rhino-inquisitor.com/pages/page/3/",
         "route": "/pages/page/3/",
-        "lastmod": "2026-03-09T10:00:00+00:00",
+        "lastmod": "2026-03-29T00:00:00+00:00",
         "sourceFile": "public/sitemap.xml",
         "result": "pass",
         "findings": []

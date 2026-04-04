@@ -286,6 +286,7 @@ jobs:
           set -euo pipefail
           build_started_at=$(node -e 'console.log(Date.now())')
           hugo --minify --environment production
+          npm run generate:llm-artifacts
           build_finished_at=$(node -e 'console.log(Date.now())')
           echo "PAGES_CONSTRAINTS_BUILD_DURATION_MS=$((build_finished_at - build_started_at))" >> "$GITHUB_ENV"
 
@@ -324,6 +325,10 @@ jobs:
         if: needs.prepare.outputs.full_site_route_validation_required == 'true'
         run: npm run check:crawl-controls
 
+      - name: Run LLM artifact validation check
+        if: needs.prepare.outputs.full_site_route_validation_required == 'true'
+        run: npm run check:llm-artifacts
+
       - name: Run internal link check
         if: needs.prepare.outputs.full_site_route_validation_required == 'true'
         run: npm run check:internal-links
@@ -339,7 +344,7 @@ jobs:
 
       - name: Build preview rehearsal site
         if: needs.prepare.outputs.full_site_route_validation_required == 'true'
-        run: hugo --gc --minify --environment preview --baseURL "https://taurgis.github.io/rhino-inquisitor-com/"
+        run: hugo --gc --minify --environment preview --baseURL "https://taurgis.github.io/rhino-inquisitor-com/" && npm run generate:llm-artifacts
 
       - name: Run preview crawl-control validation check
         if: needs.prepare.outputs.full_site_route_validation_required == 'true'
@@ -362,6 +367,7 @@ jobs:
             migration/reports/phase-5-sitemap-audit.csv
             migration/reports/phase-5-internal-links-audit.csv
             migration/url-parity-report.json
+            validation/llm-artifact-quality-report.json
           if-no-files-found: error
           retention-days: 7
 

@@ -5,6 +5,8 @@ lastmod: '2026-03-14T09:40:00Z'
 url: /404.html
 layout: 404
 draft: false
+outputs:
+  - html
 seo:
   noindex: true
 sitemap:

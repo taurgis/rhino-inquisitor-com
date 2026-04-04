@@ -23,6 +23,48 @@ const defaults = {
 };
 
 const validModes = new Set(['production', 'preview']);
+const expectedOpenSnippetTokens = [
+  'max-snippet:-1',
+  'max-image-preview:large',
+  'max-video-preview:-1'
+];
+const namedAiBots = [
+  {
+    agent: 'PerplexityBot',
+    productionBlocked: false,
+    rationale: 'search crawler should remain allowed in production'
+  },
+  {
+    agent: 'Bingbot',
+    productionBlocked: false,
+    rationale: 'search crawler should remain allowed in production'
+  },
+  {
+    agent: 'OAI-SearchBot',
+    productionBlocked: false,
+    rationale: 'search crawler should remain allowed in production'
+  },
+  {
+    agent: 'GPTBot',
+    productionBlocked: true,
+    rationale: 'training crawler should remain blocked in production'
+  },
+  {
+    agent: 'Claude-SearchBot',
+    productionBlocked: false,
+    rationale: 'search crawler should remain allowed in production'
+  },
+  {
+    agent: 'Claude-User',
+    productionBlocked: false,
+    rationale: 'user-directed retrieval should remain allowed in production'
+  },
+  {
+    agent: 'ClaudeBot',
+    productionBlocked: true,
+    rationale: 'training crawler should remain blocked in production'
+  }
+];
 
 function normalizeBaseUrl(rawBaseUrl) {
   const normalized = new URL(rawBaseUrl);
@@ -149,6 +191,7 @@ function readRobotsSignals($) {
   return {
     robots,
     googlebot,
+    tokens,
     hasNoindex: tokens.has('noindex'),
     hasNofollow: tokens.has('nofollow')
   };
@@ -256,6 +299,18 @@ function resolveRobotsRule(pathname, rules) {
     matchedRule: bestRule,
     blocked: bestRule?.directive === 'disallow'
   };
+}
+
+function resolveNamedBotGroups(robotsData) {
+  const groupsByAgent = new Map();
+
+  for (const group of robotsData.groups) {
+    for (const agent of group.agents) {
+      groupsByAgent.set(agent.toLowerCase(), group);
+    }
+  }
+
+  return groupsByAgent;
 }
 
 function collectManifestIndexIntent(manifestEntries) {
@@ -389,6 +444,7 @@ async function main() {
   const robotsData = parseRobotsFile(robotsSource);
   const expectedSitemapUrl = new URL('sitemap.xml', options.baseUrl).toString();
   const robotsFindings = [];
+  const namedBotGroups = resolveNamedBotGroups(robotsData);
 
   if (!robotsData.wildcardPresent) {
     robotsFindings.push('missing User-agent: * group');
@@ -401,6 +457,24 @@ async function main() {
   const rootDecision = resolveRobotsRule('/', robotsData.wildcardRules);
   if (options.mode === 'preview' && !rootDecision.blocked) {
     robotsFindings.push('preview robots.txt must block the site root with Disallow: /');
+  }
+
+  for (const bot of namedAiBots) {
+    const group = namedBotGroups.get(bot.agent.toLowerCase());
+    if (!group) {
+      robotsFindings.push(`missing User-agent: ${bot.agent} group`);
+      continue;
+    }
+
+    const rootResolution = resolveRobotsRule('/', group.rules);
+    const expectedBlocked = options.mode === 'preview' ? true : bot.productionBlocked;
+    if (expectedBlocked && !rootResolution.blocked) {
+      robotsFindings.push(`${bot.agent} must be blocked on the site root`);
+    }
+
+    if (!expectedBlocked && rootResolution.blocked) {
+      robotsFindings.push(`${bot.agent} ${bot.rationale}`);
+    }
   }
 
   const rows = [createRobotsRow({ options, robotsData, findings: robotsFindings })];
@@ -424,6 +498,14 @@ async function main() {
     if (options.mode === 'production') {
       if (expectedIndexable && signals.hasNoindex) {
         findings.push('unexpected noindex on indexable route');
+      }
+
+      if (expectedIndexable) {
+        for (const token of expectedOpenSnippetTokens) {
+          if (!signals.tokens.has(token)) {
+            findings.push(`missing snippet policy token (${token})`);
+          }
+        }
       }
 
       if (expectedIndexable && robotsDecision.blocked) {

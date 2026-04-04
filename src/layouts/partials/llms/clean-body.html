@@ -1,0 +1,84 @@
+{{- $pageTitle := .LinkTitle | default .Title | default "Embedded video" -}}
+{{- $body := .RawContent | default "" | replaceRE `\r\n?` "\n" | strings.TrimSpace -}}
+
+{{- if $body -}}
+  {{- range findRESubmatch `(?s)\{\{<\s*img-caption\s+(.+?)>\s*\}\}` $body -}}
+    {{- $full := index . 0 -}}
+    {{- $attrs := index . 1 -}}
+    {{- $altMatch := findRESubmatch `alt="([^"]+)"` $attrs -}}
+    {{- $captionMatch := findRESubmatch `caption="([^"]+)"` $attrs -}}
+    {{- $srcMatch := findRESubmatch `src="([^"]+)"` $attrs -}}
+    {{- $alt := "" -}}
+    {{- $caption := "" -}}
+    {{- $src := "" -}}
+    {{- with $altMatch }}{{- $alt = transform.HTMLUnescape (index (index . 0) 1) -}}{{- end -}}
+    {{- with $captionMatch }}{{- $caption = transform.HTMLUnescape (index (index . 0) 1) -}}{{- end -}}
+    {{- with $srcMatch }}{{- $src = transform.HTMLUnescape (index (index . 0) 1) -}}{{- end -}}
+    {{- $replacementParts := slice -}}
+    {{- if and $alt $src -}}
+      {{- $replacementParts = $replacementParts | append (printf "![%s](%s)" $alt $src) -}}
+    {{- else if $alt -}}
+      {{- $replacementParts = $replacementParts | append $alt -}}
+    {{- end -}}
+    {{- if $caption -}}
+      {{- $replacementParts = $replacementParts | append (printf "_%s_" $caption) -}}
+    {{- end -}}
+    {{- $body = replace $body $full (printf "\n\n%s\n\n" (delimit $replacementParts "\n\n")) -}}
+  {{- end -}}
+
+  {{- range findRESubmatch `(?s)\{\{<\s*video-embed\s+(.+?)>\s*\}\}` $body -}}
+    {{- $full := index . 0 -}}
+    {{- $attrs := index . 1 -}}
+    {{- $idMatch := findRESubmatch `id="([^"]+)"` $attrs -}}
+    {{- $titleMatch := findRESubmatch `title="([^"]+)"` $attrs -}}
+    {{- $id := "" -}}
+    {{- $title := $pageTitle -}}
+    {{- with $idMatch }}{{- $id = transform.HTMLUnescape (index (index . 0) 1) -}}{{- end -}}
+    {{- with $titleMatch }}{{- $title = transform.HTMLUnescape (index (index . 0) 1) -}}{{- end -}}
+    {{- $replacement := printf "Embedded video: %s" $title -}}
+    {{- if $id -}}
+      {{- $replacement = printf "[Embedded video: %s](https://www.youtube.com/watch?v=%s)" $title $id -}}
+    {{- end -}}
+    {{- $body = replace $body $full (printf "\n\n%s\n\n" $replacement) -}}
+  {{- end -}}
+
+  {{- range findRESubmatch `(?s)\{\{<\s*local-video\s+(.+?)>\s*\}\}` $body -}}
+    {{- $full := index . 0 -}}
+    {{- $attrs := index . 1 -}}
+    {{- $srcMatch := findRESubmatch `src="([^"]+)"` $attrs -}}
+    {{- $titleMatch := findRESubmatch `title="([^"]+)"` $attrs -}}
+    {{- $captionMatch := findRESubmatch `caption="([^"]+)"` $attrs -}}
+    {{- $src := "" -}}
+    {{- $title := $pageTitle -}}
+    {{- $caption := "" -}}
+    {{- with $srcMatch }}{{- $src = transform.HTMLUnescape (index (index . 0) 1) -}}{{- end -}}
+    {{- with $titleMatch }}{{- $title = transform.HTMLUnescape (index (index . 0) 1) -}}{{- end -}}
+    {{- with $captionMatch }}{{- $caption = transform.HTMLUnescape (index (index . 0) 1) -}}{{- end -}}
+    {{- $replacementParts := slice -}}
+    {{- if $src -}}
+      {{- $replacementParts = $replacementParts | append (printf "[Embedded video: %s](%s)" $title $src) -}}
+    {{- else -}}
+      {{- $replacementParts = $replacementParts | append (printf "Embedded video: %s" $title) -}}
+    {{- end -}}
+    {{- if $caption -}}
+      {{- $replacementParts = $replacementParts | append (printf "_%s_" $caption) -}}
+    {{- end -}}
+    {{- $body = replace $body $full (printf "\n\n%s\n\n" (delimit $replacementParts "\n\n")) -}}
+  {{- end -}}
+
+  {{- range findRESubmatch `(?s)\{\{<\s*highlight\s*([^>]*)>\s*\}\}\n?(.*?)\n?\{\{<\s*/highlight\s*>\s*\}\}` $body -}}
+    {{- $full := index . 0 -}}
+    {{- $language := strings.TrimSpace (index . 1) -}}
+    {{- $code := strings.TrimSpace (index . 2) -}}
+    {{- $body = replace $body $full (printf "\n\n~~~%s\n%s\n~~~\n\n" $language $code) -}}
+  {{- end -}}
+
+  {{- range findRESubmatch `(?s)\{\{<\s*realm-split-checklist-table\s*>\s*\}\}` $body -}}
+    {{- $full := index . 0 -}}
+    {{- $body = replace $body $full "\n\nSee the HTML version of this article for the full realm split checklist table.\n\n" -}}
+  {{- end -}}
+
+  {{- replaceRE `\n{3,}` "\n\n" $body | strings.TrimSpace -}}
+{{- else -}}
+  {{- .Plain | strings.TrimSpace -}}
+{{- end -}}

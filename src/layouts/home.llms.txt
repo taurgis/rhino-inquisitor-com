@@ -1,0 +1,49 @@
+{{- $indexablePages := slice -}}
+{{- range site.RegularPages.ByDate.Reverse -}}
+  {{- $seo := .Params.seo | default dict -}}
+  {{- if not (index $seo "noindex") -}}
+    {{- $indexablePages = $indexablePages | append . -}}
+  {{- end -}}
+{{- end -}}
+{{- $blogPage := site.GetPage "/posts" -}}
+{{- $referencePage := site.GetPage "/pages" -}}
+{{- $categoryPage := site.GetPage "/categories" -}}
+{{- $llmsFull := .OutputFormats.Get "llmsfull" -}}
+{{- $jsonIndex := .OutputFormats.Get "json" -}}
+{{- $rssFeed := .OutputFormats.Get "rss" -}}
+# Rhino Inquisitor
+
+> {{ .Site.Params.description }}
+
+Rhino Inquisitor publishes technical articles, migration notes, and implementation guidance focused on Salesforce Commerce Cloud.
+
+Canonical site: {{ .Site.Home.Permalink }}
+LLM full corpus: {{ with $llmsFull }}{{ .Permalink }}{{ end }}
+XML sitemap: {{ "sitemap.xml" | absURL }}
+RSS feed: {{ with $rssFeed }}{{ .Permalink }}{{ end }}
+Search index JSON: {{ with $jsonIndex }}{{ .Permalink }}{{ end }}
+
+The canonical HTML pages remain the source of truth for attribution and linking. Indexable articles and pages also publish Markdown companion endpoints for machine-friendly retrieval.
+
+## Key Collections
+
+- [Homepage]({{ .Site.Home.Permalink }}): Site entry point and featured reading surface.
+- [Blog Archive]({{ with $blogPage }}{{ .Permalink }}{{ end }}): Reverse-chronological article index.
+- [Reference Pages]({{ with $referencePage }}{{ .Permalink }}{{ end }}): Evergreen reference and utility pages.
+- [Categories]({{ with $categoryPage }}{{ .Permalink }}{{ end }}): Topic browse surface.
+- [LLM Full Corpus]({{ with $llmsFull }}{{ .Permalink }}{{ end }}): Combined Markdown export of every indexable regular page.
+- [Search Index JSON]({{ with $jsonIndex }}{{ .Permalink }}{{ end }}): Machine-readable metadata feed for canonical pages.
+- [RSS Feed]({{ with $rssFeed }}{{ .Permalink }}{{ end }}): Latest published entries.
+- [XML Sitemap]({{ "sitemap.xml" | absURL }}): Canonical crawl map for search engines.
+
+## Articles
+
+{{- range where $indexablePages "Type" "posts" }}
+- [{{ .LinkTitle | default .Title }}]({{ with .OutputFormats.Get "markdown" }}{{ .Permalink }}{{ else }}{{ .Permalink }}{{ end }}): {{ .Params.description | default (.Summary | plainify | strings.TrimSpace) }}
+{{- end }}
+
+## Reference Pages
+
+{{- range where $indexablePages "Type" "pages" }}
+- [{{ .LinkTitle | default .Title }}]({{ with .OutputFormats.Get "markdown" }}{{ .Permalink }}{{ else }}{{ .Permalink }}{{ end }}): {{ .Params.description | default (.Summary | plainify | strings.TrimSpace) }}
+{{- end }}

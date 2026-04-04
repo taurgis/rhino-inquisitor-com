@@ -1,8 +1,8 @@
 ---
 title: Salesforce B2C Commerce Cloud 22.9 release
 description: >-
-  With Salesforce B2C Commerce Cloud, you get new candy to play with every
-  month. What does this month's jar have in store for us?
+  Explore the Salesforce B2C Commerce Cloud 22.9 release, from Page Designer
+  copy and paste to Shopper Context updates and Salesforce Payments changes.
 date: '2022-08-17T18:45:35.000Z'
 lastmod: '2022-08-18T08:09:00.000Z'
 url: /salesforce-b2c-commerce-cloud-22-9-release/

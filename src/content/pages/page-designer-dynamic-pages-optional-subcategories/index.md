@@ -1,8 +1,9 @@
 ---
 title: 'Page Designer: Dynamic Pages - Optional Subcategories'
 description: >-
-  Many years ago, the only way to manage content within Salesforce Commerce
-  Cloud was content assets and slots. But now there is a better way!
+  Track the Salesforce idea for making Page Designer dynamic-category
+  inheritance optional when subcategories should not share the same landing
+  page.
 date: '2022-03-01T16:56:04.000Z'
 lastmod: '2022-03-06T08:51:38.000Z'
 url: /ideas/page-designer-dynamic-pages-optional-subcategories/

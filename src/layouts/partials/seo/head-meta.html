@@ -1,4 +1,5 @@
 {{ $seo := partial "seo/resolve.html" . }}
+{{ $seoParams := .Params.seo | default dict }}
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,6 +9,19 @@
 <link rel="canonical" href="{{ $seo.canonical }}">
 {{ with .Site.Home.OutputFormats.Get "rss" }}
   <link rel="alternate" type="{{ .MediaType.Type }}" title="{{ $.Site.Title }}" href="{{ .Permalink }}">
+{{ end }}
+{{ if .IsHome }}
+  {{ with .OutputFormats.Get "llms" }}
+    <link rel="alternate" type="{{ .MediaType.Type }}" title="{{ $.Site.Title }} LLMs" href="{{ .Permalink }}">
+  {{ end }}
+  {{ with .OutputFormats.Get "llmsfull" }}
+    <link rel="alternate" type="{{ .MediaType.Type }}" title="{{ $.Site.Title }} LLM Full Corpus" href="{{ .Permalink }}">
+  {{ end }}
+{{ end }}
+{{ if and .IsPage (not (index $seoParams "noindex")) }}
+  {{ with .OutputFormats.Get "markdown" }}
+    <link rel="alternate" type="{{ .MediaType.Type }}" title="{{ $.Title }} Markdown companion" href="{{ .Permalink }}">
+  {{ end }}
 {{ end }}
 
 {{ partial "seo/open-graph.html" . }}

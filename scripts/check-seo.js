@@ -61,6 +61,87 @@ function getLinkHref(html, relValue) {
   return attributes?.href?.trim() ?? "";
 }
 
+function parseRobotsFile(source) {
+  const groups = [];
+  let currentAgents = [];
+  let currentRules = [];
+
+  const flushCurrentGroup = () => {
+    if (currentAgents.length === 0) {
+      return;
+    }
+
+    groups.push({
+      agents: [...currentAgents],
+      rules: [...currentRules]
+    });
+    currentAgents = [];
+    currentRules = [];
+  };
+
+  for (const rawLine of source.split(/\r?\n/u)) {
+    const line = rawLine.replace(/#.*/u, "").trim();
+    if (!line) {
+      continue;
+    }
+
+    const match = /^([^:]+):\s*(.*)$/u.exec(line);
+    if (!match) {
+      continue;
+    }
+
+    const directive = match[1].trim().toLowerCase();
+    const value = match[2].trim();
+
+    if (directive === "user-agent") {
+      if (currentRules.length > 0) {
+        flushCurrentGroup();
+      }
+      currentAgents.push(value.toLowerCase());
+      continue;
+    }
+
+    if (directive === "allow" || directive === "disallow") {
+      if (currentAgents.length === 0) {
+        continue;
+      }
+
+      currentRules.push({ directive, value });
+    }
+  }
+
+  flushCurrentGroup();
+
+  return groups;
+}
+
+function wildcardBlocksSiteRoot(robotsSource) {
+  const wildcardGroup = parseRobotsFile(robotsSource).find((group) => group.agents.includes("*"));
+  if (!wildcardGroup) {
+    return false;
+  }
+
+  let bestRule = null;
+
+  for (const rule of wildcardGroup.rules) {
+    if (!rule.value || !"/".startsWith(rule.value)) {
+      continue;
+    }
+
+    const currentLength = bestRule?.value.length ?? -1;
+    if (rule.value.length > currentLength) {
+      bestRule = rule;
+      continue;
+    }
+
+    if (rule.value.length === currentLength && rule.directive === "allow" && bestRule?.directive === "disallow") {
+      bestRule = rule;
+    }
+  }
+
+  return bestRule?.directive === "disallow";
+}
+
 function routeFromHtmlPath(filePath) {
   const relativePath = path.relative(publicDir, filePath).replace(/\\/g, "/");
 
@@ -299,7 +380,7 @@ async function main() {
   if (!robots.includes(`Sitemap: ${canonicalHost}/sitemap.xml`)) {
     failures.push("robots.txt: missing canonical sitemap directive");
   }
-  if (/^Disallow:\s*\/\s*$/mi.test(robots)) {
+  if (wildcardBlocksSiteRoot(robots)) {
     failures.push("robots.txt: production robots.txt blocks the entire site");
   }
 

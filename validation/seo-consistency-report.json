@@ -3,27 +3,27 @@
   "ticket": "RHI-086",
   "artifact": "seo-consistency-report",
   "status": "pass",
-  "rcTag": "phase-8-rc-v2",
-  "rcSha": "efdcefce5a51f1a3cf70d6b437b7b2868df39cb8",
-  "generatedAt": "2026-03-21T07:13:17.354Z",
+  "rcTag": "phase-8-rc-v3",
+  "rcSha": "bb7bd49e1e8292ea3dbc744dded428dcfcab48aa",
+  "generatedAt": "2026-04-04T13:54:12.933Z",
   "publicDir": "public",
   "sampleMatrix": {
     "path": "validation/sample-matrix.json",
-    "generatedAt": "2026-03-20T19:04:18Z"
+    "generatedAt": "2026-03-22T06:58:43Z"
   },
   "artifactProvenance": {
-    "gitHead": "ad674f0c0bee87d66c715c99539e0e47e55f1f79",
-    "gitHeadShort": "ad674f0c",
+    "gitHead": "bb36b7031b021b42f21cedc56e9edd667577bd25",
+    "gitHeadShort": "bb36b703",
     "workspaceDirty": true,
-    "datasetRcTag": "phase-8-rc-v2",
-    "datasetRcSha": "efdcefce5a51f1a3cf70d6b437b7b2868df39cb8",
+    "datasetRcTag": "phase-8-rc-v3",
+    "datasetRcSha": "bb7bd49e1e8292ea3dbc744dded428dcfcab48aa",
     "matchesDatasetRc": false,
     "provenanceStatus": "branch-state",
     "note": "Artifact provenance differs from the frozen dataset RC or the workspace is dirty; treat this as branch-state evidence until a new RC is cut."
   },
   "priorityRoutes": {
     "path": "validation/priority-routes.json",
-    "generatedAt": "2026-03-20T19:04:18Z"
+    "generatedAt": "2026-03-22T06:58:43Z"
   },
   "sitemap": {
     "path": "public/sitemap.xml",
@@ -535,8 +535,8 @@
       "builtArtifactPath": "public/connecting-the-clouds-wedding-or-funeral/index.html",
       "title": "Connecting the Clouds: Wedding or funeral | Rhino Inquisitor",
       "titleLength": 60,
-      "description": "Connecting different clouds, in this case: B2C Commerce Cloud, CRM, and Marketing Cloud, to work together in harmony can be a challenge.",
-      "descriptionLength": 136,
+      "description": "A session on the real-world challenges of connecting B2C Commerce Cloud, CRM, and Marketing Cloud across security, GDPR, and delivery constraints.",
+      "descriptionLength": 146,
       "canonicalCount": 1,
       "canonicalUrl": "https://www.rhino-inquisitor.com/connecting-the-clouds-wedding-or-funeral/",
       "sitemapUrl": "https://www.rhino-inquisitor.com/connecting-the-clouds-wedding-or-funeral/",
@@ -564,8 +564,8 @@
       "builtArtifactPath": "public/cookie-policy-eu/index.html",
       "title": "Cookie Policy (EU) | Rhino Inquisitor",
       "titleLength": 37,
-      "description": "Legacy Complianz document shortcode removed during migration. Recreate the required consent or cookie statement in Hugo before publishing.",
-      "descriptionLength": 138,
+      "description": "Learn how Rhino Inquisitor approaches cookies and browser storage on the current public Hugo site.",
+      "descriptionLength": 98,
       "canonicalCount": 1,
       "canonicalUrl": "https://www.rhino-inquisitor.com/cookie-policy-eu/",
       "sitemapUrl": "https://www.rhino-inquisitor.com/cookie-policy-eu/",
@@ -576,7 +576,9 @@
       "hasNoindex": false,
       "result": "pass",
       "blockingFindings": [],
-      "warnings": []
+      "warnings": [
+        "Meta description length 98 is outside the recommended 120-155 character range."
+      ]
     },
     {
       "route": "/creating-custom-ocapi-endpoints/",
@@ -766,8 +768,8 @@
       "builtArtifactPath": "public/headless/index.html",
       "title": "Headless | Rhino Inquisitor",
       "titleLength": 27,
-      "description": "If your organization is looking for a way to improve its online presence and connect with more customers, Headless may be a good fit.",
-      "descriptionLength": 133,
+      "description": "A short headless-commerce primer from Thomas Theunen on why decoupled storefronts change customer experience and delivery flexibility.",
+      "descriptionLength": 134,
       "canonicalCount": 1,
       "canonicalUrl": "https://www.rhino-inquisitor.com/headless/",
       "sitemapUrl": "https://www.rhino-inquisitor.com/headless/",
@@ -1168,8 +1170,8 @@
       "builtArtifactPath": "public/me-myself-and-headless-a-composable-commerce-cloud-story/index.html",
       "title": "Me, Myself, and Headless: A Composable Commerce Cloud story | Rhino Inquisitor",
       "titleLength": 78,
-      "description": "Salesforce Commerce Cloud has shifted its focus to investing in Headless development for the past two years. Mobify was acquired!",
-      "descriptionLength": 129,
+      "description": "A session on Salesforce Commerce Cloud's headless direction, PWA Kit, and what composable architecture means for existing implementation teams.",
+      "descriptionLength": 143,
       "canonicalCount": 1,
       "canonicalUrl": "https://www.rhino-inquisitor.com/me-myself-and-headless-a-composable-commerce-cloud-story/",
       "sitemapUrl": "https://www.rhino-inquisitor.com/me-myself-and-headless-a-composable-commerce-cloud-story/",
@@ -1230,8 +1232,8 @@
       "builtArtifactPath": "public/privacy-policy/index.html",
       "title": "Privacy Policy | Rhino Inquisitor",
       "titleLength": 33,
-      "description": "Who we are Our website address is https://www.rhino-inquisitor.com/. Explore the full page on Rhino Inquisitor for additional context.",
-      "descriptionLength": 134,
+      "description": "Learn how Rhino Inquisitor handles basic request data, embedded media, and privacy questions on the current public Hugo site.",
+      "descriptionLength": 125,
       "canonicalCount": 1,
       "canonicalUrl": "https://www.rhino-inquisitor.com/privacy-policy/",
       "sitemapUrl": "https://www.rhino-inquisitor.com/privacy-policy/",
@@ -1566,8 +1568,8 @@
       "builtArtifactPath": "public/swc-and-storybook-error-failed-to-load-native-binding/index.html",
       "title": "SWC And Storybook: Error: Failed to load native binding | Rhino Inquisitor",
       "titleLength": 74,
-      "description": "When switching between my M1 MacBook and Intel X64 MacBook today, I ran into an odd error: Solution Deleting my package-lock.json file and node\\",
-      "descriptionLength": 144,
+      "description": "Fix the SWC Storybook native binding error after switching between Apple Silicon and Intel environments by reinstalling dependencies cleanly.",
+      "descriptionLength": 141,
       "canonicalCount": 1,
       "canonicalUrl": "https://www.rhino-inquisitor.com/swc-and-storybook-error-failed-to-load-native-binding/",
       "sitemapUrl": "https://www.rhino-inquisitor.com/swc-and-storybook-error-failed-to-load-native-binding/",
@@ -1658,8 +1660,8 @@
       "builtArtifactPath": "public/the-path-to-being-an-architect/index.html",
       "title": "The path to being an Architect | Rhino Inquisitor",
       "titleLength": 49,
-      "description": "The journey to being an architect has assumed many forms over the years, and does it all start at development?",
-      "descriptionLength": 110,
+      "description": "A podcast conversation about moving from hands-on development into solution, technical, and enterprise architecture roles in commerce delivery.",
+      "descriptionLength": 143,
       "canonicalCount": 1,
       "canonicalUrl": "https://www.rhino-inquisitor.com/the-path-to-being-an-architect/",
       "sitemapUrl": "https://www.rhino-inquisitor.com/the-path-to-being-an-architect/",
@@ -1670,9 +1672,7 @@
       "hasNoindex": false,
       "result": "pass",
       "blockingFindings": [],
-      "warnings": [
-        "Meta description length 110 is outside the recommended 120-155 character range."
-      ]
+      "warnings": []
     },
     {
       "route": "/the-realm-split-field-guide-to-migrating-an-sfcc-site/",

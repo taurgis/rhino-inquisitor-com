@@ -1,8 +1,8 @@
 ---
 title: Salesforce B2C Commerce Cloud 22.8
 description: >-
-  With Salesforce B2C Commerce Cloud, you get new candy to play with every
-  month. What does this month's jar have in store for us?
+  Review the Salesforce B2C Commerce Cloud 22.8 release, including quota
+  changes, SCAPI hook updates, eCDN verification, and holiday readiness work.
 date: '2022-07-25T07:19:45.000Z'
 lastmod: '2022-07-25T14:32:45.000Z'
 url: /salesforce-b2c-commerce-cloud-22-8/

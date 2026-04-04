@@ -155,6 +155,7 @@ jobs:
           path: |
             validation/seo-consistency-report.json
             validation/robots-sitemap-report.json
+            validation/llm-artifact-quality-report.json
           if-no-files-found: error
           retention-days: 30
 
@@ -233,6 +234,7 @@ jobs:
             migration/url-parity-report.json
             validation/structured-data-report.json
             validation/social-preview-report.json
+            validation/llm-artifact-quality-report.json
             validation/accessibility-axe-report.json
             validation/html-conformance-report.json
             validation/accessibility-manual-checklist.md
