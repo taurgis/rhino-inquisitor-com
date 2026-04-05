@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-05T06:32:45.384Z",
+  "generatedAt": "2026-04-05T08:23:56.987Z",
   "publicDir": "public",
   "llms": {
     "path": "public/llms.txt",
@@ -13,7 +13,7 @@
   },
   "summary": {
     "markdownCompanionCount": 171,
-    "filesWithFailures": 0,
+    "filesWithFailures": 1,
     "filesWithCodeBlocks": 52,
     "filesWithImages": 145,
     "filesWithBlockquotes": 57,
@@ -437,7 +437,7 @@
         "codeFenceCount": 0,
         "imageCount": 1,
         "linkCount": 9,
-        "bodyLength": 6679
+        "bodyLength": 6692
       }
     },
     {
@@ -525,7 +525,9 @@
       "canonicalUrl": "https://www.rhino-inquisitor.com/archive/",
       "markdownUrl": "https://www.rhino-inquisitor.com/archive/index.md",
       "title": "Archive",
-      "findings": [],
+      "findings": [
+        "empty Markdown body"
+      ],
       "metrics": {
         "headingCount": 0,
         "listItemCount": 0,
@@ -533,7 +535,7 @@
         "codeFenceCount": 0,
         "imageCount": 0,
         "linkCount": 0,
-        "bodyLength": 35
+        "bodyLength": 0
       }
     },
     {
@@ -1685,7 +1687,7 @@
         "codeFenceCount": 0,
         "imageCount": 0,
         "linkCount": 4,
-        "bodyLength": 3175
+        "bodyLength": 3223
       }
     },
     {
@@ -2969,5 +2971,7 @@
       }
     }
   ],
-  "failures": []
+  "failures": [
+    "public/archive/index.md: empty Markdown body"
+  ]
 }
