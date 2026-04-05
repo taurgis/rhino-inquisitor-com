@@ -21,6 +21,7 @@ Old behavior:
 New behavior:
 
 - Post detail pages now emit a native `<script type="speculationrules">` block that prefetches only links explicitly marked as article-navigation candidates.
+- Post detail pages now use `conservative` eagerness for their native article-navigation rule so document speculation stays opt-in by direct intent and does not rely on mobile viewport heuristics.
 - Archive surfaces such as `/posts/`, paginated `/posts/page/N/`, and `/category/` routes now emit a separate native prefetch rule for explicit post destination links only.
 - `/pages/` and `/pages/page/N/` routes now participate in the same native archive-entry prefetch pattern for page destination links.
 - Paginated `/posts/` and `/pages/` routes now emit a separate native prefetch rule for the single rendered `Next` pagination edge only.

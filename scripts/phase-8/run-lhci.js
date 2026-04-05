@@ -28,6 +28,10 @@ function defaultOutputRoot() {
   return path.join(repoRoot, 'validation', 'lhci-report');
 }
 
+function defaultSampleMatrixPath() {
+  return path.join(repoRoot, 'validation', 'sample-matrix.json');
+}
+
 function profileOutputDir(outputRoot, profileName) {
   return path.join(outputRoot, profileName);
 }
@@ -35,7 +39,8 @@ function profileOutputDir(outputRoot, profileName) {
 function parseArgs(argv) {
   const options = {
     profiles: ['mobile', 'desktop'],
-    outputRoot: defaultOutputRoot()
+    outputRoot: defaultOutputRoot(),
+    sampleMatrixPath: defaultSampleMatrixPath()
   };
 
   for (let index = 0; index < argv.length; index += 1) {
@@ -57,6 +62,12 @@ function parseArgs(argv) {
       continue;
     }
 
+    if (arg === '--sample-matrix') {
+      options.sampleMatrixPath = path.resolve(argv[index + 1]);
+      index += 1;
+      continue;
+    }
+
     if (arg === '--help') {
       options.help = true;
       continue;
@@ -74,8 +85,49 @@ function printHelp() {
 Options:
   --profile <mobile|desktop>  Run only one Lighthouse profile.
   --output-root <path>        Override the LHCI filesystem report root.
+  --sample-matrix <path>      Override validation/sample-matrix.json for representative URLs.
   --help                      Show this help message.
 `);
+}
+
+async function loadLhciConfig() {
+  const configPath = path.join(repoRoot, 'lighthouserc.json');
+  const source = await fs.readFile(configPath, 'utf8');
+  return JSON.parse(source);
+}
+
+function collectRepresentativeUrls(sampleMatrix) {
+  const homepage = sampleMatrix.page_samples?.homepage?.[0]?.url;
+  const article = sampleMatrix.page_samples?.recent_posts?.[0]?.url;
+  const category = sampleMatrix.page_samples?.category_pages?.[0]?.url;
+  const routes = [homepage, article, category].filter(Boolean);
+
+  if (routes.length !== 3) {
+    throw new Error('sample-matrix is missing one or more required performance routes (homepage, recent_posts[0], category_pages[0]).');
+  }
+
+  return routes.map((route) => new URL(route.replace(/^\//u, ''), 'http://localhost/').toString());
+}
+
+async function createProfileConfig(outputDir, sampleMatrixPath) {
+  const [baseConfig, sampleMatrixSource] = await Promise.all([
+    loadLhciConfig(),
+    fs.readFile(sampleMatrixPath, 'utf8')
+  ]);
+  const sampleMatrix = JSON.parse(sampleMatrixSource);
+  const config = structuredClone(baseConfig);
+
+  config.ci.collect.url = collectRepresentativeUrls(sampleMatrix);
+  config.ci.collect.settings = {
+    ...(config.ci.collect.settings ?? {}),
+    maxWaitForLoad: 45000
+  };
+  config.ci.upload.outputDir = outputDir;
+
+  const configPath = path.join(outputDir, 'lighthouserc.generated.json');
+  await fs.mkdir(outputDir, { recursive: true });
+  await fs.writeFile(configPath, `${JSON.stringify(config, null, 2)}\n`, 'utf8');
+  return { configPath, urls: config.ci.collect.url };
 }
 
 function runCommand(args) {
@@ -107,7 +159,7 @@ async function fileExists(filePath) {
   }
 }
 
-export async function runLhciProfiles(selectedProfiles = ['mobile', 'desktop'], { outputRoot = defaultOutputRoot() } = {}) {
+export async function runLhciProfiles(selectedProfiles = ['mobile', 'desktop'], { outputRoot = defaultOutputRoot(), sampleMatrixPath = defaultSampleMatrixPath() } = {}) {
   let exitCode = 0;
 
   for (const profileName of selectedProfiles) {
@@ -116,15 +168,16 @@ export async function runLhciProfiles(selectedProfiles = ['mobile', 'desktop'], 
     const manifestPath = path.join(outputDir, 'manifest.json');
 
     await fs.rm(outputDir, { recursive: true, force: true });
+    const { configPath, urls } = await createProfileConfig(outputDir, sampleMatrixPath);
 
     const args = [
       'autorun',
-      '--config=./lighthouserc.json',
-      `--upload.outputDir=${outputDir}`,
+      `--config=${configPath}`,
       ...profile.extraArgs
     ];
 
     console.log(`[RHI-088] Running Lighthouse CI for ${profile.profile} profile`);
+    console.log(`[RHI-088] Representative URLs: ${urls.join(', ')}`);
     const profileExitCode = await runCommand(args);
 
     if (!(await fileExists(manifestPath))) {
@@ -148,7 +201,10 @@ async function main() {
     return;
   }
 
-  process.exitCode = await runLhciProfiles(options.profiles, { outputRoot: options.outputRoot });
+  process.exitCode = await runLhciProfiles(options.profiles, {
+    outputRoot: options.outputRoot,
+    sampleMatrixPath: options.sampleMatrixPath
+  });
 }
 
 if (entryFilePath === fileURLToPath(import.meta.url)) {

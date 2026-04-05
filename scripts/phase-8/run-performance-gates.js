@@ -66,7 +66,10 @@ async function main() {
     return;
   }
 
-  const lhciExitCode = await runLhciProfiles(undefined, { outputRoot: options.outputRoot });
+  const lhciExitCode = await runLhciProfiles(undefined, {
+    outputRoot: options.outputRoot,
+    sampleMatrixPath: options.sampleMatrixPath
+  });
   const budgetExitCode = await runPerformanceBudgetReport(definedOptions({
     publicRoot: options.publicRoot,
     sampleMatrixPath: options.sampleMatrixPath,
