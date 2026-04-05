@@ -3433,18 +3433,25 @@ summary {
     align-items: stretch;
     gap: 0;
     padding: 0;
-    border-radius: 1rem;
+    border: 0;
+    border-radius: 0;
     background: #ffffff;
     box-shadow: none;
     overflow: hidden;
   }
 
+  .archive-results .article-card:focus-within {
+    transform: none;
+    box-shadow: none;
+  }
+
   .archive-results .article-card--no-media {
     grid-template-columns: 1fr;
+    border-top: 3px solid var(--accent-soft);
   }
 
   .archive-results .article-card__media {
-    min-height: 10.5rem;
+    min-height: 11rem;
     aspect-ratio: 16 / 9;
     border-radius: 0;
   }
