@@ -2,19 +2,17 @@
   {{ $pages := (where site.RegularPages "Type" "posts").ByDate.Reverse }}
   {{ $groups := $pages.GroupByDate "2006" }}
   {{ $yearLinks := slice }}
+  {{ $breadcrumbs := partial "breadcrumbs.html" . }}
   {{ range $groups }}
     {{ $yearLinks = $yearLinks | append (dict "label" .Key "url" (printf "#year-%s" .Key)) }}
   {{ end }}
 
   <div class="page-article-route page-article-route--archive">
-    <div class="page-article-route__breadcrumbs">
-      <nav class="breadcrumbs" aria-label="Breadcrumbs">
-        <ol>
-          <li><a href="{{ .Site.Home.Permalink }}">{{ .Site.Title }}</a></li>
-          <li><span aria-current="page">{{ .Title }}</span></li>
-        </ol>
-      </nav>
-    </div>
+    {{ if $breadcrumbs }}
+      <div class="page-article-route__breadcrumbs">
+        {{ $breadcrumbs }}
+      </div>
+    {{ end }}
 
     <section class="archive-layout surface-panel">
       <div class="archive-header">

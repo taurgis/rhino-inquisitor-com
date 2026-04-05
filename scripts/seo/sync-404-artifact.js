@@ -18,10 +18,12 @@ function parseArgs(argv) {
 }
 
 function rewriteRoot404(html) {
-  const routeNote = 'This content-backed route exists so Phase 6 validation can assert a non-indexable /404/ page while 404.html remains the authoritative GitHub Pages error document.';
-  const rootNote = 'This synced root 404 artifact exists so GitHub Pages serves the authoritative 404.html error document while /404/ remains available for validation and internal QA checks.';
+  const rootNote = '<p>This synced root 404 artifact exists so GitHub Pages serves the authoritative <code>404.html</code> error document while <code>/404/</code> remains available for validation and internal QA checks.</p>';
 
-  let next = html.replace(routeNote, rootNote);
+  let next = html.replace(
+    /<p>This content-backed route exists so Phase 6 validation can assert a non-indexable\s*<code>\/404\/<\/code>\s*page while\s*<code>404\.html<\/code>\s*remains the authoritative GitHub Pages error document\.<\/p>/,
+    rootNote
+  );
   next = next.replace(/https?:\/\/[^"'\s<]+\/404\//g, (match) => match.replace(/\/404\/$/, '/404.html'));
   return next;
 }

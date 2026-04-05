@@ -3,6 +3,7 @@
 {{ if eq .Kind "term" }}
   {{ $displayTitle = .LinkTitle | default .Title }}
 {{ end }}
+{{ $isStandaloneArchive := eq .RelPermalink "/archive/" }}
 
 {{ if not .IsHome }}
   {{ if eq .Kind "taxonomy" }}
@@ -10,6 +11,8 @@
   {{ else if eq .Kind "term" }}
     {{ $taxonomyName := humanize (.Data.Plural | default "category") }}
     {{ $items = $items | append (dict "name" $taxonomyName "url" (printf "%scategory/" .Site.Home.Permalink)) }}
+    {{ $items = $items | append (dict "name" $displayTitle "url" .Permalink) }}
+  {{ else if $isStandaloneArchive }}
     {{ $items = $items | append (dict "name" $displayTitle "url" .Permalink) }}
   {{ else }}
     {{ with .CurrentSection }}
