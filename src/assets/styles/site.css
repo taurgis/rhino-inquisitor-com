@@ -2931,7 +2931,9 @@ summary {
 
 @media (min-width: 48rem) {
   .site-header__inner {
-    padding: 0.85rem clamp(1.5rem, 4vw, 3rem);
+    width: min(calc(100% - 2rem), var(--content-width));
+    margin: 0 auto;
+    padding: 0.85rem 0;
   }
 
   .site-header__search-label {

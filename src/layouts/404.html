@@ -1,0 +1,27 @@
+{{ define "main" }}
+  {{ $archivePage := site.GetPage "/archive" }}
+  {{ $archiveHref := site.Home.Permalink }}
+  {{ with $archivePage }}
+    {{ $archiveHref = .Permalink }}
+  {{ else }}
+    {{ with site.GetPage "/posts" }}{{ $archiveHref = .Permalink }}{{ end }}
+  {{ end }}
+
+  <section class="surface-panel page-article" aria-labelledby="not-found-title">
+    <header class="page-article__header">
+      <p class="eyebrow">404</p>
+      <h1 id="not-found-title">Page not found</h1>
+      <p class="page-article__description">The page you requested does not exist or has moved. Search the archive, browse topics, or return to the homepage to recover the current canonical route.</p>
+    </header>
+
+    <div class="page-article__body">
+      <p>Try one of these recovery paths:</p>
+      <ul>
+        <li><a class="site-cta" href="{{ site.Home.Permalink }}">Return to the homepage</a></li>
+        <li><a href="{{ $archiveHref }}">Browse the archive</a></li>
+        <li><a href="{{ printf "%s#archive-search" $archiveHref }}">Search the archive</a></li>
+        <li><a href="{{ "/category/" | absLangURL }}">Browse topics</a></li>
+      </ul>
+    </div>
+  </section>
+{{ end }}
