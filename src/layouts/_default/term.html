@@ -8,7 +8,7 @@
     {{ $yearLinks = $yearLinks | append (dict "label" .Key "url" (printf "#year-%s" .Key)) }}
   {{ end }}
 
-  {{ partial "breadcrumbs.html" . }}
+  <div class="archive-route-breadcrumbs">{{ partial "breadcrumbs.html" . }}</div>
 
   <section class="archive-layout surface-panel">
     <div class="archive-header">

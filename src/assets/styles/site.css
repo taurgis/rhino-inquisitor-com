@@ -3175,7 +3175,12 @@ summary {
     width: 100%;
   }
 
-  .page-article-route__breadcrumbs {
+  .site-main:has(> .surface-shell > .page-hero--home) {
+    padding-top: 0;
+  }
+
+  .page-article-route__breadcrumbs,
+  .archive-route-breadcrumbs {
     padding-inline: 1.1rem;
   }
 
