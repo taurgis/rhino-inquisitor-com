@@ -3275,7 +3275,7 @@ summary {
 
   .archive-layout__content {
     gap: 0.95rem;
-    padding: 0.95rem 0.75rem 0.9rem;
+    padding-block: 0.95rem 0.9rem;
   }
 
   .page-article__header {
@@ -3369,7 +3369,8 @@ summary {
 
   .search-bar {
     gap: 0.55rem;
-    padding: 0;
+    padding-block: 0;
+    padding-inline: 0.75rem;
   }
 
   .search-bar__field {
@@ -3400,6 +3401,7 @@ summary {
   .topic-hubs .lane-header {
     gap: 0.35rem 0.75rem;
     align-items: start;
+    padding-inline: 0.75rem;
   }
 
   .archive-year-groups {
@@ -3517,6 +3519,19 @@ summary {
   .topic-hubs .topic-card h3 {
     font-size: 1.2rem;
     line-height: 1.35;
+  }
+
+  .pagination__status {
+    padding-inline: 0.75rem;
+  }
+
+  .pagination__list {
+    display: none;
+  }
+
+  .pagination__controls {
+    justify-content: space-between;
+    flex-wrap: nowrap;
   }
 
 }
