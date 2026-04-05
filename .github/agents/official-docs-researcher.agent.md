@@ -1,5 +1,6 @@
 ---
 name: 'Official Docs Researcher'
+model: GPT-5.4 (copilot)
 description: 'Researches official documentation online and returns detailed, source-cited findings'
 tools: [vscode/askQuestions, execute, read, agent, 'fastforward-bm-lib/*', 'sfcc-dev-mcp/*', edit, search, web, 'medusa/*']
 argument-hint: 'What topic should I research in official docs?'

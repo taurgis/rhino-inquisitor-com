@@ -9,7 +9,11 @@
   {{ $pageNumber = $paginator.PageNumber }}
 {{ end }}
 
-{{ $titleSource := .Title }}
+{{ $displayTitle := .Title }}
+{{ if eq .Kind "term" }}
+  {{ $displayTitle = .LinkTitle | default .Title }}
+{{ end }}
+{{ $titleSource := $displayTitle }}
 {{ if $titleOverride }}
   {{ $titleSource = $titleOverride }}
 {{ end }}
@@ -36,7 +40,7 @@
 {{ else if and (eq .Kind "taxonomy") (eq .Type "categories") }}
   {{ $description = "Browse Rhino Inquisitor topic archives for Salesforce Commerce Cloud guidance and implementation notes." }}
 {{ else if and (eq .Kind "term") (eq .Type "categories") }}
-  {{ $description = printf "Browse Rhino Inquisitor articles about %s and related Salesforce Commerce Cloud guidance." .Title }}
+  {{ $description = printf "Browse Rhino Inquisitor articles about %s and related Salesforce Commerce Cloud guidance." $displayTitle }}
 {{ else if gt $pageNumber 1 }}
   {{ $description = printf "%s Page %d." (strings.TrimRight "." $description) $pageNumber }}
 {{ end }}

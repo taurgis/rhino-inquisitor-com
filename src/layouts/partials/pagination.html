@@ -1,19 +1,87 @@
 {{ if gt .TotalPages 1 }}
+  {{ $current := .PageNumber }}
+  {{ $total := .TotalPages }}
   <nav class="pagination" aria-label="Pagination">
-    {{ with .Prev }}
-      <a href="{{ .URL }}">Previous</a>
-    {{ end }}
+    <p class="pagination__status">Page <strong>{{ $current }}</strong> of {{ $total }}</p>
 
-    {{ range .Pagers }}
-      {{ if eq .PageNumber $.PageNumber }}
-        <span aria-current="page">{{ .PageNumber }}</span>
+    <div class="pagination__controls">
+      {{ with .Prev }}
+        <a class="pagination__edge" href="{{ .URL }}" rel="prev" aria-label="Go to previous page">Previous</a>
       {{ else }}
-        <a href="{{ .URL }}">{{ .PageNumber }}</a>
+        <span class="pagination__edge pagination__edge--disabled" aria-disabled="true">Previous</span>
       {{ end }}
-    {{ end }}
 
-    {{ with .Next }}
-      <a href="{{ .URL }}">Next</a>
-    {{ end }}
+      <ol class="pagination__list">
+        {{ if le $total 7 }}
+          {{ range .Pagers }}
+            <li>
+              {{ if eq .PageNumber $current }}
+                <span aria-current="page" aria-label="Page {{ .PageNumber }}, current page">{{ .PageNumber }}</span>
+              {{ else }}
+                <a href="{{ .URL }}" aria-label="Go to page {{ .PageNumber }}">{{ .PageNumber }}</a>
+              {{ end }}
+            </li>
+          {{ end }}
+        {{ else if le $current 4 }}
+          {{ range .Pagers }}
+            {{ if le .PageNumber 5 }}
+              <li>
+                {{ if eq .PageNumber $current }}
+                  <span aria-current="page" aria-label="Page {{ .PageNumber }}, current page">{{ .PageNumber }}</span>
+                {{ else }}
+                  <a href="{{ .URL }}" aria-label="Go to page {{ .PageNumber }}">{{ .PageNumber }}</a>
+                {{ end }}
+              </li>
+            {{ end }}
+          {{ end }}
+          <li><span class="pagination__ellipsis" aria-hidden="true">...</span></li>
+          {{ with index .Pagers (sub $total 1) }}
+            <li><a href="{{ .URL }}" aria-label="Go to page {{ .PageNumber }}">{{ .PageNumber }}</a></li>
+          {{ end }}
+        {{ else if ge $current (sub $total 3) }}
+          {{ with index .Pagers 0 }}
+            <li><a href="{{ .URL }}" aria-label="Go to page {{ .PageNumber }}">{{ .PageNumber }}</a></li>
+          {{ end }}
+          <li><span class="pagination__ellipsis" aria-hidden="true">...</span></li>
+          {{ range .Pagers }}
+            {{ if ge .PageNumber (sub $total 4) }}
+              <li>
+                {{ if eq .PageNumber $current }}
+                  <span aria-current="page" aria-label="Page {{ .PageNumber }}, current page">{{ .PageNumber }}</span>
+                {{ else }}
+                  <a href="{{ .URL }}" aria-label="Go to page {{ .PageNumber }}">{{ .PageNumber }}</a>
+                {{ end }}
+              </li>
+            {{ end }}
+          {{ end }}
+        {{ else }}
+          {{ with index .Pagers 0 }}
+            <li><a href="{{ .URL }}" aria-label="Go to page {{ .PageNumber }}">{{ .PageNumber }}</a></li>
+          {{ end }}
+          <li><span class="pagination__ellipsis" aria-hidden="true">...</span></li>
+          {{ range .Pagers }}
+            {{ if and (ge .PageNumber (sub $current 1)) (le .PageNumber (add $current 1)) }}
+              <li>
+                {{ if eq .PageNumber $current }}
+                  <span aria-current="page" aria-label="Page {{ .PageNumber }}, current page">{{ .PageNumber }}</span>
+                {{ else }}
+                  <a href="{{ .URL }}" aria-label="Go to page {{ .PageNumber }}">{{ .PageNumber }}</a>
+                {{ end }}
+              </li>
+            {{ end }}
+          {{ end }}
+          <li><span class="pagination__ellipsis" aria-hidden="true">...</span></li>
+          {{ with index .Pagers (sub $total 1) }}
+            <li><a href="{{ .URL }}" aria-label="Go to page {{ .PageNumber }}">{{ .PageNumber }}</a></li>
+          {{ end }}
+        {{ end }}
+      </ol>
+
+      {{ with .Next }}
+        <a class="pagination__edge" href="{{ .URL }}" rel="next" aria-label="Go to next page">Next</a>
+      {{ else }}
+        <span class="pagination__edge pagination__edge--disabled" aria-disabled="true">Next</span>
+      {{ end }}
+    </div>
   </nav>
 {{ end }}

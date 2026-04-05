@@ -1,0 +1,18 @@
+{{ $page := .page }}
+{{ $categories := $page.Params.categories | default (slice) }}
+{{ $topicKey := "" }}
+{{ with $page.Params.primaryTopic }}
+  {{ $topicKey = . }}
+{{ end }}
+{{ if and (eq $topicKey "") (gt (len $categories) 0) }}
+  {{ $topicKey = index $categories 0 }}
+{{ end }}
+{{ $topicPage := false }}
+{{ $topicLabel := $topicKey }}
+{{ if ne $topicKey "" }}
+  {{ with site.GetPage (printf "/categories/%s" ($topicKey | urlize)) }}
+    {{ $topicPage = . }}
+    {{ $topicLabel = .LinkTitle | default .Title }}
+  {{ end }}
+{{ end }}
+{{ return dict "key" $topicKey "label" $topicLabel "page" $topicPage }}

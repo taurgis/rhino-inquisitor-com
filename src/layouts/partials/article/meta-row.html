@@ -1,19 +1,10 @@
 {{ $page := .page }}
 {{ $label := .label | default "Article details" }}
-{{ $categories := $page.Params.categories | default (slice) }}
-{{ $topic := "" }}
-{{ $topicPage := false }}
-{{ with $page.Params.primaryTopic }}
-  {{ $topic = . }}
-{{ end }}
-{{ if and (eq $topic "") (gt (len $categories) 0) }}
-  {{ $topic = index $categories 0 }}
-{{ end }}
-{{ if ne $topic "" }}
-  {{ with site.GetPage (printf "/categories/%s" ($topic | urlize)) }}
-    {{ $topicPage = . }}
-  {{ end }}
-{{ end }}
+{{ $hidePublished := .hidePublished | default false }}
+{{ $hideTopic := .hideTopic | default false }}
+{{ $topicData := partial "article/resolve-primary-topic.html" (dict "page" $page) }}
+{{ $topic := $topicData.label }}
+{{ $topicPage := $topicData.page }}
 {{ $showUpdated := false }}
 {{ with $page.Lastmod }}
   {{ if $page.Date }}
@@ -22,9 +13,9 @@
     {{ $showUpdated = true }}
   {{ end }}
 {{ end }}
-{{ $showPublished := and (eq $page.Type "posts") $page.Date }}
+{{ $showPublished := and (not $hidePublished) (eq $page.Type "posts") $page.Date }}
 {{ $showReading := eq $page.Type "posts" }}
-{{ $showTopic := ne $topic "" }}
+{{ $showTopic := and (not $hideTopic) (ne $topic "") }}
 
 {{ if or $showPublished $showReading $showTopic $showUpdated }}
 <ul class="metadata-row" aria-label="{{ $label }}">

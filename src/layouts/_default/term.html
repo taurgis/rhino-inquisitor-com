@@ -1,5 +1,6 @@
 {{ define "main" }}
   {{ $allTopicsHref := "category/" | relURL }}
+  {{ $displayTitle := .LinkTitle | default .Title }}
   {{ $pages := .Pages.ByDate.Reverse }}
   {{ $groups := $pages.GroupByDate "2006" }}
   {{ $yearLinks := slice }}
@@ -12,8 +13,8 @@
   <section class="archive-layout surface-panel">
     <div class="archive-header">
       <p class="eyebrow">Archive</p>
-      <h1>{{ .Title }}</h1>
-      <p>{{ .Params.description | default (printf "Articles and guides filed under %s." .Title) }}</p>
+      <h1>{{ $displayTitle }}</h1>
+      <p>{{ .Params.description | default (printf "Articles and guides filed under %s." $displayTitle) }}</p>
     </div>
 
     {{ partial "archive/filter-bar.html" (dict "page" . "yearLinks" $yearLinks "sortEnabled" true) }}
@@ -24,15 +25,15 @@
         "stateBaseUrl" .RelPermalink
         "scopeKind" "category"
         "scopeValue" (.Data.Term | urlize)
-        "scopeLabel" (printf "%s archive" .Title)
-        "placeholder" (printf "Search the blog archive from within %s." .Title)
+        "scopeLabel" (printf "%s archive" $displayTitle)
+        "placeholder" (printf "Search the blog archive from within %s." $displayTitle)
       ) }}
       {{ partial "archive/year-jump.html" (dict "links" $yearLinks) }}
       {{ partial "content-list.html" (dict
         "groups" $groups
         "resultCount" (len $pages)
-        "heading" (printf "%s archive entries" .Title)
-        "emptyTitle" (printf "%s is ready for its first migrated article" .Title)
+        "heading" (printf "%s archive entries" $displayTitle)
+        "emptyTitle" (printf "%s is ready for its first migrated article" $displayTitle)
         "emptyCopy" "This term page keeps the archive shell intact until matching content arrives."
         "emptyActionHref" $allTopicsHref
         "emptyActionLabel" "Browse all topics"

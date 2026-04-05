@@ -18,6 +18,8 @@
     {{- if and (eq $primaryTopic "") (gt (len $categories) 0) -}}
       {{- $primaryTopic = index $categories 0 -}}
     {{- end -}}
+    {{- $topicData := partial "article/resolve-primary-topic.html" (dict "page" .) -}}
+    {{- $primaryTopicLabel := $topicData.label -}}
     {{- $primaryTopicSlug := "" -}}
     {{- $primaryTopicUrl := "" -}}
     {{- if ne $primaryTopic "" -}}
@@ -63,7 +65,7 @@
       "summary" $excerpt
       "categories" $categories
       "categorySlugs" $categorySlugs
-      "primaryTopic" $primaryTopic
+      "primaryTopic" $primaryTopicLabel
       "primaryTopicSlug" $primaryTopicSlug
       "primaryTopicUrl" $primaryTopicUrl
       "readingTime" .ReadingTime

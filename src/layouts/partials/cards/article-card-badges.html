@@ -1,0 +1,22 @@
+{{ $page := .page }}
+{{ $topicData := partial "article/resolve-primary-topic.html" (dict "page" $page) }}
+{{ $topic := $topicData.label }}
+{{ $topicPage := $topicData.page }}
+{{ $showPublished := and (eq $page.Type "posts") $page.Date }}
+{{ $showTopic := ne $topic "" }}
+
+{{ if or $showPublished $showTopic }}
+  <div class="article-card__media-badges">
+    {{ if $showTopic }}
+      {{ if $topicPage }}
+        <a class="article-card__media-badge article-card__media-badge--topic" href="{{ $topicPage.Permalink }}">{{ $topic }}</a>
+      {{ else }}
+        <span class="article-card__media-badge article-card__media-badge--topic">{{ $topic }}</span>
+      {{ end }}
+    {{ end }}
+
+    {{ if $showPublished }}
+      <time class="article-card__media-badge article-card__media-badge--date" datetime="{{ $page.Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ $page.Date.Format "Jan 2, 2006" }}</time>
+    {{ end }}
+  </div>
+{{ end }}

@@ -1,4 +1,8 @@
 {{ $items := slice (dict "name" .Site.Title "url" .Site.Home.Permalink) }}
+{{ $displayTitle := .Title }}
+{{ if eq .Kind "term" }}
+  {{ $displayTitle = .LinkTitle | default .Title }}
+{{ end }}
 
 {{ if not .IsHome }}
   {{ if eq .Kind "taxonomy" }}
@@ -6,7 +10,7 @@
   {{ else if eq .Kind "term" }}
     {{ $taxonomyName := humanize (.Data.Plural | default "category") }}
     {{ $items = $items | append (dict "name" $taxonomyName "url" (printf "%scategory/" .Site.Home.Permalink)) }}
-    {{ $items = $items | append (dict "name" .Title "url" .Permalink) }}
+    {{ $items = $items | append (dict "name" $displayTitle "url" .Permalink) }}
   {{ else }}
     {{ with .CurrentSection }}
       {{ if and (not .IsHome) (ne .Permalink $.Permalink) }}

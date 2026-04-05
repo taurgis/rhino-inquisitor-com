@@ -22,7 +22,7 @@
       {{ end }}
       {{ range $name, $_ := site.Taxonomies.categories }}
         {{ with site.GetPage (printf "/categories/%s" ($name | urlize)) }}
-          <a href="{{ .Permalink }}"{{ if eq $currentRelPermalink .RelPermalink }} aria-current="page"{{ end }}>{{ $name }}</a>
+          <a href="{{ .Permalink }}"{{ if eq $currentRelPermalink .RelPermalink }} aria-current="page"{{ end }}>{{ .LinkTitle | default .Title }}</a>
         {{ end }}
       {{ end }}
     </div>

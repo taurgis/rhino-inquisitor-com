@@ -137,11 +137,12 @@
       {{ if gt (len $recent) 0 }}
         <ul class="latest-list" role="list">
           {{ range $recent }}
+            {{ $topicData := partial "article/resolve-primary-topic.html" (dict "page" .) }}
             <li class="latest-list__item">
               <a href="{{ .Permalink }}">
                 <span class="latest-list__title">{{ .LinkTitle }}</span>
                 <span class="latest-list__excerpt">{{ .Params.description | default (.Summary | plainify | strings.TrimSpace | truncate 80) }}</span>
-                <span class="latest-list__meta">{{ .Date.Format "Jan 2, 2006" }} · {{ .ReadingTime }} min read{{ with .Params.categories }}{{ with index . 0 }} · {{ . }}{{ end }}{{ end }}</span>
+                <span class="latest-list__meta">{{ .Date.Format "Jan 2, 2006" }} · {{ .ReadingTime }} min read{{ with $topicData.label }} · {{ . }}{{ end }}</span>
               </a>
             </li>
           {{ end }}
