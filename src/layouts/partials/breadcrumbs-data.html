@@ -1,27 +1,33 @@
 {{ $items := slice (dict "name" .Site.Title "url" .Site.Home.Permalink) }}
 {{ $displayTitle := .Title }}
+{{ $currentUrl := .Permalink }}
+{{ $paginator := .Scratch.Get "listPaginator" }}
 {{ if eq .Kind "term" }}
   {{ $displayTitle = .LinkTitle | default .Title }}
 {{ end }}
 {{ $isStandaloneArchive := eq .RelPermalink "/archive/" }}
 
+{{ if and $paginator (gt $paginator.PageNumber 1) }}
+  {{ $currentUrl = printf "%s%s" .Site.Home.Permalink (strings.TrimPrefix "/" $paginator.URL) }}
+{{ end }}
+
 {{ if not .IsHome }}
   {{ if eq .Kind "taxonomy" }}
-    {{ $items = $items | append (dict "name" .Title "url" .Permalink) }}
+    {{ $items = $items | append (dict "name" .Title "url" $currentUrl) }}
   {{ else if eq .Kind "term" }}
     {{ $taxonomyName := humanize (.Data.Plural | default "category") }}
     {{ $items = $items | append (dict "name" $taxonomyName "url" (printf "%scategory/" .Site.Home.Permalink)) }}
-    {{ $items = $items | append (dict "name" $displayTitle "url" .Permalink) }}
+    {{ $items = $items | append (dict "name" $displayTitle "url" $currentUrl) }}
   {{ else if $isStandaloneArchive }}
-    {{ $items = $items | append (dict "name" $displayTitle "url" .Permalink) }}
+    {{ $items = $items | append (dict "name" $displayTitle "url" $currentUrl) }}
   {{ else }}
     {{ with .CurrentSection }}
       {{ if and (not .IsHome) (ne .Permalink $.Permalink) }}
         {{ $items = $items | append (dict "name" .Title "url" .Permalink) }}
       {{ end }}
     {{ end }}
-    {{ if ne .Permalink .Site.Home.Permalink }}
-      {{ $items = $items | append (dict "name" .Title "url" .Permalink) }}
+    {{ if ne $currentUrl .Site.Home.Permalink }}
+      {{ $items = $items | append (dict "name" .Title "url" $currentUrl) }}
     {{ end }}
   {{ end }}
 {{ end }}
