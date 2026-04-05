@@ -345,11 +345,15 @@ jobs:
 
       - name: Build preview rehearsal site
         if: needs.prepare.outputs.full_site_route_validation_required == 'true'
-        run: hugo --gc --minify --environment preview --baseURL "https://taurgis.github.io/rhino-inquisitor-com/" && npm run sync:404-artifact && npm run generate:llm-artifacts
+        run: hugo --gc --minify --environment preview --baseURL "https://taurgis.github.io/rhino-inquisitor-com/" && npm run sync:404-artifact && node scripts/seo/generate-llm-artifacts.js --keep-noindex
 
       - name: Run preview crawl-control validation check
         if: needs.prepare.outputs.full_site_route_validation_required == 'true'
         run: node scripts/seo/check-crawl-controls.js --mode preview --base-url "https://taurgis.github.io/rhino-inquisitor-com/" --report tmp/pr-preview-crawl-control-audit.csv
+
+      - name: Run preview LLM artifact validation check
+        if: needs.prepare.outputs.full_site_route_validation_required == 'true'
+        run: node scripts/seo/check-llm-artifacts.js --report tmp/pr-preview-llm-artifact-quality-report.json
 
       - name: Upload production validation artifact
         if: ${{ !cancelled() && needs.prepare.outputs.full_site_route_validation_required == 'true' }}
@@ -360,6 +364,7 @@ jobs:
             public
             tmp/pr-ci-prod-public
             tmp/pr-preview-crawl-control-audit.csv
+            tmp/pr-preview-llm-artifact-quality-report.json
             migration/reports/phase-5-crawl-control-audit.csv
             migration/phase-5-redirect-signal-matrix.csv
             migration/reports/phase-5-redirect-validation.csv

@@ -20,13 +20,13 @@ New behavior:
 
 - Preview builds now retain Markdown companion files even when the preview HTML page is `noindex`.
 - `npm run build:staging` now keeps preview Markdown companions for QA and staging parity checks.
-- Phase 7 now runs a dedicated preview LLM artifact validation step after the preview rehearsal build.
+- Phase 7 and PR preview workflows now run a dedicated preview LLM artifact validation step after the preview rehearsal build.
 
 ## Impact
 
 - Staging Markdown companion URLs such as `/archive/index.md` remain reachable for QA and preview verification.
 - The preview host keeps its HTML `noindex, nofollow` posture while preserving machine-readable companion endpoints.
-- Future regressions where preview rebuilds silently drop Markdown companions should fail in the rehearsal gate instead of surfacing only after deploy.
+- Future regressions where preview rebuilds silently drop Markdown companions should fail in the rehearsal gate instead of surfacing only after deploy or in PR preview artifacts.
 
 ## Verification
 
@@ -40,4 +40,5 @@ New behavior:
 - `scripts/seo/generate-llm-artifacts.js`
 - `package.json`
 - `scripts/phase-7/run-all-gates.sh`
+- `.github/workflows/build-pr.yml`
 - `scripts/seo/check-llm-artifacts.js`
