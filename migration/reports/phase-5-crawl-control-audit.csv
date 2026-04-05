@@ -1,7 +1,6 @@
 route,file_path,mode,expected_indexable,manifest_indexable,redirect_page,robots_meta,googlebot_meta,has_noindex,blocked_by_robots,matched_rule,status,findings
 /robots.txt,public/robots.txt,production,n/a,n/a,n/a,,,n/a,no,/,pass,
 /20-years-of-dreamforce/,public/20-years-of-dreamforce/index.html,production,yes,yes,no,"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",,no,no,/,pass,
-/404.html,public/404.html,production,no,no,no,"noindex, nofollow",,yes,no,/,pass,
 /404/,public/404/index.html,production,no,no,no,"noindex, nofollow",,yes,no,/,pass,
 /a-beginners-guide-to-webdav-in-sfcc/,public/a-beginners-guide-to-webdav-in-sfcc/index.html,production,yes,yes,no,"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",,no,no,/,pass,
 /a-deep-dive-into-the-23-7-sfcc-release/,public/a-deep-dive-into-the-23-7-sfcc-release/index.html,production,yes,yes,no,"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",,no,no,/,pass,

@@ -16,6 +16,7 @@
 {{ with $topicsPage }}{{ $topicsHref = .Permalink }}{{ end }}
 {{ with $aboutPage }}{{ $aboutHref = .Permalink }}{{ end }}
 {{ with $privacyPage }}{{ $privacyHref = .Permalink }}{{ end }}
+{{ $contactHref := printf "%s#contact" $aboutHref }}
 {{ $githubProfile := "https://github.com/taurgis/" }}
 {{ $twitterProfile := "https://twitter.com/theunenth" }}
 {{ $linkedinProfile := "https://www.linkedin.com/in/thomas-theunen-10905680/" }}
@@ -29,7 +30,7 @@
 
     <nav class="site-footer__nav" aria-label="Footer navigation">
       <a href="{{ $aboutHref }}">About</a>
-      <a href="{{ $aboutHref }}">Contact</a>
+      <a href="{{ $contactHref }}">Contact</a>
       {{ with $rssFormat }}<a href="{{ .Permalink }}">RSS</a>{{ end }}
       <a href="{{ $privacyHref }}">Privacy</a>
     </nav>

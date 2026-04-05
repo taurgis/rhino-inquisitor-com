@@ -290,6 +290,11 @@ main {
   transition: opacity 0.25s ease, visibility 0.25s ease;
 }
 
+.site-drawer__backdrop[hidden],
+.site-drawer[hidden] {
+  display: none;
+}
+
 .site-drawer {
   position: fixed;
   top: 0;

@@ -1,0 +1,50 @@
+{{ define "main" }}
+  {{ $pages := (where site.RegularPages "Type" "posts").ByDate.Reverse }}
+  {{ $groups := $pages.GroupByDate "2006" }}
+  {{ $yearLinks := slice }}
+  {{ range $groups }}
+    {{ $yearLinks = $yearLinks | append (dict "label" .Key "url" (printf "#year-%s" .Key)) }}
+  {{ end }}
+
+  <div class="page-article-route page-article-route--archive">
+    <div class="page-article-route__breadcrumbs">
+      <nav class="breadcrumbs" aria-label="Breadcrumbs">
+        <ol>
+          <li><a href="{{ .Site.Home.Permalink }}">{{ .Site.Title }}</a></li>
+          <li><span aria-current="page">{{ .Title }}</span></li>
+        </ol>
+      </nav>
+    </div>
+
+    <section class="archive-layout surface-panel">
+      <div class="archive-header">
+        <p class="eyebrow">Archive</p>
+        <h1>{{ .Title }}</h1>
+        <p>{{ .Params.description }}</p>
+      </div>
+
+      {{ partial "archive/filter-bar.html" (dict "page" . "yearLinks" $yearLinks "sortEnabled" true) }}
+
+      <div class="archive-layout__content">
+        {{ partial "search/search-bar.html" (dict
+          "page" .
+          "stateBaseUrl" .RelPermalink
+          "scopeKind" "type"
+          "scopeValue" "posts"
+          "scopeLabel" "blog archive"
+          "placeholder" "Search the blog archive by title, topic, or migration trail."
+        ) }}
+        {{ partial "archive/year-jump.html" (dict "links" $yearLinks) }}
+        {{ partial "content-list.html" (dict
+          "groups" $groups
+          "resultCount" (len $pages)
+          "heading" "Browse the archive"
+          "emptyTitle" "The archive is waiting for its next batch"
+          "emptyCopy" "Keep the search, filter, and year navigation visible while future migrations fill this archive." 
+          "emptyActionHref" .Site.Home.Permalink
+          "emptyActionLabel" "Return home"
+        ) }}
+      </div>
+    </section>
+  </div>
+{{ end }}

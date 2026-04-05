@@ -56,9 +56,9 @@ If analytics, consent tooling, or additional visitor-facing tracking is added la
 
 ## Data retention and visitor rights
 
-This site does not maintain public visitor accounts or comment profiles. If you contact the site owner directly through a channel linked from the [About page](/about/), any personal data you choose to share is handled in that communication channel rather than through an on-site form.
+This site does not maintain public visitor accounts or comment profiles. If you contact the site owner directly through a channel linked from the [About page contact section](/about/#contact), any personal data you choose to share is handled in that communication channel rather than through an on-site form.
 
-If you have a privacy question about content published here or want to raise a concern about a public page, use the contact paths linked from the [About page](/about/).
+If you have a privacy question about content published here or want to raise a concern about a public page, use the contact paths linked from the [About page contact section](/about/#contact).
 
 ## Changes to this policy
 

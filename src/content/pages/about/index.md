@@ -85,9 +85,9 @@ Some principles come up repeatedly in both my project work and the material I pu
 
 If a solution cannot be explained clearly, monitored in production, and changed without drama, it is not finished.
 
-## Follow My Work
+## Contact
 
-If you want the broader picture of what I work on and publish, these are the best places to continue:
+If you want to reach me directly or follow the public work connected to this site, these are the best places to continue:
 
 - [GitHub](https://github.com/taurgis/) for public tooling, experiments, and Salesforce Commerce Cloud developer work
 - [Trailblazer profile](https://www.salesforce.com/trailblazer/thomas-theunen) for Salesforce community presence
