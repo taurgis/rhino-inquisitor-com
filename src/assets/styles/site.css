@@ -3398,6 +3398,10 @@ summary {
     border-top: 1px solid rgba(16, 33, 58, 0.08);
   }
 
+  .jump-year {
+    padding-inline: 0.75rem;
+  }
+
   .archive-results__head,
   .archive-year-group__header,
   .topic-hubs .lane-header {
