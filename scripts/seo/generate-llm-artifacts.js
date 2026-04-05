@@ -48,6 +48,14 @@ function normalizeWhitespace(value) {
     .trim();
 }
 
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replace(/&/gu, "&amp;")
+    .replace(/</gu, "&lt;")
+    .replace(/>/gu, "&gt;")
+    .replace(/"/gu, "&quot;");
+}
+
 function detectCodeLanguage(node) {
   const attributeSources = [
     node.getAttribute("class") ?? "",
@@ -111,18 +119,56 @@ function extractSummaryItems($) {
     .filter(Boolean);
 }
 
-function extractBodyHtml(htmlSource) {
-  const $ = loadHtml(htmlSource, { decodeEntities: false });
-  const body = $("section.article-body").first();
-  if (!body.length) {
+function extractArchiveBodyHtml($) {
+  const archiveLayout = $(".archive-layout").first();
+  if (!archiveLayout.length) {
     return "";
   }
 
-  const fragment = loadHtml(`<div data-rhi-root>${body.html() ?? ""}</div>`, { decodeEntities: false });
-  const root = fragment("[data-rhi-root]");
-  root.find("script, style, noscript").remove();
-  root.find(".article-callout__label").remove();
-  return root.html()?.trim() ?? "";
+  const description = normalizeWhitespace(archiveLayout.find(".archive-header > p").last().text());
+  const resultSummary = normalizeWhitespace(archiveLayout.find(".archive-results__summary").first().text());
+  const yearCoverage = archiveLayout.find(".archive-year-group").toArray()
+    .map((group) => {
+      const year = normalizeWhitespace($(group).find("h3").first().text());
+      const count = normalizeWhitespace($(group).find(".archive-year-group__header .surface-note").first().text());
+
+      if (!year) {
+        return "";
+      }
+
+      return `${escapeHtml(year)}: ${escapeHtml(count || "entries")}`;
+    })
+    .filter(Boolean);
+
+  const parts = [];
+
+  if (description) {
+    parts.push(`<p>${escapeHtml(description)}</p>`);
+  }
+
+  if (resultSummary) {
+    parts.push(`<p>${escapeHtml(resultSummary)}</p>`);
+  }
+
+  if (yearCoverage.length > 0) {
+    parts.push(`<h2>Archive Coverage</h2><ul>${yearCoverage.map((item) => `<li>${item}</li>`).join("")}</ul>`);
+  }
+
+  return parts.join("");
+}
+
+function extractBodyHtml(htmlSource) {
+  const $ = loadHtml(htmlSource, { decodeEntities: false });
+  const body = $("section.article-body").first();
+  if (body.length) {
+    const fragment = loadHtml(`<div data-rhi-root>${body.html() ?? ""}</div>`, { decodeEntities: false });
+    const root = fragment("[data-rhi-root]");
+    root.find("script, style, noscript").remove();
+    root.find(".article-callout__label").remove();
+    return root.html()?.trim() ?? "";
+  }
+
+  return extractArchiveBodyHtml($);
 }
 
 function buildContent({ summaryItems, bodyMarkdown }) {
