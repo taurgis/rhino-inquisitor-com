@@ -3427,7 +3427,13 @@ summary {
     gap: 0.75rem;
   }
 
+  .archive-results .article-card-grid > li {
+    min-width: 0;
+  }
+
   .archive-results .article-card {
+    width: 100%;
+    min-width: 0;
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
     align-items: stretch;
@@ -3451,6 +3457,7 @@ summary {
   }
 
   .archive-results .article-card__media {
+    width: 100%;
     min-height: 11rem;
     aspect-ratio: 16 / 9;
     border-radius: 0;
