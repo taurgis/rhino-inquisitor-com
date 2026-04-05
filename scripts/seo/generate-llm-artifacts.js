@@ -18,6 +18,7 @@ const defaults = {
 
 function parseArgs(argv) {
   const options = { ...defaults };
+  options.keepNoindex = false;
 
   for (let index = 0; index < argv.length; index += 1) {
     const arg = argv[index];
@@ -29,8 +30,11 @@ function parseArgs(argv) {
       case "--llms-full":
         options.llmsFullPath = path.resolve(argv[++index]);
         break;
+      case "--keep-noindex":
+        options.keepNoindex = true;
+        break;
       case "--help":
-        console.log("Usage: node scripts/seo/generate-llm-artifacts.js [--public-dir <path>] [--llms-full <path>]");
+        console.log("Usage: node scripts/seo/generate-llm-artifacts.js [--public-dir <path>] [--llms-full <path>] [--keep-noindex]");
         process.exit(0);
         break;
       default:
@@ -255,7 +259,7 @@ function renderLlmsFull(entries) {
   return `${sections.join("\n\n").trim()}\n`;
 }
 
-async function rewriteMarkdownCompanion(mdFilePath, turndownService) {
+async function rewriteMarkdownCompanion(mdFilePath, turndownService, options) {
   const htmlFilePath = path.join(path.dirname(mdFilePath), "index.html");
   const [markdownSource, htmlSource] = await Promise.all([
     fs.readFile(mdFilePath, "utf8"),
@@ -266,7 +270,7 @@ async function rewriteMarkdownCompanion(mdFilePath, turndownService) {
   const $ = loadHtml(htmlSource, { decodeEntities: false });
   const robots = getMetaContent($, "name", "robots").toLowerCase();
 
-  if (robots.includes("noindex")) {
+  if (robots.includes("noindex") && !options.keepNoindex) {
     await fs.rm(mdFilePath, { force: true });
     return null;
   }
@@ -302,7 +306,7 @@ async function main() {
   const entries = [];
 
   for (const markdownFile of markdownFiles) {
-    const entry = await rewriteMarkdownCompanion(markdownFile, turndownService);
+    const entry = await rewriteMarkdownCompanion(markdownFile, turndownService, options);
     if (entry) {
       entries.push(entry);
     }

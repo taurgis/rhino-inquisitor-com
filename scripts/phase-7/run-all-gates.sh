@@ -210,10 +210,11 @@ register_gate "Run internal link check" "cd \"$REPO_ROOT\" && npm run check:inte
 register_gate "Run accessibility gate" "cd \"$REPO_ROOT\" && npm run check:a11y:seo"
 register_gate "Run performance gate" "cd \"$REPO_ROOT\" && npm run check:perf:gate"
 register_gate "Archive production validation output" "cd \"$REPO_ROOT\" && rm -rf \"$PRODUCTION_ARTIFACT_DIR\" && mkdir -p \"$PRODUCTION_ARTIFACT_DIR\" && cp -R public/. \"$PRODUCTION_ARTIFACT_DIR/\""
-register_gate "Build preview rehearsal site" "cd \"$REPO_ROOT\" && hugo --cleanDestinationDir --gc --minify --environment preview --baseURL \"$PREVIEW_BASE_URL\" && npm run sync:404-artifact && npm run generate:llm-artifacts && touch \"$PREVIEW_BUILD_MARKER_PATH\""
+register_gate "Build preview rehearsal site" "cd \"$REPO_ROOT\" && hugo --cleanDestinationDir --gc --minify --environment preview --baseURL \"$PREVIEW_BASE_URL\" && npm run sync:404-artifact && node scripts/seo/generate-llm-artifacts.js --keep-noindex && touch \"$PREVIEW_BUILD_MARKER_PATH\""
 register_gate "Run preview crawl-control validation check" "cd \"$REPO_ROOT\" && node scripts/seo/check-crawl-controls.js --mode preview --base-url \"$PREVIEW_BASE_URL\" --report tmp/ci-preview-crawl-control-audit.csv"
 register_gate "Verify preview-host path prefix and noindex" "cd \"$REPO_ROOT\" && node scripts/phase-7/check-preview-prefix-noindex.js --base-url \"$PREVIEW_BASE_URL\""
 register_gate "Run SEO-safe deployment host check" "cd \"$REPO_ROOT\" && npm run check:seo-safe-deploy -- --expected-origin \"$PREVIEW_BASE_URL\" --crawl-mode blocked --report tmp/phase-7-seo-safe-deploy-report.json"
+register_gate "Run preview LLM artifact validation check" "cd \"$REPO_ROOT\" && node scripts/seo/check-llm-artifacts.js --report tmp/phase-7-preview-llm-artifact-quality-report.json"
 register_gate "Validate deploy artifact integrity and size" "cd \"$REPO_ROOT\" && npm run validate:artifact -- --label preview-deploy --report tmp/phase-7-artifact-validation-preview.json"
 register_gate "Archive preview rehearsal output" "cd \"$REPO_ROOT\" && rm -rf \"$PREVIEW_ARTIFACT_DIR\" && mkdir -p \"$PREVIEW_ARTIFACT_DIR\" && cp -R public/. \"$PREVIEW_ARTIFACT_DIR/\""
 
