@@ -155,6 +155,22 @@
         "validation_mode": "page",
         "selection_reason": "Section list route emitted by Hugo outputs and retained to cover list rendering behavior.",
         "notes": null
+      },
+      {
+        "url": "/pages/",
+        "absolute_url": "https://www.rhino-inquisitor.com/pages/",
+        "built_artifact_path": "pages/index.html",
+        "validation_mode": "page",
+        "selection_reason": "Reference-page section list route retained to cover list rendering and archive-card behavior for the pages section.",
+        "notes": null
+      },
+      {
+        "url": "/pages/page/2/",
+        "absolute_url": "https://www.rhino-inquisitor.com/pages/page/2/",
+        "built_artifact_path": "pages/page/2/index.html",
+        "validation_mode": "page",
+        "selection_reason": "Paginated reference-page archive route retained to cover rel=next pagination behavior on the pages section.",
+        "notes": null
       }
     ],
     "category_pages": [

@@ -80,6 +80,9 @@
   function createCard(entry) {
     var media = '';
     var cardClass = 'article-card';
+    var speculationAttr = entry.type === 'posts' || (entry.type === 'pages' && entry.permalink !== 'https://www.rhino-inquisitor.com/archive/' && entry.permalink !== '/archive/')
+      ? ' data-speculation="archive-article"'
+      : '';
 
     if (entry.heroImage) {
       media = '' +
@@ -95,7 +98,7 @@
         media +
         '<div class="article-card__body">' +
           createMetadata(entry) +
-          '<h3><a href="' + escapeHtml(entry.permalink) + '">' + escapeHtml(entry.title) + '</a></h3>' +
+          '<h3><a href="' + escapeHtml(entry.permalink) + '"' + speculationAttr + '>' + escapeHtml(entry.title) + '</a></h3>' +
           '<p class="article-card__excerpt">' + escapeHtml(entry.summary || 'Open the article for the full entry.') + '</p>' +
         '</div>' +
       '</article>';

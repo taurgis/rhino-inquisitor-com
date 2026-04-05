@@ -78,7 +78,7 @@
       </ol>
 
       {{ with .Next }}
-        <a class="pagination__edge" href="{{ .URL }}" rel="next" aria-label="Go to next page">Next</a>
+        <a class="pagination__edge" href="{{ .URL }}" rel="next" aria-label="Go to next page" data-speculation="archive-next">Next</a>
       {{ else }}
         <span class="pagination__edge pagination__edge--disabled" aria-disabled="true">Next</span>
       {{ end }}

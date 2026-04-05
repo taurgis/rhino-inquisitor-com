@@ -1,20 +1,52 @@
 {{ $seoParams := .Params.seo | default dict }}
-{{ if and .IsPage (eq .Type "posts") (not (index $seoParams "noindex")) }}
+{{ $isIndexable := not (index $seoParams "noindex") }}
+{{ $relPermalink := .RelPermalink }}
+{{ $isPostPage := and .IsPage (eq .Type "posts") $isIndexable }}
+{{ $isPostsArchiveSurface := and (not .IsPage) $isIndexable (or (eq $relPermalink "/posts/") (hasPrefix $relPermalink "/posts/page/")) }}
+{{ $isPagesArchiveSurface := and (not .IsPage) $isIndexable (or (eq $relPermalink "/pages/") (hasPrefix $relPermalink "/pages/page/")) }}
+{{ $isCategoryArchiveSurface := and (not .IsPage) $isIndexable (hasPrefix $relPermalink "/category/") }}
+{{ $isArchiveArticleSurface := or $isPostsArchiveSurface $isPagesArchiveSurface $isCategoryArchiveSurface }}
+{{ $isArchivePaginationSurface := or $isPostsArchiveSurface $isPagesArchiveSurface }}
+{{ $prefetchRules := slice }}
+
+{{ if $isPostPage }}
+  {{ $prefetchRules = $prefetchRules | append (dict
+    "tag" "article-navigation"
+    "where" (dict "and" (slice
+      (dict "href_matches" "/*")
+      (dict "selector_matches" "a[data-speculation=\"article\"]")
+      (dict "not" (dict "selector_matches" "[rel~=nofollow]"))
+    ))
+    "eagerness" "moderate"
+  ) }}
+{{ end }}
+
+{{ if $isArchiveArticleSurface }}
+  {{ $prefetchRules = $prefetchRules | append (dict
+    "tag" "archive-article-navigation"
+    "where" (dict "and" (slice
+      (dict "href_matches" "/*")
+      (dict "selector_matches" "a[data-speculation=\"archive-article\"]")
+      (dict "not" (dict "selector_matches" "[rel~=nofollow]"))
+    ))
+    "eagerness" "conservative"
+  ) }}
+{{ end }}
+
+{{ if $isArchivePaginationSurface }}
+  {{ $prefetchRules = $prefetchRules | append (dict
+    "tag" "archive-next-pagination"
+    "where" (dict "and" (slice
+      (dict "href_matches" "/*")
+      (dict "selector_matches" "a[data-speculation=\"archive-next\"]")
+      (dict "not" (dict "selector_matches" "[rel~=nofollow]"))
+    ))
+    "eagerness" "conservative"
+  ) }}
+{{ end }}
+
+{{ if gt (len $prefetchRules) 0 }}
   <script type="speculationrules">
-    {
-      "prefetch": [
-        {
-          "tag": "article-navigation",
-          "where": {
-            "and": [
-              { "href_matches": "/*" },
-              { "selector_matches": "a[data-speculation=\"article\"]" },
-              { "not": { "selector_matches": "[rel~=nofollow]" } }
-            ]
-          },
-          "eagerness": "moderate"
-        }
-      ]
-    }
+    {{ dict "prefetch" $prefetchRules | jsonify }}
   </script>
 {{ end }}
