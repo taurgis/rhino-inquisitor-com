@@ -54,7 +54,7 @@
   {{ $stateBaseUrl := .RelPermalink }}
   {{ with $paginator.First }}{{ $stateBaseUrl = .URL }}{{ end }}
 
-  {{ partial "breadcrumbs.html" . }}
+  <div class="archive-route-breadcrumbs">{{ partial "breadcrumbs.html" . }}</div>
 
   <section class="archive-layout surface-panel">
     <div class="archive-header">

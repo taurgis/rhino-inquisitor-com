@@ -4,7 +4,7 @@
   {{ with site.GetPage "/posts" }}{{ $blogArchiveHref = .RelPermalink }}{{ end }}
   {{ $latestPosts := first 12 ((where site.RegularPages "Type" "posts").ByDate.Reverse) }}
   {{ $blogPage := site.GetPage "/posts" }}
-  {{ partial "breadcrumbs.html" . }}
+  <div class="archive-route-breadcrumbs">{{ partial "breadcrumbs.html" . }}</div>
 
   {{ if eq .Kind "term" }}
     {{ $displayTitle := .LinkTitle | default .Title }}
