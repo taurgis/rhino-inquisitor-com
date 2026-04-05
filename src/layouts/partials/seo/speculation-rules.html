@@ -1,0 +1,20 @@
+{{ $seoParams := .Params.seo | default dict }}
+{{ if and .IsPage (eq .Type "posts") (not (index $seoParams "noindex")) }}
+  <script type="speculationrules">
+    {
+      "prefetch": [
+        {
+          "tag": "article-navigation",
+          "where": {
+            "and": [
+              { "href_matches": "/*" },
+              { "selector_matches": "a[data-speculation=\"article\"]" },
+              { "not": { "selector_matches": "[rel~=nofollow]" } }
+            ]
+          },
+          "eagerness": "moderate"
+        }
+      ]
+    }
+  </script>
+{{ end }}

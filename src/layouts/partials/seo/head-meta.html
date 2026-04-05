@@ -24,6 +24,9 @@
   {{ end }}
 {{ end }}
 
+{{ partial "seo/resource-hints.html" . }}
+{{ partial "seo/speculation-rules.html" . }}
+
 {{ partial "seo/open-graph.html" . }}
 
 {{ if .IsHome }}

@@ -181,7 +181,7 @@
     <div class="article-related__grid">
       {{ if gt (len $nextItems) 0 }}
         {{ range $nextItems }}
-            <a class="article-related__card" href="{{ .page.Permalink }}">
+            <a class="article-related__card" href="{{ .page.Permalink }}" data-speculation="article">
             <span class="article-related__bucket">Next in topic</span>
               <span class="article-related__title">{{ .title | default .page.LinkTitle }}</span>
               {{ with .description | default .page.Params.description }}
@@ -192,7 +192,7 @@
       {{ end }}
       {{ if gt (len $adjacentItems) 0 }}
         {{ range $adjacentItems }}
-            <a class="article-related__card" href="{{ .page.Permalink }}">
+            <a class="article-related__card" href="{{ .page.Permalink }}" data-speculation="article">
             <span class="article-related__bucket">Adjacent topic</span>
               <span class="article-related__title">{{ .title | default .page.LinkTitle }}</span>
               {{ with .description | default .page.Params.description }}
@@ -203,7 +203,7 @@
       {{ end }}
       {{ if gt (len $foundationalItems) 0 }}
         {{ range $foundationalItems }}
-            <a class="article-related__card" href="{{ .page.Permalink }}">
+            <a class="article-related__card" href="{{ .page.Permalink }}" data-speculation="article">
             <span class="article-related__bucket">Foundation</span>
               <span class="article-related__title">{{ .title | default .page.LinkTitle }}</span>
               {{ with .description | default .page.Params.description }}
