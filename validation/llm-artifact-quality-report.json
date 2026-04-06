@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-05T08:28:06.774Z",
+  "generatedAt": "2026-04-06T06:56:09.560Z",
   "publicDir": "public",
   "llms": {
     "path": "public/llms.txt",
@@ -13,11 +13,11 @@
   },
   "summary": {
     "markdownCompanionCount": 171,
-    "filesWithFailures": 1,
+    "filesWithFailures": 0,
     "filesWithCodeBlocks": 52,
     "filesWithImages": 145,
     "filesWithBlockquotes": 57,
-    "filesWithLists": 155,
+    "filesWithLists": 156,
     "sampledComplexRoutes": [
       {
         "path": "public/get-connected-at-salesforce-connections-2022/index.md",
@@ -525,17 +525,15 @@
       "canonicalUrl": "https://www.rhino-inquisitor.com/archive/",
       "markdownUrl": "https://www.rhino-inquisitor.com/archive/index.md",
       "title": "Archive",
-      "findings": [
-        "empty Markdown body"
-      ],
+      "findings": [],
       "metrics": {
-        "headingCount": 0,
-        "listItemCount": 0,
+        "headingCount": 1,
+        "listItemCount": 5,
         "blockquoteCount": 0,
         "codeFenceCount": 0,
         "imageCount": 0,
         "linkCount": 0,
-        "bodyLength": 0
+        "bodyLength": 281
       }
     },
     {
@@ -2971,7 +2969,5 @@
       }
     }
   ],
-  "failures": [
-    "public/archive/index.md: empty Markdown body"
-  ]
+  "failures": []
 }

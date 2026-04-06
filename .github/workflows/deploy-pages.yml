@@ -91,7 +91,43 @@ jobs:
           fi
 
       - name: Install Node dependencies
-        run: npm ci
+        run: npm ci --include=optional
+
+      - name: Verify Sharp AVIF runtime
+        shell: bash
+        run: |
+          set -euo pipefail
+          node <<'EOF'
+          const sharp = require('sharp');
+
+          async function main() {
+            const input = Buffer.from([
+              0xff, 0x00, 0x00, 0xff,
+              0x00, 0x80, 0xff, 0xff,
+              0x20, 0xc0, 0x40, 0xff,
+              0x10, 0x10, 0x10, 0xff
+            ]);
+
+            const output = await sharp(input, {
+              raw: {
+                width: 2,
+                height: 2,
+                channels: 4
+              }
+            }).avif({ quality: 40 }).toBuffer();
+
+            if (!Buffer.isBuffer(output) || output.length === 0) {
+              throw new Error('Sharp AVIF smoke check produced no output.');
+            }
+
+            console.log(`Sharp AVIF smoke check passed (${output.length} bytes).`);
+          }
+
+          main().catch((error) => {
+            console.error(error.message);
+            process.exit(1);
+          });
+          EOF
 
       - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium

@@ -177,7 +177,7 @@ cleanup_preview_state
 
 register_gate "Validate front matter" "cd \"$REPO_ROOT\" && npm run validate:frontmatter"
 register_gate "Enforce local video shortcode policy" "cd \"$REPO_ROOT\" && npm run check:local-video-shortcodes"
-register_gate "Build production validation site" "cd \"$REPO_ROOT\" && build_started_at=\$(node -e 'console.log(Date.now())') && hugo --cleanDestinationDir --gc --minify --environment production && npm run sync:404-artifact && npm run generate:llm-artifacts && build_finished_at=\$(node -e 'console.log(Date.now())') && mkdir -p \"\$(dirname \"$BUILD_DURATION_PATH\")\" && printf '%s' \"\$((build_finished_at - build_started_at))\" > \"$BUILD_DURATION_PATH\""
+register_gate "Build production validation site" "cd \"$REPO_ROOT\" && build_started_at=\$(node -e 'console.log(Date.now())') && npm run build:prod && build_finished_at=\$(node -e 'console.log(Date.now())') && mkdir -p \"\$(dirname \"$BUILD_DURATION_PATH\")\" && printf '%s' \"\$((build_finished_at - build_started_at))\" > \"$BUILD_DURATION_PATH\""
 register_gate "Validate production artifact integrity and size" "cd \"$REPO_ROOT\" && npm run validate:artifact -- --label production-validation --report tmp/phase-7-artifact-validation-production.json"
 register_gate "Validate URL inventory" "cd \"$REPO_ROOT\" && npm run validate:url-inventory"
 register_gate "Run Pages artifact constraints check" "cd \"$REPO_ROOT\" && build_duration_ms=\$(cat \"$BUILD_DURATION_PATH\" 2>/dev/null || printf '') && if [[ -n \"\$build_duration_ms\" ]]; then npm run check:pages-constraints -- --build-duration-ms \"\$build_duration_ms\"; else npm run check:pages-constraints; fi"
@@ -210,7 +210,7 @@ register_gate "Run internal link check" "cd \"$REPO_ROOT\" && npm run check:inte
 register_gate "Run accessibility gate" "cd \"$REPO_ROOT\" && npm run check:a11y:seo"
 register_gate "Run performance gate" "cd \"$REPO_ROOT\" && npm run check:perf:gate"
 register_gate "Archive production validation output" "cd \"$REPO_ROOT\" && rm -rf \"$PRODUCTION_ARTIFACT_DIR\" && mkdir -p \"$PRODUCTION_ARTIFACT_DIR\" && cp -R public/. \"$PRODUCTION_ARTIFACT_DIR/\""
-register_gate "Build preview rehearsal site" "cd \"$REPO_ROOT\" && hugo --cleanDestinationDir --gc --minify --environment preview --baseURL \"$PREVIEW_BASE_URL\" && npm run sync:404-artifact && node scripts/seo/generate-llm-artifacts.js --keep-noindex && touch \"$PREVIEW_BUILD_MARKER_PATH\""
+register_gate "Build preview rehearsal site" "cd \"$REPO_ROOT\" && PREVIEW_BASE_URL=\"$PREVIEW_BASE_URL\" npm run build:preview-pages && touch \"$PREVIEW_BUILD_MARKER_PATH\""
 register_gate "Run preview crawl-control validation check" "cd \"$REPO_ROOT\" && node scripts/seo/check-crawl-controls.js --mode preview --base-url \"$PREVIEW_BASE_URL\" --report tmp/ci-preview-crawl-control-audit.csv"
 register_gate "Verify preview-host path prefix and noindex" "cd \"$REPO_ROOT\" && node scripts/phase-7/check-preview-prefix-noindex.js --base-url \"$PREVIEW_BASE_URL\""
 register_gate "Run SEO-safe deployment host check" "cd \"$REPO_ROOT\" && npm run check:seo-safe-deploy -- --expected-origin \"$PREVIEW_BASE_URL\" --crawl-mode blocked --report tmp/phase-7-seo-safe-deploy-report.json"
