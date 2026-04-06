@@ -1,38 +1,44 @@
 {{- $destination := .Destination | default "" -}}
+{{- $isRemote := or (hasPrefix $destination "http://") (hasPrefix $destination "https://") -}}
 {{- $resourcePath := strings.TrimPrefix "/" $destination -}}
 {{- $resource := false -}}
-{{- if and (ne $resourcePath "") (not (or (hasPrefix $destination "http://") (hasPrefix $destination "https://"))) -}}
+{{- $alt := .PlainText | default .Text | default "" -}}
+{{- $decorative := eq (strings.TrimSpace $alt) "" -}}
+
+{{- if and (ne $resourcePath "") (not $isRemote) -}}
   {{- if and .Page (not (hasPrefix $destination "/")) -}}
     {{- with .Page.Resources.GetMatch $destination -}}
       {{- $resource = . -}}
     {{- end -}}
   {{- end -}}
   {{- if and (not $resource) (ne $resourcePath "") -}}
-  {{- with resources.Get $resourcePath -}}
-    {{- $resource = . -}}
-  {{- end -}}
+    {{- with resources.Get $resourcePath -}}
+      {{- $resource = . -}}
+    {{- end -}}
   {{- end -}}
 {{- end -}}
 
-{{- $resolvedSrc := $destination -}}
-{{- $width := 0 -}}
-{{- $height := 0 -}}
-{{- if $resource -}}
-  {{- $resolvedSrc = $resource.RelPermalink -}}
-{{- end -}}
 {{- if and $resource (reflect.IsImageResourceWithMeta $resource) -}}
-  {{- $resolvedSrc = $resource.RelPermalink -}}
-  {{- $width = $resource.Width -}}
-  {{- $height = $resource.Height -}}
+  {{ partial "media/image.html" (dict
+    "page" .Page
+    "src" $destination
+    "alt" $alt
+    "decorative" $decorative
+    "loading" "lazy"
+    "decoding" "async"
+    "process" false
+    "class" "article-body-image"
+    "title" .Title
+  ) }}
+{{- else -}}
+  <img
+    src="{{ with $resource }}{{ .RelPermalink }}{{ else }}{{ $destination }}{{ end }}"
+    alt="{{ $alt }}"
+    loading="lazy"
+    decoding="async"
+    class="article-body-image"
+    {{ with .Title }}title="{{ . }}"{{ end }}
+    {{ with $resource }}{{ if reflect.IsImageResourceWithMeta . }}width="{{ .Width }}" height="{{ .Height }}"{{ end }}{{ end }}
+    {{ if $decorative }}role="presentation" aria-hidden="true"{{ end }}
+  >
 {{- end -}}
-
-<img
-  src="{{ $resolvedSrc }}"
-  alt="{{ .PlainText | default .Text }}"
-  loading="lazy"
-  decoding="async"
-  class="article-body-image"
-  {{ with .Title }}title="{{ . }}"{{ end }}
-  {{ if gt $width 0 }}width="{{ $width }}"{{ end }}
-  {{ if gt $height 0 }}height="{{ $height }}"{{ end }}
->

@@ -375,6 +375,38 @@ function normalizeImageSource(value) {
   }
 }
 
+function parseSrcsetCandidates(value) {
+  return String(value ?? '')
+    .split(',')
+    .map((candidate) => candidate.trim())
+    .filter(Boolean)
+    .map((candidate) => candidate.split(/\s+/u)[0] ?? '')
+    .filter(Boolean);
+}
+
+async function inspectSrcsetCandidates(srcset, options, label) {
+  const findings = [];
+  const resolvedPaths = [];
+
+  for (const candidate of parseSrcsetCandidates(srcset)) {
+    const sourceInfo = normalizeImageSource(candidate);
+    if (sourceInfo?.kind !== 'local') {
+      continue;
+    }
+
+    const publicFile = localPathToPublicFile(options.publicDir, sourceInfo.localPath);
+    resolvedPaths.push(toRepoRelative(publicFile));
+    if (!(await fileExists(publicFile))) {
+      findings.push({ severity: 'critical', message: `${label} candidate does not resolve in built output (${sourceInfo.localPath})` });
+    }
+  }
+
+  return {
+    findings,
+    resolvedPaths
+  };
+}
+
 async function fileExists(filePath) {
   try {
     await access(filePath);
@@ -435,13 +467,14 @@ async function auditImages(htmlEntries, options) {
     const { htmlEntry, index, node } = row;
     const element = htmlEntry.$(node);
     const src = asNonEmptyString(element.attr('src'));
+    const srcset = asNonEmptyString(element.attr('srcset'));
     const altAttribute = element.attr('alt');
     const normalizedAlt = typeof altAttribute === 'string' ? altAttribute.trim() : altAttribute;
     const width = asNonEmptyString(element.attr('width'));
     const height = asNonEmptyString(element.attr('height'));
     const findings = [];
     const decorative = isDecorativeImage(element);
-    let resolvedPath = '';
+    const resolvedPaths = [];
 
     if (!src) {
       findings.push({ severity: 'critical', message: 'img is missing src' });
@@ -465,11 +498,17 @@ async function auditImages(htmlEntries, options) {
       const sourceInfo = normalizeImageSource(src);
       if (sourceInfo?.kind === 'local') {
         const publicFile = localPathToPublicFile(options.publicDir, sourceInfo.localPath);
-        resolvedPath = toRepoRelative(publicFile);
+        resolvedPaths.push(toRepoRelative(publicFile));
         if (!(await fileExists(publicFile))) {
           findings.push({ severity: 'critical', message: `img src does not resolve in built output (${sourceInfo.localPath})` });
         }
       }
+    }
+
+    if (srcset) {
+      const srcsetAudit = await inspectSrcsetCandidates(srcset, options, 'img srcset');
+      findings.push(...srcsetAudit.findings);
+      resolvedPaths.push(...srcsetAudit.resolvedPaths);
     }
 
     resolvedRows.push(createRow({
@@ -478,7 +517,7 @@ async function auditImages(htmlEntries, options) {
       filePath: htmlEntry.filePath,
       elementIndex: index + 1,
       source: src,
-      resolvedPath,
+      resolvedPath: [...new Set(resolvedPaths)].join(' | '),
       alt: normalizedAlt ?? '',
       decorative: decorative ? 'yes' : 'no',
       width,
@@ -488,6 +527,60 @@ async function auditImages(htmlEntries, options) {
   }
 
   return resolvedRows;
+}
+
+async function auditPictureSources(htmlEntries, options) {
+  const rows = [];
+
+  for (const htmlEntry of htmlEntries) {
+    const pictures = htmlEntry.$('picture').toArray();
+
+    for (const [pictureIndex, pictureNode] of pictures.entries()) {
+      const picture = htmlEntry.$(pictureNode);
+      const fallbackImg = picture.children('img').first();
+      const fallbackAlt = fallbackImg.length > 0 ? (fallbackImg.attr('alt') ?? '').trim() : '';
+
+      if (fallbackImg.length === 0) {
+        rows.push(createRow({
+          scope: 'picture',
+          route: htmlEntry.route,
+          filePath: htmlEntry.filePath,
+          elementIndex: pictureIndex + 1,
+          findings: [{ severity: 'critical', message: 'picture is missing img fallback' }]
+        }));
+        continue;
+      }
+
+      const sources = picture.children('source').toArray();
+      for (const [sourceIndex, sourceNode] of sources.entries()) {
+        const source = htmlEntry.$(sourceNode);
+        const srcset = asNonEmptyString(source.attr('srcset'));
+        const findings = [];
+        let resolvedPath = '';
+
+        if (!srcset) {
+          findings.push({ severity: 'critical', message: 'picture source is missing srcset' });
+        } else {
+          const srcsetAudit = await inspectSrcsetCandidates(srcset, options, 'picture source srcset');
+          findings.push(...srcsetAudit.findings);
+          resolvedPath = [...new Set(srcsetAudit.resolvedPaths)].join(' | ');
+        }
+
+        rows.push(createRow({
+          scope: 'picture-source',
+          route: htmlEntry.route,
+          filePath: htmlEntry.filePath,
+          elementIndex: `${pictureIndex + 1}.${sourceIndex + 1}`,
+          source: srcset,
+          resolvedPath,
+          alt: fallbackAlt,
+          findings
+        }));
+      }
+    }
+  }
+
+  return rows;
 }
 
 function validateVideoObject(videoNode, findings) {
@@ -599,6 +692,7 @@ async function main() {
 
   const rows = [
     ...(await auditImages(htmlEntries, options)),
+    ...(await auditPictureSources(htmlEntries, options)),
     ...(await auditVideoRoutes(htmlByRoute, robotsData, manifestEntries))
   ].sort((left, right) => {
     if (left.scope !== right.scope) {

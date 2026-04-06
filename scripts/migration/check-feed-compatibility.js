@@ -2,7 +2,9 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import fg from 'fast-glob';
 import { XMLParser } from 'fast-xml-parser';
+import matter from 'gray-matter';
 import { stringify as stringifyCsv } from 'csv-stringify/sync';
 
 import {
@@ -12,6 +14,7 @@ import {
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const defaultPublicDir = path.join(repoRoot, 'public');
+const defaultContentDir = path.join(repoRoot, 'src/content');
 const defaultReport = path.join(repoRoot, 'migration/reports/feed-compatibility-report.csv');
 
 async function main() {
@@ -20,6 +23,7 @@ async function main() {
 
   const rows = [];
   const failures = [];
+  const feedPolicy = await loadRootFeedPolicy(options.contentDir);
 
   const canonicalFeedPath = path.join(options.publicDir, 'index.xml');
   if (!(await fileExists(canonicalFeedPath))) {
@@ -36,7 +40,7 @@ async function main() {
     });
   } else {
     const feedSource = await fs.readFile(canonicalFeedPath, 'utf8');
-    const { valid, itemCount, message } = validateFeedXml(feedSource);
+    const { valid, itemCount, message } = validateFeedXml(feedSource, feedPolicy);
     pushRow(rows, valid ? null : failures, {
       endpoint: '/index.xml',
       check: 'canonical_feed_exists',
@@ -139,6 +143,9 @@ function resolveOptions(argv) {
       case '--robots-file':
         parsed.robotsFile = path.resolve(argv[++index]);
         break;
+      case '--content-dir':
+        parsed.contentDir = path.resolve(argv[++index]);
+        break;
       case '--report-file':
         parsed.reportFile = path.resolve(argv[++index]);
         break;
@@ -153,6 +160,7 @@ function resolveOptions(argv) {
 
   return {
     publicDir: parsed.publicDir ?? defaultPublicDir,
+    contentDir: parsed.contentDir ?? defaultContentDir,
     robotsFile: parsed.robotsFile ?? path.join(parsed.publicDir ?? defaultPublicDir, 'robots.txt'),
     reportFile: parsed.reportFile ?? defaultReport
   };
@@ -164,16 +172,20 @@ function printHelp() {
 Options:
   --public-dir <path>   Override the built public directory.
   --robots-file <path>  Override the robots.txt file to inspect.
+  --content-dir <path>  Override the content directory used for feed-block rules.
   --report-file <path>  Override migration/reports/feed-compatibility-report.csv.
   --help                Show this help message.
 `);
 }
 
-function validateFeedXml(source) {
+function validateFeedXml(source, feedPolicy) {
   try {
     const parser = new XMLParser({ ignoreAttributes: false });
     const parsed = parser.parse(source);
     const itemCount = countFeedItems(parsed);
+    const itemRoutes = extractFeedItemRoutes(parsed);
+    const blockedFeedItems = [...new Set(itemRoutes.filter((route) => feedPolicy.blockedRoutes.has(route)))];
+    const nonPostFeedItems = [...new Set(itemRoutes.filter((route) => !feedPolicy.allowedPostRoutes.has(route)))];
     if (itemCount < 1) {
       return {
         valid: false,
@@ -182,10 +194,26 @@ function validateFeedXml(source) {
       };
     }
 
+    if (blockedFeedItems.length > 0) {
+      return {
+        valid: false,
+        itemCount,
+        message: `Canonical feed XML contains blocked routes: ${blockedFeedItems.join(', ')}`
+      };
+    }
+
+    if (nonPostFeedItems.length > 0) {
+      return {
+        valid: false,
+        itemCount,
+        message: `Canonical feed XML contains non-post routes: ${nonPostFeedItems.join(', ')}`
+      };
+    }
+
     return {
       valid: true,
       itemCount,
-      message: 'Canonical feed XML is present and parseable.'
+      message: 'Canonical feed XML is present, parseable, excludes blocked routes, and contains posts only.'
     };
   } catch (error) {
     return {
@@ -216,6 +244,81 @@ function countFeedItems(parsed) {
   return 0;
 }
 
+function extractFeedItemRoutes(parsed) {
+  const routes = [];
+  const rssItems = parsed?.rss?.channel?.item;
+
+  if (Array.isArray(rssItems)) {
+    for (const item of rssItems) {
+      const route = normalizeRoute(item?.link);
+      if (route) {
+        routes.push(route);
+      }
+    }
+    return routes;
+  }
+
+  if (rssItems) {
+    const route = normalizeRoute(rssItems?.link);
+    if (route) {
+      routes.push(route);
+    }
+    return routes;
+  }
+
+  const atomEntries = parsed?.feed?.entry;
+  const entries = Array.isArray(atomEntries) ? atomEntries : atomEntries ? [atomEntries] : [];
+
+  for (const entry of entries) {
+    const links = Array.isArray(entry?.link) ? entry.link : entry?.link ? [entry.link] : [];
+    const firstLink = links.find((candidate) => typeof candidate?.['@_href'] === 'string');
+    const route = normalizeRoute(firstLink?.['@_href']);
+    if (route) {
+      routes.push(route);
+    }
+  }
+
+  return routes;
+}
+
+async function loadRootFeedPolicy(contentDir) {
+  const markdownFiles = await fg('**/*.md', {
+    cwd: contentDir,
+    absolute: true,
+    onlyFiles: true,
+    suppressErrors: true
+  });
+  const allowedPostRoutes = new Set();
+  const routes = new Set();
+
+  for (const markdownFile of markdownFiles.sort()) {
+    const source = await fs.readFile(markdownFile, 'utf8');
+    const parsed = matter(source);
+    const relativePath = path.relative(contentDir, markdownFile).split(path.sep).join('/');
+    const hasNoindex = parsed.data?.noindex === true || parsed.data?.seo?.noindex === true;
+    const isScaffoldFixture = parsed.data?.scaffoldFixture === true;
+    const isDraft = parsed.data?.draft === true;
+    const route = normalizeRoute(parsed.data?.url);
+
+    if (route && relativePath.startsWith('posts/') && !hasNoindex && !isScaffoldFixture && !isDraft) {
+      allowedPostRoutes.add(route);
+    }
+
+    if (!hasNoindex && !isScaffoldFixture) {
+      continue;
+    }
+
+    if (route) {
+      routes.add(route);
+    }
+  }
+
+  return {
+    allowedPostRoutes,
+    blockedRoutes: routes
+  };
+}
+
 function normalizeRedirectTarget(value) {
   if (typeof value !== 'string' || value.trim().length === 0) {
     return '';
@@ -227,6 +330,31 @@ function normalizeRedirectTarget(value) {
   }
 
   return trimmed;
+}
+
+function normalizeRoute(value) {
+  if (typeof value !== 'string' || value.trim().length === 0) {
+    return '';
+  }
+
+  const trimmed = value.trim();
+  let route = trimmed;
+
+  if (trimmed.startsWith('http://') || trimmed.startsWith('https://')) {
+    route = new URL(trimmed).pathname;
+  }
+
+  if (!route.startsWith('/')) {
+    route = `/${route}`;
+  }
+
+  route = route.replace(/\/+/gu, '/');
+
+  if (route !== '/' && !route.endsWith('/') && !/\.[a-z0-9]+$/iu.test(route)) {
+    route = `${route}/`;
+  }
+
+  return route;
 }
 
 function pushRow(rows, failures, row) {

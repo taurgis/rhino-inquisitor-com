@@ -2,6 +2,7 @@ tmp/
 node_modules/
 public/
 resources/
+src/assets/generated-avif/
 .hugo_build.lock
 .DS_Store
 Thumbs.db

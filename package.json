@@ -7,6 +7,7 @@
     "node": ">=20.18.1"
   },
   "scripts": {
+    "generate:avif-cache": "node scripts/generate-avif-cache.js",
     "phase1:parse-sitemap": "node scripts/parse-sitemap.js",
     "phase1:crawl-urls": "node scripts/crawl-urls.js",
     "phase1:enrich-search-console": "node scripts/enrich-search-console.js",
@@ -30,10 +31,10 @@
     "migrate:export-link-text-corrections": "node scripts/migration/export-link-text-corrections.js",
     "generate:llm-artifacts": "node scripts/seo/generate-llm-artifacts.js",
     "sync:404-artifact": "node scripts/seo/sync-404-artifact.js",
-    "build:local": "hugo --minify --environment development --baseURL http://localhost:1313/ && npm run sync:404-artifact && npm run generate:llm-artifacts",
-    "build:staging": "hugo --minify --environment preview --baseURL https://staging.rhino-inquisitor.com/ && npm run sync:404-artifact && node scripts/seo/generate-llm-artifacts.js --keep-noindex",
-    "build:prod": "hugo --minify --environment production && npm run sync:404-artifact && npm run generate:llm-artifacts",
-    "dev": "hugo server --environment development --baseURL http://localhost:1313/",
+    "build:local": "npm run generate:avif-cache && hugo --minify --environment development --baseURL http://localhost:1313/ && npm run sync:404-artifact && npm run generate:llm-artifacts",
+    "build:staging": "npm run generate:avif-cache && hugo --minify --environment preview --baseURL https://staging.rhino-inquisitor.com/ && npm run sync:404-artifact && node scripts/seo/generate-llm-artifacts.js --keep-noindex",
+    "build:prod": "npm run generate:avif-cache && hugo --minify --environment production && npm run sync:404-artifact && npm run generate:llm-artifacts",
+    "dev": "npm run generate:avif-cache && hugo server --environment development --baseURL http://localhost:1313/",
     "phase6:generate-url-map": "node scripts/phase-6/generate-url-map.js",
     "phase6:review-redirect-intent": "node scripts/phase-6/review-redirect-intent.js",
     "phase6:generate-coverage-report": "node scripts/phase-6/generate-coverage-report.js",

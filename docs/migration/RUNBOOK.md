@@ -438,9 +438,12 @@ This runbook tracks the operational steps needed to move the repository from pla
   - `hugo --minify --environment production --contentDir migration/output/content --destination tmp/rhi039-public`
   - `npm run check:seo-completeness -- --public-dir tmp/rhi039-public`
 - Run the feed compatibility validator with `npm run check:feed-compatibility` after a production-style build.
+- Use `npm run check:feed-compatibility -- --content-dir migration/output/content --public-dir tmp/rhi039-public --robots-file tmp/rhi039-public/robots.txt` when validating a staged migration build outside `public/`.
 - Run the noindex gate with `npm run check:noindex` on the same production-style build output. Use `CHECK_NOINDEX_PUBLIC_DIR=tmp/rhi039-public npm run check:noindex` when validating a staged migration build outside `public/`.
 - The feed validator checks:
   - canonical Hugo feed output at `index.xml`
+  - the root feed contains only eligible post routes from `src/content/posts/**`
+  - the root feed excludes routes marked with top-level `noindex`, `seo.noindex`, or `scaffoldFixture: true` in front matter
   - Pages-compatible helper routes at `/feed/`, `/feed/rss/`, and `/feed/atom/`
   - `robots.txt` does not disallow the canonical or compatibility feed endpoints
 - The feed validator writes `migration/reports/feed-compatibility-report.csv` and exits non-zero on feed regressions.

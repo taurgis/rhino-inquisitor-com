@@ -26,6 +26,7 @@
 {{- $loading := .loading | default "lazy" -}}
 {{- $decoding := .decoding | default "async" -}}
 {{- $fetchpriority := .fetchpriority | default "" -}}
+{{- $title := .title | default "" -}}
 {{- $style := .style | default "" -}}
 {{- $sizes := .sizes | default "" -}}
 {{- $responsive := .responsive | default false -}}
@@ -34,16 +35,37 @@
 {{- $maxWidth := .maxWidth | default 0 -}}
 {{- $responsiveWidths := .responsiveWidths | default (slice 768 1280) -}}
 {{- $resource := false -}}
+{{- $avifResource := false -}}
+{{- $avifSrcset := "" -}}
+{{- $isRemote := or (hasPrefix $requestedSrc "http://") (hasPrefix $requestedSrc "https://") -}}
+{{- $resourceScope := "" -}}
 {{- $globalResourcePath := strings.TrimPrefix "/" $requestedSrc -}}
 
-{{- if and $page (not (or (hasPrefix $requestedSrc "http://") (hasPrefix $requestedSrc "https://") (hasPrefix $requestedSrc "/"))) -}}
+{{- if and $page (not (or $isRemote (hasPrefix $requestedSrc "/"))) -}}
   {{- with $page.Resources.GetMatch $requestedSrc -}}
     {{- $resource = . -}}
+    {{- $resourceScope = "page" -}}
   {{- end -}}
 {{- end -}}
-{{- if and (not $resource) (ne $globalResourcePath "") (not (or (hasPrefix $requestedSrc "http://") (hasPrefix $requestedSrc "https://"))) -}}
+{{- if and (not $resource) (ne $globalResourcePath "") (not $isRemote) -}}
   {{- with resources.Get $globalResourcePath -}}
     {{- $resource = . -}}
+    {{- $resourceScope = "global" -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $requestedSrcLower := lower $requestedSrc -}}
+{{- $generatedAvifBasePath := "" -}}
+{{- if and $resource (not $isRemote) (not (hasSuffix $requestedSrcLower ".avif")) -}}
+  {{- if eq $resourceScope "page" -}}
+    {{- $pageFilePath := "" -}}
+    {{- with $page.File -}}
+      {{- $pageFilePath = .Path -}}
+    {{- end -}}
+    {{- $pageBundleDir := replaceRE `[^/]+$` "" $pageFilePath -}}
+    {{- $generatedAvifBasePath = printf "generated-avif/content/%s%s" $pageBundleDir (replaceRE `(?i)\.[^.\/]+$` "" $requestedSrc) -}}
+  {{- else if eq $resourceScope "global" -}}
+    {{- $generatedAvifBasePath = printf "generated-avif/global/%s" (replaceRE `(?i)\.[^.\/]+$` "" $globalResourcePath) -}}
   {{- end -}}
 {{- end -}}
 
@@ -86,6 +108,54 @@
   {{- errorf "RHI-026 image %q on %q must resolve to a local Hugo image resource or provide explicit width and height" $requestedSrc ($page.RelPermalink | default "unknown-page") -}}
 {{- end -}}
 
+{{- if ne $generatedAvifBasePath "" -}}
+  {{- $finalAvifCandidatePath := printf "%s.avif" $generatedAvifBasePath -}}
+  {{- if and $resource (reflect.IsImageResourceWithMeta $resource) (ne $width $resource.Width) -}}
+    {{- $finalAvifCandidatePath = printf "%s.%dw.avif" $generatedAvifBasePath $width -}}
+  {{- end -}}
+  {{- $avifCandidates := slice -}}
+  {{- if $responsive -}}
+    {{- range $responsiveWidths -}}
+      {{- if lt . $width -}}
+        {{- with resources.Get (printf "%s.%dw.avif" $generatedAvifBasePath .) -}}
+          {{- $avifCandidates = $avifCandidates | append (printf "%s %dw" .RelPermalink .) -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- with resources.Get $finalAvifCandidatePath -}}
+    {{- $avifResource = . -}}
+    {{- if $responsive -}}
+      {{- $avifCandidates = $avifCandidates | append (printf "%s %dw" .RelPermalink $width) -}}
+    {{- else -}}
+      {{- $avifCandidates = $avifCandidates | append .RelPermalink -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if gt (len $avifCandidates) 0 -}}
+    {{- $avifSrcset = delimit $avifCandidates ", " -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if and (eq $avifSrcset "") (not $isRemote) (ne $requestedSrc "") (not (hasSuffix $requestedSrcLower ".avif")) -}}
+  {{- $avifCandidatePath := printf "%s.avif" (replaceRE `(?i)\.[^.\/]+$` "" $requestedSrc) -}}
+  {{- if and $page (not (hasPrefix $requestedSrc "/")) -}}
+    {{- with $page.Resources.GetMatch $avifCandidatePath -}}
+      {{- $avifResource = . -}}
+      {{- $avifSrcset = .RelPermalink -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if eq $avifSrcset "" -}}
+    {{- with resources.Get (strings.TrimPrefix "/" $avifCandidatePath) -}}
+      {{- $avifResource = . -}}
+      {{- $avifSrcset = .RelPermalink -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if ne $avifSrcset "" -}}
+<picture>
+  <source srcset="{{ $avifSrcset }}" type="image/avif"{{ with $sizes }} sizes="{{ . }}"{{ end }}>
+{{- end -}}
 <img
   src="{{ $resolvedSrc }}"
   alt="{{ $alt }}"
@@ -94,9 +164,13 @@
   loading="{{ $loading }}"
   decoding="{{ $decoding }}"
   {{ with $fetchpriority }}fetchpriority="{{ . }}"{{ end }}
+  {{ with $title }}title="{{ . }}"{{ end }}
   class="{{ $class }}"
   {{ with $srcset }}srcset="{{ . }}"{{ end }}
   {{ with $sizes }}sizes="{{ . }}"{{ end }}
   {{ if $decorative }}role="presentation" aria-hidden="true"{{ end }}
   {{ with $style }}style="{{ . }}"{{ end }}
 >
+{{- if ne $avifSrcset "" -}}
+</picture>
+{{- end -}}

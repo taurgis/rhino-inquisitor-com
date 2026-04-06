@@ -35,7 +35,10 @@ Out of scope:
 ### Format policy
 
 - `webp` is the default processed format for local raster images in this baseline.
-- AVIF remains a documented future enhancement only. The current repo baseline does not depend on undocumented AVIF processing behavior.
+- Local raster images are automatically transcoded to AVIF by a pre-build Sharp step that writes a generated cache under `src/assets/generated-avif/`.
+- The shared image renderer emits `<picture>` with generated AVIF sources when the cache contains a matching derivative for the resolved local image.
+- Browsers that do not support AVIF continue to use the fallback `<img>` source, which remains `webp` for processed scaffold images and the original resource for non-processed image paths.
+- The repo baseline still does not depend on undocumented Hugo AVIF processing behavior. Hugo discovers generated AVIF cache files as global resources, while the non-AVIF fallback asset remains the canonical requested source.
 
 ### Layout-shift prevention
 

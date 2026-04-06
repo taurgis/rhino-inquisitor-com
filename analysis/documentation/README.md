@@ -33,6 +33,7 @@ This directory holds structured analysis documentation for the migration project
 - [Checklists](checklists/)
 - [Governance docs](governance/)
 - [Downloadable file URL convention](governance/downloadable-file-url-convention-2026-03-13.md)
+- [Home RSS filtering](governance/home-rss-filtering-2026-04-06.md)
 - [Local video shortcode CI gate](governance/local-video-shortcode-ci-gate-2026-03-16.md)
 - [Phase 3 performance baseline retirement](governance/phase-3-performance-baseline-retirement-2026-03-17.md)
 - [Image caption writing skill](governance/image-caption-writing-skill-2026-03-23.md)
