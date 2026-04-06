@@ -12,6 +12,7 @@ permissions:
 env:
   HUGO_VERSION: 0.157.0
   NODE_VERSION: 20.18.1
+  AVIF_CACHE_VERSION: 1
   EXPECTED_PAGES_HOST: staging.rhino-inquisitor.com
   CANONICAL_PRODUCTION_BASE_URL: https://www.rhino-inquisitor.com/
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
@@ -92,6 +93,100 @@ jobs:
 
       - name: Install Node dependencies
         run: npm ci --include=optional
+
+      - name: Compute AVIF cache fingerprint
+        id: avif_cache_fingerprint
+        shell: bash
+        run: |
+          set -euo pipefail
+          node <<'EOF'
+          const crypto = require('node:crypto');
+          const fs = require('node:fs/promises');
+          const path = require('node:path');
+
+          const repoRoot = process.cwd();
+          const sourceRoots = [
+            path.join(repoRoot, 'src', 'content'),
+            path.join(repoRoot, 'src', 'assets')
+          ];
+          const excludedRoot = path.join(repoRoot, 'src', 'assets', 'generated-avif');
+          const allowedExtensions = new Set(['.jpg', '.jpeg', '.png', '.webp']);
+
+          async function collectFiles(directory, files) {
+            let entries;
+            try {
+              entries = await fs.readdir(directory, { withFileTypes: true });
+            } catch {
+              return;
+            }
+
+            for (const entry of entries) {
+              const absolutePath = path.join(directory, entry.name);
+              if (absolutePath === excludedRoot || absolutePath.startsWith(`${excludedRoot}${path.sep}`)) {
+                continue;
+              }
+
+              if (entry.isDirectory()) {
+                await collectFiles(absolutePath, files);
+                continue;
+              }
+
+              if (entry.isFile() && allowedExtensions.has(path.extname(entry.name).toLowerCase())) {
+                files.push(absolutePath);
+              }
+            }
+          }
+
+          async function main() {
+            const files = [];
+            for (const sourceRoot of sourceRoots) {
+              await collectFiles(sourceRoot, files);
+            }
+
+            files.sort((left, right) => left.localeCompare(right));
+
+            const fingerprint = crypto.createHash('sha256');
+            for (const filePath of files) {
+              fingerprint.update(path.relative(repoRoot, filePath));
+              fingerprint.update('\0');
+              fingerprint.update(await fs.readFile(filePath));
+              fingerprint.update('\0');
+            }
+
+            const output = process.env.GITHUB_OUTPUT;
+            await fs.appendFile(output, `value=${fingerprint.digest('hex')}\n`, 'utf8');
+            console.log(`AVIF source fingerprint covers ${files.length} image(s).`);
+          }
+
+          main().catch((error) => {
+            console.error(error.message);
+            process.exit(1);
+          });
+          EOF
+
+      - name: Restore generated AVIF cache
+        id: avif_cache
+        uses: actions/cache@v5
+        with:
+          path: src/assets/generated-avif
+          key: ${{ runner.os }}-avif-${{ env.AVIF_CACHE_VERSION }}-node-${{ env.NODE_VERSION }}-lock-${{ hashFiles('package-lock.json') }}-generator-${{ hashFiles('scripts/generate-avif-cache.js') }}-images-${{ steps.avif_cache_fingerprint.outputs.value }}
+          restore-keys: |
+            ${{ runner.os }}-avif-${{ env.AVIF_CACHE_VERSION }}-node-${{ env.NODE_VERSION }}-lock-${{ hashFiles('package-lock.json') }}-generator-${{ hashFiles('scripts/generate-avif-cache.js') }}-
+
+      - name: Summarize generated AVIF cache status
+        env:
+          CACHE_HIT: ${{ steps.avif_cache.outputs.cache-hit }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [[ "$CACHE_HIT" == "true" ]]; then
+            echo "Generated AVIF cache restored from an exact key match." >> "$GITHUB_STEP_SUMMARY"
+          elif [[ "$CACHE_HIT" == "false" ]]; then
+            echo "Generated AVIF cache restored from a prefix match and will be refreshed after a successful build." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "Generated AVIF cache miss; this run will regenerate AVIF derivatives and save them for future runs." >> "$GITHUB_STEP_SUMMARY"
+          fi
 
       - name: Verify Sharp AVIF runtime
         shell: bash
