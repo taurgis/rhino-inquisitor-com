@@ -116,9 +116,10 @@
   {{- $avifCandidates := slice -}}
   {{- if $responsive -}}
     {{- range $responsiveWidths -}}
-      {{- if lt . $width -}}
-        {{- with resources.Get (printf "%s.%dw.avif" $generatedAvifBasePath .) -}}
-          {{- $avifCandidates = $avifCandidates | append (printf "%s %dw" .RelPermalink .) -}}
+      {{- $candidateWidth := . -}}
+      {{- if lt $candidateWidth $width -}}
+        {{- with resources.Get (printf "%s.%dw.avif" $generatedAvifBasePath $candidateWidth) -}}
+          {{- $avifCandidates = $avifCandidates | append (printf "%s %dw" .RelPermalink $candidateWidth) -}}
         {{- end -}}
       {{- end -}}
     {{- end -}}
