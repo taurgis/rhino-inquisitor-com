@@ -1,6 +1,19 @@
 {{ with resources.Get "styles/site.css" }}
-  {{ $stylesheet := . | fingerprint }}
-  <link rel="stylesheet" href="{{ $stylesheet.RelPermalink }}" integrity="{{ $stylesheet.Data.Integrity }}" crossorigin="anonymous">
+  {{ $stylesheet := . | minify | fingerprint }}
+  {{ if eq $.Type "posts" }}
+    {{ with resources.Get "styles/critical-post.css" }}
+      {{ $critical := . | minify }}
+      <style>{{ $critical.Content | safeCSS }}</style>
+      <link rel="preload" href="{{ $stylesheet.RelPermalink }}" as="style" integrity="{{ $stylesheet.Data.Integrity }}" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'">
+      <noscript>
+        <link rel="stylesheet" href="{{ $stylesheet.RelPermalink }}" integrity="{{ $stylesheet.Data.Integrity }}" crossorigin="anonymous">
+      </noscript>
+    {{ else }}
+      {{ errorf "Missing critical stylesheet asset: styles/critical-post.css" }}
+    {{ end }}
+  {{ else }}
+    <link rel="stylesheet" href="{{ $stylesheet.RelPermalink }}" integrity="{{ $stylesheet.Data.Integrity }}" crossorigin="anonymous">
+  {{ end }}
 {{ else }}
   {{ errorf "Missing stylesheet asset: styles/site.css" }}
 {{ end }}
