@@ -1,7 +1,17 @@
 {{ with resources.Get "styles/site.css" }}
   {{ $stylesheet := . | minify | fingerprint }}
-  {{ if eq $.Type "posts" }}
-    {{ with resources.Get "styles/critical-post.css" }}
+  {{ $criticalStylesAsset := "" }}
+  {{ if eq $.RelPermalink "/video/" }}
+    {{ $criticalStylesAsset = "" }}
+  {{ else if $.IsHome }}
+    {{ $criticalStylesAsset = "styles/critical-home.css" }}
+  {{ else if or (eq $.Layout "archive") (in (slice "section" "taxonomy" "term") $.Kind) }}
+    {{ $criticalStylesAsset = "styles/critical-archive.css" }}
+  {{ else if eq $.Kind "page" }}
+    {{ $criticalStylesAsset = "styles/critical-post.css" }}
+  {{ end }}
+  {{ if $criticalStylesAsset }}
+    {{ with resources.Get $criticalStylesAsset }}
       {{ $critical := . | minify }}
       <style>{{ $critical.Content | safeCSS }}</style>
       <link rel="preload" href="{{ $stylesheet.RelPermalink }}" as="style" integrity="{{ $stylesheet.Data.Integrity }}" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'">
@@ -9,7 +19,7 @@
         <link rel="stylesheet" href="{{ $stylesheet.RelPermalink }}" integrity="{{ $stylesheet.Data.Integrity }}" crossorigin="anonymous">
       </noscript>
     {{ else }}
-      {{ errorf "Missing critical stylesheet asset: styles/critical-post.css" }}
+      {{ errorf "Missing critical stylesheet asset: %s" $criticalStylesAsset }}
     {{ end }}
   {{ else }}
     <link rel="stylesheet" href="{{ $stylesheet.RelPermalink }}" integrity="{{ $stylesheet.Data.Integrity }}" crossorigin="anonymous">
