@@ -5,7 +5,7 @@
   "status": "pass",
   "rcTag": "phase-8-rc-v3",
   "rcSha": "bb7bd49e1e8292ea3dbc744dded428dcfcab48aa",
-  "generatedAt": "2026-04-07T09:48:51.607Z",
+  "generatedAt": "2026-04-07T10:45:03.206Z",
   "publicDir": "public",
   "sampleMatrix": {
     "path": "validation/sample-matrix.json",
@@ -16,8 +16,8 @@
   },
   "lhciRoot": "validation/lhci-report",
   "artifactProvenance": {
-    "gitHead": "aaa26c4479a9c4140d18a385f4a01b9c3fbaa523",
-    "gitHeadShort": "aaa26c44",
+    "gitHead": "042208d1c3a5afeb2c981cc716b6bb2ea5fdb29d",
+    "gitHeadShort": "042208d1",
     "workspaceDirty": true,
     "datasetRcTag": "phase-8-rc-v3",
     "datasetRcSha": "bb7bd49e1e8292ea3dbc744dded428dcfcab48aa",
@@ -435,9 +435,16 @@
       "budget": {
         "blocking": false,
         "thresholdBytes": 174080,
-        "totalGzipBytes": 43904,
-        "totalGzipKb": 42.88,
+        "totalGzipBytes": 136413,
+        "totalGzipKb": 133.22,
         "criticalAssets": [
+          {
+            "type": "image",
+            "assetPath": "ai-as-an-architect-and-content-creator/mixing-human-and-ai-scaled-adabfe2b5d_hu_913998786a67ee19.webp",
+            "rawBytes": 91936,
+            "gzipBytes": 91984,
+            "as": null
+          },
           {
             "type": "image",
             "assetPath": "images/brand-mark.svg",
@@ -455,8 +462,8 @@
           {
             "type": "document",
             "assetPath": "category/ai/index.html",
-            "rawBytes": 34325,
-            "gzipBytes": 8599
+            "rawBytes": 36925,
+            "gzipBytes": 9124
           },
           {
             "type": "script",
