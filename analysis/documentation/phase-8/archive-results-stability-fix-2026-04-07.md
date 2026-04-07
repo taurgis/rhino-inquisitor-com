@@ -4,17 +4,17 @@ Archive Results Stability Fix
 
 ## Change Summary
 
-Updated the shared archive card rendering path so the first image-bearing archive card is emitted as an eager, high-priority candidate on the initial server-rendered page, and aligned the archive critical CSS with the final archive card layout to reduce first-paint shifts on archive-style routes.
+Updated the shared archive card rendering path so the first image-bearing archive card is emitted as an eager, high-priority candidate on the initial server-rendered page, and aligned the archive critical CSS with the final archive card and desktop filter-rail layout to reduce first-paint shifts on archive-style routes.
 
 ## Why This Changed
 
 PageSpeed reported three related issues on the posts/archive experience:
 
 - The first visible image-bearing archive card was still lazy-loaded and not marked as high priority.
-- The archive results block shifted when the deferred full stylesheet replaced the inline critical archive CSS.
+- The archive filter rail, jump-year controls, and archive results block shifted when the deferred full stylesheet replaced the inline critical archive CSS.
 - The resulting instability surfaced as archive-results CLS on desktop and a general forced-reflow warning on mobile.
 
-The existing critical archive stylesheet reserved materially different card and results geometry than the final stylesheet, so the route was painting one layout and settling into another after CSS swap.
+The existing critical archive stylesheet reserved materially different card, filter-rail, and results geometry than the final stylesheet, so the route was painting one layout and settling into another after CSS swap.
 
 ## Behavior Details
 
@@ -22,13 +22,13 @@ The existing critical archive stylesheet reserved materially different card and 
 
 - Every archive card image used the archive default lazy-loading behavior unless the card used the featured variant.
 - The first visible archive card on posts, archive, and term/list routes was not eligible for eager fetch or fetchpriority high on initial HTML.
-- The inline critical archive CSS used smaller card gaps, smaller card padding, a narrower grid minimum, extra archive-results padding, and no badge-overlay positioning, which produced a different first-paint layout than the final stylesheet.
+- The inline critical archive CSS used smaller card gaps, smaller card padding, a narrower grid minimum, extra archive-results padding, no badge-overlay positioning, and lacked the desktop archive-rail sizing and topic-link grid rules used by the final stylesheet.
 
 ### New Behavior
 
 - The shared content-list partial now flags the first image-bearing archive card for priority treatment in the shared article-card partial.
 - The first image-bearing archive card on the initial server-rendered view now uses eager loading and fetchpriority high, while later archive cards remain lazy-loaded.
-- The archive critical CSS now mirrors the final archive card geometry more closely for results spacing, grid sizing, card padding, media containers, and badge overlays so the archive-results section is less likely to jump when the deferred stylesheet applies.
+- The archive critical CSS now mirrors the final archive card geometry more closely for results spacing, grid sizing, card padding, media containers, badge overlays, and the desktop archive filter rail so the archive-results section is less likely to jump when the deferred stylesheet applies.
 
 ## Impact and Verification
 
@@ -36,7 +36,7 @@ The existing critical archive stylesheet reserved materially different card and 
 
 - Affected routes: posts list, dedicated archive page, taxonomy term archives, and other routes that render the shared archive card list.
 - Affected maintainers: anyone changing archive card templates, archive critical CSS, or list/term route performance behavior.
-- Risk profile: low-to-medium. The image-loading change is intentionally limited to the first archive card on the initial server-rendered page, and the CSS change is scoped to critical archive layout parity.
+- Risk profile: low-to-medium. The image-loading change is intentionally limited to the first archive card on the initial server-rendered page, and the CSS change is scoped to critical archive layout parity for both cards and the desktop filter rail.
 
 ### Acceptance Criteria
 

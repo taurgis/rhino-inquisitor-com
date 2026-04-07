@@ -814,14 +814,69 @@ html {
     }
 
     .archive-rail {
-      margin: 1.35rem 0 1.2rem 1.2rem;
+      grid-column: auto;
+      position: static;
+      top: auto;
+      max-height: none;
+      overflow: visible;
+      align-self: start;
+      gap: 1.25rem;
+      margin: clamp(1.25rem, 3vw, 2rem) 0 1.5rem 1.5rem;
+      padding: 1.5rem;
       border: 1px solid var(--surface-border);
       border-radius: var(--radius-lg);
       background: linear-gradient(180deg, #f8fbff 0%, #edf4fb 100%);
+      background-image: none;
+      box-shadow: none;
+    }
+
+    .archive-rail .archive-filter-groups {
+      gap: 1rem;
+      padding: 0;
+    }
+
+    .archive-rail .archive-filter-group {
+      gap: 0.85rem;
+      padding: 1rem;
+      border: 1px solid rgba(16, 33, 58, 0.08);
+      border-radius: 1.25rem;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: none;
+    }
+
+    .archive-rail .archive-filter-links {
+      gap: 0.7rem;
+    }
+
+    .archive-rail .archive-filter-links--topics {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: start;
+    }
+
+    .archive-rail .archive-filter-links a {
+      align-items: center;
+      min-height: 2.65rem;
+      padding: 0.65rem 1rem;
+      border-color: rgba(10, 95, 200, 0.14);
+      background: #ffffff;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    }
+
+    .archive-rail .archive-filter-links a[aria-current="page"] {
+      border-color: rgba(10, 95, 200, 0.36);
+      background: linear-gradient(180deg, #e7f1ff 0%, #d9e9ff 100%);
+      box-shadow: 0 10px 24px rgba(10, 95, 200, 0.12);
+    }
+
+    .archive-rail .surface-note {
+      font-size: 0.95rem;
+      line-height: 1.65;
     }
 
     .archive-layout__content {
       grid-area: content;
+      grid-column: auto;
     }
 
     .pagination {
@@ -838,6 +893,30 @@ html {
   @media (min-width: 64rem) {
     .site-header__search {
       min-width: 11.5rem;
+    }
+
+    .archive-layout {
+      grid-template-columns: clamp(22rem, 26vw, 26rem) minmax(0, 1fr);
+    }
+
+    .archive-rail .archive-filter-links--topics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(12.5rem, 1fr));
+      gap: 0.75rem;
+      align-items: stretch;
+    }
+
+    .archive-rail .archive-filter-links--topics a {
+      justify-content: flex-start;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .archive-rail .archive-filter-links--topics a:first-child {
+      grid-column: 1 / -1;
+      justify-content: center;
+      font-weight: 700;
+      background: #edf5ff;
     }
   }
 
