@@ -32,6 +32,7 @@ This directory holds structured analysis documentation for the migration project
 - [Template](TEMPLATE.md)
 - [Checklists](checklists/)
 - [Governance docs](governance/)
+- [Favicon logo contract](governance/favicon-logo-contract-2026-04-07.md)
 - [Downloadable file URL convention](governance/downloadable-file-url-convention-2026-03-13.md)
 - [Home RSS filtering](governance/home-rss-filtering-2026-04-06.md)
 - [Local video shortcode CI gate](governance/local-video-shortcode-ci-gate-2026-03-16.md)
