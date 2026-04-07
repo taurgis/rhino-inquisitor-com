@@ -2,10 +2,10 @@
   "phase": 8,
   "ticket": "RHI-088",
   "artifact": "performance-budget-report",
-  "status": "fail",
+  "status": "pass",
   "rcTag": "phase-8-rc-v3",
   "rcSha": "bb7bd49e1e8292ea3dbc744dded428dcfcab48aa",
-  "generatedAt": "2026-04-07T06:54:25.252Z",
+  "generatedAt": "2026-04-07T09:48:51.607Z",
   "publicDir": "public",
   "sampleMatrix": {
     "path": "validation/sample-matrix.json",
@@ -16,8 +16,8 @@
   },
   "lhciRoot": "validation/lhci-report",
   "artifactProvenance": {
-    "gitHead": "ce6d2af8a52086478d7c3f6b2b3dc79c35faf3a7",
-    "gitHeadShort": "ce6d2af8",
+    "gitHead": "aaa26c4479a9c4140d18a385f4a01b9c3fbaa523",
+    "gitHeadShort": "aaa26c44",
     "workspaceDirty": true,
     "datasetRcTag": "phase-8-rc-v3",
     "datasetRcSha": "bb7bd49e1e8292ea3dbc744dded428dcfcab48aa",
@@ -61,19 +61,16 @@
       "assetSelection": "HTML document, linked stylesheets, preload/modulepreload assets, linked scripts, and non-lazy or high-priority images resolved from the built public artifact."
     }
   },
-  "missingArtifacts": [
-    "Missing LHCI manifest for mobile profile at validation/lhci-report/mobile/manifest.json",
-    "Missing LHCI manifest for desktop profile at validation/lhci-report/desktop/manifest.json"
-  ],
+  "missingArtifacts": [],
   "summary": {
     "totalTemplates": 3,
-    "passCount": 0,
-    "failCount": 3,
-    "blockingFailures": 8,
+    "passCount": 3,
+    "failCount": 0,
+    "blockingFailures": 0,
     "warningCount": 0,
     "budgetFailures": 0,
     "scoreFailures": 0,
-    "missingArtifacts": 2
+    "missingArtifacts": 0
   },
   "entries": [
     {
@@ -85,8 +82,8 @@
       "budget": {
         "blocking": true,
         "thresholdBytes": 174080,
-        "totalGzipBytes": 110103,
-        "totalGzipKb": 107.52,
+        "totalGzipBytes": 112893,
+        "totalGzipKb": 110.25,
         "criticalAssets": [
           {
             "type": "image",
@@ -103,34 +100,151 @@
             "as": null
           },
           {
-            "type": "stylesheet",
+            "type": "preload",
             "assetPath": "styles/site.min.363283702f06b1fe1cdbf5371d1acb682d7e139566b04cfab64bc274fdbb4ec0.css",
             "rawBytes": 54718,
             "gzipBytes": 10536,
-            "as": null
+            "as": "style"
           },
           {
             "type": "document",
             "assetPath": "index.html",
-            "rawBytes": 17540,
-            "gzipBytes": 5395
+            "rawBytes": 28311,
+            "gzipBytes": 8185
           }
         ]
       },
       "profiles": {
-        "mobile": null,
-        "desktop": null
+        "mobile": {
+          "profile": "mobile",
+          "url": "http://localhost:52918/",
+          "htmlReportPath": "validation/lhci-report/mobile/localhost--2026_04_07_09_45_00.report.html",
+          "jsonReportPath": "validation/lhci-report/mobile/localhost--2026_04_07_09_45_00.report.json",
+          "scores": {
+            "performance": 100,
+            "accessibility": 96,
+            "seo": 100,
+            "bestPractices": 96
+          },
+          "metrics": {
+            "lcpMs": 1432.3426,
+            "inpMs": null,
+            "cls": 0.017018,
+            "ttiMs": 1439.8426
+          }
+        },
+        "desktop": {
+          "profile": "desktop",
+          "url": "http://localhost:54316/",
+          "htmlReportPath": "validation/lhci-report/desktop/localhost--2026_04_07_09_47_34.report.html",
+          "jsonReportPath": "validation/lhci-report/desktop/localhost--2026_04_07_09_47_34.report.json",
+          "scores": {
+            "performance": 100,
+            "accessibility": 100,
+            "seo": 100,
+            "bestPractices": 96
+          },
+          "metrics": {
+            "lcpMs": 324.5744,
+            "inpMs": null,
+            "cls": 0.018183,
+            "ttiMs": 324.5744
+          }
+        }
       },
       "baselineComparison": {
-        "mobile": null,
-        "desktop": null
+        "mobile": {
+          "baselineRepresentativeUrl": "https://www.rhino-inquisitor.com/",
+          "currentUrl": "https://www.rhino-inquisitor.com/",
+          "note": "Route-aligned comparison.",
+          "scores": {
+            "performance": {
+              "baseline": 86,
+              "current": 100,
+              "delta": 14
+            },
+            "accessibility": {
+              "baseline": 95,
+              "current": 96,
+              "delta": 1
+            },
+            "bestPractices": {
+              "baseline": 100,
+              "current": 96,
+              "delta": -4
+            },
+            "seo": {
+              "baseline": 100,
+              "current": 100,
+              "delta": 0
+            }
+          },
+          "metrics": {
+            "lcpMs": {
+              "baseline": 3797,
+              "current": 1432.3426,
+              "delta": -2364.66
+            },
+            "inpMs": {
+              "baseline": null,
+              "current": null,
+              "delta": null
+            },
+            "cls": {
+              "baseline": 0,
+              "current": 0.017018,
+              "delta": 0.02
+            }
+          }
+        },
+        "desktop": {
+          "baselineRepresentativeUrl": "https://www.rhino-inquisitor.com/",
+          "currentUrl": "https://www.rhino-inquisitor.com/",
+          "note": "Route-aligned comparison.",
+          "scores": {
+            "performance": {
+              "baseline": 99,
+              "current": 100,
+              "delta": 1
+            },
+            "accessibility": {
+              "baseline": 91,
+              "current": 100,
+              "delta": 9
+            },
+            "bestPractices": {
+              "baseline": 100,
+              "current": 96,
+              "delta": -4
+            },
+            "seo": {
+              "baseline": 100,
+              "current": 100,
+              "delta": 0
+            }
+          },
+          "metrics": {
+            "lcpMs": {
+              "baseline": 889,
+              "current": 324.5744,
+              "delta": -564.43
+            },
+            "inpMs": {
+              "baseline": null,
+              "current": null,
+              "delta": null
+            },
+            "cls": {
+              "baseline": 0,
+              "current": 0.018183,
+              "delta": 0.02
+            }
+          }
+        }
       },
       "warnings": [],
-      "blockingFindings": [
-        "Missing mobile Lighthouse result for /",
-        "Missing desktop Lighthouse result for /"
-      ],
-      "result": "fail"
+      "blockingFindings": [],
+      "result": "pass"
     },
     {
       "template": "article",
@@ -181,19 +295,136 @@
         ]
       },
       "profiles": {
-        "mobile": null,
-        "desktop": null
+        "mobile": {
+          "profile": "mobile",
+          "url": "http://localhost:52918/real-time-inventory-checks-in-sfcc/",
+          "htmlReportPath": "validation/lhci-report/mobile/localhost-real_time_inventory_checks_in_sfcc_-2026_04_07_09_45_44.report.html",
+          "jsonReportPath": "validation/lhci-report/mobile/localhost-real_time_inventory_checks_in_sfcc_-2026_04_07_09_45_44.report.json",
+          "scores": {
+            "performance": 100,
+            "accessibility": 100,
+            "seo": 100,
+            "bestPractices": 96
+          },
+          "metrics": {
+            "lcpMs": 1508.3362,
+            "inpMs": null,
+            "cls": 0,
+            "ttiMs": 1508.3362000000002
+          }
+        },
+        "desktop": {
+          "profile": "desktop",
+          "url": "http://localhost:54316/real-time-inventory-checks-in-sfcc/",
+          "htmlReportPath": "validation/lhci-report/desktop/localhost-real_time_inventory_checks_in_sfcc_-2026_04_07_09_47_44.report.html",
+          "jsonReportPath": "validation/lhci-report/desktop/localhost-real_time_inventory_checks_in_sfcc_-2026_04_07_09_47_44.report.json",
+          "scores": {
+            "performance": 100,
+            "accessibility": 100,
+            "seo": 100,
+            "bestPractices": 96
+          },
+          "metrics": {
+            "lcpMs": 364.0978,
+            "inpMs": null,
+            "cls": 0.000354,
+            "ttiMs": 364.0978
+          }
+        }
       },
       "baselineComparison": {
-        "mobile": null,
-        "desktop": null
+        "mobile": {
+          "baselineRepresentativeUrl": "https://www.rhino-inquisitor.com/lag-to-riches-a-pwa-kit-developers-guide/",
+          "currentUrl": "https://www.rhino-inquisitor.com/real-time-inventory-checks-in-sfcc/",
+          "note": "Template-family comparison against the Phase 1 representative WordPress baseline URL.",
+          "scores": {
+            "performance": {
+              "baseline": 69,
+              "current": 100,
+              "delta": 31
+            },
+            "accessibility": {
+              "baseline": 92,
+              "current": 100,
+              "delta": 8
+            },
+            "bestPractices": {
+              "baseline": 100,
+              "current": 96,
+              "delta": -4
+            },
+            "seo": {
+              "baseline": 100,
+              "current": 100,
+              "delta": 0
+            }
+          },
+          "metrics": {
+            "lcpMs": {
+              "baseline": 5786,
+              "current": 1508.3362,
+              "delta": -4277.66
+            },
+            "inpMs": {
+              "baseline": null,
+              "current": null,
+              "delta": null
+            },
+            "cls": {
+              "baseline": 0,
+              "current": 0,
+              "delta": 0
+            }
+          }
+        },
+        "desktop": {
+          "baselineRepresentativeUrl": "https://www.rhino-inquisitor.com/lag-to-riches-a-pwa-kit-developers-guide/",
+          "currentUrl": "https://www.rhino-inquisitor.com/real-time-inventory-checks-in-sfcc/",
+          "note": "Template-family comparison against the Phase 1 representative WordPress baseline URL.",
+          "scores": {
+            "performance": {
+              "baseline": 96,
+              "current": 100,
+              "delta": 4
+            },
+            "accessibility": {
+              "baseline": 87,
+              "current": 100,
+              "delta": 13
+            },
+            "bestPractices": {
+              "baseline": 100,
+              "current": 96,
+              "delta": -4
+            },
+            "seo": {
+              "baseline": 100,
+              "current": 100,
+              "delta": 0
+            }
+          },
+          "metrics": {
+            "lcpMs": {
+              "baseline": 1231,
+              "current": 364.0978,
+              "delta": -866.9
+            },
+            "inpMs": {
+              "baseline": null,
+              "current": null,
+              "delta": null
+            },
+            "cls": {
+              "baseline": 0.002,
+              "current": 0.000354,
+              "delta": 0
+            }
+          }
+        }
       },
       "warnings": [],
-      "blockingFindings": [
-        "Missing mobile Lighthouse result for /real-time-inventory-checks-in-sfcc/",
-        "Missing desktop Lighthouse result for /real-time-inventory-checks-in-sfcc/"
-      ],
-      "result": "fail"
+      "blockingFindings": [],
+      "result": "pass"
     },
     {
       "template": "category",
@@ -204,8 +435,8 @@
       "budget": {
         "blocking": false,
         "thresholdBytes": 174080,
-        "totalGzipBytes": 40571,
-        "totalGzipKb": 39.62,
+        "totalGzipBytes": 43904,
+        "totalGzipKb": 42.88,
         "criticalAssets": [
           {
             "type": "image",
@@ -215,17 +446,17 @@
             "as": null
           },
           {
-            "type": "stylesheet",
+            "type": "preload",
             "assetPath": "styles/site.min.363283702f06b1fe1cdbf5371d1acb682d7e139566b04cfab64bc274fdbb4ec0.css",
             "rawBytes": 54718,
             "gzipBytes": 10536,
-            "as": null
+            "as": "style"
           },
           {
             "type": "document",
             "assetPath": "category/ai/index.html",
-            "rawBytes": 19734,
-            "gzipBytes": 5266
+            "rawBytes": 34325,
+            "gzipBytes": 8599
           },
           {
             "type": "script",
@@ -237,19 +468,136 @@
         ]
       },
       "profiles": {
-        "mobile": null,
-        "desktop": null
+        "mobile": {
+          "profile": "mobile",
+          "url": "http://localhost:52918/category/ai/",
+          "htmlReportPath": "validation/lhci-report/mobile/localhost-category_ai_-2026_04_07_09_46_21.report.html",
+          "jsonReportPath": "validation/lhci-report/mobile/localhost-category_ai_-2026_04_07_09_46_21.report.json",
+          "scores": {
+            "performance": 100,
+            "accessibility": 100,
+            "seo": 100,
+            "bestPractices": 96
+          },
+          "metrics": {
+            "lcpMs": 999.6786999999999,
+            "inpMs": null,
+            "cls": 0,
+            "ttiMs": 1005.8287
+          }
+        },
+        "desktop": {
+          "profile": "desktop",
+          "url": "http://localhost:54316/category/ai/",
+          "htmlReportPath": "validation/lhci-report/desktop/localhost-category_ai_-2026_04_07_09_48_31.report.html",
+          "jsonReportPath": "validation/lhci-report/desktop/localhost-category_ai_-2026_04_07_09_48_31.report.json",
+          "scores": {
+            "performance": 90,
+            "accessibility": 100,
+            "seo": 100,
+            "bestPractices": 96
+          },
+          "metrics": {
+            "lcpMs": 330.3054,
+            "inpMs": null,
+            "cls": 0.201633,
+            "ttiMs": 330.3054000000001
+          }
+        }
       },
       "baselineComparison": {
-        "mobile": null,
-        "desktop": null
+        "mobile": {
+          "baselineRepresentativeUrl": "https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/",
+          "currentUrl": "https://www.rhino-inquisitor.com/category/ai/",
+          "note": "Template-family comparison against the Phase 1 representative WordPress baseline URL.",
+          "scores": {
+            "performance": {
+              "baseline": 78,
+              "current": 100,
+              "delta": 22
+            },
+            "accessibility": {
+              "baseline": 94,
+              "current": 100,
+              "delta": 6
+            },
+            "bestPractices": {
+              "baseline": 100,
+              "current": 96,
+              "delta": -4
+            },
+            "seo": {
+              "baseline": 92,
+              "current": 100,
+              "delta": 8
+            }
+          },
+          "metrics": {
+            "lcpMs": {
+              "baseline": 4450,
+              "current": 999.6786999999999,
+              "delta": -3450.32
+            },
+            "inpMs": {
+              "baseline": null,
+              "current": null,
+              "delta": null
+            },
+            "cls": {
+              "baseline": 0,
+              "current": 0,
+              "delta": 0
+            }
+          }
+        },
+        "desktop": {
+          "baselineRepresentativeUrl": "https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/",
+          "currentUrl": "https://www.rhino-inquisitor.com/category/ai/",
+          "note": "Template-family comparison against the Phase 1 representative WordPress baseline URL.",
+          "scores": {
+            "performance": {
+              "baseline": 97,
+              "current": 90,
+              "delta": -7
+            },
+            "accessibility": {
+              "baseline": 89,
+              "current": 100,
+              "delta": 11
+            },
+            "bestPractices": {
+              "baseline": 100,
+              "current": 96,
+              "delta": -4
+            },
+            "seo": {
+              "baseline": 92,
+              "current": 100,
+              "delta": 8
+            }
+          },
+          "metrics": {
+            "lcpMs": {
+              "baseline": 1192,
+              "current": 330.3054,
+              "delta": -861.69
+            },
+            "inpMs": {
+              "baseline": null,
+              "current": null,
+              "delta": null
+            },
+            "cls": {
+              "baseline": 0.029,
+              "current": 0.201633,
+              "delta": 0.17
+            }
+          }
+        }
       },
       "warnings": [],
-      "blockingFindings": [
-        "Missing mobile Lighthouse result for /category/ai/",
-        "Missing desktop Lighthouse result for /category/ai/"
-      ],
-      "result": "fail"
+      "blockingFindings": [],
+      "result": "pass"
     }
   ]
 }

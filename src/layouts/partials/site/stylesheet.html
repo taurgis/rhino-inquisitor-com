@@ -5,9 +5,7 @@
     {{ $criticalStylesAsset = "" }}
   {{ else if $.IsHome }}
     {{ $criticalStylesAsset = "styles/critical-home.css" }}
-  {{ else if eq $.Kind "term" }}
-    {{ $criticalStylesAsset = "styles/critical-term.css" }}
-  {{ else if or (eq $.Layout "archive") (in (slice "section" "taxonomy") $.Kind) }}
+  {{ else if or (eq $.Layout "archive") (in (slice "section" "taxonomy" "term") $.Kind) }}
     {{ $criticalStylesAsset = "styles/critical-archive.css" }}
   {{ else if eq $.Kind "page" }}
     {{ $criticalStylesAsset = "styles/critical-post.css" }}
