@@ -17,7 +17,7 @@ Old behavior:
 
 New behavior:
 - Templates now render the shared stylesheet through a single partial backed by `resources.Get` and `fingerprint`.
-- Build output now emits a hashed stylesheet filename such as `/styles/site.<hash>.css`.
+- Build output now emits a hashed stylesheet filename such as `/styles/site.<hash>.css` or `/styles/site.min.<hash>.css`, depending on the final Hugo Pipes chain.
 - The deploy workflow validates the fingerprinted path prefix instead of a fixed filename.
 - Browsers fetch a new stylesheet whenever the CSS content changes, while unchanged CSS keeps the same URL.
 
@@ -29,7 +29,7 @@ New behavior:
 
 ## Verification
 
-1. Run `npm run build:prod` and confirm generated HTML references `/styles/site.<hash>.css` rather than `/styles/site.css`.
+1. Run `npm run build:prod` and confirm generated HTML references a fingerprinted stylesheet path such as `/styles/site.<hash>.css` or `/styles/site.min.<hash>.css` rather than `/styles/site.css`.
 2. Run the preview build path used by the Pages workflow and confirm the stylesheet URL includes the preview base-path prefix plus the fingerprinted filename.
 3. Run the Pages deploy validation logic and confirm the preview-host stylesheet assertion passes with the hashed CSS URL.
 4. Re-run targeted regression gates:

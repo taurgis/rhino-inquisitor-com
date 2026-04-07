@@ -56,10 +56,10 @@ async function main() {
   const { pathname } = new URL(options.baseUrl);
   const basePath = pathname === '/' ? '' : pathname.replace(/\/$/u, '');
   const expectedStylesheetPrefix = `${basePath}/styles/site`;
-  const stylesheetPattern = new RegExp(`href=(?:"|')?${escapeRegex(expectedStylesheetPrefix)}\\.[a-f0-9]+\\.css(?:"|')?`);
+    const stylesheetPattern = new RegExp(`href=(?:"|')?${escapeRegex(expectedStylesheetPrefix)}(?:\.min)?\.[a-f0-9]+\.css(?:"|')?`);
 
   if (!stylesheetPattern.test(html)) {
-    throw new Error(`Preview HTML is missing a fingerprinted stylesheet path with prefix: ${expectedStylesheetPrefix}`);
+      throw new Error(`Preview HTML is missing a fingerprinted stylesheet path with prefix: ${expectedStylesheetPrefix}`);
   }
 
   if (!html.includes('noindex, nofollow')) {
