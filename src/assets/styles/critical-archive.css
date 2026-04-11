@@ -925,6 +925,10 @@ html {
       width: 100%;
     }
 
+    .archive-rail {
+      display: none;
+    }
+
     .page-article-route__breadcrumbs,
     .archive-route-breadcrumbs {
       padding-inline: 1.1rem;

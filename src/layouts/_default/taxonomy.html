@@ -50,7 +50,7 @@
       {{ if gt .Count 0 }}
         {{ $freshness := "" }}
         {{ with first 1 (.Page.Pages.ByLastmod.Reverse) }}
-          {{ $freshness = printf "Updated %s" ((index . 0).Lastmod.Format "Jan 2") }}
+          {{ $freshness = printf "Updated %s" ((index . 0).Lastmod.Format "Jan 2, 2006") }}
         {{ end }}
         {{ $topicItemsByUrl = merge $topicItemsByUrl (dict .Page.Permalink (dict
           "name" .Page.LinkTitle

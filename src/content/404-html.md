@@ -11,7 +11,7 @@ seo:
 sitemap:
   disable: true
 ---
-This content-backed route exists so GitHub Pages emits the authoritative root `404.html` error document while `/404/` remains available for validation and internal QA checks.
+The requested page could not be found on Rhino Inquisitor.
 
 Try one of these recovery paths:
 

@@ -141,6 +141,7 @@ Use Chrome DevTools MCP to open <preview-pages-url>, capture the full redirect c
 - Performance features can query the CrUX API unless disabled with `--no-performance-crux`.
 - Usage statistics are enabled by default upstream and can be disabled with `--no-usage-statistics` if needed.
 - If you attach through a remote debugging port, use a non-default user-data directory and avoid sensitive browsing while that port is open.
+- **Screenshot size limit:** The AI model rejects base64-encoded images where any dimension exceeds **8 000 pixels**. Full-page screenshots of long pages will fail with `At least one of the image dimensions exceed max allowed size: 8000 pixels`. Mitigate by capturing a viewport-sized screenshot instead of a full-page capture, or resize the viewport before the screenshot so neither dimension exceeds the limit.
 
 ## Verification Checklist
 

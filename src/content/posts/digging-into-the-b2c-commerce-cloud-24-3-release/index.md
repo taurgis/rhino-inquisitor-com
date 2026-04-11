@@ -86,6 +86,7 @@ Some updates to the [URL mapping endpoint](https://developer.salesforce.com/docs
 >     1. groupedTaxItems
 >     1. taxRoundedAtGroup
 >     1. temporaryBasket
+
 > [!WARNING]
 > **Deprecation:** The dw.ocapi.shop.basket.beforePOST hook is no longer supported in Shopper Baskets V2 and is replaced by the dw.ocapi.shop.basket.beforePOST\_v2 hook.
 
