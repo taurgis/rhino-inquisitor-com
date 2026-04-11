@@ -58,13 +58,14 @@
         </div>
       {{ end }}
       <div class="hero-cta-bar">
-        <a class="site-cta" href="{{ $startReadingHref }}">Start Reading</a>
+        <a class="site-cta" href="{{ $startReadingHref }}">Read Latest Article</a>
         <a class="site-cta site-cta--outline" href="{{ $browseTopicsHref }}">Browse Topics</a>
       </div>
       {{ with index $profile "actions" }}
         <div class="page-hero__support-links" aria-label="About Thomas links">
           {{ range . }}
-            <a class="page-hero__support-link" href="{{ index . "url" }}">{{ index . "label" }}</a>
+            {{ $isExternal := hasPrefix (index . "url") "http" }}
+            <a class="page-hero__support-link" href="{{ index . "url" }}"{{ if $isExternal }} target="_blank" rel="noopener"{{ end }}>{{ index . "label" }}{{ if $isExternal }}&nbsp;<span aria-hidden="true">↗</span>{{ end }}</a>
           {{ end }}
         </div>
       {{ end }}

@@ -23,7 +23,7 @@ takeaways:
 ---
 A new month, a new release of Salesforce B2C Commerce Cloud. Let us dig a little deeper in the [release notes](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_5_release.htm&type=5) to see what is new!
 
-Are you interested in last month's release notes? [Click here](/b2c-commerce-whats-new-in-22-4/)!
+Are you interested in last month's release notes? Read the [22.4 release overview](/b2c-commerce-whats-new-in-22-4/).
 
 ## Documentation and community move
 

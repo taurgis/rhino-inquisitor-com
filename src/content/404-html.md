@@ -11,11 +11,9 @@ seo:
 sitemap:
   disable: true
 ---
-The requested page could not be found on Rhino Inquisitor.
-
 Try one of these recovery paths:
 
 - [Return to the homepage](/)
-- [Browse the archive](/archive/)
-- [Search the archive](/archive/#archive-search)
+- [Browse the blog](/posts/)
+- [Search the blog](/posts/#archive-search)
 - [Browse topics](/category/)

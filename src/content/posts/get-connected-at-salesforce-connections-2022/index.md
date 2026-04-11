@@ -32,7 +32,7 @@ It wouldn't be a Salesforce event if you don't meet up with other people you hav
 
 There is already a channel on the Salesforce B2C Commerce Cloud Unofficial Slack to connect!
 
-[Click here to join if you are new](https://join.slack.com/t/sfcc-unofficial/shared_invite/zt-18rw25yb4-kfiHdw~TvWldb8o~k8bG_Q) or [here if you already have an account](https://sfcc-unofficial.slack.com/archives/CAUTX1V5Z).
+[Join the SFCC Unofficial Slack](https://join.slack.com/t/sfcc-unofficial/shared_invite/zt-18rw25yb4-kfiHdw~TvWldb8o~k8bG_Q) or [open the existing channel](https://sfcc-unofficial.slack.com/archives/CAUTX1V5Z).
 
 And I will be there this year! I wasn't planning on it at first, but I got an offer I could not refuse! I will be taking part in the Main Keynote of the event.
 

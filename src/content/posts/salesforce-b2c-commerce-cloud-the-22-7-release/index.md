@@ -22,7 +22,7 @@ takeaways:
 ---
 Summer has arrived, and so has the next Salesforce B2C Commerce Cloud release! This time we look at the [July 2022 (22.7) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_7_release.htm&type=5)!
 
-Are you interested in last month’s release notes? [Click here](/salesforce-b2c-commerce-the-22-6-release/)!
+Are you interested in last month's release notes? Read the [22.6 release overview](/salesforce-b2c-commerce-the-22-6-release/).
 
 ## Social Commerce
 

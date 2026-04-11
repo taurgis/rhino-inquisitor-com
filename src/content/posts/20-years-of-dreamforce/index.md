@@ -33,7 +33,7 @@ It won't be a Salesforce event if you don't meet with other people you have been
 
 There is already a channel on the Salesforce B2C Commerce Cloud Unofficial Slack to connect!
 
-[Click here to join if you are new](https://docs.google.com/forms/d/e/1FAIpQLSdy875PlJuib35naCkr3-Frn2qtaSuuRgYezRSb2uBYkhXt7g/viewform) or [here if you already have an account](https://sfcc-unofficial.slack.com/archives/CC62W7S5C).
+[Join the SFCC Unofficial Slack](https://docs.google.com/forms/d/e/1FAIpQLSdy875PlJuib35naCkr3-Frn2qtaSuuRgYezRSb2uBYkhXt7g/viewform) or [open the existing channel](https://sfcc-unofficial.slack.com/archives/CC62W7S5C).
 
 I will be there this year! It will be my first Dreamforce, and coincidently, it is my birthday on the 21st of September! Even though there is no "official" meetup on the schedule, it doesn't mean we can't get together!
 

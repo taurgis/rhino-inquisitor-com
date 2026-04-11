@@ -416,6 +416,10 @@ main {
   visibility: visible;
 }
 
+.site-drawer--open .site-brand {
+  visibility: hidden;
+}
+
 .site-drawer--open .site-drawer {
   transform: translateX(0);
 }
@@ -1776,6 +1780,21 @@ summary {
   overflow-x: auto;
   font-size: 0.875rem;
   line-height: 1.6;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.35) transparent;
+}
+
+.article-body pre::-webkit-scrollbar {
+  height: 6px;
+}
+
+.article-body pre::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.article-body pre::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 3px;
 }
 
 .article-body code {

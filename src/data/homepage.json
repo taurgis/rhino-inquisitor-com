@@ -9,13 +9,16 @@
     "eyebrow": "About Thomas",
     "title": "The person behind Rhino Inquisitor",
     "intro": [
-      "My name is Thomas, and I am the Head of Commerce at Forward. I am a proud father of two wonderful children: Thalia and Thano.",
-      "My work sits at the intersection of commerce strategy, solution architecture, and delivery quality, with a strong focus on Salesforce B2C Commerce Cloud. Over the years, I have helped teams translate business goals into practical implementation choices, from platform architecture and integrations to release readiness, migration planning, and long-term maintainability.",
-      "Outside day-to-day client work, I share what I learn through Rhino Inquisitor and public developer tooling. That includes open source work, documentation, and field-tested guidance for developers, architects, and commerce leaders who need more than generic platform advice. My goal is to make complex Commerce Cloud decisions clearer, safer, and easier to put into practice."
+      "My name is Thomas, Head of Commerce at Forward. I help teams translate business goals into practical Salesforce B2C Commerce Cloud implementation choices — from platform architecture to migration planning and long-term maintainability.",
+      "Outside client work, I share field-tested guidance here on Rhino Inquisitor: open source tooling, deep technical articles, and practical advice for developers, architects, and commerce leaders."
     ],
     "actions": [
       {
         "label": "About Me",
+        "url": "/about/"
+      },
+      {
+        "label": "LinkedIn",
         "url": "https://www.linkedin.com/in/thomas-theunen-10905680/"
       },
       {

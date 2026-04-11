@@ -24,7 +24,7 @@ takeaways:
 ---
 Another month, another release! This time we look at the [May 2023 (23.5) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_7_release.htm&type=5)!
 
-Are you interested in last month’s release notes? [Click here](/everything-new-in-sfcc-23-4/)!
+Are you interested in last month's release notes? Read the [23.4 release overview](/everything-new-in-sfcc-23-4/).
 
 ## Platform
 

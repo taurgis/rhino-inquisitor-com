@@ -36,7 +36,7 @@ To my knowledge, jsPDF solely supports TTF fonts. This information can be found 
 
 ## Fonts as base64
 
-To use a custom font, they need to be part of our code-base as a base64 encoded string. Luckily, jsPDF has provided a tool to convert your TTF files to a jsPDF-compatible string. [Click here to go to the tool](https://rawgit.com/MrRio/jsPDF/master/fontconverter/fontconverter.html) I could explain how to use this tool elaborately, but luckily [someone has already done this for me](https://www.devlinpeck.com/tutorials/jspdf-custom-font)!
+To use a custom font, they need to be part of our code-base as a base64 encoded string. Luckily, jsPDF has provided a tool to convert your TTF files to a jsPDF-compatible string. [Open the jsPDF font converter](https://rawgit.com/MrRio/jsPDF/master/fontconverter/fontconverter.html) I could explain how to use this tool elaborately, but luckily [someone has already done this for me](https://www.devlinpeck.com/tutorials/jspdf-custom-font)!
 
 ## Ready to go
 
