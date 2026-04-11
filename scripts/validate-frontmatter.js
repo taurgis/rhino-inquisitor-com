@@ -77,6 +77,16 @@ const categorySchema = z
   })
   .passthrough();
 
+const sectionSchema = z
+  .object({
+    title: nonEmptyString,
+    description: nonEmptyString,
+    draft: z.boolean(),
+    aliases: z.array(nonEmptyString).optional(),
+    seo: seoSchema
+  })
+  .passthrough();
+
 function parseArgs(argv) {
   const parsed = {};
 
@@ -115,6 +125,11 @@ function toPosixPath(filePath) {
 
 function getContentType(relativePath) {
   const normalizedPath = toPosixPath(relativePath);
+  const basename = path.basename(normalizedPath);
+
+  if (basename === '_index.md') {
+    return 'section';
+  }
 
   if (normalizedPath.startsWith('posts/')) {
     return 'post';
@@ -139,6 +154,8 @@ function getSchema(contentType) {
       return pageSchema;
     case 'category':
       return categorySchema;
+    case 'section':
+      return sectionSchema;
     default:
       return defaultSchema;
   }
@@ -205,7 +222,7 @@ function validateAliases(aliases, currentUrl, relativePath, errors) {
 function validateAdditionalRules(contentType, data, relativePath, errors) {
   validateDiscoveryPlacement(data, relativePath, errors);
 
-  if (contentType !== 'category') {
+  if (contentType !== 'category' && contentType !== 'section') {
     if (!isValidIsoDateTime(data.lastmod)) {
       addError(
         errors,
@@ -227,7 +244,7 @@ function validateAdditionalRules(contentType, data, relativePath, errors) {
     );
   }
 
-  if (contentType !== 'category' && !validateUrlValue(data.url)) {
+  if (contentType !== 'category' && contentType !== 'section' && !validateUrlValue(data.url)) {
     addError(
       errors,
       relativePath,
@@ -249,7 +266,7 @@ function validateAdditionalRules(contentType, data, relativePath, errors) {
     }
   }
 
-  if (contentType !== 'category') {
+  if (contentType !== 'category' && contentType !== 'section') {
     validateAliases(data.aliases, data.url, relativePath, errors);
   }
 }
