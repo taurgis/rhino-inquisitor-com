@@ -9,7 +9,7 @@ url: /sfcc-introduction/
 draft: false
 heroImage: b2c-commerce-cloud-introduction-323fe8bb6c.jpg
 categories:
-  - Uncategorized
+  - Salesforce Commerce Cloud
 tags:
   - composable storefront
   - headless

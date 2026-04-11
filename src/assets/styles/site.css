@@ -509,6 +509,8 @@ body.drawer-open {
 }
 
 .page-hero--home {
+  align-items: start;
+  padding-top: clamp(1.4rem, 3vw, 2.4rem);
   background:
     radial-gradient(circle at top right, rgba(17, 141, 255, 0.12), transparent 28%),
     linear-gradient(135deg, rgba(11, 198, 211, 0.07), rgba(17, 141, 255, 0.03) 42%, rgba(255, 255, 255, 0.96)),

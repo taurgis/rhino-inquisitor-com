@@ -8,11 +8,12 @@
   {{ if eq .Kind "term" }}
     {{ $displayTitle := .LinkTitle | default .Title }}
     {{ $pages := .Pages.ByDate.Reverse }}
-    {{ $groups := $pages.GroupByDate "2006" }}
-    {{ $yearLinks := slice }}
-    {{ range $groups }}
-      {{ $yearLinks = $yearLinks | append (dict "label" .Key "url" (printf "#year-%s" .Key)) }}
-    {{ end }}
+    {{ $paginator := .Paginate $pages }}
+    {{ $yearData := partial "archive/year-links.html" (dict "paginator" $paginator) }}
+    {{ $groups := $yearData.groups }}
+    {{ $yearLinks := $yearData.links }}
+    {{ $stateBaseUrl := .RelPermalink }}
+    {{ with $paginator.First }}{{ $stateBaseUrl = .URL }}{{ end }}
 
     <section class="archive-layout surface-panel">
       <div class="archive-header">
@@ -26,7 +27,7 @@
       <div class="archive-layout__content">
         {{ partial "search/search-bar.html" (dict
           "page" .
-          "stateBaseUrl" .RelPermalink
+          "stateBaseUrl" $stateBaseUrl
           "scopeKind" "category"
           "scopeValue" (.Data.Term | urlize)
           "scopeLabel" (printf "%s archive" $displayTitle)
@@ -35,7 +36,8 @@
         {{ partial "archive/year-jump.html" (dict "links" $yearLinks) }}
         {{ partial "content-list.html" (dict
           "groups" $groups
-          "resultCount" (len $pages)
+          "paginator" $paginator
+          "resultCount" (len $paginator.Pages)
           "heading" (printf "%s archive entries" $displayTitle)
           "emptyTitle" (printf "%s is ready for its first migrated article" $displayTitle)
           "emptyCopy" "This topic does not have any migrated articles yet."

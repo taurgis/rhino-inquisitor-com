@@ -1,12 +1,16 @@
+{{/* term.html is not selected by Hugo when taxonomy.html exists and handles
+     both "taxonomy" and "term" kinds. All term-page rendering (including
+     pagination) lives in taxonomy.html. This file is retained as a fallback. */}}
 {{ define "main" }}
   {{ $allTopicsHref := "category/" | relURL }}
   {{ $displayTitle := .LinkTitle | default .Title }}
   {{ $pages := .Pages.ByDate.Reverse }}
-  {{ $groups := $pages.GroupByDate "2006" }}
-  {{ $yearLinks := slice }}
-  {{ range $groups }}
-    {{ $yearLinks = $yearLinks | append (dict "label" .Key "url" (printf "#year-%s" .Key)) }}
-  {{ end }}
+  {{ $paginator := .Paginate $pages }}
+  {{ $yearData := partial "archive/year-links.html" (dict "paginator" $paginator) }}
+  {{ $groups := $yearData.groups }}
+  {{ $yearLinks := $yearData.links }}
+  {{ $stateBaseUrl := .RelPermalink }}
+  {{ with $paginator.First }}{{ $stateBaseUrl = .URL }}{{ end }}
 
   <div class="archive-route-breadcrumbs">{{ partial "breadcrumbs.html" . }}</div>
 
@@ -22,7 +26,7 @@
     <div class="archive-layout__content">
       {{ partial "search/search-bar.html" (dict
         "page" .
-        "stateBaseUrl" .RelPermalink
+        "stateBaseUrl" $stateBaseUrl
         "scopeKind" "category"
         "scopeValue" (.Data.Term | urlize)
         "scopeLabel" (printf "%s archive" $displayTitle)
@@ -31,7 +35,8 @@
       {{ partial "archive/year-jump.html" (dict "links" $yearLinks) }}
       {{ partial "content-list.html" (dict
         "groups" $groups
-        "resultCount" (len $pages)
+        "paginator" $paginator
+        "resultCount" (len $paginator.Pages)
         "heading" (printf "%s archive entries" $displayTitle)
         "emptyTitle" (printf "%s does not have public archive entries yet" $displayTitle)
         "emptyCopy" "No public articles are currently filed under this topic."
