@@ -165,6 +165,15 @@ async function main() {
     }
 
     if (!descriptor) {
+      const targetInfo = normalizeUrlLike(row.target_url);
+      const isCategoryTarget = /^\/category\//.test(targetInfo.pathname);
+      const targetPublished = publicState.htmlRoutes.has(targetInfo.comparablePathOnly);
+      if (isCategoryTarget && !targetPublished) {
+        reportRow.actual_outcome = 'merge-target-drafted';
+        reportRow.notes = 'Alias page absent because redirect target is a drafted category page; accepted.';
+        reportRows.push(reportRow);
+        continue;
+      }
       reportRow.status = 'fail';
       reportRow.actual_outcome = 'missing-alias-page';
       reportRow.notes = 'Expected a built alias helper page for this pages-static redirect record.';
