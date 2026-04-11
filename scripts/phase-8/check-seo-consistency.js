@@ -352,14 +352,19 @@ async function analyzeDuplicateTitles(htmlInventory) {
   return [...titles.entries()]
     .filter(([, entries]) => entries.length > 1)
     .map(([title, entries]) => {
-      const allowed = entries.every((entry) => entry.pagination && entry.selfCanonical);
+      const nonPagination = entries.filter((entry) => !entry.pagination);
+      const paginationEntries = entries.filter((entry) => entry.pagination);
+      const allowed = nonPagination.length === 1
+        && nonPagination[0].selfCanonical
+        && paginationEntries.length > 0
+        && paginationEntries.every((entry) => !entry.selfCanonical);
       return {
         title,
         routes: entries,
         allowed,
         result: allowed ? 'allowed' : 'fail',
         reason: allowed
-          ? 'Paginated pages may share a title when each page is self-canonical.'
+          ? 'Paginated pages share a title with their self-canonical section root.'
           : 'Duplicate title detected on non-pagination or non-self-canonical routes.'
       };
     })
