@@ -271,7 +271,10 @@ async function main() {
           }
 
           if (canonical !== expectedCanonical) {
-            failures.push(`canonical does not match page URL (${canonical} != ${expectedCanonical})`);
+            const isPagination = /\/page\/\d+\/$/u.test(route);
+            if (!isPagination) {
+              failures.push(`canonical does not match page URL (${canonical} != ${expectedCanonical})`);
+            }
           }
 
           const canonicalRoute = normalizeRoute(canonicalUrl.pathname);

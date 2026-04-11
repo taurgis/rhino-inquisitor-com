@@ -1,6 +1,6 @@
 # Phase 5 Pages Constraints Report
 
-Generated: 2026-04-06T06:55:15.569Z
+Generated: 2026-04-11T19:31:34.272Z
 
 ## Artifact summary
 
@@ -9,20 +9,20 @@ Generated: 2026-04-06T06:55:15.569Z
 | Public output path | public | Production build artifact inspected by the gate |
 | Source static path | src/static | Source of truth for static passthrough assets |
 | URL manifest path | migration/url-manifest.json | Alias-growth baseline source |
-| Public output size | 618.31 MB | 60.38% of the 1 GB GitHub Pages published-site limit |
-| Gate threshold | 800.00 MB | 77.29% of the configured gate budget currently used |
-| Headroom to gate | 181.69 MB | Remaining space before the CI gate fails |
-| Headroom to 1 GB Pages limit | 405.69 MB | Remaining space before the GitHub Pages hard limit |
-| Artifact file count | 2181 | Regular files in public/ |
-| Artifact directory count | 420 | Directories in public/ excluding root |
-| Production build duration | 4.16 s | Reported when supplied by the caller or CI workflow |
+| Public output size | 621.97 MB | 60.74% of the 1 GB GitHub Pages published-site limit |
+| Gate threshold | 800.00 MB | 77.75% of the configured gate budget currently used |
+| Headroom to gate | 178.03 MB | Remaining space before the CI gate fails |
+| Headroom to 1 GB Pages limit | 402.03 MB | Remaining space before the GitHub Pages hard limit |
+| Artifact file count | 2209 | Regular files in public/ |
+| Artifact directory count | 464 | Directories in public/ excluding root |
+| Production build duration | 4.69 s | Reported when supplied by the caller or CI workflow |
 
 ## Artifact structure conformance
 
 | Check | Status | Details |
 | --- | --- | --- |
 | Top-level index.html present | Pass | public/index.html is present. |
-| Published size below threshold | Pass | 618.31 MB used vs 800.00 MB configured gate. |
+| Published size below threshold | Pass | 621.97 MB used vs 800.00 MB configured gate. |
 | No symbolic links in public/ | Pass | No symbolic links detected. |
 | No hard links in public/ | Pass | No hard links detected. |
 | Only files and directories in public/ | Pass | No unsupported special file types detected. |
@@ -34,10 +34,10 @@ Generated: 2026-04-06T06:55:15.569Z
 | Manifest merge records | 141 | All legacy routes currently classified as merge in migration/url-manifest.json |
 | Pages-static merge records | 18 | Routes expected to publish as static redirect helpers |
 | Edge redirect merge records | 0 | Routes already designated for edge handling |
-| Redirect helper pages detected in public/ | 21 | HTML files in public/ with Hugo redirect-helper behavior |
+| Redirect helper pages detected in public/ | 34 | HTML files in public/ with Hugo redirect-helper behavior |
 | Redirect helper total size | 0.01 MB | Aggregate footprint of generated redirect helpers |
-| Average redirect helper size | 368 bytes | Observed average HTML redirect-helper size |
-| Estimated size per 100 aliases | 0.04 MB | Based on observed redirect helper pages in public/ |
+| Average redirect helper size | 363 bytes | Observed average HTML redirect-helper size |
+| Estimated size per 100 aliases | 0.03 MB | Based on observed redirect helper pages in public/ |
 | Alias warning threshold | 500 pages-static merge records | Threshold not exceeded. |
 
 ## Domain and Pages readiness snapshot

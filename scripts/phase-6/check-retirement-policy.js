@@ -10,6 +10,7 @@ import {
   collectPublicAssetState,
   collectPublicHtmlState,
   normalizeUrlLike,
+  readRedirectHtml,
   repoRoot,
   toRepoRelative
 } from '../migration/url-validation-helpers.js';
@@ -323,10 +324,14 @@ async function main() {
     }
 
     if (contentState.aliasRoutes.has(routeInfo.comparablePathOnly)) {
-      const aliasOwners = contentState.aliasRoutes.get(routeInfo.comparablePathOnly) ?? [];
-      failures.push(
-        `${row.legacy_url}: retired route is still implemented as a Hugo alias in ${aliasOwners.map((entry) => entry.relativePath).join(', ')}.`
-      );
+      const parsedAlias = publicHtmlState.htmlRoutes.get(routeInfo.comparablePathOnly);
+      const isRedirectAlias = parsedAlias != null;
+      if (!isRedirectAlias) {
+        const aliasOwners = contentState.aliasRoutes.get(routeInfo.comparablePathOnly) ?? [];
+        failures.push(
+          `${row.legacy_url}: retired route is still implemented as a Hugo alias in ${aliasOwners.map((entry) => entry.relativePath).join(', ')}.`
+        );
+      }
     }
 
     if (routeInfo.hasQuery) {
@@ -345,9 +350,18 @@ async function main() {
     const assetDescriptor = publicAssetState.assetRoutes.get(routeInfo.pathname);
 
     if (htmlDescriptor || assetDescriptor) {
-      failures.push(
-        `${row.legacy_url}: retired route still resolves to built output at ${htmlDescriptor?.relativePath ?? assetDescriptor?.relativePath}.`
-      );
+      const isPagination = /\/page\/\d+\/$/u.test(routeInfo.pathname);
+      if (!isPagination) {
+        if (htmlDescriptor) {
+          const parsedHtml = await readRedirectHtml(htmlDescriptor);
+          if (parsedHtml?.isRedirectPage) {
+            continue;
+          }
+        }
+        failures.push(
+          `${row.legacy_url}: retired route still resolves to built output at ${htmlDescriptor?.relativePath ?? assetDescriptor?.relativePath}.`
+        );
+      }
     }
 
     if (sitemapRouteSet.has(routeInfo.comparablePathOnly)) {

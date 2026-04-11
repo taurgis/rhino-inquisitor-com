@@ -5,15 +5,15 @@
   "status": "pass",
   "rcTag": "phase-8-rc-v3",
   "rcSha": "bb7bd49e1e8292ea3dbc744dded428dcfcab48aa",
-  "generatedAt": "2026-04-11T18:36:00.614Z",
+  "generatedAt": "2026-04-11T19:31:38.332Z",
   "publicDir": "public",
   "sampleMatrix": {
     "path": "validation/sample-matrix.json",
     "generatedAt": "2026-03-22T06:58:43Z"
   },
   "artifactProvenance": {
-    "gitHead": "99bf7e92eaa6b9bd0481a7b3a8ccc9d90a5134bc",
-    "gitHeadShort": "99bf7e92",
+    "gitHead": "c15a2d6140dee202a08fb66c6a078493f33081c9",
+    "gitHeadShort": "c15a2d61",
     "workspaceDirty": true,
     "datasetRcTag": "phase-8-rc-v3",
     "datasetRcSha": "bb7bd49e1e8292ea3dbc744dded428dcfcab48aa",
@@ -27,7 +27,7 @@
   },
   "sitemap": {
     "path": "public/sitemap.xml",
-    "urlCount": 206
+    "urlCount": 203
   },
   "policy": {
     "canonicalHost": "https://www.rhino-inquisitor.com",
@@ -45,7 +45,7 @@
     "failCount": 0,
     "blockingFailures": 0,
     "warningCount": 36,
-    "unexpectedNoindexCount": 0,
+    "unexpectedNoindexCount": 1,
     "duplicateTitleGroups": 4,
     "duplicateTitleFailures": 0,
     "duplicateTitleAllowedGroups": 4,
@@ -60,6 +60,18 @@
     {
       "route": "/404/",
       "contentPath": "src/content/404.md"
+    },
+    {
+      "route": "/offline/",
+      "contentPath": "src/content/pages/offline/index.md"
+    },
+    {
+      "route": "/scaffold-readiness/",
+      "contentPath": "src/content/pages/scaffold-readiness/index.md"
+    },
+    {
+      "route": "/video/",
+      "contentPath": "src/content/pages/video/index.md"
     }
   ],
   "entries": [
@@ -2063,15 +2075,12 @@
       "descriptionLength": 140,
       "canonicalCount": 1,
       "canonicalUrl": "https://www.rhino-inquisitor.com/video/",
-      "sitemapUrl": "https://www.rhino-inquisitor.com/video/",
+      "sitemapUrl": null,
       "robots": [
-        "follow",
-        "index",
-        "max-image-preview:large",
-        "max-snippet:-1",
-        "max-video-preview:-1"
+        "nofollow",
+        "noindex"
       ],
-      "hasNoindex": false,
+      "hasNoindex": true,
       "result": "pass",
       "blockingFindings": [],
       "warnings": []

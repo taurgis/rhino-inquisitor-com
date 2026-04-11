@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-06T06:56:09.560Z",
+  "generatedAt": "2026-04-11T19:32:31.315Z",
   "publicDir": "public",
   "llms": {
     "path": "public/llms.txt",
@@ -12,7 +12,7 @@
     "hasRawShortcodes": false
   },
   "summary": {
-    "markdownCompanionCount": 171,
+    "markdownCompanionCount": 168,
     "filesWithFailures": 0,
     "filesWithCodeBlocks": 52,
     "filesWithImages": 145,
@@ -29,7 +29,7 @@
           "codeFenceCount": 0,
           "imageCount": 2,
           "linkCount": 65,
-          "bodyLength": 17603
+          "bodyLength": 17590
         },
         "findings": []
       },
@@ -140,8 +140,8 @@
           "blockquoteCount": 12,
           "codeFenceCount": 0,
           "imageCount": 7,
-          "linkCount": 38,
-          "bodyLength": 12688
+          "linkCount": 39,
+          "bodyLength": 12725
         },
         "findings": []
       },
@@ -183,7 +183,7 @@
           "codeFenceCount": 0,
           "imageCount": 0,
           "linkCount": 16,
-          "bodyLength": 10140
+          "bodyLength": 10160
         },
         "findings": []
       },
@@ -216,16 +216,16 @@
         "findings": []
       },
       {
-        "path": "public/secure-coding-in-salesforce-b2c-commerce-cloud/index.md",
-        "canonicalUrl": "https://www.rhino-inquisitor.com/secure-coding-in-salesforce-b2c-commerce-cloud/",
+        "path": "public/digging-into-the-b2c-commerce-cloud-24-3-release/index.md",
+        "canonicalUrl": "https://www.rhino-inquisitor.com/digging-into-the-b2c-commerce-cloud-24-3-release/",
         "metrics": {
-          "headingCount": 25,
-          "listItemCount": 23,
-          "blockquoteCount": 0,
-          "codeFenceCount": 1,
+          "headingCount": 20,
+          "listItemCount": 15,
+          "blockquoteCount": 22,
+          "codeFenceCount": 0,
           "imageCount": 2,
-          "linkCount": 44,
-          "bodyLength": 17558
+          "linkCount": 23,
+          "bodyLength": 11395
         },
         "findings": []
       }
@@ -244,8 +244,8 @@
         "blockquoteCount": 12,
         "codeFenceCount": 0,
         "imageCount": 7,
-        "linkCount": 38,
-        "bodyLength": 12688
+        "linkCount": 39,
+        "bodyLength": 12725
       }
     },
     {
@@ -277,7 +277,7 @@
         "codeFenceCount": 0,
         "imageCount": 3,
         "linkCount": 18,
-        "bodyLength": 9296
+        "bodyLength": 9316
       }
     },
     {
@@ -309,7 +309,7 @@
         "codeFenceCount": 0,
         "imageCount": 3,
         "linkCount": 28,
-        "bodyLength": 10292
+        "bodyLength": 10312
       }
     },
     {
@@ -357,7 +357,7 @@
         "codeFenceCount": 0,
         "imageCount": 2,
         "linkCount": 28,
-        "bodyLength": 11173
+        "bodyLength": 11193
       }
     },
     {
@@ -373,7 +373,7 @@
         "codeFenceCount": 0,
         "imageCount": 2,
         "linkCount": 7,
-        "bodyLength": 5296
+        "bodyLength": 5237
       }
     },
     {
@@ -388,8 +388,8 @@
         "blockquoteCount": 0,
         "codeFenceCount": 0,
         "imageCount": 2,
-        "linkCount": 14,
-        "bodyLength": 5535
+        "linkCount": 15,
+        "bodyLength": 5598
       }
     },
     {
@@ -432,12 +432,12 @@
       "findings": [],
       "metrics": {
         "headingCount": 7,
-        "listItemCount": 30,
+        "listItemCount": 28,
         "blockquoteCount": 0,
         "codeFenceCount": 0,
         "imageCount": 1,
         "linkCount": 9,
-        "bodyLength": 6692
+        "bodyLength": 6790
       }
     },
     {
@@ -581,7 +581,7 @@
         "codeFenceCount": 0,
         "imageCount": 3,
         "linkCount": 12,
-        "bodyLength": 5276
+        "bodyLength": 5218
       }
     },
     {
@@ -593,11 +593,11 @@
       "metrics": {
         "headingCount": 10,
         "listItemCount": 7,
-        "blockquoteCount": 2,
+        "blockquoteCount": 5,
         "codeFenceCount": 3,
         "imageCount": 1,
         "linkCount": 4,
-        "bodyLength": 7745
+        "bodyLength": 7746
       }
     },
     {
@@ -708,8 +708,8 @@
         "blockquoteCount": 0,
         "codeFenceCount": 0,
         "imageCount": 0,
-        "linkCount": 23,
-        "bodyLength": 7017
+        "linkCount": 24,
+        "bodyLength": 7070
       }
     },
     {
@@ -789,7 +789,7 @@
         "codeFenceCount": 3,
         "imageCount": 1,
         "linkCount": 9,
-        "bodyLength": 5102
+        "bodyLength": 5103
       }
     },
     {
@@ -817,11 +817,11 @@
       "metrics": {
         "headingCount": 20,
         "listItemCount": 15,
-        "blockquoteCount": 21,
+        "blockquoteCount": 22,
         "codeFenceCount": 0,
         "imageCount": 2,
         "linkCount": 23,
-        "bodyLength": 11384
+        "bodyLength": 11395
       }
     },
     {
@@ -901,7 +901,7 @@
         "codeFenceCount": 0,
         "imageCount": 2,
         "linkCount": 65,
-        "bodyLength": 17603
+        "bodyLength": 17590
       }
     },
     {
@@ -917,7 +917,7 @@
         "codeFenceCount": 0,
         "imageCount": 0,
         "linkCount": 16,
-        "bodyLength": 10140
+        "bodyLength": 10160
       }
     },
     {
@@ -996,8 +996,8 @@
         "blockquoteCount": 0,
         "codeFenceCount": 0,
         "imageCount": 4,
-        "linkCount": 18,
-        "bodyLength": 8233
+        "linkCount": 19,
+        "bodyLength": 8207
       }
     },
     {
@@ -1137,11 +1137,11 @@
       "metrics": {
         "headingCount": 13,
         "listItemCount": 5,
-        "blockquoteCount": 2,
+        "blockquoteCount": 3,
         "codeFenceCount": 11,
         "imageCount": 2,
         "linkCount": 12,
-        "bodyLength": 15651
+        "bodyLength": 15659
       }
     },
     {
@@ -1189,7 +1189,7 @@
         "codeFenceCount": 8,
         "imageCount": 5,
         "linkCount": 19,
-        "bodyLength": 29299
+        "bodyLength": 29294
       }
     },
     {
@@ -1253,7 +1253,7 @@
         "codeFenceCount": 5,
         "imageCount": 3,
         "linkCount": 20,
-        "bodyLength": 21102
+        "bodyLength": 21010
       }
     },
     {
@@ -1605,23 +1605,7 @@
         "codeFenceCount": 0,
         "imageCount": 0,
         "linkCount": 5,
-        "bodyLength": 4658
-      }
-    },
-    {
-      "path": "public/offline/index.md",
-      "canonicalUrl": "https://www.rhino-inquisitor.com/offline/",
-      "markdownUrl": "https://www.rhino-inquisitor.com/offline/index.md",
-      "title": "Offline",
-      "findings": [],
-      "metrics": {
-        "headingCount": 0,
-        "listItemCount": 0,
-        "blockquoteCount": 0,
-        "codeFenceCount": 0,
-        "imageCount": 0,
-        "linkCount": 0,
-        "bodyLength": 137
+        "bodyLength": 4587
       }
     },
     {
@@ -1685,7 +1669,7 @@
         "codeFenceCount": 0,
         "imageCount": 0,
         "linkCount": 4,
-        "bodyLength": 3223
+        "bodyLength": 3219
       }
     },
     {
@@ -1701,7 +1685,7 @@
         "codeFenceCount": 0,
         "imageCount": 3,
         "linkCount": 7,
-        "bodyLength": 15822
+        "bodyLength": 15824
       }
     },
     {
@@ -1765,7 +1749,7 @@
         "codeFenceCount": 0,
         "imageCount": 2,
         "linkCount": 19,
-        "bodyLength": 6756
+        "bodyLength": 6726
       }
     },
     {
@@ -1797,7 +1781,7 @@
         "codeFenceCount": 0,
         "imageCount": 2,
         "linkCount": 10,
-        "bodyLength": 9600
+        "bodyLength": 9620
       }
     },
     {
@@ -1973,7 +1957,7 @@
         "codeFenceCount": 0,
         "imageCount": 1,
         "linkCount": 27,
-        "bodyLength": 7623
+        "bodyLength": 7643
       }
     },
     {
@@ -1989,7 +1973,7 @@
         "codeFenceCount": 0,
         "imageCount": 4,
         "linkCount": 24,
-        "bodyLength": 10114
+        "bodyLength": 10134
       }
     },
     {
@@ -2057,22 +2041,6 @@
       }
     },
     {
-      "path": "public/scaffold-readiness/index.md",
-      "canonicalUrl": "https://www.rhino-inquisitor.com/scaffold-readiness/",
-      "markdownUrl": "https://www.rhino-inquisitor.com/scaffold-readiness/index.md",
-      "title": "Scaffold Readiness",
-      "findings": [],
-      "metrics": {
-        "headingCount": 2,
-        "listItemCount": 0,
-        "blockquoteCount": 0,
-        "codeFenceCount": 0,
-        "imageCount": 0,
-        "linkCount": 0,
-        "bodyLength": 233
-      }
-    },
-    {
       "path": "public/secure-coding-in-salesforce-b2c-commerce-cloud/index.md",
       "canonicalUrl": "https://www.rhino-inquisitor.com/secure-coding-in-salesforce-b2c-commerce-cloud/",
       "markdownUrl": "https://www.rhino-inquisitor.com/secure-coding-in-salesforce-b2c-commerce-cloud/index.md",
@@ -2133,7 +2101,7 @@
         "codeFenceCount": 0,
         "imageCount": 2,
         "linkCount": 11,
-        "bodyLength": 6292
+        "bodyLength": 6313
       }
     },
     {
@@ -2261,7 +2229,7 @@
         "codeFenceCount": 0,
         "imageCount": 2,
         "linkCount": 11,
-        "bodyLength": 14997
+        "bodyLength": 14999
       }
     },
     {
@@ -2469,7 +2437,7 @@
         "codeFenceCount": 0,
         "imageCount": 0,
         "linkCount": 14,
-        "bodyLength": 12028
+        "bodyLength": 12048
       }
     },
     {
@@ -2661,7 +2629,7 @@
         "codeFenceCount": 0,
         "imageCount": 1,
         "linkCount": 30,
-        "bodyLength": 8176
+        "bodyLength": 8187
       }
     },
     {
@@ -2671,13 +2639,13 @@
       "title": "Understanding Locale Fallback in SFCC",
       "findings": [],
       "metrics": {
-        "headingCount": 8,
-        "listItemCount": 8,
+        "headingCount": 11,
+        "listItemCount": 14,
         "blockquoteCount": 0,
         "codeFenceCount": 0,
         "imageCount": 3,
         "linkCount": 6,
-        "bodyLength": 6822
+        "bodyLength": 6818
       }
     },
     {
@@ -2726,22 +2694,6 @@
         "imageCount": 1,
         "linkCount": 3,
         "bodyLength": 691
-      }
-    },
-    {
-      "path": "public/video/index.md",
-      "canonicalUrl": "https://www.rhino-inquisitor.com/video/",
-      "markdownUrl": "https://www.rhino-inquisitor.com/video/index.md",
-      "title": "Video Appearances",
-      "findings": [],
-      "metrics": {
-        "headingCount": 0,
-        "listItemCount": 0,
-        "blockquoteCount": 0,
-        "codeFenceCount": 0,
-        "imageCount": 0,
-        "linkCount": 0,
-        "bodyLength": 233
       }
     },
     {

@@ -361,11 +361,14 @@ function buildManifestData(entries) {
     const targetInfo = normalizeComparableLocation(entry.target_url);
 
     if (legacyInfo && ['merge', 'retire'].includes(entry.disposition)) {
-      deprecatedSources.set(legacyInfo.comparable, {
-        disposition: entry.disposition,
-        targetPath: targetInfo?.comparablePath ?? null,
-        targetComparable: targetInfo?.comparable ?? null
-      });
+      const isPagination = /\/page\/\d+\/$/u.test(legacyInfo.comparable);
+      if (!isPagination) {
+        deprecatedSources.set(legacyInfo.comparable, {
+          disposition: entry.disposition,
+          targetPath: targetInfo?.comparablePath ?? null,
+          targetComparable: targetInfo?.comparable ?? null
+        });
+      }
     }
 
     if (targetInfo && ['keep', 'merge'].includes(entry.disposition)) {

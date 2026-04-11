@@ -5,11 +5,11 @@
   "status": "pass",
   "rcTag": "phase-8-rc-v3",
   "rcSha": "bb7bd49e1e8292ea3dbc744dded428dcfcab48aa",
-  "generatedAt": "2026-04-04T13:54:10.110Z",
+  "generatedAt": "2026-04-11T19:31:40.151Z",
   "publicDir": "public",
   "artifactProvenance": {
-    "gitHead": "bb36b7031b021b42f21cedc56e9edd667577bd25",
-    "gitHeadShort": "bb36b703",
+    "gitHead": "c15a2d6140dee202a08fb66c6a078493f33081c9",
+    "gitHeadShort": "c15a2d61",
     "workspaceDirty": true,
     "datasetRcTag": "phase-8-rc-v3",
     "datasetRcSha": "bb7bd49e1e8292ea3dbc744dded428dcfcab48aa",
@@ -25,8 +25,8 @@
         "path": "public/sitemap.xml",
         "type": "urlset",
         "utf8": true,
-        "byteSize": 28461,
-        "urlCount": 212
+        "byteSize": 27405,
+        "urlCount": 203
       }
     ],
     "unresolvedChildren": [],
@@ -34,7 +34,7 @@
       {
         "loc": "https://www.rhino-inquisitor.com/",
         "route": "/",
-        "lastmod": "2026-03-29T00:00:00+00:00",
+        "lastmod": "2026-04-11T08:00:00+00:00",
         "sourceFile": "public/sitemap.xml",
         "result": "pass",
         "findings": []
@@ -42,15 +42,7 @@
       {
         "loc": "https://www.rhino-inquisitor.com/pages/",
         "route": "/pages/",
-        "lastmod": "2026-03-29T00:00:00+00:00",
-        "sourceFile": "public/sitemap.xml",
-        "result": "pass",
-        "findings": []
-      },
-      {
-        "loc": "https://www.rhino-inquisitor.com/scaffold-readiness/",
-        "route": "/scaffold-readiness/",
-        "lastmod": "2026-03-09T10:00:00+00:00",
+        "lastmod": "2026-04-05T09:00:00+00:00",
         "sourceFile": "public/sitemap.xml",
         "result": "pass",
         "findings": []
@@ -72,6 +64,14 @@
         "findings": []
       },
       {
+        "loc": "https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/",
+        "route": "/category/salesforce-commerce-cloud/",
+        "lastmod": "2026-02-09T13:10:33+00:00",
+        "sourceFile": "public/sitemap.xml",
+        "result": "pass",
+        "findings": []
+      },
+      {
         "loc": "https://www.rhino-inquisitor.com/posts/",
         "route": "/posts/",
         "lastmod": "2026-02-09T13:10:33+00:00",
@@ -82,14 +82,6 @@
       {
         "loc": "https://www.rhino-inquisitor.com/real-time-inventory-checks-in-sfcc/",
         "route": "/real-time-inventory-checks-in-sfcc/",
-        "lastmod": "2026-02-09T13:10:33+00:00",
-        "sourceFile": "public/sitemap.xml",
-        "result": "pass",
-        "findings": []
-      },
-      {
-        "loc": "https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/",
-        "route": "/category/salesforce-commerce-cloud/",
         "lastmod": "2026-02-09T13:10:33+00:00",
         "sourceFile": "public/sitemap.xml",
         "result": "pass",
@@ -258,14 +250,6 @@
       {
         "loc": "https://www.rhino-inquisitor.com/sfcc-introduction/",
         "route": "/sfcc-introduction/",
-        "lastmod": "2024-10-28T06:53:53+00:00",
-        "sourceFile": "public/sitemap.xml",
-        "result": "pass",
-        "findings": []
-      },
-      {
-        "loc": "https://www.rhino-inquisitor.com/category/uncategorized/",
-        "route": "/category/uncategorized/",
         "lastmod": "2024-10-28T06:53:53+00:00",
         "sourceFile": "public/sitemap.xml",
         "result": "pass",
@@ -1080,14 +1064,6 @@
         "findings": []
       },
       {
-        "loc": "https://www.rhino-inquisitor.com/offline/",
-        "route": "/offline/",
-        "lastmod": "2022-11-01T16:56:37+00:00",
-        "sourceFile": "public/sitemap.xml",
-        "result": "pass",
-        "findings": []
-      },
-      {
         "loc": "https://www.rhino-inquisitor.com/how-to-use-ocapi-scapi-hooks/",
         "route": "/how-to-use-ocapi-scapi-hooks/",
         "lastmod": "2025-07-29T12:47:51+00:00",
@@ -1472,14 +1448,6 @@
         "findings": []
       },
       {
-        "loc": "https://www.rhino-inquisitor.com/video/",
-        "route": "/video/",
-        "lastmod": "2022-08-16T17:25:15+00:00",
-        "sourceFile": "public/sitemap.xml",
-        "result": "pass",
-        "findings": []
-      },
-      {
         "loc": "https://www.rhino-inquisitor.com/b2c-commerce-whats-new-in-22-4/",
         "route": "/b2c-commerce-whats-new-in-22-4/",
         "lastmod": "2022-07-23T21:46:22+00:00",
@@ -1530,7 +1498,7 @@
       {
         "loc": "https://www.rhino-inquisitor.com/archive/",
         "route": "/archive/",
-        "lastmod": "2023-12-04T13:31:47+00:00",
+        "lastmod": "2026-04-05T09:00:00+00:00",
         "sourceFile": "public/sitemap.xml",
         "result": "pass",
         "findings": []
@@ -1568,49 +1536,9 @@
         "findings": []
       },
       {
-        "loc": "https://www.rhino-inquisitor.com/category/external/",
-        "route": "/category/external/",
-        "lastmod": "2026-02-09T13:10:33+00:00",
-        "sourceFile": "public/sitemap.xml",
-        "result": "pass",
-        "findings": []
-      },
-      {
-        "loc": "https://www.rhino-inquisitor.com/category/linkedin/",
-        "route": "/category/linkedin/",
-        "lastmod": "2026-02-09T13:10:33+00:00",
-        "sourceFile": "public/sitemap.xml",
-        "result": "pass",
-        "findings": []
-      },
-      {
-        "loc": "https://www.rhino-inquisitor.com/category/salesforce-architects-blog/",
-        "route": "/category/salesforce-architects-blog/",
-        "lastmod": "2026-02-09T13:10:33+00:00",
-        "sourceFile": "public/sitemap.xml",
-        "result": "pass",
-        "findings": []
-      },
-      {
-        "loc": "https://www.rhino-inquisitor.com/category/salesforce-ben/",
-        "route": "/category/salesforce-ben/",
-        "lastmod": "2026-02-09T13:10:33+00:00",
-        "sourceFile": "public/sitemap.xml",
-        "result": "pass",
-        "findings": []
-      },
-      {
         "loc": "https://www.rhino-inquisitor.com/pages/page/2/",
         "route": "/pages/page/2/",
-        "lastmod": "2026-03-29T00:00:00+00:00",
-        "sourceFile": "public/sitemap.xml",
-        "result": "pass",
-        "findings": []
-      },
-      {
-        "loc": "https://www.rhino-inquisitor.com/pages/page/3/",
-        "route": "/pages/page/3/",
-        "lastmod": "2026-03-29T00:00:00+00:00",
+        "lastmod": "2026-04-05T09:00:00+00:00",
         "sourceFile": "public/sitemap.xml",
         "result": "pass",
         "findings": []
@@ -1772,29 +1700,85 @@
       "sitemapIncluded": false
     },
     {
-      "route": "/category/external/forward/",
-      "builtArtifactPath": "public/category/external/forward/index.html",
+      "route": "/blog/",
+      "builtArtifactPath": "public/blog/index.html",
       "expected": true,
       "reason": "alias-helper",
       "sitemapIncluded": false
     },
     {
-      "route": "/category/external/linkedin/",
-      "builtArtifactPath": "public/category/external/linkedin/index.html",
+      "route": "/category/ai/page/1/",
+      "builtArtifactPath": "public/category/ai/page/1/index.html",
       "expected": true,
       "reason": "alias-helper",
       "sitemapIncluded": false
     },
     {
-      "route": "/category/external/salesforce-architects-blog/",
-      "builtArtifactPath": "public/category/external/salesforce-architects-blog/index.html",
+      "route": "/category/architecture/page/1/",
+      "builtArtifactPath": "public/category/architecture/page/1/index.html",
       "expected": true,
       "reason": "alias-helper",
       "sitemapIncluded": false
     },
     {
-      "route": "/category/external/salesforce-ben/",
-      "builtArtifactPath": "public/category/external/salesforce-ben/index.html",
+      "route": "/category/certification/page/1/",
+      "builtArtifactPath": "public/category/certification/page/1/index.html",
+      "expected": true,
+      "reason": "alias-helper",
+      "sitemapIncluded": false
+    },
+    {
+      "route": "/category/community/page/1/",
+      "builtArtifactPath": "public/category/community/page/1/index.html",
+      "expected": true,
+      "reason": "alias-helper",
+      "sitemapIncluded": false
+    },
+    {
+      "route": "/category/corporate/page/1/",
+      "builtArtifactPath": "public/category/corporate/page/1/index.html",
+      "expected": true,
+      "reason": "alias-helper",
+      "sitemapIncluded": false
+    },
+    {
+      "route": "/category/documentation/page/1/",
+      "builtArtifactPath": "public/category/documentation/page/1/index.html",
+      "expected": true,
+      "reason": "alias-helper",
+      "sitemapIncluded": false
+    },
+    {
+      "route": "/category/erd/page/1/",
+      "builtArtifactPath": "public/category/erd/page/1/index.html",
+      "expected": true,
+      "reason": "alias-helper",
+      "sitemapIncluded": false
+    },
+    {
+      "route": "/category/go-live/page/1/",
+      "builtArtifactPath": "public/category/go-live/page/1/index.html",
+      "expected": true,
+      "reason": "alias-helper",
+      "sitemapIncluded": false
+    },
+    {
+      "route": "/category/podcasts/page/1/",
+      "builtArtifactPath": "public/category/podcasts/page/1/index.html",
+      "expected": true,
+      "reason": "alias-helper",
+      "sitemapIncluded": false
+    },
+    {
+      "route": "/category/react/page/1/",
+      "builtArtifactPath": "public/category/react/page/1/index.html",
+      "expected": true,
+      "reason": "alias-helper",
+      "sitemapIncluded": false
+    },
+    {
+      "route": "/category/release-notes/page/1/",
+      "builtArtifactPath": "public/category/release-notes/page/1/index.html",
       "expected": true,
       "reason": "alias-helper",
       "sitemapIncluded": false
@@ -1835,6 +1819,13 @@
       "sitemapIncluded": false
     },
     {
+      "route": "/category/salesforce-commerce-cloud/page/1/",
+      "builtArtifactPath": "public/category/salesforce-commerce-cloud/page/1/index.html",
+      "expected": true,
+      "reason": "alias-helper",
+      "sitemapIncluded": false
+    },
+    {
       "route": "/category/salesforce-commerce-cloud/release-notes/",
       "builtArtifactPath": "public/category/salesforce-commerce-cloud/release-notes/index.html",
       "expected": true,
@@ -1844,6 +1835,34 @@
     {
       "route": "/category/salesforce-commerce-cloud/technical/",
       "builtArtifactPath": "public/category/salesforce-commerce-cloud/technical/index.html",
+      "expected": true,
+      "reason": "alias-helper",
+      "sitemapIncluded": false
+    },
+    {
+      "route": "/category/salesforce-platform/page/1/",
+      "builtArtifactPath": "public/category/salesforce-platform/page/1/index.html",
+      "expected": true,
+      "reason": "alias-helper",
+      "sitemapIncluded": false
+    },
+    {
+      "route": "/category/sessions/page/1/",
+      "builtArtifactPath": "public/category/sessions/page/1/index.html",
+      "expected": true,
+      "reason": "alias-helper",
+      "sitemapIncluded": false
+    },
+    {
+      "route": "/category/technical/page/1/",
+      "builtArtifactPath": "public/category/technical/page/1/index.html",
+      "expected": true,
+      "reason": "alias-helper",
+      "sitemapIncluded": false
+    },
+    {
+      "route": "/category/video/page/1/",
+      "builtArtifactPath": "public/category/video/page/1/index.html",
       "expected": true,
       "reason": "alias-helper",
       "sitemapIncluded": false
@@ -1898,6 +1917,13 @@
       "sitemapIncluded": false
     },
     {
+      "route": "/offline/",
+      "builtArtifactPath": "public/offline/index.html",
+      "expected": true,
+      "reason": "front-matter",
+      "sitemapIncluded": false
+    },
+    {
       "route": "/pages/page/1/",
       "builtArtifactPath": "public/pages/page/1/index.html",
       "expected": true,
@@ -1917,31 +1943,93 @@
       "expected": true,
       "reason": "alias-helper",
       "sitemapIncluded": false
+    },
+    {
+      "route": "/scaffold-readiness/",
+      "builtArtifactPath": "public/scaffold-readiness/index.html",
+      "expected": true,
+      "reason": "front-matter",
+      "sitemapIncluded": false
+    },
+    {
+      "route": "/video/",
+      "builtArtifactPath": "public/video/index.html",
+      "expected": true,
+      "reason": "front-matter",
+      "sitemapIncluded": false
     }
   ],
   "aliasPages": [
     {
-      "route": "/category/external/forward/",
-      "builtArtifactPath": "public/category/external/forward/index.html",
-      "canonicalUrl": "https://www.rhino-inquisitor.com/category/external/",
+      "route": "/blog/",
+      "builtArtifactPath": "public/blog/index.html",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/posts/",
       "redirectTarget": null
     },
     {
-      "route": "/category/external/linkedin/",
-      "builtArtifactPath": "public/category/external/linkedin/index.html",
-      "canonicalUrl": "https://www.rhino-inquisitor.com/category/linkedin/",
+      "route": "/category/ai/page/1/",
+      "builtArtifactPath": "public/category/ai/page/1/index.html",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/category/ai/",
       "redirectTarget": null
     },
     {
-      "route": "/category/external/salesforce-architects-blog/",
-      "builtArtifactPath": "public/category/external/salesforce-architects-blog/index.html",
-      "canonicalUrl": "https://www.rhino-inquisitor.com/category/salesforce-architects-blog/",
+      "route": "/category/architecture/page/1/",
+      "builtArtifactPath": "public/category/architecture/page/1/index.html",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/category/architecture/",
       "redirectTarget": null
     },
     {
-      "route": "/category/external/salesforce-ben/",
-      "builtArtifactPath": "public/category/external/salesforce-ben/index.html",
-      "canonicalUrl": "https://www.rhino-inquisitor.com/category/salesforce-ben/",
+      "route": "/category/certification/page/1/",
+      "builtArtifactPath": "public/category/certification/page/1/index.html",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/category/certification/",
+      "redirectTarget": null
+    },
+    {
+      "route": "/category/community/page/1/",
+      "builtArtifactPath": "public/category/community/page/1/index.html",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/category/community/",
+      "redirectTarget": null
+    },
+    {
+      "route": "/category/corporate/page/1/",
+      "builtArtifactPath": "public/category/corporate/page/1/index.html",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/category/corporate/",
+      "redirectTarget": null
+    },
+    {
+      "route": "/category/documentation/page/1/",
+      "builtArtifactPath": "public/category/documentation/page/1/index.html",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/category/documentation/",
+      "redirectTarget": null
+    },
+    {
+      "route": "/category/erd/page/1/",
+      "builtArtifactPath": "public/category/erd/page/1/index.html",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/category/erd/",
+      "redirectTarget": null
+    },
+    {
+      "route": "/category/go-live/page/1/",
+      "builtArtifactPath": "public/category/go-live/page/1/index.html",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/category/go-live/",
+      "redirectTarget": null
+    },
+    {
+      "route": "/category/podcasts/page/1/",
+      "builtArtifactPath": "public/category/podcasts/page/1/index.html",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/category/podcasts/",
+      "redirectTarget": null
+    },
+    {
+      "route": "/category/react/page/1/",
+      "builtArtifactPath": "public/category/react/page/1/index.html",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/category/react/",
+      "redirectTarget": null
+    },
+    {
+      "route": "/category/release-notes/page/1/",
+      "builtArtifactPath": "public/category/release-notes/page/1/index.html",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/category/release-notes/",
       "redirectTarget": null
     },
     {
@@ -1975,6 +2063,12 @@
       "redirectTarget": null
     },
     {
+      "route": "/category/salesforce-commerce-cloud/page/1/",
+      "builtArtifactPath": "public/category/salesforce-commerce-cloud/page/1/index.html",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/",
+      "redirectTarget": null
+    },
+    {
       "route": "/category/salesforce-commerce-cloud/release-notes/",
       "builtArtifactPath": "public/category/salesforce-commerce-cloud/release-notes/index.html",
       "canonicalUrl": "https://www.rhino-inquisitor.com/category/release-notes/",
@@ -1984,6 +2078,30 @@
       "route": "/category/salesforce-commerce-cloud/technical/",
       "builtArtifactPath": "public/category/salesforce-commerce-cloud/technical/index.html",
       "canonicalUrl": "https://www.rhino-inquisitor.com/category/technical/",
+      "redirectTarget": null
+    },
+    {
+      "route": "/category/salesforce-platform/page/1/",
+      "builtArtifactPath": "public/category/salesforce-platform/page/1/index.html",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/category/salesforce-platform/",
+      "redirectTarget": null
+    },
+    {
+      "route": "/category/sessions/page/1/",
+      "builtArtifactPath": "public/category/sessions/page/1/index.html",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/category/sessions/",
+      "redirectTarget": null
+    },
+    {
+      "route": "/category/technical/page/1/",
+      "builtArtifactPath": "public/category/technical/page/1/index.html",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/category/technical/",
+      "redirectTarget": null
+    },
+    {
+      "route": "/category/video/page/1/",
+      "builtArtifactPath": "public/category/video/page/1/index.html",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/category/video/",
       "redirectTarget": null
     },
     {
@@ -2048,12 +2166,12 @@
     }
   ],
   "summary": {
-    "sitemapEntryCount": 212,
+    "sitemapEntryCount": 203,
     "sitemapDocumentCount": 1,
     "invalidSitemapEntryCount": 0,
-    "aliasHelperCount": 21,
+    "aliasHelperCount": 34,
     "aliasInclusionFailures": 0,
-    "noindexPageCount": 23,
+    "noindexPageCount": 39,
     "unexpectedNoindexPageCount": 0,
     "disallowedSitemapRouteCount": 0,
     "blockingFailures": 0

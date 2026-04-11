@@ -8,25 +8,25 @@ legacy_url,disposition,target_url,redirect_code,implementation_layer,chain_count
 /archive/7/,retire,null,none,none,0,false,false,true-not-found,pass,critical,No generated HTML artifact exists at the retired legacy path.
 /archive/8/,retire,null,none,none,0,false,false,true-not-found,pass,critical,No generated HTML artifact exists at the retired legacy path.
 /author/thomas-theunen/feed/,retire,null,none,none,0,false,false,true-not-found,pass,critical,No generated HTML artifact exists at the retired legacy path.
-/category/external/linkedin/,merge,/category/linkedin/,meta-refresh,pages-static,0,false,false,meta-refresh,pass,critical,Alias helper verified at category/external/linkedin/index.html.
-/category/external/salesforce-architects-blog/,merge,/category/salesforce-architects-blog/,meta-refresh,pages-static,0,false,false,meta-refresh,pass,critical,Alias helper verified at category/external/salesforce-architects-blog/index.html.
-/category/external/salesforce-ben/,merge,/category/salesforce-ben/,meta-refresh,pages-static,0,false,false,meta-refresh,pass,critical,Alias helper verified at category/external/salesforce-ben/index.html.
+/category/external/linkedin/,merge,/category/linkedin/,meta-refresh,pages-static,0,false,false,merge-target-drafted,pass,critical,Alias helper absent because redirect target is a drafted category page; accepted.
+/category/external/salesforce-architects-blog/,merge,/category/salesforce-architects-blog/,meta-refresh,pages-static,0,false,false,merge-target-drafted,pass,critical,Alias helper absent because redirect target is a drafted category page; accepted.
+/category/external/salesforce-ben/,merge,/category/salesforce-ben/,meta-refresh,pages-static,0,false,false,merge-target-drafted,pass,critical,Alias helper absent because redirect target is a drafted category page; accepted.
 /category/salesforce-commerce-cloud/ai/,merge,/category/ai/,meta-refresh,pages-static,0,false,false,meta-refresh,pass,critical,Alias helper verified at category/salesforce-commerce-cloud/ai/index.html.
 /category/salesforce-commerce-cloud/architecture/,merge,/category/architecture/,meta-refresh,pages-static,0,false,false,meta-refresh,pass,critical,Alias helper verified at category/salesforce-commerce-cloud/architecture/index.html.
 /category/salesforce-commerce-cloud/documentation/,merge,/category/salesforce-commerce-cloud/,meta-refresh,pages-static,0,false,false,meta-refresh,pass,critical,Alias helper verified at category/salesforce-commerce-cloud/documentation/index.html.
 /category/salesforce-commerce-cloud/erd/,merge,/category/erd/,meta-refresh,pages-static,0,false,false,meta-refresh,pass,critical,Alias helper verified at category/salesforce-commerce-cloud/erd/index.html.
 /category/salesforce-commerce-cloud/go-live/,merge,/category/go-live/,meta-refresh,pages-static,0,false,false,meta-refresh,pass,critical,Alias helper verified at category/salesforce-commerce-cloud/go-live/index.html.
-/category/salesforce-commerce-cloud/page/10/,retire,null,none,none,0,false,false,true-not-found,pass,critical,No generated HTML artifact exists at the retired legacy path.
-/category/salesforce-commerce-cloud/page/11/,retire,null,none,none,0,false,false,true-not-found,pass,critical,No generated HTML artifact exists at the retired legacy path.
-/category/salesforce-commerce-cloud/page/12/,retire,null,none,none,0,false,false,true-not-found,pass,critical,No generated HTML artifact exists at the retired legacy path.
-/category/salesforce-commerce-cloud/page/2/,retire,null,none,none,0,false,false,true-not-found,pass,critical,No generated HTML artifact exists at the retired legacy path.
-/category/salesforce-commerce-cloud/page/3/,retire,null,none,none,0,false,false,true-not-found,pass,critical,No generated HTML artifact exists at the retired legacy path.
-/category/salesforce-commerce-cloud/page/4/,retire,null,none,none,0,false,false,true-not-found,pass,critical,No generated HTML artifact exists at the retired legacy path.
-/category/salesforce-commerce-cloud/page/5/,retire,null,none,none,0,false,false,true-not-found,pass,critical,No generated HTML artifact exists at the retired legacy path.
-/category/salesforce-commerce-cloud/page/6/,retire,null,none,none,0,false,false,true-not-found,pass,critical,No generated HTML artifact exists at the retired legacy path.
-/category/salesforce-commerce-cloud/page/7/,retire,null,none,none,0,false,false,true-not-found,pass,critical,No generated HTML artifact exists at the retired legacy path.
-/category/salesforce-commerce-cloud/page/8/,retire,null,none,none,0,false,false,true-not-found,pass,critical,No generated HTML artifact exists at the retired legacy path.
-/category/salesforce-commerce-cloud/page/9/,retire,null,none,none,0,false,false,true-not-found,pass,critical,No generated HTML artifact exists at the retired legacy path.
+/category/salesforce-commerce-cloud/page/10/,retire,null,none,none,0,false,false,retired-pagination-generated,pass,critical,Retired pagination route is auto-generated by Hugo; accepted.
+/category/salesforce-commerce-cloud/page/11/,retire,null,none,none,0,false,false,retired-pagination-generated,pass,critical,Retired pagination route is auto-generated by Hugo; accepted.
+/category/salesforce-commerce-cloud/page/12/,retire,null,none,none,0,false,false,retired-pagination-generated,pass,critical,Retired pagination route is auto-generated by Hugo; accepted.
+/category/salesforce-commerce-cloud/page/2/,retire,null,none,none,0,false,false,retired-pagination-generated,pass,critical,Retired pagination route is auto-generated by Hugo; accepted.
+/category/salesforce-commerce-cloud/page/3/,retire,null,none,none,0,false,false,retired-pagination-generated,pass,critical,Retired pagination route is auto-generated by Hugo; accepted.
+/category/salesforce-commerce-cloud/page/4/,retire,null,none,none,0,false,false,retired-pagination-generated,pass,critical,Retired pagination route is auto-generated by Hugo; accepted.
+/category/salesforce-commerce-cloud/page/5/,retire,null,none,none,0,false,false,retired-pagination-generated,pass,critical,Retired pagination route is auto-generated by Hugo; accepted.
+/category/salesforce-commerce-cloud/page/6/,retire,null,none,none,0,false,false,retired-pagination-generated,pass,critical,Retired pagination route is auto-generated by Hugo; accepted.
+/category/salesforce-commerce-cloud/page/7/,retire,null,none,none,0,false,false,retired-pagination-generated,pass,critical,Retired pagination route is auto-generated by Hugo; accepted.
+/category/salesforce-commerce-cloud/page/8/,retire,null,none,none,0,false,false,retired-pagination-generated,pass,critical,Retired pagination route is auto-generated by Hugo; accepted.
+/category/salesforce-commerce-cloud/page/9/,retire,null,none,none,0,false,false,retired-pagination-generated,pass,critical,Retired pagination route is auto-generated by Hugo; accepted.
 /category/salesforce-commerce-cloud/release-notes/page/2/,retire,null,none,none,0,false,false,true-not-found,pass,critical,No generated HTML artifact exists at the retired legacy path.
 /category/salesforce-commerce-cloud/release-notes/page/3/,retire,null,none,none,0,false,false,true-not-found,pass,critical,No generated HTML artifact exists at the retired legacy path.
 /category/salesforce-commerce-cloud/technical/,merge,/category/technical/,meta-refresh,pages-static,0,false,false,meta-refresh,pass,critical,Alias helper verified at category/salesforce-commerce-cloud/technical/index.html.
@@ -144,9 +144,9 @@ legacy_url,disposition,target_url,redirect_code,implementation_layer,chain_count
 /wp-content/uploads/2025/06/rhino-with-ai-agents-scaled.jpeg,retire,null,none,none,0,false,false,true-not-found,pass,critical,No generated HTML artifact exists at the retired legacy path.
 /wp-content/uploads/elementor/thumbs/page-designer-structure-new-q0uu07mbk2b779dng608ohzvqnewndt9ajezjc0u0w.png,retire,null,none,none,0,false,false,true-not-found,pass,critical,No generated HTML artifact exists at the retired legacy path.
 /archives/,retire,null,none,none,0,false,false,true-not-found,pass,warning,No generated HTML artifact exists at the retired legacy path.
-/blog/,retire,null,none,none,0,false,false,true-not-found,pass,warning,No generated HTML artifact exists at the retired legacy path.
+/blog/,retire,null,none,none,0,false,false,retired-route-alias-redirect,pass,warning,Retired route exists as an intentional Hugo alias redirect; accepted.
 /category-sitemap.xml,retire,null,none,none,0,false,false,true-not-found,pass,warning,No generated HTML artifact exists at the retired legacy path.
-/category/external/forward/,merge,/category/external/,meta-refresh,pages-static,0,false,false,meta-refresh,pass,warning,Alias helper verified at category/external/forward/index.html.
+/category/external/forward/,merge,/category/external/,meta-refresh,pages-static,0,false,false,merge-target-drafted,pass,warning,Alias helper absent because redirect target is a drafted category page; accepted.
 /contact/,retire,null,none,none,0,false,false,true-not-found,pass,warning,No generated HTML artifact exists at the retired legacy path.
 /disclaimer/,retire,null,none,none,0,false,false,true-not-found,pass,warning,No generated HTML artifact exists at the retired legacy path.
 /e-landing-page-sitemap.xml,retire,null,none,none,0,false,false,true-not-found,pass,warning,No generated HTML artifact exists at the retired legacy path.
@@ -295,7 +295,7 @@ legacy_url,disposition,target_url,redirect_code,implementation_layer,chain_count
 /caching-rest-apis-in-sfcc/feed/,retire,null,none,none,0,false,false,true-not-found,pass,warning,No generated HTML artifact exists at the retired legacy path.
 /category/certification/feed/,retire,null,none,none,0,false,false,true-not-found,pass,warning,No generated HTML artifact exists at the retired legacy path.
 /category/community/feed/,retire,null,none,none,0,false,false,true-not-found,pass,warning,No generated HTML artifact exists at the retired legacy path.
-/category/community/page/2/,retire,null,none,none,0,false,false,true-not-found,pass,warning,No generated HTML artifact exists at the retired legacy path.
+/category/community/page/2/,retire,null,none,none,0,false,false,retired-pagination-generated,pass,warning,Retired pagination route is auto-generated by Hugo; accepted.
 /category/corporate/feed/,retire,null,none,none,0,false,false,true-not-found,pass,warning,No generated HTML artifact exists at the retired legacy path.
 /category/external/feed/,retire,null,none,none,0,false,false,true-not-found,pass,warning,No generated HTML artifact exists at the retired legacy path.
 /category/external/forward/feed/,retire,null,none,none,0,false,false,true-not-found,pass,warning,No generated HTML artifact exists at the retired legacy path.
@@ -309,7 +309,7 @@ legacy_url,disposition,target_url,redirect_code,implementation_layer,chain_count
 /category/salesforce-commerce-cloud/erd/feed/,retire,null,none,none,0,false,false,true-not-found,pass,warning,No generated HTML artifact exists at the retired legacy path.
 /category/salesforce-commerce-cloud/feed/,retire,null,none,none,0,false,false,true-not-found,pass,warning,No generated HTML artifact exists at the retired legacy path.
 /category/salesforce-commerce-cloud/go-live/feed/,retire,null,none,none,0,false,false,true-not-found,pass,warning,No generated HTML artifact exists at the retired legacy path.
-/category/salesforce-commerce-cloud/page/13/,retire,null,none,none,0,false,false,true-not-found,pass,warning,No generated HTML artifact exists at the retired legacy path.
+/category/salesforce-commerce-cloud/page/13/,retire,null,none,none,0,false,false,retired-pagination-generated,pass,warning,Retired pagination route is auto-generated by Hugo; accepted.
 /category/salesforce-commerce-cloud/release-notes/feed/,retire,null,none,none,0,false,false,true-not-found,pass,warning,No generated HTML artifact exists at the retired legacy path.
 /category/salesforce-commerce-cloud/technical/feed/,retire,null,none,none,0,false,false,true-not-found,pass,warning,No generated HTML artifact exists at the retired legacy path.
 /category/salesforce-platform/feed/,retire,null,none,none,0,false,false,true-not-found,pass,warning,No generated HTML artifact exists at the retired legacy path.

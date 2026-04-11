@@ -7,6 +7,8 @@ url: "/scaffold-readiness/"
 scaffoldFixture: true
 archiveExclude: true
 draft: false
+seo:
+  noindex: true
 author: "Engineering Owner"
 ---
 

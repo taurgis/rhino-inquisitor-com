@@ -13,9 +13,12 @@ import {
   toRepoRelative
 } from '../migration/url-validation-helpers.js';
 
+import { loadFrontMatterNoindexRoutes } from '../phase-8/seo-gate-helpers.js';
+
 const defaults = {
   manifestPath: path.join(repoRoot, 'migration/url-manifest.json'),
   publicRoot: path.join(repoRoot, 'public'),
+  contentRoot: path.join(repoRoot, 'src/content'),
   robotsPath: path.join(repoRoot, 'public/robots.txt'),
   reportPath: path.join(repoRoot, 'migration/reports/phase-5-crawl-control-audit.csv'),
   mode: 'production',
@@ -440,6 +443,7 @@ async function main() {
 
   const manifestEntries = await loadManifest(options.manifestPath);
   const manifestIndexIntent = collectManifestIndexIntent(manifestEntries);
+  const expectedNoindex = await loadFrontMatterNoindexRoutes(options.contentRoot);
   const robotsSource = await fs.readFile(options.robotsPath, 'utf8');
   const robotsData = parseRobotsFile(robotsSource);
   const expectedSitemapUrl = new URL('sitemap.xml', options.baseUrl).toString();
@@ -489,7 +493,7 @@ async function main() {
     const routeInfo = normalizeUrlLike(route);
     const robotsDecision = resolveRobotsRule(routeInfo.pathname, robotsData.wildcardRules);
     const manifestIndexable = manifestIndexIntent.has(route);
-    const specialNonIndexable = is404Route(route) || isFeedRoute(route) || redirectDetails.isRedirectPage;
+    const specialNonIndexable = is404Route(route) || isFeedRoute(route) || redirectDetails.isRedirectPage || expectedNoindex.routes.has(route);
     const expectedIndexable = options.mode === 'production'
       ? !specialNonIndexable
       : false;

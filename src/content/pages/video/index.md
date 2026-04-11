@@ -8,6 +8,8 @@ lastmod: '2022-08-16T17:25:15.000Z'
 url: /video/
 archiveExclude: true
 draft: false
+seo:
+  noindex: true
 author: Thomas Theunen
 heroImage: maxresdefault-7015ae5c52.jpg
 video:

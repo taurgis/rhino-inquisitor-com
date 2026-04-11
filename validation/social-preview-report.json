@@ -3,24 +3,24 @@
   "ticket": "RHI-087",
   "artifact": "social-preview-report",
   "status": "pass",
-  "rcTag": "phase-8-rc-v2",
-  "rcSha": "efdcefce5a51f1a3cf70d6b437b7b2868df39cb8",
-  "generatedAt": "2026-03-21T07:13:20.102Z",
+  "rcTag": "phase-8-rc-v3",
+  "rcSha": "bb7bd49e1e8292ea3dbc744dded428dcfcab48aa",
+  "generatedAt": "2026-04-11T19:31:42.086Z",
   "publicDir": "public",
   "sampleMatrix": {
     "path": "validation/sample-matrix.json",
-    "generatedAt": "2026-03-20T19:04:18Z"
+    "generatedAt": "2026-03-22T06:58:43Z"
   },
   "priorityRoutes": {
     "path": "validation/priority-routes.json",
-    "generatedAt": "2026-03-20T19:04:18Z"
+    "generatedAt": "2026-03-22T06:58:43Z"
   },
   "artifactProvenance": {
-    "gitHead": "ad674f0c0bee87d66c715c99539e0e47e55f1f79",
-    "gitHeadShort": "ad674f0c",
+    "gitHead": "c15a2d6140dee202a08fb66c6a078493f33081c9",
+    "gitHeadShort": "c15a2d61",
     "workspaceDirty": true,
-    "datasetRcTag": "phase-8-rc-v2",
-    "datasetRcSha": "efdcefce5a51f1a3cf70d6b437b7b2868df39cb8",
+    "datasetRcTag": "phase-8-rc-v3",
+    "datasetRcSha": "bb7bd49e1e8292ea3dbc744dded428dcfcab48aa",
     "matchesDatasetRc": false,
     "provenanceStatus": "branch-state",
     "note": "Artifact provenance differs from the frozen dataset RC or the workspace is dirty; treat this as branch-state evidence until a new RC is cut."
@@ -34,15 +34,15 @@
     "missingSocialImageSeverity": "blocking"
   },
   "summary": {
-    "totalRoutes": 61,
-    "checkedRoutes": 60,
+    "totalRoutes": 63,
+    "checkedRoutes": 62,
     "skippedRoutes": 1,
-    "passCount": 60,
+    "passCount": 62,
     "failCount": 0,
     "blockingFailures": 0,
     "warningCount": 21,
-    "routesWithOgImage": 60,
-    "routesWithTwitterImage": 60,
+    "routesWithOgImage": 62,
+    "routesWithTwitterImage": 62,
     "uniqueImageCount": 49,
     "unresolvedImageCount": 0,
     "lowDimensionWarnings": 20
@@ -1061,16 +1061,16 @@
       "warnings": [],
       "meta": {
         "title": "AI | Rhino Inquisitor",
-        "metaDescription": "Explore Rhino Inquisitor's AI archive for Salesforce Commerce Cloud articles, release notes, and migration-safe reference material.",
+        "metaDescription": "Browse Rhino Inquisitor articles about AI and related Salesforce Commerce Cloud guidance.",
         "expectedOgType": "website",
         "ogTitle": "AI | Rhino Inquisitor",
-        "ogDescription": "Explore Rhino Inquisitor's AI archive for Salesforce Commerce Cloud articles, release notes, and migration-safe reference material.",
+        "ogDescription": "Browse Rhino Inquisitor articles about AI and related Salesforce Commerce Cloud guidance.",
         "ogUrl": "https://www.rhino-inquisitor.com/category/ai/",
         "ogType": "website",
         "ogImage": "https://www.rhino-inquisitor.com/images/social-default.svg",
         "twitterCard": "summary_large_image",
         "twitterTitle": "AI | Rhino Inquisitor",
-        "twitterDescription": "Explore Rhino Inquisitor's AI archive for Salesforce Commerce Cloud articles, release notes, and migration-safe reference material.",
+        "twitterDescription": "Browse Rhino Inquisitor articles about AI and related Salesforce Commerce Cloud guidance.",
         "twitterImage": "https://www.rhino-inquisitor.com/images/social-default.svg"
       },
       "images": [
@@ -1110,16 +1110,16 @@
       "warnings": [],
       "meta": {
         "title": "Architecture | Rhino Inquisitor",
-        "metaDescription": "Explore Rhino Inquisitor's Architecture archive for Salesforce Commerce Cloud articles, release notes, and migration-safe reference material.",
+        "metaDescription": "Browse Rhino Inquisitor articles about Architecture and related Salesforce Commerce Cloud guidance.",
         "expectedOgType": "website",
         "ogTitle": "Architecture | Rhino Inquisitor",
-        "ogDescription": "Explore Rhino Inquisitor's Architecture archive for Salesforce Commerce Cloud articles, release notes, and migration-safe reference material.",
+        "ogDescription": "Browse Rhino Inquisitor articles about Architecture and related Salesforce Commerce Cloud guidance.",
         "ogUrl": "https://www.rhino-inquisitor.com/category/architecture/",
         "ogType": "website",
         "ogImage": "https://www.rhino-inquisitor.com/images/social-default.svg",
         "twitterCard": "summary_large_image",
         "twitterTitle": "Architecture | Rhino Inquisitor",
-        "twitterDescription": "Explore Rhino Inquisitor's Architecture archive for Salesforce Commerce Cloud articles, release notes, and migration-safe reference material.",
+        "twitterDescription": "Browse Rhino Inquisitor articles about Architecture and related Salesforce Commerce Cloud guidance.",
         "twitterImage": "https://www.rhino-inquisitor.com/images/social-default.svg"
       },
       "images": [
@@ -1159,16 +1159,16 @@
       "warnings": [],
       "meta": {
         "title": "Certification | Rhino Inquisitor",
-        "metaDescription": "Explore Rhino Inquisitor's Certification archive for Salesforce Commerce Cloud articles, release notes, and migration-safe reference material.",
+        "metaDescription": "Browse Rhino Inquisitor articles about Certification and related Salesforce Commerce Cloud guidance.",
         "expectedOgType": "website",
         "ogTitle": "Certification | Rhino Inquisitor",
-        "ogDescription": "Explore Rhino Inquisitor's Certification archive for Salesforce Commerce Cloud articles, release notes, and migration-safe reference material.",
+        "ogDescription": "Browse Rhino Inquisitor articles about Certification and related Salesforce Commerce Cloud guidance.",
         "ogUrl": "https://www.rhino-inquisitor.com/category/certification/",
         "ogType": "website",
         "ogImage": "https://www.rhino-inquisitor.com/images/social-default.svg",
         "twitterCard": "summary_large_image",
         "twitterTitle": "Certification | Rhino Inquisitor",
-        "twitterDescription": "Explore Rhino Inquisitor's Certification archive for Salesforce Commerce Cloud articles, release notes, and migration-safe reference material.",
+        "twitterDescription": "Browse Rhino Inquisitor articles about Certification and related Salesforce Commerce Cloud guidance.",
         "twitterImage": "https://www.rhino-inquisitor.com/images/social-default.svg"
       },
       "images": [
@@ -1208,16 +1208,16 @@
       "warnings": [],
       "meta": {
         "title": "Community | Rhino Inquisitor",
-        "metaDescription": "Posts and articles about the Salesforce Ohana community, including conferences, networking, and ecosystem thought leadership.",
+        "metaDescription": "Browse Rhino Inquisitor articles about Community and related Salesforce Commerce Cloud guidance.",
         "expectedOgType": "website",
         "ogTitle": "Community | Rhino Inquisitor",
-        "ogDescription": "Posts and articles about the Salesforce Ohana community, including conferences, networking, and ecosystem thought leadership.",
+        "ogDescription": "Browse Rhino Inquisitor articles about Community and related Salesforce Commerce Cloud guidance.",
         "ogUrl": "https://www.rhino-inquisitor.com/category/community/",
         "ogType": "website",
         "ogImage": "https://www.rhino-inquisitor.com/images/social-default.svg",
         "twitterCard": "summary_large_image",
         "twitterTitle": "Community | Rhino Inquisitor",
-        "twitterDescription": "Posts and articles about the Salesforce Ohana community, including conferences, networking, and ecosystem thought leadership.",
+        "twitterDescription": "Browse Rhino Inquisitor articles about Community and related Salesforce Commerce Cloud guidance.",
         "twitterImage": "https://www.rhino-inquisitor.com/images/social-default.svg"
       },
       "images": [
@@ -1257,16 +1257,16 @@
       "warnings": [],
       "meta": {
         "title": "Corporate | Rhino Inquisitor",
-        "metaDescription": "Explore Rhino Inquisitor's Corporate archive for Salesforce Commerce Cloud articles, release notes, and migration-safe reference material.",
+        "metaDescription": "Browse Rhino Inquisitor articles about Corporate and related Salesforce Commerce Cloud guidance.",
         "expectedOgType": "website",
         "ogTitle": "Corporate | Rhino Inquisitor",
-        "ogDescription": "Explore Rhino Inquisitor's Corporate archive for Salesforce Commerce Cloud articles, release notes, and migration-safe reference material.",
+        "ogDescription": "Browse Rhino Inquisitor articles about Corporate and related Salesforce Commerce Cloud guidance.",
         "ogUrl": "https://www.rhino-inquisitor.com/category/corporate/",
         "ogType": "website",
         "ogImage": "https://www.rhino-inquisitor.com/images/social-default.svg",
         "twitterCard": "summary_large_image",
         "twitterTitle": "Corporate | Rhino Inquisitor",
-        "twitterDescription": "Explore Rhino Inquisitor's Corporate archive for Salesforce Commerce Cloud articles, release notes, and migration-safe reference material.",
+        "twitterDescription": "Browse Rhino Inquisitor articles about Corporate and related Salesforce Commerce Cloud guidance.",
         "twitterImage": "https://www.rhino-inquisitor.com/images/social-default.svg"
       },
       "images": [
@@ -1307,16 +1307,16 @@
       "warnings": [],
       "meta": {
         "title": "Release Notes | Rhino Inquisitor",
-        "metaDescription": "Explore Rhino Inquisitor's Release Notes archive for Salesforce Commerce Cloud articles, release notes, and migration-safe reference material.",
+        "metaDescription": "Browse Rhino Inquisitor articles about Release Notes and related Salesforce Commerce Cloud guidance.",
         "expectedOgType": "website",
         "ogTitle": "Release Notes | Rhino Inquisitor",
-        "ogDescription": "Explore Rhino Inquisitor's Release Notes archive for Salesforce Commerce Cloud articles, release notes, and migration-safe reference material.",
+        "ogDescription": "Browse Rhino Inquisitor articles about Release Notes and related Salesforce Commerce Cloud guidance.",
         "ogUrl": "https://www.rhino-inquisitor.com/category/release-notes/",
         "ogType": "website",
         "ogImage": "https://www.rhino-inquisitor.com/images/social-default.svg",
         "twitterCard": "summary_large_image",
         "twitterTitle": "Release Notes | Rhino Inquisitor",
-        "twitterDescription": "Explore Rhino Inquisitor's Release Notes archive for Salesforce Commerce Cloud articles, release notes, and migration-safe reference material.",
+        "twitterDescription": "Browse Rhino Inquisitor articles about Release Notes and related Salesforce Commerce Cloud guidance.",
         "twitterImage": "https://www.rhino-inquisitor.com/images/social-default.svg"
       },
       "images": [
@@ -1406,16 +1406,16 @@
       "warnings": [],
       "meta": {
         "title": "Connecting the Clouds: Wedding or funeral | Rhino Inquisitor",
-        "metaDescription": "Connecting different clouds, in this case: B2C Commerce Cloud, CRM, and Marketing Cloud, to work together in harmony can be a challenge.",
+        "metaDescription": "A session on the real-world challenges of connecting B2C Commerce Cloud, CRM, and Marketing Cloud across security, GDPR, and delivery constraints.",
         "expectedOgType": "website",
         "ogTitle": "Connecting the Clouds: Wedding or funeral | Rhino Inquisitor",
-        "ogDescription": "Connecting different clouds, in this case: B2C Commerce Cloud, CRM, and Marketing Cloud, to work together in harmony can be a challenge.",
+        "ogDescription": "A session on the real-world challenges of connecting B2C Commerce Cloud, CRM, and Marketing Cloud across security, GDPR, and delivery constraints.",
         "ogUrl": "https://www.rhino-inquisitor.com/connecting-the-clouds-wedding-or-funeral/",
         "ogType": "website",
         "ogImage": "https://www.rhino-inquisitor.com/connecting-the-clouds-wedding-or-funeral/image-2-d99b4ba03b_hu_414112bc82f2c42d.webp",
         "twitterCard": "summary_large_image",
         "twitterTitle": "Connecting the Clouds: Wedding or funeral | Rhino Inquisitor",
-        "twitterDescription": "Connecting different clouds, in this case: B2C Commerce Cloud, CRM, and Marketing Cloud, to work together in harmony can be a challenge.",
+        "twitterDescription": "A session on the real-world challenges of connecting B2C Commerce Cloud, CRM, and Marketing Cloud across security, GDPR, and delivery constraints.",
         "twitterImage": "https://www.rhino-inquisitor.com/connecting-the-clouds-wedding-or-funeral/image-2-d99b4ba03b_hu_414112bc82f2c42d.webp"
       },
       "images": [
@@ -1455,16 +1455,16 @@
       "warnings": [],
       "meta": {
         "title": "Cookie Policy (EU) | Rhino Inquisitor",
-        "metaDescription": "Legacy Complianz document shortcode removed during migration. Recreate the required consent or cookie statement in Hugo before publishing.",
+        "metaDescription": "Learn how Rhino Inquisitor approaches cookies and browser storage on the current public Hugo site.",
         "expectedOgType": "website",
         "ogTitle": "Cookie Policy (EU) | Rhino Inquisitor",
-        "ogDescription": "Legacy Complianz document shortcode removed during migration. Recreate the required consent or cookie statement in Hugo before publishing.",
+        "ogDescription": "Learn how Rhino Inquisitor approaches cookies and browser storage on the current public Hugo site.",
         "ogUrl": "https://www.rhino-inquisitor.com/cookie-policy-eu/",
         "ogType": "website",
         "ogImage": "https://www.rhino-inquisitor.com/images/social-default.svg",
         "twitterCard": "summary_large_image",
         "twitterTitle": "Cookie Policy (EU) | Rhino Inquisitor",
-        "twitterDescription": "Legacy Complianz document shortcode removed during migration. Recreate the required consent or cookie statement in Hugo before publishing.",
+        "twitterDescription": "Learn how Rhino Inquisitor approaches cookies and browser storage on the current public Hugo site.",
         "twitterImage": "https://www.rhino-inquisitor.com/images/social-default.svg"
       },
       "images": [
@@ -1784,16 +1784,16 @@
       "warnings": [],
       "meta": {
         "title": "Headless | Rhino Inquisitor",
-        "metaDescription": "If your organization is looking for a way to improve its online presence and connect with more customers, Headless may be a good fit.",
+        "metaDescription": "A short headless-commerce primer from Thomas Theunen on why decoupled storefronts change customer experience and delivery flexibility.",
         "expectedOgType": "website",
         "ogTitle": "Headless | Rhino Inquisitor",
-        "ogDescription": "If your organization is looking for a way to improve its online presence and connect with more customers, Headless may be a good fit.",
+        "ogDescription": "A short headless-commerce primer from Thomas Theunen on why decoupled storefronts change customer experience and delivery flexibility.",
         "ogUrl": "https://www.rhino-inquisitor.com/headless/",
         "ogType": "website",
         "ogImage": "https://www.rhino-inquisitor.com/headless/headless-b54918a1ae_hu_5566e544fd276d2a.webp",
         "twitterCard": "summary_large_image",
         "twitterTitle": "Headless | Rhino Inquisitor",
-        "twitterDescription": "If your organization is looking for a way to improve its online presence and connect with more customers, Headless may be a good fit.",
+        "twitterDescription": "A short headless-commerce primer from Thomas Theunen on why decoupled storefronts change customer experience and delivery flexibility.",
         "twitterImage": "https://www.rhino-inquisitor.com/headless/headless-b54918a1ae_hu_5566e544fd276d2a.webp"
       },
       "images": [
@@ -2460,16 +2460,16 @@
       "warnings": [],
       "meta": {
         "title": "Me, Myself, and Headless: A Composable Commerce Cloud story | Rhino Inquisitor",
-        "metaDescription": "Salesforce Commerce Cloud has shifted its focus to investing in Headless development for the past two years. Mobify was acquired!",
+        "metaDescription": "A session on Salesforce Commerce Cloud's headless direction, PWA Kit, and what composable architecture means for existing implementation teams.",
         "expectedOgType": "website",
         "ogTitle": "Me, Myself, and Headless: A Composable Commerce Cloud story | Rhino Inquisitor",
-        "ogDescription": "Salesforce Commerce Cloud has shifted its focus to investing in Headless development for the past two years. Mobify was acquired!",
+        "ogDescription": "A session on Salesforce Commerce Cloud's headless direction, PWA Kit, and what composable architecture means for existing implementation teams.",
         "ogUrl": "https://www.rhino-inquisitor.com/me-myself-and-headless-a-composable-commerce-cloud-story/",
         "ogType": "website",
         "ogImage": "https://www.rhino-inquisitor.com/me-myself-and-headless-a-composable-commerce-cloud-story/image-596c8a1379_hu_fe30b669a6827785.webp",
         "twitterCard": "summary_large_image",
         "twitterTitle": "Me, Myself, and Headless: A Composable Commerce Cloud story | Rhino Inquisitor",
-        "twitterDescription": "Salesforce Commerce Cloud has shifted its focus to investing in Headless development for the past two years. Mobify was acquired!",
+        "twitterDescription": "A session on Salesforce Commerce Cloud's headless direction, PWA Kit, and what composable architecture means for existing implementation teams.",
         "twitterImage": "https://www.rhino-inquisitor.com/me-myself-and-headless-a-composable-commerce-cloud-story/image-596c8a1379_hu_fe30b669a6827785.webp"
       },
       "images": [
@@ -2484,6 +2484,104 @@
           "assetPath": "public/me-myself-and-headless-a-composable-commerce-cloud-story/image-596c8a1379_hu_fe30b669a6827785.webp",
           "width": 1280,
           "height": 720,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "route": "/pages/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/pages/",
+      "sources": [
+        {
+          "type": "sample-matrix",
+          "group": "archive_pages",
+          "family": "archive",
+          "title": null,
+          "contentPath": null,
+          "selectionReason": "Reference-page section list route retained to cover list rendering and archive-card behavior for the pages section."
+        }
+      ],
+      "builtArtifactPath": "public/pages/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [],
+      "meta": {
+        "title": "Resources | Rhino Inquisitor",
+        "metaDescription": "Reference pages and evergreen public resources.",
+        "expectedOgType": "website",
+        "ogTitle": "Resources | Rhino Inquisitor",
+        "ogDescription": "Reference pages and evergreen public resources.",
+        "ogUrl": "https://www.rhino-inquisitor.com/pages/",
+        "ogType": "website",
+        "ogImage": "https://www.rhino-inquisitor.com/images/social-default.svg",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Resources | Rhino Inquisitor",
+        "twitterDescription": "Reference pages and evergreen public resources.",
+        "twitterImage": "https://www.rhino-inquisitor.com/images/social-default.svg"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/images/social-default.svg",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/images/social-default.svg",
+          "width": 1200,
+          "height": 630,
+          "httpStatus": 200,
+          "findings": [],
+          "warnings": []
+        }
+      ]
+    },
+    {
+      "route": "/pages/page/2/",
+      "expectedUrl": "https://www.rhino-inquisitor.com/pages/page/2/",
+      "sources": [
+        {
+          "type": "sample-matrix",
+          "group": "archive_pages",
+          "family": "archive",
+          "title": null,
+          "contentPath": null,
+          "selectionReason": "Paginated reference-page archive route retained to cover rel=next pagination behavior on the pages section."
+        }
+      ],
+      "builtArtifactPath": "public/pages/page/2/index.html",
+      "result": "pass",
+      "blockingFindings": [],
+      "warnings": [],
+      "meta": {
+        "title": "Resources | Page 2 | Rhino Inquisitor",
+        "metaDescription": "Reference pages and evergreen public resources Page 2.",
+        "expectedOgType": "website",
+        "ogTitle": "Resources | Page 2 | Rhino Inquisitor",
+        "ogDescription": "Reference pages and evergreen public resources Page 2.",
+        "ogUrl": "https://www.rhino-inquisitor.com/pages/page/2/",
+        "ogType": "website",
+        "ogImage": "https://www.rhino-inquisitor.com/images/social-default.svg",
+        "twitterCard": "summary_large_image",
+        "twitterTitle": "Resources | Page 2 | Rhino Inquisitor",
+        "twitterDescription": "Reference pages and evergreen public resources Page 2.",
+        "twitterImage": "https://www.rhino-inquisitor.com/images/social-default.svg"
+      },
+      "images": [
+        {
+          "tagNames": [
+            "og:image",
+            "twitter:image"
+          ],
+          "url": "https://www.rhino-inquisitor.com/images/social-default.svg",
+          "host": "www.rhino-inquisitor.com",
+          "resolved": true,
+          "assetPath": "public/images/social-default.svg",
+          "width": 1200,
+          "height": 630,
           "httpStatus": 200,
           "findings": [],
           "warnings": []
@@ -2509,16 +2607,16 @@
       "warnings": [],
       "meta": {
         "title": "Posts | Rhino Inquisitor",
-        "metaDescription": "Find deep dives, guides, and best practices from the Rhino Inquisitor archive.",
+        "metaDescription": "Find deep dives, guides, and best practices.",
         "expectedOgType": "website",
         "ogTitle": "Posts | Rhino Inquisitor",
-        "ogDescription": "Find deep dives, guides, and best practices from the Rhino Inquisitor archive.",
+        "ogDescription": "Find deep dives, guides, and best practices.",
         "ogUrl": "https://www.rhino-inquisitor.com/posts/",
         "ogType": "website",
         "ogImage": "https://www.rhino-inquisitor.com/images/social-default.svg",
         "twitterCard": "summary_large_image",
         "twitterTitle": "Posts | Rhino Inquisitor",
-        "twitterDescription": "Find deep dives, guides, and best practices from the Rhino Inquisitor archive.",
+        "twitterDescription": "Find deep dives, guides, and best practices.",
         "twitterImage": "https://www.rhino-inquisitor.com/images/social-default.svg"
       },
       "images": [
@@ -2558,16 +2656,16 @@
       "warnings": [],
       "meta": {
         "title": "Privacy Policy | Rhino Inquisitor",
-        "metaDescription": "Who we are Our website address is https://www.rhino-inquisitor.com/. Explore the full page on Rhino Inquisitor for additional context.",
+        "metaDescription": "Learn how Rhino Inquisitor handles basic request data, embedded media, and privacy questions on the current public Hugo site.",
         "expectedOgType": "website",
         "ogTitle": "Privacy Policy | Rhino Inquisitor",
-        "ogDescription": "Who we are Our website address is https://www.rhino-inquisitor.com/. Explore the full page on Rhino Inquisitor for additional context.",
+        "ogDescription": "Learn how Rhino Inquisitor handles basic request data, embedded media, and privacy questions on the current public Hugo site.",
         "ogUrl": "https://www.rhino-inquisitor.com/privacy-policy/",
         "ogType": "website",
         "ogImage": "https://www.rhino-inquisitor.com/images/social-default.svg",
         "twitterCard": "summary_large_image",
         "twitterTitle": "Privacy Policy | Rhino Inquisitor",
-        "twitterDescription": "Who we are Our website address is https://www.rhino-inquisitor.com/. Explore the full page on Rhino Inquisitor for additional context.",
+        "twitterDescription": "Learn how Rhino Inquisitor handles basic request data, embedded media, and privacy questions on the current public Hugo site.",
         "twitterImage": "https://www.rhino-inquisitor.com/images/social-default.svg"
       },
       "images": [
@@ -2658,16 +2756,16 @@
       ],
       "meta": {
         "title": "Salesforce B2C Commerce Cloud 22.9 release | Rhino Inquisitor",
-        "metaDescription": "With Salesforce B2C Commerce Cloud, you get new candy to play with every month. What does this month's jar have in store for us?",
+        "metaDescription": "Explore the Salesforce B2C Commerce Cloud 22.9 release, from Page Designer copy and paste to Shopper Context updates and Salesforce Payments changes.",
         "expectedOgType": "article",
         "ogTitle": "Salesforce B2C Commerce Cloud 22.9 release | Rhino Inquisitor",
-        "ogDescription": "With Salesforce B2C Commerce Cloud, you get new candy to play with every month. What does this month's jar have in store for us?",
+        "ogDescription": "Explore the Salesforce B2C Commerce Cloud 22.9 release, from Page Designer copy and paste to Shopper Context updates and Salesforce Payments changes.",
         "ogUrl": "https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-22-9-release/",
         "ogType": "article",
         "ogImage": "https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-22-9-release/copy-paste-page-designer-full-d97d9a9ee9_hu_eff7d47bdd25d99e.webp",
         "twitterCard": "summary_large_image",
         "twitterTitle": "Salesforce B2C Commerce Cloud 22.9 release | Rhino Inquisitor",
-        "twitterDescription": "With Salesforce B2C Commerce Cloud, you get new candy to play with every month. What does this month's jar have in store for us?",
+        "twitterDescription": "Explore the Salesforce B2C Commerce Cloud 22.9 release, from Page Designer copy and paste to Shopper Context updates and Salesforce Payments changes.",
         "twitterImage": "https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-22-9-release/copy-paste-page-designer-full-d97d9a9ee9_hu_eff7d47bdd25d99e.webp"
       },
       "images": [
@@ -3128,16 +3226,16 @@
       "warnings": [],
       "meta": {
         "title": "SWC And Storybook: Error: Failed to load native binding | Rhino Inquisitor",
-        "metaDescription": "When switching between my M1 MacBook and Intel X64 MacBook today, I ran into an odd error: Solution Deleting my package-lock.json file and node\\",
+        "metaDescription": "Fix the SWC Storybook native binding error after switching between Apple Silicon and Intel environments by reinstalling dependencies cleanly.",
         "expectedOgType": "website",
         "ogTitle": "SWC And Storybook: Error: Failed to load native binding | Rhino Inquisitor",
-        "ogDescription": "When switching between my M1 MacBook and Intel X64 MacBook today, I ran into an odd error: Solution Deleting my package-lock.json file and node\\",
+        "ogDescription": "Fix the SWC Storybook native binding error after switching between Apple Silicon and Intel environments by reinstalling dependencies cleanly.",
         "ogUrl": "https://www.rhino-inquisitor.com/swc-and-storybook-error-failed-to-load-native-binding/",
         "ogType": "website",
         "ogImage": "https://www.rhino-inquisitor.com/images/social-default.svg",
         "twitterCard": "summary_large_image",
         "twitterTitle": "SWC And Storybook: Error: Failed to load native binding | Rhino Inquisitor",
-        "twitterDescription": "When switching between my M1 MacBook and Intel X64 MacBook today, I ran into an odd error: Solution Deleting my package-lock.json file and node\\",
+        "twitterDescription": "Fix the SWC Storybook native binding error after switching between Apple Silicon and Intel environments by reinstalling dependencies cleanly.",
         "twitterImage": "https://www.rhino-inquisitor.com/images/social-default.svg"
       },
       "images": [
@@ -3276,16 +3374,16 @@
       "warnings": [],
       "meta": {
         "title": "The path to being an Architect | Rhino Inquisitor",
-        "metaDescription": "The journey to being an architect has assumed many forms over the years, and does it all start at development?",
+        "metaDescription": "A podcast conversation about moving from hands-on development into solution, technical, and enterprise architecture roles in commerce delivery.",
         "expectedOgType": "website",
         "ogTitle": "The path to being an Architect | Rhino Inquisitor",
-        "ogDescription": "The journey to being an architect has assumed many forms over the years, and does it all start at development?",
+        "ogDescription": "A podcast conversation about moving from hands-on development into solution, technical, and enterprise architecture roles in commerce delivery.",
         "ogUrl": "https://www.rhino-inquisitor.com/the-path-to-being-an-architect/",
         "ogType": "website",
         "ogImage": "https://www.rhino-inquisitor.com/the-path-to-being-an-architect/path-to-being-an-architect-576cef411b_hu_e771a69029418bae.webp",
         "twitterCard": "summary_large_image",
         "twitterTitle": "The path to being an Architect | Rhino Inquisitor",
-        "twitterDescription": "The journey to being an architect has assumed many forms over the years, and does it all start at development?",
+        "twitterDescription": "A podcast conversation about moving from hands-on development into solution, technical, and enterprise architecture roles in commerce delivery.",
         "twitterImage": "https://www.rhino-inquisitor.com/the-path-to-being-an-architect/path-to-being-an-architect-576cef411b_hu_e771a69029418bae.webp"
       },
       "images": [

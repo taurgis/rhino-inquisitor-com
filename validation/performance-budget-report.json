@@ -5,7 +5,7 @@
   "status": "pass",
   "rcTag": "phase-8-rc-v3",
   "rcSha": "bb7bd49e1e8292ea3dbc744dded428dcfcab48aa",
-  "generatedAt": "2026-04-07T10:45:03.206Z",
+  "generatedAt": "2026-04-11T19:36:16.788Z",
   "publicDir": "public",
   "sampleMatrix": {
     "path": "validation/sample-matrix.json",
@@ -16,8 +16,8 @@
   },
   "lhciRoot": "validation/lhci-report",
   "artifactProvenance": {
-    "gitHead": "042208d1c3a5afeb2c981cc716b6bb2ea5fdb29d",
-    "gitHeadShort": "042208d1",
+    "gitHead": "c15a2d6140dee202a08fb66c6a078493f33081c9",
+    "gitHeadShort": "c15a2d61",
     "workspaceDirty": true,
     "datasetRcTag": "phase-8-rc-v3",
     "datasetRcSha": "bb7bd49e1e8292ea3dbc744dded428dcfcab48aa",
@@ -82,8 +82,8 @@
       "budget": {
         "blocking": true,
         "thresholdBytes": 174080,
-        "totalGzipBytes": 112893,
-        "totalGzipKb": 110.25,
+        "totalGzipBytes": 114558,
+        "totalGzipKb": 111.87,
         "criticalAssets": [
           {
             "type": "image",
@@ -101,54 +101,54 @@
           },
           {
             "type": "preload",
-            "assetPath": "styles/site.min.363283702f06b1fe1cdbf5371d1acb682d7e139566b04cfab64bc274fdbb4ec0.css",
-            "rawBytes": 54718,
-            "gzipBytes": 10536,
+            "assetPath": "styles/site.min.6b79737502d6783c667b0333dc69db8d4b727c5323c8e5f07273f252344d0e27.css",
+            "rawBytes": 62514,
+            "gzipBytes": 11609,
             "as": "style"
           },
           {
             "type": "document",
             "assetPath": "index.html",
-            "rawBytes": 28311,
-            "gzipBytes": 8185
+            "rawBytes": 31534,
+            "gzipBytes": 8777
           }
         ]
       },
       "profiles": {
         "mobile": {
           "profile": "mobile",
-          "url": "http://localhost:52918/",
-          "htmlReportPath": "validation/lhci-report/mobile/localhost--2026_04_07_09_45_00.report.html",
-          "jsonReportPath": "validation/lhci-report/mobile/localhost--2026_04_07_09_45_00.report.json",
+          "url": "http://localhost:50078/",
+          "htmlReportPath": "validation/lhci-report/mobile/localhost--2026_04_11_19_33_14.report.html",
+          "jsonReportPath": "validation/lhci-report/mobile/localhost--2026_04_11_19_33_14.report.json",
           "scores": {
             "performance": 100,
             "accessibility": 96,
             "seo": 100,
-            "bestPractices": 96
+            "bestPractices": 100
           },
           "metrics": {
-            "lcpMs": 1432.3426,
+            "lcpMs": 1353.257,
             "inpMs": null,
-            "cls": 0.017018,
-            "ttiMs": 1439.8426
+            "cls": 0,
+            "ttiMs": 1368.257
           }
         },
         "desktop": {
           "profile": "desktop",
-          "url": "http://localhost:54316/",
-          "htmlReportPath": "validation/lhci-report/desktop/localhost--2026_04_07_09_47_34.report.html",
-          "jsonReportPath": "validation/lhci-report/desktop/localhost--2026_04_07_09_47_34.report.json",
+          "url": "http://localhost:50399/",
+          "htmlReportPath": "validation/lhci-report/desktop/localhost--2026_04_11_19_34_55.report.html",
+          "jsonReportPath": "validation/lhci-report/desktop/localhost--2026_04_11_19_34_55.report.json",
           "scores": {
             "performance": 100,
             "accessibility": 100,
             "seo": 100,
-            "bestPractices": 96
+            "bestPractices": 100
           },
           "metrics": {
-            "lcpMs": 324.5744,
+            "lcpMs": 303.7063,
             "inpMs": null,
-            "cls": 0.018183,
-            "ttiMs": 324.5744
+            "cls": 0.013772,
+            "ttiMs": 305.7063
           }
         }
       },
@@ -170,8 +170,8 @@
             },
             "bestPractices": {
               "baseline": 100,
-              "current": 96,
-              "delta": -4
+              "current": 100,
+              "delta": 0
             },
             "seo": {
               "baseline": 100,
@@ -182,8 +182,8 @@
           "metrics": {
             "lcpMs": {
               "baseline": 3797,
-              "current": 1432.3426,
-              "delta": -2364.66
+              "current": 1353.257,
+              "delta": -2443.74
             },
             "inpMs": {
               "baseline": null,
@@ -192,8 +192,8 @@
             },
             "cls": {
               "baseline": 0,
-              "current": 0.017018,
-              "delta": 0.02
+              "current": 0,
+              "delta": 0
             }
           }
         },
@@ -214,8 +214,8 @@
             },
             "bestPractices": {
               "baseline": 100,
-              "current": 96,
-              "delta": -4
+              "current": 100,
+              "delta": 0
             },
             "seo": {
               "baseline": 100,
@@ -226,8 +226,8 @@
           "metrics": {
             "lcpMs": {
               "baseline": 889,
-              "current": 324.5744,
-              "delta": -564.43
+              "current": 303.7063,
+              "delta": -585.29
             },
             "inpMs": {
               "baseline": null,
@@ -236,8 +236,8 @@
             },
             "cls": {
               "baseline": 0,
-              "current": 0.018183,
-              "delta": 0.02
+              "current": 0.013772,
+              "delta": 0.01
             }
           }
         }
@@ -255,8 +255,8 @@
       "budget": {
         "blocking": true,
         "thresholdBytes": 174080,
-        "totalGzipBytes": 136038,
-        "totalGzipKb": 132.85,
+        "totalGzipBytes": 137864,
+        "totalGzipKb": 134.63,
         "criticalAssets": [
           {
             "type": "image",
@@ -275,14 +275,14 @@
           {
             "type": "document",
             "assetPath": "real-time-inventory-checks-in-sfcc/index.html",
-            "rawBytes": 47533,
-            "gzipBytes": 14690
+            "rawBytes": 51099,
+            "gzipBytes": 15443
           },
           {
             "type": "preload",
-            "assetPath": "styles/site.min.363283702f06b1fe1cdbf5371d1acb682d7e139566b04cfab64bc274fdbb4ec0.css",
-            "rawBytes": 54718,
-            "gzipBytes": 10536,
+            "assetPath": "styles/site.min.6b79737502d6783c667b0333dc69db8d4b727c5323c8e5f07273f252344d0e27.css",
+            "rawBytes": 62514,
+            "gzipBytes": 11609,
             "as": "style"
           },
           {
@@ -297,38 +297,38 @@
       "profiles": {
         "mobile": {
           "profile": "mobile",
-          "url": "http://localhost:52918/real-time-inventory-checks-in-sfcc/",
-          "htmlReportPath": "validation/lhci-report/mobile/localhost-real_time_inventory_checks_in_sfcc_-2026_04_07_09_45_44.report.html",
-          "jsonReportPath": "validation/lhci-report/mobile/localhost-real_time_inventory_checks_in_sfcc_-2026_04_07_09_45_44.report.json",
+          "url": "http://localhost:50078/real-time-inventory-checks-in-sfcc/",
+          "htmlReportPath": "validation/lhci-report/mobile/localhost-real_time_inventory_checks_in_sfcc_-2026_04_11_19_33_45.report.html",
+          "jsonReportPath": "validation/lhci-report/mobile/localhost-real_time_inventory_checks_in_sfcc_-2026_04_11_19_33_45.report.json",
           "scores": {
             "performance": 100,
             "accessibility": 100,
             "seo": 100,
-            "bestPractices": 96
+            "bestPractices": 100
           },
           "metrics": {
-            "lcpMs": 1508.3362,
+            "lcpMs": 1427.8298,
             "inpMs": null,
             "cls": 0,
-            "ttiMs": 1508.3362000000002
+            "ttiMs": 1435.3298
           }
         },
         "desktop": {
           "profile": "desktop",
-          "url": "http://localhost:54316/real-time-inventory-checks-in-sfcc/",
-          "htmlReportPath": "validation/lhci-report/desktop/localhost-real_time_inventory_checks_in_sfcc_-2026_04_07_09_47_44.report.html",
-          "jsonReportPath": "validation/lhci-report/desktop/localhost-real_time_inventory_checks_in_sfcc_-2026_04_07_09_47_44.report.json",
+          "url": "http://localhost:50399/real-time-inventory-checks-in-sfcc/",
+          "htmlReportPath": "validation/lhci-report/desktop/localhost-real_time_inventory_checks_in_sfcc_-2026_04_11_19_35_15.report.html",
+          "jsonReportPath": "validation/lhci-report/desktop/localhost-real_time_inventory_checks_in_sfcc_-2026_04_11_19_35_15.report.json",
           "scores": {
             "performance": 100,
             "accessibility": 100,
             "seo": 100,
-            "bestPractices": 96
+            "bestPractices": 100
           },
           "metrics": {
-            "lcpMs": 364.0978,
+            "lcpMs": 440,
             "inpMs": null,
-            "cls": 0.000354,
-            "ttiMs": 364.0978
+            "cls": 0.000293,
+            "ttiMs": 442
           }
         }
       },
@@ -350,8 +350,8 @@
             },
             "bestPractices": {
               "baseline": 100,
-              "current": 96,
-              "delta": -4
+              "current": 100,
+              "delta": 0
             },
             "seo": {
               "baseline": 100,
@@ -362,8 +362,8 @@
           "metrics": {
             "lcpMs": {
               "baseline": 5786,
-              "current": 1508.3362,
-              "delta": -4277.66
+              "current": 1427.8298,
+              "delta": -4358.17
             },
             "inpMs": {
               "baseline": null,
@@ -394,8 +394,8 @@
             },
             "bestPractices": {
               "baseline": 100,
-              "current": 96,
-              "delta": -4
+              "current": 100,
+              "delta": 0
             },
             "seo": {
               "baseline": 100,
@@ -406,8 +406,8 @@
           "metrics": {
             "lcpMs": {
               "baseline": 1231,
-              "current": 364.0978,
-              "delta": -866.9
+              "current": 440,
+              "delta": -791
             },
             "inpMs": {
               "baseline": null,
@@ -416,7 +416,7 @@
             },
             "cls": {
               "baseline": 0.002,
-              "current": 0.000354,
+              "current": 0.000293,
               "delta": 0
             }
           }
@@ -435,8 +435,8 @@
       "budget": {
         "blocking": false,
         "thresholdBytes": 174080,
-        "totalGzipBytes": 136413,
-        "totalGzipKb": 133.22,
+        "totalGzipBytes": 138541,
+        "totalGzipKb": 135.29,
         "criticalAssets": [
           {
             "type": "image",
@@ -454,16 +454,16 @@
           },
           {
             "type": "preload",
-            "assetPath": "styles/site.min.363283702f06b1fe1cdbf5371d1acb682d7e139566b04cfab64bc274fdbb4ec0.css",
-            "rawBytes": 54718,
-            "gzipBytes": 10536,
+            "assetPath": "styles/site.min.6b79737502d6783c667b0333dc69db8d4b727c5323c8e5f07273f252344d0e27.css",
+            "rawBytes": 62514,
+            "gzipBytes": 11609,
             "as": "style"
           },
           {
             "type": "document",
             "assetPath": "category/ai/index.html",
-            "rawBytes": 36925,
-            "gzipBytes": 9124
+            "rawBytes": 42462,
+            "gzipBytes": 10179
           },
           {
             "type": "script",
@@ -477,38 +477,38 @@
       "profiles": {
         "mobile": {
           "profile": "mobile",
-          "url": "http://localhost:52918/category/ai/",
-          "htmlReportPath": "validation/lhci-report/mobile/localhost-category_ai_-2026_04_07_09_46_21.report.html",
-          "jsonReportPath": "validation/lhci-report/mobile/localhost-category_ai_-2026_04_07_09_46_21.report.json",
+          "url": "http://localhost:50078/category/ai/",
+          "htmlReportPath": "validation/lhci-report/mobile/localhost-category_ai_-2026_04_11_19_34_27.report.html",
+          "jsonReportPath": "validation/lhci-report/mobile/localhost-category_ai_-2026_04_11_19_34_27.report.json",
           "scores": {
             "performance": 100,
             "accessibility": 100,
             "seo": 100,
-            "bestPractices": 96
+            "bestPractices": 100
           },
           "metrics": {
-            "lcpMs": 999.6786999999999,
+            "lcpMs": 1202.5854,
             "inpMs": null,
             "cls": 0,
-            "ttiMs": 1005.8287
+            "ttiMs": 1202.5854
           }
         },
         "desktop": {
           "profile": "desktop",
-          "url": "http://localhost:54316/category/ai/",
-          "htmlReportPath": "validation/lhci-report/desktop/localhost-category_ai_-2026_04_07_09_48_31.report.html",
-          "jsonReportPath": "validation/lhci-report/desktop/localhost-category_ai_-2026_04_07_09_48_31.report.json",
+          "url": "http://localhost:50399/category/ai/",
+          "htmlReportPath": "validation/lhci-report/desktop/localhost-category_ai_-2026_04_11_19_35_57.report.html",
+          "jsonReportPath": "validation/lhci-report/desktop/localhost-category_ai_-2026_04_11_19_35_57.report.json",
           "scores": {
-            "performance": 90,
+            "performance": 100,
             "accessibility": 100,
             "seo": 100,
-            "bestPractices": 96
+            "bestPractices": 100
           },
           "metrics": {
-            "lcpMs": 330.3054,
+            "lcpMs": 282.5503,
             "inpMs": null,
-            "cls": 0.201633,
-            "ttiMs": 330.3054000000001
+            "cls": 0.01594,
+            "ttiMs": 282.5503
           }
         }
       },
@@ -530,8 +530,8 @@
             },
             "bestPractices": {
               "baseline": 100,
-              "current": 96,
-              "delta": -4
+              "current": 100,
+              "delta": 0
             },
             "seo": {
               "baseline": 92,
@@ -542,8 +542,8 @@
           "metrics": {
             "lcpMs": {
               "baseline": 4450,
-              "current": 999.6786999999999,
-              "delta": -3450.32
+              "current": 1202.5854,
+              "delta": -3247.41
             },
             "inpMs": {
               "baseline": null,
@@ -564,8 +564,8 @@
           "scores": {
             "performance": {
               "baseline": 97,
-              "current": 90,
-              "delta": -7
+              "current": 100,
+              "delta": 3
             },
             "accessibility": {
               "baseline": 89,
@@ -574,8 +574,8 @@
             },
             "bestPractices": {
               "baseline": 100,
-              "current": 96,
-              "delta": -4
+              "current": 100,
+              "delta": 0
             },
             "seo": {
               "baseline": 92,
@@ -586,8 +586,8 @@
           "metrics": {
             "lcpMs": {
               "baseline": 1192,
-              "current": 330.3054,
-              "delta": -861.69
+              "current": 282.5503,
+              "delta": -909.45
             },
             "inpMs": {
               "baseline": null,
@@ -596,8 +596,8 @@
             },
             "cls": {
               "baseline": 0.029,
-              "current": 0.201633,
-              "delta": 0.17
+              "current": 0.01594,
+              "delta": -0.01
             }
           }
         }

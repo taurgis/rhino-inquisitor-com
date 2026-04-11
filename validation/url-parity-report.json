@@ -5,7 +5,7 @@
   "status": "pass",
   "rcTag": "phase-8-rc-v3",
   "rcSha": "bb7bd49e1e8292ea3dbc744dded428dcfcab48aa",
-  "generatedAt": "2026-04-11T18:17:59.758Z",
+  "generatedAt": "2026-04-11T19:31:36.244Z",
   "publicDir": "public",
   "dataset": {
     "path": "validation/expected-url-outcomes.json",
@@ -44,14 +44,14 @@
       }
     },
     "byOutcome": {
-      "published-route": 190,
+      "published-route": 186,
       "request-aware-exception-covered": 525,
       "artifact-absent": 469,
       "retired-route-alias-redirect": 1,
       "retired-pagination-generated": 13,
-      "alias-helper": 17,
-      "merge-target-drafted": 1,
-      "drafted-category": 1,
+      "drafted-category": 5,
+      "merge-target-drafted": 4,
+      "alias-helper": 14,
       "generated-system-helper": 1,
       "published-static-file": 5
     }
@@ -4496,15 +4496,15 @@
       "expectedRedirectTarget": "/category/external/",
       "expectedCanonicalTarget": "https://www.rhino-inquisitor.com/category/external/",
       "matchedArtifactPath": "category/external/index.html",
-      "actualStatus": 200,
-      "actualOutcome": "published-route",
+      "actualStatus": null,
+      "actualOutcome": "drafted-category",
       "actualRedirectTarget": null,
       "actualCanonicalTarget": null,
       "finalTargetPath": null,
       "finalTargetType": null,
       "result": "pass",
       "notes": [
-        "Published HTML route verified at category/external/index.html."
+        "Category page is intentionally drafted; accepted."
       ]
     },
     {
@@ -4546,15 +4546,15 @@
       "expectedRedirectTarget": "/category/external/",
       "expectedCanonicalTarget": "https://www.rhino-inquisitor.com/category/external/",
       "matchedArtifactPath": "category/external/forward/index.html",
-      "actualStatus": 200,
-      "actualOutcome": "alias-helper",
-      "actualRedirectTarget": "/category/external/",
-      "actualCanonicalTarget": "http://localhost:1313/category/external/",
-      "finalTargetPath": "/category/external/",
-      "finalTargetType": "html",
+      "actualStatus": null,
+      "actualOutcome": "merge-target-drafted",
+      "actualRedirectTarget": null,
+      "actualCanonicalTarget": null,
+      "finalTargetPath": null,
+      "finalTargetType": null,
       "result": "pass",
       "notes": [
-        "Alias helper verified at category/external/forward/index.html."
+        "Alias helper absent because redirect target is a drafted category page; accepted."
       ]
     },
     {
@@ -4646,15 +4646,15 @@
       "expectedRedirectTarget": "/category/salesforce-architects-blog/",
       "expectedCanonicalTarget": "https://www.rhino-inquisitor.com/category/salesforce-architects-blog/",
       "matchedArtifactPath": "category/external/salesforce-architects-blog/index.html",
-      "actualStatus": 200,
-      "actualOutcome": "alias-helper",
-      "actualRedirectTarget": "/category/salesforce-architects-blog/",
-      "actualCanonicalTarget": "http://localhost:1313/category/salesforce-architects-blog/",
-      "finalTargetPath": "/category/salesforce-architects-blog/",
-      "finalTargetType": "html",
+      "actualStatus": null,
+      "actualOutcome": "merge-target-drafted",
+      "actualRedirectTarget": null,
+      "actualCanonicalTarget": null,
+      "finalTargetPath": null,
+      "finalTargetType": null,
       "result": "pass",
       "notes": [
-        "Alias helper verified at category/external/salesforce-architects-blog/index.html."
+        "Alias helper absent because redirect target is a drafted category page; accepted."
       ]
     },
     {
@@ -4696,15 +4696,15 @@
       "expectedRedirectTarget": "/category/salesforce-ben/",
       "expectedCanonicalTarget": "https://www.rhino-inquisitor.com/category/salesforce-ben/",
       "matchedArtifactPath": "category/external/salesforce-ben/index.html",
-      "actualStatus": 200,
-      "actualOutcome": "alias-helper",
-      "actualRedirectTarget": "/category/salesforce-ben/",
-      "actualCanonicalTarget": "http://localhost:1313/category/salesforce-ben/",
-      "finalTargetPath": "/category/salesforce-ben/",
-      "finalTargetType": "html",
+      "actualStatus": null,
+      "actualOutcome": "merge-target-drafted",
+      "actualRedirectTarget": null,
+      "actualCanonicalTarget": null,
+      "finalTargetPath": null,
+      "finalTargetType": null,
       "result": "pass",
       "notes": [
-        "Alias helper verified at category/external/salesforce-ben/index.html."
+        "Alias helper absent because redirect target is a drafted category page; accepted."
       ]
     },
     {
@@ -4896,15 +4896,15 @@
       "expectedRedirectTarget": "/category/salesforce-architects-blog/",
       "expectedCanonicalTarget": "https://www.rhino-inquisitor.com/category/salesforce-architects-blog/",
       "matchedArtifactPath": "category/salesforce-architects-blog/index.html",
-      "actualStatus": 200,
-      "actualOutcome": "published-route",
+      "actualStatus": null,
+      "actualOutcome": "drafted-category",
       "actualRedirectTarget": null,
       "actualCanonicalTarget": null,
       "finalTargetPath": null,
       "finalTargetType": null,
       "result": "pass",
       "notes": [
-        "Published HTML route verified at category/salesforce-architects-blog/index.html."
+        "Category page is intentionally drafted; accepted."
       ]
     },
     {
@@ -4921,15 +4921,15 @@
       "expectedRedirectTarget": "/category/salesforce-ben/",
       "expectedCanonicalTarget": "https://www.rhino-inquisitor.com/category/salesforce-ben/",
       "matchedArtifactPath": "category/salesforce-ben/index.html",
-      "actualStatus": 200,
-      "actualOutcome": "published-route",
+      "actualStatus": null,
+      "actualOutcome": "drafted-category",
       "actualRedirectTarget": null,
       "actualCanonicalTarget": null,
       "finalTargetPath": null,
       "finalTargetType": null,
       "result": "pass",
       "notes": [
-        "Published HTML route verified at category/salesforce-ben/index.html."
+        "Category page is intentionally drafted; accepted."
       ]
     },
     {
@@ -4974,7 +4974,7 @@
       "actualStatus": 200,
       "actualOutcome": "alias-helper",
       "actualRedirectTarget": "/category/ai/",
-      "actualCanonicalTarget": "http://localhost:1313/category/ai/",
+      "actualCanonicalTarget": "https://www.rhino-inquisitor.com/category/ai/",
       "finalTargetPath": "/category/ai/",
       "finalTargetType": "html",
       "result": "pass",
@@ -5024,7 +5024,7 @@
       "actualStatus": 200,
       "actualOutcome": "alias-helper",
       "actualRedirectTarget": "/category/architecture/",
-      "actualCanonicalTarget": "http://localhost:1313/category/architecture/",
+      "actualCanonicalTarget": "https://www.rhino-inquisitor.com/category/architecture/",
       "finalTargetPath": "/category/architecture/",
       "finalTargetType": "html",
       "result": "pass",
@@ -5074,7 +5074,7 @@
       "actualStatus": 200,
       "actualOutcome": "alias-helper",
       "actualRedirectTarget": "/category/salesforce-commerce-cloud/",
-      "actualCanonicalTarget": "http://localhost:1313/category/salesforce-commerce-cloud/",
+      "actualCanonicalTarget": "https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/",
       "finalTargetPath": "/category/salesforce-commerce-cloud/",
       "finalTargetType": "html",
       "result": "pass",
@@ -5124,7 +5124,7 @@
       "actualStatus": 200,
       "actualOutcome": "alias-helper",
       "actualRedirectTarget": "/category/erd/",
-      "actualCanonicalTarget": "http://localhost:1313/category/erd/",
+      "actualCanonicalTarget": "https://www.rhino-inquisitor.com/category/erd/",
       "finalTargetPath": "/category/erd/",
       "finalTargetType": "html",
       "result": "pass",
@@ -5199,7 +5199,7 @@
       "actualStatus": 200,
       "actualOutcome": "alias-helper",
       "actualRedirectTarget": "/category/go-live/",
-      "actualCanonicalTarget": "http://localhost:1313/category/go-live/",
+      "actualCanonicalTarget": "https://www.rhino-inquisitor.com/category/go-live/",
       "finalTargetPath": "/category/go-live/",
       "finalTargetType": "html",
       "result": "pass",
@@ -5549,7 +5549,7 @@
       "actualStatus": 200,
       "actualOutcome": "alias-helper",
       "actualRedirectTarget": "/category/release-notes/",
-      "actualCanonicalTarget": "http://localhost:1313/category/release-notes/",
+      "actualCanonicalTarget": "https://www.rhino-inquisitor.com/category/release-notes/",
       "finalTargetPath": "/category/release-notes/",
       "finalTargetType": "html",
       "result": "pass",
@@ -5649,7 +5649,7 @@
       "actualStatus": 200,
       "actualOutcome": "alias-helper",
       "actualRedirectTarget": "/category/technical/",
-      "actualCanonicalTarget": "http://localhost:1313/category/technical/",
+      "actualCanonicalTarget": "https://www.rhino-inquisitor.com/category/technical/",
       "finalTargetPath": "/category/technical/",
       "finalTargetType": "html",
       "result": "pass",
@@ -5946,15 +5946,15 @@
       "expectedRedirectTarget": "/category/uncategorized/",
       "expectedCanonicalTarget": "https://www.rhino-inquisitor.com/category/uncategorized/",
       "matchedArtifactPath": "category/uncategorized/index.html",
-      "actualStatus": 200,
-      "actualOutcome": "published-route",
+      "actualStatus": null,
+      "actualOutcome": "drafted-category",
       "actualRedirectTarget": null,
       "actualCanonicalTarget": null,
       "finalTargetPath": null,
       "finalTargetType": null,
       "result": "pass",
       "notes": [
-        "Published HTML route verified at category/uncategorized/index.html."
+        "Category page is intentionally drafted; accepted."
       ]
     },
     {
@@ -6049,7 +6049,7 @@
       "actualStatus": 200,
       "actualOutcome": "alias-helper",
       "actualRedirectTarget": "/category/podcasts/",
-      "actualCanonicalTarget": "http://localhost:1313/category/podcasts/",
+      "actualCanonicalTarget": "https://www.rhino-inquisitor.com/category/podcasts/",
       "finalTargetPath": "/category/podcasts/",
       "finalTargetType": "html",
       "result": "pass",
@@ -6099,7 +6099,7 @@
       "actualStatus": 200,
       "actualOutcome": "alias-helper",
       "actualRedirectTarget": "/category/sessions/",
-      "actualCanonicalTarget": "http://localhost:1313/category/sessions/",
+      "actualCanonicalTarget": "https://www.rhino-inquisitor.com/category/sessions/",
       "finalTargetPath": "/category/sessions/",
       "finalTargetType": "html",
       "result": "pass",
@@ -6624,7 +6624,7 @@
       "actualStatus": 200,
       "actualOutcome": "alias-helper",
       "actualRedirectTarget": "/delta-exports-in-salesforce-b2c-commerce-cloud/",
-      "actualCanonicalTarget": "http://localhost:1313/delta-exports-in-salesforce-b2c-commerce-cloud/",
+      "actualCanonicalTarget": "https://www.rhino-inquisitor.com/delta-exports-in-salesforce-b2c-commerce-cloud/",
       "finalTargetPath": "/delta-exports-in-salesforce-b2c-commerce-cloud/",
       "finalTargetType": "html",
       "result": "pass",
@@ -7424,7 +7424,7 @@
       "actualStatus": 200,
       "actualOutcome": "alias-helper",
       "actualRedirectTarget": "/how-to-set-up-the-ecdn-in-sfcc-staging/",
-      "actualCanonicalTarget": "http://localhost:1313/how-to-set-up-the-ecdn-in-sfcc-staging/",
+      "actualCanonicalTarget": "https://www.rhino-inquisitor.com/how-to-set-up-the-ecdn-in-sfcc-staging/",
       "finalTargetPath": "/how-to-set-up-the-ecdn-in-sfcc-staging/",
       "finalTargetType": "html",
       "result": "pass",

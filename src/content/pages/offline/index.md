@@ -8,6 +8,8 @@ lastmod: '2022-11-01T16:56:37.000Z'
 url: /offline/
 archiveExclude: true
 draft: false
+seo:
+  noindex: true
 author: Thomas Theunen
 ---
 This offline fallback appears when the requested page was not saved locally. Reconnect to the internet and try again to load the content.

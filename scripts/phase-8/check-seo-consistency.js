@@ -267,7 +267,7 @@ async function analyzeRoute(routeRecord, htmlInventory, sitemap, expectedNoindex
     }
   }
 
-  if (!sitemap.routes.has(routeRecord.route)) {
+  if (!sitemap.routes.has(routeRecord.route) && !robotsTokens.has('noindex')) {
     blockingFindings.push('Expected route is missing from sitemap.xml.');
   }
 

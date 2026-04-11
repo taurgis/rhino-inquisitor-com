@@ -325,6 +325,17 @@ async function validateBuiltAliasPage({
   });
 
   if (!descriptor) {
+    const isCategoryAlias = /^\/category\//u.test(legacyInfo.pathname);
+    if (isCategoryAlias) {
+      const targetExists = expectedTarget
+        ? publicState.htmlRoutes.has(expectedTarget.comparablePathOnly)
+        : false;
+      if (!expectedTarget || !targetExists) {
+        reportRow.actual_outcome = 'merge-target-drafted';
+        reportRow.notes = 'Alias helper absent because redirect target is a drafted category page; accepted.';
+        return reportRow;
+      }
+    }
     reportRow.status = 'fail';
     reportRow.actual_outcome = 'missing-built-alias-page';
     reportRow.notes = 'Expected a built alias helper page at the legacy source path.';

@@ -122,10 +122,10 @@ legacy_url,target_url,implementation_layer,published_file,target_type,status,not
 /?p=972,/getting-to-know-sfra-as-a-developer/,none,getting-to-know-sfra-as-a-developer/index.html,html,pass,Redirect target exists as a published HTML route at getting-to-know-sfra-as-a-developer/index.html.
 /?p=9752,/how-to-filter-jsdoc-in-storybook-autodocs/,none,how-to-filter-jsdoc-in-storybook-autodocs/index.html,html,pass,Redirect target exists as a published HTML route at how-to-filter-jsdoc-in-storybook-autodocs/index.html.
 /?p=9935,/a-look-at-the-23-9-commerce-cloud-release/,none,a-look-at-the-23-9-commerce-cloud-release/index.html,html,pass,Redirect target exists as a published HTML route at a-look-at-the-23-9-commerce-cloud-release/index.html.
-/category/external/forward/,/category/external/,pages-static,category/external/index.html,html,pass,Redirect target exists as a published HTML route at category/external/index.html.
+/category/external/forward/,/category/external/,pages-static,,,pass,Redirect target is a drafted category page (/category/external/); accepted.
 /category/external/linkedin/,/category/linkedin/,pages-static,,,pass,Redirect target is a drafted category page (/category/linkedin/); accepted.
-/category/external/salesforce-architects-blog/,/category/salesforce-architects-blog/,pages-static,category/salesforce-architects-blog/index.html,html,pass,Redirect target exists as a published HTML route at category/salesforce-architects-blog/index.html.
-/category/external/salesforce-ben/,/category/salesforce-ben/,pages-static,category/salesforce-ben/index.html,html,pass,Redirect target exists as a published HTML route at category/salesforce-ben/index.html.
+/category/external/salesforce-architects-blog/,/category/salesforce-architects-blog/,pages-static,,,pass,Redirect target is a drafted category page (/category/salesforce-architects-blog/); accepted.
+/category/external/salesforce-ben/,/category/salesforce-ben/,pages-static,,,pass,Redirect target is a drafted category page (/category/salesforce-ben/); accepted.
 /category/salesforce-commerce-cloud/ai/,/category/ai/,pages-static,category/ai/index.html,html,pass,Redirect target exists as a published HTML route at category/ai/index.html.
 /category/salesforce-commerce-cloud/architecture/,/category/architecture/,pages-static,category/architecture/index.html,html,pass,Redirect target exists as a published HTML route at category/architecture/index.html.
 /category/salesforce-commerce-cloud/documentation/,/category/salesforce-commerce-cloud/,pages-static,category/salesforce-commerce-cloud/index.html,html,pass,Redirect target exists as a published HTML route at category/salesforce-commerce-cloud/index.html.

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "phase": 8,
   "ticket": "RHI-090",
-  "generatedAt": "2026-03-21T07:13:50.714Z",
+  "generatedAt": "2026-04-11T19:32:20.033Z",
   "canonicalOrigin": "https://www.rhino-inquisitor.com",
   "mode": {
     "skipLiveChecks": false,
@@ -16,11 +16,11 @@
     "note": "Owner confirmed that the GitHub Pages settings are done, including Enforce HTTPS and verified custom-domain state."
   },
   "artifactProvenance": {
-    "gitHead": "ad674f0c0bee87d66c715c99539e0e47e55f1f79",
-    "gitHeadShort": "ad674f0c",
+    "gitHead": "c15a2d6140dee202a08fb66c6a078493f33081c9",
+    "gitHeadShort": "c15a2d61",
     "workspaceDirty": true,
-    "datasetRcTag": "phase-8-rc-v2",
-    "datasetRcSha": "efdcefce5a51f1a3cf70d6b437b7b2868df39cb8",
+    "datasetRcTag": "phase-8-rc-v3",
+    "datasetRcSha": "bb7bd49e1e8292ea3dbc744dded428dcfcab48aa",
     "matchesDatasetRc": false,
     "provenanceStatus": "branch-state",
     "note": "Artifact provenance differs from the frozen dataset RC or the workspace is dirty; treat this as branch-state evidence until a new RC is cut."
@@ -49,50 +49,50 @@
     "mixedContent": {
       "status": "pass",
       "blocking": true,
-      "summary": "Scanned 235 HTML files and 1 CSS files with zero mixed-content references.",
+      "summary": "Scanned 263 HTML files and 1 CSS files with zero mixed-content references.",
       "evidenceSource": "automation",
       "findings": [],
       "warnings": [],
       "details": {
-        "htmlFilesScanned": 235,
+        "htmlFilesScanned": 263,
         "cssFilesScanned": 1
       }
     },
     "canonicalHttps": {
       "status": "pass",
       "blocking": true,
-      "summary": "Validated HTTPS canonical URLs on 213 built HTML pages.",
+      "summary": "Validated HTTPS canonical URLs on 228 built HTML pages.",
       "evidenceSource": "automation",
       "findings": [],
       "warnings": [],
       "details": {
-        "checkedPages": 213,
+        "checkedPages": 228,
         "canonicalOrigin": "https://www.rhino-inquisitor.com"
       }
     },
     "sitemapHttps": {
       "status": "pass",
       "blocking": true,
-      "summary": "Validated HTTPS sitemap URLs across 212 entries.",
+      "summary": "Validated HTTPS sitemap URLs across 203 entries.",
       "evidenceSource": "automation",
       "findings": [],
       "warnings": [],
       "details": {
         "rootPath": "public/sitemap.xml",
-        "checkedEntries": 212,
+        "checkedEntries": 203,
         "unresolvedChildren": []
       }
     },
     "structuredDataHttps": {
       "status": "pass",
       "blocking": true,
-      "summary": "Validated structured-data HTTPS URLs across 380 JSON-LD blocks on 213 pages.",
+      "summary": "Validated structured-data HTTPS URLs across 395 JSON-LD blocks on 228 pages.",
       "evidenceSource": "automation",
       "findings": [],
       "warnings": [],
       "details": {
-        "checkedPages": 213,
-        "checkedBlocks": 380
+        "checkedPages": 228,
+        "checkedBlocks": 395
       }
     }
   },
@@ -168,8 +168,8 @@
         "hostname": "www.rhino-inquisitor.com",
         "authorized": true,
         "authorizationError": null,
-        "validFrom": "Feb  5 20:32:43 2026 GMT",
-        "validTo": "May  6 21:31:19 2026 GMT",
+        "validFrom": "Apr  5 22:33:31 2026 GMT",
+        "validTo": "Jul  4 23:31:53 2026 GMT",
         "subject": {
           "CN": "rhino-inquisitor.com"
         },
@@ -178,7 +178,7 @@
           "O": "Google Trust Services",
           "CN": "WE1"
         },
-        "fingerprint256": "D6:D5:8D:D7:CE:5E:0A:BE:B7:F1:74:B9:DA:45:73:82:A4:AE:F2:CB:CE:9F:88:AE:85:9F:D8:94:9D:95:BB:F5"
+        "fingerprint256": "F1:E1:3B:9B:A5:CC:88:CD:22:52:F8:55:EE:CC:61:14:0B:78:15:08:00:42:45:DC:06:AB:B0:69:15:6C:2A:DC"
       }
     },
     "caa": {
@@ -193,23 +193,31 @@
         "records": [
           {
             "tag": "issue",
-            "value": "pki.goog; cansignhttpexchanges=yes"
+            "value": "ssl.com"
           },
           {
             "tag": "issuewild",
-            "value": "letsencrypt.org"
+            "value": "comodoca.com"
           },
           {
             "tag": "issue",
             "value": "letsencrypt.org"
           },
           {
-            "tag": "issuewild",
+            "tag": "issue",
             "value": "digicert.com; cansignhttpexchanges=yes"
           },
           {
             "tag": "issuewild",
-            "value": "comodoca.com"
+            "value": "letsencrypt.org"
+          },
+          {
+            "tag": "issuewild",
+            "value": "pki.goog; cansignhttpexchanges=yes"
+          },
+          {
+            "tag": "issuewild",
+            "value": "digicert.com; cansignhttpexchanges=yes"
           },
           {
             "tag": "issuewild",
@@ -220,16 +228,8 @@
             "value": "comodoca.com"
           },
           {
-            "tag": "issuewild",
+            "tag": "issue",
             "value": "pki.goog; cansignhttpexchanges=yes"
-          },
-          {
-            "tag": "issue",
-            "value": "ssl.com"
-          },
-          {
-            "tag": "issue",
-            "value": "digicert.com; cansignhttpexchanges=yes"
           }
         ]
       }
@@ -251,12 +251,12 @@
     "wildcardDns": {
       "status": "pass",
       "blocking": true,
-      "summary": "No wildcard-style DNS answers were returned for rhi-phase8-1774077230624.rhino-inquisitor.com.",
+      "summary": "No wildcard-style DNS answers were returned for rhi-phase8-1775935939938.rhino-inquisitor.com.",
       "evidenceSource": "dns",
       "findings": [],
       "warnings": [],
       "details": {
-        "hostname": "rhi-phase8-1774077230624.rhino-inquisitor.com",
+        "hostname": "rhi-phase8-1775935939938.rhino-inquisitor.com",
         "records": []
       }
     },

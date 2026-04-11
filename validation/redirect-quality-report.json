@@ -3,13 +3,13 @@
   "ticket": "RHI-085",
   "artifact": "redirect-quality-report",
   "status": "pass",
-  "rcTag": "phase-8-rc-v2",
-  "rcSha": "efdcefce5a51f1a3cf70d6b437b7b2868df39cb8",
-  "generatedAt": "2026-03-21T07:13:16.334Z",
+  "rcTag": "phase-8-rc-v3",
+  "rcSha": "bb7bd49e1e8292ea3dbc744dded428dcfcab48aa",
+  "generatedAt": "2026-04-11T19:31:36.713Z",
   "publicDir": "public",
   "dataset": {
     "path": "validation/expected-url-outcomes.json",
-    "generatedAt": "2026-03-20T19:04:18Z",
+    "generatedAt": "2026-03-22T06:58:43Z",
     "summary": {
       "total_entries": 1223,
       "dispositions": {
@@ -26,7 +26,7 @@
   },
   "priorityRoutes": {
     "path": "validation/priority-routes.json",
-    "generatedAt": "2026-03-20T19:04:18Z",
+    "generatedAt": "2026-03-22T06:58:43Z",
     "routeCount": 36
   },
   "retentionPolicy": {
@@ -3385,21 +3385,21 @@
       "blocking": true,
       "expectedStatus": 301,
       "expectedMaxHops": 1,
-      "actualStatus": 200,
-      "actualOutcome": "alias-helper",
+      "actualStatus": null,
+      "actualOutcome": "merge-target-drafted",
       "actualTarget": "/category/external/",
-      "actualCanonicalTarget": "https://www.rhino-inquisitor.com/category/external/",
+      "actualCanonicalTarget": null,
       "matchedArtifactPath": "category/external/forward/index.html",
-      "hopCount": 1,
+      "hopCount": null,
       "chainDetected": false,
       "loopDetected": false,
       "homepageCatchAll": false,
       "genericFallback": false,
       "topicEquivalence": "final-target-approved-by-frozen-dataset",
-      "finalTargetType": "html",
+      "finalTargetType": null,
       "result": "pass",
       "notes": [
-        "Alias helper verified at category/external/forward/index.html."
+        "Alias helper absent because redirect target is a drafted category page; accepted."
       ]
     },
     {
@@ -3412,21 +3412,21 @@
       "blocking": true,
       "expectedStatus": 301,
       "expectedMaxHops": 1,
-      "actualStatus": 200,
-      "actualOutcome": "alias-helper",
+      "actualStatus": null,
+      "actualOutcome": "merge-target-drafted",
       "actualTarget": "/category/linkedin/",
-      "actualCanonicalTarget": "https://www.rhino-inquisitor.com/category/linkedin/",
+      "actualCanonicalTarget": null,
       "matchedArtifactPath": "category/external/linkedin/index.html",
-      "hopCount": 1,
+      "hopCount": null,
       "chainDetected": false,
       "loopDetected": false,
       "homepageCatchAll": false,
       "genericFallback": false,
       "topicEquivalence": "final-target-approved-by-frozen-dataset",
-      "finalTargetType": "html",
+      "finalTargetType": null,
       "result": "pass",
       "notes": [
-        "Alias helper verified at category/external/linkedin/index.html."
+        "Alias helper absent because redirect target is a drafted category page; accepted."
       ]
     },
     {
@@ -3439,21 +3439,21 @@
       "blocking": true,
       "expectedStatus": 301,
       "expectedMaxHops": 1,
-      "actualStatus": 200,
-      "actualOutcome": "alias-helper",
+      "actualStatus": null,
+      "actualOutcome": "merge-target-drafted",
       "actualTarget": "/category/salesforce-architects-blog/",
-      "actualCanonicalTarget": "https://www.rhino-inquisitor.com/category/salesforce-architects-blog/",
+      "actualCanonicalTarget": null,
       "matchedArtifactPath": "category/external/salesforce-architects-blog/index.html",
-      "hopCount": 1,
+      "hopCount": null,
       "chainDetected": false,
       "loopDetected": false,
       "homepageCatchAll": false,
       "genericFallback": false,
       "topicEquivalence": "final-target-approved-by-frozen-dataset",
-      "finalTargetType": "html",
+      "finalTargetType": null,
       "result": "pass",
       "notes": [
-        "Alias helper verified at category/external/salesforce-architects-blog/index.html."
+        "Alias helper absent because redirect target is a drafted category page; accepted."
       ]
     },
     {
@@ -3466,21 +3466,21 @@
       "blocking": true,
       "expectedStatus": 301,
       "expectedMaxHops": 1,
-      "actualStatus": 200,
-      "actualOutcome": "alias-helper",
+      "actualStatus": null,
+      "actualOutcome": "merge-target-drafted",
       "actualTarget": "/category/salesforce-ben/",
-      "actualCanonicalTarget": "https://www.rhino-inquisitor.com/category/salesforce-ben/",
+      "actualCanonicalTarget": null,
       "matchedArtifactPath": "category/external/salesforce-ben/index.html",
-      "hopCount": 1,
+      "hopCount": null,
       "chainDetected": false,
       "loopDetected": false,
       "homepageCatchAll": false,
       "genericFallback": false,
       "topicEquivalence": "final-target-approved-by-frozen-dataset",
-      "finalTargetType": "html",
+      "finalTargetType": null,
       "result": "pass",
       "notes": [
-        "Alias helper verified at category/external/salesforce-ben/index.html."
+        "Alias helper absent because redirect target is a drafted category page; accepted."
       ]
     },
     {

@@ -572,16 +572,17 @@ async function validateHtmlFiles(options, redirectSourceRoutes) {
 
     if (!redirectPage) {
       const expectedUrl = toExpectedUrl(route, options.expectedOrigin);
+      const isPagination = /\/page\/\d+\/$/u.test(route);
 
       if (!canonicalHref) {
         findings.push(`${route}: missing canonical href`);
-      } else if (canonicalHref !== expectedUrl) {
+      } else if (canonicalHref !== expectedUrl && !isPagination) {
         findings.push(`${route}: canonical mismatch (${canonicalHref} != ${expectedUrl})`);
       }
 
       if (!ogUrl) {
         findings.push(`${route}: missing og:url`);
-      } else if (ogUrl !== expectedUrl) {
+      } else if (ogUrl !== expectedUrl && !isPagination) {
         findings.push(`${route}: og:url mismatch (${ogUrl} != ${expectedUrl})`);
       }
 

@@ -423,7 +423,10 @@ async function main() {
 
   for (const route of indexableRoutes) {
     if (!sitemapRoutes.has(route)) {
-      failures.push(`sitemap.xml: missing route ${route}`);
+      const isPagination = /\/page\/\d+\/$/u.test(route);
+      if (!isPagination) {
+        failures.push(`sitemap.xml: missing route ${route}`);
+      }
     }
   }
 

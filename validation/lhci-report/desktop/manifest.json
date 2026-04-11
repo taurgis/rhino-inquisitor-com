@@ -1,109 +1,109 @@
 [
   {
-    "url": "http://localhost:54316/",
+    "url": "http://localhost:50399/",
     "isRepresentativeRun": false,
-    "htmlPath": "/Users/thomastheunen/Documents/Projects/rhino-inquisitor-com/validation/lhci-report/desktop/localhost--2026_04_07_09_47_09.report.html",
-    "jsonPath": "/Users/thomastheunen/Documents/Projects/rhino-inquisitor-com/validation/lhci-report/desktop/localhost--2026_04_07_09_47_09.report.json",
+    "htmlPath": "/Users/thomastheunen/Documents/Projects/rhino-inquisitor-com/validation/lhci-report/desktop/localhost--2026_04_11_19_34_44.report.html",
+    "jsonPath": "/Users/thomastheunen/Documents/Projects/rhino-inquisitor-com/validation/lhci-report/desktop/localhost--2026_04_11_19_34_44.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
-      "best-practices": 0.96,
+      "best-practices": 1,
       "seo": 1
     }
   },
   {
-    "url": "http://localhost:54316/",
+    "url": "http://localhost:50399/",
     "isRepresentativeRun": false,
-    "htmlPath": "/Users/thomastheunen/Documents/Projects/rhino-inquisitor-com/validation/lhci-report/desktop/localhost--2026_04_07_09_47_21.report.html",
-    "jsonPath": "/Users/thomastheunen/Documents/Projects/rhino-inquisitor-com/validation/lhci-report/desktop/localhost--2026_04_07_09_47_21.report.json",
+    "htmlPath": "/Users/thomastheunen/Documents/Projects/rhino-inquisitor-com/validation/lhci-report/desktop/localhost--2026_04_11_19_35_05.report.html",
+    "jsonPath": "/Users/thomastheunen/Documents/Projects/rhino-inquisitor-com/validation/lhci-report/desktop/localhost--2026_04_11_19_35_05.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
-      "best-practices": 0.96,
+      "best-practices": 1,
       "seo": 1
     }
   },
   {
-    "url": "http://localhost:54316/real-time-inventory-checks-in-sfcc/",
+    "url": "http://localhost:50399/real-time-inventory-checks-in-sfcc/",
     "isRepresentativeRun": false,
-    "htmlPath": "/Users/thomastheunen/Documents/Projects/rhino-inquisitor-com/validation/lhci-report/desktop/localhost-real_time_inventory_checks_in_sfcc_-2026_04_07_09_47_55.report.html",
-    "jsonPath": "/Users/thomastheunen/Documents/Projects/rhino-inquisitor-com/validation/lhci-report/desktop/localhost-real_time_inventory_checks_in_sfcc_-2026_04_07_09_47_55.report.json",
+    "htmlPath": "/Users/thomastheunen/Documents/Projects/rhino-inquisitor-com/validation/lhci-report/desktop/localhost-real_time_inventory_checks_in_sfcc_-2026_04_11_19_35_26.report.html",
+    "jsonPath": "/Users/thomastheunen/Documents/Projects/rhino-inquisitor-com/validation/lhci-report/desktop/localhost-real_time_inventory_checks_in_sfcc_-2026_04_11_19_35_26.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
-      "best-practices": 0.96,
+      "best-practices": 1,
       "seo": 1
     }
   },
   {
-    "url": "http://localhost:54316/real-time-inventory-checks-in-sfcc/",
+    "url": "http://localhost:50399/real-time-inventory-checks-in-sfcc/",
     "isRepresentativeRun": false,
-    "htmlPath": "/Users/thomastheunen/Documents/Projects/rhino-inquisitor-com/validation/lhci-report/desktop/localhost-real_time_inventory_checks_in_sfcc_-2026_04_07_09_48_07.report.html",
-    "jsonPath": "/Users/thomastheunen/Documents/Projects/rhino-inquisitor-com/validation/lhci-report/desktop/localhost-real_time_inventory_checks_in_sfcc_-2026_04_07_09_48_07.report.json",
+    "htmlPath": "/Users/thomastheunen/Documents/Projects/rhino-inquisitor-com/validation/lhci-report/desktop/localhost-real_time_inventory_checks_in_sfcc_-2026_04_11_19_35_36.report.html",
+    "jsonPath": "/Users/thomastheunen/Documents/Projects/rhino-inquisitor-com/validation/lhci-report/desktop/localhost-real_time_inventory_checks_in_sfcc_-2026_04_11_19_35_36.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
-      "best-practices": 0.96,
+      "best-practices": 1,
       "seo": 1
     }
   },
   {
-    "url": "http://localhost:54316/category/ai/",
+    "url": "http://localhost:50399/category/ai/",
     "isRepresentativeRun": false,
-    "htmlPath": "/Users/thomastheunen/Documents/Projects/rhino-inquisitor-com/validation/lhci-report/desktop/localhost-category_ai_-2026_04_07_09_48_19.report.html",
-    "jsonPath": "/Users/thomastheunen/Documents/Projects/rhino-inquisitor-com/validation/lhci-report/desktop/localhost-category_ai_-2026_04_07_09_48_19.report.json",
+    "htmlPath": "/Users/thomastheunen/Documents/Projects/rhino-inquisitor-com/validation/lhci-report/desktop/localhost-category_ai_-2026_04_11_19_35_46.report.html",
+    "jsonPath": "/Users/thomastheunen/Documents/Projects/rhino-inquisitor-com/validation/lhci-report/desktop/localhost-category_ai_-2026_04_11_19_35_46.report.json",
     "summary": {
-      "performance": 0.9,
+      "performance": 1,
       "accessibility": 1,
-      "best-practices": 0.96,
+      "best-practices": 1,
       "seo": 1
     }
   },
   {
-    "url": "http://localhost:54316/category/ai/",
+    "url": "http://localhost:50399/category/ai/",
     "isRepresentativeRun": false,
-    "htmlPath": "/Users/thomastheunen/Documents/Projects/rhino-inquisitor-com/validation/lhci-report/desktop/localhost-category_ai_-2026_04_07_09_48_42.report.html",
-    "jsonPath": "/Users/thomastheunen/Documents/Projects/rhino-inquisitor-com/validation/lhci-report/desktop/localhost-category_ai_-2026_04_07_09_48_42.report.json",
+    "htmlPath": "/Users/thomastheunen/Documents/Projects/rhino-inquisitor-com/validation/lhci-report/desktop/localhost-category_ai_-2026_04_11_19_36_07.report.html",
+    "jsonPath": "/Users/thomastheunen/Documents/Projects/rhino-inquisitor-com/validation/lhci-report/desktop/localhost-category_ai_-2026_04_11_19_36_07.report.json",
     "summary": {
-      "performance": 0.9,
+      "performance": 1,
       "accessibility": 1,
-      "best-practices": 0.96,
+      "best-practices": 1,
       "seo": 1
     }
   },
   {
-    "url": "http://localhost:54316/",
+    "url": "http://localhost:50399/",
     "isRepresentativeRun": true,
-    "htmlPath": "/Users/thomastheunen/Documents/Projects/rhino-inquisitor-com/validation/lhci-report/desktop/localhost--2026_04_07_09_47_34.report.html",
-    "jsonPath": "/Users/thomastheunen/Documents/Projects/rhino-inquisitor-com/validation/lhci-report/desktop/localhost--2026_04_07_09_47_34.report.json",
+    "htmlPath": "/Users/thomastheunen/Documents/Projects/rhino-inquisitor-com/validation/lhci-report/desktop/localhost--2026_04_11_19_34_55.report.html",
+    "jsonPath": "/Users/thomastheunen/Documents/Projects/rhino-inquisitor-com/validation/lhci-report/desktop/localhost--2026_04_11_19_34_55.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
-      "best-practices": 0.96,
+      "best-practices": 1,
       "seo": 1
     }
   },
   {
-    "url": "http://localhost:54316/real-time-inventory-checks-in-sfcc/",
+    "url": "http://localhost:50399/real-time-inventory-checks-in-sfcc/",
     "isRepresentativeRun": true,
-    "htmlPath": "/Users/thomastheunen/Documents/Projects/rhino-inquisitor-com/validation/lhci-report/desktop/localhost-real_time_inventory_checks_in_sfcc_-2026_04_07_09_47_44.report.html",
-    "jsonPath": "/Users/thomastheunen/Documents/Projects/rhino-inquisitor-com/validation/lhci-report/desktop/localhost-real_time_inventory_checks_in_sfcc_-2026_04_07_09_47_44.report.json",
+    "htmlPath": "/Users/thomastheunen/Documents/Projects/rhino-inquisitor-com/validation/lhci-report/desktop/localhost-real_time_inventory_checks_in_sfcc_-2026_04_11_19_35_15.report.html",
+    "jsonPath": "/Users/thomastheunen/Documents/Projects/rhino-inquisitor-com/validation/lhci-report/desktop/localhost-real_time_inventory_checks_in_sfcc_-2026_04_11_19_35_15.report.json",
     "summary": {
       "performance": 1,
       "accessibility": 1,
-      "best-practices": 0.96,
+      "best-practices": 1,
       "seo": 1
     }
   },
   {
-    "url": "http://localhost:54316/category/ai/",
+    "url": "http://localhost:50399/category/ai/",
     "isRepresentativeRun": true,
-    "htmlPath": "/Users/thomastheunen/Documents/Projects/rhino-inquisitor-com/validation/lhci-report/desktop/localhost-category_ai_-2026_04_07_09_48_31.report.html",
-    "jsonPath": "/Users/thomastheunen/Documents/Projects/rhino-inquisitor-com/validation/lhci-report/desktop/localhost-category_ai_-2026_04_07_09_48_31.report.json",
+    "htmlPath": "/Users/thomastheunen/Documents/Projects/rhino-inquisitor-com/validation/lhci-report/desktop/localhost-category_ai_-2026_04_11_19_35_57.report.html",
+    "jsonPath": "/Users/thomastheunen/Documents/Projects/rhino-inquisitor-com/validation/lhci-report/desktop/localhost-category_ai_-2026_04_11_19_35_57.report.json",
     "summary": {
-      "performance": 0.9,
+      "performance": 1,
       "accessibility": 1,
-      "best-practices": 0.96,
+      "best-practices": 1,
       "seo": 1
     }
   }
