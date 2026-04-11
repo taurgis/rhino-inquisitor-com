@@ -2,10 +2,10 @@
   "phase": 8,
   "ticket": "RHI-086",
   "artifact": "seo-consistency-report",
-  "status": "fail",
+  "status": "pass",
   "rcTag": "phase-8-rc-v3",
   "rcSha": "bb7bd49e1e8292ea3dbc744dded428dcfcab48aa",
-  "generatedAt": "2026-04-11T18:22:24.255Z",
+  "generatedAt": "2026-04-11T18:36:00.614Z",
   "publicDir": "public",
   "sampleMatrix": {
     "path": "validation/sample-matrix.json",
@@ -14,7 +14,7 @@
   "artifactProvenance": {
     "gitHead": "99bf7e92eaa6b9bd0481a7b3a8ccc9d90a5134bc",
     "gitHeadShort": "99bf7e92",
-    "workspaceDirty": false,
+    "workspaceDirty": true,
     "datasetRcTag": "phase-8-rc-v3",
     "datasetRcSha": "bb7bd49e1e8292ea3dbc744dded428dcfcab48aa",
     "matchesDatasetRc": false,
@@ -41,19 +41,17 @@
     "totalRoutes": 63,
     "checkedRoutes": 62,
     "skippedRoutes": 1,
-    "passCount": 0,
-    "failCount": 62,
-    "blockingFailures": 63,
+    "passCount": 62,
+    "failCount": 0,
+    "blockingFailures": 0,
     "warningCount": 36,
-    "unexpectedNoindexCount": 62,
-    "duplicateTitleGroups": 0,
+    "unexpectedNoindexCount": 0,
+    "duplicateTitleGroups": 4,
     "duplicateTitleFailures": 0,
-    "duplicateTitleAllowedGroups": 0,
-    "environmentDiagnostics": 1
+    "duplicateTitleAllowedGroups": 4,
+    "environmentDiagnostics": 0
   },
-  "environmentDiagnostics": [
-    "Every checked route carries noindex. Verify that the build was produced with --environment production."
-  ],
+  "environmentDiagnostics": [],
   "expectedNoindexRoutes": [
     {
       "route": "/404.html",
@@ -91,20 +89,18 @@
       "description": "Field-tested Salesforce B2C Commerce guidance, release analysis, and migration playbooks for developers, architects, and commerce leaders.",
       "descriptionLength": 138,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/",
-      "sitemapUrl": "http://localhost:1313/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/ != https://www.rhino-inquisitor.com/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": []
     },
     {
@@ -126,20 +122,18 @@
       "description": "File Management is critical and necessary in any project. How else can we work with mass data transfers or logging mechanisms?",
       "descriptionLength": 126,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/a-beginners-guide-to-webdav-in-sfcc/",
-      "sitemapUrl": "http://localhost:1313/a-beginners-guide-to-webdav-in-sfcc/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/a-beginners-guide-to-webdav-in-sfcc/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/a-beginners-guide-to-webdav-in-sfcc/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/a-beginners-guide-to-webdav-in-sfcc/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/a-beginners-guide-to-webdav-in-sfcc/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/a-beginners-guide-to-webdav-in-sfcc/ != https://www.rhino-inquisitor.com/a-beginners-guide-to-webdav-in-sfcc/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": []
     },
     {
@@ -160,20 +154,18 @@
       "description": "Enhance your security beyond the basics on Salesforce B2C Commerce Cloud with this comprehensive guide tailored for developers.",
       "descriptionLength": 127,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/a-dev-guide-to-combating-fraud-on-sfcc/",
-      "sitemapUrl": "http://localhost:1313/a-dev-guide-to-combating-fraud-on-sfcc/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/a-dev-guide-to-combating-fraud-on-sfcc/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/a-dev-guide-to-combating-fraud-on-sfcc/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/a-dev-guide-to-combating-fraud-on-sfcc/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/a-dev-guide-to-combating-fraud-on-sfcc/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/a-dev-guide-to-combating-fraud-on-sfcc/ != https://www.rhino-inquisitor.com/a-dev-guide-to-combating-fraud-on-sfcc/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": [
         "Title length 63 exceeds the recommended 60-character limit."
       ]
@@ -197,20 +189,18 @@
       "description": "We are getting closer to the holiday period, and also one of the last releases of the year! This time we look at the September 2023 (23.9) release!",
       "descriptionLength": 147,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/a-look-at-the-23-9-commerce-cloud-release/",
-      "sitemapUrl": "http://localhost:1313/a-look-at-the-23-9-commerce-cloud-release/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/a-look-at-the-23-9-commerce-cloud-release/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/a-look-at-the-23-9-commerce-cloud-release/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/a-look-at-the-23-9-commerce-cloud-release/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/a-look-at-the-23-9-commerce-cloud-release/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/a-look-at-the-23-9-commerce-cloud-release/ != https://www.rhino-inquisitor.com/a-look-at-the-23-9-commerce-cloud-release/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": [
         "Title length 65 exceeds the recommended 60-character limit."
       ]
@@ -233,20 +223,18 @@
       "description": "It is a scenario that haunts every e-commerce developer: the 3 AM pager alert. Read the full article on Rhino Inquisitor for implementation details.",
       "descriptionLength": 148,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/a-survival-guide-to-sfcc-platform-limits/",
-      "sitemapUrl": "http://localhost:1313/a-survival-guide-to-sfcc-platform-limits/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/a-survival-guide-to-sfcc-platform-limits/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/a-survival-guide-to-sfcc-platform-limits/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/a-survival-guide-to-sfcc-platform-limits/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/a-survival-guide-to-sfcc-platform-limits/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/a-survival-guide-to-sfcc-platform-limits/ != https://www.rhino-inquisitor.com/a-survival-guide-to-sfcc-platform-limits/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": []
     },
     {
@@ -268,20 +256,18 @@
       "description": "Salesforce B2C Commerce Cloud has an AI that can power different areas of the site. But what is it, why use it, and what can it do for me?",
       "descriptionLength": 138,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/ai-einstein-in-salesforce-b2c-commerce-cloud/",
-      "sitemapUrl": "http://localhost:1313/ai-einstein-in-salesforce-b2c-commerce-cloud/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/ai-einstein-in-salesforce-b2c-commerce-cloud/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/ai-einstein-in-salesforce-b2c-commerce-cloud/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/ai-einstein-in-salesforce-b2c-commerce-cloud/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/ai-einstein-in-salesforce-b2c-commerce-cloud/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/ai-einstein-in-salesforce-b2c-commerce-cloud/ != https://www.rhino-inquisitor.com/ai-einstein-in-salesforce-b2c-commerce-cloud/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": [
         "Title length 65 exceeds the recommended 60-character limit."
       ]
@@ -304,20 +290,18 @@
       "description": "Browse the Rhino Inquisitor archive to find release notes, technical guides, and long-form Salesforce Commerce Cloud articles by date.",
       "descriptionLength": 134,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/archive/",
-      "sitemapUrl": "http://localhost:1313/archive/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/archive/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/archive/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/archive/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/archive/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/archive/ != https://www.rhino-inquisitor.com/archive/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": []
     },
     {
@@ -339,20 +323,18 @@
       "description": "Learn how caching works in the Salesforce Composable Storefront, which layers matter most, and where it improves real-world speed.",
       "descriptionLength": 130,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/caching-in-the-sfcc-composable-storefront/",
-      "sitemapUrl": "http://localhost:1313/caching-in-the-sfcc-composable-storefront/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/caching-in-the-sfcc-composable-storefront/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/caching-in-the-sfcc-composable-storefront/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/caching-in-the-sfcc-composable-storefront/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/caching-in-the-sfcc-composable-storefront/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/caching-in-the-sfcc-composable-storefront/ != https://www.rhino-inquisitor.com/caching-in-the-sfcc-composable-storefront/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": [
         "Title length 66 exceeds the recommended 60-character limit."
       ]
@@ -375,20 +357,18 @@
       "description": "Browse Rhino Inquisitor articles about AI and related Salesforce Commerce Cloud guidance.",
       "descriptionLength": 89,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/category/ai/",
-      "sitemapUrl": "http://localhost:1313/category/ai/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/category/ai/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/category/ai/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/category/ai/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/category/ai/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/category/ai/ != https://www.rhino-inquisitor.com/category/ai/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": [
         "Meta description length 89 is outside the recommended 120-155 character range."
       ]
@@ -411,20 +391,18 @@
       "description": "Browse Rhino Inquisitor articles about Architecture and related Salesforce Commerce Cloud guidance.",
       "descriptionLength": 99,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/category/architecture/",
-      "sitemapUrl": "http://localhost:1313/category/architecture/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/category/architecture/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/category/architecture/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/category/architecture/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/category/architecture/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/category/architecture/ != https://www.rhino-inquisitor.com/category/architecture/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": [
         "Meta description length 99 is outside the recommended 120-155 character range."
       ]
@@ -447,20 +425,18 @@
       "description": "Browse Rhino Inquisitor articles about Certification and related Salesforce Commerce Cloud guidance.",
       "descriptionLength": 100,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/category/certification/",
-      "sitemapUrl": "http://localhost:1313/category/certification/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/category/certification/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/category/certification/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/category/certification/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/category/certification/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/category/certification/ != https://www.rhino-inquisitor.com/category/certification/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": [
         "Meta description length 100 is outside the recommended 120-155 character range."
       ]
@@ -483,20 +459,18 @@
       "description": "Browse Rhino Inquisitor articles about Community and related Salesforce Commerce Cloud guidance.",
       "descriptionLength": 96,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/category/community/",
-      "sitemapUrl": "http://localhost:1313/category/community/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/category/community/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/category/community/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/category/community/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/category/community/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/category/community/ != https://www.rhino-inquisitor.com/category/community/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": [
         "Meta description length 96 is outside the recommended 120-155 character range."
       ]
@@ -519,20 +493,18 @@
       "description": "Browse Rhino Inquisitor articles about Corporate and related Salesforce Commerce Cloud guidance.",
       "descriptionLength": 96,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/category/corporate/",
-      "sitemapUrl": "http://localhost:1313/category/corporate/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/category/corporate/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/category/corporate/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/category/corporate/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/category/corporate/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/category/corporate/ != https://www.rhino-inquisitor.com/category/corporate/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": [
         "Meta description length 96 is outside the recommended 120-155 character range."
       ]
@@ -556,20 +528,18 @@
       "description": "Browse Rhino Inquisitor articles about Release Notes and related Salesforce Commerce Cloud guidance.",
       "descriptionLength": 100,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/category/release-notes/",
-      "sitemapUrl": "http://localhost:1313/category/release-notes/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/category/release-notes/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/category/release-notes/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/category/release-notes/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/category/release-notes/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/category/release-notes/ != https://www.rhino-inquisitor.com/category/release-notes/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": [
         "Meta description length 100 is outside the recommended 120-155 character range."
       ]
@@ -593,20 +563,18 @@
       "description": "Besides the official repositories, many community contributions to Salesforce B2C Commerce Cloud exist! Here is the list!",
       "descriptionLength": 121,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/community-repositories/",
-      "sitemapUrl": "http://localhost:1313/community-repositories/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/community-repositories/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/community-repositories/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/community-repositories/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/community-repositories/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/community-repositories/ != https://www.rhino-inquisitor.com/community-repositories/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": []
     },
     {
@@ -627,20 +595,18 @@
       "description": "A session on the real-world challenges of connecting B2C Commerce Cloud, CRM, and Marketing Cloud across security, GDPR, and delivery constraints.",
       "descriptionLength": 146,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/connecting-the-clouds-wedding-or-funeral/",
-      "sitemapUrl": "http://localhost:1313/connecting-the-clouds-wedding-or-funeral/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/connecting-the-clouds-wedding-or-funeral/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/connecting-the-clouds-wedding-or-funeral/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/connecting-the-clouds-wedding-or-funeral/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/connecting-the-clouds-wedding-or-funeral/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/connecting-the-clouds-wedding-or-funeral/ != https://www.rhino-inquisitor.com/connecting-the-clouds-wedding-or-funeral/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": []
     },
     {
@@ -661,20 +627,18 @@
       "description": "Learn how Rhino Inquisitor approaches cookies and browser storage on the current public Hugo site.",
       "descriptionLength": 98,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/cookie-policy-eu/",
-      "sitemapUrl": "http://localhost:1313/cookie-policy-eu/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/cookie-policy-eu/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/cookie-policy-eu/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/cookie-policy-eu/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/cookie-policy-eu/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/cookie-policy-eu/ != https://www.rhino-inquisitor.com/cookie-policy-eu/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": [
         "Meta description length 98 is outside the recommended 120-155 character range."
       ]
@@ -698,20 +662,18 @@
       "description": "Officially there is no possibility to define custom OCAPI endpoints. But is there a clever way to create them anyway? Find out here!",
       "descriptionLength": 132,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/creating-custom-ocapi-endpoints/",
-      "sitemapUrl": "http://localhost:1313/creating-custom-ocapi-endpoints/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/creating-custom-ocapi-endpoints/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/creating-custom-ocapi-endpoints/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/creating-custom-ocapi-endpoints/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/creating-custom-ocapi-endpoints/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/creating-custom-ocapi-endpoints/ != https://www.rhino-inquisitor.com/creating-custom-ocapi-endpoints/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": []
     },
     {
@@ -733,20 +695,18 @@
       "description": "Learn how SFCC custom preferences support configurable storefront behavior, governance, and safer environment-specific settings.",
       "descriptionLength": 128,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/custom-preferences-in-sfcc/",
-      "sitemapUrl": "http://localhost:1313/custom-preferences-in-sfcc/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/custom-preferences-in-sfcc/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/custom-preferences-in-sfcc/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/custom-preferences-in-sfcc/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/custom-preferences-in-sfcc/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/custom-preferences-in-sfcc/ != https://www.rhino-inquisitor.com/custom-preferences-in-sfcc/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": []
     },
     {
@@ -768,20 +728,18 @@
       "description": "Learn how to use custom TTF fonts in Salesforce B2C Commerce Cloud PDF generation so branded documents render correctly in production.",
       "descriptionLength": 134,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/custom-ttf-fonts-in-pdf-for-sfcc/",
-      "sitemapUrl": "http://localhost:1313/custom-ttf-fonts-in-pdf-for-sfcc/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/custom-ttf-fonts-in-pdf-for-sfcc/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/custom-ttf-fonts-in-pdf-for-sfcc/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/custom-ttf-fonts-in-pdf-for-sfcc/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/custom-ttf-fonts-in-pdf-for-sfcc/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/custom-ttf-fonts-in-pdf-for-sfcc/ != https://www.rhino-inquisitor.com/custom-ttf-fonts-in-pdf-for-sfcc/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": [
         "Title length 76 exceeds the recommended 60-character limit."
       ]
@@ -824,20 +782,18 @@
       "description": "Learn when Custom Caches help in SFCC, where they create risk, and how to use them safely without hurting performance or maintainability.",
       "descriptionLength": 137,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/field-guide-to-custom-caches-in-sfcc/",
-      "sitemapUrl": "http://localhost:1313/field-guide-to-custom-caches-in-sfcc/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/field-guide-to-custom-caches-in-sfcc/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/field-guide-to-custom-caches-in-sfcc/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/field-guide-to-custom-caches-in-sfcc/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/field-guide-to-custom-caches-in-sfcc/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/field-guide-to-custom-caches-in-sfcc/ != https://www.rhino-inquisitor.com/field-guide-to-custom-caches-in-sfcc/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": [
         "Title length 78 exceeds the recommended 60-character limit."
       ]
@@ -861,20 +817,18 @@
       "description": "SFRA in Salesforce B2C Commerce can be quite daunting. This blog post will guide you through all of the content of Commerce Cloud SFRA!",
       "descriptionLength": 135,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/getting-to-know-sfra-as-a-developer/",
-      "sitemapUrl": "http://localhost:1313/getting-to-know-sfra-as-a-developer/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/getting-to-know-sfra-as-a-developer/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/getting-to-know-sfra-as-a-developer/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/getting-to-know-sfra-as-a-developer/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/getting-to-know-sfra-as-a-developer/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/getting-to-know-sfra-as-a-developer/ != https://www.rhino-inquisitor.com/getting-to-know-sfra-as-a-developer/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": []
     },
     {
@@ -895,20 +849,18 @@
       "description": "A short headless-commerce primer from Thomas Theunen on why decoupled storefronts change customer experience and delivery flexibility.",
       "descriptionLength": 134,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/headless/",
-      "sitemapUrl": "http://localhost:1313/headless/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/headless/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/headless/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/headless/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/headless/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/headless/ != https://www.rhino-inquisitor.com/headless/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": []
     },
     {
@@ -930,20 +882,18 @@
       "description": "Over the past few months, I have grown to love Storybook as it gives me all the tools necessary to expose my components for testing and documentation.",
       "descriptionLength": 150,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/how-to-filter-jsdoc-in-storybook-autodocs/",
-      "sitemapUrl": "http://localhost:1313/how-to-filter-jsdoc-in-storybook-autodocs/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/how-to-filter-jsdoc-in-storybook-autodocs/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/how-to-filter-jsdoc-in-storybook-autodocs/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/how-to-filter-jsdoc-in-storybook-autodocs/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/how-to-filter-jsdoc-in-storybook-autodocs/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/how-to-filter-jsdoc-in-storybook-autodocs/ != https://www.rhino-inquisitor.com/how-to-filter-jsdoc-in-storybook-autodocs/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": []
     },
     {
@@ -965,20 +915,18 @@
       "description": "Getting access to a sandbox in Salesforce B2C Commerce Cloud is not as easy as it is for the core platform. Find out here how to get it done!",
       "descriptionLength": 141,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/",
-      "sitemapUrl": "http://localhost:1313/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/ != https://www.rhino-inquisitor.com/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": [
         "Title length 69 exceeds the recommended 60-character limit."
       ]
@@ -1002,20 +950,18 @@
       "description": "Getting certified with Salesforce is one of the people's many goals within the ecosystem. But they come at a price! Where can I score a deal?",
       "descriptionLength": 141,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/how-to-get-salesforce-certification-vouchers/",
-      "sitemapUrl": "http://localhost:1313/how-to-get-salesforce-certification-vouchers/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/how-to-get-salesforce-certification-vouchers/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/how-to-get-salesforce-certification-vouchers/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/how-to-get-salesforce-certification-vouchers/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/how-to-get-salesforce-certification-vouchers/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/how-to-get-salesforce-certification-vouchers/ != https://www.rhino-inquisitor.com/how-to-get-salesforce-certification-vouchers/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": [
         "Title length 63 exceeds the recommended 60-character limit."
       ]
@@ -1039,20 +985,18 @@
       "description": "Client-side JavaScript is quite necessary these days to create functionalities and have a good user experience. But how do you load it in SFRA?",
       "descriptionLength": 143,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/how-to-load-client-side-javascript-and-css-in-sfra/",
-      "sitemapUrl": "http://localhost:1313/how-to-load-client-side-javascript-and-css-in-sfra/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/how-to-load-client-side-javascript-and-css-in-sfra/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/how-to-load-client-side-javascript-and-css-in-sfra/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/how-to-load-client-side-javascript-and-css-in-sfra/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/how-to-load-client-side-javascript-and-css-in-sfra/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/how-to-load-client-side-javascript-and-css-in-sfra/ != https://www.rhino-inquisitor.com/how-to-load-client-side-javascript-and-css-in-sfra/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": [
         "Title length 69 exceeds the recommended 60-character limit."
       ]
@@ -1076,20 +1020,18 @@
       "description": "Setting up SLAS for the first time can be quite a headache. Or maybe not? Is there an easy way to set up SLAS for the PWA Kit?",
       "descriptionLength": 126,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/how-to-set-up-slas-for-the-composable-storefront/",
-      "sitemapUrl": "http://localhost:1313/how-to-set-up-slas-for-the-composable-storefront/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/how-to-set-up-slas-for-the-composable-storefront/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/how-to-set-up-slas-for-the-composable-storefront/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/how-to-set-up-slas-for-the-composable-storefront/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/how-to-set-up-slas-for-the-composable-storefront/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/how-to-set-up-slas-for-the-composable-storefront/ != https://www.rhino-inquisitor.com/how-to-set-up-slas-for-the-composable-storefront/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": [
         "Title length 67 exceeds the recommended 60-character limit."
       ]
@@ -1113,20 +1055,18 @@
       "description": "New APIs have been made available to manage certificates on the staging eCDN ourselves. But how does it work? What do I need to keep in mind?",
       "descriptionLength": 141,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/how-to-set-up-the-ecdn-in-sfcc-staging/",
-      "sitemapUrl": "http://localhost:1313/how-to-set-up-the-ecdn-in-sfcc-staging/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/how-to-set-up-the-ecdn-in-sfcc-staging/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/how-to-set-up-the-ecdn-in-sfcc-staging/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/how-to-set-up-the-ecdn-in-sfcc-staging/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/how-to-set-up-the-ecdn-in-sfcc-staging/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/how-to-set-up-the-ecdn-in-sfcc-staging/ != https://www.rhino-inquisitor.com/how-to-set-up-the-ecdn-in-sfcc-staging/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": [
         "Title length 86 exceeds the recommended 60-character limit."
       ]
@@ -1150,20 +1090,18 @@
       "description": "Hooks are becoming more and more prominent because of the PWA Kit and the API first methodology. But how do you implement them?",
       "descriptionLength": 127,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/how-to-use-ocapi-scapi-hooks/",
-      "sitemapUrl": "http://localhost:1313/how-to-use-ocapi-scapi-hooks/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/how-to-use-ocapi-scapi-hooks/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/how-to-use-ocapi-scapi-hooks/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/how-to-use-ocapi-scapi-hooks/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/how-to-use-ocapi-scapi-hooks/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/how-to-use-ocapi-scapi-hooks/ != https://www.rhino-inquisitor.com/how-to-use-ocapi-scapi-hooks/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": []
     },
     {
@@ -1185,20 +1123,18 @@
       "description": "As we move into 2024, the SCAPI has received much attention and has been updated with new APIs, updates, and performance improvements.",
       "descriptionLength": 134,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/in-the-ring-ocapi-versus-scapi/",
-      "sitemapUrl": "http://localhost:1313/in-the-ring-ocapi-versus-scapi/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/in-the-ring-ocapi-versus-scapi/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/in-the-ring-ocapi-versus-scapi/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/in-the-ring-ocapi-versus-scapi/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/in-the-ring-ocapi-versus-scapi/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/in-the-ring-ocapi-versus-scapi/ != https://www.rhino-inquisitor.com/in-the-ring-ocapi-versus-scapi/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": []
     },
     {
@@ -1219,20 +1155,18 @@
       "description": "An interactive guide for new SFCC developers covering storefront patterns, platform concepts, and practical next steps for hands-on learning.",
       "descriptionLength": 141,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/kickstart-guide-for-new-sfcc-developers/",
-      "sitemapUrl": "http://localhost:1313/kickstart-guide-for-new-sfcc-developers/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/kickstart-guide-for-new-sfcc-developers/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/kickstart-guide-for-new-sfcc-developers/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/kickstart-guide-for-new-sfcc-developers/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/kickstart-guide-for-new-sfcc-developers/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/kickstart-guide-for-new-sfcc-developers/ != https://www.rhino-inquisitor.com/kickstart-guide-for-new-sfcc-developers/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": [
         "Title length 81 exceeds the recommended 60-character limit."
       ]
@@ -1256,20 +1190,18 @@
       "description": "Bringing your first site live on SFCC can be challenging. In this series, we will be looking at different parts. Part I: eCDN",
       "descriptionLength": 125,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/lets-go-live-ecdn/",
-      "sitemapUrl": "http://localhost:1313/lets-go-live-ecdn/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/lets-go-live-ecdn/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/lets-go-live-ecdn/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/lets-go-live-ecdn/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/lets-go-live-ecdn/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/lets-go-live-ecdn/ != https://www.rhino-inquisitor.com/lets-go-live-ecdn/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": []
     },
     {
@@ -1291,20 +1223,18 @@
       "description": "Learn how to send emails with attachments from Salesforce B2C Commerce Cloud using ISML, including setup details and implementation pitfalls.",
       "descriptionLength": 141,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/mail-attachments-in-b2c-commerce-cloud/",
-      "sitemapUrl": "http://localhost:1313/mail-attachments-in-b2c-commerce-cloud/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/mail-attachments-in-b2c-commerce-cloud/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/mail-attachments-in-b2c-commerce-cloud/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/mail-attachments-in-b2c-commerce-cloud/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/mail-attachments-in-b2c-commerce-cloud/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/mail-attachments-in-b2c-commerce-cloud/ != https://www.rhino-inquisitor.com/mail-attachments-in-b2c-commerce-cloud/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": []
     },
     {
@@ -1326,20 +1256,18 @@
       "description": "Salesforce B2C Commerce Cloud offers a robust, flexible Jobs framework vital for performing scheduled or on-demand tasks for e-commerce operations.",
       "descriptionLength": 147,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/",
-      "sitemapUrl": "http://localhost:1313/mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/ != https://www.rhino-inquisitor.com/mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": [
         "Title length 61 exceeds the recommended 60-character limit."
       ]
@@ -1362,20 +1290,18 @@
       "description": "A session on Salesforce Commerce Cloud's headless direction, PWA Kit, and what composable architecture means for existing implementation teams.",
       "descriptionLength": 143,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/me-myself-and-headless-a-composable-commerce-cloud-story/",
-      "sitemapUrl": "http://localhost:1313/me-myself-and-headless-a-composable-commerce-cloud-story/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/me-myself-and-headless-a-composable-commerce-cloud-story/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/me-myself-and-headless-a-composable-commerce-cloud-story/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/me-myself-and-headless-a-composable-commerce-cloud-story/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/me-myself-and-headless-a-composable-commerce-cloud-story/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/me-myself-and-headless-a-composable-commerce-cloud-story/ != https://www.rhino-inquisitor.com/me-myself-and-headless-a-composable-commerce-cloud-story/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": [
         "Title length 78 exceeds the recommended 60-character limit."
       ]
@@ -1398,20 +1324,18 @@
       "description": "Reference pages and evergreen public resources.",
       "descriptionLength": 47,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/pages/",
-      "sitemapUrl": "http://localhost:1313/pages/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/pages/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/pages/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/pages/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/pages/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/pages/ != https://www.rhino-inquisitor.com/pages/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": [
         "Meta description length 47 is outside the recommended 120-155 character range."
       ]
@@ -1434,20 +1358,18 @@
       "description": "Reference pages and evergreen public resources Page 2.",
       "descriptionLength": 54,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/pages/page/2/",
-      "sitemapUrl": "http://localhost:1313/pages/page/2/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/pages/page/2/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/pages/page/2/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/pages/page/2/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/pages/page/2/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/pages/page/2/ != https://www.rhino-inquisitor.com/pages/page/2/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": [
         "Meta description length 54 is outside the recommended 120-155 character range."
       ]
@@ -1470,20 +1392,18 @@
       "description": "Find deep dives, guides, and best practices.",
       "descriptionLength": 44,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/posts/",
-      "sitemapUrl": "http://localhost:1313/posts/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/posts/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/posts/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/posts/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/posts/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/posts/ != https://www.rhino-inquisitor.com/posts/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": [
         "Meta description length 44 is outside the recommended 120-155 character range."
       ]
@@ -1506,20 +1426,18 @@
       "description": "Learn how Rhino Inquisitor handles basic request data, embedded media, and privacy questions on the current public Hugo site.",
       "descriptionLength": 125,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/privacy-policy/",
-      "sitemapUrl": "http://localhost:1313/privacy-policy/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/privacy-policy/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/privacy-policy/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/privacy-policy/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/privacy-policy/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/privacy-policy/ != https://www.rhino-inquisitor.com/privacy-policy/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": []
     },
     {
@@ -1540,20 +1458,18 @@
       "description": "Learn when real-time inventory checks improve the customer experience, where they add risk, and how to balance speed with accuracy.",
       "descriptionLength": 131,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/real-time-inventory-checks-in-sfcc/",
-      "sitemapUrl": "http://localhost:1313/real-time-inventory-checks-in-sfcc/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/real-time-inventory-checks-in-sfcc/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/real-time-inventory-checks-in-sfcc/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/real-time-inventory-checks-in-sfcc/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/real-time-inventory-checks-in-sfcc/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/real-time-inventory-checks-in-sfcc/ != https://www.rhino-inquisitor.com/real-time-inventory-checks-in-sfcc/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": []
     },
     {
@@ -1574,20 +1490,18 @@
       "description": "Explore the Salesforce B2C Commerce Cloud 22.9 release, from Page Designer copy and paste to Shopper Context updates and Salesforce Payments changes.",
       "descriptionLength": 149,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/salesforce-b2c-commerce-cloud-22-9-release/",
-      "sitemapUrl": "http://localhost:1313/salesforce-b2c-commerce-cloud-22-9-release/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-22-9-release/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-22-9-release/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/salesforce-b2c-commerce-cloud-22-9-release/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/salesforce-b2c-commerce-cloud-22-9-release/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/salesforce-b2c-commerce-cloud-22-9-release/ != https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-22-9-release/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": [
         "Title length 61 exceeds the recommended 60-character limit."
       ]
@@ -1611,20 +1525,18 @@
       "description": "Salesforce Platform Limits and Quotas are not new and exist for a reason. But why? And are there limits that are not documented?",
       "descriptionLength": 128,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/salesforce-b2c-commerce-cloud-governance-and-quotas/",
-      "sitemapUrl": "http://localhost:1313/salesforce-b2c-commerce-cloud-governance-and-quotas/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-governance-and-quotas/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-governance-and-quotas/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/salesforce-b2c-commerce-cloud-governance-and-quotas/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/salesforce-b2c-commerce-cloud-governance-and-quotas/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/salesforce-b2c-commerce-cloud-governance-and-quotas/ != https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-governance-and-quotas/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": [
         "Title length 70 exceeds the recommended 60-character limit."
       ]
@@ -1648,20 +1560,18 @@
       "description": "Are you interested in what is new in each Salesforce B2C Commerce Cloud release? Then this is the article for you! Let us look at 22.6",
       "descriptionLength": 134,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/salesforce-b2c-commerce-the-22-6-release/",
-      "sitemapUrl": "http://localhost:1313/salesforce-b2c-commerce-the-22-6-release/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/salesforce-b2c-commerce-the-22-6-release/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/salesforce-b2c-commerce-the-22-6-release/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/salesforce-b2c-commerce-the-22-6-release/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/salesforce-b2c-commerce-the-22-6-release/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/salesforce-b2c-commerce-the-22-6-release/ != https://www.rhino-inquisitor.com/salesforce-b2c-commerce-the-22-6-release/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": []
     },
     {
@@ -1683,20 +1593,18 @@
       "description": "Security within Salesforce B2C Commerce might not be a concern because of out-of-the-box features. There are a few things to keep in mind!",
       "descriptionLength": 138,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/secure-coding-in-salesforce-b2c-commerce-cloud/",
-      "sitemapUrl": "http://localhost:1313/secure-coding-in-salesforce-b2c-commerce-cloud/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/secure-coding-in-salesforce-b2c-commerce-cloud/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/secure-coding-in-salesforce-b2c-commerce-cloud/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/secure-coding-in-salesforce-b2c-commerce-cloud/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/secure-coding-in-salesforce-b2c-commerce-cloud/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/secure-coding-in-salesforce-b2c-commerce-cloud/ != https://www.rhino-inquisitor.com/secure-coding-in-salesforce-b2c-commerce-cloud/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": [
         "Title length 65 exceeds the recommended 60-character limit."
       ]
@@ -1720,20 +1628,18 @@
       "description": "This article covers the reasons for opting to send emails via Salesforce Commerce Cloud, the platform's limitations, the steps for programmatically",
       "descriptionLength": 147,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/sending-emails-from-sfcc/",
-      "sitemapUrl": "http://localhost:1313/sending-emails-from-sfcc/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/sending-emails-from-sfcc/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/sending-emails-from-sfcc/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/sending-emails-from-sfcc/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/sending-emails-from-sfcc/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/sending-emails-from-sfcc/ != https://www.rhino-inquisitor.com/sending-emails-from-sfcc/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": []
     },
     {
@@ -1754,20 +1660,18 @@
       "description": "An introduction to Salesforce B2C Commerce Cloud, covering core platform features, typical tech stacks, and where new teams should start learning.",
       "descriptionLength": 146,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/sfcc-introduction/",
-      "sitemapUrl": "http://localhost:1313/sfcc-introduction/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/sfcc-introduction/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/sfcc-introduction/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/sfcc-introduction/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/sfcc-introduction/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/sfcc-introduction/ != https://www.rhino-inquisitor.com/sfcc-introduction/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": [
         "Title length 63 exceeds the recommended 60-character limit."
       ]
@@ -1791,20 +1695,18 @@
       "description": "How can we simplify the Order of Execution in Salesforce? Find out in this article where we only use modern and KISS solutions!",
       "descriptionLength": 127,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/simplifying-the-salesforce-order-of-execution/",
-      "sitemapUrl": "http://localhost:1313/simplifying-the-salesforce-order-of-execution/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/simplifying-the-salesforce-order-of-execution/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/simplifying-the-salesforce-order-of-execution/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/simplifying-the-salesforce-order-of-execution/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/simplifying-the-salesforce-order-of-execution/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/simplifying-the-salesforce-order-of-execution/ != https://www.rhino-inquisitor.com/simplifying-the-salesforce-order-of-execution/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": [
         "Title length 64 exceeds the recommended 60-character limit."
       ]
@@ -1828,20 +1730,18 @@
       "description": "Those interested in Salesforce B2C Commerce Cloud will hear the term SiteGenesis and SFRA (and PWA). But what is the difference?",
       "descriptionLength": 128,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/sitegenesis-vs-sfra-vs-pwa/",
-      "sitemapUrl": "http://localhost:1313/sitegenesis-vs-sfra-vs-pwa/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/sitegenesis-vs-sfra-vs-pwa/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/sitegenesis-vs-sfra-vs-pwa/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/sitegenesis-vs-sfra-vs-pwa/ != https://www.rhino-inquisitor.com/sitegenesis-vs-sfra-vs-pwa/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": []
     },
     {
@@ -1862,20 +1762,18 @@
       "description": "SLAS (Shopper Login And API Access Service) is one of the headless APIs made available by Salesforce. But how can we use it in SFRA?",
       "descriptionLength": 132,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/slas-in-sfra-or-sitegenesis/",
-      "sitemapUrl": "http://localhost:1313/slas-in-sfra-or-sitegenesis/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/slas-in-sfra-or-sitegenesis/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/slas-in-sfra-or-sitegenesis/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/slas-in-sfra-or-sitegenesis/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/slas-in-sfra-or-sitegenesis/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/slas-in-sfra-or-sitegenesis/ != https://www.rhino-inquisitor.com/slas-in-sfra-or-sitegenesis/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": []
     },
     {
@@ -1897,20 +1795,18 @@
       "description": "Fix the SWC Storybook native binding error after switching between Apple Silicon and Intel environments by reinstalling dependencies cleanly.",
       "descriptionLength": 141,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/swc-and-storybook-error-failed-to-load-native-binding/",
-      "sitemapUrl": "http://localhost:1313/swc-and-storybook-error-failed-to-load-native-binding/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/swc-and-storybook-error-failed-to-load-native-binding/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/swc-and-storybook-error-failed-to-load-native-binding/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/swc-and-storybook-error-failed-to-load-native-binding/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/swc-and-storybook-error-failed-to-load-native-binding/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/swc-and-storybook-error-failed-to-load-native-binding/ != https://www.rhino-inquisitor.com/swc-and-storybook-error-failed-to-load-native-binding/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": [
         "Title length 74 exceeds the recommended 60-character limit."
       ]
@@ -1933,20 +1829,18 @@
       "description": "Most of us have glanced at the \"Page Meta Tag Rules\" section in Business Manager, shrugged, and moved on to what we consider 'real' code.",
       "descriptionLength": 137,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/taming-the-beast-a-developers-deep-dive-into-sfcc-meta-tag-rules/",
-      "sitemapUrl": "http://localhost:1313/taming-the-beast-a-developers-deep-dive-into-sfcc-meta-tag-rules/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/taming-the-beast-a-developers-deep-dive-into-sfcc-meta-tag-rules/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/taming-the-beast-a-developers-deep-dive-into-sfcc-meta-tag-rules/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/taming-the-beast-a-developers-deep-dive-into-sfcc-meta-tag-rules/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/taming-the-beast-a-developers-deep-dive-into-sfcc-meta-tag-rules/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/taming-the-beast-a-developers-deep-dive-into-sfcc-meta-tag-rules/ != https://www.rhino-inquisitor.com/taming-the-beast-a-developers-deep-dive-into-sfcc-meta-tag-rules/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": []
     },
     {
@@ -1968,20 +1862,18 @@
       "description": "Prepare for the Salesforce B2C Commerce Architect certification with a guide to exam domains, study priorities, and practical preparation.",
       "descriptionLength": 138,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/the-b2c-commerce-architect-certification/",
-      "sitemapUrl": "http://localhost:1313/the-b2c-commerce-architect-certification/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/the-b2c-commerce-architect-certification/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/the-b2c-commerce-architect-certification/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/the-b2c-commerce-architect-certification/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/the-b2c-commerce-architect-certification/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/the-b2c-commerce-architect-certification/ != https://www.rhino-inquisitor.com/the-b2c-commerce-architect-certification/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": [
         "Title length 61 exceeds the recommended 60-character limit."
       ]
@@ -2004,20 +1896,18 @@
       "description": "A podcast conversation about moving from hands-on development into solution, technical, and enterprise architecture roles in commerce delivery.",
       "descriptionLength": 143,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/the-path-to-being-an-architect/",
-      "sitemapUrl": "http://localhost:1313/the-path-to-being-an-architect/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/the-path-to-being-an-architect/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/the-path-to-being-an-architect/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/the-path-to-being-an-architect/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/the-path-to-being-an-architect/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/the-path-to-being-an-architect/ != https://www.rhino-inquisitor.com/the-path-to-being-an-architect/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": []
     },
     {
@@ -2038,20 +1928,18 @@
       "description": "Have you ever found yourself in a deployment-day standoff? Read the full article on Rhino Inquisitor for implementation details.",
       "descriptionLength": 128,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/the-realm-split-field-guide-to-migrating-an-sfcc-site/",
-      "sitemapUrl": "http://localhost:1313/the-realm-split-field-guide-to-migrating-an-sfcc-site/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/the-realm-split-field-guide-to-migrating-an-sfcc-site/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/the-realm-split-field-guide-to-migrating-an-sfcc-site/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/the-realm-split-field-guide-to-migrating-an-sfcc-site/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/the-realm-split-field-guide-to-migrating-an-sfcc-site/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/the-realm-split-field-guide-to-migrating-an-sfcc-site/ != https://www.rhino-inquisitor.com/the-realm-split-field-guide-to-migrating-an-sfcc-site/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": [
         "Title length 63 exceeds the recommended 60-character limit."
       ]
@@ -2074,20 +1962,18 @@
       "description": "Learn how to find your SFCC POD number, why it matters for troubleshooting, and where to verify it across tools and environments.",
       "descriptionLength": 129,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/the-sfcc-guide-to-finding-pod-numbers/",
-      "sitemapUrl": "http://localhost:1313/the-sfcc-guide-to-finding-pod-numbers/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/the-sfcc-guide-to-finding-pod-numbers/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/the-sfcc-guide-to-finding-pod-numbers/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/the-sfcc-guide-to-finding-pod-numbers/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/the-sfcc-guide-to-finding-pod-numbers/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/the-sfcc-guide-to-finding-pod-numbers/ != https://www.rhino-inquisitor.com/the-sfcc-guide-to-finding-pod-numbers/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": [
         "Title length 69 exceeds the recommended 60-character limit."
       ]
@@ -2111,20 +1997,18 @@
       "description": "Learn how to cache third-party API responses in Commerce Cloud to improve performance, control latency, and avoid stale-data pitfalls.",
       "descriptionLength": 134,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/third-party-api-caching-in-commerce-cloud/",
-      "sitemapUrl": "http://localhost:1313/third-party-api-caching-in-commerce-cloud/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/third-party-api-caching-in-commerce-cloud/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/third-party-api-caching-in-commerce-cloud/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/third-party-api-caching-in-commerce-cloud/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/third-party-api-caching-in-commerce-cloud/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/third-party-api-caching-in-commerce-cloud/ != https://www.rhino-inquisitor.com/third-party-api-caching-in-commerce-cloud/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": []
     },
     {
@@ -2146,20 +2030,18 @@
       "description": "Salesforce B2C Commerce is a robust platform that enables businesses to create highly customised and scalable digital storefronts.",
       "descriptionLength": 130,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/understanding-sfcc-instances/",
-      "sitemapUrl": "http://localhost:1313/understanding-sfcc-instances/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/understanding-sfcc-instances/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/understanding-sfcc-instances/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/understanding-sfcc-instances/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/understanding-sfcc-instances/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/understanding-sfcc-instances/ != https://www.rhino-inquisitor.com/understanding-sfcc-instances/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": []
     },
     {
@@ -2180,20 +2062,18 @@
       "description": "Besides my blog I also take part in Podcasts, webinars and other fun stuff. This page provides on overview of where you can see me on video!",
       "descriptionLength": 140,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/video/",
-      "sitemapUrl": "http://localhost:1313/video/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/video/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/video/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/video/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/video/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/video/ != https://www.rhino-inquisitor.com/video/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": []
     },
     {
@@ -2215,20 +2095,18 @@
       "description": "It is possible to link a SiteGenesis/SFRA session with an OCAPI \"session.\" But how can we do it, and what is it suitable for?",
       "descriptionLength": 125,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/what-is-the-ocapi-session-bridge/",
-      "sitemapUrl": "http://localhost:1313/what-is-the-ocapi-session-bridge/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/what-is-the-ocapi-session-bridge/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/what-is-the-ocapi-session-bridge/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/what-is-the-ocapi-session-bridge/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/what-is-the-ocapi-session-bridge/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/what-is-the-ocapi-session-bridge/ != https://www.rhino-inquisitor.com/what-is-the-ocapi-session-bridge/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": []
     },
     {
@@ -2250,20 +2128,18 @@
       "description": "Have you ever wondered how Salesforce Commerce Cloud, especially SFRA (Storefront Reference Architecture), handles the rendering of pages based on",
       "descriptionLength": 146,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/where-to-hook-into-an-sfra-controller/",
-      "sitemapUrl": "http://localhost:1313/where-to-hook-into-an-sfra-controller/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/where-to-hook-into-an-sfra-controller/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/where-to-hook-into-an-sfra-controller/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/where-to-hook-into-an-sfra-controller/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/where-to-hook-into-an-sfra-controller/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/where-to-hook-into-an-sfra-controller/ != https://www.rhino-inquisitor.com/where-to-hook-into-an-sfra-controller/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": [
         "Title length 75 exceeds the recommended 60-character limit."
       ]
@@ -2286,24 +2162,230 @@
       "description": "Use this mobile app launch checklist to review architecture, integrations, QA, and go-live readiness before an SFCC-backed app ships.",
       "descriptionLength": 133,
       "canonicalCount": 1,
-      "canonicalUrl": "http://localhost:1313/your-definitive-mobile-app-checklist/",
-      "sitemapUrl": "http://localhost:1313/your-definitive-mobile-app-checklist/",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/your-definitive-mobile-app-checklist/",
+      "sitemapUrl": "https://www.rhino-inquisitor.com/your-definitive-mobile-app-checklist/",
       "robots": [
-        "nofollow",
-        "noindex"
+        "follow",
+        "index",
+        "max-image-preview:large",
+        "max-snippet:-1",
+        "max-video-preview:-1"
       ],
-      "hasNoindex": true,
-      "result": "fail",
-      "blockingFindings": [
-        "Canonical is not HTTPS (http://localhost:1313/your-definitive-mobile-app-checklist/).",
-        "Canonical host is not www.rhino-inquisitor.com (http://localhost:1313/your-definitive-mobile-app-checklist/).",
-        "Canonical does not self-reference the page URL (https://localhost:1313/your-definitive-mobile-app-checklist/ != https://www.rhino-inquisitor.com/your-definitive-mobile-app-checklist/).",
-        "Unexpected noindex directive on an indexable route."
-      ],
+      "hasNoindex": false,
+      "result": "pass",
+      "blockingFindings": [],
       "warnings": [
         "Title length 65 exceeds the recommended 60-character limit."
       ]
     }
   ],
-  "duplicateTitles": []
+  "duplicateTitles": [
+    {
+      "title": "Commerce Cloud | Rhino Inquisitor",
+      "routes": [
+        {
+          "route": "/category/salesforce-commerce-cloud/",
+          "builtArtifactPath": "public/category/salesforce-commerce-cloud/index.html",
+          "canonicalUrl": "https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/",
+          "selfCanonical": true,
+          "pagination": false
+        },
+        {
+          "route": "/category/salesforce-commerce-cloud/page/10/",
+          "builtArtifactPath": "public/category/salesforce-commerce-cloud/page/10/index.html",
+          "canonicalUrl": "https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/",
+          "selfCanonical": false,
+          "pagination": true
+        },
+        {
+          "route": "/category/salesforce-commerce-cloud/page/11/",
+          "builtArtifactPath": "public/category/salesforce-commerce-cloud/page/11/index.html",
+          "canonicalUrl": "https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/",
+          "selfCanonical": false,
+          "pagination": true
+        },
+        {
+          "route": "/category/salesforce-commerce-cloud/page/12/",
+          "builtArtifactPath": "public/category/salesforce-commerce-cloud/page/12/index.html",
+          "canonicalUrl": "https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/",
+          "selfCanonical": false,
+          "pagination": true
+        },
+        {
+          "route": "/category/salesforce-commerce-cloud/page/13/",
+          "builtArtifactPath": "public/category/salesforce-commerce-cloud/page/13/index.html",
+          "canonicalUrl": "https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/",
+          "selfCanonical": false,
+          "pagination": true
+        },
+        {
+          "route": "/category/salesforce-commerce-cloud/page/2/",
+          "builtArtifactPath": "public/category/salesforce-commerce-cloud/page/2/index.html",
+          "canonicalUrl": "https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/",
+          "selfCanonical": false,
+          "pagination": true
+        },
+        {
+          "route": "/category/salesforce-commerce-cloud/page/3/",
+          "builtArtifactPath": "public/category/salesforce-commerce-cloud/page/3/index.html",
+          "canonicalUrl": "https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/",
+          "selfCanonical": false,
+          "pagination": true
+        },
+        {
+          "route": "/category/salesforce-commerce-cloud/page/4/",
+          "builtArtifactPath": "public/category/salesforce-commerce-cloud/page/4/index.html",
+          "canonicalUrl": "https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/",
+          "selfCanonical": false,
+          "pagination": true
+        },
+        {
+          "route": "/category/salesforce-commerce-cloud/page/5/",
+          "builtArtifactPath": "public/category/salesforce-commerce-cloud/page/5/index.html",
+          "canonicalUrl": "https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/",
+          "selfCanonical": false,
+          "pagination": true
+        },
+        {
+          "route": "/category/salesforce-commerce-cloud/page/6/",
+          "builtArtifactPath": "public/category/salesforce-commerce-cloud/page/6/index.html",
+          "canonicalUrl": "https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/",
+          "selfCanonical": false,
+          "pagination": true
+        },
+        {
+          "route": "/category/salesforce-commerce-cloud/page/7/",
+          "builtArtifactPath": "public/category/salesforce-commerce-cloud/page/7/index.html",
+          "canonicalUrl": "https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/",
+          "selfCanonical": false,
+          "pagination": true
+        },
+        {
+          "route": "/category/salesforce-commerce-cloud/page/8/",
+          "builtArtifactPath": "public/category/salesforce-commerce-cloud/page/8/index.html",
+          "canonicalUrl": "https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/",
+          "selfCanonical": false,
+          "pagination": true
+        },
+        {
+          "route": "/category/salesforce-commerce-cloud/page/9/",
+          "builtArtifactPath": "public/category/salesforce-commerce-cloud/page/9/index.html",
+          "canonicalUrl": "https://www.rhino-inquisitor.com/category/salesforce-commerce-cloud/",
+          "selfCanonical": false,
+          "pagination": true
+        }
+      ],
+      "allowed": true,
+      "result": "allowed",
+      "reason": "Paginated pages share a title with their self-canonical section root."
+    },
+    {
+      "title": "Community | Rhino Inquisitor",
+      "routes": [
+        {
+          "route": "/category/community/",
+          "builtArtifactPath": "public/category/community/index.html",
+          "canonicalUrl": "https://www.rhino-inquisitor.com/category/community/",
+          "selfCanonical": true,
+          "pagination": false
+        },
+        {
+          "route": "/category/community/page/2/",
+          "builtArtifactPath": "public/category/community/page/2/index.html",
+          "canonicalUrl": "https://www.rhino-inquisitor.com/category/community/",
+          "selfCanonical": false,
+          "pagination": true
+        }
+      ],
+      "allowed": true,
+      "result": "allowed",
+      "reason": "Paginated pages share a title with their self-canonical section root."
+    },
+    {
+      "title": "Release Notes | Rhino Inquisitor",
+      "routes": [
+        {
+          "route": "/category/release-notes/",
+          "builtArtifactPath": "public/category/release-notes/index.html",
+          "canonicalUrl": "https://www.rhino-inquisitor.com/category/release-notes/",
+          "selfCanonical": true,
+          "pagination": false
+        },
+        {
+          "route": "/category/release-notes/page/2/",
+          "builtArtifactPath": "public/category/release-notes/page/2/index.html",
+          "canonicalUrl": "https://www.rhino-inquisitor.com/category/release-notes/",
+          "selfCanonical": false,
+          "pagination": true
+        },
+        {
+          "route": "/category/release-notes/page/3/",
+          "builtArtifactPath": "public/category/release-notes/page/3/index.html",
+          "canonicalUrl": "https://www.rhino-inquisitor.com/category/release-notes/",
+          "selfCanonical": false,
+          "pagination": true
+        }
+      ],
+      "allowed": true,
+      "result": "allowed",
+      "reason": "Paginated pages share a title with their self-canonical section root."
+    },
+    {
+      "title": "Technical | Rhino Inquisitor",
+      "routes": [
+        {
+          "route": "/category/technical/",
+          "builtArtifactPath": "public/category/technical/index.html",
+          "canonicalUrl": "https://www.rhino-inquisitor.com/category/technical/",
+          "selfCanonical": true,
+          "pagination": false
+        },
+        {
+          "route": "/category/technical/page/2/",
+          "builtArtifactPath": "public/category/technical/page/2/index.html",
+          "canonicalUrl": "https://www.rhino-inquisitor.com/category/technical/",
+          "selfCanonical": false,
+          "pagination": true
+        },
+        {
+          "route": "/category/technical/page/3/",
+          "builtArtifactPath": "public/category/technical/page/3/index.html",
+          "canonicalUrl": "https://www.rhino-inquisitor.com/category/technical/",
+          "selfCanonical": false,
+          "pagination": true
+        },
+        {
+          "route": "/category/technical/page/4/",
+          "builtArtifactPath": "public/category/technical/page/4/index.html",
+          "canonicalUrl": "https://www.rhino-inquisitor.com/category/technical/",
+          "selfCanonical": false,
+          "pagination": true
+        },
+        {
+          "route": "/category/technical/page/5/",
+          "builtArtifactPath": "public/category/technical/page/5/index.html",
+          "canonicalUrl": "https://www.rhino-inquisitor.com/category/technical/",
+          "selfCanonical": false,
+          "pagination": true
+        },
+        {
+          "route": "/category/technical/page/6/",
+          "builtArtifactPath": "public/category/technical/page/6/index.html",
+          "canonicalUrl": "https://www.rhino-inquisitor.com/category/technical/",
+          "selfCanonical": false,
+          "pagination": true
+        },
+        {
+          "route": "/category/technical/page/7/",
+          "builtArtifactPath": "public/category/technical/page/7/index.html",
+          "canonicalUrl": "https://www.rhino-inquisitor.com/category/technical/",
+          "selfCanonical": false,
+          "pagination": true
+        }
+      ],
+      "allowed": true,
+      "result": "allowed",
+      "reason": "Paginated pages share a title with their self-canonical section root."
+    }
+  ]
 }

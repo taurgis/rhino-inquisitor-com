@@ -303,6 +303,11 @@ async function main() {
       continue;
     }
 
+    const selfCanonical = record.canonical === record.url;
+    if (!selfCanonical && /\/page\/\d+\/$/u.test(route)) {
+      continue;
+    }
+
     rows.push({
       url: record.url,
       canonical_tag_value: record.canonical,
