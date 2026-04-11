@@ -84,7 +84,7 @@ To personalize Headless applications with Salesforce B2C Commerce Cloud, you wil
 
 > Unregistered baskets are now stored a maximum of 7 days, depending upon preference settings, which mitigates the risk of negative performance and error rates.
 
-This one was already the case before this update, so not sure what has changed in this release. If you know, leave a comment!
+This one was already the case before this update, so not sure what has changed in this release.
 
 ## Bugfixes
 

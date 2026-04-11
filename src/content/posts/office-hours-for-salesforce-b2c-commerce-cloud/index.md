@@ -21,7 +21,7 @@ takeaways:
   - "Highlights the main B2C Commerce, OMS, solution architect, and marketplace office hour series"
   - "Positions office hours as a direct route for roadmap questions, technical discussion, and partner feedback"
 ---
-Office Hours are a great way to stay up to date on a specific topic within the Salesforce ecosystem. But what are these "Office Hours," and why should you care? Let us have a look! **_Is there an "Office Hours" missing? Let me know in the comments!_**
+Office Hours are a great way to stay up to date on a specific topic within the Salesforce ecosystem. But what are these "Office Hours," and why should you care? Let us have a look!
 
 ## What are Office Hours
 

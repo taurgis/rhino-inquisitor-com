@@ -134,4 +134,4 @@ But why is it in there? Well, it is an excellent source of inspiration for other
 
 ## And many more
 
-There are [a lot of cartridges like this](/community-repositories/) out there, and covering them all is quite impossible. But be sure to leave a comment if you have an interesting one to share! I might do a follow-up blog post with more cartridges that need some love.
+There are [a lot of cartridges like this](/community-repositories/) out there, and covering them all is quite impossible. If you have an interesting one to share, [reach out on LinkedIn](https://www.linkedin.com/in/thomas-theunen-10905680/).

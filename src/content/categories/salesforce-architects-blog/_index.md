@@ -5,6 +5,6 @@ description: >-
   Commerce Cloud articles, release notes, and migration-safe reference material.
 aliases:
   - /category/external/salesforce-architects-blog/
-draft: false
+draft: true
 ---
 

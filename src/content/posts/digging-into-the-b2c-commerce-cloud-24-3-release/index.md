@@ -63,7 +63,7 @@ A new option that is more prominent and cannot be ignored. To enable, go to Admi
 
 ## OCAPI & SCAPI
 
-### Prepare for Changes to Sever-Side Web-Tier Caching
+### Prepare for Changes to Server-Side Web-Tier Caching
 
 > If you provision your SCAPI zone with short code, SCAPI caching is enabled by default after March 12, 2024, and the feature switch SCAPI Server-Side Web-Tier Caching is has no effect. If you enroll in SCAPI before March 12, 2024, you can continue to enable SCAPI caching in Business Manager. To enable caching, in Business Manager, select Administration | Feature Switches, and turn on SCAPI Server-Side Web-Tier Caching.
 

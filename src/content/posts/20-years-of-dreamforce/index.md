@@ -75,7 +75,7 @@ I created a schedule in previous editions of this event post ([TrailblazerDX](/t
 
 For now, session length and time are not known yet. I will update the article once this information is made public.
 
-Community Speakers Did I miss someone? Please don't be shy and send me a message or leave a comment!
+Community Speakers Did I miss someone? Please don't be shy and [send me a message on LinkedIn](https://www.linkedin.com/in/thomas-theunen-10905680/)!
 
 ### Next-Gen Commerce: Maximize Profit Your Way
 

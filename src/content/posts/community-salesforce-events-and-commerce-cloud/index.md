@@ -134,4 +134,4 @@ It is wonderful to connect with admins, developers, and architects who use these
 
 ### A Commerce Cloud-focused community event
 
-Well, that doesn't exist right now. Is that something that you would love to have or are interested in? Let me know in the comments!
+Well, that doesn't exist right now. Is that something that you would love to have or are interested in? [Let me know on LinkedIn](https://www.linkedin.com/in/thomas-theunen-10905680/)!

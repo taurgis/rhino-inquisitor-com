@@ -103,7 +103,7 @@ The topics will range from technical workshops to networking events. Some ideas 
 - How to get certified
 - ....
 
-Have ideas in mind of your own? Then join the 6th of October session or leave a comment!
+Have ideas in mind of your own? Then join the 6th of October session or [reach out on LinkedIn](https://www.linkedin.com/in/thomas-theunen-10905680/)!
 
 {{< img-caption src="get-to-know-each-other-v2-60539cfd30.png" alt="Announcement card for the community's first get-to-know-each-other session." link="https://trailblazercommunitygroups.com/events/details/salesforce-salesforce-developer-group-hasselt-belgium-presents-lets-get-to-know-each-other/" >}}
 
