@@ -2141,6 +2141,11 @@ summary {
   border-color: var(--surface-border-strong);
 }
 
+[data-theme="dark"] .article-card__media-badge--date {
+  background: rgba(13, 17, 23, 0.92);
+  color: var(--accent-strong);
+}
+
 [data-theme="dark"] .archive-rail .archive-filter-group {
   background: var(--surface-strong);
 }
