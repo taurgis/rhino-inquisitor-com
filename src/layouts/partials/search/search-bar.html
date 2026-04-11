@@ -12,6 +12,7 @@
 {{ $scopeValue := .scopeValue | default "posts" }}
 {{ $scopeLabel := .scopeLabel | default "blog archive" }}
 {{ $stateBaseUrl := .stateBaseUrl | default $page.RelPermalink }}
+{{ $searchLabel := .label | default (printf "Search %s" $scopeLabel) }}
 
 <form
   class="search-bar"
@@ -29,20 +30,20 @@
   data-search-year-controls-selector="[data-archive-year-controls]"
 >
   <div class="search-bar__field">
-    <label for="{{ $inputId }}">Search the blog archive</label>
+    <label for="{{ $inputId }}">{{ $searchLabel }}</label>
     <div class="search-bar__row">
       <input
         id="{{ $inputId }}"
         name="q"
         type="search"
         autocomplete="off"
-        placeholder="{{ .placeholder | default "Search the blog archive by topic, title, or trailhead." }}"
+        placeholder="{{ .placeholder | default (printf "Search %s by title, summary, or topic." $scopeLabel) }}"
         aria-describedby="{{ $helperId }}"
       >
       <button type="submit">Search</button>
     </div>
   </div>
-  <p class="surface-note" id="{{ $helperId }}">Search across titles, summaries, and topics. Leave the field empty to restore the default archive view.</p>
+  <p class="surface-note" id="{{ $helperId }}">Search across titles, summaries, and topics. Leave the field empty to restore the default {{ $scopeLabel }} view.</p>
   <div class="search-bar__controls">
     <div class="search-bar__sort">
       <label for="{{ $sortId }}">Sort</label>

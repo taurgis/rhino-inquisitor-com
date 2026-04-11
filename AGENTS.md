@@ -103,6 +103,7 @@ Governance source:
 
 Domain skills are located in [.github/skills/](.github/skills/):
 
+- [chrome-devtools-mcp](.github/skills/chrome-devtools-mcp/SKILL.md)
 - [content-migration](.github/skills/content-migration/SKILL.md)
 - [documentation](.github/skills/documentation/SKILL.md)
 - [hugo-development](.github/skills/hugo-development/SKILL.md)

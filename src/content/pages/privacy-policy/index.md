@@ -7,6 +7,7 @@ date: '2022-02-25T21:16:19.000Z'
 lastmod: '2026-03-29T00:00:00.000Z'
 url: /privacy-policy/
 draft: false
+archiveExclude: true
 author: Thomas Theunen
 ---
 Rhino Inquisitor is a public technical publishing site. The current Hugo site does not provide public user accounts, on-site comments, checkout flows, or newsletter sign-up forms.
@@ -56,9 +57,9 @@ If analytics, consent tooling, or additional visitor-facing tracking is added la
 
 ## Data retention and visitor rights
 
-This site does not maintain public visitor accounts or comment profiles. If you contact the site owner directly through a channel linked from the [About page contact section](/about/#contact), any personal data you choose to share is handled in that communication channel rather than through an on-site form.
+This site does not maintain public visitor accounts or comment profiles. If you use one of the public contact links listed in the [About page contact section](/about/#contact), any personal data you choose to share is handled in that communication channel rather than through an on-site form.
 
-If you have a privacy question about content published here or want to raise a concern about a public page, use the contact paths linked from the [About page contact section](/about/#contact).
+If you have a privacy question about content published here or want to raise a concern about a public page, use one of the public contact links listed in the [About page contact section](/about/#contact).
 
 ## Changes to this policy
 

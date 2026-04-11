@@ -5,6 +5,7 @@ date: 2026-03-09T10:00:00Z
 lastmod: 2026-03-09T10:00:00Z
 url: "/scaffold-readiness/"
 scaffoldFixture: true
+archiveExclude: true
 draft: false
 author: "Engineering Owner"
 ---

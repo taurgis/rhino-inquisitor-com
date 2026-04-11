@@ -25,7 +25,7 @@ takeaways:
   - "Flags that the approach is now deprecated because staging vanity domains can be managed in Business Manager"
 ---
 > [!WARNING]
-> **Deprecated:** Article Since the writing of this article, the eCDN business manager module has been updated to allow configuration of vanity domains on Staging. Therefore, there is no need to use API calls as described in this article (unless you really, really want to...).
+> **Deprecated article:** Since the writing of this article, the eCDN Business Manager module has been updated to allow configuration of vanity domains on staging. Therefore, there is no need to use API calls as described in this article unless you really, really want to.
 
 Read all about it [in the staging eCDN Business Manager release note](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_configure_ecdn_for_staging_in_bm.htm&type=5).
 
@@ -48,9 +48,9 @@ To connect to the SCAPI, we need to create an API client with the correct scopes
 
 Salesforce [has written a guide](https://developer.salesforce.com/docs/commerce/commerce-api/references/cdn-api-process-apis?meta=Summary#before-you-begin) on the developer support site to create an API Client for this use case.
 
-tenantID The tenantID mentioned in the guide is the Realm ID (zzxx) combined with the Instance ID (001). This information is shown in the next step of this guide on the Staging instance.
+**tenantID:** The tenantID mentioned in the guide is the Realm ID (zzxx) combined with the Instance ID (001). This information is shown in the next step of this guide on the staging instance.
 
-e.g. **zzxx\_001** Roles Remember to assign the "Salesforce Commerce API role to the API Client!
+e.g. **zzxx\_001**. Remember to assign the Salesforce Commerce API role to the API Client.
 
 {{< img-caption src="commerce-cloud-api-client-roles-1a338d1f61.jpg" alt="Account Manager roles screen with the Salesforce Commerce API role enabled for staging." link="commerce-cloud-api-client-roles-1a338d1f61.jpg" >}}
 
@@ -68,7 +68,7 @@ We get these settings here:
 
 To communicate with the [Zones API](https://developer.salesforce.com/docs/commerce/commerce-api/references/cdn-api-process-apis?meta=Summary), we need a bearer token. This is fetched using the following API call to the Account Manager
 
-tenantID The tenantID combines the Realm ID and the Instance ID with an underscore. (e.g. **zzxx\_001**)
+**tenantID:** The tenantID combines the Realm ID and the Instance ID with an underscore (e.g. **zzxx\_001**).
 
 ```bash
 curl -i -k \
@@ -190,7 +190,7 @@ Certificates and Private Keys tend to have several new line characters incompati
 
 These need to be "escaped". Luckily, many online [tools](https://www.freeformatter.com/json-escape.html) can help you with this chore.
 
-Security Don't trust just any tool online with this data! The private key is sensitive information!
+> **Security:** Don't trust just any tool online with this data. The private key is sensitive information.
 
 ## Step 7: Validate ownership of the domain
 

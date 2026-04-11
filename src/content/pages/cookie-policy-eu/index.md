@@ -6,6 +6,7 @@ description: >-
 date: '2023-03-06T13:35:03.000Z'
 lastmod: '2026-03-29T00:00:00.000Z'
 url: /cookie-policy-eu/
+archiveExclude: true
 draft: false
 author: Thomas Theunen
 ---

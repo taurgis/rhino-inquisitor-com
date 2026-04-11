@@ -32,6 +32,7 @@ This directory holds structured analysis documentation for the migration project
 - [Template](TEMPLATE.md)
 - [Checklists](checklists/)
 - [Governance docs](governance/)
+- [Chrome DevTools MCP skill](governance/chrome-devtools-mcp-skill-2026-04-11.md)
 - [Favicon logo contract](governance/favicon-logo-contract-2026-04-07.md)
 - [Downloadable file URL convention](governance/downloadable-file-url-convention-2026-03-13.md)
 - [Home RSS filtering](governance/home-rss-filtering-2026-04-06.md)

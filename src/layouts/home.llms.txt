@@ -1,7 +1,7 @@
 {{- $indexablePages := slice -}}
 {{- range site.RegularPages.ByDate.Reverse -}}
   {{- $seo := .Params.seo | default dict -}}
-  {{- if not (index $seo "noindex") -}}
+  {{- if and (not (index $seo "noindex")) (ne .Params.pageArchiveExclude true) -}}
     {{- $indexablePages = $indexablePages | append . -}}
   {{- end -}}
 {{- end -}}
@@ -29,7 +29,7 @@ The canonical HTML pages remain the source of truth for attribution and linking.
 
 - [Homepage]({{ .Site.Home.Permalink }}): Site entry point and featured reading surface.
 - [Blog Archive]({{ with $blogPage }}{{ .Permalink }}{{ end }}): Reverse-chronological article index.
-- [Reference Pages]({{ with $referencePage }}{{ .Permalink }}{{ end }}): Evergreen reference and utility pages.
+- [Reference Pages]({{ with $referencePage }}{{ .Permalink }}{{ end }}): Evergreen reference pages and public hubs.
 - [Categories]({{ with $categoryPage }}{{ .Permalink }}{{ end }}): Topic browse surface.
 - [LLM Full Corpus]({{ with $llmsFull }}{{ .Permalink }}{{ end }}): Combined Markdown export of every indexable regular page.
 - [Search Index JSON]({{ with $jsonIndex }}{{ .Permalink }}{{ end }}): Machine-readable metadata feed for canonical pages.

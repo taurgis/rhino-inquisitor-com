@@ -26,7 +26,7 @@ In the wild, wild west of e-commerce, images aren't just pretty pictures. They'r
 
 But fear not. Salesforce B2C Commerce Cloud's [Dynamic Image Service](https://help.salesforce.com/s/articleView?language=da&id=cc.b2c_image_transformation_service.htm) (DIS) is here to help. Keep in mind that this built-in tool has several tricks up its sleeve, but might not always be the best fit for your project, so keep reading!
 
-DIS & eCDN Notice Effective image delivery in B2C commerce depends on two key components: the Dynamic Image Service (DIS), which handles real-time processing, and the eCDN, responsible for scalable delivery. When an image is first requested, DIS transforms it, and then the eCDN caches it for all future views.
+**DIS and eCDN notice:** Effective image delivery in B2C commerce depends on two key components: the Dynamic Image Service (DIS), which handles real-time processing, and the eCDN, responsible for scalable delivery. When an image is first requested, DIS transforms it, and then the eCDN caches it for all future views.
 
 This article focuses on the DIS layer, the main driver of the image manipulation process.
 
@@ -42,7 +42,7 @@ Ever wanted to add a "SALE!" image badge to an image without using Photoshop? `i
 
 And for that perfect balance between crispness and speed, `quality` lets you fine-tune compression for JPG(1-100, default 80) and PNGs. Even pesky transparent backgrounds can be tamed with `bgcolor`, and metadata stripped with `strip`.
 
-Pro Tip DIS has a very specific "recipe" for applying these transformations. It's not a free-for-all! The order is always: Image Format, then Image Crop, then Image Scale, then Image Overlay, and finally Image Quality. Understanding this sequence is key to avoiding "oops, that's not what I wanted" moments.
+**Pro tip:** DIS has a very specific "recipe" for applying these transformations. It's not a free-for-all. The order is always: Image Format, then Image Crop, then Image Scale, then Image Overlay, and finally Image Quality. Understanding this sequence is key to avoiding "oops, that's not what I wanted" moments.
 
 Want to know precisely how all of these things work? Have a look at the [official documentation](https://help.salesforce.com/s/articleView?id=cc.b2c_creating_image_transformation_urls.htm&type=5).
 
@@ -58,7 +58,7 @@ For developers navigating the Salesforce B2C Commerce Cloud universe, DIS isn't 
 
 **Kiss Manual Image Management Goodbye:** Seriously, who has time to create 10 different versions of the same product shot? With DIS, you upload one glorious, high-resolution image to Commerce Cloud, and DIS handles the rest, generating every size and format on demand. This means your creative and merchandising teams can focus on crafting stunning visuals, not on tedious, repetitive image grunt work. More creativity, less clicking!
 
-**Speed Demon & Responsive Rockstar:** In the e-commerce race, speed wins. DIS helps you cross the finish line first by serving up images that are _just right_ for every scenario. No oversized behemoths slow down your product pages, and no pixelated thumbnails ruin your search results. This precision means faster page loads, which directly translates into happier customers, improved SEO, and ultimately, more conversions. Plus, DIS is your built-in responsive design partner, ensuring your storefront looks sharp and loads lightning-fast on any device, from desktops to smartphones. As I've discussed in my blog post, [From Lag to Riches: A PWA Kit Developer’s Guide to Storefront Speed](https://www.google.com/search?q=`<https://www.rhino-inquisitor.com/blog/from-lag-to-riches-a-pwa-kit-developers-guide-to-storefront-speed>`), performance is paramount.
+**Speed Demon & Responsive Rockstar:** In the e-commerce race, speed wins. DIS helps you cross the finish line first by serving up images that are _just right_ for every scenario. No oversized behemoths slow down your product pages, and no pixelated thumbnails ruin your search results. This precision means faster page loads, which directly translates into happier customers, improved SEO, and ultimately, more conversions. Plus, DIS is your built-in responsive design partner, ensuring your storefront looks sharp and loads lightning-fast on any device, from desktops to smartphones. As I've discussed in my blog post, [From Lag to Riches: A PWA Kit Developer's Guide to Storefront Speed](/from-lag-to-riches-a-pwa-kit-developers-guide-to-storefront-speed/), performance is paramount.
 
 **Flexibility That'll Make You Giddy:** Ever had a designer suddenly decide to change the entire product grid layout? From four items at 150x150 pixels to three at 250x250? Without DIS, that's a full-blown panic attack. With DIS? You tweak a few parameters in your templates, and _bam!_—new layout, perfectly sized images, no re-processing, no re-uploading, no re-assigning. Do you need a new promotional banner with a custom image size for a flash sale? Generate it instantly! (Ok...Ok, I might be a bit too optimistic here, some foresight and extra editor fields in Page Designer are needed for use-cases like this.)
 
@@ -76,9 +76,9 @@ When you update an image, there's no need for manual cache invalidation thanks t
 /dw/image/v2/BCQR_PRD/on/demandware.static/-/Sites-master/default/dw515e574c/4.jpg
 ```
 
-Do you notice that _dw515e574c _? It represents the unique "cache" ID managed by SFCC to ensure cached images are served. When the image updates, a new ID is generated so the customer _ always_ sees the latest version!
+Do you notice that _dw515e574c_? It represents the unique "cache" ID managed by SFCC to ensure cached images are served. When the image updates, a new ID is generated so the customer _always_ sees the latest version.
 
-Not "always" always The system behind this is somewhat of a black box to us, so there could still be delays before an image updates and becomes visible to customers.
+**Not "always" always:** The system behind this is somewhat of a black box to us, so there could still be delays before an image updates and becomes visible to customers.
 
 ## DIS Tips, Tricks, and How to Avoid Digital Disasters
 

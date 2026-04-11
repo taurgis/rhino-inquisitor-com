@@ -6,6 +6,7 @@ description: >-
 date: '2022-11-01T16:38:41.000Z'
 lastmod: '2022-11-01T16:56:37.000Z'
 url: /offline/
+archiveExclude: true
 draft: false
 author: Thomas Theunen
 ---

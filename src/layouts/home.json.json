@@ -1,7 +1,7 @@
 {{- $searchPages := slice -}}
 {{- range site.RegularPages.ByDate.Reverse -}}
   {{- $seo := .Params.seo | default dict -}}
-  {{- if not (index $seo "noindex") -}}
+  {{- if and (not (index $seo "noindex")) (ne .Params.pageArchiveExclude true) (ne .Params.archiveExclude true) (ne .Params.scaffoldFixture true) -}}
     {{- $excerpt := .Params.description | default "" -}}
     {{- if eq $excerpt "" -}}
       {{- $excerpt = .Summary | plainify | strings.TrimSpace -}}

@@ -6,6 +6,7 @@ description: >-
 date: '2022-03-27T06:21:05.000Z'
 lastmod: '2022-08-16T17:25:15.000Z'
 url: /video/
+archiveExclude: true
 draft: false
 author: Thomas Theunen
 heroImage: maxresdefault-7015ae5c52.jpg

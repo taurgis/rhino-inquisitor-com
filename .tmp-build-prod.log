@@ -1,0 +1,35 @@
+
+> rhino-inquisitor-com@0.1.0 build:prod
+> npm run generate:avif-cache && hugo --cleanDestinationDir --gc --minify --environment production && npm run sync:404-artifact && npm run generate:llm-artifacts
+
+
+> rhino-inquisitor-com@0.1.0 generate:avif-cache
+> node scripts/generate-avif-cache.js
+
+AVIF cache scan complete for 584 source image(s). Generated: 0. Cached: 584. Skipped: 0. Removed stale: 0.
+Start building sites … 
+hugo v0.157.0+extended+withdeploy darwin/arm64 BuildDate=2026-02-25T16:38:33Z VendorInfo=Homebrew
+
+
+                  │ EN  
+──────────────────┼─────
+ Pages            │ 377 
+ Paginator pages  │  16 
+ Non-page files   │ 597 
+ Static files     │  24 
+ Processed images │ 373 
+ Aliases          │  17 
+ Cleaned          │   0 
+
+Total in 1594 ms
+
+> rhino-inquisitor-com@0.1.0 sync:404-artifact
+> node scripts/seo/sync-404-artifact.js
+
+Synced public/404.html from public/404/index.html.
+
+> rhino-inquisitor-com@0.1.0 generate:llm-artifacts
+> node scripts/seo/generate-llm-artifacts.js
+
+Generated 171 cleaned Markdown companion files and refreshed public/llms-full.txt.
+__EXIT:0

@@ -7,6 +7,7 @@ date: '2022-02-25T21:45:53.000Z'
 lastmod: '2026-03-24T07:27:00.000Z'
 url: /about/
 draft: false
+archiveExclude: true
 author: Thomas Theunen
 ---
 Rhino Inquisitor is the place where I document the technical side of Salesforce B2C Commerce Cloud work that usually gets compressed into architecture meetings, incident calls, migration plans, and release-readiness checklists.
@@ -87,13 +88,13 @@ If a solution cannot be explained clearly, monitored in production, and changed 
 
 ## Contact
 
-If you want to reach me directly or follow the public work connected to this site, these are the best places to continue:
+Rhino Inquisitor does not run a public contact form. If you want to reach me about a page, a technical topic, public tooling, or related work, use one of these public channels:
 
+- [LinkedIn](https://www.linkedin.com/in/thomas-theunen-10905680/) for direct professional contact about the site, speaking, or project work
 - [GitHub](https://github.com/taurgis/) for public tooling, experiments, and Salesforce Commerce Cloud developer work
-- [Trailblazer profile](https://www.salesforce.com/trailblazer/thomas-theunen) for Salesforce community presence
-- [Technical topics](/category/technical/) for implementation-focused articles
-- [Architecture topics](/category/architecture/) for system design and trade-off discussions
-- [Salesforce Commerce Cloud topics](/category/salesforce-commerce-cloud/) for platform-wide coverage
+- [Trailblazer profile](https://www.salesforce.com/trailblazer/thomas-theunen) for Salesforce community contact and profile details
+
+If you are looking for published material first, the [blog](/posts/) and [topics](/category/) remain the quickest way to find the relevant article or resource.
 
 ## Start Here
 

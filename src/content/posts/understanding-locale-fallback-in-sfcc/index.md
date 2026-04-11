@@ -33,22 +33,24 @@ The default hierarchy handles locales by country first (e.g., `en_US` for United
 
 Locale fallback plays a critical role in maintaining a seamless user experience. Imagine a customer browsing an e-commerce website that lacks translation or specific data for their locale. Without fallback, this would lead to incomplete or inconsistent data, negatively impacting user experience and trust. With fallback, the store can still display relevant, albeit generic information, ensuring the site remains functional and informative.
 
-Manage Translations Thoroughly Ensuring a positive user experience on your site involves managing messages and translations; although a protection system is in place, this responsibility ultimately falls on you.
+### Manage Translations Thoroughly
+
+Ensuring a positive user experience on your site involves managing messages and translations; although a protection system is in place, this responsibility ultimately falls on you.
 
 ## How Locale Fallback Works
 
 {{< img-caption src="locale-fallback-explained-bfdfc55392.png" alt="Decision tree showing locale fallback from en_US to en and then default." caption="Is there a translation present?" >}}
 
-Here's an example to illustrate the concept:
-
-1. A shopper from the United States with the locale "`en_US"` visits a product page.
-1. The system first looks for product description, pricing, etc., data relevant to the "`en_US"` locale.
+1. A shopper from the United States with the locale `en_US` visits a product page.
+1. The system first looks for product description, pricing, etc., data relevant to the `en_US` locale.
 1. If that specific locale data is unavailable, it falls back to "en" (indicating the English language).
 1. Should the `en` data also be missing, the system retrieves the default locale's content.
 
 This hierarchy ensures that the user receives readable and relevant content despite gaps in localised information.
 
-Inconsistent languages on a single page. If you configure the fallback system differently, let's say you have the German language option (de_DE) and the "default" locale is set as English. In this case, there is a possibility that a customer may see some parts of a webpage in German while others will appear in English.
+### Inconsistent Languages On A Single Page
+
+If you configure the fallback system differently, let's say you have the German language option (`de_DE`) and the "default" locale is set as English. In this case, there is a possibility that a customer may see some parts of a webpage in German while others will appear in English.
 
 ## Configuring Locale Fallback
 
@@ -58,19 +60,21 @@ Salesforce B2C Commerce Cloud allows for customized fallback configurations. You
 
 For the `en_US` example, the fallback chain by default is `en_US > en > default`. However, you could configure `en_US` to bypass the `en` step and go straight to `default`, or you might decide that `en_US` should not fallback at all.
 
-Fallback to different language You are only allowed to fall back within the same language:
+### Fallback To A Different Language
 
-**Allowed:** fr_FR > FR > Default
+You are only allowed to fall back within the same language:
 
-**Allowed:** fr_FR > Default
+- **Allowed:** `fr_FR > FR > Default`
 
-**Allowed:** fr_FR > Disabled
+- **Allowed:** `fr_FR > Default`
 
-**Not allowed:** fr_FR > DE > Default
+- **Allowed:** `fr_FR > Disabled`
 
-**Not allowed:** fr_FR > fr_BE > Default
+- **Not allowed:** `fr_FR > DE > Default`
 
-**Not allowed:** fr_FR > de_DE > Default
+- **Not allowed:** `fr_FR > fr_BE > Default`
+
+- **Not allowed:** `fr_FR > de_DE > Default`
 
 {{< img-caption src="locale-fallback-en-uk-bd32fc597d.png" alt="Example locale fallback configuration for en-GB." caption="The possible fallback options for en_GB" >}}
 

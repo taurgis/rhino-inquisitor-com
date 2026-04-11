@@ -1,6 +1,17 @@
 {{ define "head" }}
+  {{ $excludedPageArchivePaths := slice "/archive/" "/offline/" "/scaffold-readiness/" }}
   {{ $pages := .RegularPages.ByDate.Reverse }}
+  {{ if eq .Section "pages" }}
+    {{ $visiblePages := slice }}
+    {{ range $pages }}
+      {{ if and (not (in $excludedPageArchivePaths .RelPermalink)) (ne .Params.pageArchiveExclude true) (ne .Params.archiveExclude true) (ne .Params.scaffoldFixture true) }}
+        {{ $visiblePages = $visiblePages | append . }}
+      {{ end }}
+    {{ end }}
+    {{ $pages = $visiblePages }}
+  {{ end }}
   {{ $paginator := .Paginate $pages }}
+  {{ .Scratch.Set "listPaginator" $paginator }}
   {{ $seoTitle := .Title }}
   {{ if eq .RelPermalink "/category/" }}
     {{ $seoTitle = "Categories" }}
@@ -12,7 +23,7 @@
     {{ if eq .RelPermalink "/posts/" }}
       {{ $seoDescription = "Find deep dives, guides, and best practices from the Rhino Inquisitor archive." }}
     {{ else if eq .RelPermalink "/pages/" }}
-      {{ $seoDescription = "Reference pages, evergreen explainers, and supporting utilities from Rhino Inquisitor." }}
+      {{ $seoDescription = "Reference pages, evergreen explainers, and selected public resources from Rhino Inquisitor." }}
     {{ else if eq .RelPermalink "/category/" }}
       {{ $seoDescription = "Browse every Rhino Inquisitor category archive to jump into a specific Salesforce Commerce Cloud topic." }}
     {{ else if hasPrefix .RelPermalink "/category/" }}
@@ -21,7 +32,6 @@
       {{ $seoDescription = printf "Browse the %s archive on Rhino Inquisitor." .Title }}
     {{ end }}
   {{ end }}
-  {{ .Scratch.Set "listPaginator" $paginator }}
   {{ .Scratch.Set "seoTitleOverride" $seoTitle }}
   {{ .Scratch.Set "seoDescriptionOverride" $seoDescription }}
   {{ partial "seo/head-meta.html" . }}
@@ -29,9 +39,19 @@
 {{ end }}
 
 {{ define "main" }}
-  {{ $pages := .RegularPages.ByDate.Reverse }}
   {{ $paginator := .Scratch.Get "listPaginator" }}
   {{ if not $paginator }}
+    {{ $excludedPageArchivePaths := slice "/archive/" "/offline/" "/scaffold-readiness/" }}
+    {{ $pages := .RegularPages.ByDate.Reverse }}
+    {{ if eq .Section "pages" }}
+      {{ $visiblePages := slice }}
+      {{ range $pages }}
+        {{ if and (not (in $excludedPageArchivePaths .RelPermalink)) (ne .Params.pageArchiveExclude true) (ne .Params.archiveExclude true) (ne .Params.scaffoldFixture true) }}
+          {{ $visiblePages = $visiblePages | append . }}
+        {{ end }}
+      {{ end }}
+      {{ $pages = $visiblePages }}
+    {{ end }}
     {{ $paginator = .Paginate $pages }}
     {{ .Scratch.Set "listPaginator" $paginator }}
   {{ end }}
@@ -42,7 +62,7 @@
   {{ $archiveDescription := .Params.description | default "" }}
   {{ if eq $archiveDescription "" }}
     {{ if eq .Section "pages" }}
-      {{ $archiveDescription = "Reference pages and scaffold utilities." }}
+      {{ $archiveDescription = "Reference pages and evergreen public resources." }}
     {{ else }}
       {{ $archiveDescription = "Find deep dives, guides, and best practices." }}
     {{ end }}
@@ -50,7 +70,7 @@
   {{ $emptyActionHref := .Site.Home.Permalink }}
   {{ with $blogPage }}{{ $emptyActionHref = .Permalink }}{{ end }}
   {{ $searchScopeValue := .Section | default "posts" }}
-  {{ $searchScopeLabel := cond (eq $searchScopeValue "pages") "reference pages" "blog archive" }}
+  {{ $searchScopeLabel := cond (eq $searchScopeValue "pages") "page archive" "blog archive" }}
   {{ $stateBaseUrl := .RelPermalink }}
   {{ with $paginator.First }}{{ $stateBaseUrl = .URL }}{{ end }}
 
@@ -72,7 +92,7 @@
         "scopeKind" "type"
         "scopeValue" $searchScopeValue
         "scopeLabel" $searchScopeLabel
-        "placeholder" "Search the blog archive by title, topic, or migration trail."
+        "placeholder" (cond (eq $searchScopeValue "pages") "Search these pages by title, topic, or resource." "Search the blog archive by title, topic, or migration trail.")
       ) }}
       {{ partial "archive/year-jump.html" (dict "links" $yearLinks) }}
       {{ partial "content-list.html" (dict
@@ -81,7 +101,7 @@
         "resultCount" (len $paginator.Pages)
         "heading" "Browse the archive"
         "emptyTitle" "The archive is waiting for its next batch"
-        "emptyCopy" "Keep using the topic, type, and year controls while future migrations fill this section."
+        "emptyCopy" (cond (eq $searchScopeValue "pages") "This pages archive only lists public reference content and standalone resources." "Keep using the topic, type, and year controls while future migrations fill this section.")
         "emptyActionHref" $emptyActionHref
         "emptyActionLabel" "Return to the archive"
       ) }}

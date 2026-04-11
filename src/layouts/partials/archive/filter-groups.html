@@ -6,24 +6,30 @@
 {{ $prefix := .idPrefix | default "archive" }}
 {{ $topicsId := printf "%s-filter-topics" $prefix }}
 {{ $typesId := printf "%s-filter-types" $prefix }}
-{{ $topicCount := len site.Taxonomies.categories }}
+{{ $topicPages := slice }}
 {{ $currentRelPermalink := "" }}
 {{ with $currentPage }}{{ $currentRelPermalink = .RelPermalink }}{{ end }}
+{{ range $name, $_ := site.Taxonomies.categories }}
+  {{ with site.GetPage (printf "/categories/%s" ($name | urlize)) }}
+    {{ if gt (len .Pages) 0 }}
+      {{ $topicPages = $topicPages | append . }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ $topicPages = sort $topicPages "Title" }}
 
 <div class="archive-filter-groups">
   <section class="archive-filter-group archive-filter-group--topics" aria-labelledby="{{ $topicsId }}">
     <h3 id="{{ $topicsId }}">
       <span>Topics</span>
-      <span class="filter-badge" aria-label="Topics available">{{ add $topicCount 1 }}</span>
+      <span class="filter-badge" aria-label="Topics available">{{ add (len $topicPages) 1 }}</span>
     </h3>
     <div class="archive-filter-links archive-filter-links--topics">
       {{ with $topicsPage }}
         <a href="{{ .Permalink }}"{{ if eq $currentRelPermalink .RelPermalink }} aria-current="page"{{ end }}>All topics</a>
       {{ end }}
-      {{ range $name, $_ := site.Taxonomies.categories }}
-        {{ with site.GetPage (printf "/categories/%s" ($name | urlize)) }}
-          <a href="{{ .Permalink }}"{{ if eq $currentRelPermalink .RelPermalink }} aria-current="page"{{ end }}>{{ .LinkTitle | default .Title }}</a>
-        {{ end }}
+      {{ range $topicPages }}
+        <a href="{{ .Permalink }}"{{ if eq $currentRelPermalink .RelPermalink }} aria-current="page"{{ end }}>{{ .LinkTitle | default .Title }}</a>
       {{ end }}
     </div>
   </section>
