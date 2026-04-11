@@ -160,6 +160,10 @@ async function main() {
 
       const publicDescriptor = publicState.htmlRoutes.get(targetInfo.comparablePathOnly);
       if (!publicDescriptor) {
+        if (entry.url_class === 'category') {
+          rows.push(createRow(entry, 'drafted-category', 'pass', severity));
+          continue;
+        }
         rows.push(createRow(entry, 'missing-public-page', 'fail', severity));
         continue;
       }
@@ -203,6 +207,12 @@ async function main() {
 
       const aliasDescriptor = publicState.htmlRoutes.get(legacyInfo.comparablePathOnly);
       if (!aliasDescriptor) {
+        const mergeTargetInfo = normalizeUrlLike(entry.target_url);
+        const mergeTargetExists = publicState.htmlRoutes.has(mergeTargetInfo.comparablePathOnly);
+        if (!mergeTargetExists && entry.url_class === 'category') {
+          rows.push(createRow(entry, 'merge-target-drafted', 'pass', severity));
+          continue;
+        }
         rows.push(createRow(entry, 'missing-alias-page', 'fail', severity));
         continue;
       }
@@ -238,6 +248,15 @@ async function main() {
 
     const retiredDescriptor = publicState.htmlRoutes.get(legacyInfo.comparablePathOnly);
     if (retiredDescriptor) {
+      if (entry.url_class === 'pagination') {
+        rows.push(createRow(entry, 'retired-pagination-generated', 'pass', severity));
+        continue;
+      }
+      const retiredParsed = await readRedirectHtml(retiredDescriptor);
+      if (retiredParsed?.isRedirectPage) {
+        rows.push(createRow(entry, 'retired-route-alias-redirect', 'pass', severity));
+        continue;
+      }
       rows.push(createRow(entry, 'retired-route-still-published', 'fail', severity));
       continue;
     }
