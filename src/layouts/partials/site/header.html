@@ -7,18 +7,18 @@
 {{ $brandMarkHref := "images/brand-mark.svg" | relURL }}
 {{ $searchHref := printf "%s#archive-search" $blogHref }}
 {{ $searchLabel := "Search archive" }}
-{{ with $blogPage }}{{ $blogHref = .Permalink }}{{ end }}
-{{ with $topicsPage }}{{ $topicsHref = .Permalink }}{{ end }}
-{{ with $aboutPage }}{{ $aboutHref = .Permalink }}{{ end }}
+{{ with $blogPage }}{{ $blogHref = .RelPermalink }}{{ end }}
+{{ with $topicsPage }}{{ $topicsHref = .RelPermalink }}{{ end }}
+{{ with $aboutPage }}{{ $aboutHref = .RelPermalink }}{{ end }}
 {{ if or (eq .Layout "archive") (and (eq .Kind "section") (eq .Section "posts")) (eq .Kind "taxonomy") (eq .Kind "term") }}
-  {{ $searchHref = printf "%s#archive-search" .Permalink }}
+  {{ $searchHref = printf "%s#archive-search" .RelPermalink }}
 {{ else }}
   {{ $searchHref = printf "%s#archive-search" $blogHref }}
 {{ end }}
 
 <header class="site-header">
   <div class="site-header__inner">
-    <a class="site-brand" href="{{ .Site.Home.Permalink }}">
+    <a class="site-brand" href="{{ .Site.Home.RelPermalink }}">
       <img class="site-brand__logo" src="{{ $brandMarkHref }}" width="38" height="50" alt="" aria-hidden="true">
       <span class="site-brand__title">{{ .Site.Title }}</span>
     </a>
@@ -40,7 +40,7 @@
     <div class="site-drawer__backdrop" aria-hidden="true" hidden></div>
     <aside class="site-drawer" id="mobile-drawer" aria-label="Mobile navigation" aria-hidden="true" hidden inert>
       <div class="site-drawer__header">
-        <a class="site-drawer__brand" href="{{ .Site.Home.Permalink }}">
+        <a class="site-drawer__brand" href="{{ .Site.Home.RelPermalink }}">
           <img src="{{ $brandMarkHref }}" width="28" height="37" alt="" aria-hidden="true">
           <span>{{ .Site.Title }}</span>
         </a>

@@ -637,8 +637,8 @@ body.drawer-open {
 
 .page-hero--home h1 {
   font-size: clamp(2.45rem, 6vw, 4.5rem);
-  line-height: 0.95;
-  letter-spacing: -0.04em;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
 }
 
 .page-hero__tagline {
@@ -788,7 +788,7 @@ h4 {
   margin: 0;
   color: var(--ink-strong);
   font-family: var(--font-display);
-  line-height: 1.03;
+  line-height: 1.15;
 }
 
 h1 {
@@ -951,9 +951,21 @@ summary {
 
 /* ── Featured article (homepage) ── */
 .featured-article {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 0.95rem;
+}
+
+.featured-article__link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.featured-article:hover .featured-article__media img {
+  transform: scale(1.03);
 }
 
 .featured-article__media {
@@ -968,11 +980,12 @@ summary {
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.25s ease;
 }
 
 .featured-article h3 {
   font-size: clamp(1.35rem, 2.2vw, 1.8rem);
-  line-height: 1.12;
+  line-height: 1.2;
 }
 
 .featured-article h3 a {
@@ -3105,6 +3118,11 @@ summary {
   text-decoration: underline;
 }
 
+.article-toc nav a.toc-active {
+  color: var(--accent);
+  font-weight: 700;
+}
+
 /* ── Editorial blockquotes ── */
 .article-quote {
   margin: 1.5rem 0;
@@ -3305,8 +3323,12 @@ summary {
 }
 
 .site-footer__social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
   color: var(--chrome-text-muted);
   text-decoration: none;
+  font-size: 0.85rem;
   line-height: 1;
 }
 
@@ -3540,6 +3562,7 @@ summary {
   .archive-rail .archive-filter-links a[aria-current="page"] {
     border-color: rgba(10, 95, 200, 0.36);
     background: linear-gradient(180deg, #e7f1ff 0%, #d9e9ff 100%);
+    color: var(--accent-strong);
     box-shadow: 0 10px 24px rgba(10, 95, 200, 0.12);
   }
 

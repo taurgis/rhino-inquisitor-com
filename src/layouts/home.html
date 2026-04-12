@@ -31,15 +31,15 @@
     {{ end }}
   {{ end }}
   {{ $recent = first 4 $recent }}
-  {{ $startReadingHref := .Site.Home.Permalink }}
-  {{ if $blogPage }}{{ $startReadingHref = $blogPage.Permalink }}{{ end }}
-  {{ if $featured }}{{ $startReadingHref = $featured.Permalink }}{{ end }}
+  {{ $startReadingHref := .Site.Home.RelPermalink }}
+  {{ if $blogPage }}{{ $startReadingHref = $blogPage.RelPermalink }}{{ end }}
+  {{ if $featured }}{{ $startReadingHref = $featured.RelPermalink }}{{ end }}
   {{ $browseTopicsHref := "category/" | relURL }}
   {{ $homePortraitSrc := "images/home/thomas-theunen-hero.jpg" }}
   {{ $homePortraitAlt := "A picture of Thomas Theunen leaning on a desk at the office with plants in the background." }}
-  {{ with $topicsPage }}{{ $browseTopicsHref = .Permalink }}{{ end }}
-  {{ $rssHref := printf "%sindex.xml" .Site.Home.Permalink }}
-  {{ with .Site.Home.OutputFormats.Get "rss" }}{{ $rssHref = .Permalink }}{{ end }}
+  {{ with $topicsPage }}{{ $browseTopicsHref = .RelPermalink }}{{ end }}
+  {{ $rssHref := printf "%sindex.xml" .Site.Home.RelPermalink }}
+  {{ with .Site.Home.OutputFormats.Get "rss" }}{{ $rssHref = .RelPermalink }}{{ end }}
   {{ $profile := dict }}
   {{ $projects := dict }}
   {{ with $homeProfile }}
@@ -121,7 +121,7 @@
               ) }}
             </div>
           {{ end }}
-          <h3><a href="{{ $featured.Permalink }}">{{ $featured.LinkTitle }}</a></h3>
+          <h3><a class="featured-article__link" href="{{ $featured.RelPermalink }}">{{ $featured.LinkTitle }}</a></h3>
           <p class="featured-article__excerpt">{{ $featured.Params.description | default ($featured.Summary | plainify | strings.TrimSpace) }}</p>
           {{ partial "article/meta-row.html" (dict "page" $featured "label" "Article details") }}
         </article>
@@ -134,7 +134,7 @@
       <div class="home-section__header">
         <h2 class="home-section__title" id="latest-heading">Latest Posts</h2>
         {{ with $blogPage }}
-          <a class="home-section__link" href="{{ .Permalink }}">View all &rarr;</a>
+          <a class="home-section__link" href="{{ .RelPermalink }}">View all &rarr;</a>
         {{ end }}
       </div>
       {{ if gt (len $recent) 0 }}
@@ -142,7 +142,7 @@
           {{ range $recent }}
             {{ $topicData := partial "article/resolve-primary-topic.html" (dict "page" .) }}
             <li class="latest-list__item">
-              <a href="{{ .Permalink }}">
+              <a href="{{ .RelPermalink }}">
                 <span class="latest-list__title">{{ .LinkTitle }}</span>
                 <span class="latest-list__excerpt">{{ .Params.description | default (.Summary | plainify | strings.TrimSpace | truncate 80) }}</span>
                 <span class="latest-list__meta">{{ .Date.Format "Jan 2, 2006" }} · {{ .ReadingTime }} min read{{ with $topicData.label }} · {{ . }}{{ end }}</span>
