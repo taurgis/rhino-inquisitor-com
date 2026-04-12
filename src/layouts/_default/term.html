@@ -37,6 +37,7 @@
         "groups" $groups
         "paginator" $paginator
         "resultCount" (len $paginator.Pages)
+        "totalCount" $paginator.TotalNumberOfElements
         "heading" (printf "%s archive entries" $displayTitle)
         "emptyTitle" (printf "%s does not have public archive entries yet" $displayTitle)
         "emptyCopy" "No public articles are currently filed under this topic."

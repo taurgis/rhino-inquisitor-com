@@ -99,6 +99,7 @@
         "groups" $groups
         "paginator" $paginator
         "resultCount" (len $paginator.Pages)
+        "totalCount" $paginator.TotalNumberOfElements
         "heading" "Browse the archive"
         "emptyTitle" "The archive is waiting for its next batch"
         "emptyCopy" (cond (eq $searchScopeValue "pages") "This pages archive only lists public reference content and standalone resources." "Keep using the topic, type, and year controls while future migrations fill this section.")

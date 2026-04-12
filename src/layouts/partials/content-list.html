@@ -1,6 +1,7 @@
 {{ $groups := .groups | default (slice) }}
 {{ $paginator := .paginator }}
 {{ $resultCount := .resultCount | default 0 }}
+{{ $totalCount := .totalCount | default 0 }}
 {{ $cardState := newScratch }}
 {{ $cardState.Set "prioritizedImageAssigned" false }}
 
@@ -10,13 +11,15 @@
       <h2 id="archive-results-heading">{{ .heading | default "Browse the archive" }}</h2>
     </div>
     <p class="archive-results__summary" role="status" aria-live="polite">
-      Showing <strong class="result-count-badge">{{ $resultCount }}</strong> 
-      {{ if eq $resultCount 0 }}
-        no results
-      {{ else if eq $resultCount 1 }}
-        result
+      {{ if eq $totalCount 0 }}
+        Showing <strong class="result-count-badge">0</strong> results
+      {{ else if and (gt $totalCount 0) (eq $totalCount $resultCount) }}
+        Showing <strong class="result-count-badge">{{ $totalCount }}</strong>
+        {{ cond (eq $totalCount 1) "result" "results" }}
       {{ else }}
-        results
+        Showing <strong class="result-count-badge">{{ $resultCount }}</strong>
+        of {{ $totalCount }}
+        {{ cond (eq $totalCount 1) "result" "results" }}
       {{ end }}
     </p>
   </div>

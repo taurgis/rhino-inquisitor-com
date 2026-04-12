@@ -8,7 +8,7 @@
 {{ $showUpdated := false }}
 {{ with $page.Lastmod }}
   {{ if $page.Date }}
-    {{ $showUpdated = gt (.Unix) ($page.Date.Unix) }}
+    {{ $showUpdated = ne (.Format "2006-01-02") ($page.Date.Format "2006-01-02") }}
   {{ else }}
     {{ $showUpdated = true }}
   {{ end }}

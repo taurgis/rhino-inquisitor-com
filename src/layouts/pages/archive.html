@@ -36,6 +36,7 @@
         {{ partial "content-list.html" (dict
           "groups" $groups
           "resultCount" (len $pages)
+          "totalCount" (len $pages)
           "heading" "Browse the archive"
           "emptyTitle" "The archive is waiting for its next batch"
           "emptyCopy" "Keep the search, filter, and year navigation visible while future migrations fill this archive." 
