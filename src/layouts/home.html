@@ -16,8 +16,10 @@
   {{ $posts := where .Site.RegularPages "Type" "posts" }}
   {{ $posts = $posts.ByDate.Reverse }}
   {{ $featured := false }}
+  {{ $hasPinnedFeatured := false }}
   {{ with first 1 (where $posts "Params.featured" true) }}
     {{ $featured = index . 0 }}
+    {{ $hasPinnedFeatured = true }}
   {{ end }}
   {{ if and (not $featured) (gt (len $posts) 0) }}
     {{ $featured = index $posts 0 }}
@@ -58,7 +60,7 @@
         </div>
       {{ end }}
       <div class="hero-cta-bar">
-        <a class="site-cta" href="{{ $startReadingHref }}">Read Latest Article</a>
+        <a class="site-cta" href="{{ $startReadingHref }}">{{ if $hasPinnedFeatured }}Read Featured Article{{ else }}Read Latest Article{{ end }}</a>
         <a class="site-cta site-cta--outline" href="{{ $browseTopicsHref }}">Browse Topics</a>
       </div>
       {{ with index $profile "actions" }}

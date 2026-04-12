@@ -106,6 +106,8 @@
 {{ define "scripts" }}
   {{ if eq .Type "posts" }}
     <script src="{{ "scripts/smart-prefetch.js" | relURL }}" defer></script>
+    <script src="{{ "scripts/code-copy.js" | relURL }}" defer></script>
+    <script src="{{ "scripts/reading-progress.js" | relURL }}" defer></script>
   {{ end }}
   {{ if eq .RelPermalink "/video/" }}
     <script src="{{ "scripts/video-playlist.js" | relURL }}" defer></script>

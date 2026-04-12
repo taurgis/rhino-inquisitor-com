@@ -160,6 +160,7 @@ main {
   opacity: 0;
   pointer-events: none;
   transform: translateY(calc(-100% - 1rem));
+  transition: opacity 0.15s ease, transform 0.15s ease;
 }
 
 .skip-link:focus,
@@ -167,6 +168,24 @@ main {
   opacity: 1;
   pointer-events: auto;
   transform: translateY(0);
+}
+
+/* ── Reading progress bar ── */
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 110;
+  width: 100%;
+  height: 3px;
+  pointer-events: none;
+}
+
+.reading-progress__bar {
+  height: 100%;
+  width: 0;
+  background: var(--accent);
+  transition: width 50ms linear;
 }
 
 .surface-shell {
@@ -1001,9 +1020,9 @@ summary {
 .latest-list__item a:hover,
 .latest-list__item a:focus-visible {
   background: var(--surface-bg);
-  border-color: rgba(17, 141, 255, 0.2);
-  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.06);
-  transform: translateY(-1px);
+  border-color: rgba(17, 141, 255, 0.25);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.10);
+  transform: translateY(-2px);
   text-decoration: none;
 }
 
@@ -1882,6 +1901,7 @@ summary {
   min-width: 0;
   max-width: var(--reading-width);
   padding: 0;
+  overflow-wrap: anywhere;
 }
 
 .article-related,
@@ -1912,6 +1932,48 @@ summary {
 .article-body h3 + *,
 .article-body h4 + * {
   margin-top: 0.75rem;
+}
+
+.article-body .highlight {
+  position: relative;
+}
+
+.code-copy-btn {
+  position: absolute;
+  top: 0.55rem;
+  right: 0.55rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 0.35rem;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.72rem;
+  font-family: inherit;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+.highlight:hover .code-copy-btn,
+.code-copy-btn:focus-visible {
+  opacity: 1;
+}
+
+.code-copy-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.code-copy-btn[data-copied] {
+  opacity: 1;
+  color: #4ade80;
+  border-color: rgba(74, 222, 128, 0.3);
 }
 
 .article-body pre {
