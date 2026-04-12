@@ -739,7 +739,8 @@ html {
     text-align: center;
     text-decoration: none;
     overflow-wrap: anywhere;
-    box-shadow: 0 10px 24px rgba(8, 20, 35, 0.16);
+    box-shadow: 0 10px 24px rgba(8, 20, 35, 0.28);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
   }
 
   .article-card__media-badge--topic {
@@ -749,6 +750,7 @@ html {
   .article-card__media-badge--date {
     background: rgba(244, 248, 255, 0.96);
     color: var(--accent-strong);
+    text-shadow: none;
   }
 
   [data-theme="dark"] .article-card__media-badge--date {

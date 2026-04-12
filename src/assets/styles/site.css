@@ -1204,7 +1204,8 @@ summary {
   text-align: center;
   text-decoration: none;
   overflow-wrap: anywhere;
-  box-shadow: 0 10px 24px rgba(8, 20, 35, 0.16);
+  box-shadow: 0 10px 24px rgba(8, 20, 35, 0.28);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
 }
 
 .article-card__media-badge--topic {
@@ -1220,6 +1221,7 @@ summary {
 .article-card__media-badge--date {
   background: rgba(244, 248, 255, 0.96);
   color: var(--accent-strong);
+  text-shadow: none;
 }
 
 .article-card__media img,
@@ -1880,20 +1882,25 @@ summary {
   font-size: 0.875rem;
   line-height: 1.6;
   scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.35) transparent;
+  scrollbar-color: rgba(255, 255, 255, 0.45) rgba(255, 255, 255, 0.08);
 }
 
 .article-body pre::-webkit-scrollbar {
-  height: 6px;
+  height: 8px;
 }
 
 .article-body pre::-webkit-scrollbar-track {
-  background: transparent;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
 }
 
 .article-body pre::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.35);
-  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.45);
+  border-radius: 4px;
+}
+
+.article-body pre::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.6);
 }
 
 .article-body code {
@@ -3757,6 +3764,7 @@ summary {
 
   .archive-results .article-card-grid > li + li {
     border-top: 1px solid var(--surface-border);
+    padding-top: 0.75rem;
   }
 
   .archive-results .article-card {
