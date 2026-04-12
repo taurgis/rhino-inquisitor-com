@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-11T19:32:31.315Z",
+  "generatedAt": "2026-04-12T16:32:45.965Z",
   "publicDir": "public",
   "llms": {
     "path": "public/llms.txt",
@@ -453,7 +453,7 @@
         "codeFenceCount": 0,
         "imageCount": 6,
         "linkCount": 15,
-        "bodyLength": 7887
+        "bodyLength": 7886
       }
     },
     {

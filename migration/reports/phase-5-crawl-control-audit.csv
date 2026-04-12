@@ -28,6 +28,7 @@ route,file_path,mode,expected_indexable,manifest_indexable,redirect_page,robots_
 /caching-in-the-sfcc-composable-storefront/,public/caching-in-the-sfcc-composable-storefront/index.html,production,yes,yes,no,"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",,no,no,/,pass,
 /caching-rest-apis-in-sfcc/,public/caching-rest-apis-in-sfcc/index.html,production,yes,yes,no,"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",,no,no,/,pass,
 /can-a-isslot-element-have-a-dynamic-id/,public/can-a-isslot-element-have-a-dynamic-id/index.html,production,yes,yes,no,"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",,no,no,/,pass,
+/categories/,public/categories/index.html,production,no,no,yes,"noindex, nofollow",,yes,no,/,pass,
 /category/ai/,public/category/ai/index.html,production,yes,yes,no,"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",,no,no,/,pass,
 /category/ai/page/1/,public/category/ai/page/1/index.html,production,no,no,yes,"noindex, nofollow",,yes,no,/,pass,
 /category/architecture/,public/category/architecture/index.html,production,yes,yes,no,"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",,no,no,/,pass,

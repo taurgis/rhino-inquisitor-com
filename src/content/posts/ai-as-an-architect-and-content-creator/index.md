@@ -117,6 +117,6 @@ I have long been held back by my limitations in drawing, which prevented me from
 
 The generated image usually gets me 50-80% there, and then I fine-tune the details in Photoshop! Even though that still takes a lot of time, it is much less than it would have taken me from scratch!
 
-## How much time do I spend per arcticle?
+## How much time do I spend per article?
 
 Many people probably want an answer to this, wondering where I find the time to do all of this. I spend about 2-4 hours on a single article, and the time depends on the subject. A well-documented feature will take less time than a [non-documented feature](/delta-exports-in-salesforce-b2c-commerce-cloud/), hidden away by a feature switch that not everyone knows exists. Although some articles may not require much time, the accompanying attachments can take weeks. A great example of this is the [ERD series.](/salesforce-b2c-commerce-cloud-erd/)

@@ -5,7 +5,7 @@
   "status": "pass",
   "rcTag": "phase-8-rc-v3",
   "rcSha": "bb7bd49e1e8292ea3dbc744dded428dcfcab48aa",
-  "generatedAt": "2026-04-11T19:36:16.788Z",
+  "generatedAt": "2026-04-12T16:36:34.953Z",
   "publicDir": "public",
   "sampleMatrix": {
     "path": "validation/sample-matrix.json",
@@ -16,8 +16,8 @@
   },
   "lhciRoot": "validation/lhci-report",
   "artifactProvenance": {
-    "gitHead": "c15a2d6140dee202a08fb66c6a078493f33081c9",
-    "gitHeadShort": "c15a2d61",
+    "gitHead": "c80ab07098db6333482cd40cc604f7e4026a1824",
+    "gitHeadShort": "c80ab070",
     "workspaceDirty": true,
     "datasetRcTag": "phase-8-rc-v3",
     "datasetRcSha": "bb7bd49e1e8292ea3dbc744dded428dcfcab48aa",
@@ -82,8 +82,8 @@
       "budget": {
         "blocking": true,
         "thresholdBytes": 174080,
-        "totalGzipBytes": 114558,
-        "totalGzipKb": 111.87,
+        "totalGzipBytes": 115063,
+        "totalGzipKb": 112.37,
         "criticalAssets": [
           {
             "type": "image",
@@ -101,25 +101,25 @@
           },
           {
             "type": "preload",
-            "assetPath": "styles/site.min.6b79737502d6783c667b0333dc69db8d4b727c5323c8e5f07273f252344d0e27.css",
-            "rawBytes": 62514,
-            "gzipBytes": 11609,
+            "assetPath": "styles/site.min.ef5d14eafe2321ae8cdc5bf39e25168105fcfc8604dc83d567ef9785999e66d1.css",
+            "rawBytes": 66801,
+            "gzipBytes": 12215,
             "as": "style"
           },
           {
             "type": "document",
             "assetPath": "index.html",
-            "rawBytes": 31534,
-            "gzipBytes": 8777
+            "rawBytes": 30512,
+            "gzipBytes": 8676
           }
         ]
       },
       "profiles": {
         "mobile": {
           "profile": "mobile",
-          "url": "http://localhost:50078/",
-          "htmlReportPath": "validation/lhci-report/mobile/localhost--2026_04_11_19_33_14.report.html",
-          "jsonReportPath": "validation/lhci-report/mobile/localhost--2026_04_11_19_33_14.report.json",
+          "url": "http://localhost:59164/",
+          "htmlReportPath": "validation/lhci-report/mobile/localhost--2026_04_12_16_33_43.report.html",
+          "jsonReportPath": "validation/lhci-report/mobile/localhost--2026_04_12_16_33_43.report.json",
           "scores": {
             "performance": 100,
             "accessibility": 96,
@@ -127,17 +127,17 @@
             "bestPractices": 100
           },
           "metrics": {
-            "lcpMs": 1353.257,
+            "lcpMs": 1428.0128,
             "inpMs": null,
-            "cls": 0,
-            "ttiMs": 1368.257
+            "cls": 0.017462,
+            "ttiMs": 1435.5128
           }
         },
         "desktop": {
           "profile": "desktop",
-          "url": "http://localhost:50399/",
-          "htmlReportPath": "validation/lhci-report/desktop/localhost--2026_04_11_19_34_55.report.html",
-          "jsonReportPath": "validation/lhci-report/desktop/localhost--2026_04_11_19_34_55.report.json",
+          "url": "http://localhost:59484/",
+          "htmlReportPath": "validation/lhci-report/desktop/localhost--2026_04_12_16_35_23.report.html",
+          "jsonReportPath": "validation/lhci-report/desktop/localhost--2026_04_12_16_35_23.report.json",
           "scores": {
             "performance": 100,
             "accessibility": 100,
@@ -145,10 +145,10 @@
             "bestPractices": 100
           },
           "metrics": {
-            "lcpMs": 303.7063,
+            "lcpMs": 303.5639,
             "inpMs": null,
-            "cls": 0.013772,
-            "ttiMs": 305.7063
+            "cls": 0.01373,
+            "ttiMs": 305.5639
           }
         }
       },
@@ -182,8 +182,8 @@
           "metrics": {
             "lcpMs": {
               "baseline": 3797,
-              "current": 1353.257,
-              "delta": -2443.74
+              "current": 1428.0128,
+              "delta": -2368.99
             },
             "inpMs": {
               "baseline": null,
@@ -192,8 +192,8 @@
             },
             "cls": {
               "baseline": 0,
-              "current": 0,
-              "delta": 0
+              "current": 0.017462,
+              "delta": 0.02
             }
           }
         },
@@ -226,8 +226,8 @@
           "metrics": {
             "lcpMs": {
               "baseline": 889,
-              "current": 303.7063,
-              "delta": -585.29
+              "current": 303.5639,
+              "delta": -585.44
             },
             "inpMs": {
               "baseline": null,
@@ -236,7 +236,7 @@
             },
             "cls": {
               "baseline": 0,
-              "current": 0.013772,
+              "current": 0.01373,
               "delta": 0.01
             }
           }
@@ -255,8 +255,8 @@
       "budget": {
         "blocking": true,
         "thresholdBytes": 174080,
-        "totalGzipBytes": 137864,
-        "totalGzipKb": 134.63,
+        "totalGzipBytes": 140364,
+        "totalGzipKb": 137.07,
         "criticalAssets": [
           {
             "type": "image",
@@ -275,14 +275,14 @@
           {
             "type": "document",
             "assetPath": "real-time-inventory-checks-in-sfcc/index.html",
-            "rawBytes": 51099,
-            "gzipBytes": 15443
+            "rawBytes": 50425,
+            "gzipBytes": 15362
           },
           {
             "type": "preload",
-            "assetPath": "styles/site.min.6b79737502d6783c667b0333dc69db8d4b727c5323c8e5f07273f252344d0e27.css",
-            "rawBytes": 62514,
-            "gzipBytes": 11609,
+            "assetPath": "styles/site.min.ef5d14eafe2321ae8cdc5bf39e25168105fcfc8604dc83d567ef9785999e66d1.css",
+            "rawBytes": 66801,
+            "gzipBytes": 12215,
             "as": "style"
           },
           {
@@ -291,15 +291,36 @@
             "rawBytes": 4563,
             "gzipBytes": 1419,
             "as": null
+          },
+          {
+            "type": "script",
+            "assetPath": "scripts/code-copy.js",
+            "rawBytes": 1958,
+            "gzipBytes": 801,
+            "as": null
+          },
+          {
+            "type": "script",
+            "assetPath": "scripts/toc-spy.js",
+            "rawBytes": 1685,
+            "gzipBytes": 690,
+            "as": null
+          },
+          {
+            "type": "script",
+            "assetPath": "scripts/reading-progress.js",
+            "rawBytes": 1020,
+            "gzipBytes": 484,
+            "as": null
           }
         ]
       },
       "profiles": {
         "mobile": {
           "profile": "mobile",
-          "url": "http://localhost:50078/real-time-inventory-checks-in-sfcc/",
-          "htmlReportPath": "validation/lhci-report/mobile/localhost-real_time_inventory_checks_in_sfcc_-2026_04_11_19_33_45.report.html",
-          "jsonReportPath": "validation/lhci-report/mobile/localhost-real_time_inventory_checks_in_sfcc_-2026_04_11_19_33_45.report.json",
+          "url": "http://localhost:59164/real-time-inventory-checks-in-sfcc/",
+          "htmlReportPath": "validation/lhci-report/mobile/localhost-real_time_inventory_checks_in_sfcc_-2026_04_12_16_33_54.report.html",
+          "jsonReportPath": "validation/lhci-report/mobile/localhost-real_time_inventory_checks_in_sfcc_-2026_04_12_16_33_54.report.json",
           "scores": {
             "performance": 100,
             "accessibility": 100,
@@ -307,17 +328,17 @@
             "bestPractices": 100
           },
           "metrics": {
-            "lcpMs": 1427.8298,
+            "lcpMs": 1577.4589999999998,
             "inpMs": null,
             "cls": 0,
-            "ttiMs": 1435.3298
+            "ttiMs": 1584.9589999999998
           }
         },
         "desktop": {
           "profile": "desktop",
-          "url": "http://localhost:50399/real-time-inventory-checks-in-sfcc/",
-          "htmlReportPath": "validation/lhci-report/desktop/localhost-real_time_inventory_checks_in_sfcc_-2026_04_11_19_35_15.report.html",
-          "jsonReportPath": "validation/lhci-report/desktop/localhost-real_time_inventory_checks_in_sfcc_-2026_04_11_19_35_15.report.json",
+          "url": "http://localhost:59484/real-time-inventory-checks-in-sfcc/",
+          "htmlReportPath": "validation/lhci-report/desktop/localhost-real_time_inventory_checks_in_sfcc_-2026_04_12_16_35_33.report.html",
+          "jsonReportPath": "validation/lhci-report/desktop/localhost-real_time_inventory_checks_in_sfcc_-2026_04_12_16_35_33.report.json",
           "scores": {
             "performance": 100,
             "accessibility": 100,
@@ -325,10 +346,10 @@
             "bestPractices": 100
           },
           "metrics": {
-            "lcpMs": 440,
+            "lcpMs": 382.8484,
             "inpMs": null,
             "cls": 0.000293,
-            "ttiMs": 442
+            "ttiMs": 384.8484000000001
           }
         }
       },
@@ -362,8 +383,8 @@
           "metrics": {
             "lcpMs": {
               "baseline": 5786,
-              "current": 1427.8298,
-              "delta": -4358.17
+              "current": 1577.4589999999998,
+              "delta": -4208.54
             },
             "inpMs": {
               "baseline": null,
@@ -406,8 +427,8 @@
           "metrics": {
             "lcpMs": {
               "baseline": 1231,
-              "current": 440,
-              "delta": -791
+              "current": 382.8484,
+              "delta": -848.15
             },
             "inpMs": {
               "baseline": null,
@@ -435,8 +456,8 @@
       "budget": {
         "blocking": false,
         "thresholdBytes": 174080,
-        "totalGzipBytes": 138541,
-        "totalGzipKb": 135.29,
+        "totalGzipBytes": 139087,
+        "totalGzipKb": 135.83,
         "criticalAssets": [
           {
             "type": "image",
@@ -454,16 +475,16 @@
           },
           {
             "type": "preload",
-            "assetPath": "styles/site.min.6b79737502d6783c667b0333dc69db8d4b727c5323c8e5f07273f252344d0e27.css",
-            "rawBytes": 62514,
-            "gzipBytes": 11609,
+            "assetPath": "styles/site.min.ef5d14eafe2321ae8cdc5bf39e25168105fcfc8604dc83d567ef9785999e66d1.css",
+            "rawBytes": 66801,
+            "gzipBytes": 12215,
             "as": "style"
           },
           {
             "type": "document",
             "assetPath": "category/ai/index.html",
-            "rawBytes": 42462,
-            "gzipBytes": 10179
+            "rawBytes": 42004,
+            "gzipBytes": 10119
           },
           {
             "type": "script",
@@ -477,9 +498,9 @@
       "profiles": {
         "mobile": {
           "profile": "mobile",
-          "url": "http://localhost:50078/category/ai/",
-          "htmlReportPath": "validation/lhci-report/mobile/localhost-category_ai_-2026_04_11_19_34_27.report.html",
-          "jsonReportPath": "validation/lhci-report/mobile/localhost-category_ai_-2026_04_11_19_34_27.report.json",
+          "url": "http://localhost:59164/category/ai/",
+          "htmlReportPath": "validation/lhci-report/mobile/localhost-category_ai_-2026_04_12_16_34_24.report.html",
+          "jsonReportPath": "validation/lhci-report/mobile/localhost-category_ai_-2026_04_12_16_34_24.report.json",
           "scores": {
             "performance": 100,
             "accessibility": 100,
@@ -487,17 +508,17 @@
             "bestPractices": 100
           },
           "metrics": {
-            "lcpMs": 1202.5854,
+            "lcpMs": 1202.6808,
             "inpMs": null,
             "cls": 0,
-            "ttiMs": 1202.5854
+            "ttiMs": 1202.6808
           }
         },
         "desktop": {
           "profile": "desktop",
-          "url": "http://localhost:50399/category/ai/",
-          "htmlReportPath": "validation/lhci-report/desktop/localhost-category_ai_-2026_04_11_19_35_57.report.html",
-          "jsonReportPath": "validation/lhci-report/desktop/localhost-category_ai_-2026_04_11_19_35_57.report.json",
+          "url": "http://localhost:59484/category/ai/",
+          "htmlReportPath": "validation/lhci-report/desktop/localhost-category_ai_-2026_04_12_16_36_15.report.html",
+          "jsonReportPath": "validation/lhci-report/desktop/localhost-category_ai_-2026_04_12_16_36_15.report.json",
           "scores": {
             "performance": 100,
             "accessibility": 100,
@@ -505,10 +526,10 @@
             "bestPractices": 100
           },
           "metrics": {
-            "lcpMs": 282.5503,
+            "lcpMs": 282.5338,
             "inpMs": null,
             "cls": 0.01594,
-            "ttiMs": 282.5503
+            "ttiMs": 282.53380000000004
           }
         }
       },
@@ -542,8 +563,8 @@
           "metrics": {
             "lcpMs": {
               "baseline": 4450,
-              "current": 1202.5854,
-              "delta": -3247.41
+              "current": 1202.6808,
+              "delta": -3247.32
             },
             "inpMs": {
               "baseline": null,
@@ -586,8 +607,8 @@
           "metrics": {
             "lcpMs": {
               "baseline": 1192,
-              "current": 282.5503,
-              "delta": -909.45
+              "current": 282.5338,
+              "delta": -909.47
             },
             "inpMs": {
               "baseline": null,

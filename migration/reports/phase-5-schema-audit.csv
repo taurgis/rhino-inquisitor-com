@@ -27,6 +27,7 @@ route,file_path,template_family,schema_types,video_eligible,status,severity,find
 /caching-in-the-sfcc-composable-storefront/,public/caching-in-the-sfcc-composable-storefront/index.html,article,BlogPosting|BreadcrumbList,no,pass,none,
 /caching-rest-apis-in-sfcc/,public/caching-rest-apis-in-sfcc/index.html,article,BlogPosting|BreadcrumbList,no,pass,none,
 /can-a-isslot-element-have-a-dynamic-id/,public/can-a-isslot-element-have-a-dynamic-id/index.html,page,BreadcrumbList,no,pass,none,
+/categories/,public/categories/index.html,redirect-helper,,no,pass,none,
 /category/ai/,public/category/ai/index.html,term,BreadcrumbList,no,pass,none,
 /category/ai/page/1/,public/category/ai/page/1/index.html,redirect-helper,,no,pass,none,
 /category/architecture/,public/category/architecture/index.html,term,BreadcrumbList,no,pass,none,

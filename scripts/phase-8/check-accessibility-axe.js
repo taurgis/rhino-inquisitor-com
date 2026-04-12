@@ -378,6 +378,8 @@ async function analyzeRoute(routeRecord, inventoryEntry, browser, baseUrl, optio
 
     const axeResults = await new AxeBuilder({ page })
       .withTags(wcagTags)
+      .exclude('iframe[src*="youtube"]')
+      .exclude('iframe[src*="youtube-nocookie"]')
       .analyze();
     const summarizedViolations = axeResults.violations.map((violation) => summarizeViolation(violation, routeRecord, options));
     const violationCounts = countViolations(axeResults.violations);

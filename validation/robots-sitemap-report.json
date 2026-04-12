@@ -5,11 +5,11 @@
   "status": "pass",
   "rcTag": "phase-8-rc-v3",
   "rcSha": "bb7bd49e1e8292ea3dbc744dded428dcfcab48aa",
-  "generatedAt": "2026-04-11T19:31:40.151Z",
+  "generatedAt": "2026-04-12T16:32:00.462Z",
   "publicDir": "public",
   "artifactProvenance": {
-    "gitHead": "c15a2d6140dee202a08fb66c6a078493f33081c9",
-    "gitHeadShort": "c15a2d61",
+    "gitHead": "c80ab07098db6333482cd40cc604f7e4026a1824",
+    "gitHeadShort": "c80ab070",
     "workspaceDirty": true,
     "datasetRcTag": "phase-8-rc-v3",
     "datasetRcSha": "bb7bd49e1e8292ea3dbc744dded428dcfcab48aa",
@@ -34,7 +34,7 @@
       {
         "loc": "https://www.rhino-inquisitor.com/",
         "route": "/",
-        "lastmod": "2026-04-11T08:00:00+00:00",
+        "lastmod": "2026-04-12T08:00:00+00:00",
         "sourceFile": "public/sitemap.xml",
         "result": "pass",
         "findings": []
@@ -50,14 +50,6 @@
       {
         "loc": "https://www.rhino-inquisitor.com/category/architecture/",
         "route": "/category/architecture/",
-        "lastmod": "2026-02-09T13:10:33+00:00",
-        "sourceFile": "public/sitemap.xml",
-        "result": "pass",
-        "findings": []
-      },
-      {
-        "loc": "https://www.rhino-inquisitor.com/category/",
-        "route": "/category/",
         "lastmod": "2026-02-09T13:10:33+00:00",
         "sourceFile": "public/sitemap.xml",
         "result": "pass",
@@ -82,6 +74,14 @@
       {
         "loc": "https://www.rhino-inquisitor.com/real-time-inventory-checks-in-sfcc/",
         "route": "/real-time-inventory-checks-in-sfcc/",
+        "lastmod": "2026-02-09T13:10:33+00:00",
+        "sourceFile": "public/sitemap.xml",
+        "result": "pass",
+        "findings": []
+      },
+      {
+        "loc": "https://www.rhino-inquisitor.com/category/",
+        "route": "/category/",
         "lastmod": "2026-02-09T13:10:33+00:00",
         "sourceFile": "public/sitemap.xml",
         "result": "pass",
@@ -1707,6 +1707,13 @@
       "sitemapIncluded": false
     },
     {
+      "route": "/categories/",
+      "builtArtifactPath": "public/categories/index.html",
+      "expected": true,
+      "reason": "alias-helper",
+      "sitemapIncluded": false
+    },
+    {
       "route": "/category/ai/page/1/",
       "builtArtifactPath": "public/category/ai/page/1/index.html",
       "expected": true,
@@ -1967,6 +1974,12 @@
       "redirectTarget": null
     },
     {
+      "route": "/categories/",
+      "builtArtifactPath": "public/categories/index.html",
+      "canonicalUrl": "https://www.rhino-inquisitor.com/category/",
+      "redirectTarget": null
+    },
+    {
       "route": "/category/ai/page/1/",
       "builtArtifactPath": "public/category/ai/page/1/index.html",
       "canonicalUrl": "https://www.rhino-inquisitor.com/category/ai/",
@@ -2169,9 +2182,9 @@
     "sitemapEntryCount": 203,
     "sitemapDocumentCount": 1,
     "invalidSitemapEntryCount": 0,
-    "aliasHelperCount": 34,
+    "aliasHelperCount": 35,
     "aliasInclusionFailures": 0,
-    "noindexPageCount": 39,
+    "noindexPageCount": 40,
     "unexpectedNoindexPageCount": 0,
     "disallowedSitemapRouteCount": 0,
     "blockingFailures": 0
