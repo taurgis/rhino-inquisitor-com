@@ -2,11 +2,27 @@
   var toc = document.querySelector('.article-toc--desktop nav');
   if (!toc) return;
 
+  var tocContainer = document.querySelector('.article-toc--desktop');
   var links = Array.prototype.slice.call(toc.querySelectorAll('a[href^="#"]'));
   if (!links.length) return;
 
   var ids = links.map(function (a) { return a.getAttribute('href').slice(1); });
   var activeClass = 'toc-active';
+
+  /* ── Overflow fade hint ── */
+  function checkOverflow() {
+    if (!tocContainer) return;
+    var overflows = tocContainer.scrollHeight > tocContainer.clientHeight + 2;
+    tocContainer.classList.toggle('toc-overflows', overflows);
+
+    var atEnd = tocContainer.scrollHeight - tocContainer.scrollTop - tocContainer.clientHeight < 4;
+    tocContainer.classList.toggle('toc-scrolled-end', atEnd);
+  }
+
+  if (tocContainer) {
+    tocContainer.addEventListener('scroll', checkOverflow, { passive: true });
+    checkOverflow();
+  }
 
   function update() {
     var scrollY = window.scrollY || window.pageYOffset;
