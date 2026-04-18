@@ -59,7 +59,7 @@ Previously, we were unable to differentiate at the millisecond level, but that i
 
 #### XML Import example
 
-```
+```xml
 // example import with seconds
 <allocation-timestamp>2023-11-22T06:56:01Z</allocation-timestamp>
 
@@ -69,7 +69,7 @@ Previously, we were unable to differentiate at the millisecond level, but that i
 
 #### OCAPI
 
-```
+```json
 // Request body example with millis
 { 'allocation': { 'amount': 17, 'reset_date': '2023-11-23T08:39:23.456Z' } }
 // Response always with millis

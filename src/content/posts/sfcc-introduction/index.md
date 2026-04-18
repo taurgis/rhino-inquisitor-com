@@ -115,7 +115,7 @@ To set up a local development environment for the composable storefront:
 2.  Install necessary dependencies and configure local settings.
 3.  Run the application locally to start your development.
 
-```
+```bash
 npx @salesforce/pwa-kit-create-app
 npm start
 ```

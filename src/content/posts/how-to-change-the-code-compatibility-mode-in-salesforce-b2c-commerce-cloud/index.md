@@ -80,7 +80,7 @@ Missing FIle If you do not see the file, don't worry! You can upload it yourself
 
 Inside that file is where the "magic" happens, and it looks something like this:
 
-```
+```properties
 #DO NOT EDIT! This is the api version with which *this* code version is compatible. It is managed by the system.
 #Tue Aug 01 09:55:45 GMT 2017
 api.version=21.7
@@ -90,7 +90,7 @@ This file has an interesting key, specifically "api.version"! You can change tha
 
 In this case, we will update it to "18.10"
 
-```
+```properties
 #DO NOT EDIT! This is the api version with which *this* code version is compatible. It is managed by the system.
 #Tue Aug 01 09:55:45 GMT 2017
 api.version=18.10

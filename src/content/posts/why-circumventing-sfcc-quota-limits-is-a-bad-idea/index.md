@@ -31,7 +31,7 @@ Let's explore this "UnlimitedArray" I have created and discuss why I should be a
 
 Below is the code for the "UnlimitedArray," a data structure designed to bypass Salesforce's restriction on the number of elements in an array:
 
-```
+```javascript
 /**
  * A custom implementation of an array that can hold an unlimited number of elements.
  *

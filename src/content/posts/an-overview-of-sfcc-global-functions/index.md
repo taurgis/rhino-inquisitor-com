@@ -24,7 +24,7 @@ In development, it's essential to have access to useful functions that can make 
 
 ## encodeURI and encodeURIComponent
 
-```
+```javascript
 encodeURI('https://mozilla.org/?x=шеллы');
 // https://mozilla.org/?x=%D1%88%D0%B5%D0%BB%D0%BB%D1%8B
 encodeURIComponent('шеллы');
@@ -35,7 +35,7 @@ These functions are used to escape characters in a URI or URI component. The enc
 
 ## decodeURI and decodeURIComponent
 
-```
+```javascript
 decodeURI('https://www.google.com/search?q=decodeuri%20example%20%C3%A5%D0%B5%D0%BB');
 // https://www.google.com/search?q=decodeuri example åел
 decodeURIComponent('query=?/learning tō dėcōdė');
@@ -46,7 +46,7 @@ These functions are used to unescape characters in a URI component. The [decodeU
 
 ## empty
 
-```
+```javascript
 empty('')
 // true
 empty([]);
@@ -67,7 +67,7 @@ The [empty](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/co
 
 {{< img-caption src="global-function-escape-drawing-a5cb04538d.jpeg" alt="A drawing of a jail cell with a man in orange." >}}
 
-```
+```javascript
 escape("äöü");
 // "%E4%F6%FC"
 unescape("%E4%F6%FC");
@@ -80,7 +80,7 @@ The [escape](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/c
 
 SECURITY RISK Executing JavaScript from a string is an enormous security risk. It is far too easy for a bad actor to run arbitrary code when you use eval().
 
-```
+```javascript
 eval('2 + 2');
 // 4
 ```
@@ -91,7 +91,7 @@ The [eval](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com
 
 {{< img-caption src="the-infinity-of-space-5e44ec8ec6.jpg" alt="Infinity-themed illustration introducing the isFinite and isNaN global functions." >}}
 
-```
+```javascript
 isFinite(1000 / 0);
 // false
 isFinite(100 / 1);
@@ -106,7 +106,7 @@ The [isFinite](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic
 
 ## parseFloat and parseInt
 
-```
+```javascript
 parseFloat('28.695307297889173');
 // 28.695307297889173
 parseInt('28.695307297889173');

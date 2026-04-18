@@ -26,7 +26,7 @@ SFCC provides a [built-in system to manage different aspects of the data](/the-s
 
 For those in a hurry:
 
-```
+```javascript
 // Store the current situation to re-set it later
 var currentLocale = request.getLocale();
 request.setLocale('xx_XX');
@@ -54,7 +54,7 @@ The system will look at the current request's language preference (or setting) w
 
 To fetch data in a specific language, we must modify the current request before doing the "get". If we want to fetch an attribute in a specific language, we can do something like this:
 
-```
+```javascript
 var ProductMgr = require('dw/catalog/ProductMgr');
 var product = ProductMgr.getProduct('my_sku');
 request.setLocale('zh_CN');
@@ -88,7 +88,7 @@ Some might ask, why would you need to do such a thing? Well, there are a few rea
 
 The system of working with locales within the [PWA Kit](/sitegenesis-vs-sfra-vs-pwa/) is entirely different, which should be no surprise as this is a Headless Storefront in React. The composable storefront uses the '[commerce-sdk-isomorphic](https://github.com/SalesforceCommerceCloud/commerce-sdk-isomorphic)' package, which accepts a locale parameter passed on to the endpoint as a URL parameter:
 
-```
+```text
 https://{shortCode}.api.commercecloud.salesforce.com/product/shopper-products/v1/organizations/{organizationId}/products/{id}?siteId=SiteGenesis&locale=en-US"
 ```
 
