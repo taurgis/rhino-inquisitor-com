@@ -251,7 +251,7 @@ The "Chunk Size" option refers to the number of data items processed in each chu
 The ideal chunk size for a script module depends on various factors, such as:
 
 - **The processing logic's complexity:** Depending on the operations that must be done and other database objects that need to be fetched, we need to remember memory management. For example, choosing a smaller chunk size will allow the system to clean up more efficiently after processing each chunk.
-- **The data set's size & t**he risk of optimistic locking:** When working with a "high risk" object such as profiles that can be modified at any time, setting a smaller chunk size and committing these immediately to the database will reduce the risk of running into [Optimistic Concurrency](https://help.salesforce.com/s/articleView?id=000393690&language=en_US&type=1) Exceptions!
+- **The data set's size & the risk of optimistic locking:** When working with a "high risk" object such as profiles that can be modified at any time, setting a smaller chunk size and committing these immediately to the database will reduce the risk of running into [Optimistic Concurrency](https://help.salesforce.com/s/articleView?id=000393690&language=en_US&type=1) Exceptions!
 
 ### Transactional
 

@@ -61,7 +61,7 @@ idp_origin:ecom
 channel_id:RefArchGlobal
 ```
 
-Within this body, we are authenticating a **guest**customer via "ecom" (B2C Commerce Cloud) for our site "**RefArchGlobal**".
+Within this body, we are authenticating a **guest** customer via "ecom" (B2C Commerce Cloud) for our site "**RefArchGlobal**".
 
 {{< img-caption src="slas-ts-ext-on-behalf-of-authentication-3803569585.jpg" alt="Trusted-system extension authentication flow used before calling createOrders." >}}
 

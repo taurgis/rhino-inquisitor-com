@@ -119,7 +119,7 @@ Even superheroes have weaknesses. DIS has a few, and knowing them is half the ba
 
 ### Transform DIS PNG to JPG
 
-When it comes to image formats, transforming **PNG**files to**JPEG**using the SFCC Dynamic Image Service can be a**game-changer**, especially when you don't need those transparent backgrounds. This simple trick alone can significantly**reduce file sizes**, leading to faster page loads and a smoother user experience.
+When it comes to image formats, transforming **PNG** files to **JPEG** using the SFCC Dynamic Image Service can be a **game-changer**, especially when you don't need those transparent backgrounds. This simple trick alone can significantly **reduce file sizes**, leading to faster page loads and a smoother user experience.
 
 Here's how you might implement this in a **controller:**
 

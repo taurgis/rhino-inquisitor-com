@@ -37,7 +37,7 @@ However, there is one drawback to the SCAPI: not all APIs that exist in the OCAP
 
 Let's keep score, shall we?
 
-**OCAPI:**1**SCAPI:** 0
+**OCAPI:** 1 **SCAPI:** 0
 
 ## New APIs
 
@@ -47,7 +47,7 @@ SCAPI now offers a wide range of APIs for developers to use, allowing them to bu
 
 In the future, it is clear that any significant new APIs will only be added to the SCAPI, which aligns with the platform's strategy.
 
-**OCAPI:**1**SCAPI:** 1
+**OCAPI:** 1 **SCAPI:** 1
 
 ## SLAS
 
@@ -62,7 +62,7 @@ It's an authentication orchestration service that can handle various scenarios w
 
 Although it is possible to use this service in conjunction with OCAPI, it is more part of the SCAPI offering, so let us give a point to SCAPI in this case.
 
-**OCAPI:**1**SCAPI:** 2
+**OCAPI:** 1 **SCAPI:** 2
 
 ## PWA Kit
 
@@ -74,7 +74,7 @@ It's no secret that the Composable Storefront is the primary driver for these in
 
 Another point to SCAPI!
 
-**OCAPI:**1**SCAPI:** 3
+**OCAPI:** 1 **SCAPI:** 3
 
 Oh my ... things aren't looking proper for the OCAPI.
 
@@ -97,7 +97,7 @@ The OCAPI wins for its simplicity, but the SCAPI wins for its future-proof archi
 
 So, for me, both of them get a point here!
 
-**OCAPI:**2**SCAPI:** 4
+**OCAPI:** 2 **SCAPI:** 4
 
 ## Rate Limits
 
@@ -111,7 +111,7 @@ The SCAPI has implemented a new "Load Shedding" system to replace rate limits. T
 
 Not all APIs are the same Not all SCAPI endpoints work with this new system, but some are still protected with set rate limits.
 
-**OCAPI:**2**SCAPI:** 5
+**OCAPI:** 2 **SCAPI:** 5
 
 ## Conclusion
 

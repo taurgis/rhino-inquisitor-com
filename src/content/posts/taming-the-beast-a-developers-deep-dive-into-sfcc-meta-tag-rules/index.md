@@ -249,7 +249,7 @@ Using the native feature as intended.
 
 ## What about the PWA Kit
 
-Yes, you can absolutely continue to leverage the power of **Page Meta Tag Rules**from the Business Manager in a**headless setup**. The key is understanding that your headless front end (like a PWA) communicates with the SFCC backend via APIs.
+Yes, you can absolutely continue to leverage the power of **Page Meta Tag Rules** from the Business Manager in a **headless setup**. The key is understanding that your headless front end (like a PWA) communicates with the SFCC backend via APIs.
 
 While historically this might have required a development task to extend a standard API or create a new endpoint to expose the dynamically generated meta tag values, this is becoming increasingly unnecessary. Salesforce is actively expanding the **Shopper Commerce API ([SCAPI](/in-the-ring-ocapi-versus-scapi/))**, continuously adding new endpoints and enriching existing ones to expose more data directly.
 
