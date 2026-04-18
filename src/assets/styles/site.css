@@ -2002,10 +2002,10 @@ summary {
   padding: 1.15rem 1.25rem;
   border-radius: var(--radius-md);
   background:
-    linear-gradient(to right, var(--surface-inverse) 30%, transparent) left center / 2rem 100% no-repeat local,
-    linear-gradient(to left, var(--surface-inverse) 30%, transparent) right center / 2rem 100% no-repeat local,
-    linear-gradient(to right, rgba(255, 255, 255, 0.15), transparent) left center / 1.5rem 100% no-repeat scroll,
-    linear-gradient(to left, rgba(255, 255, 255, 0.15), transparent) right center / 1.5rem 100% no-repeat scroll,
+    linear-gradient(to right, var(--surface-inverse) 30%, transparent) left center / 2.5rem 100% no-repeat local,
+    linear-gradient(to left, var(--surface-inverse) 30%, transparent) right center / 2.5rem 100% no-repeat local,
+    linear-gradient(to right, rgba(255, 255, 255, 0.28), transparent) left center / 2rem 100% no-repeat scroll,
+    linear-gradient(to left, rgba(255, 255, 255, 0.28), transparent) right center / 2rem 100% no-repeat scroll,
     var(--surface-inverse);
   color: var(--ink-inverse);
   overflow-x: auto;
@@ -2265,7 +2265,12 @@ summary {
 }
 
 [data-theme="dark"] .article-body pre {
-  background: #0d1117;
+  background:
+    linear-gradient(to right, #0d1117 30%, transparent) left center / 2.5rem 100% no-repeat local,
+    linear-gradient(to left, #0d1117 30%, transparent) right center / 2.5rem 100% no-repeat local,
+    linear-gradient(to right, rgba(255, 255, 255, 0.12), transparent) left center / 2rem 100% no-repeat scroll,
+    linear-gradient(to left, rgba(255, 255, 255, 0.12), transparent) right center / 2rem 100% no-repeat scroll,
+    #0d1117;
   color: #c9d1d9;
 }
 

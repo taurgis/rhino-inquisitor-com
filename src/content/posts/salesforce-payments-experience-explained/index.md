@@ -36,7 +36,7 @@ If you're a developer working with e-commerce platforms, you've likely heard of 
 
 The key benefit of integrating Salesforce Payments into your e-commerce project is the ability to manage payments directly within the Salesforce platform. That way, you can easily set up and manage payment methods and view payment information within a single, unified platform. This out-of-the-box integration can help save time and reduce the need for custom development work, allowing developers and businesses to focus on other aspects of their e-commerce projects. If you want a quick visual overview, watch the Business Manager demo recording:
 
-{{< local-video src="salesforce-payments-business-manager-sfcc.mov" title="Business Manager demo recording" >}}
+{{< local-video src="salesforce-payments-business-manager-sfcc.mp4" title="Business Manager demo recording" >}}
 
 ### New features added regularly
 

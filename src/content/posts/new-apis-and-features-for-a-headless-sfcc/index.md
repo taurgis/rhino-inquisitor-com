@@ -42,7 +42,7 @@ This is a big win for any project already on or going to the Composable Storefro
 
 ### Changes for the future
 
-{{< local-video src="runtime-admin-changes.mov" title="Runtime Admin changes demo video" >}}
+{{< local-video src="runtime-admin-changes.mp4" title="Runtime Admin changes demo video" >}}
 
 Headless and Composable architectures bring great flexibility for the future but pose particular challenges in monitoring and analytics. One of the significant challenges is consolidating data from multiple entities.
 

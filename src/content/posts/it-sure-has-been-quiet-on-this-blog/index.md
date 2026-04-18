@@ -50,7 +50,7 @@ Maybe this is a reminder for some people:
 - A starter template, just like SiteGenesis, SFRA, and the PWA-Kit, to speed up getting started
 - ...
 
-{{< local-video src="fastforward-business-manager-accelerator.mov" title="FastForward Business Manager Accelerator demo recording" >}}
+{{< local-video src="fastforward-business-manager-accelerator.mp4" title="FastForward Business Manager Accelerator demo recording" >}}
 
 {{< img-caption src="fastforward-storybook-7ad70ee20d.jpg" alt="FastForward Business Manager Accelerator Storybook interface." >}}
 

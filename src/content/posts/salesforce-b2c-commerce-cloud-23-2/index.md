@@ -76,7 +76,7 @@ Overall, this update brings many benefits and will significantly enhance the use
 
 ### Reports and Dashboards for PWA Kit
 
-{{< local-video src="rd-overview.mov" title="Reports and Dashboards demo recording" >}}
+{{< local-video src="rd-overview.mp4" title="Reports and Dashboards demo recording" >}}
 
 Starting now, Commerce Cloud Reports and Dashboards work for the Composable Storefront!
 

@@ -803,7 +803,7 @@ We mentioned the function to get the Calendar automatically in the Site timezone
 
 To ensure your code incorporates the toolkit, it is necessary to utilise this function. To provide a more precise understanding, I have recorded a video demonstrating this behaviour:
 
-{{< local-video src="storefront-tookit-and-calendars.mov" title="Storefront Toolkit calendar demo recording" >}}
+{{< local-video src="storefront-tookit-and-calendars.mp4" title="Storefront Toolkit calendar demo recording" >}}
 
 ### Is there a third-party way
 
