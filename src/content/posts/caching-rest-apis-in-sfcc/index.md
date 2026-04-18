@@ -41,7 +41,13 @@ Before we start, we must understand that not all API endpoints support caching. 
 - [Site](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/shop/Resources/Site.html?cp=0_16_3_17)
 - [Stores](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/shop/Resources/Stores.html?cp=0_16_3_18)
 
-This is quite an extensive list and contains all the objects we would expect to support caching! Something to keep in mind Only GET calls can be cached. Something to keep in mind The Data API does not support caching at all.
+This is quite an extensive list and contains all the objects we would expect to support caching!
+
+> [!NOTE]
+> Only GET calls can be cached.
+
+> [!NOTE]
+> The Data API does not support caching at all.
 
 ## Page Cache
 
@@ -51,7 +57,10 @@ An important thing to remember before starting to tinker with the [Shop API](htt
 cache-control: no-cache, no-store, must-revalidate
 ```
 
-This is easy to fix. But without enabling it, you cannot test your settings on a sandbox where this is usually disabled. Something to keep in mind It is not possible to clear the Page Cache for the OCAPI only, it will take your storefront (SiteGenesis/SFRA) with it. Clearing the page cache can create a heavy load on the application servers. Only clear the page cache manually when necessary, and avoid clearing it during times of high traffic.
+This is easy to fix. But without enabling it, you cannot test your settings on a sandbox where this is usually disabled.
+
+> [!WARNING]
+> It is not possible to clear the Page Cache for the OCAPI only, it will take your storefront (SiteGenesis/SFRA) with it. Clearing the page cache can create a heavy load on the application servers. Only clear the page cache manually when necessary, and avoid clearing it during times of high traffic.
 
 ## Overriding the OCAPI Cache Time
 
@@ -136,7 +145,10 @@ Personalized caching is enabled by default based on the customer context (JWT). 
 }
 ```
 
-By setting the "personalized\_caching\_ enabled" option to false, personalization will be disabled for that resource. Something to keep in mind You can find information about other options (not related to caching) for resources in the [Infocenter](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/OCAPISettings.html).
+By setting the "personalized\_caching\_ enabled" option to false, personalization will be disabled for that resource.
+
+> [!NOTE]
+> You can find information about other options (not related to caching) for resources in the [Infocenter](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/OCAPISettings.html).
 
 ## SCAPI (Salesforce Commerce API)
 

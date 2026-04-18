@@ -22,7 +22,7 @@ takeaways:
 ---
 People who have been around "[Demandware](/sitegenesis-vs-sfra-vs-pwa/)" for a while and continued after the acquisition by Salesforce know that this announcement was bound to happen at one point.
 
-It is a question that many have asked over the years looking at the core platform of Salesforce: "When will they migrate everything and move Salesforce B2C Commerce Cloud to the Salesforce core platform ( [force.com](https://www.salesforce.com/products/platform/products/force/?sfdc-redirect=300) )?"
+It is a question that many have asked over the years looking at the core platform of Salesforce: "When will they migrate everything and move Salesforce B2C Commerce Cloud to the Salesforce core platform ([force.com](https://www.salesforce.com/products/platform/products/force/?sfdc-redirect=300))?"
 
 During Dreamforce, the first mention of this happening reared its face this year. During the keynote even! Although honestly, if you blinked, you probably missed this.
 
