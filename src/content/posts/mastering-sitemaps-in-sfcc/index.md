@@ -86,7 +86,8 @@ For a more modern, API-first architecture, consider using the Salesforce Commerc
 
 This is a PUT request that enables a trusted external system to upload a custom sitemap file directly to SFCC and initiate the generation process asynchronously. This is the ideal solution for event-driven systems. For example, a headless CMS could use a webhook to call this endpoint the instant a new article is published, getting that URL into the sitemap almost immediately.
 
-Time to run Remember that the generation part won't be complete in just a few seconds. Run your POC to determine how long it takes to process, allowing you to make informed decisions about your architecture.
+> [!NOTE]
+> **Time to run** — Remember that the generation part won't be complete in just a few seconds. Run your POC to determine how long it takes to process, allowing you to make informed decisions about your architecture.
 
 ## Choices... choices
 

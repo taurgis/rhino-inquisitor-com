@@ -20,7 +20,7 @@ takeaways:
   - "Shows how AI shifts developer value toward architecture, judgment, and collaboration"
   - "Recommends hands-on adoption of AI coding tools instead of waiting for the market to settle"
 ---
-The Rhino Inquisitor I went all "Rhino" up in this place, be prepared for some analogies 😇.
+The Rhino Inquisitor — I went all "Rhino" up in this place, be prepared for some analogies 😇.
 
 ## The Elephant (or Rhino) in the Room: Staring Down the AI Hype
 
