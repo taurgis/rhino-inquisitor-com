@@ -78,7 +78,8 @@ The [escape](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/c
 
 ## eval
 
-SECURITY RISK Executing JavaScript from a string is an enormous security risk. It is far too easy for a bad actor to run arbitrary code when you use eval().
+> [!WARNING]
+> Executing JavaScript from a string is an enormous security risk. It is far too easy for a bad actor to run arbitrary code when you use eval().
 
 ```javascript
 eval('2 + 2');

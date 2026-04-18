@@ -2216,8 +2216,9 @@ summary {
 
 [data-theme="dark"] .article-body img,
 [data-theme="dark"] .page-article__hero img {
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
 }
 
 [data-theme="dark"] .article-callout--note {
