@@ -8,6 +8,7 @@ lastmod: '2023-09-26T09:54:35.000Z'
 url: /creating-custom-ocapi-endpoints/
 draft: false
 heroImage: ocapi-bb5766fd49.jpg
+heroImagePosition: left center
 categories:
   - Salesforce Commerce Cloud
   - Technical

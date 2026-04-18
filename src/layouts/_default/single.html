@@ -32,6 +32,8 @@
                 {{ partial "article/summary-box.html" (dict "page" . "variant" "lead") }}
               {{ end }}
               {{ with .Params.heroImage }}
+                {{- $heroStyle := "" -}}
+                {{- with $.Params.heroImagePosition -}}{{- $heroStyle = printf "object-position:%s" . -}}{{- end -}}
                 <div class="page-article__hero page-article__hero--lead">
                   {{ partial "media/image.html" (dict
                     "page" $
@@ -43,6 +45,7 @@
                     "responsive" true
                     "maxWidth" 1280
                     "sizes" "(min-width: 64rem) 42rem, 100vw"
+                    "style" $heroStyle
                   ) }}
                 </div>
               {{ end }}
@@ -50,6 +53,8 @@
           {{ end }}
         {{ else if not $isVideoHub }}
           {{ if and .Params.heroImage (not .Params.video) }}
+            {{- $heroStyle := "" -}}
+            {{- with .Params.heroImagePosition -}}{{- $heroStyle = printf "object-position:%s" . -}}{{- end -}}
             <div class="page-article__hero">
               {{ partial "media/image.html" (dict
                 "page" .
@@ -61,6 +66,7 @@
                 "responsive" true
                 "maxWidth" 1280
                 "sizes" "(min-width: 80rem) 72rem, 100vw"
+                "style" $heroStyle
               ) }}
             </div>
           {{ end }}

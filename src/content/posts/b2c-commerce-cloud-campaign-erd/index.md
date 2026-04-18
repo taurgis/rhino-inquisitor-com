@@ -55,7 +55,7 @@ It is also impossible to manage Store Groups from within the business manager. O
 
 After creating a support ticket, two new features appear in the business manager. First, we get a new administrative module!
 
-{{< local-video src="campaign-store-groups-sfcc-2023-v2.mov" title="Campaign Store Groups demo recording" >}}
+{{< local-video src="campaign-store-groups-sfcc-2023-v2.mp4" poster="campaign-store-groups-sfcc-2023-v2-poster.jpg" title="Campaign Store Groups demo recording" >}}
 
 And suddenly, within campaign management, we get new options!
 
