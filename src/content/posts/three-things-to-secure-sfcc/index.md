@@ -4,7 +4,7 @@ description: >-
   Securing your Salesforce B2C Commerce Cloud environment is important, but
   sometimes neglected. These are 3 actions you can take immediately!
 date: '2024-01-15T17:47:00.000Z'
-lastmod: '2024-01-08T20:35:25.000Z'
+lastmod: '2024-01-15T17:47:00.000Z'
 url: /three-things-to-secure-sfcc/
 draft: false
 heroImage: robot-locking-a-gate-9a4abf2129.png

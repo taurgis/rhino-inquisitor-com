@@ -4,7 +4,7 @@ description: >-
   The weather (at least here) is giving us more sunshine, so let us shine a
   light on the next Salesforce B2C Commerce Cloud release!
 date: '2023-05-25T06:26:10.000Z'
-lastmod: '2023-05-24T08:16:17.000Z'
+lastmod: '2023-05-25T06:26:10.000Z'
 url: /a-look-at-the-salesforce-b2c-commerce-cloud-23-6-release/
 draft: false
 heroImage: a-neon-shopping-cart-scaled-863c5d17ed.jpg

@@ -4,7 +4,7 @@ description: >-
   Have you ever found yourself in a deployment-day standoff? Read the full
   article on Rhino Inquisitor for implementation details.
 date: '2025-09-08T09:14:15.000Z'
-lastmod: '2025-09-05T11:12:50.000Z'
+lastmod: '2025-09-08T09:14:15.000Z'
 url: /the-realm-split-field-guide-to-migrating-an-sfcc-site/
 draft: false
 heroImage: realm-split-in-sfcc-c392b8965d.jpg

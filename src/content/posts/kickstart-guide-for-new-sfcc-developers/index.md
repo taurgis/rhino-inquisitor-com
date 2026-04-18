@@ -4,7 +4,7 @@ description: >-
   An interactive guide for new SFCC developers covering storefront patterns,
   platform concepts, and practical next steps for hands-on learning.
 date: '2026-01-12T14:05:43.000Z'
-lastmod: '2026-01-09T12:49:20.000Z'
+lastmod: '2026-01-12T14:05:43.000Z'
 url: /kickstart-guide-for-new-sfcc-developers/
 draft: false
 heroImage: the-new-salesforce-developer-scaled-1f8ff6fbac.jpeg

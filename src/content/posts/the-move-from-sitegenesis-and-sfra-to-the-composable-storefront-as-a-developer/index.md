@@ -5,7 +5,7 @@ description: >-
   expanding your skill set and exploring new technologies is part of the job -
   it all
 date: '2023-12-25T13:46:42.000Z'
-lastmod: '2023-12-24T08:02:07.000Z'
+lastmod: '2023-12-25T13:46:42.000Z'
 url: >-
   /the-move-from-sitegenesis-and-sfra-to-the-composable-storefront-as-a-developer/
 draft: false
