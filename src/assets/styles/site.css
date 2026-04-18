@@ -2214,6 +2214,12 @@ summary {
   filter: brightness(0.92) contrast(1.04);
 }
 
+[data-theme="dark"] .article-body img,
+[data-theme="dark"] .page-article__hero img {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.4);
+}
+
 [data-theme="dark"] .article-callout--note {
   background: rgba(56, 139, 253, 0.12);
 }
@@ -2271,6 +2277,38 @@ summary {
 [data-theme="dark"] .article-body code:not(pre code) {
   background: var(--surface-muted);
   color: var(--ink-default);
+}
+
+[data-theme="dark"] .article-body th {
+  background: var(--surface-muted);
+}
+
+[data-theme="dark"] .realm-split-checklist {
+  background:
+    radial-gradient(circle at top right, rgba(56, 139, 253, 0.1), transparent 34%),
+    linear-gradient(180deg, rgba(56, 139, 253, 0.06) 0%, var(--surface-strong) 42%);
+  border-color: var(--surface-border-strong);
+}
+
+[data-theme="dark"] .realm-split-checklist__scroll {
+  background: var(--surface-bg);
+  border-color: var(--surface-border);
+}
+
+[data-theme="dark"] .realm-split-checklist__table th {
+  background: linear-gradient(180deg, var(--surface-muted) 0%, var(--surface-strong) 100%);
+}
+
+[data-theme="dark"] .realm-split-checklist__table td {
+  background: var(--surface-bg);
+}
+
+[data-theme="dark"] .realm-split-checklist__table tbody tr:nth-child(even) td {
+  background: var(--tint-bg);
+}
+
+[data-theme="dark"] .realm-split-checklist__table tbody tr:hover td {
+  background: rgba(56, 139, 253, 0.08);
 }
 
 [data-theme="dark"] .article-related__card {
@@ -2843,7 +2881,7 @@ summary {
 
 .realm-split-checklist__table {
   display: table;
-  width: max(100%, 43rem);
+  width: max(100%, 48rem);
   min-width: 0;
   margin: 0;
   border: 0;
@@ -2858,17 +2896,17 @@ summary {
 
 .realm-split-checklist__table th:nth-child(1),
 .realm-split-checklist__table td:nth-child(1) {
-  width: 19%;
+  width: 23%;
 }
 
 .realm-split-checklist__table th:nth-child(2),
 .realm-split-checklist__table td:nth-child(2) {
-  width: 20%;
+  width: 19%;
 }
 
 .realm-split-checklist__table th:nth-child(3),
 .realm-split-checklist__table td:nth-child(3) {
-  width: 39%;
+  width: 36%;
 }
 
 .realm-split-checklist__table th:nth-child(4),
