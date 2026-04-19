@@ -14,3 +14,7 @@ Salesforce allows its clients and partners to guide the internal product teams t
 You can look at other people's ideas or submit your own on this website. Using a "points" system, you can vote for specific ideas to give them more visibility.
 
 Over the years, I have created and voted for some of these ideas. On this page, I have made an overview of all these ideas!
+
+- [Versioning of Content Assets](/versioning-of-content-assets/) — There is no easy way to roll back content changes in SFCC. Version history for Content Assets and Page Designer would prevent costly publish mistakes.
+- [Page Designer: Dynamic Pages — Optional Subcategories](/ideas/page-designer-dynamic-pages-optional-subcategories/) — When you assign a Page Designer page to a category, all subcategories inherit it whether you want them to or not.
+- [Page Designer: Add ability to copy/paste components](/ideas/page-designer-add-ability-to-copy-paste-components/) — Merchandisers had to recreate near-identical components from scratch. This feature was implemented!

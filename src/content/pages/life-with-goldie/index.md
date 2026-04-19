@@ -6,7 +6,7 @@ description: >-
 date: '2022-09-11T08:28:07.000Z'
 lastmod: '2022-09-11T16:31:42.000Z'
 url: /life-with-goldie/
-draft: false
+draft: true
 heroImage: yte-hd-image-96d2c1f499.jpg
 categories:
   - Podcasts
