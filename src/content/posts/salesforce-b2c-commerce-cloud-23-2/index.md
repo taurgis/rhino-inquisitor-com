@@ -43,7 +43,7 @@ Overall, this will be a great step forward in enhancing the user experience.
 
 ### Move Components in Page Designer More Easily
 
-{{< img-caption src="page-designer-move-e9d6ec4100.gif" alt="Old drag-and-drop component movement in Page Designer." caption="Old Moving Component" >}}
+{{< local-video src="page-designer-move-e9d6ec4100.mp4" title="Old drag-and-drop component movement in Page Designer." caption="Old Moving Component" >}}
 
 {{< img-caption src="page-designer-move-new-q0uu0xxsvfb2aqadmf5zcgd32825ysuaruhlziuh34-537198b2f6.png" alt="New Moving Component" >}}
 

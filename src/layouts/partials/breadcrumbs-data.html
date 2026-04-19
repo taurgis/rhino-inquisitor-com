@@ -22,7 +22,7 @@
     {{ $items = $items | append (dict "name" $displayTitle "url" $currentUrl) }}
   {{ else }}
     {{ with .CurrentSection }}
-      {{ if and (not .IsHome) (ne .Permalink $.Permalink) }}
+      {{ if and (not .IsHome) (ne .Permalink $.Permalink) (ne $.Section "pages") }}
         {{ $items = $items | append (dict "name" .Title "url" .Permalink) }}
       {{ end }}
     {{ end }}
