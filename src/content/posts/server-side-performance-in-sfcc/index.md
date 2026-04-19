@@ -84,7 +84,7 @@ The [Technical Dashboard](https://documentation.b2c.commercecloud.salesforce.com
 
 Looking at the list of data above, it makes sense to have a look at it!
 
-{{< img-caption src="performance-dashboard-8a847df133.png" alt="A screenshot of the &quot;Reports & Dashboards&quot; with the &quot;Average Response Time&quot; graph depicting a significant performance degradation (doubling in milliseconds)." caption="The Technical Dashboard is the first place to confirm whether response times are trending the wrong way." >}}
+{{< img-caption src="performance-dashboard-8a847df133.png" alt="A screenshot of the 'Reports & Dashboards' with the 'Average Response Time' graph depicting a significant performance degradation (doubling in milliseconds)." caption="The Technical Dashboard is the first place to confirm whether response times are trending the wrong way." >}}
 
 This dashboard lets you obtain the essential information regarding your cache performance for all endpoints, including Remote Includes. Clicking on a controller will reveal insights into the various sub-requests caused by the [Remote Include](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/ops_troubleshooting/b2c_understanding_remote_includes.html) mechanism.
 
@@ -102,7 +102,7 @@ As you can see, the above screenshot shows a basic overview of the performance o
 
 All of the [Remote Includes](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/ops_troubleshooting/b2c_understanding_remote_includes.html) you have done are within the list of controllers.
 
-{{< img-caption src="pipeline-profile-remote-includes-0e99481937.png" alt="A screenshot of the Pipeline Profiler showing a list of Remote Includes, with the &quot;Tile-Show&quot; controller marked with a red circle around it." caption="Remote includes show up as their own controllers, so they must be profiled separately." >}}
+{{< img-caption src="pipeline-profile-remote-includes-0e99481937.png" alt="A screenshot of the Pipeline Profiler showing a list of Remote Includes, with the 'Tile-Show' controller marked with a red circle around it." caption="Remote includes show up as their own controllers, so they must be profiled separately." >}}
 
 The information you get is quite basic, but it will give you the first indication of pain points and where to start looking. You can do this on production, but preferably as a last resort.
 
@@ -114,7 +114,7 @@ Cache This method only works for uncached endpoints if caching is enabled. Cache
 
 Last but not least, the [Code Profiler](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/site_performance/b2c_using_code_profiler.html) provides you with detailed insights on run-time performance. You can control how detailed you want that information as it supports three modes: Production, Development and Extended.
 
-{{< img-caption src="salesforce-code-profiler-extended-eeb0fcbb69.png" alt="A screenshot of the Code Profiler with the activated &quot;Extended Script Development Mode&quot; setting. The screenshot includes an extensive list of functions and Javascript files executed in the server-side code." caption="The Code Profiler is the deep-dive tool once dashboards and profiler views stop being enough." >}}
+{{< img-caption src="salesforce-code-profiler-extended-eeb0fcbb69.png" alt="A screenshot of the Code Profiler with the activated 'Extended Script Development Mode' setting. The screenshot includes an extensive list of functions and Javascript files executed in the server-side code." caption="The Code Profiler is the deep-dive tool once dashboards and profiler views stop being enough." >}}
 
 Looking at the screenshot above, you can understand why they call it "Extended Script Development Mode." You get fine-grained details about the performance of your code, including information on which line in what JavaScript file.
 

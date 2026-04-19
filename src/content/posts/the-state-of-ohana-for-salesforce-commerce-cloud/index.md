@@ -111,7 +111,7 @@ In the past year, many people of the mothership have joined in as well—a big s
 
 All I want to say to the Slack community is
 
-{{< img-caption src="thank-you-trailblazers-aae5cae7b7.jpg" alt="A drawing of Salesforce mascots waving with a &quot;Thank You&quot; message." caption="The point is simple: this community works because people keep showing up for each other." >}}
+{{< img-caption src="thank-you-trailblazers-aae5cae7b7.jpg" alt="A drawing of Salesforce mascots waving with a 'Thank You' message." caption="The point is simple: this community works because people keep showing up for each other." >}}
 
 ## **Join the Slack Community**
 

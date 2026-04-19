@@ -37,7 +37,7 @@ The adventurous start did nothing to deter our enthusiasm – instead, it added 
 
 We kicked off day two (and the first day of Dreamforce) with gusto; the early bird catches the worm indeed! Tuesday commenced with breakfast with the #CommerceCrew (a big thank you being in order for Amalia!). The keynote right after gave an opportunity to reveal a new [Shirtforce](/commerce-cloud-t-shirts-on-shirtforce/) t-shirt, specially designed for [Charlie](https://twitter.com/charlieisaacs) to celebrate his relentless efforts within Salesforce’s ever-evolving community ecosystem.
 
-{{< img-caption src="7a6c01d9-e903-4479-ad6e-fb8b41445d64-1-105-c-90a3bbafe3.jpeg" alt="A group of people all wearing a &quot;Charlie's Sailblazer&quot; t-shirt at the Dreamforce 2023 keynote." caption="The keynote also became the moment to unveil Charlie's special Shirtforce t-shirt." >}}
+{{< img-caption src="7a6c01d9-e903-4479-ad6e-fb8b41445d64-1-105-c-90a3bbafe3.jpeg" alt="A group of people all wearing a 'Charlie's Sailblazer' t-shirt at the Dreamforce 2023 keynote." caption="The keynote also became the moment to unveil Charlie's special Shirtforce t-shirt." >}}
 
 No time for food comas here; post-lunch called for participation on my behalf in a session revolving around AI and its ethical impact. Explorer at heart, I reveled delving deep into generative AI - indeed quite an informative afternoon.
 

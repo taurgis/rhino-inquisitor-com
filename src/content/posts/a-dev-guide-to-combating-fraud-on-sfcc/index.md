@@ -178,7 +178,7 @@ The most critical aspect of running your own custom solution is that its mainten
 
 ## Calling in the Cavalry - A Guide to Third-Party Fraud Solutions
 
-{{< img-caption src="calling-the-cavalry-fea1bcb812.jpg" alt="A cartoon illustration depicting &quot;The Cavalry&quot; of third-party fraud solutions. Armored knights ride cybernetic horses toward a castle labeled &quot;Salesforce Commerce Cloud.&quot; Signposts highlight specific vendors like &quot;Riskified &amp; Signifyd&quot; (Peace of Mind), &quot;Kount&quot; (Control), and &quot;DataDome&quot; (Bot Defense), while knights carry banners representing &quot;Global Data&quot; and &quot;Machine Learning.&quot;" caption="Third-party tools earn their keep when scale or risk outgrows the native platform controls." >}}
+{{< img-caption src="calling-the-cavalry-fea1bcb812.jpg" alt="A cartoon illustration depicting 'The Cavalry' of third-party fraud solutions. Armored knights ride cybernetic horses toward a castle labeled 'Salesforce Commerce Cloud.' Signposts highlight specific vendors like 'Riskified & Signifyd' (Peace of Mind), 'Kount' (Control), and 'DataDome' (Bot Defense), while knights carry banners representing 'Global Data' and 'Machine Learning.'" caption="Third-party tools earn their keep when scale or risk outgrows the native platform controls." >}}
 
 When custom rules aren't enough, it's time to call in the cavalry. Third-party solutions bring global data networks, advanced AI, and financial guarantees to reinforce your Salesforce Commerce Cloud defense.
 

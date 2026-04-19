@@ -54,7 +54,7 @@ If you configure the fallback system differently, let's say you have the German 
 
 ## Configuring Locale Fallback
 
-{{< img-caption src="sfcc-localisation-config-e5d2f27043.jpg" alt="Locale configuration screen in Administration and Global Preferences." caption="Locales and fallback can be configured at &quot;Administration > Global Preferences > Locales&quot;" >}}
+{{< img-caption src="sfcc-localisation-config-e5d2f27043.jpg" alt="Locale configuration screen in Administration and Global Preferences." caption="Locales and fallback can be configured at 'Administration > Global Preferences > Locales'" >}}
 
 Salesforce B2C Commerce Cloud allows for customized fallback configurations. You can skip levels in the fallback chain or even eliminate fallback entirely for particular locales, depending on your specific requirements.
 

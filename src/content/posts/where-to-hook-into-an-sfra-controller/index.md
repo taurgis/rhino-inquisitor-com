@@ -51,7 +51,7 @@ Dangerous Like the onRequest hook, any delay or exception introduced here can be
 
 ## SFRA Routes
 
-{{< img-caption src="home-controller-routes-in-sfra-ca8b9d167a.jpg" alt="Standard Home.js controller with Show and ErrorNotFound routes." caption="The &quot;home.js&quot; controller file of SFRA" >}}
+{{< img-caption src="home-controller-routes-in-sfra-ca8b9d167a.jpg" alt="Standard Home.js controller with Show and ErrorNotFound routes." caption="The 'home.js' controller file of SFRA" >}}
 
 Before we get started, we need to ensure we are on the same page on what a "[route](https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/blob/1cb2b329fa281333403bb2681b939e727aee809a/cartridges/modules/server/route.js)" is.
 
@@ -87,7 +87,7 @@ server.prepend('Show', function (req, res, next) {
 });
 ```
 
-{{< img-caption src="sfra-prepend-home-show-de79cdab82.jpg" alt="SFRA prepending of Home-Show" caption="Visualising what &quot;prepending&quot; does in a single route (Home-Show)" >}}
+{{< img-caption src="sfra-prepend-home-show-de79cdab82.jpg" alt="SFRA prepending of Home-Show" caption="Visualising what 'prepending' does in a single route (Home-Show)" >}}
 
 Fun Fact Prepending was one of the first [pull requests](https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/commit/3f471420e847ffeaf8fea9955a2f1481169a0e86) I had made to SFRA.
 
@@ -104,7 +104,7 @@ server.append('Show', function (req, res, next) {
 });
 ```
 
-{{< img-caption src="sfra-append-home-show-f8e98c7dcd.jpg" alt="SFRA appending of Home-Show" caption="Visualising what &quot;appending&quot; does in a single route (Home-Show)" >}}
+{{< img-caption src="sfra-append-home-show-f8e98c7dcd.jpg" alt="SFRA appending of Home-Show" caption="Visualising what 'appending' does in a single route (Home-Show)" >}}
 
 ### server.replace()
 
@@ -128,7 +128,7 @@ server.replace('Show', function (req, res, next) {
 });
 ```
 
-{{< img-caption src="sfra-replace-home-show-d90b35f072.jpg" alt="SFRA replacing of Home-Show" caption="Visualising what &quot;replacing&quot; does in a single route (Home-Show)" >}}
+{{< img-caption src="sfra-replace-home-show-d90b35f072.jpg" alt="SFRA replacing of Home-Show" caption="Visualising what 'replacing' does in a single route (Home-Show)" >}}
 
 ## SFRA Route Hooks
 

@@ -95,7 +95,7 @@ However, don't anticipate any "magic 🪄"—it's the accumulation of many small
 {{< img-caption 
   src="clearing-httpclient-response-cache-c4b7ab1863.png"
   alt="Service Maintenance screen used to invalidate HTTP client response cache"
-  caption="A screenshot of the &quot;Service Maintenance&quot; configuration page in the Business Manager."
+  caption="A screenshot of the 'Service Maintenance' configuration page in the Business Manager."
 >}}
 
 You can clear the HTTPClient Response cache in the Business Manager by going to `Administration > Operations > Service Maintenance`. Here, you'll find options related to this cache.

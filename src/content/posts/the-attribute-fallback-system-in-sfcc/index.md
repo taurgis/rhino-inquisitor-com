@@ -44,7 +44,7 @@ The attribute fallback system works as follows:
 
 ### Price
 
-{{< img-caption src="modern-striped-shirt-price-range-f088973939.jpg" alt="A variation group product detail page of a shirt where the variants have different prices, ending up with a &quot;range&quot;." caption="When variant prices differ, the storefront displays a price range on the variation group PDP rather than a single price." >}}
+{{< img-caption src="modern-striped-shirt-price-range-f088973939.jpg" alt="A variation group product detail page of a shirt where the variants have different prices, ending up with a 'range'." caption="When variant prices differ, the storefront displays a price range on the variation group PDP rather than a single price." >}}
 
 The attribute fallback system applies to all attributes of variation products except for the price attribute. The price attribute does not have a fallback from variation products to variation groups, as variation groups do not have prices.
 

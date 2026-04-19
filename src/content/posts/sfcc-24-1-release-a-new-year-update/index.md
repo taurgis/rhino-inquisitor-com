@@ -48,7 +48,7 @@ PIG Only This option does not seem to be available on sandboxes.
 
 ### Enable Temporary Baskets for Immediate Order Requests in OCAPI
 
-{{< img-caption src="carts-on-a-mobile-phone-022785d77e.jpg" alt="A person's hand touches a mobile phone, depicting multiple carts on top of it, representing the new Headless options for &quot;temporary baskets.&quot;" >}}
+{{< img-caption src="carts-on-a-mobile-phone-022785d77e.jpg" alt="A person's hand touches a mobile phone, depicting multiple carts on top of it, representing the new Headless options for 'temporary baskets.'" >}}
 
 > OCAPI 23.4 includes support for temporary baskets. Temporary baskets allow for immediate order requests in B2C Commerce. For example, a shopper uses a Buy Now option to purchase an item. The temporary basket, which has a limited lifetime of 15 minutes, is populated with all the data required to ready the basket for checkout without affecting the regular shopper basket.
 > **How:** Pass a query parameter temporaryBasket into POST baskets to create a temporary basket. With OCAPI 23.4 the basket document attribute isTemporary indicates a basket is temporary.

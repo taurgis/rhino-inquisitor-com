@@ -84,4 +84,4 @@ Some developers might hesitate to give up control when deciding whether to let S
 
 It's important to know that you don't have to use the Managed Runtime option and can create your own Headless Storefront for Salesforce B2C Commerce Cloud if you want to. But if you choose this route (build your own), the managed runtime might not be an option!
 
-{{< img-caption src="b2c-commerce-cloud-roll-your-own-b16dfb6a8d.jpg" alt="A diagram depicting how you would roll your own Headless Storefront based on a custom Node.js server running APIs through Apollo." caption="An example of a &quot;roll your own&quot; architecture" >}}
+{{< img-caption src="b2c-commerce-cloud-roll-your-own-b16dfb6a8d.jpg" alt="A diagram depicting how you would roll your own Headless Storefront based on a custom Node.js server running APIs through Apollo." caption="An example of a 'roll your own' architecture" >}}

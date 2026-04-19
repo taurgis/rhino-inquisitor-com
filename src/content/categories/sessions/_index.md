@@ -5,6 +5,6 @@ description: >-
   articles, release notes, and migration-safe reference material.
 aliases:
   - /category/video/sessions/
-draft: false
+draft: true
 ---
 

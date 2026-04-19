@@ -36,7 +36,7 @@ This process helps reduce the risk of direct attacks on the origin infrastructur
 
 Long story short, origin shielding is a security measure for safeguarding cloud-hosted infrastructure, ensuring both the integrity and availability of Salesforce’s services.
 
-{{< img-caption src="origin-shielding-v2-280aa345d3.jpg" alt="A dramatic image of a superhero in front of a server, protecting it from a &quot;bad&quot; actor in the shadows." caption="Origin shielding acts as a protective layer between the public internet and Salesforce's cloud infrastructure." >}}
+{{< img-caption src="origin-shielding-v2-280aa345d3.jpg" alt="A dramatic image of a superhero in front of a server, protecting it from a 'bad' actor in the shadows." caption="Origin shielding acts as a protective layer between the public internet and Salesforce's cloud infrastructure." >}}
 
 ## The back-end and OCAPI
 

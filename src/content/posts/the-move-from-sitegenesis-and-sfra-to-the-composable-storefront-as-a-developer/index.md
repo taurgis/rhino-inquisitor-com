@@ -62,7 +62,7 @@ For example, understanding the importance of accessibility, SEO, and performance
 
 ### Commerce Cloud
 
-{{< img-caption src="commerce-cloud-as-a-building-16b551ef15.jpg" alt="A person walking towards an office building with a Salesforce like logo and &quot;Commerce Cloud&quot; written above the entrance." caption="B2C Commerce Cloud is still the back-end engine: the Composable Storefront changes the front door, not the foundation." >}}
+{{< img-caption src="commerce-cloud-as-a-building-16b551ef15.jpg" alt="A person walking towards an office building with a Salesforce like logo and 'Commerce Cloud' written above the entrance." caption="B2C Commerce Cloud is still the back-end engine: the Composable Storefront changes the front door, not the foundation." >}}
 
 A deep [understanding](/the-b2c-commerce-architect-certification/) of how Commerce Cloud functions in online and offline environments is vital. Furthermore, proficiency in utilising the platform is equally essential to succeed.
 

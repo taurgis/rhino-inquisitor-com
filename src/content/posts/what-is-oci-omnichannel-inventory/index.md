@@ -61,7 +61,7 @@ Using OCI brings the following benefits:
 
 - **Omnichannel:** Easily support omnichannel experiences, such as ship from store and buy online, pick up in-store (BOPIS)
 
-{{< img-caption src="inventory-grouping-6f9edbe7b9.png" alt="An overview of grouping inventory locations together into delivery groups. It shows for example a Physicial store and warehouse being merged to an inventory group to use for online delivery as a single &quot;list&quot;." caption="Example of location grouping" >}}
+{{< img-caption src="inventory-grouping-6f9edbe7b9.png" alt="An overview of grouping inventory locations together into delivery groups. It shows for example a Physicial store and warehouse being merged to an inventory group to use for online delivery as a single 'list'." caption="Example of location grouping" >}}
 
 ## Natively integrated
 

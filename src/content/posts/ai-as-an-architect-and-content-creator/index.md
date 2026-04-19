@@ -47,7 +47,7 @@ And that is where ChatGPT comes into play, allowing me to ask for some ideas! Al
 
 Regarding images, many options are available - each requiring its own style of prompting and capabilities. When choosing image engines and models, I consider the style I want. For this particular image, I wanted a Cyberpunk-style face with a technological twist, but not excessively dystopian.
 
-{{< img-caption src="generating-a-post-image-51933457be.jpg" alt="A screenshot of Leonardo.AI of generating the image of this post using the prompt &quot;a mix of a human male face wearing glasses with a robot&quot;" caption="Generative image tools help turn a vague visual idea into a usable post illustration." >}}
+{{< img-caption src="generating-a-post-image-51933457be.jpg" alt="A screenshot of Leonardo.AI of generating the image of this post using the prompt 'a mix of a human male face wearing glasses with a robot'" caption="Generative image tools help turn a vague visual idea into a usable post illustration." >}}
 
 Another step is completed, but filling an article with engaging content is a tad more challenging.
 
