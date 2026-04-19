@@ -1,0 +1,29 @@
+{{ $page := .page }}
+{{ $fallback := .fallback | default "" }}
+{{ $maxLength := .maxLength | default 0 }}
+{{ $excerpt := "" }}
+
+{{ with $page.Params.description }}
+  {{ $excerpt = . | plainify | strings.TrimSpace }}
+{{ end }}
+
+{{ if eq $excerpt "" }}
+  {{ $summaryItems := $page.Params.summary | default ($page.Params.takeaways | default (slice)) }}
+  {{ if gt (len $summaryItems) 0 }}
+    {{ $excerpt = index $summaryItems 0 | plainify | strings.TrimSpace }}
+  {{ end }}
+{{ end }}
+
+{{ if eq $excerpt "" }}
+  {{ $excerpt = $page.Summary | plainify | strings.TrimSpace }}
+{{ end }}
+
+{{ if eq $excerpt "" }}
+  {{ $excerpt = $fallback }}
+{{ end }}
+
+{{ if and (gt $maxLength 0) (gt (len $excerpt) $maxLength) }}
+  {{ $excerpt = $excerpt | truncate $maxLength }}
+{{ end }}
+
+{{ return $excerpt }}

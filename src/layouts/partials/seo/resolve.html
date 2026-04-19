@@ -31,7 +31,13 @@
   {{ $title = printf "%s | %s" $titleSource .Site.Title }}
 {{ end }}
 
-{{ $description := .Params.description | default .Site.Params.description | default (printf "%s knowledge base, articles, and notes." .Site.Title) }}
+{{ $descriptionFallback := .Site.Params.description | default (printf "%s knowledge base, articles, and notes." .Site.Title) }}
+{{ $description := .Params.description | default "" }}
+{{ if eq $description "" }}
+  {{ $description = partial "article/resolve-excerpt.html" (dict "page" . "fallback" $descriptionFallback "maxLength" 160) }}
+{{ else }}
+  {{ $description = $description | plainify | strings.TrimSpace }}
+{{ end }}
 {{ if $descriptionOverride }}
   {{ $description = $descriptionOverride }}
 {{ end }}

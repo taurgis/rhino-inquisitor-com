@@ -184,9 +184,10 @@
             <a class="article-related__card" href="{{ .page.RelPermalink }}" data-speculation="article">
             <span class="article-related__bucket">Next in topic</span>
               <span class="article-related__title">{{ .title | default .page.LinkTitle }}</span>
-              {{ with .description | default .page.Params.description }}
-              <span class="article-related__excerpt">{{ . }}</span>
-            {{ end }}
+              {{ $excerpt := .description | default (partial "article/resolve-excerpt.html" (dict "page" .page)) }}
+              {{ with $excerpt }}
+                <span class="article-related__excerpt">{{ . }}</span>
+              {{ end }}
           </a>
         {{ end }}
       {{ end }}
@@ -195,9 +196,10 @@
             <a class="article-related__card" href="{{ .page.RelPermalink }}" data-speculation="article">
             <span class="article-related__bucket">Adjacent topic</span>
               <span class="article-related__title">{{ .title | default .page.LinkTitle }}</span>
-              {{ with .description | default .page.Params.description }}
-              <span class="article-related__excerpt">{{ . }}</span>
-            {{ end }}
+              {{ $excerpt := .description | default (partial "article/resolve-excerpt.html" (dict "page" .page)) }}
+              {{ with $excerpt }}
+                <span class="article-related__excerpt">{{ . }}</span>
+              {{ end }}
           </a>
         {{ end }}
       {{ end }}
@@ -206,9 +208,10 @@
             <a class="article-related__card" href="{{ .page.RelPermalink }}" data-speculation="article">
             <span class="article-related__bucket">Foundation</span>
               <span class="article-related__title">{{ .title | default .page.LinkTitle }}</span>
-              {{ with .description | default .page.Params.description }}
-              <span class="article-related__excerpt">{{ . }}</span>
-            {{ end }}
+              {{ $excerpt := .description | default (partial "article/resolve-excerpt.html" (dict "page" .page)) }}
+              {{ with $excerpt }}
+                <span class="article-related__excerpt">{{ . }}</span>
+              {{ end }}
           </a>
         {{ end }}
       {{ end }}

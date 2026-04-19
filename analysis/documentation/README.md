@@ -63,6 +63,7 @@ This directory holds structured analysis documentation for the migration project
 - [Phase 9 external article link new-tab audit](phase-9/external-article-link-new-tab-audit-2026-03-24.md)
 - [Phase 9 footer external link new-tab follow-up](phase-9/footer-external-link-new-tab-follow-up-2026-03-24.md)
 - [Phase 9 video hub external link new-tab follow-up](phase-9/video-hub-external-link-new-tab-follow-up-2026-03-25.md)
+- [Phase 9 home/archive summary and caption cleanup](phase-9/home-archive-summary-caption-cleanup-2026-04-19.md)
 
 ## Naming Conventions
 

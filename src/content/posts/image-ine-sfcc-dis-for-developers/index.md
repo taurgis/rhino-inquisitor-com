@@ -1,8 +1,8 @@
 ---
 title: 'Image-ine: Salesforce B2C Commerce Cloud DIS for Developers'
 description: >-
-  in the wild, wild west of e-commerce, images aren't just pretty pictures. Read
-  the full article on Rhino Inquisitor for implementation details.
+  Guide to SFCC Dynamic Image Service, how its transformations and caching work,
+  and when external image tooling is still the better fit.
 date: '2025-07-14T06:44:24.000Z'
 lastmod: '2025-07-16T14:27:13.000Z'
 url: /image-ine-sfcc-dis-for-developers/

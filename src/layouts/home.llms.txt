@@ -39,11 +39,11 @@ The canonical HTML pages remain the source of truth for attribution and linking.
 ## Articles
 
 {{- range where $indexablePages "Type" "posts" }}
-- [{{ .LinkTitle | default .Title }}]({{ with .OutputFormats.Get "markdown" }}{{ .Permalink }}{{ else }}{{ .Permalink }}{{ end }}): {{ .Params.description | default (.Summary | plainify | strings.TrimSpace) }}
+- [{{ .LinkTitle | default .Title }}]({{ with .OutputFormats.Get "markdown" }}{{ .Permalink }}{{ else }}{{ .Permalink }}{{ end }}): {{ partial "article/resolve-excerpt.html" (dict "page" .) }}
 {{- end }}
 
 ## Reference Pages
 
 {{- range where $indexablePages "Type" "pages" }}
-- [{{ .LinkTitle | default .Title }}]({{ with .OutputFormats.Get "markdown" }}{{ .Permalink }}{{ else }}{{ .Permalink }}{{ end }}): {{ .Params.description | default (.Summary | plainify | strings.TrimSpace) }}
+- [{{ .LinkTitle | default .Title }}]({{ with .OutputFormats.Get "markdown" }}{{ .Permalink }}{{ else }}{{ .Permalink }}{{ end }}): {{ partial "article/resolve-excerpt.html" (dict "page" .) }}
 {{- end }}

@@ -1,8 +1,8 @@
 ---
 title: Salesforce Connections 2024 and B2C Commerce Cloud
 description: >-
-  The wait is almost over. Next week, it is time for Salesforce Connections
-  2024. Read the full article on Rhino Inquisitor for implementation details.
+  Preview of Salesforce Connections 2024 for SFCC teams, with the most relevant
+  commerce sessions, roadmap talks, and meetup picks.
 date: '2024-05-16T09:28:06.000Z'
 lastmod: '2024-05-16T09:28:17.000Z'
 url: /salesforce-connections-2024-and-sfcc/

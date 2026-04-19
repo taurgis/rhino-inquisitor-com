@@ -1,8 +1,8 @@
 ---
 title: A look at the Salesforce B2C Commerce Cloud 23.5 release
 description: >-
-  Another month, another release! This time we look at the May 2023 (23.5)
-  release! Are you interested in last month’s release notes?
+  23.5 release overview covering eCDN certificate renewal, search updates,
+  order-management controls, and new SCAPI basket capabilities.
 date: '2023-04-20T05:52:49.000Z'
 lastmod: '2023-04-23T15:28:04.000Z'
 url: /a-look-at-the-sfcc-23-5-release/
@@ -70,7 +70,7 @@ A relatively "small" change in this release is: Now the [XML](https://documentat
 
 > You can now exclude, cancel, and resubmit orders rejected by Salesforce Order Management in the Business Manager Orders page.
 
-{{< img-caption src="salesfore-order-management-manage-rejected-orders-87ae4bdc6c.png" alt="Salesforce Order Management 23.5 Release" link="salesfore-order-management-manage-rejected-orders-87ae4bdc6c.png" >}}
+{{< img-caption src="salesfore-order-management-manage-rejected-orders-87ae4bdc6c.png" alt="Salesforce Order Management 23.5 Release" caption="Rejected-order actions in Order Management" link="salesfore-order-management-manage-rejected-orders-87ae4bdc6c.png" >}}
 
 The screenshot displays three options for managing excluded orders in Salesforce Order Management.
 
@@ -102,7 +102,7 @@ New endpoints are now supported:
 
 ### New Channel Types supported for Baskets & Orders
 
-{{< img-caption src="scapi-channel-types-2023-2795e88145.jpg" alt="Channel-type list showing the new basket and order channels added in the 23.5 release." link="scapi-channel-types-2023-2795e88145.jpg" >}}
+{{< img-caption src="scapi-channel-types-2023-2795e88145.jpg" alt="Channel-type list showing the new basket and order channels added in the 23.5 release." caption="New basket and order channel types" link="scapi-channel-types-2023-2795e88145.jpg" >}}
 
 The list of channels before the update
 

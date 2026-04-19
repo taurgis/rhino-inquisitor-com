@@ -1,8 +1,8 @@
 ---
 title: The Salesforce B2C Commerce Cloud 23.3 release explained
 description: >-
-  Another month, another release from Salesforce B2C Commerce Cloud! Read the
-  full article on Rhino Inquisitor for implementation details.
+  23.3 release overview covering trial sandboxes, log-volume changes, Shopper
+  Context enablement, and the refreshed SLAS admin UI.
 date: '2023-02-15T14:19:00.000Z'
 lastmod: '2023-02-15T14:19:11.000Z'
 url: /salesforce-b2c-commerce-cloud-23-3-release/

@@ -1,13 +1,10 @@
 {{ $page := .page }}
 {{ $variant := .variant | default "archive" }}
 {{ $hasImage := and $page.Params.heroImage (ne $page.Params.heroImage "") }}
-{{ $excerpt := $page.Params.description | default "" }}
-{{ if eq $excerpt "" }}
-  {{ $excerpt = $page.Summary | plainify | strings.TrimSpace }}
-{{ end }}
-{{ if eq $excerpt "" }}
-  {{ $excerpt = "This entry is ready for migrated body copy and structured archive browsing." }}
-{{ end }}
+{{ $excerpt := partial "article/resolve-excerpt.html" (dict
+  "page" $page
+  "fallback" "This entry is ready for migrated body copy and structured archive browsing."
+) }}
 {{ $cardClass := cond (eq $variant "featured") "feature-card" "article-card" }}
 {{ $cardClasses := slice $cardClass }}
 {{ $showBadgeOverlay := and (eq $variant "archive") $hasImage (eq $page.Type "posts") }}

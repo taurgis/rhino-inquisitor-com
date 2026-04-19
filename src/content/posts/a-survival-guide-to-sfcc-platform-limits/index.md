@@ -1,8 +1,8 @@
 ---
 title: Survival Guide to SFCC Platform Limits
 description: >-
-  It is a scenario that haunts every e-commerce developer: the 3 AM pager alert.
-  Read the full article on Rhino Inquisitor for implementation details.
+  Guide to the SFCC quotas that break storefronts first, with failure patterns
+  and design tactics to stay inside platform limits.
 date: '2025-11-24T12:41:24.000Z'
 lastmod: '2025-12-01T08:10:09.000Z'
 url: /a-survival-guide-to-sfcc-platform-limits/
