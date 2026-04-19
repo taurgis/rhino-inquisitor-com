@@ -3,6 +3,7 @@
   {{ $isVideoHub := eq .RelPermalink "/video/" }}
   {{ $summaryItems := .Params.summary | default (.Params.takeaways | default (slice)) }}
   {{ $hasSummary := gt (len $summaryItems) 0 }}
+  {{ $showLeadHero := and $isPost .Params.heroImage (not (.Params.hideLeadHero | default false)) }}
   {{ $renderSummaryInLead := and $isPost $hasSummary }}
   {{ $breadcrumbs := partial "breadcrumbs.html" . }}
 
@@ -26,19 +27,19 @@
         </div>
 
         {{ if $isPost }}
-          {{ if or .Params.heroImage $hasSummary }}
-            <div class="page-article__lead{{ if and .Params.heroImage $hasSummary }} page-article__lead--split{{ end }}">
+          {{ if or $showLeadHero $hasSummary }}
+            <div class="page-article__lead{{ if and $showLeadHero $hasSummary }} page-article__lead--split{{ end }}">
               {{ if $hasSummary }}
                 {{ partial "article/summary-box.html" (dict "page" . "variant" "lead") }}
               {{ end }}
-              {{ with .Params.heroImage }}
+              {{ if $showLeadHero }}
                 {{- $heroStyle := "" -}}
-                {{- with $.Params.heroImagePosition -}}{{- $heroStyle = printf "object-position:%s" . -}}{{- end -}}
+                {{- with .Params.heroImagePosition -}}{{- $heroStyle = printf "object-position:%s" . -}}{{- end -}}
                 <div class="page-article__hero page-article__hero--lead">
                   {{ partial "media/image.html" (dict
-                    "page" $
-                    "src" .
-                    "alt" ($.Params.heroImageAlt | default $.LinkTitle | default $.Title)
+                    "page" .
+                    "src" .Params.heroImage
+                    "alt" (.Params.heroImageAlt | default .LinkTitle | default .Title)
                     "loading" "eager"
                     "decoding" "sync"
                     "fetchpriority" "high"

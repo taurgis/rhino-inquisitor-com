@@ -41,13 +41,9 @@ I also wrote a post recently explaining the [difference in the community](/the-s
 
 ### So then ... how do I get access
 
-~~There is no automated system yet to spin up a sandbox easily. The only way I am aware of is to send an e-mail to [sfcc-b2c-trial@salesforce.com](mailto:sfcc-b2c-trial@salesforce.com).~~
+When this article was first published, community feedback suggested that a request sent to [sfcc-b2c-trial@salesforce.com](mailto:sfcc-b2c-trial@salesforce.com) could lead to a trial sandbox.
 
-~~Unfortunately, that is all I have.~~
-
-~~_**UPDATE:** I have gotten the message from multiple people since I have written this article that they successfully obtained a trial using this e-mail address._~~
-
-Since I have written this article, I have been given some information about the e-mail mentioned above. For now, this address is only for internal (Salesforce) use by Account Executives or Partner Managers.
+That guidance is now outdated. Since then, I have been told that this address is only for internal (Salesforce) use by Account Executives or Partner Managers.
 
 The primary purpose is to provide a contact point for accounts that already have access to a trial sandbox for maintenance purposes.
 
@@ -66,7 +62,7 @@ Being a partner will make finding documentation a little easier and a lot more c
 - **[B2C Commerce](https://partners.salesforce.com/_ui/core/chatter/groups/GroupProfilePage?g=0F93A0000009SFY):** A group that contains the documentation required to become "[enabled](https://partners.salesforce.com/0693A000006lGVl?retUrl=%2F_ui%2Fcore%2Fchatter%2Fcontent%2FGroupFileListPage)."
 - **[Partner On-Demand Sandboxes](https://partners.salesforce.com/_ui/core/chatter/groups/GroupProfilePage?g=0F93A000000DQ6f):** A group containing all information about ODS, more specifically the ones used by partners
 
-Note: Depending on your journey towards B2C, you might want to send an email to the trial address mentioned in the previous section.
+Note: Depending on your journey towards B2C, your next step is usually to work through your Account Executive or Partner Manager rather than emailing the old trial address directly.
 
 ## You are a B2C partner or Client
 

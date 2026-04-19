@@ -8,6 +8,7 @@ lastmod: '2024-10-28T06:53:53.000Z'
 url: /sfcc-introduction/
 draft: false
 heroImage: b2c-commerce-cloud-introduction-323fe8bb6c.jpg
+hideLeadHero: true
 categories:
   - Salesforce Commerce Cloud
 tags:

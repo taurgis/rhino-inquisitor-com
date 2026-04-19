@@ -706,6 +706,18 @@ summary {
     width: 100%;
   }
 
+  .article-body pre {
+    overflow-x: hidden;
+    padding: 1rem;
+  }
+
+  .article-body pre,
+  .article-body pre code {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
   .page-article-route__breadcrumbs {
     padding-inline: 1.1rem;
   }

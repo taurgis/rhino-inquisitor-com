@@ -22,8 +22,6 @@
         <p>{{ .Params.description | default (printf "Articles and guides filed under %s." $displayTitle) }}</p>
       </div>
 
-      {{ partial "archive/filter-bar.html" (dict "page" . "yearLinks" $yearLinks "sortEnabled" true) }}
-
       <div class="archive-layout__content">
         {{ partial "search/search-bar.html" (dict
           "page" .
@@ -46,6 +44,8 @@
           "emptyActionLabel" "Browse all topics"
         ) }}
       </div>
+
+      {{ partial "archive/filter-bar.html" (dict "page" . "yearLinks" $yearLinks "sortEnabled" true) }}
     </section>
   {{ else }}
     {{ $topicItemsByUrl := dict }}
@@ -68,9 +68,6 @@
       {{ $topicItems = $topicItems | append $item }}
     {{ end }}
     {{ $topicItems = sort $topicItems "name" }}
-    {{ $blogPages := (where site.RegularPages "Type" "posts").ByDate.Reverse }}
-    {{ $blogYearData := partial "archive/year-links.html" (dict "page" $blogPage "pages" $blogPages) }}
-    {{ $yearLinks := $blogYearData.links }}
 
     <section class="archive-layout surface-panel">
       <div class="archive-header archive-header--topics-index">
@@ -78,8 +75,6 @@
         <h1>{{ .Title }}</h1>
         <p>{{ .Params.description | default "Browse all topics and find focused deep dives by subject area." }}</p>
       </div>
-
-      {{ partial "archive/filter-bar.html" (dict "page" . "yearLinks" $yearLinks "sortEnabled" false) }}
 
       <div class="archive-layout__content">
         {{ partial "search/search-bar.html" (dict
@@ -90,7 +85,6 @@
           "scopeLabel" "blog archive"
           "placeholder" "Search the blog archive before drilling into a topic hub."
         ) }}
-        {{ partial "archive/year-jump.html" (dict "links" $yearLinks) }}
         {{ partial "archive/topic-hubs.html" (dict
           "eyebrow" "ARCH-02"
           "title" "Category hubs"

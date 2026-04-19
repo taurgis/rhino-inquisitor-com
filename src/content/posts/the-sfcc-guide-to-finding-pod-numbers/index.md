@@ -33,7 +33,7 @@ This SaaS model is a significant advantage, enabling your team to focus on build
 
 Salesforce also frequently performs "POD moves," migrating entire customer realms to new hardware to ensure performance and reliability. By treating the POD as a transient, infrastructure-level detail rather than a permanent, customer-facing setting, Salesforce maintains the flexibility to manage the grid without requiring constant configuration changes on your end.
 
-Hyperforce With the transition to the public cloud, the entire concept of "POD" will undergo substantial changes.
+With the transition to the public cloud, the entire concept of "POD" will undergo substantial changes.
 
 This means that for developers, finding the POD number is an act of reconnaissance. We must learn how to query the system's current state. Here’s why this knowledge is indispensable:
 
@@ -47,7 +47,7 @@ This means that for developers, finding the POD number is an act of reconnaissan
 
 ### The Shift to Hyperforce: What It Means for PODs
 
-Salesforce is fundamentally changing its infrastructure by migrating B2C Commerce Cloud to **Hyperforce**, its next-generation platform built on [public cloud technology](https://www.salesforce.com/platform/public-cloud-infrastructure/). This strategic move away from traditional Salesforce-managed data centres allows for greater scalability, enhanced security, and improved performance by leveraging the global reach of public cloud providers. For anyone working with SFCC, understanding this transition is crucial, as it marks a significant evolution in how the platform is architected and managed. The core takeaway is that the classic concept of a static, identifiable**POD** is becoming a thing of the past for realms on Hyperforce.
+Salesforce is fundamentally changing its infrastructure by migrating B2C Commerce Cloud to **Hyperforce**, its next-generation platform built on [public cloud technology](https://www.salesforce.com/platform/public-cloud-infrastructure/). This strategic move away from traditional Salesforce-managed data centres allows for greater scalability, enhanced security, and improved performance by leveraging the global reach of public cloud providers. For anyone working with SFCC, understanding this transition is crucial, as it marks a significant evolution in how the platform is architected and managed. The core takeaway is that the classic concept of a static, identifiable **POD** is becoming a thing of the past for realms on Hyperforce.
 
 With the adoption of Hyperforce, the architecture is far more dynamic. Your SFCC instance is no longer tied to a single, fixed data centre or a specific POD number that can be easily identified through a URL or IP address lookup. This means that many of the clever methods currently used to pinpoint your POD will no longer be reliable once your realm is migrated.
 
@@ -55,7 +55,7 @@ Instead of a predictable POD, your instance operates within a more fluid public 
 
 ## The UI Sleuth: Finding Your POD with a Few Clicks
 
-For those times when you need a quick answer, this browser-based method~~s~~ ~~are~~ is your best friend~~s~~. (Yes, we went from plural to singular)
+For those times when you need a quick answer, this browser-based method is your best option.
 
 ### Method 1: The Custom Maintenance Page Trick
 
@@ -81,7 +81,7 @@ By far the **_easiest and quickest_** option to explain.
 
 Go to your staging, development, or production instance, log in, and finally look at the bottom right of any page to see the POD number in the footer!
 
-New UI This is a feature of the new Lightning UI, and not the classic UI!
+This is a feature of the new Lightning UI, not the classic UI.
 
 ### The Account Manager Prerequisite
 
@@ -97,13 +97,13 @@ To find your Realm and Organization IDs:
 
 Keep this information handy. It's essential for identifying your environment when interacting with Salesforce systems and support teams.
 
-Permissions This approach is primarily intended for individuals seeking assistance via support.
+This approach is primarily intended for individuals who need to work with Salesforce Support.
 
 ### Method 3: The Legacy Log Center URL (A History Lesson)
 
 This method is now largely historical ([migrated in 2023](https://help.salesforce.com/s/articleView?id=000394842&language=en_US&type=1)), but it remains important for context, especially if you work on older projects or encounter references to it in internal documentation.
 
-Before the 2023 migration to a centralised logging platform, each POD had a dedicated Log Center application. The URL format explicitly included the POD number :
+Before the 2023 migration to a centralised logging platform, each POD had a dedicated Log Center application. The URL format explicitly included the POD number:
 
 `https://logcenter-<POD-No.><Cylinder>-hippo.demandware.net/logcenter`
 

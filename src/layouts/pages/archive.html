@@ -21,8 +21,6 @@
         <p>{{ .Params.description }}</p>
       </div>
 
-      {{ partial "archive/filter-bar.html" (dict "page" . "yearLinks" $yearLinks "sortEnabled" true) }}
-
       <div class="archive-layout__content">
         {{ partial "search/search-bar.html" (dict
           "page" .
@@ -44,6 +42,8 @@
           "emptyActionLabel" "Return home"
         ) }}
       </div>
+
+      {{ partial "archive/filter-bar.html" (dict "page" . "yearLinks" $yearLinks "sortEnabled" true) }}
     </section>
   </div>
 {{ end }}
