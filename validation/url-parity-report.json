@@ -5,7 +5,7 @@
   "status": "pass",
   "rcTag": "phase-8-rc-v3",
   "rcSha": "bb7bd49e1e8292ea3dbc744dded428dcfcab48aa",
-  "generatedAt": "2026-04-12T16:31:57.616Z",
+  "generatedAt": "2026-04-19T17:38:21.358Z",
   "publicDir": "public",
   "dataset": {
     "path": "validation/expected-url-outcomes.json",
@@ -44,14 +44,14 @@
       }
     },
     "byOutcome": {
-      "published-route": 186,
+      "published-route": 183,
       "request-aware-exception-covered": 525,
       "artifact-absent": 469,
       "retired-route-alias-redirect": 1,
       "retired-pagination-generated": 13,
-      "drafted-category": 5,
-      "merge-target-drafted": 4,
-      "alias-helper": 14,
+      "drafted-category": 8,
+      "merge-target-drafted": 6,
+      "alias-helper": 12,
       "generated-system-helper": 1,
       "published-static-file": 5
     }
@@ -4796,15 +4796,15 @@
       "expectedRedirectTarget": "/category/podcasts/",
       "expectedCanonicalTarget": "https://www.rhino-inquisitor.com/category/podcasts/",
       "matchedArtifactPath": "category/podcasts/index.html",
-      "actualStatus": 200,
-      "actualOutcome": "published-route",
+      "actualStatus": null,
+      "actualOutcome": "drafted-category",
       "actualRedirectTarget": null,
       "actualCanonicalTarget": null,
       "finalTargetPath": null,
       "finalTargetType": null,
       "result": "pass",
       "notes": [
-        "Published HTML route verified at category/podcasts/index.html."
+        "Category page is intentionally drafted; accepted."
       ]
     },
     {
@@ -5896,15 +5896,15 @@
       "expectedRedirectTarget": "/category/sessions/",
       "expectedCanonicalTarget": "https://www.rhino-inquisitor.com/category/sessions/",
       "matchedArtifactPath": "category/sessions/index.html",
-      "actualStatus": 200,
-      "actualOutcome": "published-route",
+      "actualStatus": null,
+      "actualOutcome": "drafted-category",
       "actualRedirectTarget": null,
       "actualCanonicalTarget": null,
       "finalTargetPath": null,
       "finalTargetType": null,
       "result": "pass",
       "notes": [
-        "Published HTML route verified at category/sessions/index.html."
+        "Category page is intentionally drafted; accepted."
       ]
     },
     {
@@ -5996,15 +5996,15 @@
       "expectedRedirectTarget": "/category/video/",
       "expectedCanonicalTarget": "https://www.rhino-inquisitor.com/category/video/",
       "matchedArtifactPath": "category/video/index.html",
-      "actualStatus": 200,
-      "actualOutcome": "published-route",
+      "actualStatus": null,
+      "actualOutcome": "drafted-category",
       "actualRedirectTarget": null,
       "actualCanonicalTarget": null,
       "finalTargetPath": null,
       "finalTargetType": null,
       "result": "pass",
       "notes": [
-        "Published HTML route verified at category/video/index.html."
+        "Category page is intentionally drafted; accepted."
       ]
     },
     {
@@ -6046,15 +6046,15 @@
       "expectedRedirectTarget": "/category/podcasts/",
       "expectedCanonicalTarget": "https://www.rhino-inquisitor.com/category/podcasts/",
       "matchedArtifactPath": "category/video/podcasts/index.html",
-      "actualStatus": 200,
-      "actualOutcome": "alias-helper",
-      "actualRedirectTarget": "/category/podcasts/",
-      "actualCanonicalTarget": "https://www.rhino-inquisitor.com/category/podcasts/",
-      "finalTargetPath": "/category/podcasts/",
-      "finalTargetType": "html",
+      "actualStatus": null,
+      "actualOutcome": "merge-target-drafted",
+      "actualRedirectTarget": null,
+      "actualCanonicalTarget": null,
+      "finalTargetPath": null,
+      "finalTargetType": null,
       "result": "pass",
       "notes": [
-        "Alias helper verified at category/video/podcasts/index.html."
+        "Alias helper absent because redirect target is a drafted category page; accepted."
       ]
     },
     {
@@ -6096,15 +6096,15 @@
       "expectedRedirectTarget": "/category/sessions/",
       "expectedCanonicalTarget": "https://www.rhino-inquisitor.com/category/sessions/",
       "matchedArtifactPath": "category/video/sessions/index.html",
-      "actualStatus": 200,
-      "actualOutcome": "alias-helper",
-      "actualRedirectTarget": "/category/sessions/",
-      "actualCanonicalTarget": "https://www.rhino-inquisitor.com/category/sessions/",
-      "finalTargetPath": "/category/sessions/",
-      "finalTargetType": "html",
+      "actualStatus": null,
+      "actualOutcome": "merge-target-drafted",
+      "actualRedirectTarget": null,
+      "actualCanonicalTarget": null,
+      "finalTargetPath": null,
+      "finalTargetType": null,
       "result": "pass",
       "notes": [
-        "Alias helper verified at category/video/sessions/index.html."
+        "Alias helper absent because redirect target is a drafted category page; accepted."
       ]
     },
     {

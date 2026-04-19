@@ -77,7 +77,7 @@ legacy_url,disposition,expected_target,actual_outcome,status,severity
 /category/external/salesforce-ben/,merge,/category/salesforce-ben/,merge-target-drafted,pass,critical
 /category/go-live/,keep,/category/go-live/,generated-route,pass,critical
 /category/linkedin/,keep,/category/linkedin/,drafted-category,pass,critical
-/category/podcasts/,keep,/category/podcasts/,generated-route,pass,critical
+/category/podcasts/,keep,/category/podcasts/,drafted-category,pass,critical
 /category/react/,keep,/category/react/,generated-route,pass,critical
 /category/salesforce-architects-blog/,keep,/category/salesforce-architects-blog/,drafted-category,pass,critical
 /category/salesforce-ben/,keep,/category/salesforce-ben/,drafted-category,pass,critical
@@ -107,11 +107,11 @@ legacy_url,disposition,expected_target,actual_outcome,status,severity
 /category/salesforce-commerce-cloud/technical/page/5/,retire,,true-not-found,pass,critical
 /category/salesforce-commerce-cloud/technical/page/6/,retire,,true-not-found,pass,critical
 /category/salesforce-commerce-cloud/technical/page/7/,retire,,true-not-found,pass,critical
-/category/sessions/,keep,/category/sessions/,generated-route,pass,critical
+/category/sessions/,keep,/category/sessions/,drafted-category,pass,critical
 /category/technical/,keep,/category/technical/,generated-route,pass,critical
-/category/video/,keep,/category/video/,generated-route,pass,critical
-/category/video/podcasts/,merge,/category/podcasts/,meta-refresh,pass,critical
-/category/video/sessions/,merge,/category/sessions/,meta-refresh,pass,critical
+/category/video/,keep,/category/video/,drafted-category,pass,critical
+/category/video/podcasts/,merge,/category/podcasts/,merge-target-drafted,pass,critical
+/category/video/sessions/,merge,/category/sessions/,merge-target-drafted,pass,critical
 /certifications-for-salesforce-b2c-commerce-cloud/,keep,/certifications-for-salesforce-b2c-commerce-cloud/,live-page,pass,critical
 /chasing-clouds-catching-up-with-the-commercecrew-at-dreamforce-2023/,keep,/chasing-clouds-catching-up-with-the-commercecrew-at-dreamforce-2023/,live-page,pass,critical
 /commerce-cloud-t-shirts-on-shirtforce/,keep,/commerce-cloud-t-shirts-on-shirtforce/,live-page,pass,critical
