@@ -19,10 +19,11 @@
 {{ $topicPages = sort $topicPages "Title" }}
 
 <div class="archive-filter-groups">
+  {{ $topicsCount := add (len $topicPages) 1 }}
   <section class="archive-filter-group archive-filter-group--topics" aria-labelledby="{{ $topicsId }}">
     <h3 id="{{ $topicsId }}">
       <span>Topics</span>
-      <span class="filter-badge" aria-label="Topics available">{{ add (len $topicPages) 1 }}</span>
+      <span class="filter-badge" aria-label="{{ $topicsCount }} available">{{ $topicsCount }}</span>
     </h3>
     <div class="archive-filter-links archive-filter-links--topics">
       {{ with $topicsPage }}
@@ -37,7 +38,7 @@
   <section class="archive-filter-group archive-filter-group--types" aria-labelledby="{{ $typesId }}">
     <h3 id="{{ $typesId }}">
       <span>Type</span>
-      <span class="filter-badge" aria-label="Content types available">2</span>
+      <span class="filter-badge" aria-label="2 available">2</span>
     </h3>
     <div class="archive-filter-links archive-filter-links--types">
       {{ with $postsPage }}<a href="{{ .Permalink }}"{{ if eq $currentRelPermalink .RelPermalink }} aria-current="page"{{ end }}>Articles</a>{{ end }}

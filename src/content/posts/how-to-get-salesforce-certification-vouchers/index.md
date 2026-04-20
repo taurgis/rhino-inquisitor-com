@@ -107,4 +107,4 @@ Especially when a new accreditation or certificate is being introduced, this sli
 
 ## Any more
 
-Know about other methods to get our hands on these tasty vouchers? Please let me know via [Twitter](https://twitter.com/theunenth) or [LinkedIn](https://www.linkedin.com/in/thomas-theunen-10905680/)!
+Know about other methods to get our hands on these tasty vouchers? Please let me know via [X](https://x.com/theunenth) or [LinkedIn](https://www.linkedin.com/in/thomas-theunen-10905680/)!

@@ -52,7 +52,7 @@ Looking at the above charts, it is pretty clear that there is a significant diff
 
 ### Twitter
 
-I became active on [Twitter](https://twitter.com/theunenth) a little less than a year ago to get in contact with more people who have an interest in Salesforce.
+I became active on [X](https://x.com/theunenth) a little less than a year ago to get in contact with more people who have an interest in Salesforce.
 
 And boy, a lot is going on there:
 

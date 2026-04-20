@@ -123,4 +123,4 @@ A few people asked if I would start doing more things now that I received the Go
 
 The only significant change this year is that the chances of us meeting face to face have grown significantly compared to the past two years (and before).
 
-Be sure to follow me on [Twitter](https://twitter.com/theunenth) or [LinkedIn](https://www.linkedin.com/in/thomas-theunen-%E2%98%81%EF%B8%8F-10905680/) to see what Conferences I will be attending!
+Be sure to follow me on [X](https://x.com/theunenth) or [LinkedIn](https://www.linkedin.com/in/thomas-theunen-%E2%98%81%EF%B8%8F-10905680/) to see what Conferences I will be attending!

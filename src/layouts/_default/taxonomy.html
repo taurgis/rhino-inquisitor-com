@@ -79,7 +79,7 @@
       <div class="archive-layout__content">
         {{ partial "search/search-bar.html" (dict
           "page" .
-          "stateBaseUrl" .RelPermalink
+          "stateBaseUrl" $blogArchiveHref
           "scopeKind" "type"
           "scopeValue" "posts"
           "scopeLabel" "blog archive"

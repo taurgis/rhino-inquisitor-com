@@ -84,7 +84,7 @@ It is a fun-to-listen-to development podcast that keeps you up to date with full
 
 ## Complete this list
 
-Do you feel like a vital podcast is missing from this list? Let me know via [Slack](http://sfcc-unofficial.slack.com), [Twitter](https://twitter.com/theunenth), [Trailhead](https://trailblazer.me/id/thomas-theunen) or [LinkedIn](https://www.linkedin.com/in/thomas-theunen-10905680/)!
+Do you feel like a vital podcast is missing from this list? Let me know via [Slack](http://sfcc-unofficial.slack.com), [X](https://x.com/theunenth), [Trailhead](https://trailblazer.me/id/thomas-theunen) or [LinkedIn](https://www.linkedin.com/in/thomas-theunen-10905680/)!
 
 ## Other Salesforce podcasts
 

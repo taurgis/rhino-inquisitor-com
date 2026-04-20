@@ -15,8 +15,9 @@
   {{ if eq .Kind "taxonomy" }}
     {{ $items = $items | append (dict "name" .Title "url" $currentUrl) }}
   {{ else if eq .Kind "term" }}
-    {{ $taxonomyName := humanize (.Data.Plural | default "category") }}
-    {{ $items = $items | append (dict "name" $taxonomyName "url" (printf "%scategory/" .Site.Home.Permalink)) }}
+    {{ $taxonomyHubName := "Topics" }}
+    {{ with site.GetPage "/categories" }}{{ $taxonomyHubName = (.LinkTitle | default .Title) }}{{ end }}
+    {{ $items = $items | append (dict "name" $taxonomyHubName "url" (printf "%scategory/" .Site.Home.Permalink)) }}
     {{ $items = $items | append (dict "name" $displayTitle "url" $currentUrl) }}
   {{ else if $isStandaloneArchive }}
     {{ $items = $items | append (dict "name" $displayTitle "url" $currentUrl) }}
