@@ -368,8 +368,6 @@ Multipart is extremely sensitive to empty lines, tabs, and spaces. So keep that 
 
 ## Navigating the Gauntlet: Quotas, Sources, and Composable Strategy
 
-We have been working with PDF in this example, but you can also use this solution for other file types! You could send CSV reports, as an example, using this method.
-
 ### jsStringLength
 
 When working with files (especially in the storefront), you have to keep watch of the [Quota Limits](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/quota/html/index.html?resultof=%22%71%75%6f%74%61%22%20%22%6c%69%6d%69%74%22%20) - every developer's friend in SFCC.

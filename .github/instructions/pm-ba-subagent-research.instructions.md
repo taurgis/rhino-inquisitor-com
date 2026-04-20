@@ -83,3 +83,7 @@ If required subagents are unavailable, outputs conflict materially, official doc
 1. Escalate to the user with a concise blocker summary.
 2. Provide the safest feasible fallback and clearly label assumptions.
 3. Do not present unresolved conflicts as confirmed conclusions.
+
+## File Editing Guidance
+
+Instruct the subagents to not edit files directly. Instead, they should provide their recommendations in the response, and the main agent will be responsible for implementing the changes based on those recommendations. This ensures that the main agent remains in control of the final output and can make informed decisions based on the subagents' insights.

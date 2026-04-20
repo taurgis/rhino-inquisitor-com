@@ -29,7 +29,7 @@
           "scopeKind" "category"
           "scopeValue" (.Data.Term | urlize)
           "scopeLabel" (printf "%s archive" $displayTitle)
-          "placeholder" (printf "Search the blog archive from within %s." $displayTitle)
+          "placeholder" "Search this topic"
         ) }}
         {{ partial "archive/year-jump.html" (dict "links" $yearLinks) }}
         {{ partial "content-list.html" (dict
@@ -83,7 +83,7 @@
           "scopeKind" "type"
           "scopeValue" "posts"
           "scopeLabel" "blog archive"
-          "placeholder" "Search the blog archive before drilling into a topic hub."
+          "placeholder" "Search topics"
         ) }}
         {{ partial "archive/topic-hubs.html" (dict
           "eyebrow" "ARCH-02"
