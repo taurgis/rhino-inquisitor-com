@@ -38,7 +38,9 @@ After you have logged into the Business Manager of your environment, go to the f
 
 {{< img-caption src="slas-admin-ui-button-business-manager-7bdbd7a798.jpg" alt="Salesforce Commerce API Settings page with the SLAS Admin UI link." caption="This is the Business Manager starting point for finding your SLAS setup details." >}}
 
-The link is not there If you do not see the link (The link is inserted by [DWithEase](https://dwithease.com/)), manually go to the URL: `https://{{Short_Code}}.api.commercecloud.salesforce.com/shopper/auth-admin/v1/sso/login` On this screen, some necessary information to install the PWA Kit can be found. But besides the Short Code and the Organization ID, there is an interesting link present. "SLAS Admin UI" Let's click that now, shall we?
+The link is not there. If you do not see the link (the link is inserted by [DWithEase](https://dwithease.com/)), manually go to the URL: `https://{{Short_Code}}.api.commercecloud.salesforce.com/shopper/auth-admin/v1/sso/login`.
+
+On this screen, some necessary information to install the PWA Kit can be found. But besides the Short Code and the Organization ID, there is an interesting link present: "SLAS Admin UI". Let's click that now, shall we?
 
 {{< img-caption src="slas-admin-ui-login-ff882d0848.jpg" alt="Sign-in page that links to the SLAS Admin UI." caption="If the shortcut is missing, this login page still gets you into SLAS Admin." >}}
 

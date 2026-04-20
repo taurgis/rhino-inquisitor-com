@@ -140,7 +140,7 @@ Authentication can be handled via your Business Manager user account (using Basi
 
 SFCC provides a rich set of standard business objects (like Product, Order, Customer), but you'll almost always need to store additional, business-specific data. You can achieve this in two ways:
 
-1. **Extend System Objects:**You can add custom attributes to existing system objects. For example, you could add a `loyaltyTier` attribute to the `Profile` object. This is done in `Administration > Site Development > System Object Types`. I've written about using this technique to create**Custom Preferences** for site-wide settings.
+1. **Extend System Objects:** You can add custom attributes to existing system objects. For example, you could add a `loyaltyTier` attribute to the `Profile` object. This is done in `Administration > Site Development > System Object Types`. I've written about using this technique to create **Custom Preferences** for site-wide settings.
 
 1. **Create Custom Objects:** For data that doesn't fit into a standard object, you can define entirely new custom object types with their own attributes. This is done in `Administration > Site Development > Custom Object Types`.
 
@@ -170,7 +170,7 @@ In the multi-tenant SaaS world of SFCC, performance is non-negotiable. Your inef
 
 **I cover caching strategies for APIs in [Leveraging Server-Side Caching to Improve SFCC REST API Speed](/caching-rest-apis-in-sfcc/)** and for the modern stack in [**Caching in the Salesforce Composable Storefront**](/caching-in-the-sfcc-composable-storefront/).
 
-- **Image Optimization with DIS:**Huge, unoptimized images are a primary culprit for slow page loads. SFCC's**Dynamic Image Service (DIS)** is your best friend here. It allows you to upload one high-resolution source image and then transform it on-the-fly via URL parameters—resizing, cropping, and changing quality—without ever touching the original. My guide, [**Image-ine: Salesforce B2C Commerce Cloud DIS for Developers**](/image-ine-sfcc-dis-for-developers/), is a must-read on this topic.
+- **Image Optimization with DIS:** Huge, unoptimized images are a primary culprit for slow page loads. SFCC's **Dynamic Image Service (DIS)** is your best friend here. It allows you to upload one high-resolution source image and then transform it on-the-fly via URL parameters—resizing, cropping, and changing quality—without ever touching the original. My guide, [**Image-ine: Salesforce B2C Commerce Cloud DIS for Developers**](/image-ine-sfcc-dis-for-developers/), is a must-read on this topic.
 
 - **Frontend Optimization:** Don't forget the basics. Minify your JavaScript and CSS, reduce the number of HTTP requests, and place your CSS in the `<head>` and your JavaScript just before the closing `</body>` tag for better perceived performance. For a detailed look at how to manage this in SFRA, see my post on [**how to load client-side JavaScript and CSS**](/how-to-load-client-side-javascript-and-css-in-sfra/). And for the Composable world, the principles in [**From Lag to Riches: A PWA Kit Developer's Guide to Storefront Speed**](/lag-to-riches-a-pwa-kit-developers-guide/) are essential.
 

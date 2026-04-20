@@ -11,15 +11,15 @@
     <ul class="topic-hub-grid" role="list">
       {{ range $items }}
         <li>
-          <article class="topic-card">
+          <a class="topic-card topic-card--link" href="{{ .url }}">
             <div class="topic-card__body">
-              <h3><a href="{{ .url }}">{{ .name }}</a></h3>
+              <h3>{{ .name }}</h3>
               <div class="topic-card__stats">
                 <span>{{ .count }} {{ cond (eq .count 1) "entry" "entries" }}</span>
                 {{ with .freshness }}<span>{{ . }}</span>{{ end }}
               </div>
             </div>
-          </article>
+          </a>
         </li>
       {{ end }}
     </ul>
