@@ -34,6 +34,14 @@
 {{- $quality := .quality | default 80 -}}
 {{- $maxWidth := .maxWidth | default 0 -}}
 {{- $responsiveWidths := .responsiveWidths | default (slice 768 1280) -}}
+{{- $zoomConfig := .zoom | default dict -}}
+{{- $zoomEnabled := $zoomConfig.enable | default false -}}
+{{- $zoomCaption := strings.TrimSpace ($zoomConfig.caption | default "") -}}
+{{- $zoomLabel := strings.TrimSpace ($zoomConfig.label | default "") -}}
+{{- $zoomMinSourceWidth := $zoomConfig.minSourceWidth | default 1280 -}}
+{{- $zoomMinGain := $zoomConfig.minGain | default 320 -}}
+{{- $zoomMaxWidth := $zoomConfig.maxWidth | default 1800 -}}
+{{- $zoomQuality := $zoomConfig.quality | default $quality -}}
 {{- $resource := false -}}
 {{- $avifResource := false -}}
 {{- $avifSrcset := "" -}}
@@ -73,6 +81,12 @@
 {{- $width := .width | default 0 -}}
 {{- $height := .height | default 0 -}}
 {{- $srcset := "" -}}
+{{- $zoomSrc := "" -}}
+{{- $zoomWidth := 0 -}}
+{{- $zoomHeight := 0 -}}
+{{- $zoomSource := "" -}}
+{{- $zoomAvifSrc := "" -}}
+{{- $imgAttrs := dict -}}
 
 {{- if and $resource $shouldProcess (reflect.IsImageResourceProcessable $resource) -}}
   {{- $processSpec := printf "webp q%d" $quality -}}
@@ -106,6 +120,35 @@
   {{- $height = $resource.Height -}}
 {{- else if or (eq $width 0) (eq $height 0) -}}
   {{- errorf "RHI-026 image %q on %q must resolve to a local Hugo image resource or provide explicit width and height" $requestedSrc ($page.RelPermalink | default "unknown-page") -}}
+{{- end -}}
+
+{{- $resourceSubtype := "" -}}
+{{- if $resource -}}
+  {{- with $resource.MediaType -}}
+    {{- $resourceSubtype = lower (.SubType | default "") -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if and $zoomEnabled $resource (reflect.IsImageResourceProcessable $resource) (not $decorative) (ne $resourceSubtype "gif") -}}
+  {{- $zoomTargetWidth := $resource.Width -}}
+  {{- if and (gt $zoomMaxWidth 0) (gt $zoomTargetWidth $zoomMaxWidth) -}}
+    {{- $zoomTargetWidth = $zoomMaxWidth -}}
+  {{- end -}}
+  {{- $zoomSource = $resource.RelPermalink -}}
+  {{- $zoomGain := sub $zoomTargetWidth $width -}}
+  {{- if and (ge $resource.Width $zoomMinSourceWidth) (gt $zoomTargetWidth $width) (ge $zoomGain $zoomMinGain) -}}
+    {{- if lt $zoomTargetWidth $resource.Width -}}
+      {{- with $resource.Resize (printf "%dx webp q%d" $zoomTargetWidth $zoomQuality) -}}
+        {{- $zoomSrc = .RelPermalink -}}
+        {{- $zoomWidth = .Width -}}
+        {{- $zoomHeight = .Height -}}
+      {{- end -}}
+    {{- else -}}
+      {{- $zoomSrc = $resource.RelPermalink -}}
+      {{- $zoomWidth = $resource.Width -}}
+      {{- $zoomHeight = $resource.Height -}}
+    {{- end -}}
+  {{- end -}}
 {{- end -}}
 
 {{- if ne $generatedAvifBasePath "" -}}
@@ -153,6 +196,36 @@
   {{- end -}}
 {{- end -}}
 
+{{- if and (ne $zoomSrc "") (ne $generatedAvifBasePath "") -}}
+  {{- $zoomAvifCandidatePath := printf "%s.avif" $generatedAvifBasePath -}}
+  {{- if and $resource (reflect.IsImageResourceWithMeta $resource) (ne $zoomWidth $resource.Width) -}}
+    {{- $zoomAvifCandidatePath = printf "%s.%dw.avif" $generatedAvifBasePath $zoomWidth -}}
+  {{- end -}}
+  {{- with resources.Get $zoomAvifCandidatePath -}}
+    {{- $zoomAvifSrc = .RelPermalink -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if ne $zoomSrc "" -}}
+  {{- if eq $zoomLabel "" -}}
+    {{- $zoomLabel = printf "Open image in larger view: %s" $alt -}}
+  {{- end -}}
+  {{- $imgAttrs = merge $imgAttrs (dict
+    "data-rhino-zoom-src" $zoomSrc
+    "data-rhino-zoom-width" (printf "%d" $zoomWidth)
+    "data-rhino-zoom-height" (printf "%d" $zoomHeight)
+    "data-rhino-zoom-source" $zoomSource
+    "data-rhino-zoom-alt" $alt
+    "data-rhino-zoom-label" $zoomLabel
+  ) -}}
+  {{- with $zoomCaption -}}
+    {{- $imgAttrs = merge $imgAttrs (dict "data-rhino-zoom-caption" .) -}}
+  {{- end -}}
+  {{- with $zoomAvifSrc -}}
+    {{- $imgAttrs = merge $imgAttrs (dict "data-rhino-zoom-avif" .) -}}
+  {{- end -}}
+{{- end -}}
+
 {{- if ne $avifSrcset "" -}}
 <picture>
   <source srcset="{{ $avifSrcset }}" type="image/avif"{{ with $sizes }} sizes="{{ . }}"{{ end }}>
@@ -171,6 +244,9 @@
   {{ with $sizes }}sizes="{{ . }}"{{ end }}
   {{ if $decorative }}role="presentation" aria-hidden="true"{{ end }}
   {{ with $style }}style="{{ . }}"{{ end }}
+  {{- range $name, $value := $imgAttrs }}
+    {{- with $value }}{{ printf " %s=%q" $name . | safeHTMLAttr }}{{ end -}}
+  {{- end }}
 >
 {{- if ne $avifSrcset "" -}}
 </picture>

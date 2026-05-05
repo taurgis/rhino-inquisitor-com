@@ -107,6 +107,21 @@
         {{ partial "article/footer-actions.html" (dict "page" .) }}
       {{ end }}
     </article>
+
+    <dialog class="article-image-zoom" data-rhino-image-zoom-dialog aria-label="Expanded article image">
+      <div class="article-image-zoom__surface">
+        <button type="button" class="article-image-zoom__close" data-rhino-image-zoom-close autofocus aria-label="Close enlarged image">Close</button>
+        <figure class="article-image-zoom__figure">
+          <div class="article-image-zoom__media">
+            <picture class="article-image-zoom__picture">
+              <source data-rhino-image-zoom-avif type="image/avif">
+              <img data-rhino-image-zoom-image alt="">
+            </picture>
+          </div>
+          <figcaption class="article-image-zoom__caption" data-rhino-image-zoom-caption hidden></figcaption>
+        </figure>
+      </div>
+    </dialog>
   </div>
 {{ end }}
 
@@ -117,6 +132,7 @@
     <script src="{{ "scripts/reading-progress.js" | relURL }}" defer></script>
     <script src="{{ "scripts/toc-spy.js" | relURL }}" defer></script>
   {{ end }}
+  <script src="{{ "scripts/article-image-zoom.js" | relURL }}" defer></script>
   {{ if eq .RelPermalink "/video/" }}
     <script src="{{ "scripts/video-playlist.js" | relURL }}" defer></script>
   {{ end }}

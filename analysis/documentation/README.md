@@ -65,6 +65,7 @@ This directory holds structured analysis documentation for the migration project
 - [Phase 9 video hub external link new-tab follow-up](phase-9/video-hub-external-link-new-tab-follow-up-2026-03-25.md)
 - [Phase 9 home/archive summary and caption cleanup](phase-9/home-archive-summary-caption-cleanup-2026-04-19.md)
 - [Phase 9 archive/topic/mobile audit follow-up](phase-9/archive-topic-mobile-follow-up-2026-04-19.md)
+- [Phase 9 article image zoom modal](phase-9/article-image-zoom-modal-2026-05-05.md)
 
 ## Naming Conventions
 
