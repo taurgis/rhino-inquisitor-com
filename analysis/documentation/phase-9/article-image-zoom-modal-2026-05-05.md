@@ -16,7 +16,7 @@ Several articles rely on screenshots and diagrams where inline reading width hid
 ### New behavior
 - Local processable raster images in article bodies now render as responsive inline assets capped for reading width.
 - If the source image is at least `1280px` wide and offers at least `320px` of additional width beyond the inline rendition, the image becomes zoom-eligible.
-- Zoom-eligible images now show a visible `Zoom` badge so readers can tell which images open the larger view.
+- Zoom-eligible images now reveal a `Zoom` badge on hover and keyboard focus so readers get the affordance without persistent chrome in the article body.
 - Zoom-eligible images open a single page-level modal with a larger source asset. When available, the modal also uses the larger AVIF sidecar.
 - Plain eligible images gain keyboard support and can open with `Enter`; the modal closes with the close button or `Escape`, and focus returns to the original trigger.
 - External image links stay untouched. Same-image `img-caption` links continue to work as links without JavaScript and open the modal when JavaScript is active.

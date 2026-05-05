@@ -2257,6 +2257,15 @@ a.rhino-image-zoom-target {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-0.25rem) scale(0.96);
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease,
+    visibility 0s linear 180ms,
+    background 180ms ease,
+    color 180ms ease;
 }
 
 .rhino-image-zoom-badge::before {
@@ -2292,11 +2301,12 @@ a.rhino-image-zoom-trigger:focus-visible > picture > img {
   box-shadow: var(--shadow-edge);
 }
 
-img.rhino-image-zoom-trigger:hover + .rhino-image-zoom-badge,
-img.rhino-image-zoom-trigger:focus-visible + .rhino-image-zoom-badge,
-.rhino-image-zoom-trigger:hover .rhino-image-zoom-badge,
-.rhino-image-zoom-trigger:focus-visible .rhino-image-zoom-badge,
-.rhino-image-zoom-target:hover .rhino-image-zoom-badge {
+.rhino-image-zoom-target:hover .rhino-image-zoom-badge,
+.rhino-image-zoom-target:focus-within .rhino-image-zoom-badge {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  transition-delay: 0s;
   background: rgba(0, 63, 138, 0.9);
 }
 
@@ -2394,11 +2404,8 @@ a.rhino-image-zoom-trigger:focus-visible {
   background: rgba(255, 255, 255, 0.18);
 }
 
-[data-theme="dark"] img.rhino-image-zoom-trigger:hover + .rhino-image-zoom-badge,
-[data-theme="dark"] img.rhino-image-zoom-trigger:focus-visible + .rhino-image-zoom-badge,
-[data-theme="dark"] .rhino-image-zoom-trigger:hover .rhino-image-zoom-badge,
-[data-theme="dark"] .rhino-image-zoom-trigger:focus-visible .rhino-image-zoom-badge,
-[data-theme="dark"] .rhino-image-zoom-target:hover .rhino-image-zoom-badge {
+[data-theme="dark"] .rhino-image-zoom-target:hover .rhino-image-zoom-badge,
+[data-theme="dark"] .rhino-image-zoom-target:focus-within .rhino-image-zoom-badge {
   background: rgba(88, 166, 255, 0.82);
   color: var(--ink-inverse);
 }

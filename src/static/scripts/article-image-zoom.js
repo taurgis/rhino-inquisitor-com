@@ -119,6 +119,28 @@
     captionNode.hidden = true;
   }
 
+  function createDialogMedia(mediaHost) {
+    var picture = document.createElement('picture');
+    picture.className = 'article-image-zoom__picture';
+
+    var avifNode = document.createElement('source');
+    avifNode.setAttribute('type', 'image/avif');
+    avifNode.setAttribute('data-rhino-image-zoom-avif', '');
+
+    var imageNode = document.createElement('img');
+    imageNode.setAttribute('data-rhino-image-zoom-image', '');
+    imageNode.alt = '';
+
+    picture.appendChild(avifNode);
+    picture.appendChild(imageNode);
+    mediaHost.replaceChildren(picture);
+
+    return {
+      avifNode: avifNode,
+      imageNode: imageNode,
+    };
+  }
+
   function clearDialog(dialog, imageNode, avifNode, captionNode) {
     dialog.removeAttribute('data-rhino-image-open');
     if (avifNode) {
@@ -131,9 +153,13 @@
     setCaption(captionNode, '');
   }
 
-  function openDialog(dialog, imageNode, avifNode, captionNode, trigger, image) {
+  function openDialog(dialog, mediaHost, captionNode, trigger, image) {
     var zoomSrc = image.dataset.rhinoZoomSrc;
     if (!zoomSrc) return;
+
+    var media = createDialogMedia(mediaHost);
+    var imageNode = media.imageNode;
+    var avifNode = media.avifNode;
 
     if (avifNode) {
       if (image.dataset.rhinoZoomAvif) {
@@ -175,7 +201,7 @@
     return target.closest('img.rhino-image-zoom-trigger');
   }
 
-  function handleActivate(event, dialog, imageNode, avifNode, captionNode) {
+  function handleActivate(event, dialog, mediaHost, captionNode) {
     var trigger = getTriggerFromTarget(event.target);
     if (!trigger) return;
 
@@ -183,10 +209,10 @@
     if (!image) return;
 
     event.preventDefault();
-    openDialog(dialog, imageNode, avifNode, captionNode, trigger, image);
+    openDialog(dialog, mediaHost, captionNode, trigger, image);
   }
 
-  function handleKeydown(event, dialog, imageNode, avifNode, captionNode) {
+  function handleKeydown(event, dialog, mediaHost, captionNode) {
     if (event.key !== 'Enter' && event.key !== ' ') {
       return;
     }
@@ -198,7 +224,7 @@
     var image = trigger.tagName === 'IMG' ? trigger : trigger.querySelector('img[data-rhino-zoom-src]');
     if (!image) return;
 
-    openDialog(dialog, imageNode, avifNode, captionNode, trigger, image);
+    openDialog(dialog, mediaHost, captionNode, trigger, image);
   }
 
   function handleDialogClick(event, dialog) {
@@ -215,23 +241,22 @@
       return;
     }
 
-    var imageNode = dialog.querySelector('[data-rhino-image-zoom-image]');
-    var avifNode = dialog.querySelector('[data-rhino-image-zoom-avif]');
+    var mediaHost = dialog.querySelector('[data-rhino-image-zoom-media]');
     var captionNode = dialog.querySelector('[data-rhino-image-zoom-caption]');
     var closeButton = dialog.querySelector('[data-rhino-image-zoom-close]');
 
-    if (!imageNode || !closeButton) {
+    if (!mediaHost || !closeButton) {
       return;
     }
 
     enhanceCandidates(articleBody);
 
     articleBody.addEventListener('click', function (event) {
-      handleActivate(event, dialog, imageNode, avifNode, captionNode);
+      handleActivate(event, dialog, mediaHost, captionNode);
     });
 
     articleBody.addEventListener('keydown', function (event) {
-      handleKeydown(event, dialog, imageNode, avifNode, captionNode);
+      handleKeydown(event, dialog, mediaHost, captionNode);
     });
 
     closeButton.addEventListener('click', function () {
@@ -250,7 +275,17 @@
     });
 
     dialog.addEventListener('close', function () {
-      clearDialog(dialog, imageNode, avifNode, captionNode);
+      var imageNode = dialog.querySelector('[data-rhino-image-zoom-image]');
+      var avifNode = dialog.querySelector('[data-rhino-image-zoom-avif]');
+
+      if (imageNode) {
+        clearDialog(dialog, imageNode, avifNode, captionNode);
+      } else {
+        dialog.removeAttribute('data-rhino-image-open');
+        setCaption(captionNode, '');
+      }
+
+      mediaHost.replaceChildren();
 
       if (dialog._rhinoZoomTrigger && typeof dialog._rhinoZoomTrigger.focus === 'function') {
         dialog._rhinoZoomTrigger.focus();
