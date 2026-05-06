@@ -3902,6 +3902,8 @@ a.rhino-image-zoom-trigger:focus-visible {
   .page-hero__media-column {
     width: 100%;
     min-width: 0;
+    padding-right: clamp(1.35rem, 3vw, 2.35rem);
+    box-sizing: border-box;
   }
 
   .archive-layout {

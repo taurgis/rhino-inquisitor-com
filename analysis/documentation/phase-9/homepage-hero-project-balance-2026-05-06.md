@@ -22,6 +22,8 @@ Active Projects renders in the left hero column immediately below the CTA button
 
 The right hero media column now contains only the portrait image.
 
+On desktop, the portrait keeps an inner right inset within the media column so it does not sit flush against the outer hero edge.
+
 The CTA buttons remain side by side on desktop, and the left-column Active Projects card is width-capped so it stays visually tied to the CTA cluster instead of spanning the full text column.
 
 ## Impact and Verification
@@ -51,6 +53,7 @@ Verified the rebuilt homepage in the browser with DOM and layout inspection:
 - Active Projects renders below the CTA row in the left hero column.
 - The left-column Active Projects card renders at about `496px` width on desktop after the width cap.
 - The right portrait rail renders at about `403px` width on desktop.
+- The visible portrait frame renders at about `365px` width on desktop, leaving an inner right inset of about `38px`.
 - The two CTA buttons share the same top position on desktop, confirming a single-row layout.
 
 Limitation: automated mobile viewport verification was attempted in the embedded browser, but the viewport did not change as requested, so mobile validation remains a manual follow-up.
