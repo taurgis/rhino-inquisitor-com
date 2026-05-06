@@ -63,6 +63,22 @@
         <a class="site-cta" href="{{ $startReadingHref }}">{{ if $hasPinnedFeatured }}Read Featured Article{{ else }}Read Latest Article{{ end }}</a>
         <a class="site-cta site-cta--outline" href="{{ $browseTopicsHref }}">Browse Topics</a>
       </div>
+      {{ with index $projects "items" }}
+        <aside class="page-hero__projects" aria-labelledby="home-projects-heading">
+          <h2 id="home-projects-heading">{{ with index $projects "title" }}{{ . }}{{ else }}Active Projects{{ end }}</h2>
+          {{ with index $projects "description" }}<p class="page-hero__projects-intro">{{ . }}</p>{{ end }}
+          <ul class="home-project-list" role="list">
+            {{ range . }}
+              <li>
+                <a class="home-project-link" href="{{ index . "url" }}">
+                  <span class="home-project-link__name">{{ index . "name" }}</span>
+                  <span class="home-project-link__meta">Visit project &rarr;</span>
+                </a>
+              </li>
+            {{ end }}
+          </ul>
+        </aside>
+      {{ end }}
       {{ with index $profile "actions" }}
         <div class="page-hero__support-links" aria-label="About Thomas links">
           {{ range . }}
@@ -84,22 +100,6 @@
           "class" "page-hero__portrait"
         ) }}
       </div>
-      {{ with index $projects "items" }}
-        <aside class="page-hero__projects" aria-labelledby="home-projects-heading">
-          <h2 id="home-projects-heading">{{ with index $projects "title" }}{{ . }}{{ else }}Active Projects{{ end }}</h2>
-          {{ with index $projects "description" }}<p class="page-hero__projects-intro">{{ . }}</p>{{ end }}
-          <ul class="home-project-list" role="list">
-            {{ range . }}
-              <li>
-                <a class="home-project-link" href="{{ index . "url" }}">
-                  <span class="home-project-link__name">{{ index . "name" }}</span>
-                  <span class="home-project-link__meta">Visit project &rarr;</span>
-                </a>
-              </li>
-            {{ end }}
-          </ul>
-        </aside>
-      {{ end }}
     </div>
   </section>
 

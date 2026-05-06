@@ -696,6 +696,11 @@ body.drawer-open {
   box-shadow: 0 14px 30px rgba(8, 20, 35, 0.08);
 }
 
+.page-hero__body--home > .page-hero__projects {
+  width: 100%;
+  max-width: 31rem;
+}
+
 .page-hero__projects h2 {
   font-size: 1rem;
   line-height: 1.2;
@@ -3882,7 +3887,21 @@ a.rhino-image-zoom-trigger:focus-visible {
   }
 
   .page-hero__body--home {
-    min-width: 31rem;
+    min-width: 0;
+    max-width: none;
+    padding-left: clamp(1.35rem, 3vw, 2.35rem);
+  }
+
+  .page-hero--home {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(17rem, 1fr);
+    gap: 1.5rem;
+    padding-inline: 0;
+  }
+
+  .page-hero__media-column {
+    width: 100%;
+    min-width: 0;
   }
 
   .archive-layout {

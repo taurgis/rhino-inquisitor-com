@@ -66,6 +66,7 @@ This directory holds structured analysis documentation for the migration project
 - [Phase 9 home/archive summary and caption cleanup](phase-9/home-archive-summary-caption-cleanup-2026-04-19.md)
 - [Phase 9 archive/topic/mobile audit follow-up](phase-9/archive-topic-mobile-follow-up-2026-04-19.md)
 - [Phase 9 article image zoom modal](phase-9/article-image-zoom-modal-2026-05-05.md)
+- [Phase 9 homepage hero project balance](phase-9/homepage-hero-project-balance-2026-05-06.md)
 
 ## Naming Conventions
 
