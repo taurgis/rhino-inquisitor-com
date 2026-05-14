@@ -598,6 +598,11 @@ body.drawer-open {
   gap: 1.5rem;
 }
 
+.site-main > .surface-shell:has(> .page-hero--home) {
+  container-type: inline-size;
+  container-name: home-shell;
+}
+
 .surface-panel,
 .page-hero,
 .archive-layout,
@@ -1143,6 +1148,92 @@ summary {
   display: flex;
   flex-wrap: wrap;
   gap: 0.65rem;
+}
+
+@container home-shell (min-width: 64rem) {
+  .home-content-grid {
+    align-items: stretch;
+  }
+
+  .home-content-grid > .home-section,
+  .home-section--featured .featured-article,
+  .home-section--latest .latest-list,
+  .home-section--latest .latest-list__item,
+  .home-section--latest .latest-list__item a {
+    height: 100%;
+    flex: 1;
+  }
+
+  .page-hero__body--home {
+    min-width: 0;
+    max-width: none;
+    padding-inline-start: clamp(1.35rem, 3vw, 2.35rem);
+  }
+
+  .page-hero--home {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(17rem, 1fr);
+    gap: 1.5rem;
+    padding-inline: 0;
+  }
+
+  .page-hero__media-column {
+    width: 100%;
+    min-width: 0;
+    padding-inline-end: clamp(1.35rem, 3vw, 2.35rem);
+    box-sizing: border-box;
+  }
+
+  .hero-cta-bar {
+    flex-wrap: nowrap;
+  }
+}
+
+@container home-shell (max-width: 63.99rem) {
+  .home-content-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "featured"
+      "latest";
+  }
+}
+
+@container home-shell (max-width: 47.99rem) {
+  .page-hero--home {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: left;
+  }
+
+  .page-hero__media-column {
+    width: 100%;
+    max-width: none;
+  }
+
+  .page-hero__illustration--home {
+    width: min(100%, 21rem);
+    margin: 0 auto;
+  }
+
+  .home-project-link {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .home-project-link__meta {
+    white-space: normal;
+  }
+
+  .hero-cta-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .page-hero__support-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
 }
 
 /* ── CTA button variants ── */
@@ -3913,7 +4004,7 @@ a.rhino-image-zoom-trigger:focus-visible {
     border: 1px solid var(--surface-border);
     border-radius: var(--radius-lg);
     background: var(--surface-bg);
-    max-height: calc(100vh - 6rem);
+    max-height: calc(100dvh - 6rem);
     overflow-y: auto;
   }
 

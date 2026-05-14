@@ -33,6 +33,7 @@ This directory holds structured analysis documentation for the migration project
 - [Checklists](checklists/)
 - [Governance docs](governance/)
 - [Chrome DevTools MCP skill](governance/chrome-devtools-mcp-skill-2026-04-11.md)
+- [CSS modern features skill](governance/css-modern-features-skill-2026-05-14.md)
 - [Favicon logo contract](governance/favicon-logo-contract-2026-04-07.md)
 - [Downloadable file URL convention](governance/downloadable-file-url-convention-2026-03-13.md)
 - [Home RSS filtering](governance/home-rss-filtering-2026-04-06.md)
@@ -68,6 +69,7 @@ This directory holds structured analysis documentation for the migration project
 - [Phase 9 archive/topic/mobile audit follow-up](phase-9/archive-topic-mobile-follow-up-2026-04-19.md)
 - [Phase 9 article image zoom modal](phase-9/article-image-zoom-modal-2026-05-05.md)
 - [Phase 9 homepage hero project balance](phase-9/homepage-hero-project-balance-2026-05-06.md)
+- [Phase 9 archive and article container alignment](phase-9/archive-article-container-alignment-2026-05-14.md)
 
 ## Naming Conventions
 

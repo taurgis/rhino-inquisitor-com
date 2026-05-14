@@ -1,0 +1,57 @@
+.site-main > .surface-shell:has(> .page-article-route) {
+  container-type: inline-size;
+  container-name: article-shell;
+}
+
+@container article-shell (min-width: 48rem) {
+  .page-article__body {
+    grid-template-columns: minmax(0, 1fr) minmax(16rem, 18rem);
+  }
+
+  .page-article__lead--split {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(18rem, 0.95fr);
+    grid-template-areas: "summary hero";
+    align-items: stretch;
+  }
+
+  .page-article__hero--lead {
+    grid-area: hero;
+  }
+
+  .article-summary--lead {
+    grid-area: summary;
+  }
+
+  .article-toc--desktop {
+    display: grid;
+    gap: 0.8rem;
+    align-content: start;
+    position: sticky;
+    top: 5rem;
+    max-height: calc(100dvh - 6rem);
+    overflow-y: auto;
+    padding: 1rem;
+    border: 1px solid var(--surface-border);
+    border-radius: var(--radius-lg);
+    background: var(--chrome-bg, var(--surface-bg));
+  }
+
+  .article-toc--mobile {
+    display: none;
+  }
+}
+
+@container article-shell (max-width: 47.99rem) {
+  .page-article__body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .article-toc--desktop {
+    display: none;
+  }
+
+  .article-toc--mobile {
+    display: block;
+  }
+}

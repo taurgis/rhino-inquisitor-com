@@ -1,5 +1,7 @@
+{{ $archiveStructure := resources.Get "styles/fragments/archive-structure.css" }}
+{{ $articleStructure := resources.Get "styles/fragments/article-structure.css" }}
 {{ with resources.Get "styles/site.css" }}
-  {{ $stylesheet := . | minify | fingerprint }}
+  {{ $stylesheet := slice . $archiveStructure $articleStructure | resources.Concat "styles/site.css" | minify | fingerprint }}
   {{ $criticalStylesAsset := "" }}
   {{ if eq $.RelPermalink "/video/" }}
     {{ $criticalStylesAsset = "" }}
@@ -12,7 +14,13 @@
   {{ end }}
   {{ if $criticalStylesAsset }}
     {{ with resources.Get $criticalStylesAsset }}
-      {{ $critical := . | minify }}
+      {{ $critical := . }}
+      {{ if eq $criticalStylesAsset "styles/critical-archive.css" }}
+        {{ $critical = slice . $archiveStructure | resources.Concat "styles/critical-archive.css" }}
+      {{ else if eq $criticalStylesAsset "styles/critical-post.css" }}
+        {{ $critical = slice . $articleStructure | resources.Concat "styles/critical-post.css" }}
+      {{ end }}
+      {{ $critical = $critical | minify }}
       <style>{{ $critical.Content | safeCSS }}</style>
       <link rel="preload" href="{{ $stylesheet.RelPermalink }}" as="style" integrity="{{ $stylesheet.Data.Integrity }}" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'">
       <noscript>

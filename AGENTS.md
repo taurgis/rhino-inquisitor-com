@@ -105,13 +105,17 @@ Domain skills are located in [.github/skills/](.github/skills/):
 
 - [chrome-devtools-mcp](.github/skills/chrome-devtools-mcp/SKILL.md)
 - [content-migration](.github/skills/content-migration/SKILL.md)
+- [css-modern-features](.github/skills/css-modern-features/SKILL.md)
+- [css-motion-systems](.github/skills/css-motion-systems/SKILL.md)
 - [documentation](.github/skills/documentation/SKILL.md)
+- [html](.github/skills/html/SKILL.md)
 - [hugo-development](.github/skills/hugo-development/SKILL.md)
 - [image-caption-writing](.github/skills/image-caption-writing/SKILL.md)
 - [implementation-ticket](.github/skills/implementation-ticket/SKILL.md)
 - [javascript-development](.github/skills/javascript-development/SKILL.md)
 - [seo-migration](.github/skills/seo-migration/SKILL.md)
 - [skill-authoring](.github/skills/skill-authoring/SKILL.md)
+- [ux-interface-design](.github/skills/ux-interface-design/SKILL.md)
 
 ## Instruction Sources
 
