@@ -5,15 +5,15 @@
   "status": "pass",
   "rcTag": "phase-8-rc-v3",
   "rcSha": "bb7bd49e1e8292ea3dbc744dded428dcfcab48aa",
-  "generatedAt": "2026-04-12T16:32:33.326Z",
+  "generatedAt": "2026-05-14T15:47:57.837Z",
   "publicDir": "public",
   "sampleMatrix": {
     "path": "validation/sample-matrix.json",
     "generatedAt": "2026-03-22T06:58:43Z"
   },
   "artifactProvenance": {
-    "gitHead": "c80ab07098db6333482cd40cc604f7e4026a1824",
-    "gitHeadShort": "c80ab070",
+    "gitHead": "3ce49deb2f5568f371349ae18f626c17d42ebefd",
+    "gitHeadShort": "3ce49deb",
     "workspaceDirty": true,
     "datasetRcTag": "phase-8-rc-v3",
     "datasetRcSha": "bb7bd49e1e8292ea3dbc744dded428dcfcab48aa",
@@ -23,7 +23,7 @@
   },
   "execution": {
     "mode": "local-static-server",
-    "baseUrl": "http://127.0.0.1:58927",
+    "baseUrl": "http://127.0.0.1:53313",
     "wcagTags": [
       "wcag2a",
       "wcag2aa",
@@ -79,7 +79,7 @@
       ],
       "primaryTemplate": true,
       "builtArtifactPath": "public/index.html",
-      "checkedUrl": "http://127.0.0.1:58927/",
+      "checkedUrl": "http://127.0.0.1:53313/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -111,7 +111,7 @@
       ],
       "primaryTemplate": true,
       "builtArtifactPath": "public/a-dev-guide-to-combating-fraud-on-sfcc/index.html",
-      "checkedUrl": "http://127.0.0.1:58927/a-dev-guide-to-combating-fraud-on-sfcc/",
+      "checkedUrl": "http://127.0.0.1:53313/a-dev-guide-to-combating-fraud-on-sfcc/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -143,7 +143,7 @@
       ],
       "primaryTemplate": true,
       "builtArtifactPath": "public/a-survival-guide-to-sfcc-platform-limits/index.html",
-      "checkedUrl": "http://127.0.0.1:58927/a-survival-guide-to-sfcc-platform-limits/",
+      "checkedUrl": "http://127.0.0.1:53313/a-survival-guide-to-sfcc-platform-limits/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -175,7 +175,7 @@
       ],
       "primaryTemplate": false,
       "builtArtifactPath": "public/archive/index.html",
-      "checkedUrl": "http://127.0.0.1:58927/archive/",
+      "checkedUrl": "http://127.0.0.1:53313/archive/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -207,7 +207,7 @@
       ],
       "primaryTemplate": true,
       "builtArtifactPath": "public/category/ai/index.html",
-      "checkedUrl": "http://127.0.0.1:58927/category/ai/",
+      "checkedUrl": "http://127.0.0.1:53313/category/ai/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -239,7 +239,7 @@
       ],
       "primaryTemplate": true,
       "builtArtifactPath": "public/category/architecture/index.html",
-      "checkedUrl": "http://127.0.0.1:58927/category/architecture/",
+      "checkedUrl": "http://127.0.0.1:53313/category/architecture/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -271,7 +271,7 @@
       ],
       "primaryTemplate": true,
       "builtArtifactPath": "public/category/certification/index.html",
-      "checkedUrl": "http://127.0.0.1:58927/category/certification/",
+      "checkedUrl": "http://127.0.0.1:53313/category/certification/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -303,7 +303,7 @@
       ],
       "primaryTemplate": true,
       "builtArtifactPath": "public/category/community/index.html",
-      "checkedUrl": "http://127.0.0.1:58927/category/community/",
+      "checkedUrl": "http://127.0.0.1:53313/category/community/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -335,7 +335,7 @@
       ],
       "primaryTemplate": true,
       "builtArtifactPath": "public/category/corporate/index.html",
-      "checkedUrl": "http://127.0.0.1:58927/category/corporate/",
+      "checkedUrl": "http://127.0.0.1:53313/category/corporate/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -367,7 +367,7 @@
       ],
       "primaryTemplate": false,
       "builtArtifactPath": "public/connecting-the-clouds-wedding-or-funeral/index.html",
-      "checkedUrl": "http://127.0.0.1:58927/connecting-the-clouds-wedding-or-funeral/",
+      "checkedUrl": "http://127.0.0.1:53313/connecting-the-clouds-wedding-or-funeral/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -399,7 +399,7 @@
       ],
       "primaryTemplate": false,
       "builtArtifactPath": "public/cookie-policy-eu/index.html",
-      "checkedUrl": "http://127.0.0.1:58927/cookie-policy-eu/",
+      "checkedUrl": "http://127.0.0.1:53313/cookie-policy-eu/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -431,7 +431,7 @@
       ],
       "primaryTemplate": true,
       "builtArtifactPath": "public/field-guide-to-custom-caches-in-sfcc/index.html",
-      "checkedUrl": "http://127.0.0.1:58927/field-guide-to-custom-caches-in-sfcc/",
+      "checkedUrl": "http://127.0.0.1:53313/field-guide-to-custom-caches-in-sfcc/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -463,7 +463,7 @@
       ],
       "primaryTemplate": false,
       "builtArtifactPath": "public/headless/index.html",
-      "checkedUrl": "http://127.0.0.1:58927/headless/",
+      "checkedUrl": "http://127.0.0.1:53313/headless/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -495,7 +495,7 @@
       ],
       "primaryTemplate": true,
       "builtArtifactPath": "public/kickstart-guide-for-new-sfcc-developers/index.html",
-      "checkedUrl": "http://127.0.0.1:58927/kickstart-guide-for-new-sfcc-developers/",
+      "checkedUrl": "http://127.0.0.1:53313/kickstart-guide-for-new-sfcc-developers/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -527,7 +527,7 @@
       ],
       "primaryTemplate": false,
       "builtArtifactPath": "public/me-myself-and-headless-a-composable-commerce-cloud-story/index.html",
-      "checkedUrl": "http://127.0.0.1:58927/me-myself-and-headless-a-composable-commerce-cloud-story/",
+      "checkedUrl": "http://127.0.0.1:53313/me-myself-and-headless-a-composable-commerce-cloud-story/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -559,7 +559,7 @@
       ],
       "primaryTemplate": false,
       "builtArtifactPath": "public/pages/index.html",
-      "checkedUrl": "http://127.0.0.1:58927/pages/",
+      "checkedUrl": "http://127.0.0.1:53313/pages/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -591,7 +591,7 @@
       ],
       "primaryTemplate": false,
       "builtArtifactPath": "public/pages/page/2/index.html",
-      "checkedUrl": "http://127.0.0.1:58927/pages/page/2/",
+      "checkedUrl": "http://127.0.0.1:53313/pages/page/2/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -623,7 +623,7 @@
       ],
       "primaryTemplate": false,
       "builtArtifactPath": "public/posts/index.html",
-      "checkedUrl": "http://127.0.0.1:58927/posts/",
+      "checkedUrl": "http://127.0.0.1:53313/posts/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -655,7 +655,7 @@
       ],
       "primaryTemplate": false,
       "builtArtifactPath": "public/privacy-policy/index.html",
-      "checkedUrl": "http://127.0.0.1:58927/privacy-policy/",
+      "checkedUrl": "http://127.0.0.1:53313/privacy-policy/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -687,7 +687,7 @@
       ],
       "primaryTemplate": true,
       "builtArtifactPath": "public/real-time-inventory-checks-in-sfcc/index.html",
-      "checkedUrl": "http://127.0.0.1:58927/real-time-inventory-checks-in-sfcc/",
+      "checkedUrl": "http://127.0.0.1:53313/real-time-inventory-checks-in-sfcc/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -719,7 +719,7 @@
       ],
       "primaryTemplate": true,
       "builtArtifactPath": "public/salesforce-b2c-commerce-cloud-22-9-release/index.html",
-      "checkedUrl": "http://127.0.0.1:58927/salesforce-b2c-commerce-cloud-22-9-release/",
+      "checkedUrl": "http://127.0.0.1:53313/salesforce-b2c-commerce-cloud-22-9-release/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -751,7 +751,7 @@
       ],
       "primaryTemplate": true,
       "builtArtifactPath": "public/sfcc-introduction/index.html",
-      "checkedUrl": "http://127.0.0.1:58927/sfcc-introduction/",
+      "checkedUrl": "http://127.0.0.1:53313/sfcc-introduction/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -783,7 +783,7 @@
       ],
       "primaryTemplate": true,
       "builtArtifactPath": "public/slas-in-sfra-or-sitegenesis/index.html",
-      "checkedUrl": "http://127.0.0.1:58927/slas-in-sfra-or-sitegenesis/",
+      "checkedUrl": "http://127.0.0.1:53313/slas-in-sfra-or-sitegenesis/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -815,7 +815,7 @@
       ],
       "primaryTemplate": true,
       "builtArtifactPath": "public/taming-the-beast-a-developers-deep-dive-into-sfcc-meta-tag-rules/index.html",
-      "checkedUrl": "http://127.0.0.1:58927/taming-the-beast-a-developers-deep-dive-into-sfcc-meta-tag-rules/",
+      "checkedUrl": "http://127.0.0.1:53313/taming-the-beast-a-developers-deep-dive-into-sfcc-meta-tag-rules/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -847,7 +847,7 @@
       ],
       "primaryTemplate": false,
       "builtArtifactPath": "public/the-path-to-being-an-architect/index.html",
-      "checkedUrl": "http://127.0.0.1:58927/the-path-to-being-an-architect/",
+      "checkedUrl": "http://127.0.0.1:53313/the-path-to-being-an-architect/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -879,7 +879,7 @@
       ],
       "primaryTemplate": true,
       "builtArtifactPath": "public/the-realm-split-field-guide-to-migrating-an-sfcc-site/index.html",
-      "checkedUrl": "http://127.0.0.1:58927/the-realm-split-field-guide-to-migrating-an-sfcc-site/",
+      "checkedUrl": "http://127.0.0.1:53313/the-realm-split-field-guide-to-migrating-an-sfcc-site/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -911,7 +911,7 @@
       ],
       "primaryTemplate": true,
       "builtArtifactPath": "public/the-sfcc-guide-to-finding-pod-numbers/index.html",
-      "checkedUrl": "http://127.0.0.1:58927/the-sfcc-guide-to-finding-pod-numbers/",
+      "checkedUrl": "http://127.0.0.1:53313/the-sfcc-guide-to-finding-pod-numbers/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -943,7 +943,7 @@
       ],
       "primaryTemplate": false,
       "builtArtifactPath": "public/video/index.html",
-      "checkedUrl": "http://127.0.0.1:58927/video/",
+      "checkedUrl": "http://127.0.0.1:53313/video/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {
@@ -975,7 +975,7 @@
       ],
       "primaryTemplate": true,
       "builtArtifactPath": "public/your-definitive-mobile-app-checklist/index.html",
-      "checkedUrl": "http://127.0.0.1:58927/your-definitive-mobile-app-checklist/",
+      "checkedUrl": "http://127.0.0.1:53313/your-definitive-mobile-app-checklist/",
       "httpStatus": 200,
       "result": "pass",
       "violationCounts": {

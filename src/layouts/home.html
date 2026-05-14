@@ -64,10 +64,10 @@
         <a class="site-cta site-cta--outline" href="{{ $browseTopicsHref }}">Browse Topics</a>
       </div>
       {{ with index $projects "items" }}
-        <aside class="page-hero__projects" aria-labelledby="home-projects-heading">
+        <section class="page-hero__projects" aria-labelledby="home-projects-heading">
           <h2 id="home-projects-heading">{{ with index $projects "title" }}{{ . }}{{ else }}Active Projects{{ end }}</h2>
           {{ with index $projects "description" }}<p class="page-hero__projects-intro">{{ . }}</p>{{ end }}
-          <ul class="home-project-list" role="list">
+          <ul class="home-project-list">
             {{ range . }}
               <li>
                 <a class="home-project-link" href="{{ index . "url" }}">
@@ -77,15 +77,15 @@
               </li>
             {{ end }}
           </ul>
-        </aside>
+        </section>
       {{ end }}
       {{ with index $profile "actions" }}
-        <div class="page-hero__support-links" aria-label="About Thomas links">
+        <nav class="page-hero__support-links" aria-label="About and profile links">
           {{ range . }}
             {{ $isExternal := hasPrefix (index . "url") "http" }}
             <a class="page-hero__support-link" href="{{ index . "url" }}"{{ if $isExternal }} target="_blank" rel="noopener"{{ end }}>{{ index . "label" }}{{ if $isExternal }}&nbsp;<span aria-hidden="true">↗</span>{{ end }}</a>
           {{ end }}
-        </div>
+        </nav>
       {{ end }}
     </div>
     <div class="page-hero__media-column">
@@ -110,15 +110,17 @@
         <article class="featured-article">
           {{ with $featured.Params.heroImage }}
             <div class="featured-article__media">
-              {{ partial "media/image.html" (dict
-                "page" $featured
-                "src" .
-                "alt" ($featured.Params.heroImageAlt | default $featured.LinkTitle | default $featured.Title)
-                "loading" "lazy"
-                "responsive" true
-                "maxWidth" 1280
-                "sizes" "(min-width: 64rem) 36rem, 100vw"
-              ) }}
+              <a class="featured-article__media-link" href="{{ $featured.RelPermalink }}" aria-label="Read {{ $featured.LinkTitle }}">
+                {{ partial "media/image.html" (dict
+                  "page" $featured
+                  "src" .
+                  "alt" ($featured.Params.heroImageAlt | default $featured.LinkTitle | default $featured.Title)
+                  "loading" "lazy"
+                  "responsive" true
+                  "maxWidth" 1280
+                  "sizes" "(min-width: 64rem) 36rem, 100vw"
+                ) }}
+              </a>
             </div>
           {{ end }}
           <h3><a class="featured-article__link" href="{{ $featured.RelPermalink }}">{{ $featured.LinkTitle }}</a></h3>
@@ -138,7 +140,7 @@
         {{ end }}
       </div>
       {{ if gt (len $recent) 0 }}
-        <ul class="latest-list" role="list">
+        <ul class="latest-list">
           {{ range $recent }}
             {{ $topicData := partial "article/resolve-primary-topic.html" (dict "page" .) }}
             <li class="latest-list__item">
@@ -160,7 +162,7 @@
   <section class="home-newsletter" aria-labelledby="home-newsletter-heading">
     <div class="home-newsletter__body">
       <h2 id="home-newsletter-heading">Follow New Posts</h2>
-      <p>Rhino Inquisitor does not run an email newsletter. Follow via RSS or jump straight to the latest archive entries.</p>
+      <p>Follow new posts via RSS or jump straight to the latest archive entries.</p>
     </div>
     <div class="home-newsletter__actions">
       <a class="site-cta" href="{{ $rssHref }}">Follow via RSS</a>
