@@ -70,6 +70,8 @@ This directory holds structured analysis documentation for the migration project
 - [Phase 9 article image zoom modal](phase-9/article-image-zoom-modal-2026-05-05.md)
 - [Phase 9 homepage hero project balance](phase-9/homepage-hero-project-balance-2026-05-06.md)
 - [Phase 9 archive and article container alignment](phase-9/archive-article-container-alignment-2026-05-14.md)
+- [Phase 9 reusable archive chip abstraction](phase-9/reusable-archive-chip-abstraction-2026-05-14.md)
+- [Phase 9 reusable title hooks](phase-9/reusable-title-hooks-2026-05-14.md)
 
 ## Naming Conventions
 

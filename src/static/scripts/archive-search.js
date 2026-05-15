@@ -98,7 +98,7 @@
         media +
         '<div class="article-card__body">' +
           createMetadata(entry) +
-          '<h3><a href="' + escapeHtml(entry.permalink) + '"' + speculationAttr + '>' + escapeHtml(entry.title) + '</a></h3>' +
+          '<h3 class="surface-title article-card__title"><a class="surface-title-link article-card__title-link" href="' + escapeHtml(entry.permalink) + '"' + speculationAttr + '>' + escapeHtml(entry.title) + '</a></h3>' +
           '<p class="article-card__excerpt">' + escapeHtml(entry.summary || 'Open the article for the full entry.') + '</p>' +
         '</div>' +
       '</article>';

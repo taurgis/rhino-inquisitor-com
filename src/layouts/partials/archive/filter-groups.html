@@ -27,10 +27,10 @@
     </h3>
     <div class="archive-filter-links archive-filter-links--topics">
       {{ with $topicsPage }}
-        <a href="{{ .Permalink }}"{{ if eq $currentRelPermalink .RelPermalink }} aria-current="page"{{ end }}>All topics</a>
+        <a class="surface-chip surface-chip--align-start archive-filter-link--all{{ if eq $currentRelPermalink .RelPermalink }} surface-chip--current{{ end }}" href="{{ .Permalink }}"{{ if eq $currentRelPermalink .RelPermalink }} aria-current="page"{{ end }}>All topics</a>
       {{ end }}
       {{ range $topicPages }}
-        <a href="{{ .Permalink }}"{{ if eq $currentRelPermalink .RelPermalink }} aria-current="page"{{ end }}>{{ .LinkTitle | default .Title }}</a>
+        <a class="surface-chip surface-chip--align-start{{ if eq $currentRelPermalink .RelPermalink }} surface-chip--current{{ end }}" href="{{ .Permalink }}"{{ if eq $currentRelPermalink .RelPermalink }} aria-current="page"{{ end }}>{{ .LinkTitle | default .Title }}</a>
       {{ end }}
     </div>
   </section>
@@ -41,8 +41,8 @@
       <span class="filter-badge" aria-label="2 available">2</span>
     </h3>
     <div class="archive-filter-links archive-filter-links--types">
-      {{ with $postsPage }}<a href="{{ .Permalink }}"{{ if eq $currentRelPermalink .RelPermalink }} aria-current="page"{{ end }}>Articles</a>{{ end }}
-      {{ with $pagesSection }}<a href="{{ .Permalink }}"{{ if eq $currentRelPermalink .RelPermalink }} aria-current="page"{{ end }}>Pages</a>{{ end }}
+      {{ with $postsPage }}<a class="surface-chip surface-chip--align-start{{ if eq $currentRelPermalink .RelPermalink }} surface-chip--current{{ end }}" href="{{ .Permalink }}"{{ if eq $currentRelPermalink .RelPermalink }} aria-current="page"{{ end }}>Articles</a>{{ end }}
+      {{ with $pagesSection }}<a class="surface-chip surface-chip--align-start{{ if eq $currentRelPermalink .RelPermalink }} surface-chip--current{{ end }}" href="{{ .Permalink }}"{{ if eq $currentRelPermalink .RelPermalink }} aria-current="page"{{ end }}>Pages</a>{{ end }}
     </div>
   </section>
 </div>

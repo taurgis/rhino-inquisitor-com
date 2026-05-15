@@ -6,9 +6,9 @@
 
     <div class="pagination__controls">
       {{ with .Prev }}
-        <a class="pagination__edge" href="{{ .URL }}" rel="prev" aria-label="Go to previous page">Previous</a>
+        <a class="pagination__edge surface-chip" href="{{ .URL }}" rel="prev" aria-label="Go to previous page">Previous</a>
       {{ else }}
-        <span class="pagination__edge pagination__edge--disabled" aria-disabled="true">Previous</span>
+        <span class="pagination__edge pagination__edge--disabled surface-chip" aria-disabled="true">Previous</span>
       {{ end }}
 
       <ol class="pagination__list">
@@ -16,9 +16,9 @@
           {{ range .Pagers }}
             <li>
               {{ if eq .PageNumber $current }}
-                <span aria-current="page" aria-label="Page {{ .PageNumber }}, current page">{{ .PageNumber }}</span>
+                <span class="surface-chip surface-chip--current" aria-current="page" aria-label="Page {{ .PageNumber }}, current page">{{ .PageNumber }}</span>
               {{ else }}
-                <a href="{{ .URL }}" aria-label="Go to page {{ .PageNumber }}">{{ .PageNumber }}</a>
+                <a class="surface-chip" href="{{ .URL }}" aria-label="Go to page {{ .PageNumber }}">{{ .PageNumber }}</a>
               {{ end }}
             </li>
           {{ end }}
@@ -27,60 +27,60 @@
             {{ if le .PageNumber 5 }}
               <li>
                 {{ if eq .PageNumber $current }}
-                  <span aria-current="page" aria-label="Page {{ .PageNumber }}, current page">{{ .PageNumber }}</span>
+                  <span class="surface-chip surface-chip--current" aria-current="page" aria-label="Page {{ .PageNumber }}, current page">{{ .PageNumber }}</span>
                 {{ else }}
-                  <a href="{{ .URL }}" aria-label="Go to page {{ .PageNumber }}">{{ .PageNumber }}</a>
+                  <a class="surface-chip" href="{{ .URL }}" aria-label="Go to page {{ .PageNumber }}">{{ .PageNumber }}</a>
                 {{ end }}
               </li>
             {{ end }}
           {{ end }}
           <li><span class="pagination__ellipsis" aria-hidden="true">...</span></li>
           {{ with index .Pagers (sub $total 1) }}
-            <li><a href="{{ .URL }}" aria-label="Go to page {{ .PageNumber }}">{{ .PageNumber }}</a></li>
+            <li><a class="surface-chip" href="{{ .URL }}" aria-label="Go to page {{ .PageNumber }}">{{ .PageNumber }}</a></li>
           {{ end }}
         {{ else if ge $current (sub $total 3) }}
           {{ with index .Pagers 0 }}
-            <li><a href="{{ .URL }}" aria-label="Go to page {{ .PageNumber }}">{{ .PageNumber }}</a></li>
+            <li><a class="surface-chip" href="{{ .URL }}" aria-label="Go to page {{ .PageNumber }}">{{ .PageNumber }}</a></li>
           {{ end }}
           <li><span class="pagination__ellipsis" aria-hidden="true">...</span></li>
           {{ range .Pagers }}
             {{ if ge .PageNumber (sub $total 4) }}
               <li>
                 {{ if eq .PageNumber $current }}
-                  <span aria-current="page" aria-label="Page {{ .PageNumber }}, current page">{{ .PageNumber }}</span>
+                  <span class="surface-chip surface-chip--current" aria-current="page" aria-label="Page {{ .PageNumber }}, current page">{{ .PageNumber }}</span>
                 {{ else }}
-                  <a href="{{ .URL }}" aria-label="Go to page {{ .PageNumber }}">{{ .PageNumber }}</a>
+                  <a class="surface-chip" href="{{ .URL }}" aria-label="Go to page {{ .PageNumber }}">{{ .PageNumber }}</a>
                 {{ end }}
               </li>
             {{ end }}
           {{ end }}
         {{ else }}
           {{ with index .Pagers 0 }}
-            <li><a href="{{ .URL }}" aria-label="Go to page {{ .PageNumber }}">{{ .PageNumber }}</a></li>
+            <li><a class="surface-chip" href="{{ .URL }}" aria-label="Go to page {{ .PageNumber }}">{{ .PageNumber }}</a></li>
           {{ end }}
           <li><span class="pagination__ellipsis" aria-hidden="true">...</span></li>
           {{ range .Pagers }}
             {{ if and (ge .PageNumber (sub $current 1)) (le .PageNumber (add $current 1)) }}
               <li>
                 {{ if eq .PageNumber $current }}
-                  <span aria-current="page" aria-label="Page {{ .PageNumber }}, current page">{{ .PageNumber }}</span>
+                  <span class="surface-chip surface-chip--current" aria-current="page" aria-label="Page {{ .PageNumber }}, current page">{{ .PageNumber }}</span>
                 {{ else }}
-                  <a href="{{ .URL }}" aria-label="Go to page {{ .PageNumber }}">{{ .PageNumber }}</a>
+                  <a class="surface-chip" href="{{ .URL }}" aria-label="Go to page {{ .PageNumber }}">{{ .PageNumber }}</a>
                 {{ end }}
               </li>
             {{ end }}
           {{ end }}
           <li><span class="pagination__ellipsis" aria-hidden="true">...</span></li>
           {{ with index .Pagers (sub $total 1) }}
-            <li><a href="{{ .URL }}" aria-label="Go to page {{ .PageNumber }}">{{ .PageNumber }}</a></li>
+            <li><a class="surface-chip" href="{{ .URL }}" aria-label="Go to page {{ .PageNumber }}">{{ .PageNumber }}</a></li>
           {{ end }}
         {{ end }}
       </ol>
 
       {{ with .Next }}
-        <a class="pagination__edge" href="{{ .URL }}" rel="next" aria-label="Go to next page" data-speculation="archive-next">Next</a>
+        <a class="pagination__edge surface-chip" href="{{ .URL }}" rel="next" aria-label="Go to next page" data-speculation="archive-next">Next</a>
       {{ else }}
-        <span class="pagination__edge pagination__edge--disabled" aria-disabled="true">Next</span>
+        <span class="pagination__edge pagination__edge--disabled surface-chip" aria-disabled="true">Next</span>
       {{ end }}
     </div>
   </nav>

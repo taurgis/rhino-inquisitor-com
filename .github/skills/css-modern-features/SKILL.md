@@ -94,6 +94,7 @@ Before finalizing any CSS, run through this checklist. Each item has a minimum t
 
 - [ ] Use `:has()` for conditional parent or sibling styling instead of JS class toggling - Tier 2+
 - [ ] Use `:is()` and `:where()` to reduce selector repetition - Tier 2+
+- [ ] Prefer shared opt-in classes and modifiers for repeated UI patterns instead of wrapper-plus-element selectors - Tier 1-4
 - [ ] Use `@layer` to manage cascade order instead of specificity hacks - Tier 2+
 - [ ] Use `@scope` for component-scoped styles when current evergreen browser support is available - Tier 1+
 - [ ] Use CSS nesting (`&`) instead of preprocessor nesting or repeated selectors - Tier 2+
@@ -155,6 +156,21 @@ Before finalizing any CSS, run through this checklist. Each item has a minimum t
 - [ ] `masonry` grid layout - native Pinterest-style layout - Tier 0 behind flags or proposal syntax
 - [ ] `if()` inline conditionals - CSS-native branching - watch only
 - [ ] `@function` - reusable CSS functions - watch only
+
+## Step 3b - Prefer Reusable Style Hooks
+
+When a visual treatment repeats across multiple surfaces, put the shared contract on the element being styled instead of encoding reuse through wrapper-plus-element selectors.
+
+- Prefer named hooks such as `.surface-chip`, `.surface-chip--current`, or `.card-title` over selectors like `.archive-filter-links a`, `.pagination span`, or `.component h3 a`.
+- Reserve bare element selectors for true base styles, resets, and prose or semantic containers where the HTML structure itself is the contract.
+- Use `:where()` when you need scoped structure without adding selector weight. Use `:is()` to deduplicate selectors only when you accept the resulting specificity.
+- Use `@layer` to control precedence between base, components, and utilities instead of raising selector specificity.
+
+Repo example for this workspace:
+
+- If archive filters, year-jump links, and pagination chips share one interaction pattern, give those elements a shared class hook and style that hook in both `site.css` and the matching critical stylesheet.
+- Do not rely on `.archive-filter-links a`, `.jump-year__links a`, `.pagination a`, and `.pagination span` as the source of truth for the same UI pattern.
+- Keep first-paint parity in mind: when a reusable hook affects archive or home routes, update the relevant critical stylesheet alongside the shared stylesheet.
 
 ## Step 4 - `@supports` Guards for Tier 3
 

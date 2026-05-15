@@ -48,7 +48,7 @@
 
   <div class="{{ $cardClass }}__body">
     {{ partial "article/meta-row.html" (dict "page" $page "label" "Card details" "hidePublished" $showBadgeOverlay "hideTopic" $showBadgeOverlay) }}
-    <h3><a href="{{ $page.Permalink }}"{{ if and (eq $variant "archive") (or (eq $page.Type "posts") (and (eq $page.Type "pages") (ne $page.RelPermalink "/archive/"))) }} data-speculation="archive-article"{{ end }}>{{ $page.LinkTitle }}</a></h3>
+    <h3 class="surface-title {{ $cardClass }}__title"><a class="surface-title-link {{ $cardClass }}__title-link" href="{{ $page.Permalink }}"{{ if and (eq $variant "archive") (or (eq $page.Type "posts") (and (eq $page.Type "pages") (ne $page.RelPermalink "/archive/"))) }} data-speculation="archive-article"{{ end }}>{{ $page.LinkTitle }}</a></h3>
     <p class="{{ $cardClass }}__excerpt">{{ $excerpt }}</p>
   </div>
 </article>

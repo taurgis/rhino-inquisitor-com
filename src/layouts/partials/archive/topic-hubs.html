@@ -2,7 +2,7 @@
 {{ if gt (len $items) 0 }}
   <div class="topic-hubs">
     <div class="lane-header">
-      <h2>{{ .title | default "Browse by topic" }}</h2>
+      <h2 class="surface-title lane-header__title">{{ .title | default "Browse by topic" }}</h2>
       {{ with .actionHref }}
         <a class="lane-header__action" href="{{ . }}">{{ $.actionLabel | default "View all topics" }}</a>
       {{ end }}
@@ -11,9 +11,9 @@
     <ul class="topic-hub-grid" role="list">
       {{ range $items }}
         <li>
-          <a class="topic-card topic-card--link" href="{{ .url }}">
+          <a class="topic-card topic-card--link surface-title-link" href="{{ .url }}">
             <div class="topic-card__body">
-              <h3>{{ .name }}</h3>
+              <h3 class="surface-title topic-card__title">{{ .name }}</h3>
               <div class="topic-card__stats">
                 <span>{{ .count }} {{ cond (eq .count 1) "entry" "entries" }}</span>
                 {{ with .freshness }}<span>{{ . }}</span>{{ end }}

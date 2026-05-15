@@ -123,7 +123,7 @@
               </a>
             </div>
           {{ end }}
-          <h3><a class="featured-article__link" href="{{ $featured.RelPermalink }}">{{ $featured.LinkTitle }}</a></h3>
+          <h3 class="surface-title featured-article__title"><a class="surface-title-link featured-article__link" href="{{ $featured.RelPermalink }}">{{ $featured.LinkTitle }}</a></h3>
           <p class="featured-article__excerpt">{{ partial "article/resolve-excerpt.html" (dict "page" $featured) }}</p>
           {{ partial "article/meta-row.html" (dict "page" $featured "label" "Article details") }}
         </article>
@@ -144,8 +144,8 @@
           {{ range $recent }}
             {{ $topicData := partial "article/resolve-primary-topic.html" (dict "page" .) }}
             <li class="latest-list__item">
-              <a href="{{ .RelPermalink }}">
-                <span class="latest-list__title">{{ .LinkTitle }}</span>
+              <a class="latest-list__link surface-title-link" href="{{ .RelPermalink }}">
+                <span class="surface-title latest-list__title">{{ .LinkTitle }}</span>
                 <span class="latest-list__excerpt">{{ partial "article/resolve-excerpt.html" (dict "page" . "maxLength" 80) }}</span>
                 <span class="latest-list__meta">{{ .Date.Format "Jan 2, 2006" }} · {{ .ReadingTime }} min read{{ with $topicData.label }} · {{ . }}{{ end }}</span>
               </a>
