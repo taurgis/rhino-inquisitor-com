@@ -1,6 +1,6 @@
 ---
 name: Senior Developer
-model: GPT-5.4 (copilot)
+model: Auto
 tools: [vscode, execute, read, browser, search, web]
 description: Leads implementation delivery, decomposes work for safe parallel subagent execution, and integrates results with governance-aware quality checks.
 ---

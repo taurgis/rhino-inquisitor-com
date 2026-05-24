@@ -41,6 +41,7 @@ This directory holds structured analysis documentation for the migration project
 - [Phase 3 performance baseline retirement](governance/phase-3-performance-baseline-retirement-2026-03-17.md)
 - [Image caption writing skill](governance/image-caption-writing-skill-2026-03-23.md)
 - [Claudeignore indexing hygiene](governance/claudeignore-indexing-hygiene-2026-05-24.md)
+- [Post writing skills routing](governance/post-writing-skills-routing-2026-05-24.md)
 - [Phase 1 docs](phase-1/)
 - [Phase 2 docs](phase-2/)
 - [Phase 3 docs](phase-3/)

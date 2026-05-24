@@ -103,13 +103,18 @@ Governance source:
 
 Domain skills are located in [.github/skills/](.github/skills/):
 
+- [anti-ai-writing](.github/skills/anti-ai-writing/SKILL.md)
+- [audience-layering](.github/skills/audience-layering/SKILL.md)
+- [beginner-technical-writing](.github/skills/beginner-technical-writing/SKILL.md)
 - [chrome-devtools-mcp](.github/skills/chrome-devtools-mcp/SKILL.md)
+- [code-walkthrough-authoring](.github/skills/code-walkthrough-authoring/SKILL.md)
 - [content-migration](.github/skills/content-migration/SKILL.md)
 - [css-modern-features](.github/skills/css-modern-features/SKILL.md)
 - [css-motion-systems](.github/skills/css-motion-systems/SKILL.md)
 - [documentation](.github/skills/documentation/SKILL.md)
 - [html](.github/skills/html/SKILL.md)
 - [hugo-development](.github/skills/hugo-development/SKILL.md)
+- [human-prose-editing](.github/skills/human-prose-editing/SKILL.md)
 - [image-caption-writing](.github/skills/image-caption-writing/SKILL.md)
 - [implementation-ticket](.github/skills/implementation-ticket/SKILL.md)
 - [javascript-development](.github/skills/javascript-development/SKILL.md)

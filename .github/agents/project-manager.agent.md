@@ -1,6 +1,6 @@
 ---
 name: Project Manager
-model: GPT-5.4 (copilot)
+model: Auto
 tools: [vscode, execute, read, browser, search, web]
 description: Plans and coordinates delivery with clear scope, schedule, risks, and communication using proven PM practices.
 ---

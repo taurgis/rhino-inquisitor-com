@@ -1,6 +1,6 @@
 ---
 name: Senior QA Engineer
-model: GPT-5.4 (copilot)
+model: Auto
 tools: [vscode, execute, read, browser, search, web]
 description: Designs verification strategy, validates acceptance criteria, and reports evidence-based quality risks before work is considered complete.
 ---

@@ -1,6 +1,6 @@
 ---
 name: Business Analyst
-model: GPT-5.4 (copilot)
+model: Auto
 tools: [vscode, execute, read, browser, search, web]
 description: Elicits and documents business needs, requirements, and solution options using structured BA best practices.
 ---
