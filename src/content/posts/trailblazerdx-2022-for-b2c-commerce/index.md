@@ -157,10 +157,20 @@ Need a refresher? Here is a playlist!
 
 ### Weezer - Say It Ain't So (Official Video)
 
+{{< video-embed id="ENXvZ9YRjbo" title="Weezer - Say It Ain't So (Official Video)" >}}
+
 ### Weezer - Island In The Sun (Spike Jonze Version)
+
+{{< video-embed id="0C3zgYW_FAM" title="Weezer - Island In The Sun (Spike Jonze Version)" >}}
 
 ### Weezer - Buddy Holly (Official Music Video)
 
+{{< video-embed id="kemivUKb4f4" title="Weezer - Buddy Holly (Official Music Video)" >}}
+
 ### Weezer - Beverly Hills
 
+{{< video-embed id="HL_WvOly7mY" title="Weezer - Beverly Hills" >}}
+
 ### Weezer - Pork And Beans (Closed Captioned)
+
+{{< video-embed id="PQHPYelqr0E" title="Weezer - Pork And Beans (Closed Captioned)" >}}

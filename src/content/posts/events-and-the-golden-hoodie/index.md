@@ -32,6 +32,8 @@ Going back to events, for me, started with a blast! Back to Chicago and Connecti
 
 I was thrilled to be going again, this time not just as a visitor but as a speaker! With a lot of help (and pushing) from [Amalia,](https://www.linkedin.com/in/amaliamurray/) we got a spot on multiple stages! I was thrilled to get this opportunity to tell my story and have colleagues present one of our customer cases. You can [watch the Connections session recording here](https://www.youtube.com/watch?list=PL9MknC1SggvKAXr33VuslT-eaenf0RRxI&v=VE-XxWXKBz4&feature=emb\_title).
 
+{{< video-embed id="VE-XxWXKBz4" title="Connections session recording" >}}
+
 But boy, did Connections have more in store for me than I could have anticipated! I was already amazed that I could be in the keynote, but there was a bigger surprise in store for me.
 
 ### Is it a technical conference
@@ -49,6 +51,8 @@ Although I should have picked up on a few signs, such as [Sasha Taylor](https://
 She has "keeper of the Goldies" in her Twitter description... That might have been a give-away, right?
 
 Well, I didn't pick up on it in the slightest. But it will be a moment I will never forget, you can be sure about that! You can [watch the Golden Hoodie moment here](https://www.youtube.com/watch?v=lWY-5s7OwCA).
+
+{{< video-embed id="lWY-5s7OwCA" title="Golden Hoodie moment" >}}
 
 And since then, I have gotten the question quite often, "what do you have to do to get a Golden Hoodie?"
 

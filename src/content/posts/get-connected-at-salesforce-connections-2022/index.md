@@ -301,8 +301,16 @@ It turns out it is OneRepublic!
 
 ### OneRepublic - Apologize (Official Music Video)
 
+{{< video-embed id="-rKUT6zugJ0" title="OneRepublic - Apologize (Official Music Video)" >}}
+
 ### OneRepublic - Counting Stars (Official Music Video)
+
+{{< video-embed id="hT_nvWreIhg" title="OneRepublic - Counting Stars (Official Music Video)" >}}
 
 ### OneRepublic - Good Life (Official Music Video)
 
+{{< video-embed id="jZhQOvvV45w" title="OneRepublic - Good Life (Official Music Video)" >}}
+
 ### OneRepublic - Love Runs Out (Official Music Video)
+
+{{< video-embed id="0OWj0CiM8WU" title="OneRepublic - Love Runs Out (Official Music Video)" >}}

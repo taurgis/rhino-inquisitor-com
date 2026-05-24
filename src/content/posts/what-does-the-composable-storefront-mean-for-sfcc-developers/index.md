@@ -43,6 +43,8 @@ That felt like an inspirational speech, didn't it?
 
 {{< img-caption src="salesforce-commerce-cloud-monolith-e3f50eb05b.jpg" alt="Illustration representing the strengths of a monolithic commerce architecture." >}}
 
+I'll make sure to make one thing clear. Monolithic architecture has its advantages!
+
 First and foremost, it's easier to develop, test and deploy. All the codebase is in one place, meaning there's less need for inter-service communication and less complexity. This makes it easier for developers (and businesses) to understand the flow of the application and more straightforward to debug and fix issues.
 
 With a monolithic approach, you can quickly scale up the entire application by adding more resources rather than scaling each microservice individually.

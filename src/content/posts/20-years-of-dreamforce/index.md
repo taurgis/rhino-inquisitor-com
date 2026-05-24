@@ -27,7 +27,7 @@ But how does Salesforce B2C Commerce Cloud fare in this large event, and what co
 
 ## Let us meet up
 
-{{< img-caption src="dreamforce-cosy-c3b16ff3d4.jpg" alt="Dreamforce attendee checking a phone in a lounge area." caption="Dreamforce works best when you put the phone away and meet people in person." >}}
+{{< img-caption src="dreamforce-cosy-c3b16ff3d4.jpg" alt="Dreamforce attendee checking a phone in a lounge area." caption="Ok... don't be on your cellphone the entire time!" >}}
 
 It won't be a Salesforce event if you don't meet with other people you have been "slacking" with for the past years.
 
@@ -59,7 +59,7 @@ The keynotes can be viewed through [Salesforce+](https://www.salesforce.com/plus
 
 ## Building your agenda​
 
-{{< img-caption src="writing-agenda-ba6ec896c4.jpg" alt="Notebook and laptop laid out while planning a conference agenda." caption="A good Dreamforce schedule helps, but flexibility matters more once the event starts." >}}
+{{< img-caption src="writing-agenda-ba6ec896c4.jpg" alt="Notebook and laptop laid out while planning a conference agenda." >}}
 
 There are about 1200 sessions over three days at Dreamforce. Building a schedule will not be an easy task! And be sure your predefined schedule will be thrown in the trash when the day arrives.
 
@@ -75,7 +75,9 @@ I created a schedule in previous editions of this event post ([TrailblazerDX](/t
 
 For now, session length and time are not known yet. I will update the article once this information is made public.
 
-Community Speakers Did I miss someone? Please don't be shy and [send me a message on LinkedIn](https://www.linkedin.com/in/thomas-theunen-10905680/)!
+> [!NOTE]
+> **Community Speakers**
+> Did I miss someone? Please don't be shy and [send me a message on LinkedIn](https://www.linkedin.com/in/thomas-theunen-10905680/)!
 
 ### Next-Gen Commerce: Maximize Profit Your Way
 
@@ -232,8 +234,16 @@ It wouldn't be a Salesforce event if there weren't a big party! Dreamforce is no
 
 ### Red Hot Chili Peppers - Californication \[Official Music Video\]
 
+{{< video-embed id="YlUKcNNmywk" title="Red Hot Chili Peppers - Californication [Official Music Video]" >}}
+
 ### Red Hot Chili Peppers - Otherside \[Official Music Video\]
+
+{{< video-embed id="rn_YodiJO6k" title="Red Hot Chili Peppers - Otherside [Official Music Video]" >}}
 
 ### Red Hot Chili Peppers - Can't Stop \[Official Music Video\]
 
+{{< video-embed id="8DyziWtkfBw" title="Red Hot Chili Peppers - Can't Stop [Official Music Video]" >}}
+
 ### Red Hot Chili Peppers - Under The Bridge \[Official Music Video\]
+
+{{< video-embed id="GLvohMXgcBo" title="Red Hot Chili Peppers - Under The Bridge [Official Music Video]" >}}

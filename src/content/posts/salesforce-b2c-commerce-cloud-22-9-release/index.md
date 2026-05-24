@@ -54,6 +54,8 @@ Idea: This [feature](https://ideas.salesforce.com/s/idea/a0B8W00000GdYHjUAN/page
 
 You could only target components to specific customer groups or campaigns until now. Starting from this release, locales have been added to that list!
 
+{{< video-embed id="uK_TioOU2rQ" title="SFCC Page Designer: Target components to a specific locale" >}}
+
 ### Performance increase to Page Designer
 
 Pages loaded in Page Designer are responsive before all referenced images, external resources, or client-side scripts have completed loading, cutting down on wait time.
