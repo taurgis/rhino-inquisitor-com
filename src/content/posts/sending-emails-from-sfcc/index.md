@@ -61,11 +61,11 @@ Ensuring high deliverability rates can be challenging because you're relying on 
 
 The previous points may seem like I'm advocating for a dedicated email platform. However, the marketing automation features I mentioned come with costs!
 
-Generally, each email sent comes with a charge, and these costs can accumulate significantly over time month.
+Generally, each email sent comes with a charge, and these costs can accumulate significantly over time.
 
 Fortunately, Salesforce Commerce Cloud doesn't require a separate license, allowing you to send **unlimited emails** at **no additional cost**!
 
-Marketing Mails Sending transactional emails via Commerce Cloud remains the most sensible option, as creating marketing emails in SFCC is quite "challanging," to put it mildly.
+Marketing Mails Sending transactional emails via Commerce Cloud remains the most sensible option, as creating marketing emails in SFCC is quite "challenging," to put it mildly.
 
 ## How to Send an Email Programmatically
 
