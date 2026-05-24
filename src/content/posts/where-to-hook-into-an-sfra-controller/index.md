@@ -39,15 +39,26 @@ The onRequest hook in SFCC allows you to intercept and modify an incoming HTTP r
 
 This hook is commonly used for [session validation](https://github.com/SalesforceCommerceCloud/composable-hybrid-sitegenesis-poc/blob/0ceeef56aeab190a24378a0d7cae487477c18a16/cartridges/int_slas/cartridge/scripts/hooks/request/onRequest.js#L39), [request validation](https://github.com/SalesforceCommerceCloud/sfcc-hooks-collection/blob/b7f8d7c02b92cb1f449cb246073832626f227388/commerce-cloud-code/plugin_hooktacular/cartridge/scripts/hooks/onRequest.js#L13), or custom logging tasks.
 
-Cached URLs This hook is executed for all requests, even if the Web Adapter (page cache) caches them. Dangerous Whilst this hook provides a lot of flexibility, it also hooks into _every_ request. So, any exception or delay introduced by your custom code will be reflected on all pages and requests.
+> [!NOTE]
+> **Cached URLs**
+>
+> This hook is executed for all requests, even if the Web Adapter (page cache) caches them.
+
+> [!WARNING]
+> **Dangerous**
+>
+> Whilst this hook provides a lot of flexibility, it also hooks into _every_ request. So, any exception or delay introduced by your custom code will be reflected on all pages and requests.
 
 ### onSession
 
 The onSession hook is a server-side hook executed at the beginning of each new session. This hook allows you to perform custom logic or set session attributes before the session is initialised.
 
-It can be used to customise the session behaviour (like [plugin\_slas](https://github.com/SalesforceCommerceCloud/plugin_slas/blob/main/cartridges/plugin_slas/cartridge/scripts/hooks/request/onSession.js)), such as setting default values, checking for certain conditions, or performing any necessary setup before the session is fully established.
+It can be used to customise the session behaviour (like [`plugin_slas`](https://github.com/SalesforceCommerceCloud/plugin_slas/blob/main/cartridges/plugin_slas/cartridge/scripts/hooks/request/onSession.js)), such as setting default values, checking for certain conditions, or performing any necessary setup before the session is fully established.
 
-Dangerous Like the onRequest hook, any delay or exception introduced here can be devastating.
+> [!WARNING]
+> **Dangerous**
+>
+> Like the onRequest hook, any delay or exception introduced here can be devastating.
 
 ## SFRA Routes
 
@@ -66,7 +77,10 @@ These will serve as the 'base route', the starting point of our project. But rem
 
 ## SFRA Server functions to extend and replace
 
-Cartridge Path In this example, we are assuming that there is only one extra cartridge in the cartridge path. This simplifies the explanation, as adding more than one cartridge to the path with an expanding function would make it more difficult to understand.
+> [!NOTE]
+> **Cartridge Path**
+>
+> In this example, we are assuming that there is only one extra cartridge in the cartridge path. This simplifies the explanation, as adding more than one cartridge to the path with an expanding function would make it more difficult to understand.
 
 {{< img-caption src="home-show-sfra-controller-be0043f3bf.jpg" alt="Flow diagram of the standard Home-Show controller logic." caption="The standard Home-Show controller logic visualised" >}}
 
@@ -76,9 +90,9 @@ Cartridge path: plugin_custom:app_storefront_base
 
 ### server.prepend()
 
-The \`server.prepend\` function adds a middleware function to the beginning of the route stack. This allows you to execute code before the base (app\_storefront\_ base) processing begins.
+The `server.prepend` function adds a middleware function to the beginning of the route stack. This allows you to execute code before the base (`app_storefront_base`) processing begins.
 
-Here's a simple example of how you can use \`server.prepend\` with the homepage function:
+Here's a simple example of how you can use `server.prepend` with the homepage function:
 
 ```js
 server.prepend('Show', function (req, res, next) {
@@ -89,13 +103,16 @@ server.prepend('Show', function (req, res, next) {
 
 {{< img-caption src="sfra-prepend-home-show-de79cdab82.jpg" alt="SFRA prepending of Home-Show" caption="Visualising what 'prepending' does in a single route (Home-Show)" >}}
 
-Fun Fact Prepending was one of the first [pull requests](https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/commit/3f471420e847ffeaf8fea9955a2f1481169a0e86) I had made to SFRA.
+> [!NOTE]
+> **Fun Fact**
+>
+> Prepending was one of the first [pull requests](https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/commit/3f471420e847ffeaf8fea9955a2f1481169a0e86) I had made to SFRA.
 
 ### server.append()
 
-The \`server.append\` function adds a middleware function to the end of the route stack. This allows you to execute code after the base (app\_storefront\_ base) processing finishes.
+The `server.append` function adds a middleware function to the end of the route stack. This allows you to execute code after the base (`app_storefront_base`) processing finishes.
 
-Here's a simple example of how you can use \`server.append\` with the homepage function:
+Here's a simple example of how you can use `server.append` with the homepage function:
 
 ```js
 server.append('Show', function (req, res, next) {
@@ -108,9 +125,9 @@ server.append('Show', function (req, res, next) {
 
 ### server.replace()
 
-The \`server.replace\` function replaces the entire route stack up until that point. This allows you to replace code in the base (app\_storefront\_ base) fully.
+The `server.replace` function replaces the entire route stack up until that point. This allows you to replace code in the base (`app_storefront_base`) fully.
 
-Here's a simple example of how you can use \`server.replace\` with the homepage function:
+Here's a simple example of how you can use `server.replace` with the homepage function:
 
 ```js
 server.replace('Show', function (req, res, next) {
@@ -134,7 +151,7 @@ server.replace('Show', function (req, res, next) {
 
 The options explained above already give you quite a bit of flexibility. But what if I told you there is even more to come? The route itself also exposes a few "events" in which we can hook into:
 
-- **route: Start:** Executes at the start of the route, before any middleware defined using "server.\*"
+- **route: Start:** Executes at the start of the route, before any middleware defined using `server.*`
 - **route: BeforeComplete:** Executes after all route middleware is finished but before the "route:Complete" event.
 - **route: Complete:** The final event, after everything else.
 - **route: Step:** Executed between each route middleware.
@@ -162,4 +179,12 @@ Cartridges higher up in the path are given precedence over those lower down. Thi
 
 New to the concept of "cartridge path"? Have a look at [this trail](https://trailhead.salesforce.com/content/learn/modules/b2c-cartridges/b2c-cartridges-explore)!
 
-Try to experiment When working across multiple cartridges, make use of your debugger (e.g. Prophet) to check in what order your code is executed on the server side to understand the order of execution fully. Don't go overboard Remember that the complexity of adjusting a route is not something to brush over, especially if people often change on the project. Keep your code well structured and the order of execution of every middleware documented.
+> [!TIP]
+> **Try to experiment**
+>
+> When working across multiple cartridges, make use of your debugger (e.g. Prophet) to check in what order your code is executed on the server side to understand the order of execution fully.
+
+> [!WARNING]
+> **Don't go overboard**
+>
+> Remember that the complexity of adjusting a route is not something to brush over, especially if people often change on the project. Keep your code well structured and the order of execution of every middleware documented.

@@ -36,7 +36,10 @@ The definitive answer is: **Yes, SCAPI and SLAS operate on a completely separate
 
 Your mobile app will not make API calls to `www.your-brand.com`. Instead, all SCAPI and SLAS interactions are routed through the dedicated, globally scaled Salesforce Commerce API gateway. The endpoint URL follows a standard format: `https://{{short-code}}.api.commercecloud.salesforce.com/...`. This is your single, secure, and performant entry point for all API traffic. This move is intentional and reinforced by Salesforce's [deprecation](/the-importance-of-origin-shielding/) of older, hyphenated hostnames (e.g., `production-realm-customer.demandware.net`) for API access, pushing all traffic to this unified gateway.
 
-CORS Don't forget to [secure your API layer](https://developer.salesforce.com/docs/commerce/commerce-api/guide/cors.html)!
+> [!NOTE]
+> **CORS**
+>
+> Don't forget to [secure your API layer](https://developer.salesforce.com/docs/commerce/commerce-api/guide/cors.html)!
 
 This separation of hostnames is not an arbitrary technical detail; it reflects the fundamental architectural decoupling that is the core promise of headless commerce.
 
@@ -85,7 +88,10 @@ This section adapts the SRA's architectural principles to a headless context. Th
 
 
 
-SLAS Private Key If a secret was ever embedded in the mobile app, immediately rotate the secret in the SLAS Admin UI and release a hotfix to the app removing it.
+> [!WARNING]
+> **SLAS Private Key**
+>
+> If a secret was ever embedded in the mobile app, immediately rotate the secret in the SLAS Admin UI and release a hotfix to the app removing it.
 
 #### Infrastructure & eCDN (The Pipes)
 
@@ -143,7 +149,7 @@ Effective client-side [caching](/caching-rest-apis-in-sfcc/) is the single most 
 
 -   **Audience & Segmentation:** In the backend system (e.g., Marketing Cloud), ensure that the necessary lists, data extensions, or audiences are created and populated to allow for targeted push campaigns immediately at launch.
 
--   **T****est Plan:** A plan to send test notifications to specific test devices must be in place to verify the entire pipeline is working before go-live.
+-   **Test Plan:** A plan to send test notifications to specific test devices must be in place to verify the entire pipeline is working before go-live.
 
 
 ### Part III: Performance & Load Testing (The New Discipline)
@@ -203,7 +209,7 @@ For an SFRA site, go-live is often a DNS change. For a mobile app, it is a submi
 
 The "submit and wait" era is over. In 2025, a successful submission requires proactive compliance with Apple's supply chain and privacy mandates. Use this protocol to ensure your binary passes static analysis and manual review.
 
--   ****Supply Chain Security (SDK Signatures):** As of February 2025, Apple strictly enforces manifest requirements for "Commonly Used Third-Party SDKs" (e.g., Firebase, Facebook, various ad networks). You must audit your `Podfile` or Swift Package Manager dependencies to ensure every SDK is updated to a version that includes a digital signature and its own Privacy Manifest.**
+-   **Supply Chain Security (SDK Signatures):** As of February 2025, Apple strictly enforces manifest requirements for "Commonly Used Third-Party SDKs" (e.g., Firebase, Facebook, various ad networks). You must audit your `Podfile` or Swift Package Manager dependencies to ensure every SDK is updated to a version that includes a digital signature and its own Privacy Manifest.
 
 -   **Packaging:** The final, production-signed app binary must be built and tested. Ensure your CI/CD pipeline is using **Xcode 16** (targeting the iOS 18 SDK). This became the mandatory baseline for all App Store submissions starting April 2025.
 
@@ -216,7 +222,10 @@ The "submit and wait" era is over. In 2025, a successful submission requires pro
 -   **Contingency Planning:** A plan must be in place for a potential rejection. Have common rejection reasons (e.g., crashes, incomplete functionality, poor UI, issues with in-app purchases) been proactively mitigated?. Apps that are primarily websites wrapped in a native shell or are nearly identical to existing apps are aggressively rejected under [Guideline 4.2 and 4.3](https://developer.apple.com/app-store/review/guidelines/#design).
 
 
-A PWA Kit Wrapper App Whilst you can easily "wrap" a PWA Kit site in a native app, there is the risk of rejection if the application does not provide any additional "value" to the user.
+> [!WARNING]
+> **A PWA Kit Wrapper App**
+>
+> Whilst you can easily "wrap" a PWA Kit site in a native app, there is the risk of rejection if the application does not provide any additional "value" to the user.
 
 ## Welcome to the Headless Era
 

@@ -67,7 +67,7 @@ For those unaware, the above key does not need to be configured in the Account M
 
 With this API key, we can configure access to the necessary APIs in the Business Manager at
 
-"_Administration _" > "_ Site Development _" > "_ Open Commerce API Settings_"
+"_Administration_" > "_Site Development_" > "_Open Commerce API Settings_"
 
 ```json
 {
@@ -101,7 +101,10 @@ With this API key, we can configure access to the necessary APIs in the Business
 
 ### Step 1: Get a OCAPI session JWT
 
-Site ID In the examples below, you will see the site "RefArch" used. Do not forget to replace this with your own.
+> [!NOTE]
+> **Site ID**
+>
+> In the examples below, you will see the site "RefArch" used. Do not forget to replace this with your own.
 
 The first resource we need to call is customer authentication. And with this, we will get a JWT bearer token we can use other OCAPI endpoints linked to that customer "session."
 
@@ -144,7 +147,7 @@ Let us exchange that token for a cookie, shall we? And for that, we need the "se
 - [/sessions](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/shop/Resources/Sessions.html#id-2104258718__id-514053870)
 
 > [!WARNING]
-> **Important:** information The link above contains much information on things to keep in mind! Be sure to give it a good read.
+> **Important:** The link above contains much information on things to keep in mind! Be sure to give it a good read.
 
 The request itself is pretty easy! Call the endpoint with the correct authorization header (type bearer), and you are as good as gold!
 
@@ -200,7 +203,10 @@ Similar to our first request, we get a JSON response with the JWT token in the "
 }
 ```
 
-Matching customer\_id To verify that the flow worked, the "customer\_ id" from step 1 should match the value you receive in response to this call.
+> [!NOTE]
+> **Matching `customer_id`**
+>
+> To verify that the flow worked, the `customer_id` from step 1 should match the value you receive in response to this call.
 
 ## SCAPI & SLAS
 

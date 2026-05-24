@@ -164,6 +164,6 @@ When creating these endpoints, it's important to consider performance and cachin
 
 The search API capabilities of OCAPI in Salesforce B2C Commerce Cloud offer robust and flexible options for date-related searches.
 
-You can customize your searches using range\_filter, range2\_ filter, bool\_filter, and term\_ query as per your requirements. It is important to use the correct date format and field names to make the most out of these tools. These data querying capabilities can help you segment promotional data, manage catalog validity, or filter orders based on dates, making your commerce data handling more streamlined.
+You can customize your searches using `range_filter`, `range2_filter`, `bool_filter`, and `term_query` as per your requirements. It is important to use the correct date format and field names to make the most out of these tools. These data querying capabilities can help you segment promotional data, manage catalog validity, or filter orders based on dates, making your commerce data handling more streamlined.
 
 Happy coding!
