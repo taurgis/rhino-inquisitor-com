@@ -169,7 +169,7 @@ var toCamel = function (s) {
 };
 /**
  *  Custom Object Modify Get Hook
- * @param {Object} scriptObject - the database objec
+ * @param {Object} scriptObject - the database object
  * @param {Object} doc - the document
  */
 exports.modifyGETResponse = function (customObject, doc) {
@@ -199,7 +199,7 @@ In our example, the code will execute our "getCustomer.js" file, which looks som
 /**
  * Fetch customer data using the Customer Number.
  *
- * WARNING: This is a very unsafe endpoint as you can fetch all accounts with an ID the is incremental! The idea is
+ * WARNING: This is a very unsafe endpoint as you can fetch all accounts with an ID that is incremental! The idea is
  * just to show what is possible! And that with this possibility you can create serious security holes!
  *
  */

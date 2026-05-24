@@ -61,7 +61,7 @@ Using OCI brings the following benefits:
 
 - **Omnichannel:** Easily support omnichannel experiences, such as ship from store and buy online, pick up in-store (BOPIS)
 
-{{< img-caption src="inventory-grouping-6f9edbe7b9.png" alt="An overview of grouping inventory locations together into delivery groups. It shows for example a Physicial store and warehouse being merged to an inventory group to use for online delivery as a single 'list'." caption="Example of location grouping" >}}
+{{< img-caption src="inventory-grouping-6f9edbe7b9.png" alt="An overview of grouping inventory locations together into delivery groups. It shows for example a Physical store and warehouse being merged to an inventory group to use for online delivery as a single 'list'." caption="Example of location grouping" >}}
 
 ## Natively integrated
 
@@ -113,7 +113,7 @@ Have a good read on that summary page, it should give you a clear understanding 
 
 ### It adds other complexities
 
-We are heading into "composable" territory here, which adds complexity to your architecture. And what do I mean what that:
+We are heading into "composable" territory here, which adds complexity to your architecture. And what do I mean by that:
 
 - There is no management interface available, as mentioned in one of the previous items.
 - Since it is a separate system, you need to keep track of that in your architecture (e.g., consider possible data or performance issues).

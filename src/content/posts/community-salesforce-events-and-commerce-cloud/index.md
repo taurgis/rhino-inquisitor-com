@@ -81,7 +81,7 @@ Even if you cannot attend in person, it is a hybrid event that will allow people
 - [https://northafricadreamin.com/](https://northafricadreamin.com/)
 - [Session recording](https://www.youtube.com/watch?v=MatNmbnz\_MA)
 
-Are they switching continents again? Really? Off course! The Salesforce Community is a global community; why are you acting so surprised I am switching continents again?
+Are they switching continents again? Really? Of course! The Salesforce Community is a global community; why are you acting so surprised I am switching continents again?
 
 Having its first edition in 2019, it is now on again in 2022 for its second! Another excellent opportunity to meet people from around the globe!
 
