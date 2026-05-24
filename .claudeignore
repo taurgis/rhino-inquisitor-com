@@ -1,0 +1,35 @@
+# Agent indexing hygiene for tools that honor .claudeignore.
+# Keep source-of-truth visible: src, scripts, analysis, docs, migration, monitoring, validation, and root config.
+# Claude Code official docs currently document .claude/settings.json permissions.deny for enforced exclusions.
+
+# Dependencies
+/node_modules/
+
+# Generated Hugo output
+/public/
+/resources/
+/src/assets/generated-avif/
+/.hugo_build.lock
+
+# Local validation caches and coverage output
+/.lighthouseci/
+/coverage/
+/.nyc_output/
+
+# Temporary workspaces and command output
+/tmp/
+*.log
+/.tmp-*.log
+
+# Local secrets and environment files
+/.env
+/.env.*
+!/.env.example
+
+# OS and editor-local artifacts
+/.DS_Store
+Thumbs.db
+/.idea/
+/.vscode/
+*.swp
+*.swo
