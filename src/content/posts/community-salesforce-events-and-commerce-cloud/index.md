@@ -15,6 +15,10 @@ tags:
   - sfcc
   - yeurdreamin'
 author: Thomas Theunen
+video:
+  provider: youtube
+  id: cV6N_uuNku4
+  title: "YeurDreamin' session recording"
 takeaways:
   - "Surveys community-led Salesforce events and where Commerce Cloud currently fits in"
   - "Explains why SFCC content is still sparse on broader community event agendas"

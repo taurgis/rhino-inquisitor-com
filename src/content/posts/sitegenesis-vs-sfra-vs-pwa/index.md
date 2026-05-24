@@ -16,6 +16,10 @@ tags:
   - sfra
   - sitegenesis
 author: Thomas Theunen
+video:
+  provider: youtube
+  id: BTS6OqwMiK4
+  title: 'Going headless with Salesforce B2C Commerce Cloud'
 takeaways:
   - "Compares SiteGenesis, SFRA, and PWA Kit as the main storefront architecture options in the SFCC ecosystem"
   - "Explains the trade-offs around legacy constraints, third-party support, headless flexibility, and out-of-the-box feature coverage"

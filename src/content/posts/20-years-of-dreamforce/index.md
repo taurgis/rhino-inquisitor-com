@@ -14,6 +14,10 @@ tags:
   - ohana
   - sfcc
 author: Thomas Theunen
+video:
+  provider: youtube
+  id: YlUKcNNmywk
+  title: 'Red Hot Chili Peppers - Californication [Official Music Video]'
 takeaways:
   - "Highlights commerce-focused Dreamforce sessions worth adding to your agenda"
   - "Explains where the Commerce Lodge and community meetups fit into the event"

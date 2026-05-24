@@ -16,6 +16,10 @@ tags:
   - sfcc
   - trailblazerdx
 author: Thomas Theunen
+video:
+  provider: youtube
+  id: ENXvZ9YRjbo
+  title: "Weezer - Say It Ain't So (Official Video)"
 takeaways:
   - "Curates the B2C Commerce-relevant sessions from the TrailblazerDX 2022 agenda for developers planning their event schedule"
   - "Highlights where headless, CI/CD, hooks, and connected-commerce content appears within the broader conference lineup"

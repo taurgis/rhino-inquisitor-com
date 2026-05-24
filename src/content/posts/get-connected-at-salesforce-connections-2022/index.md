@@ -15,6 +15,10 @@ tags:
   - sfcc
   - trailhead
 author: Thomas Theunen
+video:
+  provider: youtube
+  id: -rKUT6zugJ0
+  title: 'OneRepublic - Apologize (Official Music Video)'
 takeaways:
   - "Previews Connections 2022 through a commerce-focused agenda and networking lens"
   - "Highlights key sessions on headless, multi-cloud, social commerce, and unified commerce"

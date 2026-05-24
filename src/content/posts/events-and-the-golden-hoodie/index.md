@@ -17,6 +17,10 @@ tags:
   - trailhead
   - yeurdreamin'
 author: Thomas Theunen
+video:
+  provider: youtube
+  id: VE-XxWXKBz4
+  title: 'Connections session recording'
 takeaways:
   - "Recaps the author's 2022 event journey across Connections, Salesforce Live Belgium, and YeurDreamin'"
   - "Explains the Golden Hoodie as community recognition rather than a checklist achievement"
