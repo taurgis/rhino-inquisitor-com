@@ -55,7 +55,7 @@ PIG Only This option does not seem to be available on sandboxes.
 
 The recent introduction of temporary basket access in Headless setups is a significant breakthrough! This new feature unlocks a world of possibilities for mobile applications and the PWA Kit.
 
-Have you ever received a request to allow only one product type in a single basket without allowing any combinations? Such requests were puzzling before [this feature was added](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_enable_temporaty_basket.htm&type=5). Where do you store the current basket? What if the product goes out of stock in the meantime?
+Have you ever received a request to allow only one product type in a single basket without allowing any combinations? Such requests were puzzling before [this feature was added](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_enable_temporary_basket.htm&type=5). Where do you store the current basket? What if the product goes out of stock in the meantime?
 
 Some things that you need to remember about these temporary baskets:
 
@@ -69,7 +69,7 @@ SCAPI It is unclear if this change translates to the SCAPI endpoint ([https://de
 
 - [https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v3.3.0](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v3.3.0)
 
-Some love again for the PWA Kit, wit the release of v3.3. The main changes are:
+Some love again for the PWA Kit, wit the release of v3.3.0. The main changes are:
 
 - Adding StorefrontPreview component ‘onContextChange’ property to prepare for future Storefront Preview release
 - Updating engine compatibility to include npm 10
@@ -94,6 +94,6 @@ Only one fix was made in the current release. However, [many items](https://issu
 
 - [https://github.com/SalesforceCommerceCloud/sgmf-scripts/commits/master/](https://github.com/SalesforceCommerceCloud/sgmf-scripts/commits/master/)
 
-> This repository contains a collection of scrips that are useful for creating Storefront Reference Architecture overlay cartridges. All of the scripts are executable through CLI.
+> This repository contains a collection of scripts that are useful for creating Storefront Reference Architecture overlay cartridges. All of the scripts are executable through CLI.
 
 I've noticed that someone is currently working on developing version 3.x of this library. This is an exciting update that many people have been eagerly waiting for. It will be interesting to see what changes and enhancements are made in this new version.
