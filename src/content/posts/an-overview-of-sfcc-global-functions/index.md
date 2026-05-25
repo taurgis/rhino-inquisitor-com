@@ -28,7 +28,7 @@ In development, it's essential to have access to useful functions that can make 
 encodeURI('https://mozilla.org/?x=шеллы');
 // https://mozilla.org/?x=%D1%88%D0%B5%D0%BB%D0%BB%D1%8B
 encodeURIComponent('шеллы');
-//?x=%D1%88%D0%B5%D0%BB%D0%BB%D1%8B
+// ?x=%D1%88%D0%B5%D0%BB%D0%BB%D1%8B
 ```
 
 These functions are used to escape characters in a URI or URI component. The encodeURI function escapes characters in a URI, while the encodeURIComponent function escapes characters in a URI component. Both functions take a string that contains a URI or URI component and return a copy of the input string with certain characters replaced by hexadecimal escape sequences.

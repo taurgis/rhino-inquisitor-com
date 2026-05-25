@@ -33,7 +33,7 @@ Here are some of the example endpoints:
 
 - [Search Catalogs (OCAPI)](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-data-api?meta=Search%2BCatalogs)
 - [Search Categories within a Catalog (OCAPI)](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-data-api?meta=Search%2BCategories%2Bwithin%2Ba%2BCatalog)
-- [Search for customers in a customer list (0CAPI)](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-data-api?meta=Search%2Bfor%2Bcustomers%2Bin%2Ba%2Bcustomer%2Blist)
+- [Search for customers in a customer list (OCAPI)](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-data-api?meta=Search%2Bfor%2Bcustomers%2Bin%2Ba%2Bcustomer%2Blist)
 - [Search Products (SCAPI)](https://developer.salesforce.com/docs/commerce/commerce-api/references/products?meta=searchProducts)
 
 #### Attributes

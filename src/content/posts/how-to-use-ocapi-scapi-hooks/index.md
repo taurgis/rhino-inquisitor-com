@@ -261,7 +261,7 @@ exports.beforePUT = function (customer, addressId, addressDoc) {
         return status;
     }
     // Example: Validate postal code format for a specific country
-    if (addressDoc.country_code === 'US' && !/^d{5}(-d{4})?$/.test(addressDoc.postal_code)) {
+    if (addressDoc.country_code === 'US' && !/^\d{5}(-\d{4})?$/.test(addressDoc.postal_code)) {
         // Add a machine-readable key and a human-readable message for this specific error.
         getErrorStatus().addDetail('INVALID_POSTAL_CODE', 'Invalid US postal code format.');
     }

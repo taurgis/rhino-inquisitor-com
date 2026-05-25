@@ -76,7 +76,7 @@ Go into the folder, and a file called ".apiversion" will be there.
 
 {{< img-caption src="code-version-26171e5278.jpg" alt="WebDAV folder showing the .apiversion file in the active code version." caption="The hidden .apiversion file is the small detail that makes the workaround possible." >}}
 
-Missing FIle If you do not see the file, don't worry! You can upload it yourself to the folder.
+Missing File If you do not see the file, don't worry! You can upload it yourself to the folder.
 
 Inside that file is where the "magic" happens, and it looks something like this:
 

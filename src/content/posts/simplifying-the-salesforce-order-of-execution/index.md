@@ -35,7 +35,7 @@ For the impatient amongst us, here is the diagram showing the simplified represe
 
 [View on Lucid](https://lucid.app/lucidchart/17edf202-1994-4772-8a0b-4d2835a9799e/edit?viewport_loc=3530%2C810%2C1844%2C838%2C0_0&invitationId=inv_f7af9e9a-9783-47ca-ab06-1142226cad87)
 
-Not for everyone This diagram is meant to assist those starting a new project or has already migrated all of their automation to Flow. Remember that it may not work for every organization, as many have Workflow Rules and Process Builder automation that cannot be migrated overnight. If you are working on Sales or Service Cloud, the original diagram still applies to you if you use these types of automation. The goal is to help you make informed decisions about your automation strategy.​
+Not for everyone. This diagram is meant to assist those starting a new project or has already migrated all of their automation to Flow. Remember that it may not work for every organization, as many have Workflow Rules and Process Builder automation that cannot be migrated overnight. If you are working on Sales or Service Cloud, the original diagram still applies to you if you use these types of automation. The goal is to help you make informed decisions about your automation strategy.​
 
 ## The complexity and nuances
 
@@ -92,7 +92,7 @@ Now that we have taken out all the above from consideration, we end up with the 
 
 ## Why create this diagram
 
-I am well aware that there is [already a clear and documented visual](https://medium.com/salesforce-architects/salesforce-order-of-execution-visualized-76ac45721eba), and it is linked in the article! But this diagram considers all the items I mentioned before (retiring and object-specific), and I wanted a simplified version taking out all of these and seeing what remained. Not for everyone This diagram is meant to assist those starting a new project or has already migrated all of their automation to Flow. Remember that it may not work for every organization, as many have Workflow Rules and Process Builder automation that cannot be migrated overnight. If you are working on Sales or Service Cloud, the original diagram still applies to you if you use these types of automation. The goal is to help you make informed decisions about your automation strategy.​
+I am well aware that there is [already a clear and documented visual](https://medium.com/salesforce-architects/salesforce-order-of-execution-visualized-76ac45721eba), and it is linked in the article! But this diagram considers all the items I mentioned before (retiring and object-specific), and I wanted a simplified version taking out all of these and seeing what remained. Not for everyone. This diagram is meant to assist those starting a new project or has already migrated all of their automation to Flow. Remember that it may not work for every organization, as many have Workflow Rules and Process Builder automation that cannot be migrated overnight. If you are working on Sales or Service Cloud, the original diagram still applies to you if you use these types of automation. The goal is to help you make informed decisions about your automation strategy.​
 
 ### Modern
 

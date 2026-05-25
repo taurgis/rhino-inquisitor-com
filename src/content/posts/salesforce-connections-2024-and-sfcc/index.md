@@ -42,7 +42,7 @@ And not to worry—in its place comes "Connections Celebration," which will appe
 
 Even though your planned agenda may not turn out exactly as expected, it's still helpful to keep track of important events and schedule changes using the events app and the Connections agenda builder.
 
-Not all sessions I haven't included all sessions related to Commerce Cloud in this list. This is more of a compilation of sessions that I plan to join, unless my agenda ends up completely different as usual.
+I haven't included all sessions related to Commerce Cloud in this list. This is more of a compilation of sessions that I plan to join, unless my agenda ends up completely different as usual.
 
 ### Wednesday May 22
 

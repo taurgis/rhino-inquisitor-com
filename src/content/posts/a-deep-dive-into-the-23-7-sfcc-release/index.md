@@ -90,7 +90,7 @@ Just a gentle reminder to [vote](https://ideas.salesforce.com/s/search#t=All&sor
 > - Add support for ES module import statements in ssr.js #1284
 > - Support Node 18 and NPM 9. #1265
 
-This a minor release to ensure this version is compatible with the latest Node version (18), as the older versions will be deprecated soon!
+This is a minor release to ensure this version is compatible with the latest Node version (18), as the older versions will be deprecated soon!
 
 {{< img-caption src="node-js-16-deprecation-b8d6f02bec.png" alt="Node.js 16 end-of-life notice moving the deadline to September 11, 2023." caption="PWA Kit added Node 18 support so teams could move off Node 16 before end-of-life." link="node-js-16-deprecation-b8d6f02bec.png" >}}
 
@@ -102,7 +102,7 @@ This a minor release to ensure this version is compatible with the latest Node v
 > - 🪝 @salesforce/commerce-sdk-react "hooks" integration: Decouples API calls from a project's implementation, allows API calls to be upgraded as an npm library dependency, and brings along many of the great features (including state management, and others) via TanStack Query. See the the Commerce SDK React docs to get started!
 > - ⚛️ Major vendor library updates, including support for React 18, Node 16 / 18, Chakra 2, and more.
 
-This a long-awaited [update](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v3.0.0), bringing many new treats to development. With the new template extensibility options, we can now start overriding just like in SFRA... or at least something that looks like it. Next to that, many updates to libraries and support for the latest stable Node version. One of the libraries is a favourite of mine: [TanStack Query](https://tanstack.com/query/v3/) (or React Query), which makes state management a breeze with APIs.
+This is a long-awaited [update](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v3.0.0), bringing many new treats to development. With the new template extensibility options, we can now start overriding just like in SFRA... or at least something that looks like it. Next to that, many updates to libraries and support for the latest stable Node version. One of the libraries is a favourite of mine: [TanStack Query](https://tanstack.com/query/v3/) (or React Query), which makes state management a breeze with APIs.
 
 ## Bugfixes
 

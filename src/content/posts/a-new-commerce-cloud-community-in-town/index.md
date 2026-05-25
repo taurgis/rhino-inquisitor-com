@@ -27,7 +27,7 @@ And at the end of August, I got the mail titled "Welcome to the Trailblazer Comm
 
 ## What's in a name
 
-So let's get one confusing part out the way. The group is called "[Salesforce Developer Group, Hasselt, Belgium](https://trailblazercommunitygroups.com/salesforce-developer-group-hasselt-belgium/)," but the only reason for that is the rules of engagement with the Trailblazer Community Groups.
+So let's get one confusing part out of the way. The group is called "[Salesforce Developer Group, Hasselt, Belgium](https://trailblazercommunitygroups.com/salesforce-developer-group-hasselt-belgium/)," but the only reason for that is the rules of engagement with the Trailblazer Community Groups.
 
 The actual name for the group is: "**Benelux Salesforce Commerce Cloud Community**." Ok, that name might not be "the best" either, but it describes the group's goal a lot better!
 

@@ -28,7 +28,7 @@ Before you can become an architect, it's crucial to have a solid foundation in C
 
 ## Develop a broad understanding of the platform
 
-As an architect, you'll need to have a comprehensive understanding of the [Commerce Cloud platform](https://www.salesforceben.com/salesforce-b2c-commerce-cloud-architecture-explained/) and how it can be used to solve business challanges. This includes the various features and capabilities of the platform, as well as how to use them to build custom solutions.
+As an architect, you'll need to have a comprehensive understanding of the [Commerce Cloud platform](https://www.salesforceben.com/salesforce-b2c-commerce-cloud-architecture-explained/) and how it can be used to solve business challenges. This includes the various features and capabilities of the platform, as well as how to use them to build custom solutions.
 
 You'll be responsible for designing and building custom solutions on the platform and helping shape your organisation's technology strategy.
 

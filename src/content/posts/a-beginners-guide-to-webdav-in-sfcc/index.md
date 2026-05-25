@@ -21,7 +21,7 @@ takeaways:
    - "Covers common WebDAV use cases including file transfer, media, and logging"
    - "Compares Business Manager user authentication with API client permission setup"
 ---
-File Management is critical and necessary in any project. How else can we work with mass data transfers or logging mechanisms? This blog post will explore WebDAV and its use in [Salesforce B2C Commerce Clou](/the-salesforce-b2c-commerce-cloud-environment/)d. We'll also discuss connecting to WebDAV using Basic Authentication and API Key.
+File Management is critical and necessary in any project. How else can we work with mass data transfers or logging mechanisms? This blog post will explore WebDAV and its use in [Salesforce B2C Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/). We'll also discuss connecting to WebDAV using Basic Authentication and API Key.
 
 ## What is WebDAV?
 

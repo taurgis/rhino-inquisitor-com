@@ -67,7 +67,7 @@ And we do not get any insights into how it does it unless you work at Salesforce
 
 For the AI (Einstein) to learn, I already mention it needs to collect quality data. And that data is extracted from the visitors of the SFCC sites:
 
-- Categories navigated too
+- Categories navigated to
 - Products viewed
 - Products added to the basket
 - Products ordered

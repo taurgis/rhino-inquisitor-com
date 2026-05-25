@@ -36,7 +36,7 @@ Let's not waste time and get straight to the designs and their backstory.
 
 - [Get it now](https://my-store-5a6a56.creator-spring.com/listing/salesforce-ohana-rocks)
 
-Most people will have already since a similar text on an image or T-Shirt over the years. In this case, we just changed the subject to "Headless."
+Most people will have already seen a similar text on an image or T-Shirt over the years. In this case, we just changed the subject to "Headless."
 
 Headless has become more prominent in the Salesforce Commerce space in the past two to three years. Especially with the [acquisition of Mobify](https://www.digitalcommerce360.com/2020/09/09/salesforce-agrees-to-buy-headless-commerce-tech-firm-mobify/), this has gotten quite the boost.
 

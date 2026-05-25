@@ -1,7 +1,7 @@
 ---
 title: Helpful Salesforce B2C Commerce Cloud CLI tools
 description: >-
-  In this articles we will be looking at some helpfull CLI tools to make our
+  In this article we will be looking at some helpful CLI tools to make our
   lives in Salesforce B2C Commerce a little bit easier.
 date: '2023-09-11T17:19:00.000Z'
 lastmod: '2023-09-18T12:33:59.000Z'

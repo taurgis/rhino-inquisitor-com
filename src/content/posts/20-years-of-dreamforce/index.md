@@ -39,7 +39,7 @@ There is already a channel on the Salesforce B2C Commerce Cloud Unofficial Slack
 
 [Join the SFCC Unofficial Slack](https://docs.google.com/forms/d/e/1FAIpQLSdy875PlJuib35naCkr3-Frn2qtaSuuRgYezRSb2uBYkhXt7g/viewform) or [open the existing channel](https://sfcc-unofficial.slack.com/archives/CC62W7S5C).
 
-I will be there this year! It will be my first Dreamforce, and coincidently, it is my birthday on the 21st of September! Even though there is no "official" meetup on the schedule, it doesn't mean we can't get together!
+I will be there this year! It will be my first Dreamforce, and coincidentally, it is my birthday on the 21st of September! Even though there is no "official" meetup on the schedule, it doesn't mean we can't get together!
 
 Be sure to also leave a message in the [Commerce Trailblazers](https://trailhead.salesforce.com/trailblazer-community/feed/0D54S00000HFCBv) group to make it ✨extra special✨!
 
@@ -209,7 +209,7 @@ Learning about the particular use cases, you can run into as a food retailer is 
 
 > Release Readiness Live is here at Dreamforce! Join our product managers to learn about exciting new developments across B2C Commerce, B2B Commerce, Order Management, and Salesforce Payments.
 
-Another session about the roadmap, but always good to have a peak to learn what is coming in the Salesforce Commerce space!
+Another session about the roadmap, but always good to have a peek to learn what is coming in the Salesforce Commerce space!
 
 ### Commerce Cloud Developer Experience
 

@@ -189,7 +189,7 @@ The X-Content-Type-Options response HTTP header is a marker used by the server t
 
 ### [X-FRAME-OPTIONS](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options)
 
-TThe X-Frame-Options HTTP response header can be used to indicate whether or not a browser should be allowed to render a page in a , `<iframe>`, `<embed />` or `<object>`. Sites can use this to avoid click-jacking attacks, by ensuring that their content is not embedded into other sites.
+The X-Frame-Options HTTP response header can be used to indicate whether or not a browser should be allowed to render a page in a , `<iframe>`, `<embed />` or `<object>`. Sites can use this to avoid click-jacking attacks, by ensuring that their content is not embedded into other sites.
 
 **Note:** The Commerce Cloud platform can override this header for tools like the Storefront Toolkit.
 

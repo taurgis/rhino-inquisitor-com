@@ -301,7 +301,7 @@ It wouldn't be a Salesforce event if there weren't a big party at the end of day
 
 It turns out it is OneRepublic!
 
-## OneRebpulic
+## OneRepublic
 
 ### OneRepublic - Apologize (Official Music Video)
 

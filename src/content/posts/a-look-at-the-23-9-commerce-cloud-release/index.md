@@ -38,7 +38,7 @@ Another big thing to mention is that, if you look carefully at the screenshot, y
 
 ### Roadmap (Forward Looking Statement)
 
-V1 BETA - September 2023 (23.9) The ability to create custom **GET** endpoints is released together with the documentation. V1 GA - January 2024 (24.1) The feature is officially released and recommended by Salesforce to be used in Production use cases (long story short, wait untill the holiday period is over before releasing your production use cases). V2 GA - March 2024 (24.3) or a later release Support is added for PUT, PATCH, POST and DELETE functions to support any headless use case. Besides supporting more methods, some other features will be added:
+V1 BETA - September 2023 (23.9) The ability to create custom **GET** endpoints is released together with the documentation. V1 GA - January 2024 (24.1) The feature is officially released and recommended by Salesforce to be used in Production use cases (long story short, wait until the holiday period is over before releasing your production use cases). V2 GA - March 2024 (24.3) or a later release Support is added for PUT, PATCH, POST and DELETE functions to support any headless use case. Besides supporting more methods, some other features will be added:
 
 - Caching
 - Script API helper functions
@@ -77,7 +77,7 @@ Having "Production Mode" with less impact on performance will positively affect 
 > - Default IDP configuration allows for SSO/OIDC configuration with other IDPs outside the list of SLAS supported IDPs. Configuration can be performed via the Admin API or Admin UI. For more information, see Configure a Default IDP.
 > - Preferred IDP configuration cleanup and functionality added to Admin UI.
 
-This a massive update to IDP support in SLAS and a very welcome one. Before, we were limited to integrating with IDPs [officially supported](https://developer.salesforce.com/docs/commerce/commerce-api/guide/slas-identity-providers.html) by SLAS, [but now it is possible to bring your own](https://developer.salesforce.com/docs/commerce/commerce-api/guide/slas-default-idp.html)!
+This is a massive update to IDP support in SLAS and a very welcome one. Before, we were limited to integrating with IDPs [officially supported](https://developer.salesforce.com/docs/commerce/commerce-api/guide/slas-identity-providers.html) by SLAS, [but now it is possible to bring your own](https://developer.salesforce.com/docs/commerce/commerce-api/guide/slas-default-idp.html)!
 
 ### Shopper Login (SLAS)
 

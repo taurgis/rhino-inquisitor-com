@@ -21,7 +21,7 @@ takeaways:
   - "Shows how to access the same URL information in classic SFCC controllers and in React-based composable storefront code"
   - "Acts as a lightweight cheat sheet for developers working across monolithic and headless storefront patterns"
 ---
-It should be no secret that a URL is a vital part of any website In this article, we will dissect and explain the different parts of a Salesforce B2C Commerce Cloud URL and provide code examples on how to access this information [in an SFCC controller and React using the useLocation() hook](/what-does-the-composable-storefront-mean-for-sfcc-developers/).
+It should be no secret that a URL is a vital part of any website. In this article, we will dissect and explain the different parts of a Salesforce B2C Commerce Cloud URL and provide code examples on how to access this information [in an SFCC controller and React using the useLocation() hook](/what-does-the-composable-storefront-mean-for-sfcc-developers/).
 
 ## The URL Structure
 

@@ -174,4 +174,4 @@ I am assuming it is supposed to say "grouptax". A feature which has been added i
 
 Modify the Account Manager Auth Token token type from UUID to JWT by [@jbachelet](https://github.com/jbachelet) in [#199](https://github.com/SalesforceCommerceCloud/b2c-crm-sync/pull/199)
 
-This a significant update, as [UUID tokens are being deprecated and will stop working shortly](/the-deprecation-of-the-uuid-token-for-api-clients/)!
+This is a significant update, as [UUID tokens are being deprecated and will stop working shortly](/the-deprecation-of-the-uuid-token-for-api-clients/)!

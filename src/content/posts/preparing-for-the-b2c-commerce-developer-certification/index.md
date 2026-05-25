@@ -175,7 +175,7 @@ Unfortunately, the PLC (Partner Learning Camp) is only available to registered p
 
 ## Can I wing it
 
-Off-Course! This certificate should be a synch if you have been doing Salesforce B2C Commerce Cloud (and SFRA) development for multiple years/projects.
+Of course! This certificate should be a cinch if you have been doing Salesforce B2C Commerce Cloud (and SFRA) development for multiple years/projects.
 
 Bit of warning, this is only true if you also did configuration work in the Business Manager (Set up the search, categories management, Jobs, OCAPI, and so forth)
 
