@@ -13,7 +13,7 @@ env:
   HUGO_VERSION: 0.157.0
   NODE_VERSION: 20.18.1
   AVIF_CACHE_VERSION: 1
-  EXPECTED_PAGES_HOST: staging.rhino-inquisitor.com
+  EXPECTED_PAGES_HOST: www.rhino-inquisitor.com
   CANONICAL_PRODUCTION_BASE_URL: https://www.rhino-inquisitor.com/
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
@@ -84,11 +84,11 @@ jobs:
 
           if [[ "$PAGES_HOST" != "$EXPECTED_PAGES_HOST" ]]; then
             echo "ready=false" >> "$GITHUB_OUTPUT"
-            echo "GitHub Pages host is '$PAGES_HOST', expected '$EXPECTED_PAGES_HOST'. Continuing in project-host rehearsal mode until the staging custom domain is active." >> "$GITHUB_STEP_SUMMARY"
-            echo "::notice::GitHub Pages host is '$PAGES_HOST'; continuing with project-host rehearsal and staging-artifact validation."
+            echo "GitHub Pages host is '$PAGES_HOST', expected '$EXPECTED_PAGES_HOST'. Continuing in project-host rehearsal mode until the production custom domain is active (preview artifact ships noindex until then)." >> "$GITHUB_STEP_SUMMARY"
+            echo "::notice::GitHub Pages host is '$PAGES_HOST'; continuing with project-host rehearsal and preview-artifact validation."
           else
             echo "ready=true" >> "$GITHUB_OUTPUT"
-            echo "GitHub Pages staging host '$PAGES_HOST' is active." >> "$GITHUB_STEP_SUMMARY"
+            echo "GitHub Pages production host '$PAGES_HOST' is active." >> "$GITHUB_STEP_SUMMARY"
           fi
 
       - name: Install Node dependencies
