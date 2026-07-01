@@ -670,7 +670,7 @@ async function validateDiscoverySurfaces(options, manifestEntries, rows, failure
     } else {
       const htmlSource = await readFile(filePath, 'utf8');
       const $ = loadHtml(htmlSource);
-      const articleCount = $('.article-card-grid > li').length;
+      const articleCount = $('.archive-rows > li').length;
       const topicCount = $('.topic-hub-grid > li').length;
       const emptyState = $('.empty-state').length > 0;
       details = `articleCards=${articleCount}; topicCards=${topicCount}`;
@@ -680,7 +680,7 @@ async function validateDiscoverySurfaces(options, manifestEntries, rows, failure
       }
 
       if (articleCount === 0 && topicCount === 0) {
-        categoryFailures.push('Category page has no article-card or topic-hub discovery content');
+        categoryFailures.push('Category page has no archive-row or topic-hub discovery content');
       }
     }
 
