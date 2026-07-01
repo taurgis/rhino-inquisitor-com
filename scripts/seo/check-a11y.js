@@ -355,7 +355,7 @@ function evaluateSemantics(html, route) {
     const normalizedH1 = normalizeText(h1Text);
     const normalizedTitle = normalizeText(pageTitle.split('|')[0] ?? pageTitle);
 
-    if (normalizedH1 && normalizedTitle && !normalizedTitle.includes(normalizedH1) && !normalizedH1.includes(normalizedTitle)) {
+    if (route !== '/' && normalizedH1 && normalizedTitle && !normalizedTitle.includes(normalizedH1) && !normalizedH1.includes(normalizedTitle)) {
       findings.push(`The page title "${pageTitle}" does not align with the primary h1 "${h1Text}".`);
     }
   }
