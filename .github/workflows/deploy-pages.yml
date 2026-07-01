@@ -277,6 +277,10 @@ jobs:
           PHASE7_PREVIEW_BASE_URL: ${{ steps.preview_base.outputs.base_url }}
           PHASE7_DEPLOY_ARTIFACT_SOURCE: ${{ steps.deploy_artifact.outputs.source }}
           PHASE7_CI_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          # Only run blocking HTTPS live-host checks once the canonical www custom
+          # domain is the active Pages host. Until then the deploy is in project-host
+          # rehearsal mode and the live checks are recorded but non-fatal.
+          RHI_HTTPS_LIVE_HOST_READY: ${{ steps.pages_host.outputs.ready }}
         run: npm run gates:local
 
       - name: Upload artifact validator reports

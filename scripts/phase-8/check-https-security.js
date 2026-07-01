@@ -17,12 +17,21 @@ import { canonicalOrigin, toRepoRelative } from '../url/url-validation-helpers.j
 import { scanMixedContent } from '../phase-7/mixed-content-helpers.js';
 
 const canonicalUrl = new URL(canonicalOrigin);
+
+// The live-host checks target the canonical www origin. Until the production
+// custom domain is active, deploys run in "project-host rehearsal mode": the
+// live GitHub Pages host is the apex project host, so the canonical www origin
+// is not yet serving 200s. In that state the live checks are recorded but
+// non-fatal. The deploy workflow signals readiness via RHI_HTTPS_LIVE_HOST_READY
+// (from the Pages host check); only "true" enables blocking live checks.
+const liveHostReady = String(process.env.RHI_HTTPS_LIVE_HOST_READY ?? '').trim().toLowerCase() === 'true';
+
 const defaults = {
   publicRoot: phase8SeoDefaults.publicRoot,
   sampleMatrixPath: phase8SeoDefaults.sampleMatrixPath,
   reportPath: path.join(path.dirname(phase8SeoDefaults.sampleMatrixPath), 'https-security-report.json'),
   manualEvidencePath: path.join(path.dirname(phase8SeoDefaults.sampleMatrixPath), 'https-security-manual-evidence.json'),
-  skipLiveChecks: false,
+  skipLiveChecks: !liveHostReady,
   requireLiveChecks: false,
   requestTimeoutMs: 10000,
   apexDomain: 'rhino-inquisitor.com',
@@ -1053,6 +1062,8 @@ async function main() {
       skipLiveChecks: options.skipLiveChecks,
       requireLiveChecks: options.requireLiveChecks,
       requestTimeoutMs: options.requestTimeoutMs,
+      liveHostReady,
+      rehearsal: options.skipLiveChecks && !liveHostReady,
     },
     manualEvidence: manualEvidence ? {
       path: toRepoRelative(options.manualEvidencePath),
@@ -1093,6 +1104,9 @@ async function main() {
   console.log(`- report: ${toRepoRelative(options.reportPath)}`);
   console.log(`- artifact status: ${artifactStatus}`);
   console.log(`- live status: ${liveStatus}`);
+  if (options.skipLiveChecks && !liveHostReady) {
+    console.log(`- live-host checks skipped: project-host rehearsal mode (set RHI_HTTPS_LIVE_HOST_READY=true once ${canonicalUrl.hostname} is the active custom domain).`);
+  }
 }
 
 main().catch((error) => {

@@ -969,14 +969,6 @@ summary {
   flex-direction: column;
   gap: 0.95rem;
   border-radius: var(--radius-md);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-@media (hover: hover) {
-  .featured-article:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 24px rgba(8, 20, 35, 0.08);
-  }
 }
 
 .featured-article__link::after {
@@ -984,10 +976,6 @@ summary {
   position: absolute;
   inset: 0;
   z-index: 1;
-}
-
-.featured-article:hover .featured-article__media img {
-  transform: scale(1.03);
 }
 
 .featured-article__media {
@@ -1002,7 +990,6 @@ summary {
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.25s ease;
 }
 
 .featured-article h3 {
