@@ -64,7 +64,7 @@ This instruction passes only if one of the following is true:
 - URL, taxonomy, or metadata fixes with no body-copy rewrite.
 - Hugo template, shortcode implementation, or stylesheet changes.
 - Pure typo corrections, formatting-only cleanup, or link-target fixes that do not materially change the prose.
-- Migration mechanics or script changes outside the post body itself.
+- Tooling or script changes outside the post body itself.
 
 ## Escalation Path
 

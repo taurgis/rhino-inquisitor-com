@@ -1,5 +1,5 @@
 ---
-description: 'Enforce Markdown body quality standards on migrated and authored content files under content/**'
+description: 'Enforce Markdown body quality standards on content files under content/**'
 applyTo: 'content/**'
 ---
 
@@ -7,24 +7,20 @@ applyTo: 'content/**'
 
 ## Mandatory Pre-Check
 
-Before committing or approving any file matched by `applyTo`, verify whether the file was produced by the migration pipeline (i.e., it originated from a WordPress post, page, or video item). If yes, apply the **Full Migration Body Checklist** below. If the file is newly authored content with no migration context, apply the **Authored Content Checklist** only.
+Before committing or approving any file matched by `applyTo`, run the Content Body Checklist below on the article body before marking `draft: false`.
 
-## Full Migration Body Checklist
+## Content Body Checklist
 
-Run this checklist on every file produced by the content migration pipeline before marking `draft: false`.
+### 1. Clean Markup
 
-### 1. WordPress Artifact Removal
+- [ ] No stray shortcode-style patterns in the body: search for `[caption`, `[gallery`, `[embed`, `[youtube`, `[video`, `[audio`, `[playlist` and remove or replace with proper Hugo shortcodes or Markdown.
+- [ ] No leftover inline `<style>`, `<span>`, or `<div>` HTML noise in the Markdown body.
+- [ ] No stray `<!--more-->` or `[Read more]` truncation artifacts.
 
-- [ ] No raw WordPress shortcode patterns remain in the body: search for `[caption`, `[gallery`, `[embed`, `[youtube`, `[video`, `[audio`, `[playlist` and remove or replace.
-- [ ] No inline `<style>`, `<span>`, or `<div>` HTML remnants in the Markdown body (these survive some HTML-to-Markdown conversions).
-- [ ] No `<!--more-->` WordPress read-more comments left in Markdown.
-- [ ] No `[…]` or `[Read more]` link patterns generated from WordPress excerpt truncation.
-- [ ] No WordPress-generated `wp-content/uploads` absolute URLs remain in image or link references; all media must point to local `static/` paths.
+### 2. Internal Links and Media
 
-### 2. Internal URL Relinking
-
-- [ ] All internal links in the body that previously pointed to `https://www.rhino-inquisitor.com/...` have been converted to relative Hugo paths (e.g., `/some-article/`).
-- [ ] No remaining absolute WordPress internal links that would resolve to the old host after cutover.
+- [ ] All internal links use relative Hugo paths (e.g., `/some-article/`) — no hardcoded absolute `https://www.rhino-inquisitor.com/...` URLs.
+- [ ] All media points to local `static/` paths — no external absolute media URLs or hotlinks.
 
 ### 3. Image Alt Text
 
@@ -33,41 +29,21 @@ Run this checklist on every file produced by the content migration pipeline befo
 
 ### 4. Content Completeness (Thin Content Guard)
 
-- [ ] Post body word count is ≥ 150 words OR the post has `draft: true`. Posts under 150 words must be reviewed by the migration owner and either enriched or explicitly set to `draft: true`.
+- [ ] Post body word count is ≥ 150 words OR the post has `draft: true`. Posts under 150 words are either enriched or explicitly set to `draft: true`.
 - [ ] Exception: video pages, landing pages, and category description pages may have shorter bodies if they are primarily media or navigation pages — annotate with a front matter comment `# content-type: video-page` or equivalent.
 
-### 5. Line Ending and Encoding Normalization
+### 5. Line Ending and Encoding
 
-- [ ] File uses LF (Unix) line endings, not CRLF (Windows). WXR exports from Windows environments often produce CRLF; verify with `file` command or editor inspection.
+- [ ] File uses LF (Unix) line endings, not CRLF (Windows).
 - [ ] File encoding is UTF-8 without BOM.
 
 ### 6. Markdown Syntax Validation
 
 - [ ] No broken heading hierarchy: headings start at `##` (not `#`, which conflicts with the page `title` front matter).
 - [ ] No unescaped bare angle brackets (`<`, `>`) in body text that are not intentional HTML.
-- [ ] Code blocks use fenced syntax (``` ``` ```) with a language identifier where the language is known.
+- [ ] Code blocks use fenced syntax with a language identifier where the language is known.
 - [ ] Tables use GFM pipe syntax — no raw HTML `<table>` elements unless there is no Markdown equivalent.
-
-## Authored Content Checklist
-
-For newly written (non-migrated) content files:
-
-- [ ] Body starts at heading level `##` or lower — never `#`.
-- [ ] All image references include descriptive alt text.
-- [ ] Internal links use relative paths (e.g., `/category/sfcc/`) — no hardcoded absolute URLs.
 - [ ] No draft content (`draft: false`) published without a `description` front matter field.
-
-## Thin Content Review Trigger
-
-If a migrated post body is **under 150 words** after conversion and the WordPress source status was `publish`:
-
-1. Flag the item with `status: warning` and `warnings: ["thin-content: N words"]` in the migration report.
-2. Set `draft: true` in the generated front matter until the migration owner reviews.
-3. Options: enrich content, merge into a related post (with `seo-migration` disposition update), or intentionally publish as a stub with `draft: false` after explicit approval.
-
-## Escalation
-
-If more than 10% of migrated posts trigger the thin-content warning, escalate to the migration owner before continuing. This may indicate a systematic WXR parsing issue (e.g., CDATA body field not correctly extracted).
 
 ## When This Is Not Required
 

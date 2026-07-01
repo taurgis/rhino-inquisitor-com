@@ -100,7 +100,7 @@ jobs:
 ## Artifact Retention
 
 1. Retain build artifacts (`public/`) for at least 7 days on main branch builds for rollback capability.
-2. Retain migration report artifacts (`migration/migration-report.json`, `migration/url-parity-report.json`) for audit trail.
+2. Retain gate report artifacts (for example URL-parity and redirect reports) for audit trail.
 
 ## Rollback Plan
 

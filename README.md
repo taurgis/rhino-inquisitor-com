@@ -2,7 +2,7 @@
 
 Source and tooling for rhino-inquisitor.com — a Hugo site deployed to GitHub Pages via GitHub Actions.
 
-The WordPress → Hugo migration is complete. Day-to-day work is authoring and publishing new articles while keeping SEO, URL/redirect integrity, accessibility, and performance intact.
+Day-to-day work is authoring and publishing new articles while keeping SEO, URL/redirect integrity, accessibility, and performance intact.
 
 ## Repository Structure
 
@@ -13,9 +13,9 @@ The WordPress → Hugo migration is complete. Day-to-day work is authoring and p
 |   |-- instructions/    # Repository governance and quality gates
 |   `-- workflows/       # build-pr.yml (PR gates), deploy-pages.yml (publish)
 |-- .agents/skills/      # Domain skills used by agents
-|-- migration/           # Retained URL manifests and redirect/parity data read by live gates
-|-- validation/          # Retained validation inputs and report schema
-|-- monitoring/          # Post-launch monitoring runbook and reports
+|-- migration/           # URL manifests and redirect/parity data read by live gates
+|-- validation/          # Validation inputs and report schema
+|-- monitoring/          # Site monitoring runbook and reports
 |-- scripts/             # SEO, URL-parity, redirect, accessibility, and performance gate scripts
 |-- src/
 |   |-- content/         # Hugo content source files (articles live here)

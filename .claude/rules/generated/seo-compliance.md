@@ -72,10 +72,10 @@ If **yes to any**, apply the full SEO Compliance Checklist below before completi
 
 ## Escalation
 
-If a change introduces a URL structure alteration affecting >5% of indexed URLs, escalate to SEO owner before merging. This triggers the edge redirect architecture decision (Phase 2 contract).
+If a change introduces a URL structure alteration affecting >5% of indexed URLs, escalate to the SEO owner before merging. This triggers a review of the edge redirect architecture.
 
 ## References
 
-- `.agents/skills/seo-migration/SKILL.md` — SEO migration rules and redirect architecture
+- `.agents/skills/seo-migration/SKILL.md` — Technical SEO rules and redirect architecture
 - `.agents/skills/seo-migration/references/REDIRECT-GUIDE.md` — Redirect decision tree
 - `.agents/skills/hugo-development/references/URL-STRATEGY.md` — Hugo URL and alias rules

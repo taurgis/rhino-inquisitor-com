@@ -29,7 +29,7 @@ Consult the `hugo-development` skill before authoring or reviewing any file matc
 
 ## Front Matter Standards
 
-1. `url` is mandatory on every migrated content file. Hugo does not sanitize it — values must be pre-validated.
+1. `url` is mandatory on every content file. Hugo does not sanitize it — values must be pre-validated.
 2. `url` format: lowercase, starts with `/`, ends with `/`, `a-z 0-9 - /` only.
 3. `aliases` values must originate from `migration/url-manifest.json` — no arbitrary alias creation.
 4. `canonical` front matter override must be absolute HTTPS `https://www.rhino-inquisitor.com/...` only.

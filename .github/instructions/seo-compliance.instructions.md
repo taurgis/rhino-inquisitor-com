@@ -1,5 +1,5 @@
 ---
-description: 'Enforce SEO compliance checks on every change to Hugo templates, layouts, partials, content files, or migration scripts that affect URL structure, canonical tags, metadata, sitemap, robots.txt, or structured data'
+description: 'Enforce SEO compliance checks on every change to Hugo templates, layouts, partials, content files, or SEO/URL scripts that affect URL structure, canonical tags, metadata, sitemap, robots.txt, or structured data'
 applyTo: 'layouts/**,content/**,hugo.toml,static/robots.txt,scripts/**'
 ---
 
@@ -64,10 +64,10 @@ If **yes to any**, apply the full SEO Compliance Checklist below before completi
 
 ## Escalation
 
-If a change introduces a URL structure alteration affecting >5% of indexed URLs, escalate to SEO owner before merging. This triggers the edge redirect architecture decision (Phase 2 contract).
+If a change introduces a URL structure alteration affecting >5% of indexed URLs, escalate to the SEO owner before merging. This triggers a review of the edge redirect architecture.
 
 ## References
 
-- `.github/skills/seo-migration/SKILL.md` — SEO migration rules and redirect architecture
+- `.github/skills/seo-migration/SKILL.md` — Technical SEO rules and redirect architecture
 - `.github/skills/seo-migration/references/REDIRECT-GUIDE.md` — Redirect decision tree
 - `.github/skills/hugo-development/references/URL-STRATEGY.md` — Hugo URL and alias rules

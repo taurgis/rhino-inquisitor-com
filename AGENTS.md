@@ -10,9 +10,9 @@ This file is the root agent guide for the repository. It complements agent files
 
 ## Repository Status
 
-- The WordPress → Hugo migration is complete. This repo is now a live Hugo blog deployed to GitHub Pages.
+- This is a live Hugo blog deployed to GitHub Pages.
 - Day-to-day work is authoring and publishing new articles under `src/content/` and maintaining the site.
-- URL parity and redirect gates remain active permanently to protect the URLs and redirects established during migration — do not weaken them.
+- URL parity and redirect gates are active permanently to protect existing URLs, redirects, and canonical signals — do not weaken them.
 
 ## Current Project Structure
 
@@ -26,9 +26,9 @@ This file is the root agent guide for the repository. It complements agent files
 |   `-- workflows/       # build-pr.yml (PR gates) and deploy-pages.yml (publish)
 |-- .claude/             # Generated for Claude Code (skills/, rules/generated/)
 |-- .cursor/             # Generated for Cursor (agents/, rules/*.mdc)
-|-- migration/           # Retained URL manifests + redirect/parity data inputs used by live gates
+|-- migration/           # URL manifests + redirect/parity data inputs used by live gates
 |-- validation/          # Retained validation inputs (expected-url-outcomes, priority-routes, sample-matrix, schema)
-|-- monitoring/          # Post-launch monitoring runbook and reports
+|-- monitoring/          # Site monitoring runbook and reports
 |-- src/                 # Hugo site source tree (content, layouts, static, assets, data, archetypes)
 |-- scripts/             # SEO, URL-parity, redirect, accessibility, and performance gate scripts
 |-- hugo.toml            # Hugo configuration
