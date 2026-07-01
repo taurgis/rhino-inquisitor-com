@@ -19,10 +19,14 @@ This file is the root agent guide for the repository. It complements agent files
 
 ```text
 .
+|-- .agents/
+|   |-- skills/          # Canonical domain skills (shared across all agents)
+|   `-- rules/           # Generated instruction rules for universal agents (codex, antigravity, ...)
 |-- .github/
-|   |-- agents/          # Agent role definitions
-|   |-- instructions/    # Governance and quality gates
-|   `-- skills/          # Domain skills and references
+|   |-- agents/          # Canonical agent role definitions (source for generation)
+|   `-- instructions/    # Canonical governance and quality gates (source for generation)
+|-- .claude/             # Generated for Claude Code (skills/, agents/, rules/generated/)
+|-- .cursor/             # Generated for Cursor (agents/, rules/*.mdc)
 |-- analysis/
 |   |-- main-plan.MD     # Migration master plan
 |   |-- design/          # Modernization direction, prompts, wireframes
@@ -55,96 +59,6 @@ This file is the root agent guide for the repository. It complements agent files
 - Migration baselines and manifests: [migration/](migration/)
 - Validation and discovery scripts: [scripts/](scripts/)
 - Temporary evidence, exports, and source snapshots: [tmp/](tmp/)
-
-## Default Multi-Agent Workflow
-
-For implementation requests in this repository:
-
-1. Run Project Manager and Business Analyst on every request unless all exemption conditions in `.github/instructions/pm-ba-subagent-research.instructions.md` are satisfied.
-2. Run Senior QA Engineer when changes span multiple files or touch governance/quality controls.
-3. Run Official Docs Researcher before technical guidance updates or technical claims.
-4. Execute implementation only after the above recommendations are reconciled.
-
-For analysis-closeout updates (phase plans, ticket indexes, governance docs), use the same workflow and treat phase ticket indexes as acceptance-criteria anchors.
-
-Primary governance source for this flow:
-- [.github/instructions/pm-ba-subagent-research.instructions.md](.github/instructions/pm-ba-subagent-research.instructions.md)
-
-## Available Agents
-
-| Agent | Use When | Source File |
-|---|---|---|
-| Project Manager | You need sequencing, milestones, risk framing, and delivery checkpoints | [.github/agents/project-manager.agent.md](.github/agents/project-manager.agent.md) |
-| Business Analyst | You need clear requirements, assumptions, acceptance criteria, and traceability | [.github/agents/business-analyst.agent.md](.github/agents/business-analyst.agent.md) |
-| Senior Developer | You need implementation decomposition, safe parallel subagent coordination, and integrated delivery across feature slices | [.github/agents/senior-developer.agent.md](.github/agents/senior-developer.agent.md) |
-| Senior QA Engineer | You need verification strategy, risk-based test coverage, and go or no-go quality advice | [.github/agents/senior-qa-engineer.agent.md](.github/agents/senior-qa-engineer.agent.md) |
-| Hugo Specialist | You need blog or website design direction plus Hugo implementation guidance for templates, configuration, and GitHub Pages workflows | [.github/agents/hugo-specialist.agent.md](.github/agents/hugo-specialist.agent.md) |
-| SEO Specialist | You need URL disposition, redirect architecture, canonical, structured data, or Search Console strategy | [.github/agents/seo-specialist.agent.md](.github/agents/seo-specialist.agent.md) |
-| Official Docs Researcher | You need official-source documentation evidence for technical claims and recommendations | [.github/agents/official-docs-researcher.agent.md](.github/agents/official-docs-researcher.agent.md) |
-
-## Parallel Implementation Option
-
-When a user request contains multiple independent implementation features:
-
-1. Use `Senior Developer` to decompose work into `parallel-safe` and `sequential-only` slices.
-2. Run parallel developer subagents only when independence is explicit and the user requested parallelization or explicitly accepted it in the current task.
-3. Require every parallel subagent prompt to include cross-agent file-awareness (other agents may adjust related files).
-4. Complete an integration pass before presenting final results.
-5. Do not use parallel developer subagents for governance-heavy paths:
-  - `.github/agents/**`
-  - `.github/instructions/**`
-  - `analysis/main-plan.MD`
-
-Governance source:
-- [.github/instructions/parallel-developer-subagents.instructions.md](.github/instructions/parallel-developer-subagents.instructions.md)
-
-
-## Skills That Support Agent Work
-
-Domain skills are located in [.github/skills/](.github/skills/):
-
-- [anti-ai-writing](.github/skills/anti-ai-writing/SKILL.md)
-- [audience-layering](.github/skills/audience-layering/SKILL.md)
-- [beginner-technical-writing](.github/skills/beginner-technical-writing/SKILL.md)
-- [chrome-devtools-mcp](.github/skills/chrome-devtools-mcp/SKILL.md)
-- [code-walkthrough-authoring](.github/skills/code-walkthrough-authoring/SKILL.md)
-- [content-migration](.github/skills/content-migration/SKILL.md)
-- [css-modern-features](.github/skills/css-modern-features/SKILL.md)
-- [css-motion-systems](.github/skills/css-motion-systems/SKILL.md)
-- [documentation](.github/skills/documentation/SKILL.md)
-- [html](.github/skills/html/SKILL.md)
-- [hugo-development](.github/skills/hugo-development/SKILL.md)
-- [human-prose-editing](.github/skills/human-prose-editing/SKILL.md)
-- [image-caption-writing](.github/skills/image-caption-writing/SKILL.md)
-- [implementation-ticket](.github/skills/implementation-ticket/SKILL.md)
-- [javascript-development](.github/skills/javascript-development/SKILL.md)
-- [seo-migration](.github/skills/seo-migration/SKILL.md)
-- [skill-authoring](.github/skills/skill-authoring/SKILL.md)
-- [ux-interface-design](.github/skills/ux-interface-design/SKILL.md)
-
-## Instruction Sources
-
-Instruction files live in [.github/instructions/](.github/instructions/) and define required checks, exemptions, escalation paths, and output expectations.
-
-When instructions overlap, use the repository precedence model documented in:
-- [.github/instructions/agent-governance-quality.instructions.md](.github/instructions/agent-governance-quality.instructions.md)
-
-## Example Agent Prompts
-
-- Project planning example:
-  - "Run Project Manager to create milestones and top risks for Phase 4."
-- Requirements example:
-  - "Run Business Analyst to define FR and NFR acceptance criteria for this migration task."
-- Verification example:
-  - "Run Senior QA Engineer to build a requirement-to-test matrix and release recommendation."
-- Official evidence example:
-  - "Run Official Docs Researcher to validate this platform behavior from official documentation."
-
-## Maintenance
-
-- Update this file when adding, removing, or renaming agent definitions in [.github/agents/](.github/agents/).
-- Keep workflow guidance synchronized with repository instruction files.
-- Keep links relative and valid.
 
 ## Workspace Hygiene
 

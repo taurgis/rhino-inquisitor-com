@@ -40,6 +40,10 @@
       {
         "name": "SFCC DEV MCP",
         "url": "https://sfcc-mcp-dev.rhino-inquisitor.com/"
+      },
+      {
+        "name": "Bonsai",
+        "url": "https://bonsai.rhino-inquisitor.com/"
       }
     ]
   }
