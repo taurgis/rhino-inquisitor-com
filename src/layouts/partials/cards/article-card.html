@@ -3,7 +3,7 @@
 {{ $hasImage := and $page.Params.heroImage (ne $page.Params.heroImage "") }}
 {{ $excerpt := partial "article/resolve-excerpt.html" (dict
   "page" $page
-  "fallback" "This entry is ready for migrated body copy and structured archive browsing."
+  "fallback" "This entry is ready for body copy and structured archive browsing."
 ) }}
 {{ $cardClass := cond (eq $variant "featured") "feature-card" "article-card" }}
 {{ $cardClasses := slice $cardClass }}

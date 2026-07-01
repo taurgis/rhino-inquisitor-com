@@ -13,7 +13,7 @@ import {
   readHtmlPage,
   writeJsonReport,
 } from './seo-gate-helpers.js';
-import { canonicalOrigin, toRepoRelative } from '../migration/url-validation-helpers.js';
+import { canonicalOrigin, toRepoRelative } from '../url/url-validation-helpers.js';
 import { scanMixedContent } from '../phase-7/mixed-content-helpers.js';
 
 const canonicalUrl = new URL(canonicalOrigin);

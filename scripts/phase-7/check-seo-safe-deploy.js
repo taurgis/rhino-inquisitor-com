@@ -11,7 +11,7 @@ const repoRoot = path.resolve(__dirname, '..', '..');
 
 const defaults = {
   publicDir: path.join(repoRoot, 'public'),
-  manifestPath: path.join(repoRoot, 'migration', 'url-manifest.json'),
+  manifestPath: path.join(repoRoot, 'url-data', 'url-manifest.json'),
   expectedOrigin: 'https://staging.rhino-inquisitor.com/',
   crawlMode: 'blocked',
   reportPath: ''

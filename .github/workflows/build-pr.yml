@@ -47,7 +47,7 @@ jobs:
           fi
 
           route_sensitive=false
-          if grep -Eq '^(src/content/|src/layouts/|src/static/|src/archetypes/|hugo\.toml$|scripts/|migration/url-manifest\.json$)' changed-files.txt; then
+          if grep -Eq '^(src/content/|src/layouts/|src/static/|src/archetypes/|hugo\.toml$|scripts/|url-data/url-manifest\.json$)' changed-files.txt; then
             route_sensitive=true
           fi
           echo "route_sensitive=$route_sensitive" >> "$GITHUB_OUTPUT"
@@ -234,14 +234,14 @@ jobs:
             tmp/pr-ci-prod-public
             tmp/pr-preview-crawl-control-audit.csv
             tmp/pr-preview-llm-artifact-quality-report.json
-            migration/reports/phase-5-crawl-control-audit.csv
-            migration/phase-5-redirect-signal-matrix.csv
-            migration/reports/phase-5-redirect-validation.csv
-            migration/reports/phase-5-metadata-report.csv
-            migration/reports/phase-5-schema-audit.csv
-            migration/reports/phase-5-sitemap-audit.csv
-            migration/reports/phase-5-internal-links-audit.csv
-            migration/url-parity-report.json
+            url-data/reports/phase-5-crawl-control-audit.csv
+            url-data/phase-5-redirect-signal-matrix.csv
+            url-data/reports/phase-5-redirect-validation.csv
+            url-data/reports/phase-5-metadata-report.csv
+            url-data/reports/phase-5-schema-audit.csv
+            url-data/reports/phase-5-sitemap-audit.csv
+            url-data/reports/phase-5-internal-links-audit.csv
+            url-data/url-parity-report.json
             validation/llm-artifact-quality-report.json
           if-no-files-found: error
           retention-days: 7
@@ -312,7 +312,7 @@ jobs:
           name: pr-a11y-artifacts-${{ github.run_id }}
           path: |
             public
-            migration/reports/phase-5-accessibility-audit.md
+            url-data/reports/phase-5-accessibility-audit.md
           if-no-files-found: error
           retention-days: 7
 
@@ -323,7 +323,7 @@ jobs:
           if [[ "${{ steps.accessibility_check.outcome }}" == "success" ]]; then
             echo "Phase 5 accessibility gate passed." >> "$GITHUB_STEP_SUMMARY"
           else
-            echo "Phase 5 accessibility gate failed. Resolve blocking findings in migration/reports/phase-5-accessibility-audit.md before merge." >> "$GITHUB_STEP_SUMMARY"
+            echo "Phase 5 accessibility gate failed. Resolve blocking findings in url-data/reports/phase-5-accessibility-audit.md before merge." >> "$GITHUB_STEP_SUMMARY"
           fi
 
   performance:

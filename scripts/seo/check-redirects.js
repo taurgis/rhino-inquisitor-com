@@ -14,13 +14,13 @@ import {
   severityForEntry,
   sortManifestEntries,
   toRepoRelative
-} from '../migration/url-validation-helpers.js';
+} from '../url/url-validation-helpers.js';
 
 const defaults = {
-  manifestPath: path.join(repoRoot, 'migration/url-manifest.json'),
+  manifestPath: path.join(repoRoot, 'url-data/url-manifest.json'),
   publicRoot: path.join(repoRoot, 'public'),
-  reportPath: path.join(repoRoot, 'migration/reports/phase-5-redirect-validation.csv'),
-  matrixPath: path.join(repoRoot, 'migration/phase-5-redirect-signal-matrix.csv')
+  reportPath: path.join(repoRoot, 'url-data/reports/phase-5-redirect-validation.csv'),
+  matrixPath: path.join(repoRoot, 'url-data/phase-5-redirect-signal-matrix.csv')
 };
 
 function printHelp() {

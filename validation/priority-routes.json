@@ -6,11 +6,11 @@
     "commit": "bb7bd49e1e8292ea3dbc744dded428dcfcab48aa",
     "manifest_tag": "phase-6-redirect-map-v1",
     "manifest_commit": "3f29de0ccfb587956ea405813dd27426edf98f61",
-    "seo_baseline_path": "migration/phase-1-seo-baseline.md"
+    "seo_baseline_path": "url-data/phase-1-seo-baseline.md"
   },
   "selection_method": {
-    "organic": "Take the first 20 rows from the 90-day top-pages-by-clicks table in migration/phase-1-seo-baseline.md. Preserve source rank order exactly as captured.",
-    "backlink": "Take the first 20 rows from the link-equity baseline table in migration/phase-1-seo-baseline.md. Preserve source rank order exactly as captured.",
+    "organic": "Take the first 20 rows from the 90-day top-pages-by-clicks table in url-data/phase-1-seo-baseline.md. Preserve source rank order exactly as captured.",
+    "backlink": "Take the first 20 rows from the link-equity baseline table in url-data/phase-1-seo-baseline.md. Preserve source rank order exactly as captured.",
     "deduplication": "Merge duplicate routes across source sets into one route entry and retain per-source rank metadata.",
     "class_coverage_supplements": "For any missing required URL class, add one deterministic supplement preferring non-query keep routes, then merge, then retire, then organic/external signal, then priority, then route sort order.",
     "tie_breaker": "Where selection order is otherwise equal, use route ascending."
@@ -118,7 +118,7 @@
         }
       ],
       "coverage_supplement_for_url_class": null,
-      "selection_reason": "organic rank 6 from migration/phase-1-seo-baseline.md. Also present in backlink rank 1."
+      "selection_reason": "organic rank 6 from url-data/phase-1-seo-baseline.md. Also present in backlink rank 1."
     },
     {
       "route": "/swc-and-storybook-error-failed-to-load-native-binding/",
@@ -141,7 +141,7 @@
         }
       ],
       "coverage_supplement_for_url_class": null,
-      "selection_reason": "organic rank 1 from migration/phase-1-seo-baseline.md."
+      "selection_reason": "organic rank 1 from url-data/phase-1-seo-baseline.md."
     },
     {
       "route": "/how-to-set-up-the-ecdn-in-sfcc-staging/",
@@ -162,7 +162,7 @@
         }
       ],
       "coverage_supplement_for_url_class": null,
-      "selection_reason": "backlink rank 2 from migration/phase-1-seo-baseline.md."
+      "selection_reason": "backlink rank 2 from url-data/phase-1-seo-baseline.md."
     },
     {
       "route": "/how-to-use-ocapi-scapi-hooks/",
@@ -194,7 +194,7 @@
         }
       ],
       "coverage_supplement_for_url_class": null,
-      "selection_reason": "organic rank 2 from migration/phase-1-seo-baseline.md. Also present in backlink rank 8."
+      "selection_reason": "organic rank 2 from url-data/phase-1-seo-baseline.md. Also present in backlink rank 8."
     },
     {
       "route": "/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/",
@@ -226,7 +226,7 @@
         }
       ],
       "coverage_supplement_for_url_class": null,
-      "selection_reason": "organic rank 10 from migration/phase-1-seo-baseline.md. Also present in backlink rank 3."
+      "selection_reason": "organic rank 10 from url-data/phase-1-seo-baseline.md. Also present in backlink rank 3."
     },
     {
       "route": "/in-the-ring-ocapi-versus-scapi/",
@@ -249,7 +249,7 @@
         }
       ],
       "coverage_supplement_for_url_class": null,
-      "selection_reason": "organic rank 3 from migration/phase-1-seo-baseline.md."
+      "selection_reason": "organic rank 3 from url-data/phase-1-seo-baseline.md."
     },
     {
       "route": "/ai-einstein-in-salesforce-b2c-commerce-cloud/",
@@ -270,7 +270,7 @@
         }
       ],
       "coverage_supplement_for_url_class": null,
-      "selection_reason": "backlink rank 4 from migration/phase-1-seo-baseline.md."
+      "selection_reason": "backlink rank 4 from url-data/phase-1-seo-baseline.md."
     },
     {
       "route": "/mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/",
@@ -302,7 +302,7 @@
         }
       ],
       "coverage_supplement_for_url_class": null,
-      "selection_reason": "organic rank 4 from migration/phase-1-seo-baseline.md. Also present in backlink rank 9."
+      "selection_reason": "organic rank 4 from url-data/phase-1-seo-baseline.md. Also present in backlink rank 9."
     },
     {
       "route": "/a-beginners-guide-to-webdav-in-sfcc/",
@@ -325,7 +325,7 @@
         }
       ],
       "coverage_supplement_for_url_class": null,
-      "selection_reason": "organic rank 5 from migration/phase-1-seo-baseline.md."
+      "selection_reason": "organic rank 5 from url-data/phase-1-seo-baseline.md."
     },
     {
       "route": "/lets-go-live-ecdn/",
@@ -346,7 +346,7 @@
         }
       ],
       "coverage_supplement_for_url_class": null,
-      "selection_reason": "backlink rank 5 from migration/phase-1-seo-baseline.md."
+      "selection_reason": "backlink rank 5 from url-data/phase-1-seo-baseline.md."
     },
     {
       "route": "/mail-attachments-in-b2c-commerce-cloud/",
@@ -367,7 +367,7 @@
         }
       ],
       "coverage_supplement_for_url_class": null,
-      "selection_reason": "backlink rank 6 from migration/phase-1-seo-baseline.md."
+      "selection_reason": "backlink rank 6 from url-data/phase-1-seo-baseline.md."
     },
     {
       "route": "/how-to-get-salesforce-certification-vouchers/",
@@ -388,7 +388,7 @@
         }
       ],
       "coverage_supplement_for_url_class": null,
-      "selection_reason": "backlink rank 7 from migration/phase-1-seo-baseline.md."
+      "selection_reason": "backlink rank 7 from url-data/phase-1-seo-baseline.md."
     },
     {
       "route": "/sitegenesis-vs-sfra-vs-pwa/",
@@ -420,7 +420,7 @@
         }
       ],
       "coverage_supplement_for_url_class": null,
-      "selection_reason": "organic rank 7 from migration/phase-1-seo-baseline.md. Also present in backlink rank 12."
+      "selection_reason": "organic rank 7 from url-data/phase-1-seo-baseline.md. Also present in backlink rank 12."
     },
     {
       "route": "/creating-custom-ocapi-endpoints/",
@@ -443,7 +443,7 @@
         }
       ],
       "coverage_supplement_for_url_class": null,
-      "selection_reason": "organic rank 8 from migration/phase-1-seo-baseline.md."
+      "selection_reason": "organic rank 8 from url-data/phase-1-seo-baseline.md."
     },
     {
       "route": "/understanding-sfcc-instances/",
@@ -466,7 +466,7 @@
         }
       ],
       "coverage_supplement_for_url_class": null,
-      "selection_reason": "organic rank 9 from migration/phase-1-seo-baseline.md."
+      "selection_reason": "organic rank 9 from url-data/phase-1-seo-baseline.md."
     },
     {
       "route": "/salesforce-b2c-commerce-the-22-6-release/",
@@ -487,7 +487,7 @@
         }
       ],
       "coverage_supplement_for_url_class": null,
-      "selection_reason": "backlink rank 10 from migration/phase-1-seo-baseline.md."
+      "selection_reason": "backlink rank 10 from url-data/phase-1-seo-baseline.md."
     },
     {
       "route": "/caching-in-the-sfcc-composable-storefront/",
@@ -510,7 +510,7 @@
         }
       ],
       "coverage_supplement_for_url_class": null,
-      "selection_reason": "organic rank 11 from migration/phase-1-seo-baseline.md."
+      "selection_reason": "organic rank 11 from url-data/phase-1-seo-baseline.md."
     },
     {
       "route": "/simplifying-the-salesforce-order-of-execution/",
@@ -531,7 +531,7 @@
         }
       ],
       "coverage_supplement_for_url_class": null,
-      "selection_reason": "backlink rank 11 from migration/phase-1-seo-baseline.md."
+      "selection_reason": "backlink rank 11 from url-data/phase-1-seo-baseline.md."
     },
     {
       "route": "/how-to-set-up-slas-for-the-composable-storefront/",
@@ -563,7 +563,7 @@
         }
       ],
       "coverage_supplement_for_url_class": null,
-      "selection_reason": "organic rank 12 from migration/phase-1-seo-baseline.md. Also present in backlink rank 20."
+      "selection_reason": "organic rank 12 from url-data/phase-1-seo-baseline.md. Also present in backlink rank 20."
     },
     {
       "route": "/custom-ttf-fonts-in-pdf-for-sfcc/",
@@ -586,7 +586,7 @@
         }
       ],
       "coverage_supplement_for_url_class": null,
-      "selection_reason": "organic rank 13 from migration/phase-1-seo-baseline.md."
+      "selection_reason": "organic rank 13 from url-data/phase-1-seo-baseline.md."
     },
     {
       "route": "/third-party-api-caching-in-commerce-cloud/",
@@ -607,7 +607,7 @@
         }
       ],
       "coverage_supplement_for_url_class": null,
-      "selection_reason": "backlink rank 13 from migration/phase-1-seo-baseline.md."
+      "selection_reason": "backlink rank 13 from url-data/phase-1-seo-baseline.md."
     },
     {
       "route": "/a-look-at-the-23-9-commerce-cloud-release/",
@@ -628,7 +628,7 @@
         }
       ],
       "coverage_supplement_for_url_class": null,
-      "selection_reason": "backlink rank 14 from migration/phase-1-seo-baseline.md."
+      "selection_reason": "backlink rank 14 from url-data/phase-1-seo-baseline.md."
     },
     {
       "route": "/the-b2c-commerce-architect-certification/",
@@ -651,7 +651,7 @@
         }
       ],
       "coverage_supplement_for_url_class": null,
-      "selection_reason": "organic rank 14 from migration/phase-1-seo-baseline.md."
+      "selection_reason": "organic rank 14 from url-data/phase-1-seo-baseline.md."
     },
     {
       "route": "/category/salesforce-commerce-cloud/release-notes/",
@@ -672,7 +672,7 @@
         }
       ],
       "coverage_supplement_for_url_class": null,
-      "selection_reason": "backlink rank 15 from migration/phase-1-seo-baseline.md."
+      "selection_reason": "backlink rank 15 from url-data/phase-1-seo-baseline.md."
     },
     {
       "route": "/salesforce-b2c-commerce-cloud-governance-and-quotas/",
@@ -695,7 +695,7 @@
         }
       ],
       "coverage_supplement_for_url_class": null,
-      "selection_reason": "organic rank 15 from migration/phase-1-seo-baseline.md."
+      "selection_reason": "organic rank 15 from url-data/phase-1-seo-baseline.md."
     },
     {
       "route": "/community-repositories/",
@@ -716,7 +716,7 @@
         }
       ],
       "coverage_supplement_for_url_class": null,
-      "selection_reason": "backlink rank 16 from migration/phase-1-seo-baseline.md."
+      "selection_reason": "backlink rank 16 from url-data/phase-1-seo-baseline.md."
     },
     {
       "route": "/secure-coding-in-salesforce-b2c-commerce-cloud/",
@@ -739,7 +739,7 @@
         }
       ],
       "coverage_supplement_for_url_class": null,
-      "selection_reason": "organic rank 16 from migration/phase-1-seo-baseline.md."
+      "selection_reason": "organic rank 16 from url-data/phase-1-seo-baseline.md."
     },
     {
       "route": "/custom-preferences-in-sfcc/",
@@ -760,7 +760,7 @@
         }
       ],
       "coverage_supplement_for_url_class": null,
-      "selection_reason": "backlink rank 17 from migration/phase-1-seo-baseline.md."
+      "selection_reason": "backlink rank 17 from url-data/phase-1-seo-baseline.md."
     },
     {
       "route": "/what-is-the-ocapi-session-bridge/",
@@ -783,7 +783,7 @@
         }
       ],
       "coverage_supplement_for_url_class": null,
-      "selection_reason": "organic rank 17 from migration/phase-1-seo-baseline.md."
+      "selection_reason": "organic rank 17 from url-data/phase-1-seo-baseline.md."
     },
     {
       "route": "/getting-to-know-sfra-as-a-developer/",
@@ -804,7 +804,7 @@
         }
       ],
       "coverage_supplement_for_url_class": null,
-      "selection_reason": "backlink rank 18 from migration/phase-1-seo-baseline.md."
+      "selection_reason": "backlink rank 18 from url-data/phase-1-seo-baseline.md."
     },
     {
       "route": "/where-to-hook-into-an-sfra-controller/",
@@ -827,7 +827,7 @@
         }
       ],
       "coverage_supplement_for_url_class": null,
-      "selection_reason": "organic rank 18 from migration/phase-1-seo-baseline.md."
+      "selection_reason": "organic rank 18 from url-data/phase-1-seo-baseline.md."
     },
     {
       "route": "/how-to-filter-jsdoc-in-storybook-autodocs/",
@@ -848,7 +848,7 @@
         }
       ],
       "coverage_supplement_for_url_class": null,
-      "selection_reason": "backlink rank 19 from migration/phase-1-seo-baseline.md."
+      "selection_reason": "backlink rank 19 from url-data/phase-1-seo-baseline.md."
     },
     {
       "route": "/sending-emails-from-sfcc/",
@@ -871,7 +871,7 @@
         }
       ],
       "coverage_supplement_for_url_class": null,
-      "selection_reason": "organic rank 19 from migration/phase-1-seo-baseline.md."
+      "selection_reason": "organic rank 19 from url-data/phase-1-seo-baseline.md."
     },
     {
       "route": "/how-to-load-client-side-javascript-and-css-in-sfra/",
@@ -894,7 +894,7 @@
         }
       ],
       "coverage_supplement_for_url_class": null,
-      "selection_reason": "organic rank 20 from migration/phase-1-seo-baseline.md."
+      "selection_reason": "organic rank 20 from url-data/phase-1-seo-baseline.md."
     },
     {
       "route": "/elementor-landing-page-1179/",

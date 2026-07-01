@@ -18,7 +18,7 @@ import {
   toAbsoluteUrl,
   writeJsonReport
 } from './seo-gate-helpers.js';
-import { canonicalOrigin, toRepoRelative } from '../migration/url-validation-helpers.js';
+import { canonicalOrigin, toRepoRelative } from '../url/url-validation-helpers.js';
 
 const defaults = {
   publicRoot: phase8SeoDefaults.publicRoot,

@@ -15,13 +15,13 @@ import {
   repoRoot,
   toRepoRelative,
   toPosixPath
-} from '../migration/url-validation-helpers.js';
+} from '../url/url-validation-helpers.js';
 
 const defaults = {
-  inputPath: path.join(repoRoot, 'migration/url-map.csv'),
+  inputPath: path.join(repoRoot, 'url-data/url-map.csv'),
   contentRoot: path.join(repoRoot, 'src/content'),
   publicRoot: path.join(repoRoot, 'public'),
-  reportPath: path.join(repoRoot, 'migration/reports/phase-6-redirect-security.csv')
+  reportPath: path.join(repoRoot, 'url-data/reports/phase-6-redirect-security.csv')
 };
 
 const siteRelativeAliasPattern = /^\/(?:[a-z0-9-]+(?:\/[a-z0-9-]+)*)\/$/;
@@ -235,7 +235,7 @@ function evaluateUrlMapTargets(rows) {
     const reportRow = createReportRow({
       scope: 'url-map',
       subject: row.legacy_url,
-      source_file: 'migration/url-map.csv',
+      source_file: 'url-data/url-map.csv',
       target_value: targetValue,
       status: 'fail',
       actual_outcome: 'http-target-url',
@@ -248,7 +248,7 @@ function evaluateUrlMapTargets(rows) {
   reportRows.unshift(createReportRow({
     scope: 'url-map',
     subject: 'target-url-scan',
-    source_file: 'migration/url-map.csv',
+    source_file: 'url-data/url-map.csv',
     target_value: String(checkedCount),
     status: failures.length === 0 ? 'pass' : 'fail',
     actual_outcome: failures.length === 0 ? 'https-only-targets' : 'http-targets-found',
@@ -439,7 +439,7 @@ async function evaluateBuiltAliasPages({ contentAliasEntries, mergeRows, publicS
       matchEntry: row,
       publicState,
       scope: 'built-alias-page',
-      sourceFile: 'migration/url-map.csv',
+      sourceFile: 'url-data/url-map.csv',
       subject: row.legacy_url
     });
     if (reportRow.status === 'fail') {
@@ -472,7 +472,7 @@ async function scanPhase6Artifacts(reportPath) {
   const ignoredRelativeReportPath = toRepoRelative(reportPath);
   const relativeFiles = (await fg([
     'scripts/phase-6/**/*.js',
-    'migration/reports/phase-6-*.*'
+    'url-data/reports/phase-6-*.*'
   ], {
     cwd: repoRoot,
     onlyFiles: true,

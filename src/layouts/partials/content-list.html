@@ -47,7 +47,7 @@
     </div>
   {{ else }}
     {{ partial "empty-state.html" (dict
-      "title" (.emptyTitle | default "This archive is ready for migrated content")
+      "title" (.emptyTitle | default "This archive is ready for content")
       "copy" (.emptyCopy | default "Keep the search, filter, and pagination shell visible while future batches populate this surface.")
       "actionHref" .emptyActionHref
       "actionLabel" (.emptyActionLabel | default "Return home")

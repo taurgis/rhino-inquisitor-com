@@ -14,13 +14,13 @@ import {
   readRedirectHtml,
   repoRoot,
   toRepoRelative
-} from '../migration/url-validation-helpers.js';
+} from '../url/url-validation-helpers.js';
 
 const defaults = {
-  inputPath: path.join(repoRoot, 'migration/url-map.csv'),
+  inputPath: path.join(repoRoot, 'url-data/url-map.csv'),
   contentRoot: path.join(repoRoot, 'src/content'),
   publicRoot: path.join(repoRoot, 'public'),
-  reportPath: path.join(repoRoot, 'migration/reports/phase-6-redirect-chain-report.csv')
+  reportPath: path.join(repoRoot, 'url-data/reports/phase-6-redirect-chain-report.csv')
 };
 
 function parseArgs(argv) {

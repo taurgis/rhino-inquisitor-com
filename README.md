@@ -13,7 +13,7 @@ Day-to-day work is authoring and publishing new articles while keeping SEO, URL/
 |   |-- instructions/    # Repository governance and quality gates
 |   `-- workflows/       # build-pr.yml (PR gates), deploy-pages.yml (publish)
 |-- .agents/skills/      # Domain skills used by agents
-|-- migration/           # URL manifests and redirect/parity data read by live gates
+|-- url-data/           # URL manifests and redirect/parity data read by live gates
 |-- validation/          # Validation inputs and report schema
 |-- monitoring/          # Site monitoring runbook and reports
 |-- scripts/             # SEO, URL-parity, redirect, accessibility, and performance gate scripts

@@ -51,7 +51,7 @@ RHI-083 commits the output locations that downstream Phase 8 tickets expect:
 
 - `lhci-report/mobile/` stores the blocking mobile-profile Lighthouse CI manifest, JSON, and HTML reports.
 - `lhci-report/desktop/` stores the blocking desktop-profile Lighthouse CI manifest, JSON, and HTML reports.
-- `performance-budget-report.json` stores the Phase 8 performance budget contract, dual-profile score summary, CWV lab values, and WordPress baseline comparison.
+- `performance-budget-report.json` stores the Phase 8 performance budget contract, dual-profile score summary, CWV lab values, and baseline comparison.
 
 ## RHI-084 Dataset Contract
 
@@ -59,7 +59,7 @@ RHI-084 introduces four authoritative artefacts for the first frozen Phase 8 RC:
 
 | Artifact | Purpose | Primary consumers |
 | --- | --- | --- |
-| `migration/phase-8-rc-v2-record.md` | Human-readable current RC re-cut record, toolchain versions, build evidence, and inherited deploy timing | WS-B through WS-H |
+| `url-data/phase-8-rc-v2-record.md` | Human-readable current RC re-cut record, toolchain versions, build evidence, and inherited deploy timing | WS-B through WS-H |
 | `validation/runs/phase-8-rc-v2.json` | Machine-readable current RC snapshot with build metrics and dataset checksums | WS-B through WS-H |
 | `validation/expected-url-outcomes.json` | Legacy-URL contract derived from the frozen manifest | WS-B |
 | `validation/sample-matrix.json` | Representative page and auxiliary route matrix for template-family coverage | WS-C through WS-F |
@@ -73,7 +73,7 @@ Top-level fields:
 - `generated_at`: ISO timestamp for the dataset generation run.
 - `rc`: RC tag/commit plus the frozen Phase 6 manifest tag/commit.
 - `summary`: total row count, disposition counts, blocking-vs-accepted-risk counts, and query-string exception totals.
-- `entries`: one row per manifest entry from `migration/url-manifest.json`.
+- `entries`: one row per manifest entry from `url-data/url-manifest.json`.
 
 Per-entry fields:
 
@@ -123,7 +123,7 @@ Per-route fields:
 
 Important behavior detail:
 
-- Organic routes are taken from the 90-day top-pages-by-clicks table in `migration/phase-1-seo-baseline.md`.
+- Organic routes are taken from the 90-day top-pages-by-clicks table in `url-data/phase-1-seo-baseline.md`.
 - Backlink routes are taken from the Search Console top linked target pages table in the same baseline file, which is the repository's current backlink baseline of record.
 - If the ranked sets miss a required URL class, RHI-084 adds one deterministic supplement for that class rather than mutating the baseline ranking order.
 
@@ -133,7 +133,7 @@ Important behavior detail:
 2. WS-B must still report `accepted-risk` query-string rows for coverage, but it must not treat them as missing build artifacts when the dataset marks them as `request-aware-exception`.
 3. WS-B must use `validation/priority-routes.json` for route-level spot checks after loading the expected outcomes dataset.
 4. WS-C through WS-F should start from `validation/sample-matrix.json` page samples, then include auxiliary routes when their gate touches redirect helpers, taxonomy roots, 404 behavior, feeds, JSON, `robots.txt`, or `sitemap.xml`.
-5. WS-H should use `migration/phase-8-rc-v2-record.md` plus `validation/runs/phase-8-rc-v2.json` as the current RC provenance layer for go/no-go evidence.
+5. WS-H should use `url-data/phase-8-rc-v2-record.md` plus `validation/runs/phase-8-rc-v2.json` as the current RC provenance layer for go/no-go evidence.
 
 ## WS-B Report Contract
 
@@ -212,7 +212,7 @@ Important WS-G evidence rule:
 RHI-091 adds the operational-readiness evidence that bridges the committed WS-B through WS-G reports to the launch decision:
 
 - `validation/preview-launch-readiness-report.json` records live smoke-test evidence from the preview-host entrypoint, including the resolved rehearsal host, redirect chain, deterministic route selection from `validation/sample-matrix.json` and `validation/priority-routes.json`, page-title and canonical checks, preview `noindex` checks, and reachability checks for `robots.txt`, `sitemap.xml`, and the feed endpoint.
-- `migration/phase-8-smoke-test-results.md` is the human-readable summary derived from the same live smoke-test run and is the authoring surface for owner review.
+- `url-data/phase-8-smoke-test-results.md` is the human-readable summary derived from the same live smoke-test run and is the authoring surface for owner review.
 - `validation/production-host-smoke-report.json` records production-build cleanliness checks against the built artifact, including preview-host leakage detection, allowed-versus-unexpected `noindex` classification, and representative-route spot checks for the launch-critical sample set.
 - Both WS-H reports include `artifactProvenance` from the frozen sample-matrix RC so reviewers can distinguish final RC evidence from later branch-state reruns.
 
@@ -225,8 +225,8 @@ Important WS-H evidence rule:
 
 - Record per-run metadata under `validation/runs/`.
 - Use one metadata file per RC ref once the canonical RC is confirmed.
-- RHI-084 established `validation/runs/phase-8-rc-v1.json` as the first machine-readable RC snapshot and `migration/phase-8-rc-record.md` as the first human-readable freeze record.
-- RHI-088 adds `validation/runs/phase-8-rc-v2.json` and `migration/phase-8-rc-v2-record.md` for the performance-driven RC re-cut.
+- RHI-084 established `validation/runs/phase-8-rc-v1.json` as the first machine-readable RC snapshot and `url-data/phase-8-rc-record.md` as the first human-readable freeze record.
+- RHI-088 adds `validation/runs/phase-8-rc-v2.json` and `url-data/phase-8-rc-v2-record.md` for the performance-driven RC re-cut.
 - Include the RC tag or SHA, environment mode, build timestamp, dataset checksums, and any workflow or gate run URLs.
 
 ## Placeholder policy

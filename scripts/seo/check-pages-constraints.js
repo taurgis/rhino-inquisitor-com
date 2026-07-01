@@ -9,17 +9,17 @@ import {
   repoRoot,
   toPosixPath,
   toRepoRelative
-} from '../migration/url-validation-helpers.js';
+} from '../url/url-validation-helpers.js';
 
 const publishedSiteLimitBytes = 1024 * 1024 * 1024;
 const defaultMaxSizeBytes = 800 * 1024 * 1024;
 const defaultAliasWarningThreshold = 500;
 
 const defaults = {
-  manifestPath: path.join(repoRoot, 'migration', 'url-manifest.json'),
+  manifestPath: path.join(repoRoot, 'url-data', 'url-manifest.json'),
   publicRoot: path.join(repoRoot, 'public'),
   staticRoot: path.join(repoRoot, 'src', 'static'),
-  reportPath: path.join(repoRoot, 'migration', 'reports', 'phase-5-pages-constraints-report.md'),
+  reportPath: path.join(repoRoot, 'url-data', 'reports', 'phase-5-pages-constraints-report.md'),
   maxSizeBytes: defaultMaxSizeBytes,
   aliasWarningThreshold: defaultAliasWarningThreshold,
   buildDurationMs: parseBuildDuration(process.env.PAGES_CONSTRAINTS_BUILD_DURATION_MS)
@@ -42,7 +42,7 @@ function printHelp() {
   console.log(`Usage: node scripts/seo/check-pages-constraints.js [options]
 
 Options:
-  --manifest <path>              Override migration/url-manifest.json path.
+  --manifest <path>              Override url-data/url-manifest.json path.
   --public-dir <path>            Override built public directory path.
   --static-dir <path>            Override source static directory path.
   --report <path>                Override markdown report output path.
@@ -344,7 +344,7 @@ ${checks.map((check) => `| ${escapeMarkdown(check.label)} | ${statusLabel(check.
 
 | Metric | Value | Notes |
 | --- | --- | --- |
-| Manifest merge records | ${manifestAliasStats.mergeCount} | All legacy routes currently classified as merge in migration/url-manifest.json |
+| Manifest merge records | ${manifestAliasStats.mergeCount} | All legacy routes currently classified as merge in url-data/url-manifest.json |
 | Pages-static merge records | ${manifestAliasStats.pagesStaticMergeCount} | Routes expected to publish as static redirect helpers |
 | Edge redirect merge records | ${manifestAliasStats.edgeRedirectCount} | Routes already designated for edge handling |
 | Redirect helper pages detected in public/ | ${aliasArtifactStats.redirectHelperCount} | HTML files in public/ with Hugo redirect-helper behavior |

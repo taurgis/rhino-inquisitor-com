@@ -9,9 +9,9 @@ import {
   readRedirectHtml,
   repoRoot,
   toRepoRelative
-} from '../migration/url-validation-helpers.js';
+} from '../url/url-validation-helpers.js';
 
-export { normalizeUrlLike } from '../migration/url-validation-helpers.js';
+export { normalizeUrlLike } from '../url/url-validation-helpers.js';
 
 export const phase8Defaults = {
   datasetPath: path.join(repoRoot, 'validation/expected-url-outcomes.json'),

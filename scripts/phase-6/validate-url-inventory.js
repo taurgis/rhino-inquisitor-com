@@ -4,7 +4,7 @@ import path from 'node:path';
 const repoRoot = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..', '..');
 
 const defaults = {
-  manifestPath: path.join(repoRoot, 'migration/url-manifest.json')
+  manifestPath: path.join(repoRoot, 'url-data/url-manifest.json')
 };
 
 const allowedDispositions = new Set(['keep', 'merge', 'retire']);

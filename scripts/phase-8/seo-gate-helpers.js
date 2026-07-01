@@ -9,7 +9,7 @@ import fg from 'fast-glob';
 import matter from 'gray-matter';
 import { XMLParser } from 'fast-xml-parser';
 
-import { canonicalOrigin, toRepoRelative } from '../migration/url-validation-helpers.js';
+import { canonicalOrigin, toRepoRelative } from '../url/url-validation-helpers.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, '../..');

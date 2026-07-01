@@ -37,7 +37,7 @@ const contentTypes = {
 const defaults = {
   configPath: path.join(rootDir, 'pa11y-ci.config.js'),
   publicDir: path.join(rootDir, 'public'),
-  reportPath: path.join(rootDir, 'migration', 'reports', 'phase-5-accessibility-audit.md')
+  reportPath: path.join(rootDir, 'url-data', 'reports', 'phase-5-accessibility-audit.md')
 };
 
 function printHelp() {

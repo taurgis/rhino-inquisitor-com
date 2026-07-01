@@ -14,7 +14,7 @@ Use this skill to decide whether an image should keep a visible caption, rewrite
 ## When to Use This Skill
 
 - Reviewing or writing `caption="..."` text for `{{< img-caption >}}` shortcodes
-- Cleaning migrated caption text that may duplicate nearby body copy
+- Cleaning caption text that may duplicate nearby body copy
 - Auditing first plain paragraphs after figures for leftover caption-style text
 - Creating quality checks for caption consistency in content review
 - **Not for:** image conversion mechanics, shortcode rendering bugs, Hugo template styling changes, or always-on repository coding standards
@@ -122,9 +122,6 @@ See the full rubric and examples in [Caption Rubric](references/CAPTION-RUBRIC.m
 ## References
 
 - [Caption Rubric](references/CAPTION-RUBRIC.md)
-- [RHI-094 caption quality rule update](../../../analysis/documentation/phase-9/RHI-094-caption-quality-rule-update-2026-03-23.md)
-- [RHI-094 caption redundancy cleanup audit](../../../analysis/documentation/phase-9/RHI-094-caption-redundancy-cleanup-audit-2026-03-23.md)
-- [RHI-094 reviewed caption exceptions](../../../analysis/documentation/phase-9/RHI-094-caption-reviewed-exception-allowlist-2026-03-23.md)
 - [VS Code Agent Skills](https://code.visualstudio.com/docs/copilot/customization/agent-skills)
 - [VS Code customization concepts](https://code.visualstudio.com/docs/copilot/concepts/customization)
 - [Agent Skills specification](https://agentskills.io/specification)

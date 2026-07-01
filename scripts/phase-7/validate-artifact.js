@@ -12,7 +12,7 @@ const repoRoot = path.resolve(scriptDir, '..', '..');
 const defaults = {
   publicDir: path.join(repoRoot, 'public'),
   reportPath: path.join(repoRoot, 'tmp', 'phase-7-artifact-validation-report.json'),
-  manifestPath: path.join(repoRoot, 'migration', 'url-manifest.json'),
+  manifestPath: path.join(repoRoot, 'url-data', 'url-manifest.json'),
   label: 'artifact-validation',
   compressedWarnMb: 700,
   projectedFailMb: 900,

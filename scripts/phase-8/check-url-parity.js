@@ -6,7 +6,7 @@ import {
   printCommonHelp,
   writeJsonReport
 } from './url-gate-helpers.js';
-import { toRepoRelative } from '../migration/url-validation-helpers.js';
+import { toRepoRelative } from '../url/url-validation-helpers.js';
 
 const defaults = {
   datasetPath: phase8Defaults.datasetPath,

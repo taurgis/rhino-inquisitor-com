@@ -26,18 +26,22 @@ Before authoring or modifying any workflow file, review the existing pipelines i
 ## Deployment Workflow Rules
 
 1. Pages deployment must use the official triple in order:
-   ```
+
+   ```text
    actions/configure-pages
    actions/upload-pages-artifact (artifact name: github-pages)
    actions/deploy-pages
    ```
+
 2. Deploy job must reference `environment: github-pages` for OIDC token scoping.
 3. `concurrency.cancel-in-progress` must be `false` for the deploy job:
+
    ```yaml
    concurrency:
      group: pages
      cancel-in-progress: false
    ```
+
 4. Hugo version must be pinned via `HUGO_VERSION` env var — never use `latest`.
 5. Build command must be `hugo --minify --environment production` — no draft/future/expired flags.
 6. Artifact path must be `./public`.
@@ -106,6 +110,7 @@ jobs:
 ## Rollback Plan
 
 Every deployment workflow must have a documented rollback path:
+
 1. Identify the last good artifact SHA in the Actions run history.
 2. Re-run the deploy job from that run — do not re-run only the build job.
 3. Record the rollback decision in `monitoring/launch-cutover-log.md`.
@@ -116,6 +121,8 @@ Every deployment workflow must have a documented rollback path:
 
 ## References
 
+- `.github/workflows/deploy-pages.yml` — Pages publish pipeline and blocking gate suite
+- `.github/workflows/build-pr.yml` — PR validation gates
 - [GitHub Actions security hardening](https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions)
 - [actions/deploy-pages](https://github.com/actions/deploy-pages)
 - [actions/upload-pages-artifact](https://github.com/actions/upload-pages-artifact)

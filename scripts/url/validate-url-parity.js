@@ -24,17 +24,17 @@ import {
 } from './url-validation-helpers.js';
 
 const defaults = {
-  manifestPath: path.join(repoRoot, 'migration/url-manifest.json'),
+  manifestPath: path.join(repoRoot, 'url-data/url-manifest.json'),
   contentRoot: path.join(repoRoot, 'src/content'),
   staticRoot: path.join(repoRoot, 'src/static'),
   publicRoot: path.join(repoRoot, 'public'),
-  reportPath: path.join(repoRoot, 'migration/reports/url-parity-report.csv'),
-  recordsPath: path.join(repoRoot, 'migration/intermediate/records.normalized.json'),
+  reportPath: path.join(repoRoot, 'url-data/reports/url-parity-report.csv'),
+  recordsPath: path.join(repoRoot, 'url-data/intermediate/records.normalized.json'),
   scope: 'full-manifest'
 };
 
 function printHelp() {
-  console.log(`Usage: node scripts/migration/validate-url-parity.js [options]
+  console.log(`Usage: node scripts/url/validate-url-parity.js [options]
 
 Options:
   --manifest <path>      Override manifest path.

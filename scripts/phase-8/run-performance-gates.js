@@ -47,7 +47,7 @@ Options:
   --lhci-root <path>      Override the LHCI filesystem report root.
   --public-dir <path>     Override the built public directory.
   --sample-matrix <path>  Override validation/sample-matrix.json.
-  --baseline <path>       Override migration/phase-1-performance-baseline.md.
+  --baseline <path>       Override url-data/phase-1-performance-baseline.md.
   --report <path>         Override validation/performance-budget-report.json.
   --help                  Show this help message.
 `);

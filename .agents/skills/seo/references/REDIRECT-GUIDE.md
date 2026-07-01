@@ -17,7 +17,7 @@ Is the original URL preserved exactly on the new site?
 
 ### Mechanism A: URL Preservation (Preferred)
 
-Set explicit `url` front matter on the Hugo page to match the legacy WordPress path exactly.
+Set explicit `url` front matter on the Hugo page to match the existing published path exactly.
 
 ```yaml
 url: "/some-article/"
@@ -32,10 +32,10 @@ Add `aliases` front matter for genuinely changed or consolidated URLs.
 
 ```yaml
 url: "/new-path/"
-aliases: ["/old-wordpress-path/", "/another-old-variant/"]
+aliases: ["/old-path/", "/another-old-variant/"]
 ```
 
-Hugo generates `old-wordpress-path/index.html` containing:
+Hugo generates `old-path/index.html` containing:
 ```html
 <meta http-equiv="refresh" content="0; url=https://www.rhino-inquisitor.com/new-path/">
 <link rel="canonical" href="https://www.rhino-inquisitor.com/new-path/">
@@ -50,7 +50,7 @@ When > 5% of indexed URLs change path, deploy edge redirect rules returning true
 
 **Signal strength:** Strongest — equivalent to origin server 301.
 **Use for:** High-value moved URLs when volume exceeds static redirect feasibility.
-**Trigger:** Evaluated in Phase 6 based on Phase 1 manifest counts.
+**Trigger:** Evaluated from the URL manifest counts.
 
 ### Mechanism D: 404 (Retired Content)
 
@@ -72,7 +72,7 @@ Serve a 404 response. On GitHub Pages static hosting, this is the only available
 ## Redirect QA Checklist
 
 Before any redirect mapping is merged:
-- [ ] Source URL exists in `migration/url-manifest.json` with documented disposition
+- [ ] Source URL exists in `url-data/url-manifest.json` with documented disposition
 - [ ] Target URL exists in Hugo output (`public/` artifact)
 - [ ] No redirect chain: source resolves in one hop to final canonical URL
 - [ ] Alias page excluded from `sitemap.xml`
@@ -81,15 +81,15 @@ Before any redirect mapping is merged:
 
 ## Edge Redirect Activation Decision
 
-Evaluate after Phase 4 content import is complete:
+Evaluate from the URL manifest:
 
 ```
 Count of URLs where path changed (disposition ≠ keep) / Total indexed URLs
-  > 5%  → Activate edge redirect layer before launch (Phase 7 dependency)
+  > 5%  → Activate edge redirect layer before shipping the change
   ≤ 5%  → Hugo aliases acceptable; document risk acceptance
 ```
 
-Record decision with owner sign-off in `migration/redirect-architecture-decision.md`.
+Record the decision with SEO owner sign-off.
 
 ## Official References
 

@@ -25,7 +25,7 @@ You are a Hugo design and implementation specialist for content-driven websites,
 ## Out of scope
 
 - Making SEO policy decisions on URL disposition, redirect governance, or canonical ownership without SEO owner input.
-- Editing URL/redirect data files in `migration/**` without following the SEO and URL governance rules.
+- Editing URL/redirect data files in `url-data/**` without following the SEO and URL governance rules.
 - Performing DNS changes directly; provide runbook guidance only.
 - Introducing unapproved third-party JavaScript, tracking, or external dependencies that bypass repository governance.
 
@@ -72,7 +72,9 @@ You are a Hugo design and implementation specialist for content-driven websites,
 
 ## Key reference files
 
-- `.agents/skills/hugo-development/SKILL.md`
+- `.github/skills/hugo-development/SKILL.md`
 - `.github/instructions/hugo-coding-standards.instructions.md`
 - `.github/instructions/seo-compliance.instructions.md`
 - `.github/instructions/ci-workflow-standards.instructions.md`
+- `.github/workflows/deploy-pages.yml` — Pages publish pipeline
+- `hugo.toml`

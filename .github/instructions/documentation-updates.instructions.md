@@ -22,8 +22,8 @@ Apply this gate when a change matched by `applyTo` adds, changes, or removes beh
 When triggered, the change must include at least one documentation update that meets **all** of the following:
 
 1. **Location**: Update a file under `docs/**`, or update `README.md` when the change affects top-level setup, build, or publishing behavior.
-	- `docs/` for maintainer-facing operational, process, and governance notes
-	- Group related notes in a purpose-named subdirectory (for example `docs/publishing/` or `docs/governance/`) and add a short index entry when one exists
+   - `docs/` for maintainer-facing operational, process, and governance notes
+   - Group related notes in a purpose-named subdirectory (for example `docs/publishing/` or `docs/governance/`) and add a short index entry when one exists
 2. **Change summary**: Describe what changed and why.
 3. **Behavior details**: Include old vs new behavior when updating an existing feature.
 4. **Impact and verification**: State impacted components or workflows and how to verify the change (steps or a reference to an existing gate).

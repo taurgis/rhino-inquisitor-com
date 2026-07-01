@@ -31,7 +31,7 @@ const allowedSourceHttpSnippets = new Map([
 ])
 
 const blockedArtifactNames = new Set(["package.json", "package-lock.json", "README.md"])
-const blockedArtifactDirectories = new Set(["analysis", "migration", "scripts", "tmp"])
+const blockedArtifactDirectories = new Set(["analysis", "url-data", "scripts", "tmp"])
 
 function toPosixPath(filePath) {
   return filePath.split(path.sep).join("/")

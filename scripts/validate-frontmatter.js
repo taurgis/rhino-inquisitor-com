@@ -9,7 +9,7 @@ import {
   DiscoveryParamsSchema,
   derivedDiscoveryFieldKeys,
   discoveryFieldKeys
-} from './migration/schemas/discovery-metadata.schema.js';
+} from './url/schemas/discovery-metadata.schema.js';
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const defaultContentRoot = path.join(repoRoot, 'src/content');
