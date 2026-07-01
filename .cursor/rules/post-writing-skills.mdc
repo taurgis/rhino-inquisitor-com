@@ -39,7 +39,7 @@ Before editing substantive post body content, choose only the skills that match 
 - Choose the minimum set needed for the current edit slice.
 - Use `human-prose-editing` before `anti-ai-writing` when a task spans both paragraph-level and sentence-level cleanup.
 - Do not invoke `beginner-technical-writing` or `code-walkthrough-authoring` for non-technical opinion or corporate posts unless the edited section is actually teaching a technical concept.
-- Do not use `anti-ai-writing` as a substitute for fact checking, structural rework, or Hugo/content-migration policy checks.
+- Do not use `anti-ai-writing` as a substitute for fact checking, structural rework, or Hugo/content-quality policy checks.
 
 ## Relationship to Other Instructions
 

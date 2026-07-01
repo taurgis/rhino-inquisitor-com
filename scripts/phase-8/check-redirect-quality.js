@@ -21,8 +21,7 @@ const defaults = {
 };
 
 const retentionPolicySources = [
-  'analysis/plan/details/phase-8.md',
-  'analysis/tickets/phase-8/RHI-085-url-parity-redirect-integrity-gates.md'
+  'docs/publishing/redirect-retention-policy.md'
 ];
 
 function analyzeRedirectTrace(sourcePath, redirectEdges) {

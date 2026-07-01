@@ -1,2 +1,0 @@
-audit_run_id,audit_date,scope_total,reviewed_articles,remaining_articles,pass_count,needs_review_count,high_severity_count,medium_severity_count,low_severity_count,scaffold_exception_count,visual_structure_drift_count,notes
-phase-8-visual-compare-2026-03-22,2026-03-22,151,151,0,150,1,0,0,1,1,0,Visual compare focuses on rendered article-body structure parity. H1 and URL drift are intentionally excluded from failure status.

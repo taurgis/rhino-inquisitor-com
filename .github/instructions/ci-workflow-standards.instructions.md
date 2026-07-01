@@ -7,7 +7,7 @@ applyTo: '.github/workflows/**'
 
 ## Mandatory Pre-Step
 
-Before authoring or modifying any workflow file, review the GitHub Pages deployment contract in `plan/details/phase-7.md` and the validation gate contract in `plan/details/phase-2.md`.
+Before authoring or modifying any workflow file, review the existing pipelines in `.github/workflows/` — `deploy-pages.yml` (the GitHub Pages publish contract and its blocking gate suite via `npm run gates:local`) and `build-pr.yml` (PR validation gates).
 
 ## Security and Permissions
 
@@ -112,9 +112,8 @@ Every deployment workflow must have a documented rollback path:
 
 ## References
 
-- `plan/details/phase-7.md` — Pages deployment and domain cutover requirements
-- `plan/details/phase-2.md` — Validation gate contract (Section: Required Validation Gates)
-- `plan/details/phase-8.md` — Launch readiness CI gate requirements
+- `.github/workflows/deploy-pages.yml` — Pages publish pipeline and blocking gate suite
+- `.github/workflows/build-pr.yml` — PR validation gates
 - [GitHub Actions security hardening](https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions)
 - [actions/deploy-pages](https://github.com/actions/deploy-pages)
 - [actions/upload-pages-artifact](https://github.com/actions/upload-pages-artifact)

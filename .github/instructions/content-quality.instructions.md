@@ -77,9 +77,6 @@ If more than 10% of migrated posts trigger the thin-content warning, escalate to
 
 ## References
 
-- `.github/skills/content-migration/SKILL.md` — Authoritative conversion rules, WXR parsing, turndown configuration
-- `.github/skills/content-migration/references/FRONTMATTER-GUIDE.md` — Front matter field requirements
-- `.github/skills/content-migration/references/WXR-SCHEMA.md` — WXR field mapping and CDATA extraction
-- `plan/details/phase-4.md` — Content migration pipeline requirements and quality gates
+- `.github/skills/hugo-development/SKILL.md` — Front matter fields and content authoring rules
 - [WCAG 2.2 — Image alt text](https://www.w3.org/TR/WCAG22/#non-text-content) — Accessibility requirement for image descriptions
 - [Google image best practices](https://developers.google.com/search/docs/appearance/google-images) — Alt text and image SEO guidance

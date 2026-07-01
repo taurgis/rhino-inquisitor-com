@@ -5,61 +5,52 @@ This file is the root agent guide for the repository. It complements agent files
 ## Purpose
 
 - Help contributors choose the right agent quickly.
-- Standardize planning, analysis, testing, and documentation research flow.
 - Connect agent usage to repository skills and instruction gates.
-- Support analysis-phase closeout and implementation handoff decisions.
+- Keep new article publishing safe: build, SEO, URL/redirect integrity, accessibility, and performance.
 
 ## Repository Status
 
-- Analysis artifacts are in place and the project is finishing the analysis phase.
-- Current work is focused on analysis sign-off quality, evidence traceability, and implementation readiness.
-- Use phase detail and ticket indexes under `analysis/` as the source of truth for sequencing and acceptance criteria.
+- The WordPress → Hugo migration is complete. This repo is now a live Hugo blog deployed to GitHub Pages.
+- Day-to-day work is authoring and publishing new articles under `src/content/` and maintaining the site.
+- URL parity and redirect gates remain active permanently to protect the URLs and redirects established during migration — do not weaken them.
 
 ## Current Project Structure
 
 ```text
 .
 |-- .agents/
-|   |-- skills/          # Canonical domain skills (shared across all agents)
-|   `-- rules/           # Generated instruction rules for universal agents (codex, antigravity, ...)
+|   `-- skills/          # Canonical domain skills (shared across all agents)
 |-- .github/
 |   |-- agents/          # Canonical agent role definitions (source for generation)
-|   `-- instructions/    # Canonical governance and quality gates (source for generation)
-|-- .claude/             # Generated for Claude Code (skills/, agents/, rules/generated/)
+|   |-- instructions/    # Canonical governance and quality gates (source for generation)
+|   `-- workflows/       # build-pr.yml (PR gates) and deploy-pages.yml (publish)
+|-- .claude/             # Generated for Claude Code (skills/, rules/generated/)
 |-- .cursor/             # Generated for Cursor (agents/, rules/*.mdc)
-|-- analysis/
-|   |-- main-plan.MD     # Migration master plan
-|   |-- design/          # Modernization direction, prompts, wireframes
-|   |-- documentation/   # Structured phase docs, checklists, and governance reports
-|   |-- plan/details/    # Phase 1-9 detailed plans
-|   `-- tickets/         # Phase-indexed execution tickets
-|-- migration/           # URL inventories, manifests, baselines, and sign-off evidence
+|-- migration/           # Retained URL manifests + redirect/parity data inputs used by live gates
+|-- validation/          # Retained validation inputs (expected-url-outcomes, priority-routes, sample-matrix, schema)
+|-- monitoring/          # Post-launch monitoring runbook and reports
 |-- src/                 # Hugo site source tree (content, layouts, static, assets, data, archetypes)
-|-- scripts/             # Utility scripts for crawl, sitemap, performance, and SEO work
-|-- tmp/                 # Working evidence, Search Console exports, DNS checks, and WP source data
-|-- package.json         # Workspace package manifest
-|-- package-lock.json    # Locked dependency tree for workspace tooling
+|-- scripts/             # SEO, URL-parity, redirect, accessibility, and performance gate scripts
+|-- hugo.toml            # Hugo configuration
+|-- package.json         # Scripts and tooling dependencies
 `-- README.md
 ```
 
-## Analysis Artifacts To Consult First
+## Available Agents
 
-- Master plan: [analysis/main-plan.MD](analysis/main-plan.MD)
-- Documentation index: [analysis/documentation/README.md](analysis/documentation/README.md)
-- Phase sequencing: [analysis/plan/details/](analysis/plan/details/)
-- Phase work tracking: [analysis/tickets/INDEX.md](analysis/tickets/INDEX.md)
-- Design direction: [analysis/design/blog-modernization-designs-2026-03-08.md](analysis/design/blog-modernization-designs-2026-03-08.md)
-- Low-fi wireframes: [analysis/design/low-fi-wireframes-2026-03-08.md](analysis/design/low-fi-wireframes-2026-03-08.md)
-- Design prompt packs: [analysis/design/design-prompts/README.md](analysis/design/design-prompts/README.md)
-- Generated design examples guidance: [analysis/design/generated-images/design-examples/README.md](analysis/design/generated-images/design-examples/README.md)
-- UI implementation checklist: [analysis/documentation/checklists/ui-implementation-checklist-2026-03-08.md](analysis/documentation/checklists/ui-implementation-checklist-2026-03-08.md)
+- [Hugo Specialist](.github/agents/hugo-specialist.agent.md) — site design, information architecture, templates, Hugo config, GitHub Pages workflow.
+- [SEO Specialist](.github/agents/seo-specialist.agent.md) — URL/redirect integrity, canonical strategy, structured data, sitemap/robots, Search Console.
 
-## Supporting Execution Artifacts
+## Instruction Gates
 
-- Migration baselines and manifests: [migration/](migration/)
-- Validation and discovery scripts: [scripts/](scripts/)
-- Temporary evidence, exports, and source snapshots: [tmp/](tmp/)
+Governance and quality gates live in [.github/instructions/](.github/instructions/): `hugo-coding-standards`, `seo-compliance`, `content-quality`, `ci-workflow-standards`, `post-writing-skills`, `documentation-updates`, `skill-maintenance`, and `agent-governance-quality`.
+
+## Publishing Checklist
+
+- Build: `npm run build:prod` must succeed with no errors.
+- Full local deploy gate suite: `npm run gates:local` (mirrors the deploy pipeline).
+- PR validation runs automatically via `.github/workflows/build-pr.yml`; publish happens on merge to `main` via `.github/workflows/deploy-pages.yml`.
 
 ## Workspace Hygiene
 
-- Ignore incidental churn under `node_modules/` during audits and implementation tasks unless dependency updates are explicitly in scope.
+- Ignore incidental churn under `node_modules/` and generated output (`public/`, `resources/`) during tasks unless explicitly in scope.

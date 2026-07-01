@@ -1,99 +1,60 @@
-# Rhino Inquisitor Migration Workspace
+# Rhino Inquisitor
 
-This repository tracks the migration of rhino-inquisitor.com from WordPress to Hugo, with deployment on GitHub Pages via GitHub Actions.
+Source and tooling for rhino-inquisitor.com — a Hugo site deployed to GitHub Pages via GitHub Actions.
 
-The workspace is planning-first: it contains migration phases, implementation guidance, governance rules, and the Phase 3 Hugo scaffold used by contributors and coding agents.
-
-## Migration Goal
-
-- Preserve existing high-value URLs where possible.
-- Migrate content to Markdown and Hugo front matter with explicit URL control.
-- Keep SEO-critical signals intact during and after cutover.
-- Validate parity and launch readiness before DNS cutover.
+The WordPress → Hugo migration is complete. Day-to-day work is authoring and publishing new articles while keeping SEO, URL/redirect integrity, accessibility, and performance intact.
 
 ## Repository Structure
 
 ```text
 .
 |-- .github/
-|   |-- agents/          # Agent role definitions
+|   |-- agents/          # Agent role definitions (Hugo Specialist, SEO Specialist)
 |   |-- instructions/    # Repository governance and quality gates
-|   `-- skills/          # Domain skills used by agents
-|-- analysis/
-|   |-- documentation/
-|   |   |-- README.md    # Documentation index and placement rules
-|   |   |-- TEMPLATE.md  # Feature documentation scaffold
-|   |   |-- checklists/  # Reusable cross-phase checklists
-|   |   |-- governance/  # Governance and agent change reports
-|   |   `-- phase-*/     # Phase-specific implementation and contract docs
-|   |-- main-plan.MD     # Migration master plan
-|   |-- plan/
-|   |   `-- details/     # Phase-by-phase implementation detail documents
-|   `-- tickets/         # Task tracking artifacts
-`-- README.md
+|   `-- workflows/       # build-pr.yml (PR gates), deploy-pages.yml (publish)
+|-- .agents/skills/      # Domain skills used by agents
+|-- migration/           # Retained URL manifests and redirect/parity data read by live gates
+|-- validation/          # Retained validation inputs and report schema
+|-- monitoring/          # Post-launch monitoring runbook and reports
+|-- scripts/             # SEO, URL-parity, redirect, accessibility, and performance gate scripts
 |-- src/
-|   |-- content/         # Hugo content source files
+|   |-- content/         # Hugo content source files (articles live here)
 |   |-- layouts/         # Hugo templates and partials
 |   |-- static/          # Pass-through assets served by Hugo
 |   |-- assets/          # Pipeline-processed assets
 |   |-- data/            # Hugo data files
 |   `-- archetypes/      # Hugo archetype stubs
+|-- hugo.toml            # Canonical Hugo config
+`-- README.md
 ```
 
 ## Key Documents
 
-- [Main Migration Plan](analysis/main-plan.MD)
-- [Documentation Index](analysis/documentation/README.md)
-- [Phase 1](analysis/plan/details/phase-1.md)
-- [Phase 2](analysis/plan/details/phase-2.md)
-- [Phase 3](analysis/plan/details/phase-3.md)
-- [Phase 4](analysis/plan/details/phase-4.md)
-- [Phase 5](analysis/plan/details/phase-5.md)
-- [Phase 6](analysis/plan/details/phase-6.md)
-- [Phase 7](analysis/plan/details/phase-7.md)
-- [Phase 8](analysis/plan/details/phase-8.md)
-- [Phase 9](analysis/plan/details/phase-9.md)
-- [Agent Catalog](AGENTS.md)
+- [Agent Guide](AGENTS.md)
 - [Repository Instructions](.github/instructions/)
-- [Repository Skills](.github/skills/)
-
-## How To Work In This Repo
-
-1. Start with [analysis/main-plan.MD](analysis/main-plan.MD) for scope and phase ordering.
-2. Use the current phase file in [analysis/plan/details/](analysis/plan/details/) for execution details.
-3. Follow applicable rules in [.github/instructions/](.github/instructions/) before editing governed paths.
-4. Use [AGENTS.md](AGENTS.md) to pick the right subagent for planning, analysis, validation, or specialized research.
-5. Use [analysis/documentation/README.md](analysis/documentation/README.md) to place new documentation in the right phase or category.
-6. Keep documentation changes traceable and consistent with phase acceptance criteria.
 
 ## Local Prerequisites
 
-- Hugo Extended `0.157.0` pinned by the Phase 2 repo contract
-- Node.js `>=18` as declared in `package.json`
+- Hugo Extended `0.157.0` (pinned; matches `HUGO_VERSION` in CI)
+- Node.js `>=20.18.1` as declared in `package.json`
 - npm matching the active Node.js runtime
 
 ## Local Commands
 
-- Production-style build: `hugo --minify --environment production`
-- Local preview server: `hugo server`
+- Production-style build: `hugo --minify --environment production` (or `npm run build:prod`)
+- Local preview server: `npm run dev`
 - Front matter validation: `npm run validate:frontmatter`
-- SEO smoke validation: `npm run check:seo` (runs a fresh production build before validating)
+- SEO smoke validation: `npm run check:seo`
 - Security and privacy validation: `npm run check:security`
 - Accessibility smoke validation: `npm run check:a11y`
-- Hugo source components live under `src/`, while root `hugo.toml` remains the canonical config entry point and `public/` remains the build artifact directory.
-- Validation scripts are introduced across later Phase 3 tickets. Current commands cover front matter, URL parity, SEO, security/privacy, accessibility, and performance checks.
+- Full deploy gate suite (mirrors the publish pipeline): `npm run gates:local`
 
-See [docs/migration/RUNBOOK.md](docs/migration/RUNBOOK.md) for the phase-linked operational runbook.
+## Publishing
 
-## Current State
-
-- This repository remains planning-first, but Phase 3 now includes the root Hugo scaffold required for downstream implementation tickets.
-- The repository uses a hybrid layout: Hugo is still invoked from repository root, but the actual site source components live under `src/`.
-- Runtime application hardening, templates, archetypes, and CI workflows remain phase-driven and are implemented in later Phase 3 workstreams.
-- Validation currently centers on documented build reproducibility, document quality, link correctness, and governance compliance.
+- Open a PR to `main`; `.github/workflows/build-pr.yml` runs the route-sensitive validation gates.
+- On merge to `main`, `.github/workflows/deploy-pages.yml` builds and publishes to GitHub Pages after the blocking gate suite passes.
 
 ## Notes
 
 - Use relative links for internal references.
-- Keep top-level docs concise and link to phase documents for detail.
-- Update this README when major structure or process changes occur.
+- Keep this README current when major structure or process changes occur.

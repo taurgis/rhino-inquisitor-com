@@ -24,7 +24,6 @@ jobs:
     outputs:
       route_sensitive: ${{ steps.changes.outputs.route_sensitive }}
       markdown_changed: ${{ steps.changes.outputs.markdown_changed }}
-      migration_batch_changed: ${{ steps.changes.outputs.migration_batch_changed }}
       full_site_route_validation_required: ${{ steps.changes.outputs.full_site_route_validation_required }}
       validation_mode: ${{ steps.changes.outputs.validation_mode }}
 
@@ -59,32 +58,12 @@ jobs:
           fi
           echo "markdown_changed=$markdown_changed" >> "$GITHUB_OUTPUT"
 
-          migration_batch_changed=false
-          if grep -Eq '^(migration/|scripts/|docs/migration/|package\.json$|package-lock\.json$|\.github/workflows/build-pr\.yml$)' changed-files.txt; then
-            migration_batch_changed=true
-          fi
-          echo "migration_batch_changed=$migration_batch_changed" >> "$GITHUB_OUTPUT"
-
-          full_site_route_trigger=false
-          if grep -Eq '^(src/content/|src/layouts/|src/static/|src/archetypes/|hugo\.toml$|migration/url-manifest\.json$|package\.json$|package-lock\.json$|\.github/workflows/build-pr\.yml$|\.github/workflows/deploy-pages\.yml$)' changed-files.txt; then
-            full_site_route_trigger=true
-          fi
-          if grep -Eq '^scripts/' changed-files.txt && grep -E '^scripts/' changed-files.txt | grep -Ev '^scripts/migration/' >/dev/null; then
-            full_site_route_trigger=true
-          fi
-
           full_site_route_validation_required=false
           validation_mode=baseline
 
           if [[ "$route_sensitive" == "true" ]]; then
-            if [[ "$migration_batch_changed" == "true" && "$full_site_route_trigger" != "true" ]]; then
-              validation_mode=migration-batch-only
-            else
-              full_site_route_validation_required=true
-              validation_mode=full-site-route-sensitive
-            fi
-          elif [[ "$migration_batch_changed" == "true" ]]; then
-            validation_mode=migration-supporting
+            full_site_route_validation_required=true
+            validation_mode=full-site-route-sensitive
           fi
 
           echo "full_site_route_validation_required=$full_site_route_validation_required" >> "$GITHUB_OUTPUT"
@@ -97,118 +76,8 @@ jobs:
             echo "### PR validation mode"
             echo "- validation_mode: ${{ steps.changes.outputs.validation_mode }}"
             echo "- route_sensitive: ${{ steps.changes.outputs.route_sensitive }}"
-            echo "- migration_batch_changed: ${{ steps.changes.outputs.migration_batch_changed }}"
             echo "- full_site_route_validation_required: ${{ steps.changes.outputs.full_site_route_validation_required }}"
           } >> "$GITHUB_STEP_SUMMARY"
-
-  migration-batch-validation:
-    needs:
-      - prepare
-    if: needs.prepare.outputs.migration_batch_changed == 'true'
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v5
-        with:
-          fetch-depth: 0
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v5
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          package-manager-cache: false
-
-      - name: Restore npm and node_modules cache
-        uses: actions/cache@v5
-        with:
-          path: |
-            ~/.npm
-            node_modules
-          key: ${{ runner.os }}-node-${{ env.NODE_VERSION }}-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-${{ env.NODE_VERSION }}-
-
-      - name: Restore Hugo extended binary cache
-        uses: actions/cache@v5
-        with:
-          path: ~/.cache/hugo/${{ env.HUGO_VERSION }}
-          key: ${{ runner.os }}-hugo-${{ env.HUGO_VERSION }}
-
-      - name: Install Hugo extended
-        shell: bash
-        run: |
-          set -euo pipefail
-          HUGO_DIR="$HOME/.cache/hugo/${HUGO_VERSION}"
-          if [[ ! -x "$HUGO_DIR/hugo" ]]; then
-            mkdir -p "$HUGO_DIR"
-            curl -fsSL -o "$RUNNER_TEMP/hugo.tar.gz" "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
-            tar -xzf "$RUNNER_TEMP/hugo.tar.gz" -C "$HUGO_DIR" hugo
-          fi
-          export PATH="$HUGO_DIR:$PATH"
-          echo "$HUGO_DIR" >> "$GITHUB_PATH"
-          hugo version
-
-      - name: Install Node dependencies
-        run: npm ci
-
-      - name: Finalize staged migration content
-        run: npm run migrate:finalize-content
-
-      - name: Generate migration item report
-        run: npm run migrate:report
-
-      - name: Enforce migration thresholds
-        run: npm run check:migration-thresholds
-
-      - name: Build staged migration site
-        run: hugo --minify --environment production --contentDir migration/output/content --destination tmp/migration-pr-public
-
-      - name: Validate selected-record URL parity
-        run: node scripts/migration/validate-url-parity.js --scope selected-records --records-file migration/intermediate/records.normalized.json --content-dir migration/output/content --public-dir tmp/migration-pr-public
-
-      - name: Validate selected-record redirects
-        run: node scripts/migration/check-redirects.js --scope selected-records --records-file migration/intermediate/records.normalized.json --public-dir tmp/migration-pr-public
-
-      - name: Run staged SEO completeness check
-        run: npm run check:seo-completeness -- --content-dir migration/output/content --public-dir tmp/migration-pr-public
-
-      - name: Run staged internal link check
-        run: CHECK_LINKS_PUBLIC_DIR=tmp/migration-pr-public CHECK_LINKS_ALLOW_MANIFEST_TARGETS=1 CHECK_INTERNAL_LINKS_MODE=subset npm run check:internal-links
-
-      - name: Verify expected migration report artifacts exist
-        shell: bash
-        run: |
-          set -euo pipefail
-          required_reports=(
-            migration/reports/migration-item-report.csv
-            migration/reports/url-parity-report.csv
-            migration/reports/conversion-fallbacks.csv
-            migration/reports/media-integrity-report.csv
-            migration/reports/frontmatter-errors.csv
-            migration/reports/seo-completeness-report.csv
-            migration/reports/feed-compatibility-report.csv
-            migration/reports/a11y-content-warnings.csv
-            migration/reports/accessibility-scan-summary.md
-            migration/reports/security-content-scan.csv
-            migration/reports/link-rewrite-log.csv
-            migration/reports/content-corrections-summary.json
-            migration/reports/image-alt-corrections-audit.csv
-            migration/reports/phase-5-internal-links-audit.csv
-          )
-
-          for report in "${required_reports[@]}"; do
-            [[ -f "$report" ]]
-          done
-
-      - name: Upload migration reports
-        if: ${{ always() }}
-        uses: actions/upload-artifact@v6
-        with:
-          name: migration-reports-${{ github.run_id }}
-          path: migration/reports/
-          if-no-files-found: error
-          retention-days: 7
 
   build:
     needs:
