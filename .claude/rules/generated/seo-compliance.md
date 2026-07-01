@@ -79,5 +79,3 @@ If a change introduces a URL structure alteration affecting >5% of indexed URLs,
 - `.agents/skills/seo-migration/SKILL.md` — SEO migration rules and redirect architecture
 - `.agents/skills/seo-migration/references/REDIRECT-GUIDE.md` — Redirect decision tree
 - `.agents/skills/hugo-development/references/URL-STRATEGY.md` — Hugo URL and alias rules
-- `plan/details/phase-2.md` — Architecture contracts and validation gates
-- `plan/details/phase-5.md` — SEO discoverability requirements

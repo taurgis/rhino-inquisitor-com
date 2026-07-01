@@ -79,4 +79,3 @@ After any layout or config change:
 - `.github/skills/hugo-development/references/URL-STRATEGY.md` — URL/alias rules
 - `.github/skills/hugo-development/references/TEMPLATE-PATTERNS.md` — Partial architecture and code patterns
 - `.github/skills/hugo-development/assets/hugo-toml-template.toml` — Config baseline
-- `plan/details/phase-3.md` — Scaffold requirements and workstream checklists

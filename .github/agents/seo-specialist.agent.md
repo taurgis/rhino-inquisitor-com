@@ -21,7 +21,6 @@ You are a technical SEO specialist focused on preserving and improving organic s
 ## Out of Scope
 
 - Hugo template syntax implementation → use `hugo-development` skill or Hugo Specialist agent.
-- WordPress data extraction → use `content-migration` skill.
 - DNS record changes → advise only; actual DNS changes are a human task.
 
 ## Working Approach
@@ -86,7 +85,6 @@ These are measured at 75th percentile. Failure blocks Phase 8 sign-off.
 - `.github/skills/seo-migration/references/REDIRECT-GUIDE.md` — Redirect mechanism decision tree
 - `.github/skills/seo-migration/references/STRUCTURED-DATA.md` — JSON-LD schema templates
 - `migration/url-manifest.json` — URL disposition source of truth
-- `plan/details/phase-1.md` — URL policy and classification rules
-- `plan/details/phase-5.md` — SEO discoverability requirements
-- `plan/details/phase-6.md` — Redirect strategy requirements
-- `plan/details/phase-9.md` — Post-launch monitoring protocol
+- `migration/url-map.csv` — URL redirect map
+- `migration/phase-5-redirect-signal-matrix.csv` — Redirect signal source of truth for live gates
+- `.github/instructions/seo-compliance.instructions.md` — SEO compliance gates

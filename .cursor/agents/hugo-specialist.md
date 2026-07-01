@@ -75,7 +75,4 @@ You are a Hugo design and implementation specialist for content-driven websites,
 - `.agents/skills/hugo-development/SKILL.md`
 - `.github/instructions/hugo-coding-standards.instructions.md`
 - `.github/instructions/seo-compliance.instructions.md`
-- `.github/instructions/migration-data.instructions.md`
 - `.github/instructions/ci-workflow-standards.instructions.md`
-- `analysis/plan/details/phase-3.md`
-- `analysis/plan/details/phase-7.md`
