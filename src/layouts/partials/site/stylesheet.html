@@ -1,11 +1,13 @@
 {{ $fonts := resources.Get "styles/fragments/fonts.css" }}
 {{ $archiveStructure := resources.Get "styles/fragments/archive-structure.css" }}
 {{ $articleStructure := resources.Get "styles/fragments/article-structure.css" }}
+{{ $criticalHeader := resources.Get "styles/fragments/critical-header.css" }}
+{{ $siteFooter := resources.Get "styles/fragments/site-footer.css" }}
 {{/* Preload the above-the-fold faces so the wordmark, headings and body render without a flash. */}}
 <link rel="preload" href="{{ "fonts/public-sans-regular.woff2" | relURL }}" as="font" type="font/woff2" crossorigin="anonymous">
 <link rel="preload" href="{{ "fonts/newsreader-600.woff2" | relURL }}" as="font" type="font/woff2" crossorigin="anonymous">
 {{ with resources.Get "styles/site.css" }}
-  {{ $stylesheet := slice $fonts . $archiveStructure $articleStructure | resources.Concat "styles/site.css" | minify | fingerprint }}
+  {{ $stylesheet := slice $fonts . $archiveStructure $articleStructure $siteFooter | resources.Concat "styles/site.css" | minify | fingerprint }}
   {{ $criticalStylesAsset := "" }}
   {{ if eq $.RelPermalink "/video/" }}
     {{ $criticalStylesAsset = "" }}
@@ -21,11 +23,11 @@
       {{/* Inline @font-face in the critical <style> so preloaded faces match a rule and swap immediately. */}}
       {{ $critical := . }}
       {{ if eq $criticalStylesAsset "styles/critical-archive.css" }}
-        {{ $critical = slice $fonts . $archiveStructure | resources.Concat "styles/critical-archive.css" }}
+        {{ $critical = slice $fonts . $criticalHeader $archiveStructure | resources.Concat "styles/critical-archive.css" }}
       {{ else if eq $criticalStylesAsset "styles/critical-post.css" }}
-        {{ $critical = slice $fonts . $articleStructure | resources.Concat "styles/critical-post.css" }}
+        {{ $critical = slice $fonts . $criticalHeader $articleStructure | resources.Concat "styles/critical-post.css" }}
       {{ else }}
-        {{ $critical = slice $fonts . | resources.Concat "styles/critical-home.css" }}
+        {{ $critical = slice $fonts . $siteFooter | resources.Concat "styles/critical-home.css" }}
       {{ end }}
       {{ $critical = $critical | minify }}
       <style>{{ $critical.Content | safeCSS }}</style>

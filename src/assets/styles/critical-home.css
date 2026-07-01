@@ -1133,7 +1133,7 @@ body.drawer-open {
 }
 
 .home-redesign__portrait figcaption {
-  color: var(--faint, #8a8172);
+  color: var(--faint, #6e665b);
   font-family: var(--mono, "JetBrains Mono", monospace);
   font-size: 0.6875rem;
   letter-spacing: 0.05em;
@@ -1153,7 +1153,7 @@ body.drawer-open {
 }
 
 .home-redesign__section-kicker span:first-child {
-  color: var(--faint, #8a8172);
+  color: var(--faint, #6e665b);
   font-family: var(--mono, "JetBrains Mono", monospace);
   font-size: 0.6875rem;
   letter-spacing: 0.16em;
@@ -1227,7 +1227,7 @@ body.drawer-open {
   flex-wrap: wrap;
   gap: 0.4rem;
   margin: 0;
-  color: var(--faint, #8a8172);
+  color: var(--faint, #6e665b);
   font-family: var(--mono, "JetBrains Mono", monospace);
   font-size: 0.8125rem;
   letter-spacing: 0.04em;
@@ -1337,7 +1337,7 @@ width: min(calc(100% - 2rem), var(--content-width));
 margin: 0 auto;
 padding: 1.875rem 0;
 border-top: 1px solid var(--rule-soft, #e7e0d2);
-color: var(--faint, #8a8172);
+color: var(--faint, #6e665b);
 font-family: var(--mono, "JetBrains Mono", monospace);
   font-size: 0.8125rem;
   letter-spacing: 0.03em;
@@ -1599,68 +1599,4 @@ font-family: var(--mono, "JetBrains Mono", monospace);
 .site-footer__links {
 gap: 1.25rem;
 }
-}
-
-/* Redesign footer: mirrors tmp/redesign/Footer.dc.html. */
-.site-footer {
-  background: var(--base, #f6f2ea);
-}
-
-.site-footer__inner {
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: space-between;
-  width: min(100%, 67.5rem);
-  margin: 0 auto;
-  padding: 1.875rem 2.75rem;
-  border-top: 1px solid var(--rule-soft, #e7e0d2);
-  color: var(--faint, #8a8172);
-  font-family: var(--mono, "JetBrains Mono", monospace);
-  font-size: 0.8125rem;
-  letter-spacing: 0.03em;
-}
-
-.site-footer__copy {
-  width: auto;
-  flex: 0 0 auto;
-  margin: 0;
-}
-
-.site-footer__links {
-  display: flex;
-  flex: 0 0 auto;
-  gap: 1.375rem;
-  margin-left: auto;
-}
-
-.site-footer__links a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (max-width: 67.4375rem) {
-  .site-footer__inner {
-    padding: 1.625rem 2.125rem;
-  }
-
-  .site-footer__links {
-    gap: 1.25rem;
-  }
-}
-
-@media (max-width: 47.99rem) {
-  .site-footer__inner {
-    flex-direction: column-reverse;
-    flex-wrap: nowrap;
-    gap: 0.875rem;
-    align-items: center;
-    padding: 1.5rem 1.375rem;
-    font-size: 0.75rem;
-    text-align: center;
-  }
-
-  .site-footer__links {
-    margin-left: 0;
-  }
 }

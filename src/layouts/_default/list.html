@@ -35,7 +35,6 @@
   {{ .Scratch.Set "seoTitleOverride" $seoTitle }}
   {{ .Scratch.Set "seoDescriptionOverride" $seoDescription }}
   {{ partial "seo/head-meta.html" . }}
-  {{ partial "site/stylesheet.html" . }}
 {{ end }}
 
 {{ define "main" }}

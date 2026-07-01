@@ -6,7 +6,6 @@
     {{ with index . "ogImage" }}{{ $.Scratch.Set "seoImageOverride" . }}{{ end }}
   {{ end }}
   {{ partial "seo/head-meta.html" . }}
-  {{ partial "site/stylesheet.html" . }}
 {{ end }}
 
 {{ define "main" }}

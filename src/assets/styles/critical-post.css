@@ -575,7 +575,7 @@ summary {
 
 .article-summary--lead .eyebrow {
   margin-bottom: 0.5rem;
-  color: #8a8172;
+  color: #6e665b;
   letter-spacing: 0.16em;
 }
 
@@ -788,128 +788,6 @@ summary {
 
   .page-article__intro h1 {
     max-width: none;
-  }
-}
-
-
-/* Redesign Header */
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 70;
-  padding: 0;
-  background: var(--base, #f6f2ea);
-  border-bottom: 1px solid var(--rule-soft, #e7e0d2);
-}
-
-.site-header__inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: min(calc(100% - 2rem), var(--content-width));
-  margin: 0 auto;
-  padding: 1.375rem 0;
-  background: var(--base, #f6f2ea);
-}
-
-.site-brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-right: auto;
-  color: var(--ink, #211d18);
-  font-family: var(--serif, "Newsreader", Georgia, serif);
-  font-size: 1.625rem;
-  font-weight: 600;
-  letter-spacing: 0;
-  line-height: 1;
-  text-decoration: none;
-}
-
-.site-brand__logo {
-  width: 2.875rem;
-  height: 2.875rem;
-  object-fit: contain;
-}
-
-.site-brand__title {
-  white-space: nowrap;
-}
-
-.site-header__desktop {
-  display: none;
-  align-items: center;
-}
-
-.site-nav {
-  display: flex;
-  align-items: center;
-  gap: 1.875rem;
-}
-
-.site-nav a {
-  color: var(--chrome-text-muted, #4a443b);
-  font-size: 0.875rem;
-  font-weight: 500;
-  text-decoration: none;
-}
-
-.site-nav a[aria-current="page"],
-.site-nav a:hover {
-  color: var(--ink, #211d18);
-}
-
-.site-nav a.site-header__cta {
-  color: var(--blue, #1e6fbe);
-  font-weight: 600;
-}
-
-.site-menu__toggle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.75rem;
-  height: 2.75rem;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  color: var(--ink, #211d18);
-  cursor: pointer;
-}
-
-@media (min-width: 52.125rem) {
-  .site-menu__toggle {
-    display: none;
-  }
-  .site-header__desktop {
-    display: flex;
-  }
-}
-
-@media (max-width: 63.99rem) {
-  .site-header__inner {
-    padding: 1.25rem 0;
-  }
-  .site-brand {
-    font-size: 1.25rem;
-  }
-  .site-brand__logo {
-    width: 2.375rem;
-    height: 2.375rem;
-  }
-}
-
-@media (max-width: 52.0625rem) {
-  .site-header__inner {
-    padding: 0.875rem 0;
-  }
-  .site-brand {
-    gap: 0.5625rem;
-    font-size: 1.0625rem;
-  }
-  .site-brand__logo {
-    width: 1.875rem;
-    height: 1.875rem;
   }
 }
 
