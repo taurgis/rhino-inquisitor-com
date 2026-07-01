@@ -1,0 +1,53 @@
+{{ $page := .page }}
+{{ $title := .title }}
+{{ $description := .description }}
+{{ $eyebrow := .eyebrow }}
+{{ $searchScopeKind := .searchScopeKind }}
+{{ $searchScopeValue := .searchScopeValue }}
+{{ $searchScopeLabel := .searchScopeLabel }}
+{{ $searchPlaceholder := .searchPlaceholder }}
+{{ $stateBaseUrl := .stateBaseUrl }}
+{{ $yearLinks := .yearLinks }}
+{{ $groups := .groups }}
+{{ $paginator := .paginator }}
+{{ $emptyTitle := .emptyTitle }}
+{{ $emptyCopy := .emptyCopy }}
+{{ $emptyActionHref := .emptyActionHref }}
+{{ $emptyActionLabel := .emptyActionLabel }}
+{{ $contentListHeading := .contentListHeading | default "Browse the archive" }}
+
+<section class="archive-layout archive-layout--rows">
+  <div class="archive-topbar">
+    <div class="archive-header">
+      {{ with $eyebrow }}<p class="eyebrow">{{ . }}</p>{{ end }}
+      <h1>{{ $title }}</h1>
+      <p>{{ $description }}</p>
+    </div>
+    <div class="archive-topbar__search">
+      {{ partial "search/search-bar.html" (dict
+        "page" $page
+        "stateBaseUrl" $stateBaseUrl
+        "scopeKind" $searchScopeKind
+        "scopeValue" $searchScopeValue
+        "scopeLabel" $searchScopeLabel
+        "placeholder" $searchPlaceholder
+      ) }}
+    </div>
+  </div>
+
+  {{ partial "archive/filter-bar.html" (dict "page" $page "yearLinks" $yearLinks "sortEnabled" true) }}
+
+  <div class="archive-layout__content">
+    {{ partial "content-list.html" (dict
+      "groups" $groups
+      "paginator" $paginator
+      "resultCount" (len $paginator.Pages)
+      "totalCount" $paginator.TotalNumberOfElements
+      "heading" $contentListHeading
+      "emptyTitle" $emptyTitle
+      "emptyCopy" $emptyCopy
+      "emptyActionHref" $emptyActionHref
+      "emptyActionLabel" $emptyActionLabel
+    ) }}
+  </div>
+</section>

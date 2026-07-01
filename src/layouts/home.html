@@ -11,15 +11,15 @@
 
 {{ define "main" }}
   {{ $homeProfile := hugo.Data.homepage }}
+  {{ $profile := index $homeProfile "profile" | default dict }}
   {{ $blogPage := site.GetPage "/posts" }}
   {{ $topicsPage := site.GetPage "/categories" }}
+  {{ $aboutPage := site.GetPage "/about" }}
   {{ $posts := where .Site.RegularPages "Type" "posts" }}
   {{ $posts = $posts.ByDate.Reverse }}
   {{ $featured := false }}
-  {{ $hasPinnedFeatured := false }}
   {{ with first 1 (where $posts "Params.featured" true) }}
     {{ $featured = index . 0 }}
-    {{ $hasPinnedFeatured = true }}
   {{ end }}
   {{ if and (not $featured) (gt (len $posts) 0) }}
     {{ $featured = index $posts 0 }}
@@ -30,143 +30,133 @@
       {{ $recent = $recent | append . }}
     {{ end }}
   {{ end }}
-  {{ $recent = first 4 $recent }}
-  {{ $startReadingHref := .Site.Home.RelPermalink }}
-  {{ if $blogPage }}{{ $startReadingHref = $blogPage.RelPermalink }}{{ end }}
+  {{ $recent = first 3 $recent }}
+  {{ $blogHref := "posts/" | relURL }}
+  {{ $topicsHref := "category/" | relURL }}
+  {{ $aboutHref := "about/" | relURL }}
+  {{ with $blogPage }}{{ $blogHref = .RelPermalink }}{{ end }}
+  {{ with $topicsPage }}{{ $topicsHref = .RelPermalink }}{{ end }}
+  {{ with $aboutPage }}{{ $aboutHref = .RelPermalink }}{{ end }}
+  {{ $startReadingHref := $blogHref }}
   {{ if $featured }}{{ $startReadingHref = $featured.RelPermalink }}{{ end }}
-  {{ $browseTopicsHref := "category/" | relURL }}
-  {{ $homePortraitSrc := "images/home/thomas-theunen-hero.jpg" }}
-  {{ $homePortraitAlt := "A picture of Thomas Theunen leaning on a desk at the office with plants in the background." }}
-  {{ with $topicsPage }}{{ $browseTopicsHref = .RelPermalink }}{{ end }}
   {{ $rssHref := printf "%sindex.xml" .Site.Home.RelPermalink }}
   {{ with .Site.Home.OutputFormats.Get "rss" }}{{ $rssHref = .RelPermalink }}{{ end }}
-  {{ $profile := dict }}
-  {{ $projects := dict }}
-  {{ with $homeProfile }}
-    {{ $profile = index . "profile" }}
-    {{ $projects = index . "projects" }}
-  {{ end }}
+  {{ $intro := index $profile "intro" | default slice }}
+  {{ $heroCopy := "I'm Thomas, Head of Commerce at Forward and proud father of two, Thalia and Thano. Here I share what I have learned to help others succeed in the Ohana." }}
+  {{ with $intro }}{{ with index . 0 }}{{ $heroCopy = . }}{{ end }}{{ end }}
+  {{ $homePortraitSrc := "images/home/thomas-theunen-hero.jpg" }}
+  {{ $homePortraitAlt := "Thomas Theunen leaning on a desk in an office." }}
 
-  <section class="page-hero page-hero--home" aria-labelledby="home-hero-title">
-    <div class="page-hero__body page-hero__body--home">
-      <p class="eyebrow">{{ with index $profile "eyebrow" }}{{ . }}{{ else }}About Thomas{{ end }}</p>
-      <h1 id="home-hero-title">{{ .Site.Title }}</h1>
-      <p class="page-hero__tagline">{{ with $homeProfile.heroTagline }}{{ . }}{{ else }}{{ .Site.Params.description | default (printf "Deep technical deep dives and strategies. Confident advice for architects, developers, and business leaders.") }}{{ end }}</p>
-      {{ with index $profile "intro" }}
-        <div class="page-hero__summary-group">
-          {{ range . }}
-            <p class="page-hero__summary">{{ . }}</p>
-          {{ end }}
+  <article class="home-redesign" aria-labelledby="home-hero-title">
+    <section class="home-redesign__hero">
+      <div class="home-redesign__hero-copy">
+        <p class="home-redesign__eyebrow">Salesforce B2C Commerce</p>
+        <h1 id="home-hero-title">Field notes from a decade in <em>commerce</em>.</h1>
+        <p class="home-redesign__intro">{{ $heroCopy }}</p>
+        <div class="home-redesign__actions" aria-label="Homepage calls to action">
+          <a class="home-redesign__button home-redesign__button--primary" href="{{ $startReadingHref }}">Read latest</a>
+          <a class="home-redesign__button home-redesign__button--secondary" href="{{ $aboutHref }}">About Thomas</a>
         </div>
-      {{ end }}
-      <div class="hero-cta-bar">
-        <a class="site-cta" href="{{ $startReadingHref }}">{{ if $hasPinnedFeatured }}Read Featured Article{{ else }}Read Latest Article{{ end }}</a>
-        <a class="site-cta site-cta--outline" href="{{ $browseTopicsHref }}">Browse Topics</a>
       </div>
-      {{ with index $projects "items" }}
-        <section class="page-hero__projects" aria-labelledby="home-projects-heading">
-          <h2 id="home-projects-heading">{{ with index $projects "title" }}{{ . }}{{ else }}Active Projects{{ end }}</h2>
-          {{ with index $projects "description" }}<p class="page-hero__projects-intro">{{ . }}</p>{{ end }}
-          <ul class="home-project-list">
-            {{ range . }}
-              <li>
-                <a class="home-project-link" href="{{ index . "url" }}">
-                  <span class="home-project-link__name">{{ index . "name" }}</span>
-                  <span class="home-project-link__meta">Visit project &rarr;</span>
-                </a>
-              </li>
-            {{ end }}
-          </ul>
-        </section>
-      {{ end }}
-      {{ with index $profile "actions" }}
-        <nav class="page-hero__support-links" aria-label="About and profile links">
-          {{ range . }}
-            {{ $isExternal := hasPrefix (index . "url") "http" }}
-            <a class="page-hero__support-link" href="{{ index . "url" }}"{{ if $isExternal }} target="_blank" rel="noopener"{{ end }}>{{ index . "label" }}{{ if $isExternal }}&nbsp;<span aria-hidden="true">↗</span>{{ end }}</a>
-          {{ end }}
-        </nav>
-      {{ end }}
-    </div>
-    <div class="page-hero__media-column">
-      <div class="page-hero__illustration page-hero__illustration--home">
+      <figure class="home-redesign__portrait">
         {{ partial "media/image.html" (dict
           "src" $homePortraitSrc
           "alt" $homePortraitAlt
           "loading" "eager"
           "fetchpriority" "high"
           "responsive" true
-          "sizes" "(min-width: 64rem) 40rem, 100vw"
-          "class" "page-hero__portrait"
+          "sizes" "(min-width: 64rem) 22rem, (min-width: 48rem) 32vw, 100vw"
+          "class" "home-redesign__portrait-image"
         ) }}
-      </div>
-    </div>
-  </section>
-
-  <div class="home-content-grid">
-    <section class="home-section home-section--featured" aria-labelledby="featured-heading">
-      <h2 class="home-section__title" id="featured-heading">Featured Deep Dive</h2>
-      {{ if $featured }}
-        <article class="featured-article">
-          {{ with $featured.Params.heroImage }}
-            <div class="featured-article__media">
-              <a class="featured-article__media-link" href="{{ $featured.RelPermalink }}" aria-label="Read {{ $featured.LinkTitle }}">
-                {{ partial "media/image.html" (dict
-                  "page" $featured
-                  "src" .
-                  "alt" ($featured.Params.heroImageAlt | default $featured.LinkTitle | default $featured.Title)
-                  "loading" "lazy"
-                  "responsive" true
-                  "maxWidth" 1280
-                  "sizes" "(min-width: 64rem) 36rem, 100vw"
-                ) }}
-              </a>
-            </div>
-          {{ end }}
-          <h3 class="surface-title featured-article__title"><a class="surface-title-link featured-article__link" href="{{ $featured.RelPermalink }}">{{ $featured.LinkTitle }}</a></h3>
-          <p class="featured-article__excerpt">{{ partial "article/resolve-excerpt.html" (dict "page" $featured) }}</p>
-          {{ partial "article/meta-row.html" (dict "page" $featured "label" "Article details") }}
-        </article>
-      {{ else }}
-        <p class="home-section__empty">Mark a post as <code>featured: true</code> or publish the first article to anchor this lane.</p>
-      {{ end }}
+        <figcaption>Thomas - Head of Commerce, Forward</figcaption>
+      </figure>
     </section>
 
-    <section class="home-section home-section--latest" aria-labelledby="latest-heading">
-      <div class="home-section__header">
-        <h2 class="home-section__title" id="latest-heading">Latest Posts</h2>
-        {{ with $blogPage }}
-          <a class="home-section__link" href="{{ .RelPermalink }}">View all &rarr;</a>
-        {{ end }}
+    {{ if $featured }}
+      {{ $featuredTopic := partial "article/resolve-primary-topic.html" (dict "page" $featured) }}
+      <section class="home-redesign__featured" aria-labelledby="home-featured-title">
+        <div class="home-redesign__section-kicker">
+          <span>Featured</span>
+          <span aria-hidden="true"></span>
+        </div>
+        <article class="home-featured-card">
+          {{ with $featured.Params.heroImage }}
+            <a class="home-featured-card__media" href="{{ $featured.RelPermalink }}" aria-label="Read {{ $featured.LinkTitle }}">
+              {{ partial "media/image.html" (dict
+                "page" $featured
+                "src" .
+                "alt" ($featured.Params.heroImageAlt | default $featured.LinkTitle | default $featured.Title)
+                "loading" "lazy"
+                "responsive" true
+                "maxWidth" 1280
+                "sizes" "(min-width: 64rem) 31rem, (min-width: 48rem) 48vw, 100vw"
+              ) }}
+            </a>
+          {{ end }}
+          <div class="home-featured-card__body">
+            <p class="home-redesign__eyebrow">{{ with $featuredTopic.label }}{{ . }}{{ else }}Release Notes{{ end }}</p>
+            <h2 id="home-featured-title"><a href="{{ $featured.RelPermalink }}">{{ $featured.LinkTitle }}</a></h2>
+            <p>{{ partial "article/resolve-excerpt.html" (dict "page" $featured "maxLength" 155) }}</p>
+            <p class="home-redesign__meta">
+              <time datetime="{{ $featured.Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ $featured.Date.Format "Jan 2006" }}</time>
+              <span aria-hidden="true">·</span>
+              <span>{{ $featured.ReadingTime }} min read</span>
+            </p>
+          </div>
+        </article>
+      </section>
+    {{ end }}
+
+    <section class="home-redesign__recent" aria-labelledby="home-recent-title">
+      <div class="home-redesign__recent-header">
+        <div>
+          <h2 id="home-recent-title">Explore SFCC</h2>
+          <p>A decade of implementation notes on Commerce Cloud and the Salesforce suite.</p>
+        </div>
+        <a href="{{ $blogHref }}">All articles &rarr;</a>
       </div>
       {{ if gt (len $recent) 0 }}
-        <ul class="latest-list">
+        <div class="home-recent-grid">
           {{ range $recent }}
+            {{ $post := . }}
             {{ $topicData := partial "article/resolve-primary-topic.html" (dict "page" .) }}
-            <li class="latest-list__item">
-              <a class="latest-list__link surface-title-link" href="{{ .RelPermalink }}">
-                <span class="surface-title latest-list__title">{{ .LinkTitle }}</span>
-                <span class="latest-list__excerpt">{{ partial "article/resolve-excerpt.html" (dict "page" . "maxLength" 80) }}</span>
-                <span class="latest-list__meta">{{ .Date.Format "Jan 2, 2006" }} · {{ .ReadingTime }} min read{{ with $topicData.label }} · {{ . }}{{ end }}</span>
-              </a>
-            </li>
+            <article class="home-recent-card">
+              {{ with .Params.heroImage }}
+                <a class="home-recent-card__media" href="{{ $post.RelPermalink }}" aria-label="Read {{ $post.LinkTitle }}">
+                  {{ partial "media/image.html" (dict
+                    "page" $post
+                    "src" .
+                    "alt" ($post.Params.heroImageAlt | default $post.LinkTitle | default $post.Title)
+                    "loading" "lazy"
+                    "responsive" true
+                    "maxWidth" 768
+                    "sizes" "(min-width: 64rem) 19rem, (min-width: 48rem) 45vw, 7rem"
+                  ) }}
+                </a>
+              {{ end }}
+              <div class="home-recent-card__body">
+                <p class="home-redesign__eyebrow">{{ with $topicData.label }}{{ . }}{{ else }}Article{{ end }}</p>
+                <h3><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h3>
+                <p class="home-redesign__meta">
+                  <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "Jan 2006" }}</time>
+                  <span aria-hidden="true">·</span>
+                  <span>{{ .ReadingTime }} min</span>
+                </p>
+              </div>
+            </article>
           {{ end }}
-        </ul>
+        </div>
       {{ else }}
-        <p class="home-section__empty">Recent posts will appear here as articles are published.</p>
+        <p class="home-redesign__empty">Recent articles will appear here as they are published.</p>
       {{ end }}
     </section>
 
-  </div>
-
-  <section class="home-newsletter" aria-labelledby="home-newsletter-heading">
-    <div class="home-newsletter__body">
-      <h2 id="home-newsletter-heading">Follow New Posts</h2>
-      <p>Follow new posts via RSS or jump straight to the latest archive entries.</p>
-    </div>
-    <div class="home-newsletter__actions">
-      <a class="site-cta" href="{{ $rssHref }}">Follow via RSS</a>
-      <a class="site-cta site-cta--outline" href="{{ $startReadingHref }}">Read the latest</a>
-    </div>
-  </section>
+    <section class="home-redesign__blog-cta" aria-labelledby="home-blog-cta-title">
+      <div>
+        <h2 id="home-blog-cta-title">There's plenty more where that came from.</h2>
+        <p>A decade of SFCC notes, guides and lessons - all in one place.</p>
+      </div>
+      <a href="{{ $blogHref }}">Read blog &rarr;</a>
+    </section>
+  </article>
 {{ end }}

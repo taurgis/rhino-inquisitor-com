@@ -76,36 +76,22 @@
 
   <div class="archive-route-breadcrumbs">{{ partial "breadcrumbs.html" . }}</div>
 
-  <section class="archive-layout surface-panel">
-    <div class="archive-header">
-      <p class="eyebrow">Archive</p>
-      <h1>{{ .Title }}</h1>
-      <p>{{ $archiveDescription }}</p>
-    </div>
-
-    {{ partial "archive/filter-bar.html" (dict "page" . "yearLinks" $yearLinks "sortEnabled" true) }}
-
-    <div class="archive-layout__content">
-      {{ partial "search/search-bar.html" (dict
-        "page" .
-        "stateBaseUrl" $stateBaseUrl
-        "scopeKind" "type"
-        "scopeValue" $searchScopeValue
-        "scopeLabel" $searchScopeLabel
-        "placeholder" (cond (eq $searchScopeValue "pages") "Search pages" "Search archive")
-      ) }}
-      {{ partial "archive/year-jump.html" (dict "links" $yearLinks) }}
-      {{ partial "content-list.html" (dict
-        "groups" $groups
-        "paginator" $paginator
-        "resultCount" (len $paginator.Pages)
-        "totalCount" $paginator.TotalNumberOfElements
-        "heading" "Browse the archive"
-        "emptyTitle" "The archive is waiting for its next batch"
-        "emptyCopy" (cond (eq $searchScopeValue "pages") "This pages archive only lists public reference content and standalone resources." "Keep using the topic, type, and year controls while future articles fill this section.")
-        "emptyActionHref" $emptyActionHref
-        "emptyActionLabel" "Return to the archive"
-      ) }}
-    </div>
-  </section>
+  {{ partial "archive/layout.html" (dict
+    "page" .
+    "title" .Title
+    "description" $archiveDescription
+    "searchScopeKind" "type"
+    "searchScopeValue" $searchScopeValue
+    "searchScopeLabel" $searchScopeLabel
+    "searchPlaceholder" (cond (eq $searchScopeValue "pages") "Search pages" "Search archive")
+    "stateBaseUrl" $stateBaseUrl
+    "yearLinks" $yearLinks
+    "groups" $groups
+    "paginator" $paginator
+    "contentListHeading" "Browse the archive"
+    "emptyTitle" "The archive is waiting for its next batch"
+    "emptyCopy" (cond (eq $searchScopeValue "pages") "This pages archive only lists public reference content and standalone resources." "Keep using the topic, type, and year controls while future articles fill this section.")
+    "emptyActionHref" $emptyActionHref
+    "emptyActionLabel" "Return to the archive"
+  ) }}
 {{ end }}

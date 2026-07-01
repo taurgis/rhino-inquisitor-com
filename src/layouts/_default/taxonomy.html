@@ -15,38 +15,25 @@
     {{ $stateBaseUrl := .RelPermalink }}
     {{ with $paginator.First }}{{ $stateBaseUrl = .URL }}{{ end }}
 
-    <section class="archive-layout surface-panel">
-      <div class="archive-header">
-        <p class="eyebrow">Archive</p>
-        <h1>{{ $displayTitle }}</h1>
-        <p>{{ .Params.description | default (printf "Articles and guides filed under %s." $displayTitle) }}</p>
-      </div>
-
-      <div class="archive-layout__content">
-        {{ partial "search/search-bar.html" (dict
-          "page" .
-          "stateBaseUrl" $stateBaseUrl
-          "scopeKind" "category"
-          "scopeValue" (.Data.Term | urlize)
-          "scopeLabel" (printf "%s archive" $displayTitle)
-          "placeholder" "Search this topic"
-        ) }}
-        {{ partial "archive/year-jump.html" (dict "links" $yearLinks) }}
-        {{ partial "content-list.html" (dict
-          "groups" $groups
-          "paginator" $paginator
-          "resultCount" (len $paginator.Pages)
-          "totalCount" $paginator.TotalNumberOfElements
-          "heading" (printf "%s archive entries" $displayTitle)
-          "emptyTitle" (printf "%s is ready for its first article" $displayTitle)
-          "emptyCopy" "This topic does not have any articles yet."
-          "emptyActionHref" $allTopicsHref
-          "emptyActionLabel" "Browse all topics"
-        ) }}
-      </div>
-
-      {{ partial "archive/filter-bar.html" (dict "page" . "yearLinks" $yearLinks "sortEnabled" true) }}
-    </section>
+    {{ partial "archive/layout.html" (dict
+      "page" .
+      "title" $displayTitle
+      "description" (.Params.description | default (printf "Articles and guides filed under %s." $displayTitle))
+      "eyebrow" "Archive"
+      "searchScopeKind" "category"
+      "searchScopeValue" (.Data.Term | urlize)
+      "searchScopeLabel" (printf "%s archive" $displayTitle)
+      "searchPlaceholder" "Search this topic"
+      "stateBaseUrl" $stateBaseUrl
+      "yearLinks" $yearLinks
+      "groups" $groups
+      "paginator" $paginator
+      "contentListHeading" (printf "%s archive entries" $displayTitle)
+      "emptyTitle" (printf "%s is ready for its first article" $displayTitle)
+      "emptyCopy" "This topic does not have any articles yet."
+      "emptyActionHref" $allTopicsHref
+      "emptyActionLabel" "Browse all topics"
+    ) }}
   {{ else }}
     {{ $topicItemsByUrl := dict }}
     {{ range .Data.Terms.Alphabetical }}

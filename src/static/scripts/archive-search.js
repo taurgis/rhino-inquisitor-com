@@ -104,6 +104,37 @@
       '</article>';
   }
 
+  var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+  function shortDate(iso) {
+    if (!iso) return '';
+    var parts = String(iso).slice(0, 10).split('-');
+    if (parts.length < 3) return '';
+    var month = MONTHS[parseInt(parts[1], 10) - 1] || '';
+    return (month + ' ' + parseInt(parts[2], 10)).trim();
+  }
+
+  function createRow(entry) {
+    var speculationAttr = entry.type === 'posts' || (entry.type === 'pages' && entry.permalink !== 'https://www.rhino-inquisitor.com/archive/' && entry.permalink !== '/archive/')
+      ? ' data-speculation="archive-article"'
+      : '';
+    var cat = entry.primaryTopic
+      ? '<span class="archive-row__cat">' + escapeHtml(entry.primaryTopic) + '</span>'
+      : '';
+    var read = entry.type === 'posts' && entry.readingTime
+      ? escapeHtml(entry.readingTime) + ' min <span class="archive-row__arrow" aria-hidden="true">&rarr;</span>'
+      : '';
+
+    return '' +
+      '<a class="archive-row" href="' + escapeHtml(entry.permalink) + '"' + speculationAttr + '>' +
+        '<span class="archive-row__date">' + escapeHtml(shortDate(entry.date)) + '</span>' +
+        '<span class="archive-row__body">' + cat +
+          '<span class="archive-row__title">' + escapeHtml(entry.title) + '</span>' +
+        '</span>' +
+        '<span class="archive-row__read">' + read + '</span>' +
+      '</a>';
+  }
+
   function groupEntriesByYear(entries) {
     var groups = [];
 
@@ -169,9 +200,9 @@
           '<h2 id="archive-results-heading">' + heading + '</h2>' +
           '<p class="archive-results__summary" role="status" aria-live="polite">' + summary + '</p>' +
         '</div>' +
-        '<ul class="article-card-grid" role="list">' +
+        '<ul class="archive-rows" role="list">' +
           entries.map(function (entry) {
-            return '<li>' + createCard(entry) + '</li>';
+            return '<li>' + createRow(entry) + '</li>';
           }).join('') +
         '</ul>';
     }
@@ -191,9 +222,9 @@
                 '<h3>' + escapeHtml(group.year) + '</h3>' +
                 '<p class="surface-note">' + group.entries.length + ' ' + (group.entries.length === 1 ? 'entry' : 'entries') + '</p>' +
               '</div>' +
-              '<ul class="article-card-grid" role="list">' +
+              '<ul class="archive-rows" role="list">' +
                 group.entries.map(function (entry) {
-                  return '<li>' + createCard(entry) + '</li>';
+                  return '<li>' + createRow(entry) + '</li>';
                 }).join('') +
               '</ul>' +
             '</section>';

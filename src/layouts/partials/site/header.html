@@ -4,73 +4,72 @@
 {{ $blogHref := "posts/" | relURL }}
 {{ $topicsHref := "category/" | relURL }}
 {{ $aboutHref := "about/" | relURL }}
+{{ $archiveHref := $blogHref }}
 {{ $brandMarkHref := "images/brand-mark.svg" | relURL }}
-{{ $searchHref := printf "%s#archive-search" $blogHref }}
-{{ $searchLabel := "Search archive" }}
-{{ with $blogPage }}{{ $blogHref = .RelPermalink }}{{ end }}
+{{ with $blogPage }}{{ $blogHref = .RelPermalink }}{{ $archiveHref = .RelPermalink }}{{ end }}
 {{ with $topicsPage }}{{ $topicsHref = .RelPermalink }}{{ end }}
 {{ with $aboutPage }}{{ $aboutHref = .RelPermalink }}{{ end }}
-{{ if or (eq .Layout "archive") (and (eq .Kind "section") (eq .Section "posts")) (eq .Kind "taxonomy") (eq .Kind "term") }}
-  {{ $searchHref = printf "%s#archive-search" .RelPermalink }}
-{{ else }}
-  {{ $searchHref = printf "%s#archive-search" $blogHref }}
-{{ end }}
+{{ $isBlog := or (eq .RelPermalink $blogHref) (and (eq .Kind "section") (eq .Section "posts")) }}
+{{ $isTopics := or (eq .RelPermalink $topicsHref) (eq .Kind "taxonomy") (eq .Kind "term") }}
+{{ $isAbout := eq .RelPermalink $aboutHref }}
+{{ $topicTerms := slice }}
+{{ with site.Taxonomies.categories }}{{ $topicTerms = first 4 .ByCount }}{{ end }}
 
 <header class="site-header">
   <div class="site-header__inner">
     <a class="site-brand" href="{{ .Site.Home.RelPermalink }}">
-      <img class="site-brand__logo" src="{{ $brandMarkHref }}" width="38" height="50" alt="" aria-hidden="true">
-      <span class="site-brand__title">{{ .Site.Title }}</span>
+      <img class="site-brand__logo" src="{{ $brandMarkHref }}" width="32" height="32" alt="" aria-hidden="true">
+      <span class="site-brand__title">Rhino Inquisitor</span>
     </a>
-
-    <a class="site-header__search" href="{{ $searchHref }}" aria-label="{{ $searchLabel }}">
-      <svg class="site-header__search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <span class="site-header__search-label">{{ $searchLabel }}</span>
-    </a>
-
-    <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark mode" title="Switch to dark mode">
-      <svg class="theme-toggle__sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-      <svg class="theme-toggle__moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-    </button>
 
     <button class="site-menu__toggle" type="button" aria-expanded="false" aria-controls="mobile-drawer" aria-label="Open menu">
-      <svg class="site-menu__icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <span class="site-menu__bars" aria-hidden="true"><span></span><span></span><span></span></span>
     </button>
-
-    <div class="site-drawer__backdrop" aria-hidden="true" hidden></div>
-    <aside class="site-drawer" id="mobile-drawer" aria-label="Mobile navigation" aria-hidden="true" hidden inert>
-      <div class="site-drawer__header">
-        <a class="site-drawer__brand" href="{{ .Site.Home.RelPermalink }}">
-          <img src="{{ $brandMarkHref }}" width="28" height="37" alt="" aria-hidden="true">
-          <span>{{ .Site.Title }}</span>
-        </a>
-        <button class="site-drawer__close" type="button" aria-label="Close menu">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-        </button>
-      </div>
-      <nav class="site-drawer__nav" aria-label="Mobile navigation">
-        <a href="{{ $blogHref }}"{{ if or (eq .Section "posts") (eq .RelPermalink "/posts/") }} aria-current="page"{{ end }}>Blog</a>
-        <a href="{{ $topicsHref }}"{{ if or (eq .Kind "taxonomy") (eq .Kind "term") }} aria-current="page"{{ end }}>Topics</a>
-        <a href="{{ $aboutHref }}"{{ if eq .RelPermalink "/about/" }} aria-current="page"{{ end }}>About</a>
-      </nav>
-      <div class="site-drawer__footer">
-        <a class="site-cta site-drawer__cta" href="{{ $blogHref }}">Start Reading</a>
-        <a class="site-drawer__search" href="{{ $searchHref }}">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          {{ $searchLabel }}
-        </a>
-      </div>
-    </aside>
 
     <div class="site-header__desktop">
       <nav class="site-nav" aria-label="Primary navigation">
-        <a href="{{ $blogHref }}"{{ if or (eq .Section "posts") (eq .RelPermalink "/posts/") }} aria-current="page"{{ end }}>Blog</a>
-        <a href="{{ $topicsHref }}"{{ if or (eq .Kind "taxonomy") (eq .Kind "term") }} aria-current="page"{{ end }}>Topics</a>
-        <a href="{{ $aboutHref }}"{{ if eq .RelPermalink "/about/" }} aria-current="page"{{ end }}>About</a>
+        <a href="{{ $blogHref }}"{{ if $isBlog }} aria-current="page"{{ end }}>Articles</a>
+        <a href="{{ $aboutHref }}"{{ if $isAbout }} aria-current="page"{{ end }}>About</a>
+        <a class="site-header__cta" href="{{ $blogHref }}">Read &rarr;</a>
       </nav>
-      <a class="site-cta" href="{{ $blogHref }}">Start Reading</a>
     </div>
   </div>
+
+  <div class="site-drawer__backdrop" aria-hidden="true" hidden></div>
+  <aside class="site-drawer" id="mobile-drawer" aria-label="Mobile navigation" aria-hidden="true" inert hidden>
+    <div class="site-drawer__header">
+      <a class="site-drawer__brand" href="{{ .Site.Home.RelPermalink }}">
+        <img src="{{ $brandMarkHref }}" width="30" height="30" alt="" aria-hidden="true">
+        <span>Rhino Inquisitor</span>
+      </a>
+      <button class="site-drawer__close" type="button" aria-label="Close menu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+    </div>
+
+    <nav class="site-drawer__nav" aria-label="Mobile navigation">
+      <a href="{{ $blogHref }}"{{ if $isBlog }} aria-current="page"{{ end }}>Articles</a>
+      <a href="{{ $topicsHref }}"{{ if $isTopics }} aria-current="page"{{ end }}>Topics</a>
+      <a href="{{ $aboutHref }}"{{ if $isAbout }} aria-current="page"{{ end }}>About</a>
+      <a href="{{ $archiveHref }}">The Archive</a>
+    </nav>
+
+    {{ if gt (len $topicTerms) 0 }}
+      <div class="site-drawer__topics" aria-label="Explore topic">
+        <p>Explore topic</p>
+        <div>
+          {{ range $topicTerms }}
+            <a class="site-drawer__topic" href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
+          {{ end }}
+        </div>
+      </div>
+    {{ end }}
+
+    <div class="site-drawer__footer">
+      <a class="site-cta site-drawer__cta" href="{{ $blogHref }}">Read &rarr;</a>
+    </div>
+  </aside>
 </header>
 
 <script>
@@ -80,264 +79,96 @@
   var close = document.querySelector('.site-drawer__close');
   var backdrop = document.querySelector('.site-drawer__backdrop');
   var drawer = document.getElementById('mobile-drawer');
-  var desktopQuery = window.matchMedia('(min-width: 48rem)');
-  var focusableSelector = 'a[href], area[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
-  var pendingCloseListener = null;
-  var pendingCloseTimer = null;
-  if (!toggle || !close || !backdrop || !drawer) return;
+  var desktopQuery = window.matchMedia('(min-width: 52.125rem)');
+  var focusableSelector = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+  if (!header || !toggle || !close || !backdrop || !drawer) return;
 
   function setExpanded(expanded) {
     toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
     toggle.setAttribute('aria-label', expanded ? 'Close menu' : 'Open menu');
   }
 
-  function setBackgroundInert(isInert) {
-    var mainContent = document.getElementById('main-content');
-    var siteFooter = document.querySelector('.site-footer');
-
-    if (mainContent) {
-      mainContent.inert = isInert;
-    }
-
-    if (siteFooter) {
-      siteFooter.inert = isInert;
-    }
-  }
-
-  function parseTimeMs(value) {
-    var trimmed = value.trim();
-
-    if (!trimmed) return 0;
-    if (trimmed.slice(-2) === 'ms') return Number(trimmed.slice(0, -2)) || 0;
-    if (trimmed.slice(-1) === 's') return (Number(trimmed.slice(0, -1)) || 0) * 1000;
-
-    return 0;
-  }
-
-  function getTransitionTimeMs(element) {
-    var styles = window.getComputedStyle(element);
-    var durations = styles.transitionDuration.split(',');
-    var delays = styles.transitionDelay.split(',');
-    var max = 0;
-    var index;
-
-    for (index = 0; index < durations.length; index += 1) {
-      var duration = parseTimeMs(durations[index]);
-      var delay = parseTimeMs(delays[index] || delays[delays.length - 1] || '0s');
-
-      max = Math.max(max, duration + delay);
-    }
-
-    return max;
-  }
-
-  function clearPendingClose() {
-    if (pendingCloseListener) {
-      drawer.removeEventListener('transitionend', pendingCloseListener);
-      pendingCloseListener = null;
-    }
-
-    if (pendingCloseTimer) {
-      window.clearTimeout(pendingCloseTimer);
-      pendingCloseTimer = null;
-    }
-  }
-
-  function getFocusableElements(container) {
-    return Array.prototype.filter.call(container.querySelectorAll(focusableSelector), function (element) {
+  function getFocusable() {
+    return Array.prototype.filter.call(drawer.querySelectorAll(focusableSelector), function (element) {
       return !element.hidden && element.tabIndex !== -1;
     });
   }
 
-  function finalizeClosedState() {
-    clearPendingClose();
-    drawer.hidden = true;
-    backdrop.hidden = true;
-    setBackgroundInert(false);
-  }
-
-  function scheduleCloseFinalize() {
-    var transitionTimeMs = getTransitionTimeMs(drawer);
-
-    clearPendingClose();
-
-    if (transitionTimeMs === 0) {
-      finalizeClosedState();
-      return;
-    }
-
-    pendingCloseListener = function (event) {
-      if (event.target !== drawer) return;
-
-      finalizeClosedState();
-    };
-
-    drawer.addEventListener('transitionend', pendingCloseListener);
-    pendingCloseTimer = window.setTimeout(function () {
-      finalizeClosedState();
-    }, transitionTimeMs + 50);
-  }
-
-  function open() {
-    if (desktopQuery.matches || header.classList.contains('site-drawer--open')) return;
-
-    clearPendingClose();
-
+  function openDrawer() {
     drawer.hidden = false;
     backdrop.hidden = false;
     drawer.inert = false;
     drawer.setAttribute('aria-hidden', 'false');
-    setBackgroundInert(true);
-
-    window.requestAnimationFrame(function () {
-      header.classList.add('site-drawer--open');
-      document.body.classList.add('drawer-open');
-      setExpanded(true);
-      close.focus();
-    });
+    document.body.classList.add('drawer-open');
+    header.classList.add('site-drawer--open');
+    setExpanded(true);
+    close.focus();
   }
 
-  function shut(options) {
-    var config = options || {};
-
-    clearPendingClose();
-
+  function closeDrawer(restoreFocus) {
     header.classList.remove('site-drawer--open');
     document.body.classList.remove('drawer-open');
-    setExpanded(false);
     drawer.inert = true;
     drawer.setAttribute('aria-hidden', 'true');
-
-    if (config.immediate) {
-      finalizeClosedState();
-    } else {
-      scheduleCloseFinalize();
-    }
-
-    if (config.restoreFocus !== false && !desktopQuery.matches) {
+    drawer.hidden = true;
+    backdrop.hidden = true;
+    setExpanded(false);
+    if (restoreFocus !== false && !desktopQuery.matches) {
       toggle.focus();
     }
   }
 
   toggle.addEventListener('click', function () {
     if (header.classList.contains('site-drawer--open')) {
-      shut();
+      closeDrawer();
       return;
     }
-
-    open();
+    openDrawer();
   });
-  close.addEventListener('click', shut);
-  backdrop.addEventListener('click', shut);
 
-  document.addEventListener('keydown', function (e) {
+  close.addEventListener('click', closeDrawer);
+  backdrop.addEventListener('click', closeDrawer);
+
+  document.addEventListener('keydown', function (event) {
     if (!header.classList.contains('site-drawer--open')) return;
 
-    if (e.key === 'Escape') {
-      e.preventDefault();
-      shut();
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      closeDrawer();
       return;
     }
 
-    if (e.key !== 'Tab') return;
+    if (event.key !== 'Tab') return;
 
-    var focusable = getFocusableElements(drawer);
-    var firstFocusable = focusable[0];
-    var lastFocusable = focusable[focusable.length - 1];
+    var focusable = getFocusable();
+    var first = focusable[0];
+    var last = focusable[focusable.length - 1];
 
     if (!focusable.length) {
-      e.preventDefault();
+      event.preventDefault();
       close.focus();
       return;
     }
 
-    if (!drawer.contains(document.activeElement)) {
-      e.preventDefault();
-
-      if (e.shiftKey) {
-        lastFocusable.focus();
-      } else {
-        firstFocusable.focus();
-      }
-
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
       return;
     }
 
-    if (e.shiftKey && document.activeElement === firstFocusable) {
-      e.preventDefault();
-      lastFocusable.focus();
-      return;
-    }
-
-    if (!e.shiftKey && document.activeElement === lastFocusable) {
-      e.preventDefault();
-      firstFocusable.focus();
+    if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
     }
   });
 
   if (typeof desktopQuery.addEventListener === 'function') {
     desktopQuery.addEventListener('change', function (event) {
-      if (event.matches) shut({ immediate: true, restoreFocus: false });
-    });
-  } else if (typeof desktopQuery.addListener === 'function') {
-    desktopQuery.addListener(function (event) {
-      if (event.matches) shut({ immediate: true, restoreFocus: false });
+      if (event.matches) closeDrawer(false);
     });
   }
 
-  setExpanded(false);
-  finalizeClosedState();
-  drawer.inert = true;
-})();
-</script>
-
-<script>
-(function () {
-  var root = document.documentElement;
-  var toggles = document.querySelectorAll('.theme-toggle');
-  var systemThemeQuery = window.matchMedia('(prefers-color-scheme: dark)');
-  if (!toggles.length) return;
-
-  function isDark() {
-    return root.getAttribute('data-theme') === 'dark';
-  }
-
-  function syncToggleState() {
-    var dark = isDark();
-    var label = dark ? 'Switch to light mode' : 'Switch to dark mode';
-
-    Array.prototype.forEach.call(toggles, function (btn) {
-      btn.setAttribute('aria-pressed', dark ? 'true' : 'false');
-      btn.setAttribute('aria-label', label);
-      btn.title = label;
-    });
-  }
-
-  function apply(dark, persist) {
-    root.setAttribute('data-theme', dark ? 'dark' : 'light');
-
-    if (persist === false) {
-      localStorage.removeItem('theme');
-    } else {
-      localStorage.setItem('theme', dark ? 'dark' : 'light');
-    }
-
-    syncToggleState();
-  }
-
-  Array.prototype.forEach.call(toggles, function (btn) {
-    btn.addEventListener('click', function () {
-      apply(!isDark());
-    });
-  });
-
-  syncToggleState();
-
-  systemThemeQuery.addEventListener('change', function (e) {
-    if (!localStorage.getItem('theme')) {
-      root.setAttribute('data-theme', e.matches ? 'dark' : 'light');
-      syncToggleState();
-    }
-  });
+  closeDrawer(false);
 })();
 </script>

@@ -32,14 +32,19 @@
             <h3>{{ .Key }}</h3>
             <p class="surface-note">{{ len .Pages }} {{ cond (eq (len .Pages) 1) "entry" "entries" }}</p>
           </div>
-          <ul class="article-card-grid" role="list">
+          <ul class="archive-rows" role="list">
             {{ range .Pages }}
-              {{ $prioritizeArchiveImage := false }}
-              {{ if and .Params.heroImage (ne .Params.heroImage "") (not ($cardState.Get "prioritizedImageAssigned")) }}
-                {{ $prioritizeArchiveImage = true }}
-                {{ $cardState.Set "prioritizedImageAssigned" true }}
-              {{ end }}
-              <li>{{ partial "cards/article-card.html" (dict "page" . "prioritizeArchiveImage" $prioritizeArchiveImage) }}</li>
+              {{ $topicData := partial "article/resolve-primary-topic.html" (dict "page" .) }}
+              <li>
+                <a class="archive-row" href="{{ .RelPermalink }}">
+                  <span class="archive-row__date">{{ .Date.Format "Jan 2" }}</span>
+                  <span class="archive-row__body">
+                    {{ with $topicData.label }}<span class="archive-row__cat">{{ . }}</span>{{ end }}
+                    <span class="archive-row__title">{{ .LinkTitle }}</span>
+                  </span>
+                  <span class="archive-row__read">{{ .ReadingTime }} min <span class="archive-row__arrow" aria-hidden="true">&rarr;</span></span>
+                </a>
+              </li>
             {{ end }}
           </ul>
         </section>

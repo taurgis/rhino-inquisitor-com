@@ -27,6 +27,7 @@
     display: grid;
     gap: 0.8rem;
     align-content: start;
+    align-self: start;
     position: sticky;
     top: 5rem;
     max-height: calc(100dvh - 6rem);
