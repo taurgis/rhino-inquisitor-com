@@ -5,7 +5,7 @@ set -uo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
 
-SUMMARY_PATH="$REPO_ROOT/migration/reports/phase-7-gate-summary.csv"
+SUMMARY_PATH="$REPO_ROOT/url-data/reports/phase-7-gate-summary.csv"
 PREVIEW_BASE_URL="${PHASE7_PREVIEW_BASE_URL:-https://staging.rhino-inquisitor.com/}"
 CI_RUN_URL="${PHASE7_CI_RUN_URL:-}"
 BUILD_DURATION_PATH="$REPO_ROOT/tmp/phase-7-build-duration-ms.txt"

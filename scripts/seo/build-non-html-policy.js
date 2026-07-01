@@ -11,15 +11,15 @@ import {
   repoRoot,
   toRepoRelative,
   toPosixPath
-} from '../migration/url-validation-helpers.js';
+} from '../url/url-validation-helpers.js';
 
 const defaults = {
-  manifestPath: path.join(repoRoot, 'migration', 'url-manifest.json'),
-  mediaManifestPath: path.join(repoRoot, 'migration', 'intermediate', 'media-manifest.json'),
+  manifestPath: path.join(repoRoot, 'url-data', 'url-manifest.json'),
+  mediaManifestPath: path.join(repoRoot, 'url-data', 'intermediate', 'media-manifest.json'),
   contentRoot: path.join(repoRoot, 'src', 'content'),
   publicRoot: path.join(repoRoot, 'public'),
   staticRoot: path.join(repoRoot, 'src', 'static'),
-  reportPath: path.join(repoRoot, 'migration', 'reports', 'phase-5-non-html-policy.csv')
+  reportPath: path.join(repoRoot, 'url-data', 'reports', 'phase-5-non-html-policy.csv')
 };
 
 const feedCompatibilityRoutes = new Set(['/feed/', '/feed/rss/', '/feed/atom/', '/rss/']);
@@ -46,8 +46,8 @@ function printHelp() {
   console.log(`Usage: node scripts/seo/build-non-html-policy.js [options]
 
 Options:
-  --manifest <path>        Override migration/url-manifest.json path.
-  --media-manifest <path>  Override migration/intermediate/media-manifest.json path.
+  --manifest <path>        Override url-data/url-manifest.json path.
+  --media-manifest <path>  Override url-data/intermediate/media-manifest.json path.
   --content-dir <path>     Override source content root (defaults to src/content).
   --public-dir <path>      Override built public directory (defaults to public).
   --static-dir <path>      Override source static directory (defaults to src/static).

@@ -1,31 +1,31 @@
 ---
 name: hugo-development
-description: 'Hugo SSG configuration, templates, partials, front matter, URL/route management, and GitHub Pages deployment for the rhino-inquisitor.com WordPress-to-Hugo migration. Use when writing hugo.toml, src/layouts, src/partials, src/archetypes, or GitHub Pages deployment workflows, and when debugging Hugo build, routing, or output behaviour.'
+description: 'Hugo SSG configuration, templates, partials, front matter, URL/route management, and GitHub Pages deployment for rhino-inquisitor.com. Use when writing hugo.toml, src/layouts, src/partials, src/archetypes, or GitHub Pages deployment workflows, and when debugging Hugo build, routing, or output behaviour.'
 license: Forward Proprietary
 compatibility: 'Hugo extended v0.120+, GitHub Actions, GitHub Pages'
 ---
 
 # Hugo Development
 
-Practical guidance for Hugo SSG configuration, template authoring, URL strategy, and GitHub Pages deployment in the context of the rhino-inquisitor.com WordPress-to-Hugo migration.
+Practical guidance for Hugo SSG configuration, template authoring, URL strategy, and GitHub Pages deployment for rhino-inquisitor.com.
 
 ## When to Use This Skill
 
 - Writing or editing `hugo.toml` configuration
 - Authoring or reviewing layouts, partials, archetypes, or shortcodes
 - Defining permalink rules, taxonomies, and URL output strategies
-- Setting `url` and `aliases` front matter for migrated content
+- Setting `url` and `aliases` front matter for content
 - Building or reviewing the GitHub Pages deployment workflow
 - Debugging Hugo build errors, canonical drift, or sitemap anomalies
-- **Not for:** general JavaScript scripting (use `javascript-development`) or SEO strategy decisions (use `seo-migration`)
+- **Not for:** general JavaScript scripting (use `javascript-development`) or SEO strategy decisions (use `seo`)
 
 ## Non-Negotiable Project Rules
 
 | Rule | Reason |
 |------|--------|
 | `baseURL = "https://www.rhino-inquisitor.com/"` (trailing slash required) | Prevents URL drift across templates and sitemap |
-| Every migrated page must set explicit `url` front matter | Preserves WordPress path exactly |
-| `aliases` must map only to known legacy URLs from `migration/url-manifest.json` | Prevents orphan redirect pages |
+| Every page must set explicit `url` front matter | Preserves the URL exactly |
+| `aliases` must map only to known legacy URLs from `url-data/url-manifest.json` | Prevents orphan redirect pages |
 | Production builds must never use `--buildDrafts`, `--buildFuture`, or `--buildExpired` | Avoids leaking draft content |
 | Hugo `aliases` emit HTML meta-refresh pages, not HTTP 301/308 | Treat them as fallback; prefer URL preservation |
 | `robots.txt` is crawl control only — use `noindex` in `<meta>` for de-index intent | Core Pages constraint |
@@ -78,11 +78,12 @@ publishDir = "public"
 ```
 
 **Danger zones:**
+
 - Changing `permalinks` after content is live = URL regression. Run URL parity check immediately.
 - `[taxonomies]` keys must match front matter field names exactly.
 - `outputs` changes can silently drop `sitemap.xml` or `robots.txt` — verify after every change.
 
-## Front Matter Contract (Migrated Content)
+## Front Matter Contract
 
 ```yaml
 ---
@@ -93,7 +94,7 @@ lastmod: 2024-06-01T12:00:00Z
 categories: ["sfcc"]
 tags: ["b2c-commerce", "cartridges"]
 heroImage: "/images/posts/article-slug/hero.webp"
-url: "/some-article/"          # REQUIRED on all migrated content
+url: "/some-article/"          # REQUIRED on all content
 aliases: ["/old-url/"]         # Only for known legacy paths in url-manifest.json
 draft: false
 # Optional SEO overrides
@@ -105,14 +106,15 @@ draft: false
 ```
 
 **Rules:**
-1. `url` is mandatory for every migrated page — Hugo does not sanitize it; validate for URL safety.
+
+1. `url` is mandatory for every page — Hugo does not sanitize it; validate for URL safety.
 2. `canonical` override must be absolute HTTPS. Never set it to a different host.
 3. `draft: true` pages must be excluded from sitemap — verify `sitemap` output config.
 4. `aliases` values must originate from the approved legacy URL manifest.
 
 ## Template Hierarchy
 
-```
+```text
 src/layouts/
 ├── _default/
 │   ├── baseof.html        # Master shell: head, body, footer blocks
@@ -137,6 +139,7 @@ src/layouts/
 ```
 
 **Pattern rules:**
+
 - All SEO meta generation lives in `partials/seo/` — never duplicate in individual templates.
 - `baseof.html` defines blocks; single/list extend it — no standalone HTML boilerplate in leaf templates.
 - Use `.Scratch` or `partial` caching (`partialCached`) for expensive repeated calls.
@@ -151,10 +154,11 @@ src/layouts/
 
 {{/* Hugo aliases (meta-refresh redirect pages) — used for legacy paths only */}}
 # In front matter:
-aliases: ["/old-wordpress-slug/", "/category/old/post-name/"]
+aliases: ["/old-slug/", "/category/old/post-name/"]
 ```
 
 **Alias behaviour:**
+
 - Hugo generates a `index.html` at every alias path containing `<meta http-equiv="refresh" content="0; url=CANONICAL">`.
 - This is a client-side redirect, not an HTTP 301. Google can follow it but server-side is faster/stronger.
 - Alias pages are excluded from sitemap by default — verify this holds after config changes.
@@ -207,6 +211,7 @@ jobs:
 ```
 
 **Constraints:**
+
 - `concurrency.cancel-in-progress: false` — never cancel a live Pages deploy.
 - Artifact must be named `github-pages` (default from `upload-pages-artifact`).
 - No symbolic links in `public/` — GitHub Pages rejects them.

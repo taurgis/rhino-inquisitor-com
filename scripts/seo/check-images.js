@@ -12,11 +12,11 @@ import {
   repoRoot,
   toPosixPath,
   toRepoRelative
-} from '../migration/url-validation-helpers.js';
+} from '../url/url-validation-helpers.js';
 import {
   isWordPressHotlink,
   normalizeLocalMediaPath
-} from '../migration/media-helpers.js';
+} from '../url/media-helpers.js';
 
 const canonicalHost = new URL(canonicalOrigin).host.toLowerCase();
 const supportedLocalHosts = new Set([
@@ -34,9 +34,9 @@ const severityRank = {
 };
 const defaults = {
   publicDir: path.join(repoRoot, 'public'),
-  manifestPath: path.join(repoRoot, 'migration', 'url-manifest.json'),
+  manifestPath: path.join(repoRoot, 'url-data', 'url-manifest.json'),
   robotsPath: path.join(repoRoot, 'public', 'robots.txt'),
-  reportPath: path.join(repoRoot, 'migration', 'reports', 'phase-5-image-audit.csv')
+  reportPath: path.join(repoRoot, 'url-data', 'reports', 'phase-5-image-audit.csv')
 };
 
 function printHelp() {
@@ -44,7 +44,7 @@ function printHelp() {
 
 Options:
   --public-dir <path>   Override built public directory (defaults to public).
-  --manifest <path>     Override migration/url-manifest.json path.
+  --manifest <path>     Override url-data/url-manifest.json path.
   --robots-file <path>  Override built robots.txt path.
   --report <path>       Override audit CSV path.
   --help                Show this help message.

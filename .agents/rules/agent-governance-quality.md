@@ -39,17 +39,9 @@ When instruction overlap occurs, apply this precedence order:
 2. Rules with explicit safety constraints override non-safety process rules.
 3. If still ambiguous, follow the most conservative safe interpretation and document the conflict in the final response.
 
-4. PM/BA/Senior QA Engineer governance handoff check is mandatory for `.github/agents/**` updates:
-   - PM includes planning and risk framing.
-   - BA includes requirement and acceptance-criteria traceability.
-   - Senior QA Engineer includes verification coverage and severity-based quality risk reporting.
-
-5. Official source traceability check:
+4. Official source traceability check:
    - Any new technical claim about platform behavior must cite an official documentation source.
    - If no source is available, mark it as assumption and avoid framing it as fact.
-
-6. Subagent evidence check:
-   - If an instruction requires a subagent, include evidence in the final response that the subagent ran and summarize its actionable output.
 
 ## Completion Criteria
 

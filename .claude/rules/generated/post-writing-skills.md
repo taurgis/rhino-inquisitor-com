@@ -76,9 +76,9 @@ If it is unclear whether a matched task is primarily technical instruction, gene
 
 ## References
 
-- `.agents/skills/human-prose-editing/SKILL.md`
-- `.agents/skills/anti-ai-writing/SKILL.md`
-- `.agents/skills/beginner-technical-writing/SKILL.md`
-- `.agents/skills/code-walkthrough-authoring/SKILL.md`
-- `.agents/skills/audience-layering/SKILL.md`
-- `.agents/skills/image-caption-writing/SKILL.md`
+- `.github/skills/human-prose-editing/SKILL.md`
+- `.github/skills/anti-ai-writing/SKILL.md`
+- `.github/skills/beginner-technical-writing/SKILL.md`
+- `.github/skills/code-walkthrough-authoring/SKILL.md`
+- `.github/skills/audience-layering/SKILL.md`
+- `.github/skills/image-caption-writing/SKILL.md`

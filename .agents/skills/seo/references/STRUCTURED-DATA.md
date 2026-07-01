@@ -51,7 +51,7 @@ Included once in `baseof.html` — not repeated per page.
 }
 ```
 
-Optional: add `potentialAction` (SearchAction) only if a working search page exists post-migration.
+Optional: add `potentialAction` (SearchAction) only if a working search page exists.
 
 ## BreadcrumbList (Section and Article Pages)
 

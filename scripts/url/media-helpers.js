@@ -7,15 +7,15 @@ import { stringify as stringifyCsv } from 'csv-stringify/sync';
 
 export const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 export const canonicalHost = 'https://www.rhino-inquisitor.com';
-export const defaultRecordsFile = path.join(repoRoot, 'migration/intermediate/records.normalized.json');
-export const defaultConvertedRecordsDir = path.join(repoRoot, 'migration/output');
-export const defaultContentDir = path.join(repoRoot, 'migration/output/content');
+export const defaultRecordsFile = path.join(repoRoot, 'url-data/intermediate/records.normalized.json');
+export const defaultConvertedRecordsDir = path.join(repoRoot, 'url-data/output');
+export const defaultContentDir = path.join(repoRoot, 'url-data/output/content');
 export const defaultAssetsDir = path.join(repoRoot, 'src/assets');
 export const defaultStaticDir = path.join(repoRoot, 'src/static');
-export const defaultManifestFile = path.join(repoRoot, 'migration/intermediate/media-manifest.json');
-export const defaultMissingReport = path.join(repoRoot, 'migration/reports/media-missing.csv');
-export const defaultHotlinksReport = path.join(repoRoot, 'migration/reports/media-hotlinks.csv');
-export const defaultIntegrityReport = path.join(repoRoot, 'migration/reports/media-integrity-report.csv');
+export const defaultManifestFile = path.join(repoRoot, 'url-data/intermediate/media-manifest.json');
+export const defaultMissingReport = path.join(repoRoot, 'url-data/reports/media-missing.csv');
+export const defaultHotlinksReport = path.join(repoRoot, 'url-data/reports/media-hotlinks.csv');
+export const defaultIntegrityReport = path.join(repoRoot, 'url-data/reports/media-integrity-report.csv');
 
 export const rasterImageExtensions = new Set(['avif', 'gif', 'jpeg', 'jpg', 'png', 'webp']);
 export const imageExtensions = new Set([...rasterImageExtensions, 'svg']);

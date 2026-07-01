@@ -20,7 +20,7 @@ A single sentence that tells a reader exactly what the ticket delivers.
 
 | ❌ Vague | ✅ Specific |
 |---------|-----------|
-| Do the URL work | Export and classify all live URLs from WordPress sitemap |
+| Do the URL work | Export and classify all live URLs from the site sitemap |
 | Hugo stuff | Initialise Hugo project with `hugo.toml` and placeholder homepage |
 
 ### Status
@@ -95,7 +95,7 @@ This helps keep criteria clear enough for planning while still verifiable at del
 
 ### Good examples
 
-- [ ] `migration/url-inventory.raw.json` exists and contains at least 150 entries
+- [ ] `url-data/url-inventory.raw.json` exists and contains at least 150 entries
 - [ ] `hugo build` exits with code 0 and produces output in `public/`
 - [ ] Every URL in `url-manifest.json` has a non-empty `disposition` field
 

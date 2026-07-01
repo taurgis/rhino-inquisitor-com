@@ -12,7 +12,7 @@ import {
   repoRoot,
   toPosixPath,
   toRepoRelative
-} from '../migration/url-validation-helpers.js';
+} from '../url/url-validation-helpers.js';
 
 const canonicalHost = new URL(canonicalOrigin).host.toLowerCase();
 const supportedInternalHosts = new Set([
@@ -29,9 +29,9 @@ const defaults = {
     : path.join(repoRoot, 'public'),
   manifestPath: process.env.CHECK_LINKS_MANIFEST
     ? path.resolve(process.env.CHECK_LINKS_MANIFEST)
-    : path.join(repoRoot, 'migration', 'url-manifest.json'),
-  seoBaselinePath: path.join(repoRoot, 'migration', 'phase-1-seo-baseline.md'),
-  reportPath: path.join(repoRoot, 'migration', 'reports', 'phase-5-internal-links-audit.csv'),
+    : path.join(repoRoot, 'url-data', 'url-manifest.json'),
+  seoBaselinePath: path.join(repoRoot, 'url-data', 'phase-1-seo-baseline.md'),
+  reportPath: path.join(repoRoot, 'url-data', 'reports', 'phase-5-internal-links-audit.csv'),
   allowManifestTargets: process.env.CHECK_LINKS_ALLOW_MANIFEST_TARGETS === '1',
   mode: process.env.CHECK_INTERNAL_LINKS_MODE?.trim() || process.env.CHECK_LINKS_MODE?.trim() || 'full'
 };
@@ -41,7 +41,7 @@ function printHelp() {
 
 Options:
   --public-dir <path>              Override built public directory.
-  --manifest <path>                Override migration/url-manifest.json path.
+  --manifest <path>                Override url-data/url-manifest.json path.
   --seo-baseline <path>            Override the Phase 1 SEO baseline markdown path.
   --report <path>                  Override audit CSV path.
   --mode <mode>                    Validation mode: full or subset.

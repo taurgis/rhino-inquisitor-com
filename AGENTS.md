@@ -26,7 +26,7 @@ This file is the root agent guide for the repository. It complements agent files
 |   `-- workflows/       # build-pr.yml (PR gates) and deploy-pages.yml (publish)
 |-- .claude/             # Generated for Claude Code (skills/, rules/generated/)
 |-- .cursor/             # Generated for Cursor (agents/, rules/*.mdc)
-|-- migration/           # URL manifests + redirect/parity data inputs used by live gates
+|-- url-data/           # URL manifests + redirect/parity data inputs used by live gates
 |-- validation/          # Retained validation inputs (expected-url-outcomes, priority-routes, sample-matrix, schema)
 |-- monitoring/          # Site monitoring runbook and reports
 |-- src/                 # Hugo site source tree (content, layouts, static, assets, data, archetypes)

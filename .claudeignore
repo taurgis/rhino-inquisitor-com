@@ -1,5 +1,5 @@
 # Agent indexing hygiene for tools that honor .claudeignore.
-# Keep source-of-truth visible: src, scripts, analysis, docs, migration, monitoring, validation, and root config.
+# Keep source-of-truth visible: src, scripts, docs, url-data, monitoring, validation, and root config.
 # Claude Code official docs currently document .claude/settings.json permissions.deny for enforced exclusions.
 
 # Dependencies

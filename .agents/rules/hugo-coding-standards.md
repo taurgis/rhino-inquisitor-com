@@ -32,9 +32,9 @@ Consult the `hugo-development` skill before authoring or reviewing any file matc
 
 ## Front Matter Standards
 
-1. `url` is mandatory on every migrated content file. Hugo does not sanitize it — values must be pre-validated.
+1. `url` is mandatory on every content file. Hugo does not sanitize it — values must be pre-validated.
 2. `url` format: lowercase, starts with `/`, ends with `/`, `a-z 0-9 - /` only.
-3. `aliases` values must originate from `migration/url-manifest.json` — no arbitrary alias creation.
+3. `aliases` values must originate from `url-data/url-manifest.json` — no arbitrary alias creation.
 4. `canonical` front matter override must be absolute HTTPS `https://www.rhino-inquisitor.com/...` only.
 5. `draft: true` must be set on all non-published content — never infer from absence.
 
@@ -62,6 +62,7 @@ Consult the `hugo-development` skill before authoring or reviewing any file matc
 ## Validation Step Required
 
 After any layout or config change:
+
 1. Run `hugo --minify --environment production` and verify zero build errors.
 2. For URL/routing changes: run `npm run check:url-parity` and verify zero failures.
 3. For sitemap changes: run `grep -c "<loc>" public/sitemap.xml` and compare count to expected URL inventory.
@@ -71,12 +72,11 @@ After any layout or config change:
 
 - Markdown body content edits with no front matter changes
 - Static asset changes (`static/images/`, CSS, fonts) with no template implications
-- Documentation changes in `plan/` or `docs/` directories
+- Documentation changes in `docs/` directories
 
 ## References
 
-- `.agents/skills/hugo-development/SKILL.md` — Full Hugo guidance
-- `.agents/skills/hugo-development/references/URL-STRATEGY.md` — URL/alias rules
-- `.agents/skills/hugo-development/references/TEMPLATE-PATTERNS.md` — Partial architecture and code patterns
-- `.agents/skills/hugo-development/assets/hugo-toml-template.toml` — Config baseline
-- `plan/details/phase-3.md` — Scaffold requirements and workstream checklists
+- `.github/skills/hugo-development/SKILL.md` — Full Hugo guidance
+- `.github/skills/hugo-development/references/URL-STRATEGY.md` — URL/alias rules
+- `.github/skills/hugo-development/references/TEMPLATE-PATTERNS.md` — Partial architecture and code patterns
+- `.github/skills/hugo-development/assets/hugo-toml-template.toml` — Config baseline

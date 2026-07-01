@@ -39,7 +39,7 @@ Before editing substantive post body content, choose only the skills that match 
 - Choose the minimum set needed for the current edit slice.
 - Use `human-prose-editing` before `anti-ai-writing` when a task spans both paragraph-level and sentence-level cleanup.
 - Do not invoke `beginner-technical-writing` or `code-walkthrough-authoring` for non-technical opinion or corporate posts unless the edited section is actually teaching a technical concept.
-- Do not use `anti-ai-writing` as a substitute for fact checking, structural rework, or Hugo/content-migration policy checks.
+- Do not use `anti-ai-writing` as a substitute for fact checking, structural rework, or Hugo/content-quality policy checks.
 
 ## Relationship to Other Instructions
 
@@ -63,7 +63,7 @@ This instruction passes only if one of the following is true:
 - URL, taxonomy, or metadata fixes with no body-copy rewrite.
 - Hugo template, shortcode implementation, or stylesheet changes.
 - Pure typo corrections, formatting-only cleanup, or link-target fixes that do not materially change the prose.
-- Migration mechanics or script changes outside the post body itself.
+- Tooling or script changes outside the post body itself.
 
 ## Escalation Path
 
@@ -75,9 +75,9 @@ If it is unclear whether a matched task is primarily technical instruction, gene
 
 ## References
 
-- `.agents/skills/human-prose-editing/SKILL.md`
-- `.agents/skills/anti-ai-writing/SKILL.md`
-- `.agents/skills/beginner-technical-writing/SKILL.md`
-- `.agents/skills/code-walkthrough-authoring/SKILL.md`
-- `.agents/skills/audience-layering/SKILL.md`
-- `.agents/skills/image-caption-writing/SKILL.md`
+- `.github/skills/human-prose-editing/SKILL.md`
+- `.github/skills/anti-ai-writing/SKILL.md`
+- `.github/skills/beginner-technical-writing/SKILL.md`
+- `.github/skills/code-walkthrough-authoring/SKILL.md`
+- `.github/skills/audience-layering/SKILL.md`
+- `.github/skills/image-caption-writing/SKILL.md`

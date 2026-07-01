@@ -18,17 +18,17 @@ import {
 } from './url-validation-helpers.js';
 
 const defaults = {
-  manifestPath: path.join(repoRoot, 'migration/url-manifest.json'),
+  manifestPath: path.join(repoRoot, 'url-data/url-manifest.json'),
   contentRoot: path.join(repoRoot, 'src/content'),
   publicRoot: path.join(repoRoot, 'public'),
-  reportPath: path.join(repoRoot, 'migration/reports/redirect-integrity-report.csv'),
+  reportPath: path.join(repoRoot, 'url-data/reports/redirect-integrity-report.csv'),
   baseUrl: null,
-  recordsPath: path.join(repoRoot, 'migration/intermediate/records.normalized.json'),
+  recordsPath: path.join(repoRoot, 'url-data/intermediate/records.normalized.json'),
   scope: 'full-manifest'
 };
 
 function printHelp() {
-  console.log(`Usage: node scripts/migration/check-redirects.js [options]
+  console.log(`Usage: node scripts/url/check-redirects.js [options]
 
 Options:
   --manifest <path>      Override manifest path.

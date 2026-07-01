@@ -287,7 +287,7 @@ jobs:
           path: |
             tmp/phase-7-artifact-validation-production.json
             tmp/phase-7-artifact-validation-preview.json
-            migration/reports/phase-7-gate-summary.csv
+            url-data/reports/phase-7-gate-summary.csv
           if-no-files-found: error
           retention-days: 7
 
@@ -371,22 +371,22 @@ jobs:
             tmp/phase-7-artifact-validation-preview.json
             tmp/phase-7-seo-safe-deploy-report.json
             tmp/ci-preview-crawl-control-audit.csv
-            migration/reports/phase-7-gate-summary.csv
-            migration/reports/phase-5-crawl-control-audit.csv
-            migration/phase-5-redirect-signal-matrix.csv
-            migration/reports/phase-5-redirect-validation.csv
-            migration/reports/phase-5-metadata-report.csv
-            migration/reports/phase-5-schema-audit.csv
-            migration/reports/phase-5-sitemap-audit.csv
-            migration/reports/phase-5-pages-constraints-report.md
-            migration/reports/phase-5-internal-links-audit.csv
-            migration/reports/phase-5-accessibility-audit.md
-            migration/reports/phase-6-redirect-targets.csv
-            migration/reports/phase-6-chains-loops.csv
-            migration/reports/phase-6-canonical-alignment.csv
-            migration/reports/phase-6-retired-url-audit.csv
-            migration/reports/phase-6-redirect-security.csv
-            migration/url-parity-report.json
+            url-data/reports/phase-7-gate-summary.csv
+            url-data/reports/phase-5-crawl-control-audit.csv
+            url-data/phase-5-redirect-signal-matrix.csv
+            url-data/reports/phase-5-redirect-validation.csv
+            url-data/reports/phase-5-metadata-report.csv
+            url-data/reports/phase-5-schema-audit.csv
+            url-data/reports/phase-5-sitemap-audit.csv
+            url-data/reports/phase-5-pages-constraints-report.md
+            url-data/reports/phase-5-internal-links-audit.csv
+            url-data/reports/phase-5-accessibility-audit.md
+            url-data/reports/phase-6-redirect-targets.csv
+            url-data/reports/phase-6-chains-loops.csv
+            url-data/reports/phase-6-canonical-alignment.csv
+            url-data/reports/phase-6-retired-url-audit.csv
+            url-data/reports/phase-6-redirect-security.csv
+            url-data/url-parity-report.json
             validation/structured-data-report.json
             validation/social-preview-report.json
             validation/llm-artifact-quality-report.json

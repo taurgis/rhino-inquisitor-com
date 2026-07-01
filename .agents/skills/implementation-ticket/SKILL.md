@@ -50,7 +50,7 @@ When tickets are maintained in GitHub-flavored Markdown, follow these rules so c
 
 Store tickets in the `tickets/` directory at the repository root.
 
-```
+```text
 tickets/
 ├── RHI-001-url-inventory.md
 ├── RHI-002-hugo-scaffold.md
@@ -88,7 +88,7 @@ See [`references/FIELDS.md`](references/FIELDS.md) for detailed guidance on ever
 
 ## Status Lifecycle
 
-```
+```text
 Open → In Progress → Done
            ↓
         Blocked → In Progress
@@ -131,7 +131,7 @@ Initialize the Hugo project so content authors can add Markdown pages and the CI
 - [ ] Verify CI build step runs `hugo --minify`
 
 ### Out of Scope
-- Migrating production content from WordPress
+- Migrating production content between systems
 
 ### Risks & Mitigations
 | Risk | Likelihood | Impact | Mitigation | Owner |
@@ -146,16 +146,16 @@ Initialize the Hugo project so content authors can add Markdown pages and the CI
 ### Example 2: Completed ticket with outcomes
 
 ```markdown
-## RHI-005 · Export WordPress URL inventory
+## RHI-005 · Export the current URL inventory
 
 **Status:** Done  
 **Priority:** Critical  
 **Phase:** 1
 
 ### Outcomes
-Exported all 205 URLs from `sitemap_index.xml` into `migration/url-inventory.raw.json`.
+Exported all 205 URLs from `sitemap_index.xml` into `url-data/url-inventory.raw.json`.
 Discovered 3 pagination routes not in sitemaps; added to manifest with `retire` disposition.
-Delivered: `migration/url-inventory.raw.json`, `migration/url-manifest.json`.
+Delivered: `url-data/url-inventory.raw.json`, `url-data/url-manifest.json`.
 ```
 
 ## References

@@ -16,7 +16,7 @@ import {
   canonicalOrigin,
   collectPublicAssetState,
   toRepoRelative
-} from '../migration/url-validation-helpers.js';
+} from '../url/url-validation-helpers.js';
 
 const canonicalHost = new URL(canonicalOrigin).hostname;
 const defaults = {

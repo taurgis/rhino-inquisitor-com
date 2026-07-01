@@ -12,8 +12,8 @@ const canonicalHost = "https://www.rhino-inquisitor.com";
 
 const defaults = {
   publicDir: path.join(repoRoot, "public"),
-  reportPath: path.join(repoRoot, "migration", "reports", "phase-5-metadata-report.csv"),
-  manifestPath: path.join(repoRoot, "migration", "url-manifest.json")
+  reportPath: path.join(repoRoot, "url-data", "reports", "phase-5-metadata-report.csv"),
+  manifestPath: path.join(repoRoot, "url-data", "url-manifest.json")
 };
 
 function printHelp() {

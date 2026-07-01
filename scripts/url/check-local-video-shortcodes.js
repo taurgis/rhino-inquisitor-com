@@ -74,7 +74,7 @@ function parseArgs(argv) {
 }
 
 function printHelp() {
-  console.log(`Usage: node scripts/migration/check-local-video-shortcodes.js [options]\n\nOptions:\n  --content-dir <path>  Override content directory (default: src/content).\n  --help                Show this help message.\n`);
+  console.log(`Usage: node scripts/url/check-local-video-shortcodes.js [options]\n\nOptions:\n  --content-dir <path>  Override content directory (default: src/content).\n  --help                Show this help message.\n`);
 }
 
 function isExternalTarget(target) {

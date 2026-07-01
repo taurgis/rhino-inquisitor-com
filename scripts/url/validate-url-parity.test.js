@@ -14,7 +14,7 @@ import {
 } from './url-validation-helpers.js';
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
-const validatorPath = path.join(repoRoot, 'scripts/migration/validate-url-parity.js');
+const validatorPath = path.join(repoRoot, 'scripts/url/validate-url-parity.js');
 
 function createManifestEntry(overrides = {}) {
   return {

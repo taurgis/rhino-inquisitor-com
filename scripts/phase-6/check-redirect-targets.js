@@ -10,12 +10,12 @@ import {
   normalizeUrlLike,
   repoRoot,
   toRepoRelative
-} from '../migration/url-validation-helpers.js';
+} from '../url/url-validation-helpers.js';
 
 const defaults = {
-  inputPath: path.join(repoRoot, 'migration/url-map.csv'),
+  inputPath: path.join(repoRoot, 'url-data/url-map.csv'),
   publicRoot: path.join(repoRoot, 'public'),
-  reportPath: path.join(repoRoot, 'migration/reports/phase-6-redirect-targets.csv')
+  reportPath: path.join(repoRoot, 'url-data/reports/phase-6-redirect-targets.csv')
 };
 
 function parseArgs(argv) {

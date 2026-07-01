@@ -26,35 +26,41 @@ If **yes to any**, apply the full SEO Compliance Checklist below before completi
 ## SEO Compliance Checklist
 
 ### URL Safety
+
 - [ ] Any new or changed `url` front matter value is lowercase, starts with `/`, ends with `/`, contains only `a-z 0-9 - /`
 - [ ] No duplicate `url` values exist across content files (run collision check: `scripts/validate-frontmatter.js`)
-- [ ] Any new `aliases` value exists in `migration/url-manifest.json`
+- [ ] Any new `aliases` value exists in `url-data/url-manifest.json`
 - [ ] No redirect chains introduced: source path resolves in one hop to final destination
 - [ ] Any change to `permalinks` in `hugo.toml` triggers a full URL parity check run
 
 ### Canonical Signals
+
 - [ ] Canonical tag defaults to `.Permalink` — override only with absolute `https://www.rhino-inquisitor.com/...` URL
 - [ ] Canonical tag URL matches sitemap URL for the same page
 - [ ] Internal links point to the canonical `www` variant — not apex, not `http`
 - [ ] Alias/redirect pages are excluded from `sitemap.xml` (verify Hugo default holds)
 
 ### Metadata
+
 - [ ] Every indexable page has a unique `title` (max 60 chars recommended)
 - [ ] Every indexable page has a `description` (120–155 chars)
 - [ ] `draft: true` pages are excluded from sitemap and do not appear in production build output
 
 ### Structured Data
+
 - [ ] JSON-LD changes validated with [Google Rich Results Test](https://search.google.com/test/rich-results)
 - [ ] All string values in JSON-LD use Hugo `jsonify` function
 - [ ] `datePublished` and `dateModified` use ISO 8601 format with timezone
 - [ ] `BlogPosting` emitted only on article-type templates, not on list/taxonomy pages
 
 ### Redirect Safety
+
 - [ ] No mass redirect of unrelated URLs to homepage
 - [ ] No soft-404 risk: retired URLs with organic traffic map to nearest relevant content
 - [ ] Staging or preview environments have `<meta name="robots" content="noindex">` — **not** only `robots.txt Disallow`
 
 ### robots.txt
+
 - [ ] `robots.txt` changes do not accidentally block crawling of production content
 - [ ] `Sitemap:` directive points to `https://www.rhino-inquisitor.com/sitemap.xml`
 - [ ] `robots.txt` is never used as the sole mechanism for de-indexing — pair with `noindex` meta tags
@@ -71,6 +77,6 @@ If a change introduces a URL structure alteration affecting >5% of indexed URLs,
 
 ## References
 
-- `.github/skills/seo-migration/SKILL.md` — Technical SEO rules and redirect architecture
-- `.github/skills/seo-migration/references/REDIRECT-GUIDE.md` — Redirect decision tree
+- `.github/skills/seo/SKILL.md` — Technical SEO rules and redirect architecture
+- `.github/skills/seo/references/REDIRECT-GUIDE.md` — Redirect decision tree
 - `.github/skills/hugo-development/references/URL-STRATEGY.md` — Hugo URL and alias rules

@@ -11,13 +11,13 @@ import {
   extractRedirectDetails,
   repoRoot,
   toRepoRelative
-} from '../migration/url-validation-helpers.js';
+} from '../url/url-validation-helpers.js';
 
 const defaults = {
   publicRoot: path.join(repoRoot, 'public'),
   sitemapPath: path.join(repoRoot, 'public/sitemap.xml'),
   baseUrl: `${canonicalOrigin}/`,
-  reportPath: path.join(repoRoot, 'migration/reports/phase-6-canonical-alignment.csv')
+  reportPath: path.join(repoRoot, 'url-data/reports/phase-6-canonical-alignment.csv')
 };
 
 const xmlParser = new XMLParser({

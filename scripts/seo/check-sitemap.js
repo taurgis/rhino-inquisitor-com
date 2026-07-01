@@ -13,15 +13,15 @@ import {
   loadManifest,
   repoRoot,
   toRepoRelative
-} from '../migration/url-validation-helpers.js';
+} from '../url/url-validation-helpers.js';
 
 const defaults = {
-  manifestPath: path.join(repoRoot, 'migration/url-manifest.json'),
-  metadataReportPath: path.join(repoRoot, 'migration/reports/phase-5-metadata-report.csv'),
+  manifestPath: path.join(repoRoot, 'url-data/url-manifest.json'),
+  metadataReportPath: path.join(repoRoot, 'url-data/reports/phase-5-metadata-report.csv'),
   publicRoot: path.join(repoRoot, 'public'),
   sitemapPath: path.join(repoRoot, 'public/sitemap.xml'),
   robotsPath: path.join(repoRoot, 'public/robots.txt'),
-  reportPath: path.join(repoRoot, 'migration/reports/phase-5-sitemap-audit.csv')
+  reportPath: path.join(repoRoot, 'url-data/reports/phase-5-sitemap-audit.csv')
 };
 
 const xmlParser = new XMLParser({

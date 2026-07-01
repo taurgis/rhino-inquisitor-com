@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 
 import fg from 'fast-glob';
 
-import { extractRedirectDetails } from './migration/url-validation-helpers.js';
+import { extractRedirectDetails } from './url/url-validation-helpers.js';
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const defaultPublicDir = path.join(repoRoot, 'public');

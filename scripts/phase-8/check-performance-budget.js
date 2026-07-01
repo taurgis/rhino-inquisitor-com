@@ -15,7 +15,7 @@ import {
   toAbsoluteUrl,
   writeJsonReport
 } from './seo-gate-helpers.js';
-import { canonicalOrigin, toRepoRelative } from '../migration/url-validation-helpers.js';
+import { canonicalOrigin, toRepoRelative } from '../url/url-validation-helpers.js';
 
 const gzip = promisify(zlib.gzip);
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
@@ -34,7 +34,7 @@ const canonicalHost = new URL(canonicalOrigin).origin;
 const defaults = {
   publicRoot: phase8SeoDefaults.publicRoot,
   sampleMatrixPath: phase8SeoDefaults.sampleMatrixPath,
-  baselinePath: path.join(repoRoot, 'migration', 'phase-1-performance-baseline.md'),
+  baselinePath: path.join(repoRoot, 'url-data', 'phase-1-performance-baseline.md'),
   lhciRoot: path.join(repoRoot, 'validation', 'lhci-report'),
   reportPath: path.join(repoRoot, 'validation', 'performance-budget-report.json')
 };
@@ -85,7 +85,7 @@ function printHelp() {
 Options:
   --public-dir <path>    Override the built public directory.
   --sample-matrix <path> Override validation/sample-matrix.json.
-  --baseline <path>      Override migration/phase-1-performance-baseline.md.
+  --baseline <path>      Override url-data/phase-1-performance-baseline.md.
   --lhci-root <path>     Override the Lighthouse report root.
   --report <path>        Override validation/performance-budget-report.json.
   --help                 Show this help message.
