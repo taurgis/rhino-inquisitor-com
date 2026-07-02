@@ -25,7 +25,7 @@ const defaults = {
   baseUrl: 'https://rhino-inquisitor.com/'
 };
 
-const validModes = new Set(['production', 'preview']);
+const validModes = new Set(['production']);
 const expectedOpenSnippetTokens = [
   'max-snippet:-1',
   'max-image-preview:large',
@@ -47,7 +47,6 @@ Options:
   --public-dir <path>  Override built public directory (defaults to public).
   --robots-file <path> Override robots.txt path (defaults to public/robots.txt).
   --report <path>      Override audit CSV path.
-  --mode <mode>        Validation mode: production or preview.
   --base-url <url>     Expected site base URL for sitemap validation.
   --help               Show this help message.
 `);
@@ -409,9 +408,7 @@ async function main() {
   }
 
   const rootDecision = resolveRobotsRule('/', robotsData.wildcardRules);
-  if (options.mode === 'preview' && !rootDecision.blocked) {
-    robotsFindings.push('preview robots.txt must block the site root with Disallow: /');
-  }
+
 
   const rows = [createRobotsRow({ options, robotsData, findings: robotsFindings })];
   const blockingMessages = robotsFindings.map((finding) => `/robots.txt: ${finding}`);
@@ -431,44 +428,29 @@ async function main() {
       : false;
     const findings = [];
 
-    if (options.mode === 'production') {
-      if (expectedIndexable && signals.hasNoindex) {
-        findings.push('unexpected noindex on indexable route');
-      }
+    if (expectedIndexable && signals.hasNoindex) {
+      findings.push('unexpected noindex on indexable route');
+    }
 
-      if (expectedIndexable) {
-        for (const token of expectedOpenSnippetTokens) {
-          if (!signals.tokens.has(token)) {
-            findings.push(`missing snippet policy token (${token})`);
-          }
+    if (expectedIndexable) {
+      for (const token of expectedOpenSnippetTokens) {
+        if (!signals.tokens.has(token)) {
+          findings.push(`missing snippet policy token (${token})`);
         }
-      }
-
-      if (expectedIndexable && robotsDecision.blocked) {
-        findings.push(`indexable route blocked by robots.txt (${robotsDecision.matchedRule?.value ?? 'unknown rule'})`);
-      }
-
-      if (signals.hasNoindex && robotsDecision.blocked) {
-        findings.push('robots/noindex contradiction on crawl-blocked route');
-      }
-
-      if (is404Route(route) && !signals.hasNoindex) {
-        findings.push('404 route is missing an explicit noindex directive');
-      }
-    } else {
-      if (!signals.hasNoindex) {
-        findings.push('preview route is missing a noindex directive');
-      }
-
-      if (!signals.hasNofollow) {
-        findings.push('preview route is missing a nofollow directive');
-      }
-
-      if (!robotsDecision.blocked) {
-        findings.push('preview route is not blocked by robots.txt');
       }
     }
 
+    if (expectedIndexable && robotsDecision.blocked) {
+      findings.push(`indexable route blocked by robots.txt (${robotsDecision.matchedRule?.value ?? 'unknown rule'})`);
+    }
+
+    if (signals.hasNoindex && robotsDecision.blocked) {
+      findings.push('robots/noindex contradiction on crawl-blocked route');
+    }
+
+    if (is404Route(route) && !signals.hasNoindex) {
+      findings.push('404 route is missing an explicit noindex directive');
+    }
     const row = createHtmlRow({
       htmlFile,
       route,

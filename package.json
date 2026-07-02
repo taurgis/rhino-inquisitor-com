@@ -11,8 +11,7 @@
     "generate:llm-artifacts": "node scripts/seo/generate-llm-artifacts.js",
     "sync:404-artifact": "node scripts/seo/sync-404-artifact.js",
     "build:local": "npm run generate:avif-cache && hugo --cleanDestinationDir --gc --minify --environment development --baseURL http://localhost:1313/ && npm run sync:404-artifact && npm run generate:llm-artifacts",
-    "build:staging": "npm run generate:avif-cache && hugo --cleanDestinationDir --gc --minify --environment preview --baseURL https://staging.rhino-inquisitor.com/ && npm run sync:404-artifact && node scripts/seo/generate-llm-artifacts.js --keep-noindex",
-    "build:preview-pages": "npm run generate:avif-cache && hugo --cleanDestinationDir --gc --minify --environment preview --baseURL ${PREVIEW_BASE_URL:?PREVIEW_BASE_URL must be set} && npm run sync:404-artifact && node scripts/seo/generate-llm-artifacts.js --keep-noindex",
+
     "build:prod": "npm run generate:avif-cache && hugo --cleanDestinationDir --gc --minify --environment production && npm run sync:404-artifact && npm run generate:llm-artifacts",
     "dev": "npm run generate:avif-cache && hugo server --environment development --baseURL http://localhost:1313/",
     "test:url-parity": "node --test scripts/url/validate-url-parity.test.js",
@@ -26,7 +25,6 @@
     "check:redirect-chains": "node scripts/gates/check-redirect-chains.js --report url-data/reports/chains-loops.csv",
     "check:canonical-alignment": "node scripts/gates/generate-canonical-alignment-report.js --ci",
     "check:mixed-content": "node scripts/gates/check-mixed-content.js",
-    "check:seo-safe-deploy": "node scripts/gates/check-seo-safe-deploy.js",
     "check:redirect-security": "node scripts/gates/check-redirect-security.js",
     "check:host-protocol": "node scripts/gates/check-host-protocol.js",
     "check:retirement-policy": "node scripts/gates/check-retirement-policy.js",

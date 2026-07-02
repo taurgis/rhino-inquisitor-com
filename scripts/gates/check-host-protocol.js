@@ -8,10 +8,8 @@ const repoRoot = path.resolve(__dirname, '..', '..');
 
 const defaults = {
   publicRoot: path.join(repoRoot, 'public'),
-  previewPublicRoot: '',
   reportDir: path.join(repoRoot, 'tmp', 'host-protocol'),
   productionBaseUrl: 'https://rhino-inquisitor.com/',
-  previewBaseUrl: 'https://taurgis.github.io/rhino-inquisitor-com/'
 };
 
 function printHelp() {
@@ -19,15 +17,12 @@ function printHelp() {
 
 Options:
   --public-dir <path>          Override the production public directory.
-  --preview-public-dir <path>  Optional preview public directory for noindex validation.
   --report-dir <path>          Directory for generated validation reports.
   --production-base-url <url>  Expected production base URL.
-  --preview-base-url <url>     Expected preview base URL.
   --help                       Show this help message.
 
 Notes:
   - Production checks always run.
-  - Preview checks run only when --preview-public-dir is supplied.
 `);
 }
 
@@ -43,11 +38,6 @@ function parseArgs(argv) {
       continue;
     }
 
-    if (arg === '--preview-public-dir') {
-      options.previewPublicRoot = path.resolve(argv[index + 1]);
-      index += 1;
-      continue;
-    }
 
     if (arg === '--report-dir') {
       options.reportDir = path.resolve(argv[index + 1]);
@@ -61,11 +51,6 @@ function parseArgs(argv) {
       continue;
     }
 
-    if (arg === '--preview-base-url') {
-      options.previewBaseUrl = argv[index + 1]?.trim();
-      index += 1;
-      continue;
-    }
 
     if (arg === '--help') {
       options.help = true;
@@ -79,9 +64,6 @@ function parseArgs(argv) {
     throw new Error('Expected a non-empty --production-base-url value.');
   }
 
-  if (options.previewPublicRoot && !options.previewBaseUrl) {
-    throw new Error('Expected a non-empty --preview-base-url value when --preview-public-dir is provided.');
-  }
 
   return options;
 }

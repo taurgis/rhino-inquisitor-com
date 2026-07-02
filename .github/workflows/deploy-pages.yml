@@ -21,8 +21,6 @@ jobs:
   build_site:
     runs-on: ubuntu-latest
     outputs:
-      preview_base_url: ${{ steps.preview_base.outputs.base_url }}
-      deploy_artifact_source: ${{ steps.deploy_artifact.outputs.source }}
       pages_host_ready: ${{ steps.pages_host.outputs.ready }}
 
     steps:
@@ -88,8 +86,7 @@ jobs:
 
           if [[ "$PAGES_HOST" != "$EXPECTED_PAGES_HOST" ]]; then
             echo "ready=false" >> "$GITHUB_OUTPUT"
-            echo "GitHub Pages host is '$PAGES_HOST', expected '$EXPECTED_PAGES_HOST'. Continuing in project-host rehearsal mode until the production custom domain is active (preview artifact ships noindex until then)." >> "$GITHUB_STEP_SUMMARY"
-            echo "::notice::GitHub Pages host is '$PAGES_HOST'; continuing with project-host rehearsal and preview-artifact validation."
+            echo "GitHub Pages host is '$PAGES_HOST', expected '$EXPECTED_PAGES_HOST'." >> "$GITHUB_STEP_SUMMARY"
           else
             echo "ready=true" >> "$GITHUB_OUTPUT"
             echo "GitHub Pages production host '$PAGES_HOST' is active." >> "$GITHUB_STEP_SUMMARY"
@@ -231,55 +228,8 @@ jobs:
       - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium
 
-      - name: Normalize preview base URL
-        id: preview_base
-        env:
-          RAW_PAGES_BASE_URL: ${{ steps.pages.outputs.base_url }}
-        shell: bash
-        run: |
-          set -euo pipefail
-          node <<'EOF'
-          const rawBaseUrl = process.env.RAW_PAGES_BASE_URL;
-
-          if (!rawBaseUrl) {
-            throw new Error('Missing RAW_PAGES_BASE_URL from actions/configure-pages.');
-          }
-
-          const normalized = new URL(rawBaseUrl);
-          normalized.protocol = 'https:';
-          const trimmedPath = normalized.pathname.replace(/\/+$/, '');
-          normalized.pathname = trimmedPath ? `${trimmedPath}/` : '/';
-
-          const output = process.env.GITHUB_OUTPUT;
-          require('node:fs').appendFileSync(output, `base_url=${normalized.toString()}\n`, 'utf8');
-          EOF
-
-      - name: Select deploy artifact source
-        id: deploy_artifact
-        env:
-          CANONICAL_PRODUCTION_BASE_URL: ${{ env.CANONICAL_PRODUCTION_BASE_URL }}
-          PREVIEW_BASE_URL: ${{ steps.preview_base.outputs.base_url }}
-        shell: bash
-        run: |
-          set -euo pipefail
-
-          if [[ -z "$PREVIEW_BASE_URL" ]]; then
-            echo "Missing normalized preview base URL." >&2
-            exit 1
-          fi
-
-          if [[ "$PREVIEW_BASE_URL" == "$CANONICAL_PRODUCTION_BASE_URL" ]]; then
-            echo "source=production" >> "$GITHUB_OUTPUT"
-            echo "Deploy artifact source: production validation output." >> "$GITHUB_STEP_SUMMARY"
-          else
-            echo "source=preview" >> "$GITHUB_OUTPUT"
-            echo "Deploy artifact source: environment-aware output for $PREVIEW_BASE_URL." >> "$GITHUB_STEP_SUMMARY"
-          fi
-
       - name: Run blocking deployment quality gates (build)
         env:
-          PREVIEW_BASE_URL: ${{ steps.preview_base.outputs.base_url }}
-          DEPLOY_ARTIFACT_SOURCE: ${{ steps.deploy_artifact.outputs.source }}
           CI_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           RHI_HTTPS_LIVE_HOST_READY: ${{ steps.pages_host.outputs.ready }}
         run: npm run gates:local -- --group build
@@ -338,8 +288,6 @@ jobs:
 
       - name: Run blocking deployment quality gates (url)
         env:
-          PREVIEW_BASE_URL: ${{ needs.build_site.outputs.preview_base_url }}
-          DEPLOY_ARTIFACT_SOURCE: ${{ needs.build_site.outputs.deploy_artifact_source }}
           CI_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           RHI_HTTPS_LIVE_HOST_READY: ${{ needs.build_site.outputs.pages_host_ready }}
         run: npm run gates:local -- --group url
@@ -383,8 +331,6 @@ jobs:
 
       - name: Run blocking deployment quality gates (seo)
         env:
-          PREVIEW_BASE_URL: ${{ needs.build_site.outputs.preview_base_url }}
-          DEPLOY_ARTIFACT_SOURCE: ${{ needs.build_site.outputs.deploy_artifact_source }}
           CI_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           RHI_HTTPS_LIVE_HOST_READY: ${{ needs.build_site.outputs.pages_host_ready }}
         run: npm run gates:local -- --group seo
@@ -428,8 +374,6 @@ jobs:
 
       - name: Run blocking deployment quality gates (a11y)
         env:
-          PREVIEW_BASE_URL: ${{ needs.build_site.outputs.preview_base_url }}
-          DEPLOY_ARTIFACT_SOURCE: ${{ needs.build_site.outputs.deploy_artifact_source }}
           CI_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           RHI_HTTPS_LIVE_HOST_READY: ${{ needs.build_site.outputs.pages_host_ready }}
         run: npm run gates:local -- --group a11y
@@ -473,8 +417,6 @@ jobs:
 
       - name: Run blocking deployment quality gates (security)
         env:
-          PREVIEW_BASE_URL: ${{ needs.build_site.outputs.preview_base_url }}
-          DEPLOY_ARTIFACT_SOURCE: ${{ needs.build_site.outputs.deploy_artifact_source }}
           CI_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           RHI_HTTPS_LIVE_HOST_READY: ${{ needs.build_site.outputs.pages_host_ready }}
         run: npm run gates:local -- --group security
@@ -518,8 +460,6 @@ jobs:
 
       - name: Run blocking deployment quality gates (perf)
         env:
-          PREVIEW_BASE_URL: ${{ needs.build_site.outputs.preview_base_url }}
-          DEPLOY_ARTIFACT_SOURCE: ${{ needs.build_site.outputs.deploy_artifact_source }}
           CI_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           RHI_HTTPS_LIVE_HOST_READY: ${{ needs.build_site.outputs.pages_host_ready }}
         run: npm run gates:local -- --group perf

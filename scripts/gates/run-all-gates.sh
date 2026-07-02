@@ -9,52 +9,17 @@ SUMMARY_PATH="$REPO_ROOT/url-data/reports/gate-summary.csv"
 PREVIEW_BASE_URL="${PREVIEW_BASE_URL:-https://staging.rhino-inquisitor.com/}"
 CI_RUN_URL="${CI_RUN_URL:-}"
 BUILD_DURATION_PATH="$REPO_ROOT/tmp/build-duration-ms.txt"
-PRODUCTION_ARTIFACT_DIR="$REPO_ROOT/tmp/ci-prod-public"
-PREVIEW_ARTIFACT_DIR="$REPO_ROOT/tmp/ci-preview-public"
-PREVIEW_BUILD_MARKER_PATH="$REPO_ROOT/tmp/preview-build.marker"
 CANONICAL_PRODUCTION_BASE_URL="https://rhino-inquisitor.com/"
-DEPLOY_ARTIFACT_SOURCE="${DEPLOY_ARTIFACT_SOURCE:-auto}"
-SELECTED_DEPLOY_ARTIFACT_SOURCE="production"
 GATE_GROUP=""
 
 GATE_NAMES=()
 GATE_COMMANDS=()
-
-restore_production_output() {
-  if [[ ! -d "$PRODUCTION_ARTIFACT_DIR" ]]; then
-    return 0
-  fi
-
-  rm -rf "$REPO_ROOT/public"
-  mkdir -p "$REPO_ROOT/public"
-  cp -R "$PRODUCTION_ARTIFACT_DIR/." "$REPO_ROOT/public/"
-}
-
-cleanup_preview_state() {
-  rm -f "$PREVIEW_BUILD_MARKER_PATH"
-}
-
-on_exit() {
-  local exit_code="$1"
-
-  if [[ -f "$PREVIEW_BUILD_MARKER_PATH" ]]; then
-    if [[ "$exit_code" -ne 0 || "$SELECTED_DEPLOY_ARTIFACT_SOURCE" == "production" ]]; then
-      restore_production_output
-    fi
-    cleanup_preview_state
-  fi
-}
-
-trap 'on_exit $?' EXIT
 
 print_help() {
   cat <<'EOF'
 Usage: bash scripts/gates/run-all-gates.sh [options]
 
 Options:
-  --preview-base-url <url>  Preview-host base URL for preview rehearsal validation.
-  --deploy-artifact-source <mode>
-                            Final artifact left in public/: auto, production, or preview.
   --summary-path <path>     CSV summary output path.
   --ci-run-url <url>        CI run URL to record in the gate summary.
   --group <name>            Only run gates associated with this group (e.g. url, seo, a11y, perf, security, build).
@@ -64,14 +29,6 @@ EOF
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
-    --preview-base-url)
-      PREVIEW_BASE_URL="$2"
-      shift 2
-      ;;
-    --deploy-artifact-source)
-      DEPLOY_ARTIFACT_SOURCE="$2"
-      shift 2
-      ;;
     --summary-path)
       SUMMARY_PATH="$2"
       shift 2
@@ -169,27 +126,6 @@ write_summary_header
 PREVIEW_BASE_URL="$(normalize_url "$PREVIEW_BASE_URL")"
 CANONICAL_PRODUCTION_BASE_URL="$(normalize_url "$CANONICAL_PRODUCTION_BASE_URL")"
 
-case "$DEPLOY_ARTIFACT_SOURCE" in
-  auto)
-    if [[ "$PREVIEW_BASE_URL" == "$CANONICAL_PRODUCTION_BASE_URL" ]]; then
-      SELECTED_DEPLOY_ARTIFACT_SOURCE="production"
-GATE_GROUP=""
-    else
-      SELECTED_DEPLOY_ARTIFACT_SOURCE="preview"
-    fi
-    ;;
-  production|preview)
-    SELECTED_DEPLOY_ARTIFACT_SOURCE="$DEPLOY_ARTIFACT_SOURCE"
-    ;;
-  *)
-    echo "Unsupported deploy artifact source: $DEPLOY_ARTIFACT_SOURCE" >&2
-    exit 1
-    ;;
-esac
-
-echo "Deploy artifact source: $SELECTED_DEPLOY_ARTIFACT_SOURCE"
-cleanup_preview_state
-
 register_gate "Validate front matter" "cd \"$REPO_ROOT\" && npm run validate:frontmatter" "build"
 register_gate "Enforce local video shortcode policy" "cd \"$REPO_ROOT\" && npm run check:local-video-shortcodes" "build"
 register_gate "Build production validation site" "cd \"$REPO_ROOT\" && build_started_at=\$(node -e 'console.log(Date.now())') && npm run build:prod && build_finished_at=\$(node -e 'console.log(Date.now())') && mkdir -p \"\$(dirname \"$BUILD_DURATION_PATH\")\" && printf '%s' \"\$((build_finished_at - build_started_at))\" > \"$BUILD_DURATION_PATH\"" "build"
@@ -224,19 +160,12 @@ register_gate "Run SEO smoke check" "cd \"$REPO_ROOT\" && npm run check:seo:arti
 register_gate "Run internal link check" "cd \"$REPO_ROOT\" && npm run check:internal-links" "seo"
 register_gate "Run accessibility gate" "cd \"$REPO_ROOT\" && npm run check:a11y:seo" "a11y"
 register_gate "Run performance gate" "cd \"$REPO_ROOT\" && npm run check:perf:gate" "perf"
-register_gate "Archive production validation output" "cd \"$REPO_ROOT\" && rm -rf \"$PRODUCTION_ARTIFACT_DIR\" && mkdir -p \"$PRODUCTION_ARTIFACT_DIR\" && cp -R public/. \"$PRODUCTION_ARTIFACT_DIR/\"" "build"
-register_gate "Build preview rehearsal site" "cd \"$REPO_ROOT\" && PREVIEW_BASE_URL=\"$PREVIEW_BASE_URL\" npm run build:preview-pages && touch \"$PREVIEW_BUILD_MARKER_PATH\"" "build"
-register_gate "Run preview crawl-control validation check" "cd \"$REPO_ROOT\" && node scripts/seo/check-crawl-controls.js --mode preview --base-url \"$PREVIEW_BASE_URL\" --report tmp/ci-preview-crawl-control-audit.csv" "seo"
-register_gate "Verify preview-host path prefix and noindex" "cd \"$REPO_ROOT\" && node scripts/gates/check-preview-prefix-noindex.js --base-url \"$PREVIEW_BASE_URL\"" "security"
-register_gate "Run SEO-safe deployment host check" "cd \"$REPO_ROOT\" && npm run check:seo-safe-deploy -- --expected-origin \"$PREVIEW_BASE_URL\" --crawl-mode blocked --report tmp/seo-safe-deploy-report.json" "security"
-register_gate "Run preview LLM artifact validation check" "cd \"$REPO_ROOT\" && node scripts/seo/check-llm-artifacts.js --report tmp/preview-llm-artifact-quality-report.json" "build"
-register_gate "Validate deploy artifact integrity and size" "cd \"$REPO_ROOT\" && npm run validate:artifact -- --label preview-deploy --report tmp/artifact-validation-preview.json" "build"
-register_gate "Archive preview rehearsal output" "cd \"$REPO_ROOT\" && rm -rf \"$PREVIEW_ARTIFACT_DIR\" && mkdir -p \"$PREVIEW_ARTIFACT_DIR\" && cp -R public/. \"$PREVIEW_ARTIFACT_DIR/\"" "build"
 
 failure_index=-1
 
 for index in "${!GATE_NAMES[@]}"; do
-  if ! run_gate "${GATE_NAMES[$index]}" "${GATE_COMMANDS[$index]}"; then
+  local current_gate_name="${GATE_NAMES[$index]}"
+  if ! run_gate "$current_gate_name" "${GATE_COMMANDS[$index]}"; then
     failure_index="$index"
     break
   fi
