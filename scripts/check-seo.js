@@ -251,7 +251,12 @@ function flattenSchemaTypes(blocks) {
       return flattenSchemaTypes(block);
     }
 
-    return [block?.["@type"]].flat().filter(Boolean);
+    const ownTypes = [block?.["@type"]].flat().filter(Boolean);
+    // Descend into @graph so schemas nested in a graph container are seen.
+    const graphTypes = Array.isArray(block?.["@graph"])
+      ? flattenSchemaTypes(block["@graph"])
+      : [];
+    return [...ownTypes, ...graphTypes];
   });
 }
 
@@ -268,6 +273,14 @@ function findSchema(blocks, schemaType) {
     const types = [block?.["@type"]].flat().filter(Boolean);
     if (types.includes(schemaType)) {
       return block;
+    }
+
+    // Descend into @graph so schemas nested in a graph container are found.
+    if (Array.isArray(block?.["@graph"])) {
+      const nested = findSchema(block["@graph"], schemaType);
+      if (nested) {
+        return nested;
+      }
     }
   }
 

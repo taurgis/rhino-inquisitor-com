@@ -110,19 +110,59 @@ convention and Google's post-2019 guidance to self-canonicalize paged views rath
 than point them at page 1), and intentionally excluded from the content sitemaps.
 Their absence from `sitemap.xml` is expected, so the gate assumption was stale.
 
+The same stale assumption lived in four gate scripts across the `url`, `seo`, and
+`security` gates — all keyed to the www/apex mismatch that previously masked it.
+Once the origins aligned, every one began flagging paginated routes:
+
+| Script | Gate | Old | New |
+|--------|------|-----|-----|
+| `scripts/gates/generate-canonical-alignment-report.js` | url | Skipped paginated routes only when `!selfCanonical` | Skips all `/page/N/` routes; unused `selfCanonical` removed |
+| `scripts/seo/check-metadata.js` | security (host-protocol) | Flagged self-canonical paginated routes as missing from sitemap | Exempts `/page/N/` from both the canonical-match and sitemap-membership checks |
+| `scripts/gates/check-seo-consistency.js` | seo | "Expected route is missing from sitemap.xml" on paginated routes | Adds `!isPaginationRoute(...)` guard |
+| `scripts/seo/check-sitemap.js` | security | Flagged paginated routes as missing, and counted them in the sitemap/metadata size delta | Skips `/page/N/` in the per-route loop and excludes them from the count delta |
+
+Gate result on `main`: FAIL (16 canonical-alignment mismatches, 16 host-protocol
+metadata failures, 1 seo-consistency blocking finding, 16 sitemap-inventory
+failures + a count-delta failure) → PASS across all four scripts.
+
+Verification: `hugo --minify --environment production`, then
+`npm run check:canonical-alignment`, `npm run check:metadata && npm run check:sitemap`,
+`npm run check:seo-consistency`, and `npm run check:host-protocol` — all exit 0
+("Mismatch rows: 0", "223 indexable page(s)", "186 sitemap URL(s)", "Blocking
+failures: 0"). Content, sitemaps, and the pages' canonical tags are unchanged.
+
+Related files: `scripts/gates/generate-canonical-alignment-report.js`,
+`scripts/seo/check-metadata.js`, `scripts/gates/check-seo-consistency.js`,
+`scripts/seo/check-sitemap.js`.
+
+## Follow-up: SEO smoke check missed `@graph`-nested JSON-LD
+
+The SEO smoke check (`scripts/check-seo.js`, "Run SEO smoke check" step) failed the
+homepage with `missing WebSite JSON-LD on homepage (schema types: none; raw WebSite
+marker: present)`. The homepage schema is now emitted as a single
+`{ "@context", "@graph": [...] }` container, so the WebSite node lives inside
+`@graph` rather than at the top level.
+
+The newer `scripts/seo/check-schema.js` gate already understands `@graph` (it passed
+for all 257 pages), but the smoke check's `findSchema`/`flattenSchemaTypes` helpers
+only inspected top-level `@type`, so they reported zero schema types even though the
+raw marker was present.
+
 Fix — old vs new behavior:
 
 | Aspect | Old | New |
 |--------|-----|-----|
-| Pagination skip in the missing-from-sitemap loop | Skipped only when `!selfCanonical` (relied on a www/apex origin mismatch) | Skipped for all `/page/N/` routes regardless of canonical shape; unused `selfCanonical` removed |
-| Gate result on `main` | FAIL — 16 mismatch rows | PASS — 0 mismatch rows |
+| `findSchema` / `flattenSchemaTypes` | Only read top-level `@type` on each JSON-LD block | Also descend into a block's `@graph` array |
+| Homepage smoke check | FAIL — WebSite reported missing | PASS |
 
-Verification: `npm run build:prod` then
-`node scripts/gates/generate-canonical-alignment-report.js` → "Mismatch rows: 0,
-Canonical alignment passed." Content sitemaps and the pages' canonical tags are
-unchanged.
+The `@graph` descent also feeds the negative assertions (e.g. "WebSite emitted on
+article page"); the full run stays green across all 223 indexable routes, so those
+still hold.
 
-Related file: `scripts/gates/generate-canonical-alignment-report.js`.
+Verification: `node scripts/check-seo.js` → "SEO validation passed for 223 indexable
+route(s)", exit 0. Content and emitted JSON-LD are unchanged.
+
+Related file: `scripts/check-seo.js`.
 
 ## Related files
 
