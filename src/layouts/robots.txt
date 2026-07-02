@@ -1,4 +1,4 @@
-{{- $canonicalProductionBaseURL := "https://www.rhino-inquisitor.com/" -}}
+{{- $canonicalProductionBaseURL := "https://rhino-inquisitor.com/" -}}
 {{- $allowAllRobots := and hugo.IsProduction (eq site.BaseURL $canonicalProductionBaseURL) -}}
 {{- if $allowAllRobots }}
 # Training-oriented AI vendor controls
