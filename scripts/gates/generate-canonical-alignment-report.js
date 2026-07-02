@@ -303,8 +303,12 @@ async function main() {
       continue;
     }
 
-    const selfCanonical = record.canonical === record.url;
-    if (!selfCanonical && /\/page\/\d+\/$/u.test(route)) {
+    // Paginated archive views (/posts/page/N/, /pages/page/N/) are indexable and
+    // self-canonical by design (Hugo convention; Google's post-2019 pagination
+    // guidance is to self-canonicalize paged views, not point them at page 1) and
+    // are intentionally excluded from the content sitemaps. Their absence from
+    // sitemap.xml is expected, not a mismatch.
+    if (/\/page\/\d+\/$/u.test(route)) {
       continue;
     }
 

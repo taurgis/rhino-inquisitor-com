@@ -83,6 +83,47 @@ Regeneration workflow:
 2. `npm run generate:critical-css` (rewrites the three `critical-*.css` files).
 3. `npm run build:prod` again and commit the regenerated critical files.
 
+## Follow-up: canonical-alignment gate false positive on paginated routes
+
+After `8469a0b` ("Standardize canonical domain to apex") the `url` gate's
+canonical-alignment check began failing with 16 mismatches — every one a
+paginated archive view (`/posts/page/2…16/`, `/pages/page/2/`) reported as an
+"indexable HTML page missing from sitemap.xml." No content change caused it.
+
+Root cause: the gate's skip clause for paginated routes only excluded them when
+they were **not** self-canonical:
+
+```js
+const selfCanonical = record.canonical === record.url;
+if (!selfCanonical && /\/page\/\d+\/$/u.test(route)) { continue; }
+```
+
+The gate helper `canonicalOrigin` was previously `https://www.rhino-inquisitor.com`
+while the site already emitted apex canonicals, so `record.url` (www) never equalled
+`record.canonical` (apex) — `selfCanonical` was always `false` and the clause
+silently skipped every pagination page. Standardizing the helper to the apex origin
+made the comparison genuinely equal, `selfCanonical` became `true`, and the clause
+stopped firing.
+
+The paginated pages are correct as-is: `index, follow`, self-canonical (Hugo
+convention and Google's post-2019 guidance to self-canonicalize paged views rather
+than point them at page 1), and intentionally excluded from the content sitemaps.
+Their absence from `sitemap.xml` is expected, so the gate assumption was stale.
+
+Fix — old vs new behavior:
+
+| Aspect | Old | New |
+|--------|-----|-----|
+| Pagination skip in the missing-from-sitemap loop | Skipped only when `!selfCanonical` (relied on a www/apex origin mismatch) | Skipped for all `/page/N/` routes regardless of canonical shape; unused `selfCanonical` removed |
+| Gate result on `main` | FAIL — 16 mismatch rows | PASS — 0 mismatch rows |
+
+Verification: `npm run build:prod` then
+`node scripts/gates/generate-canonical-alignment-report.js` → "Mismatch rows: 0,
+Canonical alignment passed." Content sitemaps and the pages' canonical tags are
+unchanged.
+
+Related file: `scripts/gates/generate-canonical-alignment-report.js`.
+
 ## Related files
 
 - `.github/workflows/deploy-pages.yml`
