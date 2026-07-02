@@ -840,6 +840,12 @@ async function main() {
       continue;
     }
 
+    // Paginated archive views (/…/page/N/) are self-canonical but intentionally
+    // excluded from the content sitemaps, so their absence is expected.
+    if (/\/page\/\d+\/$/u.test(route)) {
+      continue;
+    }
+
     pushRow(rows, failures, createRow({
       check_group: 'sitemap-url',
       route,
