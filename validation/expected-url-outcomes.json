@@ -8,14 +8,14 @@
     "manifest_commit": "3f29de0ccfb587956ea405813dd27426edf98f61"
   },
   "summary": {
-    "total_entries": 1223,
+    "total_entries": 1224,
     "dispositions": {
-      "keep": 197,
+      "keep": 203,
       "merge": 141,
-      "retire": 885
+      "retire": 880
     },
     "validation_scopes": {
-      "blocking": 698,
+      "blocking": 699,
       "accepted_risk": 525
     },
     "query_string_exceptions": 525
@@ -4505,28 +4505,28 @@
     },
     {
       "legacy_url": "/category-sitemap.xml",
-      "target_url": null,
-      "disposition": "retire",
+      "target_url": "/category-sitemap.xml",
+      "disposition": "keep",
       "redirect_code": null,
       "url_class": "system",
       "priority": "medium",
       "implementation_layer": "none",
       "has_organic_traffic": false,
       "has_external_links": false,
-      "source": "url-discovery.sitemaps.summary.json",
+      "source": "policy:sitemap-index|url-discovery.sitemaps.summary.json",
       "canonical_expectation": {
-        "outcome": "not-found",
-        "status_code": 404,
-        "target_url": null,
+        "outcome": "serve",
+        "status_code": 200,
+        "target_url": "/category-sitemap.xml",
         "max_hops": 0
       },
       "build_validation": {
         "scope": "blocking",
-        "mode": "artifact-absence",
-        "assertion": "no-generated-artifact-at-legacy-path",
+        "mode": "static-file",
+        "assertion": "artifact-exists-at-preserved-path",
         "built_artifact_path": "category-sitemap.xml",
         "expected_redirect_target": null,
-        "expected_canonical_target": null,
+        "expected_canonical_target": "https://rhino-inquisitor.com/category-sitemap.xml",
         "notes": null
       }
     },
@@ -9068,28 +9068,28 @@
     },
     {
       "legacy_url": "/page-sitemap.xml",
-      "target_url": null,
-      "disposition": "retire",
+      "target_url": "/page-sitemap.xml",
+      "disposition": "keep",
       "redirect_code": null,
       "url_class": "system",
       "priority": "medium",
       "implementation_layer": "none",
       "has_organic_traffic": false,
       "has_external_links": false,
-      "source": "url-discovery.sitemaps.summary.json",
+      "source": "policy:sitemap-index|url-discovery.sitemaps.summary.json",
       "canonical_expectation": {
-        "outcome": "not-found",
-        "status_code": 404,
-        "target_url": null,
+        "outcome": "serve",
+        "status_code": 200,
+        "target_url": "/page-sitemap.xml",
         "max_hops": 0
       },
       "build_validation": {
         "scope": "blocking",
-        "mode": "artifact-absence",
-        "assertion": "no-generated-artifact-at-legacy-path",
+        "mode": "static-file",
+        "assertion": "artifact-exists-at-preserved-path",
         "built_artifact_path": "page-sitemap.xml",
         "expected_redirect_target": null,
-        "expected_canonical_target": null,
+        "expected_canonical_target": "https://rhino-inquisitor.com/page-sitemap.xml",
         "notes": null
       }
     },
@@ -9284,28 +9284,28 @@
     },
     {
       "legacy_url": "/post-sitemap.xml",
-      "target_url": null,
-      "disposition": "retire",
+      "target_url": "/post-sitemap.xml",
+      "disposition": "keep",
       "redirect_code": null,
       "url_class": "system",
       "priority": "medium",
       "implementation_layer": "none",
       "has_organic_traffic": false,
       "has_external_links": false,
-      "source": "url-discovery.sitemaps.summary.json",
+      "source": "policy:sitemap-index|url-discovery.sitemaps.summary.json",
       "canonical_expectation": {
-        "outcome": "not-found",
-        "status_code": 404,
-        "target_url": null,
+        "outcome": "serve",
+        "status_code": 200,
+        "target_url": "/post-sitemap.xml",
         "max_hops": 0
       },
       "build_validation": {
         "scope": "blocking",
-        "mode": "artifact-absence",
-        "assertion": "no-generated-artifact-at-legacy-path",
+        "mode": "static-file",
+        "assertion": "artifact-exists-at-preserved-path",
         "built_artifact_path": "post-sitemap.xml",
         "expected_redirect_target": null,
-        "expected_canonical_target": null,
+        "expected_canonical_target": "https://rhino-inquisitor.com/post-sitemap.xml",
         "notes": null
       }
     },
@@ -10850,28 +10850,28 @@
     },
     {
       "legacy_url": "/sitemap_index.xml",
-      "target_url": null,
-      "disposition": "retire",
+      "target_url": "/sitemap_index.xml",
+      "disposition": "keep",
       "redirect_code": null,
       "url_class": "system",
       "priority": "high",
       "implementation_layer": "none",
       "has_organic_traffic": false,
       "has_external_links": false,
-      "source": "url-discovery.sitemaps.summary.json|probe:system-route",
+      "source": "policy:sitemap-index|url-discovery.sitemaps.summary.json|probe:system-route",
       "canonical_expectation": {
-        "outcome": "not-found",
-        "status_code": 404,
-        "target_url": null,
+        "outcome": "serve",
+        "status_code": 200,
+        "target_url": "/sitemap_index.xml",
         "max_hops": 0
       },
       "build_validation": {
         "scope": "blocking",
-        "mode": "artifact-absence",
-        "assertion": "no-generated-artifact-at-legacy-path",
+        "mode": "static-file",
+        "assertion": "artifact-exists-at-preserved-path",
         "built_artifact_path": "sitemap_index.xml",
         "expected_redirect_target": null,
-        "expected_canonical_target": null,
+        "expected_canonical_target": "https://rhino-inquisitor.com/sitemap_index.xml",
         "notes": null
       }
     },
@@ -13658,28 +13658,28 @@
     },
     {
       "legacy_url": "/video-sitemap.xml",
-      "target_url": null,
-      "disposition": "retire",
+      "target_url": "/video-sitemap.xml",
+      "disposition": "keep",
       "redirect_code": null,
       "url_class": "system",
       "priority": "medium",
       "implementation_layer": "none",
       "has_organic_traffic": false,
       "has_external_links": false,
-      "source": "url-discovery.sitemaps.summary.json",
+      "source": "policy:sitemap-index|url-discovery.sitemaps.summary.json",
       "canonical_expectation": {
-        "outcome": "not-found",
-        "status_code": 404,
-        "target_url": null,
+        "outcome": "serve",
+        "status_code": 200,
+        "target_url": "/video-sitemap.xml",
         "max_hops": 0
       },
       "build_validation": {
         "scope": "blocking",
-        "mode": "artifact-absence",
-        "assertion": "no-generated-artifact-at-legacy-path",
+        "mode": "static-file",
+        "assertion": "artifact-exists-at-preserved-path",
         "built_artifact_path": "video-sitemap.xml",
         "expected_redirect_target": null,
-        "expected_canonical_target": null,
+        "expected_canonical_target": "https://rhino-inquisitor.com/video-sitemap.xml",
         "notes": null
       }
     },
@@ -33039,6 +33039,33 @@
         "built_artifact_path": "your-definitive-mobile-app-checklist/index.html",
         "expected_redirect_target": null,
         "expected_canonical_target": "https://rhino-inquisitor.com/your-definitive-mobile-app-checklist/",
+        "notes": null
+      }
+    },
+    {
+      "legacy_url": "/image-sitemap.xml",
+      "target_url": "/image-sitemap.xml",
+      "disposition": "keep",
+      "redirect_code": null,
+      "url_class": "system",
+      "priority": "medium",
+      "implementation_layer": "none",
+      "has_organic_traffic": false,
+      "has_external_links": false,
+      "source": "policy:sitemap-index",
+      "canonical_expectation": {
+        "outcome": "serve",
+        "status_code": 200,
+        "target_url": "/image-sitemap.xml",
+        "max_hops": 0
+      },
+      "build_validation": {
+        "scope": "blocking",
+        "mode": "static-file",
+        "assertion": "artifact-exists-at-preserved-path",
+        "built_artifact_path": "image-sitemap.xml",
+        "expected_redirect_target": null,
+        "expected_canonical_target": "https://rhino-inquisitor.com/image-sitemap.xml",
         "notes": null
       }
     }
