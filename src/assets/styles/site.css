@@ -4599,8 +4599,10 @@ body.drawer-open {
 }
 
 .site-drawer__brand img {
-  width: 1.875rem;
+  width: auto;
   height: 1.875rem;
+  flex: 0 0 auto;
+  object-fit: contain;
 }
 
 .site-drawer__close {
