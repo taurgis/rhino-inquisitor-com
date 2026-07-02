@@ -518,6 +518,21 @@
       }
     });
 
+    // Filter as the visitor types. The field reads like a live filter, so make it
+    // behave like one: debounce input, replace (not push) history so back-button
+    // history is not flooded, and never scroll on keystrokes. Submit/Enter still
+    // pushes a history entry and scrolls (handled by the submit listener above).
+    var liveSearchTimer;
+    input.addEventListener('input', function () {
+      window.clearTimeout(liveSearchTimer);
+      liveSearchTimer = window.setTimeout(function () {
+        var query = input.value.trim();
+        var activeSort = getActiveSort();
+        updateLocation(query, activeSort, false);
+        runSearch(query, activeSort, false);
+      }, 250);
+    });
+
     Array.prototype.forEach.call(sortControls, function (control) {
       control.addEventListener('change', function () {
         var query = input.value.trim();

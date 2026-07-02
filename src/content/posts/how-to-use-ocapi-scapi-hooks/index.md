@@ -349,7 +349,7 @@ This is, without a doubt, the most common and most severe performance killer. A 
 
 #### Strategic Caching
 
-Caching is a powerful tool, but with hooks, it's a double-edged sword. A `modifyGETResponse`. For example, the hook is only executed if the cache for that API response is empty or stale. If your hook injects highly dynamic or user-specific data into a response (e.g., "Welcome back, John!"), You have effectively made that response uncacheable for anyone else. What was once a fast, globally cached response from the eCDN now requires a full server-side execution for every single request. This can dramatically increase server load and latency.
+Caching is a powerful tool, but with hooks, it's a double-edged sword. A `modifyGETResponse` hook, for example, only runs when the cache for that API response is empty or stale. If your hook injects highly dynamic or user-specific data into a response (e.g., a personalised "Welcome back!" greeting), you have effectively made that response uncacheable for anyone else. What was once a fast, globally cached response from the eCDN now requires a full server-side execution for every single request. This can dramatically increase server load and latency.
 
 Therefore, you must be acutely aware of the "cacheability" of the data you inject. Use `modifyResponse` hooks on GET requests with extreme caution. If possible, load highly personalised data via a separate, non-cached API call from the client after the main, cacheable content has loaded.
 

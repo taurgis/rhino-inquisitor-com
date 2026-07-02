@@ -1,12 +1,29 @@
 {{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-{{ $lastmod := site.Lastmod }}
-{{ range (slice "post-sitemap.xml" "page-sitemap.xml" "category-sitemap.xml" "video-sitemap.xml" "image-sitemap.xml") }}
+{{- /* Each sub-sitemap advertises the newest Lastmod of the content it actually
+       contains, so freshness signals move independently instead of every entry
+       sharing the site-wide site.Lastmod (which froze them all to one date). */ -}}
+{{- $posts := where site.RegularPages "Type" "posts" -}}
+{{- $pages := (where site.RegularPages "Type" "pages") | append site.Home -}}
+{{- $videos := slice -}}
+{{- range site.RegularPages -}}
+  {{- if index (.Params.video | default dict) "id" -}}{{- $videos = $videos | append . -}}{{- end -}}
+{{- end -}}
+{{- $map := slice
+  (dict "file" "post-sitemap.xml" "pages" $posts)
+  (dict "file" "page-sitemap.xml" "pages" $pages)
+  (dict "file" "category-sitemap.xml" "pages" $posts)
+  (dict "file" "video-sitemap.xml" "pages" $videos)
+  (dict "file" "image-sitemap.xml" "pages" site.RegularPages) -}}
+{{ range $map }}
+  {{- $lastmod := (time.AsTime "0001-01-01T00:00:00Z") -}}
+  {{- range .pages -}}
+    {{- if gt .Lastmod.Unix $lastmod.Unix -}}{{- $lastmod = .Lastmod -}}{{- end -}}
+  {{- end -}}
+  {{- if $lastmod.IsZero -}}{{- $lastmod = site.Lastmod -}}{{- end }}
   <sitemap>
-    <loc>{{ . | absURL }}</loc>
-    {{ if not $lastmod.IsZero }}
-      <lastmod>{{ $lastmod.Format "2006-01-02T15:04:05-07:00" }}</lastmod>
-    {{ end }}
+    <loc>{{ .file | absURL }}</loc>
+    {{ if not $lastmod.IsZero }}<lastmod>{{ $lastmod.Format "2006-01-02T15:04:05-07:00" }}</lastmod>{{ end }}
   </sitemap>
-{{ end }}
+{{- end }}
 </sitemapindex>

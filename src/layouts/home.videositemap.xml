@@ -5,8 +5,11 @@
   {{ $videoID := index $video "id" }}
   {{ if and $videoID (partial "sitemap/is-indexable.html" .) }}
     {{ $seo := partial "seo/resolve.html" . }}
-    {{ $title := index $video "title" | default .Title }}
-    {{ $description := index $video "description" | default $seo.description }}
+    {{/* Derive the video entry's title/description from the page itself so the
+         sitemap signal matches the post's subject. Embedded filler clips (e.g.
+         background music videos) otherwise leaked their off-topic YouTube titles. */}}
+    {{ $title := .Title }}
+    {{ $description := $seo.description }}
     {{ $thumbnail := index $video "thumbnailUrl" | default $seo.image }}
     {{ if and $title $description $thumbnail }}
       {{ $uploadDate := .Date.Format "2006-01-02T15:04:05Z07:00" }}

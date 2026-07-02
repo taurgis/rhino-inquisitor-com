@@ -11,7 +11,7 @@ Consult the `hugo-development` skill before authoring or reviewing any file matc
 
 ## Configuration Standards (`hugo.toml`)
 
-1. `baseURL` must be `"https://rhino-inquisitor.com/"` — protocol, www, trailing slash. Never change without full URL parity re-run.
+1. `baseURL` must be `"https://rhino-inquisitor.com/"` — protocol, apex (no www), trailing slash. `www` 301-redirects to the apex, which is the canonical host. Never change without full URL parity re-run.
 2. `[outputs]` section must be explicit — never rely on undocumented Hugo defaults for sitemap, RSS, or robots output.
 3. Production builds must never pass `--buildDrafts`, `--buildFuture`, or `--buildExpired`.
 4. Hugo version must be pinned in CI (`HUGO_VERSION` env var, not `latest`).

@@ -5,7 +5,4 @@
     {{ partial "sitemap/url-entry.xml" . }}
   {{ end }}
 {{ end }}
-{{ with site.GetPage "/posts" }}
-  {{ partial "sitemap/pagination-entries.xml" (dict "page" . "paginateSize" 10) }}
-{{ end }}
 </urlset>
