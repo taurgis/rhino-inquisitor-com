@@ -1,0 +1,18 @@
+# Hand-written meta descriptions for category term pages, keyed by term slug
+# (the last path segment of the term's URL, e.g. /category/ai/ -> "ai").
+# Consumed by layouts/partials/seo/resolve.html; any term without an entry
+# falls back to the generic templated description.
+
+"salesforce-commerce-cloud" = "In-depth Salesforce B2C Commerce Cloud guidance — architecture, cartridges, OCAPI/SCAPI, and implementation notes from real projects."
+"technical" = "Hands-on technical deep dives for Salesforce B2C Commerce developers: performance, integrations, debugging, and platform internals."
+"release-notes" = "Analysis of Salesforce B2C Commerce releases — what changed, what it means for your storefront, and how to prepare."
+"community" = "Talks, podcasts, and community contributions from the Salesforce B2C Commerce ecosystem."
+"architecture" = "Solution and system architecture for Salesforce B2C Commerce — scaling, resilience, and long-term maintainability."
+"certification" = "Preparation notes and guidance for Salesforce B2C Commerce certifications and the architect exam track."
+"corporate" = "Commerce strategy and delivery notes for leaders steering Salesforce B2C Commerce programs."
+"documentation" = "Reference material and documentation notes for Salesforce B2C Commerce developers and architects."
+"go-live" = "Launch playbooks for Salesforce B2C Commerce — environment readiness, cutover, and post-go-live stabilization."
+"erd" = "Data modeling and entity-relationship guidance for Salesforce B2C Commerce implementations."
+"ai" = "Applying AI to Salesforce B2C Commerce work — from static-site migration to developer workflows and tooling."
+"react" = "React and PWA Kit guidance for Salesforce B2C Commerce headless storefronts."
+"salesforce-platform" = "Salesforce Platform guidance beyond B2C Commerce — integrations, APIs, and the wider Salesforce suite."

@@ -12,7 +12,10 @@ const assetsRoot = path.join(repoRoot, 'src', 'assets');
 const outputRoot = path.join(assetsRoot, 'generated-avif');
 const manifestPath = path.join(outputRoot, '.avif-cache-manifest.json');
 const supportedExtensions = new Set(['.jpg', '.jpeg', '.png', '.webp']);
-const responsiveWidths = [768, 1280];
+// Must cover every width requested by the Hugo image templates so the AVIF
+// <source> srcset matches the WebP srcset tier-for-tier. render-image.html and
+// img-caption.html request 480/768/960; the media/image.html default is 768/1280.
+const responsiveWidths = [480, 768, 960, 1280];
 const avifOptions = {
   quality: 55,
   effort: 4,

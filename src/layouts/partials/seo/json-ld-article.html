@@ -17,7 +17,12 @@
     "datePublished" $published
     "dateModified" $modified
     "mainEntityOfPage" (dict "@type" "WebPage" "@id" $seo.canonical)
-    "author" (dict "@type" "Person" "name" (.Params.author | default .Site.Title))
+    "author" (dict
+      "@type" "Person"
+      "name" (.Params.author | default .Site.Title)
+      "url" (absURL "about/")
+      "sameAs" (slice "https://github.com/taurgis/" "https://www.linkedin.com/in/thomas-theunen-10905680/")
+    )
     "publisher" $publisher
   }}
   {{ $schema = merge $schema (dict "image" (slice $seo.image)) }}

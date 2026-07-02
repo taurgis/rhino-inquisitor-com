@@ -34,7 +34,7 @@ If **yes to any**, apply the full SEO Compliance Checklist below before completi
 
 - [ ] Canonical tag defaults to `.Permalink` — override only with absolute `https://rhino-inquisitor.com/...` URL
 - [ ] Canonical tag URL matches sitemap URL for the same page
-- [ ] Internal links point to the canonical `www` variant — not apex, not `http`
+- [ ] Internal links point to the canonical apex variant (`https://rhino-inquisitor.com/…`) — not `www`, not `http`
 - [ ] Alias/redirect pages are excluded from `sitemap.xml` (verify Hugo default holds)
 
 ### Metadata
