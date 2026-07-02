@@ -177,8 +177,8 @@ async function main() {
         findings.push(`Sitemap URL is not HTTPS (${entry.loc}).`);
       }
 
-      if (parsed.hostname !== 'www.rhino-inquisitor.com') {
-        findings.push(`Sitemap URL host is not www.rhino-inquisitor.com (${entry.loc}).`);
+      if (parsed.hostname !== 'rhino-inquisitor.com') {
+        findings.push(`Sitemap URL host is not rhino-inquisitor.com (${entry.loc}).`);
       }
 
       if (parsed.search || parsed.hash) {
