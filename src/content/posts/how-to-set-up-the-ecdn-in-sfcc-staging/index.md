@@ -153,8 +153,8 @@ This is a POST call with the following body:
 ```json
 {
   "hostname": "cc-merchant.com",
-  "certificate": "-----BEGIN CERTIFICATE-----\n<certificate-body-truncated-for-readability>\n-----END CERTIFICATE-----\n",
-  "privateKey": "-----BEGIN RSA PRIVATE KEY-----\n<private-key-body-truncated-for-readability>\n-----END RSA PRIVATE KEY-----\n"
+  "certificate": "<escaped-certificate-pem>",
+  "privateKey": "<escaped-private-key-pem>"
 }
 ```
 

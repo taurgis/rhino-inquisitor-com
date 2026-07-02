@@ -155,7 +155,7 @@ The request itself is pretty easy! Call the endpoint with the correct authorizat
 POST /s/RefArch/dw/shop/v22_6/sessions HTTP/1.1
 Host: example.com
 x-dw-client-id: [your_own_client_id]
-Authorization: Bearer eyJfdiI6IjXXXXXX.eyJfdiI6IjEiLCJleHAXXXXXXX.-d5wQW4c4O4wt-Zkl7_fiEiALW1XXXX
+Authorization: Bearer <sample-jwt>
 ```
 
 If all goes well, you will get a response that will attempt to set cookies on the current host domain.
@@ -163,9 +163,9 @@ If all goes well, you will get a response that will attempt to set cookies on th
 ```text
 RESPONSE:
 HTTP/1.1 204 NO CONTENT
-Set-Cookie : dwsecuretoken_a85a5236a2e852d714eb6f1585efb61c=""; Expires=Thu, 01-Jan-1970 00:00:10 GMT;
-Set-Cookie : dwsid=eXv5R3FZGI4BBfbK1Opk5s1mJ-41Aw7ZuaMKxeye5xa16fJMX--AnNkXsvmakbi1UZSzP1zoPmUILgoom1_jKg==;
-Set-Cookie : dwanonymous_a85a5236a2e852d714eb6f1585efb61c=bdjalnzmfrkJ0FtYliwud5db67; Max-Age=15552000;
+Set-Cookie : dwsecuretoken_<suffix>=""; Expires=Thu, 01-Jan-1970 00:00:10 GMT;
+Set-Cookie : dwsid=<sample-session-cookie>;
+Set-Cookie : dwanonymous_<suffix>=<sample-anonymous-id>; Max-Age=15552000;
 ```
 
 For the next step to work, copy the **dwsid** cookie. We need it to convert the cookie back to a JWT bearer token.
@@ -184,7 +184,7 @@ POST /s/RefArch/dw/shop/v22_6/customers/auth HTTP/1.1
 Host: example.com
 Content-Type: application/json
 x-dw-client-id: [your_own_client_id]
-Cookie: dwsid=pATvWUO3KSdt-Kmcy-8-RsxKnoO4BMDwoec7ACVlW6tZNnhaOL7gt7mHqL-h7QYn5TyE61z0DeSMCqxngsWeHw==
+Cookie: dwsid=<sample-session-cookie>
 {
   "type" : "session"
 }

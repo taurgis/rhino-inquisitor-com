@@ -18,6 +18,7 @@
 
 # Temporary workspaces and command output
 /tmp/
+/analysis/
 *.log
 /.tmp-*.log
 
