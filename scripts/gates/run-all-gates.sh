@@ -164,7 +164,7 @@ register_gate "Run performance gate" "cd \"$REPO_ROOT\" && npm run check:perf:ga
 failure_index=-1
 
 for index in "${!GATE_NAMES[@]}"; do
-  local current_gate_name="${GATE_NAMES[$index]}"
+  current_gate_name="${GATE_NAMES[$index]}"
   if ! run_gate "$current_gate_name" "${GATE_COMMANDS[$index]}"; then
     failure_index="$index"
     break
