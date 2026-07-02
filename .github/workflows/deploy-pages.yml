@@ -13,8 +13,8 @@ env:
   HUGO_VERSION: 0.157.0
   NODE_VERSION: 20.18.1
   AVIF_CACHE_VERSION: 1
-  EXPECTED_PAGES_HOST: www.rhino-inquisitor.com
-  CANONICAL_PRODUCTION_BASE_URL: https://www.rhino-inquisitor.com/
+  EXPECTED_PAGES_HOST: rhino-inquisitor.com
+  CANONICAL_PRODUCTION_BASE_URL: https://rhino-inquisitor.com/
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:

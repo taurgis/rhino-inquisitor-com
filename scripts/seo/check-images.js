@@ -22,7 +22,7 @@ const canonicalHost = new URL(canonicalOrigin).host.toLowerCase();
 const supportedLocalHosts = new Set([
   canonicalHost,
   'rhino-inquisitor.com',
-  'www.rhino-inquisitor.com',
+  'rhino-inquisitor.com',
   'therhinotimes.com',
   'www.therhinotimes.com',
   'taurgis.github.io'

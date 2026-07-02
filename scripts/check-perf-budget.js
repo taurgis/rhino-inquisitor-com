@@ -6,7 +6,7 @@ import fg from "fast-glob";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, "..");
 const publicDir = path.join(rootDir, "public");
-const canonicalHost = "https://www.rhino-inquisitor.com";
+const canonicalHost = "https://rhino-inquisitor.com";
 const validationId = "RHI-054";
 
 const budgets = {

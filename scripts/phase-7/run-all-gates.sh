@@ -12,7 +12,7 @@ BUILD_DURATION_PATH="$REPO_ROOT/tmp/phase-7-build-duration-ms.txt"
 PRODUCTION_ARTIFACT_DIR="$REPO_ROOT/tmp/ci-prod-public"
 PREVIEW_ARTIFACT_DIR="$REPO_ROOT/tmp/ci-preview-public"
 PREVIEW_BUILD_MARKER_PATH="$REPO_ROOT/tmp/phase-7-preview-build.marker"
-CANONICAL_PRODUCTION_BASE_URL="https://www.rhino-inquisitor.com/"
+CANONICAL_PRODUCTION_BASE_URL="https://rhino-inquisitor.com/"
 DEPLOY_ARTIFACT_SOURCE="${PHASE7_DEPLOY_ARTIFACT_SOURCE:-auto}"
 SELECTED_DEPLOY_ARTIFACT_SOURCE="production"
 

@@ -5,7 +5,7 @@ import fg from "fast-glob";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const publicDir = path.resolve(__dirname, "..", "public");
-const canonicalHost = "https://www.rhino-inquisitor.com";
+const canonicalHost = "https://rhino-inquisitor.com";
 const expectedOpenSnippetTokens = [
   "max-snippet:-1",
   "max-image-preview:large",

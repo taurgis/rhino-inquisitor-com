@@ -22,7 +22,7 @@ const defaults = {
   robotsPath: path.join(repoRoot, 'public/robots.txt'),
   reportPath: path.join(repoRoot, 'url-data/reports/phase-5-crawl-control-audit.csv'),
   mode: 'production',
-  baseUrl: 'https://www.rhino-inquisitor.com/'
+  baseUrl: 'https://rhino-inquisitor.com/'
 };
 
 const validModes = new Set(['production', 'preview']);

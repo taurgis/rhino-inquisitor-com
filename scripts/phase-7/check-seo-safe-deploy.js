@@ -20,7 +20,7 @@ const defaults = {
 const validCrawlModes = new Set(['blocked', 'indexable']);
 const knownInternalHosts = new Set([
   'staging.rhino-inquisitor.com',
-  'www.rhino-inquisitor.com',
+  'rhino-inquisitor.com',
   'rhino-inquisitor.com',
   'taurgis.github.io'
 ]);

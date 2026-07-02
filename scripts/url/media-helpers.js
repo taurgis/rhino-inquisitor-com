@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { stringify as stringifyCsv } from 'csv-stringify/sync';
 
 export const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
-export const canonicalHost = 'https://www.rhino-inquisitor.com';
+export const canonicalHost = 'https://rhino-inquisitor.com';
 export const defaultRecordsFile = path.join(repoRoot, 'url-data/intermediate/records.normalized.json');
 export const defaultConvertedRecordsDir = path.join(repoRoot, 'url-data/output');
 export const defaultContentDir = path.join(repoRoot, 'url-data/output/content');

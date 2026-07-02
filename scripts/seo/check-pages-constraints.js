@@ -358,7 +358,7 @@ ${checks.map((check) => `| ${escapeMarkdown(check.label)} | ${statusLabel(check.
 | Check | Status |
 | --- | --- |
 | src/static/.nojekyll present | ${staticNoJekyllPresent ? 'Yes' : 'No'} |
-| Public DNS www.rhino-inquisitor.com CNAME | ${escapeMarkdown(domainStatus('PAGES_CONSTRAINTS_WWW_CNAME_STATUS', 'Pending manual verification'))} |
+| Public DNS rhino-inquisitor.com CNAME | ${escapeMarkdown(domainStatus('PAGES_CONSTRAINTS_WWW_CNAME_STATUS', 'Pending manual verification'))} |
 | Observed www target detail | ${escapeMarkdown(domainStatus('PAGES_CONSTRAINTS_WWW_CNAME_TARGET', 'Pending manual verification'))} |
 | GitHub Pages custom-domain setting | ${escapeMarkdown(domainStatus('PAGES_CONSTRAINTS_PAGES_DOMAIN_STATUS', 'Pending repository settings verification'))} |
 | GitHub Pages HTTPS status | ${escapeMarkdown(domainStatus('PAGES_CONSTRAINTS_HTTPS_STATUS', 'Pending repository settings verification'))} |

@@ -1,4 +1,4 @@
-baseURL = "https://www.rhino-inquisitor.com/"
+baseURL = "https://rhino-inquisitor.com/"
 defaultContentLanguage = "en"
 languageCode = "en-us"
 timeZone = "UTC"

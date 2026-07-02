@@ -13,8 +13,8 @@ import {
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const defaultContentRoot = path.join(repoRoot, 'src/content');
-const canonicalOrigin = 'https://www.rhino-inquisitor.com';
-const canonicalHost = 'www.rhino-inquisitor.com';
+const canonicalOrigin = 'https://rhino-inquisitor.com';
+const canonicalHost = 'rhino-inquisitor.com';
 const urlPattern = /^\/(?:|[a-z0-9/-]*[a-z0-9-]\/?)$/;
 const systemUrlAllowlist = new Set(['/404.html']);
 const aliasPattern = /^\/(?:|[a-z0-9/-]*[a-z0-9-]\/?)$/;
@@ -260,7 +260,7 @@ function validateAdditionalRules(contentType, data, relativePath, errors) {
         errors,
         relativePath,
         'canonical_format',
-        'canonical must be an absolute HTTPS URL on https://www.rhino-inquisitor.com with no query string or fragment.',
+        'canonical must be an absolute HTTPS URL on https://rhino-inquisitor.com with no query string or fragment.',
         'canonical'
       );
     }

@@ -40,7 +40,7 @@ You are a Hugo design and implementation specialist for content-driven websites,
 
 ## Repository safety constraints
 
-1. Keep production `baseURL` as `https://www.rhino-inquisitor.com/` unless an approved change requires parity revalidation.
+1. Keep production `baseURL` as `https://rhino-inquisitor.com/` unless an approved change requires parity revalidation.
 2. Never use production build flags that include drafts, future content, or expired content.
 3. Treat Hugo `aliases` as HTML redirect pages, not HTTP 301/308 behavior.
 4. Preserve canonical host consistency and avoid duplicate-host output.

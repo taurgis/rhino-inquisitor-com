@@ -10,7 +10,7 @@ const defaults = {
   publicRoot: path.join(repoRoot, 'public'),
   previewPublicRoot: '',
   reportDir: path.join(repoRoot, 'tmp', 'phase-6-host-protocol'),
-  productionBaseUrl: 'https://www.rhino-inquisitor.com/',
+  productionBaseUrl: 'https://rhino-inquisitor.com/',
   previewBaseUrl: 'https://taurgis.github.io/rhino-inquisitor-com/'
 };
 

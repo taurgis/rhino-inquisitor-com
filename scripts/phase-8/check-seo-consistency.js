@@ -249,8 +249,8 @@ async function analyzeRoute(routeRecord, htmlInventory, sitemap, expectedNoindex
       blockingFindings.push(`Canonical is not HTTPS (${canonicalUrl}).`);
     }
 
-    if (canonicalUrlParsed.hostname !== 'www.rhino-inquisitor.com') {
-      blockingFindings.push(`Canonical host is not www.rhino-inquisitor.com (${canonicalUrl}).`);
+    if (canonicalUrlParsed.hostname !== 'rhino-inquisitor.com') {
+      blockingFindings.push(`Canonical host is not rhino-inquisitor.com (${canonicalUrl}).`);
     }
 
     if (canonicalUrlParsed.search || canonicalUrlParsed.hash) {

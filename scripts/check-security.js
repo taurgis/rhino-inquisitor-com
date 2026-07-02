@@ -9,7 +9,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const rootDir = path.resolve(__dirname, "..")
 const publicDir = path.join(rootDir, "public")
 const contentDir = path.join(rootDir, "src", "content")
-const canonicalOrigin = "https://www.rhino-inquisitor.com"
+const canonicalOrigin = "https://rhino-inquisitor.com"
 
 const allowedSourceHttpSnippets = new Map([
   [

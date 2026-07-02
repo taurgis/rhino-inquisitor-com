@@ -8,7 +8,7 @@ import fg from "fast-glob";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(__dirname, "..", "..");
-const canonicalHost = "https://www.rhino-inquisitor.com";
+const canonicalHost = "https://rhino-inquisitor.com";
 
 const defaults = {
   publicDir: path.join(repoRoot, "public"),

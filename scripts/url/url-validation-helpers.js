@@ -7,7 +7,7 @@ import matter from 'gray-matter';
 import { z } from 'zod';
 
 export const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
-export const canonicalOrigin = 'https://www.rhino-inquisitor.com';
+export const canonicalOrigin = 'https://rhino-inquisitor.com';
 
 const priorityOrder = ['critical', 'high', 'medium', 'low'];
 
