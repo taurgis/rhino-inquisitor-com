@@ -54,22 +54,34 @@ search/filter area (search bar `399px → 44px`, filter panel `0 → 269px`), pr
 the shift. A Playwright bisect under network throttling isolated it: blocking
 `site.css` → CLS 0.000; blocking fonts or `archive-search.js` → shift persisted.
 
-Fix (`src/layouts/partials/site/stylesheet.html`): for the archive critical asset
-(`styles/critical-archive.css`), load the full stylesheet **render-blocking**
-(plain `<link rel="stylesheet">`) instead of the async preload+swap, so first paint
-already equals the final layout. The now-redundant inline critical `<style>` is
-skipped on these pages (saves ~37KB of unused inline CSS). Home and post pages keep
-the inline-critical + async path unchanged.
+The same drift also affected posts (`critical-post.css`; shift source
+`.page-article--single`). Home was clean.
 
-Verified locally (Playwright network+CPU throttle, and the full perf gate):
-`/category/ai/` mobile now scores perf 0.97, **CLS 0.000**, FCP 1.80s (no
-regression — archive LCP is render-delay bound), desktop 1.00; all URLs pass with
-`Blocking failures: 0`.
+Fix — regenerate the critical CSS from the rendered site. Added
+`scripts/generate-critical-css.js` (npm: `generate:critical-css`), a penthouse
+extractor that, from a representative built page of each type (home / archive /
+post) at both mobile (390px) and desktop (1280px) widths, re-extracts the
+above-the-fold subset of the full `site.css` into
+`src/assets/styles/critical-{home,archive,post}.css`. penthouse strips
+`@font-face`, so `stylesheet.html` still prepends the self-hosted `fonts.css`
+fragment to the inline critical block. The layout partial was simplified to inline
+`fonts + critical-{type}.css` and async-swap the full stylesheet for every page
+type (the render-blocking interim and the old hand-maintained header/structure
+concat were removed — penthouse already captures those above-the-fold rules).
 
-Follow-up (not required to pass the gate): realign `critical-archive.css` with the
-redesigned `site.css` (tokens + archive-control layout) to restore the inline-critical
-+ async path on archive pages. The render-blocking fix is a safe interim that avoids
-guessing at the responsive critical-CSS reconciliation.
+Because the critical files are now generated from `site.css`, they carry the
+current design tokens and layout automatically and cannot silently drift again;
+rerun `npm run generate:critical-css` after a build whenever the design changes.
+
+Verified locally (Playwright network+CPU throttle, 5 runs each, and the full perf
+gate): home / archive / post all CLS ~0 on the async inline-critical path; all URLs
+pass the perf gate with `Blocking failures: 0` and no FCP regression.
+
+Regeneration workflow:
+
+1. `npm run build:prod` (produces `public/` + the fingerprinted `site.min.*.css`).
+2. `npm run generate:critical-css` (rewrites the three `critical-*.css` files).
+3. `npm run build:prod` again and commit the regenerated critical files.
 
 ## Related files
 
@@ -78,4 +90,5 @@ guessing at the responsive critical-CSS reconciliation.
 - `scripts/gates/run-all-gates.sh`
 - `lighthouserc.json`
 - `src/layouts/partials/site/stylesheet.html`
-- `src/assets/styles/critical-archive.css` (stale from redesign — realignment follow-up)
+- `scripts/generate-critical-css.js` (+ `generate:critical-css` npm script)
+- `src/assets/styles/critical-{home,archive,post}.css` (now generated, do not hand-edit)

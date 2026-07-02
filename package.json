@@ -11,14 +11,13 @@
     "generate:llm-artifacts": "node scripts/seo/generate-llm-artifacts.js",
     "sync:404-artifact": "node scripts/seo/sync-404-artifact.js",
     "build:local": "npm run generate:avif-cache && hugo --cleanDestinationDir --gc --minify --environment development --baseURL http://localhost:1313/ && npm run sync:404-artifact && npm run generate:llm-artifacts",
-
     "build:prod": "npm run generate:avif-cache && hugo --cleanDestinationDir --gc --minify --environment production && npm run sync:404-artifact && npm run generate:llm-artifacts",
     "dev": "npm run generate:avif-cache && hugo server --environment development --baseURL http://localhost:1313/",
     "test:url-parity": "node --test scripts/url/validate-url-parity.test.js",
     "validate:url-inventory": "node scripts/gates/validate-url-inventory.js",
     "validate:frontmatter": "node scripts/validate-frontmatter.js",
     "validate:artifact": "node scripts/gates/validate-artifact.js",
-    "check:url-parity": "node scripts/url/validate-url-parity.js",
+    "check:url-parity": "node scripts/gates/check-url-parity.js",
     "check:redirects": "node scripts/url/check-redirects.js",
     "check:redirects:seo": "node scripts/seo/check-redirects.js",
     "check:redirect-targets": "node scripts/gates/check-redirect-targets.js",
@@ -56,12 +55,12 @@
     "check:https-security": "node scripts/gates/check-https-security.js",
     "check:local-video-shortcodes": "node scripts/url/check-local-video-shortcodes.js",
     "gates:local": "bash scripts/gates/run-all-gates.sh",
-    "check:url-parity": "node scripts/gates/check-url-parity.js",
     "check:redirect-quality": "node scripts/gates/check-redirect-quality.js",
     "check:seo-consistency": "node scripts/gates/check-seo-consistency.js",
     "check:robots-sitemap": "node scripts/gates/check-robots-sitemap.js",
     "check:structured-data": "node scripts/gates/check-structured-data.js",
-    "check:social-preview": "node scripts/gates/check-social-preview.js"
+    "check:social-preview": "node scripts/gates/check-social-preview.js",
+    "generate:critical-css": "node scripts/generate-critical-css.js"
   },
   "dependencies": {
     "@joplin/turndown-plugin-gfm": "^1.0.64",
@@ -89,6 +88,7 @@
     "linkinator": "^7.6.1",
     "markdownlint-cli2": "0.17.2",
     "pa11y-ci": "3.1.0",
+    "penthouse": "^2.3.3",
     "playwright": "1.58.2"
   }
 }
