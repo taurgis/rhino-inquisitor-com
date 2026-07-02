@@ -196,7 +196,7 @@ legacy_url,disposition,target_url,redirect_code,implementation_layer,chain_count
 /sfcc-url-cracking-the-code/,keep,/sfcc-url-cracking-the-code/,none,none,0,false,false,null,none,Exact route preserved; no redirect required.
 /should-i-get-javascript-developer-i-certified/,keep,/should-i-get-javascript-developer-i-certified/,none,none,0,false,false,null,none,Exact route preserved; no redirect required.
 /should-i-use-sfra-rest-endpoints-in-a-composable-storefront/,keep,/should-i-use-sfra-rest-endpoints-in-a-composable-storefront/,none,none,0,false,false,null,none,Exact route preserved; no redirect required.
-/sitemap_index.xml,retire,null,none,none,0,false,false,null,none,Path-based retire routes resolve through normal 404 handling because no artifact is published at the legacy path.
+/sitemap_index.xml,keep,/sitemap_index.xml,none,none,0,false,false,null,none,Exact route preserved; no redirect required.
 /sitemap.xml,keep,/sitemap.xml,none,none,0,false,false,null,none,Exact route preserved; no redirect required.
 /slicing-versus-variation-groups-in-sfcc/,keep,/slicing-versus-variation-groups-in-sfcc/,none,none,0,false,false,null,none,Exact route preserved; no redirect required.
 /submit-multipart-form-data-to-a-third-party-service-in-sfcc/,keep,/submit-multipart-form-data-to-a-third-party-service-in-sfcc/,none,none,0,false,false,null,none,Exact route preserved; no redirect required.
@@ -338,7 +338,7 @@ legacy_url,disposition,target_url,redirect_code,implementation_layer,chain_count
 /about/,keep,/about/,none,none,0,false,false,null,none,Exact route preserved; no redirect required.
 /archives/,retire,null,none,none,0,false,false,null,none,Path-based retire routes resolve through normal 404 handling because no artifact is published at the legacy path.
 /blog/,retire,null,none,none,0,false,false,null,none,Path-based retire routes resolve through normal 404 handling because no artifact is published at the legacy path.
-/category-sitemap.xml,retire,null,none,none,0,false,false,null,none,Path-based retire routes resolve through normal 404 handling because no artifact is published at the legacy path.
+/category-sitemap.xml,keep,/category-sitemap.xml,none,none,0,false,false,null,none,Exact route preserved; no redirect required.
 /category/community/,keep,/category/community/,none,none,0,false,false,null,none,Exact route preserved; no redirect required.
 /category/external/forward/,merge,/category/external/,meta-refresh,pages-static,0,false,false,301,pages-static,Static path redirect is represented by a Hugo alias helper page in the Pages artifact.
 /category/salesforce-platform/,keep,/category/salesforce-platform/,none,none,0,false,false,null,none,Exact route preserved; no redirect required.
@@ -350,14 +350,15 @@ legacy_url,disposition,target_url,redirect_code,implementation_layer,chain_count
 /feed/atom/,merge,/feed/,meta-refresh,pages-static,0,false,false,301,pages-static,Static path redirect is represented by a Hugo alias helper page in the Pages artifact.
 /how-to-load-client-side-javascript-and-css-in-sfra/$%7bstyle.src%7d/,retire,null,none,none,0,false,false,null,none,Path-based retire routes resolve through normal 404 handling because no artifact is published at the legacy path.
 /how-to-set-up-the-ecdn-for-staging-in-salesforce-b2c-commerce-cloud/,merge,/how-to-set-up-the-ecdn-in-sfcc-staging/,meta-refresh,pages-static,0,false,false,301,pages-static,Static path redirect is represented by a Hugo alias helper page in the Pages artifact.
+/image-sitemap.xml,keep,/image-sitemap.xml,none,none,0,false,false,null,none,Exact route preserved; no redirect required.
 /offline/,keep,/offline/,none,none,0,false,false,null,none,Exact route preserved; no redirect required.
-/page-sitemap.xml,retire,null,none,none,0,false,false,null,none,Path-based retire routes resolve through normal 404 handling because no artifact is published at the legacy path.
-/post-sitemap.xml,retire,null,none,none,0,false,false,null,none,Path-based retire routes resolve through normal 404 handling because no artifact is published at the legacy path.
+/page-sitemap.xml,keep,/page-sitemap.xml,none,none,0,false,false,null,none,Exact route preserved; no redirect required.
+/post-sitemap.xml,keep,/post-sitemap.xml,none,none,0,false,false,null,none,Exact route preserved; no redirect required.
 /salesforce-b2c-commerce-cloud-content-erd/_wp_link_placeholder/,retire,null,none,none,0,false,false,null,none,Path-based retire routes resolve through normal 404 handling because no artifact is published at the legacy path.
 /sample-page/,retire,null,none,none,0,false,false,null,none,Path-based retire routes resolve through normal 404 handling because no artifact is published at the legacy path.
 /terms-and-conditions/,retire,null,none,none,0,false,false,null,none,Path-based retire routes resolve through normal 404 handling because no artifact is published at the legacy path.
 /terms-of-service/,retire,null,none,none,0,false,false,null,none,Path-based retire routes resolve through normal 404 handling because no artifact is published at the legacy path.
-/video-sitemap.xml,retire,null,none,none,0,false,false,null,none,Path-based retire routes resolve through normal 404 handling because no artifact is published at the legacy path.
+/video-sitemap.xml,keep,/video-sitemap.xml,none,none,0,false,false,null,none,Exact route preserved; no redirect required.
 /wp-admin/,retire,null,none,none,0,false,false,null,none,Path-based retire routes resolve through normal 404 handling because no artifact is published at the legacy path.
 /wp-login.php,retire,null,none,none,0,false,false,null,none,Path-based retire routes resolve through normal 404 handling because no artifact is published at the legacy path.
 /?p=10100,merge,/chasing-clouds-catching-up-with-the-commercecrew-at-dreamforce-2023/,301,edge-cdn,0,false,false,301,none,Query-string legacy URLs cannot be represented as Hugo alias files; request-aware edge redirects are required.

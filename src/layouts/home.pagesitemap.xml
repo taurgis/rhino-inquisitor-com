@@ -1,0 +1,18 @@
+{{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{{ range (slice site.Home (site.GetPage "/pages") (site.GetPage "/posts")) }}
+  {{ with . }}
+    {{ if partial "sitemap/is-indexable.html" . }}
+      {{ partial "sitemap/url-entry.xml" . }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ range (where site.RegularPages "Type" "pages").ByLastmod.Reverse }}
+  {{ if partial "sitemap/is-indexable.html" . }}
+    {{ partial "sitemap/url-entry.xml" . }}
+  {{ end }}
+{{ end }}
+{{ with site.GetPage "/pages" }}
+  {{ partial "sitemap/pagination-entries.xml" (dict "page" . "paginateSize" 10) }}
+{{ end }}
+</urlset>

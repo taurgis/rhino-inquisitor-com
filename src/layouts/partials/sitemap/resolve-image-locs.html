@@ -1,0 +1,32 @@
+{{ $page := . }}
+{{ $urls := slice }}
+{{ with $page.Params.heroImage }}
+  {{ if or (hasPrefix . "http://") (hasPrefix . "https://") }}
+    {{ $urls = $urls | append . }}
+  {{ else }}
+    {{ $resourcePath := strings.TrimPrefix "/" . }}
+    {{ $resource := false }}
+    {{ with $page.Resources.GetMatch . }}
+      {{ $resource = . }}
+    {{ end }}
+    {{ if and (not $resource) (ne $resourcePath "") }}
+      {{ with resources.Get $resourcePath }}
+        {{ $resource = . }}
+      {{ end }}
+    {{ end }}
+    {{ with $resource }}
+      {{ if reflect.IsImageResourceWithMeta . }}
+        {{ $urls = $urls | append .Permalink }}
+      {{ end }}
+    {{ end }}
+    {{ if and (not $resource) (hasPrefix . "/") }}
+      {{ $urls = $urls | append ((strings.TrimPrefix "/" .) | absURL) }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ range $page.Resources.ByType "image" }}
+  {{ if reflect.IsImageResourceWithMeta . }}
+    {{ $urls = $urls | append .Permalink }}
+  {{ end }}
+{{ end }}
+{{ return ($urls | uniq) }}

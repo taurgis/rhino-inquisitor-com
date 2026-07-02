@@ -1,0 +1,15 @@
+{{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{{ with site.GetPage "/categories" }}
+  {{ if partial "sitemap/is-indexable.html" . }}
+    {{ partial "sitemap/url-entry.xml" . }}
+  {{ end }}
+{{ end }}
+{{ range site.Taxonomies.categories.ByCount }}
+  {{ with .Page }}
+    {{ if partial "sitemap/is-indexable.html" . }}
+      {{ partial "sitemap/url-entry.xml" . }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+</urlset>

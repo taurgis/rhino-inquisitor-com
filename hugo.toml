@@ -22,11 +22,47 @@ suffixes = ["md"]
 # remains monolingual, so Hugo emits a single root sitemap.xml.
 
 [outputs]
-home = ["html", "rss", "json", "llms", "llmsfull"]
+home = ["html", "rss", "json", "llms", "llmsfull", "sitemap", "sitemapindex", "postsitemap", "pagesitemap", "categorysitemap", "videositemap", "imagesitemap"]
 page = ["html", "markdown"]
 section = ["html", "rss"]
 taxonomy = ["html"]
 term = ["html"]
+
+[outputFormats.sitemapindex]
+mediaType = "application/xml"
+baseName = "sitemap_index"
+isPlainText = false
+notAlternative = true
+
+[outputFormats.postsitemap]
+mediaType = "application/xml"
+baseName = "post-sitemap"
+isPlainText = false
+notAlternative = true
+
+[outputFormats.pagesitemap]
+mediaType = "application/xml"
+baseName = "page-sitemap"
+isPlainText = false
+notAlternative = true
+
+[outputFormats.categorysitemap]
+mediaType = "application/xml"
+baseName = "category-sitemap"
+isPlainText = false
+notAlternative = true
+
+[outputFormats.videositemap]
+mediaType = "application/xml"
+baseName = "video-sitemap"
+isPlainText = false
+notAlternative = true
+
+[outputFormats.imagesitemap]
+mediaType = "application/xml"
+baseName = "image-sitemap"
+isPlainText = false
+notAlternative = true
 
 [outputFormats.llms]
 mediaType = "text/plain"

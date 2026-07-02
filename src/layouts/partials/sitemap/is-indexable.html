@@ -1,0 +1,2 @@
+{{ $seo := .Params.seo | default dict }}
+{{ return (and (not .Sitemap.Disable) (not (index $seo "noindex"))) }}

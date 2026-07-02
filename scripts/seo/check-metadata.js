@@ -109,13 +109,37 @@ function normalizeManifestPath(value) {
   return normalizeRoute(trimmed);
 }
 
-function parseSitemapRoutes(xmlSource) {
-  return new Set(
-    [...xmlSource.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => {
-      const url = new URL(match[1].trim());
-      return normalizeRoute(url.pathname);
-    })
+async function collectSitemapRoutes(publicDir, sitemapPath, visited = new Set()) {
+  const resolvedPath = path.resolve(sitemapPath);
+  if (visited.has(resolvedPath)) {
+    return new Set();
+  }
+  visited.add(resolvedPath);
+
+  const xmlSource = await readFile(resolvedPath, "utf8");
+  const locs = [...xmlSource.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) =>
+    match[1].trim()
   );
+
+  if (!xmlSource.includes("<sitemapindex")) {
+    return new Set(
+      locs.map((loc) => {
+        const url = new URL(loc);
+        return normalizeRoute(url.pathname);
+      })
+    );
+  }
+
+  const routes = new Set();
+  for (const loc of locs) {
+    const url = new URL(loc);
+    const childPath = path.join(publicDir, url.pathname.replace(/^\//u, ""));
+    for (const route of await collectSitemapRoutes(publicDir, childPath, visited)) {
+      routes.add(route);
+    }
+  }
+
+  return routes;
 }
 
 function classifyTemplateFamily(route, $) {
@@ -191,7 +215,7 @@ async function main() {
       .filter(Boolean)
   );
 
-  const sitemapRoutes = parseSitemapRoutes(await readFile(sitemapPath, "utf8"));
+  const sitemapRoutes = await collectSitemapRoutes(options.publicDir, sitemapPath);
   const rows = [];
   const blockingMessages = [];
   const titlesByValue = new Map();

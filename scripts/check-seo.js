@@ -179,6 +179,36 @@ function normalizeRoute(route) {
   return route.endsWith("/") ? route : `${route}/`;
 }
 
+async function collectSitemapPageLocs(sitemapPath, visited = new Set()) {
+  const resolvedPath = path.resolve(sitemapPath);
+  if (visited.has(resolvedPath)) {
+    return [];
+  }
+  visited.add(resolvedPath);
+
+  const sitemap = await readFile(resolvedPath, "utf8");
+  const locs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) =>
+    match[1].trim()
+  );
+
+  if (!sitemap.includes("<sitemapindex")) {
+    return locs;
+  }
+
+  const nestedLocs = [];
+  for (const loc of locs) {
+    const url = new URL(loc);
+    if (`${url.protocol}//${url.host}` !== canonicalHost) {
+      throw new Error(`sitemap.xml: non-canonical sitemap index child ${loc}`);
+    }
+
+    const childPath = path.join(publicDir, url.pathname.replace(/^\//u, ""));
+    nestedLocs.push(...(await collectSitemapPageLocs(childPath, visited)));
+  }
+
+  return nestedLocs;
+}
+
 function hasMetaRefresh(html) {
   const attributes = findTagAttributes(
     html,
@@ -409,8 +439,7 @@ async function main() {
   }
 
   const sitemapPath = path.join(publicDir, "sitemap.xml");
-  const sitemap = await readFile(sitemapPath, "utf8");
-  const sitemapMatches = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1].trim());
+  const sitemapMatches = await collectSitemapPageLocs(sitemapPath);
   const sitemapRoutes = new Set(
     sitemapMatches.map((loc) => {
       const url = new URL(loc);

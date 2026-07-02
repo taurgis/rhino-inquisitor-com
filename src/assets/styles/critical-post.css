@@ -1,7 +1,7 @@
 :root {
   --page-bg: #f6f2ea;
   --surface-bg: #fbf8f1;
-  --surface-border: rgba(33, 29, 24, 0.12);
+  --surface-border: #e2dacc;
   --surface-border-strong: rgba(33, 29, 24, 0.2);
   --surface-inverse: #123a5e;
   --ink-strong: #211d18;
@@ -14,12 +14,12 @@
   --accent-soft: #eaf1f8;
   --focus-ring: #1e6fbe;
   --rule-soft: #e7e0d2;
-  --shadow-soft: 0 24px 60px rgba(33, 29, 24, 0.12);
+  --shadow-soft: 0 30px 60px -30px rgba(33, 29, 24, 0.35);
   --shadow-edge: 0 14px 34px rgba(33, 29, 24, 0.1);
-  --radius-xl: 2rem;
-  --radius-lg: 1.5rem;
-  --radius-md: 1rem;
-  --radius-sm: 999px;
+  --radius-xl: 1.125rem;
+  --radius-lg: 1rem;
+  --radius-md: 0.875rem;
+  --radius-sm: 100px;
   --content-width: 80rem;
   --reading-width: 47rem;
   --font-display: "Newsreader", Georgia, "Times New Roman", serif;
@@ -35,7 +35,7 @@
   --chrome-text: #211d18;
   --chrome-text-muted: #4a443b;
   --chrome-hover-bg: #eeeae2;
-  --chrome-input-bg: #fbf8f1;
+  --chrome-input-bg: #f6f2ea;
   --chrome-input-border: #d8cfbd;
   --on-accent: #ffffff;
 }

@@ -31,6 +31,11 @@ const xmlParser = new XMLParser({
 });
 
 const sitemapTolerance = 0;
+const mediaSitemapFilenames = new Set(['image-sitemap.xml', 'video-sitemap.xml']);
+
+function isMediaSitemapEntry(entry) {
+  return mediaSitemapFilenames.has(path.basename(entry.sourceFile));
+}
 
 function printHelp() {
   console.log(`Usage: node scripts/seo/check-sitemap.js [options]
@@ -787,7 +792,7 @@ async function main() {
       routeFailures.push('Sitemap URL is not a valid absolute URL');
     }
 
-    if (route && seenRoutes.has(route)) {
+    if (route && seenRoutes.has(route) && !isMediaSitemapEntry(entry)) {
       duplicateRoutes.add(route);
       routeFailures.push('Sitemap URL is duplicated');
     }

@@ -1,7 +1,7 @@
 :root {
   --page-bg: #f6f2ea;
   --surface-bg: #fbf8f1;
-  --surface-border: rgba(33, 29, 24, 0.12);
+  --surface-border: #e2dacc;
   --surface-border-strong: rgba(33, 29, 24, 0.2);
   --ink-strong: #211d18;
   --ink-default: #332f28;
@@ -10,11 +10,11 @@
   --accent-strong: #123a5e;
   --accent-strong-hover: #0e2c47;
   --focus-ring: #1e6fbe;
-  --shadow-soft: 0 24px 60px rgba(33, 29, 24, 0.12);
-  --radius-xl: 2rem;
-  --radius-lg: 1.5rem;
-  --radius-md: 1rem;
-  --radius-sm: 999px;
+  --shadow-soft: 0 30px 60px -30px rgba(33, 29, 24, 0.35);
+  --radius-xl: 1.125rem;
+  --radius-lg: 1rem;
+  --radius-md: 0.875rem;
+  --radius-sm: 100px;
   --content-width: 80rem;
   --font-display: "Newsreader", Georgia, "Times New Roman", serif;
   --font-body: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -23,7 +23,7 @@
   --chrome-text: #211d18;
   --chrome-text-muted: #4a443b;
   --chrome-hover-bg: #eeeae2;
-  --chrome-input-bg: #fbf8f1;
+  --chrome-input-bg: #f6f2ea;
   --chrome-input-border: #d8cfbd;
   --on-accent: #ffffff;
 }

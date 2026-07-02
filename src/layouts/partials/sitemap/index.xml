@@ -1,0 +1,12 @@
+{{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+{{ $lastmod := site.Lastmod }}
+{{ range (slice "post-sitemap.xml" "page-sitemap.xml" "category-sitemap.xml" "video-sitemap.xml" "image-sitemap.xml") }}
+  <sitemap>
+    <loc>{{ . | absURL }}</loc>
+    {{ if not $lastmod.IsZero }}
+      <lastmod>{{ $lastmod.Format "2006-01-02T15:04:05-07:00" }}</lastmod>
+    {{ end }}
+  </sitemap>
+{{ end }}
+</sitemapindex>

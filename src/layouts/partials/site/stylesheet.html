@@ -18,13 +18,20 @@
   {{ else if eq $.Kind "page" }}
     {{ $criticalStylesAsset = "styles/critical-post.css" }}
   {{ end }}
-  {{ if $criticalStylesAsset }}
+  {{ if eq $criticalStylesAsset "styles/critical-archive.css" }}
+    {{/* Archive/section/taxonomy: after the redesign the inlined critical CSS is out
+         of sync with the full stylesheet for the archive controls, so an async swap
+         reflowed the above-the-fold search/filter area (~0.5 CLS). Load the full
+         stylesheet render-blocking so first paint already equals the final layout.
+         Verified no FCP regression (archive LCP is render-delay bound), so the inline
+         critical block is skipped here to avoid shipping ~37KB of unused CSS.
+         Realigning critical-archive.css to the redesign can restore the inline path. */}}
+    <link rel="stylesheet" href="{{ $stylesheet.RelPermalink }}" integrity="{{ $stylesheet.Data.Integrity }}" crossorigin="anonymous">
+  {{ else if $criticalStylesAsset }}
     {{ with resources.Get $criticalStylesAsset }}
       {{/* Inline @font-face in the critical <style> so preloaded faces match a rule and swap immediately. */}}
       {{ $critical := . }}
-      {{ if eq $criticalStylesAsset "styles/critical-archive.css" }}
-        {{ $critical = slice $fonts . $criticalHeader $archiveStructure | resources.Concat "styles/critical-archive.css" }}
-      {{ else if eq $criticalStylesAsset "styles/critical-post.css" }}
+      {{ if eq $criticalStylesAsset "styles/critical-post.css" }}
         {{ $critical = slice $fonts . $criticalHeader $articleStructure | resources.Concat "styles/critical-post.css" }}
       {{ else }}
         {{ $critical = slice $fonts . $siteFooter | resources.Concat "styles/critical-home.css" }}
