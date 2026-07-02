@@ -72,15 +72,15 @@ Hugo `aliases` produce meta-refresh HTML — Google follows these but they are s
 ## Canonical Signal Alignment (All Three Must Agree)
 
 ```
-rel=canonical tag  →  https://www.rhino-inquisitor.com/path/
-sitemap.xml entry  →  https://www.rhino-inquisitor.com/path/
-Internal links     →  /path/  (relative, resolves to www canonical)
+rel=canonical tag  →  https://rhino-inquisitor.com/path/
+sitemap.xml entry  →  https://rhino-inquisitor.com/path/
+Internal links     →  /path/  (relative, resolves to apex canonical)
 ```
 
 **Violation patterns to catch in CI:**
 - Canonical points to a different path than the page's own URL.
 - Sitemap contains alias/redirect pages.
-- Internal links use apex domain instead of www.
+- Internal links use the `www` host instead of the canonical apex domain.
 - Canonical uses HTTP instead of HTTPS.
 
 ## Structured Data Requirements
@@ -114,7 +114,7 @@ Allow: /
 Disallow: /wp-json/          # Retire — system endpoint
 Disallow: /xmlrpc.php
 Disallow: /author/           # Retire — system endpoint
-Sitemap: https://www.rhino-inquisitor.com/sitemap.xml
+Sitemap: https://rhino-inquisitor.com/sitemap.xml
 ```
 
 **Critical distinctions:**
@@ -143,7 +143,7 @@ Measure at 75th percentile of field data where available; lab data (Lighthouse) 
 ### At a domain or host change
 1. Deploy Hugo build to GitHub Pages.
 2. Update DNS records; verify HTTPS issuance (can take hours).
-3. Submit new sitemap URL (`https://www.rhino-inquisitor.com/sitemap.xml`).
+3. Submit new sitemap URL (`https://rhino-inquisitor.com/sitemap.xml`).
 4. Use URL Inspection to request indexing of homepage and top 10 URLs.
 5. Do NOT use "Change of Address" — this applies only to domain-level moves (e.g., example.com → newdomain.com), not in-place host or path changes.
 
@@ -159,7 +159,7 @@ Measure at 75th percentile of field data where available; lab data (Lighthouse) 
 |----------------|-------------------|
 | Redirect all missing pages to homepage | Map to nearest relevant content or serve 404 |
 | Use `robots.txt Disallow` to block staging | Use `<meta name="robots" content="noindex">` |
-| Set canonical to a different host variant | Canonical must match the rendered www URL |
+| Set canonical to a different host variant | Canonical must match the rendered apex URL |
 | Submit Change of Address for hosting move | No CoA needed; just update DNS and sitemap |
 | Remove old sitemaps from Search Console immediately | Keep old sitemap during transition window |
 | Use `410 Gone` on Pages-only hosting | Pages cannot emit 410; use edge layer or accept 404 |

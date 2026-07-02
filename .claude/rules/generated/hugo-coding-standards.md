@@ -39,7 +39,7 @@ Consult the `hugo-development` skill before authoring or reviewing any file matc
 1. `url` is mandatory on every content file. Hugo does not sanitize it — values must be pre-validated.
 2. `url` format: lowercase, starts with `/`, ends with `/`, `a-z 0-9 - /` only.
 3. `aliases` values must originate from `url-data/url-manifest.json` — no arbitrary alias creation.
-4. `canonical` front matter override must be absolute HTTPS `https://www.rhino-inquisitor.com/...` only.
+4. `canonical` front matter override must be absolute HTTPS `https://rhino-inquisitor.com/...` (apex) only.
 5. `draft: true` must be set on all non-published content — never infer from absence.
 
 ## GitHub Pages Workflow Standards

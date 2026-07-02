@@ -28,7 +28,12 @@
 {{ else if gt $pageNumber 1 }}
   {{ $title = printf "%s | Page %d | %s" $titleSource $pageNumber .Site.Title }}
 {{ else if not .IsHome }}
-  {{ $title = printf "%s | %s" $titleSource .Site.Title }}
+  {{ $composed := printf "%s | %s" $titleSource .Site.Title }}
+  {{ if gt (len $composed) 60 }}
+    {{ $title = $titleSource }}
+  {{ else }}
+    {{ $title = $composed }}
+  {{ end }}
 {{ end }}
 
 {{ $descriptionFallback := .Site.Params.description | default (printf "%s knowledge base, articles, and notes." .Site.Title) }}
@@ -46,7 +51,13 @@
 {{ else if and (eq .Kind "taxonomy") (eq .Type "categories") }}
   {{ $description = "Browse Rhino Inquisitor topic archives for Salesforce Commerce Cloud guidance and implementation notes." }}
 {{ else if and (eq .Kind "term") (eq .Type "categories") }}
-  {{ $description = printf "Browse Rhino Inquisitor articles about %s and related Salesforce Commerce Cloud guidance." $displayTitle }}
+  {{ $termSlug := path.Base .RelPermalink }}
+  {{ $customDescription := index (.Site.Data.categoryDescriptions | default dict) $termSlug }}
+  {{ if $customDescription }}
+    {{ $description = $customDescription }}
+  {{ else }}
+    {{ $description = printf "Browse Rhino Inquisitor articles about %s and related Salesforce Commerce Cloud guidance." $displayTitle }}
+  {{ end }}
 {{ else if gt $pageNumber 1 }}
   {{ $description = printf "%s Page %d." (strings.TrimRight "." $description) $pageNumber }}
 {{ end }}

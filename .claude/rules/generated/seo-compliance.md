@@ -40,9 +40,9 @@ If **yes to any**, apply the full SEO Compliance Checklist below before completi
 
 ### Canonical Signals
 
-- [ ] Canonical tag defaults to `.Permalink` — override only with absolute `https://www.rhino-inquisitor.com/...` URL
+- [ ] Canonical tag defaults to `.Permalink` — override only with absolute `https://rhino-inquisitor.com/...` (apex) URL
 - [ ] Canonical tag URL matches sitemap URL for the same page
-- [ ] Internal links point to the canonical `www` variant — not apex, not `http`
+- [ ] Internal links point to the canonical apex variant (`https://rhino-inquisitor.com/…`) — not `www`, not `http`
 - [ ] Alias/redirect pages are excluded from `sitemap.xml` (verify Hugo default holds)
 
 ### Metadata
@@ -67,7 +67,7 @@ If **yes to any**, apply the full SEO Compliance Checklist below before completi
 ### robots.txt
 
 - [ ] `robots.txt` changes do not accidentally block crawling of production content
-- [ ] `Sitemap:` directive points to `https://www.rhino-inquisitor.com/sitemap.xml`
+- [ ] `Sitemap:` directive points to `https://rhino-inquisitor.com/sitemap.xml`
 - [ ] `robots.txt` is never used as the sole mechanism for de-indexing — pair with `noindex` meta tags
 
 ## When This Is Not Required

@@ -160,6 +160,17 @@ jobs:
           build_finished_at=$(node -e 'console.log(Date.now())')
           echo "PAGES_CONSTRAINTS_BUILD_DURATION_MS=$((build_finished_at - build_started_at))" >> "$GITHUB_ENV"
 
+      - name: Check critical CSS is in sync
+        if: needs.prepare.outputs.full_site_route_validation_required == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm run generate:critical-css
+          if ! git diff --exit-code -- src/assets/styles/critical-*.css; then
+            echo "::error::Critical CSS is stale. Run 'npm run build:prod && npm run generate:critical-css' and commit the regenerated src/assets/styles/critical-*.css files."
+            exit 1
+          fi
+
       - name: Run Pages artifact constraints check
         run: npm run check:pages-constraints
 

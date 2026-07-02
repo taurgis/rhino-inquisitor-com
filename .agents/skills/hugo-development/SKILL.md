@@ -23,7 +23,7 @@ Practical guidance for Hugo SSG configuration, template authoring, URL strategy,
 
 | Rule | Reason |
 |------|--------|
-| `baseURL = "https://www.rhino-inquisitor.com/"` (trailing slash required) | Prevents URL drift across templates and sitemap |
+| `baseURL = "https://rhino-inquisitor.com/"` — apex, trailing slash required (`www` 301-redirects to apex) | Prevents URL drift across templates and sitemap |
 | Every page must set explicit `url` front matter | Preserves the URL exactly |
 | `aliases` must map only to known legacy URLs from `url-data/url-manifest.json` | Prevents orphan redirect pages |
 | Production builds must never use `--buildDrafts`, `--buildFuture`, or `--buildExpired` | Avoids leaking draft content |
@@ -42,7 +42,7 @@ Practical guidance for Hugo SSG configuration, template authoring, URL strategy,
 ## Core Configuration (`hugo.toml`)
 
 ```toml
-baseURL = "https://www.rhino-inquisitor.com/"
+baseURL = "https://rhino-inquisitor.com/"
 languageCode = "en-us"
 title = "Rhino Inquisitor"
 contentDir = "src/content"
@@ -98,7 +98,7 @@ url: "/some-article/"          # REQUIRED on all content
 aliases: ["/old-url/"]         # Only for known legacy paths in url-manifest.json
 draft: false
 # Optional SEO overrides
-# canonical: "https://www.rhino-inquisitor.com/some-article/"  # absolute HTTPS only
+# canonical: "https://rhino-inquisitor.com/some-article/"  # absolute HTTPS apex only
 # seo:
 #   noindex: false
 #   ogImage: "/images/posts/article-slug/og.webp"

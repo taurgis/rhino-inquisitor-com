@@ -4,6 +4,7 @@
       "staticDistDir": "./public",
       "url": [
         "http://localhost/",
+        "http://localhost/posts/",
         "http://localhost/real-time-inventory-checks-in-sfcc/",
         "http://localhost/category/ai/"
       ],
