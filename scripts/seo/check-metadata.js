@@ -286,6 +286,12 @@ async function main() {
         }
 
         if (canonicalUrl) {
+          // Paginated archive views (/posts/page/N/) are indexable and
+          // self-canonical by design, and are intentionally excluded from the
+          // content sitemaps — so neither the canonical-match nor the
+          // sitemap-membership invariant applies to them.
+          const isPagination = /\/page\/\d+\/$/u.test(route);
+
           if (canonicalUrl.protocol !== "https:") {
             failures.push(`canonical is not HTTPS (${canonical})`);
           }
@@ -294,11 +300,8 @@ async function main() {
             failures.push(`canonical host mismatch (${canonical})`);
           }
 
-          if (canonical !== expectedCanonical) {
-            const isPagination = /\/page\/\d+\/$/u.test(route);
-            if (!isPagination) {
-              failures.push(`canonical does not match page URL (${canonical} != ${expectedCanonical})`);
-            }
+          if (canonical !== expectedCanonical && !isPagination) {
+            failures.push(`canonical does not match page URL (${canonical} != ${expectedCanonical})`);
           }
 
           const canonicalRoute = normalizeRoute(canonicalUrl.pathname);
@@ -306,7 +309,7 @@ async function main() {
             failures.push(`canonical points to redirected or retired manifest URL (${canonical})`);
           }
 
-          if (!sitemapRoutes.has(canonicalRoute)) {
+          if (!sitemapRoutes.has(canonicalRoute) && !isPagination) {
             failures.push(`canonical route is missing from sitemap.xml (${canonical})`);
           }
         }

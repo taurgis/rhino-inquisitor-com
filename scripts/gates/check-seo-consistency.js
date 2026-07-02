@@ -267,7 +267,13 @@ async function analyzeRoute(routeRecord, htmlInventory, sitemap, expectedNoindex
     }
   }
 
-  if (!sitemap.routes.has(routeRecord.route) && !robotsTokens.has('noindex')) {
+  // Paginated archive views are self-canonical but intentionally excluded from
+  // the content sitemaps, so their absence from sitemap.xml is expected.
+  if (
+    !sitemap.routes.has(routeRecord.route)
+    && !robotsTokens.has('noindex')
+    && !isPaginationRoute(routeRecord.route)
+  ) {
     blockingFindings.push('Expected route is missing from sitemap.xml.');
   }
 
