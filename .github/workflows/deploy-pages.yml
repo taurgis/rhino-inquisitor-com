@@ -462,7 +462,9 @@ jobs:
         env:
           CI_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           RHI_HTTPS_LIVE_HOST_READY: ${{ needs.build_site.outputs.pages_host_ready }}
-        run: npm run gates:local -- --group perf
+        run: |
+          export CHROME_PATH=$(node -e "console.log(require('playwright').chromium.executablePath())")
+          npm run gates:local -- --group perf
 
   deploy:
     needs:
