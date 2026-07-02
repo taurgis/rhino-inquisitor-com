@@ -807,7 +807,7 @@ jobs:
       - name: Build production site
         run: npm run build:prod
 
-            - name: Build preview rehearsal site
+      - name: Build preview rehearsal site
         run: PREVIEW_BASE_URL="${{ steps.preview_base.outputs.base_url }}" npm run build:preview-pages && mkdir -p tmp && touch tmp/preview-build.marker
 
       - name: Run blocking deployment quality gates (seo)
@@ -1340,7 +1340,7 @@ jobs:
       - name: Build production site
         run: npm run build:prod
 
-            - name: Build preview rehearsal site
+      - name: Build preview rehearsal site
         run: PREVIEW_BASE_URL="${{ steps.preview_base.outputs.base_url }}" npm run build:preview-pages && mkdir -p tmp && touch tmp/preview-build.marker
 
       - name: Run blocking deployment quality gates (security)
