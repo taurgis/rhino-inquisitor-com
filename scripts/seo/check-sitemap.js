@@ -857,7 +857,11 @@ async function main() {
     }));
   }
 
-  const countDelta = Math.abs(sitemapRouteSet.size - metadataInventory.size);
+  // Paginated archive views are indexable but intentionally excluded from the
+  // sitemap, so they must not count against the sitemap/metadata size delta.
+  const metadataNonPaginationCount = [...metadataInventory.keys()]
+    .filter((route) => !/\/page\/\d+\/$/u.test(route)).length;
+  const countDelta = Math.abs(sitemapRouteSet.size - metadataNonPaginationCount);
   pushRow(rows, failures, createRow({
     check_group: 'sitemap-inventory',
     route: '__sitemap_inventory__',
@@ -867,7 +871,7 @@ async function main() {
     finding: countDelta <= sitemapTolerance
       ? 'Sitemap URL count matches the indexable metadata inventory within the documented tolerance.'
       : 'Sitemap URL count does not match the indexable metadata inventory within the documented tolerance.',
-    details: `sitemap=${sitemapRouteSet.size}; metadata=${metadataInventory.size}; tolerance=${sitemapTolerance}`
+    details: `sitemap=${sitemapRouteSet.size}; metadata=${metadataNonPaginationCount} (excl. pagination); tolerance=${sitemapTolerance}`
   }));
 
   await validateFeed(options, rows, failures, robotsData);
