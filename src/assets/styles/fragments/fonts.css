@@ -28,7 +28,10 @@
   font-family: "Newsreader";
   font-style: normal;
   font-weight: 600;
-  font-display: swap;
+  /* Preloaded above-the-fold face: `optional` keeps the ~100ms block window and
+     never swaps afterwards, so a late-arriving font cannot reflow the LCP text
+     (prevents intermittent CLS on archive/list pages). */
+  font-display: optional;
   src: url("/fonts/newsreader-600.woff2") format("woff2");
 }
 
@@ -37,7 +40,9 @@
   font-family: "Public Sans";
   font-style: normal;
   font-weight: 400;
-  font-display: swap;
+  /* Preloaded above-the-fold body face: `optional` prevents a late swap from
+     reflowing body/description text (the archive LCP element). See Newsreader 600. */
+  font-display: optional;
   src: url("/fonts/public-sans-regular.woff2") format("woff2");
 }
 @font-face {
