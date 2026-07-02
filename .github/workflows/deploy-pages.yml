@@ -14,7 +14,6 @@ env:
   NODE_VERSION: 20.18.1
   AVIF_CACHE_VERSION: 1
   EXPECTED_PAGES_HOST: rhino-inquisitor.com
-  CANONICAL_PRODUCTION_BASE_URL: https://rhino-inquisitor.com/
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
@@ -29,21 +28,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v5
+      - name: Set up Node environment
+        uses: ./.github/actions/setup-node-env
         with:
           node-version: ${{ env.NODE_VERSION }}
-          package-manager-cache: false
-
-      - name: Restore npm and node_modules cache
-        uses: actions/cache@v5
-        with:
-          path: |
-            ~/.npm
-            node_modules
-          key: ${{ runner.os }}-node-${{ env.NODE_VERSION }}-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-${{ env.NODE_VERSION }}-
 
       - name: Restore Hugo extended binary cache
         uses: actions/cache@v5
@@ -91,9 +79,6 @@ jobs:
             echo "ready=true" >> "$GITHUB_OUTPUT"
             echo "GitHub Pages production host '$PAGES_HOST' is active." >> "$GITHUB_STEP_SUMMARY"
           fi
-
-      - name: Install Node dependencies
-        run: npm ci --include=optional
 
       - name: Compute AVIF cache fingerprint
         id: avif_cache_fingerprint
@@ -225,9 +210,6 @@ jobs:
           });
           EOF
 
-      - name: Install Playwright Chromium
-        run: npx playwright install --with-deps chromium
-
       - name: Run blocking deployment quality gates (build)
         env:
           CI_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -249,9 +231,21 @@ jobs:
         with:
           path: ./public
 
-  gate_url:
+  gates:
     needs: build_site
     runs-on: ubuntu-latest
+    name: gate (${{ matrix.group }})
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - group: url
+          - group: seo
+          - group: security
+          - group: a11y
+            browser: true
+          - group: perf
+            browser: true
 
     steps:
       - name: Check out repository
@@ -259,221 +253,43 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v5
+      - name: Set up Node environment
+        uses: ./.github/actions/setup-node-env
         with:
           node-version: ${{ env.NODE_VERSION }}
-          package-manager-cache: false
-
-      - name: Restore npm and node_modules cache
-        uses: actions/cache@v5
-        with:
-          path: |
-            ~/.npm
-            node_modules
-          key: ${{ runner.os }}-node-${{ env.NODE_VERSION }}-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-${{ env.NODE_VERSION }}-
 
       - name: Download build outputs
         uses: actions/download-artifact@v4
         with:
           name: build-outputs-${{ github.sha }}
 
-      - name: Install Node dependencies
-        run: npm ci --include=optional
-
-      - name: Install Playwright Chromium
-        run: npx playwright install --with-deps chromium
-
-      - name: Run blocking deployment quality gates (url)
-        env:
-          CI_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          RHI_HTTPS_LIVE_HOST_READY: ${{ needs.build_site.outputs.pages_host_ready }}
-        run: npm run gates:local -- --group url
-
-  gate_seo:
-    needs: build_site
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v5
-        with:
-          fetch-depth: 0
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v5
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          package-manager-cache: false
-
-      - name: Restore npm and node_modules cache
+      - name: Restore Playwright browser cache
+        if: ${{ matrix.browser }}
         uses: actions/cache@v5
         with:
-          path: |
-            ~/.npm
-            node_modules
-          key: ${{ runner.os }}-node-${{ env.NODE_VERSION }}-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-${{ env.NODE_VERSION }}-
-
-      - name: Download build outputs
-        uses: actions/download-artifact@v4
-        with:
-          name: build-outputs-${{ github.sha }}
-
-      - name: Install Node dependencies
-        run: npm ci --include=optional
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('package-lock.json') }}
 
       - name: Install Playwright Chromium
+        if: ${{ matrix.browser }}
         run: npx playwright install --with-deps chromium
 
-      - name: Run blocking deployment quality gates (seo)
+      - name: Run blocking deployment quality gates (${{ matrix.group }})
         env:
           CI_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           RHI_HTTPS_LIVE_HOST_READY: ${{ needs.build_site.outputs.pages_host_ready }}
-        run: npm run gates:local -- --group seo
-
-  gate_a11y:
-    needs: build_site
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v5
-        with:
-          fetch-depth: 0
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v5
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          package-manager-cache: false
-
-      - name: Restore npm and node_modules cache
-        uses: actions/cache@v5
-        with:
-          path: |
-            ~/.npm
-            node_modules
-          key: ${{ runner.os }}-node-${{ env.NODE_VERSION }}-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-${{ env.NODE_VERSION }}-
-
-      - name: Download build outputs
-        uses: actions/download-artifact@v4
-        with:
-          name: build-outputs-${{ github.sha }}
-
-      - name: Install Node dependencies
-        run: npm ci --include=optional
-
-      - name: Install Playwright Chromium
-        run: npx playwright install --with-deps chromium
-
-      - name: Run blocking deployment quality gates (a11y)
-        env:
-          CI_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          RHI_HTTPS_LIVE_HOST_READY: ${{ needs.build_site.outputs.pages_host_ready }}
-        run: npm run gates:local -- --group a11y
-
-  gate_security:
-    needs: build_site
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v5
-        with:
-          fetch-depth: 0
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v5
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          package-manager-cache: false
-
-      - name: Restore npm and node_modules cache
-        uses: actions/cache@v5
-        with:
-          path: |
-            ~/.npm
-            node_modules
-          key: ${{ runner.os }}-node-${{ env.NODE_VERSION }}-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-${{ env.NODE_VERSION }}-
-
-      - name: Download build outputs
-        uses: actions/download-artifact@v4
-        with:
-          name: build-outputs-${{ github.sha }}
-
-      - name: Install Node dependencies
-        run: npm ci --include=optional
-
-      - name: Install Playwright Chromium
-        run: npx playwright install --with-deps chromium
-
-      - name: Run blocking deployment quality gates (security)
-        env:
-          CI_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          RHI_HTTPS_LIVE_HOST_READY: ${{ needs.build_site.outputs.pages_host_ready }}
-        run: npm run gates:local -- --group security
-
-  gate_perf:
-    needs: build_site
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v5
-        with:
-          fetch-depth: 0
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v5
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          package-manager-cache: false
-
-      - name: Restore npm and node_modules cache
-        uses: actions/cache@v5
-        with:
-          path: |
-            ~/.npm
-            node_modules
-          key: ${{ runner.os }}-node-${{ env.NODE_VERSION }}-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-${{ env.NODE_VERSION }}-
-
-      - name: Download build outputs
-        uses: actions/download-artifact@v4
-        with:
-          name: build-outputs-${{ github.sha }}
-
-      - name: Install Node dependencies
-        run: npm ci --include=optional
-
-      - name: Install Playwright Chromium
-        run: npx playwright install --with-deps chromium
-
-      - name: Run blocking deployment quality gates (perf)
-        env:
-          CI_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          RHI_HTTPS_LIVE_HOST_READY: ${{ needs.build_site.outputs.pages_host_ready }}
+        shell: bash
         run: |
-          export CHROME_PATH=$(node -e "console.log(require('playwright').chromium.executablePath())")
-          npm run gates:local -- --group perf
+          set -euo pipefail
+          if [[ "${{ matrix.group }}" == "perf" ]]; then
+            export CHROME_PATH="$(node -e "console.log(require('playwright').chromium.executablePath())")"
+          fi
+          npm run gates:local -- --group "${{ matrix.group }}"
 
   deploy:
     needs:
       - build_site
-      - gate_url
-      - gate_seo
-      - gate_a11y
-      - gate_security
-      - gate_perf
+      - gates
     runs-on: ubuntu-latest
     permissions:
       contents: read
