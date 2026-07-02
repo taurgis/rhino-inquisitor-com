@@ -34,7 +34,7 @@ const canonicalHost = new URL(canonicalOrigin).origin;
 const defaults = {
   publicRoot: phase8SeoDefaults.publicRoot,
   sampleMatrixPath: phase8SeoDefaults.sampleMatrixPath,
-  baselinePath: path.join(repoRoot, 'url-data', 'phase-1-performance-baseline.md'),
+  baselinePath: path.join(repoRoot, 'url-data', 'performance-baseline.md'),
   lhciRoot: path.join(repoRoot, 'validation', 'lhci-report'),
   reportPath: path.join(repoRoot, 'validation', 'performance-budget-report.json')
 };
@@ -80,12 +80,12 @@ function parseArgs(argv) {
 }
 
 function printHelp() {
-  console.log(`Usage: node scripts/phase-8/check-performance-budget.js [options]
+  console.log(`Usage: node scripts/gates/check-performance-budget.js [options]
 
 Options:
   --public-dir <path>    Override the built public directory.
   --sample-matrix <path> Override validation/sample-matrix.json.
-  --baseline <path>      Override url-data/phase-1-performance-baseline.md.
+  --baseline <path>      Override url-data/performance-baseline.md.
   --lhci-root <path>     Override the Lighthouse report root.
   --report <path>        Override validation/performance-budget-report.json.
   --help                 Show this help message.
@@ -383,7 +383,7 @@ function buildBaselineComparison(templateKey, absoluteUrl, profileResults, basel
       currentUrl: absoluteUrl,
       note: baselineEntry.finalUrl === absoluteUrl
         ? 'Route-aligned comparison.'
-        : 'Template-family comparison against the Phase 1 representative WordPress baseline URL.',
+        : 'Template-family comparison against the representative WordPress baseline URL.',
       scores: {
         performance: {
           baseline: baselineEntry.perfScore,
@@ -666,7 +666,7 @@ export async function runPerformanceBudgetReport(overrides = {}) {
 
   await writeJsonReport(options.reportPath, report);
 
-  console.log(`Phase 8 performance budget report written to ${toRepoRelative(options.reportPath)}`);
+  console.log(`performance budget report written to ${toRepoRelative(options.reportPath)}`);
   console.log(`Templates checked: ${summary.totalTemplates}`);
   console.log(`Blocking failures: ${summary.blockingFailures}`);
   console.log(`Warnings: ${summary.warningCount}`);

@@ -1,6 +1,6 @@
 # Redirect Retention Policy
 
-This document records the redirect-retention posture for the site. It is referenced by the redirect-quality gate (`scripts/phase-8/check-redirect-quality.js`) as retention-policy evidence.
+This document records the redirect-retention posture for the site. It is referenced by the redirect-quality gate (`scripts/gates/check-redirect-quality.js`) as retention-policy evidence.
 
 ## Policy
 
@@ -8,7 +8,7 @@ This document records the redirect-retention posture for the site. It is referen
 - Redirect sources of truth are committed in the repository:
   - `url-data/url-manifest.json` — URL disposition (keep / merge / retire)
   - `url-data/url-map.csv` — source → destination redirect map
-  - `url-data/phase-5-redirect-signal-matrix.csv` — per-URL redirect signal expectations
+  - `url-data/redirect-signal-matrix.csv` — per-URL redirect signal expectations
 - The URL-parity and redirect-integrity gates run on every route-sensitive change and on deploy. They must not be weakened; they protect existing redirects and canonical signals.
 
 ## Verification

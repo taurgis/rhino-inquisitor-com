@@ -29,7 +29,7 @@ const defaults = {
 };
 
 function printHelp() {
-  console.log(`Usage: node scripts/phase-8/check-seo-consistency.js [options]
+  console.log(`Usage: node scripts/gates/check-seo-consistency.js [options]
 
 Options:
   --public-dir <path>      Override the built public directory.
@@ -465,7 +465,7 @@ async function main() {
 
   await writeJsonReport(options.reportPath, report);
 
-  console.log(`Phase 8 SEO consistency report written to ${toRepoRelative(options.reportPath)}`);
+  console.log(`SEO consistency report written to ${toRepoRelative(options.reportPath)}`);
   console.log(`Checked routes: ${summary.checkedRoutes}`);
   console.log(`Skipped routes: ${summary.skippedRoutes}`);
   console.log(`Blocking failures: ${summary.blockingFailures}`);

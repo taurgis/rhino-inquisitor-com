@@ -20,7 +20,7 @@ const defaults = {
   contentRoot: path.join(repoRoot, 'src/content'),
   publicRoot: path.join(repoRoot, 'public'),
   sitemapPath: path.join(repoRoot, 'public/sitemap.xml'),
-  reportPath: path.join(repoRoot, 'url-data/reports/phase-6-retired-url-audit.csv')
+  reportPath: path.join(repoRoot, 'url-data/reports/retired-url-audit.csv')
 };
 
 const acceptedRequestAwareResiduals = new Map([
@@ -36,7 +36,7 @@ const xmlParser = new XMLParser({
 });
 
 function printHelp() {
-  console.log(`Usage: node scripts/phase-6/check-retirement-policy.js [options]
+  console.log(`Usage: node scripts/gates/check-retirement-policy.js [options]
 
 Options:
   --input <path>        Override the reviewed URL map path.
@@ -205,7 +205,7 @@ function buildAuditNotes(row, outcome, queryBehavior) {
 
   if (parseBoolean(row.has_organic_traffic) || parseBoolean(row.has_external_links)) {
     notes.push(
-      `Review confirmed: no approved equivalent replacement exists in the finalized Phase 6 mapping; retain explicit ${outcome} outcome under Model A.`
+      `Review confirmed: no approved equivalent replacement exists in the finalized mapping; retain explicit ${outcome} outcome under Model A.`
     );
   }
 

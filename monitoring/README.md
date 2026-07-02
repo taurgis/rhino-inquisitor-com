@@ -1,6 +1,6 @@
-# Phase 9 Monitoring Artifacts
+# Monitoring Artifacts
 
-This directory holds the Phase 9 cutover and stabilization artifacts defined in RHI-093.
+This directory holds the cutover and stabilization artifacts defined in RHI-093.
 
 ## Status values
 

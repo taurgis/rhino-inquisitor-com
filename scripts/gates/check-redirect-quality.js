@@ -81,14 +81,14 @@ async function confirmRetentionPolicy() {
     status: 'documented',
     minimumDuration: 'at least 12 months',
     sources: retentionPolicySources,
-    notes: 'Phase 8 carries the documented redirect-retention expectation forward as policy evidence under the committed Model A launch posture.'
+    notes: 'carries the documented redirect-retention expectation forward as policy evidence under the committed Model A launch posture.'
   };
 }
 
 async function main() {
   const options = parsePhase8Args(process.argv.slice(2), defaults);
   if (options.help) {
-    printCommonHelp('scripts/phase-8/check-redirect-quality.js', { includePriorityRoutes: true });
+    printCommonHelp('scripts/gates/check-redirect-quality.js', { includePriorityRoutes: true });
     return;
   }
 
@@ -271,7 +271,7 @@ async function main() {
 
   await writeJsonReport(options.reportPath, report);
 
-  console.log(`Phase 8 redirect quality report written to ${toRepoRelative(options.reportPath)}`);
+  console.log(`redirect quality report written to ${toRepoRelative(options.reportPath)}`);
   console.log(`Redirect rows: ${summary.totalRedirectEntries}`);
   console.log(`Blocking redirect failures: ${summary.blockingFailures}`);
   console.log(`Priority-route failures: ${summary.priorityRouteFailures}`);

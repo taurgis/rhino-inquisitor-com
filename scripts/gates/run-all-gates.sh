@@ -5,15 +5,15 @@ set -uo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
 
-SUMMARY_PATH="$REPO_ROOT/url-data/reports/phase-7-gate-summary.csv"
-PREVIEW_BASE_URL="${PHASE7_PREVIEW_BASE_URL:-https://staging.rhino-inquisitor.com/}"
-CI_RUN_URL="${PHASE7_CI_RUN_URL:-}"
-BUILD_DURATION_PATH="$REPO_ROOT/tmp/phase-7-build-duration-ms.txt"
+SUMMARY_PATH="$REPO_ROOT/url-data/reports/gate-summary.csv"
+PREVIEW_BASE_URL="${PREVIEW_BASE_URL:-https://staging.rhino-inquisitor.com/}"
+CI_RUN_URL="${CI_RUN_URL:-}"
+BUILD_DURATION_PATH="$REPO_ROOT/tmp/build-duration-ms.txt"
 PRODUCTION_ARTIFACT_DIR="$REPO_ROOT/tmp/ci-prod-public"
 PREVIEW_ARTIFACT_DIR="$REPO_ROOT/tmp/ci-preview-public"
-PREVIEW_BUILD_MARKER_PATH="$REPO_ROOT/tmp/phase-7-preview-build.marker"
+PREVIEW_BUILD_MARKER_PATH="$REPO_ROOT/tmp/preview-build.marker"
 CANONICAL_PRODUCTION_BASE_URL="https://rhino-inquisitor.com/"
-DEPLOY_ARTIFACT_SOURCE="${PHASE7_DEPLOY_ARTIFACT_SOURCE:-auto}"
+DEPLOY_ARTIFACT_SOURCE="${DEPLOY_ARTIFACT_SOURCE:-auto}"
 SELECTED_DEPLOY_ARTIFACT_SOURCE="production"
 
 GATE_NAMES=()
@@ -48,7 +48,7 @@ trap 'on_exit $?' EXIT
 
 print_help() {
   cat <<'EOF'
-Usage: bash scripts/phase-7/run-all-gates.sh [options]
+Usage: bash scripts/gates/run-all-gates.sh [options]
 
 Options:
   --preview-base-url <url>  Preview-host base URL for preview rehearsal validation.
@@ -145,7 +145,7 @@ run_gate() {
 
   echo "FAIL: $gate_name" >&2
   if [[ -n "${GITHUB_ACTIONS:-}" ]]; then
-    printf '::error title=Phase 7 gate failed::%s\n' "$gate_name"
+    printf '::error title=gate failed::%s\n' "$gate_name"
   fi
   append_summary_row "$gate_name" "$gate_command" "fail" "Blocking gate failed. Review workflow or local command output for the failing file or URL."
   return 1
@@ -178,21 +178,21 @@ cleanup_preview_state
 register_gate "Validate front matter" "cd \"$REPO_ROOT\" && npm run validate:frontmatter"
 register_gate "Enforce local video shortcode policy" "cd \"$REPO_ROOT\" && npm run check:local-video-shortcodes"
 register_gate "Build production validation site" "cd \"$REPO_ROOT\" && build_started_at=\$(node -e 'console.log(Date.now())') && npm run build:prod && build_finished_at=\$(node -e 'console.log(Date.now())') && mkdir -p \"\$(dirname \"$BUILD_DURATION_PATH\")\" && printf '%s' \"\$((build_finished_at - build_started_at))\" > \"$BUILD_DURATION_PATH\""
-register_gate "Validate production artifact integrity and size" "cd \"$REPO_ROOT\" && npm run validate:artifact -- --label production-validation --report tmp/phase-7-artifact-validation-production.json"
+register_gate "Validate production artifact integrity and size" "cd \"$REPO_ROOT\" && npm run validate:artifact -- --label production-validation --report tmp/artifact-validation-production.json"
 register_gate "Validate URL inventory" "cd \"$REPO_ROOT\" && npm run validate:url-inventory"
 register_gate "Run Pages artifact constraints check" "cd \"$REPO_ROOT\" && build_duration_ms=\$(cat \"$BUILD_DURATION_PATH\" 2>/dev/null || printf '') && if [[ -n \"\$build_duration_ms\" ]]; then npm run check:pages-constraints -- --build-duration-ms \"\$build_duration_ms\"; else npm run check:pages-constraints; fi"
 register_gate "Run URL parity check" "cd \"$REPO_ROOT\" && npm run check:url-parity"
 register_gate "Run redirect target existence check" "cd \"$REPO_ROOT\" && npm run check:redirect-targets"
 register_gate "Run redirect chain check" "cd \"$REPO_ROOT\" && npm run check:redirect-chains"
-register_gate "Run Phase 8 URL parity gate" "cd \"$REPO_ROOT\" && npm run check:url-parity:p8"
-register_gate "Run Phase 8 redirect quality gate" "cd \"$REPO_ROOT\" && npm run check:redirect-quality"
-register_gate "Run Phase 8 SEO consistency gate" "cd \"$REPO_ROOT\" && npm run check:seo-consistency"
-register_gate "Run Phase 8 robots and sitemap gate" "cd \"$REPO_ROOT\" && npm run check:robots-sitemap"
-register_gate "Run Phase 8 structured-data gate" "cd \"$REPO_ROOT\" && npm run check:structured-data"
-register_gate "Run Phase 8 social-preview gate" "cd \"$REPO_ROOT\" && npm run check:social-preview"
-register_gate "Run Phase 8 HTML conformance gate" "cd \"$REPO_ROOT\" && npm run check:html-conformance"
-register_gate "Run Phase 8 accessibility axe gate" "cd \"$REPO_ROOT\" && npm run check:accessibility"
-register_gate "Run Phase 8 HTTPS and security gate" "cd \"$REPO_ROOT\" && npm run check:https-security"
+register_gate "Run URL parity gate" "cd \"$REPO_ROOT\" && npm run check:url-parity"
+register_gate "Run redirect quality gate" "cd \"$REPO_ROOT\" && npm run check:redirect-quality"
+register_gate "Run SEO consistency gate" "cd \"$REPO_ROOT\" && npm run check:seo-consistency"
+register_gate "Run robots and sitemap gate" "cd \"$REPO_ROOT\" && npm run check:robots-sitemap"
+register_gate "Run structured-data gate" "cd \"$REPO_ROOT\" && npm run check:structured-data"
+register_gate "Run social-preview gate" "cd \"$REPO_ROOT\" && npm run check:social-preview"
+register_gate "Run HTML conformance gate" "cd \"$REPO_ROOT\" && npm run check:html-conformance"
+register_gate "Run accessibility axe gate" "cd \"$REPO_ROOT\" && npm run check:accessibility"
+register_gate "Run HTTPS and security gate" "cd \"$REPO_ROOT\" && npm run check:https-security"
 register_gate "Run canonical alignment check" "cd \"$REPO_ROOT\" && npm run check:canonical-alignment"
 register_gate "Run mixed-content check" "cd \"$REPO_ROOT\" && npm run check:mixed-content"
 register_gate "Run retirement policy check" "cd \"$REPO_ROOT\" && npm run check:retirement-policy"
@@ -212,10 +212,10 @@ register_gate "Run performance gate" "cd \"$REPO_ROOT\" && npm run check:perf:ga
 register_gate "Archive production validation output" "cd \"$REPO_ROOT\" && rm -rf \"$PRODUCTION_ARTIFACT_DIR\" && mkdir -p \"$PRODUCTION_ARTIFACT_DIR\" && cp -R public/. \"$PRODUCTION_ARTIFACT_DIR/\""
 register_gate "Build preview rehearsal site" "cd \"$REPO_ROOT\" && PREVIEW_BASE_URL=\"$PREVIEW_BASE_URL\" npm run build:preview-pages && touch \"$PREVIEW_BUILD_MARKER_PATH\""
 register_gate "Run preview crawl-control validation check" "cd \"$REPO_ROOT\" && node scripts/seo/check-crawl-controls.js --mode preview --base-url \"$PREVIEW_BASE_URL\" --report tmp/ci-preview-crawl-control-audit.csv"
-register_gate "Verify preview-host path prefix and noindex" "cd \"$REPO_ROOT\" && node scripts/phase-7/check-preview-prefix-noindex.js --base-url \"$PREVIEW_BASE_URL\""
-register_gate "Run SEO-safe deployment host check" "cd \"$REPO_ROOT\" && npm run check:seo-safe-deploy -- --expected-origin \"$PREVIEW_BASE_URL\" --crawl-mode blocked --report tmp/phase-7-seo-safe-deploy-report.json"
-register_gate "Run preview LLM artifact validation check" "cd \"$REPO_ROOT\" && node scripts/seo/check-llm-artifacts.js --report tmp/phase-7-preview-llm-artifact-quality-report.json"
-register_gate "Validate deploy artifact integrity and size" "cd \"$REPO_ROOT\" && npm run validate:artifact -- --label preview-deploy --report tmp/phase-7-artifact-validation-preview.json"
+register_gate "Verify preview-host path prefix and noindex" "cd \"$REPO_ROOT\" && node scripts/gates/check-preview-prefix-noindex.js --base-url \"$PREVIEW_BASE_URL\""
+register_gate "Run SEO-safe deployment host check" "cd \"$REPO_ROOT\" && npm run check:seo-safe-deploy -- --expected-origin \"$PREVIEW_BASE_URL\" --crawl-mode blocked --report tmp/seo-safe-deploy-report.json"
+register_gate "Run preview LLM artifact validation check" "cd \"$REPO_ROOT\" && node scripts/seo/check-llm-artifacts.js --report tmp/preview-llm-artifact-quality-report.json"
+register_gate "Validate deploy artifact integrity and size" "cd \"$REPO_ROOT\" && npm run validate:artifact -- --label preview-deploy --report tmp/artifact-validation-preview.json"
 register_gate "Archive preview rehearsal output" "cd \"$REPO_ROOT\" && rm -rf \"$PREVIEW_ARTIFACT_DIR\" && mkdir -p \"$PREVIEW_ARTIFACT_DIR\" && cp -R public/. \"$PREVIEW_ARTIFACT_DIR/\""
 
 failure_index=-1
@@ -234,4 +234,4 @@ if [[ "$failure_index" -ge 0 ]]; then
   exit 1
 fi
 
-echo "All Phase 7 blocking gates passed."
+echo "All blocking gates passed."

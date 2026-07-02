@@ -21,7 +21,7 @@ const defaults = {
   inputPath: path.join(repoRoot, 'url-data/url-map.csv'),
   contentRoot: path.join(repoRoot, 'src/content'),
   publicRoot: path.join(repoRoot, 'public'),
-  reportPath: path.join(repoRoot, 'url-data/reports/phase-6-redirect-security.csv')
+  reportPath: path.join(repoRoot, 'url-data/reports/redirect-security.csv')
 };
 
 const siteRelativeAliasPattern = /^\/(?:[a-z0-9-]+(?:\/[a-z0-9-]+)*)\/$/;
@@ -85,7 +85,7 @@ function parseArgs(argv) {
 }
 
 function printHelp() {
-  console.log(`Usage: node scripts/phase-6/check-redirect-security.js [options]
+  console.log(`Usage: node scripts/gates/check-redirect-security.js [options]
 
 Options:
   --input <path>        Override the reviewed URL map path.
@@ -471,8 +471,8 @@ async function evaluateBuiltAliasPages({ contentAliasEntries, mergeRows, publicS
 async function scanPhase6Artifacts(reportPath) {
   const ignoredRelativeReportPath = toRepoRelative(reportPath);
   const relativeFiles = (await fg([
-    'scripts/phase-6/**/*.js',
-    'url-data/reports/phase-6-*.*'
+    'scripts/gates/**/*.js',
+    'url-data/reports/*.*'
   ], {
     cwd: repoRoot,
     onlyFiles: true,
@@ -507,11 +507,11 @@ async function scanPhase6Artifacts(reportPath) {
 
   const reportRows = [createReportRow({
     scope: 'artifact-scan',
-    subject: 'phase-6-artifact-scan',
+    subject: 'artifact-scan',
     target_value: String(relativeFiles.length),
     status: failures.length === 0 ? 'pass' : 'fail',
     actual_outcome: failures.length === 0 ? 'no-credential-or-pii-patterns' : 'credential-or-pii-patterns-found',
-    notes: `Scanned ${relativeFiles.length} Phase 6 script and report file(s) for credential-like and PII-like patterns.`
+    notes: `Scanned ${relativeFiles.length} script and report file(s) for credential-like and PII-like patterns.`
   })];
 
   reportRows.push(...failures);

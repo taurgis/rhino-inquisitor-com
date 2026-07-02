@@ -36,7 +36,7 @@ const defaults = {
   publicDir: path.join(repoRoot, 'public'),
   manifestPath: path.join(repoRoot, 'url-data', 'url-manifest.json'),
   robotsPath: path.join(repoRoot, 'public', 'robots.txt'),
-  reportPath: path.join(repoRoot, 'url-data', 'reports', 'phase-5-image-audit.csv')
+  reportPath: path.join(repoRoot, 'url-data', 'reports', 'image-audit.csv')
 };
 
 function printHelp() {

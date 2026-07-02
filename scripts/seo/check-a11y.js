@@ -37,7 +37,7 @@ const contentTypes = {
 const defaults = {
   configPath: path.join(rootDir, 'pa11y-ci.config.js'),
   publicDir: path.join(rootDir, 'public'),
-  reportPath: path.join(rootDir, 'url-data', 'reports', 'phase-5-accessibility-audit.md')
+  reportPath: path.join(rootDir, 'url-data', 'reports', 'accessibility-audit.md')
 };
 
 function printHelp() {
@@ -488,7 +488,7 @@ function buildMarkdownReport({
   });
 
   const reportLines = [
-    '# Phase 5 Accessibility Audit',
+    '# Accessibility Audit',
     '',
     '## Scope',
     '',
@@ -597,7 +597,7 @@ function buildMarkdownReport({
   reportLines.push('## Exit Decision');
   reportLines.push('');
   if (totals.levelA === 0 && totals.levelAA === 0 && totals.technical === 0 && totals.semantic === 0) {
-    reportLines.push('PASS. The representative Phase 5 accessibility gate is clean with zero blocking Level A issues, zero blocking Level AA issues, and zero semantic template failures.');
+    reportLines.push('PASS. The representative accessibility gate is clean with zero blocking Level A issues, zero blocking Level AA issues, and zero semantic template failures.');
   } else {
     reportLines.push('FAIL. Blocking accessibility findings remain and must be resolved or explicitly triaged before RHI-056 can close.');
   }
@@ -667,9 +667,9 @@ async function main() {
     const finalExitCode = pa11yExitCode === 1 || hasBlockingFindings ? 1 : 0;
 
     if (finalExitCode === 0) {
-      console.log(`Phase 5 accessibility audit passed. Report written to ${path.relative(rootDir, reportPath)}.`);
+      console.log(`accessibility audit passed. Report written to ${path.relative(rootDir, reportPath)}.`);
     } else {
-      console.error(`Phase 5 accessibility audit failed. Report written to ${path.relative(rootDir, reportPath)}.`);
+      console.error(`accessibility audit failed. Report written to ${path.relative(rootDir, reportPath)}.`);
     }
 
     process.exitCode = finalExitCode;

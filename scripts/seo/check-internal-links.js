@@ -30,8 +30,8 @@ const defaults = {
   manifestPath: process.env.CHECK_LINKS_MANIFEST
     ? path.resolve(process.env.CHECK_LINKS_MANIFEST)
     : path.join(repoRoot, 'url-data', 'url-manifest.json'),
-  seoBaselinePath: path.join(repoRoot, 'url-data', 'phase-1-seo-baseline.md'),
-  reportPath: path.join(repoRoot, 'url-data', 'reports', 'phase-5-internal-links-audit.csv'),
+  seoBaselinePath: path.join(repoRoot, 'url-data', 'seo-baseline.md'),
+  reportPath: path.join(repoRoot, 'url-data', 'reports', 'internal-links-audit.csv'),
   allowManifestTargets: process.env.CHECK_LINKS_ALLOW_MANIFEST_TARGETS === '1',
   mode: process.env.CHECK_INTERNAL_LINKS_MODE?.trim() || process.env.CHECK_LINKS_MODE?.trim() || 'full'
 };
@@ -42,7 +42,7 @@ function printHelp() {
 Options:
   --public-dir <path>              Override built public directory.
   --manifest <path>                Override url-data/url-manifest.json path.
-  --seo-baseline <path>            Override the Phase 1 SEO baseline markdown path.
+  --seo-baseline <path>            Override the SEO baseline markdown path.
   --report <path>                  Override audit CSV path.
   --mode <mode>                    Validation mode: full or subset.
   --allow-manifest-targets         Allow unresolved keep/merge manifest targets.
@@ -704,7 +704,7 @@ async function main() {
       if (!clickDepthByRoute.has(page.route)) {
         issues.push('indexable page is unreachable from the homepage through valid internal links');
       } else if (clickDepth > 3) {
-        warnings.push(`click depth is ${clickDepth}, above the Phase 5 warning threshold of 3`);
+        warnings.push(`click depth is ${clickDepth}, above the warning threshold of 3`);
       }
     }
 

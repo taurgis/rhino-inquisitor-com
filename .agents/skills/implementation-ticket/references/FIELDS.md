@@ -144,7 +144,7 @@ List everything that must exist or be resolved before this ticket can be complet
 |------|---------|
 | Ticket | `RHI-001` must be `Done` before this starts |
 | Access | Search Console read access must be granted |
-| Phase | Phase 1 sign-off required before Phase 2 work begins |
+| Phase | sign-off required before work begins |
 | Tool | `fast-xml-parser` must be installed (`npm install`) |
 
 If a dependency is blocked, set the ticket Status to `Blocked` and describe the blocker in the Progress Log.

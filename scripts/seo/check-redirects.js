@@ -19,8 +19,8 @@ import {
 const defaults = {
   manifestPath: path.join(repoRoot, 'url-data/url-manifest.json'),
   publicRoot: path.join(repoRoot, 'public'),
-  reportPath: path.join(repoRoot, 'url-data/reports/phase-5-redirect-validation.csv'),
-  matrixPath: path.join(repoRoot, 'url-data/phase-5-redirect-signal-matrix.csv')
+  reportPath: path.join(repoRoot, 'url-data/reports/redirect-validation.csv'),
+  matrixPath: path.join(repoRoot, 'url-data/redirect-signal-matrix.csv')
 };
 
 function printHelp() {
@@ -472,7 +472,7 @@ async function main() {
   console.log(`Indexed URL change rate: ${changeRate}% (${changedIndexedUrls}/${indexedUrls || 0})`);
   if (changeRate > 5) {
     console.log(
-      'Phase 5 baseline would require an edge redirect layer because the URL change rate exceeds 5%, but RHI-062 records an owner-approved Model A exception for launch.'
+      'baseline would require an edge redirect layer because the URL change rate exceeds 5%, but RHI-062 records an owner-approved Model A exception for launch.'
     );
   }
 

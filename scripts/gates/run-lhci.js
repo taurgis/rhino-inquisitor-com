@@ -80,7 +80,7 @@ function parseArgs(argv) {
 }
 
 function printHelp() {
-  console.log(`Usage: node scripts/phase-8/run-lhci.js [options]
+  console.log(`Usage: node scripts/gates/run-lhci.js [options]
 
 Options:
   --profile <mobile|desktop>  Run only one Lighthouse profile.

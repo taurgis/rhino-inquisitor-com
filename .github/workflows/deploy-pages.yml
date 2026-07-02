@@ -274,9 +274,9 @@ jobs:
 
       - name: Run blocking deployment quality gates
         env:
-          PHASE7_PREVIEW_BASE_URL: ${{ steps.preview_base.outputs.base_url }}
-          PHASE7_DEPLOY_ARTIFACT_SOURCE: ${{ steps.deploy_artifact.outputs.source }}
-          PHASE7_CI_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          PREVIEW_BASE_URL: ${{ steps.preview_base.outputs.base_url }}
+          DEPLOY_ARTIFACT_SOURCE: ${{ steps.deploy_artifact.outputs.source }}
+          CI_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
           # Only run blocking HTTPS live-host checks once the canonical www custom
           # domain is the active Pages host. Until then the deploy is in project-host
           # rehearsal mode and the live checks are recorded but non-fatal.
@@ -287,30 +287,30 @@ jobs:
         if: ${{ always() && !cancelled() }}
         uses: actions/upload-artifact@v6
         with:
-          name: phase-7-artifact-validator-${{ github.sha }}
+          name: artifact-validator-${{ github.sha }}
           path: |
-            tmp/phase-7-artifact-validation-production.json
-            tmp/phase-7-artifact-validation-preview.json
-            url-data/reports/phase-7-gate-summary.csv
+            tmp/artifact-validation-production.json
+            tmp/artifact-validation-preview.json
+            url-data/reports/gate-summary.csv
           if-no-files-found: error
           retention-days: 7
 
-      - name: Upload Phase 8 URL validation reports
+      - name: Upload URL validation reports
         if: ${{ always() && !cancelled() }}
         uses: actions/upload-artifact@v6
         with:
-          name: phase-8-url-validation-${{ github.sha }}
+          name: url-validation-${{ github.sha }}
           path: |
             validation/url-parity-report.json
             validation/redirect-quality-report.json
           if-no-files-found: error
           retention-days: 30
 
-      - name: Upload Phase 8 SEO validation reports
+      - name: Upload SEO validation reports
         if: ${{ always() && !cancelled() }}
         uses: actions/upload-artifact@v6
         with:
-          name: phase-8-seo-validation-${{ github.sha }}
+          name: seo-validation-${{ github.sha }}
           path: |
             validation/seo-consistency-report.json
             validation/robots-sitemap-report.json
@@ -318,22 +318,22 @@ jobs:
           if-no-files-found: error
           retention-days: 30
 
-      - name: Upload Phase 8 structured-data and social-preview reports
+      - name: Upload structured-data and social-preview reports
         if: ${{ always() && !cancelled() }}
         uses: actions/upload-artifact@v6
         with:
-          name: phase-8-structured-data-validation-${{ github.sha }}
+          name: structured-data-validation-${{ github.sha }}
           path: |
             validation/structured-data-report.json
             validation/social-preview-report.json
           if-no-files-found: error
           retention-days: 30
 
-      - name: Upload Phase 8 accessibility and HTML conformance reports
+      - name: Upload accessibility and HTML conformance reports
         if: ${{ always() && !cancelled() }}
         uses: actions/upload-artifact@v6
         with:
-          name: phase-8-accessibility-validation-${{ github.sha }}
+          name: accessibility-validation-${{ github.sha }}
           path: |
             validation/accessibility-axe-report.json
             validation/html-conformance-report.json
@@ -341,21 +341,21 @@ jobs:
           if-no-files-found: error
           retention-days: 30
 
-      - name: Upload Phase 8 HTTPS and security reports
+      - name: Upload HTTPS and security reports
         if: ${{ always() && !cancelled() }}
         uses: actions/upload-artifact@v6
         with:
-          name: phase-8-https-security-validation-${{ github.sha }}
+          name: https-security-validation-${{ github.sha }}
           path: |
             validation/https-security-report.json
           if-no-files-found: error
           retention-days: 30
 
-      - name: Upload Phase 8 performance reports
+      - name: Upload performance reports
         if: ${{ always() && !cancelled() }}
         uses: actions/upload-artifact@v6
         with:
-          name: phase-8-performance-validation-${{ github.sha }}
+          name: performance-validation-${{ github.sha }}
           path: |
             validation/lhci-report
             validation/performance-budget-report.json
@@ -366,30 +366,30 @@ jobs:
         if: ${{ always() && !cancelled() }}
         uses: actions/upload-artifact@v6
         with:
-          name: phase-3-build-artifacts-${{ github.sha }}
+          name: build-artifacts-${{ github.sha }}
           path: |
             public
             tmp/ci-prod-public
             tmp/ci-preview-public
-            tmp/phase-7-artifact-validation-production.json
-            tmp/phase-7-artifact-validation-preview.json
-            tmp/phase-7-seo-safe-deploy-report.json
+            tmp/artifact-validation-production.json
+            tmp/artifact-validation-preview.json
+            tmp/seo-safe-deploy-report.json
             tmp/ci-preview-crawl-control-audit.csv
-            url-data/reports/phase-7-gate-summary.csv
-            url-data/reports/phase-5-crawl-control-audit.csv
-            url-data/phase-5-redirect-signal-matrix.csv
-            url-data/reports/phase-5-redirect-validation.csv
-            url-data/reports/phase-5-metadata-report.csv
-            url-data/reports/phase-5-schema-audit.csv
-            url-data/reports/phase-5-sitemap-audit.csv
-            url-data/reports/phase-5-pages-constraints-report.md
-            url-data/reports/phase-5-internal-links-audit.csv
-            url-data/reports/phase-5-accessibility-audit.md
-            url-data/reports/phase-6-redirect-targets.csv
-            url-data/reports/phase-6-chains-loops.csv
-            url-data/reports/phase-6-canonical-alignment.csv
-            url-data/reports/phase-6-retired-url-audit.csv
-            url-data/reports/phase-6-redirect-security.csv
+            url-data/reports/gate-summary.csv
+            url-data/reports/crawl-control-audit.csv
+            url-data/redirect-signal-matrix.csv
+            url-data/reports/redirect-validation.csv
+            url-data/reports/metadata-report.csv
+            url-data/reports/schema-audit.csv
+            url-data/reports/sitemap-audit.csv
+            url-data/reports/pages-constraints-report.md
+            url-data/reports/internal-links-audit.csv
+            url-data/reports/accessibility-audit.md
+            url-data/reports/redirect-targets.csv
+            url-data/reports/chains-loops.csv
+            url-data/reports/canonical-alignment.csv
+            url-data/reports/retired-url-audit.csv
+            url-data/reports/redirect-security.csv
             url-data/url-parity-report.json
             validation/structured-data-report.json
             validation/social-preview-report.json
@@ -400,7 +400,7 @@ jobs:
             validation/https-security-report.json
             validation/lhci-report
             validation/performance-budget-report.json
-            tmp/phase-6-host-protocol
+            tmp/host-protocol
           if-no-files-found: error
           retention-days: 7
 

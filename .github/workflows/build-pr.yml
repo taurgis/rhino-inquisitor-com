@@ -234,13 +234,13 @@ jobs:
             tmp/pr-ci-prod-public
             tmp/pr-preview-crawl-control-audit.csv
             tmp/pr-preview-llm-artifact-quality-report.json
-            url-data/reports/phase-5-crawl-control-audit.csv
-            url-data/phase-5-redirect-signal-matrix.csv
-            url-data/reports/phase-5-redirect-validation.csv
-            url-data/reports/phase-5-metadata-report.csv
-            url-data/reports/phase-5-schema-audit.csv
-            url-data/reports/phase-5-sitemap-audit.csv
-            url-data/reports/phase-5-internal-links-audit.csv
+            url-data/reports/crawl-control-audit.csv
+            url-data/redirect-signal-matrix.csv
+            url-data/reports/redirect-validation.csv
+            url-data/reports/metadata-report.csv
+            url-data/reports/schema-audit.csv
+            url-data/reports/sitemap-audit.csv
+            url-data/reports/internal-links-audit.csv
             url-data/url-parity-report.json
             validation/llm-artifact-quality-report.json
           if-no-files-found: error
@@ -301,7 +301,7 @@ jobs:
       - name: Build production site
         run: npm run build:prod
 
-      - name: Run Phase 5 accessibility gate
+      - name: Run accessibility gate
         id: accessibility_check
         run: npm run check:a11y:seo
 
@@ -312,7 +312,7 @@ jobs:
           name: pr-a11y-artifacts-${{ github.run_id }}
           path: |
             public
-            url-data/reports/phase-5-accessibility-audit.md
+            url-data/reports/accessibility-audit.md
           if-no-files-found: error
           retention-days: 7
 
@@ -321,14 +321,84 @@ jobs:
         shell: bash
         run: |
           if [[ "${{ steps.accessibility_check.outcome }}" == "success" ]]; then
-            echo "Phase 5 accessibility gate passed." >> "$GITHUB_STEP_SUMMARY"
+            echo "accessibility gate passed." >> "$GITHUB_STEP_SUMMARY"
           else
-            echo "Phase 5 accessibility gate failed. Resolve blocking findings in url-data/reports/phase-5-accessibility-audit.md before merge." >> "$GITHUB_STEP_SUMMARY"
+            echo "accessibility gate failed. Resolve blocking findings in url-data/reports/accessibility-audit.md before merge." >> "$GITHUB_STEP_SUMMARY"
           fi
 
-  performance:
+  lighthouse:
     needs:
       - prepare
+    if: needs.prepare.outputs.route_sensitive == 'true'
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        profile: [mobile, desktop]
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          package-manager-cache: false
+
+      - name: Restore npm and node_modules cache
+        uses: actions/cache@v5
+        with:
+          path: |
+            ~/.npm
+            node_modules
+          key: ${{ runner.os }}-node-${{ env.NODE_VERSION }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-${{ env.NODE_VERSION }}-
+
+      - name: Restore Hugo extended binary cache
+        uses: actions/cache@v5
+        with:
+          path: ~/.cache/hugo/${{ env.HUGO_VERSION }}
+          key: ${{ runner.os }}-hugo-${{ env.HUGO_VERSION }}
+
+      - name: Install Hugo extended
+        shell: bash
+        run: |
+          set -euo pipefail
+          HUGO_DIR="$HOME/.cache/hugo/${HUGO_VERSION}"
+          if [[ ! -x "$HUGO_DIR/hugo" ]]; then
+            mkdir -p "$HUGO_DIR"
+            curl -fsSL -o "$RUNNER_TEMP/hugo.tar.gz" "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
+            tar -xzf "$RUNNER_TEMP/hugo.tar.gz" -C "$HUGO_DIR" hugo
+          fi
+          export PATH="$HUGO_DIR:$PATH"
+          echo "$HUGO_DIR" >> "$GITHUB_PATH"
+          hugo version
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Build production site
+        run: npm run build:prod
+
+      - name: Run Lighthouse for profile
+        run: npm run lhci:run:${{ matrix.profile }}
+
+      - name: Upload Lighthouse artifact
+        uses: actions/upload-artifact@v6
+        with:
+          name: pr-lhci-report-${{ matrix.profile }}-${{ github.run_id }}
+          path: validation/lhci-report/${{ matrix.profile }}
+          if-no-files-found: error
+          retention-days: 7
+
+  performance_budget:
+    needs:
+      - prepare
+      - lighthouse
     if: needs.prepare.outputs.route_sensitive == 'true'
     runs-on: ubuntu-latest
 
@@ -377,27 +447,40 @@ jobs:
       - name: Install Node dependencies
         run: npm ci
 
-      - name: Run performance baseline
-        id: performance_check
-        run: npm run check:perf
+      - name: Build production site
+        run: npm run build:prod
+
+      - name: Download mobile LHCI artifact
+        uses: actions/download-artifact@v6
+        with:
+          name: pr-lhci-report-mobile-${{ github.run_id }}
+          path: validation/lhci-report/mobile
+
+      - name: Download desktop LHCI artifact
+        uses: actions/download-artifact@v6
+        with:
+          name: pr-lhci-report-desktop-${{ github.run_id }}
+          path: validation/lhci-report/desktop
+
+      - name: Run performance budget check
+        id: performance_budget_check
+        run: npm run check:perf-budget
 
       - name: Summarize performance result
         if: always()
         shell: bash
         run: |
-          if [[ "${{ steps.performance_check.outcome }}" == "success" ]]; then
+          if [[ "${{ steps.performance_budget_check.outcome }}" == "success" ]]; then
             echo "Performance gate passed." >> "$GITHUB_STEP_SUMMARY"
           else
-            echo "Performance gate failed. RHI-054 now treats this as a blocking Phase 5 regression." >> "$GITHUB_STEP_SUMMARY"
+            echo "Performance gate failed. RHI-054 now treats this as a blocking regression." >> "$GITHUB_STEP_SUMMARY"
           fi
 
-      - name: Upload Lighthouse artifacts
+      - name: Upload performance budget report
         if: always()
         uses: actions/upload-artifact@v6
         with:
-          name: pr-lhci-artifacts-${{ github.run_id }}
-          path: |
-            tmp/lhci
-            public
-          if-no-files-found: error
+          name: pr-performance-budget-${{ github.run_id }}
+          path: validation/performance-budget-report.json
+          if-no-files-found: ignore
           retention-days: 7

@@ -8,7 +8,7 @@ const repoRoot = path.resolve(scriptDir, '..', '..');
 const defaultPublicDir = path.join(repoRoot, 'public');
 
 function printHelp() {
-  console.log(`Usage: node scripts/phase-7/check-mixed-content.js [options]
+  console.log(`Usage: node scripts/gates/check-mixed-content.js [options]
 
 Options:
   --public-dir <path>  Path to built Hugo output (default: public)

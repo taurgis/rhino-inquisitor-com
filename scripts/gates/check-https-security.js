@@ -14,7 +14,7 @@ import {
   writeJsonReport,
 } from './seo-gate-helpers.js';
 import { canonicalOrigin, toRepoRelative } from '../url/url-validation-helpers.js';
-import { scanMixedContent } from '../phase-7/mixed-content-helpers.js';
+import { scanMixedContent } from './mixed-content-helpers.js';
 
 const canonicalUrl = new URL(canonicalOrigin);
 
@@ -39,7 +39,7 @@ const defaults = {
 };
 
 function printHelp() {
-  console.log(`Usage: node scripts/phase-8/check-https-security.js [options]
+  console.log(`Usage: node scripts/gates/check-https-security.js [options]
 
 Options:
   --public-dir <path>         Override the built public directory.

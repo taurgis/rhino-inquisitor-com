@@ -20,7 +20,7 @@
     "homepage": [
       {
         "url": "/",
-        "absolute_url": "https://www.rhino-inquisitor.com/",
+        "absolute_url": "https://rhino-inquisitor.com/",
         "built_artifact_path": "index.html",
         "validation_mode": "page",
         "selection_reason": "Fixed homepage route required by the RHI-084 sample matrix contract.",
@@ -30,7 +30,7 @@
     "recent_posts": [
       {
         "url": "/real-time-inventory-checks-in-sfcc/",
-        "absolute_url": "https://www.rhino-inquisitor.com/real-time-inventory-checks-in-sfcc/",
+        "absolute_url": "https://rhino-inquisitor.com/real-time-inventory-checks-in-sfcc/",
         "built_artifact_path": "real-time-inventory-checks-in-sfcc/index.html",
         "content_path": "src/content/posts/real-time-inventory-checks-in-sfcc/index.md",
         "title": "Real-Time Inventory Checks in SFCC",
@@ -41,7 +41,7 @@
       },
       {
         "url": "/a-dev-guide-to-combating-fraud-on-sfcc/",
-        "absolute_url": "https://www.rhino-inquisitor.com/a-dev-guide-to-combating-fraud-on-sfcc/",
+        "absolute_url": "https://rhino-inquisitor.com/a-dev-guide-to-combating-fraud-on-sfcc/",
         "built_artifact_path": "a-dev-guide-to-combating-fraud-on-sfcc/index.html",
         "content_path": "src/content/posts/a-dev-guide-to-combating-fraud-on-sfcc/index.md",
         "title": "Developer's Guide to Combating Fraud in SFCC",
@@ -52,7 +52,7 @@
       },
       {
         "url": "/kickstart-guide-for-new-sfcc-developers/",
-        "absolute_url": "https://www.rhino-inquisitor.com/kickstart-guide-for-new-sfcc-developers/",
+        "absolute_url": "https://rhino-inquisitor.com/kickstart-guide-for-new-sfcc-developers/",
         "built_artifact_path": "kickstart-guide-for-new-sfcc-developers/index.html",
         "content_path": "src/content/posts/kickstart-guide-for-new-sfcc-developers/index.md",
         "title": "The Kickstart Guide for New Salesforce B2C Commerce Developers",
@@ -63,7 +63,7 @@
       },
       {
         "url": "/your-definitive-mobile-app-checklist/",
-        "absolute_url": "https://www.rhino-inquisitor.com/your-definitive-mobile-app-checklist/",
+        "absolute_url": "https://rhino-inquisitor.com/your-definitive-mobile-app-checklist/",
         "built_artifact_path": "your-definitive-mobile-app-checklist/index.html",
         "content_path": "src/content/posts/your-definitive-mobile-app-checklist/index.md",
         "title": "Mobile App Launch Checklist for Commerce Teams",
@@ -74,7 +74,7 @@
       },
       {
         "url": "/a-survival-guide-to-sfcc-platform-limits/",
-        "absolute_url": "https://www.rhino-inquisitor.com/a-survival-guide-to-sfcc-platform-limits/",
+        "absolute_url": "https://rhino-inquisitor.com/a-survival-guide-to-sfcc-platform-limits/",
         "built_artifact_path": "a-survival-guide-to-sfcc-platform-limits/index.html",
         "content_path": "src/content/posts/a-survival-guide-to-sfcc-platform-limits/index.md",
         "title": "Survival Guide to SFCC Platform Limits",
@@ -85,7 +85,7 @@
       },
       {
         "url": "/the-realm-split-field-guide-to-migrating-an-sfcc-site/",
-        "absolute_url": "https://www.rhino-inquisitor.com/the-realm-split-field-guide-to-migrating-an-sfcc-site/",
+        "absolute_url": "https://rhino-inquisitor.com/the-realm-split-field-guide-to-migrating-an-sfcc-site/",
         "built_artifact_path": "the-realm-split-field-guide-to-migrating-an-sfcc-site/index.html",
         "content_path": "src/content/posts/the-realm-split-field-guide-to-migrating-an-sfcc-site/index.md",
         "title": "Realm Split Guide for Migrating an SFCC Site",
@@ -96,7 +96,7 @@
       },
       {
         "url": "/taming-the-beast-a-developers-deep-dive-into-sfcc-meta-tag-rules/",
-        "absolute_url": "https://www.rhino-inquisitor.com/taming-the-beast-a-developers-deep-dive-into-sfcc-meta-tag-rules/",
+        "absolute_url": "https://rhino-inquisitor.com/taming-the-beast-a-developers-deep-dive-into-sfcc-meta-tag-rules/",
         "built_artifact_path": "taming-the-beast-a-developers-deep-dive-into-sfcc-meta-tag-rules/index.html",
         "content_path": "src/content/posts/taming-the-beast-a-developers-deep-dive-into-sfcc-meta-tag-rules/index.md",
         "title": "Deep Dive into SFCC Meta Tag Rules",
@@ -107,7 +107,7 @@
       },
       {
         "url": "/field-guide-to-custom-caches-in-sfcc/",
-        "absolute_url": "https://www.rhino-inquisitor.com/field-guide-to-custom-caches-in-sfcc/",
+        "absolute_url": "https://rhino-inquisitor.com/field-guide-to-custom-caches-in-sfcc/",
         "built_artifact_path": "field-guide-to-custom-caches-in-sfcc/index.html",
         "content_path": "src/content/posts/field-guide-to-custom-caches-in-sfcc/index.md",
         "title": "Field Guide to Custom Caches: Wielding a Double-Edged Sword",
@@ -118,7 +118,7 @@
       },
       {
         "url": "/slas-in-sfra-or-sitegenesis/",
-        "absolute_url": "https://www.rhino-inquisitor.com/slas-in-sfra-or-sitegenesis/",
+        "absolute_url": "https://rhino-inquisitor.com/slas-in-sfra-or-sitegenesis/",
         "built_artifact_path": "slas-in-sfra-or-sitegenesis/index.html",
         "content_path": "src/content/posts/slas-in-sfra-or-sitegenesis/index.md",
         "title": "SLAS Session Sync in SFRA and SiteGenesis",
@@ -129,7 +129,7 @@
       },
       {
         "url": "/the-sfcc-guide-to-finding-pod-numbers/",
-        "absolute_url": "https://www.rhino-inquisitor.com/the-sfcc-guide-to-finding-pod-numbers/",
+        "absolute_url": "https://rhino-inquisitor.com/the-sfcc-guide-to-finding-pod-numbers/",
         "built_artifact_path": "the-sfcc-guide-to-finding-pod-numbers/index.html",
         "content_path": "src/content/posts/the-sfcc-guide-to-finding-pod-numbers/index.md",
         "title": "The Ultimate SFCC Guide to Finding Your POD Number",
@@ -142,7 +142,7 @@
     "archive_pages": [
       {
         "url": "/archive/",
-        "absolute_url": "https://www.rhino-inquisitor.com/archive/",
+        "absolute_url": "https://rhino-inquisitor.com/archive/",
         "built_artifact_path": "archive/index.html",
         "validation_mode": "page",
         "selection_reason": "Fixed archive discovery route retained for Phase 8 coverage.",
@@ -150,7 +150,7 @@
       },
       {
         "url": "/posts/",
-        "absolute_url": "https://www.rhino-inquisitor.com/posts/",
+        "absolute_url": "https://rhino-inquisitor.com/posts/",
         "built_artifact_path": "posts/index.html",
         "validation_mode": "page",
         "selection_reason": "Section list route emitted by Hugo outputs and retained to cover list rendering behavior.",
@@ -158,7 +158,7 @@
       },
       {
         "url": "/pages/",
-        "absolute_url": "https://www.rhino-inquisitor.com/pages/",
+        "absolute_url": "https://rhino-inquisitor.com/pages/",
         "built_artifact_path": "pages/index.html",
         "validation_mode": "page",
         "selection_reason": "Reference-page section list route retained to cover list rendering and archive-card behavior for the pages section.",
@@ -166,7 +166,7 @@
       },
       {
         "url": "/pages/page/2/",
-        "absolute_url": "https://www.rhino-inquisitor.com/pages/page/2/",
+        "absolute_url": "https://rhino-inquisitor.com/pages/page/2/",
         "built_artifact_path": "pages/page/2/index.html",
         "validation_mode": "page",
         "selection_reason": "Paginated reference-page archive route retained to cover rel=next pagination behavior on the pages section.",
@@ -176,7 +176,7 @@
     "category_pages": [
       {
         "url": "/category/ai/",
-        "absolute_url": "https://www.rhino-inquisitor.com/category/ai/",
+        "absolute_url": "https://rhino-inquisitor.com/category/ai/",
         "built_artifact_path": "category/ai/index.html",
         "content_path": "src/content/categories/ai/_index.md",
         "title": "AI",
@@ -187,7 +187,7 @@
       },
       {
         "url": "/category/architecture/",
-        "absolute_url": "https://www.rhino-inquisitor.com/category/architecture/",
+        "absolute_url": "https://rhino-inquisitor.com/category/architecture/",
         "built_artifact_path": "category/architecture/index.html",
         "content_path": "src/content/categories/architecture/_index.md",
         "title": "Architecture",
@@ -198,7 +198,7 @@
       },
       {
         "url": "/category/certification/",
-        "absolute_url": "https://www.rhino-inquisitor.com/category/certification/",
+        "absolute_url": "https://rhino-inquisitor.com/category/certification/",
         "built_artifact_path": "category/certification/index.html",
         "content_path": "src/content/categories/certification/_index.md",
         "title": "Certification",
@@ -209,7 +209,7 @@
       },
       {
         "url": "/category/community/",
-        "absolute_url": "https://www.rhino-inquisitor.com/category/community/",
+        "absolute_url": "https://rhino-inquisitor.com/category/community/",
         "built_artifact_path": "category/community/index.html",
         "content_path": "src/content/categories/community/_index.md",
         "title": "Community",
@@ -220,7 +220,7 @@
       },
       {
         "url": "/category/corporate/",
-        "absolute_url": "https://www.rhino-inquisitor.com/category/corporate/",
+        "absolute_url": "https://rhino-inquisitor.com/category/corporate/",
         "built_artifact_path": "category/corporate/index.html",
         "content_path": "src/content/categories/corporate/_index.md",
         "title": "Corporate",
@@ -233,7 +233,7 @@
     "privacy_legal_pages": [
       {
         "url": "/cookie-policy-eu/",
-        "absolute_url": "https://www.rhino-inquisitor.com/cookie-policy-eu/",
+        "absolute_url": "https://rhino-inquisitor.com/cookie-policy-eu/",
         "built_artifact_path": "cookie-policy-eu/index.html",
         "content_path": "src/content/pages/cookie-policy-eu/index.md",
         "title": "Cookie Policy (EU)",
@@ -244,7 +244,7 @@
       },
       {
         "url": "/privacy-policy/",
-        "absolute_url": "https://www.rhino-inquisitor.com/privacy-policy/",
+        "absolute_url": "https://rhino-inquisitor.com/privacy-policy/",
         "built_artifact_path": "privacy-policy/index.html",
         "content_path": "src/content/pages/privacy-policy/index.md",
         "title": "Privacy Policy",
@@ -257,7 +257,7 @@
     "video_pages": [
       {
         "url": "/connecting-the-clouds-wedding-or-funeral/",
-        "absolute_url": "https://www.rhino-inquisitor.com/connecting-the-clouds-wedding-or-funeral/",
+        "absolute_url": "https://rhino-inquisitor.com/connecting-the-clouds-wedding-or-funeral/",
         "built_artifact_path": "connecting-the-clouds-wedding-or-funeral/index.html",
         "content_path": "src/content/pages/connecting-the-clouds-wedding-or-funeral/index.md",
         "title": "Connecting the Clouds: Wedding or funeral",
@@ -268,7 +268,7 @@
       },
       {
         "url": "/headless/",
-        "absolute_url": "https://www.rhino-inquisitor.com/headless/",
+        "absolute_url": "https://rhino-inquisitor.com/headless/",
         "built_artifact_path": "headless/index.html",
         "content_path": "src/content/pages/headless/index.md",
         "title": "Headless",
@@ -279,7 +279,7 @@
       },
       {
         "url": "/me-myself-and-headless-a-composable-commerce-cloud-story/",
-        "absolute_url": "https://www.rhino-inquisitor.com/me-myself-and-headless-a-composable-commerce-cloud-story/",
+        "absolute_url": "https://rhino-inquisitor.com/me-myself-and-headless-a-composable-commerce-cloud-story/",
         "built_artifact_path": "me-myself-and-headless-a-composable-commerce-cloud-story/index.html",
         "content_path": "src/content/pages/me-myself-and-headless-a-composable-commerce-cloud-story/index.md",
         "title": "Me, Myself, and Headless: A Composable Commerce Cloud story",
@@ -290,7 +290,7 @@
       },
       {
         "url": "/the-path-to-being-an-architect/",
-        "absolute_url": "https://www.rhino-inquisitor.com/the-path-to-being-an-architect/",
+        "absolute_url": "https://rhino-inquisitor.com/the-path-to-being-an-architect/",
         "built_artifact_path": "the-path-to-being-an-architect/index.html",
         "content_path": "src/content/pages/the-path-to-being-an-architect/index.md",
         "title": "The path to being an Architect",
@@ -301,7 +301,7 @@
       },
       {
         "url": "/video/",
-        "absolute_url": "https://www.rhino-inquisitor.com/video/",
+        "absolute_url": "https://rhino-inquisitor.com/video/",
         "built_artifact_path": "video/index.html",
         "content_path": "src/content/pages/video/index.md",
         "title": "Video Appearances",
@@ -314,7 +314,7 @@
     "video_posts": [
       {
         "url": "/sfcc-introduction/",
-        "absolute_url": "https://www.rhino-inquisitor.com/sfcc-introduction/",
+        "absolute_url": "https://rhino-inquisitor.com/sfcc-introduction/",
         "built_artifact_path": "sfcc-introduction/index.html",
         "content_path": "src/content/posts/sfcc-introduction/index.md",
         "title": "B2C Commerce Cloud: Features and Tech Stacks",
@@ -325,7 +325,7 @@
       },
       {
         "url": "/salesforce-b2c-commerce-cloud-22-9-release/",
-        "absolute_url": "https://www.rhino-inquisitor.com/salesforce-b2c-commerce-cloud-22-9-release/",
+        "absolute_url": "https://rhino-inquisitor.com/salesforce-b2c-commerce-cloud-22-9-release/",
         "built_artifact_path": "salesforce-b2c-commerce-cloud-22-9-release/index.html",
         "content_path": "src/content/posts/salesforce-b2c-commerce-cloud-22-9-release/index.md",
         "title": "Salesforce B2C Commerce Cloud 22.9 release",
@@ -341,7 +341,7 @@
     "taxonomy_roots": [
       {
         "url": "/category/",
-        "absolute_url": "https://www.rhino-inquisitor.com/category/",
+        "absolute_url": "https://rhino-inquisitor.com/category/",
         "built_artifact_path": "category/index.html",
         "validation_mode": "page",
         "selection_reason": "Taxonomy root is emitted by Hugo and kept as a separate family from category terms.",
@@ -351,7 +351,7 @@
     "redirect_helpers": [
       {
         "url": "/category/external/forward/",
-        "absolute_url": "https://www.rhino-inquisitor.com/category/external/forward/",
+        "absolute_url": "https://rhino-inquisitor.com/category/external/forward/",
         "built_artifact_path": "category/external/forward/index.html",
         "validation_mode": "redirect-only",
         "selection_reason": "First deterministic alias-backed merge route from the frozen manifest.",
@@ -361,7 +361,7 @@
     "error_pages": [
       {
         "url": "/404.html",
-        "absolute_url": "https://www.rhino-inquisitor.com/404.html",
+        "absolute_url": "https://rhino-inquisitor.com/404.html",
         "built_artifact_path": "404.html",
         "validation_mode": "system-only",
         "selection_reason": "Dedicated 404 output retained for not-found validation coverage.",
@@ -371,7 +371,7 @@
     "system_outputs": [
       {
         "url": "/robots.txt",
-        "absolute_url": "https://www.rhino-inquisitor.com/robots.txt",
+        "absolute_url": "https://rhino-inquisitor.com/robots.txt",
         "built_artifact_path": "robots.txt",
         "validation_mode": "system-only",
         "selection_reason": "System output retained for downstream Phase 8 route and discovery validation.",
@@ -379,7 +379,7 @@
       },
       {
         "url": "/sitemap.xml",
-        "absolute_url": "https://www.rhino-inquisitor.com/sitemap.xml",
+        "absolute_url": "https://rhino-inquisitor.com/sitemap.xml",
         "built_artifact_path": "sitemap.xml",
         "validation_mode": "system-only",
         "selection_reason": "System output retained for downstream Phase 8 route and discovery validation.",
@@ -387,7 +387,7 @@
       },
       {
         "url": "/index.xml",
-        "absolute_url": "https://www.rhino-inquisitor.com/index.xml",
+        "absolute_url": "https://rhino-inquisitor.com/index.xml",
         "built_artifact_path": "index.xml",
         "validation_mode": "system-only",
         "selection_reason": "System output retained for downstream Phase 8 route and discovery validation.",
@@ -395,7 +395,7 @@
       },
       {
         "url": "/index.json",
-        "absolute_url": "https://www.rhino-inquisitor.com/index.json",
+        "absolute_url": "https://rhino-inquisitor.com/index.json",
         "built_artifact_path": "index.json",
         "validation_mode": "system-only",
         "selection_reason": "System output retained for downstream Phase 8 route and discovery validation.",

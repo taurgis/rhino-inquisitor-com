@@ -32,7 +32,7 @@ const xmlParser = new XMLParser({
 });
 
 function printHelp() {
-  console.log(`Usage: node scripts/phase-7/check-seo-safe-deploy.js [options]
+  console.log(`Usage: node scripts/gates/check-seo-safe-deploy.js [options]
 
 Options:
   --public-dir <path>        Override the built public directory.

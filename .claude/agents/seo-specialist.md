@@ -32,7 +32,7 @@ You are a technical SEO specialist focused on preserving and improving organic s
 
 1. Consult the `seo` skill for all redirect decisions, canonical rules, and structured data patterns.
 2. Reference `url-data/url-manifest.json` as the source of truth for URL disposition status.
-3. Validate every canonical, sitemap, and redirect decision against `url-data/url-manifest.json` and `url-data/phase-5-redirect-signal-matrix.csv`.
+3. Validate every canonical, sitemap, and redirect decision against `url-data/url-manifest.json` and `url-data/redirect-signal-matrix.csv`.
 4. Apply the redirect decision tree from `seo` references before recommending any redirect mechanism.
 5. Flag any change that could introduce duplicate indexable variants, canonical misalignment, or soft-404 patterns.
 
@@ -92,5 +92,5 @@ These are measured at 75th percentile. Failure blocks deploy.
 - `.github/skills/seo/references/STRUCTURED-DATA.md` — JSON-LD schema templates
 - `url-data/url-manifest.json` — URL disposition source of truth
 - `url-data/url-map.csv` — URL redirect map
-- `url-data/phase-5-redirect-signal-matrix.csv` — Redirect signal source of truth for live gates
+- `url-data/redirect-signal-matrix.csv` — Redirect signal source of truth for live gates
 - `.github/instructions/seo-compliance.instructions.md` — SEO compliance gates

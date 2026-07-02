@@ -49,7 +49,7 @@ function parseArgs(argv) {
 }
 
 function printHelp() {
-  console.log(`Usage: node scripts/phase-6/validate-url-inventory.js [options]
+  console.log(`Usage: node scripts/gates/validate-url-inventory.js [options]
 
 Options:
   --manifest <path>  Override manifest path.

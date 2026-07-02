@@ -17,7 +17,7 @@ const defaults = {
   publicRoot: path.join(repoRoot, 'public'),
   sitemapPath: path.join(repoRoot, 'public/sitemap.xml'),
   baseUrl: `${canonicalOrigin}/`,
-  reportPath: path.join(repoRoot, 'url-data/reports/phase-6-canonical-alignment.csv')
+  reportPath: path.join(repoRoot, 'url-data/reports/canonical-alignment.csv')
 };
 
 const xmlParser = new XMLParser({
@@ -74,7 +74,7 @@ function parseArgs(argv) {
 }
 
 function printHelp() {
-  console.log(`Usage: node scripts/phase-6/generate-canonical-alignment-report.js [options]
+  console.log(`Usage: node scripts/gates/generate-canonical-alignment-report.js [options]
 
 Options:
   --public-dir <path>  Override the built public directory.

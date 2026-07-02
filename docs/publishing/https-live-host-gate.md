@@ -1,6 +1,6 @@
 # HTTPS Live-Host Gate and Project-Host Rehearsal Mode
 
-This document records how the Phase 8 HTTPS/security gate (`scripts/phase-8/check-https-security.js`) treats live-host checks before the production custom domain is active.
+This document records how the HTTPS/security gate (`scripts/gates/check-https-security.js`) treats live-host checks before the production custom domain is active.
 
 ## Change summary
 
@@ -27,23 +27,23 @@ When the custom domain goes live, no code change is required: the workflow's hos
 
 ## Impact and verification
 
-- Impacted: the "Run Phase 8 HTTPS and security gate" step inside `npm run gates:local`, driven by the Pages host check in the deploy workflow.
+- Impacted: the "Run HTTPS and security gate" step inside `npm run gates:local`, driven by the Pages host check in the deploy workflow.
 - Rehearsal mode (expected on the apex project host):
 
   ```bash
-  node scripts/phase-8/check-https-security.js   # exit 0, live status manual-required
+  node scripts/gates/check-https-security.js   # exit 0, live status manual-required
   ```
 
 - Production-ready enforcement (blocking live checks):
 
   ```bash
-  RHI_HTTPS_LIVE_HOST_READY=true node scripts/phase-8/check-https-security.js
+  RHI_HTTPS_LIVE_HOST_READY=true node scripts/gates/check-https-security.js
   ```
 
 - Full deploy gate suite: `npm run gates:local`.
 
 ## Related files
 
-- `scripts/phase-8/check-https-security.js` — gate implementation and `RHI_HTTPS_LIVE_HOST_READY` handling.
+- `scripts/gates/check-https-security.js` — gate implementation and `RHI_HTTPS_LIVE_HOST_READY` handling.
 - `.github/workflows/deploy-pages.yml` — Pages host readiness check and env wiring.
-- `scripts/phase-7/run-all-gates.sh` — invokes the gate via `gates:local`.
+- `scripts/gates/run-all-gates.sh` — invokes the gate via `gates:local`.

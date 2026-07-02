@@ -1,4 +1,4 @@
-# Phase 9 Stabilization Summary
+# Stabilization Summary
 
 - Status: `not-started`
 - Run timestamp: `TBD`

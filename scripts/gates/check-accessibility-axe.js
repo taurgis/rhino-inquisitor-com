@@ -46,7 +46,7 @@ const contentTypes = {
 };
 
 function printHelp() {
-  console.log(`Usage: node scripts/phase-8/check-accessibility-axe.js [options]
+  console.log(`Usage: node scripts/gates/check-accessibility-axe.js [options]
 
 Options:
   --public-dir <path>         Override the built public directory.
@@ -390,7 +390,7 @@ async function analyzeRoute(routeRecord, inventoryEntry, browser, baseUrl, optio
     }
 
     if (violationCounts.moderate > 0 && options.moderateDueDate.length === 0) {
-      blockingFindings.push('Moderate axe findings require a target resolution date before the route can pass the Phase 8 gate.');
+      blockingFindings.push('Moderate axe findings require a target resolution date before the route can pass the gate.');
     }
 
     const blockingViolations = summarizedViolations.filter((violation) => violation.blocking);
@@ -481,7 +481,7 @@ async function main() {
 
     await writeJsonReport(options.reportPath, report);
 
-    console.log(`Phase 8 accessibility report written to ${toRepoRelative(options.reportPath)}`);
+    console.log(`accessibility report written to ${toRepoRelative(options.reportPath)}`);
     console.log(`Routes checked: ${summary.totalRoutes}`);
     console.log(`Pass routes: ${summary.passCount}`);
     console.log(`Fail routes: ${summary.failCount}`);

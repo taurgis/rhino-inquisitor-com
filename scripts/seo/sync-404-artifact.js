@@ -21,7 +21,7 @@ function rewriteRoot404(html) {
   const rootNote = '<p>This synced root 404 artifact exists so GitHub Pages serves the authoritative <code>404.html</code> error document while <code>/404/</code> remains available for validation and internal QA checks.</p>';
 
   let next = html.replace(
-    /<p>This content-backed route exists so Phase 6 validation can assert a non-indexable\s*<code>\/404\/<\/code>\s*page while\s*<code>404\.html<\/code>\s*remains the authoritative GitHub Pages error document\.<\/p>/,
+    /<p>This content-backed route exists so validation can assert a non-indexable\s*<code>\/404\/<\/code>\s*page while\s*<code>404\.html<\/code>\s*remains the authoritative GitHub Pages error document\.<\/p>/,
     rootNote
   );
   next = next.replace(/https?:\/\/[^"'\s<]+\/404\//g, (match) => match.replace(/\/404\/$/, '/404.html'));

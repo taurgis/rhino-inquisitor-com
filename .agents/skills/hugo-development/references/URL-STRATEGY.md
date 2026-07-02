@@ -4,10 +4,10 @@
 
 | Rule | Value | Source |
 |------|-------|--------|
-| Canonical host | `https://www.rhino-inquisitor.com/` | Phase 1 policy |
-| Trailing slash | Preserve existing behaviour per-route | Phase 2 contract |
-| Case | Lowercase only | Phase 2 contract |
-| Query parameters | Tracking params stripped; filter params documented | Phase 2 contract |
+| Canonical host | `https://www.rhino-inquisitor.com/` | policy |
+| Trailing slash | Preserve existing behaviour per-route | contract |
+| Case | Lowercase only | contract |
+| Query parameters | Tracking params stripped; filter params documented | contract |
 
 ## Permalink Configuration
 
@@ -52,7 +52,7 @@ Implications:
 - Google can follow meta-refresh redirects, but server-side 301/308 passes link equity faster.
 - Preserve the original URL wherever possible instead of relying on an alias.
 - Use aliases only for paths that genuinely changed or were retired.
-- If changed indexed URLs exceed 5% of inventory, activate edge redirect layer (Phase 2 decision).
+- If changed indexed URLs exceed 5% of inventory, activate edge redirect layer (decision).
 
 ## Alias Exclusion from Sitemap
 
@@ -65,8 +65,8 @@ grep -r "aliases" public/sitemap.xml  # should return nothing
 
 ## URL Parity Workflow
 
-1. Phase 1 produces `url-data/url-manifest.json`.
-2. Phase 3 builds `scripts/url-parity-check.js`:
+1. produces `url-data/url-manifest.json`.
+2. builds `scripts/url-parity-check.js`:
    - Reads manifest entries with `disposition: keep`.
    - For each, checks that `public/{path}/index.html` exists OR an alias redirect is present.
    - Fails CI if any `keep` URL has no output.
@@ -85,7 +85,7 @@ aliases: ["/feed/"]   # Points /feed/ → homepage RSS
 ```
 
 Or map via Hugo output format configuration to produce output at `/feed/index.xml`.
-Document the chosen approach in `url-data/feed-compatibility-check.md` (Phase 4 deliverable).
+Document the chosen approach in `url-data/feed-compatibility-check.md` (deliverable).
 
 ## Redirect Chain Prevention
 

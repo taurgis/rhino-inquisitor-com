@@ -41,13 +41,13 @@ function parseArgs(argv) {
 }
 
 function printHelp() {
-  console.log(`Usage: node scripts/phase-8/run-performance-gates.js [options]
+  console.log(`Usage: node scripts/gates/run-performance-gates.js [options]
 
 Options:
   --lhci-root <path>      Override the LHCI filesystem report root.
   --public-dir <path>     Override the built public directory.
   --sample-matrix <path>  Override validation/sample-matrix.json.
-  --baseline <path>       Override url-data/phase-1-performance-baseline.md.
+  --baseline <path>       Override url-data/performance-baseline.md.
   --report <path>         Override validation/performance-budget-report.json.
   --help                  Show this help message.
 `);

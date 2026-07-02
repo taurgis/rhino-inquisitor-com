@@ -20,7 +20,7 @@ const defaults = {
   inputPath: path.join(repoRoot, 'url-data/url-map.csv'),
   contentRoot: path.join(repoRoot, 'src/content'),
   publicRoot: path.join(repoRoot, 'public'),
-  reportPath: path.join(repoRoot, 'url-data/reports/phase-6-redirect-chain-report.csv')
+  reportPath: path.join(repoRoot, 'url-data/reports/redirect-chain-report.csv')
 };
 
 function parseArgs(argv) {
@@ -65,7 +65,7 @@ function parseArgs(argv) {
 }
 
 function printHelp() {
-  console.log(`Usage: node scripts/phase-6/check-redirect-chains.js [options]
+  console.log(`Usage: node scripts/gates/check-redirect-chains.js [options]
 
 Options:
   --input <path>        Override the reviewed URL map path.

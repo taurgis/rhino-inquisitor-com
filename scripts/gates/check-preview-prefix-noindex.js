@@ -1,7 +1,7 @@
 import { readFile } from 'node:fs/promises';
 
 function printHelp() {
-  console.log(`Usage: node scripts/phase-7/check-preview-prefix-noindex.js --base-url <url>
+  console.log(`Usage: node scripts/gates/check-preview-prefix-noindex.js --base-url <url>
 
 Options:
   --base-url <url>  Expected HTTPS preview base URL.

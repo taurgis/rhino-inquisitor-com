@@ -19,7 +19,7 @@ const defaults = {
   manifestPath: path.join(repoRoot, 'url-data', 'url-manifest.json'),
   publicRoot: path.join(repoRoot, 'public'),
   staticRoot: path.join(repoRoot, 'src', 'static'),
-  reportPath: path.join(repoRoot, 'url-data', 'reports', 'phase-5-pages-constraints-report.md'),
+  reportPath: path.join(repoRoot, 'url-data', 'reports', 'pages-constraints-report.md'),
   maxSizeBytes: defaultMaxSizeBytes,
   aliasWarningThreshold: defaultAliasWarningThreshold,
   buildDurationMs: parseBuildDuration(process.env.PAGES_CONSTRAINTS_BUILD_DURATION_MS)
@@ -315,7 +315,7 @@ function buildReport({
   const headroomToPublishedLimitBytes = Math.max(publishedSiteLimitBytes - artifactStats.totalSizeBytes, 0);
   const aliasWarningTriggered = manifestAliasStats.pagesStaticMergeCount > aliasWarningThreshold;
 
-  return `# Phase 5 Pages Constraints Report
+  return `# Pages Constraints Report
 
 Generated: ${reportTimestamp}
 
@@ -369,7 +369,7 @@ ${checks.map((check) => `| ${escapeMarkdown(check.label)} | ${statusLabel(check.
 - GitHub Pages custom-workflow deployments must upload a single gzip archive containing a single tar file; the tar must contain only files and directories and must not contain symbolic or hard links.
 - The published site should stay under 1 GB; this repository uses an 800 MB gate to keep operational headroom before the hard limit and deployment timeout risk.
 - Official GitHub guidance says .nojekyll is not required for Actions-based Pages artifacts. This repository keeps a source-controlled marker so local and CI artifacts stay aligned.
-- The domain and HTTPS checks above are informational. They are captured here for Phase 7 cutover readiness but are not used as deploy-time pass/fail signals inside this script.
+- The domain and HTTPS checks above are informational. They are captured here for cutover readiness but are not used as deploy-time pass/fail signals inside this script.
 `;
 }
 

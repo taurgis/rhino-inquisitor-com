@@ -15,7 +15,7 @@ import {
 const defaults = {
   inputPath: path.join(repoRoot, 'url-data/url-map.csv'),
   publicRoot: path.join(repoRoot, 'public'),
-  reportPath: path.join(repoRoot, 'url-data/reports/phase-6-redirect-targets.csv')
+  reportPath: path.join(repoRoot, 'url-data/reports/redirect-targets.csv')
 };
 
 function parseArgs(argv) {
@@ -59,7 +59,7 @@ function parseArgs(argv) {
 }
 
 function printHelp() {
-  console.log(`Usage: node scripts/phase-6/check-redirect-targets.js [options]
+  console.log(`Usage: node scripts/gates/check-redirect-targets.js [options]
 
 Options:
   --input <path>       Override the reviewed URL map path.

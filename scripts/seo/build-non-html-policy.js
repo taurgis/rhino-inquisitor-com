@@ -19,7 +19,7 @@ const defaults = {
   contentRoot: path.join(repoRoot, 'src', 'content'),
   publicRoot: path.join(repoRoot, 'public'),
   staticRoot: path.join(repoRoot, 'src', 'static'),
-  reportPath: path.join(repoRoot, 'url-data', 'reports', 'phase-5-non-html-policy.csv')
+  reportPath: path.join(repoRoot, 'url-data', 'reports', 'non-html-policy.csv')
 };
 
 const feedCompatibilityRoutes = new Set(['/feed/', '/feed/rss/', '/feed/atom/', '/rss/']);

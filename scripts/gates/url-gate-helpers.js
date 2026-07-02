@@ -70,13 +70,13 @@ export function parsePhase8Args(argv, defaults) {
 
 export function printCommonHelp(scriptName, { includePriorityRoutes = false } = {}) {
   const priorityLines = includePriorityRoutes
-    ? '  --priority-routes <path>  Override the Phase 8 priority-routes dataset.\n'
+    ? '  --priority-routes <path>  Override the priority-routes dataset.\n'
     : '';
 
   console.log(`Usage: node ${scriptName} [options]
 
 Options:
-  --dataset <path>          Override the Phase 8 expected-outcomes dataset.
+  --dataset <path>          Override the expected-outcomes dataset.
 ${priorityLines}  --public-dir <path>       Override the built public directory.
   --report <path>           Override the JSON report path.
   --help                    Show this help message.
@@ -252,7 +252,7 @@ export async function evaluateDatasetEntry(entry, context) {
   if (mode === 'static-file') {
     if (!descriptors.assetDescriptor) {
       result.actualOutcome = 'missing-static-file';
-      result.notes.push('Expected a published static file for this Phase 8 static-file route.');
+      result.notes.push('Expected a published static file for this static-file route.');
       return result;
     }
 
@@ -363,7 +363,7 @@ export async function evaluateDatasetEntry(entry, context) {
 
     if (!expectedRedirectTarget) {
       result.actualOutcome = 'missing-expected-redirect-target';
-      result.notes.push('Expected redirect target is missing from the Phase 8 dataset.');
+      result.notes.push('Expected redirect target is missing from the dataset.');
       return result;
     }
 

@@ -1,4 +1,4 @@
-# Phase 9 Search Console Indexing Report
+# Search Console Indexing Report
 
 - Status: `not-started`
 - Run timestamp: `TBD`

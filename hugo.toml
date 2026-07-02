@@ -19,7 +19,7 @@ enableRobotsTXT = true
 [mediaTypes."text/markdown"]
 suffixes = ["md"]
 
-# Phase 3 remains monolingual, so Hugo emits a single root sitemap.xml.
+# remains monolingual, so Hugo emits a single root sitemap.xml.
 
 [outputs]
 home = ["html", "rss", "json", "llms", "llmsfull"]

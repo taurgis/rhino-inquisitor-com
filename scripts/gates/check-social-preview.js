@@ -32,7 +32,7 @@ const defaults = {
 };
 
 function printHelp() {
-  console.log(`Usage: node scripts/phase-8/check-social-preview.js [options]
+  console.log(`Usage: node scripts/gates/check-social-preview.js [options]
 
 Options:
   --public-dir <path>      Override the built public directory.
@@ -575,7 +575,7 @@ async function main() {
 
   await writeJsonReport(options.reportPath, report);
 
-  console.log(`Phase 8 social-preview report written to ${toRepoRelative(options.reportPath)}`);
+  console.log(`social-preview report written to ${toRepoRelative(options.reportPath)}`);
   console.log(`Routes checked: ${summary.checkedRoutes}`);
   console.log(`Pass routes: ${summary.passCount}`);
   console.log(`Fail routes: ${summary.failCount}`);

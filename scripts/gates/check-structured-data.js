@@ -26,7 +26,7 @@ const defaults = {
 };
 
 function printHelp() {
-  console.log(`Usage: node scripts/phase-8/check-structured-data.js [options]
+  console.log(`Usage: node scripts/gates/check-structured-data.js [options]
 
 Options:
   --public-dir <path>      Override the built public directory.
@@ -663,7 +663,7 @@ async function main() {
 
   await writeJsonReport(options.reportPath, report);
 
-  console.log(`Phase 8 structured-data report written to ${toRepoRelative(options.reportPath)}`);
+  console.log(`structured-data report written to ${toRepoRelative(options.reportPath)}`);
   console.log(`Routes checked: ${summary.totalRoutes}`);
   console.log(`Pass routes: ${summary.passCount}`);
   console.log(`Fail routes: ${summary.failCount}`);

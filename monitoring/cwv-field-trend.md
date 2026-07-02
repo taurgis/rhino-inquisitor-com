@@ -1,4 +1,4 @@
-# Phase 9 Core Web Vitals Field Trend
+# Core Web Vitals Field Trend
 
 - Status: `not-started`
 - Run timestamp: `TBD`

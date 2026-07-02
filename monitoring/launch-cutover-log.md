@@ -1,4 +1,4 @@
-# Phase 9 Launch Cutover Log
+# Launch Cutover Log
 
 - Status: `repo-ready` (awaiting Pages custom-domain switch)
 - Run timestamp: `2026-07-01`

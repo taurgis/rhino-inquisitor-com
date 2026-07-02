@@ -11,7 +11,7 @@ const repoRoot = path.resolve(scriptDir, '..', '..');
 
 const defaults = {
   publicDir: path.join(repoRoot, 'public'),
-  reportPath: path.join(repoRoot, 'tmp', 'phase-7-artifact-validation-report.json'),
+  reportPath: path.join(repoRoot, 'tmp', 'artifact-validation-report.json'),
   manifestPath: path.join(repoRoot, 'url-data', 'url-manifest.json'),
   label: 'artifact-validation',
   compressedWarnMb: 700,
@@ -23,11 +23,11 @@ const forbiddenFilePattern = /(^|\/)~|\.bak$|\.old$|\.orig$|\.tmp$|\.swp$|\.swo$
 const forbiddenRepoFilePattern = /(^|\/)(package\.json|package-lock\.json|yarn\.lock|pnpm-lock\.yaml|hugo\.toml|\.env(?:\..*)?)$/i;
 
 function printHelp() {
-  console.log(`Usage: node scripts/phase-7/validate-artifact.js [options]
+  console.log(`Usage: node scripts/gates/validate-artifact.js [options]
 
 Options:
   --public-dir <path>            Path to built Hugo output (default: public)
-  --report <path>                Report output path (default: tmp/phase-7-artifact-validation-report.json)
+  --report <path>                Report output path (default: tmp/artifact-validation-report.json)
   --manifest <path>              Path to url-manifest.json for uppercase route exceptions
   --label <value>                Label used in report/log output (default: artifact-validation)
   --compressed-warn-mb <number>  Warn when compressed artifact size is at/above this value (default: 700)

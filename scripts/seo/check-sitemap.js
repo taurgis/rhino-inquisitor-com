@@ -17,11 +17,11 @@ import {
 
 const defaults = {
   manifestPath: path.join(repoRoot, 'url-data/url-manifest.json'),
-  metadataReportPath: path.join(repoRoot, 'url-data/reports/phase-5-metadata-report.csv'),
+  metadataReportPath: path.join(repoRoot, 'url-data/reports/metadata-report.csv'),
   publicRoot: path.join(repoRoot, 'public'),
   sitemapPath: path.join(repoRoot, 'public/sitemap.xml'),
   robotsPath: path.join(repoRoot, 'public/robots.txt'),
-  reportPath: path.join(repoRoot, 'url-data/reports/phase-5-sitemap-audit.csv')
+  reportPath: path.join(repoRoot, 'url-data/reports/sitemap-audit.csv')
 };
 
 const xmlParser = new XMLParser({

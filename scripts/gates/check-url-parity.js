@@ -50,7 +50,7 @@ function summarizeEntries(entries) {
 async function main() {
   const options = parsePhase8Args(process.argv.slice(2), defaults);
   if (options.help) {
-    printCommonHelp('scripts/phase-8/check-url-parity.js');
+    printCommonHelp('scripts/gates/check-url-parity.js');
     return;
   }
 
@@ -85,7 +85,7 @@ async function main() {
 
   await writeJsonReport(options.reportPath, report);
 
-  console.log(`Phase 8 URL parity report written to ${toRepoRelative(options.reportPath)}`);
+  console.log(`URL parity report written to ${toRepoRelative(options.reportPath)}`);
   console.log(`Total rows: ${summary.totalEntries}`);
   console.log(`Blocking rows: ${summary.blockingEntries}`);
   console.log(`Accepted-risk rows: ${summary.acceptedRiskEntries}`);

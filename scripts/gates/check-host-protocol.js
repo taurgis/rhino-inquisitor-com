@@ -9,13 +9,13 @@ const repoRoot = path.resolve(__dirname, '..', '..');
 const defaults = {
   publicRoot: path.join(repoRoot, 'public'),
   previewPublicRoot: '',
-  reportDir: path.join(repoRoot, 'tmp', 'phase-6-host-protocol'),
+  reportDir: path.join(repoRoot, 'tmp', 'host-protocol'),
   productionBaseUrl: 'https://rhino-inquisitor.com/',
   previewBaseUrl: 'https://taurgis.github.io/rhino-inquisitor-com/'
 };
 
 function printHelp() {
-  console.log(`Usage: node scripts/phase-6/check-host-protocol.js [options]
+  console.log(`Usage: node scripts/gates/check-host-protocol.js [options]
 
 Options:
   --public-dir <path>          Override the production public directory.
@@ -107,11 +107,11 @@ async function main() {
 
   await fs.mkdir(options.reportDir, { recursive: true });
 
-  const metadataReportPath = path.join(options.reportDir, 'phase-6-host-protocol-metadata.csv');
-  const sitemapReportPath = path.join(options.reportDir, 'phase-6-host-protocol-sitemap.csv');
+  const metadataReportPath = path.join(options.reportDir, 'host-protocol-metadata.csv');
+  const sitemapReportPath = path.join(options.reportDir, 'host-protocol-sitemap.csv');
   const productionCrawlReportPath = path.join(
     options.reportDir,
-    'phase-6-host-protocol-crawl-controls-production.csv'
+    'host-protocol-crawl-controls-production.csv'
   );
 
   runNodeScript(
@@ -151,7 +151,7 @@ async function main() {
   if (options.previewPublicRoot) {
     const previewCrawlReportPath = path.join(
       options.reportDir,
-      'phase-6-host-protocol-crawl-controls-preview.csv'
+      'host-protocol-crawl-controls-preview.csv'
     );
 
     runNodeScript(
