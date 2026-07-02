@@ -20,6 +20,10 @@ env:
 jobs:
   build_site:
     runs-on: ubuntu-latest
+    outputs:
+      preview_base_url: ${{ steps.preview_base.outputs.base_url }}
+      deploy_artifact_source: ${{ steps.deploy_artifact.outputs.source }}
+      pages_host_ready: ${{ steps.pages_host.outputs.ready }}
 
     steps:
       - name: Check out repository
@@ -280,12 +284,23 @@ jobs:
           RHI_HTTPS_LIVE_HOST_READY: ${{ steps.pages_host.outputs.ready }}
         run: npm run gates:local -- --group build
 
+      - name: Upload build outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-outputs-${{ github.sha }}
+          path: |
+            public/
+            tmp/
+          retention-days: 1
+          if-no-files-found: error
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
           path: ./public
 
   gate_url:
+    needs: build_site
     runs-on: ubuntu-latest
 
     steps:
@@ -310,247 +325,27 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-${{ env.NODE_VERSION }}-
 
-      - name: Restore Hugo extended binary cache
-        uses: actions/cache@v5
+      - name: Download build outputs
+        uses: actions/download-artifact@v4
         with:
-          path: ~/.cache/hugo/${{ env.HUGO_VERSION }}
-          key: ${{ runner.os }}-hugo-${{ env.HUGO_VERSION }}
-
-      - name: Install Hugo extended
-        shell: bash
-        run: |
-          set -euo pipefail
-          HUGO_DIR="$HOME/.cache/hugo/${HUGO_VERSION}"
-          if [[ ! -x "$HUGO_DIR/hugo" ]]; then
-            mkdir -p "$HUGO_DIR"
-            curl -fsSL -o "$RUNNER_TEMP/hugo.tar.gz" "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
-            tar -xzf "$RUNNER_TEMP/hugo.tar.gz" -C "$HUGO_DIR" hugo
-          fi
-          export PATH="$HUGO_DIR:$PATH"
-          echo "$HUGO_DIR" >> "$GITHUB_PATH"
-          hugo version
-
-      - name: Configure GitHub Pages
-        id: pages
-        uses: actions/configure-pages@v5
-
-      - name: Summarize Pages host configuration
-        id: pages_host
-        env:
-          EXPECTED_PAGES_HOST: ${{ env.EXPECTED_PAGES_HOST }}
-          PAGES_BASE_URL: ${{ steps.pages.outputs.base_url }}
-          PAGES_HOST: ${{ steps.pages.outputs.host }}
-        shell: bash
-        run: |
-          set -euo pipefail
-
-          if [[ -z "$PAGES_BASE_URL" || -z "$PAGES_HOST" ]]; then
-            echo "Missing GitHub Pages site metadata from actions/configure-pages." >&2
-            exit 1
-          fi
-
-          if [[ "$PAGES_HOST" != "$EXPECTED_PAGES_HOST" ]]; then
-            echo "ready=false" >> "$GITHUB_OUTPUT"
-            echo "GitHub Pages host is '$PAGES_HOST', expected '$EXPECTED_PAGES_HOST'. Continuing in project-host rehearsal mode until the production custom domain is active (preview artifact ships noindex until then)." >> "$GITHUB_STEP_SUMMARY"
-            echo "::notice::GitHub Pages host is '$PAGES_HOST'; continuing with project-host rehearsal and preview-artifact validation."
-          else
-            echo "ready=true" >> "$GITHUB_OUTPUT"
-            echo "GitHub Pages production host '$PAGES_HOST' is active." >> "$GITHUB_STEP_SUMMARY"
-          fi
+          name: build-outputs-${{ github.sha }}
 
       - name: Install Node dependencies
         run: npm ci --include=optional
 
-      - name: Compute AVIF cache fingerprint
-        id: avif_cache_fingerprint
-        shell: bash
-        run: |
-          set -euo pipefail
-          node <<'EOF'
-          const crypto = require('node:crypto');
-          const fs = require('node:fs/promises');
-          const path = require('node:path');
-
-          const repoRoot = process.cwd();
-          const sourceRoots = [
-            path.join(repoRoot, 'src', 'content'),
-            path.join(repoRoot, 'src', 'assets')
-          ];
-          const excludedRoot = path.join(repoRoot, 'src', 'assets', 'generated-avif');
-          const allowedExtensions = new Set(['.jpg', '.jpeg', '.png', '.webp']);
-
-          async function collectFiles(directory, files) {
-            let entries;
-            try {
-              entries = await fs.readdir(directory, { withFileTypes: true });
-            } catch {
-              return;
-            }
-
-            for (const entry of entries) {
-              const absolutePath = path.join(directory, entry.name);
-              if (absolutePath === excludedRoot || absolutePath.startsWith(`${excludedRoot}${path.sep}`)) {
-                continue;
-              }
-
-              if (entry.isDirectory()) {
-                await collectFiles(absolutePath, files);
-                continue;
-              }
-
-              if (entry.isFile() && allowedExtensions.has(path.extname(entry.name).toLowerCase())) {
-                files.push(absolutePath);
-              }
-            }
-          }
-
-          async function main() {
-            const files = [];
-            for (const sourceRoot of sourceRoots) {
-              await collectFiles(sourceRoot, files);
-            }
-
-            files.sort((left, right) => left.localeCompare(right));
-
-            const fingerprint = crypto.createHash('sha256');
-            for (const filePath of files) {
-              fingerprint.update(path.relative(repoRoot, filePath));
-              fingerprint.update('\0');
-              fingerprint.update(await fs.readFile(filePath));
-              fingerprint.update('\0');
-            }
-
-            const output = process.env.GITHUB_OUTPUT;
-            await fs.appendFile(output, `value=${fingerprint.digest('hex')}\n`, 'utf8');
-            console.log(`AVIF source fingerprint covers ${files.length} image(s).`);
-          }
-
-          main().catch((error) => {
-            console.error(error.message);
-            process.exit(1);
-          });
-          EOF
-
-      - name: Restore generated AVIF cache
-        id: avif_cache
-        uses: actions/cache@v5
-        with:
-          path: src/assets/generated-avif
-          key: ${{ runner.os }}-avif-${{ env.AVIF_CACHE_VERSION }}-node-${{ env.NODE_VERSION }}-lock-${{ hashFiles('package-lock.json') }}-generator-${{ hashFiles('scripts/generate-avif-cache.js') }}-images-${{ steps.avif_cache_fingerprint.outputs.value }}
-          restore-keys: |
-            ${{ runner.os }}-avif-${{ env.AVIF_CACHE_VERSION }}-node-${{ env.NODE_VERSION }}-lock-${{ hashFiles('package-lock.json') }}-generator-${{ hashFiles('scripts/generate-avif-cache.js') }}-
-
-      - name: Summarize generated AVIF cache status
-        env:
-          CACHE_HIT: ${{ steps.avif_cache.outputs.cache-hit }}
-        shell: bash
-        run: |
-          set -euo pipefail
-
-          if [[ "$CACHE_HIT" == "true" ]]; then
-            echo "Generated AVIF cache restored from an exact key match." >> "$GITHUB_STEP_SUMMARY"
-          elif [[ "$CACHE_HIT" == "false" ]]; then
-            echo "Generated AVIF cache restored from a prefix match and will be refreshed after a successful build." >> "$GITHUB_STEP_SUMMARY"
-          else
-            echo "Generated AVIF cache miss; this run will regenerate AVIF derivatives and save them for future runs." >> "$GITHUB_STEP_SUMMARY"
-          fi
-
-      - name: Verify Sharp AVIF runtime
-        shell: bash
-        run: |
-          set -euo pipefail
-          node <<'EOF'
-          const sharp = require('sharp');
-
-          async function main() {
-            const input = Buffer.from([
-              0xff, 0x00, 0x00, 0xff,
-              0x00, 0x80, 0xff, 0xff,
-              0x20, 0xc0, 0x40, 0xff,
-              0x10, 0x10, 0x10, 0xff
-            ]);
-
-            const output = await sharp(input, {
-              raw: {
-                width: 2,
-                height: 2,
-                channels: 4
-              }
-            }).avif({ quality: 40 }).toBuffer();
-
-            if (!Buffer.isBuffer(output) || output.length === 0) {
-              throw new Error('Sharp AVIF smoke check produced no output.');
-            }
-
-            console.log(`Sharp AVIF smoke check passed (${output.length} bytes).`);
-          }
-
-          main().catch((error) => {
-            console.error(error.message);
-            process.exit(1);
-          });
-          EOF
-
       - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium
-
-      - name: Normalize preview base URL
-        id: preview_base
-        env:
-          RAW_PAGES_BASE_URL: ${{ steps.pages.outputs.base_url }}
-        shell: bash
-        run: |
-          set -euo pipefail
-          node <<'EOF'
-          const rawBaseUrl = process.env.RAW_PAGES_BASE_URL;
-
-          if (!rawBaseUrl) {
-            throw new Error('Missing RAW_PAGES_BASE_URL from actions/configure-pages.');
-          }
-
-          const normalized = new URL(rawBaseUrl);
-          normalized.protocol = 'https:';
-          const trimmedPath = normalized.pathname.replace(/\/+$/, '');
-          normalized.pathname = trimmedPath ? `${trimmedPath}/` : '/';
-
-          const output = process.env.GITHUB_OUTPUT;
-          require('node:fs').appendFileSync(output, `base_url=${normalized.toString()}\n`, 'utf8');
-          EOF
-
-      - name: Select deploy artifact source
-        id: deploy_artifact
-        env:
-          CANONICAL_PRODUCTION_BASE_URL: ${{ env.CANONICAL_PRODUCTION_BASE_URL }}
-          PREVIEW_BASE_URL: ${{ steps.preview_base.outputs.base_url }}
-        shell: bash
-        run: |
-          set -euo pipefail
-
-          if [[ -z "$PREVIEW_BASE_URL" ]]; then
-            echo "Missing normalized preview base URL." >&2
-            exit 1
-          fi
-
-          if [[ "$PREVIEW_BASE_URL" == "$CANONICAL_PRODUCTION_BASE_URL" ]]; then
-            echo "source=production" >> "$GITHUB_OUTPUT"
-            echo "Deploy artifact source: production validation output." >> "$GITHUB_STEP_SUMMARY"
-          else
-            echo "source=preview" >> "$GITHUB_OUTPUT"
-            echo "Deploy artifact source: environment-aware output for $PREVIEW_BASE_URL." >> "$GITHUB_STEP_SUMMARY"
-          fi
-
-      - name: Build production site
-        run: npm run build:prod
 
       - name: Run blocking deployment quality gates (url)
         env:
-          PREVIEW_BASE_URL: ${{ steps.preview_base.outputs.base_url }}
-          DEPLOY_ARTIFACT_SOURCE: ${{ steps.deploy_artifact.outputs.source }}
+          PREVIEW_BASE_URL: ${{ needs.build_site.outputs.preview_base_url }}
+          DEPLOY_ARTIFACT_SOURCE: ${{ needs.build_site.outputs.deploy_artifact_source }}
           CI_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          RHI_HTTPS_LIVE_HOST_READY: ${{ steps.pages_host.outputs.ready }}
+          RHI_HTTPS_LIVE_HOST_READY: ${{ needs.build_site.outputs.pages_host_ready }}
         run: npm run gates:local -- --group url
 
   gate_seo:
+    needs: build_site
     runs-on: ubuntu-latest
 
     steps:
@@ -575,250 +370,27 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-${{ env.NODE_VERSION }}-
 
-      - name: Restore Hugo extended binary cache
-        uses: actions/cache@v5
+      - name: Download build outputs
+        uses: actions/download-artifact@v4
         with:
-          path: ~/.cache/hugo/${{ env.HUGO_VERSION }}
-          key: ${{ runner.os }}-hugo-${{ env.HUGO_VERSION }}
-
-      - name: Install Hugo extended
-        shell: bash
-        run: |
-          set -euo pipefail
-          HUGO_DIR="$HOME/.cache/hugo/${HUGO_VERSION}"
-          if [[ ! -x "$HUGO_DIR/hugo" ]]; then
-            mkdir -p "$HUGO_DIR"
-            curl -fsSL -o "$RUNNER_TEMP/hugo.tar.gz" "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
-            tar -xzf "$RUNNER_TEMP/hugo.tar.gz" -C "$HUGO_DIR" hugo
-          fi
-          export PATH="$HUGO_DIR:$PATH"
-          echo "$HUGO_DIR" >> "$GITHUB_PATH"
-          hugo version
-
-      - name: Configure GitHub Pages
-        id: pages
-        uses: actions/configure-pages@v5
-
-      - name: Summarize Pages host configuration
-        id: pages_host
-        env:
-          EXPECTED_PAGES_HOST: ${{ env.EXPECTED_PAGES_HOST }}
-          PAGES_BASE_URL: ${{ steps.pages.outputs.base_url }}
-          PAGES_HOST: ${{ steps.pages.outputs.host }}
-        shell: bash
-        run: |
-          set -euo pipefail
-
-          if [[ -z "$PAGES_BASE_URL" || -z "$PAGES_HOST" ]]; then
-            echo "Missing GitHub Pages site metadata from actions/configure-pages." >&2
-            exit 1
-          fi
-
-          if [[ "$PAGES_HOST" != "$EXPECTED_PAGES_HOST" ]]; then
-            echo "ready=false" >> "$GITHUB_OUTPUT"
-            echo "GitHub Pages host is '$PAGES_HOST', expected '$EXPECTED_PAGES_HOST'. Continuing in project-host rehearsal mode until the production custom domain is active (preview artifact ships noindex until then)." >> "$GITHUB_STEP_SUMMARY"
-            echo "::notice::GitHub Pages host is '$PAGES_HOST'; continuing with project-host rehearsal and preview-artifact validation."
-          else
-            echo "ready=true" >> "$GITHUB_OUTPUT"
-            echo "GitHub Pages production host '$PAGES_HOST' is active." >> "$GITHUB_STEP_SUMMARY"
-          fi
+          name: build-outputs-${{ github.sha }}
 
       - name: Install Node dependencies
         run: npm ci --include=optional
 
-      - name: Compute AVIF cache fingerprint
-        id: avif_cache_fingerprint
-        shell: bash
-        run: |
-          set -euo pipefail
-          node <<'EOF'
-          const crypto = require('node:crypto');
-          const fs = require('node:fs/promises');
-          const path = require('node:path');
-
-          const repoRoot = process.cwd();
-          const sourceRoots = [
-            path.join(repoRoot, 'src', 'content'),
-            path.join(repoRoot, 'src', 'assets')
-          ];
-          const excludedRoot = path.join(repoRoot, 'src', 'assets', 'generated-avif');
-          const allowedExtensions = new Set(['.jpg', '.jpeg', '.png', '.webp']);
-
-          async function collectFiles(directory, files) {
-            let entries;
-            try {
-              entries = await fs.readdir(directory, { withFileTypes: true });
-            } catch {
-              return;
-            }
-
-            for (const entry of entries) {
-              const absolutePath = path.join(directory, entry.name);
-              if (absolutePath === excludedRoot || absolutePath.startsWith(`${excludedRoot}${path.sep}`)) {
-                continue;
-              }
-
-              if (entry.isDirectory()) {
-                await collectFiles(absolutePath, files);
-                continue;
-              }
-
-              if (entry.isFile() && allowedExtensions.has(path.extname(entry.name).toLowerCase())) {
-                files.push(absolutePath);
-              }
-            }
-          }
-
-          async function main() {
-            const files = [];
-            for (const sourceRoot of sourceRoots) {
-              await collectFiles(sourceRoot, files);
-            }
-
-            files.sort((left, right) => left.localeCompare(right));
-
-            const fingerprint = crypto.createHash('sha256');
-            for (const filePath of files) {
-              fingerprint.update(path.relative(repoRoot, filePath));
-              fingerprint.update('\0');
-              fingerprint.update(await fs.readFile(filePath));
-              fingerprint.update('\0');
-            }
-
-            const output = process.env.GITHUB_OUTPUT;
-            await fs.appendFile(output, `value=${fingerprint.digest('hex')}\n`, 'utf8');
-            console.log(`AVIF source fingerprint covers ${files.length} image(s).`);
-          }
-
-          main().catch((error) => {
-            console.error(error.message);
-            process.exit(1);
-          });
-          EOF
-
-      - name: Restore generated AVIF cache
-        id: avif_cache
-        uses: actions/cache@v5
-        with:
-          path: src/assets/generated-avif
-          key: ${{ runner.os }}-avif-${{ env.AVIF_CACHE_VERSION }}-node-${{ env.NODE_VERSION }}-lock-${{ hashFiles('package-lock.json') }}-generator-${{ hashFiles('scripts/generate-avif-cache.js') }}-images-${{ steps.avif_cache_fingerprint.outputs.value }}
-          restore-keys: |
-            ${{ runner.os }}-avif-${{ env.AVIF_CACHE_VERSION }}-node-${{ env.NODE_VERSION }}-lock-${{ hashFiles('package-lock.json') }}-generator-${{ hashFiles('scripts/generate-avif-cache.js') }}-
-
-      - name: Summarize generated AVIF cache status
-        env:
-          CACHE_HIT: ${{ steps.avif_cache.outputs.cache-hit }}
-        shell: bash
-        run: |
-          set -euo pipefail
-
-          if [[ "$CACHE_HIT" == "true" ]]; then
-            echo "Generated AVIF cache restored from an exact key match." >> "$GITHUB_STEP_SUMMARY"
-          elif [[ "$CACHE_HIT" == "false" ]]; then
-            echo "Generated AVIF cache restored from a prefix match and will be refreshed after a successful build." >> "$GITHUB_STEP_SUMMARY"
-          else
-            echo "Generated AVIF cache miss; this run will regenerate AVIF derivatives and save them for future runs." >> "$GITHUB_STEP_SUMMARY"
-          fi
-
-      - name: Verify Sharp AVIF runtime
-        shell: bash
-        run: |
-          set -euo pipefail
-          node <<'EOF'
-          const sharp = require('sharp');
-
-          async function main() {
-            const input = Buffer.from([
-              0xff, 0x00, 0x00, 0xff,
-              0x00, 0x80, 0xff, 0xff,
-              0x20, 0xc0, 0x40, 0xff,
-              0x10, 0x10, 0x10, 0xff
-            ]);
-
-            const output = await sharp(input, {
-              raw: {
-                width: 2,
-                height: 2,
-                channels: 4
-              }
-            }).avif({ quality: 40 }).toBuffer();
-
-            if (!Buffer.isBuffer(output) || output.length === 0) {
-              throw new Error('Sharp AVIF smoke check produced no output.');
-            }
-
-            console.log(`Sharp AVIF smoke check passed (${output.length} bytes).`);
-          }
-
-          main().catch((error) => {
-            console.error(error.message);
-            process.exit(1);
-          });
-          EOF
-
       - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium
-
-      - name: Normalize preview base URL
-        id: preview_base
-        env:
-          RAW_PAGES_BASE_URL: ${{ steps.pages.outputs.base_url }}
-        shell: bash
-        run: |
-          set -euo pipefail
-          node <<'EOF'
-          const rawBaseUrl = process.env.RAW_PAGES_BASE_URL;
-
-          if (!rawBaseUrl) {
-            throw new Error('Missing RAW_PAGES_BASE_URL from actions/configure-pages.');
-          }
-
-          const normalized = new URL(rawBaseUrl);
-          normalized.protocol = 'https:';
-          const trimmedPath = normalized.pathname.replace(/\/+$/, '');
-          normalized.pathname = trimmedPath ? `${trimmedPath}/` : '/';
-
-          const output = process.env.GITHUB_OUTPUT;
-          require('node:fs').appendFileSync(output, `base_url=${normalized.toString()}\n`, 'utf8');
-          EOF
-
-      - name: Select deploy artifact source
-        id: deploy_artifact
-        env:
-          CANONICAL_PRODUCTION_BASE_URL: ${{ env.CANONICAL_PRODUCTION_BASE_URL }}
-          PREVIEW_BASE_URL: ${{ steps.preview_base.outputs.base_url }}
-        shell: bash
-        run: |
-          set -euo pipefail
-
-          if [[ -z "$PREVIEW_BASE_URL" ]]; then
-            echo "Missing normalized preview base URL." >&2
-            exit 1
-          fi
-
-          if [[ "$PREVIEW_BASE_URL" == "$CANONICAL_PRODUCTION_BASE_URL" ]]; then
-            echo "source=production" >> "$GITHUB_OUTPUT"
-            echo "Deploy artifact source: production validation output." >> "$GITHUB_STEP_SUMMARY"
-          else
-            echo "source=preview" >> "$GITHUB_OUTPUT"
-            echo "Deploy artifact source: environment-aware output for $PREVIEW_BASE_URL." >> "$GITHUB_STEP_SUMMARY"
-          fi
-
-      - name: Build production site
-        run: npm run build:prod
-
-      - name: Build preview rehearsal site
-        run: PREVIEW_BASE_URL="${{ steps.preview_base.outputs.base_url }}" npm run build:preview-pages && mkdir -p tmp && touch tmp/preview-build.marker
 
       - name: Run blocking deployment quality gates (seo)
         env:
-          PREVIEW_BASE_URL: ${{ steps.preview_base.outputs.base_url }}
-          DEPLOY_ARTIFACT_SOURCE: ${{ steps.deploy_artifact.outputs.source }}
+          PREVIEW_BASE_URL: ${{ needs.build_site.outputs.preview_base_url }}
+          DEPLOY_ARTIFACT_SOURCE: ${{ needs.build_site.outputs.deploy_artifact_source }}
           CI_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          RHI_HTTPS_LIVE_HOST_READY: ${{ steps.pages_host.outputs.ready }}
+          RHI_HTTPS_LIVE_HOST_READY: ${{ needs.build_site.outputs.pages_host_ready }}
         run: npm run gates:local -- --group seo
 
   gate_a11y:
+    needs: build_site
     runs-on: ubuntu-latest
 
     steps:
@@ -843,247 +415,27 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-${{ env.NODE_VERSION }}-
 
-      - name: Restore Hugo extended binary cache
-        uses: actions/cache@v5
+      - name: Download build outputs
+        uses: actions/download-artifact@v4
         with:
-          path: ~/.cache/hugo/${{ env.HUGO_VERSION }}
-          key: ${{ runner.os }}-hugo-${{ env.HUGO_VERSION }}
-
-      - name: Install Hugo extended
-        shell: bash
-        run: |
-          set -euo pipefail
-          HUGO_DIR="$HOME/.cache/hugo/${HUGO_VERSION}"
-          if [[ ! -x "$HUGO_DIR/hugo" ]]; then
-            mkdir -p "$HUGO_DIR"
-            curl -fsSL -o "$RUNNER_TEMP/hugo.tar.gz" "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
-            tar -xzf "$RUNNER_TEMP/hugo.tar.gz" -C "$HUGO_DIR" hugo
-          fi
-          export PATH="$HUGO_DIR:$PATH"
-          echo "$HUGO_DIR" >> "$GITHUB_PATH"
-          hugo version
-
-      - name: Configure GitHub Pages
-        id: pages
-        uses: actions/configure-pages@v5
-
-      - name: Summarize Pages host configuration
-        id: pages_host
-        env:
-          EXPECTED_PAGES_HOST: ${{ env.EXPECTED_PAGES_HOST }}
-          PAGES_BASE_URL: ${{ steps.pages.outputs.base_url }}
-          PAGES_HOST: ${{ steps.pages.outputs.host }}
-        shell: bash
-        run: |
-          set -euo pipefail
-
-          if [[ -z "$PAGES_BASE_URL" || -z "$PAGES_HOST" ]]; then
-            echo "Missing GitHub Pages site metadata from actions/configure-pages." >&2
-            exit 1
-          fi
-
-          if [[ "$PAGES_HOST" != "$EXPECTED_PAGES_HOST" ]]; then
-            echo "ready=false" >> "$GITHUB_OUTPUT"
-            echo "GitHub Pages host is '$PAGES_HOST', expected '$EXPECTED_PAGES_HOST'. Continuing in project-host rehearsal mode until the production custom domain is active (preview artifact ships noindex until then)." >> "$GITHUB_STEP_SUMMARY"
-            echo "::notice::GitHub Pages host is '$PAGES_HOST'; continuing with project-host rehearsal and preview-artifact validation."
-          else
-            echo "ready=true" >> "$GITHUB_OUTPUT"
-            echo "GitHub Pages production host '$PAGES_HOST' is active." >> "$GITHUB_STEP_SUMMARY"
-          fi
+          name: build-outputs-${{ github.sha }}
 
       - name: Install Node dependencies
         run: npm ci --include=optional
 
-      - name: Compute AVIF cache fingerprint
-        id: avif_cache_fingerprint
-        shell: bash
-        run: |
-          set -euo pipefail
-          node <<'EOF'
-          const crypto = require('node:crypto');
-          const fs = require('node:fs/promises');
-          const path = require('node:path');
-
-          const repoRoot = process.cwd();
-          const sourceRoots = [
-            path.join(repoRoot, 'src', 'content'),
-            path.join(repoRoot, 'src', 'assets')
-          ];
-          const excludedRoot = path.join(repoRoot, 'src', 'assets', 'generated-avif');
-          const allowedExtensions = new Set(['.jpg', '.jpeg', '.png', '.webp']);
-
-          async function collectFiles(directory, files) {
-            let entries;
-            try {
-              entries = await fs.readdir(directory, { withFileTypes: true });
-            } catch {
-              return;
-            }
-
-            for (const entry of entries) {
-              const absolutePath = path.join(directory, entry.name);
-              if (absolutePath === excludedRoot || absolutePath.startsWith(`${excludedRoot}${path.sep}`)) {
-                continue;
-              }
-
-              if (entry.isDirectory()) {
-                await collectFiles(absolutePath, files);
-                continue;
-              }
-
-              if (entry.isFile() && allowedExtensions.has(path.extname(entry.name).toLowerCase())) {
-                files.push(absolutePath);
-              }
-            }
-          }
-
-          async function main() {
-            const files = [];
-            for (const sourceRoot of sourceRoots) {
-              await collectFiles(sourceRoot, files);
-            }
-
-            files.sort((left, right) => left.localeCompare(right));
-
-            const fingerprint = crypto.createHash('sha256');
-            for (const filePath of files) {
-              fingerprint.update(path.relative(repoRoot, filePath));
-              fingerprint.update('\0');
-              fingerprint.update(await fs.readFile(filePath));
-              fingerprint.update('\0');
-            }
-
-            const output = process.env.GITHUB_OUTPUT;
-            await fs.appendFile(output, `value=${fingerprint.digest('hex')}\n`, 'utf8');
-            console.log(`AVIF source fingerprint covers ${files.length} image(s).`);
-          }
-
-          main().catch((error) => {
-            console.error(error.message);
-            process.exit(1);
-          });
-          EOF
-
-      - name: Restore generated AVIF cache
-        id: avif_cache
-        uses: actions/cache@v5
-        with:
-          path: src/assets/generated-avif
-          key: ${{ runner.os }}-avif-${{ env.AVIF_CACHE_VERSION }}-node-${{ env.NODE_VERSION }}-lock-${{ hashFiles('package-lock.json') }}-generator-${{ hashFiles('scripts/generate-avif-cache.js') }}-images-${{ steps.avif_cache_fingerprint.outputs.value }}
-          restore-keys: |
-            ${{ runner.os }}-avif-${{ env.AVIF_CACHE_VERSION }}-node-${{ env.NODE_VERSION }}-lock-${{ hashFiles('package-lock.json') }}-generator-${{ hashFiles('scripts/generate-avif-cache.js') }}-
-
-      - name: Summarize generated AVIF cache status
-        env:
-          CACHE_HIT: ${{ steps.avif_cache.outputs.cache-hit }}
-        shell: bash
-        run: |
-          set -euo pipefail
-
-          if [[ "$CACHE_HIT" == "true" ]]; then
-            echo "Generated AVIF cache restored from an exact key match." >> "$GITHUB_STEP_SUMMARY"
-          elif [[ "$CACHE_HIT" == "false" ]]; then
-            echo "Generated AVIF cache restored from a prefix match and will be refreshed after a successful build." >> "$GITHUB_STEP_SUMMARY"
-          else
-            echo "Generated AVIF cache miss; this run will regenerate AVIF derivatives and save them for future runs." >> "$GITHUB_STEP_SUMMARY"
-          fi
-
-      - name: Verify Sharp AVIF runtime
-        shell: bash
-        run: |
-          set -euo pipefail
-          node <<'EOF'
-          const sharp = require('sharp');
-
-          async function main() {
-            const input = Buffer.from([
-              0xff, 0x00, 0x00, 0xff,
-              0x00, 0x80, 0xff, 0xff,
-              0x20, 0xc0, 0x40, 0xff,
-              0x10, 0x10, 0x10, 0xff
-            ]);
-
-            const output = await sharp(input, {
-              raw: {
-                width: 2,
-                height: 2,
-                channels: 4
-              }
-            }).avif({ quality: 40 }).toBuffer();
-
-            if (!Buffer.isBuffer(output) || output.length === 0) {
-              throw new Error('Sharp AVIF smoke check produced no output.');
-            }
-
-            console.log(`Sharp AVIF smoke check passed (${output.length} bytes).`);
-          }
-
-          main().catch((error) => {
-            console.error(error.message);
-            process.exit(1);
-          });
-          EOF
-
       - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium
-
-      - name: Normalize preview base URL
-        id: preview_base
-        env:
-          RAW_PAGES_BASE_URL: ${{ steps.pages.outputs.base_url }}
-        shell: bash
-        run: |
-          set -euo pipefail
-          node <<'EOF'
-          const rawBaseUrl = process.env.RAW_PAGES_BASE_URL;
-
-          if (!rawBaseUrl) {
-            throw new Error('Missing RAW_PAGES_BASE_URL from actions/configure-pages.');
-          }
-
-          const normalized = new URL(rawBaseUrl);
-          normalized.protocol = 'https:';
-          const trimmedPath = normalized.pathname.replace(/\/+$/, '');
-          normalized.pathname = trimmedPath ? `${trimmedPath}/` : '/';
-
-          const output = process.env.GITHUB_OUTPUT;
-          require('node:fs').appendFileSync(output, `base_url=${normalized.toString()}\n`, 'utf8');
-          EOF
-
-      - name: Select deploy artifact source
-        id: deploy_artifact
-        env:
-          CANONICAL_PRODUCTION_BASE_URL: ${{ env.CANONICAL_PRODUCTION_BASE_URL }}
-          PREVIEW_BASE_URL: ${{ steps.preview_base.outputs.base_url }}
-        shell: bash
-        run: |
-          set -euo pipefail
-
-          if [[ -z "$PREVIEW_BASE_URL" ]]; then
-            echo "Missing normalized preview base URL." >&2
-            exit 1
-          fi
-
-          if [[ "$PREVIEW_BASE_URL" == "$CANONICAL_PRODUCTION_BASE_URL" ]]; then
-            echo "source=production" >> "$GITHUB_OUTPUT"
-            echo "Deploy artifact source: production validation output." >> "$GITHUB_STEP_SUMMARY"
-          else
-            echo "source=preview" >> "$GITHUB_OUTPUT"
-            echo "Deploy artifact source: environment-aware output for $PREVIEW_BASE_URL." >> "$GITHUB_STEP_SUMMARY"
-          fi
-
-      - name: Build production site
-        run: npm run build:prod
 
       - name: Run blocking deployment quality gates (a11y)
         env:
-          PREVIEW_BASE_URL: ${{ steps.preview_base.outputs.base_url }}
-          DEPLOY_ARTIFACT_SOURCE: ${{ steps.deploy_artifact.outputs.source }}
+          PREVIEW_BASE_URL: ${{ needs.build_site.outputs.preview_base_url }}
+          DEPLOY_ARTIFACT_SOURCE: ${{ needs.build_site.outputs.deploy_artifact_source }}
           CI_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          RHI_HTTPS_LIVE_HOST_READY: ${{ steps.pages_host.outputs.ready }}
+          RHI_HTTPS_LIVE_HOST_READY: ${{ needs.build_site.outputs.pages_host_ready }}
         run: npm run gates:local -- --group a11y
 
   gate_security:
+    needs: build_site
     runs-on: ubuntu-latest
 
     steps:
@@ -1108,250 +460,27 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-${{ env.NODE_VERSION }}-
 
-      - name: Restore Hugo extended binary cache
-        uses: actions/cache@v5
+      - name: Download build outputs
+        uses: actions/download-artifact@v4
         with:
-          path: ~/.cache/hugo/${{ env.HUGO_VERSION }}
-          key: ${{ runner.os }}-hugo-${{ env.HUGO_VERSION }}
-
-      - name: Install Hugo extended
-        shell: bash
-        run: |
-          set -euo pipefail
-          HUGO_DIR="$HOME/.cache/hugo/${HUGO_VERSION}"
-          if [[ ! -x "$HUGO_DIR/hugo" ]]; then
-            mkdir -p "$HUGO_DIR"
-            curl -fsSL -o "$RUNNER_TEMP/hugo.tar.gz" "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
-            tar -xzf "$RUNNER_TEMP/hugo.tar.gz" -C "$HUGO_DIR" hugo
-          fi
-          export PATH="$HUGO_DIR:$PATH"
-          echo "$HUGO_DIR" >> "$GITHUB_PATH"
-          hugo version
-
-      - name: Configure GitHub Pages
-        id: pages
-        uses: actions/configure-pages@v5
-
-      - name: Summarize Pages host configuration
-        id: pages_host
-        env:
-          EXPECTED_PAGES_HOST: ${{ env.EXPECTED_PAGES_HOST }}
-          PAGES_BASE_URL: ${{ steps.pages.outputs.base_url }}
-          PAGES_HOST: ${{ steps.pages.outputs.host }}
-        shell: bash
-        run: |
-          set -euo pipefail
-
-          if [[ -z "$PAGES_BASE_URL" || -z "$PAGES_HOST" ]]; then
-            echo "Missing GitHub Pages site metadata from actions/configure-pages." >&2
-            exit 1
-          fi
-
-          if [[ "$PAGES_HOST" != "$EXPECTED_PAGES_HOST" ]]; then
-            echo "ready=false" >> "$GITHUB_OUTPUT"
-            echo "GitHub Pages host is '$PAGES_HOST', expected '$EXPECTED_PAGES_HOST'. Continuing in project-host rehearsal mode until the production custom domain is active (preview artifact ships noindex until then)." >> "$GITHUB_STEP_SUMMARY"
-            echo "::notice::GitHub Pages host is '$PAGES_HOST'; continuing with project-host rehearsal and preview-artifact validation."
-          else
-            echo "ready=true" >> "$GITHUB_OUTPUT"
-            echo "GitHub Pages production host '$PAGES_HOST' is active." >> "$GITHUB_STEP_SUMMARY"
-          fi
+          name: build-outputs-${{ github.sha }}
 
       - name: Install Node dependencies
         run: npm ci --include=optional
 
-      - name: Compute AVIF cache fingerprint
-        id: avif_cache_fingerprint
-        shell: bash
-        run: |
-          set -euo pipefail
-          node <<'EOF'
-          const crypto = require('node:crypto');
-          const fs = require('node:fs/promises');
-          const path = require('node:path');
-
-          const repoRoot = process.cwd();
-          const sourceRoots = [
-            path.join(repoRoot, 'src', 'content'),
-            path.join(repoRoot, 'src', 'assets')
-          ];
-          const excludedRoot = path.join(repoRoot, 'src', 'assets', 'generated-avif');
-          const allowedExtensions = new Set(['.jpg', '.jpeg', '.png', '.webp']);
-
-          async function collectFiles(directory, files) {
-            let entries;
-            try {
-              entries = await fs.readdir(directory, { withFileTypes: true });
-            } catch {
-              return;
-            }
-
-            for (const entry of entries) {
-              const absolutePath = path.join(directory, entry.name);
-              if (absolutePath === excludedRoot || absolutePath.startsWith(`${excludedRoot}${path.sep}`)) {
-                continue;
-              }
-
-              if (entry.isDirectory()) {
-                await collectFiles(absolutePath, files);
-                continue;
-              }
-
-              if (entry.isFile() && allowedExtensions.has(path.extname(entry.name).toLowerCase())) {
-                files.push(absolutePath);
-              }
-            }
-          }
-
-          async function main() {
-            const files = [];
-            for (const sourceRoot of sourceRoots) {
-              await collectFiles(sourceRoot, files);
-            }
-
-            files.sort((left, right) => left.localeCompare(right));
-
-            const fingerprint = crypto.createHash('sha256');
-            for (const filePath of files) {
-              fingerprint.update(path.relative(repoRoot, filePath));
-              fingerprint.update('\0');
-              fingerprint.update(await fs.readFile(filePath));
-              fingerprint.update('\0');
-            }
-
-            const output = process.env.GITHUB_OUTPUT;
-            await fs.appendFile(output, `value=${fingerprint.digest('hex')}\n`, 'utf8');
-            console.log(`AVIF source fingerprint covers ${files.length} image(s).`);
-          }
-
-          main().catch((error) => {
-            console.error(error.message);
-            process.exit(1);
-          });
-          EOF
-
-      - name: Restore generated AVIF cache
-        id: avif_cache
-        uses: actions/cache@v5
-        with:
-          path: src/assets/generated-avif
-          key: ${{ runner.os }}-avif-${{ env.AVIF_CACHE_VERSION }}-node-${{ env.NODE_VERSION }}-lock-${{ hashFiles('package-lock.json') }}-generator-${{ hashFiles('scripts/generate-avif-cache.js') }}-images-${{ steps.avif_cache_fingerprint.outputs.value }}
-          restore-keys: |
-            ${{ runner.os }}-avif-${{ env.AVIF_CACHE_VERSION }}-node-${{ env.NODE_VERSION }}-lock-${{ hashFiles('package-lock.json') }}-generator-${{ hashFiles('scripts/generate-avif-cache.js') }}-
-
-      - name: Summarize generated AVIF cache status
-        env:
-          CACHE_HIT: ${{ steps.avif_cache.outputs.cache-hit }}
-        shell: bash
-        run: |
-          set -euo pipefail
-
-          if [[ "$CACHE_HIT" == "true" ]]; then
-            echo "Generated AVIF cache restored from an exact key match." >> "$GITHUB_STEP_SUMMARY"
-          elif [[ "$CACHE_HIT" == "false" ]]; then
-            echo "Generated AVIF cache restored from a prefix match and will be refreshed after a successful build." >> "$GITHUB_STEP_SUMMARY"
-          else
-            echo "Generated AVIF cache miss; this run will regenerate AVIF derivatives and save them for future runs." >> "$GITHUB_STEP_SUMMARY"
-          fi
-
-      - name: Verify Sharp AVIF runtime
-        shell: bash
-        run: |
-          set -euo pipefail
-          node <<'EOF'
-          const sharp = require('sharp');
-
-          async function main() {
-            const input = Buffer.from([
-              0xff, 0x00, 0x00, 0xff,
-              0x00, 0x80, 0xff, 0xff,
-              0x20, 0xc0, 0x40, 0xff,
-              0x10, 0x10, 0x10, 0xff
-            ]);
-
-            const output = await sharp(input, {
-              raw: {
-                width: 2,
-                height: 2,
-                channels: 4
-              }
-            }).avif({ quality: 40 }).toBuffer();
-
-            if (!Buffer.isBuffer(output) || output.length === 0) {
-              throw new Error('Sharp AVIF smoke check produced no output.');
-            }
-
-            console.log(`Sharp AVIF smoke check passed (${output.length} bytes).`);
-          }
-
-          main().catch((error) => {
-            console.error(error.message);
-            process.exit(1);
-          });
-          EOF
-
       - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium
-
-      - name: Normalize preview base URL
-        id: preview_base
-        env:
-          RAW_PAGES_BASE_URL: ${{ steps.pages.outputs.base_url }}
-        shell: bash
-        run: |
-          set -euo pipefail
-          node <<'EOF'
-          const rawBaseUrl = process.env.RAW_PAGES_BASE_URL;
-
-          if (!rawBaseUrl) {
-            throw new Error('Missing RAW_PAGES_BASE_URL from actions/configure-pages.');
-          }
-
-          const normalized = new URL(rawBaseUrl);
-          normalized.protocol = 'https:';
-          const trimmedPath = normalized.pathname.replace(/\/+$/, '');
-          normalized.pathname = trimmedPath ? `${trimmedPath}/` : '/';
-
-          const output = process.env.GITHUB_OUTPUT;
-          require('node:fs').appendFileSync(output, `base_url=${normalized.toString()}\n`, 'utf8');
-          EOF
-
-      - name: Select deploy artifact source
-        id: deploy_artifact
-        env:
-          CANONICAL_PRODUCTION_BASE_URL: ${{ env.CANONICAL_PRODUCTION_BASE_URL }}
-          PREVIEW_BASE_URL: ${{ steps.preview_base.outputs.base_url }}
-        shell: bash
-        run: |
-          set -euo pipefail
-
-          if [[ -z "$PREVIEW_BASE_URL" ]]; then
-            echo "Missing normalized preview base URL." >&2
-            exit 1
-          fi
-
-          if [[ "$PREVIEW_BASE_URL" == "$CANONICAL_PRODUCTION_BASE_URL" ]]; then
-            echo "source=production" >> "$GITHUB_OUTPUT"
-            echo "Deploy artifact source: production validation output." >> "$GITHUB_STEP_SUMMARY"
-          else
-            echo "source=preview" >> "$GITHUB_OUTPUT"
-            echo "Deploy artifact source: environment-aware output for $PREVIEW_BASE_URL." >> "$GITHUB_STEP_SUMMARY"
-          fi
-
-      - name: Build production site
-        run: npm run build:prod
-
-      - name: Build preview rehearsal site
-        run: PREVIEW_BASE_URL="${{ steps.preview_base.outputs.base_url }}" npm run build:preview-pages && mkdir -p tmp && touch tmp/preview-build.marker
 
       - name: Run blocking deployment quality gates (security)
         env:
-          PREVIEW_BASE_URL: ${{ steps.preview_base.outputs.base_url }}
-          DEPLOY_ARTIFACT_SOURCE: ${{ steps.deploy_artifact.outputs.source }}
+          PREVIEW_BASE_URL: ${{ needs.build_site.outputs.preview_base_url }}
+          DEPLOY_ARTIFACT_SOURCE: ${{ needs.build_site.outputs.deploy_artifact_source }}
           CI_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          RHI_HTTPS_LIVE_HOST_READY: ${{ steps.pages_host.outputs.ready }}
+          RHI_HTTPS_LIVE_HOST_READY: ${{ needs.build_site.outputs.pages_host_ready }}
         run: npm run gates:local -- --group security
 
   gate_perf:
+    needs: build_site
     runs-on: ubuntu-latest
 
     steps:
@@ -1376,244 +505,23 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-${{ env.NODE_VERSION }}-
 
-      - name: Restore Hugo extended binary cache
-        uses: actions/cache@v5
+      - name: Download build outputs
+        uses: actions/download-artifact@v4
         with:
-          path: ~/.cache/hugo/${{ env.HUGO_VERSION }}
-          key: ${{ runner.os }}-hugo-${{ env.HUGO_VERSION }}
-
-      - name: Install Hugo extended
-        shell: bash
-        run: |
-          set -euo pipefail
-          HUGO_DIR="$HOME/.cache/hugo/${HUGO_VERSION}"
-          if [[ ! -x "$HUGO_DIR/hugo" ]]; then
-            mkdir -p "$HUGO_DIR"
-            curl -fsSL -o "$RUNNER_TEMP/hugo.tar.gz" "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
-            tar -xzf "$RUNNER_TEMP/hugo.tar.gz" -C "$HUGO_DIR" hugo
-          fi
-          export PATH="$HUGO_DIR:$PATH"
-          echo "$HUGO_DIR" >> "$GITHUB_PATH"
-          hugo version
-
-      - name: Configure GitHub Pages
-        id: pages
-        uses: actions/configure-pages@v5
-
-      - name: Summarize Pages host configuration
-        id: pages_host
-        env:
-          EXPECTED_PAGES_HOST: ${{ env.EXPECTED_PAGES_HOST }}
-          PAGES_BASE_URL: ${{ steps.pages.outputs.base_url }}
-          PAGES_HOST: ${{ steps.pages.outputs.host }}
-        shell: bash
-        run: |
-          set -euo pipefail
-
-          if [[ -z "$PAGES_BASE_URL" || -z "$PAGES_HOST" ]]; then
-            echo "Missing GitHub Pages site metadata from actions/configure-pages." >&2
-            exit 1
-          fi
-
-          if [[ "$PAGES_HOST" != "$EXPECTED_PAGES_HOST" ]]; then
-            echo "ready=false" >> "$GITHUB_OUTPUT"
-            echo "GitHub Pages host is '$PAGES_HOST', expected '$EXPECTED_PAGES_HOST'. Continuing in project-host rehearsal mode until the production custom domain is active (preview artifact ships noindex until then)." >> "$GITHUB_STEP_SUMMARY"
-            echo "::notice::GitHub Pages host is '$PAGES_HOST'; continuing with project-host rehearsal and preview-artifact validation."
-          else
-            echo "ready=true" >> "$GITHUB_OUTPUT"
-            echo "GitHub Pages production host '$PAGES_HOST' is active." >> "$GITHUB_STEP_SUMMARY"
-          fi
+          name: build-outputs-${{ github.sha }}
 
       - name: Install Node dependencies
         run: npm ci --include=optional
 
-      - name: Compute AVIF cache fingerprint
-        id: avif_cache_fingerprint
-        shell: bash
-        run: |
-          set -euo pipefail
-          node <<'EOF'
-          const crypto = require('node:crypto');
-          const fs = require('node:fs/promises');
-          const path = require('node:path');
-
-          const repoRoot = process.cwd();
-          const sourceRoots = [
-            path.join(repoRoot, 'src', 'content'),
-            path.join(repoRoot, 'src', 'assets')
-          ];
-          const excludedRoot = path.join(repoRoot, 'src', 'assets', 'generated-avif');
-          const allowedExtensions = new Set(['.jpg', '.jpeg', '.png', '.webp']);
-
-          async function collectFiles(directory, files) {
-            let entries;
-            try {
-              entries = await fs.readdir(directory, { withFileTypes: true });
-            } catch {
-              return;
-            }
-
-            for (const entry of entries) {
-              const absolutePath = path.join(directory, entry.name);
-              if (absolutePath === excludedRoot || absolutePath.startsWith(`${excludedRoot}${path.sep}`)) {
-                continue;
-              }
-
-              if (entry.isDirectory()) {
-                await collectFiles(absolutePath, files);
-                continue;
-              }
-
-              if (entry.isFile() && allowedExtensions.has(path.extname(entry.name).toLowerCase())) {
-                files.push(absolutePath);
-              }
-            }
-          }
-
-          async function main() {
-            const files = [];
-            for (const sourceRoot of sourceRoots) {
-              await collectFiles(sourceRoot, files);
-            }
-
-            files.sort((left, right) => left.localeCompare(right));
-
-            const fingerprint = crypto.createHash('sha256');
-            for (const filePath of files) {
-              fingerprint.update(path.relative(repoRoot, filePath));
-              fingerprint.update('\0');
-              fingerprint.update(await fs.readFile(filePath));
-              fingerprint.update('\0');
-            }
-
-            const output = process.env.GITHUB_OUTPUT;
-            await fs.appendFile(output, `value=${fingerprint.digest('hex')}\n`, 'utf8');
-            console.log(`AVIF source fingerprint covers ${files.length} image(s).`);
-          }
-
-          main().catch((error) => {
-            console.error(error.message);
-            process.exit(1);
-          });
-          EOF
-
-      - name: Restore generated AVIF cache
-        id: avif_cache
-        uses: actions/cache@v5
-        with:
-          path: src/assets/generated-avif
-          key: ${{ runner.os }}-avif-${{ env.AVIF_CACHE_VERSION }}-node-${{ env.NODE_VERSION }}-lock-${{ hashFiles('package-lock.json') }}-generator-${{ hashFiles('scripts/generate-avif-cache.js') }}-images-${{ steps.avif_cache_fingerprint.outputs.value }}
-          restore-keys: |
-            ${{ runner.os }}-avif-${{ env.AVIF_CACHE_VERSION }}-node-${{ env.NODE_VERSION }}-lock-${{ hashFiles('package-lock.json') }}-generator-${{ hashFiles('scripts/generate-avif-cache.js') }}-
-
-      - name: Summarize generated AVIF cache status
-        env:
-          CACHE_HIT: ${{ steps.avif_cache.outputs.cache-hit }}
-        shell: bash
-        run: |
-          set -euo pipefail
-
-          if [[ "$CACHE_HIT" == "true" ]]; then
-            echo "Generated AVIF cache restored from an exact key match." >> "$GITHUB_STEP_SUMMARY"
-          elif [[ "$CACHE_HIT" == "false" ]]; then
-            echo "Generated AVIF cache restored from a prefix match and will be refreshed after a successful build." >> "$GITHUB_STEP_SUMMARY"
-          else
-            echo "Generated AVIF cache miss; this run will regenerate AVIF derivatives and save them for future runs." >> "$GITHUB_STEP_SUMMARY"
-          fi
-
-      - name: Verify Sharp AVIF runtime
-        shell: bash
-        run: |
-          set -euo pipefail
-          node <<'EOF'
-          const sharp = require('sharp');
-
-          async function main() {
-            const input = Buffer.from([
-              0xff, 0x00, 0x00, 0xff,
-              0x00, 0x80, 0xff, 0xff,
-              0x20, 0xc0, 0x40, 0xff,
-              0x10, 0x10, 0x10, 0xff
-            ]);
-
-            const output = await sharp(input, {
-              raw: {
-                width: 2,
-                height: 2,
-                channels: 4
-              }
-            }).avif({ quality: 40 }).toBuffer();
-
-            if (!Buffer.isBuffer(output) || output.length === 0) {
-              throw new Error('Sharp AVIF smoke check produced no output.');
-            }
-
-            console.log(`Sharp AVIF smoke check passed (${output.length} bytes).`);
-          }
-
-          main().catch((error) => {
-            console.error(error.message);
-            process.exit(1);
-          });
-          EOF
-
       - name: Install Playwright Chromium
         run: npx playwright install --with-deps chromium
 
-      - name: Normalize preview base URL
-        id: preview_base
-        env:
-          RAW_PAGES_BASE_URL: ${{ steps.pages.outputs.base_url }}
-        shell: bash
-        run: |
-          set -euo pipefail
-          node <<'EOF'
-          const rawBaseUrl = process.env.RAW_PAGES_BASE_URL;
-
-          if (!rawBaseUrl) {
-            throw new Error('Missing RAW_PAGES_BASE_URL from actions/configure-pages.');
-          }
-
-          const normalized = new URL(rawBaseUrl);
-          normalized.protocol = 'https:';
-          const trimmedPath = normalized.pathname.replace(/\/+$/, '');
-          normalized.pathname = trimmedPath ? `${trimmedPath}/` : '/';
-
-          const output = process.env.GITHUB_OUTPUT;
-          require('node:fs').appendFileSync(output, `base_url=${normalized.toString()}\n`, 'utf8');
-          EOF
-
-      - name: Select deploy artifact source
-        id: deploy_artifact
-        env:
-          CANONICAL_PRODUCTION_BASE_URL: ${{ env.CANONICAL_PRODUCTION_BASE_URL }}
-          PREVIEW_BASE_URL: ${{ steps.preview_base.outputs.base_url }}
-        shell: bash
-        run: |
-          set -euo pipefail
-
-          if [[ -z "$PREVIEW_BASE_URL" ]]; then
-            echo "Missing normalized preview base URL." >&2
-            exit 1
-          fi
-
-          if [[ "$PREVIEW_BASE_URL" == "$CANONICAL_PRODUCTION_BASE_URL" ]]; then
-            echo "source=production" >> "$GITHUB_OUTPUT"
-            echo "Deploy artifact source: production validation output." >> "$GITHUB_STEP_SUMMARY"
-          else
-            echo "source=preview" >> "$GITHUB_OUTPUT"
-            echo "Deploy artifact source: environment-aware output for $PREVIEW_BASE_URL." >> "$GITHUB_STEP_SUMMARY"
-          fi
-
-      - name: Build production site
-        run: npm run build:prod
-
       - name: Run blocking deployment quality gates (perf)
         env:
-          PREVIEW_BASE_URL: ${{ steps.preview_base.outputs.base_url }}
-          DEPLOY_ARTIFACT_SOURCE: ${{ steps.deploy_artifact.outputs.source }}
+          PREVIEW_BASE_URL: ${{ needs.build_site.outputs.preview_base_url }}
+          DEPLOY_ARTIFACT_SOURCE: ${{ needs.build_site.outputs.deploy_artifact_source }}
           CI_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          RHI_HTTPS_LIVE_HOST_READY: ${{ steps.pages_host.outputs.ready }}
+          RHI_HTTPS_LIVE_HOST_READY: ${{ needs.build_site.outputs.pages_host_ready }}
         run: npm run gates:local -- --group perf
 
   deploy:
