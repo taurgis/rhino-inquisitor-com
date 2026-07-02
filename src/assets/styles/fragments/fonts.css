@@ -1,36 +1,46 @@
 /* Self-hosted webfonts (Latin) — Paper & Ink type system.
    Files live in src/static/fonts and are served from /fonts/ at stable paths.
-   No external CDN is contacted at runtime. */
+   No external CDN is contacted at runtime.
+
+   font-display: optional on every face.
+   `optional` gives a ~100ms block window and then NEVER swaps: if a face has not
+   arrived it stays on the fallback stack for the whole page load. This makes a
+   late-arriving web font unable to reflow the page, which eliminates the
+   intermittent Cumulative Layout Shift the perf gate caught on archive/list pages
+   (the search bar and body text shifted when the 400/500/600/700 weights swapped
+   in over a throttled connection). The two above-the-fold faces (Public Sans 400,
+   Newsreader 600) are preloaded in layouts/partials/site/stylesheet.html, so they
+   land inside the block window on almost every load. Trade-off: on a slow first
+   visit the non-preloaded weights render in the system fallback rather than
+   swapping in late. */
 
 /* Newsreader — display & headings */
 @font-face {
   font-family: "Newsreader";
   font-style: normal;
   font-weight: 400;
-  font-display: swap;
+  font-display: optional;
   src: url("/fonts/newsreader-regular.woff2") format("woff2");
 }
 @font-face {
   font-family: "Newsreader";
   font-style: italic;
   font-weight: 400;
-  font-display: swap;
+  font-display: optional;
   src: url("/fonts/newsreader-italic.woff2") format("woff2");
 }
 @font-face {
   font-family: "Newsreader";
   font-style: normal;
   font-weight: 500;
-  font-display: swap;
+  font-display: optional;
   src: url("/fonts/newsreader-500.woff2") format("woff2");
 }
 @font-face {
   font-family: "Newsreader";
   font-style: normal;
   font-weight: 600;
-  /* Preloaded above-the-fold face: `optional` keeps the ~100ms block window and
-     never swaps afterwards, so a late-arriving font cannot reflow the LCP text
-     (prevents intermittent CLS on archive/list pages). */
+  /* Preloaded above-the-fold face. */
   font-display: optional;
   src: url("/fonts/newsreader-600.woff2") format("woff2");
 }
@@ -40,8 +50,7 @@
   font-family: "Public Sans";
   font-style: normal;
   font-weight: 400;
-  /* Preloaded above-the-fold body face: `optional` prevents a late swap from
-     reflowing body/description text (the archive LCP element). See Newsreader 600. */
+  /* Preloaded above-the-fold body face. */
   font-display: optional;
   src: url("/fonts/public-sans-regular.woff2") format("woff2");
 }
@@ -49,21 +58,21 @@
   font-family: "Public Sans";
   font-style: normal;
   font-weight: 500;
-  font-display: swap;
+  font-display: optional;
   src: url("/fonts/public-sans-500.woff2") format("woff2");
 }
 @font-face {
   font-family: "Public Sans";
   font-style: normal;
   font-weight: 600;
-  font-display: swap;
+  font-display: optional;
   src: url("/fonts/public-sans-600.woff2") format("woff2");
 }
 @font-face {
   font-family: "Public Sans";
   font-style: normal;
   font-weight: 700;
-  font-display: swap;
+  font-display: optional;
   src: url("/fonts/public-sans-700.woff2") format("woff2");
 }
 
@@ -72,20 +81,20 @@
   font-family: "JetBrains Mono";
   font-style: normal;
   font-weight: 400;
-  font-display: swap;
+  font-display: optional;
   src: url("/fonts/jetbrains-mono-regular.woff2") format("woff2");
 }
 @font-face {
   font-family: "JetBrains Mono";
   font-style: normal;
   font-weight: 500;
-  font-display: swap;
+  font-display: optional;
   src: url("/fonts/jetbrains-mono-500.woff2") format("woff2");
 }
 @font-face {
   font-family: "JetBrains Mono";
   font-style: normal;
   font-weight: 600;
-  font-display: swap;
+  font-display: optional;
   src: url("/fonts/jetbrains-mono-600.woff2") format("woff2");
 }

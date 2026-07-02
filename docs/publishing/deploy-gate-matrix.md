@@ -37,7 +37,29 @@ Gate coverage, ordering guarantees, and the deploy contract are unchanged:
   appear, `url`/`seo`/`security` skip the Playwright install step, and `deploy`
   runs only after all legs pass.
 
+## Follow-up: perf gate CLS blocker
+
+After the matrix change the perf gate ran successfully but failed its Lighthouse
+assertion: `/category/ai/` scored a mobile median of 0.76 (runs 0.97, 0.76, 0.76)
+against `categories:performance minScore 0.9`. Cause was intermittent Cumulative
+Layout Shift (0.52 on the slow run) from the preloaded above-the-fold web fonts
+swapping in just after first paint and reflowing the LCP description paragraph.
+
+Fix: the two preloaded above-the-fold `@font-face` faces (`Public Sans` 400 and
+`Newsreader` 600) in `src/assets/styles/fragments/fonts.css` switched from
+`font-display: swap` to `font-display: optional`. Paired with the existing
+`<link rel="preload">`, this keeps the ~100ms block window and never swaps
+afterwards, so a late font load cannot reflow the page. Verified locally: three
+mobile runs on `/category/ai/` now score 0.97 with CLS 0.000.
+
+Trade-off: on very slow connections the web font may not paint for that page load
+(falls back to the system stack) instead of swapping in late. Acceptable given the
+faces are preloaded and small.
+
 ## Related files
 
 - `.github/workflows/deploy-pages.yml`
+- `.github/actions/setup-node-env/action.yml`
 - `scripts/gates/run-all-gates.sh`
+- `lighthouserc.json`
+- `src/assets/styles/fragments/fonts.css`
