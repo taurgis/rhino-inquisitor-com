@@ -37,6 +37,45 @@ Gate coverage, ordering guarantees, and the deploy contract are unchanged:
   appear, `url`/`seo`/`security` skip the Playwright install step, and `deploy`
   runs only after all legs pass.
 
+## Update: content-only pushes skip perf + security gates
+
+### Change summary
+
+Publishing an article (a content-only push) ran the full gate suite even though
+templates, CSS/JS bundle, redirect manifest, and host/header config were
+unchanged — making the `perf` and `security` legs obsolete for that push.
+`build_site` now classifies each push and emits the gate matrix dynamically, so
+skipped groups do not spin up a runner at all.
+
+### Old vs new behavior
+
+| Aspect | Old | New |
+|--------|-----|-----|
+| Gate matrix | Static `include` list of all five groups every push | `strategy.matrix.include: ${{ fromJSON(needs.build_site.outputs.gate_matrix) }}` — computed per push |
+| Content-only push | Ran `url`, `seo`, `security`, `a11y`, `perf` | Runs `url`, `seo`, `a11y`; **skips** `perf`, `security` |
+| Route-sensitive push | Ran all five | Unchanged — runs all five |
+| Detection | none | `gate_scope` step diffs `github.event.before`..`github.sha`; content-only ⇔ every changed file matches `^src/content/` |
+| `build` group | Always in `build_site` | Unchanged — always runs |
+
+Fallback to the full suite whenever the diff is not confident: `workflow_dispatch`,
+first push, force-push, or a missing/unreachable parent commit.
+
+### Impact and verification
+
+- Impacted workflow: `.github/workflows/deploy-pages.yml` (`build_site.gate_scope`
+  step + new `gate_matrix` / `content_only` outputs; `gates` matrix now dynamic).
+- Group→gate assignments unchanged — sourced from `scripts/gates/run-all-gates.sh`;
+  `perf` = `check:perf:gate`, `security` = https-security/mixed-content/host-protocol/redirect-security.
+- **Action required after merge:** required status checks are now conditional. A
+  content-only push produces no `gate (perf)` / `gate (security)` check, so those
+  must **not** be marked *required* in branch protection or content pushes will
+  block forever. Keep `gate (url)` / `gate (seo)` / `gate (a11y)` required.
+- Verify: push an article-only change to a branch and open the deploy run — the
+  step summary reads "Content-only push detected…", and only `gate (url)`,
+  `gate (seo)`, `gate (a11y)` legs appear. Push a template/config change and
+  confirm all five legs return.
+- Related files: `.github/workflows/deploy-pages.yml`, `scripts/gates/run-all-gates.sh`.
+
 ## Follow-up: perf gate CLS blocker
 
 After the matrix change the perf gate ran but failed its Lighthouse assertion:

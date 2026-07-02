@@ -21,12 +21,58 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       pages_host_ready: ${{ steps.pages_host.outputs.ready }}
+      gate_matrix: ${{ steps.gate_scope.outputs.gate_matrix }}
+      content_only: ${{ steps.gate_scope.outputs.content_only }}
 
     steps:
       - name: Check out repository
         uses: actions/checkout@v5
         with:
           fetch-depth: 0
+
+      - name: Determine gate scope from changed files
+        id: gate_scope
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          # A push is "content-only" when every changed file lives under
+          # src/content/. Any template, config, redirect-manifest, script, or
+          # static-asset change trips the full gate suite. Anything we cannot
+          # diff confidently (workflow_dispatch, first push, force-push,
+          # missing parent) also falls back to the full suite.
+          content_only=false
+          if [[ "${{ github.event_name }}" == "push" ]]; then
+            before="${{ github.event.before }}"
+            if [[ -n "$before" \
+              && "$before" != "0000000000000000000000000000000000000000" ]] \
+              && git cat-file -e "${before}^{commit}" 2>/dev/null; then
+              git diff --name-only "$before" "${{ github.sha }}" > changed-files.txt
+              if [[ -s changed-files.txt ]] \
+                && ! grep -Eqv '^src/content/' changed-files.txt; then
+                content_only=true
+              fi
+            fi
+          fi
+
+          if [[ "$content_only" == "true" ]]; then
+            # Skip perf (bundle unchanged, most expensive) and security
+            # (headers/redirect/host config unchanged) for content-only pushes.
+            gate_matrix='[{"group":"url"},{"group":"seo"},{"group":"a11y","browser":true}]'
+          else
+            gate_matrix='[{"group":"url"},{"group":"seo"},{"group":"security"},{"group":"a11y","browser":true},{"group":"perf","browser":true}]'
+          fi
+
+          echo "content_only=$content_only" >> "$GITHUB_OUTPUT"
+          echo "gate_matrix=$gate_matrix" >> "$GITHUB_OUTPUT"
+
+          {
+            if [[ "$content_only" == "true" ]]; then
+              echo "Content-only push detected: running url, seo, a11y gates (skipping perf, security)."
+            else
+              echo "Route-sensitive push: running the full gate suite (url, seo, security, a11y, perf)."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Set up Node environment
         uses: ./.github/actions/setup-node-env
@@ -238,14 +284,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        include:
-          - group: url
-          - group: seo
-          - group: security
-          - group: a11y
-            browser: true
-          - group: perf
-            browser: true
+        include: ${{ fromJSON(needs.build_site.outputs.gate_matrix) }}
 
     steps:
       - name: Check out repository

@@ -535,12 +535,14 @@ display: none !important;
   }
 }
 
-/* Mobile: the rows archive is a flat (padding:0) panel and the surface-shell
-   drops its gutter at this width, so add the same inline gutter the
-   breadcrumbs use (1.25rem) to keep the topbar, filters, and rows aligned
-   with the breadcrumb instead of bleeding to the screen edges. */
+/* Mobile: the surface-shell drops its inline gutter at this width, so the flat
+   rows layout would bleed to the screen edges. Give the container the same
+   1.25rem inline gutter the breadcrumbs use so the topbar, filters, and rows
+   align with the breadcrumb. !important is required to beat the earlier
+   `padding-left/right: 0 !important` flat-layout block above; the descendants
+   keep their 0 padding and simply inherit this container gutter. */
 @media (max-width: 47.99rem) {
   .archive-layout--rows {
-    padding-inline: 1.25rem;
+    padding-inline: 1.25rem !important;
   }
 }
