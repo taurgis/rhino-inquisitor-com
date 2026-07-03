@@ -1,8 +1,15 @@
 # Rhino Inquisitor
 
-Source and tooling for rhino-inquisitor.com — a Hugo site deployed to GitHub Pages via GitHub Actions.
+[![Build Pull Requests](https://github.com/taurgis/rhino-inquisitor-com/actions/workflows/build-pr.yml/badge.svg)](https://github.com/taurgis/rhino-inquisitor-com/actions/workflows/build-pr.yml)
+[![Deploy to GitHub Pages](https://github.com/taurgis/rhino-inquisitor-com/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/taurgis/rhino-inquisitor-com/actions/workflows/deploy-pages.yml)
+[![Code License: MIT](https://img.shields.io/badge/code%20license-MIT-blue.svg)](LICENSE)
+[![Content License: CC BY-NC-ND 4.0](https://img.shields.io/badge/content%20license-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 
-Day-to-day work is authoring and publishing new articles while keeping SEO, URL/redirect integrity, accessibility, and performance intact.
+**[rhino-inquisitor.com](https://rhino-inquisitor.com/)** is a technical blog with articles, migration notes, and platform guidance — practical, hands-on write-ups rather than high-level opinion pieces.
+
+This repository holds the site's source and tooling: a Hugo site deployed to GitHub Pages via GitHub Actions.
+
+Day-to-day work here is authoring and publishing new articles while keeping SEO, URL/redirect integrity, accessibility, and performance intact.
 
 ## Repository Structure
 
@@ -56,6 +63,11 @@ Day-to-day work is authoring and publishing new articles while keeping SEO, URL/
 
 - Open a PR to `main`; `.github/workflows/build-pr.yml` runs the route-sensitive validation gates.
 - On merge to `main`, `.github/workflows/deploy-pages.yml` builds and publishes to GitHub Pages after the blocking gate suite passes.
+
+## Follow
+
+- Website: [rhino-inquisitor.com](https://rhino-inquisitor.com/)
+- RSS feed: [rhino-inquisitor.com/index.xml](https://rhino-inquisitor.com/index.xml)
 
 ## Security
 
