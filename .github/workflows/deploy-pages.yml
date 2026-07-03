@@ -373,6 +373,36 @@ jobs:
           fi
           npm run gates:local -- --group "${{ matrix.group }}"
 
+      - name: Summarize perf gate blocking findings
+        if: ${{ failure() && matrix.group == 'perf' }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          report=validation/performance-budget-report.json
+          {
+            echo "### Perf gate blocking findings"
+            if [[ -f "$report" ]]; then
+              jq -r '.entries[] | select((.blockingFindings | length) > 0) | "- \(.template) \(.route): \(.blockingFindings | join("; "))"' "$report"
+              echo
+              echo "| template | route | mobile perf | mobile CLS | desktop perf |"
+              echo "|----------|-------|-------------|------------|--------------|"
+              jq -r '.entries[] | "| \(.template) | \(.route) | \(.profiles.mobile.scores.performance // "n/a") | \(.profiles.mobile.metrics.cls // "n/a") | \(.profiles.desktop.scores.performance // "n/a") |"' "$report"
+            else
+              echo "No performance-budget-report.json was produced."
+            fi
+          } | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload perf gate diagnostics
+        if: ${{ failure() && matrix.group == 'perf' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: perf-gate-diagnostics-${{ github.run_id }}
+          path: |
+            validation/performance-budget-report.json
+            validation/lhci-report
+          if-no-files-found: warn
+          retention-days: 7
+
   deploy:
     needs:
       - build_site

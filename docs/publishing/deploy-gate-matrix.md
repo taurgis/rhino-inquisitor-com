@@ -294,6 +294,46 @@ Verify: the Actions tab shows only the "Deploy to GitHub Pages" workflow, and
 a push to `main` still classifies into docs/content/full scope as documented
 above.
 
+## Follow-up: perf gate failures on main + drifted critical-archive.css
+
+After the b4500f3 mobile-padding fix, the `gate (perf)` leg failed on three
+consecutive `main` runs (22b81ec, d8a60da, 1200cf3 — all docs-only commits on
+identical site code), blocking every deploy while b4500f3's own run had
+passed. The perf leg's log only printed "Blocking failures: 1" with no detail,
+and the gate job uploaded no artifacts, so the failing template/metric was
+invisible.
+
+Two changes:
+
+1. **Diagnostics** (`.github/workflows/deploy-pages.yml`): when the perf leg
+   fails, the gates job now prints each entry's `blockingFindings` plus a
+   score/CLS table from `validation/performance-budget-report.json` to the log
+   and step summary, and uploads `perf-gate-diagnostics-<run_id>` (the budget
+   report + LHCI JSON) with 7-day retention.
+2. **Critical CSS re-sync** (`src/assets/styles/critical-archive.css`):
+   b4500f3 hand-patched this *generated* file, appending the mobile
+   `.archive-layout--rows` gutter rule **without** the `!important` that the
+   source fragment (`fragments/archive-structure.css`) carries — so the
+   inlined first-paint CSS diverged from `site.css` on exactly the archive
+   template with the known intermittent-CLS history. The `!important` was
+   added back so the rule matches the fragment byte-for-byte.
+
+Caveat: the proper fix is `npm run build:prod && npm run generate:critical-css`
+per the regeneration workflow above; that could not be run in the environment
+that authored this change (no Hugo binary reachable), so the minimal
+hand-alignment was applied instead. Run the full regeneration at the next
+opportunity. Note the PR-time "Check critical CSS is in sync" step was deleted
+with `build-pr.yml`, so nothing currently guards against this drift — the perf
+gate catches it only indirectly (and flakily).
+
+Verify: next full-scope push to `main` — if `gate (perf)` fails, the step
+summary now names the failing template and metric; if it passes, `deploy`
+publishes and the backlog of blocked commits goes live.
+
+Related files: `.github/workflows/deploy-pages.yml`,
+`src/assets/styles/critical-archive.css`,
+`scripts/gates/check-performance-budget.js` (report shape, unchanged).
+
 ## Related files
 
 - `.github/workflows/deploy-pages.yml`
