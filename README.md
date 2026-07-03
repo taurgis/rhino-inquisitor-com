@@ -25,6 +25,8 @@ Day-to-day work is authoring and publishing new articles while keeping SEO, URL/
 |   |-- data/            # Hugo data files
 |   `-- archetypes/      # Hugo archetype stubs
 |-- hugo.toml            # Canonical Hugo config
+|-- LICENSE              # MIT license for site code/tooling
+|-- SECURITY.md          # Vulnerability reporting policy
 `-- README.md
 ```
 
@@ -32,6 +34,7 @@ Day-to-day work is authoring and publishing new articles while keeping SEO, URL/
 
 - [Agent Guide](AGENTS.md)
 - [Repository Instructions](.github/instructions/)
+- [Security Policy](SECURITY.md)
 
 ## Local Prerequisites
 
@@ -53,6 +56,15 @@ Day-to-day work is authoring and publishing new articles while keeping SEO, URL/
 
 - Open a PR to `main`; `.github/workflows/build-pr.yml` runs the route-sensitive validation gates.
 - On merge to `main`, `.github/workflows/deploy-pages.yml` builds and publishes to GitHub Pages after the blocking gate suite passes.
+
+## Security
+
+This is a static site with no server-side application or user data. See [SECURITY.md](SECURITY.md) for supported scope and how to privately report a suspected vulnerability (via GitHub's private vulnerability reporting, not a public issue).
+
+## License
+
+- **Code and tooling** (Hugo templates/partials, build and validation scripts, configuration under this repository) are licensed under the [MIT License](LICENSE).
+- **Blog article content** under `src/content/posts/` is licensed separately under [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)](https://creativecommons.org/licenses/by-nc-nd/4.0/). You may share and link to articles with attribution, but not modify, republish, or use them commercially without permission.
 
 ## Notes
 
