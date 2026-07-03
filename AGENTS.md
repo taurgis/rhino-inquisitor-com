@@ -23,7 +23,7 @@ This file is the root agent guide for the repository. It complements agent files
 |-- .github/
 |   |-- agents/          # Canonical agent role definitions (source for generation)
 |   |-- instructions/    # Canonical governance and quality gates (source for generation)
-|   `-- workflows/       # build-pr.yml (PR gates) and deploy-pages.yml (publish)
+|   `-- workflows/       # deploy-pages.yml (gates + publish)
 |-- .claude/             # Generated for Claude Code (skills/, rules/generated/)
 |-- .cursor/             # Generated for Cursor (agents/, rules/*.mdc)
 |-- url-data/           # URL manifests + redirect/parity data inputs used by live gates
@@ -49,7 +49,7 @@ Governance and quality gates live in [.github/instructions/](.github/instruction
 
 - Build: `npm run build:prod` must succeed with no errors.
 - Full local deploy gate suite: `npm run gates:local` (mirrors the deploy pipeline).
-- PR validation runs automatically via `.github/workflows/build-pr.yml`; publish happens on merge to `main` via `.github/workflows/deploy-pages.yml`.
+- PRs are disabled for this repository; validation and publish both happen on push to `main` via `.github/workflows/deploy-pages.yml` (scoped blocking gate suite, then deploy).
 
 ## Workspace Hygiene
 

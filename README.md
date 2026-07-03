@@ -1,6 +1,5 @@
 # Rhino Inquisitor
 
-[![Build Pull Requests](https://github.com/taurgis/rhino-inquisitor-com/actions/workflows/build-pr.yml/badge.svg)](https://github.com/taurgis/rhino-inquisitor-com/actions/workflows/build-pr.yml)
 [![Deploy to GitHub Pages](https://github.com/taurgis/rhino-inquisitor-com/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/taurgis/rhino-inquisitor-com/actions/workflows/deploy-pages.yml)
 [![Code License: MIT](https://img.shields.io/badge/code%20license-MIT-blue.svg)](LICENSE)
 [![Content License: CC BY-NC-ND 4.0](https://img.shields.io/badge/content%20license-CC%20BY--NC--ND%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-nd/4.0/)
@@ -18,7 +17,7 @@ Day-to-day work here is authoring and publishing new articles while keeping SEO,
 |-- .github/
 |   |-- agents/          # Agent role definitions (Hugo Specialist, SEO Specialist)
 |   |-- instructions/    # Repository governance and quality gates
-|   `-- workflows/       # build-pr.yml (PR gates), deploy-pages.yml (publish)
+|   `-- workflows/       # deploy-pages.yml (gates + publish)
 |-- .agents/skills/      # Domain skills used by agents
 |-- url-data/           # URL manifests and redirect/parity data read by live gates
 |-- validation/          # Validation inputs and report schema
@@ -61,8 +60,8 @@ Day-to-day work here is authoring and publishing new articles while keeping SEO,
 
 ## Publishing
 
-- Open a PR to `main`; `.github/workflows/build-pr.yml` runs the route-sensitive validation gates.
-- On merge to `main`, `.github/workflows/deploy-pages.yml` builds and publishes to GitHub Pages after the blocking gate suite passes.
+- Push to `main`; `.github/workflows/deploy-pages.yml` builds and publishes to GitHub Pages after the blocking gate suite passes.
+- Gates are scoped to the change: docs-only pushes skip gates and the deploy, content-only pushes run a reduced suite (url, seo, a11y), and route-sensitive pushes run the full suite.
 
 ## Follow
 

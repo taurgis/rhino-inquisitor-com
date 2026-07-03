@@ -7,7 +7,7 @@ applyTo: '.github/workflows/**'
 
 ## Mandatory Pre-Step
 
-Before authoring or modifying any workflow file, review the existing pipelines in `.github/workflows/` — `deploy-pages.yml` (the GitHub Pages publish contract and its blocking gate suite via `npm run gates:local`) and `build-pr.yml` (PR validation gates).
+Before authoring or modifying any workflow file, review the existing pipeline in `.github/workflows/` — `deploy-pages.yml` (the GitHub Pages publish contract and its blocking gate suite via `npm run gates:local`). It is the repository's only pipeline: PR-based development is disabled, so all validation runs on push to `main`.
 
 ## Security and Permissions
 
@@ -58,6 +58,11 @@ Every deployment workflow must include these gates as blocking steps — failure
 Gates must be `needs:` dependencies of the deploy job — not parallel with it.
 
 ## PR / Build Workflow Rules
+
+Pull requests are disabled for this repository and there is no PR workflow;
+all validation runs on push to `main` through the scoped gate suite in
+`deploy-pages.yml`. The rules below apply **only if** PR-based development is
+reinstated — a new PR workflow must satisfy all of them:
 
 1. Build validation must run on every PR to `main`.
 2. Lint and validate Markdown files with `markdownlint-cli2` before content merges.
@@ -118,7 +123,6 @@ Every deployment workflow must have a documented rollback path:
 ## References
 
 - `.github/workflows/deploy-pages.yml` — Pages publish pipeline and blocking gate suite
-- `.github/workflows/build-pr.yml` — PR validation gates
 - [GitHub Actions security hardening](https://docs.github.com/en/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions)
 - [actions/deploy-pages](https://github.com/actions/deploy-pages)
 - [actions/upload-pages-artifact](https://github.com/actions/upload-pages-artifact)

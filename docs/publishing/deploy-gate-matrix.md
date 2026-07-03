@@ -270,12 +270,33 @@ existing `route_sensitive` flag.
 ### Related files
 
 - `.github/workflows/deploy-pages.yml`
-- `.github/workflows/build-pr.yml`
+- `.github/workflows/build-pr.yml` (removed — see follow-up below)
+
+### Follow-up: PR workflow removed entirely
+
+PR-based development is disabled for this repository, so the `build-pr.yml`
+changes described above were short-lived: the workflow file was deleted in the
+same change series. All validation now happens exclusively on push to `main`
+through the scoped gate suite in `deploy-pages.yml`.
+
+Old vs new behavior: previously `build-pr.yml` ran build/lint/route validation
+on every PR to `main` (and had just gained docs-only scoping); now no PR
+workflow exists and pushes to `main` are the only validated path.
+
+Impact: `.github/workflows/build-pr.yml` deleted; references updated in
+`README.md` (badge, structure tree, publishing section), `SECURITY.md`,
+`AGENTS.md`, and `.github/instructions/ci-workflow-standards.instructions.md`
+(plus its generated copies under `.claude/rules/generated/` and
+`.agents/rules/`), whose PR rules are now marked as applying only if PR-based
+development is ever reinstated.
+
+Verify: the Actions tab shows only the "Deploy to GitHub Pages" workflow, and
+a push to `main` still classifies into docs/content/full scope as documented
+above.
 
 ## Related files
 
 - `.github/workflows/deploy-pages.yml`
-- `.github/workflows/build-pr.yml`
 - `.github/actions/setup-node-env/action.yml`
 - `scripts/gates/run-all-gates.sh`
 - `lighthouserc.json`

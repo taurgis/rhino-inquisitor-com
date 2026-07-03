@@ -41,4 +41,4 @@ You can expect an initial response within 5 business days. This is a personally 
 
 ## Existing Automated Checks
 
-This repository already runs automated security-relevant gates in CI (see `.github/workflows/build-pr.yml`), including `npm run check:security` (mixed-content, HTTP leakage, and related checks) and `npm run check:https-security`. Reports that a passing gate is insufficient, or that a check is missing, are welcome.
+This repository already runs automated security-relevant gates in CI (see `.github/workflows/deploy-pages.yml`), including `npm run check:security` (mixed-content, HTTP leakage, and related checks) and `npm run check:https-security`. Reports that a passing gate is insufficient, or that a check is missing, are welcome.
