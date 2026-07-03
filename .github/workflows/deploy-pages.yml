@@ -17,12 +17,12 @@ env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
-  build_site:
+  scope:
     runs-on: ubuntu-latest
     outputs:
-      pages_host_ready: ${{ steps.pages_host.outputs.ready }}
+      deploy_needed: ${{ steps.gate_scope.outputs.deploy_needed }}
       gate_matrix: ${{ steps.gate_scope.outputs.gate_matrix }}
-      content_only: ${{ steps.gate_scope.outputs.content_only }}
+      scope: ${{ steps.gate_scope.outputs.scope }}
 
     steps:
       - name: Check out repository
@@ -30,49 +30,95 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Determine gate scope from changed files
+      - name: Determine deploy and gate scope from changed files
         id: gate_scope
         shell: bash
         run: |
           set -euo pipefail
 
-          # A push is "content-only" when every changed file lives under
-          # src/content/. Any template, config, redirect-manifest, script, or
-          # static-asset change trips the full gate suite. Anything we cannot
-          # diff confidently (workflow_dispatch, first push, force-push,
-          # missing parent) also falls back to the full suite.
-          content_only=false
+          # Classify the push into one of three scopes:
+          #
+          #   docs    — every changed file is repo meta/documentation that has
+          #             no effect on the built site (README, LICENSE, docs/,
+          #             monitoring/, agent instructions, ...). Skip the build,
+          #             all gates, and the Pages deploy: the published output
+          #             would be byte-identical.
+          #   content — every changed file is docs-inert or lives under
+          #             src/content/. Build + deploy, but skip perf (bundle
+          #             unchanged, most expensive) and security (headers/
+          #             redirect/host config unchanged).
+          #   full    — anything else (templates, config, scripts, workflows,
+          #             static assets, url-data, dependencies). Full gate
+          #             suite + deploy. Anything we cannot diff confidently
+          #             (workflow_dispatch, first push, force-push, missing
+          #             parent, empty diff) also falls back here.
+          docs_re='^(docs|monitoring|\.claude|\.github/instructions|\.github/agents|\.github/skills)/|^(README\.md|LICENSE|SECURITY\.md|AGENTS\.md|skills-lock\.json|\.gitignore)$'
+          content_re='^src/content/'
+
+          scope=full
           if [[ "${{ github.event_name }}" == "push" ]]; then
             before="${{ github.event.before }}"
             if [[ -n "$before" \
               && "$before" != "0000000000000000000000000000000000000000" ]] \
               && git cat-file -e "${before}^{commit}" 2>/dev/null; then
               git diff --name-only "$before" "${{ github.sha }}" > changed-files.txt
-              if [[ -s changed-files.txt ]] \
-                && ! grep -Eqv '^src/content/' changed-files.txt; then
-                content_only=true
+              if [[ -s changed-files.txt ]]; then
+                if ! grep -Eqv -e "$docs_re" changed-files.txt; then
+                  scope=docs
+                elif ! grep -Eqv -e "$docs_re" -e "$content_re" changed-files.txt; then
+                  scope=content
+                fi
               fi
             fi
           fi
 
-          if [[ "$content_only" == "true" ]]; then
-            # Skip perf (bundle unchanged, most expensive) and security
-            # (headers/redirect/host config unchanged) for content-only pushes.
-            gate_matrix='[{"group":"url"},{"group":"seo"},{"group":"a11y","browser":true}]'
-          else
-            gate_matrix='[{"group":"url"},{"group":"seo"},{"group":"security"},{"group":"a11y","browser":true},{"group":"perf","browser":true}]'
-          fi
+          deploy_needed=true
+          case "$scope" in
+            docs)
+              deploy_needed=false
+              # Never consumed — build_site (and therefore gates/deploy) is
+              # skipped when deploy_needed=false. Kept non-empty so the gates
+              # matrix stays valid if the job condition is ever removed.
+              gate_matrix='[{"group":"url"},{"group":"seo"},{"group":"security"},{"group":"a11y","browser":true},{"group":"perf","browser":true}]'
+              ;;
+            content)
+              gate_matrix='[{"group":"url"},{"group":"seo"},{"group":"a11y","browser":true}]'
+              ;;
+            *)
+              gate_matrix='[{"group":"url"},{"group":"seo"},{"group":"security"},{"group":"a11y","browser":true},{"group":"perf","browser":true}]'
+              ;;
+          esac
 
-          echo "content_only=$content_only" >> "$GITHUB_OUTPUT"
+          echo "scope=$scope" >> "$GITHUB_OUTPUT"
+          echo "deploy_needed=$deploy_needed" >> "$GITHUB_OUTPUT"
           echo "gate_matrix=$gate_matrix" >> "$GITHUB_OUTPUT"
 
           {
-            if [[ "$content_only" == "true" ]]; then
-              echo "Content-only push detected: running url, seo, a11y gates (skipping perf, security)."
-            else
-              echo "Route-sensitive push: running the full gate suite (url, seo, security, a11y, perf)."
-            fi
+            case "$scope" in
+              docs)
+                echo "Docs-only push detected: no site output changes — skipping build, gates, and Pages deploy."
+                ;;
+              content)
+                echo "Content-only push detected: running url, seo, a11y gates (skipping perf, security)."
+                ;;
+              *)
+                echo "Route-sensitive push: running the full gate suite (url, seo, security, a11y, perf)."
+                ;;
+            esac
           } >> "$GITHUB_STEP_SUMMARY"
+
+  build_site:
+    needs: scope
+    if: needs.scope.outputs.deploy_needed == 'true'
+    runs-on: ubuntu-latest
+    outputs:
+      pages_host_ready: ${{ steps.pages_host.outputs.ready }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
 
       - name: Set up Node environment
         uses: ./.github/actions/setup-node-env
@@ -278,13 +324,15 @@ jobs:
           path: ./public
 
   gates:
-    needs: build_site
+    needs:
+      - scope
+      - build_site
     runs-on: ubuntu-latest
     name: gate (${{ matrix.group }})
     strategy:
       fail-fast: false
       matrix:
-        include: ${{ fromJSON(needs.build_site.outputs.gate_matrix) }}
+        include: ${{ fromJSON(needs.scope.outputs.gate_matrix) }}
 
     steps:
       - name: Check out repository

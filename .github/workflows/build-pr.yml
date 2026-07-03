@@ -24,6 +24,7 @@ jobs:
     outputs:
       route_sensitive: ${{ steps.changes.outputs.route_sensitive }}
       markdown_changed: ${{ steps.changes.outputs.markdown_changed }}
+      docs_only: ${{ steps.changes.outputs.docs_only }}
       full_site_route_validation_required: ${{ steps.changes.outputs.full_site_route_validation_required }}
       validation_mode: ${{ steps.changes.outputs.validation_mode }}
 
@@ -58,10 +59,23 @@ jobs:
           fi
           echo "markdown_changed=$markdown_changed" >> "$GITHUB_OUTPUT"
 
+          # Same docs-inert path list as deploy-pages.yml scope job: repo
+          # meta/documentation that cannot change the built site. A PR is
+          # docs-only when every changed file matches, so the Hugo build and
+          # site validation steps are pointless — only markdown lint applies.
+          docs_re='^(docs|monitoring|\.claude|\.github/instructions|\.github/agents|\.github/skills)/|^(README\.md|LICENSE|SECURITY\.md|AGENTS\.md|skills-lock\.json|\.gitignore)$'
+          docs_only=false
+          if [[ -s changed-files.txt ]] && ! grep -Eqv -e "$docs_re" changed-files.txt; then
+            docs_only=true
+          fi
+          echo "docs_only=$docs_only" >> "$GITHUB_OUTPUT"
+
           full_site_route_validation_required=false
           validation_mode=baseline
 
-          if [[ "$route_sensitive" == "true" ]]; then
+          if [[ "$docs_only" == "true" ]]; then
+            validation_mode=docs-only
+          elif [[ "$route_sensitive" == "true" ]]; then
             full_site_route_validation_required=true
             validation_mode=full-site-route-sensitive
           fi
@@ -75,6 +89,7 @@ jobs:
           {
             echo "### PR validation mode"
             echo "- validation_mode: ${{ steps.changes.outputs.validation_mode }}"
+            echo "- docs_only: ${{ steps.changes.outputs.docs_only }}"
             echo "- route_sensitive: ${{ steps.changes.outputs.route_sensitive }}"
             echo "- full_site_route_validation_required: ${{ steps.changes.outputs.full_site_route_validation_required }}"
           } >> "$GITHUB_STEP_SUMMARY"
@@ -107,12 +122,14 @@ jobs:
             ${{ runner.os }}-node-${{ env.NODE_VERSION }}-
 
       - name: Restore Hugo extended binary cache
+        if: needs.prepare.outputs.docs_only != 'true'
         uses: actions/cache@v5
         with:
           path: ~/.cache/hugo/${{ env.HUGO_VERSION }}
           key: ${{ runner.os }}-hugo-${{ env.HUGO_VERSION }}
 
       - name: Install Hugo extended
+        if: needs.prepare.outputs.docs_only != 'true'
         shell: bash
         run: |
           set -euo pipefail
@@ -130,6 +147,7 @@ jobs:
         run: npm ci
 
       - name: Run URL parity regression suite
+        if: needs.prepare.outputs.docs_only != 'true'
         run: npm run test:url-parity
 
       - name: Lint changed Markdown files
@@ -144,12 +162,15 @@ jobs:
           npx markdownlint-cli2 "${markdown_files[@]}"
 
       - name: Validate front matter
+        if: needs.prepare.outputs.docs_only != 'true'
         run: npm run validate:frontmatter
 
       - name: Enforce local video shortcode policy
+        if: needs.prepare.outputs.docs_only != 'true'
         run: npm run check:local-video-shortcodes
 
       - name: Build production site
+        if: needs.prepare.outputs.docs_only != 'true'
         shell: bash
         run: |
           set -euo pipefail
@@ -172,6 +193,7 @@ jobs:
           fi
 
       - name: Run Pages artifact constraints check
+        if: needs.prepare.outputs.docs_only != 'true'
         run: npm run check:pages-constraints
 
       - name: Run URL parity check

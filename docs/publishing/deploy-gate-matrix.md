@@ -203,9 +203,79 @@ route(s)", exit 0. Content and emitted JSON-LD are unchanged.
 
 Related file: `scripts/check-seo.js`.
 
+## Update: docs-only changes skip gates and the Pages deploy
+
+### Change summary
+
+The content-only optimization above still treated every file outside
+`src/content/` as route-sensitive, so a README or docs edit pushed to `main`
+ran the **full** five-gate suite and redeployed a byte-identical site. Pushes
+and PRs are now classified into three scopes — `docs`, `content`, `full` —
+and a docs-only change skips the build, every gate, and the Pages deploy.
+
+A path is docs-inert when it cannot affect the built site:
+`README.md`, `LICENSE`, `SECURITY.md`, `AGENTS.md`, `skills-lock.json`,
+`.gitignore`, and anything under `docs/`, `monitoring/`, `.claude/`,
+`.github/instructions/`, `.github/agents/`, or `.github/skills/`.
+Everything else (templates, `hugo.toml`, `scripts/`, workflows, `url-data/`,
+`validation/`, static assets, dependencies) stays route-sensitive.
+
+### Old vs new behavior
+
+| Push scope | Old | New |
+|-----------|-----|-----|
+| Docs-only (e.g. README edit) | Full suite (`url`, `seo`, `security`, `a11y`, `perf`) + build + deploy | **No build, no gates, no deploy** |
+| Content-only (`src/content/**`, optionally mixed with docs-inert files) | Mixed with a README edit → full suite | `url`, `seo`, `a11y` + deploy (docs-inert files no longer demote a content push to the full suite) |
+| Anything route-sensitive | Full suite + deploy | Unchanged |
+| Not confidently diffable (`workflow_dispatch`, first push, force-push, missing parent, empty diff) | Full suite + deploy | Unchanged — falls back to full suite + deploy |
+
+Structurally, scope classification moved out of `build_site` into a new
+lightweight `scope` job in `deploy-pages.yml` (`build_site` is now conditional
+on `scope.outputs.deploy_needed`, and the `gates` matrix reads
+`scope.outputs.gate_matrix`). The deploy contract is unchanged: `deploy` still
+`needs` both `build_site` and all gate legs, and skips automatically when they
+skip.
+
+`build-pr.yml` applies the same path list: a docs-only PR reports
+`validation_mode: docs-only` and skips the Hugo install, production build, URL
+parity, front matter, video shortcode, and Pages-constraints steps — only
+`npm ci` and the changed-file markdown lint still run. The `accessibility`,
+`lighthouse`, and `performance_budget` jobs were already skipped via the
+existing `route_sensitive` flag.
+
+### Impact and verification
+
+- Impacted workflows: `.github/workflows/deploy-pages.yml` (new `scope` job,
+  conditional `build_site`), `.github/workflows/build-pr.yml` (new `docs_only`
+  output + conditional build steps).
+- **Branch protection reminder:** as with the content-only change, gate checks
+  are conditional. A docs-only push produces *no* gate checks at all, and the
+  `build` PR job reports success after markdown lint only — do not mark
+  `gate (*)` checks as required for pushes, and keep PR-required checks limited
+  to jobs that always run (`prepare`, `build`).
+- Verify: push a README-only commit to `main` — the run's step summary reads
+  "Docs-only push detected…", and `build_site`, all `gate (*)` legs, and
+  `deploy` show as skipped. Push a content edit mixed with a docs edit and
+  confirm the `url`/`seo`/`a11y` legs plus `deploy` run. Trigger
+  `workflow_dispatch` and confirm the full suite plus deploy runs.
+- Scope regexes were exercised against 18 sample change sets (docs-only,
+  mixed docs+content, mixed docs+scripts, lookalike paths such as `READMEXmd`
+  and `src/content-other/`) — all classified as intended.
+- Lint config note: `.markdownlint-cli2.jsonc` now sets MD024 to
+  `siblings_only`. This document's changelog-style sections repeat the same
+  subsection headings ("Change summary", "Old vs new behavior", …) under
+  different parents, which the default MD024 flags; `siblings_only` allows
+  that while still rejecting duplicate headings at the same level.
+
+### Related files
+
+- `.github/workflows/deploy-pages.yml`
+- `.github/workflows/build-pr.yml`
+
 ## Related files
 
 - `.github/workflows/deploy-pages.yml`
+- `.github/workflows/build-pr.yml`
 - `.github/actions/setup-node-env/action.yml`
 - `scripts/gates/run-all-gates.sh`
 - `lighthouserc.json`
