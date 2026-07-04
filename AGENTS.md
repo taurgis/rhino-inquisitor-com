@@ -49,6 +49,7 @@ Governance and quality gates live in [.github/instructions/](.github/instruction
 
 - Build: `npm run build:prod` must succeed with no errors.
 - Full local deploy gate suite: `npm run gates:local` (mirrors the deploy pipeline).
+- Fast checks run automatically on `git push` via the pre-push hook (`npm run preflight`); see `docs/development/local-preflight.md`.
 - PRs are disabled for this repository; validation and publish both happen on push to `main` via `.github/workflows/deploy-pages.yml` (scoped blocking gate suite, then deploy).
 
 ## Workspace Hygiene

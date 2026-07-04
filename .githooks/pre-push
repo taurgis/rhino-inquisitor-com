@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Installed via `npm run prepare` (git config core.hooksPath .githooks).
+# Runs the fast preflight checks before every push; PRs are disabled so this
+# is the last validation before the deploy pipeline takes over.
+#
+# Emergency bypass: SKIP_PREFLIGHT=1 git push
+
+set -euo pipefail
+
+if [[ "${SKIP_PREFLIGHT:-}" == "1" ]]; then
+  echo "pre-push: SKIP_PREFLIGHT=1 set; skipping preflight checks."
+  exit 0
+fi
+
+bash "$(git rev-parse --show-toplevel)/scripts/preflight.sh"

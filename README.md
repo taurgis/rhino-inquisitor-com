@@ -45,7 +45,7 @@ Day-to-day work here is authoring and publishing new articles while keeping SEO,
 ## Local Prerequisites
 
 - Hugo Extended `0.157.0` (pinned; matches `HUGO_VERSION` in CI)
-- Node.js `>=20.18.1` as declared in `package.json`
+- Node.js `>=22.11.0` as declared in `package.json` (CI runs Node 22)
 - npm matching the active Node.js runtime
 
 ## Local Commands
@@ -57,6 +57,7 @@ Day-to-day work here is authoring and publishing new articles while keeping SEO,
 - Security and privacy validation: `npm run check:security`
 - Accessibility smoke validation: `npm run check:a11y`
 - Full deploy gate suite (mirrors the publish pipeline): `npm run gates:local`
+- Fast pre-push validation: `npm run preflight` — also runs automatically as a git pre-push hook (installed by `npm install` via `prepare`; bypass with `SKIP_PREFLIGHT=1 git push`)
 
 ## Publishing
 

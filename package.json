@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "engines": {
-    "node": ">=20.18.1"
+    "node": ">=22.11.0"
   },
   "scripts": {
     "generate:avif-cache": "node scripts/generate-avif-cache.js",
@@ -60,7 +60,9 @@
     "check:robots-sitemap": "node scripts/gates/check-robots-sitemap.js",
     "check:structured-data": "node scripts/gates/check-structured-data.js",
     "check:social-preview": "node scripts/gates/check-social-preview.js",
-    "generate:critical-css": "node scripts/generate-critical-css.js"
+    "generate:critical-css": "node scripts/generate-critical-css.js",
+    "preflight": "bash scripts/preflight.sh",
+    "prepare": "git rev-parse --is-inside-work-tree >/dev/null 2>&1 && git config core.hooksPath .githooks || true"
   },
   "dependencies": {
     "@joplin/turndown-plugin-gfm": "^1.0.64",
