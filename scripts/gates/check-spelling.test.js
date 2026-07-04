@@ -154,6 +154,26 @@ test('does not flag acronyms or code-style identifiers in prose', () => {
   assert.deepEqual(analyzeSource('Call the OCAPI getProps hook via SCAPI.', { speller }), []);
 });
 
+test('un- words with a vowel stem keep "an"', () => {
+  assert.deepEqual(analyzeSource('We hit an unidentified error.', { speller }), []);
+});
+
+test('a takeaway that repeats earlier front-matter text reports its own line', () => {
+  const source = [
+    '---',
+    'title: Something else',
+    'description: Use the bridge to connect systems togther and more.',
+    'takeaways:',
+    '  - "Use the bridge to connect systems togther"',
+    '---',
+    'Body fine.'
+  ].join('\n');
+  const findings = analyzeSource(source, { speller });
+  const byField = Object.fromEntries(findings.map((finding) => [finding.field, finding.line]));
+  assert.equal(byField.description, 3);
+  assert.equal(byField.takeaways, 5, 'takeaway finding points at the takeaway, not the description');
+});
+
 test('checks front-matter title and description, not keys or url', () => {
   const source = [
     '---',
@@ -205,12 +225,38 @@ test('detects an accidentally doubled function word', () => {
   assert.equal(findings[0].suggestion, 'the');
 });
 
-test('doubled-word check ignores valid and capitalised doubles', () => {
+test('doubled-word check ignores valid doubles', () => {
   assert.deepEqual(analyzeSource('I had had enough by then.', { speller }), [], 'had had is valid');
   assert.deepEqual(
     analyzeSource('The reason is that that server failed.', { speller }),
     [],
     'that that is valid'
+  );
+});
+
+test('doubled-word check ignores proper nouns, labels, and digit-glued tokens', () => {
+  assert.deepEqual(
+    analyzeSource('Will Will Smith star in the sequel?', { speller }),
+    [],
+    'a doubled name is not a typo'
+  );
+  assert.deepEqual(
+    analyzeSource('Go with Plan A a.k.a. the fallback.', { speller }),
+    [],
+    'label + article is not a doubled word'
+  );
+  assert.deepEqual(
+    analyzeSource('Leave a 2in in the margin.', { speller }),
+    [],
+    'digit-glued token is one word, not a double'
+  );
+});
+
+test('doubled-word check does not pair words across a masked code span', () => {
+  assert.deepEqual(
+    analyzeSource('Pass the `id` the server returns.', { speller }),
+    [],
+    'the `code` the is valid prose'
   );
 });
 
@@ -261,8 +307,14 @@ test('detects curated error phrases the dictionary cannot see', () => {
   assert.ok(findings.every((finding) => finding.type === 'phrase'));
 });
 
-test('a capital past the first phrase word reads as a proper noun and passes', () => {
+test('a capitalised compound noun reads as a proper noun, but title-case errors still flag', () => {
+  // "to Setup" as a named page is left alone...
   assert.deepEqual(analyzeSource('Navigate to Setup in the admin.', { speller }), []);
+  // ...but a then/than mistake in a title-case heading is still an error.
+  const heading = analyzeSource('## More Then You Think', { speller });
+  assert.equal(heading.length, 1);
+  assert.equal(heading[0].type, 'phrase');
+  assert.equal(heading[0].suggestion, 'more than');
 });
 
 // --- article agreement --------------------------------------------------------
@@ -273,13 +325,27 @@ test('expectedArticle follows opening sound, initialisms, and numbers', () => {
     ['API', 'an'], ['JSON', 'a'], ['HTTPError', 'an'], ['S3', 'an'],
     ['npm', 'an'], ['REST', 'a'], ['LINK', 'a'], ['SLAS', 'a'], ['SCAPI', 'a'],
     ['user', 'a'], ['unique', 'a'], ['university', 'a'], ['unusual', 'an'],
-    ['uninstalled', 'an'], ['European', 'a'], ['one-off', 'a'],
+    ['uninstalled', 'an'], ['unidentified', 'an'], ['unidirectional', 'a'],
+    ['European', 'a'], ['one-off', 'a'],
     ['hour', 'an'], ['honest', 'an'], ['hook', 'a'],
     ['error', 'an'], ['server', 'a'], ['useEffect', 'a'],
     ['8-second', 'an'], ['11th', 'an'], ['404', 'a'], ['30-minute', 'a']
   ];
   for (const [word, article] of cases) {
     assert.equal(expectedArticle(word), article, `${article} ${word}`);
+  }
+});
+
+test('expectedArticle with a speller treats ambiguous all-caps words as either-article', () => {
+  const cases = [
+    ['MUST', null], ['GET', null], // caps-for-emphasis / HTTP verbs: word-read plausible
+    ['SPA', null], ['SAP', null], // letter-read acronyms whose lowercase is a word
+    ['SLAs', 'an'], // mixed-case plural of SLA is letter-read, not the SLAS acronym
+    ['US', 'a'], ['IT', 'an'], // two-letter tokens stay letter-read
+    ['REST', 'a'] // WORD_ACRONYMS stays deterministic
+  ];
+  for (const [word, article] of cases) {
+    assert.equal(expectedArticle(word, speller), article, `${article} ${word}`);
   }
 });
 
@@ -294,8 +360,30 @@ test('flags article disagreement and preserves capitalisation in the suggestion'
 
 test('article check skips the A of Q&A and articles before masked spans', () => {
   assert.deepEqual(analyzeSource('We host a Q&A at the end.', { speller }), []);
-  // `option` is masked to spaces; "an" must not pair with "value".
+  // `option` is masked; "an" must not pair with "value".
   assert.deepEqual(analyzeSource('Pass an `option` value here.', { speller }), []);
+});
+
+test('a bare capital A mid-sentence is a label, at a sentence start an article', () => {
+  assert.deepEqual(
+    analyzeSource('Choose between option A and option B.', { speller }),
+    [],
+    'option labels are not articles'
+  );
+  assert.deepEqual(analyzeSource('Appendix A explains the flow.', { speller }), []);
+  const sentenceStart = analyzeSource('A API endpoint responds.', { speller });
+  assert.equal(sentenceStart.length, 1);
+  assert.equal(sentenceStart[0].suggestion, 'An API');
+});
+
+test('caps-for-emphasis words and mixed-case plurals do not trip the article check', () => {
+  assert.deepEqual(analyzeSource('This cartridge is a MUST for merchants.', { speller }), []);
+  assert.deepEqual(analyzeSource('We fire a GET request first.', { speller }), []);
+  assert.deepEqual(
+    analyzeSource('The team ran an SLAs review yesterday.', { speller }),
+    [],
+    'SLAs (plural of SLA) is letter-read, unlike the SLAS acronym'
+  );
 });
 
 test('a false-positive article pairing can be suppressed with an allowlist phrase', () => {

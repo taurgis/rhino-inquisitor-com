@@ -36,7 +36,8 @@ import matter from 'gray-matter';
  * `node scripts/gates/check-spelling.js --list-unknown`; list stale entries
  * with `--unused-allowlist`. A multi-word allowlist phrase is masked before
  * any check runs, so it also suppresses a false-positive article or phrase
- * finding (e.g. add "a slas" if that initialism is read as a word).
+ * finding (e.g. add "an slas" if a post spells that acronym out letter by
+ * letter instead of reading it as a word).
  */
 
 const REPO_ROOT = path.resolve(fileURLToPath(new URL('../..', import.meta.url)));
@@ -96,17 +97,17 @@ const MISSPELLINGS = {
 };
 
 /**
- * Lowercase function words that are virtually never validly doubled. Kept
- * conservative on purpose: words with a legitimate double ("had had",
- * "that that") or a common proper-noun/hyphenated reading ("will", "no",
- * "so", "do") are intentionally excluded.
+ * Function words that are virtually never validly doubled. Kept conservative
+ * on purpose: words with a legitimate double ("had had", "that that"), a
+ * proper-noun reading ("Will Will Smith star?"), or a common hyphenated
+ * reading ("no", "so", "do") are intentionally excluded.
  */
 const DOUBLED_WORDS = new Set([
   'the', 'a', 'an', 'and', 'or', 'of', 'to', 'in', 'on', 'at', 'for', 'with',
   'as', 'is', 'are', 'was', 'were', 'be', 'been', 'this', 'these', 'those',
   'it', 'its', 'from', 'by', 'but', 'we', 'you', 'they', 'our', 'your',
   'their', 'then', 'than', 'if', 'into', 'over', 'about', 'which', 'when',
-  'where', 'while', 'also', 'not', 'has', 'have', 'will'
+  'where', 'while', 'also', 'not', 'has', 'have'
 ]);
 
 /**
@@ -154,13 +155,13 @@ const PHRASE_ERRORS = {
 };
 
 const TOKEN_PATTERN = /[A-Za-z][A-Za-z'’]*/gu;
-// Lookbehind/lookahead keep hyphenated compounds out: "Apple Web Sign-In in
-// SFRA" must not read as a doubled "In in".
-const DOUBLED_WORD_PATTERN = /(?<![A-Za-z'’-])([A-Za-z]+)(\s+)(\1)(?![A-Za-z'’-])/giu;
-// Article + exactly one space + next word. Masking blanks regions to runs of
-// spaces, so requiring a single space keeps the check from pairing an article
-// with the first word after a masked code span or link. The lookbehind keeps
-// the "A" of "Q&A" (and hyphen/slash compounds) from reading as an article.
+// Lookbehind/lookahead keep hyphenated compounds ("Apple Web Sign-In in SFRA")
+// and digit-glued tokens ("a 2in in the box") from reading as doubled words.
+const DOUBLED_WORD_PATTERN = /(?<![A-Za-z0-9'’-])([A-Za-z]+)(\s+)(\1)(?![A-Za-z0-9'’-])/giu;
+// Article + exactly one space + next word. Masked regions become runs of the
+// non-whitespace MASK_CHAR, so an article next to a masked code span or link
+// never pairs with the first word beyond it. The lookbehind keeps the "A" of
+// "Q&A" (and hyphen/slash compounds) from reading as an article.
 const ARTICLE_PATTERN = /(?<![A-Za-z0-9&'’/-])(a|an) ([A-Za-z0-9][A-Za-z0-9'’-]*)/giu;
 
 // Front-matter fields whose values are prose worth spell-checking.
@@ -266,6 +267,15 @@ function findDoubledWords(prose, allowlist = new Set()) {
     if (!DOUBLED_WORDS.has(word) || allowlist.has(word)) {
       continue;
     }
+    // A single-letter pair with mismatched case is a label plus an article
+    // ("Plan A a.k.a. the fallback"), and a capitalised second word reads as
+    // a proper noun or title ("the The Guardian piece") — leave both alone.
+    if (match[1].length === 1 && match[1] !== match[3]) {
+      continue;
+    }
+    if (/^[A-Z]/u.test(match[3])) {
+      continue;
+    }
     findings.push({
       type: 'repeated-word',
       offset: match.index ?? 0,
@@ -276,22 +286,36 @@ function findDoubledWords(prose, allowlist = new Set()) {
   return findings;
 }
 
+/** One boundary-anchored, whitespace-flexible regex per phrase, shared by
+ * every place that needs to match a multi-word phrase in prose. */
+function phrasePattern(phrase, flags) {
+  return new RegExp(`\\b${phrase.split(/\s+/u).map(escapeRegExp).join('\\s+')}\\b`, flags);
+}
+
+/**
+ * PHRASE_ERRORS entries where a capitalised second word is a plausible proper
+ * noun ("to Setup" as a named admin page) rather than the same mistake in a
+ * title-case heading. Only these skip capitalised matches; "More Then You
+ * Think" in a heading is still an error and still flagged.
+ */
+const PROPER_NOUN_PHRASES = new Set([
+  'to setup', 'to login', 'to logout', 'to backup', 'to rollback', 'to workaround'
+]);
+
+const PHRASE_PATTERNS = Object.entries(PHRASE_ERRORS).map(([phrase, suggestion]) => ({
+  phrase,
+  suggestion,
+  pattern: phrasePattern(phrase, 'giu'),
+  skipCapitalised: PROPER_NOUN_PHRASES.has(phrase)
+}));
+
 /** Find curated multi-word error phrases in already-masked prose. */
-function findErrorPhrases(prose, allowlist = new Set()) {
+function findErrorPhrases(prose) {
   const findings = [];
-  for (const [phrase, suggestion] of Object.entries(PHRASE_ERRORS)) {
-    if (allowlist.has(phrase)) {
-      continue;
-    }
-    const pattern = new RegExp(
-      `\\b${phrase.split(' ').map(escapeRegExp).join('\\s+')}\\b`,
-      'giu'
-    );
+  for (const { pattern, suggestion, skipCapitalised } of PHRASE_PATTERNS) {
     for (const match of prose.matchAll(pattern)) {
-      // A capital anywhere past the first word reads as a proper noun
-      // ("to Setup" as a named page), so leave it alone.
       const rest = match[0].slice(match[0].search(/\s/u));
-      if (/[A-Z]/u.test(rest)) {
+      if (skipCapitalised && /[A-Z]/u.test(rest)) {
         continue;
       }
       findings.push({
@@ -323,28 +347,38 @@ const WORD_ACRONYMS = new Set(['rest', 'link', 'sig', 'slas', 'scapi', 'soap', '
  *   instance" but "a URL" — U is pronounced "you"), leading-caps camel case
  *   ("an HTTPError"), and vowel-less tokens in any case ("an npm package").
  *   All-caps acronyms the site pronounces as words (WORD_ACRONYMS) follow
- *   word rules instead: "a REST API".
+ *   word rules instead: "a REST API". Any other all-caps token whose
+ *   lowercase form is a dictionary word of three or more letters is
+ *   ambiguous — it may be an acronym read letter by letter ("an SPA", "an
+ *   SAP") or a word in caps for emphasis or as a protocol verb ("a MUST",
+ *   "a GET request") — so either article is accepted (returns null).
+ *   Mixed-case plurals like "SLAs" are letter-read, not matched against the
+ *   SLAS acronym.
  * - Numbers are read out: "an 8-second delay", "an 11th step", "a 404 page".
  * - u-/eu- words with a "you" sound take "a" (a user, a unique, a European);
- *   un- prefixed words keep "an" (an uninstalled cartridge).
+ *   un- prefixed words keep "an" (an uninstalled, an unidentified error).
  * - Silent-h words take "an" (an hour, an honest answer).
  */
-function expectedArticle(next) {
+function expectedArticle(next, speller) {
   if (/^[0-9]/u.test(next)) {
     return /^(?:8|11(?![0-9])|18(?![0-9]))/u.test(next) ? 'an' : 'a';
   }
   const head = next.replace(/['’-].*$/u, '');
   const lower = next.toLowerCase();
-  if (!WORD_ACRONYMS.has(head.toLowerCase())) {
+  const allCaps = head === head.toUpperCase();
+  if (!(allCaps && WORD_ACRONYMS.has(head.toLowerCase()))) {
+    if (allCaps && head.length >= 3 && speller?.correct(head.toLowerCase())) {
+      return null; // ambiguous: letter-read acronym or caps-for-emphasis word
+    }
     const initialism =
-      /^[A-Z][A-Z0-9]/u.test(head) || // SFCC, HTTPError, S3
+      /^[A-Z][A-Z0-9]/u.test(head) || // SFCC, HTTPError, S3, SLAs
       /^[A-Z]$/u.test(head) || // "an A record"
       !/[aeiouy]/u.test(head.toLowerCase()); // npm, xml, css in any case
     if (initialism) {
       return VOWEL_SOUND_LETTERS.has(head[0].toUpperCase()) ? 'an' : 'a';
     }
   }
-  if (/^(?:uni(?![nm])|us(?!h)|ubi|ut[ei]|url|eu|ewe|one(?:$|[-s'’])|once)/u.test(lower)) {
+  if (/^(?:uni(?!dent|diom|[nm])|us(?!h)|ubi|ut[ei]|url|eu|ewe|one(?:$|[-s'’])|once)/u.test(lower)) {
     return 'a';
   }
   if (/^(?:hour|honest|honou?r|heir)/u.test(lower)) {
@@ -353,14 +387,33 @@ function expectedArticle(next) {
   return /^[aeiou]/u.test(lower) ? 'an' : 'a';
 }
 
+/**
+ * A bare capital "A" is only an article at the start of a sentence; anywhere
+ * else it is a label or name ("option A and option B", "Appendix A"). The
+ * nearest non-blank character to the left decides.
+ */
+function isSentenceStart(prose, index) {
+  let cursor = index - 1;
+  while (cursor >= 0 && (prose[cursor] === ' ' || prose[cursor] === '\t' || prose[cursor] === MASK_CHAR)) {
+    cursor -= 1;
+  }
+  if (cursor < 0 || prose[cursor] === '\n') {
+    return true;
+  }
+  return /[.!?:;"'“”‘’()\[\]—*_#>|-]/u.test(prose[cursor]);
+}
+
 /** Find "a"/"an" that disagrees with the sound of the following word. */
-function findArticleErrors(prose, allowlist = new Set()) {
+function findArticleErrors(prose, speller) {
   const findings = [];
   for (const match of prose.matchAll(ARTICLE_PATTERN)) {
     const article = match[1];
     const next = match[2];
-    const expected = expectedArticle(next);
-    if (article.toLowerCase() === expected || allowlist.has(`${article.toLowerCase()} ${next.toLowerCase()}`)) {
+    if (article === 'A' && !isSentenceStart(prose, match.index ?? 0)) {
+      continue;
+    }
+    const expected = expectedArticle(next, speller);
+    if (!expected || article.toLowerCase() === expected) {
       continue;
     }
     const corrected = article[0] === article[0].toUpperCase()
@@ -405,9 +458,17 @@ async function loadAllowlist() {
   return new Set(words);
 }
 
-/** Blank every character in `region` except newlines, preserving offsets. */
+/**
+ * Non-whitespace filler for masked regions. Masking with spaces would let
+ * whitespace-bridging patterns pair words across a masked span — "pass the
+ * `id` the API returns" must not read as a doubled "the the", and an article
+ * must not pair with the first word beyond a masked code span.
+ */
+const MASK_CHAR = '\u0000';
+
+/** Mask every character in `region` except newlines, preserving offsets. */
 function blank(region) {
-  return region.replace(/[^\n]/gu, ' ');
+  return region.replace(/[^\n]/gu, MASK_CHAR);
 }
 
 /**
@@ -495,13 +556,14 @@ function lineOfKey(source, key) {
 /**
  * Line of a specific front-matter value (e.g. one takeaways list item), so a
  * finding in the third item points at that item rather than at the key. The
- * front-matter block is a prefix of the source, so offsets line up. Falls
- * back to the key's line when the value is not found verbatim (wrapped or
- * escaped YAML).
+ * front-matter block is a prefix of the source, so offsets line up. The
+ * search starts at the field's own key so a value that repeats an earlier
+ * field's text is not attributed to that earlier line. Falls back to the
+ * key's line when the value is not found verbatim (wrapped or escaped YAML).
  */
-function lineOfValue(block, value, fallbackLine) {
+function lineOfValue(block, value, fallbackLine, fromIndex = 0) {
   const needle = value.slice(0, 60);
-  const index = needle.length > 0 ? block.indexOf(needle) : -1;
+  const index = needle.length > 0 ? block.indexOf(needle, fromIndex) : -1;
   return index === -1 ? fallbackLine : offsetToLine(block, index);
 }
 
@@ -510,8 +572,8 @@ function findInText(text, options) {
     ...findMisspellings(text, options.allowlist),
     ...findUnknownWords(text, options),
     ...findDoubledWords(text, options.allowlist),
-    ...findErrorPhrases(text, options.allowlist),
-    ...findArticleErrors(text, options.allowlist)
+    ...findErrorPhrases(text),
+    ...findArticleErrors(text, options.speller)
   ];
 }
 
@@ -522,14 +584,14 @@ function escapeRegExp(value) {
 /**
  * Blank allowlisted multi-word phrases (proper nouns like "Log Center") so
  * their component words are not individually flagged, without accepting those
- * words elsewhere. Length-preserving, so byte offsets stay accurate.
+ * words elsewhere. Length-preserving, so byte offsets stay accurate. Because
+ * this runs before every check, a phrase entry also suppresses a
+ * false-positive article or error-phrase finding at those spots.
  */
 function maskPhrases(text, phrases) {
   let masked = text;
   for (const phrase of phrases) {
-    masked = masked.replace(new RegExp(`\\b${escapeRegExp(phrase)}\\b`, 'giu'), (match) =>
-      match.replace(/[^\n]/gu, ' ')
-    );
+    masked = masked.replace(phrasePattern(phrase, 'giu'), blank);
   }
   return masked;
 }
@@ -550,11 +612,12 @@ function analyzeSource(source, { speller, allowlist = new Set(), suggest = true 
     const value = data[field];
     const values = Array.isArray(value) ? value : [value];
     const keyLine = block ? lineOfKey(source, field) : 1;
+    const keyIndex = block ? block.search(new RegExp(`^${field}\\s*:`, 'mu')) : -1;
     for (const entry of values) {
       if (typeof entry !== 'string') {
         continue;
       }
-      const entryLine = block ? lineOfValue(block, entry, keyLine) : keyLine;
+      const entryLine = block ? lineOfValue(block, entry, keyLine, Math.max(keyIndex, 0)) : keyLine;
       for (const finding of findInText(prepare(entry), options)) {
         collected.push({ ...finding, line: entryLine, field });
       }
@@ -575,23 +638,22 @@ function analyzeSource(source, { speller, allowlist = new Set(), suggest = true 
   return findings.sort((left, right) => left.line - right.line);
 }
 
+const FINDING_LABELS = {
+  'repeated-word': 'repeated word ',
+  phrase: 'error phrase ',
+  article: 'article disagreement ',
+  spelling: ''
+};
+
 function describe(finding) {
   const where = finding.field ? ` (front matter: ${finding.field})` : '';
-  if (finding.type === 'repeated-word') {
-    return `repeated word "${finding.found.replace(/\s+/gu, ' ')}" -> "${finding.suggestion}"${where}`;
-  }
   if (finding.type === 'unknown-word') {
     return finding.suggestion
       ? `unknown word "${finding.found}" (did you mean: ${finding.suggestion}?)${where}`
       : `unknown word "${finding.found}"${where}`;
   }
-  if (finding.type === 'phrase') {
-    return `error phrase "${finding.found}" -> "${finding.suggestion}"${where}`;
-  }
-  if (finding.type === 'article') {
-    return `article disagreement "${finding.found}" -> "${finding.suggestion}"${where}`;
-  }
-  return `"${finding.found}" -> "${finding.suggestion}"${where}`;
+  const found = finding.found.replace(/\s+/gu, ' ');
+  return `${FINDING_LABELS[finding.type] ?? ''}"${found}" -> "${finding.suggestion}"${where}`;
 }
 
 /** Print every unknown word once (lowercased) to help seed the word list. */
@@ -636,29 +698,32 @@ async function listUnusedAllowlist(contentDir) {
   const files = await collectMarkdownFiles(contentDir);
 
   const words = new Set([...allowlist].filter((entry) => !entry.includes(' ')));
-  const phrases = [...allowlist].filter((entry) => entry.includes(' '));
+  const phrases = [...allowlist]
+    .filter((entry) => entry.includes(' '))
+    .map((phrase) => ({ phrase, pattern: phrasePattern(phrase, 'iu') }));
 
-  const needed = new Set();
+  const neededWords = new Set();
   const neededPhrases = new Set();
   for (const file of files) {
     const source = await fs.readFile(file, 'utf8');
     for (const finding of analyzeSource(source, { speller, allowlist: new Set(), suggest: false })) {
-      needed.add(normalizeToken(baseWord(finding.found)));
-      if (finding.type === 'phrase' || finding.type === 'article') {
-        needed.add(finding.found.toLowerCase());
+      if (finding.type === 'unknown-word' || finding.type === 'spelling') {
+        neededWords.add(normalizeToken(baseWord(finding.found)));
       }
     }
+    // A phrase entry is needed while its text still occurs anywhere in the
+    // file's prose (it masks those occurrences from every check).
     const prose = maskNonProse(source);
-    for (const phrase of phrases) {
-      if (new RegExp(`\\b${escapeRegExp(phrase)}\\b`, 'iu').test(prose)) {
+    for (const { phrase, pattern } of phrases) {
+      if (pattern.test(prose)) {
         neededPhrases.add(phrase);
       }
     }
   }
 
   const unused = [
-    ...[...words].filter((word) => !needed.has(word)),
-    ...phrases.filter((phrase) => !neededPhrases.has(phrase) && !needed.has(phrase))
+    ...[...words].filter((word) => !neededWords.has(word)),
+    ...phrases.filter(({ phrase }) => !neededPhrases.has(phrase)).map(({ phrase }) => phrase)
   ].sort((left, right) => left.localeCompare(right));
 
   for (const entry of unused) {

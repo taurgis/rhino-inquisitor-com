@@ -580,14 +580,52 @@ in the same change and each edited article's `lastmod` was bumped.
   hook runs it unchanged.
 - Verify: `npm run check:spelling` exits 0 across current content. Add
   "should of", "a SFCC", or "The the" to any article and confirm the gate
-  exits 1 with the exact correction. `npm run test:spelling` (31 tests)
-  covers the phrase map's integrity, the article-sound table, capitalisation
-  in suggestions, the Q&A/masked-span/hyphen false-positive guards, and the
+  exits 1 with the exact correction. `npm run test:spelling` covers the
+  phrase map's integrity, the article-sound table, capitalisation in
+  suggestions, the Q&A/masked-span/hyphen false-positive guards, and the
   phrase-based suppression workflow.
 - Related files: `scripts/gates/check-spelling.js`,
   `scripts/gates/check-spelling.test.js`, `scripts/gates/spelling-allow.txt`,
   `docs/publishing/deploy-gate-matrix.md`, corrected articles under
   `src/content/`.
+
+## Follow-up: grammar-check audit hardening (latent false positives/negatives)
+
+### Change summary
+
+An adversarial self-review of the grammar checks (eight independent review
+angles, each candidate re-verified by executing it against the gate) found
+ten latent defects: the gate was green on current content, but correct future
+prose would have tripped it, and one error class escaped it. All are fixed
+with regression tests (the suite grew to 38 tests).
+
+### Old vs new behavior
+
+| Defect (old behavior) | New behavior |
+|-----------------------|--------------|
+| Masking blanked code/URLs to spaces, so the doubled-word check paired words across a masked span: "pass the `id` the API returns" flagged a phantom "the the" | Masked regions are filled with a non-whitespace sentinel (`MASK_CHAR`), so no check can bridge a masked span; the article check's single-space rule now has defence in depth |
+| "an unidentified error" flagged (u- rule read `unid-` as the "you" sound) | `unident-`/`unidiom-` stems keep "an"; `unidirectional` still takes "a" |
+| Bare capital "A" mid-sentence read as an article: "option A and option B" → nonsense "An and" | A capital "A" is an article only at a sentence start (nearest non-blank character decides); labels like "option A", "Appendix A", "Plan A a.k.a." pass |
+| All-caps dictionary words judged letter-by-letter: "a MUST" → wrong suggestion "an MUST" | All-caps tokens (≥3 letters) whose lowercase is a dictionary word are ambiguous — letter-read acronym ("an SPA", "an SAP") or caps-for-emphasis word ("a MUST", "a GET request") — so either article is accepted; `WORD_ACRONYMS` entries stay deterministic |
+| Plural "SLAs" matched the SLAS word-acronym entry: correct "an SLAs" flagged | `WORD_ACRONYMS` applies only to fully upper-case tokens; "SLAs" is letter-read |
+| Case-insensitive doubling flagged proper nouns ("Will Will Smith", "The The") and digit-glued tokens ("a 2in in the box") | 'will' removed from the safelist; a capitalised second word or a single-letter case-mismatched pair is skipped; lookarounds exclude digits |
+| Title-case headings escaped the phrase check ("## More Then You Think" passed) | The capitalised-skip applies only to the compound-noun phrases with a proper-noun reading ("to Setup"); then/than and modal+of mistakes are flagged in any case |
+| A takeaway repeating earlier front-matter text reported the earlier field's line | `lineOfValue` starts searching at the field's own key |
+| Header comment showed an inverted suppression example ("a slas") | Corrected to "an slas"; `maskPhrases`, `findErrorPhrases`, and `--unused-allowlist` now share one `phrasePattern` builder so phrase matching cannot drift |
+| Phrase regexes recompiled per call; `--unused-allowlist` mixed two overlapping "needed" mechanisms | Patterns precompiled at module level; the maintenance mode uses the occurrence scan as the single arbiter for phrases |
+
+### Impact and verification
+
+- Impacted components: `scripts/gates/check-spelling.js` and
+  `scripts/gates/check-spelling.test.js` only — no content, workflow, or
+  configuration changes; the gate's CLI, exit codes, and placement are
+  unchanged.
+- Verify: `npm run test:spelling` (38 tests, including one regression test per
+  defect above) and `npm run check:spelling` (exits 0 across all 197 files);
+  `node scripts/gates/check-spelling.js --unused-allowlist` still reports 0
+  unused entries.
+- Related files: `scripts/gates/check-spelling.js`,
+  `scripts/gates/check-spelling.test.js`.
 
 ## Related files
 
