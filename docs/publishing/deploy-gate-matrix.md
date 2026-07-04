@@ -484,6 +484,51 @@ a bad entry silently disabling the gate.
   `scripts/gates/check-spelling.test.js`, `scripts/gates/spelling-allow.txt`,
   `scripts/gates/run-all-gates.sh`, `package.json`.
 
+## Update: full-dictionary spelling gate + British house style
+
+### Change summary
+
+The curated-misspelling gate above only caught typos someone had added to a
+list. It is now backed by a full British English Hunspell dictionary (nspell +
+`dictionary-en-gb`), so any word the dictionary does not know is flagged. British
+English is adopted as the single house style: all existing articles were
+converted from American to British spelling, and the gate now rejects American
+variants so future content stays consistent.
+
+### Old vs new behavior
+
+| Aspect | Old | New |
+|--------|-----|-----|
+| Detection | Curated `MISSPELLINGS` list + repeated words | Full en-GB dictionary check + curated list (for exact suggestions) + repeated words |
+| Spelling variant | British and American both tolerated | **British only** — `color`, `organize`, `center`, `catalog`, … are flagged; write `colour`, `organise`, `centre`, `catalogue` |
+| Existing content | Mixed US/UK spelling | 123 articles converted to British (prose only; code, URLs, and proper nouns such as "Red Hot Chili Peppers" left untouched) |
+| Unknown words | n/a | Valid jargon, product/brand names, and cited people's names live in `scripts/gates/spelling-allow.txt` (the project dictionary, seeded via `--list-unknown`) |
+| Front matter | Body only | `title`, `description`, and `takeaways` values are also checked (keys, `url`, tags, and file names are not) |
+| Deliberate US spellings kept | n/a | `adapter` (software term) and `chili` (band name) are allowlisted rather than converted |
+| Dependencies | Dependency-free | Adds dev deps `nspell`, `dictionary-en-gb`, and reuses `gray-matter`; the gate now needs `npm ci` (already run before the `build` gate group in CI) |
+| Local pre-commit | none | `.githooks/pre-commit` runs the gate when a commit stages `src/content/**` Markdown (bypass with `SKIP_SPELLING=1` or `--no-verify`) |
+
+`--list-unknown` prints every word the dictionary and project list do not know,
+to help vet and extend the allowlist. To convert a stray American spelling that
+slips in, rewrite it in British form; to accept new jargon, append it (lowercased)
+to `scripts/gates/spelling-allow.txt`.
+
+### Impact and verification
+
+- Impacted components: `scripts/gates/check-spelling.js` (dictionary layer,
+  British-only, front-matter aware), `scripts/gates/spelling-allow.txt` (project
+  dictionary), `.githooks/pre-commit` (new), `package.json` (dev deps), and all
+  converted articles under `src/content/`.
+- The gate still runs in the `build` group via `npm run gates:local`, so
+  `deploy-pages.yml` is unchanged; CI installs dependencies before that step.
+- Verify: `npm run check:spelling` exits 0 across current content; introduce an
+  American spelling (e.g. `optimize`) and confirm it is flagged with the British
+  suggestion. `npm run test:spelling` covers British acceptance, American
+  rejection, masking, front matter, and dictionary/allowlist integrity.
+- Related files: `scripts/gates/check-spelling.js`,
+  `scripts/gates/check-spelling.test.js`, `scripts/gates/spelling-allow.txt`,
+  `.githooks/pre-commit`, `package.json`.
+
 ## Related files
 
 - `.github/workflows/deploy-pages.yml`
@@ -492,6 +537,7 @@ a bad entry silently disabling the gate.
 - `scripts/gates/check-spelling.js` (+ `check:spelling` npm script)
 - `scripts/gates/check-spelling.test.js` (+ `test:spelling` npm script)
 - `scripts/gates/spelling-allow.txt`
+- `.githooks/pre-commit` (runs the spelling gate on content commits)
 - `lighthouserc.json`
 - `src/layouts/partials/site/stylesheet.html`
 - `scripts/generate-critical-css.js` (+ `generate:critical-css` npm script)

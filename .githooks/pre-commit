@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# Installed via `npm run prepare` (git config core.hooksPath .githooks).
+# Runs the content spelling gate before a commit that touches articles, so
+# obvious typos are caught locally before they reach the deploy pipeline.
+#
+# Emergency bypass: SKIP_SPELLING=1 git commit ...   (or git commit --no-verify)
+
+set -euo pipefail
+
+if [[ "${SKIP_SPELLING:-}" == "1" ]]; then
+  echo "pre-commit: SKIP_SPELLING=1 set; skipping spelling gate."
+  exit 0
+fi
+
+repo_root="$(git rev-parse --show-toplevel)"
+
+# Only run when the commit stages Markdown under src/content.
+if ! git diff --cached --name-only --diff-filter=ACM | grep -qE '^src/content/.*\.md$'; then
+  exit 0
+fi
+
+if [[ ! -d "$repo_root/node_modules/nspell" ]]; then
+  echo "pre-commit: dependencies not installed (run 'npm ci'); skipping spelling gate." >&2
+  exit 0
+fi
+
+echo "pre-commit: running content spelling gate..."
+( cd "$repo_root" && npm run --silent check:spelling )

@@ -2,26 +2,33 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
+import nspell from 'nspell';
+import enGb from 'dictionary-en-gb';
+import matter from 'gray-matter';
+
 /**
  * Blocking spelling gate for published content.
  *
- * Catches obvious, unambiguous English mistakes in article prose so they do
- * not reach production. Two checks run:
+ * Three checks run over article prose. Front-matter keys/URLs/tags are dropped
+ * and only the prose fields (title, description, takeaways) are kept; in the
+ * body, code, URLs, HTML tags, and shortcode parameters are masked, so only
+ * human-readable text is inspected:
  *
- *   1. Misspellings — a curated map of misspelling -> correction. Only tokens
- *      that are essentially never valid English words (and never valid
- *      SFCC/technical jargon or British spellings) belong here, which keeps the
- *      gate free of false positives on domain terms.
- *   2. Repeated words — an accidentally doubled function word ("the the"). Only
- *      lowercase occurrences of a small safelist are flagged, so proper nouns
- *      ("Will Will"), sentence starts, and the rare valid double ("had had",
- *      "that that") are left alone.
+ *   1. Curated misspellings — a map of misspelling -> correction for common
+ *      typos, so the report can suggest the exact fix.
+ *   2. Dictionary check — every remaining word is looked up in the British
+ *      English Hunspell dictionary. en-GB is the single house style, so
+ *      American variants (color, organize, center, ...) are flagged and should
+ *      be written in British form. Anything the dictionary does not know and
+ *      that is not in the project word list (scripts/gates/spelling-allow.txt)
+ *      is flagged. The word list is pre-seeded with the jargon, product names,
+ *      and cited people's names the site uses, so only genuinely new/unknown
+ *      words fail the gate.
+ *   3. Repeated words — an accidentally doubled function word ("the the").
  *
- * The gate deliberately does NOT try to be a full grammar or dictionary spell
- * checker — that would flag jargon on every run. It targets the "obvious typo"
- * class of defect. To broaden coverage, add pairs to MISSPELLINGS. To silence a
- * token that is intentional in context, add it (lowercased) to
- * scripts/gates/spelling-allow.txt.
+ * When the gate flags a valid word (new jargon, product name, person), add it
+ * (lowercased) to scripts/gates/spelling-allow.txt. Regenerate candidates with
+ * `node scripts/gates/check-spelling.js --list-unknown`.
  */
 
 const REPO_ROOT = path.resolve(fileURLToPath(new URL('../..', import.meta.url)));
@@ -38,182 +45,46 @@ const MISSPELLINGS = {
   waht: 'what',
   wiht: 'with',
   // General common misspellings
-  abbout: 'about',
   accomodate: 'accommodate',
-  accross: 'across',
   acheive: 'achieve',
-  acheived: 'achieved',
-  adress: 'address',
-  aggresive: 'aggressive',
   alot: 'a lot',
-  alredy: 'already',
-  ammount: 'amount',
-  apparant: 'apparent',
-  aquire: 'acquire',
   arguement: 'argument',
-  auther: 'author',
   becuase: 'because',
   begining: 'beginning',
   beleive: 'believe',
-  belive: 'believe',
-  benefical: 'beneficial',
-  bizzare: 'bizarre',
-  buisness: 'business',
   calender: 'calendar',
   catagory: 'category',
-  cateogry: 'category',
   commited: 'committed',
-  commitee: 'committee',
-  comparision: 'comparison',
-  completly: 'completely',
-  concious: 'conscious',
-  consistant: 'consistent',
   definately: 'definitely',
-  definatly: 'definitely',
   dependancy: 'dependency',
   dependancies: 'dependencies',
-  developement: 'development',
-  differnt: 'different',
-  dissapear: 'disappear',
-  dissapoint: 'disappoint',
-  embarass: 'embarrass',
-  enchancement: 'enhancement',
-  enchancements: 'enhancements',
   enviroment: 'environment',
   enviroments: 'environments',
-  equiptment: 'equipment',
-  especialy: 'especially',
-  everytime: 'every time',
-  exampe: 'example',
-  examle: 'example',
-  excpetion: 'exception',
   existance: 'existence',
-  familar: 'familiar',
-  finaly: 'finally',
   foriegn: 'foreign',
-  foward: 'forward',
-  freind: 'friend',
-  gaurd: 'guard',
   goverment: 'government',
-  grammer: 'grammar',
-  greatful: 'grateful',
-  happend: 'happened',
-  harrass: 'harass',
-  heirarchy: 'hierarchy',
-  hierachy: 'hierarchy',
-  immediatly: 'immediately',
   independant: 'independent',
-  infite: 'infinite',
-  knowlege: 'knowledge',
-  langauge: 'language',
-  lenght: 'length',
-  liason: 'liaison',
-  maintainance: 'maintenance',
-  maintenence: 'maintenance',
-  managment: 'management',
-  neccessary: 'necessary',
-  necesary: 'necessary',
-  noticable: 'noticeable',
-  occassion: 'occasion',
   occured: 'occurred',
-  occurence: 'occurrence',
   occurance: 'occurrence',
-  occuring: 'occurring',
-  oportunity: 'opportunity',
-  oppurtunity: 'opportunity',
-  paralell: 'parallel',
-  parllel: 'parallel',
-  particulary: 'particularly',
-  performace: 'performance',
-  persistant: 'persistent',
-  personel: 'personnel',
-  posession: 'possession',
-  preceed: 'precede',
-  priviledge: 'privilege',
-  pronounciation: 'pronunciation',
   publically: 'publicly',
-  publicaly: 'publicly',
-  questionaire: 'questionnaire',
-  reccommend: 'recommend',
-  recomend: 'recommend',
   recieve: 'receive',
   recieved: 'received',
-  refered: 'referred',
-  refering: 'referring',
-  relevent: 'relevant',
-  religous: 'religious',
-  remeber: 'remember',
-  reponse: 'response',
-  responce: 'response',
-  resistence: 'resistance',
-  responsibile: 'responsible',
-  restaraunt: 'restaurant',
-  retreive: 'retrieve',
-  retrive: 'retrieve',
-  rythm: 'rhythm',
-  rhythem: 'rhythm',
-  seige: 'siege',
-  sentance: 'sentence',
   seperate: 'separate',
   seperated: 'separated',
   seperately: 'separately',
-  seperator: 'separator',
-  similiar: 'similar',
-  sincerly: 'sincerely',
-  speach: 'speech',
   succesful: 'successful',
-  succesfully: 'successfully',
-  successfull: 'successful',
-  sucess: 'success',
-  sucessful: 'successful',
-  sucessfully: 'successfully',
-  supercede: 'supersede',
   suprise: 'surprise',
-  temperment: 'temperament',
-  tendancy: 'tendency',
-  threshhold: 'threshold',
   tommorow: 'tomorrow',
-  tommorrow: 'tomorrow',
-  tounge: 'tongue',
-  truely: 'truly',
-  unfortunatly: 'unfortunately',
   untill: 'until',
-  useable: 'usable',
-  varaiation: 'variation',
-  varaiations: 'variations',
-  vaccuum: 'vacuum',
-  vehical: 'vehicle',
-  visable: 'visible',
   wich: 'which',
   wierd: 'weird',
-  writting: 'writing',
-  yeild: 'yield',
-
   // Technical / web-flavoured misspellings
-  atribute: 'attribute',
-  attirbute: 'attribute',
-  attribue: 'attribute',
-  authetication: 'authentication',
   compatability: 'compatibility',
-  compatiblity: 'compatibility',
   defualt: 'default',
-  delimeter: 'delimiter',
-  enviornment: 'environment',
-  fuction: 'function',
-  fucntion: 'function',
-  funtion: 'function',
-  heigth: 'height',
-  javascipt: 'javascript',
   paramater: 'parameter',
   paramaters: 'parameters',
-  paramter: 'parameter',
-  paramters: 'parameters',
-  recieves: 'receives',
-  reqeust: 'request',
-  requst: 'request',
-  seperatly: 'separately',
-  vaild: 'valid',
-  widht: 'width'
+  reponse: 'response',
+  vaild: 'valid'
 };
 
 /**
@@ -230,30 +101,99 @@ const DOUBLED_WORDS = new Set([
   'where', 'while', 'also', 'not', 'has', 'have', 'will'
 ]);
 
-const TOKEN_PATTERN = /[A-Za-z][A-Za-z'’-]*/gu;
+const TOKEN_PATTERN = /[A-Za-z][A-Za-z'’]*/gu;
 const DOUBLED_WORD_PATTERN = /\b([a-z]+)(\s+)(\1)\b/gu;
+
+// Front-matter fields whose values are prose worth spell-checking.
+const PROSE_FIELDS = ['title', 'description', 'takeaways'];
+
+let cachedSpeller;
+
+function createSpeller() {
+  if (!cachedSpeller) {
+    // British English is the single house style: only en-GB is accepted, so
+    // American variants (color, organize, center, ...) are flagged and can be
+    // converted to their British forms. Enforcing one variant keeps spelling
+    // consistent across articles and the word list small.
+    cachedSpeller = nspell(enGb);
+  }
+  return cachedSpeller;
+}
 
 function normalizeToken(token) {
   return token.toLowerCase().replace(/[’]/gu, "'");
 }
 
+/** Strip a trailing possessive so "developer's" checks as "developer". */
+function baseWord(token) {
+  return token.replace(/['’]s$/u, '').replace(/['’]$/u, '');
+}
+
 /**
- * Find curated misspellings in already-masked prose. `allowlist` is a Set of
- * lowercased tokens to skip.
+ * Words that are not worth dictionary-checking: too short, acronyms (all
+ * caps), or code-style identifiers with internal capitals (getProps, GitHub).
  */
+function isSkippableToken(token) {
+  const base = baseWord(token);
+  if (base.length < 3) {
+    return true;
+  }
+  if (/^[A-Z]+$/u.test(base)) {
+    return true;
+  }
+  if (/[A-Z]/u.test(base.slice(1))) {
+    return true;
+  }
+  return false;
+}
+
+/** Find curated misspellings in already-masked prose. */
 function findMisspellings(prose, allowlist = new Set()) {
   const findings = [];
   for (const match of prose.matchAll(TOKEN_PATTERN)) {
-    const token = match[0];
-    const normalized = normalizeToken(token);
+    const normalized = normalizeToken(match[0]);
     if (!Object.hasOwn(MISSPELLINGS, normalized) || allowlist.has(normalized)) {
       continue;
     }
     findings.push({
       type: 'spelling',
       offset: match.index ?? 0,
-      found: token,
+      found: match[0],
       suggestion: MISSPELLINGS[normalized]
+    });
+  }
+  return findings;
+}
+
+/** Find words unknown to the dictionary and the project word list. */
+function findUnknownWords(prose, { speller, allowlist = new Set(), suggest = true } = {}) {
+  if (!speller) {
+    return [];
+  }
+  const findings = [];
+  for (const match of prose.matchAll(TOKEN_PATTERN)) {
+    const token = match[0];
+    if (isSkippableToken(token)) {
+      continue;
+    }
+    const base = baseWord(token);
+    const normalized = normalizeToken(base);
+    if (
+      Object.hasOwn(MISSPELLINGS, normalized) ||
+      allowlist.has(normalized) ||
+      speller.correct(base) ||
+      speller.correct(normalized) ||
+      // Accept stylistic internal apostrophes, e.g. 'event'ful -> eventful
+      speller.correct(base.replace(/['’]/gu, ''))
+    ) {
+      continue;
+    }
+    const suggestions = suggest ? speller.suggest(base).slice(0, 2) : [];
+    findings.push({
+      type: 'unknown-word',
+      offset: match.index ?? 0,
+      found: token,
+      suggestion: suggestions.join(', ')
     });
   }
   return findings;
@@ -306,29 +246,58 @@ async function loadAllowlist() {
   return new Set(words);
 }
 
+/** Blank every character in `region` except newlines, preserving offsets. */
+function blank(region) {
+  return region.replace(/[^\n]/gu, ' ');
+}
+
 /**
- * Remove regions that are not prose so the checker never inspects code,
- * URLs, or asset references.
+ * Blank a block but keep the quoted values of alt/caption/title so shortcode
+ * and HTML prose is still checked while filenames and parameter keys are not.
+ * Length and newlines are preserved so byte offsets stay accurate.
+ */
+function keepProseAttributes(block) {
+  const chars = [...blank(block)];
+  for (const attr of block.matchAll(/\b(?:alt|caption|title)\s*=\s*"([^"]*)"/giu)) {
+    const valueStart = (attr.index ?? 0) + attr[0].indexOf('"') + 1;
+    for (let index = 0; index < attr[1].length; index += 1) {
+      chars[valueStart + index] = block[valueStart + index];
+    }
+  }
+  return chars.join('');
+}
+
+/**
+ * Remove regions of the body that are not prose so the checker never inspects
+ * code, URLs, HTML tags, or asset references.
  */
 function maskNonProse(source) {
   return source
     // Fenced code blocks
-    .replace(/```[\s\S]*?```/gu, (block) => block.replace(/[^\n]/gu, ' '))
-    .replace(/~~~[\s\S]*?~~~/gu, (block) => block.replace(/[^\n]/gu, ' '))
+    .replace(/```[\s\S]*?```/gu, blank)
+    .replace(/~~~[\s\S]*?~~~/gu, blank)
     // Inline code spans
-    .replace(/`[^`\n]*`/gu, (span) => span.replace(/[^\n]/gu, ' '))
+    .replace(/`[^`\n]*`/gu, blank)
     // HTML comments
-    .replace(/<!--[\s\S]*?-->/gu, (block) => block.replace(/[^\n]/gu, ' '))
-    // Markdown link/image targets: (https://...) and (/local/path/)
-    .replace(/\]\(([^)\n]+)\)/gu, (match) => match.replace(/[^\n]/gu, ' '))
-    // Bare URLs
-    .replace(/https?:\/\/\S+/gu, (url) => url.replace(/[^\n]/gu, ' '));
+    .replace(/<!--[\s\S]*?-->/gu, blank)
+    // Hugo shortcodes: keep alt/caption/title, blank the rest
+    .replace(/\{\{[<%][\s\S]*?[%>]\}\}/gu, keepProseAttributes)
+    // HTML tags: keep alt/caption/title, blank the rest
+    .replace(/<[^>\n]+>/gu, keepProseAttributes)
+    // Bare/parenthesised URLs first — long URLs can contain ")" which would
+    // otherwise defeat the link-target rule below. No whitespace in a URL, so
+    // \S+ blanks the whole thing.
+    .replace(/https?:\/\/\S+/gu, blank)
+    // @-mention link text, e.g. [@username] in changelogs
+    .replace(/\[@[^\]\n]+\]/gu, blank)
+    // Remaining relative markdown link/image targets: ](/local/path/)
+    .replace(/\]\(([^)\n]+)\)/gu, blank);
 }
 
-function offsetToLine(source, offset) {
+function offsetToLine(text, offset) {
   let line = 1;
-  for (let index = 0; index < offset && index < source.length; index += 1) {
-    if (source[index] === '\n') {
+  for (let index = 0; index < offset && index < text.length; index += 1) {
+    if (text[index] === '\n') {
       line += 1;
     }
   }
@@ -339,37 +308,130 @@ function toRepoRelative(absolutePath) {
   return path.relative(REPO_ROOT, absolutePath).split(path.sep).join('/');
 }
 
+/**
+ * Split a document into its front matter and body, tracking how many lines the
+ * front matter occupies so body findings can report absolute line numbers.
+ */
+function splitDocument(source) {
+  const fmMatch = /^---\r?\n[\s\S]*?\r?\n---[ \t]*\r?\n?/u.exec(source);
+  if (!fmMatch) {
+    return { body: source, bodyLineOffset: 0, data: {} };
+  }
+  const block = fmMatch[0];
+  const bodyLineOffset = (block.match(/\n/gu) ?? []).length;
+  let data = {};
+  try {
+    data = matter(source).data ?? {};
+  } catch {
+    data = {};
+  }
+  return { block, body: source.slice(block.length), bodyLineOffset, data };
+}
+
+function lineOfKey(source, key) {
+  const match = new RegExp(`^${key}\\s*:`, 'mu').exec(source);
+  return match ? offsetToLine(source, match.index) : 1;
+}
+
+function findInText(text, options) {
+  return [
+    ...findMisspellings(text, options.allowlist),
+    ...findUnknownWords(text, options),
+    ...findDoubledWords(text, options.allowlist)
+  ];
+}
+
 /** Analyse a single document's raw source and return de-duplicated findings. */
-function analyzeSource(source, allowlist = new Set()) {
-  const prose = maskNonProse(source);
-  const raw = [...findMisspellings(prose, allowlist), ...findDoubledWords(prose, allowlist)];
+function analyzeSource(source, { speller, allowlist = new Set(), suggest = true } = {}) {
+  const options = { speller, allowlist, suggest };
+  const { block, body, bodyLineOffset, data } = splitDocument(source);
+  const collected = [];
+
+  for (const finding of findInText(maskNonProse(body), options)) {
+    collected.push({ ...finding, line: bodyLineOffset + offsetToLine(body, finding.offset) });
+  }
+
+  for (const field of PROSE_FIELDS) {
+    const value = data[field];
+    const values = Array.isArray(value) ? value : [value];
+    const keyLine = block ? lineOfKey(source, field) : 1;
+    for (const entry of values) {
+      if (typeof entry !== 'string') {
+        continue;
+      }
+      for (const finding of findInText(maskNonProse(entry), options)) {
+        collected.push({ ...finding, line: keyLine, field });
+      }
+    }
+  }
 
   const seen = new Set();
   const findings = [];
-  for (const finding of raw) {
-    const line = offsetToLine(source, finding.offset);
-    const key = `${line}:${finding.type}:${finding.found.toLowerCase()}`;
+  for (const finding of collected) {
+    const key = `${finding.line}:${finding.field ?? 'body'}:${finding.type}:${finding.found.toLowerCase()}`;
     if (seen.has(key)) {
       continue;
     }
     seen.add(key);
-    findings.push({ ...finding, line });
+    findings.push(finding);
   }
 
   return findings.sort((left, right) => left.line - right.line);
 }
 
 function describe(finding) {
-  return finding.type === 'repeated-word'
-    ? `repeated word "${finding.found.replace(/\s+/gu, ' ')}" -> "${finding.suggestion}"`
-    : `"${finding.found}" -> "${finding.suggestion}"`;
+  const where = finding.field ? ` (front matter: ${finding.field})` : '';
+  if (finding.type === 'repeated-word') {
+    return `repeated word "${finding.found.replace(/\s+/gu, ' ')}" -> "${finding.suggestion}"${where}`;
+  }
+  if (finding.type === 'unknown-word') {
+    return finding.suggestion
+      ? `unknown word "${finding.found}" (did you mean: ${finding.suggestion}?)${where}`
+      : `unknown word "${finding.found}"${where}`;
+  }
+  return `"${finding.found}" -> "${finding.suggestion}"${where}`;
+}
+
+/** Print every unknown word once (lowercased) to help seed the word list. */
+async function listUnknown(contentDir) {
+  const speller = createSpeller();
+  const allowlist = await loadAllowlist();
+  const files = (await collectMarkdownFiles(contentDir)).sort((left, right) =>
+    left.localeCompare(right)
+  );
+
+  const unknown = new Map();
+  for (const file of files) {
+    const source = await fs.readFile(file, 'utf8');
+    for (const finding of analyzeSource(source, { speller, allowlist, suggest: false })) {
+      if (finding.type !== 'unknown-word') {
+        continue;
+      }
+      const word = normalizeToken(baseWord(finding.found));
+      const entry = unknown.get(word) ?? { count: 0, sample: toRepoRelative(file) };
+      entry.count += 1;
+      unknown.set(word, entry);
+    }
+  }
+
+  const sorted = [...unknown.entries()].sort((left, right) => left[0].localeCompare(right[0]));
+  for (const [word, { count, sample }] of sorted) {
+    process.stdout.write(`${word}\t${count}\t${sample}\n`);
+  }
+  console.error(`\n${sorted.length} unique unknown word(s) across ${files.length} file(s).`);
 }
 
 async function main() {
   const options = parseArgs(process.argv.slice(2));
   const contentDir = options.contentDir ?? DEFAULT_CONTENT_DIR;
-  const allowlist = await loadAllowlist();
 
+  if (options.listUnknown) {
+    await listUnknown(contentDir);
+    return;
+  }
+
+  const speller = createSpeller();
+  const allowlist = await loadAllowlist();
   const markdownFiles = (await collectMarkdownFiles(contentDir)).sort((left, right) =>
     left.localeCompare(right)
   );
@@ -378,14 +440,14 @@ async function main() {
   for (const markdownFile of markdownFiles) {
     const source = await fs.readFile(markdownFile, 'utf8');
     const file = toRepoRelative(markdownFile);
-    for (const finding of analyzeSource(source, allowlist)) {
+    for (const finding of analyzeSource(source, { speller, allowlist })) {
       findings.push({ ...finding, file });
     }
   }
 
   if (findings.length === 0) {
     console.log(
-      `Checked ${markdownFiles.length} content file(s) against ${Object.keys(MISSPELLINGS).length} known misspelling(s) and ${DOUBLED_WORDS.size} repeated-word pattern(s). No spelling issues found.`
+      `Checked ${markdownFiles.length} content file(s) against the English dictionary, ${allowlist.size} project word(s), and ${Object.keys(MISSPELLINGS).length} curated misspelling(s). No spelling issues found.`
     );
     return;
   }
@@ -402,7 +464,7 @@ async function main() {
     }
   }
   console.error(
-    'Fix the issue, or if it is intentional add the lowercased word to scripts/gates/spelling-allow.txt.'
+    'Fix the issue, or if the word is valid add it (lowercased) to scripts/gates/spelling-allow.txt.'
   );
   process.exitCode = 1;
 }
@@ -412,6 +474,8 @@ function parseArgs(argv) {
   for (let index = 0; index < argv.length; index += 1) {
     if (argv[index] === '--content-dir') {
       parsed.contentDir = path.resolve(argv[++index]);
+    } else if (argv[index] === '--list-unknown') {
+      parsed.listUnknown = true;
     }
   }
   return parsed;
@@ -420,8 +484,10 @@ function parseArgs(argv) {
 export {
   MISSPELLINGS,
   DOUBLED_WORDS,
+  createSpeller,
   maskNonProse,
   findMisspellings,
+  findUnknownWords,
   findDoubledWords,
   analyzeSource,
   loadAllowlist

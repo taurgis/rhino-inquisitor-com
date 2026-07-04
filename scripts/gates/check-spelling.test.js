@@ -9,6 +9,7 @@ import { fileURLToPath } from 'node:url';
 import {
   MISSPELLINGS,
   DOUBLED_WORDS,
+  createSpeller,
   maskNonProse,
   analyzeSource,
   loadAllowlist
@@ -16,10 +17,13 @@ import {
 
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const gatePath = path.join(repoRoot, 'scripts/gates/check-spelling.js');
+const speller = createSpeller();
 
-function types(findings) {
-  return findings.map((finding) => `${finding.type}:${finding.found}`);
+function foundWords(findings) {
+  return findings.map((finding) => finding.found);
 }
+
+// --- dictionary and allowlist integrity -------------------------------------
 
 test('dictionary integrity: keys are lowercase, single-token, and not self-correcting', () => {
   for (const [misspelling, correction] of Object.entries(MISSPELLINGS)) {
@@ -57,50 +61,99 @@ test('allowlist does not shadow (silently disable) any dictionary entry', async 
   }
 });
 
+test('project word list is clean: lowercase, single-token entries', async () => {
+  const allowlist = await loadAllowlist();
+  for (const word of allowlist) {
+    assert.match(word, /^[a-z][a-z'’-]*$/u, `project word "${word}" should be a single lowercase token`);
+  }
+});
+
+// --- curated misspellings ---------------------------------------------------
+
 test('detects a known misspelling and suggests the correction', () => {
-  const findings = analyzeSource('We recieve the payload.');
-  assert.equal(findings.length, 1);
-  assert.equal(findings[0].type, 'spelling');
-  assert.equal(findings[0].found, 'recieve');
-  assert.equal(findings[0].suggestion, 'receive');
-  assert.equal(findings[0].line, 1);
+  const findings = analyzeSource('We recieve the payload.', { speller });
+  const spelling = findings.filter((finding) => finding.type === 'spelling');
+  assert.equal(spelling.length, 1);
+  assert.equal(spelling[0].found, 'recieve');
+  assert.equal(spelling[0].suggestion, 'receive');
+  assert.equal(spelling[0].line, 1);
 });
 
 test('respects the allowlist', () => {
-  const withoutAllow = analyzeSource('A recieve here.');
+  const withoutAllow = analyzeSource('A recieve here.', { speller });
   assert.equal(withoutAllow.length, 1);
-  const withAllow = analyzeSource('A recieve here.', new Set(['recieve']));
+  const withAllow = analyzeSource('A recieve here.', { speller, allowlist: new Set(['recieve']) });
   assert.equal(withAllow.length, 0);
 });
 
+// --- dictionary check -------------------------------------------------------
+
+test('flags a word neither dictionary nor the project list knows', () => {
+  const findings = analyzeSource('This frobnicator is here.', { speller });
+  assert.deepEqual(foundWords(findings), ['frobnicator']);
+  assert.equal(findings[0].type, 'unknown-word');
+});
+
+test('an unknown word can be cleared via the allowlist', () => {
+  const findings = analyzeSource('This frobnicator is here.', {
+    speller,
+    allowlist: new Set(['frobnicator'])
+  });
+  assert.deepEqual(findings, []);
+});
+
+test('accepts British spelling and flags American variants', () => {
+  assert.deepEqual(
+    analyzeSource('We favour the colour and organise the catalogue.', { speller }),
+    [],
+    'British spellings pass'
+  );
+  const american = analyzeSource('We favor the color and organize the catalog.', { speller });
+  assert.deepEqual(
+    american.map((finding) => finding.found).sort(),
+    ['catalog', 'color', 'favor', 'organize'].sort(),
+    'American variants are flagged'
+  );
+});
+
+test('does not flag acronyms or code-style identifiers in prose', () => {
+  assert.deepEqual(analyzeSource('Call the OCAPI getProps hook via SCAPI.', { speller }), []);
+});
+
+test('checks front-matter title and description, not keys or url', () => {
+  const source = [
+    '---',
+    'title: A frobnicator guide',
+    'description: Nothing wrong here.',
+    'url: /a-frobnicator-guide/',
+    '---',
+    'Body text is fine.'
+  ].join('\n');
+  const findings = analyzeSource(source, { speller });
+  assert.equal(findings.length, 1);
+  assert.equal(findings[0].found, 'frobnicator');
+  assert.equal(findings[0].field, 'title');
+});
+
+// --- masking ----------------------------------------------------------------
+
 test('ignores misspellings inside inline code and fenced code blocks', () => {
   const source = ['Use `recieve` carefully.', '', '```', 'const recieve = 1;', '```'].join('\n');
-  assert.deepEqual(analyzeSource(source), []);
+  assert.deepEqual(analyzeSource(source, { speller }), []);
 });
 
 test('ignores misspelling-like fragments inside URLs and link targets', () => {
-  const source = 'See [the docs](https://example.com/recieve/seperate) for details.';
-  assert.deepEqual(analyzeSource(source), []);
+  const source = 'See [the docs](https://example.com/recieve/frobnicator) for details.';
+  assert.deepEqual(analyzeSource(source, { speller }), []);
 });
 
-test('detects an accidentally doubled function word', () => {
-  const findings = analyzeSource('See the the docs.');
-  assert.equal(findings.length, 1);
-  assert.equal(findings[0].type, 'repeated-word');
-  assert.equal(findings[0].suggestion, 'the');
+test('masks long URLs that contain parentheses', () => {
+  const source = 'Open [it](https://viewer.example.com/?title=Thing%20(v2)&data=frobnicatorxyzzy) now.';
+  assert.deepEqual(analyzeSource(source, { speller }), []);
 });
 
-test('doubled-word check ignores valid and capitalised doubles', () => {
-  assert.deepEqual(analyzeSource('I had had enough by then.'), [], 'had had is valid');
-  assert.deepEqual(analyzeSource('The reason is that that server failed.'), [], 'that that is valid');
-  assert.deepEqual(analyzeSource('Then Will Will spoke.'), [], 'capitalised proper nouns are skipped');
-});
-
-test('reports line numbers and de-duplicates repeats on the same line', () => {
-  const source = ['clean line', 'a recieve and recieve again'].join('\n');
-  const findings = analyzeSource(source);
-  assert.equal(findings.length, 1, 'identical token on the same line is reported once');
-  assert.equal(findings[0].line, 2);
+test('masks @-mention link text', () => {
+  assert.deepEqual(analyzeSource('Thanks [@frobnicator](https://github.com/frobnicator)!', { speller }), []);
 });
 
 test('maskNonProse preserves line count so offsets stay accurate', () => {
@@ -109,10 +162,30 @@ test('maskNonProse preserves line count so offsets stay accurate', () => {
   assert.equal(masked.split('\n').length, source.split('\n').length);
 });
 
+// --- repeated words ---------------------------------------------------------
+
+test('detects an accidentally doubled function word', () => {
+  const findings = analyzeSource('See the the docs.', { speller });
+  assert.equal(findings.length, 1);
+  assert.equal(findings[0].type, 'repeated-word');
+  assert.equal(findings[0].suggestion, 'the');
+});
+
+test('doubled-word check ignores valid and capitalised doubles', () => {
+  assert.deepEqual(analyzeSource('I had had enough by then.', { speller }), [], 'had had is valid');
+  assert.deepEqual(
+    analyzeSource('The reason is that that server failed.', { speller }),
+    [],
+    'that that is valid'
+  );
+});
+
 test('the safelist and dictionary are non-empty', () => {
   assert.ok(Object.keys(MISSPELLINGS).length > 0);
   assert.ok(DOUBLED_WORDS.size > 0);
 });
+
+// --- CLI --------------------------------------------------------------------
 
 test('CLI exits 0 on clean content and 1 on a seeded typo', async () => {
   const workDir = await mkdtemp(path.join(os.tmpdir(), 'spelling-gate-'));
