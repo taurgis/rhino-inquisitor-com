@@ -377,6 +377,52 @@ workflow has `contents: read` and intentionally does not push fixes back.
   `scripts/generate-critical-css.js` (unchanged, now invoked in CI),
   `scripts/gates/run-all-gates.sh` (build group rebuild, unchanged).
 
+## Update: deploy retry, a11y diagnostics, puppeteer cache, Node 22
+
+### Change summary
+
+Four pipeline-hardening changes in one pass, all motivated by incidents or
+waste observed while operating the pipeline:
+
+1. **Automatic Pages deploy retry** — the Pages service transiently failed a
+   deployment ("Deployment failed, try again later." during `syncing_files`,
+   run #301) and required a manual re-run. The first `deploy-pages` attempt
+   now runs with `continue-on-error`; on failure the job waits 30s and makes
+   one automatic second attempt. The environment URL and step summary read
+   from whichever attempt succeeded.
+2. **a11y gate diagnostics** — an a11y failure previously uploaded nothing in
+   the deploy pipeline (the old PR workflow's audit upload died with
+   `build-pr.yml`). On failure the a11y leg now uploads
+   `url-data/reports/accessibility-audit.md` as
+   `a11y-gate-diagnostics-<run_id>` (7-day retention), mirroring the perf leg.
+3. **Puppeteer Chrome caching / skipping** — every job's `npm ci` downloaded
+   puppeteer's ~170 MB Chrome; the five gate legs never launch puppeteer (they
+   use Playwright). `setup-node-env` now caches `~/.cache/puppeteer` keyed on
+   `package-lock.json`, and takes a `skip-puppeteer-download` input that the
+   `gates` job sets to `'true'` (emitted as `PUPPETEER_SKIP_DOWNLOAD` — note
+   puppeteer treats any non-empty value as truthy, so the action emits `''`
+   rather than `'false'` when the download should proceed). `build_site` keeps
+   the download (penthouse needs it) but restores it from cache.
+4. **Node 22** — `NODE_VERSION` bumped `20.18.1` → `22.22.2`; Node 20 is
+   deprecated on GitHub runners. `package.json` `engines` (`>=20.18.1`) is
+   satisfied unchanged.
+
+### Impact and verification
+
+- Impacted files: `.github/workflows/deploy-pages.yml`,
+  `.github/actions/setup-node-env/action.yml`.
+- Node 22 was sanity-checked before the bump: `npm ci`,
+  `validate:frontmatter`, `check:local-video-shortcodes`, a sharp AVIF
+  native-binding smoke test, `test:url-parity`, and `markdownlint-cli2` all
+  pass under Node 22.22.2.
+- Verify on the next deploy run: gate legs' "Install Node dependencies" no
+  longer downloads Chrome and the puppeteer cache step is skipped for them;
+  `build_site` shows a puppeteer cache restore; a green run's deploy shows a
+  single attempt. Force-verify the retry only if a transient failure recurs —
+  the step summary then notes "succeeded on automatic retry".
+- Caveat: the npm cache key embeds the Node version, so the first run after
+  the bump repopulates the `~/.npm` and puppeteer caches.
+
 ## Related files
 
 - `.github/workflows/deploy-pages.yml`

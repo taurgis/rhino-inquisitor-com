@@ -5,6 +5,12 @@ inputs:
   node-version:
     description: Node.js version to install.
     required: true
+  skip-puppeteer-download:
+    description: >-
+      Set to 'true' for jobs that never launch puppeteer (the gate legs use
+      Playwright instead) to skip the ~170 MB Chrome download during npm ci.
+    required: false
+    default: 'false'
 
 runs:
   using: composite
@@ -23,6 +29,18 @@ runs:
         restore-keys: |
           ${{ runner.os }}-node-${{ inputs.node-version }}-
 
+    - name: Restore puppeteer browser cache
+      if: inputs.skip-puppeteer-download != 'true'
+      uses: actions/cache@v5
+      with:
+        path: ~/.cache/puppeteer
+        key: ${{ runner.os }}-puppeteer-${{ hashFiles('package-lock.json') }}
+
     - name: Install Node dependencies
       shell: bash
+      env:
+        # Puppeteer's install script treats ANY non-empty value as truthy, so
+        # emit '' (falsy) instead of the string 'false' when the download
+        # should proceed.
+        PUPPETEER_SKIP_DOWNLOAD: ${{ inputs.skip-puppeteer-download == 'true' && 'true' || '' }}
       run: npm ci --include=optional

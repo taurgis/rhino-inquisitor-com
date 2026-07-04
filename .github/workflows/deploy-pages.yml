@@ -11,7 +11,7 @@ permissions:
 
 env:
   HUGO_VERSION: 0.157.0
-  NODE_VERSION: 20.18.1
+  NODE_VERSION: 22.22.2
   AVIF_CACHE_VERSION: 1
   EXPECTED_PAGES_HOST: rhino-inquisitor.com
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
@@ -375,6 +375,7 @@ jobs:
         uses: ./.github/actions/setup-node-env
         with:
           node-version: ${{ env.NODE_VERSION }}
+          skip-puppeteer-download: 'true'
 
       - name: Download build outputs
         uses: actions/download-artifact@v4
@@ -434,6 +435,15 @@ jobs:
           if-no-files-found: warn
           retention-days: 7
 
+      - name: Upload a11y gate diagnostics
+        if: ${{ failure() && matrix.group == 'a11y' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: a11y-gate-diagnostics-${{ github.run_id }}
+          path: url-data/reports/accessibility-audit.md
+          if-no-files-found: warn
+          retention-days: 7
+
   deploy:
     needs:
       - build_site
@@ -448,14 +458,33 @@ jobs:
       cancel-in-progress: false
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url || steps.deployment_retry.outputs.page_url }}
 
     steps:
+      # The Pages service occasionally fails a deployment with a transient
+      # "Deployment failed, try again later." (seen during syncing_files).
+      # Give it one automatic second attempt before failing the run.
       - name: Deploy to GitHub Pages
         id: deployment
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+
+      - name: Wait before deploy retry
+        if: steps.deployment.outcome == 'failure'
+        shell: bash
+        run: sleep 30
+
+      - name: Retry deploy to GitHub Pages
+        id: deployment_retry
+        if: steps.deployment.outcome == 'failure'
         uses: actions/deploy-pages@v4
 
       - name: Summarize deployed URL
         shell: bash
         run: |
-          echo "Pages URL: ${{ steps.deployment.outputs.page_url }}" >> "$GITHUB_STEP_SUMMARY"
+          {
+            echo "Pages URL: ${{ steps.deployment.outputs.page_url || steps.deployment_retry.outputs.page_url }}"
+            if [[ "${{ steps.deployment.outcome }}" == "failure" ]]; then
+              echo "First deploy attempt failed transiently; succeeded on automatic retry."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
