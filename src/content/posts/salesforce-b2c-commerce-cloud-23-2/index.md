@@ -89,7 +89,7 @@ Not all reports work yet Please be aware that a patch is coming in early Februar
 > You can now calculate tax and use rounding based on tax groups, which is a legal requirement for Japanese taxation. The calculation method uses a new Tax Rounding Level site preference called Group. The tax groups are exposed via OCAPI and Script API to support customisation.
 > How: To enable rounding per grouped tax rate, in Business Manager Site Preferences, set the Order Item Price Rounding Policy to GROUP.
 
-As I am not familiar with Japanese tax law, so it is not something I can go into. But for anyone who has a project active in Japan, I am sure it is a needed improvement.
+I am not familiar with Japanese tax law, so it is not something I can go into. But for anyone who has a project active in Japan, I am sure it is a needed improvement.
 
 ### Fine-Tune Your Site’s Regional Settings
 

@@ -50,7 +50,7 @@ Page Shield is part of the [eCDN](https://www.salesforce.com/products/commerce-c
 
 [Page Shield](https://www.cloudflare.com/page-shield/) is one of the Cloudflare features. But since we can not fully control that Cloudflare instance, we depend on the Salesforce team to activate/purchase these features.
 
-Between the 1st of march and the 14th of march, Page Shield will be enabled for all accounts and will start protecting against Magecart type attacks.
+Between the 1st of March and the 14th of March, Page Shield will be enabled for all accounts and will start protecting against Magecart type attacks.
 
 ### But what is Magecart
 
@@ -86,5 +86,5 @@ This inconsistency caused quite a bit of confusion with content managers who con
 
 ## Other updates
 
-- [Recursive Infite Copies no Longer Supported](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_3_release.htm&type=5)
+- [Recursive Infinite Copies no Longer Supported](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_3_release.htm&type=5)
 - [Custom Caches return Immutable Objects](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_custom_cache_w10671394_je.htm&type=5&language=en_US)

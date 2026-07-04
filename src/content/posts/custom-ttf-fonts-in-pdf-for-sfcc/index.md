@@ -42,7 +42,7 @@ To use a custom font, they need to be part of our code-base as a base64 encoded 
 
 ### Add the file to your codebase
 
-The tool described above will spew out a JavaScript file that you can add to your code-base with some small modifications. An example of such files have been added to my GitHub:
+The tool described above will spew out a JavaScript file that you can add to your code-base with some small modifications. An example of such files has been added to my GitHub:
 
 - [angin-senja-normal.js](https://github.com/taurgis/salesforce-commerce-cloud-libraries/blob/master/cartridges/jsPDF/fonts/angin-senja-normal.js)
 

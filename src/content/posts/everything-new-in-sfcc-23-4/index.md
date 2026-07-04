@@ -73,7 +73,7 @@ Page Designer's performance has been criticised for some time, particularly when
 
 > Configure Phased headless rollouts of SFRA to PWA implementations with the new CDN Zone APIs. You can now migrate specific pages to a PWA origin without completely switching from SFRA to PWA. You can also create and update origin rules to direct traffic to a PWA origin.
 
-Good news for live and in-development projects who have chosen to go the "hybrid deployment" route. Untill now we had to create support tickets to manage the rules of which pages (URLs) were rendered by what system.
+Good news for live and in-development projects that have chosen to go the "hybrid deployment" route. Until now we had to create support tickets to manage the rules of which pages (URLs) were rendered by what system.
 
 From this release on, we can manage all of this with a new set of APIs:
 

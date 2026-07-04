@@ -265,7 +265,7 @@ If not? Then this is the session for you!
 
 > Explore API-only (headless) ISV opportunities on the Commerce Cloud platform and learn about the existing headless ISV solutions in our marketplace.
 
-As mentioned before, Headless has gotten a more prominent part in Commerce Cloud. And it's share is going to grow in the years to come.
+As mentioned before, Headless has gotten a more prominent part in Commerce Cloud. And its share is going to grow in the years to come.
 
 But what does that mean for third party integrations? Let's see if this session answers a few questions!
 

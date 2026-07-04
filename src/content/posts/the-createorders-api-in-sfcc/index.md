@@ -41,7 +41,7 @@ We can't have just anyone pushing orders in our system, do we? So the first step
 - **Do you want the default shopper scopes?:** Unchecked
 - **Enter custom shopper scopes:** `sfcc.orders.rw sfcc.ts_ext_on_behalf_of`
 
-After you are done, click "Submit" and save the generated Secret that will appear in a message at the top of the page. Server to Server This integration is a server-to-server type, and never make your secret publically visible (browser), as orders can be pushed to your system knowing these credentials. You do not want unknown parties pushing in the wrong data and getting free orders!
+After you are done, click "Submit" and save the generated Secret that will appear in a message at the top of the page. Server to Server This integration is a server-to-server type, and never make your secret publicly visible (browser), as orders can be pushed to your system knowing these credentials. You do not want unknown parties pushing in the wrong data and getting free orders!
 
 ### Authenticating
 

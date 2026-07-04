@@ -86,7 +86,7 @@ But keep in mind that the replication does not automatically clear its cache in 
 
 When separating the head from the body, we still need a way for them to communicate. This is where various REST APIs, including SCAPI, come into play.
 
-These APIs also have a set of rules, including caching. This is just the start when we are heading into Composable territory; each piece of the puzzle has its own set of rules!.
+These APIs also have a set of rules, including caching. This is just the start when we are heading into Composable territory; each piece of the puzzle has its own set of rules!
 
 Some important caching caveats to be aware of:
 

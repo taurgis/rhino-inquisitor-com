@@ -45,7 +45,7 @@ You can find the documentation [in the SLAS Session Bridge guide](https://develo
 
 First things first, let us dig into what the Session Bridge is. And luckily for us, it is not rocket science!
 
-It is a set of services that allow the exchange of a [session cookie](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_local_data_storage.htm) (Site) for a [JWT](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/jwt.html) (OCAPI/SCAPI) and visa-versa.
+It is a set of services that allow the exchange of a [session cookie](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_local_data_storage.htm) (Site) for a [JWT](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/jwt.html) (OCAPI/SCAPI) and vice-versa.
 
 Using this service, you can keep a session alive across different touchpoints. A good example is a mobile application with a button redirecting to the site. In this scenario, it would be a shame if someone logged into the application would have to log in again on the site.
 

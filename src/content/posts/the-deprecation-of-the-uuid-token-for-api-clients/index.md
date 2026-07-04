@@ -55,7 +55,7 @@ Not a lot actually. To put it as "simple" as possible: "**Your bearer token beco
 Your bearer token changes from a simple and short UUID to a [JWT](https://jwt.io/).
 
 ```text
-// An examle of a UUID token response to:
+// An example of a UUID token response to:
 // URL: https://account.demandware.com/dw/oauth2/access_token
 {
     "access_token": "aEVhfDrzSoQ23Xd1m9m-nb8PKL4",
@@ -68,7 +68,7 @@ Your bearer token changes from a simple and short UUID to a [JWT](https://jwt.io
 The above token is 27 characters long, which does not leave much room for "usable information." A JWT is much more suited for that. So let me change this API Client to the JWT format!
 
 ```text
-// An examle of a JWT response to:
+// An example of a JWT response to:
 // URL: https://account.demandware.com/dw/oauth2/access_token
 {
  "access_token": "<sample-jwt>",

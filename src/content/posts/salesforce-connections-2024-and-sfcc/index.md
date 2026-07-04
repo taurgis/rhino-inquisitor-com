@@ -30,7 +30,7 @@ So, what does this iteration of Connections have in store for us? Will there be 
 
 Let's pull this cat out of the bag before discussing Commerce Cloud-related matters. For a long time, we got used to getting an epic concert one of the evenings of the event, but that does not seem to be the case this time.
 
-It is unfortunate, but it should also technically not be the only reason you got to an event like this (although I have to admit it was always a blast).
+It is unfortunate, but it should also technically not be the only reason you go to an event like this (although I have to admit it was always a blast).
 
 And not to worry—in its place comes "Connections Celebration," which will appeal to some people more than the concert—you can't please everyone!
 

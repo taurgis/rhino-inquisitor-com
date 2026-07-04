@@ -176,7 +176,7 @@ An important thing to keep in mind is that Salesforce B2C Commerce Cloud runs on
 
 I have seen Garbage Collection having to do so much work that it brought down the storefront to a crawl, with CPU usage being maxed out for hours on end.
 
-To keep the "garbage" as empty as possible, there are a few things you can do a few things. (The best practices below are not just for garbage collection, they will also improve performance in general).
+To keep the "garbage" as empty as possible, there are a few things you can do. (The best practices below are not just for garbage collection, they will also improve performance in general).
 
 #### Do not access objects unnecessarily
 

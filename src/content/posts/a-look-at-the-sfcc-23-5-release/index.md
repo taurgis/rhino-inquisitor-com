@@ -142,7 +142,7 @@ It has been a great month of ideas with some noteworthy suggestions from the com
 
 > This repo contains sample Node.js app that can be used to develop and test hybrid deployment shopper flows across PWA Kit and SFRA/SiteGenesis.
 
-It is no secret that hybrid deployment projects will be happening more and more. Having these supporting projects to make development easier are a welcome addition!
+It is no secret that hybrid deployment projects will be happening more and more. Having these supporting projects to make development easier is a welcome addition!
 
 ### plugin\_slas (v6.4.2)
 

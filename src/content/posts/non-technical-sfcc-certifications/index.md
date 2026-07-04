@@ -32,7 +32,7 @@ But in 2021, 2022, and 2023, some options became available for those who do not 
 
 -   [Trailhead - Certification](https://trailhead.salesforce.com/en/credentials/userexperiencedesigner)
 
-The first certification reared its head in 2021 was the User Experience Designer. A certificate that does not focus on developing features but on how to design these features to be user-centric and easy to use.
+The first certification that reared its head in 2021 was the User Experience Designer. A certificate that does not focus on developing features but on how to design these features to be user-centric and easy to use.
 
 One thing to know with this certification is that besides the general knowledge of UX with topics like [User Research](https://trailhead.salesforce.com/content/learn/modules/ux-research-basics?trailmix_creator_id=strailhead&trailmix_slug=prepare-for-your-ux-designer-credential), it bases examples on the [force.com](https://www.force.com) platform, specifically the [Lightning Design System](https://www.lightningdesignsystem.com/).
 

@@ -44,7 +44,7 @@ You control all of this from the Business Manager: Merchant Tools > SEO > Sitema
   caption="The Sitemap Settings in the Business Manager"
 >}}
 
-The Settings tab is your main control panel. Here’s what you, as a developer, need to care about 4:
+The Settings tab is your main control panel. Here’s what you, as a developer, need to care about:
 
 - **Content Inclusion:** You can choose exactly what gets included: products, categories, content assets, and even product images.
 - **Priority & Change Frequency:** These settings are direct hints to search engine crawlers. Priority (a scale of 0.1 to 1.0) suggests a URL's importance relative to other pages on your site. Change Frequency (from always to never) suggests how often a page's content is updated.

@@ -20,7 +20,7 @@ takeaways:
   - "Highlights practical strengths and limitations of tools like plugin_slas, Resource Manager, and custom feeds"
   - "Encourages teams to treat open-source cartridges as accelerators that still need review and upkeep"
 ---
-Over the years, an extensive list of cartridges has grown in the [marketplace](https://appexchange.salesforce.com/mktcollections/cloud-collections/commercecloud). These are certified integrations that have gone through a checklist and verified by Salesforce.
+Over the years, an extensive list of cartridges has grown in the [marketplace](https://appexchange.salesforce.com/mktcollections/cloud-collections/commercecloud). These are certified integrations that have gone through a checklist and been verified by Salesforce.
 
 Whether or not this checklist is as complete as it should be is another topic I will probably give a stab at in a future blog post.
 
@@ -122,7 +122,7 @@ The list hasn't grown much in the last two to three years (I switch side project
 
 - [GitHub Repository Link](https://github.com/SalesforceCommerceCloud/b2c-crm-sync)
 
-This might seem a little out of place than the others as "multi-cloud."
+This might seem a little more out of place than the others as "multi-cloud."
 
 The main goal of this solution is to link Salesforce B2C Commerce Cloud and Salesforce CRM together, and it does it well.
 

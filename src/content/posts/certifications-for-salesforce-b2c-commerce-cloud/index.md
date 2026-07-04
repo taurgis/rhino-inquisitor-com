@@ -102,7 +102,7 @@ This accreditation tests all your knowledge of Einstein:
 
 As with the other Accreditation, [a course is available on the Partner Learning Camp](https://partnerlearningcamp.salesforce.com/s/browse-catalog?plc__recordId=AJ%2F%2F26%2FbM4WJjnIak4uXHwpstt68nZPqvIdhKT%2FnZEw9I%2FDpO60A4d8W08lxq8xT)!
 
-## What if i'm not a developer
+## What if I'm not a developer
 
 A common question asked. Currently, only developers seem to get the "Certification love," but not so much Business Analysts or merchandizers.
 

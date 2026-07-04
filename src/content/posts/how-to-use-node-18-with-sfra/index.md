@@ -72,7 +72,7 @@ set NODE_OPTIONS=--openssl-legacy-provider
 $env:NODE_OPTIONS = "--openssl-legacy-provider"
 ```
 
-It is possible to update your package.json, depending on your (and the teams) setup:
+It is possible to update your package.json, depending on your (and the team's) setup:
 
 ```text
 "scripts": {

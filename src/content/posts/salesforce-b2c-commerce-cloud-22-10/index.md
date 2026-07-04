@@ -57,7 +57,7 @@ The cartridge can be downloaded [from the Social Channel Integrations repository
 
 {{< img-caption src="origin-shielding-phase3-d9fa09fa33.jpg" alt="Origin shielding rollout note for Demandware.net lockdown." caption="Phase 3 matters because it further locks traffic down to Salesforce-controlled entry points." >}}
 
-Phase three of Original Shielding will come into effect by locking down Demandware.net for Development and Production instances.
+Phase three of Origin Shielding will come into effect by locking down Demandware.net for Development and Production instances.
 
 This is probably the deadline for customers requesting a migration extension.
 

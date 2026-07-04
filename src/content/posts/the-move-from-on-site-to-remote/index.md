@@ -31,7 +31,7 @@ And to be honest, that all made sense because everyone was at the office and vid
 
 Depending on your role, that is a lot of "wasted" time. I have learned to use my commutes to have 1-1 talks with people (not much else to do except focus on the road), and yes, I use hands-free calling!
 
-Those "short" commutes did come at a price, sort of speak. I started my days at 7 AM (waking up at 6 AM), so traffic was practically non-existent on my route. This allowed me to end my workday at around 15:30, so traffic would be manageable.
+Those "short" commutes did come at a price, so to speak. I started my days at 7 AM (waking up at 6 AM), so traffic was practically non-existent on my route. This allowed me to end my workday at around 15:30, so traffic would be manageable.
 
 ### Thalia was born
 
@@ -45,7 +45,7 @@ The impact on my commute, however, was drastic. My 30 to 40-minute drives became
 
 ## Figuring it all out
 
-Then it happened, lockdown! Daycare, schools, shops, and workplaces started closing their doors by government order. In a world where remote would happen every once and a while, everyone had to work remotely. What a change in pace, and I was not prepared.
+Then it happened, lockdown! Daycare, schools, shops, and workplaces started closing their doors by government order. In a world where remote would happen every once in a while, everyone had to work remotely. What a change in pace, and I was not prepared.
 
 My wife and I both work in IT consultancy, meaning we can work from anywhere. So, no problem. Right? It turns out that having a daughter that just learned to walk and can not be brought to daycare or grandparents can make it quite tricky.
 

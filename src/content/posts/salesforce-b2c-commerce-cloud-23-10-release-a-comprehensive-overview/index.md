@@ -64,7 +64,7 @@ Is that [Let's Encrypt](https://letsencrypt.org/) in the screenshot? This new fe
 
 > Updated infrastructure layers and routing rules for SCAPI requests to use fewer hops in the network.
 
-Recently, there has been some "architectural refactoring" which involved removing and changing some components. Unfortunately, there isn't much information available about this. However, this is happening on the v1 of the APIS and it doesn't require any action from the customers' end. But if you notice any new bugs or peculiarities - report them!
+Recently, there has been some "architectural refactoring" which involved removing and changing some components. Unfortunately, there isn't much information available about this. However, this is happening on the v1 of the APIs and it doesn't require any action from the customers' end. But if you notice any new bugs or peculiarities - report them!
 
 ### Custom Query Parameters in SCAPI
 

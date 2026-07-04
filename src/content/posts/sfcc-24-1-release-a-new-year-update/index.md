@@ -69,7 +69,7 @@ SCAPI It is unclear if this change translates to the SCAPI endpoint ([https://de
 
 - [https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v3.3.0](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v3.3.0)
 
-Some love again for the PWA Kit, wit the release of v3.3.0. The main changes are:
+Some love again for the PWA Kit, with the release of v3.3.0. The main changes are:
 
 - Adding StorefrontPreview component ‘onContextChange’ property to prepare for future Storefront Preview release
 - Updating engine compatibility to include npm 10

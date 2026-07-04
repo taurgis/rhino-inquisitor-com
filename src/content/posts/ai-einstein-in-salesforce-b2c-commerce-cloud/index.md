@@ -65,7 +65,7 @@ And we do not get any insights into how it does it unless you work at Salesforce
 
 ## Privacy for the consumer
 
-For the AI (Einstein) to learn, I already mention it needs to collect quality data. And that data is extracted from the visitors of the SFCC sites:
+For the AI (Einstein) to learn, I already mentioned it needs to collect quality data. And that data is extracted from the visitors of the SFCC sites:
 
 - Categories navigated to
 - Products viewed

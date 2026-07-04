@@ -99,7 +99,7 @@ Booleans Booleans are an “odd beast” within Salesforce B2C Commerce Cloud. Y
 
 ### Add Descriptions
 
-When creating preferences in the business manager, add proper names and descriptions. This will make it easier for users and other developers to understand the purpose of this preference. Without it, it is like having a complication function in the code with no documentation to explain what it is up to!
+When creating preferences in the business manager, add proper names and descriptions. This will make it easier for users and other developers to understand the purpose of this preference. Without it, it is like having a complicated function in the code with no documentation to explain what it is up to!
 
 ### Getting to the truth
 

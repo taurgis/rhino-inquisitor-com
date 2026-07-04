@@ -58,7 +58,7 @@ If you configure the fallback system differently, let's say you have the German 
 
 Salesforce B2C Commerce Cloud allows for customized fallback configurations. You can skip levels in the fallback chain or even eliminate fallback entirely for particular locales, depending on your specific requirements.
 
-For the `en_US` example, the fallback chain by default is `en_US > en > default`. However, you could configure `en_US` to bypass the `en` step and go straight to `default`, or you might decide that `en_US` should not fallback at all.
+For the `en_US` example, the fallback chain by default is `en_US > en > default`. However, you could configure `en_US` to bypass the `en` step and go straight to `default`, or you might decide that `en_US` should not fall back at all.
 
 ### Fallback To A Different Language
 

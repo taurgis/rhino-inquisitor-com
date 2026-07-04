@@ -32,7 +32,7 @@ Origin shielding protects the origin server - in our case the Application Server
 
 When someone tries to access content hosted on Salesforce, Mobify, or Demandware, the Embedded Content Delivery Network (eCDN) steps in. It intercepts the request, verifies its legitimacy, and only sends valid requests to the origin servers.
 
-This process helps reduce the risk of direct attacks on the origin infrastructure and adds an extra layer of protection against unauthorised access. After all, Cloudflare does have a few things in it's arsenal.
+This process helps reduce the risk of direct attacks on the origin infrastructure and adds an extra layer of protection against unauthorised access. After all, Cloudflare does have a few things in its arsenal.
 
 Long story short, origin shielding is a security measure for safeguarding cloud-hosted infrastructure, ensuring both the integrity and availability of Salesforce’s services.
 

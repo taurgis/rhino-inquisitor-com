@@ -99,7 +99,7 @@ This is a minor release to ensure this version is compatible with the latest Nod
 > We’ve added lots of new features to PWA Kit v3, including:
 >
 > - 🔨 Template extensibility: Greatly reduce your project's code footprint and reduce development toil, cost of ownership, and future upgrade headaches. For more details, see the Template Extensibility guide!
-> - 🪝 @salesforce/commerce-sdk-react "hooks" integration: Decouples API calls from a project's implementation, allows API calls to be upgraded as an npm library dependency, and brings along many of the great features (including state management, and others) via TanStack Query. See the the Commerce SDK React docs to get started!
+> - 🪝 @salesforce/commerce-sdk-react "hooks" integration: Decouples API calls from a project's implementation, allows API calls to be upgraded as an npm library dependency, and brings along many of the great features (including state management, and others) via TanStack Query. See the Commerce SDK React docs to get started!
 > - ⚛️ Major vendor library updates, including support for React 18, Node 16 / 18, Chakra 2, and more.
 
 This is a long-awaited [update](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v3.0.0), bringing many new treats to development. With the new template extensibility options, we can now start overriding just like in SFRA... or at least something that looks like it. Next to that, many updates to libraries and support for the latest stable Node version. One of the libraries is a favourite of mine: [TanStack Query](https://tanstack.com/query/v3/) (or React Query), which makes state management a breeze with APIs.

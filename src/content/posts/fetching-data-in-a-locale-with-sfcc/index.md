@@ -73,8 +73,8 @@ Remember to restore the original language after the data has been fetched in the
 
 {{< img-caption 
   src="people-around-the-world-551b94bfa5.png"
-  alt="A map of the world representing all locale in the world."
-  caption="Figure 1: A map of the world representing all locale in the world"
+  alt="A map of the world representing all locales in the world."
+  caption="Figure 1: A map of the world representing all locales in the world"
 >}}
 
 Some might ask, why would you need to do such a thing? Well, there are a few reasons which will cause you to resort to fiddling with the request:
@@ -92,4 +92,4 @@ The system of working with locales within the [PWA Kit](/sitegenesis-vs-sfra-vs-
 https://{shortCode}.api.commercecloud.salesforce.com/product/shopper-products/v1/organizations/{organizationId}/products/{id}?siteId=SiteGenesis&locale=en-US"
 ```
 
-This means you can easily fetch something in a specific language by doing a REST API call, with the downside of having the fetch the entire record (unless it supports property selection). You could resort to [custom hooks](/how-to-use-ocapi-scapi-hooks/) or even [a custom endpoint](/creating-custom-ocapi-endpoints/) in certain use cases.
+This means you can easily fetch something in a specific language by doing a REST API call, with the downside of having to fetch the entire record (unless it supports property selection). You could resort to [custom hooks](/how-to-use-ocapi-scapi-hooks/) or even [a custom endpoint](/creating-custom-ocapi-endpoints/) in certain use cases.

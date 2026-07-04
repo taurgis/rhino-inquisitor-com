@@ -20,7 +20,7 @@ takeaways:
   - "Shares the backstory behind several Commerce-themed community t-shirt designs"
   - "Encourages readers to contribute new ideas and help choose future causes"
 ---
-[shirtforce](https://shirtforce.org/) was created as a community project, supplying (hopefully) humorous t-Shirt designs to for folk in the tech industry, primarily focused at those in the Salesforce ecosystem, and at the same time providing a way to donate money to good causes.
+[shirtforce](https://shirtforce.org/) was created as a community project, supplying (hopefully) humorous t-Shirt designs for folk in the tech industry, primarily focused at those in the Salesforce ecosystem, and at the same time providing a way to donate money to good causes.
 
 If you read the hashtag wrong, I don't blame you! Just have a look at [the FAQ on the #shirtforce website](https://shirtforce.org/faq/).
 

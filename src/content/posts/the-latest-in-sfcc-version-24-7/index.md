@@ -141,7 +141,7 @@ Finally, the SCAPI release information has also made it to the "main" release no
 
 ### Import and Export Dynamic Categorization Rules
 
-> n Business Manager, easily import and export dynamic categorization rules, including the excluded product list. The Catalogs Import & Export feature now updates the catalog.xsd schema with detailed information on categorization rules and excluded products within the catalog tag structure. Previously, you couldn’t import and export the dynamic categorization rules.
+> In Business Manager, easily import and export dynamic categorization rules, including the excluded product list. The Catalogs Import & Export feature now updates the catalog.xsd schema with detailed information on categorization rules and excluded products within the catalog tag structure. Previously, you couldn’t import and export the dynamic categorization rules.
 
 Before this update, we could not easily back up or import the categorisation rules from an external system, making them more challenging to implement in some cases (or even a blocker).
 

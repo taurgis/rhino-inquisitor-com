@@ -43,7 +43,7 @@ It is essential to understand that there are two systems in place to handle cont
 - [Content Assets in combination with Content Slots](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_content_slots.htm)
 - [Page Designer](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-dev-for-page-designer.html)
 
-Both operate in different ways and have a significant differences in features. So be sure to check out the documentation if you are unfamiliar with them.
+Both operate in different ways and have significant differences in features. So be sure to check out the documentation if you are unfamiliar with them.
 
 ### Attribute
 

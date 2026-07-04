@@ -223,4 +223,4 @@ The future isn't something that happens _to_ you; it's something that you create
 
 {{< img-caption src="the-ai-composer-48f0e91bb0.jpeg" alt="A cartoon rhino developer, dressed as a conductor, leads an orchestra of small robots. The robots sit in sections and use laptops and data interfaces instead of musical instruments, symbolizing a developer orchestrating various AI tools." caption="The real skill is learning to orchestrate tools, not trying to compete with them one by one." link="the-ai-composer-48f0e91bb0.jpeg" >}}
 
-our new podium awaits. The AI-augmented developer orchestrates a powerful ensemble of tools, where strategy is the sheet music and business impact is the masterpiece.
+Our new podium awaits. The AI-augmented developer orchestrates a powerful ensemble of tools, where strategy is the sheet music and business impact is the masterpiece.

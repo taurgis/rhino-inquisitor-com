@@ -201,7 +201,7 @@ As the PWA Kit is "relatively" new, there is no real documentation on PWA-specif
 
 ### Malicious Modules
 
-One of the gripes developers have had is that the Rhino Engine does take too kindly to NPM packages. Finding compatible packages is a challenge, and in many cases, they [need to be converted](https://github.com/taurgis/salesforce-commerce-cloud-libraries) to work correctly.
+One of the gripes developers have had is that the Rhino Engine does not take too kindly to NPM packages. Finding compatible packages is a challenge, and in many cases, they [need to be converted](https://github.com/taurgis/salesforce-commerce-cloud-libraries) to work correctly.
 
 With the PWA Kit, all of that changes; you get a lot more freedom with the third-party packages you can install. But with that freedom comes a lot of responsibility. Granted, this is already something you need to keep in mind with SiteGenesis and SFRA, as the storefront JavaScript does not have the Rhino limitations. You have undoubtedly already installed a few packages to expand the capabilities in the storefront.
 

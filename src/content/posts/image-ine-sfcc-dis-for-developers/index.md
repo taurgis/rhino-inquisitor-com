@@ -107,7 +107,7 @@ if (thumbnailImage) {
 
 Even superheroes have weaknesses. DIS has a few, and knowing them is half the battle:
 
-- **Source Image Quality:** Always upload the largest, most beautiful, and highest-quality images you've. DIS is a master at shrinking and optimising, but it can't create pixels out of thin air (It's not an AI solution)!
+- **Source Image Quality:** Always upload the largest, most beautiful, and highest-quality images you have. DIS is a master at shrinking and optimising, but it can't create pixels out of thin air (It's not an AI solution)!
 
 - **Size Matters (A Lot):** This is a big one. Images over 6MB in file size or larger than 3000x3000 pixels? DIS will politely decline to transform them and serve them up in their original, unoptimized glory. The first time you request an oversized image, you may encounter an error; however, subsequent requests typically proceed without issue. The takeaway? Keep your source images just under these limits (think 5.9MB or 2999x2999 pixels) to ensure DIS always works its magic.
 

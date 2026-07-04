@@ -92,4 +92,4 @@ This CLI tool is complimentary to "Catalog Reducer." It takes in a Product Catal
 
 ## And many others
 
-These are only a few examples of tools you will find from the Salesforce B2C Commerce Cloud community. Have one that you think needs some love? Feel free to leave send me a slack message!
+These are only a few examples of tools you will find from the Salesforce B2C Commerce Cloud community. Have one that you think needs some love? Feel free to send me a slack message!

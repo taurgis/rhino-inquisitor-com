@@ -73,7 +73,7 @@ This way, the merchants can save time and effort in preparing and validating the
 
 Reducing the amount of data in your XML files can lead to a significant decrease in file size. This, in turn, can result in faster imports and improved performance.
 
-By removing unnecessary duplicate elements, attributes, and content, you can streamline the import XML files, making them easier to process and leaves more room for other processes.
+By removing unnecessary duplicate elements, attributes, and content, you can streamline the import XML files, making them easier to process and leaving more room for other processes.
 
 ## Many advantages
 

@@ -54,7 +54,7 @@ There are four types of B2C Commerce instances: Sandbox, Staging, Development, a
 
 {{< img-caption src="a-server-in-the-desert-v2-f8f32e48de.jpg" alt="A lone server rack illustrated in a desert landscape, representing an isolated sandbox environment." >}}
 
-Developers use sandbox instances to create and update storefront code. These instances are located in a secondary instance group (SIG) and have most system jobs disabled. Deletion Sandboxes without login activity for 150 days might be deleted, but Salesforce will notify you before this occurs. Though honesty, I never saw this happen on the old system, and with On-Demand sandboxes having become the default option, you are in total control.
+Developers use sandbox instances to create and update storefront code. These instances are located in a secondary instance group (SIG) and have most system jobs disabled. Deletion Sandboxes without login activity for 150 days might be deleted, but Salesforce will notify you before this occurs. Though honestly, I never saw this happen on the old system, and with On-Demand sandboxes having become the default option, you are in total control.
 
 ### Staging
 
@@ -74,7 +74,7 @@ Depending on the size of your team, one person may play more than one role. Here
 
 ### Architect
 
-The role of an Architect in Salesforce B2C Commerce Cloud involves designing and implementing scalable, reliable, and high-performance solutions to meet the needs of the business. They work closely with stakeholders to understand requirements and develop technical solutions using best practices and industry standards. Architects also oversee the development and deployment of customisations, integrations, and extensions to ensure that they align with the overall architecture and roadmap of the platform. In terms of instances, Architects will be interacting will all instances that Salesforce has to offer.
+The role of an Architect in Salesforce B2C Commerce Cloud involves designing and implementing scalable, reliable, and high-performance solutions to meet the needs of the business. They work closely with stakeholders to understand requirements and develop technical solutions using best practices and industry standards. Architects also oversee the development and deployment of customisations, integrations, and extensions to ensure that they align with the overall architecture and roadmap of the platform. In terms of instances, Architects will be interacting with all instances that Salesforce has to offer.
 
 ### Developer
 

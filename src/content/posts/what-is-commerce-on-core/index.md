@@ -80,7 +80,7 @@ Another separate product on its own "stack" is the [PWA Kit](/sitegenesis-vs-sfr
 
 A headless storefront talking to the SCAPI, rather than the monolithic setup of SiteGenesis and SFRA, will allow back-end systems to be swapped more easily.
 
-Off course, the composable storefront has many more advantages, but composability is one of the signature advantages!
+Of course, the composable storefront has many more advantages, but composability is one of the signature advantages!
 
 ## Advantages of moving to the "Core"
 

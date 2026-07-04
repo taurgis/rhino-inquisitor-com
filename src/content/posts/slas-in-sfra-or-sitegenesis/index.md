@@ -91,7 +91,7 @@ Using nearly half of the API limit for authentication alone was a risky strategy
   caption="plugin_slas to Hybrid Authentication handoff"
 >}}
 
-The transition to the future of authentication, as the classic "plugin\_slas cartridge" passes the key to newest "Hybrid Authentication."
+The transition to the future of authentication, as the classic "plugin\_slas cartridge" passes the key to the newest "Hybrid Authentication."
 
 Recognising the limitations of the cartridge-based approach, Salesforce went back to the drawing board and engineered a proper, strategic solution. Released with B2C Commerce version [25.3](https://developer.salesforce.com/docs/commerce/commerce-api/references/about-commerce-api/about.html#03112025), Hybrid Authentication is not merely an update; it is a fundamental architectural evolution.
 

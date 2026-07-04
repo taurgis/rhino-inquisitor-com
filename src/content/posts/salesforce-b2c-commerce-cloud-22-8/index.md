@@ -70,7 +70,7 @@ Good news: The weekly maintenance is moved to Saturday between 02:00 and 08:00 U
 
 {{< img-caption src="great-power-responsibility-844bd031ba.jpg" alt="Superhero-style illustration warning that higher HTTPClient limits still require restraint." caption="Doubling the HTTPClient quota adds headroom, but it is still a budget to manage carefully." >}}
 
-Good news, but with a warning, for many developers who have done real-time integrations! The quote limit of external API calls you can do in a single request has doubled, going from 8 to 16.
+Good news, but with a warning, for many developers who have done real-time integrations! The quota limit of external API calls you can do in a single request has doubled, going from 8 to 16.
 
 But with great power comes great responsibility. Even though you can do more API calls now, it is not a good idea to take it to the limit.
 
@@ -247,7 +247,7 @@ API Changes
 | getPasswordResetToken | Request a reset password token |
 | resetPassword | Creates a new password |
 
-Enchancements
+Enhancements
 
 More error handling has been added in the SLAS helpers
 

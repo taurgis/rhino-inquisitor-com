@@ -85,7 +85,7 @@ Use with care When enabling HSTS to include subdomains, ensure that all subdomai
 
 > Beginning with OCAPI Version 23.1 a MalformedSelectorException is thrown if the selector key is incorrect. Previously, the property selection didn't work when the "select= key was incorrectly defined. For example, select%20=(price), resulted in the selector being skipped without any error message, and the normal response was returned.
 
-This a minor update that will make sure that you don't waste hours looking in places nothing is wrong. Making a typo (in a URL) happens far too often, and a clear error message to point you in the right direction is vital.
+This is a minor update that will make sure that you don't waste hours looking in places nothing is wrong. Making a typo (in a URL) happens far too often, and a clear error message to point you in the right direction is vital.
 
 ### Basket Flash Validation Update
 
@@ -107,7 +107,7 @@ Some great new ideas were submitted!
 
 - [Early Hints support for B2C Commerce (Embedded CDN)](https://ideas.salesforce.com/s/idea/a0B8W00000LynV9UAJ)
 - [Visibility to reg price and markdown value in GMV and reports and dashboards](https://ideas.salesforce.com/s/idea/a0B8W00000LxQWAUA3)
-- [Audit History Business Manger](https://ideas.salesforce.com/s/idea/a0B8W00000LwUJJUA3)
+- [Audit History Business Manager](https://ideas.salesforce.com/s/idea/a0B8W00000LwUJJUA3)
 - [Enable Crawler Hints for embedded CDN](https://ideas.salesforce.com/s/idea/a0B8W00000LhrcuUAB)
 - [Adding more decimal digit on the priceBook Table and on Promo price](https://ideas.salesforce.com/s/idea/a0B8W00000LhGYsUAN)
 - [The Price Information Act (2004:347)](https://ideas.salesforce.com/s/idea/a0B8W00000Lh9tbUAB)

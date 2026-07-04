@@ -108,7 +108,7 @@ In this example, the main product defines a color and size variation attribute t
 
 On the other hand, shared variation attributes are those that can be applied across multiple products within the catalog. These attributes promote consistency and can streamline the management of products that share similar characteristics. For instance, if multiple shoes come in the same colors and sizes, having shared variation attributes simplifies catalog management.
 
-{{< img-caption src="defining-shared-variation-attributes-92b82313b9.png" alt="A screenshot of the Business Manager showing where to configure Shared Varaiation Attributes: Products and Catalogs > Shared Variation Attributes - Select Catalog" caption="Shared variation attributes are configured centrally and reused across multiple products in the catalog." link="defining-shared-variation-attributes-92b82313b9.png" >}}
+{{< img-caption src="defining-shared-variation-attributes-92b82313b9.png" alt="A screenshot of the Business Manager showing where to configure Shared Variation Attributes: Products and Catalogs > Shared Variation Attributes - Select Catalog" caption="Shared variation attributes are configured centrally and reused across multiple products in the catalog." link="defining-shared-variation-attributes-92b82313b9.png" >}}
 
 {{< img-caption src="shared-variation-attributes-0d55796d17.png" alt="A screenshot of a product in the business manager showing the Variations tab with shared variation attributes." caption="Once shared attributes are assigned, the product's Variations tab reflects the catalog-wide attribute definition." link="shared-variation-attributes-0d55796d17.png" >}}
 

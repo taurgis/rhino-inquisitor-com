@@ -49,7 +49,7 @@ The main shows can be viewed through [Salesforce+](https://www.salesforce.com/tr
 
 ## (No) Bootcamp
 
-It is customary that a "[Bootcamp](https://www.salesforce.com/trailblazerdx/bootcamp)" precedes some events. This is a four days expert-led learning track with two opportunities to get certified (for a price).
+It is customary that a "[Bootcamp](https://www.salesforce.com/trailblazerdx/bootcamp)" precedes some events. This is a four-day expert-led learning track with two opportunities to get certified (for a price).
 
 But unfortunately, there is no track available for anyone wanting to get some Salesforce B2C Commerce Cloud certifications.
 
