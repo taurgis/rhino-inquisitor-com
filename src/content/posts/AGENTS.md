@@ -16,6 +16,16 @@ Before substantive prose work, load these repository skills in this order (per `
 
 Both skills state the same rule this guide inherits: the goal is better writing, not disguise. Do not inject mistakes, slang, or fake eccentricity to seem human.
 
+## Commands
+
+Run from the repo root:
+
+- `npm run validate:frontmatter` — front matter schema for all content files
+- `npm run check:spelling` — en-GB dictionary gate (also runs as a pre-commit hook)
+- `npx markdownlint-cli2 "src/content/posts/<slug>/index.md"` — markdown lint for one post
+- `npm run preflight` — the fast gate suite (runs automatically on `git push`)
+- `npm run gates:local` — the full deploy gate suite, for risky or structural changes
+
 ## The human baseline (2022, written without AI)
 
 What the unassisted voice does — bring these into every draft:
@@ -77,6 +87,7 @@ If the intro needs a roadmap, keep it to one plain sentence ("This guide will wa
 
 - Headings start at `##` (H1 is the title). Title Case, sometimes `Metaphor: Literal` ("The Watchtower: Monitoring Your Cache's Health") — but plain conversational headings are equally his: "Can I wing it", "What if I fail the exam". Question headings usually omit the question mark.
 - Typical flow: hook → concept → mechanics/how-to → use cases or caveats → conclusion. A warnings section with a dramatic name ("The Minefield") suits long deep-dives; short how-tos skip it. One-sentence sections are allowed.
+- Length: minimum 800 words of body copy; recent posts land around 1,800–2,400. Reach the minimum with substance (another failure mode, a real example, a caveat from experience) — a padded 2,000 words is worse than a tight 900.
 - Default list idiom: bullets or numbered items with a bold lead-in label and colon — `- **The Performance Tax:** The cartridge introduced...`. Repeating `1.` markers for numbered lists is fine.
 - Bold for hard rules and stakes ("**non-negotiable**", "DO NOT DO THIS ON THE DAY OF THE GO-LIVE"); bold-italic reserved for the one or two gravest warnings in a post.
 - Tables are rare; when used they earn their place and may carry personality (a "Vibe" column). No horizontal rules as separators. No FAQ sections.
@@ -95,6 +106,8 @@ Many posts teach mechanisms in prose with inline backticks (`dw.system.CacheMgr`
 
 `img-caption` is the only image shortcode. Alt text describes the image ("A cartoon rhino developer, dressed as a conductor..."); the caption carries the argument, not a description ("Naive real-time inventory checks can overload the very systems they depend on."). Never restate the caption in the paragraph after the figure, and never prefix captions with "Figure 1:" — see the `image-caption-writing` skill (RHI-094).
 
+Name new image files with plain descriptive kebab-case (`migration-ticket-board.jpg`), stored in the post's own folder. The hash suffixes on older filenames (`self-inflicted-dos-f3485c24ab.png`) are WordPress-migration legacy — do not generate new ones.
+
 ## Endings
 
 Two authentic shapes, choose by post weight:
@@ -103,6 +116,26 @@ Two authentic shapes, choose by post weight:
 - **How-tos and shorter posts** may simply stop: on the last practical detail, a warning ("Just don't assume that it is going to be easy!"), or the credits. Do not force a conclusion onto a post that has said what it came to say.
 
 Never a bare "Conclusion" heading, never "In conclusion,/In summary," as the opener, never a bullet recap of the section headings, and no CTAs: no newsletter, comments, socials, "Happy coding!", or author bio.
+
+## Boundaries
+
+**Always:**
+
+- Bump `lastmod` when editing a published post; never touch `date`.
+- Fix conversion artifacts in any section you edit (broken bold, flattened callout titles, duplicated captions) — see the legacy-artifacts list below.
+- Run the commands above before marking `draft: false`.
+
+**Ask first:**
+
+- Changing a published post's `title` or `description` — both carry SEO weight.
+- Adding a category or tag that no other post already uses.
+- Rewriting a legacy post wholesale instead of fixing what the current edit touches.
+- Anything involving `aliases` or redirects — that work goes through the `seo` skill and owner direction.
+
+**Never:**
+
+- Change `url` on any published post — the URL parity gates treat existing URLs as permanent.
+- Anything in the list below.
 
 ## Things an imitation gets wrong
 
