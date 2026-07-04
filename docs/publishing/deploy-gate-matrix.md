@@ -426,6 +426,19 @@ waste observed while operating the pipeline:
 - Caveat: the npm cache key embeds the Node version, so the first run after
   the bump repopulates the `~/.npm` and puppeteer caches.
 
+### Follow-up: AVIF cache restore-keys no longer embed volatile hashes
+
+The Node bump (run #304) and the subsequent lockfile change (run #306) each
+triggered a **full ~29-minute AVIF re-encode**, because both the primary key
+and the single restore-key embedded `NODE_VERSION` and the
+`package-lock.json` hash — any change to either invalidated the fallback too.
+The generator (`scripts/generate-avif-cache.js`) is incremental (it skips
+derivatives that already exist), so a stale restore is always safe. The
+restore-keys now fall back progressively (full prefix → node-version prefix →
+cache-version prefix), so lockfile/generator/Node changes re-encode only the
+delta. Bump `AVIF_CACHE_VERSION` to force a genuine full re-encode (e.g.
+after a sharp/libvips upgrade that changes encoding output).
+
 ## Related files
 
 - `.github/workflows/deploy-pages.yml`

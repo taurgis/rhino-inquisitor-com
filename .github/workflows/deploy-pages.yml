@@ -248,8 +248,15 @@ jobs:
         with:
           path: src/assets/generated-avif
           key: ${{ runner.os }}-avif-${{ env.AVIF_CACHE_VERSION }}-node-${{ env.NODE_VERSION }}-lock-${{ hashFiles('package-lock.json') }}-generator-${{ hashFiles('scripts/generate-avif-cache.js') }}-images-${{ steps.avif_cache_fingerprint.outputs.value }}
+          # The generator is incremental (skips derivatives that already
+          # exist), so a stale restore is always safe — it only means the
+          # delta gets re-encoded. Fall back progressively rather than
+          # re-encoding the entire image set (~30 min) whenever the lockfile,
+          # generator, or Node version changes.
           restore-keys: |
             ${{ runner.os }}-avif-${{ env.AVIF_CACHE_VERSION }}-node-${{ env.NODE_VERSION }}-lock-${{ hashFiles('package-lock.json') }}-generator-${{ hashFiles('scripts/generate-avif-cache.js') }}-
+            ${{ runner.os }}-avif-${{ env.AVIF_CACHE_VERSION }}-node-${{ env.NODE_VERSION }}-
+            ${{ runner.os }}-avif-${{ env.AVIF_CACHE_VERSION }}-
 
       - name: Summarize generated AVIF cache status
         env:
