@@ -375,7 +375,9 @@ jobs:
         uses: ./.github/actions/setup-node-env
         with:
           node-version: ${{ env.NODE_VERSION }}
-          skip-puppeteer-download: 'true'
+          # The a11y leg runs pa11y-ci, which drives puppeteer — it needs the
+          # puppeteer Chromium. Every other leg only launches Playwright.
+          skip-puppeteer-download: ${{ matrix.group == 'a11y' && 'false' || 'true' }}
 
       - name: Download build outputs
         uses: actions/download-artifact@v4

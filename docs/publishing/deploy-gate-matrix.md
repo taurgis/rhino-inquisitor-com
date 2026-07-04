@@ -396,13 +396,16 @@ waste observed while operating the pipeline:
    `url-data/reports/accessibility-audit.md` as
    `a11y-gate-diagnostics-<run_id>` (7-day retention), mirroring the perf leg.
 3. **Puppeteer Chrome caching / skipping** — every job's `npm ci` downloaded
-   puppeteer's ~170 MB Chrome; the five gate legs never launch puppeteer (they
-   use Playwright). `setup-node-env` now caches `~/.cache/puppeteer` keyed on
-   `package-lock.json`, and takes a `skip-puppeteer-download` input that the
-   `gates` job sets to `'true'` (emitted as `PUPPETEER_SKIP_DOWNLOAD` — note
-   puppeteer treats any non-empty value as truthy, so the action emits `''`
-   rather than `'false'` when the download should proceed). `build_site` keeps
-   the download (penthouse needs it) but restores it from cache.
+   puppeteer's ~170 MB Chrome. `setup-node-env` now caches `~/.cache/puppeteer`
+   keyed on `package-lock.json`, and takes a `skip-puppeteer-download` input
+   that the `gates` job sets per leg: `'true'` for `url`/`seo`/`security`/
+   `perf` (those only launch Playwright), `'false'` for `a11y` — **pa11y-ci
+   drives puppeteer**, so skipping there broke the accessibility gate with
+   "Could not find expected browser (chrome) locally" (run #304, first
+   attempt). Emitted as `PUPPETEER_SKIP_DOWNLOAD`; note puppeteer treats any
+   non-empty value as truthy, so the action emits `''` rather than `'false'`
+   when the download should proceed. `build_site` keeps the download
+   (penthouse needs it).
 4. **Node 22** — `NODE_VERSION` bumped `20.18.1` → `22.22.2`; Node 20 is
    deprecated on GitHub runners. `package.json` `engines` (`>=20.18.1`) is
    satisfied unchanged.
