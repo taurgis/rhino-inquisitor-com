@@ -4,7 +4,7 @@ description: >-
   In this post we take a look at the release notes of Salesforce B2C Commerce
   Cloud for April 2022, and dig a bit deeper into them.
 date: '2022-03-21T19:57:05.000Z'
-lastmod: '2026-07-04T14:48:28.000Z'
+lastmod: '2026-07-04T15:38:04.000Z'
 url: /b2c-commerce-whats-new-in-22-4/
 draft: false
 heroImage: warehouse-5806bba713.jpg
@@ -93,7 +93,7 @@ The following [DATA APIs](https://developer.salesforce.com/docs/commerce/b2c-com
 - Product Search
 - Customer Search
 - Custom Object Search
-- Catalogue Search
+- Catalog Search
 - **[Guest Flag](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-orders?meta=Summary):** It is now easier to detect an order made by a guest checkout or a registered customer.
 
 ## Business Manager
@@ -104,7 +104,7 @@ If you use Variation Groups, this feature will make the storefront search a litt
 
 Once enabled, merchandisers [will see extra options in the business manager](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_configure_variation_groups_display_mode.htm).
 
-{{< img-caption src="category-option-plzwjt3ux7rivo7o7mgc8xhnroisdxv69lzyysd3pa-a3eb0312c7.png" alt="Catalogue setting that switches variation groups to merged or individual display." caption="This catalogue setting is the switch that enables merged variation-group behaviour." >}}
+{{< img-caption src="category-option-plzwjt3ux7rivo7o7mgc8xhnroisdxv69lzyysd3pa-a3eb0312c7.png" alt="Catalog setting that switches variation groups to merged or individual display." caption="This catalog setting is the switch that enables merged variation-group behaviour." >}}
 
 But once you enable this option, how does it translate in the storefront? Let's have a look!
 

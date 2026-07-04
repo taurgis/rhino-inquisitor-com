@@ -4,7 +4,7 @@ description: >-
   Hooks are becoming more and more prominent because of the PWA Kit and the API
   first methodology. But how do you implement them?
 date: '2022-10-31T13:03:53.000Z'
-lastmod: '2026-07-04T15:28:48.000Z'
+lastmod: '2026-07-04T15:38:04.000Z'
 url: /how-to-use-ocapi-scapi-hooks/
 draft: false
 heroImage: 26df11a8-62ec-44cd-bf3b-6ff9ab46bee8-5598d60cbd.jpg
@@ -323,7 +323,7 @@ A functional hook is different from a performant hook. Every line of code added 
 
 Let's be blunt: hooks are inherently slower than the out-of-the-box APIs. This is because your custom script execution is layered on top of the platform's own code. This is a trade-off you make for the sake of flexibility.
 
-The performance shared responsibility model is clear: Salesforce is responsible for the performance of its base API code. You, the developer, are responsible for the performance of your catalogue structure, the parameters you send in requests, and every single line of your hook script. A slow hook can bring a snappy API to its knees.
+The performance shared responsibility model is clear: Salesforce is responsible for the performance of its base API code. You, the developer, are responsible for the performance of your catalog structure, the parameters you send in requests, and every single line of your hook script. A slow hook can bring a snappy API to its knees.
 
 ### Your Best Friend, The Code Profiler
 

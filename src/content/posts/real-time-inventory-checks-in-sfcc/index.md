@@ -4,7 +4,7 @@ description: >-
   Learn when real-time inventory checks improve the customer experience, where
   they add risk, and how to balance speed with accuracy.
 date: '2026-02-09T11:11:31.000Z'
-lastmod: '2026-07-04T14:48:28.000Z'
+lastmod: '2026-07-04T15:38:04.000Z'
 url: /real-time-inventory-checks-in-sfcc/
 draft: false
 heroImage: stampede-to-a-single-endpoin-t-scaled-2d591aef78.jpeg
@@ -112,7 +112,7 @@ This is a powerful compromise, but it's not a silver bullet.
 
 ### Pros
 
-- **Performance on a Massive Scale:** You eliminate costly external calls for the bulk of your catalogue, dramatically improving average TTFB and site responsiveness.
+- **Performance on a Massive Scale:** You eliminate costly external calls for the bulk of your catalog, dramatically improving average TTFB and site responsiveness.
 
 - **Backend System Shield:** The cache absorbs most of the load, protecting your often-fragile ERP or OMS from the "Hammer Effect."
 

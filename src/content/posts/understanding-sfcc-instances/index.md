@@ -4,7 +4,7 @@ description: >-
   Salesforce B2C Commerce is a robust platform that enables businesses to create
   highly customised and scalable digital storefronts.
 date: '2023-04-17T14:18:06.000Z'
-lastmod: '2026-07-04T15:28:48.000Z'
+lastmod: '2026-07-04T15:38:04.000Z'
 url: /understanding-sfcc-instances/
 draft: false
 heroImage: salesforce-b2c-commerce-cloud-instances-scaled-59ed2cbb06.jpeg
@@ -34,7 +34,7 @@ In Salesforce B2C Commerce, a Point of Delivery (POD) is a comprehensive infrast
 
 ## Realms
 
-A realm is an essential organisational component that houses instances required for developing, testing, and deploying your online storefront. Typically, a single realm is adequate for managing multiple sites with different branding or locales. This setup allows for flexible management, as individuals overseeing the storefront sites can be located in various places. However, consider using multiple realms if you have distinct lines of business, global teams with unique processes, or separate organisations with different backend integrations.  While sites within the same realm can share product catalogues, sites in other realms cannot share data through the catalogue structure. You can, however, set up a CI/CD system to automate the synchronisation of the data when working with multiple realms.
+A realm is an essential organisational component that houses instances required for developing, testing, and deploying your online storefront. Typically, a single realm is adequate for managing multiple sites with different branding or locales. This setup allows for flexible management, as individuals overseeing the storefront sites can be located in various places. However, consider using multiple realms if you have distinct lines of business, global teams with unique processes, or separate organisations with different backend integrations.  While sites within the same realm can share product catalogs, sites in other realms cannot share data through the catalog structure. You can, however, set up a CI/CD system to automate the synchronisation of the data when working with multiple realms.
 
 ## PIG vs SIG
 

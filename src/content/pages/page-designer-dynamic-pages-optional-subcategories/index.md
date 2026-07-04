@@ -5,7 +5,7 @@ description: >-
   inheritance optional when subcategories should not share the same landing
   page.
 date: '2022-03-01T16:56:04.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T15:38:04.000Z'
 url: /ideas/page-designer-dynamic-pages-optional-subcategories/
 draft: false
 author: Thomas Theunen
@@ -16,7 +16,7 @@ This feature allowed [Page Designer](https://www.salesforce.com/video/3620472/) 
 
 Now, as with many things, no good deed comes unpunished. There is a "problem" with the dynamic category option. When you select a top-level category, it selects all subcategories as well. Whether you want this to happen or not.
 
-Maybe a use-case to explain this. Your catalogue structure is as follows:
+Maybe a use-case to explain this. Your catalog structure is as follows:
 
 - Pants
   - Shorts

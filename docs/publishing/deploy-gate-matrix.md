@@ -505,7 +505,7 @@ variants so future content stays consistent.
 | Unknown words | n/a | Valid jargon, product/brand names, and cited people's names live in `scripts/gates/spelling-allow.txt` (the project dictionary, seeded via `--list-unknown`) |
 | Front matter | Body only | `title`, `description`, and `takeaways` values are also checked (keys, `url`, tags, and file names are not) |
 | Deliberate US spellings kept | n/a | `adapter` (software term) and `chili` (band name) are allowlisted rather than converted |
-| Platform/protocol identifiers | n/a | Generic prose uses British `organisation`/`authorisation`, but the literal identifiers stay American — the HTTP/OAuth `Authorization` header and the SFCC/SLAS `Organization` ID / Business Manager tab. Anglicising those would diverge from the spec and the UI, so `authorization` and `organization` are allowlisted for that use. |
+| Platform/protocol & SFCC UI terms | n/a | Terms that must match the platform keep their American spelling so prose matches the Business Manager menus / spec: `catalog`(s) (Products and Catalogs), the SFCC/SLAS `Organization` ID / BM tab, and the HTTP/OAuth `Authorization` header. Generic prose still uses British `organisation`/`authorisation`; the platform terms (`catalog`, `catalogs`, `organization`, `authorization`) are allowlisted. |
 | Dependencies | Dependency-free | Adds dev deps `nspell`, `dictionary-en-gb`, and reuses `gray-matter`; the gate now needs `npm ci` (already run before the `build` gate group in CI) |
 | Local pre-commit | none | `.githooks/pre-commit` runs the gate when a commit stages `src/content/**` Markdown (bypass with `SKIP_SPELLING=1` or `--no-verify`) |
 

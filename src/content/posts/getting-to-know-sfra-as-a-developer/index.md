@@ -4,7 +4,7 @@ description: >-
   SFRA in Salesforce B2C Commerce can be quite daunting. This blog post will
   guide you through all of the content of Commerce Cloud SFRA!
 date: '2023-10-30T09:57:46.000Z'
-lastmod: '2026-07-04T15:28:48.000Z'
+lastmod: '2026-07-04T15:38:04.000Z'
 url: /getting-to-know-sfra-as-a-developer/
 draft: false
 heroImage: sfra-670d466bd1.png
@@ -96,7 +96,7 @@ This website will tell you how to get started with your SFRA implementation with
 
 ### Partner Learning Camp
 
-{{< img-caption src="b2c-foundations-2daffad6c6.jpg" alt="Partner Learning Camp catalogue showing the B2C Commerce Foundations course." >}}
+{{< img-caption src="b2c-foundations-2daffad6c6.jpg" alt="Partner Learning Camp catalog showing the B2C Commerce Foundations course." >}}
 
 - [https://partnerlearningcamp.salesforce.com](https://partnerlearningcamp.salesforce.com/s/browse-catalog?plc__recordId=5iuux101vYk2UQtOkwn9%2BpFhmsL%2F5jynd8uOnEFtSg4JjoBEe8yyDv9MajFikOJe)
 

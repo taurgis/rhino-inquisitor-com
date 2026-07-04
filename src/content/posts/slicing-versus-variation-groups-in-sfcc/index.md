@@ -4,7 +4,7 @@ description: >-
   Learn the difference between slicing and variation groups in Commerce Cloud,
   and when each model fits your product setup best.
 date: '2023-11-20T11:08:09.000Z'
-lastmod: '2026-07-04T15:28:48.000Z'
+lastmod: '2026-07-04T15:38:04.000Z'
 url: /slicing-versus-variation-groups-in-sfcc/
 draft: false
 heroImage: a-tshirt-sliced-into-multiple-colors-scaled-4ed0b9ab1a.jpg
@@ -15,7 +15,7 @@ tags:
   - sfcc
 author: Thomas Theunen
 takeaways:
-  - "Compares slicing and variation groups as two ways to model product variation in SFCC catalogues"
+  - "Compares slicing and variation groups as two ways to model product variation in SFCC catalogs"
   - "Argues that variation groups are usually the stronger option for merchandising, SEO stability, promotions, and composable storefront support"
   - "Highlights the operational and quota implications teams should understand before choosing a product-modelling strategy"
 ---
@@ -23,7 +23,7 @@ Clarity and efficiency are key in the strategic display and management of produc
 
 Today, we're thoroughly examining two tools provided by Salesforce B2C Commerce Cloud: 'Slicing' and 'Variation Groups'. Both are an option in product management, but which is your best bet?
 
-In this article (and I am giving away already which option blows the other out of the window), I hope to help you prepare to understand these concepts in depth and learn why, more often than not, Variation Groups may be your best bet for an exceptional online catalogue management system.
+In this article (and I am giving away already which option blows the other out of the window), I hope to help you prepare to understand these concepts in depth and learn why, more often than not, Variation Groups may be your best bet for an exceptional online catalog management system.
 
 ## What is slicing
 
@@ -33,9 +33,9 @@ In this article (and I am giving away already which option blows the other out o
   caption="Figure 1: Slicing—A legacy method of separating product variants by a single attribute"
 >}}
 
-Slicing is a method of catalogue management that hinges on separating product variants according to one attribute. It simplifies the distinct appearance of products by isolating them based on a characteristic like colour or size. For a while, this approach was quite popular as it provided a clear-cut way to handle product variations, particularly in systems with large counts of SKUs. The idea was that each variant stands alone, making it easy to list and manage inventory.
+Slicing is a method of catalog management that hinges on separating product variants according to one attribute. It simplifies the distinct appearance of products by isolating them based on a characteristic like colour or size. For a while, this approach was quite popular as it provided a clear-cut way to handle product variations, particularly in systems with large counts of SKUs. The idea was that each variant stands alone, making it easy to list and manage inventory.
 
-But simplicity comes at a price. When a variant sells out, it vanishes from the storefront, leaving a gap in your catalogue and potentially disrupting the customer's shopping experience. What's more, this can be detrimental to your site's search engine ranking as each variant has its URL that might get indexed, and having this URL disappear can undo SEO optimisations.
+But simplicity comes at a price. When a variant sells out, it vanishes from the storefront, leaving a gap in your catalog and potentially disrupting the customer's shopping experience. What's more, this can be detrimental to your site's search engine ranking as each variant has its URL that might get indexed, and having this URL disappear can undo SEO optimisations.
 
 From an operational standpoint, slicing demands that you replicate this process for each category your product fits into, escalating manual work and the likelihood of human error in maintaining a cohesive store experience.
 
@@ -49,7 +49,7 @@ From an operational standpoint, slicing demands that you replicate this process 
 
 The "Master Product" has been renamed to "Base Product" to be more inclusive.
 
-[Variation Groups](https://help.salesforce.com/s/articleView?id=cc.b2c_managing_variation_groups.htm&type=5) present a more refined and flexible approach to managing product variants. Think of a digital catalogue where products are not sorted based on one characteristic, but rather, traits can mix and match across different features. This allows you to easily find a specific combination of products, like "all blue items in any size" or "small size in any colour." Variation Groups are what make this possible. These are groups of different versions of a product, all based on a central Variation Base, that are arranged in logical combinations that shoppers often look for.
+[Variation Groups](https://help.salesforce.com/s/articleView?id=cc.b2c_managing_variation_groups.htm&type=5) present a more refined and flexible approach to managing product variants. Think of a digital catalog where products are not sorted based on one characteristic, but rather, traits can mix and match across different features. This allows you to easily find a specific combination of products, like "all blue items in any size" or "small size in any colour." Variation Groups are what make this possible. These are groups of different versions of a product, all based on a central Variation Base, that are arranged in logical combinations that shoppers often look for.
 
 Variation Groups are really useful because they help to show a product line in a complete way. They take information about the inventory from a group of SKUs, which makes it easier to keep track of the amount of each product you have and to show the products consistently. With Variation Groups, you can also choose specific products based on certain attributes like colour and size, and place them in your store in a way that makes sense.
 
@@ -80,7 +80,7 @@ One location still has the deprecation message.
 {{< img-caption
   src="variations-quota-limit-sfcc-00862ef947.png"
   alt="Salesforce documentation showing quota limits for maximum number of variations per base product"
-  caption="Figure 4: Variation Quota Limits—Critical maximum variations constraint for large catalogues"
+  caption="Figure 4: Variation Quota Limits—Critical maximum variations constraint for large catalogs"
 >}}
 
 When dealing with variations, it is crucial to be mindful of a single quota limit - the maximum number of variations per base product, similar to slicing.

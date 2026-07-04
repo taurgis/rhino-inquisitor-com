@@ -4,7 +4,7 @@ description: >-
   An interactive guide for new SFCC developers covering storefront patterns,
   platform concepts, and practical next steps for hands-on learning.
 date: '2026-01-12T14:05:43.000Z'
-lastmod: '2026-07-04T15:28:48.000Z'
+lastmod: '2026-07-04T15:38:04.000Z'
 url: /kickstart-guide-for-new-sfcc-developers/
 draft: false
 heroImage: the-new-salesforce-developer-scaled-1f8ff6fbac.jpeg
@@ -62,7 +62,7 @@ If the instance structure is the map, the **Business Manager (BM)** is your comm
 
 As a developer, you'll find yourself wearing two hats within the Business Manager:
 
-1. **The Merchant Hat:** You'll need to understand the tools that [merchandisers](https://help.salesforce.com/s/articleView?id=cc.b2c_merchandising_your_site.htm&type=5) use daily to manage the site's data. This includes managing product catalogues, creating promotions and campaigns, handling imagery, and setting up search preferences. You won't be doing their job, but you need to know how the data they manage interacts with the code you write.
+1. **The Merchant Hat:** You'll need to understand the tools that [merchandisers](https://help.salesforce.com/s/articleView?id=cc.b2c_merchandising_your_site.htm&type=5) use daily to manage the site's data. This includes managing product catalogs, creating promotions and campaigns, handling imagery, and setting up search preferences. You won't be doing their job, but you need to know how the data they manage interacts with the code you write.
 
 1. **The Administrator/Developer Hat:** This is your primary domain. Under the `Administration` tab, you'll perform critical development tasks like managing code versions, [configuring](https://help.salesforce.com/s/articleView?id=cc.b2c_getting_started.htm&type=5) site cartridge paths, setting up data import/export jobs, managing API clients, and controlling the site cache.
 
@@ -130,7 +130,7 @@ As I cover in my [**Beginner's Guide to WebDAV**](/a-beginners-guide-to-webdav-i
 
 - **Import/Export:** The `/impex` folder is the main hub for data transfer. You'll upload your XML or CSV import files here for the Jobs Framework to process.
 
-- **Catalogues & Content Libraries:** You can manage static content assets and library files directly.
+- **Catalogs & Content Libraries:** You can manage static content assets and library files directly.
 
 - **Log Files:** The `/logs` directory contains all the system logs, including error logs and custom debug logs, which are indispensable for troubleshooting.
 
@@ -144,7 +144,7 @@ SFCC provides a rich set of standard business objects (like Product, Order, Cust
 
 1. **Create Custom Objects:** For data that doesn't fit into a standard object, you can define entirely new custom object types with their own attributes. This is done in `Administration > Site Development > Custom Object Types`.
 
-For handling large-scale data operations—like importing a catalogue with millions of products or exporting all orders from the last quarter—you'll use the **Jobs Framework**. Jobs are processes that run asynchronously in the background, either on a schedule or on demand. They are essential for any task that would be too slow or memory-intensive to run in a storefront request.
+For handling large-scale data operations—like importing a catalog with millions of products or exporting all orders from the last quarter—you'll use the **Jobs Framework**. Jobs are processes that run asynchronously in the background, either on a schedule or on demand. They are essential for any task that would be too slow or memory-intensive to run in a storefront request.
 
 A common and powerful type of job step is the **chunk-oriented job step**. This is designed to process a large list of items by breaking it into manageable chunks, preventing you from hitting platform memory limits. To learn how to build these correctly, I highly recommend my deep-dive article, [**Mastering Chunk-Oriented Job Steps in Salesforce B2C Commerce Cloud**](/mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/). For specialised cases involving large sets of static key-value data, you can also look into [**Leveraging Generic Mappings for Efficient Data Integration**](/leveraging-generic-mappings-in-sfcc/).
 
@@ -190,7 +190,7 @@ I strongly urge you to read and implement the advice in my article, [**Three thi
 
 1. **Secure Your Code:** Be vigilant about common web vulnerabilities. The most common in SFCC is Cross-Site Scripting (XSS), which occurs when you render user-provided input without properly encoding it. Always use functions that encode output, like `<isprint>`, to sanitise data.
 
-1. **Secure Third-Party Access:** Document every external system that integrates with your site via API keys (OCAPI, SCAPI, WebDAV). Ensure their API clients have the absolute minimum permissions required to do their job. An ERP that only needs to update orders should not have an API key that can also delete your entire product catalogue.
+1. **Secure Third-Party Access:** Document every external system that integrates with your site via API keys (OCAPI, SCAPI, WebDAV). Ensure their API clients have the absolute minimum permissions required to do their job. An ERP that only needs to update orders should not have an API key that can also delete your entire product catalog.
 
 ## The Danger Zone: Warnings and Pitfalls to Avoid
 
@@ -224,7 +224,7 @@ Finally, here are a few specific "gotchas" that bite new developers:
 
 - **Massive Image Folders:** While WebDAV is great, dumping a million product images into a single folder is a recipe for terrible performance, both for file system listing and for your import/export jobs. Salesforce recommends a maximum of 100,000 files per folder. You must have a strategy for organising images into a logical sub-folder structure.
 
-- **Orphaned Objects from Failed Imports:** If a large catalogue import job fails midway through, it can leave your data in an inconsistent state, for example, with products created but not assigned to their categories. Always design your import jobs to be restartable and, where possible, use delta feeds that only contain changes rather than full replacements.
+- **Orphaned Objects from Failed Imports:** If a large catalog import job fails midway through, it can leave your data in an inconsistent state, for example, with products created but not assigned to their categories. Always design your import jobs to be restartable and, where possible, use delta feeds that only contain changes rather than full replacements.
 
 Ultimately, most of these pitfalls stem from a single root cause: failing to understand and respect that SFCC is a shared, multi-tenant SaaS platform. The quotas, the aggressive caching, and the "dangerous" operations are all consequences of this architecture. When you internalise that you are a citizen in a shared environment, you will naturally start to code in a way that is performant, scalable, and stable.
 

@@ -4,7 +4,7 @@ description: >-
   Are you wondering what entities make up a customer in SFCC and how they are
   connected? Then look no more! Here is a small ERD.
 date: '2023-02-06T08:52:39.000Z'
-lastmod: '2026-07-04T14:48:28.000Z'
+lastmod: '2026-07-04T15:38:04.000Z'
 url: /salesforce-b2c-commerce-cloud-customer-erd/
 draft: false
 heroImage: ruth-architect-985a2e68a5.png
@@ -60,7 +60,7 @@ The CustomerCDPData object only applies to your project if you have purchased [C
 
 ## More to follow
 
-Stay tuned! The next ERD on deck is catalogue/product, [so keep an eye out](/category/erd/) for this blog.
+Stay tuned! The next ERD on deck is catalog/product, [so keep an eye out](/category/erd/) for this blog.
 
 ### Mistakes
 

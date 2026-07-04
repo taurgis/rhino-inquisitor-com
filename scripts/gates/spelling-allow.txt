@@ -106,6 +106,8 @@ caila
 californication
 callout
 callouts
+catalog
+catalogs
 catchable
 cbc
 ccrm

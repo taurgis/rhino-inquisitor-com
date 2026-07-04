@@ -4,7 +4,7 @@ description: >-
   Field guide to realm splits in SFCC, covering when the migration is justified,
   key delivery phases, and the operational risks teams inherit.
 date: '2025-09-08T09:14:15.000Z'
-lastmod: '2026-07-04T15:28:48.000Z'
+lastmod: '2026-07-04T15:38:04.000Z'
 url: /the-realm-split-field-guide-to-migrating-an-sfcc-site/
 draft: false
 heroImage: realm-split-in-sfcc-c392b8965d.jpg
@@ -39,7 +39,7 @@ This world is rigidly structured into two distinct groups:
 - **Primary Instance Group (PIG):** This is the core operational group, and a realm can have only one. It consists of three instances: Production (the live storefront), Staging (for data setup and pre-deployment testing), and Development (for data enrichment and configuration).
 - **Secondary Instance Group (SIG):** This group contains the developer sandboxes.  Like the PIG, a realm can only have one SIG.
 
-This architecture is designed for efficiency under a unified operational model. Sites within the same realm can share a master product catalogue, a single codebase, and a standard set of administrative and development teams, creating significant economies of scale. However, this inherent sharing is also its greatest weakness when the business model diverges from its core.
+This architecture is designed for efficiency under a unified operational model. Sites within the same realm can share a master product catalog, a single codebase, and a standard set of administrative and development teams, creating significant economies of scale. However, this inherent sharing is also its greatest weakness when the business model diverges from its core.
 
 ### Analysing the Breaking Points: When a Single Realm Becomes Untenable
 
@@ -80,7 +80,7 @@ Success in a complex project like a realm split hinges on a meticulously detaile
 This initial phase is about building the business case and creating a comprehensive map of the existing environment. Rushing this stage is a recipe for budget overruns and unforeseen complications.
 
 - **Define Clear Goals and Objectives:** Before any technical work begins, all stakeholders—business, marketing, development, and operations—must agree on what a successful split looks like. These goals should be specific and measurable (e.g., "The new EU site is live on the new realm with a 15% improvement in average page load time," or "The EU development team can execute independent weekly deployments without impacting the US release schedule"). This provides a north star for the project and a clear definition of what is considered "done."
-- **Conduct a Thorough Audit of the Source Realm:** A new realm is a clean slate; do not pollute it with the cruft of the old one. Conduct a deep audit of the source environment to identify and catalogue every component. This includes all custom cartridges, jobs, services, custom object definitions, site preferences, and integrations. Any stale, redundant, or unused metadata should be earmarked for cleanup _before_ the migration begins. This reduces the complexity of the new environment and prevents future headaches.
+- **Conduct a Thorough Audit of the Source Realm:** A new realm is a clean slate; do not pollute it with the cruft of the old one. Conduct a deep audit of the source environment to identify and catalog every component. This includes all custom cartridges, jobs, services, custom object definitions, site preferences, and integrations. Any stale, redundant, or unused metadata should be earmarked for cleanup _before_ the migration begins. This reduces the complexity of the new environment and prevents future headaches.
 - **Map Every Integration:** This is one of the most critical and frequently underestimated tasks. Create a definitive diagram and inventory of every single third-party system that communicates with the SFCC instance. For each integration (payment gateways, tax services, OMS, ERP, PIM, etc.), determine its fate: Will it connect to the new realm only? Does it need to connect to both? Will it require a completely new configuration or even a new contract? Answering these questions early is essential for planning and vendor coordination.
 
 ### Phase 2: Engaging the Gatekeepers - Navigating Salesforce Support
@@ -199,7 +199,7 @@ However, this autonomy comes at a price. The business now bears the increased in
 
 An illustration of a realm split, where a single, monolithic system fractures into multiple autonomous realms. This transition unlocks business and technical flexibility but introduces the new operational complexity of managing a distributed system, including the critical need for data synchronisation between the separate entities.
 
-One of the most significant new challenges is data synchronisation. If the business still requires a shared product catalogue or consistent promotional data across realms, this can no longer be achieved through the platform's native sharing capabilities. Sites in different realms cannot share a catalogue directly. Instead, you must build and maintain a new operational process, likely a set of automated jobs and a CI/CD pipeline, to handle the export of data from a "master" realm and its import into the "subscriber" realm.
+One of the most significant new challenges is data synchronisation. If the business still requires a shared product catalog or consistent promotional data across realms, this can no longer be achieved through the platform's native sharing capabilities. Sites in different realms cannot share a catalog directly. Instead, you must build and maintain a new operational process, likely a set of automated jobs and a CI/CD pipeline, to handle the export of data from a "master" realm and its import into the "subscriber" realm.
 
 **_This introduces a new potential point of failure and a new set of tasks for the operations team._**
 

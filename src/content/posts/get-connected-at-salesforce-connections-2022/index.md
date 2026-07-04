@@ -4,7 +4,7 @@ description: >-
   Preview Salesforce Connections 2022 with a commerce-focused view of the event,
   key themes, and what attendees should watch for.
 date: '2022-05-30T12:21:30.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T15:38:04.000Z'
 url: /get-connected-at-salesforce-connections-2022/
 draft: false
 heroImage: connections-2022-705603e7cd.png
@@ -68,7 +68,7 @@ Salesforce provides a handy tool to [build your agenda on the Connections websit
 
 > China is the world’s largest online retail market. Learn about China’s unique ecommerce ecosystem and how Salesforce and Alibaba are working together to drive customer success in the region.
 
-If you look at the possibilities in the [Session Catalogue](https://reg.salesforce.com/flow/plus/cnx22/connections2022contentcatalog/page/sessioncatalog), Alibaba has a good presence with their offerings for the Chinese market. This provides an excellent opportunity for partners and customers who are expanding their markets now or in the future.
+If you look at the possibilities in the [Session Catalog](https://reg.salesforce.com/flow/plus/cnx22/connections2022contentcatalog/page/sessioncatalog), Alibaba has a good presence with their offerings for the Chinese market. This provides an excellent opportunity for partners and customers who are expanding their markets now or in the future.
 
 ### [Wow Your Customers](https://reg.salesforce.com/flow/plus/cnx22/connections2022contentcatalog/page/sessioncatalog/session/1648704751762001RwxN)
 

@@ -4,7 +4,7 @@ description: >-
   Review the Salesforce B2C Commerce Cloud 22.5 release notes and the platform
   updates developers should test or plan for.
 date: '2022-04-18T07:31:52.000Z'
-lastmod: '2026-07-04T15:28:48.000Z'
+lastmod: '2026-07-04T15:38:04.000Z'
 url: /salesforce-b2c-commerce-the-22-5-release/
 draft: false
 heroImage: b2c-control-center-3581b7d6c3.png
@@ -57,7 +57,7 @@ We already had [the option to schedule our Sandboxes uptime through a REST API](
 
 ### Tiktok Integration
 
-{{< img-caption src="tiktok-for-business-e34f4d0876.jpeg" alt="TikTok for Business branding used for the beta integration announcement." caption="The TikTok beta connected B2C Commerce catalogue and shopper data to another discovery channel." link="tiktok-for-business-e34f4d0876.jpeg" >}}
+{{< img-caption src="tiktok-for-business-e34f4d0876.jpeg" alt="TikTok for Business branding used for the beta integration announcement." caption="The TikTok beta connected B2C Commerce catalog and shopper data to another discovery channel." link="tiktok-for-business-e34f4d0876.jpeg" >}}
 
 A beta program is available to test an integration between B2C Commerce Cloud and Tiktok. This Beta aims to create storefronts and advertise products on Tiktok using products and shopper activity data.
 

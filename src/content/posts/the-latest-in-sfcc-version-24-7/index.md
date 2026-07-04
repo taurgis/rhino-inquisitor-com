@@ -4,7 +4,7 @@ description: >-
   In some places there is too much rain, in other places it is too hot. The
   weather might not be consistent, but the release schedule of SFCC sure is!
 date: '2024-07-08T07:51:29.000Z'
-lastmod: '2026-07-04T15:28:48.000Z'
+lastmod: '2026-07-04T15:38:04.000Z'
 url: /the-latest-in-sfcc-version-24-7/
 draft: false
 heroImage: salesforce-b2c-commerce-cloud-24-7-release-notes-7b5bf8e6a0.jpg
@@ -133,7 +133,7 @@ Finally, the SCAPI release information has also made it to the "main" release no
 
 ### Import and Export Dynamic Categorisation Rules
 
-> In Business Manager, easily import and export dynamic categorisation rules, including the excluded product list. The Catalogues Import & Export feature now updates the catalogue.xsd schema with detailed information on categorisation rules and excluded products within the catalogue tag structure. Previously, you couldn’t import and export the dynamic categorisation rules.
+> In Business Manager, easily import and export dynamic categorisation rules, including the excluded product list. The Catalogs Import & Export feature now updates the catalog.xsd schema with detailed information on categorisation rules and excluded products within the catalog tag structure. Previously, you couldn’t import and export the dynamic categorisation rules.
 
 Before this update, we could not easily back up or import the categorisation rules from an external system, making them more challenging to implement in some cases (or even a blocker).
 

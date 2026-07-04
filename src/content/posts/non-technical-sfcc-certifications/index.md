@@ -4,7 +4,7 @@ description: >-
   Salesforce B2C Commerce Cloud appears to only have certifications for
   developers, but is this true? Are there other options available?
 date: '2023-04-24T08:47:47.000Z'
-lastmod: '2026-07-04T15:28:48.000Z'
+lastmod: '2026-07-04T15:38:04.000Z'
 url: /non-technical-sfcc-certifications/
 draft: false
 heroImage: einstein-shopping-scaled-5e1e2b427b.jpeg
@@ -118,7 +118,7 @@ Again a different type of certification than we are used to and a completely dif
 
 > The Indirect Sales Accredited Professional exam is intended for an individual who may have the title of Sales Manager, Account Executive, Marketing Manager, or Business Development. These sales roles are responsible for communicating the benefits of a company's products in order to drive sales. They serve as the point of contact between a business and its prospects or clients. Their range of responsibilities includes identifying and educating prospective customers while supporting existing clients with information and assistance that relates to products and services. Qualifications often include strong interpersonal and communication skills.
 
-I may start sounding like a broken record, but this certification also targets the different Salesforce product catalogues, not just Salesforce B2C Commerce Cloud.
+I may start sounding like a broken record, but this certification also targets the different Salesforce product catalogs, not just Salesforce B2C Commerce Cloud.
 
 If your company targets Salesforce B2C Commerce Cloud, this might not be the course for you. But trying it to see how Salesforce expects you to approach potential clients might be interesting.
 

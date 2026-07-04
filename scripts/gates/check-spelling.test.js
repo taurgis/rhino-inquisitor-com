@@ -108,10 +108,10 @@ test('accepts British spelling and flags American variants', () => {
     [],
     'British spellings pass'
   );
-  const american = analyzeSource('We favor the color and optimise the catalog.', { speller });
+  const american = analyzeSource('We favor the color and optimise the behavior.', { speller });
   assert.deepEqual(
     american.map((finding) => finding.found).sort(),
-    ['catalog', 'color', 'favor'].sort(),
+    ['behavior', 'color', 'favor'].sort(),
     'American variants are flagged'
   );
 });

@@ -4,7 +4,7 @@ description: >-
   In this article we will be looking at some helpful CLI tools to make our
   lives in Salesforce B2C Commerce a little bit easier.
 date: '2023-09-11T17:19:00.000Z'
-lastmod: '2026-07-04T15:28:48.000Z'
+lastmod: '2026-07-04T15:38:04.000Z'
 url: /helpful-salesforce-b2c-commerce-cloud-cli-tools/
 draft: false
 heroImage: 5517c6d9-6282-4468-a840-0af54ac19068-9222fff64d.png
@@ -17,9 +17,9 @@ tags:
   - technical
 author: Thomas Theunen
 takeaways:
-  - "Introduces useful SFCC CLI tools for sandbox management, migrations, and catalogue reduction"
+  - "Introduces useful SFCC CLI tools for sandbox management, migrations, and catalog reduction"
   - "Explains where sfcc-ci and b2c-tools fit into daily development and automation workflows"
-  - "Highlights complementary community tooling that can speed up sandbox and catalogue preparation"
+  - "Highlights complementary community tooling that can speed up sandbox and catalog preparation"
 ---
 Although Salesforce B2C Commerce Cloud is a ‘niche’ developer space, there is no shortage of [open-source solutions](/community-repositories/) available to make our lives a little bit easier.
 
@@ -65,15 +65,15 @@ A relatively new repository (January 2022) made its way into GitHub. It is a CLI
 
 B2C Tools mainly focus on allowing you to script import/export tasks and migration between environments.
 
-## Catalogue Reducer
+## Catalog Reducer
 
 - [GitHub Repository Link](https://github.com/SalesforceCommerceCloud/catalog-reducer)
 
-A super-fast sandbox and an extensive product catalogue are usually not two things you hear together in a single sentence.
+A super-fast sandbox and an extensive product catalog are usually not two things you hear together in a single sentence.
 
 When working on a project as a developer, you like to have a representative environment to reproduce issues that arise [in the Primary Instance Group](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_demandware_instances.htm). However, getting a good amount of products from production to a sandbox is not easy.
 
-The "Catalogue Reducer" project gives you a CLI to convert an extensive catalogue to a smaller one containing only what you want/need.
+The "Catalog Reducer" project gives you a CLI to convert an extensive catalog to a smaller one containing only what you want/need.
 
 Using a JSON configuration file, you determine how many masters, variants, and products with a particular attribute should be included in a filtered file.
 
@@ -83,13 +83,13 @@ I'm starting to see a common thread here!
 
 **Note:** This particular library does not handle huge files well. It loads the entire source XML into memory, which will cause Out-Of-Memory exceptions rather quickly.
 
-## SFCC Catalogue Pricebook
+## SFCC Catalog Pricebook
 
 - [GitHub Repository Link](https://github.com/redvanworkshop/sfcc-catalog-pricebook)
 
 If you have already looked around GitHub for Salesforce B2C Commerce Cloud cartridges and tools, you will probably have run into [Red Van Workshop](https://redvanworkshop.com/). They have released quite a few handy cartridges and tools, so be sure to check out [their organisation](https://github.com/redvanworkshop/) on GitHub.
 
-This CLI tool is complimentary to "Catalogue Reducer." It takes in a Product Catalogue and pushes out a Price Book based on your configuration (randomised prices based on rules).
+This CLI tool is complimentary to "Catalog Reducer." It takes in a Product Catalog and pushes out a Price Book based on your configuration (randomised prices based on rules).
 
 ## And many others
 

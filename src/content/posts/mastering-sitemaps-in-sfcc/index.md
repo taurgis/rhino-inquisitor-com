@@ -4,7 +4,7 @@ description: >-
   Learn how sitemaps work in Salesforce B2C Commerce Cloud, how to configure
   them correctly, and what developers should monitor for SEO.
 date: '2025-06-16T07:30:19.000Z'
-lastmod: '2026-07-04T14:48:28.000Z'
+lastmod: '2026-07-04T15:38:04.000Z'
 url: /mastering-sitemaps-in-sfcc/
 draft: false
 heroImage: sitemaps-in-sfcc-53a1b08bb8.jpg
@@ -20,7 +20,7 @@ author: Thomas Theunen
 takeaways:
   - "Explains how SFCC sitemap generation works, including index files, settings, scheduling, and hreflang support"
   - "Covers both classic job-based and modern SCAPI-based approaches for adding custom sitemap files"
-  - "Shows how headless storefronts can combine backend-generated catalogue sitemaps with frontend-only route coverage"
+  - "Shows how headless storefronts can combine backend-generated catalog sitemaps with frontend-only route coverage"
 ---
 Let's be honest, as developers, "SEO" can sometimes feel like a four-letter word handed down from the marketing team. But what if I told you that one of the most critical SEO tools, the sitemap, is actually a fascinating piece of platform architecture you can control, automate, and even extend with code?
 
@@ -100,7 +100,7 @@ This is a PUT request that enables a trusted external system to upload a custom 
 
 ## Sitemaps in the Headless Universe: PWA Kit Edition
 
-Going headless with the Composable Storefront (PWA Kit) changes the game, but the sitemap strategy remains firmly [rooted in the backend](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/create-a-sitemap.html)—and for good reason. The SFCC backend is the system of record for the entire product catalogue.
+Going headless with the Composable Storefront (PWA Kit) changes the game, but the sitemap strategy remains firmly [rooted in the backend](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/create-a-sitemap.html)—and for good reason. The SFCC backend is the system of record for the entire product catalog.
 
 Forcing the PWA Kit frontend to generate the sitemap would require an API call nightmare to fetch all that data.
 
@@ -125,7 +125,7 @@ The solution is an elegant hybrid approach that you can automate in your CI/CD p
 
 1. **Automate the Merge:** The final step of your deployment script makes a `PUT` request to the `uploadCustomSitemapAndTriggerSitemapGeneration` SCAPI endpoint, uploading the `pwa-custom.xml` file. This tells SFCC to regenerate the main index, adding a link to your new custom file.
 
-This strategy uses the right tool for the job: the backend's efficiency for the massive catalogue and the frontend's build process to handle its own unique pages.
+This strategy uses the right tool for the job: the backend's efficiency for the massive catalog and the frontend's build process to handle its own unique pages.
 
 ## Conclusion
 

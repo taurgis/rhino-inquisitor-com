@@ -4,7 +4,7 @@ description: >-
   Review the Salesforce B2C Commerce Cloud 22.8 release, including quota
   changes, SCAPI hook updates, eCDN verification, and holiday readiness work.
 date: '2022-07-25T07:19:45.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T15:38:04.000Z'
 url: /salesforce-b2c-commerce-cloud-22-8/
 draft: false
 heroImage: 85e37556-72f2-49a5-b436-a5616e9776a7-3984eb1bb9.jpeg
@@ -29,7 +29,7 @@ Are you interested in last month’s release notes? [Read the 22.7 release notes
 A few changes are happening in "terms" used in Salesforce B2C Commerce Cloud:
 
 - **master product/variation master:** base product
-- **master catalogue/master product catalogue:** product catalogue
+- **master catalog/master product catalog:** product catalog
 - **master and child items:** main items and secondary items
 - **master document:** main document
 

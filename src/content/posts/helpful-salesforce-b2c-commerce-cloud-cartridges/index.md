@@ -4,7 +4,7 @@ description: >-
   There are quite a bit of third-party cartridges available for Salesforce B2C
   Commerce Cloud. Let us look in detail at a few of these!
 date: '2022-09-20T06:29:08.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T15:38:04.000Z'
 url: /helpful-salesforce-b2c-commerce-cloud-cartridges/
 draft: false
 heroImage: modules-008e311b6f.jpg
@@ -52,7 +52,7 @@ So for anyone new to the cartridge, it is no longer plug-and-play. You will need
 
 - **Demandware library:** Besides being "old," it is also dependent on a secondary cartridge called "Demandware library." This cartridge was "abandoned" more than five years ago.
 
-- **Heavy Job:** The cartridge uses a job to generate all configured feeds. Remember that the more data you have, the longer the job will run. **With an extensive catalogue, it could run for hours!**
+- **Heavy Job:** The cartridge uses a job to generate all configured feeds. Remember that the more data you have, the longer the job will run. **With an extensive catalog, it could run for hours!**
 
 ## plugin\_slas
 

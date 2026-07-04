@@ -4,7 +4,7 @@ description: >-
   Are you wondering what entities make up a basket or order in SFCC and how they
   are connected? Then look no more! Here is a small ERD.
 date: '2023-03-06T06:41:17.000Z'
-lastmod: '2026-07-04T14:48:28.000Z'
+lastmod: '2026-07-04T15:38:04.000Z'
 url: /sfcc-basket-order-erd/
 draft: false
 heroImage: digital-shopping-carts-in-a-forest-a68ea4285a.jpg
@@ -52,7 +52,7 @@ I have tried to include as many functions as possible within this diagram, but w
 
 For this reason, I have decided only to include the most "important" ones (but not to worry, 90% of what exists is in this diagram).
 
-### What's that with the product, catalogue, and price book
+### What's that with the product, catalog, and price book
 
 To keep the complexity of this diagram down, I decided to forward you to the other ERD diagrams that I have made explicitly handling these entities.
 

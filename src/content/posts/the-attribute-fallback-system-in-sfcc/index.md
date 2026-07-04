@@ -4,7 +4,7 @@ description: >-
   One of the features of B2C Commerce Cloud is the ability to create and use
   variation products, which share common attributes but differ in one or more
 date: '2024-02-12T07:54:09.000Z'
-lastmod: '2026-07-04T14:48:28.000Z'
+lastmod: '2026-07-04T15:38:04.000Z'
 url: /the-attribute-fallback-system-in-sfcc/
 draft: false
 heroImage: a-pyramid-of-shoes-ecf8500927.jpg
@@ -18,7 +18,7 @@ tags:
 author: Thomas Theunen
 takeaways:
   - "Explains how attribute fallback works across base products, variation groups, and variants in SFCC"
-  - "Highlights the operational benefits of reduced duplication for catalogue maintenance, imports, and development"
+  - "Highlights the operational benefits of reduced duplication for catalog maintenance, imports, and development"
   - "Clarifies the important exception that pricing behaves differently from other fallback-supported attributes"
 ---
 One of the features of B2C Commerce Cloud is the ability to create and use [variation](/slicing-versus-variation-groups-in-sfcc/) products, which share common attributes but differ in one or more aspects, such as colour, size, or style. Variation products can help merchants offer more choices to their customers and optimise their inventory management.
@@ -59,7 +59,7 @@ Luckily for the developers this system works seamlessly for developers and fetch
 - `dw.catalog.Variant` class has attribute fallback behaviour to first obtain attributes from (one or more) assigned variation groups and then from the base product.
 - `dw.catalog.VariationGroup` class has attribute fallback behaviour to obtain attributes from the base product, when the attribute isn't specified by the variation group.
 
-{{< img-caption src="variation-model-fallback-in-code-docs-1-ba4d97c55f.jpg" alt="Salesforce B2C Commerce API documentation highlighting variation model fallback behaviour." caption="The dw.catalogue.VariationGroup API explicitly documents fallback to base product attributes when the variation group doesn't define them." link="<https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/index.html?target=class_dw_catalog_Product.html>" >}}
+{{< img-caption src="variation-model-fallback-in-code-docs-1-ba4d97c55f.jpg" alt="Salesforce B2C Commerce API documentation highlighting variation model fallback behaviour." caption="The dw.catalog.VariationGroup API explicitly documents fallback to base product attributes when the variation group doesn't define them." link="<https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/index.html?target=class_dw_catalog_Product.html>" >}}
 
 ## Advantages for data import
 

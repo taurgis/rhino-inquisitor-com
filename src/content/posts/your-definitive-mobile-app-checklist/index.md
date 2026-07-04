@@ -4,7 +4,7 @@ description: >-
   Use this mobile app launch checklist to review architecture, integrations, QA,
   and go-live readiness before an SFCC-backed app ships.
 date: '2025-12-15T10:39:06.000Z'
-lastmod: '2026-07-04T15:28:48.000Z'
+lastmod: '2026-07-04T15:38:04.000Z'
 url: /your-definitive-mobile-app-checklist/
 draft: false
 heroImage: headless-app-go-live-scaled-89b046ecca.jpeg
@@ -49,7 +49,7 @@ This separation of hostnames is not an arbitrary technical detail; it reflects t
 
 This separation allows for independent scaling, security policies, and evolution. You can completely redesign your mobile app (the "head") without ever touching the API endpoint, and vice versa. SLAS, as the gatekeeper for Shopper APIs, runs on this same infrastructure, which is why its admin UI and authentication endpoints share the same base URL structure. The flow is simple: your mobile app calls SLAS to get a JSON Web Token (JWT), and then it includes that JWT in the `Authorization` header for all subsequent SCAPI calls.
 
-So, where does your SFRA site's configuration fit in? While the vanity domain isn't the API endpoint, the underlying site configuration is still critical. Every SCAPI request includes a `siteId` query parameter. This `siteId` tells B2C Commerce which site's context to use for the request—which catalogue, which price books, which promotions to apply. That site is, in turn, configured in Business Manager and linked to your hostnames via the alias file. The hostname alias configuration remains essential for defining the _context_ of your API calls, even though it's not the _endpoint_ you call directly.
+So, where does your SFRA site's configuration fit in? While the vanity domain isn't the API endpoint, the underlying site configuration is still critical. Every SCAPI request includes a `siteId` query parameter. This `siteId` tells B2C Commerce which site's context to use for the request—which catalog, which price books, which promotions to apply. That site is, in turn, configured in Business Manager and linked to your hostnames via the alias file. The hostname alias configuration remains essential for defining the _context_ of your API calls, even though it's not the _endpoint_ you call directly.
 
 ## The Headless Go-Live Checklist: From Backend to App Store
 
@@ -116,7 +116,7 @@ Effective client-side [caching](/caching-rest-apis-in-sfcc/) is the single most 
 
 - **In-Memory Cache:** For frequently accessed, short-lived data (e.g., data for the currently visible screen), confirm that an in-memory cache is used. This data is volatile and lost when the app closes.
 
-- **"Disk-Based" Cache (Persistence):** For data that must persist between app sessions (e.g., product catalogue data, category structures, user preferences).
+- **"Disk-Based" Cache (Persistence):** For data that must persist between app sessions (e.g., product catalog data, category structures, user preferences).
 
 - **Cache Invalidation:** Confirm that a clear strategy for cache invalidation is in place. Is it based on a Time-to-Live (TTL)? Is it cleared on specific user actions like logout? Stale data is as bad as no data.
 

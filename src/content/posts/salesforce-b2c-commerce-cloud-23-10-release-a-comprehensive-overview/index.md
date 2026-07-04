@@ -4,7 +4,7 @@ description: >-
   It's a yearly tradition not to release major updates during the holiday season
   to maintain platform stability, so here we are with the final release of
 date: '2023-10-02T12:35:45.000Z'
-lastmod: '2026-07-04T15:28:48.000Z'
+lastmod: '2026-07-04T15:38:04.000Z'
 url: /salesforce-b2c-commerce-cloud-23-10-release-a-comprehensive-overview/
 draft: false
 heroImage: shopping-carts-on-a-tablet-fa1824b0b9.jpeg
@@ -42,13 +42,13 @@ But I hope this will be changed with standard APIs in the future, or once we hav
 
 ## Platform
 
-### Get Einstein Recommendations for Large Product Catalogues
+### Get Einstein Recommendations for Large Product Catalogs
 
 {{< img-caption src="einstein-standing-in-a-warehouse-1c76aa5ec5.jpg" alt="Einstein is standing in the middle of a warehouse lane, looking at the camera." >}}
 
-> Commerce Cloud Einstein now generates recommendations for product catalogues that exceed 3 million product SKUs. Einstein Product Recommendations enable you to create and manage recommenders and assign strategies that predict the most relevant products to promote to individual shoppers. **How**: If you have a product catalogue that exceeds 3 million product SKUs, Commerce Cloud Einstein compiles a reduced list of 3 million product SKUs by default–no action required. To compile the list, Einstein uses sorting and filtering logic based on pre-defined criteria. Einstein recommendations are generated from this list. If your catalogue exceeds 3 million product SKUs, and you want to ensure that products matching specific criteria appear in the reduced product list, contact Commerce Cloud Support.
+> Commerce Cloud Einstein now generates recommendations for product catalogs that exceed 3 million product SKUs. Einstein Product Recommendations enable you to create and manage recommenders and assign strategies that predict the most relevant products to promote to individual shoppers. **How**: If you have a product catalog that exceeds 3 million product SKUs, Commerce Cloud Einstein compiles a reduced list of 3 million product SKUs by default–no action required. To compile the list, Einstein uses sorting and filtering logic based on pre-defined criteria. Einstein recommendations are generated from this list. If your catalog exceeds 3 million product SKUs, and you want to ensure that products matching specific criteria appear in the reduced product list, contact Commerce Cloud Support.
 
-Having a large catalogue and providing the right recommendations can be challenging. This change supports an even larger catalogue, making it an excellent improvement.
+Having a large catalog and providing the right recommendations can be challenging. This change supports an even larger catalog, making it an excellent improvement.
 
 ### Renew eCDN Certificates in Business Manager
 
