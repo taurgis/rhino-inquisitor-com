@@ -4,7 +4,7 @@ description: >-
   Salesforce Platform Limits and Quotas are not new and exist for a reason. But
   why? And are there limits that are not documented?
 date: '2023-08-21T06:58:00.000Z'
-lastmod: '2026-07-04T10:39:24.000Z'
+lastmod: '2026-07-04T13:14:18.000Z'
 url: /salesforce-b2c-commerce-cloud-governance-and-quotas/
 draft: false
 heroImage: quota-limits-27eb2c93aa.jpg

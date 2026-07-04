@@ -4,7 +4,7 @@ description: >-
   One of the features of B2C Commerce Cloud is the ability to create and use
   variation products, which share common attributes but differ in one or more
 date: '2024-02-12T07:54:09.000Z'
-lastmod: '2024-02-12T07:54:18.000Z'
+lastmod: '2026-07-04T13:14:18.000Z'
 url: /the-attribute-fallback-system-in-sfcc/
 draft: false
 heroImage: a-pyramid-of-shoes-ecf8500927.jpg

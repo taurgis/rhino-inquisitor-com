@@ -4,7 +4,7 @@ description: >-
   Salesforce B2C Commerce is a robust platform that enables businesses to create
   highly customised and scalable digital storefronts.
 date: '2023-04-17T14:18:06.000Z'
-lastmod: '2026-07-04T10:39:24.000Z'
+lastmod: '2026-07-04T13:14:18.000Z'
 url: /understanding-sfcc-instances/
 draft: false
 heroImage: salesforce-b2c-commerce-cloud-instances-scaled-59ed2cbb06.jpeg

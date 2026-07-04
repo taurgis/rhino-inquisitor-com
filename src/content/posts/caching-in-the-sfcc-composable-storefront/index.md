@@ -4,7 +4,7 @@ description: >-
   Learn how caching works in the Salesforce Composable Storefront, which layers
   matter most, and where it improves real-world speed.
 date: '2024-10-14T09:42:12.000Z'
-lastmod: '2024-10-14T12:49:23.000Z'
+lastmod: '2026-07-04T13:14:18.000Z'
 url: /caching-in-the-sfcc-composable-storefront/
 draft: false
 heroImage: multi-layered-caching-b85c120088.jpg

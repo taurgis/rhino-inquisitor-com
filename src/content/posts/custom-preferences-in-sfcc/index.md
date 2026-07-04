@@ -4,7 +4,7 @@ description: >-
   Learn how SFCC custom preferences support configurable storefront behavior,
   governance, and safer environment-specific settings.
 date: '2023-10-16T12:01:58.000Z'
-lastmod: '2023-10-16T18:11:19.000Z'
+lastmod: '2026-07-04T13:14:18.000Z'
 url: /custom-preferences-in-sfcc/
 draft: false
 heroImage: it-configuring-server-scaled-d8087e9ab9.jpeg

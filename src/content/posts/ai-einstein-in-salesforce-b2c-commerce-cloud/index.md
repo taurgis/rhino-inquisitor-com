@@ -4,7 +4,7 @@ description: >-
   Salesforce B2C Commerce Cloud has an AI that can power different areas of the
   site. But what is it, why use it, and what can it do for me?
 date: '2022-09-26T13:42:24.000Z'
-lastmod: '2026-07-04T10:39:24.000Z'
+lastmod: '2026-07-04T13:14:18.000Z'
 url: /ai-einstein-in-salesforce-b2c-commerce-cloud/
 draft: false
 heroImage: artificial-intelligence-fc68314ce7.jpg

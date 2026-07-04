@@ -4,7 +4,7 @@ description: >-
   A new year means release notes for the back end have started again! This time,
   we look at the January 2024 (24.1) release!
 date: '2024-01-08T09:10:13.000Z'
-lastmod: '2026-07-04T10:39:24.000Z'
+lastmod: '2026-07-04T13:14:18.000Z'
 url: /sfcc-24-1-release-a-new-year-update/
 draft: false
 heroImage: shopping-carts-to-the-shredder-735353fe04.jpg

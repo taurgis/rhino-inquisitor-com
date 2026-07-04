@@ -4,7 +4,7 @@ description: >-
   For a long time shirtforce only had core platform-related t-shirt options,
   until now! To help a charity I decided to make some designs!
 date: '2023-06-05T06:43:00.000Z'
-lastmod: '2023-06-06T08:54:49.000Z'
+lastmod: '2026-07-04T13:14:18.000Z'
 url: /commerce-cloud-t-shirts-on-shirtforce/
 draft: false
 heroImage: shirtforce-bugs-f0a63ab31a.jpg

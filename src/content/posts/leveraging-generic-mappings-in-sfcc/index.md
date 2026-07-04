@@ -4,7 +4,7 @@ description: >-
   See how generic mappings can simplify SFCC data integrations, reduce custom
   transformation code, and improve maintainability.
 date: '2023-11-27T09:29:26.000Z'
-lastmod: '2023-11-27T09:29:35.000Z'
+lastmod: '2026-07-04T13:14:18.000Z'
 url: /leveraging-generic-mappings-in-sfcc/
 draft: false
 heroImage: a-robot-connecting-data-files-3fa4ea9dce.jpg

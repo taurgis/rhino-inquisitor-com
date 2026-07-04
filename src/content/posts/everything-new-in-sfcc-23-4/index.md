@@ -4,7 +4,7 @@ description: >-
   Catch up on the Salesforce B2C Commerce Cloud 23.4 release and the platform
   changes that matter most for developers this month.
 date: '2023-03-15T19:32:56.000Z'
-lastmod: '2023-03-15T19:51:03.000Z'
+lastmod: '2026-07-04T13:14:18.000Z'
 url: /everything-new-in-sfcc-23-4/
 draft: false
 heroImage: >-

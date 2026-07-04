@@ -4,7 +4,7 @@ description: >-
   It's a yearly tradition not to release major updates during the holiday season
   to maintain platform stability, so here we are with the final release of
 date: '2023-10-02T12:35:45.000Z'
-lastmod: '2023-10-02T12:35:58.000Z'
+lastmod: '2026-07-04T13:14:18.000Z'
 url: /salesforce-b2c-commerce-cloud-23-10-release-a-comprehensive-overview/
 draft: false
 heroImage: shopping-carts-on-a-tablet-fa1824b0b9.jpeg

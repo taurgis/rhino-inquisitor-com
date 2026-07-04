@@ -4,7 +4,7 @@ description: >-
   The Ohana culture within Salesforce is pretty well known, but how does this
   culture fare within the Salesforce Commerce Cloud community?
 date: '2022-02-27T14:02:53.000Z'
-lastmod: '2022-07-23T22:08:05.000Z'
+lastmod: '2026-07-04T13:14:18.000Z'
 url: /the-state-of-ohana-for-salesforce-commerce-cloud/
 draft: false
 heroImage: connections-chicago-2019-b246c60ad0.jpg

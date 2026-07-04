@@ -4,7 +4,7 @@ description: >-
   In today's digitally connected world, personalization and localization play a
   crucial role in delivering a tailored shopping experience.
 date: '2024-01-29T09:06:32.000Z'
-lastmod: '2024-01-31T08:11:45.000Z'
+lastmod: '2026-07-04T13:14:18.000Z'
 url: /understanding-locale-fallback-in-sfcc/
 draft: false
 heroImage: different-languages-and-countries-of-the-world-0ec542fc07.jpg

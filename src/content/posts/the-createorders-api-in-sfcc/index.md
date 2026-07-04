@@ -4,7 +4,7 @@ description: >-
   Learn how to use the createOrders API in SFCC to create external orders
   safely and fit it into existing order workflows.
 date: '2023-10-09T09:54:18.000Z'
-lastmod: '2023-11-18T07:43:19.000Z'
+lastmod: '2026-07-04T13:14:18.000Z'
 url: /the-createorders-api-in-sfcc/
 draft: false
 heroImage: delivery-on-a-phone-f8a4f5aeb3.jpg

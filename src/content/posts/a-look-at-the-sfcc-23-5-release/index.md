@@ -4,7 +4,7 @@ description: >-
   23.5 release overview covering eCDN certificate renewal, search updates,
   order-management controls, and new SCAPI basket capabilities.
 date: '2023-04-20T05:52:49.000Z'
-lastmod: '2026-07-04T10:39:24.000Z'
+lastmod: '2026-07-04T13:14:18.000Z'
 url: /a-look-at-the-sfcc-23-5-release/
 draft: false
 heroImage: >-

@@ -4,7 +4,7 @@ description: >-
   Guide to SFCC Dynamic Image Service, how its transformations and caching work,
   and when external image tooling is still the better fit.
 date: '2025-07-14T06:44:24.000Z'
-lastmod: '2025-07-16T14:27:13.000Z'
+lastmod: '2026-07-04T13:14:18.000Z'
 url: /image-ine-sfcc-dis-for-developers/
 draft: false
 heroImage: salesforce-b2c-commerce-cloud-dis-scaled-e55eb2de2c.jpeg

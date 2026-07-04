@@ -4,7 +4,7 @@ description: >-
   Review the Salesforce B2C Commerce Cloud 22.8 release, including quota
   changes, SCAPI hook updates, eCDN verification, and holiday readiness work.
 date: '2022-07-25T07:19:45.000Z'
-lastmod: '2026-07-04T10:39:24.000Z'
+lastmod: '2026-07-04T13:14:18.000Z'
 url: /salesforce-b2c-commerce-cloud-22-8/
 draft: false
 heroImage: 85e37556-72f2-49a5-b436-a5616e9776a7-3984eb1bb9.jpeg

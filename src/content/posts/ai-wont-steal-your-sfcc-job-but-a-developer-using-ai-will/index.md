@@ -4,7 +4,7 @@ description: >-
   A practical look at how AI changes Salesforce Commerce Cloud work, where it
   improves delivery, and why developer judgment still matters most.
 date: '2025-06-30T17:46:53.000Z'
-lastmod: '2025-07-02T21:37:51.000Z'
+lastmod: '2026-07-04T13:14:18.000Z'
 url: /ai-wont-steal-your-sfcc-job-but-a-developer-using-ai-will/
 draft: false
 heroImage: rhino-with-ai-agents-scaled-9d1423b5ab.jpeg

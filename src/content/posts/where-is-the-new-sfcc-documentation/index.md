@@ -4,7 +4,7 @@ description: >-
   Understand where the new SFCC documentation lives, what changed from
   Infocenter, and how to navigate the updated resources.
 date: '2023-07-03T06:32:44.000Z'
-lastmod: '2023-11-29T06:47:22.000Z'
+lastmod: '2026-07-04T13:14:18.000Z'
 url: /where-is-the-new-sfcc-documentation/
 draft: false
 heroImage: documentation-on-the-move-scaled-59762baa75.jpg

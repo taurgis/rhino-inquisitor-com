@@ -4,7 +4,7 @@ description: >-
   Learn how to run Node 18 with SFRA, which compatibility checks matter, and
   where to watch for tooling or build issues during the upgrade.
 date: '2023-07-10T08:09:37.000Z'
-lastmod: '2023-07-10T08:13:58.000Z'
+lastmod: '2026-07-04T13:14:18.000Z'
 url: /how-to-use-node-18-with-sfra/
 draft: false
 heroImage: upgrading-f08d3d8bdc.jpg

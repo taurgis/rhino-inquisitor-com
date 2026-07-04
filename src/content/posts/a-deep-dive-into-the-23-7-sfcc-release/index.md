@@ -4,7 +4,7 @@ description: >-
   Review the key changes in Salesforce B2C Commerce Cloud 23.7, from platform
   updates to headless improvements worth testing this month.
 date: '2023-06-28T07:47:03.000Z'
-lastmod: '2026-07-04T10:39:24.000Z'
+lastmod: '2026-07-04T13:14:18.000Z'
 url: /a-deep-dive-into-the-23-7-sfcc-release/
 draft: false
 heroImage: person-looking-at-clothing-scaled-e57317ea0f.jpg

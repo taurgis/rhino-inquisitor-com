@@ -4,7 +4,7 @@ description: >-
   Learn why origin shielding matters in Commerce Cloud, how it protects origin
   infrastructure, and when to include it in your traffic strategy.
 date: '2024-11-04T08:40:19.000Z'
-lastmod: '2024-11-04T08:41:59.000Z'
+lastmod: '2026-07-04T13:14:18.000Z'
 url: /the-importance-of-origin-shielding/
 draft: false
 heroImage: protecting-your-server-26dacc7cc4.jpg

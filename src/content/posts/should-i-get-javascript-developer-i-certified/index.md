@@ -4,7 +4,7 @@ description: >-
   JavaScript is part of the day-to-day business in Salesforce B2C Commerce
   Cloud. But should you try to get the certification?
 date: '2023-08-07T12:51:32.000Z'
-lastmod: '2023-08-07T12:53:11.000Z'
+lastmod: '2026-07-04T13:14:18.000Z'
 url: /should-i-get-javascript-developer-i-certified/
 draft: false
 heroImage: javascript-b29bda21e4.jpg

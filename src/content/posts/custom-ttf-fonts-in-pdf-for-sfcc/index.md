@@ -4,7 +4,7 @@ description: >-
   Learn how to use custom TTF fonts in Salesforce B2C Commerce Cloud PDF
   generation so branded documents render correctly in production.
 date: '2023-06-12T08:12:49.000Z'
-lastmod: '2023-06-12T08:13:03.000Z'
+lastmod: '2026-07-04T13:14:18.000Z'
 url: /custom-ttf-fonts-in-pdf-for-sfcc/
 draft: false
 heroImage: fonts-c94beaf8e0.jpg

@@ -4,7 +4,7 @@ description: >-
   Learn how sitemaps work in Salesforce B2C Commerce Cloud, how to configure
   them correctly, and what developers should monitor for SEO.
 date: '2025-06-16T07:30:19.000Z'
-lastmod: '2025-06-24T18:22:38.000Z'
+lastmod: '2026-07-04T13:14:18.000Z'
 url: /mastering-sitemaps-in-sfcc/
 draft: false
 heroImage: sitemaps-in-sfcc-53a1b08bb8.jpg

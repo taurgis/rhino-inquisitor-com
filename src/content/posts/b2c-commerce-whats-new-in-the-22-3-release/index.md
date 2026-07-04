@@ -4,7 +4,7 @@ description: >-
   Get some insights in the latest updates to Salesforce B2C Commerce. We have a
   look at the release notes and provide some background.
 date: '2022-03-08T07:42:23.000Z'
-lastmod: '2026-07-04T10:39:24.000Z'
+lastmod: '2026-07-04T13:14:18.000Z'
 url: /b2c-commerce-whats-new-in-the-22-3-release/
 draft: false
 heroImage: lightning-man-e1646654739934-c9812efc2b.jpg

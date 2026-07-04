@@ -4,7 +4,7 @@ description: >-
   Ready for TrailblazerDX, but not sure what sessions to put on your schedule?
   Find an overview here of all sessions related to B2C Commerce!
 date: '2022-04-21T06:49:37.000Z'
-lastmod: '2022-07-23T22:03:54.000Z'
+lastmod: '2026-07-04T13:14:18.000Z'
 url: /trailblazerdx-2022-for-b2c-commerce/
 draft: false
 heroImage: weezer-66533fada7.png

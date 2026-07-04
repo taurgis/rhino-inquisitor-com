@@ -4,7 +4,7 @@ description: >-
   If anything positive came out of the whole COVID-19, then it is the move of
   working on-site to remote. I'm here to share my experience!
 date: '2022-12-12T08:15:25.000Z'
-lastmod: '2023-01-15T08:46:26.000Z'
+lastmod: '2026-07-04T13:14:18.000Z'
 url: /the-move-from-on-site-to-remote/
 draft: false
 heroImage: remote-work-5d0888fb2c.png

@@ -4,7 +4,7 @@ description: >-
   There are quite a bit of third-party cartridges available for Salesforce B2C
   Commerce Cloud. Let us look in detail at a few of these!
 date: '2022-09-20T06:29:08.000Z'
-lastmod: '2026-07-04T10:39:24.000Z'
+lastmod: '2026-07-04T13:14:18.000Z'
 url: /helpful-salesforce-b2c-commerce-cloud-cartridges/
 draft: false
 heroImage: modules-008e311b6f.jpg

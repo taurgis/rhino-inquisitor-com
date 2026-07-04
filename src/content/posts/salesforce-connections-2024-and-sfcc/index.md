@@ -4,7 +4,7 @@ description: >-
   Preview of Salesforce Connections 2024 for SFCC teams, with the most relevant
   commerce sessions, roadmap talks, and meetup picks.
 date: '2024-05-16T09:28:06.000Z'
-lastmod: '2024-05-16T09:28:17.000Z'
+lastmod: '2026-07-04T13:14:18.000Z'
 url: /salesforce-connections-2024-and-sfcc/
 draft: false
 heroImage: salesforce-in-chicago-e1715782032168-b85c6a08d6.jpg
