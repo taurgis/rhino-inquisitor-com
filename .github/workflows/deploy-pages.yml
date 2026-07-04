@@ -302,6 +302,33 @@ jobs:
           });
           EOF
 
+      - name: Regenerate critical CSS from built site
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          # The critical-*.css files are generated (penthouse extraction from
+          # the built site.css) but live in the repo, so a stale or hand-edited
+          # commit would otherwise be inlined verbatim into every page. Build
+          # once to produce public/, regenerate the critical files from it,
+          # and let the gate build below rebuild with the regenerated files —
+          # the deployed HTML always inlines critical CSS derived from the
+          # exact site.css being shipped.
+          npm run build:prod
+          npm run generate:critical-css
+
+          if git diff --quiet -- 'src/assets/styles/critical-*.css'; then
+            echo "Committed critical CSS is in sync with the regenerated files." >> "$GITHUB_STEP_SUMMARY"
+          else
+            {
+              echo "> [!WARNING]"
+              echo "> Committed critical CSS was stale. This deploy uses the regenerated version, but the repo still carries the stale files."
+              echo "> Run \`npm run build:prod && npm run generate:critical-css\` locally and commit the updated \`src/assets/styles/critical-*.css\` (also available in this run's build-outputs artifact)."
+              echo ">"
+              git diff --stat -- 'src/assets/styles/critical-*.css' | sed 's/^/> /'
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
+
       - name: Run blocking deployment quality gates (build)
         env:
           CI_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
@@ -315,6 +342,7 @@ jobs:
           path: |
             public/
             tmp/
+            src/assets/styles/critical-*.css
           retention-days: 1
           if-no-files-found: error
 

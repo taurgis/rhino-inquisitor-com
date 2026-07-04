@@ -334,6 +334,49 @@ Related files: `.github/workflows/deploy-pages.yml`,
 `src/assets/styles/critical-archive.css`,
 `scripts/gates/check-performance-budget.js` (report shape, unchanged).
 
+## Update: deploys always regenerate critical CSS in-pipeline
+
+### Change summary
+
+The committed `src/assets/styles/critical-*.css` files are generated
+artifacts, but the deploy pipeline inlined them verbatim — so a stale or
+hand-edited commit shipped drifted first-paint CSS (the exact failure mode of
+the b4500f3 incident above), and nothing guarded against it after the PR-time
+sync check was deleted with `build-pr.yml`. `build_site` now regenerates the
+critical CSS from the built site before the gate build, so the deployed HTML
+always inlines critical CSS derived from the exact `site.css` being shipped.
+
+### Old vs new behavior
+
+| Aspect | Old | New |
+|--------|-----|-----|
+| Critical CSS at deploy | Committed files inlined verbatim, drift and all | Regenerated in-pipeline from the built site; gate build rebuilds with the regenerated files |
+| Drift handling | Undetected (perf gate caught it only indirectly and flakily) | Deploy self-heals; a step-summary warning reports the drift with a `git diff --stat` and commit instructions |
+| Builds per deploy | One (`build:prod` inside the `build` gate group) | Two — a priming `build:prod` so `public/` exists for penthouse, then the gate-group rebuild with regenerated CSS. All downstream gates and the Pages artifact see the final output |
+| Regenerated files | n/a | Included in the `build-outputs-<sha>` artifact so they can be committed back without a local build |
+
+The committed files are still the source for local builds — when the warning
+fires, run `npm run build:prod && npm run generate:critical-css` locally (or
+pull the files from the run's `build-outputs` artifact) and commit them; the
+workflow has `contents: read` and intentionally does not push fixes back.
+
+### Impact and verification
+
+- Impacted workflow: `.github/workflows/deploy-pages.yml` (`build_site`:
+  new "Regenerate critical CSS from built site" step before the build gate
+  group; `build-outputs` artifact now also carries
+  `src/assets/styles/critical-*.css`).
+- The step runs on every deploy (content-only and full scope alike), so a
+  content publish cannot ship previously committed drift either.
+- Verify: on the next deploy run, `build_site` shows the regenerate step; the
+  step summary reads either "in sync" or the stale-CSS warning. Force-verify
+  by pushing a deliberate whitespace edit to a `critical-*.css` file — the
+  warning must fire and the deployed page's inline `<style>` must not contain
+  the edit.
+- Related files: `.github/workflows/deploy-pages.yml`,
+  `scripts/generate-critical-css.js` (unchanged, now invoked in CI),
+  `scripts/gates/run-all-gates.sh` (build group rebuild, unchanged).
+
 ## Related files
 
 - `.github/workflows/deploy-pages.yml`
