@@ -26,9 +26,9 @@ takeaways:
 > [!WARNING]
 > **Deprecated:** Since writing this article, Salesforce has provided a new and better method for creating custom endpoints. You can find more information about it at [https://developer.salesforce.com/docs/commerce/commerce-api/guide/custom-apis.html](https://developer.salesforce.com/docs/commerce/commerce-api/guide/custom-apis.html).
 
-The OCAPI ([Open Commerce API](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/opencommerceapi.html)) has been around for many years, giving the platform a sound basis for "headless" applications to connect to different parts of Salesforce B2C Commerce Cloud.
+The OCAPI ([Open Commerce API](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/get-started-with-ocapi.html)) has been around for many years, giving the platform a sound basis for "headless" applications to connect to different parts of Salesforce B2C Commerce Cloud.
 
-Although the APIs need to remain close to the standard, some endpoints have been given some freedom to be customized via a system called "[hooks](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/hooks.html)."
+Although the APIs need to remain close to the standard, some endpoints have been given some freedom to be customized via a system called "[hooks](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/customization.html)."
 
 But how about adding completely custom endpoints?
 
@@ -38,7 +38,7 @@ Warning! The example I have used (getCustomer) is an example of something you sh
 
 The OCAPI provides a set of predefined endpoints you can not stray from. There is no out-of-the-box feature that allows you to create your endpoint on top of the existing set of REST APIs.
 
-The only thing you are allowed to do is modify existing endpoints, but not all of them. A list of which customizations you are allowed to do is available on the [Salesforce Commerce Cloud Infocenter](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/hooks.html).
+The only thing you are allowed to do is modify existing endpoints, but not all of them. A list of which customizations you are allowed to do is available on the [Salesforce Commerce Cloud Infocenter](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/customization.html).
 
 ## TLDR; Just give me the solution
 

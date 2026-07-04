@@ -87,7 +87,7 @@ With this update, the following changes have happened:
 
 This change will make it a lot easier to acquire **delta** information!
 
-The following [DATA APIs](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/dataapiresources.html) have been extended:
+The following [DATA APIs](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/get-started-with-ocapi.html) have been extended:
 
 - Order Search
 - Product Search

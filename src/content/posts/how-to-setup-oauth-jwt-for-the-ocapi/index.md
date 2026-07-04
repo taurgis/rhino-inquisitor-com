@@ -24,7 +24,7 @@ takeaways:
 ---
 _IMPORTANT_: This article is about server-to-server communication
 
-When working with the OCAPI ([Open Commerce API](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/opencommerceapi.html)), you need to do some sort of authentication to prove who you are and to verify what actions you are allowed to take.
+When working with the OCAPI ([Open Commerce API](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/get-started-with-ocapi.html)), you need to do some sort of authentication to prove who you are and to verify what actions you are allowed to take.
 
 Salesforce B2C Commerce Cloud provides multiple methods for server-to-server authentication scenarios depending on the use case:
 

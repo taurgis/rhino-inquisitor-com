@@ -22,7 +22,7 @@ takeaways:
     - "Shows how page cache and OCAPI settings control cache duration and personalization"
     - "Clarifies why SCAPI cache control is more limited and where custom caches help instead"
 ---
-The [OCAPI](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/opencommerceapi.html) has been around for a long time (2016) and allows you to cache responses to increase performance. **By default, GET responses that support caching are cached for 60 seconds**, but can this be improved?
+The [OCAPI](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/get-started-with-ocapi.html) has been around for a long time (2016) and allows you to cache responses to increase performance. **By default, GET responses that support caching are cached for 60 seconds**, but can this be improved?
 
 ## What can be cached in the OCAPI
 
@@ -51,7 +51,7 @@ This is quite an extensive list and contains all the objects we would expect to 
 
 ## Page Cache
 
-An important thing to remember before starting to tinker with the [Shop API](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/shopapiresources.html) (part of the OCAPI) caching is to enable the "[Page Cache](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-content-cache.html)" for the site you will be working with. If the Page Cache is disabled, you will see this header value on every response:
+An important thing to remember before starting to tinker with the [Shop API](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/get-started-with-ocapi.html) (part of the OCAPI) caching is to enable the "[Page Cache](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-content-cache.html)" for the site you will be working with. If the Page Cache is disabled, you will see this header value on every response:
 
 ```text
 cache-control: no-cache, no-store, must-revalidate

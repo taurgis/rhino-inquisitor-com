@@ -113,7 +113,7 @@ The [PWA Kit](https://pwa-kit.mobify-storefront.com/) is the most recent additio
 
 ### Headless solution
 
-Unlike SiteGenesis and SFRA, the PWA Kit runs on a separate server. It connects with the [SCAPI](https://developer.salesforce.com/docs/commerce/commerce-api/guide) and [OCAPI](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/opencommerceapi.html) (REST APIs) of the Salesforce B2C Commerce Cloud environments.
+Unlike SiteGenesis and SFRA, the PWA Kit runs on a separate server. It connects with the [SCAPI](https://developer.salesforce.com/docs/commerce/commerce-api/guide) and [OCAPI](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/get-started-with-ocapi.html) (REST APIs) of the Salesforce B2C Commerce Cloud environments.
 
 It is an entirely different type of architecture than the "[monolithic](https://en.wikipedia.org/wiki/Monolithic_application#:~:text=In%20software%20engineering%2C%20a%20monolithic,independent%20from%20other%20computing%20applications.)" approach we are used to within SFCC.
 
