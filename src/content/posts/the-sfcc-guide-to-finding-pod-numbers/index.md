@@ -4,7 +4,7 @@ description: >-
   Learn how to find your SFCC POD number, why it matters for troubleshooting,
   and where to verify it across tools and environments.
 date: '2025-07-21T05:05:51.000Z'
-lastmod: '2026-07-04T15:28:48.000Z'
+lastmod: '2026-07-04T15:49:16.000Z'
 url: /the-sfcc-guide-to-finding-pod-numbers/
 draft: false
 heroImage: sfcc-finding-your-pod-number-scaled-6830449d2b.jpeg
@@ -99,19 +99,19 @@ Keep this information handy. It's essential for identifying your environment whe
 
 This approach is primarily intended for individuals who need to work with Salesforce Support.
 
-### Method 3: The Legacy Log Centre URL (A History Lesson)
+### Method 3: The Legacy Log Center URL (A History Lesson)
 
 This method is now largely historical ([migrated in 2023](https://help.salesforce.com/s/articleView?id=000394842&language=en_US&type=1)), but it remains important for context, especially if you work on older projects or encounter references to it in internal documentation.
 
-Before the 2023 migration to a centralised logging platform, each POD had a dedicated Log Centre application. The URL format explicitly included the POD number:
+Before the 2023 migration to a centralised logging platform, each POD had a dedicated Log Center application. The URL format explicitly included the POD number:
 
 `https://logcenter-<POD-No.><Cylinder>-hippo.demandware.net/logcenter`
 
 The `<Cylinder>` value was also significant: `00` for a SIG (your sandboxes) and `01` for a PIG (Dev, Staging, Prod).
 
-The platform's evolution toward a more abstracted, public cloud infrastructure is evident in this instance. The old Log Centre URL was tied directly to a specific hardware group (`hippo.demandware.net`), reflecting a more rigid infrastructure.
+The platform's evolution toward a more abstracted, public cloud infrastructure is evident in this instance. The old Log Center URL was tied directly to a specific hardware group (`hippo.demandware.net`), reflecting a more rigid infrastructure.
 
-The new, centralised Log Centre decouples logging from the specific POD where an instance runs, using regional endpoints instead (e.g., AMER, EU, APAC). This shift is a classic pattern in modern cloud services, favouring centralised, scalable functions over hardware-specific endpoints.
+The new, centralised Log Center decouples logging from the specific POD where an instance runs, using regional endpoints instead (e.g., AMER, EU, APAC). This shift is a classic pattern in modern cloud services, favouring centralised, scalable functions over hardware-specific endpoints.
 
 Although this legacy URL is no longer a reliable method for active discovery, understanding its history offers insight into the platform's architectural evolution.
 

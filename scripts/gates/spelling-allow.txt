@@ -1,6 +1,8 @@
 # Spelling gate project dictionary / allowlist
 #
-# One lowercased word per line. Any token listed here is treated as correctly
+# One lowercased word per line, or a multi-word phrase for a proper noun (e.g.
+# "log center"), which is accepted only as that whole phrase and not word by
+# word. Any entry listed here is treated as correctly
 # spelled by scripts/gates/check-spelling.js, in addition to the British English
 # dictionary (en-GB is the single house style). Use it for the site's valid
 # vocabulary that the dictionary does not know: SFCC/technical jargon, product
@@ -333,6 +335,7 @@ localisable
 localisations
 lockdown
 lockdowns
+log center
 lodash
 logpush
 lohfink

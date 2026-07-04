@@ -4,7 +4,7 @@ description: >-
   Hooks are becoming more and more prominent because of the PWA Kit and the API
   first methodology. But how do you implement them?
 date: '2022-10-31T13:03:53.000Z'
-lastmod: '2026-07-04T15:38:04.000Z'
+lastmod: '2026-07-04T15:49:16.000Z'
 url: /how-to-use-ocapi-scapi-hooks/
 draft: false
 heroImage: 26df11a8-62ec-44cd-bf3b-6ff9ab46bee8-5598d60cbd.jpg
@@ -369,7 +369,7 @@ A hook that works perfectly on a sunny day is easy to write. A truly robust hook
 
 Any unhandled exception thrown from within your hook script will cause the entire database transaction to roll back, resulting in an HTTP 500 Internal Server Error being returned to the client. This is a jarring experience for the user and can mask the root cause of the problem.
 
-Therefore, every hook function you write should be wrapped in a comprehensive `try-catch` block. When an error is caught, you must log it with enough context to be useful for debugging. Use the standard B2C Commerce logging framework (`dw.system.Logger`) to write detailed messages to a custom log category in the Log Centre.
+Therefore, every hook function you write should be wrapped in a comprehensive `try-catch` block. When an error is caught, you must log it with enough context to be useful for debugging. Use the standard B2C Commerce logging framework (`dw.system.Logger`) to write detailed messages to a custom log category in the Log Center.
 
 Include identifiers such as the basket UUID or customer ID to facilitate easier troubleshooting.
 

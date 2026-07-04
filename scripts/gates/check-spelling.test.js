@@ -61,10 +61,14 @@ test('allowlist does not shadow (silently disable) any dictionary entry', async 
   }
 });
 
-test('project word list is clean: lowercase, single-token entries', async () => {
+test('project word list is clean: lowercase words or phrases', async () => {
   const allowlist = await loadAllowlist();
   for (const word of allowlist) {
-    assert.match(word, /^[a-z][a-z'’-]*$/u, `project word "${word}" should be a single lowercase token`);
+    assert.match(
+      word,
+      /^[a-z][a-z'’-]*(?: [a-z][a-z'’-]*)*$/u,
+      `project word "${word}" should be a lowercase word or space-separated phrase`
+    );
   }
 });
 
@@ -128,6 +132,15 @@ test('British generically, but accepts the Authorization/Organization identifier
     analyzeSource('Send the Authorization header with your Organization ID.', { speller, allowlist }),
     []
   );
+});
+
+test('allowlisted phrases pass without accepting their words elsewhere', () => {
+  const allowlist = new Set(['log center']);
+  // The proper-noun phrase is accepted...
+  assert.deepEqual(analyzeSource('Open the Log Center to view logs.', { speller, allowlist }), []);
+  // ...but generic American "center" is still flagged (British "centre" enforced).
+  const generic = analyzeSource('Visit the data center today.', { speller, allowlist });
+  assert.deepEqual(generic.map((f) => f.found), ['center']);
 });
 
 test('does not flag acronyms or code-style identifiers in prose', () => {

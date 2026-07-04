@@ -4,7 +4,7 @@ description: >-
   Are you interested in what is new in each Salesforce B2C Commerce Cloud
   release? Then this is the article for you! Let us look at 22.6
 date: '2022-05-16T13:52:22.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T15:49:16.000Z'
 url: /salesforce-b2c-commerce-the-22-6-release/
 draft: false
 heroImage: 22-6-release-einstein-dashboards-722f4cbace.png
@@ -16,7 +16,7 @@ tags:
   - technical
 author: Thomas Theunen
 takeaways:
-  - "Highlights the main 22.6 changes around Einstein dashboards, OCAPI access-key management, and Log Centre filtering"
+  - "Highlights the main 22.6 changes around Einstein dashboards, OCAPI access-key management, and Log Center filtering"
   - "Explains the smaller but useful Salesforce Payments and Business Manager updates that affect local payment support and operations"
   - "Calls out the related PWA Kit release and resolved platform issues that were worth testing in this cycle"
 ---
@@ -81,13 +81,13 @@ Use a site-specific descriptor to help shoppers identify the source of an accoun
 
 ## Development
 
-### Log Centre
+### Log Center
 
-{{< img-caption src="troubleshoot-storefront-errors-logcenter-66dfbbe9b6.png" alt="Log Centre filter for storefront implementation errors." caption="The new Log Centre filters make storefront implementation failures easier to isolate." link="troubleshoot-storefront-errors-logcenter-66dfbbe9b6.png" >}}
+{{< img-caption src="troubleshoot-storefront-errors-logcenter-66dfbbe9b6.png" alt="Log Center filter for storefront implementation errors." caption="The new Log Center filters make storefront implementation failures easier to isolate." link="troubleshoot-storefront-errors-logcenter-66dfbbe9b6.png" >}}
 
 Filter and find storefront implementation errors, such as broken includes, significant header errors, and large request errors with a new filter option below the "Service Type."
 
-**How:** To find storefront implementation errors with Log Centre, set the Service Type filter to "jwa" (see screenshot above).
+**How:** To find storefront implementation errors with Log Center, set the Service Type filter to "jwa" (see screenshot above).
 
 ### Bugfixes
 

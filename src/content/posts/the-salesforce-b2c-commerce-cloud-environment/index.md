@@ -4,7 +4,7 @@ description: >-
   Do you want to know more about the server architecture of Salesforce B2C
   Commerce Cloud? You have come to the right place!
 date: '2022-08-22T17:37:46.000Z'
-lastmod: '2026-07-04T14:48:28.000Z'
+lastmod: '2026-07-04T15:49:16.000Z'
 url: /the-salesforce-b2c-commerce-cloud-environment/
 draft: false
 heroImage: connected-systems-d281b9e674.jpg
@@ -63,11 +63,11 @@ But besides having some APIs that the OCAPI does not have, there are [some drawb
 
 MuleSoft Even though this is MuleSoft, you do not get access to it yourself. It is fully managed by Salesforce and has probably been put in place to allow for flexibility in the future.
 
-### Log Centre
+### Log Center
 
-Can't find your way in the logs on the WebDAV? Have no fear; Log Centre is here.
+Can't find your way in the logs on the WebDAV? Have no fear; Log Center is here.
 
-In the Log Centre, you can easily filter and search for specific log entries and even be notified when particular thresholds are met.
+In the Log Center, you can easily filter and search for specific log entries and even be notified when particular thresholds are met.
 
 ### Reports & Dashboards
 

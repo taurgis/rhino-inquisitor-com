@@ -341,13 +341,34 @@ function findInText(text, options) {
   ];
 }
 
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/gu, '\\$&');
+}
+
+/**
+ * Blank allowlisted multi-word phrases (proper nouns like "Log Center") so
+ * their component words are not individually flagged, without accepting those
+ * words elsewhere. Length-preserving, so byte offsets stay accurate.
+ */
+function maskPhrases(text, phrases) {
+  let masked = text;
+  for (const phrase of phrases) {
+    masked = masked.replace(new RegExp(`\\b${escapeRegExp(phrase)}\\b`, 'giu'), (match) =>
+      match.replace(/[^\n]/gu, ' ')
+    );
+  }
+  return masked;
+}
+
 /** Analyse a single document's raw source and return de-duplicated findings. */
 function analyzeSource(source, { speller, allowlist = new Set(), suggest = true } = {}) {
   const options = { speller, allowlist, suggest };
+  const phrases = [...allowlist].filter((entry) => entry.includes(' '));
+  const prepare = (text) => maskPhrases(maskNonProse(text), phrases);
   const { block, body, bodyLineOffset, data } = splitDocument(source);
   const collected = [];
 
-  for (const finding of findInText(maskNonProse(body), options)) {
+  for (const finding of findInText(prepare(body), options)) {
     collected.push({ ...finding, line: bodyLineOffset + offsetToLine(body, finding.offset) });
   }
 
@@ -359,7 +380,7 @@ function analyzeSource(source, { speller, allowlist = new Set(), suggest = true 
       if (typeof entry !== 'string') {
         continue;
       }
-      for (const finding of findInText(maskNonProse(entry), options)) {
+      for (const finding of findInText(prepare(entry), options)) {
         collected.push({ ...finding, line: keyLine, field });
       }
     }

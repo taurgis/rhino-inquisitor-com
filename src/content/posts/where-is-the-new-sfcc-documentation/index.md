@@ -4,7 +4,7 @@ description: >-
   Understand where the new SFCC documentation lives, what changed from
   Infocenter, and how to navigate the updated resources.
 date: '2023-07-03T06:32:44.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T15:49:16.000Z'
 url: /where-is-the-new-sfcc-documentation/
 draft: false
 heroImage: documentation-on-the-move-scaled-59762baa75.jpg
@@ -60,7 +60,7 @@ In this section you will find everything about how to:
 - Merchandise B2C Commerce Cloud
 - Data protection & privacy
 - Account Manager
-- Log Centre (although this one is technical)
+- Log Center (although this one is technical)
 - Control Centre
 - Storefront Toolkit
 - ....

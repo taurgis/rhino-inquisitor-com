@@ -4,7 +4,7 @@ description: >-
   Let's be honest: a slow e-commerce site is a silent killer of sales. In the
   world of B2C Commerce, every millisecond is money.
 date: '2025-06-23T17:00:05.000Z'
-lastmod: '2026-07-04T14:48:28.000Z'
+lastmod: '2026-07-04T15:49:16.000Z'
 url: /lag-to-riches-a-pwa-kit-developers-guide/
 draft: false
 heroImage: developer-manipulating-performance-scaled-3869da0b9c.jpeg
@@ -252,7 +252,7 @@ The PWA Kit has some built-in secret weapons for debugging.
 
 - **The \_\_ server\_timing Parameter:** Add ?\_\_ server\_timing=true to any URL in your dev environment. You'll get a Server-Timing header in the response that breaks down exactly how long each part of the SSR process took. It's perfect for figuring out if a slow response is because of a slow API or a heavy React component.
 - **The ?\_\_ server\_only Parameter:** Use this parameter to see the pure, server-rendered version of a page without any client-side JavaScript. It's great for seeing what search engines see and for spotting layout shifts between the server and client versions.
-- **Managed Runtime Log Centre:** In production, the Log Centre is your go-to for troubleshooting. You can search and filter logs from your app server to diagnose server-side errors and performance issues that only show up in the wild.
+- **Managed Runtime Log Center:** In production, the Log Center is your go-to for troubleshooting. You can search and filter logs from your app server to diagnose server-side errors and performance issues that only show up in the wild.
 
 ## Wrapping Up: Your Journey to a High-Performance Storefront
 

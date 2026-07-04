@@ -4,7 +4,7 @@ description: >-
   23.3 release overview covering trial sandboxes, log-volume changes, Shopper
   Context enablement, and the refreshed SLAS admin UI.
 date: '2023-02-15T14:19:00.000Z'
-lastmod: '2026-07-04T15:28:48.000Z'
+lastmod: '2026-07-04T15:49:16.000Z'
 url: /salesforce-b2c-commerce-cloud-23-3-release/
 draft: false
 heroImage: shopping-cart-in-sand-7c8677e7ff.jpg
@@ -34,9 +34,9 @@ Getting a sandbox environment for testing and development [has challenged potent
 
 ### Successful Jobs Are No Longer Logged
 
-> To increase the efficiency of log volume, successful job steps for custom and global jobs with dedicated log files are no longer logged in the global job log file, Splunk, or Log Centre. You can still review successful job steps in the dedicated log file.
+> To increase the efficiency of log volume, successful job steps for custom and global jobs with dedicated log files are no longer logged in the global job log file, Splunk, or Log Center. You can still review successful job steps in the dedicated log file.
 
-There is a [limit](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-log-files-overview.html) to how many logs can be written and sent to the Log Centre; in most cases, you aren't looking for success messages. Though successes should be celebrated 😊, there is no need for them to clog up the general logs and nibble at our quotas.
+There is a [limit](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-log-files-overview.html) to how many logs can be written and sent to the Log Center; in most cases, you aren't looking for success messages. Though successes should be celebrated 😊, there is no need for them to clog up the general logs and nibble at our quotas.
 
 ### Buy Now Items Get Their Own Cart
 
