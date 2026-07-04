@@ -4,7 +4,7 @@ description: >-
   Again, it is time for the monthly Salesforce B2C Commerce Cloud release! This
   time, we look at the May 2024 (24.5) release!
 date: '2024-05-03T11:25:41.000Z'
-lastmod: '2026-07-04T15:28:48.000Z'
+lastmod: '2026-07-04T16:08:55.000Z'
 url: /getting-secured-with-the-24-5-salesforce-b2c-commerce-cloud-release/
 draft: false
 heroImage: robots-behind-bars-e1714735507313-e727779a98.jpg
@@ -127,7 +127,7 @@ A bit of cleaning up is happening here! But if you use these roles in an "old" a
 > - Update useLocalStorage implementation to be more responsive #1703
 > - Storefront Preview: avoid stale cached Commerce API responses, whenever the Shopper Context is set #1701
 
-There is a new [release](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v3.5.0) of the PWA Kit, with the most significant addition being support for an SLAS private flow. This update should boost performance, as fewer API calls are needed to get the ball rolling!
+There is a new [release](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v3.5.0) of the PWA Kit, with the most significant addition being support for a SLAS private flow. This update should boost performance, as fewer API calls are needed to get the ball rolling!
 
 This also offers an excellent example of how to securely do these kinds of integrations without exposing credentials.
 

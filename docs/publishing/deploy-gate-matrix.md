@@ -530,6 +530,65 @@ to `scripts/gates/spelling-allow.txt`.
   `scripts/gates/check-spelling.test.js`, `scripts/gates/spelling-allow.txt`,
   `.githooks/pre-commit`, `package.json`.
 
+## Update: grammar checks in the spelling gate (error phrases + a/an agreement)
+
+### Change summary
+
+The gate checked spelling but almost no grammar: the only grammar-shaped check
+was the lowercase repeated-word detector. It now also catches two classes of
+error a dictionary can never see because every individual word is valid:
+
+1. **Error phrases** — a curated map of multi-word mistakes with exact
+   corrections: "should of" → "should have", "more then" → "more than",
+   "to setup" → "to set up" (and login/logout/backup/rollback/workaround),
+   plus common idiom slips ("sneak peak", "per say"). "to checkout" is
+   deliberately excluded ("proceed to checkout" is a valid noun reading), and
+   a capital past the first word ("to Setup" as a named page) is left alone.
+2. **Article agreement** — "a" vs "an" judged by the sound of the next word:
+   initialisms read letter by letter ("an SFCC instance", "an npm package",
+   "an HTTPError", but "a URL" and "a UUID"), acronyms the site pronounces as
+   words via a `WORD_ACRONYMS` set ("a REST API", "a SCAPI hook", "a LINK
+   cartridge", "a SLAS token"), numbers read out ("an 8-second delay", "a 404
+   page"), "you"-sound u-/eu- words ("a user", "a European", but "an
+   uninstalled cartridge"), and silent-h words ("an hour").
+
+The repeated-word check is now case-insensitive ("The the" is caught) while
+still skipping hyphenated compounds ("Apple Web Sign-In in SFRA" is fine).
+Running the new checks over all 197 content files surfaced 12 genuine errors
+(4 × "to setup" including one post title, 7 article disagreements such as
+"an Salesforce" / "a SFCC storefront" / "a enum" / "an useEffect", and a
+placeholder client ID quoted in prose instead of inline code); all are fixed
+in the same change and each edited article's `lastmod` was bumped.
+
+### Old vs new behavior
+
+| Aspect | Old | New |
+|--------|-----|-----|
+| Grammar coverage | Lowercase repeated function words only | + error phrases, + a/an agreement, repeated words now case-insensitive |
+| False-positive escape hatch | Word allowlist only | A multi-word allowlist phrase is masked before any check, so it also suppresses a phrase/article finding (e.g. add `an slas` to keep a letter-read "an SLAS") |
+| Front-matter finding lines | All findings pointed at the key line (third takeaway reported on `takeaways:`) | Each value reports its own line, falling back to the key line for wrapped/escaped YAML |
+| Allowlist maintenance | Seed-only (`--list-unknown`) | + `--unused-allowlist` lists entries no content needs any more (advisory, exits 0); current list audited: 0 of 677 entries unused, and the stale placeholder-ID entry was removed |
+| Gate summary line | "No spelling issues found" | Names the dictionary, project words, misspellings, error phrases, and grammar checks it ran |
+
+### Impact and verification
+
+- Impacted components: `scripts/gates/check-spelling.js` (new checks, CLI
+  mode, reporting), `scripts/gates/check-spelling.test.js`,
+  `scripts/gates/spelling-allow.txt` (one stale entry removed), and the 12
+  corrected articles under `src/content/`. No workflow or `package.json`
+  changes: the gate keeps its place in the `build` group and the pre-commit
+  hook runs it unchanged.
+- Verify: `npm run check:spelling` exits 0 across current content. Add
+  "should of", "a SFCC", or "The the" to any article and confirm the gate
+  exits 1 with the exact correction. `npm run test:spelling` (31 tests)
+  covers the phrase map's integrity, the article-sound table, capitalisation
+  in suggestions, the Q&A/masked-span/hyphen false-positive guards, and the
+  phrase-based suppression workflow.
+- Related files: `scripts/gates/check-spelling.js`,
+  `scripts/gates/check-spelling.test.js`, `scripts/gates/spelling-allow.txt`,
+  `docs/publishing/deploy-gate-matrix.md`, corrected articles under
+  `src/content/`.
+
 ## Related files
 
 - `.github/workflows/deploy-pages.yml`

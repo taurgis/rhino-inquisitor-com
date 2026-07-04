@@ -4,7 +4,7 @@ description: >-
   Besides the official repositories, many community contributions to Salesforce
   B2C Commerce Cloud exist! Here is the list!
 date: '2022-04-27T06:33:05.000Z'
-lastmod: '2026-07-04T15:38:04.000Z'
+lastmod: '2026-07-04T16:08:55.000Z'
 url: /community-repositories/
 draft: false
 categories:
@@ -99,7 +99,7 @@ The Catalog Reducer Extension is a Business Manager Extension that was created t
 
 ### Datalayer
 
-Concept to add data tracking into SFRA. This plugin provides an implementation blueprint on website data tracking (server side data and client events) and creates a sfra datalayer which could be used when connecting to other tracking providers like GTM and Tealium. **Author:** Andreas Seyfarth
+Concept to add data tracking into SFRA. This plugin provides an implementation blueprint on website data tracking (server side data and client events) and creates an SFRA datalayer which could be used when connecting to other tracking providers like GTM and Tealium. **Author:** Andreas Seyfarth
 
 [Go to repository](https://github.com/SalesforceCommerceCloud/plugin_datalayer)
 
@@ -345,7 +345,7 @@ Edit SFCC catalog in a Google Sheet and sync easily with any instance. **Author:
 
 ### OCAPI Proxy
 
-This project will serve as a local NodeJS based Proxy server that will forward requests to an Salesforce Commerce Cloud OCAPI instance. **Author:** John Facey
+This project will serve as a local NodeJS based Proxy server that will forward requests to a Salesforce Commerce Cloud OCAPI instance. **Author:** John Facey
 
 [Go to repository](https://github.com/johnfacey/ocapi-proxy)
 

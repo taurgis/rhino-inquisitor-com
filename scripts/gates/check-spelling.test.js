@@ -9,8 +9,10 @@ import { fileURLToPath } from 'node:url';
 import {
   MISSPELLINGS,
   DOUBLED_WORDS,
+  PHRASE_ERRORS,
   createSpeller,
   maskNonProse,
+  expectedArticle,
   analyzeSource,
   loadAllowlist
 } from './check-spelling.js';
@@ -57,6 +59,11 @@ test('allowlist does not shadow (silently disable) any dictionary entry', async 
       Object.hasOwn(MISSPELLINGS, word),
       false,
       `allowlisted word "${word}" is in the dictionary, so it can never be flagged — remove one`
+    );
+    assert.equal(
+      Object.hasOwn(PHRASE_ERRORS, word),
+      false,
+      `allowlisted phrase "${word}" would silently disable the error-phrase check for it — remove one`
     );
   }
 });
@@ -207,9 +214,96 @@ test('doubled-word check ignores valid and capitalised doubles', () => {
   );
 });
 
+test('detects a doubled word across a capitalised sentence start', () => {
+  const findings = analyzeSource('The the server restarts.', { speller });
+  assert.equal(findings.length, 1);
+  assert.equal(findings[0].type, 'repeated-word');
+});
+
+test('doubled-word check ignores hyphenated compounds', () => {
+  assert.deepEqual(
+    analyzeSource('Adds support for Apple Web Sign-In in SFRA projects.', {
+      speller,
+      allowlist: new Set(['sfra'])
+    }),
+    []
+  );
+});
+
 test('the safelist and dictionary are non-empty', () => {
   assert.ok(Object.keys(MISSPELLINGS).length > 0);
   assert.ok(DOUBLED_WORDS.size > 0);
+});
+
+// --- error phrases ------------------------------------------------------------
+
+test('phrase dictionary integrity: lowercase multi-word keys with corrections', () => {
+  for (const [phrase, correction] of Object.entries(PHRASE_ERRORS)) {
+    assert.equal(phrase, phrase.toLowerCase(), `key "${phrase}" must be lowercase`);
+    assert.ok(phrase.includes(' '), `key "${phrase}" must be multi-word`);
+    assert.ok(correction.length > 0, `"${phrase}" must have a correction`);
+    assert.notEqual(phrase, correction.toLowerCase(), `"${phrase}" must not be its own correction`);
+  }
+});
+
+test('detects curated error phrases the dictionary cannot see', () => {
+  const findings = analyzeSource('You should of tested more then once before trying to setup JWT.', {
+    speller
+  });
+  assert.deepEqual(
+    findings.map((finding) => `${finding.found} -> ${finding.suggestion}`).sort(),
+    [
+      'more then -> more than',
+      'should of -> should have',
+      'to setup -> to set up'
+    ]
+  );
+  assert.ok(findings.every((finding) => finding.type === 'phrase'));
+});
+
+test('a capital past the first phrase word reads as a proper noun and passes', () => {
+  assert.deepEqual(analyzeSource('Navigate to Setup in the admin.', { speller }), []);
+});
+
+// --- article agreement --------------------------------------------------------
+
+test('expectedArticle follows opening sound, initialisms, and numbers', () => {
+  const cases = [
+    ['SFCC', 'an'], ['HTML', 'an'], ['XML', 'an'], ['URL', 'a'], ['UUID', 'a'],
+    ['API', 'an'], ['JSON', 'a'], ['HTTPError', 'an'], ['S3', 'an'],
+    ['npm', 'an'], ['REST', 'a'], ['LINK', 'a'], ['SLAS', 'a'], ['SCAPI', 'a'],
+    ['user', 'a'], ['unique', 'a'], ['university', 'a'], ['unusual', 'an'],
+    ['uninstalled', 'an'], ['European', 'a'], ['one-off', 'a'],
+    ['hour', 'an'], ['honest', 'an'], ['hook', 'a'],
+    ['error', 'an'], ['server', 'a'], ['useEffect', 'a'],
+    ['8-second', 'an'], ['11th', 'an'], ['404', 'a'], ['30-minute', 'a']
+  ];
+  for (const [word, article] of cases) {
+    assert.equal(expectedArticle(word), article, `${article} ${word}`);
+  }
+});
+
+test('flags article disagreement and preserves capitalisation in the suggestion', () => {
+  const findings = analyzeSource('An Salesforce cartridge. Also a SFCC instance.', { speller });
+  assert.deepEqual(
+    findings.map((finding) => `${finding.found} -> ${finding.suggestion}`).sort(),
+    ['An Salesforce -> A Salesforce', 'a SFCC -> an SFCC']
+  );
+  assert.ok(findings.every((finding) => finding.type === 'article'));
+});
+
+test('article check skips the A of Q&A and articles before masked spans', () => {
+  assert.deepEqual(analyzeSource('We host a Q&A at the end.', { speller }), []);
+  // `option` is masked to spaces; "an" must not pair with "value".
+  assert.deepEqual(analyzeSource('Pass an `option` value here.', { speller }), []);
+});
+
+test('a false-positive article pairing can be suppressed with an allowlist phrase', () => {
+  // House style reads SLAS as a word ("a SLAS token"); a post that spells it
+  // out letter by letter can keep "an SLAS" via a phrase entry.
+  const source = 'Request an SLAS token.';
+  assert.equal(analyzeSource(source, { speller }).length, 1);
+  assert.deepEqual(analyzeSource(source, { speller, allowlist: new Set(['an slas']) }), []);
 });
 
 // --- CLI --------------------------------------------------------------------

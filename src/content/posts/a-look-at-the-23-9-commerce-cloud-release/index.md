@@ -4,7 +4,7 @@ description: >-
   We are getting closer to the holiday period, and also one of the last releases
   of the year! This time we look at the September 2023 (23.9) release!
 date: '2023-08-28T07:35:34.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T16:08:55.000Z'
 url: /a-look-at-the-23-9-commerce-cloud-release/
 draft: false
 heroImage: japan-shopping-street-23-9-bd4ea7a693.jpeg
@@ -108,7 +108,7 @@ If you want to know what is cooking, check out the nightly builds that are now a
 
 - [https://github.com/SalesforceCommerceCloud/sfra-webpack-builder](https://github.com/SalesforceCommerceCloud/sfra-webpack-builder)
 
-> Webpack can be cumbersome to setup, especially in multicartridge projects for SFRA. This plugin let you bundle all your js, scss and jsx files out of the box.
+> Webpack can be cumbersome to set up, especially in multicartridge projects for SFRA. This plugin lets you bundle all your js, scss and jsx files out of the box.
 
 - configure release it bumber ([becbeab](https://github.com/SalesforceCommerceCloud/sfra-webpack-builder/commit/becbeabc3c1757daf6b4b11b7e2964874cbe389b))
 - chore: init release it ([7816af8](https://github.com/SalesforceCommerceCloud/sfra-webpack-builder/commit/7816af8aca32340aa6e769d37373525a108acb45))

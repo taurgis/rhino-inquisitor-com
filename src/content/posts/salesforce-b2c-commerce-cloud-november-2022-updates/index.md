@@ -4,7 +4,7 @@ description: >-
   A closer look at the November 2022 B2C Commerce Cloud updates, including
   cartridge releases, tooling changes, and SCAPI work.
 date: '2022-11-28T18:36:33.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T16:08:55.000Z'
 url: /salesforce-b2c-commerce-cloud-november-2022-updates/
 draft: false
 heroImage: shopping-cart-in-the-clouds-4e07433888.jpg
@@ -76,7 +76,7 @@ Some new ideas made their way to the IdeaExchange!
 
 - [https://github.com/SalesforceCommerceCloud/link\_adyen](https://github.com/SalesforceCommerceCloud/link_adyen)
 
-> Adyen provides a LINK cartridge to integrate with Salesforce Commerce Cloud (SFCC). This cartridge enables a SFCC storefront to use the Adyen payment service. This cartridge supports SFRA version 5.x.x & 6.x.x and SiteGenesis JS-Controllers version 103.1.11 and higher.
+> Adyen provides a LINK cartridge to integrate with Salesforce Commerce Cloud (SFCC). This cartridge enables an SFCC storefront to use the Adyen payment service. This cartridge supports SFRA version 5.x.x & 6.x.x and SiteGenesis JS-Controllers version 103.1.11 and higher.
 
 ### New
 

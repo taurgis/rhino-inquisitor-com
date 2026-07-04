@@ -4,7 +4,7 @@ description: >-
   Let's be honest: a slow e-commerce site is a silent killer of sales. In the
   world of B2C Commerce, every millisecond is money.
 date: '2025-06-23T17:00:05.000Z'
-lastmod: '2026-07-04T15:49:16.000Z'
+lastmod: '2026-07-04T16:08:55.000Z'
 url: /lag-to-riches-a-pwa-kit-developers-guide/
 draft: false
 heroImage: developer-manipulating-performance-scaled-3869da0b9c.jpeg
@@ -163,7 +163,7 @@ How you fetch data is critical for a fast LCP and a snappy experience.
 - **Be a Minimalist:** Return only the exact data your component needs for its initial render. Don't send the whole API response object. This keeps your HTML payload small.
 - **Go Parallel:** If a page needs data from multiple APIs, use Promise.all to fire off those requests at the same time. This is way faster than waiting for them one by one.
 - **Handle Errors with Finesse:** For critical errors (such as a product not found), throw an HTTPError to display a proper error page. For non-critical stuff, pass an error flag in props so the component can handle it without crashing.
-- **Fetch Non-Essential Data on the Client:** Anything that's not needed for the initial, above-the-fold view (such as reviews or related products) should be fetched on the client side within an useEffect hook. This enables your initial page to load faster, improving TTFB and LCP.
+- **Fetch Non-Essential Data on the Client:** Anything that's not needed for the initial, above-the-fold view (such as reviews or related products) should be fetched on the client side within a useEffect hook. This enables your initial page to load faster, improving TTFB and LCP.
 
 ### Whip Your JavaScript and Components into Shape
 

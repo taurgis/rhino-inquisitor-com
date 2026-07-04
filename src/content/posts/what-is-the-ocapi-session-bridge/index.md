@@ -4,7 +4,7 @@ description: >-
   It is possible to link a SiteGenesis/SFRA session with an OCAPI "session." But
   how can we do it, and what is it suitable for?
 date: '2022-08-15T19:08:02.000Z'
-lastmod: '2026-07-04T14:48:28.000Z'
+lastmod: '2026-07-04T16:08:55.000Z'
 url: /what-is-the-ocapi-session-bridge/
 draft: false
 heroImage: session-bridge-bbf2a7ba92.png
@@ -99,7 +99,7 @@ With this API key, we can configure access to the necessary APIs in the Business
 }
 ```
 
-### Step 1: Get a OCAPI session JWT
+### Step 1: Get an OCAPI session JWT
 
 > [!NOTE]
 > **Site ID**

@@ -4,7 +4,7 @@ description: >-
   As snowy days slowly turn into sunny ones, the 24.3 release of SFCC has
   arrived! Let us have a look at the March release of 2024.
 date: '2024-03-04T09:04:46.000Z'
-lastmod: '2026-07-04T15:28:48.000Z'
+lastmod: '2026-07-04T16:08:55.000Z'
 url: /digging-into-the-b2c-commerce-cloud-24-3-release/
 draft: false
 heroImage: a-shopping-cart-overfilled-with-products-2342f0919f.jpg
@@ -96,7 +96,7 @@ The new version for Shopper Baskets looks a bit different from v1, so adjust you
 
 > - If the system reaches a load threshold, an HTTP 503 response is returned for a subset of API families.
 > - Covers APIs not covered by rate limits that are considered non-critical, for example: endpoints related to search, products, and authentication. Load shedding is not used for checkout-related endpoints, such as Shopper Baskets and Shopper Orders, to ensure that shoppers can complete an in-progress checkout.
-> - Includes additional HTTP response headers that allow you to understand the current system load: sfdc\_load, which represents a load percentage with higher percentages indicating higher loads, and sfdc\_ load\_status, which is a enum WARN|THROTTLE that helps you understand the relative health of the system.
+> - Includes additional HTTP response headers that allow you to understand the current system load: sfdc\_load, which represents a load percentage with higher percentages indicating higher loads, and sfdc\_ load\_status, which is an enum WARN|THROTTLE that helps you understand the relative health of the system.
 
 We received a notification regarding removing rate limits for SCAPI endpoints some time ago.
 

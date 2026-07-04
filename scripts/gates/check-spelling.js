@@ -7,9 +7,9 @@ import enGb from 'dictionary-en-gb';
 import matter from 'gray-matter';
 
 /**
- * Blocking spelling gate for published content.
+ * Blocking spelling and grammar gate for published content.
  *
- * Three checks run over article prose. Front-matter keys/URLs/tags are dropped
+ * Five checks run over article prose. Front-matter keys/URLs/tags are dropped
  * and only the prose fields (title, description, takeaways) are kept; in the
  * body, code, URLs, HTML tags, and shortcode parameters are masked, so only
  * human-readable text is inspected:
@@ -25,10 +25,18 @@ import matter from 'gray-matter';
  *      and cited people's names the site uses, so only genuinely new/unknown
  *      words fail the gate.
  *   3. Repeated words — an accidentally doubled function word ("the the").
+ *   4. Error phrases — curated multi-word mistakes a spell checker cannot see
+ *      because every word is valid ("should of", "to setup", "more then").
+ *   5. Article agreement — "a" vs "an" chosen by the sound of the next word,
+ *      including initialisms read letter by letter ("an SFCC instance",
+ *      "a URL") and silent-h words ("an hour").
  *
  * When the gate flags a valid word (new jargon, product name, person), add it
  * (lowercased) to scripts/gates/spelling-allow.txt. Regenerate candidates with
- * `node scripts/gates/check-spelling.js --list-unknown`.
+ * `node scripts/gates/check-spelling.js --list-unknown`; list stale entries
+ * with `--unused-allowlist`. A multi-word allowlist phrase is masked before
+ * any check runs, so it also suppresses a false-positive article or phrase
+ * finding (e.g. add "a slas" if that initialism is read as a word).
  */
 
 const REPO_ROOT = path.resolve(fileURLToPath(new URL('../..', import.meta.url)));
@@ -101,8 +109,59 @@ const DOUBLED_WORDS = new Set([
   'where', 'while', 'also', 'not', 'has', 'have', 'will'
 ]);
 
+/**
+ * Multi-word mistakes whose individual words are all valid, so neither the
+ * dictionary nor the misspelling map can catch them. Keys are lowercase and
+ * matched case-insensitively on the first word only: a capital inside the rest
+ * of the phrase reads as a proper noun ("to Setup" as a named page) and is
+ * left alone.
+ */
+const PHRASE_ERRORS = {
+  // modal + "of" for "have"
+  'should of': 'should have',
+  'would of': 'would have',
+  'could of': 'could have',
+  'must of': 'must have',
+  'might of': 'might have',
+  // "then" where a comparison needs "than"
+  'more then': 'more than',
+  'less then': 'less than',
+  'fewer then': 'fewer than',
+  'rather then': 'rather than',
+  'other then': 'other than',
+  'better then': 'better than',
+  'worse then': 'worse than',
+  'higher then': 'higher than',
+  'lower then': 'lower than',
+  'larger then': 'larger than',
+  'smaller then': 'smaller than',
+  'greater then': 'greater than',
+  // compound noun used where the verb phrase is needed ("to checkout" is
+  // deliberately absent: "proceed to checkout" is a valid noun reading)
+  'to setup': 'to set up',
+  'to login': 'to log in',
+  'to logout': 'to log out',
+  'to backup': 'to back up',
+  'to rollback': 'to roll back',
+  'to workaround': 'to work around',
+  // idioms
+  'sneak peak': 'sneak peek',
+  'per say': 'per se',
+  'in tact': 'intact',
+  'case and point': 'case in point',
+  'one in the same': 'one and the same',
+  'for all intensive purposes': 'for all intents and purposes'
+};
+
 const TOKEN_PATTERN = /[A-Za-z][A-Za-z'’]*/gu;
-const DOUBLED_WORD_PATTERN = /\b([a-z]+)(\s+)(\1)\b/gu;
+// Lookbehind/lookahead keep hyphenated compounds out: "Apple Web Sign-In in
+// SFRA" must not read as a doubled "In in".
+const DOUBLED_WORD_PATTERN = /(?<![A-Za-z'’-])([A-Za-z]+)(\s+)(\1)(?![A-Za-z'’-])/giu;
+// Article + exactly one space + next word. Masking blanks regions to runs of
+// spaces, so requiring a single space keeps the check from pairing an article
+// with the first word after a masked code span or link. The lookbehind keeps
+// the "A" of "Q&A" (and hyphen/slash compounds) from reading as an article.
+const ARTICLE_PATTERN = /(?<![A-Za-z0-9&'’/-])(a|an) ([A-Za-z0-9][A-Za-z0-9'’-]*)/giu;
 
 // Front-matter fields whose values are prose worth spell-checking.
 const PROSE_FIELDS = ['title', 'description', 'takeaways'];
@@ -203,7 +262,7 @@ function findUnknownWords(prose, { speller, allowlist = new Set(), suggest = tru
 function findDoubledWords(prose, allowlist = new Set()) {
   const findings = [];
   for (const match of prose.matchAll(DOUBLED_WORD_PATTERN)) {
-    const word = match[1];
+    const word = match[1].toLowerCase();
     if (!DOUBLED_WORDS.has(word) || allowlist.has(word)) {
       continue;
     }
@@ -211,7 +270,107 @@ function findDoubledWords(prose, allowlist = new Set()) {
       type: 'repeated-word',
       offset: match.index ?? 0,
       found: `${match[1]}${match[2]}${match[3]}`,
-      suggestion: word
+      suggestion: match[1]
+    });
+  }
+  return findings;
+}
+
+/** Find curated multi-word error phrases in already-masked prose. */
+function findErrorPhrases(prose, allowlist = new Set()) {
+  const findings = [];
+  for (const [phrase, suggestion] of Object.entries(PHRASE_ERRORS)) {
+    if (allowlist.has(phrase)) {
+      continue;
+    }
+    const pattern = new RegExp(
+      `\\b${phrase.split(' ').map(escapeRegExp).join('\\s+')}\\b`,
+      'giu'
+    );
+    for (const match of prose.matchAll(pattern)) {
+      // A capital anywhere past the first word reads as a proper noun
+      // ("to Setup" as a named page), so leave it alone.
+      const rest = match[0].slice(match[0].search(/\s/u));
+      if (/[A-Z]/u.test(rest)) {
+        continue;
+      }
+      findings.push({
+        type: 'phrase',
+        offset: match.index ?? 0,
+        found: match[0].replace(/\s+/gu, ' '),
+        suggestion
+      });
+    }
+  }
+  return findings;
+}
+
+/** Letters whose spoken names start with a vowel sound: "an SFCC", "an FAQ". */
+const VOWEL_SOUND_LETTERS = new Set([...'AEFHILMNORSX']);
+
+/**
+ * All-caps acronyms this site reads as words rather than letter by letter, so
+ * the article follows the word's opening sound: "a REST API", "a SCAPI hook",
+ * "a LINK cartridge". Site usage decides membership (SFRA and SFCC stay
+ * letter-read: "an SFRA cartridge").
+ */
+const WORD_ACRONYMS = new Set(['rest', 'link', 'sig', 'slas', 'scapi', 'soap', 'sql']);
+
+/**
+ * The article the next word should take, judged by its opening sound.
+ *
+ * - Initialisms are read letter by letter: all-caps tokens ("an SFCC
+ *   instance" but "a URL" — U is pronounced "you"), leading-caps camel case
+ *   ("an HTTPError"), and vowel-less tokens in any case ("an npm package").
+ *   All-caps acronyms the site pronounces as words (WORD_ACRONYMS) follow
+ *   word rules instead: "a REST API".
+ * - Numbers are read out: "an 8-second delay", "an 11th step", "a 404 page".
+ * - u-/eu- words with a "you" sound take "a" (a user, a unique, a European);
+ *   un- prefixed words keep "an" (an uninstalled cartridge).
+ * - Silent-h words take "an" (an hour, an honest answer).
+ */
+function expectedArticle(next) {
+  if (/^[0-9]/u.test(next)) {
+    return /^(?:8|11(?![0-9])|18(?![0-9]))/u.test(next) ? 'an' : 'a';
+  }
+  const head = next.replace(/['’-].*$/u, '');
+  const lower = next.toLowerCase();
+  if (!WORD_ACRONYMS.has(head.toLowerCase())) {
+    const initialism =
+      /^[A-Z][A-Z0-9]/u.test(head) || // SFCC, HTTPError, S3
+      /^[A-Z]$/u.test(head) || // "an A record"
+      !/[aeiouy]/u.test(head.toLowerCase()); // npm, xml, css in any case
+    if (initialism) {
+      return VOWEL_SOUND_LETTERS.has(head[0].toUpperCase()) ? 'an' : 'a';
+    }
+  }
+  if (/^(?:uni(?![nm])|us(?!h)|ubi|ut[ei]|url|eu|ewe|one(?:$|[-s'’])|once)/u.test(lower)) {
+    return 'a';
+  }
+  if (/^(?:hour|honest|honou?r|heir)/u.test(lower)) {
+    return 'an';
+  }
+  return /^[aeiou]/u.test(lower) ? 'an' : 'a';
+}
+
+/** Find "a"/"an" that disagrees with the sound of the following word. */
+function findArticleErrors(prose, allowlist = new Set()) {
+  const findings = [];
+  for (const match of prose.matchAll(ARTICLE_PATTERN)) {
+    const article = match[1];
+    const next = match[2];
+    const expected = expectedArticle(next);
+    if (article.toLowerCase() === expected || allowlist.has(`${article.toLowerCase()} ${next.toLowerCase()}`)) {
+      continue;
+    }
+    const corrected = article[0] === article[0].toUpperCase()
+      ? expected[0].toUpperCase() + expected.slice(1)
+      : expected;
+    findings.push({
+      type: 'article',
+      offset: match.index ?? 0,
+      found: `${article} ${next}`,
+      suggestion: `${corrected} ${next}`
     });
   }
   return findings;
@@ -333,11 +492,26 @@ function lineOfKey(source, key) {
   return match ? offsetToLine(source, match.index) : 1;
 }
 
+/**
+ * Line of a specific front-matter value (e.g. one takeaways list item), so a
+ * finding in the third item points at that item rather than at the key. The
+ * front-matter block is a prefix of the source, so offsets line up. Falls
+ * back to the key's line when the value is not found verbatim (wrapped or
+ * escaped YAML).
+ */
+function lineOfValue(block, value, fallbackLine) {
+  const needle = value.slice(0, 60);
+  const index = needle.length > 0 ? block.indexOf(needle) : -1;
+  return index === -1 ? fallbackLine : offsetToLine(block, index);
+}
+
 function findInText(text, options) {
   return [
     ...findMisspellings(text, options.allowlist),
     ...findUnknownWords(text, options),
-    ...findDoubledWords(text, options.allowlist)
+    ...findDoubledWords(text, options.allowlist),
+    ...findErrorPhrases(text, options.allowlist),
+    ...findArticleErrors(text, options.allowlist)
   ];
 }
 
@@ -380,8 +554,9 @@ function analyzeSource(source, { speller, allowlist = new Set(), suggest = true 
       if (typeof entry !== 'string') {
         continue;
       }
+      const entryLine = block ? lineOfValue(block, entry, keyLine) : keyLine;
       for (const finding of findInText(prepare(entry), options)) {
-        collected.push({ ...finding, line: keyLine, field });
+        collected.push({ ...finding, line: entryLine, field });
       }
     }
   }
@@ -409,6 +584,12 @@ function describe(finding) {
     return finding.suggestion
       ? `unknown word "${finding.found}" (did you mean: ${finding.suggestion}?)${where}`
       : `unknown word "${finding.found}"${where}`;
+  }
+  if (finding.type === 'phrase') {
+    return `error phrase "${finding.found}" -> "${finding.suggestion}"${where}`;
+  }
+  if (finding.type === 'article') {
+    return `article disagreement "${finding.found}" -> "${finding.suggestion}"${where}`;
   }
   return `"${finding.found}" -> "${finding.suggestion}"${where}`;
 }
@@ -442,12 +623,63 @@ async function listUnknown(contentDir) {
   console.error(`\n${sorted.length} unique unknown word(s) across ${files.length} file(s).`);
 }
 
+/**
+ * Maintenance mode: list allowlist entries no content currently needs, so the
+ * word list can be pruned when articles are removed or rewritten. A word is
+ * needed if the dictionary check would flag it with an empty allowlist; a
+ * phrase is needed if it still occurs in some file's prose. Advisory only —
+ * always exits 0.
+ */
+async function listUnusedAllowlist(contentDir) {
+  const speller = createSpeller();
+  const allowlist = await loadAllowlist();
+  const files = await collectMarkdownFiles(contentDir);
+
+  const words = new Set([...allowlist].filter((entry) => !entry.includes(' ')));
+  const phrases = [...allowlist].filter((entry) => entry.includes(' '));
+
+  const needed = new Set();
+  const neededPhrases = new Set();
+  for (const file of files) {
+    const source = await fs.readFile(file, 'utf8');
+    for (const finding of analyzeSource(source, { speller, allowlist: new Set(), suggest: false })) {
+      needed.add(normalizeToken(baseWord(finding.found)));
+      if (finding.type === 'phrase' || finding.type === 'article') {
+        needed.add(finding.found.toLowerCase());
+      }
+    }
+    const prose = maskNonProse(source);
+    for (const phrase of phrases) {
+      if (new RegExp(`\\b${escapeRegExp(phrase)}\\b`, 'iu').test(prose)) {
+        neededPhrases.add(phrase);
+      }
+    }
+  }
+
+  const unused = [
+    ...[...words].filter((word) => !needed.has(word)),
+    ...phrases.filter((phrase) => !neededPhrases.has(phrase) && !needed.has(phrase))
+  ].sort((left, right) => left.localeCompare(right));
+
+  for (const entry of unused) {
+    process.stdout.write(`${entry}\n`);
+  }
+  console.error(
+    `\n${unused.length} of ${allowlist.size} allowlist entries not needed by any of ${files.length} content file(s).`
+  );
+}
+
 async function main() {
   const options = parseArgs(process.argv.slice(2));
   const contentDir = options.contentDir ?? DEFAULT_CONTENT_DIR;
 
   if (options.listUnknown) {
     await listUnknown(contentDir);
+    return;
+  }
+
+  if (options.unusedAllowlist) {
+    await listUnusedAllowlist(contentDir);
     return;
   }
 
@@ -468,7 +700,7 @@ async function main() {
 
   if (findings.length === 0) {
     console.log(
-      `Checked ${markdownFiles.length} content file(s) against the English dictionary, ${allowlist.size} project word(s), and ${Object.keys(MISSPELLINGS).length} curated misspelling(s). No spelling issues found.`
+      `Checked ${markdownFiles.length} content file(s) against the British English dictionary, ${allowlist.size} project word(s), ${Object.keys(MISSPELLINGS).length} curated misspelling(s), ${Object.keys(PHRASE_ERRORS).length} error phrase(s), and the repeated-word and a/an agreement checks. No issues found.`
     );
     return;
   }
@@ -485,7 +717,7 @@ async function main() {
     }
   }
   console.error(
-    'Fix the issue, or if the word is valid add it (lowercased) to scripts/gates/spelling-allow.txt.'
+    'Fix the issue, or if the flagged text is valid add it (lowercased word or phrase) to scripts/gates/spelling-allow.txt.'
   );
   process.exitCode = 1;
 }
@@ -497,6 +729,8 @@ function parseArgs(argv) {
       parsed.contentDir = path.resolve(argv[++index]);
     } else if (argv[index] === '--list-unknown') {
       parsed.listUnknown = true;
+    } else if (argv[index] === '--unused-allowlist') {
+      parsed.unusedAllowlist = true;
     }
   }
   return parsed;
@@ -505,11 +739,15 @@ function parseArgs(argv) {
 export {
   MISSPELLINGS,
   DOUBLED_WORDS,
+  PHRASE_ERRORS,
   createSpeller,
   maskNonProse,
   findMisspellings,
   findUnknownWords,
   findDoubledWords,
+  findErrorPhrases,
+  findArticleErrors,
+  expectedArticle,
   analyzeSource,
   loadAllowlist
 };

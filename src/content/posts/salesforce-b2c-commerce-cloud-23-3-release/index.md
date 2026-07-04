@@ -4,7 +4,7 @@ description: >-
   23.3 release overview covering trial sandboxes, log-volume changes, Shopper
   Context enablement, and the refreshed SLAS admin UI.
 date: '2023-02-15T14:19:00.000Z'
-lastmod: '2026-07-04T15:49:16.000Z'
+lastmod: '2026-07-04T16:08:55.000Z'
 url: /salesforce-b2c-commerce-cloud-23-3-release/
 draft: false
 heroImage: shopping-cart-in-sand-7c8677e7ff.jpg
@@ -135,7 +135,7 @@ Some [known faces](https://github.com/SalesforceCommerceCloud/eu-price-indicatio
 
 - [https://github.com/SalesforceCommerceCloud/plugin\_datalayer](https://github.com/SalesforceCommerceCloud/plugin_datalayer)
 
-> Concept to add data tracking into SFRA. This plugin provides an implementation blueprint on website data tracking (server side data and client events) and creates a sfra datalayer which could be used when connecting to other tracking providers like GTM and Tealium.
+> Concept to add data tracking into SFRA. This plugin provides an implementation blueprint on website data tracking (server side data and client events) and creates an SFRA datalayer which could be used when connecting to other tracking providers like GTM and Tealium.
 
 Another new cartridge is available for SFRA to provide a basis for GTM and Tealium tracking. Always nice to get to see different approaches to these kinds of use cases that every project runs in too.
 

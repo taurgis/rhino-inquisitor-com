@@ -4,7 +4,7 @@ description: >-
   Review the Salesforce B2C Commerce Cloud 22.8 release, including quota
   changes, SCAPI hook updates, eCDN verification, and holiday readiness work.
 date: '2022-07-25T07:19:45.000Z'
-lastmod: '2026-07-04T15:38:04.000Z'
+lastmod: '2026-07-04T16:08:55.000Z'
 url: /salesforce-b2c-commerce-cloud-22-8/
 draft: false
 heroImage: 85e37556-72f2-49a5-b436-a5616e9776a7-3984eb1bb9.jpeg
@@ -282,7 +282,7 @@ Changes
 
 - [https://github.com/SalesforceCommerceCloud/sfra-webpack-builder](https://github.com/SalesforceCommerceCloud/sfra-webpack-builder)
 
-> Webpack can be cumbersome to setup, especially in multicartridge projects for SFRA. This plugin let you bundle all your js, scss and jsx files out of the box.
+> Webpack can be cumbersome to set up, especially in multicartridge projects for SFRA. This plugin lets you bundle all your js, scss and jsx files out of the box.
 
 I don't think anything has changed in this release besides updating the package version. But it might be good to put it on the list, so people know this one exists!
 

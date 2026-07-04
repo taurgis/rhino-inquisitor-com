@@ -4,7 +4,7 @@ description: >-
   Officially there is no possibility to define custom OCAPI endpoints. But is
   there a clever way to create them anyway? Find out here!
 date: '2022-07-11T17:40:22.000Z'
-lastmod: '2026-07-04T15:28:48.000Z'
+lastmod: '2026-07-04T16:08:55.000Z'
 url: /creating-custom-ocapi-endpoints/
 draft: false
 heroImage: ocapi-bb5766fd49.jpg
@@ -126,7 +126,7 @@ Fill in the following value for the type "_Shop _" and context "_ Global (Organi
 
 {{< img-caption src="ocapi-settings-46b5f9c8b0.png" alt="Open Commerce API Settings showing access for custom objects." caption="OCAPI access still has to be granted explicitly before the endpoint becomes callable." link="ocapi-settings-46b5f9c8b0.png" >}}
 
-In the example, we make use of "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" ( 30 x a ), which is a Client Id that works on test environments without creating it in the Account Manager.
+In the example, we make use of `aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa` ( 30 x a ), which is a Client Id that works on test environments without creating it in the Account Manager.
 
 You can, of course, create your own Client ID, but we will not be covering that process in this article.
 

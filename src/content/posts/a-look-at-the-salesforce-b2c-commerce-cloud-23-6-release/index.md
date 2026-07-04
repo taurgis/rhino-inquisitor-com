@@ -4,7 +4,7 @@ description: >-
   The weather (at least here) is giving us more sunshine, so let us shine a
   light on the next Salesforce B2C Commerce Cloud release!
 date: '2023-05-25T06:26:10.000Z'
-lastmod: '2026-07-04T15:38:04.000Z'
+lastmod: '2026-07-04T16:08:55.000Z'
 url: /a-look-at-the-salesforce-b2c-commerce-cloud-23-6-release/
 draft: false
 heroImage: a-neon-shopping-cart-scaled-863c5d17ed.jpg
@@ -141,6 +141,6 @@ A significant update has happened to SLAS, with too many changes to note down! I
 
 - [https://github.com/SalesforceCommerceCloud/sfra-webpack-builder](https://github.com/SalesforceCommerceCloud/sfra-webpack-builder)
 
-> Webpack can be cumbersome to setup, especially in multicartridge projects for SFRA. This plugin let you bundle all your js, scss and jsx files out of the box.
+> Webpack can be cumbersome to set up, especially in multicartridge projects for SFRA. This plugin lets you bundle all your js, scss and jsx files out of the box.
 
 A bugfix release, so nothing to note here.
