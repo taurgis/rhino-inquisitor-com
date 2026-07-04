@@ -4,7 +4,7 @@ description: >-
   The Salesforce B2C Commerce Cloud Managed Runtime is a cloud-based hosting
   environment for Progressive Web Applications (PWAs).
 date: '2023-05-08T13:04:24.000Z'
-lastmod: '2026-07-04T15:28:48.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /what-is-the-sfcc-managed-runtime/
 draft: false
 heroImage: people-maintaining-server-room-scaled-d510b8a413.jpg
@@ -52,7 +52,7 @@ Curious about Lambda? [Here you go](https://aws.amazon.com/lambda/)!
 
 When a platform offers features, there are a lot of questions that will go through your mind. And one of them will probably be, "What benefits does it bring?":
 
-1. **Included in the license:** It is not a phrase you often see in the Salesforce Eco-system, but the managed runtime is ready to be taken advantage of if you have a license for B2C Commerce Cloud!
+1. **Included in the licence:** It is not a phrase you often see in the Salesforce Eco-system, but the managed runtime is ready to be taken advantage of if you have a licence for B2C Commerce Cloud!
 1. **Simplified deployment:** Managed Runtime streamlines deploying and hosting your PWA Kit storefront, meaning that developers only need to develop - and not worry about the infrastructure. And that saves time and, ultimately, money.
 1. **Scalability:** Nothing new to B2C Commerce Cloud, but the infrastructure provided by Managed Runtime allows your storefront to scale seamlessly as your business grows, ensuring optimal performance and customer experience just like the "[monolithic solution](/sitegenesis-vs-sfra-vs-pwa/)".
 1. **Security:** Managed Runtime offers robust security features that protect your storefront from potential threats and vulnerabilities like the back end.

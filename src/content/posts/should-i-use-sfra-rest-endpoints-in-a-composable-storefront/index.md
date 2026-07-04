@@ -4,7 +4,7 @@ description: >-
   When working with Salesforce B2C Commerce Cloud in a hybrid approach (using
   SFRA with a Composable Storefront project), you naturally end up with some
 date: '2024-10-21T09:36:19.000Z'
-lastmod: '2024-10-21T09:36:27.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /should-i-use-sfra-rest-endpoints-in-a-composable-storefront/
 draft: false
 heroImage: a-modern-building-connected-to-old-architecture-b9920e4c92.jpg
@@ -34,8 +34,8 @@ While controllers were the only option in the past, we now have a more flexible 
 
 Besides all request methods, we get:
 
--   [Same authentication methodology](https://developer.salesforce.com/docs/commerce/commerce-api/guide/custom-api-authentication.html) (SLAS JWT)
--   [Personalisation & caching](https://developer.salesforce.com/docs/commerce/commerce-api/guide/custom-api-caching.html)
+- [Same authentication methodology](https://developer.salesforce.com/docs/commerce/commerce-api/guide/custom-api-authentication.html) (SLAS JWT)
+- [Personalisation & caching](https://developer.salesforce.com/docs/commerce/commerce-api/guide/custom-api-caching.html)
 
 So, if you have some controllers or [custom OCAPI endpoints](/creating-custom-ocapi-endpoints/) left over on a project built before this, it might be a good time to add a ticket to your backlog to upgrade them.
 
@@ -47,7 +47,7 @@ Are you still interested in the reason for this? If so, keep on reading!
 
 Out of the box, the only two methods you can support with SFRA are [GET](https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/blob/1cb2b329fa281333403bb2681b939e727aee809a/cartridges/modules/server/server.js#L115) and [POST](https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/blob/1cb2b329fa281333403bb2681b939e727aee809a/cartridges/modules/server/server.js#L126). This is quite the limiting factor when working in a headless and composable fashion, where you make every endpoint a POST.
 
-There is a way around this limitation that I experimented with before custom SCAPI endpoints were a thing in my "[Headless Reference Architecture](https://github.com/taurgis/headless-reference-architecture) (Deprecated)", a branch off of SFRA specifically made for Composable Storefront projects needing to create custom controller endpoints.
+There is a way around this limitation that I experimented with before custom SCAPI endpoints were a thing in my "[Headless Reference Architecture](https://github.com/taurgis/headless-reference-architecture) (Deprecated)", a branch off SFRA specifically made for Composable Storefront projects needing to create custom controller endpoints.
 
 ### Personalisation and session bridging
 

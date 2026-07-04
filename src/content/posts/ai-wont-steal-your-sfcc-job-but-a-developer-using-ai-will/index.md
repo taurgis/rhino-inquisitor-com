@@ -4,7 +4,7 @@ description: >-
   A practical look at how AI changes Salesforce Commerce Cloud work, where it
   improves delivery, and why developer judgement still matters most.
 date: '2025-06-30T17:46:53.000Z'
-lastmod: '2026-07-04T15:28:48.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /ai-wont-steal-your-sfcc-job-but-a-developer-using-ai-will/
 draft: false
 heroImage: rhino-with-ai-agents-scaled-9d1423b5ab.jpeg
@@ -17,7 +17,7 @@ tags:
 author: Thomas Theunen
 takeaways:
   - "Argues AI will reward developers who adapt rather than replace platform expertise outright"
-  - "Shows how AI shifts developer value toward architecture, judgement, and collaboration"
+  - "Shows how AI shifts developer value towards architecture, judgement, and collaboration"
   - "Recommends hands-on adoption of AI coding tools instead of waiting for the market to settle"
 ---
 The Rhino Inquisitor — I went all "Rhino" up in this place, be prepared for some analogies 😇.
@@ -199,7 +199,7 @@ The future of the SFCC developer is not that of a simple coder, but of a technic
 
 Please don't wait. The time for passive observation is over.
 
-- **Get your hands dirty, now.** If you don't have a GitHub Copilot license, buy one this week. The $10 per month is the single best investment you can make in your career. (For your projects, customer/company code is a bit trickier on the legalities)
+- **Get your hands dirty, now.** If you don't have a GitHub Copilot licence, buy one this week. The $10 per month is the single best investment you can make in your career. (For your projects, customer/company code is a bit trickier on the legalities)
 
 - **Experiment relentlessly with prompts.** Take a piece of your own code and ask Copilot to refactor it, explain it, or find bugs in it. Learn the language of AI.
 

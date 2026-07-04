@@ -4,7 +4,7 @@ description: >-
   It is possible to link a SiteGenesis/SFRA session with an OCAPI "session." But
   how can we do it, and what is it suitable for?
 date: '2022-08-15T19:08:02.000Z'
-lastmod: '2026-07-04T16:08:55.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /what-is-the-ocapi-session-bridge/
 draft: false
 heroImage: session-bridge-bbf2a7ba92.png
@@ -21,7 +21,7 @@ takeaways:
   - "Walks through the practical request flow for converting a guest OCAPI token into storefront cookies and back again"
   - "Highlights the hybrid-deployment and mobile-app scenarios where session bridging is useful, along with the sensitive-data caveats to keep in mind"
 ---
-With the added attention to [Headless architecture](/sitegenesis-vs-sfra-vs-pwa/) in Salesforce B2C Commerce Cloud and the option for "[hybrid deployments](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/phased-headless-rollouts.html)," the [Session Bridge](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/sessionbridge.html) has also gotten some more airtime.
+With the added attention to [Headless architecture](/sitegenesis-vs-sfra-vs-pwa/) in Salesforce B2C Commerce Cloud and the option for "[hybrid deployments](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/phased-headless-rollouts.html)," the [Session Bridge](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/sessionbridge.html) has also had some more airtime.
 
 But what is it? What do I use it for? What do I watch out for? Let us dig deeper into these questions and try to give them a clear answer!
 
@@ -230,7 +230,7 @@ Consider this if you have a scenario where one might modify or set a basket afte
 
 ## Use Case: Hybrid deployment
 
-As mentioned in the intro, this API endpoint has gotten much more attention since the release of the PWA Kit.
+As mentioned in the intro, this API endpoint has received much more attention since the release of the PWA Kit.
 
 One of the official scenarios supported by this new storefront option is a hybrid deployment, which means keeping some pages running on SFRA/SiteGenesis and others on the PWA Kit.
 

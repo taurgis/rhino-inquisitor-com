@@ -4,7 +4,7 @@ description: >-
   A practical look at where ChatGPT can help in Salesforce work, from drafting
   and debugging to research and day-to-day delivery.
 date: '2022-12-26T06:44:32.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /what-can-i-use-chatgpt-for-when-working-with-salesforce/
 draft: false
 heroImage: robot-writing-code-chatgpt-4ba7e2995f.jpg
@@ -20,7 +20,7 @@ takeaways:
   - "Balances those use cases with concerns around copyright, accuracy, data handling, and unsafe or invalid code generation"
   - "Argues that AI output should be treated as a productivity aid and review input, not as something to trust without validation"
 ---
-The year is coming to an end, but what a year it has been. As the news was announcing lockdowns to be over and [events were starting](/events-and-the-golden-hoodie/), the world was in turmoil again when Russia began to invade Ukraine - putting the world on its head again. Putting that aside (but not for too long), other big things have happened this year: Big strides in publicly available AI tools. Although they have been around longer than this year, they have gotten quite a bit of attention as the ease of use has grown tremendously. People generate [images based on text descriptions](https://openai.com/dall-e-2/) and [write articles by asking questions](https://chat.openai.com/). ...What? Other Services Besides OpenAI, many services are popping up in different areas. Too many to even mention.
+The year is coming to an end, but what a year it has been. As the news was announcing lockdowns to be over and [events were starting](/events-and-the-golden-hoodie/), the world was in turmoil again when Russia began to invade Ukraine - putting the world on its head again. Putting that aside (but not for too long), other big things have happened this year: Big strides in publicly available AI tools. Although they have been around longer than this year, they have received quite a bit of attention as the ease of use has grown tremendously. People generate [images based on text descriptions](https://openai.com/dall-e-2/) and [write articles by asking questions](https://chat.openai.com/). ...What? Other Services Besides OpenAI, many services are popping up in different areas. Too many to even mention.
 
 ## Some concerns
 
@@ -90,7 +90,7 @@ Invalid Code Even with the corrections in the Apex Trigger mentioned above, ther
 
 ## The future
 
-It is exciting and scary how quickly the world of AI is evolving. We have gotten quite a few new toys this year to play with. But what does 2023 have in store for us? How quickly will they evolve now that we have come to a point where data is so easily accessible and in large volumes?
+It is exciting and scary how quickly the world of AI is evolving. We have been given quite a few new toys this year to play with. But what does 2023 have in store for us? How quickly will they evolve now that we have come to a point where data is so easily accessible and in large volumes?
 
 ## Conclusion
 

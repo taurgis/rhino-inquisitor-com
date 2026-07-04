@@ -4,7 +4,7 @@ description: >-
   Security within Salesforce B2C Commerce might not be a concern because of
   out-of-the-box features. There are a few things to keep in mind!
 date: '2022-04-26T12:09:00.000Z'
-lastmod: '2026-07-04T15:28:48.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /secure-coding-in-salesforce-b2c-commerce-cloud/
 draft: false
 heroImage: code-security-147ad97b77.jpeg
@@ -19,7 +19,7 @@ author: Thomas Theunen
 takeaways:
   - "Explains the secure-coding responsibilities that remain even though SFCC provides strong platform-level protections"
   - "Covers practical security topics like Account Manager hardening, shared-account risks, secure headers, and npm supply-chain concerns"
-  - "Points developers toward Salesforce's built-in security guidance and the specific areas that require ongoing discipline"
+  - "Points developers towards Salesforce's built-in security guidance and the specific areas that require ongoing discipline"
 ---
 Salesforce B2C Commerce Cloud provides many security features out of the box. And because it is a [SaaS](https://en.wikipedia.org/wiki/Software_as_a_service) solution, the security of the servers is handled by the technical teams at Salesforce.
 

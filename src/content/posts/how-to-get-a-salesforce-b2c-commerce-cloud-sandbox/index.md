@@ -4,7 +4,7 @@ description: >-
   Getting access to a sandbox in Salesforce B2C Commerce Cloud is not as easy as
   it is for the core platform. Find out here how to get it done!
 date: '2022-04-05T05:36:43.000Z'
-lastmod: '2026-07-04T10:39:24.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/
 draft: false
 heroImage: sandbox-84618f4042.png
@@ -49,7 +49,7 @@ The primary purpose is to provide a contact point for accounts that already have
 
 So, for now, the message is as follows:
 
-> To obtain a trial sandbox please reach out to either your Commerce Cloud Account Executive (customers) or your Partner Manager (partners). For details on the partner program look [at the partner program overview](https://partners.salesforce.com/pdx/s/learn/article/isv-b2c-commerce-MCDSZA63SNTNCRRBPDZX3PU7OGWI?language=en_US).
+> To obtain a trial sandbox please reach out to either your Commerce Cloud Account Executive (customers) or your Partner Manager (partners). For details on the Partner Program look [at the Partner Program overview](https://partners.salesforce.com/pdx/s/learn/article/isv-b2c-commerce-MCDSZA63SNTNCRRBPDZX3PU7OGWI?language=en_US).
 
 ### PWA Kit
 
@@ -77,7 +77,7 @@ Just read all of the available documentation, and you should be good to go:
 
 ## Trailhead Academy
 
-{{< img-caption 
+{{< img-caption
   src="trailhead-academy-77b0322d57.jpeg"
   alt="Trailhead Academy branding for the paid sandbox training option."
   caption="Figure 1: Trailhead Academy branding for the paid sandbox training option"

@@ -4,7 +4,7 @@ description: >-
   Learn why bypassing SFCC quota limits creates technical and operational risk,
   and what safer alternatives teams should choose.
 date: '2023-12-11T08:21:33.000Z'
-lastmod: '2026-07-04T14:48:28.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /why-circumventing-sfcc-quota-limits-is-a-bad-idea/
 draft: false
 heroImage: a-certain-ceo-is-coming-to-get-you-9206639ea9.jpg
@@ -19,7 +19,7 @@ author: Thomas Theunen
 takeaways:
     - "Uses a deliberately over-engineered UnlimitedArray example to show why bypassing SFCC quota limits is technically possible but strategically unwise"
     - "Explains the practical downsides of quota workarounds in terms of performance, maintainability, scalability, and platform stability"
-    - "Reinforces that SFCC quota limits are governance mechanisms meant to steer teams toward safer and more sustainable solution design"
+    - "Reinforces that SFCC quota limits are governance mechanisms meant to steer teams towards safer and more sustainable solution design"
 ---
 Salesforce B2C Commerce Cloud empowers developers to create robust and scalable e-commerce solutions. It is designed with certain [governance and quotas](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-governance-and-quotas.html) to maintain efficiency and stability across the platform.
 
@@ -189,7 +189,7 @@ While the "UnlimitedArray" and solutions like it is a testament to the creativit
 
 3. **Scalability**: As e-commerce platforms typically handle a significant volume of transactions, any potential latency or performance issues can be magnified.
 
-4. **Adherence to Best Practices**: Salesforce imposes quotas to steer developers toward building optimised, stable, scalable applications. Ignoring these guidelines may result in short-term gains but can endanger long-term success and platform health.
+4. **Adherence to Best Practices**: Salesforce imposes quotas to steer developers towards building optimised, stable, scalable applications. Ignoring these guidelines may result in short-term gains but can endanger long-term success and platform health.
 
 ## Conclusion
 

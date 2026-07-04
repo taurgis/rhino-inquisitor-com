@@ -4,7 +4,7 @@ description: >-
   Salesforce B2C Commerce Cloud appears to only have certifications for
   developers, but is this true? Are there other options available?
 date: '2023-04-24T08:47:47.000Z'
-lastmod: '2026-07-04T15:38:04.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /non-technical-sfcc-certifications/
 draft: false
 heroImage: einstein-shopping-scaled-5e1e2b427b.jpeg
@@ -48,7 +48,7 @@ While a UX designer focuses on the end-user, a Strategy Designer focuses on the 
 
 The description is taken from Trailhead:
 
-> Strategy Designer candidates create value by aligning an organisation around and directing the design of systems-level solutions toward desired business and user outcomes.
+> Strategy Designer candidates create value by aligning an organisation around and directing the design of systems-level solutions towards desired business and user outcomes.
 
 A completely different path than the User Experience Designer and Business Analyst as you take a more high-level approach to the projects and their alignment with the business and users' goals.
 
@@ -98,7 +98,7 @@ Trailmix Once the trailmix becomes available, I will update this section of the 
 
 {{< img-caption src="einstein-shopping-c2fd371422.jpeg" alt="A drawing of Einstein standing in a store, wearing a green vest with a red tie and shoes. The store walls are painted red and green, with the shopping racks filled with clothes and perfume." caption="Einstein accreditation fits people who need to position commerce AI to business stakeholders." >}}
 
-We ran out of Trailhead Certifications, so now we are turning to the [Partner Learning Camp](https://partnerlearningcamp.salesforce.com/s/learner-dashboard) (PLC). Here you will find certifications targeted toward Partners and Employees of Salesforce, so if you are neither, this Accreditation is not an option for you.
+We ran out of Trailhead Certifications, so now we are turning to the [Partner Learning Camp](https://partnerlearningcamp.salesforce.com/s/learner-dashboard) (PLC). Here you will find certifications targeted towards Partners and Employees of Salesforce, so if you are neither, this Accreditation is not an option for you.
 
 [Einstein](/ai-einstein-in-salesforce-b2c-commerce-cloud/) is one of the critical features of Salesforce B2C Commerce Cloud, providing many different AI features "natively" to the platform. And even though some development has to go into it, many of its features must be configured to work out of the box! Knowing where all those buttons and switches are is essential to any project.
 
@@ -126,7 +126,7 @@ This is also an excellent opportunity for your salespeople to get acquainted wit
 
 ## What about Salesforce B2C Commerce Cloud specific ones?
 
-Although the abovementioned certifications are not specific to Salesforce B2C Commerce Cloud, the skills you need to perform these roles do not require you to have them per se.
+Although the aforementioned certifications are not specific to Salesforce B2C Commerce Cloud, the skills you need to perform these roles do not require you to have them per se.
 
 However, you must learn about all of the features that Salesforce B2C Commerce Cloud offers to help your clients better and make optimal use of what the platform(s) offer!
 

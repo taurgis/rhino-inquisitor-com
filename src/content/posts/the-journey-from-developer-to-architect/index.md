@@ -4,7 +4,7 @@ description: >-
   A personal look at the move from developer to architect, including the mindset
   shifts, trade-offs, and lessons that mattered most.
 date: '2024-02-26T06:36:00.000Z'
-lastmod: '2026-07-04T15:28:48.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /the-journey-from-developer-to-architect/
 draft: false
 heroImage: developer-to-architect-0af54756df.png
@@ -18,7 +18,7 @@ tags:
 author: Thomas Theunen
 takeaways:
   - "Explains the different architect roles and how they relate to Salesforce and Commerce Cloud work"
-  - "Describes the practical shift from hands-on development toward meetings, responsibility, documentation, and solution ownership"
+  - "Describes the practical shift from hands-on development towards meetings, responsibility, documentation, and solution ownership"
   - "Offers a personal perspective on deciding whether the move from developer to architect is the right next step"
 ---
 So you want to be an [architect](/what-skills-do-i-need-as-a-sfcc-architect/), do you? At least, that is why I am guessing you came to this page! Well, you came to the right place! I have gone through this transition myself, and here are some topics I wanted to write about the role.
@@ -99,7 +99,7 @@ A large proportion of the success or failure of a project lies with the architec
 
 ### Make yourself heard
 
-Get used to voicing your opinion toward your colleagues and your clients. Since you will be shouldering a large proportion of the responsibility, be sure that your views are heard and taken into account.
+Get used to voicing your opinion towards your colleagues and your clients. Since you will be shouldering a large proportion of the responsibility, be sure that your views are heard and taken into account.
 
 So, learn to be vocal and get used to talking to all types of people. You will be doing it a lot! And remember: it is OK to make mistakes, but take responsibility for them!
 

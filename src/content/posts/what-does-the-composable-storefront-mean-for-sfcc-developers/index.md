@@ -4,7 +4,7 @@ description: >-
   Many SFCC developers look at the Composable Storefront as the next step of
   Salesforce moving SFCC to the CRM core. But is it so?
 date: '2023-01-30T07:59:37.000Z'
-lastmod: '2026-07-04T10:39:24.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /what-does-the-composable-storefront-mean-for-sfcc-developers/
 draft: false
 heroImage: e0468610-0e86-403f-b486-743a38d4b763-d68cf607f8.png
@@ -91,7 +91,7 @@ There will still be a fair share of projects starting today on SFRA!
 
 ## What about back-end development
 
-That knowledge is transferrable! The Rhino Engine and ISML are still crucial for creating custom Business Manager modules and API hooks, and we will need a lot of this type of development in the coming years. And who knows, we might even be able to build custom SCAPI endpoints using the same system as controllers soon!
+That knowledge is transferable! The Rhino Engine and ISML are still crucial for creating custom Business Manager modules and API hooks, and we will need a lot of this type of development in the coming years. And who knows, we might even be able to build custom SCAPI endpoints using the same system as controllers soon!
 
 This knowledge is critical to the success of projects, as customisations to SCAPI, OCAPI, and Business Manager will be in high demand.
 

@@ -4,7 +4,7 @@ description: >-
   Rhino Inquisitor is Thomas Theunen's working notebook for Salesforce B2C
   Commerce Cloud architecture, delivery lessons, and practical field guidance.
 date: '2022-02-25T21:45:53.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /about/
 draft: false
 archiveExclude: true
@@ -70,7 +70,7 @@ This site is primarily for:
 - Salesforce B2C Commerce developers who want concrete implementation guidance
 - architects and technical leads making platform and integration decisions
 - delivery leads who need to understand migration, release, and launch risk in technical terms
-- teams moving from broad platform familiarity toward disciplined production execution
+- teams moving from broad platform familiarity towards disciplined production execution
 
 It is probably not the right place if you are looking for generic ecommerce thought leadership, vendor summaries, or high-level transformation language without implementation detail.
 

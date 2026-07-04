@@ -4,12 +4,13 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 
 import nspell from 'nspell';
 import enGb from 'dictionary-en-gb';
+import enUs from 'dictionary-en';
 import matter from 'gray-matter';
 
 /**
  * Blocking spelling and grammar gate for published content.
  *
- * Five checks run over article prose. Front-matter keys/URLs/tags are dropped
+ * Six checks run over article prose. Front-matter keys/URLs/tags are dropped
  * and only the prose fields (title, description, takeaways) are kept; in the
  * body, code, URLs, HTML tags, and shortcode parameters are masked, so only
  * human-readable text is inspected:
@@ -19,15 +20,21 @@ import matter from 'gray-matter';
  *   2. Dictionary check — every remaining word is looked up in the British
  *      English Hunspell dictionary. en-GB is the single house style, so
  *      American variants (color, organize, center, ...) are flagged and should
- *      be written in British form. Anything the dictionary does not know and
- *      that is not in the project word list (scripts/gates/spelling-allow.txt)
- *      is flagged. The word list is pre-seeded with the jargon, product names,
- *      and cited people's names the site uses, so only genuinely new/unknown
- *      words fail the gate.
- *   3. Repeated words — an accidentally doubled function word ("the the").
- *   4. Error phrases — curated multi-word mistakes a spell checker cannot see
- *      because every word is valid ("should of", "to setup", "more then").
- *   5. Article agreement — "a" vs "an" chosen by the sound of the next word,
+ *      be written in British form. A flagged word that the American English
+ *      dictionary accepts is reported as an American spelling (with the
+ *      British form suggested) rather than as a typo. Anything neither
+ *      dictionary knows and that is not in the project word list
+ *      (scripts/gates/spelling-allow.txt) is flagged as unknown. The word
+ *      list is pre-seeded with the jargon, product names, and cited people's
+ *      names the site uses, so only genuinely new/unknown words fail the gate.
+ *   3. American forms the en-GB dictionary happens to accept — a curated map
+ *      (AMERICANISMS) for words like "toward", "gotten", and noun "license"
+ *      that pass a Hunspell lookup but are against the British house style.
+ *   4. Repeated words — an accidentally doubled function word ("the the").
+ *   5. Error phrases — curated multi-word mistakes a spell checker cannot see
+ *      because every word is valid ("should of", "more then", "to setup",
+ *      "beta program", "should practice").
+ *   6. Article agreement — "a" vs "an" chosen by the sound of the next word,
  *      including initialisms read letter by letter ("an SFCC instance",
  *      "a URL") and silent-h words ("an hour").
  *
@@ -87,6 +94,31 @@ const MISSPELLINGS = {
   untill: 'until',
   wich: 'which',
   wierd: 'weird',
+  accidently: 'accidentally',
+  comparision: 'comparison',
+  embarassing: 'embarrassing',
+  guage: 'gauge',
+  harrass: 'harass',
+  irregardless: 'regardless',
+  labled: 'labelled',
+  maintainance: 'maintenance',
+  miniscule: 'minuscule',
+  neccessary: 'necessary',
+  noticable: 'noticeable',
+  occassion: 'occasion',
+  occassionally: 'occasionally',
+  occuring: 'occurring',
+  perseverence: 'perseverance',
+  priviledge: 'privilege',
+  recomend: 'recommend',
+  refered: 'referred',
+  relevent: 'relevant',
+  strenght: 'strength',
+  succesfully: 'successfully',
+  supercede: 'supersede',
+  thier: 'their',
+  truely: 'truly',
+  usefull: 'useful',
   // Technical / web-flavoured misspellings
   compatability: 'compatibility',
   defualt: 'default',
@@ -94,6 +126,28 @@ const MISSPELLINGS = {
   paramaters: 'parameters',
   reponse: 'response',
   vaild: 'valid'
+};
+
+/**
+ * American forms that the en-GB Hunspell dictionary accepts, so the
+ * dictionary check alone cannot flag them, mapped to the British house-style
+ * form. Kept to words where the American reading is by far the likeliest:
+ * "license" is listed because British English spells the noun "licence" and
+ * this site only ever uses the noun (a genuine verb use — "to license the
+ * code" — is correct as written and can be kept via a phrase allowlist entry
+ * such as "to license"). Words that are also everyday British words in
+ * another sense (meter/metre, tire/tyre, curb/kerb, program for software,
+ * disk in computing, dialog for UI dialogs) are deliberately absent —
+ * flagging those needs context a word list does not have, so the risky ones
+ * are handled as curated phrases (PHRASE_ERRORS) instead.
+ */
+const AMERICANISMS = {
+  anyways: 'anyway',
+  gotten: 'got',
+  license: 'licence',
+  licenses: 'licences',
+  oftentimes: 'often',
+  toward: 'towards'
 };
 
 /**
@@ -145,13 +199,70 @@ const PHRASE_ERRORS = {
   'to backup': 'to back up',
   'to rollback': 'to roll back',
   'to workaround': 'to work around',
+  'to signup': 'to sign up',
+  'to shutdown': 'to shut down',
+  'to cleanup': 'to clean up',
+  'to logon': 'to log on',
+  // British verb "practise": the noun is "practice", so only contexts that
+  // force the verb reading are listed (a bare "practice" is usually the noun)
+  'to practice': 'to practise',
+  'should practice': 'should practise',
+  'must practice': 'must practise',
+  'can practice': 'can practise',
+  'could practice': 'could practise',
+  'will practice': 'will practise',
+  'would practice': 'would practise',
+  'may practice': 'may practise',
+  'might practice': 'might practise',
+  // British "programme" for schemes and initiatives; a computer program keeps
+  // "program", so only noun pairings that are never software are listed.
+  // Capitalised proper names ("AppExchange Partner Program") are skipped via
+  // PROPER_NOUN_PHRASES.
+  'beta program': 'beta programme',
+  'pilot program': 'pilot programme',
+  'partner program': 'partner programme',
+  'mentorship program': 'mentorship programme',
+  'rewards program': 'rewards programme',
+  'tiers program': 'tiers programme',
+  'loyalty program': 'loyalty programme',
+  'certification program': 'certification programme',
+  'training program': 'training programme',
+  'trial program': 'trial programme',
+  // British style prefers "different from"
+  'different than': 'different from',
+  // "in/with regard to" (no s)
+  'in regards to': 'in regard to',
+  'with regards to': 'with regard to',
   // idioms
   'sneak peak': 'sneak peek',
   'per say': 'per se',
   'in tact': 'intact',
   'case and point': 'case in point',
   'one in the same': 'one and the same',
-  'for all intensive purposes': 'for all intents and purposes'
+  'for all intensive purposes': 'for all intents and purposes',
+  'could care less': "couldn't care less",
+  'on accident': 'by accident',
+  'suppose to': 'supposed to',
+  'piece of mind': 'peace of mind',
+  'free reign': 'free rein',
+  'make due': 'make do',
+  'mute point': 'moot point',
+  'tow the line': 'toe the line',
+  'baited breath': 'bated breath',
+  'beckon call': 'beck and call',
+  'peaked my interest': 'piqued my interest',
+  'peaked your interest': 'piqued your interest',
+  'hone in on': 'home in on',
+  'wet your appetite': 'whet your appetite',
+  'off of': 'off',
+  'as of yet': 'yet',
+  'very unique': 'unique',
+  // redundant-acronym phrases (RAS syndrome)
+  'pin number': 'PIN',
+  'atm machine': 'ATM',
+  // GDS style: forms are filled in, not out
+  'fill out a form': 'fill in a form',
+  'fill out the form': 'fill in the form'
 };
 
 const TOKEN_PATTERN = /[A-Za-z][A-Za-z'’]*/gu;
@@ -168,6 +279,7 @@ const ARTICLE_PATTERN = /(?<![A-Za-z0-9&'’/-])(a|an) ([A-Za-z0-9][A-Za-z0-9'�
 const PROSE_FIELDS = ['title', 'description', 'takeaways'];
 
 let cachedSpeller;
+let cachedAmericanSpeller;
 
 function createSpeller() {
   if (!cachedSpeller) {
@@ -178,6 +290,18 @@ function createSpeller() {
     cachedSpeller = nspell(enGb);
   }
   return cachedSpeller;
+}
+
+/**
+ * The American English dictionary is used only to classify findings, never to
+ * accept words: a word the en-GB dictionary rejects but en-US accepts is an
+ * American spelling to convert, not a typo, and the report says so.
+ */
+function createAmericanSpeller() {
+  if (!cachedAmericanSpeller) {
+    cachedAmericanSpeller = nspell(enUs);
+  }
+  return cachedAmericanSpeller;
 }
 
 function normalizeToken(token) {
@@ -225,8 +349,13 @@ function findMisspellings(prose, allowlist = new Set()) {
   return findings;
 }
 
-/** Find words unknown to the dictionary and the project word list. */
-function findUnknownWords(prose, { speller, allowlist = new Set(), suggest = true } = {}) {
+/**
+ * Find words unknown to the dictionary and the project word list. A word the
+ * American dictionary knows is reported as an American spelling (the en-GB
+ * suggester reliably offers the British form for those); anything else is an
+ * unknown word.
+ */
+function findUnknownWords(prose, { speller, usSpeller, allowlist = new Set(), suggest = true } = {}) {
   if (!speller) {
     return [];
   }
@@ -240,6 +369,7 @@ function findUnknownWords(prose, { speller, allowlist = new Set(), suggest = tru
     const normalized = normalizeToken(base);
     if (
       Object.hasOwn(MISSPELLINGS, normalized) ||
+      Object.hasOwn(AMERICANISMS, normalized) ||
       allowlist.has(normalized) ||
       speller.correct(base) ||
       speller.correct(normalized) ||
@@ -248,12 +378,40 @@ function findUnknownWords(prose, { speller, allowlist = new Set(), suggest = tru
     ) {
       continue;
     }
+    const american = usSpeller ? usSpeller.correct(base) || usSpeller.correct(normalized) : false;
     const suggestions = suggest ? speller.suggest(base).slice(0, 2) : [];
     findings.push({
-      type: 'unknown-word',
+      type: american ? 'american-spelling' : 'unknown-word',
       offset: match.index ?? 0,
       found: token,
       suggestion: suggestions.join(', ')
+    });
+  }
+  return findings;
+}
+
+/**
+ * Find curated American forms (AMERICANISMS) in already-masked prose. A token
+ * glued to a hyphen or apostrophe is left alone — "ill-gotten" is correct
+ * British English even though "gotten" on its own is not.
+ */
+function findAmericanisms(prose, allowlist = new Set()) {
+  const findings = [];
+  for (const match of prose.matchAll(TOKEN_PATTERN)) {
+    const normalized = normalizeToken(baseWord(match[0]));
+    if (!Object.hasOwn(AMERICANISMS, normalized) || allowlist.has(normalized)) {
+      continue;
+    }
+    const index = match.index ?? 0;
+    const before = index > 0 ? prose[index - 1] : '';
+    if (/[-'’]/u.test(before)) {
+      continue;
+    }
+    findings.push({
+      type: 'americanism',
+      offset: index,
+      found: match[0],
+      suggestion: AMERICANISMS[normalized]
     });
   }
   return findings;
@@ -299,7 +457,13 @@ function phrasePattern(phrase, flags) {
  * Think" in a heading is still an error and still flagged.
  */
 const PROPER_NOUN_PHRASES = new Set([
-  'to setup', 'to login', 'to logout', 'to backup', 'to rollback', 'to workaround'
+  'to setup', 'to login', 'to logout', 'to backup', 'to rollback', 'to workaround',
+  'to signup', 'to shutdown', 'to cleanup', 'to logon',
+  // "AppExchange Partner Program", "Consulting Partner Program", ... are
+  // proper names and keep the American spelling their owner gave them.
+  'beta program', 'pilot program', 'partner program', 'mentorship program',
+  'rewards program', 'tiers program', 'loyalty program', 'certification program',
+  'training program', 'trial program'
 ]);
 
 const PHRASE_PATTERNS = Object.entries(PHRASE_ERRORS).map(([phrase, suggestion]) => ({
@@ -571,6 +735,7 @@ function findInText(text, options) {
   return [
     ...findMisspellings(text, options.allowlist),
     ...findUnknownWords(text, options),
+    ...findAmericanisms(text, options.allowlist),
     ...findDoubledWords(text, options.allowlist),
     ...findErrorPhrases(text),
     ...findArticleErrors(text, options.speller)
@@ -597,8 +762,8 @@ function maskPhrases(text, phrases) {
 }
 
 /** Analyse a single document's raw source and return de-duplicated findings. */
-function analyzeSource(source, { speller, allowlist = new Set(), suggest = true } = {}) {
-  const options = { speller, allowlist, suggest };
+function analyzeSource(source, { speller, usSpeller, allowlist = new Set(), suggest = true } = {}) {
+  const options = { speller, usSpeller, allowlist, suggest };
   const phrases = [...allowlist].filter((entry) => entry.includes(' '));
   const prepare = (text) => maskPhrases(maskNonProse(text), phrases);
   const { block, body, bodyLineOffset, data } = splitDocument(source);
@@ -642,6 +807,7 @@ const FINDING_LABELS = {
   'repeated-word': 'repeated word ',
   phrase: 'error phrase ',
   article: 'article disagreement ',
+  americanism: 'American form ',
   spelling: ''
 };
 
@@ -652,13 +818,23 @@ function describe(finding) {
       ? `unknown word "${finding.found}" (did you mean: ${finding.suggestion}?)${where}`
       : `unknown word "${finding.found}"${where}`;
   }
+  if (finding.type === 'american-spelling') {
+    return finding.suggestion
+      ? `American spelling "${finding.found}" (British: ${finding.suggestion})${where}`
+      : `American spelling "${finding.found}"${where}`;
+  }
   const found = finding.found.replace(/\s+/gu, ' ');
   return `${FINDING_LABELS[finding.type] ?? ''}"${found}" -> "${finding.suggestion}"${where}`;
 }
 
-/** Print every unknown word once (lowercased) to help seed the word list. */
+/**
+ * Print every unknown word once (lowercased) to help seed the word list.
+ * American spellings are excluded on purpose: they should be converted to
+ * their British forms, not allowlisted.
+ */
 async function listUnknown(contentDir) {
   const speller = createSpeller();
+  const usSpeller = createAmericanSpeller();
   const allowlist = await loadAllowlist();
   const files = (await collectMarkdownFiles(contentDir)).sort((left, right) =>
     left.localeCompare(right)
@@ -667,7 +843,7 @@ async function listUnknown(contentDir) {
   const unknown = new Map();
   for (const file of files) {
     const source = await fs.readFile(file, 'utf8');
-    for (const finding of analyzeSource(source, { speller, allowlist, suggest: false })) {
+    for (const finding of analyzeSource(source, { speller, usSpeller, allowlist, suggest: false })) {
       if (finding.type !== 'unknown-word') {
         continue;
       }
@@ -694,6 +870,7 @@ async function listUnknown(contentDir) {
  */
 async function listUnusedAllowlist(contentDir) {
   const speller = createSpeller();
+  const usSpeller = createAmericanSpeller();
   const allowlist = await loadAllowlist();
   const files = await collectMarkdownFiles(contentDir);
 
@@ -702,12 +879,13 @@ async function listUnusedAllowlist(contentDir) {
     .filter((entry) => entry.includes(' '))
     .map((phrase) => ({ phrase, pattern: phrasePattern(phrase, 'iu') }));
 
+  const wordFindingTypes = new Set(['unknown-word', 'spelling', 'american-spelling', 'americanism']);
   const neededWords = new Set();
   const neededPhrases = new Set();
   for (const file of files) {
     const source = await fs.readFile(file, 'utf8');
-    for (const finding of analyzeSource(source, { speller, allowlist: new Set(), suggest: false })) {
-      if (finding.type === 'unknown-word' || finding.type === 'spelling') {
+    for (const finding of analyzeSource(source, { speller, usSpeller, allowlist: new Set(), suggest: false })) {
+      if (wordFindingTypes.has(finding.type)) {
         neededWords.add(normalizeToken(baseWord(finding.found)));
       }
     }
@@ -749,6 +927,7 @@ async function main() {
   }
 
   const speller = createSpeller();
+  const usSpeller = createAmericanSpeller();
   const allowlist = await loadAllowlist();
   const markdownFiles = (await collectMarkdownFiles(contentDir)).sort((left, right) =>
     left.localeCompare(right)
@@ -758,14 +937,14 @@ async function main() {
   for (const markdownFile of markdownFiles) {
     const source = await fs.readFile(markdownFile, 'utf8');
     const file = toRepoRelative(markdownFile);
-    for (const finding of analyzeSource(source, { speller, allowlist })) {
+    for (const finding of analyzeSource(source, { speller, usSpeller, allowlist })) {
       findings.push({ ...finding, file });
     }
   }
 
   if (findings.length === 0) {
     console.log(
-      `Checked ${markdownFiles.length} content file(s) against the British English dictionary, ${allowlist.size} project word(s), ${Object.keys(MISSPELLINGS).length} curated misspelling(s), ${Object.keys(PHRASE_ERRORS).length} error phrase(s), and the repeated-word and a/an agreement checks. No issues found.`
+      `Checked ${markdownFiles.length} content file(s) against the British English dictionary, ${allowlist.size} project word(s), ${Object.keys(MISSPELLINGS).length} curated misspelling(s), ${Object.keys(AMERICANISMS).length} American form(s), ${Object.keys(PHRASE_ERRORS).length} error phrase(s), and the repeated-word and a/an agreement checks. No issues found.`
     );
     return;
   }
@@ -803,12 +982,15 @@ function parseArgs(argv) {
 
 export {
   MISSPELLINGS,
+  AMERICANISMS,
   DOUBLED_WORDS,
   PHRASE_ERRORS,
   createSpeller,
+  createAmericanSpeller,
   maskNonProse,
   findMisspellings,
   findUnknownWords,
+  findAmericanisms,
   findDoubledWords,
   findErrorPhrases,
   findArticleErrors,

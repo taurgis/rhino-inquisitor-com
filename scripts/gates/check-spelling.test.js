@@ -8,9 +8,11 @@ import { fileURLToPath } from 'node:url';
 
 import {
   MISSPELLINGS,
+  AMERICANISMS,
   DOUBLED_WORDS,
   PHRASE_ERRORS,
   createSpeller,
+  createAmericanSpeller,
   maskNonProse,
   expectedArticle,
   analyzeSource,
@@ -20,6 +22,7 @@ import {
 const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const gatePath = path.join(repoRoot, 'scripts/gates/check-spelling.js');
 const speller = createSpeller();
+const usSpeller = createAmericanSpeller();
 
 function foundWords(findings) {
   return findings.map((finding) => finding.found);
@@ -61,10 +64,44 @@ test('allowlist does not shadow (silently disable) any dictionary entry', async 
       `allowlisted word "${word}" is in the dictionary, so it can never be flagged — remove one`
     );
     assert.equal(
+      Object.hasOwn(AMERICANISMS, word),
+      false,
+      `allowlisted word "${word}" would silently disable its American-form check — a legitimate use (e.g. a verb "license") should be a phrase entry instead`
+    );
+    assert.equal(
       Object.hasOwn(PHRASE_ERRORS, word),
       false,
       `allowlisted phrase "${word}" would silently disable the error-phrase check for it — remove one`
     );
+  }
+});
+
+test('AMERICANISMS integrity: keys pass en-GB (else the dictionary check owns them), suggestions are British', () => {
+  for (const [american, british] of Object.entries(AMERICANISMS)) {
+    assert.equal(american, american.toLowerCase(), `key "${american}" must be lowercase`);
+    assert.match(american, /^[a-z']+$/u, `key "${american}" must be a single ASCII word`);
+    assert.equal(
+      speller.correct(american),
+      true,
+      `"${american}" is rejected by the en-GB dictionary, so the dictionary check already flags it — remove the redundant entry`
+    );
+    assert.notEqual(american, british.toLowerCase(), `"${american}" must not be its own correction`);
+    for (const word of british.split(/\s+/u)) {
+      assert.equal(speller.correct(word), true, `suggestion "${word}" for "${american}" must be a valid en-GB word`);
+    }
+    assert.equal(
+      Object.hasOwn(MISSPELLINGS, american),
+      false,
+      `"${american}" is in both MISSPELLINGS and AMERICANISMS — keep one`
+    );
+  }
+});
+
+test('MISSPELLINGS corrections are valid en-GB words', () => {
+  for (const [misspelling, correction] of Object.entries(MISSPELLINGS)) {
+    for (const word of correction.split(/\s+/u)) {
+      assert.equal(speller.correct(word), true, `correction "${word}" for "${misspelling}" must be a valid en-GB word`);
+    }
   }
 });
 
@@ -148,6 +185,51 @@ test('allowlisted phrases pass without accepting their words elsewhere', () => {
   // ...but generic American "center" is still flagged (British "centre" enforced).
   const generic = analyzeSource('Visit the data center today.', { speller, allowlist });
   assert.deepEqual(generic.map((f) => f.found), ['center']);
+});
+
+// --- American forms ----------------------------------------------------------
+
+test('classifies a word valid in en-US but not en-GB as an American spelling', () => {
+  const findings = analyzeSource('The color is nice.', { speller, usSpeller });
+  assert.equal(findings.length, 1);
+  assert.equal(findings[0].type, 'american-spelling');
+  assert.equal(findings[0].found, 'color');
+  assert.match(findings[0].suggestion, /colour/u);
+});
+
+test('a word neither dictionary knows stays an unknown word', () => {
+  const findings = analyzeSource('This frobnicator is here.', { speller, usSpeller });
+  assert.equal(findings[0].type, 'unknown-word');
+});
+
+test('flags curated American forms the en-GB dictionary accepts', () => {
+  const findings = analyzeSource('We moved toward the goal and license costs have gotten higher.', {
+    speller,
+    usSpeller
+  });
+  assert.deepEqual(
+    findings.map((finding) => `${finding.found} -> ${finding.suggestion}`).sort(),
+    ['gotten -> got', 'license -> licence', 'toward -> towards']
+  );
+  assert.ok(findings.every((finding) => finding.type === 'americanism'));
+});
+
+test('American-form check leaves hyphenated compounds and verb derivatives alone', () => {
+  assert.deepEqual(analyzeSource('No ill-gotten gains here.', { speller, usSpeller }), []);
+  assert.deepEqual(
+    analyzeSource('The licensed premises handle licensing paperwork.', { speller, usSpeller }),
+    [],
+    'licensed/licensing are the correct British verb forms'
+  );
+});
+
+test('an American form can be suppressed with a phrase allowlist entry for a verb use', () => {
+  const source = 'We license the code to partners.';
+  assert.equal(analyzeSource(source, { speller, usSpeller }).length, 1);
+  assert.deepEqual(
+    analyzeSource(source, { speller, usSpeller, allowlist: new Set(['license the code']) }),
+    []
+  );
 });
 
 test('does not flag acronyms or code-style identifiers in prose', () => {
@@ -305,6 +387,27 @@ test('detects curated error phrases the dictionary cannot see', () => {
     ]
   );
   assert.ok(findings.every((finding) => finding.type === 'phrase'));
+});
+
+test('flags the verb "practice" and non-computing "program" phrases', () => {
+  const findings = analyzeSource('You should practice daily and join the beta program.', { speller });
+  assert.deepEqual(
+    findings.map((finding) => `${finding.found} -> ${finding.suggestion}`).sort(),
+    ['beta program -> beta programme', 'should practice -> should practise']
+  );
+  // The noun "practice" and a computer "program" are correct British English.
+  assert.deepEqual(analyzeSource('Best practice is to profile the program first.', { speller }), []);
+});
+
+test('a capitalised programme proper name keeps its American spelling', () => {
+  assert.deepEqual(
+    analyzeSource('Join the AppExchange Partner Program today.', { speller }),
+    [],
+    'capitalised Partner Program is a proper name'
+  );
+  const lowercase = analyzeSource('Join the AppExchange partner program today.', { speller });
+  assert.equal(lowercase.length, 1);
+  assert.equal(lowercase[0].suggestion, 'partner programme');
 });
 
 test('a capitalised compound noun reads as a proper noun, but title-case errors still flag', () => {

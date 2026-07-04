@@ -4,7 +4,7 @@ description: >-
   You want to get certified but are still determining if this will benefit you
   or not within the Salesforce ecosystem. Let's dig into that!
 date: '2022-11-21T10:17:21.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /is-salesforce-certification-worth-it/
 draft: false
 heroImage: salesforce-certified-50dfbc80b5.jpeg
@@ -39,7 +39,7 @@ Let's turn that previous topic upside down. Maybe you still need project experie
 
 ### Partners
 
-If you work for an ISV (Independent Software Vendor) or SI (System Integrator), they benefit from getting you certified. Salesforce uses information such as Trailhead Badges, Partner Learning Camp Accreditations, and Certifications to weigh a partner's capabilities. The more Certified Professionals a partner has, the more Salesforce will pitch the company to potential clients (co-selling). A second benefit is a part of the "[Consulting Partner Program](https://partners.salesforce.com/pdx/s/learn/article/salesforce-consulting-partner-program-overview-MCBZXIAMZFV5EOFLJNPZ4SZOJHNY)." You may know that there is a rewards/tiers program (Base, Ridge, Crest, and Summit), and you need to collect points to rise to the top of that mountain. One of the ways to earn points is the "Innovation" section, where you get points for, you guessed it, credentials (certifications). So for a partner to grow in tiers, a certain amount of certificates will help them get there! Some certifications will give more points than others: A good example is that Architect certificates give ten points, while an Administrator certificate only awards one.
+If you work for an ISV (Independent Software Vendor) or SI (System Integrator), they benefit from getting you certified. Salesforce uses information such as Trailhead Badges, Partner Learning Camp Accreditations, and Certifications to weigh a partner's capabilities. The more Certified Professionals a partner has, the more Salesforce will pitch the company to potential clients (co-selling). A second benefit is a part of the "[Consulting Partner Program](https://partners.salesforce.com/pdx/s/learn/article/salesforce-consulting-partner-program-overview-MCBZXIAMZFV5EOFLJNPZ4SZOJHNY)." You may know that there is a rewards/tiers programme (Base, Ridge, Crest, and Summit), and you need to collect points to rise to the top of that mountain. One of the ways to earn points is the "Innovation" section, where you get points for, you guessed it, credentials (certifications). So for a partner to grow in tiers, a certain amount of certificates will help them get there! Some certifications will give more points than others: A good example is that Architect certificates give ten points, while an Administrator certificate only awards one.
 
 ### Salesforce
 

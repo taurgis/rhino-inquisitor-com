@@ -4,7 +4,7 @@ description: >-
   "Connections" is in our rear-view mirror, but some new updates to the platform
   are ahead! This time, we look at the June 2024 (24.6) release!
 date: '2024-06-03T12:04:25.000Z'
-lastmod: '2026-07-04T15:38:04.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /what-is-new-in-sfcc-24-6/
 draft: false
 heroImage: searching-on-a-highway-89effbcf76.jpg
@@ -31,7 +31,7 @@ Are you interested in last month’s release notes? [Read the 24.5 release notes
 
 > Offer your shoppers bots that provide multichannel conversational product recommendations and add products to the cart with the new Commerce Concierge for B2C Einstein Bot template. Create an enhanced bot from the template and connect your store to a new Einstein bot. You can also use the new Commerce Concierge bot blocks to add functionality.
 
-AI has been the talk of the year at Salesforce and beyond, and finally, the first fruits of these talks have become available to us. Unfortunately, with all these new features also comes a license that needs to be purchased - Commerce Concierge or Shopper Copilot is no different.
+AI has been the talk of the year at Salesforce and beyond, and finally, the first fruits of these talks have become available to us. Unfortunately, with all these new features also comes a licence that needs to be purchased - Commerce Concierge or Shopper Copilot is no different.
 
 Contact your Salesforce account executive to purchase the Einstein Bots and digital Engagement add-on, and to get the set-up started, head over to this [documentation page](https://help.salesforce.com/s/articleView?id=sf.comm_set_up_commerce_concierge_for_a_b2c_store.htm&type=5).
 

@@ -4,7 +4,7 @@ description: >-
   Learn how SFCC handles dates, calendars, and time zones so you can avoid
   subtle scheduling bugs and localisation issues in production.
 date: '2023-08-14T17:27:04.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /navigating-dates-calendars-in-sfcc/
 draft: false
 heroImage: a-clock-as-a-shopping-bag-7fc3eb9c21.jpg
@@ -53,7 +53,7 @@ One such Java class is the [Calendar](https://salesforcecommercecloud.github.io/
 
 It also enables developers to work with timezones, a crucial aspect of managing dates and times globally.
 
-Different than Java Even though it has been exposed, some differences exist, such as how to instantiate a Calendar.
+Different from Java Even though it has been exposed, some differences exist, such as how to instantiate a Calendar.
 
 e.g. "Calendar.getInstance()" in Java vs "new Calendar()" in the Rhino Engine.
 

@@ -4,7 +4,7 @@ description: >-
   Learn what Active Data can track in Salesforce B2C Commerce Cloud, where the
   platform stops, and how far you can extend it safely.
 date: '2023-06-19T05:13:10.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /how-to-extend-active-data-in-salesforce-b2c-commerce-cloud/
 draft: false
 heroImage: b2c-active-merchandising-slide-1-9a027d6449.gif
@@ -83,7 +83,7 @@ Attribute Group For many screens, attributes that are not assigned to a group wi
 
 Now that our attribute model has been extended, we need to create a way of importing that data. The first step to allowing CSV import is to create a "feed". To do this we need to head over to the "Feed Definitions": _Merchant Tools > Online Marketing > Active Data > Feed Definitions_ In the overview, we see our two types of active data again. Here we will be creating a feed for Customer Active Data. Click the "new" button and create our feed! On the next screen decide on the following fields:
 
-- **ID:** The ID of the feed. We will need this in our CSV file later (I have chosen "customer-physicial-store-information-feed")
+- **ID:** The ID of the feed. We will need this in our CSV file later (I have chosen "customer-physical-store-information-feed")
 - **Description:** Free text to describe the purpose of the feed
 - **Fresh Period:** The value is the number of days after which the data becomes stale if it's not updated. 0 means the data is never considered stale.
 
@@ -95,7 +95,7 @@ SFCC understands what we want to send to the system by defining the feed. Now on
 
 ```text
 ‎
-customer-physicial-store-information-feed
+customer-physical-store-information-feed
 customerNo,custom.physicalVisits,custom.physicalVisitsMonth
 "W00000001",0,5
 "W00000006",1,2

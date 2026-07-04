@@ -4,7 +4,7 @@ description: >-
   Getting started with Salesforce B2C Commerce Cloud development can be
   confusing and daunting. Where do you start? Find out here!
 date: '2023-09-04T13:57:05.000Z'
-lastmod: '2023-09-05T12:19:54.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /where-to-start-when-you-are-new-to-salesforce-b2c-commerce-cloud-development/
 draft: false
 heroImage: where-to-start-sfcc-development-275a2b9576.jpg
@@ -19,7 +19,7 @@ author: Thomas Theunen
 takeaways:
   - "Gives newcomers a practical starting path for learning Salesforce B2C Commerce Cloud development without getting overwhelmed"
   - "Highlights the importance of understanding the platform first, getting access to a sandbox, and using the right learning resources"
-  - "Points new developers toward the broader Commerce Cloud community as a key support channel while they learn"
+  - "Points new developers towards the broader Commerce Cloud community as a key support channel while they learn"
 ---
 Welcome to the exciting world of Salesforce B2C Commerce Cloud Development! If you're new to the game, don't worry - we've all been there. But let's be honest: Salesforce B2C Commerce Cloud can initially be overwhelming. With so many features and capabilities, it can be hard to know where to begin.
 

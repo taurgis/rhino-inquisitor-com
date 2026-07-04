@@ -4,7 +4,7 @@ description: >-
   Are you interested in what is new in each Salesforce B2C Commerce Cloud
   release? Then this is the article for you! Let us look at 22.6
 date: '2022-05-16T13:52:22.000Z'
-lastmod: '2026-07-04T15:49:16.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /salesforce-b2c-commerce-the-22-6-release/
 draft: false
 heroImage: 22-6-release-einstein-dashboards-722f4cbace.png
@@ -28,7 +28,7 @@ In this release, Einstein is getting a bit of love with better insights into the
 
 ### Drill down to a single recommender
 
-{{< img-caption src="22-6-release-einstein-dashboards-722f4cbace.png" alt="Einstein dashboard view for drilling into a single recommender." caption="The new dashboard makes it easier to understand one recommender instead of the whole program." link="22-6-release-einstein-dashboards-722f4cbace.png" >}}
+{{< img-caption src="22-6-release-einstein-dashboards-722f4cbace.png" alt="Einstein dashboard view for drilling into a single recommender." caption="The new dashboard makes it easier to understand one recommender instead of the whole programme." link="22-6-release-einstein-dashboards-722f4cbace.png" >}}
 
 It will now be possible to drill down to a single recommender in the dashboards to see how they perform over a selected period of time.
 

@@ -4,7 +4,7 @@ description: >-
   SLAS (Shopper Login And API Access Service) is one of the headless APIs made
   available by Salesforce. But how can we use it in SFRA?
 date: '2025-07-24T20:52:39.000Z'
-lastmod: '2026-07-04T14:48:28.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /slas-in-sfra-or-sitegenesis/
 draft: false
 heroImage: slas-84866c9e46.jpg
@@ -111,7 +111,7 @@ For developers and architects, migrating to Hybrid Auth translates into tangible
 
 - **A Seamless Shopper Experience:** By eliminating the clunky, multi-call process of the old cartridge, the platform ensures that session state is synchronised far more reliably and with significantly less latency. The nightmare scenario of a shopper losing their session or basket when moving between a PWA Kit page and an SFRA page is effectively neutralised. This seamlessness extends beyond just the session, automatically synchronising Shopper Context data and "Do Not Track" (DNT) preferences between the two environments.
 
-- **Full Support for All Templates:** Hybrid Authentication is a first-class citizen for both SFRA and, crucially, the older SiteGenesis architecture. This provides a fully supported, productised, and stable path toward a composable future for all B2C Commerce customers, regardless of their current storefront template.
+- **Full Support for All Templates:** Hybrid Authentication is a first-class citizen for both SFRA and, crucially, the older SiteGenesis architecture. This provides a fully supported, productised, and stable path towards a composable future for all B2C Commerce customers, regardless of their current storefront template.
 
 ### Is The Promised Land Free of Danger
 

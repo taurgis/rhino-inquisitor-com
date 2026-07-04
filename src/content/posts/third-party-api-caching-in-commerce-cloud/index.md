@@ -4,7 +4,7 @@ description: >-
   Learn how to cache third-party API responses in Commerce Cloud to improve
   performance, control latency, and avoid stale-data pitfalls.
 date: '2024-11-11T05:35:00.000Z'
-lastmod: '2026-07-04T14:48:28.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /third-party-api-caching-in-commerce-cloud/
 draft: false
 heroImage: third-party-service-caching-6154196735.jpg
@@ -131,7 +131,7 @@ Accessing the client before invoking service will yield \`null\`, resulting in s
 
 #### Rate Limits and Circuit Breakers
 
-Remember that cached requests still count toward your service's rate limits and circuit breaker configuration (and quota limits).
+Remember that cached requests still count towards your service's rate limits and circuit breaker configuration (and quota limits).
 
 While caching helps reduce direct external requests, every time you call the service—whether through the cache or directly—it impacts your statistical limits. This could cause service disruptions if you exceed certain [thresholds](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/quota/html/API_Quotas.html#category_I/O%20and%20Network).
 

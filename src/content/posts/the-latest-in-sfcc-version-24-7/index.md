@@ -4,7 +4,7 @@ description: >-
   In some places there is too much rain, in other places it is too hot. The
   weather might not be consistent, but the release schedule of SFCC sure is!
 date: '2024-07-08T07:51:29.000Z'
-lastmod: '2026-07-04T15:38:04.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /the-latest-in-sfcc-version-24-7/
 draft: false
 heroImage: salesforce-b2c-commerce-cloud-24-7-release-notes-7b5bf8e6a0.jpg
@@ -141,7 +141,7 @@ This update can back up these rules and allow external control. This will be ext
 
 ### Import External Coupon Redemptions
 
-> You can now update the status of a coupon redeemed outside of B2C Commerce using the new Coupon Redemption API (/organisations/{organizationId}/coupons/actions/redeem). To identify the source of redemption for an external coupon, use a custom reference ID or any custom string. You can also add an optional email address to the redemption for further tracking and communication. To update multiple coupon redemptions at one time, use the new ImportCouponCodeRedemptionsStep job step. This bulk import, which works only in merge mode, streamlines the process of managing multiple redemptions at scale.
+> You can now update the status of a coupon redeemed outside of B2C Commerce using the new Coupon Redemption API (`/organizations/{organizationId}/coupons/actions/redeem`). To identify the source of redemption for an external coupon, use a custom reference ID or any custom string. You can also add an optional email address to the redemption for further tracking and communication. To update multiple coupon redemptions at one time, use the new ImportCouponCodeRedemptionsStep job step. This bulk import, which works only in merge mode, streamlines the process of managing multiple redemptions at scale.
 
 This is a big update for any business working in multiple online and offline channels. With this update, we can  [batch import](https://help.salesforce.com/s/articleView?id=cc.b2c_coupons_and_coupon_code_object_import_export.htm&type=5) or have a third-party system call the brand new "[Coupon Redemption API](https://developer.salesforce.com/docs/commerce/commerce-api/references/coupons?meta=redeemCoupon&q=redemption)".
 

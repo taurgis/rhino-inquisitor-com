@@ -4,7 +4,7 @@ description: >-
   Guide to the SFCC quotas that break storefronts first, with failure patterns
   and design tactics to stay inside platform limits.
 date: '2025-11-24T12:41:24.000Z'
-lastmod: '2026-07-04T15:28:48.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /a-survival-guide-to-sfcc-platform-limits/
 draft: false
 heroImage: b2c-commerce-cloud-quota-warnings-scaled-adc4dec7e9.jpeg
@@ -61,7 +61,7 @@ Beyond the hard limit, there is a more subtle performance drag to consider. The 
 
 **The Fallout:** The consequence is absolute: the inability to create new custom object types. This effectively halts the development of any new feature that requires a distinct data structure, putting the brakes on innovation and business agility.
 
-**The Pro Move:** This strategy is rooted in effective data modelling and long-term architectural planning. Developers should practice data consolidation, designing a single, well-structured custom object with multiple attributes to represent a feature's data, rather than creating a constellation of small, single-purpose object types. It is also good practice to regularly audit development and staging environments to remove unused custom object types that may have been created for proofs-of-concept or abandoned features, freeing up slots in the blueprint.
+**The Pro Move:** This strategy is rooted in effective data modelling and long-term architectural planning. Developers should practise data consolidation, designing a single, well-structured custom object with multiple attributes to represent a feature's data, rather than creating a constellation of small, single-purpose object types. It is also good practice to regularly audit development and staging environments to remove unused custom object types that may have been created for proofs-of-concept or abandoned features, freeing up slots in the blueprint.
 
 This limit imposes a hidden constraint on architectural freedom. While 300 types may seem generous, the platform's system objects already occupy a significant portion of that budget. This creates a strategic tension. A developer might be tempted to create a new custom object type to keep a feature's data cleanly isolated. However, in doing so, they consume a precious, non-renewable, instance-wide resource. This pressure forces architects to think about the long-term data model of the entire instance. A short-sighted decision to create a new object type for a minor feature today could prevent the development of a more critical, large-scale feature tomorrow. It encourages a pattern of extending existing objects, which, if not managed carefully, can lead to bloated objects with hundreds of attributes, creating their own set of maintenance challenges.
 
@@ -89,7 +89,7 @@ The [documentation](https://developer.salesforce.com/docs/commerce/b2c-commerce/
 
 ## The Party Line: API HTTPClient Calls Per Page (16 Limit)
 
-{{< img-caption src="the-api-party-line-53588b75f5.jpeg" alt="Cartoon of frustrated developers crowded around a party-line telephone labelled '16 API Calls Per Page.'" caption="The HTTPClient limit pushes teams toward aggregation, caching, and feed-based integrations." >}}
+{{< img-caption src="the-api-party-line-53588b75f5.jpeg" alt="Cartoon of frustrated developers crowded around a party-line telephone labelled '16 API Calls Per Page.'" caption="The HTTPClient limit pushes teams towards aggregation, caching, and feed-based integrations." >}}
 
 Remember old party lines? B2C Commerce's HTTPClient is similar. You only get 16 external API calls per request. If too many services try to "talk" at once, your page will throw an error. Plan your integrations wisely!
 
@@ -131,7 +131,7 @@ This limit of 16 calls is more than just a technical constraint; it is a powerfu
 
 **The Fallout:** The primary risk here is not a hard error but a slow, creeping death of performance. The B2C Commerce promotion engine must evaluate all potentially applicable promotions during basket calculation. As the number of enabled—and especially active—promotions grows, this calculation becomes exponentially more complex. The result is a slowdown in the basket and checkout pipelines, which impacts the checkout experience for _all_ users, even those not using a promotion. Hitting the hard limit is rare, but the performance degradation begins far sooner.
 
-**The Pro Move:** The solution is not technical but procedural: a strict "Promotion Lifecycle Management" process must be implemented. Business users and merchandisers must be trained and required to archive promotions as soon as their effective date range has passed. From a technical monitoring perspective, the "Number of Active Promotions" quota (1,000) should be treated as the more critical performance indicator. Any sustained approach toward this number should trigger an immediate review and cleanup of the active promotion landscape.
+**The Pro Move:** The solution is not technical but procedural: a strict "Promotion Lifecycle Management" process must be implemented. Business users and merchandisers must be trained and required to archive promotions as soon as their effective date range has passed. From a technical monitoring perspective, the "Number of Active Promotions" quota (1,000) should be treated as the more critical performance indicator. Any sustained approach towards this number should trigger an immediate review and cleanup of the active promotion landscape.
 
 ## The Unfurled Scroll: ISML Template Size (10MB Limit)
 

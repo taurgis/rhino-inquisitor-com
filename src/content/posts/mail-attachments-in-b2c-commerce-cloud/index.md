@@ -4,7 +4,7 @@ description: >-
   Learn how to send emails with attachments from Salesforce B2C Commerce Cloud
   using ISML, including setup details and implementation pitfalls.
 date: '2022-03-15T06:04:04.000Z'
-lastmod: '2026-07-04T14:48:28.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /mail-attachments-in-b2c-commerce-cloud/
 draft: false
 heroImage: mail-a7e287274f.jpg
@@ -173,7 +173,7 @@ The lack of a simple attachment feature in the `dw.net.Mail` class is not an ove
 This design philosophy reflects a broader platform strategy. Salesforce offers a comprehensive ecosystem of interconnected products, including the powerful Marketing Cloud for sophisticated email campaigns, and recommends third-party ESPs for bulk email sending.
 The fact that sending an attachment requires a developer to manually construct the email at a low level—a task akin to building a raw HTTP request by hand—while the rest of the platform offers high-level abstractions, is a strong signal.
 
-The platform is implicitly [guiding](https://help.salesforce.com/s/articleView?id=000391416&type=1) developers toward more robust, specialised, and often separately licensed solutions for complex requirements. The built-in mailer is for basic transactions. For anything more, the intended path is to integrate with a service _designed_ for that purpose.
+The platform is implicitly [guiding](https://help.salesforce.com/s/articleView?id=000391416&type=1) developers towards more robust, specialised, and often separately licensed solutions for complex requirements. The built-in mailer is for basic transactions. For anything more, the intended path is to integrate with a service _designed_ for that purpose.
 
 This guide, therefore, is about learning to operate skilfully and safely outside of that intended path when business needs demand it.
 

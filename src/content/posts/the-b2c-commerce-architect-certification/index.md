@@ -4,7 +4,7 @@ description: >-
   Prepare for the Salesforce B2C Commerce Architect certification with a guide
   to exam domains, study priorities, and practical preparation.
 date: '2023-05-22T07:18:54.000Z'
-lastmod: '2026-07-04T15:49:16.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /the-b2c-commerce-architect-certification/
 draft: false
 heroImage: b2c-commerce-cloud-architect-fbcc847dcd.jpeg
@@ -72,7 +72,7 @@ The Official List
 
 - Given a set of technical specifications, evaluate the implementation process to ensure the solution meets the business requirements.
 - Given an implementation, validate that best practices are followed and guide their usage so that the end solution is secure, performant, and modular.
-- Given a complex issue or set of issues, guide a development team in the steps toward resolution.
+- Given a complex issue or set of issues, guide a development team in the steps towards resolution.
 - Given an implementation and known KPIs, support in load testing, evaluate results, and ensure the implementation meets expectations.
 - Given a collection of cartridges and data, define a process to compile and deploy to Salesforce environments.
 

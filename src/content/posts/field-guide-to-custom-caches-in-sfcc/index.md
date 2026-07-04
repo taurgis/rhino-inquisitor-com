@@ -4,7 +4,7 @@ description: >-
   Learn when Custom Caches help in SFCC, where they create risk, and how to use
   them safely without hurting performance or maintainability.
 date: '2025-07-28T07:32:55.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /field-guide-to-custom-caches-in-sfcc/
 draft: false
 heroImage: custom-caches-in-sfcc-scaled-c245e83c7a.jpeg
@@ -29,7 +29,7 @@ This is not a beginner's tutorial. This is a field guide for the professional SF
 
 ## The Lay of the Land: Choosing Your Data Store
 
-Before you even think about writing `CacheMgr.getCache()`, you need to understand its purpose. Using the wrong tool for the job is the first step toward disaster.
+Before you even think about writing `CacheMgr.getCache()`, you need to understand its purpose. Using the wrong tool for the job is the first step towards disaster.
 
 In SFCC, you have several options for storing temporary data, and choosing the correct [one](https://developer.salesforce.com/docs/commerce/commerce-solutions/guide/caching-strategies-sk.html) is a foundational architectural decision.
 

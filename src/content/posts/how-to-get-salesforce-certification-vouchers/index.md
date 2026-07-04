@@ -4,7 +4,7 @@ description: >-
   Getting certified with Salesforce is one of the people's many goals within the
   ecosystem. But they come at a price! Where can I score a deal?
 date: '2023-01-23T10:55:12.000Z'
-lastmod: '2026-07-04T15:28:48.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /how-to-get-salesforce-certification-vouchers/
 draft: false
 heroImage: trailhead-academy-765c17a690.jpeg
@@ -103,7 +103,7 @@ Especially when a new accreditation or certificate is being introduced, this sli
 
 ## Bringing it all together
 
-{{< img-caption src="salesforce-credentials-vouchers-personv2-bf4ee67f38.jpeg" alt="Looking to save some money while getting certified in Salesforce? No problem! Here's a helpful overview of where you can find discounts and even free exam attempts to make your certification journey a little more budget-friendly. Partner Vouchers Community Events Trailhead Certification Events Partner Community Events Certification Days Trailhead Quests Salesforce Webinars" caption="Discounts and free exam attempts usually come from partner perks, events, quests, and Salesforce programs." link="salesforce-credentials-vouchers-personv2-bf4ee67f38.jpeg" >}}
+{{< img-caption src="salesforce-credentials-vouchers-personv2-bf4ee67f38.jpeg" alt="Looking to save some money while getting certified in Salesforce? No problem! Here's a helpful overview of where you can find discounts and even free exam attempts to make your certification journey a little more budget-friendly. Partner Vouchers Community Events Trailhead Certification Events Partner Community Events Certification Days Trailhead Quests Salesforce Webinars" caption="Discounts and free exam attempts usually come from partner perks, events, quests, and Salesforce programmes." link="salesforce-credentials-vouchers-personv2-bf4ee67f38.jpeg" >}}
 
 ## Any more
 

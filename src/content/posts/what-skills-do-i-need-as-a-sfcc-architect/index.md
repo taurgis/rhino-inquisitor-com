@@ -4,7 +4,7 @@ description: >-
   Learn how to successfully transition from developer to architect in Salesforce
   B2C Commerce Cloud with these tips and strategies.
 date: '2023-06-26T07:02:54.000Z'
-lastmod: '2026-07-04T15:28:48.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /what-skills-do-i-need-as-a-sfcc-architect/
 draft: false
 heroImage: an-architect-aa108258ed.jpg
@@ -88,7 +88,7 @@ Here are some specific ways you can stay open to learning and continuous improve
 
 - **Seek out new learning opportunities:** You can continue to learn and grow as an architect in many ways. This could include taking online courses or attending workshops, participating in hackathons or other events, or attending conferences and other industry events. You can stay current and relevant in your field by actively seeking out new learning opportunities.
 
-- **Collaborate with others:** Collaborating with other professionals can be a great way to learn and grow as an architect. This could include working on side projects with peers, participating in hackathons or other events, or joining a study group or mentorship program.
+- **Collaborate with others:** Collaborating with other professionals can be a great way to learn and grow as an architect. This could include working on side projects with peers, participating in hackathons or other events, or joining a study group or mentorship programme.
 
 By staying open to learning and continuous improvement, you can ensure that you're always learning and growing as an architect and can make valuable contributions to your organisation.
 

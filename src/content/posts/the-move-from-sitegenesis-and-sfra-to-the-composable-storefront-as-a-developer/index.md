@@ -5,7 +5,7 @@ description: >-
   expanding your skill set and exploring new technologies is part of the job -
   it all
 date: '2023-12-25T13:46:42.000Z'
-lastmod: '2026-07-04T15:38:04.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: >-
   /the-move-from-sitegenesis-and-sfra-to-the-composable-storefront-as-a-developer/
 draft: false
@@ -36,7 +36,7 @@ React.JS quickly gained traction in the development community and has been adopt
 
 Salesforce (well ... the [Mobify](https://www.digitalcommerce360.com/2020/09/09/salesforce-agrees-to-buy-headless-commerce-tech-firm-mobify/) team ) saw the potential in React.JS and decided to create the Salesforce Composable Storefront. The Salesforce Composable Storefront, or PWA Kit, is an open-source toolkit that can be used to create PWAs using React.JS and SFCC APIs. This toolkit empowers developers to use the power of React.JS to create fast, responsive and engaging customer experiences for the [Salesforce Commerce Cloud platform](/sitegenesis-vs-sfra-vs-pwa/).
 
-## Transferrable Skills
+## Transferable Skills
 
 {{< img-caption src="use-your-knowledge-98ac47c97d.jpg" alt="Illustration of a game controller and brain symbolising transferable developer knowledge." caption="Skills built on SiteGenesis and SFRA — catalog, pricing, promotions, OCAPI — remain fully relevant in the Composable Storefront." >}}
 

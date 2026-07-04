@@ -4,7 +4,7 @@ description: >-
   Get ready for Dreamforce 2022 with a quick look at the event's 20th
   anniversary, standout commerce sessions, and what to watch on site.
 date: '2022-08-24T19:21:06.000Z'
-lastmod: '2026-07-04T15:28:48.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /20-years-of-dreamforce/
 draft: false
 heroImage: dreamforce-ai-8754307d6d.jpg
@@ -178,7 +178,7 @@ Headless, API-first, composable, etc., have many approaches. And hearing other p
 
 > Shopping at the edge is expected to grow exponentially over the next five years. Learn how to improve product discoverability and boost sales on today’s leading social channels using Commerce Cloud.
 
-Next to headless, social commerce has gotten a lot more attention. If you are also active in the SCAPI/SLAS space in the Unofficial Slack community/webinars, you will recognise Bhagath!
+Next to headless, social commerce has received a lot more attention. If you are also active in the SCAPI/SLAS space in the Unofficial Slack community/webinars, you will recognise Bhagath!
 
 ### Increase Conversions and Agility with Headless Commerce
 

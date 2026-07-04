@@ -4,7 +4,7 @@ description: >-
   Are you wondering what entities make up a campaign in SFCC and how they are
   connected? Then look no more! Here is a small ERD.
 date: '2023-02-27T08:24:42.000Z'
-lastmod: '2026-07-04T14:48:28.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /b2c-commerce-cloud-campaign-erd/
 draft: false
 heroImage: newsletter-surrounded-by-cogwheels-83ae88881a.jpg
@@ -71,7 +71,7 @@ Campaign Details
 
 I experimented with the [StoreMgr.setStoreIDToSession()](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_catalog_StoreMgr.html) function, which did not activate an In-Store-only campaign. These scopes are also unavailable in the SCAPI/OCAPI, meaning we can not use them for Headless applications either.
 
-If anyone has gotten this feature to work, please let me know on the social channels I am active on!
+If anyone has got this feature to work, please let me know on the social channels I am active on!
 
 > [!NOTE]
 > **Thanks:** Thanks to [Paul Shaver](https://www.linkedin.com/in/paulshaver/) for telling me about the "hidden feature switch"!

@@ -4,7 +4,7 @@ description: >-
   Do you want to know more about the server architecture of Salesforce B2C
   Commerce Cloud? You have come to the right place!
 date: '2022-08-22T17:37:46.000Z'
-lastmod: '2026-07-04T15:49:16.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /the-salesforce-b2c-commerce-cloud-environment/
 draft: false
 heroImage: connected-systems-d281b9e674.jpg
@@ -131,5 +131,5 @@ This change does not affect:
 - Image Downloader Service
 - WebDAV calls
 - /dw/monitor calls for health checks
-- sffc-ci tool (developer instance only)
+- `sfcc-ci` tool (developer instance only)
 - Data APIs

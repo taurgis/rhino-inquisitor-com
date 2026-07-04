@@ -671,6 +671,68 @@ descriptive alt instead.
   `src/content/posts/the-attribute-fallback-system-in-sfcc/index.md`,
   `src/content/posts/guide-to-the-getprops-method-in-sfcc/index.md`.
 
+## Update: American-form detection the dictionary cannot see
+
+### Change summary
+
+An audit of the British English enforcement (benchmarked against Vale's
+substitution-rule approach, the GDS/GOV.UK and ONS style guides, and the
+proselint/write-good curated lists) found the gate's one systematic blind
+spot: American forms that the en-GB Hunspell dictionary also accepts as valid
+words. "toward", "gotten", noun "license", verb "practice", and non-computing
+"program" all passed the dictionary check, and the site had ~64 of them. The
+gate now has a curated layer for exactly that class, and the American English
+dictionary (`dictionary-en`, previously an unused dev dep) is used to label
+findings: a word en-US knows is reported as "American spelling … (British: …)"
+instead of "unknown word", so authors immediately see which fix applies.
+
+### Old vs new behavior
+
+| Aspect | Old | New |
+|--------|-----|-----|
+| American forms valid in en-GB | Invisible ("toward", "gotten", "anyways", "oftentimes", noun "license") | `AMERICANISMS` map flags them with the British form; hyphen-glued tokens ("ill-gotten") and verb derivatives ("licensed", "licensing") stay legal |
+| Noun/verb heterographs | Invisible | Verb "practice" caught via context phrases ("to practice", modal + "practice" → "practise"); the noun stays untouched. A genuine verb use of "license" is kept via a phrase allowlist entry |
+| programme/program | Invisible | Non-computing pairings flagged ("beta/pilot/partner/mentorship/rewards/loyalty/… program" → "programme"); computer programs keep "program" (ONS rule), and capitalised proper names ("AppExchange Partner Program") are skipped |
+| Deliberately not flagged | n/a | meter/tire/curb/disk/dialog — each is also an everyday British word or a computing exception ("dialog box", "hard disk"), so word-level flagging would misfire; documented in the `AMERICANISMS` comment |
+| Report classification | American variants reported as "unknown word" | en-US-valid words labelled "American spelling" with the British suggestion; `--list-unknown` excludes them so allowlist seeding can never launder an American spelling |
+| Error phrases | 29 | 76: adds idiom slips ("could care less", "free reign", "piece of mind", "hone in on"), British style ("different than" → "different from", "fill out a form" → "fill in"), regards ("in/with regards to"), RAS redundancies ("PIN number", "ATM machine"), and more verb/noun splits ("to signup/shutdown/cleanup/logon") |
+| Curated misspellings | 45 | 70 (high-frequency typo→fix pairs so reports carry exact suggestions) |
+| Integrity tests | Misspelling map + allowlist shadow checks | + every `AMERICANISMS` key must pass en-GB (else the dictionary check owns it) and every suggestion must be a valid en-GB word; allowlist word entries may not disable an `AMERICANISMS` rule |
+
+Alternatives considered: no maintained Vale package enforces British English
+(teams pair a Hunspell dictionary with hand-curated substitution rules — the
+same architecture as this gate); `retext-indefinite-article`/`repeated-words`
+overlap with the existing tailored checks without the site-specific acronym
+handling; LanguageTool needs Java/Docker in CI; `harper.js` (WASM, en-GB) is
+the one credible future add-on if POS-aware checking is ever wanted.
+
+The same audit fixed content the new rules cannot express: a SCAPI path the
+original conversion had mangled to `/organisations/{organizationId}/…` (now
+restored and in inline code), `sffc-ci` → `` `sfcc-ci` ``, a misspelled
+contributor name ("Upmany" → "Upmanyu"), nonstandard words hidden by allowlist
+entries ("preparational" → "preparatory", "migrational" → "migration",
+"transferrable" → "transferable", "abovementioned" → "aforementioned"), and a
+typo'd tutorial feed ID ("physicial" → "physical"). The six now-stale allowlist
+entries were removed (677 → 671, `--unused-allowlist` reports 0 unused).
+
+### Impact and verification
+
+- Impacted components: `scripts/gates/check-spelling.js` (new `AMERICANISMS`
+  check, en-US classification, phrase/misspelling additions),
+  `scripts/gates/check-spelling.test.js` (suite grew to 47 tests),
+  `scripts/gates/spelling-allow.txt` (6 entries removed, 1 corrected), and 57
+  corrected articles under `src/content/` (each with a `lastmod` bump). The
+  gate keeps its place in the `build` group; `dictionary-en` was already in
+  `package.json`, so no dependency or workflow changes.
+- Verify: `npm run check:spelling` exits 0 across all 197 files. Add "toward",
+  "gotten", "a license", "should practice", or "beta program" to any article
+  and confirm the gate exits 1 with the British correction; add "color" and
+  confirm it is reported as an American spelling (not an unknown word).
+  `npm run test:spelling` covers the new maps' integrity and behaviour.
+- Related files: `scripts/gates/check-spelling.js`,
+  `scripts/gates/check-spelling.test.js`, `scripts/gates/spelling-allow.txt`,
+  corrected articles under `src/content/`.
+
 ## Related files
 
 - `.github/workflows/deploy-pages.yml`

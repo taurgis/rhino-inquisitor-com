@@ -4,7 +4,7 @@ description: >-
     Learn how to migrate Magento passwords with Argon2, preserve account access,
     and plan a safer authentication transition.
 date: '2024-03-27T08:47:32.000Z'
-lastmod: '2026-07-04T15:28:48.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /migrate-magento-passwords-using-argon2/
 draft: false
 heroImage: cryptography-668cd24089.jpg
@@ -28,7 +28,7 @@ The good news is that I managed to migrate a Python script to Node.js that verif
 
 ## TL;DR; The script
 
-I have created a [script](https://osapishchuk.medium.com/legacy-customers-password-migration-3fa1596303cc) that can be used for various purposes. However, I would strongly suggest using it only for educational purposes or with proper authorisation. You can just change this script to meet your specific needs. For example, you can use it to develop a microservice for migrational purposes with proper authorisation.
+I have created a [script](https://osapishchuk.medium.com/legacy-customers-password-migration-3fa1596303cc) that can be used for various purposes. However, I would strongly suggest using it only for educational purposes or with proper authorisation. You can just change this script to meet your specific needs. For example, you can use it to develop a microservice for migration purposes with proper authorisation.
 
 ### hashes.txt
 

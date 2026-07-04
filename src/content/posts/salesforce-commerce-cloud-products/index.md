@@ -1,10 +1,10 @@
 ---
 title: 9 Salesforce Commerce Cloud Products
 description: >-
-  Salesforce Commerce Cloud has gotten a lot bigger in the past few years,
+  Salesforce Commerce Cloud has become a lot bigger in the past few years,
   adding more and more products to the "name." Let us go over them!
 date: '2023-07-17T09:07:01.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /salesforce-commerce-cloud-products/
 draft: false
 heroImage: salesforce-commerce-cloud-af0419a10b.png
@@ -80,7 +80,7 @@ I hope that clarifies the "confusion" regarding B2C Commerce in the Salesforce s
 
 Another product built on the CRM, but good news. We are starting to head back into B2C Commerce Cloud territory! You may already know that an OMS (Order Management System) was once [built into Salesforce B2C Commerce Cloud](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-order-management-for-developers.html).
 
-This has been deprecated for a while and is no longer maintained; Salesforce will always point you toward the new Salesforce OMS.
+This has been deprecated for a while and is no longer maintained; Salesforce will always point you towards the new Salesforce OMS.
 
 But not to worry, this product [natively integrates with SFCC](https://resources.docs.salesforce.com/latest/latest/en-us/sfdc/pdf/salesforce_order_management_implementation_guide.pdf)! (Well, with one support ticket away to flip a switch and quite a bit of configuration) This sounds optimistic. A lot of work is involved in getting an OMS up and running. More than just connecting it to your commerce platform will be required!
 
@@ -94,7 +94,7 @@ A "smaller" product in the lineup: a "Headless" addon called [OCI (Omnichannel I
 
 I will not go into too much detail as I [already released a different article that digs into those details](/what-is-oci-omnichannel-inventory/)!
 
-License If you are a Salesforce B2C Commerce Cloud customer, this product is already included in your license!
+Licence If you are a Salesforce B2C Commerce Cloud customer, this product is already included in your licence!
 
 ## Commerce Marketplaces (Atonit)
 

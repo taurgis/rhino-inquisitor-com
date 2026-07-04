@@ -4,7 +4,7 @@ description: >-
   A practical look at how AI is shifting from pure automation to workplace
   augmentation, and what that change means for teams and delivery.
 date: '2023-03-13T07:15:33.000Z'
-lastmod: '2026-07-04T10:39:24.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /ai-automation-to-augmentation-at-work/
 draft: false
 heroImage: ai-in-the-workplace-2aeaebf266.jpg
@@ -15,7 +15,7 @@ tags:
   - technical
 author: Thomas Theunen
 takeaways:
-  - "Argues AI is shifting from pure automation toward augmenting workplace decision-making"
+  - "Argues AI is shifting from pure automation towards augmenting workplace decision-making"
   - "Balances productivity gains against privacy, bias, and accuracy concerns"
   - "Uses Salesforce Commerce Cloud examples to show where AI can remove repetitive work"
 ---

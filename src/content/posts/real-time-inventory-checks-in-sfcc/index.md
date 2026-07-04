@@ -4,7 +4,7 @@ description: >-
   Learn when real-time inventory checks improve the customer experience, where
   they add risk, and how to balance speed with accuracy.
 date: '2026-02-09T11:11:31.000Z'
-lastmod: '2026-07-04T15:38:04.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /real-time-inventory-checks-in-sfcc/
 draft: false
 heroImage: stampede-to-a-single-endpoin-t-scaled-2d591aef78.jpeg
@@ -170,7 +170,7 @@ For any retailer on the Salesforce platform, the choice becomes clear: do you bu
 
 - **Speed:** OCI significantly reduces the development time and complexity of building a custom eventing platform from scratch.
 
-- **Lower TCO:** While there's a license cost, it pales in comparison to the expense of building, maintaining, and monitoring a custom, high-availability integration platform. One case study projected a 32% reduction in IT costs for a retailer that adopted a solution including OCI.
+- **Lower TCO:** While there's a licence cost, it pales in comparison to the expense of building, maintaining, and monitoring a custom, high-availability integration platform. One case study projected a 32% reduction in IT costs for a retailer that adopted a solution including OCI.
 
 - **Scalability & Cohesion:** It's built by Salesforce, for Salesforce. It's designed to scale and integrate seamlessly with the rest of the Customer 360 platform, powering a unified experience that can have a real top-line impact—the same study projected a 40% increase in sales.
 

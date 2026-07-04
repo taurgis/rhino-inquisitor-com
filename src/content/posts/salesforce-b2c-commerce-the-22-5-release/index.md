@@ -4,7 +4,7 @@ description: >-
   Review the Salesforce B2C Commerce Cloud 22.5 release notes and the platform
   updates developers should test or plan for.
 date: '2022-04-18T07:31:52.000Z'
-lastmod: '2026-07-04T15:38:04.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /salesforce-b2c-commerce-the-22-5-release/
 draft: false
 heroImage: b2c-control-center-3581b7d6c3.png
@@ -39,7 +39,7 @@ This is, in my opinion, an excellent move to integrate the Commerce Cloud commun
 
 ### Encryption at Rest
 
-To improve the platform's security, a new **PILOT** program was started. This program aims to encrypt all customer data on the Salesforce B2C Commerce platform stored on the POD (servers).
+To improve the platform's security, a new **PILOT** programme was started. This programme aims to encrypt all customer data on the Salesforce B2C Commerce platform stored on the POD (servers).
 
 This is achieved using Host Disk Encryption offered by the OS and [Volume Encryption](https://docs.netapp.com/us-en/ontap/encryption-at-rest/configure-netapp-volume-encryption-concept.html) provided by NetApp.
 
@@ -59,7 +59,7 @@ We already had [the option to schedule our Sandboxes uptime through a REST API](
 
 {{< img-caption src="tiktok-for-business-e34f4d0876.jpeg" alt="TikTok for Business branding used for the beta integration announcement." caption="The TikTok beta connected B2C Commerce catalog and shopper data to another discovery channel." link="tiktok-for-business-e34f4d0876.jpeg" >}}
 
-A beta program is available to test an integration between B2C Commerce Cloud and Tiktok. This Beta aims to create storefronts and advertise products on Tiktok using products and shopper activity data.
+A beta programme is available to test an integration between B2C Commerce Cloud and Tiktok. This Beta aims to create storefronts and advertise products on Tiktok using products and shopper activity data.
 
 Currently, recruiting for this feature is paused until further notice!
 

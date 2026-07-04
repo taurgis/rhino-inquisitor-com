@@ -4,7 +4,7 @@ description: >-
   For a long time shirtforce only had core platform-related t-shirt options,
   until now! To help a charity I decided to make some designs!
 date: '2023-06-05T06:43:00.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /commerce-cloud-t-shirts-on-shirtforce/
 draft: false
 heroImage: shirtforce-bugs-f0a63ab31a.jpg
@@ -38,7 +38,7 @@ Let's not waste time and get straight to the designs and their backstory.
 
 Most people will have already seen a similar text on an image or T-Shirt over the years. In this case, we just changed the subject to "Headless."
 
-Headless has become more prominent in the Salesforce Commerce space in the past two to three years. Especially with the [acquisition of Mobify](https://www.digitalcommerce360.com/2020/09/09/salesforce-agrees-to-buy-headless-commerce-tech-firm-mobify/), this has gotten quite the boost.
+Headless has become more prominent in the Salesforce Commerce space in the past two to three years. Especially with the [acquisition of Mobify](https://www.digitalcommerce360.com/2020/09/09/salesforce-agrees-to-buy-headless-commerce-tech-firm-mobify/), this has had quite the boost.
 
 And with the option for hybrid (or phased) deployments...another idea popped into my head.
 

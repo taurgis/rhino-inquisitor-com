@@ -4,7 +4,7 @@ description: >-
   Bringing your first site live on SFCC can be challenging. In this series, we
   will be looking at different parts. Part I: eCDN
 date: '2022-08-04T06:53:47.000Z'
-lastmod: '2026-07-04T14:48:28.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /lets-go-live-ecdn/
 draft: false
 heroImage: ecdn-5035a37164.png
@@ -26,7 +26,7 @@ So, you want to set a website live on Salesforce B2C Commerce Cloud. It is all r
 
 Not to worry! The ECDN is not rocket science, far from it. Once you have set up your first vanity domain, the second one will be peanuts.
 
-**Update August 5, 2022:** Added some warnings to this post with things to keep in mind. Thank you, [Sachin Upmany,](https://www.linkedin.com/in/sachin-upmanyu-82428828/) for the reminder that this information is also essential in these guides!
+**Update August 5, 2022:** Added some warnings to this post with things to keep in mind. Thank you, [Sachin Upmanyu,](https://www.linkedin.com/in/sachin-upmanyu-82428828/) for the reminder that this information is also essential in these guides!
 
 ## What is the eCDN
 
@@ -167,7 +167,7 @@ Once entered, the system will validate if it is correct. If it passes the valida
 
 You might have noticed that a BETA feature was marked in the screenshots above. Do you want to know more about this feature? Then visit [Cloudflare Docs](https://developers.cloudflare.com/ssl/edge-certificates/additional-options/tls-13/).
 
-Even though the notification popup warns you that this is a BETA feature, it has already gotten that mark for two years.
+Even though the notification popup warns you that this is a BETA feature, it has already carried that mark for two years.
 
 I have enabled this feature on most projects with no adverse effects.
 

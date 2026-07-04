@@ -4,7 +4,7 @@ description: >-
   Enhance your security beyond the basics on Salesforce B2C Commerce Cloud with
   this comprehensive guide tailored for developers.
 date: '2026-01-19T08:02:08.000Z'
-lastmod: '2026-07-04T15:28:48.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /a-dev-guide-to-combating-fraud-on-sfcc/
 draft: false
 heroImage: fraud-orders-sfcc-scaled-beae2495ff.jpeg
@@ -102,7 +102,7 @@ The platform's philosophy is not to provide a single, monolithic fraud solution,
 
 Every request to your storefront first passes through Salesforce's embedded Content Delivery Network (eCDN). This is your outermost wall. The primary tool here for developers is eCDN Custom Rules, which have replaced the older, more rigid firewall rules. These rules give you granular control over incoming traffic based on a wide array of request parameters.
 
-Using the [eCDN API](https://developer.salesforce.com/docs/commerce/commerce-api/guide/cdn-zones-custom-rules.html), you can construct powerful expressions to filter traffic before it ever hits your application servers. For example, you can create a rule to block requests originating from known malicious IP ranges, countries where you don't ship, or specific user agents associated with malicious bots. The flexibility of these rules, which can key off of URI paths, user agents, IP addresses, and more, makes the eCDN a formidable first line of defence against automated threats.
+Using the [eCDN API](https://developer.salesforce.com/docs/commerce/commerce-api/guide/cdn-zones-custom-rules.html), you can construct powerful expressions to filter traffic before it ever hits your application servers. For example, you can create a rule to block requests originating from known malicious IP ranges, countries where you don't ship, or specific user agents associated with malicious bots. The flexibility of these rules, which can key off URI paths, user agents, IP addresses, and more, makes the eCDN a formidable first line of defence against automated threats.
 
 {{< img-caption src="native-sfcc-features-15503da1e4.jpg" alt="A cartoon illustration showing SFCC's native defence toolkit. On the left, a developer uses eCDN Custom Rules and API to block malicious traffic and bots from entering a castle. In the middle, Payment Processing Fundamentals are depicted with AVS and CVV checks passing or failing a credit card. On the right, a Commerce Cloud Einstein robot states it's for merchandising and sales, not fraud prevention, debunking a myth." caption="SFCC has useful native controls, but they are only part of a serious fraud strategy." >}}
 
@@ -166,7 +166,7 @@ The most critical aspect of running your own custom solution is that its mainten
 
 ## Calling in the Cavalry - A Guide to Third-Party Fraud Solutions
 
-{{< img-caption src="calling-the-cavalry-fea1bcb812.jpg" alt="A cartoon illustration depicting 'The Cavalry' of third-party fraud solutions. Armoured knights ride cybernetic horses toward a castle labelled 'Salesforce Commerce Cloud.' Signposts highlight specific vendors like 'Riskified & Signifyd' (Peace of Mind), 'Kount' (Control), and 'DataDome' (Bot Defence), while knights carry banners representing 'Global Data' and 'Machine Learning.'" caption="Third-party tools earn their keep when scale or risk outgrows the native platform controls." >}}
+{{< img-caption src="calling-the-cavalry-fea1bcb812.jpg" alt="A cartoon illustration depicting 'The Cavalry' of third-party fraud solutions. Armoured knights ride cybernetic horses towards a castle labelled 'Salesforce Commerce Cloud.' Signposts highlight specific vendors like 'Riskified & Signifyd' (Peace of Mind), 'Kount' (Control), and 'DataDome' (Bot Defence), while knights carry banners representing 'Global Data' and 'Machine Learning.'" caption="Third-party tools earn their keep when scale or risk outgrows the native platform controls." >}}
 
 When custom rules aren't enough, it's time to call in the cavalry. Third-party solutions bring global data networks, advanced AI, and financial guarantees to reinforce your Salesforce Commerce Cloud defence.
 

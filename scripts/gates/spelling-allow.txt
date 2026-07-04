@@ -15,7 +15,6 @@
 # command. Blank lines and text after "#" are ignored.
 #
 abdi
-abovementioned
 accreditations
 adapter
 addon
@@ -362,7 +361,6 @@ microservice
 microservices
 middleware
 middlewares
-migrational
 mihai
 minification
 minify
@@ -430,7 +428,6 @@ performant
 personalisation
 pfoo
 photoshop
-physicial
 pipelet
 pitla
 pixelated
@@ -447,7 +444,6 @@ prebuilt
 preflight
 preload
 premade
-preparational
 prepending
 preprocess
 presentational
@@ -535,7 +531,6 @@ servlet
 seyfarth
 sfcc
 sfdc
-sffc
 sfra
 sgmf
 sha
@@ -605,7 +600,6 @@ trailhead
 trailheads
 trailmix
 trainings
-transferrable
 transformative
 ttf
 txt
@@ -625,7 +619,7 @@ unoptimised
 unscalable
 unshift
 unstyled
-upmany
+upmanyu
 upsert
 uptime
 url

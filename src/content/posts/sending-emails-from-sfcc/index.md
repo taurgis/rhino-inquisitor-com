@@ -4,7 +4,7 @@ description: >-
   This article covers the reasons for opting to send emails via Salesforce
   Commerce Cloud, the platform's limitations, the steps for programmatically
 date: '2024-12-09T08:19:31.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /sending-emails-from-sfcc/
 draft: false
 heroImage: delivering-mail-in-sfcc-c46d2358ed.jpg
@@ -40,7 +40,7 @@ While you may not want to modify your transactional emails frequently, it's a lo
 
 #### Page Designer to the rescue
 
-With the addition of [Page Designer](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-dev-for-page-designer.html) a few years ago, we have gotten a more "visual" way of creating pages, compared to static ISML templates with slots and Content Assets.
+With the addition of [Page Designer](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-dev-for-page-designer.html) a few years ago, we have gained a more "visual" way of creating pages, compared to static ISML templates with slots and Content Assets.
 
 But with choosing to go this route, a few things need to be kept in mind:
 
@@ -63,7 +63,7 @@ The previous points may seem like I'm advocating for a dedicated email platform.
 
 Generally, each email sent comes with a charge, and these costs can accumulate significantly over time.
 
-Fortunately, Salesforce Commerce Cloud doesn't require a separate license, allowing you to send **unlimited emails** at **no additional cost**!
+Fortunately, Salesforce Commerce Cloud doesn't require a separate licence, allowing you to send **unlimited emails** at **no additional cost**!
 
 Marketing Mails Sending transactional emails via Commerce Cloud remains the most sensible option, as creating marketing emails in SFCC is quite "challenging," to put it mildly.
 

@@ -4,7 +4,7 @@ description: >-
   Let's be honest: a slow e-commerce site is a silent killer of sales. In the
   world of B2C Commerce, every millisecond is money.
 date: '2025-06-23T17:00:05.000Z'
-lastmod: '2026-07-04T16:08:55.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /lag-to-riches-a-pwa-kit-developers-guide/
 draft: false
 heroImage: developer-manipulating-performance-scaled-3869da0b9c.jpeg
@@ -35,7 +35,7 @@ Before you can optimise anything, you need to understand what you're measuring. 
 
 ### Meet CrUX: Your Real-World Report Card
 
-The Chrome User Experience Report (CrUX) is a massive public dataset from Google, packed with real-world metrics from actual Chrome users. It's the official source for Google's Web Vitals program and the ultimate ground truth for how your site performs for your visitors.
+The Chrome User Experience Report (CrUX) is a massive public dataset from Google, packed with real-world metrics from actual Chrome users. It's the official source for Google's Web Vitals programme and the ultimate ground truth for how your site performs for your visitors.
 
 This data comes from Chrome users who have opted in to syncing their browsing history and have usage statistic reporting enabled, without a Sync passphrase. For your site to appear in the public dataset, it must be discoverable and have sufficient traffic to ensure that all data is anonymous and statistically significant.
 

@@ -4,7 +4,7 @@ description: >-
   As a content creator and Salesforce Commerce Cloud architect, I am fascinated
   by the seamless integration of technology and creativity.
 date: '2023-07-24T06:43:19.000Z'
-lastmod: '2023-07-24T06:43:36.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /ai-as-an-architect-and-content-creator/
 draft: false
 heroImage: mixing-human-and-ai-scaled-adabfe2b5d.jpg
@@ -30,8 +30,8 @@ As promised, I'll document my entire process of writing this article and include
 
 ### Thinking of a title
 
--   **Generation Type**: Text
--   **Generation Engine**: OpenAI GPT 3.5 Turbo
+- **Generation Type**: Text
+- **Generation Engine**: OpenAI GPT 3.5 Turbo
 
 The first thing when writing a new blog post is... the subject. And generally, coming up with a topic is not the issue. There are [many things to write about](/archive/) in the Salesforce Commerce Cloud ecosystem and technology in general. But thinking of an engaging title is something entirely different...
 
@@ -41,9 +41,9 @@ And that is where ChatGPT comes into play, allowing me to ask for some ideas! Al
 
 ### Some graphics to go with it
 
--   **Generation Type**: Image
--   **Generation Engine**: Stable Diffusion 1.5
--   **Model**: DreamShaper v7
+- **Generation Type**: Image
+- **Generation Engine**: Stable Diffusion 1.5
+- **Model**: DreamShaper v7
 
 Regarding images, many options are available - each requiring its own style of prompting and capabilities. When choosing image engines and models, I consider the style I want. For this particular image, I wanted a Cyberpunk-style face with a technological twist, but not excessively dystopian.
 
@@ -53,15 +53,15 @@ Another step is completed, but filling an article with engaging content is a tad
 
 ### The content
 
--   **Generation Type**: GPThomas 6
--   **Generation Engine**: Me, myself and I
--   **Model**: 10+ Years Experience Model
+- **Generation Type**: GPThomas 6
+- **Generation Engine**: Me, myself and I
+- **Model**: 10+ Years Experience Model
 
 Honestly, I tried using AI to generate content. But for Salesforce B2C Commerce Cloud and especially new features, it just wasn't working out:
 
--   Incorrect
--   Repetitive
--   Uninspiring
+- Incorrect
+- Repetitive
+- Uninspiring
 
 After careful consideration, I decided to utilise [Grammarly](https://www.grammarly.com/) as a tool for fine-tuning the tone and detecting any spelling errors in my writing.  As English is not my primary language, this AI tool helps correct mistakes and adjust my writing for tone or technicality.
 
@@ -75,10 +75,10 @@ Blogging is only a tiny part of my life, and I use AI in plenty of other places!
 
 ### Development
 
--   **Generation Type**: Text and Code
--   **Generation Engine**: Github Copilot
+- **Generation Type**: Text and Code
+- **Generation Engine**: Github Copilot
 
-For the past months, I have purchased a [Github Copilot](https://github.com/features/copilot) license for personal and professional use.
+For the past months, I have purchased a [Github Copilot](https://github.com/features/copilot) licence for personal and professional use.
 
 {{< img-caption src="github-copilot-react-e4aab607d7.jpg" alt="A screenshot of Webstorm showing React testing code being generated." caption="For development work, AI was most helpful when accelerating repetitive test scaffolding." >}}
 
@@ -86,8 +86,8 @@ While sometimes it generates "garbage", 99% of the time, it gives me great sugge
 
 ### Developer Documentation
 
--   **Generation Type**: Text
--   **Generation Engine**: OpenAI GPT 4
+- **Generation Type**: Text
+- **Generation Engine**: OpenAI GPT 4
 
 > [!NOTE]
 > **Documentation:** and explaining how a feature works is not always a developer's most "exciting" job. Giving your code to the engine and asking for documentation can have some decent results!
@@ -96,8 +96,8 @@ While sometimes it generates "garbage", 99% of the time, it gives me great sugge
 
 ### Feature / Integration Documentation
 
--   **Generation Type**: Text
--   **Generation Engine**: OpenAI GPT 4
+- **Generation Type**: Text
+- **Generation Engine**: OpenAI GPT 4
 
 I find myself frequently immersed in technical documentation as an architect. It can become overwhelming at times for non-technical persons.  But fortunately, AI technology has proven to be a valuable tool in simplifying complex documentation and transforming it into a more understandable format.
 
@@ -107,9 +107,9 @@ As mentioned, I rely heavily on [Grammarly](https://www.grammarly.com/) for all 
 
 ### #Shirtforce
 
--   **Generation Type**: Image
--   **Generation Engine**: Stable Diffusion
--   **Model**: Depends on the design
+- **Generation Type**: Image
+- **Generation Engine**: Stable Diffusion
+- **Model**: Depends on the design
 
 I have long been held back by my limitations in drawing, which prevented me from bringing my creative visions to life. But with the help of generative AI, I can now quickly turn my ideas into [reality](https://shirtforce.org/tee/hybrid-deployment-theory-salesforce-commerce-cloud-tshirt/).
 

@@ -4,7 +4,7 @@ description: >-
   Learn how to find your SFCC POD number, why it matters for troubleshooting,
   and where to verify it across tools and environments.
 date: '2025-07-21T05:05:51.000Z'
-lastmod: '2026-07-04T15:49:16.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /the-sfcc-guide-to-finding-pod-numbers/
 draft: false
 heroImage: sfcc-finding-your-pod-number-scaled-6830449d2b.jpeg
@@ -19,7 +19,7 @@ author: Thomas Theunen
 takeaways:
   - "Explains what an SFCC POD is and why knowing it matters for integrations, troubleshooting, maintenance awareness, and performance planning"
   - "Covers practical ways to identify the current POD through UI clues, official references, and support channels"
-  - "Places POD discovery in the broader context of Salesforce infrastructure evolution and the shift toward Hyperforce"
+  - "Places POD discovery in the broader context of Salesforce infrastructure evolution and the shift towards Hyperforce"
 ---
 As a Salesforce B2C Commerce Cloud developer, you operate within a sophisticated, multi-tenant cloud architecture. While Salesforce masterfully handles the underlying infrastructure, there are times when you need to peek behind the curtain. One of the most common—and often surprisingly elusive—pieces of information you'll need is your instance's **POD number**.
 
@@ -109,7 +109,7 @@ Before the 2023 migration to a centralised logging platform, each POD had a dedi
 
 The `<Cylinder>` value was also significant: `00` for a SIG (your sandboxes) and `01` for a PIG (Dev, Staging, Prod).
 
-The platform's evolution toward a more abstracted, public cloud infrastructure is evident in this instance. The old Log Center URL was tied directly to a specific hardware group (`hippo.demandware.net`), reflecting a more rigid infrastructure.
+The platform's evolution towards a more abstracted, public cloud infrastructure is evident in this instance. The old Log Center URL was tied directly to a specific hardware group (`hippo.demandware.net`), reflecting a more rigid infrastructure.
 
 The new, centralised Log Center decouples logging from the specific POD where an instance runs, using regional endpoints instead (e.g., AMER, EU, APAC). This shift is a classic pattern in modern cloud services, favouring centralised, scalable functions over hardware-specific endpoints.
 
@@ -119,7 +119,7 @@ Although this legacy URL is no longer a reliable method for active discovery, un
 
 {{< img-caption
   src="going-to-salesforce-official-channels-b9f405d5e0.jpeg"
-  alt="Friendly rhino in 2D flat cartoon style walks toward an official building with a cloud logo, representing trusted official channels"
+  alt="Friendly rhino in 2D flat cartoon style walks towards an official building with a cloud logo, representing trusted official channels"
   caption="Figure 1: Use official Salesforce channels to find reliable POD information"
 >}}
 

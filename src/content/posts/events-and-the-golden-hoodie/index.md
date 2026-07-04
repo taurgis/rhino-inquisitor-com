@@ -4,7 +4,7 @@ description: >-
   June 2022 is a month I will remember for a long time to come. It is a story of
   Salesforce events and getting a Golden Hoodie!
 date: '2022-06-21T04:14:28.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /events-and-the-golden-hoodie/
 draft: false
 heroImage: golden-hoodies-baefc3d7e9.jpg
@@ -58,7 +58,7 @@ Well, I didn't pick up on it in the slightest. But it will be a moment I will ne
 
 {{< video-embed id="lWY-5s7OwCA" title="Golden Hoodie moment" >}}
 
-And since then, I have gotten the question quite often, "what do you have to do to get a Golden Hoodie?"
+And since then, I have been asked the question quite often, "what do you have to do to get a Golden Hoodie?"
 
 There is no answer to that question; the Golden Hoodie is recognition for contributions to the community, partners, and customers of Salesforce. There might be a list of prerequisites somewhere, but I do not know what the list is.
 

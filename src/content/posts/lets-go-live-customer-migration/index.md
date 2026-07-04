@@ -4,7 +4,7 @@ description: >-
   Bringing your first site live on SFCC can be challenging. In this series, we
   will be looking at different parts. This time: Customer Migration
 date: '2022-10-17T17:49:09.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /lets-go-live-customer-migration/
 draft: false
 heroImage: data-migration-2fc1d03d2f.jpg
@@ -22,7 +22,7 @@ takeaways:
   - "Covers ownership, secure handling, password migration, and rollback considerations for customer data moves"
   - "Emphasises testing, delta planning, and post-launch monitoring to avoid data loss and login issues"
 ---
-We have already gotten [a few parts down](/category/go-live/) of our GO-LIVE story, but we are far from done. Going live with any Commerce project can be quite an endeavour. But hopefully, with this series, the most critical parts of the puzzle are covered! On to the next piece: Customer migration!
+We have already got [a few parts down](/category/go-live/) of our GO-LIVE story, but we are far from done. Going live with any Commerce project can be quite an endeavour. But hopefully, with this series, the most critical parts of the puzzle are covered! On to the next piece: Customer migration!
 
 ## [Start sooner rather than later](http://t)
 

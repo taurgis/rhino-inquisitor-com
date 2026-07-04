@@ -4,7 +4,7 @@ description: >-
   People who have been around "Demandware" for a while and continued after the
   acquisition by Salesforce know that this announcement was bound to happen at
 date: '2022-10-09T14:17:31.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /what-is-commerce-on-core/
 draft: false
 heroImage: shopping-cart-in-front-of-salesforce-tower-bb3e93dbf7.jpg
@@ -17,7 +17,7 @@ tags:
 author: Thomas Theunen
 takeaways:
   - "Explores the idea of Salesforce B2C Commerce moving onto the Salesforce core platform and explains why that direction seemed increasingly plausible"
-  - "Connects that speculation to platform changes like SCAPI, OCI, and the composable storefront that point toward a more swappable architecture"
+  - "Connects that speculation to platform changes like SCAPI, OCI, and the composable storefront that point towards a more swappable architecture"
   - "Balances the potential advantages of commerce on core with the major blockers around features, performance, and the long migration horizon for existing customers"
 ---
 People who have been around "[Demandware](/sitegenesis-vs-sfra-vs-pwa/)" for a while and continued after the acquisition by Salesforce know that this announcement was bound to happen at one point.
@@ -60,7 +60,7 @@ Hard to say, looking from the outside in. But chances are incredibly high that i
 
 ## The preparations that Salesforce has done
 
-So what signs were there of the preparational work? Let's dig into what has happened in the past few years, shall we?
+So what signs were there of the preparatory work? Let's dig into what has happened in the past few years, shall we?
 
 ### SCAPI
 
@@ -68,7 +68,7 @@ An essential part of understanding how the SCAPI works is that [Mulesoft](https:
 
 ### OCI
 
-The [Omnichannel Inventory](/what-is-oci-omnichannel-inventory/) (part of the B2C Commerce Cloud license) was another sign that Salesforce pointed products more to a "composable architecture." It is a separate product that can be used for B2C, B2B, B2B2C, or other applications.
+The [Omnichannel Inventory](/what-is-oci-omnichannel-inventory/) (part of the B2C Commerce Cloud licence) was another sign that Salesforce pointed products more to a "composable architecture." It is a separate product that can be used for B2C, B2B, B2B2C, or other applications.
 
 Many other products that followed, like Order Management and Commerce Marketplaces, were separated from the B2C Offering, and most noteworthy are on the [force.com](https://www.salesforce.com/products/platform/overview/) (core) platform.
 
@@ -172,7 +172,7 @@ And I hope Salesforce will give us a heads-up a few years in advance on the Comm
 
 As mentioned in the previous section, it will take a while before existing customers are contacted about migrating to the new platform. I guess a minimum of 5-7 years before this will start occurring, but who knows - I have been wrong before.
 
-In the meanwhile, updates will happen to the current stack. And new features will be added. You might see a shift that features are separate products rather than being built in, such as the OMS, Marketplace, Composable Storefront, and OCI. Some will be included in the license, and others will come at an extra cost.
+In the meanwhile, updates will happen to the current stack. And new features will be added. You might see a shift that features are separate products rather than being built in, such as the OMS, Marketplace, Composable Storefront, and OCI. Some will be included in the licence, and others will come at an extra cost.
 
 This is a long time to prepare for this change as a customer and developer. And have you recently chosen the Composable Storefront (PWA Kit) as your go-to solution? Then there is nothing to worry about, as this will make migrating the back end "easier."
 

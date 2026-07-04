@@ -4,7 +4,7 @@ description: >-
   Salesforce announced the deprecation of the UUID access token that you can use
   for integrations with SFCC. But what does it mean?
 date: '2022-08-29T07:37:05.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /the-deprecation-of-the-uuid-token-for-api-clients/
 draft: false
 heroImage: stop-using-uuid-account-manager-d05c5bc597.jpg
@@ -19,7 +19,7 @@ tags:
   - technical
 author: Thomas Theunen
 takeaways:
-  - "Explains the deprecation of UUID bearer tokens for SFCC API clients and the move toward JWT access tokens"
+  - "Explains the deprecation of UUID bearer tokens for SFCC API clients and the move towards JWT access tokens"
   - "Shows how to switch an Account Manager API client from UUID to JWT and what changes downstream integrations should expect"
   - "Highlights the practical migration concern that longer JWT tokens may require validation with third-party systems and storage layers"
 ---

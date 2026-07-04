@@ -4,7 +4,7 @@ description: >-
   Those interested in Salesforce B2C Commerce Cloud will hear the term
   SiteGenesis and SFRA (and PWA). But what is the difference?
 date: '2022-07-17T13:42:22.000Z'
-lastmod: '2026-07-04T15:28:48.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /sitegenesis-vs-sfra-vs-pwa/
 draft: false
 heroImage: sfra-vs-sitegenesis-965c09b9a6.jpg
@@ -129,7 +129,7 @@ A great [podcast episode](https://www.youtube.com/watch?v=hIghXeYIsEs&list=PLAQg
 
 When talking headless, you need to think about the hosting for your storefront. Salesforce provides hosting for the “body”, but what about the “head”?
 
-No worries on that front! Salesforce provides a [Managed Runtime](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/mrt-overview.html) solution that is included in the license.
+No worries on that front! Salesforce provides a [Managed Runtime](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/mrt-overview.html) solution that is included in the licence.
 
 > Managed Runtime provides the infrastructure to deploy, host, and monitor your PWA Kit storefront.
 

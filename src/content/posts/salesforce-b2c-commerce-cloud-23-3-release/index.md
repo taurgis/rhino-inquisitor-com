@@ -4,7 +4,7 @@ description: >-
   23.3 release overview covering trial sandboxes, log-volume changes, Shopper
   Context enablement, and the refreshed SLAS admin UI.
 date: '2023-02-15T14:19:00.000Z'
-lastmod: '2026-07-04T16:08:55.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /salesforce-b2c-commerce-cloud-23-3-release/
 draft: false
 heroImage: shopping-cart-in-sand-7c8677e7ff.jpg
@@ -24,11 +24,11 @@ Another month, another release from Salesforce B2C Commerce Cloud! In this blog 
 
 ## Trial sandboxes
 
-{{< img-caption src="salesforce-appexchange-654f2875a8.png" alt="AppExchange partner program artwork used for the trial sandbox announcement." >}}
+{{< img-caption src="salesforce-appexchange-654f2875a8.png" alt="AppExchange Partner Program artwork used for the trial sandbox announcement." >}}
 
-> B2C Commerce independent software vendor (ISV) partners can now get a trial sandbox environment within minutes of joining the AppExchange Partner program. ISV partner prospects can opt in for a 90-day trial sandbox when they register on the Partner Recruitment page. After their information is submitted, a trial sandbox is automatically provisioned, and the ISV partner receives an email with their sandbox credentials.
+> B2C Commerce independent software vendor (ISV) partners can now get a trial sandbox environment within minutes of joining the AppExchange Partner Program. ISV partner prospects can opt in for a 90-day trial sandbox when they register on the Partner Recruitment page. After their information is submitted, a trial sandbox is automatically provisioned, and the ISV partner receives an email with their sandbox credentials.
 
-Getting a sandbox environment for testing and development [has challenged potential partners and customers for quite a long time](/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/). But this process has become much easier with the latest 23.3 release of Salesforce B2C Commerce Cloud, at least for ISVs. _A little glimmer of light at the end of the tunnel!_ When ISV partners sign up for the AppExchange Partner program, they can opt for a 90-day trial sandbox. Once they register, a sandbox environment will automatically be set up for them, and they will receive an email with the details. This is excellent news for ISV partners (and the third-party ecosystem) who want to test and develop their solutions on the platform. With a 90-day trial, they can get a lot of work done immediately after signing up!
+Getting a sandbox environment for testing and development [has challenged potential partners and customers for quite a long time](/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/). But this process has become much easier with the latest 23.3 release of Salesforce B2C Commerce Cloud, at least for ISVs. _A little glimmer of light at the end of the tunnel!_ When ISV partners sign up for the AppExchange Partner Program, they can opt for a 90-day trial sandbox. Once they register, a sandbox environment will automatically be set up for them, and they will receive an email with the details. This is excellent news for ISV partners (and the third-party ecosystem) who want to test and develop their solutions on the platform. With a 90-day trial, they can get a lot of work done immediately after signing up!
 
 ## Platform
 
@@ -64,7 +64,7 @@ Before this 23.3 release, customer support had to be contacted to enable the Sho
 
 {{< img-caption src="slas-admin-ui-1dc5370339.jpg" alt="SLAS Admin UI updated in the 23.3 release." >}}
 
-The [SLAS admin UI](https://developer.salesforce.com/docs/commerce/commerce-api/guide/slas.html) has gotten a bit of love this month, and reported bugs have been worked on and resolved! _I cannot comment on which ones were addressed, but we reported a fair few ones that got resolved in this update!_
+The [SLAS admin UI](https://developer.salesforce.com/docs/commerce/commerce-api/guide/slas.html) has had a bit of love this month, and reported bugs have been worked on and resolved! _I cannot comment on which ones were addressed, but we reported a fair few ones that got resolved in this update!_
 
 ## Account Manager
 

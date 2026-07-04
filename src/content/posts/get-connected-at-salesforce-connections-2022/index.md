@@ -4,7 +4,7 @@ description: >-
   Preview Salesforce Connections 2022 with a commerce-focused view of the event,
   key themes, and what attendees should watch for.
 date: '2022-05-30T12:21:30.000Z'
-lastmod: '2026-07-04T15:38:04.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /get-connected-at-salesforce-connections-2022/
 draft: false
 heroImage: connections-2022-705603e7cd.png
@@ -265,7 +265,7 @@ If not? Then this is the session for you!
 
 > Explore API-only (headless) ISV opportunities on the Commerce Cloud platform and learn about the existing headless ISV solutions in our marketplace.
 
-As mentioned before, Headless has gotten a more prominent part in Commerce Cloud. And its share is going to grow in the years to come.
+As mentioned before, Headless has gained a more prominent part in Commerce Cloud. And its share is going to grow in the years to come.
 
 But what does that mean for third party integrations? Let's see if this session answers a few questions!
 

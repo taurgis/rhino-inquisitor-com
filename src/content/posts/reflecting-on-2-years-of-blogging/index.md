@@ -4,7 +4,7 @@ description: >-
   A look back at two years of Rhino Inquisitor, the lessons behind the posts,
   and how the blog's focus has evolved over time.
 date: '2024-03-11T20:17:04.000Z'
-lastmod: '2024-03-11T20:19:14.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /reflecting-on-2-years-of-blogging/
 draft: false
 heroImage: on-a-road-in-the-clouds-a111208978.jpg
@@ -16,7 +16,7 @@ tags:
 author: Thomas Theunen
 takeaways:
   - "Reflects on two years of Rhino Inquisitor and the impact the blog has had on the SFCC community"
-  - "Explains the shift toward revising older articles as the platform evolves rather than only publishing new ones"
+  - "Explains the shift towards revising older articles as the platform evolves rather than only publishing new ones"
   - "Combines the anniversary update with future plans, a renewed MVP recognition, and personal creative interests"
 ---
 I am delighted to announce that I have completed two years of my journey with the Rhino Inquisitor blog. This journey has been a blend of difficulties and achievements.
