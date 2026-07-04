@@ -10,6 +10,9 @@ assetDir = "src/assets"
 dataDir = "src/data"
 archetypeDir = "src/archetypes"
 publishDir = "public"
+# Agent guides (AGENTS.md) live inside the content tree for editor/agent
+# discovery but must never become rendered pages or sitemap entries.
+ignoreFiles = ['AGENTS\.md$']
 paginate = 12
 buildDrafts = false
 buildFuture = false

@@ -603,6 +603,9 @@ async function collectMarkdownFiles(contentDir) {
 
   return entries
     .filter((entry) => entry.isFile() && entry.name.toLowerCase().endsWith('.md'))
+    // AGENTS.md files quote published prose verbatim (including pre-en-GB text),
+    // so spell-checking them would re-flag words already fixed in the posts.
+    .filter((entry) => entry.name !== 'AGENTS.md')
     .map((entry) => path.join(entry.parentPath ?? entry.path, entry.name));
 }
 

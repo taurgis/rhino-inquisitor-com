@@ -310,7 +310,9 @@ async function main() {
   const options = parseArgs(process.argv.slice(2));
   const markdownFiles = (await fg('**/*.md', {
     cwd: options.contentRoot,
-    onlyFiles: true
+    onlyFiles: true,
+    // AGENTS.md files are agent guidance, not content; they carry no front matter.
+    ignore: ['**/AGENTS.md']
   })).sort();
 
   if (markdownFiles.length === 0) {
