@@ -4,7 +4,7 @@ description: >-
   Salesforce Commerce Cloud has gotten a lot bigger in the past few years,
   adding more and more products to the "name." Let us go over them!
 date: '2023-07-17T09:07:01.000Z'
-lastmod: '2023-07-17T09:11:18.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /salesforce-commerce-cloud-products/
 draft: false
 heroImage: salesforce-commerce-cloud-af0419a10b.png

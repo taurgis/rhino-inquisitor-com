@@ -4,7 +4,7 @@ description: >-
   When we integrate third-party systems with Salesforce B2C Commerce Cloud using
   OCAPI or SCAPI, we often have the requirement to filter data based on date
 date: '2023-12-18T09:16:13.000Z'
-lastmod: '2023-12-18T09:16:13.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /unravelling-the-mystery-of-dates-in-the-ocapi/
 draft: false
 heroImage: a-developer-confused-by-dates-and-times-9d38bbf81d.jpg

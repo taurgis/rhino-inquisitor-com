@@ -4,7 +4,7 @@ description: >-
   Learn how to retrieve the request body in an SFCC controller and when that
   pattern helps with custom endpoints and integrations.
 date: '2023-04-03T06:57:02.000Z'
-lastmod: '2023-04-03T06:57:14.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /the-request-body-in-an-sfcc-controller/
 draft: false
 heroImage: json-e912c3b91a.jpeg

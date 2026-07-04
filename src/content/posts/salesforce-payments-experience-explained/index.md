@@ -4,7 +4,7 @@ description: >-
   Understand what Salesforce Payments changes for SFCC integrations, checkout
   design, and the overall payment implementation path.
 date: '2023-03-27T14:54:22.000Z'
-lastmod: '2023-03-31T07:19:52.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /salesforce-payments-experience-explained/
 draft: false
 heroImage: >-

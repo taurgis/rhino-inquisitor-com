@@ -4,7 +4,7 @@ description: >-
   Bringing your first site live on SFCC can be challenging. In this series, we
   will be looking at different parts. This time: Customer Migration
 date: '2022-10-17T17:49:09.000Z'
-lastmod: '2022-10-17T17:53:18.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /lets-go-live-customer-migration/
 draft: false
 heroImage: data-migration-2fc1d03d2f.jpg

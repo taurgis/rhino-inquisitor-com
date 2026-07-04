@@ -4,7 +4,7 @@ description: >-
     Caching GET endpoints for the OCAPI in Salesforce B2C Commerce Cloud is
     possible, but where do you start? Let us dig into this together!
 date: '2023-04-10T06:46:06.000Z'
-lastmod: '2023-04-11T08:01:28.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /caching-rest-apis-in-sfcc/
 draft: false
 heroImage: caching-87696b30b8.jpg

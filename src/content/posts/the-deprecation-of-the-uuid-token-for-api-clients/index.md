@@ -4,7 +4,7 @@ description: >-
   Salesforce announced the deprecation of the UUID access token that you can use
   for integrations with SFCC. But what does it mean?
 date: '2022-08-29T07:37:05.000Z'
-lastmod: '2023-03-03T12:25:16.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /the-deprecation-of-the-uuid-token-for-api-clients/
 draft: false
 heroImage: stop-using-uuid-account-manager-d05c5bc597.jpg

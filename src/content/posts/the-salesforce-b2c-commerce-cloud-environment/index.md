@@ -4,7 +4,7 @@ description: >-
   Do you want to know more about the server architecture of Salesforce B2C
   Commerce Cloud? You have come to the right place!
 date: '2022-08-22T17:37:46.000Z'
-lastmod: '2022-08-23T07:19:42.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /the-salesforce-b2c-commerce-cloud-environment/
 draft: false
 heroImage: connected-systems-d281b9e674.jpg

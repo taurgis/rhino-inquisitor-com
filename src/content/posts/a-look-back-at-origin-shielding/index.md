@@ -4,7 +4,7 @@ description: >-
   Salesforce B2C Commerce Cloud activated Origin Shielding on production in
   August 2022. But for some, it did not go as planned. Why?
 date: '2022-09-07T19:53:27.000Z'
-lastmod: '2022-09-07T19:53:35.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /a-look-back-at-origin-shielding/
 draft: false
 heroImage: look-back-scaled-7bb346c563.jpg

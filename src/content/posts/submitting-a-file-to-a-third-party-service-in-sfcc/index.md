@@ -4,7 +4,7 @@ description: >-
     Learn how to submit files to a third-party service from SFCC with the Service
     Framework, including setup concerns and pitfalls.
 date: '2023-01-02T08:00:00.000Z'
-lastmod: '2023-01-02T08:00:00.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /submitting-a-file-to-a-third-party-service-in-sfcc/
 draft: false
 heroImage: file-upload-86681d338b.jpg

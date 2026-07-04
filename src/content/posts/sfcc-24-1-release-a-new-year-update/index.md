@@ -4,7 +4,7 @@ description: >-
   A new year means release notes for the back end have started again! This time,
   we look at the January 2024 (24.1) release!
 date: '2024-01-08T09:10:13.000Z'
-lastmod: '2024-01-10T08:49:57.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /sfcc-24-1-release-a-new-year-update/
 draft: false
 heroImage: shopping-carts-to-the-shredder-735353fe04.jpg
@@ -84,7 +84,7 @@ Some love again for the PWA Kit, wit the release of v3.3.0. The main changes are
 
 ## Bugfixes
 
-- [Issue with High Scale Price Books feature and OCAPI Search Endpoint](https://help.salesforce.com/s/issue?id=a028c00000suSwsAAE)
+- [Issue with High Scale Price Books feature and OCAPI Search Endpoint](https://help.salesforce.com/s/issues)
 
 Only one fix was made in the current release. However, [many items](https://help.salesforce.com/s/issues) are marked as "Solution Scheduled" and "Solution Deploying", which will hopefully be covered in next month's release blog post!
 

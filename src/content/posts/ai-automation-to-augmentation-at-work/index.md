@@ -4,7 +4,7 @@ description: >-
   A practical look at how AI is shifting from pure automation to workplace
   augmentation, and what that change means for teams and delivery.
 date: '2023-03-13T07:15:33.000Z'
-lastmod: '2023-03-15T07:28:13.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /ai-automation-to-augmentation-at-work/
 draft: false
 heroImage: ai-in-the-workplace-2aeaebf266.jpg

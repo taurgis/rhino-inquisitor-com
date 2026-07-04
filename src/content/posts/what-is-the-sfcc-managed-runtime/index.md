@@ -4,7 +4,7 @@ description: >-
   The Salesforce B2C Commerce Cloud Managed Runtime is a cloud-based hosting
   environment for Progressive Web Applications (PWAs).
 date: '2023-05-08T13:04:24.000Z'
-lastmod: '2023-05-08T13:15:51.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /what-is-the-sfcc-managed-runtime/
 draft: false
 heroImage: people-maintaining-server-room-scaled-d510b8a413.jpg

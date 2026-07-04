@@ -4,7 +4,7 @@ description: >-
   You want to get certified but are still determining if this will benefit you
   or not within the Salesforce ecosystem. Let's dig into that!
 date: '2022-11-21T10:17:21.000Z'
-lastmod: '2023-02-15T20:40:06.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /is-salesforce-certification-worth-it/
 draft: false
 heroImage: salesforce-certified-50dfbc80b5.jpeg

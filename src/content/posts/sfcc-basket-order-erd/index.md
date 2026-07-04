@@ -4,7 +4,7 @@ description: >-
   Are you wondering what entities make up a basket or order in SFCC and how they
   are connected? Then look no more! Here is a small ERD.
 date: '2023-03-06T06:41:17.000Z'
-lastmod: '2023-03-06T06:49:17.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /sfcc-basket-order-erd/
 draft: false
 heroImage: digital-shopping-carts-in-a-forest-a68ea4285a.jpg

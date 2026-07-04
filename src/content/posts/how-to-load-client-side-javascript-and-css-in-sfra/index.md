@@ -4,7 +4,7 @@ description: >-
   Client-side JavaScript is quite necessary these days to create functionalities
   and have a good user experience. But how do you load it in SFRA?
 date: '2024-02-19T08:28:48.000Z'
-lastmod: '2024-02-19T08:31:26.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /how-to-load-client-side-javascript-and-css-in-sfra/
 draft: false
 heroImage: client-side-js-e2475a2ea2.jpg

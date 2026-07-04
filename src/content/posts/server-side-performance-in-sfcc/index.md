@@ -4,7 +4,7 @@ description: >-
   Performance is important for any eCommerce site. You need to make sure your
   content loads quickly and customers can start shopping!
 date: '2023-05-01T05:50:49.000Z'
-lastmod: '2025-07-29T12:37:49.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /server-side-performance-in-sfcc/
 draft: false
 heroImage: performance-8200eea3e8.jpeg

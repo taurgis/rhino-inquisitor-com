@@ -4,7 +4,7 @@ description: >-
   People who have been around "Demandware" for a while and continued after the
   acquisition by Salesforce know that this announcement was bound to happen at
 date: '2022-10-09T14:17:31.000Z'
-lastmod: '2023-02-08T18:02:55.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /what-is-commerce-on-core/
 draft: false
 heroImage: shopping-cart-in-front-of-salesforce-tower-bb3e93dbf7.jpg

@@ -4,7 +4,7 @@ description: >-
   Are you interested in what is new in each Salesforce B2C Commerce Cloud
   release? Then this is the article for you! Let us look at 22.7 (July)
 date: '2022-06-13T15:06:49.000Z'
-lastmod: '2022-07-23T21:59:53.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /salesforce-b2c-commerce-cloud-the-22-7-release/
 draft: false
 heroImage: apache-rhino-engine-279b4d3146.png

@@ -4,7 +4,7 @@ description: >-
   Hooks are becoming more and more prominent because of the PWA Kit and the API
   first methodology. But how do you implement them?
 date: '2022-10-31T13:03:53.000Z'
-lastmod: '2025-07-29T12:47:51.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /how-to-use-ocapi-scapi-hooks/
 draft: false
 heroImage: 26df11a8-62ec-44cd-bf3b-6ff9ab46bee8-5598d60cbd.jpg

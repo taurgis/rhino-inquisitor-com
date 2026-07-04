@@ -4,7 +4,7 @@ description: >-
   Many SFCC developers look at the Composable Storefront as the next step of
   Salesforce moving SFCC to the CRM core. But is it so?
 date: '2023-01-30T07:59:37.000Z'
-lastmod: '2023-01-30T18:11:48.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /what-does-the-composable-storefront-mean-for-sfcc-developers/
 draft: false
 heroImage: e0468610-0e86-403f-b486-743a38d4b763-d68cf607f8.png

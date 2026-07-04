@@ -4,7 +4,7 @@ description: >-
   Are you wondering what entities make up a campaign in SFCC and how they are
   connected? Then look no more! Here is a small ERD.
 date: '2023-02-27T08:24:42.000Z'
-lastmod: '2023-02-27T18:57:17.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /b2c-commerce-cloud-campaign-erd/
 draft: false
 heroImage: newsletter-surrounded-by-cogwheels-83ae88881a.jpg

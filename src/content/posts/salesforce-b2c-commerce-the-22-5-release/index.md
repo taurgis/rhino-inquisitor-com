@@ -4,7 +4,7 @@ description: >-
   Review the Salesforce B2C Commerce Cloud 22.5 release notes and the platform
   updates developers should test or plan for.
 date: '2022-04-18T07:31:52.000Z'
-lastmod: '2022-07-23T21:51:46.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /salesforce-b2c-commerce-the-22-5-release/
 draft: false
 heroImage: b2c-control-center-3581b7d6c3.png

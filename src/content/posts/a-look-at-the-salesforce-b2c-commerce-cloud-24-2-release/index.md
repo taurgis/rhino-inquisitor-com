@@ -4,7 +4,7 @@ description: >-
   Review the Salesforce B2C Commerce Cloud 24.2 release and the platform updates
   worth testing across storefront, API, and operational workflows.
 date: '2024-02-05T06:59:49.000Z'
-lastmod: '2024-02-06T09:05:09.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /a-look-at-the-salesforce-b2c-commerce-cloud-24-2-release/
 draft: false
 heroImage: a-question-mark-cloning-machine-12d5adc228.jpg

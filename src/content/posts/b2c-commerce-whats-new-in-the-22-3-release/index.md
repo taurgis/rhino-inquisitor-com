@@ -4,7 +4,7 @@ description: >-
   Get some insights in the latest updates to Salesforce B2C Commerce. We have a
   look at the release notes and provide some background.
 date: '2022-03-08T07:42:23.000Z'
-lastmod: '2022-07-23T21:43:46.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /b2c-commerce-whats-new-in-the-22-3-release/
 draft: false
 heroImage: lightning-man-e1646654739934-c9812efc2b.jpg
@@ -86,5 +86,5 @@ This inconsistency caused quite a bit of confusion with content managers who con
 
 ## Other updates
 
-- [Recursive Infite Copies no Longer Supported](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_web_dav_je.htm&type=5&language=en_US)
+- [Recursive Infite Copies no Longer Supported](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_3_release.htm&type=5)
 - [Custom Caches return Immutable Objects](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_custom_cache_w10671394_je.htm&type=5&language=en_US)

@@ -4,7 +4,7 @@ description: >-
   A new year means releases for Salesforce B2C Commerce Cloud are back! Let us
   have a look if there are some presents for us!
 date: '2022-12-19T08:35:50.000Z'
-lastmod: '2023-03-01T18:52:05.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /salesforce-b2c-commerce-cloud-23-1/
 draft: false
 heroImage: a-shopping-cart-with-fireworks-d5005827cc.jpg

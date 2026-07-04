@@ -4,7 +4,7 @@ description: >-
   23.3 release overview covering trial sandboxes, log-volume changes, Shopper
   Context enablement, and the refreshed SLAS admin UI.
 date: '2023-02-15T14:19:00.000Z'
-lastmod: '2023-02-15T14:19:11.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /salesforce-b2c-commerce-cloud-23-3-release/
 draft: false
 heroImage: shopping-cart-in-sand-7c8677e7ff.jpg

@@ -4,7 +4,7 @@ description: >-
   It is possible to link a SiteGenesis/SFRA session with an OCAPI "session." But
   how can we do it, and what is it suitable for?
 date: '2022-08-15T19:08:02.000Z'
-lastmod: '2023-12-07T10:36:32.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /what-is-the-ocapi-session-bridge/
 draft: false
 heroImage: session-bridge-bbf2a7ba92.png

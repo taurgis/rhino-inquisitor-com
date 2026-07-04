@@ -4,7 +4,7 @@ description: >-
   How can we simplify the Order of Execution in Salesforce? Find out in this
   article where we only use modern and KISS solutions!
 date: '2023-01-09T05:48:13.000Z'
-lastmod: '2023-02-26T17:38:41.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /simplifying-the-salesforce-order-of-execution/
 draft: false
 heroImage: dominoes-in-middle-of-the-road-f4103f1e65.jpg

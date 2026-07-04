@@ -4,7 +4,7 @@ description: >-
   Learn what Active Data can track in Salesforce B2C Commerce Cloud, where the
   platform stops, and how far you can extend it safely.
 date: '2023-06-19T05:13:10.000Z'
-lastmod: '2023-06-19T05:15:47.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /how-to-extend-active-data-in-salesforce-b2c-commerce-cloud/
 draft: false
 heroImage: b2c-active-merchandising-slide-1-9a027d6449.gif

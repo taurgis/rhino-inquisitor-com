@@ -4,7 +4,7 @@ description: >-
   You have probably come out empty-handed when scouring the documentation for
   the Content ERD (Entity–relationship model) of Salesforce B2C Commerce Cloud.
 date: '2023-02-20T05:40:33.000Z'
-lastmod: '2023-02-26T17:52:51.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /salesforce-b2c-commerce-cloud-content-erd/
 draft: false
 heroImage: digital-documents-connected-with-wires-a9bf53e13a.jpg

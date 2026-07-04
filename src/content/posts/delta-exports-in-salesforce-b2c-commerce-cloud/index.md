@@ -4,7 +4,7 @@ description: >-
   Salesforce B2C Commerce Cloud supports delta export jobs. But how do I enable
   this feature and what do I need to watch out for?
 date: '2022-08-01T14:18:24.000Z'
-lastmod: '2022-09-10T04:43:39.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /delta-exports-in-salesforce-b2c-commerce-cloud/
 draft: false
 heroImage: sharinglargefiles-c0cb3315f4.png

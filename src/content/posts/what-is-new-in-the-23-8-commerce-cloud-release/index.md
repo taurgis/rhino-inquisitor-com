@@ -4,7 +4,7 @@ description: >-
   Review the 23.8 Commerce Cloud release and the platform changes teams should
   understand before holiday readiness work ramps up.
 date: '2023-07-27T13:28:13.000Z'
-lastmod: '2023-07-29T20:05:35.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /what-is-new-in-the-23-8-commerce-cloud-release/
 draft: false
 heroImage: christmas-at-the-beach-scaled-75bd57b575.jpg

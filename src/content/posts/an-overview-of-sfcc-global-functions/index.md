@@ -4,7 +4,7 @@ description: >-
   Explore the server-side global functions available in SFCC, when to use them,
   and how they can simplify day-to-day development work.
 date: '2023-10-23T12:06:05.000Z'
-lastmod: '2023-10-23T12:06:05.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /an-overview-of-sfcc-global-functions/
 draft: false
 heroImage: flowcharts-diagrams-on-a-wall-scaled-2fd3a78550.jpeg

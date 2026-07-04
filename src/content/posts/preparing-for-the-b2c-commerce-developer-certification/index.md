@@ -4,7 +4,7 @@ description: >-
   Prepare for the B2C Commerce Developer Certification with a practical starting
   point, study focus areas, and next steps.
 date: '2022-06-06T11:45:43.000Z'
-lastmod: '2022-11-19T10:18:39.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /preparing-for-the-b2c-commerce-developer-certification/
 draft: false
 heroImage: b2c-commerce-developer-72d9df9035.png

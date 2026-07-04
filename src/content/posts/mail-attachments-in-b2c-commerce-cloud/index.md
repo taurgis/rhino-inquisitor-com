@@ -4,7 +4,7 @@ description: >-
   Learn how to send emails with attachments from Salesforce B2C Commerce Cloud
   using ISML, including setup details and implementation pitfalls.
 date: '2022-03-15T06:04:04.000Z'
-lastmod: '2025-07-16T14:10:47.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /mail-attachments-in-b2c-commerce-cloud/
 draft: false
 heroImage: mail-a7e287274f.jpg

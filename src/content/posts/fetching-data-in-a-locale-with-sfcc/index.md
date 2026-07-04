@@ -4,7 +4,7 @@ description: >-
   In some use cases, you have to fetch data in a different language than the
   locale you are currently in. But how do you do that?
 date: '2023-07-31T08:40:09.000Z'
-lastmod: '2023-07-31T08:43:08.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /fetching-data-in-a-locale-with-sfcc/
 draft: false
 heroImage: country-flags-427934b006.jpg

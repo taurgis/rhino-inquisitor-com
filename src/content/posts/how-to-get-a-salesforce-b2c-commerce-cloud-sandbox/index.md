@@ -4,7 +4,7 @@ description: >-
   Getting access to a sandbox in Salesforce B2C Commerce Cloud is not as easy as
   it is for the core platform. Find out here how to get it done!
 date: '2022-04-05T05:36:43.000Z'
-lastmod: '2022-12-20T16:23:36.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/
 draft: false
 heroImage: sandbox-84618f4042.png

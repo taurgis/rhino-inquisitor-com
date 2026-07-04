@@ -4,7 +4,7 @@ description: >-
   Are you wondering what entities make up a customer in SFCC and how they are
   connected? Then look no more! Here is a small ERD.
 date: '2023-02-06T08:52:39.000Z'
-lastmod: '2023-02-26T18:09:36.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /salesforce-b2c-commerce-cloud-customer-erd/
 draft: false
 heroImage: ruth-architect-985a2e68a5.png

@@ -4,7 +4,7 @@ description: >-
   Understand how to change code compatibility mode in SFCC, when a rollback
   matters, and what to check before switching versions.
 date: '2022-11-14T08:04:44.000Z'
-lastmod: '2022-11-19T09:06:30.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /how-to-change-the-code-compatibility-mode-in-salesforce-b2c-commerce-cloud/
 draft: false
 heroImage: sfcc-compatibility-mode-46f9d84af8.jpg

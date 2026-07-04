@@ -5,7 +5,7 @@ description: >-
   inheritance optional when subcategories should not share the same landing
   page.
 date: '2022-03-01T16:56:04.000Z'
-lastmod: '2022-03-06T08:51:38.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /ideas/page-designer-dynamic-pages-optional-subcategories/
 draft: false
 author: Thomas Theunen

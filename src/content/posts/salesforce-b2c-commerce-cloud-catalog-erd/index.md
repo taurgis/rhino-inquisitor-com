@@ -4,7 +4,7 @@ description: >-
   Are you wondering what entities make up a product or catalog in SFCC and how
   they are connected? Then look no more! Here is a small ERD.
 date: '2023-02-13T06:16:52.000Z'
-lastmod: '2023-02-26T17:51:47.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /salesforce-b2c-commerce-cloud-catalog-erd/
 draft: false
 heroImage: cardboard-boxes-connected-with-wires-d5a7ad5c03.jpg

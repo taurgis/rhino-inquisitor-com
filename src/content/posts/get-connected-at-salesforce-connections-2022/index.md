@@ -4,7 +4,7 @@ description: >-
   Preview Salesforce Connections 2022 with a commerce-focused view of the event,
   key themes, and what attendees should watch for.
 date: '2022-05-30T12:21:30.000Z'
-lastmod: '2022-07-23T21:49:51.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /get-connected-at-salesforce-connections-2022/
 draft: false
 heroImage: connections-2022-705603e7cd.png

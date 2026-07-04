@@ -4,7 +4,7 @@ description: >-
   Officially there is no possibility to define custom OCAPI endpoints. But is
   there a clever way to create them anyway? Find out here!
 date: '2022-07-11T17:40:22.000Z'
-lastmod: '2023-09-26T09:54:35.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /creating-custom-ocapi-endpoints/
 draft: false
 heroImage: ocapi-bb5766fd49.jpg

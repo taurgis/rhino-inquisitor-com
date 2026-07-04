@@ -4,7 +4,7 @@ description: >-
   In this post we take a look at the release notes of Salesforce B2C Commerce
   Cloud for April 2022, and dig a bit deeper into them.
 date: '2022-03-21T19:57:05.000Z'
-lastmod: '2022-07-23T21:46:22.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /b2c-commerce-whats-new-in-22-4/
 draft: false
 heroImage: warehouse-5806bba713.jpg

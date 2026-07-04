@@ -4,7 +4,7 @@ description: >-
   As snowy days slowly turn into sunny ones, the 24.3 release of SFCC has
   arrived! Let us have a look at the March release of 2024.
 date: '2024-03-04T09:04:46.000Z'
-lastmod: '2024-03-04T09:07:27.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /digging-into-the-b2c-commerce-cloud-24-3-release/
 draft: false
 heroImage: a-shopping-cart-overfilled-with-products-2342f0919f.jpg
@@ -125,10 +125,10 @@ A minor update for security compliance.
 Quite the list of bug fixes this time!
 
 - [SLAS generates Access token successfully for disabled customer](https://help.salesforce.com/s/issue?id=a028c00000yy3tiAAA)
-- [SCAPI Merge basket functionality does not carry over the bonus line item to registered shopper basket](https://help.salesforce.com/s/issue?id=a028c00000x9LCOAA2)
+- [SCAPI Merge basket functionality does not carry over the bonus line item to registered shopper basket](https://help.salesforce.com/s/issues)
 - [Warn messages logged for SCAPI shopper-products](https://help.salesforce.com/s/issue?id=a028c00000yD1VUAA0)
 - [Storefront on behalf of a customer is failing to access from chrome due to google enforcing to block 3rd party cookies](https://help.salesforce.com/s/issue?id=a028c00000yEhQAAA0)
-- [Localization: FirstDayOfWeek - DatePicker uses Language Locale instead of Country Locale](https://help.salesforce.com/s/issue?id=a028c00000xB1ZuAAK)
+- [Localization: FirstDayOfWeek - DatePicker uses Language Locale instead of Country Locale](https://help.salesforce.com/s/issues)
 - [SCAPI Error Response is not Correctly JSON Encoded](https://help.salesforce.com/s/issue?id=a028c00000xB0sgAAC)
 
 ## Updated Cartridges & Tools

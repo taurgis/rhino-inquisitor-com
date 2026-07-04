@@ -4,7 +4,7 @@ description: >-
   OCI (Omnichannel Inventory) is an offering part of Salesforce Commerce Cloud.
   But what is it, and why should you use it?
 date: '2022-08-08T14:35:58.000Z'
-lastmod: '2022-11-19T10:09:21.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /what-is-oci-omnichannel-inventory/
 draft: false
 heroImage: omnichannel-inventory-865b640973.jpg
@@ -78,7 +78,7 @@ But you do not have to think about getting that data to Salesforce B2C Commerce 
 ### Documentation
 
 - [Data Synchronisation (B2C <> OCI)](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_inventory_management_omnichannel_inventory.htm)
-- [API Documentation (Salesforce Help)](https://help.salesforce.com/s/articleView?id=commerce.inv_omnichannel_inventory_service.htm&type=5)
+- [API Documentation (Salesforce Help)](https://help.salesforce.com/s/articleView?id=sf.inv_omnichannel_inventory_service.htm&type=5)
 - [Trailhead: Omnichannel Inventory](https://trailhead.salesforce.com/content/learn/modules/omnichannel-inventory?trailmix_creator_id=rr820768&trailmix_slug=tcs-omnichannel-inventory)
 - [Training: Omnichannel Inventory](https://partnerlearningcamp.salesforce.com/s/browse-catalog?plc__recordId=fvb19UvtLP1ohuV8EthlGEFZQ0vGXPFygtDSet8YjuK0Vmu6uWVIqSToV0n%2Bdisz)
 

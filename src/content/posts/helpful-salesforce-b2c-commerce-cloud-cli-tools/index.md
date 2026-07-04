@@ -4,7 +4,7 @@ description: >-
   In this article we will be looking at some helpful CLI tools to make our
   lives in Salesforce B2C Commerce a little bit easier.
 date: '2023-09-11T17:19:00.000Z'
-lastmod: '2023-09-18T12:33:59.000Z'
+lastmod: '2026-07-04T10:39:24.000Z'
 url: /helpful-salesforce-b2c-commerce-cloud-cli-tools/
 draft: false
 heroImage: 5517c6d9-6282-4468-a840-0af54ac19068-9222fff64d.png
