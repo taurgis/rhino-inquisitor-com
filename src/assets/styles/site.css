@@ -665,7 +665,7 @@ body.drawer-open {
 }
 
 .page-hero__support-link {
-  font-size: 0.74rem;
+  font-size: 0.75rem;
   font-weight: 500;
   color: var(--ink-muted);
   text-decoration: none;
@@ -784,7 +784,7 @@ body.drawer-open {
 .eyebrow {
   margin: 0 0 0.35rem;
   font-family: var(--font-mono);
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -1256,7 +1256,7 @@ summary {
   padding: 0.35rem 0.7rem;
   border-radius: var(--radius-sm);
   color: var(--ink-inverse);
-  font-size: 0.74rem;
+  font-size: 0.75rem;
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: 0.02em;
@@ -2028,7 +2028,7 @@ summary {
   border-radius: 0.35rem;
   background: rgba(255, 255, 255, 0.08);
   color: rgba(255, 255, 255, 0.55);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-family: inherit;
   line-height: 1;
   cursor: pointer;
@@ -2455,7 +2455,7 @@ a.rhino-image-zoom-trigger:focus-visible {
     top: 0.7rem;
     right: 0.7rem;
     padding: 0.3rem 0.6rem;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
   }
 }
 
@@ -2897,7 +2897,7 @@ a.rhino-image-zoom-trigger:focus-visible {
 
 .realm-split-checklist__eyebrow {
   margin: 0;
-  font-size: 0.74rem;
+  font-size: 0.75rem;
   font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -3040,7 +3040,7 @@ a.rhino-image-zoom-trigger:focus-visible {
   margin: 0 0.45rem 0.2rem 0;
   padding: 0.2rem 0.55rem;
   border-radius: 999px;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 800;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -3183,7 +3183,7 @@ a.rhino-image-zoom-trigger:focus-visible {
     display: block;
     margin-bottom: 0.35rem;
     color: var(--ink-muted);
-    font-size: 0.74rem;
+    font-size: 0.75rem;
     font-weight: 800;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -3425,7 +3425,7 @@ a.rhino-image-zoom-trigger:focus-visible {
 }
 
 .article-related__bucket {
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -4171,7 +4171,7 @@ a.rhino-image-zoom-trigger:focus-visible {
       min-height: 1.8rem;
       max-inline-size: min(100%, 12rem);
       padding: 0.3rem 0.6rem;
-      font-size: 0.7rem;
+      font-size: 0.75rem;
     }
 
   .archive-results .article-card__body,
@@ -4417,7 +4417,7 @@ a.rhino-image-zoom-trigger:focus-visible {
 /* Callout — note variant matches the mockup's blue-left tint box */
 .article-callout__label {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   letter-spacing: 0.14em;
 }
 
@@ -4440,7 +4440,7 @@ a.rhino-image-zoom-trigger:focus-visible {
   justify-content: center;
   color: #9a907c;
   font-family: var(--font-mono);
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
@@ -4662,7 +4662,7 @@ body.drawer-open {
   margin: 0 0 0.875rem;
   color: #7fa8cf;
   font-family: var(--mono, "JetBrains Mono", monospace);
-  font-size: 0.625rem;
+  font-size: 0.75rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
@@ -4726,7 +4726,7 @@ width: min(calc(100% - 2rem), var(--content-width));
   margin: 0;
   color: var(--blue, #1e6fbe);
   font-family: var(--mono, "JetBrains Mono", monospace);
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
@@ -4810,7 +4810,7 @@ width: min(calc(100% - 2rem), var(--content-width));
 .home-redesign__portrait figcaption {
   color: var(--faint, #6e665b);
   font-family: var(--mono, "JetBrains Mono", monospace);
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   letter-spacing: 0.05em;
   text-align: right;
 }
@@ -4830,7 +4830,7 @@ width: min(calc(100% - 2rem), var(--content-width));
 .home-redesign__section-kicker span:first-child {
   color: var(--faint, #6e665b);
   font-family: var(--mono, "JetBrains Mono", monospace);
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
