@@ -4,7 +4,7 @@ description: >-
   Prepare for the Salesforce B2C Commerce Architect certification with a guide
   to exam domains, study priorities, and practical preparation.
 date: '2023-05-22T07:18:54.000Z'
-lastmod: '2026-07-04T10:39:24.000Z'
+lastmod: '2026-07-04T11:05:00.000Z'
 url: /the-b2c-commerce-architect-certification/
 draft: false
 heroImage: b2c-commerce-cloud-architect-fbcc847dcd.jpeg
@@ -57,7 +57,7 @@ Capturing business requirements and providing the best solution for the business
 - [The Salesforce B2C Commerce Cloud Entity-Relationship model explained](/salesforce-b2c-commerce-cloud-erd/)
 - [AI (Einstein) in Salesforce B2C Commerce Cloud](/ai-einstein-in-salesforce-b2c-commerce-cloud/)
 - [What is OCI (Omnichannel Inventory)](/what-is-oci-omnichannel-inventory/)
-- [B2C Commerce: LINK Certification Guide](https://help.salesforce.com/s/articleView?id=000388942&language=en_US&type=1)
+- [B2C Commerce: LINK Certification Guide](https://trailhead.salesforce.com/credentials/b2ccommercearchitect)
 - [B2C Commerce: Einstein](https://help.salesforce.com/s/articleView?id=cc.b2c_commerce_cloud_einstein.htm&type=5&language=en_US)
 - [B2C Commerce: Release Notes](https://help.salesforce.com/s/articleView?id=sf.b2c_rn_release_notes.htm&type=5&language=en_US)
 - [B2C Commerce: Videos](https://help.salesforce.com/s/articleView?id=cc.b2c_videos.htm&language=en_US&type=5)

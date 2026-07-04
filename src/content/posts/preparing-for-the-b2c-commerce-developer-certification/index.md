@@ -4,7 +4,7 @@ description: >-
   Prepare for the B2C Commerce Developer Certification with a practical starting
   point, study focus areas, and next steps.
 date: '2022-06-06T11:45:43.000Z'
-lastmod: '2026-07-04T10:39:24.000Z'
+lastmod: '2026-07-04T11:05:00.000Z'
 url: /preparing-for-the-b2c-commerce-developer-certification/
 draft: false
 heroImage: b2c-commerce-developer-72d9df9035.png
@@ -100,7 +100,7 @@ Let's make a list of available content!
 
 - [Search (Preferences, Settings, ...)](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_search_overview.htm)
 - [Log Files](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-log-files-overview.html)
-- [Extending System Objects (Attribute Manager)](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OrderManagement/Administration/AdminAttributeManager.html)
+- [Extending System Objects (Attribute Manager)](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-business-objects.html)
 - [Managing Custom Objects](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-business-objects.html)
 - [Site Performance (General)](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-site-performance.html)
 - [Pipeline Profiler](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/LegacyDeveloperDocumentation.pdf)
