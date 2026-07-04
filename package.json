@@ -16,6 +16,7 @@
     "test:url-parity": "node --test scripts/url/validate-url-parity.test.js",
     "validate:url-inventory": "node scripts/gates/validate-url-inventory.js",
     "validate:frontmatter": "node scripts/validate-frontmatter.js",
+    "check:spelling": "node scripts/gates/check-spelling.js",
     "validate:artifact": "node scripts/gates/validate-artifact.js",
     "check:url-parity": "node scripts/gates/check-url-parity.js",
     "check:redirects": "node scripts/url/check-redirects.js",

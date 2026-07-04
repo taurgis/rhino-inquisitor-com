@@ -1,0 +1,11 @@
+# Spelling gate allowlist
+#
+# One lowercased word per line. Any token listed here is never flagged by
+# scripts/gates/check-spelling.js, even if it also appears in that script's
+# misspelling dictionary. Use this for words that read as typos but are
+# intentional in context (product names, quoted source text, deliberate style).
+#
+# Blank lines and text after "#" are ignored.
+#
+# Keep this list short and justified — the dictionary is already curated to
+# avoid domain false positives, so most terms never need an entry here.

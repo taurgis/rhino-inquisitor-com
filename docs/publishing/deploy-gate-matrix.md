@@ -439,11 +439,52 @@ cache-version prefix), so lockfile/generator/Node changes re-encode only the
 delta. Bump `AVIF_CACHE_VERSION` to force a genuine full re-encode (e.g.
 after a sharp/libvips upgrade that changes encoding output).
 
+## Update: content spelling gate
+
+### Change summary
+
+Obvious misspellings could reach production because no gate inspected prose —
+`validate:frontmatter` checks front-matter structure, not spelling. A new
+blocking gate, "Check content spelling", now scans article prose for known
+misspellings before the build.
+
+### Old vs new behavior
+
+| Aspect | Old | New |
+|--------|-----|-----|
+| Spelling check | None — typos shipped until spotted by a reader | `scripts/gates/check-spelling.js` scans `src/content/**/*.md` on every content and full-scope push |
+| Placement | n/a | `build` gate group, right after `validate:frontmatter` (fast, runs before the Hugo build) |
+| Detection method | n/a | Curated misspelling→correction dictionary; only tokens that are never valid English/jargon/British spellings, so no domain false positives |
+| Non-prose | n/a | Fenced/inline code, HTML comments, link targets, and bare URLs are masked before scanning |
+| Exceptions | n/a | A flagged-but-intentional token can be allowlisted in `scripts/gates/spelling-allow.txt` |
+
+The gate is intentionally not a grammar checker — it targets the "obvious
+typo" class only. Broaden coverage by adding pairs to the `MISSPELLINGS` map
+in the gate script.
+
+### Impact and verification
+
+- Impacted components: `scripts/gates/run-all-gates.sh` (new `build`-group
+  gate), `package.json` (`check:spelling` script). The gate auto-runs inside
+  the existing `npm run gates:local -- --group build` step, so
+  `deploy-pages.yml` needs no change.
+- The gate is dependency-free (native Node recursive `readdir`), so it runs
+  without `npm ci`.
+- Verify: `npm run check:spelling` exits 0 and reports "No spelling issues
+  found" across current content. Add a known typo (e.g. `recieve`) to any
+  content file and confirm the gate exits 1 and names the file, line, and
+  suggested correction.
+- Related files: `scripts/gates/check-spelling.js`,
+  `scripts/gates/spelling-allow.txt`, `scripts/gates/run-all-gates.sh`,
+  `package.json`.
+
 ## Related files
 
 - `.github/workflows/deploy-pages.yml`
 - `.github/actions/setup-node-env/action.yml`
 - `scripts/gates/run-all-gates.sh`
+- `scripts/gates/check-spelling.js` (+ `check:spelling` npm script)
+- `scripts/gates/spelling-allow.txt`
 - `lighthouserc.json`
 - `src/layouts/partials/site/stylesheet.html`
 - `scripts/generate-critical-css.js` (+ `generate:critical-css` npm script)
