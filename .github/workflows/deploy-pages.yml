@@ -318,15 +318,18 @@ jobs:
           npm run generate:critical-css
 
           if git diff --quiet -- 'src/assets/styles/critical-*.css'; then
+            echo "Committed critical CSS is in sync with the regenerated files."
             echo "Committed critical CSS is in sync with the regenerated files." >> "$GITHUB_STEP_SUMMARY"
           else
             {
               echo "> [!WARNING]"
               echo "> Committed critical CSS was stale. This deploy uses the regenerated version, but the repo still carries the stale files."
-              echo "> Run \`npm run build:prod && npm run generate:critical-css\` locally and commit the updated \`src/assets/styles/critical-*.css\` (also available in this run's build-outputs artifact)."
+              echo "> Run \`npm run build:prod && npm run generate:critical-css\` locally and commit the updated \`src/assets/styles/critical-*.css\` (also available in this run's build-outputs artifact, and as a 'git apply'-able diff in this step's log)."
               echo ">"
               git diff --stat -- 'src/assets/styles/critical-*.css' | sed 's/^/> /'
             } >> "$GITHUB_STEP_SUMMARY"
+            echo "Committed critical CSS is stale; full drift diff follows (pipe into 'git apply' to sync the committed files):"
+            git --no-pager diff -- 'src/assets/styles/critical-*.css'
           fi
 
       - name: Run blocking deployment quality gates (build)

@@ -351,7 +351,7 @@ always inlines critical CSS derived from the exact `site.css` being shipped.
 | Aspect | Old | New |
 |--------|-----|-----|
 | Critical CSS at deploy | Committed files inlined verbatim, drift and all | Regenerated in-pipeline from the built site; gate build rebuilds with the regenerated files |
-| Drift handling | Undetected (perf gate caught it only indirectly and flakily) | Deploy self-heals; a step-summary warning reports the drift with a `git diff --stat` and commit instructions |
+| Drift handling | Undetected (perf gate caught it only indirectly and flakily) | Deploy self-heals; a step-summary warning reports the drift with a `git diff --stat` and commit instructions, and the step log prints the full `git apply`-able diff |
 | Builds per deploy | One (`build:prod` inside the `build` gate group) | Two — a priming `build:prod` so `public/` exists for penthouse, then the gate-group rebuild with regenerated CSS. All downstream gates and the Pages artifact see the final output |
 | Regenerated files | n/a | Included in the `build-outputs-<sha>` artifact so they can be committed back without a local build |
 
