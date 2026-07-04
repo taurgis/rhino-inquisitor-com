@@ -14,6 +14,7 @@
     "build:prod": "npm run generate:avif-cache && hugo --cleanDestinationDir --gc --minify --environment production && npm run sync:404-artifact && npm run generate:llm-artifacts",
     "dev": "npm run generate:avif-cache && hugo server --environment development --baseURL http://localhost:1313/",
     "test:url-parity": "node --test scripts/url/validate-url-parity.test.js",
+    "test:spelling": "node --test scripts/gates/check-spelling.test.js",
     "validate:url-inventory": "node scripts/gates/validate-url-inventory.js",
     "validate:frontmatter": "node scripts/validate-frontmatter.js",
     "check:spelling": "node scripts/gates/check-spelling.js",

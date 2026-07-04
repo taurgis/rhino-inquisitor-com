@@ -1,20 +1,26 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 /**
  * Blocking spelling gate for published content.
  *
- * Catches obvious, unambiguous English misspellings in article prose so they
- * do not reach production. The dictionary below is a curated map of
- * misspelling -> correction. Only tokens that are essentially never valid
- * English words (and never valid SFCC/technical jargon or British spellings)
- * belong here — this keeps the gate free of false positives on domain terms.
+ * Catches obvious, unambiguous English mistakes in article prose so they do
+ * not reach production. Two checks run:
  *
- * The gate deliberately does NOT try to be a full grammar checker. It targets
- * the "obvious typo" class of defect. To broaden coverage over time, add more
- * misspelling -> correction pairs to MISSPELLINGS. To silence a specific token
- * that this gate flags but is intentional in context, add it (lowercased) to
+ *   1. Misspellings — a curated map of misspelling -> correction. Only tokens
+ *      that are essentially never valid English words (and never valid
+ *      SFCC/technical jargon or British spellings) belong here, which keeps the
+ *      gate free of false positives on domain terms.
+ *   2. Repeated words — an accidentally doubled function word ("the the"). Only
+ *      lowercase occurrences of a small safelist are flagged, so proper nouns
+ *      ("Will Will"), sentence starts, and the rare valid double ("had had",
+ *      "that that") are left alone.
+ *
+ * The gate deliberately does NOT try to be a full grammar or dictionary spell
+ * checker — that would flag jargon on every run. It targets the "obvious typo"
+ * class of defect. To broaden coverage, add pairs to MISSPELLINGS. To silence a
+ * token that is intentional in context, add it (lowercased) to
  * scripts/gates/spelling-allow.txt.
  */
 
@@ -210,6 +216,67 @@ const MISSPELLINGS = {
   widht: 'width'
 };
 
+/**
+ * Lowercase function words that are virtually never validly doubled. Kept
+ * conservative on purpose: words with a legitimate double ("had had",
+ * "that that") or a common proper-noun/hyphenated reading ("will", "no",
+ * "so", "do") are intentionally excluded.
+ */
+const DOUBLED_WORDS = new Set([
+  'the', 'a', 'an', 'and', 'or', 'of', 'to', 'in', 'on', 'at', 'for', 'with',
+  'as', 'is', 'are', 'was', 'were', 'be', 'been', 'this', 'these', 'those',
+  'it', 'its', 'from', 'by', 'but', 'we', 'you', 'they', 'our', 'your',
+  'their', 'then', 'than', 'if', 'into', 'over', 'about', 'which', 'when',
+  'where', 'while', 'also', 'not', 'has', 'have', 'will'
+]);
+
+const TOKEN_PATTERN = /[A-Za-z][A-Za-z'’-]*/gu;
+const DOUBLED_WORD_PATTERN = /\b([a-z]+)(\s+)(\1)\b/gu;
+
+function normalizeToken(token) {
+  return token.toLowerCase().replace(/[’]/gu, "'");
+}
+
+/**
+ * Find curated misspellings in already-masked prose. `allowlist` is a Set of
+ * lowercased tokens to skip.
+ */
+function findMisspellings(prose, allowlist = new Set()) {
+  const findings = [];
+  for (const match of prose.matchAll(TOKEN_PATTERN)) {
+    const token = match[0];
+    const normalized = normalizeToken(token);
+    if (!Object.hasOwn(MISSPELLINGS, normalized) || allowlist.has(normalized)) {
+      continue;
+    }
+    findings.push({
+      type: 'spelling',
+      offset: match.index ?? 0,
+      found: token,
+      suggestion: MISSPELLINGS[normalized]
+    });
+  }
+  return findings;
+}
+
+/** Find accidentally repeated function words in already-masked prose. */
+function findDoubledWords(prose, allowlist = new Set()) {
+  const findings = [];
+  for (const match of prose.matchAll(DOUBLED_WORD_PATTERN)) {
+    const word = match[1];
+    if (!DOUBLED_WORDS.has(word) || allowlist.has(word)) {
+      continue;
+    }
+    findings.push({
+      type: 'repeated-word',
+      offset: match.index ?? 0,
+      found: `${match[1]}${match[2]}${match[3]}`,
+      suggestion: word
+    });
+  }
+  return findings;
+}
+
 async function collectMarkdownFiles(contentDir) {
   let entries;
   try {
@@ -272,6 +339,32 @@ function toRepoRelative(absolutePath) {
   return path.relative(REPO_ROOT, absolutePath).split(path.sep).join('/');
 }
 
+/** Analyse a single document's raw source and return de-duplicated findings. */
+function analyzeSource(source, allowlist = new Set()) {
+  const prose = maskNonProse(source);
+  const raw = [...findMisspellings(prose, allowlist), ...findDoubledWords(prose, allowlist)];
+
+  const seen = new Set();
+  const findings = [];
+  for (const finding of raw) {
+    const line = offsetToLine(source, finding.offset);
+    const key = `${line}:${finding.type}:${finding.found.toLowerCase()}`;
+    if (seen.has(key)) {
+      continue;
+    }
+    seen.add(key);
+    findings.push({ ...finding, line });
+  }
+
+  return findings.sort((left, right) => left.line - right.line);
+}
+
+function describe(finding) {
+  return finding.type === 'repeated-word'
+    ? `repeated word "${finding.found.replace(/\s+/gu, ' ')}" -> "${finding.suggestion}"`
+    : `"${finding.found}" -> "${finding.suggestion}"`;
+}
+
 async function main() {
   const options = parseArgs(process.argv.slice(2));
   const contentDir = options.contentDir ?? DEFAULT_CONTENT_DIR;
@@ -281,33 +374,18 @@ async function main() {
     left.localeCompare(right)
   );
 
-  const tokenPattern = /[A-Za-z][A-Za-z'’-]*/gu;
   const findings = [];
-
   for (const markdownFile of markdownFiles) {
     const source = await fs.readFile(markdownFile, 'utf8');
-    const prose = maskNonProse(source);
-
-    for (const match of prose.matchAll(tokenPattern)) {
-      const token = match[0];
-      const normalized = token.toLowerCase().replace(/[’]/gu, "'");
-      if (!Object.hasOwn(MISSPELLINGS, normalized) || allowlist.has(normalized)) {
-        continue;
-      }
-      const suggestion = MISSPELLINGS[normalized];
-
-      findings.push({
-        file: toRepoRelative(markdownFile),
-        line: offsetToLine(source, match.index ?? 0),
-        found: token,
-        suggestion
-      });
+    const file = toRepoRelative(markdownFile);
+    for (const finding of analyzeSource(source, allowlist)) {
+      findings.push({ ...finding, file });
     }
   }
 
   if (findings.length === 0) {
     console.log(
-      `Checked ${markdownFiles.length} content file(s) against ${Object.keys(MISSPELLINGS).length} known misspelling(s). No spelling issues found.`
+      `Checked ${markdownFiles.length} content file(s) against ${Object.keys(MISSPELLINGS).length} known misspelling(s) and ${DOUBLED_WORDS.size} repeated-word pattern(s). No spelling issues found.`
     );
     return;
   }
@@ -316,14 +394,15 @@ async function main() {
     `Found ${findings.length} spelling issue(s) across ${markdownFiles.length} content file(s):`
   );
   for (const finding of findings) {
-    console.error(`- ${finding.file}:${finding.line}  "${finding.found}" -> "${finding.suggestion}"`);
+    console.error(`- ${finding.file}:${finding.line}  ${describe(finding)}`);
     if (process.env.GITHUB_ACTIONS) {
-      const message = `Spelling: "${finding.found}" should be "${finding.suggestion}"`;
-      console.error(`::error file=${finding.file},line=${finding.line},title=spelling gate::${message}`);
+      console.error(
+        `::error file=${finding.file},line=${finding.line},title=spelling gate::${describe(finding)}`
+      );
     }
   }
   console.error(
-    'Fix the misspelling, or if it is intentional add the lowercased word to scripts/gates/spelling-allow.txt.'
+    'Fix the issue, or if it is intentional add the lowercased word to scripts/gates/spelling-allow.txt.'
   );
   process.exitCode = 1;
 }
@@ -338,7 +417,22 @@ function parseArgs(argv) {
   return parsed;
 }
 
-main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
-});
+export {
+  MISSPELLINGS,
+  DOUBLED_WORDS,
+  maskNonProse,
+  findMisspellings,
+  findDoubledWords,
+  analyzeSource,
+  loadAllowlist
+};
+
+const invokedDirectly =
+  process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
+
+if (invokedDirectly) {
+  main().catch((error) => {
+    console.error(error);
+    process.exitCode = 1;
+  });
+}

@@ -454,13 +454,18 @@ misspellings before the build.
 |--------|-----|-----|
 | Spelling check | None — typos shipped until spotted by a reader | `scripts/gates/check-spelling.js` scans `src/content/**/*.md` on every content and full-scope push |
 | Placement | n/a | `build` gate group, right after `validate:frontmatter` (fast, runs before the Hugo build) |
-| Detection method | n/a | Curated misspelling→correction dictionary; only tokens that are never valid English/jargon/British spellings, so no domain false positives |
+| Detection method | n/a | Curated misspelling→correction dictionary **plus** a repeated-word check ("the the"); only tokens that are never valid English/jargon/British spellings, so no domain false positives |
+| Repeated words | n/a | Lowercase doubles of a small function-word safelist only, so proper nouns ("Will Will"), sentence starts, and valid doubles ("had had", "that that") are not flagged |
 | Non-prose | n/a | Fenced/inline code, HTML comments, link targets, and bare URLs are masked before scanning |
 | Exceptions | n/a | A flagged-but-intentional token can be allowlisted in `scripts/gates/spelling-allow.txt` |
+| Regression cover | n/a | `scripts/gates/check-spelling.test.js` (`npm run test:spelling`) exercises detection, masking, the allowlist, and dictionary integrity |
 
-The gate is intentionally not a grammar checker — it targets the "obvious
-typo" class only. Broaden coverage by adding pairs to the `MISSPELLINGS` map
-in the gate script.
+The gate is intentionally not a grammar or full-dictionary spell checker — a
+dictionary checker would flag SFCC jargon on every run and need a large,
+high-maintenance allowlist. This gate targets the "obvious typo" class only.
+Broaden coverage by adding pairs to the `MISSPELLINGS` map (or words to the
+`DOUBLED_WORDS` safelist) in the gate script; the integrity test guards against
+a bad entry silently disabling the gate.
 
 ### Impact and verification
 
@@ -471,12 +476,13 @@ in the gate script.
 - The gate is dependency-free (native Node recursive `readdir`), so it runs
   without `npm ci`.
 - Verify: `npm run check:spelling` exits 0 and reports "No spelling issues
-  found" across current content. Add a known typo (e.g. `recieve`) to any
-  content file and confirm the gate exits 1 and names the file, line, and
-  suggested correction.
+  found" across current content. Add a known typo (e.g. `recieve`) or a doubled
+  word (e.g. `the the`) to any content file and confirm the gate exits 1 and
+  names the file, line, and suggested correction. Run `npm run test:spelling`
+  for the unit + integrity suite.
 - Related files: `scripts/gates/check-spelling.js`,
-  `scripts/gates/spelling-allow.txt`, `scripts/gates/run-all-gates.sh`,
-  `package.json`.
+  `scripts/gates/check-spelling.test.js`, `scripts/gates/spelling-allow.txt`,
+  `scripts/gates/run-all-gates.sh`, `package.json`.
 
 ## Related files
 
@@ -484,6 +490,7 @@ in the gate script.
 - `.github/actions/setup-node-env/action.yml`
 - `scripts/gates/run-all-gates.sh`
 - `scripts/gates/check-spelling.js` (+ `check:spelling` npm script)
+- `scripts/gates/check-spelling.test.js` (+ `test:spelling` npm script)
 - `scripts/gates/spelling-allow.txt`
 - `lighthouserc.json`
 - `src/layouts/partials/site/stylesheet.html`
