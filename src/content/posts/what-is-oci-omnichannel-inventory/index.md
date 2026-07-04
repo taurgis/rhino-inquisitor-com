@@ -4,7 +4,7 @@ description: >-
   OCI (Omnichannel Inventory) is an offering part of Salesforce Commerce Cloud.
   But what is it, and why should you use it?
 date: '2022-08-08T14:35:58.000Z'
-lastmod: '2026-07-04T10:39:24.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /what-is-oci-omnichannel-inventory/
 draft: false
 heroImage: omnichannel-inventory-865b640973.jpg
@@ -39,7 +39,7 @@ Omnichannel Inventory is an offering that provides near real-time inventory info
 
 The OCI exists out of multiple components:
 
-- **Omnichannel Inventory service:** An API-first approach service that allows you to get and manage inventory information across all of your fulfillment channels.
+- **Omnichannel Inventory service:** An API-first approach service that allows you to get and manage inventory information across all of your fulfilment channels.
 
 - **Omnichannel Inventory App:** A Salesforce console app to manage your locations and inventory availability in the [visual interface you know and love](https://www.salesforce.com/campaign/lightning/).
 
@@ -55,7 +55,7 @@ Using OCI brings the following benefits:
 
 - **Flexibility:** Easily add or remove a location.
 
-- **Centralized visibility:**  View availability information across all of your channels.
+- **Centralised visibility:**  View availability information across all of your channels.
 
 - **Accuracy at scale:** Gain near real-time insights into availability to prevent costly underselling and overselling during flash sales or holidays! And this is important as many systems struggle to get a near real-time view, causing mispicks in the warehouse.
 
@@ -65,7 +65,7 @@ Using OCI brings the following benefits:
 
 ## Natively integrated
 
-This might be a sentence you have heard before and are skeptical about. But in this case, you can lower your guard a little bit.
+This might be a sentence you have heard before and are sceptical about. But in this case, you can lower your guard a little bit.
 
 The Omnichannel Inventory comes natively integrated with Salesforce B2C Commerce Cloud! Once activated, a few things change how things work in the Business Manager and how developers access APIs.
 
@@ -117,7 +117,7 @@ We are heading into "composable" territory here, which adds complexity to your a
 
 - There is no management interface available, as mentioned in one of the previous items.
 - Since it is a separate system, you need to keep track of that in your architecture (e.g., consider possible data or performance issues).
-- It is a separate system for merchandizers to view and manage the inventory (to the extent possible) besides the regular Business Manager.
+- It is a separate system for merchandisers to view and manage the inventory (to the extent possible) besides the regular Business Manager.
 
 ### Development needed
 

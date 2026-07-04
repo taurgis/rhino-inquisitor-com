@@ -4,7 +4,7 @@ description: >-
   Let's be honest: a slow e-commerce site is a silent killer of sales. In the
   world of B2C Commerce, every millisecond is money.
 date: '2025-06-23T17:00:05.000Z'
-lastmod: '2025-06-24T18:21:36.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /lag-to-riches-a-pwa-kit-developers-guide/
 draft: false
 heroImage: developer-manipulating-performance-scaled-3869da0b9c.jpeg
@@ -19,7 +19,7 @@ author: Thomas Theunen
 takeaways:
   - "Frames storefront speed as a conversion problem and explains the Core Web Vitals that matter most"
   - "Connects PWA Kit architecture to its distinct LCP, INP, caching, and JavaScript performance trade-offs"
-  - "Provides a concrete optimization playbook for data fetching, images, caching, and third-party scripts"
+  - "Provides a concrete optimisation playbook for data fetching, images, caching, and third-party scripts"
 ---
 Truth be told: a slow e-commerce site is a silent killer of sales. In the world of B2C Commerce, every millisecond is money. As a PWA Kit developer, you're on the front lines of a battle where the prize is customer loyalty and the cost of defeat is a lost shopping cart. Today's shoppers have zero patience for lag. They expect buttery-smooth, app-like experiences, and they'll bounce if you don't deliver.
 
@@ -50,7 +50,7 @@ Hard vs Soft Navigation It is crucial for you to understand the distinction betw
 
 A hard navigation refers to the traditional, full loading of a webpage, which occurs when a user first lands on a site. In contrast, a soft navigation happens within an SPA when new content is loaded dynamically without a full page refresh, a process managed by JavaScript.
 
-**The critical point to recognize is that CrUX data, which is vital for assessing real-user web performance and Core Web Vitals, is primarily based on hard navigations. Consequently, for an SPA, only the initial page load is typically recorded by CrUX, while all subsequent, faster soft navigations are not taken into account, potentially leading to a skewed and incomplete understanding of the application's overall user experience**.
+**The critical point to recognise is that CrUX data, which is vital for assessing real-user web performance and Core Web Vitals, is primarily based on hard navigations. Consequently, for an SPA, only the initial page load is typically recorded by CrUX, while all subsequent, faster soft navigations are not taken into account, potentially leading to a skewed and incomplete understanding of the application's overall user experience**.
 
 Here is an [official article on the matter](https://developer.chrome.com/docs/web-platform/soft-navigations-experiment)!
 
@@ -202,7 +202,7 @@ Proxy Caching Caching proxies aren’t suitable for use with the B2C Commerce AP
 
 {{< img-caption
   src="taming-the-third-party-script-beast-8cac515268.jpeg"
-  alt="A cartoon developer is taming a large 'beast' made of code and tangled wires. The developer is putting a collar labeled 'async' and holding a leash labeled 'defer' on the beast, while corralling other parts of it towards a pen labeled 'Lazy Load Zone'."
+  alt="A cartoon developer is taming a large 'beast' made of code and tangled wires. The developer is putting a collar labelled 'async' and holding a leash labelled 'defer' on the beast, while corralling other parts of it towards a pen labelled 'Lazy Load Zone'."
   caption="Taming the Third-Party Script Beast: A visual guide to managing external scripts for better web performance."
 >}}
 
@@ -242,8 +242,8 @@ You have a powerful set of free tools to become a performance detective.
 
 | Symptom / Poor Metric | Likely PWA Kit Cause(s) | Recommended Diagnostic Tool(s) | Actionable Solution(s) |
 | --- | --- | --- | --- |
-| **Poor LCP on Product Detail Page** | 1\. Large, unoptimized hero image. 2\. Slow, sequential API calls in getProps/useQuery during SSR. 3\. Low CDN cache hit ratio. | 1\. PageSpeed Insights to identify the LCP element. 2\. ?\_\_ server\_timing=true to check ssr:fetch-strategies time. 3\. MRT logs and CDN analytics. | 1\. Compress hero image, serve in WebP format, use srcset. 2\. Refactor data fetching to use Promise.all or a single aggregated API call. 3\. Set longer Cache-Control headers. |
-| **Poor INP on Product Listing Page** | 1\. Long JavaScript task during client-side hydration. 2\. Excessive re-renders when applying filters. 3\. A blocking third-party analytics script. | 1\. DevTools Performance Panel to identify long tasks. 2\. React DevTools Profiler to visualize component renders. 3\. DevTools Network Panel to block the script and re-test. | 1\. Code-split the PLP's JavaScript. 2\. Use React.memo, useCallback, and useMemo on filter components. 3\. Defer or lazy-load the third-party script. |
+| **Poor LCP on Product Detail Page** | 1\. Large, unoptimised hero image. 2\. Slow, sequential API calls in getProps/useQuery during SSR. 3\. Low CDN cache hit ratio. | 1\. PageSpeed Insights to identify the LCP element. 2\. ?\_\_ server\_timing=true to check ssr:fetch-strategies time. 3\. MRT logs and CDN analytics. | 1\. Compress hero image, serve in WebP format, use srcset. 2\. Refactor data fetching to use Promise.all or a single aggregated API call. 3\. Set longer Cache-Control headers. |
+| **Poor INP on Product Listing Page** | 1\. Long JavaScript task during client-side hydration. 2\. Excessive re-renders when applying filters. 3\. A blocking third-party analytics script. | 1\. DevTools Performance Panel to identify long tasks. 2\. React DevTools Profiler to visualise component renders. 3\. DevTools Network Panel to block the script and re-test. | 1\. Code-split the PLP's JavaScript. 2\. Use React.memo, useCallback, and useMemo on filter components. 3\. Defer or lazy-load the third-party script. |
 | **High CLS on Homepage** | 1\. Images loading without width and height attributes. 2\. A cookie consent banner or ad injected dynamically. 3\. Web fonts causing a flash of unstyled text (FOUT). | 1\. Lighthouse audit to identify elements causing shifts. 2\. DevTools Performance Panel with "Screenshots" enabled to see the shifts happen. | 1\. Add explicit width and height to all `<img>` tags. 2\. Reserve space for the banner/ad with CSS. 3\. Preload key fonts using `<link rel="preload">`. |
 
 ### PWA Kit-Specific Debugging Tricks
@@ -252,7 +252,7 @@ The PWA Kit has some built-in secret weapons for debugging.
 
 - **The \_\_ server\_timing Parameter:** Add ?\_\_ server\_timing=true to any URL in your dev environment. You'll get a Server-Timing header in the response that breaks down exactly how long each part of the SSR process took. It's perfect for figuring out if a slow response is because of a slow API or a heavy React component.
 - **The ?\_\_ server\_only Parameter:** Use this parameter to see the pure, server-rendered version of a page without any client-side JavaScript. It's great for seeing what search engines see and for spotting layout shifts between the server and client versions.
-- **Managed Runtime Log Center:** In production, the Log Center is your go-to for troubleshooting. You can search and filter logs from your app server to diagnose server-side errors and performance issues that only show up in the wild.
+- **Managed Runtime Log Centre:** In production, the Log Centre is your go-to for troubleshooting. You can search and filter logs from your app server to diagnose server-side errors and performance issues that only show up in the wild.
 
 ## Wrapping Up: Your Journey to a High-Performance Storefront
 

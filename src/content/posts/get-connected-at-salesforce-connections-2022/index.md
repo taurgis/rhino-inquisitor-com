@@ -4,7 +4,7 @@ description: >-
   Preview Salesforce Connections 2022 with a commerce-focused view of the event,
   key themes, and what attendees should watch for.
 date: '2022-05-30T12:21:30.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /get-connected-at-salesforce-connections-2022/
 draft: false
 heroImage: connections-2022-705603e7cd.png
@@ -22,11 +22,11 @@ video:
 takeaways:
   - "Previews Connections 2022 through a commerce-focused agenda and networking lens"
   - "Highlights key sessions on headless, multi-cloud, social commerce, and unified commerce"
-  - "Emphasizes that the event is as much about meeting people as attending sessions"
+  - "Emphasises that the event is as much about meeting people as attending sessions"
 ---
 It seems like only yesterday that [TrailblazerDX](/trailblazerdx-2022-for-b2c-commerce/) happened, and here we are again. But this time in Chicago!
 
-Unlike TrailblazerDX, Connections is focused on creating connections between customers, partners, and Salesforce. Although you will still find some developer-centered presentations, they will be far less common. The goal is to get inspired by commerce leaders and Trailblazers in Commerce to help brands grow!
+Unlike TrailblazerDX, Connections is focused on creating connections between customers, partners, and Salesforce. Although you will still find some developer-centred presentations, they will be far less common. The goal is to get inspired by commerce leaders and Trailblazers in Commerce to help brands grow!
 
 What does it have in store for Salesforce B2C Commerce Cloud? Let’s have a look!
 
@@ -68,7 +68,7 @@ Salesforce provides a handy tool to [build your agenda on the Connections websit
 
 > China is the world’s largest online retail market. Learn about China’s unique ecommerce ecosystem and how Salesforce and Alibaba are working together to drive customer success in the region.
 
-If you look at the possibilities in the [Session Catalog](https://reg.salesforce.com/flow/plus/cnx22/connections2022contentcatalog/page/sessioncatalog), Alibaba has a good presence with their offerings for the Chinese market. This provides an excellent opportunity for partners and customers who are expanding their markets now or in the future.
+If you look at the possibilities in the [Session Catalogue](https://reg.salesforce.com/flow/plus/cnx22/connections2022contentcatalog/page/sessioncatalog), Alibaba has a good presence with their offerings for the Chinese market. This provides an excellent opportunity for partners and customers who are expanding their markets now or in the future.
 
 ### [Wow Your Customers](https://reg.salesforce.com/flow/plus/cnx22/connections2022contentcatalog/page/sessioncatalog/session/1648704751762001RwxN)
 
@@ -81,7 +81,7 @@ If you look at the possibilities in the [Session Catalog](https://reg.salesforce
 - 10:00 AM - 11:00 AM
 - 60 minutes
 
-> To grow relationships and revenue, brands must wow customers with personalized moments that build trust and loyalty. Learn how Trailblazers are doing this with the latest innovations from Salesforce.
+> To grow relationships and revenue, brands must wow customers with personalised moments that build trust and loyalty. Learn how Trailblazers are doing this with the latest innovations from Salesforce.
 
 There are not many reasons to miss the Main Keynote of Connections. And I believe this one will contain a lot of exciting news for the Commerce Cloud Community.
 
@@ -127,7 +127,7 @@ This will always happen when building a plan; you can't catch them all!
 - 01:00 PM - 01:20 PM
 - 20 minutes
 
-> Customers expect consistent brand experiences across all channels. So how can you modernize without adding complexity? Learn how unified commerce helps retailers become faster and more agile.
+> Customers expect consistent brand experiences across all channels. So how can you modernise without adding complexity? Learn how unified commerce helps retailers become faster and more agile.
 
 The shopper journey has diversified quite a lot over the past decade. More and more options have become available for shoppers to connect with brands. But how do you unify that experience?
 
@@ -177,7 +177,7 @@ One to certainly join! Doing a shameless plug for my colleagues!
 - 04:30 PM - 04:50 PM
 - 20 minutes
 
-> Join us to learn how the Salesforce Fulfillment Network can help you increase profits, optimize delivery, and drive revenue back to your business.
+> Join us to learn how the Salesforce Fulfilment Network can help you increase profits, optimise delivery, and drive revenue back to your business.
 
 I feel like this is the presentation about the [new FedEx partnership](https://newsroom.fedex.com/newsroom/fedex-and-salesforce-partner-to-deliver-fast-and-easy-shipping-end-to-end-e-commerce-and-supply-chain-management/) for delivery, built straight into the platform. So a very interesting one to end the day with.
 
@@ -215,7 +215,7 @@ Another session on how to approach the Chinese market! A good opportunity to see
 - 10:00 AM - 10:20 AM
 - 20 minutes
 
-> Learn how Trailblazer Leatherman drives faster growth with effective AI-personalization tools, flexible omni-channel and optimized onsite branded experiences, and fine-tuned commerce fundamentals.
+> Learn how Trailblazer Leatherman drives faster growth with effective AI-personalisation tools, flexible omni-channel and optimised onsite branded experiences, and fine-tuned commerce fundamentals.
 
 I love seeing customer cases, especially when they use multiple offerings from Salesforce.
 
@@ -228,7 +228,7 @@ It is also apparent that customer journeys are becoming more complex over the ye
 - 10:30 AM - 10:50 AM
 - 20 minutes
 
-> Learn how Salesforce and Fenom Digital helped David Yurman put the customer at the center of their digital transformation with Commerce Cloud, Marketing Cloud, Service Cloud, and Order Management.
+> Learn how Salesforce and Fenom Digital helped David Yurman put the customer at the centre of their digital transformation with Commerce Cloud, Marketing Cloud, Service Cloud, and Order Management.
 
 Another multi-cloud customer case!
 
@@ -251,7 +251,7 @@ As social channels are ever-changing, looking at what the next five years will b
 - 12:30 PM - 12:50 PM
 - 20 minutes
 
-> Learn from the behaviors of billions of shoppers to inform insights and predictions for holiday 2022 and drive readiness across marketing, commerce, customer service, and the store and associates.
+> Learn from the behaviours of billions of shoppers to inform insights and predictions for holiday 2022 and drive readiness across marketing, commerce, customer service, and the store and associates.
 
 If you have been doing Salesforce B2C Commerce Cloud for a while, [holiday readiness](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_21_10_get_holiday_ready_je.htm&type=5&language=en_US) should be a term you have heard before.
 
@@ -303,9 +303,9 @@ It turns out it is OneRepublic!
 
 ## OneRepublic
 
-### OneRepublic - Apologize (Official Music Video)
+### OneRepublic - Apologise (Official Music Video)
 
-{{< video-embed id="-rKUT6zugJ0" title="OneRepublic - Apologize (Official Music Video)" >}}
+{{< video-embed id="-rKUT6zugJ0" title="OneRepublic - Apologise (Official Music Video)" >}}
 
 ### OneRepublic - Counting Stars (Official Music Video)
 

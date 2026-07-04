@@ -4,7 +4,7 @@ description: >-
   Review the Salesforce B2C Commerce Cloud 22.10 release and the final platform
   updates worth noting before the year wraps up.
 date: '2022-09-28T13:33:05.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /salesforce-b2c-commerce-cloud-22-10/
 draft: false
 heroImage: tiktok-1-d92d51296d.jpg
@@ -17,7 +17,7 @@ tags:
 author: Thomas Theunen
 takeaways:
   - "Highlights the major 22.10 updates around staging eCDN APIs, edge caching, and sandbox URL changes"
-  - "Explains new platform and API behaviors such as basket hook changes and negative inventory allocation limits"
+  - "Explains new platform and API behaviours such as basket hook changes and negative inventory allocation limits"
   - "Calls out related cartridge and storefront tooling releases that matter for hybrid, SFRA, and SLAS projects"
 ---
 What a year it has been, and now it is time for the final release of this year: the [October 2022 (22.10) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_9_release.htm&type=5)!
@@ -162,7 +162,7 @@ Development of the PWA Kit continues steadily, and new releases happen often. In
 ### Template Retail React App
 
 - Update zzrf-001 instance url [#694](https://github.com/SalesforceCommerceCloud/pwa-kit/pull/694)
-- Optimize Server-side performance [#667](https://github.com/SalesforceCommerceCloud/pwa-kit/pull/667)
+- Optimise Server-side performance [#667](https://github.com/SalesforceCommerceCloud/pwa-kit/pull/667)
 - Remove references to session bridging [#684](https://github.com/SalesforceCommerceCloud/pwa-kit/pull/684)
 
 ### pwa-kit-dev

@@ -4,7 +4,7 @@ description: >-
   A new year means release notes for the back end have started again! This time,
   we look at the January 2024 (24.1) release!
 date: '2024-01-08T09:10:13.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /sfcc-24-1-release-a-new-year-update/
 draft: false
 heroImage: shopping-carts-to-the-shredder-735353fe04.jpg
@@ -76,10 +76,10 @@ Some love again for the PWA Kit, with the release of v3.3.0. The main changes ar
 - Replacing max-age with s-maxage to only cache shared caches
 - Improving pwa-kit-dev start command to accept CLI arguments for babel-node
 - Adding source-map-loader plugin to webpack configuration
-- Creating a flag to allow toggling behavior that treats + character between words as space in search query
+- Creating a flag to allow toggling behaviour that treats + character between words as space in search query
 - Implementing gift option for basket
 - Updating extract-default-messages script to support multiple locales
-- Adding support for localization in icon component
+- Adding support for localisation in icon component
 - Making various accessibility improvements and bug fixes
 
 ## Bugfixes

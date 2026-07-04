@@ -4,7 +4,7 @@ description: >-
   Learn why origin shielding matters in Commerce Cloud, how it protects origin
   infrastructure, and when to include it in your traffic strategy.
 date: '2024-11-04T08:40:19.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /the-importance-of-origin-shielding/
 draft: false
 heroImage: protecting-your-server-26dacc7cc4.jpg
@@ -28,7 +28,7 @@ Let's dive into the details!
 
 ## What is "Origin Shielding"?
 
-Origin shielding protects the origin server - in our case the Application Servers - by funneling all incoming traffic through an intermediate layer, or shield.
+Origin shielding protects the origin server - in our case the Application Servers - by funnelling all incoming traffic through an intermediate layer, or shield.
 
 When someone tries to access content hosted on Salesforce, Mobify, or Demandware, the Embedded Content Delivery Network (eCDN) steps in. It intercepts the request, verifies its legitimacy, and only sends valid requests to the origin servers.
 
@@ -93,7 +93,7 @@ Communicating this information to the right people will significantly reduce the
 
 Before launching, make sure to test everything thoroughly. Check that all third-party systems can access your storefront and API features through the vanity domain. This step will help you find and fix any issues before they affect your operations.
 
-{{< img-caption src="good-communication-8688aa2fb2.jpg" alt="A cartoon depicting two people conversing with a chat bubble containing various colored emoticons." caption="Good communication with integration teams is essential: confirm all third-party access works through the vanity domain before go-live." >}}
+{{< img-caption src="good-communication-8688aa2fb2.jpg" alt="A cartoon depicting two people conversing with a chat bubble containing various coloured emoticons." caption="Good communication with integration teams is essential: confirm all third-party access works through the vanity domain before go-live." >}}
 
 ### 4\. Monitor
 

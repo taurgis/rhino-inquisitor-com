@@ -4,7 +4,7 @@ description: >-
   Are you wondering what entities make up a campaign in SFCC and how they are
   connected? Then look no more! Here is a small ERD.
 date: '2023-02-27T08:24:42.000Z'
-lastmod: '2026-07-04T10:39:24.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /b2c-commerce-cloud-campaign-erd/
 draft: false
 heroImage: newsletter-surrounded-by-cogwheels-83ae88881a.jpg
@@ -18,7 +18,7 @@ tags:
 author: Thomas Theunen
 takeaways:
   - "Maps the main campaign-related entities and relationships in Salesforce B2C Commerce Cloud"
-  - "Explains helper relationships and the hidden Store Group feature behavior"
+  - "Explains helper relationships and the hidden Store Group feature behaviour"
   - "Calls out where Business Manager support and storefront support do not fully align"
 ---
 When scouring the documentation for the Campaign ERD ([Entity–relationship model](https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model)) of [Salesforce B2C Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/), you have probably come out empty-handed.

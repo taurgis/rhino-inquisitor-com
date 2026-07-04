@@ -4,7 +4,7 @@ description: >-
   Review the 23.8 Commerce Cloud release and the platform changes teams should
   understand before holiday readiness work ramps up.
 date: '2023-07-27T13:28:13.000Z'
-lastmod: '2026-07-04T10:39:24.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /what-is-new-in-the-23-8-commerce-cloud-release/
 draft: false
 heroImage: christmas-at-the-beach-scaled-75bd57b575.jpg
@@ -18,7 +18,7 @@ tags:
 author: Thomas Theunen
 takeaways:
   - "Highlights the 23.8 release as a mostly infrastructure- and scalability-focused update ahead of holiday readiness"
-  - "Calls out the most relevant changes around PWA Kit cookie support, SLAS session behavior, and Account Manager security controls"
+  - "Calls out the most relevant changes around PWA Kit cookie support, SLAS session behaviour, and Account Manager security controls"
   - "Explains why teams should still review quieter releases carefully when the main impact is operational rather than feature-heavy"
 ---
 Everyone knows that getting ready for the holiday season starts in the summer in the Commerce Cloud world! And looking at the [23.8 release notes,](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_23_8_release.htm&type=5) this is apparent.
@@ -86,7 +86,7 @@ I have written [extensively on this topic](/the-deprecation-of-the-uuid-token-fo
 
 {{< img-caption src="salesforce-identity-b628afdc63.jpeg" alt="Salesforce Identity screen showing sign-in with external identity services." >}}
 
-> You can now configure Identity Federation with Salesforce Identity in Account Manager using supported enhanced domain names. You can specify the organization MyDomain subdomain name in Salesforce Core. The default domain suffix is my.salesforce.com. If the identity federation is allowed or enforced, you can change the value. For example, if you use a Salesforce Core sandbox, you can use sandbox.my.salesforce.com as the domain suffix.
+> You can now configure Identity Federation with Salesforce Identity in Account Manager using supported enhanced domain names. You can specify the organisation MyDomain subdomain name in Salesforce Core. The default domain suffix is my.salesforce.com. If the identity federation is allowed or enforced, you can change the value. For example, if you use a Salesforce Core sandbox, you can use sandbox.my.salesforce.com as the domain suffix.
 
 This is a great new feature if you're using or planning to use Salesforce Identity.
 
@@ -104,7 +104,7 @@ Passwords **cannot include any part of your name, username, or UUID**.
 
 ### Auto Disable Inactive Users
 
-> Compliance with PCI DSS 8.1.4 requires that Account Manager user accounts are disabled when their accounts are inactive for 90 days. To support compliance with PCI DSS 8.1.4, Account Manager administrators can now set the number of inactive days before an account is disabled. When the setting is enabled, users with inactive accounts receive an email notification 10 days and 1 day before their account is deactivated. To keep an account active, users can log in to any Commerce Cloud application. To enable the setting, in Account Manager > Organization details, activate or deactivate the setting. The setting is disabled by default.
+> Compliance with PCI DSS 8.1.4 requires that Account Manager user accounts are disabled when their accounts are inactive for 90 days. To support compliance with PCI DSS 8.1.4, Account Manager administrators can now set the number of inactive days before an account is disabled. When the setting is enabled, users with inactive accounts receive an email notification 10 days and 1 day before their account is deactivated. To keep an account active, users can log in to any Commerce Cloud application. To enable the setting, in Account Manager > Organisation details, activate or deactivate the setting. The setting is disabled by default.
 
 One of the benefits of using Salesforce Commerce Cloud is that users don't have to concern themselves with infrastructure or compliance with various regulations, in this case: [PCI DSS 8.1.4](https://listings.pcisecuritystandards.org/documents/PCIDSS_QRGv3_1.pdf).
 

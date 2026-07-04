@@ -4,7 +4,7 @@ description: >-
   SFRA in Salesforce B2C Commerce can be quite daunting. This blog post will
   guide you through all of the content of Commerce Cloud SFRA!
 date: '2023-10-30T09:57:46.000Z'
-lastmod: '2023-10-31T09:11:09.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /getting-to-know-sfra-as-a-developer/
 draft: false
 heroImage: sfra-670d466bd1.png
@@ -17,7 +17,7 @@ tags:
   - technical
 author: Thomas Theunen
 takeaways:
-  - "Organizes a practical learning path for developers who are new to SFRA and SFCC"
+  - "Organises a practical learning path for developers who are new to SFRA and SFCC"
   - "Points readers to sandbox setup, platform fundamentals, and official SFRA learning resources"
   - "Connects self-study, partner training, and certification prep into one onboarding path"
 ---
@@ -56,7 +56,7 @@ It also touches on all different aspects of commerce in general:
 
 - Getting to know Commerce Cloud
 - UX/UI Best Practices
-- Personalization
+- Personalisation
 - Product Management
 - Search Management (Search, Sorting, and Refining)
 - Promotions & Campaigns
@@ -77,7 +77,7 @@ Since this is what you will be developing in, it is a must-watch!
 
 ## On to development
 
-This is the part you have been waiting for right? Getting your hands "dirty" in the SFRA code, figuring out how to customize that storefront, and integrating some third-party systems!
+This is the part you have been waiting for right? Getting your hands "dirty" in the SFRA code, figuring out how to customise that storefront, and integrating some third-party systems!
 
 ### SFRA Developer Guide
 
@@ -96,7 +96,7 @@ This website will tell you how to get started with your SFRA implementation with
 
 ### Partner Learning Camp
 
-{{< img-caption src="b2c-foundations-2daffad6c6.jpg" alt="Partner Learning Camp catalog showing the B2C Commerce Foundations course." >}}
+{{< img-caption src="b2c-foundations-2daffad6c6.jpg" alt="Partner Learning Camp catalogue showing the B2C Commerce Foundations course." >}}
 
 - [https://partnerlearningcamp.salesforce.com](https://partnerlearningcamp.salesforce.com/s/browse-catalog?plc__recordId=5iuux101vYk2UQtOkwn9%2BpFhmsL%2F5jynd8uOnEFtSg4JjoBEe8yyDv9MajFikOJe)
 

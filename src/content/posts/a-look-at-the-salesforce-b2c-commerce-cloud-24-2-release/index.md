@@ -4,7 +4,7 @@ description: >-
   Review the Salesforce B2C Commerce Cloud 24.2 release and the platform updates
   worth testing across storefront, API, and operational workflows.
 date: '2024-02-05T06:59:49.000Z'
-lastmod: '2026-07-04T10:39:24.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /a-look-at-the-salesforce-b2c-commerce-cloud-24-2-release/
 draft: false
 heroImage: a-question-mark-cloning-machine-12d5adc228.jpg
@@ -111,11 +111,11 @@ The [documentation](https://developer.salesforce.com/docs/commerce/commerce-api/
 ### SLAS Updates
 
 > -   Improved error handling for TSOB(Trusted system on Behalf) for "customer not found" user scenarios.
-> -   Support added for using SAP Customer Data Cloud socialize REST endpoints.
+> -   Support added for using SAP Customer Data Cloud socialise REST endpoints.
 > -   IDP configuration now allows the IDP client credentials to be added to the POST body. SLAS now supports OIDC client\_secret\_basic and client\_secret\_post for client authentication.
 > -   Updated the /introspect endpoint to include a “sub” claim in the response.
 > -   Improved validation in Session Bridge(SESB) flow by checking for the customer\_id and failing the request if the customer is already registered.
-> -   Includes SLAS Admin UI and API bug fix to address the cache synchronization issue when a client is edited or deleted.
+> -   Includes SLAS Admin UI and API bug fix to address the cache synchronisation issue when a client is edited or deleted.
 
 SLAS updates this month include some critical changes. One of the issues that has been bothering me for the past year was the visual cache of the SLAS admin UI, which caused a lot of confusion by displaying outdated information.
 
@@ -165,15 +165,15 @@ A long-awaited update to SFRA is finally here with the long-promised update to n
 > -   Fix bug when running in an iframe #1629
 > -   Generate SSR source map with environment variable #1571
 > -   Display selected refinements on PLP, even if the selected refinement has no hits #1622
-> -   Added option to specify isLoginPage function to the withRegistration component. The default behavior is "all pages ending in /login". #1572
+> -   Added option to specify isLoginPage function to the withRegistration component. The default behaviour is "all pages ending in /login". #1572
 >
 >
 > **Accessibility**
 >
-> -   Add correct keyboard interaction behavior for variation attribute radio buttons #1587
+> -   Add correct keyboard interaction behaviour for variation attribute radio buttons #1587
 > -   Change radio refinements (for example, filtering by Price) from radio inputs to styled buttons #1605
 > -   Update search refinements ARIA labels to include "add/remove filter" #1607
-> -   Improve focus behavior on my account pages, address forms, and promo codes #1625
+> -   Improve focus behaviour on my account pages, address forms, and promo codes #1625
 >
 >
 > **Storefront Preview**

@@ -4,7 +4,7 @@ description: >-
   Besides the official repositories, many community contributions to Salesforce
   B2C Commerce Cloud exist! Here is the list!
 date: '2022-04-27T06:33:05.000Z'
-lastmod: '2023-02-15T14:08:10.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /community-repositories/
 draft: false
 categories:
@@ -91,9 +91,9 @@ This repo is a composable storefront implementation with various proof of concep
 
 [Go to repository](https://github.com/SalesforceCommerceCloud/composable-storefront-pocs)
 
-### Catalog Reducer Extension
+### Catalogue Reducer Extension
 
-The Catalog Reducer Extension is a Business Manager Extension that was created to provide a simple, easy way to export smaller version of Production catalogs, for use on sandboxes on the Salesforce B2C Commerce Platform. **Author:** Jordane Bachelet
+The Catalogue Reducer Extension is a Business Manager Extension that was created to provide a simple, easy way to export smaller version of Production catalogues, for use on sandboxes on the Salesforce B2C Commerce Platform. **Author:** Jordane Bachelet
 
 [Go to repository](https://github.com/SalesforceCommerceCloud/catalog-reducer-extension)
 
@@ -209,7 +209,7 @@ b2c-tools is a CLI tool and library for data migrations, import/export, scriptin
 
 ### Build Suite
 
-Use the Build Suite to automate and customize your build processes. Configure your build and deployment process and hit a single button to package a build, deploy it to your environment, and activate the new code version. **Author:** Salesforce + Community (Too many to mention)
+Use the Build Suite to automate and customise your build processes. Configure your build and deployment process and hit a single button to package a build, deploy it to your environment, and activate the new code version. **Author:** Salesforce + Community (Too many to mention)
 
 [Go to repository](https://github.com/SalesforceCommerceCloud/build-suite)
 
@@ -219,15 +219,15 @@ Command Line Tool for Salesforce Commerce Cloud Cartridge Compare. Working with 
 
 [Go to repository](https://github.com/redvanworkshop/sfcc-cartridge-diff)
 
-### Catalog Reducer
+### Catalogue Reducer
 
-This node tool allows you to take a large catalog and shrink it to a smaller catalog by using selection criteria. **Author:** Danny Gehl
+This node tool allows you to take a large catalogue and shrink it to a smaller catalogue by using selection criteria. **Author:** Danny Gehl
 
 [Go to repository](https://github.com/SalesforceCommerceCloud/catalog-reducer)
 
-### Catalog Reducer for SFCC
+### Catalogue Reducer for SFCC
 
-Usually production catalog is huge and SFCC sandboxes cannot handle a big amount of catalog data without performance degradation. On the other hand, a sandbox is an instance for developing a site and it does not require an entire catalog to be present on it. Will be enough to have few properly configured categories and all types of products. **Author:** Vladyslav Hryhola
+Usually production catalogue is huge and SFCC sandboxes cannot handle a big amount of catalogue data without performance degradation. On the other hand, a sandbox is an instance for developing a site and it does not require an entire catalogue to be present on it. Will be enough to have few properly configured categories and all types of products. **Author:** Vladyslav Hryhola
 
 [Go to repository](https://github.com/acibilous/sfcc-catalog-reducer)
 
@@ -249,9 +249,9 @@ A CLI tool for making Open Commerce API and Salesforce Commerce API calls. **Aut
 
 [Go to repository](https://github.com/SalesforceCommerceCloud/sfcc-api-cli)
 
-### SFCC Catalog Pricebook
+### SFCC Catalogue Pricebook
 
-Create Salesforce Commerce Cloud Pricebook XML from Catalog XML. **Author:** Red Van Workshop
+Create Salesforce Commerce Cloud Pricebook XML from Catalogue XML. **Author:** Red Van Workshop
 
 [Go to repository](https://github.com/redvanworkshop/sfcc-catalog-pricebook)
 
@@ -337,9 +337,9 @@ A handy tool to extract a single Page Designer page from a library XML file. **A
 
 [Go to the tool](https://s0t2r.csb.app/)
 
-### Live Catalog Edit
+### Live Catalogue Edit
 
-Edit SFCC catalog in a Google Sheet and sync easily with any instance. **Author:** ZaUtre
+Edit SFCC catalogue in a Google Sheet and sync easily with any instance. **Author:** ZaUtre
 
 [Go to the tool](https://docs.google.com/spreadsheets/d/1MO8eOQXClVpdDeUYWUe8Gvd-E_VCn0llFWqJNNaC_lI/edit?usp=sharing)
 

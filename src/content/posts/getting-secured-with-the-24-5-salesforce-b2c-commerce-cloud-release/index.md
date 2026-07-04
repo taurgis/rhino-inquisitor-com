@@ -4,7 +4,7 @@ description: >-
   Again, it is time for the monthly Salesforce B2C Commerce Cloud release! This
   time, we look at the May 2024 (24.5) release!
 date: '2024-05-03T11:25:41.000Z'
-lastmod: '2024-05-06T07:48:10.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /getting-secured-with-the-24-5-salesforce-b2c-commerce-cloud-release/
 draft: false
 heroImage: robots-behind-bars-e1714735507313-e727779a98.jpg
@@ -42,7 +42,7 @@ This update aims to provide more reliable and complete logs—nothing much to sa
 > - **eCDN Managed Rules:** Provide fast and effective protection for all your applications. The rule set is frequently updated to address emerging vulnerabilities and reduce false positives.
 > - **eCDN Exposed Credentials Check:** A managed ruleset of pre-configured rules for well-known CMS applications. The ruleset conducts a check against a public database of stolen credentials.
 > - **Configurability via Business Manager UI and CDN Zones API:** With this update, configuring the eCDN WAFv2 settings is now accessible through the Business Manager UI and for new zones, through the CDN Zones API.
-> - **Reduced False Positive Detections:** The upgraded WAFv2 includes updated managed rulesets that reduce false positives. The rulesets enhance threat detection accuracy while minimizing disruptions to your normal operations.
+> - **Reduced False Positive Detections:** The upgraded WAFv2 includes updated managed rulesets that reduce false positives. The rulesets enhance threat detection accuracy while minimising disruptions to your normal operations.
 
 This is a significant update to the WAF! Increasing security is always on everyone's mind, so getting an upgrade is much needed.
 
@@ -50,9 +50,9 @@ This is one of the parts of Commerce Cloud over which we had little control unti
 
 ## Business Manager
 
-### Refine and Customize Promotions
+### Refine and Customise Promotions
 
-> The Business Manager Promotion Refinements feature now offers expanded support for custom product attributes. With this update, users can now create refinable promotions that utilize custom localizable product attributes, as well as custom product attributes of type enum-of-string and enum-of-int. This enhancement addresses the previous limitation where Business Manager users could not set up refinable promotions with these specific custom attribute data types or localizable attributes.
+> The Business Manager Promotion Refinements feature now offers expanded support for custom product attributes. With this update, users can now create refinable promotions that utilise custom localisable product attributes, as well as custom product attributes of type enum-of-string and enum-of-int. This enhancement addresses the previous limitation where Business Manager users could not set up refinable promotions with these specific custom attribute data types or localisable attributes.
 
 This update might seem small to some, but it dramatically impacts the flexibility of an already flexible promotion engine. Using localised attributes means that regional promotions just got a lot easier!
 
@@ -104,10 +104,10 @@ However, we should always aim to secure everything. But this option provides us 
 
 ### Upcoming Removal of Deprecated Roles in Account Manager
 
-> Salesforce is removing deprecated roles from Account Manager. To prevent any disruption in your organization's workflow, ensure you aren’t using the deprecated roles. How: Review the list of deprecated roles that are slated for removal. Reassign any users currently using these roles. For assistance with reassigning roles, see Edit a User Account.
+> Salesforce is removing deprecated roles from Account Manager. To prevent any disruption in your organisation's workflow, ensure you aren’t using the deprecated roles. How: Review the list of deprecated roles that are slated for removal. Reassign any users currently using these roles. For assistance with reassigning roles, see Edit a User Account.
 > The affected roles include:
 >
-> - SLAS Organization Admin role (Deprecated for API Clients only)
+> - SLAS Organisation Admin role (Deprecated for API Clients only)
 > - XChange roles
 > - Documentation User, Documentation Linguist, Documentation Reviewer
 > - statuspage.io User

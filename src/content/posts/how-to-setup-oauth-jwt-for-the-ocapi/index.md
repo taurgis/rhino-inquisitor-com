@@ -4,7 +4,7 @@ description: >-
   Setting up JWT with the OCAPI has not been the easiest thing to do. The
   documentation makes you make assumptions with vague instructions.
 date: '2022-06-27T17:49:25.000Z'
-lastmod: '2026-07-04T10:39:24.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /how-to-setup-oauth-jwt-for-the-ocapi/
 draft: false
 heroImage: jwt-517bf34cae.png
@@ -38,7 +38,7 @@ In this article, we will focus on the one most 'challenging?' to set up: the JWT
 
 When working with JWT, we will use a signing method to verify the authenticity of the requests sent to the server. These are easy to generate, and you have complete control over how long they are valid.
 
-Open up your favorite terminal and execute the following command in your folder of choice:
+Open up your favourite terminal and execute the following command in your folder of choice:
 
 ```text
 openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes
@@ -46,7 +46,7 @@ openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -node
 
 This command will create two files:
 
-- **key.pem:** Your private key that will be used to sign requests to the OCAPI authorization endpoint
+- **key.pem:** Your private key that will be used to sign requests to the OCAPI authorisation endpoint
 
 - **cert.pem:** The certificate containing the public key will be needed later when setting up the API key in AM (Account Manager).
 
@@ -54,7 +54,7 @@ This command will create two files:
 
 Like always, when we set up a server-to-server connection, we need to generate an API key in the [Account Manager](https://account.demandware.com/).
 
-Follow the i[nstructions on the Infocenter](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_account_manager_add_api_client_id.htm), with a few minor changes.
+Follow the [instructions on the Infocenter](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_account_manager_add_api_client_id.htm), with a few minor changes.
 
 {{< img-caption src="account-manager-set-up-jwt-c2ed29ddca.jpg" alt="Account Manager client configuration for private_key_jwt authentication." caption="This Account Manager setup is the prerequisite for private_key_jwt authentication." link="account-manager-set-up-jwt-c2ed29ddca.jpg" >}}
 
@@ -99,7 +99,7 @@ In this example, you need to set two collection variables:
 
 There is also a variable called [**pmlib**](https://joolfe.github.io/postman-util-lib/dist/bundle.js): a third-party library meant to extend the capabilities of the scripting framework within [Postman](https://www.postman.com/). In the collection, a request called "1. Download JS for Postman" downloads it in case the initial value is not working.
 
-Since Postman does not support generating JWT tokens out-of-the-box there is a "Pre-request script" within the second call "2. Authorization (JWT)" which generates it and stores it in a collection variable used during the request.
+Since Postman does not support generating JWT tokens out-of-the-box there is a "Pre-request script" within the second call "2. Authorisation (JWT)" which generates it and stores it in a collection variable used during the request.
 
 ```js
 // Load third party library

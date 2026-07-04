@@ -4,7 +4,7 @@ description: >-
   Learn when Custom Caches help in SFCC, where they create risk, and how to use
   them safely without hurting performance or maintainability.
 date: '2025-07-28T07:32:55.000Z'
-lastmod: '2025-07-28T07:37:24.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /field-guide-to-custom-caches-in-sfcc/
 draft: false
 heroImage: custom-caches-in-sfcc-scaled-c245e83c7a.jpeg
@@ -83,7 +83,7 @@ Your cache's life begins with a simple declaration. This is done in a JSON file,
 }
 ```
 
-The `id` must be **globally unique** across every single cartridge in your site's cartridge path. A duplicate ID will cause the cache to silently fail to initialize, with the only evidence being an error in the logs. The `expireAfterSeconds` sets a TTL for entries in that cache. If omitted, entries have no time-based expiration and persist until the next global cache clear event.
+The `id` must be **globally unique** across every single cartridge in your site's cartridge path. A duplicate ID will cause the cache to silently fail to initialise, with the only evidence being an error in the logs. The `expireAfterSeconds` sets a TTL for entries in that cache. If omitted, entries have no time-based expiration and persist until the next global cache clear event.
 
 3 **. Register in `package.json`:** The platform needs to know where to find your definition file. Reference it in your cartridge's `package.json` using the `caches` key. The path is relative to the `package.json` file itself.
 
@@ -192,11 +192,11 @@ While it might seem clever to make your cache key highly specific and unique, th
 
 I've also seen situations where the effort spent retrieving extensive data from the database to craft the key ends up cancelling out the performance benefits of custom caching. After all, if generating the key takes longer than the cache saves, it's time to rethink the approach.
 
-## The Serialization Conundrum: Caching API Objects vs. POJOs
+## The Serialisation Conundrum: Caching API Objects vs. POJOs
 
 **You must not cache raw SFCC API objects.** Never put a `dw.catalog.Product`, `dw.order.Order`, or `dw.catalog.ProductInventoryList` object directly into the cache.
 
-While the [documentation](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-custom-caches.html) ambiguously states that "tree-like object structures" can be stored, this is a siren song leading to disaster. These API objects are heavyweight, carry live database connections, are not truly serializable, and can easily blow past the 128KB per-entry size limit, causing silent write failures that are only visible in the logs.
+While the [documentation](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-custom-caches.html) ambiguously states that "tree-like object structures" can be stored, this is a siren song leading to disaster. These API objects are heavyweight, carry live database connections, are not truly serialisable, and can easily blow past the 128KB per-entry size limit, causing silent write failures that are only visible in the logs.
 
 The only performant and safe approach is to map the data you need from the heavy API object into a lightweight **Plain Old JavaScript Object (**[POJO](https://en.wikipedia.org/wiki/Plain_old_Java_object)**)** or Data Transfer Object ([DTO](https://en.wikipedia.org/wiki/Data_transfer_object)) before caching it.
 
@@ -317,7 +317,7 @@ When you identify a performance problem, follow this systematic process to diagn
 
 1. **Observe (Production):**Start in**Reports & Dashboards > Technical**. Sort by "Percentage of Processing Time" or "Average Response Time" to find your slowest controllers and remote includes. These are your top suspects. Note their cache hit ratios in the report. A low hit ratio on a slow controller is a huge red flag.
 
-1. **Hypothesize (Business Manager):**Go to the**Custom Caches** page. Does the slow controller use a custom cache? Is that cache showing a low hit rate or, worse, write failures? This helps correlate the storefront performance issue with a specific cache's health.
+1. **Hypothesise (Business Manager):**Go to the**Custom Caches** page. Does the slow controller use a custom cache? Is that cache showing a low hit rate or, worse, write failures? This helps correlate the storefront performance issue with a specific cache's health.
 
 1. **Reproduce & Pinpoint (Development):**Switch to a development instance. Use the**Pipeline Profiler** to get a high-level timing breakdown of the suspect controller. This tool confirms which parts of the request are slow, but it does not show cached requests. To dig deeper into the code itself, use the
 

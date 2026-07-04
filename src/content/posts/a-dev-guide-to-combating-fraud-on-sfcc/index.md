@@ -4,7 +4,7 @@ description: >-
   Enhance your security beyond the basics on Salesforce B2C Commerce Cloud with
   this comprehensive guide tailored for developers.
 date: '2026-01-19T08:02:08.000Z'
-lastmod: '2026-01-19T08:02:08.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /a-dev-guide-to-combating-fraud-on-sfcc/
 draft: false
 heroImage: fraud-orders-sfcc-scaled-beae2495ff.jpeg
@@ -14,9 +14,9 @@ tags:
   - sfcc
 author: Thomas Theunen
 takeaways:
-  - "Breaks down major eCommerce fraud patterns SFCC developers need to recognize"
+  - "Breaks down major eCommerce fraud patterns SFCC developers need to recognise"
   - "Shows how native SFCC controls, custom rules, and scoring can work together"
-  - "Compares third-party fraud tools by bot defense, analyst control, and guarantees"
+  - "Compares third-party fraud tools by bot defence, analyst control, and guarantees"
 ---
 Your checkout flow isn't just a conversion funnel; it's a battleground. Every order placed is a potential skirmish with bad actors looking to exploit your system for financial gain. For developers on the Salesforce B2C Commerce Cloud (SFCC) platform, preventing fraud is not merely a business concern—it's a technical mandate. It falls squarely within our domain to architect defences that are both robust and intelligent. Under the Salesforce Shared Responsibility Model, Salesforce secures the core platform and infrastructure; however, the security of custom code, configurations, and data handling is the customer's (or partner's) responsibility. This is where we, the developers, step up.
 
@@ -28,7 +28,7 @@ Finally, we'll survey the professional mercenaries on the AppExchange, calling i
 
 _Let's build our fortress._
 
-{{< img-caption src="the-sfcc-fortress-for-fraud-5d4d80990b.jpg" alt="A cartoon illustration depicting a stone fortress labeled 'Checkout Flow'. Developers equipped with tools are building defensive machines labeled 'Fraud Prevention Layers' and 'Risk Scoring' to protect the castle from cartoon burglars, with a Salesforce shield hanging above the gate." caption="Fraud prevention works best as layers around the checkout, not as one last-minute rule." >}}
+{{< img-caption src="the-sfcc-fortress-for-fraud-5d4d80990b.jpg" alt="A cartoon illustration depicting a stone fortress labelled 'Checkout Flow'. Developers equipped with tools are building defensive machines labelled 'Fraud Prevention Layers' and 'Risk Scoring' to protect the castle from cartoon burglars, with a Salesforce shield hanging above the gate." caption="Fraud prevention works best as layers around the checkout, not as one last-minute rule." >}}
 
 ## Know Your Enemy - A Developer's Taxonomy of eCommerce Fraud
 
@@ -65,13 +65,13 @@ Automated bots are the force multipliers of the fraud world, enabling criminals 
 
 #### Sophisticated Schemes
 
-{{< img-caption src="advanced-fraud-schemes-81670fc67f.jpg" alt="A cartoon illustration depicting complex fraud schemes. One section illustrates 'Triangulation Fraud' showing a circular flow between a fraudster, a legitimate merchant, and an unsuspecting customer. Another section depicts 'Synthetic Identity Fraud' as a figure assembling a fake persona using puzzle pieces labeled with different personal data points like 'SSN' and 'Name'." caption="Modern fraud is not one pattern, which is why the defense strategy cannot be one-dimensional." >}}
+{{< img-caption src="advanced-fraud-schemes-81670fc67f.jpg" alt="A cartoon illustration depicting complex fraud schemes. One section illustrates 'Triangulation Fraud' showing a circular flow between a fraudster, a legitimate merchant, and an unsuspecting customer. Another section depicts 'Synthetic Identity Fraud' as a figure assembling a fake persona using puzzle pieces labelled with different personal data points like 'SSN' and 'Name'." caption="Modern fraud is not one pattern, which is why the defence strategy cannot be one-dimensional." >}}
 
 Beyond simple theft: A visual breakdown of how fraudsters manipulate supply chains through Triangulation and manufacture new personas via Synthetic Identity fraud.
 
 As merchants' defences improve, fraudsters devise more complex schemes.
 
--   **Triangulation Fraud:** This is a cunning three-party scheme. A fraudster sets up a fake online store or an auction listing for a popular product at a low price. An unsuspecting customer buys the item and provides their payment and shipping details. The fraudster then uses that shipping information to access a legitimate merchant's website (like yours) and purchases the same item with a different, stolen credit card, which is then shipped directly to the original customer. The fraudster pockets the customer's initial payment, the legitimate merchant is hit with a chargeback from the card's owner, and the customer receives the product, often unaware that their actions have fueled a fraudulent transaction.
+-   **Triangulation Fraud:** This is a cunning three-party scheme. A fraudster sets up a fake online store or an auction listing for a popular product at a low price. An unsuspecting customer buys the item and provides their payment and shipping details. The fraudster then uses that shipping information to access a legitimate merchant's website (like yours) and purchases the same item with a different, stolen credit card, which is then shipped directly to the original customer. The fraudster pockets the customer's initial payment, the legitimate merchant is hit with a chargeback from the card's owner, and the customer receives the product, often unaware that their actions have fuelled a fraudulent transaction.
 
 -   **Synthetic Identity Fraud:** This is one of the fastest-growing and most dangerous forms of financial crime. Instead of stealing a single, complete identity, fraudsters combine pieces of real, stolen information (like a valid Social Security number) with fabricated details (a fake name and address) to create a brand-new, fictitious identity. This "synthetic" identity has no prior credit history, making it difficult for traditional systems to flag as fraudulent. The fraudster can then use this identity to open new lines of credit, make purchases, and commit fraud that is incredibly difficult to trace back to a real person.
 
@@ -86,13 +86,13 @@ For a developer, understanding these schemes is only half the battle. The crucia
 
 A classic indicator is a mismatch between the IP address geolocation and the billing or shipping address, especially across countries (e.g., an order placed from a Singaporean IP address with a US billing address).
 
-### Velocity & Behavior Anomalies
+### Velocity & Behaviour Anomalies
 
-Watch for patterns that defy normal human behavior. This includes multiple orders placed from the same IP address using different credit cards but shipping to the same address, a high volume of transactions in a very short time, or a series of failed payment attempts followed by a successful one.
+Watch for patterns that defy normal human behaviour. This includes multiple orders placed from the same IP address using different credit cards but shipping to the same address, a high volume of transactions in a very short time, or a series of failed payment attempts followed by a successful one.
 
 ### Order Characteristics
 
-Be wary of unusually large orders, particularly from new or guest customers, as fraudsters try to maximize their payout before being caught. Another key indicator is a request for rushed or overnight shipping, as this minimizes the window for the merchant to detect the fraud and halt the shipment.
+Be wary of unusually large orders, particularly from new or guest customers, as fraudsters try to maximise their payout before being caught. Another key indicator is a request for rushed or overnight shipping, as this minimises the window for the merchant to detect the fraud and halt the shipment.
 
 ### Identity Indicators
 
@@ -102,17 +102,17 @@ Before writing a single line of custom fraud logic or evaluating a third-party c
 
 The platform's philosophy is not to provide a single, monolithic fraud solution, but rather to offer secure, extensible building blocks that empower developers and partners to create tailored defences. This approach recognises that every merchant's risk profile is unique and that a one-size-fits-all solution is often ineffective.
 
-## The Native Toolkit - Wielding SFCC's Built-in Defenses
+## The Native Toolkit - Wielding SFCC's Built-in Defences
 
-### The First Line of Defense: The eCDN
+### The First Line of Defence: The eCDN
 
 Every request to your storefront first passes through Salesforce's embedded Content Delivery Network (eCDN). This is your outermost wall. The primary tool here for developers is eCDN Custom Rules, which have replaced the older, more rigid firewall rules. These rules give you granular control over incoming traffic based on a wide array of request parameters.
 
 Using the [eCDN API](https://developer.salesforce.com/docs/commerce/commerce-api/guide/cdn-zones-custom-rules.html), you can construct powerful expressions to filter traffic before it ever hits your application servers. For example, you can create a rule to block requests originating from known malicious IP ranges, countries where you don't ship, or specific user agents associated with malicious bots. The flexibility of these rules, which can key off of URI paths, user agents, IP addresses, and more, makes the eCDN a formidable first line of defence against automated threats.
 
-{{< img-caption src="native-sfcc-features-15503da1e4.jpg" alt="A cartoon illustration showing SFCC's native defense toolkit. On the left, a developer uses eCDN Custom Rules and API to block malicious traffic and bots from entering a castle. In the middle, Payment Processing Fundamentals are depicted with AVS and CVV checks passing or failing a credit card. On the right, a Commerce Cloud Einstein robot states it's for merchandising and sales, not fraud prevention, debunking a myth." caption="SFCC has useful native controls, but they are only part of a serious fraud strategy." >}}
+{{< img-caption src="native-sfcc-features-15503da1e4.jpg" alt="A cartoon illustration showing SFCC's native defence toolkit. On the left, a developer uses eCDN Custom Rules and API to block malicious traffic and bots from entering a castle. In the middle, Payment Processing Fundamentals are depicted with AVS and CVV checks passing or failing a credit card. On the right, a Commerce Cloud Einstein robot states it's for merchandising and sales, not fraud prevention, debunking a myth." caption="SFCC has useful native controls, but they are only part of a serious fraud strategy." >}}
 
-Leveraging SFCC's built-in defenses: The eCDN as the first line against malicious traffic, fundamental payment processing checks (AVS/CVV), and clarifying the role of Commerce Cloud Einstein.
+Leveraging SFCC's built-in defences: The eCDN as the first line against malicious traffic, fundamental payment processing checks (AVS/CVV), and clarifying the role of Commerce Cloud Einstein.
 
 ### Payment Processing Fundamentals
 
@@ -178,11 +178,11 @@ The most critical aspect of running your own custom solution is that its mainten
 
 ## Calling in the Cavalry - A Guide to Third-Party Fraud Solutions
 
-{{< img-caption src="calling-the-cavalry-fea1bcb812.jpg" alt="A cartoon illustration depicting 'The Cavalry' of third-party fraud solutions. Armored knights ride cybernetic horses toward a castle labeled 'Salesforce Commerce Cloud.' Signposts highlight specific vendors like 'Riskified & Signifyd' (Peace of Mind), 'Kount' (Control), and 'DataDome' (Bot Defense), while knights carry banners representing 'Global Data' and 'Machine Learning.'" caption="Third-party tools earn their keep when scale or risk outgrows the native platform controls." >}}
+{{< img-caption src="calling-the-cavalry-fea1bcb812.jpg" alt="A cartoon illustration depicting 'The Cavalry' of third-party fraud solutions. Armoured knights ride cybernetic horses toward a castle labelled 'Salesforce Commerce Cloud.' Signposts highlight specific vendors like 'Riskified & Signifyd' (Peace of Mind), 'Kount' (Control), and 'DataDome' (Bot Defence), while knights carry banners representing 'Global Data' and 'Machine Learning.'" caption="Third-party tools earn their keep when scale or risk outgrows the native platform controls." >}}
 
-When custom rules aren't enough, it's time to call in the cavalry. Third-party solutions bring global data networks, advanced AI, and financial guarantees to reinforce your Salesforce Commerce Cloud defense.
+When custom rules aren't enough, it's time to call in the cavalry. Third-party solutions bring global data networks, advanced AI, and financial guarantees to reinforce your Salesforce Commerce Cloud defence.
 
-While a custom-built rules engine is a powerful first line of defense, there comes a point where the scale and sophistication of fraud attacks demand more advanced weaponry. This is where third-party fraud prevention solutions from the Salesforce AppExchange become invaluable. These services offer three key advantages over an in-house solution: access to a massive, global network of shared transaction data; sophisticated machine learning (ML) models that are impossible to build and train independently; and, in many cases, the ability to offload financial liability through a chargeback guarantee.
+While a custom-built rules engine is a powerful first line of defence, there comes a point where the scale and sophistication of fraud attacks demand more advanced weaponry. This is where third-party fraud prevention solutions from the Salesforce AppExchange become invaluable. These services offer three key advantages over an in-house solution: access to a massive, global network of shared transaction data; sophisticated machine learning (ML) models that are impossible to build and train independently; and, in many cases, the ability to offload financial liability through a chargeback guarantee.
 
 ### Vendor Deep Dives
 
@@ -192,9 +192,9 @@ These platforms dedicate all their resources to combating fraud and offer powerf
 
 Here’s a look at some leading providers and who they are best for:
 
--   **[Riskified](https://appexchange.salesforce.com/appxListingDetail?listingId=d719d10c-198a-4d46-9df8-c4a8920c023e)** & [Signifyd](https://www.signifyd.com/salesforce-commerce-cloud/)**:** Merchants who want a "set it and forget it" solution with financial peace of mind. Their key offering is a chargeback guarantee, making them ideal for businesses that want to maximize sales approvals while completely offloading the financial risk of fraudulent chargebacks.
+-   **[Riskified](https://appexchange.salesforce.com/appxListingDetail?listingId=d719d10c-198a-4d46-9df8-c4a8920c023e)** & [Signifyd](https://www.signifyd.com/salesforce-commerce-cloud/)**:** Merchants who want a "set it and forget it" solution with financial peace of mind. Their key offering is a chargeback guarantee, making them ideal for businesses that want to maximise sales approvals while completely offloading the financial risk of fraudulent chargebacks.
 
--   **[Kount](https://kount.com/partners/salesforce-commerce-cloud-fraud-prevention/):** Businesses with in-house fraud teams that want control and deep insights. Kount provides a wealth of data and customizable rules, empowering merchants to actively manage their own fraud prevention strategy and fine-tune their risk tolerance.
+-   **[Kount](https://kount.com/partners/salesforce-commerce-cloud-fraud-prevention/):** Businesses with in-house fraud teams that want control and deep insights. Kount provides a wealth of data and customisable rules, empowering merchants to actively manage their own fraud prevention strategy and fine-tune their risk tolerance.
 
 -   **[DataDome](https://appexchange.salesforce.com/appxListingDetail?listingId=6dfa8305-611a-4752-8bd5-b51e0144a80a):** Retailers are heavily targeted by malicious bots and automated attacks. This is a foundational security layer, ideal for businesses that need to prevent credential stuffing, card testing, and scraper bots from reaching the checkout stage and causing damage.
 

@@ -4,7 +4,7 @@ description: >-
   There are many Salesforce-related podcasts available on the web, but which of
   those are interesting to follow as an SFCC enthusiast.
 date: '2022-12-05T16:08:12.000Z'
-lastmod: '2026-07-04T10:39:24.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /podcasts-for-salesforce-b2c-commerce-cloud/
 draft: false
 heroImage: headphones-in-the-clouds-b2df8fafce.jpg
@@ -108,7 +108,7 @@ This podcast will tell you the unique stories of these Trailblazers, which can s
 
 > Mums on Cloud Nine aims to inspire mums to progress their careers in tech from starting to climbing the career ladder. We provide tips and insight on how to succeed in your career and overcome adversity many women can face in the workplace.
 
-Mums on Cloud Nine hopes to inspire mothers in the workplace by interviewing moms excelling in their careers to share their inspiring stories!
+Mums on Cloud Nine hopes to inspire mothers in the workplace by interviewing mums excelling in their careers to share their inspiring stories!
 
 ### Inside the Ohana
 

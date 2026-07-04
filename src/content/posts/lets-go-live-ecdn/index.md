@@ -4,7 +4,7 @@ description: >-
   Bringing your first site live on SFCC can be challenging. In this series, we
   will be looking at different parts. Part I: eCDN
 date: '2022-08-04T06:53:47.000Z'
-lastmod: '2026-07-04T10:39:24.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /lets-go-live-ecdn/
 draft: false
 heroImage: ecdn-5035a37164.png
@@ -47,7 +47,7 @@ Within this interface, you can configure:
 - Your supported [vanity domains](https://en.wikipedia.org/wiki/Vanity_domain)
 - Managing SSL certificates
 - Firewall & [WAF](https://www.cloudflare.com/waf/) (Web Application Firewall)
-- Performance Optimization
+- Performance Optimisation
 - Custom Error/Under Attack Pages
 
 ## Getting Prepared
@@ -191,7 +191,7 @@ Using the IP Allowlisting feature, you can inform the firewall to ignore specifi
 
 ### WAF Settings
 
-{{< img-caption src="ecdn-waf-settings-3ec4c7f73e.png" alt="Cloudflare Speed tab with Auto Minify for HTML, CSS, and JavaScript plus Polish enabled." caption="Some of the Cloudflare-backed security and optimization options surface through these eCDN settings tabs." >}}
+{{< img-caption src="ecdn-waf-settings-3ec4c7f73e.png" alt="Cloudflare Speed tab with Auto Minify for HTML, CSS, and JavaScript plus Polish enabled." caption="Some of the Cloudflare-backed security and optimisation options surface through these eCDN settings tabs." >}}
 
 The WAF ([Web Application Firewall](https://www.cloudflare.com/learning/ddos/glossary/web-application-firewall-waf/)) is a Cloudflare feature that is well documented.
 
@@ -203,7 +203,7 @@ There is a lot to say about this feature, but lucky for me Salesforce [has writt
 
 In this section, you can also download log files per hour. It is essential to keep in mind that this is an asynchronous operation, and after clicking "Request Log," you will receive an email containing a download link at a later time (usually not so long)
 
-These files contain a log of all network traffic, how the WAF analyzed it, and how it responded.
+These files contain a log of all network traffic, how the WAF analysed it, and how it responded.
 
 ### Speed Settings
 
@@ -213,7 +213,7 @@ If you have comments on an environment that have value for an external system, b
 
 **Note:** This also breaks the deprecated toolkit on Development as it relies on comments.
 
-{{< img-caption src="ecdn-speed-settings-cccba25f5e.png" alt="eCDN Speed panel showing Auto Minify and Polish options for the storefront." caption="Performance tuning starts here, with minification and image optimization for the storefront." >}}
+{{< img-caption src="ecdn-speed-settings-cccba25f5e.png" alt="eCDN Speed panel showing Auto Minify and Polish options for the storefront." caption="Performance tuning starts here, with minification and image optimisation for the storefront." >}}
 
 Not much to say about this section; here, you can control a few settings that improve speed, such as minification of Javascript, CSS, and HTML.
 
@@ -225,7 +225,7 @@ Enabling [WebP](https://en.wikipedia.org/wiki/WebP) is a no-brainer, allowing a 
 
 Since these features are Cloudflare behind the scenes, you can also look at [their documentation](https://developers.cloudflare.com/images/polish/).
 
-### Customize Settings
+### Customise Settings
 
 {{< img-caption src="ecdn-customize-settings-87c4ccf54c.png" alt="Custom error page settings for the embedded CDN." caption="Custom error pages let the CDN fail more gracefully when traffic spikes or attacks hit." >}}
 
@@ -242,6 +242,6 @@ There is a REST service available however:
 Using these APIs, you can enable:
 
 - [Brotli Compression](https://blog.cloudflare.com/brotli-compression-using-a-reduced-dictionary/)
-- [HTTP2 Prioritization](https://blog.cloudflare.com/better-http-2-prioritization-for-a-faster-web/)
+- [HTTP2 Prioritisation](https://blog.cloudflare.com/better-http-2-prioritization-for-a-faster-web/)
 
-Make sure you do not forget about these! As they can also increase performance on certain pages. HTTP2 Prioritization will help a lot on lister pages with many images processed by the [DIS](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_image_transformation_service.htm) (Dynamic Image Service).
+Make sure you do not forget about these! As they can also increase performance on certain pages. HTTP2 Prioritisation will help a lot on lister pages with many images processed by the [DIS](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_image_transformation_service.htm) (Dynamic Image Service).

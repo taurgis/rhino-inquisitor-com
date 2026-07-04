@@ -4,7 +4,7 @@ description: >-
   Have you ever wondered how Salesforce Commerce Cloud, especially SFRA
   (Storefront Reference Architecture), handles the rendering of pages based on
 date: '2024-10-07T07:17:57.000Z'
-lastmod: '2024-10-07T07:35:26.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /where-to-hook-into-an-sfra-controller/
 draft: false
 heroImage: a-road-taking-odd-paths-a9419c4f36.jpeg
@@ -18,8 +18,8 @@ tags:
 author: Thomas Theunen
 takeaways:
   - "Explains the main extension points available around SFRA requests and routes, from global request hooks to route middleware and route events"
-  - "Shows how prepend, append, and replace affect controller execution order and customization behavior"
-  - "Highlights the importance of cartridge-path order and careful complexity management when layering multiple route customizations"
+  - "Shows how prepend, append, and replace affect controller execution order and customisation behaviour"
+  - "Highlights the importance of cartridge-path order and careful complexity management when layering multiple route customisations"
 ---
 Have you ever wondered how Salesforce Commerce Cloud, especially [SFRA](/sitegenesis-vs-sfra-vs-pwa/) (Storefront Reference Architecture), handles the rendering of pages based on controllers and routes?
 
@@ -73,7 +73,7 @@ The standard available options, and the most common ones, are:
 - GET
 - POST
 
-These will serve as the 'base route', the starting point of our project. But remember, this is just the beginning. We have the power to extend and customize this base route of SFRA, as we'll discover in the options outlined in this blog post.
+These will serve as the 'base route', the starting point of our project. But remember, this is just the beginning. We have the power to extend and customise this base route of SFRA, as we'll discover in the options outlined in this blog post.
 
 ## SFRA Server functions to extend and replace
 

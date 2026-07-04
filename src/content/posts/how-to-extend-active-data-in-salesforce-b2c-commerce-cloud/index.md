@@ -4,7 +4,7 @@ description: >-
   Learn what Active Data can track in Salesforce B2C Commerce Cloud, where the
   platform stops, and how far you can extend it safely.
 date: '2023-06-19T05:13:10.000Z'
-lastmod: '2026-07-04T10:39:24.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /how-to-extend-active-data-in-salesforce-b2c-commerce-cloud/
 draft: false
 heroImage: b2c-active-merchandising-slide-1-9a027d6449.gif
@@ -17,10 +17,10 @@ tags:
 author: Thomas Theunen
 takeaways:
   - "Explains how to extend Active Data with custom customer or product attributes in SFCC"
-  - "Walks through the feed, CSV, import, and verification steps needed to load external behavior data"
+  - "Walks through the feed, CSV, import, and verification steps needed to load external behaviour data"
   - "Shows how custom Active Data can support richer segmentation and dynamic customer groups"
 ---
-When working on personalization and segmentation within Salesforce B2C Commerce Cloud, [Active Merchandizing](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_active_merchandising.htm) is one of the tools to help you along the way. By utilizing data collected automatically by Salesforce B2C Commerce Cloud, you can gain a deeper understanding of your customers' behavior and tailor campaigns accordingly. For instance, we display a distinctive banner to frequent visitors compared to those who only visit sporadically.
+When working on personalisation and segmentation within Salesforce B2C Commerce Cloud, [Active Merchandising](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_active_merchandising.htm) is one of the tools to help you along the way. By utilising data collected automatically by Salesforce B2C Commerce Cloud, you can gain a deeper understanding of your customers' behaviour and tailor campaigns accordingly. For instance, we display a distinctive banner to frequent visitors compared to those who only visit sporadically.
 
 ## How is Active Data gathered
 

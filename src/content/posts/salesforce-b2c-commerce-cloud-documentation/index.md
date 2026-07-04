@@ -4,7 +4,7 @@ description: >-
   Finding the documentation for a specific topic in Salesforce B2C Commerce
   Cloud can be a challenge sometimes. These are the options!
 date: '2022-05-09T18:58:37.000Z'
-lastmod: '2026-07-04T10:39:24.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /salesforce-b2c-commerce-cloud-documentation/
 draft: false
 heroImage: documentation-ea8c96aa90.jpg
@@ -15,7 +15,7 @@ tags:
   - sfcc
 author: Thomas Theunen
 takeaways:
-  - "Maps the post-Infocenter Salesforce B2C Commerce documentation landscape across Help, Developer Center, and GitHub-hosted references"
+  - "Maps the post-Infocenter Salesforce B2C Commerce documentation landscape across Help, Developer Centre, and GitHub-hosted references"
   - "Explains how official docs, Trailhead, Partner Learning Camp, and community channels each serve different technical needs"
   - "Acts as a field guide for navigating fragmented SFCC documentation more efficiently"
 ---
@@ -35,7 +35,7 @@ The three new homes for B2C Commerce documentation are:
 
 1. **Salesforce Help:** This is the new hub for content aimed at administrators and merchandisers. It covers topics like site administration, merchandising, and using Business Manager tools. It aligns B2C Commerce with the standard support and documentation model used across the broader Salesforce ecosystem.
 
-1. **Commerce Cloud Developer Center:** This is the primary destination for most developer-focused content, especially materials related to modern, headless development. This is where you will find documentation for SCAPI, PWA Kit, and composable storefronts.
+1. **Commerce Cloud Developer Centre:** This is the primary destination for most developer-focused content, especially materials related to modern, headless development. This is where you will find documentation for SCAPI, PWA Kit, and composable storefronts.
 
 1. **Salesforce B2C Developer Documentation Resources:** Hosted on GitHub Pages, this site is a repository for deep technical references. It houses the B2C Commerce Script API documentation (`dw.*` packages), import/export schemas, and legacy developer documents that were preserved in [PDF](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/LegacyDeveloperDocumentation.pdf) format.
 
@@ -50,7 +50,7 @@ This migration wasn't a simple one-to-one mapping. Some outdated documentation, 
 | Open Commerce API (OCAPI) | Developer | [https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/api-doc.html](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/api-doc.html) |
 | B2C Commerce API (Script API) | Developer | [https://salesforcecommercecloud.github.io/b2c-dev-doc/](https://salesforcecommercecloud.github.io/b2c-dev-doc/) |
 | Merchandising Your Site | Administrator & Merchandiser | [https://help.salesforce.com/s/articleView?id=cc.b2c\_merchandising\_your\_site.htm&type=5](https://help.salesforce.com/s/articleView?id=cc.b2c_merchandising_your_site.htm&type=5) |
-| Administering Your Organization | Administrator & Merchandiser | [https://help.salesforce.com/s/articleView?id=cc.b2c\_administering\_your\_organization.htm&type=5](https://help.salesforce.com/s/articleView?id=cc.b2c_administering_your_organization.htm&type=5) |
+| Administering Your Organisation | Administrator & Merchandiser | [https://help.salesforce.com/s/articleView?id=cc.b2c\_administering\_your\_organization.htm&type=5](https://help.salesforce.com/s/articleView?id=cc.b2c_administering_your_organization.htm&type=5) |
 | B2C Commerce Security Guide | Administrator & Developer | [https://help.salesforce.com/s/articleView?id=cc.b2c\_commerce\_security\_guide.htm&type=5](https://help.salesforce.com/s/articleView?id=cc.b2c_commerce_security_guide.htm&type=5) |
 | Legacy Developer Documentation | Developer | [https://salesforcecommercecloud.github.io/b2c-dev-doc/](https://salesforcecommercecloud.github.io/b2c-dev-doc/) |
 
@@ -99,7 +99,7 @@ While Trailhead is the public square for Salesforce knowledge, the Partner Learn
 
 The PLC offers curricula on topics like SFRA, Headless development, PWA Kit, and Architect Success, along with formal accreditations that go beyond standard Trailhead badges. Access is gated through the Salesforce Partner Community, ensuring the content, some of which was previously available only to internal Salesforce employees, remains a strategic asset for the partner ecosystem. For any partner organisation, engaging with the PLC is a critical step in levelling up their team's capabilities.
 
-## Salesforce Architects: The Multi-Cloud Command Center
+## Salesforce Architects: The Multi-Cloud Command Centre
 
 {{< img-caption src="solution-architect-33ece62704.png" alt="The Solution Architect certification diagram." >}}
 

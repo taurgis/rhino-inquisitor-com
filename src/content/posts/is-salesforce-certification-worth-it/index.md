@@ -4,7 +4,7 @@ description: >-
   You want to get certified but are still determining if this will benefit you
   or not within the Salesforce ecosystem. Let's dig into that!
 date: '2022-11-21T10:17:21.000Z'
-lastmod: '2026-07-04T10:39:24.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /is-salesforce-certification-worth-it/
 draft: false
 heroImage: salesforce-certified-50dfbc80b5.jpeg
@@ -35,7 +35,7 @@ Let's turn that previous topic upside down. Maybe you still need project experie
 
 ## Does it benefit someone else
 
-{{< img-caption src="benefit-a5b0552ef8.jpg" alt="Illustration emphasizing the wider benefits of certification." caption="Certification gains value not just for you, but for recruiters, clients, and teammates who rely on verified expertise." >}}
+{{< img-caption src="benefit-a5b0552ef8.jpg" alt="IllustrationEmphasisingg the wider benefits of certification." caption="Certification gains value not just for you, but for recruiters, clients, and teammates who rely on verified expertise." >}}
 
 ### Partners
 

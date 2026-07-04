@@ -4,7 +4,7 @@ description: >-
   As snowy days slowly turn into sunny ones, the 24.3 release of SFCC has
   arrived! Let us have a look at the March release of 2024.
 date: '2024-03-04T09:04:46.000Z'
-lastmod: '2026-07-04T10:39:24.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /digging-into-the-b2c-commerce-cloud-24-3-release/
 draft: false
 heroImage: a-shopping-cart-overfilled-with-products-2342f0919f.jpg
@@ -35,7 +35,7 @@ Are you interested in last month's release notes? Read the [24.2 release overvie
 
 Quite a big uplift in the amount of different product line items allowed in a single basket by default. This will be particularly handy in certain industries such as groceries, gifting, and even some small B2B cases.
 
-### Prioritize Resource Bundle Lookup
+### Prioritise Resource Bundle Lookup
 
 > You can now change the order of the resource bundle lookup and give priority to the WebDAV resource bundle. The default lookup first checks the resource bundle IDs of the code cartridges assigned to your site and then checks WebDAV. If you have resource bundles with the same ID in the cartridge and WebDAV, the cartridge resource bundle is always selected over the resource bundle in the WebDAV location. You can now use a toggle to switch the order to check WebDAV first.
 
@@ -65,7 +65,7 @@ A new option that is more prominent and cannot be ignored. To enable, go to Admi
 
 ### Prepare for Changes to Server-Side Web-Tier Caching
 
-> If you provision your SCAPI zone with short code, SCAPI caching is enabled by default after March 12, 2024, and the feature switch SCAPI Server-Side Web-Tier Caching has no effect. If you enroll in SCAPI before March 12, 2024, you can continue to enable SCAPI caching in Business Manager. To enable caching, in Business Manager, select Administration | Feature Switches, and turn on SCAPI Server-Side Web-Tier Caching.
+> If you provision your SCAPI zone with short code, SCAPI caching is enabled by default after March 12, 2024, and the feature switch SCAPI Server-Side Web-Tier Caching has no effect. If you enrol in SCAPI before March 12, 2024, you can continue to enable SCAPI caching in Business Manager. To enable caching, in Business Manager, select Administration | Feature Switches, and turn on SCAPI Server-Side Web-Tier Caching.
 
 Performance is always a hot topic for any industry, and having Web-Tier cache active will hopefully have a significant impact on the performance of all headless channels.
 
@@ -116,7 +116,7 @@ It is now possible to add custom headers to your requests to use in your customi
 
 ### Security Update for the Audit History Logs
 
-> Starting with the 1.32.2 release, the full name and full email address for active audit history users are masked from administrators. Masking occurs when the active user isn’t part of the organization and they’re active in Audit History for a User, Organization, or API Client sessions. Masking is also used when organization users view their audit history on the start page. The mask improves security compliance.
+> Starting with the 1.32.2 release, the full name and full email address for active audit history users are masked from administrators. Masking occurs when the active user isn’t part of the organisation and they’re active in Audit History for a User, Organisation, or API Client sessions. Masking is also used when organisation users view their audit history on the start page. The mask improves security compliance.
 
 A minor update for security compliance.
 
@@ -128,7 +128,7 @@ Quite the list of bug fixes this time!
 - [SCAPI Merge basket functionality does not carry over the bonus line item to registered shopper basket](https://help.salesforce.com/s/issues)
 - [Warn messages logged for SCAPI shopper-products](https://help.salesforce.com/s/issue?id=a028c00000yD1VUAA0)
 - [Storefront on behalf of a customer is failing to access from chrome due to google enforcing to block 3rd party cookies](https://help.salesforce.com/s/issue?id=a028c00000yEhQAAA0)
-- [Localization: FirstDayOfWeek - DatePicker uses Language Locale instead of Country Locale](https://help.salesforce.com/s/issues)
+- [Localisation: FirstDayOfWeek - DatePicker uses Language Locale instead of Country Locale](https://help.salesforce.com/s/issues)
 - [SCAPI Error Response is not Correctly JSON Encoded](https://help.salesforce.com/s/issue?id=a028c00000xB0sgAAC)
 
 ## Updated Cartridges & Tools

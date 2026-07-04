@@ -4,7 +4,7 @@ description: >-
   Learn how the getProps method works in PWA Kit, what data it exposes, and when
   it helps with faster, cleaner storefront code.
 date: '2023-05-15T09:58:07.000Z'
-lastmod: '2026-07-04T10:39:24.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /guide-to-the-getprops-method-in-sfcc/
 draft: false
 heroImage: traffic-warden-directing-traffic-ae24078be0.jpg
@@ -20,7 +20,7 @@ author: Thomas Theunen
 takeaways:
   - "Explains what PWA Kit getProps does and where it fits in route-based data loading"
   - "Shows how getProps receives context, can be extended, and should handle errors and caching"
-  - "Highlights the client-server trade-offs around personalization, payload size, and execution timing"
+  - "Highlights the client-server trade-offs around personalisation, payload size, and execution timing"
 ---
 As a developer, you're always looking for ways to improve the performance and functionality of your projects. The PWA Kit includes several features and functions that make creating high-performance, mobile- and [SEO](/lets-go-live-seo/)\-friendly web applications accessible.
 
@@ -50,7 +50,7 @@ The PWA Kit uses [Express](https://expressjs.com/), a popular web application fr
 
 In the PWA Kit, Express handles the server-side rendering of React components, improving our SPA's (Single Page Application) performance and SEO-friendliness.
 
-Version The PWA Kit utilizes the latest stable release of Express, which is version 4. Version 5 is currently in BETA.
+Version The PWA Kit utilises the latest stable release of Express, which is version 4. Version 5 is currently in BETA.
 
 ## What is the getProps method
 

@@ -4,7 +4,7 @@ description: >-
   Learn how Rhino Inquisitor approaches cookies and browser storage on the
   current public Hugo site.
 date: '2023-03-06T13:35:03.000Z'
-lastmod: '2026-03-29T00:00:00.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /cookie-policy-eu/
 archiveExclude: true
 draft: false
@@ -26,7 +26,7 @@ Where practical, Rhino Inquisitor uses privacy-friendlier embed patterns such as
 
 ## Browser and infrastructure storage
 
-Your browser, hosting stack, or intermediary infrastructure may still use technical storage required to deliver pages, secure the service, or manage network behavior. Those technical mechanisms are separate from the legacy WordPress consent tooling that is no longer published from this repository.
+Your browser, hosting stack, or intermediary infrastructure may still use technical storage required to deliver pages, secure the service, or manage network behaviour. Those technical mechanisms are separate from the legacy WordPress consent tooling that is no longer published from this repository.
 
 ## Managing cookies
 

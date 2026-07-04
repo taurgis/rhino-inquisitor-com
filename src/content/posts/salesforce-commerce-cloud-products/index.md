@@ -4,7 +4,7 @@ description: >-
   Salesforce Commerce Cloud has gotten a lot bigger in the past few years,
   adding more and more products to the "name." Let us go over them!
 date: '2023-07-17T09:07:01.000Z'
-lastmod: '2026-07-04T10:39:24.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /salesforce-commerce-cloud-products/
 draft: false
 heroImage: salesforce-commerce-cloud-af0419a10b.png
@@ -26,7 +26,7 @@ Let us have a look at them, and see how some are connected to SFCC (or not).
 
 ## SFCC - Salesforce B2C Commerce Cloud (Demandware)
 
-{{< img-caption src="sfra-vs-sitegenesis-965c09b9a6.jpg" alt="Comparison between SiteGenesis and SFRA storefront stacks." caption="B2C Commerce still centers on storefront frameworks such as SiteGenesis and SFRA." >}}
+{{< img-caption src="sfra-vs-sitegenesis-965c09b9a6.jpg" alt="Comparison between SiteGenesis and SFRA storefront stacks." caption="B2C Commerce still centres on storefront frameworks such as SiteGenesis and SFRA." >}}
 
 Let us start with the most expected item on the list: "Salesforce B2C Commerce Cloud", also known as Demandware, before being [acquired by Salesforce for $2.8B](https://techcrunch.com/2016/06/01/salesforce-buys-demandware-for-2-8b-taking-a-big-step-into-e-commerce/). It sounds like a good deal compared to the [acquisition of Slack,](https://techcrunch.com/2020/12/01/salesforce-buys-slack/) doesn't it 😜?
 
@@ -42,7 +42,7 @@ SFCC also offers some different "flavours," which I elaborated on [in an earlier
 
 This is where the confusion started to originate (I think). In 2018 [another acquisition happened](https://techcrunch.com/2018/03/12/salesforce-will-acquire-enterprise-e-commerce-software-startup-cloudcraze/) by Salesforce, but this time in the CRM space: "CloudCraze." It was a Managed Package on the CRM that stretched the imagination of what the platform could do by building a complete B2B Platform on top of it.
 
-Because it had to use a few tricks to allow the number of customizations an Ecommerce Platform requires, it had its "unique" way of working compared to the CRM. A lot of custom development was needed to get it up and running as you wanted it to.
+Because it had to use a few tricks to allow the number of customisations an Ecommerce Platform requires, it had its "unique" way of working compared to the CRM. A lot of custom development was needed to get it up and running as you wanted it to.
 
 But once you did, you had a fully operating B2B site in [Visualforce](https://trailhead.salesforce.com/content/learn/modules/visualforce_fundamentals).
 
@@ -76,7 +76,7 @@ I hope that clarifies the "confusion" regarding B2C Commerce in the Salesforce s
 
 ## Salesforce Order Management
 
-{{< img-caption src="salesforce-order-management-533a060e99.png" alt="Salesforce Order Management workspace connected to commerce operations." caption="Order Management extends the stack beyond the storefront into fulfillment and service operations." >}}
+{{< img-caption src="salesforce-order-management-533a060e99.png" alt="Salesforce Order Management workspace connected to commerce operations." caption="Order Management extends the stack beyond the storefront into fulfilment and service operations." >}}
 
 Another product built on the CRM, but good news. We are starting to head back into B2C Commerce Cloud territory! You may already know that an OMS (Order Management System) was once [built into Salesforce B2C Commerce Cloud](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-order-management-for-developers.html).
 

@@ -4,7 +4,7 @@ description: >-
   Learn how to successfully transition from developer to architect in Salesforce
   B2C Commerce Cloud with these tips and strategies.
 date: '2023-06-26T07:02:54.000Z'
-lastmod: '2023-06-27T08:08:03.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /what-skills-do-i-need-as-a-sfcc-architect/
 draft: false
 heroImage: an-architect-aa108258ed.jpg
@@ -17,7 +17,7 @@ tags:
 author: Thomas Theunen
 takeaways:
   - "Outlines the core skills developers need to build before moving into an SFCC architect role"
-  - "Emphasizes the need for broad platform understanding, cross-system awareness, project leadership, and business alignment"
+  - "Emphasises the need for broad platform understanding, cross-system awareness, project leadership, and business alignment"
   - "Frames architecture growth as a mix of technical depth, communication, continuous learning, and network building"
 ---
 As a [Salesforce Commerce Cloud developer](/preparing-for-the-b2c-commerce-developer-certification/), you may have reached a point in your career where you feel ready to take on a more strategic role and transition into an architecture role. Making the jump from developer to [architect](/the-b2c-commerce-architect-certification/) can be challenging and exciting, but you can successfully make that transition with the right approach and mindset!
@@ -60,7 +60,7 @@ By expanding your knowledge beyond Commerce Cloud, you'll be better equipped to 
 
 As an architect, you'll manage projects and lead development teams. It's important to have experience in project management, including understanding how to scope and plan projects, track progress and identify issues, and work with cross-functional teams to deliver successful projects.
 
-## Understand the business needs and goals of your organization
+## Understand the business needs and goals of your organisation
 
 {{< img-caption src="project-management-illustration-f4cbfcccf1.jpg" alt="An illustration of a woman architect in front of a planning board." caption="Having a clear understanding of a business's needs and wants is essential." >}}
 

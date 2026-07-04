@@ -4,7 +4,7 @@ description: >-
   Ready for TrailblazerDX, but not sure what sessions to put on your schedule?
   Find an overview here of all sessions related to B2C Commerce!
 date: '2022-04-21T06:49:37.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /trailblazerdx-2022-for-b2c-commerce/
 draft: false
 heroImage: weezer-66533fada7.png
@@ -29,7 +29,7 @@ The pandemic is continuing its rounds worldwide, but luckily things are starting
 
 And with things returning to normal, in-person events are also back!
 
-First in line is [TrailblazerDX](https://www.salesforce.com/trailblazerdx), a developer-centered event in San Francisco. What does it have in store for the Salesforce B2C Commerce Cloud developers? Let's have a look!
+First in line is [TrailblazerDX](https://www.salesforce.com/trailblazerdx), a developer-centred event in San Francisco. What does it have in store for the Salesforce B2C Commerce Cloud developers? Let's have a look!
 
 As a side note, there are "holes" in the given schedule below. **So be sure to use [the provided tools](https://reg.salesforce.com/flow/plus/trailblazerdx22/tdx22agendabuilder/page/calendar) to plan your multi-cloud agenda!**
 
@@ -132,14 +132,14 @@ Have a question or topic you’d like to see the executives address during True 
 
 Unlock agility and efficiency by applying DevOps best practices for B2C commerce. Find out what tools are available to the community and see a walkthrough of a CI/CD pipeline.
 
-### [Customize Commerce APIs with Hooks](https://reg.salesforce.com/flow/plus/trailblazerdx22/sessioncatalog/page/sessioncatalog/session/1644269552284001P3WJ)
+### [Customise Commerce APIs with Hooks](https://reg.salesforce.com/flow/plus/trailblazerdx22/sessioncatalog/page/sessioncatalog/session/1644269552284001P3WJ)
 
 - [Andrew Lawrence](https://www.linkedin.com/in/andrew9990/)
 - [Dirk Bergemann](https://www.linkedin.com/in/dirk-bergemann-4430981/)
 - 12:00 PM - 12:20 PM
 - 20 Minutes
 
-Customization hooks for B2C commerce headless APIs is a new feature this year that gives developers enormous flexibility. Learn new headless use cases and a quick path to getting started.
+Customisation hooks for B2C commerce headless APIs is a new feature this year that gives developers enormous flexibility. Learn new headless use cases and a quick path to getting started.
 
 ### [Build Connected Commerce and Marketing with Flexibility and Ease](https://reg.salesforce.com/flow/plus/trailblazerdx22/sessioncatalog/page/sessioncatalog/session/1645744349183001gU27)
 

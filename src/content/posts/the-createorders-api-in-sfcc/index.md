@@ -4,7 +4,7 @@ description: >-
   Learn how to use the createOrders API in SFCC to create external orders
   safely and fit it into existing order workflows.
 date: '2023-10-09T09:54:18.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /the-createorders-api-in-sfcc/
 draft: false
 heroImage: delivery-on-a-phone-f8a4f5aeb3.jpg
@@ -45,7 +45,7 @@ After you are done, click "Submit" and save the generated Secret that will appea
 
 ### Authenticating
 
-Before we can start pushing in orders for anonymous or registered users, we need to get a [Trusted System Access Token](https://developer.salesforce.com/docs/commerce/commerce-api/references/shopper-login?meta=getTrustedSystemAccessToken). With this token, we will allow our third-party system to act on behalf of a guest or registered user without knowing their credentials. Short Code & Organization ID You can get this information via "Administration > Site Development > Salesforce Commerce API Settings"
+Before we can start pushing in orders for anonymous or registered users, we need to get a [Trusted System Access Token](https://developer.salesforce.com/docs/commerce/commerce-api/references/shopper-login?meta=getTrustedSystemAccessToken). With this token, we will allow our third-party system to act on behalf of a guest or registered user without knowing their credentials. Short Code & Organisation ID You can get this information via "Administration > Site Development > Salesforce Commerce API Settings"
 
 - **URL:** [Trusted-system token endpoint](https://{shortCode}.api.commercecloud.salesforce.com/shopper/auth/v1/organizations/{organizationId}/oauth2/trusted-system/token)
 - **Authorisation:** Basic Authentication

@@ -4,7 +4,7 @@ description: >-
   It's a yearly tradition not to release major updates during the holiday season
   to maintain platform stability, so here we are with the final release of
 date: '2023-10-02T12:35:45.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /salesforce-b2c-commerce-cloud-23-10-release-a-comprehensive-overview/
 draft: false
 heroImage: shopping-carts-on-a-tablet-fa1824b0b9.jpeg
@@ -42,13 +42,13 @@ But I hope this will be changed with standard APIs in the future, or once we hav
 
 ## Platform
 
-### Get Einstein Recommendations for Large Product Catalogs
+### Get Einstein Recommendations for Large Product Catalogues
 
 {{< img-caption src="einstein-standing-in-a-warehouse-1c76aa5ec5.jpg" alt="Einstein is standing in the middle of a warehouse lane, looking at the camera." >}}
 
-> Commerce Cloud Einstein now generates recommendations for product catalogs that exceed 3 million product SKUs. Einstein Product Recommendations enable you to create and manage recommenders and assign strategies that predict the most relevant products to promote to individual shoppers. **How**: If you have a product catalog that exceeds 3 million product SKUs, Commerce Cloud Einstein compiles a reduced list of 3 million product SKUs by default–no action required. To compile the list, Einstein uses sorting and filtering logic based on pre-defined criteria. Einstein recommendations are generated from this list. If your catalog exceeds 3 million product SKUs, and you want to ensure that products matching specific criteria appear in the reduced product list, contact Commerce Cloud Support.
+> Commerce Cloud Einstein now generates recommendations for product catalogues that exceed 3 million product SKUs. Einstein Product Recommendations enable you to create and manage recommenders and assign strategies that predict the most relevant products to promote to individual shoppers. **How**: If you have a product catalogue that exceeds 3 million product SKUs, Commerce Cloud Einstein compiles a reduced list of 3 million product SKUs by default–no action required. To compile the list, Einstein uses sorting and filtering logic based on pre-defined criteria. Einstein recommendations are generated from this list. If your catalogue exceeds 3 million product SKUs, and you want to ensure that products matching specific criteria appear in the reduced product list, contact Commerce Cloud Support.
 
-Having a large catalog and providing the right recommendations can be challenging. This change supports an even larger catalog, making it an excellent improvement.
+Having a large catalogue and providing the right recommendations can be challenging. This change supports an even larger catalogue, making it an excellent improvement.
 
 ### Renew eCDN Certificates in Business Manager
 
@@ -74,7 +74,7 @@ A highly requested feature to expand the possibilities of custom hooks has been 
 
 ### Update Main Product Variants for a Bundled Line Item
 
-> You can now update a main product variant in a bundled line item. This change allows shoppers to select a main product variant when adding a bundled line item to a cart. For example, a product bundle contains a belt and a T-shirt. The T-shirt is a main product with red, blue, and green variations. When the shopper adds the product bundle to a basket, the belt and T-shirt are added as bundled items, and the shopper can select a T-shirt color, one of the T-shirt variants. Previously, the API didn’t support selecting a main product variant when a main product was included in a line item bundle. You can update these properties using (PATCH /baskets/\[basketId\]/items/\[itemId\]) .
+> You can now update a main product variant in a bundled line item. This change allows shoppers to select a main product variant when adding a bundled line item to a cart. For example, a product bundle contains a belt and a T-shirt. The T-shirt is a main product with red, blue, and green variations. When the shopper adds the product bundle to a basket, the belt and T-shirt are added as bundled items, and the shopper can select a T-shirt colour, one of the T-shirt variants. Previously, the API didn’t support selecting a main product variant when a main product was included in a line item bundle. You can update these properties using (PATCH /baskets/\[basketId\]/items/\[itemId\]) .
 >
 > -   productId
 > -   isGift
@@ -87,13 +87,13 @@ The support for headless scenarios is essential as the Composable Storefront gai
 
 ### Email Notification of Changes to Inactive User Settings
 
-> As part of the Auto Disable Inactive Users feature, an email notification is sent to users when the Inactive User settings are activated or deactivated. An email is also sent when the Days Before Deletion settings are changed on the organization detail page. The email is sent to the email address entered in the Contact Users field on the organization detail page.
+> As part of the Auto Disable Inactive Users feature, an email notification is sent to users when the Inactive User settings are activated or deactivated. An email is also sent when the Days Before Deletion settings are changed on the organisation detail page. The email is sent to the email address entered in the Contact Users field on the organisation detail page.
 
 There isn't much to say about this feature, but it's important for users to be aware of its automatic nature.
 
 ### Enable Read Only Account Manager Access
 
-> The Read Only Account Administrator role is now available in Account Manager. The role provides users read-only access to view details about their organization, API clients, and users. The role doesn’t include permissions to make updates. The new role is useful for auditors who want to confirm compliance with their company policies. High-privilege roles such as Account Administrator or API Administrator override the new role.
+> The Read Only Account Administrator role is now available in Account Manager. The role provides users read-only access to view details about their organisation, API clients, and users. The role doesn’t include permissions to make updates. The new role is useful for auditors who want to confirm compliance with their company policies. High-privilege roles such as Account Administrator or API Administrator override the new role.
 
 A new feature in the Account Manager allows viewing of critical configuration without editing access. A great new addition to the roles in my opinion!
 
@@ -110,7 +110,7 @@ This minor release is packed with enhancements and bug fixes to help you build b
 
 -   Fixed a critical issue with the Checkout Card Number in V3 (Issue #1424).
 -   Cleaned up incorrect import paths for the page-designer component (Issue #1441).
--   Modularized the country code source for targeting via extensibility (Issue #1445).
+-   Modularised the country code source for targeting via extensibility (Issue #1445).
 -   Exported an icon helper function for targeting via overrides (Issue #1420).
 -   Migrated Page Designer core types to commerce-sdk-react (Issue #1441).
 

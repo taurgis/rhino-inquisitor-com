@@ -4,7 +4,7 @@ description: >-
   There are no official updates in October, but that doesn't mean that nothing
   is moving! Let us have a look at what has changed!
 date: '2022-10-24T17:48:25.000Z'
-lastmod: '2022-10-24T17:52:28.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /salesforce-b2c-commerce-cloud-october-updates/
 draft: false
 heroImage: people-upgrading-a-server-rack-0c2ba08791.png
@@ -16,7 +16,7 @@ tags:
   - technical
 author: Thomas Theunen
 takeaways:
-  - "Summarizes the platform-adjacent October updates that landed after the final yearly 22.10 release"
+  - "Summarises the platform-adjacent October updates that landed after the final yearly 22.10 release"
   - "Highlights the SLAS trusted-agent capability and the operational implications for customer-service login flows"
   - "Calls out smaller Account Manager, idea-exchange, and cartridge/tool updates worth monitoring between major releases"
 ---
@@ -49,7 +49,7 @@ The account Manager [received some updates](https://help.salesforce.com/s/articl
 
 ## New Ideas
 
-Whether or not you believe this works to get things prioritized, giving good ideas some points will at least point the roadmap team in a specific direction. For that reason, I created this new section that lists all new ideas posted in the past month!
+Whether or not you believe this works to get things prioritised, giving good ideas some points will at least point the roadmap team in a specific direction. For that reason, I created this new section that lists all new ideas posted in the past month!
 
 - [Reports & Dashboards - Promotion dashboard enhancements](https://ideas.salesforce.com/s/idea/a0B8W00000L7GuRUAV/reports-dashboards-promotion-dashboard-enhancements)
 - [Provision to upload custom robots.txt per domain similar to custom sitemap files](https://ideas.salesforce.com/s/idea/a0B8W00000L7BCbUAN/provision-to-upload-custom-robotstxt-per-domain-similar-to-custom-sitemap-files)

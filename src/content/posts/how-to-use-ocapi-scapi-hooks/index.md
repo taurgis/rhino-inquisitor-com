@@ -4,7 +4,7 @@ description: >-
   Hooks are becoming more and more prominent because of the PWA Kit and the API
   first methodology. But how do you implement them?
 date: '2022-10-31T13:03:53.000Z'
-lastmod: '2026-07-04T10:39:24.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /how-to-use-ocapi-scapi-hooks/
 draft: false
 heroImage: 26df11a8-62ec-44cd-bf3b-6ff9ab46bee8-5598d60cbd.jpg
@@ -21,7 +21,7 @@ author: Thomas Theunen
 takeaways:
     - "Explains how OCAPI and SCAPI hooks extend existing API lifecycles and when not to use them"
     - "Covers registration, implementation flow, and the practical differences between before, after, and modifyResponse hooks"
-    - "Emphasizes security, validation, and architectural discipline as essential for safe hook customization"
+    - "Emphasises security, validation, and architectural discipline as essential for safe hook customisation"
 ---
 > [!NOTE]
 > **Info:** This article was updated with the latest and most important feature information as of 26 July 2025.
@@ -99,7 +99,7 @@ As it stands, Salesforce B2C Commerce Cloud disables hooks by default for the SC
 
 OCAPI Hooks are enabled by default for the OCAPI, and you don't need to do any configuration.
 
-## Step 1: Register your customizations
+## Step 1: Register your customisations
 
 The first step in writing hooks for our APIs is registering them with the server. To do this, you need to do the following steps.
 
@@ -214,7 +214,7 @@ When a SCAPI request arrives, it's first authenticated and authorised by the gat
 
 Your hook script has direct access to sensitive Script API objects, such as `Order`, `Customer`, and `Basket`. Without its own internal checks, it can be manipulated. For example, a `PATCH` request `/orders/{order_id}` might be authorised by the gateway for the `orders` scope, but the gateway doesn't know if the authenticated user actually *owns* that specific `order_id`. It's the hook's job to verify ownership. A hook that blindly trusts the data it receives creates a massive security hole. It can function as a "confused deputy," where an unprivileged user can make privileged calls through your code. The mantra must be: **re-authenticate and re-authorise within the hook.**
 
-### Never Trust, Always Verify: Authentication & Authorization in Hooks
+### Never Trust, Always Verify: Authentication & Authorisation in Hooks
 
 This principle must be applied rigorously. When your hook code deals with sensitive objects, you must always use the secure Script API methods that require a secondary token or secret that only the legitimate owner would possess.
 
@@ -290,7 +290,7 @@ The text above has been taken from the [Salesforce B2C Commerce Cloud Infocenter
 
 This does have a slight nuance: It is not the case for all endpoints. Luckily this is documented for every hook!
 
-{{< img-caption src="hook-return-behaviour-91893c6015.jpg" alt="Documentation excerpt showing hook return behavior for a specific endpoint." caption="The documentation is worth checking here because hook return behavior is not intuitive." link="hook-return-behaviour-91893c6015.jpg" >}}
+{{< img-caption src="hook-return-behaviour-91893c6015.jpg" alt="Documentation excerpt showing hook return behaviour for a specific endpoint." caption="The documentation is worth checking here because hook return behaviour is not intuitive." link="hook-return-behaviour-91893c6015.jpg" >}}
 
 Read the documentation carefully for each hook!
 
@@ -319,11 +319,11 @@ exports.beforePOST = function beforePOST(registration) {
 
 A functional hook is different from a performant hook. Every line of code added to a hook increases the 'overhead tax' on the API's response time.
 
-### The Overhead Tax: The Cost of Customization
+### The Overhead Tax: The Cost of Customisation
 
 Let's be blunt: hooks are inherently slower than the out-of-the-box APIs. This is because your custom script execution is layered on top of the platform's own code. This is a trade-off you make for the sake of flexibility.
 
-The performance shared responsibility model is clear: Salesforce is responsible for the performance of its base API code. You, the developer, are responsible for the performance of your catalog structure, the parameters you send in requests, and every single line of your hook script. A slow hook can bring a snappy API to its knees.
+The performance shared responsibility model is clear: Salesforce is responsible for the performance of its base API code. You, the developer, are responsible for the performance of your catalogue structure, the parameters you send in requests, and every single line of your hook script. A slow hook can bring a snappy API to its knees.
 
 ### Your Best Friend, The Code Profiler
 
@@ -339,11 +339,11 @@ The profiler has several modes, each with a different level of detail and perfor
 
 To zero in on your hook's performance, open the Code Profiler (`Administration > Operations > Code Profiler).` Select the appropriate mode, and look in the results for the `SCRIPT_HOOK` result type. This displays the execution times for your hooks, allowing you to quickly identify bottlenecks.
 
-### Optimization Tactics for High-Performance Hooks
+### Optimisation Tactics for High-Performance Hooks
 
 Once you've identified a slow hook, here are the primary tactics for speeding it up:
 
-#### Minimize External Service Calls
+#### Minimise External Service Calls
 
 This is, without a doubt, the most common and most severe performance killer. A hook that makes a synchronous call to a slow third-party service will hold up the entire API response. If you absolutely must call an external service, you must use the B2C Commerce Service Framework. This framework is designed for this purpose and provides critical features, such as configurable timeouts and a circuit breaker, which can prevent a failing external service from cascading into a full-blown site outage.
 
@@ -369,7 +369,7 @@ A hook that works perfectly on a sunny day is easy to write. A truly robust hook
 
 Any unhandled exception thrown from within your hook script will cause the entire database transaction to roll back, resulting in an HTTP 500 Internal Server Error being returned to the client. This is a jarring experience for the user and can mask the root cause of the problem.
 
-Therefore, every hook function you write should be wrapped in a comprehensive `try-catch` block. When an error is caught, you must log it with enough context to be useful for debugging. Use the standard B2C Commerce logging framework (`dw.system.Logger`) to write detailed messages to a custom log category in the Log Center.
+Therefore, every hook function you write should be wrapped in a comprehensive `try-catch` block. When an error is caught, you must log it with enough context to be useful for debugging. Use the standard B2C Commerce logging framework (`dw.system.Logger`) to write detailed messages to a custom log category in the Log Centre.
 
 Include identifiers such as the basket UUID or customer ID to facilitate easier troubleshooting.
 

@@ -4,7 +4,7 @@ description: >-
   Salesforce B2C Commerce Cloud supports delta export jobs. But how do I enable
   this feature and what do I need to watch out for?
 date: '2022-08-01T14:18:24.000Z'
-lastmod: '2026-07-04T10:39:24.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /delta-exports-in-salesforce-b2c-commerce-cloud/
 draft: false
 heroImage: sharinglargefiles-c0cb3315f4.png
@@ -23,13 +23,13 @@ author: Thomas Theunen
 takeaways:
   - "Explains how delta exports work in SFCC and which data types they can cover"
   - "Highlights enablement constraints like support activation, change-log retention, and PIG-only support"
-  - "Warns about runtime, performance, and synchronization trade-offs before relying on the feature"
+  - "Warns about runtime, performance, and synchronisation trade-offs before relying on the feature"
 ---
-You probably already knew that it is possible to do full exports of your customer lists and catalogs from Salesforce B2C Commerce Cloud. This can be done through the [business manager](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_catalog_object_import_export.htm) or a [job](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/jobstepapi/html/api/jobstep.ExportCatalog.html).
+You probably already knew that it is possible to do full exports of your customer lists and catalogues from Salesforce B2C Commerce Cloud. This can be done through the [business manager](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_catalog_object_import_export.htm) or a [job](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/jobstepapi/html/api/jobstep.ExportCatalog.html).
 
 But did you also know that delta job steps are available for the following items?
 
-- [Catalog](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/jobstepapi/html/api/jobstep.CatalogDeltaExport.html)
+- [Catalogue](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/jobstepapi/html/api/jobstep.CatalogDeltaExport.html)
 - [Content Library](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/jobstepapi/html/api/jobstep.LibraryDeltaExport.html)
 - [Customer Lists](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/jobstepapi/html/api/jobstep.CustomerListsDeltaExport.html)
 - Maybe even more? Stick around to find out!
@@ -162,4 +162,4 @@ The delta will become bloated when multiple processes (API Calls, Jobs, and manu
 
 ## Other Considerations
 
-In the [Info Center](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_delta_exports.htm), there are more items to consider.
+In the [Info Centre](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_delta_exports.htm), there are more items to consider.

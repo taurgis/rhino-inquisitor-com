@@ -4,7 +4,7 @@ description: >-
   Have you ever wondered how some people seem to have it all together? How do
   they manage to balance work, family, and personal interests?
 date: '2023-11-06T17:31:55.000Z'
-lastmod: '2023-11-06T17:32:02.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /life-is-about-choices/
 draft: false
 heroImage: choice-7e620aaf1c.jpeg
@@ -16,7 +16,7 @@ tags:
 author: Thomas Theunen
 takeaways:
   - "Reflects on how career, family, community work, and personal interests compete for the same limited time"
-  - "Explains the trade-offs behind prioritizing family and Salesforce community involvement over other hobbies"
+  - "Explains the trade-offs behind prioritising family and Salesforce community involvement over other hobbies"
   - "Argues that the visible highlights of a public career often hide real sacrifices and deliberate choices"
 ---
 Have you ever wondered how some people seem to have it all together? How do they manage to balance work, family, and personal interests? I often get asked this question, and it's a valid one. Life is full of choices, and we must decide how we want to spend our time. In this article, I will share my experience of finding the time to do what I love and the choices I've made along the way.

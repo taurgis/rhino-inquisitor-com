@@ -4,7 +4,7 @@ description: >-
   Learn how to cache third-party API responses in Commerce Cloud to improve
   performance, control latency, and avoid stale-data pitfalls.
 date: '2024-11-11T05:35:00.000Z'
-lastmod: '2024-11-13T09:26:49.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /third-party-api-caching-in-commerce-cloud/
 draft: false
 heroImage: third-party-service-caching-6154196735.jpg
@@ -123,7 +123,7 @@ Service Specific There isn't an option to clear the cache for a specific service
 
 [It caches only status codes of 2xx with content length and size under 50k](https://sfcclearning.com/infocenter/DWAPI/scriptapi/html/api/class_dw_svc_HTTPService.php#dw_svc_HTTPService_setCachingTTL_Number_DetailAnchor), which are not immediately written to a file. The cache keys consist of the URL and the user name. The system automatically manages and limits the total size of cacheable content and the number of cached items.
 
-#### Initializing the HTTP Client
+#### Initialising the HTTP Client
 
 When configuring the HTTPClient, only use the \`getClient\` method and other HTTPClient functions within the \`createRequest\` callback or any following callbacks.
 

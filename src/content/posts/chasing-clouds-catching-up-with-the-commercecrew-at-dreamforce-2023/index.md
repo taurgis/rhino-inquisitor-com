@@ -4,7 +4,7 @@ description: >-
   For those of you who have been wondering about my whereabouts some time ago, I
   enjoyed this massive gathering in San Francisco.
 date: '2023-09-25T10:29:00.000Z'
-lastmod: '2023-09-25T11:43:07.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /chasing-clouds-catching-up-with-the-commercecrew-at-dreamforce-2023/
 draft: false
 heroImage: einstein-at-dreamforce-8c54eb04ec.jpg
@@ -39,7 +39,7 @@ We kicked off day two (and the first day of Dreamforce) with gusto; the early bi
 
 {{< img-caption src="7a6c01d9-e903-4479-ad6e-fb8b41445d64-1-105-c-90a3bbafe3.jpeg" alt="A group of people all wearing a 'Charlie's Sailblazer' t-shirt at the Dreamforce 2023 keynote." caption="The keynote also became the moment to unveil Charlie's special Shirtforce t-shirt." >}}
 
-No time for food comas here; post-lunch called for participation on my behalf in a session revolving around AI and its ethical impact. Explorer at heart, I reveled delving deep into generative AI - indeed quite an informative afternoon.
+No time for food comas here; post-lunch called for participation on my behalf in a session revolving around AI and its ethical impact. Explorer at heart, I revelled delving deep into generative AI - indeed quite an informative afternoon.
 
 ## Wednesday: Swags and Rock n Roll!
 
@@ -63,7 +63,7 @@ We went on an epic quest to find the mystical entrance to the ground floor, but 
 
 Thursday was comparatively calmer but every bit exciting in its unique way. It began with an [insightful meetup of CommerceCrew](https://youtu.be/qtqLrpH8Zm4) which followed the spirit of community building and offered people a rare chance to come together amidst the bustling event.
 
-The rest of the day shadowed opportunities to connect and exchange ideas among peers culminating in an intimate discussion revolving around AI in a cozy setup - the perfect unwinding activity after three days of intense power walking.
+The rest of the day shadowed opportunities to connect and exchange ideas among peers culminating in an intimate discussion revolving around AI in a cosy setup - the perfect unwinding activity after three days of intense power walking.
 
 ## In closing...
 

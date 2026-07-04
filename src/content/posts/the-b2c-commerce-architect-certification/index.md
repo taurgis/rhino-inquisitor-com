@@ -4,7 +4,7 @@ description: >-
   Prepare for the Salesforce B2C Commerce Architect certification with a guide
   to exam domains, study priorities, and practical preparation.
 date: '2023-05-22T07:18:54.000Z'
-lastmod: '2026-07-04T11:05:00.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /the-b2c-commerce-architect-certification/
 draft: false
 heroImage: b2c-commerce-cloud-architect-fbcc847dcd.jpeg
@@ -27,7 +27,7 @@ Congratulations on your decision to become a [certified Salesforce B2C Commerce 
 The Official List
 
 - Given a customer’s business requirement, create a technical specification that accurately reflects the business requirement.
-- Given business and technical requirement details, create standard technical artifacts that are complementary and accurate to the design and project needs.
+- Given business and technical requirement details, create standard technical artefacts that are complementary and accurate to the design and project needs.
 - Given business and technical requirement details, review implementation specifications for solutions, future growth, and gap analysis to stakeholders and provide analysis to defend if necessary.
 - Given systems integration requirements & technical details, evaluate LINK cartridges applicable versions, 3rd-Parties’ technical specifications, and API documentation for integrations.
 - Given the systems that are interacting with the platform, evaluate the integration points, data type and volume, data migration approach, and diagram the system architecture.
@@ -62,7 +62,7 @@ Capturing business requirements and providing the best solution for the business
 - [B2C Commerce: Release Notes](https://help.salesforce.com/s/articleView?id=sf.b2c_rn_release_notes.htm&type=5&language=en_US)
 - [B2C Commerce: Videos](https://help.salesforce.com/s/articleView?id=cc.b2c_videos.htm&language=en_US&type=5)
 - [Account Manager](https://help.salesforce.com/s/articleView?id=cc.b2c_account_manager_overview.htm&type=5&language=en_US)
-- [Control Center](https://help.salesforce.com/s/articleView?id=cc.b2c_getting_started.htm&type=5&language=en_US)
+- [Control Centre](https://help.salesforce.com/s/articleView?id=cc.b2c_getting_started.htm&type=5&language=en_US)
 
 ## Build (19%)
 
@@ -87,7 +87,7 @@ Once all the requirements have been captured and we have worked out a design for
 - [Trailhead: Build Processes and Unit Tests for Salesforce B2C Commerce Technical Architects](https://trailhead.salesforce.com/content/learn/modules/b2c-build-processes-and-tests-for-technical-architects?trailmix_creator_id=mking23&trailmix_slug=b-2-c-commerce-architect-certification-prep)
 - [Trailhead: Salesforce B2C Commerce Cartridges](https://trailhead.salesforce.com/content/learn/modules/b2c-cartridges?trailmix_creator_id=mking23&trailmix_slug=b-2-c-commerce-architect-certification-prep)
 - [Trailhead: Salesforce B2C Commerce Storefront Implementation](https://trailhead.salesforce.com/content/learn/modules/b2c-implement-functional-solution?trailmix_creator_id=mking23&trailmix_slug=b-2-c-commerce-architect-certification-prep)
-- [Trailhead: Salesforce B2C Commerce Storefront Localization](https://trailhead.salesforce.com/content/learn/modules/b2c-localization)
+- [Trailhead: Salesforce B2C Commerce Storefront Localisation](https://trailhead.salesforce.com/content/learn/modules/b2c-localization)
 - [Secure Coding in Salesforce B2C Commerce Cloud](/secure-coding-in-salesforce-b2c-commerce-cloud/)
 - [B2C Commerce: Security Guide](https://help.salesforce.com/s/articleView?id=cc.b2c_commerce_security_guide.htm&type=5&language=en_US)
 - [Data Protection & Privacy](https://help.salesforce.com/s/articleView?id=cc.b2c_data_protection_and_privacy.htm&type=5&language=en_US)
@@ -96,8 +96,8 @@ Once all the requirements have been captured and we have worked out a design for
 
 The Official List
 
-- Given an implementation, evaluate the end-to-end needs for custom logging configuration, the ability to leverage Log Center, and investigate other tools required to identify potential and existing issues for governance, trust, and best practices.
-- Given an implementation performance issue, demonstrate the ability to identify and address existing and potential performance issues, including quota violations, cache utilization, service timeouts, and optimization opportunities.
+- Given an implementation, evaluate the end-to-end needs for custom logging configuration, the ability to leverage Log Centre, and investigate other tools required to identify potential and existing issues for governance, trust, and best practices.
+- Given an implementation performance issue, demonstrate the ability to identify and address existing and potential performance issues, including quota violations, cache utilisation, service timeouts, and optimisation opportunities.
 - Given an implementation issue, demonstrate the ability to identify root causes and recommend solutions.
 - Given an implementation, evaluate and adjust the system proactively to ensure a healthy, scalable system for current and future business operational needs.
 
@@ -112,14 +112,14 @@ Keeping an eye out on what you build is not just important, it is crucial to hav
 - [How to change the code Compatibility Mode in Salesforce B2C Commerce Cloud](/how-to-change-the-code-compatibility-mode-in-salesforce-b2c-commerce-cloud/)
 - [Reports & Dashboards - How to Set Up Access](https://salesforce.vidyard.com/watch/qf6QPehudWEP4RJQvz7kRB?)
 
-## Integrations and Customizations (22%)
+## Integrations and Customisations (22%)
 
 The Official List
 
 - Given a business requirement of integrating with a 3rd-Party web service identify what protocol (SOAP/REST) and what approach (real-time vs. batch processing) should be used and then apply all security strategies and best practices that SFCC can support.
-- Given a set of batch process requirements, leverage the productized Job Framework for batch process integration.
+- Given a set of batch process requirements, leverage the productised Job Framework for batch process integration.
 - Given a list of third-party LINK cartridge integrations, identify “legacy” LINK cartridges that are still using Pipelines and define an integration approach with Controllers.
-- Given a set of real-time integration requirements, leverage the productized Service Framework for real-time integration.
+- Given a set of real-time integration requirements, leverage the productised Service Framework for real-time integration.
 
 Salesforce B2C Commerce Cloud has many features out of the box, but it can't do everything. Any project (or at least the majority) must deal with third-party integrations. Knowing where to look and how to monitor these integrations is crucial as a B2C Commerce Architect.
 

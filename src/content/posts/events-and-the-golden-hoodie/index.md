@@ -4,7 +4,7 @@ description: >-
   June 2022 is a month I will remember for a long time to come. It is a story of
   Salesforce events and getting a Golden Hoodie!
 date: '2022-06-21T04:14:28.000Z'
-lastmod: '2022-07-23T21:41:31.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /events-and-the-golden-hoodie/
 draft: false
 heroImage: golden-hoodies-baefc3d7e9.jpg
@@ -72,7 +72,7 @@ And it was a success! I have met many people (finally) in person that I had been
 
 This has been quite the relief for me since virtual and in-person are still very different things.
 
-For COVID though, it was probably a playground. And I am guessing many people went home with unwanted presents. I was luckily spared, but I got a few messages from people that I might want to be a bit more careful as they were not as lucky. Wearing masks and using hand sanitizer all the time seems to be a thing of the past.
+For COVID though, it was probably a playground. And I am guessing many people went home with unwanted presents. I was luckily spared, but I got a few messages from people that I might want to be a bit more careful as they were not as lucky. Wearing masks and using hand sanitiser all the time seems to be a thing of the past.
 
 People who could not join the event in person have to use [Salesforce+](https://www.salesforce.com/plus/experience/world_tour/series/best_of_connections) to watch some recorded sessions, but unfortunately, not all of them are available. At least you can't catch COVID from that, right?
 
@@ -103,7 +103,7 @@ As with most Salesforce events, I saw a lack of Commerce Cloud-related talks, so
 I submitted two possible topics:
 
 - Headless
-- Multi-Cloud Projects (With Commerce at the center, no worries 😀)
+- Multi-Cloud Projects (With Commerce at the centre, no worries 😀)
 
 I was happy to get the message that one submission was accepted a month later: Multi-Cloud! And because one speaker could not make it, I was also allowed to talk about Headless.
 

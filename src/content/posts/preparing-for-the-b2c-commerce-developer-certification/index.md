@@ -4,7 +4,7 @@ description: >-
   Prepare for the B2C Commerce Developer Certification with a practical starting
   point, study focus areas, and next steps.
 date: '2022-06-06T11:45:43.000Z'
-lastmod: '2026-07-04T11:05:00.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /preparing-for-the-b2c-commerce-developer-certification/
 draft: false
 heroImage: b2c-commerce-developer-72d9df9035.png
@@ -52,7 +52,7 @@ So, where can we find some review materials? Here is a list that will get you st
 
 The Official List
 
-- Given a Business Manager task, work with the product data model to manage products and product search model, their categorization, and associated inventory and pricebooks.
+- Given a Business Manager task, work with the product data model to manage products and product search model, their categorisation, and associated inventory and pricebooks.
 - Given a configuration for tasks, such as payment and shipping information, use Business Manager to complete storefront orders.
 - Given a configuration task, use Business Manager to work with Content Assets, Page Designer, Content Slots, and Content Folders.
 
@@ -75,7 +75,7 @@ But, what else is available?
 - [B2C Commerce Videos (Infocenter)](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_videos.htm&type=5)
 - [Salesforce Events](https://cs.salesforce.com/events?filter=true&product=b2c-commerce)
 - [Webinar: Getting Started with Page Designer](https://salesforce.vidyard.com/watch/C239ou4WP2nSagkxoA4D4m?)
-- [Customer Service Center](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-customer-service-center.html)
+- [Customer Service Centre](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-customer-service-center.html)
 
 ## Data Management Using Business Manager Usage (24%)
 
@@ -88,7 +88,7 @@ The Official List
 - Given a business need to store custom data, determine if a custom object is needed and create and configure as required.
 - Given a problem or performance issue and data, use relevant tools to inspect code performance and determine and implement solutions (cache configuration, profilers, etc) to resolve this issue.
 - Given a specification and a sandbox instance, configure OCAPI permissions for Data and Shop APIs.
-- Given a service configuration, recognize how they are applicable to the development process.
+- Given a service configuration, recognise how they are applicable to the development process.
 
 Let us move on to the third section, focusing on configuration and the business manager.
 
@@ -123,7 +123,7 @@ The Official List
 - Given a requirement, create and extend the functionality of a JavaScript controller that leverages models, decorators, factories, or helpers following API best practices and renders a template or returns a JSON response.
 - Given a business requirement and design for a new marketing page, develop page types and components to allow a marketer to build a page with the Page Designer tool.
 - Given a requirement to accept, validate, and persist information from a storefront customer, modify the appearance of a form, add validation and CSRF protection, and use bindings to process fields.
-- Given localization requirements, implement and enhance templates, form definitions, static files, properties files, and persistent object attributes to ensure that pages are displayed in the expected language.
+- Given localisation requirements, implement and enhance templates, form definitions, static files, properties files, and persistent object attributes to ensure that pages are displayed in the expected language.
 - Given a logging task and existing configuration, write code that logs non-sensitive data to custom log files with different log levels.
 - Integrate, deploy, and use a service instance based on a given requirement.
 - Given a use case, extend functionality or capture an event using hook extension points.

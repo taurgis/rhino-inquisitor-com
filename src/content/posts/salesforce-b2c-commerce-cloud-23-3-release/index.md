@@ -4,7 +4,7 @@ description: >-
   23.3 release overview covering trial sandboxes, log-volume changes, Shopper
   Context enablement, and the refreshed SLAS admin UI.
 date: '2023-02-15T14:19:00.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /salesforce-b2c-commerce-cloud-23-3-release/
 draft: false
 heroImage: shopping-cart-in-sand-7c8677e7ff.jpg
@@ -34,9 +34,9 @@ Getting a sandbox environment for testing and development [has challenged potent
 
 ### Successful Jobs Are No Longer Logged
 
-> To increase the efficiency of log volume, successful job steps for custom and global jobs with dedicated log files are no longer logged in the global job log file, Splunk, or Log Center. You can still review successful job steps in the dedicated log file.
+> To increase the efficiency of log volume, successful job steps for custom and global jobs with dedicated log files are no longer logged in the global job log file, Splunk, or Log Centre. You can still review successful job steps in the dedicated log file.
 
-There is a [limit](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-log-files-overview.html) to how many logs can be written and sent to the Log Center; in most cases, you aren't looking for success messages. Though successes should be celebrated 😊, there is no need for them to clog up the general logs and nibble at our quotas.
+There is a [limit](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-log-files-overview.html) to how many logs can be written and sent to the Log Centre; in most cases, you aren't looking for success messages. Though successes should be celebrated 😊, there is no need for them to clog up the general logs and nibble at our quotas.
 
 ### Buy Now Items Get Their Own Cart
 
@@ -80,7 +80,7 @@ A new release for [Account Manager](https://account.demandware.com/) has happene
 
 ### Prevent Org Invitations to Deleted Users
 
-> You can no longer add deleted users to an organization. Attempts to add a deleted user returns the following error message: Only enabled users can be invited into an organization.
+> You can no longer add deleted users to an organisation. Attempts to add a deleted user returns the following error message: Only enabled users can be invited into an organisation.
 
 ### New Account Manager Password Requirements
 
@@ -101,10 +101,10 @@ A new PWA Kit release happens every few weeks, so this month is no different. In
 
 In this and previous releases, the following bugs have been marked as fixed:
 
-- [Release 23.2 throwing error " Initialization of bean failed; nested exception is java.lang.NullPointerException" on SIG](https://trailblazer.salesforce.com/issues_view?id=a1p4V000002MoxfQAC&title=release-23-2-throwing-error-initialization-of-bean-failed-nested-exception-is-java-lang-nullpointerexception-on-sig)
+- [Release 23.2 throwing error " Initialisation of bean failed; nested exception is java.lang.NullPointerException" on SIG](https://trailblazer.salesforce.com/issues_view?id=a1p4V000002MoxfQAC&title=release-23-2-throwing-error-initialization-of-bean-failed-nested-exception-is-java-lang-nullpointerexception-on-sig)
 - [Delta exports running for a long time](https://trailblazer.salesforce.com/issues_view?id=a1p4V000002wFDBQA2&title=delta-exports-running-for-a-long-time)
 - [Storefront Toolkit: Popovers should become scrollable when reaching screen-height](https://trailblazer.salesforce.com/issues_view?id=a1p3A000001H7STQA0&title=storefront-toolkit-popovers-should-become-scrollable-when-reaching-screen-height)
-- [SFTK: Background color bleeds through to storefront](https://trailblazer.salesforce.com/issues_view?id=a1p4V00000040GaQAI&title=sftk-background-color-bleeds-through-to-storefront)
+- [SFTK: Background colour bleeds through to storefront](https://trailblazer.salesforce.com/issues_view?id=a1p4V00000040GaQAI&title=sftk-background-color-bleeds-through-to-storefront)
 
 ## Updated Cartridges & Tools
 
@@ -161,7 +161,7 @@ The month of February keeps giving new (public) repositories. And this time, one
 
 > The Salesforce Commerce Cloud CLI is a command line interface (CLI) for Salesforce Commerce Cloud. It can be used to facilitate deployment and continuous integration practices using Salesforce B2C Commerce.
 
-- Retrieval of organization and user level audit logs ([#341](https://github.com/SalesforceCommerceCloud/sfcc-ci/pull/341))
+- Retrieval of organisation and user level audit logs ([#341](https://github.com/SalesforceCommerceCloud/sfcc-ci/pull/341))
 - Management for API clients (incl. retrieving details, creation, updating, deletion and rotation of credentials) ([#350](https://github.com/SalesforceCommerceCloud/sfcc-ci/pull/350), [#351](https://github.com/SalesforceCommerceCloud/sfcc-ci/pull/351))
 - Migrate build process from CircleCI to Github Actions ([#347](https://github.com/SalesforceCommerceCloud/sfcc-ci/pull/347), [#348](https://github.com/SalesforceCommerceCloud/sfcc-ci/pull/348))
 - Minor readme updates ([#345](https://github.com/SalesforceCommerceCloud/sfcc-ci/pull/345))

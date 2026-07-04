@@ -4,7 +4,7 @@ description: >-
   Learn when real-time inventory checks improve the customer experience, where
   they add risk, and how to balance speed with accuracy.
 date: '2026-02-09T11:11:31.000Z'
-lastmod: '2026-02-09T13:10:33.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /real-time-inventory-checks-in-sfcc/
 draft: false
 heroImage: stampede-to-a-single-endpoin-t-scaled-2d591aef78.jpeg
@@ -76,7 +76,7 @@ This gets exponentially worse under load. During a flash sale, thousands of simu
 
 The consequences reverberate back to SFCC. The platform has a hard 10-second timeout on Shopper APIs; exceed it, and the user gets a 504 Gateway Timeout. The Service Framework's circuit breakers will trip if the external system consistently fails to respond, causing subsequent calls to fail instantly. You risk exceeding your API quotas, which can lead to blocked functionality. You've created a cascading failure, where a slow dependency starves the platform of resources, grinding the entire storefront to a halt at the most critical moment.
 
-## Your First Line of Defense: Caching the Uncacheable
+## Your First Line of Defence: Caching the Uncacheable
 
 Given that naive real-time calls are a performance catastrophe, caching isn't an optimisation—it's a prerequisite for survival. SFCC provides multiple layers of caching, from the full Page Cache at the eCDN level down to fragment caching with remote includes.
 
@@ -112,7 +112,7 @@ This is a powerful compromise, but it's not a silver bullet.
 
 ### Pros
 
-- **Performance on a Massive Scale:** You eliminate costly external calls for the bulk of your catalog, dramatically improving average TTFB and site responsiveness.
+- **Performance on a Massive Scale:** You eliminate costly external calls for the bulk of your catalogue, dramatically improving average TTFB and site responsiveness.
 
 - **Backend System Shield:** The cache absorbs most of the load, protecting your often-fragile ERP or OMS from the "Hammer Effect."
 
@@ -124,7 +124,7 @@ This is a powerful compromise, but it's not a silver bullet.
 
 - **Minor Race Condition:** A small window of risk remains. If the threshold is 5 and SFCC shows 6, two customers could check out before the next batch feed runs. This is why a final, definitive real-time check during the final order submission is **non-negotiable**. The PDP check is for browsing performance; the checkout check is for transactional integrity.
 
-## Leveling Up: Advanced Tactics for the Bold
+## Levelling Up: Advanced Tactics for the Bold
 
 For those who want to push performance even further, two advanced patterns stand out.
 

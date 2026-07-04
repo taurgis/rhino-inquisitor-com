@@ -4,7 +4,7 @@ description: >-
   The Salesforce B2C Commerce Cloud Managed Runtime is a cloud-based hosting
   environment for Progressive Web Applications (PWAs).
 date: '2023-05-08T13:04:24.000Z'
-lastmod: '2026-07-04T10:39:24.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /what-is-the-sfcc-managed-runtime/
 draft: false
 heroImage: people-maintaining-server-room-scaled-d510b8a413.jpg
@@ -19,7 +19,7 @@ tags:
 author: Thomas Theunen
 takeaways:
   - "Explains the Managed Runtime as Salesforce-hosted infrastructure for deploying, running, and monitoring PWA Kit storefront bundles"
-  - "Covers the core concepts of organizations, projects, environments, and bundles that structure a composable storefront deployment"
+  - "Covers the core concepts of organisations, projects, environments, and bundles that structure a composable storefront deployment"
   - "Highlights the main business and developer benefits, including simplified infrastructure management, scaling, rollback clarity, and API-driven automation"
 ---
 In the last two years, more vocabulary has been added to the [Salesforce B2C Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/) ecosystem because of the [Composable Storefront](/sitegenesis-vs-sfra-vs-pwa/).
@@ -34,7 +34,7 @@ Developers will use the PWA Kit tools to generate a bundle, a snapshot of the st
 
 Each project can have multiple bundles, but each environment has only one "deployed" bundle. Similar to the fact that you can only have one active "[Code Version](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-code-deployment.html)" on the server side.
 
-{{< img-caption src="salesforce-commerce-cloud-managed-runtime-e2b922960d.jpg" alt="Managed Runtime project list showing one organization with two storefront projects." >}}
+{{< img-caption src="salesforce-commerce-cloud-managed-runtime-e2b922960d.jpg" alt="Managed Runtime project list showing one organisation with two storefront projects." >}}
 
 The Managed Runtime operates within a hierarchy of organisations and projects. Organisations can contain multiple projects for various storefronts, and each project can contain multiple environments.
 

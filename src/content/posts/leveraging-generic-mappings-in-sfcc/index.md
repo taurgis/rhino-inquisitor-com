@@ -4,7 +4,7 @@ description: >-
   See how generic mappings can simplify SFCC data integrations, reduce custom
   transformation code, and improve maintainability.
 date: '2023-11-27T09:29:26.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /leveraging-generic-mappings-in-sfcc/
 draft: false
 heroImage: a-robot-connecting-data-files-3fa4ea9dce.jpg
@@ -32,7 +32,7 @@ For example, you can use Generic Mapping to link SKU numbers from a backend syst
 
 This is especially useful when you are integrating third-party systems that may not be familiar with data formats used by B2C Commerce Cloud or if you have a large set of static information needed to make calculations or lookups.
 
-## Steps to Utilize Generic Mapping
+## Steps to Utilise Generic Mapping
 
 ### Create the Mapping File
 
@@ -54,7 +54,7 @@ backendSKU,commerceCloudSKU
 
 #### Compound Keys
 
-{{< img-caption src="a-key-created-with-puzzle-pieces-c01118782f.jpg" alt="This key is a unique representation of the 'Compound Key' system in Generic Mappings, crafted from multiple metal puzzle pieces. The key is striking in its design, with a complete key lying in the center, surrounded by unused pieces that were likely intended to be used for different variations of the key. The craftsmanship of the metal pieces is impressive, with intricate designs etched into each individual piece. The key itself appears to be the final piece in a complex puzzle, with the other pieces surrounding it serving as potential alternative solutions to unlocking whatever the key is meant to open. Overall, this key is a fascinating example of the ingenuity and creativity that goes into the design of complex systems like Generic Mappings." >}}
+{{< img-caption src="a-key-created-with-puzzle-pieces-c01118782f.jpg" alt="This key is a unique representation of the 'Compound Key' system in Generic Mappings, crafted from multiple metal puzzle pieces. The key is striking in its design, with a complete key lying in the centre, surrounded by unused pieces that were likely intended to be used for different variations of the key. The craftsmanship of the metal pieces is impressive, with intricate designs etched into each individual piece. The key itself appears to be the final piece in a complex puzzle, with the other pieces surrounding it serving as potential alternative solutions to unlocking whatever the key is meant to open. Overall, this key is a fascinating example of the ingenuity and creativity that goes into the design of complex systems like Generic Mappings." >}}
 
 Compound keys in a CSV file refer to combining multiple columns to create a unique identifier for the mapping entries. Unlike a simple key using a single data point, a compound key requires two or more data points to form a unique one. You might need to use a compound key when you cannot uniquely identify an item with a single-column value. Instead, you need to use a combination of values to ensure uniqueness.
 
@@ -88,7 +88,7 @@ Now, it’s time to create an automation job using the [`ImportKeyValueMapping`]
 Job Step Parameters:
 
 - **AfterImportFileHandling:** Determines what happens to the file post-import. Options include Keep, Delete, Archive, Archive Zipped (`AfterImportFileHandling: 'Archive'`).
-- **WorkingFolder:** The source folder of your files relative to IMPEX/src. (WorkingFolder: 'customization').
+- **WorkingFolder:** The source folder of your files relative to IMPEX/src. (WorkingFolder: 'customisation').
 - **FileNamePattern:** Regex to select import files (`FileNamePattern: '.*.csv'`).
 - **ImportFailedHandling:** How to handle failed imports—WARN skips, ERROR aborts (`ImportFailedHandling: 'WARN'`).
 - **KeyCount:** Leave this at one unless you use a Compound Key. (KeyCount: '1')

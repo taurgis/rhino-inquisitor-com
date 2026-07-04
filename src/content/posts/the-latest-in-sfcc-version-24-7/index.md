@@ -4,7 +4,7 @@ description: >-
   In some places there is too much rain, in other places it is too hot. The
   weather might not be consistent, but the release schedule of SFCC sure is!
 date: '2024-07-08T07:51:29.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /the-latest-in-sfcc-version-24-7/
 draft: false
 heroImage: salesforce-b2c-commerce-cloud-24-7-release-notes-7b5bf8e6a0.jpg
@@ -27,7 +27,7 @@ Are you interested in last month's release notes? Read the [24.6 release overvie
 
 ## Migrate to eCDN WAFv2
 
-> Salesforce B2C Commerce now uses eCDN with WAFv2. WAFv2 brings advanced security features to safeguard all your zones, both existing and new. You can migrate your existing customer zones from WAFv1 to WAFv2 as a self-service option. You can configure eCDN WAFv2 settings directly through the Business Manager UI or CDN Zones API for new zones. In addition, eCDN with WAFv2 integrates ruleset enhancements that improve firewall security and reduce false positives, improving threat detection accuracy and minimizing disruptions to normal operations.
+> Salesforce B2C Commerce now uses eCDN with WAFv2. WAFv2 brings advanced security features to safeguard all your zones, both existing and new. You can migrate your existing customer zones from WAFv1 to WAFv2 as a self-service option. You can configure eCDN WAFv2 settings directly through the Business Manager UI or CDN Zones API for new zones. In addition, eCDN with WAFv2 integrates ruleset enhancements that improve firewall security and reduce false positives, improving threat detection accuracy and minimising disruptions to normal operations.
 
 I may be a recording on repeat, but security for any online platform is a must. With the new WAFV2, we get:
 
@@ -107,7 +107,7 @@ With this [new API](https://developer.salesforce.com/docs/commerce/commerce-api/
 
 ### Collect Request Details
 
-> With B2C Commerce version 24.7, you can generate a JSON document that contains comprehensive information about the request. This JSON document is beneficial for troubleshooting, because it provides detailed information that is not included with standard logging, such as request authorization, hook execution, request query parameters, headers, and body.
+> With B2C Commerce version 24.7, you can generate a JSON document that contains comprehensive information about the request. This JSON document is beneficial for troubleshooting, because it provides detailed information that is not included with standard logging, such as request authorisation, hook execution, request query parameters, headers, and body.
 
 Another excellent debugging tool has been added to the list, allowing you to investigate what is happening behind the scenes.
 
@@ -139,9 +139,9 @@ Finally, the SCAPI release information has also made it to the "main" release no
 
 ## Development
 
-### Import and Export Dynamic Categorization Rules
+### Import and Export Dynamic Categorisation Rules
 
-> In Business Manager, easily import and export dynamic categorization rules, including the excluded product list. The Catalogs Import & Export feature now updates the catalog.xsd schema with detailed information on categorization rules and excluded products within the catalog tag structure. Previously, you couldn’t import and export the dynamic categorization rules.
+> In Business Manager, easily import and export dynamic categorisation rules, including the excluded product list. The Catalogues Import & Export feature now updates the catalogue.xsd schema with detailed information on categorisation rules and excluded products within the catalogue tag structure. Previously, you couldn’t import and export the dynamic categorisation rules.
 
 Before this update, we could not easily back up or import the categorisation rules from an external system, making them more challenging to implement in some cases (or even a blocker).
 
@@ -149,7 +149,7 @@ This update can back up these rules and allow external control. This will be ext
 
 ### Import External Coupon Redemptions
 
-> You can now update the status of a coupon redeemed outside of B2C Commerce using the new Coupon Redemption API (/organizations/{organizationId}/coupons/actions/redeem). To identify the source of redemption for an external coupon, use a custom reference ID or any custom string. You can also add an optional email address to the redemption for further tracking and communication. To update multiple coupon redemptions at one time, use the new ImportCouponCodeRedemptionsStep job step. This bulk import, which works only in merge mode, streamlines the process of managing multiple redemptions at scale.
+> You can now update the status of a coupon redeemed outside of B2C Commerce using the new Coupon Redemption API (/organisations/{organizationId}/coupons/actions/redeem). To identify the source of redemption for an external coupon, use a custom reference ID or any custom string. You can also add an optional email address to the redemption for further tracking and communication. To update multiple coupon redemptions at one time, use the new ImportCouponCodeRedemptionsStep job step. This bulk import, which works only in merge mode, streamlines the process of managing multiple redemptions at scale.
 
 This is a big update for any business working in multiple online and offline channels. With this update, we can  [batch import](https://help.salesforce.com/s/articleView?id=cc.b2c_coupons_and_coupon_code_object_import_export.htm&type=5) or have a third-party system call the brand new "[Coupon Redemption API](https://developer.salesforce.com/docs/commerce/commerce-api/references/coupons?meta=redeemCoupon&q=redemption)".
 
@@ -163,7 +163,7 @@ A big release focusing on many different areas important to any project: Support
 
 -   **Product Tile Revamp**: Displays different pricing for various products on product tiles and PDP, and shows pricing on cart, checkout, and wishlist pages.
 -   **Promotional Callouts**: Promotional messages are now visible on product list and detail pages.
--   **Selectable Swatch Groups**: Attributes like color can now be selected via swatch groups.
+-   **Selectable Swatch Groups**: Attributes like colour can now be selected via swatch groups.
 -   **Badges and Lazy Basket Creation**: New badges are displayed, and baskets are created lazily to improve performance.
 -   **Cache Control**: Implements the `stale-while-revalidate` directive for better caching.
 

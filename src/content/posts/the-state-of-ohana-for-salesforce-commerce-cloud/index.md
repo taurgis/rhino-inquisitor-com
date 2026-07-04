@@ -4,7 +4,7 @@ description: >-
   The Ohana culture within Salesforce is pretty well known, but how does this
   culture fare within the Salesforce Commerce Cloud community?
 date: '2022-02-27T14:02:53.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /the-state-of-ohana-for-salesforce-commerce-cloud/
 draft: false
 heroImage: connections-chicago-2019-b246c60ad0.jpg
@@ -20,7 +20,7 @@ author: Thomas Theunen
 takeaways:
   - "Reflects on how the wider Salesforce Ohana culture differs from the smaller and historically more fragmented Commerce Cloud community"
   - "Explains the role of legacy community platforms, Trailblazer channels, and the unofficial Slack community in SFCC knowledge sharing"
-  - "Argues that Slack became the practical center of gravity for B2C Commerce collaboration and mutual support"
+  - "Argues that Slack became the practical centre of gravity for B2C Commerce collaboration and mutual support"
 ---
 Within Salesforce, the Ohana (Hawaiian for Family) has a pretty significant meaning. Over the past decade, people passionate about Salesforce have built up an enormous community around the platform.
 
@@ -38,7 +38,7 @@ It is no secret that Salesforce is known for buying companies to take under its 
 
 I listed a few places where the community was active within the #ohana of Salesforce, so how do the different platforms compare? Based on my personal experience, the used communication channels show a big difference.
 
-Note: This is a "personal feeling" pie chart as I did not use any scientific methodology by comparing numbers etc. So take it with a grain of salt! I also left out LinkedIn as it is more business than questions/answers than socializing on Twitter.
+Note: This is a "personal feeling" pie chart as I did not use any scientific methodology by comparing numbers etc. So take it with a grain of salt! I also left out LinkedIn as it is more business than questions/answers than socialising on Twitter.
 
 ### Core Platform
 
@@ -67,7 +67,7 @@ Maybe we should turn in a design for [#shirtforce](https://shirtforce.org/)?
 
 ## A second class citizen of Salesforce Ohana
 
-Over the years, a part of the community has felt they are not part of the "bigger" Ohana picture. Things like voting on the [feature prioritization](https://ideas.salesforce.com/s/prioritization) and [MVP](https://www.salesforce.com/blog/welcome-2022-mvps) seem like an impossible/pointless task as the smaller B2C community can not even make a dent in the "Salesforce CRM" vehicle.
+Over the years, a part of the community has felt they are not part of the "bigger" Ohana picture. Things like voting on the [feature prioritisation](https://ideas.salesforce.com/s/prioritization) and [MVP](https://www.salesforce.com/blog/welcome-2022-mvps) seem like an impossible/pointless task as the smaller B2C community can not even make a dent in the "Salesforce CRM" vehicle.
 
 But is it also so surprising? The B2C community is also more isolated and not by its fault looking at the history.
 

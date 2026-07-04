@@ -4,7 +4,7 @@ description: >-
   Rhino Inquisitor is Thomas Theunen's working notebook for Salesforce B2C
   Commerce Cloud architecture, delivery lessons, and practical field guidance.
 date: '2022-02-25T21:45:53.000Z'
-lastmod: '2026-03-24T07:27:00.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /about/
 draft: false
 archiveExclude: true
@@ -38,10 +38,10 @@ I do not separate architecture from delivery. A design is only good if a team ca
 
 That means I care a lot about the questions that often get deferred until too late:
 
-- Where does this customization increase upgrade risk?
+- Where does this customisation increase upgrade risk?
 - What happens when a dependency slows down or fails?
 - Is this flow observable when something breaks in production?
-- Are we optimizing for a demo, or for sustained operation?
+- Are we optimising for a demo, or for sustained operation?
 - Is the team buying a capability, or buying a maintenance burden?
 
 In commerce, those questions show up everywhere. Real-time inventory checks can damage storefront latency. Search and SEO mistakes can turn a migration into a visibility problem. A release note that looks minor can carry real operational consequences. A launch plan without rollback discipline is not a serious launch plan.
@@ -78,7 +78,7 @@ It is probably not the right place if you are looking for generic ecommerce thou
 
 Some principles come up repeatedly in both my project work and the material I publish here.
 
-- Prefer maintainable architecture over clever customization.
+- Prefer maintainable architecture over clever customisation.
 - Treat performance, SEO, accessibility, and security as system requirements, not afterthoughts.
 - Make failure modes visible early through observability, testing, and explicit rollout planning.
 - Keep release-readiness and rollback planning inside the engineering process rather than outside it.

@@ -4,7 +4,7 @@ description: >-
   Preview of Salesforce Connections 2024 for SFCC teams, with the most relevant
   commerce sessions, roadmap talks, and meetup picks.
 date: '2024-05-16T09:28:06.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /salesforce-connections-2024-and-sfcc/
 draft: false
 heroImage: salesforce-in-chicago-e1715782032168-b85c6a08d6.jpg
@@ -18,7 +18,7 @@ author: Thomas Theunen
 takeaways:
   - "Previews Salesforce Connections 2024 from an SFCC-focused attendee perspective"
   - "Curates the most relevant B2C Commerce and composable-storefront sessions across both event days"
-  - "Helps community members prioritize overlapping sessions, roadmap content, and meetup opportunities"
+  - "Helps community members prioritise overlapping sessions, roadmap content, and meetup opportunities"
 ---
 The wait is almost over. Next week, it is time for Salesforce Connections 2024. I can't believe it has already been two years since then—and that one was quite memorable, as I was last [awarded my Golden Hoodie](/events-and-the-golden-hoodie/) during the keynote!
 
@@ -35,7 +35,7 @@ It is unfortunate, but it should also technically not be the only reason you go 
 And not to worry—in its place comes "Connections Celebration," which will appeal to some people more than the concert—you can't please everyone!
 
 > The Connections Celebration brings together everyone for an end-of-day celebration with entertainment, networking, and fun.
-> DJ Jem, the pinnacle of Chicago nightlife entertainment, will be setting the mood, while cirque performers will surprise and delight from the theater stages. Plus, we’ll have three unique photo opportunities to indulge in.
+> DJ Jem, the pinnacle of Chicago nightlife entertainment, will be setting the mood, while cirque performers will surprise and delight from the theatre stages. Plus, we’ll have three unique photo opportunities to indulge in.
 > And what’s a celebration without snacks? Delicious bites, along with spiked coffee stations, top tier wine, and nonalcoholic mocktails, will be available throughout the celebration.
 
 ## Agenda for B2C
@@ -58,15 +58,15 @@ Thinking about moving to a composable storefront? Did you already implement head
 
 - 9:00 AM
 - 20 Minutes
-- Theater Session (Campground, LEVEL 3)
+- Theatre Session (Campground, LEVEL 3)
 
 Learn about ASICS Digital’s multiphased transition to headless and how its API-led approach supports an ecosystem of sites and apps, with improved digital experiences and operational efficiencies.
 
-#### [Future-Proof and Modernize B2C to Accelerate Growth & Scale](https://reg.salesforce.com/flow/plus/cnx24/sessioncatalog/page/Catalog/session/1707187026922001UUDj)
+#### [Future-Proof and Modernise B2C to Accelerate Growth & Scale](https://reg.salesforce.com/flow/plus/cnx24/sessioncatalog/page/Catalog/session/1707187026922001UUDj)
 
 - 9:30 AM
 - 20 Minutes
-- Theater Session (Campground, LEVEL 3)
+- Theatre Session (Campground, LEVEL 3)
 
 Learn how Samsonite accelerated its journey to a modern B2C experience with Red Van’s Autobahn platform, migrating eight commerce sites in nine months, resulting in growth that topped expectations.
 
@@ -74,7 +74,7 @@ Learn how Samsonite accelerated its journey to a modern B2C experience with Red 
 
 - 11:45 AM
 - 20 Minutes
-- Theater Session (Campground, LEVEL 3)
+- Theatre Session (Campground, LEVEL 3)
 
 Learn how VF Corp launched iconic brands leveraging SFRA, Composable Storefront, Commerce APIs, Marketing Cloud, and MuleSoft, enabling flexibility and unique branded experiences.
 
@@ -90,15 +90,15 @@ Join us for groundbreaking innovations designed to help any business quickly inc
 
 - 12:45 PM
 - 20 Minutes
-- Theater Session (Campground, LEVEL 3)
+- Theatre Session (Campground, LEVEL 3)
 
-Learn how to leverage new headless offerings from Buy with Prime, exclusively for Commerce Cloud, to optimize costs, architecture flexibility, and build world-class shopping experiences.
+Learn how to leverage new headless offerings from Buy with Prime, exclusively for Commerce Cloud, to optimise costs, architecture flexibility, and build world-class shopping experiences.
 
 #### [How Grilla Grills Drove 3x Site Performance in 4 Months](https://reg.salesforce.com/flow/plus/cnx24/sessioncatalog/page/Catalog/session/1707186997988001U2Ap)
 
 - 01:45 PM
 - 20 Minutes
-- Theater Session (Campground, LEVEL 3)
+- Theatre Session (Campground, LEVEL 3)
 
 Learn how Grilla Grills was able to launch with Salesforce Commerce Composable Storefront in just four months. The company saw a 318% faster time to launch, driving more revenue to its business.
 
@@ -106,7 +106,7 @@ Learn how Grilla Grills was able to launch with Salesforce Commerce Composable S
 
 - 02:45 PM
 - 20 Minutes
-- Theater Session (Campground, LEVEL 3)
+- Theatre Session (Campground, LEVEL 3)
 
 Learn how commerce innovations in trust and scale ensure the platform is highly available, performant, and secure, to ensure business success — and peace of mind — during your peak shopping events.
 
@@ -116,15 +116,15 @@ Learn how commerce innovations in trust and scale ensure the platform is highly 
 - 40 Minutes
 - Breakout Session (Room W179, LEVEL 1)
 
-Get a sneak peek into the future of B2C Commerce. Discover innovations empowering customers to activate commerce across all channels, maximizing revenue with the most comprehensive platform.
+Get a sneak peek into the future of B2C Commerce. Discover innovations empowering customers to activate commerce across all channels, maximising revenue with the most comprehensive platform.
 
-#### [Optimizing Operations: Enhanced Business Manager Experience](https://reg.salesforce.com/flow/plus/cnx24/sessioncatalog/page/Catalog/session/1708477056673001ubPL)
+#### [Optimising Operations: Enhanced Business Manager Experience](https://reg.salesforce.com/flow/plus/cnx24/sessioncatalog/page/Catalog/session/1708477056673001ubPL)
 
 - 04:15 PM
 - 60 Minutes
 - Roundtable (Room W185, LEVEL 1)
 
-Get a sneak peek into our new business manager experience and discover how it is driving efficiency, increasing conversion, and fueling revenue growth.
+Get a sneak peek into our new business manager experience and discover how it is driving efficiency, increasing conversion, and fuelling revenue growth.
 
 ### Thursday May 23
 
@@ -134,13 +134,13 @@ Get a sneak peek into our new business manager experience and discover how it is
 - 40 Minutes
 - Breakout Session (Room W183AB, LEVEL 1)
 
-Get a sneak peek into the future of B2C Commerce. Discover innovations empowering customers to activate commerce across all channels, maximizing revenue with the most comprehensive platform.
+Get a sneak peek into the future of B2C Commerce. Discover innovations empowering customers to activate commerce across all channels, maximising revenue with the most comprehensive platform.
 
 #### [Adyen Global Payments on Salesforce’s Composable Storefront](https://reg.salesforce.com/flow/plus/cnx24/sessioncatalog/page/Catalog/session/1707187028700001UEWg)
 
 - 02:45 PM
 - 20 Minutes
-- Theater Session (Campground, LEVEL 3)
+- Theatre Session (Campground, LEVEL 3)
 
 Learn about Salesforce’s latest integration with Adyen that streamlines global payments for your customers, ensuring a swift, secure, and efficient checkout experience for your e-commerce business.
 

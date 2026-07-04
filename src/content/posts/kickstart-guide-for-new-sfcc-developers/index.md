@@ -4,7 +4,7 @@ description: >-
   An interactive guide for new SFCC developers covering storefront patterns,
   platform concepts, and practical next steps for hands-on learning.
 date: '2026-01-12T14:05:43.000Z'
-lastmod: '2026-01-12T14:05:43.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /kickstart-guide-for-new-sfcc-developers/
 draft: false
 heroImage: the-new-salesforce-developer-scaled-1f8ff6fbac.jpeg
@@ -50,12 +50,12 @@ The flow is critical: [developers](/understanding-sfcc-instances/) work on featu
 
 _**A word of warning**_: getting your hands on a sandbox is essential for learning. Watching webinars and reading documents can get tedious; you need to apply what you learn immediately. However, if you are not working for an official Salesforce partner or a customer, acquiring a sandbox can be extremely difficult (but not impossible). I explain the process in my article on [getting a sandbox as a developer](/how-to-get-a-salesforce-b2c-commerce-cloud-sandbox/), but be prepared for this potential roadblock.
 
-### The Business Manager: Your Command Center
+### The Business Manager: Your Command Centre
 
 {{< img-caption 
   src="business-manager-sfcc-command-center-79bc109bf3.jpg"
-  alt="A flat-style cartoon illustration of a high-tech command center featuring two operators monitoring multiple screens of analytics and storefront data, symbolizing the Salesforce B2C Commerce Cloud Business Manager interface for this kickstart guide."
-  caption="Figure 1: A flat-style cartoon illustration of a high-tech command center featuring two operators monitoring multiple screens of analytics and storefront data, symbolizing the Salesforce B2C Commerce Cloud Business Manager interface for this kickstart guide"
+  alt="A flat-style cartoon illustration of a high-tech command centre featuring two operators monitoring multiple screens of analytics and storefront data, symbolising the Salesforce B2C Commerce Cloud Business Manager interface for this kickstart guide."
+  caption="Figure 1: A flat-style cartoon illustration of a high-tech command centre featuring two operators monitoring multiple screens of analytics and storefront data, symbolising the Salesforce B2C Commerce Cloud Business Manager interface for this kickstart guide"
 >}}
 
 If the instance structure is the map, the **Business Manager (BM)** is your command centre. It's a web-based tool that serves as the central nervous system for your entire storefront. It's not just a simple "admin panel"; it's a powerful interface where merchandising, administration, and development configurations converge.
@@ -114,7 +114,7 @@ When a request comes in for a specific [controller](https://beeit.io/blog/gettin
 
 1. If it's still not found, it finally looks in the base cartridge, `app_storefront_base`.
 
-This is how you customize the storefront. You never modify `app_storefront_base` directly. Instead, you create a new controller or template with the same name in your custom cartridge (`app_custom_mybrand`), and it will automatically override the base version.
+This is how you customise the storefront. You never modify `app_storefront_base` directly. Instead, you create a new controller or template with the same name in your custom cartridge (`app_custom_mybrand`), and it will automatically override the base version.
 
 But what if you don't want to completely replace a controller, but just add some logic before or after it runs? For this, [SFRA provides](https://developer.salesforce.com/docs/commerce/sfra/guide/b2c-sfra-modules.html) the `superModule`. By requiring `superModule` in your custom controller, you can use `server.prepend()` to execute code _before _ the base controller's route, `server.append()` to execute code _ after_, or `server.replace()` to override it completely.
 
@@ -130,7 +130,7 @@ As I cover in my [**Beginner's Guide to WebDAV**](/a-beginners-guide-to-webdav-i
 
 - **Import/Export:** The `/impex` folder is the main hub for data transfer. You'll upload your XML or CSV import files here for the Jobs Framework to process.
 
-- **Catalogs & Content Libraries:** You can manage static content assets and library files directly.
+- **Catalogues & Content Libraries:** You can manage static content assets and library files directly.
 
 - **Log Files:** The `/logs` directory contains all the system logs, including error logs and custom debug logs, which are indispensable for troubleshooting.
 
@@ -144,7 +144,7 @@ SFCC provides a rich set of standard business objects (like Product, Order, Cust
 
 1. **Create Custom Objects:** For data that doesn't fit into a standard object, you can define entirely new custom object types with their own attributes. This is done in `Administration > Site Development > Custom Object Types`.
 
-For handling large-scale data operations—like importing a catalog with millions of products or exporting all orders from the last quarter—you'll use the **Jobs Framework**. Jobs are processes that run asynchronously in the background, either on a schedule or on demand. They are essential for any task that would be too slow or memory-intensive to run in a storefront request.
+For handling large-scale data operations—like importing a catalogue with millions of products or exporting all orders from the last quarter—you'll use the **Jobs Framework**. Jobs are processes that run asynchronously in the background, either on a schedule or on demand. They are essential for any task that would be too slow or memory-intensive to run in a storefront request.
 
 A common and powerful type of job step is the **chunk-oriented job step**. This is designed to process a large list of items by breaking it into manageable chunks, preventing you from hitting platform memory limits. To learn how to build these correctly, I highly recommend my deep-dive article, [**Mastering Chunk-Oriented Job Steps in Salesforce B2C Commerce Cloud**](/mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/). For specialised cases involving large sets of static key-value data, you can also look into [**Leveraging Generic Mappings for Efficient Data Integration**](/leveraging-generic-mappings-in-sfcc/).
 
@@ -170,9 +170,9 @@ In the multi-tenant SaaS world of SFCC, performance is non-negotiable. Your inef
 
 **I cover caching strategies for APIs in [Leveraging Server-Side Caching to Improve SFCC REST API Speed](/caching-rest-apis-in-sfcc/)** and for the modern stack in [**Caching in the Salesforce Composable Storefront**](/caching-in-the-sfcc-composable-storefront/).
 
-- **Image Optimization with DIS:** Huge, unoptimized images are a primary culprit for slow page loads. SFCC's **Dynamic Image Service (DIS)** is your best friend here. It allows you to upload one high-resolution source image and then transform it on-the-fly via URL parameters—resizing, cropping, and changing quality—without ever touching the original. My guide, [**Image-ine: Salesforce B2C Commerce Cloud DIS for Developers**](/image-ine-sfcc-dis-for-developers/), is a must-read on this topic.
+- **Image Optimisation with DIS:** Huge, unoptimised images are a primary culprit for slow page loads. SFCC's **Dynamic Image Service (DIS)** is your best friend here. It allows you to upload one high-resolution source image and then transform it on-the-fly via URL parameters—resizing, cropping, and changing quality—without ever touching the original. My guide, [**Image-ine: Salesforce B2C Commerce Cloud DIS for Developers**](/image-ine-sfcc-dis-for-developers/), is a must-read on this topic.
 
-- **Frontend Optimization:** Don't forget the basics. Minify your JavaScript and CSS, reduce the number of HTTP requests, and place your CSS in the `<head>` and your JavaScript just before the closing `</body>` tag for better perceived performance. For a detailed look at how to manage this in SFRA, see my post on [**how to load client-side JavaScript and CSS**](/how-to-load-client-side-javascript-and-css-in-sfra/). And for the Composable world, the principles in [**From Lag to Riches: A PWA Kit Developer's Guide to Storefront Speed**](/lag-to-riches-a-pwa-kit-developers-guide/) are essential.
+- **Frontend Optimisation:** Don't forget the basics. Minify your JavaScript and CSS, reduce the number of HTTP requests, and place your CSS in the `<head>` and your JavaScript just before the closing `</body>` tag for better perceived performance. For a detailed look at how to manage this in SFRA, see my post on [**how to load client-side JavaScript and CSS**](/how-to-load-client-side-javascript-and-css-in-sfra/). And for the Composable world, the principles in [**From Lag to Riches: A PWA Kit Developer's Guide to Storefront Speed**](/lag-to-riches-a-pwa-kit-developers-guide/) are essential.
 
 A fundamental challenge in SFCC development is the inherent tension between personalisation and performance. Every piece of dynamic, user-specific content (like "Welcome, Thomas!" or a personalised product recommendation) is a potential cache miss. A cache miss means the request has to travel all the way down to the application server, which is orders of magnitude slower and less scalable than serving from the page cache.
 
@@ -190,7 +190,7 @@ I strongly urge you to read and implement the advice in my article, [**Three thi
 
 1. **Secure Your Code:** Be vigilant about common web vulnerabilities. The most common in SFCC is Cross-Site Scripting (XSS), which occurs when you render user-provided input without properly encoding it. Always use functions that encode output, like `<isprint>`, to sanitise data.
 
-1. **Secure Third-Party Access:** Document every external system that integrates with your site via API keys (OCAPI, SCAPI, WebDAV). Ensure their API clients have the absolute minimum permissions required to do their job. An ERP that only needs to update orders should not have an API key that can also delete your entire product catalog.
+1. **Secure Third-Party Access:** Document every external system that integrates with your site via API keys (OCAPI, SCAPI, WebDAV). Ensure their API clients have the absolute minimum permissions required to do their job. An ERP that only needs to update orders should not have an API key that can also delete your entire product catalogue.
 
 ## The Danger Zone: Warnings and Pitfalls to Avoid
 
@@ -212,7 +212,7 @@ Here are the cardinal sins of [cache](https://developer.salesforce.com/docs/comm
 
 - **Clearing the entire site cache for a minor change:** Need to update a single content asset? Don't use the "Invalidate All" button. This forces every single page on your site to be regenerated by the application server, which can cause a massive performance spike. Investigate more granular options like Page Cache Partitions for targeted invalidation.
 
-- **Clearing cache during peak traffic:** This is the absolute worst time to do it. You are voluntarily taking down your site's primary defense mechanism right when you need it most.
+- **Clearing cache during peak traffic:** This is the absolute worst time to do it. You are voluntarily taking down your site's primary defence mechanism right when you need it most.
 
 - **Repeatedly clearing the cache:** Some systems have a "cool down" period after an invalidation request. Hammering the "clear cache" button can actually interfere with the process and prevent the cache from ever fully clearing, leaving you with maddeningly persistent stale data.
 
@@ -222,11 +222,11 @@ Finally, here are a few specific "gotchas" that bite new developers:
 
 - **The Remote Include Asset Trap:**You'll find that including client-side assets using the standard `assets.js` helper doesn't work inside a remote include (`<isinclude url="...">`). This is because the asset list is scoped to a single request, and a remote include is technically a separate, internal request. I explain this specific problem and how to work around it in my guide to**[loading client-side JavaScript and CSS in SFRA](/how-to-load-client-side-javascript-and-css-in-sfra/).**
 
-- **Massive Image Folders:** While WebDAV is great, dumping a million product images into a single folder is a recipe for terrible performance, both for file system listing and for your import/export jobs. Salesforce recommends a maximum of 100,000 files per folder. You must have a strategy for organizing images into a logical sub-folder structure.
+- **Massive Image Folders:** While WebDAV is great, dumping a million product images into a single folder is a recipe for terrible performance, both for file system listing and for your import/export jobs. Salesforce recommends a maximum of 100,000 files per folder. You must have a strategy for organising images into a logical sub-folder structure.
 
-- **Orphaned Objects from Failed Imports:** If a large catalog import job fails midway through, it can leave your data in an inconsistent state, for example, with products created but not assigned to their categories. Always design your import jobs to be restartable and, where possible, use delta feeds that only contain changes rather than full replacements.
+- **Orphaned Objects from Failed Imports:** If a large catalogue import job fails midway through, it can leave your data in an inconsistent state, for example, with products created but not assigned to their categories. Always design your import jobs to be restartable and, where possible, use delta feeds that only contain changes rather than full replacements.
 
-Ultimately, most of these pitfalls stem from a single root cause: failing to understand and respect that SFCC is a shared, multi-tenant SaaS platform. The quotas, the aggressive caching, and the "dangerous" operations are all consequences of this architecture. When you internalize that you are a citizen in a shared environment, you will naturally start to code in a way that is performant, scalable, and stable.
+Ultimately, most of these pitfalls stem from a single root cause: failing to understand and respect that SFCC is a shared, multi-tenant SaaS platform. The quotas, the aggressive caching, and the "dangerous" operations are all consequences of this architecture. When you internalise that you are a citizen in a shared environment, you will naturally start to code in a way that is performant, scalable, and stable.
 
 ## Conclusion: Your Journey Has Just Begun
 

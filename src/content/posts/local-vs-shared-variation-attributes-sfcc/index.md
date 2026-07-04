@@ -4,7 +4,7 @@ description: >-
   Understand when to use local or shared variation attributes in Commerce Cloud
   and how each model affects merchandising and product data.
 date: '2025-04-14T07:17:18.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /local-vs-shared-variation-attributes-sfcc/
 draft: false
 heroImage: variation-attributes-e1743754688196-8eda8ce6ea.jpg
@@ -18,31 +18,31 @@ author: Thomas Theunen
 takeaways:
   - "Compares local and shared variation attributes in SFCC at both the data-model and XML-import levels"
   - "Explains the flexibility, maintenance, and scalability trade-offs between both approaches"
-  - "Helps teams choose when to centralize variation models and when product-specific attributes are justified"
+  - "Helps teams choose when to centralise variation models and when product-specific attributes are justified"
 ---
-In the dynamic world of eCommerce, the concept of [product variation](/slicing-versus-variation-groups-in-sfcc/) holds significant importance. It empowers merchants to effectively present a range of product options, a crucial aspect for platforms like Salesforce B2C Commerce Cloud. These platforms often deal with extensive catalogs, each with a variety of attributes to cater to diverse customer preferences.
+In the dynamic world of eCommerce, the concept of [product variation](/slicing-versus-variation-groups-in-sfcc/) holds significant importance. It empowers merchants to effectively present a range of product options, a crucial aspect for platforms like Salesforce B2C Commerce Cloud. These platforms often deal with extensive catalogues, each with a variety of attributes to cater to diverse customer preferences.
 
-Among the ways to handle [product variations](/the-attribute-fallback-system-in-sfcc/) are local and shared variation attributes. In this article, we will delve into the technical differences between these two types of attributes, exploring their definitions, implementations in catalog import XML, and their respective advantages and disadvantages.
+Among the ways to handle [product variations](/the-attribute-fallback-system-in-sfcc/) are local and shared variation attributes. In this article, we will delve into the technical differences between these two types of attributes, exploring their definitions, implementations in catalogue import XML, and their respective advantages and disadvantages.
 
 ## What Are Variation Attributes?
 
-Let's start by understanding what [variation attributes](https://help.salesforce.com/s/articleView?id=sf.comm_var_att_intro.htm&type=5) are. These are the unique characteristics that define the different options for a specific product. For instance, a t-shirt available in multiple colors and sizes has 'color' and 'size' as its variation attributes, allowing customers to select their preferred options.
+Let's start by understanding what [variation attributes](https://help.salesforce.com/s/articleView?id=sf.comm_var_att_intro.htm&type=5) are. These are the unique characteristics that define the different options for a specific product. For instance, a t-shirt available in multiple colours and sizes has 'colour' and 'size' as its variation attributes, allowing customers to select their preferred options.
 
-In Salesforce B2C Commerce Cloud, variation attributes play a pivotal role. They not only help in categorizing products but also significantly enhance the shopping experience by making product selection easier and more intuitive for customers.
+In Salesforce B2C Commerce Cloud, variation attributes play a pivotal role. They not only help in categorising products but also significantly enhance the shopping experience by making product selection easier and more intuitive for customers.
 
-In terms of catalog import XML, variation attributes are represented in a structured format that ensures the system understands the attributes associated with each product.
+In terms of catalogue import XML, variation attributes are represented in a structured format that ensures the system understands the attributes associated with each product.
 
-Supported Attribute Types Currently, only non-localizable string and integer fields are supported for variation.
+Supported Attribute Types Currently, only non-localisable string and integer fields are supported for variation.
 
 ## What Are Local Variation Attributes?
 
-Local variation attributes are specific to a single product or a small group of products within a catalog. These attributes apply only to the respective products that define them, which means they can vary significantly from one product to another. Local attributes are particularly useful when there is a need to cater to unique product offerings that don't apply to the broader catalog.
+Local variation attributes are specific to a single product or a small group of products within a catalogue. These attributes apply only to the respective products that define them, which means they can vary significantly from one product to another. Local attributes are particularly useful when there is a need to cater to unique product offerings that don't apply to the broader catalogue.
 
-{{< img-caption src="local-variation-attributes-5fad46fb81.png" alt="A screenshot of a product in the business manager showing the Variations tab with local variation attributes." caption="Local variation attributes are defined per-product and do not propagate across the catalog." >}}
+{{< img-caption src="local-variation-attributes-5fad46fb81.png" alt="A screenshot of a product in the business manager showing the Variations tab with local variation attributes." caption="Local variation attributes are defined per-product and do not propagate across the catalogue." >}}
 
-### Implementation in Catalog Import XML
+### Implementation in Catalogue Import XML
 
-In the [catalog import XML](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/xsd/catalog.xsd), local variation attributes are defined under the specific product they are associated with, which distinguishes them from shared attributes. The XML snippet below illustrates how local variation attributes are structured:
+In the [catalogue import XML](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/xsd/catalog.xsd), local variation attributes are defined under the specific product they are associated with, which distinguishes them from shared attributes. The XML snippet below illustrates how local variation attributes are structured:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -102,19 +102,19 @@ In the [catalog import XML](https://salesforcecommercecloud.github.io/b2c-dev-do
 </catalog>
 ```
 
-In this example, the main product defines a color and size variation attribute that only applies to this particular main product and its variants.
+In this example, the main product defines a colour and size variation attribute that only applies to this particular main product and its variants.
 
 ## What Are Shared Variation Attributes?
 
-On the other hand, shared variation attributes are those that can be applied across multiple products within the catalog. These attributes promote consistency and can streamline the management of products that share similar characteristics. For instance, if multiple shoes come in the same colors and sizes, having shared variation attributes simplifies catalog management.
+On the other hand, shared variation attributes are those that can be applied across multiple products within the catalogue. These attributes promote consistency and can streamline the management of products that share similar characteristics. For instance, if multiple shoes come in the same colours and sizes, having shared variation attributes simplifies catalogue management.
 
-{{< img-caption src="defining-shared-variation-attributes-92b82313b9.png" alt="A screenshot of the Business Manager showing where to configure Shared Variation Attributes: Products and Catalogs > Shared Variation Attributes - Select Catalog" caption="Shared variation attributes are configured centrally and reused across multiple products in the catalog." link="defining-shared-variation-attributes-92b82313b9.png" >}}
+{{< img-caption src="defining-shared-variation-attributes-92b82313b9.png" alt="A screenshot of the Business Manager showing where to configure Shared Variation Attributes: Products and Catalogues > Shared Variation Attributes - Select Catalogue" caption="Shared variation attributes are configured centrally and reused across multiple products in the catalogue." link="defining-shared-variation-attributes-92b82313b9.png" >}}
 
-{{< img-caption src="shared-variation-attributes-0d55796d17.png" alt="A screenshot of a product in the business manager showing the Variations tab with shared variation attributes." caption="Once shared attributes are assigned, the product's Variations tab reflects the catalog-wide attribute definition." link="shared-variation-attributes-0d55796d17.png" >}}
+{{< img-caption src="shared-variation-attributes-0d55796d17.png" alt="A screenshot of a product in the business manager showing the Variations tab with shared variation attributes." caption="Once shared attributes are assigned, the product's Variations tab reflects the catalogue-wide attribute definition." link="shared-variation-attributes-0d55796d17.png" >}}
 
-### Implementation in Catalog Import XML
+### Implementation in Catalogue Import XML
 
-Shared variation attributes in the catalog import XML are referenced as part of the catalog, rather than an individual product. The following XML example showcases how shared variation attributes are represented:
+Shared variation attributes in the catalogue import XML are referenced as part of the catalogue, rather than an individual product. The following XML example showcases how shared variation attributes are represented:
 
 ```xml
 <catalog
@@ -191,7 +191,7 @@ Shared variation attributes in the catalog import XML are referenced as part of 
 </catalog>
 ```
 
-In this case, both products utilise the same shared attributes for "Color," demonstrating the shared nature of these attributes.
+In this case, both products utilise the same shared attributes for "Colour," demonstrating the shared nature of these attributes.
 
 ## Pros and Cons of Local Variation Attributes
 
@@ -203,9 +203,9 @@ In this case, both products utilise the same shared attributes for "Color," demo
 
 ### Cons
 
-1.  **Management Complexity**: Having numerous local attributes can lead to a complex catalog management system, making it harder to maintain and update individual products.
+1.  **Management Complexity**: Having numerous local attributes can lead to a complex catalogue management system, making it harder to maintain and update individual products.
 2.  **Redundancy**: Local variation attributes, when overused, can lead to redundancy, especially if multiple products share similar attributes.
-3.  **Limited Scalability**: As the catalog grows, managing local attributes can become increasingly cumbersome, limiting long-term scalability.
+3.  **Limited Scalability**: As the catalogue grows, managing local attributes can become increasingly cumbersome, limiting long-term scalability.
 4.  **Import XML Size:** The import file exponentially grows over time, slowing down the overall import process.
 
 ## Pros and Cons of Shared Variation Attributes
@@ -221,11 +221,11 @@ In this case, both products utilise the same shared attributes for "Color," demo
 
 1.  **Lack of Flexibility**: The main drawback of shared variation attributes is the potential lack of flexibility when unique attributes are necessary for specific products.
 2.  **Limiting Options**: Merchants may find it challenging to personalise products since shared attributes can constrain variation options.
-3.  **Over-generalisation**: There is a risk of over-generalising product attributes, which may lead to a lackluster shopping experience for customers seeking specificity.
+3.  **Over-generalisation**: There is a risk of over-generalising product attributes, which may lead to a lacklustre shopping experience for customers seeking specificity.
 
 ## Combination?
 
-In certain scenarios, combine approaches by utilising shared attributes for most of your product catalog while relying on localised variation attributes for a smaller portion!
+In certain scenarios, combine approaches by utilising shared attributes for most of your product catalogue while relying on localised variation attributes for a smaller portion!
 
 ## Conclusion
 

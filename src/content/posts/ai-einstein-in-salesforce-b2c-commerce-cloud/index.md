@@ -4,7 +4,7 @@ description: >-
   Salesforce B2C Commerce Cloud has an AI that can power different areas of the
   site. But what is it, why use it, and what can it do for me?
 date: '2022-09-26T13:42:24.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /ai-einstein-in-salesforce-b2c-commerce-cloud/
 draft: false
 heroImage: artificial-intelligence-fc68314ce7.jpg
@@ -73,7 +73,7 @@ For the AI (Einstein) to learn, I already mentioned it needs to collect quality 
 - Products ordered
 - ...
 
-And for this to work, the consumer needs to be tracked. Some visitors will want to block these behaviors by looking at GDPR, CCPA, and [Do Not Track](https://allaboutdnt.com/) options.
+And for this to work, the consumer needs to be tracked. Some visitors will want to block these behaviours by looking at GDPR, CCPA, and [Do Not Track](https://allaboutdnt.com/) options.
 
 > [!NOTE]
 > **Documentation:** The necessary tools to comply with this are documented in the [Infocenter](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_einstein_set_privacy_preferences.htm).
@@ -88,7 +88,7 @@ And for this to work, the consumer needs to be tracked. Some visitors will want 
 
 SFCC: Einstein Product Recommendations in the PWA Kit
 
-Product recommendations are among the more prominent features available in the Einstein lineup. This feature aims to promote relevant products to an individual shopper based on their purchasing history and current behavior on the site.
+Product recommendations are among the more prominent features available in the Einstein lineup. This feature aims to promote relevant products to an individual shopper based on their purchasing history and current behaviour on the site.
 
 #### Complete the Set
 
@@ -104,7 +104,7 @@ Einstein: Commerce Insights Report
 
 This feature in the Einstein dashboard allows you to view statistical data about products often bought together in the same basket based on the shopper, product, and order data.
 
-So, in short: "An analytics tool to view shopper behavior on a product-by-product basis."
+So, in short: "An analytics tool to view shopper behaviour on a product-by-product basis."
 
 ### Search Dictionaries
 
@@ -120,13 +120,13 @@ The important thing about this feature is that it only makes suggestions. You st
 
 - [Trailhead Module](https://trailhead.salesforce.com/content/learn/modules/cc-einstein-smarter-search/cc-einstein-predictive-sort)
 
-{{< img-caption src="sfcc-category-page-3297251518.jpg" alt="Category page showing products reordered by predictive sort." caption="Predictive Sort changes category ranking based on shopper behavior, not static merchandising alone." >}}
+{{< img-caption src="sfcc-category-page-3297251518.jpg" alt="Category page showing products reordered by predictive sort." caption="Predictive Sort changes category ranking based on shopper behaviour, not static merchandising alone." >}}
 
 Salesforce B2C Commerce Cloud Category Page
 
-The predictive sort option allows Einstein to optimize the "browsing" experience on the category and search pages.
+The predictive sort option allows Einstein to optimise the "browsing" experience on the category and search pages.
 
-By looking at shopper behavior, it will continuously re-order the products in the lister pages so that the products they are most interested in are moved to the top of the results.
+By looking at shopper behaviour, it will continuously re-order the products in the lister pages so that the products they are most interested in are moved to the top of the results.
 
 There are some things to keep in mind when using this feature:
 
@@ -148,7 +148,7 @@ Einstein: Search Suggestions
 
 Do you ever feel like search suggestions didn't understand the message you were trying to convey? Einstein is here to help shoppers find the correct products by already aiding at the start of the search.
 
-It will analyze your entered search term, look at information like current location and device type, and try to auto-complete the search term for you.
+It will analyse your entered search term, look at information like current location and device type, and try to auto-complete the search term for you.
 
 > For example, if the shopper types “swe” and they haven’t already searched for sweater or sweat pants, Einstein looks for phrases that start with swe for the device and location. If there’s enough data at that level, Einstein returns a phrase. If there isn’t enough data, Einstein searches across a larger data pool and devices until it finds a result.
 > Trailhead
@@ -164,8 +164,8 @@ If you have other channels besides Salesforce B2C Commerce Cloud that can be use
 [Using a Headless API](https://developer.salesforce.com/docs/commerce/einstein-api/guide/einstein-profile-connector-overview.html), it is possible to feed additional information about customers to Einstein, such as:
 
 - Gender
-- Favorite colors
-- Favorite brands
+- Favourite colours
+- Favourite brands
 
 And use this information to give more fine-grained recommendations to the shoppers.
 

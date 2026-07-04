@@ -4,7 +4,7 @@ description: >-
   Review the key changes in Salesforce B2C Commerce Cloud 23.7, from platform
   updates to headless improvements worth testing this month.
 date: '2023-06-28T07:47:03.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /a-deep-dive-into-the-23-7-sfcc-release/
 draft: false
 heroImage: person-looking-at-clothing-scaled-e57317ea0f.jpg
@@ -47,11 +47,11 @@ In today's world, it's essential to connect with customers at multiple touchpoin
 
 A much-needed update in the platform to be warned that one of the orders was not synchronised with Salesforce Order Management! Now we do not have to manually go to the page to see if an order was sent. But let us hope we don't get any warning at all!
 
-### Configure Up to 10 Categorization Conditions
+### Configure Up to 10 Categorisation Conditions
 
-{{< img-caption src="categorization-rules-in-23-7-affa83b506.jpg" alt="Categorization rule editor with support for up to ten conditions." caption="The rule editor now matches the API limit of ten conditions instead of five." >}}
+{{< img-caption src="categorization-rules-in-23-7-affa83b506.jpg" alt="Categorisation rule editor with support for up to ten conditions." caption="The rule editor now matches the API limit of ten conditions instead of five." >}}
 
-> When configuring a categorization rule in Business Manager, you can now set up to ten categorization conditions per categorization rule set. Previously, Business Manager supported five conditions per rule set while the API supported ten conditions per rule set.
+> When configuring a categorisation rule in Business Manager, you can now set up to ten categorisation conditions per categorisation rule set. Previously, Business Manager supported five conditions per rule set while the API supported ten conditions per rule set.
 
 This latest update gives us greater control and precision over the products [automatically assigned](https://help.salesforce.com/s/articleView?id=cc.b2c_dynamic_categories.htm&type=5) to a specific category.
 

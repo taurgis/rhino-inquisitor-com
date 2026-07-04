@@ -4,7 +4,7 @@ description: >-
   Guide to SFCC Dynamic Image Service, how its transformations and caching work,
   and when external image tooling is still the better fit.
 date: '2025-07-14T06:44:24.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /image-ine-sfcc-dis-for-developers/
 draft: false
 heroImage: salesforce-b2c-commerce-cloud-dis-scaled-e55eb2de2c.jpeg
@@ -50,8 +50,8 @@ Want to know precisely how all of these things work? Have a look at the [officia
 
 {{< img-caption 
   src="developer-and-dis-are-friends-scaled-e1752256621645-8ebda34ef5.jpeg"
-  alt="Cartoon illustration of developer and cloud mascot shaking hands to symbolize seamless integration with DIS"
-  caption="Figure 1: Best Friends with DIS—Seamless Image Optimization"
+  alt="Cartoon illustration of developer and cloud mascot shaking hands to symbolise seamless integration with DIS"
+  caption="Figure 1: Best Friends with DIS—Seamless Image Optimisation"
 >}}
 
 For developers navigating the Salesforce B2C Commerce Cloud universe, DIS isn't just a nice-to-have; it's a game-changer that simplifies your life and turbocharges your storefront.
@@ -109,7 +109,7 @@ Even superheroes have weaknesses. DIS has a few, and knowing them is half the ba
 
 - **Source Image Quality:** Always upload the largest, most beautiful, and highest-quality images you have. DIS is a master at shrinking and optimising, but it can't create pixels out of thin air (It's not an AI solution)!
 
-- **Size Matters (A Lot):** This is a big one. Images over 6MB in file size or larger than 3000x3000 pixels? DIS will politely decline to transform them and serve them up in their original, unoptimized glory. The first time you request an oversized image, you may encounter an error; however, subsequent requests typically proceed without issue. The takeaway? Keep your source images just under these limits (think 5.9MB or 2999x2999 pixels) to ensure DIS always works its magic.
+- **Size Matters (A Lot):** This is a big one. Images over 6MB in file size or larger than 3000x3000 pixels? DIS will politely decline to transform them and serve them up in their original, unoptimised glory. The first time you request an oversized image, you may encounter an error; however, subsequent requests typically proceed without issue. The takeaway? Keep your source images just under these limits (think 5.9MB or 2999x2999 pixels) to ensure DIS always works its magic.
 
 **Note:** [One source](https://help.salesforce.com/s/articleView?id=000391251&type=1) states a 10MB limit in the documentation, but to be cautious, always follow the 6MB limit.
 
@@ -188,13 +188,13 @@ DIS is powerful, but don't forget the fundamentals of image optimisation:
 
 {{< img-caption
     src="dis-traffic-jam-b798844f63.jpeg"
-    alt="A cartoon illustration depicting a massive traffic jam of oversized, unoptimized images attempting to enter a cloud icon, which appears overwhelmed and unable to process the volume. The images are backed up on a road leading to the cloud, symbolizing a system bottleneck or overload."
+    alt="A cartoon illustration depicting a massive traffic jam of oversized, unoptimised images attempting to enter a cloud icon, which appears overwhelmed and unable to process the volume. The images are backed up on a road leading to the cloud, symbolising a system bottleneck or overload."
     caption="Image Overload: When Your Service Gets Jammed"
 >}}
 
 While DIS is a superhero, even superheroes have their kryptonite. There are a few scenarios where DIS might not be your go-to, or where you need to tread with extra caution:
 
-- **When Your Images Are Absolute Giants:** Remember those 6MB file sizes and 3000x3000 pixel dimension limits? If your source images consistently blow past these thresholds, DIS won't transform them. Instead, they'll be served in their original, unoptimized glory. This results in slower load times and a subpar user experience, particularly on mobile devices. For truly massive, high-fidelity assets (think ultra-high-res hero banners or interactive 360-degree product views that require large file sizes), you may need to consider specialised external image services or alternative hosting solutions that can handle and optimise such large files, or simply serve the original if the performance impact is minimal.
+- **When Your Images Are Absolute Giants:** Remember those 6MB file sizes and 3000x3000 pixel dimension limits? If your source images consistently blow past these thresholds, DIS won't transform them. Instead, they'll be served in their original, unoptimised glory. This results in slower load times and a subpar user experience, particularly on mobile devices. For truly massive, high-fidelity assets (think ultra-high-res hero banners or interactive 360-degree product views that require large file sizes), you may need to consider specialised external image services or alternative hosting solutions that can handle and optimise such large files, or simply serve the original if the performance impact is minimal.
 
 - **For Super Complex, "Expensive" Transformations:** DIS has a 29-second timeout for transformations. If you're trying to perform multiple, intricate operations on a very large image, or especially on animated GIFs (where every single frame needs processing), you may encounter this wall and receive a 408 timeout error. If your use case demands such complex, real-time transformations, you might need to pre-process these assets offline or explore dedicated, more powerful image processing platforms designed for extreme computational demands.
 

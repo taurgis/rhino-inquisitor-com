@@ -4,7 +4,7 @@ description: >-
   Get ready for Dreamforce 2022 with a quick look at the event's 20th
   anniversary, standout commerce sessions, and what to watch on site.
 date: '2022-08-24T19:21:06.000Z'
-lastmod: '2022-11-19T10:06:22.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /20-years-of-dreamforce/
 draft: false
 heroImage: dreamforce-ai-8754307d6d.jpg
@@ -83,7 +83,7 @@ For now, session length and time are not known yet. I will update the article on
 > **Community Speakers**
 > Did I miss someone? Please don't be shy and [send me a message on LinkedIn](https://www.linkedin.com/in/thomas-theunen-10905680/)!
 
-### Next-Gen Commerce: Maximize Profit Your Way
+### Next-Gen Commerce: Maximise Profit Your Way
 
 - [Kimberley Zatlyn](https://www.linkedin.com/in/kimberleyzatlyn/)
 - [Michael Affronti](https://www.linkedin.com/in/michaelaffronti/)
@@ -93,7 +93,7 @@ For now, session length and time are not known yet. I will update the article on
 - Sharon John
 - Keynote
 
-> Join the main event for commerce pros and learn how to maximize profit, cut costs, and build a Customer 360 your way with flexible tools, automation, and the Customer Data Platform.
+> Join the main event for commerce pros and learn how to maximise profit, cut costs, and build a Customer 360 your way with flexible tools, automation, and the Customer Data Platform.
 
 The main keynote of Salesforce Commerce Cloud! No reason not to miss the main event and learn what is in store for the commerce landscape in Salesforce.
 
@@ -143,9 +143,9 @@ Getting insights into the roadmap for the upcoming holiday season and social com
 
 Who knows, I might be wearing a new fitting shirt design.
 
-### Architect’s Review of Cross-Cloud Customer Data Modeling
+### Architect’s Review of Cross-Cloud Customer Data Modelling
 
-{{< img-caption src="community-speaker-9f72758dd2.jpg" alt="Community speaker spotlight graphic used for featured sessions." caption="A community session on cross-cloud customer data modeling and architecture." >}}
+{{< img-caption src="community-speaker-9f72758dd2.jpg" alt="Community speaker spotlight graphic used for featured sessions." caption="A community session on cross-cloud customer data modelling and architecture." >}}
 
 - [Mike King](https://www.linkedin.com/in/mikeeking/)
 - [Melissa Murphy](https://www.linkedin.com/in/melissa-murphy-312681b8/)
@@ -178,14 +178,14 @@ Headless, API-first, composable, etc., have many approaches. And hearing other p
 
 > Shopping at the edge is expected to grow exponentially over the next five years. Learn how to improve product discoverability and boost sales on today’s leading social channels using Commerce Cloud.
 
-Next to headless, social commerce has gotten a lot more attention. If you are also active in the SCAPI/SLAS space in the Unofficial Slack community/webinars, you will recognize Bhagath!
+Next to headless, social commerce has gotten a lot more attention. If you are also active in the SCAPI/SLAS space in the Unofficial Slack community/webinars, you will recognise Bhagath!
 
 ### Increase Conversions and Agility with Headless Commerce
 
 - [Pei En Thong](https://www.linkedin.com/in/thongpeien/)
 - Theatre Session
 
-> Learn how you can build fast, flexible, digital experiences with headless commerce. Hear how brands can accelerate ROI and unlock organizational agility with a trusted Composable Storefront.
+> Learn how you can build fast, flexible, digital experiences with headless commerce. Hear how brands can accelerate ROI and unlock organisational agility with a trusted Composable Storefront.
 
 Another session on headless. My gut feeling is that this presentation is about rebranding the PWA Kit to "Composable Storefront."
 

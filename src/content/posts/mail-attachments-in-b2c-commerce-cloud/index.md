@@ -4,7 +4,7 @@ description: >-
   Learn how to send emails with attachments from Salesforce B2C Commerce Cloud
   using ISML, including setup details and implementation pitfalls.
 date: '2022-03-15T06:04:04.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /mail-attachments-in-b2c-commerce-cloud/
 draft: false
 heroImage: mail-a7e287274f.jpg
@@ -174,7 +174,7 @@ The fact that sending an attachment requires a developer to manually construct t
 
 The platform is implicitly [guiding](https://help.salesforce.com/s/articleView?id=000391416&type=1) developers toward more robust, specialised, and often separately licensed solutions for complex requirements. The built-in mailer is for basic transactions. For anything more, the intended path is to integrate with a service _designed_ for that purpose.
 
-This guide, therefore, is about learning to operate skillfully and safely outside of that intended path when business needs demand it.
+This guide, therefore, is about learning to operate skilfully and safely outside of that intended path when business needs demand it.
 
 ### Welcome to the MIME-Verse
 

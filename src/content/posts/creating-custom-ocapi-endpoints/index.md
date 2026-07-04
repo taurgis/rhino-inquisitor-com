@@ -4,7 +4,7 @@ description: >-
   Officially there is no possibility to define custom OCAPI endpoints. But is
   there a clever way to create them anyway? Find out here!
 date: '2022-07-11T17:40:22.000Z'
-lastmod: '2026-07-04T10:39:24.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /creating-custom-ocapi-endpoints/
 draft: false
 heroImage: ocapi-bb5766fd49.jpg
@@ -28,7 +28,7 @@ takeaways:
 
 The OCAPI ([Open Commerce API](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/get-started-with-ocapi.html)) has been around for many years, giving the platform a sound basis for "headless" applications to connect to different parts of Salesforce B2C Commerce Cloud.
 
-Although the APIs need to remain close to the standard, some endpoints have been given some freedom to be customized via a system called "[hooks](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/customization.html)."
+Although the APIs need to remain close to the standard, some endpoints have been given some freedom to be customised via a system called "[hooks](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/customization.html)."
 
 But how about adding completely custom endpoints?
 
@@ -38,7 +38,7 @@ Warning! The example I have used (getCustomer) is an example of something you sh
 
 The OCAPI provides a set of predefined endpoints you can not stray from. There is no out-of-the-box feature that allows you to create your endpoint on top of the existing set of REST APIs.
 
-The only thing you are allowed to do is modify existing endpoints, but not all of them. A list of which customizations you are allowed to do is available on the [Salesforce Commerce Cloud Infocenter](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/customization.html).
+The only thing you are allowed to do is modify existing endpoints, but not all of them. A list of which customisations you are allowed to do is available on the [Salesforce Commerce Cloud Infocenter](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/customization.html).
 
 ## TLDR; Just give me the solution
 
@@ -76,7 +76,7 @@ The Custom Object Definition is quite simple:
 - **Name:** Custom API (though this doesn't matter)
 - **Description:** Whatever you like ;-)
 - **Data Replication:** Replicable (we don't want to configure this separately per environment)
-- **Storage Scope:** Organization (it doesn't make sense to do this on the Site level)
+- **Storage Scope:** Organisation (it doesn't make sense to do this on the Site level)
 
 There is also an [import file available on the GitHub repository](https://github.com/taurgis/ocapi-custom-endpoints/blob/main/metadata/custom-object-types.xml).
 
@@ -100,7 +100,7 @@ We also need to make sure we can access the GET call for the Custom Objects endp
 
 "_Administration _" > "_ Site Development _" > "_ Open Commerce API Settings._"
 
-Fill in the following value for the type "_Shop _" and context "_ Global (Organization-wide)_."
+Fill in the following value for the type "_Shop _" and context "_ Global (Organisation-wide)_."
 
 ```json
 {
@@ -248,11 +248,11 @@ The collection also contains two premade API calls:
 
 - **1\. GetOAuth2 client token:** This fetches the bearer token
 
-- **2\. Custom API: Get Customer:** The call to fetch the Custom Object with the customized response
+- **2\. Custom API: Get Customer:** The call to fetch the Custom Object with the customised response
 
 ## Final thoughts
 
-Although this might seem like a "hacky" way to get a custom API up and running in the OCAPI, it allows you to create a custom endpoint without worrying about an authorization/authentication/caching framework.
+Although this might seem like a "hacky" way to get a custom API up and running in the OCAPI, it allows you to create a custom endpoint without worrying about an authorisation/authentication/caching framework.
 
 It's not perfect, but this gives you another option to add to your arsenal to tackle specific use-cases thrown at you.
 

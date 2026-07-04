@@ -4,7 +4,7 @@ description: >-
   Performance is important for any eCommerce site. You need to make sure your
   content loads quickly and customers can start shopping!
 date: '2023-05-01T05:50:49.000Z'
-lastmod: '2026-07-04T10:39:24.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /server-side-performance-in-sfcc/
 draft: false
 heroImage: performance-8200eea3e8.jpeg
@@ -19,7 +19,7 @@ author: Thomas Theunen
 takeaways:
   - "Explains the main server-side performance tools available in SFCC, including reports, the pipeline profiler, and the code profiler"
   - "Highlights practical performance levers such as better code hygiene, custom caches, and page caching"
-  - "Provides a troubleshooting flow teams can follow when storefront controllers or API customizations slow down"
+  - "Provides a troubleshooting flow teams can follow when storefront controllers or API customisations slow down"
 ---
 All web developers understand the crucial role [performance](/caching-rest-apis-in-sfcc/) plays for a website, both in terms of the visitor experience and as a quality benchmark. Not to forget, conserving CPU cycles contributes to environmental sustainability, albeit in small increments.
 
@@ -124,7 +124,7 @@ Production Enabling the Extended Script Development Mode offers a deeper underst
 
 ## What about the Composable Storefront?
 
-Although the Pipeline Profiler isn't applicable in this scenario, you can still utilize the Technical Reports and Dashboards in conjunction with the Code Profiler.
+Although the Pipeline Profiler isn't applicable in this scenario, you can still utilise the Technical Reports and Dashboards in conjunction with the Code Profiler.
 
 ### Reports & Dashboards
 
@@ -136,7 +136,7 @@ OCAPI and SCAPI Performance Reports
 
 ### Code Profiler
 
-This report includes all Custom Hooks implemented for SCAPI and OCAPI, providing you with the opportunity to analyze the performance impact of your API customizations.
+This report includes all Custom Hooks implemented for SCAPI and OCAPI, providing you with the opportunity to analyse the performance impact of your API customisations.
 
 ## Conclusion
 

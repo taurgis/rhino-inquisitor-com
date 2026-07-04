@@ -4,7 +4,7 @@ description: >-
   For a long time shirtforce only had core platform-related t-shirt options,
   until now! To help a charity I decided to make some designs!
 date: '2023-06-05T06:43:00.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /commerce-cloud-t-shirts-on-shirtforce/
 draft: false
 heroImage: shirtforce-bugs-f0a63ab31a.jpg
@@ -32,7 +32,7 @@ Let's not waste time and get straight to the designs and their backstory.
 
 ## Keep Calm And Go Headless
 
-{{< img-caption src="keep-calm-and-go-headless-6e775cd9c3.jpg" alt="A headless-themed red t-shirt." caption="The headless shirt turns one of the ecosystem's favorite architecture debates into merch." >}}
+{{< img-caption src="keep-calm-and-go-headless-6e775cd9c3.jpg" alt="A headless-themed red t-shirt." caption="The headless shirt turns one of the ecosystem's favourite architecture debates into merch." >}}
 
 - [Get it now](https://my-store-5a6a56.creator-spring.com/listing/salesforce-ohana-rocks)
 

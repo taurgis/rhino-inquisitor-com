@@ -4,7 +4,7 @@ description: >-
   SLAS (Shopper Login And API Access Service) is one of the headless APIs made
   available by Salesforce. But how can we use it in SFRA?
 date: '2025-07-24T20:52:39.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /slas-in-sfra-or-sitegenesis/
 draft: false
 heroImage: slas-84866c9e46.jpg
@@ -67,7 +67,7 @@ For any business looking to adopt a hybrid model—keeping parts of their site o
 
 ### The Problem It Solved: A Bridge Over Troubled Waters
 
-Salesforce's answer, released in February 2022, was the `plugin_slas` cartridge. It was designed as a plug-and-play solution for SFRA that intercepted the standard login process. Instead of relying on the traditional `dw.system.Session` script API calls for authentication, the cartridge rerouted these flows through SLAS. This clever maneuver effectively "bridged" the two authentication systems, allowing a shopper to navigate from a PWA Kit page to an SFRA checkout page without losing their session or their basket.
+Salesforce's answer, released in February 2022, was the `plugin_slas` cartridge. It was designed as a plug-and-play solution for SFRA that intercepted the standard login process. Instead of relying on the traditional `dw.system.Session` script API calls for authentication, the cartridge rerouted these flows through SLAS. This clever manoeuvre effectively "bridged" the two authentication systems, allowing a shopper to navigate from a PWA Kit page to an SFRA checkout page without losing their session or their basket.
 
 For its time, the cartridge was a critical enabler. It unlocked the possibility of hybrid deployments and introduced powerful SLAS features to the monolithic SFRA world, such as integration with third-party Identity Providers (IDPs) like Google and Facebook, as well as the much-requested ability to extend shopper login times from a paltry 30 minutes to a substantial 90 days.
 
@@ -87,7 +87,7 @@ Using nearly half of the API limit for authentication alone was a risky strategy
 
 {{< img-caption 
   src="plugin-slas-to-hybrid-authentication-359f0381b0.jpg"
-  alt="Classic robot labeled plugin_slas cartridge handing a key to modern robot labeled Hybrid Authentication on a path from SFRA town to futuristic city"
+  alt="Classic robot labelled plugin_slas cartridge handing a key to modern robot labelled Hybrid Authentication on a path from SFRA town to futuristic city"
   caption="plugin_slas to Hybrid Authentication handoff"
 >}}
 
@@ -111,7 +111,7 @@ For developers and architects, migrating to Hybrid Auth translates into tangible
 
 - **A Seamless Shopper Experience:** By eliminating the clunky, multi-call process of the old cartridge, the platform ensures that session state is synchronised far more reliably and with significantly less latency. The nightmare scenario of a shopper losing their session or basket when moving between a PWA Kit page and an SFRA page is effectively neutralised. This seamlessness extends beyond just the session, automatically synchronising Shopper Context data and "Do Not Track" (DNT) preferences between the two environments.
 
-- **Full Support for All Templates:** Hybrid Authentication is a first-class citizen for both SFRA and, crucially, the older SiteGenesis architecture. This provides a fully supported, productized, and stable path toward a composable future for all B2C Commerce customers, regardless of their current storefront template.
+- **Full Support for All Templates:** Hybrid Authentication is a first-class citizen for both SFRA and, crucially, the older SiteGenesis architecture. This provides a fully supported, productised, and stable path toward a composable future for all B2C Commerce customers, regardless of their current storefront template.
 
 ### Is The Promised Land Free of Danger
 

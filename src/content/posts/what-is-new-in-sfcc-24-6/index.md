@@ -4,7 +4,7 @@ description: >-
   "Connections" is in our rear-view mirror, but some new updates to the platform
   are ahead! This time, we look at the June 2024 (24.6) release!
 date: '2024-06-03T12:04:25.000Z'
-lastmod: '2024-06-03T12:04:39.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /what-is-new-in-sfcc-24-6/
 draft: false
 heroImage: searching-on-a-highway-89effbcf76.jpg
@@ -49,13 +49,13 @@ It is good to see that Salesforce is still investing in expanding into more regi
 
 > B2C Commerce has updated the search index rebuild process. The update decreases resource usage and improves performance, and an unchanged index is no longer published when no changes are detected. Previously, a redundant product update index task was executed following the index rebuild, and a new search index was published when no documents were altered.
 
-When managing multiple sites within a single environment or dealing with a large product catalog, the search index job can take a considerable amount of time to execute.
+When managing multiple sites within a single environment or dealing with a large product catalogue, the search index job can take a considerable amount of time to execute.
 
 Any performance improvement to the search index is highly appreciated!
 
 ### Get Better SEO Search Results
 
-> In Business Manager, the Catalog URL rules now use the localizable display value for product attributes with the type Enum of String. The localizable display value improves readability and the SEO value of storefront URLs that use multiple languages. Previously, Product URL attributes used the non-localizable Value.
+> In Business Manager, the Catalogue URL rules now use the localisable display value for product attributes with the type Enum of String. The localisable display value improves readability and the SEO value of storefront URLs that use multiple languages. Previously, Product URL attributes used the non-localisable Value.
 
 It's a bit of a confusing title, but the general idea is that your SEO will improve if you wanted to use localised "Enum of String" values in your URL before - but it didn't work the way you expected.
 
@@ -116,7 +116,7 @@ Let's keep em coming!
 
 ### Order Search Engine Provides Better Performance
 
-> The search engine that provides results for the order\_search API (OCAPI) has been updated across multiple instances. This update is aimed at enhancing the performance of the search engine. No user impact or behavioral change is expected.
+> The search engine that provides results for the order\_search API (OCAPI) has been updated across multiple instances. This update is aimed at enhancing the performance of the search engine. No user impact or behavioural change is expected.
 
 In the last few months, the performance updates have been hitting one after the other, this time for the "Order Search" API.
 

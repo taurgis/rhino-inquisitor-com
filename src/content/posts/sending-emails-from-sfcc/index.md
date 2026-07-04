@@ -4,7 +4,7 @@ description: >-
   This article covers the reasons for opting to send emails via Salesforce
   Commerce Cloud, the platform's limitations, the steps for programmatically
 date: '2024-12-09T08:19:31.000Z'
-lastmod: '2024-12-11T16:13:38.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /sending-emails-from-sfcc/
 draft: false
 heroImage: delivering-mail-in-sfcc-c46d2358ed.jpg
@@ -46,7 +46,7 @@ But with choosing to go this route, a few things need to be kept in mind:
 
 - A separate "master" template is required without the regular header/footer
 - Only components that include HTML/CSS understood by mail clients should be used (modern HTML & CSS can cause issues in some mail clients).
-- Personalization (Customer Groups in particular) can pose difficulties when the mail originates from a job rather than a direct storefront request, as the session "current customer" is not readily accessible.
+- Personalisation (Customer Groups in particular) can pose difficulties when the mail originates from a job rather than a direct storefront request, as the session "current customer" is not readily accessible.
 - If a user inadvertently deletes the page (yes, accidents happen), there should be a backup option or a notification to resolve the issue promptly.
 
 ### Only Basic Features

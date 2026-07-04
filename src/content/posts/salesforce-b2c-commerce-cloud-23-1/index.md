@@ -4,7 +4,7 @@ description: >-
   A new year means releases for Salesforce B2C Commerce Cloud are back! Let us
   have a look if there are some presents for us!
 date: '2022-12-19T08:35:50.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /salesforce-b2c-commerce-cloud-23-1/
 draft: false
 heroImage: a-shopping-cart-with-fireworks-d5005827cc.jpg
@@ -16,7 +16,7 @@ tags:
 author: Thomas Theunen
 takeaways:
   - "Highlights the most relevant 23.1 updates around legacy-job migration, sandbox URLs, retention policy, and HSTS controls"
-  - "Explains smaller but useful OCAPI improvements to property selection and basket flash behavior"
+  - "Explains smaller but useful OCAPI improvements to property selection and basket flash behaviour"
   - "Calls out the accompanying PWA Kit, b2c-tools, and sfcc-ci releases that matter for day-to-day development"
 ---
 Summer has arrived, and so has the next Salesforce B2C Commerce Cloud release! This time we look at the [January 2023 (23.1) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_7_release.htm&type=5)!
@@ -35,7 +35,7 @@ Feel free to poke me on Slack with screenshots and feedback on this new tool!
 
 ### Use a Unified URL for Your On-Demand Sandboxes
 
-> You can now access your on-demand sandboxes with a unified cluster-agnostic host name, so you no longer have to remember the cluster that your sandbox belongs to. The hostname matches the pattern \-.dx.commercecloud.salesforce.com, for example, zzzz-001.dx.commercecloud.salesforce.com. It also matches the domain name of the B2C centralized admin API server, admin.dx.commercecloud.salesforce.com.
+> You can now access your on-demand sandboxes with a unified cluster-agnostic host name, so you no longer have to remember the cluster that your sandbox belongs to. The hostname matches the pattern \-.dx.commercecloud.salesforce.com, for example, zzzz-001.dx.commercecloud.salesforce.com. It also matches the domain name of the B2C centralised admin API server, admin.dx.commercecloud.salesforce.com.
 
 A new set of URLs is introduced to make it easier to access sandboxes and not think about which cluster they are part of. For example:
 
@@ -93,7 +93,7 @@ This is a minor update that will make sure that you don't waste hours looking in
 
 With property selection, you can control what fields are returned by the endpoint. This saves resources and bandwidth.
 
-You can find out more about [property selection](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/propertyselection.html) and [Basket Flash](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/flash.html) in the Info Center.
+You can find out more about [property selection](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/propertyselection.html) and [Basket Flash](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/flash.html) in the Info Centre.
 
 ### Use Selectors with Expressions
 

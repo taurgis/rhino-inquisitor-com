@@ -4,7 +4,7 @@ description: >-
   Learn why bypassing SFCC quota limits creates technical and operational risk,
   and what safer alternatives teams should choose.
 date: '2023-12-11T08:21:33.000Z'
-lastmod: '2023-12-11T08:29:25.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /why-circumventing-sfcc-quota-limits-is-a-bad-idea/
 draft: false
 heroImage: a-certain-ceo-is-coming-to-get-you-9206639ea9.jpg
@@ -151,7 +151,7 @@ This construct "cleverly" uses nested arrays to exceed the Salesforce-imposed li
 
 The "UnlimitedArray" is a creative (but could probably be improved) solution to the B2C Commerce Cloud's limitation on the size of arrays. Here's how it operates:
 
-#### Initialization
+#### Initialisation
 
 The "UnlimitedArray" starts as an object with a property called `listContainer`, which is an array that holds other arrays—effectively nesting arrays inside a container array. It also has a `currentListPosition`, which keeps track of the current working sub-array within the container.
 

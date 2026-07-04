@@ -4,7 +4,7 @@ description: >-
   After Connections '22, I decided to have a look into Trailblazer Communities
   and how one could start a group! Let's embark on a new journey!
 date: '2022-09-12T08:14:56.000Z'
-lastmod: '2022-09-12T17:52:21.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /a-new-commerce-cloud-community-in-town/
 draft: false
 heroImage: trailblazer-community-group-c0e3b8a778.jpg
@@ -19,7 +19,7 @@ takeaways:
   - "Explains who is leading the group and which audiences and products it targets"
   - "Invites readers to the first session and encourages topic and speaker submissions"
 ---
-Starting a community was a plan I have had in my head for a while now but never acted on - with what was going on in the world: a pandemic, a war, and an economic crisis. The list never ends with reasons to delay, so I stopped waiting and plowed ahead!
+Starting a community was a plan I have had in my head for a while now but never acted on - with what was going on in the world: a pandemic, a war, and an economic crisis. The list never ends with reasons to delay, so I stopped waiting and ploughed ahead!
 
 And at the end of August, I got the mail titled "Welcome to the Trailblazer Community Group Program!" I got accepted! But ... oh damn ... now I have to push on!
 

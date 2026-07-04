@@ -4,7 +4,7 @@ description: >-
   When we integrate third-party systems with Salesforce B2C Commerce Cloud using
   OCAPI or SCAPI, we often have the requirement to filter data based on date
 date: '2023-12-18T09:16:13.000Z'
-lastmod: '2026-07-04T10:39:24.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /unravelling-the-mystery-of-dates-in-the-ocapi/
 draft: false
 heroImage: a-developer-confused-by-dates-and-times-9d38bbf81d.jpg
@@ -31,8 +31,8 @@ Not all endpoints are alike, but within the OCAPI the way of searching for diffe
 
 Here are some of the example endpoints:
 
-- [Search Catalogs (OCAPI)](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-data-catalogs?meta=Summary)
-- [Search Categories within a Catalog (OCAPI)](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-data-catalogs?meta=Summary)
+- [Search Catalogues (OCAPI)](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-data-catalogs?meta=Summary)
+- [Search Categories within a Catalogue (OCAPI)](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-data-catalogs?meta=Summary)
 - [Search for customers in a customer list (OCAPI)](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-data-customer-lists?meta=Summary)
 - [Search Products (SCAPI)](https://developer.salesforce.com/docs/commerce/commerce-api/references/products?meta=searchProducts)
 
@@ -164,6 +164,6 @@ When creating these endpoints, it's important to consider performance and cachin
 
 The search API capabilities of OCAPI in Salesforce B2C Commerce Cloud offer robust and flexible options for date-related searches.
 
-You can customize your searches using `range_filter`, `range2_filter`, `bool_filter`, and `term_query` as per your requirements. It is important to use the correct date format and field names to make the most out of these tools. These data querying capabilities can help you segment promotional data, manage catalog validity, or filter orders based on dates, making your commerce data handling more streamlined.
+You can customise your searches using `range_filter`, `range2_filter`, `bool_filter`, and `term_query` as per your requirements. It is important to use the correct date format and field names to make the most out of these tools. These data querying capabilities can help you segment promotional data, manage catalogue validity, or filter orders based on dates, making your commerce data handling more streamlined.
 
 Happy coding!

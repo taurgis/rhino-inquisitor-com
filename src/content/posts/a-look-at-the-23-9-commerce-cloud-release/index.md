@@ -4,7 +4,7 @@ description: >-
   We are getting closer to the holiday period, and also one of the last releases
   of the year! This time we look at the September 2023 (23.9) release!
 date: '2023-08-28T07:35:34.000Z'
-lastmod: '2023-08-28T07:35:45.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /a-look-at-the-23-9-commerce-cloud-release/
 draft: false
 heroImage: japan-shopping-street-23-9-bd4ea7a693.jpeg
@@ -16,7 +16,7 @@ author: Thomas Theunen
 takeaways:
   - "Explains why custom SCAPI endpoints are the headline feature in 23.9"
   - "Highlights platform changes affecting search, profiling, and shopper identity"
-  - "Calls out temporary SLAS token behavior and roadmap timing to plan around"
+  - "Calls out temporary SLAS token behaviour and roadmap timing to plan around"
 ---
 We are getting closer to the holiday period, and also one of the last releases of the year! This time we look at the [September 2023 (23.9) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_23_9_release.htm&type=5)! Are you interested in last month's release notes? Read the [23.8 release overview](/what-is-new-in-the-23-8-commerce-cloud-release/).
 
@@ -26,7 +26,7 @@ This update is truly a game-changer for Commerce Cloud customers! With the intro
 
 ### Development
 
-{{< img-caption src="sfcc-custom-endpoints-138d76b101.png" alt="Custom endpoint file structure with mapping, script, and schema artifacts." caption="Custom SCAPI endpoints follow the same file-based convention as hooks—a mapping file, a script file, and a service schema—plus built-in versioning support for backwards compatibility." >}}
+{{< img-caption src="sfcc-custom-endpoints-138d76b101.png" alt="Custom endpoint file structure with mapping, script, and schema artefacts." caption="Custom SCAPI endpoints follow the same file-based convention as hooks—a mapping file, a script file, and a service schema—plus built-in versioning support for backwards compatibility." >}}
 
 The development of custom endpoints will look a lot similar to how we build hooks:
 
@@ -54,9 +54,9 @@ From a Headless perspective, Salesforce Commerce Cloud had much to catch up on c
 
 ### Improve Product Search Result in Japanese
 
-> You can now enable a new language analyzer for Japanese locales in B2C Commerce. The new analyzer supports advanced methods for search query tokenization. This enhancement provides more relevant search results for product searches in the Japanese language. It also reduces the merchandising effort to optimize storefront search for Japanese locales. For example, setting up additional synonyms and search dictionary entries. **How:** To enable the new analyzer, in Business Manager, select site | Merchant Tools | Search | Search Indexes | Language Options. Select Japanese-Improved as the language analyzer for Japanese locales. An index rebuild is NOT required after this update. To change the analyzer setting requires the permission to update a Business Manager Search Indexes module
+> You can now enable a new language analyser for Japanese locales in B2C Commerce. The new analyser supports advanced methods for search query tokenisation. This enhancement provides more relevant search results for product searches in the Japanese language. It also reduces the merchandising effort to optimise storefront search for Japanese locales. For example, setting up additional synonyms and search dictionary entries. **How:** To enable the new analyser, in Business Manager, select site | Merchant Tools | Search | Search Indexes | Language Options. Select Japanese-Improved as the language analyser for Japanese locales. An index rebuild is NOT required after this update. To change the analyser setting requires the permission to update a Business Manager Search Indexes module
 
-{{< img-caption src="sfcc-japanese-improved-search-fb4e7c018a.png" alt="Language Options menu showing the Japanese Improved analyzer." caption="The Japanese-Improved analyzer reduces tokenization problems without requiring an index rebuild." >}}
+{{< img-caption src="sfcc-japanese-improved-search-fb4e7c018a.png" alt="Language Options menu showing the Japanese Improved analyser." caption="The Japanese-Improved analyser reduces tokenisation problems without requiring an index rebuild." >}}
 
 A new and exciting addition for Japanese customers. It is important to find the right product to ensure good conversion rates and improve customer experience.
 
@@ -112,5 +112,5 @@ If you want to know what is cooking, check out the nightly builds that are now a
 
 - configure release it bumber ([becbeab](https://github.com/SalesforceCommerceCloud/sfra-webpack-builder/commit/becbeabc3c1757daf6b4b11b7e2964874cbe389b))
 - chore: init release it ([7816af8](https://github.com/SalesforceCommerceCloud/sfra-webpack-builder/commit/7816af8aca32340aa6e769d37373525a108acb45))
-- Fix: Deprecate node-sass in favor of sass (dart) Upgrade dependencies Fixes [#96](https://github.com/SalesforceCommerceCloud/sfra-webpack-builder/issues/96) ([58de1a0](https://github.com/SalesforceCommerceCloud/sfra-webpack-builder/commit/58de1a08b600c260cea6f186c4f35d5c5f714c18))
+- Fix: Deprecate node-sass in favour of sass (dart) Upgrade dependencies Fixes [#96](https://github.com/SalesforceCommerceCloud/sfra-webpack-builder/issues/96) ([58de1a0](https://github.com/SalesforceCommerceCloud/sfra-webpack-builder/commit/58de1a08b600c260cea6f186c4f35d5c5f714c18))
 - Merge pull request [#95](https://github.com/SalesforceCommerceCloud/sfra-webpack-builder/pull/95) from SalesforceCommerceCloud/main ([9c4a8f5](https://github.com/SalesforceCommerceCloud/sfra-webpack-builder/commit/9c4a8f5ad2e0e7257a771deef65904c83c5c915e))

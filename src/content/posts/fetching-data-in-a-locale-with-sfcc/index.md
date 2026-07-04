@@ -4,7 +4,7 @@ description: >-
   In some use cases, you have to fetch data in a different language than the
   locale you are currently in. But how do you do that?
 date: '2023-07-31T08:40:09.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /fetching-data-in-a-locale-with-sfcc/
 draft: false
 heroImage: country-flags-427934b006.jpg
@@ -16,7 +16,7 @@ tags:
   - technical
 author: Thomas Theunen
 takeaways:
-  - "Shows how request locale controls localized data retrieval in SFCC server-side code"
+  - "Shows how request locale controls localised data retrieval in SFCC server-side code"
   - "Explains the simple locale-switch pattern and why restoring the original locale matters"
   - "Contrasts the server-side approach with locale handling in headless storefront APIs"
 ---

@@ -4,7 +4,7 @@ description: >-
   Salesforce B2C Commerce Cloud appears to only have certifications for
   developers, but is this true? Are there other options available?
 date: '2023-04-24T08:47:47.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /non-technical-sfcc-certifications/
 draft: false
 heroImage: einstein-shopping-scaled-5e1e2b427b.jpeg
@@ -104,7 +104,7 @@ We ran out of Trailhead Certifications, so now we are turning to the [Partner Le
 
 The official description is as follows:
 
-> The Commerce Cloud Einstein Accredited Professional exam is intended for individuals who have the knowledge, skills, and experience with data ingestion processes, security and access implementations. This exam expects basic Salesforce knowledge including objects, data and data modeling.
+> The Commerce Cloud Einstein Accredited Professional exam is intended for individuals who have the knowledge, skills, and experience with data ingestion processes, security and access implementations. This exam expects basic Salesforce knowledge including objects, data and data modelling.
 
 **Be prepared for a few technical questions**, so read the "developer guides" before attempting it. (These are part of the [course](https://partnerlearningcamp.salesforce.com/s/browse-catalog?plc__recordId=LvENtDruwJ3xK1jpdgHFO79ru9n7PrrVcEOQmcXlz7nNXzQy1CYDOFzq9byO51a6) also available inside the Partner Learning Camp)
 

@@ -4,7 +4,7 @@ description: >-
   The weather (at least here) is giving us more sunshine, so let us shine a
   light on the next Salesforce B2C Commerce Cloud release!
 date: '2023-05-25T06:26:10.000Z'
-lastmod: '2023-05-25T06:26:10.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /a-look-at-the-salesforce-b2c-commerce-cloud-23-6-release/
 draft: false
 heroImage: a-neon-shopping-cart-scaled-863c5d17ed.jpg
@@ -25,14 +25,14 @@ Are you interested in last month’s release notes? [Read the 23.5 release notes
 
 ## Enhance Storefront Search Scale and Performance
 
-> Enhance the scale and performance of storefront search for keyword search and product browsing with the new B2C Commerce search settings option. Improve page load times for large product catalogs when processing search results that exceed a configurable threshold. Shoppers get quicker results when performing a keyword search, refinement calculation, product grouping, sorting, and category browsing. For example, if your storefront doesn’t use search refinement counts in the refinement bar, a setting is available to improve refinement calculation and search and category page load times.
+> Enhance the scale and performance of storefront search for keyword search and product browsing with the new B2C Commerce search settings option. Improve page load times for large product catalogues when processing search results that exceed a configurable threshold. Shoppers get quicker results when performing a keyword search, refinement calculation, product grouping, sorting, and category browsing. For example, if your storefront doesn’t use search refinement counts in the refinement bar, a setting is available to improve refinement calculation and search and category page load times.
 > **How:** To activate the new search settings, contact Salesforce Customer Support or work with your Technical Account Manager and Customer Success Group representatives. Salesforce recommends that you test the new functionality on a development or dedicated test instance before enabling them on a staging or production environment.
 
 If you have been in the eco-system for a while, you may have noticed that the built-in search engine did not get much love (visibly) in the past few years. Looking at the past two months, that appears to have changed!
 
 Your site's performance is a very important aspect, and seeing that more options to fine-tune search to our specific needs is excellent!
 
-But what does Salesforce mean by "large product catalogs"? Well, that means more than 1 million products in your catalog. But there are still a few questions that I have that are open on this topic:
+But what does Salesforce mean by "large product catalogues"? Well, that means more than 1 million products in your catalogue. But there are still a few questions that I have that are open on this topic:
 
 - Does this impact OCAPI/SCAPI performance as well?
 - If you have less products, is it still a feature you would want to activate? Are there benefits?
@@ -55,7 +55,7 @@ I hope more information will pop up in the documentation soon, as this is a welc
 > - Updated the getTrustedAgentAccessToken endpoint to make the agent\_id parameter optional.
 > - Updated the SLAS Admin UI with specific error messaging for issues with logging into Account Manager.
 > - Private clients now support `grant_type=authorization_code` in addition to `grant_type=authorization_code_pkce`.
-> - Removals of customer records in B2C Commerce are now synchronized with SLAS. If a customer record is deleted in B2C Commerce, this change is recognized by SLAS.
+> - Removals of customer records in B2C Commerce are now synchronised with SLAS. If a customer record is deleted in B2C Commerce, this change is recognised by SLAS.
 > - Infrastructure and scale improvements to handle higher transaction volume for the upcoming holiday season.
 > - NEW SLAS-Marketing Cloud SMS for Passwordless login is ready! See Passwordless Login with SMS to get started.
 > - Improved exception handling for invalid passwords. Returns 400 with clear messaging.

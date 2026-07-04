@@ -4,7 +4,7 @@ description: >-
   Field guide to realm splits in SFCC, covering when the migration is justified,
   key delivery phases, and the operational risks teams inherit.
 date: '2025-09-08T09:14:15.000Z'
-lastmod: '2025-09-08T09:14:15.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /the-realm-split-field-guide-to-migrating-an-sfcc-site/
 draft: false
 heroImage: realm-split-in-sfcc-c392b8965d.jpg
@@ -39,11 +39,11 @@ This world is rigidly structured into two distinct groups:
 -   **Primary Instance Group (PIG):** This is the core operational group, and a realm can have only one. It consists of three instances: Production (the live storefront), Staging (for data setup and pre-deployment testing), and Development (for data enrichment and configuration).
 -   **Secondary Instance Group (SIG):** This group contains the developer sandboxes.  Like the PIG, a realm can only have one SIG.
 
-This architecture is designed for efficiency under a unified operational model. Sites within the same realm can share a master product catalog, a single codebase, and a standard set of administrative and development teams, creating significant economies of scale. However, this inherent sharing is also its greatest weakness when the business model diverges from its core.
+This architecture is designed for efficiency under a unified operational model. Sites within the same realm can share a master product catalogue, a single codebase, and a standard set of administrative and development teams, creating significant economies of scale. However, this inherent sharing is also its greatest weakness when the business model diverges from its core.
 
-### Analyzing the Breaking Points: When a Single Realm Becomes Untenable
+### Analysing the Breaking Points: When a Single Realm Becomes Untenable
 
-The decision to split a realm is a lagging indicator of a fundamental misalignment between a company's organizational structure and its technical architecture. The initial choice of a single realm is often based on an assumption of a unified business strategy. The need for a split arises when that assumption is no longer valid. This manifests through several distinct business and technical drivers.
+The decision to split a realm is a lagging indicator of a fundamental misalignment between a company's organisational structure and its technical architecture. The initial choice of a single realm is often based on an assumption of a unified business strategy. The need for a split arises when that assumption is no longer valid. This manifests through several distinct business and technical drivers.
 
 {{< img-caption src="conflicts-across-the-world-on-processes-d64e01a143.jpg" alt="Two global business teams clashing over divergent deployment workflows, representing the organisational friction that forces a realm split decision." caption="When Workflows Clash: divergent P&L units, global scheduling conflicts, and incompatible business processes are the organisational tipping points that make a single SFCC realm unworkable." >}}
 
@@ -73,7 +73,7 @@ Executing a realm split is a major re-platforming project disguised as a migrati
 
 {{< img-caption src="the-grand-blueprint-v2-9c2bcca94a.jpg" alt="Team collaborating around a holographic blueprint for a phased realm split migration." caption="A realm split only works with a phased plan covering scope, support, migration, integration, testing, and cutover." >}}
 
-Success in a complex project like a realm split hinges on a meticulously detailed, phased plan. This image visualizes a team of experts collaborating on a holographic blueprint, representing the strategic and coordinated effort required to navigate the six critical phases of the migration.
+Success in a complex project like a realm split hinges on a meticulously detailed, phased plan. This image visualises a team of experts collaborating on a holographic blueprint, representing the strategic and coordinated effort required to navigate the six critical phases of the migration.
 
 ### Phase 1: The Scoping & Justification Gauntlet
 
@@ -95,13 +95,13 @@ Several key steps in a realm split can only be performed by Salesforce. Engaging
 
 ### Phase 3: The Great Data Exodus - A Migration Deep Dive
 
-The process of moving data is not a single "lift and shift" operation; it is a series of carefully orchestrated steps. The core strategy is to minimize downtime during the final cutover window by migrating the bulk of the data incrementally in the days or weeks leading up to the launch. Only the final "delta"—the data that has changed since the last sync—should be moved during the go-live event.
+The process of moving data is not a single "lift and shift" operation; it is a series of carefully orchestrated steps. The core strategy is to minimise downtime during the final cutover window by migrating the bulk of the data incrementally in the days or weeks leading up to the launch. Only the final "delta"—the data that has changed since the last sync—should be moved during the go-live event.
 
 This process reveals a critical truth about a realm split: it is not a simple copy. It is the construction of a new, parallel stack that must be made to perfectly mirror the relevant parts of the old one. Every piece of data, code, and configuration must be explicitly migrated and, more importantly, _validated_ in the new environment. The project plan must account for this re-validation effort, not just the migration itself. The most dangerous mindset a developer can have is "it worked in the old realm, so it will work in the new one."
 
 #### The Realm Split Data Migration Checklist
 
-The complexity of data migration, with its varied methods and ownership, demands a single source of truth. The following table acts as a project management artifact, translating the plan into a clear, actionable checklist.
+The complexity of data migration, with its varied methods and ownership, demands a single source of truth. The following table acts as a project management artefact, translating the plan into a clear, actionable checklist.
 
 Also, please review [this page](https://help.salesforce.com/s/articleView?id=000391622&language=en_US&type=1) carefully, as it contains a wealth of information on the migration plan you need to set up.
 
@@ -145,7 +145,7 @@ The sequence, based on Salesforce's official guidance, is as follows:
 
 {{< img-caption src="seo-minefield-03b727d6da.jpg" alt="Illustration of a team navigating an SEO minefield during a high-stakes site migration." caption="SEO survival starts with redirects, URL parity, a refreshed sitemap, and a new Search Console property." >}}
 
-Underestimating the SEO impact of a realm split is a catastrophic error that can wipe out years of search equity. This image visualizes the high-stakes process of navigating this "SEO minefield," where a single misstep can have explosive consequences. The illuminated path represents the meticulous, non-negotiable strategy—like a comprehensive 301 redirect map—required to safely migrate a site and preserve its valuable "digital ghost."
+Underestimating the SEO impact of a realm split is a catastrophic error that can wipe out years of search equity. This image visualises the high-stakes process of navigating this "SEO minefield," where a single misstep can have explosive consequences. The illuminated path represents the meticulous, non-negotiable strategy—like a comprehensive 301 redirect map—required to safely migrate a site and preserve its valuable "digital ghost."
 
 A realm split, from a search engine's perspective, is essentially a complete site migration. Underestimating the SEO impact is a catastrophic error that can instantly wipe out years of accumulated search equity, traffic, and revenue. Google's own representatives have stated that split and merge operations take "considerably longer for Google to process" than standard migrations because their algorithms must re-crawl and re-evaluate the entire structure of the new site (But if your site looks the same, has the same URL structure, etc, Google will not know anything changed at all - besides IP addresses). Patience and meticulous planning are paramount.
 
@@ -197,9 +197,9 @@ However, this autonomy comes at a price. The business now bears the increased in
 
 {{< img-caption src="realm-split-97dc1add29.png" alt="Illustration of a central SFCC realm splitting into multiple autonomous, interconnected realms." caption="Deployment autonomy is the prize, but a realm split also means duplicated pipelines and higher operating cost." >}}
 
-An illustration of a realm split, where a single, monolithic system fractures into multiple autonomous realms. This transition unlocks business and technical flexibility but introduces the new operational complexity of managing a distributed system, including the critical need for data synchronization between the separate entities.
+An illustration of a realm split, where a single, monolithic system fractures into multiple autonomous realms. This transition unlocks business and technical flexibility but introduces the new operational complexity of managing a distributed system, including the critical need for data synchronisation between the separate entities.
 
-One of the most significant new challenges is data synchronisation. If the business still requires a shared product catalog or consistent promotional data across realms, this can no longer be achieved through the platform's native sharing capabilities. Sites in different realms cannot share a catalog directly. Instead, you must build and maintain a new operational process, likely a set of automated jobs and a CI/CD pipeline, to handle the export of data from a "master" realm and its import into the "subscriber" realm.
+One of the most significant new challenges is data synchronisation. If the business still requires a shared product catalogue or consistent promotional data across realms, this can no longer be achieved through the platform's native sharing capabilities. Sites in different realms cannot share a catalogue directly. Instead, you must build and maintain a new operational process, likely a set of automated jobs and a CI/CD pipeline, to handle the export of data from a "master" realm and its import into the "subscriber" realm.
 
 **_This introduces a new potential point of failure and a new set of tasks for the operations team._**
 

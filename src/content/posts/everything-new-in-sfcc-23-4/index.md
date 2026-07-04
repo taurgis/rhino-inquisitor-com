@@ -4,7 +4,7 @@ description: >-
   Catch up on the Salesforce B2C Commerce Cloud 23.4 release and the platform
   changes that matter most for developers this month.
 date: '2023-03-15T19:32:56.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /everything-new-in-sfcc-23-4/
 draft: false
 heroImage: >-
@@ -29,7 +29,7 @@ Are you interested in last month’s release notes? [Read the 23.3 release notes
 
 ### Extend Payment Processing with Salesforce Payment APIs
 
-> Use the new Salesforce Payment APIs to connect with third-party order management systems or platform-specific custom features. The APIs support capture, cancel, refund, and updates. For example, you can directly cancel or refund a payment in an order failure event by cleaning up payment authorizations. The APIs are available as Script APIs.
+> Use the new Salesforce Payment APIs to connect with third-party order management systems or platform-specific custom features. The APIs support capture, cancel, refund, and updates. For example, you can directly cancel or refund a payment in an order failure event by cleaning up payment authorisations. The APIs are available as Script APIs.
 
 Salesforce Payments continues to gain love from Salesforce with every new release. The [previous release](/salesforce-b2c-commerce-cloud-23-3-release/) included the addition of four temporary baskets, and this release introduced support for numerous new customer flows.
 
@@ -55,7 +55,7 @@ Here is a list of all of the new APIs made available:
   caption="Figure 1: SFCC 23.4 Release: Taxation Groups"
 >}}
 
-> B2C Commerce now recognizes imported and exported orders created with group taxation and uses the group taxation method to calculate tax for those orders.
+> B2C Commerce now recognises imported and exported orders created with group taxation and uses the group taxation method to calculate tax for those orders.
 
 Import and export support has been incorporated, building on another feature [released in February](/salesforce-b2c-commerce-cloud-23-2/) to offer greater control over taxation in Japan.
 
@@ -96,7 +96,7 @@ In this case, the database has been updated from 14.1 to 14.6, as mandated by AW
 
 I had another look at the IdeaExchange and found some interesting new submissions:
 
-- [Bulk or Auto Run/Refresh Dynamic Categorization Rules](https://ideas.salesforce.com/s/idea/a0B8W00000NXb63UAD)
+- [Bulk or Auto Run/Refresh Dynamic Categorisation Rules](https://ideas.salesforce.com/s/idea/a0B8W00000NXb63UAD)
 - [User Search, Auditing, and Improved Filtering in SFCC Account Manager](https://ideas.salesforce.com/s/idea/a0B8W00000NY1OZUA1/user-search-auditing-and-improved-filtering-in-sfcc-account-manager)
 - [OMS integration status](https://ideas.salesforce.com/s/idea/a0B8W00000NLdunUAD/oms-integration-status)
 

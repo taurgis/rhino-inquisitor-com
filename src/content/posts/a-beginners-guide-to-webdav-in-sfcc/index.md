@@ -4,7 +4,7 @@ description: >-
   File Management is critical and necessary in any project. How else can we work
   with mass data transfers or logging mechanisms?
 date: '2024-01-01T17:06:50.000Z'
-lastmod: '2024-01-01T17:06:50.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /a-beginners-guide-to-webdav-in-sfcc/
 draft: false
 heroImage: webdav-storing-files-scaled-8c216a580f.jpg
@@ -59,7 +59,7 @@ To manage these folder-specific permissions, navigate to the [Roles module in Bu
 
 API clients engage in machine-to-machine communication and authenticate through an authorisation token [generated in the Account Manager](https://help.salesforce.com/s/articleView?id=cc.b2c_generate_api_client_id.htm&type=5). To get this authorisation token, an API client must present its unique `client-id` and `client-secret`. After successful authorisation, WebDAV permissions for the API client can be configured in Business Manager in the `WebDAV Client Permissions` module.
 
-_Administration >  Organization >  WebDAV Client Permissions_
+_Administration >  Organisation >  WebDAV Client Permissions_
 
 This configuration involves creating a JSON document that accurately represents each API client's permissions over specific directories.
 

@@ -4,7 +4,7 @@ description: >-
   In this post we take a look at the release notes of Salesforce B2C Commerce
   Cloud for April 2022, and dig a bit deeper into them.
 date: '2022-03-21T19:57:05.000Z'
-lastmod: '2026-07-04T10:39:24.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /b2c-commerce-whats-new-in-22-4/
 draft: false
 heroImage: warehouse-5806bba713.jpg
@@ -20,7 +20,7 @@ author: Thomas Theunen
 takeaways:
   - "Highlights April 2022 changes across PWA Kit, SLAS, OCAPI caching, and Business Manager"
   - "Explains why the deprecated login flow should move to SLAS for storefront resilience"
-  - "Calls out new caching and variation-group behavior worth testing before rollout"
+  - "Calls out new caching and variation-group behaviour worth testing before rollout"
 ---
 In this post, we will be looking at the release notes of Salesforce B2C Commerce Cloud for April 2022. Since the release cycles for B2C Commerce are [a lot quicker than the other Salesforce platforms](https://medium.com/inside-the-salesforce-ecosystem/a-partners-guide-to-navigating-the-salesforce-release-cycle-efa36ed3c64), not every month will be as extensive a list as the other.
 
@@ -32,7 +32,7 @@ Check out the original release notes [for April 2022](https://help.salesforce.co
 
 To access the logs of the Managed Runtime, you had to request access to the AWS logging for everyone separately.
 
-It will now be possible to tail or download the logs via the Runtime Admin UI! This update will make it easier for developers to debug, analyze, and address issues on a deployed version of their PWA Kit!
+It will now be possible to tail or download the logs via the Runtime Admin UI! This update will make it easier for developers to debug, analyse, and address issues on a deployed version of their PWA Kit!
 
 **Note:** Keep in mind that the Managed Runtime is on a different release cycle, so it will probably not match the "B2C core" release dates.
 
@@ -71,7 +71,7 @@ With this update, eCDN caching is enabled for the GET Products API! The update w
 
 - Set "cache-control" headers
 - Ensure the client ID is included as a query parameter or in the "x-dw-client-id" and "cache-control" header.
-- Do not include an "Authorization" header with the request. Adding it will disable caching.
+- Do not include an "Authorisation" header with the request. Adding it will disable caching.
 
 If you still have questions about caching in the OCAPI, [you can find more information in the Infocenter](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/caching.html).
 
@@ -83,7 +83,7 @@ Salesforce has heard our concerns and has slowly closed these holes over the yea
 
 With this update, the following changes have happened:
 
-- **Search and sort by creation and last modified date:** Now, more data APIs allow you to utilize the create and last-modified dates.
+- **Search and sort by creation and last modified date:** Now, more data APIs allow you to utilise the create and last-modified dates.
 
 This change will make it a lot easier to acquire **delta** information!
 
@@ -93,7 +93,7 @@ The following [DATA APIs](https://developer.salesforce.com/docs/commerce/b2c-com
 - Product Search
 - Customer Search
 - Custom Object Search
-- Catalog Search
+- Catalogue Search
 - **[Guest Flag](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-orders?meta=Summary):** It is now easier to detect an order made by a guest checkout or a registered customer.
 
 ## Business Manager
@@ -102,9 +102,9 @@ The following [DATA APIs](https://developer.salesforce.com/docs/commerce/b2c-com
 
 If you use Variation Groups, this feature will make the storefront search a little more flexible. A new [Feature Switch](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_configure_variation_groups_display_mode.htm) will enable the option to merge all Variation Groups in the lister pages (category & search).
 
-Once enabled, merchandizers [will see extra options in the business manager](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_configure_variation_groups_display_mode.htm).
+Once enabled, merchandisers [will see extra options in the business manager](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_configure_variation_groups_display_mode.htm).
 
-{{< img-caption src="category-option-plzwjt3ux7rivo7o7mgc8xhnroisdxv69lzyysd3pa-a3eb0312c7.png" alt="Catalog setting that switches variation groups to merged or individual display." caption="This catalog setting is the switch that enables merged variation-group behavior." >}}
+{{< img-caption src="category-option-plzwjt3ux7rivo7o7mgc8xhnroisdxv69lzyysd3pa-a3eb0312c7.png" alt="Catalogue setting that switches variation groups to merged or individual display." caption="This catalogue setting is the switch that enables merged variation-group behaviour." >}}
 
 But once you enable this option, how does it translate in the storefront? Let's have a look!
 
@@ -112,7 +112,7 @@ But once you enable this option, how does it translate in the storefront? Let's 
 
 {{< img-caption src="variation-groups-after-513fc19983.png" alt="Merged variation-group storefront result with shared swatches." caption="After enabling the feature, shoppers see one tile with shared swatches instead." >}}
 
-{{< img-caption src="configuration-variation-groups-32dec4386b.png" alt="Category configuration panel for assigning variation-group display behavior." caption="Category-level configuration decides where merged or individual variation-group display applies." >}}
+{{< img-caption src="configuration-variation-groups-32dec4386b.png" alt="Category configuration panel for assigning variation-group display behaviour." caption="Category-level configuration decides where merged or individual variation-group display applies." >}}
 
 But why use this option? Could you assign the master product to the category to get the same result?
 

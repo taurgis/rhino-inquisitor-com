@@ -4,7 +4,7 @@ description: >-
   It's that time of the year again! The April 2024 (24.4) release of Salesforce
   B2C Commerce Cloud is finally here, just in time for the spring season.
 date: '2024-04-01T08:03:24.000Z'
-lastmod: '2024-04-02T07:39:31.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /getting-to-know-the-sfcc-24-4-release/
 draft: false
 heroImage: a-group-of-paintings-walking-on-a-road-d1415ca232.jpg
@@ -17,7 +17,7 @@ tags:
 author: Thomas Theunen
 takeaways:
   - "Highlights 24.4 changes around custom APIs, rogue query limits, and Page Designer image management"
-  - "Explains new SCAPI and OCAPI behavior that can replace older customization workarounds"
+  - "Explains new SCAPI and OCAPI behaviour that can replace older customisation workarounds"
   - "Flags security and operations changes like OCAPI token invalidation and staging eCDN management"
 ---
 It's that time of the year again! The [April 2024 (24.4)](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_24_4_release.htm&type=5) release of Salesforce B2C Commerce Cloud is finally here, just in time for the spring season. Let's take a closer look at all the exciting new features and improvements this release offers.
@@ -117,13 +117,13 @@ With each new release, a new API seems to appear—[this time](https://developer
 
 Another use case where the [OCAPI](/in-the-ring-ocapi-versus-scapi/) is no longer required, and we can access Custom Objects in our composable projects more easily.
 
-### Check for Customization with SCAPI
+### Check for Customisation with SCAPI
 
 > Two new SCAPI response headers are available to check for custom requests and resulting hook execution errors.
 
 Two new headers have made their way into the SCAPI:
 
-1. **`sfdc_customization`**–indicates whether customization has been applied during the request execution. Currently, the only possible value for the header is “HOOK”, which indicates that a hook execution was registered.
+1. **`sfdc_customization`**–indicates whether customisation has been applied during the request execution. Currently, the only possible value for the header is “HOOK”, which indicates that a hook execution was registered.
 1. **`sfdc_customization_error`**–if the value is “1", an error occurred within a hook execution.
 
 This is a great addition that will allow us to get more information on the client side of what is going on and take some of the guesswork out of it.

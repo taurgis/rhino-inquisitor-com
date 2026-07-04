@@ -4,7 +4,7 @@ description: >-
   JavaScript is part of the day-to-day business in Salesforce B2C Commerce
   Cloud. But should you try to get the certification?
 date: '2023-08-07T12:51:32.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /should-i-get-javascript-developer-i-certified/
 draft: false
 heroImage: javascript-b29bda21e4.jpg
@@ -32,7 +32,7 @@ Knowledge of vanilla JavaScript is essential. There are a lot of free courses fo
 
 You must be prepared to dig into the Salesforce platform when interested in this certification. It wasn't explicitly designed for Salesforce B2C Commerce developers, but for [Lightning Web Component](https://developer.salesforce.com/docs/component-library/documentation/lwc) developers on the force.com platform. And you can't get it by just doing the certification exam on [Webassessor](https://www.webassessor.com/). You also need to complete a [Superbadge](https://trailhead.salesforce.com/en/content/learn/superbadges/superbadge_lwc_specialist), which does not have a strict timeline.
 
-> Superbadges are domain-based credentials that allow you to apply your Salesforce skills in a specific area (think: process automation or app customization) to hands-on, real-world business problems Salesforce
+> Superbadges are domain-based credentials that allow you to apply your Salesforce skills in a specific area (think: process automation or app customisation) to hands-on, real-world business problems Salesforce
 
 ## No Salesforce CRM experience
 

@@ -4,7 +4,7 @@ description: >-
   Review the Salesforce B2C Commerce Cloud 22.8 release, including quota
   changes, SCAPI hook updates, eCDN verification, and holiday readiness work.
 date: '2022-07-25T07:19:45.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /salesforce-b2c-commerce-cloud-22-8/
 draft: false
 heroImage: 85e37556-72f2-49a5-b436-a5616e9776a7-3984eb1bb9.jpeg
@@ -29,7 +29,7 @@ Are you interested in last month’s release notes? [Read the 22.7 release notes
 A few changes are happening in "terms" used in Salesforce B2C Commerce Cloud:
 
 - **master product/variation master:** base product
-- **master catalog/master product catalog:** product catalog
+- **master catalogue/master product catalogue:** product catalogue
 - **master and child items:** main items and secondary items
 - **master document:** main document
 
@@ -41,7 +41,7 @@ This update is in line with the [inclusive language within the Salesforce ecosys
 
 Summer has just begun, but Salesforce is already underway to ensure all merchant instances can handle the holiday period!
 
-But nothing major in this release, just some database optimizations. [Sign up for this Salesforce webinar series](https://trailhead.salesforce.com/trailblazer-community/feed/0D54S00000IRu3J) to prepare for the holidays!
+But nothing major in this release, just some database optimisations. [Sign up for this Salesforce webinar series](https://trailhead.salesforce.com/trailblazer-community/feed/0D54S00000IRu3J) to prepare for the holidays!
 
 ### New Sandbox clusters
 
@@ -54,7 +54,7 @@ This change will affect partner sandboxes as they will be moved to US03. Current
 > All new realms provisioned after this announcement (including realm zyfo and zyft that are being provisioned) will be on the new cluster US03. If your realms fall into this category, please note the following:
 >
 > - The documentation and instructions you have received may still have the URLs that contain "us01" (e.g., [https://admin.us01.dx.commercecloud.salesforce.com/](https://admin.us01.dx.commercecloud.salesforce.com)). If that is the case, replace "us01" with "us03" in those URLs
-> - Please use the API, not the Control Center, to manage your sandbox for the time being as the integration of cluster US03 with Control Center is still in its final test stage
+> - Please use the API, not the Control Centre, to manage your sandbox for the time being as the integration of cluster US03 with Control Centre is still in its final test stage
 > - If any issues create or access your sandbox, [please post in this forum and tag John Zhao directly.](https://partners.salesforce.com/_ui/core/chatter/groups/GroupProfilePage?g=0F93A000000DQ6f&fId=0D54V00006G4PZ2&s1oid=00D300000000iTz&OpenCommentForEdit=1&s1nid=0DB3000000007Uh&emkind=chatterPostNotification&s1uid=0053A00000EITbU&emtm=1658419675624&fromEmail=1&s1ext=0)
 > John Zhao (21/07/2022)
 

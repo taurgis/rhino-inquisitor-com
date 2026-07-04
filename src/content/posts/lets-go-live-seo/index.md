@@ -4,7 +4,7 @@ description: >-
   Bringing your first site live on SFCC can be challenging. In this series, we
   will be looking at different parts. Part 3: SEO
 date: '2022-09-05T08:35:42.000Z'
-lastmod: '2022-11-19T10:02:48.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /lets-go-live-seo/
 draft: false
 heroImage: sitemap-c717c2a8e7.png
@@ -18,7 +18,7 @@ author: Thomas Theunen
 takeaways:
   - "Frames SEO as a launch-critical workstream that must start well before go-live"
   - "Explains why SEO delivery depends on coordination across content, product, commercial, development, and specialist teams"
-  - "Emphasizes clear requirements and continuous SEO validation instead of assumption-driven implementation"
+  - "Emphasises clear requirements and continuous SEO validation instead of assumption-driven implementation"
 ---
 When going live with a website, SEO is an integral part that should not be overlooked. It is a long-term strategy that should be started before your website goes live.
 
@@ -26,13 +26,13 @@ This article is part of a [GO-LIVE series](/category/go-live/) that should give 
 
 ## What is SEO
 
-Let us start with the basics here; what is SEO? Well, it stands for [Search Engine Optimization](https://en.wikipedia.org/wiki/Search_engine_optimization). This is a process you want to use to ensure that the people looking for your site or a specific part (products most likely in the Salesforce B2C Commerce Cloud space) can easily find that page.
+Let us start with the basics here; what is SEO? Well, it stands for [Search Engine Optimisation](https://en.wikipedia.org/wiki/Search_engine_optimization). This is a process you want to use to ensure that the people looking for your site or a specific part (products most likely in the Salesforce B2C Commerce Cloud space) can easily find that page.
 
 The people who use a search engine and consequently find the page are called "organic" traffic, a term you will come across quite often when working on traffic analytics data.
 
 ## Why should I care
 
-I think the answer to that question is quite obvious! Any owner of a website/store wants to drive traffic to it. And optimizing a website so that Search Engines and other channels will put those pages at the top of the results is a fundamental way to do that.
+I think the answer to that question is quite obvious! Any owner of a website/store wants to drive traffic to it. And optimising a website so that Search Engines and other channels will put those pages at the top of the results is a fundamental way to do that.
 
 ## When should I start the analysis and investigation
 
@@ -42,7 +42,7 @@ Depending on the requirements, this can be on the business or development side.
 
 ## It is a team effort
 
-Doing optimizations to the SEO of your site requires the involvement of many different people in and out of the organization.
+Doing optimisations to the SEO of your site requires the involvement of many different people in and out of the organisation.
 
 Think of it this way: to get good SEO, you need good quality data and content. And someone needs to write that content, push it to the correct channels, translate it if necessary to all supported languages, ...
 
@@ -65,7 +65,7 @@ And before I forget, the above is an excellent example of a "vague description."
 
 ## Clear requirements
 
-The rules of SEO change often, and experimentation is part of the game. Developers know quite a few rules of engagement, but will never be as educated as someone specializing in this topic.
+The rules of SEO change often, and experimentation is part of the game. Developers know quite a few rules of engagement, but will never be as educated as someone specialising in this topic.
 
 When creating requirements for the development team, give as much information on what you are trying to achieve and how. Do not leave too much to guesswork, as this could hurt your efforts in the long run.
 

@@ -1,10 +1,10 @@
 ---
 title: Using Custom Preferences in SFCC
 description: >-
-  Learn how SFCC custom preferences support configurable storefront behavior,
+  Learn how SFCC custom preferences support configurable storefront behaviour,
   governance, and safer environment-specific settings.
 date: '2023-10-16T12:01:58.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /custom-preferences-in-sfcc/
 draft: false
 heroImage: it-configuring-server-scaled-d8087e9ab9.jpeg
@@ -17,7 +17,7 @@ tags:
 author: Thomas Theunen
 takeaways:
   - "Explains when to use global preferences, site preferences, or code config files in SFCC"
-  - "Shows how preference scope affects governance, reuse, and environment-specific behavior"
+  - "Shows how preference scope affects governance, reuse, and environment-specific behaviour"
   - "Highlights practical tips like defaults, descriptions, and change-history troubleshooting"
 ---
 [Salesforce B2C Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/) uses custom preferences to store configurable settings for a storefront. These settings can be anything from feature settings to loyalty calculations.

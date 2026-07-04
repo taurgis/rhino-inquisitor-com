@@ -4,7 +4,7 @@ description: >-
   Certifications are an essential part of the journey within Salesforce. But
   what certifications are available for B2C Commerce Cloud?
 date: '2022-04-13T07:07:52.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /certifications-for-salesforce-b2c-commerce-cloud/
 draft: false
 heroImage: certification-ce072f4076.jpg
@@ -73,7 +73,7 @@ Last year a new type of certification made its way into the Salesforce ecosystem
 
 Before you read more about this, be warned that this is a certification only available for Salesforce Partners (and Salesforce employees looking at LinkedIn)
 
-You can look at these Accreditations as a "specialization" certification. While the other certifications will look at a broad spectrum of platform features, accreditations will test your knowledge of a specific feature or part.
+You can look at these Accreditations as a "specialisation" certification. While the other certifications will look at a broad spectrum of platform features, accreditations will test your knowledge of a specific feature or part.
 
 ### Headless API First
 
@@ -91,7 +91,7 @@ But not to worry, there is [a course](https://partnerlearningcamp.salesforce.com
 
 > The Einstein Commerce Cloud Accredited Professional exam is intended for individuals who have the knowledge, skills, and experience with data ingestion processes, security, and access implementations.
 
-One of the selling points of Salesforce B2C Commerce Cloud (and other Salesforce offerings) is the AI engine to give personalized product recommendations: Einstein.
+One of the selling points of Salesforce B2C Commerce Cloud (and other Salesforce offerings) is the AI engine to give personalised product recommendations: Einstein.
 
 This accreditation tests all your knowledge of Einstein:
 
@@ -104,7 +104,7 @@ As with the other Accreditation, [a course is available on the Partner Learning 
 
 ## What if I'm not a developer
 
-A common question asked. Currently, only developers seem to get the "Certification love," but not so much Business Analysts or merchandizers.
+A common question asked. Currently, only developers seem to get the "Certification love," but not so much Business Analysts or merchandisers.
 
 If there is one I would recommend that non-technical profiles can pass, it's the Commerce Cloud Einstein Accreditation.
 

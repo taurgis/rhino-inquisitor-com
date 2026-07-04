@@ -2,9 +2,9 @@
 title: 'AI Won''t Replace Your SFCC Job, but AI Users Might'
 description: >-
   A practical look at how AI changes Salesforce Commerce Cloud work, where it
-  improves delivery, and why developer judgment still matters most.
+  improves delivery, and why developer judgement still matters most.
 date: '2025-06-30T17:46:53.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /ai-wont-steal-your-sfcc-job-but-a-developer-using-ai-will/
 draft: false
 heroImage: rhino-with-ai-agents-scaled-9d1423b5ab.jpeg
@@ -17,7 +17,7 @@ tags:
 author: Thomas Theunen
 takeaways:
   - "Argues AI will reward developers who adapt rather than replace platform expertise outright"
-  - "Shows how AI shifts developer value toward architecture, judgment, and collaboration"
+  - "Shows how AI shifts developer value toward architecture, judgement, and collaboration"
   - "Recommends hands-on adoption of AI coding tools instead of waiting for the market to settle"
 ---
 The Rhino Inquisitor — I went all "Rhino" up in this place, be prepared for some analogies 😇.
@@ -164,7 +164,7 @@ This isn't about replacing QA. It's about augmenting it, freeing up human tester
 
 The rise of AI marks a fundamental shift in the value proposition of a software developer. When the act of writing code—the "how"—is increasingly automated, the most valuable professionals will be those who have mastered the "why." Your worth will be measured not by your typing speed, but by the quality of your thinking.
 
-{{< img-caption src="the-architect-mindset-as-a-developer-with-ai-c8033b7990.jpeg" alt="A friendly cartoon rhino developer acts as a strategic leader, presenting an architecture plan on a large screen to a diverse group of business stakeholders. In the background, AI robot assistants implement the plan by coding at their desks." caption="The higher-value developer role is increasingly about direction, judgment, and trade-offs." link="the-architect-mindset-as-a-developer-with-ai-c8033b7990.jpeg" >}}
+{{< img-caption src="the-architect-mindset-as-a-developer-with-ai-c8033b7990.jpeg" alt="A friendly cartoon rhino developer acts as a strategic leader, presenting an architecture plan on a large screen to a diverse group of business stakeholders. In the background, AI robot assistants implement the plan by coding at their desks." caption="The higher-value developer role is increasingly about direction, judgement, and trade-offs." link="the-architect-mindset-as-a-developer-with-ai-c8033b7990.jpeg" >}}
 
 The AI-augmented developer: Spending less time on the keyboard and more time translating business strategy into a technical vision that AI can execute.
 
@@ -221,6 +221,6 @@ Please don't wait. The time for passive observation is over.
 
 The future isn't something that happens _to_ you; it's something that you create. It's something you build. Stop worrying about being replaced. Pick up the tools, sharpen your horn, and become the AI-augmented rhino that leads the charge.
 
-{{< img-caption src="the-ai-composer-48f0e91bb0.jpeg" alt="A cartoon rhino developer, dressed as a conductor, leads an orchestra of small robots. The robots sit in sections and use laptops and data interfaces instead of musical instruments, symbolizing a developer orchestrating various AI tools." caption="The real skill is learning to orchestrate tools, not trying to compete with them one by one." link="the-ai-composer-48f0e91bb0.jpeg" >}}
+{{< img-caption src="the-ai-composer-48f0e91bb0.jpeg" alt="A cartoon rhino developer, dressed as a conductor, leads an orchestra of small robots. The robots sit in sections and use laptops and data interfaces instead of musical instruments, symbolising a developer orchestrating various AI tools." caption="The real skill is learning to orchestrate tools, not trying to compete with them one by one." link="the-ai-composer-48f0e91bb0.jpeg" >}}
 
 Our new podium awaits. The AI-augmented developer orchestrates a powerful ensemble of tools, where strategy is the sheet music and business impact is the masterpiece.

@@ -4,7 +4,7 @@ description: >-
   A closer look at the November 2022 B2C Commerce Cloud updates, including
   cartridge releases, tooling changes, and SCAPI work.
 date: '2022-11-28T18:36:33.000Z'
-lastmod: '2022-11-29T10:33:29.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /salesforce-b2c-commerce-cloud-november-2022-updates/
 draft: false
 heroImage: shopping-cart-in-the-clouds-4e07433888.jpg
@@ -15,7 +15,7 @@ tags:
   - sfcc
 author: Thomas Theunen
 takeaways:
-  - "Summarizes the notable November 2022 updates outside the normal holiday release cycle"
+  - "Summarises the notable November 2022 updates outside the normal holiday release cycle"
   - "Highlights the PWA Kit, Account Manager, and plugin_slas changes most relevant to active storefront teams"
   - "Calls out bug fixes, new ideas, and cartridge releases worth tracking during the slower release period"
 ---
@@ -67,7 +67,7 @@ Some new ideas made their way to the IdeaExchange!
 
 - [The addCertificateForZone endpoint needs better error messaging.](https://ideas.salesforce.com/s/idea/a0B8W00000LfJTJUA3)
 - [Improved CMS where Content Library can be exported separately from code changes](https://ideas.salesforce.com/s/idea/a0B8W00000LgTXBUA3)
-- [Request for implementation of personalization features in PWA Kit](https://ideas.salesforce.com/s/idea/a0B8W00000LfMwKUAV)
+- [Request for implementation of personalisation features in PWA Kit](https://ideas.salesforce.com/s/idea/a0B8W00000LfMwKUAV)
 - [Salesforce Payments: Paypal : Supports only combined auth and capture](https://ideas.salesforce.com/s/idea/a0B8W00000LgsQDUAZ)
 
 ## Updated Cartridges & Tools

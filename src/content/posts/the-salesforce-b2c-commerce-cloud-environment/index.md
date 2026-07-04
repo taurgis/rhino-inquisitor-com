@@ -4,7 +4,7 @@ description: >-
   Do you want to know more about the server architecture of Salesforce B2C
   Commerce Cloud? You have come to the right place!
 date: '2022-08-22T17:37:46.000Z'
-lastmod: '2026-07-04T10:39:24.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /the-salesforce-b2c-commerce-cloud-environment/
 draft: false
 heroImage: connected-systems-d281b9e674.jpg
@@ -43,7 +43,7 @@ Before we move into the details where the [Embedded CDN](https://help.salesforce
 
 ### Commerce Cloud Core
 
-It all starts with the big chunk of functionality at the center, "Commerce Cloud," which consists of:
+It all starts with the big chunk of functionality at the centre, "Commerce Cloud," which consists of:
 
 - The monolithic storefront using [SFRA or SiteGenesis](/sitegenesis-vs-sfra-vs-pwa/)
 - The Open Commerce API for Headless applications
@@ -51,7 +51,7 @@ It all starts with the big chunk of functionality at the center, "Commerce Cloud
 
 ### Einstein
 
-We can't forget about one of the big selling points of SFCC, the "built-in" AI that will analyze shopper behavior and give recommendations to increase revenue and the average size of the basket.
+We can't forget about one of the big selling points of SFCC, the "built-in" AI that will analyse shopper behaviour and give recommendations to increase revenue and the average size of the basket.
 
 **Note:** I have an article explaining what Einstein is and what it can do in the pipeline!
 
@@ -63,11 +63,11 @@ But besides having some APIs that the OCAPI does not have, there are [some drawb
 
 MuleSoft Even though this is MuleSoft, you do not get access to it yourself. It is fully managed by Salesforce and has probably been put in place to allow for flexibility in the future.
 
-### Log Center
+### Log Centre
 
-Can't find your way in the logs on the WebDAV? Have no fear; Log Center is here.
+Can't find your way in the logs on the WebDAV? Have no fear; Log Centre is here.
 
-In the Log Center, you can easily filter and search for specific log entries and even be notified when particular thresholds are met.
+In the Log Centre, you can easily filter and search for specific log entries and even be notified when particular thresholds are met.
 
 ### Reports & Dashboards
 
@@ -81,7 +81,7 @@ Need insights on your sales or site performance? In this tool, you can view stat
 - Einstein
 - Technical data (performance)
 
-### Control Center
+### Control Centre
 
 The place to be if you want to manage all of your environments (Sandboxes, PIG Instances). Using this tool, you can create, start, restart, stop and reset environments linked to your account.
 

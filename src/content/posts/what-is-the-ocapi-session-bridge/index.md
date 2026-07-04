@@ -4,7 +4,7 @@ description: >-
   It is possible to link a SiteGenesis/SFRA session with an OCAPI "session." But
   how can we do it, and what is it suitable for?
 date: '2022-08-15T19:08:02.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /what-is-the-ocapi-session-bridge/
 draft: false
 heroImage: session-bridge-bbf2a7ba92.png
@@ -136,9 +136,9 @@ The result is a response containing the bearer token we need to continue talking
 }
 ```
 
-But what you need is not visible in the response... huh? Not to worry, it is in the Authorization header!
+But what you need is not visible in the response... huh? Not to worry, it is in the Authorisation header!
 
-{{< img-caption src="bearer-token-authorization-header-e377c64b9c.png" alt="Authorization header containing the OCAPI bearer token in Postman." >}}
+{{< img-caption src="bearer-token-authorization-header-e377c64b9c.png" alt="Authorisation header containing the OCAPI bearer token in Postman." >}}
 
 ### Step 2: Exchange the bearer JWT token for cookies
 
@@ -149,7 +149,7 @@ Let us exchange that token for a cookie, shall we? And for that, we need the "se
 > [!WARNING]
 > **Important:** The link above contains much information on things to keep in mind! Be sure to give it a good read.
 
-The request itself is pretty easy! Call the endpoint with the correct authorization header (type bearer), and you are as good as gold!
+The request itself is pretty easy! Call the endpoint with the correct authorisation header (type bearer), and you are as good as gold!
 
 ```text
 POST /s/RefArch/dw/shop/v22_6/sessions HTTP/1.1
@@ -190,7 +190,7 @@ Cookie: dwsid=<sample-session-cookie>
 }
 ```
 
-Similar to our first request, we get a JSON response with the JWT token in the "Authorization" header.
+Similar to our first request, we get a JSON response with the JWT token in the "Authorisation" header.
 
 ```json
 {

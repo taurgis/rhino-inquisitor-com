@@ -4,7 +4,7 @@ description: >-
     Caching GET endpoints for the OCAPI in Salesforce B2C Commerce Cloud is
     possible, but where do you start? Let us dig into this together!
 date: '2023-04-10T06:46:06.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /caching-rest-apis-in-sfcc/
 draft: false
 heroImage: caching-87696b30b8.jpg
@@ -19,7 +19,7 @@ tags:
 author: Thomas Theunen
 takeaways:
     - "Explains which OCAPI Shop API resources support server-side caching and which do not"
-    - "Shows how page cache and OCAPI settings control cache duration and personalization"
+    - "Shows how page cache and OCAPI settings control cache duration and personalisation"
     - "Clarifies why SCAPI cache control is more limited and where custom caches help instead"
 ---
 The [OCAPI](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/get-started-with-ocapi.html) has been around for a long time (2016) and allows you to cache responses to increase performance. **By default, GET responses that support caching are cached for 60 seconds**, but can this be improved?
@@ -117,9 +117,9 @@ Lowest Cache Time When using the expand parameter to make a single request with 
 
 Screenshot of the Infocenter about the "expand" parameter
 
-## Personalized Caching
+## Personalised Caching
 
-Personalized caching is enabled by default based on the customer context (JWT). It is possible to disable this for a resource to improve performance.
+Personalised caching is enabled by default based on the customer context (JWT). It is possible to disable this for a resource to improve performance.
 
 ```json
 {
@@ -145,7 +145,7 @@ Personalized caching is enabled by default based on the customer context (JWT). 
 }
 ```
 
-By setting the "personalized\_caching\_ enabled" option to false, personalization will be disabled for that resource.
+By setting the "personalised\_caching\_ enabled" option to false, personalisation will be disabled for that resource.
 
 > [!NOTE]
 > You can find information about other options (not related to caching) for resources in the [Infocenter](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/ocapisettings.html).

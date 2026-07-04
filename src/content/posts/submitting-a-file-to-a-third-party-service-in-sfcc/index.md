@@ -4,7 +4,7 @@ description: >-
     Learn how to submit files to a third-party service from SFCC with the Service
     Framework, including setup concerns and pitfalls.
 date: '2023-01-02T08:00:00.000Z'
-lastmod: '2026-07-04T10:39:24.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /submitting-a-file-to-a-third-party-service-in-sfcc/
 draft: false
 heroImage: file-upload-86681d338b.jpg
@@ -20,7 +20,7 @@ author: Thomas Theunen
 takeaways:
     - "Shows how to send a file to a third-party service from SFCC using the LocalServiceRegistry and HTTP service framework"
     - "Explains both the simple file-return pattern and the execute-override pattern for more control over the request"
-    - "Covers the related Business Manager service configuration and logging behavior developers should understand"
+    - "Covers the related Business Manager service configuration and logging behaviour developers should understand"
 ---
 Salesforce B2C Commerce Cloud provides developers and architects with a [framework to integrate third-party services](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-webservices.html), making it much more streamlined to get up and running. With the [LocalServiceRegistry,](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-webservices.html) you get some neat features like configuration management from the business manager, logging, and service monitoring! There are examples available on how to use this system, but how do you send a file to a service using it? There isn't an example available for this (except for an FTP service that, by definition, works with files).
 
@@ -86,7 +86,7 @@ This example service is configured with the following values:
 - **Service Mode:** To call the service endpoint, the value needs to be "Live."
 - **Log Name Prefix:** If you want to debug and have all request and response data in a dedicated file for this service, fill this in.
 - **Communication Log Enabled:** This must be enabled to debug the requests and responses through logging.
-- **Force PRD Behavior in Non-PRD Environments:** If you filter the logs and want to test as if it is a production environment, enable this.
+- **Force PRD Behaviour in Non-PRD Environments:** If you filter the logs and want to test as if it is a production environment, enable this.
 - **Profile:** Select the profile to be used (timeouts, rate limiting, circuit breaker.)
 - **Credentials:** Depending on the service, this needs to be configured.
 

@@ -5,7 +5,7 @@ description: >-
   expanding your skill set and exploring new technologies is part of the job -
   it all
 date: '2023-12-25T13:46:42.000Z'
-lastmod: '2023-12-25T13:46:42.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: >-
   /the-move-from-sitegenesis-and-sfra-to-the-composable-storefront-as-a-developer/
 draft: false
@@ -38,7 +38,7 @@ Salesforce (well ... the [Mobify](https://www.digitalcommerce360.com/2020/09/09/
 
 ## Transferrable Skills
 
-{{< img-caption src="use-your-knowledge-98ac47c97d.jpg" alt="Illustration of a game controller and brain symbolizing transferable developer knowledge." caption="Skills built on SiteGenesis and SFRA — catalog, pricing, promotions, OCAPI — remain fully relevant in the Composable Storefront." >}}
+{{< img-caption src="use-your-knowledge-98ac47c97d.jpg" alt="Illustration of a game controller and brain symbolising transferable developer knowledge." caption="Skills built on SiteGenesis and SFRA — catalogue, pricing, promotions, OCAPI — remain fully relevant in the Composable Storefront." >}}
 
 ### Development (Duh...)
 

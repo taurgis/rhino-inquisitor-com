@@ -4,7 +4,7 @@ description: >-
   Understand where the new SFCC documentation lives, what changed from
   Infocenter, and how to navigate the updated resources.
 date: '2023-07-03T06:32:44.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /where-is-the-new-sfcc-documentation/
 draft: false
 heroImage: documentation-on-the-move-scaled-59762baa75.jpg
@@ -16,7 +16,7 @@ tags:
   - sfcc
 author: Thomas Theunen
 takeaways:
-  - "Explains where SFCC documentation moved after the Infocenter retirement and how the new content is split across Help, Developer Center, and GitHub-hosted resources"
+  - "Explains where SFCC documentation moved after the Infocenter retirement and how the new content is split across Help, Developer Centre, and GitHub-hosted resources"
   - "Highlights the practical impact of that split for merchandisers, administrators, and developers trying to navigate the new structure"
   - "Offers a grounded opinion on the migration, including its likely benefits and the friction it introduced for experienced users"
 ---
@@ -33,7 +33,7 @@ In case you didn't catch the official announcement, I've got you covered! Check 
 > Beginning June 15, 2023, the information currently hosted on the Salesforce B2C Commerce Infocenter will be published across three locations.
 >
 > - Salesforce Help is the new home for administrator and merchandiser content.
-> - Commerce Cloud Developer Center is the new home for most developer-focused content.
+> - Commerce Cloud Developer Centre is the new home for most developer-focused content.
 > - Salesforce B2C Commerce Developer Documentation Resources is the new home for the B2C Commerce API and other developer-focused content, including legacy developer documentation.
 > Many improvements were made to the documentation as a part of the migration. As a result, there won’t always be a direct one-to-one mapping between topics in the Salesforce B2C Commerce Infocenter and topics in their new locations. Between June 15 and July 15, B2C Commerce documentation will be available in both the Infocenter and its new locations to help ensure a smooth transition for users. On July 15, 2023, the Infocenter will be retired and will no longer be available.
 
@@ -60,8 +60,8 @@ In this section you will find everything about how to:
 - Merchandise B2C Commerce Cloud
 - Data protection & privacy
 - Account Manager
-- Log Center (although this one is technical)
-- Control Center
+- Log Centre (although this one is technical)
+- Control Centre
 - Storefront Toolkit
 - ....
 
@@ -69,13 +69,13 @@ In this section you will find everything about how to:
 
 - [Salesforce Developers](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/get-started.html)
 
-Salesforce provides a dedicated site for developers that serves as a centralized location for all developer documentation, with the exception of two things which we will address later.
+Salesforce provides a dedicated site for developers that serves as a centralised location for all developer documentation, with the exception of two things which we will address later.
 
 Here you will find:
 
 - General development guidelines
 - Einstein documentation
-- Customer Service Center
+- Customer Service Centre
 - [OCAPI](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/get-started-with-ocapi.html) documentation
 
 As with the SCAPI documentation, the OCAPI now also lives in its separated bubble from the rest of the documentation.
@@ -92,7 +92,7 @@ But does it make it easy to find something if you need it? Probably not.
 
 - [B2C Commerce API](https://salesforcecommercecloud.github.io/b2c-dev-doc)
 
-This movement will cause considerable friction with the Salesforce B2C Commerce Cloud developer community. The biggest question here is why it was not moved over to the developer center, to match [what was done on the core platform](https://developer.salesforce.com/docs/atlas.en-us.244.0.apexref.meta/apexref/apex_methods_system_system.htm#apex_System_System_enqueueJob_2).
+This movement will cause considerable friction with the Salesforce B2C Commerce Cloud developer community. The biggest question here is why it was not moved over to the developer centre, to match [what was done on the core platform](https://developer.salesforce.com/docs/atlas.en-us.244.0.apexref.meta/apexref/apex_methods_system_system.htm#apex_System_System_enqueueJob_2).
 
 Understandably, it is a huge effort to move this over - and monthly releases need more maintenance. (Although the release notes of the core platform should not be underestimated....so many pages)
 

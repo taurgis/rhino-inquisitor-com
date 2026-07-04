@@ -1,7 +1,7 @@
 ---
-title: Uncategorized
+title: Uncategorised
 description: >-
-  Explore Rhino Inquisitor's Uncategorized archive for Salesforce Commerce Cloud
+  Explore Rhino Inquisitor's Uncategorised archive for Salesforce Commerce Cloud
   articles, release notes, and migration-safe reference material.
 draft: true
 ---

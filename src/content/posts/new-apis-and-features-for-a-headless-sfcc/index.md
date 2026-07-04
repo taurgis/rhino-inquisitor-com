@@ -4,7 +4,7 @@ description: >-
   Review the new SCAPI and headless platform features in Salesforce B2C Commerce
   Cloud, and see which updates matter most for composable storefront teams.
 date: '2023-11-13T09:54:35.000Z'
-lastmod: '2023-11-15T12:18:11.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /new-apis-and-features-for-a-headless-sfcc/
 draft: false
 heroImage: robot-operating-on-its-own-head-797d8fde74.jpg
@@ -46,9 +46,9 @@ This is a big win for any project already on or going to the Composable Storefro
 
 Headless and Composable architectures bring great flexibility for the future but pose particular challenges in monitoring and analytics. One of the significant challenges is consolidating data from multiple entities.
 
-Salesforce has now made it mandatory to specify the back-end you connect from your storefront. This will eliminate guesswork and ensure correct logging is sent to the [Log Center](https://help.salesforce.com/s/articleView?id=cc.b2c_log_center.htm&language=en_US&type=5) linked to the respective environment.
+Salesforce has now made it mandatory to specify the back-end you connect from your storefront. This will eliminate guesswork and ensure correct logging is sent to the [Log Centre](https://help.salesforce.com/s/articleView?id=cc.b2c_log_center.htm&language=en_US&type=5) linked to the respective environment.
 
-Automatically forwarding logs to the Log Center offers multiple benefits to Salesforce support and users of the Composable Storefront. With this feature, logs for HTTP requests made on production-marked environments are automatically sent, enabling them to anticipate better and troubleshoot any issues that may arise.
+Automatically forwarding logs to the Log Centre offers multiple benefits to Salesforce support and users of the Composable Storefront. With this feature, logs for HTTP requests made on production-marked environments are automatically sent, enabling them to anticipate better and troubleshoot any issues that may arise.
 
 ## PWA Kit v3.2.1
 

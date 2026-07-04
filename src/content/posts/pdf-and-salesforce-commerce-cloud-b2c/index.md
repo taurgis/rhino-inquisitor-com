@@ -4,7 +4,7 @@ description: >-
   Everyone knows PDF, right? It has been around for many years, and now we can
   use its full potential within Salesforce Commerce Cloud!
 date: '2022-02-24T13:18:00.000Z'
-lastmod: '2025-07-14T18:19:59.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /pdf-and-salesforce-commerce-cloud-b2c/
 draft: false
 heroImage: pdf-and-sfcc-f66c1d7bc5.jpg
@@ -82,11 +82,11 @@ The General Data Protection Regulation (GDPR) has fundamentally changed how busi
 
 The legal requirement to retain invoices for 10 years, as mentioned in the previous section, presents a direct conflict with the right to be forgotten. In this scenario, the legal obligation to retain the invoice takes precedence over the individual's request for data deletion. However, this does not mean that the personal data on the invoice can be kept indefinitely or used for other purposes.
 
-To navigate this, businesses should adopt the principle of **data minimisation** and consider **pseudonymization**. Here's how this can be applied:
+To navigate this, businesses should adopt the principle of **data minimisation** and consider **pseudonymisation**. Here's how this can be applied:
 
 - **Data Minimisation:** Only collect and retain the personal data that is strictly necessary for the transaction and for legal compliance.
 
-- **Pseudonymization:** After a certain period (for example, once the return window for an order has closed), you can pseudonymize the personal data on the invoice. This means replacing personally identifiable information (such as name, address, and contact details) with a non-identifiable token or code. The transactional data on the invoice (products purchased, price, etc.) remains, ensuring compliance with the 10-year retention law, while the customer's personal data is protected.
+- **Pseudonymisation:** After a certain period (for example, once the return window for an order has closed), you can pseudonymise the personal data on the invoice. This means replacing personally identifiable information (such as name, address, and contact details) with a non-identifiable token or code. The transactional data on the invoice (products purchased, price, etc.) remains, ensuring compliance with the 10-year retention law, while the customer's personal data is protected.
 
 By implementing such a strategy, you can fulfil your legal obligations while still respecting the spirit of GDPR. It is also vital to be transparent with your customers.
 

@@ -4,7 +4,7 @@ description: >-
   Review the Salesforce B2C Commerce Cloud 22.5 release notes and the platform
   updates developers should test or plan for.
 date: '2022-04-18T07:31:52.000Z'
-lastmod: '2026-07-04T10:39:24.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /salesforce-b2c-commerce-the-22-5-release/
 draft: false
 heroImage: b2c-control-center-3581b7d6c3.png
@@ -18,7 +18,7 @@ tags:
 author: Thomas Theunen
 takeaways:
   - "Highlights the most relevant 22.5 changes around documentation migration, on-demand sandbox controls, and social-commerce pilots"
-  - "Explains the new Shopper Context and passwordless SLAS APIs that expand personalization and login options for headless storefronts"
+  - "Explains the new Shopper Context and passwordless SLAS APIs that expand personalisation and login options for headless storefronts"
   - "Calls out business-manager and payments improvements that matter for category automation and stored-payment experiences"
 ---
 A new month, a new release of Salesforce B2C Commerce Cloud. Let us dig a little deeper in the [release notes](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_5_release.htm&type=5) to see what is new!
@@ -29,7 +29,7 @@ Are you interested in last month's release notes? Read the [22.4 release overvie
 
 In May, a significant change is the decommissioning of the [CCDC](https://developer.commercecloud.com/) (Commerce Cloud Developer Center).
 
-But do not fear! All documentation has been safely migrated to the primary [Salesforce Developer Center](http://developer.salesforce.com/developer-centers/commerce-cloud)!
+But do not fear! All documentation has been safely migrated to the primary [Salesforce Developer Centre](http://developer.salesforce.com/developer-centers/commerce-cloud)!
 
 The communities that were part of the CCDC have also been migrated into the existing [Trailblazer Community](https://trailhead.salesforce.com/trailblazer-community/groups/0F94S000000H1fESAS?tab=discussion&sort=LAST_MODIFIED_DATE_DESC), so all of that information (questions and answers) is not lost!
 
@@ -47,17 +47,17 @@ Another great move to ensure all sensitive data stored on Salesforce servers are
 
 **Note:** Salesforce is actively looking for customers in the AMER region who deal with highly sensitive data (health information). If you are already an active customer, a realm move will be required.
 
-### Control Center
+### Control Centre
 
-{{< img-caption src="control-center-ods-scheduler-6e883d6157.png" alt="Control Center scheduler for planning on-demand sandbox uptime." caption="The new Control Center UI replaces the REST-API-only scheduler, making it straightforward to plan on-demand sandbox uptime windows without custom scripting." link="control-center-ods-scheduler-6e883d6157.png" >}}
+{{< img-caption src="control-center-ods-scheduler-6e883d6157.png" alt="Control Centre scheduler for planning on-demand sandbox uptime." caption="The new Control Centre UI replaces the REST-API-only scheduler, making it straightforward to plan on-demand sandbox uptime windows without custom scripting." link="control-center-ods-scheduler-6e883d6157.png" >}}
 
-As On-Demand Sandboxes have become the new standard for Salesforce B2C Commerce, the UI of the [Control Center](https://controlcenter.commercecloud.salesforce.com/index.html) is being revamped as well.
+As On-Demand Sandboxes have become the new standard for Salesforce B2C Commerce, the UI of the [Control Centre](https://controlcenter.commercecloud.salesforce.com/index.html) is being revamped as well.
 
 We already had [the option to schedule our Sandboxes uptime through a REST API](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-manage-sb.html), but a UI is now available to make life a little easier.
 
 ### Tiktok Integration
 
-{{< img-caption src="tiktok-for-business-e34f4d0876.jpeg" alt="TikTok for Business branding used for the beta integration announcement." caption="The TikTok beta connected B2C Commerce catalog and shopper data to another discovery channel." link="tiktok-for-business-e34f4d0876.jpeg" >}}
+{{< img-caption src="tiktok-for-business-e34f4d0876.jpeg" alt="TikTok for Business branding used for the beta integration announcement." caption="The TikTok beta connected B2C Commerce catalogue and shopper data to another discovery channel." link="tiktok-for-business-e34f4d0876.jpeg" >}}
 
 A beta program is available to test an integration between B2C Commerce Cloud and Tiktok. This Beta aims to create storefronts and advertise products on Tiktok using products and shopper activity data.
 
@@ -80,7 +80,7 @@ In this release, these new features and improvements were added:
 
 ### Shopper Context API
 
-The Shopper Context API will enable customers to build headless storefronts with personalization. This API is currently in the BETA stage, so you may opt in at your discretion.
+The Shopper Context API will enable customers to build headless storefronts with personalisation. This API is currently in the BETA stage, so you may opt in at your discretion.
 
 > The context information is evaluated against the customer group definitions to determine a customer group (shopper segment) and then used to activate the experiences associated with a particular segment, such as promotions.
 
@@ -105,18 +105,18 @@ This change gives us more flexibility in providing login options to customers.
 
 ## Business Manager
 
-### Rule-Based Categorization
+### Rule-Based Categorisation
 
-{{< img-caption src="product-exclusion-list-rule-based-0acada8ea8.png" alt="Rule-based categorization screen showing product exclusion rules." caption="Rule-based categorization gains product exclusion lists and support for up to 20 conditions per rule, replacing the previous five-condition ceiling for dynamic category assignments." link="product-exclusion-list-rule-based-0acada8ea8.png" >}}
+{{< img-caption src="product-exclusion-list-rule-based-0acada8ea8.png" alt="Rule-based categorisation screen showing product exclusion rules." caption="Rule-based categorisation gains product exclusion lists and support for up to 20 conditions per rule, replacing the previous five-condition ceiling for dynamic category assignments." link="product-exclusion-list-rule-based-0acada8ea8.png" >}}
 
-[Dynamic Categorization](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_dynamic_categories.htm) is a recent addition to the Salesforce B2C Commerce Cloud feature list, allowing the automatic (job-based) assignment of products to specific categories on configurable criteria.
+[Dynamic Categorisation](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_dynamic_categories.htm) is a recent addition to the Salesforce B2C Commerce Cloud feature list, allowing the automatic (job-based) assignment of products to specific categories on configurable criteria.
 
 Over the past months, a lot of feedback has been provided on this feature. And in this release, two new updates are announced:
 
 - Ability to create exclusion rules for products
 - Maximum conditions for a rule have been increased from 5 to 20
 
-Having the option to set more than five conditions will give merchandisers more flexibility when organizing their categories.
+Having the option to set more than five conditions will give merchandisers more flexibility when organising their categories.
 
 ### Salesforce Payments Credentials Storage
 
@@ -130,11 +130,11 @@ It is good to see these features being added to the "native" payment option with
 
 ### Klarna for Salesforce Payments
 
-{{< img-caption src="klarnastripe-6dabc3b122.jpg" alt="Klarna availability within the Salesforce Payments and Stripe flow." caption="Klarna joins Salesforce Payments through the Stripe integration, giving shoppers installments, pay-later, and financing options without requiring a separate Klarna merchant agreement." link="klarnastripe-6dabc3b122.jpg" >}}
+{{< img-caption src="klarnastripe-6dabc3b122.jpg" alt="Klarna availability within the Salesforce Payments and Stripe flow." caption="Klarna joins Salesforce Payments through the Stripe integration, giving shoppers instalments, pay-later, and financing options without requiring a separate Klarna merchant agreement." link="klarnastripe-6dabc3b122.jpg" >}}
 
 For most, [Klarna](https://www.klarna.com/international/) is a well-known payment method. This option has now been added to Salesforce Payments giving shoppers the ability to use the three different pay-later options that Klarna provides:
 
-- Installments
+- Instalments
 - Pay Later
 - Financing
 

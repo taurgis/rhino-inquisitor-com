@@ -4,7 +4,7 @@ description: >-
   Setting up SLAS for the first time can be quite a headache. Or maybe not? Is
   there an easy way to set up SLAS for the PWA Kit?
 date: '2023-01-16T08:12:41.000Z'
-lastmod: '2023-01-16T08:12:55.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /how-to-set-up-slas-for-the-composable-storefront/
 draft: false
 heroImage: slas-public-client-registered-user-b2c-a930192dd5.jpg
@@ -19,7 +19,7 @@ tags:
 author: Thomas Theunen
 takeaways:
   - "Walks through a practical SLAS setup flow for connecting a Composable Storefront to an SFCC sandbox"
-  - "Explains where to find the short code, organization ID, and SLAS Admin UI configuration flow"
+  - "Explains where to find the short code, organisation ID, and SLAS Admin UI configuration flow"
   - "Covers client creation, OCAPI access updates, and the PWA Kit install inputs required to go live"
 ---
 Are you setting up your Composable Storefront and wondering what the SLAS Client ID is all about? You're not alone! The [Shopper Login and API Access Service](https://developer.salesforce.com/docs/commerce/commerce-api/guide/slas.html), or SLAS, has been gaining popularity, but it can be challenging to set up. But don't worry. We've got you covered. Instead of diving into a sea of Administrative APIs, we're here to break it down and show you a simple way to set up your SLAS. Keep reading to find out how!
@@ -40,7 +40,7 @@ After you have logged into the Business Manager of your environment, go to the f
 
 The link is not there. If you do not see the link (the link is inserted by [DWithEase](https://dwithease.com/)), manually go to the URL: `https://{{Short_Code}}.api.commercecloud.salesforce.com/shopper/auth-admin/v1/sso/login`.
 
-On this screen, some necessary information to install the PWA Kit can be found. But besides the Short Code and the Organization ID, there is an interesting link present: "SLAS Admin UI". Let's click that now, shall we?
+On this screen, some necessary information to install the PWA Kit can be found. But besides the Short Code and the Organisation ID, there is an interesting link present: "SLAS Admin UI". Let's click that now, shall we?
 
 {{< img-caption src="slas-admin-ui-login-ff882d0848.jpg" alt="Sign-in page that links to the SLAS Admin UI." caption="If the shortcut is missing, this login page still gets you into SLAS Admin." >}}
 
@@ -64,7 +64,7 @@ Click the "Add Client" button on this page to go to the next step.
 
 And with that, we are almost there! Fill in the following information:
 
-- **What tenant will be used?:** Fill in the Tenant ID, part of the Organization ID, from step two. (format: xxxx\_sxx)
+- **What tenant will be used?:** Fill in the Tenant ID, part of the Organisation ID, from step two. (format: xxxx\_sxx)
 - **What site will be used?:** Here, we fill in the site IDs used - separated by a space.
 - **Which App Type will be used?:** Well... the article is for the Composable Storefront, so let us select "_PWA Kit or SFRA or Mobile_." Selecting this option will make a [Public Client](https://developer.salesforce.com/docs/commerce/commerce-api/guide/slas-public-client.html).
 - **Client Id:** The Client ID to use during the installation of the PWA Kit. This can be left as-is. _Note: This Client ID does not need to exist as an API Client in the Account Manager. They are not related._
@@ -86,7 +86,7 @@ Follow step "Update Open Commerce API Settings" on the following page using the 
 
 ## Step 5: Use the new SLAS Client
 
-Now that we have our SLAS Client, Short Code, and Organization ID, we can start installing the PWA Kit! Open up your favorite terminal and enter:
+Now that we have our SLAS Client, Short Code, and Organisation ID, we can start installing the PWA Kit! Open up your favourite terminal and enter:
 
 ```text
 npx pwa-kit-create-app
@@ -114,7 +114,7 @@ Enter the Client Id generated in step 3.
 
 Enter the Site ID of the site you will use (e.g. RefArch).
 
-### What is your Commerce API organization ID in Business Manager
+### What is your Commerce API organisation ID in Business Manager
 
 This information can be found in the "Salesforce Commerce API Settings" in the Business Manager of your environment. This was covered in step 2.
 

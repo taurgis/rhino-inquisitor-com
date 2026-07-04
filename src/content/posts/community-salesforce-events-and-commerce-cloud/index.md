@@ -1,10 +1,10 @@
 ---
 title: Community Salesforce Events and Commerce Cloud
 description: >-
-  Salesforce knows many community-organized events. But how does Salesforce B2C
+  Salesforce knows many community-organised events. But how does Salesforce B2C
   Commerce Cloud fit in? And how can we contribute?
 date: '2022-07-04T17:24:31.000Z'
-lastmod: '2022-07-23T19:15:14.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /community-salesforce-events-and-commerce-cloud/
 draft: false
 heroImage: yeurdreamin-d42e49541c.jpg
@@ -24,7 +24,7 @@ takeaways:
   - "Explains why SFCC content is still sparse on broader community event agendas"
   - "Encourages Commerce professionals to submit talks and broaden cross-cloud participation"
 ---
-Salesforce is known for hosting spectacular events all over the world. But did you know the community organizes some amazing ones as well? Maybe you don't if you are a Salesforce B2C Commerce Cloud enthusiast, but why is that? Let us dig deeper into some of the events that caught my eye!
+Salesforce is known for hosting spectacular events all over the world. But did you know the community organises some amazing ones as well? Maybe you don't if you are a Salesforce B2C Commerce Cloud enthusiast, but why is that? Let us dig deeper into some of the events that caught my eye!
 
 ## Some of the events
 
@@ -100,11 +100,11 @@ Starting in 2017, this event has, like so many others, seen a break in 2020 and 
 
 The list doesn't end here. There are [a lot more out there](https://meighanrockssf.com/2022/01/31/salesforce-events-2022/)!
 
-## Are they organized by the community
+## Are they organised by the community
 
-Yes! These events are not organized in any way by Salesforce. Usually, Salesforce does offer support in terms of communication, speakers, and other elements such as SWAG.
+Yes! These events are not organised in any way by Salesforce. Usually, Salesforce does offer support in terms of communication, speakers, and other elements such as SWAG.
 
-This also means that these events have a completely different feel than those organized by Salesforce. Here experiences are openly shared between developers, architects, and other roles without the influence of Salesforce.
+This also means that these events have a completely different feel than those organised by Salesforce. Here experiences are openly shared between developers, architects, and other roles without the influence of Salesforce.
 
 These events tend to be much more technical, offering an excellent opportunity to learn!
 

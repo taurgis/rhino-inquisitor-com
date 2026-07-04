@@ -1,10 +1,10 @@
 ---
 title: Understanding Locale Fallback in SFCC
 description: >-
-  In today's digitally connected world, personalization and localization play a
+  In today's digitally connected world, personalisation and localisation play a
   crucial role in delivering a tailored shopping experience.
 date: '2024-01-29T09:06:32.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /understanding-locale-fallback-in-sfcc/
 draft: false
 heroImage: different-languages-and-countries-of-the-world-0ec542fc07.jpg
@@ -17,11 +17,11 @@ tags:
   - technical
 author: Thomas Theunen
 takeaways:
-  - "Explains how locale fallback works in SFCC when localized content is missing for a requested market or language"
+  - "Explains how locale fallback works in SFCC when localised content is missing for a requested market or language"
   - "Shows the configurable fallback hierarchy and the restrictions that apply when setting locale relationships"
   - "Highlights the user-experience and development implications teams should understand when building international storefronts"
 ---
-In today's digitally connected world, personalization and [localization](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-localization.html) play a crucial role in delivering a tailored shopping experience. Salesforce B2C Commerce Cloud understands this and includes a powerful locale fallback mechanism to help businesses cater to various markets while managing content efficiently. In this deep-dive article, we will explore the locale fallback feature, its importance, configuration, and potential considerations for developers working on international storefronts.
+In today's digitally connected world, personalisation and [localisation](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-localization.html) play a crucial role in delivering a tailored shopping experience. Salesforce B2C Commerce Cloud understands this and includes a powerful locale fallback mechanism to help businesses cater to various markets while managing content efficiently. In this deep-dive article, we will explore the locale fallback feature, its importance, configuration, and potential considerations for developers working on international storefronts.
 
 ## What is the Locale Fallback
 
@@ -56,7 +56,7 @@ If you configure the fallback system differently, let's say you have the German 
 
 {{< img-caption src="sfcc-localisation-config-e5d2f27043.jpg" alt="Locale configuration screen in Administration and Global Preferences." caption="Locales and fallback can be configured at 'Administration > Global Preferences > Locales'" >}}
 
-Salesforce B2C Commerce Cloud allows for customized fallback configurations. You can skip levels in the fallback chain or even eliminate fallback entirely for particular locales, depending on your specific requirements.
+Salesforce B2C Commerce Cloud allows for customised fallback configurations. You can skip levels in the fallback chain or even eliminate fallback entirely for particular locales, depending on your specific requirements.
 
 For the `en_US` example, the fallback chain by default is `en_US > en > default`. However, you could configure `en_US` to bypass the `en` step and go straight to `default`, or you might decide that `en_US` should not fall back at all.
 
@@ -80,11 +80,11 @@ You are only allowed to fall back within the same language:
 
 ## Things to Consider
 
-- **Disabling Locale Fallback:** You can disable fallback for individual locales. For instance, if the `en` locale's fallback is disabled, and there's no description for a product in the `en` dataset, then no description will be presented, unlike the usual fallback behavior where default text might be used.
+- **Disabling Locale Fallback:** You can disable fallback for individual locales. For instance, if the `en` locale's fallback is disabled, and there's no description for a product in the `en` dataset, then no description will be presented, unlike the usual fallback behaviour where default text might be used.
 
 - **Content Types Affected:** The locale fallback mechanism applies primarily to subclasses of `PersistentObject`. This includes objects such as products but does not extend to ISML templates, web forms, resource files in cartridges, or static content such as images.
 
-- **Restrictions:** Configuring a locale as a fallback for another locale creates a dependency. Therefore, a locale that serves as a fallback cannot be deleted as long as another locale relies on it. This restriction ensures stability and consistency within your localizable content structure.
+- **Restrictions:** Configuring a locale as a fallback for another locale creates a dependency. Therefore, a locale that serves as a fallback cannot be deleted as long as another locale relies on it. This restriction ensures stability and consistency within your localisable content structure.
 
 ## Developer Implications
 

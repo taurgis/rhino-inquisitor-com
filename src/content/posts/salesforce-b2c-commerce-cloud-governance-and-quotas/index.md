@@ -4,7 +4,7 @@ description: >-
   Salesforce Platform Limits and Quotas are not new and exist for a reason. But
   why? And are there limits that are not documented?
 date: '2023-08-21T06:58:00.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /salesforce-b2c-commerce-cloud-governance-and-quotas/
 draft: false
 heroImage: quota-limits-27eb2c93aa.jpg
@@ -104,11 +104,11 @@ If you need to do this many requests in the front end, consider revisiting the a
 
 Even though this will not solve all performance issues, some imposed quotas prevent you from doing insecure operations or writing code that will negatively impact performance. Examples of these are:
 
-- **api.dw.catalog.ProductInventoryRecord.update():** No front-end request can manipulate the inventory records, meaning that someone with bad intentions will never have a route to abuse.
+- **api.dw.catalogue.ProductInventoryRecord.update():** No front-end request can manipulate the inventory records, meaning that someone with bad intentions will never have a route to abuse.
 
 - **api.jsArraySize:** We can only store 20.000 items in a single array. This will keep us from filling up the memory and wasting resources filling up this array and reading from it in large volumes.
 
-- **api.dw.catalog.PriceBookMgr.assignPriceBookToSite(PriceBook, String):** This API is used only for management purposes and has no business in the storefront. This will force developers to find an alternative ([and better)](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_catalog_PriceBookMgr.html) way to build the appropriate behaviour.
+- **api.dw.catalogue.PriceBookMgr.assignPriceBookToSite(PriceBook, String):** This API is used only for management purposes and has no business in the storefront. This will force developers to find an alternative ([and better)](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_catalog_PriceBookMgr.html) way to build the appropriate behaviour.
 
 Let me be clear: You can still easily write insecure and inadequate performant code without hitting any of the quotas. **_Always keep security and performance in mind when writing custom features!_**
 

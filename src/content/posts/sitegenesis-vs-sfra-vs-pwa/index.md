@@ -4,7 +4,7 @@ description: >-
   Those interested in Salesforce B2C Commerce Cloud will hear the term
   SiteGenesis and SFRA (and PWA). But what is the difference?
 date: '2022-07-17T13:42:22.000Z'
-lastmod: '2026-07-04T10:39:24.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /sitegenesis-vs-sfra-vs-pwa/
 draft: false
 heroImage: sfra-vs-sitegenesis-965c09b9a6.jpg
@@ -23,9 +23,9 @@ video:
 takeaways:
   - "Compares SiteGenesis, SFRA, and PWA Kit as the main storefront architecture options in the SFCC ecosystem"
   - "Explains the trade-offs around legacy constraints, third-party support, headless flexibility, and out-of-the-box feature coverage"
-  - "Helps teams choose a storefront direction based on modernization goals, budget, and required integrations"
+  - "Helps teams choose a storefront direction based on modernisation goals, budget, and required integrations"
 ---
-[Salesforce B2C Commerce Cloud](https://www.salesforce.com/products/commerce-cloud/ecommerce/) is a modern Commerce platform that empowers retailers of all sizes and industries to harness the power of the cloud to deliver world-class omnichannel experiences. With Salesforce B2C Commerce Cloud, you can effortlessly offer your customers a seamless and personalized shopping journey across the mobile, social, and in-store channels while gaining valuable insights into who they are and what they want.
+[Salesforce B2C Commerce Cloud](https://www.salesforce.com/products/commerce-cloud/ecommerce/) is a modern Commerce platform that empowers retailers of all sizes and industries to harness the power of the cloud to deliver world-class omnichannel experiences. With Salesforce B2C Commerce Cloud, you can effortlessly offer your customers a seamless and personalised shopping journey across the mobile, social, and in-store channels while gaining valuable insights into who they are and what they want.
 
 But after choosing SFCC to be the platform, a second big decision must be made. **On what architecture will you base your channels**? When introduced to Salesforce B2C Commerce Cloud, you will hear terms such as SiteGenesis, SFRA, and (more recently) PWA. But what are the differences? What should I watch out for?
 
@@ -77,7 +77,7 @@ It is time to migrate if you are still using SiteGenesis with pipelines in your 
 
 ## M(S)FRA
 
-{{< img-caption src="sfra-vs-sitegenesis-965c09b9a6.jpg" alt="Comparison between SiteGenesis and SFRA storefront stacks." caption="SFRA modernized the storefront layer without fully abandoning the B2C runtime model." >}}
+{{< img-caption src="sfra-vs-sitegenesis-965c09b9a6.jpg" alt="Comparison between SiteGenesis and SFRA storefront stacks." caption="SFRA modernised the storefront layer without fully abandoning the B2C runtime model." >}}
 
 This part of the article will cover both MFRA and [SFRA](https://production-sitegenesis-dw.demandware.net/s/RefArch/home?lang=en_US) as they are the same. You can see MFRA as the ALPHA/BETA version of SFRA or simply as a rebranding.
 
@@ -103,7 +103,7 @@ Salesforce is also actively pushing customers towards SFRA, even though a new he
 
 I will keep this short. Third parties are actively integrating with SFRA and updating their cartridges!
 
-So choosing to go with SFRA now will be a good base for years to come. But be sure to continue reading, as the PWA Kit solution may be attractive for your organization!
+So choosing to go with SFRA now will be a good base for years to come. But be sure to continue reading, as the PWA Kit solution may be attractive for your organisation!
 
 ## PWA Kit & Managed Runtime
 
@@ -135,7 +135,7 @@ No worries on that front! Salesforce provides a [Managed Runtime](https://develo
 
 ### React.JS
 
-Another significant change in working is that the PWA Kit is built upon [React](https://reactjs.org/), a modern library that does not have such a "niche" flavor that SFCC has known up until now.
+Another significant change in working is that the PWA Kit is built upon [React](https://reactjs.org/), a modern library that does not have such a "niche" flavour that SFCC has known up until now.
 
 It will be easier to find and educate developers in this setup.
 
@@ -163,7 +163,7 @@ Looking at the past few weeks/months, there is a [good amount of interest](https
 I may sound like a broken record, but a few features built into SFRA are not in the PWA Kit since the solution is new. A few examples are:
 
 - [A/B Testing](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_ab_testing.htm)
-- ~~Personalization~~ (Added in 2023)
+- ~~Personalisation~~ (Added in 2023)
 - [~~Page Designer~~](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-dev-for-page-designer.html) ( Added in 2023)
 - [Sitemap](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_sitemap_overview.htm)
 - [SEO URL Configuration](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_configuring_seo_urls.htm)

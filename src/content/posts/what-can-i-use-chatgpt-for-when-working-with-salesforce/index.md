@@ -4,7 +4,7 @@ description: >-
   A practical look at where ChatGPT can help in Salesforce work, from drafting
   and debugging to research and day-to-day delivery.
 date: '2022-12-26T06:44:32.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /what-can-i-use-chatgpt-for-when-working-with-salesforce/
 draft: false
 heroImage: robot-writing-code-chatgpt-4ba7e2995f.jpg
@@ -94,4 +94,4 @@ It is exciting and scary how quickly the world of AI is evolving. We have gotten
 
 ## Conclusion
 
-These new AI tools make our lives easier, and the results it is pushing out are amazing to behold. Learning how to use this tool will also take some time: The better you can formulate your questions or descriptions, the better the AI's responses will get. Speaking from personal experience, I have to rephrase my questions quite often to get a good result. Luckily, for now, the failed attempts are free. But for how long? And on a final note, make sure to fact-check and optimize what has been generated. In many cases, the text or code generated needs some "refactoring" to be useful. If there is **one takeaway** from the above article: "**Don't trust the info it gives you just yet**. Use it as a starting point - but nothing more."
+These new AI tools make our lives easier, and the results it is pushing out are amazing to behold. Learning how to use this tool will also take some time: The better you can formulate your questions or descriptions, the better the AI's responses will get. Speaking from personal experience, I have to rephrase my questions quite often to get a good result. Luckily, for now, the failed attempts are free. But for how long? And on a final note, make sure to fact-check and optimise what has been generated. In many cases, the text or code generated needs some "refactoring" to be useful. If there is **one takeaway** from the above article: "**Don't trust the info it gives you just yet**. Use it as a starting point - but nothing more."

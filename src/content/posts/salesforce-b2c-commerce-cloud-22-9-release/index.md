@@ -4,7 +4,7 @@ description: >-
   Explore the Salesforce B2C Commerce Cloud 22.9 release, from Page Designer
   copy and paste to Shopper Context updates and Salesforce Payments changes.
 date: '2022-08-17T18:45:35.000Z'
-lastmod: '2022-08-18T08:09:00.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /salesforce-b2c-commerce-cloud-22-9-release/
 draft: false
 heroImage: copy-paste-page-designer-full-d97d9a9ee9.jpg
@@ -21,7 +21,7 @@ video:
   title: 'SFCC Page Designer: Copy & Paste'
 takeaways:
   - "Highlights the main 22.9 changes across WebDAV limits, Page Designer usability, and Salesforce Payments"
-  - "Explains the Shopper Context API enhancements that matter for personalization and hybrid headless deployments"
+  - "Explains the Shopper Context API enhancements that matter for personalisation and hybrid headless deployments"
   - "Calls out supporting tool and cartridge updates that affect migration, security, and storefront integration work"
 ---
 We have been getting some lovely new goodies in the past few releases, but this trend is not ending! This time we look at the [September 2022 (22.9) release](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_9_release.htm&type=5)!
@@ -66,7 +66,7 @@ I suspect this improvement is only for the performance of the Business Manager a
 
 {{< img-caption src="venmo-d5992ec262.jpg" alt="AfterPay and Venmo payment options highlighted for Salesforce Payments." >}}
 
-Let your shoppers pay in interest-free installments with AfterPay. Salesforce Payments offers AfterPay through your Stripe Merchant account. When AfterPay is active on your storefront, the product details page and checkout cart list it as a payment option (Default SFRA & Payments Cartridge).
+Let your shoppers pay in interest-free instalments with AfterPay. Salesforce Payments offers AfterPay through your Stripe Merchant account. When AfterPay is active on your storefront, the product details page and checkout cart list it as a payment option (Default SFRA & Payments Cartridge).
 
 Venmo has also been added as an express and multi-step payment service for U.S.-based merchants. This integration does require a PayPal integration with Salesforce Payments, and a payment zone configured that conforms with the Venmo criteria.
 
@@ -74,11 +74,11 @@ Venmo has also been added as an express and multi-step payment service for U.S.-
 
 ### Shopper Context API Enhancements
 
-To personalize Headless applications with Salesforce B2C Commerce Cloud, you will need the [Shopper Context API](https://developer.salesforce.com/docs/commerce/commerce-api/guide/shopper-context-api.html). In this release, a few new options have been made available:
+To personalise Headless applications with Salesforce B2C Commerce Cloud, you will need the [Shopper Context API](https://developer.salesforce.com/docs/commerce/commerce-api/guide/shopper-context-api.html). In this release, a few new options have been made available:
 
 - Source code support (trigger promotions, payment, and shipping methods)
 - Support for Hybrid Deployments by adding support to the OCAPI for Shopper Context
-- Personalize prices and promotions based on store-specific promotion and pricing rules (imported with [assignments.xml](https://developer.salesforce.com/docs/commerce/commerce-api/guide/shopper-context-api-store-specific.html))
+- Personalise prices and promotions based on store-specific promotion and pricing rules (imported with [assignments.xml](https://developer.salesforce.com/docs/commerce/commerce-api/guide/shopper-context-api-store-specific.html))
 
 ## Development
 

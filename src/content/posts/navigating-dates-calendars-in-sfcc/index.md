@@ -2,9 +2,9 @@
 title: Dates, Calendars, and Time Zones in SFCC
 description: >-
   Learn how SFCC handles dates, calendars, and time zones so you can avoid
-  subtle scheduling bugs and localization issues in production.
+  subtle scheduling bugs and localisation issues in production.
 date: '2023-08-14T17:27:04.000Z'
-lastmod: '2023-08-15T07:44:20.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /navigating-dates-calendars-in-sfcc/
 draft: false
 heroImage: a-clock-as-a-shopping-bag-7fc3eb9c21.jpg
@@ -18,7 +18,7 @@ author: Thomas Theunen
 takeaways:
   - "Explains the roles of JavaScript Date and dw.util.Calendar when handling time in SFCC"
   - "Shows how to work with instance and site time zones and retrieve those settings in code"
-  - "Helps developers avoid subtle localization and scheduling bugs caused by timezone and API differences"
+  - "Helps developers avoid subtle localisation and scheduling bugs caused by timezone and API differences"
 ---
 In today's world, managing dates, calendars, and time zones is expected for any e-commerce platform. [Salesforce B2C Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/) is no exception, and this article will explore the intricacies of working with dates and calendars in SFCC, focusing on the JavaScript Date object, the Java Calendar class.
 

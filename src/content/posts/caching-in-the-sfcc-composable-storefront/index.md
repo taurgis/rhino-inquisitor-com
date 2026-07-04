@@ -4,7 +4,7 @@ description: >-
   Learn how caching works in the Salesforce Composable Storefront, which layers
   matter most, and where it improves real-world speed.
 date: '2024-10-14T09:42:12.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /caching-in-the-sfcc-composable-storefront/
 draft: false
 heroImage: multi-layered-caching-b85c120088.jpg
@@ -19,7 +19,7 @@ author: Thomas Theunen
 takeaways:
   - "Explains where SSR, CDN, and API caching fit in the Composable Storefront stack"
   - "Highlights cache-control, invalidation, and replication caveats teams need to plan for"
-  - "Covers personalized caching behavior for custom APIs and hook-based responses"
+  - "Covers personalised caching behaviour for custom APIs and hook-based responses"
 ---
 Caching, Performance, Lighthouse Speed, CrUX, ... and probably many more terms have crossed your desk and mind ever since you got into web development and, more specifically, if you are here, Salesforce B2C Commerce Cloud.
 

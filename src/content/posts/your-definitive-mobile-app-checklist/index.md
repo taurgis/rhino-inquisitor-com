@@ -4,7 +4,7 @@ description: >-
   Use this mobile app launch checklist to review architecture, integrations, QA,
   and go-live readiness before an SFCC-backed app ships.
 date: '2025-12-15T10:39:06.000Z'
-lastmod: '2025-12-19T09:56:27.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /your-definitive-mobile-app-checklist/
 draft: false
 heroImage: headless-app-go-live-scaled-89b046ecca.jpeg
@@ -50,7 +50,7 @@ This separation of hostnames is not an arbitrary technical detail; it reflects t
 
 This separation allows for independent scaling, security policies, and evolution. You can completely redesign your mobile app (the "head") without ever touching the API endpoint, and vice versa. SLAS, as the gatekeeper for Shopper APIs, runs on this same infrastructure, which is why its admin UI and authentication endpoints share the same base URL structure. The flow is simple: your mobile app calls SLAS to get a JSON Web Token (JWT), and then it includes that JWT in the `Authorization` header for all subsequent SCAPI calls.
 
-So, where does your SFRA site's configuration fit in? While the vanity domain isn't the API endpoint, the underlying site configuration is still critical. Every SCAPI request includes a `siteId` query parameter. This `siteId` tells B2C Commerce which site's context to use for the request—which catalog, which price books, which promotions to apply. That site is, in turn, configured in Business Manager and linked to your hostnames via the alias file. The hostname alias configuration remains essential for defining the _context_ of your API calls, even though it's not the _endpoint_ you call directly.
+So, where does your SFRA site's configuration fit in? While the vanity domain isn't the API endpoint, the underlying site configuration is still critical. Every SCAPI request includes a `siteId` query parameter. This `siteId` tells B2C Commerce which site's context to use for the request—which catalogue, which price books, which promotions to apply. That site is, in turn, configured in Business Manager and linked to your hostnames via the alias file. The hostname alias configuration remains essential for defining the _context_ of your API calls, even though it's not the _endpoint_ you call directly.
 
 ## The Headless Go-Live Checklist: From Backend to App Store
 
@@ -62,7 +62,7 @@ With the hostname question settled, we can proceed to the full checklist. It is 
 
 This section adapts the SRA's architectural principles to a headless context. The focus is on the solidity of the API contract and the backend configuration that will serve the mobile app.
 
-#### API & Data Model Finalization (Your Contract with the Client)
+#### API & Data Model Finalisation (Your Contract with the Client)
 
 -   **Data Flow & Mapping:** All data flow diagrams must be updated to reflect a decoupled architecture where the mobile app (or Headless site) is a primary target system. This includes verifying the flows for customer, product, inventory, and order data.
 
@@ -115,7 +115,7 @@ This section adapts the SRA's architectural principles to a headless context. Th
 
 This entire section is new territory compared to the SFRA SRA. The mobile app, for example, is not just a "head"—it's an intelligent client with its own responsibilities for performance, data management, and user engagement.
 
-#### Client-Side Caching Strategy (Your First Line of Defense)
+#### Client-Side Caching Strategy (Your First Line of Defence)
 
 Effective client-side [caching](/caching-rest-apis-in-sfcc/) is the single most important factor for a snappy, responsive mobile app experience and for staying within API quotas. Network calls from a mobile device are inherently latent and unreliable. The app must not go to the network for data it already has. A comprehensive go-live requires verification of a robust, multi-layered caching strategy.
 
@@ -125,7 +125,7 @@ Effective client-side [caching](/caching-rest-apis-in-sfcc/) is the single most 
 
 -   **In-Memory Cache:** For frequently accessed, short-lived data (e.g., data for the currently visible screen), confirm that an in-memory cache is used. This data is volatile and lost when the app closes.
 
--   **"Disk-Based" Cache (Persistence):** For data that must persist between app sessions (e.g., product catalog data, category structures, user preferences).
+-   **"Disk-Based" Cache (Persistence):** For data that must persist between app sessions (e.g., product catalogue data, category structures, user preferences).
 
 -   **Cache Invalidation:** Confirm that a clear strategy for cache invalidation is in place. Is it based on a Time-to-Live (TTL)? Is it cleared on specific user actions like logout? Stale data is as bad as no data.
 
@@ -186,7 +186,7 @@ A headless app's performance is a composite of the client, the network, and the 
 
 ### Part IV: The Final Countdown (Go-Live & Beyond)
 
-{{< img-caption src="app-launch-ac5253524a.jpg" alt="A cartoon illustration shows a team of four people in a control room celebrating as one presses a large red 'GO-LIVE' button. A digital timer reads 'T-MINUS 00:00:00' and confetti falls. On a large screen, a rocket with Apple App Store and Google Play logos launches. A checklist on the wall shows green ticks for 'DATA PURGE,' 'LEGACY IMPORT,' and 'CONFIG LOCK-DOWN.' A robot sweeps 'TEST DATA' into a bin. To the right, a gate labeled 'APP STORE SUBMISSION (2025 GATES)' is open, with 'Xcode 16' visible. A character in the foreground thinks, 'SDK Signatures & Privacy Manifests: CHECKED!'." caption="Go-live and app store readiness" >}}
+{{< img-caption src="app-launch-ac5253524a.jpg" alt="A cartoon illustration shows a team of four people in a control room celebrating as one presses a large red 'GO-LIVE' button. A digital timer reads 'T-MINUS 00:00:00' and confetti falls. On a large screen, a rocket with Apple App Store and Google Play logos launches. A checklist on the wall shows green ticks for 'DATA PURGE,' 'LEGACY IMPORT,' and 'CONFIG LOCK-DOWN.' A robot sweeps 'TEST DATA' into a bin. To the right, a gate labelled 'APP STORE SUBMISSION (2025 GATES)' is open, with 'Xcode 16' visible. A character in the foreground thinks, 'SDK Signatures & Privacy Manifests: CHECKED!'." caption="Go-live and app store readiness" >}}
 
 This section covers the final operational steps, including the crucial new gate: App Store submission.
 

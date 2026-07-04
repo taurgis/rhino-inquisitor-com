@@ -4,7 +4,7 @@ description: >-
   Are you interested in what is new in each Salesforce B2C Commerce Cloud
   release? Then this is the article for you! Let us look at 22.6
 date: '2022-05-16T13:52:22.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /salesforce-b2c-commerce-the-22-6-release/
 draft: false
 heroImage: 22-6-release-einstein-dashboards-722f4cbace.png
@@ -16,7 +16,7 @@ tags:
   - technical
 author: Thomas Theunen
 takeaways:
-  - "Highlights the main 22.6 changes around Einstein dashboards, OCAPI access-key management, and Log Center filtering"
+  - "Highlights the main 22.6 changes around Einstein dashboards, OCAPI access-key management, and Log Centre filtering"
   - "Explains the smaller but useful Salesforce Payments and Business Manager updates that affect local payment support and operations"
   - "Calls out the related PWA Kit release and resolved platform issues that were worth testing in this cycle"
 ---
@@ -81,28 +81,28 @@ Use a site-specific descriptor to help shoppers identify the source of an accoun
 
 ## Development
 
-### Log Center
+### Log Centre
 
-{{< img-caption src="troubleshoot-storefront-errors-logcenter-66dfbbe9b6.png" alt="Log Center filter for storefront implementation errors." caption="The new Log Center filters make storefront implementation failures easier to isolate." link="troubleshoot-storefront-errors-logcenter-66dfbbe9b6.png" >}}
+{{< img-caption src="troubleshoot-storefront-errors-logcenter-66dfbbe9b6.png" alt="Log Centre filter for storefront implementation errors." caption="The new Log Centre filters make storefront implementation failures easier to isolate." link="troubleshoot-storefront-errors-logcenter-66dfbbe9b6.png" >}}
 
 Filter and find storefront implementation errors, such as broken includes, significant header errors, and large request errors with a new filter option below the "Service Type."
 
-**How:** To find storefront implementation errors with Log Center, set the Service Type filter to "jwa" (see screenshot above).
+**How:** To find storefront implementation errors with Log Centre, set the Service Type filter to "jwa" (see screenshot above).
 
 ### Bugfixes
 
 #### Unnecessary Product Update Index Task is performed after the Full Index Rebuild
 
-An unnecessary Product Update Index Task was performed after the Full Index Rebuild, which publishes a new index even if 0 documents have changed. This happened only if Incremental Index was enabled, even if NO product change had been performed after the Full Index Rebuild. Now, after a full search index update is done and no documents have changed, the platform is not doing an Incremental Index afterward.
+An unnecessary Product Update Index Task was performed after the Full Index Rebuild, which publishes a new index even if 0 documents have changed. This happened only if Incremental Index was enabled, even if NO product change had been performed after the Full Index Rebuild. Now, after a full search index update is done and no documents have changed, the platform is not doing an Incremental Index afterwards.
 
-#### Rule Based Product Categorization - UI Changes to Include SiteContext when Saving/Fetching Rules
+#### Rule Based Product Categorisation - UI Changes to Include SiteContext when Saving/Fetching Rules
 
 When creating/editing a ruleset, a dropdown is now provided (similar to the Locale dropdown). The dropdown will be auto-selected to "default" and include all valid active Sites for that instance. When the merchandiser saves the ruleset, the API to PUT/POST rules will consist of a new field to persist the SiteContext selected.
 
-#### Dynamic Categorization - Value selection for String attributes with the "is one of" selector isn't working
+#### Dynamic Categorisation - Value selection for String attributes with the "is one of" selector isn't working
 
 - [Issue](https://trailblazer.salesforce.com/issues_view?id=a1p4V0000012YmiQAE&title=dynamic-categorization-value-selection-for-string-attributes-with-the-is-one-of-selector-isn-t-working)
 
-> Value selection for String attributes with the "is one of" selector isn't working. When the "is one of" selector is chosen, the user should be able to select multiple values. For String attributes, this isn't possible because you only get a normal input field for entering the value, with no possibility of adding various values. Expected Products should be shown in the preview tab based on the categorization rule. Actual Products are not categorized when multiple comma-separated values are used.
+> Value selection for String attributes with the "is one of" selector isn't working. When the "is one of" selector is chosen, the user should be able to select multiple values. For String attributes, this isn't possible because you only get a normal input field for entering the value, with no possibility of adding various values. Expected Products should be shown in the preview tab based on the categorisation rule. Actual Products are not categorised when multiple comma-separated values are used.
 
 Although the status has recently changed to "fixed," no version/release was linked. So it might be in the next or this release.

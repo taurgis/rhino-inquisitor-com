@@ -4,7 +4,7 @@ description: >-
   Review the Salesforce B2C Commerce Cloud 23.2 release, including Page Designer
   and SCAPI changes developers should notice.
 date: '2023-01-18T19:00:06.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /salesforce-b2c-commerce-cloud-23-2/
 draft: false
 heroImage: artist-painting-on-screen-7d21e84105.jpg
@@ -19,7 +19,7 @@ tags:
   - technical
 author: Thomas Theunen
 takeaways:
-  - "Highlights the major 23.2 improvements to Page Designer usability, locale controls, and guest basket behavior"
+  - "Highlights the major 23.2 improvements to Page Designer usability, locale controls, and guest basket behaviour"
   - "Explains why the new Shopper Experience API is a significant shift for headless access to Page Designer content"
   - "Calls out the broader release impact across SCAPI, SLAS, tax handling, reporting, and PWA Kit updates"
 ---

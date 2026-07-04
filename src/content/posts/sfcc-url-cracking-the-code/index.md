@@ -4,7 +4,7 @@ description: >-
   It should be no secret that a URL is a vital part of any website. In this
   article, we will dissect and explain the different parts of a Salesforce B2C
 date: '2023-05-29T07:12:19.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-07-04T14:20:18.000Z'
 url: /sfcc-url-cracking-the-code/
 draft: false
 heroImage: a-hand-delicately-slicing-into-a-screen-f3543bdd31.jpeg
@@ -89,7 +89,7 @@ A URL path is typically organised into multiple segments, separated by forward s
 
 For example, in the URL `https://www.example.com/blog/2021/post-title`, the path is `/blog/2021/post-title`. This path indicates that the specific web page is located within the "2021" subdirectory of the "blog" directory on the server.
 
-A well-structured and descriptive URL path can improve a website's search engine optimization (SEO) and user experience (UX) by making it easier for users and search engines to understand the relationship between different pages and resources on the site.
+A well-structured and descriptive URL path can improve a website's search engine optimisation (SEO) and user experience (UX) by making it easier for users and search engines to understand the relationship between different pages and resources on the site.
 
 ## Query Parameters
 
