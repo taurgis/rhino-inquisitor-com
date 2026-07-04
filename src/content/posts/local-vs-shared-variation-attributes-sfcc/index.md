@@ -4,7 +4,7 @@ description: >-
   Understand when to use local or shared variation attributes in Commerce Cloud
   and how each model affects merchandising and product data.
 date: '2025-04-14T07:17:18.000Z'
-lastmod: '2026-07-04T14:48:28.000Z'
+lastmod: '2026-07-04T15:28:48.000Z'
 url: /local-vs-shared-variation-attributes-sfcc/
 draft: false
 heroImage: variation-attributes-e1743754688196-8eda8ce6ea.jpg
@@ -231,4 +231,4 @@ In certain scenarios, combine approaches by utilising shared attributes for most
 
 Local and shared variation attributes play essential roles in product management within Salesforce B2C Commerce Cloud. Each has its set of advantages and potential downsides, and the choice between them often depends on the business's specific requirements, the nature of the products being offered, and the desired customer experience.
 
-Understanding the nuances of local and shared attributes is not only important but paramount for any organization aiming to leverage the full potential of its B2C Commerce Cloud solution.
+Understanding the nuances of local and shared attributes is not only important but paramount for any organisation aiming to leverage the full potential of its B2C Commerce Cloud solution.

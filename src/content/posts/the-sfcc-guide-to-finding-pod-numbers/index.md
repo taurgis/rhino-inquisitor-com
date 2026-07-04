@@ -4,7 +4,7 @@ description: >-
   Learn how to find your SFCC POD number, why it matters for troubleshooting,
   and where to verify it across tools and environments.
 date: '2025-07-21T05:05:51.000Z'
-lastmod: '2026-07-04T14:48:28.000Z'
+lastmod: '2026-07-04T15:28:48.000Z'
 url: /the-sfcc-guide-to-finding-pod-numbers/
 draft: false
 heroImage: sfcc-finding-your-pod-number-scaled-6830449d2b.jpeg
@@ -91,9 +91,9 @@ To find your Realm and Organization IDs:
 
 1. Log in to Account Manager at `https://account.demandware.com`.
 
-1. Navigate to the **Organization** tab.
+1. Navigate to the **Organisation** tab.
 
-1. Open your organization and in the **Assigned Realms** section, you can find your 4-letter `Group ID` and the alphanumeric `Realm ID`.
+1. Open your organisation and in the **Assigned Realms** section, you can find your 4-letter `Group ID` and the alphanumeric `Realm ID`.
 
 Keep this information handy. It's essential for identifying your environment when interacting with Salesforce systems and support teams.
 

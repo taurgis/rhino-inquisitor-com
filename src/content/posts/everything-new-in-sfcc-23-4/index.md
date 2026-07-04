@@ -4,7 +4,7 @@ description: >-
   Catch up on the Salesforce B2C Commerce Cloud 23.4 release and the platform
   changes that matter most for developers this month.
 date: '2023-03-15T19:32:56.000Z'
-lastmod: '2026-07-04T14:48:28.000Z'
+lastmod: '2026-07-04T15:28:48.000Z'
 url: /everything-new-in-sfcc-23-4/
 draft: false
 heroImage: >-
@@ -29,7 +29,7 @@ Are you interested in last month’s release notes? [Read the 23.3 release notes
 
 ### Extend Payment Processing with Salesforce Payment APIs
 
-> Use the new Salesforce Payment APIs to connect with third-party order management systems or platform-specific custom features. The APIs support capture, cancel, refund, and updates. For example, you can directly cancel or refund a payment in an order failure event by cleaning up payment authorizations. The APIs are available as Script APIs.
+> Use the new Salesforce Payment APIs to connect with third-party order management systems or platform-specific custom features. The APIs support capture, cancel, refund, and updates. For example, you can directly cancel or refund a payment in an order failure event by cleaning up payment authorisations. The APIs are available as Script APIs.
 
 Salesforce Payments continues to gain love from Salesforce with every new release. The [previous release](/salesforce-b2c-commerce-cloud-23-3-release/) included the addition of four temporary baskets, and this release introduced support for numerous new customer flows.
 

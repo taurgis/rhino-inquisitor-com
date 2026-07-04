@@ -4,7 +4,7 @@ description: >-
   Again, it is time for the monthly Salesforce B2C Commerce Cloud release! This
   time, we look at the May 2024 (24.5) release!
 date: '2024-05-03T11:25:41.000Z'
-lastmod: '2026-07-04T14:48:28.000Z'
+lastmod: '2026-07-04T15:28:48.000Z'
 url: /getting-secured-with-the-24-5-salesforce-b2c-commerce-cloud-release/
 draft: false
 heroImage: robots-behind-bars-e1714735507313-e727779a98.jpg
@@ -70,7 +70,7 @@ Finally, we get access to our custom headers! This is another excellent addition
 
 It is well known that filling in all the necessary data in the [Tax Tables](https://help.salesforce.com/s/articleView?id=cc.b2c_tax_table_object_import_export.htm&language=en_US&type=5) of Commerce Cloud can be challenging for some regions worldwide. This is where third-party systems come into play to ease the burden of this task.
 
-Now, with [a clear path](https://developer.salesforce.com/docs/commerce/commerce-api/references/shopper-baskets?meta=Summary) to follow in Salesforce Commerce Cloud's headless space, integrating these third-party systems has become much easier. However, it's important to protect these endpoints from unauthorized access and potential misuse.
+Now, with [a clear path](https://developer.salesforce.com/docs/commerce/commerce-api/references/shopper-baskets?meta=Summary) to follow in Salesforce Commerce Cloud's headless space, integrating these third-party systems has become much easier. However, it's important to protect these endpoints from unauthorised access and potential misuse.
 
 When following the link, we are greeted with this documentation:
 
@@ -104,10 +104,10 @@ However, we should always aim to secure everything. But this option provides us 
 
 ### Upcoming Removal of Deprecated Roles in Account Manager
 
-> Salesforce is removing deprecated roles from Account Manager. To prevent any disruption in your organization's workflow, ensure you aren’t using the deprecated roles. How: Review the list of deprecated roles that are slated for removal. Reassign any users currently using these roles. For assistance with reassigning roles, see Edit a User Account.
+> Salesforce is removing deprecated roles from Account Manager. To prevent any disruption in your organisation's workflow, ensure you aren’t using the deprecated roles. How: Review the list of deprecated roles that are slated for removal. Reassign any users currently using these roles. For assistance with reassigning roles, see Edit a User Account.
 > The affected roles include:
 >
-> - SLAS Organization Admin role (Deprecated for API Clients only)
+> - SLAS Organisation Admin role (Deprecated for API Clients only)
 > - XChange roles
 > - Documentation User, Documentation Linguist, Documentation Reviewer
 > - statuspage.io User

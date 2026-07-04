@@ -4,7 +4,7 @@ description: >-
   As snowy days slowly turn into sunny ones, the 24.3 release of SFCC has
   arrived! Let us have a look at the March release of 2024.
 date: '2024-03-04T09:04:46.000Z'
-lastmod: '2026-07-04T14:48:28.000Z'
+lastmod: '2026-07-04T15:28:48.000Z'
 url: /digging-into-the-b2c-commerce-cloud-24-3-release/
 draft: false
 heroImage: a-shopping-cart-overfilled-with-products-2342f0919f.jpg
@@ -116,7 +116,7 @@ It is now possible to add custom headers to your requests to use in your customi
 
 ### Security Update for the Audit History Logs
 
-> Starting with the 1.32.2 release, the full name and full email address for active audit history users are masked from administrators. Masking occurs when the active user isn’t part of the organization and they’re active in Audit History for a User, Organization, or API Client sessions. Masking is also used when organization users view their audit history on the start page. The mask improves security compliance.
+> Starting with the 1.32.2 release, the full name and full email address for active audit history users are masked from administrators. Masking occurs when the active user isn’t part of the organisation and they’re active in Audit History for a User, Organisation, or API Client sessions. Masking is also used when organisation users view their audit history on the start page. The mask improves security compliance.
 
 A minor update for security compliance.
 

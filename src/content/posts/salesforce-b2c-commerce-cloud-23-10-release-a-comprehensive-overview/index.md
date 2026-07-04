@@ -4,7 +4,7 @@ description: >-
   It's a yearly tradition not to release major updates during the holiday season
   to maintain platform stability, so here we are with the final release of
 date: '2023-10-02T12:35:45.000Z'
-lastmod: '2026-07-04T14:48:28.000Z'
+lastmod: '2026-07-04T15:28:48.000Z'
 url: /salesforce-b2c-commerce-cloud-23-10-release-a-comprehensive-overview/
 draft: false
 heroImage: shopping-carts-on-a-tablet-fa1824b0b9.jpeg
@@ -87,13 +87,13 @@ The support for headless scenarios is essential as the Composable Storefront gai
 
 ### Email Notification of Changes to Inactive User Settings
 
-> As part of the Auto Disable Inactive Users feature, an email notification is sent to users when the Inactive User settings are activated or deactivated. An email is also sent when the Days Before Deletion settings are changed on the organization detail page. The email is sent to the email address entered in the Contact Users field on the organization detail page.
+> As part of the Auto Disable Inactive Users feature, an email notification is sent to users when the Inactive User settings are activated or deactivated. An email is also sent when the Days Before Deletion settings are changed on the organisation detail page. The email is sent to the email address entered in the Contact Users field on the organisation detail page.
 
 There isn't much to say about this feature, but it's important for users to be aware of its automatic nature.
 
 ### Enable Read Only Account Manager Access
 
-> The Read Only Account Administrator role is now available in Account Manager. The role provides users read-only access to view details about their organization, API clients, and users. The role doesn’t include permissions to make updates. The new role is useful for auditors who want to confirm compliance with their company policies. High-privilege roles such as Account Administrator or API Administrator override the new role.
+> The Read Only Account Administrator role is now available in Account Manager. The role provides users read-only access to view details about their organisation, API clients, and users. The role doesn’t include permissions to make updates. The new role is useful for auditors who want to confirm compliance with their company policies. High-privilege roles such as Account Administrator or API Administrator override the new role.
 
 A new feature in the Account Manager allows viewing of critical configuration without editing access. A great new addition to the roles in my opinion!
 

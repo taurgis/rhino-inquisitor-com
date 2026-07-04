@@ -4,7 +4,7 @@ description: >-
   Learn the difference between slicing and variation groups in Commerce Cloud,
   and when each model fits your product setup best.
 date: '2023-11-20T11:08:09.000Z'
-lastmod: '2026-07-04T14:48:28.000Z'
+lastmod: '2026-07-04T15:28:48.000Z'
 url: /slicing-versus-variation-groups-in-sfcc/
 draft: false
 heroImage: a-tshirt-sliced-into-multiple-colors-scaled-4ed0b9ab1a.jpg
@@ -19,7 +19,7 @@ takeaways:
   - "Argues that variation groups are usually the stronger option for merchandising, SEO stability, promotions, and composable storefront support"
   - "Highlights the operational and quota implications teams should understand before choosing a product-modelling strategy"
 ---
-Clarity and efficiency are key in the strategic display and management of products in your online store. In an age where various product options and variations dominate e-commerce, [we must grasp the organizational tools at our disposal](/getting-to-know-sfra-as-a-developer/).
+Clarity and efficiency are key in the strategic display and management of products in your online store. In an age where various product options and variations dominate e-commerce, [we must grasp the organisational tools at our disposal](/getting-to-know-sfra-as-a-developer/).
 
 Today, we're thoroughly examining two tools provided by Salesforce B2C Commerce Cloud: 'Slicing' and 'Variation Groups'. Both are an option in product management, but which is your best bet?
 
@@ -53,7 +53,7 @@ The "Master Product" has been renamed to "Base Product" to be more inclusive.
 
 Variation Groups are really useful because they help to show a product line in a complete way. They take information about the inventory from a group of SKUs, which makes it easier to keep track of the amount of each product you have and to show the products consistently. With Variation Groups, you can also choose specific products based on certain attributes like colour and size, and place them in your store in a way that makes sense.
 
-Variation Groups also make it possible to tag products to promotions, which gives you more control over sales. This is something that is difficult to do with traditional product organization methods. Variation Groups are really helpful in situations where you have lots of products that need to be managed carefully, and where you need to make sure that everything looks and works well together.
+Variation Groups also make it possible to tag products to promotions, which gives you more control over sales. This is something that is difficult to do with traditional product organisation methods. Variation Groups are really helpful in situations where you have lots of products that need to be managed carefully, and where you need to make sure that everything looks and works well together.
 
 ## Why use Variation Groups over Slicing
 

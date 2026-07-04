@@ -4,7 +4,7 @@ description: >-
   Enhance your security beyond the basics on Salesforce B2C Commerce Cloud with
   this comprehensive guide tailored for developers.
 date: '2026-01-19T08:02:08.000Z'
-lastmod: '2026-07-04T14:48:28.000Z'
+lastmod: '2026-07-04T15:28:48.000Z'
 url: /a-dev-guide-to-combating-fraud-on-sfcc/
 draft: false
 heroImage: fraud-orders-sfcc-scaled-beae2495ff.jpeg
@@ -44,11 +44,11 @@ This is the foundational threat of all e-commerce. By its very nature, an online
 
 #### Account Takeover (ATO) Fraud
 
-A more advanced form of identity theft, [Account Takeover](https://www.ic3.gov/CrimeInfo/AccountTakeover) (ATO), occurs when a fraudster gains unauthorized access to a legitimate customer's account. They achieve this through methods such as credential stuffing, where automated bots test lists of usernames and passwords stolen from other data breaches, exploiting the common user habit of reusing passwords. Once inside, the fraudster can make purchases using stored payment methods, change shipping addresses to intercept goods, drain loyalty points, or steal sensitive personal data for further attacks.
+A more advanced form of identity theft, [Account Takeover](https://www.ic3.gov/CrimeInfo/AccountTakeover) (ATO), occurs when a fraudster gains unauthorised access to a legitimate customer's account. They achieve this through methods such as credential stuffing, where automated bots test lists of usernames and passwords stolen from other data breaches, exploiting the common user habit of reusing passwords. Once inside, the fraudster can make purchases using stored payment methods, change shipping addresses to intercept goods, drain loyalty points, or steal sensitive personal data for further attacks.
 
 #### "Friendly" Fraud (Chargeback Abuse)
 
-This is one of the most challenging types of fraud to combat because it originates from a seemingly legitimate customer. Friendly fraud occurs when a customer makes a valid purchase but then contacts their credit card issuer to dispute the charge, falsely claiming the item never arrived, was defective, or that the transaction was unauthorized. The merchant loses the product, the revenue, and is hit with a [chargeback](https://www.radial.com/types-of-ecommerce-fraud) fee from the bank. Because the initial transaction markers—IP address, billing information, device fingerprint—all appear perfectly normal, it bypasses many traditional fraud filters.
+This is one of the most challenging types of fraud to combat because it originates from a seemingly legitimate customer. Friendly fraud occurs when a customer makes a valid purchase but then contacts their credit card issuer to dispute the charge, falsely claiming the item never arrived, was defective, or that the transaction was unauthorised. The merchant loses the product, the revenue, and is hit with a [chargeback](https://www.radial.com/types-of-ecommerce-fraud) fee from the bank. Because the initial transaction markers—IP address, billing information, device fingerprint—all appear perfectly normal, it bypasses many traditional fraud filters.
 
 #### Bot-Driven Attacks
 
@@ -136,9 +136,9 @@ Since the eCDN behind the scenes is Cloudflare, some protections are enabled by 
 
 According to the shared responsibility model, developers are responsible for the security of their custom code and configurations. Adhering to these best practices is non-negotiable.
 
-- **Authentication & Authorization:** Enforce strict, server-side access control checks for all sensitive business functions. In SFRA, use the [userLoggedIn](https://help.salesforce.com/s/articleView?id=cc.b2c_developer_authentication_and_authorization.htm&type=5) middleware to protect controller endpoints that should only be accessible to authenticated users. Never trust that a request is legitimate just because it was sent; always validate on the server.
+- **Authentication & Authorisation:** Enforce strict, server-side access control checks for all sensitive business functions. In SFRA, use the [userLoggedIn](https://help.salesforce.com/s/articleView?id=cc.b2c_developer_authentication_and_authorization.htm&type=5) middleware to protect controller endpoints that should only be accessible to authenticated users. Never trust that a request is legitimate just because it was sent; always validate on the server.
 
-- **Guest Shopper Security:** Guest checkouts are a major vector for fraud because they lack the historical context of a registered account. Implementing robust authorization for guest order lookup is critical. Never grant access to an order solely based on the order number. At a minimum, require a combination of the order number, the email address used for the order, and the billing postal code to prevent unauthorized users from accessing order details.
+- **Guest Shopper Security:** Guest checkouts are a major vector for fraud because they lack the historical context of a registered account. Implementing robust authorisation for guest order lookup is critical. Never grant access to an order solely based on the order number. At a minimum, require a combination of the order number, the email address used for the order, and the billing postal code to prevent unauthorised users from accessing order details.
 
 - **Data Validation:** Proper validation of all user-provided input is the bedrock of application security. This is your primary defence against a host of vulnerabilities, including Cross-Site Scripting (XSS) and server-side script injection.
 
@@ -190,7 +190,7 @@ Here’s a look at some leading providers and who they are best for:
 
 In the digital marketplace, trust is the ultimate currency, and as Salesforce B2C Commerce developers, we are its primary architects. Combating fraud is not a feature to be installed but a system to be architected—a dynamic, multi-layered fortress designed to protect both the business and its customers. The path to a resilient storefront is a clear, strategic progression.
 
-First, we build the **Foundation**. This involves mastering the native toolkit SFCC provides. We harden the perimeter with eCDN custom rules to filter malicious traffic, and we ensure our payment processing is secure by leveraging 3D Secure with Salesforce Payments or rigorously enforcing AVS and CVV checks with third-party gateways. We adhere to security best practices in our own code, implementing strict authentication and authorization checks for every sensitive operation.
+First, we build the **Foundation**. This involves mastering the native toolkit SFCC provides. We harden the perimeter with eCDN custom rules to filter malicious traffic, and we ensure our payment processing is secure by leveraging 3D Secure with Salesforce Payments or rigorously enforcing AVS and CVV checks with third-party gateways. We adhere to security best practices in our own code, implementing strict authentication and authorisation checks for every sensitive operation.
 
 Second, we deploy our own **Custom Rules**. Using the available information, we write server-side JavaScript to enforce business-specific logic, allowing us to build a simple risk engine that detects obvious fraud patterns tailored to our unique business context.
 

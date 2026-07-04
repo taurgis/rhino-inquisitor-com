@@ -4,7 +4,7 @@ description: >-
   How can we simplify the Order of Execution in Salesforce? Find out in this
   article where we only use modern and KISS solutions!
 date: '2023-01-09T05:48:13.000Z'
-lastmod: '2026-07-04T14:48:28.000Z'
+lastmod: '2026-07-04T15:28:48.000Z'
 url: /simplifying-the-salesforce-order-of-execution/
 draft: false
 heroImage: dominoes-in-middle-of-the-road-f4103f1e65.jpg
@@ -21,7 +21,7 @@ takeaways:
   - "Explains how retiring Workflow Rules and Process Builder reduces complexity, recursion, and debugging overhead"
   - "Frames the simplified model as a practical planning aid rather than a universal replacement for the official diagram"
 ---
-When it comes to understanding how Salesforce operates, there are many factors to consider. One key aspect is the "Order of Execution", or the sequence in which Salesforce automation runs. Knowing the order of execution can help you better understand how your code, triggers, flows, and other automation tools operate within the platform. Whether you're a seasoned Salesforce developer or new to the platform, understanding the [Order of Execution](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_triggers_order_of_execution.htm) is essential to maximising the system's potential. But there are so many different automation types available, and do I need to consider all of them in all use cases? This article might spark some heated debate, I am well aware! It delves into the topic of automation and how to choose the right tools for your organization while filtering out unnecessary automation and simplifying processes to reduce complexity. But don't worry, and we're not trying to stir the pot too much... just a little 😜. As software developers and architects, it's essential to consider ways to streamline and improve our workflows constantly. Let's dive in and start the conversation.
+When it comes to understanding how Salesforce operates, there are many factors to consider. One key aspect is the "Order of Execution", or the sequence in which Salesforce automation runs. Knowing the order of execution can help you better understand how your code, triggers, flows, and other automation tools operate within the platform. Whether you're a seasoned Salesforce developer or new to the platform, understanding the [Order of Execution](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_triggers_order_of_execution.htm) is essential to maximising the system's potential. But there are so many different automation types available, and do I need to consider all of them in all use cases? This article might spark some heated debate, I am well aware! It delves into the topic of automation and how to choose the right tools for your organisation while filtering out unnecessary automation and simplifying processes to reduce complexity. But don't worry, and we're not trying to stir the pot too much... just a little 😜. As software developers and architects, it's essential to consider ways to streamline and improve our workflows constantly. Let's dive in and start the conversation.
 
 ## tl;dr - show me the diagram
 
@@ -35,7 +35,7 @@ For the impatient amongst us, here is the diagram showing the simplified represe
 
 [View on Lucid](https://lucid.app/lucidchart/17edf202-1994-4772-8a0b-4d2835a9799e/edit?viewport_loc=3530%2C810%2C1844%2C838%2C0_0&invitationId=inv_f7af9e9a-9783-47ca-ab06-1142226cad87)
 
-Not for everyone. This diagram is meant to assist those starting a new project or have already migrated all of their automation to Flow. Remember that it may not work for every organization, as many have Workflow Rules and Process Builder automation that cannot be migrated overnight. If you are working on Sales or Service Cloud, the original diagram still applies to you if you use these types of automation. The goal is to help you make informed decisions about your automation strategy.​
+Not for everyone. This diagram is meant to assist those starting a new project or have already migrated all of their automation to Flow. Remember that it may not work for every organisation, as many have Workflow Rules and Process Builder automation that cannot be migrated overnight. If you are working on Sales or Service Cloud, the original diagram still applies to you if you use these types of automation. The goal is to help you make informed decisions about your automation strategy.​
 
 ## The complexity and nuances
 
@@ -92,7 +92,7 @@ Now that we have taken out all the above from consideration, we end up with the 
 
 ## Why create this diagram
 
-I am well aware that there is [already a clear and documented visual](https://medium.com/salesforce-architects/salesforce-order-of-execution-visualized-76ac45721eba), and it is linked in the article! But this diagram considers all the items I mentioned before (retiring and object-specific), and I wanted a simplified version taking out all of these and seeing what remained. Not for everyone. This diagram is meant to assist those starting a new project or have already migrated all of their automation to Flow. Remember that it may not work for every organization, as many have Workflow Rules and Process Builder automation that cannot be migrated overnight. If you are working on Sales or Service Cloud, the original diagram still applies to you if you use these types of automation. The goal is to help you make informed decisions about your automation strategy.​
+I am well aware that there is [already a clear and documented visual](https://medium.com/salesforce-architects/salesforce-order-of-execution-visualized-76ac45721eba), and it is linked in the article! But this diagram considers all the items I mentioned before (retiring and object-specific), and I wanted a simplified version taking out all of these and seeing what remained. Not for everyone. This diagram is meant to assist those starting a new project or have already migrated all of their automation to Flow. Remember that it may not work for every organisation, as many have Workflow Rules and Process Builder automation that cannot be migrated overnight. If you are working on Sales or Service Cloud, the original diagram still applies to you if you use these types of automation. The goal is to help you make informed decisions about your automation strategy.​
 
 ### Modern
 

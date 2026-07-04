@@ -4,7 +4,7 @@ description: >-
   Guide to the SFCC quotas that break storefronts first, with failure patterns
   and design tactics to stay inside platform limits.
 date: '2025-11-24T12:41:24.000Z'
-lastmod: '2026-07-04T14:48:28.000Z'
+lastmod: '2026-07-04T15:28:48.000Z'
 url: /a-survival-guide-to-sfcc-platform-limits/
 draft: false
 heroImage: b2c-commerce-cloud-quota-warnings-scaled-adc4dec7e9.jpeg
@@ -57,7 +57,7 @@ Beyond the hard limit, there is a more subtle performance drag to consider. The 
 
 **The Limit:** An instance is [capped](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/quota/html/Object_Quotas.html) at a maximum of 300 total business object definitions. This count includes all the platform's built-in system object types, as well as any custom object types created by developers.
 
-**The Danger Zone:** This limit is rarely a concern for typical, single-brand e-commerce sites. However, it can become a very real constraint for large, complex, multi-brand organizations operating on a single B2C Commerce instance. In such environments, numerous bespoke features, each potentially demanding its own custom data model, can quickly consume the available slots for new object types.
+**The Danger Zone:** This limit is rarely a concern for typical, single-brand e-commerce sites. However, it can become a very real constraint for large, complex, multi-brand organisations operating on a single B2C Commerce instance. In such environments, numerous bespoke features, each potentially demanding its own custom data model, can quickly consume the available slots for new object types.
 
 **The Fallout:** The consequence is absolute: the inability to create new custom object types. This effectively halts the development of any new feature that requires a distinct data structure, putting the brakes on innovation and business agility.
 
@@ -221,7 +221,7 @@ This shift to rate-limiting signals a profound change in responsibility. In a tr
 
 ## The Gatekeeper's Toll: SLAS Rate Limits
 
-**The Limit:** The Shopper Login and API Access Service (SLAS), which governs all authentication and authorization for Shopper APIs, has its own distinct, high-level rate limits: 24,000 requests per minute (RPM) for production tenants and 500 RPM for non-production tenants.
+**The Limit:** The Shopper Login and API Access Service (SLAS), which governs all authentication and authorisation for Shopper APIs, has its own distinct, high-level rate limits: 24,000 requests per minute (RPM) for production tenants and 500 RPM for non-production tenants.
 
 **The Danger Zone:** The most common way to violate this limit is with a poorly configured client application that requests a new guest user token on every single API call, rather than caching and reusing the token it has already received.
 

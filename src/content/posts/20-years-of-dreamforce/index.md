@@ -4,7 +4,7 @@ description: >-
   Get ready for Dreamforce 2022 with a quick look at the event's 20th
   anniversary, standout commerce sessions, and what to watch on site.
 date: '2022-08-24T19:21:06.000Z'
-lastmod: '2026-07-04T14:48:28.000Z'
+lastmod: '2026-07-04T15:28:48.000Z'
 url: /20-years-of-dreamforce/
 draft: false
 heroImage: dreamforce-ai-8754307d6d.jpg
@@ -185,7 +185,7 @@ Next to headless, social commerce has gotten a lot more attention. If you are al
 - [Pei En Thong](https://www.linkedin.com/in/thongpeien/)
 - Theatre Session
 
-> Learn how you can build fast, flexible, digital experiences with headless commerce. Hear how brands can accelerate ROI and unlock organizational agility with a trusted Composable Storefront.
+> Learn how you can build fast, flexible, digital experiences with headless commerce. Hear how brands can accelerate ROI and unlock organisational agility with a trusted Composable Storefront.
 
 Another session on headless. My gut feeling is that this presentation is about rebranding the PWA Kit to "Composable Storefront."
 

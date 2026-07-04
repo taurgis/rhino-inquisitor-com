@@ -4,7 +4,7 @@ description: >-
   Securing your Salesforce B2C Commerce Cloud environment is important, but
   sometimes neglected. These are 3 actions you can take immediately!
 date: '2024-01-15T17:47:00.000Z'
-lastmod: '2026-07-04T14:48:28.000Z'
+lastmod: '2026-07-04T15:28:48.000Z'
 url: /three-things-to-secure-sfcc/
 draft: false
 heroImage: robot-locking-a-gate-9a4abf2129.png
@@ -62,7 +62,7 @@ If you have systems that integrate with Salesforce B2C Commerce Cloud, document 
 
 An excellent example of such an integration is an ERP system that updates orders via the OCAPI and uploads Price Book files to WebDAV. Verify that the ERP can only do those two things with the API Key it has been given.
 
-There may be an integration that is no longer active or an API key that has been replaced. Ensure these are removed from the configuration so no one can abuse them if they are accidentally shared outside your organization.
+There may be an integration that is no longer active or an API key that has been replaced. Ensure these are removed from the configuration so no one can abuse them if they are accidentally shared outside your organisation.
 
 We always hope people who get these by accident bear no ill will, but that is not the world we live in.
 

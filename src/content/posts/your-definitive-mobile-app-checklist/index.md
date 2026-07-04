@@ -4,7 +4,7 @@ description: >-
   Use this mobile app launch checklist to review architecture, integrations, QA,
   and go-live readiness before an SFCC-backed app ships.
 date: '2025-12-15T10:39:06.000Z'
-lastmod: '2026-07-04T14:48:28.000Z'
+lastmod: '2026-07-04T15:28:48.000Z'
 url: /your-definitive-mobile-app-checklist/
 draft: false
 heroImage: headless-app-go-live-scaled-89b046ecca.jpeg
@@ -81,7 +81,7 @@ This section adapts the SRA's architectural principles to a headless context. Th
 
 - **Custom API Security:** Every custom API endpoint must be adequately secured with a `ShopperToken` security scheme and a unique custom scope (prefixed with `c_`) in its OpenAPI Specification (OAS 3.0) definition. Unsecured custom endpoints are a critical vulnerability and will not be registered by the platform.
 
-- **CORS Policy:** While less critical for native mobile apps than for web apps, if any web-based technologies or views are used, the Cross-Origin Resource Sharing (CORS) headers configured on the platform should be as restrictive as possible to prevent unauthorized cross-domain requests.
+- **CORS Policy:** While less critical for native mobile apps than for web apps, if any web-based technologies or views are used, the Cross-Origin Resource Sharing (CORS) headers configured on the platform should be as restrictive as possible to prevent unauthorised cross-domain requests.
 
 > [!WARNING]
 > **SLAS Private Key**

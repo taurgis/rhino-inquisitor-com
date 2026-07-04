@@ -116,8 +116,14 @@ test('accepts British spelling and flags American variants', () => {
   );
 });
 
-test('accepts "authorization"/"organization" (Oxford British + platform identifiers)', async () => {
+test('British generically, but accepts the Authorization/Organization identifiers', async () => {
   const allowlist = await loadAllowlist();
+  // Generic prose is British and passes.
+  assert.deepEqual(
+    analyzeSource('A well-organised authorisation model helps the organisation.', { speller, allowlist }),
+    []
+  );
+  // The literal HTTP header and SLAS field identifiers are allowlisted American.
   assert.deepEqual(
     analyzeSource('Send the Authorization header with your Organization ID.', { speller, allowlist }),
     []

@@ -4,7 +4,7 @@ description: >-
   Learn why origin shielding matters in Commerce Cloud, how it protects origin
   infrastructure, and when to include it in your traffic strategy.
 date: '2024-11-04T08:40:19.000Z'
-lastmod: '2026-07-04T14:48:28.000Z'
+lastmod: '2026-07-04T15:28:48.000Z'
 url: /the-importance-of-origin-shielding/
 draft: false
 heroImage: protecting-your-server-26dacc7cc4.jpg
@@ -32,7 +32,7 @@ Origin shielding protects the origin server - in our case the Application Server
 
 When someone tries to access content hosted on Salesforce, Mobify, or Demandware, the Embedded Content Delivery Network (eCDN) steps in. It intercepts the request, verifies its legitimacy, and only sends valid requests to the origin servers.
 
-This process helps reduce the risk of direct attacks on the origin infrastructure and adds an extra layer of protection against unauthorized access. After all, Cloudflare does have a few things in its arsenal.
+This process helps reduce the risk of direct attacks on the origin infrastructure and adds an extra layer of protection against unauthorised access. After all, Cloudflare does have a few things in its arsenal.
 
 Long story short, origin shielding is a security measure for safeguarding cloud-hosted infrastructure, ensuring both the integrity and availability of Salesforce’s services.
 
@@ -87,7 +87,7 @@ Rather than having '_<https://production-eu01-mybrand.demandware.net>_', we can 
 
 The next step is pretty simple: _**Good communication**_. Make sure to inform all relevant parties to update their configurations to point to the vanity domains rather than the direct Demandware URLs.
 
-Communicating this information to the right people will significantly reduce the likelihood of encountering error pages due to unauthorized access errors.
+Communicating this information to the right people will significantly reduce the likelihood of encountering error pages due to unauthorised access errors.
 
 ### 3\. Test
 

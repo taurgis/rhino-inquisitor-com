@@ -4,7 +4,7 @@ description: >-
   Learn how SFCC custom preferences support configurable storefront behaviour,
   governance, and safer environment-specific settings.
 date: '2023-10-16T12:01:58.000Z'
-lastmod: '2026-07-04T14:48:28.000Z'
+lastmod: '2026-07-04T15:28:48.000Z'
 url: /custom-preferences-in-sfcc/
 draft: false
 heroImage: it-configuring-server-scaled-d8087e9ab9.jpeg
@@ -24,16 +24,16 @@ takeaways:
 
 Custom preferences can be created at two levels:
 
-- global (organization)
+- global (organisation)
 - site
 
 As a Salesforce B2C Commerce Cloud developer, you must understand the differences between Global Preferences and Site Preferences and use each appropriately.
 
 ## Global Custom Preferences
 
-[Global Preferences](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_global_preferences.htm) are organization-level preferences that any site within the environment can access. These preferences are ideal for settings that are common across all sites.
+[Global Preferences](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_global_preferences.htm) are organisation-level preferences that any site within the environment can access. These preferences are ideal for settings that are common across all sites.
 
-For example, if all sites in an organization use the same preference value, using a global value is your best bet. This can help reduce code duplication and make maintaining and updating settings across multiple sites more accessible.
+For example, if all sites in an organisation use the same preference value, using a global value is your best bet. This can help reduce code duplication and make maintaining and updating settings across multiple sites more accessible.
 
 Global Preferences can be accessed using the System Preferences API:
 
@@ -51,7 +51,7 @@ To add your preferences on this global level, head here in the Business Manager:
 
 [Site Preferences](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_site_preferences.htm) are site-level preferences that can only be accessed by the site to which they belong. These preferences are ideal for settings that are specific to a site.
 
-For example, if a site has a particular loyalty program calculation not used by any other site, use Site Preferences. This can help ensure that settings are only applied to the site they belong to and do not affect other sites in the organization.
+For example, if a site has a particular loyalty program calculation not used by any other site, use Site Preferences. This can help ensure that settings are only applied to the site they belong to and do not affect other sites in the organisation.
 
 Site Preferences can be accessed using the Site API:
 

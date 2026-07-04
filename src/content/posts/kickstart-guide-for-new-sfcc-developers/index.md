@@ -4,7 +4,7 @@ description: >-
   An interactive guide for new SFCC developers covering storefront patterns,
   platform concepts, and practical next steps for hands-on learning.
 date: '2026-01-12T14:05:43.000Z'
-lastmod: '2026-07-04T14:48:28.000Z'
+lastmod: '2026-07-04T15:28:48.000Z'
 url: /kickstart-guide-for-new-sfcc-developers/
 draft: false
 heroImage: the-new-salesforce-developer-scaled-1f8ff6fbac.jpeg
@@ -34,7 +34,7 @@ Before you write a single line of code, you need to understand the map of the wo
 
 ### Understanding the Realm & Instance Structure
 
-At the highest level, your [SFCC environments](/understanding-sfcc-instances/) are organized into a **Realm**, which is a collection of instance groups allocated to your organization. Within a realm, you have two primary types of instance groups:
+At the highest level, your [SFCC environments](/understanding-sfcc-instances/) are organised into a **Realm**, which is a collection of instance groups allocated to your organisation. Within a realm, you have two primary types of instance groups:
 
 - **Primary Instance Group (PIG):** This is where the magic happens for your live site. It contains the three core environments that form the backbone of any project's lifecycle:
 
@@ -222,7 +222,7 @@ Finally, here are a few specific "gotchas" that bite new developers:
 
 - **The Remote Include Asset Trap:**You'll find that including client-side assets using the standard `assets.js` helper doesn't work inside a remote include (`<isinclude url="...">`). This is because the asset list is scoped to a single request, and a remote include is technically a separate, internal request. I explain this specific problem and how to work around it in my guide to**[loading client-side JavaScript and CSS in SFRA](/how-to-load-client-side-javascript-and-css-in-sfra/).**
 
-- **Massive Image Folders:** While WebDAV is great, dumping a million product images into a single folder is a recipe for terrible performance, both for file system listing and for your import/export jobs. Salesforce recommends a maximum of 100,000 files per folder. You must have a strategy for organizing images into a logical sub-folder structure.
+- **Massive Image Folders:** While WebDAV is great, dumping a million product images into a single folder is a recipe for terrible performance, both for file system listing and for your import/export jobs. Salesforce recommends a maximum of 100,000 files per folder. You must have a strategy for organising images into a logical sub-folder structure.
 
 - **Orphaned Objects from Failed Imports:** If a large catalogue import job fails midway through, it can leave your data in an inconsistent state, for example, with products created but not assigned to their categories. Always design your import jobs to be restartable and, where possible, use delta feeds that only contain changes rather than full replacements.
 

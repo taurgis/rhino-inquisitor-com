@@ -4,7 +4,7 @@ description: >-
   A practical look at how AI changes Salesforce Commerce Cloud work, where it
   improves delivery, and why developer judgement still matters most.
 date: '2025-06-30T17:46:53.000Z'
-lastmod: '2026-07-04T14:48:28.000Z'
+lastmod: '2026-07-04T15:28:48.000Z'
 url: /ai-wont-steal-your-sfcc-job-but-a-developer-using-ai-will/
 draft: false
 heroImage: rhino-with-ai-agents-scaled-9d1423b5ab.jpeg
@@ -34,16 +34,16 @@ This isn't some far-off future. The shift is already here. The 2024 [DORA](https
 
 **_This is no longer an experimental niche... It's a rapidly adopted standard._**
 
-Businesses are (or will go) all-in, with 78% of organizations reporting AI usage in 2024, a massive jump from 55% the previous year. The data is clear: AI is being integrated into the software development lifecycle at a breathtaking pace, promising boosts in productivity, code quality, and even developer focus.
+Businesses are (or will go) all-in, with 78% of organisations reporting AI usage in 2024, a massive jump from 55% the previous year. The data is clear: AI is being integrated into the software development lifecycle at a breathtaking pace, promising boosts in productivity, code quality, and even developer focus.
 
 However, the most dangerous misconception is that simply using AI to write code faster automatically translates to greater value. This brings us to a critical, non-obvious threat that developers must understand: the "Vacuum Hypothesis."
 Introduced in the [DORA](https://dora.dev/research/2024/) Report, this concept tells us that the time developers save by using AI is often immediately absorbed by lower-value activities, such as endless meetings, bureaucratic red tape, and context-switching between trivial tasks.
 
-Consider this scenario: you use GitHub Copilot to generate a controller with helpers and its test class in 30 minutes, a task that previously took you 90. You've just saved an hour. But what happens to that hour? In many organizations, it evaporates into a vacuum of inefficiency. It's consumed by an extra status update meeting, a flurry of low-priority Slack messages, or simply waiting for a manual, bottlenecked deployment process to inch forward. The micro-level productivity gain is completely nullified by macro-level organizational drag.
+Consider this scenario: you use GitHub Copilot to generate a controller with helpers and its test class in 30 minutes, a task that previously took you 90. You've just saved an hour. But what happens to that hour? In many organisations, it evaporates into a vacuum of inefficiency. It's consumed by an extra status update meeting, a flurry of low-priority Slack messages, or simply waiting for a manual, bottlenecked deployment process to inch forward. The micro-level productivity gain is completely nullified by macro-level organisational drag.
 
 This reveals a more profound truth. The most successful developers in this new era won't just be the ones who master AI tools. They will be the ones who leverage the productivity gains from those tools to focus on high-value work that AI _cannot_ do: architecting complex, scalable systems, mentoring junior developers, collaborating with business stakeholders to solve the _right_ problems, and championing the process improvements needed to ensure that saved time is reinvested, not wasted.
 
-The challenge is as much about changing your organization's culture as it is about changing your own code editor.
+The challenge is as much about changing your organisation's culture as it is about changing your own code editor.
 
 ## Déjà Vu All Over Again: A Brief History of Developer "Extinction Events"
 

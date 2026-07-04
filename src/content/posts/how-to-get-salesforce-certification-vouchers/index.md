@@ -4,7 +4,7 @@ description: >-
   Getting certified with Salesforce is one of the people's many goals within the
   ecosystem. But they come at a price! Where can I score a deal?
 date: '2023-01-23T10:55:12.000Z'
-lastmod: '2026-07-04T14:48:28.000Z'
+lastmod: '2026-07-04T15:28:48.000Z'
 url: /how-to-get-salesforce-certification-vouchers/
 draft: false
 heroImage: trailhead-academy-765c17a690.jpeg
@@ -76,7 +76,7 @@ In the [Partner Community](https://partners.salesforce.com/_ui/core/chatter/ui/C
 
 ## Certification Days
 
-Every year there is something called "[Certification Days](https://www.salesforceben.com/salesforce-certification-days-free-preparation-webinars-with-trailhead/)," a series of webinars organized by [Salesforce](https://trailhead.salesforce.com/en/credentials/cert-days/) to inform you about the different types of certification and some helpful tips to get you started.
+Every year there is something called "[Certification Days](https://www.salesforceben.com/salesforce-certification-days-free-preparation-webinars-with-trailhead/)," a series of webinars organised by [Salesforce](https://trailhead.salesforce.com/en/credentials/cert-days/) to inform you about the different types of certification and some helpful tips to get you started.
 
 After participating, you can get a 40$ discount, which doesn't cover the entire thing. But every discount helps, right?
 

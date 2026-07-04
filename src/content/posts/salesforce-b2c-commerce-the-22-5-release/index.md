@@ -4,7 +4,7 @@ description: >-
   Review the Salesforce B2C Commerce Cloud 22.5 release notes and the platform
   updates developers should test or plan for.
 date: '2022-04-18T07:31:52.000Z'
-lastmod: '2026-07-04T14:48:28.000Z'
+lastmod: '2026-07-04T15:28:48.000Z'
 url: /salesforce-b2c-commerce-the-22-5-release/
 draft: false
 heroImage: b2c-control-center-3581b7d6c3.png
@@ -116,7 +116,7 @@ Over the past months, a lot of feedback has been provided on this feature. And i
 - Ability to create exclusion rules for products
 - Maximum conditions for a rule have been increased from 5 to 20
 
-Having the option to set more than five conditions will give merchandisers more flexibility when organizing their categories.
+Having the option to set more than five conditions will give merchandisers more flexibility when organising their categories.
 
 ### Salesforce Payments Credentials Storage
 

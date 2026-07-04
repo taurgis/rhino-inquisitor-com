@@ -4,7 +4,7 @@ description: >-
   The Salesforce B2C Commerce Cloud Managed Runtime is a cloud-based hosting
   environment for Progressive Web Applications (PWAs).
 date: '2023-05-08T13:04:24.000Z'
-lastmod: '2026-07-04T14:48:28.000Z'
+lastmod: '2026-07-04T15:28:48.000Z'
 url: /what-is-the-sfcc-managed-runtime/
 draft: false
 heroImage: people-maintaining-server-room-scaled-d510b8a413.jpg
@@ -19,7 +19,7 @@ tags:
 author: Thomas Theunen
 takeaways:
   - "Explains the Managed Runtime as Salesforce-hosted infrastructure for deploying, running, and monitoring PWA Kit storefront bundles"
-  - "Covers the core concepts of organizations, projects, environments, and bundles that structure a composable storefront deployment"
+  - "Covers the core concepts of organisations, projects, environments, and bundles that structure a composable storefront deployment"
   - "Highlights the main business and developer benefits, including simplified infrastructure management, scaling, rollback clarity, and API-driven automation"
 ---
 In the last two years, more vocabulary has been added to the [Salesforce B2C Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/) ecosystem because of the [Composable Storefront](/sitegenesis-vs-sfra-vs-pwa/).
@@ -34,13 +34,13 @@ Developers will use the PWA Kit tools to generate a bundle, a snapshot of the st
 
 Each project can have multiple bundles, but each environment has only one "deployed" bundle. Similar to the fact that you can only have one active "[Code Version](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-code-deployment.html)" on the server side.
 
-{{< img-caption src="salesforce-commerce-cloud-managed-runtime-e2b922960d.jpg" alt="Managed Runtime project list showing one organization with two storefront projects." >}}
+{{< img-caption src="salesforce-commerce-cloud-managed-runtime-e2b922960d.jpg" alt="Managed Runtime project list showing one organisation with two storefront projects." >}}
 
-The Managed Runtime operates within a hierarchy of organizations and projects. Organizations can contain multiple projects for various storefronts, and each project can contain multiple environments.
+The Managed Runtime operates within a hierarchy of organisations and projects. Organisations can contain multiple projects for various storefronts, and each project can contain multiple environments.
 
 This structure allows for efficiently managing multiple environments and separating different work streams.
 
-{{< img-caption src="managed-runtime-projects-environments-ba31af2d92.png" alt="Mind map showing Managed Runtime organizations, projects, and environments with production and development types." >}}
+{{< img-caption src="managed-runtime-projects-environments-ba31af2d92.png" alt="Mind map showing Managed Runtime organisations, projects, and environments with production and development types." >}}
 
 ### AWS Lambda
 
@@ -65,7 +65,7 @@ When a platform offers features, there are a lot of questions that will go throu
 Developers working with Salesforce B2C Commerce Cloud can leverage this runtime to:
 
 1. **Accelerate development:** This was already mentioned, but the fact that, as a developer, you do not have to worry about the infrastructure is a significant benefit!
-1. **Streamline collaboration:** The organization and project structure within Managed Runtime enables you to work together more efficiently, sharing knowledge and resources across multiple environments.
+1. **Streamline collaboration:** The organisation and project structure within Managed Runtime enables you to work together more efficiently, sharing knowledge and resources across multiple environments.
 1. **Enhance productivity:** With the ability to designate specific bundles as deployed, developers can easily switch between different versions of their storefront, making testing and iterating on new features more accessible.
 1. **No credits:** The environments on the managed runtime do not work on the same system as the sandboxes (credits for uptime). That means no extra processes have to be set up!
 
@@ -74,7 +74,7 @@ Developers working with Salesforce B2C Commerce Cloud can leverage this runtime 
 Salesforce offers [a range of APIs](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/using-the-managed-runtime-api.html) that developers can use to interact with the platform, including:
 
 1. **Managed Runtime APIs:** This API allows developers to manage bundles, environments, and deployments within their projects.
-1. **Admin APIs:** This API provides access to administrative functions, such as managing users, organizations, and projects.
+1. **Admin APIs:** This API provides access to administrative functions, such as managing users, organisations, and projects.
 
 These APIs make setting up CI/CD pipelines and automating specific processes much easier!
 

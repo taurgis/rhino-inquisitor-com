@@ -4,7 +4,7 @@ description: >-
   Those interested in Salesforce B2C Commerce Cloud will hear the term
   SiteGenesis and SFRA (and PWA). But what is the difference?
 date: '2022-07-17T13:42:22.000Z'
-lastmod: '2026-07-04T14:48:28.000Z'
+lastmod: '2026-07-04T15:28:48.000Z'
 url: /sitegenesis-vs-sfra-vs-pwa/
 draft: false
 heroImage: sfra-vs-sitegenesis-965c09b9a6.jpg
@@ -103,7 +103,7 @@ Salesforce is also actively pushing customers towards SFRA, even though a new he
 
 I will keep this short. Third parties are actively integrating with SFRA and updating their cartridges!
 
-So choosing to go with SFRA now will be a good base for years to come. But be sure to continue reading, as the PWA Kit solution may be attractive for your organization!
+So choosing to go with SFRA now will be a good base for years to come. But be sure to continue reading, as the PWA Kit solution may be attractive for your organisation!
 
 ## PWA Kit & Managed Runtime
 

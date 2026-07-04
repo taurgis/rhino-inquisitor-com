@@ -4,7 +4,7 @@ description: >-
   Salesforce B2C Commerce Cloud appears to only have certifications for
   developers, but is this true? Are there other options available?
 date: '2023-04-24T08:47:47.000Z'
-lastmod: '2026-07-04T14:48:28.000Z'
+lastmod: '2026-07-04T15:28:48.000Z'
 url: /non-technical-sfcc-certifications/
 draft: false
 heroImage: einstein-shopping-scaled-5e1e2b427b.jpeg
@@ -48,13 +48,13 @@ While a UX designer focuses on the end-user, a Strategy Designer focuses on the 
 
 The description is taken from Trailhead:
 
-> Strategy Designer candidates create value by aligning an organization around and directing the design of systems-level solutions toward desired business and user outcomes.
+> Strategy Designer candidates create value by aligning an organisation around and directing the design of systems-level solutions toward desired business and user outcomes.
 
 A completely different path than the User Experience Designer and Business Analyst as you take a more high-level approach to the projects and their alignment with the business and users' goals.
 
 A perfect role (and certificate) for those who like to spar with businesses on their roadmap and vision for the future.
 
-The preparation for this certification will take you across different products of Salesforce, not only Salesforce B2C Commerce Cloud. But isn't that a good thing? As a Strategy Designer, you should be aware of all of the different offerings of Salesforce to align them with the organization's vision!
+The preparation for this certification will take you across different products of Salesforce, not only Salesforce B2C Commerce Cloud. But isn't that a good thing? As a Strategy Designer, you should be aware of all of the different offerings of Salesforce to align them with the organisation's vision!
 
 ## Business Analyst
 

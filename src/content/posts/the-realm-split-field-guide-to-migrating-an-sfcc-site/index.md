@@ -4,7 +4,7 @@ description: >-
   Field guide to realm splits in SFCC, covering when the migration is justified,
   key delivery phases, and the operational risks teams inherit.
 date: '2025-09-08T09:14:15.000Z'
-lastmod: '2026-07-04T14:48:28.000Z'
+lastmod: '2026-07-04T15:28:48.000Z'
 url: /the-realm-split-field-guide-to-migrating-an-sfcc-site/
 draft: false
 heroImage: realm-split-in-sfcc-c392b8965d.jpg
@@ -20,7 +20,7 @@ takeaways:
   - "Provides a phased field guide covering scoping, Salesforce coordination, data migration, integration rebuilds, testing, cutover, and rollback awareness"
   - "Highlights the major operational risks around analytics loss, SEO preservation, sequence numbers, and post-split multi-realm complexity"
 ---
-Have you ever found yourself in a deployment-day standoff? Your team is ready to push a critical feature for the US site, but it's blocked because a seemingly unrelated change for the EU site, which shares your codebase, has failed QA. You're stuck. This kind of organizational friction, where independent business units become entangled in a shared technical fate, is a clear signal that your single Salesforce B2C Commerce Cloud realm is cracking under pressure. The technical dependencies that once streamlined operations now create bottlenecks, and the shared codebase that once promised efficiency has become a source of risk and frustration.
+Have you ever found yourself in a deployment-day standoff? Your team is ready to push a critical feature for the US site, but it's blocked because a seemingly unrelated change for the EU site, which shares your codebase, has failed QA. You're stuck. This kind of organisational friction, where independent business units become entangled in a shared technical fate, is a clear signal that your single Salesforce B2C Commerce Cloud realm is cracking under pressure. The technical dependencies that once streamlined operations now create bottlenecks, and the shared codebase that once promised efficiency has become a source of risk and frustration.
 
 When this friction becomes unbearable, the business is faced with a monumental decision: a realm split. This is the architectural divorce of a site from its original family of instances, code, and data. It is a deliberate move to carve out a new, autonomous environment where a business unit can operate without being constrained by the priorities, schedules, and technical debt of its siblings. But like any divorce, it is complex, costly, and fraught with peril. A realm split is not a simple data replication or a POD move; it is a full-scale migration that touches every aspect of the platform, from the underlying infrastructure to third-party integrations and historical analytics.
 
@@ -28,11 +28,11 @@ This field guide serves as a comprehensive, battle-tested [blueprint](https://he
 
 ## Deconstructing the Monolith: The 'Why' and 'When' of a Realm Split
 
-Before embarking on such a significant undertaking, it is imperative to understand the foundational architecture and the specific pressures that lead to its fracture. A realm split is a solution to a problem that is often more organizational than technical, and its justification must be built on a solid understanding of both the platform's structure and the business's evolution.
+Before embarking on such a significant undertaking, it is imperative to understand the foundational architecture and the specific pressures that lead to its fracture. A realm split is a solution to a problem that is often more organisational than technical, and its justification must be built on a solid understanding of both the platform's structure and the business's evolution.
 
 ### A Technical Primer on the SFCC Realm
 
-In the SFCC ecosystem, a realm is the fundamental organizational unit. It is not merely a collection of sites but the entire [infrastructure](/the-salesforce-b2c-commerce-cloud-environment/) stack provided by Salesforce to a customer. This stack contains all the necessary hardware and software components to develop, test, and deploy a storefront, including web servers, application servers, and database servers. For a developer, the realm is the entire world in which their sites live and operate.
+In the SFCC ecosystem, a realm is the fundamental organisational unit. It is not merely a collection of sites but the entire [infrastructure](/the-salesforce-b2c-commerce-cloud-environment/) stack provided by Salesforce to a customer. This stack contains all the necessary hardware and software components to develop, test, and deploy a storefront, including web servers, application servers, and database servers. For a developer, the realm is the entire world in which their sites live and operate.
 
 This world is rigidly structured into two distinct groups:
 
@@ -43,9 +43,9 @@ This architecture is designed for efficiency under a unified operational model. 
 
 ### Analysing the Breaking Points: When a Single Realm Becomes Untenable
 
-The decision to split a realm is a lagging indicator of a fundamental misalignment between a company's organizational structure and its technical architecture. The initial choice of a single realm is often based on an assumption of a unified business strategy. The need for a split arises when that assumption is no longer valid. This manifests through several distinct business and technical drivers.
+The decision to split a realm is a lagging indicator of a fundamental misalignment between a company's organisational structure and its technical architecture. The initial choice of a single realm is often based on an assumption of a unified business strategy. The need for a split arises when that assumption is no longer valid. This manifests through several distinct business and technical drivers.
 
-{{< img-caption src="conflicts-across-the-world-on-processes-d64e01a143.jpg" alt="Two global business teams clashing over divergent deployment workflows, representing the organizational friction that forces a realm split decision." caption="When Workflows Clash: divergent P&L units, global scheduling conflicts, and incompatible business processes are the organizational tipping points that make a single SFCC realm unworkable." >}}
+{{< img-caption src="conflicts-across-the-world-on-processes-d64e01a143.jpg" alt="Two global business teams clashing over divergent deployment workflows, representing the organisational friction that forces a realm split decision." caption="When Workflows Clash: divergent P&L units, global scheduling conflicts, and incompatible business processes are the organisational tipping points that make a single SFCC realm unworkable." >}}
 
 #### Business Drivers
 
@@ -203,4 +203,4 @@ One of the most significant new challenges is data synchronisation. If the busin
 
 **_This introduces a new potential point of failure and a new set of tasks for the operations team._**
 
-Ultimately, a realm split is an immense undertaking that fundamentally reshapes a company's digital commerce architecture. It is the right decision—and often the only decision—when the organizational friction and technical limitations of a single realm become an insurmountable barrier to growth. The significant cost and complexity are justified only when the business and technical autonomy it unlocks is a strategic necessity.
+Ultimately, a realm split is an immense undertaking that fundamentally reshapes a company's digital commerce architecture. It is the right decision—and often the only decision—when the organisational friction and technical limitations of a single realm become an insurmountable barrier to growth. The significant cost and complexity are justified only when the business and technical autonomy it unlocks is a strategic necessity.

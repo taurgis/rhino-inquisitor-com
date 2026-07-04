@@ -4,7 +4,7 @@ description: >-
   In this article we will be looking at some helpful CLI tools to make our
   lives in Salesforce B2C Commerce a little bit easier.
 date: '2023-09-11T17:19:00.000Z'
-lastmod: '2026-07-04T14:48:28.000Z'
+lastmod: '2026-07-04T15:28:48.000Z'
 url: /helpful-salesforce-b2c-commerce-cloud-cli-tools/
 draft: false
 heroImage: 5517c6d9-6282-4468-a840-0af54ac19068-9222fff64d.png
@@ -87,7 +87,7 @@ I'm starting to see a common thread here!
 
 - [GitHub Repository Link](https://github.com/redvanworkshop/sfcc-catalog-pricebook)
 
-If you have already looked around GitHub for Salesforce B2C Commerce Cloud cartridges and tools, you will probably have run into [Red Van Workshop](https://redvanworkshop.com/). They have released quite a few handy cartridges and tools, so be sure to check out [their organization](https://github.com/redvanworkshop/) on GitHub.
+If you have already looked around GitHub for Salesforce B2C Commerce Cloud cartridges and tools, you will probably have run into [Red Van Workshop](https://redvanworkshop.com/). They have released quite a few handy cartridges and tools, so be sure to check out [their organisation](https://github.com/redvanworkshop/) on GitHub.
 
 This CLI tool is complimentary to "Catalogue Reducer." It takes in a Product Catalogue and pushes out a Price Book based on your configuration (randomised prices based on rules).
 
