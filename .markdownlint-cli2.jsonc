@@ -3,6 +3,11 @@
     "MD013": false,
     "MD024": { "siblings_only": true },
     "MD028": false,
+    // MD034 (no-bare-urls) misreads URLs inside Hugo shortcode attributes
+    // (e.g. {{< img-caption link="https://…" >}}) as prose bare URLs; its
+    // --fix wraps them in <…>, which Hugo renders literally into the href
+    // and breaks the internal-link SEO gate. See docs/publishing/deploy-gate-matrix.md.
+    "MD034": false,
     "MD041": false
   }
 }

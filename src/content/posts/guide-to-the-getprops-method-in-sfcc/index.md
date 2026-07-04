@@ -231,7 +231,7 @@ After this transition, you lose access to some "server-side" properties in the g
 
 {{< img-caption
   src="pwa-kit-isomorphic-constructs-4f4cc1e134.jpg"
-  alt="<https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/rendering.html>"
+  alt="Diagram from the PWA Kit rendering guide showing isomorphic code running on both the server and the client."
 >}}
 
 [Isomorphic Code](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/rendering.html) explained on developer.salesforce.com

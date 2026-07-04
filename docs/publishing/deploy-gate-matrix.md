@@ -627,6 +627,50 @@ with regression tests (the suite grew to 38 tests).
 - Related files: `scripts/gates/check-spelling.js`,
   `scripts/gates/check-spelling.test.js`.
 
+## Follow-up: markdownlint MD034 broke the seo gate via shortcode attributes
+
+### Change summary
+
+Deploy run 311 failed the `gate (seo)` leg on the internal-link check with
+hrefs like `%3chttps://trailblazercommunitygroups.com/…%3e`. The cause was the
+markdownlint pass in the "Keep platform identifiers American" change: MD034
+(`no-bare-urls`) treats a URL inside a Hugo shortcode attribute — for example
+`{{< img-caption link="https://…" >}}` — as a bare URL in prose, and its
+`--fix` wraps it in `<…>`. Markdown autolink syntax means nothing inside a
+shortcode argument, so Hugo emitted the angle brackets literally into the
+`href`, producing links to `%3chttps…%3e` on two posts (three links total).
+The same fix run also replaced one image `alt` with an angle-bracketed URL.
+
+MD034 is now disabled in `.markdownlint-cli2.jsonc` (alongside the existing
+MD028 exception) because the repo's `img-caption` shortcode legitimately takes
+URL-valued attributes and markdownlint has no shortcode awareness; the
+mangled attributes are restored, and the URL-as-alt-text case now carries a
+descriptive alt instead.
+
+### Old vs new behavior
+
+- Old: MD034 active; `markdownlint --fix` rewrites `link="https://…"` to
+  `link="<https://…>"` inside shortcodes, silently corrupting built hrefs, and
+  the pre-push preflight rejects the correct unwrapped form as a bare URL.
+- New: MD034 disabled repo-wide; URL-valued shortcode attributes lint clean as
+  written, and bare URLs in prose are no longer flagged (accepted trade-off —
+  the internal-link and metadata gates still validate rendered links).
+
+### Impact and verification
+
+- Impacted: `gate (seo)` internal-link check (was failing with 5 blocking
+  findings), the pre-push preflight markdownlint step, and three posts:
+  `/a-new-commerce-cloud-community-in-town/`,
+  `/the-attribute-fallback-system-in-sfcc/`,
+  `/guide-to-the-getprops-method-in-sfcc/`.
+- Verify: `npx markdownlint-cli2 "src/content/posts/**/index.md"` reports no
+  MD034 errors; `npm run build && npm run check:internal-links` reports 0
+  blocking findings; the next `main` deploy run's `gate (seo)` leg passes.
+- Related files: `.markdownlint-cli2.jsonc`,
+  `src/content/posts/a-new-commerce-cloud-community-in-town/index.md`,
+  `src/content/posts/the-attribute-fallback-system-in-sfcc/index.md`,
+  `src/content/posts/guide-to-the-getprops-method-in-sfcc/index.md`.
+
 ## Related files
 
 - `.github/workflows/deploy-pages.yml`
