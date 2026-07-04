@@ -4,7 +4,7 @@ description: >-
   It should be no secret that a URL is a vital part of any website. In this
   article, we will dissect and explain the different parts of a Salesforce B2C
 date: '2023-05-29T07:12:19.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /sfcc-url-cracking-the-code/
 draft: false
 heroImage: a-hand-delicately-slicing-into-a-screen-f3543bdd31.jpeg
@@ -85,7 +85,7 @@ const { pathname } = useLocation()
 
 The "[path](https://en.wikipedia.org/wiki/URL)" of a URL refers to the hierarchical structure of a website that designates the specific location of a resource, such as a web page, an image, or a file, on the web server. The path helps users and search engines navigate and understand the organisation of a website's content. It is an essential part of the URL, following the domain name and starting with a forward slash (/).
 
-A URL path is typically organised into multiple segments, separated by forward slashes. Each segment represents a level in the site's hierarchical structure. The leftmost segment is the highest level, and the following segments represent subdirectories or resources within the higher-level directories.
+A URL path is typically organized into multiple segments, separated by forward slashes. Each segment represents a level in the site's hierarchical structure. The leftmost segment is the highest level, and the following segments represent subdirectories or resources within the higher-level directories.
 
 For example, in the URL `https://www.example.com/blog/2021/post-title`, the path is `/blog/2021/post-title`. This path indicates that the specific web page is located within the "2021" subdirectory of the "blog" directory on the server.
 

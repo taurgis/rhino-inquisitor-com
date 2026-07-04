@@ -4,7 +4,7 @@ description: >-
   In this post we take a look at the release notes of Salesforce B2C Commerce
   Cloud for April 2022, and dig a bit deeper into them.
 date: '2022-03-21T19:57:05.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /b2c-commerce-whats-new-in-22-4/
 draft: false
 heroImage: warehouse-5806bba713.jpg
@@ -71,7 +71,7 @@ With this update, eCDN caching is enabled for the GET Products API! The update w
 
 - Set "cache-control" headers
 - Ensure the client ID is included as a query parameter or in the "x-dw-client-id" and "cache-control" header.
-- Do not include an "Authorisation" header with the request. Adding it will disable caching.
+- Do not include an "Authorization" header with the request. Adding it will disable caching.
 
 If you still have questions about caching in the OCAPI, [you can find more information in the Infocenter](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/caching.html).
 

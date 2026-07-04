@@ -4,7 +4,7 @@ description: >-
   Review the Salesforce B2C Commerce Cloud 23.2 release, including Page Designer
   and SCAPI changes developers should notice.
 date: '2023-01-18T19:00:06.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /salesforce-b2c-commerce-cloud-23-2/
 draft: false
 heroImage: artist-painting-on-screen-7d21e84105.jpg
@@ -128,7 +128,7 @@ This change is highly anticipated, and I am sure it will be warmly welcomed by m
 
 #### Support Forgerock IDP
 
-[ForgeRock Identity Platform](https://www.forgerock.com/) is an open-source identity management platform that provides authentication, authorisation, and identity management solutions for organisations. It is also a popular choice among financial institutions, healthcare providers, and government agencies to help them comply with industry regulations and standards.
+[ForgeRock Identity Platform](https://www.forgerock.com/) is an open-source identity management platform that provides authentication, authorization, and identity management solutions for organizations. It is also a popular choice among financial institutions, healthcare providers, and government agencies to help them comply with industry regulations and standards.
 
 This is also the system behind [Account Manager](https://account.demandware.com/).
 

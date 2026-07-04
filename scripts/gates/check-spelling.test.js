@@ -108,11 +108,19 @@ test('accepts British spelling and flags American variants', () => {
     [],
     'British spellings pass'
   );
-  const american = analyzeSource('We favor the color and organize the catalog.', { speller });
+  const american = analyzeSource('We favor the color and optimise the catalog.', { speller });
   assert.deepEqual(
     american.map((finding) => finding.found).sort(),
-    ['catalog', 'color', 'favor', 'organize'].sort(),
+    ['catalog', 'color', 'favor'].sort(),
     'American variants are flagged'
+  );
+});
+
+test('accepts "authorization"/"organization" (Oxford British + platform identifiers)', async () => {
+  const allowlist = await loadAllowlist();
+  assert.deepEqual(
+    analyzeSource('Send the Authorization header with your Organization ID.', { speller, allowlist }),
+    []
   );
 });
 

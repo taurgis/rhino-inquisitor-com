@@ -4,7 +4,7 @@ description: >-
   Learn how the getProps method works in PWA Kit, what data it exposes, and when
   it helps with faster, cleaner storefront code.
 date: '2023-05-15T09:58:07.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /guide-to-the-getprops-method-in-sfcc/
 draft: false
 heroImage: traffic-warden-directing-traffic-ae24078be0.jpg
@@ -229,9 +229,9 @@ The PWA Kit architecture ensures a seamless transition from server-side to clien
 
 After this transition, you lose access to some "server-side" properties in the getProps function, such as res (Express).
 
-{{< img-caption 
+{{< img-caption
   src="pwa-kit-isomorphic-constructs-4f4cc1e134.jpg"
-  alt="https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/rendering.html"
+  alt="<https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/rendering.html>"
 >}}
 
 [Isomorphic Code](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/rendering.html) explained on developer.salesforce.com

@@ -4,7 +4,7 @@ description: >-
   Are you wondering what entities make up a product or catalogue in SFCC and how
   they are connected? Then look no more! Here is a small ERD.
 date: '2023-02-13T06:16:52.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /salesforce-b2c-commerce-cloud-catalog-erd/
 draft: false
 heroImage: cardboard-boxes-connected-with-wires-d5a7ad5c03.jpg
@@ -27,7 +27,7 @@ Sure, you find many diagrams on the entity model of [force.com](https://salesfor
 
 This is the second one on the list: Product and Catalogue!
 
-{{< img-caption 
+{{< img-caption
   src="salesforce-b2c-commerce-cloud-diagram-product-catalog-erd-1-786d548825.png"
   alt="Product and catalogue entity relationship diagram for Salesforce B2C Commerce Cloud"
 >}}

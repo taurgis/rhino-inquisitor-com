@@ -4,7 +4,7 @@ description: >-
   23.3 release overview covering trial sandboxes, log-volume changes, Shopper
   Context enablement, and the refreshed SLAS admin UI.
 date: '2023-02-15T14:19:00.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /salesforce-b2c-commerce-cloud-23-3-release/
 draft: false
 heroImage: shopping-cart-in-sand-7c8677e7ff.jpg
@@ -80,7 +80,7 @@ A new release for [Account Manager](https://account.demandware.com/) has happene
 
 ### Prevent Org Invitations to Deleted Users
 
-> You can no longer add deleted users to an organisation. Attempts to add a deleted user returns the following error message: Only enabled users can be invited into an organisation.
+> You can no longer add deleted users to an organization. Attempts to add a deleted user returns the following error message: Only enabled users can be invited into an organization.
 
 ### New Account Manager Password Requirements
 
@@ -161,7 +161,7 @@ The month of February keeps giving new (public) repositories. And this time, one
 
 > The Salesforce Commerce Cloud CLI is a command line interface (CLI) for Salesforce Commerce Cloud. It can be used to facilitate deployment and continuous integration practices using Salesforce B2C Commerce.
 
-- Retrieval of organisation and user level audit logs ([#341](https://github.com/SalesforceCommerceCloud/sfcc-ci/pull/341))
+- Retrieval of organization and user level audit logs ([#341](https://github.com/SalesforceCommerceCloud/sfcc-ci/pull/341))
 - Management for API clients (incl. retrieving details, creation, updating, deletion and rotation of credentials) ([#350](https://github.com/SalesforceCommerceCloud/sfcc-ci/pull/350), [#351](https://github.com/SalesforceCommerceCloud/sfcc-ci/pull/351))
 - Migrate build process from CircleCI to Github Actions ([#347](https://github.com/SalesforceCommerceCloud/sfcc-ci/pull/347), [#348](https://github.com/SalesforceCommerceCloud/sfcc-ci/pull/348))
 - Minor readme updates ([#345](https://github.com/SalesforceCommerceCloud/sfcc-ci/pull/345))

@@ -4,7 +4,7 @@ description: >-
   Learn why bypassing SFCC quota limits creates technical and operational risk,
   and what safer alternatives teams should choose.
 date: '2023-12-11T08:21:33.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /why-circumventing-sfcc-quota-limits-is-a-bad-idea/
 draft: false
 heroImage: a-certain-ceo-is-coming-to-get-you-9206639ea9.jpg
@@ -183,14 +183,13 @@ Similarly, operations like `push` may necessitate iterating through multiple arr
 
 While the "UnlimitedArray" and solutions like it is a testament to the creativity and skill of Salesforce Commerce Cloud developers, it exemplifies the pitfalls of attempting to bypass platform governance. The issues range from:
 
-1.  **Performance**: As the size of the combined data structure grows, performance can degrade, affecting user experience and increasing server resource consumption.
+1. **Performance**: As the size of the combined data structure grows, performance can degrade, affecting user experience and increasing server resource consumption.
 
-2.  **Maintainability**: Maintaining a custom and complex data structure is inherently more challenging and can become burdensome over time as code bases evolve and scale.
+2. **Maintainability**: Maintaining a custom and complex data structure is inherently more challenging and can become burdensome over time as code bases evolve and scale.
 
-3.  **Scalability**: As e-commerce platforms typically handle a significant volume of transactions, any potential latency or performance issues can be magnified.
+3. **Scalability**: As e-commerce platforms typically handle a significant volume of transactions, any potential latency or performance issues can be magnified.
 
-4.  **Adherence to Best Practices**: Salesforce imposes quotas to steer developers toward building optimised, stable, scalable applications. Ignoring these guidelines may result in short-term gains but can endanger long-term success and platform health.
-
+4. **Adherence to Best Practices**: Salesforce imposes quotas to steer developers toward building optimised, stable, scalable applications. Ignoring these guidelines may result in short-term gains but can endanger long-term success and platform health.
 
 ## Conclusion
 

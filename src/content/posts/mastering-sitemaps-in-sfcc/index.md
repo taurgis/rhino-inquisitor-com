@@ -4,7 +4,7 @@ description: >-
   Learn how sitemaps work in Salesforce B2C Commerce Cloud, how to configure
   them correctly, and what developers should monitor for SEO.
 date: '2025-06-16T07:30:19.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /mastering-sitemaps-in-sfcc/
 draft: false
 heroImage: sitemaps-in-sfcc-53a1b08bb8.jpg
@@ -38,7 +38,7 @@ You control all of this from the Business Manager: Merchant Tools > SEO > Sitema
 
 ### Your Control Panel: The Settings Tab
 
-{{< img-caption 
+{{< img-caption
   src="sitemap-business-manager-sfcc-1e208116dd.jpg"
   alt="Sitemap settings panel in Salesforce B2C Commerce Business Manager"
   caption="The Sitemap Settings in the Business Manager"
@@ -53,7 +53,7 @@ The Settings tab is your main control panel. Here’s what you, as a developer, 
 
 ### The Golden Rule of Scheduling
 
-{{< img-caption 
+{{< img-caption
   src="sitemap-business-manager-job-13ba1762a2.jpg"
   alt="Job tab for scheduling sitemap generation in Business Manager"
   caption="Sitemap job scheduling tab"
@@ -67,7 +67,7 @@ If you run it before, all the new products and content from that day's replicati
 
 ## Going Custom: When the Built-in Isn't Enough
 
-{{< img-caption 
+{{< img-caption
   src="sitemap-business-manager-custom-sitemaps-sfcc-2fdf912121.png"
   alt="Custom tab in Sitemap settings within Business Manager"
   caption="Custom Sitemaps lets teams add external or supplemental sitemap sources."

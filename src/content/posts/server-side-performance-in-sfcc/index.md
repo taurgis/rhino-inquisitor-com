@@ -4,7 +4,7 @@ description: >-
   Performance is important for any eCommerce site. You need to make sure your
   content loads quickly and customers can start shopping!
 date: '2023-05-01T05:50:49.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /server-side-performance-in-sfcc/
 draft: false
 heroImage: performance-8200eea3e8.jpeg
@@ -41,12 +41,12 @@ For instance, you can cache the retrieval of configuration values from an extern
 
 There are some things to keep in mind with Custom Caches:
 
--   It is not site-specific, so include the site-id in the key. If you don't, you might have some unexpected results.
--   Caches in the application servers of the same instance are separated
--   The cache can be cleared automatically in a lot of different ways, so don't depend on cached values existing (replication, code activation, and time-based)
--   You can only store a maximum of 20MB of data in total
--   The cache is stored in memory and is not persisted
--   Custom Caches can be turned off in the Business Manager
+- It is not site-specific, so include the site-id in the key. If you don't, you might have some unexpected results.
+- Caches in the application servers of the same instance are separated
+- The cache can be cleared automatically in a lot of different ways, so don't depend on cached values existing (replication, code activation, and time-based)
+- You can only store a maximum of 20MB of data in total
+- The cache is stored in memory and is not persisted
+- Custom Caches can be turned off in the Business Manager
 
 ## Don't forget page caching
 
@@ -56,10 +56,8 @@ In simple terms, page caching stores the Application Server responses (HTML, JSO
 
 But how do you set this up? There are two ways:
 
--   [`<iscache>` tags](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-iscache.html)
--   [SFRA Cache Middleware Functions](https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/blob/master/cartridges/app_storefront_base/cartridge/scripts/middleware/cache.js)
-
-
+- [`<iscache>` tags](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-iscache.html)
+- [SFRA Cache Middleware Functions](https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/blob/master/cartridges/app_storefront_base/cartridge/scripts/middleware/cache.js)
 
 I will not cover all of the details of what page caching offers. That deserves a dedicated blog post, as this can become quite the rabbit hole! And as luck would have it, [there is a blog post about it](https://medium.com/salesforce-architects/caching-in-salesforce-commerce-cloud-part-1-e49b5f3e1801) (and more)!
 
@@ -77,10 +75,10 @@ We have live data since we are in production, which means "[Reports & Dashboards
 
 The [Technical Dashboard](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_technical_dashboard.htm) (as it is called) gives us a great overview about:
 
--   Average Response Time
--   Cache Hit Ratio
--   Error Rates
--   Response Time Distribution
+- Average Response Time
+- Cache Hit Ratio
+- Error Rates
+- Response Time Distribution
 
 Looking at the list of data above, it makes sense to have a look at it!
 
@@ -144,6 +142,6 @@ Server-side performance is a crucial factor in ensuring the success of any websi
 
 A performance debugging flow could look like this:
 
-1.  **Production**: Look at Reports and Dashboards (Technical Dashboard).
-2.  **Development:** Run the Pipeline Profiler to see if you have similar results as on the dashboard.
-3.  **Development:** Run the Code Profiler to look for the lines of code that cause the performance issue.
+1. **Production**: Look at Reports and Dashboards (Technical Dashboard).
+2. **Development:** Run the Pipeline Profiler to see if you have similar results as on the dashboard.
+3. **Development:** Run the Code Profiler to look for the lines of code that cause the performance issue.

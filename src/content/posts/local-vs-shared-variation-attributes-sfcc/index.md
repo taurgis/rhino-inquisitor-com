@@ -4,7 +4,7 @@ description: >-
   Understand when to use local or shared variation attributes in Commerce Cloud
   and how each model affects merchandising and product data.
 date: '2025-04-14T07:17:18.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /local-vs-shared-variation-attributes-sfcc/
 draft: false
 heroImage: variation-attributes-e1743754688196-8eda8ce6ea.jpg
@@ -197,31 +197,31 @@ In this case, both products utilise the same shared attributes for "Colour," dem
 
 ### Pros
 
-1.  **Specificity**: Local variation attributes allow for highly tailored product offerings, accommodating unique features that don't apply to other products.
-2.  **Flexibility**: Merchants have the flexibility to quickly change or update the attributes for individual products without affecting others.
-3.  **Simplicity**: For products that have very distinctive attributes, local variation attributes can simplify the overview for customers by streamlining options.
+1. **Specificity**: Local variation attributes allow for highly tailored product offerings, accommodating unique features that don't apply to other products.
+2. **Flexibility**: Merchants have the flexibility to quickly change or update the attributes for individual products without affecting others.
+3. **Simplicity**: For products that have very distinctive attributes, local variation attributes can simplify the overview for customers by streamlining options.
 
 ### Cons
 
-1.  **Management Complexity**: Having numerous local attributes can lead to a complex catalogue management system, making it harder to maintain and update individual products.
-2.  **Redundancy**: Local variation attributes, when overused, can lead to redundancy, especially if multiple products share similar attributes.
-3.  **Limited Scalability**: As the catalogue grows, managing local attributes can become increasingly cumbersome, limiting long-term scalability.
-4.  **Import XML Size:** The import file exponentially grows over time, slowing down the overall import process.
+1. **Management Complexity**: Having numerous local attributes can lead to a complex catalogue management system, making it harder to maintain and update individual products.
+2. **Redundancy**: Local variation attributes, when overused, can lead to redundancy, especially if multiple products share similar attributes.
+3. **Limited Scalability**: As the catalogue grows, managing local attributes can become increasingly cumbersome, limiting long-term scalability.
+4. **Import XML Size:** The import file exponentially grows over time, slowing down the overall import process.
 
 ## Pros and Cons of Shared Variation Attributes
 
 ### Pros
 
-1.  **Consistency**: Shared attributes ensure consistency across products, creating a more streamlined shopping experience for customers.
-2.  **Ease of Management**: Managing shared attributes can be less complex since changes made to these attributes automatically apply to all associated products.
-3.  **Scalability**: Shared attributes offer a scalable approach; as new products are added, they can easily adopt existing attributes without requiring extensive modifications.
-4.  **Import performance:** A smaller XML to import, with less duplication, means faster import speeds.
+1. **Consistency**: Shared attributes ensure consistency across products, creating a more streamlined shopping experience for customers.
+2. **Ease of Management**: Managing shared attributes can be less complex since changes made to these attributes automatically apply to all associated products.
+3. **Scalability**: Shared attributes offer a scalable approach; as new products are added, they can easily adopt existing attributes without requiring extensive modifications.
+4. **Import performance:** A smaller XML to import, with less duplication, means faster import speeds.
 
 ### Cons
 
-1.  **Lack of Flexibility**: The main drawback of shared variation attributes is the potential lack of flexibility when unique attributes are necessary for specific products.
-2.  **Limiting Options**: Merchants may find it challenging to personalise products since shared attributes can constrain variation options.
-3.  **Over-generalisation**: There is a risk of over-generalising product attributes, which may lead to a lacklustre shopping experience for customers seeking specificity.
+1. **Lack of Flexibility**: The main drawback of shared variation attributes is the potential lack of flexibility when unique attributes are necessary for specific products.
+2. **Limiting Options**: Merchants may find it challenging to personalise products since shared attributes can constrain variation options.
+3. **Over-generalisation**: There is a risk of over-generalising product attributes, which may lead to a lacklustre shopping experience for customers seeking specificity.
 
 ## Combination?
 
@@ -231,4 +231,4 @@ In certain scenarios, combine approaches by utilising shared attributes for most
 
 Local and shared variation attributes play essential roles in product management within Salesforce B2C Commerce Cloud. Each has its set of advantages and potential downsides, and the choice between them often depends on the business's specific requirements, the nature of the products being offered, and the desired customer experience.
 
-Understanding the nuances of local and shared attributes is not only important but paramount for any organisation aiming to leverage the full potential of its B2C Commerce Cloud solution.
+Understanding the nuances of local and shared attributes is not only important but paramount for any organization aiming to leverage the full potential of its B2C Commerce Cloud solution.

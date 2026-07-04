@@ -4,7 +4,7 @@ description: >-
   Learn how to find your SFCC POD number, why it matters for troubleshooting,
   and where to verify it across tools and environments.
 date: '2025-07-21T05:05:51.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /the-sfcc-guide-to-finding-pod-numbers/
 draft: false
 heroImage: sfcc-finding-your-pod-number-scaled-6830449d2b.jpeg
@@ -87,13 +87,13 @@ This is a feature of the new Lightning UI, not the classic UI.
 
 While you cannot find the POD number directly in Account Manager, it is the source for prerequisite information you will need for other methods, particularly when contacting support. Users with the `Account Administrator` role are the only ones who can access this information.
 
-To find your Realm and Organisation IDs:
+To find your Realm and Organization IDs:
 
 1. Log in to Account Manager at `https://account.demandware.com`.
 
-1. Navigate to the **Organisation** tab.
+1. Navigate to the **Organization** tab.
 
-1. Open your organisation and in the **Assigned Realms** section, you can find your 4-letter `Group ID` and the alphanumeric `Realm ID`.
+1. Open your organization and in the **Assigned Realms** section, you can find your 4-letter `Group ID` and the alphanumeric `Realm ID`.
 
 Keep this information handy. It's essential for identifying your environment when interacting with Salesforce systems and support teams.
 
@@ -117,7 +117,7 @@ Although this legacy URL is no longer a reliable method for active discovery, un
 
 ## The Official Channels: Guaranteed but Less Immediate
 
-{{< img-caption 
+{{< img-caption
   src="going-to-salesforce-official-channels-b9f405d5e0.jpeg"
   alt="Friendly rhino in 2D flat cartoon style walks toward an official building with a cloud logo, representing trusted official channels"
   caption="Figure 1: Use official Salesforce channels to find reliable POD information"

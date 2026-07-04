@@ -4,7 +4,7 @@ description: >-
   Bringing your first site live on SFCC can be challenging. In this series, we
   will be looking at different parts. Part I: eCDN
 date: '2022-08-04T06:53:47.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /lets-go-live-ecdn/
 draft: false
 heroImage: ecdn-5035a37164.png
@@ -68,7 +68,7 @@ APEX Domain Pointing / Naked Domain It is essential to know that the APEX Domain
 
 Usually, a DNS provider has solutions for this, but this needs to be considered. In a worst-case scenario, you need to set up a "mini-server" to do the redirection of the naked domain to the www subdomain. You can find some [information on Salesforce Help](https://help.salesforce.com/s/articleView?id=000361629&type=1) on this topic.
 
-With a naked domain we mean https://mybrand.com (without the www).
+With a naked domain we mean <https://mybrand.com> (without the www).
 
 ### Get your SSL certificates
 

@@ -4,7 +4,7 @@ description: >-
   A fun interview about my journey within the Salesforce Ohana and how I
   received my Golden Hoodie in 2022 at Salesforce Connections.
 date: '2022-09-11T08:28:07.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /life-with-goldie/
 draft: false
 heroImage: yte-hd-image-96d2c1f499.jpg

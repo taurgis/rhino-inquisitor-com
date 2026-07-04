@@ -4,7 +4,7 @@ description: >-
   Are you wondering what entities make up a basket or order in SFCC and how they
   are connected? Then look no more! Here is a small ERD.
 date: '2023-03-06T06:41:17.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /sfcc-basket-order-erd/
 draft: false
 heroImage: digital-shopping-carts-in-a-forest-a68ea4285a.jpg
@@ -28,7 +28,7 @@ Sure, you find many diagrams on the entity model of [force.com](https://salesfor
 
 The fifth and final on the [ERD overview page](/salesforce-b2c-commerce-cloud-erd/): The Basket & Order ERD! It is probably the most complex of the bunch because of the number of entities and how they interconnect.
 
-{{< img-caption 
+{{< img-caption
   src="salesforce-b2c-commerce-cloud-diagram-basket-order-erdv2-3a4ba08328.png"
   alt="Basket and order entity relationship diagram for Salesforce B2C Commerce Cloud"
   caption="Figure 1: Salesforce B2C Commerce Cloud Basket and Order ERD"

@@ -4,7 +4,7 @@ description: >-
   Security within Salesforce B2C Commerce might not be a concern because of
   out-of-the-box features. There are a few things to keep in mind!
 date: '2022-04-26T12:09:00.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /secure-coding-in-salesforce-b2c-commerce-cloud/
 draft: false
 heroImage: code-security-147ad97b77.jpeg
@@ -96,7 +96,7 @@ On the [Salesforce Commerce Cloud Infocenter](https://help.salesforce.com/s/arti
 - [Using Hooks Securely](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_using_hooks_securely.htm)
 - [Data Validation](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_data_validation.htm)
 - [Open Redirect Attacks](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_open_redirect_attacks.htm)
-- [Authentication and Authorisation](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_developer_authentication_and_authorization.htm)
+- [Authentication and Authorization](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_developer_authentication_and_authorization.htm)
 - [Supply Chain Security](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_supply_chain_security.htm)
 - [Secure Logging](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_secure_logging.htm)
 - [General Secure Coding Practices](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_general_secure_coding_practices.htm)
@@ -177,7 +177,7 @@ The HTTP Cross-Origin-Resource-Policy response header conveys a desire that the 
 
 ### Permissions-Policy
 
-Permissions Policy Header is an added layer of security that helps to restrict from unauthorised access or usage of browser/client features by web resources. This policy ensures the user privacy by limiting or specifying the features of the browsers can be used by the web resources.
+Permissions Policy Header is an added layer of security that helps to restrict from unauthorized access or usage of browser/client features by web resources. This policy ensures the user privacy by limiting or specifying the features of the browsers can be used by the web resources.
 
 ### [Referrer-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy)
 

@@ -4,7 +4,7 @@ description: >-
   Learn how to use the createOrders API in SFCC to create external orders
   safely and fit it into existing order workflows.
 date: '2023-10-09T09:54:18.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /the-createorders-api-in-sfcc/
 draft: false
 heroImage: delivery-on-a-phone-f8a4f5aeb3.jpg
@@ -21,11 +21,11 @@ takeaways:
   - "Highlights the validation, pricing, payment, and inventory responsibilities that stay with the origin system using the API"
   - "Walks through the SLAS trusted-system authentication flow required before creating orders on behalf of shoppers"
 ---
-In this article, we will discuss the [createOrders API](https://developer.salesforce.com/docs/commerce/commerce-api/references/orders?meta=createOrders) used to create orders in the Commerce Cloud platform. The createOrders API is designed to create a fully calculated, paid, or authorised order on the fly in the Commerce Cloud platform. But how does it work?
+In this article, we will discuss the [createOrders API](https://developer.salesforce.com/docs/commerce/commerce-api/references/orders?meta=createOrders) used to create orders in the Commerce Cloud platform. The createOrders API is designed to create a fully calculated, paid, or authorized order on the fly in the Commerce Cloud platform. But how does it work?
 
 ## When to use the createOrders API
 
-With this API, creating an order is a breeze as it eliminates the need to go through the various steps required to create a basket, including authorisation, guest information, managing addresses, payment, and inventory management. One of the most common scenarios where this API comes in handy is selling on social channels and offering in-app purchases. The API enables you to send the entire order to be shipped without going through the usual steps. A third-party provider managing recurring orders can use this API to streamline their processes. The potential use cases for this API are numerous and diverse, and it's a valuable tool for developers and architects!
+With this API, creating an order is a breeze as it eliminates the need to go through the various steps required to create a basket, including authorization, guest information, managing addresses, payment, and inventory management. One of the most common scenarios where this API comes in handy is selling on social channels and offering in-app purchases. The API enables you to send the entire order to be shipped without going through the usual steps. A third-party provider managing recurring orders can use this API to streamline their processes. The potential use cases for this API are numerous and diverse, and it's a valuable tool for developers and architects!
 
 ## Things to keep in mind
 
@@ -45,11 +45,11 @@ After you are done, click "Submit" and save the generated Secret that will appea
 
 ### Authenticating
 
-Before we can start pushing in orders for anonymous or registered users, we need to get a [Trusted System Access Token](https://developer.salesforce.com/docs/commerce/commerce-api/references/shopper-login?meta=getTrustedSystemAccessToken). With this token, we will allow our third-party system to act on behalf of a guest or registered user without knowing their credentials. Short Code & Organisation ID You can get this information via "Administration > Site Development > Salesforce Commerce API Settings"
+Before we can start pushing in orders for anonymous or registered users, we need to get a [Trusted System Access Token](https://developer.salesforce.com/docs/commerce/commerce-api/references/shopper-login?meta=getTrustedSystemAccessToken). With this token, we will allow our third-party system to act on behalf of a guest or registered user without knowing their credentials. Short Code & Organization ID You can get this information via "Administration > Site Development > Salesforce Commerce API Settings"
 
 - **URL:** [Trusted-system token endpoint](https://{shortCode}.api.commercecloud.salesforce.com/shopper/auth/v1/organizations/{organizationId}/oauth2/trusted-system/token)
-- **Authorisation:** Basic Authentication
-- **Authorisation Format:** `{SLAS Client}:{SLAS Secret}`
+- **Authorization:** Basic Authentication
+- **Authorization Format:** `{SLAS Client}:{SLAS Secret}`
 - **Body:** `application/x-www-form-urlencoded`
 
 ```text
@@ -88,7 +88,7 @@ And with our **access\_token** we can continue our journey and push an order int
 Almost there! Now we have everything to start creating our order (except the order itself). We need to do a second API call using the bearer token we generated in the previous step, linking us to that specific customer.
 
 - **URL:** [createOrders endpoint](https://{shortCode}.api.commercecloud.salesforce.com/checkout/orders/v1/organizations/{organizationId}/orders)
-- **Authorisation:** Bearer token
+- **Authorization:** Bearer token
 - **Body:**
 
 ```json

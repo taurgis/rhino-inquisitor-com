@@ -4,7 +4,7 @@ description: >-
   After Connections '22, I decided to have a look into Trailblazer Communities
   and how one could start a group! Let's embark on a new journey!
 date: '2022-09-12T08:14:56.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /a-new-commerce-cloud-community-in-town/
 draft: false
 heroImage: trailblazer-community-group-c0e3b8a778.jpg
@@ -23,7 +23,7 @@ Starting a community was a plan I have had in my head for a while now but never 
 
 And at the end of August, I got the mail titled "Welcome to the Trailblazer Community Group Program!" I got accepted! But ... oh damn ... now I have to push on!
 
-{{< img-caption src="join-the-salesforce-benelux-commerce-cloud-community-v4-afd7195f3b.jpg" alt="Trailblazer Community Group welcome banner for the Benelux commerce community." link="https://trailblazercommunitygroups.com/salesforce-developer-group-hasselt-belgium/" >}}
+{{< img-caption src="join-the-salesforce-benelux-commerce-cloud-community-v4-afd7195f3b.jpg" alt="Trailblazer Community Group welcome banner for the Benelux commerce community." link="<https://trailblazercommunitygroups.com/salesforce-developer-group-hasselt-belgium/>" >}}
 
 ## What's in a name
 
@@ -105,7 +105,7 @@ The topics will range from technical workshops to networking events. Some ideas 
 
 Have ideas in mind of your own? Then join the 6th of October session or [reach out on LinkedIn](https://www.linkedin.com/in/thomas-theunen-10905680/)!
 
-{{< img-caption src="get-to-know-each-other-v2-60539cfd30.png" alt="Announcement card for the community's first get-to-know-each-other session." link="https://trailblazercommunitygroups.com/events/details/salesforce-salesforce-developer-group-hasselt-belgium-presents-lets-get-to-know-each-other/" >}}
+{{< img-caption src="get-to-know-each-other-v2-60539cfd30.png" alt="Announcement card for the community's first get-to-know-each-other session." link="<https://trailblazercommunitygroups.com/events/details/salesforce-salesforce-developer-group-hasselt-belgium-presents-lets-get-to-know-each-other/>" >}}
 
 ## Looking for speakers
 

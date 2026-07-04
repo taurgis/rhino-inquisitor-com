@@ -4,7 +4,7 @@ description: >-
   Learn how to cache third-party API responses in Commerce Cloud to improve
   performance, control latency, and avoid stale-data pitfalls.
 date: '2024-11-11T05:35:00.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /third-party-api-caching-in-commerce-cloud/
 draft: false
 heroImage: third-party-service-caching-6154196735.jpg
@@ -30,7 +30,7 @@ Now, let’s delve into the process, its benefits, and some things to remember t
 
 ## Caching with LocalServiceRegistry
 
-{{< img-caption 
+{{< img-caption
   src="sfcc-service-framework-b996d130d4.jpg"
   alt="Salesforce Commerce Cloud Web Service Framework overview image"
   caption="Salesforce Commerce Cloud Web Service Framework"
@@ -64,7 +64,7 @@ var callTestGet = LocalServiceRegistry.createService("test.http.get", {
 
 [In this snippet](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-webservices.html#configure-underlying-clients), the \`**enableCaching**\` method is invoked, enabling caching for the HTTP requests serviced by this configuration. The argument (in this case, \`1000\`) represents a timeout setting, which dictates how long a cached response will be valid before the subsequent request is made.
 
-{{< img-caption 
+{{< img-caption
   src="configuring-underlying-clients-95d307a0e7.png"
   alt="Official documentation snippet showing enableCaching on an HTTP service"
   caption="A screenshot of the official documentation on how to add caching to a service."
@@ -92,7 +92,7 @@ However, don't anticipate any "magic 🪄"—it's the accumulation of many small
 
 ## Clearing the cache
 
-{{< img-caption 
+{{< img-caption
   src="clearing-httpclient-response-cache-c4b7ab1863.png"
   alt="Service Maintenance screen used to invalidate HTTP client response cache"
   caption="A screenshot of the 'Service Maintenance' configuration page in the Business Manager."
@@ -145,7 +145,7 @@ In conclusion, adding a caching mechanism to the LocalServiceRegistry for third-
 
 Here's an example of a successful (anonymised) result from using this cache and rate limiting bot traffic:
 
-{{< img-caption 
+{{< img-caption
   src="third-party-service-caching-results-e1731261763486-2847fa50c4.jpg"
   alt="Graph showing lower third-party API traffic after bot filtering and caching"
   caption="The number of requests handled by the API decreased considerably, leading to a lower monthly bill."

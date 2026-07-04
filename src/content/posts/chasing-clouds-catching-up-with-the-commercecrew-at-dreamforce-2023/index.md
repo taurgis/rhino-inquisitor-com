@@ -4,7 +4,7 @@ description: >-
   For those of you who have been wondering about my whereabouts some time ago, I
   enjoyed this massive gathering in San Francisco.
 date: '2023-09-25T10:29:00.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /chasing-clouds-catching-up-with-the-commercecrew-at-dreamforce-2023/
 draft: false
 heroImage: einstein-at-dreamforce-8c54eb04ec.jpg
@@ -41,7 +41,7 @@ We kicked off day two (and the first day of Dreamforce) with gusto; the early bi
 
 No time for food comas here; post-lunch called for participation on my behalf in a session revolving around AI and its ethical impact. Explorer at heart, I revelled delving deep into generative AI - indeed quite an informative afternoon.
 
-## Wednesday: Swags and Rock n Roll!
+## Wednesday: Swags and Rock n Roll
 
 {{< img-caption src="372a213b-a01b-47e2-9157-022c8d8baa65-1-105-c-89c973c920.jpeg" alt="Thomas Theunen sitting in between studio lights with a camera pointed at him. Multiple screens show his face." caption="Midweek included studio time, interviews, and the kind of event chaos that makes Dreamforce memorable." >}}
 
@@ -65,7 +65,7 @@ Thursday was comparatively calmer but every bit exciting in its unique way. It b
 
 The rest of the day shadowed opportunities to connect and exchange ideas among peers culminating in an intimate discussion revolving around AI in a cosy setup - the perfect unwinding activity after three days of intense power walking.
 
-## In closing...
+## In closing
 
 As someone privileged to attend Dreamforce’23, I was amazed by the remarkable presence of generative AI in various sessions and keynotes. However, I couldn't help but feel a little disappointed that there weren't more B2C Commerce Cloud innovations that didn't require other products in the Salesforce range.
 

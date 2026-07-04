@@ -4,7 +4,7 @@ description: >-
   Salesforce B2C Commerce Cloud appears to only have certifications for
   developers, but is this true? Are there other options available?
 date: '2023-04-24T08:47:47.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /non-technical-sfcc-certifications/
 draft: false
 heroImage: einstein-shopping-scaled-5e1e2b427b.jpeg
@@ -30,7 +30,7 @@ But in 2021, 2022, and 2023, some options became available for those who do not 
 
 {{< img-caption src="usability-vs-ux-9753e7801d.png" alt="Usability and UX Certifications" caption="UX certifications are the most natural bridge into commerce work for design-focused roles." >}}
 
--   [Trailhead - Certification](https://trailhead.salesforce.com/en/credentials/userexperiencedesigner)
+- [Trailhead - Certification](https://trailhead.salesforce.com/en/credentials/userexperiencedesigner)
 
 The first certification that reared its head in 2021 was the User Experience Designer. A certificate that does not focus on developing features but on how to design these features to be user-centric and easy to use.
 
@@ -42,25 +42,25 @@ To get this certification, having only SFCC knowledge, you must come out of your
 
 {{< img-caption src="business-men-and-women-looking-at-a-skyline-76f36bbb13.jpg" alt="A digital drawing of a group of people standing in front of a window, looking at the skyscrapers of a modern city illuminated in the night." caption="Strategy Designer suits people who frame problems before anyone touches implementation." >}}
 
--   [Trailhead - Certification](https://trailhead.salesforce.com/en/credentials/strategydesigner)
+- [Trailhead - Certification](https://trailhead.salesforce.com/en/credentials/strategydesigner)
 
 While a UX designer focuses on the end-user, a Strategy Designer focuses on the business and its goals.
 
 The description is taken from Trailhead:
 
-> Strategy Designer candidates create value by aligning an organisation around and directing the design of systems-level solutions toward desired business and user outcomes.
+> Strategy Designer candidates create value by aligning an organization around and directing the design of systems-level solutions toward desired business and user outcomes.
 
 A completely different path than the User Experience Designer and Business Analyst as you take a more high-level approach to the projects and their alignment with the business and users' goals.
 
 A perfect role (and certificate) for those who like to spar with businesses on their roadmap and vision for the future.
 
-The preparation for this certification will take you across different products of Salesforce, not only Salesforce B2C Commerce Cloud. But isn't that a good thing? As a Strategy Designer, you should be aware of all of the different offerings of Salesforce to align them with the organisation's vision!
+The preparation for this certification will take you across different products of Salesforce, not only Salesforce B2C Commerce Cloud. But isn't that a good thing? As a Strategy Designer, you should be aware of all of the different offerings of Salesforce to align them with the organization's vision!
 
 ## Business Analyst
 
 {{< img-caption src="business-analyst-scaled-e1656834912690-1350424ea9.jpg" alt="Illustration of a business analyst collaborating with stakeholders around a desk." caption="Business Analyst is the clearest path for people who translate needs into delivery." >}}
 
--   [Trailhead - Certification](https://trailhead.salesforce.com/en/credentials/businessanalyst)
+- [Trailhead - Certification](https://trailhead.salesforce.com/en/credentials/businessanalyst)
 
 You understand and analyse business operations, processes, and requirements to improve productivity and drive business growth, so naturally, this certification fits you like a glove, right?
 
@@ -84,7 +84,7 @@ Salesforce Admin is no longer required As of May 2, 2023, the Salesforce Adminis
 
 {{< img-caption src="a-sales-meeting-0eb7bfc029.jpg" alt="A group of men and women sitting around a table e, drawn in the style of the 50's" caption="Sales-focused accreditations matter most when your role is shaping the commercial conversation." >}}
 
--   [Trailhead - Certification](https://trailhead.salesforce.com/en/credentials/salesrepresentative)
+- [Trailhead - Certification](https://trailhead.salesforce.com/en/credentials/salesrepresentative)
 
 Salesforce has recently announced the Certified Sales Representative certification exam, designed to showcase your knowledge and skills in various areas, such as guiding discovery and research, fostering business relationships, handling objections, and closing deals.
 
@@ -94,7 +94,7 @@ Trailmix Once the trailmix becomes available, I will update this section of the 
 
 ## Commerce Cloud Einstein Accredited Professional
 
--   [Partner Learning Camp - Accreditation](https://partnerlearningcamp.salesforce.com/s/credentials-catalog?plc__recordId=d%2Fx2y6m%2FknTcjnfe7C0GiHmOkms8uLPL82Zrct7hYQcVHqfIycgjEyVfwejd21xa)
+- [Partner Learning Camp - Accreditation](https://partnerlearningcamp.salesforce.com/s/credentials-catalog?plc__recordId=d%2Fx2y6m%2FknTcjnfe7C0GiHmOkms8uLPL82Zrct7hYQcVHqfIycgjEyVfwejd21xa)
 
 {{< img-caption src="einstein-shopping-c2fd371422.jpeg" alt="A drawing of Einstein standing in a store, wearing a green vest with a red tie and shoes. The store walls are painted red and green, with the shopping racks filled with clothes and perfume." caption="Einstein accreditation fits people who need to position commerce AI to business stakeholders." >}}
 
@@ -112,7 +112,7 @@ The official description is as follows:
 
 {{< img-caption src="sales-25d69d411e.jpg" alt="Sales-themed illustration for the Indirect Sales Accredited Professional section." caption="Indirect Sales accreditation is aimed at the partner and channel side of the business." >}}
 
--   [Partner Learning Camp - Accreditation](https://partnerlearningcamp.salesforce.com/s/credentials-catalog?plc__recordId=huaR3i8ewEj9BrjQeVKHB51JTVgrOzyjjUy8ORjUXXoU52nqrMytajtg4M1c44Ux)
+- [Partner Learning Camp - Accreditation](https://partnerlearningcamp.salesforce.com/s/credentials-catalog?plc__recordId=huaR3i8ewEj9BrjQeVKHB51JTVgrOzyjjUy8ORjUXXoU52nqrMytajtg4M1c44Ux)
 
 Again a different type of certification than we are used to and a completely different role. The official description sounds something like this:
 

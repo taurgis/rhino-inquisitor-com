@@ -4,7 +4,7 @@ description: >-
   A personal look at the move from developer to architect, including the mindset
   shifts, trade-offs, and lessons that mattered most.
 date: '2024-02-26T06:36:00.000Z'
-lastmod: '2024-02-26T10:26:22.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /the-journey-from-developer-to-architect/
 draft: false
 heroImage: developer-to-architect-0af54756df.png
@@ -47,9 +47,9 @@ Are you interested in B2C Solution Architecture? Then be sure to read the [Sales
 
 ### Enterprise Architect
 
-A completely different type of architect than the Solution Architect. The main goal of an Enterprise Architect is to validate the solutions provided to the business and that they are aligned with the organisation's strategy.
+A completely different type of architect than the Solution Architect. The main goal of an Enterprise Architect is to validate the solutions provided to the business and that they are aligned with the organization's strategy.
 
-An Enterprise Architect has a top-level overview of the organisation regarding knowledge, capabilities, and potential.
+An Enterprise Architect has a top-level overview of the organization regarding knowledge, capabilities, and potential.
 
 I could write an elaborate article on this, but I will forward you [an excellent article on Apex Hours](https://www.apexhours.com/salesforce-enterprise-architecture/).
 

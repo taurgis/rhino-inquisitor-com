@@ -4,7 +4,7 @@ description: >-
   You have probably come out empty-handed when scouring the documentation for
   the Content ERD (Entity–relationship model) of Salesforce B2C Commerce Cloud.
 date: '2023-02-20T05:40:33.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /salesforce-b2c-commerce-cloud-content-erd/
 draft: false
 heroImage: digital-documents-connected-with-wires-a9bf53e13a.jpg
@@ -27,7 +27,7 @@ Sure, you find many diagrams on the entity model of [force.com](https://salesfor
 
 The third on the list: Content! Probably one of the smallest diagrams in the set!
 
-{{< img-caption 
+{{< img-caption
   src="salesforce-b2c-commerce-cloud-diagram-content-erd-1-9255609590.png"
   alt="Content entity relationship diagram for Salesforce B2C Commerce Cloud"
 >}}

@@ -4,7 +4,7 @@ description: >-
   New APIs have been made available to manage certificates on the staging eCDN
   ourselves. But how does it work? What do I need to keep in mind?
 date: '2022-11-07T10:29:05.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /how-to-set-up-the-ecdn-in-sfcc-staging/
 draft: false
 heroImage: ssl-certificate-tw-8422f4751c.jpg
@@ -62,7 +62,7 @@ We get these settings here:
 
 "Administration > Site Development > Salesforce Commerce API Settings"
 
-{{< img-caption src="salesforce-commerce-api-settings-be8d59fe5b.jpg" alt="Salesforce Commerce API Settings screen with the short code and organisation ID for staging." caption="Staging Commerce API settings" link="salesforce-commerce-api-settings-be8d59fe5b.jpg" >}}
+{{< img-caption src="salesforce-commerce-api-settings-be8d59fe5b.jpg" alt="Salesforce Commerce API Settings screen with the short code and organization ID for staging." caption="Staging Commerce API settings" link="salesforce-commerce-api-settings-be8d59fe5b.jpg" >}}
 
 ## Step 3: Get an access token
 

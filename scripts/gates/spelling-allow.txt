@@ -51,6 +51,10 @@ atonit
 aud
 auth
 authenticator
+authorization
+authorizations
+authorize
+authorized
 autocomplete
 autocompleted
 autocompletes
@@ -410,6 +414,13 @@ onboarding
 onlynewfiles
 openssh
 orderable
+organization
+organizational
+organizations
+organize
+organized
+organizes
+organizing
 otherside
 ozil
 pageviews
@@ -610,6 +621,7 @@ ttf
 txt
 typedoc
 typeof
+unauthorized
 uncacheable
 uncached
 uncatchable

@@ -4,7 +4,7 @@ description: >-
   Let's be honest: a slow e-commerce site is a silent killer of sales. In the
   world of B2C Commerce, every millisecond is money.
 date: '2025-06-23T17:00:05.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /lag-to-riches-a-pwa-kit-developers-guide/
 draft: false
 heroImage: developer-manipulating-performance-scaled-3869da0b9c.jpeg
@@ -70,7 +70,7 @@ Lighthouse is the tool that helps you get there.
 
 ### The Big Three: LCP, INP, and CLS Explained
 
-{{< img-caption 
+{{< img-caption
   src="core-web-vitals-visualised-e1750704059141-9cbbc8c421.jpg"
   alt="Three-panel illustration showing Slow LCP with blank screen, High INP with frozen controls, High CLS with jumping content"
   caption="A visual guide to Core Web Vital problems: How poor LCP, INP, and CLS create a frustrating user experience."
@@ -102,7 +102,7 @@ The Salesforce PWA Kit is engineered for speed, but its modern architecture crea
 
 ### The First Impression: Server-Side Rendering (SSR) to the Rescue
 
-{{< img-caption 
+{{< img-caption
   src="server-side-rendering-client-side-e72f226d1b.jpg"
   alt="Two-panel cartoon: stressed user assembling JavaScript on left, happy user receiving complete webpage from heroic robot on right"
   caption="SSR improves perceived speed by delivering useful HTML before the whole app hydrates."
@@ -143,7 +143,7 @@ Every PWA Kit developer will eventually face these common performance villains. 
 - **Poorly Built Custom Components:** A single custom React component that isn't optimised for performance can significantly impact your INP. This typically occurs through expensive calculations on every render or by triggering a chain reaction of unnecessary re-renders in its children.
 - **Messed-Up Caching:** The MRT's CDN is powerful, but it's not magic. If you don't set your Cache-Control headers correctly, fail to filter out unnecessary query parameters, or misconfigure your [API](https://developer.salesforce.com/docs/commerce/commerce-api/guide/server-side-web-tier-caching.html) proxies, you'll experience a poor cache-hit ratio, and all the benefits of Server-Side Rendering (SSR) will be lost.
 
-{{< img-caption 
+{{< img-caption
   src="spa-performance-bottlenecks-6d6a3a6a62.jpeg"
   alt="Cartoon factory scene showing four performance bottlenecks: large truck blocking entrance, pipes slowly filling tank, complex machine for simple task, workers slipping on puddles"
   caption="Large bundles and client-side churn are the usual reasons a PWA feels slow."

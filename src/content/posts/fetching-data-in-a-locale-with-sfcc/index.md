@@ -4,7 +4,7 @@ description: >-
   In some use cases, you have to fetch data in a different language than the
   locale you are currently in. But how do you do that?
 date: '2023-07-31T08:40:09.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /fetching-data-in-a-locale-with-sfcc/
 draft: false
 heroImage: country-flags-427934b006.jpg
@@ -45,10 +45,10 @@ Ultimately, the solution is quite simple - the Salesforce B2C Commerce Cloud sys
 
 The system will look at the current request's language preference (or setting) whenever an object is fetched through its appropriate function (and it has localised attributes). The request is always available in every context under the global variable "[request](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_system_Request.html)". It is always there, no matter where you are:
 
--   Storefront request
--   Business Manager request
--   Job Step
--   [OCAPI / SCAPI Hook](/how-to-use-ocapi-scapi-hooks/)
+- Storefront request
+- Business Manager request
+- Job Step
+- [OCAPI / SCAPI Hook](/how-to-use-ocapi-scapi-hooks/)
 
 ### Changing the language before fetching data
 
@@ -71,7 +71,7 @@ Remember to restore the original language after the data has been fetched in the
 
 ## Use cases
 
-{{< img-caption 
+{{< img-caption
   src="people-around-the-world-551b94bfa5.png"
   alt="A map of the world representing all locales in the world."
   caption="Figure 1: A map of the world representing all locales in the world"
@@ -79,10 +79,10 @@ Remember to restore the original language after the data has been fetched in the
 
 Some might ask, why would you need to do such a thing? Well, there are a few reasons which will cause you to resort to fiddling with the request:
 
--   Fetching a content asset in a different language, a language selection popup, for example.
--   Generating a single-file feed with multiple languages
--   Fetching a translation from a resource bundle in a specific language
--   ... and many more
+- Fetching a content asset in a different language, a language selection popup, for example.
+- Generating a single-file feed with multiple languages
+- Fetching a translation from a resource bundle in a specific language
+- ... and many more
 
 ## What about the Composable Storefront?
 

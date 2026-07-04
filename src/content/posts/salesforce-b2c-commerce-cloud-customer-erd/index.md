@@ -4,7 +4,7 @@ description: >-
   Are you wondering what entities make up a customer in SFCC and how they are
   connected? Then look no more! Here is a small ERD.
 date: '2023-02-06T08:52:39.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /salesforce-b2c-commerce-cloud-customer-erd/
 draft: false
 heroImage: ruth-architect-985a2e68a5.png
@@ -27,7 +27,7 @@ So I've taken it upon myself to create and share my own with the world!
 
 The first one on the list: the Account/Profile!
 
-{{< img-caption 
+{{< img-caption
   src="salesforce-b2c-commerce-cloud-diagram-customer-erd-0511da2fc0.png"
   alt="Customer entity relationship diagram for Salesforce B2C Commerce Cloud"
 >}}

@@ -4,7 +4,7 @@ description: >-
   Learn how caching works in the Salesforce Composable Storefront, which layers
   matter most, and where it improves real-world speed.
 date: '2024-10-14T09:42:12.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /caching-in-the-sfcc-composable-storefront/
 draft: false
 heroImage: multi-layered-caching-b85c120088.jpg
@@ -111,7 +111,7 @@ These rules have been documented [in the server-side web-tier caching guide](htt
 
 For most, this option will already be enabled or will not even be visible anymore in the business manager. But verify that Server-Side Web-Tier Caching has been enabled in your feature switches. (_Administration> Global Preferences > Feature Switches_)
 
-{{< img-caption 
+{{< img-caption
   src="scapi-server-side-web-tier-caching-ead7ec1b79.jpg"
   alt="Business Manager feature toggle for enabling SCAPI server-side web-tier caching."
   caption="Figure 1: Business Manager feature toggle for enabling SCAPI server-side web-tier caching"

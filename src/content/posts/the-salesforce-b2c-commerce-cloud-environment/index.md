@@ -4,7 +4,7 @@ description: >-
   Do you want to know more about the server architecture of Salesforce B2C
   Commerce Cloud? You have come to the right place!
 date: '2022-08-22T17:37:46.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /the-salesforce-b2c-commerce-cloud-environment/
 draft: false
 heroImage: connected-systems-d281b9e674.jpg
@@ -33,7 +33,7 @@ Sure, there was an explanation of the eCDN and its use. But not how it fits in t
 
 Before we move into the details where the [Embedded CDN](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_embedded_cdn.htm) (eCDN) is mentioned, let us get an overview of the components that make up "SFCC."
 
-{{< img-caption 
+{{< img-caption
   src="system-overview-systems-v2-96d8264c0f.jpeg"
   alt="System overview diagram of the main Salesforce B2C Commerce environment components"
   caption="Figure 1: Salesforce B2C Commerce Cloud environment system overview"
@@ -101,7 +101,7 @@ In the diagram below, we look at a potential request to an SFRA or SiteGenesis c
 
 In this case, the explanation of each component of the environment is in the diagram itself. Word of warning though, this is a lot more "technical" than the previous section.
 
-{{< img-caption 
+{{< img-caption
   src="system-overview-journey-of-a-request-de0673b3bd.jpeg"
   alt="Request flow diagram showing how traffic moves through the Salesforce B2C Commerce environment"
   caption="Figure 2: End-to-end request flow through the Salesforce B2C Commerce environment"

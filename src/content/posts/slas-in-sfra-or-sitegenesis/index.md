@@ -4,7 +4,7 @@ description: >-
   SLAS (Shopper Login And API Access Service) is one of the headless APIs made
   available by Salesforce. But how can we use it in SFRA?
 date: '2025-07-24T20:52:39.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /slas-in-sfra-or-sitegenesis/
 draft: false
 heroImage: slas-84866c9e46.jpg
@@ -29,7 +29,7 @@ But let's cut to the chase. The `plugin_slas` cartridge (which we will discuss l
 
 ## What is SLAS
 
-{{< img-caption 
+{{< img-caption
   src="slas-diagram-9890f180b6.png"
   alt="Diagram showing the different steps of the SLAS authentication process"
   caption="SLAS authentication flow"
@@ -85,7 +85,7 @@ Using nearly half of the API limit for authentication alone was a risky strategy
 
 ## The New Sheriff in Town: Platform-Native Hybrid Authentication
 
-{{< img-caption 
+{{< img-caption
   src="plugin-slas-to-hybrid-authentication-359f0381b0.jpg"
   alt="Classic robot labelled plugin_slas cartridge handing a key to modern robot labelled Hybrid Authentication on a path from SFRA town to futuristic city"
   caption="plugin_slas to Hybrid Authentication handoff"

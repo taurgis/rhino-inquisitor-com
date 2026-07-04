@@ -4,7 +4,7 @@ description: >-
   Learn the difference between slicing and variation groups in Commerce Cloud,
   and when each model fits your product setup best.
 date: '2023-11-20T11:08:09.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /slicing-versus-variation-groups-in-sfcc/
 draft: false
 heroImage: a-tshirt-sliced-into-multiple-colors-scaled-4ed0b9ab1a.jpg
@@ -19,7 +19,7 @@ takeaways:
   - "Argues that variation groups are usually the stronger option for merchandising, SEO stability, promotions, and composable storefront support"
   - "Highlights the operational and quota implications teams should understand before choosing a product-modelling strategy"
 ---
-Clarity and efficiency are key in the strategic display and management of products in your online store. In an age where various product options and variations dominate e-commerce, [we must grasp the organisational tools at our disposal](/getting-to-know-sfra-as-a-developer/).
+Clarity and efficiency are key in the strategic display and management of products in your online store. In an age where various product options and variations dominate e-commerce, [we must grasp the organizational tools at our disposal](/getting-to-know-sfra-as-a-developer/).
 
 Today, we're thoroughly examining two tools provided by Salesforce B2C Commerce Cloud: 'Slicing' and 'Variation Groups'. Both are an option in product management, but which is your best bet?
 
@@ -27,7 +27,7 @@ In this article (and I am giving away already which option blows the other out o
 
 ## What is slicing
 
-{{< img-caption 
+{{< img-caption
   src="a-robot-slicing-a-tshirt-27ef2248fc.jpg"
   alt="Cartoon robot slicing a cake decorated as a t-shirt on a cutting board"
   caption="Figure 1: Slicing—A legacy method of separating product variants by a single attribute"
@@ -41,7 +41,7 @@ From an operational standpoint, slicing demands that you replicate this process 
 
 ## What are variation groups
 
-{{< img-caption 
+{{< img-caption
   src="base-variation-group-variant-explained-ed19da17b7.png"
   alt="Diagram showing hierarchy of Base Product containing Variation Groups (colour) which contain Variants (size)"
   caption="Figure 2: Modern Architecture—Base Product, Variation Group, and Variant hierarchy system"
@@ -53,7 +53,7 @@ The "Master Product" has been renamed to "Base Product" to be more inclusive.
 
 Variation Groups are really useful because they help to show a product line in a complete way. They take information about the inventory from a group of SKUs, which makes it easier to keep track of the amount of each product you have and to show the products consistently. With Variation Groups, you can also choose specific products based on certain attributes like colour and size, and place them in your store in a way that makes sense.
 
-Variation Groups also make it possible to tag products to promotions, which gives you more control over sales. This is something that is difficult to do with traditional product organisation methods. Variation Groups are really helpful in situations where you have lots of products that need to be managed carefully, and where you need to make sure that everything looks and works well together.
+Variation Groups also make it possible to tag products to promotions, which gives you more control over sales. This is something that is difficult to do with traditional product organization methods. Variation Groups are really helpful in situations where you have lots of products that need to be managed carefully, and where you need to make sure that everything looks and works well together.
 
 ## Why use Variation Groups over Slicing
 
@@ -67,7 +67,7 @@ Variation Groups also make it possible to tag products to promotions, which give
 - **Composable Storefront:** Although SFRA and SiteGenesis supported slicing, the PWA Kit has never been tested with slicing and solely supports Variation Groups out of the box.
 - **Slicing is kind of deprecated:** Although the [Trailhead Module](https://trailhead.salesforce.com/content/learn/modules/b2c-catalog-category-product/b2c-configure-variation-groups-slicing) and documentation no longer show a deprecation message (I somehow remember it visible in more places), it is a deprecated feature (proved by the previous point).
 
-{{< img-caption 
+{{< img-caption
   src="sfcc-slicing-deprecated-42f8438771.png"
   alt="ProductSearchHit API documentation showing deprecation warning for slicing in favour of variation groups"
   caption="Figure 3: Slicing Deprecation Notice—Official warning in SFCC ProductSearchHit class documentation"
@@ -77,7 +77,7 @@ One location still has the deprecation message.
 
 ## Quota Limits
 
-{{< img-caption 
+{{< img-caption
   src="variations-quota-limit-sfcc-00862ef947.png"
   alt="Salesforce documentation showing quota limits for maximum number of variations per base product"
   caption="Figure 4: Variation Quota Limits—Critical maximum variations constraint for large catalogues"

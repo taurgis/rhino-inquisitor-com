@@ -4,7 +4,7 @@ description: >-
   Guide to SFCC Dynamic Image Service, how its transformations and caching work,
   and when external image tooling is still the better fit.
 date: '2025-07-14T06:44:24.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /image-ine-sfcc-dis-for-developers/
 draft: false
 heroImage: salesforce-b2c-commerce-cloud-dis-scaled-e55eb2de2c.jpeg
@@ -48,7 +48,7 @@ Want to know precisely how all of these things work? Have a look at the [officia
 
 ## Why You Should Be Best Friends with DIS
 
-{{< img-caption 
+{{< img-caption
   src="developer-and-dis-are-friends-scaled-e1752256621645-8ebda34ef5.jpeg"
   alt="Cartoon illustration of developer and cloud mascot shaking hands to symbolise seamless integration with DIS"
   caption="Figure 1: Best Friends with DIS—Seamless Image Optimisation"

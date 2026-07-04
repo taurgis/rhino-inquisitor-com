@@ -4,7 +4,7 @@ description: >-
   There are no official updates in October, but that doesn't mean that nothing
   is moving! Let us have a look at what has changed!
 date: '2022-10-24T17:48:25.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /salesforce-b2c-commerce-cloud-october-updates/
 draft: false
 heroImage: people-upgrading-a-server-rack-0c2ba08791.png
@@ -26,7 +26,7 @@ We have just received the final release ([22.10](/salesforce-b2c-commerce-cloud-
 
 ### Trusted Agent
 
-{{< img-caption 
+{{< img-caption
   src="slas-trusted-agent-099b4e2206.png"
   alt="Diagram showing SLAS trusted-agent authentication in the October updates article."
   caption="Figure 1: Diagram showing SLAS trusted-agent authentication in the October updates article"

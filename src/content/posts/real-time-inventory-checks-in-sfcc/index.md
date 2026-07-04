@@ -4,7 +4,7 @@ description: >-
   Learn when real-time inventory checks improve the customer experience, where
   they add risk, and how to balance speed with accuracy.
 date: '2026-02-09T11:11:31.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /real-time-inventory-checks-in-sfcc/
 draft: false
 heroImage: stampede-to-a-single-endpoin-t-scaled-2d591aef78.jpeg
@@ -64,7 +64,7 @@ That wait time directly murders your Time to First Byte (TTFB). Salesforce has p
 
 ### The Self-Inflicted Denial of Service
 
-{{< img-caption 
+{{< img-caption
   src="self-inflicted-dos-f3485c24ab.png"
   alt="Cartoon infographic showing SFCC storefront generating API calls that hammer a legacy ERP system, causing cascading failure with 504 Gateway Timeout"
   caption="Naive real-time inventory checks can overload the very systems they depend on."
@@ -88,7 +88,7 @@ This knowledge unlocks more intelligent strategies. You're not just caching data
 
 ## The Pragmatist's Playbook: The Hybrid Threshold Model
 
-{{< img-caption 
+{{< img-caption
   src="inventory-threshold-model-dfa3d5bd0f.jpeg"
   alt="Bar graph showing inventory threshold model with high stock using cached checks and low stock triggering real-time API calls"
   caption="A threshold model balances fast answers with selective real-time verification."
@@ -178,7 +178,7 @@ A custom solution only makes sense in the rarest of cases. For the vast majority
 
 ## Your Architectural Mandate
 
-{{< img-caption 
+{{< img-caption
   src="the-inventory-architectural-decision-fc1b43abe0.png"
   alt="Decision tree showing three inventory strategy tiers for SFCC-only, pragmatic omnichannel, and Salesforce-centric enterprises"
   caption="Inventory strategy should match the retailer's omnichannel maturity, not wishful thinking."

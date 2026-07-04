@@ -4,7 +4,7 @@ description: >-
   It's a yearly tradition not to release major updates during the holiday season
   to maintain platform stability, so here we are with the final release of
 date: '2023-10-02T12:35:45.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /salesforce-b2c-commerce-cloud-23-10-release-a-comprehensive-overview/
 draft: false
 heroImage: shopping-carts-on-a-tablet-fa1824b0b9.jpeg
@@ -29,10 +29,10 @@ It's a yearly tradition not to release major updates during the holiday season t
 
 The new feature that allows for multiple baskets is a game-changer. I recall the hassle of having to manipulate transactions frequently to perform real-time calculations without interfering with the current basket, or having to work with custom objects. But now, those days are behind us! Here are the new APIs:
 
--   [BasketMgr.createTemporaryBasket()](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/upcoming/scriptapi/html/api/class_dw_order_BasketMgr.html#dw_order_BasketMgr_createTemporaryBasket_DetailAnchor)
--   [BasketMgr.deleteTemporaryBasket()](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/upcoming/scriptapi/html/api/class_dw_order_BasketMgr.html#dw_order_BasketMgr_deleteTemporaryBasket_Basket_DetailAnchor)
--   [BasketMgr.getTemporaryBasket()](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/upcoming/scriptapi/html/api/class_dw_order_BasketMgr.html#dw_order_BasketMgr_getTemporaryBasket_String_DetailAnchor)
--   [BasketMgr.getTemporaryBaskets(](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/upcoming/scriptapi/html/api/class_dw_order_BasketMgr.html#dw_order_BasketMgr_getTemporaryBaskets_DetailAnchor)
+- [BasketMgr.createTemporaryBasket()](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/upcoming/scriptapi/html/api/class_dw_order_BasketMgr.html#dw_order_BasketMgr_createTemporaryBasket_DetailAnchor)
+- [BasketMgr.deleteTemporaryBasket()](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/upcoming/scriptapi/html/api/class_dw_order_BasketMgr.html#dw_order_BasketMgr_deleteTemporaryBasket_Basket_DetailAnchor)
+- [BasketMgr.getTemporaryBasket()](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/upcoming/scriptapi/html/api/class_dw_order_BasketMgr.html#dw_order_BasketMgr_getTemporaryBasket_String_DetailAnchor)
+- [BasketMgr.getTemporaryBaskets(](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/upcoming/scriptapi/html/api/class_dw_order_BasketMgr.html#dw_order_BasketMgr_getTemporaryBaskets_DetailAnchor)
 
 The SCAPI/OCAPI have not received any updates despite the official documentation still stating the same:
 
@@ -76,10 +76,10 @@ A highly requested feature to expand the possibilities of custom hooks has been 
 
 > You can now update a main product variant in a bundled line item. This change allows shoppers to select a main product variant when adding a bundled line item to a cart. For example, a product bundle contains a belt and a T-shirt. The T-shirt is a main product with red, blue, and green variations. When the shopper adds the product bundle to a basket, the belt and T-shirt are added as bundled items, and the shopper can select a T-shirt colour, one of the T-shirt variants. Previously, the API didn’t support selecting a main product variant when a main product was included in a line item bundle. You can update these properties using (PATCH /baskets/\[basketId\]/items/\[itemId\]) .
 >
-> -   productId
-> -   isGift
-> -   giftMessage
-> -   Custom properties
+> - productId
+> - isGift
+> - giftMessage
+> - Custom properties
 
 The support for headless scenarios is essential as the Composable Storefront gains more prominence in customer projects. Therefore, it is a great addition. However, it is unclear whether this support is for the OCAPI, the SCAPI, or both. Since the SCAPI has a different release log, it is suspected that the support is for the OCAPI, which flows through to the SCAPI as it is a layer on top of the OCAPI. Does someone care to experiment and let me know?
 
@@ -87,33 +87,33 @@ The support for headless scenarios is essential as the Composable Storefront gai
 
 ### Email Notification of Changes to Inactive User Settings
 
-> As part of the Auto Disable Inactive Users feature, an email notification is sent to users when the Inactive User settings are activated or deactivated. An email is also sent when the Days Before Deletion settings are changed on the organisation detail page. The email is sent to the email address entered in the Contact Users field on the organisation detail page.
+> As part of the Auto Disable Inactive Users feature, an email notification is sent to users when the Inactive User settings are activated or deactivated. An email is also sent when the Days Before Deletion settings are changed on the organization detail page. The email is sent to the email address entered in the Contact Users field on the organization detail page.
 
 There isn't much to say about this feature, but it's important for users to be aware of its automatic nature.
 
 ### Enable Read Only Account Manager Access
 
-> The Read Only Account Administrator role is now available in Account Manager. The role provides users read-only access to view details about their organisation, API clients, and users. The role doesn’t include permissions to make updates. The new role is useful for auditors who want to confirm compliance with their company policies. High-privilege roles such as Account Administrator or API Administrator override the new role.
+> The Read Only Account Administrator role is now available in Account Manager. The role provides users read-only access to view details about their organization, API clients, and users. The role doesn’t include permissions to make updates. The new role is useful for auditors who want to confirm compliance with their company policies. High-privilege roles such as Account Administrator or API Administrator override the new role.
 
 A new feature in the Account Manager allows viewing of critical configuration without editing access. A great new addition to the roles in my opinion!
 
 ## PWA Kit v3.1.1
 
--   [GitHub](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v3.1.1)
+- [GitHub](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v3.1.1)
 
 This minor release is packed with enhancements and bug fixes to help you build better commerce experiences. **@salesforce/commerce-sdk-react@1.0.2**
 
--   Updated commerce-sdk-isomorphic to v1.10.4 for improved performance and stability.
--   Streamlined the development process by moving typedoc-related dependencies to dev dependencies (Issue #1425).
+- Updated commerce-sdk-isomorphic to v1.10.4 for improved performance and stability.
+- Streamlined the development process by moving typedoc-related dependencies to dev dependencies (Issue #1425).
 
-**@salesforce/retail-react-app@2.0.0**
+`@salesforce/retail-react-app@2.0.0`
 
--   Fixed a critical issue with the Checkout Card Number in V3 (Issue #1424).
--   Cleaned up incorrect import paths for the page-designer component (Issue #1441).
--   Modularised the country code source for targeting via extensibility (Issue #1445).
--   Exported an icon helper function for targeting via overrides (Issue #1420).
--   Migrated Page Designer core types to commerce-sdk-react (Issue #1441).
+- Fixed a critical issue with the Checkout Card Number in V3 (Issue #1424).
+- Cleaned up incorrect import paths for the page-designer component (Issue #1441).
+- Modularised the country code source for targeting via extensibility (Issue #1445).
+- Exported an icon helper function for targeting via overrides (Issue #1420).
+- Migrated Page Designer core types to commerce-sdk-react (Issue #1441).
 
-**@salesforce/pwa-kit-dev@3.1.1**
+`@salesforce/pwa-kit-dev@3.1.1`
 
--   Resolved a performance issue caused by webpack stats in V3 (Issue #1391).
+- Resolved a performance issue caused by webpack stats in V3 (Issue #1391).

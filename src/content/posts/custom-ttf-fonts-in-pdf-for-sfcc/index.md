@@ -4,7 +4,7 @@ description: >-
   Learn how to use custom TTF fonts in Salesforce B2C Commerce Cloud PDF
   generation so branded documents render correctly in production.
 date: '2023-06-12T08:12:49.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /custom-ttf-fonts-in-pdf-for-sfcc/
 draft: false
 heroImage: fonts-c94beaf8e0.jpg
@@ -96,7 +96,7 @@ response.writer.print(doc.output());
 
 The first parameter of the setFont function is the font name defined in the initial JavaScript file we generated using the font conversion tool. If they do not match, it will not work! But if set up correctly, you should get a result like this (an example from the [GitHub repository code](https://github.com/taurgis/salesforce-commerce-cloud-libraries/blob/master/cartridges/plugin_testlibraries/cartridge/controllers/jsPDF.js)):
 
-{{< img-caption 
+{{< img-caption
   src="custom-font-result-df8aa2e64b.png"
   alt="Generated PDF preview showing multiple custom fonts rendered in the output."
   caption="Figure 1: Generated PDF preview showing multiple custom fonts rendered in the output"

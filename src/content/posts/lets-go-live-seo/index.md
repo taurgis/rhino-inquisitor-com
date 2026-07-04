@@ -4,7 +4,7 @@ description: >-
   Bringing your first site live on SFCC can be challenging. In this series, we
   will be looking at different parts. Part 3: SEO
 date: '2022-09-05T08:35:42.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /lets-go-live-seo/
 draft: false
 heroImage: sitemap-c717c2a8e7.png
@@ -42,7 +42,7 @@ Depending on the requirements, this can be on the business or development side.
 
 ## It is a team effort
 
-Doing optimisations to the SEO of your site requires the involvement of many different people in and out of the organisation.
+Doing optimisations to the SEO of your site requires the involvement of many different people in and out of the organization.
 
 Think of it this way: to get good SEO, you need good quality data and content. And someone needs to write that content, push it to the correct channels, translate it if necessary to all supported languages, ...
 

@@ -4,7 +4,7 @@ description: >-
   Hooks are becoming more and more prominent because of the PWA Kit and the API
   first methodology. But how do you implement them?
 date: '2022-10-31T13:03:53.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /how-to-use-ocapi-scapi-hooks/
 draft: false
 heroImage: 26df11a8-62ec-44cd-bf3b-6ff9ab46bee8-5598d60cbd.jpg
@@ -208,13 +208,13 @@ Salesforce has provided a list of constraints and best practices [on the documen
 
 ### The Shared Responsibility Pact
 
-Let's be crystal clear on the security context. Salesforce is responsible for securing the API endpoints, the underlying platform, and the infrastructure on which it runs. This includes authentication at the API gateway and authorisation based on scopes. However, under this shared responsibility model, **you** are responsible for the security of any custom code you write, and that absolutely includes hooks.
+Let's be crystal clear on the security context. Salesforce is responsible for securing the API endpoints, the underlying platform, and the infrastructure on which it runs. This includes authentication at the API gateway and authorization based on scopes. However, under this shared responsibility model, **you** are responsible for the security of any custom code you write, and that absolutely includes hooks.
 
-When a SCAPI request arrives, it's first authenticated and authorised by the gateway based on the client's Shopper Login and API Access Service (SLAS) token, along with its associated scopes. Only then is the request passed on for processing, which is where your hook executes. The hook script runs with powerful server-side permissions, and this is where the danger lies. A developer, focused on a simple task like adding a custom field, might implicitly trust that the initial gateway authorisation is sufficient. This is a critical mistake.
+When a SCAPI request arrives, it's first authenticated and authorized by the gateway based on the client's Shopper Login and API Access Service (SLAS) token, along with its associated scopes. Only then is the request passed on for processing, which is where your hook executes. The hook script runs with powerful server-side permissions, and this is where the danger lies. A developer, focused on a simple task like adding a custom field, might implicitly trust that the initial gateway authorization is sufficient. This is a critical mistake.
 
-Your hook script has direct access to sensitive Script API objects, such as `Order`, `Customer`, and `Basket`. Without its own internal checks, it can be manipulated. For example, a `PATCH` request `/orders/{order_id}` might be authorised by the gateway for the `orders` scope, but the gateway doesn't know if the authenticated user actually *owns* that specific `order_id`. It's the hook's job to verify ownership. A hook that blindly trusts the data it receives creates a massive security hole. It can function as a "confused deputy," where an unprivileged user can make privileged calls through your code. The mantra must be: **re-authenticate and re-authorise within the hook.**
+Your hook script has direct access to sensitive Script API objects, such as `Order`, `Customer`, and `Basket`. Without its own internal checks, it can be manipulated. For example, a `PATCH` request `/orders/{order_id}` might be authorized by the gateway for the `orders` scope, but the gateway doesn't know if the authenticated user actually _owns_ that specific `order_id`. It's the hook's job to verify ownership. A hook that blindly trusts the data it receives creates a massive security hole. It can function as a "confused deputy," where an unprivileged user can make privileged calls through your code. The mantra must be: **re-authenticate and re-authorize within the hook.**
 
-### Never Trust, Always Verify: Authentication & Authorisation in Hooks
+### Never Trust, Always Verify: Authentication & Authorization in Hooks
 
 This principle must be applied rigorously. When your hook code deals with sensitive objects, you must always use the secure Script API methods that require a secondary token or secret that only the legitimate owner would possess.
 
@@ -395,4 +395,4 @@ To wrap up, let's tour the gallery of common mistakes and anti-patterns. Avoid t
 
 - **The "Chatty" Hook:** A hook that makes multiple, inefficient, synchronous calls to external systems within a single execution instead of designing a more efficient bulk or batch data-fetching strategy.
 
-- **The "Trusting Fool":** The most dangerous of all. A hook that blindly accepts and uses input from the request document without performing its own rigorous validation and authorisation checks, as detailed in our security section.
+- **The "Trusting Fool":** The most dangerous of all. A hook that blindly accepts and uses input from the request document without performing its own rigorous validation and authorization checks, as detailed in our security section.

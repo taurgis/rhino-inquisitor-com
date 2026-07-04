@@ -4,7 +4,7 @@ description: >-
   There are many Salesforce-related podcasts available on the web, but which of
   those are interesting to follow as an SFCC enthusiast.
 date: '2022-12-05T16:08:12.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /podcasts-for-salesforce-b2c-commerce-cloud/
 draft: false
 heroImage: headphones-in-the-clouds-b2df8fafce.jpg
@@ -20,7 +20,7 @@ takeaways:
   - "Highlights which shows are directly commerce-focused versus generally useful for developers, community members, or leaders"
   - "Gives newcomers a practical listening list for both technical insight and ecosystem awareness"
 ---
-Over the years, a lot of podcasts have popped up around Salesforce. And amongst these, they organise quite a few themselves.
+Over the years, a lot of podcasts have popped up around Salesforce. And amongst these, they organize quite a few themselves.
 
 The [ecosystem has grown significantly over the years](/the-state-of-ohana-for-salesforce-commerce-cloud/), and some podcasts have chosen to target a specific portion of the community. But which ones are interesting to listen to as a Salesforce B2C Commerce Cloud enthusiast?
 

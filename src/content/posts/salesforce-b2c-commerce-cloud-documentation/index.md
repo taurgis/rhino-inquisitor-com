@@ -4,7 +4,7 @@ description: >-
   Finding the documentation for a specific topic in Salesforce B2C Commerce
   Cloud can be a challenge sometimes. These are the options!
 date: '2022-05-09T18:58:37.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /salesforce-b2c-commerce-cloud-documentation/
 draft: false
 heroImage: documentation-ea8c96aa90.jpg
@@ -50,7 +50,7 @@ This migration wasn't a simple one-to-one mapping. Some outdated documentation, 
 | Open Commerce API (OCAPI) | Developer | [https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/api-doc.html](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/api-doc.html) |
 | B2C Commerce API (Script API) | Developer | [https://salesforcecommercecloud.github.io/b2c-dev-doc/](https://salesforcecommercecloud.github.io/b2c-dev-doc/) |
 | Merchandising Your Site | Administrator & Merchandiser | [https://help.salesforce.com/s/articleView?id=cc.b2c\_merchandising\_your\_site.htm&type=5](https://help.salesforce.com/s/articleView?id=cc.b2c_merchandising_your_site.htm&type=5) |
-| Administering Your Organisation | Administrator & Merchandiser | [https://help.salesforce.com/s/articleView?id=cc.b2c\_administering\_your\_organization.htm&type=5](https://help.salesforce.com/s/articleView?id=cc.b2c_administering_your_organization.htm&type=5) |
+| Administering Your Organization | Administrator & Merchandiser | [https://help.salesforce.com/s/articleView?id=cc.b2c\_administering\_your\_organization.htm&type=5](https://help.salesforce.com/s/articleView?id=cc.b2c_administering_your_organization.htm&type=5) |
 | B2C Commerce Security Guide | Administrator & Developer | [https://help.salesforce.com/s/articleView?id=cc.b2c\_commerce\_security\_guide.htm&type=5](https://help.salesforce.com/s/articleView?id=cc.b2c_commerce_security_guide.htm&type=5) |
 | Legacy Developer Documentation | Developer | [https://salesforcecommercecloud.github.io/b2c-dev-doc/](https://salesforcecommercecloud.github.io/b2c-dev-doc/) |
 
@@ -97,7 +97,7 @@ Trailhead is Salesforce's free, online learning platform, and it's an ocean of c
 
 While Trailhead is the public square for Salesforce knowledge, the Partner Learning Camp (PLC) is the exclusive, members-only club for Salesforce partners and employees. This is not just a rebranded Trailhead; it is a distinct learning destination designed to give partners the specialised knowledge needed to meet complex customer demands.
 
-The PLC offers curricula on topics like SFRA, Headless development, PWA Kit, and Architect Success, along with formal accreditations that go beyond standard Trailhead badges. Access is gated through the Salesforce Partner Community, ensuring the content, some of which was previously available only to internal Salesforce employees, remains a strategic asset for the partner ecosystem. For any partner organisation, engaging with the PLC is a critical step in levelling up their team's capabilities.
+The PLC offers curricula on topics like SFRA, Headless development, PWA Kit, and Architect Success, along with formal accreditations that go beyond standard Trailhead badges. Access is gated through the Salesforce Partner Community, ensuring the content, some of which was previously available only to internal Salesforce employees, remains a strategic asset for the partner ecosystem. For any partner organization, engaging with the PLC is a critical step in levelling up their team's capabilities.
 
 ## Salesforce Architects: The Multi-Cloud Command Centre
 

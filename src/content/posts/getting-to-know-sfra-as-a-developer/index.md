@@ -4,7 +4,7 @@ description: >-
   SFRA in Salesforce B2C Commerce can be quite daunting. This blog post will
   guide you through all of the content of Commerce Cloud SFRA!
 date: '2023-10-30T09:57:46.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /getting-to-know-sfra-as-a-developer/
 draft: false
 heroImage: sfra-670d466bd1.png
@@ -17,7 +17,7 @@ tags:
   - technical
 author: Thomas Theunen
 takeaways:
-  - "Organises a practical learning path for developers who are new to SFRA and SFCC"
+  - "Organizes a practical learning path for developers who are new to SFRA and SFCC"
   - "Points readers to sandbox setup, platform fundamentals, and official SFRA learning resources"
   - "Connects self-study, partner training, and certification prep into one onboarding path"
 ---
@@ -25,7 +25,7 @@ So, you are new to Salesforce Commerce Cloud and have begun your journey with SF
 
 But where to start? Quite a bit of information is available, but where you should start is unclear.
 
-Not to worry. Let's get that information organised for you!
+Not to worry. Let's get that information organized for you!
 
 ## Get to know B2C Commerce Cloud
 

@@ -4,7 +4,7 @@ description: >-
   Are you wondering what entities make up a campaign in SFCC and how they are
   connected? Then look no more! Here is a small ERD.
 date: '2023-02-27T08:24:42.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /b2c-commerce-cloud-campaign-erd/
 draft: false
 heroImage: newsletter-surrounded-by-cogwheels-83ae88881a.jpg
@@ -27,7 +27,7 @@ Sure, you find many diagrams on the entity model of [force.com](https://salesfor
 
 The fourth on the list: Campaigns! And this one has quite a few things to remember for such a small diagram.
 
-{{< img-caption 
+{{< img-caption
   src="salesforce-b2c-commerce-cloud-diagram-campaign-erd-4b241c1470.png"
   alt="Campaign entity relationship diagram for Salesforce B2C Commerce Cloud"
   caption="Figure 1: Salesforce B2C Commerce Cloud Campaign ERD"
@@ -59,7 +59,7 @@ After creating a support ticket, two new features appear in the business manager
 
 And suddenly, within campaign management, we get new options!
 
-{{< img-caption 
+{{< img-caption
   src="campaign-store-groups-sfcc-1a646a927d.png"
   alt="Campaign Details screen showing Store Group assignment options in Business Manager"
   caption="Figure 2: Campaign Details configuration for Store Group assignments"

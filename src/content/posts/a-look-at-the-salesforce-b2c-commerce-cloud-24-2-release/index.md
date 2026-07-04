@@ -4,7 +4,7 @@ description: >-
   Review the Salesforce B2C Commerce Cloud 24.2 release and the platform updates
   worth testing across storefront, API, and operational workflows.
 date: '2024-02-05T06:59:49.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /a-look-at-the-salesforce-b2c-commerce-cloud-24-2-release/
 draft: false
 heroImage: a-question-mark-cloning-machine-12d5adc228.jpg
@@ -96,7 +96,7 @@ Previously, we were unable to differentiate at the millisecond level, but that i
 
 The promised helper functions have arrived with the new custom endpoints going GA, making creating scripts for your endpoints easier!
 
--   [https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/upcoming/scriptapi/html/index.html?target=class\_dw\_system\_RESTResponseMgr.html](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/upcoming/scriptapi/html/index.html?target=class_dw_system_RESTResponseMgr.html)
+- [https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/upcoming/scriptapi/html/index.html?target=class\_dw\_system\_RESTResponseMgr.html](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/upcoming/scriptapi/html/index.html?target=class_dw_system_RESTResponseMgr.html)
 
 ## OCAPI & SCAPI
 
@@ -110,12 +110,12 @@ The [documentation](https://developer.salesforce.com/docs/commerce/commerce-api/
 
 ### SLAS Updates
 
-> -   Improved error handling for TSOB(Trusted system on Behalf) for "customer not found" user scenarios.
-> -   Support added for using SAP Customer Data Cloud socialise REST endpoints.
-> -   IDP configuration now allows the IDP client credentials to be added to the POST body. SLAS now supports OIDC client\_secret\_basic and client\_secret\_post for client authentication.
-> -   Updated the /introspect endpoint to include a “sub” claim in the response.
-> -   Improved validation in Session Bridge(SESB) flow by checking for the customer\_id and failing the request if the customer is already registered.
-> -   Includes SLAS Admin UI and API bug fix to address the cache synchronisation issue when a client is edited or deleted.
+> - Improved error handling for TSOB(Trusted system on Behalf) for "customer not found" user scenarios.
+> - Support added for using SAP Customer Data Cloud socialise REST endpoints.
+> - IDP configuration now allows the IDP client credentials to be added to the POST body. SLAS now supports OIDC client\_secret\_basic and client\_secret\_post for client authentication.
+> - Updated the /introspect endpoint to include a “sub” claim in the response.
+> - Improved validation in Session Bridge(SESB) flow by checking for the customer\_id and failing the request if the customer is already registered.
+> - Includes SLAS Admin UI and API bug fix to address the cache synchronisation issue when a client is edited or deleted.
 
 SLAS updates this month include some critical changes. One of the issues that has been bothering me for the past year was the visual cache of the SLAS admin UI, which caused a lot of confusion by displaying outdated information.
 
@@ -125,30 +125,30 @@ However, I'm happy to report that this issue has finally been fixed, dramaticall
 
 ### 1.32.0 Release
 
-> -   Security Fixes
-> -   Bug Fixes
-> -   Infrastructure Updates
-> -   **UUID Tokens Switched to JWT Access Tokens**: As previously announced in June 2023, Account Manager no longer supports the use of UUID token formats. All new API Clients only support the JWT access token format.
+> - Security Fixes
+> - Bug Fixes
+> - Infrastructure Updates
+> - **UUID Tokens Switched to JWT Access Tokens**: As previously announced in June 2023, Account Manager no longer supports the use of UUID token formats. All new API Clients only support the JWT access token format.
 
 After quite a long warning beforehand, the [UUID](/the-deprecation-of-the-uuid-token-for-api-clients/) option is now wholly gone for new API clients!
 
 ## SFRA v7.0.0
 
--   [https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/releases/tag/v7.0.0](https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/releases/tag/v7.0.0)
+- [https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/releases/tag/v7.0.0](https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/releases/tag/v7.0.0)
 
 > **BREAKING CHANGE: SFRA v7.0.0 has been updated to support Node 18**
 >
 >
-> -   Setup Github Actions config by @shethj in #1337
-> -   Allow arbitrary-length TLDs by @wjhsf in #1352
-> -   Fix broken locale selector on Page Designer pages. by @wjhsf in #1354
-> -   Fix search with multiple refinements on PLP by @shethj in #1365
-> -   Bug: avoid XSS attacks in addressBook.js by @mjuszczyk1 in #1366
-> -   Update: seo friendly urls for search refinements by @sandragolden in #1331
-> -   Bug: fix transformations not being applied (W-8851964) by @wjhsf in #1183
-> -   Use standard ignore for generated files by @wjhsf in #1182
-> -   Bump version to v7.0.0 by @shethj in #1373
-> -   Add node18 release note by @shethj in #1374
+> - Setup Github Actions config by @shethj in #1337
+> - Allow arbitrary-length TLDs by @wjhsf in #1352
+> - Fix broken locale selector on Page Designer pages. by @wjhsf in #1354
+> - Fix search with multiple refinements on PLP by @shethj in #1365
+> - Bug: avoid XSS attacks in addressBook.js by @mjuszczyk1 in #1366
+> - Update: seo friendly urls for search refinements by @sandragolden in #1331
+> - Bug: fix transformations not being applied (W-8851964) by @wjhsf in #1183
+> - Use standard ignore for generated files by @wjhsf in #1182
+> - Bump version to v7.0.0 by @shethj in #1373
+> - Add node18 release note by @shethj in #1374
 
 A long-awaited update to SFRA is finally here with the long-promised update to node 18!
 
@@ -161,27 +161,27 @@ A long-awaited update to SFRA is finally here with the long-promised update to n
 
 > **General**
 >
-> -   Add support for node 20 #1612
-> -   Fix bug when running in an iframe #1629
-> -   Generate SSR source map with environment variable #1571
-> -   Display selected refinements on PLP, even if the selected refinement has no hits #1622
-> -   Added option to specify isLoginPage function to the withRegistration component. The default behaviour is "all pages ending in /login". #1572
+> - Add support for node 20 #1612
+> - Fix bug when running in an iframe #1629
+> - Generate SSR source map with environment variable #1571
+> - Display selected refinements on PLP, even if the selected refinement has no hits #1622
+> - Added option to specify isLoginPage function to the withRegistration component. The default behaviour is "all pages ending in /login". #1572
 >
 >
 > **Accessibility**
 >
-> -   Add correct keyboard interaction behaviour for variation attribute radio buttons #1587
-> -   Change radio refinements (for example, filtering by Price) from radio inputs to styled buttons #1605
-> -   Update search refinements ARIA labels to include "add/remove filter" #1607
-> -   Improve focus behaviour on my account pages, address forms, and promo codes #1625
+> - Add correct keyboard interaction behaviour for variation attribute radio buttons #1587
+> - Change radio refinements (for example, filtering by Price) from radio inputs to styled buttons #1605
+> - Update search refinements ARIA labels to include "add/remove filter" #1607
+> - Improve focus behaviour on my account pages, address forms, and promo codes #1625
 >
 >
 > **Storefront Preview**
 >
-> -   We've added a new context input field for Customer Group. This is a text input for now but we imagine a dropdown in the future.
-> -   We know many of you will bring third party CMS's to the mix. We want you to be able to use Storefront Preview with these as well! On that note please check out our new guidance on Preview extensibility. Essentially you can forward context changes onto a third party to set their version of context in the given platform meaning your Previewed storefront can faithfully render all the content relevant to your context settings.
+> - We've added a new context input field for Customer Group. This is a text input for now but we imagine a dropdown in the future.
+> - We know many of you will bring third party CMS's to the mix. We want you to be able to use Storefront Preview with these as well! On that note please check out our new guidance on Preview extensibility. Essentially you can forward context changes onto a third party to set their version of context in the given platform meaning your Previewed storefront can faithfully render all the content relevant to your context settings.
 
--   [https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v3.4.0](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v3.4.0)
+- [https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v3.4.0](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v3.4.0)
 
 With smaller and larger updates, the 3.4 release is now equipped to support more use cases and stay current with the latest Node versions!
 
@@ -193,7 +193,7 @@ Someone decided in January to do some cleanup, making it harder to make an overv
 
 ### composable-storefront-pocs
 
--   [https://github.com/SalesforceCommerceCloud/composable-storefront-pocs](https://github.com/SalesforceCommerceCloud/composable-storefront-pocs)
+- [https://github.com/SalesforceCommerceCloud/composable-storefront-pocs](https://github.com/SalesforceCommerceCloud/composable-storefront-pocs)
 
 > This repo is a composable storefront implementation with various proof of concepts baked in. It otherwise closely tracks pwa-kit
 
@@ -201,9 +201,9 @@ A big update to the POC library, such as live editing (custom editors) and Promo
 
 ### plugin\_slas (v7.2.0)
 
--   [https://github.com/SalesforceCommerceCloud/plugin\_slas](https://github.com/SalesforceCommerceCloud/plugin_slas)
+- [https://github.com/SalesforceCommerceCloud/plugin\_slas](https://github.com/SalesforceCommerceCloud/plugin_slas)
 
 > This cartridge extends authentication for guest users and registered shoppers using the Shopper Login and API Access Service (SLAS).
 
--   Node18 upgrade by [@alexvuong](https://github.com/alexvuong) in [#175](https://github.com/SalesforceCommerceCloud/plugin_slas/pull/175)
--   Bump version to v7.2.0 by [@shethj](https://github.com/shethj) in [#177](https://github.com/SalesforceCommerceCloud/plugin_slas/pull/177)
+- Node18 upgrade by [@alexvuong](https://github.com/alexvuong) in [#175](https://github.com/SalesforceCommerceCloud/plugin_slas/pull/175)
+- Bump version to v7.2.0 by [@shethj](https://github.com/shethj) in [#177](https://github.com/SalesforceCommerceCloud/plugin_slas/pull/177)

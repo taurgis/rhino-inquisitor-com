@@ -4,7 +4,7 @@ description: >-
   Review the new SCAPI and headless platform features in Salesforce B2C Commerce
   Cloud, and see which updates matter most for composable storefront teams.
 date: '2023-11-13T09:54:35.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /new-apis-and-features-for-a-headless-sfcc/
 draft: false
 heroImage: robot-operating-on-its-own-head-797d8fde74.jpg
@@ -54,8 +54,8 @@ Automatically forwarding logs to the Log Centre offers multiple benefits to Sale
 
 With the changes happening in the managed runtime, two new releases have happened in the past month of the PWA Kit:
 
--   [3.2.0](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v3.2.0)
--   [3.2.1](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v3.2.1)
+- [3.2.0](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v3.2.0)
+- [3.2.1](https://github.com/SalesforceCommerceCloud/pwa-kit/releases/tag/v3.2.1)
 
 Besides the Storefront Preview feature, there are changes to how "[Content-Security-Policy](/secure-coding-in-salesforce-b2c-commerce-cloud/)" is managed in this release. Be sure to review the changes as they are significant.
 
@@ -75,7 +75,7 @@ _I believe that in the future, we will witness endpoints to address some of the 
 
 ### Stores
 
-{{< img-caption 
+{{< img-caption
   src="connected-stores-22cea94a19.jpg"
   alt="A drawing of retail stores connected by lines; in this case, the lines are Ethernet cables referencing the REST APIs to fetch the store data in Headless applications."
   caption="Figure 1: A drawing of retail stores connected by lines; in this case, the lines are Ethernet cables referencing the REST APIs to fetch the store data in Headless applications"

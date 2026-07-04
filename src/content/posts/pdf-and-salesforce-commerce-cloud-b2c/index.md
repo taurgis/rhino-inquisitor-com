@@ -4,7 +4,7 @@ description: >-
   Everyone knows PDF, right? It has been around for many years, and now we can
   use its full potential within Salesforce Commerce Cloud!
 date: '2022-02-24T13:18:00.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /pdf-and-salesforce-commerce-cloud-b2c/
 draft: false
 heroImage: pdf-and-sfcc-f66c1d7bc5.jpg
@@ -50,7 +50,7 @@ A few hours later, I found 15 minutes to spare and created a working job step us
 
 And not to worry, these examples, together with the library, are available [here to download](https://github.com/taurgis/salesforce-commerce-cloud-libraries) and try out yourself.
 
-{{< img-caption 
+{{< img-caption
   src="jspdf-example-c6dcb73e48.png"
   alt="An example of code using jsPDF and the resulting PDF preview on the right."
   caption="Figure 1: An example of code using jsPDF and the resulting PDF preview on the right"

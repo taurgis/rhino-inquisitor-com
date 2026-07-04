@@ -4,7 +4,7 @@ description: >-
   Salesforce B2C Commerce is a robust platform that enables businesses to create
   highly customised and scalable digital storefronts.
 date: '2023-04-17T14:18:06.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /understanding-sfcc-instances/
 draft: false
 heroImage: salesforce-b2c-commerce-cloud-instances-scaled-59ed2cbb06.jpeg
@@ -22,7 +22,7 @@ takeaways:
   - "Shows how sandbox, development, staging, and production environments support different phases of storefront delivery"
   - "Maps common team roles to the instances they typically use, making the platform structure easier to understand operationally"
 ---
-Salesforce B2C Commerce is a [robust platform](/the-salesforce-b2c-commerce-cloud-environment/) that enables businesses to create highly customised and scalable digital storefronts. One of the key components (and advantages) of B2C Commerce is the available instances, which contain the tools and resources needed for customising your storefront.  This blog post will discuss the different types of B2C Commerce instances, their uses, and how different teams within your organisation can utilise them.
+Salesforce B2C Commerce is a [robust platform](/the-salesforce-b2c-commerce-cloud-environment/) that enables businesses to create highly customised and scalable digital storefronts. One of the key components (and advantages) of B2C Commerce is the available instances, which contain the tools and resources needed for customising your storefront.  This blog post will discuss the different types of B2C Commerce instances, their uses, and how different teams within your organization can utilise them.
 
 {{< img-caption src="pod-realm-and-instances-transparent-65c6b4e389.png" alt="Diagram showing how PODs, realms, and instances relate in Salesforce B2C Commerce."
 caption="POD, Realm, Instances, and Domains"
@@ -34,15 +34,15 @@ In Salesforce B2C Commerce, a Point of Delivery (POD) is a comprehensive infrast
 
 ## Realms
 
-A realm is an essential organisational component that houses instances required for developing, testing, and deploying your online storefront. Typically, a single realm is adequate for managing multiple sites with different branding or locales. This setup allows for flexible management, as individuals overseeing the storefront sites can be located in various places. However, consider using multiple realms if you have distinct lines of business, global teams with unique processes, or separate organisations with different backend integrations.  While sites within the same realm can share product catalogues, sites in other realms cannot share data through the catalogue structure. You can, however, set up a CI/CD system to automate the synchronisation of the data when working with multiple realms.
+A realm is an essential organizational component that houses instances required for developing, testing, and deploying your online storefront. Typically, a single realm is adequate for managing multiple sites with different branding or locales. This setup allows for flexible management, as individuals overseeing the storefront sites can be located in various places. However, consider using multiple realms if you have distinct lines of business, global teams with unique processes, or separate organizations with different backend integrations.  While sites within the same realm can share product catalogues, sites in other realms cannot share data through the catalogue structure. You can, however, set up a CI/CD system to automate the synchronisation of the data when working with multiple realms.
 
 ## PIG vs SIG
 
 Within a [realm](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_platform_overview.htm), instances are organised into Primary Instance Group (PIG) and Secondary Instance Group (SIG).  The PIG comprises three instances:
 
--   Development
--   Staging
--   Production
+- Development
+- Staging
+- Production
 
 These are used for site configuration, testing, and hosting the live site. In the SIG, you will find the Developer Sandboxes. _**Note:**_ _Each realm can have only one PIG and SIG._
 
@@ -70,7 +70,7 @@ The production instance is the live environment used for storefront transactions
 
 ## Matching Roles with Instances
 
-Depending on the size of your team, one person may play more than one role. Here is a breakdown of the different roles within an organisation and the instance types they typically use.
+Depending on the size of your team, one person may play more than one role. Here is a breakdown of the different roles within an organization and the instance types they typically use.
 
 ### Architect
 
@@ -82,7 +82,7 @@ Developers play a critical role in shaping a digital storefront's look, feel, an
 
 {{< img-caption src="woman-developer-working-on-a-project-1-4710b72058.jpeg" alt="Illustration of a developer working in a Salesforce B2C Commerce sandbox environment." >}}
 
-Once developers are satisfied with their work in the Sandbox instance, they move on to the Staging instance. The Development environment is where developers upload their finalised code, which is subject to further testing and integration with the content created by merchandisers. This ensures the code and content work seamlessly before being deployed to the Production instance. Depending on your process, the content is first replicated to the Development instance and tested with the latest code before moving it into staging, where bugs in the code can disrupt the daily merchandising activity. Developers may also export data added by merchandisers on the Staging instance to use as test data for their Sandbox environments. This helps them develop and test their code with realistic data that reflects the actual content and structure of the live storefront. Developers play a collaborative role within the organisation, working closely with merchandisers, SEO engineers, administrators, and QA engineers. This collaboration ensures that all aspects of the digital storefront are well-coordinated, resulting in a seamless and high-quality user experience.
+Once developers are satisfied with their work in the Sandbox instance, they move on to the Staging instance. The Development environment is where developers upload their finalised code, which is subject to further testing and integration with the content created by merchandisers. This ensures the code and content work seamlessly before being deployed to the Production instance. Depending on your process, the content is first replicated to the Development instance and tested with the latest code before moving it into staging, where bugs in the code can disrupt the daily merchandising activity. Developers may also export data added by merchandisers on the Staging instance to use as test data for their Sandbox environments. This helps them develop and test their code with realistic data that reflects the actual content and structure of the live storefront. Developers play a collaborative role within the organization, working closely with merchandisers, SEO engineers, administrators, and QA engineers. This collaboration ensures that all aspects of the digital storefront are well-coordinated, resulting in a seamless and high-quality user experience.
 
 ### Merchandiser
 
@@ -100,4 +100,4 @@ An [SEO Engineer](/lets-go-live-seo/) is crucial in optimising a digital storefr
 
 ## Conclusion
 
-Understanding the different types of Salesforce B2C Commerce instances and their specific uses is crucial for successfully managing and developing your digital storefront. By assigning the appropriate instance types to the relevant team members within your organisation, you can ensure a streamlined and efficient development process, ultimately leading to a better end-user experience for your customers.
+Understanding the different types of Salesforce B2C Commerce instances and their specific uses is crucial for successfully managing and developing your digital storefront. By assigning the appropriate instance types to the relevant team members within your organization, you can ensure a streamlined and efficient development process, ultimately leading to a better end-user experience for your customers.

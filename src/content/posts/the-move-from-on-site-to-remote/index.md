@@ -4,7 +4,7 @@ description: >-
   If anything positive came out of the whole COVID-19, then it is the move of
   working on-site to remote. I'm here to share my experience!
 date: '2022-12-12T08:15:25.000Z'
-lastmod: '2026-07-04T13:14:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /the-move-from-on-site-to-remote/
 draft: false
 heroImage: remote-work-5d0888fb2c.png
@@ -61,7 +61,7 @@ Luckily [our company](https://www.forward.eu/) decided to embrace this new way o
 - Screen
 - Chair
 
-This made it a lot easier to organise our workspaces.
+This made it a lot easier to organize our workspaces.
 
 ### Meetings
 
@@ -79,7 +79,7 @@ After a while, I moved my desk to a separate room to prevent us from disturbing 
 
 ## The new normal: remote
 
-{{< img-caption src="remote-working-e716e903ff.png" alt="Remote-work illustration showing the shift from office life to long-term work from home." caption="What began as a temporary pandemic response became a permanent shift in how developers organise their working life." >}}
+{{< img-caption src="remote-working-e716e903ff.png" alt="Remote-work illustration showing the shift from office life to long-term work from home." caption="What began as a temporary pandemic response became a permanent shift in how developers organize their working life." >}}
 
 Two years later, here we are. Thoroughly accustomed to remote work. And productivity has not plummeted as some anti-remote doomsday-sayers were predicting.
 

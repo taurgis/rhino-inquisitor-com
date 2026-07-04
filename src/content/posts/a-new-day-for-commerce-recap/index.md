@@ -4,7 +4,7 @@ description: >-
   A recap of A New Day for Commerce and what the event says about Salesforce's
   broader commerce direction, ecosystem momentum, and priorities.
 date: '2023-03-20T07:55:32.000Z'
-lastmod: '2023-03-21T09:44:52.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /a-new-day-for-commerce-recap/
 draft: false
 heroImage: community-meetup-square-9e6587d250.png
@@ -62,7 +62,7 @@ It's challenging to convince your boss to allow you to attend this event as a Sa
 
 ### Short Notice and 'small'
 
-Any new event, Salesforce or Community, must feel the waters before going full-blown. "Go big or go home" doesn't apply as such events don't come cheap to organise and require much preparational work. So at the end of January, the registration page went live for March! Just over a month in advance, which leaves little time for people to clear their schedules, book a hotel and make travel arrangements.
+Any new event, Salesforce or Community, must feel the waters before going full-blown. "Go big or go home" doesn't apply as such events don't come cheap to organize and require much preparational work. So at the end of January, the registration page went live for March! Just over a month in advance, which leaves little time for people to clear their schedules, book a hotel and make travel arrangements.
 
 Nevertheless, the event quickly sold out with a limit of only 500 people (the venue capacity). I even heard people from around Europe had to be turned down, which is "technically" a good sign.
 

@@ -4,7 +4,7 @@ description: >-
   Salesforce B2C Commerce Cloud supports delta export jobs. But how do I enable
   this feature and what do I need to watch out for?
 date: '2022-08-01T14:18:24.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /delta-exports-in-salesforce-b2c-commerce-cloud/
 draft: false
 heroImage: sharinglargefiles-c0cb3315f4.png
@@ -54,7 +54,7 @@ Once this feature has been enabled, you get a new toy to play with in the Busine
 
 You can consider this to work the same as configuring the Sitemap or replications. It is not under the regular list of jobs, but behind the scenes, they are one.
 
-{{< img-caption 
+{{< img-caption
   src="delta-jobs-overview-dccafc63a7.png"
   alt="Business Manager screenshot showing Delta Exports module under Administration > Site Development"
   caption="Delta Exports module overview"
@@ -64,7 +64,7 @@ Let us open that "Test" configuration!
 
 ### General
 
-{{< img-caption 
+{{< img-caption
   src="delta-job-selection-718f8a1686.png"
   alt="Delta export job configuration form showing Name field, Consumers field, and Data Type dropdown"
   caption="Delta export general settings"
@@ -82,7 +82,7 @@ A list of supported types can be found [in the Delta Exports documentation](http
 
 ### Schedule
 
-{{< img-caption 
+{{< img-caption
   src="delta-job-schedule-1c300976ae.png"
   alt="Delta job Schedule tab showing fixed interval configuration options"
   caption="Delta export schedule tab"
@@ -92,7 +92,7 @@ Just like regular jobs, you can schedule this to be executed at your chosen inte
 
 ### History
 
-{{< img-caption 
+{{< img-caption
   src="history-70bccb6f6f.png"
   alt="Delta export history table showing previously generated export files"
   caption="Delta export file history"
@@ -104,7 +104,7 @@ This overview will show a history of all exported files rather than the job exec
 
 ### Consumer
 
-{{< img-caption 
+{{< img-caption
   src="delta-job-consumer-867e8bc380.png"
   alt="Consumer tab showing WebDAV export folder path for each configured consumer"
   caption="Delta export consumer folder mapping"
@@ -118,7 +118,7 @@ This gives each external system (consumer) its dedicated folder on the WebDAV to
 
 ### Status
 
-{{< img-caption 
+{{< img-caption
   src="delta-job-status-9552cad99f.png"
   alt="Status tab displaying the scheduled delta export job execution log"
   caption="Delta export status log"

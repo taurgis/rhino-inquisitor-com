@@ -4,7 +4,7 @@ description: >-
   "Connections" is in our rear-view mirror, but some new updates to the platform
   are ahead! This time, we look at the June 2024 (24.6) release!
 date: '2024-06-03T12:04:25.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /what-is-new-in-sfcc-24-6/
 draft: false
 heroImage: searching-on-a-highway-89effbcf76.jpg
@@ -130,9 +130,9 @@ We'll take any increase in speed for the APIs, especially one that contains esse
 > The algorithms now include:
 >
 > - Host Key—ssh-ed25519, ecdsa-sha2-nistp256, ecdsa-sha2-nistp384, ecdsa-sha2-nistp521, rsa-sha2-512, rsa-sha2-256, ssh-rsa, ssh-dss
-> - Key Exchange (KEX)—curve25519-sha256, curve25519-sha256@libssh.org, ecdh-sha2-nistp256, ecdh-sha2-nistp384, ecdh-sha2-nistp521, diffie-hellman-group-exchange-sha256, diffie-hellman-group16-sha512, diffie-hellman-group18-sha512, diffie-hellman-group14-sha256, diffie-hellman-group14-sha1, diffie-hellman-group-exchange-sha1, diffie-hellman-group1-sha1
-> - Cipher—aes128-ctr, aes192-ctr, aes256-ctr, aes128-gcm@openssh.com, aes256-gcm@openssh.com, aes128-cbc, 3des-ctr, 3des-cbc, blowfish-cbc, aes192-cbc, aes256-cbc
-> - Message Authentication Code (MAC)—hmac-sha2-256-etm@openssh.com, hmac-sha2-512-etm@openssh.com, hmac-sha1-etm@openssh.com, hmac-sha2-256, hmac-sha2-512, hmac-sha1, hmac-md5, hmac-sha1-96, hmac-md5-96
+> - Key Exchange (KEX)—curve25519-sha256, <curve25519-sha256@libssh.org>, ecdh-sha2-nistp256, ecdh-sha2-nistp384, ecdh-sha2-nistp521, diffie-hellman-group-exchange-sha256, diffie-hellman-group16-sha512, diffie-hellman-group18-sha512, diffie-hellman-group14-sha256, diffie-hellman-group14-sha1, diffie-hellman-group-exchange-sha1, diffie-hellman-group1-sha1
+> - Cipher—aes128-ctr, aes192-ctr, aes256-ctr, <aes128-gcm@openssh.com>, <aes256-gcm@openssh.com>, aes128-cbc, 3des-ctr, 3des-cbc, blowfish-cbc, aes192-cbc, aes256-cbc
+> - Message Authentication Code (MAC)—<hmac-sha2-256-etm@openssh.com>, <hmac-sha2-512-etm@openssh.com>, <hmac-sha1-etm@openssh.com>, hmac-sha2-256, hmac-sha2-512, hmac-sha1, hmac-md5, hmac-sha1-96, hmac-md5-96
 > - Public Key Authentication—rsa-sha2-512, rsa-sha2-256, ssh-rsa
 
 It has been a while since any changes were made to the Service Framework. With this update, we now have better support for SFTP algorithms and security options, which is always great to see!

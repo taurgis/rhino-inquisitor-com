@@ -4,7 +4,7 @@ description: >-
   Learn how to send emails with attachments from Salesforce B2C Commerce Cloud
   using ISML, including setup details and implementation pitfalls.
 date: '2022-03-15T06:04:04.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-04T14:48:28.000Z'
 url: /mail-attachments-in-b2c-commerce-cloud/
 draft: false
 heroImage: mail-a7e287274f.jpg
@@ -133,7 +133,7 @@ module.exports = server.exports();
 
 ### Template
 
-{{< highlight text >}}
+```text
 <iscontent type="multipart/mixed; boundary=001a113414f6401b8604f1451630" compact="false" charset="ISO-8859-1">
 --001a113414f6401b8604f1451630
 Content-Type: multipart/mixed; boundary=001a113414f6401b8604f1451630
@@ -162,7 +162,8 @@ ${fileContent}
 </isloop>
 </isif>
 --001a113414f6401b8604f1451630--
-{{< /highlight >}}
+```
+
 ## Deconstructing the Challenge: Why dw.net.Mail Plays Hard to Get
 
 ### The Root of the Problem: A Deliberate Abstraction
@@ -374,7 +375,7 @@ When working with files (especially in the storefront), you have to keep watch o
 
 In my example, one is especially one to keep an eye on.
 
-{{< img-caption 
+{{< img-caption
   src="api-jsstringlength-6ae1560d95.png"
   alt="Quota documentation showing the JavaScript string-length limit in Salesforce Commerce Cloud."
   caption="Figure 1: Quota documentation showing the JavaScript string-length limit in Salesforce Commerce Cloud"
