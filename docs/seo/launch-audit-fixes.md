@@ -12,6 +12,7 @@ sitemap generation, structured data, `robots.txt`, archive search, and one conte
 ## What changed (old → new)
 
 ### 1. Paginated URLs removed from sitemaps
+
 - **Old:** `post-sitemap.xml` and `page-sitemap.xml` included `…/page/N/` listing shards
   (via `partials/sitemap/pagination-entries.xml`). `post-sitemap.xml` carried 164 URLs.
 - **New:** Pagination shards are excluded; only canonical content URLs are submitted.
@@ -21,6 +22,7 @@ sitemap generation, structured data, `robots.txt`, archive search, and one conte
   submitted for indexing; they remain crawlable via on-page links.
 
 ### 2. Per-sub-sitemap `lastmod`
+
 - **Old:** `partials/sitemap/index.xml` stamped every sub-sitemap with the global
   `site.Lastmod`, so all five shared one frozen date.
 - **New:** Each sub-sitemap advertises the newest `Lastmod` of the content it actually
@@ -30,6 +32,7 @@ sitemap generation, structured data, `robots.txt`, archive search, and one conte
   was genuine `site.Lastmod`, not a hardcode — but it masked per-set freshness.)
 
 ### 3. Video sitemap titles reflect the page, not the embedded clip
+
 - **Old:** `home.videositemap.xml` used the `video.title`/`video.description` front-matter
   overrides, which on a few posts were literal YouTube music-video titles (background
   filler embeds), creating a topical mismatch.
@@ -37,6 +40,7 @@ sitemap generation, structured data, `robots.txt`, archive search, and one conte
   SEO description.
 
 ### 4. Organization structured data
+
 - **Old:** Home emitted only `WebSite` JSON-LD; posts' `BlogPosting.publisher` was a bare
   `Organization` with no logo.
 - **New:** Home emits an `@graph` with a first-class `Organization` node (`@id`, `logo`
@@ -45,6 +49,7 @@ sitemap generation, structured data, `robots.txt`, archive search, and one conte
   `url` and an `ImageObject` `logo`, per Google's Article rich-result guidance.
 
 ### 5. `robots.txt` sitemap directive deduplicated
+
 - **Old:** Two `Sitemap:` lines (`sitemap.xml` and `sitemap_index.xml`).
 - **New:** One canonical `Sitemap: …/sitemap.xml` line.
 - **Note:** `sitemap_index.xml` is still generated (byte-identical index) because it is a
@@ -52,6 +57,7 @@ sitemap generation, structured data, `robots.txt`, archive search, and one conte
   NOT removed; only the redundant robots advertisement was dropped.
 
 ### 6. Archive search filters as you type
+
 - **Old:** `archive-search.js` only ran a search on submit/Enter; the field looked live
   but was not.
 - **New:** A debounced (250 ms) `input` listener runs the search live using
@@ -59,10 +65,12 @@ sitemap generation, structured data, `robots.txt`, archive search, and one conte
   `pushState`s and scrolls, unchanged.
 
 ### 7. Content fix
+
 - `how-to-use-ocapi-scapi-hooks` — repaired a broken sentence fragment in the
   "Strategic Caching" section (grammar only).
 
 ### 8. Documentation drift
+
 - `hugo-coding-standards` (source instruction + generated mirror) said `baseURL` was `www`;
   corrected to state the apex is canonical and `www` 301-redirects to it, matching live.
 

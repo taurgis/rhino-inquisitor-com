@@ -57,11 +57,11 @@ empty('a string');
 
 The [empty](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_TopLevel_global.html) function is used to test whether a given object is empty. The interpretation of empty is the following: null is always empty:
 
--   undefined is always empty
--   a string with zero length is empty
--   an array with no elements is empty
--   a collection with no elements is empty.
--   an object returns true if the object is interpreted as empty.
+- undefined is always empty
+- a string with zero length is empty
+- an array with no elements is empty
+- a collection with no elements is empty.
+- an object returns true if the object is interpreted as empty.
 
 ## escape and unescape
 

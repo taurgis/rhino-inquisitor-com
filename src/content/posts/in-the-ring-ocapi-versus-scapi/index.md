@@ -80,7 +80,7 @@ Oh my ... things aren't looking proper for the OCAPI.
 
 ## Infrastructure
 
-{{< img-caption 
+{{< img-caption
   src="composable-storefront-architecture-54fe68c81a.jpg"
   alt="The Composable Storefront architecture"
 >}}

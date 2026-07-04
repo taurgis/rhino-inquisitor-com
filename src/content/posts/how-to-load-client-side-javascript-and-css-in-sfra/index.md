@@ -82,7 +82,7 @@ So when you add JS and CSS within the remote include, the main request doesn't k
 
 Make sense?
 
-{{< img-caption 
+{{< img-caption
   src="javascript-and-css-scoping-in-sfra-2-5444adf22e.png"
   alt="A visual representation of the Home-Show controller for explaining the scoping of assets.js"
   caption="Figure 1: A visual representation of the Home-Show controller for explaining the scoping of assets.js"

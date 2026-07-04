@@ -60,7 +60,7 @@ Let us next see if we can do anything in the WebDAV to manipulate the Compatibil
 
 To retrieve the URL for the WebDAV go to:
 
-_"Administration > Site Development > Development Setup"_
+"Administration > Site Development > Development Setup"
 
 {{< img-caption src="cartridges-webdav-88a388e63c.jpg" alt="Business Manager Development Setup screen showing the WebDAV URL." caption="The WebDAV URL in Development Setup is the doorway to the manual workaround." >}}
 
@@ -98,7 +98,7 @@ api.version=18.10
 
 Let us head back to the business manager and go to the "Manage Code Versions" screen:
 
-_"Administration > Site Development > Code Deployment"_
+"Administration > Site Development > Code Deployment"
 
 If all has gone well, the code versions have changed to the one in the file!
 

@@ -24,4 +24,3 @@ Connecting different clouds, in this case: B2C Commerce Cloud, CRM, and Marketin
 Over the past five years, we have done multiple multi-cloud projects and have run into those challenges head-on (security, GDPR, robustness, and more). In this presentation, we share lessons learned, things to be mindful of, and different use cases for connecting the clouds, from greenfield implementation to connecting live silo systems.
 
 Experience in multi-cloud or not, it does not matter. This presentation offers practical starting points, pitfalls to watch for, and guidance on what to keep in mind when shaping a multi-cloud project.
-

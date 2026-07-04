@@ -4,12 +4,12 @@ description: >-
   Thomas Theunen writes about Salesforce Commerce Cloud, its developer
   ecosystem, release notes, and the lessons drawn from real project delivery.
 date: '2022-02-25T21:45:56.000Z'
-lastmod: '2025-09-21T06:26:21.000Z'
+lastmod: '2026-07-04T19:14:06.000Z'
 url: /
 draft: true
 author: Thomas Theunen
 ---
-## Welcome!
+## Welcome
 
 My name is Thomas, and I am the Head of Commerce at [Forward](https://www.forward.eu). I am a proud father of two wonderful children: Thalia & Thano.
 
@@ -21,9 +21,9 @@ Outside day-to-day client work, I share what I learn through Rhino Inquisitor an
 
 ## My Active Projects
 
-[MCP Aegis](https://aegis.rhino-inquisitor.com/) [SFCC DEV MCP ](https://sfcc-mcp-dev.rhino-inquisitor.com/)
+[MCP Aegis](https://aegis.rhino-inquisitor.com/) [SFCC DEV MCP](https://sfcc-mcp-dev.rhino-inquisitor.com/)
 
-[![A picture of Thomas Theunen leaning on a desk at the office with plants on the background.](1e8a7695-9e6f1ee7bd.jpg) ](https://trailblazercommunitygroups.com/salesforce-developer-group-hasselt-belgium/)
+[![A picture of Thomas Theunen leaning on a desk at the office with plants on the background.](1e8a7695-9e6f1ee7bd.jpg)](https://trailblazercommunitygroups.com/salesforce-developer-group-hasselt-belgium/)
 
 ![A picture of Thomas Theunen leaning on a desk at the office with plants on the background.](thomas-theunen-tablet2-7f501926d7.jpg)
 
