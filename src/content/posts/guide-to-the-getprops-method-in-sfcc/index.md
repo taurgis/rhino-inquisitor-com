@@ -217,7 +217,7 @@ ProductDetails.getProps = async ({params, res}) => {
 
 Another thing to remember is that the server side uses a "guest" token, meaning no personalisation can happen there. It makes sense, but watch out with caching (see the previous section)!
 
-The PWA Kit has no concept of "[varyby=price\_promotion](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/isml/b2c_iscache.html)" caching. That is the responsibility of the SCAPI!
+The PWA Kit has no concept of "[varyby=price\_promotion](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-iscache.html)" caching. That is the responsibility of the SCAPI!
 
 ### Client Side Execution
 

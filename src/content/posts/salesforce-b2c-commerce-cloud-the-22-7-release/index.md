@@ -47,15 +47,15 @@ Some of the highlights:
 - [Template literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals?retiredLocale=nl) support
 - [`Object.values`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/values) / [`Object.entries`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries) / ...
 
-For a complete list, you can have a look at [the documentation](https://documentation.b2c.commercecloud.salesforce.com/DOC3/index.jsp?topic=%2Fcom.demandware.dochelp%2Fcontent%2Fb2c_commerce%2Ftopics%2Fsite_development%2Fb2c_compatibility_mode_considerations.html).
+For a complete list, you can have a look at [the documentation](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-compatibility-mode-considerations.html).
 
 If we look at this list, it is also clear this is an update to the 1.7.14 version of the engine. To get a complete list of what is possible, you can look at the [support list on the official website](https://mozilla.github.io/rhino/compat/engines.html).
 
 ### API Encryption Parameter Has Been Changed
 
-Some significant encryption changes have been made to the [Order.getOrderExportXML](https://documentation.b2c.commercecloud.salesforce.com/DOC3/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_order_Order.html#dw_order_Order_getOrderExportXML_DetailAnchor) API, mainly around the encryption of payment instrument data.
+Some significant encryption changes have been made to the [Order.getOrderExportXML](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_order_Order.html) API, mainly around the encryption of payment instrument data.
 
-A complete list of changes is available [in the order export encryption update notes](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_OCAPI_order_export_mc.htm&type=5).
+A complete list of changes is available [in the order export encryption update notes](https://help.salesforce.com/s/articleView?id=commerce.rn_b2c_ocapi_order_export_mc.htm&type=5).
 
 ## PWA Kit v2.0.0
 

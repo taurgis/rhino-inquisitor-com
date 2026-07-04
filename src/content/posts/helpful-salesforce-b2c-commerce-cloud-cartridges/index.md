@@ -20,7 +20,7 @@ takeaways:
   - "Highlights practical strengths and limitations of tools like plugin_slas, Resource Manager, and custom feeds"
   - "Encourages teams to treat open-source cartridges as accelerators that still need review and upkeep"
 ---
-Over the years, an extensive list of cartridges has grown in the [marketplace](https://www.salesforce.com/products/commerce-cloud/partner-marketplace/). These are certified integrations that have gone through a checklist and verified by Salesforce.
+Over the years, an extensive list of cartridges has grown in the [marketplace](https://appexchange.salesforce.com/mktcollections/cloud-collections/commercecloud). These are certified integrations that have gone through a checklist and verified by Salesforce.
 
 Whether or not this checklist is as complete as it should be is another topic I will probably give a stab at in a future blog post.
 
@@ -28,7 +28,7 @@ But besides these third-party integrations, there are a lot of other cartridges 
 
 Let us have a look at a few of these!
 
-**Note:** If you do not have access to the Salesforce B2C Commerce Cloud GitHub repositories, follow the [documentation](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/site_development/b2c_github_repo_access.html).
+**Note:** If you do not have access to the Salesforce B2C Commerce Cloud GitHub repositories, follow the [documentation](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-github-repo-access.html).
 
 ## Custom Feeds
 
@@ -70,7 +70,7 @@ Most people involved with Salesforce B2C Commerce Cloud will have probably asked
 
 Since translations are part of the code (resource files), they depend on the code's release cycles. This can be a very long time for translations to wait for a simple change.
 
-The Resource Manager project is an attempt to answer these questions. It moves translation management from the code repository to the Business Manager by cleverly using the [Velocity Template](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/site_development/b2c_velocity_templates.html) system.
+The Resource Manager project is an attempt to answer these questions. It moves translation management from the code repository to the Business Manager by cleverly using the [Velocity Template](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-velocity-templates.html) system.
 
 There are some things to keep in mind when switching to this method:
 

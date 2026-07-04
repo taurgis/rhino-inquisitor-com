@@ -41,9 +41,9 @@ As CQuotient was an acquired AI product, it has a separate management console wh
 
 There are some screens inside the Business Manager, but they mainly push or pull data out of CQuotient:
 
-- [Slot Configuration](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/recommendations/b2c_configuring_slots_for_predictive_recommendations.html)
+- [Slot Configuration](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_configuring_slots_for_predictive_recommendations.htm)
 - Page Designer components
-- [Einstein Status Dashboard](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/recommendations/b2c_configure_einstein_deployment.html) (Configuration & Monitoring)
+- [Einstein Status Dashboard](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_configure_einstein_deployment.htm) (Configuration & Monitoring)
 
 ## Shared Data Model
 
@@ -76,7 +76,7 @@ For the AI (Einstein) to learn, I already mention it needs to collect quality da
 And for this to work, the consumer needs to be tracked. Some visitors will want to block these behaviors by looking at GDPR, CCPA, and [Do Not Track](https://allaboutdnt.com/) options.
 
 > [!NOTE]
-> **Documentation:** The necessary tools to comply with this are documented in the [Infocenter](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/einstein/b2c_einstein_set_privacy_preferences.html).
+> **Documentation:** The necessary tools to comply with this are documented in the [Infocenter](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_einstein_set_privacy_preferences.htm).
 
 ## Features
 

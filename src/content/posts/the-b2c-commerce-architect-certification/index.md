@@ -62,7 +62,7 @@ Capturing business requirements and providing the best solution for the business
 - [B2C Commerce: Release Notes](https://help.salesforce.com/s/articleView?id=sf.b2c_rn_release_notes.htm&type=5&language=en_US)
 - [B2C Commerce: Videos](https://help.salesforce.com/s/articleView?id=cc.b2c_videos.htm&language=en_US&type=5)
 - [Account Manager](https://help.salesforce.com/s/articleView?id=cc.b2c_account_manager_overview.htm&type=5&language=en_US)
-- [Control Center](https://help.salesforce.com/s/articleView?id=cc.b2c_cc.htm&type=5&language=en_US)
+- [Control Center](https://help.salesforce.com/s/articleView?id=cc.b2c_getting_started.htm&type=5&language=en_US)
 
 ## Build (19%)
 
@@ -133,7 +133,7 @@ Salesforce B2C Commerce Cloud has many features out of the box, but it can't do 
 - [How to use OCAPI/SCAPI hooks](/how-to-use-ocapi-scapi-hooks/)
 - [What is the OCAPI session bridge?](/what-is-the-ocapi-session-bridge/)
 - [Delta exports in Salesforce B2C Commerce Cloud](/delta-exports-in-salesforce-b2c-commerce-cloud/)
-- [Get started with the OCAPI](https://developer.salesforce.com/docs/commerce/commerce-cloud/references/b2c-commerce-ocapi/get-started-with-ocapi.html)
+- [Get started with the OCAPI](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/get-started-with-ocapi.html)
 
 ## Launch (16%)
 

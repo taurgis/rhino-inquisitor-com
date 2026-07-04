@@ -40,7 +40,7 @@ The fifth and final on the [ERD overview page](/salesforce-b2c-commerce-cloud-er
 
 ### Post-processing APIs
 
-Before the [Salesforce OMS](https://www.salesforce.com/products/commerce-cloud/ecommerce/order-management/) (Order Management), there was a feature called "the [Gillian](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/ordering/b2c_order_management_for_developers.html) package" within SFCC. This has now been deprecated and is inactive by default.
+Before the [Salesforce OMS](https://www.salesforce.com/products/commerce-cloud/ecommerce/order-management/) (Order Management), there was a feature called "the [Gillian](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-order-management-for-developers.html) package" within SFCC. This has now been deprecated and is inactive by default.
 
 Chances are slim (to non-existing) that you can get these activated by going to support. For customers where this is already active, they remain there. Though I have no experience with them, I am unsure what the "plan" is for customers who had/have this active.
 

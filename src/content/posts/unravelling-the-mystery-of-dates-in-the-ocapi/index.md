@@ -31,9 +31,9 @@ Not all endpoints are alike, but within the OCAPI the way of searching for diffe
 
 Here are some of the example endpoints:
 
-- [Search Catalogs (OCAPI)](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-data-api?meta=Search%2BCatalogs)
-- [Search Categories within a Catalog (OCAPI)](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-data-api?meta=Search%2BCategories%2Bwithin%2Ba%2BCatalog)
-- [Search for customers in a customer list (OCAPI)](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-data-api?meta=Search%2Bfor%2Bcustomers%2Bin%2Ba%2Bcustomer%2Blist)
+- [Search Catalogs (OCAPI)](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-data-catalogs?meta=Summary)
+- [Search Categories within a Catalog (OCAPI)](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-data-catalogs?meta=Summary)
+- [Search for customers in a customer list (OCAPI)](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-data-customer-lists?meta=Summary)
 - [Search Products (SCAPI)](https://developer.salesforce.com/docs/commerce/commerce-api/references/products?meta=searchProducts)
 
 #### Attributes
@@ -52,7 +52,7 @@ When crafting these date filters, adherence to the [ISO 8601](https://www.iso.or
 
 {{< img-caption src="measuring-dates-7c1931cecc.jpg" alt="Calendars and ruler illustration introducing OCAPI date-range filtering." >}}
 
-If you need to find records that fall within a specific date interval, the [range\_filter](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-api?meta=type%3Arange_filter) is your go-to option. This filter can find records with a date value sitting between a specified start (from) and end (to) date.
+If you need to find records that fall within a specific date interval, the [range\_filter](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-product-search?meta=Summary) is your go-to option. This filter can find records with a date value sitting between a specified start (from) and end (to) date.
 
 ```json
 {
@@ -75,7 +75,7 @@ If you need to find records that fall within a specific date interval, the [rang
 
 ## Range2 Filter
 
-To deal with scenarios where you have two date fields and want to filter records with an overlapping date range, use the [range2\_filter](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-api?meta=type%3Arange2_filter). This allows the specification of a date range that overlaps the range between the two fields you are considering.
+To deal with scenarios where you have two date fields and want to filter records with an overlapping date range, use the [range2\_filter](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-product-search?meta=Summary). This allows the specification of a date range that overlaps the range between the two fields you are considering.
 
 A Range2Filter allows you to restrict search results to hits where the first range (`R1`), defined by a pair of attributes (e.g., `valid_from` and `valid_to`), has a specific relationship to a second range (`R2`), defined by two values (`from_value` and `to_value`). The relationship between the two ranges is determined by the `filter_mode`, which can be one of the following:
 
@@ -104,7 +104,7 @@ A Range2Filter allows you to restrict search results to hits where the first ran
 
 {{< img-caption src="combining-blocks-bc1da56e90.jpg" alt="A woman combining different blocks in a particular order." >}}
 
-Sometimes, the need for complexity arises when constructing date-based queries. The [bool\_filter](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-api?meta=type%3Abool_filter) permits the combination of numerous filters for complex logical expressions. This filter is specifically helpful for creating compound date queries that may, for instance, combine status checks with date ranges.
+Sometimes, the need for complexity arises when constructing date-based queries. The [bool\_filter](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-product-search?meta=Summary) permits the combination of numerous filters for complex logical expressions. This filter is specifically helpful for creating compound date queries that may, for instance, combine status checks with date ranges.
 
 ```json
 {
@@ -140,7 +140,7 @@ Sometimes, the need for complexity arises when constructing date-based queries. 
 
 ## Term Query
 
-For precision filtering, where a field must match an exact date, the [term\_query](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-api?meta=type%3Aterm_query) becomes the instrument of choice. This query matches records based on absolute equality with the specified date.
+For precision filtering, where a field must match an exact date, the [term\_query](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-product-search?meta=Summary) becomes the instrument of choice. This query matches records based on absolute equality with the specified date.
 
 ```json
 {

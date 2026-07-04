@@ -32,7 +32,7 @@ The [Managed Runtime](https://runtime.commercecloud.com/login) is designed to su
 
 Developers will use the PWA Kit tools to generate a bundle, a snapshot of the storefront code at a specific time, and push it to Managed Runtime. Once the bundle is pushed, it is possible to use the Runtime Admin Web Interface or [Managed Runtime API](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/using-the-managed-runtime-api.html) to designate that bundle as "deployed."
 
-Each project can have multiple bundles, but each environment has only one "deployed" bundle. Similar to the fact that you can only have one active "[Code Version](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/site_development/b2c_code_versions.html)" on the server side.
+Each project can have multiple bundles, but each environment has only one "deployed" bundle. Similar to the fact that you can only have one active "[Code Version](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-code-deployment.html)" on the server side.
 
 {{< img-caption src="salesforce-commerce-cloud-managed-runtime-e2b922960d.jpg" alt="Managed Runtime project list showing one organization with two storefront projects." >}}
 

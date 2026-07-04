@@ -49,7 +49,7 @@ Customer Support It is not possible to activate this feature manually, a ticket 
 
 > Code profiler wait times, which include Wait Time Own and Wait Time Total, are no longer measured. These values have been removed from the B2C Commerce CSV report. The CSV report remains backward compatible.
 
-Some metrics are disappearing from the [code profiler](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/site_performance/b2c_using_code_profiler.html), a tool available in the Business Manager to check the performance of your custom code:
+Some metrics are disappearing from the [code profiler](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-site-performance.html), a tool available in the Business Manager to check the performance of your custom code:
 
 - total\_wait\_ time
 - total\_wait\_ time\_avg
@@ -62,7 +62,7 @@ CSV Export The CSV report generated from system job sfcc-export-code-profiler-re
 
 > To support commerce business use cases, custom attributes of type Number are now exported as their decimal representation (xsd:decimal) instead of as a String representation (xsd:string). If you want to continue using the xsd:string representation, you can change the default in Business Manager to the legacy xsd:string formatting.
 
-A relatively "small" change in this release is: Now the [XML](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/xsd/Schemas.html) files will represent the type they are exported as - ensuring no possible misinterpretation moving from String to Number.
+A relatively "small" change in this release is: Now the [XML](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/xsd/index.html) files will represent the type they are exported as - ensuring no possible misinterpretation moving from String to Number.
 
 ## Business Manager
 

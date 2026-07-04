@@ -26,9 +26,9 @@ takeaways:
 > [!WARNING]
 > **Deprecated:** Since writing this article, Salesforce has provided a new and better method for creating custom endpoints. You can find more information about it at [https://developer.salesforce.com/docs/commerce/commerce-api/guide/custom-apis.html](https://developer.salesforce.com/docs/commerce/commerce-api/guide/custom-apis.html).
 
-The OCAPI ([Open Commerce API](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/OpenCommerceAPI.html?cp=0_16)) has been around for many years, giving the platform a sound basis for "headless" applications to connect to different parts of Salesforce B2C Commerce Cloud.
+The OCAPI ([Open Commerce API](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/opencommerceapi.html)) has been around for many years, giving the platform a sound basis for "headless" applications to connect to different parts of Salesforce B2C Commerce Cloud.
 
-Although the APIs need to remain close to the standard, some endpoints have been given some freedom to be customized via a system called "[hooks](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/Hooks.html)."
+Although the APIs need to remain close to the standard, some endpoints have been given some freedom to be customized via a system called "[hooks](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/hooks.html)."
 
 But how about adding completely custom endpoints?
 
@@ -38,7 +38,7 @@ Warning! The example I have used (getCustomer) is an example of something you sh
 
 The OCAPI provides a set of predefined endpoints you can not stray from. There is no out-of-the-box feature that allows you to create your endpoint on top of the existing set of REST APIs.
 
-The only thing you are allowed to do is modify existing endpoints, but not all of them. A list of which customizations you are allowed to do is available on the [Salesforce Commerce Cloud Infocenter](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/Hooks.html).
+The only thing you are allowed to do is modify existing endpoints, but not all of them. A list of which customizations you are allowed to do is available on the [Salesforce Commerce Cloud Infocenter](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/hooks.html).
 
 ## TLDR; Just give me the solution
 
@@ -50,7 +50,7 @@ You can find that repository [in the OCAPI custom endpoints example repository](
 
 The solution provided in this article will only allow you to create custom GET calls without any transactions.
 
-This is because we will add a hook to the [GET call of Custom Objects](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/shop/Resources/CustomObjects.html#id1419723884__id-587924678) in the Shop API.
+This is because we will add a hook to the [GET call of Custom Objects](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-custom-objects?meta=Summary) in the Shop API.
 
 And a limitation of a hook added to a GET call is that opening transactions is forbidden (no creates or updates in the database).
 
@@ -190,7 +190,7 @@ For example: "get-customer" becomes "getCustomer."
 
 1. The dynamic require is executed, and the result object is stored in a variable.
 
-1. The resulting object is added to the response object prefixed with "[c\_](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/CustomProperties.html?resultof=%22%6f%63%61%70%69%22%20%22%63%5f%22%20%22%63%22%20)."
+1. The resulting object is added to the response object prefixed with "[c\_](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/customproperties.html)."
 
 In our example, the code will execute our "getCustomer.js" file, which looks something like this:
 

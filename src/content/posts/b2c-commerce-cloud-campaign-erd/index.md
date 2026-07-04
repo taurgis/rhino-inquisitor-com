@@ -47,7 +47,7 @@ In reality, there is no direct relationship.
 
 ### StoreGroup & Store
 
-People familiar with SFCC will look confused when they see "[Stores](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_campaign_Campaign.html?resultof=%22%63%61%6d%70%61%69%67%6e%22%20#dw_campaign_Campaign_getStores_DetailAnchor)" and "[StoreGroup](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_catalog_StoreGroup.html)" pop up in this Campaign ERD. (or maybe you have seen this by accident in the documentation or IntelliSense)
+People familiar with SFCC will look confused when they see "[Stores](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_campaign_Campaign.html)" and "[StoreGroup](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_catalog_StoreGroup.html)" pop up in this Campaign ERD. (or maybe you have seen this by accident in the documentation or IntelliSense)
 
 Even though this relationship is visible/accessible in the code, you can not assign "Store Groups" or "Stores" to a Campaign in the Business Manager.
 
@@ -69,7 +69,7 @@ Campaign Details
 
 **Unfortunately, this Campaign feature does not appear to work in the storefront** (I got your hopes up there, didn't I 😉).
 
-I experimented with the [StoreMgr.setStoreIDToSession()](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_catalog_StoreMgr.html#dw_catalog_StoreMgr_setStoreIDToSession_String_DetailAnchor) function, which did not activate an In-Store-only campaign. These scopes are also unavailable in the SCAPI/OCAPI, meaning we can not use them for Headless applications either.
+I experimented with the [StoreMgr.setStoreIDToSession()](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_catalog_StoreMgr.html) function, which did not activate an In-Store-only campaign. These scopes are also unavailable in the SCAPI/OCAPI, meaning we can not use them for Headless applications either.
 
 If anyone has gotten this feature to work, please let me know on the social channels I am active on!
 
@@ -78,7 +78,7 @@ If anyone has gotten this feature to work, please let me know on the social chan
 
 #### Import
 
-It is possible to import this data, as described in the [store.xsd](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/xsd/store.xsd) file:
+It is possible to import this data, as described in the [store.xsd](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/xsd/store.xsd) file:
 
 ```xml
 <xsd:complexType name="complexType.StoreGroup" mixed="false">

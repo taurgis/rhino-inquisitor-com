@@ -78,7 +78,7 @@ I hope that clarifies the "confusion" regarding B2C Commerce in the Salesforce s
 
 {{< img-caption src="salesforce-order-management-533a060e99.png" alt="Salesforce Order Management workspace connected to commerce operations." caption="Order Management extends the stack beyond the storefront into fulfillment and service operations." >}}
 
-Another product built on the CRM, but good news. We are starting to head back into B2C Commerce Cloud territory! You may already know that an OMS (Order Management System) was once [built into Salesforce B2C Commerce Cloud](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OrderManagement/OrderManagement.html).
+Another product built on the CRM, but good news. We are starting to head back into B2C Commerce Cloud territory! You may already know that an OMS (Order Management System) was once [built into Salesforce B2C Commerce Cloud](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-order-management-for-developers.html).
 
 This has been deprecated for a while and is no longer maintained; Salesforce will always point you toward the new Salesforce OMS.
 

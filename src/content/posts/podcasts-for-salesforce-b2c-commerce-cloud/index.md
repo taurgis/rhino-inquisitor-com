@@ -49,7 +49,7 @@ A new podcast on the block about innovations in and around Commerce!
 
 ## Developers Podcast
 
-- [https://developer.salesforce.com/podcast](https://developer.salesforce.com/podcast)
+- [https://dev.to/salesforce_developers_podcast](https://dev.to/salesforce_developers_podcast)
 - [Josh Birk](https://twitter.com/joshbirk)
 
 > Tune in to the Salesforce Developer Podcast to hear short and insightful stories for developers, from developers. Join Joshua Birk, Developer Evangelist and Godfather of Trailhead, as he hosts developer trailblazers from around the world as they share their stories of learning, building and integrating with Salesforce.

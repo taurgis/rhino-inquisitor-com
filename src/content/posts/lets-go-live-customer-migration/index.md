@@ -30,13 +30,13 @@ Although this series is about GO-LIVE, which happens at the end of a project - a
 
 ## Decide who is in charge
 
-Salesforce B2C Commerce Cloud only allows formats it defines, which means that with any migration, some transformation needs to happen from the format of the previous platform to that of SFCC. And there is only one option: [XML](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/xsd/Schemas.html) (Business Manager or Automated job). But what do you mean by "who is in charge?". Well, who is going to be doing that transformation? Depending on the answer, this will affect your planning. There are a few options for who takes ownership of this:
+Salesforce B2C Commerce Cloud only allows formats it defines, which means that with any migration, some transformation needs to happen from the format of the previous platform to that of SFCC. And there is only one option: [XML](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/xsd/index.html) (Business Manager or Automated job). But what do you mean by "who is in charge?". Well, who is going to be doing that transformation? Depending on the answer, this will affect your planning. There are a few options for who takes ownership of this:
 
 1. The Consulting (Implementation) Partner
 1. The Salesforce customer
 1. The previous implementation partner
 
-Ultimately, it does not matter who does it as long as they have the required knowledge of both the old and new formats. There is enough [documentation](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/import_export/b2c_customer_object_import_export.html) available to get anyone started on the process, and guidance from the Implementation Partner is always a good thing.
+Ultimately, it does not matter who does it as long as they have the required knowledge of both the old and new formats. There is enough [documentation](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_customer_list_object_import_export.htm) available to get anyone started on the process, and guidance from the Implementation Partner is always a good thing.
 
 ## Handle with care
 

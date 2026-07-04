@@ -67,7 +67,7 @@ You just hired your first Certified Professional, with five certifications in al
 
 ### Certifications ≠ experience
 
-No matter how well you understand the theory and exercises on Trailhead, they will never match the [complexity of a real-life project](/category/go-live/). Doing projects in a team and learning from your more experienced peers will give you more knowledge than preparing for a certification ever will. You will hit "walls" in projects that need inventive ways around (or demolish) that you will not experience in Trailhead modules or superbadges. On the [latest episode](https://developer.salesforce.com/podcast/2022/11/episode-150-b2c-and-b2b-solution-architecture-with-shoby-abdi) of the Salesforce Developer Podcast, I heard a few sentences that resonated:
+No matter how well you understand the theory and exercises on Trailhead, they will never match the [complexity of a real-life project](/category/go-live/). Doing projects in a team and learning from your more experienced peers will give you more knowledge than preparing for a certification ever will. You will hit "walls" in projects that need inventive ways around (or demolish) that you will not experience in Trailhead modules or superbadges. On the [latest episode](https://dev.to/salesforce_developers_podcast/150-b2c-and-b2b-solution-architecture-with-shoby-abdi) of the Salesforce Developer Podcast, I heard a few sentences that resonated:
 
 > An MQC is what’s called a **minimally-qualified** candidate. This is an individual who with at least some preparation, some experience, can they take this exam and pass it. The reason behind that minimally-qualified candidate, once again, it’s the words, “Minimally-qualified.” Do they have just enough to make it real?
 > Shoby Abdi

@@ -65,7 +65,7 @@ Reports now show how specific products perform, by being recommended in a partic
 
 New endpoints have been made available to manage access keys from an external application. Although this addition is mainly for in-store agents, according to the documentation, the addition will sound like music to the ears of people in charge of DevOps and CI solutions.
 
-To access these APIs, ensure the user has the "[Manage\_Users\_Access\_Key](https://documentation.b2c.commercecloud.salesforce.com/DOC3/topic/com.demandware.dochelp/ReleaseNotes/22_6/OCAPI_acess_keys_data_API_mc.html)" permission.
+To access these APIs, ensure the user has the "[Manage\_Users\_Access\_Key](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_6_release.htm&type=5)" permission.
 
 ## Business Manager
 
@@ -77,7 +77,7 @@ EPS is an Austria-based payment method supported by all Austrian banks. You can 
 
 ### Avoid Chargebacks with Salesforce Payments
 
-Use a site-specific descriptor to help shoppers identify the source of an account charge on their credit card statements to reduce payment disputes and chargeback requests. You set the customer statement descriptor in [Business Manager Payment Settings](https://documentation.b2c.commercecloud.salesforce.com/DOC3/topic/com.demandware.dochelp/content/b2c_commerce/topics/salesforce_payments/b2c_payment_statement_descriptor.html?resultof=%22%64%65%73%63%72%69%70%74%6f%72%22%20). The setting overrides the value specified in your Stripe merchant account.
+Use a site-specific descriptor to help shoppers identify the source of an account charge on their credit card statements to reduce payment disputes and chargeback requests. You set the customer statement descriptor in [Business Manager Payment Settings](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_statement_descriptor_settings.htm&type=5). The setting overrides the value specified in your Stripe merchant account.
 
 ## Development
 

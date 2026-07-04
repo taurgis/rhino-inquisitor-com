@@ -46,7 +46,7 @@ One caveat, though: these diagrams can get out of date - and I will do my best t
 
 ### Complexity
 
-It is no secret that Salesforce B2C Commerce Cloud offers a [very flexible product model](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/products/b2c_product_types.html), supporting things like:
+It is no secret that Salesforce B2C Commerce Cloud offers a [very flexible product model](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_product_types.htm), supporting things like:
 
 - Standard products
 - Base products
@@ -56,7 +56,7 @@ It is no secret that Salesforce B2C Commerce Cloud offers a [very flexible produ
 - Product Bundles
 - Product Links
 - Product Options
-- Recommendations ([Explicit / Manual](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/recommendations/b2c_explicit_recommendations.html), this is not related to [Einstein](/ai-einstein-in-salesforce-b2c-commerce-cloud/))
+- Recommendations ([Explicit / Manual](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_explicit_recommendations.htm), this is not related to [Einstein](/ai-einstein-in-salesforce-b2c-commerce-cloud/))
 
 But having all these options available to configure ... means that there are also a lot of APIs available for developers.
 
@@ -66,8 +66,8 @@ Luckily for us developers (and architects), Salesforce has provided some "helper
 
 Some examples:
 
-- [ProductVariationModel](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_catalog_ProductVariationModel.html)
-- [ProductPriceModel](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_catalog_ProductPriceModel.html)
+- [ProductVariationModel](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_catalog_ProductVariationModel.html)
+- [ProductPriceModel](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_catalog_ProductPriceModel.html)
 
 ### Helper functions
 

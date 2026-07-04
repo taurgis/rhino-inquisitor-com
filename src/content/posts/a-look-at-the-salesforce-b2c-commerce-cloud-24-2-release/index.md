@@ -187,7 +187,7 @@ With smaller and larger updates, the 3.4 release is now equipped to support more
 
 ## Bugfixes
 
-Someone decided in January to do some cleanup, making it harder to make an overview, but here is a [link](https://issues.salesforce.com/#sortCriteria=%40sflast_modified_date_external__c%20ascending&f[sfcategoryfull]=Commerce%7CB2C%20Commerce) to make things easier!
+Someone decided in January to do some cleanup, making it harder to make an overview, but here is a [link](https://help.salesforce.com/s/issues) to make things easier!
 
 ## Updated Cartridges & Tools
 

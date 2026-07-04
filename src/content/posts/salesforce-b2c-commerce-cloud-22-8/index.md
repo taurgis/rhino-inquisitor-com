@@ -80,7 +80,7 @@ Any delay the third-party introduces will impact the storefront performance and 
 
 ### Salesforce Payment Information in Customer Import
 
-The customer import ([customer.xsd](https://documentation.b2c.commercecloud.salesforce.com/DOC3/topic/com.demandware.dochelp/DWAPI/xsd/customer.xsd)) has added additional site-specific data about payments.
+The customer import ([customer.xsd](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/xsd/customer.xsd)) has added additional site-specific data about payments.
 
 **Note:** This information points to where the data is, not the actual data.
 
@@ -129,7 +129,7 @@ The customer import ([customer.xsd](https://documentation.b2c.commercecloud.sale
 
 ### Verify Hostname Ownership
 
-When uploading a custom hostname certificate, you are now required to [verify ownership by adding a TXT record](https://documentation.b2c.commercecloud.salesforce.com/DOC3/topic/com.demandware.dochelp/content/b2c_commerce/topics/admin/b2c_add_a_certificate_to_a_zone.html) in the DNS configuration of that domain.
+When uploading a custom hostname certificate, you are now required to [verify ownership by adding a TXT record](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_add_a_certificate_to_a_zone.htm) in the DNS configuration of that domain.
 
 The value is shown in the Business Manager after uploading the certificate.
 
@@ -163,7 +163,7 @@ Rather than having to manage/relax a quota at a "realm" level, quotas can now be
 
 {{< img-caption src="1da84b9d-7a51-4f6f-bcb0-b0217c4e5cb7-bf0735587c.jpeg" alt="Change History interface for campaigns, promotions, and coupons." caption="Change History now tracks every modification to campaigns, promotions, and coupons, giving merchandisers a complete audit trail for every incentive change." link="1da84b9d-7a51-4f6f-bcb0-b0217c4e5cb7-bf0735587c.jpeg" >}}
 
-The [Change History](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/change_history/b2c_change_history.html) feature is getting some more options! With this release, you can keep track (if you want to) of all modifications of:
+The [Change History](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_change_history.htm) feature is getting some more options! With this release, you can keep track (if you want to) of all modifications of:
 
 - Campaigns
 - Promotions
@@ -175,9 +175,9 @@ The [Change History](https://documentation.b2c.commercecloud.salesforce.com/DOC1
 
 Until now, you had to do a custom header check to differentiate between OCAPI and SCAPI requests.
 
-In this release, you get a new function/attribute on the [Request](https://documentation.b2c.commercecloud.salesforce.com/DOC3/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_system_Request.html) global object that makes life a little bit easier:
+In this release, you get a new function/attribute on the [Request](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_system_Request.html) global object that makes life a little bit easier:
 
-[request.isSCAPI()](https://documentation.b2c.commercecloud.salesforce.com/DOC3/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_system_Request.html?resultof=%22%53%63%61%70%69%22%20%22%73%63%61%70%69%22%20%22%72%65%71%75%65%73%74%22%20#dw_system_Request_isSCAPI_DetailAnchor)
+[request.isSCAPI()](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_system_Request.html)
 
 > When writing your hook logic, it’s important to keep in mind the context of the API that is calling the hook. Both OCAPI and SCAPI share the same hooks, so it’s possible to write a hook that is used for both. Use request.isSCAPI() to determine SCAPI or OCAPI usage, especially if you’re already using the calculate hook in the context of controllers and use transactions in that hook, as that breaks SCAPI. Direct access to the \_sfdc\_ mercury HTTP header is deprecated.
 

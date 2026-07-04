@@ -47,14 +47,14 @@ Small (or significant) changes happen to the "Order of Execution" over time. And
 
 When looking at all the different [automation tools](https://help.salesforce.com/s/articleView?id=sf.process_which_tool.htm&language=en_US) available within the Salesforce platform, it is easy to get overwhelmed. And that is not even considering the order they are executed in on the data.
 
-- [Workflow Rules](https://help.salesforce.com/s/articleView?id=customize_wf.htm) (retiring)
+- [Workflow Rules](https://help.salesforce.com/s/articleView?id=platform.customize_wf.htm&type=5) (retiring)
 - [Process Builder](https://help.salesforce.com/s/articleView?id=sf.process_overview.htm&type=5&language=en_US) (retiring)
 - [Flow Builder](https://help.salesforce.com/s/articleView?id=sf.flow.htm&type=5&language=en_US)
 - [Apex](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_triggers.htm)
 - [Assignment Rules](https://help.salesforce.com/s/articleView?id=sf.customize_leadrules.htm&language=en_US) (Lead & Case)
 - [Escalation Rules](https://help.salesforce.com/s/articleView?id=sf.rules_escalation_best_practices.htm&type=5) (Case)
 - [Entitlement Rules](https://help.salesforce.com/s/articleView?id=sf.entitlements_overview.htm&type=5) (Case & Work Order)
-- [Sharing Rules](https://help.salesforce.com/apex/HTViewHelpDoc?id=sf.security_about_sharing_rules.htm&language=en_us)
+- [Sharing Rules](https://help.salesforce.com/s/articleView?id=sf.security_about_sharing_rules.htm&language=en_US&type=5)
 - [Restriction Rules](https://help.salesforce.com/s/articleView?id=sf.security_restriction_rule.htm&release=240.17.0&language=en_us&type=5)
 - [Validation Rules](https://help.salesforce.com/s/articleView?id=sf.fields_defining_field_validation_rules.htm&type=5)
 

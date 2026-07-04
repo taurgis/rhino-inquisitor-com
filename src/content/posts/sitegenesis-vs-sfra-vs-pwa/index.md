@@ -113,7 +113,7 @@ The [PWA Kit](https://pwa-kit.mobify-storefront.com/) is the most recent additio
 
 ### Headless solution
 
-Unlike SiteGenesis and SFRA, the PWA Kit runs on a separate server. It connects with the [SCAPI](https://developer.salesforce.com/docs/commerce/commerce-api/guide) and [OCAPI](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/OpenCommerceAPI.html?cp=0_16) (REST APIs) of the Salesforce B2C Commerce Cloud environments.
+Unlike SiteGenesis and SFRA, the PWA Kit runs on a separate server. It connects with the [SCAPI](https://developer.salesforce.com/docs/commerce/commerce-api/guide) and [OCAPI](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/opencommerceapi.html) (REST APIs) of the Salesforce B2C Commerce Cloud environments.
 
 It is an entirely different type of architecture than the "[monolithic](https://en.wikipedia.org/wiki/Monolithic_application#:~:text=In%20software%20engineering%2C%20a%20monolithic,independent%20from%20other%20computing%20applications.)" approach we are used to within SFCC.
 
@@ -162,12 +162,12 @@ Looking at the past few weeks/months, there is a [good amount of interest](https
 
 I may sound like a broken record, but a few features built into SFRA are not in the PWA Kit since the solution is new. A few examples are:
 
-- [A/B Testing](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/ab_testing/b2c_ab_testing.html)
+- [A/B Testing](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_ab_testing.htm)
 - ~~Personalization~~ (Added in 2023)
-- [~~Page Designer~~](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/page_designer/b2c_dev_for_page_designer.html) ( Added in 2023)
-- [Sitemap](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/search_engine_optimization/b2c_sitemap_overview.html)
-- [SEO URL Configuration](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/search_engine_optimization/b2c_configuring_seo_urls.html)
-- [Page Meta Tag Rules](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/categories/b2c_page_meta_tag_rules.htm)
+- [~~Page Designer~~](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-dev-for-page-designer.html) ( Added in 2023)
+- [Sitemap](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_sitemap_overview.htm)
+- [SEO URL Configuration](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_configuring_seo_urls.htm)
+- [Page Meta Tag Rules](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_page_meta_tag_rules.htm&type=5)
 
 All of these "missing items" can be resolved with custom development. So be prepared to spend more time and budget to build these features if needed. And many of these are on the roadmap of Salesforce, so if you wait a bit longer (or adapt your implementation timeline/order of implementation), the above list will be much smaller.
 

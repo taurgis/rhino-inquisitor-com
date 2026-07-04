@@ -11,7 +11,7 @@ author: Thomas Theunen
 ---
 This feature was implemented!!!!
 
-Many years ago, the only way to manage content within Salesforce Commerce Cloud was [content assets](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/content/b2c_content_assets.html) and [slots](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/content/b2c_content_slots.html). They do their job, but it requires your content team to know HTML and CSS. Not only that, you had to save the content and publish it in the Business Manager before verifying how it looked in the storefront.
+Many years ago, the only way to manage content within Salesforce Commerce Cloud was [content assets](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_content_assets.htm) and [slots](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_content_slots.htm). They do their job, but it requires your content team to know HTML and CSS. Not only that, you had to save the content and publish it in the Business Manager before verifying how it looked in the storefront.
 
 Commerce Cloud needed a better way to manage content. Looking at the Core Platform, and specifically Experience Cloud (Community Cloud at the time), was the solution.
 

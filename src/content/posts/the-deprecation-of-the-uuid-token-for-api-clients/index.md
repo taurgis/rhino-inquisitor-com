@@ -31,7 +31,7 @@ Update ( 03/03/2023 ) A date has been published: [June 15th 2023.](https://help.
 
 ## UUID Token
 
-When doing an OAuth integration with Salesforce B2C Commerce Cloud, you must set up an "[API Client](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/account_manager/b2c_account_manager_add_api_client_id.html)" in Account Manager. During this process, you have the option of choosing which type of "bearer (access) token" format you want to use:
+When doing an OAuth integration with Salesforce B2C Commerce Cloud, you must set up an "[API Client](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_account_manager_add_api_client_id.htm)" in Account Manager. During this process, you have the option of choosing which type of "bearer (access) token" format you want to use:
 
 - JWT
 - UUID

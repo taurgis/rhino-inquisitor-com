@@ -49,7 +49,7 @@ What does it take to grab this certificate? Looking at the past years, experienc
 
 Now, let's nuance this a little bit. If your past two projects were with pipelines / SiteGenesis, you have some studying to do. The exam expects you to know SFRA controllers and will not test your knowledge of pipelines anymore.
 
-If you still think you need some preparation, look at the [exam guide](https://trailhead.salesforce.com/help?article=Salesforce-Certified-B2C-Commerce-Developer-Exam-Guide). It will point you in the right direction!
+If you still think you need some preparation, look at the [exam guide](https://help.salesforce.com/s/articleView?id=005298941&language=en_US&type=1). It will point you in the right direction!
 
 ### B2C Commerce Architect
 
@@ -61,7 +61,7 @@ The next step in the journey of the Certified B2C Commerce Developer! Focussing 
 
 Important to note that you can only achieve this certification if you are a Certified B2C Developer.
 
-It should not surprise that this certificate is on "another" level than the Developer certification. Do not expect questions like "how do you log a message to the error log" but more like "You have three domains that have to be linked to these two sites. Which of the following four answers is the correct [Hostname Alias](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/search_engine_optimization/b2c_hostname_aliases.html) configuration?".
+It should not surprise that this certificate is on "another" level than the Developer certification. Do not expect questions like "how do you log a message to the error log" but more like "You have three domains that have to be linked to these two sites. Which of the following four answers is the correct [Hostname Alias](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_hostname_aliases.htm) configuration?".
 
 Want to know more about what this certificate expects you to know? Have a look at the [exam guide](https://trailhead.salesforce.com/help?article=Salesforce-Certified-B2C-Commerce-Architect-Exam-Guide)!
 

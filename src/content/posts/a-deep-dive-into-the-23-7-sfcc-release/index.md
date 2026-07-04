@@ -106,7 +106,7 @@ This is a long-awaited [update](https://github.com/SalesforceCommerceCloud/pwa-k
 
 ## Bugfixes
 
-Currently, many known issues exist in the state "[Solution in Progress](https://issues.salesforce.com/#sortCriteria=%40sflast_modified_date_external__c%20descending&f[sfcategoryfull]=Commerce%7CB2C%20Commerce&f[sfstatus__c]=Solution%20in%20Progress)", so let us patiently wait until they are deployed!
+Currently, many known issues exist in the state "[Solution in Progress](https://help.salesforce.com/s/issues)", so let us patiently wait until they are deployed!
 
 ## Updated Cartridges & Tools
 

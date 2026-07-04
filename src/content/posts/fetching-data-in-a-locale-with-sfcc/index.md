@@ -43,7 +43,7 @@ Ultimately, the solution is quite simple - the Salesforce B2C Commerce Cloud sys
 
 ### The request takes point
 
-The system will look at the current request's language preference (or setting) whenever an object is fetched through its appropriate function (and it has localised attributes). The request is always available in every context under the global variable "[request](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_system_Request.html)". It is always there, no matter where you are:
+The system will look at the current request's language preference (or setting) whenever an object is fetched through its appropriate function (and it has localised attributes). The request is always available in every context under the global variable "[request](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_system_Request.html)". It is always there, no matter where you are:
 
 -   Storefront request
 -   Business Manager request

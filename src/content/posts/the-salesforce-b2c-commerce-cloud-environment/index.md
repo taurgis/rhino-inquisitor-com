@@ -31,7 +31,7 @@ Sure, there was an explanation of the eCDN and its use. But not how it fits in t
 
 ## An overview
 
-Before we move into the details where the [Embedded CDN](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/admin/b2c_embedded_cdn.html) (eCDN) is mentioned, let us get an overview of the components that make up "SFCC."
+Before we move into the details where the [Embedded CDN](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_embedded_cdn.htm) (eCDN) is mentioned, let us get an overview of the components that make up "SFCC."
 
 {{< img-caption 
   src="system-overview-systems-v2-96d8264c0f.jpeg"

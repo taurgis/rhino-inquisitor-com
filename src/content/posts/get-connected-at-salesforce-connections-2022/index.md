@@ -253,7 +253,7 @@ As social channels are ever-changing, looking at what the next five years will b
 
 > Learn from the behaviors of billions of shoppers to inform insights and predictions for holiday 2022 and drive readiness across marketing, commerce, customer service, and the store and associates.
 
-If you have been doing Salesforce B2C Commerce Cloud for a while, [holiday readiness](https://help.salesforce.com/s/articleView?id=rn_b2c_21_10_get_holiday_ready_je.htm&type=5&language=en_US) should be a term you have heard before.
+If you have been doing Salesforce B2C Commerce Cloud for a while, [holiday readiness](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_21_10_get_holiday_ready_je.htm&type=5&language=en_US) should be a term you have heard before.
 
 If not? Then this is the session for you!
 

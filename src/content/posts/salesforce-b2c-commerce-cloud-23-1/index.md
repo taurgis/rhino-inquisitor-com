@@ -27,7 +27,7 @@ Are you interested in last month’s release notes? [Read the 22.10 release note
 
 > Use the new migration tool to convert your deprecated custom jobs to step-based jobs. Previously, migrating deprecated custom jobs required long development times. To activate the migration tool, contact your support engineer.
 
-A tool is now available to migrate your deprecated custom jobs to the step-based system. Since this needs to be [activated by a support agent](https://documentation.b2c.commercecloud.salesforce.com/DOC3/index.jsp?topic=%2Fcom.demandware.dochelp%2Fcontent%2Fb2c_commerce%2Ftopics%2Fjobs%2Fb2c_migrate_legacy_jobs.html&cp=0_6_15_5_4), I am unable to test this tool out myself (and I have no projects that need it)
+A tool is now available to migrate your deprecated custom jobs to the step-based system. Since this needs to be [activated by a support agent](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_legacy_jobs.htm&type=5), I am unable to test this tool out myself (and I have no projects that need it)
 
 Feel free to poke me on Slack with screenshots and feedback on this new tool!
 
@@ -63,7 +63,7 @@ One hundred eighty days is more than enough to see what and when replication was
 
 > Each time an order is placed, you can reuse the payment details, payer’s stored payment credentials, or off-session tokens from a previous payment.
 
-To create an order from a previous order, use the _[SalesforcePaymentsMgr](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_extensions_payments_SalesforcePaymentsMgr.html).confirmPaymentIntent (order, paymentMethod, statementDescriptor)_ class and method from the B2C Commerce Script API. Data from the previous order is retrieved to create the order. No customer interaction is required.
+To create an order from a previous order, use the _[SalesforcePaymentsMgr](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_extensions_payments_SalesforcePaymentsMgr.html).confirmPaymentIntent (order, paymentMethod, statementDescriptor)_ class and method from the B2C Commerce Script API. Data from the previous order is retrieved to create the order. No customer interaction is required.
 
 ## Business Manager
 
@@ -93,13 +93,13 @@ This a minor update that will make sure that you don't waste hours looking in pl
 
 With property selection, you can control what fields are returned by the endpoint. This saves resources and bandwidth.
 
-You can find out more about [property selection](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/PropertySelection.html) and [Basket Flash](https://documentation.b2c.commercecloud.salesforce.com/DOC3/topic/com.demandware.dochelp/OCAPI/current/usage/Flash.html) in the Info Center.
+You can find out more about [property selection](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/propertyselection.html) and [Basket Flash](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/flash.html) in the Info Center.
 
 ### Use Selectors with Expressions
 
 > Selectors with expressions now work correctly when objects contain a property with markup text. Previously, when an object contained a property with markup text, selectors with expressions didn't work correctly.
 
-Also an update to the [Property Selection system](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/PropertySelection.html) to correctly handle markup in the values.
+Also an update to the [Property Selection system](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/propertyselection.html) to correctly handle markup in the values.
 
 ## New Ideas
 

@@ -124,12 +124,12 @@ A minor update for security compliance.
 
 Quite the list of bug fixes this time!
 
-- [SLAS generates Access token successfully for disabled customer](https://issues.salesforce.com/issue/a028c00000yy3tiAAA/slas-generates-access-token-successfully-for-disabled-customer)
-- [SCAPI Merge basket functionality does not carry over the bonus line item to registered shopper basket](https://issues.salesforce.com/issue/a028c00000x9LCOAA2/scapi-merge-basket-functionality-does-not-carry-over-the-bonus-line-item-to-registered-shopper-basket)
-- [Warn messages logged for SCAPI shopper-products](https://issues.salesforce.com/issue/a028c00000yD1VUAA0/warn-messages-logged-for-scapi-shopper-products)
-- [Storefront on behalf of a customer is failing to access from chrome due to google enforcing to block 3rd party cookies](https://issues.salesforce.com/issue/a028c00000yEhQAAA0/storefront-on-behalf-of-a-customer-is-failing-to-access-from-chrome-due-to-google-enforcing-to-block-3rd-party-cookies)
-- [Localization: FirstDayOfWeek - DatePicker uses Language Locale instead of Country Locale](https://issues.salesforce.com/issue/a028c00000xB1ZuAAK/localization-firstdayofweek--datepicker-uses-language-locale-instead-of-country-locale)
-- [SCAPI Error Response is not Correctly JSON Encoded](https://issues.salesforce.com/issue/a028c00000xB0sgAAC/scapi-error-response-is-not-correctly-json-encoded)
+- [SLAS generates Access token successfully for disabled customer](https://help.salesforce.com/s/issue?id=a028c00000yy3tiAAA)
+- [SCAPI Merge basket functionality does not carry over the bonus line item to registered shopper basket](https://help.salesforce.com/s/issue?id=a028c00000x9LCOAA2)
+- [Warn messages logged for SCAPI shopper-products](https://help.salesforce.com/s/issue?id=a028c00000yD1VUAA0)
+- [Storefront on behalf of a customer is failing to access from chrome due to google enforcing to block 3rd party cookies](https://help.salesforce.com/s/issue?id=a028c00000yEhQAAA0)
+- [Localization: FirstDayOfWeek - DatePicker uses Language Locale instead of Country Locale](https://help.salesforce.com/s/issue?id=a028c00000xB1ZuAAK)
+- [SCAPI Error Response is not Correctly JSON Encoded](https://help.salesforce.com/s/issue?id=a028c00000xB0sgAAC)
 
 ## Updated Cartridges & Tools
 

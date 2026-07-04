@@ -74,7 +74,7 @@ Like styles, you can also load JavaScript files into your SFRA project using ISM
 
 ### Remote Includes
 
-If you're using a [remote include](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/ops_troubleshooting/b2c_understanding_remote_includes.html) to render your component and loading the CSS and JS within that component with "assets.js", you might have noticed that it doesn't work. Here's why:
+If you're using a [remote include](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-understanding-remote-includes.html) to render your component and loading the CSS and JS within that component with "assets.js", you might have noticed that it doesn't work. Here's why:
 
 When you make a remote include, it's essentially a separate internal request. And here's the thing about "assets.js" - it works in a singleton way - but only on the request level, meaning that variables are only stored per request and not for all requests.
 

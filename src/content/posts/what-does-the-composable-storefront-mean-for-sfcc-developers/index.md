@@ -21,7 +21,7 @@ takeaways:
   - "Explains why React and headless patterns broaden the technology stack while leaving plenty of value in existing backend Commerce Cloud knowledge"
   - "Encourages developers to adapt early, especially through phased or hybrid migration paths that preserve existing project stability"
 ---
-Over the past year, I have seen increasing gossip (which I am partly to blame for) and discussions about what the Composable Storefront release means for development in Salesforce B2C Commerce Cloud. A comparison can be made to what has happened to [pipelines](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/LegacyDevDoc/WorkingwithPipelines.html) and [SiteGenesis](https://production-sitegenesis-dw.demandware.net/on/demandware.store/Sites-SiteGenesis-Site), and we found out [in September last year that many things are afoot](/what-is-commerce-on-core/)!
+Over the past year, I have seen increasing gossip (which I am partly to blame for) and discussions about what the Composable Storefront release means for development in Salesforce B2C Commerce Cloud. A comparison can be made to what has happened to [pipelines](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/LegacyDeveloperDocumentation.pdf) and [SiteGenesis](https://production-sitegenesis-dw.demandware.net/on/demandware.store/Sites-SiteGenesis-Site), and we found out [in September last year that many things are afoot](/what-is-commerce-on-core/)!
 
 ## Technology changes
 

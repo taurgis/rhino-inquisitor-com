@@ -83,7 +83,7 @@ Note: If you are unfamiliar with how certificates can be obtained, [a lot of hel
 
 ## Alias Configuration
 
-A prerequisite for a domain to be available in the eCDN is that it is configured in one of the sites in the [alias](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/search_engine_optimization/b2c_hostname_aliases.html) configuration.
+A prerequisite for a domain to be available in the eCDN is that it is configured in one of the sites in the [alias](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_hostname_aliases.htm) configuration.
 
 An example config you can use to get you up and running quickly:
 
@@ -197,7 +197,7 @@ The WAF ([Web Application Firewall](https://www.cloudflare.com/learning/ddos/glo
 
 This will look at more areas to detect malicious traffic using the OWASP rules.
 
-There is a lot to say about this feature, but lucky for me Salesforce [has written extensive documentation](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/admin/b2c_waf_application.html) on this topic!
+There is a lot to say about this feature, but lucky for me Salesforce [has written extensive documentation](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_waf_application.htm) on this topic!
 
 #### Download Log Files
 
@@ -244,4 +244,4 @@ Using these APIs, you can enable:
 - [Brotli Compression](https://blog.cloudflare.com/brotli-compression-using-a-reduced-dictionary/)
 - [HTTP2 Prioritization](https://blog.cloudflare.com/better-http-2-prioritization-for-a-faster-web/)
 
-Make sure you do not forget about these! As they can also increase performance on certain pages. HTTP2 Prioritization will help a lot on lister pages with many images processed by the [DIS](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/image_management/b2c_image_transformation_service.html) (Dynamic Image Service).
+Make sure you do not forget about these! As they can also increase performance on certain pages. HTTP2 Prioritization will help a lot on lister pages with many images processed by the [DIS](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_image_transformation_service.htm) (Dynamic Image Service).

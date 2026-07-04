@@ -24,7 +24,7 @@ takeaways:
 ---
 In this post, we will be looking at the release notes of Salesforce B2C Commerce Cloud for April 2022. Since the release cycles for B2C Commerce are [a lot quicker than the other Salesforce platforms](https://medium.com/inside-the-salesforce-ecosystem/a-partners-guide-to-navigating-the-salesforce-release-cycle-efa36ed3c64), not every month will be as extensive a list as the other.
 
-Check out the original release notes [for April 2022](https://help.salesforce.com/s/articleView?id=rn_b2c_rn_22_4_release.htm&type=5&language=en_US).
+Check out the original release notes [for April 2022](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_4_release.htm&type=5&language=en_US).
 
 ## PWA Kit
 
@@ -73,7 +73,7 @@ With this update, eCDN caching is enabled for the GET Products API! The update w
 - Ensure the client ID is included as a query parameter or in the "x-dw-client-id" and "cache-control" header.
 - Do not include an "Authorization" header with the request. Adding it will disable caching.
 
-If you still have questions about caching in the OCAPI, [you can find more information in the Infocenter](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/Caching.html).
+If you still have questions about caching in the OCAPI, [you can find more information in the Infocenter](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/caching.html).
 
 ### General Improvements
 
@@ -87,22 +87,22 @@ With this update, the following changes have happened:
 
 This change will make it a lot easier to acquire **delta** information!
 
-The following [DATA APIs](https://documentation.b2c.commercecloud.salesforce.com/DOC3/topic/com.demandware.dochelp/OCAPI/current/usage/DataAPIResources.html?cp=0_16_4) have been extended:
+The following [DATA APIs](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/dataapiresources.html) have been extended:
 
 - Order Search
 - Product Search
 - Customer Search
 - Custom Object Search
 - Catalog Search
-- **[Guest Flag](https://documentation.b2c.commercecloud.salesforce.com/DOC3/index.jsp?topic=%2Fcom.demandware.dochelp%2FOCAPI%2Fcurrent%2Fshop%2FDocuments%2FOrder.html&anchor=id1520261250):** It is now easier to detect an order made by a guest checkout or a registered customer.
+- **[Guest Flag](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-orders?meta=Summary):** It is now easier to detect an order made by a guest checkout or a registered customer.
 
 ## Business Manager
 
 ### Product Management
 
-If you use Variation Groups, this feature will make the storefront search a little more flexible. A new [Feature Switch](https://documentation.b2c.commercecloud.salesforce.com/DOC1/index.jsp?topic=%2Fcom.demandware.dochelp%2Fcontent%2Fb2c_commerce%2Ftopics%2Fproducts%2Fb2c_configure_variation_groups_display_mode.html) will enable the option to merge all Variation Groups in the lister pages (category & search).
+If you use Variation Groups, this feature will make the storefront search a little more flexible. A new [Feature Switch](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_configure_variation_groups_display_mode.htm) will enable the option to merge all Variation Groups in the lister pages (category & search).
 
-Once enabled, merchandizers [will see extra options in the business manager](https://documentation.b2c.commercecloud.salesforce.com/DOC1/index.jsp?topic=%2Fcom.demandware.dochelp%2Fcontent%2Fb2c_commerce%2Ftopics%2Fproducts%2Fb2c_configure_variation_groups_display_mode.html).
+Once enabled, merchandizers [will see extra options in the business manager](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_configure_variation_groups_display_mode.htm).
 
 {{< img-caption src="category-option-plzwjt3ux7rivo7o7mgc8xhnroisdxv69lzyysd3pa-a3eb0312c7.png" alt="Catalog setting that switches variation groups to merged or individual display." caption="This catalog setting is the switch that enables merged variation-group behavior." >}}
 
@@ -118,7 +118,7 @@ But why use this option? Could you assign the master product to the category to 
 
 ~~The answer is no. When you assign the master, you include all of your Variation Groups (this shows all the swatches without custom development). With this option enabled, you can control which swatches show by assigning only the applicable Variation Groups.~~
 
-The above is not valid. I got lucky with the products I assigned during my test to match the swatches exactly, and it acts the same as you would assign the master. Does that mean that there are no differences? Probably not. I feel there will be slight changes in how the [SearchModel](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_catalog_ProductSearchHit.htm) represents products, and a good place to start looking is the "[Represented Products](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_catalog_ProductSearchHit.html#dw_catalog_ProductSearchHit_getRepresentedProducts_DetailAnchor)."
+The above is not valid. I got lucky with the products I assigned during my test to match the swatches exactly, and it acts the same as you would assign the master. Does that mean that there are no differences? Probably not. I feel there will be slight changes in how the [SearchModel](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_catalog_ProductSearchHit.html) represents products, and a good place to start looking is the "[Represented Products](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_catalog_ProductSearchHit.html)."
 
 Have you experimented with this feature already and found differences? Share your findings in the comments!
 

@@ -38,13 +38,13 @@ The first one on the list: the Account/Profile!
 
 ### Session
 
-I've highlighted the [session](https://documentation.b2c.commercecloud.salesforce.com/DOC1/index.jsp?topic=%2Fcom.demandware.dochelp%2FDWAPI%2Fscriptapi%2Fhtml%2Fapi%2Fclass_dw_system_Session.html) as the "starting point" of the diagram with green, but keep in mind that a session depends on a customer, not vice versa.
+I've highlighted the [session](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_system_Session.html) as the "starting point" of the diagram with green, but keep in mind that a session depends on a customer, not vice versa.
 
-For instance, you can [retrieve profiles](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_customer_CustomerMgr.html) outside a storefront session, e.g. in a standalone job.
+For instance, you can [retrieve profiles](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_customer_CustomerMgr.html) outside a storefront session, e.g. in a standalone job.
 
 ### Customer Groups
 
-For those familiar with [Customer Groups](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_customer_CustomerGroup.html), you'll know that the system already has pre-defined groups (Everyone, Registered, Unregistered). But why is the relationship marked as "0..n"?
+For those familiar with [Customer Groups](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_customer_CustomerGroup.html), you'll know that the system already has pre-defined groups (Everyone, Registered, Unregistered). But why is the relationship marked as "0..n"?
 
 It's because, technically, that list could be empty if the default groups aren't present.
 

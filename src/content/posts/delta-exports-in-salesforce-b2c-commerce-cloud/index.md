@@ -25,13 +25,13 @@ takeaways:
   - "Highlights enablement constraints like support activation, change-log retention, and PIG-only support"
   - "Warns about runtime, performance, and synchronization trade-offs before relying on the feature"
 ---
-You probably already knew that it is possible to do full exports of your customer lists and catalogs from Salesforce B2C Commerce Cloud. This can be done through the [business manager](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/import_export/b2c_catalog_object_import_export.html) or a [job](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/jobstepapi/html/api/jobstep.ExportCatalog.html).
+You probably already knew that it is possible to do full exports of your customer lists and catalogs from Salesforce B2C Commerce Cloud. This can be done through the [business manager](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_catalog_object_import_export.htm) or a [job](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/jobstepapi/html/api/jobstep.ExportCatalog.html).
 
 But did you also know that delta job steps are available for the following items?
 
-- [Catalog](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/jobstepapi/html/api/jobstep.CatalogDeltaExport.html)
-- [Content Library](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/jobstepapi/html/api/jobstep.LibraryDeltaExport.html)
-- [Customer Lists](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/jobstepapi/html/api/jobstep.CustomerListsDeltaExport.html)
+- [Catalog](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/jobstepapi/html/api/jobstep.CatalogDeltaExport.html)
+- [Content Library](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/jobstepapi/html/api/jobstep.LibraryDeltaExport.html)
+- [Customer Lists](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/jobstepapi/html/api/jobstep.CustomerListsDeltaExport.html)
 - Maybe even more? Stick around to find out!
 
 But as with many things, a few things should be kept in mind before using this functionality. Let us take a look!
@@ -44,7 +44,7 @@ If you already opened the links in the introduction you probably noticed a warni
 
 > Support must be contacted to enable delta exports.
 
-This is because it is a hidden [feature switch](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/admin/b2c_feature_switches.html) and is only available for Salesforce support. So keep in mind you might have to wait a few hours to a few days, depending on how quickly support can activate this switch.
+This is because it is a hidden [feature switch](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_feature_switches.htm) and is only available for Salesforce support. So keep in mind you might have to wait a few hours to a few days, depending on how quickly support can activate this switch.
 
 **Important:** This switch has to be turned on separately in each environment (DEV, STG & PRD). So be sure to mention in the ticket which ones you want this switch turned over.
 
@@ -78,7 +78,7 @@ When we create a new job or open an existing one, we configure multiple items:
 
 But? Huh? I see more types listed here than there are Job Steps available! And you are correct; you get more options here.
 
-A list of supported types can be found [in the Delta Exports documentation](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/import_export/b2c_delta_exports.html).
+A list of supported types can be found [in the Delta Exports documentation](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_delta_exports.htm).
 
 ### Schedule
 
@@ -114,7 +114,7 @@ For each "consumer" you have configured in the general tab, a new tab appears in
 
 This gives each external system (consumer) its dedicated folder on the WebDAV to monitor.
 
-**Note:** Remember that you can limit access to a third-party system to this specific folder with [WebDAV Client Permissions](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/permissions/b2c_web_dav_client_permissions.html)!
+**Note:** Remember that you can limit access to a third-party system to this specific folder with [WebDAV Client Permissions](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_web_dav_client_permissions.htm)!
 
 ### Status
 
@@ -162,4 +162,4 @@ The delta will become bloated when multiple processes (API Calls, Jobs, and manu
 
 ## Other Considerations
 
-In the [Info Center](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/import_export/b2c_delta_exports.html), there are more items to consider.
+In the [Info Center](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_delta_exports.htm), there are more items to consider.

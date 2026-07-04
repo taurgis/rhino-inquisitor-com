@@ -37,13 +37,13 @@ It provides you with some handy commands that we will go over in more detail.
 
 ### Sandbox Management
 
-You will most likely know SFCC-CI for its [Sandbox management capabilities](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/sandboxes/b2c_developer_sandboxes.html). It provides commands to create, delete, start, stop, and many more.
+You will most likely know SFCC-CI for its [Sandbox management capabilities](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-developer-sandboxes.html). It provides commands to create, delete, start, stop, and many more.
 
 This project paves the way for setting up Continuous Integration and Continuous Deployment. You could potentially set this up to create a sandbox for automated testing that would destroy the instance at the end.
 
 ### Site Import/Export & Jobs
 
-The second set of commands allows you to manage your [Site Import & Exports](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/import_export/b2c_site_import_export.html).
+The second set of commands allows you to manage your [Site Import & Exports](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_site_import_export.htm).
 
 ### SLAS
 
@@ -70,7 +70,7 @@ B2C Tools mainly focus on allowing you to script import/export tasks and migrati
 
 A super-fast sandbox and an extensive product catalog are usually not two things you hear together in a single sentence.
 
-When working on a project as a developer, you like to have a representative environment to reproduce issues that arise [in the Primary Instance Group](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/getting_started/b2c_demandware_instances.html). However, getting a good amount of products from production to a sandbox is not easy.
+When working on a project as a developer, you like to have a representative environment to reproduce issues that arise [in the Primary Instance Group](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_demandware_instances.htm). However, getting a good amount of products from production to a sandbox is not easy.
 
 The "Catalog Reducer" project gives you a CLI to convert an extensive catalog to a smaller one containing only what you want/need.
 

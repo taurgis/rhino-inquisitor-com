@@ -20,7 +20,7 @@ takeaways:
   - "Walks through the feed, CSV, import, and verification steps needed to load external behavior data"
   - "Shows how custom Active Data can support richer segmentation and dynamic customer groups"
 ---
-When working on personalization and segmentation within Salesforce B2C Commerce Cloud, [Active Merchandizing](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/active_merchandising/b2c_active_merchandising.html) is one of the tools to help you along the way. By utilizing data collected automatically by Salesforce B2C Commerce Cloud, you can gain a deeper understanding of your customers' behavior and tailor campaigns accordingly. For instance, we display a distinctive banner to frequent visitors compared to those who only visit sporadically.
+When working on personalization and segmentation within Salesforce B2C Commerce Cloud, [Active Merchandizing](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_active_merchandising.htm) is one of the tools to help you along the way. By utilizing data collected automatically by Salesforce B2C Commerce Cloud, you can gain a deeper understanding of your customers' behavior and tailor campaigns accordingly. For instance, we display a distinctive banner to frequent visitors compared to those who only visit sporadically.
 
 ## How is Active Data gathered
 
@@ -33,7 +33,7 @@ When looking at "out-of-the-box" data gathering, we mean all data gathered by an
 - Storefront Sites such as SiteGenesis / SFRA
 - Headless OCAPI / SCAPI channels
 
-The data collection happens either by client-side tracking (JavaScript - e.g. [`<isobject>`](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/active_merchandising/b2c_add_isobject_tags.html)) for information such as product views or server-side events such as placing orders.
+The data collection happens either by client-side tracking (JavaScript - e.g. [`<isobject>`](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-tagging-pages-for-data-collection.html)) for information such as product views or server-side events such as placing orders.
 
 ```html
 // Example of the client-side generated scripts
@@ -49,7 +49,7 @@ PWA Kit / Headless SiteGenesis and SFRA make use of `<isactivedatahead>`, `<isac
 
 ## Extend Active Data
 
-Besides [all of the standard fields](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/active_merchandising/b2c_creating_feeds.html) available for merchandising, you can extend the model with your own data!
+Besides [all of the standard fields](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-automating-feed-import-of-active-data.html) available for merchandising, you can extend the model with your own data!
 
 This can be particularly useful if you create campaigns/personalisation based on customer actions originating on systems/places outside of Salesforce B2C Commerce Cloud.
 
@@ -64,8 +64,8 @@ By utilising this information, we can categorise individuals into a specific cus
 
 There are two System Objects that we can extend:
 
-- [CustomerActiveData](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_customer_CustomerActiveData.html)
-- [ProductActiveData](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_catalog_ProductActiveData.html)
+- [CustomerActiveData](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_customer_CustomerActiveData.html)
+- [ProductActiveData](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_catalog_ProductActiveData.html)
 
 In this case, we want to extend the Customer Active Data, so we head to: _Administration > Site Development > System Object Types > Customer Active Data _ On the "_ Attribute Definitions_" tab, we click "New" to start creating our new attributes.
 
@@ -113,7 +113,7 @@ Some things to keep in mind with this file:
 There are two ways to import this file:
 
 - Through the business manager _Merchant Tools > Online Marketing > Active Data > Import & Export_
-- Through an automated job using the Job Step "[ImportActiveData](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/jobstepapi/html/api/jobstep.ImportActiveData.html)"
+- Through an automated job using the Job Step "[ImportActiveData](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/jobstepapi/html/api/jobstep.ImportActiveData.html)"
 
 ### Step 5: Check that it worked
 
@@ -121,7 +121,7 @@ Once the import has been completed we can go and check on a profile if that impo
 
 {{< img-caption src="customer-active-data-sfcc-c14383fa6a.jpg" alt="Customer profile showing imported Active Data values in Business Manager." caption="After the import runs, the customer profile confirms whether the new data arrived." >}}
 
-And with this new addition, we can start creating new [Dynamic Customer Groups](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/active_merchandising/b2c_creating_a_dynamic_customer_group.html), for example!
+And with this new addition, we can start creating new [Dynamic Customer Groups](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_creating_a_dynamic_customer_group.htm), for example!
 
 {{< img-caption src="dynamic-customer-group-a8cdefb897.jpg" alt="Dynamic customer group rule based on recent in-store visits." caption="Once imported, the new signal can drive customer groups and targeting rules." >}}
 

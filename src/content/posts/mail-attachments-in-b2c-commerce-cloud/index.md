@@ -311,7 +311,7 @@ For mails to work with multiple files and a text or HTML option, we must work wi
 
 But what does this mean? In layman's terms, we split our messages into multiple pieces separating them by a predetermined key.
 
-At the top of the file, we tell the system which key it is within the Content-Type (both to Commerce Cloud using the [`<iscontent>`](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/isml/b2c_iscontent.html) tag and the HTML itself for the e-mail reader).
+At the top of the file, we tell the system which key it is within the Content-Type (both to Commerce Cloud using the [`<iscontent>`](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-iscontent.html) tag and the HTML itself for the e-mail reader).
 
 Boundary definition error On recent code compatibility modes, we have noticed an error to the likes of "No start boundary defined".
 
@@ -370,7 +370,7 @@ Multipart is extremely sensitive to empty lines, tabs, and spaces. So keep that 
 
 ### jsStringLength
 
-When working with files (especially in the storefront), you have to keep watch of the [Quota Limits](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/quota/html/index.html?resultof=%22%71%75%6f%74%61%22%20%22%6c%69%6d%69%74%22%20) - every developer's friend in SFCC.
+When working with files (especially in the storefront), you have to keep watch of the [Quota Limits](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/quota/html/index.html) - every developer's friend in SFCC.
 
 In my example, one is especially one to keep an eye on.
 

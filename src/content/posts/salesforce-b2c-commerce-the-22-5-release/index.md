@@ -53,7 +53,7 @@ Another great move to ensure all sensitive data stored on Salesforce servers are
 
 As On-Demand Sandboxes have become the new standard for Salesforce B2C Commerce, the UI of the [Control Center](https://controlcenter.commercecloud.salesforce.com/index.html) is being revamped as well.
 
-We already had [the option to schedule our Sandboxes uptime through a REST API](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/sandboxes/b2c_sandbox_operation_scheduler.html), but a UI is now available to make life a little easier.
+We already had [the option to schedule our Sandboxes uptime through a REST API](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-manage-sb.html), but a UI is now available to make life a little easier.
 
 ### Tiktok Integration
 
@@ -109,7 +109,7 @@ This change gives us more flexibility in providing login options to customers.
 
 {{< img-caption src="product-exclusion-list-rule-based-0acada8ea8.png" alt="Rule-based categorization screen showing product exclusion rules." caption="Rule-based categorization gains product exclusion lists and support for up to 20 conditions per rule, replacing the previous five-condition ceiling for dynamic category assignments." link="product-exclusion-list-rule-based-0acada8ea8.png" >}}
 
-[Dynamic Categorization](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/categories/b2c_dynamic_categories.html) is a recent addition to the Salesforce B2C Commerce Cloud feature list, allowing the automatic (job-based) assignment of products to specific categories on configurable criteria.
+[Dynamic Categorization](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_dynamic_categories.htm) is a recent addition to the Salesforce B2C Commerce Cloud feature list, allowing the automatic (job-based) assignment of products to specific categories on configurable criteria.
 
 Over the past months, a lot of feedback has been provided on this feature. And in this release, two new updates are announced:
 

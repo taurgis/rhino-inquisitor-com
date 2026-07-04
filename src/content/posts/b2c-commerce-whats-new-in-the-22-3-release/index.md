@@ -23,7 +23,7 @@ takeaways:
 ---
 In this post, we will be looking at the release notes of Salesforce B2C Commerce Cloud for March 2022. Let us dig deeper into any new and exciting features added to the platform.
 
-Check out the original release notes [for March 2022](https://help.salesforce.com/s/articleView?id=rn_b2c_rn_22_3_release.htm&type=5&language=en_US).
+Check out the original release notes [for March 2022](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_22_3_release.htm&type=5&language=en_US).
 
 ## Lightning UX
 
@@ -68,7 +68,7 @@ So good news, no additional action is needed from the partner or customer side! 
 
 ## SKU Specific Page Designer Pages
 
-A small but substantial update to page designer [Dynamic Pages](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/page_designer/b2c_develop_dynamic_page.html)!
+A small but substantial update to page designer [Dynamic Pages](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-dev-for-page-designer.html)!
 
 The Dynamic Page feature allows you to use the Page Designer magic on lister and product detail pages, but only at a category level.
 
@@ -86,5 +86,5 @@ This inconsistency caused quite a bit of confusion with content managers who con
 
 ## Other updates
 
-- [Recursive Infite Copies no Longer Supported](https://help.salesforce.com/s/articleView?id=rn_b2c_web_dav_je.htm&type=5&language=en_US)
-- [Custom Caches return Immutable Objects](https://help.salesforce.com/s/articleView?id=rn_b2c_custom_cache_w10671394_je.htm&type=5&language=en_US)
+- [Recursive Infite Copies no Longer Supported](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_web_dav_je.htm&type=5&language=en_US)
+- [Custom Caches return Immutable Objects](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_custom_cache_w10671394_je.htm&type=5&language=en_US)

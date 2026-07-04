@@ -33,7 +33,7 @@ To get the request body in an SFCC controller, use the following script:
 request.httpParameterMap.requestBodyAsString
 ```
 
-This attribute will provide a string representation of the request data, which can then be parsed and processed. Global Variable "request" is a [global variable](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_TopLevel_global.html) available everywhere in the back end.
+This attribute will provide a string representation of the request data, which can then be parsed and processed. Global Variable "request" is a [global variable](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_TopLevel_global.html) available everywhere in the back end.
 
 ## Understanding SFCC Controllers and Body
 
@@ -41,7 +41,7 @@ In the context of SFCC, a controller is a script module that takes care of proce
 
 ## Accessing submitted data in an SFCC Controller
 
-To access the body in an SFCC controller, you must use the "[request](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_system_Request.html)" object provided by the controller's execution context. This object represents the incoming HTTP request and provides various attributes and methods for accessing request data. The "request.[httpParameterMap](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_web_HttpParameterMap.html)" attribute is a collection of all input parameters received in the HTTP request. This includes query parameters, form parameters, and the request body. You can use the "[requestBodyAsString](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_web_HttpParameterMap.html#dw_web_HttpParameterMap_getRequestBodyAsString_DetailAnchor)" attribute to access the request body. This attribute provides a string representation of the request body, allowing you to parse and process the data as needed. Here's an example of how to use the "request.httpParameterMap.requestBodyAsString" attribute to access the request body inside a basic SFCC controller (without the SFRA wrapping):
+To access the body in an SFCC controller, you must use the "[request](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_system_Request.html)" object provided by the controller's execution context. This object represents the incoming HTTP request and provides various attributes and methods for accessing request data. The "request.[httpParameterMap](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_web_HttpParameterMap.html)" attribute is a collection of all input parameters received in the HTTP request. This includes query parameters, form parameters, and the request body. You can use the "[requestBodyAsString](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_web_HttpParameterMap.html)" attribute to access the request body. This attribute provides a string representation of the request body, allowing you to parse and process the data as needed. Here's an example of how to use the "request.httpParameterMap.requestBodyAsString" attribute to access the request body inside a basic SFCC controller (without the SFRA wrapping):
 
 ```js
 var ISML = require('dw/template/ISML');

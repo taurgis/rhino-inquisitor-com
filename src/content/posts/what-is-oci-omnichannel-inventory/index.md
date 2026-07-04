@@ -77,8 +77,8 @@ But you do not have to think about getting that data to Salesforce B2C Commerce 
 
 ### Documentation
 
-- [Data Synchronisation (B2C <> OCI)](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/inventory/b2c_inventory_management_omnichannel_inventory.html)
-- [API Documentation (Salesforce Help)](https://help.salesforce.com/articleView?id=inv_omnichannel_inventory_service.htm)
+- [Data Synchronisation (B2C <> OCI)](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_inventory_management_omnichannel_inventory.htm)
+- [API Documentation (Salesforce Help)](https://help.salesforce.com/s/articleView?id=commerce.inv_omnichannel_inventory_service.htm&type=5)
 - [Trailhead: Omnichannel Inventory](https://trailhead.salesforce.com/content/learn/modules/omnichannel-inventory?trailmix_creator_id=rr820768&trailmix_slug=tcs-omnichannel-inventory)
 - [Training: Omnichannel Inventory](https://partnerlearningcamp.salesforce.com/s/browse-catalog?plc__recordId=fvb19UvtLP1ohuV8EthlGEFZQ0vGXPFygtDSet8YjuK0Vmu6uWVIqSToV0n%2Bdisz)
 

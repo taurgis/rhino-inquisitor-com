@@ -38,7 +38,7 @@ A realm is an essential organisational component that houses instances required 
 
 ## PIG vs SIG
 
-Within a [realm](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/getting_started/b2c_platform_overview.html), instances are organised into Primary Instance Group (PIG) and Secondary Instance Group (SIG).  The PIG comprises three instances:
+Within a [realm](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_platform_overview.htm), instances are organised into Primary Instance Group (PIG) and Secondary Instance Group (SIG).  The PIG comprises three instances:
 
 -   Development
 -   Staging

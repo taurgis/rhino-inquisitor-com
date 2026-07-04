@@ -64,7 +64,7 @@ There are multiple ways to submit files, like a base64 encoded file string store
 
 ### LocalServiceRegistry
 
-As with any third-party integration, please use the built-in [LocalServiceRegistry](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_svc_LocalServiceRegistry.html).
+As with any third-party integration, please use the built-in [LocalServiceRegistry](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_svc_LocalServiceRegistry.html).
 
 But how do you configure it in the Business Manager? Let's have a look!
 
@@ -84,13 +84,13 @@ return [
 ];
 ```
 
-To build up the multipart request, we need to ensure that we return an Array of [HTTPRequestParts](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_net_HTTPRequestPart.html). We submit the same file twice; they can, of course, be different.
+To build up the multipart request, we need to ensure that we return an Array of [HTTPRequestParts](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_net_HTTPRequestPart.html). We submit the same file twice; they can, of course, be different.
 
-In this example, we pass multiple [files](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_io_File.html). But it can also be other types:
+In this example, we pass multiple [files](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_io_File.html). But it can also be other types:
 
-- [File](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_io_File.html)
-- [String](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_TopLevel_String.html)
-- [Bytes](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_util_Bytes.html)
+- [File](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_io_File.html)
+- [String](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_TopLevel_String.html)
+- [Bytes](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_util_Bytes.html)
 
 ### Encoding
 
@@ -98,7 +98,7 @@ In this example, we pass multiple [files](https://documentation.b2c.commerceclou
 new HTTPRequestPart('zipFile', zipFile, 'application/gzip', 'UTF-8');
 ```
 
-When working with files, you must [send extra information](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_net_HTTPRequestPart.html#dw_net_HTTPRequestPart_HTTPRequestPart_String_Bytes_String_String_String_DetailAnchor) along the way:
+When working with files, you must [send extra information](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_net_HTTPRequestPart.html) along the way:
 
 - **Content-Type:** The type of file, in this case, a zipped file (application/gzip)
 

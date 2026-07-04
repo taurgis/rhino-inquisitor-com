@@ -40,14 +40,14 @@ The third on the list: Content! Probably one of the smallest diagrams in the set
 
 It is essential to understand that there are two systems in place to handle content in Salesforce B2C Commerce Cloud:
 
-- [Content Assets in combination with Content Slots](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/content/b2c_content_slots.html)
-- [Page Designer](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/page_designer/b2c_dev_for_page_designer.html)
+- [Content Assets in combination with Content Slots](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_content_slots.htm)
+- [Page Designer](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-dev-for-page-designer.html)
 
 Both operate in different ways and have a significant differences in features. So be sure to check out the documentation if you are unfamiliar with them.
 
 ### Attribute
 
-Even though "Attribute" is [not a separate entity](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_experience_Component.html#dw_experience_Component_getAttribute_String_DetailAnchor) within [Page Designer](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/page_designer/b2c_dev_for_page_designer.html) entities, I decided to add it as a separate one to show which entities supported "custom attributes."
+Even though "Attribute" is [not a separate entity](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_experience_Component.html) within [Page Designer](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-dev-for-page-designer.html) entities, I decided to add it as a separate one to show which entities supported "custom attributes."
 
 ## More to follow
 

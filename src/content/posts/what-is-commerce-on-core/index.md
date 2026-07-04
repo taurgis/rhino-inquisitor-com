@@ -22,7 +22,7 @@ takeaways:
 ---
 People who have been around "[Demandware](/sitegenesis-vs-sfra-vs-pwa/)" for a while and continued after the acquisition by Salesforce know that this announcement was bound to happen at one point.
 
-It is a question that many have asked over the years looking at the core platform of Salesforce: "When will they migrate everything and move Salesforce B2C Commerce Cloud to the Salesforce core platform ([force.com](https://www.salesforce.com/products/platform/products/force/?sfdc-redirect=300))?"
+It is a question that many have asked over the years looking at the core platform of Salesforce: "When will they migrate everything and move Salesforce B2C Commerce Cloud to the Salesforce core platform ([force.com](https://www.salesforce.com/products/platform/overview/))?"
 
 During Dreamforce, the first mention of this happening reared its face this year. During the keynote even! Although honestly, if you blinked, you probably missed this.
 
@@ -70,7 +70,7 @@ An essential part of understanding how the SCAPI works is that [Mulesoft](https:
 
 The [Omnichannel Inventory](/what-is-oci-omnichannel-inventory/) (part of the B2C Commerce Cloud license) was another sign that Salesforce pointed products more to a "composable architecture." It is a separate product that can be used for B2C, B2B, B2B2C, or other applications.
 
-Many other products that followed, like Order Management and Commerce Marketplaces, were separated from the B2C Offering, and most noteworthy are on the [force.com](https://www.salesforce.com/products/platform/products/force/) (core) platform.
+Many other products that followed, like Order Management and Commerce Marketplaces, were separated from the B2C Offering, and most noteworthy are on the [force.com](https://www.salesforce.com/products/platform/overview/) (core) platform.
 
 ### Composable Storefront
 

@@ -26,7 +26,7 @@ Among the ways to handle [product variations](/the-attribute-fallback-system-in-
 
 ## What Are Variation Attributes?
 
-Let's start by understanding what [variation attributes](https://help.salesforce.com/s/articleView?id=commerce.comm_var_att_intro.htm&type=5) are. These are the unique characteristics that define the different options for a specific product. For instance, a t-shirt available in multiple colors and sizes has 'color' and 'size' as its variation attributes, allowing customers to select their preferred options.
+Let's start by understanding what [variation attributes](https://help.salesforce.com/s/articleView?id=sf.comm_var_att_intro.htm&type=5) are. These are the unique characteristics that define the different options for a specific product. For instance, a t-shirt available in multiple colors and sizes has 'color' and 'size' as its variation attributes, allowing customers to select their preferred options.
 
 In Salesforce B2C Commerce Cloud, variation attributes play a pivotal role. They not only help in categorizing products but also significantly enhance the shopping experience by making product selection easier and more intuitive for customers.
 

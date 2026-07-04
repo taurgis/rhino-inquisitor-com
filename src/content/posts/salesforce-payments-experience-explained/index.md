@@ -20,7 +20,7 @@ takeaways:
   - "Highlights the trade-offs around control, payment-method coverage, composable storefront support, and future multi-cloud value"
   - "Gives teams a practical starting point for evaluating Salesforce Payments against third-party PSP cartridges"
 ---
-As a [Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/) connoisseur, you know how important it is to have a seamless customer payment process. After all, a clunky checkout experience can result in abandoned carts and lost sales. But what exactly is [Salesforce Payments](https://trailhead.salesforce.com/content/learn/modules/cc-commerce-payments) - or [Commerce Payments](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/salesforce_payments/b2c_salesforce_payments.html), and how can it benefit you with the payment provider implementation? In this article, we'll explore the ins and outs of Salesforce Payments, from its features and benefits to the integration.
+As a [Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/) connoisseur, you know how important it is to have a seamless customer payment process. After all, a clunky checkout experience can result in abandoned carts and lost sales. But what exactly is [Salesforce Payments](https://trailhead.salesforce.com/content/learn/modules/cc-commerce-payments) - or [Commerce Payments](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_salesforce_payments.htm), and how can it benefit you with the payment provider implementation? In this article, we'll explore the ins and outs of Salesforce Payments, from its features and benefits to the integration.
 
 ## A plugin
 
@@ -54,7 +54,7 @@ As you may already know, the checkout process plays a crucial role in the custom
 
 ### Missing payment methods
 
-You may have noticed that Salesforce Payments [only supports some payment methods](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/salesforce_payments/b2c_salesforce_payments_platforms_services.html) available on Stripe. This is an important consideration when selecting a payment provider for your current and future projects. Keep this in mind!
+You may have noticed that Salesforce Payments [only supports some payment methods](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_salesforce_payments_platforms_services.htm) available on Stripe. This is an important consideration when selecting a payment provider for your current and future projects. Keep this in mind!
 
 ### Combining with other payment providers
 
@@ -77,7 +77,7 @@ For those familiar with my articles, I am not one to start reinventing (and writ
 - [Quick Look](https://trailhead.salesforce.com/en/content/learn/modules/cc-payments-processing)
 - [Salesforce Payments for Administrators](https://trailhead.salesforce.com/en/content/learn/modules/cc-commerce-payments)
 - [Official Salesforce Payments Product Page](https://www.salesforce.com/products/commerce-cloud/solutions/payments/)
-- [Documentation](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/salesforce_payments/b2c_salesforce_payments.html)
+- [Documentation](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_salesforce_payments.htm)
 - [Demo](https://www.salesforce.com/form/commerce/conf/payments-demo?leadcreated=true&redirect=true&sfuuid=31472534-1e3c-4b8a-a90a-9156e45c6e61&d=70130000000sUVq&nc=7013y000002KFkZAAW)
 
 Support Ticket As usual, this feature must be enabled on your environment through a support ticket if you are a partner (on a sandbox, for example). As a customer, please contact your CSM to get the ball rolling!

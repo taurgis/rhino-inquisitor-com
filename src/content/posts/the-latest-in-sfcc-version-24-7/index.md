@@ -186,7 +186,7 @@ A big release focusing on many different areas important to any project: Support
 
 ## Bugfixes
 
-[Many ticket](https://issues.salesforce.com/#sortCriteria=%40sflast_modified_date_external__c%20descending&f[sfcategoryfull]=Commerce%7CB2C%20Commerce)s were moved to "Solution in development" or "Solution Scheduled".
+[Many ticket](https://help.salesforce.com/s/issues)s were moved to "Solution in development" or "Solution Scheduled".
 
 ## Updated Cartridges & Tools
 

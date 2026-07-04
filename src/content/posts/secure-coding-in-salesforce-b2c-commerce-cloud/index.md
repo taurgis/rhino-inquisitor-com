@@ -56,7 +56,7 @@ There are different options possible with Account Manager:
 - Salesforce Authenticator (Application)
 - [Security Key](https://www.yubico.com/) (Physical Device)
 - [TOTP](https://en.wikipedia.org/wiki/Time-based_one-time_password) (Time-based one-time password) application
-- [Salesforce Identity](https://help.salesforce.com/s/articleView?id=sf.who_is_salesforce_identity_for.htm&type=5) ([Documentation](https://documentation.b2c.commercecloud.salesforce.com/DOC2/topic/com.demandware.dochelp/content/b2c_commerce/topics/account_manager/b2c_account_manager_link_account_to_salesforce_identity_sso.html))
+- [Salesforce Identity](https://help.salesforce.com/s/articleView?id=sf.who_is_salesforce_identity_for.htm&type=5) ([Documentation](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_account_manager_link_account_to_salesforce_identity_sso.htm))
 
 I decided to make it a tad more manageable to log in by creating "[Automaton](https://chrome.google.com/webstore/detail/automaton-account-manager/clbadmmkinhmiblhkkiiabbbcpljohob)." A browser (chromium) plugin that acts as a TOTP mobile application. As a bonus, it also automatically fills in all fields. It is, of course, secured by a "Vault Password," so not everyone that has access to your laptop can log in.
 
@@ -79,28 +79,28 @@ So think of secure ways to share your 2FA (usually TOTP for shared accounts). A 
 
 You might think that all of the provided services of Salesforce will keep you safe from bad actors. While it does block a lot of traffic that does not have the best intentions, it can't stop everything and everyone that means to do harm.
 
-You can find more information about what the eCDN (Cloudflare) can do in the [Infocenter](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/admin/b2c_embedded_cdn.html).
+You can find more information about what the eCDN (Cloudflare) can do in the [Infocenter](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_embedded_cdn.htm).
 
 ## Security Best Practices
 
 Lucky for me (and you), Salesforce has already written quite a few guidelines on Security Best Practices for Developers.
 
-On the [Salesforce Commerce Cloud Infocenter](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_security_best_practices_for_developers.html), there is a lot of information already documented about different types of attacks and how to mitigate them:
+On the [Salesforce Commerce Cloud Infocenter](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_security_best_practices_for_developers.htm), there is a lot of information already documented about different types of attacks and how to mitigate them:
 
-- [Encryption and Cryptography](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_encryption_and_cryptography.html)
-- [Cross-Site Scripting](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_cross_site_scripting.html)
-- [Declarative Security via HTTP Headers](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_declarative_security_via_http_headers.html)
-- [Commerce Script Injection](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_commerce_script_injection.html)
-- [Cross-Site Request Forgery](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_cross_site_request_forgery.html)
-- [Secret Storage](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_secret_storage.html)
-- [Using Hooks Securely](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_using_hooks_securely.html)
-- [Data Validation](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_data_validation.html)
-- [Open Redirect Attacks](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_open_redirect_attacks.html)
-- [Authentication and Authorization](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_developer_authentication_and_authorization.html)
-- [Supply Chain Security](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_supply_chain_security.html)
-- [Secure Logging](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_secure_logging.html)
-- [General Secure Coding Practices](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_general_secure_coding_practices.html)
-- [AppExchange Security Reviews](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/b2c_security_best_practices/b2c_app_exchange_security_reviews.html)
+- [Encryption and Cryptography](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_encryption_and_cryptography.htm)
+- [Cross-Site Scripting](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_cross_site_scripting.htm)
+- [Declarative Security via HTTP Headers](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_declarative_security_via_http_headers.htm)
+- [Commerce Script Injection](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_commerce_script_injection.htm)
+- [Cross-Site Request Forgery](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_cross_site_request_forgery.htm)
+- [Secret Storage](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_secret_storage.htm)
+- [Using Hooks Securely](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_using_hooks_securely.htm)
+- [Data Validation](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_data_validation.htm)
+- [Open Redirect Attacks](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_open_redirect_attacks.htm)
+- [Authentication and Authorization](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_developer_authentication_and_authorization.htm)
+- [Supply Chain Security](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_supply_chain_security.htm)
+- [Secure Logging](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_secure_logging.htm)
+- [General Secure Coding Practices](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_general_secure_coding_practices.htm)
+- [AppExchange Security Reviews](https://developer.salesforce.com/docs/atlas.en-us.packagingGuide.meta/packagingGuide/secure_code_b2c_commerce.htm)
 
 Quite the list, isn't it! Even though Salesforce takes care of quite a few things, you still need to keep yourself in check. Follow the provided guidelines not to compromise the channels you implement on Salesforce B2C Commerce Cloud.
 
@@ -125,7 +125,7 @@ A [config file](https://github.com/SalesforceCommerceCloud/storefront-reference-
 
 The standard file (httpHeadersConf.json) only sets two security headers, but it is possible to develop more.
 
-It is important to note that Salesforce limits the headers you can set to [a list of constants in the Response class](https://documentation.b2c.commercecloud.salesforce.com/DOC1/index.jsp?topic=%2Fcom.demandware.dochelp%2FDWAPI%2Fscriptapi%2Fhtml%2Fapi%2Fclass_dw_system_Response.html).
+It is important to note that Salesforce limits the headers you can set to [a list of constants in the Response class](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_system_Response.html).
 
 I have compiled a list and their descriptions below to make things easier.
 

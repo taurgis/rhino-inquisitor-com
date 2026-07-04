@@ -34,7 +34,7 @@ Commerce Cloud uses an engine based on [Apache Rhino](https://en.wikipedia.org/w
 
 Updating the engine can cause some functions that worked in the previous release to break down. The engineering team can only force this new version on us if they give us the time to update the custom code to be compatible with the latest version.
 
-And that is where the choice of "Compatibility Mode" comes in. We can decide for ourselves when to make a move to this new engine ([and make use of the new toys that come with it](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/site_development/b2c_compatibility_mode_considerations.html))
+And that is where the choice of "Compatibility Mode" comes in. We can decide for ourselves when to make a move to this new engine ([and make use of the new toys that come with it](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-compatibility-mode-considerations.html))
 
 ## The only way is up?
 

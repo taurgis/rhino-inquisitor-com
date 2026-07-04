@@ -37,7 +37,7 @@ Months go by without any mention of this change, but I did know that this "Origi
 
 {{< img-caption src="march-2022-origin-shielding-815c30777b.jpg" alt="March 2022 roadmap slide announcing the next origin shielding phase." link="march-2022-origin-shielding-815c30777b.jpg" >}}
 
-So again, quite a bit in advance: about six months to change demandware.net to your vanity domain. Over the months, this was shared across multiple channels: Trailblazer Communities, Webinars, [and slides shared with the release notes](https://help.salesforce.com/articleView?id=b2c_rn_release_notes.htm&type=5). I probably missed other media that might have been customer-facing. But as a partner, I do not get these. All in all, quite a lot of warnings ahead of time.
+So again, quite a bit in advance: about six months to change demandware.net to your vanity domain. Over the months, this was shared across multiple channels: Trailblazer Communities, Webinars, [and slides shared with the release notes](https://help.salesforce.com/s/articleView?id=sf.b2c_rn_release_notes.htm&type=5). I probably missed other media that might have been customer-facing. But as a partner, I do not get these. All in all, quite a lot of warnings ahead of time.
 
 ## Monitoring of these channels
 

@@ -47,7 +47,7 @@ With this new update, we get more flexibility to support use cases! It is crucia
 
 > PATCH and PUT /product_inventory_records/{product_id} now supports a null allocation payload while keeping accurate account of product allocation amounts and allocation reset date. Previously, sending a Patch or Put call to set a custom inventory record attribute using a null allocation payload resulted in an invalid reset date.
 
-Salesforce has implemented a bugfix in the [Inventory API](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-data-api?meta=Update%2BProduct%2BInventory%2BRecord) to ensure that the allocation reset date remains in a valid state and does not become invalid. There is not much else to report about this update.
+Salesforce has implemented a bugfix in the [Inventory API](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-data-inventory-lists?meta=Summary) to ensure that the allocation reset date remains in a valid state and does not become invalid. There is not much else to report about this update.
 
 ### SCAPI
 

@@ -42,7 +42,7 @@ decodeURIComponent('query=?/learning tō dėcōdė');
 //query=?/learning tō dėcōdė
 ```
 
-These functions are used to unescape characters in a URI component. The [decodeURI](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_TopLevel_global.html?resultof=%22%67%6c%6f%62%61%6c%22%20%22%63%6c%61%73%73%22%20#TopLevel_global_decodeURI_String_DetailAnchor) function unescapes characters in a URI, while the [decodeURIComponent](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_TopLevel_global.html?resultof=%22%67%6c%6f%62%61%6c%22%20%22%63%6c%61%73%73%22%20#TopLevel_global_decodeURIComponent_String_DetailAnchor) function unescapes characters in a URI component. Both these global functions take a string that contains an encoded URI or URI component and return a copy of the input string with any hexadecimal escape sequences replaced with the characters they represent.
+These functions are used to unescape characters in a URI component. The [decodeURI](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_TopLevel_global.html) function unescapes characters in a URI, while the [decodeURIComponent](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_TopLevel_global.html) function unescapes characters in a URI component. Both these global functions take a string that contains an encoded URI or URI component and return a copy of the input string with any hexadecimal escape sequences replaced with the characters they represent.
 
 ## empty
 
@@ -55,7 +55,7 @@ empty('a string');
 // false
 ```
 
-The [empty](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_TopLevel_global.html?resultof=%22%67%6c%6f%62%61%6c%22%20%22%63%6c%61%73%73%22%20#TopLevel_global_empty_Object_DetailAnchor) function is used to test whether a given object is empty. The interpretation of empty is the following: null is always empty:
+The [empty](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_TopLevel_global.html) function is used to test whether a given object is empty. The interpretation of empty is the following: null is always empty:
 
 -   undefined is always empty
 -   a string with zero length is empty
@@ -74,7 +74,7 @@ unescape("%E4%F6%FC");
 // "äöü"
 ```
 
-The [escape](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_TopLevel_global.html?resultof=%22%67%6c%6f%62%61%6c%22%20%22%63%6c%61%73%73%22%20#TopLevel_global_escape_String_DetailAnchor) function encodes a string by replacing characters with hexadecimal escape sequences. The [unescape](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_TopLevel_global.html?resultof=%22%67%6c%6f%62%61%6c%22%20%22%63%6c%61%73%73%22%20#TopLevel_global_unescape_String_DetailAnchor) function decodes an escaped string by replacing hexadecimal character sequences with Unicode characters. Both global functions take a string as a parameter and return a copy of the input string with characters encoded or decoded.
+The [escape](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_TopLevel_global.html) function encodes a string by replacing characters with hexadecimal escape sequences. The [unescape](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_TopLevel_global.html) function decodes an escaped string by replacing hexadecimal character sequences with Unicode characters. Both global functions take a string as a parameter and return a copy of the input string with characters encoded or decoded.
 
 ## eval
 
@@ -86,7 +86,7 @@ eval('2 + 2');
 // 4
 ```
 
-The [eval](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_TopLevel_global.html?resultof=%22%67%6c%6f%62%61%6c%22%20%22%63%6c%61%73%73%22%20#TopLevel_global_eval_String_DetailAnchor) function is used to execute JavaScript code from a string. However, **it is deprecated because it can be a potential security risk for server-side code injection**. The function takes a string that contains the JavaScript expression to be evaluated or the statements to be executed and returns the value of the executed call or null.
+The [eval](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_TopLevel_global.html) function is used to execute JavaScript code from a string. However, **it is deprecated because it can be a potential security risk for server-side code injection**. The function takes a string that contains the JavaScript expression to be evaluated or the statements to be executed and returns the value of the executed call or null.
 
 ## isFinite and isNaN
 
@@ -103,7 +103,7 @@ isNaN('0.0314E+2');
 // false
 ```
 
-The [isFinite](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_TopLevel_global.html?resultof=%22%67%6c%6f%62%61%6c%22%20%22%63%6c%61%73%73%22%20#TopLevel_global_isFinite_Number_DetailAnchor) function is used to determine whether a specified number is finite. It takes a number as a parameter and returns true if the specified number is finite, false otherwise. The [isNaN](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_TopLevel_global.html?resultof=%22%67%6c%6f%62%61%6c%22%20%22%63%6c%61%73%73%22%20#TopLevel_global_isNaN_Object_DetailAnchor) function tests the specified value to determine if it is not a number. It takes an object as a parameter and returns true if the object is not a number.
+The [isFinite](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_TopLevel_global.html) function is used to determine whether a specified number is finite. It takes a number as a parameter and returns true if the specified number is finite, false otherwise. The [isNaN](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_TopLevel_global.html) function tests the specified value to determine if it is not a number. It takes an object as a parameter and returns true if the object is not a number.
 
 ## parseFloat and parseInt
 
@@ -114,7 +114,7 @@ parseInt('28.695307297889173');
 // 28
 ```
 
-The [parseFloat](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_TopLevel_global.html?resultof=%22%67%6c%6f%62%61%6c%22%20%22%63%6c%61%73%73%22%20#TopLevel_global_parseFloat_String_DetailAnchor) function is used to parse a string into a floating-point number. It takes a string as a parameter and returns the float as a number. The [parseInt](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_TopLevel_global.html?resultof=%22%67%6c%6f%62%61%6c%22%20%22%63%6c%61%73%73%22%20#TopLevel_global_parseInt_1_String_DetailAnchor) function uses the specified radix to parse a string into an integer number. If no radix is specified, the function automatically determines the radix based on the input string. These functions return the integer as a number.
+The [parseFloat](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_TopLevel_global.html) function is used to parse a string into a floating-point number. It takes a string as a parameter and returns the float as a number. The [parseInt](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_TopLevel_global.html) function uses the specified radix to parse a string into an integer number. If no radix is specified, the function automatically determines the radix based on the input string. These functions return the integer as a number.
 
 ## Other global functions
 

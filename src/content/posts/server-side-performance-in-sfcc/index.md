@@ -56,7 +56,7 @@ In simple terms, page caching stores the Application Server responses (HTML, JSO
 
 But how do you set this up? There are two ways:
 
--   [`<iscache>` tags](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/isml/b2c_iscache.html)
+-   [`<iscache>` tags](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-iscache.html)
 -   [SFRA Cache Middleware Functions](https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/blob/master/cartridges/app_storefront_base/cartridge/scripts/middleware/cache.js)
 
 
@@ -73,9 +73,9 @@ You did a code release before this happened but can't pinpoint the cause. Luckil
 
 ### Technical Reports
 
-We have live data since we are in production, which means "[Reports & Dashboards](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/analytics/b2c_reports_and_dashboards.html)" are available! Part of those reports is not about sales, but about performance! Just what we need!
+We have live data since we are in production, which means "[Reports & Dashboards](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_reports_and_dashboards.htm)" are available! Part of those reports is not about sales, but about performance! Just what we need!
 
-The [Technical Dashboard](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/analytics/b2c_technical_dashboard.html) (as it is called) gives us a great overview about:
+The [Technical Dashboard](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_technical_dashboard.htm) (as it is called) gives us a great overview about:
 
 -   Average Response Time
 -   Cache Hit Ratio
@@ -86,7 +86,7 @@ Looking at the list of data above, it makes sense to have a look at it!
 
 {{< img-caption src="performance-dashboard-8a847df133.png" alt="A screenshot of the 'Reports & Dashboards' with the 'Average Response Time' graph depicting a significant performance degradation (doubling in milliseconds)." caption="The Technical Dashboard is the first place to confirm whether response times are trending the wrong way." >}}
 
-This dashboard lets you obtain the essential information regarding your cache performance for all endpoints, including Remote Includes. Clicking on a controller will reveal insights into the various sub-requests caused by the [Remote Include](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/ops_troubleshooting/b2c_understanding_remote_includes.html) mechanism.
+This dashboard lets you obtain the essential information regarding your cache performance for all endpoints, including Remote Includes. Clicking on a controller will reveal insights into the various sub-requests caused by the [Remote Include](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-understanding-remote-includes.html) mechanism.
 
 This dashboard is an excellent starting point for identifying caching issues and controllers with extended runtimes. _The screenshot shows performance has decreased for the Product-Show controller over the past few days or weeks._
 
@@ -94,13 +94,13 @@ This dashboard is an excellent starting point for identifying caching issues and
 
 _Don't be fooled by its name; it will profile more than pipelines!_
 
-The second tool you should be grabbing ahold of is the [Pipeline Profiler](https://documentation.b2c.commercecloud.salesforce.com/DOC1/index.jsp?topic=%2Fcom.demandware.dochelp%2FLegacyDevDoc%2FAnalyzePerformancePipelineProfiler.html). It is easy to use, will give you a high-level overview of all of your pipeline/controller endpoints, and show you how much processing time it needs to do its thing.
+The second tool you should be grabbing ahold of is the [Pipeline Profiler](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/LegacyDeveloperDocumentation.pdf). It is easy to use, will give you a high-level overview of all of your pipeline/controller endpoints, and show you how much processing time it needs to do its thing.
 
 {{< img-caption src="pipeline-profiler-24fb681d34.png" alt="A screenshot of the Pipeline Profiler showing the Search-Show controller with two hits and its total processing time of 1023 milliseconds. Below the controller is the template performance, showing the searchResults.isml file." caption="The Pipeline Profiler shows which controller and template path is actually burning time." >}}
 
 As you can see, the above screenshot shows a basic overview of the performance of a controller and the template (response) it renders. If the template uses local includes, you can see their processing time separately.
 
-All of the [Remote Includes](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/ops_troubleshooting/b2c_understanding_remote_includes.html) you have done are within the list of controllers.
+All of the [Remote Includes](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-understanding-remote-includes.html) you have done are within the list of controllers.
 
 {{< img-caption src="pipeline-profile-remote-includes-0e99481937.png" alt="A screenshot of the Pipeline Profiler showing a list of Remote Includes, with the 'Tile-Show' controller marked with a red circle around it." caption="Remote includes show up as their own controllers, so they must be profiled separately." >}}
 
@@ -112,7 +112,7 @@ Cache This method only works for uncached endpoints if caching is enabled. Cache
 
 ### Code Profiler
 
-Last but not least, the [Code Profiler](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/site_performance/b2c_using_code_profiler.html) provides you with detailed insights on run-time performance. You can control how detailed you want that information as it supports three modes: Production, Development and Extended.
+Last but not least, the [Code Profiler](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-site-performance.html) provides you with detailed insights on run-time performance. You can control how detailed you want that information as it supports three modes: Production, Development and Extended.
 
 {{< img-caption src="salesforce-code-profiler-extended-eeb0fcbb69.png" alt="A screenshot of the Code Profiler with the activated 'Extended Script Development Mode' setting. The screenshot includes an extensive list of functions and Javascript files executed in the server-side code." caption="The Code Profiler is the deep-dive tool once dashboards and profiler views stop being enough." >}}
 

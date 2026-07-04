@@ -147,9 +147,9 @@ You probably noticed that we need to define a “script” file for each hook we
 
 ### Look up the endpoint documentation
 
-Before we start writing the code, we need to know what function to export in our script for the system to pick up our customisation. This information can be found in the [Infocenter](https://documentation.b2c.commercecloud.salesforce.com/DOC1/index.jsp).
+Before we start writing the code, we need to know what function to export in our script for the system to pick up our customisation. This information can be found in the [Infocenter](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/get-started.html).
 
-First, we locate the endpoint we want to override. The documentation will show us more information about the [function behind it](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/shop/Resources/Baskets.html#id-1036385888__id1441479317).
+First, we locate the endpoint we want to override. The documentation will show us more information about the [function behind it](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-baskets?meta=Summary).
 
 {{< img-caption src="screenshot-2022-06-01-at-20-31-35-e1654104790984-f648d18f90.png" alt="Hook documentation showing the exported function name and parameters." caption="The hook signature tells you exactly what the platform expects your script to export." link="screenshot-2022-06-01-at-20-31-35-e1654104790984-f648d18f90.png" >}}
 
@@ -177,7 +177,7 @@ exports.beforePATCH = function (basket, basketInput) {
 
 ### Detecting OCAPI vs SCAPI
 
-We may have a scenario where the OCAPI and the SCAPI use the same endpoint and have their unique customisations. To detect SCAPI calls, the request object/class has recently received [a helper function:](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_system_Request.html?resultof=%22%69%73%73%63%61%70%69%22%20#dw_system_Request_isSCAPI_DetailAnchor)
+We may have a scenario where the OCAPI and the SCAPI use the same endpoint and have their unique customisations. To detect SCAPI calls, the request object/class has recently received [a helper function:](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_system_Request.html)
 
 ```text
 request.isSCAPI()

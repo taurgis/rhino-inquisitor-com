@@ -36,13 +36,13 @@ Getting a sandbox environment for testing and development [has challenged potent
 
 > To increase the efficiency of log volume, successful job steps for custom and global jobs with dedicated log files are no longer logged in the global job log file, Splunk, or Log Center. You can still review successful job steps in the dedicated log file.
 
-There is a [limit](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/site_development/b2c_understanding_log_files.html) to how many logs can be written and sent to the Log Center; in most cases, you aren't looking for success messages. Though successes should be celebrated 😊, there is no need for them to clog up the general logs and nibble at our quotas.
+There is a [limit](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-log-files-overview.html) to how many logs can be written and sent to the Log Center; in most cases, you aren't looking for success messages. Though successes should be celebrated 😊, there is no need for them to clog up the general logs and nibble at our quotas.
 
 ### Buy Now Items Get Their Own Cart
 
 > Shoppers can now use Buy Now express checkout without losing the contents of an existing shopping cart. Buy Now express checkout puts items for purchase in a separate cart. To use this feature, upgrade the Payments plug-in (plugin\_commercepayments) to the latest version.
 
-Losing your basket halfway through your shopping experience is never a fun thing. For any projects making use of [Commerce Payments](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/salesforce_payments/b2c_salesforce_payments.html), this update is a welcome improvement. The plugin\_commercepayments repository can be found [on GitHub](https://github.com/SalesforceCommerceCloud/plugin_commercepayments). Access to the repository If you don’t have a GitHub account, see [Salesforce Commerce Cloud GitHub Repositories and Access](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/site_development/b2c_github_repo_access.html#github_repo).
+Losing your basket halfway through your shopping experience is never a fun thing. For any projects making use of [Commerce Payments](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_salesforce_payments.htm), this update is a welcome improvement. The plugin\_commercepayments repository can be found [on GitHub](https://github.com/SalesforceCommerceCloud/plugin_commercepayments). Access to the repository If you don’t have a GitHub account, see [Salesforce Commerce Cloud GitHub Repositories and Access](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-github-repo-access.html).
 
 ## Business Manager
 

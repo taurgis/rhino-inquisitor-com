@@ -10,9 +10,9 @@ url: /ideas/page-designer-dynamic-pages-optional-subcategories/
 draft: false
 author: Thomas Theunen
 ---
-A year after Salesforce released [Page Designer](https://www.salesforce.com/video/3620472/), many of the needed features were added. One of these features was called "[Dynamic Pages](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/page_designer/b2c_develop_dynamic_page.html)."
+A year after Salesforce released [Page Designer](https://www.salesforce.com/video/3620472/), many of the needed features were added. One of these features was called "[Dynamic Pages](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-dev-for-page-designer.html)."
 
-This feature allowed [Page Designer](https://www.salesforce.com/video/3620472/) pages to understand their context: a category, or a product. These pages allow for dynamic components that show [product or category](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/page_designer/b2c_aspect_types.html) information without much manual labor.
+This feature allowed [Page Designer](https://www.salesforce.com/video/3620472/) pages to understand their context: a category, or a product. These pages allow for dynamic components that show [product or category](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-dev-for-page-designer.html) information without much manual labor.
 
 Now, as with many things, no good deed comes unpunished. There is a "problem" with the dynamic category option. When you select a top-level category, it selects all subcategories as well. Whether you want this to happen or not.
 

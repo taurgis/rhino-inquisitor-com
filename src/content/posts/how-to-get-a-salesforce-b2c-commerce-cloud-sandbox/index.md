@@ -19,7 +19,7 @@ takeaways:
   - "Breaks down access paths for newcomers, partners, and existing B2C customers"
   - "Highlights fallback options like PWA Kit public sandboxes and Trailhead Academy access"
 ---
-As a developer, you want to know what you are getting yourself into to make a conscious choice of what you will be doing for the years to come. And looking at the Salesforce core platform, [it is straightforward to spin up a sandbox](https://developer.salesforce.com/signup)!
+As a developer, you want to know what you are getting yourself into to make a conscious choice of what you will be doing for the years to come. And looking at the Salesforce core platform, [it is straightforward to spin up a sandbox](https://www.salesforce.com/products/free-trial/developer/)!
 
 But does this also apply to Salesforce B2C Commerce Cloud? Long story short, no.
 
@@ -68,11 +68,11 @@ Note: Depending on your journey towards B2C, your next step is usually to work t
 
 Well, now, you should be set! If you are a B2C-enabled partner or a client, you can spin up as many On-Demand sandboxes as you want!
 
-Watch out! If you go overboard, [extra charges will be added to your contract](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/sandboxes/b2c_purchase_sb_credits.html?resultof=%22%63%72%65%64%69%74%73%22%20%22%63%72%65%64%69%74%22%20)!
+Watch out! If you go overboard, [extra charges will be added to your contract](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-get-started-sandboxes.html)!
 
 Just read all of the available documentation, and you should be good to go:
 
-- [Documentation Site](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/sandboxes/b2c_developer_sandboxes.html)
+- [Documentation Site](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-developer-sandboxes.html)
 - [Trailhead](https://trailhead.salesforce.com/content/learn/modules/b2c-on-demand-sandbox)
 
 ## Trailhead Academy

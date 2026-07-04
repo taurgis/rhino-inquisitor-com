@@ -22,7 +22,7 @@ takeaways:
 ---
 So, you decided to become a Certified B2C Commerce Developer. That is great! Getting certified is a great way to confirm the knowledge you have gained from projects or training is sufficient and up to par with the "Salesforce Standards."
 
-But there is no harm in preparing specifically for the exam, is there? Let's go over the [exam guide](https://trailhead.salesforce.com/help?article=Salesforce-Certified-B2C-Commerce-Developer-Exam-Guide) and point you towards the content you might want to review to improve your chances of passing the first try!
+But there is no harm in preparing specifically for the exam, is there? Let's go over the [exam guide](https://help.salesforce.com/s/articleView?id=005298941&language=en_US&type=1) and point you towards the content you might want to review to improve your chances of passing the first try!
 
 ## B2C Commerce Setup (11%)
 
@@ -72,10 +72,10 @@ But, what else is available?
 - [Trailhead: Administer a Salesforce B2C Commerce Site](https://trailhead.salesforce.com/en/content/learn/trails/administer-b2c-commerce)
 - [Trailhead: Maxime Rebibo's Trailmix](https://trailhead.salesforce.com/users/maxime-rebibo-sfcc/trailmixes/preparing-salesforce-b-2-c-commerce-developer-certification)
 - [Live SFRA Demo Site](https://production-sitegenesis-dw.demandware.net/s/RefArch/home?lang=en_US)
-- [B2C Commerce Videos (Infocenter)](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/video_content/b2c_videos.html)
+- [B2C Commerce Videos (Infocenter)](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_videos.htm&type=5)
 - [Salesforce Events](https://cs.salesforce.com/events?filter=true&product=b2c-commerce)
 - [Webinar: Getting Started with Page Designer](https://salesforce.vidyard.com/watch/C239ou4WP2nSagkxoA4D4m?)
-- [Customer Service Center](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/customer_service_center/b2c_customer_service_center.html)
+- [Customer Service Center](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-customer-service-center.html)
 
 ## Data Management Using Business Manager Usage (24%)
 
@@ -98,21 +98,21 @@ You will notice that the main focus of this section is actually on logging, debu
 
 Let's make a list of available content!
 
-- [Search (Preferences, Settings, ...)](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/search_and_navigation/b2c_search_overview.html)
-- [Log Files](https://documentation.b2c.commercecloud.salesforce.com/DOC1/index.jsp?topic=%2Fcom.demandware.dochelp%2Fcontent%2Fb2c_commerce%2Ftopics%2Fsite_development%2Fb2c_log_files_overview.html)
+- [Search (Preferences, Settings, ...)](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_search_overview.htm)
+- [Log Files](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-log-files-overview.html)
 - [Extending System Objects (Attribute Manager)](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OrderManagement/Administration/AdminAttributeManager.html)
-- [Managing Custom Objects](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/custom_objects/b2c_custom_objects.html)
-- [Site Performance (General)](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/site_performance/b2c_site_performance.html)
-- [Pipeline Profiler](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/LegacyDevDoc/AnalyzePerformancePipelineProfiler.html)
-- [Code Profiler](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/site_performance/b2c_using_code_profiler.html)
-- [Technical Dashboard (Reports & Dashboards)](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/analytics/b2c_technical_dashboard.html)
-- [Troubleshooting Performance Issues](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/admin/b2c_troubleshooting_platform_performance.html)
-- [Static and Page Cache](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/site_development/b2c_caching_content.html)
-- [Cache Information Tool](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/storefront_toolkit/b2c_using_the_cache_information_tool.html)
-- [Custom Caches](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/caches/b2c_custom_caches.html)
-- [OCAPI Settings](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/OCAPISettings.html)
+- [Managing Custom Objects](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-business-objects.html)
+- [Site Performance (General)](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-site-performance.html)
+- [Pipeline Profiler](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/LegacyDeveloperDocumentation.pdf)
+- [Code Profiler](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-site-performance.html)
+- [Technical Dashboard (Reports & Dashboards)](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_technical_dashboard.htm)
+- [Troubleshooting Performance Issues](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-troubleshooting-platform-performance.html)
+- [Static and Page Cache](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-content-cache.html)
+- [Cache Information Tool](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_using_the_cache_information_tool.htm)
+- [Custom Caches](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-custom-caches.html)
+- [OCAPI Settings](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/ocapisettings.html)
 - [OCAPI & Web Service Framework](https://share.vidyard.com/watch/JUR9eco8noLmS11dQA1CKt?)
-- [Standard Job Steps](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/jobstepapi/html/api/jobStepList.html)
+- [Standard Job Steps](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/jobstepapi/html/api/jobStepList.html)
 
 ## Application Development (53%)
 

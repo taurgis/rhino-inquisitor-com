@@ -21,7 +21,7 @@ takeaways:
   - "Walks through the practical request flow for converting a guest OCAPI token into storefront cookies and back again"
   - "Highlights the hybrid-deployment and mobile-app scenarios where session bridging is useful, along with the sensitive-data caveats to keep in mind"
 ---
-With the added attention to [Headless architecture](/sitegenesis-vs-sfra-vs-pwa/) in Salesforce B2C Commerce Cloud and the option for "[hybrid deployments](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/phased-headless-rollouts.html)," the [Session Bridge](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/SessionBridge.html) has also gotten some more airtime.
+With the added attention to [Headless architecture](/sitegenesis-vs-sfra-vs-pwa/) in Salesforce B2C Commerce Cloud and the option for "[hybrid deployments](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/phased-headless-rollouts.html)," the [Session Bridge](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/sessionbridge.html) has also gotten some more airtime.
 
 But what is it? What do I use it for? What do I watch out for? Let us dig deeper into these questions and try to give them a clear answer!
 
@@ -45,7 +45,7 @@ You can find the documentation [in the SLAS Session Bridge guide](https://develo
 
 First things first, let us dig into what the Session Bridge is. And luckily for us, it is not rocket science!
 
-It is a set of services that allow the exchange of a [session cookie](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DataProtectionAndPrivacy/LocalDataStorage.html) (Site) for a [JWT](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/JWT.html) (OCAPI/SCAPI) and visa-versa.
+It is a set of services that allow the exchange of a [session cookie](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_local_data_storage.htm) (Site) for a [JWT](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/jwt.html) (OCAPI/SCAPI) and visa-versa.
 
 Using this service, you can keep a session alive across different touchpoints. A good example is a mobile application with a button redirecting to the site. In this scenario, it would be a shame if someone logged into the application would have to log in again on the site.
 
@@ -108,7 +108,7 @@ With this API key, we can configure access to the necessary APIs in the Business
 
 The first resource we need to call is customer authentication. And with this, we will get a JWT bearer token we can use other OCAPI endpoints linked to that customer "session."
 
-- [/customers/auth](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/shop/Resources/Customers.html#id152105914__id-98588883)
+- [/customers/auth](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-customers?meta=Summary)
 
 In this example, to make it a bit easier to test out, we will use a guest session by forming a request like this:
 
@@ -144,7 +144,7 @@ But what you need is not visible in the response... huh? Not to worry, it is in 
 
 Let us exchange that token for a cookie, shall we? And for that, we need the "sessions" endpoint.
 
-- [/sessions](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/shop/Resources/Sessions.html#id-2104258718__id-514053870)
+- [/sessions](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-sessions?meta=Summary)
 
 > [!WARNING]
 > **Important:** The link above contains much information on things to keep in mind! Be sure to give it a good read.
@@ -174,7 +174,7 @@ For the next step to work, copy the **dwsid** cookie. We need it to convert the 
 
 In some scenarios, we need to be able to do it the other way around and convert our cookie to a JWT token. To do this, we use a familiar endpoint (step 1)!
 
-- [/customers/auth](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/shop/Resources/Customers.html#id152105914__id-98588883)
+- [/customers/auth](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-customers?meta=Summary)
 
 The most significant difference from step 1 is that we send a different body and, of course, our cookie.
 

@@ -108,7 +108,7 @@ Even though this will not solve all performance issues, some imposed quotas prev
 
 - **api.jsArraySize:** We can only store 20.000 items in a single array. This will keep us from filling up the memory and wasting resources filling up this array and reading from it in large volumes.
 
-- **api.dw.catalog.PriceBookMgr.assignPriceBookToSite(PriceBook, String):** This API is used only for management purposes and has no business in the storefront. This will force developers to find an alternative ([and better)](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/DWAPI/scriptapi/html/api/class_dw_catalog_PriceBookMgr.html?resultof=%22%70%72%69%63%65%62%6f%6f%6b%6d%67%72%22%20#dw_catalog_PriceBookMgr_setApplicablePriceBooks_PriceBook_DetailAnchor) way to build the appropriate behaviour.
+- **api.dw.catalog.PriceBookMgr.assignPriceBookToSite(PriceBook, String):** This API is used only for management purposes and has no business in the storefront. This will force developers to find an alternative ([and better)](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_catalog_PriceBookMgr.html) way to build the appropriate behaviour.
 
 Let me be clear: You can still easily write insecure and inadequate performant code without hitting any of the quotas. **_Always keep security and performance in mind when writing custom features!_**
 

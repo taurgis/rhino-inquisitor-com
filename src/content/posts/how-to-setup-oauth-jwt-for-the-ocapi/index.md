@@ -24,7 +24,7 @@ takeaways:
 ---
 _IMPORTANT_: This article is about server-to-server communication
 
-When working with the OCAPI ([Open Commerce API](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/OCAPI/current/usage/OpenCommerceAPI.html?cp=0_16)), you need to do some sort of authentication to prove who you are and to verify what actions you are allowed to take.
+When working with the OCAPI ([Open Commerce API](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/opencommerceapi.html)), you need to do some sort of authentication to prove who you are and to verify what actions you are allowed to take.
 
 Salesforce B2C Commerce Cloud provides multiple methods for server-to-server authentication scenarios depending on the use case:
 
@@ -54,7 +54,7 @@ This command will create two files:
 
 Like always, when we set up a server-to-server connection, we need to generate an API key in the [Account Manager](https://account.demandware.com/).
 
-Follow the i[nstructions on the Infocenter](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/account_manager/b2c_account_manager_add_api_client_id.html), with a few minor changes.
+Follow the i[nstructions on the Infocenter](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_account_manager_add_api_client_id.htm), with a few minor changes.
 
 {{< img-caption src="account-manager-set-up-jwt-c2ed29ddca.jpg" alt="Account Manager client configuration for private_key_jwt authentication." caption="This Account Manager setup is the prerequisite for private_key_jwt authentication." link="account-manager-set-up-jwt-c2ed29ddca.jpg" >}}
 

@@ -55,7 +55,7 @@ PIG Only This option does not seem to be available on sandboxes.
 
 The recent introduction of temporary basket access in Headless setups is a significant breakthrough! This new feature unlocks a world of possibilities for mobile applications and the PWA Kit.
 
-Have you ever received a request to allow only one product type in a single basket without allowing any combinations? Such requests were puzzling before [this feature was added](https://help.salesforce.com/s/articleView?id=sf.rn_b2c_rn_enable_temporary_basket.htm&type=5). Where do you store the current basket? What if the product goes out of stock in the meantime?
+Have you ever received a request to allow only one product type in a single basket without allowing any combinations? Such requests were puzzling before [this feature was added](https://help.salesforce.com/s/articleView?id=commerce.rn_b2c_rn_enable_temporaty_basket.htm&type=5). Where do you store the current basket? What if the product goes out of stock in the meantime?
 
 Some things that you need to remember about these temporary baskets:
 
@@ -84,9 +84,9 @@ Some love again for the PWA Kit, wit the release of v3.3.0. The main changes are
 
 ## Bugfixes
 
-- [Issue with High Scale Price Books feature and OCAPI Search Endpoint](https://issues.salesforce.com/issue/a028c00000suSwsAAE/issue-with-high-scale-price-books-feature-and-ocapi-search-endpoint)
+- [Issue with High Scale Price Books feature and OCAPI Search Endpoint](https://help.salesforce.com/s/issue?id=a028c00000suSwsAAE)
 
-Only one fix was made in the current release. However, [many items](https://issues.salesforce.com/#sortCriteria=%40sflast_modified_date_external__c%20descending&f[sfcategoryfull]=Commerce%7CB2C%20Commerce) are marked as "Solution Scheduled" and "Solution Deploying", which will hopefully be covered in next month's release blog post!
+Only one fix was made in the current release. However, [many items](https://help.salesforce.com/s/issues) are marked as "Solution Scheduled" and "Solution Deploying", which will hopefully be covered in next month's release blog post!
 
 ## Updated Cartridges & Tools
 

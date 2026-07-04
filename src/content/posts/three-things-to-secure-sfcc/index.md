@@ -68,4 +68,4 @@ We always hope people who get these by accident bear no ill will, but that is no
 
 ## Get crackin’
 
-These three items are just to get you started, there are many other things that you can check today to make sure your environments are secured. And make sure to check the documentation for helpful [tools that Salesforce provides](https://documentation.b2c.commercecloud.salesforce.com/DOC1/topic/com.demandware.dochelp/content/b2c_commerce/topics/account_manager/b2c_account_manager_register_verification_methods_for_mfa.html) to make your life easier.
+These three items are just to get you started, there are many other things that you can check today to make sure your environments are secured. And make sure to check the documentation for helpful [tools that Salesforce provides](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_account_manager_register_verification_methods_for_mfa.htm) to make your life easier.
