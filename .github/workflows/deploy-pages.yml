@@ -126,7 +126,7 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
 
       - name: Restore Hugo extended binary cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: ~/.cache/hugo/${{ env.HUGO_VERSION }}
           key: ${{ runner.os }}-hugo-${{ env.HUGO_VERSION }}
@@ -252,7 +252,7 @@ jobs:
 
       - name: Restore generated AVIF cache
         id: avif_cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: src/assets/generated-avif
           key: ${{ runner.os }}-avif-${{ env.AVIF_CACHE_VERSION }}-node-${{ env.NODE_VERSION }}-lock-${{ hashFiles('package-lock.json') }}-generator-${{ hashFiles('scripts/generate-avif-cache.js') }}-images-${{ steps.avif_cache_fingerprint.outputs.value }}
@@ -401,7 +401,7 @@ jobs:
 
       - name: Restore Playwright browser cache
         if: ${{ matrix.browser }}
-        uses: actions/cache@v5
+        uses: actions/cache@v6
         with:
           path: ~/.cache/ms-playwright
           key: ${{ runner.os }}-playwright-${{ hashFiles('package-lock.json') }}
