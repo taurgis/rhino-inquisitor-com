@@ -45,6 +45,12 @@ This file is the root agent guide for the repository. It complements agent files
 
 Governance and quality gates live in [.github/instructions/](.github/instructions/): `hugo-coding-standards`, `seo-compliance`, `content-quality`, `ci-workflow-standards`, `post-writing-skills`, `documentation-updates`, `skill-maintenance`, and `agent-governance-quality`.
 
+## Local Hugo Setup
+
+- If `hugo` is not on `PATH`, run `scripts/install-hugo.sh` first — it installs the pinned Hugo Extended version (read from `HUGO_VERSION` in `.github/workflows/deploy-pages.yml`, so local always matches CI).
+- In sandboxed agent environments where GitHub release downloads are blocked, the script automatically falls back to building Hugo from source via the Go module proxy (needs Go and a C compiler; takes a few minutes).
+- Do not skip local build verification because Hugo is missing — install it with this script instead. Details: `docs/development/hugo-local-install.md`.
+
 ## Publishing Checklist
 
 - Build: `npm run build:prod` must succeed with no errors.
