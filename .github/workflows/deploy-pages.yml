@@ -10,7 +10,7 @@ permissions:
   contents: read
 
 env:
-  HUGO_VERSION: 0.157.0
+  HUGO_VERSION: 0.163.3
   NODE_VERSION: 22.22.2
   AVIF_CACHE_VERSION: 1
   EXPECTED_PAGES_HOST: rhino-inquisitor.com

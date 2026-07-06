@@ -44,7 +44,7 @@ Day-to-day work here is authoring and publishing new articles while keeping SEO,
 
 ## Local Prerequisites
 
-- Hugo Extended `0.157.0` (pinned; matches `HUGO_VERSION` in CI) — install with `scripts/install-hugo.sh`, which reads the CI pin and falls back to a Go-module-proxy source build when GitHub downloads are blocked (see `docs/development/hugo-local-install.md`)
+- Hugo Extended `0.163.3` (pinned; matches `HUGO_VERSION` in CI) — install with `scripts/install-hugo.sh`, which reads the CI pin and falls back to a Go-module-proxy source build when GitHub downloads are blocked (see `docs/development/hugo-local-install.md`)
 - Node.js `>=22.11.0` as declared in `package.json` (CI runs Node 22)
 - npm matching the active Node.js runtime
 
