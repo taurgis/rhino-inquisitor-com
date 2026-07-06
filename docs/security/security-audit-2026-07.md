@@ -25,7 +25,7 @@ which is an active vulnerability (details in "Findings").
 ## What is already solid (verified, not assumed)
 
 | Area | Verified state |
-|------|----------------|
+| ---- | -------------- |
 | Markdown rendering | No `[markup]` override in `hugo.toml`, so Goldmark's default `unsafe = false` holds — raw HTML in content markdown is not rendered (blocks content-borne XSS). |
 | JSON-LD | Every structured-data block (`src/layouts/partials/seo/json-ld-*.html`, `src/layouts/shortcodes/local-video.html`) pipes through `jsonify \| safeJS` per the coding standard. |
 | Client-side search | `src/static/scripts/archive-search.js` escapes **every** interpolated value (query, titles, URLs, labels) through `escapeHtml()` before the single `innerHTML` sink — no DOM XSS. `code-copy.js` only injects static SVG constants. |
