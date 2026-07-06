@@ -1,0 +1,21 @@
+# Automated dependency update PRs (Finding 2 of the July 2026 security
+# audit — docs/security/security-audit-2026-07.md). PR-based development is
+# disabled for humans, so Dependabot PRs get no PR-time CI; the full blocking
+# gate suite in deploy-pages.yml still runs when an update lands on main.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: weekly
+    # One grouped PR per week instead of one PR per package. Security
+    # advisories still get their own individual PRs immediately.
+    groups:
+      npm-dependencies:
+        patterns:
+          - "*"
+
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly

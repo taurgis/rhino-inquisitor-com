@@ -158,3 +158,70 @@ verified version tags, so this is discretionary.
   `scripts/gates/check-redirect-security.js`,
   `scripts/gates/mixed-content-helpers.js` — existing gate coverage referenced
   throughout
+
+## Remediation applied (2026-07-06)
+
+Findings 1, 2, and 4 were remediated in this branch. Finding 3 (hardening
+headers) is configured in the Cloudflare dashboard, not this repository, and
+remains open.
+
+### Change summary
+
+- **Finding 1** — `undici` bumped `7.22.0` → `7.28.0` and `fast-xml-parser`
+  bumped `5.4.2` → `5.9.3` (both exact pins, both within their current major
+  version); `npm audit fix` applied to the dev tree.
+  `npm audit --omit=dev` now reports **0 vulnerabilities**. The remaining dev
+  advisories (`uuid` via `@lhci/cli`, `js-yaml`/`lodash`/`markdown-it` via
+  `markdownlint-cli2`, `tmp`/`semver` via Lighthouse tooling) require major
+  bumps of the parent tools; Dependabot (below) will propose those.
+- **Finding 2** — added `.github/dependabot.yml`: weekly grouped updates for
+  the `npm` ecosystem plus weekly updates for `github-actions`. Security
+  advisories still produce immediate individual PRs.
+- **Finding 4** — the `Install Hugo extended` step in `deploy-pages.yml` now
+  downloads the release's `hugo_${HUGO_VERSION}_checksums.txt` and verifies
+  the tarball's sha256 before extraction.
+
+### Why this changed
+
+Closes the vulnerable-component and supply-chain items from this audit so the
+build pipeline does not run known-vulnerable HTTP/XML parsing code against
+external inputs, and so a tampered Hugo release artifact cannot reach the
+build (the extracted binary is cached and reused across runs).
+
+### Behavior details (old vs new)
+
+- Old: Hugo tarball was extracted straight after download; a corrupted or
+  substituted artifact would build and deploy. New: `grep` +
+  `sha256sum -c` run between download and extraction — a missing checksum
+  entry or digest mismatch aborts the job (fail-closed, verified locally for
+  the happy path, a tampered tarball, and a missing checksum line).
+- Old: dependency updates were manual only. New: Dependabot opens weekly
+  grouped npm PRs and Actions PRs. Note that PR-based development is disabled
+  for humans, so these PRs get no PR-time CI — the blocking gate suite still
+  runs on merge to `main` before anything deploys.
+
+### Impact
+
+- Maintainers: expect up to two Dependabot PRs per week; merge cadence is
+  discretionary. No change to local workflows.
+- CI: the build job gains one small download (~a few KB checksums file) per
+  cold Hugo cache; cached runs are unaffected.
+- Runtime site output: none — all three changes are build-pipeline only.
+
+### Verification
+
+- `npm audit --omit=dev` → 0 vulnerabilities (was 3 high + 1 moderate on
+  `undici`, 1 high on `fast-xml-parser`).
+- Smoke-tested both bumped libraries (`XMLParser` round-trip, `undici`
+  `request`/`fetch` API surface) and ran `npm run test:url-parity` (7 pass)
+  and `npm run test:spelling` (47 pass).
+- Checksum step exercised locally with a synthetic checksums file: OK path
+  passes; tampered tarball and missing entry both exit non-zero.
+- The next push to `main` touching these files runs the full gate suite
+  (`scope=full`), which is the end-to-end verification of the workflow change.
+
+### Related files
+
+- `package.json`, `package-lock.json`
+- `.github/dependabot.yml` (new)
+- `.github/workflows/deploy-pages.yml` (`Install Hugo extended` step)

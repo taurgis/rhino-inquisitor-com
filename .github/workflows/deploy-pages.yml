@@ -138,8 +138,16 @@ jobs:
           HUGO_DIR="$HOME/.cache/hugo/${HUGO_VERSION}"
           if [[ ! -x "$HUGO_DIR/hugo" ]]; then
             mkdir -p "$HUGO_DIR"
-            curl -fsSL -o "$RUNNER_TEMP/hugo.tar.gz" "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
-            tar -xzf "$RUNNER_TEMP/hugo.tar.gz" -C "$HUGO_DIR" hugo
+            HUGO_TARBALL="hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz"
+            RELEASE_BASE="https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}"
+            curl -fsSL -o "$RUNNER_TEMP/$HUGO_TARBALL" "$RELEASE_BASE/$HUGO_TARBALL"
+            # Verify the tarball against the release's published sha256 list
+            # before extracting anything (the extracted binary is cached and
+            # reused across runs). grep failing (no matching line) or a digest
+            # mismatch both abort the job via pipefail / sha256sum exit code.
+            curl -fsSL -o "$RUNNER_TEMP/hugo_checksums.txt" "$RELEASE_BASE/hugo_${HUGO_VERSION}_checksums.txt"
+            (cd "$RUNNER_TEMP" && grep -E "[[:space:]]${HUGO_TARBALL}\$" hugo_checksums.txt | sha256sum -c -)
+            tar -xzf "$RUNNER_TEMP/$HUGO_TARBALL" -C "$HUGO_DIR" hugo
           fi
           export PATH="$HUGO_DIR:$PATH"
           echo "$HUGO_DIR" >> "$GITHUB_PATH"
