@@ -1,6 +1,6 @@
 baseURL = "https://rhino-inquisitor.com/"
 defaultContentLanguage = "en"
-languageCode = "en-us"
+locale = "en-us"
 timeZone = "UTC"
 title = "Rhino Inquisitor"
 contentDir = "src/content"

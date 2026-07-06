@@ -3,7 +3,7 @@
 # Run `hugo --minify --environment production` to verify.
 
 baseURL = "https://www.rhino-inquisitor.com/"   # Required: trailing slash, www canonical
-languageCode = "en-us"
+locale = "en-us"
 title = "Rhino Inquisitor"                       # TODO: confirm exact site title
 
 # Hugo extended features (image processing, Sass)

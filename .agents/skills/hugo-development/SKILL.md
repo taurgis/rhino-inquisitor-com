@@ -43,7 +43,7 @@ Practical guidance for Hugo SSG configuration, template authoring, URL strategy,
 
 ```toml
 baseURL = "https://rhino-inquisitor.com/"
-languageCode = "en-us"
+locale = "en-us"
 title = "Rhino Inquisitor"
 contentDir = "src/content"
 layoutDir = "src/layouts"
@@ -186,7 +186,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      HUGO_VERSION: "0.128.0"  # Pin — never use latest
+      HUGO_VERSION: "0.163.3"  # Pin — never use latest
     steps:
       - uses: actions/checkout@v4
         with: { fetch-depth: 0 }

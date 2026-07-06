@@ -52,7 +52,7 @@
   {{ $description = "Browse Rhino Inquisitor topic archives for Salesforce Commerce Cloud guidance and implementation notes." }}
 {{ else if and (eq .Kind "term") (eq .Type "categories") }}
   {{ $termSlug := path.Base .RelPermalink }}
-  {{ $customDescription := index (.Site.Data.categoryDescriptions | default dict) $termSlug }}
+  {{ $customDescription := index (hugo.Data.categoryDescriptions | default dict) $termSlug }}
   {{ if $customDescription }}
     {{ $description = $customDescription }}
   {{ else }}
