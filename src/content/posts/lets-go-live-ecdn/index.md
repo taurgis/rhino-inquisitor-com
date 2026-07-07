@@ -27,11 +27,14 @@ So, you want to set a website live on Salesforce B2C Commerce Cloud. It is all r
 Not to worry! The eCDN is not rocket science, far from it. Once you have set up your first vanity domain, the second one will be peanuts.
 
 > [!NOTE]
-> **Updated July 2026:** The eCDN has moved on since this guide was written in 2022. WAFv2 replaced the old firewall, TLS 1.3 shed its beta label, Cloudflare retired Auto Minify, certificates learned to renew themselves, and staging got its own Business Manager module. Every section below has been brought in line with the current platform. The go-live warnings from the original (added back then with thanks to [Sachin Upmanyu](https://www.linkedin.com/in/sachin-upmanyu-82428828/)) still stand.
+> **Updated July 2026:** The eCDN has moved on since this guide was written in 2022. WAFv2 replaced the old firewall, TLS 1.3 shed its beta label, Cloudflare retired Auto Minify, certificates learned to renew themselves, and staging got its own Business Manager module. Every section below has been brought in line with the current platform, and the 2022 behaviour is preserved in "for the archives" notes where it still tells you something. The go-live warnings from the original (added back then with thanks to [Sachin Upmanyu](https://www.linkedin.com/in/sachin-upmanyu-82428828/)) still stand.
 
 ## What is the eCDN
 
 But first things first. It is as essential to know what the eCDN is to configure it! The datasheet I quoted here in 2022 has since vanished from Salesforce's site. The [current help page](https://help.salesforce.com/s/articleView?id=cc.b2c_embedded_cdn_overview.htm&language=en_US&type=5) keeps it drier: the eCDN is "a geographically distributed network of proxy servers" that sits in front of your storefront to improve speed, availability, and security.
+
+> [!NOTE]
+> **For the archives:** the vanished datasheet described the feature as "an embedded content delivery network (eCDN) designed to accelerate site speed access and content delivery. The end result is a more secure, reliable online shopping experience for the consumer." Marketing prose ages even faster than the product.
 
 Ok, ok. That still might not explain what the eCDN is and does.
 
@@ -81,6 +84,9 @@ We have come to a time where no website should operate without a secure connecti
 - **Custom certificates:** the classic route. You purchase a certificate and upload it together with its private key, and its renewal remains your problem. Still the way to go if you need certificate pinning, extended validation, or a specific certificate authority.
 
 For a new project, the managed certificate is the sensible default. If you go the custom route, have the certificate and the private key at hand before you start the configuration.
+
+> [!NOTE]
+> **For the archives:** in 2022, buying a certificate and uploading it together with its private key was the only route, and this section simply sent you off to research "how to get an SSL certificate" as part of the go-live preparation. That homework assignment is now optional.
 
 ## Alias Configuration
 
@@ -211,6 +217,11 @@ Instead of the single OWASP rule list from the old days, WAFv2 gives every zone 
 
 In the eCDN and exposed-credentials rulesets, individual rules can be overridden with actions such as block, log, or managed challenge; the OWASP ruleset acts on its combined score instead. And one thing to plan for: WAF settings live per instance and are never replicated, so an exception you validated on staging has to be applied to production by hand. Salesforce documents the details on [the help site](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_waf_application.htm) and in the [CDN Zones WAFv2 guide](https://developer.salesforce.com/docs/commerce/commerce-api/guide/cdn-zones-wafv2.html).
 
+> [!NOTE]
+> **For the archives:** WAFv1 gave you a single OWASP ruleset with one action dropdown and a sensitivity level, and that was the whole configuration surface. If the screenshot below looks nothing like your Business Manager, that is a good sign: it means your zone was migrated.
+
+{{< img-caption src="ecdn-waf-settings-3ec4c7f73e.png" alt="The legacy WAFv1 tab in Business Manager with one OWASP action dropdown set to Challenge and a sensitivity setting." caption="The 2022 WAFv1 screen, preserved for reference." >}}
+
 #### Download Log Files
 
 In this section, you can also download log files per hour. It is essential to keep in mind that this is an asynchronous operation, and after clicking "Request Log," you will receive an email containing a download link at a later time (usually not so long).
@@ -224,6 +235,9 @@ The hourly download is no longer the only option, though. [CDN Logpush](https://
 This section used to open with advice about Auto Minify, the Cloudflare feature that stripped comments and whitespace from your HTML, CSS, and JavaScript. You can forget that advice: [Cloudflare retired Auto Minify in August 2024](https://community.cloudflare.com/t/deprecating-auto-minify/655677) after concluding it barely moved the needle for sites that already minify at build time, and Salesforce [removed the checkboxes from Business Manager](https://help.salesforce.com/s/articleView?id=commerce.b2c_rn_replace_discontinued_cloudflare_auto_minification.htm&language=en_US&type=5) in the 24.10 release. If you counted on it to strip HTML comments, that job now belongs to your build pipeline.
 
 {{< img-caption src="ecdn-speed-settings-cccba25f5e.png" alt="The 2022 eCDN Speed tab showing the retired Auto-Minify checkboxes above the Polish settings." caption="This 2022 screenshot has aged: the Auto-Minify block at the top is gone, and only the Polish settings remain." >}}
+
+> [!NOTE]
+> **For the archives:** the advice this section used to give was that HTML minification mostly deleted comments from your markup. If an external system relied on those comments, you were told to leave that checkbox alone, and it also broke the (equally deprecated) Storefront Toolkit on the Development instance, which depended on them.
 
 What remains on the Speed tab is [Polish](https://developers.cloudflare.com/images/polish/), Cloudflare's image optimisation, and that one is still worth your attention.
 
