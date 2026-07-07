@@ -4,7 +4,7 @@ description: >-
   File Management is critical and necessary in any project. How else can we work
   with mass data transfers or logging mechanisms?
 date: '2024-01-01T17:06:50.000Z'
-lastmod: '2026-07-07T21:00:00.000Z'
+lastmod: '2026-07-07T21:30:00.000Z'
 url: /a-beginners-guide-to-webdav-in-sfcc/
 draft: false
 heroImage: webdav-storing-files-scaled-8c216a580f.jpg
@@ -51,7 +51,7 @@ Every WebDAV location on an instance sits under the same URL prefix:
 https://{instance-hostname}/on/demandware.servlet/webdav/Sites/
 ```
 
-Behind that prefix, [the platform exposes](https://help.salesforce.com/s/articleView?id=cc.b2c_using_web_dav.htm&type=5) a fixed set of top-level folders. You cannot create your own top-level directory; everything you do lives inside one of these:
+Behind that prefix, [the platform exposes](https://help.salesforce.com/s/articleView?id=cc.b2c_access_files_webdav.htm&type=5) a fixed set of top-level folders. You cannot create your own top-level directory; everything you do lives inside one of these:
 
 - **`/impex`:** the staging area for imports and exports. Jobs read their input from `/impex/src` and drop their exports there too; this is where your feeds land.
 - **`/cartridges`:** one subfolder per code version, each containing the uploaded cartridges. This is what your deployment tooling writes to.
@@ -62,7 +62,7 @@ Behind that prefix, [the platform exposes](https://help.salesforce.com/s/article
 
 You do not need a third-party client to look around. In Business Manager, `Administration > Site Development > Development Setup` has a Folder Browser tab that shows every folder your permissions allow, with download links and a "Copy WebDAV URL" button for each directory.
 
-One practical warning: these locations [enforce HTTPS](https://help.salesforce.com/s/articleView?id=cc.b2c_using_web_dav.htm&type=5). Connect over plain `http` and the instance answers with "Access Denied", a confusing error for what is really a missing SSL checkbox in your client's connection settings.
+One practical warning: these locations enforce HTTPS. Connect over plain `http` and the instance answers with "Access Denied", a confusing error for what is really a missing SSL checkbox in your client's connection settings.
 
 ## Authentication
 
@@ -91,7 +91,7 @@ The key is shown once, at generation time. Store it in your password manager imm
 
 ### Authentication for API Clients
 
-API clients engage in machine-to-machine communication and authenticate through an authorisation token [generated in the Account Manager](https://help.salesforce.com/s/articleView?id=cc.b2c_generate_api_client_id.htm&type=5). To get this authorisation token, an API client must present its unique `client-id` and `client-secret`. After successful authorisation, WebDAV permissions for the API client can be configured in Business Manager in the `WebDAV Client Permissions` module.
+API clients engage in machine-to-machine communication and authenticate through an authorisation token [generated in the Account Manager](https://help.salesforce.com/s/articleView?id=cc.b2c_account_manager_add_api_client_id.htm&type=5). To get this authorisation token, an API client must present its unique `client-id` and `client-secret`. After successful authorisation, WebDAV permissions for the API client can be configured in Business Manager in the `WebDAV Client Permissions` module.
 
 `Administration > Organization > WebDAV Client Permissions`
 
@@ -163,7 +163,7 @@ The full command set, for reference: `GET`, `OPTIONS`, and `PROPFIND` count as r
 
 WebDAV on SFCC comes with numbers attached, and knowing them saves an afternoon of debugging. They sit alongside the platform's other ceilings, which I've catalogued in [the survival guide to SFCC platform limits](/a-survival-guide-to-sfcc-platform-limits/).
 
-- **Uploads are capped at 500 MB** per WebDAV push ([raised in the 22.9 release](/salesforce-b2c-commerce-cloud-22-9-release/)). Salesforce [recommends zipping files](https://help.salesforce.com/s/articleView?id=cc.b2c_file_size_and_transfer_restrictions.htm&type=5) before upload. Thanks to the platform-specific `UNZIP` verb, you can upload one archive and unpack it on the server instead of pushing thousands of small files.
+- **Uploads are capped at 500 MB** per WebDAV push ([raised in the 22.9 release](/salesforce-b2c-commerce-cloud-22-9-release/)). Salesforce [recommends zipping files](https://help.salesforce.com/s/articleView?id=cc.b2c_import_export_transaction_handling_and_feed_size.htm&type=5) before upload. Thanks to the platform-specific `UNZIP` verb, you can upload one archive and unpack it on the server instead of pushing thousands of small files.
 - **Downloads into a file are capped at 200 MB.** Larger exports need to be split or compressed first.
 - **Requests time out after five minutes.** A slow connection pushing a large file can hit the timeout well before the size cap.
 
@@ -173,7 +173,7 @@ Then there is the housekeeping the platform does whether you like it or not:
 - **Log files are deleted after 30 days**, and after three days they are moved into a `log_archive` folder and gzipped, so a script that reads yesterday's logs needs to handle both locations. [Security logs](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-log-files-overview.html) are the exception at 90 days.
 - **A folder holds at most 100,000 files.** Beyond that, the platform deletes the oldest files first, even if they are within their retention period.
 
-One more platform quirk: the WebDAV server [resets file timestamps](https://help.salesforce.com/s/articleView?id=cc.b2c_web_dav_timestamp_reset.htm&type=5) on every rename, copy, modify, or create, including a remote unzip. If your integration decides what to process based on modification dates, a housekeeping move on the instance can make old files look brand new.
+One more platform quirk: the WebDAV server resets file timestamps on every rename, copy, modify, or create, including a remote unzip. If your integration decides what to process based on modification dates, a housekeeping move on the instance can make old files look brand new.
 
 ## WebDAV From Script Code
 

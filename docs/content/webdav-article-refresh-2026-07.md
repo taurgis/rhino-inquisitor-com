@@ -53,6 +53,28 @@ PROPFIND; write: PUT, POST, DELETE, MKCOL, COPY, MOVE, PROPPATCH, ZIP, UNZIP)
 come from the WebDAV Client Permissions page; the absence of LOCK/UNLOCK and
 DeltaV verbs grounds the no-locking/no-versioning statements.
 
+## Link audit (2026-07-07)
+
+All 19 external links were audited after the owner reported the timestamp-reset
+help link broken. Because help.salesforce.com is a single-page app that
+returns the same 301/200 shell for valid and invalid article IDs, IDs were
+validated against the legacy `documentation.b2c.commercecloud.salesforce.com`
+DOC1 redirect mapping, which 301s each retired Infocenter topic to its
+current Salesforce Help article (unmapped topics fall back to
+`cc.b2c_getting_started.htm`). Results:
+
+- Dead and removed (no meaningful successor): `cc.b2c_web_dav_timestamp_reset.htm`,
+  `cc.b2c_using_web_dav.htm` (on the HTTPS-enforcement sentence).
+- Dead and replaced: `cc.b2c_using_web_dav.htm` (folder-map sentence) →
+  `cc.b2c_access_files_webdav.htm`; `cc.b2c_file_size_and_transfer_restrictions.htm`
+  → `cc.b2c_import_export_transaction_handling_and_feed_size.htm` (Salesforce's
+  own redirect target for that topic); `cc.b2c_generate_api_client_id.htm`
+  (legacy link carried over from the 2024 article) →
+  `cc.b2c_account_manager_add_api_client_id.htm`.
+- Verified valid: the remaining ten `cc.*` help IDs (identity-mapped by DOC1),
+  the two IETF RFC links, Wikipedia, the developer.salesforce.com log files
+  guide, the `WebDAVClient` class doc, and the four internal post links.
+
 ## Impact and verification
 
 - Impacted: one published post, plus two additions to
