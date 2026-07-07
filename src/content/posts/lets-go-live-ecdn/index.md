@@ -61,7 +61,7 @@ Before configuring the **Production** Business Manager, a few things need to be 
 This one should be pretty obvious, but I'll mention it anyway. Make sure the domains you will be using have been purchased. If you don't own the domains, you won't be able to point them to Salesforce B2C Commerce Cloud.
 
 > [!NOTE]
-> **No vanity domain yet?** Since the 26.4 release, every instance ships with a [Default Domain](https://help.salesforce.com/s/articleView?id=cc.b2c_default_domain.htm&language=en_US&type=5): a Salesforce-managed hostname that is already behind the eCDN, with the whole certificate lifecycle handled for you. It does not replace a vanity domain for go-live, but it lets you test eCDN behaviour while the domain purchase is still stuck in procurement.
+> **No vanity domain yet?** Since the 26.3 release, every development, staging, and production instance ships with a [Default Domain](https://help.salesforce.com/s/articleView?id=cc.b2c_default_domain.htm&language=en_US&type=5): a Salesforce-managed hostname that is already behind the eCDN, with the whole certificate lifecycle handled for you (On-Demand Sandboxes joined with 26.4). It does not replace a vanity domain for go-live, but it lets you test eCDN behaviour while the domain purchase is still stuck in procurement.
 
 ### DNS Configuration Access
 
@@ -218,7 +218,7 @@ Instead of the single OWASP rule list from the old days, WAFv2 gives every zone 
 In the eCDN and exposed-credentials rulesets, individual rules can be overridden with actions such as block, log, or managed challenge; the OWASP ruleset acts on its combined score instead. And one thing to plan for: WAF settings live per instance and are never replicated, so an exception you validated on staging has to be applied to production by hand. Salesforce documents the details on [the help site](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_waf_application.htm) and in the [CDN Zones WAFv2 guide](https://developer.salesforce.com/docs/commerce/commerce-api/guide/cdn-zones-wafv2.html).
 
 > [!NOTE]
-> **For the archives:** WAFv1 gave you a single OWASP ruleset with one action dropdown and a sensitivity level, and that was the whole configuration surface. If the screenshot below looks nothing like your Business Manager, that is a good sign: it means your zone was migrated.
+> **For the archives:** WAFv1 gave you a single OWASP ruleset with one action dropdown and a sensitivity level, and that was the whole configuration surface in Business Manager (the CDN Zones API could tune individual WAFv1 rule groups underneath). If the screenshot below looks nothing like your Business Manager, that is a good sign: it means your zone was migrated.
 
 {{< img-caption src="ecdn-waf-settings-3ec4c7f73e.png" alt="The legacy WAFv1 tab in Business Manager with one OWASP action dropdown set to Challenge and a sensitivity setting." caption="The 2022 WAFv1 screen, preserved for reference." >}}
 
