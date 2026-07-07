@@ -4,7 +4,7 @@ description: >-
   Bringing your first site live on SFCC can be challenging. In this series, we
   will be looking at different parts. Part I: eCDN
 date: '2022-08-04T06:53:47.000Z'
-lastmod: '2026-07-07T10:30:00.000Z'
+lastmod: '2026-07-07T13:00:00.000Z'
 url: /lets-go-live-ecdn/
 draft: false
 heroImage: ecdn-5035a37164.png
@@ -31,7 +31,7 @@ Not to worry! The eCDN is not rocket science, far from it. Once you have set up 
 
 ## What is the eCDN
 
-But first things first. It is as essential to know what the eCDN is to configure it! The datasheet I quoted here in 2022 has since vanished from Salesforce's site. The [current help page](https://help.salesforce.com/s/articleView?id=cc.b2c_embedded_cdn_overview.htm&language=en_US&type=5) keeps it drier: the eCDN is "a geographically distributed network of proxy servers" that sits in front of your storefront to improve speed, availability, and security.
+But first things first: what exactly are we configuring? The datasheet I quoted here in 2022 has since vanished from Salesforce's site. The [current help page](https://help.salesforce.com/s/articleView?id=cc.b2c_embedded_cdn_overview.htm&language=en_US&type=5) keeps it drier: the eCDN is "a geographically distributed network of proxy servers" that sits in front of your storefront to improve speed, availability, and security.
 
 > [!NOTE]
 > **For the archives:** the vanished datasheet described the feature as "an embedded content delivery network (eCDN) designed to accelerate site speed access and content delivery. The end result is a more secure, reliable online shopping experience for the consumer." Marketing prose ages even faster than the product.
@@ -47,14 +47,14 @@ For the most part, Salesforce has put itself in between and taken complete contr
 Within this interface, you can configure:
 
 - Your supported [vanity domains](https://en.wikipedia.org/wiki/Vanity_domain)
-- Managing SSL certificates
-- Firewall & [WAF](https://www.cloudflare.com/waf/) (Web Application Firewall)
-- Performance Optimisation
-- Custom Error/Under Attack Pages
+- SSL certificates
+- The firewall & [WAF](https://www.cloudflare.com/waf/) (Web Application Firewall)
+- Performance optimisation
+- Custom error and under-attack pages
 
 ## Getting Prepared
 
-Before configuring the **Production** Business Manager, a few things need to be in order and prepared.
+Before configuring the **Production** Business Manager, a few things need to be in place.
 
 ### Domain
 
@@ -70,9 +70,9 @@ To point the domain to Salesforce B2C Commerce Cloud, you need access to the dom
 {{< img-caption src="add-dns-record-domain-com-245d883c43.jpg" alt="DNS record editor for the vanity domain." caption="This DNS panel is where the TXT and CNAME records for the new storefront domain are added." >}}
 
 > [!WARNING]
-> **APEX Domain Pointing / Naked Domain:** It is essential to know that the APEX Domain or Naked Domain does not support CNAME records, and the eCDN does not support apex domains directly.
+> **APEX Domain Pointing / Naked Domain:** An APEX (naked) domain can not carry a CNAME record, so the eCDN can not serve it directly.
 
-Usually, a DNS provider has solutions for this, but this needs to be considered. In a worst-case scenario, you need to set up a "mini-server" to do the redirection of the naked domain to the www subdomain. Salesforce [documents the limitation and the recommended redirect](https://help.salesforce.com/s/articleView?id=000391603&language=en_US&type=1) on the help site.
+Most DNS providers have a workaround for this, but plan for it. In a worst-case scenario, you need a "mini-server" whose only job is redirecting the naked domain to the www subdomain. Salesforce [documents the limitation and the recommended redirect](https://help.salesforce.com/s/articleView?id=000391603&language=en_US&type=1) on the help site.
 
 With a naked domain we mean <https://mybrand.com> (without the www).
 
@@ -86,11 +86,11 @@ We have come to a time where no website should operate without a secure connecti
 For a new project, the managed certificate is the sensible default. If you go the custom route, have the certificate and the private key at hand before you start the configuration.
 
 > [!NOTE]
-> **For the archives:** in 2022, buying a certificate and uploading it together with its private key was the only route, and this section simply sent you off to research "how to get an SSL certificate" as part of the go-live preparation. That homework assignment is now optional.
+> **For the archives:** in 2022, buying a certificate and guarding its private key was the only route, and this section simply sent you off to research "how to get an SSL certificate" as part of the go-live preparation. That homework assignment is now optional.
 
 ## Alias Configuration
 
-A prerequisite for a domain to be available in the eCDN is that it is configured in one of the sites in the [alias](https://help.salesforce.com/s/articleView?id=cc.b2c_hostname_aliases.htm&language=en_US&type=5) configuration.
+Before a domain becomes available in the eCDN, it must appear in the [alias](https://help.salesforce.com/s/articleView?id=cc.b2c_hostname_aliases.htm&language=en_US&type=5) configuration of at least one site.
 
 An example config you can use to get you up and running quickly:
 
@@ -112,7 +112,7 @@ Once an Alias is configured on at least one site in your production environment,
 ## Add the domain to the eCDN
 
 > [!NOTE]
-> **Use the correct environment:** For a go-live, the eCDN is set up on the production instance. Since the [24.4 release](/getting-to-know-the-sfcc-24-4-release/), staging has its own Embedded CDN Settings module too (retiring the [API-only dance](/how-to-set-up-the-ecdn-in-sfcc-staging/) it required before), and settings are per instance: nothing you configure on staging replicates to production, or the other way around.
+> **Use the correct environment:** For a go-live, the eCDN is set up on the production instance. Staging gained its own Embedded CDN Settings module in the [24.4 release](/getting-to-know-the-sfcc-24-4-release/) (retiring the [API-only dance](/how-to-set-up-the-ecdn-in-sfcc-staging/) it required before), and settings are per instance: nothing you configure on staging replicates to production, or the other way around.
 
 > [!WARNING]
 > **Zone Creation with care:** Once a zone is created, you can not delete it yourself, not even through the CDN Zones API. You will have to go through support to undo this.
@@ -165,9 +165,9 @@ To start, click the "settings" to the right of the top-level domain.
 
 {{< img-caption src="ecdn-crypto-settings-b5ebdefdd6.png" alt="TLS and certificate controls for the embedded CDN." caption="The Crypto tab holds the certificate and TLS settings. This 2022 screenshot still shows the old TLS 1.3 beta toggle." >}}
 
-The first screen you will land on is the "crypto" settings. This is where you manage everything about SSL and TLS settings.
+The first screen you will land on is the "crypto" settings. This is where you manage everything about SSL and TLS.
 
-For a new setup, the path of least resistance is an eCDN-managed certificate: request one, prove you own the domain, and let Salesforce handle every renewal after that. Since the 23.10 release, those renewals can be managed straight from Business Manager as well.
+For a new setup, the path of least resistance is an eCDN-managed certificate: request one, prove you own the domain, and let Salesforce handle every renewal after that. The 23.10 release brought those renewals into Business Manager as well.
 
 Uploading your own certificate still works the same way it did in 2022. Click the "Add Certificate" button!
 
@@ -197,11 +197,11 @@ Since this includes all subdomains, ensure that no system besides Commerce Cloud
 
 You can manage the Security Level and Trusted IP Addresses in the firewall settings.
 
-As the help popup informs, this part of the firewall looks at IP Address reputation to act appropriately.
+As the help popup explains, this part of the firewall judges visitors by the reputation of their IP address.
 
 Using the IP Allowlisting feature, you can inform the firewall to ignore specific IPs.
 
-Need something more precise than a trust list? Since the 24.2 release, the CDN Zones API supports [custom rules](https://developer.salesforce.com/docs/commerce/commerce-api/guide/cdn-zones-custom-rules.html) (the successor of the old firewall rules) that can block, log, or challenge traffic based on expressions such as the URI path or user agent.
+Need something more precise than a trust list? The 24.2 release replaced the old firewall rules with [custom rules](https://developer.salesforce.com/docs/commerce/commerce-api/guide/cdn-zones-custom-rules.html) in the CDN Zones API, which can block, log, or challenge traffic based on expressions such as the URI path or user agent.
 
 ### WAF Settings
 
@@ -224,11 +224,11 @@ In the eCDN and exposed-credentials rulesets, individual rules can be overridden
 
 #### Download Log Files
 
-In this section, you can also download log files per hour. It is essential to keep in mind that this is an asynchronous operation, and after clicking "Request Log," you will receive an email containing a download link at a later time (usually not so long).
+In this section, you can also download log files per hour. Keep in mind that this is an asynchronous operation: after clicking "Request Log," an email with a download link arrives a little later (usually not so long).
 
 These files contain a log of all network traffic, how the WAF analysed it, and how it responded. They are kept for seven days, so fetch them while they are fresh.
 
-The hourly download is no longer the only option, though. [CDN Logpush](https://developer.salesforce.com/docs/commerce/commerce-api/guide/cdn-zones-logpush.html) (added in the [23.6 release](/a-look-at-the-salesforce-b2c-commerce-cloud-23-6-release/)) streams request and firewall logs continuously to destinations such as Amazon S3, Datadog, or Splunk. And since the 25.10 release, eCDN error logs for production proxy zones also show up in Log Center.
+The hourly download is no longer the only option, though. [CDN Logpush](https://developer.salesforce.com/docs/commerce/commerce-api/guide/cdn-zones-logpush.html) (added in the [23.6 release](/a-look-at-the-salesforce-b2c-commerce-cloud-23-6-release/)) streams request and firewall logs continuously to destinations such as Amazon S3, Datadog, or Splunk. Log Center joined the party in 25.10, adding eCDN error logs for production proxy zones.
 
 ### Speed Settings
 
@@ -237,11 +237,11 @@ This section used to open with advice about Auto Minify, the Cloudflare feature 
 {{< img-caption src="ecdn-speed-settings-cccba25f5e.png" alt="The 2022 eCDN Speed tab showing the retired Auto-Minify checkboxes above the Polish settings." caption="This 2022 screenshot has aged: the Auto-Minify block at the top is gone, and only the Polish settings remain." >}}
 
 > [!NOTE]
-> **For the archives:** the advice this section used to give was that HTML minification mostly deleted comments from your markup. If an external system relied on those comments, you were told to leave that checkbox alone, and it also broke the (equally deprecated) Storefront Toolkit on the Development instance, which depended on them.
+> **For the archives:** HTML minification mostly deleted comments from your markup. If an external system relied on those comments, the advice was to leave that checkbox alone. It also broke the (equally deprecated) Storefront Toolkit on the Development instance, which depended on them.
 
 What remains on the Speed tab is [Polish](https://developers.cloudflare.com/images/polish/), Cloudflare's image optimisation, and that one is still worth your attention.
 
-One thing to watch out for is if you choose to enable "Polish Level Basic+JPEG," your images might lose quality as this will use lossy compression. If you work for a brand that wants crisp and clear photos, you may want to do extensive testing before permanently enabling this. "Polish Level Basic" sticks to lossless compression and is the safer starting point.
+One thing to watch out for: "Polish Level Basic+JPEG" uses lossy compression, so your images might lose quality. If you work for a brand that wants crisp and clear photos, do extensive testing before permanently enabling it. "Polish Level Basic" sticks to lossless compression and is the safer starting point.
 
 Enabling [WebP](https://en.wikipedia.org/wiki/WebP) remains a no-brainer. The 2022 version of this article claimed Safari did not support the format; that claim had already expired when I wrote it. Safari gained WebP support in version 14 (2020), with the small print that it required macOS Big Sur, and today [every major browser](https://caniuse.com/webp) handles it. With the option enabled, Polish serves a WebP variant when the browser asks for one and the conversion actually saves a meaningful number of bytes.
 
