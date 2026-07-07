@@ -4,7 +4,7 @@ description: >-
   Bringing your first site live on SFCC can be challenging. In this series, we
   will be looking at different parts. Part I: eCDN
 date: '2022-08-04T06:53:47.000Z'
-lastmod: '2026-07-07T13:00:00.000Z'
+lastmod: '2026-07-07T13:45:00.000Z'
 url: /lets-go-live-ecdn/
 draft: false
 heroImage: ecdn-5035a37164.png
@@ -62,6 +62,8 @@ This one should be pretty obvious, but I'll mention it anyway. Make sure the dom
 
 > [!NOTE]
 > **No vanity domain yet?** Since the 26.3 release, every development, staging, and production instance ships with a [Default Domain](https://help.salesforce.com/s/articleView?id=cc.b2c_default_domain.htm&language=en_US&type=5): a Salesforce-managed hostname that is already behind the eCDN, with the whole certificate lifecycle handled for you (On-Demand Sandboxes joined with 26.4). It does not replace a vanity domain for go-live, but it lets you test eCDN behaviour while the domain purchase is still stuck in procurement.
+
+{{< img-caption src="ecdn-default-and-proxy-zones.png" alt="Embedded CDN Settings listing a Default Zone hostname above a verified Proxy Zone." caption="A Default Zone next to a classic proxy zone in the new Administration UI (source: Salesforce Developers blog)." >}}
 
 ### DNS Configuration Access
 
@@ -169,6 +171,8 @@ The first screen you will land on is the "crypto" settings. This is where you ma
 
 For a new setup, the path of least resistance is an eCDN-managed certificate: request one, prove you own the domain, and let Salesforce handle every renewal after that. The 23.10 release brought those renewals into Business Manager as well.
 
+{{< img-caption src="ecdn-crypto-tls13-managed-certificate.png" alt="Current Crypto tab with an Enable TLS 1.3 checkbox and an active eCDN-managed certificate." caption="The same Crypto tab today: no beta label in sight, and an eCDN-managed certificate that renews itself (source: Salesforce Developers blog)." >}}
+
 Uploading your own certificate still works the same way it did in 2022. Click the "Add Certificate" button!
 
 {{< img-caption src="ecdn-upload-certificate-2447fc3d76.png" alt="Certificate upload form for the embedded CDN." caption="Use this form to upload the certificate and private key for the storefront domain." >}}
@@ -216,6 +220,8 @@ Instead of the single OWASP rule list from the old days, WAFv2 gives every zone 
 - **Exposed credentials check:** compares login attempts against databases of leaked credentials.
 
 In the eCDN and exposed-credentials rulesets, individual rules can be overridden with actions such as block, log, or managed challenge; the OWASP ruleset acts on its combined score instead. And one thing to plan for: WAF settings live per instance and are never replicated, so an exception you validated on staging has to be applied to production by hand. Salesforce documents the details on [the help site](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_waf_application.htm) and in the [CDN Zones WAFv2 guide](https://developer.salesforce.com/docs/commerce/commerce-api/guide/cdn-zones-wafv2.html).
+
+{{< img-caption src="ecdn-wafv2-managed-rulesets.png" alt="WAF tab with the WAFv2 eCDN managed, OWASP managed, and exposed credentials rulesets." caption="The WAFv2 tab today: three managed rulesets, each with its own action, and an anomaly score threshold for the OWASP one (source: Salesforce Developers blog)." >}}
 
 > [!NOTE]
 > **For the archives:** WAFv1 gave you a single OWASP ruleset with one action dropdown and a sensitivity level, and that was the whole configuration surface in Business Manager (the CDN Zones API could tune individual WAFv1 rule groups underneath). If the screenshot below looks nothing like your Business Manager, that is a good sign: it means your zone was migrated.
