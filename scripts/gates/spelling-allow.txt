@@ -528,6 +528,7 @@ scrollable
 scss
 sdk
 seamlessness
+securitylogs
 selectable
 semple
 senja
@@ -574,6 +575,7 @@ subclasses
 subcommand
 subdirectories
 subdirectory
+subfolder
 subfolders
 sunsetted
 sunsetting
