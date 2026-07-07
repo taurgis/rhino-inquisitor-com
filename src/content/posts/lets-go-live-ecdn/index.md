@@ -4,7 +4,7 @@ description: >-
   Bringing your first site live on SFCC can be challenging. In this series, we
   will be looking at different parts. Part I: eCDN
 date: '2022-08-04T06:53:47.000Z'
-lastmod: '2026-07-07T14:45:00.000Z'
+lastmod: '2026-07-07T15:30:00.000Z'
 url: /lets-go-live-ecdn/
 draft: false
 heroImage: ecdn-5035a37164.png
@@ -74,9 +74,9 @@ To point the domain to Salesforce B2C Commerce Cloud, you need access to the dom
 > [!WARNING]
 > **APEX Domain Pointing / Naked Domain:** An APEX (naked) domain can not carry a CNAME record, so the eCDN can not serve it directly.
 
-Most DNS providers have a workaround for this, but plan for it. In a worst-case scenario, you need a "mini-server" whose only job is redirecting the naked domain to the www subdomain. Salesforce [documents the limitation and the recommended redirect](https://help.salesforce.com/s/articleView?id=000391603&language=en_US&type=1) on the help site.
-
 With a naked domain we mean <https://mybrand.com> (without the www).
+
+Most DNS providers have a workaround for this, but plan for it. In a worst-case scenario, you need a "mini-server" whose only job is redirecting the naked domain to the www subdomain. Salesforce [documents the limitation and the recommended redirect](https://help.salesforce.com/s/articleView?id=000391603&language=en_US&type=1) on the help site.
 
 ### Get your SSL certificates (or don't)
 
@@ -191,11 +191,11 @@ That discussion is now closed. With the [26.2 release](https://www.salesforce.co
 
 #### HSTS
 
-Once a certificate is in place, the same Crypto tab offers [HSTS](https://hstspreload.org/). Don't see it? There is a feature switch for it under "**Administration**" > "**Global Preferences**" > "**Feature Switches**".
+Once a certificate is in place, the same Crypto tab offers [HSTS](https://hstspreload.org/) (HTTP Strict Transport Security). Don't see it? There is a feature switch for it under "**Administration**" > "**Global Preferences**" > "**Feature Switches**".
 
 Enabling this option will tell browsers that your domain only operates over HTTPS and that all HTTP connections should be blocked.
 
-Since this includes all subdomains, ensure that no system besides Commerce Cloud operates on HTTP. Otherwise, people will be "barred" from using that site for the remainder of the TTL. And think twice before ticking "preload": getting off the preload list again takes months.
+Since this includes all subdomains, ensure that no system besides Commerce Cloud operates on HTTP. Otherwise, people will be "barred" from using that site until the max-age you configured runs out. And think twice before ticking "preload": getting off the preload list again takes months.
 
 ### Firewall Settings
 
@@ -242,7 +242,7 @@ The hourly download is no longer the only option, though. [CDN Logpush](https://
 
 This section used to open with advice about Auto Minify, the Cloudflare feature that stripped comments and whitespace from your HTML, CSS, and JavaScript. You can forget that advice: [Cloudflare retired Auto Minify in August 2024](https://community.cloudflare.com/t/deprecating-auto-minify/655677) after concluding it barely moved the needle for sites that already minify at build time, and Salesforce [removed the checkboxes from Business Manager](https://help.salesforce.com/s/articleView?id=commerce.b2c_rn_replace_discontinued_cloudflare_auto_minification.htm&language=en_US&type=5) in the 24.10 release. If you counted on it to strip HTML comments, that job now belongs to your build pipeline.
 
-{{< img-caption src="ecdn-speed-settings-cccba25f5e.png" alt="The 2022 eCDN Speed tab showing the retired Auto-Minify checkboxes above the Polish settings." caption="This 2022 screenshot has aged: the Auto-Minify block at the top is gone, and only the Polish settings remain." >}}
+{{< img-caption src="ecdn-speed-settings-cccba25f5e.png" alt="The 2022 eCDN Speed tab showing the retired Auto-Minify checkboxes above the Polish settings." caption="This 2022 screenshot has aged: the Auto-Minify block at the top no longer exists." >}}
 
 > [!NOTE]
 > **For the archives:** HTML minification mostly deleted comments from your markup. If an external system relied on those comments, the advice was to leave that checkbox alone. It also broke the (equally deprecated) Storefront Toolkit on the Development instance, which depended on them.
