@@ -4,7 +4,7 @@ description: >-
   Bringing your first site live on SFCC can be challenging. In this series, we
   will be looking at different parts. Part I: eCDN
 date: '2022-08-04T06:53:47.000Z'
-lastmod: '2026-07-07T15:30:00.000Z'
+lastmod: '2026-07-07T16:00:00.000Z'
 url: /lets-go-live-ecdn/
 draft: false
 heroImage: ecdn-5035a37164.png
@@ -69,7 +69,7 @@ This one should be pretty obvious, but I'll mention it anyway. Make sure the dom
 
 To point the domain to Salesforce B2C Commerce Cloud, you need access to the domain DNS configuration. In later steps, you (or someone else you are in contact with) must add [TXT](https://en.wikipedia.org/wiki/TXT_record) and [CNAME](https://en.wikipedia.org/wiki/CNAME_record) records to the DNS configuration.
 
-{{< img-caption src="add-dns-record-domain-com-245d883c43.jpg" alt="DNS record editor for the vanity domain." caption="This DNS panel is where the TXT and CNAME records for the new storefront domain are added." >}}
+{{< img-caption src="dns-records-txt-cname-illustration.png" alt="DNS record table with a TXT verification record and a CNAME to the eCDN marked as new." caption="The two records this guide adds at the DNS provider: the verification TXT and the CNAME to the eCDN (illustration)." >}}
 
 > [!WARNING]
 > **APEX Domain Pointing / Naked Domain:** An APEX (naked) domain can not carry a CNAME record, so the eCDN can not serve it directly.
