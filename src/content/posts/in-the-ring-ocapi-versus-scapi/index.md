@@ -115,9 +115,9 @@ Although the rate-limiter is a straightforward "pass" or "block" method, it is e
 
 Contract Info: On a side note, all OCAPI calls are counted as "Storefront Requests", which are part of the contract.
 
-The SCAPI has implemented a new "Load Shedding" system to replace rate limits. This system provides a comprehensive view of what is happening behind the scenes.
+The SCAPI takes a different approach with "Load Shedding". Instead of counting requests against a fixed limit, it watches actual system capacity and starts rejecting requests with an HTTP 503 only when the platform is running out of headroom. You can see it coming, too: protected endpoints return an `sfdc_load` header with the capacity in use, plus an `sfdc_load_status` header that flips to WARN at 80% and THROTTLE at 90%. Checkout endpoints such as Shopper Baskets and Shopper Orders are deliberately excluded, so a shopper mid-checkout is the last one to feel the squeeze.
 
-Not all SCAPI endpoints are on this new system yet; some are still protected by fixed rate limits.
+Not every SCAPI family is on this system: SLAS and Omnichannel Inventory, for example, still use classic rate limits and answer with an HTTP 429 when you exceed them.
 
 **OCAPI:** 2 **SCAPI:** 5
 
