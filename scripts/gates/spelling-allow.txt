@@ -77,6 +77,7 @@ beecloud
 beke
 bergemann
 bhagath
+big sur
 biometrics
 birk
 blazingly
@@ -121,6 +122,7 @@ chargebacks
 charset
 chatbot
 chatbots
+checkboxes
 chili
 choiniere
 cid
@@ -162,6 +164,7 @@ cybersource
 cyr
 datadog
 datalayer
+datasheet
 deliverability
 demandware
 deprecations
@@ -655,6 +658,7 @@ webpage
 webstorm
 weezer
 wes
+whitespace
 wildwood
 wishlist
 wjhsf
