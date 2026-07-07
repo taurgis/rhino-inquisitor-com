@@ -75,9 +75,9 @@ With a naked domain we mean <https://mybrand.com> (without the www).
 
 ### Get your SSL certificates (or don't)
 
-We have come to a time where no website should operate without a secure connection. To achieve that, an [SSL certificate](https://en.wikipedia.org/wiki/Certificate_authority) is required. Since the 23.6 release, though, "getting" one no longer has to mean buying one. The eCDN supports two flavours:
+We have come to a time where no website should operate without a secure connection. To achieve that, an [SSL certificate](https://en.wikipedia.org/wiki/Certificate_authority) is required. "Getting" one, though, no longer has to mean buying one. The eCDN supports two flavours:
 
-- **eCDN-managed certificates:** Salesforce provisions the certificate through Let's Encrypt or Google Trust Services and [renews it automatically](https://developer.salesforce.com/docs/commerce/commerce-api/guide/cdn-zones-automatic-certs.html). No private keys to guard, and no renewal reminder that everyone ignores until the storefront goes down.
+- **eCDN-managed certificates:** Salesforce provisions the certificate through Let's Encrypt or Google Trust Services and, since the 23.6 release, [renews it automatically](https://developer.salesforce.com/docs/commerce/commerce-api/guide/cdn-zones-automatic-certs.html). No private keys to guard, and no renewal reminder that everyone ignores until the storefront goes down.
 - **Custom certificates:** the classic route. You purchase a certificate and upload it together with its private key, and its renewal remains your problem. Still the way to go if you need certificate pinning, extended validation, or a specific certificate authority.
 
 For a new project, the managed certificate is the sensible default. If you go the custom route, have the certificate and the private key at hand before you start the configuration.
@@ -209,7 +209,7 @@ Instead of the single OWASP rule list from the old days, WAFv2 gives every zone 
 - **OWASP Core Ruleset:** based on the official OWASP project. Rather than each rule acting on its own, matched rules add up to a threat score, and the zone responds when the total gets too high.
 - **Exposed credentials check:** compares login attempts against databases of leaked credentials.
 
-Individual rules can be overridden with actions such as block, log, or managed challenge. And one thing to plan for: WAF settings live per instance and are never replicated, so an exception you validated on staging has to be applied to production by hand. Salesforce documents the details on [the help site](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_waf_application.htm) and in the [CDN Zones WAFv2 guide](https://developer.salesforce.com/docs/commerce/commerce-api/guide/cdn-zones-wafv2.html).
+In the eCDN and exposed-credentials rulesets, individual rules can be overridden with actions such as block, log, or managed challenge; the OWASP ruleset acts on its combined score instead. And one thing to plan for: WAF settings live per instance and are never replicated, so an exception you validated on staging has to be applied to production by hand. Salesforce documents the details on [the help site](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_waf_application.htm) and in the [CDN Zones WAFv2 guide](https://developer.salesforce.com/docs/commerce/commerce-api/guide/cdn-zones-wafv2.html).
 
 #### Download Log Files
 
@@ -221,7 +221,7 @@ The hourly download is no longer the only option, though. [CDN Logpush](https://
 
 ### Speed Settings
 
-This section used to open with advice about Auto Minify, the Cloudflare feature that stripped comments and whitespace from your HTML, CSS, and JavaScript. You can forget that advice: [Cloudflare retired Auto Minify in August 2024](https://community.cloudflare.com/t/deprecating-auto-minify/655677) after concluding it barely moved the needle for sites that already minify at build time, and Salesforce removed the checkboxes from Business Manager in the 24.10 release. If you counted on it to strip HTML comments, that job now belongs to your build pipeline.
+This section used to open with advice about Auto Minify, the Cloudflare feature that stripped comments and whitespace from your HTML, CSS, and JavaScript. You can forget that advice: [Cloudflare retired Auto Minify in August 2024](https://community.cloudflare.com/t/deprecating-auto-minify/655677) after concluding it barely moved the needle for sites that already minify at build time, and Salesforce [removed the checkboxes from Business Manager](https://help.salesforce.com/s/articleView?id=commerce.b2c_rn_replace_discontinued_cloudflare_auto_minification.htm&language=en_US&type=5) in the 24.10 release. If you counted on it to strip HTML comments, that job now belongs to your build pipeline.
 
 {{< img-caption src="ecdn-speed-settings-cccba25f5e.png" alt="The 2022 eCDN Speed tab showing the retired Auto-Minify checkboxes above the Polish settings." caption="This 2022 screenshot has aged: the Auto-Minify block at the top is gone, and only the Polish settings remain." >}}
 
@@ -245,7 +245,7 @@ There is a REST service available however:
 
 [https://developer.salesforce.com/docs/commerce/commerce-api/references?meta=cdn-api-process-apis:updateSpeedSettings](https://developer.salesforce.com/docs/commerce/commerce-api/references?meta=cdn-api-process-apis:updateSpeedSettings)
 
-The speed settings alone are worth a look; all of them default to off:
+The speed settings alone are worth a look; they are all opt-in:
 
 - [Brotli Compression](https://blog.cloudflare.com/brotli-compression-using-a-reduced-dictionary/): Cloudflare compresses responses by default on its self-serve plans these days, but eCDN zones are Enterprise zones and do not get that default, so this flag is still ours to flip.
 - [HTTP/2 Prioritisation](https://blog.cloudflare.com/better-http-2-prioritization-for-a-faster-web/): helps a lot on lister pages with many images processed by the [DIS](/image-ine-sfcc-dis-for-developers/) (Dynamic Image Service). Do test it, though: Cloudflare [documents cases](https://developers.cloudflare.com/speed/optimization/protocol/troubleshooting/enhanced-http2-prioritization-ios-safari/) where it slows down content loading in Safari on macOS and in any browser on iOS.
