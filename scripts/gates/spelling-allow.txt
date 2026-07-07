@@ -160,6 +160,7 @@ cyberattacks
 cyberduck
 cybersource
 cyr
+datadog
 datalayer
 deliverability
 demandware
