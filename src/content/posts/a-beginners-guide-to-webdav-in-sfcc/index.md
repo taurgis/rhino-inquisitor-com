@@ -21,7 +21,9 @@ takeaways:
    - "Covers authentication for Business Manager users, access keys, and API clients"
    - "Warns where SFCC diverges from the WebDAV standard: no versioning, no locking, and strict retention clocks"
 ---
-File Management is critical and necessary in any project. How else can we work with mass data transfers or logging mechanisms? This blog post explores WebDAV and its role in [Salesforce B2C Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/): the folders you can reach, how authentication works for people and for machines, and the places where the platform quietly parts ways with the official WebDAV standard.
+A colleague asks for the product feed your job exported in April. You open Cyberduck, browse to `/impex`, and find nothing. Nobody on the team deleted it — the platform did, right on schedule, and it never asked. Welcome to file management on [Salesforce B2C Commerce Cloud](/the-salesforce-b2c-commerce-cloud-environment/), where every file travels over WebDAV and lives by WebDAV's house rules.
+
+This post covers those rules: the folders you can reach, how authentication works for people and for machines, and the places where the platform quietly parts ways with the official WebDAV standard.
 
 ## What is WebDAV?
 
@@ -64,11 +66,11 @@ One practical warning: these locations [enforce HTTPS](https://help.salesforce.c
 
 ## Authentication
 
-WebDAV on SFCC serves two kinds of callers: people using a desktop client, and machines talking to the instance in an integration. The platform authenticates them differently, and the permissions live in two different Business Manager modules.
+So how do you get in? That depends on who is asking. WebDAV on SFCC serves two kinds of callers — people using a desktop client, and machines talking to the instance in an integration — and the platform authenticates them differently, with permissions living in two different Business Manager modules.
 
 ### Authentication for Business Manager Users
 
-When the WebDAV client is a Business Manager user utilising a client application such as Cyberduck or FileZilla, Salesforce B2C Commerce Cloud resorts to Basic Auth authentication, which uses a username and password combination to grant access. It's up to the merchant to [set this up through the configuration of authorisation rules](https://help.salesforce.com/s/articleView?id=cc.b2c_creating_roles.htm&type=5) specific to folders in the Business Manager.
+When the WebDAV client is a Business Manager user in a desktop application such as Cyberduck or FileZilla, Salesforce B2C Commerce Cloud uses Basic Auth: a username and password. It's up to the merchant to [set this up through the configuration of authorisation rules](https://help.salesforce.com/s/articleView?id=cc.b2c_creating_roles.htm&type=5) specific to folders in the Business Manager.
 
 To manage these folder-specific permissions, navigate to the [Roles module in Business Manager](https://help.salesforce.com/s/articleView?id=cc.b2c_roles_and_permissions.htm&type=5) and adjust the settings in the `WebDAV Permissions` tab. Here, you can assign different access levels—read, write, or both—to various directories within WebDAV, ensuring Business Manager users only have access to the files necessary for their role.
 
@@ -76,7 +78,7 @@ To manage these folder-specific permissions, navigate to the [Roles module in Bu
 
 ### Your Password No Longer Works: Access Keys
 
-There is a catch that trips up almost everyone on their first day with a new sandbox. Accounts on Account Manager use multi-factor authentication, and a WebDAV client has no way to complete the second factor. Cyberduck will prompt for your password, you will type it correctly, and the connection will fail anyway.
+One catch trips up almost everyone on their first day with a new sandbox. Accounts on Account Manager use multi-factor authentication, and a WebDAV client has no way to complete the second factor. Cyberduck will prompt for your password, you will type it correctly, and the connection will fail anyway.
 
 The answer is an [access key](https://help.salesforce.com/s/articleView?id=cc.b2c_access_keys_for_business_manager.htm&type=5): a generated secret that stands in for your password, scoped to a specific purpose such as WebDAV file access. Click your username in the top-right corner of Business Manager, choose `Manage Access Keys`, generate a key with the WebDAV scope, and use that key as the password in your WebDAV client.
 
@@ -93,9 +95,7 @@ API clients engage in machine-to-machine communication and authenticate through 
 
 `Administration > Organization > WebDAV Client Permissions`
 
-This configuration involves creating a JSON document that accurately represents each API client's permissions over specific directories.
-
-For instance, an API client may have `read_write` permissions to the "`/impex/src/foo"` directory and `read` permission to the "`/impex/src/logs` and `/catalogs"` directories. The client\_id and permissions (each having path and operation) must be clearly defined in this JSON document.
+The configuration is a single JSON document listing, per `client_id`, which directories that client may touch and whether it gets `read` or `read_write`. In the example below, the first client can write to `/impex/src/foo` but only read `/impex/src/logs` and `/catalogs`, while the second client owns the whole of `/impex/`:
 
 ```json
 {
@@ -140,7 +140,7 @@ For instance, an API client may have `read_write` permissions to the "`/impex/sr
 
 {{< img-caption src="webdav-client-application-permissions-8757d150cc.png" alt="A screenshot of the WebDAV Client Application Permissions screen showing one configuration giving an API key access to the /impex folder and /cartridges folder." caption="WebDAV client permission mapping" link="webdav-client-application-permissions-8757d150cc.png" >}}
 
-#### Things to keep in mind
+#### Things to Keep in Mind
 
 > [!NOTE]
 > The permission paths for different clients cannot intersect each other, meaning that if you configure one client with permissions for `/impex/src`, you can't have another set for `/impex/src/foo`. This restriction is in place to prevent potential conflicts and overlaps in permissions.
@@ -169,7 +169,7 @@ WebDAV on SFCC comes with numbers attached, and knowing them saves an afternoon 
 
 Then there is the housekeeping the platform does whether you like it or not:
 
-- **`/impex` files are deleted after 30 days.** The folder is a transfer area, not storage. Job logs under `/impex/log` last 30 days on staging and production, but only 7 days on sandbox and development instances.
+- **`/impex` files are deleted after 30 days.** This is where April's export went: the folder is a transfer area, not storage. Job logs under `/impex/log` last 30 days on staging and production, but only 7 days on sandbox and development instances.
 - **Log files are deleted after 30 days**, and after three days they are moved into a `log_archive` folder and gzipped — so a script that reads yesterday's logs needs to handle both locations. [Security logs](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-log-files-overview.html) are the exception at 90 days.
 - **A folder holds at most 100,000 files.** Beyond that, the platform deletes the oldest files first, even if they are within their retention period.
 
@@ -181,4 +181,4 @@ Your own server-side code can speak WebDAV too. The [`dw.net.WebDAVClient`](http
 
 The limitation that catches people out: **the script client cannot connect to a B2C Commerce WebDAV server**. Not another instance's, and not its own. A job that copies files from staging to production over WebDAV is simply not possible; instance-to-instance transfers have to bounce through an external server or go through replication.
 
-So treat the instance file system as what it is: a loading dock, not a warehouse. The platform deletes on a schedule, keeps no versions, and locks nothing. If a file matters, the copy of record should live on your side of the connection.
+So treat the instance file system as what it is: a loading dock, not a warehouse. The platform deletes on a schedule, keeps no versions, and locks nothing. If a file matters, the copy of record should live on your side of the connection — so that the next time someone asks for April's export, the answer is a link to your own archive, not an apology.

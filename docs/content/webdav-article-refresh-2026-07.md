@@ -24,6 +24,7 @@ lead-with-current-state playbook as the earlier custom-endpoints refresh.
 | JSON permissions example | Missing closing `]` and `}` (invalid JSON) | Fixed to match the official example |
 | Wikipedia link | Dutch Wikipedia (`nl.wikipedia.org`) | English Wikipedia |
 | Front matter | `lastmod` 2026-07-07T18:30 | `lastmod` bumped to 19:00; takeaways rewritten for the new scope (title, description, url untouched) |
+| Opening and voice | Generic two-sentence opening ("File Management is critical and necessary...") | Scenario opening (the vanished April export) matching the register of the newest posts, with a callback in the housekeeping section and the closing paragraph; conversion artifacts in the API-client example paragraph (stray quote marks, escaped underscore) fixed on touch |
 
 ## Fact-check notes
 
