@@ -33,15 +33,15 @@ Although the APIs need to remain close to the standard, some endpoints can be cu
 
 But how about adding completely custom endpoints?
 
-When I first wrote this article, the honest answer was "not officially" — and everything after that sentence was a workaround built on custom objects and a GET hook. That answer has expired: custom endpoints are now part of the SCAPI itself, and the workaround below has become a museum piece. So let's start with the way you should actually build one.
+When I first wrote this article, the honest answer was "not officially" — and the rest of the post was a workaround built on custom objects and a GET hook. That answer has expired: custom endpoints are now part of the SCAPI itself, and the workaround below has become a museum piece. So let's start with the way you should actually build one.
 
 ## The Official Answer: SCAPI Custom APIs
 
-With a [Custom API](https://developer.salesforce.com/docs/commerce/commerce-api/guide/custom-apis.html), you define a REST endpoint in a cartridge, and the platform serves it through the SCAPI framework. You describe the endpoint in a contract, implement it as a regular B2C Commerce script, and the platform handles the routing, authentication, and error handling that the 2022 version of me had to borrow from the Custom Objects resource.
+With a [Custom API](https://developer.salesforce.com/docs/commerce/commerce-api/guide/custom-apis.html), you define a REST endpoint in a cartridge, and the platform serves it through the SCAPI framework. You describe the endpoint in a contract and implement it as a regular B2C Commerce script. The platform handles the routing, authentication, and error handling that the 2022 version of me had to borrow from the Custom Objects resource.
 
 The feature arrived as an open beta in the [23.9 release](/a-look-at-the-23-9-commerce-cloud-release/) — GET calls only at the time — and went GA in [24.2](/a-look-at-the-salesforce-b2c-commerce-cloud-24-2-release/). Since then, the Script API has grown helpers like `dw.system.RESTResponseMgr` for building success and error responses.
 
-Each API lives in a `rest-apis` folder inside your cartridge, one subdirectory per API. The directory name becomes the API name in the URL, so it is restricted to lowercase letters, numbers, and hyphens:
+Custom APIs live in a `rest-apis` folder inside your cartridge, one subdirectory per API. The directory name becomes the API name in the URL, so it is restricted to lowercase letters, numbers, and hyphens:
 
 ```text
 my_cartridge/cartridge/rest-apis/loyalty-info/
@@ -52,7 +52,7 @@ my_cartridge/cartridge/rest-apis/loyalty-info/
 
 Three files, three jobs:
 
-- **The contract (`schema.yaml`):** An [OAS 3.0](https://spec.openapis.org/oas/v3.0.3) schema describing your endpoints, parameters, and responses. This file is not documentation after the fact; it is enforced. Requests carrying parameters you did not declare are declined, and custom query parameters must be prefixed with `c_`.
+- **The contract (`schema.yaml`):** An [OAS 3.0](https://spec.openapis.org/oas/v3.0.3) schema describing your endpoints, parameters, and responses. This file is not documentation after the fact; it is enforced. The platform declines requests carrying parameters you did not declare, and custom query parameters must be prefixed with `c_`.
 - **The mapping (`api.json`):** Connects each endpoint to its schema and its implementing script.
 - **The implementation (`script.js`):** A script using the B2C Commerce Script API, exporting one function per endpoint.
 
@@ -99,19 +99,19 @@ Every endpoint declares itself as either a Shopper or an Admin endpoint through 
 
 Blow past the runtime budget and the gateway answers with an HTTP 504 instead of your payload. If 10 seconds sounds tight for that one heavy integration, the Timeouts API can stretch a Custom API timeout to a maximum of 120 seconds — but treat that as a painkiller, not a cure. [The platform limits exist for a reason](/a-survival-guide-to-sfcc-platform-limits/).
 
-On top of the scheme, every endpoint must require exactly one [custom scope](https://developer.salesforce.com/docs/commerce/commerce-api/guide/custom-api-authentication.html): a scope you define yourself, prefixed with `c_`, at most 25 characters. You assign it to a SLAS client for Shopper APIs or to an Account Manager client for Admin APIs, and only tokens carrying that scope can call the endpoint. Compare that with the workaround below, which opened the whole `/custom_objects/*/*` resource to a client ID, and you can see how much the security story improved.
+On top of the scheme, every endpoint must require exactly one [custom scope](https://developer.salesforce.com/docs/commerce/commerce-api/guide/custom-api-authentication.html): a scope you define yourself, prefixed with `c_`, at most 25 characters. You assign it to a SLAS client for Shopper APIs or to an Account Manager client for Admin APIs, and only tokens carrying that scope can call the endpoint. The workaround below, by contrast, opened the whole `/custom_objects/*/*` resource to a client ID.
 
 ## What the Workaround Never Gave You
 
-If you never used the 2022 trick, the list below doubles as its obituary:
+The comparison is not close:
 
 - **Real routing:** A Custom API has its own URL and its own name. The workaround pretended to fetch a custom object and smuggled the actual response in through a hook.
-- **Every HTTP method — with transactions:** The hook hack was limited to GET, and a GET hook is forbidden from opening transactions. Custom APIs support POST, PUT, PATCH, and DELETE, and state-changing methods run with transaction support, so `dw.system.Transaction` writes are allowed. The two limitations that defined the original article are simply gone.
+- **Every HTTP method — with transactions:** The hook hack was limited to GET, and a GET hook is forbidden from opening transactions. Custom APIs support POST, PUT, PATCH, and DELETE, and state-changing methods can open a `dw.system.Transaction` and write to the database. The two limitations that defined the original article are gone.
 - **A contract:** The OAS schema validates every request before your script runs. The workaround happily accepted whatever showed up in `httpParameters`.
 - **Standard error responses:** `RESTResponseMgr.createError()` produces the same problem-details error shape as the rest of the SCAPI, instead of a hand-rolled `error` property tucked into the payload.
 - **No Business Manager registry:** No custom object type, no object instance per endpoint, no OCAPI settings JSON. The endpoint ships entirely with the cartridge.
 
-The wider migration picture — what "deprecated" means in practice, the maintenance window, what to audit first — is covered in [the OCAPI versus SCAPI rematch](/in-the-ring-ocapi-versus-scapi/). For this article, the short version is enough: endpoints built on the pattern below keep working until the OCAPI's maintenance window closes around April 2028, but every one of them is now a migration ticket waiting to be written.
+The wider migration picture — what "deprecated" means in practice, the maintenance window, what to audit first — is covered in [the OCAPI versus SCAPI rematch](/in-the-ring-ocapi-versus-scapi/). The short version: endpoints built on the pattern below keep working until the OCAPI's maintenance window closes around April 2028, but every one of them is now a migration ticket waiting to be written.
 
 ## For the Archives: The 2022 Workaround
 
