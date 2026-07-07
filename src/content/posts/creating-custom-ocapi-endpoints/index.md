@@ -117,7 +117,8 @@ The wider migration picture — what "deprecated" means in practice, the mainten
 
 What follows is the original article as it ran in July 2022, preserved for the archives. Read it as a period piece: "no official way" was true at the time of writing, the `22.6` in the OCAPI settings was the current API version back then (the numbering stopped at 24.5), and the GET-only, no-transactions ceiling belongs to this workaround — not to Custom APIs. The [example repository](https://github.com/taurgis/ocapi-custom-endpoints) is still on GitHub.
 
-Warning! The example I have used (getCustomer) is an example of something you should not do because of security reasons. It just shows the possibilities, and you should consider performance, security, and common sense when building these endpoints.
+> [!WARNING]
+> **Insecure example ahead:** The example I have used (getCustomer) is an example of something you should not do because of security reasons. It just shows the possibilities, and you should consider performance, security, and common sense when building these endpoints.
 
 ### Is there no "official" way
 
