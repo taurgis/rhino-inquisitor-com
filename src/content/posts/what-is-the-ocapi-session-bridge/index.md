@@ -4,7 +4,7 @@ description: >-
   It is possible to link a SiteGenesis/SFRA session with an OCAPI "session." But
   how can we do it, and what is it suitable for?
 date: '2022-08-15T19:08:02.000Z'
-lastmod: '2026-07-04T17:47:13.000Z'
+lastmod: '2026-07-07T18:30:00.000Z'
 url: /what-is-the-ocapi-session-bridge/
 draft: false
 heroImage: session-bridge-bbf2a7ba92.png
@@ -146,8 +146,8 @@ Let us exchange that token for a cookie, shall we? And for that, we need the "se
 
 - [/sessions](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-sessions?meta=Summary)
 
-> [!WARNING]
-> **Important:** The link above contains much information on things to keep in mind! Be sure to give it a good read.
+> [!TIP]
+> The link above contains much information on things to keep in mind! Be sure to give it a good read.
 
 The request itself is pretty easy! Call the endpoint with the correct authorization header (type bearer), and you are as good as gold!
 

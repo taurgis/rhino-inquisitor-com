@@ -4,7 +4,7 @@ description: >-
   Hooks are becoming more and more prominent because of the PWA Kit and the API
   first methodology. But how do you implement them?
 date: '2022-10-31T13:03:53.000Z'
-lastmod: '2026-07-04T15:49:16.000Z'
+lastmod: '2026-07-07T18:30:00.000Z'
 url: /how-to-use-ocapi-scapi-hooks/
 draft: false
 heroImage: 26df11a8-62ec-44cd-bf3b-6ff9ab46bee8-5598d60cbd.jpg
@@ -24,7 +24,7 @@ takeaways:
     - "Emphasises security, validation, and architectural discipline as essential for safe hook customisation"
 ---
 > [!NOTE]
-> **Info:** This article was updated with the latest and most important feature information as of 26 July 2025.
+> **Updated 26 July 2025:** This article was refreshed with the latest and most important feature information.
 
 So, you need to add a custom attribute to the basket response, or maybe validate an order against a third-party fraud service before it's created. Your first thought? A SCAPI hook. You're not wrong, but you're only seeing the tip of the iceberg.
 

@@ -4,7 +4,7 @@ description: >-
   Those interested in Salesforce B2C Commerce Cloud will hear the term
   SiteGenesis and SFRA (and PWA). But what is the difference?
 date: '2022-07-17T13:42:22.000Z'
-lastmod: '2026-07-04T17:47:13.000Z'
+lastmod: '2026-07-07T18:30:00.000Z'
 url: /sitegenesis-vs-sfra-vs-pwa/
 draft: false
 heroImage: sfra-vs-sitegenesis-965c09b9a6.jpg
@@ -140,7 +140,7 @@ Another significant change in working is that the PWA Kit is built upon [React](
 It will be easier to find and educate developers in this setup.
 
 > [!WARNING]
-> **Important:** to note that developers will still need to learn about the SCAPI and OCAPI endpoints, which have a steady learning curve.
+> Developers will still need to learn about the SCAPI and OCAPI endpoints, which have a steady learning curve.
 
 **Note:** The PWA Kit is only responsible for the front end. The back-end integrations such as importing products, prices, and inventory will still need to be done the "old-fashioned" way.
 

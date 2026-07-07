@@ -4,7 +4,7 @@ description: >-
   File Management is critical and necessary in any project. How else can we work
   with mass data transfers or logging mechanisms?
 date: '2024-01-01T17:06:50.000Z'
-lastmod: '2026-07-04T15:28:48.000Z'
+lastmod: '2026-07-07T18:30:00.000Z'
 url: /a-beginners-guide-to-webdav-in-sfcc/
 draft: false
 heroImage: webdav-storing-files-scaled-8c216a580f.jpg
@@ -109,7 +109,7 @@ For instance, an API client may have `read_write` permissions to the "`/impex/sr
 #### Things to keep in mind
 
 > [!NOTE]
-> **Note:** that the permission paths for different clients cannot intersect each other, meaning that if you configure one client with permissions for `/impex/src`, you can't have another set for `/impex/src/foo`. This restriction is in place to prevent potential conflicts and overlaps in permissions.
+> The permission paths for different clients cannot intersect each other, meaning that if you configure one client with permissions for `/impex/src`, you can't have another set for `/impex/src/foo`. This restriction is in place to prevent potential conflicts and overlaps in permissions.
 
 Salesforce B2C Commerce Cloud's security measures don't permit write operations in specific directories. For example, the `/securitylogs` directory can only be granted `read` permissions.
 

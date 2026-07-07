@@ -4,7 +4,7 @@ description: >-
   Salesforce B2C Commerce Cloud supports delta export jobs. But how do I enable
   this feature and what do I need to watch out for?
 date: '2022-08-01T14:18:24.000Z'
-lastmod: '2026-07-04T15:38:04.000Z'
+lastmod: '2026-07-07T18:30:00.000Z'
 url: /delta-exports-in-salesforce-b2c-commerce-cloud/
 draft: false
 heroImage: sharinglargefiles-c0cb3315f4.png
@@ -46,7 +46,8 @@ If you already opened the links in the introduction you probably noticed a warni
 
 This is because it is a hidden [feature switch](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_feature_switches.htm) and is only available for Salesforce support. So keep in mind you might have to wait a few hours to a few days, depending on how quickly support can activate this switch.
 
-**Important:** This switch has to be turned on separately in each environment (DEV, STG & PRD). So be sure to mention in the ticket which ones you want this switch turned over.
+> [!WARNING]
+> This switch has to be turned on separately in each environment (DEV, STG & PRD). So be sure to mention in the ticket which ones you want this switch turned over.
 
 ## Business Manager Module
 
