@@ -1,10 +1,10 @@
 ---
 title: 'In the ring: OCAPI versus SCAPI'
 description: >-
-  As we move into 2024, the SCAPI has received much attention and has been
-  updated with new APIs, updates, and performance improvements.
+  Salesforce has officially deprecated the OCAPI and keeps shipping new SCAPI
+  endpoints. Time for a 2026 rematch, round by round.
 date: '2024-03-18T08:49:51.000Z'
-lastmod: '2024-03-19T15:11:36.000Z'
+lastmod: '2026-07-07T09:30:00.000Z'
 url: /in-the-ring-ocapi-versus-scapi/
 draft: false
 heroImage: rest-apis-fighting-in-a-boxing-ring-60c6242717.jpg
@@ -17,13 +17,15 @@ tags:
   - technical
 author: Thomas Theunen
 takeaways:
-  - "Compares OCAPI and SCAPI across platform strategy, authentication, architecture, and extensibility"
-  - "Argues that SCAPI is where major new investment and APIs are landing"
-  - "Explains why OCAPI still matters because SCAPI and existing integrations still depend on it"
+  - "Revisits the 2024 scorecard now that Salesforce has officially deprecated the OCAPI as of April 2026"
+  - "Covers the wave of Admin and Shopper SCAPI endpoints that closed most of the OCAPI coverage gap"
+  - "Explains what maintenance-only mode means and which migration steps to start planning now"
 ---
-As we move into 2024, the SCAPI has received much attention and has been updated with new APIs, updates, and performance improvements. On the other hand, the OCAPI rarely gets any new features in its release notes, leading some to believe it is outdated or deprecated.
+When this article first appeared in early 2024, the SCAPI was collecting new APIs every release while the OCAPI release notes stayed suspiciously quiet. The question back then was whether the OCAPI was outdated or secretly deprecated. My conclusion: not yet, and since the SCAPI itself leaned on the OCAPI behind the scenes, not any time soon.
 
-In this article, I will explore this topic in detail to determine whether or not these claims are accurate.
+Salesforce has since settled the argument. In April 2026, the OCAPI was officially deprecated. Its documentation now carries a "(deprecated)" label on every page, and new platform features land exclusively in the SCAPI.
+
+That calls for a rematch. Same fighters, same ring, a very different scorecard.
 
 So, let's get rumbling!
 
@@ -31,21 +33,23 @@ So, let's get rumbling!
 
 Salesforce B2C Commerce Cloud has a long-standing history with its OCAPI, which offers a broad range of APIs for various purposes. One typical integration that highlights the functionality of these APIs is [Newstore](https://www.newstore.com). This mobile application solution uses customisation hooks in the provided cartridge to integrate with the APIs.
 
-The SCAPI, or Storefront Commerce API, is a relatively "new" set of APIs introduced on [July 22, 2020](https://help.salesforce.com/s/articleView?id=sf.sf_com_api_W7858177_ga_release.htm&language=nl_NL&type=5). It offers a different way of interacting with SFCC (Salesforce Commerce Cloud) from third-party systems and headless front-ends than the way we had been doing with the OCAPI (Open Commerce API) before.
+The SCAPI, or Salesforce Commerce API, is a relatively "new" set of APIs introduced on [July 22, 2020](https://help.salesforce.com/s/articleView?id=sf.sf_com_api_W7858177_ga_release.htm&language=nl_NL&type=5). It offers a different way of interacting with SFCC (Salesforce Commerce Cloud) from third-party systems and headless front-ends than the way we had been doing with the OCAPI (Open Commerce API) before.
 
-However, there is one drawback to the SCAPI: not all APIs that exist in the OCAPI are available in the SCAPI, at least not yet.
+For years, the OCAPI's strongest counterpunch was coverage: plenty of Data API functionality simply had no SCAPI equivalent. That gap has been closing release after release, and by mid-2026, not much of it is left. Salesforce itself now lists only system information (think low-level server status) and a handful of complex Data API tasks as things the OCAPI still handles best.
 
-Let's keep score, shall we?
+A shrinking lead is still a lead. Point to the OCAPI — likely its last.
 
 **OCAPI:** 1 **SCAPI:** 0
 
 ## New APIs
 
-In recent years, the SCAPI has introduced several [new APIs](/category/release-notes/) that the OCAPI does not have. These new APIs have been implemented to address OCAPI gaps or expose new functionality, such as those related to SEO and CDN, allowing for more robust and comprehensive functionality.
+This is where the fight turned one-sided. The SCAPI had already introduced [new APIs](/category/release-notes/) that the OCAPI never got, such as SEO and eCDN configuration. But the past few release cycles went straight for the OCAPI's home turf: the Data API.
 
-SCAPI now offers a wide range of APIs for developers to use, allowing them to build customised solutions for their clients. As these new APIs have been developed explicitly for SCAPI, it is unlikely that the OCAPI will ever have access to them.
+Since late 2025, Salesforce has shipped Admin APIs for jobs, code versions, users and roles, sites, site preferences, custom objects, and system object definitions. That is the administrative core that used to be the main reason to keep an OCAPI client around. The shopper side moved just as fast: dedicated endpoints for product images, prices, and promotions, content retrieval in the Shopper Experience API, order cancellation and returns through the Order Management integration, and a Shopper Agents API that initialises Agentforce sessions.
 
-In the future, it is clear that any significant new APIs will only be added to the SCAPI, which aligns with the platform's strategy.
+And when an endpoint you need doesn't exist, you can [build a custom SCAPI endpoint](/a-look-at-the-23-9-commerce-cloud-release/) instead of reaching for [custom OCAPI workarounds](/creating-custom-ocapi-endpoints/).
+
+None of this will ever appear in the OCAPI. Since the deprecation, it receives security patches only.
 
 **OCAPI:** 1 **SCAPI:** 1
 
@@ -109,12 +113,31 @@ Contract Info: On a side note, all OCAPI calls are counted as "Storefront Reques
 
 The SCAPI has implemented a new "Load Shedding" system to replace rate limits. This system provides a comprehensive view of what is happening behind the scenes.
 
-Not all APIs are the same Not all SCAPI endpoints work with this new system, but some are still protected with set rate limits.
+Not all SCAPI endpoints are on this new system yet; some are still protected by fixed rate limits.
 
 **OCAPI:** 2 **SCAPI:** 5
 
+## The Knockout: An Official Deprecation
+
+For two years, this fight had a clear leader but no ending. The April 2026 deprecation notice is the referee stepping in.
+
+Deprecated does not mean dead. Salesforce keeps the OCAPI running in maintenance mode, with security updates for roughly two more years and no new features. New implementations must use the SCAPI, and existing OCAPI integrations are expected to have a migration plan.
+
+Two years sounds generous until you hold it against an enterprise roadmap. An integration audit, a busy release calendar, a peak-season code freeze, and suddenly those two years are one. If the OCAPI is in your stack, this is the quarter to act:
+
+- **Audit your OCAPI usage.** Include third-party cartridges: integrations like the Newstore example above talk to the OCAPI on your behalf, so their migration timelines become your migration timelines.
+- **Map every endpoint to its SCAPI equivalent.** The Shop API has had equivalents for years; the recent Admin APIs now cover most of the Data API.
+- **Move authentication to [SLAS](/how-to-set-up-slas-for-the-composable-storefront/)** and review your [API client setup](/the-deprecation-of-the-uuid-token-for-api-clients/).
+- **Watch the gaps.** System information and a few complex Data API tasks still require the OCAPI. Salesforce has committed to SCAPI alternatives for those as well, so keep an eye on the release notes before building anything new against them.
+
+Point to the SCAPI, and the referee starts counting.
+
+**OCAPI:** 2 **SCAPI:** 6
+
 ## Conclusion
 
-The SCAPI outperforms the OCAPI in multiple ways, which is why the former was implemented. However, if you are still extensively using the OCAPI, there is no need to worry because you are not alone - even the SCAPI uses it behind the scenes.
+The original version of this article ended with a reassurance: many SCAPI calls were proxies for OCAPI calls, so as long as the SCAPI depended on the OCAPI, it wasn't going anywhere. That reassurance now has an expiry date printed on it.
 
-Many SCAPI API calls are just a proxy for OCAPI calls. Consequently, as long as the SCAPI depends on the OCAPI, it is not going anywhere.
+Nothing breaks tomorrow. Your OCAPI integrations keep working through the maintenance window, and the security patches keep coming. But "deprecated" changes the default for every architectural decision from here on: new integrations go to the SCAPI, and every existing OCAPI dependency is now technical debt with a countdown attached.
+
+The judges' decision is in. The SCAPI wins — not on points, but because its opponent's corner threw in the towel.

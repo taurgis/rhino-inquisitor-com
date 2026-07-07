@@ -1,19 +1,17 @@
-# Spelling gate project dictionary / allowlist
 #
-# One lowercased word per line, or a multi-word phrase for a proper noun (e.g.
 # "log center"), which is accepted only as that whole phrase and not word by
-# word. Any entry listed here is treated as correctly
-# spelled by scripts/gates/check-spelling.js, in addition to the British English
-# dictionary (en-GB is the single house style). Use it for the site's valid
-# vocabulary that the dictionary does not know: SFCC/technical jargon, product
-# and brand names, cited people's names, and a few deliberately kept spellings
 # (e.g. "adapter", and "chili" for the band name).
-#
-# This list was seeded by running `node scripts/gates/check-spelling.js
 # --list-unknown` over all content and confirming the words are valid. To add a
-# new term, append it (lowercased) here; regenerate candidates with the same
+# One lowercased word per line, or a multi-word phrase for a proper noun (e.g.
+# Spelling gate project dictionary / allowlist
+# This list was seeded by running `node scripts/gates/check-spelling.js
+# and brand names, cited people's names, and a few deliberately kept spellings
 # command. Blank lines and text after "#" are ignored.
-#
+# dictionary (en-GB is the single house style). Use it for the site's valid
+# new term, append it (lowercased) here; regenerate candidates with the same
+# spelled by scripts/gates/check-spelling.js, in addition to the British English
+# vocabulary that the dictionary does not know: SFCC/technical jargon, product
+# word. Any entry listed here is treated as correctly
 abdi
 accreditations
 adapter
@@ -23,6 +21,7 @@ adyen
 aes
 aesh
 affronti
+agentforce
 ahold
 akamai
 akshatha
@@ -146,6 +145,7 @@ configurability
 configurator
 contentful
 cors
+counterpunch
 crackin
 crm
 crypto
@@ -333,8 +333,8 @@ localisable
 localisations
 lockdown
 lockdowns
-log center
 lodash
+log center
 logpush
 lohfink
 lohr
