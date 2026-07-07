@@ -121,6 +121,20 @@ Not every SCAPI family is on this system: SLAS and Omnichannel Inventory, for ex
 
 **OCAPI:** 2 **SCAPI:** 5
 
+## Response Handling and Timeouts
+
+Matching endpoints one-to-one is only half a migration. The other half is how the two APIs behave once a call is in flight, and two differences catch teams out: when a request gives up, and how a failure shows up in the response.
+
+Start with timeouts. The OCAPI runs on the back end next to your storefront, so its calls sit under the platform's general request and script limits — there is no separate API gateway clock counting against them. The SCAPI adds one. Shopper and Custom API requests have to finish within 10 seconds and Admin API requests within 60, and anything slower comes back as an HTTP 504 instead of the payload you wanted. A hook that was fast enough for the OCAPI can now blow that budget, and the endpoints most likely to do it are the ones running custom code. Two families sit outside the rule: SLAS and Omnichannel Inventory have no gateway timeout.
+
+The shape of a failure differs too. The OCAPI signals errors its own way: a status of 400 or higher and a fault document naming the fault type, a readable message, and an arguments map. The SCAPI standardises on [RFC 7807](https://datatracker.ietf.org/doc/html/rfc7807) instead, returning `application/problem+json` with `type`, `title`, and `detail`, so a client that already speaks problem details reads an SCAPI error without custom parsing.
+
+The part that bites during migration is quieter. Some SCAPI calls answer with HTTP 200 even when something went wrong. Post a line item the shopper can't actually have, and a Shopper Baskets call still returns the basket with a 200, then tucks a `_flash` array into the body with entries like `ProductItemNotAvailable`. The request succeeded; the outcome did not. Code lifted straight from the OCAPI, where a non-200 status was the cue that something failed, sails past this and books a rejected line as a clean add. Read the body, not just the status line.
+
+This round splits. The SCAPI takes a point for a standard, machine-readable error format; the OCAPI keeps one for status codes that always mean what they say.
+
+**OCAPI:** 3 **SCAPI:** 6
+
 ## The Knockout: An Official Deprecation
 
 For two years, this fight had a clear leader but no ending. The April 2026 deprecation notice is the referee stepping in.
@@ -132,13 +146,14 @@ Two years sounds generous until you hold it against an enterprise roadmap. An in
 - **Audit your OCAPI usage.** Include third-party cartridges: integrations like the Newstore example above talk to the OCAPI on your behalf, so their migration timelines become your migration timelines.
 - **Map every endpoint to its SCAPI equivalent.** The Shop API has had equivalents for years; the recent Admin APIs now cover most of the Data API.
 - **Retest your hooks.** SCAPI calls the same `dw.ocapi.shop.*` [hook extension points](/how-to-use-ocapi-scapi-hooks/) as the OCAPI, so most hook scripts carry over unchanged. Carrying over is not the same as working, though: code written with OCAPI assumptions can break under SCAPI — opening a transaction in the calculate hook is the classic example, and `request.isSCAPI()` exists precisely to tell the two apart.
+- **Revisit error handling and timeouts.** SCAPI returns RFC 7807 problem documents, enforces 10-second (Shopper and Custom) and 60-second (Admin) gateway timeouts with an HTTP 504, and can answer with a 200 that carries the real problem in a `_flash` body. Client code that trusts OCAPI status codes will misread all three.
 - **Move authentication to [SLAS](/how-to-set-up-slas-for-the-composable-storefront/)** and review your [API client setup](/the-deprecation-of-the-uuid-token-for-api-clients/).
 - **Check your session bridge.** Hybrid storefronts that pass shoppers between a headless front-end and SFRA often rely on the [OCAPI session bridge](/what-is-the-ocapi-session-bridge/), which is deprecated along with the rest of the API. The SLAS session bridge is the supported replacement, and since release 25.3, [native Hybrid Auth](/slas-in-sfra-or-sitegenesis/) has taken over from the `plugin_slas` cartridge.
 - **Watch the gaps.** System information and a few complex Data API tasks still require the OCAPI. Salesforce has committed to SCAPI alternatives for those as well, so keep an eye on the release notes before building anything new against them.
 
 Point to the SCAPI, and the referee starts counting.
 
-**OCAPI:** 2 **SCAPI:** 6
+**OCAPI:** 3 **SCAPI:** 7
 
 ## Conclusion
 
