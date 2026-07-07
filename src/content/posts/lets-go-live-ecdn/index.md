@@ -4,7 +4,7 @@ description: >-
   Bringing your first site live on SFCC can be challenging. In this series, we
   will be looking at different parts. Part I: eCDN
 date: '2022-08-04T06:53:47.000Z'
-lastmod: '2026-07-07T14:15:00.000Z'
+lastmod: '2026-07-07T14:45:00.000Z'
 url: /lets-go-live-ecdn/
 draft: false
 heroImage: ecdn-5035a37164.png
@@ -169,11 +169,13 @@ To start, click the "settings" to the right of the top-level domain.
 
 The first screen you will land on is the "crypto" settings. This is where you manage everything about SSL and TLS.
 
-For a new setup, the path of least resistance is an eCDN-managed certificate: request one, prove you own the domain, and let Salesforce handle every renewal after that. The 23.10 release brought those renewals into Business Manager as well.
+For a new setup, the path of least resistance is an eCDN-managed certificate. Click "Add Certificate", tick "eCDN Managed Certificate", pick a certificate authority (Let's Encrypt or Google) and a validation method (HTTP does the job in most cases), and let Salesforce handle every renewal after that. The 23.10 release brought those renewals into Business Manager as well, and Salesforce Support [recorded a five-minute walkthrough](https://www.youtube.com/watch?v=5kKDdZy7Kzg) of the whole flow.
+
+{{< img-caption src="ecdn-add-managed-certificate-mockup.png" alt="Mock-up of the Add Certificate dialog with the eCDN Managed Certificate option, CA and validation dropdowns." caption="The managed-certificate dialog, redrawn from Salesforce's walkthrough video rather than captured live." >}}
 
 {{< img-caption src="ecdn-crypto-tls13-managed-certificate.png" alt="Current Crypto tab with an Enable TLS 1.3 checkbox and an active eCDN-managed certificate." caption="The same Crypto tab today: no beta label in sight, and an eCDN-managed certificate that renews itself (source: Salesforce Developers blog)." >}}
 
-Uploading your own certificate still works the same way it did in 2022. Click the "Add Certificate" button!
+Uploading your own certificate still works the same way it did in 2022: leave the managed checkbox unticked and paste away.
 
 {{< img-caption src="ecdn-upload-certificate-2447fc3d76.png" alt="Certificate upload form for the embedded CDN." caption="Use this form to upload the certificate and private key for the storefront domain." >}}
 
