@@ -31,7 +31,7 @@ Today, we're looking at [Origin](https://www.cloudflare.com/learning/cdn/glossar
 
 Origin shielding protects the origin server - in our case the Application Servers - by funnelling all incoming traffic through an intermediate layer, or shield.
 
-In Commerce Cloud, that shield is the embedded Content Delivery Network (eCDN): [a Salesforce-managed Cloudflare setup](/lets-go-live-ecdn/) that sits in front of every storefront. The eCDN intercepts each request, applies the firewall and WAF rules, and only forwards legitimate traffic to the origin servers. Requests that try to reach the application servers directly, bypassing the eCDN, are blocked.
+In Commerce Cloud, that shield is the embedded Content Delivery Network (eCDN): [a Salesforce-managed Cloudflare setup](/lets-go-live-ecdn/) that sits in front of your storefronts. The eCDN intercepts each request, applies the firewall and WAF rules, and only forwards legitimate traffic to the origin servers. Requests that try to reach the application servers directly, bypassing the eCDN, are blocked.
 
 This reduces the risk of direct attacks on the origin infrastructure and adds an extra layer of protection against unauthorised access. After all, Cloudflare does have a few things in its arsenal.
 
@@ -43,7 +43,7 @@ Long story short, origin shielding is a security measure for safeguarding cloud-
 
 Origin shielding did not arrive in one release. Salesforce switched it on hostname by hostname, instance type by instance type:
 
-- **June 2021**: the "dotted" demandware.net hostnames (production.xxx.demandware.net) were shielded for new customers.
+- **2021**: Salesforce started with "selective origin shielding": the "dotted" demandware.net hostnames (production.xxx.demandware.net) were shielded for new customers.
 - **2022**: lockdown of the "hyphenated" hostnames ([phase 3](https://help.salesforce.com/s/articleView?id=000391803&type=1)). New realms were shielded from April 15, existing development instances from May 15, and existing production instances from August 15, 2022.
 - **October 7, 2024**: staging instances followed ([phase 4](https://help.salesforce.com/s/articleView?id=002628746&type=1)), a change [announced with the 24.7 release](/the-latest-in-sfcc-version-24-7/). Storefront and OCAPI calls to POD IPs or the staging demandware.net hostnames stopped working; Business Manager access stayed untouched.
 - **2026**: On-Demand Sandboxes get their own eCDN through Default Domains (26.4) and fully integrated eCDN features (26.6). More on that below.
@@ -62,7 +62,7 @@ With the introduction of Origin Shielding, any third-party system attempting to 
 
 ## SCAPI
 
-The SCAPI never needed this migration because it has been behind Salesforce's CDN layer from day one. Salesforce [describes the architecture](https://developer.salesforce.com/docs/commerce/commerce-api/guide/why-use-scapi.html) as a CDN gateway that handles authentication, routing, web-tier caching, load shedding, and rate limiting before a request ever reaches the platform.
+The SCAPI never needed this migration. It runs on its own hostname infrastructure, and Salesforce [describes the architecture](https://developer.salesforce.com/docs/commerce/commerce-api/guide/why-use-scapi.html) as a decoupled setup: a CDN gateway handles authentication and routing, backed by web-tier caching, load shedding on the ECOM endpoints, and rate limiting on the non-ECOM ones.
 
 The trade-off has not changed: Salesforce operates that layer, and we depend on them to keep it healthy. We get the protection without any of the switches.
 
@@ -72,8 +72,8 @@ For years, sandboxes were the odd one out. Secondary Instance Group environments
 
 That changed over the course of 2026:
 
-- **Default Domains (26.4)**: every new On-Demand Sandbox is provisioned with a [Salesforce-managed hostname](https://developer.salesforce.com/blogs/2026/04/salesforce-b2c-default-domains-instance-ecdn-ssl-for-devs) that is eCDN-ready out of the box. Salesforce manages the whole TLS certificate lifecycle, so there are no DNS records to add and no certificates to upload.
-- **eCDN-integrated sandboxes (26.6)**: you can now [provision an On-Demand Sandbox with fully integrated eCDN features](https://www.salesforce.com/blog/b2c-commerce-june-26-release/). Caching logic, WAF rules, and security configuration can be validated in an environment that behaves like your live site.
+- **Default Domains (26.4)**: every new On-Demand Sandbox is provisioned with a [Salesforce-managed hostname](https://developer.salesforce.com/blogs/2026/04/salesforce-b2c-default-domains-instance-ecdn-ssl-for-devs) that is eCDN-ready out of the box. Salesforce manages the whole TLS certificate lifecycle, so there are no DNS records to add and no certificates to upload. Salesforce positioned this as the prerequisite for sandbox eCDN support.
+- **eCDN-integrated sandboxes (26.6)**: you can now [provision an On-Demand Sandbox with fully integrated eCDN features](https://www.salesforce.com/blog/b2c-commerce-june-26-release/). Caching logic, WAF rules, and security configuration can be validated in an environment that matches your live site configuration.
 
 This closes an old gap in the development workflow. A WAF rule that blocks a legitimate integration used to surface on staging at the earliest, usually in the busiest weeks before go-live. That same rule can now be caught in a sandbox, months earlier.
 
@@ -81,9 +81,9 @@ One nuance: Salesforce has not announced a lockdown of the classic sandbox hostn
 
 ## Managed Runtime and Origin Locking
 
-In the Composable Storefront, the roles flip: protecting the origin is our job, not Salesforce's. The Managed Runtime origin (the Mobify domain) is reachable by anyone until you lock it down. Fortunately, this process is [fully documented on the help site](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/managed-runtime-administration#access-control-headers)!
+In the Composable Storefront, the roles flip: protecting the origin is our job, not Salesforce's. The Managed Runtime origin (the Mobify domain) accepts direct traffic until you restrict it. Fortunately, this process is [fully documented on the help site](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/managed-runtime-administration#access-control-headers)!
 
-The mechanism is a shared secret. You configure an access control value on the environment, and the Managed Runtime rejects any request that does not carry it in the `x-sfdc-access-control` header. Your CDN adds the header on every request it forwards; bots and curious visitors hitting the origin directly do not have it.
+The mechanism is a shared secret. You configure an access control value on the environment, and the Managed Runtime only allows requests that carry a valid value in the `x-sfdc-access-control` header (or, if you also configure allowed IP addresses, requests from one of those). You then configure your CDN to send the header on every request it forwards; bots hitting the origin directly do not have it.
 
 What if I don't? If the Mobify domain stays open, Google and other bots can index it, which hurts your SEO. It also means users can accidentally end up on the Mobify domain rather than your vanity one.
 
