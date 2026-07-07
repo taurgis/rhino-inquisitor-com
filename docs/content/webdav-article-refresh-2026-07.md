@@ -20,7 +20,7 @@ lead-with-current-state playbook as the earlier custom-endpoints refresh.
 | Folder coverage | Folders mentioned only incidentally in permission examples | "The Folder Map" section: URL prefix, all top-level folders, read-only `/securitylogs`, Business Manager Folder Browser, HTTPS enforcement |
 | Authentication | Basic Auth (BM users) and API client tokens only | Adds access keys as an optional scoped substitute for the password: MFA covers interactive logins only and is not challenged for WebDAV API logins (username/password keeps working), one-year expiry, six-attempt lockout, shown-once behaviour. An earlier draft of this refresh wrongly claimed MFA blocks password auth for WebDAV; corrected after an owner fact-check against the B2C Commerce MFA FAQ |
 | Limits and retention | Absent | 500 MB upload cap (100→500 in 22.9), 200 MB download cap, five-minute timeout, `ZIP`/`UNZIP` verbs, 30-day impex purge (7-day sandbox job logs), 30/90-day log retention with 3-day gzip archive, 100,000-file folder cap, timestamp reset |
-| Script API | Absent | `dw.net.WebDAVClient` section: supported methods, get() size ceilings, cannot connect to any B2C instance's WebDAV server |
+| Script API | Absent | `dw.net.WebDAVClient` section: supported methods, get() size ceilings, and the class doc's "cannot access the Commerce Cloud Digital server" restriction presented as a documentation claim that does not hold in practice (owner-verified: the script client connects to its own instance's WebDAV server and to other instances'), with replication noted as the sanctioned route for code and shared data |
 | JSON permissions example | Missing closing `]` and `}` (invalid JSON) | Fixed to match the official example |
 | Wikipedia link | Dutch Wikipedia (`nl.wikipedia.org`) | English Wikipedia |
 | Front matter | `lastmod` 2026-07-07T18:30 | `lastmod` bumped to 19:00; takeaways rewritten for the new scope (title, description, url untouched) |
@@ -43,7 +43,12 @@ interactive logins (Business Manager, Account Manager, Log Center, Control
 Center, On-Demand Sandboxes) and is not challenged for API logins such as
 WebDAV File Access — the Account Manager password remains valid there and
 access keys are an optional substitute, confirmed by the site owner from
-field experience. The command lists (read: GET, OPTIONS,
+field experience. Similarly owner-corrected: the `dw.net.WebDAVClient`
+class doc claims the client "cannot be used to access the Commerce Cloud
+Digital server via WebDAV protocol", but in practice the script client
+does connect to its own and other B2C instances' WebDAV servers; the
+article now quotes the doc line and flags it as not matching observed
+behaviour. The command lists (read: GET, OPTIONS,
 PROPFIND; write: PUT, POST, DELETE, MKCOL, COPY, MOVE, PROPPATCH, ZIP, UNZIP)
 come from the WebDAV Client Permissions page; the absence of LOCK/UNLOCK and
 DeltaV verbs grounds the no-locking/no-versioning statements.

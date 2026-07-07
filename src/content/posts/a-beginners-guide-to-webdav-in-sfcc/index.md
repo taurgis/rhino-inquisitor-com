@@ -4,7 +4,7 @@ description: >-
   File Management is critical and necessary in any project. How else can we work
   with mass data transfers or logging mechanisms?
 date: '2024-01-01T17:06:50.000Z'
-lastmod: '2026-07-07T20:00:00.000Z'
+lastmod: '2026-07-07T20:30:00.000Z'
 url: /a-beginners-guide-to-webdav-in-sfcc/
 draft: false
 heroImage: webdav-storing-files-scaled-8c216a580f.jpg
@@ -179,6 +179,6 @@ One more platform quirk: the WebDAV server [resets file timestamps](https://help
 
 Your own server-side code can speak WebDAV too. The [`dw.net.WebDAVClient`](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_net_WebDAVClient.html) class lets a job connect to a merchant's WebDAV server to fetch or deliver files, supporting `GET`, `PUT`, `MKCOL`, `MOVE`, `COPY`, `PROPFIND`, `OPTIONS`, and `DELETE`. It has its own size ceilings: a `get()` into a string defaults to 2 MB (10 MB maximum), and a `get()` into a file defaults to 5 MB (200 MB maximum).
 
-The limitation that catches people out: **the script client cannot connect to a B2C Commerce WebDAV server**. Not another instance's, and not its own. A job that copies files from staging to production over WebDAV is simply not possible; instance-to-instance transfers have to bounce through an external server or go through replication.
+The class documentation carries a warning worth addressing: it claims the client "cannot be used to access the Commerce Cloud Digital server via WebDAV protocol" — that a B2C instance can't talk WebDAV to itself or to another instance. In practice, that restriction doesn't hold. Authenticate like any other WebDAV caller and the connection works, to the instance's own WebDAV server and to another instance's alike, so a job that pulls yesterday's export from production into a lower environment over WebDAV is perfectly possible. Just don't read that as an invitation to rebuild replication out of jobs and `COPY` calls — for code and shared data, [replication](https://help.salesforce.com/s/articleView?id=cc.b2c_data_replication.htm&type=5) remains the sanctioned route.
 
 So treat the instance file system as what it is: a loading dock, not a warehouse. The platform deletes on a schedule, keeps no versions, and locks nothing. If a file matters, the copy of record should live on your side of the connection — so that the next time someone asks for April's export, the answer is a link to your own archive, not an apology.
