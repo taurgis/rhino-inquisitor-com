@@ -4,7 +4,7 @@ description: >-
   File Management is critical and necessary in any project. How else can we work
   with mass data transfers or logging mechanisms?
 date: '2024-01-01T17:06:50.000Z'
-lastmod: '2026-07-07T19:00:00.000Z'
+lastmod: '2026-07-07T20:00:00.000Z'
 url: /a-beginners-guide-to-webdav-in-sfcc/
 draft: false
 heroImage: webdav-storing-files-scaled-8c216a580f.jpg
@@ -76,13 +76,13 @@ To manage these folder-specific permissions, navigate to the [Roles module in Bu
 
 {{< img-caption src="webdav-role-permissions-7d3baef818.png" alt="A screenshot of the business manager showing the WebDAV Permissions for the \"eCom Manager\"." caption="Role-level WebDAV permissions" link="webdav-role-permissions-7d3baef818.png" >}}
 
-### Your Password No Longer Works: Access Keys
+### Access Keys: A Scoped Stand-In for Your Password
 
-One catch trips up almost everyone on their first day with a new sandbox. Accounts on Account Manager use multi-factor authentication, and a WebDAV client has no way to complete the second factor. Cyberduck will prompt for your password, you will type it correctly, and the connection will fail anyway.
+A reasonable worry at this point: Account Manager accounts require multi-factor authentication, and Cyberduck has no way to show you an MFA prompt. Does WebDAV still work? It does. The MFA requirement covers interactive logins — Business Manager, Account Manager, Log Center — while WebDAV Basic Auth counts as an API login: no second factor is requested, and your Account Manager username and password work as-is.
 
-The answer is an [access key](https://help.salesforce.com/s/articleView?id=cc.b2c_access_keys_for_business_manager.htm&type=5): a generated secret that stands in for your password, scoped to a specific purpose such as WebDAV file access. Click your username in the top-right corner of Business Manager, choose `Manage Access Keys`, generate a key with the WebDAV scope, and use that key as the password in your WebDAV client.
+That convenience cuts both ways. It also means your password alone protects every file your roles can reach, with no second factor backing it up. This is why Salesforce offers an [access key](https://help.salesforce.com/s/articleView?id=cc.b2c_access_keys_for_business_manager.htm&type=5) as an optional substitute for your password in external applications: a generated secret scoped to a single purpose, such as WebDAV file access. Click your username in the top-right corner of Business Manager, choose `Manage Access Keys`, generate a key with the WebDAV scope, and hand that key to your WebDAV client instead of your real password. If the key leaks, you revoke one scoped credential rather than rotating the password that opens Business Manager everywhere.
 
-Two properties of access keys are worth knowing before they surprise you:
+If you do adopt them, two properties of access keys are worth knowing before they surprise you:
 
 - **They expire after a year**, so a WebDAV connection that worked for months and suddenly returns 401 is probably sitting on an expired key.
 - **Six wrong attempts lock the scope.** After six failed logins, neither the key nor your password works for that authentication scope any more, and you need to generate a fresh key.

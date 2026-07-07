@@ -18,7 +18,7 @@ lead-with-current-state playbook as the earlier custom-endpoints refresh.
 |--------|-----|-----|
 | Versioning claim | Parenthetical "as far as we know" inside the protocol intro | Dedicated "Where SFCC Parts Ways With the Standard" section: no DeltaV (RFC 3253), no `LOCK`/`UNLOCK` (class 1 server), documented `COPY` deviation from RFC 4918 (silent no-op since 22.3) |
 | Folder coverage | Folders mentioned only incidentally in permission examples | "The Folder Map" section: URL prefix, all top-level folders, read-only `/securitylogs`, Business Manager Folder Browser, HTTPS enforcement |
-| Authentication | Basic Auth (BM users) and API client tokens only | Adds access keys: why MFA breaks password auth in WebDAV clients, one-year expiry, six-attempt lockout, shown-once behaviour |
+| Authentication | Basic Auth (BM users) and API client tokens only | Adds access keys as an optional scoped substitute for the password: MFA covers interactive logins only and is not challenged for WebDAV API logins (username/password keeps working), one-year expiry, six-attempt lockout, shown-once behaviour. An earlier draft of this refresh wrongly claimed MFA blocks password auth for WebDAV; corrected after an owner fact-check against the B2C Commerce MFA FAQ |
 | Limits and retention | Absent | 500 MB upload cap (100→500 in 22.9), 200 MB download cap, five-minute timeout, `ZIP`/`UNZIP` verbs, 30-day impex purge (7-day sandbox job logs), 30/90-day log retention with 3-day gzip archive, 100,000-file folder cap, timestamp reset |
 | Script API | Absent | `dw.net.WebDAVClient` section: supported methods, get() size ceilings, cannot connect to any B2C instance's WebDAV server |
 | JSON permissions example | Missing closing `]` and `}` (invalid JSON) | Fixed to match the official example |
@@ -37,7 +37,13 @@ release notes. Key sourced numbers: 500 MB upload / 200 MB download / 5-minute
 timeout; impex 30 days; logs 30 days (archive after 3), security logs 90
 days; 100,000 files per folder; WebDAVClient string get 2 MB default / 10 MB
 max, file get 5 MB default / 200 MB max; access keys expire after one year
-and lock after six failed attempts. The command lists (read: GET, OPTIONS,
+and lock after six failed attempts. Per the B2C Commerce Multi-Factor
+Authentication FAQ and the May 2022 enforcement release note, MFA applies to
+interactive logins (Business Manager, Account Manager, Log Center, Control
+Center, On-Demand Sandboxes) and is not challenged for API logins such as
+WebDAV File Access — the Account Manager password remains valid there and
+access keys are an optional substitute, confirmed by the site owner from
+field experience. The command lists (read: GET, OPTIONS,
 PROPFIND; write: PUT, POST, DELETE, MKCOL, COPY, MOVE, PROPPATCH, ZIP, UNZIP)
 come from the WebDAV Client Permissions page; the absence of LOCK/UNLOCK and
 DeltaV verbs grounds the no-locking/no-versioning statements.
