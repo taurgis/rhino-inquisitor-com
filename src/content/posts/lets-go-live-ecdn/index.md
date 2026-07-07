@@ -183,7 +183,7 @@ Once a certificate is in place, the same Crypto tab offers [HSTS](https://hstspr
 
 Enabling this option will tell browsers that your domain only operates over HTTPS and that all HTTP connections should be blocked.
 
-Since this includes all subdomains, ensure that no system besides Commerce Cloud operates on HTTP. Otherwise, people will be "barred" from using that site for the remainder of the TTL. And think twice before ticking "preload": getting off the preload list again can take a month or more.
+Since this includes all subdomains, ensure that no system besides Commerce Cloud operates on HTTP. Otherwise, people will be "barred" from using that site for the remainder of the TTL. And think twice before ticking "preload": getting off the preload list again takes months.
 
 ### Firewall Settings
 
@@ -229,7 +229,7 @@ What remains on the Speed tab is [Polish](https://developers.cloudflare.com/imag
 
 One thing to watch out for is if you choose to enable "Polish Level Basic+JPEG," your images might lose quality as this will use lossy compression. If you work for a brand that wants crisp and clear photos, you may want to do extensive testing before permanently enabling this. "Polish Level Basic" sticks to lossless compression and is the safer starting point.
 
-Enabling [WebP](https://en.wikipedia.org/wiki/WebP) remains a no-brainer. The 2022 version of this article claimed Safari did not support the format; that claim had already expired when I wrote it. Safari gained WebP support in version 14 (2020), with the small print that it required macOS Big Sur, and today [every major browser](https://caniuse.com/webp) handles it. With the option enabled, Polish serves a WebP variant to any browser that asks for it.
+Enabling [WebP](https://en.wikipedia.org/wiki/WebP) remains a no-brainer. The 2022 version of this article claimed Safari did not support the format; that claim had already expired when I wrote it. Safari gained WebP support in version 14 (2020), with the small print that it required macOS Big Sur, and today [every major browser](https://caniuse.com/webp) handles it. With the option enabled, Polish serves a WebP variant when the browser asks for one and the conversion actually saves a meaningful number of bytes.
 
 ### Customise Settings
 
@@ -247,8 +247,8 @@ There is a REST service available however:
 
 The speed settings alone are worth a look; all of them default to off:
 
-- [Brotli Compression](https://blog.cloudflare.com/brotli-compression-using-a-reduced-dictionary/): Cloudflare switched Brotli on by default for its regular customers years ago, but eCDN zones do not get that default, so this flag is still ours to flip.
-- [HTTP/2 Prioritisation](https://blog.cloudflare.com/better-http-2-prioritization-for-a-faster-web/): helps a lot on lister pages with many images processed by the [DIS](/image-ine-sfcc-dis-for-developers/) (Dynamic Image Service). Do test it, though: Cloudflare [documents cases](https://developers.cloudflare.com/speed/optimization/protocol/troubleshooting/enhanced-http2-prioritization-ios-safari/) where it slows down content loading in Safari on iOS.
+- [Brotli Compression](https://blog.cloudflare.com/brotli-compression-using-a-reduced-dictionary/): Cloudflare compresses responses by default on its self-serve plans these days, but eCDN zones are Enterprise zones and do not get that default, so this flag is still ours to flip.
+- [HTTP/2 Prioritisation](https://blog.cloudflare.com/better-http-2-prioritization-for-a-faster-web/): helps a lot on lister pages with many images processed by the [DIS](/image-ine-sfcc-dis-for-developers/) (Dynamic Image Service). Do test it, though: Cloudflare [documents cases](https://developers.cloudflare.com/speed/optimization/protocol/troubleshooting/enhanced-http2-prioritization-ios-safari/) where it slows down content loading in Safari on macOS and in any browser on iOS.
 - Early Hints, HTTP/3, and HTTP/2 to origin: newer toggles that did not exist when this article was first written.
 
 Make sure you do not forget about these! The same API family also covers cache purging, Logpush, custom rules, rate limiting, and the WAFv2 configuration. And if raw REST calls are not your thing, the official [B2C Developer Toolkit CLI](https://salesforcecommercecloud.github.io/b2c-developer-tooling/cli/ecdn.html) now wraps most of it in a `b2c ecdn` command.
