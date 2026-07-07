@@ -4,7 +4,7 @@ description: >-
   Bringing your first site live on SFCC can be challenging. In this series, we
   will be looking at different parts. Part I: eCDN
 date: '2022-08-04T06:53:47.000Z'
-lastmod: '2026-07-07T13:45:00.000Z'
+lastmod: '2026-07-07T14:15:00.000Z'
 url: /lets-go-live-ecdn/
 draft: false
 heroImage: ecdn-5035a37164.png
@@ -245,7 +245,11 @@ This section used to open with advice about Auto Minify, the Cloudflare feature 
 > [!NOTE]
 > **For the archives:** HTML minification mostly deleted comments from your markup. If an external system relied on those comments, the advice was to leave that checkbox alone. It also broke the (equally deprecated) Storefront Toolkit on the Development instance, which depended on them.
 
-What remains on the Speed tab is [Polish](https://developers.cloudflare.com/images/polish/), Cloudflare's image optimisation, and that one is still worth your attention.
+The tab did not stay empty, though. A block of optimisation toggles has taken Auto-Minify's place: plain checkboxes for Early Hints, Brotli, HTTP/3, and HTTP/2 to Origin. Those used to require API calls; more on that in the last section.
+
+{{< img-caption src="ecdn-speed-optimization-toggles.jpg" alt="Current Speed tab with checkboxes for Early Hints, Brotli, HTTP/3, and HTTP/2 to Origin." caption="The Speed tab today: Auto-Minify is gone, and the optimisation toggles have moved in." >}}
+
+[Polish](https://developers.cloudflare.com/images/polish/), Cloudflare's image optimisation, also lives on this tab, and that one is still worth your attention.
 
 One thing to watch out for: "Polish Level Basic+JPEG" uses lossy compression, so your images might lose quality. If you work for a brand that wants crisp and clear photos, do extensive testing before permanently enabling it. "Polish Level Basic" sticks to lossless compression and is the safer starting point.
 
@@ -259,17 +263,12 @@ A section you hope you will never need. When "\*\*\*\* hits the fan," Cloudflare
 
 ## Commerce API Configuration
 
-The not-so-well-known thing is that some Cloudflare features you can enable are missing in the Business Manager.
+In 2022, the headline advice of this section was that some Cloudflare features could only be enabled through the [CDN Zones API](https://developer.salesforce.com/docs/commerce/commerce-api/references?meta=cdn-api-process-apis:updateSpeedSettings). That gap has been shrinking ever since: Brotli, Early Hints, HTTP/3, and HTTP/2 to Origin have all landed in the Speed tab shown earlier.
 
-There is a REST service available however:
-
-[https://developer.salesforce.com/docs/commerce/commerce-api/references?meta=cdn-api-process-apis:updateSpeedSettings](https://developer.salesforce.com/docs/commerce/commerce-api/references?meta=cdn-api-process-apis:updateSpeedSettings)
-
-The speed settings alone are worth a look; they are all opt-in:
+The advice behind it still stands, because none of these are switched on for you:
 
 - [Brotli Compression](https://blog.cloudflare.com/brotli-compression-using-a-reduced-dictionary/): Cloudflare compresses responses by default on its self-serve plans these days, but eCDN zones are Enterprise zones and do not get that default, so this flag is still ours to flip.
-- [HTTP/2 Prioritisation](https://blog.cloudflare.com/better-http-2-prioritization-for-a-faster-web/): helps a lot on lister pages with many images processed by the [DIS](/image-ine-sfcc-dis-for-developers/) (Dynamic Image Service). Do test it, though: Cloudflare [documents cases](https://developers.cloudflare.com/speed/optimization/protocol/troubleshooting/enhanced-http2-prioritization-ios-safari/) where it slows down content loading in Safari on macOS and in any browser on iOS.
-- Early Hints, HTTP/3, and HTTP/2 to origin: newer toggles that did not exist when this article was first written.
+- [HTTP/2 Prioritisation](https://blog.cloudflare.com/better-http-2-prioritization-for-a-faster-web/): the one speed setting that has not made the jump to Business Manager, so the API remains the way to enable it. It helps a lot on lister pages with many images processed by the [DIS](/image-ine-sfcc-dis-for-developers/) (Dynamic Image Service). Do test it, though: Cloudflare [documents cases](https://developers.cloudflare.com/speed/optimization/protocol/troubleshooting/enhanced-http2-prioritization-ios-safari/) where it slows down content loading in Safari on macOS and in any browser on iOS.
 
 Make sure you do not forget about these! The same API family also covers cache purging, Logpush, custom rules, rate limiting, and the WAFv2 configuration. And if raw REST calls are not your thing, the official [B2C Developer Toolkit CLI](https://salesforcecommercecloud.github.io/b2c-developer-tooling/cli/ecdn.html) now wraps most of it in a `b2c ecdn` command.
 
