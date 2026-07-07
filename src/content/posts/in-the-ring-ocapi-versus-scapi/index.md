@@ -49,6 +49,8 @@ Since late 2025, Salesforce has shipped Admin APIs for jobs, code versions, user
 
 The pace itself has an explanation. In May 2026, Salesforce's engineering chief shared [how the company rebuilt its development workflow around Anthropic's Claude Code](https://www.salesforce.com/news/stories/how-engineering-became-agentic/): one product team migrated 33 API endpoints to a new cloud-native architecture in 13 days, against an estimate of 231 person-days. Whatever your opinion on AI-assisted development, that kind of throughput is visible in the SCAPI release notes — and it makes the promise to close the remaining OCAPI gaps a lot more believable.
 
+The same approach is available to the rest of us. In April 2026, Salesforce released its open-source [B2C Developer Tooling](https://developer.salesforce.com/blogs/2026/04/introducing-the-b2c-commerce-cli-and-on-demand-sandbox-cloning): a new CLI, an MCP server, and a set of agent skills that let coding agents such as Claude Code work against your instances — deploying cartridges, managing jobs, spinning up sandboxes. The toolkit is built SCAPI-first and falls back to the OCAPI only where a gap remains, so every task you route through it is already on the right side of this fight.
+
 And when an endpoint you need doesn't exist, you can [build a custom SCAPI endpoint](/a-look-at-the-23-9-commerce-cloud-release/) instead of reaching for [custom OCAPI workarounds](/creating-custom-ocapi-endpoints/).
 
 None of this will ever appear in the OCAPI. Since the deprecation, it receives security patches only.
@@ -123,13 +125,15 @@ Not all SCAPI endpoints are on this new system yet; some are still protected by 
 
 For two years, this fight had a clear leader but no ending. The April 2026 deprecation notice is the referee stepping in.
 
-Deprecated does not mean dead. Salesforce keeps the OCAPI running in maintenance mode, with security updates for roughly two more years and no new features. New implementations must use the SCAPI, and existing OCAPI integrations are expected to have a migration plan.
+Deprecated does not mean dead. Salesforce keeps the OCAPI running in maintenance mode, with security updates for two more years — so until around April 2028 — and no new features. New implementations must use the SCAPI, and existing OCAPI integrations are expected to have a migration plan.
 
 Two years sounds generous until you hold it against an enterprise roadmap. An integration audit, a busy release calendar, a peak-season code freeze, and suddenly those two years are one. If the OCAPI is in your stack, this is the quarter to act:
 
 - **Audit your OCAPI usage.** Include third-party cartridges: integrations like the Newstore example above talk to the OCAPI on your behalf, so their migration timelines become your migration timelines.
 - **Map every endpoint to its SCAPI equivalent.** The Shop API has had equivalents for years; the recent Admin APIs now cover most of the Data API.
+- **Port your hooks along with your calls.** Cartridges customise OCAPI behaviour through [hooks](/how-to-use-ocapi-scapi-hooks/), and the SCAPI hook system uses different scripts and signatures. An endpoint mapping that ignores hook logic covers only half the migration.
 - **Move authentication to [SLAS](/how-to-set-up-slas-for-the-composable-storefront/)** and review your [API client setup](/the-deprecation-of-the-uuid-token-for-api-clients/).
+- **Check your session bridge.** Hybrid storefronts that pass shoppers between a headless front-end and SFRA often rely on the [OCAPI session bridge](/what-is-the-ocapi-session-bridge/), which is deprecated along with the rest of the API. The SLAS session bridge is the supported replacement, and since release 25.3, [native Hybrid Auth](/slas-in-sfra-or-sitegenesis/) has taken over from the `plugin_slas` cartridge.
 - **Watch the gaps.** System information and a few complex Data API tasks still require the OCAPI. Salesforce has committed to SCAPI alternatives for those as well, so keep an eye on the release notes before building anything new against them.
 
 Point to the SCAPI, and the referee starts counting.
