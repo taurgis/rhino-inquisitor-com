@@ -39,6 +39,7 @@ andreas
 anechitoaie
 angin
 anonymised
+anthropic
 anywho
 api
 apiversion

@@ -47,6 +47,8 @@ This is where the fight turned one-sided. The SCAPI had already introduced [new 
 
 Since late 2025, Salesforce has shipped Admin APIs for jobs, code versions, users and roles, sites, site preferences, custom objects, and system object definitions. That is the administrative core that used to be the main reason to keep an OCAPI client around. The shopper side moved just as fast: dedicated endpoints for product images, prices, and promotions, content retrieval in the Shopper Experience API, order cancellation and returns through the Order Management integration, and a Shopper Agents API that initialises Agentforce sessions.
 
+The pace itself has an explanation. In May 2026, Salesforce's engineering chief shared [how the company rebuilt its development workflow around Anthropic's Claude Code](https://www.salesforce.com/news/stories/how-engineering-became-agentic/): one product team migrated 33 API endpoints to a new cloud-native architecture in 13 days, against an estimate of 231 person-days. Whatever your opinion on AI-assisted development, that kind of throughput is visible in the SCAPI release notes — and it makes the promise to close the remaining OCAPI gaps a lot more believable.
+
 And when an endpoint you need doesn't exist, you can [build a custom SCAPI endpoint](/a-look-at-the-23-9-commerce-cloud-release/) instead of reaching for [custom OCAPI workarounds](/creating-custom-ocapi-endpoints/).
 
 None of this will ever appear in the OCAPI. Since the deprecation, it receives security patches only.
