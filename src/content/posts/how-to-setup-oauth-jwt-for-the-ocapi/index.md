@@ -21,66 +21,67 @@ takeaways:
   - "Explains how to configure private_key_jwt authentication for OCAPI server-to-server access"
   - "Walks through key generation, Account Manager setup, and JWT payload requirements"
   - "Provides a practical Postman-based example for generating and exchanging the signed token"
-  - "Notes that the same private_key_jwt flow, not the JWT itself, also authenticates SCAPI Admin and Data API clients"
+  - "Notes that this private_key_jwt flow also authenticates SCAPI Admin and Data API clients, not just the OCAPI"
 ---
 > [!NOTE]
-> **Updated July 2026:** Salesforce [officially deprecated the OCAPI in April 2026](/in-the-ring-ocapi-versus-scapi/), so the endpoints this article's JWT can call are now maintenance-only. The authentication mechanism itself is not deprecated: SCAPI Admin and Data API clients use this exact `private_key_jwt` flow through the same Account Manager, so everything below still applies if you're setting up server-to-server access to those APIs instead. One thing that does **not** carry over: Shopper-context SCAPI access goes through SLAS (Shopper Login and API Access Service), a separate system with its own client setup, not the flow described here.
+> **Updated July 2026:** Salesforce [officially deprecated the OCAPI in April 2026](/in-the-ring-ocapi-versus-scapi/). The endpoints this JWT unlocks are now maintenance-only, but the authentication itself is not going anywhere: SCAPI Admin and Data API clients use this exact `private_key_jwt` flow through the same Account Manager. Everything below still applies. One thing that does **not** carry over: Shopper-context SCAPI access goes through SLAS (Shopper Login and API Access Service), a separate system with its own client setup.
 
-This article is about server-to-server communication: one system, such as a scheduled job, a middleware service, or an integration, authenticating itself to Salesforce directly. There is no login screen and no human involved; the calling system has to prove its own identity on every request.
+This article covers server-to-server communication: a scheduled job, a middleware service, or another integration proving its own identity to Salesforce, with no human and no login screen involved. The [OCAPI](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/get-started-with-ocapi.html) (Open Commerce API) still needs that proof on every request, the same as it would from a person. You just need a way to authenticate the calling system itself.
 
-When working with the OCAPI ([Open Commerce API](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/get-started-with-ocapi.html)), you need to do some sort of authentication to prove who you are and to verify what actions you are allowed to take.
-
-Salesforce B2C Commerce Cloud provides multiple methods for server-to-server authentication scenarios depending on the use case:
+Salesforce B2C Commerce Cloud gives you a few ways to do that:
 
 - Basic Authentication using the API Key and the Secret
 - Basic Authentication using the API Key, Secret, Username, and User Password
 - JWT
 
-In this article, we will focus on the one most 'challenging?' to set up: the JWT token.
+This article focuses on the most involved of the three: JWT.
 
-## Generating a public and private key pair
+## Generating a Public and Private Key Pair
 
-When working with JWT, we will use a signing method to verify the authenticity of the requests sent to the server. These are easy to generate, and you have complete control over how long they are valid.
+JWT authentication relies on a key pair to sign requests: a private key you keep to yourself, and a public key (wrapped in a certificate) that you hand to Salesforce so it can check the signature. A pair like this is quick to generate, and you decide exactly how long it stays valid.
 
-Open up your favourite terminal and execute the following command in your folder of choice:
+Open a terminal and run the following command in a folder of your choice:
 
 ```text
 openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes
 ```
 
-This command will create two files:
+This command creates two files:
 
-- **key.pem:** Your private key that will be used to sign requests to the OCAPI authorisation endpoint
+- **key.pem:** your private key. Keep this one secret; you'll use it to sign the JWT later in this article.
 
-- **cert.pem:** The certificate containing the public key will be needed later when setting up the API key in AM (Account Manager).
+- **cert.pem:** the certificate containing your public key. You'll upload this to Account Manager in the next step.
 
-## Create a new API Key
+> [!WARNING]
+> `key.pem` and `cert.pem` serve very different purposes, and only `cert.pem`, the public certificate, ever leaves your machine. Double-check which file you're pasting before you get to the Account Manager step below, and never commit `key.pem` to source control. Anyone who gets hold of it can sign requests as you.
 
-Like always, when we set up a server-to-server connection, we need to generate an API key in the [Account Manager](https://account.demandware.com/). This is the same screen you'd use to create a SCAPI Admin API or Data API client too; only the scopes you request differ.
+## Create a New API Key
+
+Every server-to-server connection to Salesforce starts the same way: an API client in [Account Manager](https://account.demandware.com/). It's the same screen you'd use for a SCAPI Admin API or Data API client too; only the scopes differ.
 
 Follow the [instructions on the Infocenter](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_account_manager_add_api_client_id.htm), with a few minor changes.
 
 {{< img-caption src="account-manager-set-up-jwt-c2ed29ddca.jpg" alt="Account Manager client configuration for private_key_jwt authentication." caption="This Account Manager setup is the prerequisite for private_key_jwt authentication." link="account-manager-set-up-jwt-c2ed29ddca.jpg" >}}
 
-1. In the JWT field, copy and paste the entire contents of the "**cert.pem**" file we generated earlier (no modifications needed)
+1. In the JWT field, paste the entire contents of **cert.pem**. No edits needed.
 
 1. Set the Token Endpoint Auth Method to **private\_key\_jwt**.
 
-And click save!
+Save the client, and you're done here.
 
 ## Authenticate
 
-Ok, I made that title seem like this is an easy step to do. Generating the JWT might be the most challenging part as you need to be very specific, and there is a signing step with that private key mentioned before.
+Generating the JWT is the hardest part of this whole setup. The payload has to be exact, and you still need to sign it with the private key from the previous step.
 
 ### JWT
 
-But let us look at the basics. A JWT has three different parts.
+A JWT breaks down into three parts, shown below.
 
 {{< img-caption src="jwt-visualized-74d5a59116.jpg" alt="Diagram showing the header, payload, and signature parts of a JWT." caption="A JWT stays simple at heart: header, payload, and signature." link="jwt-visualized-74d5a59116.jpg" >}}
 
-The **header,** which describes what type the JWT is and what algorithm it is using. In this case, [RS256](https://auth0.com/blog/rs256-vs-hs256-whats-the-difference/) is used.
+The **header**, which describes what type the JWT is and what algorithm it is using. Here, that's [RS256](https://auth0.com/blog/rs256-vs-hs256-whats-the-difference/).
 
-The **payload,** which is the data we are trying to send to the server. To get a token back, Salesforce B2C Commerce Cloud requires the following information to be in the JWT:
+The **payload**, the actual claims about who is making the request. To get a token back, Salesforce B2C Commerce Cloud requires these claims:
 
 - **iss (issuer):** The client ID (API Key)
 - **sub (subject):** The client ID (API key)
@@ -88,13 +89,13 @@ The **payload,** which is the data we are trying to send to the server. To get a
 - **aud (audience):** The Account Manager auth endpoint
 - **iat (issued at, optional):** Current time. Not required to get a token back, but it is good practice to include it, and the example below sets it.
 
-The **signature**, which is the header and payload signed with the private key to verify that you are allowed to send it to the server.
+The **signature**, the header and payload signed with your private key, so Salesforce can verify the JWT actually came from you and was not altered in transit.
 
-### Generating it
+### Generating It
 
-If you look at the above example, the contents of a JWT are far from "rocket science." The hard part is signing it correctly, as you need to find a sound library in your programming language of choice to get it done.
+The contents of a JWT are simple once you see them laid out like this. The hard part is signing it correctly, which means finding a solid signing library for whatever language or tool you're using.
 
-As an example, I have created a postman library to get you started!
+As an example, I put together a Postman collection to get you started.
 
 In this example, you need to set two collection variables:
 
@@ -102,9 +103,9 @@ In this example, you need to set two collection variables:
 
 - **api\_key:** The API key you generated in the Account Manager
 
-There is also a variable called [**pmlib**](https://joolfe.github.io/postman-util-lib/dist/bundle.js): a third-party library meant to extend the capabilities of the scripting framework within [Postman](https://www.postman.com/). In the collection, a request called "1. Download JS for Postman" downloads it in case the initial value is not working.
+There is also a variable called [**pmlib**](https://joolfe.github.io/postman-util-lib/dist/bundle.js): a third-party library that adds cryptography helpers Postman doesn't have natively, including JWT signing. In the collection, a request called "1. Download JS for Postman" downloads it if the default value stops working.
 
-Since Postman does not support generating JWT tokens out-of-the-box there is a "Pre-request script" within the second call "2. Authorisation (JWT)" which generates it and stores it in a collection variable used during the request.
+Postman can't generate a signed JWT on its own. The second request in the collection, "2. Authorisation (JWT)," carries a Pre-request Script that builds the JWT and stores it in a collection variable, ready for the request that follows.
 
 ```js
 // Load third party library
@@ -129,11 +130,11 @@ var sJWT = pmlib.jwtSign(pm.collectionVariables.get('pkey'), payload, header);
 pm.collectionVariables.set("jwt_signed", sJWT);
 ```
 
-Once the script is in place and all required variables are configured in the collection we can execute the request as follows:
+With the script in place and the collection variables set, send the request:
 
 - A **POST** to [https://account.demandware.com/dwsso/oauth2/access\_token](https://account.demandware.com/dwsso/oauth2/access_token)
 
-- A body containing these 3 values as a **x-www-form-urlencoded** type:
+- A body with these three values, as **x-www-form-urlencoded**:
 - client\_assertion: The signed JWT generated by the script
 - client\_assertion\_type: urn:ietf:params:oauth:client-assertion-type:jwt-bearer
 - grant\_type: client\_credentials
@@ -142,4 +143,6 @@ Once the script is in place and all required variables are configured in the col
 
 [Download Postman Collection](https://gist.github.com/taurgis/df656968852275539d9f9d7a74bf62de)
 
-A big thanks to [Yuriy Boev](https://www.linkedin.com/in/yuriy-boev-3907002b/) and [John Boxall](https://www.linkedin.com/in/jboxall/) for helping me get to a working example! I will refer you to the [Unofficial Slack thread](https://sfcc-unofficial.slack.com/archives/CBB7YAAHW/p1656070265465869) for other scripts or languages!
+Thanks to [Yuriy Boev](https://www.linkedin.com/in/yuriy-boev-3907002b/) and [John Boxall](https://www.linkedin.com/in/jboxall/) for helping me get this example working. For other languages or scripts, the [Unofficial Slack thread](https://sfcc-unofficial.slack.com/archives/CBB7YAAHW/p1656070265465869) is a good place to look.
+
+From here, the same signed JWT and Account Manager client work whether you're calling the OCAPI today or a SCAPI Admin API tomorrow. Only the URL and the scopes change.
