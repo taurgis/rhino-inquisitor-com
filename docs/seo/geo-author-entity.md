@@ -49,7 +49,9 @@ organization). This is the E-E-A-T mechanism, not a cosmetic tag.
 - **Old:** `BlogPosting.author` = inline `{ Person, name, url, sameAs }`.
 - **New:** `BlogPosting.author` = the shared `Person` node (`@id`, `jobTitle`,
   `worksFor`, `knowsAbout`, `image`, `sameAs`), so every article attributes content
-  to the same credentialed, resolvable author.
+  to the same credentialed, resolvable author. `BlogPosting.publisher` also gained
+  the `#organization` `@id`, so its full node consolidates with the homepage
+  Organization entity instead of reading as a separate publisher.
 
 ### 5. About page is now a machine-readable author profile
 
