@@ -233,7 +233,7 @@ var order = OrderMgr.getOrder(orderNumber);
 var order = OrderMgr.getOrder(orderNumber, orderToken);
 ```
 
-The `orderToken` is generated when the order is created and is hard to guess by design, so requiring it turns "give me order 00001234" into "give me order 00001234 *and prove you have its token*." Pair this with the **Limit Storefront Order Access** site preference, which stops the single-argument lookup from resolving storefront orders at all, and the insecure path is closed off platform-wide rather than one hook at a time.
+The `orderToken` is generated when the order is created and is hard to guess by design, so requiring it turns "give me order 00001234" into "give me order 00001234 *and prove you have its token*." Back this up with the **Limit Storefront Order Access** site preference (Merchant Tools > Site Preferences > Order). With it enabled, an _insecure_ single-argument `OrderMgr.getOrder(orderNumber)` — one where the current session didn't create the order, the session customer doesn't own it, and the order has moved past `CREATED` status — is rejected with a `SecurityException` instead of quietly returning the order. Enable it on each storefront site so the platform enforces ownership itself, rather than trusting every hook to remember the check.
 
 This pattern extends to other sensitive objects. Always perform additional checks to confirm the user's authority to perform the requested action.
 
@@ -393,17 +393,18 @@ The fix is to make the side effect idempotent: safe to run more than once, with 
 
 ```js
 exports.afterPOST = function (order) {
-    var Transaction = require('dw/system/Transaction');
     // The order number is stable across retries of the same request.
     if (order.custom.erpSyncStatus === 'SENT') {
         return; // Already handled - don't send this order to the ERP again.
     }
     // ... call the ERP through the Service Framework ...
-    Transaction.wrap(function () {
-        order.custom.erpSyncStatus = 'SENT';
-    });
+    // No Transaction.wrap() needed: an after hook on a POST/PATCH/PUT/DELETE
+    // already runs inside the platform's transaction, so this write persists.
+    order.custom.erpSyncStatus = 'SENT';
 };
 ```
+
+Note the missing `Transaction.wrap()`. For state-changing methods, the `before` hook, the platform's own logic, and the `after` hook all run inside a single database transaction, so a persistent write in `afterPOST` commits with the rest of the request. (This is also why `modifyResponse` can't do this — it runs after that transaction closes, which is exactly why writing to a persistent object there throws.)
 
 This turns a dangerous at-least-once side effect into a safe one, and it pairs well with the circuit breaker: when a downstream service recovers and the retries land, your hook picks up where it left off instead of redoing everything it already did.
 
