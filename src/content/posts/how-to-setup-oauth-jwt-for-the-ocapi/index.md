@@ -61,7 +61,7 @@ Every server-to-server connection to Salesforce starts the same way: an API clie
 
 Follow the [instructions on the Infocenter](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_account_manager_add_api_client_id.htm), with a few minor changes.
 
-{{< img-caption src="account-manager-set-up-jwt-c2ed29ddca.jpg" alt="Account Manager client configuration for private_key_jwt authentication." caption="This Account Manager setup is the prerequisite for private_key_jwt authentication." link="account-manager-set-up-jwt-c2ed29ddca.jpg" >}}
+{{< img-caption src="account-manager-jwt-fields-diagram.png" alt="Illustrative diagram of the Account Manager JWT field and the Token Endpoint Auth Method dropdown set to private_key_jwt." caption="Not a live screenshot: a simplified diagram of where cert.pem's contents go and which Token Endpoint Auth Method value to pick." link="account-manager-jwt-fields-diagram.png" >}}
 
 1. In the JWT field, paste the entire contents of **cert.pem**. No edits needed.
 
