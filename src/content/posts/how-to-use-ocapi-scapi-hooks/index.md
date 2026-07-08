@@ -4,7 +4,7 @@ description: >-
   Hooks are becoming more and more prominent because of the PWA Kit and the API
   first methodology. But how do you implement them?
 date: '2022-10-31T13:03:53.000Z'
-lastmod: '2026-07-07T18:30:00.000Z'
+lastmod: '2026-07-08T09:00:00.000Z'
 url: /how-to-use-ocapi-scapi-hooks/
 draft: false
 heroImage: 26df11a8-62ec-44cd-bf3b-6ff9ab46bee8-5598d60cbd.jpg
@@ -24,15 +24,18 @@ takeaways:
     - "Emphasises security, validation, and architectural discipline as essential for safe hook customisation"
 ---
 > [!NOTE]
-> **Updated 26 July 2025:** This article was refreshed with the latest and most important feature information.
+> **Updated 8 July 2026:** Refreshed for the current state of the platform, including the deprecation of OCAPI and new notes on idempotency and hook security.
 
 So, you need to add a custom attribute to the basket response, or maybe validate an order against a third-party fraud service before it's created. Your first thought? A SCAPI hook. You're not wrong, but you're only seeing the tip of the iceberg.
 
-Salesforce Commerce API (SCAPI) and OCAPI (Open Commerce API) hooks are one of the most powerful tools in our arsenal for extending the platform's [headless](/sitegenesis-vs-sfra-vs-pwa/) capabilities. They allow us to inject custom logic directly into the API lifecycle, tailoring the out-of-the-box behaviour to meet unique business requirements. But let's be clear: with great power comes great responsibility.
+Salesforce Commerce API (SCAPI) and OCAPI (Open Commerce API) hooks are one of the most powerful tools in our arsenal for extending the platform's [headless](/sitegenesis-vs-sfra-vs-pwa/) capabilities. They let us inject custom logic directly into the API lifecycle, bending the out-of-the-box behaviour to fit a specific business requirement. That same reach is what makes them dangerous.
 
-The official documentation provides the "what" and the "how," but it's in the wild, under a production load, where the real lessons are learned. These powerful tools, if used improperly, can be extremely hazardous, potentially introducing security vulnerabilities, performance bottlenecks, and maintenance issues.
+> [!IMPORTANT]
+> OCAPI is now officially deprecated. Salesforce ships new endpoints and features to SCAPI only, and the OCAPI reference is labelled "deprecated" across the developer docs. Hooks still run for both APIs, so everything here applies to the OCAPI integrations you already have in production. But if you are starting something new, build it on SCAPI. There is no published shut-off date, so treat OCAPI as maintenance-only and migrate on your own timeline rather than waiting for a deadline.
 
-This isn't just a rehash of the official docs. This is a field guide, a playbook forged from experience. We're going to dive deep into the critical areas that documentation often glosses over: security hardening, performance tuning, bulletproof error handling, and avoiding the architectural traps that lead to what architects call a "Big Ball of Mud". We'll cover everything from the fundamental anatomy of a hook to advanced strategies like idempotency and circuit breakers.
+The official documentation gives you the "what" and the "how." What it tends to skip is what happens under production load, which is where the real lessons are learned. A hook that looked harmless in a sandbox can introduce a security hole, a performance cliff, or a maintenance headache the moment real traffic hits it.
+
+This isn't a rehash of the official docs. It's a field guide to the parts they skip: security hardening, performance tuning, error handling that survives a bad day, and the architectural traps that turn a clean cartridge into a "Big Ball of Mud." Expect concrete territory — idempotency, circuit breakers, and the return-value quirk that can silently disable another cartridge's hooks.
 
 Our roadmap is clear: we'll start with the fundamentals, then navigate the security gauntlet, tackle the need for speed, prepare for when things go wrong, and finally, tour the hall of shame of common anti-patterns.
 
@@ -80,7 +83,7 @@ SCAPI and OCAPI hooks come in three main flavours, each with a distinct role in 
 
 - **`after<HTTP Method>`:** This hook executes _after_ the server's main logic has completed but _before_ the final response document is created. It operates on the modified Script API object (e.g., the `Basket` or `Order` object). This is the place for side effects and integrations, such as sending a newly created order to an external ERP, triggering a basket recalculation (`dw.order.calculate`), or performing change tracking.
 
-- **`modify<HTTP Method> Response`:** This is the final step in the chain. It executes _after_ the platform has already created the response document from the Script API object. Its sole purpose is to make final modifications to the response document, such as adding or removing custom attributes (c\_ fields) or cleaning up data before it's sent to the client. A critical point: this hook is **not** transactional. Attempting to modify a persistent Script API object here will result in an `ORMTransactionException` and an [HTTP 500 fault](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/customization.html)
+- **`modify<HTTP Method> Response`:** This is the final step in the chain. It executes _after_ the platform has already created the response document from the Script API object. Its sole purpose is to make final modifications to the response document, such as adding or removing custom attributes (c\_ fields) or cleaning up data before it's sent to the client. A critical point: this hook is **not** transactional. Attempting to modify a persistent Script API object here will result in an `ORMTransactionException` and an [HTTP 500 fault](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/customization.html).
 
 ## Not all APIs are made equal
 
@@ -91,13 +94,11 @@ Before starting this journey together, the most important thing to understand is
 
 ### Feature switch for SCAPI
 
-As it stands, Salesforce B2C Commerce Cloud disables hooks by default for the SCAPI. To enable hook support, a feature switch needs to be enabled in the Business Manager:
-
-"Administration > Global Preferences > Feature Switches"
+SCAPI disables hook execution by default. Before any of your SCAPI hooks will run, someone has to flip a feature switch in Business Manager under `Administration > Global Preferences > Feature Switches` — the one labelled **"Enable Salesforce Commerce API Hook Execution."**
 
 {{< img-caption src="feature-switch-scapi-hooks-9a09bc135b.jpg" alt="Feature switch screen used to enable SCAPI hooks in Business Manager." caption="SCAPI hooks do not exist until the feature switch is enabled in Business Manager." >}}
 
-OCAPI Hooks are enabled by default for the OCAPI, and you don't need to do any configuration.
+OCAPI hooks don't need this switch. Once you register them in a cartridge (the next step), they run. That asymmetry catches people out: the exact same hook code can fire over OCAPI and do nothing over SCAPI, purely because the switch is off on the instance.
 
 ## Step 1: Register your customisations
 
@@ -105,7 +106,7 @@ The first step in writing hooks for our APIs is registering them with the server
 
 ### Create a “hooks.json” file
 
-We need to create a JSON file that describes which endpoints we want to customise called “hooks.json.” This file can be put anywhere in a cartridge. But in this case, we will put it in the root ( e.g. "my\_project/cartridges/my\_ cartridge/hooks.json ) as an example.
+We need to create a JSON file that describes which endpoints we want to customise called “hooks.json.” This file can be put anywhere in a cartridge. But in this case, we will put it in the root (e.g. "my\_project/cartridges/my\_cartridge/hooks.json") as an example.
 
 ```json
 {
@@ -130,7 +131,7 @@ We can define as many as we want within the file! But make sure every “name”
 
 The next step is to create or edit your cartridge's "package.json" file.
 
-The file should be in the root folder of your cartridge. (e.g. "my\_project/cartridges/my\_ cartridge/package.json")
+The file should be in the root folder of your cartridge. (e.g. "my\_project/cartridges/my\_cartridge/package.json")
 
 ```text
 {
@@ -155,7 +156,8 @@ First, we locate the endpoint we want to override. The documentation will show u
 
 In this case, we need to export the function “beforePATCH” with the parameters “basket” and “basketInput.”
 
-Case sensitivity The function name is case-sensitive, so match it to the documentation! If it does not match exactly, your customisations will not run.
+> [!WARNING]
+> The function name is case-sensitive. Match it to the documentation exactly. Get a single letter wrong and there is no error and no warning — the platform just never calls your code, and you lose an afternoon wondering why.
 
 ### Put that documentation to work
 
@@ -231,6 +233,8 @@ var order = OrderMgr.getOrder(orderNumber);
 var order = OrderMgr.getOrder(orderNumber, orderToken);
 ```
 
+The `orderToken` is generated when the order is created and is hard to guess by design, so requiring it turns "give me order 00001234" into "give me order 00001234 *and prove you have its token*." Pair this with the **Limit Storefront Order Access** site preference, which stops the single-argument lookup from resolving storefront orders at all, and the insecure path is closed off platform-wide rather than one hook at a time.
+
 This pattern extends to other sensitive objects. Always perform additional checks to confirm the user's authority to perform the requested action.
 
 For guest shoppers, where you don't have an authenticated session, this is even more critical. You should consider prohibiting guest shoppers from changing existing orders or requiring them to provide a combination of secrets from the order (e.g., order number and the email address used) before allowing any modification.
@@ -284,7 +288,7 @@ exports.beforePUT = function (customer, addressId, addressDoc) {
 > In a single hooks.json file, you can register multiple modules to call for an extension point. However, you can't control the order in which the modules are called. If you call multiple modules, only the last hook returns a value. **_All modules are called, regardless of whether any of them return a value_**.
 > At run time, B2C Commerce runs all hooks registered for an extension point in all cartridges in your cartridge path. Hooks are executed in the order their cartridges appear on the path. Each cartridge can register a module for the same hook. Modules are called in cartridge-path order for all cartridges in which they are registered.
 
-The text above has been taken from the [Salesforce B2C Commerce Cloud Infocenter](https://developer.salesforce.com/docs/commerce/sfra/guide/b2c-sfra-hooks.html) and turns out not to be correct (at least for SCAPI/OCAPI hooks.
+The text above has been taken from the [Salesforce B2C Commerce Cloud Infocenter](https://developer.salesforce.com/docs/commerce/sfra/guide/b2c-sfra-hooks.html) and turns out not to be correct (at least for SCAPI/OCAPI hooks).
 
 {{< img-caption src="hooks-return-status-to-short-circuit-806c56df79.jpg" alt="Hook response example where returning Status.OK short-circuits later hooks." caption="Returning Status.OK can stop later hooks, so one line can change the whole chain." link="hooks-return-status-to-short-circuit-806c56df79.jpg" >}}
 
@@ -353,7 +357,7 @@ Caching is a powerful tool, but with hooks, it's a double-edged sword. A `modify
 
 Therefore, you must be acutely aware of the "cacheability" of the data you inject. Use `modifyResponse` hooks on GET requests with extreme caution. If possible, load highly personalised data via a separate, non-cached API call from the client after the main, cacheable content has loaded.
 
-For expensive, repeatable operations _within_ a hook (like a complex data transformation), you can leverage B2C Commerce [Custom Caches](/caching-in-the-sfcc-composable-storefront/) to store the result, but be mindful of their size limits (20MB total, 128KB per entry)
+For expensive, repeatable operations _within_ a hook (like a complex data transformation), you can leverage B2C Commerce [Custom Caches](/caching-in-the-sfcc-composable-storefront/) to store the result, but be mindful of their size limits (20MB total, 128KB per entry).
 
 #### Efficient Data Handling
 
@@ -375,11 +379,33 @@ Include identifiers such as the basket UUID or customer ID to facilitate easier 
 
 ### The Circuit Breaker Pattern: The Platform's Self-Defence
 
-Your error handling strategy isn't just about logging, it's about platform stability. B2C Commerce has a built-in self-defence mechanism called the [Hook Circuit Breaker](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/hookcircuitbreaker.html). If a specific hook extension point fails more than 50 times in its last 100 calls, the circuit "opens." For the next 60 seconds, all calls to that failing extension point will be immediately rejected with an HTTP 503 Service Unavailable and a `HookCircuitBreakerException`, without ever executing your code.
+Your error handling strategy isn't just about logging, it's about platform stability. B2C Commerce has a built-in self-defence mechanism called the [Hook Circuit Breaker](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/hookcircuitbreaker.html). If more than 50 of a hook extension point's last 100 calls fail, the circuit "opens." For the next 60 seconds, all calls to that failing extension point are immediately rejected with an HTTP 503 Service Unavailable and a `HookCircuitBreakerException`, without ever executing your code. After that cool-off the breaker goes half-open and lets a handful of calls through to test the water; if they keep failing, it opens again. (Custom APIs have their own [separate circuit breaker](https://developer.salesforce.com/docs/commerce/commerce-api/guide/custom-api-circuit-breaker.html) with a different fault type, so don't assume the two behave identically.)
 
 Think about the implications. A buggy hook doesn't just return an error for one user; it can render an entire API endpoint, such as adding a payment to the basket, completely unavailable for _all users_ for a full minute. A transient issue, like a third-party payment gateway being temporarily down, could cause a cascade of hook failures, tripping the breaker and turning a minor hiccup into a major outage. This elevates your `try-catch` block from a simple best practice to a mission-critical component.
 
 Gracefully catching external failures and returning a non-error status (if the failure is not critical to the core transaction) is essential to prevent your hook from taking down a piece of your storefront.
+
+### Idempotency: Assume Your Hook Runs Twice
+
+Clients retry. Gateways retry. A shopper on a flaky connection double-taps "Place Order." Any of these can fire the same hook a second time with the same payload, and that is a real problem for an `afterPOST` hook that pushes a new order to an ERP or captures a payment. Run it twice and you get duplicate orders, double charges, and two "welcome" emails.
+
+The fix is to make the side effect idempotent: safe to run more than once, with the same result. Derive a stable key from something already unique in the request — the order number, the basket UUID, an `Idempotency-Key` header the client sends — and check it before you act. If you have already processed that key, skip the work and return normally.
+
+```js
+exports.afterPOST = function (order) {
+    var Transaction = require('dw/system/Transaction');
+    // The order number is stable across retries of the same request.
+    if (order.custom.erpSyncStatus === 'SENT') {
+        return; // Already handled - don't send this order to the ERP again.
+    }
+    // ... call the ERP through the Service Framework ...
+    Transaction.wrap(function () {
+        order.custom.erpSyncStatus = 'SENT';
+    });
+};
+```
+
+This turns a dangerous at-least-once side effect into a safe one, and it pairs well with the circuit breaker: when a downstream service recovers and the retries land, your hook picks up where it left off instead of redoing everything it already did.
 
 ## The Hall of Shame: SCAPI Hook Anti-Patterns
 
@@ -396,3 +422,5 @@ To wrap up, let's tour the gallery of common mistakes and anti-patterns. Avoid t
 - **The "Chatty" Hook:** A hook that makes multiple, inefficient, synchronous calls to external systems within a single execution instead of designing a more efficient bulk or batch data-fetching strategy.
 
 - **The "Trusting Fool":** The most dangerous of all. A hook that blindly accepts and uses input from the request document without performing its own rigorous validation and authorisation checks, as detailed in our security section.
+
+None of these come from bad developers. They come from treating a hook as a convenient place to drop some logic rather than as production code running inside someone else's request path. Give a hook the same scrutiny you would give a checkout controller — validate its input, guard its side effects, watch its timing — and it stays the sharp extension tool it is meant to be. Skip that, and you have shipped a new way for the platform to fail under load.
