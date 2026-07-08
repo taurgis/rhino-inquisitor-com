@@ -30,10 +30,10 @@ The tricky part isn't the concept. It's figuring out which API's docs you should
 
 ### Querying
 
-Not all endpoints are alike, but for date filtering, one pattern keeps showing up: a JSON **Query** document describes what to match, and an optional **Filter** narrows it down. Salesforce built the OCAPI Data API around this pattern years ago. Here's the detail worth knowing before you write a line of code: the newer SCAPI Admin Data API endpoints for Catalogs, Products, and Customers reuse the exact same document types, down to the snake\_case field names.
+Not all endpoints are alike, but for date filtering, one pattern keeps showing up: a JSON **Query** document describes what to match, and an optional **Filter** narrows it down. Salesforce built the OCAPI Data API around this pattern years ago, and the newer SCAPI Admin Data API endpoints for Catalogs, Products, and Customers reuse the exact same document types and structure. The one thing that changes is spelling.
 
 > [!NOTE]
-> **This grammar is not universal across SCAPI.** It applies to the SCAPI **Admin Data API** (system-to-system integrations authenticated with an Account Manager token), because Salesforce carried the OCAPI Data API's query documents over field-for-field. See the [Query](https://developer.salesforce.com/docs/commerce/commerce-api/references/catalogs?meta=type:Query) and [Filter](https://developer.salesforce.com/docs/commerce/commerce-api/references/products?meta=type:Filter) type references for Catalogs and Products. It does **not** apply to the shopper-facing [Shopper Search API](https://developer.salesforce.com/docs/commerce/commerce-api/references/shopper-search?meta=productSearch): that API takes no JSON query body at all. It filters through `refine` query-string parameters (`refine=price=(0..100)`) against attributes your catalog defines as searchable, and it has no general-purpose way to filter by an arbitrary date field like `creation_date`. If you're building storefront search, that's the API you want, and everything below this note won't help you. If you're syncing or auditing records from the back end, keep reading.
+> **This grammar is not universal across SCAPI, and the casing changes too.** It applies to the SCAPI **Admin Data API** (system-to-system integrations authenticated with an Account Manager token): Salesforce ported the OCAPI Data API's query documents over concept-for-concept, confirmed against the [Query](https://developer.salesforce.com/docs/commerce/commerce-api/references/catalogs?meta=type:Query) and [Filter](https://developer.salesforce.com/docs/commerce/commerce-api/references/products?meta=type:Filter) type references for Catalogs and Products. But the JSON isn't byte-identical: every multi-word type name gets renamed to camelCase. `filtered_query` becomes `filteredQuery`, `match_all_query` becomes `matchAllQuery`, `range_filter` becomes `rangeFilter`, `range2_filter` becomes `range2Filter`, `bool_filter` becomes `boolFilter`, `term_filter` becomes `termFilter`, and `term_query` becomes `termQuery`. `range2_filter`'s own inner fields rename too, from `from_field`/`to_field`/`filter_mode`/`from_value`/`to_value` to `fromField`/`toField`/`filterMode`/`fromValue`/`toValue`. Every other field you'll see below, `field`, `from`, `to`, `operator`, `values`, `filters`, `fields`, is a single word, so it's spelled identically on both APIs. It does **not** apply at all to the shopper-facing [Shopper Search API](https://developer.salesforce.com/docs/commerce/commerce-api/references/shopper-search?meta=productSearch): that API takes no JSON query body at all. It filters through `refine` query-string parameters (`refine=price=(0..100)`) against attributes your catalog defines as searchable, and it has no general-purpose way to filter by an arbitrary date field like `creation_date`. If you're building storefront search, that's the API you want, and everything below this note won't help you. If you're syncing or auditing records from the back end, keep reading.
 
 Here's where those Query and Filter documents show up as real endpoints, paired with their SCAPI Admin Data API equivalent where one exists:
 
@@ -88,7 +88,7 @@ Read it from the outside in:
 - **`filter.range_filter`** is where the actual date logic lives. `field` names the date attribute to check (`creation_date` here), and `from`/`to` set the interval's boundaries.
 - **`query.match_all_query`** fills the "query" half of the wrapper. It matches every record unconditionally, so the `range_filter` ends up doing all the real work. You'll see this same empty query in nearly every date-filtering example, because most of the time you don't need a text or attribute query on top of the date range.
 
-Leave out `from` or `to` and the range becomes open-ended on that side. A range with only `from` means "everything created on or after this date," which is exactly what an incremental sync needs.
+Leave out `from` or `to` and the range becomes open-ended on that side. A range with only `from` means "everything created on or after this date," which is exactly what an incremental sync needs. Both boundaries are inclusive by default, so a `to` of midnight includes anything created at exactly that instant; you can configure either end as exclusive if that's not what you want.
 
 ## Range2 Filter
 
@@ -96,7 +96,7 @@ A single `range_filter` breaks down the moment your data has two date fields ins
 
 It compares two ranges: `R1`, defined by a pair of fields on the record (`from_field` and `to_field`), against `R2`, defined by two literal values you supply (`from_value` and `to_value`). `filter_mode` sets the relationship the search has to satisfy:
 
-- `overlap` (the default if you omit `filter_mode`): `R1` overlaps fully or partially with `R2`
+- `overlap`: `R1` overlaps fully or partially with `R2`
 - `containing`: `R1` contains `R2`
 - `contained`: `R1` is contained in `R2`
 
@@ -118,6 +118,8 @@ It compares two ranges: `R1`, defined by a pair of fields on the record (`from_f
 ```
 
 With `filter_mode` set to `overlap`, this query returns every record whose `valid_from`–`valid_to` window touches the 2007–2017 range at all, even if it started years earlier or ends years later. Switch to `contained` and you'd only get records whose entire validity window sits inside that decade.
+
+This is also the one filter in this article where the SCAPI Admin Data API version actually looks different on the page: the same request becomes `range2Filter` with `fromField`, `toField`, `filterMode`, `fromValue`, and `toValue`, same values, camelCase keys.
 
 ## Bool Filter
 
@@ -177,6 +179,8 @@ Real-world date queries rarely stand alone. "Open orders created this year" need
 
 `fields` takes an array because a term query can check more than one field at once (multiple fields are OR'd together, so a hit on any of them counts). `operator` controls how many values you're allowed to supply: `is` accepts exactly one, while `one_of` accepts several and matches a record if any of them hits. Here, `is` with a single value in `values` means "creation\_date must equal this exact instant": useful for re-fetching one known record, not for the range-based syncs the earlier filters handle.
 
+`is` and `one_of` aren't the whole enum. `operator` also accepts `is_null`, `is_not_null`, `less`, `greater`, `not_in`, and `neq`, so a one-sided date comparison can go through `term_query` instead of `range_filter` if you'd rather. Not every endpoint supports `less` and `greater` here, so check the docs for the one you're calling before you rely on them.
+
 ## Custom Endpoint
 
 None of the query types above cover every case. If you need an endpoint shaped entirely around your own requirements instead of an existing search resource, [Custom APIs](/creating-custom-ocapi-endpoints/) are the supported way to build one. They've been generally available since release 24.2, with real routing, a contract that validates every request before your code runs, and support for all HTTP methods, including transactions on POST, PUT, PATCH, and DELETE. That's a solid step up from the GET-only, no-transaction workaround that used to be the only option here.
@@ -185,6 +189,6 @@ Performance and caching are still on you. The platform handles routing and valid
 
 ## Conclusion
 
-`range_filter`, `range2_filter`, `bool_filter`, and `term_query` cover most date-filtering problems, on either the OCAPI Data API or the SCAPI Admin Data API. Get the date format and field names right, and pick the filter that matches your question: one range, an overlap between two ranges, several conditions at once, or an exact match.
+`range_filter`, `range2_filter`, `bool_filter`, and `term_query` cover most date-filtering problems, on either the OCAPI Data API or the SCAPI Admin Data API, camelCased there as `rangeFilter`, `range2Filter`, `boolFilter`, and `termQuery`. Get the date format and field names right, and pick the filter that matches your question: one range, an overlap between two ranges, several conditions at once, or an exact match.
 
 But that grammar isn't the whole SCAPI story, and confusing it with the wrong surface costs real debugging time. Shopper-facing search runs on `refine` query-string parameters, not this JSON body, and OCAPI itself is on a maintenance clock now. Check which side of that line your integration sits on before you write the first query.
