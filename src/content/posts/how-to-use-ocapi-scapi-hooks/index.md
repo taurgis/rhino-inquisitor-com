@@ -30,7 +30,7 @@ So, you need to add a custom attribute to the basket response, or maybe validate
 
 Salesforce Commerce API (SCAPI) and OCAPI (Open Commerce API) hooks are one of the most powerful tools in our arsenal for extending the platform's [headless](/sitegenesis-vs-sfra-vs-pwa/) capabilities. They let us inject custom logic directly into the API lifecycle, bending the out-of-the-box behaviour to fit a specific business requirement. That same reach is what makes them dangerous.
 
-> [!IMPORTANT]
+> [!WARNING]
 > OCAPI is now officially deprecated. Salesforce ships new endpoints and features to SCAPI only, and the OCAPI reference is labelled "deprecated" across the developer docs. Hooks still run for both APIs, so everything here applies to the OCAPI integrations you already have in production. But if you are starting something new, build it on SCAPI. There is no published shut-off date, so treat OCAPI as maintenance-only and migrate on your own timeline rather than waiting for a deadline.
 
 The official documentation gives you the "what" and the "how." What it tends to skip is what happens under production load, which is where the real lessons are learned. A hook that looked harmless in a sandbox can introduce a security hole, a performance cliff, or a maintenance headache the moment real traffic hits it.
@@ -233,7 +233,7 @@ var order = OrderMgr.getOrder(orderNumber);
 var order = OrderMgr.getOrder(orderNumber, orderToken);
 ```
 
-The `orderToken` is generated when the order is created and is hard to guess by design, so requiring it turns "give me order 00001234" into "give me order 00001234 *and prove you have its token*." Back this up with the **Limit Storefront Order Access** site preference (Merchant Tools > Site Preferences > Order). With it enabled, an _insecure_ single-argument `OrderMgr.getOrder(orderNumber)` — one where the current session didn't create the order, the session customer doesn't own it, and the order has moved past `CREATED` status — is rejected with a `SecurityException` instead of quietly returning the order. Enable it on each storefront site so the platform enforces ownership itself, rather than trusting every hook to remember the check.
+The `orderToken` is generated when the order is created and is hard to guess by design, so requiring it turns "give me order 00001234" into "give me order 00001234 _and prove you have its token_." Back this up with the **Limit Storefront Order Access** site preference (Merchant Tools > Site Preferences > Order). With it enabled, an _insecure_ single-argument `OrderMgr.getOrder(orderNumber)` — one where the current session didn't create the order, the session customer doesn't own it, and the order has moved past `CREATED` status — is rejected with a `SecurityException` instead of quietly returning the order. Enable it on each storefront site so the platform enforces ownership itself, rather than trusting every hook to remember the check.
 
 This pattern extends to other sensitive objects. Always perform additional checks to confirm the user's authority to perform the requested action.
 
