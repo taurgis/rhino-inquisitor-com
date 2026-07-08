@@ -1,0 +1,61 @@
+{{- /*
+  Returns the canonical Person entity for the site author with a stable @id
+  (`<home>#person`) so Organization, WebSite, BlogPosting, and ProfilePage
+  schema can all reference the same node. Single source of truth is the
+  [params.author] table in hugo.toml. Empty fields are omitted rather than
+  emitted blank. Consumed via `partial` (returns a dict, does not render).
+*/ -}}
+{{- $a := .Site.Params.author | default dict -}}
+{{- $home := .Site.Home.Permalink -}}
+{{- $person := dict
+  "@type" "Person"
+  "@id" (printf "%s#person" $home)
+  "name" ($a.name | default .Site.Title)
+-}}
+{{- with $a.url -}}
+  {{- $url := . -}}
+  {{- if not (or (hasPrefix $url "http://") (hasPrefix $url "https://")) -}}
+    {{- $url = (strings.TrimPrefix "/" $url) | absURL -}}
+  {{- end -}}
+  {{- $person = merge $person (dict "url" $url) -}}
+{{- end -}}
+{{- with $a.jobTitle -}}
+  {{- $person = merge $person (dict "jobTitle" .) -}}
+{{- end -}}
+{{- with $a.description -}}
+  {{- $person = merge $person (dict "description" .) -}}
+{{- end -}}
+{{- with $a.image -}}
+  {{- $img := "" -}}
+  {{- if or (hasPrefix . "http://") (hasPrefix . "https://") -}}
+    {{- $img = . -}}
+  {{- else -}}
+    {{- $path := strings.TrimPrefix "/" . -}}
+    {{- with resources.Get $path -}}
+      {{- if reflect.IsImageResourceProcessable . -}}
+        {{- $img = (.Process "webp q80").Permalink -}}
+      {{- else -}}
+        {{- $img = .Permalink -}}
+      {{- end -}}
+    {{- else -}}
+      {{- $img = $path | absURL -}}
+    {{- end -}}
+  {{- end -}}
+  {{- with $img -}}
+    {{- $person = merge $person (dict "image" (dict "@type" "ImageObject" "url" .)) -}}
+  {{- end -}}
+{{- end -}}
+{{- with $a.worksForName -}}
+  {{- $worksFor := dict "@type" "Organization" "name" . -}}
+  {{- with $a.worksForUrl -}}
+    {{- $worksFor = merge $worksFor (dict "url" .) -}}
+  {{- end -}}
+  {{- $person = merge $person (dict "worksFor" $worksFor) -}}
+{{- end -}}
+{{- with $a.knowsAbout -}}
+  {{- $person = merge $person (dict "knowsAbout" .) -}}
+{{- end -}}
+{{- with $a.sameAs -}}
+  {{- $person = merge $person (dict "sameAs" .) -}}
+{{- end -}}
+{{- return $person -}}

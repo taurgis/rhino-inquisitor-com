@@ -9,6 +9,7 @@ url: /about/
 draft: false
 archiveExclude: true
 author: Thomas Theunen
+profilePage: true
 ---
 Rhino Inquisitor is the place where I document the technical side of Salesforce B2C Commerce Cloud work that usually gets compressed into architecture meetings, incident calls, migration plans, and release-readiness checklists.
 

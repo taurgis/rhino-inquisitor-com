@@ -38,6 +38,10 @@
   {{ partial "seo/json-ld-article.html" . }}
 {{ end }}
 
+{{ if and .IsPage (.Params.profilePage) }}
+  {{ partial "seo/json-ld-profile.html" . }}
+{{ end }}
+
 {{ if and .IsPage (index (.Params.video | default dict) "id") }}
   {{ partial "seo/json-ld-video.html" . }}
 {{ end }}

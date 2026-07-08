@@ -109,3 +109,29 @@ defaultSocialImage = "/images/social-default.svg"
 maxSnippet = -1
 maxImagePreview = "large"
 maxVideoPreview = -1
+
+# Canonical author identity. Single source of truth for the Person entity that
+# ties Organization, WebSite, Article, and ProfilePage JSON-LD together via a
+# stable @id, strengthening E-E-A-T signals for search and generative engines.
+[params.author]
+name = "Thomas Theunen"
+jobTitle = "Head of Commerce"
+url = "/about/"
+image = "images/home/thomas-theunen-hero.jpg"
+description = "Head of Commerce at Forward with more than a decade of experience in Salesforce B2C Commerce Cloud architecture, delivery, platform strategy, and migration."
+worksForName = "Forward"
+worksForUrl = "https://www.forward.eu"
+sameAs = [
+  "https://github.com/taurgis/",
+  "https://www.linkedin.com/in/thomas-theunen-10905680/",
+  "https://www.salesforce.com/trailblazer/thomas-theunen",
+]
+knowsAbout = [
+  "Salesforce B2C Commerce Cloud",
+  "Storefront Reference Architecture (SFRA)",
+  "Composable and headless commerce",
+  "SCAPI and OCAPI integration",
+  "Commerce platform architecture",
+  "Site performance and caching strategy",
+  "Ecommerce migration and SEO",
+]
