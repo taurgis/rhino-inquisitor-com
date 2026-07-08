@@ -5,6 +5,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { promisify } from 'node:util';
 
 import pLimit from 'p-limit';
+import { EnvHttpProxyAgent, fetch as undiciFetch } from 'undici';
 
 import { DOMAIN_RULES, resolveDomainRule } from './external-link-domains.js';
 
@@ -42,6 +43,10 @@ import { DOMAIN_RULES, resolveDomainRule } from './external-link-domains.js';
  * code are masked first — URLs there are examples, not citations. URLs whose
  * host contains `{`/`}` template placeholders are ignored; a host without a
  * single dot (e.g. the literal `http://t`) is reported as a malformed link.
+ *
+ * `--registry` runs the offline registry-coverage check over ALL content
+ * (no network): it is registered in the deploy pipeline's build gate group as
+ * the backstop for commits that bypassed the hook (--no-verify, web edits).
  */
 
 const REPO_ROOT = path.resolve(fileURLToPath(new URL('../..', import.meta.url)));
@@ -50,12 +55,30 @@ const REGISTRY_PATH = 'scripts/gates/external-link-domains.js';
 const REQUEST_TIMEOUT_MS = 15000;
 const RENDER_TIMEOUT_MS = 30000;
 const RENDER_SETTLE_MS = 2000;
+// A rendered page whose settled text is shorter than this is judged
+// "did not load" rather than "alive" — an unrendered SPA shell, a bot
+// challenge, or a blocked request all produce near-empty text, and treating
+// that as OK would silently pass dead links (per-domain override:
+// rule.minTextChars).
+const RENDER_MIN_TEXT_CHARS = 250;
 const CONCURRENCY = 8;
 const USER_AGENT =
   'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) ' +
   'Chrome/126.0.0.0 Safari/537.36 rhino-inquisitor-link-gate';
 
 const execFileAsync = promisify(execFile);
+
+// Node's fetch ignores HTTP(S)_PROXY environment variables, which would turn
+// every status check into a useless "request failed" warning behind a
+// corporate proxy. Route through undici's env-aware agent when one is set.
+const proxyEnvConfigured = ['HTTPS_PROXY', 'https_proxy', 'HTTP_PROXY', 'http_proxy'].some(
+  (name) => process.env[name]
+);
+const envProxyAgent = proxyEnvConfigured ? new EnvHttpProxyAgent() : null;
+
+function proxyFetch(url, init = {}) {
+  return undiciFetch(url, { ...init, dispatcher: envProxyAgent });
+}
 
 // --- extraction --------------------------------------------------------------
 
@@ -72,7 +95,7 @@ function maskNonProse(source) {
     .replace(/^---\r?\n[\s\S]*?\r?\n---(\r?\n|$)/, blankPreservingLines)
     .replace(/```[\s\S]*?(```|$)/g, blankPreservingLines)
     .replace(/~~~[\s\S]*?(~~~|$)/g, blankPreservingLines)
-    .replace(/`[^`\n]*`/g, blankPreservingLines);
+    .replace(/(`{1,2})[^`\n]*?\1/g, blankPreservingLines);
 }
 
 const LINK_PATTERNS = [
@@ -82,7 +105,8 @@ const LINK_PATTERNS = [
   // Autolinks: <https://...>
   /<((?:https?:\/\/)[^>\s]+)>/g,
   // Raw HTML anchors that survive in Markdown bodies.
-  /href="((?:https?:\/\/)[^"]+)"/g
+  /href="((?:https?:\/\/)[^"]+)"/g,
+  /href='((?:https?:\/\/)[^']+)'/g
 ];
 
 /**
@@ -187,7 +211,7 @@ function judgeStatus(status, rule = {}) {
   };
 }
 
-async function checkStatusLink(url, rule, { fetchImpl = fetch } = {}) {
+async function fetchVerdict(url, rule, fetchImpl) {
   try {
     const response = await fetchImpl(url, {
       redirect: 'follow',
@@ -212,6 +236,21 @@ async function checkStatusLink(url, rule, { fetchImpl = fetch } = {}) {
   }
 }
 
+async function checkStatusLink(url, rule, { fetchImpl = null } = {}) {
+  if (fetchImpl) {
+    return fetchVerdict(url, rule, fetchImpl);
+  }
+  const primary = await fetchVerdict(url, rule, envProxyAgent ? proxyFetch : fetch);
+  if (primary.state !== 'warn' || !envProxyAgent) {
+    return primary;
+  }
+  // The configured proxy blocked or failed the request without a definitive
+  // answer; some environments allow direct egress the proxy denies, so a
+  // direct attempt may still settle the verdict.
+  const direct = await fetchVerdict(url, rule, fetch);
+  return direct.state === 'warn' ? primary : direct;
+}
+
 /** Judge a rendered SPA page against the domain rule. Exported for tests. */
 function judgeRenderedPage({ finalUrl, text }, rule) {
   for (const pattern of rule.deadUrlPatterns ?? []) {
@@ -224,6 +263,16 @@ function judgeRenderedPage({ finalUrl, text }, rule) {
     if (match) {
       return { state: 'dead', detail: `rendered page says "${match[0]}"` };
     }
+  }
+  const textLength = text.trim().length;
+  const minTextChars = rule.minTextChars ?? RENDER_MIN_TEXT_CHARS;
+  if (textLength < minTextChars) {
+    return {
+      state: 'warn',
+      detail:
+        `rendered page has almost no text (${textLength} chars) — ` +
+        'the client app may not have loaded; verify this link manually'
+    };
   }
   return { state: 'ok', detail: 'rendered without a not-found marker' };
 }
@@ -315,7 +364,7 @@ async function createPlaywrightRenderer() {
  */
 async function verifyLinks(
   links,
-  { rules = DOMAIN_RULES, fetchImpl = fetch, createRenderer = createPlaywrightRenderer } = {}
+  { rules = DOMAIN_RULES, fetchImpl = null, createRenderer = createPlaywrightRenderer } = {}
 ) {
   const limit = pLimit(CONCURRENCY);
   const verdictByUrl = new Map();
@@ -382,9 +431,11 @@ function isContentMarkdown(file) {
 }
 
 async function listStagedContentFiles() {
+  // ACMR: without R, a renamed-and-edited article (a slug rename is exactly
+  // when links get touched) is invisible to the gate.
   const { stdout } = await execFileAsync(
     'git',
-    ['diff', '--cached', '--name-only', '--diff-filter=ACM'],
+    ['diff', '--cached', '--name-only', '--diff-filter=ACMR'],
     { cwd: REPO_ROOT }
   );
   return stdout.split('\n').filter(Boolean).filter(isContentMarkdown);
@@ -406,17 +457,51 @@ async function listAllContentFiles() {
 // --- CLI ---------------------------------------------------------------------
 
 function parseArgs(argv) {
-  const parsed = { files: [], staged: false, all: false };
+  const parsed = { files: [], staged: false, all: false, registry: false };
   for (const arg of argv) {
     if (arg === '--staged') parsed.staged = true;
     else if (arg === '--all') parsed.all = true;
+    else if (arg === '--registry') parsed.registry = true;
     else parsed.files.push(arg);
   }
   return parsed;
 }
 
+/**
+ * Offline registry-coverage check over ALL content: every linked domain must
+ * resolve in the registry. No network use, so it is deterministic enough to
+ * run in CI as the backstop for commits that bypassed the pre-commit hook
+ * (--no-verify, web-UI edits, machines without hooks installed).
+ */
+async function checkRegistryCoverage() {
+  const files = await listAllContentFiles();
+  const links = [];
+  for (const file of files) {
+    const raw = await fs.readFile(path.join(REPO_ROOT, file), 'utf8');
+    for (const link of extractExternalLinks(raw)) {
+      link.file = file;
+      links.push(link);
+    }
+  }
+  const unknown = collectUnknownDomains(links);
+  if (unknown.size > 0) {
+    console.error(unknownDomainMessage(unknown));
+    process.exitCode = 1;
+    return;
+  }
+  const domains = new Set(links.filter((link) => !link.malformed).map((link) => link.host));
+  console.log(
+    `external-link gate: registry covers all ${domains.size} domain(s) linked across ` +
+      `${files.length} content file(s).`
+  );
+}
+
 async function main() {
   const args = parseArgs(process.argv.slice(2));
+  if (args.registry) {
+    await checkRegistryCoverage();
+    return;
+  }
   let files;
   let read;
   if (args.staged) {
@@ -430,7 +515,7 @@ async function main() {
     read = (file) => fs.readFile(path.join(REPO_ROOT, file), 'utf8');
   } else {
     console.error(
-      'usage: node scripts/gates/check-external-links.js --staged | --all | <file.md> [...]'
+      'usage: node scripts/gates/check-external-links.js --staged | --all | --registry | <file.md> [...]'
     );
     process.exitCode = 2;
     return;

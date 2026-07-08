@@ -18,8 +18,9 @@ set -euo pipefail
 
 repo_root="$(git rev-parse --show-toplevel)"
 
-# Only run when the commit stages Markdown under src/content.
-if ! git diff --cached --name-only --diff-filter=ACM | grep -qE '^src/content/.*\.md$'; then
+# Only run when the commit stages Markdown under src/content (ACMR: renamed
+# articles count too — a slug rename is exactly when links get touched).
+if ! git diff --cached --name-only --diff-filter=ACMR | grep -qE '^src/content/.*\.md$'; then
   exit 0
 fi
 

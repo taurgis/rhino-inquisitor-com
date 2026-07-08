@@ -128,6 +128,7 @@ CANONICAL_PRODUCTION_BASE_URL="$(normalize_url "$CANONICAL_PRODUCTION_BASE_URL")
 
 register_gate "Validate front matter" "cd \"$REPO_ROOT\" && npm run validate:frontmatter" "build"
 register_gate "Check content spelling" "cd \"$REPO_ROOT\" && npm run check:spelling" "build"
+register_gate "Check external-link domain registry coverage" "cd \"$REPO_ROOT\" && npm run check:external-links -- --registry" "build"
 register_gate "Enforce local video shortcode policy" "cd \"$REPO_ROOT\" && npm run check:local-video-shortcodes" "build"
 register_gate "Build production validation site" "cd \"$REPO_ROOT\" && build_started_at=\$(node -e 'console.log(Date.now())') && npm run build:prod && build_finished_at=\$(node -e 'console.log(Date.now())') && mkdir -p \"\$(dirname \"$BUILD_DURATION_PATH\")\" && printf '%s' \"\$((build_finished_at - build_started_at))\" > \"$BUILD_DURATION_PATH\"" "build"
 register_gate "Validate production artifact integrity and size" "cd \"$REPO_ROOT\" && npm run validate:artifact -- --label production-validation --report tmp/artifact-validation-production.json" "build"

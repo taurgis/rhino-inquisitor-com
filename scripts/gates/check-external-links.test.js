@@ -131,11 +131,31 @@ test('help.salesforce.com markers catch the SPA not-found page', () => {
   const alive = judgeRenderedPage(
     {
       finalUrl: 'https://help.salesforce.com/s/articleView?id=cc.b2c_access_files_webdav.htm&type=5',
-      text: 'Access Files with WebDAV — use the folder browser to inspect impex.'
+      text:
+        'Access Files with WebDAV — use the folder browser in Business Manager to inspect ' +
+        'the impex, cartridges, logs, and temp folders on an instance. '.repeat(4)
     },
     rule
   );
   assert.equal(alive.state, 'ok');
+});
+
+test('render: a near-empty rendered page warns instead of passing as alive', () => {
+  // An unrendered SPA shell, bot challenge, or blocked request produces
+  // almost no text; treating that as OK would silently pass dead links.
+  const rule = resolveDomainRule('help.salesforce.com');
+  const shell = judgeRenderedPage(
+    { finalUrl: 'https://help.salesforce.com/s/articleView?id=cc.x.htm', text: 'Loading…' },
+    rule
+  );
+  assert.equal(shell.state, 'warn');
+  assert.match(shell.detail, /almost no text/);
+  // A short page that DOES contain a dead marker still fails hard.
+  const deadShell = judgeRenderedPage(
+    { finalUrl: 'https://help.salesforce.com/s/articleView?id=cc.x.htm', text: 'Page Not Found' },
+    rule
+  );
+  assert.equal(deadShell.state, 'dead');
 });
 
 // --- domain resolution --------------------------------------------------------
@@ -202,6 +222,14 @@ test('extraction: templated hosts are dropped, dotless hosts flagged malformed',
   assert.ok(!links.some((link) => link.host?.includes('{')));
   const broken = links.find((link) => link.url === 'http://t');
   assert.equal(broken.malformed, true);
+});
+
+test('extraction: double-backtick code spans and single-quoted hrefs', () => {
+  const source =
+    'Endpoint ``https://double-tick.example.dev/api`` is code, but\n' +
+    "<a href='https://developer.mozilla.org/en-US/docs/Web/API'>MDN</a> is a link.";
+  const urls = extractExternalLinks(source).map((link) => link.url);
+  assert.deepEqual(urls, ['https://developer.mozilla.org/en-US/docs/Web/API']);
 });
 
 test('maskNonProse keeps offsets stable (masking replaces with spaces)', () => {
@@ -291,7 +319,9 @@ test('verifyLinks: per-strategy verdicts with stubbed fetch and renderer', async
       async render(url) {
         return {
           finalUrl: url,
-          text: url.endsWith('/missing') ? 'Oops — Page Not Found' : 'Real article body'
+          text: url.endsWith('/missing')
+            ? 'Oops — Page Not Found'
+            : 'A real article body with plenty of rendered text. '.repeat(10)
         };
       },
       async close() {}
@@ -370,4 +400,12 @@ test('CLI: no arguments prints usage and exits 2', async () => {
   const { code, stderr } = await runGate([]);
   assert.equal(code, 2);
   assert.match(stderr, /usage:/);
+});
+
+test('CLI: --registry passes offline over the current content baseline', async () => {
+  // The CI backstop: must stay green without network access, so it can run
+  // in the deploy pipeline's build gate group deterministically.
+  const { code, stdout } = await runGate(['--registry']);
+  assert.equal(code, 0, stdout);
+  assert.match(stdout, /registry covers all \d+ domain\(s\)/);
 });

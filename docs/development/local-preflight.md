@@ -27,7 +27,11 @@ All fast, repo-local checks (~5–10 seconds total; no Hugo build required):
 1. `npm run validate:frontmatter`
 2. `npm run check:local-video-shortcodes`
 3. `npm run test:url-parity`
-4. `markdownlint-cli2` on Markdown files changed vs the merge-base with
+4. `npm run test:external-links` — offline regression suite for the
+   pre-commit external-link gate, including the registry-coverage baseline
+   (every domain linked from `src/content` must be classified in
+   `scripts/gates/external-link-domains.js`)
+5. `markdownlint-cli2` on Markdown files changed vs the merge-base with
    `origin/main` (skipped when `origin/main` is unavailable)
 
 Build-dependent gates (URL parity against `public/`, SEO artifact checks,

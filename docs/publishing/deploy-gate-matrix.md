@@ -771,13 +771,20 @@ Verdicts are deliberately asymmetric so the hook never blocks an author on
 someone else's flaky server: only confident dead signals fail (404, 410,
 NXDOMAIN, a rendered not-found page, a malformed URL such as `http://t`);
 403/429 bot walls, 5xx, timeouts, offline commits, and a missing Playwright
-browser degrade to warnings. The `render` strategy needs a Playwright
-Chromium (`npx playwright install chromium`); without one those links warn
-with that instruction. Escape hatches: `SKIP_LINK_CHECK=1 git commit ...`
-skips the gate (`SKIP_SPELLING=1` now skips only the spelling gate);
-`LINK_GATE_CHROMIUM=<path>` points the renderer at a specific browser binary;
-`LINK_GATE_IGNORE_HTTPS_ERRORS=1` lets the renderer work behind a
-TLS-inspecting proxy.
+browser degrade to warnings. A rendered page whose settled text is almost
+empty (< 250 chars, per-domain override `minTextChars`) also warns rather
+than passing — an unloaded SPA shell or bot challenge must not be mistaken
+for a live article. Staged files are detected with `--diff-filter=ACMR`, so
+renamed-and-edited articles (slug renames) are checked too. Status checks
+honour `HTTP(S)_PROXY` (Node's fetch ignores those env vars; the gate routes
+through undici's env-aware proxy agent, and falls back to a direct attempt
+when the proxy answers without a definitive verdict). The `render` strategy
+needs a Playwright Chromium (`npx playwright install chromium`); without one
+those links warn with that instruction. Escape hatches:
+`SKIP_LINK_CHECK=1 git commit ...` skips the gate (`SKIP_SPELLING=1` now
+skips only the spelling gate); `LINK_GATE_CHROMIUM=<path>` points the
+renderer at a specific browser binary; `LINK_GATE_IGNORE_HTTPS_ERRORS=1`
+lets the renderer work behind a TLS-inspecting proxy.
 
 The `render` markers are best-effort snapshots of each SPA's not-found
 wording; when a Salesforce property rewords its error page, tune the
@@ -786,26 +793,46 @@ the DOC1 redirect mapping described in
 `docs/content/webdav-article-refresh-2026-07.md` remains the reliable manual
 oracle.
 
+### Enforcement layers
+
+Enforcement is layered so a commit that bypassed the hook (`--no-verify`,
+GitHub web edits, a machine without hooks) cannot rot the registry:
+
+| Layer | When | What runs | Network |
+| --- | --- | --- | --- |
+| pre-commit hook | staged `src/content/**` Markdown | full link verification (`--staged`) | yes |
+| pre-push preflight | every push | `npm run test:external-links` regression suite | no |
+| deploy pipeline (`build` gate group) | push to `main` | `npm run check:external-links -- --registry` — registry coverage over all content | no |
+
+Live link fetching deliberately stays out of CI: third-party outages must not
+make the deploy pipeline flaky. The CI layers enforce the deterministic part
+(every linked domain is classified); liveness is checked at authoring time.
+
 ### Impact and verification
 
 - Impacted components: `.githooks/pre-commit` (runs the new gate after the
-  spelling gate), `package.json` (`check:external-links`,
-  `test:external-links`), and the three new files under `scripts/gates/`.
-  The deploy workflow is unchanged: the gate is local-only because it needs
-  the network and must not make CI flaky on third-party outages.
-- Verify: `npm run test:external-links` (24 tests) covers extraction/masking,
+  spelling gate; trigger widened to `--diff-filter=ACMR`),
+  `scripts/preflight.sh` (runs the regression suite),
+  `scripts/gates/run-all-gates.sh` (registry-coverage gate in the `build`
+  group, so `deploy-pages.yml` picks it up without workflow changes),
+  `package.json` (`check:external-links`, `test:external-links`), and the
+  three new files under `scripts/gates/`.
+- Verify: `npm run test:external-links` (27 tests) covers extraction/masking,
   registry integrity, the render-strategy classification of the async
-  Salesforce SPAs, stubbed status/render/skip verdicts, and — as the
+  Salesforce SPAs, the near-empty-render warning, stubbed
+  status/render/skip verdicts, the offline `--registry` mode, and — as the
   baseline contract — that every domain currently linked from `src/content`
   resolves in the registry. End to end: stage an article containing
   `https://github.com/SalesforceCommerceCloud/not-a-real-repo-xyz` and
   confirm `npm run check:external-links -- --staged` exits 1 with `HTTP 404`;
   link any never-used domain and confirm it exits 1 with the registration
-  instructions before any network request.
+  instructions before any network request; run
+  `npm run check:external-links -- --registry` and confirm it reports full
+  coverage offline.
 - Related files: `scripts/gates/check-external-links.js`,
   `scripts/gates/check-external-links.test.js`,
   `scripts/gates/external-link-domains.js`, `.githooks/pre-commit`,
-  `package.json`.
+  `scripts/preflight.sh`, `scripts/gates/run-all-gates.sh`, `package.json`.
 
 ## Related files
 
