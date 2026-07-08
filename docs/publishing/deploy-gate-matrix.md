@@ -864,21 +864,27 @@ callout's visible label). All findings block:
 | `unknown-type` | `> [!IMPORTANT]` | The theme has no styling for it — renders as an unstyled box; the report suggests the closest supported type (`INFO`→`NOTE`, `IMPORTANT`/`CAUTION`→`WARNING`, ...) |
 | `type-case` | `> [!note]` | House form is uppercase; mixed case signals a hand-typed marker |
 | `trailing-text` | `> [!NOTE] Remember this` | Hugo parses the trailing text as an Obsidian alert title, which the render hook ignores — the text silently vanishes from the page |
-| `empty-callout` | marker with no `>`-quoted content after it | Renders a label-only box; the paragraph the author meant to highlight stays plain body text |
+| `empty-callout` | marker with no content at all | Renders a label-only box (verified with Hugo 0.163 against the render hook) |
+| `lazy-continuation` | `> [!NOTE]` followed by an unquoted content line | CommonMark lazy continuation renders it inside the box today, but a blank line or reflow silently drops it out — every content line must carry the `>` |
 | `redundant-label` | `> [!NOTE]` + `> **Note:** ...` / `**Info:**` / `**Important:**` | Duplicates or contradicts the label the theme already renders (the main defect class of the sweep) |
 | `marker-not-first` | `[!NOTE]` on a later line of a blockquote | Hugo only recognises the alert on the quote's first line — publishes as literal text |
 | `missing-quote` | `[!NOTE]` at the start of a plain line | Same literal-text failure, missing the `>` |
-| `bold-pseudo-callout` | paragraph opening `**Important:**` / `Warning! ...` | An operational gotcha styled as body text instead of a warning box |
+| `bold-pseudo-callout` | paragraph opening `**Important:**` / `**Important**:` / `Warning! ...` | An operational gotcha styled as body text instead of a warning box. The label must carry its `:`/`!` punctuation — a bare `**Warning**` lead is referential prose ("**Warning** and **Error** levels...") and passes |
 
 Deliberately allowed, because they are the author's established voice
 (`src/content/posts/AGENTS.md`): plain `**Note:**` / `**Pro tip:**` asides,
 and meaningful bold mini-titles inside callouts (`**Deprecated:**`,
 `**Limitations:**`, `**Updated 26 July 2025:**`). Fenced code blocks, inline
 code spans, and HTML comments are masked so posts can quote alert syntax as
-an example; `AGENTS.md` files are excluded entirely (they cite broken
-patterns verbatim). The gate is dependency-free (plain `node`, no
-`node_modules`), so the hook runs it even on a machine that has not run
-`npm ci`. Escape hatch: `SKIP_CALLOUT_CHECK=1 git commit ...`.
+an example (the masking preserves `>` characters, so a fenced code block
+inside a callout neither splits the blockquote nor reads as an empty
+callout); indented 4-space code blocks are skipped by a prose-column guard;
+`AGENTS.md` files are excluded entirely (they cite broken patterns
+verbatim). The gate is dependency-free (plain `node`, no `node_modules`), so
+the hook runs it even on a machine that has not run `npm ci`, and an `--all`
+sweep that finds no content files exits non-zero rather than reporting a
+silent green on a broken checkout. Escape hatch:
+`SKIP_CALLOUT_CHECK=1 git commit ...`.
 
 ### Enforcement layers
 
@@ -895,11 +901,13 @@ patterns verbatim). The gate is dependency-free (plain `node`, no
   suite), `scripts/gates/run-all-gates.sh` (`--all` sweep in the `build`
   group, so `deploy-pages.yml` picks it up without workflow changes), and
   `package.json` (`check:callouts`, `test:callouts`).
-- Verify: `npm run test:callouts` (22 tests) covers each finding type, the
-  allowed house-voice shapes, code-block masking, line-number reporting, the
-  six defect shapes from the 2026-07 sweep, and — as the baseline contract —
-  that every published content file passes. End to end: stage an article
-  containing `> [!IMPORTANT]` and confirm
+- Verify: `npm run test:callouts` (30 tests) covers each finding type, the
+  allowed house-voice shapes, fenced/indented code masking (including a fence
+  inside a callout), lazy-continuation vs empty-callout classification (both
+  verified empirically against Hugo 0.163 + the render hook), CRLF input,
+  line-number reporting, the six defect shapes from the 2026-07 sweep, and —
+  as the baseline contract — that every published content file passes. End to
+  end: stage an article containing `> [!IMPORTANT]` and confirm
   `npm run check:callouts -- --staged` exits 1 suggesting `[!WARNING]`; run
   `npm run check:callouts -- --all` and confirm the corpus is clean.
 - Related files: `scripts/gates/check-callouts.js`,

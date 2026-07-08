@@ -62,6 +62,28 @@ test('alert syntax inside fenced code and inline code is ignored', () => {
   assert.deepEqual(analyzeSource(body), []);
 });
 
+test('a fenced code block inside a callout is content, not an empty callout', () => {
+  const withIntro = '> [!WARNING]\n> Run this first:\n>\n> ```js\n> var x = 1;\n> ```\n';
+  assert.deepEqual(analyzeSource(withIntro), []);
+  const fenceOnly = '> [!NOTE]\n> ```\n> code\n> ```\n';
+  assert.deepEqual(analyzeSource(fenceOnly), []);
+});
+
+test('a literal marker after an in-callout fence is still caught', () => {
+  const body = '> [!NOTE]\n> ```\n> code\n> ```\n> [!WARNING]\n> text\n';
+  assert.deepEqual(types(analyzeSource(body)), ['marker-not-first']);
+});
+
+test('alert syntax inside a 4-space indented code block is ignored', () => {
+  const body = 'Example:\n\n    [!NOTE] inside indented code\n    **Important:** also code\n';
+  assert.deepEqual(analyzeSource(body), []);
+});
+
+test('CRLF sources are handled', () => {
+  const body = '---\r\ntitle: t\r\n---\r\n> [!IMPORTANT]\r\n> Content.\r\n';
+  assert.deepEqual(types(analyzeSource(body)), ['unknown-type']);
+});
+
 // --- blocking shapes ----------------------------------------------------------
 
 test('an alert type the theme does not style is flagged with a suggestion', () => {
@@ -94,6 +116,20 @@ test('text on the marker line is flagged (the theme drops it)', () => {
 test('a marker with no quoted content is flagged as empty', () => {
   const findings = analyzeSource('> [!NOTE]\n\nThis paragraph was meant to be inside the box.\n');
   assert.deepEqual(types(findings), ['empty-callout']);
+});
+
+test('unquoted content after a callout is flagged as a lazy continuation', () => {
+  // CommonMark lazy continuation: this renders INSIDE the box today, so it
+  // must not be reported as empty — the box is fragile, not empty.
+  const bare = analyzeSource('> [!NOTE]\nlazy continuation content here\n');
+  assert.deepEqual(types(bare), ['lazy-continuation']);
+  const afterContent = analyzeSource('> [!NOTE]\n> Quoted line.\nlazy trailing line\n');
+  assert.deepEqual(types(afterContent), ['lazy-continuation']);
+});
+
+test('a block start after a callout is not a lazy continuation', () => {
+  const body = '> [!NOTE]\n> Content.\n## Next heading\n\n> [!TIP]\n> Content.\n- a list item\n';
+  assert.deepEqual(analyzeSource(body), []);
 });
 
 test('a redundant generic bold mini-title is flagged', () => {
@@ -134,6 +170,18 @@ test('a bold **Info:** paragraph suggests a NOTE callout', () => {
   const findings = analyzeSource('**Info:** This article was updated in July 2025.\n');
   assert.deepEqual(types(findings), ['bold-pseudo-callout']);
   assert.match(findings[0].message, /\[!NOTE\]/);
+});
+
+test('punctuation outside the bold is also a pseudo-callout', () => {
+  const findings = analyzeSource('**Important**: This switch is per environment.\n');
+  assert.deepEqual(types(findings), ['bold-pseudo-callout']);
+});
+
+test('a bare bold urgency word without punctuation is referential prose', () => {
+  const body =
+    '**Warning** and **Error** log levels differ in retention.\n\n' +
+    '**Important considerations** apply to both storefronts.\n';
+  assert.deepEqual(analyzeSource(body), []);
 });
 
 test('an urgency word mid-sentence or as a heading is not flagged', () => {
