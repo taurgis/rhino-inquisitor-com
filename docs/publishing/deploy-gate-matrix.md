@@ -834,6 +834,80 @@ make the deploy pipeline flaky. The CI layers enforce the deterministic part
   `scripts/gates/external-link-domains.js`, `.githooks/pre-commit`,
   `scripts/preflight.sh`, `scripts/gates/run-all-gates.sh`, `package.json`.
 
+## Update: callout gate (pre-commit)
+
+### Change summary
+
+The 2026-07-07 callout sweep fixed six mis-styled info/warning callouts that
+had accumulated across posts (plus a seventh — an all-caps `IMPORTANT!`
+paragraph in the 23.3 release post — found while calibrating this gate):
+redundant bold mini-titles inside GitHub alerts, alert types the theme does
+not style, and operational gotchas written as bold body text instead of a
+callout box. Nothing prevented the next commit from reintroducing the same
+drift, so a callout gate now checks the staged article(s) before the commit
+lands.
+
+### Behavior details
+
+Old: `.githooks/pre-commit` ran the spelling and external-link gates on
+staged `src/content/**` Markdown; callout markup was never checked anywhere.
+
+New: the hook first runs `node scripts/gates/check-callouts.js --staged`,
+which validates every callout in the staged version of each article against
+the theme contract in
+`src/layouts/_default/_markup/render-blockquote.html` (the render hook styles
+exactly `[!NOTE]`, `[!TIP]`, and `[!WARNING]` and prints the type as the
+callout's visible label). All findings block:
+
+| Finding | Example | Why it blocks |
+| --- | --- | --- |
+| `unknown-type` | `> [!IMPORTANT]` | The theme has no styling for it — renders as an unstyled box; the report suggests the closest supported type (`INFO`→`NOTE`, `IMPORTANT`/`CAUTION`→`WARNING`, ...) |
+| `type-case` | `> [!note]` | House form is uppercase; mixed case signals a hand-typed marker |
+| `trailing-text` | `> [!NOTE] Remember this` | Hugo parses the trailing text as an Obsidian alert title, which the render hook ignores — the text silently vanishes from the page |
+| `empty-callout` | marker with no `>`-quoted content after it | Renders a label-only box; the paragraph the author meant to highlight stays plain body text |
+| `redundant-label` | `> [!NOTE]` + `> **Note:** ...` / `**Info:**` / `**Important:**` | Duplicates or contradicts the label the theme already renders (the main defect class of the sweep) |
+| `marker-not-first` | `[!NOTE]` on a later line of a blockquote | Hugo only recognises the alert on the quote's first line — publishes as literal text |
+| `missing-quote` | `[!NOTE]` at the start of a plain line | Same literal-text failure, missing the `>` |
+| `bold-pseudo-callout` | paragraph opening `**Important:**` / `Warning! ...` | An operational gotcha styled as body text instead of a warning box |
+
+Deliberately allowed, because they are the author's established voice
+(`src/content/posts/AGENTS.md`): plain `**Note:**` / `**Pro tip:**` asides,
+and meaningful bold mini-titles inside callouts (`**Deprecated:**`,
+`**Limitations:**`, `**Updated 26 July 2025:**`). Fenced code blocks, inline
+code spans, and HTML comments are masked so posts can quote alert syntax as
+an example; `AGENTS.md` files are excluded entirely (they cite broken
+patterns verbatim). The gate is dependency-free (plain `node`, no
+`node_modules`), so the hook runs it even on a machine that has not run
+`npm ci`. Escape hatch: `SKIP_CALLOUT_CHECK=1 git commit ...`.
+
+### Enforcement layers
+
+| Layer | When | What runs |
+| --- | --- | --- |
+| pre-commit hook | staged `src/content/**` Markdown | `check:callouts -- --staged` |
+| pre-push preflight | every push | `test:callouts` regression suite (includes the whole-corpus baseline test) |
+| deploy pipeline (`build` gate group) | push to `main` | `check:callouts -- --all` over all content — the backstop for commits that bypassed the hook |
+
+### Impact and verification
+
+- Impacted components: `.githooks/pre-commit` (callout gate added as the
+  first, dependency-free step), `scripts/preflight.sh` (runs the regression
+  suite), `scripts/gates/run-all-gates.sh` (`--all` sweep in the `build`
+  group, so `deploy-pages.yml` picks it up without workflow changes), and
+  `package.json` (`check:callouts`, `test:callouts`).
+- Verify: `npm run test:callouts` (22 tests) covers each finding type, the
+  allowed house-voice shapes, code-block masking, line-number reporting, the
+  six defect shapes from the 2026-07 sweep, and — as the baseline contract —
+  that every published content file passes. End to end: stage an article
+  containing `> [!IMPORTANT]` and confirm
+  `npm run check:callouts -- --staged` exits 1 suggesting `[!WARNING]`; run
+  `npm run check:callouts -- --all` and confirm the corpus is clean.
+- Related files: `scripts/gates/check-callouts.js`,
+  `scripts/gates/check-callouts.test.js`, `.githooks/pre-commit`,
+  `scripts/preflight.sh`, `scripts/gates/run-all-gates.sh`, `package.json`,
+  `src/content/posts/salesforce-b2c-commerce-cloud-23-3-release/index.md`
+  (the leftover `IMPORTANT!` paragraph converted to a `[!WARNING]` callout).
+
 ## Related files
 
 - `.github/workflows/deploy-pages.yml`
@@ -845,7 +919,9 @@ make the deploy pipeline flaky. The CI layers enforce the deterministic part
 - `scripts/gates/check-external-links.js` (+ `check:external-links` npm script)
 - `scripts/gates/check-external-links.test.js` (+ `test:external-links` npm script)
 - `scripts/gates/external-link-domains.js` (per-domain verification registry)
-- `.githooks/pre-commit` (runs the spelling and external-link gates on content commits)
+- `scripts/gates/check-callouts.js` (+ `check:callouts` npm script)
+- `scripts/gates/check-callouts.test.js` (+ `test:callouts` npm script)
+- `.githooks/pre-commit` (runs the callout, spelling, and external-link gates on content commits)
 - `lighthouserc.json`
 - `src/layouts/partials/site/stylesheet.html`
 - `scripts/generate-critical-css.js` (+ `generate:critical-css` npm script)

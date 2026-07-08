@@ -59,6 +59,7 @@ Day-to-day work here is authoring and publishing new articles while keeping SEO,
 - Full deploy gate suite (mirrors the publish pipeline): `npm run gates:local`
 - Fast pre-push validation: `npm run preflight` — also runs automatically as a git pre-push hook (installed by `npm install` via `prepare`; bypass with `SKIP_PREFLIGHT=1 git push`)
 - External-link check on staged articles: `npm run check:external-links -- --staged` — also runs automatically (with the spelling gate) as the git pre-commit hook when a commit touches `src/content/**` Markdown; a link to a domain not yet registered in `scripts/gates/external-link-domains.js` blocks the commit with instructions (bypass with `SKIP_LINK_CHECK=1 git commit`)
+- Callout check on staged articles: `npm run check:callouts -- --staged` — also part of the pre-commit hook; staged articles may only use the alert types the theme styles (`[!NOTE]`/`[!TIP]`/`[!WARNING]`), with well-formed markers and no redundant bold mini-titles (bypass with `SKIP_CALLOUT_CHECK=1 git commit`)
 
 ## Publishing
 

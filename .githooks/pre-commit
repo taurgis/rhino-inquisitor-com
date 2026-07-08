@@ -1,18 +1,23 @@
 #!/usr/bin/env bash
 # Installed via `npm run prepare` (git config core.hooksPath .githooks).
-# Runs two gates before a commit that touches articles, so obvious typos and
-# dead external links are caught locally before they reach the deploy
-# pipeline:
+# Runs three gates before a commit that touches articles, so obvious typos,
+# mis-styled callouts, and dead external links are caught locally before they
+# reach the deploy pipeline:
 #
-#   1. content spelling gate     (scripts/gates/check-spelling.js)
-#   2. external-link gate        (scripts/gates/check-external-links.js)
+#   1. callout gate              (scripts/gates/check-callouts.js)
+#      staged articles may only use the alert types the theme styles
+#      ([!NOTE]/[!TIP]/[!WARNING]), with well-formed markers, no redundant
+#      bold mini-titles, and no bold pseudo-callout paragraphs.
+#   2. content spelling gate     (scripts/gates/check-spelling.js)
+#   3. external-link gate        (scripts/gates/check-external-links.js)
 #      verifies every external link in the staged article(s); domains not yet
 #      registered in scripts/gates/external-link-domains.js block the commit
 #      with instructions.
 #
 # Emergency bypasses (or git commit --no-verify for everything):
-#   SKIP_SPELLING=1 git commit ...     skip the spelling gate
-#   SKIP_LINK_CHECK=1 git commit ...   skip the external-link gate
+#   SKIP_CALLOUT_CHECK=1 git commit ...  skip the callout gate
+#   SKIP_SPELLING=1 git commit ...       skip the spelling gate
+#   SKIP_LINK_CHECK=1 git commit ...     skip the external-link gate
 
 set -euo pipefail
 
@@ -24,8 +29,17 @@ if ! git diff --cached --name-only --diff-filter=ACMR | grep -qE '^src/content/.
   exit 0
 fi
 
+# The callout gate is dependency-free (plain node), so it runs even on a
+# machine that has not run `npm ci` yet.
+if [[ "${SKIP_CALLOUT_CHECK:-}" == "1" ]]; then
+  echo "pre-commit: SKIP_CALLOUT_CHECK=1 set; skipping callout gate."
+else
+  echo "pre-commit: running callout gate on staged articles..."
+  ( cd "$repo_root" && node scripts/gates/check-callouts.js --staged )
+fi
+
 if [[ ! -d "$repo_root/node_modules/nspell" ]]; then
-  echo "pre-commit: dependencies not installed (run 'npm ci'); skipping content gates." >&2
+  echo "pre-commit: dependencies not installed (run 'npm ci'); skipping spelling and link gates." >&2
   exit 0
 fi
 
