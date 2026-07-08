@@ -19,7 +19,13 @@
 
     {{ partial "site/footer.html" . }}
 
-    <script src="{{ "scripts/scroll-restore.js" | relURL }}" defer></script>
+    {{ with resources.Get "scripts/scroll-restore.js" }}
+      {{ $scrollRestore := . | minify | fingerprint }}
+      {{/* Fingerprinted URL so a content change busts the long-lived (1y) asset
+           cache — a stable filename would otherwise strand returning visitors on
+           a stale copy. */}}
+      <script src="{{ $scrollRestore.RelPermalink }}" integrity="{{ $scrollRestore.Data.Integrity }}" crossorigin="anonymous" defer></script>
+    {{ end }}
     {{ block "scripts" . }}{{ end }}
   </body>
 </html>

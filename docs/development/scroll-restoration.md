@@ -45,7 +45,7 @@ Guards:
 - **Impacted components:** All pages, via `layouts/_default/baseof.html` (the
   script loads site-wide, deferred, before the per-template `scripts` block).
 - **Verify:**
-  1. `node --check src/static/scripts/scroll-restore.js` (syntax gate).
+  1. `node --check src/assets/scripts/scroll-restore.js` (syntax gate).
   2. Build and serve locally (`npm run dev`), open a long article, scroll down,
      click an external link to open a new tab, then discard the article tab
      (DevTools → Application → Frames → discard, or background it on mobile) and
@@ -55,9 +55,23 @@ Guards:
   4. Confirm a first-time navigation to the same article still lands at the top,
      and that `/article/#anchor` links still jump to the anchor.
 
+## Asset caching
+
+The script lives in `src/assets/scripts/` (not `src/static/`) and is loaded
+through Hugo Pipes with `fingerprint`, so its published URL contains a content
+hash (e.g. `/scripts/scroll-restore.min.<hash>.js`). This matters because JS
+assets are served with a one-year `Cache-Control: max-age=31536000`. A
+stable, hash-less filename (the previous `static/` approach) meant a returning
+visitor's browser kept serving the first cached copy for up to a year, so
+subsequent fixes never reached them. Fingerprinting changes the URL whenever
+the file changes, which busts the cache. The rest of the site's scripts still
+live in `static/` and share this stale-cache limitation — worth migrating them
+to fingerprinted assets when touched.
+
 ## Related files
 
-- `src/static/scripts/scroll-restore.js` — the restoration logic.
-- `src/layouts/_default/baseof.html` — includes the script site-wide.
+- `src/assets/scripts/scroll-restore.js` — the restoration logic.
+- `src/layouts/_default/baseof.html` — fingerprints and includes the script
+  site-wide.
 - `src/layouts/partials/article/render-link.html` — where external links gain
   `target="_blank" rel="noopener noreferrer"`.
