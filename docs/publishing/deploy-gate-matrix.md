@@ -733,6 +733,80 @@ entries were removed (677 → 671, `--unused-allowlist` reports 0 unused).
   `scripts/gates/check-spelling.test.js`, `scripts/gates/spelling-allow.txt`,
   corrected articles under `src/content/`.
 
+## Update: external-link gate (pre-commit)
+
+### Change summary
+
+A new article shipped with an external link that resolved to a 404 (the
+WebDAV guide's Salesforce Help links, fixed in the 2026-07-07 link audit),
+because nothing verified external links before publish. A pre-commit
+external-link gate now verifies every external link in the staged article(s)
+before the commit lands.
+
+### Behavior details
+
+Old: `.githooks/pre-commit` ran only the spelling gate on staged
+`src/content/**` Markdown; external links were never checked anywhere.
+
+New: the hook additionally runs `npm run check:external-links -- --staged`,
+which extracts prose links (front matter, fenced code blocks, and inline code
+are masked — URLs there are examples, not citations) from the staged version
+of each article and verifies each one according to its domain's entry in
+`scripts/gates/external-link-domains.js`:
+
+| Strategy | Used for | Verdict source |
+| --- | --- | --- |
+| `status` | Server-rendered sites (the default) | Final HTTP status after redirects; 404/410 or a dead DNS name block the commit |
+| `render` | Client-rendered SPAs that answer the same 200 shell for valid and invalid URLs — `help.salesforce.com`, `developer.salesforce.com`, `trailhead.salesforce.com`, `trailblazer.salesforce.com`, `ideas.salesforce.com`, `appexchange.salesforce.com` | Headless Chromium (Playwright) loads the page, waits for the app to settle, and checks the rendered text/final URL against per-domain not-found markers |
+| `skip` | Login walls, bot blockers, invite/registration links that expire by design, placeholder hosts | Never fetched; each entry records why |
+
+A link to a domain with **no registry entry blocks the commit** and prints
+instructions to classify the domain (one entry in
+`scripts/gates/external-link-domains.js`) — that judgment is made by a human
+once per domain, not guessed by the gate. The registry was seeded with every
+domain linked from `src/content` at introduction time (~200 hosts), so
+existing content passes as the baseline.
+
+Verdicts are deliberately asymmetric so the hook never blocks an author on
+someone else's flaky server: only confident dead signals fail (404, 410,
+NXDOMAIN, a rendered not-found page, a malformed URL such as `http://t`);
+403/429 bot walls, 5xx, timeouts, offline commits, and a missing Playwright
+browser degrade to warnings. The `render` strategy needs a Playwright
+Chromium (`npx playwright install chromium`); without one those links warn
+with that instruction. Escape hatches: `SKIP_LINK_CHECK=1 git commit ...`
+skips the gate (`SKIP_SPELLING=1` now skips only the spelling gate);
+`LINK_GATE_CHROMIUM=<path>` points the renderer at a specific browser binary;
+`LINK_GATE_IGNORE_HTTPS_ERRORS=1` lets the renderer work behind a
+TLS-inspecting proxy.
+
+The `render` markers are best-effort snapshots of each SPA's not-found
+wording; when a Salesforce property rewords its error page, tune the
+`deadMarkers` in the registry. For `help.salesforce.com` `cc.*` article IDs,
+the DOC1 redirect mapping described in
+`docs/content/webdav-article-refresh-2026-07.md` remains the reliable manual
+oracle.
+
+### Impact and verification
+
+- Impacted components: `.githooks/pre-commit` (runs the new gate after the
+  spelling gate), `package.json` (`check:external-links`,
+  `test:external-links`), and the three new files under `scripts/gates/`.
+  The deploy workflow is unchanged: the gate is local-only because it needs
+  the network and must not make CI flaky on third-party outages.
+- Verify: `npm run test:external-links` (24 tests) covers extraction/masking,
+  registry integrity, the render-strategy classification of the async
+  Salesforce SPAs, stubbed status/render/skip verdicts, and — as the
+  baseline contract — that every domain currently linked from `src/content`
+  resolves in the registry. End to end: stage an article containing
+  `https://github.com/SalesforceCommerceCloud/not-a-real-repo-xyz` and
+  confirm `npm run check:external-links -- --staged` exits 1 with `HTTP 404`;
+  link any never-used domain and confirm it exits 1 with the registration
+  instructions before any network request.
+- Related files: `scripts/gates/check-external-links.js`,
+  `scripts/gates/check-external-links.test.js`,
+  `scripts/gates/external-link-domains.js`, `.githooks/pre-commit`,
+  `package.json`.
+
 ## Related files
 
 - `.github/workflows/deploy-pages.yml`
@@ -741,7 +815,10 @@ entries were removed (677 → 671, `--unused-allowlist` reports 0 unused).
 - `scripts/gates/check-spelling.js` (+ `check:spelling` npm script)
 - `scripts/gates/check-spelling.test.js` (+ `test:spelling` npm script)
 - `scripts/gates/spelling-allow.txt`
-- `.githooks/pre-commit` (runs the spelling gate on content commits)
+- `scripts/gates/check-external-links.js` (+ `check:external-links` npm script)
+- `scripts/gates/check-external-links.test.js` (+ `test:external-links` npm script)
+- `scripts/gates/external-link-domains.js` (per-domain verification registry)
+- `.githooks/pre-commit` (runs the spelling and external-link gates on content commits)
 - `lighthouserc.json`
 - `src/layouts/partials/site/stylesheet.html`
 - `scripts/generate-critical-css.js` (+ `generate:critical-css` npm script)
