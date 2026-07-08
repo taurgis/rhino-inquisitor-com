@@ -4,7 +4,7 @@ description: >-
   23.3 release overview covering trial sandboxes, log-volume changes, Shopper
   Context enablement, and the refreshed SLAS admin UI.
 date: '2023-02-15T14:19:00.000Z'
-lastmod: '2026-07-04T17:47:13.000Z'
+lastmod: '2026-07-08T09:00:00.000Z'
 url: /salesforce-b2c-commerce-cloud-23-3-release/
 draft: false
 heroImage: shopping-cart-in-sand-7c8677e7ff.jpg
@@ -84,12 +84,13 @@ A new release for [Account Manager](https://account.demandware.com/) has happene
 
 ### New Account Manager Password Requirements
 
-IMPORTANT! Account Manager is announcing an upcoming change to password requirements for stronger passwords and better security. These changes are not part of the current release and are being announced in advance, so users are aware of them. The new requirements are as follows:
-
-- Passwords should be at least 12 characters long.
-- You can not reuse any of the previous four passwords.
-- Must include a minimum of three of the four components - numbers, symbols, lower-case letters, and upper-case letters.
-- Should not include parts of the name, username, or UUID.
+> [!WARNING]
+> Account Manager is announcing an upcoming change to password requirements for stronger passwords and better security. These changes are not part of the current release and are being announced in advance, so users are aware of them. The new requirements are as follows:
+>
+> - Passwords should be at least 12 characters long.
+> - You can not reuse any of the previous four passwords.
+> - Must include a minimum of three of the four components - numbers, symbols, lower-case letters, and upper-case letters.
+> - Should not include parts of the name, username, or UUID.
 
 **These new requirements do not impact existing and unexpired passwords** and will only be enforced when a password is reset or changed.
 
