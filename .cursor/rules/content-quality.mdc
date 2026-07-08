@@ -22,7 +22,7 @@ Before committing or approving any file matched by `applyTo`, run the Content Bo
 
 ### 2. Internal Links and Media
 
-- [ ] All internal links use relative Hugo paths (e.g., `/some-article/`) — no hardcoded absolute `https://www.rhino-inquisitor.com/...` URLs.
+- [ ] All internal links use relative Hugo paths (e.g., `/some-article/`) — no hardcoded absolute `https://rhino-inquisitor.com/...` URLs.
 - [ ] All media points to local `static/` paths — no external absolute media URLs or hotlinks.
 
 ### 3. Image Alt Text

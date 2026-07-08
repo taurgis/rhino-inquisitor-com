@@ -23,7 +23,7 @@ Before committing or approving any file matched by `applyTo`, run the Content Bo
 
 ### 2. Internal Links and Media
 
-- [ ] All internal links use relative Hugo paths (e.g., `/some-article/`) — no hardcoded absolute `https://www.rhino-inquisitor.com/...` URLs.
+- [ ] All internal links use relative Hugo paths (e.g., `/some-article/`) — no hardcoded absolute `https://rhino-inquisitor.com/...` URLs.
 - [ ] All media points to local `static/` paths — no external absolute media URLs or hotlinks.
 
 ### 3. Image Alt Text
@@ -57,6 +57,6 @@ Before committing or approving any file matched by `applyTo`, run the Content Bo
 
 ## References
 
-- `.github/skills/hugo-development/SKILL.md` — Front matter fields and content authoring rules
+- `.agents/skills/hugo-development/SKILL.md` — Front matter fields and content authoring rules
 - [WCAG 2.2 — Image alt text](https://www.w3.org/TR/WCAG22/#non-text-content) — Accessibility requirement for image descriptions
 - [Google image best practices](https://developers.google.com/search/docs/appearance/google-images) — Alt text and image SEO guidance

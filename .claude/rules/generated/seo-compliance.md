@@ -40,7 +40,7 @@ If **yes to any**, apply the full SEO Compliance Checklist below before completi
 
 ### Canonical Signals
 
-- [ ] Canonical tag defaults to `.Permalink` — override only with absolute `https://rhino-inquisitor.com/...` (apex) URL
+- [ ] Canonical tag defaults to `.Permalink` — override only with absolute `https://rhino-inquisitor.com/...` URL
 - [ ] Canonical tag URL matches sitemap URL for the same page
 - [ ] Internal links point to the canonical apex variant (`https://rhino-inquisitor.com/…`) — not `www`, not `http`
 - [ ] Alias/redirect pages are excluded from `sitemap.xml` (verify Hugo default holds)
@@ -82,6 +82,6 @@ If a change introduces a URL structure alteration affecting >5% of indexed URLs,
 
 ## References
 
-- `.github/skills/seo/SKILL.md` — Technical SEO rules and redirect architecture
-- `.github/skills/seo/references/REDIRECT-GUIDE.md` — Redirect decision tree
-- `.github/skills/hugo-development/references/URL-STRATEGY.md` — Hugo URL and alias rules
+- `.agents/skills/seo/SKILL.md` — Technical SEO rules and redirect architecture
+- `.agents/skills/seo/references/REDIRECT-GUIDE.md` — Redirect decision tree
+- `.agents/skills/hugo-development/references/URL-STRATEGY.md` — Hugo URL and alias rules
