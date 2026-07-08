@@ -24,11 +24,14 @@ two cases:
   event our first version listened on.
 - **New:** `scroll-restore.js` sets `history.scrollRestoration = 'manual'`,
   persists the scroll offset to `sessionStorage` (keyed by pathname) whenever the
-  page is hidden or unloaded, and re-applies it on `pageshow` for reload /
-  back-forward navigations. Using `pageshow` (rather than `load`) is what covers
-  Back-button restores, because bfcache restores fire `pageshow` but not `load`.
-  The restore is retried across a few animation frames to survive late layout
-  growth from deferred content.
+  page is hidden or unloaded, and re-applies it on `pageshow`. It restores when
+  the `pageshow` event's `persisted` flag is set (a back-forward cache restore —
+  the usual Back-button case) or, for non-bfcache loads, when the Navigation
+  Timing type is `reload` or `back_forward`. This distinction matters: a bfcache
+  restore reports its *original* Navigation Timing type (usually `navigate`), so
+  gating on navigation type alone would skip exactly the Back-button case — the
+  `persisted` flag is the reliable signal. The restore is retried across a few
+  animation frames to survive late layout growth from deferred content.
 
 Guards:
 - Skips entirely when `sessionStorage` or `history.scrollRestoration` is

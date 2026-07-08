@@ -40,7 +40,7 @@
     }
   }
 
-  function restore() {
+  function restore(pageshowEvent) {
     // An explicit anchor target wins over a saved position.
     if (window.location.hash) {
       return;
@@ -56,15 +56,21 @@
       return;
     }
 
-    // Only restore for reload / back-forward navigations (which covers a
-    // discarded-and-reloaded tab). A fresh navigation to the page should start
-    // at the top as usual.
-    var navEntries = typeof performance !== 'undefined' && performance.getEntriesByType
-      ? performance.getEntriesByType('navigation')
-      : [];
-    var navType = navEntries.length ? navEntries[0].type : '';
-    if (navType !== 'reload' && navType !== 'back_forward') {
-      return;
+    // Restore for back-forward and reload navigations, but not a fresh
+    // navigation (which should start at the top). A back-forward cache restore
+    // is the reliable case for the Back button and is flagged by the pageshow
+    // event's `persisted` property — its Navigation Timing type still reflects
+    // the page's ORIGINAL load (usually "navigate"), so we must not gate on that
+    // for bfcache. Fall back to the navigation type for non-bfcache loads
+    // (a discarded-and-reloaded tab, or a back-forward that missed the cache).
+    if (!(pageshowEvent && pageshowEvent.persisted)) {
+      var navEntries = typeof performance !== 'undefined' && performance.getEntriesByType
+        ? performance.getEntriesByType('navigation')
+        : [];
+      var navType = navEntries.length ? navEntries[0].type : '';
+      if (navType !== 'reload' && navType !== 'back_forward') {
+        return;
+      }
     }
 
     // Re-apply across a few frames because deferred scripts and lazy media can
