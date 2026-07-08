@@ -7,7 +7,7 @@ date: '2022-10-31T13:03:53.000Z'
 lastmod: '2026-07-08T09:00:00.000Z'
 url: /how-to-use-ocapi-scapi-hooks/
 draft: false
-heroImage: 26df11a8-62ec-44cd-bf3b-6ff9ab46bee8-5598d60cbd.jpg
+heroImage: ocapi-scapi-hook-lifecycle.png
 categories:
   - Salesforce Commerce Cloud
   - Technical
@@ -75,7 +75,7 @@ Trying to shoehorn new functionality into an existing hook results in convoluted
 
 ### The Three Musketeers: before, after, and modifyResponse
 
-{{< img-caption src="26df11a8-62ec-44cd-bf3b-6ff9ab46bee8-5598d60cbd.jpg" alt="Illustration representing the before, after, and modifyResponse hook flow." caption="Before, after, and modifyResponse are the three hook phases you actually need to reason about." link="26df11a8-62ec-44cd-bf3b-6ff9ab46bee8-5598d60cbd.jpg" >}}
+{{< img-caption src="ocapi-scapi-hook-lifecycle.png" alt="Shop API request lifecycle: before, after, and modifyResponse hooks around the system logic and the DB transaction boundary." caption="before and after run inside the request's transaction; modifyResponse runs after it closes, which is why a persistent write there throws." link="ocapi-scapi-hook-lifecycle.png" >}}
 
 SCAPI and OCAPI hooks come in three main flavours, each with a distinct role in the request lifecycle. Understanding their specific purpose and limitations is crucial to using them correctly.
 
