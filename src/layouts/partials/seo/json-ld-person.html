@@ -3,7 +3,8 @@
   (`<home>#person`) so Organization, WebSite, BlogPosting, and ProfilePage
   schema can all reference the same node. Single source of truth is the
   [params.author] table in hugo.toml. Empty fields are omitted rather than
-  emitted blank. Consumed via `partial` (returns a dict, does not render).
+  emitted blank. Returns a dict (does not render); site-level, so callers
+  invoke it via `partialCached`.
 */ -}}
 {{- $a := .Site.Params.author | default dict -}}
 {{- $home := .Site.Home.Permalink -}}
