@@ -88,7 +88,7 @@ Read it from the outside in:
 - **`filter.range_filter`** is where the actual date logic lives. `field` names the date attribute to check (`creation_date` here), and `from`/`to` set the interval's boundaries.
 - **`query.match_all_query`** fills the "query" half of the wrapper. It matches every record unconditionally, so the `range_filter` ends up doing all the real work. You'll see this same empty query in nearly every date-filtering example, because most of the time you don't need a text or attribute query on top of the date range.
 
-Leave out `from` or `to` and the range becomes open-ended on that side. A range with only `from` means "everything created on or after this date," which is exactly what an incremental sync needs. Both boundaries are inclusive by default, so a `to` of midnight includes anything created at exactly that instant; you can configure either end as exclusive if that's not what you want.
+Leave out `from` or `to` and the range becomes open-ended on that side, though you can't drop both at once: at least one boundary is required. A range with only `from` means "everything created on or after this date," which is exactly what an incremental sync needs. Both boundaries are inclusive by default (`fromInclusive`/`toInclusive`, both default `true`), so a `to` of midnight includes anything created at exactly that instant; set either one to `false` if you need an exclusive bound instead.
 
 ## Range2 Filter
 
@@ -96,7 +96,7 @@ A single `range_filter` breaks down the moment your data has two date fields ins
 
 It compares two ranges: `R1`, defined by a pair of fields on the record (`from_field` and `to_field`), against `R2`, defined by two literal values you supply (`from_value` and `to_value`). `filter_mode` sets the relationship the search has to satisfy:
 
-- `overlap`: `R1` overlaps fully or partially with `R2`
+- `overlap` (the default if you omit `filter_mode`): `R1` overlaps fully or partially with `R2`
 - `containing`: `R1` contains `R2`
 - `contained`: `R1` is contained in `R2`
 
@@ -160,6 +160,8 @@ Real-world date queries rarely stand alone. "Open orders created this year" need
 ```
 
 `bool_filter.operator` sets how its `filters` array combines: `and` means a hit has to satisfy every entry, `or` means any single one is enough, and a third option, `not` (not shown here), negates the group; list more than one filter under `not` and it treats them as ANDed together first. Inside the array, each entry is a complete filter object in its own right, so you can mix filter types freely: this example pairs a `term_filter` (exact match on `status`) with the `range_filter` from the first section (an open-ended `creation_date` range with no `to`). The result: open orders created since the start of 2023, and nothing else.
+
+That `term_filter` isn't limited to exact matches either. It takes the same `operator` enum as `term_query` below, so `less`/`greater`/`is_null`/`neq` and friends work here too, not just `is`.
 
 ## Term Query
 
