@@ -37,8 +37,8 @@ Not all endpoints are alike, but for date filtering, one pattern keeps showing u
 
 Here's where those Query and Filter documents show up as real endpoints, paired with their SCAPI Admin Data API equivalent where one exists:
 
-- [Search Catalogs (OCAPI Data API)](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-data-catalogs?meta=Summary)
-- [Search Categories within a Catalog (OCAPI Data API)](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-data-catalogs?meta=Summary) / [Search categories (SCAPI Admin Data API)](https://developer.salesforce.com/docs/commerce/commerce-api/references/catalogs?meta=searchCategories)
+- [Search Catalogs (OCAPI Data API)](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-data-catalog-search)
+- [Search Categories within a Catalog (OCAPI Data API)](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-data-category-search) / [Search categories (SCAPI Admin Data API)](https://developer.salesforce.com/docs/commerce/commerce-api/references/catalogs?meta=searchCategories)
 - [Search for customers in a customer list (OCAPI Data API)](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-data-customer-lists?meta=Summary) / [Search customer in customer list (SCAPI Admin Data API)](https://developer.salesforce.com/docs/commerce/commerce-api/references/customers?meta=searchCustomerInCustomerList)
 - [Search Products (SCAPI Admin Data API)](https://developer.salesforce.com/docs/commerce/commerce-api/references/products?meta=searchProducts)
 
@@ -84,7 +84,7 @@ Use a `range_filter` when you have one date field and want everything that falls
 
 Read it from the outside in:
 
-- **`filtered_query`** is the wrapper that says "run a query, then narrow the hits with a filter." Every example in this article uses it for that reason.
+- **`filtered_query`** is the wrapper that says "run a query, then narrow the hits with a filter." Most date-filtering queries use it for that reason. `term_query`, covered later, is the one exception: it doesn't need a separate filter step.
 - **`filter.range_filter`** is where the actual date logic lives. `field` names the date attribute to check (`creation_date` here), and `from`/`to` set the interval's boundaries.
 - **`query.match_all_query`** fills the "query" half of the wrapper. It matches every record unconditionally, so the `range_filter` ends up doing all the real work. You'll see this same empty query in nearly every date-filtering example, because most of the time you don't need a text or attribute query on top of the date range.
 
@@ -157,7 +157,7 @@ Real-world date queries rarely stand alone. "Open orders created this year" need
 }
 ```
 
-`bool_filter.operator` sets how its `filters` array combines: `and` means a hit has to satisfy every entry, `or` means any single one is enough. Inside the array, each entry is a complete filter object in its own right, so you can mix filter types freely: this example pairs a `term_filter` (exact match on `status`) with the `range_filter` from the first section (an open-ended `creation_date` range with no `to`). The result: open orders created since the start of 2023, and nothing else.
+`bool_filter.operator` sets how its `filters` array combines: `and` means a hit has to satisfy every entry, `or` means any single one is enough, and a third option, `not` (not shown here), negates the group; list more than one filter under `not` and it treats them as ANDed together first. Inside the array, each entry is a complete filter object in its own right, so you can mix filter types freely: this example pairs a `term_filter` (exact match on `status`) with the `range_filter` from the first section (an open-ended `creation_date` range with no `to`). The result: open orders created since the start of 2023, and nothing else.
 
 ## Term Query
 
