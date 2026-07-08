@@ -4,7 +4,7 @@ description: >-
   Setting up JWT with the OCAPI has not been the easiest thing to do. The
   documentation makes you make assumptions with vague instructions.
 date: '2022-06-27T17:49:25.000Z'
-lastmod: '2026-07-04T16:08:55.000Z'
+lastmod: '2026-07-08T15:00:00.000Z'
 url: /how-to-setup-oauth-jwt-for-the-ocapi/
 draft: false
 heroImage: jwt-517bf34cae.png
@@ -21,8 +21,12 @@ takeaways:
   - "Explains how to configure private_key_jwt authentication for OCAPI server-to-server access"
   - "Walks through key generation, Account Manager setup, and JWT payload requirements"
   - "Provides a practical Postman-based example for generating and exchanging the signed token"
+  - "Notes that the same private_key_jwt flow, not the JWT itself, also authenticates SCAPI Admin and Data API clients"
 ---
-_IMPORTANT_: This article is about server-to-server communication
+> [!NOTE]
+> **Updated July 2026:** Salesforce [officially deprecated the OCAPI in April 2026](/in-the-ring-ocapi-versus-scapi/), so the endpoints this article's JWT can call are now maintenance-only. The authentication mechanism itself is not deprecated: SCAPI Admin and Data API clients use this exact `private_key_jwt` flow through the same Account Manager, so everything below still applies if you're setting up server-to-server access to those APIs instead. One thing that does **not** carry over: Shopper-context SCAPI access goes through SLAS (Shopper Login and API Access Service), a separate system with its own client setup, not the flow described here.
+
+This article is about server-to-server communication: one system, such as a scheduled job, a middleware service, or an integration, authenticating itself to Salesforce directly. There is no login screen and no human involved; the calling system has to prove its own identity on every request.
 
 When working with the OCAPI ([Open Commerce API](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/get-started-with-ocapi.html)), you need to do some sort of authentication to prove who you are and to verify what actions you are allowed to take.
 
@@ -52,7 +56,7 @@ This command will create two files:
 
 ## Create a new API Key
 
-Like always, when we set up a server-to-server connection, we need to generate an API key in the [Account Manager](https://account.demandware.com/).
+Like always, when we set up a server-to-server connection, we need to generate an API key in the [Account Manager](https://account.demandware.com/). This is the same screen you'd use to create a SCAPI Admin API or Data API client too; only the scopes you request differ.
 
 Follow the [instructions on the Infocenter](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_account_manager_add_api_client_id.htm), with a few minor changes.
 
@@ -60,7 +64,7 @@ Follow the [instructions on the Infocenter](https://help.salesforce.com/s/articl
 
 1. In the JWT field, copy and paste the entire contents of the "**cert.pem**" file we generated earlier (no modifications needed)
 
-1. Set the Token Endpoint Auth Method to **private\_key\_ jwt**.
+1. Set the Token Endpoint Auth Method to **private\_key\_jwt**.
 
 And click save!
 
@@ -80,8 +84,9 @@ The **payload,** which is the data we are trying to send to the server. To get a
 
 - **iss (issuer):** The client ID (API Key)
 - **sub (subject):** The client ID (API key)
-- **exp (expiration time):** Current time + x seconds (1 second should do it)
+- **exp (expiration time):** Current time + x seconds. Salesforce rejects this JWT if `exp` is more than 30 minutes in the future, but there is no reason to get anywhere near that ceiling: the token is used once, immediately after it's signed, to fetch a real access token. The example below uses 5 minutes (300 seconds), which leaves plenty of room for clock drift and network latency while staying well inside the limit.
 - **aud (audience):** The Account Manager auth endpoint
+- **iat (issued at, optional):** Current time. Not required to get a token back, but it is good practice to include it, and the example below sets it.
 
 The **signature**, which is the header and payload signed with the private key to verify that you are allowed to send it to the server.
 
@@ -93,7 +98,7 @@ As an example, I have created a postman library to get you started!
 
 In this example, you need to set two collection variables:
 
-- **pkey:**The entire contents of the _** key.pem**_ file we generated earlier
+- **pkey:** The entire contents of the **key.pem** file we generated earlier
 
 - **api\_key:** The API key you generated in the Account Manager
 
@@ -115,7 +120,7 @@ var payload = {
     'iss': pm.collectionVariables.get('api_key'),
     'sub': pm.collectionVariables.get('api_key'),
     'iat': currentTimestamp,
-    'exp': currentTimestamp + 300, // expiry time is 30 seconds from time of creation
+    'exp': currentTimestamp + 300, // expires in 5 minutes (300 seconds), well inside Salesforce's 30-minute maximum
     'aud': 'https://account.demandware.com:443/dwsso/oauth2/access_token'
 };
 // Generate the JWT and sign it
@@ -130,8 +135,8 @@ Once the script is in place and all required variables are configured in the col
 
 - A body containing these 3 values as a **x-www-form-urlencoded** type:
 - client\_assertion: The signed JWT generated by the script
-- client\_assertion\_ type: urn:ietf:params:oauth:client-assertion-type:jwt-bearer
-- grant\_type: client\_ credentials
+- client\_assertion\_type: urn:ietf:params:oauth:client-assertion-type:jwt-bearer
+- grant\_type: client\_credentials
 
 {{< img-caption src="postman-authentication-ocapi-d973adb2eb.jpg" alt="Postman request configured for OCAPI JWT authentication." caption="Postman is the fastest way to prove the OCAPI JWT flow works end to end." link="postman-authentication-ocapi-d973adb2eb.jpg" >}}
 
