@@ -292,7 +292,7 @@ The text above has been taken from the [Salesforce B2C Commerce Cloud Infocenter
 
 {{< img-caption src="hooks-return-status-to-short-circuit-806c56df79.jpg" alt="Hook response example where returning Status.OK short-circuits later hooks." caption="Returning Status.OK can stop later hooks, so one line can change the whole chain." link="hooks-return-status-to-short-circuit-806c56df79.jpg" >}}
 
-This does have a slight nuance: It is not the case for all endpoints. Luckily this is documented for every hook!
+This does have a slight nuance: it is not the case for all endpoints, and it only applies to the platform's built-in Shopper API hooks. Hooks you register against your own **custom extension points** (Custom APIs) always run every registered module regardless of what they return. Luckily, the behaviour is documented for every hook.
 
 {{< img-caption src="hook-return-behaviour-91893c6015.jpg" alt="Documentation excerpt showing hook return behaviour for a specific endpoint." caption="The documentation is worth checking here because hook return behaviour is not intuitive." link="hook-return-behaviour-91893c6015.jpg" >}}
 
