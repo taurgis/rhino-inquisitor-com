@@ -1,12 +1,16 @@
 (function () {
   'use strict';
 
-  // Preserve the reader's scroll position when a backgrounded tab is discarded
-  // and reloaded (common on mobile, and increasingly on desktop, after opening
-  // an external link in a new tab). Deferred scripts and lazy-loaded media make
-  // the page height unstable at load time, so the browser's automatic scroll
-  // restoration can drop the reader back to the top. We take manual control and
-  // persist the position ourselves.
+  // Preserve the reader's scroll position across two cases the browser handles
+  // poorly here:
+  //   1. A backgrounded tab is discarded and reloaded (common on mobile, and
+  //      increasingly on desktop, after opening an external link in a new tab).
+  //      Deferred scripts and lazy-loaded media make the page height unstable at
+  //      load time, so automatic scroll restoration drops the reader to the top.
+  //   2. Following an internal link and pressing the browser Back button.
+  // We take manual control of scroll restoration and persist the position
+  // ourselves, re-applying it on `pageshow` (which also covers bfcache restores
+  // that never fire `load`).
 
   if (!('sessionStorage' in window) || !('scrollRestoration' in history)) {
     return;
@@ -76,7 +80,8 @@
     apply();
   }
 
-  // Save on every event that can precede a tab being frozen or discarded.
+  // Save on every event that can precede a tab being frozen, discarded, or
+  // navigated away from (including following an internal link).
   window.addEventListener('pagehide', save);
   document.addEventListener('visibilitychange', function () {
     if (document.visibilityState === 'hidden') {
@@ -84,9 +89,9 @@
     }
   });
 
-  if (document.readyState === 'complete') {
-    restore();
-  } else {
-    window.addEventListener('load', restore);
-  }
+  // Restore on `pageshow`, not `load`: it fires after the initial load AND on
+  // every back-forward cache restore, which never fires `load`. Since we took
+  // manual control, the browser no longer restores scroll itself on a
+  // back/forward navigation, so this is what keeps the reader's place.
+  window.addEventListener('pageshow', restore);
 })();

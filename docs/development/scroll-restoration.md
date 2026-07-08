@@ -2,10 +2,13 @@
 
 ## Change summary
 
-Added a small client-side script that preserves the reader's scroll position
-when a backgrounded browser tab is discarded and later reloaded. This most
-commonly happens after a reader opens an external link in a new tab (external
-links render with `target="_blank"`) and then returns to the article tab.
+Added a small client-side script that preserves the reader's scroll position in
+two cases:
+
+1. A backgrounded browser tab is discarded and later reloaded — most commonly
+   after a reader opens an external link in a new tab (external links render with
+   `target="_blank"`) and then returns to the article tab.
+2. The reader follows an internal link and then presses the browser Back button.
 
 ## Old vs new behavior
 
@@ -15,11 +18,17 @@ links render with `target="_blank"`) and then returns to the article tab.
   and lazy media (`lite-youtube`, image zoom), the document height is unstable at
   load time, so the browser's automatic scroll restoration fails and the reader
   is dropped back to the top of the article.
+  Separately, pressing Back after following an internal link could also lose the
+  position: once we take manual control of scroll restoration, the browser no
+  longer restores it, and a back-forward cache restore never fires the `load`
+  event our first version listened on.
 - **New:** `scroll-restore.js` sets `history.scrollRestoration = 'manual'`,
   persists the scroll offset to `sessionStorage` (keyed by pathname) whenever the
-  page is hidden or unloaded, and re-applies it on reload / back-forward
-  navigations. The restore is retried across a few animation frames to survive
-  late layout growth from deferred content.
+  page is hidden or unloaded, and re-applies it on `pageshow` for reload /
+  back-forward navigations. Using `pageshow` (rather than `load`) is what covers
+  Back-button restores, because bfcache restores fire `pageshow` but not `load`.
+  The restore is retried across a few animation frames to survive late layout
+  growth from deferred content.
 
 Guards:
 - Skips entirely when `sessionStorage` or `history.scrollRestoration` is
@@ -38,7 +47,9 @@ Guards:
      click an external link to open a new tab, then discard the article tab
      (DevTools → Application → Frames → discard, or background it on mobile) and
      return — the article should reopen at the previous scroll position.
-  3. Confirm a first-time navigation to the same article still lands at the top,
+  3. From an article, follow an internal link, then press the browser Back
+     button — the article should reopen at the previous scroll position.
+  4. Confirm a first-time navigation to the same article still lands at the top,
      and that `/article/#anchor` links still jump to the anchor.
 
 ## Related files
