@@ -19,6 +19,7 @@
 
     {{ partial "site/footer.html" . }}
 
+    <script src="{{ "scripts/scroll-restore.js" | relURL }}" defer></script>
     {{ block "scripts" . }}{{ end }}
   </body>
 </html>
