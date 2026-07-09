@@ -132,10 +132,10 @@ grant_type=client_credentials&hint=sb-guest&login_id=guest&channel_id=RefArch&dw
 
 For a registered shopper, swap `hint=sb-guest` for `hint=sb-user`, set `login_id` to the shopper's login ID, and send `dwsrst` instead of `dwsgst`. The response is the same JSON shape as Step 1: a fresh `access_token`, `refresh_token`, and `customer_id`.
 
-> [!NOTE]
-> **`dwsid` still works here too, but it's on its way out**
+> [!WARNING]
+> **`dwsid` for guest bridging is already gone; for registered shoppers it's next**
 >
-> Salesforce's docs still accept the legacy `dwsid` cookie value in place of `dwsrst` for registered-shopper bridging, but call out that this path is being deprecated in favour of the signed token. Use `dwsrst`/`dwsgst` in new code.
+> Passing the raw `dwsid` for _guest_ session bridging isn't just discouraged, it's dead: Salesforce cut it off for good on March 31, 2024, and the endpoint now returns a 404 or 410 for that request shape. `dwsgst` has been mandatory for guests since then. For _registered_ shoppers, `dwsid` still works today in place of `dwsrst`, but Salesforce's docs flag it for the same eventual deprecation. Use `dwsrst`/`dwsgst` for both in new code, and don't build anything new on raw `dwsid`.
 
 ## Scenario: OCAPI to Site
 
@@ -280,6 +280,11 @@ Cookie: dwsid=<sample-session-cookie>
   "type" : "session"
 }
 ```
+
+> [!NOTE]
+> **`dwsecuretoken` on HTTP-only sites**
+>
+> If your site doesn't enforce HTTPS (the Business Manager "Enforce HTTPS" preference is off), OCAPI also requires a valid `dwsecuretoken` cookie alongside `dwsid` for this call, or it fails. Step 2's response cleared that cookie in the example above, which is what you'll see on an HTTPS-enforced site; on an HTTP one, send back whatever value it actually set.
 
 Similar to our first request, we get a JSON response with the JWT token in the "Authorization" header.
 
