@@ -199,6 +199,14 @@ async function processSourceImage(sourcePath, counters, previousManifest, nextMa
 }
 
 async function main() {
+  if (process.env.SKIP_AVIF_CACHE === '1') {
+    console.log(
+      'AVIF cache generation skipped (SKIP_AVIF_CACHE=1). Pages fall back to WebP-only <img> ' +
+        'output for any image without a cached AVIF variant — fine for local verification, not for prod builds.'
+    );
+    return;
+  }
+
   await ensureDirectory(outputRoot);
   const previousManifest = await loadManifest();
   const nextManifest = {
