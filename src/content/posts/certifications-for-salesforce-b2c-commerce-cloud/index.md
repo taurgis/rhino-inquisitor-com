@@ -116,7 +116,7 @@ This accreditation tests all your knowledge of Einstein:
 - Configuring the recommender
 - Debugging Einstein
 
-As with the other Accreditation, [a course is available on the Partner Learning Camp](https://partnerlearningcamp.salesforce.com/s/browse-catalog?plc__recordId=AJ%2F%2F26%2FbM4WJjnIak4uXHwpstt68nZPqvIdhKT%2FnZEw9I%2FDpO60A4d8W08lxq8xT)!
+As with the other Accreditation, [a course is available on the Partner Learning Camp](https://partnerlearningcamp.salesforce.com/s/browse-catalog?plc__recordId=AJ%2F%2F26%2FbM4WJjnIak4uXHwpstt68nZPqvIdhKT%2FnZEw9I%2FDpO60A4d8W08lxq8xT) (requires a Salesforce Partner Community login)!
 
 ## What if I'm not a developer
 
@@ -129,3 +129,5 @@ I feel that this is a gap within the ecosystem that should be filled; developing
 This non-technical certification would allow people to publicly show that they know how to get your company up and running on Salesforce B2C Commerce Cloud (using standard features or knowing when custom development is needed).
 
 If anyone at the Salesforce Credentials team is reading this, give me a shout to discuss this 😇.
+
+**Update: turns out I didn't need to shout that loud.** Between 2021 and 2023, Salesforce rolled out [User Experience Designer, Strategy Designer, Business Analyst, Sales Representative, and Indirect Sales Accredited Professional](/non-technical-sfcc-certifications/) — none of them SFCC-specific, but all finally giving non-developers something to sit. I doubt this post had anything to do with it, but I'll take the coincidence.
