@@ -83,11 +83,14 @@ Here's the original announcement, for the record:
 
 - [Trailhead - Certification](https://trailhead.salesforce.com/en/credentials/salesrepresentative)
 
-Salesforce has recently announced the Certified Sales Representative certification exam, designed to showcase your knowledge and skills in various areas, such as guiding discovery and research, fostering business relationships, handling objections, and closing deals.
+Salesforce introduced the Certified Sales Representative certification exam in 2023, designed to showcase your knowledge and skills in various areas, such as guiding discovery and research, fostering business relationships, handling objections, and closing deals.
 
-The best part? Unlike other certifications, this one does not require any CRM-based prerequisites like Business Analyst, making it more accessible to sales professionals who focus on Salesforce B2C Commerce Cloud. Watch for the upcoming guiding trailmix, which will help you understand the product knowledge required for the exam. Take advantage of this opportunity to demonstrate your expertise and take your sales career to the next level.
+The best part? Unlike other certifications, this one does not require any CRM-based prerequisites like Business Analyst, making it more accessible to sales professionals who focus on Salesforce B2C Commerce Cloud.
 
-Trailmix Once the trailmix becomes available, I will update this section of the article!
+> [!NOTE]
+> This credential has been renamed twice since this article first went up. On July 21, 2025, "Salesforce Certified Sales Representative" became "Salesforce Certified Sales Foundations." Per Salesforce's own [Certification Name Changes FAQ](https://help.salesforce.com/s/articleView?id=005298915&language=en_US&type=1), it renames again to "Salesforce Certified Agentforce Sales Foundations" on July 24, 2026 — same credential, same content, new name each time. One real change worth knowing: per the [Certification Maintenance Schedule](https://help.salesforce.com/s/articleView?id=005298922&language=en_US&type=1), Foundations-tier credentials no longer expire or require maintenance.
+
+I promised, back in 2023, to update this section once the guiding trailmix for product knowledge became available. Three years later, here's the honest answer: it never showed up as its own thing. What exists is the standard [prep trailmix](https://trailhead.salesforce.com/users/strailhead/trailmixes/prepare-for-your-salesforce-certified-sales-representative-cred), and it's sales-methodology content — cold calling, sales process basics, emotional intelligence — not the platform-breadth material the original announcement seemed to promise. If you're coming at this from Commerce Cloud, you'll still need to build that product knowledge yourself; nobody packaged it for you.
 
 ## Commerce Cloud Einstein Accredited Professional
 
