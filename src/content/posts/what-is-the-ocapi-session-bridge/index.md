@@ -17,13 +17,13 @@ tags:
   - technical
 author: Thomas Theunen
 takeaways:
-  - "Explains the session bridge as the mechanism that exchanges a storefront session cookie for a JWT, and back again, between monolithic and headless touchpoints"
+  - "Explains how the session bridge exchanges a storefront session cookie for a JWT, and back again, to keep monolithic and headless touchpoints in sync"
   - "Walks through parallel request flows for the current SLAS Session Bridge and the legacy OCAPI session bridge, so you can tell which one applies to your stack"
   - "Highlights the hybrid-deployment and mobile-app scenarios where session bridging is useful, the sensitive-data caveats, and OCAPI's April 2026 deprecation timeline"
 ---
 With the added attention to [Headless architecture](/sitegenesis-vs-sfra-vs-pwa/) in Salesforce B2C Commerce Cloud and the option for hybrid deployments that mix SFRA/SiteGenesis with a headless storefront, the [Session Bridge](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/sessionbridge.html) has had plenty of airtime.
 
-But what is it? What do you use it for? What do you need to watch out for? Let's dig in.
+But what is it, when do you actually need it, and what should you watch out for? Let's dig in.
 
 > [!WARNING]
 > **OCAPI is deprecated**
@@ -44,13 +44,13 @@ If you're building on SCAPI and SLAS instead, skip ahead to the [SLAS Session Br
 
 ## What is it
 
-First things first, let's dig into what the Session Bridge is. And luckily for us, it is not rocket science!
+Let's start with what the Session Bridge actually is.
 
 It is a set of services that allow the exchange of a [session cookie](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_local_data_storage.htm) (Site) for a [JWT](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/jwt.html) (OCAPI/SCAPI) and vice-versa. A JWT (JSON Web Token) is how OCAPI and SCAPI recognise a shopper on an API call; a session cookie (`dwsid`) is how an SFRA or SiteGenesis controller recognises the same shopper on a page request. Neither side understands the other's credential natively, so something has to translate between them.
 
-Using this service, you can keep a session alive across different touchpoints. A good example is a mobile application with a button redirecting to the site. In this scenario, it would be a shame if someone logged into the application would have to log in again on the site.
+Using this service, you can keep a session alive across different touchpoints. Take a mobile app with a button that redirects to the site: a shopper who's already logged into the app shouldn't have to log in again the moment they land on the storefront.
 
-Come into play the "Session Bridge!" The mobile application, before being redirected, exchanges its JWT token for a valid cookie and sets it before pushing the customer to the site. Result: Happy customer (hopefully 😊)!
+That's where the Session Bridge comes in. Before redirecting the shopper, the app exchanges its JWT for a valid cookie and sets it on the browser. Result: happy customer (hopefully 😊).
 
 {{< img-caption src="session-bridge-mobile-app-v3-scaled-93e60b2f4b.jpeg" alt="Mobile app session bridging flow that transfers a shopper into the storefront." >}}
 
@@ -197,11 +197,11 @@ With a real client ID, configure access to the necessary APIs in the Business Ma
 >
 > In the examples below, you will see the site "RefArch" used. Do not forget to replace this with your own.
 
-The first resource we need to call is customer authentication. And with this, we will get a JWT bearer token we can use other OCAPI endpoints linked to that customer "session."
+The first resource we call is customer authentication. It returns a JWT bearer token, which we can then use against other OCAPI endpoints tied to that customer "session."
 
 - [/customers/auth](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-customers?meta=Summary)
 
-In this example, to make it a bit easier to test out, we will use a guest session by forming a request like this:
+To keep the example simple, we'll use a guest session:
 
 ```text
 REQUEST:
@@ -227,20 +227,20 @@ The result is a response containing the bearer token we need to continue talking
 }
 ```
 
-But what you need is not visible in the response... huh? Not to worry, it is in the Authorization header!
+But the JWT you need isn't in the response body... it's in the Authorization header!
 
 {{< img-caption src="bearer-token-authorization-header-e377c64b9c.png" alt="Authorization header containing the OCAPI bearer token in Postman." >}}
 
 ### Step 2: Exchange the bearer JWT token for cookies
 
-Let us exchange that token for a cookie, shall we? And for that, we need the "sessions" endpoint.
+Now let's exchange that token for a cookie. For that, we need the "sessions" endpoint.
 
 - [/sessions](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-sessions?meta=Summary)
 
 > [!TIP]
 > The link above contains much information on things to keep in mind! Be sure to give it a good read.
 
-The request itself is pretty easy! Call the endpoint with the correct authorization header (type bearer), and you are as good as gold!
+The request itself is simple: call the endpoint with a bearer-type Authorization header, and you're done.
 
 ```text
 POST /s/RefArch/dw/shop/v25_6/sessions HTTP/1.1
@@ -259,15 +259,15 @@ Set-Cookie : dwsid=<sample-session-cookie>;
 Set-Cookie : dwanonymous_<suffix>=<sample-anonymous-id>; Max-Age=15552000;
 ```
 
-For the next step to work, copy the **dwsid** cookie. We need it to convert the cookie back to a JWT bearer token.
+Copy the **dwsid** cookie: the next step needs it to convert the cookie back into a JWT.
 
 ### Step 3: Exchange the cookie for a bearer JWT
 
-In some scenarios, we need to be able to do it the other way around and convert our cookie to a JWT token. To do this, we use a familiar endpoint (step 1)!
+Sometimes you need to go the other way and convert a cookie back into a JWT. That uses the same endpoint as step 1.
 
 - [/customers/auth](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-customers?meta=Summary)
 
-The most significant difference from step 1 is that we send a different body and, of course, our cookie.
+The only real difference from step 1 is the request body, plus the cookie.
 
 ```text
 REQUEST:
@@ -312,18 +312,18 @@ Something to keep in mind when using either session bridge is how it handles sen
 
 {{< img-caption src="session-bridge-guest-basket-insecure-order-a252675925.jpeg" alt="Insecure handover example where SFCC blocks sensitive basket details after transfer." caption="SFCC Makes sure no sensitive data is shared in a possibly insecure scenario" >}}
 
-_**A basket is created/modified**_ _**after the session handover**_ in the second scenario.
+In the second scenario, the basket is created or modified **after** the session handover.
 
-As a security precaution, Salesforce ensures that SiteGenesis/SFRA can not access this data.
+As a security precaution, Salesforce ensures that SiteGenesis/SFRA cannot access this data.
 
-Consider this if you have a scenario where one might modify or set a basket after a session handover.
+Keep this in mind if your integration modifies or creates a basket after the handover.
 
 ## Use Case: Hybrid deployment
 
-As mentioned in the intro, this API endpoint has received much more attention since the release of the PWA Kit.
+As mentioned in the intro, session bridging has drawn a lot more attention since PWA Kit's release.
 
-One of the official scenarios supported by this new storefront option is a hybrid deployment, which means keeping some pages running on SFRA/SiteGenesis and others on the PWA Kit.
+One of PWA Kit's supported scenarios is a hybrid deployment: keeping some pages on SFRA/SiteGenesis and others on PWA Kit.
 
-This allows existing clients to slowly migrate from the "monolithic architecture" to a "headless architecture."
+That lets existing customers migrate from a monolithic architecture to a headless one at their own pace.
 
 Want to know more about how to implement this approach? Head to the official [Hybrid Authentication](https://developer.salesforce.com/docs/commerce/commerce-api/guide/hybrid-authentication.html) guide, which replaced the older Plugin SLAS approach as of B2C Commerce 25.3. If you're maintaining an existing Plugin SLAS setup, the [previous guide](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/phased-headless-rollouts.html) is still online, but new hybrid deployments should start with Hybrid Auth.
