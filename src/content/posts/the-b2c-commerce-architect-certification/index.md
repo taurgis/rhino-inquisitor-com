@@ -38,7 +38,6 @@ The Official List
 Capturing business requirements and providing the best solution for the business (or providing multiple - with pros and cons) is a crucial skill you need as an architect. Using the [knowledge of the platform](/the-salesforce-b2c-commerce-cloud-environment/) and what it can and cannot do, is imperative to make the right decisions. And if the platform cannot do a particular feature, what tools to use (third-party or custom-built) in that situation.
 
 - [Trailhead: Salesforce Commerce Cloud Architect Roles: Quick Look](https://trailhead.salesforce.com/content/learn/modules/commerce-cloud-architect-roles-quick-look?trailmix_creator_id=mking23&trailmix_slug=b-2-c-commerce-architect-certification-prep)
-- [Trailhead: Commerce Cloud Features](https://trailhead.salesforce.com/content/learn/modules/cc_cccapability?trailmix_creator_id=mking23&trailmix_slug=b-2-c-commerce-architect-certification-prep)
 - [Trailhead: Salesforce B2C Commerce Client Analysis](https://trailhead.salesforce.com/content/learn/modules/cc-solution-design-client-analysis?trailmix_creator_id=mking23&trailmix_slug=b-2-c-commerce-architect-certification-prep)
 - [Trailhead: Architecture of Salesforce B2C Commerce](https://trailhead.salesforce.com/content/learn/modules/architecture-of-commerce-cloud-digital?trailmix_creator_id=mking23&trailmix_slug=b-2-c-commerce-architect-certification-prep)
 - [Trailhead: Project Documentation for Salesforce B2C Commerce Functional Architects](https://trailhead.salesforce.com/content/learn/modules/cc-create-functional-consulting-documents?trailmix_creator_id=auser1343&trailmix_slug=arc300-salesforce-b2c-commerce-architect-classwork)
@@ -53,7 +52,7 @@ Capturing business requirements and providing the best solution for the business
 - [Trailhead: Salesforce B2C Commerce Storefront Sorting Rules](https://trailhead.salesforce.com/content/learn/modules/b2c-storefront-sorting-rules?trailmix_creator_id=mking23&trailmix_slug=b-2-c-commerce-architect-certification-prep)
 - [Trailhead: Smarter Search with Commerce Cloud Einstein](https://trailhead.salesforce.com/content/learn/modules/cc-einstein-smarter-search?trailmix_creator_id=mking23&trailmix_slug=b-2-c-commerce-architect-certification-prep)
 - [Trailhead: Salesforce B2C Commerce Campaigns and Promotions](https://trailhead.salesforce.com/content/learn/modules/b2c-campaigns-and-promotions?trailmix_creator_id=mking23&trailmix_slug=b-2-c-commerce-architect-certification-prep)
-- [PLC: B2C Commerce: Frontend Architectural Options](https://partnerlearningcamp.salesforce.com/s/browse-catalog?plc__recordId=3jgpi8TpMhWnKj6DIFXuJtx1QeFdL3j7lMgxipymXIyYFWYx29Pu5%2FVKHk1GSGs1)
+- [PLC: B2C Commerce: Frontend Architectural Options](https://partnerlearningcamp.salesforce.com/s/browse-catalog?plc__recordId=3jgpi8TpMhWnKj6DIFXuJtx1QeFdL3j7lMgxipymXIyYFWYx29Pu5%2FVKHk1GSGs1) (requires a Salesforce Partner Community login)
 - [Webinar: Storefront Reference Architecture (SFRA) overview](https://salesforce.vidyard.com/watch/rgvLUk97rk1Kg58nYVcuy9?)
 - [Let’s GO-LIVE: The Salesforce B2C Commerce Cloud Environment](/the-salesforce-b2c-commerce-cloud-environment/)
 - [Salesforce (Commerce) Payments: Payment Integration Simplified](/salesforce-payments-experience-explained/)
@@ -176,8 +175,8 @@ Failing a certification exam should not be considered a catastrophic event, espe
 
 Not to worry, there are instructor-led courses available at [Trailhead Academy](https://trailheadacademy.salesforce.com/)! The architect-specific course, ARC300, [was sunset in April 2024](/the-sunsetting-of-arc300-architect-b2c-commerce-solutions/) with no direct replacement announced since, so the current official exam guide's recommended training list is limited to the two courses below.
 
-- [B2C Commerce Developer with SFRA ( CCD102 )](https://trailheadacademy.salesforce.com/classes/ccd102-b2c-commerce-developer-with-sfra)
-- [Manage and Merchandise a B2C Commerce Cloud Store ( CCM101 )](https://trailheadacademy.salesforce.com/classes/ccm101-manage-and-merchandise-a-b2c-commerce-cloud-store---extended)
+- [B2C Commerce Developer with SFRA ( CCD102 )](https://trailhead.salesforce.com/en/academy/classes/ccd102-b2c-commerce-developer-with-sfra/)
+- [Manage and Merchandise a B2C Commerce Cloud Store ( CCM101 )](https://trailheadacademy.salesforce.com/classes/ccm101-manage-and-merchandise-a-b2c-commerce-cloud-store)
 
 ## Can I wing it
 
