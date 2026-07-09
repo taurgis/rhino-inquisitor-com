@@ -125,3 +125,34 @@ dead link.
 - Precedent docs: `docs/content/ocapi-endpoints-article-refresh-2026-07.md` (archive-section
   pattern), `docs/content/preparing-for-the-b2c-commerce-developer-certification-refresh-2026-07.md`
   (PLC auth-wall precedent, exam-guide fact-check methodology)
+
+## Correction (2026-07-09, same-day follow-up)
+
+While auditing the companion `non-technical-sfcc-certifications` article, live verification turned up
+stronger evidence than this refresh had: **Commerce Cloud Einstein Accredited Professional is not on
+the current official catalog either**, and the "Active" verdict two sections above is wrong.
+
+- **What changed**: a forced, fresh browser-render fetch of
+  `https://trailhead.salesforce.com/credentials/accreditedprofessionaloverview` (not just the cached
+  fetch used in the original audit) shows no "Commerce Cloud Einstein" entry, in the exact alphabetical
+  slot it should occupy (between "B2B Commerce for Developers" and "Communications Cloud" — both of
+  which are present, so this isn't a pagination artifact cutting off the C section). Re-fetching
+  `help.salesforce.com` article 002646692 directly confirms neither the English nor Japanese October 7,
+  2024 retirement lists name it.
+- **Why the original verdict was wrong**: the original audit treated "absent from the named retirement
+  batches" as equivalent to "still active." It isn't. Several credentials can be gone from the live
+  catalog without ever appearing on an official retirement announcement — which is exactly what
+  happened here and to `non-technical-sfcc-certifications`'s Indirect Sales Accredited Professional
+  (same absence pattern, same lack of any public retirement notice). The Credly badge pages and
+  LinkedIn posts cited as corroboration only show that people earned the credential in the past; they
+  say nothing about whether it's still offered today.
+- **Action taken**: `src/content/posts/certifications-for-salesforce-b2c-commerce-cloud/index.md` now
+  archives this section (`### Archived: Commerce Cloud Einstein Accredited Professional (Retired
+  ~2024)`), matching the Headless API First pattern, with the retirement date explicitly flagged as an
+  approximate guess rather than a confirmed fact. The closing "What if I'm not a developer" section,
+  which had recommended this exact accreditation as the one non-technical profiles could sit, now
+  acknowledges that its own recommendation didn't survive either. `lastmod` bumped again to
+  `2026-07-09T16:40:30.000Z`.
+- **Confidence**: high on "not currently on the live catalog" (two independent live fetches, correct
+  alphabetical placement, surrounding entries intact); low on the exact retirement date, which is not
+  documented anywhere Salesforce publishes and is stated as such in the article.
