@@ -105,7 +105,7 @@ Before we start, we must understand that not all API endpoints support caching. 
 This is quite an extensive list and contains all the objects we would expect to support caching!
 
 > [!NOTE]
-> All twelve links above still resolve as of July 2026, now labeled "(deprecated)" in their page titles rather than removed. Salesforce hasn't pulled the OCAPI reference docs, just relabeled them.
+> All twelve links above still resolve as of July 2026, now labelled "(deprecated)" in their page titles rather than removed. Salesforce hasn't pulled the OCAPI reference docs, just relabelled them.
 
 > [!NOTE]
 > Only GET calls can be cached.
@@ -207,7 +207,7 @@ Personalised caching is enabled by default based on the customer context (JWT). 
 }
 ```
 
-By setting the "personalized_caching_enabled" option to false, personalisation will be disabled for that resource.
+By setting the `personalized_caching_enabled` option to false, personalisation will be disabled for that resource.
 
 > [!NOTE]
 > You can find information about other options (not related to caching) for resources on [Salesforce Developers](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/ocapisettings.html).
