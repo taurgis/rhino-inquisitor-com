@@ -197,7 +197,7 @@ The X-Frame-Options HTTP response header can be used to indicate whether or not 
 
 ## PWA Kit
 
-As the PWA Kit is "relatively" new, there is no real documentation on PWA-specific security best practices. But the amount of information being added to the [Developer Portal](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/skills-for-success.html) is constantly growing.
+PWA Kit shipped back in 2021, and security guidance for it has caught up since. The [Managed Runtime best practices guide](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/best-practices.html) now links out to the B2C Commerce security guide, bot management, and bot mitigation, while the [Managed Runtime overview](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/mrt-overview.html) documents the WAF, proxy, and CDN layer that sits in front of your storefront by default. I've also covered storefront-level protection — gating an unfinished or staging site behind Basic Auth — separately in [Storefront Protection For Your Composable Storefront](/storefront-protection-in-the-pwa-kit/) (worth a refresh of its own, but the approach it describes still holds).
 
 ### Malicious Modules
 
