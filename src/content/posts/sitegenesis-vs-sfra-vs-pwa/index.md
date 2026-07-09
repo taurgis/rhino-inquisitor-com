@@ -113,7 +113,7 @@ The [PWA Kit](https://pwa-kit.mobify-storefront.com/) is the most recent additio
 
 ### Headless solution
 
-Unlike SiteGenesis and SFRA, the PWA Kit runs on a separate server. It connects with the [SCAPI](https://developer.salesforce.com/docs/commerce/commerce-api/guide) and [OCAPI](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/get-started-with-ocapi.html) (REST APIs) of the Salesforce B2C Commerce Cloud environments.
+Unlike SiteGenesis and SFRA, the PWA Kit runs on a separate server. It connects to your Salesforce B2C Commerce Cloud environment through the [SCAPI](https://developer.salesforce.com/docs/commerce/commerce-api/guide) (a REST API). That is a correction to make here: earlier versions leaned on the OCAPI for a few gaps in the hooks system, but by now the PWA Kit runs fully on SCAPI. The OCAPI itself was [officially deprecated in April 2026](/in-the-ring-ocapi-versus-scapi/), so it is no longer part of this picture at all, headless or otherwise.
 
 It is an entirely different type of architecture than the "[monolithic](https://en.wikipedia.org/wiki/Monolithic_application#:~:text=In%20software%20engineering%2C%20a%20monolithic,independent%20from%20other%20computing%20applications.)" approach we are used to within SFCC.
 
@@ -140,7 +140,7 @@ Another significant change in working is that the PWA Kit is built upon [React](
 It will be easier to find and educate developers in this setup.
 
 > [!WARNING]
-> Developers will still need to learn about the SCAPI and OCAPI endpoints, which have a steady learning curve.
+> Developers will still need to learn the SCAPI endpoints, which have a steady learning curve. OCAPI knowledge has not become useless overnight either. It stays relevant for older SFRA/SiteGenesis integrations still running in maintenance mode, at least until Salesforce switches those off for good.
 
 **Note:** The PWA Kit is only responsible for the front end. The back-end integrations such as importing products, prices, and inventory will still need to be done the "old-fashioned" way.
 
