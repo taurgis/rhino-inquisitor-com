@@ -4,7 +4,7 @@ description: >-
   Those interested in Salesforce B2C Commerce Cloud will hear the term
   SiteGenesis and SFRA (and PWA). But what is the difference?
 date: '2022-07-17T13:42:22.000Z'
-lastmod: '2026-07-07T18:30:00.000Z'
+lastmod: '2026-07-09T12:41:29.000Z'
 url: /sitegenesis-vs-sfra-vs-pwa/
 draft: false
 heroImage: sfra-vs-sitegenesis-965c09b9a6.jpg
@@ -113,7 +113,7 @@ The [PWA Kit](https://pwa-kit.mobify-storefront.com/) was, for years, the newest
 
 ### Headless solution
 
-Unlike SiteGenesis and SFRA, the PWA Kit runs on a separate server. It connects to your Salesforce B2C Commerce Cloud environment through the [SCAPI](https://developer.salesforce.com/docs/commerce/commerce-api/guide) (a REST API). That is a correction to make here: earlier versions leaned on the OCAPI for a few gaps in the hooks system, but by now the PWA Kit runs fully on SCAPI. The OCAPI itself was [officially deprecated in April 2026](/in-the-ring-ocapi-versus-scapi/), so it is no longer part of this picture at all, headless or otherwise.
+Unlike SiteGenesis and SFRA, the PWA Kit runs on a separate server. It connects to your Salesforce B2C Commerce Cloud environment through the [SCAPI](https://developer.salesforce.com/docs/commerce/commerce-api/guide) (a REST API) — not OCAPI, which is what this article originally said here. Earlier PWA Kit versions leaned on the OCAPI for a few gaps in the hooks system; by now, everything runs through SCAPI. OCAPI itself was [officially deprecated in April 2026](/in-the-ring-ocapi-versus-scapi/), so it is no longer part of this picture at all, headless or otherwise.
 
 The rest of this site now groups PWA Kit and Managed Runtime under one label: the [Composable Storefront](/what-does-the-composable-storefront-mean-for-sfcc-developers/). It isn't a fourth product bolted onto this comparison — it's shorthand for the same stack described in this section. If you're coming from SiteGenesis or SFRA and wondering what skills carry over, [this site has a dedicated walkthrough](/the-move-from-sitegenesis-and-sfra-to-the-composable-storefront-as-a-developer/).
 
@@ -160,7 +160,7 @@ That gap has narrowed since this article was first written, but it hasn't closed
 
 ### Missing out-of-the-box features
 
-A few SFRA features still don't have a clean PWA Kit equivalent, and each one's status is different by now:
+A few SFRA features still don't have a clean PWA Kit equivalent. Here's where each one actually stands in 2026:
 
 - [A/B Testing](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_ab_testing.htm) — still genuinely missing. The only bridge is a [SCAPI Custom API](https://developer.salesforce.com/docs/commerce/commerce-api/guide/custom-apis.html) you build yourself around the same `ABTestMgr` script API SFRA uses.
 - ~~Personalisation~~ (Added in 2023)
