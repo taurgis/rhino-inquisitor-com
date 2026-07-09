@@ -27,13 +27,13 @@ takeaways:
 Server-side caching keeps GET requests to your Salesforce B2C Commerce REST APIs fast without hammering the application server on every call. For years, the [OCAPI](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/get-started-with-ocapi.html) handled this through settings in the Business Manager, but the OCAPI was deprecated platform-wide in April 2026.
 
 > [!NOTE]
-> Updated July 2026: This article originally covered only OCAPI cache configuration. The OCAPI is now deprecated, so the guidance below starts with how caching works for Custom SCAPI endpoints today; the original OCAPI walkthrough is preserved further down [for the archives](#for-the-archives-ocapi-cache-configuration).
+> Updated July 2026: This article originally covered only OCAPI cache configuration. The guidance below now starts with how caching works for Custom SCAPI endpoints; the original OCAPI walkthrough is preserved further down [for the archives](#for-the-archives-ocapi-cache-configuration).
 
 ## Caching Custom SCAPI Endpoints
 
 Custom SCAPI endpoints — the officially supported way to add your own routes to the Salesforce Commerce API — can cache their responses, but the mechanism looks nothing like the OCAPI settings further down this article. Instead of a JSON `cache_time` value, you call two Script API methods directly inside the endpoint's implementation script, as described in [Salesforce's Custom API caching guide](https://developer.salesforce.com/docs/commerce/commerce-api/guide/custom-api-caching.html).
 
-Page Cache still has to be enabled for the site first, exactly like it did for OCAPI. With that in place, here's a Custom Product API endpoint that caches its response for 60 seconds:
+[Page Cache](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-content-cache.html) still has to be enabled for the site first, exactly like it did for OCAPI. With that in place, here's a Custom Product API endpoint that caches its response for 60 seconds:
 
 ```javascript
 var RESTResponseMgr = require("dw/system/RESTResponseMgr");
@@ -75,11 +75,11 @@ This only applies to **Custom APIs** — the endpoints you write yourself. The s
 
 ### Custom Caches to the rescue (for hooks)
 
-[Custom caches](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-custom-caches.html) are user-defined in Salesforce B2C Commerce Cloud, allowing developers to store and retrieve data efficiently. They can be used to cache frequently accessed data, reducing the load on the server and speeding up response times for SCAPI REST APIs where [hooks](/how-to-use-ocapi-scapi-hooks/) have been implemented. Here are some ways custom caches can be used to speed up responses in the SCAPI REST APIs that have customisations:
+[Custom caches](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-custom-caches.html) let you store your own key/value data in memory. They're most useful on SCAPI endpoints where [hooks](/how-to-use-ocapi-scapi-hooks/) add customisation logic that would otherwise repeat expensive work on every request. A few concrete uses:
 
-1. **Reducing database queries:** If an API call requires fetching data from the database, custom caches can help store the data in memory. This way, when subsequent API calls are made, the data can be quickly retrieved from the cache instead of querying the database again.
-1. **Complex Calculations:** Sometimes, processing API requests may involve complex calculations or transformations. Custom caches can store the results of these calculations, allowing subsequent requests to retrieve the cached data instead of re-computing the results.
-1. **Third-party API responses:** If your SCAPI REST APIs depend on third-party APIs, custom caches can help store the responses from these external APIs, reducing latency and improving performance.
+1. **Reducing database queries:** cache the result of an expensive lookup in memory, so the next call reads from the cache instead of hitting the database again.
+1. **Complex calculations:** cache the output of a calculation or transformation once, so subsequent requests skip re-computing it.
+1. **Third-party API responses:** if your endpoint calls an external API, cache the response so a slow upstream call doesn't slow down every request that needs the same data.
 
 ## For the Archives: OCAPI Cache Configuration
 
