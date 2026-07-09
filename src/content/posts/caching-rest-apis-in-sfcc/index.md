@@ -69,7 +69,7 @@ exports.getCustomProduct.public = true;
 
 `setVaryBy()` marks the response as personalised, so the cache doesn't serve one shopper's promotion-adjusted price to another. Use it carefully: flag a response as personalised when it isn't, and you lose most of the cache-hit benefit you were chasing in the first place.
 
-One scoping detail worth being explicit about: this is for **Custom APIs**, the endpoints you write yourself. The standard Shopper APIs (Products, Search, Categories, and the rest) don't expose an equivalent cache-time control the way the old OCAPI Shop API did.
+This only applies to **Custom APIs** — the endpoints you write yourself. The standard Shopper APIs (Products, Search, Categories, and the rest) don't expose an equivalent cache-time control the way the old OCAPI Shop API did.
 
 ### Custom Caches to the rescue (for hooks)
 
