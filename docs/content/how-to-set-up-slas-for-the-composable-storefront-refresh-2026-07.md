@@ -106,3 +106,59 @@ can compare them against the live UI.
 - Cross-linked posts: `in-the-ring-ocapi-versus-scapi`,
   `slas-in-sfra-or-sitegenesis`, `creating-custom-ocapi-endpoints`,
   `how-to-get-a-salesforce-b2c-commerce-cloud-sandbox`
+
+## Addendum — deep prose and fact-check pass (July 9, 2026, later same day)
+
+A follow-up request asked for a full anti-ai-writing / human-prose-editing /
+beginner-technical-writing audit plus a deeper fact check, beyond the first
+pass above. Two more factual issues surfaced, both verified live against
+current Salesforce docs (not carried over from the first pass or from
+training-data knowledge):
+
+- **SLAS Admin UI URL was stale.** The article told readers to construct
+  `.../shopper/auth-admin/v1/sso/login`. Salesforce's current
+  [Authorization for Shopper APIs](https://developer.salesforce.com/docs/commerce/commerce-api/guide/authorization-for-shopper-apis.html)
+  guide documents the URL as `.../shopper/auth-admin/v1/ui/`. Live-tested
+  directly against the endpoint: hitting `/ui/` unauthenticated 302-redirects
+  to `/sso/login`; hitting `/sso/login` directly also returns 200, so it
+  wasn't a dead link — just not the documented entry point. Corrected to
+  `/ui/`.
+- **Tenant ID format example didn't match the instance type the article has
+  readers create.** The article said the format was `xxxx_sxx`. Salesforce's
+  [Base URL and Request Formation](https://developer.salesforce.com/docs/commerce/commerce-api/guide/base-url.html)
+  guide shows tenant ID = 4-character realm ID + underscore + instance ID,
+  with an on-demand sandbox example of `zzte_053` (`xxxx_ddd` pattern).
+  `xxxx_sxx` (e.g. `zzrf_s01`) is the **POD sandbox** pattern specifically —
+  a different instance type than the on-demand sandbox this article's Step 1
+  has readers create. The article now shows both patterns rather than only
+  the mismatched one.
+
+Two claims were re-checked and confirmed unchanged: the "Official Guide"
+link (`authorization-for-shopper-apis.html`) is still the current, canonical
+page (title "Authorization for Shopper APIs," unchanged intent — though it
+now also documents a newer CLI path, `b2c slas client create`, mentioned in
+the post as an aside); and the sandbox-creation doc link
+(`creating-an-on-demand-sandbox.html`) still resolves and is current.
+
+Prose changes made in this pass, none of which touched a technical claim:
+
+- Rewrote a genuinely broken sentence in the Step 2 Account Manager/Scopes
+  paragraph (unclosed parenthesis, garbled quoting, missing sentence
+  boundary — not just an informal-tone issue).
+- Normalized the article's inconsistent first-person-singular / first-person-
+  plural / second-person narration ("I"/"we"/"you") to direct second-person
+  address for step instructions, keeping "I" only for the two genuine
+  authorial asides (what the guide chooses not to cover, and the scopes-typo
+  verification limitation) rather than mixing voices mid-paragraph.
+- Cut filler exclamations and empty reassurance ("You're not alone!", "we
+  are almost there!", "a simple way," "friendly Welcome screen," etc.) that
+  added no information.
+- Added brief "why this matters" context for Short Code, Organization ID,
+  Tenant ID, and the public/private client distinction, instead of only
+  "fill this in" instructions with an external link.
+- Gave the "Official Guide" link descriptive anchor text instead of a raw
+  pasted URL used as its own link text.
+
+Not independently reverified in this pass either: the same 7 screenshots
+flagged in the first pass, for the same reason (no live sandbox or SLAS
+Admin UI access in this session).
