@@ -94,7 +94,7 @@ I promised, back in 2023, to update this section once the guiding trailmix for p
 
 ## Accredited Professional
 
-Around 2021, Salesforce added a second, partner-only credential track called Accreditations, run through the [Partner Learning Camp](https://partnerlearningcamp.salesforce.com/s/learner-dashboard) (PLC) and open only to Salesforce Partners and employees. Two of them touched Commerce Cloud people directly — one AI-configuration-focused, one sales-focused. Neither made it to 2026.
+Around 2021, Salesforce added a second, partner-only credential track called Accreditations, run through the [Partner Learning Camp](https://partnerlearningcamp.salesforce.com/s/learner-dashboard) (PLC) and open only to Salesforce Partners and employees. Two of them touched Commerce Cloud people directly — one about configuring Einstein AI, one about sales. Neither made it to 2026.
 
 Salesforce never put out a retirement announcement for either one; they simply stopped appearing in the current [Accredited Professional catalog](https://trailhead.salesforce.com/credentials/accreditedprofessionaloverview) at some point. Both are kept below rather than deleted from the record.
 
@@ -104,7 +104,7 @@ Salesforce never put out a retirement announcement for either one; they simply s
 
 > The Commerce Cloud Einstein Accredited Professional exam is intended for individuals who have the knowledge, skills, and experience with data ingestion processes, security and access implementations. This exam expects basic Salesforce knowledge including objects, data and data modelling.
 
-[Einstein](/ai-einstein-in-salesforce-b2c-commerce-cloud/) is one of the critical features of Salesforce B2C Commerce Cloud, providing many different AI features "natively" to the platform. Many of its features had to be configured to work out of the box, and knowing where all those buttons and switches were was essential to any project, technical or not.
+[Einstein](/ai-einstein-in-salesforce-b2c-commerce-cloud/) is one of the critical features of Salesforce B2C Commerce Cloud, providing many different AI features "natively" to the platform. Many of its features still need to be configured to work out of the box, and knowing where all those buttons and switches are is still essential to any project, technical or not.
 
 **But there's no exam left to sit.** It's absent from Salesforce's current Accredited Professional catalog and from the official October 7, 2024 retirement batch by name, so it went earlier and separately, with no public retirement notice I could find. The "~2024" above is my best guess, not a confirmed date.
 
