@@ -1,10 +1,10 @@
 ---
 title: Use SFRA REST Endpoints in a Composable Storefront?
 description: >-
-  When working with Salesforce B2C Commerce Cloud in a hybrid approach (using
-  SFRA with a Composable Storefront project), you naturally end up with some
+  Custom SCAPI endpoints beat SFRA controllers for REST APIs in a composable
+  storefront, with full HTTP method support and native SLAS authentication.
 date: '2024-10-21T09:36:19.000Z'
-lastmod: '2026-07-04T17:47:13.000Z'
+lastmod: '2026-07-09T09:33:51.000Z'
 url: /should-i-use-sfra-rest-endpoints-in-a-composable-storefront/
 draft: false
 heroImage: a-modern-building-connected-to-old-architecture-b9920e4c92.jpg
@@ -51,15 +51,15 @@ There is a way around this limitation that I experimented with before custom SCA
 
 ### Personalisation and session bridging
 
-When creating endpoints that require personalisation, you need to use "plugin\_slas" to transfer your JWT to a session cookie. However, in specific scenarios, redirects and URL refreshes are some of the "actions" that occur.
+When creating endpoints that require personalisation, the controller approach ties you to a session cookie. For years, getting a shopper's SLAS JWT into that session meant installing the `plugin_slas` cartridge, which added three to five extra remote API calls on every login and its own quirks around redirects and URL refreshes while it transferred the token.
 
-While this is fine for a regular user loading a page in the browser, for integrations, it can be a significant hurdle to overcome.
+That cartridge is no longer the answer. Since B2C Commerce release 25.3, native [Hybrid Authentication](/slas-in-sfra-or-sitegenesis/) keeps the `dwsid` cookie and the SLAS JWT in sync on the platform side, with none of the cartridge's extra calls or maintenance overhead.
 
-It can also introduce extra API calls and delays in getting responses.
+Hybrid Auth removes the cartridge's cost, but not the design it was built to patch: a personalised controller endpoint is still a session-bound request. That is fine for a regular user loading a page in the browser, but for an integration that just wants a JSON response, carrying a session cookie is a hurdle you shouldn't have to clear.
 
 #### Adding complexity to your API architecture
 
-Employing session transformation and SLAS this way increases architectural complexity, complicating debugging efforts unnecessarily.
+Debugging that mix is its own tax: a broken response can mean an invalid session, a JWT that failed to sync, or the controller logic itself, and you have to rule each one out before you find the actual bug.
 
 ### Session creation
 
@@ -73,4 +73,4 @@ If we poorly implement a custom endpoint that is called on every page load to re
 
 ## Conclusion?
 
-The conclusion was already shared at the [start of the article](#conclusion)!
+The answer was "NO" from the outset: don't build custom REST endpoints as SFRA controllers. Custom SCAPI endpoints give you every HTTP method, native SLAS authentication, and none of the session baggage described above.
