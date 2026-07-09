@@ -100,7 +100,7 @@ On the [Salesforce Commerce Cloud Infocenter](https://help.salesforce.com/s/arti
 - [Supply Chain Security](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_supply_chain_security.htm)
 - [Secure Logging](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_secure_logging.htm)
 - [General Secure Coding Practices](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_general_secure_coding_practices.htm)
-- [AppExchange Security Reviews](https://developer.salesforce.com/docs/atlas.en-us.packagingGuide.meta/packagingGuide/secure_code_b2c_commerce.htm)
+- [AgentExchange Security Reviews](https://developer.salesforce.com/docs/atlas.en-us.packagingGuide.meta/packagingGuide/secure_code_b2c_commerce.htm) (this guide covered AppExchange until Salesforce folded it into AgentExchange)
 
 Quite the list, isn't it! Even though Salesforce takes care of quite a few things, you still need to keep yourself in check. Follow the provided guidelines not to compromise the channels you implement on Salesforce B2C Commerce Cloud.
 
@@ -108,7 +108,7 @@ Quite the list, isn't it! Even though Salesforce takes care of quite a few thing
 
 To increase the channel's security, Salesforce allows developers to set specific headers in the responses to tell browsers and applications what is permitted and what is not.
 
-A [config file](https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/blob/master/cartridges/app_storefront_base/cartridge/config/httpHeadersConf.json) was introduced into the SFRA to easily set headers for all responses, rather than having to do it for each endpoint separately.
+A [config file](https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/blob/master/cartridges/app_storefront_base/cartridge/config/httpHeadersConf.json) was introduced into the SFRA to easily set headers for all responses, rather than having to do it for each endpoint separately — Salesforce's own [support article on adding custom headers in SFRA](https://help.salesforce.com/s/articleView?id=000396592&language=en_US&type=1) still points at that same path.
 
 ```json
 [
@@ -167,17 +167,21 @@ The HTTP Content-Security-Policy-Report-Only response header allows web develope
 
 The HTTP Cross-Origin-Embedder-Policy (COEP) response header prevents a document from loading any cross-origin resources that don't explicitly grant the document permission (using CORP or CORS).
 
+### [Cross-Origin-Embedder-Policy-Report-Only](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy-Report-Only)
+
+The report-only counterpart to Cross-Origin-Embedder-Policy: it monitors and reports COEP violations without actually blocking the resources involved, which is useful for testing a policy before you enforce it. It's one of the constants Salesforce added to the Response class since this article's original list was written.
+
 ### [Cross-Origin-Opener-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Opener-Policy)
 
-The HTTP Cross-Origin-Opener-Policy (COOP) response header allows you to ensure a top-level document does not share a browsing context group with cross-origin documents.
+The HTTP Cross-Origin-Opener-Policy (COOP) response header allows you to ensure a top-level document does not share a browsing context group with cross-origin documents. Salesforce's Response class also exposes a `Cross-Origin-Opener-Policy-Report-Only` constant for testing a COOP policy before enforcing it, though MDN doesn't have a dedicated reference page for it yet.
 
 ### [Cross-Origin-Resource-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Resource-Policy)
 
 The HTTP Cross-Origin-Resource-Policy response header conveys a desire that the browser blocks no-cors cross-origin/cross-site requests to the given resource.
 
-### Permissions-Policy
+### [Permissions-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy)
 
-Permissions Policy Header is an added layer of security that helps to restrict from unauthorised access or usage of browser/client features by web resources. This policy ensures the user privacy by limiting or specifying the features of the browsers can be used by the web resources.
+The Permissions-Policy header restricts which browser features (camera, geolocation, autoplay, and dozens more) a page and its embedded frames are allowed to use. Setting it to a narrow allowlist limits what a compromised or malicious script embedded on your page could actually do with the browser's capabilities.
 
 ### [Referrer-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy)
 
@@ -193,7 +197,11 @@ The X-Frame-Options HTTP response header can be used to indicate whether or not 
 
 **Note:** The Commerce Cloud platform can override this header for tools like the Storefront Toolkit.
 
-**Note:** The values of this header are restricted to: "ALLOW-FROM", "DENY", "SAMEORIGIN".
+**Note:** The values of this header are restricted to: "ALLOW-FROM", "DENY", "SAMEORIGIN". Salesforce's Response class still documents `ALLOW-FROM`, but it's an [obsolete directive that modern browsers ignore entirely](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options) — use the Content-Security-Policy `frame-ancestors` directive instead if you need per-origin control.
+
+### [X-XSS-Protection](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection)
+
+A legacy header that told older browsers to stop rendering a page when they detected a reflected XSS attack. It's deprecated and modern browsers have removed their XSS filters, so a solid Content-Security-Policy is what actually protects you today — this one's here for completeness since Salesforce still exposes the constant.
 
 ## PWA Kit
 
