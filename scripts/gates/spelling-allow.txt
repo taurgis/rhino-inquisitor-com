@@ -62,6 +62,7 @@ autocorrection
 autocorrects
 autodocs
 automations
+autoplay
 avchen
 bachelet
 backend
