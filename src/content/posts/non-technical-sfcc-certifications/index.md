@@ -64,19 +64,16 @@ The preparation for this certification will take you across different products o
 
 You understand and analyse business operations, processes, and requirements to improve productivity and drive business growth, so naturally, this certification fits you like a glove, right?
 
-~~But for B2C Commerce Cloud professionals, this particular certification has a significant drawback: it requires you to have the [Salesforce Administrator certification](https://trailhead.salesforce.com/en/credentials/administrator). And to get that certification, you need more than just a basic understanding of the Salesforce CRM.~~
+> [!NOTE]
+> When this article first went up, the Business Analyst certification required the [Salesforce Administrator certification](https://trailhead.salesforce.com/en/credentials/administrator) as a prerequisite — a real drawback for B2C Commerce Cloud professionals, since Commerce Cloud isn't built on the "core" platform and has no Administrator-equivalent certification of its own to bridge that gap. Salesforce dropped the requirement on May 2, 2023, and it's still dropped: the [current exam guide](https://help.salesforce.com/s/articleView?id=005298939&language=en_US&type=1) lists no prerequisite at all.
 
-~~While in the big picture of things in the Salesforce eco-system, it is a requirement that you have a solid knowledge of the platform that you are implementing, the fact that B2C Commerce Cloud is not built on the "core" means that we are at a disadvantage.~~
-
-~~The fact that there is no "administrator" like certification for B2C Commerce Cloud doesn't help... But if you are not afraid of a challenge and are preparing for [the world of tomorrow](/what-is-commerce-on-core/), this certification might be worth pursuing!~~
-
-Salesforce Admin is no longer required As of May 2, 2023, the Salesforce Administrator certification is no longer a requirement!
+Here's the original announcement, for the record:
 
 > Effective today, May 2, 2023, the Salesforce Administrator Certification will no longer be required prior to earning the Salesforce Business Analyst Certification.
 >
-> As a result of this change, Salesforce Business Analyst Certification will no longer be maintained with Salesforce Administrator Certification maintenance. A Business Analyst maintenance module will be available with the start of Summer ’23. For more maintenance info, visit the [Certification Maintenance Schedule Help article](http://click.mail.salesforce.com/?qs=0e0922571fda7b008a681bf990b59c2f7b900a3427d9add675a77798af335adaeae10a342e704083c34ab11d8ab098ad2d996f3a680b73dc).
+> As a result of this change, Salesforce Business Analyst Certification will no longer be maintained with Salesforce Administrator Certification maintenance. A Business Analyst maintenance module will be available with the start of Summer ’23. For more maintenance info, visit the [Certification Maintenance Schedule](https://help.salesforce.com/s/articleView?id=005298922&language=en_US&type=1) Help article.
 >
-> For more information, please visit the [Salesforce Certified Business Analyst FAQ](http://click.mail.salesforce.com/?qs=0e0922571fda7b00223dfa49da8843ba54e3e7fc99e3741274f7e195bb9cf6b9a25eb0a6d3410fc592f3597d5a741ecf4563b416e552dc2c).
+> For more information, please visit the [Salesforce Certified Business Analyst FAQ](https://help.salesforce.com/s/articleView?id=005298943&type=1&language=en_US).
 >
 > Salesforce Certification Mail
 
