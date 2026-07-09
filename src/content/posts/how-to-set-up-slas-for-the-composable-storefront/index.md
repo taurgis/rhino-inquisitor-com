@@ -38,7 +38,7 @@ After you have logged into the Business Manager of your environment, go to the f
 
 {{< img-caption src="slas-admin-ui-button-business-manager-7bdbd7a798.jpg" alt="Salesforce Commerce API Settings page with the SLAS Admin UI link." caption="This is the Business Manager starting point for finding your SLAS setup details." >}}
 
-Salesforce's own documentation doesn't show a clickable SLAS Admin UI link on this page by default — construct the URL yourself from the Short Code: `https://{{Short_Code}}.api.commercecloud.salesforce.com/shopper/auth-admin/v1/sso/login`. If you have the [DWithEase](https://dwithease.com/) browser extension installed, it may add a shortcut link here for you, but the manual URL is the dependable path either way.
+Salesforce's own documentation doesn't show a clickable SLAS Admin UI link on this page by default — construct the URL yourself from the Short Code: `https://{{Short_Code}}.api.commercecloud.salesforce.com/shopper/auth-admin/v1/ui/`. If you have the [DWithEase](https://dwithease.com/) browser extension installed, it may add a shortcut link here for you, but the manual URL is the dependable path either way.
 
 On this screen, you'll also find the Short Code and Organization ID you'll need to install the Composable Storefront later. Open the SLAS Admin UI URL from above (or the shortcut link, if DWithEase added one) to continue.
 
@@ -64,7 +64,7 @@ Click the "Add Client" button on this page to go to the next step.
 
 And with that, we are almost there! Fill in the following information:
 
-- **What tenant will be used?:** Fill in the Tenant ID, part of the Organization ID, from step two. (format: xxxx\_sxx)
+- **What tenant will be used?:** Fill in the Tenant ID, part of the Organization ID, from step two. For an on-demand sandbox this looks like `zzte_053`; POD sandboxes use a different pattern, like `zzrf_s01`.
 - **What site will be used?:** Here, we fill in the site IDs used - separated by a space.
 - **Which App Type will be used?:** Well... the article is for the Composable Storefront, so let us select "_PWA Kit or SFRA or Mobile_." Selecting this option will make a [Public Client](https://developer.salesforce.com/docs/commerce/commerce-api/guide/slas-public-client.html). Salesforce's current guidance recommends a **private** client instead for most PWA Kit 3.5+ projects — the SLAS Admin UI creates private clients the same way, you just set the client secret afterwards via an environment variable rather than leaving it blank here. If your Admin UI's form offers that choice explicitly, pick private unless you have a specific reason not to; Step 4 and Step 5 below assume you know which one you picked.
 - **Client Id:** The Client ID to use during the installation of the PWA Kit. This can be left as-is. _Note: This Client ID does not need to exist as an API Client in the Account Manager. They are not related._
