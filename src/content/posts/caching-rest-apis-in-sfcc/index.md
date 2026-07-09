@@ -150,9 +150,49 @@ By setting the "personalised\_caching\_ enabled" option to false, personalisatio
 > [!NOTE]
 > You can find information about other options (not related to caching) for resources in the [Infocenter](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/ocapisettings.html).
 
-## SCAPI (Salesforce Commerce API)
+## Caching Custom SCAPI Endpoints
 
-Currently, you can't control the server-side cache times of SCAPI. All known approaches from the OCAPI Shop API (for example, setting cache times in the OCAPI settings) don’t apply to the [Salesforce Commerce API](https://developer.salesforce.com/docs/commerce/commerce-api/guide).
+Custom SCAPI endpoints — the officially supported way to add your own routes to the Salesforce Commerce API — can cache their responses, but the mechanism looks nothing like the OCAPI settings above. Instead of a JSON `cache_time` value, you call two Script API methods directly inside the endpoint's implementation script, as described in [Salesforce's Custom API caching guide](https://developer.salesforce.com/docs/commerce/commerce-api/guide/custom-api-caching.html).
+
+Page Cache still has to be enabled for the site first, exactly like it did for OCAPI. With that in place, here's a Custom Product API endpoint that caches its response for 60 seconds:
+
+```javascript
+var RESTResponseMgr = require("dw/system/RESTResponseMgr");
+
+exports.getCustomProduct = function () {
+  var customProduct = // ... some lookup of custom product data ...
+
+  // set cache time to 60 seconds
+  response.setExpires(Date.now() + 60000);
+
+  RESTResponseMgr.createSuccess(customProduct).render();
+};
+
+exports.getCustomProduct.public = true;
+```
+
+`response.setExpires(milliseconds)` takes an absolute timestamp, not a duration — that's why it's `Date.now() + 60000` and not just `60000`. Get that backwards and the cache time ends up wildly wrong, since a bare millisecond count reads as a moment already in the past.
+
+If a resource's cache validity depends on something other than time — a promotion, for instance — mark it with `setVaryBy()` instead:
+
+```javascript
+var RESTResponseMgr = require("dw/system/RESTResponseMgr");
+
+exports.getCustomProduct = function () {
+  var customProduct = // ... some lookup of custom product data ...
+
+  // set caching based on promotion
+  response.setVaryBy("price_promotion");
+
+  RESTResponseMgr.createSuccess(customProduct).render();
+};
+
+exports.getCustomProduct.public = true;
+```
+
+`setVaryBy()` marks the response as personalised, so the cache doesn't serve one shopper's promotion-adjusted price to another. Use it carefully: flag a response as personalised when it isn't, and you lose most of the cache-hit benefit you were chasing in the first place.
+
+One scoping detail worth being explicit about: this is for **Custom APIs**, the endpoints you write yourself. The standard Shopper APIs (Products, Search, Categories, and the rest) don't expose an equivalent cache-time control the way the old OCAPI Shop API did.
 
 ### Custom Caches to the rescue (for hooks)
 
