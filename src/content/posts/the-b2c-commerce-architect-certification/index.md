@@ -22,6 +22,9 @@ takeaways:
 ---
 Congratulations on your decision to become a [certified Salesforce B2C Commerce Architect](https://trailhead.salesforce.com/en/credentials/b2ccommercearchitect)! Obtaining certification is an excellent way to validate your knowledge and ensure that it meets Salesforce's high standards. While practical experience and training can provide a strong foundation, preparing specifically for the exam never hurts. In this article, we will review the exam guide and highlight the areas you may want to focus on to increase your chances of passing the exam on your first attempt.
 
+> [!WARNING]
+> **This certification is being retired.** The [official exam guide](https://help.salesforce.com/s/articleView?id=005298936&type=1&language=en_US) (checked 2026-07-09) sets these dates: last day to register **July 24, 2026**, last day to take the exam **August 31, 2026**, retirement date **February 1, 2027**. If you're reading this after those dates, treat the guidance below as historical reference rather than active exam prep.
+
 ## Design/Discovery (29%)
 
 The Official List
@@ -29,7 +32,7 @@ The Official List
 - Given a customer’s business requirement, create a technical specification that accurately reflects the business requirement.
 - Given business and technical requirement details, create standard technical artefacts that are complementary and accurate to the design and project needs.
 - Given business and technical requirement details, review implementation specifications for solutions, future growth, and gap analysis to stakeholders and provide analysis to defend if necessary.
-- Given systems integration requirements & technical details, evaluate LINK cartridges applicable versions, 3rd-Parties’ technical specifications, and API documentation for integrations.
+- Given systems integration requirements and technical details, evaluate applicable versions of AppExchange solutions, third-party technical specifications, and API documentation for integrations.
 - Given the systems that are interacting with the platform, evaluate the integration points, data type and volume, data migration approach, and diagram the system architecture.
 
 Capturing business requirements and providing the best solution for the business (or providing multiple - with pros and cons) is a crucial skill you need as an architect. Using the [knowledge of the platform](/the-salesforce-b2c-commerce-cloud-environment/) and what it can and cannot do, is imperative to make the right decisions. And if the platform cannot do a particular feature, what tools to use (third-party or custom-built) in that situation.
@@ -57,7 +60,7 @@ Capturing business requirements and providing the best solution for the business
 - [The Salesforce B2C Commerce Cloud Entity-Relationship model explained](/salesforce-b2c-commerce-cloud-erd/)
 - [AI (Einstein) in Salesforce B2C Commerce Cloud](/ai-einstein-in-salesforce-b2c-commerce-cloud/)
 - [What is OCI (Omnichannel Inventory)](/what-is-oci-omnichannel-inventory/)
-- [B2C Commerce: LINK Certification Guide](https://trailhead.salesforce.com/credentials/b2ccommercearchitect)
+- [B2C Commerce Architect: Official Exam Guide](https://help.salesforce.com/s/articleView?id=005298936&type=1&language=en_US)
 - [B2C Commerce: Einstein](https://help.salesforce.com/s/articleView?id=cc.b2c_commerce_cloud_einstein.htm&type=5&language=en_US)
 - [B2C Commerce: Release Notes](https://help.salesforce.com/s/articleView?id=sf.b2c_rn_release_notes.htm&type=5&language=en_US)
 - [B2C Commerce: Videos](https://help.salesforce.com/s/articleView?id=cc.b2c_videos.htm&language=en_US&type=5)
@@ -118,7 +121,7 @@ The Official List
 
 - Given a business requirement of integrating with a 3rd-Party web service identify what protocol (SOAP/REST) and what approach (real-time vs. batch processing) should be used and then apply all security strategies and best practices that SFCC can support.
 - Given a set of batch process requirements, leverage the productised Job Framework for batch process integration.
-- Given a list of third-party LINK cartridge integrations, identify “legacy” LINK cartridges that are still using Pipelines and define an integration approach with Controllers.
+- Given a list of third-party AppExchange solutions, identify legacy code that still uses Pipelines and define an integration approach with Controllers.
 - Given a set of real-time integration requirements, leverage the productised Service Framework for real-time integration.
 
 Salesforce B2C Commerce Cloud has many features out of the box, but it can't do everything. Any project (or at least the majority) must deal with third-party integrations. Knowing where to look and how to monitor these integrations is crucial as a B2C Commerce Architect.
@@ -133,7 +136,8 @@ Salesforce B2C Commerce Cloud has many features out of the box, but it can't do 
 - [How to use OCAPI/SCAPI hooks](/how-to-use-ocapi-scapi-hooks/)
 - [What is the OCAPI session bridge?](/what-is-the-ocapi-session-bridge/)
 - [Delta exports in Salesforce B2C Commerce Cloud](/delta-exports-in-salesforce-b2c-commerce-cloud/)
-- [Get started with the OCAPI](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/get-started-with-ocapi.html)
+- [Get started with the B2C Commerce API (SCAPI)](https://developer.salesforce.com/docs/commerce/commerce-api/guide/scapi-get-started.html)
+- [Get started with the OCAPI](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/get-started-with-ocapi.html) (deprecated — [SCAPI](https://developer.salesforce.com/docs/commerce/commerce-api/guide/scapi-get-started.html) is now the default REST API for new work, but you'll still meet OCAPI on older integrations)
 
 ## Launch (16%)
 
@@ -170,12 +174,11 @@ Failing a certification exam should not be considered a catastrophic event, espe
 
 ## What if self-study isn't my thing
 
-Not to worry, there are instructor-led courses available at [Trailhead Academy](https://trailheadacademy.salesforce.com/)! One specifically to become a Salesforce B2C Commerce Architect: ARC300.
+Not to worry, there are instructor-led courses available at [Trailhead Academy](https://trailheadacademy.salesforce.com/)! The architect-specific course, ARC300, [was sunset in April 2024](/the-sunsetting-of-arc300-architect-b2c-commerce-solutions/) with no direct replacement announced since, so the current official exam guide's recommended training list is limited to the two courses below.
 
 - [B2C Commerce Developer with SFRA ( CCD102 )](https://trailheadacademy.salesforce.com/classes/ccd102-b2c-commerce-developer-with-sfra)
 - [Manage and Merchandise a B2C Commerce Cloud Store ( CCM101 )](https://trailheadacademy.salesforce.com/classes/ccm101-manage-and-merchandise-a-b2c-commerce-cloud-store---extended)
-- [Architect B2C Commerce Solutions ( ARC300 )](https://trailheadacademy.salesforce.com/classes/arc300-architect-b2c-commerce-solutions)
 
 ## Can I wing it
 
-Undoubtedly, passing the B2C Commerce Architect certification exam can be a challenging task, even for those who have extensive experience in Salesforce B2C Commerce Cloud and SFRA development across multiple years/projects. It's important to note that passing this certification exam is only easy if you have also worked on the configuration aspect of the Business Manager, including setting up search, category management, Jobs, and OCAPI, among others. However, with multiple projects and at least 3-4 years of experience, passing the exam without preparation is feasible. In my case, I passed the exam on my third attempt, whereas my first try was entirely unprepared- which I do not recommend. It's vital not to take the exam lightly, as it's a certification exam, not a Trailhead module. Therefore, adequate preparation and a thorough understanding of the exam content are necessary to achieve success.
+Undoubtedly, passing the B2C Commerce Architect certification exam can be a challenging task, even for those who have extensive experience in Salesforce B2C Commerce Cloud and SFRA development across multiple years/projects. It's important to note that passing this certification exam is only easy if you have also worked on the configuration aspect of the Business Manager, including setting up search, category management, Jobs, and OCAPI/SCAPI settings, among others. However, with multiple projects and at least 3-4 years of experience, passing the exam without preparation is feasible. In my case, I passed the exam on my third attempt, whereas my first try was entirely unprepared- which I do not recommend. It's vital not to take the exam lightly, as it's a certification exam, not a Trailhead module. Therefore, adequate preparation and a thorough understanding of the exam content are necessary to achieve success.
