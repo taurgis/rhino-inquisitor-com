@@ -4,7 +4,7 @@ description: >-
   Certifications are an essential part of the journey within Salesforce. But
   what certifications are available for B2C Commerce Cloud?
 date: '2022-04-13T07:07:52.000Z'
-lastmod: '2026-07-09T15:21:07.000Z'
+lastmod: '2026-07-09T16:40:30.000Z'
 url: /certifications-for-salesforce-b2c-commerce-cloud/
 draft: false
 heroImage: certification-ce072f4076.jpg
@@ -103,22 +103,28 @@ So here's my actual guess, clearly labelled as a guess: this was one of the narr
 
 A shame, though. This was the one credential that let a headless-focused consultant prove they knew SCAPI cold without also having to prove they could configure a pricebook or wire up a Page Designer slot — handy if your entire engagement was "stand up a storefront against the Commerce APIs" and nothing else. That specialism now has nowhere to go but the full Developer or Architect exam, both of which spend most of their weight on Business Manager and SFRA territory a headless-only consultant may never touch. If anyone at Salesforce Credentials fancies bringing a scoped SCAPI exam back, you know where to find me 😇.
 
-### Commerce Cloud Einstein
+### Archived: Commerce Cloud Einstein Accredited Professional (Retired ~2024)
 
-{{< img-caption src="einstein-d7123b2738.png" alt="Einstein Commerce Cloud Accredited Professional badge." caption="This partner-only accreditation covers Einstein implementation from data feeds to debugging." >}}
+{{< img-caption src="einstein-d7123b2738.png" alt="Einstein Commerce Cloud Accredited Professional badge." caption="This partner-only accreditation covered Einstein implementation from data feeds to debugging." >}}
 
 > The Einstein Commerce Cloud Accredited Professional exam is intended for individuals who have the knowledge, skills, and experience with data ingestion processes, security, and access implementations.
 
-One of the selling points of Salesforce B2C Commerce Cloud (and other Salesforce offerings) is the AI engine to give personalised product recommendations: Einstein.
+One of the selling points of Salesforce B2C Commerce Cloud (and other Salesforce offerings) is the AI engine that gives personalised product recommendations: Einstein.
 
-This accreditation tests all your knowledge of Einstein:
+This accreditation tested all your knowledge of Einstein:
 
 - Development (Slots & Active Data)
 - Setting up the data feeds in the Business Manager
 - Configuring the recommender
 - Debugging Einstein
 
-As with the other Accreditation, [a course is available on the Partner Learning Camp](https://partnerlearningcamp.salesforce.com/s/browse-catalog?plc__recordId=AJ%2F%2F26%2FbM4WJjnIak4uXHwpstt68nZPqvIdhKT%2FnZEw9I%2FDpO60A4d8W08lxq8xT) (requires a Salesforce Partner Community login)!
+**Except there's no exam left to sit.** It's gone from the current [Accredited Professional catalog](https://trailhead.salesforce.com/credentials/accreditedprofessionaloverview) and absent from the official October 7, 2024 retirement batch by name too, so it went earlier and separately, with no public retirement notice I could find. "~2024" is my best guess, not a confirmed date.
+
+I have to correct myself here. The first time I refreshed this article, I called this one "Active" — going only on its absence from Salesforce's named retirement lists plus a handful of old Credly badges and LinkedIn posts. That's the wrong bar: absence from a retirement list isn't the same as presence on the current catalog, and checking the catalog itself directly, it isn't there.
+
+Why did it go? Salesforce doesn't say, at least not for this one specifically. My guess, clearly labelled as a guess: Einstein data feeds and access configuration went from a specialist sideline to something a growing share of Commerce Cloud partners just handle as part of ordinary implementation work. Once that stopped being a specialist skill, a standalone credential for it stopped being worth maintaining.
+
+A shame, though. This was the one credential that let a non-developer prove they understood Einstein configuration — data feeds, the recommender, debugging a bad recommendation — without a Developer or Architect exam behind it. That specific, non-technical proof of Einstein fluency doesn't exist anywhere on the B2C Commerce side today.
 
 ## What if I'm not a developer
 
@@ -133,3 +139,5 @@ This non-technical certification would allow people to publicly show that they k
 If anyone at the Salesforce Credentials team is reading this, give me a shout to discuss this 😇.
 
 **Update: turns out I didn't need to shout that loud.** Between 2021 and 2023, Salesforce rolled out [User Experience Designer, Strategy Designer, Business Analyst, Sales Representative, and Indirect Sales Accredited Professional](/non-technical-sfcc-certifications/) — none of them SFCC-specific, but all finally giving non-developers something to sit. I doubt this post had anything to do with it, but I'll take the coincidence.
+
+**Second update, and a bit of an own-goal:** the credential I actually recommended above didn't make it either — see the archived note in the Accredited Professional section. My one non-technical pick from 2022 is gone, and its replacements arrived from a completely different direction. If you're after an exam you can actually sit today, the five above are it.

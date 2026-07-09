@@ -150,6 +150,7 @@ contentful
 cors
 counterpunch
 crackin
+credly
 crm
 crypto
 csv
