@@ -53,10 +53,10 @@ changes — rather than a deep dive that would expand this refresh beyond its in
   SCAPI Custom API wrapping the same script API SFRA uses. Confirmed via
   `developer.salesforce.com/docs/commerce/commerce-api/guide/custom-apis.html`.
 - **Sitemap**: this site's `mastering-sitemaps-in-sfcc` (2025-06-16, refreshed 2026-07-04) has a
-  full "Sitemaps in the Headless Universe: PWA Kit Edition" section documenting a backend-generated
-  + PWA-Kit-proxied pattern, plus the `uploadCustomSitemapAndTriggerSitemapGeneration` SCAPI
-  endpoint for PWA-only custom routes. This directly contradicted the "missing feature" framing
-  and is now cited instead.
+  full "Sitemaps in the Headless Universe: PWA Kit Edition" section documenting a
+  backend-generated and PWA-Kit-proxied pattern, plus the
+  `uploadCustomSitemapAndTriggerSitemapGeneration` SCAPI endpoint for PWA-only custom routes.
+  This directly contradicted the "missing feature" framing and is now cited instead.
 - **Page Meta Tag Rules**: this site's `taming-the-beast-a-developers-deep-dive-into-sfcc-meta-tag-rules`
   (2025-08-04, refreshed 2026-07-04) has a "What about the PWA Kit" section stating that SCAPI's
   continued expansion (citing Shopper Search and Shopper Products enrichment specifically) is
