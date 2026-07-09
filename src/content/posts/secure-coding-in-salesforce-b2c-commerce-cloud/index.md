@@ -77,9 +77,9 @@ So think of secure ways to share your MFA (usually TOTP for shared accounts). A 
 
 ## Cloudflare
 
-You might think that all of the provided services of Salesforce will keep you safe from bad actors. While it does block a lot of traffic that does not have the best intentions, it can't stop everything and everyone that means to do harm.
+You might think that all of Salesforce's built-in services will keep you safe from bad actors. They block a lot of traffic with bad intentions, but they can't stop everything.
 
-You can find more information about what the eCDN (Cloudflare) can do in the [Infocenter](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_embedded_cdn.htm).
+The eCDN in front of your storefront is [Cloudflare](https://www.cloudflare.com/) — Salesforce controls most of the configuration, but leaves a handful of switches for you to flip in Business Manager, covering things like the WAF, TLS, and compression settings. I go into that setup in detail in [Let's Go Live: Setting Up the eCDN](/lets-go-live-ecdn/); the [Infocenter](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_embedded_cdn_overview.htm) has the official overview.
 
 ## Security Best Practices
 
