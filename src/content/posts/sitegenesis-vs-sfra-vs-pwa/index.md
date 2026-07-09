@@ -4,7 +4,7 @@ description: >-
   Those interested in Salesforce B2C Commerce Cloud will hear the term
   SiteGenesis and SFRA (and PWA). But what is the difference?
 date: '2022-07-17T13:42:22.000Z'
-lastmod: '2026-07-09T13:26:49.000Z'
+lastmod: '2026-07-09T13:40:46.000Z'
 url: /sitegenesis-vs-sfra-vs-pwa/
 draft: false
 heroImage: sfra-vs-sitegenesis-965c09b9a6.jpg
@@ -33,7 +33,7 @@ But choosing SFCC is only step one. There's a second big decision to make: **on 
 
 Here's how storefront architecture on Salesforce B2C Commerce Cloud has moved over the years:
 
-{{< img-caption src="sfcc-storefront-timeline.png" alt="SFCC storefront timeline: SiteGenesis 1.0 in 2009, SiteGenesis 2.0 in 2014, MFRA in 2017 rebranded to SFRA in 2018, PWA Kit in 2021, SCAPI Custom APIs in 2024, Hybrid Auth in 2025, and OCAPI deprecation alongside Storefront Next in 2026." caption="Storefront architecture on SFCC didn't stop moving after the PWA Kit — SCAPI, Hybrid Auth, the OCAPI deprecation, and Storefront Next all landed since." >}}
+{{< img-caption src="sfcc-storefront-timeline.png" alt="SFCC storefront timeline: SiteGenesis 1.0, then SiteGenesis 2.0, then MFRA/SFRA (SFRA launched 2018), PWA Kit in 2021, SCAPI Custom APIs in 2024, Hybrid Auth in 2025, and OCAPI deprecation alongside Storefront Next in 2026." caption="Storefront architecture on SFCC didn't stop moving after the PWA Kit — SCAPI, Hybrid Auth, the OCAPI deprecation, and Storefront Next all landed since. Early SiteGenesis/MFRA years are widely cited but not confirmed by current Salesforce documentation; 2018 onward is sourced directly." >}}
 
 ## SiteGenesis
 
@@ -58,7 +58,7 @@ Salesforce B2C Commerce Cloud comes with a lot of features out-of-the-box. But i
 > [!NOTE]
 > The above is also true for other platforms besides SFCC.
 
-But since 2020, it is no longer required to build for SiteGenesis; SFRA compatibility is enough. This shows that Salesforce wants to push new (and existing) clients away from using SiteGenesis.
+It's no longer required to build for SiteGenesis; SFRA compatibility is enough. This shows that Salesforce wants to push new (and existing) clients away from using SiteGenesis.
 
 ### Pipelines VS Controllers
 
@@ -66,7 +66,7 @@ But since 2020, it is no longer required to build for SiteGenesis; SFRA compatib
 
 {{< img-caption src="controllers-130298bfb4.png" alt="Controller-based storefront code replacing pipelines in newer architectures." caption="Controller-based development was one of the key shifts that came with newer storefront stacks." >}}
 
-Looking at the timeline, you will see that pipelines have disappeared in MFRA (2017). This is a legacy way of development within Salesforce B2C Commerce Cloud and has been replaced by JavaScript (controller-type) development.
+Pipelines disappeared with MFRA. This is a legacy way of development within Salesforce B2C Commerce Cloud and has been replaced by JavaScript (controller-type) development.
 
 It is time to migrate if you are still using SiteGenesis with pipelines in your project/site since new features will not be available in this framework.
 
@@ -79,7 +79,7 @@ It is time to migrate if you are still using SiteGenesis with pipelines in your 
 
 This part of the article will cover both MFRA and [SFRA](https://developer.salesforce.com/docs/commerce/sfra/guide/sfra-overview.html) as they are the same. You can see MFRA as the ALPHA/BETA version of SFRA or simply as a rebranding.
 
-In 2016 Demandware (before [Salesforce acquired Demandware](https://www.salesforce.com/news/press-releases/2016/06/01/salesforce-signs-definitive-agreement-to-acquire-demandware/) in the same year) saw an increased need for high-quality mobile experiences. SiteGenesis was not up for the task, so MFRA was "born." A new modern mobile-first web foundation was created that used technologies such as Bootstrap, HTML5, and CSS3, making it much easier to create mobile experiences.
+Around the time of [Salesforce's 2016 acquisition of Demandware](https://www.salesforce.com/news/press-releases/2016/06/01/salesforce-signs-definitive-agreement-to-acquire-demandware/), the platform saw an increased need for high-quality mobile experiences. SiteGenesis was not up for the task, so a new mobile-first foundation — known at the time as MFRA — was built using technologies such as Bootstrap, HTML5, and CSS3, making it much easier to create mobile experiences. It shipped publicly as SFRA in 2018.
 
 These technologies also brought better storefront performance and UX along with them.
 
@@ -153,7 +153,7 @@ There's a [podcast episode on this topic](https://www.youtube.com/watch?v=eOFC5r
 
 ### Third-party integrations (PWA Kit & Managed Runtime)
 
-That gap has narrowed since this article was first written, but it hasn't closed. A handful of vendors now build packages aimed specifically at the PWA Kit — Adyen's headless integration is one example — and Salesforce keeps filling first-party gaps itself: Hybrid Auth replaced the old Plugin SLAS setup, and native Order Management actions now ship inside the PWA Kit's own default implementation. Still, no official Salesforce source grades how mature this ecosystem actually is, and from what this site has seen, broad, SFRA-style plug-and-play coverage still isn't there. Budget the extra time and vendor conversations an SFRA project rarely needs.
+That gap has narrowed since this article was first written, but it hasn't closed. A handful of vendors now build packages aimed specifically at the PWA Kit — Adyen's headless integration is one example — and Salesforce keeps filling first-party gaps itself: Hybrid Auth replaced the old Plugin SLAS setup, and a July 2026 release note adds default Order Management actions (tracking, cancelling, returning) to PWA Kit — provided your storefront is connected to a Salesforce Order Management org. Still, no official Salesforce source grades how mature this ecosystem actually is, and from what this site has seen, broad, SFRA-style plug-and-play coverage still isn't there. Budget the extra time and vendor conversations an SFRA project rarely needs.
 
 ### Missing out-of-the-box features
 

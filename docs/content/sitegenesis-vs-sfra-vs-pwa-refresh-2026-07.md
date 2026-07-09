@@ -38,7 +38,15 @@ changes — rather than a deep dive that would expand this refresh beyond its in
 | YouTube URL artifact | `feature=emb\_title` (WordPress-migration escaped underscore) | Fixed to `feature=emb_title` |
 | Timeline diagram | 1024×660 PNG, stops at "PWA Kit in 2021" | Regenerated at 2000×900 as an HTML-rendered illustration, extended through SCAPI Custom APIs (2024), Hybrid Auth (2025), the OCAPI deprecation (2026), and Storefront Next (2026); plain kebab-case filename |
 | Comparison table image | 1024×865 PNG encoding the stale 2022 feature list | Regenerated at 1500×1000 as an HTML-rendered table matching the corrected feature-parity statuses; plain kebab-case filename |
-| Front matter | `lastmod` 2026-07-07T18:30 | Bumped to 2026-07-09T12:41:29.000Z (`date`, `url`, and `takeaways` untouched — the existing takeaways still accurately describe the refreshed content) |
+| Front matter | `lastmod` 2026-07-07T18:30 | Bumped across three passes to 2026-07-09T13:40:46.000Z (`date`, `url`, and `takeaways` untouched — the existing takeaways still accurately describe the refreshed content) |
+| Intro paragraph | Marketing-fluff opener ("empowers retailers... harness the power of the cloud... world-class omnichannel experiences... effortlessly offer... seamless and personalised") | Rewritten to state facts plainly, matching this site's current voice |
+| Flattened callouts | Three `**Note:**`/`**NOTE:**` bold paragraphs (WordPress-migration artifacts) | Converted to proper `> [!NOTE]` callouts, matching the `[!WARNING]` callout already present in this same article |
+| Duplicated captions | Two plain-text lines ("Pipelines in SiteGenesis" / "Controllers in SiteGenesis") sitting directly below their `img-caption` shortcodes | Removed — the shortcode's own `caption=` attribute already communicates this |
+| "Since 2020, SFRA compatibility is enough" | Asserted as fact with a specific year | Year removed — a deep fact-check found no independent primary source, only circular citations back to this same site |
+| MFRA year (body text) | "In 2016 Demandware... so MFRA was 'born'" | Decoupled from a specific year — no primary source confirms 2016 (or the timeline's 2017); reworded to anchor only on the confirmed 2018 SFRA public launch |
+| Pipelines/MFRA year (body text) | "pipelines have disappeared in MFRA (2017)" | Year removed |
+| Timeline diagram (2nd revision) | v1 regeneration still asserted SiteGenesis 1.0 (2009), SiteGenesis 2.0 (2014), and a separate "MFRA (2017)" node as hard fact | Regenerated again: SiteGenesis years marked `~YYYY*` with a legend caveat ("commonly cited, not confirmed by current Salesforce documentation"); MFRA and SFRA merged into one node dated 2018 (the one year with a primary source) |
+| PWA Kit Order Management claim | "native Order Management actions now ship inside the PWA Kit's own default implementation" | Reworded to name the specific actions (tracking, cancelling, returning) and flag that it requires a connected Salesforce Order Management org and traces to a July 2026 release note (the shipping npm package was still preview/nightly at fact-check time) |
 
 ## Fact-check notes
 
@@ -91,6 +99,87 @@ changes — rather than a deep dive that would expand this refresh beyond its in
 - **"Missing features" checklist device**: per the site owner's explicit decision, the
   struck-through checklist format is kept (not restructured to prose), with all six items
   refreshed to their actual 2026 status rather than the binary "missing" framing from 2022.
+
+## Voice audit (2026-07-09)
+
+After the initial refresh, a full-article voice pass compared the piece against this site's
+most recently refreshed articles. The OCAPI/SCAPI and feature-parity sections had already been
+line-edited during the refresh itself; this pass covered the untouched 2022 sections. Findings
+and fixes are in the "Old vs new behavior" table above (intro paragraph, flattened callouts,
+duplicated captions, and roughly a dozen passive/nominalized sentences in the Best Practices,
+Development & Updates, React.JS, and Progressive Web Apps sections). No facts, structure, or
+section headings changed in this pass — see `human-prose-editing`, `anti-ai-writing`, and
+`beginner-technical-writing` skill guidance for the criteria applied.
+
+## Deep fact-check (2026-07-09)
+
+A second, independent fact-check pass ran three parallel research agents against primary
+Salesforce sources (Help, Developer docs, official release notes and press releases) — not
+just the internal cross-references used during the initial refresh. Results:
+
+**Corrected:**
+
+- **MFRA's specific year (2016 in the body text vs. 2017 in the timeline diagram)** — this was a
+  real internal contradiction. Neither year has a primary source: Salesforce's current SFRA FAQ
+  and overview docs don't use the term "MFRA" at all — they state SFRA launched in 2018,
+  succeeding SiteGenesis directly. (MFRA itself is not disputed — it's confirmed independently as
+  a real internal alpha/beta-phase name for the same mobile-first foundation, per site-owner
+  first-hand knowledge — only the specific *year* it was known by that name is unconfirmable.)
+  Fixed by decoupling the MFRA name from any specific year and anchoring only on the
+  primary-sourced 2018 SFRA launch, in both the body text and the regenerated timeline diagram.
+- **SiteGenesis 1.0 (2009) and SiteGenesis 2.0 (2014)** — these specific years are repeated
+  consistently across secondary blogs (Elastic Path, Swanky Agency, Ranosys, 64Labs) but no
+  official Salesforce/Demandware document confirms either one. Rather than assert them as hard
+  fact or strip them out, the regenerated timeline marks them `~YYYY*` with a legend note:
+  "commonly cited, not confirmed by current Salesforce documentation."
+- **"Since 2020, SFRA compatibility is enough for SiteGenesis cartridges"** — every source
+  repeating this specific "2020" framing traced back circularly to this same blog, not an
+  independent Salesforce source. The general claim (SiteGenesis cartridge support no longer
+  required) is left in place since nothing contradicts it, but the unconfirmable year is removed.
+- **PWA Kit native Order Management actions** — real and precisely dated (a 7/7/2026 entry in the
+  official Composable Storefront release notes, confirmed via `developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/references/about-pwa-kit-managed-runtime/about.html`
+  and the companion `order-mgmt.html` guide), but two nuances were missing from the original
+  wording: the actions (tracking, cancelling, returning orders) require a storefront connected to
+  a separate Salesforce Order Management org — this isn't a self-contained OMS inside PWA Kit —
+  and the PWA Kit npm package shipping this (3.19) was still at `preview`/nightly status as of the
+  fact-check date (stable was 3.18.1, May 22 2026). Reworded to name the specific actions and the
+  SOM dependency.
+
+**Independently confirmed (no changes needed):**
+
+- OCAPI's April 2026 deprecation — now confirmed directly on a genuine Salesforce page
+  (`developer.salesforce.com/docs/commerce/commerce-api/guide/why-use-scapi.html`: *"OCAPI is
+  marked deprecated as of April 2026"*), not just via the internal cross-link to
+  `in-the-ring-ocapi-versus-scapi`.
+- Demandware acquisition: announced June 1 2016
+  (`salesforce.com/news/press-releases/2016/06/01/...`), closed July 11 2016 (confirmed via a
+  second official Salesforce press release).
+- PWA Kit released 2021; SCAPI Custom APIs GA in release 24.2 (2024); Hybrid Auth shipped in
+  release 25.3 (2025) and replaces the Plugin SLAS cartridge (an official Salesforce cartridge,
+  not third-party) — all confirmed against official Salesforce Help/Developer docs.
+- Storefront Next: confirmed GA (not beta) via the official B2C Commerce June '26 release blog,
+  and confirmed as the "Recommended option" ranked ahead of SFRA on the "Choose Your B2C
+  Commerce Storefront Type" page.
+- `getUrlMapping` (SEO URL Configuration bullet) is correctly attributed to the Shopper SEO API.
+  `uploadCustomSitemapAndTriggerSitemapGeneration` (Sitemap bullet) exists exactly as named, but
+  technically belongs to a separate Admin "SEO" API family, not "Shopper SEO" — this article's
+  wording never asserted the "Shopper SEO" attribution for that specific endpoint, so no edit was
+  needed here (the misattribution exists only on a *different* post, `mastering-sitemaps-in-sfcc`,
+  which is out of scope for this refresh).
+- No native SCAPI A/B-testing/experimentation endpoint exists as of the current SCAPI release
+  notes (checked through 07/07/2026) — the "still missing" framing holds.
+- Personalisation and Page Designer headless support: confirmed added in 2023 specifically (PWA
+  Kit 2.7.0 release, March 3 2023, for Page Designer; the Shopper Context API's Business Manager
+  self-service toggle shipped in the 23.3 platform release).
+- Managed Runtime's inclusion in the standard licence at no extra cost: confirmed via an official
+  Salesforce Trailhead module (current licence branding is "Agentforce Commerce for B2C" — the
+  article's generic "included in the licence" wording doesn't name a specific licence, so it
+  didn't need changing).
+- Mobify's acquisition (announced September 4 2020) and its lineage into PWA Kit; Adyen's
+  PWA-Kit-specific ("Composable Storefront Headless") integration on the AppExchange; and
+  `pwa-kit.mobify-storefront.com` as genuine, currently-maintained Salesforce demo infrastructure
+  (the "Mobify" branding in the domain is a deliberately retained legacy naming convention, not a
+  stale leftover) — all confirmed.
 
 ## Link audit (2026-07-09)
 
