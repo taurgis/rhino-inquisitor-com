@@ -138,6 +138,7 @@ const DOMAIN_RULES = Object.freeze({
   'www.your-pwa.com': { strategy: 'skip', reason: 'placeholder host in examples' },
 
   // --- Everything else: server-rendered, plain status check -----------------
+  'aaia-prd.my.commercecloud.salesforce.com': STATUS,
   'admin.salesforce.com': STATUS,
   'aegis.rhino-inquisitor.com': STATUS,
   'allaboutdnt.com': STATUS,

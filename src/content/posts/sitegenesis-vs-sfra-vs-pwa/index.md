@@ -33,13 +33,13 @@ But after choosing SFCC to be the platform, a second big decision must be made. 
 
 Before we get started, here is a timeline showing the history of the "development architectures" used on Salesforce B2C Commerce Cloud throughout the years.
 
-{{< img-caption src="sfcc-history-86f56e594a.png" alt="SFCC History: 2009 - SiteGenesis 1.0, with version 2.0 being released in 2014. The next release was in 2017 with MFRA, being rebranded to SFRA in 2018. The latest release was the PWA Kit in 2021." caption="This timeline shows how Salesforce storefront architecture moved from SiteGenesis to SFRA and then PWA Kit." >}}
+{{< img-caption src="sfcc-storefront-timeline.png" alt="SFCC storefront timeline: SiteGenesis 1.0 in 2009, SiteGenesis 2.0 in 2014, MFRA in 2017 rebranded to SFRA in 2018, PWA Kit in 2021, SCAPI Custom APIs in 2024, Hybrid Auth in 2025, and OCAPI deprecation alongside Storefront Next in 2026." caption="Storefront architecture on SFCC didn't stop moving after the PWA Kit — SCAPI, Hybrid Auth, the OCAPI deprecation, and Storefront Next all landed since." >}}
 
 ## SiteGenesis
 
 {{< img-caption src="sitegenesis-9a921c285a.jpg" alt="SiteGenesis storefront example representing the legacy architecture." caption="SiteGenesis reflects the older monolithic storefront model many teams still inherit." >}}
 
-Let us start with the oldest (and least exciting option): [SiteGenesis](https://production-sitegenesis-dw.demandware.net/on/demandware.store/Sites-SiteGenesis-Site). If anyone still suggests that you start your journey with SiteGenesis, you should ask the question, "why do we need to do that?".
+Let us start with the oldest (and least exciting option): [SiteGenesis](https://aaia-prd.my.commercecloud.salesforce.com/s/SiteGenesis/homepage?lang=en_US). If anyone still suggests that you start your journey with SiteGenesis, you should ask the question, "why do we need to do that?".
 
 Why would I say this, even though minor updates are still happening to it in 2022? Looking at the timeline above, it is clear that newer options are available. And why these options are better suited for new projects should become clear as you continue to read this article.
 
@@ -79,7 +79,7 @@ It is time to migrate if you are still using SiteGenesis with pipelines in your 
 
 {{< img-caption src="sfra-vs-sitegenesis-965c09b9a6.jpg" alt="Comparison between SiteGenesis and SFRA storefront stacks." caption="SFRA modernised the storefront layer without fully abandoning the B2C runtime model." >}}
 
-This part of the article will cover both MFRA and [SFRA](https://production-sitegenesis-dw.demandware.net/s/RefArch/home?lang=en_US) as they are the same. You can see MFRA as the ALPHA/BETA version of SFRA or simply as a rebranding.
+This part of the article will cover both MFRA and [SFRA](https://developer.salesforce.com/docs/commerce/sfra/guide/sfra-overview.html) as they are the same. You can see MFRA as the ALPHA/BETA version of SFRA or simply as a rebranding.
 
 In 2016 Demandware (before [Salesforce acquired Demandware](https://www.salesforce.com/news/press-releases/2016/06/01/salesforce-signs-definitive-agreement-to-acquire-demandware/) in the same year) saw an increased need for high-quality mobile experiences. SiteGenesis was not up for the task, so MFRA was "born." A new modern mobile-first web foundation was created that used technologies such as Bootstrap, HTML5, and CSS3, making it much easier to create mobile experiences.
 
@@ -119,7 +119,7 @@ The rest of this site now groups PWA Kit and Managed Runtime under one label: th
 
 It is an entirely different type of architecture than the "[monolithic](https://en.wikipedia.org/wiki/Monolithic_application#:~:text=In%20software%20engineering%2C%20a%20monolithic,independent%20from%20other%20computing%20applications.)" approach we are used to within SFCC.
 
-But what does this mean, going Headless? You can find more information about it in this [blog post](https://forward.eu/blog/headless/) or [watch this YouTube video](https://www.youtube.com/watch?v=BTS6OqwMiK4&feature=emb\_title) where I explain what it means to go Headless with Salesforce B2C Commerce Cloud.
+But what does this mean, going Headless? You can find more information about it in this [blog post](https://forward.eu/blog/headless/) or [watch this YouTube video](https://www.youtube.com/watch?v=BTS6OqwMiK4&feature=emb_title) where I explain what it means to go Headless with Salesforce B2C Commerce Cloud.
 
 {{< video-embed id="BTS6OqwMiK4" title="Going headless with Salesforce B2C Commerce Cloud" >}}
 
@@ -177,4 +177,4 @@ One thing to flag before the summary: this article compares SiteGenesis, SFRA, a
 
 The following overview compresses the information above.
 
-{{< img-caption src="comparison-sitegenesis-sfra-pwa-5593ba325c.png" alt="Comparison table contrasting SiteGenesis, SFRA, and PWA Kit characteristics." caption="This final comparison makes the trade-offs between the three storefront approaches easier to judge." >}}
+{{< img-caption src="sitegenesis-sfra-pwa-comparison-table.png" alt="Comparison table contrasting SiteGenesis, SFRA, and PWA Kit across architecture, APIs, and feature parity, current as of 2026." caption="This final comparison makes the trade-offs between the three storefront approaches easier to judge — and reflects the feature-parity corrections above, not the 2022 original." >}}
