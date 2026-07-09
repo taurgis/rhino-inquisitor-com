@@ -1,10 +1,11 @@
 ---
 title: Server-Side Caching for Faster SFCC REST APIs
 description: >-
-    Caching GET endpoints for the OCAPI in Salesforce B2C Commerce Cloud is
-    possible, but where do you start? Let us dig into this together!
+    Custom SCAPI endpoints control cache time with setExpires() and
+    setVaryBy(), unlike the deprecated OCAPI settings this article once
+    relied on.
 date: '2023-04-10T06:46:06.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-09T20:21:19.000Z'
 url: /caching-rest-apis-in-sfcc/
 draft: false
 heroImage: caching-87696b30b8.jpg
@@ -14,13 +15,14 @@ categories:
 tags:
     - cache
     - ocapi
+    - scapi
     - sfcc
     - technical
 author: Thomas Theunen
 takeaways:
-    - "Explains which OCAPI Shop API resources support server-side caching and which do not"
-    - "Shows how page cache and OCAPI settings control cache duration and personalisation"
-    - "Clarifies why SCAPI cache control is more limited and where custom caches help instead"
+    - "Shows how Custom SCAPI endpoints control cache time and personalisation with setExpires() and setVaryBy()"
+    - "Corrects the outdated claim that SCAPI caching can't be controlled, and scopes it to Custom APIs specifically"
+    - "Preserves the original OCAPI Shop API cache-configuration walkthrough for the archives, now that OCAPI is deprecated"
 ---
 Server-side caching keeps GET requests to your Salesforce B2C Commerce REST APIs fast without hammering the application server on every call. For years, the [OCAPI](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/get-started-with-ocapi.html) handled this through settings in the Business Manager, but the OCAPI was deprecated platform-wide in April 2026.
 
