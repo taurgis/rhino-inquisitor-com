@@ -139,11 +139,11 @@ When a request's credentials mode (Request.credentials) is include, browsers wil
 
 The Access-Control-Allow-Headers response header is used in response to a preflight request which includes the Access-Control-Request-Headers to indicate which HTTP headers can be used during the actual request.
 
-### [Access-Control-Allow-Methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers)
+### [Access-Control-Allow-Methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods)
 
 The Access-Control-Allow-Methods response header specifies one or more methods allowed when accessing a resource in response to a preflight request.
 
-### [Access-Control-Allow-Origin](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers)
+### [Access-Control-Allow-Origin](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin)
 
 The Access-Control-Allow-Origin response header indicates whether the response can be shared with requesting code from the given origin.
 
@@ -151,9 +151,9 @@ The Access-Control-Allow-Origin response header indicates whether the response c
 
 The Access-Control-Expose-Headers response header allows a server to indicate which response headers should be made available to scripts running in the browser, in response to a cross-origin request.
 
-### [Content-Security-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Expose-Headers)
+### [Content-Security-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy)
 
-The HTTP Content-Security-Policy response header allows web site administrators to control resources the user agent is allowed to load for a given page. With a few exceptions, policies mostly involve specifying server origins and script endpoints. This helps guard against cross-site scripting attacks (Cross-site\_scripting).
+The HTTP Content-Security-Policy response header allows web site administrators to control resources the user agent is allowed to load for a given page. With a few exceptions, policies mostly involve specifying server origins and script endpoints. This helps guard against [cross-site scripting](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting) attacks.
 
 **Note:** The Commerce Cloud platform can override this header for tools like the Storefront Toolkit.
 
@@ -189,7 +189,7 @@ The X-Content-Type-Options response HTTP header is a marker used by the server t
 
 ### [X-FRAME-OPTIONS](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options)
 
-The X-Frame-Options HTTP response header can be used to indicate whether or not a browser should be allowed to render a page in a , `<iframe>`, `<embed />` or `<object>`. Sites can use this to avoid click-jacking attacks, by ensuring that their content is not embedded into other sites.
+The X-Frame-Options HTTP response header can be used to indicate whether or not a browser should be allowed to render a page in a `<frame>`, `<iframe>`, `<embed />` or `<object>`. Sites can use this to avoid click-jacking attacks, by ensuring that their content is not embedded into other sites.
 
 **Note:** The Commerce Cloud platform can override this header for tools like the Storefront Toolkit.
 
