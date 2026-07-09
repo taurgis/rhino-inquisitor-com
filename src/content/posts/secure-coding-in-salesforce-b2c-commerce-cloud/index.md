@@ -4,7 +4,7 @@ description: >-
   Security within Salesforce B2C Commerce might not be a concern because of
   out-of-the-box features. There are a few things to keep in mind!
 date: '2022-04-26T12:09:00.000Z'
-lastmod: '2026-07-04T17:47:13.000Z'
+lastmod: '2026-07-09T21:18:17.000Z'
 url: /secure-coding-in-salesforce-b2c-commerce-cloud/
 draft: false
 heroImage: code-security-147ad97b77.jpeg
