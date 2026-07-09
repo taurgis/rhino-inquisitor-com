@@ -41,15 +41,15 @@ But this comes at a price.
 
 If an account becomes compromised, especially Account Managers, someone can get access to many different environments in one swing.
 
-2FA has been made mandatory to mitigate this threat and has been the recommendation for more than a year.
+Salesforce [made MFA mandatory](https://help.salesforce.com/s/articleView?id=commerce.rn_b2c_mfa_enforcement_je.htm&language=en_US&type=5) for interactive B2C Commerce logins in May 2022 to mitigate this threat, after recommending it for about a year beforehand.
 
-### 2FA (Two-Factor-Authentication)
+### MFA (Multi-Factor Authentication)
 
 {{< img-caption src="mfa-1-6649345f2c.jpg" alt="Account Manager multi-factor authentication setup screen." caption="Account Manager MFA setup" >}}
 
-With Account Manager, it is possible to add 2FA to your account to secure it. Even if someone manages to figure out your account password, they still need to be able to provide the secondary authentication method.
+With Account Manager, it is possible to add MFA to your account to secure it. Even if someone manages to figure out your account password, they still need to be able to provide the secondary authentication method.
 
-For many people having to put [Salesforce Authenticator](https://play.google.com/store/apps/details?id=com.salesforce.authenticator&hl=nl&gl=US) into the log-in procedure was not the best experience (but it has improved a lot in the last months).
+For many people, having to put [Salesforce Authenticator](https://play.google.com/store/apps/details?id=com.salesforce.authenticator) into the log-in procedure wasn't the best experience at first, though it has improved considerably since.
 
 There are different options possible with Account Manager:
 
@@ -58,7 +58,7 @@ There are different options possible with Account Manager:
 - [TOTP](https://en.wikipedia.org/wiki/Time-based_one-time_password) (Time-based one-time password) application
 - [Salesforce Identity](https://help.salesforce.com/s/articleView?id=sf.who_is_salesforce_identity_for.htm&type=5) ([Documentation](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_account_manager_link_account_to_salesforce_identity_sso.htm))
 
-I decided to make it a tad more manageable to log in by creating "[Automaton](https://chrome.google.com/webstore/detail/automaton-account-manager/clbadmmkinhmiblhkkiiabbbcpljohob)." A browser (chromium) plugin that acts as a TOTP mobile application. As a bonus, it also automatically fills in all fields. It is, of course, secured by a "Vault Password," so not everyone that has access to your laptop can log in.
+I decided to make logging in a bit more manageable by building "[Automaton](https://chromewebstore.google.com/detail/automaton-account-manager/clbadmmkinhmiblhkkiiabbbcpljohob)," a browser (Chromium) extension that acts as a TOTP generator for Account Manager. It's still maintained — the last update shipped in July 2024 — and automatically fills in your username, password, and one-time code once you've unlocked it with a "Vault Password," so having access to your laptop alone isn't enough to log in. Run into a problem? The [support repo](https://github.com/taurgis/automaton/issues) is the place to report it.
 
 It may seem like an inconvenience that costs you time over the day. But think of what could happen if someone takes over your account and can access all of the Salesforce B2C Commerce Cloud environments linked to your account.
 
@@ -73,7 +73,7 @@ Some use-cases where this might be necessary:
 
 You do not have to log in to the business manager as an integration user in most cases. But if it happens, usually more than one person needs to be able to do this (leave, sickness, ... )
 
-So think of secure ways to share your 2FA (usually TOTP for shared accounts). A good solution I found so far is [1password](https://support.1password.com/one-time-passwords/) which supports TOTP.
+So think of secure ways to share your MFA (usually TOTP for shared accounts). A good solution I found so far is [1password](https://support.1password.com/one-time-passwords/) which supports TOTP.
 
 ## Cloudflare
 
