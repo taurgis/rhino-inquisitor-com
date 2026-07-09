@@ -52,6 +52,7 @@ Day-to-day work here is authoring and publishing new articles while keeping SEO,
 
 - Production-style build: `hugo --minify --environment production` (or `npm run build:prod`)
 - Local preview server: `npm run dev`
+- Fast local build/preview without AVIF regeneration: `npm run build:local:fast` / `npm run dev:fast` (or `SKIP_AVIF_CACHE=1` on any script that runs `generate:avif-cache`) — skips the ~20–30 minute AVIF cache build; pages fall back to WebP-only `<img>` output for images without a cached AVIF variant. Use only for local verification, never for `build:prod` / deploy (see `docs/development/skip-avif-cache.md`)
 - Front matter validation: `npm run validate:frontmatter`
 - SEO smoke validation: `npm run check:seo`
 - Security and privacy validation: `npm run check:security`

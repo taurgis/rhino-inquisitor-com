@@ -50,6 +50,7 @@ Governance and quality gates live in [.github/instructions/](.github/instruction
 - If `hugo` is not on `PATH`, run `scripts/install-hugo.sh` first — it installs the pinned Hugo Extended version (read from `HUGO_VERSION` in `.github/workflows/deploy-pages.yml`, so local always matches CI).
 - In sandboxed agent environments where GitHub release downloads are blocked, the script automatically falls back to building Hugo from source via the Go module proxy (needs Go and a C compiler; takes a few minutes).
 - Do not skip local build verification because Hugo is missing — install it with this script instead. Details: `docs/development/hugo-local-install.md`.
+- `build:local`, `build:prod`, and `dev` all regenerate the AVIF image cache (`generate:avif-cache`) before running Hugo, which can take ~20–30 minutes on a cold or invalidated cache in this sandbox. For quick local verification of template/content/CSS changes, use `npm run build:local:fast` or `npm run dev:fast` (or set `SKIP_AVIF_CACHE=1` on any script that runs `generate:avif-cache`) to skip AVIF regeneration — pages fall back to WebP-only `<img>` output with no build error. Never use the skip for `build:prod`, `check:seo`, `check:perf`, `check:security`, `check:a11y`, or anything feeding the deploy pipeline; those must build with the real AVIF cache. Details: `docs/development/skip-avif-cache.md`.
 
 ## Publishing Checklist
 
