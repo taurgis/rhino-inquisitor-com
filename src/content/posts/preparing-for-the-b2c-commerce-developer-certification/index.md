@@ -4,7 +4,7 @@ description: >-
   Prepare for the B2C Commerce Developer Certification with a practical starting
   point, study focus areas, and next steps.
 date: '2022-06-06T11:45:43.000Z'
-lastmod: '2026-07-09T14:12:13.000Z'
+lastmod: '2026-07-09T14:32:16.000Z'
 url: /preparing-for-the-b2c-commerce-developer-certification/
 draft: false
 heroImage: b2c-commerce-developer-72d9df9035.png
@@ -39,9 +39,9 @@ The Official List
 
 Setting up your environment to be ready to get started should come as no surprise with any project.
 
-Within this topic, you will be getting questions about getting your sandbox up and running, uploading code to it, and setting up your site to get cracking!
+Expect questions about getting your sandbox up and running, uploading code to it, and setting up your site to get cracking!
 
-It also includes some topics around configuring a site, so this topic intertwines with the next one. Everything around configuration I will add to that one!
+It also covers site configuration, which overlaps with the next domain — I'll fold those configuration questions into that section instead of repeating them here.
 
 So, where can we find some review materials? Here is a list that will get you started!
 
@@ -94,8 +94,6 @@ The Official List
 > [!NOTE]
 > This bullet still says OCAPI, not SCAPI. I checked the [official exam guide](https://help.salesforce.com/s/articleView?id=005298941&language=en_US&type=1) directly on 2026-07-09, and it's still there verbatim — the guide itself is version-locked to the Spring '23 release. On the platform side, OCAPI was [deprecated in April 2026](/in-the-ring-ocapi-versus-scapi/) and stays in maintenance mode into 2028, so it's still fair game for this exam even though you'd reach for SCAPI on a real project today. Learn OCAPI permissions for the exam; use SCAPI for anything you actually build.
 
-Let us move on to the third section, focusing on configuration and the business manager.
-
 Prepare to get quite a few questions about the business manager, even though this is a "developer" certification. As I mentioned in the previous part, knowing what is out-of-the-box in a platform is as important (or even more critical) as writing good custom code.
 
 You will notice that the main focus of this section is actually on logging, debugging, and performance.
@@ -135,7 +133,7 @@ The Official List
 - Given a business requirement, use OCAPI Shop and Data APIs to enable interoperability with an external system. (Same OCAPI-not-SCAPI note as the Data Management section above applies here.)
 - Given a business requirement to perform a scheduled task, develop jobs and code job scripts.
 
-Phew! Finally, some development in this Certificate Exam! Since it is for developers, more than 50% of your score depends on your development skills.
+Phew! Finally, some development in this certification exam! Since it is for developers, more than 50% of your score depends on your development skills.
 
 But knowing how to write custom code will not be enough to pass this exam! So be sure to focus well on the above sections.
 
@@ -158,7 +156,7 @@ But knowing how to write custom code will not be enough to pass this exam! So be
 
 ## What if I fail the exam
 
-Failing a certification exam is not the end of the world! Let's make it clear. You can do successful implementations within Salesforce B2C Commerce Cloud but still fail this certification.
+Failing a certification exam is not the end of the world. You can do successful implementations within Salesforce B2C Commerce Cloud but still fail this certification.
 
 You might not have touched all of the different areas of Salesforce B2C Commerce Cloud and SFRA within that project.
 
@@ -175,13 +173,13 @@ Not to worry, there are instructor-led courses available at [Trailhead Academy](
 
 ## I'm not a partner. Can I access PLC
 
-Unfortunately, the PLC (Partner Learning Camp) is only available to registered partners of Salesforce. It is a platform to empower partners to learn Salesforce products and make sure they succeed with their customer implementations.
+Unfortunately, the PLC (Partner Learning Camp) is only available to registered partners of Salesforce. It's where Salesforce trains partners on its products so they can deliver customer implementations correctly.
 
 ## Can I wing it
 
 Of course! This certificate should be a cinch if you have been doing Salesforce B2C Commerce Cloud (and SFRA) development for multiple years/projects.
 
-Bit of warning, this is only true if you also did configuration work in the Business Manager (Set up the search, categories management, Jobs, OCAPI, and so forth)
+Bit of warning, this is only true if you also did configuration work in the Business Manager (search setup, category management, jobs, OCAPI, and so forth)
 
 After 2-3 projects (2 years), I did the certificate myself without much preparation and passed on the first try. I even had the handicap that it was still a SiteGenesis exam, and I only had experience with SFRA.
 

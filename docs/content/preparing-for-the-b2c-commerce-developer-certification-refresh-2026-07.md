@@ -138,6 +138,27 @@ fixed, replaced, or removed with the reasoning above — none silently dropped.
   match). Not used as a source; the Bonsai-rendered Help page and the Trailhead credential page
   were sufficient corroboration instead.
 
+## Voice audit (2026-07-09)
+
+A follow-up pass compared the article against this site's current voice, using the same two
+articles from this campaign (`sitegenesis-vs-sfra-vs-pwa`, `in-the-ring-ocapi-versus-scapi`) as the
+benchmark. Verdict: the article's chatty, exclamation-heavy, direct-address tone and its
+reader-question section headers ("Can I wing it", "What if I fail the exam") are the author's
+established personal voice on a 2022 piece, not AI-style padding, and were left alone — flattening
+them to match the newer articles' more restrained register would have erased voice rather than
+fixed a defect. What *did* get fixed, as genuine redundancy or terminology drift rather than voice:
+
+- "Certificate Exam" (the only place in the article that didn't say "certification exam") corrected
+  for consistency with the rest of the piece.
+- A doubled "getting...getting" construction, a vague "topics around configuring" phrase, a
+  pure-filler "Let us move on to the third section" transition, and a throat-clearing "Let's make it
+  clear" were tightened or cut.
+- "empower partners... succeed with their customer implementations" (corporate-speak paraphrase)
+  reworded to state plainly what PLC does.
+- A parenthetical list ("Set up the search, categories management, Jobs, OCAPI...") fixed for
+  capitalization and grammatical parallelism.
+- `lastmod` bumped again to 2026-07-09T14:32:16.000Z for this pass.
+
 ## Impact and verification
 
 - Impacted: one published post only. `date`, `url`, `title`, `description`, and `takeaways`
