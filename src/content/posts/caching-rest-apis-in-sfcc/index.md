@@ -22,137 +22,14 @@ takeaways:
     - "Shows how page cache and OCAPI settings control cache duration and personalisation"
     - "Clarifies why SCAPI cache control is more limited and where custom caches help instead"
 ---
-The [OCAPI](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/get-started-with-ocapi.html) has been around for a long time (2016) and allows you to cache responses to increase performance. **By default, GET responses that support caching are cached for 60 seconds**, but can this be improved?
-
-## What can be cached in the OCAPI
-
-Before we start, we must understand that not all API endpoints support caching. But which ones do?
-
-- [Meta API](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/metadata.html)
-- [Categories](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-categories?meta=Summary)
-- [Content](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-content?meta=Summary)
-- [ContentSearch](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-content-search?meta=Summary)
-- [CustomObjects](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-custom-objects?meta=Summary)
-- [Folders](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-folders?meta=Summary)
-- [Products](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-products?meta=Summary)
-- [ProductSearch](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-product-search?meta=Summary)
-- [Promotions](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-promotions?meta=Summary)
-- [SearchSuggestion](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-search-suggestion?meta=Summary)
-- [Site](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-site?meta=Summary)
-- [Stores](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-stores?meta=Summary)
-
-This is quite an extensive list and contains all the objects we would expect to support caching!
+Server-side caching keeps GET requests to your Salesforce B2C Commerce REST APIs fast without hammering the application server on every call. For years, the [OCAPI](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/get-started-with-ocapi.html) handled this through settings in the Business Manager, but the OCAPI was deprecated platform-wide in April 2026.
 
 > [!NOTE]
-> Only GET calls can be cached.
-
-> [!NOTE]
-> The Data API does not support caching at all.
-
-## Page Cache
-
-An important thing to remember before starting to tinker with the [Shop API](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/get-started-with-ocapi.html) (part of the OCAPI) caching is to enable the "[Page Cache](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-content-cache.html)" for the site you will be working with. If the Page Cache is disabled, you will see this header value on every response:
-
-```text
-cache-control: no-cache, no-store, must-revalidate
-```
-
-This is easy to fix. But without enabling it, you cannot test your settings on a sandbox where this is usually disabled.
-
-> [!WARNING]
-> It is not possible to clear the Page Cache for the OCAPI only, it will take your storefront (SiteGenesis/SFRA) with it. Clearing the page cache can create a heavy load on the application servers. Only clear the page cache manually when necessary, and avoid clearing it during times of high traffic.
-
-## Overriding the OCAPI Cache Time
-
-It is possible to override the default 60 seconds of caching of a resource by adding it to the [OCAPI Settings](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/ocapisettings.html) in the Business Manager. _"Administration" > "Site Development" > "Open Commerce API Settings"_
-
-{{< img-caption src="ocapi-settings-with-cache-f7e7acfcf8.png" alt="OCAPI caching settings" caption="OCAPI resource cache_time settings" link="ocapi-settings-with-cache-f7e7acfcf8.png" >}}
-
-```json
-{
-    "_v": "22.6",
-    "clients": [
-        {
-            "client_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-            "allowed_origins": [],
-            "resources": [
-                {
-                    "resource_id": "/categories/*",
-                    "methods": [
-                        "get"
-                    ],
-                    "read_attributes": "(**)",
-                    "cache_time": 900
-                },
-                {
-                    "resource_id": "/customers/auth",
-                    "methods": [
-                        "post"
-                    ],
-                    "read_attributes": "(**)",
-                    "write_attributes": "(**)"
-                },
-                {
-                    "resource_id": "/product_search",
-                    "methods": [
-                        "get"
-                    ],
-                    "read_attributes": "(**)",
-                    "write_attributes": "(**)",
-                    "cache_time": 86400
-                }
-            ]
-        }
-    ]
-}
-```
-
-Adding "cache\_time" to the resource configuration lets you easily control the time responses are cached. You can set a **maximum value of 86.400 seconds** (1 day).
-
-### "Expand" parameter
-
-Lowest Cache Time When using the expand parameter to make a single request with the Open Commerce API, the Cache-Control header is automatically populated with the lowest caching time of the requested resources.
-
-{{< img-caption src="ocapi-expand-parameter-caching-c91c7001dd.jpg" alt="OCAPI: Expand Parameter Caching" caption="Expand parameter cache-time rule" link="ocapi-expand-parameter-caching-c91c7001dd.jpg" >}}
-
-Screenshot of the Infocenter about the "expand" parameter
-
-## Personalised Caching
-
-Personalised caching is enabled by default based on the customer context (JWT). It is possible to disable this for a resource to improve performance.
-
-```json
-{
-    "_v": "22.6",
-    "clients": [
-        {
-            "client_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-            "allowed_origins": [],
-            "resources": [
-                {
-                    "resource_id": "/product_search",
-                    "methods": [
-                        "get"
-                    ],
-                    "read_attributes": "(**)",
-                    "write_attributes": "(**)",
-                    "cache_time": 86400,
-                    "personalized_caching_enabled": false
-                }
-            ]
-        }
-    ]
-}
-```
-
-By setting the "personalised\_caching\_ enabled" option to false, personalisation will be disabled for that resource.
-
-> [!NOTE]
-> You can find information about other options (not related to caching) for resources in the [Infocenter](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/ocapisettings.html).
+> Updated July 2026: This article originally covered only OCAPI cache configuration. The OCAPI is now deprecated, so the guidance below starts with how caching works for Custom SCAPI endpoints today; the original OCAPI walkthrough is preserved further down [for the archives](#for-the-archives-ocapi-cache-configuration).
 
 ## Caching Custom SCAPI Endpoints
 
-Custom SCAPI endpoints — the officially supported way to add your own routes to the Salesforce Commerce API — can cache their responses, but the mechanism looks nothing like the OCAPI settings above. Instead of a JSON `cache_time` value, you call two Script API methods directly inside the endpoint's implementation script, as described in [Salesforce's Custom API caching guide](https://developer.salesforce.com/docs/commerce/commerce-api/guide/custom-api-caching.html).
+Custom SCAPI endpoints — the officially supported way to add your own routes to the Salesforce Commerce API — can cache their responses, but the mechanism looks nothing like the OCAPI settings further down this article. Instead of a JSON `cache_time` value, you call two Script API methods directly inside the endpoint's implementation script, as described in [Salesforce's Custom API caching guide](https://developer.salesforce.com/docs/commerce/commerce-api/guide/custom-api-caching.html).
 
 Page Cache still has to be enabled for the site first, exactly like it did for OCAPI. With that in place, here's a Custom Product API endpoint that caches its response for 60 seconds:
 
@@ -202,6 +79,136 @@ One scoping detail worth being explicit about: this is for **Custom APIs**, the 
 1. **Complex Calculations:** Sometimes, processing API requests may involve complex calculations or transformations. Custom caches can store the results of these calculations, allowing subsequent requests to retrieve the cached data instead of re-computing the results.
 1. **Third-party API responses:** If your SCAPI REST APIs depend on third-party APIs, custom caches can help store the responses from these external APIs, reducing latency and improving performance.
 
-## OCAPI Caching Best Practices
+## For the Archives: OCAPI Cache Configuration
+
+What follows is the original OCAPI caching walkthrough as it ran when this article was first published in April 2023, preserved for the archives. Read it as a period piece: the `"_v": "22.6"` schema version in both JSON examples below was current at the time of writing (OCAPI versioning stopped at 24.5 before the platform-wide deprecation), and the configuration it describes no longer applies to new development.
+
+### What can be cached in the OCAPI
+
+Before we start, we must understand that not all API endpoints support caching. But which ones do?
+
+- [Meta API](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/metadata.html)
+- [Categories](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-categories?meta=Summary)
+- [Content](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-content?meta=Summary)
+- [ContentSearch](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-content-search?meta=Summary)
+- [CustomObjects](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-custom-objects?meta=Summary)
+- [Folders](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-folders?meta=Summary)
+- [Products](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-products?meta=Summary)
+- [ProductSearch](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-product-search?meta=Summary)
+- [Promotions](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-promotions?meta=Summary)
+- [SearchSuggestion](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-search-suggestion?meta=Summary)
+- [Site](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-site?meta=Summary)
+- [Stores](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/ocapi-shop-stores?meta=Summary)
+
+This is quite an extensive list and contains all the objects we would expect to support caching!
+
+> [!NOTE]
+> Only GET calls can be cached.
+
+> [!NOTE]
+> The Data API does not support caching at all.
+
+### Page Cache
+
+An important thing to remember before starting to tinker with the [Shop API](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/get-started-with-ocapi.html) (part of the OCAPI) caching is to enable the "[Page Cache](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-content-cache.html)" for the site you will be working with. If the Page Cache is disabled, you will see this header value on every response:
+
+```text
+cache-control: no-cache, no-store, must-revalidate
+```
+
+This is easy to fix. But without enabling it, you cannot test your settings on a sandbox where this is usually disabled.
+
+> [!WARNING]
+> It is not possible to clear the Page Cache for the OCAPI only, it will take your storefront (SiteGenesis/SFRA) with it. Clearing the page cache can create a heavy load on the application servers. Only clear the page cache manually when necessary, and avoid clearing it during times of high traffic.
+
+### Overriding the OCAPI Cache Time
+
+It is possible to override the default 60 seconds of caching of a resource by adding it to the [OCAPI Settings](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/ocapisettings.html) in the Business Manager. _"Administration" > "Site Development" > "Open Commerce API Settings"_
+
+{{< img-caption src="ocapi-settings-with-cache-f7e7acfcf8.png" alt="OCAPI caching settings" caption="OCAPI resource cache_time settings" link="ocapi-settings-with-cache-f7e7acfcf8.png" >}}
+
+```json
+{
+    "_v": "22.6",
+    "clients": [
+        {
+            "client_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "allowed_origins": [],
+            "resources": [
+                {
+                    "resource_id": "/categories/*",
+                    "methods": [
+                        "get"
+                    ],
+                    "read_attributes": "(**)",
+                    "cache_time": 900
+                },
+                {
+                    "resource_id": "/customers/auth",
+                    "methods": [
+                        "post"
+                    ],
+                    "read_attributes": "(**)",
+                    "write_attributes": "(**)"
+                },
+                {
+                    "resource_id": "/product_search",
+                    "methods": [
+                        "get"
+                    ],
+                    "read_attributes": "(**)",
+                    "write_attributes": "(**)",
+                    "cache_time": 86400
+                }
+            ]
+        }
+    ]
+}
+```
+
+Adding "cache\_time" to the resource configuration lets you easily control the time responses are cached. You can set a **maximum value of 86.400 seconds** (1 day).
+
+#### "Expand" parameter
+
+Lowest Cache Time When using the expand parameter to make a single request with the Open Commerce API, the Cache-Control header is automatically populated with the lowest caching time of the requested resources.
+
+{{< img-caption src="ocapi-expand-parameter-caching-c91c7001dd.jpg" alt="OCAPI: Expand Parameter Caching" caption="Expand parameter cache-time rule" link="ocapi-expand-parameter-caching-c91c7001dd.jpg" >}}
+
+Screenshot of the Infocenter about the "expand" parameter
+
+### Personalised Caching
+
+Personalised caching is enabled by default based on the customer context (JWT). It is possible to disable this for a resource to improve performance.
+
+```json
+{
+    "_v": "22.6",
+    "clients": [
+        {
+            "client_id": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "allowed_origins": [],
+            "resources": [
+                {
+                    "resource_id": "/product_search",
+                    "methods": [
+                        "get"
+                    ],
+                    "read_attributes": "(**)",
+                    "write_attributes": "(**)",
+                    "cache_time": 86400,
+                    "personalized_caching_enabled": false
+                }
+            ]
+        }
+    ]
+}
+```
+
+By setting the "personalised\_caching\_ enabled" option to false, personalisation will be disabled for that resource.
+
+> [!NOTE]
+> You can find information about other options (not related to caching) for resources in the [Infocenter](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/ocapisettings.html).
+
+### OCAPI Caching Best Practices
 
 There is a lot of information and best practices available on the [Infocenter](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/bestpractices.html).
