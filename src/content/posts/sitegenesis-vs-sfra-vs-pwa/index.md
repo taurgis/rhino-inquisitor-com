@@ -109,11 +109,13 @@ So choosing to go with SFRA now will be a good base for years to come. But be su
 
 {{< img-caption src="pwa-kit-03394b0f92.png" alt="PWA Kit storefront running in the managed runtime." caption="PWA Kit pushes the storefront into a composable architecture outside the traditional stack." >}}
 
-The [PWA Kit](https://pwa-kit.mobify-storefront.com/) is the most recent addition to the SFCC family. And it is important to note that this solution is not marketed at the moment to replace SFRA. You might be wondering why, and there is a good reason for that.
+The [PWA Kit](https://pwa-kit.mobify-storefront.com/) was, for years, the newest addition to the SFCC family — and Salesforce still doesn't market it as an SFRA replacement. You might be wondering why. There's a good reason for that, and it hasn't changed.
 
 ### Headless solution
 
 Unlike SiteGenesis and SFRA, the PWA Kit runs on a separate server. It connects to your Salesforce B2C Commerce Cloud environment through the [SCAPI](https://developer.salesforce.com/docs/commerce/commerce-api/guide) (a REST API). That is a correction to make here: earlier versions leaned on the OCAPI for a few gaps in the hooks system, but by now the PWA Kit runs fully on SCAPI. The OCAPI itself was [officially deprecated in April 2026](/in-the-ring-ocapi-versus-scapi/), so it is no longer part of this picture at all, headless or otherwise.
+
+The rest of this site now groups PWA Kit and Managed Runtime under one label: the [Composable Storefront](/what-does-the-composable-storefront-mean-for-sfcc-developers/). It isn't a fourth product bolted onto this comparison — it's shorthand for the same stack described in this section. If you're coming from SiteGenesis or SFRA and wondering what skills carry over, [this site has a dedicated walkthrough](/the-move-from-sitegenesis-and-sfra-to-the-composable-storefront-as-a-developer/).
 
 It is an entirely different type of architecture than the "[monolithic](https://en.wikipedia.org/wiki/Monolithic_application#:~:text=In%20software%20engineering%2C%20a%20monolithic,independent%20from%20other%20computing%20applications.)" approach we are used to within SFCC.
 
@@ -154,24 +156,24 @@ And again, there is a [podcast episode available dedicated to this topic](https:
 
 ### Third-party integrations (PWA Kit & Managed Runtime)
 
-As this solution is pretty new, few third-party solutions are plug-and-play like SFRA. A more considerable investment in budget/time is required for now.
-
-Looking at the past few weeks/months, there is a [good amount of interest](https://marketplace.magnolia-cms.com/detail/salesforce-commerce-cloud.html) in building integrations. Like SFRA in 2017, time is required to make a fair amount of third-party prebuilt solutions.
+That gap has narrowed since this article was first written, but it hasn't closed. A handful of vendors now build packages aimed specifically at the PWA Kit — Adyen's headless integration is one example — and Salesforce keeps filling first-party gaps itself: Hybrid Auth replaced the old Plugin SLAS setup, and native Order Management actions now ship inside the PWA Kit's own default implementation. Still, no official Salesforce source grades how mature this ecosystem actually is, and from what this site has seen, broad, SFRA-style plug-and-play coverage still isn't there. Budget the extra time and vendor conversations an SFRA project rarely needs.
 
 ### Missing out-of-the-box features
 
-I may sound like a broken record, but a few features built into SFRA are not in the PWA Kit since the solution is new. A few examples are:
+A few SFRA features still don't have a clean PWA Kit equivalent, and each one's status is different by now:
 
-- [A/B Testing](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_ab_testing.htm)
+- [A/B Testing](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_ab_testing.htm) — still genuinely missing. The only bridge is a [SCAPI Custom API](https://developer.salesforce.com/docs/commerce/commerce-api/guide/custom-apis.html) you build yourself around the same `ABTestMgr` script API SFRA uses.
 - ~~Personalisation~~ (Added in 2023)
-- [~~Page Designer~~](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-dev-for-page-designer.html) ( Added in 2023)
-- [Sitemap](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_sitemap_overview.htm)
-- [SEO URL Configuration](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_configuring_seo_urls.htm)
-- [Page Meta Tag Rules](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_page_meta_tag_rules.htm&type=5)
+- [~~Page Designer~~](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-dev-for-page-designer.html) (Added in 2023)
+- [Sitemap](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_sitemap_overview.htm) — not built in, but no longer a dead end: [this site documents a working backend-plus-proxy pattern](/mastering-sitemaps-in-sfcc/) built on the SCAPI `uploadCustomSitemapAndTriggerSitemapGeneration` endpoint.
+- [SEO URL Configuration](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_configuring_seo_urls.htm) — SCAPI's `getUrlMapping` endpoint now resolves the same Business Manager URL rules SFRA uses, but you still have to wire it into your own routing. There's no zero-config equivalent yet.
+- [Page Meta Tag Rules](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_page_meta_tag_rules.htm&type=5) — [Salesforce's continued SCAPI expansion is making custom endpoints for this increasingly unnecessary](/taming-the-beast-a-developers-deep-dive-into-sfcc-meta-tag-rules/).
 
-All of these "missing items" can be resolved with custom development. So be prepared to spend more time and budget to build these features if needed. And many of these are on the roadmap of Salesforce, so if you wait a bit longer (or adapt your implementation timeline/order of implementation), the above list will be much smaller.
+That's a shorter, more nuanced list than it was in 2022. Some gaps are closed outright, some have an official pattern to lean on, and A/B testing is still squarely on you to build. Budget accordingly.
 
 ## Comparison
+
+One thing to flag before the summary: this article compares SiteGenesis, SFRA, and the PWA Kit specifically. Salesforce's newest recommended headless option, as of 2026, is actually [Storefront Next](https://developer.salesforce.com/docs/commerce/commerce-api/guide/which-product.html) — a different frontend stack (React Router 7, React 19, Vite) sitting on the same SCAPI and Managed Runtime backend described above. It's new enough that this comparison doesn't cover it, but check it before you commit to the PWA Kit on a greenfield project.
 
 The following overview compresses the information above.
 
