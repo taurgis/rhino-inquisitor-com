@@ -92,21 +92,25 @@ The best part? Unlike other certifications, this one does not require any CRM-ba
 
 I promised, back in 2023, to update this section once the guiding trailmix for product knowledge became available. Three years later, here's the honest answer: it never showed up as its own thing. What exists is the standard [prep trailmix](https://trailhead.salesforce.com/users/strailhead/trailmixes/prepare-for-your-salesforce-certified-sales-representative-cred), and it's sales-methodology content — cold calling, sales process basics, emotional intelligence — not the platform-breadth material the original announcement seemed to promise. If you're coming at this from Commerce Cloud, you'll still need to build that product knowledge yourself; nobody packaged it for you.
 
-## Commerce Cloud Einstein Accredited Professional
+## Accredited Professional
 
-- [Partner Learning Camp - Accreditation](https://partnerlearningcamp.salesforce.com/s/credentials-catalog?plc__recordId=d%2Fx2y6m%2FknTcjnfe7C0GiHmOkms8uLPL82Zrct7hYQcVHqfIycgjEyVfwejd21xa)
+Around 2021, Salesforce added a second, partner-only credential track called Accreditations, run through the [Partner Learning Camp](https://partnerlearningcamp.salesforce.com/s/learner-dashboard) (PLC) and open only to Salesforce Partners and employees. Two of them touched Commerce Cloud people directly — one AI-configuration-focused, one sales-focused. Neither made it to 2026.
 
-{{< img-caption src="einstein-shopping-c2fd371422.jpeg" alt="A drawing of Einstein standing in a store, wearing a green vest with a red tie and shoes. The store walls are painted red and green, with the shopping racks filled with clothes and perfume." caption="Einstein accreditation fits people who need to position commerce AI to business stakeholders." >}}
+Salesforce never put out a retirement announcement for either one; they simply stopped appearing in the current [Accredited Professional catalog](https://trailhead.salesforce.com/credentials/accreditedprofessionaloverview) at some point. Both are kept below rather than deleted from the record.
 
-We ran out of Trailhead Certifications, so now we are turning to the [Partner Learning Camp](https://partnerlearningcamp.salesforce.com/s/learner-dashboard) (PLC). Here you will find certifications targeted towards Partners and Employees of Salesforce, so if you are neither, this Accreditation is not an option for you.
+### Archived: Commerce Cloud Einstein Accredited Professional (Retired ~2024)
 
-[Einstein](/ai-einstein-in-salesforce-b2c-commerce-cloud/) is one of the critical features of Salesforce B2C Commerce Cloud, providing many different AI features "natively" to the platform. And even though some development has to go into it, many of its features must be configured to work out of the box! Knowing where all those buttons and switches are is essential to any project.
-
-The official description is as follows:
+{{< img-caption src="einstein-shopping-c2fd371422.jpeg" alt="A drawing of Einstein standing in a store, wearing a green vest with a red tie and shoes. The store walls are painted red and green, with the shopping racks filled with clothes and perfume." caption="Einstein accreditation fit people who needed to position commerce AI to business stakeholders." >}}
 
 > The Commerce Cloud Einstein Accredited Professional exam is intended for individuals who have the knowledge, skills, and experience with data ingestion processes, security and access implementations. This exam expects basic Salesforce knowledge including objects, data and data modelling.
 
-**Be prepared for a few technical questions**, so read the "developer guides" before attempting it. (These are part of the [course](https://partnerlearningcamp.salesforce.com/s/browse-catalog?plc__recordId=LvENtDruwJ3xK1jpdgHFO79ru9n7PrrVcEOQmcXlz7nNXzQy1CYDOFzq9byO51a6) also available inside the Partner Learning Camp)
+[Einstein](/ai-einstein-in-salesforce-b2c-commerce-cloud/) is one of the critical features of Salesforce B2C Commerce Cloud, providing many different AI features "natively" to the platform. Many of its features had to be configured to work out of the box, and knowing where all those buttons and switches were was essential to any project, technical or not.
+
+**But there's no exam left to sit.** It's absent from Salesforce's current Accredited Professional catalog and from the official October 7, 2024 retirement batch by name, so it went earlier and separately, with no public retirement notice I could find. The "~2024" above is my best guess, not a confirmed date.
+
+Why did it go? Salesforce doesn't say, at least not for this one. Its general reasoning for AP retirements — auditing the portfolio "to pinpoint gaps, overlaps, and consumption" — is the only public explanation on record, and it was written about a different, named batch of exams. My own guess, clearly labelled as a guess: Einstein data feeds and access configuration went from a specialist sideline to something a growing share of B2C Commerce partners just handle as part of ordinary implementation work. Once that stopped being a specialist skill, a standalone credential for it stopped being worth maintaining.
+
+A shame, though. This was the one credential that let a non-developer prove they understood Einstein configuration — data feeds, the recommender, debugging a bad recommendation — without a Developer or Architect exam behind it. That specific, non-technical proof of Einstein fluency doesn't exist anywhere on the B2C Commerce side today.
 
 ## Indirect Sales Accredited Professional
 
