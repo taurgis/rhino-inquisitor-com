@@ -112,21 +112,17 @@ Why did it go? Salesforce doesn't say, at least not for this one. Its general re
 
 A shame, though. This was the one credential that let a non-developer prove they understood Einstein configuration — data feeds, the recommender, debugging a bad recommendation — without a Developer or Architect exam behind it. That specific, non-technical proof of Einstein fluency doesn't exist anywhere on the B2C Commerce side today.
 
-## Indirect Sales Accredited Professional
+### Archived: Indirect Sales Accredited Professional (Retired ~2024)
 
-{{< img-caption src="sales-25d69d411e.jpg" alt="Sales-themed illustration for the Indirect Sales Accredited Professional section." caption="Indirect Sales accreditation is aimed at the partner and channel side of the business." >}}
-
-- [Partner Learning Camp - Accreditation](https://partnerlearningcamp.salesforce.com/s/credentials-catalog?plc__recordId=huaR3i8ewEj9BrjQeVKHB51JTVgrOzyjjUy8ORjUXXoU52nqrMytajtg4M1c44Ux)
-
-Again a different type of certification than we are used to and a completely different role. The official description sounds something like this:
+{{< img-caption src="sales-25d69d411e.jpg" alt="Sales-themed illustration for the Indirect Sales Accredited Professional section." caption="Indirect Sales accreditation was aimed at the partner and channel side of the business." >}}
 
 > The Indirect Sales Accredited Professional exam is intended for an individual who may have the title of Sales Manager, Account Executive, Marketing Manager, or Business Development. These sales roles are responsible for communicating the benefits of a company's products in order to drive sales. They serve as the point of contact between a business and its prospects or clients. Their range of responsibilities includes identifying and educating prospective customers while supporting existing clients with information and assistance that relates to products and services. Qualifications often include strong interpersonal and communication skills.
 
-I may start sounding like a broken record, but this certification also targets the different Salesforce product catalogs, not just Salesforce B2C Commerce Cloud.
+I may start sounding like a broken record, but this certification also targeted the different Salesforce product catalogs, not just Salesforce B2C Commerce Cloud. Still, it was worth a look for a partner's sales team, if only to see how Salesforce expected them to approach a prospect.
 
-If your company targets Salesforce B2C Commerce Cloud, this might not be the course for you. But trying it to see how Salesforce expects you to approach potential clients might be interesting.
+Same story as Einstein above: gone from the current catalog, absent from the named October 2024 batch, no public reason given. My guess here leans on what happened to Sales Representative rather than any evidence specific to this credential: Salesforce kept investing in a *direct* sales credential (renamed twice since, most recently to Sales Foundations) while letting the *indirect*, channel-facing accreditation lapse without a replacement.
 
-This is also an excellent opportunity for your salespeople to get acquainted with the Salesforce ecosystem!
+Losing it is a shame for a narrower reason than Einstein: it was the only credential on this page that spoke to channel and partner-facing salespeople specifically, rather than the direct sales reps Salesforce clearly still wants certified. If your business runs on indirect or partner sales into Commerce Cloud, there's nothing scoped to that role anymore.
 
 ## What about Salesforce B2C Commerce Cloud specific ones?
 
