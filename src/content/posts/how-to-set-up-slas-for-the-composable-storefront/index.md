@@ -38,9 +38,9 @@ After you have logged into the Business Manager of your environment, go to the f
 
 {{< img-caption src="slas-admin-ui-button-business-manager-7bdbd7a798.jpg" alt="Salesforce Commerce API Settings page with the SLAS Admin UI link." caption="This is the Business Manager starting point for finding your SLAS setup details." >}}
 
-The link is not there. If you do not see the link (the link is inserted by [DWithEase](https://dwithease.com/)), manually go to the URL: `https://{{Short_Code}}.api.commercecloud.salesforce.com/shopper/auth-admin/v1/sso/login`.
+Salesforce's own documentation doesn't show a clickable SLAS Admin UI link on this page by default — construct the URL yourself from the Short Code: `https://{{Short_Code}}.api.commercecloud.salesforce.com/shopper/auth-admin/v1/sso/login`. If you have the [DWithEase](https://dwithease.com/) browser extension installed, it may add a shortcut link here for you, but the manual URL is the dependable path either way.
 
-On this screen, some necessary information to install the PWA Kit can be found. But besides the Short Code and the Organization ID, there is an interesting link present: "SLAS Admin UI". Let's click that now, shall we?
+On this screen, you'll also find the Short Code and Organization ID you'll need to install the Composable Storefront later. Open the SLAS Admin UI URL from above (or the shortcut link, if DWithEase added one) to continue.
 
 {{< img-caption src="slas-admin-ui-login-ff882d0848.jpg" alt="Sign-in page that links to the SLAS Admin UI." caption="If the shortcut is missing, this login page still gets you into SLAS Admin." >}}
 
@@ -66,9 +66,9 @@ And with that, we are almost there! Fill in the following information:
 
 - **What tenant will be used?:** Fill in the Tenant ID, part of the Organization ID, from step two. (format: xxxx\_sxx)
 - **What site will be used?:** Here, we fill in the site IDs used - separated by a space.
-- **Which App Type will be used?:** Well... the article is for the Composable Storefront, so let us select "_PWA Kit or SFRA or Mobile_." Selecting this option will make a [Public Client](https://developer.salesforce.com/docs/commerce/commerce-api/guide/slas-public-client.html).
+- **Which App Type will be used?:** Well... the article is for the Composable Storefront, so let us select "_PWA Kit or SFRA or Mobile_." Selecting this option will make a [Public Client](https://developer.salesforce.com/docs/commerce/commerce-api/guide/slas-public-client.html). Salesforce's current guidance recommends a **private** client instead for most PWA Kit 3.5+ projects — the SLAS Admin UI creates private clients the same way, you just set the client secret afterwards via an environment variable rather than leaving it blank here. If your Admin UI's form offers that choice explicitly, pick private unless you have a specific reason not to; Step 4 and Step 5 below assume you know which one you picked.
 - **Client Id:** The Client ID to use during the installation of the PWA Kit. This can be left as-is. _Note: This Client ID does not need to exist as an API Client in the Account Manager. They are not related._
-- **Secret:** Public Clients do not need a secret
+- **Secret:** Public clients don't need a secret. Private clients do — store it in an environment variable, never directly in your project files.
 - **Do you want the default shopper scopes?:** Since we will be using the PWA Kit, leave this checked.
 - **Enter custom shopper scopes:** This step can be left empty.
 
@@ -76,27 +76,32 @@ As the final step: "Click Submit". Otherwise, not a lot is going to be happening
 
 ### Typo in the scopes
 
-Currently (January 16th, 2023), there is an error in the default scopes that needs to be fixed manually. Specifically, there is a missing space between "sfcc.shopper-myaccount.orders" and "sfcc.shopper-myaccount.paymentinstruments".
+When this article was first written in January 2023, the SLAS Admin UI's default scope bundle had a missing space between "sfcc.shopper-myaccount.orders" and "sfcc.shopper-myaccount.paymentinstruments", and had to be fixed by hand before saving. I couldn't confirm live in July 2026 whether that's still the case — Salesforce's [Authorization Scopes Catalog](https://developer.salesforce.com/docs/commerce/commerce-api/guide/auth-z-scope-catalog.html) now lists the two as separate, correctly spaced entries (and the payments scope has since become `sfcc.shopper-myaccount.paymentinstruments.rw`), but that's static documentation, not the live Admin UI's generated textbox. **Check the scope list your own Admin UI produces before saving** — if two scope names run together, add the missing space manually.
 
 {{< img-caption src="typo-in-scopes-3b0626d7b7.png" alt="Scope list showing the missing space in the default shopper scopes." caption="Check these default scopes before saving because the bundled list contains a typo." >}}
 
-## Step 4: Enable OCAPI endpoints
+## Step 4: Update your OCAPI settings (public clients only)
 
-Follow step "Update Open Commerce API Settings" on the following page using the SLAS Client ID generated in the previous step: [https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/setting-up-api-access.html](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/setting-up-api-access.html)
+If your project uses PWA Kit 3.5 or later, it's configured to use a SLAS **private** client by default, and private clients skip this step entirely — jump straight to Step 5.
+
+> [!NOTE]
+> This step only applies if you deliberately created a SLAS **public** client in Step 3. It's also worth knowing that [OCAPI was deprecated platform-wide in April 2026](/in-the-ring-ocapi-versus-scapi/) and now receives security patches only. The instructions below still work today, but they lean on a maintenance-mode API, not a long-term foundation.
+
+If you are on a public client, follow the "Update Open Commerce API Settings" step on [Salesforce's Set Up API Access guide](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/setting-up-api-access.html), using the SLAS Client ID generated in the previous step.
 
 ## Step 5: Use the new SLAS Client
 
 Now that we have our SLAS Client, Short Code, and Organization ID, we can start installing the PWA Kit! Open up your favourite terminal and enter:
 
 ```text
-npx pwa-kit-create-app
+npx @salesforce/pwa-kit-create-app@latest
 ```
 
-During the execution you will be prompted to enter certain information.
+Pin an explicit version (e.g. `@v3.5.0`) instead of `@latest` if you want reproducible results — Salesforce's own docs warn that omitting a version can produce unexpected results due to caching of old versions. During the run you'll be asked for the following:
 
-### What is the name of your Project
+### What is your Project ID
 
-You can choose whatever name makes the most sense for you. Keep in mind that this is also the name of the folder it will create.
+Choose an identifier for your project. It doubles as the local folder name the CLI creates; Salesforce's current docs also tie it to your entry in Managed Runtime Admin, though for a sandbox-only local setup any identifier works.
 
 ### What is the URL for your Commerce Cloud instance
 
