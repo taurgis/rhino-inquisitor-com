@@ -166,15 +166,13 @@ It is possible to override the default 60 seconds of caching of a resource by ad
 }
 ```
 
-Adding "cache\_time" to the resource configuration lets you easily control the time responses are cached. You can set a **maximum value of 86.400 seconds** (1 day).
+Adding "cache_time" to the resource configuration lets you easily control the time responses are cached. You can set a **maximum value of 86,400 seconds** (1 day).
 
 #### "Expand" parameter
 
-Lowest Cache Time When using the expand parameter to make a single request with the Open Commerce API, the Cache-Control header is automatically populated with the lowest caching time of the requested resources.
+**Lowest cache time wins.** When you use the expand parameter to make a single request with the Open Commerce API, the Cache-Control header is automatically populated with the lowest caching time of the requested resources.
 
 {{< img-caption src="ocapi-expand-parameter-caching-c91c7001dd.jpg" alt="OCAPI: Expand Parameter Caching" caption="Expand parameter cache-time rule" link="ocapi-expand-parameter-caching-c91c7001dd.jpg" >}}
-
-Screenshot of the Infocenter about the "expand" parameter
 
 ### Personalised Caching
 
@@ -204,7 +202,7 @@ Personalised caching is enabled by default based on the customer context (JWT). 
 }
 ```
 
-By setting the "personalised\_caching\_ enabled" option to false, personalisation will be disabled for that resource.
+By setting the "personalized_caching_enabled" option to false, personalisation will be disabled for that resource.
 
 > [!NOTE]
 > You can find information about other options (not related to caching) for resources in the [Infocenter](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/ocapisettings.html).
