@@ -125,7 +125,7 @@ A [config file](https://github.com/SalesforceCommerceCloud/storefront-reference-
 
 The standard file (httpHeadersConf.json) only sets two security headers, but it is possible to develop more.
 
-It is important to note that Salesforce limits the headers you can set to [a list of constants in the Response class](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_system_Response.html).
+Salesforce limits the headers you can set to [a list of constants in the Response class](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_system_Response.html).
 
 I have compiled a list and their descriptions below to make things easier.
 
