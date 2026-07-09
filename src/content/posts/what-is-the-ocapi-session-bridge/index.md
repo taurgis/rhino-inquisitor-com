@@ -28,7 +28,7 @@ But what is it, when do you actually need it, and what should you watch out for?
 > [!WARNING]
 > **OCAPI is deprecated**
 >
-> Salesforce marked OCAPI deprecated as of April 2026. Per the [OCAPI versioning and deprecation policy](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/versioninganddeprecationpolicy.html), it keeps receiving security updates for two more years, but no new features. If you're starting a new integration on SCAPI and SLAS, default to the SLAS Session Bridge covered first below. The classic OCAPI session bridge, covered right after it, still works and still matters if you already depend on it, but treat it as the legacy path, not the one to reach for first.
+> Salesforce marked OCAPI deprecated as of April 2026. Per [Why Use SCAPI Instead of OCAPI](https://developer.salesforce.com/docs/commerce/commerce-api/guide/why-use-scapi.html), it keeps receiving security updates for two more years, but no new features. If you're starting a new integration on SCAPI and SLAS, default to the SLAS Session Bridge covered first below. The classic OCAPI session bridge, covered right after it, still works and still matters if you already depend on it, but treat it as the legacy path, not the one to reach for first.
 
 ## TLDR; Solution
 
@@ -115,10 +115,10 @@ The response is the same `204 No Content` with the same `dwsecuretoken_*`, `dwsi
 
 This is where SLAS actually diverges from OCAPI. Instead of sending the raw `dwsid` cookie back, SLAS wants a signed token that proves you control the session, generated server-side from Script API:
 
-- Guest shopper: [`Session.generateGuestSessionSignature()`](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_system_Session.html#dw_system_Session_generateGuestSessionSignature_DetailAnchor) produces a `dwsgst` value.
-- Registered shopper: [`Session.generateRegisteredSessionSignature()`](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/upcoming/scriptapi/html/api/class_dw_system_Session.html#dw_system_Session_generateRegisteredSessionSignature_DetailAnchor) produces a `dwsrst` value.
+- Guest shopper: [`Session.generateGuestSessionSignature()`](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_system_Session.html#dw_system_Session_generateGuestSessionSignature_DetailAnchor) returns the signed token you send as `dwsgst`.
+- Registered shopper: [`Session.generateRegisteredSessionSignature()`](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_system_Session.html#dw_system_Session_generateRegisteredSessionSignature_DetailAnchor) returns the signed token you send as `dwsrst`. (The Script API reference itself still describes this as a token "for registered dwsid"; the `dwsrst` name comes from the session-bridge guide, not from the method's own doc text.)
 
-Call [`getSessionBridgeAccessToken`](https://developer.salesforce.com/docs/commerce/commerce-api/references/auth?meta=getSessionBridgeAccessToken) with that signed value:
+Call [`getSessionBridgeAccessToken`](https://developer.salesforce.com/docs/commerce/commerce-api/references/auth?meta=getSessionBridgeAccessToken) with that signed value. This is a separate mechanism from the `session_bridge` grant type also listed on the plain [`getAccessToken`](https://developer.salesforce.com/docs/commerce/commerce-api/references/auth?meta=getAccessToken) endpoint, which exchanges an authorization code rather than a signed token; that code-based flow is out of scope here.
 
 ```text
 REQUEST (guest shopper):
@@ -188,7 +188,7 @@ With a real client ID, configure access to the necessary APIs in the Business Ma
 > [!NOTE]
 > **Version numbers will drift**
 >
-> OCAPI versions stay supported for about two years after being superseded, then Salesforce deletes them without further notice. `25.6`/`v25_6` below is current as of this refresh, but check your site's supported range in Business Manager, or the version metadata endpoint, before copying these examples; the request and response shapes are what this walkthrough is teaching, not the specific version number.
+> OCAPI versions stay supported for about two years after being superseded, then Salesforce deletes them without further notice. `25.6`/`v25_6` below is the version shown in Salesforce's Shop API reference docs at the time of this refresh, not necessarily what your org's OCAPI version metadata endpoint reports as current. Check your site's supported range in Business Manager, or that metadata endpoint, before copying these examples; the request and response shapes are what this walkthrough is teaching, not the specific version number.
 
 ### Step 1: Get an OCAPI session JWT
 
