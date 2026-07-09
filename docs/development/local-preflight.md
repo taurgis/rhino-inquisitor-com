@@ -32,7 +32,10 @@ All fast, repo-local checks (~5–10 seconds total; no Hugo build required):
    (every domain linked from `src/content` must be classified in
    `scripts/gates/external-link-domains.js`)
 5. `markdownlint-cli2` on Markdown files changed vs the merge-base with
-   `origin/main` (skipped when `origin/main` is unavailable)
+   `origin/main` (skipped when `origin/main` is unavailable), excluding
+   `.bonsai/research/**` — those files are raw scraped documentation cached
+   by the Bonsai research tool (see `.claude/rules/generated/salesforce-research.md`),
+   not authored prose, so they don't need to pass prose-oriented lint rules
 
 Build-dependent gates (URL parity against `public/`, SEO artifact checks,
 critical-CSS sync, perf) intentionally stay in the deploy pipeline — the
@@ -52,7 +55,11 @@ pipeline also self-heals critical-CSS drift, so preflight does not need to.
   CI runners execute `prepare` harmlessly (hooks are never invoked there).
 - Verify: run `npm install` once, then `git config core.hooksPath` must print
   `.githooks`; `npm run preflight` must end with `preflight OK`; a push with a
-  front-matter error must be rejected by the hook.
+  front-matter error must be rejected by the hook. To verify the
+  `.bonsai/research/**` exclusion specifically: fetch a URL with
+  `npx @taurgis/bonsai <url> --storage project --force`, stage the resulting
+  file under `.bonsai/research/`, and confirm `npm run preflight` does not
+  lint it (it will still lint any staged `.md` file outside that path).
 
 ## Related files
 

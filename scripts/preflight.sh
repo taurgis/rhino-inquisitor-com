@@ -32,7 +32,10 @@ npm run --silent test:callouts
 echo "==> preflight: markdownlint (files changed vs origin/main)"
 if git rev-parse --verify --quiet origin/main >/dev/null; then
   base="$(git merge-base HEAD origin/main)"
-  mapfile -t changed_md < <(git diff --name-only --diff-filter=d "$base" HEAD -- '*.md')
+  # Exclude .bonsai/research/**: raw scraped documentation cached by the
+  # Bonsai research tool, not authored prose, so it doesn't owe markdownlint
+  # a clean bill of health.
+  mapfile -t changed_md < <(git diff --name-only --diff-filter=d "$base" HEAD -- '*.md' ':!.bonsai/research/**')
   if ((${#changed_md[@]})); then
     npx markdownlint-cli2 "${changed_md[@]}"
   else
