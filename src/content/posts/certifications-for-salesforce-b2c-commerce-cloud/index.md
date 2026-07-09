@@ -83,15 +83,23 @@ Before you read more about this, be warned that this is a certification only ava
 
 You can look at these Accreditations as a "specialisation" certification. While the other certifications will look at a broad spectrum of platform features, accreditations will test your knowledge of a specific feature or part.
 
-### Headless API First
+Same testing platform change as above, by the way: Accreditation exams sit on the unified Trailhead Academy/Pearson VUE experience now too, not a separate Partner-only booking flow.
+
+### Archived: Headless API First Accredited Professional (Retired 2024)
+
+This one didn't make it to 2026. Rather than quietly deleting it, here's what it used to be, followed by why it's probably gone and why I still miss it.
 
 > The Salesforce Headless API First Accredited Professional exam is designed for consultants who have experience implementing and consulting on B2C Commerce or headless projects in a customer-facing role. This exam is for individuals who want to demonstrate their skills and knowledge in configuring and using Salesforce Commerce APIs in the context of Sample Apps and real headless implementations.
 
-As Headless (API First) made its way more prominently into the Salesforce B2C Commerce Cloud world last year, it was expected that a certification was explicitly made for it.
+As Headless (API First) made its way more prominently into the Salesforce B2C Commerce Cloud world around 2021, it was expected that a certification was explicitly made for it.
 
-The exam will focus solely on the [SCAPI](https://developer.salesforce.com/docs/commerce/commerce-api/guide) (Salesforce Commerce APIs), testing your knowledge of this set of REST endpoints.
+The exam focused solely on [SCAPI](https://developer.salesforce.com/docs/commerce/commerce-api/guide) (Salesforce Commerce APIs), testing your knowledge of this set of REST endpoints. There used to be a course on the [PLC](https://partnerlearningcamp.salesforce.com/) (Partner Learning Camp) to help you prepare for it.
 
-But not to worry, there is [a course](https://partnerlearningcamp.salesforce.com/s/browse-catalog?plc__recordId=ql98ga3ai8kA8o02yzJVDFG8XmW19tGoNUdRg55RgKsxWkPN9Kb%2BNqGkuz1tWcJ%2F) on the [PLC](https://partnerlearningcamp.salesforce.com/) (Partner Learning Camp) to guide you through preparing for it.
+**Except there's no exam left to prepare for.** Salesforce retired it on October 7, 2024, in the same batch as four other English-language Accredited Professional exams (Einstein Prediction Builder, Salesforce CMS, Salesforce Maps, Security & Privacy). If you'd already earned it, the credential itself still counts — Salesforce's own [Partner Program FAQ](https://help.salesforce.com/s/articleView?id=002646692&language=en_US&type=1) confirms that much, even after they had to correct the expiry date once.
+
+Why did it go? Salesforce's official answer is honestly a shrug dressed up in portfolio-speak: exams get retired to address "gaps, overlaps, and consumption," and "an updated exam will not be built in its place." Nothing in that FAQ singles out Headless API First by name. It's the standard batch answer, applied to five exams at once. So here's my actual guess, clearly labelled as a guess: this was one of the narrowest accreditations on the books, built around one specific moment in the platform's history, and narrow one-off exams like that are exactly what a portfolio review prunes first. It didn't get folded into a broader exam either — SCAPI still doesn't show up anywhere in the current Developer exam guide, so the skill it tested didn't move house, it just stopped being tested.
+
+A shame, though. This was the one credential that let a headless-focused consultant prove they knew SCAPI cold without also having to prove they could configure a pricebook or wire up a Page Designer slot — handy if your entire engagement was "stand up a storefront against the Commerce APIs" and nothing else. That specialism now has nowhere to go but the full Developer or Architect exam, both of which spend most of their weight on Business Manager and SFRA territory a headless-only consultant may never touch. If anyone at Salesforce Credentials fancies bringing a scoped SCAPI exam back, you know where to find me 😇.
 
 ### Commerce Cloud Einstein
 
