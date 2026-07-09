@@ -4,7 +4,7 @@ description: >-
   Salesforce B2C Commerce Cloud appears to only have certifications for
   developers, but is this true? Are there other options available?
 date: '2023-04-24T08:47:47.000Z'
-lastmod: '2026-07-04T17:47:13.000Z'
+lastmod: '2026-07-09T16:39:28.000Z'
 url: /non-technical-sfcc-certifications/
 draft: false
 heroImage: einstein-shopping-scaled-5e1e2b427b.jpeg
@@ -130,4 +130,6 @@ Although the aforementioned certifications are not specific to Salesforce B2C Co
 
 However, you must learn about all of the features that Salesforce B2C Commerce Cloud offers to help your clients better and make optimal use of what the platform(s) offer!
 
-Hopefully, at one point, there will be a certificate along the lines of "Salesforce B2C Commerce Merchandiser", but for now, that is only a dream.
+Hopefully, at one point, there will be a certificate along the lines of "Salesforce B2C Commerce Merchandiser", but for now, that is still only a dream.
+
+**Small update, three years on:** Trailhead now has [a Page Designer module built specifically for merchandisers](https://trailhead.salesforce.com/content/learn/modules/b2c-page-designer-merchandiser), a badge you can earn without sitting a proctored exam. It's not nothing — Salesforce has at least noticed merchandisers exist as an audience. But a trail badge isn't a credential, and there's still nobody you can point a client at and say "this person is certified to run your storefront." The dream's a little closer. It hasn't arrived.
