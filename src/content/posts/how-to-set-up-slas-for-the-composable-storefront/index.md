@@ -111,9 +111,13 @@ Fill in the URL of your sandbox, and this looks something like:
 https://xxxx-0xx.dx.commercecloud.salesforce.com/
 ```
 
-### What is your SLAS Client ID
+### What is your Commerce API client ID
 
-Enter the Client Id generated in step 3.
+Enter the SLAS Client ID generated in step 3. Salesforce's current CLI docs call this the "Commerce API client ID" rather than "SLAS Client ID" — it's the same value, obtained the same way.
+
+### Public or private client?
+
+The CLI now asks explicitly whether you're using a private or public client. Private is the default and what most new projects should pick; only choose public if that's what you created in Step 3 (in which case Step 4's OCAPI update also applies to you).
 
 ### What is your Site ID in Business Manager
 
