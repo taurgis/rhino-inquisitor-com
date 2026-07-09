@@ -4,7 +4,7 @@ description: >-
   Prepare for the Salesforce B2C Commerce Architect certification with a guide
   to exam domains, study priorities, and practical preparation.
 date: '2023-05-22T07:18:54.000Z'
-lastmod: '2026-07-04T17:47:13.000Z'
+lastmod: '2026-07-09T19:39:01.000Z'
 url: /the-b2c-commerce-architect-certification/
 draft: false
 heroImage: b2c-commerce-cloud-architect-fbcc847dcd.jpeg
