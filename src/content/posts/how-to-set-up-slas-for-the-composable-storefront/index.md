@@ -4,7 +4,7 @@ description: >-
   Setting up SLAS for the first time can be quite a headache. Or maybe not? Is
   there an easy way to set up SLAS for the PWA Kit?
 date: '2023-01-16T08:12:41.000Z'
-lastmod: '2026-07-04T14:48:28.000Z'
+lastmod: '2026-07-09T17:43:35.106Z'
 url: /how-to-set-up-slas-for-the-composable-storefront/
 draft: false
 heroImage: slas-public-client-registered-user-b2c-a930192dd5.jpg
@@ -20,7 +20,7 @@ author: Thomas Theunen
 takeaways:
   - "Walks through a practical SLAS setup flow for connecting a Composable Storefront to an SFCC sandbox"
   - "Explains where to find the short code, organization ID, and SLAS Admin UI configuration flow"
-  - "Covers client creation, OCAPI access updates, and the PWA Kit install inputs required to go live"
+  - "Covers client creation, when the OCAPI settings step still applies (public clients only, now that OCAPI is deprecated), and the Composable Storefront install inputs required to go live"
 ---
 Are you setting up your Composable Storefront and wondering what the SLAS Client ID is all about? You're not alone! The [Shopper Login and API Access Service](https://developer.salesforce.com/docs/commerce/commerce-api/guide/slas.html), or SLAS, has been gaining popularity, but it can be challenging to set up. But don't worry. We've got you covered. Instead of diving into a sea of Administrative APIs, we're here to break it down and show you a simple way to set up your SLAS. Keep reading to find out how!
 
