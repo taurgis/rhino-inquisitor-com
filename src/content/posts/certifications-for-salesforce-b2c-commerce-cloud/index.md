@@ -31,9 +31,11 @@ You have to solve questions and exercises in a sandbox environment. Trailhead wi
 
 Unfortunately (yup, I got you excited there, didn't I), this is only available for the core platform, not B2C Commerce Cloud. And because SFCC runs on a completely different stack, don't expect this to change anytime soon.
 
+Still true in 2026, by the way. Salesforce reworked the whole superbadge program in 2025 — shorter "skill assessments" instead of the old six-hour marathons — but that reshuffle never produced a Commerce Cloud entry either. Whatever Superbadges become next, they still don't come to us.
+
 ## Salesforce Credentials
 
-The first type we will have a look at is the Salesforce Credentials. You know, the ones you can achieve via [Webassessor](https://www.webassessor.com/).
+The first type we will have a look at is the Salesforce Credentials. When this article first went up, you sat these through Webassessor. That's gone now: as of July 21, 2025, Salesforce moved certification delivery to [Pearson VUE](https://help.salesforce.com/s/articleView?id=005298846&language=en_US&type=1), managed through Trailhead Academy. Same idea (proctored exam, book a slot, sit it), different vendor.
 
 A little heads up already. You don't have many options if you are not a technical profile. But we will get into that later!
 
@@ -51,6 +53,9 @@ Now, let's nuance this a little bit. If your past two projects were with pipelin
 
 If you still think you need some preparation, look at the [exam guide](https://help.salesforce.com/s/articleView?id=005298941&language=en_US&type=1). It will point you in the right direction!
 
+> [!NOTE]
+> On July 24, 2026, Salesforce renames this credential from "Salesforce Certified B2C Commerce Cloud Developer" to "Salesforce Certified B2C Commerce Developer." Per Salesforce's own [Certification Name Changes FAQ](https://help.salesforce.com/s/articleView?id=005298915&language=en_US&type=1), it's a name change only — exam content and maintenance requirements stay the same.
+
 ### B2C Commerce Architect
 
 {{< img-caption src="b2c-commerce-architect-3d1b1f2f1e.png" alt="Salesforce Certified B2C Commerce Architect badge." caption="The B2C Commerce Architect certification requires the Developer credential as a prerequisite and shifts focus from hands-on implementation to project-lifecycle and multi-site design pattern questions." >}}
@@ -63,9 +68,12 @@ Important to note that you can only achieve this certification if you are a Cert
 
 It should not surprise that this certificate is on "another" level than the Developer certification. Do not expect questions like "how do you log a message to the error log" but more like "You have three domains that have to be linked to these two sites. Which of the following four answers is the correct [Hostname Alias](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_hostname_aliases.htm) configuration?".
 
-Want to know more about what this certificate expects you to know? Have a look at the [exam guide](https://trailhead.salesforce.com/help?article=Salesforce-Certified-B2C-Commerce-Architect-Exam-Guide)!
+Want to know more about what this certificate expects you to know? Have a look at the [exam guide](https://help.salesforce.com/s/articleView?id=005298936&language=en_US&type=1)!
 
-If you feel like an in-person or virtual training is more suited for you, the [ARC-300 course](https://trailheadacademy.salesforce.com/classes/arc300-architect-b2c-commerce-solutions) (which I am teaching in EMEA - a bit of self-promotion) is perfect for you.
+> [!WARNING]
+> This one's on a clock. Salesforce is retiring the B2C Commerce Architect certification on February 1, 2027. Last day to register is **July 24, 2026**, last day to sit the exam is August 31, 2026, per the banner on the exam guide itself and the official [2027 Certification Retirements FAQ](https://help.salesforce.com/s/articleView?id=005360289&language=en_US&type=1). There's no successor exam named — the FAQ points you at "comparable learning content" instead: Trailhead, the B2C Commerce documentation, and the CCD102/CCM101 Trailhead Academy courses. If earning this one has been on your list, that list just got a deadline.
+
+If you feel like an in-person or virtual training is more suited for you, there used to be the ARC-300 course for that. Salesforce sunsetted it in April 2024, though — I was one of the instructors, and [wrote up what that was like](/the-sunsetting-of-arc300-architect-b2c-commerce-solutions/) when it happened. No replacement course has taken its place since.
 
 ## Accredited Professional
 
