@@ -4,7 +4,7 @@ description: >-
   Certifications are an essential part of the journey within Salesforce. But
   what certifications are available for B2C Commerce Cloud?
 date: '2022-04-13T07:07:52.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-09T15:21:07.000Z'
 url: /certifications-for-salesforce-b2c-commerce-cloud/
 draft: false
 heroImage: certification-ce072f4076.jpg
