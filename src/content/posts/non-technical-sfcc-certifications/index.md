@@ -34,7 +34,7 @@ But in 2021, 2022, and 2023, some options became available for those who do not 
 
 The first certification that reared its head in 2021 was the User Experience Designer. A certificate that does not focus on developing features but on how to design these features to be user-centric and easy to use.
 
-One thing to know with this certification is that besides the general knowledge of UX with topics like [User Research](https://trailhead.salesforce.com/content/learn/modules/ux-research-basics?trailmix_creator_id=strailhead&trailmix_slug=prepare-for-your-ux-designer-credential), it bases examples on the [force.com](https://www.force.com) platform, specifically the [Lightning Design System](https://www.lightningdesignsystem.com/).
+One thing to know with this certification is that besides the general knowledge of UX with topics like [User Research](https://trailhead.salesforce.com/content/learn/modules/ux-research-basics?trailmix_creator_id=strailhead&trailmix_slug=prepare-for-your-ux-designer-credential), it bases examples on the [Salesforce Platform](https://www.salesforce.com/platform/) (what used to be branded "force.com"), specifically the [Lightning Design System](https://www.lightningdesignsystem.com/).
 
 To get this certification, having only SFCC knowledge, you must come out of your comfort zone and explore the CRM. But, look at it as an excellent opportunity to learn more about the Salesforce ecosystem and the possibilities that it brings to the table.
 
