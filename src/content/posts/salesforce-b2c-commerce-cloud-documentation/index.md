@@ -45,14 +45,17 @@ This migration wasn't a simple one-to-one mapping. Some outdated documentation, 
 
 | Old Infocenter Section | Audience | New Location & Direct Link |
 | --- | --- | --- |
-| B2C Commerce Release Notes | Administrator & Developer | [https://help.salesforce.com/s/articleView?id=sf.b2c\_rn\_release\_notes.htm&type=5](https://help.salesforce.com/s/articleView?id=sf.b2c_rn_release_notes.htm&type=5) |
+| B2C Commerce Release Notes | Administrator & Developer | [https://help.salesforce.com/s/articleView?id=sf.b2c_rn_release_notes.htm&type=5](https://help.salesforce.com/s/articleView?id=sf.b2c_rn_release_notes.htm&type=5) |
 | Developing Your Site | Developer | [https://developer.salesforce.com/docs/commerce/b2c-commerce/overview](https://developer.salesforce.com/docs/commerce/b2c-commerce/overview) |
-| Open Commerce API (OCAPI) | Developer | [https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/api-doc.html](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/api-doc.html) |
+| Open Commerce API (OCAPI) — **deprecated, see note below** | Developer | [https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/api-doc.html](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/api-doc.html) |
 | B2C Commerce API (Script API) | Developer | [https://salesforcecommercecloud.github.io/b2c-dev-doc/](https://salesforcecommercecloud.github.io/b2c-dev-doc/) |
-| Merchandising Your Site | Administrator & Merchandiser | [https://help.salesforce.com/s/articleView?id=cc.b2c\_merchandising\_your\_site.htm&type=5](https://help.salesforce.com/s/articleView?id=cc.b2c_merchandising_your_site.htm&type=5) |
-| Administering Your Organisation | Administrator & Merchandiser | [https://help.salesforce.com/s/articleView?id=cc.b2c\_administering\_your\_organization.htm&type=5](https://help.salesforce.com/s/articleView?id=cc.b2c_administering_your_organization.htm&type=5) |
-| B2C Commerce Security Guide | Administrator & Developer | [https://help.salesforce.com/s/articleView?id=cc.b2c\_commerce\_security\_guide.htm&type=5](https://help.salesforce.com/s/articleView?id=cc.b2c_commerce_security_guide.htm&type=5) |
+| Merchandising Your Site | Administrator & Merchandiser | [https://help.salesforce.com/s/articleView?id=cc.b2c_merchandising_your_site.htm&type=5](https://help.salesforce.com/s/articleView?id=cc.b2c_merchandising_your_site.htm&type=5) |
+| Administering Your Organisation | Administrator & Merchandiser | [https://help.salesforce.com/s/articleView?id=cc.b2c_administering_your_organization.htm&type=5](https://help.salesforce.com/s/articleView?id=cc.b2c_administering_your_organization.htm&type=5) |
+| B2C Commerce Security Guide | Administrator & Developer | [https://help.salesforce.com/s/articleView?id=cc.b2c_commerce_security_guide.htm&type=5](https://help.salesforce.com/s/articleView?id=cc.b2c_commerce_security_guide.htm&type=5) |
 | Legacy Developer Documentation | Developer | [https://salesforcecommercecloud.github.io/b2c-dev-doc/](https://salesforcecommercecloud.github.io/b2c-dev-doc/) |
+
+> [!NOTE]
+> That OCAPI row in the map above is now a historical entry, not a live recommendation. Salesforce deprecated the OCAPI in April 2026 — its docs carry a "(deprecated)" label, and it only gets security patches from here on. If you're deciding what to build against today, that decision is already made: use the SCAPI. For the full picture on what changed and how to migrate, see [In the ring: OCAPI versus SCAPI](/in-the-ring-ocapi-versus-scapi/).
 
 ## In the Trenches: The Unofficial SFCC Community (CommerceCrew)
 
@@ -73,7 +76,7 @@ The existence and vibrancy of communities like CommerceCrew and the official Tra
 
 ## Your Trailhead Compass: Strategic Learning for Technical Experts
 
-{{< img-caption src="trailhead-commerce-29dc66c342.png" alt="Astro cheering" >}}
+{{< img-caption src="trailhead-commerce-29dc66c342.png" alt="Astro the Trailhead mascot cheering with arms raised next to a shopping cart icon, representing Commerce Cloud Trailhead content." >}}
 
 - [https://trailhead.salesforce.com/](https://trailhead.salesforce.com/trails?products=commercecloud&sort=NEWEST)
 
@@ -101,7 +104,7 @@ The PLC offers curricula on topics like SFRA, Headless development, PWA Kit, and
 
 ## Salesforce Architects: The Multi-Cloud Command Centre
 
-{{< img-caption src="solution-architect-33ece62704.png" alt="The Solution Architect certification diagram." >}}
+{{< img-caption src="solution-architect-33ece62704.png" alt="Pyramid diagram of the Salesforce Solution Architect certification path, with B2B and B2C Solution Architect at the top tier above supporting certifications such as Data Architect and Integration Architect." >}}
 
 - [https://architect.salesforce.com/](https://architect.salesforce.com/)
 
@@ -115,6 +118,6 @@ For the B2C architect, this site is less about the 'how' of a single platform an
 
 The Salesforce B2C Commerce documentation landscape has undeniably become more complex. The days of a single, centralised Infocenter are over, replaced by a distributed system that mirrors the platform's own architectural evolution. This fragmentation presents a challenge, but not an insurmountable one.
 
-This field manual has provided a clear map to this new territory. It has charted the new locations of critical resources, provided a strategic framework for choosing between OCAPI and SCAPI, and curated the essential toolkits for coding, configuration, and continuous learning. It has been highlighted that the path to expertise now runs not only through official documentation but also through active participation in the vibrant community of professionals who build on this platform every day. The landscape has changed, but the tools to master it are all here.
+This field manual has provided a clear map to this new territory. It has charted the new locations of critical resources — including flagging the OCAPI's move to deprecated status — and curated the essential toolkits for coding, configuration, and continuous learning. It has been highlighted that the path to expertise now runs not only through official documentation but also through active participation in the vibrant community of professionals who build on this platform every day. The landscape has changed, but the tools to master it are all here.
 
 The map is now in your hands. Go build something incredible.
