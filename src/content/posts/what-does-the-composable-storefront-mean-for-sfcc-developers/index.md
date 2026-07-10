@@ -4,7 +4,7 @@ description: >-
   Many SFCC developers look at the Composable Storefront as the next step of
   Salesforce moving SFCC to the CRM core. But is it so?
 date: '2023-01-30T07:59:37.000Z'
-lastmod: '2026-07-04T17:47:13.000Z'
+lastmod: '2026-07-10T05:08:29.000Z'
 url: /what-does-the-composable-storefront-mean-for-sfcc-developers/
 draft: false
 heroImage: e0468610-0e86-403f-b486-743a38d4b763-d68cf607f8.png
@@ -21,7 +21,7 @@ takeaways:
   - "Explains why React and headless patterns broaden the technology stack while leaving plenty of value in existing backend Commerce Cloud knowledge"
   - "Encourages developers to adapt early, especially through phased or hybrid migration paths that preserve existing project stability"
 ---
-Over the past year, I have seen increasing gossip (which I am partly to blame for) and discussions about what the Composable Storefront release means for development in Salesforce B2C Commerce Cloud. A comparison can be made to what has happened to [pipelines](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/LegacyDeveloperDocumentation.pdf) and [SiteGenesis](https://production-sitegenesis-dw.demandware.net/on/demandware.store/Sites-SiteGenesis-Site), and we found out [in September last year that many things are afoot](/what-is-commerce-on-core/)!
+Over the past year, I have seen increasing gossip (which I am partly to blame for) and discussions about what the Composable Storefront release means for development in Salesforce B2C Commerce Cloud. A comparison can be made to what has happened to [pipelines](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/LegacyDeveloperDocumentation.pdf) and [SiteGenesis](https://aaia-prd.my.commercecloud.salesforce.com/s/SiteGenesis/homepage?lang=en_US), and we found out [in September last year that many things are afoot](/what-is-commerce-on-core/)!
 
 ## Technology changes
 
@@ -38,6 +38,8 @@ I understand that there may be some concerns in the community about SFRA being p
 Let's embrace this change, take on the challenge, and make sure that Salesforce B2C Commerce Cloud is at the forefront of eCommerce technology. We are the ones shaping the future of commerce. Let's make it a bright one.
 
 That felt like an inspirational speech, didn't it?
+
+**A quick update, from 2026.** That five-year clock on SFRA I mentioned above hasn't run out yet, so I can't tell you I was wrong. But I'd be lying if I said nothing had moved. The OCAPI, the API the older monolith stack leans on, was [officially deprecated in April 2026](/in-the-ring-ocapi-versus-scapi/). Hybrid Authentication now ships natively instead of bolted on through a plugin cartridge. And Salesforce isn't shy about pointing new implementations towards the Composable side of the house. None of that kills my prediction outright, and SFRA projects are still very much a thing people build and ship. But if you'd asked 2023-me to bet on which way the needle would move over the next three years, I'd have called this direction correctly, and I'd call it again today with a bit less hedging.
 
 ## Advantages of a monolith
 
@@ -83,7 +85,7 @@ As developers and architects working in eCommerce, we must stay ahead of the con
 
 Luckily, we can provide input to make some corrections here and there. But Salesforce is the captain of this boat! And that captain is giving developers and architects some really nice new options.
 
-And now is the time to start learning how these new options work. Customers will be looking into them to migrate to now or in the next few years. Salesforce has provided us with a lot of options to learn how to work with React and the PWA Kit, offering courses on the [Partner Learning Camp](http://partnerlearningcamp.salesforce.com) and allowing us to ask questions to the team on the [Unofficial Slack](https://github.com/sfcc-unofficial/docs). Not all platforms (and the teams building them) provide this service.
+And now is the time to start learning how these new options work. Customers will be looking into them to migrate to now or in the next few years. Salesforce has provided us with a lot of options to learn how to work with React and the PWA Kit, offering courses on the [Partner Learning Camp](https://partnerlearningcamp.salesforce.com) and allowing us to ask questions to the team on the [Unofficial Slack](https://github.com/sfcc-unofficial/docs). Not all platforms (and the teams building them) provide this service.
 
 However, it's important to note that while the platform is evolving, it doesn't mean that SFRA projects will disappear in the near future. There will still be a need for developers and architects who can maintain and support them.
 
@@ -93,7 +95,9 @@ There will still be a fair share of projects starting today on SFRA!
 
 That knowledge is transferable! The Rhino Engine and ISML are still crucial for creating custom Business Manager modules and API hooks, and we will need a lot of this type of development in the coming years. And who knows, we might even be able to build custom SCAPI endpoints using the same system as controllers soon!
 
-This knowledge is critical to the success of projects, as customisations to SCAPI, OCAPI, and Business Manager will be in high demand.
+**Update: called it.** [SCAPI Custom APIs went GA in the 24.2 release](/creating-custom-ocapi-endpoints/), letting you wire up custom endpoints against the same script-and-contract system controllers use, full CRUD and transactions included. It's a small thing to be smug about, but I'll take it.
+
+This knowledge is critical to the success of projects, as customisations to Business Manager will be in high demand, and back in 2023 I would have added OCAPI to that sentence without a second thought. I can't anymore. Same story as the SFRA note further up: [OCAPI is now deprecated](/in-the-ring-ocapi-versus-scapi/), running on security patches only, and the customisation demand I described here is migrating to SCAPI instead. Business Manager module work still holds up fine; the OCAPI half of that 2023 sentence didn't.
 
 To make things easier, do we need a BFRA (Back-End Reference Architecture) to assist us along the way? _I need to stop coming up with new ideas...but hey, who needs sleep?_
 
@@ -110,6 +114,12 @@ Additionally, this also provides an opportunity for experienced SFCC developers:
 
 - The perfect chance to transition into the Composable Storefront, one page-type at a time
 - Keeps the know-how of both setups fresh
+
+## A 2026 footnote: Storefront Next
+
+Here's something 2023-me didn't see coming: by 2026, PWA Kit itself is no longer Salesforce's top recommendation. That spot now belongs to [Storefront Next](/sitegenesis-vs-sfra-vs-pwa/), a newer storefront built on React Router 7, React 19, Tailwind CSS, and shadcn/ui, which Salesforce's own [product guidance](https://developer.salesforce.com/docs/commerce/commerce-api/guide/which-product.html) now lists as the "Recommended option" ahead of both SFRA and PWA Kit. There's an official path for migrating from PWA Kit to it, and a hybrid one for going straight from SFRA.
+
+I haven't built anything on it yet, so I won't hand out a feature-by-feature verdict here. But it's worth knowing the name if you're weighing your next move — the Composable Storefront story didn't stop at PWA Kit, and it won't be the last name on this list either.
 
 ## Career Aspirations
 
