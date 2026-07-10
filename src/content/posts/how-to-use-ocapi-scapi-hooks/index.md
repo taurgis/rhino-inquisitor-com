@@ -4,7 +4,7 @@ description: >-
   Hooks are becoming more and more prominent because of the PWA Kit and the API
   first methodology. But how do you implement them?
 date: '2022-10-31T13:03:53.000Z'
-lastmod: '2026-07-08T09:00:00.000Z'
+lastmod: '2026-07-10T18:40:00.000Z'
 url: /how-to-use-ocapi-scapi-hooks/
 draft: false
 heroImage: ocapi-scapi-hook-lifecycle.png
@@ -31,7 +31,7 @@ So, you need to add a custom attribute to the basket response, or maybe validate
 Salesforce Commerce API (SCAPI) and OCAPI (Open Commerce API) hooks are one of the most powerful tools in our arsenal for extending the platform's [headless](/sitegenesis-vs-sfra-vs-pwa/) capabilities. They let us inject custom logic directly into the API lifecycle, bending the out-of-the-box behaviour to fit a specific business requirement. That same reach is what makes them dangerous.
 
 > [!WARNING]
-> OCAPI is now officially deprecated. Salesforce ships new endpoints and features to SCAPI only, and the OCAPI reference is labelled "deprecated" across the developer docs. Hooks still run for both APIs, so everything here applies to the OCAPI integrations you already have in production. But if you are starting something new, build it on SCAPI. There is no published shut-off date, so treat OCAPI as maintenance-only and migrate on your own timeline rather than waiting for a deadline.
+> OCAPI is now officially deprecated (April 2026). Salesforce ships new endpoints and features to SCAPI only, and the OCAPI reference is labelled "deprecated" across the developer docs. Hooks still run for both APIs, so everything here applies to the OCAPI integrations you already have in production. But if you are starting something new, build it on SCAPI. Salesforce is keeping OCAPI in maintenance mode with security updates for about two more years — until around April 2028 — so don't wait for that deadline to start migrating. See [the OCAPI versus SCAPI rematch](/in-the-ring-ocapi-versus-scapi/) for the full migration picture.
 
 The official documentation gives you the "what" and the "how." What it tends to skip is what happens under production load, which is where the real lessons are learned. A hook that looked harmless in a sandbox can introduce a security hole, a performance cliff, or a maintenance headache the moment real traffic hits it.
 
@@ -83,7 +83,7 @@ SCAPI and OCAPI hooks come in three main flavours, each with a distinct role in 
 
 - **`after<HTTP Method>`:** This hook executes _after_ the server's main logic has completed but _before_ the final response document is created. It operates on the modified Script API object (e.g., the `Basket` or `Order` object). This is the place for side effects and integrations, such as sending a newly created order to an external ERP, triggering a basket recalculation (`dw.order.calculate`), or performing change tracking.
 
-- **`modify<HTTP Method> Response`:** This is the final step in the chain. It executes _after_ the platform has already created the response document from the Script API object. Its sole purpose is to make final modifications to the response document, such as adding or removing custom attributes (c\_ fields) or cleaning up data before it's sent to the client. A critical point: this hook is **not** transactional. Attempting to modify a persistent Script API object here will result in an `ORMTransactionException` and an [HTTP 500 fault](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/customization.html).
+- **`modify<HTTP Method> Response`:** This is the final step in the chain. It executes _after_ the platform has already created the response document from the Script API object. Its sole purpose is to make final modifications to the response document, such as adding or removing custom attributes (c_ fields) or cleaning up data before it's sent to the client. A critical point: this hook is **not** transactional. Attempting to modify a persistent Script API object here will result in an `ORMTransactionException` and an [HTTP 500 fault](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/customization.html).
 
 ## Not all APIs are made equal
 
@@ -106,7 +106,7 @@ The first step in writing hooks for our APIs is registering them with the server
 
 ### Create a “hooks.json” file
 
-We need to create a JSON file that describes which endpoints we want to customise called “hooks.json.” This file can be put anywhere in a cartridge. But in this case, we will put it in the root (e.g. "my\_project/cartridges/my\_cartridge/hooks.json") as an example.
+We need to create a JSON file that describes which endpoints we want to customise called “hooks.json.” This file can be put anywhere in a cartridge. But in this case, we will put it in the root (e.g. "my_project/cartridges/my_cartridge/hooks.json") as an example.
 
 ```json
 {
@@ -131,7 +131,7 @@ We can define as many as we want within the file! But make sure every “name”
 
 The next step is to create or edit your cartridge's "package.json" file.
 
-The file should be in the root folder of your cartridge. (e.g. "my\_project/cartridges/my\_cartridge/package.json")
+The file should be in the root folder of your cartridge. (e.g. "my_project/cartridges/my_cartridge/package.json")
 
 ```text
 {
