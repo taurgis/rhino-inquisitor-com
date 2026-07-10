@@ -4,7 +4,7 @@ description: >-
   Getting certified with Salesforce is one of the people's many goals within the
   ecosystem. But they come at a price! Where can I score a deal?
 date: '2023-01-23T10:55:12.000Z'
-lastmod: '2026-07-04T17:47:13.000Z'
+lastmod: '2026-07-10T09:40:56.035Z'
 url: /how-to-get-salesforce-certification-vouchers/
 draft: false
 heroImage: trailhead-academy-765c17a690.jpeg
@@ -25,7 +25,7 @@ Earning a certification in Salesforce B2C Commerce Cloud [can be a valuable goal
 
 {{< img-caption src="accreditations-vs-certifications-7c6224e505.png" alt="Comparison graphic for accreditations versus certifications." caption="Accreditations and certifications open different doors, so the distinction matters before you chase vouchers." link="accreditations-vs-certifications-7c6224e505.png" >}}
 
-Before we start, we need to [distinguish between the types of certifications](https://partners-salesforce.relayto.com/e/partner-guide-to-credentials-vfgkh7myki6y2/fUtftxtv3).
+Before we start, we need to [distinguish between the types of certifications](https://www.salesforceben.com/salesforce-accredited-professional-pathways/).
 
 In 2021 a new type of "accreditation" made its way to partners and Salesforce employees: "[Accredited Professional](https://www.salesforceben.com/credentials-exclusively-for-salesforce-partners-show-off-your-expertise/)." These certification types have a different flow and require different vouchers and discount codes.
 
@@ -41,8 +41,8 @@ So if you are working for a partner company, ask if some are available for your 
 
 From what I gathered, getting vouchers for the Accredited Professional exams is also possible (at the very least with a discount).
 
-- Certifications
-- Accreditations
+- **Certifications:** Yes, full vouchers are common.
+- **Accreditations:** Yes, though often a discount rather than a full voucher.
 
 ## Community Events
 
@@ -50,47 +50,38 @@ Participating in community events can potentially be a great way to earn certifi
 
 Since these events are for everyone, chances are low to non-existing that the vouchers are for Accredited Professional certifications.
 
-- Certifications
-- Accreditations
+- **Certifications:** Yes.
+- **Accreditations:** Rare to non-existent.
 
 ## Trailhead Certification Events
 
-Keep an eye out in the [Trailhead Community groups](https://trailhead.salesforce.com/trailblazer-community/groups?tab=featured) for one-time events that offer discounts and vouchers.
+Keep an eye out in the [Trailhead Community groups](https://trailhead.salesforce.com/trailblazer-community/groups?tab=featured) for one-time events that offer discounts and vouchers. These tend to surface without much warning and disappear just as fast, so it's a channel to watch rather than one you can bookmark and check back on later.
 
-_An example:_ [https://trailhead.salesforce.com/trailblazer-community/feed/0D54S00000H3HLp](https://trailhead.salesforce.com/trailblazer-community/feed/0D54S00000H3HLp)
-
-- Certifications
-- Accreditations
+- **Certifications:** Yes.
+- **Accreditations:** No, these groups are open to the whole community, not just partners.
 
 ## Partner Community Certification Events
 
-In the [Partner Community](https://partners.salesforce.com/_ui/core/chatter/ui/ChatterPage) there are also some groups to keep an eye out for!
+In the [Partner Community](https://partners.salesforce.com/_ui/core/chatter/ui/ChatterPage) there are also some groups to keep an eye out for! I've previously linked directly to posts announcing "400 free certification vouchers" and free Slack vouchers, but those were one-time email notification links tied to a specific 2022 promotion, and they no longer resolve. That's the nature of this channel: a group posts a time-limited drop, it gets claimed, and the link is dead within weeks. If you want a standing reference instead of a dead promo link, Salesforce's own [certification exam vouchers and discounts article](https://help.salesforce.com/s/articleView?id=000391154&language=en_US&type=1) explains how partner-tier vouchers work.
 
-### Some examples
-
-- [400 free certification vouchers](https://partners.salesforce.com/_ui/core/chatter/groups/GroupProfilePage?g=0F93A000000HZ5o&fId=0D54V000068aOr9&s1oid=00D300000000iTz&OpenCommentForEdit=1&s1nid=0DB3000000007Uh&emkind=chatterPostNotification&s1uid=0053A00000EITbU&emtm=1653576584272&fromEmail=1&s1ext=0)
-- [Free Slack vouchers](https://partners.salesforce.com/_ui/core/chatter/groups/GroupProfilePage?g=0F94V0000002Bv7&fId=0D54V00005vVcoA&s1oid=00D300000000iTz&OpenCommentForEdit=1&s1nid=0DB3000000007Uh&emkind=chatterPostNotification&s1uid=0053A00000EITbU&emtm=1645544651873&fromEmail=1&s1ext=0)
-
-- Certifications
-- Accreditations
+- **Certifications:** Yes.
+- **Accreditations:** Possible, given the partner-only audience, but not confirmed.
 
 ## Certification Days
 
-Every year there is something called "[Certification Days](https://www.salesforceben.com/salesforce-certification-days-free-preparation-webinars-with-trailhead/)," a series of webinars organised by [Salesforce](https://trailhead.salesforce.com/en/credentials/cert-days/) to inform you about the different types of certification and some helpful tips to get you started.
+Every year there is something called "[Certification Days](https://www.salesforceben.com/salesforce-certification-days-free-preparation-webinars-with-trailhead/)," a series of webinars organised by Salesforce to inform you about the different types of certification and some helpful tips to get you started.
 
-After participating, you can get a 40$ discount, which doesn't cover the entire thing. But every discount helps, right?
+After participating, you can get a $40 discount, which doesn't cover the entire thing. But every discount helps, right?
 
-- Certifications
-- Accreditations
+- **Certifications:** Yes.
+- **Accreditations:** Not mentioned in the programme materials.
 
 ## Trailhead Quests
 
-[Trailhead Quests](https://trailhead.salesforce.com/quests) is an official Salesforce Trailhead event, offering unique (or sometimes repeating) rewards for completing a Trailmix.
+[Trailhead Quests](https://trailhead.salesforce.com/quests) is an official Salesforce Trailhead programme, offering rewards for completing a Trailmix within a set time window. It now runs as a series of dated prize draws rather than a fixed monthly cadence, and the reward tiers shift from quest to quest, from SWAG to certification vouchers. Check the current quest list rather than assuming last year's rules still apply.
 
-The rewards range from SWAG to Certification Vouchers, and there are new quests every month. So keep an eye out!
-
-- Certifications
-- Accreditations
+- **Certifications:** Yes.
+- **Accreditations:** No, this is a general Trailhead programme, not partner-specific.
 
 ## Salesforce Webinars
 
@@ -98,12 +89,12 @@ Attending webinars can be a great way to learn about the latest updates and deve
 
 Especially when a new accreditation or certificate is being introduced, this slide may offer valuable discounts or even a form to enter for a chance to win a free attempt at the exam.
 
-- Certifications
-- Accreditations
+- **Certifications:** Yes.
+- **Accreditations:** Yes, especially around a new accreditation's launch.
 
 ## Bringing it all together
 
-{{< img-caption src="salesforce-credentials-vouchers-personv2-bf4ee67f38.jpeg" alt="Looking to save some money while getting certified in Salesforce? No problem! Here's a helpful overview of where you can find discounts and even free exam attempts to make your certification journey a little more budget-friendly. Partner Vouchers Community Events Trailhead Certification Events Partner Community Events Certification Days Trailhead Quests Salesforce Webinars" caption="Discounts and free exam attempts usually come from partner perks, events, quests, and Salesforce programmes." link="salesforce-credentials-vouchers-personv2-bf4ee67f38.jpeg" >}}
+{{< img-caption src="salesforce-credentials-vouchers-personv2-bf4ee67f38.jpeg" alt="Illustrated Salesforce professional holding certification vouchers." caption="Discounts and free exam attempts usually come from partner perks, events, quests, and Salesforce programmes." link="salesforce-credentials-vouchers-personv2-bf4ee67f38.jpeg" >}}
 
 ## Any more
 
