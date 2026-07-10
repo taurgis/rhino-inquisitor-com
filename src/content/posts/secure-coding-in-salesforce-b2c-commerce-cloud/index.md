@@ -1,8 +1,8 @@
 ---
 title: Secure Coding in Salesforce B2C Commerce Cloud
 description: >-
-  Security within Salesforce B2C Commerce might not be a concern because of
-  out-of-the-box features. There are a few things to keep in mind!
+  Salesforce secures the B2C Commerce Cloud platform itself, but secure
+  coding is still on you. Here's what needs ongoing attention.
 date: '2022-04-26T12:09:00.000Z'
 lastmod: '2026-07-09T21:18:17.000Z'
 url: /secure-coding-in-salesforce-b2c-commerce-cloud/
@@ -21,13 +21,13 @@ takeaways:
   - "Covers practical security topics like Account Manager hardening, shared-account risks, secure headers, and npm supply-chain concerns"
   - "Points developers towards Salesforce's built-in security guidance and the specific areas that require ongoing discipline"
 ---
-Salesforce B2C Commerce Cloud provides many security features out of the box. And because it is a [SaaS](https://en.wikipedia.org/wiki/Software_as_a_service) solution, the security of the servers is handled by the technical teams at Salesforce.
+Salesforce B2C Commerce Cloud (SFCC) provides many security features out of the box. And because it's a [SaaS](https://en.wikipedia.org/wiki/Software_as_a_service) platform, Salesforce's own technical teams handle the security of the servers.
 
-That doesn't mean that you can just lay back and do your thing without worrying about security. So let's look at what you need to keep in mind when developing for B2C Commerce Cloud.
+That doesn't mean you can just lay back and stop worrying about security. Here's what still falls on you when you develop for B2C Commerce Cloud.
 
 ## Account Manager Security
 
-One of the most significant changes in Salesforce B2C Commerce Cloud is removing "local users" from the environments. Access to sandboxes and PIG (Primary Instance Group) instances passes through Account Manager and its security features.
+Salesforce removed "local users" — separate login credentials scoped to a single sandbox — from B2C Commerce environments. Access to sandboxes and PIG (Primary Instance Group) instances now goes exclusively through Account Manager and its security features.
 
 This has brought up many discussions about sharing accounts over the past year (more on the core platform than on SFCC).
 
@@ -49,7 +49,7 @@ Salesforce [made MFA mandatory](https://help.salesforce.com/s/articleView?id=com
 
 With Account Manager, it is possible to add MFA to your account to secure it. Even if someone manages to figure out your account password, they still need to be able to provide the secondary authentication method.
 
-For many people, having to put [Salesforce Authenticator](https://play.google.com/store/apps/details?id=com.salesforce.authenticator) into the log-in procedure wasn't the best experience at first, though it has improved considerably since.
+For many people, adding [Salesforce Authenticator](https://play.google.com/store/apps/details?id=com.salesforce.authenticator) to the log-in procedure was clunky at first — extra taps, a separate app to juggle — though it's improved since.
 
 There are different options possible with Account Manager:
 
@@ -60,24 +60,24 @@ There are different options possible with Account Manager:
 
 I decided to make logging in a bit more manageable by building "[Automaton](https://chromewebstore.google.com/detail/automaton-account-manager/clbadmmkinhmiblhkkiiabbbcpljohob)," a browser (Chromium) extension that acts as a TOTP generator for Account Manager. It's still maintained — the last update shipped in July 2024 — and automatically fills in your username, password, and one-time code once you've unlocked it with a "Vault Password," so having access to your laptop alone isn't enough to log in. Run into a problem? The [support repo](https://github.com/taurgis/automaton/issues) is the place to report it.
 
-It may seem like an inconvenience that costs you time over the day. But think of what could happen if someone takes over your account and can access all of the Salesforce B2C Commerce Cloud environments linked to your account.
+The extra step costs you a few seconds at every login. Weigh that against the alternative: one stolen password away from every environment tied to your account being open to whoever has it.
 
 ### Shared Accounts
 
-Sharing accounts is something that Salesforce does not advise (for a good reason), but there are still use-cases where this necessary evil is needed.
+Sharing accounts is something Salesforce advises against, for good reason — but it still happens.
 
-Some use-cases where this might be necessary:
+Where does this actually come up in SFCC?
 
 - An integration user
-- ... no, that is about it for SFCC
+- ... no, that's about it
 
-You do not have to log in to the business manager as an integration user in most cases. But if it happens, usually more than one person needs to be able to do this (leave, sickness, ... )
+You rarely need to log into Business Manager (SFCC's admin console) as an integration user. When you do, more than one person usually needs the credentials — for coverage during leave or sick days.
 
 So think of secure ways to share your MFA (usually TOTP for shared accounts). A good solution I found so far is [1password](https://support.1password.com/one-time-passwords/) which supports TOTP.
 
 ## Cloudflare
 
-You might think that all of Salesforce's built-in services will keep you safe from bad actors. They block a lot of traffic with bad intentions, but they can't stop everything.
+Salesforce's built-in services block a lot of malicious traffic, but they can't stop everything that means to do harm.
 
 The eCDN (Salesforce's embedded content delivery network) in front of your storefront is [Cloudflare](https://www.cloudflare.com/): Salesforce controls most of the configuration, but leaves a handful of switches for you to flip in Business Manager, covering things like the WAF (web application firewall), TLS, and compression settings. I go into that setup in detail in [Let's Go Live: Setting Up the eCDN](/lets-go-live-ecdn/); the [Infocenter](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_embedded_cdn_overview.htm) has the official overview.
 
@@ -213,7 +213,7 @@ PWA Kit changes that: it runs on Node.js, so you get far more freedom with third
 
 You shouldn't forget that npm is an open ecosystem where anyone can contribute to a module or repository. And in return, anyone can use a simple command to download that code into their project.
 
-But what if the person behind that repository does not have the best intentions? They could put malicious code into it. Or maybe the repository itself does not contain the malicious code; it could be in a dependency that they have on another package!
+But what if that maintainer is malicious? They could slip harmful code into the package directly — or the package itself could be clean while a dependency it pulls in isn't.
 
 I can go on about this topic, but the following blog post by Liran Tal tells the whole story:
 
@@ -223,7 +223,7 @@ I can go on about this topic, but the following blog post by Liran Tal tells the
 
 {{< img-caption src="npm-audit-ab1e401b03.png" alt="npm audit output showing dependency vulnerability results." caption="npm audit vulnerability summary" link="npm-audit-ab1e401b03.png" >}}
 
-As SFRA and PWA Kit use npm for their third-party libraries, it makes sense to use the out-of-the-box feature of npm to do a security audit of all of your packages.
+Since SFRA and PWA Kit both pull third-party libraries through npm, run `npm audit` against your dependencies before you ship — no extra tooling required.
 
 The audit command submits a description of the dependencies configured in your project to your default registry and asks for a report of known vulnerabilities.
 
