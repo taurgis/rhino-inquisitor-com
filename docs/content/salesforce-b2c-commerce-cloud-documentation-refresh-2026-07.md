@@ -32,6 +32,20 @@ Three kinds of work went into this pass:
    that used the same inflated register (the CommerceCrew "required competency for
    any top-tier professional" / "true mastery is forged" close, and the Partner
    Learning Camp "critical step in levelling up their team's capabilities" close).
+4. **A follow-up line-edit pass** with `anti-ai-writing`, `human-prose-editing`, and
+   `beginner-technical-writing`, run across the full article rather than just the
+   sections named in the original brief. This caught a repeated "not just X; it is
+   Y" contrast scaffold used in at least five places (Trailhead intro, PLC intro,
+   architects intro/closer), stacked empty-praise adjectives ("indispensable,
+   primary resource", "essential tool for reorienting to the new landscape"),
+   vague abstractions ("relevant topics", "a glimpse into the future", "several key
+   resources"), and a duplicated "Your Trailhead Compass" heading repeated verbatim
+   between the H2 and its H3. Flattened the repeated contrast formula to two uses
+   (the opening's "This isn't another set of links... It's what I actually reach
+   for" and the community section's "supposed to work" / "actually works" pairing)
+   and converted the rest to plain statements or short verdict sentences. Also
+   expanded SCAPI to "Salesforce Commerce API" on first use, matching how OCAPI is
+   already expanded, per `beginner-technical-writing`'s first-use rule.
 
 ## Old vs new behavior
 
@@ -125,17 +139,21 @@ link below was checked for matching rendered content, not just response status.
 ## Impact and verification
 
 - Impacted: one published post. `date`, `url`, `title`, `description`, and hero
-  image untouched. `lastmod` bumped to `2026-07-10T14:17:21.000Z`.
+  image untouched. `lastmod` bumped to `2026-07-10T14:17:21.000Z` after the initial
+  pass, then to `2026-07-10T14:55:02.000Z` after the follow-up line-edit pass.
 - No second post was edited — the community-gateway cross-check confirmed
   `what-does-the-composable-storefront-mean-for-sfcc-developers` already links a
   valid, non-conflicting resource, so no changes were needed there.
-- Verified with: `npm run validate:frontmatter` (197 files, passed),
-  `npm run check:spelling` (197 files, no issues), `npx markdownlint-cli2` on the
-  post (0 errors), and `npm run build:local`. `node_modules` was not present at
-  the start of this task and had to be installed
+- Verified with: `npm run validate:frontmatter` (197 files, passed each time),
+  `npm run check:spelling` (197 files, no issues each time), `npx markdownlint-cli2`
+  on the post (0 errors each time), and `npm run build:local`. `node_modules` was
+  not present at the start of this task and had to be installed
   (`PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true npm install`, since this sandbox uses a
   pre-installed Chromium rather than Puppeteer's own download) before any gate
-  could run.
+  could run. The `hugo` binary itself is not installed in this sandbox, so
+  `build:local`'s AVIF-cache step ran clean (593 images) but the Hugo compile step
+  could not be exercised end-to-end — consistent with the same limitation recorded
+  in `webdav-article-refresh-2026-07.md`.
 - Research performed via the `salesforce-docs-researcher` subagent, with sources
   fetched and cached through Bonsai (`.bonsai/research/*.md`, included in this
   change per the shared-cache convention).
