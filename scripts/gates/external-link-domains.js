@@ -155,6 +155,7 @@ const DOMAIN_RULES = Object.freeze({
   'caniuse.com': STATUS,
   'chat.openai.com': STATUS,
   'chrome.google.com': STATUS,
+  'chromewebstore.google.com': STATUS,
   'community.cloudflare.com': STATUS,
   'configurator.cquotient.com': STATUS,
   'czechdreamin.com': STATUS,

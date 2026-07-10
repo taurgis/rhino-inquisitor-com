@@ -16,6 +16,7 @@ abdi
 accreditations
 adapter
 addon
+addons
 adrien
 adyen
 aes
@@ -62,6 +63,7 @@ autocorrection
 autocorrects
 autodocs
 automations
+autoplay
 avchen
 bachelet
 backend
