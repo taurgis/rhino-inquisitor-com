@@ -4,7 +4,7 @@ description: >-
   Finding the documentation for a specific topic in Salesforce B2C Commerce
   Cloud can be a challenge sometimes. These are the options!
 date: '2022-05-09T18:58:37.000Z'
-lastmod: '2026-07-04T15:28:48.000Z'
+lastmod: '2026-07-10T14:17:21.000Z'
 url: /salesforce-b2c-commerce-cloud-documentation/
 draft: false
 heroImage: documentation-ea8c96aa90.jpg
@@ -45,7 +45,7 @@ This migration wasn't a simple one-to-one mapping. Some outdated documentation, 
 
 | Old Infocenter Section | Audience | New Location & Direct Link |
 | --- | --- | --- |
-| B2C Commerce Release Notes | Administrator & Developer | [https://help.salesforce.com/s/articleView?id=sf.b2c_rn_release_notes.htm&type=5](https://help.salesforce.com/s/articleView?id=sf.b2c_rn_release_notes.htm&type=5) |
+| B2C Commerce Release Notes — moved again as of release 26.3 | Administrator & Developer | [https://help.salesforce.com/s/articleView?id=release-notes.rn_b2c.htm&language=en_US&type=5](https://help.salesforce.com/s/articleView?id=release-notes.rn_b2c.htm&language=en_US&type=5) |
 | Developing Your Site | Developer | [https://developer.salesforce.com/docs/commerce/b2c-commerce/overview](https://developer.salesforce.com/docs/commerce/b2c-commerce/overview) |
 | Open Commerce API (OCAPI) — **deprecated, see note below** | Developer | [https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/api-doc.html](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/api-doc.html) |
 | B2C Commerce API (Script API) | Developer | [https://salesforcecommercecloud.github.io/b2c-dev-doc/](https://salesforcecommercecloud.github.io/b2c-dev-doc/) |
@@ -55,7 +55,7 @@ This migration wasn't a simple one-to-one mapping. Some outdated documentation, 
 | Legacy Developer Documentation | Developer | [https://salesforcecommercecloud.github.io/b2c-dev-doc/](https://salesforcecommercecloud.github.io/b2c-dev-doc/) |
 
 > [!NOTE]
-> That OCAPI row in the map above is now a historical entry, not a live recommendation. Salesforce deprecated the OCAPI in April 2026 — its docs carry a "(deprecated)" label, and it only gets security patches from here on. If you're deciding what to build against today, that decision is already made: use the SCAPI. For the full picture on what changed and how to migrate, see [In the ring: OCAPI versus SCAPI](/in-the-ring-ocapi-versus-scapi/).
+> That OCAPI row in the map above is now a historical entry, not a live recommendation. Salesforce's own [OCAPI reference page](https://developer.salesforce.com/docs/commerce/b2c-commerce/references) now opens with "Attention! The Open Commerce API (OCAPI) is now deprecated," and its title renders as "Open Commerce API (deprecated)" in search results. If you're deciding what to build against today, that decision is already made: use the SCAPI. For the full picture on what changed and how to migrate, see [In the ring: OCAPI versus SCAPI](/in-the-ring-ocapi-versus-scapi/).
 
 ## In the Trenches: The Unofficial SFCC Community (CommerceCrew)
 
@@ -65,7 +65,7 @@ For real-time problem-solving, debugging complex issues, and getting feedback on
 
 - **How to Join:** The correct and direct way to join is via the community's official website: [https://unofficialsfcc.com/](https://unofficialsfcc.com/).
 
-- **What's Inside:** This hub provides access to several key resources :
+- **What's Inside:** This hub provides access to several key resources:
 - The **Slack workspace**, with over 12,000 members, includes developers, architects, and even Salesforce employees who actively help answer questions.
 
 - **Open Source Projects** on GitHub, offering shared tools and resources.
@@ -78,7 +78,7 @@ The existence and vibrancy of communities like CommerceCrew and the official Tra
 
 {{< img-caption src="trailhead-commerce-29dc66c342.png" alt="Astro the Trailhead mascot cheering with arms raised next to a shopping cart icon, representing Commerce Cloud Trailhead content." >}}
 
-- [https://trailhead.salesforce.com/](https://trailhead.salesforce.com/trails?products=commercecloud&sort=NEWEST)
+- [Get Started with Salesforce B2C Commerce](https://trailhead.salesforce.com/content/learn/trails/get-started-with-salesforce-b2c-commerce) (admin/merchandiser trail) or [Develop for Salesforce B2C Commerce](https://trailhead.salesforce.com/content/learn/trails/develop-for-commerce-cloud) (developer trail)
 
 Trailhead is Salesforce's free, online learning platform, and it's an ocean of content. For an experienced developer or architect, the challenge isn't a lack of information, but finding the advanced, relevant modules without wading through introductory material. This curated compass points directly to the trails and modules that provide the most value for technical experts.
 
@@ -89,7 +89,7 @@ Trailhead is Salesforce's free, online learning platform, and it's an ocean of c
 | **Mastering the Dev Environment** | [https://trailhead.salesforce.com/content/learn/modules/cc-digital-for-developers](https://trailhead.salesforce.com/content/learn/modules/cc-digital-for-developers) |
 | **Architectural Foundation** | [https://trailhead.salesforce.com/content/learn/trails/build-your-career-as-a-salesforce-b2c-commerce-technical-architect](https://trailhead.salesforce.com/content/learn/trails/build-your-career-as-a-salesforce-b2c-commerce-technical-architect) |
 | **Headless Development** | [https://trailhead.salesforce.com/content/learn/modules/b2c-headless-commerce-basics](https://trailhead.salesforce.com/content/learn/modules/b2c-headless-commerce-basics) |
-| **On-Demand Sandboxes** | [https://trailhead.salesforce.com/content/learn/modules/b2c-on-demand-sandbox](https://trailhead.salesforce.com/content/learn/modules/b2c-on-demand-sandbox) |
+| **On-Demand Sandboxes** (now branded Agentforce Commerce) | [https://trailhead.salesforce.com/content/learn/modules/b2c-on-demand-sandbox](https://trailhead.salesforce.com/content/learn/modules/b2c-on-demand-sandbox) |
 | **Functional Implementation** | [https://trailhead.salesforce.com/content/learn/modules/b2c-implement-functional-solution](https://trailhead.salesforce.com/content/learn/modules/b2c-implement-functional-solution) |
 
 ## Partner Learning Camp: The Insider's Track
