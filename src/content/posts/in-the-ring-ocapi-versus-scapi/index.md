@@ -4,7 +4,7 @@ description: >-
   Salesforce has officially deprecated the OCAPI and keeps shipping new SCAPI
   endpoints. Time for a 2026 rematch, round by round.
 date: '2024-03-18T08:49:51.000Z'
-lastmod: '2026-07-07T09:30:00.000Z'
+lastmod: '2026-07-10T18:40:00.000Z'
 url: /in-the-ring-ocapi-versus-scapi/
 draft: false
 heroImage: rest-apis-fighting-in-a-boxing-ring-60c6242717.jpg
@@ -91,6 +91,7 @@ Oh my ... things aren't looking proper for the OCAPI.
 {{< img-caption
   src="composable-storefront-architecture-54fe68c81a.jpg"
   alt="The Composable Storefront architecture"
+  caption="OCAPI shares an address with Business Manager and the storefront; SCAPI does not."
 >}}
 
 The architectural setups of the OCAPI and SCAPI options are entirely different.
