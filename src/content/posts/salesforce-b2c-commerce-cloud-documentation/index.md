@@ -19,13 +19,11 @@ takeaways:
   - "Explains how official docs, Trailhead, Partner Learning Camp, and community channels each serve different technical needs"
   - "Acts as a field guide for navigating fragmented SFCC documentation more efficiently"
 ---
-Let's be direct. Navigating the Salesforce B2C Commerce Cloud documentation landscape has become a tactical challenge. For those of us who cut our teeth on platforms like Intershop, the sheer volume of official documentation Salesforce provides initially felt like a godsend. We had a central repository, the Infocenter, and while it had its quirks, it was our north star. That star has gone supernova.
+Let's get this out of the way: the single Infocenter search bar is gone. If you cut your teeth on a platform like Intershop before landing on B2C Commerce, that central repository was probably the first thing that impressed you about Salesforce's documentation. It had its quirks, but it was one search box for everything.
 
-In mid-2023, the Infocenter was retired, its contents scattered across a constellation of new sites. This move, while intended to modernise, has left many seasoned developers and architects adrift in a fragmented ecosystem. Finding a simple API method or a configuration guide now often feels like a digital scavenger hunt. This isn't just an inconvenience; it's a drag on productivity.
+In mid-2023, Salesforce retired the Infocenter and split its contents across three separate sites. The move was pitched as modernisation, and for anyone who'd built years of muscle memory around the old structure, it landed instead as three new places to get lost in. Finding a simple API method or a configuration guide can now mean three tabs open and a bit of guesswork about which site actually has it.
 
-This article is not another list of stale links. It is a field manual, a strategic guide crafted for technical professionals in the trenches. Its purpose is to cut through the chaos, provide a precise and current map to the resources that matter, and offer an opinionated take on how to use them effectively. The current state of documentation is a direct reflection of the B2C Commerce platform's evolution—a pull between its monolithic past and its API-first, composable future.
-
-Understanding this strategic context is the key to navigating the resources. This guide will provide that key.
+This isn't another set of links to bookmark and forget. It's what I actually reach for day to day, plus an honest opinion on which of these sites is worth your time for a given question. The mess mirrors the platform itself, caught between its monolithic past and its API-first, composable future — the documentation hasn't settled any more than the platform has.
 
 ## The Great Documentation Shuffle: Decommissioning the Infocenter
 
@@ -59,7 +57,7 @@ This migration wasn't a simple one-to-one mapping. Some outdated documentation, 
 
 ## In the Trenches: The Unofficial SFCC Community (CommerceCrew)
 
-Official documentation can tell you how a feature is _supposed_ to work. The community tells you how it _actually_ works in the wild. In a complex and rapidly evolving ecosystem like B2C Commerce, active participation in community channels is no longer a "nice to have"—it is a required competency for any top-tier professional.
+Official documentation can tell you how a feature is _supposed_ to work. The community tells you how it _actually_ works in the wild. B2C Commerce changes fast enough that skipping the community channels is a bad bet.
 
 For real-time problem-solving, debugging complex issues, and getting feedback on architectural patterns, the **Unofficial SFCC Slack community (CommerceCrew)** is an indispensable, primary resource. It is often faster and more practical than logging an official support ticket.
 
@@ -72,7 +70,7 @@ For real-time problem-solving, debugging complex issues, and getting feedback on
 
 - The **Podcasts** provide news and deep dives into relevant topics.
 
-The existence and vibrancy of communities like CommerceCrew and the official Trailblazer Community Groups underscore a critical shift in professional practice. The platform's complexity and the pace of change mean that relying solely on static documentation is an inefficient strategy. The modern SFCC expert's toolkit includes not only their code and official docs but also their network and their active engagement with peers. This collaborative ecosystem is where the toughest problems are solved and where true mastery is forged.
+CommerceCrew and the official Trailblazer Community Groups exist for a reason: static documentation can't keep pace with a platform that ships this often. In my experience, the toughest bugs usually get solved in a Slack thread before they get solved in a doc page — so treat your network the same way you treat your bookmarks folder.
 
 ## Your Trailhead Compass: Strategic Learning for Technical Experts
 
@@ -100,7 +98,7 @@ Trailhead is Salesforce's free, online learning platform, and it's an ocean of c
 
 While Trailhead is the public square for Salesforce knowledge, the Partner Learning Camp (PLC) is the exclusive, members-only club for Salesforce partners and employees. This is not just a rebranded Trailhead; it is a distinct learning destination designed to give partners the specialised knowledge needed to meet complex customer demands.
 
-The PLC offers curricula on topics like SFRA, Headless development, PWA Kit, and Architect Success, along with formal accreditations that go beyond standard Trailhead badges. Access is gated through the Salesforce Partner Community, ensuring the content, some of which was previously available only to internal Salesforce employees, remains a strategic asset for the partner ecosystem. For any partner organisation, engaging with the PLC is a critical step in levelling up their team's capabilities.
+The PLC offers curricula on topics like SFRA, Headless development, PWA Kit, and Architect Success, along with formal accreditations that go beyond standard Trailhead badges. Access is gated through the Salesforce Partner Community, and some of what's there used to be internal-only Salesforce training. If your partner organisation isn't using it, that's training budget left on the table.
 
 ## Salesforce Architects: The Multi-Cloud Command Centre
 
@@ -114,10 +112,8 @@ Here, you'll find high-level resources essential for system design: architect de
 
 For the B2C architect, this site is less about the 'how' of a single platform and more about the 'what' and 'why' of a connected, multi-cloud solution.
 
-## The Map in Your Hands
+## Where things stand now
 
-The Salesforce B2C Commerce documentation landscape has undeniably become more complex. The days of a single, centralised Infocenter are over, replaced by a distributed system that mirrors the platform's own architectural evolution. This fragmentation presents a challenge, but not an insurmountable one.
+The single Infocenter is gone, and it's not coming back. What's left is three official sites instead of one, plus Trailhead, the Partner Learning Camp, and a Slack community that's often faster than any of them — including a flag on that OCAPI row in the relocation map, now that it's deprecated rather than just relocated.
 
-This field manual has provided a clear map to this new territory. It has charted the new locations of critical resources — including flagging the OCAPI's move to deprecated status — and curated the essential toolkits for coding, configuration, and continuous learning. It has been highlighted that the path to expertise now runs not only through official documentation but also through active participation in the vibrant community of professionals who build on this platform every day. The landscape has changed, but the tools to master it are all here.
-
-The map is now in your hands. Go build something incredible.
+None of that is going away either. In my experience, once you've bookmarked the right handful of pages, and joined CommerceCrew for the rest, the extra tabs stop being an inconvenience and start being just how you work. Give it a few weeks.
