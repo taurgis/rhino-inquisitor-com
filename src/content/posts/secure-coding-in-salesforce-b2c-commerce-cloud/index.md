@@ -227,4 +227,4 @@ Since SFRA and PWA Kit both pull third-party libraries through npm, run `npm aud
 
 The audit command submits a description of the dependencies configured in your project to your default registry and asks for a report of known vulnerabilities.
 
-**Note:** Always test thoroughly after updating your packages (with or without using the npm audit function) to ensure all functionalities work as expected!
+**Note:** A patched dependency that breaks checkout, cart, or search is its own incident — run your test suite after every update, not just `npm audit`.
