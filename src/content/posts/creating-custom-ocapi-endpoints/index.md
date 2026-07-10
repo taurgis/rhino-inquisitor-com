@@ -4,7 +4,7 @@ description: >-
   Custom endpoints are now an official SFCC feature thanks to SCAPI Custom
   APIs. See how they work, and revisit the 2022 OCAPI workaround they replaced.
 date: '2022-07-11T17:40:22.000Z'
-lastmod: '2026-07-07T17:00:00.000Z'
+lastmod: '2026-07-10T18:40:00.000Z'
 url: /creating-custom-ocapi-endpoints/
 draft: false
 heroImage: ocapi-bb5766fd49.jpg
@@ -94,7 +94,7 @@ That `/custom/` segment is the giveaway: your endpoint sits on the same host and
 
 Every endpoint declares itself as either a Shopper or an Admin endpoint through its security scheme, and that one choice sets most of the rules it lives under:
 
-- **Shopper endpoints** use the `ShopperToken` scheme: callers authenticate with a [SLAS](/how-to-set-up-slas-for-the-composable-storefront/) shopper token and must pass a `siteId` query parameter. Runtime is capped at 10 seconds and request bodies at 5 MiB, and calls count against the storefront quotas.
+- **Shopper endpoints** use the `ShopperToken` scheme: callers authenticate with a [SLAS](/how-to-set-up-slas-for-the-composable-storefront/) shopper token and must pass a `siteId` query parameter. Runtime is capped at 10 seconds and request bodies at 5 MB, and calls count against the storefront quotas.
 - **Admin endpoints** use the `AmOAuth2` scheme: callers authenticate with an Account Manager client token and must omit `siteId`. The caps relax to 60 seconds of runtime and 20 MB bodies.
 
 Blow past the runtime budget and the gateway answers with an HTTP 504 instead of your payload. If 10 seconds sounds tight for that one heavy integration, the Timeouts API can stretch a Custom API timeout to a maximum of 120 seconds — but treat that as a painkiller, not a cure. [The platform limits exist for a reason](/a-survival-guide-to-sfcc-platform-limits/).
@@ -128,7 +128,7 @@ The only thing you are allowed to do is modify existing endpoints, but not all o
 
 ### TLDR; Just give me the solution
 
-I have created a complete example available on GitHub based on the [sfcc-hooks-collection](https://github.com/SalesforceCommerceCloud/sfcc-hooks-collection/) project provided by [Holger Nestmann](https://github.com/hnestmann).
+I have created a complete example available on GitHub based on the "sfcc-hooks-collection" project originally provided by [Holger Nestmann](https://github.com/hnestmann) (that repository is no longer available, but the credit still stands).
 
 You can find that repository [in the OCAPI custom endpoints example repository](https://github.com/taurgis/ocapi-custom-endpoints). Inside, you will find an example of a custom "get-customer" API added to the OCAPI.
 
