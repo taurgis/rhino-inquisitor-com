@@ -4,7 +4,7 @@ description: >-
   When we integrate third-party systems with Salesforce B2C Commerce Cloud using
   OCAPI or SCAPI, we often have the requirement to filter data based on date
 date: '2023-12-18T09:16:13.000Z'
-lastmod: '2026-07-08T14:45:00.000Z'
+lastmod: '2026-07-10T18:40:00.000Z'
 url: /unravelling-the-mystery-of-dates-in-the-ocapi/
 draft: false
 heroImage: a-developer-confused-by-dates-and-times-9d38bbf81d.jpg
@@ -179,7 +179,7 @@ That `term_filter` isn't limited to exact matches either. It takes the same `ope
 }
 ```
 
-`fields` takes an array because a term query can check more than one field at once (multiple fields are OR'd together, so a hit on any of them counts). `operator` controls how many values you're allowed to supply: `is` accepts exactly one, while `one_of` accepts several and matches a record if any of them hits. Here, `is` with a single value in `values` means "creation\_date must equal this exact instant": useful for re-fetching one known record, not for the range-based syncs the earlier filters handle.
+`fields` takes an array because a term query can check more than one field at once (multiple fields are OR'd together, so a hit on any of them counts). `operator` controls how many values you're allowed to supply: `is` accepts exactly one, while `one_of` accepts several and matches a record if any of them hits. Here, `is` with a single value in `values` means "creation_date must equal this exact instant": useful for re-fetching one known record, not for the range-based syncs the earlier filters handle.
 
 `is` and `one_of` aren't the whole enum. `operator` also accepts `is_null`, `is_not_null`, `less`, `greater`, `not_in`, and `neq`, so a one-sided date comparison can go through `term_query` instead of `range_filter` if you'd rather. Not every endpoint supports `less` and `greater` here, so check the docs for the one you're calling before you rely on them.
 
