@@ -79,7 +79,7 @@ So think of secure ways to share your MFA (usually TOTP for shared accounts). A 
 
 You might think that all of Salesforce's built-in services will keep you safe from bad actors. They block a lot of traffic with bad intentions, but they can't stop everything.
 
-The eCDN in front of your storefront is [Cloudflare](https://www.cloudflare.com/) — Salesforce controls most of the configuration, but leaves a handful of switches for you to flip in Business Manager, covering things like the WAF, TLS, and compression settings. I go into that setup in detail in [Let's Go Live: Setting Up the eCDN](/lets-go-live-ecdn/); the [Infocenter](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_embedded_cdn_overview.htm) has the official overview.
+The eCDN (Salesforce's embedded content delivery network) in front of your storefront is [Cloudflare](https://www.cloudflare.com/): Salesforce controls most of the configuration, but leaves a handful of switches for you to flip in Business Manager, covering things like the WAF (web application firewall), TLS, and compression settings. I go into that setup in detail in [Let's Go Live: Setting Up the eCDN](/lets-go-live-ecdn/); the [Infocenter](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_embedded_cdn_overview.htm) has the official overview.
 
 ## Security Best Practices
 
@@ -106,9 +106,9 @@ Quite the list, isn't it! Even though Salesforce takes care of quite a few thing
 
 ## Security Headers in SFRA
 
-To increase the channel's security, Salesforce allows developers to set specific headers in the responses to tell browsers and applications what is permitted and what is not.
+Salesforce's Storefront Reference Architecture (SFRA) lets developers set specific response headers to tell browsers and applications what's permitted on the storefront.
 
-A [config file](https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/blob/master/cartridges/app_storefront_base/cartridge/config/httpHeadersConf.json) was introduced into the SFRA to easily set headers for all responses, rather than having to do it for each endpoint separately — Salesforce's own [support article on adding custom headers in SFRA](https://help.salesforce.com/s/articleView?id=000396592&language=en_US&type=1) still points at that same path.
+SFRA ships a [config file](https://github.com/SalesforceCommerceCloud/storefront-reference-architecture/blob/master/cartridges/app_storefront_base/cartridge/config/httpHeadersConf.json) that sets headers for every response at once, instead of repeating the same logic in each controller. Salesforce's own [support article on adding custom headers in SFRA](https://help.salesforce.com/s/articleView?id=000396592&language=en_US&type=1) still points at that same path.
 
 ```json
 [
@@ -205,13 +205,13 @@ A legacy header that told older browsers to stop rendering a page when they dete
 
 ## PWA Kit
 
-PWA Kit shipped back in 2021, and security guidance for it has caught up since. The [Managed Runtime best practices guide](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/best-practices.html) now links out to the B2C Commerce security guide, bot management, and bot mitigation, while the [Managed Runtime overview](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/mrt-overview.html) documents the WAF, proxy, and CDN layer that sits in front of your storefront by default. I've also covered storefront-level protection — gating an unfinished or staging site behind Basic Auth — separately in [Storefront Protection For Your Composable Storefront](/storefront-protection-in-the-pwa-kit/) (worth a refresh of its own, but the approach it describes still holds).
+PWA Kit, Salesforce's React-based framework for composable storefronts, shipped back in 2021, and security guidance for it has caught up since. Managed Runtime — the hosting layer that runs PWA Kit apps — now has its own [best practices guide](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/best-practices.html) linking out to the B2C Commerce security guide, bot management, and bot mitigation, while the [Managed Runtime overview](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/mrt-overview.html) documents the WAF, proxy, and CDN layer that sits in front of your storefront by default. I've also covered storefront-level protection — gating an unfinished or staging site behind Basic Auth — separately in [Storefront Protection For Your Composable Storefront](/storefront-protection-in-the-pwa-kit/) (worth a refresh of its own, but the approach it describes still holds).
 
 ### Malicious Modules
 
-One of the gripes developers have had is that the Rhino Engine does not take too kindly to NPM packages. Finding compatible packages is a challenge, and in many cases, they [need to be converted](https://github.com/taurgis/salesforce-commerce-cloud-libraries) to work correctly.
+SFCC's server-side scripting runs on the Rhino engine, a JavaScript runtime older than Node.js that doesn't provide Node's built-in modules (`fs`, `http`, native addons). Most npm packages assume those modules exist, so finding one that works unmodified is rare — in many cases, they [need to be converted](https://github.com/taurgis/salesforce-commerce-cloud-libraries) first.
 
-With the PWA Kit, all of that changes; you get a lot more freedom with the third-party packages you can install. But with that freedom comes a lot of responsibility. Granted, this is already something you need to keep in mind with SiteGenesis and SFRA, as the storefront JavaScript does not have the Rhino limitations. You have undoubtedly already installed a few packages to expand the capabilities in the storefront.
+PWA Kit changes that: it runs on Node.js, so you get far more freedom with third-party packages, and with that freedom comes more responsibility. The same risk already applies to storefront JavaScript in SiteGenesis and SFRA (SFCC's legacy and current reference storefronts) — that code runs in the shopper's browser, not on Rhino, so it was never subject to those limitations, and you've likely already installed packages there to extend the storefront.
 
 You shouldn't forget that npm is an open ecosystem where anyone can contribute to a module or repository. And in return, anyone can use a simple command to download that code into their project.
 

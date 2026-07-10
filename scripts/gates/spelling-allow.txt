@@ -16,6 +16,7 @@ abdi
 accreditations
 adapter
 addon
+addons
 adrien
 adyen
 aes
