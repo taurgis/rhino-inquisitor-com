@@ -131,41 +131,39 @@ I have compiled a list and their descriptions below to make things easier.
 
 ### [Access-Control-Allow-Credentials](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials)
 
-The Access-Control-Allow-Credentials response header tells browsers whether to expose the response to the frontend JavaScript code when the request's credentials mode (Request.credentials) is include.
-
-When a request's credentials mode (Request.credentials) is include, browsers will only expose the response to the frontend JavaScript code if the Access-Control-Allow-Credentials value is true.
+Set Access-Control-Allow-Credentials to `true` when a cross-origin request carries credentials (`Request.credentials: "include"`) and you want the browser to expose that response to the requesting page's JavaScript. Leave it unset and the browser hides the response even if the request itself succeeded.
 
 ### [Access-Control-Allow-Headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers)
 
-The Access-Control-Allow-Headers response header is used in response to a preflight request which includes the Access-Control-Request-Headers to indicate which HTTP headers can be used during the actual request.
+Before certain cross-origin requests, the browser first sends a preflight `OPTIONS` call asking what's allowed. Access-Control-Allow-Headers answers that question for custom request headers: list the ones your endpoint accepts, and the browser lets the real request through.
 
 ### [Access-Control-Allow-Methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Methods)
 
-The Access-Control-Allow-Methods response header specifies one or more methods allowed when accessing a resource in response to a preflight request.
+Access-Control-Allow-Methods answers that same preflight check for HTTP methods: list `PUT`, `DELETE`, or whichever verbs your endpoint supports, or the browser blocks the follow-up request before it reaches your controller.
 
 ### [Access-Control-Allow-Origin](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin)
 
-The Access-Control-Allow-Origin response header indicates whether the response can be shared with requesting code from the given origin.
+Access-Control-Allow-Origin decides which origins may read the response at all. Setting it to `*` is the easiest option, but it means any site can read that response — scope it to the specific origins you trust instead.
 
 ### [Access-Control-Expose-Headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Expose-Headers)
 
-The Access-Control-Expose-Headers response header allows a server to indicate which response headers should be made available to scripts running in the browser, in response to a cross-origin request.
+Access-Control-Expose-Headers is the reverse of Allow-Headers: it lists which of your response headers a cross-origin script may read, beyond the handful browsers expose by default — a custom pagination or rate-limit header your storefront JavaScript needs to see, for example.
 
 ### [Content-Security-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy)
 
-The HTTP Content-Security-Policy response header allows web site administrators to control resources the user agent is allowed to load for a given page. With a few exceptions, policies mostly involve specifying server origins and script endpoints. This helps guard against [cross-site scripting](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting) attacks.
+Content-Security-Policy controls which origins a page may load scripts, styles, and other resources from — the actual defence against [cross-site scripting](https://developer.mozilla.org/en-US/docs/Glossary/Cross-site_scripting) attacks, since an injected script tag can't run if its origin isn't allow-listed. With a few exceptions, policies mostly involve specifying server origins and script endpoints.
 
 **Note:** The Commerce Cloud platform can override this header for tools like the Storefront Toolkit.
 
 ### [Content-Security-Policy-Report-Only](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy-Report-Only)
 
-The HTTP Content-Security-Policy-Report-Only response header allows web developers to experiment with policies by monitoring (but not enforcing) their effects. These violation reports consist of JSON documents sent via an HTTP POST request to the specified URI.
+Content-Security-Policy-Report-Only runs the same policy in observe-only mode: violations get logged as JSON, POSTed to a reporting URI, but nothing is actually blocked — useful for testing a tighter CSP before you commit to enforcing it.
 
 **Note:** You can set this response header only for storefront requests. Report recipient can't be a B2C Commerce system.
 
 ### [Cross-Origin-Embedder-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Embedder-Policy)
 
-The HTTP Cross-Origin-Embedder-Policy (COEP) response header prevents a document from loading any cross-origin resources that don't explicitly grant the document permission (using the Cross-Origin-Resource-Policy header, CORP, or CORS).
+Cross-Origin-Embedder-Policy (COEP) blocks a document from loading cross-origin resources unless those resources explicitly opt in, via the Cross-Origin-Resource-Policy header (CORP) or CORS. It's what lets a page use powerful browser APIs, such as `SharedArrayBuffer`, that would otherwise leak data across origins.
 
 ### [Cross-Origin-Embedder-Policy-Report-Only](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy-Report-Only)
 
@@ -173,11 +171,11 @@ The report-only counterpart to Cross-Origin-Embedder-Policy: it monitors and rep
 
 ### [Cross-Origin-Opener-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Opener-Policy)
 
-The HTTP Cross-Origin-Opener-Policy (COOP) response header allows you to ensure a top-level document does not share a browsing context group with cross-origin documents. Salesforce's Response class also exposes a `Cross-Origin-Opener-Policy-Report-Only` constant for testing a COOP policy before enforcing it, though MDN doesn't have a dedicated reference page for it yet.
+Cross-Origin-Opener-Policy (COOP) keeps a top-level document out of the same browsing context group — the internal grouping that lets `window.opener` and similar APIs reach across tabs — as any cross-origin document it opens or is opened by. Salesforce's Response class also exposes a `Cross-Origin-Opener-Policy-Report-Only` constant for testing a COOP policy before enforcing it, though MDN doesn't have a dedicated reference page for it yet.
 
 ### [Cross-Origin-Resource-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Resource-Policy)
 
-The HTTP Cross-Origin-Resource-Policy response header conveys a desire that the browser blocks no-cors cross-origin/cross-site requests to the given resource.
+Cross-Origin-Resource-Policy (CORP) tells the browser to block cross-origin, `no-cors` requests — the fetch mode that skips CORS checks — from reading this resource at all, closing a gap CORS alone doesn't cover for things like images and scripts loaded without credentials.
 
 ### [Permissions-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy)
 
@@ -185,15 +183,15 @@ The Permissions-Policy header restricts which browser features (camera, geolocat
 
 ### [Referrer-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy)
 
-The Referrer-Policy HTTP header controls how much referrer information (sent with the Referer header) should be included with requests. Aside from the HTTP header, you can set this policy in HTML.
+Referrer-Policy controls how much of your page's URL leaks into the Referer header of outgoing requests. Set it to `strict-origin-when-cross-origin` or tighter if your URLs ever carry order IDs, session tokens, or other data you don't want showing up in a third party's server logs. You can also set this policy in HTML, alongside the header.
 
 ### [X-Content-Type-Options](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options)
 
-The X-Content-Type-Options response HTTP header is a marker used by the server to indicate that the MIME types advertised in the Content-Type headers should be followed and not be changed. The header allows you to avoid MIME type sniffing by saying that the MIME types are deliberately configured.
+X-Content-Type-Options set to `nosniff` stops the browser from guessing a file's type from its content instead of trusting the declared Content-Type. Without it, a browser that reads an uploaded text file as HTML or JavaScript can end up executing content it should have just displayed.
 
 ### [X-FRAME-OPTIONS](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options)
 
-The X-Frame-Options HTTP response header can be used to indicate whether or not a browser should be allowed to render a page in a `<frame>`, `<iframe>`, `<embed />` or `<object>`. Sites can use this to avoid click-jacking attacks, by ensuring that their content is not embedded into other sites.
+X-Frame-Options tells the browser whether it may render this page inside a `<frame>`, `<iframe>`, `<embed />`, or `<object>`. Set it to block embedding and you close off click-jacking attacks that trick users into clicking a disguised, invisibly-framed version of your page.
 
 **Note:** The Commerce Cloud platform can override this header for tools like the Storefront Toolkit.
 
