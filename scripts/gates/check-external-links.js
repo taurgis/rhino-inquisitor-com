@@ -152,7 +152,7 @@ function collectUnknownDomains(links, rules = DOMAIN_RULES) {
   const unknown = new Map();
   for (const link of links) {
     if (link.malformed) continue;
-    if (resolveDomainRule(link.host, rules)) continue;
+    if (resolveDomainRule(link.host, rules, link.url)) continue;
     if (!unknown.has(link.host)) unknown.set(link.host, []);
     unknown.get(link.host).push(link);
   }
@@ -381,7 +381,7 @@ async function verifyLinks(
       link.detail = 'malformed external URL (no valid hostname)';
       continue;
     }
-    const rule = resolveDomainRule(link.host, rules);
+    const rule = resolveDomainRule(link.host, rules, link.url);
     link.rule = rule;
     if (!rule) {
       link.state = 'unknown-domain';

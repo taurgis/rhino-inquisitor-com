@@ -4,7 +4,7 @@ description: >-
   Certifications are an essential part of the journey within Salesforce. But
   what certifications are available for B2C Commerce Cloud?
 date: '2022-04-13T07:07:52.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-09T16:40:30.000Z'
 url: /certifications-for-salesforce-b2c-commerce-cloud/
 draft: false
 heroImage: certification-ce072f4076.jpg
@@ -21,7 +21,7 @@ takeaways:
 ---
 Certifications are a part of the Salesforce journey, and anyone who has looked into this knows that there are [many of them available](https://trailhead.salesforce.com/credentials/administratoroverview) to give a stab at.
 
-But what about Salesforce B2C Commerce Cloud? How many are available. And which ones are they? Let us have a look!
+But what about Salesforce B2C Commerce Cloud? How many are available? And which ones are they? Let us have a look!
 
 ## Superbadges
 
@@ -31,9 +31,11 @@ You have to solve questions and exercises in a sandbox environment. Trailhead wi
 
 Unfortunately (yup, I got you excited there, didn't I), this is only available for the core platform, not B2C Commerce Cloud. And because SFCC runs on a completely different stack, don't expect this to change anytime soon.
 
+Still true in 2026, by the way. Salesforce reworked the whole superbadge program in 2025 — shorter "skill assessments" instead of the old six-hour marathons — but that reshuffle never produced a Commerce Cloud entry either. Whatever Superbadges become next, they still don't come to us.
+
 ## Salesforce Credentials
 
-The first type we will have a look at is the Salesforce Credentials. You know, the ones you can achieve via [Webassessor](https://www.webassessor.com/).
+The first type we will have a look at is the Salesforce Credentials. When this article first went up, you sat these through Webassessor. That's gone now: as of July 21, 2025, Salesforce moved certification delivery to [Pearson VUE](https://help.salesforce.com/s/articleView?id=005298846&language=en_US&type=1), managed through Trailhead Academy. Same idea (proctored exam, book a slot, sit it), different vendor.
 
 A little heads up already. You don't have many options if you are not a technical profile. But we will get into that later!
 
@@ -51,6 +53,9 @@ Now, let's nuance this a little bit. If your past two projects were with pipelin
 
 If you still think you need some preparation, look at the [exam guide](https://help.salesforce.com/s/articleView?id=005298941&language=en_US&type=1). It will point you in the right direction!
 
+> [!NOTE]
+> On July 24, 2026, Salesforce renames this credential from "Salesforce Certified B2C Commerce Cloud Developer" to "Salesforce Certified B2C Commerce Developer." Per Salesforce's own [Certification Name Changes FAQ](https://help.salesforce.com/s/articleView?id=005298915&language=en_US&type=1), it's a name change only — exam content and maintenance requirements stay the same.
+
 ### B2C Commerce Architect
 
 {{< img-caption src="b2c-commerce-architect-3d1b1f2f1e.png" alt="Salesforce Certified B2C Commerce Architect badge." caption="The B2C Commerce Architect certification requires the Developer credential as a prerequisite and shifts focus from hands-on implementation to project-lifecycle and multi-site design pattern questions." >}}
@@ -59,57 +64,80 @@ If you still think you need some preparation, look at the [exam guide](https://h
 
 The next step in the journey of the Certified B2C Commerce Developer! Focussing more on the project lifecycle compared to development.
 
-Important to note that you can only achieve this certification if you are a Certified B2C Developer.
+You can only earn this certification if you already hold the Certified B2C Developer credential.
 
 It should not surprise that this certificate is on "another" level than the Developer certification. Do not expect questions like "how do you log a message to the error log" but more like "You have three domains that have to be linked to these two sites. Which of the following four answers is the correct [Hostname Alias](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_hostname_aliases.htm) configuration?".
 
-Want to know more about what this certificate expects you to know? Have a look at the [exam guide](https://trailhead.salesforce.com/help?article=Salesforce-Certified-B2C-Commerce-Architect-Exam-Guide)!
+Want to know more about what this certificate expects you to know? Have a look at the [exam guide](https://help.salesforce.com/s/articleView?id=005298936&language=en_US&type=1)!
 
-If you feel like an in-person or virtual training is more suited for you, the [ARC-300 course](https://trailheadacademy.salesforce.com/classes/arc300-architect-b2c-commerce-solutions) (which I am teaching in EMEA - a bit of self-promotion) is perfect for you.
+> [!WARNING]
+> This one's on a clock. Salesforce is retiring the B2C Commerce Architect certification on February 1, 2027. Last day to register is **July 24, 2026**, last day to sit the exam is August 31, 2026, per the banner on the exam guide itself and the official [2027 Certification Retirements FAQ](https://help.salesforce.com/s/articleView?id=005360289&language=en_US&type=1). There's no successor exam named — the FAQ points you at "comparable learning content" instead: Trailhead, the B2C Commerce documentation, and the CCD102/CCM101 Trailhead Academy courses. If earning this one has been on your list, that list just got a deadline.
+
+If you feel like an in-person or virtual training is more suited for you, there used to be the ARC-300 course for that. Salesforce sunsetted it in April 2024, though — I was one of the instructors, and [wrote up what that was like](/the-sunsetting-of-arc300-architect-b2c-commerce-solutions/) when it happened. No replacement course has taken its place since.
 
 ## Accredited Professional
 
-Last year a new type of certification made its way into the Salesforce ecosystem: "Accreditations."
+Around 2021, a new type of certification made its way into the Salesforce ecosystem: "Accreditations."
 
-Before you read more about this, be warned that this is a certification only available for Salesforce Partners (and Salesforce employees looking at LinkedIn)
+Before you read more about this, be warned that this is a certification only available for Salesforce Partners (and Salesforce employees looking at LinkedIn).
 
 You can look at these Accreditations as a "specialisation" certification. While the other certifications will look at a broad spectrum of platform features, accreditations will test your knowledge of a specific feature or part.
 
-### Headless API First
+Same testing platform change as above, by the way: Accreditation exams sit on the unified Trailhead Academy/Pearson VUE experience now too, not a separate Partner-only booking flow.
+
+### Archived: Headless API First Accredited Professional (Retired 2024)
+
+This one didn't make it to 2026, but it's not getting deleted from the record. Here's what it used to be — and why I still miss it.
 
 > The Salesforce Headless API First Accredited Professional exam is designed for consultants who have experience implementing and consulting on B2C Commerce or headless projects in a customer-facing role. This exam is for individuals who want to demonstrate their skills and knowledge in configuring and using Salesforce Commerce APIs in the context of Sample Apps and real headless implementations.
 
-As Headless (API First) made its way more prominently into the Salesforce B2C Commerce Cloud world last year, it was expected that a certification was explicitly made for it.
+As Headless (API First) made its way more prominently into the Salesforce B2C Commerce Cloud world around 2021, a dedicated certification for it felt inevitable.
 
-The exam will focus solely on the [SCAPI](https://developer.salesforce.com/docs/commerce/commerce-api/guide) (Salesforce Commerce APIs), testing your knowledge of this set of REST endpoints.
+The exam focused solely on [SCAPI](https://developer.salesforce.com/docs/commerce/commerce-api/guide) (Salesforce Commerce APIs), testing your knowledge of this set of REST endpoints. There used to be a course on the [PLC](https://partnerlearningcamp.salesforce.com/) (Partner Learning Camp) to help you prepare for it.
 
-But not to worry, there is [a course](https://partnerlearningcamp.salesforce.com/s/browse-catalog?plc__recordId=ql98ga3ai8kA8o02yzJVDFG8XmW19tGoNUdRg55RgKsxWkPN9Kb%2BNqGkuz1tWcJ%2F) on the [PLC](https://partnerlearningcamp.salesforce.com/) (Partner Learning Camp) to guide you through preparing for it.
+**Except there's no exam left to prepare for.** Salesforce retired it on October 7, 2024, in the same batch as four other English-language Accredited Professional exams (Einstein Prediction Builder, Salesforce CMS, Salesforce Maps, Security & Privacy). If you'd already earned it, the credential itself still counts — Salesforce's own [Partner Program FAQ](https://help.salesforce.com/s/articleView?id=002646692&language=en_US&type=1) confirms that much, even after they had to correct the expiry date once.
 
-### Commerce Cloud Einstein
+Why did it go? Salesforce's official answer is honestly a shrug dressed up in portfolio-speak: exams get retired to address "gaps, overlaps, and consumption," and "an updated exam will not be built in its place." Nothing in that FAQ singles out Headless API First by name — it's the standard batch answer, applied to five exams at once.
 
-{{< img-caption src="einstein-d7123b2738.png" alt="Einstein Commerce Cloud Accredited Professional badge." caption="This partner-only accreditation covers Einstein implementation from data feeds to debugging." >}}
+So here's my actual guess, clearly labelled as a guess: this was one of the narrowest accreditations on the books, built around one specific moment in the platform's history, and narrow one-off exams like that are exactly what a portfolio review prunes first. It didn't get folded into a broader exam either. SCAPI still doesn't show up anywhere in the current Developer exam guide, so the skill it tested didn't move house — it just stopped being tested.
+
+A shame, though. This was the one credential that let a headless-focused consultant prove they knew SCAPI cold without also having to prove they could configure a pricebook or wire up a Page Designer slot — handy if your entire engagement was "stand up a storefront against the Commerce APIs" and nothing else. That specialism now has nowhere to go but the full Developer or Architect exam, both of which spend most of their weight on Business Manager and SFRA territory a headless-only consultant may never touch. If anyone at Salesforce Credentials fancies bringing a scoped SCAPI exam back, you know where to find me 😇.
+
+### Archived: Commerce Cloud Einstein Accredited Professional (Retired ~2024)
+
+{{< img-caption src="einstein-d7123b2738.png" alt="Einstein Commerce Cloud Accredited Professional badge." caption="This partner-only accreditation covered Einstein implementation from data feeds to debugging." >}}
 
 > The Einstein Commerce Cloud Accredited Professional exam is intended for individuals who have the knowledge, skills, and experience with data ingestion processes, security, and access implementations.
 
-One of the selling points of Salesforce B2C Commerce Cloud (and other Salesforce offerings) is the AI engine to give personalised product recommendations: Einstein.
+One of the selling points of Salesforce B2C Commerce Cloud (and other Salesforce offerings) is the AI engine that gives personalised product recommendations: Einstein.
 
-This accreditation tests all your knowledge of Einstein:
+This accreditation tested all your knowledge of Einstein:
 
 - Development (Slots & Active Data)
 - Setting up the data feeds in the Business Manager
 - Configuring the recommender
 - Debugging Einstein
 
-As with the other Accreditation, [a course is available on the Partner Learning Camp](https://partnerlearningcamp.salesforce.com/s/browse-catalog?plc__recordId=AJ%2F%2F26%2FbM4WJjnIak4uXHwpstt68nZPqvIdhKT%2FnZEw9I%2FDpO60A4d8W08lxq8xT)!
+**Except there's no exam left to sit.** It's gone from the current [Accredited Professional catalog](https://trailhead.salesforce.com/credentials/accreditedprofessionaloverview) and absent from the official October 7, 2024 retirement batch by name too, so it went earlier and separately, with no public retirement notice I could find. "~2024" is my best guess, not a confirmed date.
+
+I have to correct myself here. The first time I refreshed this article, I called this one "Active" — going only on its absence from Salesforce's named retirement lists plus a handful of old Credly badges and LinkedIn posts. That's the wrong bar: absence from a retirement list isn't the same as presence on the current catalog, and checking the catalog itself directly, it isn't there.
+
+Why did it go? Salesforce doesn't say, at least not for this one specifically. My guess, clearly labelled as a guess: Einstein data feeds and access configuration went from a specialist sideline to something a growing share of Commerce Cloud partners just handle as part of ordinary implementation work. Once that stopped being a specialist skill, a standalone credential for it stopped being worth maintaining.
+
+A shame, though. This was the one credential that let a non-developer prove they understood Einstein configuration — data feeds, the recommender, debugging a bad recommendation — without a Developer or Architect exam behind it. That specific, non-technical proof of Einstein fluency doesn't exist anywhere on the B2C Commerce side today.
 
 ## What if I'm not a developer
 
-A common question asked. Currently, only developers seem to get the "Certification love," but not so much Business Analysts or merchandisers.
+It's a common question I hear a lot. Currently, only developers seem to get the "Certification love," but not so much Business Analysts or merchandisers.
 
-If there is one I would recommend that non-technical profiles can pass, it's the Commerce Cloud Einstein Accreditation.
+If I had to recommend one that non-technical profiles can actually pass, it's the Commerce Cloud Einstein Accreditation.
 
-I feel that this is a gap within the ecosystem that should be filled; developing for SFCC is one thing. But it would be best if you also had profiles who are experts at configuring a channel and making the right choices to get it up and running.
+I feel this is a gap in the ecosystem; developing for SFCC is one thing. But it would be best if you also had profiles who are experts at configuring a channel and making the right choices to get it up and running.
 
 This non-technical certification would allow people to publicly show that they know how to get your company up and running on Salesforce B2C Commerce Cloud (using standard features or knowing when custom development is needed).
 
 If anyone at the Salesforce Credentials team is reading this, give me a shout to discuss this 😇.
+
+**Update: turns out I didn't need to shout that loud.** Between 2021 and 2023, Salesforce rolled out [User Experience Designer, Strategy Designer, Business Analyst, Sales Representative, and Indirect Sales Accredited Professional](/non-technical-sfcc-certifications/) — none of them SFCC-specific, but all finally giving non-developers something to sit. I doubt this post had anything to do with it, but I'll take the coincidence.
+
+**Second update, and a bit of an own-goal:** the credential I actually recommended above didn't make it either — see the archived note in the Accredited Professional section. My one non-technical pick from 2022 is gone, and its replacements arrived from a completely different direction. If you're after an exam you can actually sit today, the five above are it.

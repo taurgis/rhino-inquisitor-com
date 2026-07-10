@@ -85,9 +85,9 @@ These are measured at 75th percentile. Failure blocks deploy.
 
 ## Key Reference Files
 
-- `.github/skills/seo/SKILL.md` — Primary technical SEO skill
-- `.github/skills/seo/references/REDIRECT-GUIDE.md` — Redirect mechanism decision tree
-- `.github/skills/seo/references/STRUCTURED-DATA.md` — JSON-LD schema templates
+- `.agents/skills/seo/SKILL.md` — Primary technical SEO skill
+- `.agents/skills/seo/references/REDIRECT-GUIDE.md` — Redirect mechanism decision tree
+- `.agents/skills/seo/references/STRUCTURED-DATA.md` — JSON-LD schema templates
 - `url-data/url-manifest.json` — URL disposition source of truth
 - `url-data/url-map.csv` — URL redirect map
 - `url-data/redirect-signal-matrix.csv` — Redirect signal source of truth for live gates

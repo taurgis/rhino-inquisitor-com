@@ -12,8 +12,72 @@
       "sourceType": "github",
       "computedHash": "300fb8578258161e1752a2a4142a7e9ff178c960bcb83b84422e2987421f33bf",
       "sourceHash": "300fb8578258161e1752a2a4142a7e9ff178c960bcb83b84422e2987421f33bf"
+    },
+    "web-research": {
+      "source": "taurgis/bonsai",
+      "sourceType": "github",
+      "computedHash": "85e00b56037e2134dccc18ee6fabc54dcb7f3f86478e606340071b4db52f69de",
+      "ref": "main",
+      "agents": [
+        "github-copilot",
+        "claude-code",
+        "cursor"
+      ],
+      "repoPath": "agents/skills/web-research/SKILL.md",
+      "installPath": ".agents/skills/web-research",
+      "installHash": "30b5c93f5f380ce6f1c51b36068fe92b0029b3bb4fae1048e3ef3558d3a74ed5",
+      "sourceHash": "85e00b56037e2134dccc18ee6fabc54dcb7f3f86478e606340071b4db52f69de",
+      "versionPolicy": "minor",
+      "includePrerelease": false,
+      "sourceVersion": "3.0.0",
+      "installVersion": "3.0.0"
     }
   },
-  "instructions": {},
-  "customAgents": {}
+  "instructions": {
+    ".github/instructions/salesforce-research.instructions.md": {
+      "source": "taurgis/bonsai",
+      "sourceType": "github",
+      "repoPath": "instructions/salesforce-research.instructions.md",
+      "installPath": ".github/instructions/salesforce-research.instructions.md",
+      "computedHash": "2baa19b5be5c17b695616368ad44f015843be0c4346c9a717f3bda537b840b1c",
+      "ref": "main",
+      "subpath": "agents",
+      "agents": [
+        "github-copilot",
+        "claude-code",
+        "cursor"
+      ],
+      "linkedSkills": [
+        "web-research"
+      ],
+      "installHash": "2baa19b5be5c17b695616368ad44f015843be0c4346c9a717f3bda537b840b1c",
+      "sourceHash": "31fa7d0ad02840ad73030ee0ac761132897463794ff6d6414b9af507de556c61",
+      "versionPolicy": "minor",
+      "includePrerelease": false,
+      "sourceVersion": "2.0.0",
+      "installVersion": "2.0.0"
+    }
+  },
+  "customAgents": {
+    ".github/agents/salesforce-docs-researcher.agent.md": {
+      "source": "taurgis/bonsai",
+      "sourceType": "github",
+      "repoPath": "agents/salesforce-docs-researcher.agent.md",
+      "installPath": ".github/agents/salesforce-docs-researcher.agent.md",
+      "computedHash": "c620afb290e80f7a9dcc35b8d4cd78b651737c8171c8089f6b2734b264d3591b",
+      "ref": "main",
+      "subpath": "agents",
+      "agents": [
+        "github-copilot",
+        "claude-code",
+        "cursor"
+      ],
+      "installHash": "c620afb290e80f7a9dcc35b8d4cd78b651737c8171c8089f6b2734b264d3591b",
+      "sourceHash": "ff72515ef7e3e750f4f1bc8783cfcbfbd1da04dbfa577d3a08e6e4337e106b76",
+      "versionPolicy": "minor",
+      "includePrerelease": false,
+      "sourceVersion": "2.0.0",
+      "installVersion": "2.0.0"
+    }
+  }
 }

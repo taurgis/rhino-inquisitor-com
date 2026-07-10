@@ -4,7 +4,7 @@ description: >-
   Prepare for the B2C Commerce Developer Certification with a practical starting
   point, study focus areas, and next steps.
 date: '2022-06-06T11:45:43.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-09T14:32:16.000Z'
 url: /preparing-for-the-b2c-commerce-developer-certification/
 draft: false
 heroImage: b2c-commerce-developer-72d9df9035.png
@@ -24,6 +24,9 @@ So, you decided to become a Certified B2C Commerce Developer. That is great! Get
 
 But there is no harm in preparing specifically for the exam, is there? Let's go over the [exam guide](https://help.salesforce.com/s/articleView?id=005298941&language=en_US&type=1) and point you towards the content you might want to review to improve your chances of passing the first try!
 
+> [!NOTE]
+> On July 24, 2026, Salesforce renames this credential from "Salesforce Certified B2C Commerce Cloud Developer" to "Salesforce Certified B2C Commerce Developer." Per Salesforce's own [Certification Name Changes FAQ](https://help.salesforce.com/s/articleView?id=005298915&language=en_US&type=1), that's a name change only — the exam content, domains, and maintenance requirements below stay the same.
+
 ## B2C Commerce Setup (11%)
 
 The Official List
@@ -36,16 +39,17 @@ The Official List
 
 Setting up your environment to be ready to get started should come as no surprise with any project.
 
-Within this topic, you will be getting questions about getting your sandbox up and running, uploading code to it, and setting up your site to get cracking!
+Expect questions about getting your sandbox up and running, uploading code to it, and setting up your site to get cracking!
 
-It also includes some topics around configuring a site, so this topic intertwines with the next one. Everything around configuration I will add to that one!
+It also covers site configuration, which overlaps with the next domain — I'll fold those configuration questions into that section instead of repeating them here.
 
 So, where can we find some review materials? Here is a list that will get you started!
 
 - [Trailhead: On-Demand Sandboxes](https://trailhead.salesforce.com/en/content/learn/modules/b2c-on-demand-sandbox)
 - [Trailhead: Salesforce B2C Commerce for Developers](https://trailhead.salesforce.com/content/learn/modules/cc-digital-for-developers?trailmix_creator_id=strailhead&trailmix_slug=commerced-cloud-gen-900-introduction-to-commerce-cloud-businessd)
 - [Trailhead: Tools & Resources for Salesforce B2C Commerce Developers](https://trailhead.salesforce.com/en/content/learn/modules/b2c-developer-resources-and-tools?trail_id=develop-for-commerce-cloud)
-- [PLC: B2C Commerce - Environment Setup](https://partnerlearningcamp.salesforce.com/s/browse-catalog?plc__recordId=FklpqP6ZE9XyqMwxcTkRbihhza0lQDMyLN2XmF2ERAOsUpjOHxOut0xqG%2FqC0ksp)
+- [Trailhead: Headless Commerce Basics](https://trailhead.salesforce.com/en/content/learn/modules/b2c-headless-commerce-basics?trail_id=develop-for-commerce-cloud&trailmix_creator_id=strailhead)
+- [PLC: B2C Commerce - Environment Setup](https://partnerlearningcamp.salesforce.com/s/browse-catalog?plc__recordId=FklpqP6ZE9XyqMwxcTkRbihhza0lQDMyLN2XmF2ERAOsUpjOHxOut0xqG%2FqC0ksp) (requires a Salesforce Partner Community login)
 - [Webinar: Storefront Reference Architecture (SFRA) overview](https://salesforce.vidyard.com/watch/rgvLUk97rk1Kg58nYVcuy9?)
 
 ## Work With a B2C Site (12%)
@@ -62,19 +66,16 @@ Knowing what built-in features exist is essential for answering the questions on
 
 I'm going to put this site separately since it covers so many topics, and I have already mentioned this one in [a previous blog post](/getting-to-know-sfra-as-a-developer/):
 
-- [https://b2c.learncommercecloud.com/](https://b2c.learncommercecloud.com/)
+- [Trailhead Academy: Commerce Cloud](https://trailheadacademy.salesforce.com/products/commerce-cloud)
 
-This site is your one-stop shop for a quick overview of all content available on getting to know Salesforce B2C Commerce Cloud.
+That page collects Salesforce's own training and certification paths for B2C Commerce, so it's a decent starting point for getting to know the platform.
 
 But, what else is available?
 
 - [Trailhead: Sell Everywhere with Commerce Cloud](https://trailhead.salesforce.com/en/content/learn/trails/cc-overview)
 - [Trailhead: Administer a Salesforce B2C Commerce Site](https://trailhead.salesforce.com/en/content/learn/trails/administer-b2c-commerce)
-- [Trailhead: Maxime Rebibo's Trailmix](https://trailhead.salesforce.com/users/maxime-rebibo-sfcc/trailmixes/preparing-salesforce-b-2-c-commerce-developer-certification)
-- [Live SFRA Demo Site](https://production-sitegenesis-dw.demandware.net/s/RefArch/home?lang=en_US)
+- [SFRA Overview](https://developer.salesforce.com/docs/commerce/sfra/guide/sfra-overview.html)
 - [B2C Commerce Videos (Infocenter)](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_videos.htm&type=5)
-- [Salesforce Events](https://cs.salesforce.com/events?filter=true&product=b2c-commerce)
-- [Webinar: Getting Started with Page Designer](https://salesforce.vidyard.com/watch/C239ou4WP2nSagkxoA4D4m?)
 - [Customer Service Centre](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-customer-service-center.html)
 
 ## Data Management Using Business Manager Usage (24%)
@@ -90,7 +91,8 @@ The Official List
 - Given a specification and a sandbox instance, configure OCAPI permissions for Data and Shop APIs.
 - Given a service configuration, recognise how they are applicable to the development process.
 
-Let us move on to the third section, focusing on configuration and the business manager.
+> [!NOTE]
+> This bullet still says OCAPI, not SCAPI. I checked the [official exam guide](https://help.salesforce.com/s/articleView?id=005298941&language=en_US&type=1) directly on 2026-07-09, and it's still there verbatim — the guide itself is version-locked to the Spring '23 release. On the platform side, OCAPI was [deprecated in April 2026](/in-the-ring-ocapi-versus-scapi/) and stays in maintenance mode into 2028, so it's still fair game for this exam even though you'd reach for SCAPI on a real project today. Learn OCAPI permissions for the exam; use SCAPI for anything you actually build.
 
 Prepare to get quite a few questions about the business manager, even though this is a "developer" certification. As I mentioned in the previous part, knowing what is out-of-the-box in a platform is as important (or even more critical) as writing good custom code.
 
@@ -110,7 +112,7 @@ Let's make a list of available content!
 - [Static and Page Cache](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-content-cache.html)
 - [Cache Information Tool](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_using_the_cache_information_tool.htm)
 - [Custom Caches](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/b2c-custom-caches.html)
-- [OCAPI Settings](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/ocapisettings.html)
+- [OCAPI Settings](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/ocapisettings.html) (the page itself now flags OCAPI as deprecated — see the note above)
 - [OCAPI & Web Service Framework](https://share.vidyard.com/watch/JUR9eco8noLmS11dQA1CKt?)
 - [Standard Job Steps](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/jobstepapi/html/api/jobStepList.html)
 
@@ -128,10 +130,10 @@ The Official List
 - Integrate, deploy, and use a service instance based on a given requirement.
 - Given a use case, extend functionality or capture an event using hook extension points.
 - Given code that violates documented best practices, identify the issues and modify the code to conform with best practices including performance and scalability.
-- Given a business requirement, use OCAPI Shop and Data APIs to enable interoperability with an external system.
+- Given a business requirement, use OCAPI Shop and Data APIs to enable interoperability with an external system. (Same OCAPI-not-SCAPI note as the Data Management section above applies here.)
 - Given a business requirement to perform a scheduled task, develop jobs and code job scripts.
 
-Phew! Finally, some development in this Certificate Exam! Since it is for developers, more than 50% of your score depends on your development skills.
+Phew! Finally, some development in this certification exam! Since it is for developers, more than 50% of your score depends on your development skills.
 
 But knowing how to write custom code will not be enough to pass this exam! So be sure to focus well on the above sections.
 
@@ -154,7 +156,7 @@ But knowing how to write custom code will not be enough to pass this exam! So be
 
 ## What if I fail the exam
 
-Failing a certification exam is not the end of the world! Let's make it clear. You can do successful implementations within Salesforce B2C Commerce Cloud but still fail this certification.
+Failing a certification exam is not the end of the world. You can do successful implementations within Salesforce B2C Commerce Cloud but still fail this certification.
 
 You might not have touched all of the different areas of Salesforce B2C Commerce Cloud and SFRA within that project.
 
@@ -167,18 +169,20 @@ Go back and revise those topics, do some experiments on a Sandbox and get back o
 Not to worry, there are instructor-led courses available at [Trailhead Academy](https://trailheadacademy.salesforce.com/)!
 
 - [B2C Commerce Developer with SFRA ( CCD102 )](https://trailheadacademy.salesforce.com/classes/ccd102-b2c-commerce-developer-with-sfra)
-- [Manage and Merchandise a B2C Commerce Cloud Store ( CCM101 )](https://trailheadacademy.salesforce.com/classes/ccm101-manage-and-merchandise-a-b2c-commerce-cloud-store---extended)
+- [Manage and Merchandise a B2C Commerce Cloud Store ( CCM101 )](https://trailheadacademy.salesforce.com/classes/ccm101-manage-and-merchandise-a-b2c-commerce-cloud-store)
 
 ## I'm not a partner. Can I access PLC
 
-Unfortunately, the PLC (Partner Learning Camp) is only available to registered partners of Salesforce. It is a platform to empower partners to learn Salesforce products and make sure they succeed with their customer implementations.
+Unfortunately, the PLC (Partner Learning Camp) is only available to registered partners of Salesforce. It's where Salesforce trains partners on its products so they can deliver customer implementations correctly.
 
 ## Can I wing it
 
 Of course! This certificate should be a cinch if you have been doing Salesforce B2C Commerce Cloud (and SFRA) development for multiple years/projects.
 
-Bit of warning, this is only true if you also did configuration work in the Business Manager (Set up the search, categories management, Jobs, OCAPI, and so forth)
+Bit of warning, this is only true if you also did configuration work in the Business Manager (search setup, category management, jobs, OCAPI, and so forth)
 
 After 2-3 projects (2 years), I did the certificate myself without much preparation and passed on the first try. I even had the handicap that it was still a SiteGenesis exam, and I only had experience with SFRA.
+
+That's a piece of exam history, not a preview of what you'll sit today — the exam moved on from SiteGenesis a long time ago, and the domains above are what's current.
 
 Just don't assume that it is going to be easy! This is a certification exam, not a Trailhead module.

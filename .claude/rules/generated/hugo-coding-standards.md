@@ -39,7 +39,7 @@ Consult the `hugo-development` skill before authoring or reviewing any file matc
 1. `url` is mandatory on every content file. Hugo does not sanitize it — values must be pre-validated.
 2. `url` format: lowercase, starts with `/`, ends with `/`, `a-z 0-9 - /` only.
 3. `aliases` values must originate from `url-data/url-manifest.json` — no arbitrary alias creation.
-4. `canonical` front matter override must be absolute HTTPS `https://rhino-inquisitor.com/...` (apex) only.
+4. `canonical` front matter override must be absolute HTTPS `https://rhino-inquisitor.com/...` only.
 5. `draft: true` must be set on all non-published content — never infer from absence.
 
 ## GitHub Pages Workflow Standards
@@ -80,7 +80,7 @@ After any layout or config change:
 
 ## References
 
-- `.github/skills/hugo-development/SKILL.md` — Full Hugo guidance
-- `.github/skills/hugo-development/references/URL-STRATEGY.md` — URL/alias rules
-- `.github/skills/hugo-development/references/TEMPLATE-PATTERNS.md` — Partial architecture and code patterns
-- `.github/skills/hugo-development/assets/hugo-toml-template.toml` — Config baseline
+- `.agents/skills/hugo-development/SKILL.md` — Full Hugo guidance
+- `.agents/skills/hugo-development/references/URL-STRATEGY.md` — URL/alias rules
+- `.agents/skills/hugo-development/references/TEMPLATE-PATTERNS.md` — Partial architecture and code patterns
+- `.agents/skills/hugo-development/assets/hugo-toml-template.toml` — Config baseline

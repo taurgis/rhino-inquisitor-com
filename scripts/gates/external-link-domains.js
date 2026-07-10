@@ -38,9 +38,27 @@
  * strategy per the notes above, and re-run the failed commit. The test suite
  * (npm run test:external-links) asserts every domain linked from src/content
  * resolves here, so the baseline can never silently rot.
+ *
+ * Path overrides: a domain's rule normally applies to every URL on that host
+ * (github.com is 'status' because most repos linked from this site are
+ * public). When one specific repo or path on an otherwise-fine domain goes
+ * auth-walled — e.g. a GitHub repo that was public when an article linked it
+ * and later turned private/closed-source — add its URL prefix to
+ * PATH_OVERRIDES instead of downgrading the whole domain, which would stop
+ * verifying every other link on that host.
  */
 
 const STATUS = Object.freeze({ strategy: 'status' });
+
+const PATH_OVERRIDES = Object.freeze([
+  {
+    prefix: 'https://github.com/SalesforceCommerceCloud/storefront-reference-architecture',
+    strategy: 'skip',
+    reason:
+      'SFRA repo is now closed-source (GitHub login + Commerce Cloud NDA required); ' +
+      'anonymous requests get a login wall or 404, not a real dead-link signal'
+  }
+]);
 
 /** Not-found wording shared by the Salesforce Lightning-platform SPAs. */
 const SALESFORCE_SPA_DEAD_MARKERS = [
@@ -120,6 +138,7 @@ const DOMAIN_RULES = Object.freeze({
   'www.your-pwa.com': { strategy: 'skip', reason: 'placeholder host in examples' },
 
   // --- Everything else: server-rendered, plain status check -----------------
+  'aaia-prd.my.commercecloud.salesforce.com': STATUS,
   'admin.salesforce.com': STATUS,
   'aegis.rhino-inquisitor.com': STATUS,
   'allaboutdnt.com': STATUS,
@@ -136,6 +155,7 @@ const DOMAIN_RULES = Object.freeze({
   'caniuse.com': STATUS,
   'chat.openai.com': STATUS,
   'chrome.google.com': STATUS,
+  'chromewebstore.google.com': STATUS,
   'community.cloudflare.com': STATUS,
   'configurator.cquotient.com': STATUS,
   'czechdreamin.com': STATUS,
@@ -296,12 +316,20 @@ const DOMAIN_RULES = Object.freeze({
 const VALID_STRATEGIES = Object.freeze(['status', 'render', 'skip']);
 
 /**
- * Resolve the rule for a hostname: exact entry first, then '*.suffix'
- * wildcards (matching subdomains and the bare suffix). Returns null when the
- * domain is not registered — the caller turns that into the blocking
- * "new domain" error.
+ * Resolve the rule for a link: a PATH_OVERRIDES prefix match on `url` first
+ * (when given), then the hostname's exact entry, then '*.suffix' wildcards
+ * (matching subdomains and the bare suffix). Returns null when the domain is
+ * not registered — the caller turns that into the blocking "new domain"
+ * error.
  */
-function resolveDomainRule(hostname, rules = DOMAIN_RULES) {
+function resolveDomainRule(hostname, rules = DOMAIN_RULES, url = null) {
+  if (url) {
+    for (const override of PATH_OVERRIDES) {
+      if (url.startsWith(override.prefix)) {
+        return { domain: override.prefix, strategy: override.strategy, reason: override.reason };
+      }
+    }
+  }
   const host = String(hostname).toLowerCase();
   if (Object.hasOwn(rules, host)) {
     return { domain: host, ...rules[host] };
@@ -316,4 +344,10 @@ function resolveDomainRule(hostname, rules = DOMAIN_RULES) {
   return null;
 }
 
-export { DOMAIN_RULES, VALID_STRATEGIES, SALESFORCE_SPA_DEAD_MARKERS, resolveDomainRule };
+export {
+  DOMAIN_RULES,
+  VALID_STRATEGIES,
+  SALESFORCE_SPA_DEAD_MARKERS,
+  PATH_OVERRIDES,
+  resolveDomainRule
+};

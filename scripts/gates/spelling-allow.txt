@@ -16,6 +16,7 @@ abdi
 accreditations
 adapter
 addon
+addons
 adrien
 adyen
 aes
@@ -62,6 +63,7 @@ autocorrection
 autocorrects
 autodocs
 automations
+autoplay
 avchen
 bachelet
 backend
@@ -150,6 +152,7 @@ contentful
 cors
 counterpunch
 crackin
+credly
 crm
 crypto
 csv
@@ -542,6 +545,7 @@ sfdc
 sfra
 sgmf
 sha
+shadcn
 shethj
 shirtforce
 shoby
@@ -589,6 +593,8 @@ sxx
 sylvestre
 tal
 tealium
+templating
+textbox
 thacker
 thano
 theunen
