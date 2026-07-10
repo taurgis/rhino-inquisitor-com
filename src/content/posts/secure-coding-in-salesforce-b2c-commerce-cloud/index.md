@@ -47,11 +47,11 @@ Salesforce [made MFA mandatory](https://help.salesforce.com/s/articleView?id=com
 
 {{< img-caption src="mfa-1-6649345f2c.jpg" alt="Account Manager multi-factor authentication setup screen." caption="Account Manager MFA setup" >}}
 
-With Account Manager, it is possible to add MFA to your account to secure it. Even if someone manages to figure out your account password, they still need to be able to provide the secondary authentication method.
+Account Manager lets you add MFA to your account. Even if someone figures out your password, they still need the secondary authentication method to get in.
 
 For many people, adding [Salesforce Authenticator](https://play.google.com/store/apps/details?id=com.salesforce.authenticator) to the log-in procedure was clunky at first — extra taps, a separate app to juggle — though it's improved since.
 
-There are different options possible with Account Manager:
+Account Manager supports several MFA options:
 
 - Salesforce Authenticator (Application)
 - [Security Key](https://www.yubico.com/) (Physical Device)
@@ -123,11 +123,11 @@ SFRA ships a [config file](https://github.com/SalesforceCommerceCloud/storefront
 ]
 ```
 
-The standard file (httpHeadersConf.json) only sets two security headers, but it is possible to develop more.
+The standard file only sets two security headers, but you can add more.
 
 Salesforce limits the headers you can set to [a list of constants in the Response class](https://salesforcecommercecloud.github.io/b2c-dev-doc/docs/current/scriptapi/html/api/class_dw_system_Response.html).
 
-I have compiled a list and their descriptions below to make things easier.
+Here's the full list, with what each one actually does:
 
 ### [Access-Control-Allow-Credentials](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials)
 
@@ -211,11 +211,11 @@ SFCC's server-side scripting runs on the Rhino engine, a JavaScript runtime olde
 
 PWA Kit changes that: it runs on Node.js, so you get far more freedom with third-party packages, and with that freedom comes more responsibility. The same risk already applies to storefront JavaScript in SiteGenesis and SFRA (SFCC's legacy and current reference storefronts) — that code runs in the shopper's browser, not on Rhino, so it was never subject to those limitations, and you've likely already installed packages there to extend the storefront.
 
-You shouldn't forget that npm is an open ecosystem where anyone can contribute to a module or repository. And in return, anyone can use a simple command to download that code into their project.
+npm is an open ecosystem: anyone can publish a module, and anyone can pull that code into their project with one `npm install`.
 
 But what if that maintainer is malicious? They could slip harmful code into the package directly — or the package itself could be clean while a dependency it pulls in isn't.
 
-I can go on about this topic, but the following blog post by Liran Tal tells the whole story:
+For a deeper walkthrough of this attack pattern, see Liran Tal's post:
 
 [https://lirantal.medium.com/malicious-modules-what-you-need-to-know-when-installing-npm-packages-12b2f56d3685](https://lirantal.medium.com/malicious-modules-what-you-need-to-know-when-installing-npm-packages-12b2f56d3685)
 
