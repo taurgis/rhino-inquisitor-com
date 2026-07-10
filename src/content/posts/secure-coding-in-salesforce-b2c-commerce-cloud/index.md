@@ -4,7 +4,7 @@ description: >-
   Salesforce secures the B2C Commerce Cloud platform itself, but secure
   coding is still on you. Here's what needs ongoing attention.
 date: '2022-04-26T12:09:00.000Z'
-lastmod: '2026-07-10T05:01:55.000Z'
+lastmod: '2026-07-10T05:05:05.000Z'
 url: /secure-coding-in-salesforce-b2c-commerce-cloud/
 draft: false
 heroImage: code-security-147ad97b77.jpeg
@@ -79,13 +79,13 @@ So think of secure ways to share your MFA (usually TOTP for shared accounts). A 
 
 Salesforce's built-in services block a lot of malicious traffic, but they can't stop everything that means to do harm.
 
-The eCDN (Salesforce's embedded content delivery network) in front of your storefront is [Cloudflare](https://www.cloudflare.com/): Salesforce controls most of the configuration, but leaves a handful of switches for you to flip in Business Manager, covering things like the WAF (web application firewall), TLS, and compression settings. I go into that setup in detail in [Let's Go Live: Setting Up the eCDN](/lets-go-live-ecdn/); the [Infocenter](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_embedded_cdn_overview.htm) has the official overview.
+The eCDN (Salesforce's embedded content delivery network) in front of your storefront is [Cloudflare](https://www.cloudflare.com/): Salesforce controls most of the configuration, but leaves a handful of switches for you to flip in Business Manager, covering things like the WAF (web application firewall), TLS, and compression settings. I go into that setup in detail in [Let's Go Live: Setting Up the eCDN](/lets-go-live-ecdn/); [Salesforce Help](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_embedded_cdn_overview.htm) has the official overview.
 
 ## Security Best Practices
 
 Salesforce has already documented security best practices for developers, which spares me — and you — from working them out from scratch.
 
-On the [Salesforce Commerce Cloud Infocenter](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_security_best_practices_for_developers.htm), there is a lot of information already documented about different types of attacks and how to mitigate them:
+On [Salesforce Help](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_security_best_practices_for_developers.htm), there is a lot of information already documented about different types of attacks and how to mitigate them:
 
 - [Encryption and Cryptography](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_encryption_and_cryptography.htm)
 - [Cross-Site Scripting](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_cross_site_scripting.htm)
