@@ -39,7 +39,7 @@ The main advantage (from my perspective) is that you now have one account to log
 
 But this comes at a price.
 
-If an account becomes compromised, especially Account Managers, someone can get access to many different environments in one swing.
+If an account becomes compromised — especially one with Account Manager admin privileges, not just SFCC access — someone can reach every environment tied to it in one swing.
 
 Salesforce [made MFA mandatory](https://help.salesforce.com/s/articleView?id=commerce.rn_b2c_mfa_enforcement_je.htm&language=en_US&type=5) for interactive B2C Commerce logins in May 2022 to mitigate this threat, after recommending it for about a year beforehand.
 
@@ -165,7 +165,7 @@ The HTTP Content-Security-Policy-Report-Only response header allows web develope
 
 ### [Cross-Origin-Embedder-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Embedder-Policy)
 
-The HTTP Cross-Origin-Embedder-Policy (COEP) response header prevents a document from loading any cross-origin resources that don't explicitly grant the document permission (using CORP or CORS).
+The HTTP Cross-Origin-Embedder-Policy (COEP) response header prevents a document from loading any cross-origin resources that don't explicitly grant the document permission (using the Cross-Origin-Resource-Policy header, CORP, or CORS).
 
 ### [Cross-Origin-Embedder-Policy-Report-Only](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cross-Origin-Embedder-Policy-Report-Only)
 
