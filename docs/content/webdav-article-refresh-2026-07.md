@@ -23,7 +23,7 @@ lead-with-current-state playbook as the earlier custom-endpoints refresh.
 | Script API | Absent | `dw.net.WebDAVClient` section: supported methods, get() size ceilings, and the class doc's "cannot access the Commerce Cloud Digital server" restriction presented as a documentation claim that does not hold in practice (owner-verified: the script client connects to its own instance's WebDAV server and to other instances'), with replication noted as the sanctioned route for code and shared data |
 | JSON permissions example | Missing closing `]` and `}` (invalid JSON) | Fixed to match the official example |
 | Wikipedia link | Dutch Wikipedia (`nl.wikipedia.org`) | English Wikipedia |
-| Front matter | `lastmod` 2026-07-07T18:30 | `lastmod` bumped to 19:00; takeaways rewritten for the new scope (title, description, url untouched) |
+| Front matter | `lastmod` 2026-07-07T18:30 | `lastmod` bumped to 21:30 (updated again during the same-day voice/fact-check follow-ups); takeaways rewritten for the new scope (title, description, url untouched) |
 | Opening and voice | Generic two-sentence opening ("File Management is critical and necessary...") | Scenario opening (the vanished April export) matching the register of the newest posts, with a callback in the housekeeping section and the closing paragraph; conversion artifacts in the API-client example paragraph (stray quote marks, escaped underscore) fixed on touch |
 
 ## Fact-check notes
