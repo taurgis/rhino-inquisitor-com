@@ -46,6 +46,16 @@ Three kinds of work went into this pass:
    and converted the rest to plain statements or short verdict sentences. Also
    expanded SCAPI to "Salesforce Commerce API" on first use, matching how OCAPI is
    already expanded, per `beginner-technical-writing`'s first-use rule.
+5. **A deep fact-check pass** (round 2), going beyond "does this link resolve" to
+   verify specific *claims* in the body against live sources. Found and fixed real
+   drift: an unconfirmable list of named Partner Learning Camp curricula, a
+   non-existent "operating models" category on architect.salesforce.com, a
+   certification-prerequisite diagram that no longer matches Salesforce's current
+   official chain for either B2B or B2C Solution Architect, and a claim that the
+   old Infocenter domain was simply gone when it actually still live-redirects. Also
+   confirmed two claims well enough to make them *more* specific (the CommerceCrew
+   open-source projects and podcast, previously described only vaguely) — see the
+   Deep fact-check section below for the full disposition of each claim checked.
 
 ## Old vs new behavior
 
@@ -61,7 +71,12 @@ Three kinds of work went into this pass:
 | Closing section | "The Map in Your Hands" heading, "field manual," CTA-style close ("Go build something incredible") | Plain heading ("Where things stand now"), ends on a hedge from experience ("Give it a few weeks"), no CTA |
 | CommerceCrew closing paragraph | "underscore a critical shift in professional practice ... true mastery is forged" | Grounded first-person claim about where bugs actually get solved |
 | PLC closing sentence | "a critical step in levelling up their team's capabilities" | Concrete stakes framing ("training budget left on the table") |
-| `lastmod` | `2026-07-04T15:28:48.000Z` | `2026-07-10T14:17:21.000Z` (`date` and `url` untouched) |
+| PLC curricula claim | Named four specific tracks ("SFRA, Headless development, PWA Kit, and Architect Success") and a historical claim ("used to be internal-only Salesforce training"), neither independently confirmable | Replaced with the confirmed general facts (200+ courses, "Accredited Professional" credentials) and an honest hedge that the syllabus is login-gated |
+| architect.salesforce.com resource list | "decision guides, diagram templates, operating models, and product roadmaps" — "operating models" isn't a real category on the site | Dropped "operating models"; kept the three confirmed categories, relabelled "diagram templates" to "reference diagrams" to match the site's own wording |
+| Solution Architect cert diagram | No caveat — implied the pyramid reflects current requirements | Added a caption noting the diagram is illustrative and prerequisites shift, since the live chain no longer matches the image cleanly for either B2B or B2C |
+| Old Infocenter domain claim | "is officially a relic" (implied dead/gone) | Corrected to "doesn't exist as its own site any more — it now redirects straight into Salesforce Help," since the domain live-redirects rather than 404s |
+| CommerceCrew open-source/podcast bullets | Vague ("tools other members have built and shared"; "cover platform news and go deep on specific topics") | Made specific now that both are confirmed: unofficial SFCC logos/icons on GitHub; the "Unofficial SFCC Podcast," new episodes every other Tuesday, with a YouTube channel |
+| `lastmod` | `2026-07-04T15:28:48.000Z` | `2026-07-10T17:06:46.000Z` (after three passes; `date` and `url` untouched throughout) |
 
 ## Fact-check notes
 
@@ -136,11 +151,89 @@ link below was checked for matching rendered content, not just response status.
 | `partnerlearningcamp.salesforce.com/s/learner-dashboard` | Valid (gated) | Redirects unauthenticated visitors to an SSO/Trailblazer.me login wall — expected behaviour for a partner-only resource, not a dead link. No change. |
 | `architect.salesforce.com/` | Valid | Live, current 2026 content (Architecture Center, Well-Architected Framework, Decision Guides). No change. |
 
+## Deep fact-check (round 2, 2026-07-10)
+
+The first pass mostly asked "does this link resolve to matching content." This
+pass went further and checked specific *claims* in the body against live sources,
+via the `salesforce-docs-researcher` subagent, quoting exact text rather than
+just confirming liveness. Eight items were checked:
+
+1. **PLC curricula claim** ("SFRA, Headless development, PWA Kit, and Architect
+   Success" as named tracks; "some of what's there used to be internal-only
+   Salesforce training") — **could not verify**. `partnerlearningcamp.salesforce.com`
+   and the Partner Community learn articles are session-gated and render nothing
+   without an authenticated partner login. The Salesforce Help article "Partner
+   Learning Camp (PLC) Exams and Credentials" (`id=003960807`) confirms the general
+   framing — "Over 200 new courses are available exclusively in PLC" and
+   "Accredited Professional" credentials distinct from Trailhead badges — but no
+   public source names the four specific tracks quoted above, or confirms the
+   "used to be internal-only" history. **Fixed**: replaced the unconfirmable
+   specifics with the confirmed general facts and an honest hedge about the
+   syllabus being login-gated.
+2. **architect.salesforce.com resource categories** ("decision guides, diagram
+   templates, operating models, and product roadmaps") — **drifted**. "Decision
+   guides" (`architect.salesforce.com/decision-guides`), "diagram templates"
+   (`architect.salesforce.com/diagrams`, described on-site as "Reference Diagrams"),
+   and "product roadmaps" (`architect.salesforce.com/roadmap/products`, corroborated
+   by the official Salesforce Architects Medium post "Introducing Salesforce
+   Product Roadmaps") are all confirmed, current, named things. "Operating models"
+   is not — the site's fundamentals guide instead lists "Architecture Basics,"
+   "Platform Multitenant Architecture," and "Platform Sharing Architecture"; the
+   only related hit was a third-party Medium post ("SOGAF"), not a site-wide
+   category. **Fixed**: dropped "operating models," kept the three confirmed
+   categories, and relabelled "diagram templates" to "reference diagrams" to match
+   the site's own wording.
+3. **Solution Architect certification prerequisite chain** (the pyramid image:
+   B2B/B2C Solution Architect above Data Architect, Sharing and Visibility
+   Architect, Platform Developer I, Platform App Builder, Integration Architect,
+   Marketing Cloud Email Specialist) — **drifted**. The current, official B2B
+   Solution Architect page (`trailhead.salesforce.com/credentials/b2bsolutionarchitect`)
+   states the prerequisite is the Application Architect certification, which
+   requires "Platform App Builder, Platform Developer I, Data Architecture and
+   Management Designer, and Sharing and Visibility Designer" — different cert
+   names than the image shows. The current B2C Solution Architect page
+   (`trailhead.salesforce.com/credentials/b2csolutionarchitect`) doesn't state an
+   equivalent hard prerequisite at all, just a "Related Credentials" carousel. The
+   image's six-cert combination doesn't cleanly match either the current B2B chain
+   or an older (2021, third-party-sourced) B2C list. **Fixed**: since replacing the
+   image itself was out of scope for a text-focused fact-check pass, added a caption
+   flagging the diagram as illustrative rather than current, pointing readers to
+   Trailhead for the live chain.
+4. **CommerceCrew "Open Source Projects" and "Podcasts" claims** — **confirmed,
+   and more specific than before**. A direct fetch of `unofficialsfcc.com`
+   (Bonsai's automated rendering under-extracted this page) surfaced: "Get access
+   to our Open Source Projects and Unofficial SFCC Logos & Icons" (linking
+   `github.com/sfcc-unofficial`) and "Our Unofficial SFCC Podcast has New Episodes
+   every other Tuesday" (linking `unofficialsfccpodcast.com`, with a companion
+   YouTube channel). These findings were imported back into the Bonsai cache.
+   **Fixed**: upgraded both bullets from vague framing to the confirmed specifics.
+5. **Whether `documentation.b2c.commercecloud.salesforce.com` is actually dead**
+   — **drifted**. `curl -IL` against the domain returns a live 301 redirect to
+   `https://help.salesforce.com/s/articleView?id=cc.b2c_getting_started.htm&type=5`.
+   The site no longer exists as its own documentation hub (consistent with the
+   retirement notice), but the domain itself resolves via redirect rather than
+   404ing or sitting blank. **Fixed**: reworded "is officially a relic" to state
+   the redirect behaviour precisely.
+6. **CommerceCrew member count** — **re-confirmed**. `unofficialsfcc.com` still
+   reads "over 12,000 members" as of this second check. No change.
+7. **Trailhead trail/module title drift** — **re-confirmed, no conflicts**. All
+   seven URLs checked resolve to titles consistent with how the article uses them
+   (several are used only as generic "learning goal" labels rather than title
+   claims, so cosmetic Trailhead rebrand text doesn't create a mismatch). The one
+   place the article explicitly calls out a rebrand — On-Demand Sandboxes →
+   "Agentforce Commerce for B2C On-Demand Sandboxes" — is verified accurate against
+   the live page title. No change.
+8. **Already-confirmed anchors** (Infocenter retirement date, OCAPI deprecation
+   banner text) — **re-confirmed**, exact quote matches on both, including the
+   search-result page-title rendering ("Open Commerce API (deprecated)") the
+   article specifically claims. No change.
+
 ## Impact and verification
 
 - Impacted: one published post. `date`, `url`, `title`, `description`, and hero
   image untouched. `lastmod` bumped to `2026-07-10T14:17:21.000Z` after the initial
-  pass, then to `2026-07-10T14:55:02.000Z` after the follow-up line-edit pass.
+  pass, `2026-07-10T14:55:02.000Z` after the follow-up line-edit pass, and
+  `2026-07-10T17:06:46.000Z` after the deep fact-check pass.
 - No second post was edited — the community-gateway cross-check confirmed
   `what-does-the-composable-storefront-mean-for-sfcc-developers` already links a
   valid, non-conflicting resource, so no changes were needed there.

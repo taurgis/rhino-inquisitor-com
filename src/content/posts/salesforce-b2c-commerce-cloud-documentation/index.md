@@ -4,7 +4,7 @@ description: >-
   Finding the documentation for a specific topic in Salesforce B2C Commerce
   Cloud can be a challenge sometimes. These are the options!
 date: '2022-05-09T18:58:37.000Z'
-lastmod: '2026-07-10T14:55:02.000Z'
+lastmod: '2026-07-10T17:06:46.000Z'
 url: /salesforce-b2c-commerce-cloud-documentation/
 draft: false
 heroImage: documentation-ea8c96aa90.jpg
@@ -27,7 +27,7 @@ This isn't another set of links to bookmark and forget. It's what I actually rea
 
 ## The Great Documentation Shuffle: Decommissioning the Infocenter
 
-The single source of truth, `documentation.b2c.commercecloud.salesforce.com`, is officially a relic. Salesforce retired the B2C Commerce Infocenter on July 15, 2023, and moved its content — not deleted, just redistributed — across three separate platforms.
+The single source of truth, `documentation.b2c.commercecloud.salesforce.com`, doesn't exist as its own site any more — it now redirects straight into Salesforce Help. Salesforce retired the B2C Commerce Infocenter on July 15, 2023, and moved its content — not deleted, just redistributed — across three separate platforms.
 
 The three new homes for B2C Commerce documentation are:
 
@@ -66,9 +66,9 @@ For real-time problem-solving, debugging complex issues, and getting feedback on
 - **What's Inside:** This hub covers:
 - The **Slack workspace**, with over 12,000 members, includes developers, architects, and even Salesforce employees who answer questions themselves.
 
-- **Open Source Projects** on GitHub — tools other members have built and shared.
+- **Open Source Projects** on GitHub, plus a set of unofficial SFCC logos and icons if you need those too.
 
-- The **Podcasts** cover platform news and go deep on specific topics.
+- The **Unofficial SFCC Podcast** — a new episode every other Tuesday, with a companion YouTube channel.
 
 CommerceCrew and the official Trailblazer Community Groups exist for a reason: static documentation can't keep pace with a platform that ships this often. In my experience, the toughest bugs usually get solved in a Slack thread before they get solved in a doc page — so treat your network the same way you treat your bookmarks folder.
 
@@ -98,17 +98,17 @@ Trailhead is Salesforce's free, online learning platform, and there's a lot of i
 
 While Trailhead is the public square for Salesforce knowledge, the Partner Learning Camp (PLC) is the members-only counterpart for Salesforce partners and employees, built around the specialised knowledge partners actually need on customer projects.
 
-The PLC offers curricula on topics like SFRA, Headless development, PWA Kit, and Architect Success, along with formal accreditations that go beyond standard Trailhead badges. Access is gated through the Salesforce Partner Community, and some of what's there used to be internal-only Salesforce training. If your partner organisation isn't using it, that's training budget left on the table.
+The PLC runs over 200 courses, plus "Accredited Professional" credentials that go beyond standard Trailhead badges. Access is gated through the Salesforce Partner Community, so there's no public syllabus I can point you to — I can't tell you exactly which B2C Commerce tracks are in there this quarter, only that if your partner organisation isn't using the PLC at all, that's training budget left on the table.
 
 ## Salesforce Architects: The Multi-Cloud Command Centre
 
-{{< img-caption src="solution-architect-33ece62704.png" alt="Pyramid diagram of the Salesforce Solution Architect certification path, with B2B and B2C Solution Architect at the top tier above supporting certifications such as Data Architect and Integration Architect." >}}
+{{< img-caption src="solution-architect-33ece62704.png" alt="Pyramid diagram of the Salesforce Solution Architect certification path, with B2B and B2C Solution Architect at the top tier above supporting certifications such as Data Architect and Integration Architect." caption="Treat this as illustrative rather than current — Salesforce reshuffles certification prerequisites often, so check Trailhead for the exact chain before you plan a study path." >}}
 
 - [https://architect.salesforce.com/](https://architect.salesforce.com/)
 
 While the Developer Centre is for hands-on coding, architect.salesforce.com is the command centre for those designing the blueprints. It's the home base for Salesforce Architects generally, so its lens covers multi-cloud architecture and the core Salesforce platform — B2C Commerce is one piece of a much bigger picture here.
 
-Here, you'll find the resources architects actually use: decision guides, diagram templates, operating models, and product roadmaps. You won't find a deep dive on a specific `dw.*` package, but you will find the patterns for fitting B2C Commerce into a larger Salesforce ecosystem.
+Here, you'll find the resources architects actually use: decision guides, reference diagrams, and product roadmaps. You won't find a deep dive on a specific `dw.*` package, but you will find the patterns for fitting B2C Commerce into a larger Salesforce ecosystem.
 
 For the B2C architect, this site works at the decision layer, not the implementation layer.
 
