@@ -543,6 +543,7 @@ sfdc
 sfra
 sgmf
 sha
+shadcn
 shethj
 shirtforce
 shoby
