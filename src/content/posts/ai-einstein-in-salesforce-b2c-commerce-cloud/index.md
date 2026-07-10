@@ -1,10 +1,10 @@
 ---
 title: AI (Einstein) in Salesforce B2C Commerce Cloud
 description: >-
-  Salesforce B2C Commerce Cloud has an AI that can power different areas of the
-  site. But what is it, why use it, and what can it do for me?
+  Salesforce quietly folded Commerce Cloud Einstein into Agentforce Commerce.
+  Here's what changed, what still works exactly as before, and how to use it.
 date: '2022-09-26T13:42:24.000Z'
-lastmod: '2026-07-04T14:20:18.000Z'
+lastmod: '2026-07-10T20:33:04.000Z'
 url: /ai-einstein-in-salesforce-b2c-commerce-cloud/
 draft: false
 heroImage: artificial-intelligence-fc68314ce7.jpg
@@ -17,168 +17,158 @@ tags:
   - sfcc
 author: Thomas Theunen
 takeaways:
-  - "Explains what Einstein is in SFCC and how it differs from other Salesforce AI products"
-  - "Covers core Einstein capabilities like recommendations, search, insights, and predictive sort"
-  - "Highlights privacy, shared-data, and headless API considerations before adoption"
+  - "Explains how Einstein fits into Salesforce's Agentforce Commerce rebrand without changing the underlying engine"
+  - "Covers current Einstein capabilities like recommendations, search, insights, and predictive sort, plus new Agentforce agents"
+  - "Corrects outdated Predictive Sort caching guidance and links privacy, shared-data, and headless API considerations"
 ---
-When you are first introduced to Salesforce B2C Commerce Cloud, one of the selling features that will increase conversion and customer satisfaction is [Einstein](https://www.salesforce.com/products/commerce-cloud/commerce-cloud-einstein/).
+Search for "Commerce Cloud Einstein" today and you will not land on the page you expect. Salesforce renamed the product around it. The AI engine is still there, still doing the same job it did in 2022, but the marketing has moved on to **Agentforce Commerce**. If you are the one explaining this to a merchandising team, closing that gap between "the feature still works" and "the name changed twice" is your job.
 
-Einstein is the "built-in" AI engine that powers product recommendations and other tools to guide a potential buyer. But what are these features, and will they increase my AOV (Average Order Value) by 26% as advertised?
+This is the guide for that conversation. You will learn where Einstein actually lives, what each feature does today, what recently got corrected in Salesforce's own documentation, and where the new generative Agentforce agents fit next to the AI you already have.
 
-## History
+## From CQuotient to Agentforce: A Name That Keeps Moving
 
-Even though the product is called Einstein right now, it wasn't always the case. Before Salesforce acquired Demandware, it was called CQuotient ([which was acquired by Demandware in 2014](https://www.businesswire.com/news/home/20141014005186/en/Demandware-Acquires-CQuotient)).
+Einstein was not always called Einstein. Before Salesforce acquired Demandware, the underlying AI product was **CQuotient**, [acquired by Demandware in 2014](https://www.businesswire.com/news/home/20141014005186/en/Demandware-Acquires-CQuotient). Salesforce bought Demandware two years later and rebranded CQuotient as Einstein, but left the old name buried in the tooling. You will still open the [Einstein Configurator](https://configurator.cquotient.com/) at a `cquotient.com` address today.
 
-You will still notice the reference in the URL when accessing the [Administrative Portal](https://configurator.cquotient.com).
-
-{{< img-caption src="cquotient-demandware-history-v2-942e794c7b.png" alt="Legacy CQuotient administration screen before the Einstein rebrand." caption="The old CQuotient branding shows how deeply Einstein is rooted in earlier tooling." >}}
-
-This history lesson also clarifies that this "Einstein" is unrelated to all of the other "Einstein" products [in the Salesforce lineup](https://www.salesforce.com/products/einstein/overview/). Though probably some connections are made behind the scenes, this is - like with different features - a black box.
-
-## Separate Product
-
-As CQuotient was an acquired AI product, it has a separate management console which I mentioned in the previous section.
-
-There are some screens inside the Business Manager, but they mainly push or pull data out of CQuotient:
-
-- [Slot Configuration](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_configuring_slots_for_predictive_recommendations.htm)
-- Page Designer components
-- [Einstein Status Dashboard](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_configure_einstein_deployment.htm) (Configuration & Monitoring)
-
-## Shared Data Model
-
-For an AI (Artificial Intelligence) to work, it needs to be fed with **quality** data. And the more data, the better it can give the correct responses to given questions.
-
-For this sharing of data, consent needs to be given in the Business Manager at:
-
-Administration _>_ Global Preferences _>_ Einstein Search Dictionaries Opt-In
-
-{{< img-caption src="einstein-cquotient-shared-database-6ab8c2ae5e.jpg" alt="Einstein Search Dictionaries Opt-In setting used to enable shared-data consent." caption="Shared data only works when the opt-in setting is enabled for Einstein features." >}}
-
-## Black Box
-
-Before we continue with this story about Einstein, one thing to understand is that the general idea is to give merchandisers easy access to AI with point-and-click tools without having to worry about any of the technicalities behind it.
-
-This is great on one side. But on the other, it means that Salesforce controls 90% of how the AI does its thing.
-
-And we do not get any insights into how it does it unless you work at Salesforce on this particular product.
-
-## Privacy for the consumer
-
-For the AI (Einstein) to learn, I already mentioned it needs to collect quality data. And that data is extracted from the visitors of the SFCC sites:
-
-- Categories navigated to
-- Products viewed
-- Products added to the basket
-- Products ordered
-- ...
-
-And for this to work, the consumer needs to be tracked. Some visitors will want to block these behaviours by looking at GDPR, CCPA, and [Do Not Track](https://allaboutdnt.com/) options.
+{{< img-caption src="cquotient-demandware-history-v2-942e794c7b.png" alt="Timeline graphic: Demandware founded in 2004, CQuotient acquired in 2014, Demandware acquired by Salesforce in 2016." caption="Three acquisitions turned CQuotient into today's Einstein engine." >}}
 
 > [!NOTE]
-> **Documentation:** The necessary tools to comply with this are documented in the [Infocenter](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_einstein_set_privacy_preferences.htm).
+> **This Einstein is not that Einstein.** "Einstein" is also the umbrella name Salesforce uses across Sales Cloud, Service Cloud, and the rest of the [Einstein 1 Platform](https://www.salesforce.com/products/einstein/overview/). The Commerce Cloud version is a separate machine-learning product with its own history. Any resemblance in the name is marketing, not shared infrastructure.
 
-## Features
+The name has moved again since 2022. Salesforce now markets the AI layer of B2C Commerce Cloud as part of **Agentforce Commerce**, its unified push to bring autonomous AI agents into every part of the commerce stack. The engine underneath is unchanged, and it is what this article is actually about. Salesforce's own [Ecommerce AI product page](https://www.salesforce.com/products/commerce-cloud/commerce-cloud-einstein/) still describes Einstein Recommendations and the personalisation features you have already been using; it just no longer leads with the word "Einstein."
+
+## Where Einstein Actually Lives
+
+CQuotient started life as an acquired, standalone AI product, and Salesforce never merged it into the core B2C Commerce codebase. That history still shapes how you configure it today: most of Einstein's day-to-day operation happens outside Business Manager, in the **Einstein Configurator**, and Business Manager only gives you the touchpoints that push data in or pull recommendations out:
+
+- [Content slots](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_configuring_slots_for_predictive_recommendations.htm), which is where a merchandiser places a recommendation on a storefront page
+- Page Designer components that wrap the same recommendation slots
+- The [Einstein Status Dashboard](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_monitor_einstein_deployment_status.htm), where you check whether your catalog and order feeds deployed successfully and how Salesforce rates your data quality
+
+The actual tuning happens in the Einstein Configurator itself, not in Business Manager: the business rules that decide *which* products a recommender returns live there. If you are a new Site Admin, you get to it through Business Manager's App Launcher, then a support ticket to Salesforce to be added as an initial admin on the Configurator side.
+
+## Feed It or Starve It: The Shared Data Model
+
+Like any machine-learning product, Einstein is only as good as the data it sees. Catalog, orders, and clickstream behaviour all flow into it, and the more of that data Salesforce has, from your site and optionally from other merchants, the sharper its recommendations get.
+
+That "optionally" matters. Search Dictionaries is the one Einstein feature where you can choose to contribute your data to a **shared pool across the B2C Commerce merchant community**, in exchange for better synonym and suggestion recommendations back. Nothing is shared until you opt in:
+
+1. In Business Manager, open **Administration > Global Preferences > Einstein Search Dictionaries Opt-In**.
+2. Select **I accept these terms and conditions**, and save.
+
+Salesforce draws a clear line here: it will not disclose your search dictionary data to other merchants in identifiable form. It only uses the aggregate to improve the shared feature.
+
+One detail worth deciding on deliberately: once you accept the agreement, only Salesforce Support can revoke it. There is no self-service opt-out toggle to flip back.
+
+{{< img-caption src="einstein-cquotient-shared-database-6ab8c2ae5e.jpg" alt="Einstein Search Dictionaries Opt-In consent screen with the terms-of-use checkbox accepted." >}}
+
+## The Black Box You Cannot Open
+
+Einstein is built for merchandisers, not engineers. That is the whole design premise: point-and-click configuration, no code, no visibility into the model itself. It is a genuinely good trade for a merchandising team that wants results without a data science hire.
+
+It is a worse trade the moment something misbehaves and you want to know why. Salesforce controls essentially all of the "how": the training, the weighting, the model internals. You do not get access to any of it unless you work inside Salesforce on this specific product. When a recommendation looks wrong, your available levers are the ones exposed in the Configurator: which recommender to use, how it is weighted, and which attributes feed it. Past that, you are debugging a black box from the outside.
+
+## Respecting the Shopper: Privacy Before Personalisation
+
+Every one of Einstein's features leans on the same raw material: what a shopper does on your site. Categories they browse, products they view, items they add to a basket, orders they complete. That data has to be collected in real time for personalisation to work at all, which means some shoppers will actively want out of it under GDPR, CCPA, or a browser's [Do Not Track](https://allaboutdnt.com/) setting.
+
+Salesforce exposes the default tracking behaviour as a Business Manager preference, not a hardcoded default:
+
+1. In Business Manager, open **Merchant Tools > *site* > Site Preferences > Privacy Settings**.
+2. Choose whether customer tracking is **enabled** or **disabled** by default for new storefront sessions. Either way, custom code can override it per session.
+3. Decide whether the shopper's clickstream, the session's log of page requests, should honour the Do Not Track status.
+
+> [!NOTE]
+> **Documentation:** The full configuration steps are documented in [Set B2C Commerce Einstein Privacy Preferences](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_einstein_set_privacy_preferences.htm). Einstein is not the only feature that reads this preference, so changing it affects more than just AI-driven personalisation.
+
+## The Core Toolkit: What Einstein Actually Does
+
+Five features cover most of what a B2C Commerce site will use Einstein for. All five still exist under their original names. Salesforce rebranded the company around them, not the features themselves.
 
 ### Product Recommendations
 
-- [Trailhead Module](https://trailhead.salesforce.com/content/learn/modules/cc-einstein-product-recommendations)
+Product Recommendations is the feature you have almost certainly seen on someone else's storefront, whether you recognised it or not: a rail of "you might also like" or "customers also bought" tiles, driven by a shopper's purchase history and current session behaviour rather than a merchandiser hand-picking every slot.
 
-{{< img-caption src="sfcc-einstein-product-recommendations-75e024ae7c.jpg" alt="Einstein product recommendations rendered in a storefront experience." caption="Product recommendations are the most visible Einstein feature for storefront merchandising." >}}
+{{< img-caption src="sfcc-einstein-product-recommendations-75e024ae7c.jpg" alt="A 'You might also like' product recommendation carousel showing three apparel items on a storefront." caption="The 'You might also like' carousel is Product Recommendations in its simplest form." >}}
 
-SFCC: Einstein Product Recommendations in the PWA Kit
-
-Product recommendations are among the more prominent features available in the Einstein lineup. This feature aims to promote relevant products to an individual shopper based on their purchasing history and current behaviour on the site.
-
-#### Complete the Set
-
-One possible product recommendation type is "Complete the Set," which recommends products to the shoppers to complete an outfit or to buy accessories that match that specific product.
+One useful variant is **Complete the Set**, which recommends items that pair with a product a shopper is already looking at: the rest of an outfit, or an accessory that matches it. [Trailhead module →](https://trailhead.salesforce.com/content/learn/modules/cc-einstein-product-recommendations)
 
 ### Commerce Insights
 
-- [Trailhead Module](https://trailhead.salesforce.com/content/learn/modules/cc-einstein-plan-and-implement/cc-ai-work-better)
+Commerce Insights is Einstein's analytics layer, not a storefront feature. It surfaces which products get bought together in the same basket, built from shopper, product, and order data Einstein has already collected. Think of it as a product-affinity report you did not have to build yourself.
 
-{{< img-caption src="commerce-insights-report-c598e1214b.jpg" alt="Commerce Insights report showing shopper and basket trend data." caption="Commerce Insights turns Einstein data into trend reporting teams can actually act on." >}}
+{{< img-caption src="commerce-insights-report-c598e1214b.jpg" alt="Commerce Insights basket-affinity report showing which products are frequently purchased alongside a selected jacket." caption="Selecting a key item surfaces every product bought alongside it, with basket counts and percentages." >}}
 
-Einstein: Commerce Insights Report
-
-This feature in the Einstein dashboard allows you to view statistical data about products often bought together in the same basket based on the shopper, product, and order data.
-
-So, in short: "An analytics tool to view shopper behaviour on a product-by-product basis."
+[Trailhead module →](https://trailhead.salesforce.com/content/learn/modules/cc-einstein-plan-and-implement/cc-ai-work-better)
 
 ### Search Dictionaries
 
-- [Trailhead Module](https://trailhead.salesforce.com/content/learn/modules/cc-einstein-smarter-search/cc-einstein-search-recommendations)
+Search Dictionaries looks at your existing synonym and suggestion-phrase configuration, then proposes additions it thinks would improve search results: new synonyms, new suggested phrases, based on what shoppers are actually typing.
 
-{{< img-caption src="einstein-search-dictionaries-suggestion-phrases-467a548c85.jpg" alt="Einstein search dictionaries suggesting phrases and synonym refinements." caption="Search Dictionaries let merchandisers shape synonyms and suggestions instead of leaving them fully automatic." >}}
+{{< img-caption src="einstein-search-dictionaries-suggestion-phrases-467a548c85.jpg" alt="Search Dictionaries list filtered to Suggestion Phrase entries, showing 20 of 22 items." caption="20 of 22 dictionary entries here, all filtered to Suggestion Phrases waiting on review." >}}
 
-Not a lot to tell about this feature. It looks at your current configuration like synonyms and suggestion phrases... and suggests configuration items that could improve search results for the shoppers.
-
-The important thing about this feature is that it only makes suggestions. You still need to accept or reject the recommendations. So to make optimal use of this feature, you should check it often and review the proposals.
+The feature only proposes changes. It never applies them on its own. You still accept or reject each recommendation, so the value you get out of it depends on how often someone on your team reviews the queue. [Trailhead module →](https://trailhead.salesforce.com/content/learn/modules/cc-einstein-smarter-search/cc-einstein-search-recommendations)
 
 ### Predictive Sort
 
-- [Trailhead Module](https://trailhead.salesforce.com/content/learn/modules/cc-einstein-smarter-search/cc-einstein-predictive-sort)
+Predictive Sort re-orders products on category and search results pages based on shopper behaviour, continuously pushing the products a shopper is most likely to want towards the top of the grid, instead of leaving that order fixed by static merchandising rules.
 
-{{< img-caption src="sfcc-category-page-3297251518.jpg" alt="Category page showing products reordered by predictive sort." caption="Predictive Sort changes category ranking based on shopper behaviour, not static merchandising alone." >}}
+{{< img-caption src="sfcc-category-page-3297251518.jpg" alt="A B2C Commerce category page sorted by 'Best Matches' with colour and price filters in the sidebar." caption="'Best Matches' is the sorting rule Predictive Sort typically plugs into as a weighted attribute." >}}
 
-Salesforce B2C Commerce Cloud Category Page
+Two things to get right before you turn this on:
 
-The predictive sort option allows Einstein to optimise the "browsing" experience on the category and search pages.
+1. **Do not hand Predictive Sort the entire sort order.** Salesforce's own Trailhead example blends it with other attributes instead of sorting purely on the AI's ranking: 25% revenue, 40% text relevance, and 35% Predictive Sort. Treat that as a starting weighting to A/B test against, not a rule.
+2. **Caching is handled for you, but only for the traffic that uses it.** B2C Commerce automatically disables product-grid caching for any request whose sorting rule includes the Predictive Sort attribute. You do not manually flip a setting to make this happen. That override is scoped narrowly: if you assign Predictive Sort as the default only for one category, or to a 5% A/B test slice, only that category or that 5% of traffic loses caching. Your ISML (Internet Store Markup Language) templates do need an `iscache if` guard (`<iscache if="${!searchModel.isPersonalizedSort()}"/>`) so search requests using Predictive Sort are not accidentally served a stale, cached grid.
 
-By looking at shopper behaviour, it will continuously re-order the products in the lister pages so that the products they are most interested in are moved to the top of the results.
+> [!WARNING]
+> **Correction from earlier guidance:** this article previously said you had to manually disable caching on category and search results pages before using Predictive Sort. That was inaccurate. The platform handles it automatically, and only for affected requests. The `iscache if` template guard above is the part that actually requires your attention.
 
-There are some things to keep in mind when using this feature:
-
-1. Do not rely entirely on Einstein's Predictive Sort. Add other attributes into the mix. An example on the Trailhead module is like this: 25% revenue, 40% text relevance, and 35% "Predictive Sort"
-
-1. Caching must be disabled on the Categories and Search Results pages (Search-Show for the developers amongst the readers, the tiles can still be cached). So expect a performance hit on these pages.
-
-A/B Testing When working with a feature that allows fine-grained configuration like this, it is a good idea to experiment with the sorting weight percentages.
-
-And do not forget to A/B test the comparison of Predictive Sort against your regular sorting rules to verify that it is making the difference you were expecting and not lowering the conversion rate.
+A/B test Predictive Sort against your existing sorting rules before rolling it out broadly. A ranking model that looks smarter on paper is not automatically a better conversion outcome. [Trailhead module →](https://trailhead.salesforce.com/content/learn/modules/cc-einstein-smarter-search/cc-einstein-predictive-sort)
 
 ### Search Recommendations
 
-- [Trailhead Module](https://trailhead.salesforce.com/content/learn/modules/cc-einstein-smarter-search/cc-einstein-search-recommendations)
+Search Recommendations works before a shopper finishes typing. As they enter a search term, Einstein looks at the partial phrase alongside signals like device type and location, and tries to auto-complete towards a term with enough supporting data behind it.
 
-{{< img-caption src="sfcc-search-suggestions-d172038c0b.jpg" alt="Search box suggestions generated by Einstein as the shopper types." caption="Search Recommendations start influencing discovery before a shopper even submits a query." >}}
+{{< img-caption src="sfcc-search-suggestions-d172038c0b.jpg" alt="Search suggestions for the misspelled query 'pnats,' showing a 'Do you mean: pants' correction with matching products and categories." caption="Even the misspelled 'pnats' resolves to a 'Do you mean: pants' correction." >}}
 
-Einstein: Search Suggestions
+> If a shopper types "swe" and has not already searched for "sweater" or "sweatpants," Einstein first looks for phrases starting with "swe" scoped to that device and location. If there is not enough data at that scope, it widens the search across a larger pool of devices and locations until it finds a confident match. — Trailhead
 
-Do you ever feel like search suggestions didn't understand the message you were trying to convey? Einstein is here to help shoppers find the correct products by already aiding at the start of the search.
+[Trailhead module →](https://trailhead.salesforce.com/content/learn/modules/cc-einstein-smarter-search/cc-einstein-search-recommendations)
 
-It will analyse your entered search term, look at information like current location and device type, and try to auto-complete the search term for you.
+## The New Layer: Agentforce Commerce's Generative Agents
 
-> For example, if the shopper types “swe” and they haven’t already searched for sweater or sweat pants, Einstein looks for phrases that start with swe for the device and location. If there’s enough data at that level, Einstein returns a phrase. If there isn’t enough data, Einstein searches across a larger data pool and devices until it finds a result.
-> Trailhead
+Everything above is the AI you already had. What is genuinely new since 2022 sits a level above it: **Agentforce**, Salesforce's push to put autonomous, conversational agents on top of the same commerce data Einstein has been collecting all along. Three agents matter for a B2C storefront:
 
-## Other features
+- **Agentforce Merchant** works with your merchandising team through conversational setup: drafting product descriptions, generating promotions, and surfacing proactive recommendations to boost products that are lagging or clear slow-moving inventory. It reads the same catalog and order data already feeding Einstein.
+- **Agentforce Personal Shopper** acts as a shopping assistant inside chat or messaging channels, using generative AI and natural-language search to help a shopper find products and check out, rather than a scripted chatbot answering a fixed list of questions.
+- **Agentforce Buyer** targets B2B storefronts specifically: reordering with pre-negotiated pricing and handling "where is my order" requests through chat.
 
-### Feed Einstein data from other channels
+These are separate products from the Einstein features above, not replacements for them. Agentforce Merchant reads the same catalog data, but it is a conversational agent layered on top, not a new Predictive Sort competitor. If a stakeholder asks whether Agentforce "replaces" Einstein, the honest answer is no: Einstein is the personalisation engine, and Agentforce is a new set of agents built to act on the same data.
 
-If you have other channels besides Salesforce B2C Commerce Cloud that can be used to place orders, this data can be fed into Einstein in the form of a [gzipped TSV file](send-ext-order-feeds-to-einstein.pdf).
+## Beyond the Storefront
 
-### Einstein Profile Connector
+Einstein is not limited to what happens on your B2C Commerce site.
 
-[Using a Headless API](https://developer.salesforce.com/docs/commerce/einstein-api/guide/einstein-profile-connector-overview.html), it is possible to feed additional information about customers to Einstein, such as:
+### Feeding data from other channels
 
-- Gender
-- Favourite colours
-- Favourite brands
+If you sell through channels outside B2C Commerce Cloud, that order data does not have to stay siloed. You can feed it into Einstein as a [gzipped, tab-separated values (TSV) file](send-ext-order-feeds-to-einstein.pdf), so recommendations account for purchases Einstein would otherwise never see.
 
-And use this information to give more fine-grained recommendations to the shoppers.
+### The Einstein Profile Connector
 
-### Headless API
+The [Einstein Profile Connector](https://developer.salesforce.com/docs/commerce/einstein-api/guide/einstein-profile-connector-overview.html) is a headless API that lets you attach customer attributes to a shopper's profile that Einstein would not otherwise have: gender, favourite colours, favourite brands. A merchandiser gets a concrete payoff from this: once Einstein knows more about who is shopping, a recommender can favour women's outerwear over a generic bestseller list. For the developer wiring it up, it is a straightforward server-to-server integration: post the attributes once, and every recommendation call after that benefits from them.
 
-[Einstein has headless APIs](https://developer.salesforce.com/docs/commerce/einstein-api/guide/einstein-recommendations-overview.html) (besides the one already mentioned above) to send shopper activity and fetch recommendations. An excellent example of a use case is the PWA Kit, which already fully uses these APIs.
+### Going headless with the recommendations API
 
-Other use-cases for these APIs could be:
+Past the Profile Connector, Einstein exposes [headless APIs](https://developer.salesforce.com/docs/commerce/einstein-api/guide/einstein-recommendations-overview.html) for sending shopper activity and fetching recommendations outside a rendered storefront page. The PWA Kit, Salesforce's React-based storefront reference architecture, already uses these APIs end to end. If you are building anything that is not a traditional server-rendered page, this is the surface you integrate against directly instead of relying on a Business Manager content slot.
 
-- Recommendations in newsletters or other types of mailings (transactional)
-- Mobile Application
-- Customer Service
+For a business stakeholder, the payoff is the same personalisation showing up in places a content slot cannot reach: transactional emails, a mobile app, or a customer service console pulling up recommendations mid-call. For the developer wiring it up, it is the same activity-in, recommendations-out contract as the storefront, authenticated with a client ID instead of a session cookie.
 
-## Learn more
+## Where to Learn More
 
-Want to learn more about Einstein? Salesforce has provided a learning path dedicated to Einstein. And it is [publicly available](https://einstein-b2c-exp-salesforce.herokuapp.com/)!
+Salesforce's Trailhead modules, linked throughout this article, are the fastest current path to hands-on practice with each feature. Module titles get relabelled under Agentforce branding from time to time, but the URLs and content have stayed stable.
+
+> [!TIP]
+> Salesforce also hosts a standalone [Einstein learning path](https://einstein-b2c-exp-salesforce.herokuapp.com/) covering Einstein across Commerce, Service, and Marketing Cloud. It still loads and still has useful content, but it predates the Agentforce rebrand and has not been visibly updated since. Treat it as a supplementary resource, not the canonical source.
+
+## Your Takeaway
+
+Einstein has not gone anywhere. What changed is the name above it, not the engine underneath, and the biggest risk in explaining that to a team is undercutting your own credibility by citing a feature name or setting Salesforce has since corrected or renamed. Verify anything you configure against current Salesforce Help and Trailhead content, including the guidance in this article, before trusting a source that predates the current release.

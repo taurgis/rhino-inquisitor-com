@@ -129,6 +129,7 @@ chili
 choiniere
 cid
 cli
+clickstream
 cloudflare
 cobarras
 codebase
@@ -444,6 +445,7 @@ pixelated
 pkey
 pmid
 pmlib
+pnats
 poc
 pocs
 pok
