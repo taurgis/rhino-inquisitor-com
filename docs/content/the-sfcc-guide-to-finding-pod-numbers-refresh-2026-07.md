@@ -54,6 +54,25 @@ the Bonsai re-fetches below):
   `npm run check:spelling` (197 files, pass, no new allow-list entries),
   `npx markdownlint-cli2` on the post (0 errors), and `npm run build:local`.
 
+## Follow-up fact-check audit (2026-07-10)
+
+After the currency refresh above shipped, a dedicated fact-check pass
+covered the claims in the article that hadn't yet been independently
+verified. All five checked out; no article changes were needed.
+
+| Claim | Verdict | Source |
+|---|---|---|
+| Trust site lists individual PODs as subscribable entries, not just product-level status | **Confirmed** — verbatim | [How to Receive B2C Commerce Release, Maintenance, and Incident Notifications](https://help.salesforce.com/s/articleView?id=000391618&language=en_US&type=1): "Search by POD in the search bar... Select the Instance (POD) to subscribe" |
+| PWA Kit/Managed Runtime should be deployed close to your POD's region to cut latency | **Confirmed** — near-verbatim match | [Optimizing PWA Performance with Region Selection in Managed Runtime](https://help.salesforce.com/s/articleView?id=000594748&language=en_US&type=1): "By deploying your PWA to a cluster near the PODs storing your customers' data, you minimize latency and significantly improve page load times," and points readers at the same AMER/EMEA-APAC POD lists the article already cites |
+| Legacy Log Center URL `logcenter-<POD><Cylinder>-hippo.demandware.net/logcenter`, `00`=SIG, `01`=PIG | **Likely** — the live system was retired in 2023, so no primary source survives; `00`=SIG was independently corroborated via a third-party archived writeup, but the `01`=PIG half rests only on search-summary corroboration. Low-stakes: inert history, already framed as "A History Lesson" | No live primary source (system retired); independent blog corroboration for the `00` half only |
+| "4-letter Group ID" / "alphanumeric Realm ID" via Account Manager's Assigned Realms section | **Confirmed** — verbatim | [How to find tenant information about your B2C Commerce realms](https://help.salesforce.com/s/articleView?id=002467426&language=en_US&type=1) uses this exact framing |
+| Log Center centralization happened in 2023 | **Confirmed** | Article is titled "Commerce Cloud Log Center Migration 2023"; Infocenter retirement landed June 30, 2023 |
+
+No edits were made to the published article as a result of this pass —
+every claim held up. This section documents the audit trail per the
+`salesforce-research` project instruction (cite official sources when a
+change, or in this case a verification, relies on platform behavior).
+
 ## Related files
 
 - `src/content/posts/the-sfcc-guide-to-finding-pod-numbers/index.md`
