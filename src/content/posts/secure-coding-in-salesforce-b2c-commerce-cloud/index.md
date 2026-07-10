@@ -4,7 +4,7 @@ description: >-
   Salesforce secures the B2C Commerce Cloud platform itself, but secure
   coding is still on you. Here's what needs ongoing attention.
 date: '2022-04-26T12:09:00.000Z'
-lastmod: '2026-07-09T21:18:17.000Z'
+lastmod: '2026-07-10T05:01:55.000Z'
 url: /secure-coding-in-salesforce-b2c-commerce-cloud/
 draft: false
 heroImage: code-security-147ad97b77.jpeg
@@ -83,7 +83,7 @@ The eCDN (Salesforce's embedded content delivery network) in front of your store
 
 ## Security Best Practices
 
-Lucky for me (and you), Salesforce has already written quite a few guidelines on Security Best Practices for Developers.
+Salesforce has already documented security best practices for developers, which spares me — and you — from working them out from scratch.
 
 On the [Salesforce Commerce Cloud Infocenter](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_security_best_practices_for_developers.htm), there is a lot of information already documented about different types of attacks and how to mitigate them:
 
@@ -102,7 +102,7 @@ On the [Salesforce Commerce Cloud Infocenter](https://help.salesforce.com/s/arti
 - [General Secure Coding Practices](https://help.salesforce.com/s/articleView?language=en_US&id=cc.b2c_general_secure_coding_practices.htm)
 - [AgentExchange Security Reviews](https://developer.salesforce.com/docs/atlas.en-us.packagingGuide.meta/packagingGuide/secure_code_b2c_commerce.htm) (this guide covered AppExchange until Salesforce folded it into AgentExchange)
 
-Quite the list, isn't it! Even though Salesforce takes care of quite a few things, you still need to keep yourself in check. Follow the provided guidelines not to compromise the channels you implement on Salesforce B2C Commerce Cloud.
+Quite the list, isn't it! Salesforce handles the infrastructure layer, but skip these guidelines and the next incident review will ask why the documented pattern wasn't followed.
 
 ## Security Headers in SFRA
 
