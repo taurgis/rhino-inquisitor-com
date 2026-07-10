@@ -83,13 +83,48 @@ All flagged links were checked live this task:
 - "BFRA (Back-End Reference Architecture)" joke (line 102) → confirmed via web search that
   no such product or term exists at Salesforce. Still just a joke; left unchanged.
 
+## Follow-up line-edit pass
+
+A second, narrower pass ran `anti-ai-writing`, `human-prose-editing`, and (for the one section
+that actually teaches a technical concept) `beginner-technical-writing` across the full article,
+per `post-writing-skills.instructions.md`. This tightened generic or padded sentences outside the
+two sections explicitly protected in the original brief — the "inspirational speech" crescendo
+(lines 36-38, punchline at line 40) and the "Career Aspirations" closing section, both left
+untouched as intentional voice, not scaffolding.
+
+Changes made:
+
+- "Advantages of a monolith": cut a throat-clearing "First and foremost" opener and a redundant
+  clause; replaced the cliché close ("simplicity is the key to success") with a sharper verdict
+  line.
+- "The Composable Storefront uses 'boring' technology": cut a "This is because" throat-clear,
+  de-hedged a stacked-qualifier sentence about experimental libraries, and tightened a wordy,
+  prepositional-clutter sentence about the training/Slack pitch.
+- Fixed a subject-verb agreement slip ("how eCommerce and Salesforce works" → "...work").
+- "Other platforms": replaced vague corporate-speak ("recognise the fierce competition...stay
+  ahead in innovation and customer satisfaction") and cut a content-free follow-up sentence
+  ("complacency is not an option..."), without asserting any unsourced claims about Salesforce's
+  competitive strategy.
+- "Willingness to learn and evolve": replaced a cliché "constantly evolving technology landscape"
+  opener with the more concrete SaaS-release-cadence point already implicit in the sentence; cut
+  a textbook "it's important to note that" throat-clear.
+- "What about back-end development": applied `beginner-technical-writing` to define "Rhino
+  Engine" and "ISML" on first use (this section teaches a technical concept, unlike the rest of
+  the opinion piece) and replaced the vague adjective "crucial" with a concrete statement of what
+  they do.
+- Added "templating" to the spelling allow-list (a standard, widely-used technical term
+  introduced by the ISML definition above).
+
 ## Impact and verification
 
-- Impacted: one published post; one spelling allow-list addition
-  (`scripts/gates/spelling-allow.txt`, added "shadcn" for the new Storefront Next section).
-  `date`, `url`, and `takeaways` untouched.
+- Impacted: one published post; two spelling allow-list additions
+  (`scripts/gates/spelling-allow.txt`: "shadcn" for the Storefront Next section, "templating" for
+  the ISML definition added in the line-edit pass). `date`, `url`, and `takeaways` untouched.
 - Verified with: `npm run validate:frontmatter`, `npm run check:spelling`,
-  `npx markdownlint-cli2` on the post, and `npm run build:local`.
+  `npx markdownlint-cli2` on the post, and `npm run build:local`. The Hugo binary is not present
+  in this task's execution environment, so the compile step of `build:local` could not be
+  exercised end-to-end in either pass — everything ahead of it (frontmatter validation, spelling,
+  markdownlint, AVIF cache generation) ran clean.
 
 ## Related files
 
