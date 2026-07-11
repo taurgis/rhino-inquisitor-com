@@ -4,7 +4,7 @@ description: >-
   Storefront Next's real architecture, what actually changes if you migrate
   from PWA Kit, and why most SFRA shops have a safer path in front of them.
 date: '2026-07-11T18:29:24.000Z'
-lastmod: '2026-07-11T19:07:50.000Z'
+lastmod: '2026-07-11T19:12:12.000Z'
 url: /storefront-next-architecture-and-migration-from-pwa-kit/
 draft: true
 heroImage: storefront-next-migration-hero.jpg
@@ -28,7 +28,7 @@ takeaways:
   - "Warns that marketing claims of week-long AI-assisted migrations gloss over a real rewrite across state, styling, and tooling"
   - "Frames the SFRA-to-Storefront-Next hybrid path as a shorter, lower-risk route than a full PWA Kit rewrite for most current readers"
 ---
-A CEO went on the record with a number that stopped me mid-scroll: an accelerator that took six developers six months to build on PWA Kit was ported to Storefront Next "in just over a week with six agents." Read that twice. Either something extraordinary happened, or a lot of nuance got left out of one sentence.
+A CEO went on the record with a number that stopped me mid-scroll: an accelerator that took six developers six months to build on PWA Kit was ported to Storefront Next ["in just over a week with six agents."](https://www.salesforce.com/blog/storefront-next/) Read that twice. Either something extraordinary happened, or a lot of nuance got left out of one sentence.
 
 Both, and I can say so with a straight face because that accelerator is one my team and I worked on — full disclosure, the CEO doing the quoting also happens to sign my paycheck, so weigh my straight face accordingly.
 
@@ -116,7 +116,7 @@ Migrating three top-of-funnel page types behind a route-splitting rule is a diff
 
 ## What the Marketing Leaves Out
 
-None of this makes the "just over a week" claim a lie — I was there, and the week is real. It makes it a headline missing its footnote. A week gets you the mechanical layers: routing, data fetching, the parts an agent can transform with a grep and a pattern match. It doesn't tell you that "just over a week" landed at roughly 80% done, that almost all of the missing 20% was styling, or that six developers' worth of institutional knowledge about the accelerator's edge cases doesn't transfer to an agent just because the agent has read the code.
+None of this makes the "just over a week" claim a lie — I was there, and the week is real. It makes it a headline missing its footnote. A week gets you the mechanical layers: routing, data fetching, the parts an agent can transform with a grep and a pattern match. It doesn't tell you that "just over a week" landed at roughly 80% done, that almost all of the missing 20% was styling, or that six developers' worth of institutional knowledge about the accelerator's edge cases doesn't transfer to an agent just because the agent has read the code. Even the number itself isn't fixed: [the same story made the rounds on LinkedIn](https://www.linkedin.com/posts/calebfbryant_its-coffee-commerce-time-and-i-am-pumped-ugcPost-7449826546925666304-Ymm0) with five days and one architect plus six agents, instead of a week and six developers-turned-agents. Nobody's lying — the story just gets rounder every time someone else retells it, which is exactly why you should measure your own migration instead of borrowing someone else's number.
 
 It also doesn't mention the bill. Getting there ran several agents in parallel on frontier-tier models for days at a stretch: Fable and Opus 4.8 on the planning and architecture calls, Opus 4.8 and Sonnet 5 doing the bulk of the actual migration work. Set against six developer-months, that's not a rounding error, but it isn't free either — I've got a separate post working through [what an agent fleet like that actually costs, and how to keep the spend honest](/tokens-arent-free-picking-models-and-keeping-agents-grounded/).
 
