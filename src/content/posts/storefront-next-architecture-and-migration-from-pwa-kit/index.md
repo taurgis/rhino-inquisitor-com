@@ -4,7 +4,7 @@ description: >-
   Storefront Next's real architecture, what actually changes if you migrate
   from PWA Kit, and why most SFRA shops have a safer path in front of them.
 date: '2026-07-11T18:29:24.000Z'
-lastmod: '2026-07-11T18:54:31.000Z'
+lastmod: '2026-07-11T18:59:16.000Z'
 url: /storefront-next-architecture-and-migration-from-pwa-kit/
 draft: true
 heroImage: storefront-next-migration-hero.jpg
@@ -30,7 +30,7 @@ takeaways:
 ---
 A CEO went on the record with a number that stopped me mid-scroll: an accelerator that took six developers six months to build on PWA Kit was ported to Storefront Next "in just over a week with six agents." Read that twice. Either something extraordinary happened, or a lot of nuance got left out of one sentence.
 
-Both, and I can say so with a straight face because that accelerator is one I worked on. The number isn't fabricated — six agents did compress a six-month build into about a week. What the quote skips is the finish line: a week got us to roughly 80% done, not the clean handover the sentence implies. I was genuinely astonished at how far the models got on their own. I was less astonished, once the token bill came in, that none of this was free.
+Both, and I can say so with a straight face because that accelerator is one my team and I worked on. The number isn't fabricated — six agents did compress a six-month build into about a week. What the quote skips is the finish line: a week got us to roughly 80% done, not the clean handover the sentence implies. I was genuinely astonished at how far the models got on their own. I was less astonished, once the token bill came in, that none of this was free.
 
 This is also the post two of my older ones owe you. [SiteGenesis vs SFRA vs PWA](/sitegenesis-vs-sfra-vs-pwa/) flagged Storefront Next as "new enough that this comparison doesn't cover it." [What Composable Storefront Means for SFCC Developers](/what-does-the-composable-storefront-mean-for-sfcc-developers/) went further: "I haven't built anything on it yet, so I won't hand out a feature-by-feature verdict here." I have now. Here's the verdict.
 
@@ -44,7 +44,7 @@ The overview guide sums up the shift better than I can: PWA Kit is "a client-hea
 
 ## What Actually Happened
 
-Numbers, not vibes: the accelerator landed at roughly 80% ported in about a week, not the finished product the headline implies. Separately, I also took a set of customer-facing demo environments to roughly 75% parity with their current design in a few days. Both ran through an agentic migration workflow built specifically for this — several agents working the codebase in parallel, not a human developer manually retyping components, and not a single prompt asking an agent to "port this app."
+Numbers, not vibes: the accelerator landed at roughly 80% ported in about a week, not the finished product the headline implies. Separately, we also took a set of customer-facing demo environments to roughly 75% parity with their current design in a few days. Both ran through an agentic migration workflow with sub-agents my team and I shaped specifically for this kind of migration — not a human developer manually retyping components, and not a single prompt asking an agent to "port this app."
 
 The gap between 100% and where those numbers landed is the part worth dwelling on, because it wasn't evenly spread across the codebase. Routing, data fetching, and auth ported fast — the diffs are mechanical enough that an agent with the right context gets them right on the first or second pass. Styling was the layer that ate the extra time. Point an agent at a page full of Chakra components and ask for the Tailwind/shadcn equivalent without first grounding it in your actual design tokens and component conventions, and you'll burn tokens on output that looks plausible and is subtly wrong: spacing that's almost right, a shadcn variant reached for where a custom class was needed, a component that renders fine in isolation but doesn't compose the way the rest of the app expects. This isn't a one-off complaint about a bad prompt — it's a pattern enough people doing agentic frontend work have run into that the general advice now is to keep an agent focused on logic and data, and give it explicit, upfront grounding before it touches styling at all. Once we built that grounding into our own workflow, styling stopped being the bottleneck. Skip it, and it will be yours too.
 
@@ -130,6 +130,6 @@ If you're on PWA Kit today and it's doing its job, there's no fire drill here �
 
 If you're on SFRA, the calculus is different and, in my experience, more interesting: the hybrid path lets you put a modern frontend in front of shoppers on the pages that matter most for conversion, without touching checkout or betting the whole storefront on day one. That's the project I'd actually recommend starting first.
 
-Whichever path you're on, don't hand an agent your styling system without grounding it first. That one lesson cost me more time than everything else in this migration combined — and it's the cheapest lesson in this whole post to take on faith instead of learning the hard way.
+Whichever path you're on, don't hand an agent your styling system without grounding it first. That one lesson cost my team and me more time than everything else in this migration combined — and it's the cheapest lesson in this whole post to take on faith instead of learning the hard way.
 
 Consider both footnotes closed.
