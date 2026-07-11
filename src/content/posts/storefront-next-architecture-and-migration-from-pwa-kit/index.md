@@ -4,7 +4,7 @@ description: >-
   Storefront Next's real architecture, what actually changes if you migrate
   from PWA Kit, and why most SFRA shops have a safer path in front of them.
 date: '2026-07-11T18:29:24.000Z'
-lastmod: '2026-07-11T18:59:16.000Z'
+lastmod: '2026-07-11T19:07:50.000Z'
 url: /storefront-next-architecture-and-migration-from-pwa-kit/
 draft: true
 heroImage: storefront-next-migration-hero.jpg
@@ -30,7 +30,9 @@ takeaways:
 ---
 A CEO went on the record with a number that stopped me mid-scroll: an accelerator that took six developers six months to build on PWA Kit was ported to Storefront Next "in just over a week with six agents." Read that twice. Either something extraordinary happened, or a lot of nuance got left out of one sentence.
 
-Both, and I can say so with a straight face because that accelerator is one my team and I worked on. The number isn't fabricated — six agents did compress a six-month build into about a week. What the quote skips is the finish line: a week got us to roughly 80% done, not the clean handover the sentence implies. I was genuinely astonished at how far the models got on their own. I was less astonished, once the token bill came in, that none of this was free.
+Both, and I can say so with a straight face because that accelerator is one my team and I worked on — full disclosure, the CEO doing the quoting also happens to sign my paycheck, so weigh my straight face accordingly.
+
+I'm aware that makes the rest of this paragraph sound like I'm marketing my own work back to you. I am, a little, and I'd rather say so than have you notice first. But the number itself isn't the marketing: six agents did compress a six-month build into about a week, I watched it happen, and pretending otherwise just to sound less like a launch quote would be its own kind of dishonest. What the quote skips is the finish line: a week got us to roughly 80% done, not the clean handover the sentence implies. I was genuinely astonished at how far the models got on their own. I was less astonished, once the token bill came in, that none of this was free.
 
 This is also the post two of my older ones owe you. [SiteGenesis vs SFRA vs PWA](/sitegenesis-vs-sfra-vs-pwa/) flagged Storefront Next as "new enough that this comparison doesn't cover it." [What Composable Storefront Means for SFCC Developers](/what-does-the-composable-storefront-mean-for-sfcc-developers/) went further: "I haven't built anything on it yet, so I won't hand out a feature-by-feature verdict here." I have now. Here's the verdict.
 
