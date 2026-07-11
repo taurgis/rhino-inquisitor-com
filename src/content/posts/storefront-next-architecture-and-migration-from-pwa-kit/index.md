@@ -4,7 +4,7 @@ description: >-
   Storefront Next's real architecture, what actually changes if you migrate
   from PWA Kit, and why most SFRA shops have a safer path in front of them.
 date: '2026-07-11T18:29:24.000Z'
-lastmod: '2026-07-11T18:29:24.000Z'
+lastmod: '2026-07-11T18:54:31.000Z'
 url: /storefront-next-architecture-and-migration-from-pwa-kit/
 draft: true
 heroImage: storefront-next-migration-hero.jpg
@@ -28,9 +28,9 @@ takeaways:
   - "Warns that marketing claims of week-long AI-assisted migrations gloss over a real rewrite across state, styling, and tooling"
   - "Frames the SFRA-to-Storefront-Next hybrid path as a shorter, lower-risk route than a full PWA Kit rewrite for most current readers"
 ---
-A partner's CEO went on the record with a number that stopped me mid-scroll: an accelerator that took six developers six months to build on PWA Kit was ported to Storefront Next "in just over a week with six agents." Read that twice. Either something extraordinary happened, or a lot of nuance got left out of one sentence.
+A CEO went on the record with a number that stopped me mid-scroll: an accelerator that took six developers six months to build on PWA Kit was ported to Storefront Next "in just over a week with six agents." Read that twice. Either something extraordinary happened, or a lot of nuance got left out of one sentence.
 
-Both, as it turns out. I've spent the last few weeks doing something similar myself — porting a chunk of an existing accelerator to Storefront Next and standing up a handful of customer-facing demo environments on it, using an agentic migration workflow rather than a manual rewrite. The speed is real. So is the part the marketing quote skips: which 20% doesn't come along for free, and why.
+Both, and I can say so with a straight face because that accelerator is one I worked on. The number isn't fabricated — six agents did compress a six-month build into about a week. What the quote skips is the finish line: a week got us to roughly 80% done, not the clean handover the sentence implies. I was genuinely astonished at how far the models got on their own. I was less astonished, once the token bill came in, that none of this was free.
 
 This is also the post two of my older ones owe you. [SiteGenesis vs SFRA vs PWA](/sitegenesis-vs-sfra-vs-pwa/) flagged Storefront Next as "new enough that this comparison doesn't cover it." [What Composable Storefront Means for SFCC Developers](/what-does-the-composable-storefront-mean-for-sfcc-developers/) went further: "I haven't built anything on it yet, so I won't hand out a feature-by-feature verdict here." I have now. Here's the verdict.
 
@@ -42,9 +42,9 @@ What changes is everything above that backend. The [architecture guide](https://
 
 The overview guide sums up the shift better than I can: PWA Kit is "a client-heavy, hook-driven architecture," Storefront Next is "server-first." That single sentence explains most of what follows.
 
-## What I Actually Built On It
+## What Actually Happened
 
-Numbers, not vibes: I ported roughly 80% of an existing accelerator to Storefront Next in about a week, and got a set of customer-facing demo environments to roughly 75% parity with their current design in a few days. Both used an agentic migration workflow built specifically for this — not a human developer manually retyping components, and not a single prompt asking an agent to "port this app."
+Numbers, not vibes: the accelerator landed at roughly 80% ported in about a week, not the finished product the headline implies. Separately, I also took a set of customer-facing demo environments to roughly 75% parity with their current design in a few days. Both ran through an agentic migration workflow built specifically for this — several agents working the codebase in parallel, not a human developer manually retyping components, and not a single prompt asking an agent to "port this app."
 
 The gap between 100% and where those numbers landed is the part worth dwelling on, because it wasn't evenly spread across the codebase. Routing, data fetching, and auth ported fast — the diffs are mechanical enough that an agent with the right context gets them right on the first or second pass. Styling was the layer that ate the extra time. Point an agent at a page full of Chakra components and ask for the Tailwind/shadcn equivalent without first grounding it in your actual design tokens and component conventions, and you'll burn tokens on output that looks plausible and is subtly wrong: spacing that's almost right, a shadcn variant reached for where a custom class was needed, a component that renders fine in isolation but doesn't compose the way the rest of the app expects. This isn't a one-off complaint about a bad prompt — it's a pattern enough people doing agentic frontend work have run into that the general advice now is to keep an agent focused on logic and data, and give it explicit, upfront grounding before it touches styling at all. Once we built that grounding into our own workflow, styling stopped being the bottleneck. Skip it, and it will be yours too.
 
@@ -114,9 +114,11 @@ Migrating three top-of-funnel page types behind a route-splitting rule is a diff
 
 ## What the Marketing Leaves Out
 
-None of this makes the "just over a week" claim a lie. It makes it a headline missing its footnote. A week gets you the mechanical layers — routing, data fetching, the parts an agent can transform with a grep and a pattern match. It doesn't tell you whether that week included getting the styling system right, whether "just over a week" was measured against a codebase that already had clean component boundaries, or whether six developers' worth of institutional knowledge about the accelerator's edge cases got captured anywhere along the way. My own numbers — 80% and 75% — sit close enough to that story to believe the fast part. They also show exactly where the remaining 20-25% goes, and it isn't nothing.
+None of this makes the "just over a week" claim a lie — I was there, and the week is real. It makes it a headline missing its footnote. A week gets you the mechanical layers: routing, data fetching, the parts an agent can transform with a grep and a pattern match. It doesn't tell you that "just over a week" landed at roughly 80% done, that almost all of the missing 20% was styling, or that six developers' worth of institutional knowledge about the accelerator's edge cases doesn't transfer to an agent just because the agent has read the code.
 
-The honest version of the pitch is: agentic migration genuinely compresses the mechanical rewrite, and it does so by roughly the order of magnitude the quote implies. It doesn't compress the parts that were never mechanical to begin with — design fidelity, edge cases nobody wrote down, and the judgement calls a senior developer makes without noticing they're making them. Budget for those separately, and the week-long number becomes credible instead of suspicious.
+It also doesn't mention the bill. Getting there ran several agents in parallel on frontier-tier models for days at a stretch: Fable and Opus 4.8 on the planning and architecture calls, Opus 4.8 and Sonnet 5 doing the bulk of the actual migration work. Set against six developer-months, that's not a rounding error, but it isn't free either — I've got a separate post working through [what an agent fleet like that actually costs, and how to keep the spend honest](/tokens-arent-free-picking-models-and-keeping-agents-grounded/).
+
+The honest version of the pitch is: agentic migration genuinely compresses the mechanical rewrite, and it does so by roughly the order of magnitude the quote implies. It doesn't compress the parts that were never mechanical to begin with — design fidelity, edge cases nobody wrote down, and the judgement calls a senior developer makes without noticing they're making them. Budget for those, and for the model bill, and the week-long number becomes credible instead of suspicious.
 
 ## One Genuine Bright Spot
 
