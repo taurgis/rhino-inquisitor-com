@@ -23,6 +23,7 @@ aes
 aesh
 affronti
 agentforce
+agentic
 ahold
 akamai
 akshatha
@@ -168,6 +169,8 @@ cybersource
 cyr
 datadog
 datalayer
+dataspace
+dataspaces
 datasheet
 deliverability
 demandware
@@ -581,12 +584,15 @@ stg
 str
 stylesheet
 stylesheets
+subagent
+subagents
 subclasses
 subcommand
 subdirectories
 subdirectory
 subfolder
 subfolders
+summarize
 sunsetted
 sunsetting
 superbadge
