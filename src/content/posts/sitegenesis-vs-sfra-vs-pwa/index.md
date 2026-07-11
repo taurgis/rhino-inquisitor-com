@@ -4,7 +4,7 @@ description: >-
   Those interested in Salesforce B2C Commerce Cloud will hear the term
   SiteGenesis and SFRA (and PWA). But what is the difference?
 date: '2022-07-17T13:42:22.000Z'
-lastmod: '2026-07-09T13:40:46.000Z'
+lastmod: '2026-07-11T18:29:24.000Z'
 url: /sitegenesis-vs-sfra-vs-pwa/
 draft: false
 heroImage: sfra-vs-sitegenesis-965c09b9a6.jpg
@@ -170,7 +170,7 @@ That's a shorter, more nuanced list than it was in 2022. Some gaps are closed ou
 
 ## Comparison
 
-One thing to flag before the summary: this article compares SiteGenesis, SFRA, and the PWA Kit specifically. Salesforce's newest recommended headless option, as of 2026, is actually [Storefront Next](https://developer.salesforce.com/docs/commerce/commerce-api/guide/which-product.html) — a different frontend stack (React Router 7, React 19, Vite) sitting on the same SCAPI and Managed Runtime backend described above. It's new enough that this comparison doesn't cover it, but check it before you commit to the PWA Kit on a greenfield project.
+One thing to flag before the summary: this article compares SiteGenesis, SFRA, and the PWA Kit specifically. Salesforce's newest recommended headless option, as of 2026, is actually [Storefront Next](https://developer.salesforce.com/docs/commerce/commerce-api/guide/which-product.html) — a different frontend stack (React Router 7, React 19, Vite) sitting on the same SCAPI and Managed Runtime backend described above. It's new enough that this comparison doesn't cover it in depth — I've since written up [its architecture and what actually changes if you're migrating from PWA Kit](/storefront-next-architecture-and-migration-from-pwa-kit/) — but check it before you commit to the PWA Kit on a greenfield project.
 
 The following overview compresses the information above.
 
