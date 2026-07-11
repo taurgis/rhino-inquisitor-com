@@ -346,6 +346,7 @@ lockdown
 lockdowns
 lodash
 log center
+developer center
 logpush
 lohfink
 lohr
@@ -361,6 +362,7 @@ marchione
 matomo
 maxage
 maxime
+mcp
 mehta
 memoisation
 memoised
