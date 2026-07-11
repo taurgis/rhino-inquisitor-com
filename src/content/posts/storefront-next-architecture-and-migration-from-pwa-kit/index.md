@@ -9,9 +9,9 @@ url: /storefront-next-architecture-and-migration-from-pwa-kit/
 draft: true
 heroImage: storefront-next-migration-hero.jpg
 heroImageAlt: >-
-  Cartoon developer standing between two storefront models on a conveyor
-  belt, swapping a Chakra-labelled UI panel for a Tailwind-labelled one while
-  an AI agent hands over routing and data-fetching pieces already assembled.
+  Cartoon developer swaps a Chakra UI panel for a Tailwind one on a
+  storefront conveyor belt, while a robot hands over routing and
+  data-fetching pieces.
 categories:
   - Salesforce Commerce Cloud
   - Technical
