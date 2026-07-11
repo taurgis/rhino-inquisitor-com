@@ -7,7 +7,8 @@ date: '2026-07-11T14:30:00.000Z'
 lastmod: '2026-07-11T14:30:00.000Z'
 url: /which-salesforce-commerce-is-my-commerce/
 draft: true
-heroImage: ""
+heroImage: the-commerce-crossroads.png
+heroImageAlt: A signpost where both arrows read "Commerce" — one points to a dark server room, the other to a glass office tower.
 categories:
   - Salesforce Commerce Cloud
   - Technical
