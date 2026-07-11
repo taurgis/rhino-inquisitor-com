@@ -55,7 +55,14 @@ Six checks are usually enough. If you can't answer even the first one, that's wo
 
 That gap is structural. The buyer-group, buyer-account, and approval-policy objects — `BuyerAccount`, `BuyerGroup`, `CommerceEntitlementPolicy` — covered in [B2B Commerce's data model](https://developer.salesforce.com/docs/commerce/salesforce-commerce/guide/b2b-b2c-dev-data-model.html) simply don't exist on B2C Commerce. Every official page that mentions punch-out, tiered pricing, or an approval chain is written for the Core product instead.
 
-So what do SFCC shops actually build when a client insists on "B2B on SFCC"? Nothing off the shelf — it's custom work, built from parts B2C Commerce already has. Company accounts usually become a custom object linked to the customer profile, carrying a company ID and a credit limit. Role-based access is bolted on through customer groups and a bit of controller logic gating checkout, catalogue visibility, or pricing by group membership. Tiered and negotiated pricing rides on the price-book and promotion engine B2C Commerce already has, rather than a dedicated B2B pricing object. Approval workflows are the hardest part to fake — there's no native concept of "this order needs a manager's sign-off" in B2C Commerce, so shops either build a custom order-hold status with an email or Slack notification, or push that step out to an external procurement system entirely. It isn't elegant, and it isn't what the sales slide promised, but it works — Salesforce simply hasn't documented the pattern, because the official product for it lives elsewhere.
+So what do SFCC shops actually build when a client insists on "B2B on SFCC"? Nothing off the shelf — it's custom work, built from parts B2C Commerce already has.
+
+- **Company accounts.** Usually a custom object linked to the customer profile, carrying a company ID and a credit limit.
+- **Role-based access.** Bolted on through customer groups and a bit of controller logic gating checkout, catalogue visibility, or pricing by group membership.
+- **Tiered and negotiated pricing.** Rides on the price-book and promotion engine B2C Commerce already has, rather than a dedicated B2B pricing object.
+- **Approval workflows.** The hardest part to fake — there's no native concept of "this order needs a manager's sign-off" in B2C Commerce, so shops either build a custom order-hold status with an email or Slack notification, or push that step out to an external procurement system entirely.
+
+It isn't elegant, and it isn't what the sales slide promised, but it works — Salesforce hasn't documented the pattern, because the official product for it lives elsewhere.
 
 ## Same Word, Different Stack
 
@@ -64,8 +71,8 @@ Away from logins and IDs, the two products don't share a runtime, a data model, 
 | | B2C Commerce (SFCC) | B2B / D2C Commerce (Core) |
 | --- | --- | --- |
 | **Stack** | Realm-based, dedicated instances separate from the Salesforce platform | Runs inside a standard Salesforce org |
-| **APIs** | OCAPI (legacy) and SCAPI, plus the `dw.*` scripting API | Connect Commerce API, standard SOQL/CRUD over SObjects |
-| **Customisation model** | Cartridges, SFRA/SiteGenesis controllers, or PWA Kit | Lightning Web Components, LWR templates, Experience Builder |
+| **APIs** | OCAPI and SCAPI (SFCC's REST APIs), plus the `dw.*` server-side scripting API | Connect Commerce API, standard SOQL/CRUD over SObjects |
+| **Customisation model** | Cartridges (SFCC's packaged code modules), SFRA/SiteGenesis (SFCC's storefront frameworks), or PWA Kit (SFCC's React-based headless storefront) | Lightning Web Components, LWR (Lightning Web Runtime) templates, Experience Builder |
 | **Who builds it** | SFCC developers and architects, Business Manager admins | Salesforce admins (declarative), LWC developers |
 | **Core data objects** | Catalogues and categories managed in Business Manager | `Product2`, `PriceBook2`, `WebStore`, `WebCart`, `BuyerAccount`, `BuyerGroup` |
 
@@ -79,7 +86,7 @@ The mix-up isn't only a customer problem — it shows up in Salesforce's own doc
 
 Take the URL for that developer guide: `b2b-b2c-comm-dev-guide.html`. The slug promises a comparison of both products. Open it, and there's no B2C Commerce content anywhere — it's a B2B-only guide filed under a slug that promises both. The [data model page](https://developer.salesforce.com/docs/commerce/salesforce-commerce/guide/b2b-b2c-dev-data-model.html) does the same thing, right down to the diagram: its own alt text reads "Diagram of B2C data model," describing an image that lists `WebStore`, `BuyerAccount`, and `BuyerGroup` — objects that only exist in B2B Commerce.
 
-Even the intro page leans into it. "[Salesforce B2B Commerce](https://help.salesforce.com/s/articleView?id=commerce.comm_intro.htm)" explains that you can "use the B2B Commerce platform to create a direct-to-customer (D2C) channel and operate both a B2B and D2C channel from a single Salesforce org." That's worth remembering next time someone treats D2C Commerce as a third product: it isn't. It's a mode of B2B Commerce, running in the same org, on the same data model, one toggle away.
+The intro page leans into it just as hard. "[Salesforce B2B Commerce](https://help.salesforce.com/s/articleView?id=commerce.comm_intro.htm)" explains that you can "use the B2B Commerce platform to create a direct-to-customer (D2C) channel and operate both a B2B and D2C channel from a single Salesforce org." That's worth remembering next time someone treats D2C Commerce as a third product: it isn't. It's a mode of B2B Commerce, running in the same org, on the same data model, one toggle away.
 
 Salesforce's own release notes have gone further than that. When [Summer '23 unified B2B Commerce onto Lightning Web Runtime](https://help.salesforce.com/s/articleView?id=release-notes.rn_comm_lwr_for_b2b.htm&release=244), the release note put it plainly: "When you create a store, you can select either the B2C or B2B template based on the Lightning Web Runtime (LWR)." That's a literal "B2C" option in the Commerce app's store-creation screen — and it's still entirely Core: same LWR components, same org, same "B2B Commerce and D2C Commerce" licensing the note names as the products it applies to. Nothing about it touches Business Manager, OCAPI, or a single cartridge. Salesforce has since settled on "D2C" for this in its Trailhead material, but for a while its own UI used "B2C" for a Core template, which is a fair summary of why this whole topic is confusing in the first place.
 
