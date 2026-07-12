@@ -35,16 +35,38 @@ repository's version control.
 
 ## Recommended Cloudflare Transform Rule
 
-Configure a **Modify Response Header** Transform Rule in the Cloudflare
-dashboard for this zone:
+Steps in the Cloudflare dashboard, for the `rhino-inquisitor.com` zone
+([Response Header Transform Rules docs](https://developers.cloudflare.com/rules/transform/response-header-modification/create-dashboard/)):
 
-- **When incoming requests match**: Hostname is `rhino-inquisitor.com` or
-  `www.rhino-inquisitor.com` AND URI Path equals `/`
-- **Then**: Set static header `Link` to:
+1. Go to **Rules** → **Overview** for the zone.
+2. Select **Create rule** → **Response Header Transform Rule**.
+3. **Rule name**: `Agent discovery Link header` (or similar).
+4. **When incoming requests match**: choose **Custom filter expression**
+   and enter (Expression Editor, not the field-by-field builder, is
+   easiest for the `or`):
 
-  ```text
-  </llms.txt>; rel="describedby"
-  ```
+   ```text
+   (http.host eq "rhino-inquisitor.com" or http.host eq "www.rhino-inquisitor.com") and http.request.uri.path eq "/"
+   ```
+
+5. Under **Modify response header**, select **Set static**.
+6. **Header name**: `Link`
+7. **Value**:
+
+   ```text
+   </llms.txt>; rel="describedby"
+   ```
+
+8. Leave it at one header modification (no need for **Set new header**).
+9. Select **Deploy** (not **Save as Draft**) to make it live immediately.
+   If prompted about a proxied DNS record for the hostname, confirm the
+   zone's `A`/`CNAME` records for both `rhino-inquisitor.com` and `www` are
+   already proxied (orange-clouded) — they should be, since HSTS/CSP-style
+   headers already work today.
+
+Using **Set static** (not **Add static**) means this rule also fixes the
+header if a future rule or origin change ever emits a conflicting `Link`
+value — it always overrides to this one on `/`.
 
 `describedby` (registered via POWDER, listed in the IANA Link Relations
 registry) is the relation that fits this site: it "refers to a resource
