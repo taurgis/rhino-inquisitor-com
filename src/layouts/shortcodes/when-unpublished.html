@@ -1,0 +1,44 @@
+{{- /*
+  Shortcode: when-unpublished
+  The "else" branch of when-published: renders its inner Markdown only while
+  the target internal URL does NOT resolve to a page in the current build.
+  Pair the two to swap wording at publish time — the interim paragraph lives
+  in when-unpublished, its replacement in when-published, and the switch
+  happens automatically on the first build after the target goes live.
+
+    {{< when-unpublished target="/planned-article/" >}}
+    I haven't published the deep dive yet, so the short version: check the
+    official guide before committing.
+    {{< /when-unpublished >}}
+    {{< when-published target="/planned-article/" >}}
+    I've since written [the full deep dive](/planned-article/) — start there.
+    {{< /when-published >}}
+
+  Same contract as when-published: standard notation ({{< >}}) required,
+  `target` is the exact `url` front matter value of the gating page, and
+  optional display="inline" splices a phrase into surrounding text instead
+  of emitting a block.
+
+  Behavior:
+    - Target not in the build (draft)  -> inner Markdown renders in place.
+    - Target resolves to a built page  -> block is omitted, silently: this
+      is the expected end state. The gate reports the leftover source as a
+      `stale-fallback` notice so it gets removed on a later editorial pass.
+
+  scripts/gates/check-when-published.js validates every target against
+  content front matter, so a typo'd target cannot pin a fallback forever.
+  Contract details: docs/publishing/when-published-shortcode.md
+*/ -}}
+{{- $target := .Get "target" -}}
+{{- $display := .Get "display" | default "block" -}}
+{{- if not $target -}}
+  {{- errorf "when-unpublished shortcode requires a 'target' argument (the pretty URL that must be live): see %s" .Position -}}
+{{- else if not (and (hasPrefix $target "/") (hasSuffix $target "/")) -}}
+  {{- errorf "when-unpublished target %q must start and end with '/' (same format as url front matter): see %s" $target .Position -}}
+{{- else if not (or (eq $display "block") (eq $display "inline")) -}}
+  {{- errorf "when-unpublished display %q must be \"block\" or \"inline\": see %s" $display .Position -}}
+{{- else -}}
+  {{- if not (where site.Pages "RelPermalink" $target) -}}
+    {{- .InnerDeindent | strings.TrimSpace | .Page.RenderString (dict "display" $display) -}}
+  {{- end -}}
+{{- end -}}

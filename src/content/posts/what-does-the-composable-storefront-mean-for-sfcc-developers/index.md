@@ -115,9 +115,15 @@ Additionally, this also provides an opportunity for experienced SFCC developers:
 
 ## A 2026 footnote: Storefront Next
 
-Here's something 2023-me didn't see coming: by 2026, PWA Kit itself is no longer Salesforce's top recommendation. That spot now belongs to [Storefront Next](/sitegenesis-vs-sfra-vs-pwa/), a newer storefront built on React Router 7, React 19, Tailwind CSS, and shadcn/ui, which Salesforce's own [product guidance](https://developer.salesforce.com/docs/commerce/commerce-api/guide/which-product.html) now lists as the "Recommended option" ahead of both SFRA and PWA Kit. There's an official path for migrating from PWA Kit to it, and a hybrid one for going straight from SFRA.
+Here's something 2023-me didn't see coming: by 2026, PWA Kit itself is no longer Salesforce's top recommendation. That spot now belongs to {{< when-unpublished target="/storefront-next-architecture-and-migration-from-pwa-kit/" display="inline" >}}[Storefront Next](/sitegenesis-vs-sfra-vs-pwa/){{< /when-unpublished >}}{{< when-published target="/storefront-next-architecture-and-migration-from-pwa-kit/" display="inline" >}}[Storefront Next](/storefront-next-architecture-and-migration-from-pwa-kit/){{< /when-published >}}, a newer storefront built on React Router 7, React 19, Tailwind CSS, and shadcn/ui, which Salesforce's own [product guidance](https://developer.salesforce.com/docs/commerce/commerce-api/guide/which-product.html) now lists as the "Recommended option" ahead of both SFRA and PWA Kit. There's an official path for migrating from PWA Kit to it, and a hybrid one for going straight from SFRA.
 
+{{< when-unpublished target="/storefront-next-architecture-and-migration-from-pwa-kit/" >}}
 I haven't built anything on it yet, so I won't hand out a feature-by-feature verdict here. But it's worth knowing the name if you're weighing your next move — the Composable Storefront story didn't stop at PWA Kit, and it won't be the last name on this list either.
+{{< /when-unpublished >}}
+
+{{< when-published target="/storefront-next-architecture-and-migration-from-pwa-kit/" >}}
+I hadn't built anything on it when I first wrote this footnote, so I held off on a feature-by-feature verdict. I have now, and [the full write-up](/storefront-next-architecture-and-migration-from-pwa-kit/) covers the architecture, what a real PWA Kit migration costs versus what the marketing says it costs, and why the SFRA-to-Storefront-Next hybrid path is the more relevant question for most readers here. The Composable Storefront story didn't stop at PWA Kit, and it won't be the last name on this list either.
+{{< /when-published >}}
 
 ## Career Aspirations
 

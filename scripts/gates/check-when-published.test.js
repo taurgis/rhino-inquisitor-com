@@ -80,6 +80,49 @@ test('a document without the shortcode yields nothing', () => {
   assert.deepEqual(noticeTypes(result), []);
 });
 
+function wrapElse(target, inner = 'The interim wording.\n') {
+  return `{{< when-unpublished target="${target}" >}}\n${inner}{{< /when-unpublished >}}\n`;
+}
+
+test('when-unpublished on a draft target passes with a fallback-active notice', () => {
+  const result = analyzeSource(wrapElse('/planned-article/'), INDEX);
+  assert.deepEqual(findingTypes(result), []);
+  assert.deepEqual(noticeTypes(result), ['fallback-active']);
+});
+
+test('when-unpublished on a published target passes with a stale-fallback notice', () => {
+  const result = analyzeSource(wrapElse('/live-article/'), INDEX);
+  assert.deepEqual(findingTypes(result), []);
+  assert.deepEqual(noticeTypes(result), ['stale-fallback']);
+});
+
+test('an if/else pair on the same target yields one notice per branch', () => {
+  const source = wrapElse('/planned-article/') + '\n' + wrap('/planned-article/');
+  const result = analyzeSource(source, INDEX);
+  assert.deepEqual(findingTypes(result), []);
+  assert.deepEqual(noticeTypes(result), ['fallback-active', 'pending']);
+});
+
+test('display="inline" and display="block" pass; anything else is blocked', () => {
+  const inline = `{{< when-published target="/planned-article/" display="inline" >}}x{{< /when-published >}}\n`;
+  assert.deepEqual(findingTypes(analyzeSource(inline, INDEX)), []);
+  const block = `{{< when-unpublished target="/planned-article/" display=block >}}x{{< /when-unpublished >}}\n`;
+  assert.deepEqual(findingTypes(analyzeSource(block, INDEX)), []);
+  const bad = `{{< when-published target="/planned-article/" display="inilne" >}}x{{< /when-published >}}\n`;
+  assert.ok(findingTypes(analyzeSource(bad, INDEX)).includes('invalid-display'));
+});
+
+test('a when-published closing tag does not close a when-unpublished block', () => {
+  const source = '{{< when-unpublished target="/planned-article/" >}}\nx\n{{< /when-published >}}\n';
+  const result = analyzeSource(source, INDEX);
+  assert.ok(findingTypes(result).includes('unclosed'));
+});
+
+test('when-unpublished with a typo target is blocked', () => {
+  const result = analyzeSource(wrapElse('/whcih-typo/'), INDEX);
+  assert.deepEqual(findingTypes(result), ['unknown-target']);
+});
+
 // --- blocking shapes ----------------------------------------------------------
 
 test('markdown notation is blocked (rendered HTML would be Goldmark-processed twice)', () => {

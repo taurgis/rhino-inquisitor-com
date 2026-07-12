@@ -6,21 +6,32 @@
   publishes — a live article can reference a planned one without shipping a
   dead internal link in the meantime.
 
+  The "else" branch is the companion shortcode when-unpublished (same
+  contract, inverted condition): wrap the interim wording in it to swap a
+  paragraph at publish time instead of just adding one.
+
   Usage — standard notation ({{< >}}, not {{% %}}) is REQUIRED: the template
-  renders the inner Markdown itself via RenderString in block mode, so the
-  page's render hooks (callouts, links) apply exactly once. With {{% %}} the
-  already-rendered HTML would be pushed through Goldmark a second time and
-  stripped.
+  renders the inner Markdown itself via RenderString, so the page's render
+  hooks (callouts, links) apply exactly once. With {{% %}} the already-
+  rendered HTML would be pushed through Goldmark a second time and stripped.
 
     {{< when-published target="/planned-article/" >}}
     > [!NOTE]
     > An update: see [the new post](/planned-article/) for the current answer.
     {{< /when-published >}}
 
+  Inline form, for a phrase inside a sentence or list item (no <p> wrapper):
+
+    - **Some product.** Description of it.{{< when-published
+      target="/planned-article/" display="inline" >}} [Read the deep
+      dive.](/planned-article/){{< /when-published >}}
+
   Parameters:
-    - target: pretty URL of the internal page that must be live before the
-              block renders — REQUIRED. Same format as `url` front matter:
-              lowercase, leading and trailing slash.
+    - target:  pretty URL of the internal page that must be live before the
+               block renders — REQUIRED. Same format as `url` front matter:
+               lowercase, leading and trailing slash.
+    - display: "block" (default) for standalone paragraphs, callouts, lists;
+               "inline" for a phrase spliced into surrounding text.
 
   Behavior:
     - Target resolves to a built page  -> inner Markdown renders in place.
@@ -32,13 +43,16 @@
   Contract details: docs/publishing/when-published-shortcode.md
 */ -}}
 {{- $target := .Get "target" -}}
+{{- $display := .Get "display" | default "block" -}}
 {{- if not $target -}}
   {{- errorf "when-published shortcode requires a 'target' argument (the pretty URL that must be live): see %s" .Position -}}
 {{- else if not (and (hasPrefix $target "/") (hasSuffix $target "/")) -}}
   {{- errorf "when-published target %q must start and end with '/' (same format as url front matter): see %s" $target .Position -}}
+{{- else if not (or (eq $display "block") (eq $display "inline")) -}}
+  {{- errorf "when-published display %q must be \"block\" or \"inline\": see %s" $display .Position -}}
 {{- else -}}
   {{- with where site.Pages "RelPermalink" $target -}}
-    {{- $.InnerDeindent | strings.TrimSpace | $.Page.RenderString (dict "display" "block") -}}
+    {{- $.InnerDeindent | strings.TrimSpace | $.Page.RenderString (dict "display" $display) -}}
   {{- else -}}
     {{- warnf "when-published: target %q is not published yet — hiding block in %s" $target $.Page.File.Path -}}
   {{- end -}}

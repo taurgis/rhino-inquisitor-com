@@ -7,16 +7,18 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 const execFileAsync = promisify(execFile);
 
 /**
- * Blocking gate for the `when-published` shortcode
- * (src/layouts/shortcodes/when-published.html).
+ * Blocking gate for the `when-published` / `when-unpublished` shortcode pair
+ * (src/layouts/shortcodes/when-published.html and when-unpublished.html).
  *
- * The shortcode hides a block until its `target` URL resolves to a built
+ * when-published hides a block until its `target` URL resolves to a built
  * page, so live articles can reference planned (draft) articles without
- * shipping a dead internal link. That only works if the target is real: the
- * shortcode matches against `RelPermalink` at build time, so a typo'd target
- * never matches anything and silently hides the block forever. This gate
- * closes that hole by validating every target against content front matter,
- * where both draft and published URLs are visible.
+ * shipping a dead internal link; when-unpublished is the "else" branch,
+ * rendering interim wording only while the target is still draft. Either
+ * way the shortcode matches against `RelPermalink` at build time, so a
+ * typo'd target never matches anything — silently hiding a block forever,
+ * or pinning a fallback forever. This gate closes that hole by validating
+ * every target against content front matter, where both draft and published
+ * URLs are visible.
  *
  * Findings (blocking):
  *
@@ -43,10 +45,14 @@ const execFileAsync = promisify(execFile);
  *
  * Notices (non-blocking, informational):
  *
- *   - pending   — target exists but is still draft: the block is hidden by
- *                 design. Listed so pending content stays discoverable.
- *   - unwrap    — target is already published: the wrapper is inert and can
- *                 be removed on the next editorial pass (no urgency).
+ *   - pending         — when-published on a draft target: hidden by design.
+ *                       Listed so pending content stays discoverable.
+ *   - unwrap          — when-published on a published target: the wrapper is
+ *                       inert; remove it on the next editorial pass.
+ *   - fallback-active — when-unpublished on a draft target: the interim
+ *                       wording is what readers currently see.
+ *   - stale-fallback  — when-unpublished on a published target: the block
+ *                       renders nothing anymore; remove the dead source.
  *
  * Fenced code blocks, inline code spans, HTML comments, and comment-escaped
  * shortcode examples (the form used in documentation) are masked before
@@ -63,12 +69,13 @@ const CONTENT_PREFIX = 'src/content/';
 const URL_SHAPE = /^\/[a-z0-9-]+(?:\/[a-z0-9-]+)*\/$/u;
 
 /**
- * One opening or self-closing when-published tag in either notation.
- * Closing tags ({{% /when-published %}}) are matched separately.
+ * One opening or self-closing tag of either shortcode in either notation.
+ * Closing tags are matched separately, per shortcode name.
  */
-const OPEN_TAG_PATTERN = /\{\{([%<])\s*when-published\b([^}]*?)(\/?)\s*[%>]\}\}/gu;
-const CLOSE_TAG_PATTERN = /\{\{[%<]\s*\/when-published\s*[%>]\}\}/gu;
+const OPEN_TAG_PATTERN = /\{\{([%<])\s*(when-published|when-unpublished)\b([^}]*?)(\/?)\s*[%>]\}\}/gu;
+const CLOSE_TAG_PATTERN = /\{\{[%<]\s*\/(when-published|when-unpublished)\s*[%>]\}\}/gu;
 const TARGET_ARG_PATTERN = /\btarget\s*=\s*(?:"([^"\n]*)"|'([^'\n]*)'|`([^`]*)`|(\S+))/u;
+const DISPLAY_ARG_PATTERN = /\bdisplay\s*=\s*(?:"([^"\n]*)"|'([^'\n]*)'|(\S+))/u;
 
 const MASK_CHAR = ' ';
 
@@ -184,19 +191,21 @@ function analyzeSource(source, index) {
   const notices = [];
   const masked = maskNonProse(source);
 
-  const closings = [...masked.matchAll(CLOSE_TAG_PATTERN)].length;
-  let openings = 0;
+  const closings = { 'when-published': 0, 'when-unpublished': 0 };
+  for (const match of masked.matchAll(CLOSE_TAG_PATTERN)) {
+    closings[match[1]] += 1;
+  }
+  const openings = { 'when-published': 0, 'when-unpublished': 0 };
 
   for (const match of masked.matchAll(OPEN_TAG_PATTERN)) {
-    const [, delimiter, args, selfClosing] = match;
+    const [, delimiter, name, args, selfClosing] = match;
     const line = lineOf(masked, match.index);
 
     if (delimiter === '%') {
       findings.push({
         type: 'markdown-notation',
         line,
-        message:
-          'when-published must use standard notation ({{< >}}) — the template renders its own Markdown, and {{% %}} would run Goldmark over the rendered HTML a second time'
+        message: `${name} must use standard notation ({{< >}}) — the template renders its own Markdown, and {{% %}} would run Goldmark over the rendered HTML a second time`
       });
     }
 
@@ -204,10 +213,22 @@ function analyzeSource(source, index) {
       findings.push({
         type: 'self-closing',
         line,
-        message: 'self-closing when-published wraps no content — use an opening and closing tag around the block'
+        message: `self-closing ${name} wraps no content — use an opening and closing tag around the block`
       });
     } else {
-      openings += 1;
+      openings[name] += 1;
+    }
+
+    const displayMatch = DISPLAY_ARG_PATTERN.exec(args);
+    if (displayMatch) {
+      const display = displayMatch[1] ?? displayMatch[2] ?? displayMatch[3];
+      if (display !== 'block' && display !== 'inline') {
+        findings.push({
+          type: 'invalid-display',
+          line,
+          message: `display must be "block" or "inline", got ${JSON.stringify(display)} — the template fails the build on anything else`
+        });
+      }
     }
 
     const targetMatch = TARGET_ARG_PATTERN.exec(args);
@@ -217,7 +238,7 @@ function analyzeSource(source, index) {
       findings.push({
         type: 'missing-target',
         line,
-        message: 'when-published requires a target="/pretty-url/" argument'
+        message: `${name} requires a target="/pretty-url/" argument`
       });
       continue;
     }
@@ -235,20 +256,38 @@ function analyzeSource(source, index) {
 
     const entry = index.urls.get(target);
     if (entry) {
-      if (entry.draft) {
-        notices.push({
-          type: 'pending',
-          line,
-          target,
-          message: `target is still draft (${entry.file}) — block stays hidden until it publishes`
-        });
+      if (name === 'when-published') {
+        notices.push(
+          entry.draft
+            ? {
+                type: 'pending',
+                line,
+                target,
+                message: `target is still draft (${entry.file}) — block stays hidden until it publishes`
+              }
+            : {
+                type: 'unwrap',
+                line,
+                target,
+                message: `target is already published (${entry.file}) — the wrapper is inert and can be removed on the next edit`
+              }
+        );
       } else {
-        notices.push({
-          type: 'unwrap',
-          line,
-          target,
-          message: `target is already published (${entry.file}) — the wrapper is inert and can be removed on the next edit`
-        });
+        notices.push(
+          entry.draft
+            ? {
+                type: 'fallback-active',
+                line,
+                target,
+                message: `target is still draft (${entry.file}) — this interim wording is what readers currently see`
+              }
+            : {
+                type: 'stale-fallback',
+                line,
+                target,
+                message: `target is already published (${entry.file}) — this fallback renders nothing anymore and can be removed`
+              }
+        );
       }
       continue;
     }
@@ -259,7 +298,7 @@ function analyzeSource(source, index) {
         type: 'alias-target',
         line,
         target,
-        message: `target is an alias — use the canonical url ${canonical} or the block never unhides`
+        message: `target is an alias — use the canonical url ${canonical} or the block never switches state`
       });
       continue;
     }
@@ -272,12 +311,14 @@ function analyzeSource(source, index) {
     });
   }
 
-  if (openings > closings) {
-    findings.push({
-      type: 'unclosed',
-      line: lineOf(masked, masked.length - 1),
-      message: `${openings} when-published opening tag(s) but ${closings} closing tag(s) — Hugo will fail the build`
-    });
+  for (const name of Object.keys(openings)) {
+    if (openings[name] > closings[name]) {
+      findings.push({
+        type: 'unclosed',
+        line: lineOf(masked, masked.length - 1),
+        message: `${openings[name]} ${name} opening tag(s) but ${closings[name]} closing tag(s) — Hugo will fail the build`
+      });
+    }
   }
 
   return { findings, notices };
@@ -396,8 +437,9 @@ async function main() {
 
   if (findings.length === 0) {
     const pending = notices.filter((notice) => notice.type === 'pending').length;
+    const fallbacks = notices.filter((notice) => notice.type === 'fallback-active').length;
     console.log(
-      `when-published gate: ${files.length} file(s) checked, ${notices.length} block(s) found (${pending} pending publication). No defects.`
+      `when-published gate: ${files.length} file(s) checked, ${notices.length} block(s) found (${pending} pending publication, ${fallbacks} active fallback(s)). No defects.`
     );
     return;
   }

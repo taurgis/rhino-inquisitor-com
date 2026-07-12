@@ -667,8 +667,11 @@ venmo
 verifications
 verma
 viewport
+viewports
 vilcu
 visualforce
+vite
+vitest
 vladyslav
 vscode
 vue
@@ -713,6 +716,7 @@ yurman
 zatlyn
 zhang
 zhao
+zustand
 zyfo
 zyft
 zzrf
