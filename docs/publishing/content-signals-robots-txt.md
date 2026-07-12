@@ -15,7 +15,7 @@ unaffected and remains in active use via contentsignals.org).
 
   ```text
   User-agent: *
-  Content-Signal: ai-train=no, search=yes, ai-input=no
+  Content-Signal: ai-train=yes, search=yes, ai-input=yes
   Allow: /
   Sitemap: {{ "sitemap.xml" | absURL }}
   ```
@@ -32,8 +32,8 @@ unaffected and remains in active use via contentsignals.org).
   the site's content.
 - **New**: crawlers that honor Content Signals see an explicit,
   per-category preference: search indexing allowed (`search=yes`), AI
-  training disallowed (`ai-train=no`), and real-time AI input/RAG use
-  disallowed (`ai-input=no`).
+  training allowed (`ai-train=yes`), and real-time AI input/RAG use
+  allowed (`ai-input=yes`).
 
 ## Why these values
 
@@ -41,8 +41,9 @@ unaffected and remains in active use via contentsignals.org).
   `robots.txt` policy (`.agents/skills/seo/SKILL.md`) already treats
   `Allow: /` as the baseline and Content Signals must not silently
   contradict that.
-  `ai-train=no` / `ai-input=no` — declines AI training and real-time AI
-  input (RAG/grounding) use, per the site owner's stated preference.
+- `ai-train=yes` / `ai-input=yes` — grants permission for AI training and
+  real-time AI input (RAG/grounding) use, per the site owner's stated
+  preference.
 
 ## Impact and verification
 

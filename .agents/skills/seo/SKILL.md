@@ -116,7 +116,7 @@ Required fields: `itemListElement` array with `@type: ListItem`, `position`, `na
 
 ```text
 User-agent: *
-Content-Signal: ai-train=no, search=yes, ai-input=no
+Content-Signal: ai-train=yes, search=yes, ai-input=yes
 Allow: /
 Disallow: /wp-json/          # Retire — system endpoint
 Disallow: /xmlrpc.php
