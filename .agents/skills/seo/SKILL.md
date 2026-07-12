@@ -110,6 +110,7 @@ Required fields: `itemListElement` array with `@type: ListItem`, `position`, `na
 
 ```
 User-agent: *
+Content-Signal: ai-train=no, search=yes, ai-input=no
 Allow: /
 Disallow: /wp-json/          # Retire — system endpoint
 Disallow: /xmlrpc.php
@@ -121,6 +122,7 @@ Sitemap: https://rhino-inquisitor.com/sitemap.xml
 - `Disallow` controls crawling, not indexing. Use `noindex` meta tag to prevent indexing.
 - Never use `robots.txt` as the sole protection for staging environments.
 - `noindex` in `robots.txt` is not standard and may not be respected; use `<meta name="robots" content="noindex">`.
+- `Content-Signal` ([contentsignals.org](https://contentsignals.org/)) declares AI/search usage preferences (`ai-train`, `search`, `ai-input` — each `yes`/`no`) inside a `User-agent` block; it does not replace `Allow`/`Disallow` crawl control and crawlers may ignore it.
 
 ## Core Web Vitals Thresholds (Blocking Gate)
 
