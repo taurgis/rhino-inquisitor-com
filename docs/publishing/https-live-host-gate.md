@@ -7,7 +7,7 @@ This document records how the HTTPS/security gate (`scripts/gates/check-https-se
 The gate performs two kinds of checks:
 
 - **Artifact checks** (canonical URLs, sitemap URLs, structured-data URLs, mixed content) — always blocking.
-- **Live-host checks** (HTTPS response, apex/www redirects, TLS, CAA, DNS, security headers) — target the canonical origin `https://www.rhino-inquisitor.com`.
+- **Live-host checks** (HTTPS response, apex/www redirects, TLS, CAA, DNS, security headers, agent-discovery `Link` header) — target the canonical origin `https://www.rhino-inquisitor.com`.
 
 Until the production custom domain is active, deploys run in **project-host rehearsal mode**: the active GitHub Pages host is the apex project host (`rhino-inquisitor.com`), so the canonical `www` origin does not yet serve `200` (it `301`-redirects to the apex). The live-host checks are expected to fail in this state, which is not a real defect.
 

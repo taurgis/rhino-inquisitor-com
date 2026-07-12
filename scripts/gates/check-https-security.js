@@ -928,6 +928,68 @@ async function checkSecurityHeaders(url, timeoutMs) {
   }
 }
 
+// Registered Link relation types ([RFC 8288] Section 2.1.1, [RFC 9727]
+// Section 3) that signal machine-readable resources for API/agent discovery.
+const agentDiscoveryLinkRelations = ['api-catalog', 'service-desc', 'service-doc', 'describedby'];
+
+function extractLinkRelations(linkHeaderValue) {
+  if (!linkHeaderValue) {
+    return [];
+  }
+
+  const relPattern = /rel\s*=\s*(?:"([^"]*)"|([^\s;,]+))/gi;
+  const relations = [];
+  let match;
+
+  while ((match = relPattern.exec(linkHeaderValue)) !== null) {
+    const value = match[1] ?? match[2] ?? '';
+    relations.push(...value.split(/\s+/).filter(Boolean).map((relation) => relation.toLowerCase()));
+  }
+
+  return relations;
+}
+
+async function checkAgentDiscoveryLinkHeader(url, timeoutMs) {
+  try {
+    const response = await fetchWithTimeout(url, { method: 'HEAD', redirect: 'manual' }, timeoutMs);
+    const linkHeaderValue = response.headers.get('link');
+    const relations = extractLinkRelations(linkHeaderValue);
+    const matchedRelations = relations.filter((relation) => agentDiscoveryLinkRelations.includes(relation));
+    const status = matchedRelations.length > 0 ? 'pass' : 'warning';
+
+    return createCheckResult({
+      status,
+      blocking: false,
+      summary: matchedRelations.length > 0
+        ? `Observed an agent-discovery Link header (rel="${matchedRelations.join(', ')}") on ${url}.`
+        : `No Link header with a registered api-catalog/service-desc/service-doc/describedby relation was observed on ${url}.`,
+      warnings: matchedRelations.length > 0 ? [] : [{
+        header: 'link',
+        message: 'Add a Link response header (RFC 8288 / RFC 9727 Section 3) via the Cloudflare zone in front of this origin — GitHub Pages cannot set custom response headers.',
+      }],
+      details: {
+        url,
+        statusCode: response.status,
+        linkHeaderValue,
+        relations,
+        matchedRelations,
+      },
+      evidenceSource: 'live-host',
+    });
+  } catch (error) {
+    return createCheckResult({
+      status: 'manual-required',
+      blocking: false,
+      summary: `Unable to capture the Link response header from ${url}.`,
+      details: {
+        url,
+        error: error instanceof Error ? error.message : String(error),
+      },
+      evidenceSource: 'live-host',
+    });
+  }
+}
+
 function createPagesSettingsCheck(wwwRedirectResult, verificationResult) {
   const inferredPass = wwwRedirectResult.status === 'pass' && verificationResult.status === 'pass';
   return createCheckResult({
@@ -1006,6 +1068,7 @@ async function analyzeLiveChecks(options) {
       customDomainVerification: skippedCheck(),
       wildcardDns: skippedCheck(),
       securityHeaders: skippedCheck(false),
+      agentDiscoveryLinkHeader: skippedCheck(false),
       pagesSettings: skippedCheck(false),
     };
   }
@@ -1019,6 +1082,7 @@ async function analyzeLiveChecks(options) {
   const customDomainVerification = await checkCustomDomainVerification(options.apexDomain, options.githubPagesOwner);
   const wildcardDns = await checkWildcardDns(options.apexDomain);
   const securityHeaders = await checkSecurityHeaders(canonicalOrigin, options.requestTimeoutMs);
+  const agentDiscoveryLinkHeader = await checkAgentDiscoveryLinkHeader(canonicalOrigin, options.requestTimeoutMs);
   const pagesSettings = createPagesSettingsCheck(wwwHttpRedirect, customDomainVerification);
 
   return {
@@ -1031,6 +1095,7 @@ async function analyzeLiveChecks(options) {
     customDomainVerification,
     wildcardDns,
     securityHeaders,
+    agentDiscoveryLinkHeader,
     pagesSettings,
   };
 }
