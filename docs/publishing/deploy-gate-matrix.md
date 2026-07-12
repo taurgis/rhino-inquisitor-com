@@ -923,11 +923,15 @@ silent green on a broken checkout. Escape hatch:
 The `when-published` shortcode (added 2026-07-12, see
 [when-published-shortcode.md](when-published-shortcode.md)) hides a block of
 Markdown until its `target` URL resolves to a built page, so live articles
-can reference planned (draft) articles without shipping a dead link. The
-shortcode matches `target` against `RelPermalink` at build time, which means
-a typo'd target never matches anything and silently hides the block forever.
-A new gate validates every target against content front matter — where both
-draft and published URLs are visible — before that can happen.
+can reference planned (draft) articles without shipping a dead link. Its
+companion `when-unpublished` (added the same day) is the "else" branch —
+interim wording that renders only while the target is still draft — and
+both take `display="inline"` to splice a phrase into a sentence. Either way
+the shortcode matches `target` against `RelPermalink` at build time, which
+means a typo'd target never matches anything: it silently hides a block
+forever, or pins a fallback forever. The gate validates every target
+against content front matter — where both draft and published URLs are
+visible — before that can happen.
 
 ### Behavior details
 
@@ -943,11 +947,16 @@ draft and published URLs are visible — before that can happen.
 | `malformed-target` | `/Upper-Case/`, `/no-trailing-slash` | Target must match the `url` front matter shape (lowercase, leading/trailing slash, `a-z 0-9 - /`) |
 | `alias-target` | target found only in some page's `aliases` | Alias stubs never match the shortcode's `RelPermalink` lookup — the block would stay hidden even after publication; the report names the canonical url |
 | `unknown-target` | target matches no content file's `url` at all | Almost always a typo — the failure mode the gate exists for |
+| `invalid-display` | `display="inilne"` | The template only accepts `block` and `inline` and fails the build on anything else |
 
-Non-blocking notices keep the state visible: `pending` (target is still
-draft — hidden by design; these lines double as the publish-time checklist
-for finding referencing articles) and `unwrap` (target already published —
-the wrapper is inert and can be removed on the next editorial pass).
+Non-blocking notices keep the state visible, and double as the publish-time
+checklist for finding referencing articles: `pending` (when-published,
+target still draft — hidden by design), `unwrap` (when-published, target
+live — wrapper inert, unwrap on the next pass), `fallback-active`
+(when-unpublished, target still draft — this is what readers currently
+see), and `stale-fallback` (when-unpublished, target live — renders nothing
+anymore, delete the source). Unclosed-tag detection is per shortcode name,
+so a `when-unpublished` block closed with `/when-published` is caught.
 
 Fenced code, inline code, HTML comments, and comment-escaped shortcode
 examples are masked so posts and docs can quote the syntax; `AGENTS.md`
@@ -979,7 +988,8 @@ lazy-continuation defect.
   `.githooks/pre-commit`, `scripts/preflight.sh`,
   `scripts/gates/run-all-gates.sh` (`build` group), and `package.json`
   (`check:when-published`, `test:when-published`).
-- Verify: `npm run test:when-published` (20 tests) covers each finding type,
+- Verify: `npm run test:when-published` (26 tests) covers each finding type,
+  the when-unpublished else branch, the display argument,
   the pending/unwrap notices, masking, front matter parsing (block scalars,
   quoting, both alias forms), line-number reporting, and — as the baseline
   contract — that every content file passes against the real url index. End

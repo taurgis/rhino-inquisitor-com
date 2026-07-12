@@ -1,14 +1,23 @@
-# Publish-gated content: the `when-published` shortcode
+# Publish-gated content: the `when-published` / `when-unpublished` shortcodes
 
 ## Change summary
 
 A live article can now reference a planned (still-draft) article without
-shipping a dead internal link. The new `when-published` shortcode
-(`src/layouts/shortcodes/when-published.html`) wraps a block of Markdown and
-renders it only when its `target` URL resolves to a page in the current
-build. Because production builds never include drafts, the block stays
-hidden until the target article actually publishes — then it appears on the
-next deploy with no further edit to the referencing article.
+shipping a dead internal link. The `when-published` shortcode
+(`src/layouts/shortcodes/when-published.html`) wraps Markdown and renders it
+only when its `target` URL resolves to a page in the current build. Because
+production builds never include drafts, the block stays hidden until the
+target article actually publishes — then it appears on the next deploy with
+no further edit to the referencing article.
+
+Two extensions (added 2026-07-12, same day, while merging the two article
+branches that motivated the system):
+
+- **`when-unpublished`** — the "else" branch: renders its inner Markdown
+  only while the target is still draft. Pair the two to *swap* wording at
+  publish time instead of just adding some.
+- **`display="inline"`** — splices a phrase into a sentence or list item
+  (no paragraph wrapper) instead of emitting a standalone block.
 
 A companion gate (`scripts/gates/check-when-published.js`) validates every
 `target` against content front matter so a typo cannot silently hide a block
@@ -49,6 +58,43 @@ HTML would be pushed through Goldmark a second time (the gate blocks this).
 - One shortcode gates on one target. If a block depends on two planned
   articles, nest two shortcodes or (usually better) split the block.
 
+### The else branch: swapping wording at publish time
+
+When the interim text must *change* rather than merely gain a block, put
+the current wording in `when-unpublished` and its replacement in
+`when-published`, same target. Exactly one branch renders in any build, and
+the switch happens automatically on the first deploy after the target goes
+live. Leave a blank line between the two blocks — adjacent shortcode tags
+without one get wrapped in a stray paragraph.
+
+```md
+{{< when-unpublished target="/planned-article/" >}}
+I haven't published the deep dive yet, so the short version: check the
+official guide before committing.
+{{< /when-unpublished >}}
+
+{{< when-published target="/planned-article/" >}}
+I've since written [the full deep dive](/planned-article/) — start there.
+{{< /when-published >}}
+```
+
+### Inline form: a phrase inside a sentence
+
+`display="inline"` renders the inner Markdown without a paragraph wrapper,
+so a link or clause can sit mid-sentence or at the end of a list item. Both
+shortcodes support it, and the two can be chained back-to-back inside one
+paragraph for a sentence-level if/else (see the Storefront Next footnote in
+the Composable Storefront article for a real example):
+
+```md
+- **The B2C Shopper Agent** acts as a shopping assistant inside chat.
+  {{< when-published target="/planned-article/" display="inline" >}}[Read
+  the deep dive.](/planned-article/){{< /when-published >}}
+```
+
+Keep the separating space *outside* the tags (before the opening tag) — the
+template trims the inner content's edges.
+
 ## Behavior details
 
 | Situation | Old (before this change) | New |
@@ -59,14 +105,16 @@ HTML would be pushed through Goldmark a second time (the gate blocks this).
 
 Publish-time checklist for a draft that is the target of pending blocks:
 
-1. `npm run check:when-published -- --all` lists every pending block and the
-   articles holding them (the `pending:` lines).
+1. `npm run check:when-published -- --all` lists every affected block and
+   the articles holding them: `pending` lines are blocks that will appear,
+   `fallback-active` lines are interim wordings that will disappear.
 2. When flipping the draft live, bump `lastmod` on those referencing
    articles in the same commit — their built content changes even though
    their source does not.
-3. After publication the wrapper is inert; the gate reports it as an
-   `unwrap` notice and it can be removed on the next editorial pass of that
-   article (no urgency, purely source hygiene).
+3. After publication the wrappers are inert; the gate reports `unwrap`
+   (when-published can be unwrapped in place) and `stale-fallback`
+   (when-unpublished now renders nothing and can be deleted) notices for
+   cleanup on the next editorial pass of that article (no urgency).
 
 ## Impact
 
@@ -103,6 +151,7 @@ Verified end-to-end on 2026-07-12 with Hugo Extended 0.163.3 (the CI pin):
 ## Related files
 
 - `src/layouts/shortcodes/when-published.html` — the shortcode.
+- `src/layouts/shortcodes/when-unpublished.html` — the else branch.
 - `scripts/gates/check-when-published.js` — target-validation gate.
 - `scripts/gates/check-when-published.test.js` — regression suite.
 - `scripts/gates/check-callouts.js` — `isLazyContinuation` now treats
@@ -114,5 +163,11 @@ Verified end-to-end on 2026-07-12 with Hugo Extended 0.163.3 (the CI pin):
 - `package.json` — `check:when-published`, `test:when-published`.
 - `src/content/posts/what-is-commerce-on-core/index.md` — first use: the
   2026 freshness note gated on `/which-salesforce-commerce-is-my-commerce/`.
+- `src/content/posts/ai-einstein-in-salesforce-b2c-commerce-cloud/index.md`
+  — inline use: a deep-dive link at the end of a list item.
+- `src/content/posts/sitegenesis-vs-sfra-vs-pwa/index.md` — inline if/else:
+  a sentence swapped inside a paragraph.
+- `src/content/posts/what-does-the-composable-storefront-mean-for-sfcc-developers/index.md`
+  — inline link-target swap plus a block-level paragraph swap.
 - `src/content/posts/AGENTS.md` — authoring guidance for referencing
   planned articles.

@@ -93,7 +93,7 @@ If the intro needs a roadmap, keep it to one plain sentence ("This guide will wa
 - Tables are rare; when used they earn their place and may carry personality (a "Vibe" column). No horizontal rules as separators. No FAQ sections.
 - Callouts use GitHub alerts with a bold mini-title: `> [!NOTE]` / `> [!WARNING]` — never invented shortcodes. Short inline "**Note:**" / "**Pro tip:**" paragraphs are also his.
 - Cross-link generously to earlier posts with relative paths (`/what-is-oci-omnichannel-inventory/`) and to official Salesforce docs as evidence.
-- Never link a live article to a `draft: true` post directly — drafts are not built, so the internal-link gate fails the deploy. Wrap the block in the `when-published` shortcode instead; it stays hidden until the target publishes, then appears automatically: see `docs/publishing/when-published-shortcode.md`. Standard notation, and the target must be the planned post's exact `url` value.
+- Never link a live article to a `draft: true` post directly — drafts are not built, so the internal-link gate fails the deploy. Wrap the block in the `when-published` shortcode instead; it stays hidden until the target publishes, then appears automatically: see `docs/publishing/when-published-shortcode.md`. Standard notation, and the target must be the planned post's exact `url` value. To _swap_ wording at publish time, pair it with `when-unpublished` (the else branch — put the current wording there, its replacement in `when-published`, blank line between the blocks); add `display="inline"` on either to splice a phrase into a sentence or list item.
 
   ```md
   {{< when-published target="/planned-article/" >}}
