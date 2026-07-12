@@ -46,13 +46,14 @@ Every URL in `url-data/url-manifest.json` must have exactly one disposition:
 | `retire` | No equivalent content | 404 (default) or 410 (edge layer only) |
 
 **Approval gates:**
+
 - `merge` requires written rationale + SEO owner approval.
 - `retire` with redirect to homepage is **not allowed** for content with organic traffic.
 - Pagination `keep` requires ≥ 100 clicks (90d) **or** ≥ 10 referring domains.
 
 ## Redirect Architecture Hierarchy
 
-```
+```text
 Priority 1 (strongest signal):  HTTP 301/308 — origin or edge/CDN layer
 Priority 2 (acceptable fallback): Hugo alias — HTML meta-refresh + rel=canonical
 Priority 3 (emergency only):    JavaScript redirect — weakest signal, avoid
@@ -64,6 +65,7 @@ Hugo `aliases` produce meta-refresh HTML — Google follows these but they are s
 **Edge redirect threshold:** If > 5% of indexed URLs change path, activate edge/CDN redirect infrastructure before shipping the change.
 
 **Rules:**
+
 1. Never redirect to homepage as a catch-all for missing URLs.
 2. No redirect chains — every source URL must resolve in a single hop.
 3. Keep redirects active for minimum 12 months; longer preferred.
@@ -71,13 +73,14 @@ Hugo `aliases` produce meta-refresh HTML — Google follows these but they are s
 
 ## Canonical Signal Alignment (All Three Must Agree)
 
-```
+```text
 rel=canonical tag  →  https://rhino-inquisitor.com/path/
 sitemap.xml entry  →  https://rhino-inquisitor.com/path/
 Internal links     →  /path/  (relative, resolves to apex canonical)
 ```
 
 **Violation patterns to catch in CI:**
+
 - Canonical points to a different path than the page's own URL.
 - Sitemap contains alias/redirect pages.
 - Internal links use the `www` host instead of the canonical apex domain.
@@ -86,14 +89,17 @@ Internal links     →  /path/  (relative, resolves to apex canonical)
 ## Structured Data Requirements
 
 ### BlogPosting (article pages)
+
 Required fields: `headline`, `datePublished`, `dateModified`, `url`, `author`, `publisher`
 Recommended: `image`, `description`, `mainEntityOfPage`
 
 ### WebSite (all pages via base template)
+
 Required fields: `name`, `url`
 Recommended: `description`, `potentialAction` (SearchAction if search exists)
 
 ### BreadcrumbList (section/article pages)
+
 Required fields: `itemListElement` array with `@type: ListItem`, `position`, `name`, `item`
 
 **Validation:** Test with [Google Rich Results Test](https://search.google.com/test/rich-results) and Search Console Rich Results report.
@@ -108,7 +114,7 @@ Required fields: `itemListElement` array with `@type: ListItem`, `position`, `na
 
 ## robots.txt Rules
 
-```
+```text
 User-agent: *
 Content-Signal: ai-train=no, search=yes, ai-input=no
 Allow: /
@@ -119,6 +125,7 @@ Sitemap: https://rhino-inquisitor.com/sitemap.xml
 ```
 
 **Critical distinctions:**
+
 - `Disallow` controls crawling, not indexing. Use `noindex` meta tag to prevent indexing.
 - Never use `robots.txt` as the sole protection for staging environments.
 - `noindex` in `robots.txt` is not standard and may not be respected; use `<meta name="robots" content="noindex">`.
@@ -137,12 +144,14 @@ Measure at 75th percentile of field data where available; lab data (Lighthouse) 
 ## Search Console Workflow
 
 ### Before a route-affecting change
+
 1. Confirm both Domain property and `https://www.` URL-prefix property are verified.
 2. Export: top organic pages (90d), top linked pages from Links report.
 3. Capture indexing baseline: Page Indexing report, Sitemap status.
 4. Lower DNS TTL ≥ 1 week before cutover.
 
 ### At a domain or host change
+
 1. Deploy Hugo build to GitHub Pages.
 2. Update DNS records; verify HTTPS issuance (can take hours).
 3. Submit new sitemap URL (`https://rhino-inquisitor.com/sitemap.xml`).
@@ -150,6 +159,7 @@ Measure at 75th percentile of field data where available; lab data (Lighthouse) 
 5. Do NOT use "Change of Address" — this applies only to domain-level moves (e.g., example.com → newdomain.com), not in-place host or path changes.
 
 ### Post-change monitoring (weeks 1–6)
+
 1. Daily: Page Indexing report for anomalies, 404/soft-404 spikes.
 2. Weekly: Coverage trend, sitemap processing status, CWV field report.
 3. Priority URL Inspection sample for top 20 organic landing pages.

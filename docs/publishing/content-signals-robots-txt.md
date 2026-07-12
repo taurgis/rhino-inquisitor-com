@@ -13,7 +13,7 @@ unaffected and remains in active use via contentsignals.org).
 - `src/layouts/robots.txt` gained a `Content-Signal` line inside the
   `User-agent: *` block:
 
-  ```
+  ```text
   User-agent: *
   Content-Signal: ai-train=no, search=yes, ai-input=no
   Allow: /
