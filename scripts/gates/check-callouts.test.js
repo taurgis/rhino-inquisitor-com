@@ -127,6 +127,17 @@ test('unquoted content after a callout is flagged as a lazy continuation', () =>
   assert.deepEqual(types(afterContent), ['lazy-continuation']);
 });
 
+test('a shortcode tag line after a callout is not a lazy continuation', () => {
+  const body = [
+    '{{< when-published target="/planned/" >}}',
+    '> [!NOTE]',
+    '> Hidden until published.',
+    '{{< /when-published >}}',
+    ''
+  ].join('\n');
+  assert.deepEqual(analyzeSource(body), []);
+});
+
 test('a block start after a callout is not a lazy continuation', () => {
   const body = '> [!NOTE]\n> Content.\n## Next heading\n\n> [!TIP]\n> Content.\n- a list item\n';
   assert.deepEqual(analyzeSource(body), []);

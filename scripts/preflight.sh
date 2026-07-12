@@ -29,6 +29,9 @@ npm run --silent test:external-links
 echo "==> preflight: callout gate regression suite (offline)"
 npm run --silent test:callouts
 
+echo "==> preflight: when-published gate regression suite (offline)"
+npm run --silent test:when-published
+
 echo "==> preflight: markdownlint (files changed vs origin/main)"
 if git rev-parse --verify --quiet origin/main >/dev/null; then
   base="$(git merge-base HEAD origin/main)"

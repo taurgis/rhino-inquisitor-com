@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Installed via `npm run prepare` (git config core.hooksPath .githooks).
-# Runs three gates before a commit that touches articles, so obvious typos,
+# Runs four gates before a commit that touches articles, so obvious typos,
 # mis-styled callouts, and dead external links are caught locally before they
 # reach the deploy pipeline:
 #
@@ -8,14 +8,19 @@
 #      staged articles may only use the alert types the theme styles
 #      ([!NOTE]/[!TIP]/[!WARNING]), with well-formed markers, no redundant
 #      bold mini-titles, and no bold pseudo-callout paragraphs.
-#   2. content spelling gate     (scripts/gates/check-spelling.js)
-#   3. external-link gate        (scripts/gates/check-external-links.js)
+#   2. when-published gate       (scripts/gates/check-when-published.js)
+#      every when-published shortcode in the staged article(s) must use
+#      markdown notation and target a real content url (draft or live), so
+#      a typo cannot hide the block forever.
+#   3. content spelling gate     (scripts/gates/check-spelling.js)
+#   4. external-link gate        (scripts/gates/check-external-links.js)
 #      verifies every external link in the staged article(s); domains not yet
 #      registered in scripts/gates/external-link-domains.js block the commit
 #      with instructions.
 #
 # Emergency bypasses (or git commit --no-verify for everything):
 #   SKIP_CALLOUT_CHECK=1 git commit ...  skip the callout gate
+#   SKIP_WHEN_PUBLISHED_CHECK=1 git commit ...  skip the when-published gate
 #   SKIP_SPELLING=1 git commit ...       skip the spelling gate
 #   SKIP_LINK_CHECK=1 git commit ...     skip the external-link gate
 
@@ -36,6 +41,14 @@ if [[ "${SKIP_CALLOUT_CHECK:-}" == "1" ]]; then
 else
   echo "pre-commit: running callout gate on staged articles..."
   ( cd "$repo_root" && node scripts/gates/check-callouts.js --staged )
+fi
+
+# The when-published gate is also dependency-free.
+if [[ "${SKIP_WHEN_PUBLISHED_CHECK:-}" == "1" ]]; then
+  echo "pre-commit: SKIP_WHEN_PUBLISHED_CHECK=1 set; skipping when-published gate."
+else
+  echo "pre-commit: running when-published gate on staged articles..."
+  ( cd "$repo_root" && node scripts/gates/check-when-published.js --staged )
 fi
 
 if [[ ! -d "$repo_root/node_modules/nspell" ]]; then

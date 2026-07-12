@@ -173,14 +173,17 @@ function normalizeBoldLabel(lead) {
 /**
  * Whether `line`, immediately following a blockquote, reads as a CommonMark
  * lazy continuation of it (paragraph text) rather than a new block (blank
- * line, heading, list item, fence, table row, HTML, another quote).
+ * line, heading, list item, fence, table row, HTML, another quote). A
+ * shortcode tag line ({{< ... >}} / {{% ... %}}) is also a block boundary:
+ * Hugo strips shortcode tags before Goldmark parses the Markdown, so a tag
+ * such as a closing {{< /when-published >}} is never quote content.
  */
 function isLazyContinuation(line) {
   const trimmed = line.trim();
   if (trimmed === '') {
     return false;
   }
-  return !/^(?:#{1,6}\s|[-*+]\s|\d{1,9}[.)]\s|>|\||<|```|~~~)/u.test(trimmed);
+  return !/^(?:#{1,6}\s|[-*+]\s|\d{1,9}[.)]\s|>|\||<|```|~~~|\{\{[%<])/u.test(trimmed);
 }
 
 /**

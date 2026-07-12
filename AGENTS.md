@@ -57,7 +57,7 @@ Governance and quality gates live in [.github/instructions/](.github/instruction
 - Build: `npm run build:prod` must succeed with no errors.
 - Full local deploy gate suite: `npm run gates:local` (mirrors the deploy pipeline).
 - Fast checks run automatically on `git push` via the pre-push hook (`npm run preflight`); see `docs/development/local-preflight.md`.
-- Commits that stage `src/content/**` Markdown run the callout, spelling, and external-link gates via the pre-commit hook; callouts must use the theme-styled alert types (`[!NOTE]`/`[!TIP]`/`[!WARNING]`, no redundant bold mini-titles), and a new external domain must be registered in `scripts/gates/external-link-domains.js` before it can be committed (see the callout and external-link gate sections in `docs/publishing/deploy-gate-matrix.md`).
+- Commits that stage `src/content/**` Markdown run the callout, when-published, spelling, and external-link gates via the pre-commit hook; callouts must use the theme-styled alert types (`[!NOTE]`/`[!TIP]`/`[!WARNING]`, no redundant bold mini-titles), `when-published` shortcode targets must match a real content `url` (see `docs/publishing/when-published-shortcode.md`), and a new external domain must be registered in `scripts/gates/external-link-domains.js` before it can be committed (see the gate sections in `docs/publishing/deploy-gate-matrix.md`).
 - PRs are disabled for this repository; validation and publish both happen on push to `main` via `.github/workflows/deploy-pages.yml` (scoped blocking gate suite, then deploy).
 
 ## Workspace Hygiene

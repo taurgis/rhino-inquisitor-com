@@ -916,6 +916,84 @@ silent green on a broken checkout. Escape hatch:
   `src/content/posts/salesforce-b2c-commerce-cloud-23-3-release/index.md`
   (the leftover `IMPORTANT!` paragraph converted to a `[!WARNING]` callout).
 
+## Update: when-published gate (pre-commit)
+
+### Change summary
+
+The `when-published` shortcode (added 2026-07-12, see
+[when-published-shortcode.md](when-published-shortcode.md)) hides a block of
+Markdown until its `target` URL resolves to a built page, so live articles
+can reference planned (draft) articles without shipping a dead link. The
+shortcode matches `target` against `RelPermalink` at build time, which means
+a typo'd target never matches anything and silently hides the block forever.
+A new gate validates every target against content front matter — where both
+draft and published URLs are visible — before that can happen.
+
+### Behavior details
+
+`node scripts/gates/check-when-published.js` scans content Markdown for
+`when-published` calls. All findings block:
+
+| Finding | Example | Why it blocks |
+| --- | --- | --- |
+| `markdown-notation` | `{{% when-published ... %}}` | The template renders its inner Markdown itself (RenderString, block mode); markdown notation would push that HTML through Goldmark a second time and strip it |
+| `self-closing` | `{{< when-published ... />}}` | Wraps no content — nothing to conditionally render |
+| `unclosed` | opening tag, no `{{< /when-published >}}` | Hugo fails the build; the gate reports it before a build exists |
+| `missing-target` | no `target=` argument | Nothing to resolve |
+| `malformed-target` | `/Upper-Case/`, `/no-trailing-slash` | Target must match the `url` front matter shape (lowercase, leading/trailing slash, `a-z 0-9 - /`) |
+| `alias-target` | target found only in some page's `aliases` | Alias stubs never match the shortcode's `RelPermalink` lookup — the block would stay hidden even after publication; the report names the canonical url |
+| `unknown-target` | target matches no content file's `url` at all | Almost always a typo — the failure mode the gate exists for |
+
+Non-blocking notices keep the state visible: `pending` (target is still
+draft — hidden by design; these lines double as the publish-time checklist
+for finding referencing articles) and `unwrap` (target already published —
+the wrapper is inert and can be removed on the next editorial pass).
+
+Fenced code, inline code, HTML comments, and comment-escaped shortcode
+examples are masked so posts and docs can quote the syntax; `AGENTS.md`
+files are excluded. The gate is dependency-free (plain `node`) and its
+front matter reader understands YAML block scalars (`url: >-`), quoted
+values, and both alias list forms. Escape hatch:
+`SKIP_WHEN_PUBLISHED_CHECK=1 git commit ...`.
+
+As part of the same change the callout gate's `isLazyContinuation` learned
+that a shortcode tag line after a callout is a block boundary, not quote
+content — Hugo strips shortcode tags before Goldmark parses the Markdown,
+so a closing `{{< /when-published >}}` under a callout is not a
+lazy-continuation defect.
+
+### Enforcement layers
+
+| Layer | When | What runs |
+| --- | --- | --- |
+| pre-commit hook | staged `src/content/**` Markdown | `check:when-published -- --staged` (targets validated against the whole working tree, so a staged article can reference a draft already on disk) |
+| pre-push preflight | every push | `test:when-published` regression suite (includes the whole-corpus baseline test) |
+| deploy pipeline (`build` gate group) | push to `main` | `check:when-published -- --all` over all content |
+| Hugo build | every build | the shortcode itself `warnf`s each hidden block, so pending content shows in build logs |
+
+### Impact and verification
+
+- Impacted components: `src/layouts/shortcodes/when-published.html` (new),
+  `scripts/gates/check-when-published.js` (new),
+  `scripts/gates/check-callouts.js` (lazy-continuation boundary),
+  `.githooks/pre-commit`, `scripts/preflight.sh`,
+  `scripts/gates/run-all-gates.sh` (`build` group), and `package.json`
+  (`check:when-published`, `test:when-published`).
+- Verify: `npm run test:when-published` (20 tests) covers each finding type,
+  the pending/unwrap notices, masking, front matter parsing (block scalars,
+  quoting, both alias forms), line-number reporting, and — as the baseline
+  contract — that every content file passes against the real url index. End
+  to end: `npm run check:when-published -- --all` lists the pending block in
+  the Commerce on Core article and exits 0; change that target to a typo and
+  confirm it exits 1 with `unknown-target`. Rendering was verified both ways
+  against Hugo Extended 0.163.3 — see
+  [when-published-shortcode.md](when-published-shortcode.md).
+- Related files: `scripts/gates/check-when-published.js`,
+  `scripts/gates/check-when-published.test.js`,
+  `src/layouts/shortcodes/when-published.html`,
+  `docs/publishing/when-published-shortcode.md`,
+  `src/content/posts/what-is-commerce-on-core/index.md` (first use).
+
 ## Related files
 
 - `.github/workflows/deploy-pages.yml`

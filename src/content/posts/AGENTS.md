@@ -93,6 +93,14 @@ If the intro needs a roadmap, keep it to one plain sentence ("This guide will wa
 - Tables are rare; when used they earn their place and may carry personality (a "Vibe" column). No horizontal rules as separators. No FAQ sections.
 - Callouts use GitHub alerts with a bold mini-title: `> [!NOTE]` / `> [!WARNING]` — never invented shortcodes. Short inline "**Note:**" / "**Pro tip:**" paragraphs are also his.
 - Cross-link generously to earlier posts with relative paths (`/what-is-oci-omnichannel-inventory/`) and to official Salesforce docs as evidence.
+- Never link a live article to a `draft: true` post directly — drafts are not built, so the internal-link gate fails the deploy. Wrap the block in the `when-published` shortcode instead; it stays hidden until the target publishes, then appears automatically: see `docs/publishing/when-published-shortcode.md`. Standard notation, and the target must be the planned post's exact `url` value.
+
+  ```md
+  {{< when-published target="/planned-article/" >}}
+  > [!NOTE]
+  > An update: see [the new post](/planned-article/) for the current answer.
+  {{< /when-published >}}
+  ```
 
 ## Code
 

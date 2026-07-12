@@ -1,0 +1,45 @@
+{{- /*
+  Shortcode: when-published
+  Renders its inner Markdown only when the target internal URL resolves to a
+  page in the current build. Drafts are never built, so a block that targets
+  a planned (draft) article stays hidden until that article actually
+  publishes — a live article can reference a planned one without shipping a
+  dead internal link in the meantime.
+
+  Usage — standard notation ({{< >}}, not {{% %}}) is REQUIRED: the template
+  renders the inner Markdown itself via RenderString in block mode, so the
+  page's render hooks (callouts, links) apply exactly once. With {{% %}} the
+  already-rendered HTML would be pushed through Goldmark a second time and
+  stripped.
+
+    {{< when-published target="/planned-article/" >}}
+    > [!NOTE]
+    > An update: see [the new post](/planned-article/) for the current answer.
+    {{< /when-published >}}
+
+  Parameters:
+    - target: pretty URL of the internal page that must be live before the
+              block renders — REQUIRED. Same format as `url` front matter:
+              lowercase, leading and trailing slash.
+
+  Behavior:
+    - Target resolves to a built page  -> inner Markdown renders in place.
+    - Target not in the build (draft)  -> block is omitted and `warnf` notes
+      the pending content in the build log, so hidden blocks stay visible.
+
+  scripts/gates/check-when-published.js validates every target against
+  content front matter, so a typo'd target cannot hide a block forever.
+  Contract details: docs/publishing/when-published-shortcode.md
+*/ -}}
+{{- $target := .Get "target" -}}
+{{- if not $target -}}
+  {{- errorf "when-published shortcode requires a 'target' argument (the pretty URL that must be live): see %s" .Position -}}
+{{- else if not (and (hasPrefix $target "/") (hasSuffix $target "/")) -}}
+  {{- errorf "when-published target %q must start and end with '/' (same format as url front matter): see %s" $target .Position -}}
+{{- else -}}
+  {{- with where site.Pages "RelPermalink" $target -}}
+    {{- $.InnerDeindent | strings.TrimSpace | $.Page.RenderString (dict "display" "block") -}}
+  {{- else -}}
+    {{- warnf "when-published: target %q is not published yet — hiding block in %s" $target $.Page.File.Path -}}
+  {{- end -}}
+{{- end -}}

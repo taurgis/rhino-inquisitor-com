@@ -38,6 +38,11 @@ However, I found another slide in one of the more recent presentations for onboa
 
 Speculation Before you continue to read on, the article below is speculation and opinionated (my opinion only). So take everything with a grain of salt and contact Salesforce if you want to know more! **I do not work for Salesforce, and I do not know the internal roadmap!**
 
+{{< when-published target="/which-salesforce-commerce-is-my-commerce/" >}}
+> [!NOTE]
+> A 2026 update: this hasn't happened. B2C Commerce (SFCC) and B2B/D2C Commerce on Core remain two separate products, with no public sign of a technical merge. If you're trying to work out which one you're actually running today, see [Which Salesforce Commerce Is My Commerce?](/which-salesforce-commerce-is-my-commerce/) The speculation below is left as written from 2022.
+{{< /when-published >}}
+
 ## Is it happening
 
 Yes, I have talked with multiple people within Salesforce. This change has been in the works for quite a while now. And this should have been clear if you look at some of the decisions made over the past two years and where Salesforce put focus.
