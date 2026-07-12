@@ -1021,6 +1021,81 @@ opening or standalone tag under a callout is a real lazy continuation).
   `docs/publishing/when-published-shortcode.md`,
   `src/content/posts/what-is-commerce-on-core/index.md` (first use).
 
+## Update: perf gate `robots-txt` audit rejected `Content-Signal`, override to Lighthouse 13.0.3
+
+### Change summary
+
+Run 29202190743's `gate (perf)` leg failed on all three sampled routes
+(homepage, `/real-time-inventory-checks-in-sfcc/`, `/category/ai/`), mobile and
+desktop alike: `categories.seo` scored `0.92` against the
+`lighthouserc.json` `minScore: 0.95` gate. The cause was not the site — it was
+the Lighthouse version the gate actually runs. `robots.txt` carries a
+`Content-Signal: ai-train=…, search=…, ai-input=…` line (added for
+[Content Signals](https://contentsignals.org/) support; see
+`docs/publishing/content-signals-robots-txt.md`), and the pinned
+`@lhci/cli@0.15.1` depends on an *exact* `lighthouse@12.6.1` (no caret range),
+whose `robots-txt` audit safelist predates `content-signal` support — confirmed
+by diffing the audit source directly:
+[`core/audits/seo/robots-txt.js`](https://github.com/GoogleChrome/lighthouse/blob/v12.6.1/core/audits/seo/robots-txt.js)
+at tag `v12.6.1` omits `'content-signal'` from `DIRECTIVE_SAFELIST`, while the
+same file at
+[`main`](https://github.com/GoogleChrome/lighthouse/blob/main/core/audits/seo/robots-txt.js)
+includes it. The unrecognized directive throws `Unknown directive`, failing
+that one audit and dragging the SEO category median down identically across
+every route — exactly the symptom in the failing run.
+
+`@lhci/cli@0.15.1` is already the latest published version (checked via the
+npm registry `latest`/`next` dist-tags — both point at `0.15.1`), so there is
+no newer release to upgrade to. The repo already carried a standalone
+`"lighthouse": "13.0.3"` devDependency, but it had no effect: `@lhci/cli`'s
+exact pin means npm cannot hoist/share the top-level version, so `lhci autorun`
+always resolved its own nested `lighthouse@12.6.1` regardless of what else was
+installed.
+
+### Old vs new behavior
+
+| Aspect | Old | New |
+|--------|-----|-----|
+| Lighthouse version `lhci autorun` actually executes | `12.6.1`, nested inside `node_modules/@lhci/cli` and `node_modules/@lhci/utils` (pinned exactly by `@lhci/cli`, immune to the top-level `lighthouse` devDependency) | `13.0.3` — a root-level npm `overrides` entry (`"overrides": { "lighthouse": "$lighthouse" }`) forces every dependent, including `@lhci/cli`/`@lhci/utils`, onto the single top-level `lighthouse` version; only one copy of the package now exists in `node_modules` |
+| `robots-txt` audit vs `Content-Signal` | `Unknown directive` (safelist predates the directive) → audit score 0 | Passes — `content-signal` is in the `13.0.3` safelist |
+| `categories:seo` (mobile & desktop, all 3 sampled routes) | `0.92` (fails `minScore: 0.95`) | `1.0` in a standalone `lhci collect`/`lhci assert` smoke test against a fixture carrying the same `Content-Signal` line (see verification) |
+| `package.json` | No `overrides` field | Adds `"overrides": { "lighthouse": "$lighthouse" }`, keeping the override version in sync with the `lighthouse` devDependency via npm's `$name` reference syntax (bump one, the other follows) |
+
+### Impact and verification
+
+- Impacted: `package.json` / `package-lock.json` (dependency resolution only —
+  no application or gate script code changed), and every gate leg that runs
+  `lhci autorun` (`scripts/gates/run-lhci.js`, invoked from
+  `scripts/gates/run-performance-gates.js` / `npm run check:perf:gate` /
+  `gate (perf)` in `deploy-pages.yml`).
+- Compatibility risk called out explicitly: this is a Lighthouse **major**
+  version bump (`12` → `13`) underneath a `@lhci/cli` release that was only
+  ever tested against `12.x`. Rather than trust semver, the actual collection
+  and assertion pipeline was exercised end-to-end in this environment (no Hugo
+  binary was available locally, so a minimal static fixture stood in for the
+  real site):
+  1. Built a fixture page + `robots.txt` carrying the same `Content-Signal`
+     line as `src/layouts/robots.txt`.
+  2. Ran the real `node_modules/.bin/lhci collect --staticDistDir=<fixture>`
+     against it with the pre-installed Chromium — completed cleanly, `lhr-*.json`
+     shows `lighthouseVersion: "13.0.3"`, `categories.seo.score: 1`, and an
+     empty `audits['robots-txt'].details.items` (zero validation errors, where
+     the failing CI run showed one). `performance`/`accessibility`/
+     `best-practices` categories also scored normally with no `runtimeError`.
+  3. Ran `node_modules/.bin/lhci assert` against that result using this repo's
+     actual `lighthouserc.json` thresholds (`minScore` 0.9/0.9/0.95/0.9 for
+     performance/accessibility/seo/best-practices) — `All results processed!`,
+     no assertion failures.
+- Verify after merge: the next `main` deploy's `gate (perf)` leg should pass
+  `categories:seo` on all three sampled routes without any `robots.txt` change,
+  and its step summary / `perf-gate-diagnostics-<run_id>` artifact should show
+  no `robots-txt`-related blocking finding.
+- Follow-up: once `@lhci/cli` ships a release that bundles `lighthouse@13.x`
+  (or later) natively, this override becomes redundant and can be removed —
+  check whether the then-current `@lhci/cli` version's own `lighthouse`
+  dependency already satisfies `$lighthouse` before deleting it.
+- Related files: `package.json`, `package-lock.json`.
+
 ## Related files
 
 - `.github/workflows/deploy-pages.yml`
@@ -1039,3 +1114,4 @@ opening or standalone tag under a callout is a real lazy continuation).
 - `src/layouts/partials/site/stylesheet.html`
 - `scripts/generate-critical-css.js` (+ `generate:critical-css` npm script)
 - `src/assets/styles/critical-{home,archive,post}.css` (now generated, do not hand-edit)
+- `package.json` / `package-lock.json` (`overrides.lighthouse` forcing `@lhci/cli` onto `lighthouse@13.0.3`)
