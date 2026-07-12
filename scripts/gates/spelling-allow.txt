@@ -23,6 +23,7 @@ aes
 aesh
 affronti
 agentforce
+agentic
 ahold
 akamai
 akshatha
@@ -95,6 +96,7 @@ boxall
 bradbeer
 brainer
 braintree
+breakpoint
 broc
 brotli
 bucher
@@ -501,6 +503,7 @@ renderer
 replicable
 repo
 req
+resends
 reseting
 restartable
 reusability
@@ -581,6 +584,7 @@ stg
 str
 stylesheet
 stylesheets
+subagent
 subclasses
 subcommand
 subdirectories
@@ -602,6 +606,7 @@ templating
 textbox
 thacker
 thano
+thermo
 theunen
 thomas
 throughs
@@ -610,6 +615,7 @@ timeframe
 timezones
 tobias
 tokenisation
+tokeniser
 tolinski
 toolkits
 toolset
@@ -630,6 +636,7 @@ uncached
 uncatchable
 uncategorised
 unconference
+undercount
 unencrypted
 unescape
 unescapes
