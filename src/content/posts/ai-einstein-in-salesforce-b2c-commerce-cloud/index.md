@@ -4,7 +4,7 @@ description: >-
   Salesforce quietly folded Commerce Cloud Einstein into Agentforce Commerce.
   Here's what changed, what still works exactly as before, and how to use it.
 date: '2022-09-26T13:42:24.000Z'
-lastmod: '2026-07-11T05:46:53.000Z'
+lastmod: '2026-07-12T12:30:00.000Z'
 url: /ai-einstein-in-salesforce-b2c-commerce-cloud/
 draft: false
 heroImage: artificial-intelligence-fc68314ce7.jpg
@@ -139,7 +139,7 @@ Search Recommendations works before a shopper finishes typing. As they enter a s
 Everything above is the AI you already had. The real change since 2022 sits a level above it: **Agentforce**, Salesforce's push to put autonomous, conversational agents on top of the same commerce data Einstein has been collecting all along. Three agents matter for a B2C storefront:
 
 - **Agentforce Merchant** works with your merchandising team through conversational setup: drafting product descriptions, generating promotions, and surfacing proactive recommendations to boost products that are lagging or clear slow-moving inventory. It reads the same catalog and order data already feeding Einstein.
-- **Agentforce Personal Shopper** acts as a shopping assistant inside chat or messaging channels, using generative AI and natural-language search to help a shopper find products and check out, rather than a scripted chatbot answering a fixed list of questions.
+- **The B2C Shopper Agent** (Salesforce's Help docs now call it "Shopper Agent for B2C Commerce"; it was "Agentforce Personal Shopper" as recently as this article's last edit, so add a fourth name to the list above) acts as a shopping assistant inside chat or messaging channels, using generative AI and natural-language search to help a shopper find products and check out, rather than a scripted chatbot answering a fixed list of questions. {{< when-published target="/b2c-shopper-agent-setup-limits-and-cost/" display="inline" >}}[I've gone deep on what it actually costs and takes to set up →](/b2c-shopper-agent-setup-limits-and-cost/){{< /when-published >}}
 - **Agentforce Buyer** targets B2B storefronts specifically: reordering with pre-negotiated pricing and handling "where is my order" requests through chat.
 
 Agentforce does not replace Einstein. It works alongside it: Agentforce Merchant reads the same catalog and order data Einstein already uses, but as a conversational agent layered on top, not a competing personalisation engine.
