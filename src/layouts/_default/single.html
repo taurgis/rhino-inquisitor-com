@@ -136,4 +136,17 @@
   {{ if .Scratch.Get "hasLiteYoutube" }}
     <script src="{{ "scripts/lite-youtube.js" | relURL }}" defer></script>
   {{ end }}
+  {{ if .Scratch.Get "hasMermaid" }}
+    {{/* Vendored, already-minified library — skip | minify (pure overhead on
+         a 3.5MB file with nothing to gain) but still fingerprint so a future
+         version bump busts the 1-year asset cache. */}}
+    {{ with resources.Get "scripts/mermaid.min.js" }}
+      {{ $mermaidLib := . | fingerprint }}
+      <script src="{{ $mermaidLib.RelPermalink }}" integrity="{{ $mermaidLib.Data.Integrity }}" crossorigin="anonymous" defer></script>
+    {{ end }}
+    {{ with resources.Get "scripts/mermaid-init.js" }}
+      {{ $mermaidInit := . | minify | fingerprint }}
+      <script src="{{ $mermaidInit.RelPermalink }}" integrity="{{ $mermaidInit.Data.Integrity }}" crossorigin="anonymous" defer></script>
+    {{ end }}
+  {{ end }}
 {{ end }}
