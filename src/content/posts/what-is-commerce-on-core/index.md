@@ -4,7 +4,7 @@ description: >-
   People who have been around "Demandware" for a while and continued after the
   acquisition by Salesforce know that this announcement was bound to happen at
 date: '2022-10-09T14:17:31.000Z'
-lastmod: '2026-07-11T14:30:00.000Z'
+lastmod: '2026-07-04T17:47:13.000Z'
 url: /what-is-commerce-on-core/
 draft: false
 heroImage: shopping-cart-in-front-of-salesforce-tower-bb3e93dbf7.jpg
@@ -37,9 +37,6 @@ However, I found another slide in one of the more recent presentations for onboa
 {{< img-caption src="commerce-on-core-subscriptions-6a0584ff6d.jpg" alt="Partner presentation slide showing multiple Commerce on Core shapes." caption="Commerce on Core can take many shapes and forms." >}}
 
 Speculation Before you continue to read on, the article below is speculation and opinionated (my opinion only). So take everything with a grain of salt and contact Salesforce if you want to know more! **I do not work for Salesforce, and I do not know the internal roadmap!**
-
-> [!NOTE]
-> A 2026 update: this hasn't happened. B2C Commerce (SFCC) and B2B/D2C Commerce on Core remain two separate products, with no public sign of a technical merge. If you're trying to work out which one you're actually running today, see [Which Salesforce Commerce Is My Commerce?](/which-salesforce-commerce-is-my-commerce/) The speculation below is left as written from 2022.
 
 ## Is it happening
 
