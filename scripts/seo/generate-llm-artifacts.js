@@ -161,6 +161,68 @@ function extractArchiveBodyHtml($) {
   return parts.join("");
 }
 
+function buildLinkHtml(text, href) {
+  if (!text) {
+    return "";
+  }
+
+  return href ? `<a href="${escapeHtml(href)}">${escapeHtml(text)}</a>` : escapeHtml(text);
+}
+
+function extractHomeBodyHtml($) {
+  const home = $(".home-redesign").first();
+  if (!home.length) {
+    return "";
+  }
+
+  const parts = [];
+
+  const heroCopy = normalizeWhitespace(home.find(".home-redesign__intro").first().text());
+  if (heroCopy) {
+    parts.push(`<p>${escapeHtml(heroCopy)}</p>`);
+  }
+
+  const featuredLink = home.find(".home-featured-card h2 a").first();
+  if (featuredLink.length) {
+    const excerpt = normalizeWhitespace(
+      home.find(".home-featured-card__body > p")
+        .not(".home-redesign__eyebrow")
+        .not(".home-redesign__meta")
+        .first()
+        .text()
+    );
+    parts.push(`<h2>Featured</h2>`);
+    parts.push(`<p>${buildLinkHtml(normalizeWhitespace(featuredLink.text()), featuredLink.attr("href"))}</p>`);
+    if (excerpt) {
+      parts.push(`<p>${escapeHtml(excerpt)}</p>`);
+    }
+  }
+
+  const recentItems = home.find(".home-recent-card").toArray()
+    .map((card) => {
+      const link = $(card).find("h3 a").first();
+      return buildLinkHtml(normalizeWhitespace(link.text()), link.attr("href"));
+    })
+    .filter(Boolean);
+
+  if (recentItems.length > 0) {
+    parts.push(`<h2>Recent Articles</h2><ul>${recentItems.map((item) => `<li>${item}</li>`).join("")}</ul>`);
+  }
+
+  const blogLink = home.find(".home-redesign__blog-cta a").first();
+  const aboutLink = home.find(".home-redesign__hero .home-redesign__button--secondary").first();
+  const exploreItems = [
+    buildLinkHtml(normalizeWhitespace(blogLink.text()) || "All articles", blogLink.attr("href")),
+    buildLinkHtml(normalizeWhitespace(aboutLink.text()) || "About Thomas", aboutLink.attr("href"))
+  ].filter(Boolean);
+
+  if (exploreItems.length > 0) {
+    parts.push(`<h2>Explore More</h2><ul>${exploreItems.map((item) => `<li>${item}</li>`).join("")}</ul>`);
+  }
+
+  return parts.join("");
+}
+
 function extractBodyHtml(htmlSource) {
   const $ = loadHtml(htmlSource, { decodeEntities: false });
   const body = $("section.article-body").first();
@@ -170,6 +232,11 @@ function extractBodyHtml(htmlSource) {
     root.find("script, style, noscript").remove();
     root.find(".article-callout__label").remove();
     return root.html()?.trim() ?? "";
+  }
+
+  const homeBody = extractHomeBodyHtml($);
+  if (homeBody) {
+    return homeBody;
   }
 
   return extractArchiveBodyHtml($);

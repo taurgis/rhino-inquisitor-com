@@ -19,9 +19,9 @@
     <link rel="alternate" type="{{ .MediaType.Type }}" title="{{ $.Site.Title }} LLM Full Corpus" href="{{ .Permalink }}">
   {{ end }}
 {{ end }}
-{{ if and .IsPage (not (index $seoParams "noindex")) }}
+{{ if and (or .IsPage .IsHome) (not (index $seoParams "noindex")) }}
   {{ with .OutputFormats.Get "markdown" }}
-    <link rel="alternate" type="{{ .MediaType.Type }}" title="{{ $.Title }} Markdown companion" href="{{ .Permalink }}">
+    <link rel="alternate" type="{{ .MediaType.Type }}" title="{{ ($.Title | default $.Site.Title) }} Markdown companion" href="{{ .Permalink }}">
   {{ end }}
 {{ end }}
 
