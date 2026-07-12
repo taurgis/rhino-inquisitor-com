@@ -1,4 +1,13 @@
 {
+  // src/layouts/**/*.md are Hugo Go-template output-format templates (e.g.
+  // single.markdown.md, home.markdown.md) that generate Markdown + YAML
+  // front matter at build time — they are not authored prose, and their
+  // template syntax (`{{- ... -}}`) before the real `---` front matter
+  // delimiter defeats markdownlint's front-matter detection, so the whole
+  // file gets misread as broken Markdown (frontmatter dashes as setext
+  // headings, template lines as list items, etc). Same rationale as the
+  // MD034 exception below: markdownlint has no Hugo-template awareness.
+  "ignores": ["src/layouts/**/*.md"],
   "config": {
     "MD013": false,
     "MD024": { "siblings_only": true },
