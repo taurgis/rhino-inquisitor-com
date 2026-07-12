@@ -4,6 +4,8 @@ import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
+import { urlPattern, normalizeUrl } from './url-shape.js';
+
 const execFileAsync = promisify(execFile);
 
 /**
@@ -29,13 +31,14 @@ const execFileAsync = promisify(execFile);
  *                          time and strip it. Use {{< >}}.
  *   2. self-closing      — a self-closing call wraps no content; there is
  *                          nothing to conditionally render.
- *   3. unclosed          — an opening tag without a matching closing tag
- *                          (Hugo would also fail the build, but this reports
- *                          it before a build exists).
+ *   3. unclosed          — opening and closing tags for a shortcode name do
+ *                          not balance, in either direction (Hugo would also
+ *                          fail the build, but this reports it before a
+ *                          build exists).
  *   4. missing-target    — no `target` argument.
- *   5. malformed-target  — target does not follow the url front matter
- *                          format (lowercase, leading/trailing slash,
- *                          `a-z 0-9 - /` only).
+ *   5. malformed-target  — target does not follow the shared url shape
+ *                          (scripts/gates/url-shape.js: lowercase, leading
+ *                          slash, `a-z 0-9 - /` only).
  *   6. alias-target      — target matches an `aliases` entry instead of a
  *                          canonical `url`. Alias stubs never match the
  *                          shortcode's RelPermalink lookup, so the block
@@ -45,13 +48,15 @@ const execFileAsync = promisify(execFile);
  *
  * Notices (non-blocking, informational):
  *
- *   - pending         — when-published on a draft target: hidden by design.
+ *   - pending         — when-published on a target not yet in the build
+ *                       (draft, or scheduled with a future date — production
+ *                       never passes --buildFuture): hidden by design.
  *                       Listed so pending content stays discoverable.
- *   - unwrap          — when-published on a published target: the wrapper is
+ *   - unwrap          — when-published on a built target: the wrapper is
  *                       inert; remove it on the next editorial pass.
- *   - fallback-active — when-unpublished on a draft target: the interim
- *                       wording is what readers currently see.
- *   - stale-fallback  — when-unpublished on a published target: the block
+ *   - fallback-active — when-unpublished on a not-yet-built target: the
+ *                       interim wording is what readers currently see.
+ *   - stale-fallback  — when-unpublished on a built target: the block
  *                       renders nothing anymore; remove the dead source.
  *
  * Fenced code blocks, inline code spans, HTML comments, and comment-escaped
@@ -65,14 +70,18 @@ const execFileAsync = promisify(execFile);
 const REPO_ROOT = path.resolve(fileURLToPath(new URL('../..', import.meta.url)));
 const CONTENT_PREFIX = 'src/content/';
 
-/** Same shape rule the frontmatter validator enforces for `url`. */
-const URL_SHAPE = /^\/[a-z0-9-]+(?:\/[a-z0-9-]+)*\/$/u;
+/**
+ * Target shape and normalization are shared with the frontmatter validator
+ * via ./url-shape.js, so the two rules cannot drift. Targets and index keys
+ * are both normalized to Hugo's served form (trailing slash), so a
+ * `url: /foo` page matches a `/foo/` target.
+ */
 
 /**
  * One opening or self-closing tag of either shortcode in either notation.
  * Closing tags are matched separately, per shortcode name.
  */
-const OPEN_TAG_PATTERN = /\{\{([%<])\s*(when-published|when-unpublished)\b([^}]*?)(\/?)\s*[%>]\}\}/gu;
+const OPEN_TAG_PATTERN = /\{\{([%<])\s*(when-published|when-unpublished)\b([^}]*?)(?:\s(\/))?\s*[%>]\}\}/gu;
 const CLOSE_TAG_PATTERN = /\{\{[%<]\s*\/(when-published|when-unpublished)\s*[%>]\}\}/gu;
 const TARGET_ARG_PATTERN = /\btarget\s*=\s*(?:"([^"\n]*)"|'([^'\n]*)'|`([^`]*)`|(\S+))/u;
 const DISPLAY_ARG_PATTERN = /\bdisplay\s*=\s*(?:"([^"\n]*)"|'([^'\n]*)'|(\S+))/u;
@@ -93,7 +102,7 @@ function maskNonProse(source) {
   return source
     .replace(/```[\s\S]*?(?:```|$)/gu, blank)
     .replace(/~~~[\s\S]*?(?:~~~|$)/gu, blank)
-    .replace(/`[^`\n]*`/gu, blank)
+    .replace(/(`+)(?:(?!\n\n)[\s\S])*?\1/gu, blank)
     .replace(/<!--[\s\S]*?-->/gu, blank)
     .replace(/\{\{[%<]\/\*[\s\S]*?\*\/[%>]\}\}/gu, blank);
 }
@@ -107,8 +116,8 @@ function lineOf(source, index) {
 }
 
 /**
- * Extract `url`, `aliases`, and `draft` from one Markdown file's front
- * matter. Tolerant line-based parse — dependency-free so the pre-commit hook
+ * Extract `url`, `aliases`, `draft`, and `date` from one Markdown file's
+ * front matter. Tolerant line-based parse — dependency-free so the pre-commit hook
  * can run before `npm ci`. Returns null when there is no front matter block.
  */
 function parseFrontMatter(source) {
@@ -117,7 +126,7 @@ function parseFrontMatter(source) {
     return null;
   }
   const lines = match[1].split(/\r?\n/u);
-  const result = { url: null, draft: false, aliases: [] };
+  const result = { url: null, draft: false, date: null, aliases: [] };
   let inAliases = false;
   for (let i = 0; i < lines.length; i += 1) {
     const line = lines[i];
@@ -127,7 +136,7 @@ function parseFrontMatter(source) {
       continue;
     }
     inAliases = false;
-    const keyed = /^(url|draft|aliases):\s*(.*)$/u.exec(line);
+    const keyed = /^(url|draft|date|aliases):\s*(.*)$/u.exec(line);
     if (!keyed) {
       continue;
     }
@@ -143,6 +152,8 @@ function parseFrontMatter(source) {
       result.url = stripQuotes(value);
     } else if (key === 'draft') {
       result.draft = value === 'true';
+    } else if (key === 'date') {
+      result.date = stripQuotes(value);
     } else if (key === 'aliases') {
       if (value.startsWith('[')) {
         for (const item of value.replace(/^\[|\]$/gu, '').split(',')) {
@@ -162,21 +173,60 @@ function stripQuotes(value) {
 }
 
 /**
- * Build the target index for the whole content tree: canonical url ->
- * { file, draft }, plus the set of alias urls (alias -> canonical file).
+ * Whether a page with this front matter is part of a production build:
+ * not draft, and not scheduled with a future date (production builds never
+ * pass --buildFuture, per hugo-coding-standards).
  */
-async function buildUrlIndex(readFile = defaultRead) {
-  const files = await listAllContentFiles();
+function isBuilt(front, now = Date.now()) {
+  if (front.draft) {
+    return false;
+  }
+  if (front.date) {
+    const timestamp = Date.parse(front.date);
+    if (!Number.isNaN(timestamp) && timestamp > now) {
+      return false;
+    }
+  }
+  return true;
+}
+
+/**
+ * URL a content file resolves to when it has no explicit `url` front matter
+ * key. Category term pages are the one such class in this repo: hugo.toml
+ * [permalinks.term] maps categories to /category/:slug/ and no term file
+ * overrides its slug. Returns null for anything else.
+ */
+function derivedUrl(file) {
+  const term = /^src\/content\/categories\/([a-z0-9-]+)\/_index\.md$/u.exec(file);
+  return term ? `/category/${term[1]}/` : null;
+}
+
+/**
+ * Build the target index for the whole content tree: normalized url ->
+ * { file, built }, plus alias url -> canonical url. In staged mode the index
+ * reads the git index (the tree the commit will create): untracked files do
+ * not exist there, and staged renames are already visible — so the
+ * pre-commit verdict matches what CI sees on the pushed tree.
+ */
+async function buildUrlIndex({ staged = false } = {}) {
+  const files = staged ? await listTrackedContentFiles() : await listAllContentFiles();
+  const dirty = staged ? await listDirtyContentFiles() : new Set();
   const urls = new Map();
   const aliases = new Map();
+  const now = Date.now();
   for (const file of files) {
-    const front = parseFrontMatter(await readFile(file));
-    if (!front || !front.url) {
+    const source = dirty.has(file) ? await readStaged(file) : await defaultRead(file);
+    const front = parseFrontMatter(source);
+    if (!front) {
       continue;
     }
-    urls.set(front.url, { file, draft: front.draft });
+    const url = front.url ?? derivedUrl(file);
+    if (!url) {
+      continue;
+    }
+    urls.set(normalizeUrl(url), { file, built: isBuilt(front, now) });
     for (const alias of front.aliases) {
-      aliases.set(alias, front.url);
+      aliases.set(normalizeUrl(alias), normalizeUrl(url));
     }
   }
   return { urls, aliases };
@@ -243,56 +293,36 @@ function analyzeSource(source, index) {
       continue;
     }
 
-    if (!URL_SHAPE.test(target)) {
+    if (!urlPattern.test(target)) {
       findings.push({
         type: 'malformed-target',
         line,
         target,
         message:
-          'target must match the url front matter shape: lowercase, leading and trailing slash, a-z 0-9 - / only'
+          'target must match the url front matter shape (scripts/gates/url-shape.js): lowercase, leading slash, a-z 0-9 - / only'
       });
       continue;
     }
 
-    const entry = index.urls.get(target);
+    const entry = index.urls.get(normalizeUrl(target));
     if (entry) {
-      if (name === 'when-published') {
-        notices.push(
-          entry.draft
-            ? {
-                type: 'pending',
-                line,
-                target,
-                message: `target is still draft (${entry.file}) — block stays hidden until it publishes`
-              }
-            : {
-                type: 'unwrap',
-                line,
-                target,
-                message: `target is already published (${entry.file}) — the wrapper is inert and can be removed on the next edit`
-              }
-        );
-      } else {
-        notices.push(
-          entry.draft
-            ? {
-                type: 'fallback-active',
-                line,
-                target,
-                message: `target is still draft (${entry.file}) — this interim wording is what readers currently see`
-              }
-            : {
-                type: 'stale-fallback',
-                line,
-                target,
-                message: `target is already published (${entry.file}) — this fallback renders nothing anymore and can be removed`
-              }
-        );
-      }
+      const state = entry.built ? 'built' : 'hidden';
+      const NOTICE = {
+        'when-published': {
+          hidden: ['pending', `target is not in the build yet (${entry.file}: draft or future-dated) — block stays hidden until it publishes`],
+          built: ['unwrap', `target is published (${entry.file}) — the wrapper is inert and can be removed on the next edit`]
+        },
+        'when-unpublished': {
+          hidden: ['fallback-active', `target is not in the build yet (${entry.file}) — this interim wording is what readers currently see`],
+          built: ['stale-fallback', `target is published (${entry.file}) — this fallback renders nothing anymore and can be removed`]
+        }
+      };
+      const [type, message] = NOTICE[name][state];
+      notices.push({ type, line, target, message });
       continue;
     }
 
-    const canonical = index.aliases.get(target);
+    const canonical = index.aliases.get(normalizeUrl(target));
     if (canonical) {
       findings.push({
         type: 'alias-target',
@@ -312,7 +342,7 @@ function analyzeSource(source, index) {
   }
 
   for (const name of Object.keys(openings)) {
-    if (openings[name] > closings[name]) {
+    if (openings[name] !== closings[name]) {
       findings.push({
         type: 'unclosed',
         line: lineOf(masked, masked.length - 1),
@@ -333,6 +363,29 @@ function isContentMarkdown(file) {
     // AGENTS.md cites both correct and broken shortcode patterns verbatim.
     path.basename(file) !== 'AGENTS.md'
   );
+}
+
+/** Content files in the git index — the tree the commit will create. */
+async function listTrackedContentFiles() {
+  const { stdout } = await execFileAsync('git', ['ls-files', '--cached', '--', CONTENT_PREFIX], {
+    cwd: REPO_ROOT,
+    maxBuffer: 16 * 1024 * 1024
+  });
+  return stdout.split('\n').filter(Boolean).filter(isContentMarkdown);
+}
+
+/**
+ * Tracked content files whose working-tree copy differs from the git index —
+ * only these need the slower `git show :file` read; clean files are read
+ * from disk, which is identical.
+ */
+async function listDirtyContentFiles() {
+  const { stdout } = await execFileAsync(
+    'git',
+    ['diff', '--name-only', '--', CONTENT_PREFIX],
+    { cwd: REPO_ROOT }
+  );
+  return new Set(stdout.split('\n').filter(Boolean).filter(isContentMarkdown));
 }
 
 async function listStagedContentFiles() {
@@ -418,9 +471,10 @@ async function main() {
     return;
   }
 
-  // Targets are validated against the whole working tree so a staged file can
-  // reference a draft that already exists on disk.
-  const index = await buildUrlIndex();
+  // Targets are validated against the tree the commit/CI will actually see:
+  // the git index in --staged mode (untracked drafts don't count), the
+  // working tree otherwise.
+  const index = await buildUrlIndex({ staged: args.staged });
 
   const findings = [];
   const notices = [];
@@ -461,9 +515,10 @@ async function main() {
 }
 
 export {
-  URL_SHAPE,
   analyzeSource,
   buildUrlIndex,
+  isBuilt,
+  derivedUrl,
   maskNonProse,
   parseFrontMatter,
   listAllContentFiles

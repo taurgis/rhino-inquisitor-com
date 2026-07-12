@@ -127,7 +127,7 @@ test('unquoted content after a callout is flagged as a lazy continuation', () =>
   assert.deepEqual(types(afterContent), ['lazy-continuation']);
 });
 
-test('a shortcode tag line after a callout is not a lazy continuation', () => {
+test('a closing shortcode tag after a callout is not a lazy continuation', () => {
   const body = [
     '{{< when-published target="/planned/" >}}',
     '> [!NOTE]',
@@ -136,6 +136,30 @@ test('a shortcode tag line after a callout is not a lazy continuation', () => {
     ''
   ].join('\n');
   assert.deepEqual(analyzeSource(body), []);
+});
+
+test('a standalone shortcode right after a callout IS a lazy continuation', () => {
+  // Hugo replaces the tag with an inline placeholder that Goldmark absorbs
+  // into the quote — the shortcode's output renders inside the callout box.
+  const body = [
+    '> [!TIP]',
+    '> Watch the demo below.',
+    '{{< video-embed id="abc" >}}',
+    ''
+  ].join('\n');
+  assert.deepEqual(analyzeSource(body).map((f) => f.type), ['lazy-continuation']);
+});
+
+test('an opening wrapper tag right after a callout IS a lazy continuation', () => {
+  const body = [
+    '> [!NOTE]',
+    '> Content.',
+    '{{< when-published target="/x/" >}}',
+    'Gated paragraph.',
+    '{{< /when-published >}}',
+    ''
+  ].join('\n');
+  assert.deepEqual(analyzeSource(body).map((f) => f.type), ['lazy-continuation']);
 });
 
 test('a block start after a callout is not a lazy continuation', () => {

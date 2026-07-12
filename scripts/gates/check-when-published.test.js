@@ -5,21 +5,23 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import {
-  URL_SHAPE,
   analyzeSource,
   buildUrlIndex,
+  isBuilt,
+  derivedUrl,
   maskNonProse,
   parseFrontMatter,
   listAllContentFiles
 } from './check-when-published.js';
+import { normalizeUrl, urlPattern } from './url-shape.js';
 
 const REPO_ROOT = path.resolve(fileURLToPath(new URL('../..', import.meta.url)));
 
 /** URL index fixture: one live article, one draft, one alias. */
 const INDEX = {
   urls: new Map([
-    ['/live-article/', { file: 'src/content/posts/live-article/index.md', draft: false }],
-    ['/planned-article/', { file: 'src/content/posts/planned-article/index.md', draft: true }]
+    ['/live-article/', { file: 'src/content/posts/live-article/index.md', built: true }],
+    ['/planned-article/', { file: 'src/content/posts/planned-article/index.md', built: false }]
   ]),
   aliases: new Map([['/old-live-article/', '/live-article/']])
 };
@@ -150,10 +152,16 @@ test('a missing target argument is blocked', () => {
 });
 
 test('malformed targets are blocked', () => {
-  for (const target of ['/Upper-Case/', 'no-leading-slash/', '/no-trailing-slash', '/spaced url/', '/under_score/']) {
+  for (const target of ['/Upper-Case/', 'no-leading-slash/', '/spaced url/', '/under_score/']) {
     const result = analyzeSource(wrap(target), INDEX);
     assert.deepEqual(findingTypes(result), ['malformed-target'], `expected malformed-target for ${target}`);
   }
+});
+
+test('a target without a trailing slash resolves via normalization', () => {
+  const result = analyzeSource(wrap('/live-article'), INDEX);
+  assert.deepEqual(findingTypes(result), []);
+  assert.deepEqual(noticeTypes(result), ['unwrap']);
 });
 
 test('an alias target is blocked and points at the canonical url', () => {
@@ -181,6 +189,7 @@ test('parseFrontMatter reads url, draft, and block-list aliases', () => {
   assert.deepEqual(parseFrontMatter(source), {
     url: '/some-article/',
     draft: true,
+    date: null,
     aliases: ['/old-a/', '/old-b/']
   });
 });
@@ -190,6 +199,7 @@ test('parseFrontMatter reads inline-list aliases and quoted urls', () => {
   assert.deepEqual(parseFrontMatter(source), {
     url: '/quoted/',
     draft: false,
+    date: null,
     aliases: ['/old-a/', '/old-b/']
   });
 });
@@ -227,14 +237,69 @@ test('baseline: every content file passes the gate against the real url index', 
 test('baseline: the url index resolves known pages, including block scalars', async () => {
   const index = await buildUrlIndex();
   assert.ok(index.urls.size > 0, 'expected urls in the index');
-  // Article url shapes are valid when-published targets.
   const article = index.urls.get('/what-is-commerce-on-core/');
   assert.ok(article, 'expected the Commerce on Core article in the index');
-  assert.equal(article.draft, false);
-  assert.ok(URL_SHAPE.test('/what-is-commerce-on-core/'));
+  assert.equal(article.built, true);
+  assert.ok(urlPattern.test('/what-is-commerce-on-core/'));
   // This article declares url with a YAML block scalar (url: >-).
   assert.ok(
     index.urls.has('/the-move-from-sitegenesis-and-sfra-to-the-composable-storefront-as-a-developer/'),
     'expected the block-scalar url to be indexed'
   );
+  // Category term pages have no url front matter; their URL is derived from
+  // hugo.toml [permalinks.term].
+  const term = index.urls.get('/category/ai/');
+  assert.ok(term, 'expected the ai category term page in the index');
+  assert.equal(term.built, true);
+});
+
+// --- review-fix regressions ----------------------------------------------------
+
+test('an unquoted Hugo-valid target is not misread as self-closing', () => {
+  const source = '{{< when-published target=/planned-article/ >}}\nx\n{{< /when-published >}}\n';
+  const result = analyzeSource(source, INDEX);
+  assert.deepEqual(findingTypes(result), []);
+  assert.deepEqual(noticeTypes(result), ['pending']);
+});
+
+test('a stray closing tag without an opening tag is blocked', () => {
+  const result = analyzeSource('x\n{{< /when-published >}}\n', INDEX);
+  assert.deepEqual(findingTypes(result), ['unclosed']);
+});
+
+test('double-backtick code spans are masked', () => {
+  const source = 'Use ``{{< when-published >}}`` in docs.\n';
+  const result = analyzeSource(source, INDEX);
+  assert.deepEqual(findingTypes(result), []);
+});
+
+test('isBuilt treats future-dated draft:false pages as not built', () => {
+  const now = Date.parse('2026-07-12T12:00:00Z');
+  assert.equal(isBuilt({ draft: false, date: '2026-08-01T00:00:00Z' }, now), false);
+  assert.equal(isBuilt({ draft: false, date: '2026-07-01T00:00:00Z' }, now), true);
+  assert.equal(isBuilt({ draft: false, date: null }, now), true);
+  assert.equal(isBuilt({ draft: true, date: '2026-07-01T00:00:00Z' }, now), false);
+});
+
+test('a scheduled (future-dated) target reports pending, not unwrap', () => {
+  const index = {
+    urls: new Map([['/scheduled/', { file: 'src/content/posts/scheduled/index.md', built: false }]]),
+    aliases: new Map()
+  };
+  const result = analyzeSource(wrap('/scheduled/'), index);
+  assert.deepEqual(findingTypes(result), []);
+  assert.deepEqual(noticeTypes(result), ['pending']);
+});
+
+test('derivedUrl maps category term pages and nothing else', () => {
+  assert.equal(derivedUrl('src/content/categories/ai/_index.md'), '/category/ai/');
+  assert.equal(derivedUrl('src/content/posts/some-post/index.md'), null);
+  assert.equal(derivedUrl('src/content/categories/_index.md'), null);
+});
+
+test('normalizeUrl adds a trailing slash only to directory urls', () => {
+  assert.equal(normalizeUrl('/foo'), '/foo/');
+  assert.equal(normalizeUrl('/foo/'), '/foo/');
+  assert.equal(normalizeUrl('/404.html'), '/404.html');
+  assert.equal(normalizeUrl('/'), '/');
 });

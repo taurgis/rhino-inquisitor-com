@@ -980,6 +980,23 @@ lazy-continuation defect.
 | deploy pipeline (`build` gate group) | push to `main` | `check:when-published -- --all` over all content |
 | Hugo build | every build | the shortcode itself `warnf`s each hidden block, so pending content shows in build logs |
 
+### Follow-up: review fixes (2026-07-12)
+
+A high-effort review of the first cut confirmed and fixed: false
+self-closing/malformed findings on unquoted targets; double-backtick code
+spans left unmasked; stray closing tags passing (balance is now checked in
+both directions); future-dated `draft: false` targets mis-reported as
+published (notices now key on "in the build", via a shared `isBuilt` check
+on draft + date); category term pages un-targetable (URLs derived from
+`[permalinks.term]`); the url shape duplicated from — and diverging from —
+`validate-frontmatter.js` (now shared via `scripts/gates/url-shape.js`,
+with targets normalized to Hugo's served trailing-slash form); `--staged`
+validating against the working tree instead of the git index; raw gating
+tags plus both branches leaking into Hugo-native markdown alternates
+(`llms/clean-body.html` now resolves the pair); and the callout gate's
+shortcode exemption being over-broad (narrowed to closing tags only — an
+opening or standalone tag under a callout is a real lazy continuation).
+
 ### Impact and verification
 
 - Impacted components: `src/layouts/shortcodes/when-published.html` (new),

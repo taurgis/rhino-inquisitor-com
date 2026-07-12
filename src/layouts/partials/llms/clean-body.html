@@ -2,6 +2,35 @@
 {{- $body := .RawContent | default "" | replaceRE `\r\n?` "\n" | strings.TrimSpace -}}
 
 {{- if $body -}}
+  {{- /* Publish-gating pair: resolve to exactly one branch, mirroring the
+       shortcodes (src/layouts/shortcodes/when-published.html): the inner
+       Markdown is kept only when the target resolves to a built page (or,
+       for when-unpublished, only when it does not). Runs before the other
+       shortcode handlers so a kept branch's inner shortcodes still get
+       cleaned below. */ -}}
+  {{- range $name := slice "when-published" "when-unpublished" -}}
+    {{- $tagPattern := printf `(?s)\{\{<\s*%s\s+([^>]*?)>\s*\}\}(.*?)\{\{<\s*/%s\s*>\s*\}\}` $name $name -}}
+    {{- range findRESubmatch $tagPattern $body -}}
+      {{- $full := index . 0 -}}
+      {{- $attrs := index . 1 -}}
+      {{- $inner := index . 2 -}}
+      {{- $target := "" -}}
+      {{- with findRESubmatch `target="([^"]+)"` $attrs }}{{ $target = index (index . 0) 1 }}{{ end -}}
+      {{- $built := false -}}
+      {{- if $target }}{{ with where site.Pages "RelPermalink" $target }}{{ $built = true }}{{ end }}{{ end -}}
+      {{- $keep := $built -}}
+      {{- if eq $name "when-unpublished" }}{{ $keep = not $built }}{{ end -}}
+      {{- $replacement := "" -}}
+      {{- if $keep -}}
+        {{- $replacement = strings.TrimSpace $inner -}}
+        {{- if not (in $attrs `display="inline"`) -}}
+          {{- $replacement = printf "\n\n%s\n\n" $replacement -}}
+        {{- end -}}
+      {{- end -}}
+      {{- $body = replace $body $full $replacement -}}
+    {{- end -}}
+  {{- end -}}
+
   {{- range findRESubmatch `(?s)\{\{<\s*img-caption\s+(.+?)>\s*\}\}` $body -}}
     {{- $full := index . 0 -}}
     {{- $attrs := index . 1 -}}

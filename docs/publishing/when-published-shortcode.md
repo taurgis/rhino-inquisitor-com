@@ -49,10 +49,15 @@ HTML would be pushed through Goldmark a second time (the gate blocks this).
 {{< /when-published >}}
 ```
 
-- `target` is the planned page's `url` front matter value, exactly:
-  lowercase, leading and trailing slash. Aliases are rejected by the gate —
-  an alias never matches the shortcode's `RelPermalink` lookup, so the block
-  would never unhide.
+- `target` is the planned page's `url` front matter value: lowercase,
+  leading slash (a missing trailing slash is normalized to Hugo's served
+  form). Category term pages (`/category/<slug>/`) are valid targets too —
+  the gate derives their URLs from `[permalinks.term]`. Aliases are rejected
+  by the gate — an alias never matches the shortcode's `RelPermalink`
+  lookup, so the block would never unhide.
+- A `draft: false` target with a **future date** counts as unpublished:
+  production builds never pass `--buildFuture`, so blocks stay gated (and
+  the gate reports `pending`, not `unwrap`) until the date passes.
 - The inner content is ordinary page Markdown: callouts, internal links,
   emphasis, and other shortcodes all work.
 - One shortcode gates on one target. If a block depends on two planned
@@ -129,6 +134,32 @@ Publish-time checklist for a draft that is the target of pending blocks:
   `{{% ... %}}`) following a callout is a block boundary, not a lazy
   continuation — Hugo strips shortcode tags before Goldmark parses the
   Markdown (`isLazyContinuation` in `scripts/gates/check-callouts.js`).
+
+## Follow-up: 2026-07-12 review fixes
+
+A same-day high-effort review confirmed nine defects in the first cut; all
+are fixed and regression-tested:
+
+- The gate's tag regex no longer misreads an unquoted target's trailing
+  slash as a self-closing marker, double-backtick code spans mask
+  correctly, and tag balance is checked in both directions (a stray closing
+  tag now blocks too).
+- The url shape rule moved to `scripts/gates/url-shape.js`, shared with
+  `scripts/validate-frontmatter.js` so the two cannot drift; targets and
+  index keys are normalized to Hugo's served form.
+- Scheduled posts (`draft: false`, future date) count as unpublished, so
+  the notices no longer advise removing load-bearing gating.
+- `--staged` mode validates against the git index (the tree the commit
+  creates): untracked drafts no longer satisfy a target locally that CI
+  would reject.
+- `src/layouts/partials/llms/clean-body.html` resolves the gating pair to
+  exactly one branch, so Hugo-native markdown alternates and `llms-full.txt`
+  never leak raw tags or both branches (previously masked in production
+  only by the post-build rewrite; visible in `hugo server`).
+- The callout gate's shortcode exemption narrowed to **closing** tags only:
+  an opening or standalone shortcode directly under a callout is a real
+  lazy continuation (its inline placeholder renders inside the callout box,
+  verified against Hugo 0.163) and is flagged again.
 
 ## Verification
 

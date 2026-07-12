@@ -5,6 +5,8 @@ import fg from 'fast-glob';
 import matter from 'gray-matter';
 import { z } from 'zod';
 
+import { urlPattern, systemUrlAllowlist } from './gates/url-shape.js';
+
 import {
   DiscoveryParamsSchema,
   derivedDiscoveryFieldKeys,
@@ -15,8 +17,7 @@ const repoRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..'
 const defaultContentRoot = path.join(repoRoot, 'src/content');
 const canonicalOrigin = 'https://rhino-inquisitor.com';
 const canonicalHost = 'rhino-inquisitor.com';
-const urlPattern = /^\/(?:|[a-z0-9/-]*[a-z0-9-]\/?)$/;
-const systemUrlAllowlist = new Set(['/404.html']);
+
 const aliasPattern = /^\/(?:|[a-z0-9/-]*[a-z0-9-]\/?)$/;
 const isoDateTimePattern =
   /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})$/;
