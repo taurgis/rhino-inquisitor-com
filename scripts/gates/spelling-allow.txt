@@ -287,6 +287,7 @@ idempotency
 ietf
 iframe
 impactful
+imperva
 impex
 indexable
 ine
@@ -318,6 +319,7 @@ jwa
 jwks
 jwt
 karly
+kasada
 kaur
 kemberly
 ketan
@@ -482,6 +484,7 @@ pwa
 qodo
 quickstart
 radix
+radware
 raghuwanshi
 ramasree
 ramda

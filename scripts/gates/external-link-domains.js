@@ -253,6 +253,7 @@ const DOMAIN_RULES = Object.freeze({
   'syntax.fm': STATUS,
   'tanstack.com': STATUS,
   'techcrunch.com': STATUS,
+  'techdocs.akamai.com': STATUS,
   'teespring.com': STATUS,
   'trailblazercommunitygroups.com': STATUS,
   'trailheadacademy.salesforce.com': STATUS,
