@@ -1096,6 +1096,47 @@ installed.
   dependency already satisfies `$lighthouse` before deleting it.
 - Related files: `package.json`, `package-lock.json`.
 
+## Update: front matter validator ignores per-post `prompts/` folders
+
+### Change summary
+
+`validate:frontmatter` (`scripts/validate-frontmatter.js`) globs every `**/*.md`
+file under the content root and requires each one to satisfy the post/page
+front matter schema. The write-article workflow
+(`docs/development/write-article-workflow.md`) creates a `prompts/` folder
+next to a new post's `index.md`, holding `*.prompt.md` image-generation specs
+for humans/design tools — plain Markdown with no front matter at all. The
+validator had no exclusion for that folder, so any post with a `prompts/`
+folder failed `validate:frontmatter` (and, by extension, `preflight`, which
+runs it first) with eight schema errors per prompt file, none of which were
+about the post's own front matter.
+
+### Old vs new behavior
+
+| Aspect | Old | New |
+|--------|-----|-----|
+| `fg('**/*.md', ...)` ignore list | `['**/AGENTS.md']` only | `['**/AGENTS.md', '**/prompts/**']` |
+| Post with a `prompts/` folder | `validate:frontmatter` failed with schema errors (`title`/`description`/`url`/`draft`/`date`/`lastmod`/`categories`/`tags` all "expected ..., received undefined") for every `*.prompt.md` file | Prompt files are skipped; only the post's own `index.md` (and any other real content) is schema-checked |
+
+### Impact and verification
+
+- Impacted: `scripts/validate-frontmatter.js`, and every downstream consumer
+  that runs it first — `npm run preflight` (`scripts/preflight.sh`) and the
+  `build` gate group.
+- Verify with `npm run validate:frontmatter` on a repo that has at least one
+  post with a `prompts/` folder (e.g.
+  `src/content/posts/slas-under-the-hood-session-bridging-and-hybrid-auth/`)
+  — it should report "Front matter validation passed" instead of listing
+  schema errors for files under that post's `prompts/` directory.
+- No schema or content-checking behavior changed for actual post/page content;
+  this only narrows which files are considered content.
+
+### Related files
+
+- `scripts/validate-frontmatter.js`
+- `docs/development/write-article-workflow.md` (documents the `prompts/`
+  folder convention this exclusion supports)
+
 ## Related files
 
 - `.github/workflows/deploy-pages.yml`

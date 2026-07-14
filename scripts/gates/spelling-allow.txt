@@ -220,6 +220,7 @@ epam
 eps
 eval
 eventing
+excalidraw
 eyeconic
 eyewear
 fabrizio
@@ -458,6 +459,7 @@ pkey
 pmid
 pmlib
 pnats
+png
 poc
 pocs
 pok
@@ -566,11 +568,13 @@ shethj
 shirtforce
 shoby
 shopify
+shortcode
 signifyd
 signup
 siloed
 sinek
 sitegenesis
+skeuomorphism
 skillset
 slas
 snapchat

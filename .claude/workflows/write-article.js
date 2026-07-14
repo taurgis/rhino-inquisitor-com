@@ -76,6 +76,7 @@ const DRAFT_SCHEMA = {
     wordCount: { type: 'number' },
     imagesNeeded: {
       type: 'array',
+      description: 'Non-Mermaid images only — real screenshots and house-style illustrations. Diagrams rendered as Mermaid fences belong in the body, not here.',
       items: {
         type: 'object',
         properties: {
@@ -85,6 +86,11 @@ const DRAFT_SCHEMA = {
         },
         required: ['filename', 'kind'],
       },
+    },
+    mermaidDiagramsAdded: {
+      type: 'array',
+      items: { type: 'string' },
+      description: 'Short description of each Mermaid diagram written directly into the body, if any.',
     },
     openQuestionsForAuthor: { type: 'array', items: { type: 'string' } },
   },
@@ -242,24 +248,38 @@ Requirements:
 4. Create \`src/content/posts/<slug>/index.md\` with complete front matter in the required field order: title, description (120-155 chars, folded scalar \`>-\`, benefit-first, never "This post..."), date and lastmod (quoted ISO 8601 with milliseconds and Z, same timestamp for both since this is new), url, draft: true, heroImage (leave "" for now), categories, tags (reuse styleGuide.suggestedCategories/suggestedTags unless they genuinely don't fit), author: "Thomas Theunen", and takeaways (exactly 3 double-quoted strings, third-person verb first, no trailing periods).
 5. Write the body: minimum 800 words of substance, in the voice from AGENTS.md and styleGuide.voiceNotes. If the post needs to serve both hands-on implementers and higher-level readers, consult \`.agents/skills/audience-layering/SKILL.md\`. If it walks through code, hooks, or request flow, consult \`.agents/skills/code-walkthrough-authoring/SKILL.md\`.
 6. Add 2-4 internal cross-links from styleGuide.crossLinkCandidates using relative paths.
-7. For any hero image or in-body screenshot/illustration/diagram the post needs, do not invent an image file — insert a placeholder reference instead (e.g. \`![alt text](PLACEHOLDER-<kebab-name>.png)\`) and list it in imagesNeeded; a later step generates a prompt file per placeholder for a human to produce.
+7. For any diagram the post needs that Mermaid can render (flowcharts, sequence diagrams, decision trees, state/architecture diagrams — anything expressible as nodes/edges or a sequence of steps), write it directly in the body as a \`\`\`mermaid fenced code block instead of an image placeholder — this site has native Mermaid support (see \`docs/development/mermaid-diagram-support.md\`), so no placeholder, no prompt file, and no human production step are needed. Match the plain-flowchart/sequenceDiagram style already used in \`src/content/posts/the-bouncer-at-the-door-bot-protection-in-sfcc/index.md\` and \`src/content/posts/tokens-arent-free-picking-models-and-keeping-agents-grounded/index.md\` (quoted node labels, \`\\n\` for line breaks inside labels, quoted subgraph names) and rely on the site's theme-driven coloring — don't hardcode colors. Do not list Mermaid diagrams in imagesNeeded. For any hero image or in-body screenshot/illustration that genuinely isn't diagram-shaped (a real UI screenshot, a house-style cartoon illustration), do not invent an image file — insert a placeholder reference instead (e.g. \`![alt text](PLACEHOLDER-<kebab-name>.png)\`) and list it in imagesNeeded; a later step generates a prompt file per placeholder for a human to produce.
 8. Do not set draft: false and do not run any git commands.
 
-Return slug, url, filePath (repo-relative), title, wordCount (body word count), imagesNeeded (filename/kind/placementNote per placeholder inserted), and openQuestionsForAuthor (anything guessed or left as a TODO).`,
+Return slug, url, filePath (repo-relative), title, wordCount (body word count), imagesNeeded (filename/kind/placementNote per non-Mermaid placeholder inserted), mermaidDiagramsAdded (one line per Mermaid diagram written into the body, if any), and openQuestionsForAuthor (anything guessed or left as a TODO).`,
   { label: 'write-draft', phase: 'Draft', model: 'sonnet', schema: DRAFT_SCHEMA }
 )
 
 log(`Draft written: ${draft.filePath}`)
 
 const imagePrompts = await agent(
-  `Generate prompt files for the images/screenshots the draft at \`${draft.filePath}\` still needs, so a human can produce them.
+  `Generate prompt files for the images/screenshots the draft at \`${draft.filePath}\` still needs, so a human (or a separate image-generation agent with zero access to this repository) can produce them from the prompt file alone.
 
 Images to cover: ${JSON.stringify(draft.imagesNeeded)}
 
-For each image:
-1. Create a prompt file at \`src/content/posts/${draft.slug}/prompts/<filename-without-extension>.prompt.md\` (create the \`prompts/\` folder if needed — these are working notes for the human, not published content, and are not image files themselves).
-2. In each prompt file, include: what the image is for and where it sits in the article; whether it's an illustration to generate (match this site's house style — see past hero images and \`src/content/posts/AGENTS.md\`'s Images section) or a real screenshot to capture (exact Business Manager path/UI/URL/state to capture); a suggested alt text (descriptive, under 125 characters); and a suggested caption per \`.agents/skills/image-caption-writing/SKILL.md\` — the caption must carry the argument/point, never restate the alt text, never say "Figure 1".
-3. Do not generate the actual image — only the prompt file.
+For each image, create a prompt file at \`src/content/posts/${draft.slug}/prompts/<filename-without-extension>.prompt.md\` (create the \`prompts/\` folder if needed — these are working notes, not published content, and are not image files themselves). Open with what the image is for and exactly where it sits in the article (section heading, position relative to nearby prose/code).
+
+Then branch by kind:
+
+**If \`kind\` is \`"illustration"\` (or a \`"diagram"\` too pictorial for Mermaid — a real piece of generated artwork, not a nodes-and-edges diagram):** write a fully self-contained image-generation prompt. The agent that executes it has no access to this repository, cannot open \`src/content/posts/AGENTS.md\`, and cannot view any reference image — every visual fact has to be spelled out in words, not referenced by pointing at "the house style." Before writing it, open one existing hero/in-body illustration file in this repo (e.g. a \`.png\`/\`.jpg\` sitting next to a post's \`index.md\` with a non-empty \`heroImage\`, or referenced by an \`img-caption\` illustration) and look at it directly, then translate what you see into the sections below — do not skip looking at a real example and guess. Structure the prompt with these labeled sections:
+   - **Subject**: the site's mascot is an anthropomorphic gray rhinoceros — stocky, humanoid proportions, upright two-legged stance, human-like five-fingered hands, heavy sloped brow, small rounded ears, one large horn plus one smaller horn, textured wrinkled gray skin. Describe how it's dressed/staged for this specific image.
+   - **Scene**: the specific action/metaphor for this image, tailored to what this article is actually about — not a generic mascot pose.
+   - **Setting**: background and lighting.
+   - **Color palette**: warm, restrained "Paper & Ink" palette — cream/paper midtones, deep ink-navy shadows, one warm amber/gold accent color reserved for the single most important element in the scene; no neon, no saturated primaries, no default AI-generator color grading.
+   - **Line and rendering style**: clean dark ink outlines (comic-book line art) filled with painterly digital shading and visible brushwork texture — not flat vector/cel-shading, not photorealistic.
+   - **Composition**: main subject placement, open negative space on one side for a possible text overlay, landscape orientation.
+   - **No-text constraint**: explicitly instruct the generator to render no legible text, labels, logos, or watermarks anywhere in the image — general-purpose image generators reliably garble or misspell text, so anything that needs to be exact belongs in the article's prose or a Mermaid diagram, never in generated artwork.
+   - **Aspect ratio / output**: 16:9 landscape, roughly matching this site's existing hero image pixel dimensions (check one real file's dimensions rather than assuming), single cohesive scene, high detail, no panel splits or collage.
+   Below the prompt, include a ready-to-paste front matter snippet: for a hero image, \`heroImage:\`/\`heroImageAlt:\` lines; for an in-body image, the \`{{< img-caption src="..." alt="..." caption="..." >}}\` shortcode call — using the suggested filename (plain descriptive kebab-case, no hash suffix), a suggested alt text (descriptive, under 125 characters), and, for in-body images, a suggested caption per \`.agents/skills/image-caption-writing/SKILL.md\` (the caption must carry the argument/point, never restate the alt text, never say "Figure 1").
+
+**If \`kind\` is \`"screenshot"\`:** skip the illustration-prompt structure above entirely — this is a real capture, not generated art. Give the exact Business Manager path/UI/URL/state to capture, plus the same suggested alt text and caption fields as above.
+
+Do not generate the actual image — only the prompt file.
 
 Return promptFiles (path + forImage for each file written).`,
   { label: 'image-prompt-files', phase: 'Draft', model: 'sonnet', schema: IMAGE_PROMPTS_SCHEMA }
@@ -393,6 +413,7 @@ return {
   wordCount: draft.wordCount,
   duplicateRisk: styleGuide.duplicateRisk,
   imagePromptFiles: imagePrompts.promptFiles,
+  mermaidDiagramsAdded: draft.mermaidDiagramsAdded,
   openQuestionsForAuthor: draft.openQuestionsForAuthor,
   verification: {
     humanProseEditing: humanProseResult,

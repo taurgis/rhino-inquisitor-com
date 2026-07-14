@@ -312,8 +312,14 @@ async function main() {
   const markdownFiles = (await fg('**/*.md', {
     cwd: options.contentRoot,
     onlyFiles: true,
-    // AGENTS.md files are agent guidance, not content; they carry no front matter.
-    ignore: ['**/AGENTS.md']
+    ignore: [
+      // AGENTS.md files are agent guidance, not content; they carry no front matter.
+      '**/AGENTS.md',
+      // Per-post prompts/ folders hold image-generation specs for the
+      // write-article workflow (docs/development/write-article-workflow.md),
+      // not published content; they carry no front matter either.
+      '**/prompts/**'
+    ]
   })).sort();
 
   if (markdownFiles.length === 0) {
