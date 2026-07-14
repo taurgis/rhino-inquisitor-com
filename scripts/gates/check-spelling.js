@@ -606,6 +606,9 @@ async function collectMarkdownFiles(contentDir) {
     // AGENTS.md files quote published prose verbatim (including pre-en-GB text),
     // so spell-checking them would re-flag words already fixed in the posts.
     .filter((entry) => entry.name !== 'AGENTS.md')
+    // *.prompt.md files are self-contained image-generation prompts for a human
+    // or an external agent with no repo access — not published house-style prose.
+    .filter((entry) => !entry.name.toLowerCase().endsWith('.prompt.md'))
     .map((entry) => path.join(entry.parentPath ?? entry.path, entry.name));
 }
 
