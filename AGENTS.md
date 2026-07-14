@@ -24,7 +24,7 @@ This file is the root agent guide for the repository. It complements agent files
 |   |-- agents/          # Canonical agent role definitions (source for generation)
 |   |-- instructions/    # Canonical governance and quality gates (source for generation)
 |   `-- workflows/       # deploy-pages.yml (gates + publish)
-|-- .claude/             # Generated for Claude Code (skills/, rules/generated/)
+|-- .claude/             # Generated for Claude Code (skills/, rules/generated/, workflows/)
 |-- .cursor/             # Generated for Cursor (agents/, rules/*.mdc)
 |-- url-data/           # URL manifests + redirect/parity data inputs used by live gates
 |-- validation/          # Retained validation inputs (expected-url-outcomes, priority-routes, sample-matrix, schema)
@@ -40,6 +40,10 @@ This file is the root agent guide for the repository. It complements agent files
 
 - [Hugo Specialist](.github/agents/hugo-specialist.agent.md) — site design, information architecture, templates, Hugo config, GitHub Pages workflow.
 - [SEO Specialist](.github/agents/seo-specialist.agent.md) — URL/redirect integrity, canonical strategy, structured data, sitemap/robots, Search Console.
+
+## Claude Code Workflows
+
+- `.claude/workflows/write-article.js` — end-to-end first-draft pass for a new post: research, style/duplicate-topic review, drafting, image-prompt generation, prose/fact verification, and quality gates. Stops short of `draft: false` and any git action. Details: `docs/development/write-article-workflow.md`.
 
 ## Instruction Gates
 
