@@ -4,7 +4,7 @@ description: >-
   Storefront Next's real architecture, what actually changes if you migrate
   from PWA Kit, and why most SFRA shops have a safer path in front of them.
 date: '2026-07-11T18:29:24.000Z'
-lastmod: '2026-07-11T19:36:06.000Z'
+lastmod: '2026-07-14T15:00:00.000Z'
 url: /storefront-next-architecture-and-migration-from-pwa-kit/
 draft: true
 heroImage: storefront-next-migration-hero.jpg
@@ -24,7 +24,7 @@ tags:
   - sfra
 author: Thomas Theunen
 takeaways:
-  - "Explains Storefront Next's server-first architecture and how it differs from PWA Kit's client-heavy stack"
+  - "Explains Storefront Next's server-first architecture, including the shift from PWA Kit's file-override extensibility to the Commerce Apps framework"
   - "Warns that marketing claims of week-long AI-assisted migrations gloss over a real rewrite across state, styling, and tooling"
   - "Frames the SFRA-to-Storefront-Next hybrid path as a shorter, lower-risk route than a full PWA Kit rewrite for most current readers"
 ---
@@ -43,6 +43,8 @@ Start with what doesn't change, because it's the part that makes any of this tra
 What changes is everything above that backend. The [architecture guide](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/sfnext-architecture.html) lists the stack plainly: React 19, React Router 7 in framework mode, Vite, TypeScript, Tailwind CSS, shadcn/ui. If you've touched Remix, that "framework mode" phrase should feel familiar — the docs say so directly: "If you're familiar with Remix, React Router 7 framework mode uses the same patterns." A request lands at the eCDN, passes through Managed Runtime, and runs a middleware chain — app config, internationalisation, authentication, analytics — before reaching the route loader. From there, the loader fetches data, the server streams HTML as it becomes available, and the client hydrates on top of it once it arrives. PWA Kit veterans will recognise the shape of that pipeline; what's different is which layer does the work.
 
 The overview guide sums up the shift better than I can: PWA Kit is "a client-heavy, hook-driven architecture," Storefront Next is "server-first." That single sentence explains most of what follows.
+
+Every Slack channel I'm in with "pwa-kit" or "storefront-next" in the name eventually produces someone calling this "PWA Kit 4.0." It isn't, and the distinction isn't pedantry: a major-version bump implies an upgrade path — bump a dependency, fix what breaks, ship. There's no such path here. Storefront Next doesn't extend `@salesforce/retail-react-app`, so there's no codemod that turns one project into the other. [Salesforce's own migration guide](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/sfnext-pwa-overview.html) treats it the same way: the whole document reads as differences between two architectures, not a changelog between two versions of one. Budget for a rewrite, not an upgrade.
 
 ## The Real Numbers
 
@@ -90,6 +92,26 @@ src/routes/
 
 The same shift touches navigation calls throughout the app: `useHistory()` and `history.push()` give way to `useNavigate()` and `navigate()`. Small on its own, but it touches every navigation call site in the app, which is exactly the kind of change that's tedious for a human and quick for an agent that can grep the whole codebase in one pass.
 
+**Extensibility.** PWA Kit v3 introduced [template extensibility](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/template-extensibility.html): declare `@salesforce/retail-react-app` as a base template, declare an `overrides` directory in `package.json`, and Webpack silently swaps in your file wherever the base template imports that same path. It works, but the docs are upfront about the footgun built into it: "the more files that you override, the more effort is required to keep up with changes in the base template." Miss an export in your override and the build fails with something like `export 'CAT_MENU_DEFAULT_ROOT_CATEGORY' ... was not found` — I've lost more than one afternoon to exactly that.
+
+Storefront Next replaces file-shadowing with the [Commerce Apps framework](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/commerce-apps-overview.html) and its [UI Targets system](https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/architecture.html). Instead of overriding a whole file, the core app declares named slots — `<UITarget targetId="sfcc.pdp.reviews.rating" />` — and a Vite plugin swaps in your component at build time. There's no import path to hijack and no re-export contract to maintain: you register a component against a target ID, and the platform handles placement.
+
+```jsx
+// PWA Kit v3 — override the whole file
+// overrides/app/pages/home/index.jsx
+export default function Home() { /* ... */ }
+```
+
+```json
+// Storefront Next — register a component against a named target
+// storefront-next/src/extensions/my-app/target-config.json
+{
+  "sfcc.pdp.reviews.rating": "./components/StarRating"
+}
+```
+
+"Commerce Apps replace overrides" oversimplifies things, though. Overrides were a frontend-only mechanism; Commerce Apps also cover the backend, replacing shared hooks like `dw.order.calculateTax` with domain-scoped extension points like `sfcc.app.tax.calculate`, so two integrations stop fighting over the same hook. As of this writing, only Tax has a platform-defined backend contract live — Ratings & Reviews, Loyalty, Search, Address Verification, and Analytics shipped their frontend UI targets in the same April 2026 wave, and Shipping, Fraud, and SFRA support are slated for the next one. That next wave is roadmap, not shipped — Salesforce's own docs flag every future wave as subject to change, so plan around what's live today, not what's promised.
+
 ## Side by Side
 
 | | PWA Kit | Storefront Next |
@@ -99,6 +121,7 @@ The same shift touches navigation calls throughout the app: `useHistory()` and `
 | State | TanStack Query + React Context, `localStorage` tokens | `httpOnly` cookies + React Context, Zustand for complex state |
 | Styling | Chakra UI, CSS-in-JS runtime | Tailwind CSS, shadcn/ui, `cva()`, zero runtime |
 | Build tooling | Webpack 5, Babel, Jest | Vite 7, native TypeScript, Vitest |
+| Extensibility | `overrides/` directory, file-shadowing | Commerce Apps: UI Targets (frontend) + scoped extension points (backend) |
 | Backend | SCAPI, SLAS, Managed Runtime | Same: SCAPI, SLAS, Managed Runtime |
 
 ## The Path Most of You Care About
@@ -129,7 +152,7 @@ Not everything here is a caveat. Storefront Next ships an [end-to-end test suite
 
 ## So, Should You Migrate
 
-If you're on PWA Kit today and it's doing its job, there's no fire drill here — Storefront Next is new enough, and Hybrid Auth young enough (25.6, a year and a half of production mileage at most), that "wait for the next storefront refresh" is a defensible position. If you're starting greenfield, skip PWA Kit; Salesforce already has, and building on a stack it no longer recommends is a strange way to start a new project.
+If you're on PWA Kit today and it's doing its job, there's no fire drill here, and Salesforce's own numbers back that up: [PWA Kit's support policy](https://developer.salesforce.com/docs/commerce/pwa-kit-managed-runtime/guide/pwa-kit-overview.html) guarantees security patches for a minimum of 24 months after the GA of whichever major version you're on — there's no published kill-switch date, just that rolling floor. The nearer forcing function is the Node.js runtime underneath it, not PWA Kit itself: Node 18 hit end-of-life in September 2025, and Node 20 follows in April 2026, so a stalled platform migration hits the runtime wall well before it hits any PWA Kit deadline. Combine that with Storefront Next being new enough, and Hybrid Auth young enough (25.6, a year and a half of production mileage at most), that "wait for the next storefront refresh" is a defensible position. If you're starting greenfield, skip PWA Kit; Salesforce already has, and building on a stack it no longer recommends is a strange way to start a new project.
 
 If you're on SFRA, the calculus is different and, in my experience, more interesting: the hybrid path lets you put a modern frontend in front of shoppers on the pages that matter most for conversion, without touching checkout or betting the whole storefront on day one. That's the project I'd actually recommend starting first.
 

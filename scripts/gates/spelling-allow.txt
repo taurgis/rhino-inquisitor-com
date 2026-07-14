@@ -136,6 +136,7 @@ cloudflare
 cobarras
 codebase
 codebases
+codemod
 codepage
 cognito
 collison
@@ -235,6 +236,7 @@ filesystem
 firechat
 fns
 focussing
+footgun
 forgerock
 frictionless
 frontend
