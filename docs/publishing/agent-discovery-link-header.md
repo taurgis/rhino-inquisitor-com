@@ -8,6 +8,16 @@ registered relation types from
 [RFC 9727, Section 3](https://www.rfc-editor.org/rfc/rfc9727#section-3) and
 [RFC 8631](https://www.rfc-editor.org/rfc/rfc8631).
 
+> **Superseded (2026-07-14):** the standalone Cloudflare rule below now
+> conflicts with the per-article Markdown `Link` headers added in
+> [`docs/publishing/article-markdown-link-headers.md`](article-markdown-link-headers.md)
+> — both rules write to the homepage's `Link` header, and `Set` overwrites
+> rather than appends, so only one survives. Replace this rule with that
+> doc's "Rule 3 — homepage combined `Link` header", which carries both the
+> `describedby` and `alternate` relations in one value. The `describedby`
+> relation and its rationale below are still accurate; only the delivery
+> mechanism (a standalone rule vs. a combined one) changes.
+
 ## Change summary
 
 - `scripts/gates/check-https-security.js` gained a new live-host check,

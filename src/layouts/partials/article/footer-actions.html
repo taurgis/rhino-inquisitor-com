@@ -1,10 +1,17 @@
-{{/* Contextual footer actions — Back to topic hub + Next article */}}
+{{/* Contextual footer actions — Back to topic hub + Next article + Markdown companion */}}
 {{ $page := .page }}
 {{ $topicData := partial "article/resolve-primary-topic.html" (dict "page" $page) }}
 {{ $primaryTopic := $topicData.key }}
 {{ $primaryTopicLabel := $topicData.label }}
 {{ $topicPage := $topicData.page }}
 {{ $nextArticle := false }}
+{{ $seoParams := $page.Params.seo | default dict }}
+{{ $markdownFormat := false }}
+{{ if and (or $page.IsPage $page.IsHome) (not (index $seoParams "noindex")) }}
+  {{ with $page.OutputFormats.Get "markdown" }}
+    {{ $markdownFormat = . }}
+  {{ end }}
+{{ end }}
 
 {{ with $topicPage }}
   {{/* Find the next newer article in the same category */}}
@@ -19,7 +26,7 @@
   {{ $nextArticle = $candidate }}
 {{ end }}
 
-{{ if or $topicPage $nextArticle }}
+{{ if or $topicPage $nextArticle $markdownFormat }}
   <nav class="article-footer-actions" aria-label="Article navigation">
     {{ with $topicPage }}
       <a class="site-cta site-cta--outline" href="{{ .Permalink }}">
@@ -29,6 +36,11 @@
     {{ with $nextArticle }}
       <a class="site-cta" href="{{ .Permalink }}" data-speculation="article">
         Next article &rarr;
+      </a>
+    {{ end }}
+    {{ with $markdownFormat }}
+      <a class="site-cta site-cta--outline" href="{{ .Permalink }}" type="{{ .MediaType.Type }}">
+        View as Markdown
       </a>
     {{ end }}
   </nav>
