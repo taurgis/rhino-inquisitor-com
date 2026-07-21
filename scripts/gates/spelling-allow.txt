@@ -15,6 +15,7 @@
 abdi
 accreditations
 adapter
+adapters
 addon
 addons
 adrien
@@ -407,6 +408,7 @@ mulesoft
 multicartridge
 multiline
 multiphased
+multiship
 myaccount
 nanoleaf
 narula
