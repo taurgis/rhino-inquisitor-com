@@ -47,7 +47,7 @@ This file is the root agent guide for the repository. It complements agent files
 
 ## Instruction Gates
 
-Governance and quality gates live in [.github/instructions/](.github/instructions/): `hugo-coding-standards`, `seo-compliance`, `content-quality`, `ci-workflow-standards`, `post-writing-skills`, `documentation-updates`, `skill-maintenance`, and `agent-governance-quality`.
+Governance and quality gates live in [.github/instructions/](.github/instructions/): `hugo-coding-standards`, `seo-compliance`, `content-quality`, `ci-workflow-standards`, `post-writing-skills`, `documentation-updates`, and `agent-governance-quality`.
 
 ## Local Hugo Setup
 
