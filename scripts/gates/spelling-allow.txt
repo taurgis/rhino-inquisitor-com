@@ -18,6 +18,9 @@ adapter
 adapters
 addon
 addons
+cron
+microsite
+tooltip
 adrien
 adyen
 aes
@@ -131,6 +134,7 @@ checkboxes
 chili
 choiniere
 cid
+cimulate
 cli
 clickstream
 cloudflare
