@@ -1989,6 +1989,30 @@ summary {
   margin-top: 1.25rem;
 }
 
+.article-body h2,
+.article-body h3,
+.article-body h4 {
+  /* Keeps TOC/anchor jumps clear of the sticky .site-header; matches its
+     height at each of its own responsive breakpoints (critical-header.css). */
+  scroll-margin-top: 6.5rem;
+}
+
+@media (max-width: 63.99rem) {
+  .article-body h2,
+  .article-body h3,
+  .article-body h4 {
+    scroll-margin-top: 5.75rem;
+  }
+}
+
+@media (max-width: 52.0625rem) {
+  .article-body h2,
+  .article-body h3,
+  .article-body h4 {
+    scroll-margin-top: 4.5rem;
+  }
+}
+
 .article-body h2 {
   margin-top: 2.5rem;
   line-height: 1.14;
