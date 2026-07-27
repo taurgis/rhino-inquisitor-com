@@ -246,6 +246,7 @@ footgun
 forgerock
 frictionless
 frontend
+fullstack
 gamified
 ganga
 gclid
