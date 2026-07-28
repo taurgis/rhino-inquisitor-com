@@ -467,6 +467,7 @@ pkey
 pmid
 pmlib
 pnats
+pnpm
 png
 poc
 pocs
