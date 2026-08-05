@@ -149,7 +149,7 @@ This is easy to fix. But without enabling it, you cannot test your settings on a
 
 ### Overriding the OCAPI Cache Time
 
-It is possible to override the default 60 seconds of caching of a resource by adding it to the [OCAPI Settings](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/ocapisettings.html) in the Business Manager. _"Administration" > "Site Development" > "Open Commerce API Settings"_
+It is possible to override the default 60 seconds of caching of a resource by adding it to the [OCAPI Settings](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/ocapisettings.html) in the Business Manager. *"Administration" > "Site Development" > "Open Commerce API Settings"*
 
 {{< img-caption src="ocapi-settings-with-cache-f7e7acfcf8.png" alt="OCAPI caching settings" caption="OCAPI resource cache_time settings" link="ocapi-settings-with-cache-f7e7acfcf8.png" >}}
 
