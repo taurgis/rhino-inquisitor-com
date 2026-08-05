@@ -5,7 +5,7 @@ description: >-
     setVaryBy(), unlike the deprecated OCAPI settings this article once
     relied on.
 date: '2023-04-10T06:46:06.000Z'
-lastmod: '2026-07-09T20:21:19.000Z'
+lastmod: '2026-08-05T09:38:31.000Z'
 url: /caching-rest-apis-in-sfcc/
 draft: false
 heroImage: caching-87696b30b8.jpg
@@ -21,13 +21,16 @@ tags:
 author: Thomas Theunen
 takeaways:
     - "Shows how Custom SCAPI endpoints control cache time and personalisation with setExpires() and setVaryBy()"
-    - "Corrects the outdated claim that SCAPI caching can't be controlled, and scopes it to Custom APIs specifically"
+    - "Corrects the outdated claim that SCAPI caching can't be controlled, and shows the different mechanism for Custom APIs versus standard Shopper API hooks"
     - "Preserves the original OCAPI Shop API cache-configuration walkthrough for the archives, now that OCAPI is deprecated"
 ---
 Server-side caching keeps GET requests to your Salesforce B2C Commerce REST APIs fast without hammering the application server on every call. For years, the [OCAPI](https://developer.salesforce.com/docs/commerce/b2c-commerce/references/b2c-commerce-ocapi/get-started-with-ocapi.html) handled this through settings in the Business Manager, but the OCAPI was deprecated platform-wide in April 2026.
 
 > [!NOTE]
 > Updated July 2026: This article originally covered only OCAPI cache configuration. The guidance below now starts with how caching works for Custom SCAPI endpoints; the original OCAPI walkthrough is preserved further down [for the archives](#for-the-archives-ocapi-cache-configuration).
+
+> [!NOTE]
+> Updated August 2026: This article originally claimed the standard Shopper APIs have no cache-time control at all. They do — through a `modifyGETResponse` hook rather than inline in an endpoint script. See [Caching Standard Shopper APIs via Hooks](#caching-standard-shopper-apis-via-hooks) below.
 
 ## Caching Custom SCAPI Endpoints
 
@@ -71,7 +74,25 @@ exports.getCustomProduct.public = true;
 
 `setVaryBy()` marks the response as personalised, so the cache doesn't serve one shopper's promotion-adjusted price to another. Use it carefully: flag a response as personalised when it isn't, and you lose most of the cache-hit benefit you were chasing in the first place.
 
-This only applies to **Custom APIs** — the endpoints you write yourself. The standard Shopper APIs (Products, Search, Categories, and the rest) don't expose an equivalent cache-time control the way the old OCAPI Shop API did.
+Calling `setExpires()`/`setVaryBy()` directly in your endpoint script like this is specific to **Custom APIs** — the endpoints you write yourself. The standard Shopper APIs (Products, Search, Categories, and the rest) don't give you that same inline control, since there's no endpoint script of your own to call it from — but they aren't locked out of cache control entirely.
+
+### Caching Standard Shopper APIs via Hooks
+
+The standard Shopper APIs are cached automatically by the platform's [server-side web-tier caching](https://developer.salesforce.com/docs/commerce/commerce-api/guide/server-side-web-tier-caching.html), with a fixed default TTL per API and expansion — 900 seconds for the `prices` and `promotions` expansions on Products, for instance. You can't change that from a Custom API-style script, since there isn't one here, but you can override it from inside a `dw.ocapi.shop.*.modifyGETResponse` hook — the same hook family covered in [Using OCAPI and SCAPI Hooks in SFCC](/how-to-use-ocapi-scapi-hooks/) — using the identical `response.setExpires()` and `response.setVaryBy()` calls:
+
+```javascript
+var Status = require("dw/system/Status");
+
+exports.modifyGETResponse = function (scriptProduct, doc) {
+  response.setExpires(Date.now() + 3600000);
+  response.setVaryBy("price_promotion");
+  return new Status(Status.OK);
+};
+```
+
+(Salesforce's own published example for this is written for the sibling category hook; the product hook takes the same two calls, since both share the same `dw.system.Response` API and hook family.) `setVaryBy()` still only accepts `price_promotion` here — any other value has no effect.
+
+One catch worth knowing before you rely on this: the web-tier cache key is calculated *before* your hook runs, so any price book or promotion changes you make inside the hook aren't reflected in the cache key itself. `setVaryBy("price_promotion")` is what tells the platform to treat the response as personalised despite that, so one shopper's hook-computed price doesn't get cached and handed back to the next shopper who hits the same URL. [How SFCC Price Books Actually Work](/how-sfcc-price-books-actually-work/) walks through a concrete case of this going wrong: a custom price attached in a product hook, cached against the wrong shopper because `setVaryBy()` was never called.
 
 ### Custom Caches to the rescue (for hooks)
 

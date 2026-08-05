@@ -3,10 +3,10 @@ title: How SFCC Price Books Actually Work
 description: >-
   Learn why getPriceModel().price often returns the list price instead of the
   sale price in SFCC, and how to fix it in scripts, jobs, and SCAPI.
-date: '2026-08-05T09:00:00.000Z'
-lastmod: '2026-08-05T09:00:00.000Z'
+date: '2026-08-05T09:10:03.000Z'
+lastmod: '2026-08-05T09:29:38.000Z'
 url: /how-sfcc-price-books-actually-work/
-draft: true
+draft: false
 heroImage: how-sfcc-price-books-actually-work-hero.jpg
 heroImageAlt: >-
   A cartoon rhino accountant holding a magnifying glass over two overlapping
@@ -23,18 +23,18 @@ author: Thomas Theunen
 takeaways:
   - "Explains why ProductMgr.getProduct() and getPriceModel().price return the list price when the sale price book isn't in the applicable set"
   - "Walks through setApplicablePriceBooks(), getPriceBookPrice(), and the parent price book relationship for reading list and sale prices together"
-  - "Covers the SCAPI price book gap, job-context pricing without a session, and iterating price books safely with ProductSearchModel"
+  - "Covers the SCAPI price book gap, job-context pricing with the right locale/currency/site APIs, and iterating price books at scale with chunk-oriented job steps"
 ---
 
 "What's the best way of retrieving a product's 'sale' price when there are 2 pricebooks — list-prices, sale-prices? With `product.getPriceModel().price` the price shown is always the one coming from the 'parent' pricebook, the list price."
 
-I've now seen a version of that sentence in four different Slack channels in the space of a few weeks: #sfra, #b2c-general, #scapi, #storefront-next. Same setup, same confusion, same moment of "wait, why isn't this working." It's one of the most reliably recurring questions in the SFCC community, and it keeps recurring because the answer isn't spelled out anywhere outside the Script API class reference itself — and a lot of the older bookmarked links to that reference (legacy `documentation.b2c.commercecloud.salesforce.com` URLs, or the old `/references/script-api-for-commerce-cloud/current/...` path on developer.salesforce.com) now 404, which sends people hunting through Slack history instead. The current reference, under `/docs/commerce/b2c-commerce/references/b2c-script-api/`, is live and has the full method signatures — you just have to know to look there. Let's fix that.
+I've now seen a version of that sentence in four different channels of the [Unofficial SFCC Slack community](https://unofficialsfcc.com/) in the space of a few weeks: #sfra, #b2c-general, #scapi, #storefront-next. Same setup, same confusion, same moment of "wait, why isn't this working." It's one of the most reliably recurring questions in the SFCC community, and it keeps recurring because the answer isn't spelled out anywhere outside the Script API class reference itself, and the reference keeps moving. Older bookmarked links to `documentation.b2c.commercecloud.salesforce.com` now redirect to a community-maintained GitHub Pages mirror instead of Salesforce's own site, and the once-standard `/references/script-api-for-commerce-cloud/current/...` path on developer.salesforce.com is a dead 404. The current reference lives under `/docs/commerce/b2c-commerce/references/b2c-script-api/` — you just have to know to look there. Let's fix that.
 
 ## The applicable set, not the price book you assigned
 
 Here's the root cause, and it's almost always the same one: `getPriceModel().price` doesn't evaluate every price book that exists on your instance. It only evaluates whatever's currently in the *applicable* set for the session, and if your sale price book was never added to that set, the platform genuinely does not know it exists.
 
-Someone finally ran this down in one of those threads by checking `PriceBookMgr.getApplicablePriceBooks()` — `PriceBookMgr` is the Script API class for reading and setting which price books are in scope for the current session — and getting back a single price book: the list book. Not the sale book, even though it was configured correctly in Business Manager (SFCC's merchant-facing admin tool), assigned to the site, and had entries for the product in question. The sale book just wasn't in scope for that request.
+Someone finally ran this down in one of those threads by checking `PriceBookMgr.getApplicablePriceBooks()` (the Script API class for reading and setting which price books are in scope for the current session), and got back a single price book: the list book, not the sale book — even though it was configured correctly in Business Manager (SFCC's merchant-facing admin tool), assigned to the site, and had entries for the product in question. The sale book just wasn't in scope for that request.
 
 Once you see it, the rest of the confusion collapses into one sentence: **`ProductPriceModel.getPrice()` returns the minimum price across whatever price books are currently applicable — nothing more, nothing less.** If only the list book is in the applicable set, the "lowest price" happens to be the only price, and that's what you get back from a plain `ProductMgr.getProduct(id).getPriceModel().getPrice()` call every time. (`ProductPriceModel` is the class `Product.getPriceModel()` actually returns — there's no separate `PriceModel` class in the Script API.)
 
@@ -47,7 +47,7 @@ flowchart LR
     C -->|"Neither assigned to site"| F["getPrice() returns N/A"]
 ```
 
-Where does the applicable set come from by default? Whichever price books are assigned to the site and match the session's currency (per Salesforce's own [price lookup rules](https://help.salesforce.com/s/articleView?id=cc.b2c_price_books_for_developers.htm&type=5)), plus their direct parent price books. Storefront controllers built on SFRA (Storefront Reference Architecture, SFCC's standard storefront framework) don't usually need to think about this. The platform resolves the applicable price books for you automatically at the start of each request. The moment you step outside that request lifecycle — a script you run by hand in Business Manager, a job, a custom SCAPI (Salesforce Commerce API, the newer headless REST layer) endpoint — you're on your own, and the applicable set defaults to whatever the platform decides for that context. Often, that's just the list book.
+Where does the applicable set come from by default? Whichever price books are assigned to the site and match the session's currency (per Salesforce's own [price lookup rules](https://help.salesforce.com/s/articleView?id=cc.b2c_price_books_for_developers.htm&type=5)), plus their direct parent price books. Storefront controllers built on [SFRA](/getting-to-know-sfra-as-a-developer/) (Storefront Reference Architecture, SFCC's standard storefront framework) don't usually need to think about this. The platform resolves the applicable price books for you automatically at the start of each request. The moment you step outside that request lifecycle — a script you run by hand in Business Manager, a job, a custom SCAPI (B2C Commerce API, the newer headless REST layer) endpoint — you're on your own, and the applicable set defaults to whatever the platform decides for that context. Often, that's just the list book.
 
 ## Fixing it: setApplicablePriceBooks(), correctly
 
@@ -85,7 +85,7 @@ Reach for this pattern anywhere you need to show both prices at once — a strik
 
 One quirk worth knowing before you rely on this: someone in the same thread reported that `getPriceBookPrice('pricebook ID')` didn't return anything useful *until* they commented out the earlier `setApplicablePriceBooks()` call in the same script. I haven't been able to pin down the exact interaction from the (thin) official docs, but the practical lesson holds up: if you're reaching for `getPriceBookPrice()` for a specific book, don't also call `setApplicablePriceBooks()` with a narrower or conflicting set upstream in the same execution. Pick one mechanism per code path and don't mix them.
 
-A store-based fulfilment case makes the same point from a different angle: one setup had three price books — one per store, physical versus virtual — with the applicable books set correctly. But `getPriceModel().getPrice()` kept returning the lowest of the three ($500) instead of the one tied to the current store ($900), because "lowest wins" doesn't know which store the shopper is in.
+A store-based fulfilment case makes the same point from a different angle: one setup had three price books (one per store, physical versus virtual) with the applicable books set correctly. But `getPriceModel().getPrice()` kept returning the lowest of the three ($500) instead of the one tied to the current store ($900), because "lowest wins" doesn't know which store the shopper is in.
 
 The fix that was reached is the right one: set *only* the single price book you want as the applicable set at the point you call the product or search factory, rather than leaving all three in scope and hoping the "lowest wins" rule happens to pick the right one. If you need more than one book active at a time, use `getPriceBookPrice()` per book instead of `getPrice()`.
 
@@ -106,24 +106,26 @@ var listPrice = priceModel.getPriceBookPrice(listPriceBook.getID());
 
 This buys you one real thing: you stop hardcoding the list book's ID in every script that needs both prices. Walk the relationship instead, and a merchant can rename or reorganise price books later without you needing to touch every price-display script.
 
-## Job context: there's no session, so there's no free lunch
+## Job context: there's no HTTP request, so the defaults change
 
-Jobs are where this whole model gets less forgiving. A storefront request arrives with a session, a locale, and a currency already resolved by the platform before your controller code runs a single line. A job step has none of that. There's no request, so there's nothing setting the applicable price books, the locale, or the currency for you — you have to do all three explicitly, in the right order, before you read a single price.
+Jobs are where this whole model gets less forgiving, though not quite for the reason it first looks like. A storefront request arrives with a session, a locale, and a currency already resolved by the platform before your controller code runs a single line. A job step gets a pseudo-request and pseudo-session instead: `request` and `session` still exist as objects, but Salesforce's own docs note that HTTP-specific methods on `request` return null because there's no HTTP request behind them, and `session.getCustomer()` always returns null in that context. Locale and currency do resolve to a default — the job's site — so the one piece of context that's genuinely fixed rather than defaulted is the site itself. `dw.system.Site` has no setter at all, only getter methods like `getCurrent()`. Which site a job step runs against is a Business Manager (or OCAPI Data API) setting called the job's **Flow Scope** — the entire organization, all storefront sites, or specific sites you choose when you configure the flow — not something you set from script.
 
-One question from mid-2024 asked exactly this for a multi-locale, multi-currency job and never got a public answer in the thread, so there's no canonical fix to point to — just a workaround people keep reinventing independently. The version most teams land on: explicitly set the site and locale context, then call `setApplicablePriceBooks()` with the correct book for that locale/currency combination *before* running your search or product loop, and repeat that sequencing for every locale/currency pair you need to touch. Skip a step, or run it out of order, and you'll get prices back for the wrong currency without any error telling you so.
+One question from mid-2024 asked exactly this for a multi-locale, multi-currency job and never got a public answer in the thread, so there's no canonical fix to point to — just a workaround people keep reinventing independently. The version most teams land on: call `request.setLocale('fr_FR')` and `session.setCurrency(dw.util.Currency.getCurrency('EUR'))` for the locale/currency pair you're processing, then `setApplicablePriceBooks()` with the correct book for that combination *before* running your search or product loop, and repeat that sequencing for every locale/currency pair you need to touch. Skip a step, or run it out of order, and you'll get prices back for the wrong currency without any error telling you so.
 
 ```mermaid
 flowchart TD
-    Start["Job step starts"] --> A["Set dw.system.Site context explicitly"]
-    A --> B["Resolve locale/currency for this pass"]
+    Start["Job step starts"] --> A["Flow Scope resolves the site (BM/OCAPI config, not a script call)"]
+    A --> B["request.setLocale() / session.setCurrency() for this pass"]
     B --> C["setApplicablePriceBooks() with the book for that locale/currency"]
-    C --> D["Iterate products or run ProductSearchModel"]
+    C --> D["Iterate products in a chunk-oriented job step"]
     D --> E{"More locale/currency pairs to process?"}
     E -->|"Yes"| B
     E -->|"No"| F["Job step complete"]
 ```
 
-For iterating products at scale, reach for `ProductSearchModel` rather than looping `ProductMgr.queryAllSiteProducts()` product by product. `ProductSearchModel` runs against the search index, which is the difference between a job step that finishes and one that times out on a catalog with any real size. Set your applicable price books once per locale/currency pass, run the search, and pull pricing off each `ProductSearchHit`. Note that `ProductSearchHit` itself doesn't expose a price model — its own `getMinPrice()`/`getMaxPrice()` come straight from the search index and, per Salesforce's own docs, can return different numbers than `ProductPriceModel`. For a price you can trust against live price book data, call `hit.getProduct().getPriceModel()` instead of relying on the hit's index-derived price alone.
+For iterating every product at scale, reach for a [chunk-oriented job step](/mastering-chunk-oriented-job-steps-in-salesforce-b2c-commerce-cloud/) rather than one long-running script — it's Salesforce's own canonical pattern for this, built directly on `ProductMgr.queryAllSiteProducts()`. Reading, processing, and writing in bounded chunks is what actually keeps a job step from timing out on a large catalog, not which product-lookup method feeds it.
+
+`ProductSearchModel` still earns its place when you need to filter first — only online products, one category, products matching a refinement — because it queries the search index instead of loading every `Product` object just to check a condition. But once your job needs trustworthy pricing per product, that advantage disappears: `ProductSearchHit.getMinPrice()`/`getMaxPrice()` come straight from the search index and, per Salesforce's own docs, can return different numbers than `ProductPriceModel`, so you end up calling `hit.getProduct().getPriceModel()` for a price you can trust — the same per-product load `queryAllSiteProducts()` would have handed you directly. Reach for `ProductSearchModel` to filter the catalog down, not for a performance win you won't actually get once live pricing is the goal.
 
 ## The SCAPI gap: there's no setApplicablePriceBooks() equivalent
 
@@ -133,9 +135,11 @@ There isn't one, and the reason runs deeper than a missing parameter. SCAPI's [S
 
 Promotions carry the same constraint one layer further. Salesforce's [Promotion Types and Requirements](https://developer.salesforce.com/docs/commerce/commerce-api/guide/promotion-details.html) guide states it plainly: promotional pricing is **only** returned for qualifying products with non-conditional purchase requirements, and pricing discounts for basket and shipping promotions are **never** returned by `getProduct` or `getProducts` at all. If your promotion has a condition attached — a minimum spend, a loyalty signup — SCAPI won't hand you a calculated promotional price up front; the shopper has to act first.
 
-If you need custom price book logic in a headless implementation and none of that native resolution gets you there, the documented extension point is a hook, not a new SCAPI parameter. `dw.ocapi.shop.product.modifyGETResponse` runs after OCAPI has already resolved the product and built the response document — it hands you both the resolved Script API `Product` object and that document, so you can modify the document before it goes back to the client. (OCAPI is SFCC's original REST API; SCAPI reuses the same hook extension points under the hood, which is why the hook name still carries the `dw.ocapi` prefix.) [That lifecycle is covered in detail here](/how-to-use-ocapi-scapi-hooks/) if you haven't wired one up before. Inside that hook you have the full `dw.catalog` API available, including `setApplicablePriceBooks()` and `getPriceBookPrice()`, so you can attach whatever custom price data the native response doesn't give you as a `c_` field.
+If you need custom price book logic in a headless implementation and none of that native resolution gets you there, the documented extension point is a hook, not a new SCAPI parameter. `dw.ocapi.shop.product.modifyGETResponse` runs after OCAPI has already resolved the product and built the response document — it hands you both the resolved Script API `Product` object and that document, so you can modify the document before it goes back to the client. (OCAPI is SFCC's original REST API, now deprecated in favour of SCAPI — see [OCAPI versus SCAPI](/in-the-ring-ocapi-versus-scapi/) for the full comparison — and SCAPI reuses the same hook extension points under the hood, which is why the hook name still carries the `dw.ocapi` prefix.) [That lifecycle is covered in detail here](/how-to-use-ocapi-scapi-hooks/) if you haven't wired one up before. Inside that hook you have the full `dw.catalog` API available, including `setApplicablePriceBooks()` and `getPriceBookPrice()`, so you can attach whatever custom price data the native response doesn't give you as a `c_` field.
 
-Two things to remember before you reach for this. SCAPI hooks don't run at all until someone turns on API hook execution under **Administration > Global Preferences > Feature Switches** in Business Manager. And the response is cached in JWA against the TTL (time-to-live: how long a cached response is served before the platform re-fetches it) configured in that same Feature Switches setup, so a custom price field you attach in the hook shares the same cache window as everything else in the response.
+Two things to remember before you reach for this hook. SCAPI hooks don't run at all until someone turns on API hook execution under **Administration > Global Preferences > Feature Switches** in Business Manager.
+
+The caching interaction is the one that will actually bite you in production. Salesforce's [server-side web-tier caching](https://developer.salesforce.com/docs/commerce/commerce-api/guide/server-side-web-tier-caching.html) calculates the response cache key *before* your hook runs, so whatever custom price you attach inside `modifyGETResponse` has no say in which cached response a shopper gets served. (Salesforce's own published example for this is written against the sibling category hook, `modifyGETResponse(scriptCategory, categoryWO)` — same `dw.system.Response` object, same hook family, and its TTL/personalisation table ties the 900-second default specifically to the Products API's `prices`/`promotions` expansions.) The platform only treats a `getProduct` response as personalised if you call `dw.system.Response#setVaryBy('price_promotion')` — the only variant identifier it currently supports. Skip that call, and your custom price can get cached against one shopper's request and handed straight back to the next shopper who hits the same product URL. The built-in `prices` and `promotions` expansions default to a 900-second TTL (time-to-live: how long a cached response is served before the platform re-fetches it) with personalisation already on; your hook's own logic isn't covered by that default unless you opt in explicitly. For more on controlling SCAPI response caching directly — `setExpires()`, `setVaryBy()`, and where each mechanism actually applies — see [Server-Side Caching for Faster SFCC REST APIs](/caching-rest-apis-in-sfcc/).
 
 ## Iterating all price tables of a product
 
@@ -144,7 +148,7 @@ The other question that surfaced independently in #b2c-general — how do you ge
 The brute-force version: loop `PriceBookMgr.getAllPriceBooks()` and call `priceModel.getPriceBookPrice(priceBook.getID())` for each one.
 
 ```js
-var allBooks = PriceBookMgr.getAllPriceBooks();
+var allBooks = PriceBookMgr.getAllPriceBooks().iterator();
 var prices = {};
 
 while (allBooks.hasNext()) {
@@ -156,13 +160,17 @@ while (allBooks.hasNext()) {
 }
 ```
 
-This works, and it's fine for a one-off script against a single product in Business Manager. It does not scale to a job that touches every product in a large catalog, because you're paying the cost of that inner loop once per product per price book. For bulk operations, the same `ProductSearchModel` pattern from the job-context section is the better fit: constrain the applicable price book set to only the books you actually need for that pass, and let the search index do the filtering instead of asking every product about every book it might have an entry in.
+This works, and it's fine for a one-off script against a single product in Business Manager. It does not scale to a job that touches every product in a large catalog, because you're paying the cost of that inner loop — one `getPriceBookPrice()` call per price book — for every single product. For bulk operations, drop this inside the same chunk-oriented job step pattern covered above, and constrain the applicable price book set to only the books you actually need for that pass, instead of asking every product about every book it might have an entry in.
 
-## High Scale Price Books: the option nobody documents well
+## High Scale Price Books: documented, just not where you'd look
 
-One thread mentioned High Scale Price Books as an alternative worth knowing about for jobs that update prices frequently, and I want to flag it honestly: I couldn't find solid official documentation to verify the details beyond what came up in that conversation, so treat this section as a pointer to go verify against your own instance, not a spec.
+One thread mentioned High Scale Price Books as an alternative worth knowing about for jobs that update prices frequently. Salesforce's own documentation backs up most of what came up in that conversation, once you know to look under [Read-Only Price Books](https://help.salesforce.com/s/articleView?id=cc.b2c_optimized_price_books.htm&type=5) in the B2C Commerce Help docs rather than the standard price book guide.
 
-The pitch, as it came up in that thread: a standard price book keyed to a product-level custom attribute needs the catalog reindexed every time the job updates prices, and reindexing at that frequency gets expensive. High Scale Price Books (Salesforce's official docs call the resulting price book type "read-only price books," enabled by the High Scale Price Books feature switch) are built to bypass that reindex requirement entirely — Salesforce's own documentation confirms read-only price books "don't require product indexing for prices to take effect in the search index." The trade-off, per the same Slack source: no promotion support on that price book, and a more limited Business Manager UI for managing entries compared to a standard price book. The UI limitation checks out — Salesforce confirms you can't edit individual prices or price tables on a read-only price book through the standard Business Manager flow. The "no promotion support" claim is harder to pin down: a more recent release note describes storefront search surfacing products under price-book-based promotions even when they're only priced in a High Scale Price Book, which suggests that restriction may have loosened since the original Slack thread. Treat it as unconfirmed either way. If a job on your project needs to push price changes often enough that reindexing is the bottleneck, it's worth asking your Salesforce account team whether High Scale Price Books apply to your instance before you build around the standard price book model — check your own release notes rather than taking either source as the final word.
+The problem it solves: a standard price book keyed to a product-level custom attribute needs the catalog reindexed every time a job updates prices, and reindexing at that frequency gets expensive. High Scale Price Books — Salesforce's docs call the resulting price book type "read-only price books," enabled by the High Scale Price Books feature switch — bypass that reindex requirement. Per Salesforce, read-only price books "don't require product indexing for prices to take effect in the search index."
+
+The trade-off is real, but narrower than that Slack thread suggested. You do lose Business Manager convenience: Salesforce confirms you can't edit individual prices or price tables on a read-only price book through the standard Business Manager flow, so price changes have to go through your PIM and a re-import instead. The "no promotion support" part doesn't hold up against current docs, though. A [20.2 release note](https://help.salesforce.com/s/articleView?id=commerce.b2c_20_2_w6899593_search_supports_promotions_hsbp_lb.htm&type=5) confirms storefront search now surfaces products under price-book-based promotions even when they're priced only in a High Scale Price Book — so whatever restriction the original thread ran into has since loosened.
+
+If a job on your project needs to push price changes often enough that reindexing is the bottleneck, High Scale Price Books are worth a real look, not just a Slack rumour. Check the release notes for your own instance version before you build around them, since Salesforce keeps expanding what these price books support.
 
 ## Picking the right tool
 
@@ -172,7 +180,7 @@ flowchart TD
     Q1 -->|"No, just the best price"| Q2{"Are you in a storefront request?"}
     Q2 -->|"Yes"| A2["SFRA/session context already sets the applicable books — just call getPriceModel()"]
     Q2 -->|"No — job or script"| Q3{"Bulk operation across many products?"}
-    Q3 -->|"Yes"| A3["Set applicable books once per locale/currency pass, then use ProductSearchModel"]
+    Q3 -->|"Yes"| A3["Set applicable books once per locale/currency pass, then use a chunk-oriented job step"]
     Q3 -->|"No, one-off script"| A4["setApplicablePriceBooks() with a narrow, single-book set before reading price"]
 ```
 
