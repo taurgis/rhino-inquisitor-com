@@ -276,6 +276,7 @@ hallanan
 hamza
 handoff
 hardcoded
+hardcoding
 hasselt
 hatker
 hellman
@@ -517,6 +518,9 @@ redux
 referer
 refinable
 reframe
+reindex
+reindexed
+reindexing
 relogin
 renderer
 replicable
@@ -603,6 +607,7 @@ statuspage
 steptypes
 stg
 str
+strikethrough
 stylesheet
 stylesheets
 subagent
@@ -681,6 +686,7 @@ util
 utm
 validator
 vanhoof
+varargs
 varyby
 venmo
 verifications
