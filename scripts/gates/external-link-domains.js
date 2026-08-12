@@ -174,6 +174,7 @@ const DOMAIN_RULES = Object.freeze({
   'developers.openai.com': STATUS,
   'docs.adyen.com': STATUS,
   'docs.commercetools.com': STATUS,
+  'docs.github.com': STATUS,
   'docs.netapp.com': STATUS,
   'dora.dev': STATUS,
   'dreamole.es': STATUS,
