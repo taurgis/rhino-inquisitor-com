@@ -80,7 +80,7 @@ it never needs updating again after it's added once.
 ## Related files
 
 - `src/content/posts/b2c-commerce-cloud-26-8-release/index.md` — category fix
-  + notice.
+  and notice.
 - `src/content/posts/b2c-commerce-cloud-26-9-release/index.md` — category fix
   only (current latest, no notice).
 - 27 other release posts from `b2c-commerce-whats-new-in-the-22-3-release`
