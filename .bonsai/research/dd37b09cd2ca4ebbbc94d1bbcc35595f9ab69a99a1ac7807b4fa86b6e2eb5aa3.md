@@ -18,23 +18,22 @@ format_available:
   - detailed
 tier: standard
 ttl: 
-fetched_at: 2026-07-09T13:30:38.530Z
-validated_at: 2026-07-09T13:30:38.530Z
-stale_after: 2026-08-08T13:30:38.530Z
+fetched_at: 2026-08-20T06:28:06.265Z
+validated_at: 2026-08-20T06:28:06.265Z
+stale_after: 2026-09-19T06:28:06.265Z
 capture_method: route_markdown
 extraction_status: extracted
 extraction_confidence: high
 quality_notes:
   - captured from public Markdown/MDX source: https://developer.salesforce.com/docs/commerce/commerce-api/references/about-commerce-api/about.md
-  - auto-generated tags via keyword extraction
 supplied_at: 
 supplied_by: 
-etag: "917388075647c6c506f9ecd28e3c0ae0"
-last_modified: Thu, 09 Jul 2026 01:23:14 GMT
-content_hash: 80208b0c2ff813b6ab2b9e7504661b73d8edee3f80b388b1097468c3e80637ad
+etag: "27b0c2da93962851be94694a90bb82e9"
+last_modified: Thu, 20 Aug 2026 00:45:43 GMT
+content_hash: 5bd84b0df6be2f1b3fa73f4e7733ea2ecdef04c7be4499fc480e8aa8d0e9f90f
 token_estimate:
   compressed: 114
-  detailed: 193
+  detailed: 192
 status: active
 site_module_id: salesforce-developer
 docs_engine: 
@@ -78,7 +77,7 @@ B2C Commerce API Release Notes > 2024 > 05/02/2024
 #### Maintenance Notification
 
 - Internal infrastructure change for SCAPI contract validation. No customer impact is anticipated.
-- Removed obsolete code modules related to encoding issues. For encoding details, see [URL Encoding of Special Characters.](https://developer.salesforce.com/docs/commerce/commerce-api/guide/url-encode.html)
+- Removed obsolete code modules related to encoding issues. For encoding details, see [URL Encoding of Special Characters.](https://developer.salesforce.com/docs/commerce/commerce-api/guide/url-encode.md)
 
 ## Provenance
 
